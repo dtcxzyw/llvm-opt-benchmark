@@ -337,7 +337,7 @@ _ZNK4llvm9StringRef5splitEc.exit23:               ; preds = %44, %46
   br label %_ZNK4llvm9StringRef5splitEc.exit27
 
 58:                                               ; preds = %_ZNK4llvm9StringRef5splitEc.exit23
-  %59 = getelementptr inbounds i8, ptr %6, i64 24
+  %59 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %60 = load i64, ptr %59, align 8, !noalias !20
   %61 = call i64 @llvm.umin.i64(i64 %55, i64 %60)
   %62 = load ptr, ptr %54, align 8, !noalias !20
@@ -570,15 +570,15 @@ define dso_local void @_ZN4llvm6object18writeImportLibraryENS_9StringRefES1_NS_8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %16)
   store i32 %.0, ptr %20, align 8
   %33 = getelementptr inbounds nuw i8, ptr %20, i64 8
-  %34 = getelementptr inbounds i8, ptr %20, i64 24
+  %34 = getelementptr inbounds nuw i8, ptr %20, i64 24
   %35 = getelementptr inbounds i8, ptr %20, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %33, i8 0, i64 16, i1 false)
   call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %34, ptr noundef nonnull %35, i64 noundef 4) #16
-  %36 = getelementptr inbounds i8, ptr %20, i64 72
+  %36 = getelementptr inbounds nuw i8, ptr %20, i64 72
   %37 = getelementptr inbounds i8, ptr %20, i64 88
   call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %36, ptr noundef nonnull %37, i64 noundef 0) #16
   store i64 0, ptr %37, align 8
-  %38 = getelementptr inbounds i8, ptr %20, i64 96
+  %38 = getelementptr inbounds nuw i8, ptr %20, i64 96
   store i64 1, ptr %38, align 8
   %39 = getelementptr inbounds nuw i8, ptr %20, i64 104
   store ptr %31, ptr %39, align 8
@@ -588,7 +588,7 @@ define dso_local void @_ZN4llvm6object18writeImportLibraryENS_9StringRefES1_NS_8
   %41 = call { ptr, i64 } @_ZN4llvm3sys4path4stemENS_9StringRefENS1_5StyleE(ptr %31, i64 %32, i32 noundef 0) #16
   %42 = extractvalue { ptr, i64 } %41, 0
   store ptr %42, ptr %40, align 8
-  %43 = getelementptr inbounds i8, ptr %20, i64 128
+  %43 = getelementptr inbounds nuw i8, ptr %20, i64 128
   %44 = extractvalue { ptr, i64 } %41, 1
   store i64 %44, ptr %43, align 8
   %45 = getelementptr inbounds nuw i8, ptr %20, i64 136
@@ -2831,14 +2831,14 @@ _ZN4llvm6objectL13applyNameTypeENS_4COFF14ImportNameTypeENS_9StringRefE.exit127:
   %.0.i128 = add i64 %328, %323
   %329 = add i64 %.0.i128, 20
   %330 = getelementptr inbounds nuw i8, ptr %314, i64 8
-  %331 = getelementptr inbounds i8, ptr %314, i64 88
+  %331 = getelementptr inbounds nuw i8, ptr %314, i64 88
   %332 = load i64, ptr %331, align 8, !noalias !101
   %333 = add i64 %329, %332
   store i64 %333, ptr %331, align 8, !noalias !101
   %334 = load ptr, ptr %330, align 8, !noalias !101
   %335 = ptrtoint ptr %334 to i64
   %336 = add i64 %329, %335
-  %337 = getelementptr inbounds i8, ptr %314, i64 16
+  %337 = getelementptr inbounds nuw i8, ptr %314, i64 16
   %338 = load ptr, ptr %337, align 8, !noalias !101
   %339 = ptrtoint ptr %338 to i64
   %.not.i.i.i.i.i129 = icmp ugt i64 %336, %339
@@ -3103,14 +3103,14 @@ _ZNKSt14default_deleteIN4llvm12MemoryBufferEEclEPS1_.exit.i.i141: ; preds = %_ZN
   %.0.i143 = add i64 %460, %455
   %461 = add i64 %.0.i143, 20
   %462 = getelementptr inbounds nuw i8, ptr %442, i64 8
-  %463 = getelementptr inbounds i8, ptr %442, i64 88
+  %463 = getelementptr inbounds nuw i8, ptr %442, i64 88
   %464 = load i64, ptr %463, align 8, !noalias !104
   %465 = add i64 %461, %464
   store i64 %465, ptr %463, align 8, !noalias !104
   %466 = load ptr, ptr %462, align 8, !noalias !104
   %467 = ptrtoint ptr %466 to i64
   %468 = add i64 %461, %467
-  %469 = getelementptr inbounds i8, ptr %442, i64 16
+  %469 = getelementptr inbounds nuw i8, ptr %442, i64 16
   %470 = load ptr, ptr %469, align 8, !noalias !104
   %471 = ptrtoint ptr %470 to i64
   %.not.i.i.i.i.i144 = icmp ugt i64 %468, %471
@@ -3761,14 +3761,14 @@ _ZN4llvm6objectL16writeStringTableERSt6vectorIhSaIhEENS_8ArrayRefIKSt17basic_str
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #16
   %101 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %102 = sub i64 %.pre37.i, %.pre38.i
-  %103 = getelementptr inbounds i8, ptr %1, i64 88
+  %103 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %104 = load i64, ptr %103, align 8
   %105 = add i64 %104, %102
   store i64 %105, ptr %103, align 8
   %106 = load ptr, ptr %101, align 8
   %107 = ptrtoint ptr %106 to i64
   %108 = add i64 %102, %107
-  %109 = getelementptr inbounds i8, ptr %1, i64 16
+  %109 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %110 = load ptr, ptr %109, align 8
   %111 = ptrtoint ptr %110 to i64
   %.not.i.i.i.i = icmp ugt i64 %108, %111

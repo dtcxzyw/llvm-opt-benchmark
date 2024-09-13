@@ -202,7 +202,7 @@ define void @_ZN3g2o9VertexSE2C2Ev(ptr noundef nonnull align 16 dereferenceable(
   store ptr null, ptr %3, align 16
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 176
   store double 0.000000e+00, ptr %4, align 16
-  %5 = getelementptr inbounds i8, ptr %0, i64 192
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 104
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %5, i8 0, i64 40, i1 false)
   store i32 3, ptr %6, align 8
@@ -255,7 +255,7 @@ _ZN3g2o8internal10readVectorIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEEEEbRSiRNS2_9D
   %27 = load <2 x double>, ptr %3, align 16
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 176
   store i64 %26, ptr %28, align 16
-  %29 = getelementptr inbounds i8, ptr %0, i64 192
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 192
   store <2 x double> %27, ptr %29, align 16
   %30 = load ptr, ptr %0, align 16
   %31 = getelementptr inbounds i8, ptr %30, i64 216
@@ -269,7 +269,7 @@ define noundef zeroext i1 @_ZNK3g2o9VertexSE25writeERSo(ptr nocapture noundef no
   %3 = alloca %"class.Eigen::Matrix", align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 176
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6)
-  %5 = getelementptr inbounds i8, ptr %0, i64 192
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %6 = getelementptr inbounds i8, ptr %0, i64 200
   %7 = load double, ptr %4, align 16, !noalias !6
   %8 = load double, ptr %5, align 16, !noalias !6
@@ -396,7 +396,7 @@ define noundef ptr @_ZN3g2o27VertexSE2WriteGnuplotActionclEPNS_10HyperGraph17Hyp
 
 21:                                               ; preds = %18
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 176
-  %23 = getelementptr inbounds i8, ptr %1, i64 192
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 192
   %24 = load double, ptr %23, align 8
   %25 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEd(ptr noundef nonnull align 8 dereferenceable(8) %20, double noundef %24)
   %26 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %25, ptr noundef nonnull @.str)
@@ -435,7 +435,7 @@ define linkonce_odr void @_ZN3g2o9VertexSE2D2Ev(ptr noundef nonnull align 16 der
   br i1 %.not.i.i.i.i.i, label %_ZN3g2o10BaseVertexILi3ENS_3SE2EED2Ev.exit, label %5
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 224
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %7 = load ptr, ptr %6, align 16
   %8 = ptrtoint ptr %7 to i64
   %9 = ptrtoint ptr %4 to i64
@@ -459,7 +459,7 @@ define linkonce_odr void @_ZN3g2o9VertexSE2D0Ev(ptr noundef nonnull align 16 der
   br i1 %.not.i.i.i.i.i.i, label %_ZN3g2o9VertexSE2D2Ev.exit, label %5
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 224
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %7 = load ptr, ptr %6, align 16
   %8 = ptrtoint ptr %7 to i64
   %9 = ptrtoint ptr %4 to i64
@@ -729,7 +729,7 @@ define linkonce_odr noundef double @_ZN3g2o10BaseVertexILi3ENS_3SE2EE11solveDire
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef zeroext i1 @_ZNK3g2o9VertexSE215getEstimateDataEPd(ptr noundef nonnull align 16 dereferenceable(232) %0, ptr noundef %1) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %4 = getelementptr inbounds i8, ptr %0, i64 192
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %5 = load double, ptr %3, align 16, !noalias !13
   %6 = load <2 x double>, ptr %4, align 16
   store <2 x double> %6, ptr %1, align 1
@@ -866,9 +866,9 @@ define linkonce_odr noundef i32 @_ZNK3g2o9VertexSE224minimalEstimateDimensionEv(
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN3g2o10BaseVertexILi3ENS_3SE2EE4pushEv(ptr noundef nonnull align 16 dereferenceable(232) %0) unnamed_addr #3 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %3 = getelementptr inbounds i8, ptr %0, i64 216
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 224
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %6 = load ptr, ptr %5, align 16
   %.not.i.i = icmp eq ptr %4, %6
   br i1 %.not.i.i, label %13, label %7
@@ -877,7 +877,7 @@ define linkonce_odr void @_ZN3g2o10BaseVertexILi3ENS_3SE2EE4pushEv(ptr noundef n
   %8 = load i64, ptr %2, align 16
   store i64 %8, ptr %4, align 16
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %10 = getelementptr inbounds i8, ptr %0, i64 192
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 192
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %9, ptr noundef nonnull align 16 dereferenceable(16) %10, i64 16, i1 false)
   %11 = load ptr, ptr %3, align 8
   %12 = getelementptr inbounds i8, ptr %11, i64 32
@@ -895,13 +895,13 @@ _ZNSt5stackIN3g2o3SE2ESt6vectorIS1_SaIS1_EEE4pushERKS1_.exit: ; preds = %7, %13
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN3g2o10BaseVertexILi3ENS_3SE2EE3popEv(ptr noundef nonnull align 16 dereferenceable(232) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 216
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 -32
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %6 = load i64, ptr %4, align 16
   store i64 %6, ptr %5, align 16
-  %7 = getelementptr inbounds i8, ptr %0, i64 192
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %8 = getelementptr inbounds i8, ptr %3, i64 -16
   %9 = load <2 x double>, ptr %8, align 16
   store <2 x double> %9, ptr %7, align 16
@@ -915,7 +915,7 @@ define linkonce_odr void @_ZN3g2o10BaseVertexILi3ENS_3SE2EE3popEv(ptr noundef no
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3g2o10BaseVertexILi3ENS_3SE2EE10discardTopEv(ptr noundef nonnull align 16 dereferenceable(232) %0) unnamed_addr #5 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 216
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 -32
   store ptr %4, ptr %2, align 8
@@ -925,7 +925,7 @@ define linkonce_odr void @_ZN3g2o10BaseVertexILi3ENS_3SE2EE10discardTopEv(ptr no
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef i32 @_ZNK3g2o10BaseVertexILi3ENS_3SE2EE9stackSizeEv(ptr noundef nonnull align 16 dereferenceable(232) %0) unnamed_addr #3 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 208
-  %3 = getelementptr inbounds i8, ptr %0, i64 216
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %2, align 16
   %6 = ptrtoint ptr %4 to i64
@@ -941,7 +941,7 @@ declare void @_ZN3g2o16OptimizableGraph6Vertex11updateCacheEv(ptr noundef nonnul
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN3g2o9VertexSE29oplusImplEPKd(ptr noundef nonnull align 16 dereferenceable(232) %0, ptr noundef %1) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %4 = getelementptr inbounds i8, ptr %0, i64 192
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %.sroa.04.0.copyload = load <2 x double>, ptr %4, align 16
   %5 = load <2 x double>, ptr %1, align 1
   %6 = fadd <2 x double> %.sroa.04.0.copyload, %5
@@ -963,7 +963,7 @@ define linkonce_odr void @_ZN3g2o9VertexSE29oplusImplEPKd(ptr noundef nonnull al
 define linkonce_odr void @_ZN3g2o9VertexSE215setToOriginImplEv(ptr noundef nonnull align 16 dereferenceable(232) %0) unnamed_addr #3 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 176
   store i64 0, ptr %2, align 16
-  %3 = getelementptr inbounds i8, ptr %0, i64 192
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 192
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %3, i8 0, i64 16, i1 false)
   ret void
 }
@@ -977,7 +977,7 @@ define linkonce_odr noundef zeroext i1 @_ZN3g2o9VertexSE219setEstimateDataImplEP
   %7 = load i64, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 176
   store i64 %7, ptr %8, align 16
-  %9 = getelementptr inbounds i8, ptr %0, i64 192
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 192
   store double %3, ptr %9, align 16
   %.sroa.4.16..sroa_idx = getelementptr inbounds i8, ptr %0, i64 200
   store double %5, ptr %.sroa.4.16..sroa_idx, align 8
@@ -1068,7 +1068,7 @@ define linkonce_odr void @_ZN3g2o10BaseVertexILi3ENS_3SE2EED2Ev(ptr noundef nonn
   br i1 %.not.i.i.i.i, label %_ZNSt5stackIN3g2o3SE2ESt6vectorIS1_SaIS1_EEED2Ev.exit, label %5
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 224
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %7 = load ptr, ptr %6, align 16
   %8 = ptrtoint ptr %7 to i64
   %9 = ptrtoint ptr %4 to i64
@@ -1745,7 +1745,7 @@ _ZN5Eigen8internal13first_alignedILi16EdlEET1_PKT0_S2_.exit: ; preds = %1, %9
   %24 = getelementptr inbounds double, ptr %23, i64 %.05.i
   %25 = getelementptr inbounds nuw i8, ptr %22, i64 56
   %26 = load ptr, ptr %25, align 8, !noalias !24
-  %27 = getelementptr inbounds i8, ptr %22, i64 72
+  %27 = getelementptr inbounds nuw i8, ptr %22, i64 72
   %28 = load i64, ptr %27, align 8, !noalias !24
   %29 = icmp eq i64 %28, 0
   br i1 %29, label %_ZN5Eigen8internal31generic_dense_assignment_kernelINS0_9evaluatorINS_5BlockINS_6MatrixIdLi3ELi3ELi0ELi3ELi3EEELin1ELi1ELb0EEEEENS2_INS_7ProductINS3_IS5_Lin1ELin1ELb0EEENS_9TransposeIKNS3_IS5_Li1ELin1ELb0EEEEELi1EEEEENS0_13sub_assign_opIddEELi0EE11assignCoeffEl.exit.i, label %30
@@ -1850,7 +1850,7 @@ _ZN5Eigen8internal31generic_dense_assignment_kernelINS0_9evaluatorINS_5BlockINS_
   %81 = getelementptr inbounds double, ptr %80, i64 %.05.i18
   %82 = getelementptr inbounds nuw i8, ptr %79, i64 56
   %83 = load ptr, ptr %82, align 8, !noalias !34
-  %84 = getelementptr inbounds i8, ptr %79, i64 72
+  %84 = getelementptr inbounds nuw i8, ptr %79, i64 72
   %85 = load i64, ptr %84, align 8, !noalias !34
   %86 = icmp eq i64 %85, 0
   br i1 %86, label %_ZN5Eigen8internal31generic_dense_assignment_kernelINS0_9evaluatorINS_5BlockINS_6MatrixIdLi3ELi3ELi0ELi3ELi3EEELin1ELi1ELb0EEEEENS2_INS_7ProductINS3_IS5_Lin1ELin1ELb0EEENS_9TransposeIKNS3_IS5_Li1ELin1ELb0EEEEELi1EEEEENS0_13sub_assign_opIddEELi0EE11assignCoeffEl.exit.i19, label %87

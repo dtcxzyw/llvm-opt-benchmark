@@ -435,7 +435,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathC2ERKS0_.exit.i: ; preds = %13
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %25 = atomicrmw add ptr %24, i32 1 monotonic, align 4, !noalias !4
   %26 = getelementptr inbounds nuw i8, ptr %7, i64 4
-  %27 = getelementptr inbounds i8, ptr %2, i64 20
+  %27 = getelementptr inbounds nuw i8, ptr %2, i64 20
   %28 = load i32, ptr %27, align 4, !noalias !4
   store i32 %28, ptr %26, align 4, !alias.scope !4
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7GetPathEv.exit
@@ -478,7 +478,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathC2ERKS0_.exit.i: ; preds = %13
 
 _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathC2ERKS0_.exit5.i: ; preds = %40, %38
   %51 = getelementptr inbounds nuw i8, ptr %7, i64 4
-  %52 = getelementptr inbounds i8, ptr %33, i64 20
+  %52 = getelementptr inbounds nuw i8, ptr %33, i64 20
   %53 = load i32, ptr %52, align 4, !noalias !4
   store i32 %53, ptr %51, align 4, !alias.scope !4
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7GetPathEv.exit
@@ -589,8 +589,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__18Usd_PrimDataHandleC2ERKS0_.exit.i.i: ; pr
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathC2ERKS0_.exit.i.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathC2ERKS0_.exit.i.i: ; preds = %17, %_ZN32pxrInternal_v0_24__pxrReserved__18Usd_PrimDataHandleC2ERKS0_.exit.i.i
-  %28 = getelementptr inbounds i8, ptr %5, i64 20
-  %29 = getelementptr inbounds i8, ptr %2, i64 20
+  %28 = getelementptr inbounds nuw i8, ptr %5, i64 20
+  %29 = getelementptr inbounds nuw i8, ptr %2, i64 20
   %30 = load i32, ptr %29, align 4
   store i32 %30, ptr %28, align 4
   %31 = getelementptr inbounds nuw i8, ptr %5, i64 24
@@ -1158,11 +1158,11 @@ define void @_ZNK32pxrInternal_v0_24__pxrReserved__23UsdImagingVolumeAdapter25Ge
   %27 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %28 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %29 = getelementptr inbounds nuw i8, ptr %12, i64 4
-  %30 = getelementptr inbounds i8, ptr %7, i64 20
+  %30 = getelementptr inbounds nuw i8, ptr %7, i64 20
   %31 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %32 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %33 = getelementptr inbounds nuw i8, ptr %13, i64 16
-  %34 = getelementptr inbounds i8, ptr %13, i64 20
+  %34 = getelementptr inbounds nuw i8, ptr %13, i64 20
   %35 = getelementptr inbounds nuw i8, ptr %14, i64 4
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -1175,7 +1175,7 @@ define void @_ZNK32pxrInternal_v0_24__pxrReserved__23UsdImagingVolumeAdapter25Ge
 42:                                               ; preds = %.lr.ph, %_ZN32pxrInternal_v0_24__pxrReserved__7UsdPrimD2Ev.exit
   %.sroa.044.056 = phi ptr [ %23, %.lr.ph ], [ %320, %_ZN32pxrInternal_v0_24__pxrReserved__7UsdPrimD2Ev.exit ]
   %43 = getelementptr inbounds nuw i8, ptr %.sroa.044.056, i64 32
-  %44 = getelementptr inbounds i8, ptr %.sroa.044.056, i64 40
+  %44 = getelementptr inbounds nuw i8, ptr %.sroa.044.056, i64 40
   invoke void @_ZNK32pxrInternal_v0_24__pxrReserved__21UsdImagingPrimAdapter8_GetPrimERKNS_7SdfPathE(ptr dead_on_unwind nonnull writable sret(%"class.pxrInternal_v0_24__pxrReserved__::UsdPrim") align 8 %7, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 4 dereferenceable(8) %44)
           to label %45 unwind label %.loopexit50
 
@@ -1349,7 +1349,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathC2ERKS0_.exit.i: ; preds = %84
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathC2ERKS0_.exit5.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathC2ERKS0_.exit5.i: ; preds = %106, %104
-  %117 = getelementptr inbounds i8, ptr %99, i64 20
+  %117 = getelementptr inbounds nuw i8, ptr %99, i64 20
   %118 = load i32, ptr %117, align 4, !noalias !7
   store i32 %118, ptr %29, align 4, !alias.scope !7
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7GetPathEv.exit
@@ -1451,7 +1451,7 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__23HdVolumeFieldDescriptorESaIS1_
   %164 = load i32, ptr %33, align 8
   store i32 %164, ptr %163, align 4
   store i32 0, ptr %33, align 8
-  %165 = getelementptr inbounds i8, ptr %158, i64 20
+  %165 = getelementptr inbounds nuw i8, ptr %158, i64 20
   %166 = load i32, ptr %34, align 4
   store i32 %166, ptr %165, align 4
   store i32 0, ptr %34, align 4
@@ -2587,7 +2587,7 @@ define linkonce_odr void @_ZNSt8_Rb_treeIN32pxrInternal_v0_24__pxrReserved__7TfT
   %5 = getelementptr inbounds nuw i8, ptr %.07, i64 16
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %.07, i64 32
-  %8 = getelementptr inbounds i8, ptr %.07, i64 40
+  %8 = getelementptr inbounds nuw i8, ptr %.07, i64 40
   %9 = load i32, ptr %8, align 4
   %.not.i.i.i.i.i.i.i = icmp eq i32 %9, 0
   br i1 %.not.i.i.i.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit.i.i.i.i.i, label %10
@@ -2755,8 +2755,8 @@ _ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__23HdVolumeFieldDescriptor
   %31 = load i32, ptr %30, align 8
   store i32 %31, ptr %29, align 4
   store i32 0, ptr %30, align 8
-  %32 = getelementptr inbounds i8, ptr %24, i64 20
-  %33 = getelementptr inbounds i8, ptr %2, i64 20
+  %32 = getelementptr inbounds nuw i8, ptr %24, i64 20
+  %33 = getelementptr inbounds nuw i8, ptr %2, i64 20
   %34 = load i32, ptr %33, align 4
   store i32 %34, ptr %32, align 4
   store i32 0, ptr %33, align 4
@@ -2781,8 +2781,8 @@ _ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__23HdVolumeFieldDescriptor
   %41 = load i32, ptr %40, align 4, !alias.scope !20, !noalias !17
   store i32 %41, ptr %39, align 4, !alias.scope !17, !noalias !20
   store i32 0, ptr %40, align 4, !alias.scope !20, !noalias !17
-  %42 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 20
-  %43 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 20
+  %42 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 20
+  %43 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 20
   %44 = load i32, ptr %43, align 4, !alias.scope !20, !noalias !17
   store i32 %44, ptr %42, align 4, !alias.scope !17, !noalias !20
   store i32 0, ptr %43, align 4, !alias.scope !20, !noalias !17
@@ -2815,8 +2815,8 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__23HdVolumeFieldDescriptorESaIS1_
   %54 = load i32, ptr %53, align 4, !alias.scope !26, !noalias !23
   store i32 %54, ptr %52, align 4, !alias.scope !23, !noalias !26
   store i32 0, ptr %53, align 4, !alias.scope !26, !noalias !23
-  %55 = getelementptr inbounds i8, ptr %.012.i.i.i18, i64 20
-  %56 = getelementptr inbounds i8, ptr %.0911.i.i.i19, i64 20
+  %55 = getelementptr inbounds nuw i8, ptr %.012.i.i.i18, i64 20
+  %56 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i19, i64 20
   %57 = load i32, ptr %56, align 4, !alias.scope !26, !noalias !23
   store i32 %57, ptr %55, align 4, !alias.scope !23, !noalias !26
   store i32 0, ptr %56, align 4, !alias.scope !26, !noalias !23

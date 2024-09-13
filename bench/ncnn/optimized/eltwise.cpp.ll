@@ -24,8 +24,8 @@ define hidden void @_ZN4ncnn7EltwiseC2Ev(ptr noundef nonnull align 8 dereference
   tail call void @_ZN4ncnn5LayerC2Ev(ptr noundef nonnull align 8 dereferenceable(208) %0)
   store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTVN4ncnn7EltwiseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 216
-  %3 = getelementptr inbounds i8, ptr %0, i64 248
-  %4 = getelementptr inbounds i8, ptr %0, i64 280
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 248
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 280
   store i64 0, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 0, ptr %5, align 8
@@ -75,7 +75,7 @@ define hidden noundef i32 @_ZN4ncnn7Eltwise10load_paramERKNS_9ParamDictE(ptr nou
   br label %16
 
 16:                                               ; preds = %14, %13
-  %17 = getelementptr inbounds i8, ptr %0, i64 224
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %18 = load ptr, ptr %17, align 8
   %.not69 = icmp eq ptr %18, null
   br i1 %.not69, label %32, label %19
@@ -86,7 +86,7 @@ define hidden noundef i32 @_ZN4ncnn7Eltwise10load_paramERKNS_9ParamDictE(ptr nou
   br i1 %21, label %22, label %32
 
 22:                                               ; preds = %19
-  %23 = getelementptr inbounds i8, ptr %0, i64 248
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %24 = load ptr, ptr %23, align 8
   %.not70 = icmp eq ptr %24, null
   %25 = load ptr, ptr %11, align 8
@@ -108,14 +108,14 @@ define hidden noundef i32 @_ZN4ncnn7Eltwise10load_paramERKNS_9ParamDictE(ptr nou
   br label %32
 
 32:                                               ; preds = %26, %31, %30, %19, %16
-  %33 = getelementptr inbounds i8, ptr %0, i64 232
-  %34 = getelementptr inbounds i8, ptr %0, i64 240
-  %35 = getelementptr inbounds i8, ptr %0, i64 256
-  %36 = getelementptr inbounds i8, ptr %0, i64 260
-  %37 = getelementptr inbounds i8, ptr %0, i64 264
-  %38 = getelementptr inbounds i8, ptr %0, i64 268
-  %39 = getelementptr inbounds i8, ptr %0, i64 272
-  %40 = getelementptr inbounds i8, ptr %0, i64 280
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 232
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 240
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 256
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 260
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 264
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 268
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 272
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %41 = load ptr, ptr %3, align 8
   store ptr %41, ptr %11, align 8
   %42 = load ptr, ptr %.phi.trans.insert, align 8
@@ -128,7 +128,7 @@ define hidden noundef i32 @_ZN4ncnn7Eltwise10load_paramERKNS_9ParamDictE(ptr nou
   store i32 %46, ptr %34, align 8
   %47 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %48 = load ptr, ptr %47, align 8
-  %49 = getelementptr inbounds i8, ptr %0, i64 248
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 248
   store ptr %48, ptr %49, align 8
   %50 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %51 = load i32, ptr %50, align 8
@@ -518,7 +518,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn7Eltwise7forwardERKSt6vec
 
 109:                                              ; preds = %29
   %110 = getelementptr inbounds nuw i8, ptr %0, i64 216
-  %111 = getelementptr inbounds i8, ptr %0, i64 260
+  %111 = getelementptr inbounds nuw i8, ptr %0, i64 260
   %112 = load i32, ptr %111, align 4
   %113 = icmp eq i32 %112, 0
   %114 = load ptr, ptr %1, align 8
@@ -954,7 +954,7 @@ declare void @_ZN4ncnn3Mat11create_likeERKS0_PNS_9AllocatorE(ptr noundef nonnull
 define linkonce_odr hidden void @_ZN4ncnn7EltwiseD2Ev(ptr noundef nonnull align 8 dereferenceable(288) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTVN4ncnn7EltwiseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 216
-  %3 = getelementptr inbounds i8, ptr %0, i64 224
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %18, label %5
@@ -965,7 +965,7 @@ define linkonce_odr hidden void @_ZN4ncnn7EltwiseD2Ev(ptr noundef nonnull align 
   br i1 %7, label %8, label %18
 
 8:                                                ; preds = %5
-  %9 = getelementptr inbounds i8, ptr %0, i64 248
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %10 = load ptr, ptr %9, align 8
   %.not8 = icmp eq ptr %10, null
   %11 = load ptr, ptr %2, align 8
@@ -987,8 +987,8 @@ define linkonce_odr hidden void @_ZN4ncnn7EltwiseD2Ev(ptr noundef nonnull align 
   br label %18
 
 18:                                               ; preds = %12, %17, %16, %5, %1
-  %19 = getelementptr inbounds i8, ptr %0, i64 256
-  %20 = getelementptr inbounds i8, ptr %0, i64 280
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 256
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 280
   store i64 0, ptr %20, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %2, i8 0, i64 28, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %19, i8 0, i64 20, i1 false)
@@ -1007,7 +1007,7 @@ define linkonce_odr hidden void @_ZN4ncnn7EltwiseD2Ev(ptr noundef nonnull align 
 define linkonce_odr hidden void @_ZN4ncnn7EltwiseD0Ev(ptr noundef nonnull align 8 dereferenceable(288) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTVN4ncnn7EltwiseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 216
-  %3 = getelementptr inbounds i8, ptr %0, i64 224
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %4 = load ptr, ptr %3, align 8
   %.not.i = icmp eq ptr %4, null
   br i1 %.not.i, label %_ZN4ncnn7EltwiseD2Ev.exit, label %5
@@ -1018,7 +1018,7 @@ define linkonce_odr hidden void @_ZN4ncnn7EltwiseD0Ev(ptr noundef nonnull align 
   br i1 %7, label %8, label %_ZN4ncnn7EltwiseD2Ev.exit
 
 8:                                                ; preds = %5
-  %9 = getelementptr inbounds i8, ptr %0, i64 248
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %10 = load ptr, ptr %9, align 8
   %.not8.i = icmp eq ptr %10, null
   %11 = load ptr, ptr %2, align 8
@@ -1047,8 +1047,8 @@ define linkonce_odr hidden void @_ZN4ncnn7EltwiseD0Ev(ptr noundef nonnull align 
   unreachable
 
 _ZN4ncnn7EltwiseD2Ev.exit:                        ; preds = %1, %5, %12, %16, %17
-  %21 = getelementptr inbounds i8, ptr %0, i64 256
-  %22 = getelementptr inbounds i8, ptr %0, i64 280
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 256
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 280
   store i64 0, ptr %22, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %2, i8 0, i64 28, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %21, i8 0, i64 20, i1 false)

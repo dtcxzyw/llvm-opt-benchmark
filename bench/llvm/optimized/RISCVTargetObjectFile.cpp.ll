@@ -369,7 +369,7 @@ define dso_local noundef ptr @_ZNK4llvm24RISCVELFTargetObjectFile22SelectSection
   br i1 %11, label %12, label %67
 
 12:                                               ; preds = %4
-  %13 = getelementptr inbounds i8, ptr %3, i64 892
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 892
   %14 = load i32, ptr %13, align 4
   %15 = and i32 %14, 8
   %.not = icmp eq i32 %15, 0
@@ -528,7 +528,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit.thread:         ; preds = %_ZN4llvmeqENS_9Stri
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 128
   %17 = load ptr, ptr %16, align 8
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 24
-  %19 = getelementptr inbounds i8, ptr %17, i64 32
+  %19 = getelementptr inbounds nuw i8, ptr %17, i64 32
   %20 = load i32, ptr %19, align 8
   %21 = icmp ult i32 %20, 65
   %22 = load ptr, ptr %18, align 8
@@ -676,7 +676,7 @@ declare noundef ptr @_ZNK4llvm27TargetLoweringObjectFileELF21getSectionForConsta
 define linkonce_odr hidden void @_ZN4llvm24RISCVELFTargetObjectFileD2Ev(ptr noundef nonnull align 8 dereferenceable(1092) %0) unnamed_addr #0 comdat align 2 {
   store ptr getelementptr inbounds inrange(-16, 256) (i8, ptr @_ZTVN4llvm27TargetLoweringObjectFileELFE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 976
-  %3 = getelementptr inbounds i8, ptr %0, i64 984
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 984
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %2, align 8
   %6 = icmp eq ptr %4, %5
@@ -695,7 +695,7 @@ _ZN4llvm27TargetLoweringObjectFileELFD2Ev.exit:   ; preds = %1, %7
 define linkonce_odr hidden void @_ZN4llvm24RISCVELFTargetObjectFileD0Ev(ptr noundef nonnull align 8 dereferenceable(1092) %0) unnamed_addr #0 comdat align 2 {
   store ptr getelementptr inbounds inrange(-16, 256) (i8, ptr @_ZTVN4llvm27TargetLoweringObjectFileELFE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 976
-  %3 = getelementptr inbounds i8, ptr %0, i64 984
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 984
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %2, align 8
   %6 = icmp eq ptr %4, %5

@@ -304,7 +304,7 @@ _ZNK4llvm4Pass11getAnalysisINS_24LiveIntervalsWrapperPassEEERT_v.exit: ; preds =
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 56
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store ptr %31, ptr %32, align 8
-  %33 = getelementptr inbounds i8, ptr %1, i64 328
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 328
   %34 = getelementptr inbounds nuw i8, ptr %1, i64 320
   %.sroa.032.041 = load ptr, ptr %33, align 8
   %.not42 = icmp eq ptr %.sroa.032.041, %34

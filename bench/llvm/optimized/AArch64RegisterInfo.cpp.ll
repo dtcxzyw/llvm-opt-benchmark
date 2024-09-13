@@ -2087,7 +2087,7 @@ define dso_local noundef ptr @_ZNK4llvm19AArch64RegisterInfo18getCalleeSavedRegs
 10:                                               ; preds = %2
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 812
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 812
   %14 = load i32, ptr %13, align 4
   %15 = and i32 %14, -9
   %spec.select.i.i.i = icmp eq i32 %15, 1
@@ -2622,7 +2622,7 @@ define dso_local noundef ptr @_ZNK4llvm19AArch64RegisterInfo20getCallPreservedMa
 11:                                               ; preds = %3
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 812
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 812
   %15 = load i32, ptr %14, align 4
   %16 = and i32 %15, -9
   %spec.select.i.i.i = icmp eq i32 %16, 1
@@ -2791,7 +2791,7 @@ declare noundef zeroext i1 @_ZNK4llvm8Function14hasFnAttributeENS_9Attribute8Att
 define dso_local noundef ptr @_ZNK4llvm19AArch64RegisterInfo27getCustomEHPadPreservedMaskERKNS_15MachineFunctionE(ptr nocapture nonnull readnone align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(1041) %1) unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 812
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 812
   %6 = load i32, ptr %5, align 4
   %7 = icmp eq i32 %6, 7
   %_ZN4llvmL25CSR_AArch64_AAPCS_RegMaskE. = select i1 %7, ptr @_ZN4llvmL25CSR_AArch64_AAPCS_RegMaskE, ptr null
@@ -2933,7 +2933,7 @@ define dso_local noundef nonnull ptr @_ZNK4llvm19AArch64RegisterInfo18getNoPrese
 define dso_local noundef nonnull ptr @_ZNK4llvm19AArch64RegisterInfo26getThisReturnPreservedMaskERKNS_15MachineFunctionEj(ptr nocapture noundef nonnull readnone align 8 dereferenceable(320) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(1041) %1, i32 noundef %2) local_unnamed_addr #1 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 812
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 812
   %7 = load i32, ptr %6, align 4
   %8 = and i32 %7, -9
   %spec.select.i.i.i = icmp eq i32 %8, 1
@@ -3049,10 +3049,10 @@ _ZNK4llvm19AArch64RegisterInfo14hasBasePointerERKNS_15MachineFunctionE.exit.thre
 _ZNK4llvm19AArch64RegisterInfo14hasBasePointerERKNS_15MachineFunctionE.exit.thread29: ; preds = %15, %_ZNK4llvm19AArch64RegisterInfo14hasBasePointerERKNS_15MachineFunctionE.exit.thread, %_ZNK4llvm19AArch64RegisterInfo14hasBasePointerERKNS_15MachineFunctionE.exit
   %54 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %55 = load ptr, ptr %54, align 8
-  %56 = getelementptr inbounds i8, ptr %55, i64 800
+  %56 = getelementptr inbounds nuw i8, ptr %55, i64 800
   %57 = load i32, ptr %56, align 8
   %58 = icmp eq i32 %57, 3
-  %59 = getelementptr inbounds i8, ptr %55, i64 804
+  %59 = getelementptr inbounds nuw i8, ptr %55, i64 804
   %60 = load i32, ptr %59, align 4
   %61 = icmp eq i32 %60, 35
   %62 = select i1 %58, i1 %61, i1 false
@@ -3265,10 +3265,10 @@ _ZNK4llvm6Triple10isOSDarwinEv.exit.thread:       ; preds = %22, %28, %28, %28, 
 
 _ZNK4llvm6Triple10isOSDarwinEv.exit:              ; preds = %28, %_ZNK4llvm6Triple10isOSDarwinEv.exit.thread
   %29 = load ptr, ptr %4, align 8
-  %30 = getelementptr inbounds i8, ptr %29, i64 800
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 800
   %31 = load i32, ptr %30, align 8
   %32 = icmp eq i32 %31, 3
-  %33 = getelementptr inbounds i8, ptr %29, i64 804
+  %33 = getelementptr inbounds nuw i8, ptr %29, i64 804
   %34 = load i32, ptr %33, align 4
   %35 = icmp eq i32 %34, 35
   %36 = select i1 %32, i1 %35, i1 false
@@ -4099,7 +4099,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm19AArch64RegisterInfo18isArgumentR
   br label %.lr.ph.i.i.i.i.i315
 
 16:                                               ; preds = %3, %3, %3, %3
-  %17 = getelementptr inbounds i8, ptr %10, i64 812
+  %17 = getelementptr inbounds nuw i8, ptr %10, i64 812
   %18 = load i32, ptr %17, align 4
   %19 = icmp eq i32 %18, 14
   br label %_ZNK4llvm16AArch64Subtarget18isCallingConvWin64Ejb.exit
@@ -4108,7 +4108,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm19AArch64RegisterInfo18isArgumentR
   br i1 %15, label %_ZNK4llvm16AArch64Subtarget18isCallingConvWin64Ejb.exit.thread.thread, label %.lr.ph.i.i.i.i.i63.preheader
 
 _ZNK4llvm16AArch64Subtarget18isCallingConvWin64Ejb.exit.thread.thread: ; preds = %20
-  %21 = getelementptr inbounds i8, ptr %10, i64 812
+  %21 = getelementptr inbounds nuw i8, ptr %10, i64 812
   %22 = load i32, ptr %21, align 4
   %23 = icmp eq i32 %22, 14
   br label %69
@@ -4243,7 +4243,7 @@ _ZNK4llvm16AArch64Subtarget18isCallingConvWin64Ejb.exit.thread: ; preds = %_ZNK4
 
 69:                                               ; preds = %_ZNK4llvm16AArch64Subtarget18isCallingConvWin64Ejb.exit.thread.thread, %_ZNK4llvm16AArch64Subtarget18isCallingConvWin64Ejb.exit.thread, %_ZNK4llvm16AArch64Subtarget18isCallingConvWin64Ejb.exit, %_ZNK4llvm16AArch64Subtarget18isCallingConvWin64Ejb.exit, %_ZNK4llvm16AArch64Subtarget18isCallingConvWin64Ejb.exit, %_ZNK4llvm16AArch64Subtarget18isCallingConvWin64Ejb.exit, %_ZNK4llvm16AArch64Subtarget18isCallingConvWin64Ejb.exit, %_ZNK4llvm16AArch64Subtarget18isCallingConvWin64Ejb.exit, %_ZNK4llvm16AArch64Subtarget18isCallingConvWin64Ejb.exit, %_ZNK4llvm16AArch64Subtarget18isCallingConvWin64Ejb.exit
   %.0.i415 = phi i1 [ %.0.i, %_ZNK4llvm16AArch64Subtarget18isCallingConvWin64Ejb.exit.thread ], [ %.0.i, %_ZNK4llvm16AArch64Subtarget18isCallingConvWin64Ejb.exit ], [ %.0.i, %_ZNK4llvm16AArch64Subtarget18isCallingConvWin64Ejb.exit ], [ %.0.i, %_ZNK4llvm16AArch64Subtarget18isCallingConvWin64Ejb.exit ], [ %.0.i, %_ZNK4llvm16AArch64Subtarget18isCallingConvWin64Ejb.exit ], [ %.0.i, %_ZNK4llvm16AArch64Subtarget18isCallingConvWin64Ejb.exit ], [ %.0.i, %_ZNK4llvm16AArch64Subtarget18isCallingConvWin64Ejb.exit ], [ %.0.i, %_ZNK4llvm16AArch64Subtarget18isCallingConvWin64Ejb.exit ], [ %.0.i, %_ZNK4llvm16AArch64Subtarget18isCallingConvWin64Ejb.exit ], [ %23, %_ZNK4llvm16AArch64Subtarget18isCallingConvWin64Ejb.exit.thread.thread ]
-  %70 = getelementptr inbounds i8, ptr %10, i64 812
+  %70 = getelementptr inbounds nuw i8, ptr %10, i64 812
   %71 = load i32, ptr %70, align 4
   %72 = icmp eq i32 %71, 14
   br i1 %72, label %73, label %123
@@ -4683,7 +4683,7 @@ _ZNK4llvm16AArch64Subtarget14isTargetDarwinEv.exit: ; preds = %125
   br label %"_ZZNK4llvm19AArch64RegisterInfo18isArgumentRegisterERKNS_15MachineFunctionENS_10MCRegisterEENK3$_0clENS_8ArrayRefIS4_EES4_.exit125.thread"
 
 233:                                              ; preds = %_ZNK4llvm16AArch64Subtarget18isCallingConvWin64Ejb.exit, %_ZNK4llvm16AArch64Subtarget18isCallingConvWin64Ejb.exit, %_ZNK4llvm16AArch64Subtarget18isCallingConvWin64Ejb.exit, %_ZNK4llvm16AArch64Subtarget18isCallingConvWin64Ejb.exit, %_ZNK4llvm16AArch64Subtarget18isCallingConvWin64Ejb.exit
-  %234 = getelementptr inbounds i8, ptr %10, i64 812
+  %234 = getelementptr inbounds nuw i8, ptr %10, i64 812
   %235 = load i32, ptr %234, align 4
   %236 = icmp eq i32 %235, 14
   br i1 %236, label %.lr.ph.i.i.i.i.i351, label %.lr.ph.i.i.i.i.i369
@@ -6171,7 +6171,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm19AArch64RegisterInfo14shouldCoale
   br i1 %.not.i.i.i.i, label %68, label %_ZNK4llvm19MachineRegisterInfo16def_instructionsENS_8RegisterE.exit
 
 68:                                               ; preds = %65
-  %69 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 24
+  %69 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 24
   %70 = load ptr, ptr %69, align 8
   %.not.i4.i.i.i = icmp eq ptr %70, null
   br i1 %.not.i4.i.i.i, label %"_ZN4llvm6any_ofINS_14iterator_rangeINS_19MachineRegisterInfo26defusechain_instr_iteratorILb0ELb1ELb0ELb0ELb1ELb0EEEEEZNKS_19AArch64RegisterInfo14shouldCoalesceEPNS_12MachineInstrEPKNS_19TargetRegisterClassEjSB_jSB_RNS_13LiveIntervalsEE3$_0EEbOT_T0_.exit.thread", label %71
@@ -6200,7 +6200,7 @@ _ZNK4llvm19MachineRegisterInfo16def_instructionsENS_8RegisterE.exit: ; preds = %
 
 .preheader.i.i.i.i.i.i:                           ; preds = %.preheader.i.i.i.i.i.i.preheader, %_ZN4llvm19MachineRegisterInfo26defusechain_instr_iteratorILb0ELb1ELb0ELb0ELb1ELb0EE7advanceEv.exit.i.i.i.i.i.i.i
   %.pr3.i.i.i.i.i.i.i = phi ptr [ %80, %_ZN4llvm19MachineRegisterInfo26defusechain_instr_iteratorILb0ELb1ELb0ELb0ELb1ELb0EE7advanceEv.exit.i.i.i.i.i.i.i ], [ %.sroa.02.05.i.i.i.i.i.i70, %.preheader.i.i.i.i.i.i.preheader ]
-  %79 = getelementptr inbounds i8, ptr %.pr3.i.i.i.i.i.i.i, i64 24
+  %79 = getelementptr inbounds nuw i8, ptr %.pr3.i.i.i.i.i.i.i, i64 24
   %80 = load ptr, ptr %79, align 8
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %80, null
   br i1 %.not.i.i.i.i.i.i.i.i, label %"_ZN4llvm6any_ofINS_14iterator_rangeINS_19MachineRegisterInfo26defusechain_instr_iteratorILb0ELb1ELb0ELb0ELb1ELb0EEEEEZNKS_19AArch64RegisterInfo14shouldCoalesceEPNS_12MachineInstrEPKNS_19TargetRegisterClassEjSB_jSB_RNS_13LiveIntervalsEE3$_0EEbOT_T0_.exit.thread", label %81
@@ -6247,7 +6247,7 @@ _ZN4llvm19MachineRegisterInfo26defusechain_instr_iteratorILb0ELb1ELb0ELb0ELb1ELb
 
 .critedge2.i.i.i.i:                               ; preds = %97, %100
   %.pn.i.i.i.i = phi ptr [ %storemerge.i.i.i.i, %100 ], [ %.0.i.i.i24, %97 ]
-  %storemerge.in.i.i.i.i = getelementptr inbounds i8, ptr %.pn.i.i.i.i, i64 24
+  %storemerge.in.i.i.i.i = getelementptr inbounds nuw i8, ptr %.pn.i.i.i.i, i64 24
   %storemerge.i.i.i.i = load ptr, ptr %storemerge.in.i.i.i.i, align 8
   %.not.i.i.i.i26 = icmp eq ptr %storemerge.i.i.i.i, null
   br i1 %.not.i.i.i.i26, label %"_ZN4llvm6any_ofINS_14iterator_rangeINS_19MachineRegisterInfo26defusechain_instr_iteratorILb0ELb1ELb0ELb0ELb1ELb0EEEEEZNKS_19AArch64RegisterInfo14shouldCoalesceEPNS_12MachineInstrEPKNS_19TargetRegisterClassEjSB_jSB_RNS_13LiveIntervalsEE3$_0EEbOT_T0_.exit", label %100
@@ -6276,7 +6276,7 @@ _ZNK4llvm19MachineRegisterInfo22use_nodbg_instructionsENS_8RegisterE.exit: ; pre
 
 .critedge2.i.i.i.i.i.i.i.i:                       ; preds = %.critedge2.i.i.i.i.i.i.i.i.backedge, %.preheader.i.i.i.i.i.i34.preheader
   %.pn.i.i.i.i.i.i.i.i = phi ptr [ %.sroa.02.08.i.i.i.i.i.i74, %.preheader.i.i.i.i.i.i34.preheader ], [ %storemerge.i.i.i.i.i.i.i.i, %.critedge2.i.i.i.i.i.i.i.i.backedge ]
-  %storemerge.in.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %.pn.i.i.i.i.i.i.i.i, i64 24
+  %storemerge.in.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.pn.i.i.i.i.i.i.i.i, i64 24
   %storemerge.i.i.i.i.i.i.i.i = load ptr, ptr %storemerge.in.i.i.i.i.i.i.i.i, align 8
   %.not.i.i.i.i.i.i.i.i35 = icmp eq ptr %storemerge.i.i.i.i.i.i.i.i, null
   br i1 %.not.i.i.i.i.i.i.i.i35, label %"_ZN4llvm6any_ofINS_14iterator_rangeINS_19MachineRegisterInfo26defusechain_instr_iteratorILb0ELb1ELb0ELb0ELb1ELb0EEEEEZNKS_19AArch64RegisterInfo14shouldCoalesceEPNS_12MachineInstrEPKNS_19TargetRegisterClassEjSB_jSB_RNS_13LiveIntervalsEE3$_0EEbOT_T0_.exit", label %108

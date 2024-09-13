@@ -130,7 +130,7 @@ define dso_local void @_ZN4llvm17MachineModuleInfoC2EOS0_(ptr noundef nonnull al
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 696
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %4, i64 992
+  %13 = getelementptr inbounds nuw i8, ptr %4, i64 992
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
   tail call void @_ZN4llvm9MCContextC1ERKNS_6TripleEPKNS_9MCAsmInfoEPKNS_14MCRegisterInfoEPKNS_15MCSubtargetInfoEPKNS_9SourceMgrEPKNS_15MCTargetOptionsEbNS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(2432) %5, ptr noundef nonnull align 8 dereferenceable(56) %6, ptr noundef %8, ptr noundef %10, ptr noundef %12, ptr noundef null, ptr noundef nonnull %13, i1 noundef zeroext false, ptr noundef nonnull byval(%"class.llvm::StringRef") align 8 %3) #17
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 2440
@@ -142,20 +142,20 @@ define dso_local void @_ZN4llvm17MachineModuleInfoC2EOS0_(ptr noundef nonnull al
   %18 = load ptr, ptr %17, align 8
   store ptr %18, ptr %16, align 8
   store ptr null, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %0, i64 2472
-  %20 = getelementptr inbounds i8, ptr %1, i64 2472
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 2472
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 2472
   %21 = load i32, ptr %19, align 8
   %22 = load i32, ptr %20, align 8
   store i32 %22, ptr %19, align 8
   store i32 %21, ptr %20, align 8
-  %23 = getelementptr inbounds i8, ptr %0, i64 2476
-  %24 = getelementptr inbounds i8, ptr %1, i64 2476
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 2476
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 2476
   %25 = load i32, ptr %23, align 4
   %26 = load i32, ptr %24, align 4
   store i32 %26, ptr %23, align 4
   store i32 %25, ptr %24, align 4
-  %27 = getelementptr inbounds i8, ptr %0, i64 2480
-  %28 = getelementptr inbounds i8, ptr %1, i64 2480
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 2480
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 2480
   %29 = load i32, ptr %27, align 8
   %30 = load i32, ptr %28, align 8
   store i32 %30, ptr %27, align 8
@@ -169,7 +169,7 @@ define dso_local void @_ZN4llvm17MachineModuleInfoC2EOS0_(ptr noundef nonnull al
   %35 = getelementptr inbounds i8, ptr %34, i64 24
   %36 = load ptr, ptr %35, align 8
   %37 = tail call noundef ptr %36(ptr noundef nonnull align 8 dereferenceable(1232) %33) #17
-  %38 = getelementptr inbounds i8, ptr %0, i64 176
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 176
   store ptr %37, ptr %38, align 8
   %39 = getelementptr inbounds nuw i8, ptr %1, i64 2456
   %40 = load ptr, ptr %39, align 8
@@ -201,7 +201,7 @@ define dso_local void @_ZN4llvm17MachineModuleInfoC2EPKNS_17LLVMTargetMachineE(p
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 696
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %1, i64 992
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 992
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
   tail call void @_ZN4llvm9MCContextC1ERKNS_6TripleEPKNS_9MCAsmInfoEPKNS_14MCRegisterInfoEPKNS_15MCSubtargetInfoEPKNS_9SourceMgrEPKNS_15MCTargetOptionsEbNS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(2432) %4, ptr noundef nonnull align 8 dereferenceable(56) %5, ptr noundef %7, ptr noundef %9, ptr noundef %11, ptr noundef null, ptr noundef nonnull %12, i1 noundef zeroext false, ptr noundef nonnull byval(%"class.llvm::StringRef") align 8 %3) #17
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 2440
@@ -216,7 +216,7 @@ define dso_local void @_ZN4llvm17MachineModuleInfoC2EPKNS_17LLVMTargetMachineE(p
   %18 = getelementptr inbounds i8, ptr %17, i64 24
   %19 = load ptr, ptr %18, align 8
   %20 = tail call noundef ptr %19(ptr noundef nonnull align 8 dereferenceable(1232) %1) #17
-  %21 = getelementptr inbounds i8, ptr %0, i64 176
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 176
   store ptr %20, ptr %21, align 8
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 2456
   store ptr null, ptr %22, align 8
@@ -236,7 +236,7 @@ define dso_local void @_ZN4llvm17MachineModuleInfoC2EPKNS_17LLVMTargetMachineEPN
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 696
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %1, i64 992
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 992
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false)
   tail call void @_ZN4llvm9MCContextC1ERKNS_6TripleEPKNS_9MCAsmInfoEPKNS_14MCRegisterInfoEPKNS_15MCSubtargetInfoEPKNS_9SourceMgrEPKNS_15MCTargetOptionsEbNS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(2432) %5, ptr noundef nonnull align 8 dereferenceable(56) %6, ptr noundef %8, ptr noundef %10, ptr noundef %12, ptr noundef null, ptr noundef nonnull %13, i1 noundef zeroext false, ptr noundef nonnull byval(%"class.llvm::StringRef") align 8 %4) #17
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 2440
@@ -253,7 +253,7 @@ define dso_local void @_ZN4llvm17MachineModuleInfoC2EPKNS_17LLVMTargetMachineEPN
   %20 = getelementptr inbounds i8, ptr %19, i64 24
   %21 = load ptr, ptr %20, align 8
   %22 = tail call noundef ptr %21(ptr noundef nonnull align 8 dereferenceable(1232) %1) #17
-  %23 = getelementptr inbounds i8, ptr %0, i64 176
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 176
   store ptr %22, ptr %23, align 8
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 2456
   store ptr null, ptr %24, align 8
@@ -280,7 +280,7 @@ define dso_local void @_ZN4llvm17MachineModuleInfoD2Ev(ptr noundef nonnull align
 _ZN4llvm17MachineModuleInfo8finalizeEv.exit:      ; preds = %1, %6
   store ptr null, ptr %3, align 8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 2464
-  %11 = getelementptr inbounds i8, ptr %0, i64 2480
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 2480
   %12 = load i32, ptr %11, align 8
   %13 = icmp eq i32 %12, 0
   %.pre1.i = load ptr, ptr %10, align 8
@@ -342,7 +342,7 @@ declare void @_ZN4llvm9MCContextD1Ev(ptr noundef nonnull align 8 dereferenceable
 define dso_local noundef ptr @_ZNK4llvm17MachineModuleInfo18getMachineFunctionERKNS_8FunctionE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(2512) %0, ptr noundef nonnull align 8 dereferenceable(136) %1) local_unnamed_addr #7 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 2464
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 2480
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 2480
   %6 = load i32, ptr %5, align 8
   %7 = icmp eq i32 %6, 0
   br i1 %7, label %.loopexit.i, label %8
@@ -419,7 +419,7 @@ define dso_local noundef nonnull align 8 dereferenceable(1041) ptr @_ZN4llvm17Ma
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 0, ptr %12, align 8
   %13 = load ptr, ptr %11, align 8, !noalias !7
-  %14 = getelementptr inbounds i8, ptr %0, i64 2480
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 2480
   %15 = load i32, ptr %14, align 8, !noalias !7
   %16 = icmp eq i32 %15, 0
   br i1 %16, label %42, label %17
@@ -537,7 +537,7 @@ declare void @_ZN4llvm15MachineFunction29initTargetMachineFunctionInfoERKNS_19Ta
 define dso_local void @_ZN4llvm17MachineModuleInfo24deleteMachineFunctionForERNS_8FunctionE(ptr nocapture noundef nonnull align 8 dereferenceable(2512) %0, ptr noundef nonnull align 8 dereferenceable(136) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 2464
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 2480
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 2480
   %6 = load i32, ptr %5, align 8
   %7 = icmp eq i32 %6, 0
   br i1 %7, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8FunctionESt10unique_ptrINS_15MachineFunctionESt14default_deleteIS6_EENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S9_EEEES4_S9_SB_SE_E5eraseERKS4_.exit, label %8
@@ -588,11 +588,11 @@ _ZNKSt14default_deleteIN4llvm15MachineFunctionEEclEPS1_.exit.i.i: ; preds = %.lo
 _ZNSt10unique_ptrIN4llvm15MachineFunctionESt14default_deleteIS1_EED2Ev.exit.i: ; preds = %_ZNKSt14default_deleteIN4llvm15MachineFunctionEEclEPS1_.exit.i.i, %.loopexit.i
   store ptr null, ptr %28, align 8
   store ptr inttoptr (i64 -8192 to ptr), ptr %.0.i.ph.i, align 8
-  %30 = getelementptr inbounds i8, ptr %0, i64 2472
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 2472
   %31 = load i32, ptr %30, align 8
   %32 = add i32 %31, -1
   store i32 %32, ptr %30, align 8
-  %33 = getelementptr inbounds i8, ptr %0, i64 2476
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 2476
   %34 = load i32, ptr %33, align 4
   %35 = add i32 %34, 1
   store i32 %35, ptr %33, align 4
@@ -615,7 +615,7 @@ define dso_local void @_ZN4llvm17MachineModuleInfo14insertFunctionERKNS_8Functio
   store i64 %7, ptr %6, align 8, !alias.scope !13
   store ptr null, ptr %2, align 8, !noalias !13
   %8 = load ptr, ptr %5, align 8, !noalias !16
-  %9 = getelementptr inbounds i8, ptr %0, i64 2480
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 2480
   %10 = load i32, ptr %9, align 8, !noalias !16
   %11 = icmp eq i32 %10, 0
   %12 = inttoptr i64 %7 to ptr
@@ -835,17 +835,17 @@ define internal noundef nonnull ptr @_ZL46initializeMachineModuleInfoWrapperPass
 define dso_local noundef zeroext i1 @_ZN4llvm28MachineModuleInfoWrapperPass16doInitializationERNS_6ModuleE(ptr nocapture noundef nonnull align 8 dereferenceable(2544) %0, ptr noundef nonnull align 8 dereferenceable(857) %1) unnamed_addr #1 align 2 {
 _ZNSt8functionIFvRKN4llvm12SMDiagnosticEbRKNS0_9SourceMgrERSt6vectorIPKNS0_6MDNodeESaISA_EEEEC2ERKSF_.exit.i.i:
   %2 = alloca %"class.std::function", align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 2488
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 2488
   store ptr null, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 2520
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 2520
   store i32 0, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 2480
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 2480
   store ptr %1, ptr %5, align 8
   %6 = load ptr, ptr %1, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 2472
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 2472
   %8 = load ptr, ptr %7, align 8
   %.not.i = icmp eq ptr %8, null
-  %9 = getelementptr inbounds i8, ptr %0, i64 40
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %10 = select i1 %.not.i, ptr %9, ptr %8
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 120
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2)
@@ -854,12 +854,12 @@ _ZNSt8functionIFvRKN4llvm12SMDiagnosticEbRKNS0_9SourceMgrERSt6vectorIPKNS0_6MDNo
   %.sroa.2.0..sroa_idx6 = getelementptr inbounds i8, ptr %10, i64 128
   store ptr %1, ptr %.sroa.2.0..sroa_idx6, align 8
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %13 = getelementptr inbounds i8, ptr %10, i64 136
+  %13 = getelementptr inbounds nuw i8, ptr %10, i64 136
   %14 = load ptr, ptr %13, align 8
   store ptr %14, ptr %12, align 8
   store ptr @"_ZNSt17_Function_handlerIFvRKN4llvm12SMDiagnosticEbRKNS0_9SourceMgrERSt6vectorIPKNS0_6MDNodeESaISA_EEEZNS0_28MachineModuleInfoWrapperPass16doInitializationERNS0_6ModuleEE3$_0E10_M_managerERSt9_Any_dataRKSK_St18_Manager_operation", ptr %13, align 8
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %16 = getelementptr inbounds i8, ptr %10, i64 144
+  %16 = getelementptr inbounds nuw i8, ptr %10, i64 144
   %17 = load ptr, ptr %16, align 8
   store ptr %17, ptr %15, align 8
   store ptr @"_ZNSt17_Function_handlerIFvRKN4llvm12SMDiagnosticEbRKNS0_9SourceMgrERSt6vectorIPKNS0_6MDNodeESaISA_EEEZNS0_28MachineModuleInfoWrapperPass16doInitializationERNS0_6ModuleEE3$_0E9_M_invokeERKSt9_Any_dataS3_ObS6_SD_", ptr %16, align 8
@@ -877,9 +877,9 @@ _ZNSt8functionIFvRKN4llvm12SMDiagnosticEbRKNS0_9SourceMgrERSt6vectorIPKNS0_6MDNo
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local noundef zeroext i1 @_ZN4llvm28MachineModuleInfoWrapperPass14doFinalizationERNS_6ModuleE(ptr noundef nonnull align 8 dereferenceable(2544) %0, ptr nocapture nonnull readnone align 8 %1) unnamed_addr #1 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 40
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   tail call void @_ZN4llvm9MCContext5resetEv(ptr noundef nonnull align 8 dereferenceable(2432) %3) #17
-  %4 = getelementptr inbounds i8, ptr %0, i64 2488
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 2488
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
   br i1 %6, label %_ZN4llvm17MachineModuleInfo8finalizeEv.exit, label %7
@@ -917,12 +917,12 @@ _ZNSt8functionIFvRKN4llvm12SMDiagnosticEbRKNS0_9SourceMgrERSt6vectorIPKNS0_6MDNo
   %.sroa.2.0..sroa_idx7 = getelementptr inbounds i8, ptr %11, i64 128
   store ptr %1, ptr %.sroa.2.0..sroa_idx7, align 8
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %14 = getelementptr inbounds i8, ptr %11, i64 136
+  %14 = getelementptr inbounds nuw i8, ptr %11, i64 136
   %15 = load ptr, ptr %14, align 8
   store ptr %15, ptr %13, align 8
   store ptr @"_ZNSt17_Function_handlerIFvRKN4llvm12SMDiagnosticEbRKNS0_9SourceMgrERSt6vectorIPKNS0_6MDNodeESaISA_EEEZNS0_21MachineModuleAnalysis3runERNS0_6ModuleERNS0_15AnalysisManagerISG_JEEEE3$_0E10_M_managerERSt9_Any_dataRKSN_St18_Manager_operation", ptr %14, align 8
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %17 = getelementptr inbounds i8, ptr %11, i64 144
+  %17 = getelementptr inbounds nuw i8, ptr %11, i64 144
   %18 = load ptr, ptr %17, align 8
   store ptr %18, ptr %16, align 8
   store ptr @"_ZNSt17_Function_handlerIFvRKN4llvm12SMDiagnosticEbRKNS0_9SourceMgrERSt6vectorIPKNS0_6MDNodeESaISA_EEEZNS0_21MachineModuleAnalysis3runERNS0_6ModuleERNS0_15AnalysisManagerISG_JEEEE3$_0E9_M_invokeERKSt9_Any_dataS3_ObS6_SD_", ptr %17, align 8
@@ -1071,9 +1071,9 @@ _ZNK4llvm4Pass11getAnalysisINS_28MachineModuleInfoWrapperPassEEERT_v.exit: ; pre
   %16 = getelementptr inbounds i8, ptr %15, i64 96
   %17 = load ptr, ptr %16, align 8
   %18 = tail call noundef nonnull align 8 dereferenceable(2544) ptr %17(ptr noundef nonnull align 8 dereferenceable(28) %14, ptr noundef nonnull @_ZN4llvm28MachineModuleInfoWrapperPass2IDE) #17
-  %19 = getelementptr inbounds i8, ptr %18, i64 2496
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 2496
   %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %18, i64 2512
+  %21 = getelementptr inbounds nuw i8, ptr %18, i64 2512
   %22 = load i32, ptr %21, align 8
   %23 = icmp eq i32 %22, 0
   br i1 %23, label %_ZN4llvm17MachineModuleInfo24deleteMachineFunctionForERNS_8FunctionE.exit, label %24
@@ -1124,18 +1124,18 @@ _ZNKSt14default_deleteIN4llvm15MachineFunctionEEclEPS1_.exit.i.i.i: ; preds = %.
 _ZNSt10unique_ptrIN4llvm15MachineFunctionESt14default_deleteIS1_EED2Ev.exit.i.i: ; preds = %_ZNKSt14default_deleteIN4llvm15MachineFunctionEEclEPS1_.exit.i.i.i, %.loopexit.i.i
   store ptr null, ptr %44, align 8
   store ptr inttoptr (i64 -8192 to ptr), ptr %.0.i.ph.i.i, align 8
-  %46 = getelementptr inbounds i8, ptr %18, i64 2504
+  %46 = getelementptr inbounds nuw i8, ptr %18, i64 2504
   %47 = load i32, ptr %46, align 8
   %48 = add i32 %47, -1
   store i32 %48, ptr %46, align 8
-  %49 = getelementptr inbounds i8, ptr %18, i64 2508
+  %49 = getelementptr inbounds nuw i8, ptr %18, i64 2508
   %50 = load i32, ptr %49, align 4
   %51 = add i32 %50, 1
   store i32 %51, ptr %49, align 4
   br label %_ZN4llvm17MachineModuleInfo24deleteMachineFunctionForERNS_8FunctionE.exit
 
 _ZN4llvm17MachineModuleInfo24deleteMachineFunctionForERNS_8FunctionE.exit: ; preds = %.lr.ph.i.i.i3, %_ZNK4llvm4Pass11getAnalysisINS_28MachineModuleInfoWrapperPassEEERT_v.exit, %_ZNSt10unique_ptrIN4llvm15MachineFunctionESt14default_deleteIS1_EED2Ev.exit.i.i
-  %52 = getelementptr inbounds i8, ptr %18, i64 2528
+  %52 = getelementptr inbounds nuw i8, ptr %18, i64 2528
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %52, i8 0, i64 16, i1 false)
   ret i1 true
 }
@@ -1866,7 +1866,7 @@ _ZNK4llvm6MDNode10getOperandEj.exit:              ; preds = %48, %52
 
 _ZN4llvm7mdconst11dyn_extractINS_11ConstantIntERKNS_9MDOperandEEENSt9enable_ifIXsr6detail14IsValidPointerIT_T0_EE5valueEPS7_E4typeEOS8_.exit: ; preds = %61
   %66 = getelementptr inbounds nuw i8, ptr %63, i64 24
-  %67 = getelementptr inbounds i8, ptr %63, i64 32
+  %67 = getelementptr inbounds nuw i8, ptr %63, i64 32
   %68 = load i32, ptr %67, align 8
   %69 = icmp ult i32 %68, 65
   %70 = load ptr, ptr %66, align 8

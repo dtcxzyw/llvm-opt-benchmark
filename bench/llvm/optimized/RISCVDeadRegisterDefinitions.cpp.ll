@@ -259,14 +259,14 @@ _ZNK4llvm4Pass11getAnalysisINS_24LiveIntervalsWrapperPassEEERT_v.exit: ; preds =
   %30 = getelementptr inbounds i8, ptr %29, i64 96
   %31 = load ptr, ptr %30, align 8
   %32 = tail call noundef nonnull align 8 dereferenceable(496) ptr %31(ptr noundef nonnull align 8 dereferenceable(28) %28, ptr noundef nonnull @_ZN4llvm24LiveIntervalsWrapperPass2IDE) #12
-  %33 = getelementptr inbounds i8, ptr %1, i64 328
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 328
   %34 = getelementptr inbounds nuw i8, ptr %1, i64 320
   %.sroa.054.081 = load ptr, ptr %33, align 8
   %.not82 = icmp eq ptr %.sroa.054.081, %34
   br i1 %.not82, label %.loopexit70, label %.lr.ph85
 
 .lr.ph85:                                         ; preds = %_ZNK4llvm4Pass11getAnalysisINS_24LiveIntervalsWrapperPassEEERT_v.exit
-  %35 = getelementptr inbounds i8, ptr %32, i64 208
+  %35 = getelementptr inbounds nuw i8, ptr %32, i64 208
   br label %36
 
 36:                                               ; preds = %.lr.ph85, %._crit_edge

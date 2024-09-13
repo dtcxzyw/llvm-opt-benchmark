@@ -399,7 +399,7 @@ _ZN4llvm12StringSwitchISt8optionalINS_11SectionKindEES3_E10StartsWithENS_13Strin
   %61 = load ptr, ptr %60, align 8
   %62 = call noundef nonnull align 8 dereferenceable(40) ptr @_ZNK4llvm11MCAsmParser6getTokEv(ptr noundef nonnull align 8 dereferenceable(34) %61) #13
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 8
-  %64 = getelementptr inbounds i8, ptr %62, i64 16
+  %64 = getelementptr inbounds nuw i8, ptr %62, i64 16
   %65 = load i64, ptr %64, align 8
   %66 = add i64 %65, -1
   %67 = icmp ne i64 %65, 0
@@ -534,7 +534,7 @@ _ZN12_GLOBAL__N_113WasmAsmParser17parseSectionFlagsEN4llvm9StringRefERbS3_.exit.
   %126 = getelementptr inbounds nuw i8, ptr %14, i64 16
   store ptr %125, ptr %126, align 8, !alias.scope !9
   %127 = load i64, ptr %.sroa.211.0..sroa_idx.i, align 8, !noalias !9
-  %128 = getelementptr inbounds i8, ptr %14, i64 24
+  %128 = getelementptr inbounds nuw i8, ptr %14, i64 24
   store i64 %127, ptr %128, align 8, !alias.scope !9
   %129 = getelementptr inbounds nuw i8, ptr %15, i64 32
   %130 = getelementptr inbounds nuw i8, ptr %15, i64 33
@@ -1125,7 +1125,7 @@ define internal noundef zeroext i1 @_ZN4llvm20MCAsmParserExtension15HandleDirect
 
 42:                                               ; preds = %40
   %43 = getelementptr inbounds nuw i8, ptr %35, i64 32
-  %44 = getelementptr inbounds i8, ptr %35, i64 36
+  %44 = getelementptr inbounds nuw i8, ptr %35, i64 36
   %45 = load i8, ptr %44, align 4
   %46 = trunc i8 %45 to i1
   %47 = load i32, ptr %43, align 4
@@ -1436,7 +1436,7 @@ define internal noundef zeroext i1 @_ZN4llvm20MCAsmParserExtension15HandleDirect
   br label %_ZNK4llvm8AsmToken13getIdentifierEv.exit.i
 
 28:                                               ; preds = %21
-  %29 = getelementptr inbounds i8, ptr %23, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %23, i64 16
   %30 = load i64, ptr %29, align 8
   %31 = add i64 %30, -1
   %32 = icmp ne i64 %30, 0

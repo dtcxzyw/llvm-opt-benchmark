@@ -544,9 +544,9 @@ _ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit: ; preds = %_ZN4llvm12
   %59 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %17, ptr %59, align 8
   %60 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %61 = getelementptr inbounds i8, ptr %6, i64 40
+  %61 = getelementptr inbounds nuw i8, ptr %6, i64 40
   store i8 0, ptr %61, align 8
-  %62 = getelementptr inbounds i8, ptr %6, i64 24
+  %62 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %63 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %64 = load i32, ptr %63, align 8
   store i32 %64, ptr %62, align 8
@@ -563,7 +563,7 @@ _ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit: ; preds = %_ZN4llvm12
   br label %"_ZNSt8functionIFvRN4llvm16MachineIRBuilderEEEC2IZNS0_14CombinerHelper40matchExtractVectorElementWithBuildVectorERKNS0_14MachineOperandERS4_E3$_0vEEOT_.exit.i"
 
 "_ZNSt8functionIFvRN4llvm16MachineIRBuilderEEEC2IZNS0_14CombinerHelper40matchExtractVectorElementWithBuildVectorERKNS0_14MachineOperandERS4_E3$_0vEEOT_.exit.i": ; preds = %66, %68
-  %69 = getelementptr inbounds i8, ptr %6, i64 32
+  %69 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %70 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %71 = load i32, ptr %70, align 8
   store i32 %71, ptr %69, align 8
@@ -573,15 +573,15 @@ _ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit: ; preds = %_ZN4llvm12
   store i64 0, ptr %72, align 8
   %73 = call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #13
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %73, ptr noundef nonnull align 8 dereferenceable(16) %6, i64 16, i1 false)
-  %74 = getelementptr inbounds i8, ptr %73, i64 40
+  %74 = getelementptr inbounds nuw i8, ptr %73, i64 40
   %75 = getelementptr inbounds nuw i8, ptr %73, i64 16
-  %76 = getelementptr inbounds i8, ptr %73, i64 24
+  %76 = getelementptr inbounds nuw i8, ptr %73, i64 24
   %77 = load i32, ptr %62, align 8
   store i32 %77, ptr %76, align 8
   %78 = load i64, ptr %60, align 8
   store i64 %78, ptr %75, align 8
   store i32 0, ptr %62, align 8
-  %79 = getelementptr inbounds i8, ptr %73, i64 32
+  %79 = getelementptr inbounds nuw i8, ptr %73, i64 32
   store i32 %71, ptr %79, align 8
   store i8 1, ptr %74, align 8
   %80 = getelementptr inbounds nuw i8, ptr %4, i64 24
@@ -803,14 +803,14 @@ _ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit33: ; preds = %_ZNK4llv
   %93 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %19, ptr %93, align 8
   %94 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  %95 = getelementptr inbounds i8, ptr %8, i64 40
+  %95 = getelementptr inbounds nuw i8, ptr %8, i64 40
   store i8 0, ptr %95, align 8
   %96 = load i8, ptr %54, align 8
   %97 = trunc i8 %96 to i1
   br i1 %97, label %98, label %_ZNSt8optionalIN4llvm12ValueAndVRegEEC2ERKS2_.exit
 
 98:                                               ; preds = %92
-  %99 = getelementptr inbounds i8, ptr %8, i64 24
+  %99 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %100 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %101 = load i32, ptr %100, align 8
   store i32 %101, ptr %99, align 8
@@ -827,7 +827,7 @@ _ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit33: ; preds = %_ZNK4llv
   br label %_ZNSt22_Optional_payload_baseIN4llvm12ValueAndVRegEE12_M_constructIJRKS1_EEEvDpOT_.exit.i.i.i.i.i
 
 _ZNSt22_Optional_payload_baseIN4llvm12ValueAndVRegEE12_M_constructIJRKS1_EEEvDpOT_.exit.i.i.i.i.i: ; preds = %105, %103
-  %106 = getelementptr inbounds i8, ptr %8, i64 32
+  %106 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %107 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %108 = load i32, ptr %107, align 8
   store i32 %108, ptr %106, align 8
@@ -842,21 +842,21 @@ _ZNSt8optionalIN4llvm12ValueAndVRegEEC2ERKS2_.exit: ; preds = %92, %_ZNSt22_Opti
   store i64 0, ptr %111, align 8
   %112 = call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #13
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %112, ptr noundef nonnull align 8 dereferenceable(16) %8, i64 16, i1 false)
-  %113 = getelementptr inbounds i8, ptr %112, i64 40
+  %113 = getelementptr inbounds nuw i8, ptr %112, i64 40
   store i8 0, ptr %113, align 8
   %114 = trunc nuw i8 %110 to i1
   br i1 %114, label %115, label %"_ZNSt8functionIFvRN4llvm16MachineIRBuilderEEEC2IZNS0_14CombinerHelper45matchExtractVectorElementWithBuildVectorTruncERKNS0_14MachineOperandERS4_E3$_0vEEOT_.exit.i"
 
 115:                                              ; preds = %_ZNSt8optionalIN4llvm12ValueAndVRegEEC2ERKS2_.exit
   %116 = getelementptr inbounds nuw i8, ptr %112, i64 16
-  %117 = getelementptr inbounds i8, ptr %112, i64 24
-  %118 = getelementptr inbounds i8, ptr %8, i64 24
+  %117 = getelementptr inbounds nuw i8, ptr %112, i64 24
+  %118 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %119 = load i32, ptr %118, align 8
   store i32 %119, ptr %117, align 8
   %120 = load i64, ptr %94, align 8
   store i64 %120, ptr %116, align 8
   store i32 0, ptr %118, align 8
-  %121 = getelementptr inbounds i8, ptr %112, i64 32
+  %121 = getelementptr inbounds nuw i8, ptr %112, i64 32
   store i32 %109, ptr %121, align 8
   store i8 1, ptr %113, align 8
   br label %"_ZNSt8functionIFvRN4llvm16MachineIRBuilderEEEC2IZNS0_14CombinerHelper45matchExtractVectorElementWithBuildVectorTruncERKNS0_14MachineOperandERS4_E3$_0vEEOT_.exit.i"
@@ -894,7 +894,7 @@ _ZNSt8optionalIN4llvm12ValueAndVRegEEC2ERKS2_.exit: ; preds = %92, %_ZNSt22_Opti
 
 132:                                              ; preds = %"_ZNSt8functionIFvRN4llvm16MachineIRBuilderEEEaSIZNS0_14CombinerHelper45matchExtractVectorElementWithBuildVectorTruncERKNS0_14MachineOperandERS4_E3$_0EENSt9enable_ifIXsr9_CallableIT_EE5valueESA_E4typeEOSD_.exit"
   store i8 0, ptr %95, align 8
-  %133 = getelementptr inbounds i8, ptr %8, i64 24
+  %133 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %134 = load i32, ptr %133, align 8
   %135 = icmp ugt i32 %134, 64
   br i1 %135, label %136, label %"_ZZN4llvm14CombinerHelper45matchExtractVectorElementWithBuildVectorTruncERKNS_14MachineOperandERSt8functionIFvRNS_16MachineIRBuilderEEEEN3$_0D2Ev.exit"
@@ -1505,14 +1505,14 @@ define dso_local noundef zeroext i1 @_ZN4llvm14CombinerHelper16matchMulOfVScaleE
   %34 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %17, ptr %34, align 8
   %35 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %36 = getelementptr inbounds i8, ptr %6, i64 32
+  %36 = getelementptr inbounds nuw i8, ptr %6, i64 32
   store i8 0, ptr %36, align 8
   %37 = load i8, ptr %22, align 8
   %38 = trunc i8 %37 to i1
   br i1 %38, label %39, label %_ZNSt8optionalIN4llvm5APIntEEC2ERKS2_.exit
 
 39:                                               ; preds = %33
-  %40 = getelementptr inbounds i8, ptr %6, i64 24
+  %40 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %41 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %42 = load i32, ptr %41, align 8
   store i32 %42, ptr %40, align 8
@@ -1539,15 +1539,15 @@ _ZNSt8optionalIN4llvm5APIntEEC2ERKS2_.exit:       ; preds = %33, %_ZNSt22_Option
   store i64 0, ptr %48, align 8
   %49 = call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #13
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %49, ptr noundef nonnull align 8 dereferenceable(16) %6, i64 16, i1 false)
-  %50 = getelementptr inbounds i8, ptr %49, i64 32
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 32
   store i8 0, ptr %50, align 8
   %51 = trunc nuw i8 %47 to i1
   br i1 %51, label %52, label %"_ZNSt8functionIFvRN4llvm16MachineIRBuilderEEEC2IZNS0_14CombinerHelper16matchMulOfVScaleERKNS0_14MachineOperandERS4_E3$_0vEEOT_.exit.i"
 
 52:                                               ; preds = %_ZNSt8optionalIN4llvm5APIntEEC2ERKS2_.exit
   %53 = getelementptr inbounds nuw i8, ptr %49, i64 16
-  %54 = getelementptr inbounds i8, ptr %49, i64 24
-  %55 = getelementptr inbounds i8, ptr %6, i64 24
+  %54 = getelementptr inbounds nuw i8, ptr %49, i64 24
+  %55 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %56 = load i32, ptr %55, align 8
   store i32 %56, ptr %54, align 8
   %57 = load i64, ptr %35, align 8
@@ -1589,7 +1589,7 @@ _ZNSt8optionalIN4llvm5APIntEEC2ERKS2_.exit:       ; preds = %33, %_ZNSt22_Option
 
 68:                                               ; preds = %"_ZNSt8functionIFvRN4llvm16MachineIRBuilderEEEaSIZNS0_14CombinerHelper16matchMulOfVScaleERKNS0_14MachineOperandERS4_E3$_0EENSt9enable_ifIXsr9_CallableIT_EE5valueESA_E4typeEOSD_.exit"
   store i8 0, ptr %36, align 8
-  %69 = getelementptr inbounds i8, ptr %6, i64 24
+  %69 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %70 = load i32, ptr %69, align 8
   %71 = icmp ugt i32 %70, 64
   br i1 %71, label %72, label %"_ZZN4llvm14CombinerHelper16matchMulOfVScaleERKNS_14MachineOperandERSt8functionIFvRNS_16MachineIRBuilderEEEEN3$_0D2Ev.exit"
@@ -1810,14 +1810,14 @@ _ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit: ; preds = %27, %30, %
   %52 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %19, ptr %52, align 8
   %53 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  %54 = getelementptr inbounds i8, ptr %8, i64 32
+  %54 = getelementptr inbounds nuw i8, ptr %8, i64 32
   store i8 0, ptr %54, align 8
   %55 = load i8, ptr %24, align 8
   %56 = trunc i8 %55 to i1
   br i1 %56, label %57, label %_ZNSt8optionalIN4llvm5APIntEEC2ERKS2_.exit
 
 57:                                               ; preds = %51
-  %58 = getelementptr inbounds i8, ptr %8, i64 24
+  %58 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %59 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %60 = load i32, ptr %59, align 8
   store i32 %60, ptr %58, align 8
@@ -1844,15 +1844,15 @@ _ZNSt8optionalIN4llvm5APIntEEC2ERKS2_.exit:       ; preds = %51, %_ZNSt22_Option
   store i64 0, ptr %66, align 8
   %67 = call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #13
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %67, ptr noundef nonnull align 8 dereferenceable(16) %8, i64 16, i1 false)
-  %68 = getelementptr inbounds i8, ptr %67, i64 32
+  %68 = getelementptr inbounds nuw i8, ptr %67, i64 32
   store i8 0, ptr %68, align 8
   %69 = trunc nuw i8 %65 to i1
   br i1 %69, label %70, label %"_ZNSt8functionIFvRN4llvm16MachineIRBuilderEEEC2IZNS0_14CombinerHelper16matchShlOfVScaleERKNS0_14MachineOperandERS4_E3$_0vEEOT_.exit.i"
 
 70:                                               ; preds = %_ZNSt8optionalIN4llvm5APIntEEC2ERKS2_.exit
   %71 = getelementptr inbounds nuw i8, ptr %67, i64 16
-  %72 = getelementptr inbounds i8, ptr %67, i64 24
-  %73 = getelementptr inbounds i8, ptr %8, i64 24
+  %72 = getelementptr inbounds nuw i8, ptr %67, i64 24
+  %73 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %74 = load i32, ptr %73, align 8
   store i32 %74, ptr %72, align 8
   %75 = load i64, ptr %53, align 8
@@ -1894,7 +1894,7 @@ _ZNSt8optionalIN4llvm5APIntEEC2ERKS2_.exit:       ; preds = %51, %_ZNSt22_Option
 
 86:                                               ; preds = %"_ZNSt8functionIFvRN4llvm16MachineIRBuilderEEEaSIZNS0_14CombinerHelper16matchShlOfVScaleERKNS0_14MachineOperandERS4_E3$_0EENSt9enable_ifIXsr9_CallableIT_EE5valueESA_E4typeEOSD_.exit"
   store i8 0, ptr %54, align 8
-  %87 = getelementptr inbounds i8, ptr %8, i64 24
+  %87 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %88 = load i32, ptr %87, align 8
   %89 = icmp ugt i32 %88, 64
   br i1 %89, label %90, label %.critedge
@@ -2086,7 +2086,7 @@ define internal void @"_ZNSt17_Function_handlerIFvRN4llvm16MachineIRBuilderEEZNS
   %6 = getelementptr inbounds nuw i8, ptr %.val, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %.val, i64 16
-  %9 = getelementptr inbounds i8, ptr %.val, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %.val, i64 24
   %10 = load i32, ptr %9, align 8
   %11 = icmp ult i32 %10, 65
   %12 = load ptr, ptr %8, align 8
@@ -2130,16 +2130,16 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRN4llvm16Machine
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %.val, i64 16, i1 false)
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %9 = getelementptr inbounds nuw i8, ptr %.val, i64 16
-  %10 = getelementptr inbounds i8, ptr %.val, i64 40
-  %11 = getelementptr inbounds i8, ptr %7, i64 40
+  %10 = getelementptr inbounds nuw i8, ptr %.val, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %7, i64 40
   store i8 0, ptr %11, align 8
   %12 = load i8, ptr %10, align 8
   %13 = trunc i8 %12 to i1
   br i1 %13, label %14, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper40matchExtractVectorElementWithBuildVectorERKNS1_14MachineOperandERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E15_M_init_functorIRKSC_EEvRSt9_Any_dataOT_.exit.i"
 
 14:                                               ; preds = %6
-  %15 = getelementptr inbounds i8, ptr %7, i64 24
-  %16 = getelementptr inbounds i8, ptr %.val, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %7, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %.val, i64 24
   %17 = load i32, ptr %16, align 8
   store i32 %17, ptr %15, align 8
   %18 = icmp ult i32 %17, 65
@@ -2155,8 +2155,8 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRN4llvm16Machine
   br label %_ZNSt22_Optional_payload_baseIN4llvm12ValueAndVRegEE12_M_constructIJRKS1_EEEvDpOT_.exit.i.i.i.i.i.i.i.i.i
 
 _ZNSt22_Optional_payload_baseIN4llvm12ValueAndVRegEE12_M_constructIJRKS1_EEEvDpOT_.exit.i.i.i.i.i.i.i.i.i: ; preds = %21, %19
-  %22 = getelementptr inbounds i8, ptr %7, i64 32
-  %23 = getelementptr inbounds i8, ptr %.val, i64 32
+  %22 = getelementptr inbounds nuw i8, ptr %7, i64 32
+  %23 = getelementptr inbounds nuw i8, ptr %.val, i64 32
   %24 = load i32, ptr %23, align 8
   store i32 %24, ptr %22, align 8
   store i8 1, ptr %11, align 8
@@ -2173,14 +2173,14 @@ _ZNSt22_Optional_payload_baseIN4llvm12ValueAndVRegEE12_M_constructIJRKS1_EEEvDpO
 
 27:                                               ; preds = %25
   %28 = getelementptr inbounds nuw i8, ptr %.val6.i, i64 16
-  %29 = getelementptr inbounds i8, ptr %.val6.i, i64 40
+  %29 = getelementptr inbounds nuw i8, ptr %.val6.i, i64 40
   %30 = load i8, ptr %29, align 8
   %31 = trunc i8 %30 to i1
   br i1 %31, label %32, label %"_ZZN4llvm14CombinerHelper40matchExtractVectorElementWithBuildVectorERKNS_14MachineOperandERSt8functionIFvRNS_16MachineIRBuilderEEEEN3$_0D2Ev.exit.i.i"
 
 32:                                               ; preds = %27
   store i8 0, ptr %29, align 8
-  %33 = getelementptr inbounds i8, ptr %.val6.i, i64 24
+  %33 = getelementptr inbounds nuw i8, ptr %.val6.i, i64 24
   %34 = load i32, ptr %33, align 8
   %35 = icmp ugt i32 %34, 64
   br i1 %35, label %36, label %"_ZZN4llvm14CombinerHelper40matchExtractVectorElementWithBuildVectorERKNS_14MachineOperandERSt8functionIFvRNS_16MachineIRBuilderEEEEN3$_0D2Ev.exit.i.i"
@@ -2218,7 +2218,7 @@ define internal void @"_ZNSt17_Function_handlerIFvRN4llvm16MachineIRBuilderEEZNS
   %6 = getelementptr inbounds nuw i8, ptr %.val, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %.val, i64 16
-  %9 = getelementptr inbounds i8, ptr %.val, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %.val, i64 24
   %10 = load i32, ptr %9, align 8
   %11 = icmp ult i32 %10, 65
   %12 = load ptr, ptr %8, align 8
@@ -2262,16 +2262,16 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRN4llvm16Machine
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %.val, i64 16, i1 false)
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %9 = getelementptr inbounds nuw i8, ptr %.val, i64 16
-  %10 = getelementptr inbounds i8, ptr %.val, i64 40
-  %11 = getelementptr inbounds i8, ptr %7, i64 40
+  %10 = getelementptr inbounds nuw i8, ptr %.val, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %7, i64 40
   store i8 0, ptr %11, align 8
   %12 = load i8, ptr %10, align 8
   %13 = trunc i8 %12 to i1
   br i1 %13, label %14, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper45matchExtractVectorElementWithBuildVectorTruncERKNS1_14MachineOperandERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E15_M_init_functorIRKSC_EEvRSt9_Any_dataOT_.exit.i"
 
 14:                                               ; preds = %6
-  %15 = getelementptr inbounds i8, ptr %7, i64 24
-  %16 = getelementptr inbounds i8, ptr %.val, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %7, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %.val, i64 24
   %17 = load i32, ptr %16, align 8
   store i32 %17, ptr %15, align 8
   %18 = icmp ult i32 %17, 65
@@ -2287,8 +2287,8 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRN4llvm16Machine
   br label %_ZNSt22_Optional_payload_baseIN4llvm12ValueAndVRegEE12_M_constructIJRKS1_EEEvDpOT_.exit.i.i.i.i.i.i.i.i.i
 
 _ZNSt22_Optional_payload_baseIN4llvm12ValueAndVRegEE12_M_constructIJRKS1_EEEvDpOT_.exit.i.i.i.i.i.i.i.i.i: ; preds = %21, %19
-  %22 = getelementptr inbounds i8, ptr %7, i64 32
-  %23 = getelementptr inbounds i8, ptr %.val, i64 32
+  %22 = getelementptr inbounds nuw i8, ptr %7, i64 32
+  %23 = getelementptr inbounds nuw i8, ptr %.val, i64 32
   %24 = load i32, ptr %23, align 8
   store i32 %24, ptr %22, align 8
   store i8 1, ptr %11, align 8
@@ -2305,14 +2305,14 @@ _ZNSt22_Optional_payload_baseIN4llvm12ValueAndVRegEE12_M_constructIJRKS1_EEEvDpO
 
 27:                                               ; preds = %25
   %28 = getelementptr inbounds nuw i8, ptr %.val6.i, i64 16
-  %29 = getelementptr inbounds i8, ptr %.val6.i, i64 40
+  %29 = getelementptr inbounds nuw i8, ptr %.val6.i, i64 40
   %30 = load i8, ptr %29, align 8
   %31 = trunc i8 %30 to i1
   br i1 %31, label %32, label %"_ZZN4llvm14CombinerHelper45matchExtractVectorElementWithBuildVectorTruncERKNS_14MachineOperandERSt8functionIFvRNS_16MachineIRBuilderEEEEN3$_0D2Ev.exit.i.i"
 
 32:                                               ; preds = %27
   store i8 0, ptr %29, align 8
-  %33 = getelementptr inbounds i8, ptr %.val6.i, i64 24
+  %33 = getelementptr inbounds nuw i8, ptr %.val6.i, i64 24
   %34 = load i32, ptr %33, align 8
   %35 = icmp ugt i32 %34, 64
   br i1 %35, label %36, label %"_ZZN4llvm14CombinerHelper45matchExtractVectorElementWithBuildVectorTruncERKNS_14MachineOperandERSt8functionIFvRNS_16MachineIRBuilderEEEEN3$_0D2Ev.exit.i.i"
@@ -2520,7 +2520,7 @@ define internal void @"_ZNSt17_Function_handlerIFvRN4llvm16MachineIRBuilderEEZNS
   %13 = load ptr, ptr %12, align 8, !noalias !4
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 24
   %15 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %16 = getelementptr inbounds i8, ptr %13, i64 32
+  %16 = getelementptr inbounds nuw i8, ptr %13, i64 32
   %17 = load i32, ptr %16, align 8, !noalias !4
   store i32 %17, ptr %15, align 8, !alias.scope !4
   %18 = icmp ult i32 %17, 65
@@ -2545,7 +2545,7 @@ _ZNK4llvm7GVScale6getSrcEv.exit.i.i.i:            ; preds = %21, %19
   %27 = load ptr, ptr %26, align 8, !noalias !7
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 24
   %29 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %30 = getelementptr inbounds i8, ptr %27, i64 32
+  %30 = getelementptr inbounds nuw i8, ptr %27, i64 32
   %31 = load i32, ptr %30, align 8, !noalias !7
   store i32 %31, ptr %29, align 8, !alias.scope !7
   %32 = icmp ult i32 %31, 65
@@ -2683,7 +2683,7 @@ define internal void @"_ZNSt17_Function_handlerIFvRN4llvm16MachineIRBuilderEEZNS
   %12 = load ptr, ptr %11, align 8, !noalias !13
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 24
   %14 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %15 = getelementptr inbounds i8, ptr %12, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %12, i64 32
   %16 = load i32, ptr %15, align 8, !noalias !13
   store i32 %16, ptr %14, align 8, !alias.scope !13
   %17 = icmp ult i32 %16, 65
@@ -2760,16 +2760,16 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRN4llvm16Machine
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %.val, i64 16, i1 false)
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %9 = getelementptr inbounds nuw i8, ptr %.val, i64 16
-  %10 = getelementptr inbounds i8, ptr %.val, i64 32
-  %11 = getelementptr inbounds i8, ptr %7, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %.val, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %7, i64 32
   store i8 0, ptr %11, align 8
   %12 = load i8, ptr %10, align 8
   %13 = trunc i8 %12 to i1
   br i1 %13, label %14, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper16matchMulOfVScaleERKNS1_14MachineOperandERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E15_M_init_functorIRKSC_EEvRSt9_Any_dataOT_.exit.i"
 
 14:                                               ; preds = %6
-  %15 = getelementptr inbounds i8, ptr %7, i64 24
-  %16 = getelementptr inbounds i8, ptr %.val, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %7, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %.val, i64 24
   %17 = load i32, ptr %16, align 8
   store i32 %17, ptr %15, align 8
   %18 = icmp ult i32 %17, 65
@@ -2799,14 +2799,14 @@ _ZNSt22_Optional_payload_baseIN4llvm5APIntEE12_M_constructIJRKS1_EEEvDpOT_.exit.
 
 24:                                               ; preds = %22
   %25 = getelementptr inbounds nuw i8, ptr %.val6.i, i64 16
-  %26 = getelementptr inbounds i8, ptr %.val6.i, i64 32
+  %26 = getelementptr inbounds nuw i8, ptr %.val6.i, i64 32
   %27 = load i8, ptr %26, align 8
   %28 = trunc i8 %27 to i1
   br i1 %28, label %29, label %"_ZZN4llvm14CombinerHelper16matchMulOfVScaleERKNS_14MachineOperandERSt8functionIFvRNS_16MachineIRBuilderEEEEN3$_0D2Ev.exit.i.i"
 
 29:                                               ; preds = %24
   store i8 0, ptr %26, align 8
-  %30 = getelementptr inbounds i8, ptr %.val6.i, i64 24
+  %30 = getelementptr inbounds nuw i8, ptr %.val6.i, i64 24
   %31 = load i32, ptr %30, align 8
   %32 = icmp ugt i32 %31, 64
   br i1 %32, label %33, label %"_ZZN4llvm14CombinerHelper16matchMulOfVScaleERKNS_14MachineOperandERSt8functionIFvRNS_16MachineIRBuilderEEEEN3$_0D2Ev.exit.i.i"
@@ -2854,7 +2854,7 @@ define internal void @"_ZNSt17_Function_handlerIFvRN4llvm16MachineIRBuilderEEZNS
   %14 = load ptr, ptr %13, align 8, !noalias !16
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 24
   %16 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %17 = getelementptr inbounds i8, ptr %14, i64 32
+  %17 = getelementptr inbounds nuw i8, ptr %14, i64 32
   %18 = load i32, ptr %17, align 8, !noalias !16
   store i32 %18, ptr %16, align 8, !alias.scope !16
   %19 = icmp ult i32 %18, 65
@@ -3029,7 +3029,7 @@ define internal void @"_ZNSt17_Function_handlerIFvRN4llvm16MachineIRBuilderEEZNS
   %12 = load ptr, ptr %11, align 8, !noalias !23
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 24
   %14 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %15 = getelementptr inbounds i8, ptr %12, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %12, i64 32
   %16 = load i32, ptr %15, align 8, !noalias !23
   store i32 %16, ptr %14, align 8, !alias.scope !23
   %17 = icmp ult i32 %16, 65
@@ -3127,16 +3127,16 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRN4llvm16Machine
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %.val, i64 16, i1 false)
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %9 = getelementptr inbounds nuw i8, ptr %.val, i64 16
-  %10 = getelementptr inbounds i8, ptr %.val, i64 32
-  %11 = getelementptr inbounds i8, ptr %7, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %.val, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %7, i64 32
   store i8 0, ptr %11, align 8
   %12 = load i8, ptr %10, align 8
   %13 = trunc i8 %12 to i1
   br i1 %13, label %14, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm14CombinerHelper16matchShlOfVScaleERKNS1_14MachineOperandERSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E15_M_init_functorIRKSC_EEvRSt9_Any_dataOT_.exit.i"
 
 14:                                               ; preds = %6
-  %15 = getelementptr inbounds i8, ptr %7, i64 24
-  %16 = getelementptr inbounds i8, ptr %.val, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %7, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %.val, i64 24
   %17 = load i32, ptr %16, align 8
   store i32 %17, ptr %15, align 8
   %18 = icmp ult i32 %17, 65
@@ -3166,14 +3166,14 @@ _ZNSt22_Optional_payload_baseIN4llvm5APIntEE12_M_constructIJRKS1_EEEvDpOT_.exit.
 
 24:                                               ; preds = %22
   %25 = getelementptr inbounds nuw i8, ptr %.val6.i, i64 16
-  %26 = getelementptr inbounds i8, ptr %.val6.i, i64 32
+  %26 = getelementptr inbounds nuw i8, ptr %.val6.i, i64 32
   %27 = load i8, ptr %26, align 8
   %28 = trunc i8 %27 to i1
   br i1 %28, label %29, label %"_ZZN4llvm14CombinerHelper16matchShlOfVScaleERKNS_14MachineOperandERSt8functionIFvRNS_16MachineIRBuilderEEEEN3$_0D2Ev.exit.i.i"
 
 29:                                               ; preds = %24
   store i8 0, ptr %26, align 8
-  %30 = getelementptr inbounds i8, ptr %.val6.i, i64 24
+  %30 = getelementptr inbounds nuw i8, ptr %.val6.i, i64 24
   %31 = load i32, ptr %30, align 8
   %32 = icmp ugt i32 %31, 64
   br i1 %32, label %33, label %"_ZZN4llvm14CombinerHelper16matchShlOfVScaleERKNS_14MachineOperandERSt8functionIFvRNS_16MachineIRBuilderEEEEN3$_0D2Ev.exit.i.i"

@@ -2516,9 +2516,9 @@ define hidden noundef zeroext i1 @_ZNK5clang7targets19LoongArchTargetInfo21valid
   store i32 %16, ptr %2, align 8
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 -32768, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %2, i64 12
+  %18 = getelementptr inbounds nuw i8, ptr %2, i64 12
   store i32 32767, ptr %18, align 4
-  %19 = getelementptr inbounds i8, ptr %2, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i8 1, ptr %19, align 8
   br label %45
 
@@ -2528,9 +2528,9 @@ define hidden noundef zeroext i1 @_ZNK5clang7targets19LoongArchTargetInfo21valid
   store i32 %22, ptr %2, align 8
   %23 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 -2048, ptr %23, align 8
-  %24 = getelementptr inbounds i8, ptr %2, i64 12
+  %24 = getelementptr inbounds nuw i8, ptr %2, i64 12
   store i32 2047, ptr %24, align 4
-  %25 = getelementptr inbounds i8, ptr %2, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i8 1, ptr %25, align 8
   br label %45
 
@@ -2553,9 +2553,9 @@ define hidden noundef zeroext i1 @_ZNK5clang7targets19LoongArchTargetInfo21valid
   store i32 %32, ptr %2, align 8
   %33 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 0, ptr %33, align 8
-  %34 = getelementptr inbounds i8, ptr %2, i64 12
+  %34 = getelementptr inbounds nuw i8, ptr %2, i64 12
   store i32 4095, ptr %34, align 4
-  %35 = getelementptr inbounds i8, ptr %2, i64 16
+  %35 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i8 1, ptr %35, align 8
   br label %45
 
@@ -3325,7 +3325,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef zeroext i1 @_ZNK5clang7targets19LoongArchTargetInfo14initFeatureMapERN4llvm9StringMapIbNS2_15MallocAllocatorEEERNS_17DiagnosticsEngineENS2_9StringRefERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISG_EE(ptr noundef nonnull align 8 dereferenceable(565) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(1304) %2, ptr %3, i64 %4, ptr noundef nonnull align 8 dereferenceable(24) %5) unnamed_addr #1 align 2 {
-  %7 = getelementptr inbounds i8, ptr %0, i64 248
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %8 = load i32, ptr %7, align 8
   %9 = icmp eq i32 %8, 14
   br i1 %9, label %10, label %15
@@ -3363,7 +3363,7 @@ declare noundef zeroext i1 @_ZNK5clang10TargetInfo14initFeatureMapERN4llvm9Strin
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef zeroext i1 @_ZNK5clang7targets19LoongArchTargetInfo10hasFeatureEN4llvm9StringRefE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(565) %0, ptr nocapture readonly %1, i64 %2) unnamed_addr #5 align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 248
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %5 = load i32, ptr %4, align 8
   %6 = icmp eq i32 %5, 14
   %7 = xor i1 %6, true
@@ -3604,7 +3604,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK5clang7targets19LoongArchTarg
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef i64 @_ZNK5clang10TargetInfo17getMaxBitIntWidthEv(ptr noundef nonnull align 8 dereferenceable(489) %0) unnamed_addr #1 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 392
-  %3 = getelementptr inbounds i8, ptr %0, i64 396
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 396
   %4 = load i8, ptr %3, align 4
   %5 = trunc i8 %4 to i1
   %6 = load i32, ptr %2, align 8
@@ -3874,10 +3874,10 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK5clang10TargetInfo22hasProtec
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZNK5clang10TargetInfo28shouldDLLImportComdatSymbolsEv(ptr noundef nonnull align 8 dereferenceable(489) %0) unnamed_addr #1 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 260
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 260
   %3 = load i32, ptr %2, align 4
   %4 = icmp eq i32 %3, 14
-  %5 = getelementptr inbounds i8, ptr %0, i64 264
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 264
   %6 = load i32, ptr %5, align 8
   %7 = icmp eq i32 %6, 0
   %8 = add i32 %6, -19
@@ -3887,10 +3887,10 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK5clang10TargetInfo28shouldDLL
   br i1 %or.cond3, label %_ZNK4llvm6Triple4isPSEv.exit, label %11
 
 11:                                               ; preds = %1
-  %12 = getelementptr inbounds i8, ptr %0, i64 248
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %13 = load i32, ptr %12, align 8
   %14 = icmp eq i32 %13, 38
-  %15 = getelementptr inbounds i8, ptr %0, i64 256
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %16 = load i32, ptr %15, align 8
   %17 = icmp eq i32 %16, 3
   %or.cond.i.i = select i1 %14, i1 %17, i1 false
@@ -3908,14 +3908,14 @@ _ZNK4llvm6Triple4isPSEv.exit:                     ; preds = %1, %_ZNK4llvm6Tripl
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZNK5clang10TargetInfo21hasPS4DLLImportExportEv(ptr noundef nonnull align 8 dereferenceable(489) %0) unnamed_addr #1 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 248
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %3 = load i32, ptr %2, align 8
   %4 = icmp eq i32 %3, 38
-  %5 = getelementptr inbounds i8, ptr %0, i64 256
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %6 = load i32, ptr %5, align 8
   %7 = icmp eq i32 %6, 3
   %or.cond.i.i = select i1 %4, i1 %7, i1 false
-  %8 = getelementptr inbounds i8, ptr %0, i64 260
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 260
   %9 = load i32, ptr %8, align 4
   %10 = add i32 %9, -23
   %spec.select.i = icmp ult i32 %10, 2
@@ -3924,7 +3924,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK5clang10TargetInfo21hasPS4DLL
 
 _ZNK4llvm6Triple4isPSEv.exit.thread:              ; preds = %1
   %11 = icmp eq i32 %9, 14
-  %12 = getelementptr inbounds i8, ptr %0, i64 264
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 264
   %13 = load i32, ptr %12, align 8
   %14 = icmp eq i32 %13, 20
   %15 = select i1 %11, i1 %14, i1 false
@@ -4453,7 +4453,7 @@ define linkonce_odr hidden void @_ZN5clang10TargetInfo24setCommandLineOpenCLOpts
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 328
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %4, i64 336
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 336
   %8 = load ptr, ptr %7, align 8
   %.not16 = icmp eq ptr %6, %8
   br i1 %.not16, label %._crit_edge, label %.lr.ph

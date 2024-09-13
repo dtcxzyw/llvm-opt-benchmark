@@ -129,7 +129,7 @@ _ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPN5clang5index14DeclOccu
 27:                                               ; preds = %"_ZN4llvm11stable_sortIRSt6vectorIN5clang5index14DeclOccurrenceESaIS4_EEZNKS3_15FileIndexRecord32getDeclOccurrencesSortedByOffsetEvE3$_0EEvOT_T0_.exit", %1
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %29 = load ptr, ptr %28, align 8
-  %30 = getelementptr inbounds i8, ptr %0, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %31 = load ptr, ptr %30, align 8
   %32 = ptrtoint ptr %31 to i64
   %33 = ptrtoint ptr %29 to i64
@@ -154,9 +154,9 @@ define dso_local void @_ZN5clang5index15FileIndexRecord16addDeclOccurenceEjjPKNS
   store ptr %3, ptr %10, align 8
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 5
   store i8 0, ptr %12, align 1
-  %13 = getelementptr inbounds i8, ptr %0, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %16 = load ptr, ptr %15, align 8
   %.not.i = icmp eq ptr %14, %16
   br i1 %.not.i, label %28, label %17
@@ -202,9 +202,9 @@ define dso_local void @_ZN5clang5index15FileIndexRecord17addMacroOccurenceEjjPKN
   store ptr %4, ptr %9, align 8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 5
   store i8 0, ptr %10, align 1
-  %11 = getelementptr inbounds i8, ptr %0, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %14 = load ptr, ptr %13, align 8
   %.not.i = icmp eq ptr %12, %14
   br i1 %.not.i, label %25, label %15
@@ -541,7 +541,7 @@ define dso_local void @_ZNK5clang5index15FileIndexRecord5printERN4llvm11raw_ostr
 _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %14, %16
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %0, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %22 = load ptr, ptr %21, align 8
   %.not7881 = icmp eq ptr %20, %22
   br i1 %.not7881, label %._crit_edge, label %.lr.ph

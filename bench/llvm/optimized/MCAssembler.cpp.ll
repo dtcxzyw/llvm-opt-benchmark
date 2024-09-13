@@ -125,20 +125,20 @@ define dso_local void @_ZN4llvm11MCAssemblerC2ERNS_9MCContextESt10unique_ptrINS_
   %16 = getelementptr inbounds i8, ptr %0, i64 72
   tail call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %15, ptr noundef nonnull %16, i64 noundef 0) #11
   store i8 13, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %0, i64 73
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 73
   store i8 -5, ptr %17, align 1
-  %18 = getelementptr inbounds i8, ptr %0, i64 74
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 74
   store i8 14, ptr %18, align 2
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %20 = getelementptr inbounds i8, ptr %0, i64 112
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store ptr %20, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %0, i64 88
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 88
   store ptr %20, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %0, i64 96
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store i32 32, ptr %22, align 8
-  %23 = getelementptr inbounds i8, ptr %0, i64 100
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 100
   store i32 0, ptr %23, align 4
-  %24 = getelementptr inbounds i8, ptr %0, i64 104
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store i32 0, ptr %24, align 8
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 368
   store i32 0, ptr %25, align 8
@@ -151,27 +151,27 @@ define dso_local void @_ZN4llvm11MCAssembler5resetEv(ptr noundef nonnull align 8
   store i8 0, ptr %2, align 1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #11
-  %5 = getelementptr inbounds i8, ptr %0, i64 48
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i32 0, ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %7 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %6) #11
-  %8 = getelementptr inbounds i8, ptr %0, i64 64
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i32 0, ptr %8, align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %10 = getelementptr inbounds i8, ptr %0, i64 88
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %11 = load ptr, ptr %10, align 8
   %12 = load ptr, ptr %9, align 8
   %13 = icmp eq ptr %11, %12
   br i1 %13, label %29, label %14
 
 14:                                               ; preds = %1
-  %15 = getelementptr inbounds i8, ptr %0, i64 100
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 100
   %16 = load i32, ptr %15, align 4
-  %17 = getelementptr inbounds i8, ptr %0, i64 104
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %18 = load i32, ptr %17, align 8
   %19 = sub i32 %16, %18
   %20 = shl i32 %19, 2
-  %21 = getelementptr inbounds i8, ptr %0, i64 96
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %22 = load i32, ptr %21, align 8
   %23 = icmp ult i32 %20, %22
   %24 = icmp ugt i32 %22, 32
@@ -189,9 +189,9 @@ define dso_local void @_ZN4llvm11MCAssembler5resetEv(ptr noundef nonnull align 8
   br label %29
 
 29:                                               ; preds = %26, %1
-  %30 = getelementptr inbounds i8, ptr %0, i64 100
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 100
   store i32 0, ptr %30, align 4
-  %31 = getelementptr inbounds i8, ptr %0, i64 104
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store i32 0, ptr %31, align 8
   br label %_ZN4llvm19SmallPtrSetImplBase5clearEv.exit
 
@@ -284,14 +284,14 @@ define dso_local noundef zeroext i1 @_ZNK4llvm11MCAssembler11isThumbFuncEPKNS_8M
   %3 = alloca %"class.llvm::MCValue", align 8
   %4 = alloca %"struct.std::pair", align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %6 = getelementptr inbounds i8, ptr %0, i64 88
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %7 = load ptr, ptr %6, align 8
   %8 = load ptr, ptr %5, align 8
   %9 = icmp eq ptr %7, %8
   br i1 %9, label %10, label %20
 
 10:                                               ; preds = %2
-  %11 = getelementptr inbounds i8, ptr %0, i64 100
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 100
   %12 = load i32, ptr %11, align 4
   %13 = zext i32 %12 to i64
   %14 = getelementptr inbounds ptr, ptr %8, i64 %13
@@ -321,15 +321,15 @@ define dso_local noundef zeroext i1 @_ZNK4llvm11MCAssembler11isThumbFuncEPKNS_8M
   br i1 %.not.i.i, label %22, label %._ZNK4llvm19SmallPtrSetImplBase8find_impEPKv.exit_crit_edge.i
 
 ._ZNK4llvm19SmallPtrSetImplBase8find_impEPKv.exit_crit_edge.i: ; preds = %20
-  %.phi.trans.insert.i = getelementptr inbounds i8, ptr %0, i64 100
+  %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %0, i64 100
   %.pre5.i = load i32, ptr %.phi.trans.insert.i, align 4
   br label %_ZNK4llvm15SmallPtrSetImplIPKNS_8MCSymbolEE5countES3_.exit
 
 22:                                               ; preds = %20
   %23 = icmp eq ptr %.pre.i, %.pre4.i
-  %24 = getelementptr inbounds i8, ptr %0, i64 100
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 100
   %25 = load i32, ptr %24, align 4
-  %26 = getelementptr inbounds i8, ptr %0, i64 96
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %27 = load i32, ptr %26, align 8
   %.v.v.i14.i.i = select i1 %23, i32 %25, i32 %27
   %.v.i15.i.i = zext i32 %.v.v.i14.i.i to i64
@@ -342,7 +342,7 @@ _ZNK4llvm15SmallPtrSetImplIPKNS_8MCSymbolEE5countES3_.exit: ; preds = %.lr.ph.i.
   %31 = phi ptr [ %7, %._crit_edge.i.i ], [ %.pre.i, %22 ], [ %.pre.i, %._ZNK4llvm19SmallPtrSetImplBase8find_impEPKv.exit_crit_edge.i ], [ %7, %.lr.ph.i.i ]
   %.0.i.i = phi ptr [ %19, %._crit_edge.i.i ], [ %28, %22 ], [ %21, %._ZNK4llvm19SmallPtrSetImplBase8find_impEPKv.exit_crit_edge.i ], [ %.01118.i.i, %.lr.ph.i.i ]
   %32 = icmp eq ptr %31, %30
-  %33 = getelementptr inbounds i8, ptr %0, i64 96
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %34 = load i32, ptr %33, align 8
   %.v.v.i.i = select i1 %32, i32 %29, i32 %34
   %.v.i.i = zext i32 %.v.v.i.i to i64
@@ -1624,7 +1624,7 @@ _ZNK4llvm8MCSymbol11getFragmentEb.exit29.thread40: ; preds = %20, %_ZNK4llvm8MCS
   store ptr @.str.59, ptr %6, align 8, !alias.scope !15
   %32 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr %28, ptr %32, align 8, !alias.scope !15
-  %33 = getelementptr inbounds i8, ptr %6, i64 24
+  %33 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store i64 %29, ptr %33, align 8, !alias.scope !15
   %34 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %35 = getelementptr inbounds nuw i8, ptr %7, i64 33
@@ -1723,7 +1723,7 @@ _ZL14getLabelOffsetRKN4llvm11MCAssemblerERKNS_8MCSymbolEbRm.exit: ; preds = %_ZN
   store ptr @.str.57, ptr %10, align 8, !alias.scope !18
   %75 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store ptr %71, ptr %75, align 8, !alias.scope !18
-  %76 = getelementptr inbounds i8, ptr %10, i64 24
+  %76 = getelementptr inbounds nuw i8, ptr %10, i64 24
   store i64 %72, ptr %76, align 8, !alias.scope !18
   %77 = getelementptr inbounds nuw i8, ptr %11, i64 32
   %78 = getelementptr inbounds nuw i8, ptr %11, i64 33
@@ -1904,7 +1904,7 @@ _ZN4llvmplERKNS_5TwineES2_.exit58:                ; preds = %60, %56
   store ptr @.str.46, ptr %8, align 8, !alias.scope !31
   %67 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store ptr %.sroa.0.0.i39, ptr %67, align 8, !alias.scope !31
-  %68 = getelementptr inbounds i8, ptr %8, i64 24
+  %68 = getelementptr inbounds nuw i8, ptr %8, i64 24
   store i64 %.sroa.4.0.i40, ptr %68, align 8, !alias.scope !31
   store ptr %8, ptr %7, align 8, !alias.scope !34
   %69 = getelementptr inbounds nuw i8, ptr %7, i64 16
@@ -3141,7 +3141,7 @@ define dso_local void @_ZN4llvm11MCAssembler6layoutEv(ptr noundef nonnull align 
   %24 = getelementptr inbounds nuw i8, ptr %.075148, i64 8
   %25 = load ptr, ptr %24, align 8
   store ptr %25, ptr %.074149, align 8
-  %26 = getelementptr inbounds i8, ptr %.075148, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %.075148, i64 16
   %27 = load ptr, ptr %26, align 8
   %28 = getelementptr inbounds i8, ptr %.075148, i64 24
   %.not79 = icmp eq ptr %28, %23
@@ -3150,7 +3150,7 @@ define dso_local void @_ZN4llvm11MCAssembler6layoutEv(ptr noundef nonnull align 
 ._crit_edge:                                      ; preds = %.lr.ph, %20
   %.074.lcssa = phi ptr [ %5, %20 ], [ %27, %.lr.ph ]
   %29 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %17) #11
-  %30 = getelementptr inbounds i8, ptr %14, i64 96
+  %30 = getelementptr inbounds nuw i8, ptr %14, i64 96
   store i32 0, ptr %30, align 8
   %31 = load ptr, ptr %5, align 8
   store i32 0, ptr %6, align 8
@@ -3675,7 +3675,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm11MCAssembler16relaxInstructionERNS
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 112
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %6, i64 16, i1 false)
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %8 = getelementptr inbounds i8, ptr %1, i64 128
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 128
   %9 = getelementptr inbounds i8, ptr %3, i64 32
   call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull %9, i64 noundef 6) #11
   %10 = call noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseIjE5emptyEv(ptr noundef nonnull align 8 dereferenceable(16) %8) #11
@@ -3698,11 +3698,11 @@ _ZN4llvm6MCInstC2ERKS0_.exit:                     ; preds = %5, %11
   %20 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15SmallVectorImplINS_9MCOperandEEaSERKS2_(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %7)
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %22 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %21) #11
-  %23 = getelementptr inbounds i8, ptr %1, i64 80
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 80
   store i32 0, ptr %23, align 8
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %25 = call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %24) #11
-  %26 = getelementptr inbounds i8, ptr %1, i64 48
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 48
   store i64 0, ptr %26, align 8
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %28 = load ptr, ptr %27, align 8
@@ -3735,7 +3735,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm11MCAssembler8relaxLEBERNS_13MCLEBF
   %9 = trunc i64 %8 to i32
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %11 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %10) #11
-  %12 = getelementptr inbounds i8, ptr %1, i64 80
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 80
   store i32 0, ptr %12, align 8
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %14 = load ptr, ptr %13, align 8
@@ -3830,7 +3830,7 @@ _ZN4llvm13encodeULEB128EmPhj.exit:                ; preds = %47
 57:                                               ; preds = %20, %_ZN4llvm13encodeULEB128EmPhj.exit, %56, %22
   %.0 = phi i32 [ %9, %22 ], [ %.sroa.speculated, %56 ], [ %.sroa.speculated, %_ZN4llvm13encodeULEB128EmPhj.exit ], [ %9, %20 ]
   %58 = call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %7) #11
-  %59 = getelementptr inbounds i8, ptr %1, i64 48
+  %59 = getelementptr inbounds nuw i8, ptr %1, i64 48
   store i64 0, ptr %59, align 8
   %60 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i32 2, ptr %60, align 8
@@ -4196,11 +4196,11 @@ define dso_local noundef zeroext i1 @_ZN4llvm11MCAssembler18relaxDwarfLineAddrER
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %22 = load i64, ptr %21, align 8
   %23 = call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %16) #11
-  %24 = getelementptr inbounds i8, ptr %1, i64 48
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 48
   store i64 0, ptr %24, align 8
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %26 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %25) #11
-  %27 = getelementptr inbounds i8, ptr %1, i64 80
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 80
   store i32 0, ptr %27, align 8
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %.sroa.0.0.copyload.i = load i24, ptr %28, align 8
@@ -4261,11 +4261,11 @@ define dso_local noundef zeroext i1 @_ZN4llvm11MCAssembler27relaxDwarfCallFrameF
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %29 = call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %28) #11
   %30 = call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %28) #11
-  %31 = getelementptr inbounds i8, ptr %1, i64 48
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 48
   store i64 0, ptr %31, align 8
   %32 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %33 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %32) #11
-  %34 = getelementptr inbounds i8, ptr %1, i64 80
+  %34 = getelementptr inbounds nuw i8, ptr %1, i64 80
   store i32 0, ptr %34, align 8
   %35 = load i64, ptr %4, align 8
   call void @_ZN4llvm19MCDwarfFrameEmitter16encodeAdvanceLocERNS_9MCContextEmRNS_15SmallVectorImplIcEE(ptr noundef nonnull align 8 dereferenceable(2432) %16, i64 noundef %35, ptr noundef nonnull align 8 dereferenceable(24) %28) #11
@@ -4322,7 +4322,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm11MCAssembler20relaxPseudoProbeAddr
   %8 = load ptr, ptr %7, align 8
   %9 = call noundef zeroext i1 @_ZNK4llvm6MCExpr21evaluateKnownAbsoluteERlRKNS_11MCAssemblerE(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(372) %0) #11
   %10 = call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %5) #11
-  %11 = getelementptr inbounds i8, ptr %1, i64 48
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 48
   store i64 0, ptr %11, align 8
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 2, ptr %12, align 8
@@ -4338,7 +4338,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm11MCAssembler20relaxPseudoProbeAddr
   call void @_ZN4llvm11raw_ostream16SetBufferAndModeEPcmNS0_10BufferKindE(ptr noundef nonnull align 8 dereferenceable(48) %4, ptr noundef null, i64 noundef 0, i32 noundef 0) #11
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %18 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %17) #11
-  %19 = getelementptr inbounds i8, ptr %1, i64 80
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 80
   store i32 0, ptr %19, align 8
   %20 = load i64, ptr %3, align 8
   %21 = trunc i64 %6 to i32
@@ -4417,7 +4417,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm11MCAssembler13relaxFragmentERNS_10
   %37 = load ptr, ptr %36, align 8
   %38 = call noundef zeroext i1 @_ZNK4llvm6MCExpr21evaluateKnownAbsoluteERlRKNS_11MCAssemblerE(ptr noundef nonnull align 8 dereferenceable(16) %37, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(372) %0) #11
   %39 = call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %34) #11
-  %40 = getelementptr inbounds i8, ptr %1, i64 48
+  %40 = getelementptr inbounds nuw i8, ptr %1, i64 48
   store i64 0, ptr %40, align 8
   %41 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 2, ptr %41, align 8
@@ -4433,7 +4433,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm11MCAssembler13relaxFragmentERNS_10
   call void @_ZN4llvm11raw_ostream16SetBufferAndModeEPcmNS0_10BufferKindE(ptr noundef nonnull align 8 dereferenceable(48) %4, ptr noundef null, i64 noundef 0, i32 noundef 0) #11
   %46 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %47 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %46) #11
-  %48 = getelementptr inbounds i8, ptr %1, i64 80
+  %48 = getelementptr inbounds nuw i8, ptr %1, i64 80
   store i32 0, ptr %48, align 8
   %49 = load i64, ptr %3, align 8
   %50 = trunc i64 %35 to i32

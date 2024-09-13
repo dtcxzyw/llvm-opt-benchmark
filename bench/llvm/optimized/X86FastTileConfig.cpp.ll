@@ -297,7 +297,7 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_117X86FastTileConfig20runOnM
   %57 = tail call noundef ptr %56(ptr noundef nonnull align 8 dereferenceable(288) %53) #13
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr %57, ptr %58, align 8
-  %59 = getelementptr inbounds i8, ptr %1, i64 328
+  %59 = getelementptr inbounds nuw i8, ptr %1, i64 328
   %60 = getelementptr inbounds nuw i8, ptr %1, i64 320
   %.sroa.014.019 = load ptr, ptr %59, align 8
   %.not1720 = icmp eq ptr %.sroa.014.019, %60
@@ -507,7 +507,7 @@ _ZL9isTileDefPN4llvm19MachineRegisterInfoERNS_12MachineInstrE.exit.i: ; preds = 
   %162 = load ptr, ptr %161, align 8
   %163 = getelementptr inbounds nuw i8, ptr %162, i64 4
   %164 = load i32, ptr %163, align 4
-  %165 = getelementptr inbounds i8, ptr %.040181.i, i64 16
+  %165 = getelementptr inbounds nuw i8, ptr %.040181.i, i64 16
   %166 = load ptr, ptr %165, align 8
   %167 = getelementptr inbounds nuw i8, ptr %166, i64 4
   %168 = load i32, ptr %167, align 4

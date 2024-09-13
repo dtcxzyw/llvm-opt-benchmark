@@ -221,7 +221,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__32TraceReporterDataSourceColle
   store ptr null, ptr %5, align 8
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__32TraceReporterDataSourceCollectorE, i64 16), ptr %0, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %7 = getelementptr inbounds i8, ptr %0, i64 40
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false)
   %9 = load ptr, ptr %8, align 8
@@ -232,7 +232,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__32TraceReporterDataSourceColle
   br i1 %.not.i.i.not.i, label %_ZNSt8functionIFbvEEC2EOS1_.exit, label %12
 
 12:                                               ; preds = %2
-  %13 = getelementptr inbounds i8, ptr %0, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false)
   %14 = load ptr, ptr %10, align 8
   store ptr %14, ptr %13, align 8
@@ -241,7 +241,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__32TraceReporterDataSourceColle
 
 _ZNSt8functionIFbvEEC2EOS1_.exit:                 ; preds = %2, %12
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %16 = getelementptr inbounds i8, ptr %0, i64 56
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store ptr null, ptr %16, align 8
   %17 = invoke noundef ptr @_ZN3tbb6detail2r122cache_aligned_allocateEm(i64 noundef 768)
           to label %.noexc unwind label %80
@@ -426,7 +426,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBa
 
 92:                                               ; preds = %.body, %80
   %.pn.pn = phi { ptr, i32 } [ %.pn, %.body ], [ %81, %80 ]
-  %93 = getelementptr inbounds i8, ptr %0, i64 32
+  %93 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %94 = load ptr, ptr %93, align 8
   %.not.i.i = icmp eq ptr %94, null
   br i1 %.not.i.i, label %_ZNSt8functionIFbvEED2Ev.exit, label %95
@@ -453,7 +453,7 @@ declare i32 @__gxx_personality_v0(...)
 ; Function Attrs: mustprogress uwtable
 define void @_ZN32pxrInternal_v0_24__pxrReserved__32TraceReporterDataSourceCollector18_OnTraceCollectionERKNS_24TraceCollectionAvailableE(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1) #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca ptr, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 32
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load ptr, ptr %4, align 8
   %.not.i.i = icmp eq ptr %5, null
   br i1 %.not.i.i, label %6, label %_ZNKSt8functionIFbvEEclEv.exit
@@ -464,14 +464,14 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__32TraceReporterDataSourceColle
 
 _ZNKSt8functionIFbvEEclEv.exit:                   ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %8 = getelementptr inbounds i8, ptr %0, i64 40
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %9 = load ptr, ptr %8, align 8
   %10 = tail call noundef zeroext i1 %9(ptr noundef nonnull align 8 dereferenceable(16) %7)
   br i1 %10, label %11, label %44
 
 11:                                               ; preds = %_ZNKSt8functionIFbvEEclEv.exit
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 56
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 512
   %16 = atomicrmw add ptr %15, i64 1 seq_cst, align 8
@@ -488,7 +488,7 @@ _ZNKSt8functionIFbvEEclEv.exit:                   ; preds = %2
   %25 = load ptr, ptr %12, align 8
   store ptr %25, ptr %24, align 8
   %26 = getelementptr inbounds nuw i8, ptr %24, i64 8
-  %27 = getelementptr inbounds i8, ptr %1, i64 16
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %28 = load ptr, ptr %27, align 8
   store ptr %28, ptr %26, align 8
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %28, null
@@ -646,7 +646,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__14TraceCollector11GetInstanceEv.exit: ; pre
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %8 = getelementptr inbounds i8, ptr %1, i64 56
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -1161,7 +1161,7 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__32TraceReporterDa
           to label %3 unwind label %.loopexit.split-lp.i
 
 3:                                                ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %0, i64 56
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %5 = load ptr, ptr %4, align 8
   br label %6
 
@@ -1208,7 +1208,7 @@ _ZN3tbb6detail2d220concurrent_queue_repISt10shared_ptrIN32pxrInternal_v0_24__pxr
   unreachable
 
 _ZN3tbb6detail2d216concurrent_queueISt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__15TraceCollectionEENS0_2d123cache_aligned_allocatorIS6_EEED2Ev.exit: ; preds = %_ZN3tbb6detail2d220concurrent_queue_repISt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__15TraceCollectionEENS0_2d123cache_aligned_allocatorIS6_EEE5clearERNS8_ISA_EE.exit.i
-  %16 = getelementptr inbounds i8, ptr %0, i64 32
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %17 = load ptr, ptr %16, align 8
   %.not.i.i = icmp eq ptr %17, null
   br i1 %.not.i.i, label %_ZNSt8functionIFbvEED2Ev.exit, label %18
@@ -1361,7 +1361,7 @@ define linkonce_odr noundef ptr @_ZN32pxrInternal_v0_24__pxrReserved__8TfNotice1
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 40
   %12 = load ptr, ptr %0, align 8
   store ptr %12, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %6, i64 48
+  %13 = getelementptr inbounds nuw i8, ptr %6, i64 48
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %15 = load ptr, ptr %14, align 8
   store ptr %15, ptr %13, align 8
@@ -1437,7 +1437,7 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__8TfNotice10_Deliv
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
   tail call void %4(ptr noundef nonnull align 8 dereferenceable(8) %2) #12
-  %5 = getelementptr inbounds i8, ptr %0, i64 48
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %6 = load ptr, ptr %5, align 8
   %.not.i.i.i.i = icmp eq ptr %6, null
   br i1 %.not.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_32TraceReporterDataSourceCollectorEED2Ev.exit, label %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i
@@ -1467,7 +1467,7 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__8TfNotice10_Deliv
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
   tail call void %4(ptr noundef nonnull align 8 dereferenceable(8) %2) #12
-  %5 = getelementptr inbounds i8, ptr %0, i64 48
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %6 = load ptr, ptr %5, align 8
   %.not.i.i.i.i.i = icmp eq ptr %6, null
   br i1 %.not.i.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__8TfNotice10_DelivererINS_9TfWeakPtrINS_32TraceReporterDataSourceCollectorEEENS_12TfAnyWeakPtrEMS3_FvRKNS_24TraceCollectionAvailableEES6_ED2Ev.exit, label %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i.i
@@ -1495,7 +1495,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__8TfNotice10_DelivererINS_9TfWeakPtrINS_32Tr
 define linkonce_odr noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__8TfNotice18_StandardDelivererINS0_10_DelivererINS_9TfWeakPtrINS_32TraceReporterDataSourceCollectorEEENS_12TfAnyWeakPtrEMS4_FvRKNS_24TraceCollectionAvailableEES7_EEE15_SendToListenerERKS0_RKNS_6TfTypeEPKNS_10TfWeakBaseEPKvRKSt9type_infoRKSt6vectorINS3_INS0_5ProbeEEESaIST_EE(ptr noundef nonnull align 8 dereferenceable(34) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef %3, ptr noundef %4, ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(24) %6) unnamed_addr #0 comdat align 2 {
   %8 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfCallContext", align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %10 = getelementptr inbounds i8, ptr %0, i64 48
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %11 = load ptr, ptr %10, align 8
   %.not.i.i.i.i.i.i = icmp eq ptr %11, null
   br i1 %.not.i.i.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__11get_pointerINS_9TfWeakPtrENS_32TraceReporterDataSourceCollectorEEEPT0_RKNS_15TfWeakPtrFacadeIT_S3_EE.exit.thread, label %_ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_10Tf_RemnantEEptEv.exit.i.i.i.i.i
@@ -1746,8 +1746,8 @@ define linkonce_odr noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__8TfNotice
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %14 = load ptr, ptr %9, align 8
   store ptr %14, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %2, i64 48
-  %16 = getelementptr inbounds i8, ptr %0, i64 48
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 48
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %17 = load ptr, ptr %16, align 8
   store ptr %17, ptr %15, align 8
   %.not.i.i.i.i.i = icmp eq ptr %17, null

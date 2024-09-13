@@ -1104,7 +1104,7 @@ _ZNKSt8functionIFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_EEclE
   %33 = getelementptr inbounds nuw i8, ptr %8, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %33, i8 0, i64 16, i1 false)
   store float 1.000000e+00, ptr %30, align 8
-  %34 = getelementptr inbounds i8, ptr %8, i64 40
+  %34 = getelementptr inbounds nuw i8, ptr %8, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %34, i8 0, i64 16, i1 false)
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__10TfNormPathERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %9, ptr noundef nonnull align 8 dereferenceable(32) %0, i1 noundef zeroext false)
           to label %35 unwind label %48
@@ -1769,8 +1769,8 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__8TfRmTreeERKNSt7__cxx1112basic
   tail call void @llvm.experimental.noalias.scope.decl(metadata !12)
   store ptr @_ZN32pxrInternal_v0_24__pxrReserved__L9Tf_RmTreeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPSt6vectorIS5_SaIS5_EERKSA_St8functionIFvS7_S7_EE, ptr %4, align 8, !alias.scope !12
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %7 = getelementptr inbounds i8, ptr %4, i64 24
-  %8 = getelementptr inbounds i8, ptr %4, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, i8 0, i64 32, i1 false), !alias.scope !12
   %10 = load ptr, ptr %9, align 8
@@ -1822,14 +1822,14 @@ _ZSt4bindIRFbRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPSt6vectorIS5
   %28 = load ptr, ptr %4, align 8
   store ptr %28, ptr %27, align 8
   %29 = getelementptr inbounds nuw i8, ptr %27, i64 8
-  %30 = getelementptr inbounds i8, ptr %27, i64 32
+  %30 = getelementptr inbounds nuw i8, ptr %27, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %29, i8 0, i64 24, i1 false)
   store ptr %26, ptr %30, align 8
   %.not.i.i.not.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %25, null
   br i1 %.not.i.i.not.i.i.i.i.i.i.i.i.i.i.i, label %49, label %31
 
 31:                                               ; preds = %.noexc
-  %32 = getelementptr inbounds i8, ptr %27, i64 24
+  %32 = getelementptr inbounds nuw i8, ptr %27, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %29, ptr noundef nonnull align 8 dereferenceable(16) %6, i64 16, i1 false)
   store ptr %25, ptr %32, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, i8 0, i64 16, i1 false)
@@ -2754,7 +2754,7 @@ _ZNKSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__9Tf_FileIdES1_SaIS1_ENSt8_
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr ptr @_ZNSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__9Tf_FileIdES1_SaIS1_ENSt8__detail9_IdentityESt8equal_toIS1_ENS0_6TfHashENS3_18_Mod_range_hashingENS3_20_Default_ranged_hashENS3_20_Prime_rehash_policyENS3_17_Hashtable_traitsILb1ELb1ELb1EEEE21_M_insert_unique_nodeEmmPNS3_10_Hash_nodeIS1_Lb1EEEm(ptr noundef nonnull align 8 dereferenceable(56) %0, i64 noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %7 = getelementptr inbounds i8, ptr %0, i64 40
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %8 = load i64, ptr %7, align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load i64, ptr %9, align 8
@@ -3839,9 +3839,9 @@ define linkonce_odr noundef zeroext i1 @_ZNSt14_Function_base13_Base_managerISt5
   %10 = load ptr, ptr %8, align 8
   store ptr %10, ptr %9, align 8
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %12 = getelementptr inbounds i8, ptr %9, i64 24
-  %13 = getelementptr inbounds i8, ptr %9, i64 32
-  %14 = getelementptr inbounds i8, ptr %8, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %9, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %9, i64 32
+  %14 = getelementptr inbounds nuw i8, ptr %8, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %11, i8 0, i64 32, i1 false)
   %15 = load ptr, ptr %14, align 8
   %.not.i.i.not.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %15, null
@@ -3853,7 +3853,7 @@ define linkonce_odr noundef zeroext i1 @_ZNSt14_Function_base13_Base_managerISt5
           to label %19 unwind label %23
 
 19:                                               ; preds = %16
-  %20 = getelementptr inbounds i8, ptr %8, i64 32
+  %20 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %21 = load ptr, ptr %20, align 8
   store ptr %21, ptr %13, align 8
   %22 = load ptr, ptr %14, align 8
@@ -3892,7 +3892,7 @@ _ZNSt14_Function_base13_Base_managerISt5_BindIFPFbRKNSt7__cxx1112basic_stringIcS
   br i1 %33, label %_ZNSt14_Function_base13_Base_managerISt5_BindIFPFbRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPSt6vectorIS7_SaIS7_EERKSC_St8functionIFvS9_S9_EEESt12_PlaceholderILi1EESL_ILi2EESL_ILi3EESI_EEE10_M_destroyERSt9_Any_dataSt17integral_constantIbLb0EE.exit, label %34
 
 34:                                               ; preds = %31
-  %35 = getelementptr inbounds i8, ptr %32, i64 24
+  %35 = getelementptr inbounds nuw i8, ptr %32, i64 24
   %36 = load ptr, ptr %35, align 8
   %.not.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %36, null
   br i1 %.not.i.i.i.i.i.i.i.i.i.i, label %_ZNSt5_BindIFPFbRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPSt6vectorIS5_SaIS5_EERKSA_St8functionIFvS7_S7_EEESt12_PlaceholderILi1EESJ_ILi2EESJ_ILi3EESG_EED2Ev.exit.i, label %37

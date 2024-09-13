@@ -304,11 +304,11 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_125AArch64CompressJumpTables
 14:                                               ; preds = %11, %2
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %16 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %15) #13
-  %17 = getelementptr inbounds i8, ptr %0, i64 80
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store i32 0, ptr %17, align 8
   %18 = load ptr, ptr %3, align 8
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 96
-  %20 = getelementptr inbounds i8, ptr %18, i64 104
+  %20 = getelementptr inbounds nuw i8, ptr %18, i64 104
   %21 = load ptr, ptr %20, align 8
   %22 = load ptr, ptr %19, align 8
   %23 = ptrtoint ptr %21 to i64
@@ -318,7 +318,7 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_125AArch64CompressJumpTables
   %27 = and i64 %26, 4294967295
   tail call void @_ZN4llvm15SmallVectorImplIiE10resizeImplILb0EEEvm(ptr noundef nonnull align 8 dereferenceable(16) %15, i64 noundef %27)
   %28 = load ptr, ptr %3, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 328
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 328
   %30 = getelementptr inbounds nuw i8, ptr %28, i64 320
   %.sroa.015.024.i = load ptr, ptr %29, align 8
   %.not25.i = icmp eq ptr %.sroa.015.024.i, %30
@@ -404,7 +404,7 @@ _ZN12_GLOBAL__N_125AArch64CompressJumpTables16computeBlockSizeERN4llvm17MachineB
 
 .loopexit.loopexit:                               ; preds = %_ZN12_GLOBAL__N_125AArch64CompressJumpTables16computeBlockSizeERN4llvm17MachineBasicBlockE.exit.thread.i
   %.pre = load ptr, ptr %3, align 8
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %.pre, i64 328
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 328
   %.sroa.024.037.pre = load ptr, ptr %.phi.trans.insert, align 8
   br label %.loopexit
 

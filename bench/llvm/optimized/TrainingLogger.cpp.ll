@@ -65,7 +65,7 @@ define dso_local void @_ZN4llvm6Logger11writeHeaderESt8optionalINS_10TensorSpecE
   call void @_ZN4llvm4json7OStream10arrayBeginEv(ptr noundef nonnull align 8 dereferenceable(176) %3) #10
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load ptr, ptr %7, align 8
   %.not7.i.i.i.i = icmp eq ptr %6, %8
   br i1 %.not7.i.i.i.i, label %"_ZN4llvm12function_refIFvvEE11callback_fnIZZNS_6Logger11writeHeaderESt8optionalINS_10TensorSpecEEENK3$_0clEvEUlvE_EEvl.exit.i.i", label %.lr.ph.i.i.i.i
@@ -376,7 +376,7 @@ define dso_local void @_ZN4llvm6Logger13logRewardImplEPKc(ptr noundef nonnull al
   %11 = call noundef i32 @_ZNK4llvm13StringMapImpl7FindKeyENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr %8, i64 %9, i32 noundef %10) #10
   %12 = icmp eq i32 %11, -1
   %13 = load ptr, ptr %6, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 128
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %15 = load i32, ptr %14, align 8
   %16 = zext i32 %15 to i64
   %17 = sext i32 %11 to i64
@@ -415,9 +415,9 @@ define dso_local void @_ZN4llvm6Logger13logRewardImplEPKc(ptr noundef nonnull al
 
 _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %28, %30
   %33 = load ptr, ptr %0, align 8
-  %34 = getelementptr inbounds i8, ptr %0, i64 96
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %35 = load i64, ptr %34, align 8
-  %36 = getelementptr inbounds i8, ptr %0, i64 104
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %37 = load i64, ptr %36, align 8
   %38 = mul i64 %37, %35
   %39 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %33, ptr noundef %1, i64 noundef %38) #10
@@ -466,13 +466,13 @@ define dso_local void @_ZN4llvm6LoggerC2ESt10unique_ptrINS_11raw_ostreamESt14def
   tail call void @_ZNSt6vectorIN4llvm10TensorSpecESaIS1_EEC2ERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 8 dereferenceable(24) %2)
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull align 8 dereferenceable(32) %3) #10
-  %12 = getelementptr inbounds i8, ptr %0, i64 64
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %14 = load i64, ptr %13, align 8
   store i64 %14, ptr %12, align 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 72
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 40
-  %17 = getelementptr inbounds i8, ptr %3, i64 48
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %18 = load ptr, ptr %17, align 8
   %19 = load ptr, ptr %16, align 8
   %20 = ptrtoint ptr %18 to i64
@@ -498,10 +498,10 @@ _ZNSt16allocator_traitsISaIlEE8allocateERS0_m.exit.i.i.i.i.i: ; preds = %24
 _ZNSt12_Vector_baseIlSaIlEEC2EmRKS0_.exit.i.i:    ; preds = %_ZNSt16allocator_traitsISaIlEE8allocateERS0_m.exit.i.i.i.i.i, %6
   %28 = phi ptr [ %27, %_ZNSt16allocator_traitsISaIlEE8allocateERS0_m.exit.i.i.i.i.i ], [ null, %6 ]
   store ptr %28, ptr %15, align 8
-  %29 = getelementptr inbounds i8, ptr %0, i64 80
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store ptr %28, ptr %29, align 8
   %30 = getelementptr inbounds i64, ptr %28, i64 %23
-  %31 = getelementptr inbounds i8, ptr %0, i64 88
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 88
   store ptr %30, ptr %31, align 8
   %32 = load ptr, ptr %16, align 8
   %33 = load ptr, ptr %17, align 8
@@ -518,13 +518,13 @@ _ZNSt12_Vector_baseIlSaIlEEC2EmRKS0_.exit.i.i:    ; preds = %_ZNSt16allocator_tr
 _ZN4llvm10TensorSpecC2ERKS0_.exit:                ; preds = %_ZNSt12_Vector_baseIlSaIlEEC2EmRKS0_.exit.i.i, %37
   %38 = getelementptr inbounds i8, ptr %28, i64 %36
   store ptr %38, ptr %29, align 8
-  %39 = getelementptr inbounds i8, ptr %0, i64 96
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %40 = getelementptr inbounds nuw i8, ptr %3, i64 64
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %39, ptr noundef nonnull align 8 dereferenceable(16) %40, i64 16, i1 false)
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store i8 %8, ptr %41, align 8
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  %43 = getelementptr inbounds i8, ptr %0, i64 140
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 140
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %42, i8 0, i64 20, i1 false)
   store i32 16, ptr %43, align 4
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 144
@@ -544,7 +544,7 @@ _ZN4llvm10TensorSpecC2ERKS0_.exit:                ; preds = %_ZNSt12_Vector_base
   store i64 %52, ptr %50, align 8
   %53 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %54 = getelementptr inbounds nuw i8, ptr %5, i64 40
-  %55 = getelementptr inbounds i8, ptr %5, i64 48
+  %55 = getelementptr inbounds nuw i8, ptr %5, i64 48
   %56 = load ptr, ptr %55, align 8
   %57 = load ptr, ptr %54, align 8
   %58 = ptrtoint ptr %56 to i64
@@ -555,9 +555,9 @@ _ZN4llvm10TensorSpecC2ERKS0_.exit:                ; preds = %_ZNSt12_Vector_base
   br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZNSt12_Vector_baseIlSaIlEEC2EmRKS0_.exit.i.i.i.i.i.i.i.i.i.thread, label %64
 
 _ZNSt12_Vector_baseIlSaIlEEC2EmRKS0_.exit.i.i.i.i.i.i.i.i.i.thread: ; preds = %49
-  %61 = getelementptr inbounds i8, ptr %7, i64 48
+  %61 = getelementptr inbounds nuw i8, ptr %7, i64 48
   %62 = getelementptr inbounds i8, ptr null, i64 %60
-  %63 = getelementptr inbounds i8, ptr %7, i64 56
+  %63 = getelementptr inbounds nuw i8, ptr %7, i64 56
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %53, i8 0, i64 16, i1 false)
   store ptr %62, ptr %63, align 8
   br label %_ZNSt22_Optional_payload_baseIN4llvm10TensorSpecEE12_M_constructIJRKS1_EEEvDpOT_.exit.i.i.i.i.i
@@ -573,10 +573,10 @@ _ZNSt12_Vector_baseIlSaIlEEC2EmRKS0_.exit.i.i.i.i.i.i.i.i.i.thread: ; preds = %4
 67:                                               ; preds = %64
   %68 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %60) #12
   store ptr %68, ptr %53, align 8
-  %69 = getelementptr inbounds i8, ptr %7, i64 48
+  %69 = getelementptr inbounds nuw i8, ptr %7, i64 48
   store ptr %68, ptr %69, align 8
   %70 = getelementptr inbounds i8, ptr %68, i64 %60
-  %71 = getelementptr inbounds i8, ptr %7, i64 56
+  %71 = getelementptr inbounds nuw i8, ptr %7, i64 56
   store ptr %70, ptr %71, align 8
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %68, ptr align 8 %57, i64 %60, i1 false)
   br label %_ZNSt22_Optional_payload_baseIN4llvm10TensorSpecEE12_M_constructIJRKS1_EEEvDpOT_.exit.i.i.i.i.i
@@ -606,7 +606,7 @@ _ZNSt8optionalIN4llvm10TensorSpecEEC2ERKS2_.exit: ; preds = %_ZN4llvm10TensorSpe
   br i1 %.not.i.i.i.i.i.i.i.i.i, label %_ZNSt22_Optional_payload_baseIN4llvm10TensorSpecEE10_M_destroyEv.exit.i.i.i.i, label %82
 
 82:                                               ; preds = %79
-  %83 = getelementptr inbounds i8, ptr %7, i64 56
+  %83 = getelementptr inbounds nuw i8, ptr %7, i64 56
   %84 = load ptr, ptr %83, align 8
   %85 = ptrtoint ptr %84 to i64
   %86 = ptrtoint ptr %81 to i64
@@ -670,7 +670,7 @@ _ZNSt12_Vector_baseIN4llvm10TensorSpecESaIS1_EEC2EmRKS2_.exit: ; preds = %2, %_Z
   store i64 %22, ptr %20, align 8
   %23 = getelementptr inbounds nuw i8, ptr %.010.i.i.i.i, i64 40
   %24 = getelementptr inbounds nuw i8, ptr %.sroa.04.09.i.i.i.i, i64 40
-  %25 = getelementptr inbounds i8, ptr %.sroa.04.09.i.i.i.i, i64 48
+  %25 = getelementptr inbounds nuw i8, ptr %.sroa.04.09.i.i.i.i, i64 48
   %26 = load ptr, ptr %25, align 8
   %27 = load ptr, ptr %24, align 8
   %28 = ptrtoint ptr %26 to i64
@@ -696,10 +696,10 @@ _ZNSt16allocator_traitsISaIlEE8allocateERS0_m.exit.i.i.i.i.i.i.i.i.i.i: ; preds 
 _ZNSt12_Vector_baseIlSaIlEEC2EmRKS0_.exit.i.i.i.i.i.i.i: ; preds = %_ZNSt16allocator_traitsISaIlEE8allocateERS0_m.exit.i.i.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i
   %36 = phi ptr [ %35, %_ZNSt16allocator_traitsISaIlEE8allocateERS0_m.exit.i.i.i.i.i.i.i.i.i.i ], [ null, %.lr.ph.i.i.i.i ]
   store ptr %36, ptr %23, align 8
-  %37 = getelementptr inbounds i8, ptr %.010.i.i.i.i, i64 48
+  %37 = getelementptr inbounds nuw i8, ptr %.010.i.i.i.i, i64 48
   store ptr %36, ptr %37, align 8
   %38 = getelementptr inbounds i64, ptr %36, i64 %31
-  %39 = getelementptr inbounds i8, ptr %.010.i.i.i.i, i64 56
+  %39 = getelementptr inbounds nuw i8, ptr %.010.i.i.i.i, i64 56
   store ptr %38, ptr %39, align 8
   %40 = load ptr, ptr %24, align 8
   %41 = load ptr, ptr %25, align 8

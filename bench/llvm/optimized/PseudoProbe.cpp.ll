@@ -248,7 +248,7 @@ _ZN4llvm8dyn_castINS_15PseudoProbeInstEKNS_11InstructionEEEDcPT0_.exit: ; preds 
   %27 = getelementptr inbounds i8, ptr %26, i64 32
   %28 = load ptr, ptr %27, align 8
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 24
-  %30 = getelementptr inbounds i8, ptr %28, i64 32
+  %30 = getelementptr inbounds nuw i8, ptr %28, i64 32
   %31 = load i32, ptr %30, align 8
   %32 = icmp ult i32 %31, 65
   %33 = load ptr, ptr %29, align 8
@@ -258,7 +258,7 @@ _ZN4llvm8dyn_castINS_15PseudoProbeInstEKNS_11InstructionEEEDcPT0_.exit: ; preds 
   %35 = getelementptr inbounds i8, ptr %26, i64 64
   %36 = load ptr, ptr %35, align 8
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 24
-  %38 = getelementptr inbounds i8, ptr %36, i64 32
+  %38 = getelementptr inbounds nuw i8, ptr %36, i64 32
   %39 = load i32, ptr %38, align 8
   %40 = icmp ult i32 %39, 65
   %41 = load ptr, ptr %37, align 8
@@ -268,7 +268,7 @@ _ZN4llvm8dyn_castINS_15PseudoProbeInstEKNS_11InstructionEEEDcPT0_.exit: ; preds 
   %43 = getelementptr inbounds i8, ptr %26, i64 96
   %44 = load ptr, ptr %43, align 8
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 24
-  %46 = getelementptr inbounds i8, ptr %44, i64 32
+  %46 = getelementptr inbounds nuw i8, ptr %44, i64 32
   %47 = load i32, ptr %46, align 8
   %48 = icmp ult i32 %47, 65
   %49 = load ptr, ptr %45, align 8
@@ -505,7 +505,7 @@ _ZN4llvm8dyn_castINS_15PseudoProbeInstENS_11InstructionEEEDcPT0_.exit: ; preds =
   %46 = getelementptr inbounds i8, ptr %45, i64 96
   %47 = load ptr, ptr %46, align 8
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 24
-  %49 = getelementptr inbounds i8, ptr %47, i64 32
+  %49 = getelementptr inbounds nuw i8, ptr %47, i64 32
   %50 = load i32, ptr %49, align 8
   %51 = icmp ult i32 %50, 65
   %52 = load ptr, ptr %48, align 8

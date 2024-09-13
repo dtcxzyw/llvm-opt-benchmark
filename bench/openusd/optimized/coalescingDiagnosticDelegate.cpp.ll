@@ -116,7 +116,7 @@ $_ZTIN32pxrInternal_v0_24__pxrReserved__15TfDiagnosticMgr8DelegateE = comdat any
 define void @_ZN32pxrInternal_v0_24__pxrReserved__36UsdUtilsCoalescingDiagnosticDelegateC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__36UsdUtilsCoalescingDiagnosticDelegateE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr null, ptr %3, align 8
   %4 = invoke noundef ptr @_ZN3tbb6detail2r122cache_aligned_allocateEm(i64 noundef 768)
           to label %.noexc unwind label %13
@@ -346,7 +346,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__36UsdUtilsCoalescingDiagnostic
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   store ptr null, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br label %_ZN3tbb6detail2d216concurrent_queueIPN32pxrInternal_v0_24__pxrReserved__16TfDiagnosticBaseENS0_2d123cache_aligned_allocatorIS5_EEE7try_popERS5_.exit
@@ -667,7 +667,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__36UsdUtilsCoalescingDiagnostic
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 120
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 120
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
-  %15 = getelementptr inbounds i8, ptr %5, i64 128
+  %15 = getelementptr inbounds nuw i8, ptr %5, i64 128
   store ptr null, ptr %15, align 8
   %16 = load ptr, ptr %14, align 8
   %.not.i.i.i = icmp eq ptr %16, null
@@ -703,7 +703,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__36UsdUtilsCoalescingDiagnostic
   %25 = getelementptr inbounds nuw i8, ptr %5, i64 136
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 136
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(9) %25, ptr noundef nonnull align 8 dereferenceable(9) %26, i64 9, i1 false)
-  %27 = getelementptr inbounds i8, ptr %0, i64 16
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %28 = load ptr, ptr %27, align 8
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 512
   %30 = atomicrmw add ptr %29, i64 1 seq_cst, align 8
@@ -767,7 +767,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__36UsdUtilsCoalescingDiagnostic
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 120
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 120
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
-  %15 = getelementptr inbounds i8, ptr %5, i64 128
+  %15 = getelementptr inbounds nuw i8, ptr %5, i64 128
   store ptr null, ptr %15, align 8
   %16 = load ptr, ptr %14, align 8
   %.not.i.i.i = icmp eq ptr %16, null
@@ -803,7 +803,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__36UsdUtilsCoalescingDiagnostic
   %25 = getelementptr inbounds nuw i8, ptr %5, i64 136
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 136
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(9) %25, ptr noundef nonnull align 8 dereferenceable(9) %26, i64 9, i1 false)
-  %27 = getelementptr inbounds i8, ptr %0, i64 16
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %28 = load ptr, ptr %27, align 8
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 512
   %30 = atomicrmw add ptr %29, i64 1 seq_cst, align 8
@@ -860,12 +860,12 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__36UsdUtilsCoalescingDiagnostic
   %16 = getelementptr inbounds nuw i8, ptr %5, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %15, i8 0, i64 16, i1 false)
   store float 1.000000e+00, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %5, i64 40
+  %17 = getelementptr inbounds nuw i8, ptr %5, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %17, i8 0, i64 16, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   store ptr null, ptr %6, align 8
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %19 = getelementptr inbounds i8, ptr %1, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %20 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %21 = getelementptr inbounds nuw i8, ptr %8, i64 40
   %22 = getelementptr inbounds nuw i8, ptr %9, i64 40
@@ -880,8 +880,8 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__36UsdUtilsCoalescingDiagnostic
   %31 = getelementptr inbounds nuw i8, ptr %12, i64 40
   %32 = getelementptr inbounds nuw i8, ptr %11, i64 72
   %33 = getelementptr inbounds i8, ptr %12, i64 72
-  %34 = getelementptr inbounds i8, ptr %11, i64 80
-  %35 = getelementptr inbounds i8, ptr %11, i64 88
+  %34 = getelementptr inbounds nuw i8, ptr %11, i64 80
+  %35 = getelementptr inbounds nuw i8, ptr %11, i64 88
   %36 = getelementptr inbounds i8, ptr %12, i64 40
   br label %_ZN3tbb6detail2d216concurrent_queueIPN32pxrInternal_v0_24__pxrReserved__16TfDiagnosticBaseENS0_2d123cache_aligned_allocatorIS5_EEE7try_popERS5_.exit.outer
 
@@ -1926,7 +1926,7 @@ _ZNSt16allocator_traitsISaIN32pxrInternal_v0_24__pxrReserved__40UsdUtilsCoalesci
 define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__40UsdUtilsCoalescingDiagnosticDelegateItemD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 80
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %5 = load ptr, ptr %4, align 8
   %.not4.i.i.i.i = icmp eq ptr %3, %5
   br i1 %.not4.i.i.i.i, label %_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__48UsdUtilsCoalescingDiagnosticDelegateUnsharedItemES1_EvT_S3_RSaIT0_E.exit.i, label %.lr.ph.i.i.i.i
@@ -1949,7 +1949,7 @@ _ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__48UsdUtilsCoalescingDiagnostic
   br i1 %.not.i.i.i, label %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__48UsdUtilsCoalescingDiagnosticDelegateUnsharedItemESaIS1_EED2Ev.exit, label %9
 
 9:                                                ; preds = %_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__48UsdUtilsCoalescingDiagnosticDelegateUnsharedItemES1_EvT_S3_RSaIT0_E.exit.i
-  %10 = getelementptr inbounds i8, ptr %0, i64 88
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %11 = load ptr, ptr %10, align 8
   %12 = ptrtoint ptr %11 to i64
   %13 = ptrtoint ptr %8 to i64
@@ -2017,7 +2017,7 @@ define linkonce_odr void @_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__40UsdU
   %.05.i.i.i = phi ptr [ %20, %_ZSt8_DestroyIN32pxrInternal_v0_24__pxrReserved__40UsdUtilsCoalescingDiagnosticDelegateItemEEvPT_.exit.i.i.i ], [ %2, %1 ]
   %5 = getelementptr inbounds nuw i8, ptr %.05.i.i.i, i64 72
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %.05.i.i.i, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %.05.i.i.i, i64 80
   %8 = load ptr, ptr %7, align 8
   %.not4.i.i.i.i.i.i.i.i.i = icmp eq ptr %6, %8
   br i1 %.not4.i.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__48UsdUtilsCoalescingDiagnosticDelegateUnsharedItemES1_EvT_S3_RSaIT0_E.exit.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i.i
@@ -2040,7 +2040,7 @@ _ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__48UsdUtilsCoalescingDiagnostic
   br i1 %.not.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyIN32pxrInternal_v0_24__pxrReserved__40UsdUtilsCoalescingDiagnosticDelegateItemEEvPT_.exit.i.i.i, label %12
 
 12:                                               ; preds = %_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__48UsdUtilsCoalescingDiagnosticDelegateUnsharedItemES1_EvT_S3_RSaIT0_E.exit.i.i.i.i.i.i
-  %13 = getelementptr inbounds i8, ptr %.05.i.i.i, i64 88
+  %13 = getelementptr inbounds nuw i8, ptr %.05.i.i.i, i64 88
   %14 = load ptr, ptr %13, align 8
   %15 = ptrtoint ptr %14 to i64
   %16 = ptrtoint ptr %11 to i64
@@ -2139,7 +2139,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__36UsdUtilsCoalescingDiagnostic
   %.05.i.i.i.i = phi ptr [ %22, %_ZSt8_DestroyIN32pxrInternal_v0_24__pxrReserved__40UsdUtilsCoalescingDiagnosticDelegateItemEEvPT_.exit.i.i.i.i ], [ %.pre, %._crit_edge ]
   %7 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i, i64 72
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %.05.i.i.i.i, i64 80
+  %9 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i, i64 80
   %10 = load ptr, ptr %9, align 8
   %.not4.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %8, %10
   br i1 %.not4.i.i.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__48UsdUtilsCoalescingDiagnosticDelegateUnsharedItemES1_EvT_S3_RSaIT0_E.exit.i.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i.i.i
@@ -2162,7 +2162,7 @@ _ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__48UsdUtilsCoalescingDiagnostic
   br i1 %.not.i.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyIN32pxrInternal_v0_24__pxrReserved__40UsdUtilsCoalescingDiagnosticDelegateItemEEvPT_.exit.i.i.i.i, label %14
 
 14:                                               ; preds = %_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__48UsdUtilsCoalescingDiagnosticDelegateUnsharedItemES1_EvT_S3_RSaIT0_E.exit.i.i.i.i.i.i.i
-  %15 = getelementptr inbounds i8, ptr %.05.i.i.i.i, i64 88
+  %15 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i, i64 88
   %16 = load ptr, ptr %15, align 8
   %17 = ptrtoint ptr %16 to i64
   %18 = ptrtoint ptr %13 to i64
@@ -2203,7 +2203,7 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__40UsdUtilsCoalescingDiagnosticDe
 .lr.ph:                                           ; preds = %2, %58
   %.sroa.014.018 = phi ptr [ %59, %58 ], [ %4, %2 ]
   %30 = getelementptr inbounds nuw i8, ptr %.sroa.014.018, i64 72
-  %31 = getelementptr inbounds i8, ptr %.sroa.014.018, i64 80
+  %31 = getelementptr inbounds nuw i8, ptr %.sroa.014.018, i64 80
   %32 = load ptr, ptr %31, align 8
   %33 = load ptr, ptr %30, align 8
   %34 = ptrtoint ptr %32 to i64
@@ -3192,12 +3192,12 @@ _ZNSt16allocator_traitsISaIN32pxrInternal_v0_24__pxrReserved__40UsdUtilsCoalesci
   %42 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 72
   %43 = load ptr, ptr %42, align 8, !alias.scope !34, !noalias !31
   store ptr %43, ptr %41, align 8, !alias.scope !31, !noalias !34
-  %44 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 80
-  %45 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 80
+  %44 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 80
+  %45 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 80
   %46 = load ptr, ptr %45, align 8, !alias.scope !34, !noalias !31
   store ptr %46, ptr %44, align 8, !alias.scope !31, !noalias !34
-  %47 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 88
-  %48 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 88
+  %47 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 88
+  %48 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 88
   %49 = load ptr, ptr %48, align 8, !alias.scope !34, !noalias !31
   store ptr %49, ptr %47, align 8, !alias.scope !31, !noalias !34
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %42, i8 0, i64 24, i1 false), !alias.scope !34, !noalias !31
@@ -3231,12 +3231,12 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__40UsdUtilsCoalescingDiagnosticDe
   %59 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i29, i64 72
   %60 = load ptr, ptr %59, align 8, !alias.scope !40, !noalias !37
   store ptr %60, ptr %58, align 8, !alias.scope !37, !noalias !40
-  %61 = getelementptr inbounds i8, ptr %.012.i.i.i28, i64 80
-  %62 = getelementptr inbounds i8, ptr %.0911.i.i.i29, i64 80
+  %61 = getelementptr inbounds nuw i8, ptr %.012.i.i.i28, i64 80
+  %62 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i29, i64 80
   %63 = load ptr, ptr %62, align 8, !alias.scope !40, !noalias !37
   store ptr %63, ptr %61, align 8, !alias.scope !37, !noalias !40
-  %64 = getelementptr inbounds i8, ptr %.012.i.i.i28, i64 88
-  %65 = getelementptr inbounds i8, ptr %.0911.i.i.i29, i64 88
+  %64 = getelementptr inbounds nuw i8, ptr %.012.i.i.i28, i64 88
+  %65 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i29, i64 88
   %66 = load ptr, ptr %65, align 8, !alias.scope !40, !noalias !37
   store ptr %66, ptr %64, align 8, !alias.scope !37, !noalias !40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %59, i8 0, i64 24, i1 false), !alias.scope !40, !noalias !37

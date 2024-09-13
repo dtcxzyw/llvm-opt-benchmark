@@ -664,14 +664,14 @@ _ZNK4llvm6MDNode10getOperandEj.exit26:            ; preds = %53, %57
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 128
   %65 = load ptr, ptr %64, align 8
   %66 = getelementptr inbounds nuw i8, ptr %51, i64 24
-  %67 = getelementptr inbounds i8, ptr %51, i64 32
+  %67 = getelementptr inbounds nuw i8, ptr %51, i64 32
   %68 = load i32, ptr %67, align 8
   %69 = icmp ult i32 %68, 65
   %70 = load ptr, ptr %66, align 8
   %.0.in.i.i = select i1 %69, ptr %66, ptr %70
   %.0.i.i = load i64, ptr %.0.in.i.i, align 8
   %71 = getelementptr inbounds nuw i8, ptr %65, i64 24
-  %72 = getelementptr inbounds i8, ptr %65, i64 32
+  %72 = getelementptr inbounds nuw i8, ptr %65, i64 32
   %73 = load i32, ptr %72, align 8
   %74 = icmp ult i32 %73, 65
   %75 = load ptr, ptr %71, align 8
@@ -688,7 +688,7 @@ _ZNK4llvm6MDNode10getOperandEj.exit26:            ; preds = %53, %57
   br label %81
 
 81:                                               ; preds = %_ZNK4llvm6MDNode10getOperandEj.exit26, %2
-  %82 = getelementptr inbounds i8, ptr %1, i64 32
+  %82 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %83 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %.sroa.042.052 = load ptr, ptr %82, align 8
   %.not5153 = icmp eq ptr %.sroa.042.052, %83
@@ -852,15 +852,15 @@ define dso_local void @_ZN4llvm31DXILMetadataAnalysisPrinterPass3runERNS_6Module
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 0, ptr %12, align 8, !alias.scope !4
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %14 = getelementptr inbounds i8, ptr %0, i64 80
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store ptr %14, ptr %13, align 8, !alias.scope !4
-  %15 = getelementptr inbounds i8, ptr %0, i64 56
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store ptr %14, ptr %15, align 8, !alias.scope !4
-  %16 = getelementptr inbounds i8, ptr %0, i64 64
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i32 2, ptr %16, align 8, !alias.scope !4
-  %17 = getelementptr inbounds i8, ptr %0, i64 68
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 68
   store i32 0, ptr %17, align 4, !alias.scope !4
-  %18 = getelementptr inbounds i8, ptr %0, i64 72
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store i32 0, ptr %18, align 8, !alias.scope !4
   store i32 1, ptr %11, align 4, !alias.scope !4, !noalias !7
   store ptr @_ZN4llvm17PreservedAnalyses14AllAnalysesKeyE, ptr %8, align 8, !alias.scope !4, !noalias !7

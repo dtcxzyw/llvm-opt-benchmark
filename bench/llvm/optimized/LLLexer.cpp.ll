@@ -605,15 +605,15 @@ define dso_local noundef zeroext i1 @_ZNK4llvm7LLLexer5ErrorENS_5SMLocERKNS_5Twi
   %22 = getelementptr inbounds nuw i8, ptr %10, i64 128
   %23 = getelementptr inbounds nuw i8, ptr %4, i64 128
   %24 = load ptr, ptr %22, align 8
-  %25 = getelementptr inbounds i8, ptr %10, i64 136
-  %26 = getelementptr inbounds i8, ptr %10, i64 144
+  %25 = getelementptr inbounds nuw i8, ptr %10, i64 136
+  %26 = getelementptr inbounds nuw i8, ptr %10, i64 144
   %27 = load ptr, ptr %26, align 8
   %28 = load ptr, ptr %23, align 8
   store ptr %28, ptr %22, align 8
-  %29 = getelementptr inbounds i8, ptr %4, i64 136
+  %29 = getelementptr inbounds nuw i8, ptr %4, i64 136
   %30 = load ptr, ptr %29, align 8
   store ptr %30, ptr %25, align 8
-  %31 = getelementptr inbounds i8, ptr %4, i64 144
+  %31 = getelementptr inbounds nuw i8, ptr %4, i64 144
   %32 = load ptr, ptr %31, align 8
   store ptr %32, ptr %26, align 8
   %.not.i.i.i.i.i.i = icmp eq ptr %24, null
@@ -680,7 +680,7 @@ _ZN4llvm11SmallVectorINS_7SMFixItELj4EED2Ev.exit: ; preds = %_ZN4llvm23SmallVect
   br i1 %.not.i.i.i, label %_ZNSt6vectorISt4pairIjjESaIS1_EED2Ev.exit, label %14
 
 14:                                               ; preds = %_ZN4llvm11SmallVectorINS_7SMFixItELj4EED2Ev.exit
-  %15 = getelementptr inbounds i8, ptr %0, i64 144
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %16 = load ptr, ptr %15, align 8
   %17 = ptrtoint ptr %16 to i64
   %18 = ptrtoint ptr %13 to i64
@@ -958,17 +958,17 @@ define dso_local void @_ZN4llvm7LLLexerC2ENS_9StringRefERNS_9SourceMgrERNS_12SMD
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store ptr null, ptr %14, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7)
-  %15 = getelementptr inbounds i8, ptr %0, i64 120
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 120
   call void @_ZN4llvm6detail9IEEEFloatC1Ed(ptr noundef nonnull align 8 dereferenceable(24) %7, double noundef 0.000000e+00) #15
   %16 = tail call noundef nonnull align 1 ptr @_ZN4llvm11APFloatBase10IEEEdoubleEv() #17
   call void @_ZN4llvm7APFloat7StorageC1ENS_6detail9IEEEFloatERKNS_12fltSemanticsE(ptr noundef nonnull align 8 dereferenceable(24) %15, ptr noundef nonnull %7, ptr noundef nonnull align 1 %16) #15
   call void @_ZN4llvm6detail9IEEEFloatD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #15
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  %18 = getelementptr inbounds i8, ptr %0, i64 152
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 152
   store i32 0, ptr %18, align 8
   store i64 0, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %0, i64 156
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 156
   store i8 1, ptr %19, align 4
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 160
   store i8 0, ptr %20, align 8
@@ -996,7 +996,7 @@ define dso_local noundef range(i32 -1, 256) i32 @_ZN4llvm7LLLexer11getNextCharEv
 7:                                                ; preds = %1
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %11 = load i64, ptr %10, align 8
   %12 = getelementptr inbounds i8, ptr %9, i64 %11
   %.not = icmp eq ptr %2, %12
@@ -1021,7 +1021,7 @@ define dso_local noundef i32 @_ZN4llvm7LLLexer8LexTokenEv(ptr noundef nonnull al
   %.promoted = load ptr, ptr %0, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = load i64, ptr %9, align 8
   %11 = getelementptr inbounds i8, ptr %8, i64 %10
   br label %.backedge
@@ -5045,7 +5045,7 @@ define dso_local noundef range(i32 1, 513) i32 @_ZN4llvm7LLLexer11LexPositiveEv(
   %36 = ptrtoint ptr %34 to i64
   %37 = sub i64 %35, %36
   call void @_ZN4llvm7APFloatC1ERKNS_12fltSemanticsENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 1 %32, ptr %34, i64 %37) #15
-  %38 = getelementptr inbounds i8, ptr %0, i64 120
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %39 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %40 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN4llvm7APFloat7StorageaSEOS1_(ptr noundef nonnull align 8 dereferenceable(24) %38, ptr noundef nonnull align 8 dereferenceable(24) %39)
   %41 = load ptr, ptr %39, align 8
@@ -5058,7 +5058,7 @@ define dso_local noundef range(i32 1, 513) i32 @_ZN4llvm7LLLexer11LexPositiveEv(
   br label %_ZN4llvm7APFloatD2Ev.exit
 
 44:                                               ; preds = %.loopexit
-  %45 = getelementptr inbounds i8, ptr %2, i64 16
+  %45 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %46 = load ptr, ptr %45, align 8
   %.not.i.i.i.i = icmp eq ptr %46, null
   br i1 %.not.i.i.i.i, label %_ZN4llvm7APFloatD2Ev.exit, label %47
@@ -5131,7 +5131,7 @@ switch.early.test.i.i:                            ; preds = %.lr.ph.i
   %25 = getelementptr inbounds i8, ptr %21, i64 1
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %27 = load ptr, ptr %26, align 8
-  %28 = getelementptr inbounds i8, ptr %0, i64 16
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %29 = load i64, ptr %28, align 8
   %30 = getelementptr inbounds i8, ptr %27, i64 %29
   br label %.critedge
@@ -5314,7 +5314,7 @@ define dso_local void @_ZN4llvm7LLLexer15SkipLineCommentEv(ptr nocapture noundef
   %.promoted = load ptr, ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i64, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %3, i64 %5
   br label %_ZN4llvm7LLLexer11getNextCharEv.exit
@@ -5807,7 +5807,7 @@ switch.early.test.i.i41:                          ; preds = %.lr.ph.i34
   %85 = sub i64 %83, %84
   call void @_ZN4llvm6APSIntC1ENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(13) %4, ptr nonnull %7, i64 %85) #15
   %86 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  %87 = getelementptr inbounds i8, ptr %0, i64 152
+  %87 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %88 = load i32, ptr %87, align 8
   %89 = icmp ult i32 %88, 65
   br i1 %89, label %_ZN4llvm6APSIntD2Ev.exit, label %90
@@ -5829,7 +5829,7 @@ _ZN4llvm6APSIntD2Ev.exit:                         ; preds = %93, %90, %82
   store i32 %96, ptr %87, align 8
   %97 = getelementptr inbounds nuw i8, ptr %4, i64 12
   %98 = load i8, ptr %97, align 4
-  %99 = getelementptr inbounds i8, ptr %0, i64 156
+  %99 = getelementptr inbounds nuw i8, ptr %0, i64 156
   %100 = and i8 %98, 1
   store i8 %100, ptr %99, align 4
   br label %_ZN4llvm7APFloatD2Ev.exit
@@ -5893,7 +5893,7 @@ _ZN4llvm6APSIntD2Ev.exit:                         ; preds = %93, %90, %82
   %122 = ptrtoint ptr %7 to i64
   %123 = sub i64 %121, %122
   call void @_ZN4llvm7APFloatC1ERKNS_12fltSemanticsENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 1 %120, ptr nonnull %7, i64 %123) #15
-  %124 = getelementptr inbounds i8, ptr %0, i64 120
+  %124 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %125 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %126 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN4llvm7APFloat7StorageaSEOS1_(ptr noundef nonnull align 8 dereferenceable(24) %124, ptr noundef nonnull align 8 dereferenceable(24) %125)
   %127 = load ptr, ptr %125, align 8
@@ -5906,7 +5906,7 @@ _ZN4llvm6APSIntD2Ev.exit:                         ; preds = %93, %90, %82
   br label %_ZN4llvm7APFloatD2Ev.exit
 
 130:                                              ; preds = %.loopexit
-  %131 = getelementptr inbounds i8, ptr %5, i64 16
+  %131 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %132 = load ptr, ptr %131, align 8
   %.not.i.i.i.i = icmp eq ptr %132, null
   br i1 %.not.i.i.i.i, label %_ZN4llvm7APFloatD2Ev.exit, label %133
@@ -5935,7 +5935,7 @@ define dso_local noundef i32 @_ZN4llvm7LLLexer6LexVarENS_5lltok4KindES2_(ptr nou
   %12 = getelementptr inbounds i8, ptr %8, i64 1
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %16 = load i64, ptr %15, align 8
   %17 = getelementptr inbounds i8, ptr %14, i64 %16
   br label %.critedge
@@ -6296,7 +6296,7 @@ define dso_local noundef i32 @_ZN4llvm7LLLexer10ReadStringENS_5lltok4KindE(ptr n
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load i64, ptr %7, align 8
   %9 = getelementptr inbounds i8, ptr %6, i64 %8
   br label %.critedge
@@ -6629,7 +6629,7 @@ _ZN4llvm7LLLexer11HexIntToValEPKcS2_.exit:        ; preds = %40, %38, %51
   br label %_ZN4llvm7APFloatC2ERKNS_12fltSemanticsERKNS_5APIntE.exit
 
 _ZN4llvm7APFloatC2ERKNS_12fltSemanticsERKNS_5APIntE.exit: ; preds = %58, %59
-  %60 = getelementptr inbounds i8, ptr %0, i64 120
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %61 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN4llvm7APFloat7StorageaSEOS1_(ptr noundef nonnull align 8 dereferenceable(24) %60, ptr noundef nonnull align 8 dereferenceable(24) %56)
   %62 = load ptr, ptr %56, align 8
   %.not.i.i8 = icmp eq ptr %62, %57
@@ -6640,7 +6640,7 @@ _ZN4llvm7APFloatC2ERKNS_12fltSemanticsERKNS_5APIntE.exit: ; preds = %58, %59
   br label %_ZN4llvm7APFloatD2Ev.exit
 
 64:                                               ; preds = %_ZN4llvm7APFloatC2ERKNS_12fltSemanticsERKNS_5APIntE.exit
-  %65 = getelementptr inbounds i8, ptr %8, i64 16
+  %65 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %66 = load ptr, ptr %65, align 8
   %.not.i.i.i.i = icmp eq ptr %66, null
   br i1 %.not.i.i.i.i, label %_ZN4llvm6detail13DoubleAPFloatD2Ev.exit.i.i, label %67
@@ -6755,7 +6755,7 @@ _ZN4llvm7LLLexer16FP80HexToIntPairEPKcS2_Pm.exit: ; preds = %._crit_edge.i, %._c
   br label %_ZN4llvm7APFloatC2ERKNS_12fltSemanticsERKNS_5APIntE.exit12
 
 _ZN4llvm7APFloatC2ERKNS_12fltSemanticsERKNS_5APIntE.exit12: ; preds = %113, %114
-  %115 = getelementptr inbounds i8, ptr %0, i64 120
+  %115 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %116 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN4llvm7APFloat7StorageaSEOS1_(ptr noundef nonnull align 8 dereferenceable(24) %115, ptr noundef nonnull align 8 dereferenceable(24) %111)
   %117 = load ptr, ptr %111, align 8
   %.not.i.i13 = icmp eq ptr %117, %112
@@ -6766,7 +6766,7 @@ _ZN4llvm7APFloatC2ERKNS_12fltSemanticsERKNS_5APIntE.exit12: ; preds = %113, %114
   br label %_ZN4llvm7APFloatD2Ev.exit16
 
 119:                                              ; preds = %_ZN4llvm7APFloatC2ERKNS_12fltSemanticsERKNS_5APIntE.exit12
-  %120 = getelementptr inbounds i8, ptr %11, i64 16
+  %120 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %121 = load ptr, ptr %120, align 8
   %.not.i.i.i.i14 = icmp eq ptr %121, null
   br i1 %.not.i.i.i.i14, label %_ZN4llvm6detail13DoubleAPFloatD2Ev.exit.i.i15, label %122
@@ -6876,7 +6876,7 @@ _ZN4llvm7LLLexer12HexToIntPairEPKcS2_Pm.exit:     ; preds = %.loopexit.i, %._cri
   br label %_ZN4llvm7APFloatC2ERKNS_12fltSemanticsERKNS_5APIntE.exit24
 
 _ZN4llvm7APFloatC2ERKNS_12fltSemanticsERKNS_5APIntE.exit24: ; preds = %166, %167
-  %168 = getelementptr inbounds i8, ptr %0, i64 120
+  %168 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %169 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN4llvm7APFloat7StorageaSEOS1_(ptr noundef nonnull align 8 dereferenceable(24) %168, ptr noundef nonnull align 8 dereferenceable(24) %164)
   %170 = load ptr, ptr %164, align 8
   %.not.i.i25 = icmp eq ptr %170, %165
@@ -6887,7 +6887,7 @@ _ZN4llvm7APFloatC2ERKNS_12fltSemanticsERKNS_5APIntE.exit24: ; preds = %166, %167
   br label %_ZN4llvm7APFloatD2Ev.exit28
 
 172:                                              ; preds = %_ZN4llvm7APFloatC2ERKNS_12fltSemanticsERKNS_5APIntE.exit24
-  %173 = getelementptr inbounds i8, ptr %13, i64 16
+  %173 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %174 = load ptr, ptr %173, align 8
   %.not.i.i.i.i26 = icmp eq ptr %174, null
   br i1 %.not.i.i.i.i26, label %_ZN4llvm6detail13DoubleAPFloatD2Ev.exit.i.i27, label %175
@@ -6985,7 +6985,7 @@ _ZN4llvm7APFloatC2ERKNS_12fltSemanticsERKNS_5APIntE.exit43: ; preds = %.loopexit
   call void @_ZN4llvm5APIntC1EjNS_8ArrayRefImEE(ptr noundef nonnull align 8 dereferenceable(12) %16, i32 noundef 128, ptr nonnull %10, i64 2) #15
   %217 = getelementptr inbounds nuw i8, ptr %15, i64 8
   call void @_ZN4llvm6detail13DoubleAPFloatC1ERKNS_12fltSemanticsERKNS_5APIntE(ptr noundef nonnull align 8 dereferenceable(16) %217, ptr noundef nonnull align 1 %216, ptr noundef nonnull align 8 dereferenceable(12) %16) #15
-  %218 = getelementptr inbounds i8, ptr %0, i64 120
+  %218 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %219 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN4llvm7APFloat7StorageaSEOS1_(ptr noundef nonnull align 8 dereferenceable(24) %218, ptr noundef nonnull align 8 dereferenceable(24) %217)
   %220 = load ptr, ptr %217, align 8
   %.not.i.i44 = icmp eq ptr %220, %216
@@ -6996,7 +6996,7 @@ _ZN4llvm7APFloatC2ERKNS_12fltSemanticsERKNS_5APIntE.exit43: ; preds = %.loopexit
   br label %_ZN4llvm7APFloatD2Ev.exit47
 
 222:                                              ; preds = %_ZN4llvm7APFloatC2ERKNS_12fltSemanticsERKNS_5APIntE.exit43
-  %223 = getelementptr inbounds i8, ptr %15, i64 16
+  %223 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %224 = load ptr, ptr %223, align 8
   %.not.i.i.i.i45 = icmp eq ptr %224, null
   br i1 %.not.i.i.i.i45, label %_ZN4llvm6detail13DoubleAPFloatD2Ev.exit.i.i46, label %225
@@ -7086,7 +7086,7 @@ _ZN4llvm7LLLexer11HexIntToValEPKcS2_.exit56:      ; preds = %_ZN4llvm7LLLexer11H
   br label %_ZN4llvm7APFloatC2ERKNS_12fltSemanticsERKNS_5APIntE.exit58
 
 _ZN4llvm7APFloatC2ERKNS_12fltSemanticsERKNS_5APIntE.exit58: ; preds = %255, %256
-  %257 = getelementptr inbounds i8, ptr %0, i64 120
+  %257 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %258 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN4llvm7APFloat7StorageaSEOS1_(ptr noundef nonnull align 8 dereferenceable(24) %257, ptr noundef nonnull align 8 dereferenceable(24) %253)
   %259 = load ptr, ptr %253, align 8
   %.not.i.i59 = icmp eq ptr %259, %254
@@ -7097,7 +7097,7 @@ _ZN4llvm7APFloatC2ERKNS_12fltSemanticsERKNS_5APIntE.exit58: ; preds = %255, %256
   br label %_ZN4llvm7APFloatD2Ev.exit62
 
 261:                                              ; preds = %_ZN4llvm7APFloatC2ERKNS_12fltSemanticsERKNS_5APIntE.exit58
-  %262 = getelementptr inbounds i8, ptr %17, i64 16
+  %262 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %263 = load ptr, ptr %262, align 8
   %.not.i.i.i.i60 = icmp eq ptr %263, null
   br i1 %.not.i.i.i.i60, label %_ZN4llvm6detail13DoubleAPFloatD2Ev.exit.i.i61, label %264
@@ -7186,7 +7186,7 @@ _ZN4llvm7LLLexer11HexIntToValEPKcS2_.exit71:      ; preds = %_ZN4llvm7LLLexer11H
   br label %_ZN4llvm7APFloatC2ERKNS_12fltSemanticsERKNS_5APIntE.exit73
 
 _ZN4llvm7APFloatC2ERKNS_12fltSemanticsERKNS_5APIntE.exit73: ; preds = %293, %294
-  %295 = getelementptr inbounds i8, ptr %0, i64 120
+  %295 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %296 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN4llvm7APFloat7StorageaSEOS1_(ptr noundef nonnull align 8 dereferenceable(24) %295, ptr noundef nonnull align 8 dereferenceable(24) %291)
   %297 = load ptr, ptr %291, align 8
   %.not.i.i74 = icmp eq ptr %297, %292
@@ -7197,7 +7197,7 @@ _ZN4llvm7APFloatC2ERKNS_12fltSemanticsERKNS_5APIntE.exit73: ; preds = %293, %294
   br label %_ZN4llvm7APFloatD2Ev.exit77
 
 299:                                              ; preds = %_ZN4llvm7APFloatC2ERKNS_12fltSemanticsERKNS_5APIntE.exit73
-  %300 = getelementptr inbounds i8, ptr %19, i64 16
+  %300 = getelementptr inbounds nuw i8, ptr %19, i64 16
   %301 = load ptr, ptr %300, align 8
   %.not.i.i.i.i75 = icmp eq ptr %301, null
   br i1 %.not.i.i.i.i75, label %_ZN4llvm6detail13DoubleAPFloatD2Ev.exit.i.i76, label %302

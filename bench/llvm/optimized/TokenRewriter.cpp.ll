@@ -115,7 +115,7 @@ _ZNK5clang13SourceManager15getBufferOrNoneENS_6FileIDENS_14SourceLocationE.exit.
   br label %39
 
 _ZNK5clang13SourceManager15getBufferOrNoneENS_6FileIDENS_14SourceLocationE.exit.i: ; preds = %26
-  %30 = getelementptr inbounds i8, ptr %24, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %24, i64 16
   %.0.copyload.i.i.i.i.i.i = load i64, ptr %30, align 8, !noalias !7
   %31 = and i64 %.0.copyload.i.i.i.i.i.i, -8
   %32 = inttoptr i64 %31 to ptr
@@ -293,7 +293,7 @@ _ZNSt8_Rb_treeIN5clang14SourceLocationESt4pairIKS1_St14_List_iteratorINS0_5Token
 
 _ZNSt3mapIN5clang14SourceLocationESt14_List_iteratorINS0_5TokenEESt4lessIS1_ESaISt4pairIKS1_S4_EEE4findERS8_.exit: ; preds = %4, %_ZNSt8_Rb_treeIN5clang14SourceLocationESt4pairIKS1_St14_List_iteratorINS0_5TokenEEESt10_Select1stIS7_ESt4lessIS1_ESaIS7_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS7_EPSt18_Rb_tree_node_baseRS3_.exit.i.i, %14
   %.sroa.0.0.i.i = phi ptr [ %9, %_ZNSt8_Rb_treeIN5clang14SourceLocationESt4pairIKS1_St14_List_iteratorINS0_5TokenEEESt10_Select1stIS7_ESt4lessIS1_ESaIS7_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS7_EPSt18_Rb_tree_node_baseRS3_.exit.i.i ], [ %9, %4 ], [ %spec.select.i.i, %14 ]
-  %18 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i, i64 40
+  %18 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i, i64 40
   %.sroa.0.0.copyload = load ptr, ptr %18, align 8
   br label %19
 
@@ -339,7 +339,7 @@ _ZNSt3mapIN5clang14SourceLocationESt14_List_iteratorINS0_5TokenEESt4lessIS1_ESaI
   %14 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #14
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 32
   store i32 %.pre, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %14, i64 40
+  %16 = getelementptr inbounds nuw i8, ptr %14, i64 40
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %18 = load i64, ptr %17, align 8
   store i64 %18, ptr %16, align 8
@@ -430,7 +430,7 @@ _ZNSt8_Rb_treeIN5clang14SourceLocationESt4pairIKS1_St14_List_iteratorINS0_5Token
 
 _ZNSt3mapIN5clang14SourceLocationESt14_List_iteratorINS0_5TokenEESt4lessIS1_ESaISt4pairIKS1_S4_EEE4findERS8_.exit.i: ; preds = %22, %_ZNSt8_Rb_treeIN5clang14SourceLocationESt4pairIKS1_St14_List_iteratorINS0_5TokenEEESt10_Select1stIS7_ESt4lessIS1_ESaIS7_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS7_EPSt18_Rb_tree_node_baseRS3_.exit.i.i.i, %12
   %.sroa.0.0.i.i.i = phi ptr [ %17, %_ZNSt8_Rb_treeIN5clang14SourceLocationESt4pairIKS1_St14_List_iteratorINS0_5TokenEEESt10_Select1stIS7_ESt4lessIS1_ESaIS7_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS7_EPSt18_Rb_tree_node_baseRS3_.exit.i.i.i ], [ %17, %12 ], [ %spec.select.i.i.i, %22 ]
-  %26 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i.i, i64 40
+  %26 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i.i, i64 40
   %.sroa.0.0.copyload.i = load ptr, ptr %26, align 8
   br label %_ZN5clang13TokenRewriter13RemapIteratorESt20_List_const_iteratorINS_5TokenEE.exit
 
@@ -492,7 +492,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZN5
   br i1 %.not.i.i, label %54, label %17
 
 17:                                               ; preds = %5
-  %18 = getelementptr inbounds i8, ptr %0, i64 208
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %19 = udiv i32 %6, 42
   %20 = urem i32 %6, 42
   %.zext.i.i = zext nneg i32 %19 to i64
@@ -503,7 +503,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZN5
   br i1 %.not.i.i.i, label %24, label %_ZNK4llvm11PagedVectorIN5clang6SrcMgr9SLocEntryELm42EEixEm.exit.i.i
 
 24:                                               ; preds = %17
-  %25 = getelementptr inbounds i8, ptr %0, i64 224
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %.0.copyload.i.i.i.i.i.i = load i64, ptr %25, align 8
   %26 = and i64 %.0.copyload.i.i.i.i.i.i, -8
   %27 = inttoptr i64 %26 to ptr

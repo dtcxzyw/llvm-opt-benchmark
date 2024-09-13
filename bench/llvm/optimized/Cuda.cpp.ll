@@ -218,7 +218,7 @@ define dso_local noundef i32 @_ZN5clang13ToCudaVersionEN4llvm12VersionTupleE(i64
   br i1 %13, label %14, label %_ZN4llvmeqERKNS_12VersionTupleES2_.exit.thread
 
 14:                                               ; preds = %10
-  %15 = getelementptr inbounds i8, ptr %.06, i64 20
+  %15 = getelementptr inbounds nuw i8, ptr %.06, i64 20
   %16 = load i64, ptr %15, align 4
   %17 = xor i64 %16, %1
   %18 = and i64 %17, 9223372034707292159
@@ -599,7 +599,7 @@ define dso_local noundef zeroext i1 @_ZN5clang18CudaFeatureEnabledEN4llvm12Versi
   br i1 %14, label %15, label %_ZN4llvmeqERKNS_12VersionTupleES2_.exit.thread.i
 
 15:                                               ; preds = %11
-  %16 = getelementptr inbounds i8, ptr %.06.i, i64 20
+  %16 = getelementptr inbounds nuw i8, ptr %.06.i, i64 20
   %17 = load i64, ptr %16, align 4
   %18 = xor i64 %17, %1
   %19 = and i64 %18, 9223372034707292159

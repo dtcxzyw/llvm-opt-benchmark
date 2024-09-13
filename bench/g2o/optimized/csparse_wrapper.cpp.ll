@@ -24,7 +24,7 @@ $_ZN5Eigen12DenseStorageIiLin1ELin1ELi1ELi0EE6resizeElll = comdat any
 define void @_ZN3g2o7csparse7CSparseC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4)
   %2 = tail call noalias noundef nonnull dereferenceable(96) ptr @_Znwm(i64 noundef 96) #18, !noalias !4
-  %3 = getelementptr inbounds i8, ptr %2, i64 80
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 80
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %2, i8 0, i64 96, i1 false), !noalias !4
   store i32 -1, ptr %3, align 8, !noalias !4
   store ptr %2, ptr %0, align 8, !alias.scope !4
@@ -163,12 +163,12 @@ declare ptr @cs_di_free(ptr noundef) local_unnamed_addr #2
 define void @_ZN3g2o7csparse7CSparse10sparseViewEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.g2o::csparse::CSparse::SparseView") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1) local_unnamed_addr #5 align 2 {
   %3 = load ptr, ptr %1, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 40
-  %5 = getelementptr inbounds i8, ptr %3, i64 44
-  %6 = getelementptr inbounds i8, ptr %3, i64 48
-  %7 = getelementptr inbounds i8, ptr %3, i64 56
-  %8 = getelementptr inbounds i8, ptr %3, i64 64
-  %9 = getelementptr inbounds i8, ptr %3, i64 72
-  %10 = getelementptr inbounds i8, ptr %3, i64 88
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 44
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 56
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 64
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 72
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 88
   store ptr %5, ptr %0, align 8
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %6, ptr %11, align 8
@@ -213,7 +213,7 @@ define noundef zeroext i1 @_ZNK3g2o7csparse7CSparse5solveEPdS2_(ptr nocapture no
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load i32, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %4, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 48
   %8 = load i32, ptr %7, align 8
   %9 = icmp slt i32 %6, %8
   br i1 %9, label %10, label %_ZN3g2o7csparse7CSparse4Impl16prepareWorkspaceEv.exit
@@ -269,7 +269,7 @@ _ZN3g2o7csparse7CSparse4Impl16prepareWorkspaceEv.exit: ; preds = %3, %29
   br i1 %.not, label %42, label %37
 
 37:                                               ; preds = %_ZN3g2o7csparse7CSparse4Impl16prepareWorkspaceEv.exit
-  %38 = getelementptr inbounds i8, ptr %.pre7, i64 48
+  %38 = getelementptr inbounds nuw i8, ptr %.pre7, i64 48
   %39 = load i32, ptr %38, align 8
   %40 = sext i32 %39 to i64
   %41 = shl nsw i64 %40, 3
@@ -358,7 +358,7 @@ _ZN3g2o7csparse7CSparse12freeSymbolicEv.exit:     ; preds = %2, %5
   %9 = load ptr, ptr %0, align 8
   store ptr %8, ptr %9, align 8
   %10 = load ptr, ptr %0, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 48
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 48
   %12 = load i32, ptr %11, align 8
   %13 = tail call ptr @cs_di_pinv(ptr noundef %1, i32 noundef %12)
   %14 = load ptr, ptr %0, align 8
@@ -470,7 +470,7 @@ define noundef zeroext i1 @_ZN3g2o7csparse7CSparse9factorizeEv(ptr nocapture nou
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %4 = load i32, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %2, i64 48
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %6 = load i32, ptr %5, align 8
   %7 = icmp slt i32 %4, %6
   br i1 %7, label %8, label %_ZN3g2o7csparse7CSparse4Impl16prepareWorkspaceEv.exit
@@ -658,7 +658,7 @@ define linkonce_odr void @_ZN3g2o7csparse7CSparse4ImplD2Ev(ptr noundef nonnull a
 
 22:                                               ; preds = %21, %17
   store ptr null, ptr %18, align 8
-  %23 = getelementptr inbounds i8, ptr %0, i64 56
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %24 = load ptr, ptr %23, align 8
   %25 = icmp eq ptr %24, null
   br i1 %25, label %27, label %26
@@ -668,7 +668,7 @@ define linkonce_odr void @_ZN3g2o7csparse7CSparse4ImplD2Ev(ptr noundef nonnull a
   br label %27
 
 27:                                               ; preds = %26, %22
-  %28 = getelementptr inbounds i8, ptr %0, i64 64
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %29 = load ptr, ptr %28, align 8
   %30 = icmp eq ptr %29, null
   br i1 %30, label %32, label %31
@@ -678,7 +678,7 @@ define linkonce_odr void @_ZN3g2o7csparse7CSparse4ImplD2Ev(ptr noundef nonnull a
   br label %32
 
 32:                                               ; preds = %31, %27
-  %33 = getelementptr inbounds i8, ptr %0, i64 72
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %34 = load ptr, ptr %33, align 8
   %35 = icmp eq ptr %34, null
   br i1 %35, label %_ZN3g2o7csparse10CSparseExtD2Ev.exit, label %36

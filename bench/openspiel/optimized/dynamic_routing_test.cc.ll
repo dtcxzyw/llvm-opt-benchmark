@@ -701,7 +701,7 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %192) #15
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %191) #15
   %258 = load ptr, ptr %186, align 8
-  %259 = getelementptr inbounds i8, ptr %258, i64 88
+  %259 = getelementptr inbounds nuw i8, ptr %258, i64 88
   %260 = load i32, ptr %259, align 8
   store i32 %260, ptr %195, align 4
   store i32 2, ptr %196, align 4

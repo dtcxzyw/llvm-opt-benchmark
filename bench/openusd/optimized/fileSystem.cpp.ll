@@ -124,7 +124,7 @@ define noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__23ArchGetModific
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 88
   %8 = load i64, ptr %7, align 8
   %9 = sitofp i64 %8 to double
-  %10 = getelementptr inbounds i8, ptr %3, i64 96
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 96
   %11 = load i64, ptr %10, align 8
   %12 = sitofp i64 %11 to double
   %13 = tail call noundef double @llvm.fmuladd.f64(double %12, double 1.000000e-09, double %9)
@@ -143,7 +143,7 @@ define noundef double @_ZN32pxrInternal_v0_24__pxrReserved__23ArchGetModificatio
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %3 = load i64, ptr %2, align 8
   %4 = sitofp i64 %3 to double
-  %5 = getelementptr inbounds i8, ptr %0, i64 96
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %6 = load i64, ptr %5, align 8
   %7 = sitofp i64 %6 to double
   %8 = tail call double @llvm.fmuladd.f64(double %7, double 1.000000e-09, double %4)
@@ -692,7 +692,7 @@ define noundef double @_ZN32pxrInternal_v0_24__pxrReserved__17ArchGetAccessTimeE
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %3 = load i64, ptr %2, align 8
   %4 = sitofp i64 %3 to double
-  %5 = getelementptr inbounds i8, ptr %0, i64 80
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %6 = load i64, ptr %5, align 8
   %7 = sitofp i64 %6 to double
   %8 = tail call double @llvm.fmuladd.f64(double %7, double 1.000000e-09, double %4)
@@ -704,7 +704,7 @@ define noundef double @_ZN32pxrInternal_v0_24__pxrReserved__23ArchGetStatusChang
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %3 = load i64, ptr %2, align 8
   %4 = sitofp i64 %3 to double
-  %5 = getelementptr inbounds i8, ptr %0, i64 112
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %6 = load i64, ptr %5, align 8
   %7 = sitofp i64 %6 to double
   %8 = tail call double @llvm.fmuladd.f64(double %7, double 1.000000e-09, double %4)

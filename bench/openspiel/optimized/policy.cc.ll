@@ -1717,11 +1717,11 @@ define linkonce_odr void @_ZNK4absl7debian216strings_internal8SplitterINS1_13Max
   br i1 %12, label %_ZNK4absl7debian216strings_internal8SplitterINS1_13MaxSplitsImplINS0_6ByCharEEENS0_10AllowEmptyENS0_11string_viewEE5beginEv.exit.thread, label %13
 
 13:                                               ; preds = %2
-  %14 = getelementptr inbounds i8, ptr %5, i64 48
+  %14 = getelementptr inbounds nuw i8, ptr %5, i64 48
   %15 = load i32, ptr %14, align 8, !alias.scope !36
   %16 = add nsw i32 %15, 1
   store i32 %16, ptr %14, align 8, !alias.scope !36
-  %17 = getelementptr inbounds i8, ptr %5, i64 44
+  %17 = getelementptr inbounds nuw i8, ptr %5, i64 44
   %18 = load i32, ptr %17, align 4, !alias.scope !36
   %19 = icmp eq i32 %15, %18
   br i1 %19, label %20, label %22
@@ -1808,11 +1808,11 @@ _ZNK4absl7debian216strings_internal8SplitterINS1_13MaxSplitsImplINS0_6ByCharEEEN
   %.sroa.0.0.copyload.i.i = load ptr, ptr %50, align 8
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %50, i64 8
   %.sroa.2.0.copyload.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i, align 8
-  %51 = getelementptr inbounds i8, ptr %5, i64 48
+  %51 = getelementptr inbounds nuw i8, ptr %5, i64 48
   %52 = load i32, ptr %51, align 8
   %53 = add nsw i32 %52, 1
   store i32 %53, ptr %51, align 8
-  %54 = getelementptr inbounds i8, ptr %5, i64 44
+  %54 = getelementptr inbounds nuw i8, ptr %5, i64 44
   %55 = load i32, ptr %54, align 4
   %56 = icmp eq i32 %52, %55
   br i1 %56, label %57, label %59
@@ -2002,15 +2002,15 @@ _ZN4absl7debian216strings_internal23ConvertibleToStringViewC2ERKNSt7__cxx1112bas
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %47, i8 0, i64 16, i1 false), !noalias !50
   store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTVN10open_spiel13TabularPolicyE, i64 16), ptr %45, align 8, !noalias !50
   %48 = getelementptr inbounds nuw i8, ptr %45, i64 8
-  %49 = getelementptr inbounds i8, ptr %45, i64 56
+  %49 = getelementptr inbounds nuw i8, ptr %45, i64 56
   store ptr %49, ptr %48, align 8, !noalias !50
-  %50 = getelementptr inbounds i8, ptr %45, i64 16
+  %50 = getelementptr inbounds nuw i8, ptr %45, i64 16
   store i64 1, ptr %50, align 8, !noalias !50
-  %51 = getelementptr inbounds i8, ptr %45, i64 24
-  %52 = getelementptr inbounds i8, ptr %45, i64 40
+  %51 = getelementptr inbounds nuw i8, ptr %45, i64 24
+  %52 = getelementptr inbounds nuw i8, ptr %45, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %51, i8 0, i64 16, i1 false), !noalias !50
   store float 1.000000e+00, ptr %52, align 8, !noalias !50
-  %53 = getelementptr inbounds i8, ptr %45, i64 48
+  %53 = getelementptr inbounds nuw i8, ptr %45, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %53, i8 0, i64 16, i1 false), !noalias !50
   store ptr %45, ptr %0, align 8, !alias.scope !50
   %54 = getelementptr inbounds i8, ptr %10, i64 40
@@ -2687,20 +2687,20 @@ define void @_ZN10open_spiel13TabularPolicyC2ERKNS_4GameE(ptr noundef nonnull al
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   store ptr null, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 16
-  %10 = getelementptr inbounds i8, ptr %5, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %11 = load i64, ptr %10, align 8
   store i64 %11, ptr %9, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr null, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 32
-  %14 = getelementptr inbounds i8, ptr %5, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %14 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %15 = load i64, ptr %14, align 8
   store i64 %15, ptr %13, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 40
-  %17 = getelementptr inbounds i8, ptr %5, i64 40
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %17 = getelementptr inbounds nuw i8, ptr %5, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %16, ptr noundef nonnull align 8 dereferenceable(16) %17, i64 16, i1 false)
-  %18 = getelementptr inbounds i8, ptr %0, i64 56
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store ptr null, ptr %18, align 8
   store ptr %7, ptr %3, align 8
   invoke void @_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St6vectorIS6_IldESaIS9_EEESaISC_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSE_18_Mod_range_hashingENSE_20_Default_ranged_hashENSE_20_Prime_rehash_policyENSE_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_assignIRKSP_NSE_10_AllocNodeISaINSE_10_Hash_nodeISC_Lb1EEEEEEEEvOT_RKT0_(ptr noundef nonnull align 8 dereferenceable(56) %7, ptr noundef nonnull align 8 dereferenceable(56) %8, ptr noundef nonnull align 8 dereferenceable(8) %3)
@@ -2709,7 +2709,7 @@ define void @_ZN10open_spiel13TabularPolicyC2ERKNS_4GameE(ptr noundef nonnull al
 19:                                               ; preds = %2
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTVN10open_spiel13TabularPolicyE, i64 16), ptr %5, align 8
-  %20 = getelementptr inbounds i8, ptr %5, i64 24
+  %20 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %21 = load ptr, ptr %20, align 8
   %.not5.i.i.i.i.i = icmp eq ptr %21, null
   br i1 %.not5.i.i.i.i.i, label %_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St6vectorIS6_IldESaIS9_EEESaISC_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSE_18_Mod_range_hashingENSE_20_Default_ranged_hashENSE_20_Prime_rehash_policyENSE_17_Hashtable_traitsILb1ELb0ELb1EEEE5clearEv.exit.i.i.i, label %.lr.ph.i.i.i.i.i
@@ -2745,7 +2745,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS
   call void @llvm.memset.p0.i64(ptr align 8 %32, i8 0, i64 %34, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %20, i8 0, i64 16, i1 false)
   %35 = load ptr, ptr %8, align 8
-  %36 = getelementptr inbounds i8, ptr %5, i64 56
+  %36 = getelementptr inbounds nuw i8, ptr %5, i64 56
   %37 = icmp eq ptr %35, %36
   br i1 %37, label %_ZN10open_spiel13TabularPolicyD2Ev.exit, label %38
 
@@ -2779,7 +2779,7 @@ define void @_ZN10open_spiel15GetRandomPolicyERKNS_4GameEii(ptr dead_on_unwind n
 define linkonce_odr void @_ZN10open_spiel13TabularPolicyD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTVN10open_spiel13TabularPolicyE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 24
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
   %.not5.i.i.i.i = icmp eq ptr %4, null
   br i1 %.not5.i.i.i.i, label %_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St6vectorIS6_IldESaIS9_EEESaISC_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSE_18_Mod_range_hashingENSE_20_Default_ranged_hashENSE_20_Prime_rehash_policyENSE_17_Hashtable_traitsILb1ELb0ELb1EEEE5clearEv.exit.i.i, label %.lr.ph.i.i.i.i
@@ -2810,13 +2810,13 @@ _ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKNSt7__cxx1112basic_
 
 _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St6vectorIS6_IldESaIS9_EEESaISC_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSE_18_Mod_range_hashingENSE_20_Default_ranged_hashENSE_20_Prime_rehash_policyENSE_17_Hashtable_traitsILb1ELb0ELb1EEEE5clearEv.exit.i.i: ; preds = %_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS2_IldESaISB_EEELb1EEEEE18_M_deallocate_nodeEPSF_.exit.i.i.i.i, %1
   %15 = load ptr, ptr %2, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %17 = load i64, ptr %16, align 8
   %18 = shl i64 %17, 3
   tail call void @llvm.memset.p0.i64(ptr align 8 %15, i8 0, i64 %18, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
   %19 = load ptr, ptr %2, align 8
-  %20 = getelementptr inbounds i8, ptr %0, i64 56
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %21 = icmp eq ptr %19, %20
   br i1 %21, label %_ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorISt4pairIldESaIS8_EESt4hashIS5_ESt8equal_toIS5_ESaIS7_IKS5_SA_EEED2Ev.exit, label %22
 
@@ -2965,7 +2965,7 @@ define void @_ZNK10open_spiel13TabularPolicy8ToStringB5cxx11Ev(ptr dead_on_unwin
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; preds = %.noexc13
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #26
-  %14 = getelementptr inbounds i8, ptr %1, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %16 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %17 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -3152,7 +3152,7 @@ define void @_ZNK10open_spiel13TabularPolicy14ToStringSortedB5cxx11Ev(ptr dead_o
   %11 = alloca %"class.absl::debian2::AlphaNum", align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, i8 0, i64 24, i1 false)
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %13 = getelementptr inbounds i8, ptr %1, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %14 = load i64, ptr %13, align 8
   %15 = icmp ugt i64 %14, 288230376151711743
   br i1 %15, label %16, label %17
@@ -3183,7 +3183,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
   br label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE7reserveEm.exit
 
 _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE7reserveEm.exit: ; preds = %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit.i, %17
-  %23 = getelementptr inbounds i8, ptr %1, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %.sroa.042.054 = load ptr, ptr %23, align 8
   %.not55 = icmp eq ptr %.sroa.042.054, null
   %24 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -3499,15 +3499,15 @@ define void @_ZN10open_spiel20PartialTabularPolicyC2Ev(ptr noundef nonnull align
   %2 = getelementptr inbounds i8, ptr %0, i64 40
   store i64 0, ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 56
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store ptr %4, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 1, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 24
-  %7 = getelementptr inbounds i8, ptr %0, i64 40
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, i8 0, i64 16, i1 false)
   store float 1.000000e+00, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 48
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, i8 0, i64 16, i1 false)
   store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTVN10open_spiel20PartialTabularPolicyE, i64 16), ptr %0, align 8
   %9 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #24
@@ -3523,7 +3523,7 @@ _ZNSt10shared_ptrIN10open_spiel13UniformPolicyEED2Ev.exit: ; preds = %1
   store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTVN10open_spiel13UniformPolicyE, i64 16), ptr %12, align 8, !noalias !85
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr %12, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 72
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store ptr %9, ptr %14, align 8
   ret void
 
@@ -3544,20 +3544,20 @@ define void @_ZN10open_spiel20PartialTabularPolicyC2ERKSt13unordered_mapINSt7__c
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   store ptr null, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load i64, ptr %6, align 8
   store i64 %7, ptr %5, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr null, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %11 = load i64, ptr %10, align 8
   store i64 %11, ptr %9, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 40
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull align 8 dereferenceable(16) %13, i64 16, i1 false)
-  %14 = getelementptr inbounds i8, ptr %0, i64 56
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store ptr null, ptr %14, align 8
   store ptr %4, ptr %3, align 8
   call void @_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St6vectorIS6_IldESaIS9_EEESaISC_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSE_18_Mod_range_hashingENSE_20_Default_ranged_hashENSE_20_Prime_rehash_policyENSE_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_assignIRKSP_NSE_10_AllocNodeISaINSE_10_Hash_nodeISC_Lb1EEEEEEEEvOT_RKT0_(ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull align 8 dereferenceable(8) %3)
@@ -3576,7 +3576,7 @@ _ZNSt10shared_ptrIN10open_spiel13UniformPolicyEED2Ev.exit: ; preds = %2
   store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTVN10open_spiel13UniformPolicyE, i64 16), ptr %18, align 8, !noalias !88
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr %18, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %0, i64 72
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store ptr %15, ptr %20, align 8
   ret void
 
@@ -3594,20 +3594,20 @@ define void @_ZN10open_spiel20PartialTabularPolicyC2ERKSt13unordered_mapINSt7__c
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   store ptr null, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = load i64, ptr %7, align 8
   store i64 %8, ptr %6, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr null, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %12 = load i64, ptr %11, align 8
   store i64 %12, ptr %10, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 40
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %13, ptr noundef nonnull align 8 dereferenceable(16) %14, i64 16, i1 false)
-  %15 = getelementptr inbounds i8, ptr %0, i64 56
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store ptr null, ptr %15, align 8
   store ptr %5, ptr %4, align 8
   call void @_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St6vectorIS6_IldESaIS9_EEESaISC_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSE_18_Mod_range_hashingENSE_20_Default_ranged_hashENSE_20_Prime_rehash_policyENSE_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_assignIRKSP_NSE_10_AllocNodeISaINSE_10_Hash_nodeISC_Lb1EEEEEEEEvOT_RKT0_(ptr noundef nonnull align 8 dereferenceable(56) %5, ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull align 8 dereferenceable(8) %4)
@@ -3616,7 +3616,7 @@ define void @_ZN10open_spiel20PartialTabularPolicyC2ERKSt13unordered_mapINSt7__c
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %17 = load ptr, ptr %2, align 8
   store ptr %17, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 72
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %19 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %20 = load ptr, ptr %19, align 8
   store ptr %20, ptr %18, align 8
@@ -3921,9 +3921,9 @@ define void @_ZN10open_spiel21GetEmptyTabularPolicyERKNS_4GameEbi(ptr dead_on_un
   %26 = getelementptr inbounds nuw i8, ptr %6, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %25, i8 0, i64 16, i1 false)
   store float 1.000000e+00, ptr %26, align 8
-  %27 = getelementptr inbounds i8, ptr %6, i64 40
+  %27 = getelementptr inbounds nuw i8, ptr %6, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %27, i8 0, i64 16, i1 false)
-  %28 = getelementptr inbounds i8, ptr %1, i64 88
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %29 = load i32, ptr %28, align 8
   %.not = icmp eq i32 %29, 1
   br i1 %.not, label %38, label %30
@@ -4002,8 +4002,8 @@ _ZNSt10unique_ptrIN10open_spiel5StateESt14default_deleteIS1_EED2Ev.exit: ; preds
   %57 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %58 = icmp slt i32 %3, 0
   %59 = getelementptr inbounds nuw i8, ptr %21, i64 32
-  %60 = getelementptr inbounds i8, ptr %21, i64 40
-  %61 = getelementptr inbounds i8, ptr %21, i64 48
+  %60 = getelementptr inbounds nuw i8, ptr %21, i64 40
+  %61 = getelementptr inbounds nuw i8, ptr %21, i64 48
   %62 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %63 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %64 = getelementptr inbounds nuw i8, ptr %11, i64 16
@@ -4690,18 +4690,18 @@ _ZNKSt14default_deleteIN10open_spiel5StateEEclEPS1_.exit.i100: ; preds = %.body5
   %291 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   store ptr null, ptr %291, align 8
-  %292 = getelementptr inbounds i8, ptr %0, i64 16
+  %292 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %293 = load i64, ptr %24, align 8
   store i64 %293, ptr %292, align 8
-  %294 = getelementptr inbounds i8, ptr %0, i64 24
+  %294 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr null, ptr %294, align 8
-  %295 = getelementptr inbounds i8, ptr %0, i64 32
+  %295 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %296 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %297 = load i64, ptr %296, align 8
   store i64 %297, ptr %295, align 8
-  %298 = getelementptr inbounds i8, ptr %0, i64 40
+  %298 = getelementptr inbounds nuw i8, ptr %0, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %298, ptr noundef nonnull align 8 dereferenceable(16) %26, i64 16, i1 false)
-  %299 = getelementptr inbounds i8, ptr %0, i64 56
+  %299 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store ptr null, ptr %299, align 8
   store ptr %291, ptr %5, align 8
   invoke void @_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St6vectorIS6_IldESaIS9_EEESaISC_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSE_18_Mod_range_hashingENSE_20_Default_ranged_hashENSE_20_Prime_rehash_policyENSE_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_assignIRKSP_NSE_10_AllocNodeISaINSE_10_Hash_nodeISC_Lb1EEEEEEEEvOT_RKT0_(ptr noundef nonnull align 8 dereferenceable(56) %291, ptr noundef nonnull align 8 dereferenceable(56) %6, ptr noundef nonnull align 8 dereferenceable(8) %5)
@@ -4939,7 +4939,7 @@ define linkonce_odr void @_ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traits
   br i1 %.not.i.i.i, label %_ZNSt6vectorISt4pairIldESaIS1_EED2Ev.exit, label %4
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 48
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %6 = load ptr, ptr %5, align 8
   %7 = ptrtoint ptr %6 to i64
   %8 = ptrtoint ptr %3 to i64
@@ -5073,7 +5073,7 @@ _ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm429496
   %24 = getelementptr inbounds nuw i8, ptr %6, i64 4992
   store i64 624, ptr %24, align 8
   tail call void @_ZN10open_spiel21GetEmptyTabularPolicyERKNS_4GameEbi(ptr dead_on_unwind writable sret(%"class.open_spiel::TabularPolicy") align 8 %0, ptr noundef nonnull align 8 dereferenceable(280) %1, i1 noundef zeroext false, i32 noundef %4)
-  %25 = getelementptr inbounds i8, ptr %0, i64 24
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.sroa.059.087 = load ptr, ptr %25, align 8
   %.not88 = icmp eq ptr %.sroa.059.087, null
   br i1 %.not88, label %._crit_edge91, label %.lr.ph90
@@ -5509,11 +5509,11 @@ define void @_ZN10open_spiel22GetFlatDirichletPolicyERKNS_4GameEii(ptr dead_on_u
   store double 0x3FDA20BD700C2C3D, ptr %8, align 8
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 32
   store double 0.000000e+00, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %5, i64 40
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 40
   store double 1.000000e+00, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %5, i64 48
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 48
   store double 0.000000e+00, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %5, i64 56
+  %12 = getelementptr inbounds nuw i8, ptr %5, i64 56
   store i8 0, ptr %12, align 8
   call void @_ZN10open_spiel12SamplePolicyISt18gamma_distributionIdEEENS_13TabularPolicyERKNS_4GameEiRT_i(ptr dead_on_unwind writable sret(%"class.open_spiel::TabularPolicy") align 8 %0, ptr noundef nonnull align 8 dereferenceable(280) %1, i32 noundef %2, ptr noundef nonnull align 8 dereferenceable(64) %5, i32 noundef %3)
   ret void
@@ -5551,7 +5551,7 @@ _ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm429496
   %24 = getelementptr inbounds nuw i8, ptr %6, i64 4992
   store i64 624, ptr %24, align 8
   tail call void @_ZN10open_spiel21GetEmptyTabularPolicyERKNS_4GameEbi(ptr dead_on_unwind writable sret(%"class.open_spiel::TabularPolicy") align 8 %0, ptr noundef nonnull align 8 dereferenceable(280) %1, i1 noundef zeroext false, i32 noundef %4)
-  %25 = getelementptr inbounds i8, ptr %0, i64 24
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.sroa.056.082 = load ptr, ptr %25, align 8
   %.not83 = icmp eq ptr %.sroa.056.082, null
   br i1 %.not83, label %._crit_edge86, label %.lr.ph85
@@ -5909,9 +5909,9 @@ _ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm429496
   %53 = getelementptr inbounds nuw i8, ptr %8, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %52, i8 0, i64 16, i1 false)
   store float 1.000000e+00, ptr %53, align 8
-  %54 = getelementptr inbounds i8, ptr %8, i64 40
+  %54 = getelementptr inbounds nuw i8, ptr %8, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %54, i8 0, i64 16, i1 false)
-  %55 = getelementptr inbounds i8, ptr %1, i64 88
+  %55 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %56 = load i32, ptr %55, align 8
   %.not = icmp eq i32 %56, 1
   br i1 %.not, label %65, label %57
@@ -5945,7 +5945,7 @@ _ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm429496
   br label %548
 
 65:                                               ; preds = %_ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEC2Em.exit
-  %66 = getelementptr inbounds i8, ptr %1, i64 96
+  %66 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %67 = load i32, ptr %66, align 8
   %68 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store ptr %11, ptr %68, align 8
@@ -5995,8 +5995,8 @@ _ZNSt10unique_ptrIN10open_spiel5StateESt14default_deleteIS1_EED2Ev.exit: ; preds
   %89 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %90 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %91 = getelementptr inbounds nuw i8, ptr %28, i64 32
-  %92 = getelementptr inbounds i8, ptr %28, i64 40
-  %93 = getelementptr inbounds i8, ptr %28, i64 48
+  %92 = getelementptr inbounds nuw i8, ptr %28, i64 40
+  %93 = getelementptr inbounds nuw i8, ptr %28, i64 48
   %94 = icmp eq i32 %67, 1
   %95 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %96 = getelementptr inbounds nuw i8, ptr %13, i64 8
@@ -6473,7 +6473,7 @@ _ZNK4absl7debian218container_internal12raw_hash_setINS1_17NodeHashMapPolicyIiSt2
   store i32 %192, ptr %302, align 4, !noalias !131
   %304 = getelementptr inbounds nuw i8, ptr %302, i64 4
   store i32 0, ptr %304, align 4, !noalias !131
-  %305 = getelementptr inbounds i8, ptr %302, i64 8
+  %305 = getelementptr inbounds nuw i8, ptr %302, i64 8
   store i32 2147483647, ptr %305, align 4, !noalias !131
   store ptr %302, ptr %303, align 8, !noalias !131
   %.pre.i162 = load ptr, ptr %7, align 8, !noalias !131
@@ -7035,18 +7035,18 @@ _ZNKSt14default_deleteIN10open_spiel5StateEEclEPS1_.exit.i138: ; preds = %_ZNSt6
   %493 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   store ptr null, ptr %493, align 8
-  %494 = getelementptr inbounds i8, ptr %0, i64 16
+  %494 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %495 = load i64, ptr %51, align 8
   store i64 %495, ptr %494, align 8
-  %496 = getelementptr inbounds i8, ptr %0, i64 24
+  %496 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr null, ptr %496, align 8
-  %497 = getelementptr inbounds i8, ptr %0, i64 32
+  %497 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %498 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %499 = load i64, ptr %498, align 8
   store i64 %499, ptr %497, align 8
-  %500 = getelementptr inbounds i8, ptr %0, i64 40
+  %500 = getelementptr inbounds nuw i8, ptr %0, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %500, ptr noundef nonnull align 8 dereferenceable(16) %53, i64 16, i1 false)
-  %501 = getelementptr inbounds i8, ptr %0, i64 56
+  %501 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store ptr null, ptr %501, align 8
   store ptr %493, ptr %5, align 8
   invoke void @_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St6vectorIS6_IldESaIS9_EEESaISC_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSE_18_Mod_range_hashingENSE_20_Default_ranged_hashENSE_20_Prime_rehash_policyENSE_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_assignIRKSP_NSE_10_AllocNodeISaINSE_10_Hash_nodeISC_Lb1EEEEEEEEvOT_RKT0_(ptr noundef nonnull align 8 dereferenceable(56) %493, ptr noundef nonnull align 8 dereferenceable(56) %8, ptr noundef nonnull align 8 dereferenceable(8) %5)
@@ -7374,9 +7374,9 @@ define void @_ZN10open_spiel20GetFirstActionPolicyERKNS_4GameE(ptr dead_on_unwin
   %23 = getelementptr inbounds nuw i8, ptr %4, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %22, i8 0, i64 16, i1 false)
   store float 1.000000e+00, ptr %23, align 8
-  %24 = getelementptr inbounds i8, ptr %4, i64 40
+  %24 = getelementptr inbounds nuw i8, ptr %4, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %24, i8 0, i64 16, i1 false)
-  %25 = getelementptr inbounds i8, ptr %1, i64 88
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %26 = load i32, ptr %25, align 8
   %.not = icmp eq i32 %26, 1
   br i1 %.not, label %35, label %27
@@ -8239,18 +8239,18 @@ _ZNKSt14default_deleteIN10open_spiel5StateEEclEPS1_.exit.i100: ; preds = %_ZNSt6
   %321 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   store ptr null, ptr %321, align 8
-  %322 = getelementptr inbounds i8, ptr %0, i64 16
+  %322 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %323 = load i64, ptr %21, align 8
   store i64 %323, ptr %322, align 8
-  %324 = getelementptr inbounds i8, ptr %0, i64 24
+  %324 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr null, ptr %324, align 8
-  %325 = getelementptr inbounds i8, ptr %0, i64 32
+  %325 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %326 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %327 = load i64, ptr %326, align 8
   store i64 %327, ptr %325, align 8
-  %328 = getelementptr inbounds i8, ptr %0, i64 40
+  %328 = getelementptr inbounds nuw i8, ptr %0, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %328, ptr noundef nonnull align 8 dereferenceable(16) %23, i64 16, i1 false)
-  %329 = getelementptr inbounds i8, ptr %0, i64 56
+  %329 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store ptr null, ptr %329, align 8
   store ptr %321, ptr %3, align 8
   invoke void @_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St6vectorIS6_IldESaIS9_EEESaISC_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSE_18_Mod_range_hashingENSE_20_Default_ranged_hashENSE_20_Prime_rehash_policyENSE_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_assignIRKSP_NSE_10_AllocNodeISaINSE_10_Hash_nodeISC_Lb1EEEEEEEEvOT_RKT0_(ptr noundef nonnull align 8 dereferenceable(56) %321, ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef nonnull align 8 dereferenceable(8) %3)
@@ -8388,7 +8388,7 @@ define void @_ZNK10open_spiel21PreferredActionPolicy14GetStatePolicyERKNS_5State
   call void %10(ptr dead_on_unwind nonnull writable sret(%"class.std::vector.1") align 8 %5, ptr noundef nonnull align 8 dereferenceable(60) %2, i32 noundef %3)
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %1, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %14 = load ptr, ptr %13, align 8
   %.not32 = icmp eq ptr %12, %14
   br i1 %.not32, label %._crit_edge, label %.lr.ph
@@ -8669,15 +8669,15 @@ define void @_ZN10open_spiel15ToTabularPolicyERKNS_4GameEPKNS_6PolicyE(ptr dead_
   %10 = alloca %"class.std::unique_ptr.73", align 8
   store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTVN10open_spiel13TabularPolicyE, i64 16), ptr %0, align 8
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 56
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store ptr %12, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 1, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 24
-  %15 = getelementptr inbounds i8, ptr %0, i64 40
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %14, i8 0, i64 16, i1 false)
   store float 1.000000e+00, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 48
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %16, i8 0, i64 16, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
   %17 = load ptr, ptr %1, align 8
@@ -9293,9 +9293,9 @@ define void @_ZN10open_spiel19GetPrefActionPolicyERKNS_4GameERKSt6vectorIlSaIlEE
   br i1 %.not.i.i.i.i.i, label %.noexc3.i.thread, label %15
 
 .noexc3.i.thread:                                 ; preds = %3
-  %12 = getelementptr inbounds i8, ptr %4, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %13 = getelementptr inbounds i8, ptr null, i64 %11
-  %14 = getelementptr inbounds i8, ptr %4, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false)
   store ptr %13, ptr %14, align 8
   br label %_ZN10open_spiel21PreferredActionPolicyC2ERKSt6vectorIlSaIlEE.exit
@@ -9311,10 +9311,10 @@ define void @_ZN10open_spiel19GetPrefActionPolicyERKNS_4GameERKSt6vectorIlSaIlEE
 17:                                               ; preds = %15
   %18 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %11) #24
   store ptr %18, ptr %5, align 8
-  %19 = getelementptr inbounds i8, ptr %4, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %18, ptr %19, align 8
   %20 = getelementptr inbounds i8, ptr %18, i64 %11
-  %21 = getelementptr inbounds i8, ptr %4, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store ptr %20, ptr %21, align 8
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %18, ptr align 8 %8, i64 %11, i1 false)
   br label %_ZN10open_spiel21PreferredActionPolicyC2ERKSt6vectorIlSaIlEE.exit
@@ -9374,7 +9374,7 @@ define linkonce_odr void @_ZN10open_spiel21PreferredActionPolicyD2Ev(ptr noundef
   br i1 %.not.i.i.i, label %_ZNSt6vectorIlSaIlEED2Ev.exit, label %4
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load ptr, ptr %5, align 8
   %7 = ptrtoint ptr %6 to i64
   %8 = ptrtoint ptr %3 to i64
@@ -9470,15 +9470,15 @@ define void @_ZN10open_spiel20ToJointTabularPolicyERKSt6vectorINS_13TabularPolic
   %5 = alloca i32, align 4
   store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTVN10open_spiel13TabularPolicyE, i64 16), ptr %0, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 56
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store ptr %7, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 1, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 24
-  %10 = getelementptr inbounds i8, ptr %0, i64 40
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, i8 0, i64 16, i1 false)
   store float 1.000000e+00, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 48
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %11, i8 0, i64 16, i1 false)
   %12 = load ptr, ptr %1, align 8
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -9487,12 +9487,12 @@ define void @_ZN10open_spiel20ToJointTabularPolicyERKSt6vectorINS_13TabularPolic
   br i1 %.not41, label %._crit_edge, label %.lr.ph43
 
 .lr.ph43:                                         ; preds = %3
-  %15 = getelementptr inbounds i8, ptr %0, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 32
   br i1 %2, label %.lr.ph43.split.us, label %.lr.ph43.split
 
 .lr.ph43.split.us:                                ; preds = %.lr.ph43, %_ZN10open_spiel13TabularPolicy12ImportPolicyERKS0_.exit.us
   %.sroa.024.042.us = phi ptr [ %67, %_ZN10open_spiel13TabularPolicy12ImportPolicyERKS0_.exit.us ], [ %12, %.lr.ph43 ]
-  %16 = getelementptr inbounds i8, ptr %.sroa.024.042.us, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %.sroa.024.042.us, i64 24
   %.sroa.020.038.us = load ptr, ptr %16, align 8
   %.not3339.us = icmp eq ptr %.sroa.020.038.us, null
   br i1 %.not3339.us, label %_ZN10open_spiel13TabularPolicy12ImportPolicyERKS0_.exit.us, label %.lr.ph.us
@@ -9644,7 +9644,7 @@ _ZN10open_spiel13TabularPolicy12ImportPolicyERKS0_.exit.us: ; preds = %.noexc13.
 
 .lr.ph43.split:                                   ; preds = %.lr.ph43, %_ZN10open_spiel13TabularPolicy12ImportPolicyERKS0_.exit
   %.sroa.024.042 = phi ptr [ %79, %_ZN10open_spiel13TabularPolicy12ImportPolicyERKS0_.exit ], [ %12, %.lr.ph43 ]
-  %70 = getelementptr inbounds i8, ptr %.sroa.024.042, i64 24
+  %70 = getelementptr inbounds nuw i8, ptr %.sroa.024.042, i64 24
   %.sroa.08.011.i = load ptr, ptr %70, align 8
   %.not12.i = icmp eq ptr %.sroa.08.011.i, null
   br i1 %.not12.i, label %_ZN10open_spiel13TabularPolicy12ImportPolicyERKS0_.exit, label %.lr.ph.i
@@ -9759,7 +9759,7 @@ define linkonce_odr void @_ZN10open_spiel21PreferredActionPolicyD0Ev(ptr noundef
   br i1 %.not.i.i.i.i, label %_ZN10open_spiel21PreferredActionPolicyD2Ev.exit, label %4
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load ptr, ptr %5, align 8
   %7 = ptrtoint ptr %6 to i64
   %8 = ptrtoint ptr %3 to i64
@@ -9793,8 +9793,8 @@ define linkonce_odr void @_ZNK10open_spiel6Policy31GetStatePolicyAsParallelVecto
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %15 = getelementptr inbounds i8, ptr %0, i64 32
-  %16 = getelementptr inbounds i8, ptr %0, i64 40
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 40
   br label %26
 
 ._crit_edge.loopexit:                             ; preds = %_ZNSt6vectorIdSaIdEE9push_backERKd.exit
@@ -10025,8 +10025,8 @@ define linkonce_odr void @_ZNK10open_spiel6Policy31GetStatePolicyAsParallelVecto
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %15 = getelementptr inbounds i8, ptr %0, i64 32
-  %16 = getelementptr inbounds i8, ptr %0, i64 40
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 40
   br label %26
 
 ._crit_edge.loopexit:                             ; preds = %_ZNSt6vectorIdSaIdEE9push_backERKd.exit
@@ -10247,7 +10247,7 @@ define linkonce_odr void @_ZNK10open_spiel6Policy19GetStatePolicyAsMapERKNS_5Sta
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, i8 0, i64 16, i1 false)
   store float 1.000000e+00, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 40
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, i8 0, i64 16, i1 false)
   %10 = load ptr, ptr %1, align 8
   %11 = getelementptr inbounds i8, ptr %10, i64 48
@@ -10389,7 +10389,7 @@ define linkonce_odr void @_ZNK10open_spiel6Policy19GetStatePolicyAsMapERKNSt7__c
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, i8 0, i64 16, i1 false)
   store float 1.000000e+00, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 40
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, i8 0, i64 16, i1 false)
   %10 = load ptr, ptr %1, align 8
   %11 = getelementptr inbounds i8, ptr %10, i64 64
@@ -10628,7 +10628,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN10open_spiel20PartialTabularPolicyD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTVN10open_spiel20PartialTabularPolicyE, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 72
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i.i, label %_ZNSt10shared_ptrIN10open_spiel6PolicyEED2Ev.exit, label %4
@@ -10704,7 +10704,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
 _ZNSt10shared_ptrIN10open_spiel6PolicyEED2Ev.exit: ; preds = %1, %20, %33, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i
   store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTVN10open_spiel13TabularPolicyE, i64 16), ptr %0, align 8
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %39 = getelementptr inbounds i8, ptr %0, i64 24
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %40 = load ptr, ptr %39, align 8
   %.not5.i.i.i.i.i = icmp eq ptr %40, null
   br i1 %.not5.i.i.i.i.i, label %_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St6vectorIS6_IldESaIS9_EEESaISC_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSE_18_Mod_range_hashingENSE_20_Default_ranged_hashENSE_20_Prime_rehash_policyENSE_17_Hashtable_traitsILb1ELb0ELb1EEEE5clearEv.exit.i.i.i, label %.lr.ph.i.i.i.i.i
@@ -10735,13 +10735,13 @@ _ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKNSt7__cxx1112basic_
 
 _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St6vectorIS6_IldESaIS9_EEESaISC_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSE_18_Mod_range_hashingENSE_20_Default_ranged_hashENSE_20_Prime_rehash_policyENSE_17_Hashtable_traitsILb1ELb0ELb1EEEE5clearEv.exit.i.i.i: ; preds = %_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS2_IldESaISB_EEELb1EEEEE18_M_deallocate_nodeEPSF_.exit.i.i.i.i.i, %_ZNSt10shared_ptrIN10open_spiel6PolicyEED2Ev.exit
   %51 = load ptr, ptr %38, align 8
-  %52 = getelementptr inbounds i8, ptr %0, i64 16
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %53 = load i64, ptr %52, align 8
   %54 = shl i64 %53, 3
   tail call void @llvm.memset.p0.i64(ptr align 8 %51, i8 0, i64 %54, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %39, i8 0, i64 16, i1 false)
   %55 = load ptr, ptr %38, align 8
-  %56 = getelementptr inbounds i8, ptr %0, i64 56
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %57 = icmp eq ptr %55, %56
   br i1 %57, label %_ZN10open_spiel13TabularPolicyD2Ev.exit, label %58
 
@@ -10865,7 +10865,7 @@ define linkonce_odr void @_ZNK10open_spiel13TabularPolicy9SerializeEiNSt7__cxx11
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; preds = %.noexc26
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %13) #26
-  %50 = getelementptr inbounds i8, ptr %1, i64 32
+  %50 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %51 = load i64, ptr %50, align 8
   %52 = icmp eq i64 %51, 0
   br i1 %52, label %119, label %55
@@ -10881,7 +10881,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   br label %121
 
 55:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit
-  %56 = getelementptr inbounds i8, ptr %1, i64 24
+  %56 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %.sroa.049.056 = load ptr, ptr %56, align 8
   %.not5257 = icmp eq ptr %.sroa.049.056, null
   br i1 %.not5257, label %._crit_edge, label %.lr.ph
@@ -11115,7 +11115,7 @@ declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #13
 define linkonce_odr void @_ZN10open_spiel13TabularPolicyD0Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTVN10open_spiel13TabularPolicyE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 24
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
   %.not5.i.i.i.i.i = icmp eq ptr %4, null
   br i1 %.not5.i.i.i.i.i, label %_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St6vectorIS6_IldESaIS9_EEESaISC_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSE_18_Mod_range_hashingENSE_20_Default_ranged_hashENSE_20_Prime_rehash_policyENSE_17_Hashtable_traitsILb1ELb0ELb1EEEE5clearEv.exit.i.i.i, label %.lr.ph.i.i.i.i.i
@@ -11146,13 +11146,13 @@ _ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKNSt7__cxx1112basic_
 
 _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St6vectorIS6_IldESaIS9_EEESaISC_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSE_18_Mod_range_hashingENSE_20_Default_ranged_hashENSE_20_Prime_rehash_policyENSE_17_Hashtable_traitsILb1ELb0ELb1EEEE5clearEv.exit.i.i.i: ; preds = %_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS2_IldESaISB_EEELb1EEEEE18_M_deallocate_nodeEPSF_.exit.i.i.i.i.i, %1
   %15 = load ptr, ptr %2, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %17 = load i64, ptr %16, align 8
   %18 = shl i64 %17, 3
   tail call void @llvm.memset.p0.i64(ptr align 8 %15, i8 0, i64 %18, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
   %19 = load ptr, ptr %2, align 8
-  %20 = getelementptr inbounds i8, ptr %0, i64 56
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %21 = icmp eq ptr %19, %20
   br i1 %21, label %_ZN10open_spiel13TabularPolicyD2Ev.exit, label %22
 
@@ -11486,7 +11486,7 @@ define linkonce_odr noundef ptr @_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_
 .noexc:                                           ; preds = %2
   %5 = getelementptr inbounds i8, ptr %3, i64 40
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %7 = getelementptr inbounds i8, ptr %1, i64 40
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %8 = load ptr, ptr %7, align 8
   %9 = load ptr, ptr %6, align 8
   %10 = ptrtoint ptr %8 to i64
@@ -11815,7 +11815,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr ptr @_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St6vectorIS6_IldESaIS9_EEESaISC_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSE_18_Mod_range_hashingENSE_20_Default_ranged_hashENSE_20_Prime_rehash_policyENSE_17_Hashtable_traitsILb1ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNSE_10_Hash_nodeISC_Lb1EEEm(ptr noundef nonnull align 8 dereferenceable(56) %0, i64 noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %7 = getelementptr inbounds i8, ptr %0, i64 40
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %8 = load i64, ptr %7, align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load i64, ptr %9, align 8
@@ -12266,7 +12266,7 @@ define linkonce_odr void @_ZNSt4pairISt6vectorIlSaIlEES0_IdSaIdEEED2Ev(ptr nound
   br i1 %.not.i.i.i, label %_ZNSt6vectorIdSaIdEED2Ev.exit, label %4
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 40
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %6 = load ptr, ptr %5, align 8
   %7 = ptrtoint ptr %6 to i64
   %8 = ptrtoint ptr %3 to i64
@@ -12334,7 +12334,7 @@ _ZNSt10_HashtableIlSt4pairIKldESaIS2_ENSt8__detail10_Select1stESt8equal_toIlESt4
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr ptr @_ZNSt10_HashtableIlSt4pairIKldESaIS2_ENSt8__detail10_Select1stESt8equal_toIlESt4hashIlENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS4_10_Hash_nodeIS2_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %0, i64 noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %7 = getelementptr inbounds i8, ptr %0, i64 40
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %8 = load i64, ptr %7, align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load i64, ptr %9, align 8
@@ -13178,11 +13178,11 @@ define linkonce_odr noundef ptr @_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_
   %8 = load ptr, ptr %7, align 8
   store ptr %8, ptr %6, align 8
   %9 = getelementptr inbounds i8, ptr %3, i64 48
-  %10 = getelementptr inbounds i8, ptr %1, i64 40
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %11 = load ptr, ptr %10, align 8
   store ptr %11, ptr %9, align 8
   %12 = getelementptr inbounds i8, ptr %3, i64 56
-  %13 = getelementptr inbounds i8, ptr %1, i64 48
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %14 = load ptr, ptr %13, align 8
   store ptr %14, ptr %12, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false)

@@ -677,7 +677,7 @@ _ZN4absl7debian213flat_hash_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaI
   %139 = getelementptr inbounds %"union.absl::debian2::container_internal::map_slot_type", ptr %138, i64 %.07.i
   %140 = getelementptr inbounds nuw i8, ptr %139, i64 32
   %141 = load ptr, ptr %140, align 8
-  %142 = getelementptr inbounds i8, ptr %139, i64 40
+  %142 = getelementptr inbounds nuw i8, ptr %139, i64 40
   %143 = load ptr, ptr %142, align 8
   %.not4.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %141, %143
   br i1 %.not4.i.i.i.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i.i.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i.i.i.i
@@ -699,7 +699,7 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSa
   br i1 %.not.i.i.i.i.i.i.i.i.i.i, label %_ZN4absl7debian218container_internal18hash_policy_traitsINS1_17FlatHashMapPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS9_SaIS9_EEEEvE7destroyISaISt4pairIKS9_SC_EEEEvPT_PNS1_13map_slot_typeIS9_SC_EE.exit.i, label %146
 
 146:                                              ; preds = %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i.i.i.i.i.i.i.i
-  %147 = getelementptr inbounds i8, ptr %139, i64 48
+  %147 = getelementptr inbounds nuw i8, ptr %139, i64 48
   %148 = load ptr, ptr %147, align 8
   %149 = ptrtoint ptr %148 to i64
   %150 = ptrtoint ptr %145 to i64
@@ -941,32 +941,32 @@ define void @_ZN10open_spiel15dynamic_routing7NetworkC2EN4absl7debian213flat_has
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %36, i8 0, i64 32, i1 false)
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr @_ZZN4absl7debian218container_internal10EmptyGroupEvE11empty_group, ptr %37, align 8
-  %38 = getelementptr inbounds i8, ptr %0, i64 48
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %38, i8 0, i64 32, i1 false)
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store ptr @_ZZN4absl7debian218container_internal10EmptyGroupEvE11empty_group, ptr %39, align 8
-  %40 = getelementptr inbounds i8, ptr %0, i64 88
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 88
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %40, i8 0, i64 32, i1 false)
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 120
   store ptr @_ZZN4absl7debian218container_internal10EmptyGroupEvE11empty_group, ptr %41, align 8
-  %42 = getelementptr inbounds i8, ptr %0, i64 128
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 128
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %42, i8 0, i64 32, i1 false)
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 160
   store ptr @_ZZN4absl7debian218container_internal10EmptyGroupEvE11empty_group, ptr %43, align 8
-  %44 = getelementptr inbounds i8, ptr %0, i64 168
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 168
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %44, i8 0, i64 32, i1 false)
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 200
   store ptr @_ZZN4absl7debian218container_internal10EmptyGroupEvE11empty_group, ptr %45, align 8
-  %46 = getelementptr inbounds i8, ptr %0, i64 208
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 208
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %46, i8 0, i64 32, i1 false)
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 240
   store ptr @_ZZN4absl7debian218container_internal10EmptyGroupEvE11empty_group, ptr %47, align 8
-  %48 = getelementptr inbounds i8, ptr %0, i64 248
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 304
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %48, i8 0, i64 56, i1 false)
   store ptr @_ZZN4absl7debian218container_internal10EmptyGroupEvE11empty_group, ptr %50, align 8
-  %51 = getelementptr inbounds i8, ptr %0, i64 312
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 312
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %51, i8 0, i64 32, i1 false)
   %52 = invoke noundef nonnull align 8 dereferenceable(40) ptr @_ZN4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS9_SaIS9_EEEENS1_10StringHashENS1_12StringHashEq2EqESaISt4pairIKS9_SC_EEEaSERKSL_(ptr noundef nonnull align 8 dereferenceable(40) %39, ptr noundef nonnull align 8 dereferenceable(40) %1)
           to label %53 unwind label %208
@@ -1015,7 +1015,7 @@ _ZN4absl7debian218container_internal19btree_set_containerINS1_5btreeINS1_10map_p
 
 75:                                               ; preds = %_ZN4absl7debian218container_internal19btree_set_containerINS1_5btreeINS1_10map_paramsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorISA_SaISA_EESt4lessISA_ESaISt4pairIKSA_SD_EELi256ELb0EEEEEE6insertINS1_12raw_hash_setINS1_17FlatHashMapPolicyISA_SD_EENS1_10StringHashENS1_12StringHashEq2EqESJ_E8iteratorEEEvT_SW_.exit
   %76 = load ptr, ptr %49, align 8
-  %77 = getelementptr inbounds i8, ptr %0, i64 288
+  %77 = getelementptr inbounds nuw i8, ptr %0, i64 288
   %78 = load ptr, ptr %77, align 8
   %.not.i.i = icmp eq ptr %78, %76
   br i1 %.not.i.i, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE5clearEv.exit, label %.lr.ph.i.i.i.i.i
@@ -1033,7 +1033,7 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSa
 
 _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE5clearEv.exit: ; preds = %75, %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i.i
   %80 = phi ptr [ %78, %75 ], [ %76, %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i.i ]
-  %81 = getelementptr inbounds i8, ptr %0, i64 296
+  %81 = getelementptr inbounds nuw i8, ptr %0, i64 296
   %82 = load ptr, ptr %81, align 8
   %.not.i = icmp eq ptr %80, %82
   br i1 %.not.i, label %86, label %83
@@ -1106,7 +1106,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE5clearE
   %109 = getelementptr inbounds %"union.absl::debian2::container_internal::map_slot_type", ptr %107, i64 %108
   %110 = getelementptr inbounds nuw i8, ptr %109, i64 32
   %111 = load ptr, ptr %110, align 8
-  %112 = getelementptr inbounds i8, ptr %109, i64 40
+  %112 = getelementptr inbounds nuw i8, ptr %109, i64 40
   %113 = load ptr, ptr %112, align 8
   %.not.i.i62 = icmp eq ptr %111, %113
   br i1 %.not.i.i62, label %._crit_edge, label %114
@@ -2028,12 +2028,12 @@ _ZN4absl7debian213flat_hash_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaI
   store ptr %486, ptr %37, align 8
   %496 = load ptr, ptr %38, align 8
   store ptr %488, ptr %38, align 8
-  %497 = getelementptr inbounds i8, ptr %0, i64 56
+  %497 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i64 %490, ptr %497, align 8
-  %498 = getelementptr inbounds i8, ptr %0, i64 64
+  %498 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %499 = load i64, ptr %498, align 8
   store i64 %492, ptr %498, align 8
-  %500 = getelementptr inbounds i8, ptr %0, i64 72
+  %500 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store i64 %494, ptr %500, align 8
   %.not.i.i.i.i.i.i106 = icmp eq i64 %499, 0
   br i1 %.not.i.i.i.i.i.i106, label %_ZN4absl7debian213flat_hash_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEfNS0_18container_internal10StringHashENS8_12StringHashEq2EqESaISt4pairIKS7_fEEED2Ev.exit118, label %.lr.ph.i.i.i.i.i.i107
@@ -2219,12 +2219,12 @@ _ZN4absl7debian213flat_hash_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaI
   store ptr %571, ptr %41, align 8
   %581 = load ptr, ptr %42, align 8
   store ptr %573, ptr %42, align 8
-  %582 = getelementptr inbounds i8, ptr %0, i64 136
+  %582 = getelementptr inbounds nuw i8, ptr %0, i64 136
   store i64 %575, ptr %582, align 8
-  %583 = getelementptr inbounds i8, ptr %0, i64 144
+  %583 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %584 = load i64, ptr %583, align 8
   store i64 %577, ptr %583, align 8
-  %585 = getelementptr inbounds i8, ptr %0, i64 152
+  %585 = getelementptr inbounds nuw i8, ptr %0, i64 152
   store i64 %579, ptr %585, align 8
   %.not.i.i.i.i.i.i137 = icmp eq i64 %584, 0
   br i1 %.not.i.i.i.i.i.i137, label %_ZN4absl7debian213flat_hash_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEfNS0_18container_internal10StringHashENS8_12StringHashEq2EqESaISt4pairIKS7_fEEED2Ev.exit149, label %.lr.ph.i.i.i.i.i.i138
@@ -2410,12 +2410,12 @@ _ZN4absl7debian213flat_hash_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaI
   store ptr %656, ptr %43, align 8
   %666 = load ptr, ptr %44, align 8
   store ptr %658, ptr %44, align 8
-  %667 = getelementptr inbounds i8, ptr %0, i64 176
+  %667 = getelementptr inbounds nuw i8, ptr %0, i64 176
   store i64 %660, ptr %667, align 8
-  %668 = getelementptr inbounds i8, ptr %0, i64 184
+  %668 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %669 = load i64, ptr %668, align 8
   store i64 %662, ptr %668, align 8
-  %670 = getelementptr inbounds i8, ptr %0, i64 192
+  %670 = getelementptr inbounds nuw i8, ptr %0, i64 192
   store i64 %664, ptr %670, align 8
   %.not.i.i.i.i.i.i168 = icmp eq i64 %669, 0
   br i1 %.not.i.i.i.i.i.i168, label %_ZN4absl7debian213flat_hash_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEfNS0_18container_internal10StringHashENS8_12StringHashEq2EqESaISt4pairIKS7_fEEED2Ev.exit180, label %.lr.ph.i.i.i.i.i.i169
@@ -4063,7 +4063,7 @@ _ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyINSt7
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef i32 @_ZNK10open_spiel15dynamic_routing7Network9num_linksEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(344) %0) local_unnamed_addr #10 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 256
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %3 = load i64, ptr %2, align 8
   %4 = trunc i64 %3 to i32
   ret i32 %4
@@ -4071,7 +4071,7 @@ define noundef i32 @_ZNK10open_spiel15dynamic_routing7Network9num_linksEv(ptr no
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef range(i32 -2147483647, -2147483648) i32 @_ZNK10open_spiel15dynamic_routing7Network11num_actionsEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(344) %0) local_unnamed_addr #10 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 256
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %3 = load i64, ptr %2, align 8
   %4 = trunc i64 %3 to i32
   %5 = add nsw i32 %4, 1
@@ -4312,7 +4312,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
 define void @_ZNK10open_spiel15dynamic_routing7Network26GetRoadSectionFromActionIdB5cxx11Ei(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(344) %1, i32 noundef %2) local_unnamed_addr #3 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 280
   %5 = sext i32 %2 to i64
-  %6 = getelementptr inbounds i8, ptr %1, i64 288
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 288
   %7 = load ptr, ptr %6, align 8
   %8 = load ptr, ptr %4, align 8
   %9 = ptrtoint ptr %7 to i64
@@ -4508,7 +4508,7 @@ define void @_ZNK10open_spiel15dynamic_routing7Network17AssertValidActionEiNSt7_
 
 32:                                               ; preds = %3
   store i32 %1, ptr %8, align 4
-  %33 = getelementptr inbounds i8, ptr %0, i64 256
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %34 = load i64, ptr %33, align 8
   %35 = trunc i64 %34 to i32
   %36 = add nsw i32 %35, 1
@@ -4537,7 +4537,7 @@ define void @_ZNK10open_spiel15dynamic_routing7Network17AssertValidActionEiNSt7_
 43:                                               ; preds = %41
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %45 = zext nneg i32 %1 to i64
-  %46 = getelementptr inbounds i8, ptr %0, i64 288
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 288
   %47 = load ptr, ptr %46, align 8, !noalias !102
   %48 = load ptr, ptr %44, align 8, !noalias !102
   %49 = ptrtoint ptr %47 to i64
@@ -5469,12 +5469,12 @@ _ZN4absl7debian218container_internal19find_first_non_fullEPamm.exit: ; preds = %
   %75 = getelementptr inbounds nuw i8, ptr %27, i64 32
   %76 = load ptr, ptr %75, align 8
   store ptr %76, ptr %74, align 8
-  %77 = getelementptr inbounds i8, ptr %73, i64 40
-  %78 = getelementptr inbounds i8, ptr %27, i64 40
+  %77 = getelementptr inbounds nuw i8, ptr %73, i64 40
+  %78 = getelementptr inbounds nuw i8, ptr %27, i64 40
   %79 = load ptr, ptr %78, align 8
   store ptr %79, ptr %77, align 8
-  %80 = getelementptr inbounds i8, ptr %73, i64 48
-  %81 = getelementptr inbounds i8, ptr %27, i64 48
+  %80 = getelementptr inbounds nuw i8, ptr %73, i64 48
+  %81 = getelementptr inbounds nuw i8, ptr %27, i64 48
   %82 = load ptr, ptr %81, align 8
   store ptr %82, ptr %80, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %75, i8 0, i64 24, i1 false)
@@ -5629,7 +5629,7 @@ define linkonce_odr void @_ZN4absl7debian218container_internal12raw_hash_setINS1
   %13 = getelementptr inbounds %"union.absl::debian2::container_internal::map_slot_type", ptr %12, i64 %.07
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 32
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %13, i64 40
+  %16 = getelementptr inbounds nuw i8, ptr %13, i64 40
   %17 = load ptr, ptr %16, align 8
   %.not4.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %15, %17
   br i1 %.not4.i.i.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i.i.i
@@ -5651,7 +5651,7 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSa
   br i1 %.not.i.i.i.i.i.i.i.i.i, label %_ZN4absl7debian218container_internal18hash_policy_traitsINS1_17FlatHashMapPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS9_SaIS9_EEEEvE7destroyISaISt4pairIKS9_SC_EEEEvPT_PNS1_13map_slot_typeIS9_SC_EE.exit, label %20
 
 20:                                               ; preds = %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i.i.i.i.i.i.i
-  %21 = getelementptr inbounds i8, ptr %13, i64 48
+  %21 = getelementptr inbounds nuw i8, ptr %13, i64 48
   %22 = load ptr, ptr %21, align 8
   %23 = ptrtoint ptr %22 to i64
   %24 = ptrtoint ptr %19 to i64
@@ -6215,7 +6215,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(40) ptr @_ZN4absl7de
   %29 = getelementptr inbounds %"union.absl::debian2::container_internal::map_slot_type", ptr %28, i64 %.07.i
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 32
   %31 = load ptr, ptr %30, align 8
-  %32 = getelementptr inbounds i8, ptr %29, i64 40
+  %32 = getelementptr inbounds nuw i8, ptr %29, i64 40
   %33 = load ptr, ptr %32, align 8
   %.not4.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %31, %33
   br i1 %.not4.i.i.i.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i.i.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i.i.i.i
@@ -6237,7 +6237,7 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSa
   br i1 %.not.i.i.i.i.i.i.i.i.i.i, label %_ZN4absl7debian218container_internal18hash_policy_traitsINS1_17FlatHashMapPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS9_SaIS9_EEEEvE7destroyISaISt4pairIKS9_SC_EEEEvPT_PNS1_13map_slot_typeIS9_SC_EE.exit.i, label %36
 
 36:                                               ; preds = %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i.i.i.i.i.i.i.i
-  %37 = getelementptr inbounds i8, ptr %29, i64 48
+  %37 = getelementptr inbounds nuw i8, ptr %29, i64 48
   %38 = load ptr, ptr %37, align 8
   %39 = ptrtoint ptr %38 to i64
   %40 = ptrtoint ptr %35 to i64
@@ -8300,7 +8300,7 @@ define linkonce_odr void @_ZN4absl7debian218container_internal10btree_nodeINS1_1
   %.010.i = phi ptr [ %23, %_ZN4absl7debian218container_internal13common_paramsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS8_ESaISt4pairIKS8_St6vectorIS8_SaIS8_EEEELi256ELb0ENS1_15map_slot_policyIS8_SF_EEE7destroyEPSH_PNS1_13map_slot_typeIS8_SF_EE.exit.i ], [ %8, %7 ]
   %11 = getelementptr inbounds nuw i8, ptr %.010.i, i64 32
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %.010.i, i64 40
+  %13 = getelementptr inbounds nuw i8, ptr %.010.i, i64 40
   %14 = load ptr, ptr %13, align 8
   %.not4.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %12, %14
   br i1 %.not4.i.i.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i.i.i
@@ -8322,7 +8322,7 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSa
   br i1 %.not.i.i.i.i.i.i.i.i.i, label %_ZN4absl7debian218container_internal13common_paramsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS8_ESaISt4pairIKS8_St6vectorIS8_SaIS8_EEEELi256ELb0ENS1_15map_slot_policyIS8_SF_EEE7destroyEPSH_PNS1_13map_slot_typeIS8_SF_EE.exit.i, label %17
 
 17:                                               ; preds = %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i.i.i.i.i.i.i
-  %18 = getelementptr inbounds i8, ptr %.010.i, i64 48
+  %18 = getelementptr inbounds nuw i8, ptr %.010.i, i64 48
   %19 = load ptr, ptr %18, align 8
   %20 = ptrtoint ptr %19 to i64
   %21 = ptrtoint ptr %16 to i64
@@ -8418,7 +8418,7 @@ _ZN4absl7debian218container_internal10btree_nodeINS1_10map_paramsINSt7__cxx1112b
   %.010.i57 = phi ptr [ %75, %_ZN4absl7debian218container_internal13common_paramsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS8_ESaISt4pairIKS8_St6vectorIS8_SaIS8_EEEELi256ELb0ENS1_15map_slot_policyIS8_SF_EEE7destroyEPSH_PNS1_13map_slot_typeIS8_SF_EE.exit.i66 ], [ %60, %57 ]
   %63 = getelementptr inbounds nuw i8, ptr %.010.i57, i64 32
   %64 = load ptr, ptr %63, align 8
-  %65 = getelementptr inbounds i8, ptr %.010.i57, i64 40
+  %65 = getelementptr inbounds nuw i8, ptr %.010.i57, i64 40
   %66 = load ptr, ptr %65, align 8
   %.not4.i.i.i.i.i.i.i.i.i.i58 = icmp eq ptr %64, %66
   br i1 %.not4.i.i.i.i.i.i.i.i.i.i58, label %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i.i.i.i.i.i.i64, label %.lr.ph.i.i.i.i.i.i.i.i.i.i59
@@ -8440,7 +8440,7 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSa
   br i1 %.not.i.i.i.i.i.i.i.i.i65, label %_ZN4absl7debian218container_internal13common_paramsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS8_ESaISt4pairIKS8_St6vectorIS8_SaIS8_EEEELi256ELb0ENS1_15map_slot_policyIS8_SF_EEE7destroyEPSH_PNS1_13map_slot_typeIS8_SF_EE.exit.i66, label %69
 
 69:                                               ; preds = %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i.i.i.i.i.i.i64
-  %70 = getelementptr inbounds i8, ptr %.010.i57, i64 48
+  %70 = getelementptr inbounds nuw i8, ptr %.010.i57, i64 48
   %71 = load ptr, ptr %70, align 8
   %72 = ptrtoint ptr %71 to i64
   %73 = ptrtoint ptr %68 to i64
@@ -8492,7 +8492,7 @@ _ZN4absl7debian218container_internal10btree_nodeINS1_10map_paramsINSt7__cxx1112b
   %.010.i71 = phi ptr [ %106, %_ZN4absl7debian218container_internal13common_paramsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS8_ESaISt4pairIKS8_St6vectorIS8_SaIS8_EEEELi256ELb0ENS1_15map_slot_policyIS8_SF_EEE7destroyEPSH_PNS1_13map_slot_typeIS8_SF_EE.exit.i80 ], [ %91, %.preheader87 ]
   %94 = getelementptr inbounds nuw i8, ptr %.010.i71, i64 32
   %95 = load ptr, ptr %94, align 8
-  %96 = getelementptr inbounds i8, ptr %.010.i71, i64 40
+  %96 = getelementptr inbounds nuw i8, ptr %.010.i71, i64 40
   %97 = load ptr, ptr %96, align 8
   %.not4.i.i.i.i.i.i.i.i.i.i72 = icmp eq ptr %95, %97
   br i1 %.not4.i.i.i.i.i.i.i.i.i.i72, label %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i.i.i.i.i.i.i78, label %.lr.ph.i.i.i.i.i.i.i.i.i.i73
@@ -8514,7 +8514,7 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSa
   br i1 %.not.i.i.i.i.i.i.i.i.i79, label %_ZN4absl7debian218container_internal13common_paramsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS8_ESaISt4pairIKS8_St6vectorIS8_SaIS8_EEEELi256ELb0ENS1_15map_slot_policyIS8_SF_EEE7destroyEPSH_PNS1_13map_slot_typeIS8_SF_EE.exit.i80, label %100
 
 100:                                              ; preds = %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i.i.i.i.i.i.i78
-  %101 = getelementptr inbounds i8, ptr %.010.i71, i64 48
+  %101 = getelementptr inbounds nuw i8, ptr %.010.i71, i64 48
   %102 = load ptr, ptr %101, align 8
   %103 = ptrtoint ptr %102 to i64
   %104 = ptrtoint ptr %99 to i64
@@ -9859,12 +9859,12 @@ _ZN4absl7debian218container_internal5btreeINS1_10map_paramsINSt7__cxx1112basic_s
   %52 = getelementptr inbounds nuw i8, ptr %.01215.i, i64 32
   %53 = load ptr, ptr %52, align 8
   store ptr %53, ptr %51, align 8
-  %54 = getelementptr inbounds i8, ptr %.016.i, i64 40
-  %55 = getelementptr inbounds i8, ptr %.01215.i, i64 40
+  %54 = getelementptr inbounds nuw i8, ptr %.016.i, i64 40
+  %55 = getelementptr inbounds nuw i8, ptr %.01215.i, i64 40
   %56 = load ptr, ptr %55, align 8
   store ptr %56, ptr %54, align 8
-  %57 = getelementptr inbounds i8, ptr %.016.i, i64 48
-  %58 = getelementptr inbounds i8, ptr %.01215.i, i64 48
+  %57 = getelementptr inbounds nuw i8, ptr %.016.i, i64 48
+  %58 = getelementptr inbounds nuw i8, ptr %.01215.i, i64 48
   %59 = load ptr, ptr %58, align 8
   store ptr %59, ptr %57, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %52, i8 0, i64 24, i1 false)
@@ -10225,12 +10225,12 @@ define linkonce_odr void @_ZN4absl7debian218container_internal10btree_nodeINS1_1
   %19 = getelementptr inbounds nuw i8, ptr %.01417.i, i64 32
   %20 = load ptr, ptr %19, align 8
   store ptr %20, ptr %18, align 8
-  %21 = getelementptr inbounds i8, ptr %.018.i, i64 40
-  %22 = getelementptr inbounds i8, ptr %.01417.i, i64 40
+  %21 = getelementptr inbounds nuw i8, ptr %.018.i, i64 40
+  %22 = getelementptr inbounds nuw i8, ptr %.01417.i, i64 40
   %23 = load ptr, ptr %22, align 8
   store ptr %23, ptr %21, align 8
-  %24 = getelementptr inbounds i8, ptr %.018.i, i64 48
-  %25 = getelementptr inbounds i8, ptr %.01417.i, i64 48
+  %24 = getelementptr inbounds nuw i8, ptr %.018.i, i64 48
+  %25 = getelementptr inbounds nuw i8, ptr %.01417.i, i64 48
   %26 = load ptr, ptr %25, align 8
   store ptr %26, ptr %24, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %19, i8 0, i64 24, i1 false)
@@ -10310,12 +10310,12 @@ define linkonce_odr void @_ZN4absl7debian218container_internal10btree_nodeINS1_1
   %17 = getelementptr inbounds nuw i8, ptr %15, i64 32
   %18 = load ptr, ptr %17, align 8
   store ptr %18, ptr %16, align 8
-  %19 = getelementptr inbounds i8, ptr %13, i64 40
-  %20 = getelementptr inbounds i8, ptr %15, i64 40
+  %19 = getelementptr inbounds nuw i8, ptr %13, i64 40
+  %20 = getelementptr inbounds nuw i8, ptr %15, i64 40
   %21 = load ptr, ptr %20, align 8
   store ptr %21, ptr %19, align 8
-  %22 = getelementptr inbounds i8, ptr %13, i64 48
-  %23 = getelementptr inbounds i8, ptr %15, i64 48
+  %22 = getelementptr inbounds nuw i8, ptr %13, i64 48
+  %23 = getelementptr inbounds nuw i8, ptr %15, i64 48
   %24 = load ptr, ptr %23, align 8
   store ptr %24, ptr %22, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %17, i8 0, i64 24, i1 false)
@@ -10343,11 +10343,11 @@ define linkonce_odr void @_ZN4absl7debian218container_internal10btree_nodeINS1_1
   %34 = load ptr, ptr %33, align 8
   store ptr %34, ptr %32, align 8
   %35 = getelementptr inbounds i8, ptr %.016.i.pn, i64 96
-  %36 = getelementptr inbounds i8, ptr %.01215.i, i64 40
+  %36 = getelementptr inbounds nuw i8, ptr %.01215.i, i64 40
   %37 = load ptr, ptr %36, align 8
   store ptr %37, ptr %35, align 8
   %38 = getelementptr inbounds i8, ptr %.016.i.pn, i64 104
-  %39 = getelementptr inbounds i8, ptr %.01215.i, i64 48
+  %39 = getelementptr inbounds nuw i8, ptr %.01215.i, i64 48
   %40 = load ptr, ptr %39, align 8
   store ptr %40, ptr %38, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %33, i8 0, i64 24, i1 false)
@@ -10367,12 +10367,12 @@ _ZN4absl7debian218container_internal10btree_nodeINS1_10map_paramsINSt7__cxx1112b
   %48 = getelementptr inbounds nuw i8, ptr %28, i64 32
   %49 = load ptr, ptr %48, align 8
   store ptr %49, ptr %47, align 8
-  %50 = getelementptr inbounds i8, ptr %46, i64 40
-  %51 = getelementptr inbounds i8, ptr %28, i64 40
+  %50 = getelementptr inbounds nuw i8, ptr %46, i64 40
+  %51 = getelementptr inbounds nuw i8, ptr %28, i64 40
   %52 = load ptr, ptr %51, align 8
   store ptr %52, ptr %50, align 8
-  %53 = getelementptr inbounds i8, ptr %46, i64 48
-  %54 = getelementptr inbounds i8, ptr %28, i64 48
+  %53 = getelementptr inbounds nuw i8, ptr %46, i64 48
+  %54 = getelementptr inbounds nuw i8, ptr %28, i64 48
   %55 = load ptr, ptr %54, align 8
   store ptr %55, ptr %53, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %48, i8 0, i64 24, i1 false)
@@ -10396,12 +10396,12 @@ _ZN4absl7debian218container_internal10btree_nodeINS1_10map_paramsINSt7__cxx1112b
   %65 = getelementptr inbounds nuw i8, ptr %.01215.i51, i64 32
   %66 = load ptr, ptr %65, align 8
   store ptr %66, ptr %64, align 8
-  %67 = getelementptr inbounds i8, ptr %.016.i50, i64 40
-  %68 = getelementptr inbounds i8, ptr %.01215.i51, i64 40
+  %67 = getelementptr inbounds nuw i8, ptr %.016.i50, i64 40
+  %68 = getelementptr inbounds nuw i8, ptr %.01215.i51, i64 40
   %69 = load ptr, ptr %68, align 8
   store ptr %69, ptr %67, align 8
-  %70 = getelementptr inbounds i8, ptr %.016.i50, i64 48
-  %71 = getelementptr inbounds i8, ptr %.01215.i51, i64 48
+  %70 = getelementptr inbounds nuw i8, ptr %.016.i50, i64 48
+  %71 = getelementptr inbounds nuw i8, ptr %.01215.i51, i64 48
   %72 = load ptr, ptr %71, align 8
   store ptr %72, ptr %70, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %65, i8 0, i64 24, i1 false)
@@ -10518,12 +10518,12 @@ define linkonce_odr void @_ZN4absl7debian218container_internal10btree_nodeINS1_1
   %20 = getelementptr inbounds nuw i8, ptr %.01417.i, i64 32
   %21 = load ptr, ptr %20, align 8
   store ptr %21, ptr %19, align 8
-  %22 = getelementptr inbounds i8, ptr %.018.i, i64 40
-  %23 = getelementptr inbounds i8, ptr %.01417.i, i64 40
+  %22 = getelementptr inbounds nuw i8, ptr %.018.i, i64 40
+  %23 = getelementptr inbounds nuw i8, ptr %.01417.i, i64 40
   %24 = load ptr, ptr %23, align 8
   store ptr %24, ptr %22, align 8
-  %25 = getelementptr inbounds i8, ptr %.018.i, i64 48
-  %26 = getelementptr inbounds i8, ptr %.01417.i, i64 48
+  %25 = getelementptr inbounds nuw i8, ptr %.018.i, i64 48
+  %26 = getelementptr inbounds nuw i8, ptr %.01417.i, i64 48
   %27 = load ptr, ptr %26, align 8
   store ptr %27, ptr %25, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %20, i8 0, i64 24, i1 false)
@@ -10548,12 +10548,12 @@ _ZN4absl7debian218container_internal10btree_nodeINS1_10map_paramsINSt7__cxx1112b
   %40 = getelementptr inbounds nuw i8, ptr %38, i64 32
   %41 = load ptr, ptr %40, align 8
   store ptr %41, ptr %39, align 8
-  %42 = getelementptr inbounds i8, ptr %36, i64 40
-  %43 = getelementptr inbounds i8, ptr %38, i64 40
+  %42 = getelementptr inbounds nuw i8, ptr %36, i64 40
+  %43 = getelementptr inbounds nuw i8, ptr %38, i64 40
   %44 = load ptr, ptr %43, align 8
   store ptr %44, ptr %42, align 8
-  %45 = getelementptr inbounds i8, ptr %36, i64 48
-  %46 = getelementptr inbounds i8, ptr %38, i64 48
+  %45 = getelementptr inbounds nuw i8, ptr %36, i64 48
+  %46 = getelementptr inbounds nuw i8, ptr %38, i64 48
   %47 = load ptr, ptr %46, align 8
   store ptr %47, ptr %45, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %40, i8 0, i64 24, i1 false)
@@ -10577,12 +10577,12 @@ _ZN4absl7debian218container_internal10btree_nodeINS1_10map_paramsINSt7__cxx1112b
   %57 = getelementptr inbounds nuw i8, ptr %.01215.i, i64 32
   %58 = load ptr, ptr %57, align 8
   store ptr %58, ptr %56, align 8
-  %59 = getelementptr inbounds i8, ptr %.016.i, i64 40
-  %60 = getelementptr inbounds i8, ptr %.01215.i, i64 40
+  %59 = getelementptr inbounds nuw i8, ptr %.016.i, i64 40
+  %60 = getelementptr inbounds nuw i8, ptr %.01215.i, i64 40
   %61 = load ptr, ptr %60, align 8
   store ptr %61, ptr %59, align 8
-  %62 = getelementptr inbounds i8, ptr %.016.i, i64 48
-  %63 = getelementptr inbounds i8, ptr %.01215.i, i64 48
+  %62 = getelementptr inbounds nuw i8, ptr %.016.i, i64 48
+  %63 = getelementptr inbounds nuw i8, ptr %.01215.i, i64 48
   %64 = load ptr, ptr %63, align 8
   store ptr %64, ptr %62, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %57, i8 0, i64 24, i1 false)
@@ -10612,12 +10612,12 @@ _ZN4absl7debian218container_internal10btree_nodeINS1_10map_paramsINSt7__cxx1112b
   %76 = getelementptr inbounds nuw i8, ptr %74, i64 32
   %77 = load ptr, ptr %76, align 8
   store ptr %77, ptr %75, align 8
-  %78 = getelementptr inbounds i8, ptr %73, i64 40
-  %79 = getelementptr inbounds i8, ptr %74, i64 40
+  %78 = getelementptr inbounds nuw i8, ptr %73, i64 40
+  %79 = getelementptr inbounds nuw i8, ptr %74, i64 40
   %80 = load ptr, ptr %79, align 8
   store ptr %80, ptr %78, align 8
-  %81 = getelementptr inbounds i8, ptr %73, i64 48
-  %82 = getelementptr inbounds i8, ptr %74, i64 48
+  %81 = getelementptr inbounds nuw i8, ptr %73, i64 48
+  %82 = getelementptr inbounds nuw i8, ptr %74, i64 48
   %83 = load ptr, ptr %82, align 8
   store ptr %83, ptr %81, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %76, i8 0, i64 24, i1 false)
@@ -10741,12 +10741,12 @@ define linkonce_odr void @_ZN4absl7debian218container_internal10btree_nodeINS1_1
   %28 = getelementptr inbounds nuw i8, ptr %.01215.i, i64 32
   %29 = load ptr, ptr %28, align 8
   store ptr %29, ptr %27, align 8
-  %30 = getelementptr inbounds i8, ptr %.016.i, i64 40
-  %31 = getelementptr inbounds i8, ptr %.01215.i, i64 40
+  %30 = getelementptr inbounds nuw i8, ptr %.016.i, i64 40
+  %31 = getelementptr inbounds nuw i8, ptr %.01215.i, i64 40
   %32 = load ptr, ptr %31, align 8
   store ptr %32, ptr %30, align 8
-  %33 = getelementptr inbounds i8, ptr %.016.i, i64 48
-  %34 = getelementptr inbounds i8, ptr %.01215.i, i64 48
+  %33 = getelementptr inbounds nuw i8, ptr %.016.i, i64 48
+  %34 = getelementptr inbounds nuw i8, ptr %.01215.i, i64 48
   %35 = load ptr, ptr %34, align 8
   store ptr %35, ptr %33, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %28, i8 0, i64 24, i1 false)
@@ -10777,7 +10777,7 @@ _ZN4absl7debian218container_internal10btree_nodeINS1_10map_paramsINSt7__cxx1112b
   %48 = getelementptr inbounds %"union.absl::debian2::container_internal::map_slot_type", ptr %23, i64 %47
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 32
   %50 = load ptr, ptr %49, align 8
-  %51 = getelementptr inbounds i8, ptr %48, i64 40
+  %51 = getelementptr inbounds nuw i8, ptr %48, i64 40
   %52 = load ptr, ptr %51, align 8
   %.not4.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %50, %52
   br i1 %.not4.i.i.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i.i.i
@@ -10799,7 +10799,7 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSa
   br i1 %.not.i.i.i.i.i.i.i.i.i, label %_ZN4absl7debian218container_internal10btree_nodeINS1_10map_paramsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS9_SaIS9_EESt4lessIS9_ESaISt4pairIKS9_SC_EELi256ELb0EEEE13value_destroyEhPSI_.exit, label %55
 
 55:                                               ; preds = %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i.i.i.i.i.i.i
-  %56 = getelementptr inbounds i8, ptr %48, i64 48
+  %56 = getelementptr inbounds nuw i8, ptr %48, i64 48
   %57 = load ptr, ptr %56, align 8
   %58 = ptrtoint ptr %57 to i64
   %59 = ptrtoint ptr %54 to i64
@@ -10888,12 +10888,12 @@ define linkonce_odr void @_ZN4absl7debian218container_internal10btree_nodeINS1_1
   %19 = getelementptr inbounds nuw i8, ptr %.01417.i, i64 32
   %20 = load ptr, ptr %19, align 8
   store ptr %20, ptr %18, align 8
-  %21 = getelementptr inbounds i8, ptr %.018.i, i64 40
-  %22 = getelementptr inbounds i8, ptr %.01417.i, i64 40
+  %21 = getelementptr inbounds nuw i8, ptr %.018.i, i64 40
+  %22 = getelementptr inbounds nuw i8, ptr %.01417.i, i64 40
   %23 = load ptr, ptr %22, align 8
   store ptr %23, ptr %21, align 8
-  %24 = getelementptr inbounds i8, ptr %.018.i, i64 48
-  %25 = getelementptr inbounds i8, ptr %.01417.i, i64 48
+  %24 = getelementptr inbounds nuw i8, ptr %.018.i, i64 48
+  %25 = getelementptr inbounds nuw i8, ptr %.01417.i, i64 48
   %26 = load ptr, ptr %25, align 8
   store ptr %26, ptr %24, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %19, i8 0, i64 24, i1 false)
@@ -10913,12 +10913,12 @@ _ZN4absl7debian218container_internal10btree_nodeINS1_10map_paramsINSt7__cxx1112b
   %34 = getelementptr inbounds nuw i8, ptr %32, i64 32
   %35 = load ptr, ptr %34, align 8
   store ptr %35, ptr %33, align 8
-  %36 = getelementptr inbounds i8, ptr %31, i64 40
-  %37 = getelementptr inbounds i8, ptr %32, i64 40
+  %36 = getelementptr inbounds nuw i8, ptr %31, i64 40
+  %37 = getelementptr inbounds nuw i8, ptr %32, i64 40
   %38 = load ptr, ptr %37, align 8
   store ptr %38, ptr %36, align 8
-  %39 = getelementptr inbounds i8, ptr %31, i64 48
-  %40 = getelementptr inbounds i8, ptr %32, i64 48
+  %39 = getelementptr inbounds nuw i8, ptr %31, i64 48
+  %40 = getelementptr inbounds nuw i8, ptr %32, i64 48
   %41 = load ptr, ptr %40, align 8
   store ptr %41, ptr %39, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %34, i8 0, i64 24, i1 false)

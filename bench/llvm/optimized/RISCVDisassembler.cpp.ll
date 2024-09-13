@@ -2936,7 +2936,7 @@ _ZN4llvm25decodeULEB128AndIncUnsafeERPKh.exit109: ; preds = %881, %883
   %.128.i.i.i104 = phi i64 [ %886, %883 ], [ 0, %881 ]
   %890 = trunc i64 %.128.i.i.i104 to i32
   %891 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %16) #10
-  %892 = getelementptr inbounds i8, ptr %1, i64 24
+  %892 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store i32 0, ptr %892, align 8
   store i32 %875, ptr %1, align 8
   %893 = call fastcc noundef i32 @_ZN4llvmL14decodeToMCInstIjEENS_14MCDisassembler12DecodeStatusES2_jT_RNS_6MCInstEmPKS1_Rb(i32 noundef %.048, i32 noundef %890, i32 noundef %2, ptr noundef nonnull align 8 dereferenceable(128) %1, i64 noundef %3, ptr noundef %4, ptr noundef nonnull align 1 dereferenceable(1) %7)

@@ -179,7 +179,7 @@ define dso_local { ptr, i64 } @_ZNK4llvm8codeview25AppendingTypeTableBuilder7rec
 define dso_local void @_ZN4llvm8codeview25AppendingTypeTableBuilder5resetEv(ptr noundef nonnull align 8 dereferenceable(88) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %2) #10
-  %4 = getelementptr inbounds i8, ptr %0, i64 48
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i32 0, ptr %4, align 8
   ret void
 }

@@ -81,7 +81,7 @@ define dso_local void @_ZN5clang4ento31registerNoReturnFunctionCheckerERNS0_14Ch
   store ptr @_ZZN5clang4ento14CheckerManager6getTagIN12_GLOBAL__N_123NoReturnFunctionCheckerEEEPvvE3tag, ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 904
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 920
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 920
   %6 = load i32, ptr %5, align 8
   %7 = icmp eq i32 %6, 0
   br i1 %7, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKvPN5clang4ento11CheckerBaseENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S7_EEEES3_S7_S9_SC_E15LookupBucketForIS3_EEbRKT_RPSC_.exit.i.i.i, label %8
@@ -146,9 +146,9 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKvPN5clang4ento11CheckerBaseENS_12DenseMapI
   %37 = getelementptr inbounds nuw i8, ptr %34, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %37, ptr noundef nonnull align 8 dereferenceable(16) %36, i64 16, i1 false)
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 928
-  %39 = getelementptr inbounds i8, ptr %0, i64 936
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 936
   %40 = load ptr, ptr %39, align 8
-  %41 = getelementptr inbounds i8, ptr %0, i64 944
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 944
   %42 = load ptr, ptr %41, align 8
   %.not.i.i.i = icmp eq ptr %40, %42
   br i1 %.not.i.i.i, label %46, label %43

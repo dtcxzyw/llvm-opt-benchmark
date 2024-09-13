@@ -672,7 +672,7 @@ reset_cdf_symbol_counter.exit606:                 ; preds = %.lr.ph.i601
 reset_cdf_symbol_counter.exit613:                 ; preds = %.lr.ph.i608
   %invariant.gep.i.i = getelementptr i8, ptr %0, i64 11920
   store i16 0, ptr %invariant.gep.i.i, align 2
-  %9 = getelementptr inbounds i8, ptr %0, i64 11922
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 11922
   br label %.lr.ph.i46.i
 
 .lr.ph.i46.i:                                     ; preds = %reset_cdf_symbol_counter.exit100.i, %reset_cdf_symbol_counter.exit613
@@ -722,7 +722,7 @@ reset_cdf_symbol_counter.exit100.i:               ; preds = %.lr.ph.i95.i
 reset_nmv_counter.exit:                           ; preds = %reset_cdf_symbol_counter.exit100.i
   %invariant.gep.i.i615 = getelementptr i8, ptr %0, i64 12206
   store i16 0, ptr %invariant.gep.i.i615, align 2
-  %12 = getelementptr inbounds i8, ptr %0, i64 12208
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 12208
   br label %.lr.ph.i46.i616
 
 .lr.ph.i46.i616:                                  ; preds = %reset_cdf_symbol_counter.exit100.i639, %reset_nmv_counter.exit

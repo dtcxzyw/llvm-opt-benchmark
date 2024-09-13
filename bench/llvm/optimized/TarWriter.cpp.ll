@@ -60,7 +60,7 @@ _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %5
   store ptr @.str, ptr %8, align 8, !alias.scope !4
   %17 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store ptr %1, ptr %17, align 8, !alias.scope !4
-  %18 = getelementptr inbounds i8, ptr %8, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %8, i64 24
   store i64 %2, ptr %18, align 8, !alias.scope !4
   %19 = call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #10, !noalias !7
   call void @_ZN4llvm11StringErrorC1ERKNS_5TwineESt10error_code(ptr noundef nonnull align 8 dereferenceable(57) %19, ptr noundef nonnull align 8 dereferenceable(34) %8, i32 %13, ptr %14) #9, !noalias !7
@@ -112,7 +112,7 @@ define dso_local void @_ZN4llvm9TarWriterC2EiNS_9StringRefE(ptr noundef nonnull 
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #9
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %15 = getelementptr inbounds i8, ptr %0, i64 148
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 148
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %14, i8 0, i64 20, i1 false)
   store i32 8, ptr %15, align 4
   ret void

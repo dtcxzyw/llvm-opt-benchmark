@@ -107,7 +107,7 @@ define dso_local void @_ZN4llvm14DebugLocStream13finalizeEntryEv(ptr noundef non
   %16 = getelementptr inbounds i8, ptr %15, i64 -8
   %17 = load i64, ptr %16, align 8
   %18 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %12, i64 %17
-  %19 = getelementptr inbounds i8, ptr %0, i64 1440
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 1440
   %20 = load ptr, ptr %19, align 8
   %.not.i.i = icmp eq ptr %18, %20
   br i1 %.not.i.i, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS5_S7_EESC_.exit, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEESC_ET0_T_SE_SD_.exit.i.i

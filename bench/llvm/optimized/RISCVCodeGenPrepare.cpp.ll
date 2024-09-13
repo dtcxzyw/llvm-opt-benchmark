@@ -316,7 +316,7 @@ _ZNK4llvm4Pass11getAnalysisINS_24DominatorTreeWrapperPassEEERT_v.exit: ; preds =
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 32
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %59, ptr %60, align 8
-  %61 = getelementptr inbounds i8, ptr %1, i64 80
+  %61 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %62 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %.sroa.039.059 = load ptr, ptr %61, align 8
   %.not60 = icmp eq ptr %.sroa.039.059, %62
@@ -378,7 +378,7 @@ _ZNK4llvm4Pass11getAnalysisINS_24DominatorTreeWrapperPassEEERT_v.exit: ; preds =
   %105 = icmp eq ptr %.sroa.039.062, null
   %106 = getelementptr inbounds i8, ptr %.sroa.039.062, i64 -24
   %107 = select i1 %105, ptr null, ptr %106
-  %108 = getelementptr inbounds i8, ptr %107, i64 56
+  %108 = getelementptr inbounds nuw i8, ptr %107, i64 56
   %109 = load ptr, ptr %108, align 8, !noalias !4
   %110 = getelementptr inbounds nuw i8, ptr %107, i64 48
   %.not4256 = icmp eq ptr %109, %110
@@ -509,7 +509,7 @@ _ZNK4llvm4Pass11getAnalysisINS_24DominatorTreeWrapperPassEEERT_v.exit: ; preds =
 
 140:                                              ; preds = %136
   %141 = getelementptr inbounds nuw i8, ptr %138, i64 24
-  %142 = getelementptr inbounds i8, ptr %138, i64 32
+  %142 = getelementptr inbounds nuw i8, ptr %138, i64 32
   %143 = load i32, ptr %142, align 8
   %144 = icmp ult i32 %143, 65
   %145 = load ptr, ptr %141, align 8
@@ -1528,7 +1528,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm12PatternMatch14cstval_pr
 
 4:                                                ; preds = %2
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %6 = getelementptr inbounds i8, ptr %1, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %7 = load i32, ptr %6, align 8
   %8 = icmp ult i32 %7, 65
   br i1 %8, label %9, label %12
@@ -1567,7 +1567,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm12PatternMatch14cstval_pr
 
 _ZN4llvm16dyn_cast_or_nullINS_11ConstantIntENS_8ConstantEEEDaPT0_.exit: ; preds = %24
   %27 = getelementptr inbounds nuw i8, ptr %23, i64 24
-  %28 = getelementptr inbounds i8, ptr %23, i64 32
+  %28 = getelementptr inbounds nuw i8, ptr %23, i64 32
   %29 = load i32, ptr %28, align 8
   %30 = icmp ult i32 %29, 65
   br i1 %30, label %31, label %34
@@ -1610,7 +1610,7 @@ _ZN4llvm16dyn_cast_or_nullINS_11ConstantIntENS_8ConstantEEEDaPT0_.exit: ; preds 
 
 46:                                               ; preds = %44
   %47 = getelementptr inbounds nuw i8, ptr %43, i64 24
-  %48 = getelementptr inbounds i8, ptr %43, i64 32
+  %48 = getelementptr inbounds nuw i8, ptr %43, i64 32
   %49 = load i32, ptr %48, align 8
   %50 = icmp ult i32 %49, 65
   br i1 %50, label %51, label %_ZN4llvm12PatternMatch11is_zero_int7isValueERKNS_5APIntE.exit44
@@ -1651,7 +1651,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm12PatternMatch14cstval_pr
 
 4:                                                ; preds = %2
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %6 = getelementptr inbounds i8, ptr %1, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %7 = load i32, ptr %6, align 8
   %8 = icmp eq i32 %7, 0
   br i1 %8, label %_ZN4llvm12PatternMatch11is_all_ones7isValueERKNS_5APIntE.exit, label %9
@@ -1699,7 +1699,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm12PatternMatch14cstval_pr
 
 _ZN4llvm16dyn_cast_or_nullINS_11ConstantIntENS_8ConstantEEEDaPT0_.exit: ; preds = %30
   %33 = getelementptr inbounds nuw i8, ptr %29, i64 24
-  %34 = getelementptr inbounds i8, ptr %29, i64 32
+  %34 = getelementptr inbounds nuw i8, ptr %29, i64 32
   %35 = load i32, ptr %34, align 8
   %36 = icmp eq i32 %35, 0
   br i1 %36, label %_ZN4llvm12PatternMatch11is_all_ones7isValueERKNS_5APIntE.exit, label %37
@@ -1749,7 +1749,7 @@ _ZN4llvm16dyn_cast_or_nullINS_11ConstantIntENS_8ConstantEEEDaPT0_.exit: ; preds 
 
 57:                                               ; preds = %55
   %58 = getelementptr inbounds nuw i8, ptr %54, i64 24
-  %59 = getelementptr inbounds i8, ptr %54, i64 32
+  %59 = getelementptr inbounds nuw i8, ptr %54, i64 32
   %60 = load i32, ptr %59, align 8
   %61 = icmp eq i32 %60, 0
   br i1 %61, label %_ZN4llvm12PatternMatch11is_all_ones7isValueERKNS_5APIntE.exit45.thread, label %62

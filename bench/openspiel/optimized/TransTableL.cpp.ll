@@ -918,10 +918,10 @@ define void @_ZN11TransTableL11ResetMemoryE13TTresetReason(ptr nocapture noundef
   store i32 %9, ptr %7, align 8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %11 = load i32, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 48
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %13 = load i32, ptr %12, align 8
   %14 = sub i32 %11, %13
-  %15 = getelementptr inbounds i8, ptr %0, i64 36
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %16 = load i32, ptr %15, align 4
   %17 = add nsw i32 %14, %16
   store i32 %17, ptr %15, align 4
@@ -961,7 +961,7 @@ define void @_ZN11TransTableL11ResetMemoryE13TTresetReason(ptr nocapture noundef
   %33 = phi i32 [ %11, %6 ], [ %.pre, %._crit_edge.loopexit ]
   %.lcssa3 = phi i32 [ %11, %6 ], [ %30, %._crit_edge.loopexit ]
   %34 = sub i32 %33, %.lcssa3
-  %35 = getelementptr inbounds i8, ptr %0, i64 40
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %36 = load i32, ptr %35, align 8
   %37 = add nsw i32 %34, %36
   store i32 %37, ptr %35, align 8
@@ -1146,7 +1146,7 @@ define noundef ptr @_ZN11TransTableL16GetNextCardBlockEv(ptr nocapture noundef n
   %.012 = phi i32 [ %26, %24 ], [ 0, %._crit_edge ]
   %40 = add nsw i32 %39, 1
   store i32 %40, ptr %25, align 8
-  %41 = getelementptr inbounds i8, ptr %0, i64 656208
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 656208
   %42 = sext i32 %.012 to i64
   %43 = getelementptr inbounds [1000 x ptr], ptr %41, i64 0, i64 %42
   %44 = load ptr, ptr %43, align 8
@@ -1206,7 +1206,7 @@ define noundef ptr @_ZN11TransTableL16GetNextCardBlockEv(ptr nocapture noundef n
   %76 = load i32, ptr %75, align 8
   %77 = add nsw i32 %76, 1
   store i32 %77, ptr %75, align 8
-  %78 = getelementptr inbounds i8, ptr %0, i64 656208
+  %78 = getelementptr inbounds nuw i8, ptr %0, i64 656208
   %79 = load ptr, ptr %78, align 8
   br label %130
 
@@ -1238,7 +1238,7 @@ define noundef ptr @_ZN11TransTableL16GetNextCardBlockEv(ptr nocapture noundef n
   %95 = load i32, ptr %94, align 8
   %96 = add nsw i32 %95, 1
   store i32 %96, ptr %94, align 8
-  %97 = getelementptr inbounds i8, ptr %0, i64 656208
+  %97 = getelementptr inbounds nuw i8, ptr %0, i64 656208
   %98 = load ptr, ptr %97, align 8
   br label %130
 
@@ -1272,7 +1272,7 @@ define noundef ptr @_ZN11TransTableL16GetNextCardBlockEv(ptr nocapture noundef n
   %114 = load i32, ptr %113, align 8
   %115 = add nsw i32 %114, 1
   store i32 %115, ptr %113, align 8
-  %116 = getelementptr inbounds i8, ptr %0, i64 656208
+  %116 = getelementptr inbounds nuw i8, ptr %0, i64 656208
   %117 = load ptr, ptr %116, align 8
   br label %130
 
@@ -1319,7 +1319,7 @@ define noundef zeroext i1 @_ZN11TransTableL7HarvestEv(ptr nocapture noundef nonn
   %8 = sext i32 %7 to i64
   %9 = getelementptr inbounds [12 x [4 x ptr]], ptr %2, i64 0, i64 %5, i64 %8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 664208
-  %11 = getelementptr inbounds i8, ptr %0, i64 656208
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 656208
   br label %12
 
 12:                                               ; preds = %71, %1
@@ -1405,7 +1405,7 @@ define noundef zeroext i1 @_ZN11TransTableL7HarvestEv(ptr nocapture noundef nonn
 
 53:                                               ; preds = %49, %44
   store i32 0, ptr %45, align 8
-  %54 = getelementptr inbounds i8, ptr %0, i64 44
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %55 = load i32, ptr %54, align 4
   %56 = add nsw i32 %55, 1
   store i32 %56, ptr %54, align 4
@@ -1824,7 +1824,7 @@ define noundef ptr @_ZN11TransTableL11LookupCardsERKNS_12winMatchTypeEPNS_12winB
 
 44:                                               ; preds = %36, %37, %26
   %45 = getelementptr inbounds nuw i8, ptr %.06183, i64 44
-  %46 = getelementptr inbounds i8, ptr %.06183, i64 45
+  %46 = getelementptr inbounds nuw i8, ptr %.06183, i64 45
   %47 = load i8, ptr %46, align 1
   %48 = sext i8 %47 to i32
   %49 = icmp slt i32 %3, %48
@@ -1923,7 +1923,7 @@ define noundef ptr @_ZN11TransTableL11LookupCardsERKNS_12winMatchTypeEPNS_12winB
 
 102:                                              ; preds = %94, %95, %84
   %103 = getelementptr inbounds nuw i8, ptr %.185, i64 44
-  %104 = getelementptr inbounds i8, ptr %.185, i64 45
+  %104 = getelementptr inbounds nuw i8, ptr %.185, i64 45
   %105 = load i8, ptr %104, align 1
   %106 = sext i8 %105 to i32
   %107 = icmp slt i32 %3, %106
@@ -2019,9 +2019,9 @@ define void @_ZN11TransTableL14CreateOrUpdateEPNS_12winBlockTypeERKNS_12winMatch
 31:                                               ; preds = %28
   %32 = getelementptr inbounds nuw i8, ptr %.047, i64 44
   %33 = getelementptr inbounds nuw i8, ptr %2, i64 44
-  %34 = getelementptr inbounds i8, ptr %2, i64 45
+  %34 = getelementptr inbounds nuw i8, ptr %2, i64 45
   %35 = load i8, ptr %34, align 1
-  %36 = getelementptr inbounds i8, ptr %.047, i64 45
+  %36 = getelementptr inbounds nuw i8, ptr %.047, i64 45
   %37 = load i8, ptr %36, align 1
   %38 = icmp sgt i8 %35, %37
   br i1 %38, label %39, label %40
@@ -2041,11 +2041,11 @@ define void @_ZN11TransTableL14CreateOrUpdateEPNS_12winBlockTypeERKNS_12winMatch
   br label %45
 
 45:                                               ; preds = %44, %40
-  %46 = getelementptr inbounds i8, ptr %2, i64 46
+  %46 = getelementptr inbounds nuw i8, ptr %2, i64 46
   %47 = load i8, ptr %46, align 2
-  %48 = getelementptr inbounds i8, ptr %.047, i64 46
+  %48 = getelementptr inbounds nuw i8, ptr %.047, i64 46
   store i8 %47, ptr %48, align 1
-  %49 = getelementptr inbounds i8, ptr %2, i64 47
+  %49 = getelementptr inbounds nuw i8, ptr %2, i64 47
   %50 = load i8, ptr %49, align 1
   br label %.sink.split
 
@@ -2084,14 +2084,14 @@ define void @_ZN11TransTableL14CreateOrUpdateEPNS_12winBlockTypeERKNS_12winMatch
   br i1 %3, label %69, label %66
 
 66:                                               ; preds = %60
-  %67 = getelementptr inbounds i8, ptr %65, i64 46
+  %67 = getelementptr inbounds nuw i8, ptr %65, i64 46
   store i8 0, ptr %67, align 2
   br label %.sink.split
 
 .sink.split:                                      ; preds = %45, %66
   %.sink51 = phi ptr [ %65, %66 ], [ %.047, %45 ]
   %.sink = phi i8 [ 0, %66 ], [ %50, %45 ]
-  %68 = getelementptr inbounds i8, ptr %.sink51, i64 47
+  %68 = getelementptr inbounds nuw i8, ptr %.sink51, i64 47
   store i8 %.sink, ptr %68, align 1
   br label %69
 
@@ -2118,8 +2118,8 @@ define void @_ZN11TransTableL3AddEiiPKtS1_RK13nodeCardsTypeb(ptr noundef nonnull
   %20 = load i64, ptr %5, align 1
   store i64 %20, ptr %19, align 4
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 52
-  %22 = getelementptr inbounds i8, ptr %11, i64 48
-  %23 = getelementptr inbounds i8, ptr %0, i64 68
+  %22 = getelementptr inbounds nuw i8, ptr %11, i64 48
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 68
   br label %24
 
 24:                                               ; preds = %18, %59
@@ -2382,9 +2382,9 @@ define void @_ZN11TransTableL3AddEiiPKtS1_RK13nodeCardsTypeb(ptr noundef nonnull
 
 213:                                              ; preds = %210
   %214 = getelementptr inbounds nuw i8, ptr %.047.i, i64 44
-  %215 = getelementptr inbounds i8, ptr %11, i64 45
+  %215 = getelementptr inbounds nuw i8, ptr %11, i64 45
   %216 = load i8, ptr %215, align 1
-  %217 = getelementptr inbounds i8, ptr %.047.i, i64 45
+  %217 = getelementptr inbounds nuw i8, ptr %.047.i, i64 45
   %218 = load i8, ptr %217, align 1
   %219 = icmp sgt i8 %216, %218
   br i1 %219, label %220, label %221
@@ -2404,11 +2404,11 @@ define void @_ZN11TransTableL3AddEiiPKtS1_RK13nodeCardsTypeb(ptr noundef nonnull
   br label %226
 
 226:                                              ; preds = %225, %221
-  %227 = getelementptr inbounds i8, ptr %11, i64 46
+  %227 = getelementptr inbounds nuw i8, ptr %11, i64 46
   %228 = load i8, ptr %227, align 2
-  %229 = getelementptr inbounds i8, ptr %.047.i, i64 46
+  %229 = getelementptr inbounds nuw i8, ptr %.047.i, i64 46
   store i8 %228, ptr %229, align 1
-  %230 = getelementptr inbounds i8, ptr %11, i64 47
+  %230 = getelementptr inbounds nuw i8, ptr %11, i64 47
   %231 = load i8, ptr %230, align 1
   br label %.sink.split.i
 
@@ -2447,14 +2447,14 @@ define void @_ZN11TransTableL3AddEiiPKtS1_RK13nodeCardsTypeb(ptr noundef nonnull
   br i1 %6, label %_ZN11TransTableL14CreateOrUpdateEPNS_12winBlockTypeERKNS_12winMatchTypeEb.exit, label %247
 
 247:                                              ; preds = %241
-  %248 = getelementptr inbounds i8, ptr %246, i64 46
+  %248 = getelementptr inbounds nuw i8, ptr %246, i64 46
   store i8 0, ptr %248, align 2
   br label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %247, %226
   %.sink51.i = phi ptr [ %246, %247 ], [ %.047.i, %226 ]
   %.sink.i = phi i8 [ 0, %247 ], [ %231, %226 ]
-  %249 = getelementptr inbounds i8, ptr %.sink51.i, i64 47
+  %249 = getelementptr inbounds nuw i8, ptr %.sink51.i, i64 47
   store i8 %.sink.i, ptr %249, align 1
   br label %_ZN11TransTableL14CreateOrUpdateEPNS_12winBlockTypeERKNS_12winMatchTypeEb.exit
 

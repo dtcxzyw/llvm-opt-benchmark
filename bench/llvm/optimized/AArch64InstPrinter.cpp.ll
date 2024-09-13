@@ -14175,15 +14175,15 @@ define dso_local noundef zeroext i1 @_ZN4llvm18AArch64InstPrinter15printAliasIns
   store i64 942, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr @_ZZN4llvm18AArch64InstPrinter15printAliasInstrEPKNS_6MCInstEmRKNS_15MCSubtargetInfoERNS_11raw_ostreamEE8Patterns, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %6, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store i64 1111, ptr %9, align 8
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 32
   store ptr @_ZZN4llvm18AArch64InstPrinter15printAliasInstrEPKNS_6MCInstEmRKNS_15MCSubtargetInfoERNS_11raw_ostreamEE5Conds, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %6, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %6, i64 40
   store i64 7170, ptr %11, align 8
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 48
   store ptr @_ZZN4llvm18AArch64InstPrinter15printAliasInstrEPKNS_6MCInstEmRKNS_15MCSubtargetInfoERNS_11raw_ostreamEE10AsmStrings, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %6, i64 56
+  %13 = getelementptr inbounds nuw i8, ptr %6, i64 56
   store i64 17957, ptr %13, align 8
   %14 = getelementptr inbounds nuw i8, ptr %6, i64 64
   store ptr @_ZL35AArch64InstPrinterValidateMCOperandRKN4llvm9MCOperandERKNS_15MCSubtargetInfoEj, ptr %14, align 8
@@ -19603,15 +19603,15 @@ define dso_local noundef zeroext i1 @_ZN4llvm23AArch64AppleInstPrinter15printAli
   store i64 942, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr @_ZZN4llvm23AArch64AppleInstPrinter15printAliasInstrEPKNS_6MCInstEmRKNS_15MCSubtargetInfoERNS_11raw_ostreamEE8Patterns, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %6, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store i64 1111, ptr %9, align 8
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 32
   store ptr @_ZZN4llvm23AArch64AppleInstPrinter15printAliasInstrEPKNS_6MCInstEmRKNS_15MCSubtargetInfoERNS_11raw_ostreamEE5Conds, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %6, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %6, i64 40
   store i64 7170, ptr %11, align 8
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 48
   store ptr @_ZZN4llvm23AArch64AppleInstPrinter15printAliasInstrEPKNS_6MCInstEmRKNS_15MCSubtargetInfoERNS_11raw_ostreamEE10AsmStrings, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %6, i64 56
+  %13 = getelementptr inbounds nuw i8, ptr %6, i64 56
   store i64 17935, ptr %13, align 8
   %14 = getelementptr inbounds nuw i8, ptr %6, i64 64
   store ptr @_ZL40AArch64AppleInstPrinterValidateMCOperandRKN4llvm9MCOperandERKNS_15MCSubtargetInfoEj, ptr %14, align 8

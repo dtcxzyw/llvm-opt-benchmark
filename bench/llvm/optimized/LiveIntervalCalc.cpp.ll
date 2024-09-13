@@ -116,7 +116,7 @@ define dso_local void @_ZN4llvm16LiveIntervalCalc9calculateERNS_12LiveIntervalEb
 
 .preheader.i.i.i:                                 ; preds = %30, %33
   %.pn.i.i.i.i = phi ptr [ %storemerge.i.i.i.i, %33 ], [ %.0.i.i.i, %30 ]
-  %storemerge.in.i.i.i.i = getelementptr inbounds i8, ptr %.pn.i.i.i.i, i64 24
+  %storemerge.in.i.i.i.i = getelementptr inbounds nuw i8, ptr %.pn.i.i.i.i, i64 24
   %storemerge.i.i.i.i = load ptr, ptr %storemerge.in.i.i.i.i, align 8
   %.not.i.i.i.i = icmp eq ptr %storemerge.i.i.i.i, null
   br i1 %.not.i.i.i.i, label %._crit_edge, label %33
@@ -278,7 +278,7 @@ _ZNK4llvm14MachineOperand8readsRegEv.exit.preheader: ; preds = %_ZN4llvm19Machin
 
 _ZNK4llvm14MachineOperand8readsRegEv.exit:        ; preds = %_ZNK4llvm14MachineOperand8readsRegEv.exit.preheader, %98
   %.pn.i.i = phi ptr [ %storemerge.i.i, %98 ], [ %.sroa.086.0100, %_ZNK4llvm14MachineOperand8readsRegEv.exit.preheader ]
-  %storemerge.in.i.i = getelementptr inbounds i8, ptr %.pn.i.i, i64 24
+  %storemerge.in.i.i = getelementptr inbounds nuw i8, ptr %.pn.i.i, i64 24
   %storemerge.i.i = load ptr, ptr %storemerge.in.i.i, align 8
   %.not.i.i74 = icmp eq ptr %storemerge.i.i, null
   br i1 %.not.i.i74, label %._crit_edge, label %98
@@ -301,7 +301,7 @@ _ZNK4llvm14MachineOperand8readsRegEv.exit:        ; preds = %_ZNK4llvm14MachineO
 .preheader:                                       ; preds = %._crit_edge
   %106 = getelementptr inbounds nuw i8, ptr %5, i64 40
   %107 = getelementptr inbounds i8, ptr %5, i64 56
-  %108 = getelementptr inbounds i8, ptr %5, i64 104
+  %108 = getelementptr inbounds nuw i8, ptr %5, i64 104
   %109 = getelementptr inbounds nuw i8, ptr %5, i64 112
   %110 = getelementptr inbounds nuw i8, ptr %5, i64 136
   %111 = getelementptr inbounds i8, ptr %5, i64 152
@@ -331,7 +331,7 @@ _ZNK4llvm14MachineOperand8readsRegEv.exit:        ; preds = %_ZNK4llvm14MachineO
 118:                                              ; preds = %114
   %119 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %120 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %119) #9
-  %121 = getelementptr inbounds i8, ptr %1, i64 72
+  %121 = getelementptr inbounds nuw i8, ptr %1, i64 72
   store i32 0, ptr %121, align 8
   %122 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %1) #9
   %123 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -564,7 +564,7 @@ define dso_local void @_ZN4llvm16LiveIntervalCalc12extendToUsesERNS_9LiveRangeEN
 
 .preheader.i.i.i:                                 ; preds = %32, %35
   %.pn.i.i.i.i = phi ptr [ %storemerge.i.i.i.i, %35 ], [ %.0.i.i.i, %32 ]
-  %storemerge.in.i.i.i.i = getelementptr inbounds i8, ptr %.pn.i.i.i.i, i64 24
+  %storemerge.in.i.i.i.i = getelementptr inbounds nuw i8, ptr %.pn.i.i.i.i, i64 24
   %storemerge.i.i.i.i = load ptr, ptr %storemerge.in.i.i.i.i, align 8
   %.not.i.i.i.i = icmp eq ptr %storemerge.i.i.i.i, null
   br i1 %.not.i.i.i.i, label %._crit_edge, label %35
@@ -579,7 +579,7 @@ define dso_local void @_ZN4llvm16LiveIntervalCalc12extendToUsesERNS_9LiveRangeEN
   %38 = getelementptr inbounds nuw i8, ptr %21, i64 256
   %39 = getelementptr inbounds nuw i8, ptr %10, i64 144
   %40 = getelementptr inbounds nuw i8, ptr %10, i64 120
-  %41 = getelementptr inbounds i8, ptr %10, i64 136
+  %41 = getelementptr inbounds nuw i8, ptr %10, i64 136
   br label %_ZN4llvm19MachineRegisterInfo20defusechain_iteratorILb1ELb1ELb1ELb1ELb0ELb0EEppEv.exit
 
 _ZN4llvm19MachineRegisterInfo20defusechain_iteratorILb1ELb1ELb1ELb1ELb0ELb0EEppEv.exit.loopexit: ; preds = %157
@@ -816,7 +816,7 @@ _ZNK4llvm14MachineOperand8readsRegEv.exit.thread65.preheader: ; preds = %_ZNK4ll
 
 _ZNK4llvm14MachineOperand8readsRegEv.exit.thread65: ; preds = %_ZNK4llvm14MachineOperand8readsRegEv.exit.thread65.preheader, %157
   %.pn.i.i = phi ptr [ %storemerge.i.i, %157 ], [ %.sroa.055.078, %_ZNK4llvm14MachineOperand8readsRegEv.exit.thread65.preheader ]
-  %storemerge.in.i.i = getelementptr inbounds i8, ptr %.pn.i.i, i64 24
+  %storemerge.in.i.i = getelementptr inbounds nuw i8, ptr %.pn.i.i, i64 24
   %storemerge.i.i = load ptr, ptr %storemerge.in.i.i, align 8
   %.not.i.i48 = icmp eq ptr %storemerge.i.i, null
   br i1 %.not.i.i48, label %._crit_edge, label %157
@@ -926,7 +926,7 @@ define dso_local void @_ZN4llvm16LiveIntervalCalc14createDeadDefsERNS_9LiveRange
   br i1 %.not.i.i.i.i, label %23, label %.lr.ph
 
 23:                                               ; preds = %20
-  %24 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 24
+  %24 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 24
   %25 = load ptr, ptr %24, align 8
   %.not.i4.i.i.i = icmp eq ptr %25, null
   br i1 %.not.i4.i.i.i, label %._crit_edge, label %26
@@ -951,7 +951,7 @@ _ZN4llvm19MachineRegisterInfo20defusechain_iteratorILb0ELb1ELb0ELb1ELb0ELb0EEppE
   %31 = getelementptr i8, ptr %.sroa.014.019, i64 8
   %.val11 = load ptr, ptr %31, align 8
   tail call fastcc void @_ZL13createDeadDefRN4llvm11SlotIndexesERNS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EEERNS_9LiveRangeERKNS_14MachineOperandE(ptr %.val, i32 %.val9, ptr noundef nonnull align 8 dereferenceable(96) %9, ptr noundef nonnull align 8 dereferenceable(104) %1, i32 %.val10, ptr %.val11)
-  %32 = getelementptr inbounds i8, ptr %.sroa.014.019, i64 24
+  %32 = getelementptr inbounds nuw i8, ptr %.sroa.014.019, i64 24
   %33 = load ptr, ptr %32, align 8
   %.not.i.i = icmp eq ptr %33, null
   br i1 %.not.i.i, label %._crit_edge, label %34
@@ -1270,7 +1270,7 @@ define linkonce_odr hidden void @_ZN4llvm8DenseMapIPNS_9LiveRangeESt4pairINS_9Bi
 
 8:                                                ; preds = %.lr.ph.i
   %9 = getelementptr inbounds nuw i8, ptr %.011.i, i64 8
-  %10 = getelementptr inbounds i8, ptr %.011.i, i64 80
+  %10 = getelementptr inbounds nuw i8, ptr %.011.i, i64 80
   %11 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %10) #9
   %12 = load ptr, ptr %10, align 8
   %13 = getelementptr inbounds i8, ptr %.011.i, i64 96

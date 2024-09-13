@@ -80,7 +80,7 @@ $_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12Star
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local noundef ptr @_ZN4llvm13AArch64MCExpr6createEPKNS_6MCExprENS0_11VariantKindERNS_9MCContextE(ptr noundef %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(2432) %2) local_unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 192
-  %5 = getelementptr inbounds i8, ptr %2, i64 272
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 272
   %6 = load i64, ptr %5, align 8
   %7 = add i64 %6, 40
   store i64 %7, ptr %5, align 8
@@ -89,7 +89,7 @@ define dso_local noundef ptr @_ZN4llvm13AArch64MCExpr6createEPKNS_6MCExprENS0_11
   %10 = add i64 %9, 7
   %11 = and i64 %10, -8
   %12 = add i64 %11, 40
-  %13 = getelementptr inbounds i8, ptr %2, i64 200
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 200
   %14 = load ptr, ptr %13, align 8
   %15 = ptrtoint ptr %14 to i64
   %.not.i.i.i.i = icmp ugt i64 %12, %15
@@ -486,7 +486,7 @@ tailrecurse.backedge:                             ; preds = %tailrecurse, %3
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local noundef ptr @_ZN4llvm17AArch64AuthMCExpr6createEPKNS_6MCExprEtNS_13AArch64PACKey2IDEbRNS_9MCContextE(ptr noundef %0, i16 noundef zeroext %1, i8 noundef zeroext %2, i1 noundef zeroext %3, ptr noundef nonnull align 8 dereferenceable(2432) %4) local_unnamed_addr #0 align 2 {
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 192
-  %7 = getelementptr inbounds i8, ptr %4, i64 272
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 272
   %8 = load i64, ptr %7, align 8
   %9 = add i64 %8, 40
   store i64 %9, ptr %7, align 8
@@ -495,7 +495,7 @@ define dso_local noundef ptr @_ZN4llvm17AArch64AuthMCExpr6createEPKNS_6MCExprEtN
   %12 = add i64 %11, 7
   %13 = and i64 %12, -8
   %14 = add i64 %13, 40
-  %15 = getelementptr inbounds i8, ptr %4, i64 200
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 200
   %16 = load ptr, ptr %15, align 8
   %17 = ptrtoint ptr %16 to i64
   %.not.i.i.i.i = icmp ugt i64 %14, %17

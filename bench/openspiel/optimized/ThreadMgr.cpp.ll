@@ -55,7 +55,7 @@ define void @_ZN9ThreadMgrC2Ev(ptr nocapture noundef nonnull writeonly align 8 d
   store i32 0, ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr null, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 0, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %5, i8 0, i64 40, i1 false)
@@ -70,7 +70,7 @@ define void @_ZN9ThreadMgrD2Ev(ptr nocapture noundef nonnull align 8 dereference
   br i1 %.not.i.i.i, label %_ZNSt6vectorIiSaIiEED2Ev.exit, label %4
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 56
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %6 = load ptr, ptr %5, align 8
   %7 = ptrtoint ptr %6 to i64
   %8 = ptrtoint ptr %3 to i64
@@ -118,7 +118,7 @@ define void @_ZN9ThreadMgr5ResetEi(ptr noundef nonnull align 8 dereferenceable(7
   %7 = zext i32 %1 to i64
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %11 = load i32, ptr %10, align 8
   %12 = load ptr, ptr %0, align 8
   %13 = ptrtoint ptr %9 to i64
@@ -180,7 +180,7 @@ _ZNSt6vectorIbSaIbEE6resizeEmb.exit:              ; preds = %20, %24
 42:                                               ; preds = %38
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %44 = zext i32 %1 to i64
-  %45 = getelementptr inbounds i8, ptr %0, i64 48
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %46 = load ptr, ptr %45, align 8
   %47 = load ptr, ptr %43, align 8
   %48 = ptrtoint ptr %46 to i64
@@ -248,7 +248,7 @@ define noundef i32 @_ZN9ThreadMgr6OccupyEi(ptr noundef nonnull align 8 dereferen
   store i32 %7, ptr %4, align 4
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %9 = zext i32 %7 to i64
-  %10 = getelementptr inbounds i8, ptr %0, i64 48
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %11 = load ptr, ptr %10, align 8
   %12 = load ptr, ptr %8, align 8
   %13 = ptrtoint ptr %11 to i64

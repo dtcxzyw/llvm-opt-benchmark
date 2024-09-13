@@ -150,11 +150,11 @@ _ZL23lowerWidenableConditionRN4llvm8FunctionE.exit: ; preds = %_ZL23lowerWidenab
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 0, ptr %60, align 4, !alias.scope !4
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %62 = getelementptr inbounds i8, ptr %0, i64 80
+  %62 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store ptr %62, ptr %61, align 8, !alias.scope !4
-  %63 = getelementptr inbounds i8, ptr %0, i64 56
+  %63 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store ptr %62, ptr %63, align 8, !alias.scope !4
-  %64 = getelementptr inbounds i8, ptr %0, i64 64
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i32 2, ptr %64, align 8, !alias.scope !4
   br label %76
 
@@ -170,15 +170,15 @@ _ZL23lowerWidenableConditionRN4llvm8FunctionE.exit: ; preds = %_ZL23lowerWidenab
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 0, ptr %69, align 8, !alias.scope !7
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %71 = getelementptr inbounds i8, ptr %0, i64 80
+  %71 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store ptr %71, ptr %70, align 8, !alias.scope !7
-  %72 = getelementptr inbounds i8, ptr %0, i64 56
+  %72 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store ptr %71, ptr %72, align 8, !alias.scope !7
-  %73 = getelementptr inbounds i8, ptr %0, i64 64
+  %73 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i32 2, ptr %73, align 8, !alias.scope !7
-  %74 = getelementptr inbounds i8, ptr %0, i64 68
+  %74 = getelementptr inbounds nuw i8, ptr %0, i64 68
   store i32 0, ptr %74, align 4, !alias.scope !7
-  %75 = getelementptr inbounds i8, ptr %0, i64 72
+  %75 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store i32 0, ptr %75, align 8, !alias.scope !7
   store i32 1, ptr %68, align 4, !alias.scope !7, !noalias !10
   store ptr @_ZN4llvm17PreservedAnalyses14AllAnalysesKeyE, ptr %65, align 8, !alias.scope !7, !noalias !10

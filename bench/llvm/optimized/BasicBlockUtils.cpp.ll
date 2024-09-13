@@ -330,7 +330,7 @@ $_ZTVN4llvm2cl11OptionValueIjEE = comdat any
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvm2cl3optIjLb0ENS0_6parserIjEEED2Ev(ptr noundef nonnull align 8 dereferenceable(192) %0) unnamed_addr #0 comdat align 2 {
   store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTVN4llvm2cl3optIjLb0ENS0_6parserIjEEEE, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 176
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %3 = load ptr, ptr %2, align 8
   %.not.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i, label %_ZNSt8functionIFvRKjEED2Ev.exit, label %4
@@ -343,7 +343,7 @@ define linkonce_odr hidden void @_ZN4llvm2cl3optIjLb0ENS0_6parserIjEEED2Ev(ptr n
 _ZNSt8functionIFvRKjEED2Ev.exit:                  ; preds = %1, %4
   store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTVN4llvm2cl6OptionE, i64 16), ptr %0, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %8 = getelementptr inbounds i8, ptr %0, i64 96
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %9 = load ptr, ptr %8, align 8
   %10 = load ptr, ptr %7, align 8
   %11 = icmp eq ptr %9, %10
@@ -665,7 +665,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm26EliminateUnreachableBlocksERNS_8F
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store i32 0, ptr %11, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4), !noalias !13
-  %12 = getelementptr inbounds i8, ptr %0, i64 80
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %13 = load ptr, ptr %12, align 8, !noalias !16
   %14 = icmp eq ptr %13, null
   %15 = getelementptr inbounds i8, ptr %13, i64 -24
@@ -673,7 +673,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm26EliminateUnreachableBlocksERNS_8F
   call void @_ZN4llvm11df_iteratorIPNS_8FunctionENS_23df_iterator_default_setIPNS_10BasicBlockELj8EEELb1ENS_11GraphTraitsIS2_EEEC2ES5_RS6_(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef %16, ptr noundef nonnull align 8 dereferenceable(96) %5), !noalias !21
   %17 = load ptr, ptr %4, align 8, !noalias !21
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %19 = getelementptr inbounds i8, ptr %4, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %20 = load ptr, ptr %19, align 8, !noalias !21
   %21 = load ptr, ptr %18, align 8, !noalias !21
   %22 = ptrtoint ptr %20 to i64
@@ -710,7 +710,7 @@ _ZN4llvm15df_ext_iteratorIPNS_8FunctionENS_23df_iterator_default_setIPNS_10Basic
   br i1 %.not.i.i.i.i.i.i, label %_ZN4llvm15depth_first_extIPNS_8FunctionENS_23df_iterator_default_setIPNS_10BasicBlockELj8EEEEENS_14iterator_rangeINS_15df_ext_iteratorIT_T0_EEEERKS9_RSA_.exit, label %31
 
 31:                                               ; preds = %_ZN4llvm15df_ext_iteratorIPNS_8FunctionENS_23df_iterator_default_setIPNS_10BasicBlockELj8EEEEC2ERKNS_11df_iteratorIS2_S6_Lb1ENS_11GraphTraitsIS2_EEEE.exit.i.i
-  %32 = getelementptr inbounds i8, ptr %4, i64 24
+  %32 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %33 = load ptr, ptr %32, align 8, !noalias !21
   %34 = ptrtoint ptr %33 to i64
   %35 = sub i64 %34, %23
@@ -731,10 +731,10 @@ _ZN4llvm15depth_first_extIPNS_8FunctionENS_23df_iterator_default_setIPNS_10Basic
 
 _ZN4llvm15df_ext_iteratorIPNS_8FunctionENS_23df_iterator_default_setIPNS_10BasicBlockELj8EEEED2Ev.exit.thread: ; preds = %_ZN4llvm15depth_first_extIPNS_8FunctionENS_23df_iterator_default_setIPNS_10BasicBlockELj8EEEEENS_14iterator_rangeINS_15df_ext_iteratorIT_T0_EEEERKS9_RSA_.exit
   %40 = getelementptr inbounds i8, ptr null, i64 %39
-  %41 = getelementptr inbounds i8, ptr %6, i64 24
+  %41 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store i64 0, ptr %36, align 8
   store ptr %40, ptr %41, align 8, !alias.scope !23
-  %42 = getelementptr inbounds i8, ptr %6, i64 16
+  %42 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr null, ptr %42, align 8, !alias.scope !23
   br label %_ZN4llvm15df_ext_iteratorIPNS_8FunctionENS_23df_iterator_default_setIPNS_10BasicBlockELj8EEEED2Ev.exit.i
 
@@ -750,7 +750,7 @@ _ZNK4llvm14iterator_rangeINS_15df_ext_iteratorIPNS_8FunctionENS_23df_iterator_de
   %46 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %39) #24, !noalias !23
   store ptr %46, ptr %36, align 8, !alias.scope !23
   %47 = getelementptr inbounds i8, ptr %46, i64 %39
-  %48 = getelementptr inbounds i8, ptr %6, i64 24
+  %48 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store ptr %47, ptr %48, align 8, !alias.scope !23
   %49 = add i64 %37, -32
   %50 = sub i64 %49, %38
@@ -758,7 +758,7 @@ _ZNK4llvm14iterator_rangeINS_15df_ext_iteratorIPNS_8FunctionENS_23df_iterator_de
   %52 = add i64 %51, 32
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %46, ptr align 8 %.sroa.213.0.i, i64 %52, i1 false), !noalias !23
   %scevgep = getelementptr i8, ptr %46, i64 %52
-  %53 = getelementptr inbounds i8, ptr %6, i64 16
+  %53 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr %scevgep, ptr %53, align 8, !alias.scope !23
   %54 = icmp eq i64 %52, 0
   br i1 %54, label %_ZN4llvm15df_ext_iteratorIPNS_8FunctionENS_23df_iterator_default_setIPNS_10BasicBlockELj8EEEED2Ev.exit.thread67, label %.lr.ph
@@ -769,7 +769,7 @@ _ZN4llvm15df_ext_iteratorIPNS_8FunctionENS_23df_iterator_default_setIPNS_10Basic
 
 _ZN4llvm15df_ext_iteratorIPNS_8FunctionENS_23df_iterator_default_setIPNS_10BasicBlockELj8EEEED2Ev.exit.thread67: ; preds = %_ZNK4llvm14iterator_rangeINS_15df_ext_iteratorIPNS_8FunctionENS_23df_iterator_default_setIPNS_10BasicBlockELj8EEEEEE3endEv.exit, %_ZN4llvm15df_ext_iteratorIPNS_8FunctionENS_23df_iterator_default_setIPNS_10BasicBlockELj8EEEED2Ev.exit
   %55 = phi ptr [ %64, %_ZN4llvm15df_ext_iteratorIPNS_8FunctionENS_23df_iterator_default_setIPNS_10BasicBlockELj8EEEED2Ev.exit ], [ %46, %_ZNK4llvm14iterator_rangeINS_15df_ext_iteratorIPNS_8FunctionENS_23df_iterator_default_setIPNS_10BasicBlockELj8EEEEEE3endEv.exit ]
-  %56 = getelementptr inbounds i8, ptr %6, i64 24
+  %56 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %57 = load ptr, ptr %56, align 8
   %58 = ptrtoint ptr %57 to i64
   %59 = ptrtoint ptr %55 to i64
@@ -973,7 +973,7 @@ _ZN4llvm23df_iterator_default_setIPNS_10BasicBlockELj8EED2Ev.exit: ; preds = %_Z
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local noundef zeroext i1 @_ZN4llvm23FoldSingleEntryPHINodesEPNS_10BasicBlockEPNS_23MemoryDependenceResultsE(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 56
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 -24
   %6 = load i8, ptr %5, align 8
@@ -1476,7 +1476,7 @@ _ZN4llvm12is_containedINS_14iterator_rangeIPNS_3UseEEEPNS_7PHINodeEEEbOT_RKT0_.e
 ._crit_edge:                                      ; preds = %_ZN4llvm12is_containedINS_14iterator_rangeIPNS_3UseEEEPNS_7PHINodeEEEbOT_RKT0_.exit.thread, %63
   %125 = getelementptr inbounds i8, ptr %9, i64 16
   call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull %125, i64 noundef 4) #21
-  %126 = getelementptr inbounds i8, ptr %0, i64 56
+  %126 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %127 = load ptr, ptr %126, align 8
   %128 = getelementptr inbounds i8, ptr %127, i64 -24
   %129 = load i8, ptr %128, align 8
@@ -2570,7 +2570,7 @@ declare void @_ZN4llvm11Instruction20moveBeforePreservingERNS_10BasicBlockENS_21
 define linkonce_odr hidden noundef ptr @_ZNK4llvm9MemorySSA15getMemoryAccessEPKNS_11InstructionE(ptr noundef nonnull align 8 dereferenceable(325) %0, ptr noundef %1) local_unnamed_addr #0 comdat align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 48
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %6 = load i32, ptr %5, align 8
   %7 = icmp eq i32 %6, 0
   br i1 %7, label %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_5ValueEPNS_12MemoryAccessENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E6lookupES4_.exit, label %8
@@ -2938,9 +2938,9 @@ _ZN4llvm13SmallDenseSetINS_13DebugVariableELj4ENS_12DenseMapInfoIS1_vEEEC2Ev.exi
 
 .lr.ph101.i.i:                                    ; preds = %_ZN4llvm13SmallDenseSetINS_13DebugVariableELj4ENS_12DenseMapInfoIS1_vEEEC2Ev.exit.i.i
   %51 = getelementptr inbounds nuw i8, ptr %39, i64 8
-  %52 = getelementptr inbounds i8, ptr %39, i64 24
+  %52 = getelementptr inbounds nuw i8, ptr %39, i64 24
   %53 = getelementptr inbounds nuw i8, ptr %39, i64 32
-  %54 = getelementptr inbounds i8, ptr %38, i64 16
+  %54 = getelementptr inbounds nuw i8, ptr %38, i64 16
   %55 = getelementptr inbounds nuw i8, ptr %38, i64 8
   br label %56
 
@@ -3264,7 +3264,7 @@ _ZNK4llvm10DILocation12getInlinedAtEv.exit.i.i:   ; preds = %_ZNK4llvm6MDNode10g
 188:                                              ; preds = %_ZNK4llvm10DILocation12getInlinedAtEv.exit.i.i
   %189 = getelementptr inbounds nuw i8, ptr %156, i64 16
   %190 = load ptr, ptr %189, align 8, !noalias !73
-  %191 = getelementptr inbounds i8, ptr %156, i64 24
+  %191 = getelementptr inbounds nuw i8, ptr %156, i64 24
   %192 = load ptr, ptr %191, align 8, !noalias !73
   %193 = ptrtoint ptr %192 to i64
   %194 = ptrtoint ptr %190 to i64
@@ -3347,7 +3347,7 @@ _ZN4llvm8DebugLocD2Ev.exit.i.i:                   ; preds = %199, %_ZN4llvm13Deb
   br i1 %230, label %_ZSteqIN4llvm23DbgVariableFragmentInfoES1_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7declvalIRKT_EEclsr3stdE7declvalIRKT0_EEEbEE5valueEbE4typeERKSt8optionalIS3_ERKSC_IS6_E.exit.i.i.i.i.i.i.i.i, label %_ZN4llvm12DenseMapInfoINS_13DebugVariableEvE7isEqualERKS1_S4_.exit.thread.i.i.i
 
 _ZSteqIN4llvm23DbgVariableFragmentInfoES1_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7declvalIRKT_EEclsr3stdE7declvalIRKT0_EEEbEE5valueEbE4typeERKSt8optionalIS3_ERKSC_IS6_E.exit.i.i.i.i.i.i.i.i: ; preds = %222
-  %231 = getelementptr inbounds i8, ptr %.0.i77.i.i, i64 24
+  %231 = getelementptr inbounds nuw i8, ptr %.0.i77.i.i, i64 24
   %232 = load i8, ptr %231, align 8, !noalias !76
   %233 = trunc i8 %232 to i1
   br i1 %233, label %_ZN4llvm12DenseMapInfoINS_13DebugVariableEvE7isEqualERKS1_S4_.exit.thread.i.i.i, label %_ZN4llvm12DenseMapInfoINS_13DebugVariableEvE7isEqualERKS1_S4_.exit.i.i.i
@@ -3491,7 +3491,7 @@ _ZN4llvm6detail12DenseSetImplINS_13DebugVariableENS_13SmallDenseMapIS2_NS0_13Den
 285:                                              ; preds = %._crit_edge107.i.i
   %286 = getelementptr inbounds nuw i8, ptr %38, i64 8
   %287 = load ptr, ptr %286, align 8
-  %288 = getelementptr inbounds i8, ptr %38, i64 16
+  %288 = getelementptr inbounds nuw i8, ptr %38, i64 16
   %289 = load i32, ptr %288, align 8
   %290 = zext i32 %289 to i64
   %291 = mul nuw nsw i64 %290, 40
@@ -3543,9 +3543,9 @@ _ZN4llvm13SmallDenseSetINS_13DebugVariableELj4ENS_12DenseMapInfoIS1_vEEEC2Ev.exi
 
 .lr.ph.i:                                         ; preds = %_ZN4llvm13SmallDenseSetINS_13DebugVariableELj4ENS_12DenseMapInfoIS1_vEEEC2Ev.exit.i
   %300 = getelementptr inbounds nuw i8, ptr %43, i64 8
-  %301 = getelementptr inbounds i8, ptr %43, i64 24
+  %301 = getelementptr inbounds nuw i8, ptr %43, i64 24
   %302 = getelementptr inbounds nuw i8, ptr %43, i64 32
-  %303 = getelementptr inbounds i8, ptr %42, i64 16
+  %303 = getelementptr inbounds nuw i8, ptr %42, i64 16
   %304 = getelementptr inbounds nuw i8, ptr %42, i64 8
   br label %305
 
@@ -3666,7 +3666,7 @@ _ZNK4llvm10DILocation12getInlinedAtEv.exit.i:     ; preds = %_ZNK4llvm6MDNode10g
 369:                                              ; preds = %_ZNK4llvm10DILocation12getInlinedAtEv.exit.i
   %370 = getelementptr inbounds nuw i8, ptr %340, i64 16
   %371 = load ptr, ptr %370, align 8, !noalias !81
-  %372 = getelementptr inbounds i8, ptr %340, i64 24
+  %372 = getelementptr inbounds nuw i8, ptr %340, i64 24
   %373 = load ptr, ptr %372, align 8, !noalias !81
   %374 = ptrtoint ptr %373 to i64
   %375 = ptrtoint ptr %371 to i64
@@ -3830,7 +3830,7 @@ _ZN4llvm6detail12DenseSetImplINS_13DebugVariableENS_13SmallDenseMapIS2_NS0_13Den
 446:                                              ; preds = %._crit_edge68.i
   %447 = getelementptr inbounds nuw i8, ptr %42, i64 8
   %448 = load ptr, ptr %447, align 8
-  %449 = getelementptr inbounds i8, ptr %42, i64 16
+  %449 = getelementptr inbounds nuw i8, ptr %42, i64 16
   %450 = load i32, ptr %449, align 8
   %451 = zext i32 %450 to i64
   %452 = mul nuw nsw i64 %451, 40
@@ -3879,7 +3879,7 @@ _ZL41removeRedundantDbgInstrsUsingBackwardScanPN4llvm10BasicBlockE.exit: ; preds
   %468 = getelementptr inbounds i8, ptr %27, i64 16
   call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %27, ptr noundef nonnull %468, i64 noundef 8) #21
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %28, i8 0, i64 20, i1 false)
-  %469 = getelementptr inbounds i8, ptr %0, i64 56
+  %469 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %470 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %.sroa.075.0105.i.i = load ptr, ptr %469, align 8
   %.not85106.i.i = icmp eq ptr %.sroa.075.0105.i.i, %470
@@ -4057,7 +4057,7 @@ _ZNK4llvm9DbgRecord11getDebugLocEv.exit.i.i.i:    ; preds = %504, %.thread.i.i
   br i1 %548, label %_ZSteqIN4llvm23DbgVariableFragmentInfoES1_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7declvalIRKT_EEclsr3stdE7declvalIRKT0_EEEbEE5valueEbE4typeERKSt8optionalIS3_ERKSC_IS6_E.exit.i.i.i.i.i.us.i.i.i, label %_ZN4llvm12DenseMapInfoINS_13DebugVariableEvE7isEqualERKS1_S4_.exit.thread.us.i.i.i
 
 _ZSteqIN4llvm23DbgVariableFragmentInfoES1_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7declvalIRKT_EEclsr3stdE7declvalIRKT0_EEEbEE5valueEbE4typeERKSt8optionalIS3_ERKSC_IS6_E.exit.i.i.i.i.i.us.i.i.i: ; preds = %.split.us.i.i.i
-  %549 = getelementptr inbounds i8, ptr %545, i64 24
+  %549 = getelementptr inbounds nuw i8, ptr %545, i64 24
   %550 = load i8, ptr %549, align 8
   %551 = xor i8 %550, %.sroa.3.0.copyload.i.i.fr.i.i.i
   %552 = trunc i8 %551 to i1
@@ -4073,7 +4073,7 @@ _ZN4llvm12DenseMapInfoINS_13DebugVariableEvE7isEqualERKS1_S4_.exit.thread.us.i.i
   br i1 %555, label %_ZSteqIN4llvm23DbgVariableFragmentInfoES1_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7declvalIRKT_EEclsr3stdE7declvalIRKT0_EEEbEE5valueEbE4typeERKSt8optionalIS3_ERKSC_IS6_E.exit.i.i.i.i.i19.us.i.i.i, label %_ZN4llvm12DenseMapInfoINS_13DebugVariableEvE7isEqualERKS1_S4_.exit20.thread.us.i.i.i
 
 _ZSteqIN4llvm23DbgVariableFragmentInfoES1_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7declvalIRKT_EEclsr3stdE7declvalIRKT0_EEEbEE5valueEbE4typeERKSt8optionalIS3_ERKSC_IS6_E.exit.i.i.i.i.i19.us.i.i.i: ; preds = %_ZN4llvm12DenseMapInfoINS_13DebugVariableEvE7isEqualERKS1_S4_.exit.thread.us.i.i.i
-  %556 = getelementptr inbounds i8, ptr %545, i64 24
+  %556 = getelementptr inbounds nuw i8, ptr %545, i64 24
   %557 = load i8, ptr %556, align 8
   %558 = trunc i8 %557 to i1
   br i1 %558, label %_ZN4llvm12DenseMapInfoINS_13DebugVariableEvE7isEqualERKS1_S4_.exit20.thread.us.i.i.i, label %_ZN4llvm12DenseMapInfoINS_13DebugVariableEvE7isEqualERKS1_S4_.exit20.us.i.i.i
@@ -4101,14 +4101,14 @@ _ZN4llvm12DenseMapInfoINS_13DebugVariableEvE7isEqualERKS1_S4_.exit20.thread.us.i
   br i1 %568, label %569, label %_ZN4llvm12DenseMapInfoINS_13DebugVariableEvE7isEqualERKS1_S4_.exit.thread.i.i.i45
 
 569:                                              ; preds = %.split.i.i.i
-  %570 = getelementptr inbounds i8, ptr %564, i64 24
+  %570 = getelementptr inbounds nuw i8, ptr %564, i64 24
   %571 = load i8, ptr %570, align 8
   %572 = xor i8 %571, %.sroa.3.0.copyload.i.i.fr.i.i.i
   %573 = trunc i8 %572 to i1
   br i1 %573, label %_ZN4llvm12DenseMapInfoINS_13DebugVariableEvE7isEqualERKS1_S4_.exit.thread.i.i.i45, label %574
 
 574:                                              ; preds = %569
-  %575 = getelementptr inbounds i8, ptr %564, i64 16
+  %575 = getelementptr inbounds nuw i8, ptr %564, i64 16
   %576 = load i64, ptr %565, align 8
   %577 = icmp eq i64 %.sroa.04.0.copyload.i.i.i.i.i, %576
   %578 = load i64, ptr %575, align 8
@@ -4126,7 +4126,7 @@ _ZN4llvm12DenseMapInfoINS_13DebugVariableEvE7isEqualERKS1_S4_.exit.thread.i.i.i4
   br i1 %583, label %_ZSteqIN4llvm23DbgVariableFragmentInfoES1_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7declvalIRKT_EEclsr3stdE7declvalIRKT0_EEEbEE5valueEbE4typeERKSt8optionalIS3_ERKSC_IS6_E.exit.i.i.i.i.i19.i.i.i, label %_ZN4llvm12DenseMapInfoINS_13DebugVariableEvE7isEqualERKS1_S4_.exit20.thread.i.i.i
 
 _ZSteqIN4llvm23DbgVariableFragmentInfoES1_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7declvalIRKT_EEclsr3stdE7declvalIRKT0_EEEbEE5valueEbE4typeERKSt8optionalIS3_ERKSC_IS6_E.exit.i.i.i.i.i19.i.i.i: ; preds = %_ZN4llvm12DenseMapInfoINS_13DebugVariableEvE7isEqualERKS1_S4_.exit.thread.i.i.i45
-  %584 = getelementptr inbounds i8, ptr %564, i64 24
+  %584 = getelementptr inbounds nuw i8, ptr %564, i64 24
   %585 = load i8, ptr %584, align 8
   %586 = trunc i8 %585 to i1
   br i1 %586, label %_ZN4llvm12DenseMapInfoINS_13DebugVariableEvE7isEqualERKS1_S4_.exit20.thread.i.i.i, label %_ZN4llvm12DenseMapInfoINS_13DebugVariableEvE7isEqualERKS1_S4_.exit20.i.i.i
@@ -4222,7 +4222,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapINS_13DebugVariableENS_6detail13DenseSetEmpty
   br i1 %636, label %_ZSteqIN4llvm23DbgVariableFragmentInfoES1_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7declvalIRKT_EEclsr3stdE7declvalIRKT0_EEEbEE5valueEbE4typeERKSt8optionalIS3_ERKSC_IS6_E.exit.i.i.i.i.i.us.i56.i.i, label %_ZN4llvm12DenseMapInfoINS_13DebugVariableEvE7isEqualERKS1_S4_.exit.thread.us.i53.i.i
 
 _ZSteqIN4llvm23DbgVariableFragmentInfoES1_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7declvalIRKT_EEclsr3stdE7declvalIRKT0_EEEbEE5valueEbE4typeERKSt8optionalIS3_ERKSC_IS6_E.exit.i.i.i.i.i.us.i56.i.i: ; preds = %.split.us.i51.i.i
-  %637 = getelementptr inbounds i8, ptr %632, i64 24
+  %637 = getelementptr inbounds nuw i8, ptr %632, i64 24
   %638 = load i8, ptr %637, align 8, !noalias !104
   %639 = xor i8 %638, %.sroa.3.0.copyload.i.i.fr.i44.i.i
   %640 = trunc i8 %639 to i1
@@ -4238,7 +4238,7 @@ _ZN4llvm12DenseMapInfoINS_13DebugVariableEvE7isEqualERKS1_S4_.exit.thread.us.i53
   br i1 %643, label %_ZSteqIN4llvm23DbgVariableFragmentInfoES1_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7declvalIRKT_EEclsr3stdE7declvalIRKT0_EEEbEE5valueEbE4typeERKSt8optionalIS3_ERKSC_IS6_E.exit.i.i.i.i.i31.us.i.i.i, label %_ZN4llvm12DenseMapInfoINS_13DebugVariableEvE7isEqualERKS1_S4_.exit36.us.i.i.i
 
 _ZSteqIN4llvm23DbgVariableFragmentInfoES1_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7declvalIRKT_EEclsr3stdE7declvalIRKT0_EEEbEE5valueEbE4typeERKSt8optionalIS3_ERKSC_IS6_E.exit.i.i.i.i.i31.us.i.i.i: ; preds = %_ZN4llvm12DenseMapInfoINS_13DebugVariableEvE7isEqualERKS1_S4_.exit.thread.us.i53.i.i
-  %644 = getelementptr inbounds i8, ptr %632, i64 24
+  %644 = getelementptr inbounds nuw i8, ptr %632, i64 24
   %645 = load i8, ptr %644, align 8, !noalias !104
   %646 = trunc i8 %645 to i1
   br i1 %646, label %649, label %_ZN4llvm12DenseMapInfoINS_13DebugVariableEvE7isEqualERKS1_S4_.exit32.us.i.i.i
@@ -4249,7 +4249,7 @@ _ZN4llvm12DenseMapInfoINS_13DebugVariableEvE7isEqualERKS1_S4_.exit32.us.i.i.i: ;
   br i1 %648, label %.split50.us.i.i.i, label %_ZN4llvm12DenseMapInfoINS_13DebugVariableEvE7isEqualERKS1_S4_.exit36.us.i.i.i
 
 649:                                              ; preds = %_ZSteqIN4llvm23DbgVariableFragmentInfoES1_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7declvalIRKT_EEclsr3stdE7declvalIRKT0_EEEbEE5valueEbE4typeERKSt8optionalIS3_ERKSC_IS6_E.exit.i.i.i.i.i31.us.i.i.i
-  %650 = getelementptr inbounds i8, ptr %632, i64 16
+  %650 = getelementptr inbounds nuw i8, ptr %632, i64 16
   %651 = load i64, ptr %633, align 8, !noalias !104
   %652 = icmp eq i64 %651, 0
   %653 = load i64, ptr %650, align 8, !noalias !104
@@ -4285,14 +4285,14 @@ _ZN4llvm12DenseMapInfoINS_13DebugVariableEvE7isEqualERKS1_S4_.exit36.us.i.i.i: ;
   br i1 %668, label %669, label %_ZN4llvm12DenseMapInfoINS_13DebugVariableEvE7isEqualERKS1_S4_.exit.thread.i60.i.i
 
 669:                                              ; preds = %.split.i58.i.i
-  %670 = getelementptr inbounds i8, ptr %664, i64 24
+  %670 = getelementptr inbounds nuw i8, ptr %664, i64 24
   %671 = load i8, ptr %670, align 8, !noalias !104
   %672 = xor i8 %671, %.sroa.3.0.copyload.i.i.fr.i44.i.i
   %673 = trunc i8 %672 to i1
   br i1 %673, label %_ZN4llvm12DenseMapInfoINS_13DebugVariableEvE7isEqualERKS1_S4_.exit.thread.i60.i.i, label %674
 
 674:                                              ; preds = %669
-  %675 = getelementptr inbounds i8, ptr %664, i64 16
+  %675 = getelementptr inbounds nuw i8, ptr %664, i64 16
   %676 = load i64, ptr %665, align 8, !noalias !104
   %677 = icmp eq i64 %.sroa.04.0.copyload.i.i.i39.i.i, %676
   %678 = load i64, ptr %675, align 8, !noalias !104
@@ -4310,7 +4310,7 @@ _ZN4llvm12DenseMapInfoINS_13DebugVariableEvE7isEqualERKS1_S4_.exit.thread.i60.i.
   br i1 %683, label %_ZSteqIN4llvm23DbgVariableFragmentInfoES1_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7declvalIRKT_EEclsr3stdE7declvalIRKT0_EEEbEE5valueEbE4typeERKSt8optionalIS3_ERKSC_IS6_E.exit.i.i.i.i.i31.i.i.i, label %_ZN4llvm12DenseMapInfoINS_13DebugVariableEvE7isEqualERKS1_S4_.exit36.i.i.i
 
 _ZSteqIN4llvm23DbgVariableFragmentInfoES1_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7declvalIRKT_EEclsr3stdE7declvalIRKT0_EEEbEE5valueEbE4typeERKSt8optionalIS3_ERKSC_IS6_E.exit.i.i.i.i.i31.i.i.i: ; preds = %_ZN4llvm12DenseMapInfoINS_13DebugVariableEvE7isEqualERKS1_S4_.exit.thread.i60.i.i
-  %684 = getelementptr inbounds i8, ptr %664, i64 24
+  %684 = getelementptr inbounds nuw i8, ptr %664, i64 24
   %685 = load i8, ptr %684, align 8, !noalias !104
   %686 = trunc i8 %685 to i1
   br i1 %686, label %690, label %_ZN4llvm12DenseMapInfoINS_13DebugVariableEvE7isEqualERKS1_S4_.exit32.i.i.i
@@ -4328,7 +4328,7 @@ _ZN4llvm12DenseMapInfoINS_13DebugVariableEvE7isEqualERKS1_S4_.exit32.i.i.i: ; pr
   br label %_ZNK4llvm12DenseMapBaseINS_8DenseMapINS_13DebugVariableENS_6detail13DenseSetEmptyENS_12DenseMapInfoIS2_vEENS3_12DenseSetPairIS2_EEEES2_S4_S6_S8_E15LookupBucketForIS2_EEbRKT_RPKS8_.exit.i.i
 
 690:                                              ; preds = %_ZSteqIN4llvm23DbgVariableFragmentInfoES1_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7declvalIRKT_EEclsr3stdE7declvalIRKT0_EEEbEE5valueEbE4typeERKSt8optionalIS3_ERKSC_IS6_E.exit.i.i.i.i.i31.i.i.i
-  %691 = getelementptr inbounds i8, ptr %664, i64 16
+  %691 = getelementptr inbounds nuw i8, ptr %664, i64 16
   %692 = load i64, ptr %665, align 8, !noalias !104
   %693 = icmp eq i64 %692, 0
   %694 = load i64, ptr %691, align 8, !noalias !104
@@ -4396,7 +4396,7 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapINS_13DebugVariableENS_6detail13DenseSetEmpt
   br i1 %724, label %_ZSteqIN4llvm23DbgVariableFragmentInfoES1_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7declvalIRKT_EEclsr3stdE7declvalIRKT0_EEEbEE5valueEbE4typeERKSt8optionalIS3_ERKSC_IS6_E.exit.i.i.i.i.i.i.i.i39, label %_ZN4llvm12DenseMapInfoINS_13DebugVariableEvE7isEqualERKS1_S4_.exit.thread.i36.i.i
 
 _ZSteqIN4llvm23DbgVariableFragmentInfoES1_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7declvalIRKT_EEclsr3stdE7declvalIRKT0_EEEbEE5valueEbE4typeERKSt8optionalIS3_ERKSC_IS6_E.exit.i.i.i.i.i.i.i.i39: ; preds = %719
-  %725 = getelementptr inbounds i8, ptr %.0.i35.i.i, i64 24
+  %725 = getelementptr inbounds nuw i8, ptr %.0.i35.i.i, i64 24
   %726 = load i8, ptr %725, align 8, !noalias !104
   %727 = trunc i8 %726 to i1
   br i1 %727, label %_ZN4llvm12DenseMapInfoINS_13DebugVariableEvE7isEqualERKS1_S4_.exit.thread.i36.i.i, label %_ZN4llvm12DenseMapInfoINS_13DebugVariableEvE7isEqualERKS1_S4_.exit.i37.i.i
@@ -4515,7 +4515,7 @@ _ZL53DbgVariableRecordsRemoveUndefDbgAssignsFromEntryBlockPN4llvm10BasicBlockE.e
   %770 = getelementptr inbounds i8, ptr %30, i64 16
   call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %30, ptr noundef nonnull %770, i64 noundef 8) #21
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %31, i8 0, i64 20, i1 false)
-  %771 = getelementptr inbounds i8, ptr %0, i64 56
+  %771 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %772 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %.sroa.045.068.i = load ptr, ptr %771, align 8
   %.not5269.i = icmp eq ptr %.sroa.045.068.i, %772
@@ -4784,7 +4784,7 @@ _ZL35removeUndefDbgAssignsFromEntryBlockPN4llvm10BasicBlockE.exit: ; preds = %_Z
   %902 = getelementptr inbounds i8, ptr %8, i64 16
   call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull %902, i64 noundef 8) #21
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %9, i8 0, i64 20, i1 false)
-  %903 = getelementptr inbounds i8, ptr %0, i64 56
+  %903 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %904 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %.sroa.0275.0347.i.i = load ptr, ptr %903, align 8
   %.not303348.i.i = icmp eq ptr %.sroa.0275.0347.i.i, %904
@@ -5018,7 +5018,7 @@ _ZN4llvm8DebugLocD2Ev.exit.i.i88:                 ; preds = %971, %_ZNK4llvm10DI
   br i1 %1011, label %_ZSteqIN4llvm23DbgVariableFragmentInfoES1_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7declvalIRKT_EEclsr3stdE7declvalIRKT0_EEEbEE5valueEbE4typeERKSt8optionalIS3_ERKSC_IS6_E.exit.i.i.i.i.i.us.i.i.i148, label %_ZN4llvm12DenseMapInfoINS_13DebugVariableEvE7isEqualERKS1_S4_.exit.thread.us.i.i.i102
 
 _ZSteqIN4llvm23DbgVariableFragmentInfoES1_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7declvalIRKT_EEclsr3stdE7declvalIRKT0_EEEbEE5valueEbE4typeERKSt8optionalIS3_ERKSC_IS6_E.exit.i.i.i.i.i.us.i.i.i148: ; preds = %.split.us.i.i.i98
-  %1012 = getelementptr inbounds i8, ptr %1008, i64 24
+  %1012 = getelementptr inbounds nuw i8, ptr %1008, i64 24
   %1013 = load i8, ptr %1012, align 8
   %1014 = xor i8 %1013, %.sroa.3.0.copyload.i.i.fr.i.i.i92
   %1015 = trunc i8 %1014 to i1
@@ -5034,7 +5034,7 @@ _ZN4llvm12DenseMapInfoINS_13DebugVariableEvE7isEqualERKS1_S4_.exit.thread.us.i.i
   br i1 %1018, label %_ZSteqIN4llvm23DbgVariableFragmentInfoES1_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7declvalIRKT_EEclsr3stdE7declvalIRKT0_EEEbEE5valueEbE4typeERKSt8optionalIS3_ERKSC_IS6_E.exit.i.i.i.i.i19.us.i.i.i104, label %_ZN4llvm12DenseMapInfoINS_13DebugVariableEvE7isEqualERKS1_S4_.exit20.thread.us.i.i.i103
 
 _ZSteqIN4llvm23DbgVariableFragmentInfoES1_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7declvalIRKT_EEclsr3stdE7declvalIRKT0_EEEbEE5valueEbE4typeERKSt8optionalIS3_ERKSC_IS6_E.exit.i.i.i.i.i19.us.i.i.i104: ; preds = %_ZN4llvm12DenseMapInfoINS_13DebugVariableEvE7isEqualERKS1_S4_.exit.thread.us.i.i.i102
-  %1019 = getelementptr inbounds i8, ptr %1008, i64 24
+  %1019 = getelementptr inbounds nuw i8, ptr %1008, i64 24
   %1020 = load i8, ptr %1019, align 8
   %1021 = trunc i8 %1020 to i1
   br i1 %1021, label %_ZN4llvm12DenseMapInfoINS_13DebugVariableEvE7isEqualERKS1_S4_.exit20.thread.us.i.i.i103, label %_ZN4llvm12DenseMapInfoINS_13DebugVariableEvE7isEqualERKS1_S4_.exit20.us.i.i.i105
@@ -5062,14 +5062,14 @@ _ZN4llvm12DenseMapInfoINS_13DebugVariableEvE7isEqualERKS1_S4_.exit20.thread.us.i
   br i1 %1031, label %1032, label %_ZN4llvm12DenseMapInfoINS_13DebugVariableEvE7isEqualERKS1_S4_.exit.thread.i.i.i153
 
 1032:                                             ; preds = %.split.i.i.i150
-  %1033 = getelementptr inbounds i8, ptr %1027, i64 24
+  %1033 = getelementptr inbounds nuw i8, ptr %1027, i64 24
   %1034 = load i8, ptr %1033, align 8
   %1035 = xor i8 %1034, %.sroa.3.0.copyload.i.i.fr.i.i.i92
   %1036 = trunc i8 %1035 to i1
   br i1 %1036, label %_ZN4llvm12DenseMapInfoINS_13DebugVariableEvE7isEqualERKS1_S4_.exit.thread.i.i.i153, label %1037
 
 1037:                                             ; preds = %1032
-  %1038 = getelementptr inbounds i8, ptr %1027, i64 16
+  %1038 = getelementptr inbounds nuw i8, ptr %1027, i64 16
   %1039 = load i64, ptr %1028, align 8
   %1040 = icmp eq i64 %.sroa.04.0.copyload.i.i.i.i.i89, %1039
   %1041 = load i64, ptr %1038, align 8
@@ -5087,7 +5087,7 @@ _ZN4llvm12DenseMapInfoINS_13DebugVariableEvE7isEqualERKS1_S4_.exit.thread.i.i.i1
   br i1 %1046, label %_ZSteqIN4llvm23DbgVariableFragmentInfoES1_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7declvalIRKT_EEclsr3stdE7declvalIRKT0_EEEbEE5valueEbE4typeERKSt8optionalIS3_ERKSC_IS6_E.exit.i.i.i.i.i19.i.i.i155, label %_ZN4llvm12DenseMapInfoINS_13DebugVariableEvE7isEqualERKS1_S4_.exit20.thread.i.i.i154
 
 _ZSteqIN4llvm23DbgVariableFragmentInfoES1_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7declvalIRKT_EEclsr3stdE7declvalIRKT0_EEEbEE5valueEbE4typeERKSt8optionalIS3_ERKSC_IS6_E.exit.i.i.i.i.i19.i.i.i155: ; preds = %_ZN4llvm12DenseMapInfoINS_13DebugVariableEvE7isEqualERKS1_S4_.exit.thread.i.i.i153
-  %1047 = getelementptr inbounds i8, ptr %1027, i64 24
+  %1047 = getelementptr inbounds nuw i8, ptr %1027, i64 24
   %1048 = load i8, ptr %1047, align 8
   %1049 = trunc i8 %1048 to i1
   br i1 %1049, label %_ZN4llvm12DenseMapInfoINS_13DebugVariableEvE7isEqualERKS1_S4_.exit20.thread.i.i.i154, label %_ZN4llvm12DenseMapInfoINS_13DebugVariableEvE7isEqualERKS1_S4_.exit20.i.i.i156
@@ -5226,7 +5226,7 @@ _ZNK4llvm15SmallVectorImplIPNS_5ValueEEneERKS3_.exit.i.i: ; preds = %1111
   br i1 %.not7.i.i.i.i.i.i.not.i.i, label %_ZNK4llvm15SmallVectorImplIPNS_5ValueEEneERKS3_.exit.thread296.i.i, label %.critedge.i.i108
 
 _ZNK4llvm15SmallVectorImplIPNS_5ValueEEneERKS3_.exit.thread296.i.i: ; preds = %_ZNK4llvm15SmallVectorImplIPNS_5ValueEEneERKS3_.exit.i.i, %1111
-  %1115 = getelementptr inbounds i8, ptr %..i.i.i, i64 88
+  %1115 = getelementptr inbounds nuw i8, ptr %..i.i.i, i64 88
   %1116 = load ptr, ptr %1115, align 8
   %1117 = getelementptr inbounds nuw i8, ptr %.sroa.0266.0346.i.i, i64 80
   %1118 = call noundef ptr @_ZNK4llvm17DbgRecordParamRefINS_12DIExpressionEE3getEv(ptr noundef nonnull align 8 dereferenceable(8) %1117) #21
@@ -5377,7 +5377,7 @@ _ZNSt4pairIN4llvm11SmallVectorIPNS0_5ValueELj4EEEPNS0_12DIExpressionEEC2IRS4_S6_
   br i1 %1187, label %_ZSteqIN4llvm23DbgVariableFragmentInfoES1_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7declvalIRKT_EEclsr3stdE7declvalIRKT0_EEEbEE5valueEbE4typeERKSt8optionalIS3_ERKSC_IS6_E.exit.i.i.i.i.i.us.i73.i.i, label %_ZN4llvm12DenseMapInfoINS_13DebugVariableEvE7isEqualERKS1_S4_.exit.thread.us.i70.i.i
 
 _ZSteqIN4llvm23DbgVariableFragmentInfoES1_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7declvalIRKT_EEclsr3stdE7declvalIRKT0_EEEbEE5valueEbE4typeERKSt8optionalIS3_ERKSC_IS6_E.exit.i.i.i.i.i.us.i73.i.i: ; preds = %.split.us.i68.i.i
-  %1188 = getelementptr inbounds i8, ptr %1183, i64 24
+  %1188 = getelementptr inbounds nuw i8, ptr %1183, i64 24
   %1189 = load i8, ptr %1188, align 8
   %1190 = xor i8 %1189, %.sroa.3.0.copyload.i.i.fr.i61.i.i
   %1191 = trunc i8 %1190 to i1
@@ -5393,7 +5393,7 @@ _ZN4llvm12DenseMapInfoINS_13DebugVariableEvE7isEqualERKS1_S4_.exit.thread.us.i70
   br i1 %1194, label %_ZSteqIN4llvm23DbgVariableFragmentInfoES1_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7declvalIRKT_EEclsr3stdE7declvalIRKT0_EEEbEE5valueEbE4typeERKSt8optionalIS3_ERKSC_IS6_E.exit.i.i.i.i.i31.us.i.i.i124, label %_ZN4llvm12DenseMapInfoINS_13DebugVariableEvE7isEqualERKS1_S4_.exit36.us.i.i.i121
 
 _ZSteqIN4llvm23DbgVariableFragmentInfoES1_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7declvalIRKT_EEclsr3stdE7declvalIRKT0_EEEbEE5valueEbE4typeERKSt8optionalIS3_ERKSC_IS6_E.exit.i.i.i.i.i31.us.i.i.i124: ; preds = %_ZN4llvm12DenseMapInfoINS_13DebugVariableEvE7isEqualERKS1_S4_.exit.thread.us.i70.i.i
-  %1195 = getelementptr inbounds i8, ptr %1183, i64 24
+  %1195 = getelementptr inbounds nuw i8, ptr %1183, i64 24
   %1196 = load i8, ptr %1195, align 8
   %1197 = trunc i8 %1196 to i1
   br i1 %1197, label %1200, label %_ZN4llvm12DenseMapInfoINS_13DebugVariableEvE7isEqualERKS1_S4_.exit32.us.i.i.i125
@@ -5404,7 +5404,7 @@ _ZN4llvm12DenseMapInfoINS_13DebugVariableEvE7isEqualERKS1_S4_.exit32.us.i.i.i125
   br i1 %1199, label %.split50.us.i.i.i126, label %_ZN4llvm12DenseMapInfoINS_13DebugVariableEvE7isEqualERKS1_S4_.exit36.us.i.i.i121
 
 1200:                                             ; preds = %_ZSteqIN4llvm23DbgVariableFragmentInfoES1_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7declvalIRKT_EEclsr3stdE7declvalIRKT0_EEEbEE5valueEbE4typeERKSt8optionalIS3_ERKSC_IS6_E.exit.i.i.i.i.i31.us.i.i.i124
-  %1201 = getelementptr inbounds i8, ptr %1183, i64 16
+  %1201 = getelementptr inbounds nuw i8, ptr %1183, i64 16
   %1202 = load i64, ptr %1184, align 8
   %1203 = icmp eq i64 %1202, 0
   %1204 = load i64, ptr %1201, align 8
@@ -5440,14 +5440,14 @@ _ZN4llvm12DenseMapInfoINS_13DebugVariableEvE7isEqualERKS1_S4_.exit36.us.i.i.i121
   br i1 %1219, label %1220, label %_ZN4llvm12DenseMapInfoINS_13DebugVariableEvE7isEqualERKS1_S4_.exit.thread.i77.i.i
 
 1220:                                             ; preds = %.split.i75.i.i
-  %1221 = getelementptr inbounds i8, ptr %1215, i64 24
+  %1221 = getelementptr inbounds nuw i8, ptr %1215, i64 24
   %1222 = load i8, ptr %1221, align 8
   %1223 = xor i8 %1222, %.sroa.3.0.copyload.i.i.fr.i61.i.i
   %1224 = trunc i8 %1223 to i1
   br i1 %1224, label %_ZN4llvm12DenseMapInfoINS_13DebugVariableEvE7isEqualERKS1_S4_.exit.thread.i77.i.i, label %1225
 
 1225:                                             ; preds = %1220
-  %1226 = getelementptr inbounds i8, ptr %1215, i64 16
+  %1226 = getelementptr inbounds nuw i8, ptr %1215, i64 16
   %1227 = load i64, ptr %1216, align 8
   %1228 = icmp eq i64 %.sroa.04.0.copyload.i.i.i56.i.i, %1227
   %1229 = load i64, ptr %1226, align 8
@@ -5465,7 +5465,7 @@ _ZN4llvm12DenseMapInfoINS_13DebugVariableEvE7isEqualERKS1_S4_.exit.thread.i77.i.
   br i1 %1234, label %_ZSteqIN4llvm23DbgVariableFragmentInfoES1_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7declvalIRKT_EEclsr3stdE7declvalIRKT0_EEEbEE5valueEbE4typeERKSt8optionalIS3_ERKSC_IS6_E.exit.i.i.i.i.i31.i.i.i143, label %_ZN4llvm12DenseMapInfoINS_13DebugVariableEvE7isEqualERKS1_S4_.exit36.i.i.i140
 
 _ZSteqIN4llvm23DbgVariableFragmentInfoES1_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7declvalIRKT_EEclsr3stdE7declvalIRKT0_EEEbEE5valueEbE4typeERKSt8optionalIS3_ERKSC_IS6_E.exit.i.i.i.i.i31.i.i.i143: ; preds = %_ZN4llvm12DenseMapInfoINS_13DebugVariableEvE7isEqualERKS1_S4_.exit.thread.i77.i.i
-  %1235 = getelementptr inbounds i8, ptr %1215, i64 24
+  %1235 = getelementptr inbounds nuw i8, ptr %1215, i64 24
   %1236 = load i8, ptr %1235, align 8
   %1237 = trunc i8 %1236 to i1
   br i1 %1237, label %1241, label %_ZN4llvm12DenseMapInfoINS_13DebugVariableEvE7isEqualERKS1_S4_.exit32.i.i.i144
@@ -5483,7 +5483,7 @@ _ZN4llvm12DenseMapInfoINS_13DebugVariableEvE7isEqualERKS1_S4_.exit32.i.i.i144: ;
   br label %_ZNK4llvm12DenseMapBaseINS_8DenseMapINS_13DebugVariableESt4pairINS_11SmallVectorIPNS_5ValueELj4EEEPNS_12DIExpressionEENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_SA_EEEES2_SA_SC_SF_E15LookupBucketForIS2_EEbRKT_RPKSF_.exit.i.i
 
 1241:                                             ; preds = %_ZSteqIN4llvm23DbgVariableFragmentInfoES1_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7declvalIRKT_EEclsr3stdE7declvalIRKT0_EEEbEE5valueEbE4typeERKSt8optionalIS3_ERKSC_IS6_E.exit.i.i.i.i.i31.i.i.i143
-  %1242 = getelementptr inbounds i8, ptr %1215, i64 16
+  %1242 = getelementptr inbounds nuw i8, ptr %1215, i64 16
   %1243 = load i64, ptr %1216, align 8
   %1244 = icmp eq i64 %1243, 0
   %1245 = load i64, ptr %1242, align 8
@@ -5638,7 +5638,7 @@ _ZN4llvm8DenseMapINS_13DebugVariableESt4pairINS_11SmallVectorIPNS_5ValueELj4EEEP
   br i1 %1326, label %_ZSteqIN4llvm23DbgVariableFragmentInfoES1_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7declvalIRKT_EEclsr3stdE7declvalIRKT0_EEEbEE5valueEbE4typeERKSt8optionalIS3_ERKSC_IS6_E.exit.i.i.i.i.i.us.i181.i.i, label %_ZN4llvm12DenseMapInfoINS_13DebugVariableEvE7isEqualERKS1_S4_.exit.thread.us.i169.i.i
 
 _ZSteqIN4llvm23DbgVariableFragmentInfoES1_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7declvalIRKT_EEclsr3stdE7declvalIRKT0_EEEbEE5valueEbE4typeERKSt8optionalIS3_ERKSC_IS6_E.exit.i.i.i.i.i.us.i181.i.i: ; preds = %.split.us.i164.i.i
-  %1327 = getelementptr inbounds i8, ptr %1322, i64 24
+  %1327 = getelementptr inbounds nuw i8, ptr %1322, i64 24
   %1328 = load i8, ptr %1327, align 8
   %1329 = xor i8 %1328, %.sroa.3.0.copyload.i.i.fr.i154.i.i
   %1330 = trunc i8 %1329 to i1
@@ -5654,7 +5654,7 @@ _ZN4llvm12DenseMapInfoINS_13DebugVariableEvE7isEqualERKS1_S4_.exit.thread.us.i16
   br i1 %1333, label %_ZSteqIN4llvm23DbgVariableFragmentInfoES1_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7declvalIRKT_EEclsr3stdE7declvalIRKT0_EEEbEE5valueEbE4typeERKSt8optionalIS3_ERKSC_IS6_E.exit.i.i.i.i.i31.us.i173.i.i, label %_ZN4llvm12DenseMapInfoINS_13DebugVariableEvE7isEqualERKS1_S4_.exit36.us.i170.i.i
 
 _ZSteqIN4llvm23DbgVariableFragmentInfoES1_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7declvalIRKT_EEclsr3stdE7declvalIRKT0_EEEbEE5valueEbE4typeERKSt8optionalIS3_ERKSC_IS6_E.exit.i.i.i.i.i31.us.i173.i.i: ; preds = %_ZN4llvm12DenseMapInfoINS_13DebugVariableEvE7isEqualERKS1_S4_.exit.thread.us.i169.i.i
-  %1334 = getelementptr inbounds i8, ptr %1322, i64 24
+  %1334 = getelementptr inbounds nuw i8, ptr %1322, i64 24
   %1335 = load i8, ptr %1334, align 8
   %1336 = trunc i8 %1335 to i1
   br i1 %1336, label %1339, label %_ZN4llvm12DenseMapInfoINS_13DebugVariableEvE7isEqualERKS1_S4_.exit32.us.i174.i.i
@@ -5665,7 +5665,7 @@ _ZN4llvm12DenseMapInfoINS_13DebugVariableEvE7isEqualERKS1_S4_.exit32.us.i174.i.i
   br i1 %1338, label %.split50.us.i175.i.i, label %_ZN4llvm12DenseMapInfoINS_13DebugVariableEvE7isEqualERKS1_S4_.exit36.us.i170.i.i
 
 1339:                                             ; preds = %_ZSteqIN4llvm23DbgVariableFragmentInfoES1_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7declvalIRKT_EEclsr3stdE7declvalIRKT0_EEEbEE5valueEbE4typeERKSt8optionalIS3_ERKSC_IS6_E.exit.i.i.i.i.i31.us.i173.i.i
-  %1340 = getelementptr inbounds i8, ptr %1322, i64 16
+  %1340 = getelementptr inbounds nuw i8, ptr %1322, i64 16
   %1341 = load i64, ptr %1323, align 8
   %1342 = icmp eq i64 %1341, 0
   %1343 = load i64, ptr %1340, align 8
@@ -5701,14 +5701,14 @@ _ZN4llvm12DenseMapInfoINS_13DebugVariableEvE7isEqualERKS1_S4_.exit36.us.i170.i.i
   br i1 %1358, label %1359, label %_ZN4llvm12DenseMapInfoINS_13DebugVariableEvE7isEqualERKS1_S4_.exit.thread.i188.i.i
 
 1359:                                             ; preds = %.split.i183.i.i
-  %1360 = getelementptr inbounds i8, ptr %1354, i64 24
+  %1360 = getelementptr inbounds nuw i8, ptr %1354, i64 24
   %1361 = load i8, ptr %1360, align 8
   %1362 = xor i8 %1361, %.sroa.3.0.copyload.i.i.fr.i154.i.i
   %1363 = trunc i8 %1362 to i1
   br i1 %1363, label %_ZN4llvm12DenseMapInfoINS_13DebugVariableEvE7isEqualERKS1_S4_.exit.thread.i188.i.i, label %1364
 
 1364:                                             ; preds = %1359
-  %1365 = getelementptr inbounds i8, ptr %1354, i64 16
+  %1365 = getelementptr inbounds nuw i8, ptr %1354, i64 16
   %1366 = load i64, ptr %1355, align 8
   %1367 = icmp eq i64 %.sroa.04.0.copyload.i.i.i149.i.i, %1366
   %1368 = load i64, ptr %1365, align 8
@@ -5726,7 +5726,7 @@ _ZN4llvm12DenseMapInfoINS_13DebugVariableEvE7isEqualERKS1_S4_.exit.thread.i188.i
   br i1 %1373, label %_ZSteqIN4llvm23DbgVariableFragmentInfoES1_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7declvalIRKT_EEclsr3stdE7declvalIRKT0_EEEbEE5valueEbE4typeERKSt8optionalIS3_ERKSC_IS6_E.exit.i.i.i.i.i31.i192.i.i, label %_ZN4llvm12DenseMapInfoINS_13DebugVariableEvE7isEqualERKS1_S4_.exit36.i189.i.i
 
 _ZSteqIN4llvm23DbgVariableFragmentInfoES1_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7declvalIRKT_EEclsr3stdE7declvalIRKT0_EEEbEE5valueEbE4typeERKSt8optionalIS3_ERKSC_IS6_E.exit.i.i.i.i.i31.i192.i.i: ; preds = %_ZN4llvm12DenseMapInfoINS_13DebugVariableEvE7isEqualERKS1_S4_.exit.thread.i188.i.i
-  %1374 = getelementptr inbounds i8, ptr %1354, i64 24
+  %1374 = getelementptr inbounds nuw i8, ptr %1354, i64 24
   %1375 = load i8, ptr %1374, align 8
   %1376 = trunc i8 %1375 to i1
   br i1 %1376, label %1380, label %_ZN4llvm12DenseMapInfoINS_13DebugVariableEvE7isEqualERKS1_S4_.exit32.i193.i.i
@@ -5744,7 +5744,7 @@ _ZN4llvm12DenseMapInfoINS_13DebugVariableEvE7isEqualERKS1_S4_.exit32.i193.i.i: ;
   br label %_ZNK4llvm12DenseMapBaseINS_8DenseMapINS_13DebugVariableESt4pairINS_11SmallVectorIPNS_5ValueELj4EEEPNS_12DIExpressionEENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_SA_EEEES2_SA_SC_SF_E15LookupBucketForIS2_EEbRKT_RPKSF_.exit195.i.i
 
 1380:                                             ; preds = %_ZSteqIN4llvm23DbgVariableFragmentInfoES1_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7declvalIRKT_EEclsr3stdE7declvalIRKT0_EEEbEE5valueEbE4typeERKSt8optionalIS3_ERKSC_IS6_E.exit.i.i.i.i.i31.i192.i.i
-  %1381 = getelementptr inbounds i8, ptr %1354, i64 16
+  %1381 = getelementptr inbounds nuw i8, ptr %1354, i64 16
   %1382 = load i64, ptr %1355, align 8
   %1383 = icmp eq i64 %1382, 0
   %1384 = load i64, ptr %1381, align 8
@@ -5794,7 +5794,7 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapINS_13DebugVariableESt4pairINS_11SmallVector
   br i1 %1405, label %_ZSteqIN4llvm23DbgVariableFragmentInfoES1_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7declvalIRKT_EEclsr3stdE7declvalIRKT0_EEEbEE5valueEbE4typeERKSt8optionalIS3_ERKSC_IS6_E.exit.i.i.i.i.i.i.i.i130, label %_ZN4llvm12DenseMapInfoINS_13DebugVariableEvE7isEqualERKS1_S4_.exit.thread.i53.i.i
 
 _ZSteqIN4llvm23DbgVariableFragmentInfoES1_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7declvalIRKT_EEclsr3stdE7declvalIRKT0_EEEbEE5valueEbE4typeERKSt8optionalIS3_ERKSC_IS6_E.exit.i.i.i.i.i.i.i.i130: ; preds = %_ZNK4llvm12DenseMapBaseINS_8DenseMapINS_13DebugVariableESt4pairINS_11SmallVectorIPNS_5ValueELj4EEEPNS_12DIExpressionEENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_SA_EEEES2_SA_SC_SF_E15LookupBucketForIS2_EEbRKT_RPKSF_.exit195.i.i
-  %1406 = getelementptr inbounds i8, ptr %.0.i52.i.i, i64 24
+  %1406 = getelementptr inbounds nuw i8, ptr %.0.i52.i.i, i64 24
   %1407 = load i8, ptr %1406, align 8
   %1408 = trunc i8 %1407 to i1
   br i1 %1408, label %_ZN4llvm12DenseMapInfoINS_13DebugVariableEvE7isEqualERKS1_S4_.exit.thread.i53.i.i, label %_ZN4llvm12DenseMapInfoINS_13DebugVariableEvE7isEqualERKS1_S4_.exit.i54.i.i
@@ -5815,7 +5815,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapINS_13DebugVariableESt4pairINS_11SmallVectorI
   %1413 = getelementptr inbounds nuw i8, ptr %.0.i52.i.i, i64 40
   %1414 = getelementptr inbounds i8, ptr %.0.i52.i.i, i64 56
   call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %1413, ptr noundef nonnull %1414, i64 noundef 4) #21
-  %1415 = getelementptr inbounds i8, ptr %.0.i52.i.i, i64 88
+  %1415 = getelementptr inbounds nuw i8, ptr %.0.i52.i.i, i64 88
   store ptr null, ptr %1415, align 8
   br label %_ZN4llvm12DenseMapBaseINS_8DenseMapINS_13DebugVariableESt4pairINS_11SmallVectorIPNS_5ValueELj4EEEPNS_12DIExpressionEENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_SA_EEEES2_SA_SC_SF_EixERKS2_.exit.i.i
 
@@ -5824,7 +5824,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapINS_13DebugVariableESt4pairINS_11SmallVectorI
   %1416 = getelementptr inbounds nuw i8, ptr %.0.i.i39.i.i, i64 40
   %1417 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15SmallVectorImplIPNS_5ValueEEaSEOS3_(ptr noundef nonnull align 8 dereferenceable(16) %1416, ptr noundef nonnull align 8 dereferenceable(16) %14)
   %1418 = load ptr, ptr %917, align 8
-  %1419 = getelementptr inbounds i8, ptr %.0.i.i39.i.i, i64 88
+  %1419 = getelementptr inbounds nuw i8, ptr %.0.i.i39.i.i, i64 88
   store ptr %1418, ptr %1419, align 8
   %1420 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %14) #21
   %1421 = load ptr, ptr %14, align 8
@@ -5974,7 +5974,7 @@ _ZNSt4pairIN4llvm11SmallVectorIPNS0_5ValueELj4EEEPNS0_12DIExpressionEEC2IRS4_DnT
   br i1 %1490, label %_ZSteqIN4llvm23DbgVariableFragmentInfoES1_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7declvalIRKT_EEclsr3stdE7declvalIRKT0_EEEbEE5valueEbE4typeERKSt8optionalIS3_ERKSC_IS6_E.exit.i.i.i.i.i.us.i133.i.i, label %_ZN4llvm12DenseMapInfoINS_13DebugVariableEvE7isEqualERKS1_S4_.exit.thread.us.i121.i.i
 
 _ZSteqIN4llvm23DbgVariableFragmentInfoES1_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7declvalIRKT_EEclsr3stdE7declvalIRKT0_EEEbEE5valueEbE4typeERKSt8optionalIS3_ERKSC_IS6_E.exit.i.i.i.i.i.us.i133.i.i: ; preds = %.split.us.i116.i.i
-  %1491 = getelementptr inbounds i8, ptr %1486, i64 24
+  %1491 = getelementptr inbounds nuw i8, ptr %1486, i64 24
   %1492 = load i8, ptr %1491, align 8
   %1493 = xor i8 %1492, %.sroa.3.0.copyload.i.i.fr.i106.i.i
   %1494 = trunc i8 %1493 to i1
@@ -5990,7 +5990,7 @@ _ZN4llvm12DenseMapInfoINS_13DebugVariableEvE7isEqualERKS1_S4_.exit.thread.us.i12
   br i1 %1497, label %_ZSteqIN4llvm23DbgVariableFragmentInfoES1_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7declvalIRKT_EEclsr3stdE7declvalIRKT0_EEEbEE5valueEbE4typeERKSt8optionalIS3_ERKSC_IS6_E.exit.i.i.i.i.i31.us.i125.i.i, label %_ZN4llvm12DenseMapInfoINS_13DebugVariableEvE7isEqualERKS1_S4_.exit36.us.i122.i.i
 
 _ZSteqIN4llvm23DbgVariableFragmentInfoES1_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7declvalIRKT_EEclsr3stdE7declvalIRKT0_EEEbEE5valueEbE4typeERKSt8optionalIS3_ERKSC_IS6_E.exit.i.i.i.i.i31.us.i125.i.i: ; preds = %_ZN4llvm12DenseMapInfoINS_13DebugVariableEvE7isEqualERKS1_S4_.exit.thread.us.i121.i.i
-  %1498 = getelementptr inbounds i8, ptr %1486, i64 24
+  %1498 = getelementptr inbounds nuw i8, ptr %1486, i64 24
   %1499 = load i8, ptr %1498, align 8
   %1500 = trunc i8 %1499 to i1
   br i1 %1500, label %1503, label %_ZN4llvm12DenseMapInfoINS_13DebugVariableEvE7isEqualERKS1_S4_.exit32.us.i126.i.i
@@ -6001,7 +6001,7 @@ _ZN4llvm12DenseMapInfoINS_13DebugVariableEvE7isEqualERKS1_S4_.exit32.us.i126.i.i
   br i1 %1502, label %.split50.us.i127.i.i, label %_ZN4llvm12DenseMapInfoINS_13DebugVariableEvE7isEqualERKS1_S4_.exit36.us.i122.i.i
 
 1503:                                             ; preds = %_ZSteqIN4llvm23DbgVariableFragmentInfoES1_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7declvalIRKT_EEclsr3stdE7declvalIRKT0_EEEbEE5valueEbE4typeERKSt8optionalIS3_ERKSC_IS6_E.exit.i.i.i.i.i31.us.i125.i.i
-  %1504 = getelementptr inbounds i8, ptr %1486, i64 16
+  %1504 = getelementptr inbounds nuw i8, ptr %1486, i64 16
   %1505 = load i64, ptr %1487, align 8
   %1506 = icmp eq i64 %1505, 0
   %1507 = load i64, ptr %1504, align 8
@@ -6037,14 +6037,14 @@ _ZN4llvm12DenseMapInfoINS_13DebugVariableEvE7isEqualERKS1_S4_.exit36.us.i122.i.i
   br i1 %1522, label %1523, label %_ZN4llvm12DenseMapInfoINS_13DebugVariableEvE7isEqualERKS1_S4_.exit.thread.i140.i.i
 
 1523:                                             ; preds = %.split.i135.i.i
-  %1524 = getelementptr inbounds i8, ptr %1518, i64 24
+  %1524 = getelementptr inbounds nuw i8, ptr %1518, i64 24
   %1525 = load i8, ptr %1524, align 8
   %1526 = xor i8 %1525, %.sroa.3.0.copyload.i.i.fr.i106.i.i
   %1527 = trunc i8 %1526 to i1
   br i1 %1527, label %_ZN4llvm12DenseMapInfoINS_13DebugVariableEvE7isEqualERKS1_S4_.exit.thread.i140.i.i, label %1528
 
 1528:                                             ; preds = %1523
-  %1529 = getelementptr inbounds i8, ptr %1518, i64 16
+  %1529 = getelementptr inbounds nuw i8, ptr %1518, i64 16
   %1530 = load i64, ptr %1519, align 8
   %1531 = icmp eq i64 %.sroa.04.0.copyload.i.i.i101.i.i, %1530
   %1532 = load i64, ptr %1529, align 8
@@ -6062,7 +6062,7 @@ _ZN4llvm12DenseMapInfoINS_13DebugVariableEvE7isEqualERKS1_S4_.exit.thread.i140.i
   br i1 %1537, label %_ZSteqIN4llvm23DbgVariableFragmentInfoES1_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7declvalIRKT_EEclsr3stdE7declvalIRKT0_EEEbEE5valueEbE4typeERKSt8optionalIS3_ERKSC_IS6_E.exit.i.i.i.i.i31.i144.i.i, label %_ZN4llvm12DenseMapInfoINS_13DebugVariableEvE7isEqualERKS1_S4_.exit36.i141.i.i
 
 _ZSteqIN4llvm23DbgVariableFragmentInfoES1_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7declvalIRKT_EEclsr3stdE7declvalIRKT0_EEEbEE5valueEbE4typeERKSt8optionalIS3_ERKSC_IS6_E.exit.i.i.i.i.i31.i144.i.i: ; preds = %_ZN4llvm12DenseMapInfoINS_13DebugVariableEvE7isEqualERKS1_S4_.exit.thread.i140.i.i
-  %1538 = getelementptr inbounds i8, ptr %1518, i64 24
+  %1538 = getelementptr inbounds nuw i8, ptr %1518, i64 24
   %1539 = load i8, ptr %1538, align 8
   %1540 = trunc i8 %1539 to i1
   br i1 %1540, label %1544, label %_ZN4llvm12DenseMapInfoINS_13DebugVariableEvE7isEqualERKS1_S4_.exit32.i145.i.i
@@ -6080,7 +6080,7 @@ _ZN4llvm12DenseMapInfoINS_13DebugVariableEvE7isEqualERKS1_S4_.exit32.i145.i.i: ;
   br label %_ZNK4llvm12DenseMapBaseINS_8DenseMapINS_13DebugVariableESt4pairINS_11SmallVectorIPNS_5ValueELj4EEEPNS_12DIExpressionEENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_SA_EEEES2_SA_SC_SF_E15LookupBucketForIS2_EEbRKT_RPKSF_.exit147.i.i
 
 1544:                                             ; preds = %_ZSteqIN4llvm23DbgVariableFragmentInfoES1_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7declvalIRKT_EEclsr3stdE7declvalIRKT0_EEEbEE5valueEbE4typeERKSt8optionalIS3_ERKSC_IS6_E.exit.i.i.i.i.i31.i144.i.i
-  %1545 = getelementptr inbounds i8, ptr %1518, i64 16
+  %1545 = getelementptr inbounds nuw i8, ptr %1518, i64 16
   %1546 = load i64, ptr %1519, align 8
   %1547 = icmp eq i64 %1546, 0
   %1548 = load i64, ptr %1545, align 8
@@ -6235,7 +6235,7 @@ _ZN4llvm8DenseMapINS_13DebugVariableESt4pairINS_11SmallVectorIPNS_5ValueELj4EEEP
   br i1 %1629, label %_ZSteqIN4llvm23DbgVariableFragmentInfoES1_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7declvalIRKT_EEclsr3stdE7declvalIRKT0_EEEbEE5valueEbE4typeERKSt8optionalIS3_ERKSC_IS6_E.exit.i.i.i.i.i.us.i232.i.i, label %_ZN4llvm12DenseMapInfoINS_13DebugVariableEvE7isEqualERKS1_S4_.exit.thread.us.i220.i.i
 
 _ZSteqIN4llvm23DbgVariableFragmentInfoES1_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7declvalIRKT_EEclsr3stdE7declvalIRKT0_EEEbEE5valueEbE4typeERKSt8optionalIS3_ERKSC_IS6_E.exit.i.i.i.i.i.us.i232.i.i: ; preds = %.split.us.i215.i.i
-  %1630 = getelementptr inbounds i8, ptr %1625, i64 24
+  %1630 = getelementptr inbounds nuw i8, ptr %1625, i64 24
   %1631 = load i8, ptr %1630, align 8
   %1632 = xor i8 %1631, %.sroa.3.0.copyload.i.i.fr.i205.i.i
   %1633 = trunc i8 %1632 to i1
@@ -6251,7 +6251,7 @@ _ZN4llvm12DenseMapInfoINS_13DebugVariableEvE7isEqualERKS1_S4_.exit.thread.us.i22
   br i1 %1636, label %_ZSteqIN4llvm23DbgVariableFragmentInfoES1_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7declvalIRKT_EEclsr3stdE7declvalIRKT0_EEEbEE5valueEbE4typeERKSt8optionalIS3_ERKSC_IS6_E.exit.i.i.i.i.i31.us.i224.i.i, label %_ZN4llvm12DenseMapInfoINS_13DebugVariableEvE7isEqualERKS1_S4_.exit36.us.i221.i.i
 
 _ZSteqIN4llvm23DbgVariableFragmentInfoES1_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7declvalIRKT_EEclsr3stdE7declvalIRKT0_EEEbEE5valueEbE4typeERKSt8optionalIS3_ERKSC_IS6_E.exit.i.i.i.i.i31.us.i224.i.i: ; preds = %_ZN4llvm12DenseMapInfoINS_13DebugVariableEvE7isEqualERKS1_S4_.exit.thread.us.i220.i.i
-  %1637 = getelementptr inbounds i8, ptr %1625, i64 24
+  %1637 = getelementptr inbounds nuw i8, ptr %1625, i64 24
   %1638 = load i8, ptr %1637, align 8
   %1639 = trunc i8 %1638 to i1
   br i1 %1639, label %1642, label %_ZN4llvm12DenseMapInfoINS_13DebugVariableEvE7isEqualERKS1_S4_.exit32.us.i225.i.i
@@ -6262,7 +6262,7 @@ _ZN4llvm12DenseMapInfoINS_13DebugVariableEvE7isEqualERKS1_S4_.exit32.us.i225.i.i
   br i1 %1641, label %.split50.us.i226.i.i, label %_ZN4llvm12DenseMapInfoINS_13DebugVariableEvE7isEqualERKS1_S4_.exit36.us.i221.i.i
 
 1642:                                             ; preds = %_ZSteqIN4llvm23DbgVariableFragmentInfoES1_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7declvalIRKT_EEclsr3stdE7declvalIRKT0_EEEbEE5valueEbE4typeERKSt8optionalIS3_ERKSC_IS6_E.exit.i.i.i.i.i31.us.i224.i.i
-  %1643 = getelementptr inbounds i8, ptr %1625, i64 16
+  %1643 = getelementptr inbounds nuw i8, ptr %1625, i64 16
   %1644 = load i64, ptr %1626, align 8
   %1645 = icmp eq i64 %1644, 0
   %1646 = load i64, ptr %1643, align 8
@@ -6298,14 +6298,14 @@ _ZN4llvm12DenseMapInfoINS_13DebugVariableEvE7isEqualERKS1_S4_.exit36.us.i221.i.i
   br i1 %1661, label %1662, label %_ZN4llvm12DenseMapInfoINS_13DebugVariableEvE7isEqualERKS1_S4_.exit.thread.i239.i.i
 
 1662:                                             ; preds = %.split.i234.i.i
-  %1663 = getelementptr inbounds i8, ptr %1657, i64 24
+  %1663 = getelementptr inbounds nuw i8, ptr %1657, i64 24
   %1664 = load i8, ptr %1663, align 8
   %1665 = xor i8 %1664, %.sroa.3.0.copyload.i.i.fr.i205.i.i
   %1666 = trunc i8 %1665 to i1
   br i1 %1666, label %_ZN4llvm12DenseMapInfoINS_13DebugVariableEvE7isEqualERKS1_S4_.exit.thread.i239.i.i, label %1667
 
 1667:                                             ; preds = %1662
-  %1668 = getelementptr inbounds i8, ptr %1657, i64 16
+  %1668 = getelementptr inbounds nuw i8, ptr %1657, i64 16
   %1669 = load i64, ptr %1658, align 8
   %1670 = icmp eq i64 %.sroa.04.0.copyload.i.i.i200.i.i, %1669
   %1671 = load i64, ptr %1668, align 8
@@ -6323,7 +6323,7 @@ _ZN4llvm12DenseMapInfoINS_13DebugVariableEvE7isEqualERKS1_S4_.exit.thread.i239.i
   br i1 %1676, label %_ZSteqIN4llvm23DbgVariableFragmentInfoES1_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7declvalIRKT_EEclsr3stdE7declvalIRKT0_EEEbEE5valueEbE4typeERKSt8optionalIS3_ERKSC_IS6_E.exit.i.i.i.i.i31.i243.i.i, label %_ZN4llvm12DenseMapInfoINS_13DebugVariableEvE7isEqualERKS1_S4_.exit36.i240.i.i
 
 _ZSteqIN4llvm23DbgVariableFragmentInfoES1_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7declvalIRKT_EEclsr3stdE7declvalIRKT0_EEEbEE5valueEbE4typeERKSt8optionalIS3_ERKSC_IS6_E.exit.i.i.i.i.i31.i243.i.i: ; preds = %_ZN4llvm12DenseMapInfoINS_13DebugVariableEvE7isEqualERKS1_S4_.exit.thread.i239.i.i
-  %1677 = getelementptr inbounds i8, ptr %1657, i64 24
+  %1677 = getelementptr inbounds nuw i8, ptr %1657, i64 24
   %1678 = load i8, ptr %1677, align 8
   %1679 = trunc i8 %1678 to i1
   br i1 %1679, label %1683, label %_ZN4llvm12DenseMapInfoINS_13DebugVariableEvE7isEqualERKS1_S4_.exit32.i244.i.i
@@ -6341,7 +6341,7 @@ _ZN4llvm12DenseMapInfoINS_13DebugVariableEvE7isEqualERKS1_S4_.exit32.i244.i.i: ;
   br label %_ZNK4llvm12DenseMapBaseINS_8DenseMapINS_13DebugVariableESt4pairINS_11SmallVectorIPNS_5ValueELj4EEEPNS_12DIExpressionEENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_SA_EEEES2_SA_SC_SF_E15LookupBucketForIS2_EEbRKT_RPKSF_.exit246.i.i
 
 1683:                                             ; preds = %_ZSteqIN4llvm23DbgVariableFragmentInfoES1_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7declvalIRKT_EEclsr3stdE7declvalIRKT0_EEEbEE5valueEbE4typeERKSt8optionalIS3_ERKSC_IS6_E.exit.i.i.i.i.i31.i243.i.i
-  %1684 = getelementptr inbounds i8, ptr %1657, i64 16
+  %1684 = getelementptr inbounds nuw i8, ptr %1657, i64 16
   %1685 = load i64, ptr %1658, align 8
   %1686 = icmp eq i64 %1685, 0
   %1687 = load i64, ptr %1684, align 8
@@ -6391,7 +6391,7 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapINS_13DebugVariableESt4pairINS_11SmallVector
   br i1 %1708, label %_ZSteqIN4llvm23DbgVariableFragmentInfoES1_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7declvalIRKT_EEclsr3stdE7declvalIRKT0_EEEbEE5valueEbE4typeERKSt8optionalIS3_ERKSC_IS6_E.exit.i.i.i.i.i.i94.i.i, label %_ZN4llvm12DenseMapInfoINS_13DebugVariableEvE7isEqualERKS1_S4_.exit.thread.i93.i.i
 
 _ZSteqIN4llvm23DbgVariableFragmentInfoES1_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7declvalIRKT_EEclsr3stdE7declvalIRKT0_EEEbEE5valueEbE4typeERKSt8optionalIS3_ERKSC_IS6_E.exit.i.i.i.i.i.i94.i.i: ; preds = %_ZNK4llvm12DenseMapBaseINS_8DenseMapINS_13DebugVariableESt4pairINS_11SmallVectorIPNS_5ValueELj4EEEPNS_12DIExpressionEENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_SA_EEEES2_SA_SC_SF_E15LookupBucketForIS2_EEbRKT_RPKSF_.exit246.i.i
-  %1709 = getelementptr inbounds i8, ptr %.0.i92.i.i, i64 24
+  %1709 = getelementptr inbounds nuw i8, ptr %.0.i92.i.i, i64 24
   %1710 = load i8, ptr %1709, align 8
   %1711 = trunc i8 %1710 to i1
   br i1 %1711, label %_ZN4llvm12DenseMapInfoINS_13DebugVariableEvE7isEqualERKS1_S4_.exit.thread.i93.i.i, label %_ZN4llvm12DenseMapInfoINS_13DebugVariableEvE7isEqualERKS1_S4_.exit.i95.i.i
@@ -6412,7 +6412,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapINS_13DebugVariableESt4pairINS_11SmallVectorI
   %1716 = getelementptr inbounds nuw i8, ptr %.0.i92.i.i, i64 40
   %1717 = getelementptr inbounds i8, ptr %.0.i92.i.i, i64 56
   call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %1716, ptr noundef nonnull %1717, i64 noundef 4) #21
-  %1718 = getelementptr inbounds i8, ptr %.0.i92.i.i, i64 88
+  %1718 = getelementptr inbounds nuw i8, ptr %.0.i92.i.i, i64 88
   store ptr null, ptr %1718, align 8
   br label %_ZN4llvm12DenseMapBaseINS_8DenseMapINS_13DebugVariableESt4pairINS_11SmallVectorIPNS_5ValueELj4EEEPNS_12DIExpressionEENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_SA_EEEES2_SA_SC_SF_EixERKS2_.exit41.i.i
 
@@ -6421,7 +6421,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapINS_13DebugVariableESt4pairINS_11SmallVectorI
   %1719 = getelementptr inbounds nuw i8, ptr %.0.i.i40.i.i, i64 40
   %1720 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15SmallVectorImplIPNS_5ValueEEaSEOS3_(ptr noundef nonnull align 8 dereferenceable(16) %1719, ptr noundef nonnull align 8 dereferenceable(16) %15)
   %1721 = load ptr, ptr %912, align 8
-  %1722 = getelementptr inbounds i8, ptr %.0.i.i40.i.i, i64 88
+  %1722 = getelementptr inbounds nuw i8, ptr %.0.i.i40.i.i, i64 88
   store ptr %1721, ptr %1722, align 8
   %1723 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %15) #21
   %1724 = load ptr, ptr %15, align 8
@@ -6534,7 +6534,7 @@ _ZN4llvm21iterator_adaptor_baseINS_15mapped_iteratorINS_20filter_iterator_implIN
   br i1 %1765, label %_ZSteqIN4llvm23DbgVariableFragmentInfoES1_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7declvalIRKT_EEclsr3stdE7declvalIRKT0_EEEbEE5valueEbE4typeERKSt8optionalIS3_ERKSC_IS6_E.exit.i.i.i.i.i.i.i.i.i, label %_ZN4llvm12DenseMapInfoINS_13DebugVariableEvE7isEqualERKS1_S4_.exit11.thread.i.i.i.i
 
 _ZSteqIN4llvm23DbgVariableFragmentInfoES1_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7declvalIRKT_EEclsr3stdE7declvalIRKT0_EEEbEE5valueEbE4typeERKSt8optionalIS3_ERKSC_IS6_E.exit.i.i.i.i.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i116
-  %1766 = getelementptr inbounds i8, ptr %.021.i.i.i.i, i64 24
+  %1766 = getelementptr inbounds nuw i8, ptr %.021.i.i.i.i, i64 24
   %1767 = load i8, ptr %1766, align 8
   %1768 = trunc i8 %1767 to i1
   br i1 %1768, label %1771, label %_ZN4llvm12DenseMapInfoINS_13DebugVariableEvE7isEqualERKS1_S4_.exit.i.i.i.i
@@ -6545,7 +6545,7 @@ _ZN4llvm12DenseMapInfoINS_13DebugVariableEvE7isEqualERKS1_S4_.exit.i.i.i.i: ; pr
   br i1 %1770, label %_ZNSt4pairIN4llvm11SmallVectorIPNS0_5ValueELj4EEEPNS0_12DIExpressionEED2Ev.exit.i.i.i.i, label %_ZN4llvm12DenseMapInfoINS_13DebugVariableEvE7isEqualERKS1_S4_.exit11.thread.i.i.i.i
 
 1771:                                             ; preds = %_ZSteqIN4llvm23DbgVariableFragmentInfoES1_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7declvalIRKT_EEclsr3stdE7declvalIRKT0_EEEbEE5valueEbE4typeERKSt8optionalIS3_ERKSC_IS6_E.exit.i.i.i.i.i.i.i.i.i
-  %1772 = getelementptr inbounds i8, ptr %.021.i.i.i.i, i64 16
+  %1772 = getelementptr inbounds nuw i8, ptr %.021.i.i.i.i, i64 16
   %1773 = load i64, ptr %1762, align 8
   %1774 = icmp eq i64 %1773, 0
   %1775 = load i64, ptr %1772, align 8
@@ -6610,7 +6610,7 @@ _ZL58DbgVariableRecordsRemoveRedundantDbgInstrsUsingForwardScanPN4llvm10BasicBlo
   %1796 = getelementptr inbounds i8, ptr %16, i64 16
   call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %16, ptr noundef nonnull %1796, i64 noundef 8) #21
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %17, i8 0, i64 20, i1 false)
-  %1797 = getelementptr inbounds i8, ptr %0, i64 56
+  %1797 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %1798 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %.sroa.069.0126.i = load ptr, ptr %1797, align 8
   %.not85127.i = icmp eq ptr %.sroa.069.0126.i, %1798
@@ -6818,7 +6818,7 @@ _ZNK4llvm15SmallVectorImplIPNS_5ValueEEneERKS3_.exit.i: ; preds = %1909
   br i1 %.not7.i.i.i.i.i.i.not.i, label %_ZNK4llvm15SmallVectorImplIPNS_5ValueEEneERKS3_.exit.thread83.i, label %.critedge.i63
 
 _ZNK4llvm15SmallVectorImplIPNS_5ValueEEneERKS3_.exit.thread83.i: ; preds = %_ZNK4llvm15SmallVectorImplIPNS_5ValueEEneERKS3_.exit.i, %1909
-  %1913 = getelementptr inbounds i8, ptr %..i.i, i64 88
+  %1913 = getelementptr inbounds nuw i8, ptr %..i.i, i64 88
   %1914 = load ptr, ptr %1913, align 8
   %1915 = load i32, ptr %1829, align 4
   %1916 = and i32 %1915, 134217727
@@ -6867,7 +6867,7 @@ _ZNSt4pairIN4llvm11SmallVectorIPNS0_5ValueELj4EEEPNS0_12DIExpressionEEC2IRS4_S6_
   %1941 = getelementptr inbounds nuw i8, ptr %1940, i64 40
   %1942 = getelementptr inbounds i8, ptr %1940, i64 56
   call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %1941, ptr noundef nonnull %1942, i64 noundef 4) #21
-  %1943 = getelementptr inbounds i8, ptr %1940, i64 88
+  %1943 = getelementptr inbounds nuw i8, ptr %1940, i64 88
   store ptr null, ptr %1943, align 8
   br label %_ZN4llvm12DenseMapBaseINS_8DenseMapINS_13DebugVariableESt4pairINS_11SmallVectorIPNS_5ValueELj4EEEPNS_12DIExpressionEENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_SA_EEEES2_SA_SC_SF_EixERKS2_.exit.i
 
@@ -6876,7 +6876,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapINS_13DebugVariableESt4pairINS_11SmallVectorI
   %1944 = getelementptr inbounds nuw i8, ptr %.0.i.i49.i, i64 40
   %1945 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15SmallVectorImplIPNS_5ValueEEaSEOS3_(ptr noundef nonnull align 8 dereferenceable(16) %1944, ptr noundef nonnull align 8 dereferenceable(16) %21)
   %1946 = load ptr, ptr %1806, align 8
-  %1947 = getelementptr inbounds i8, ptr %.0.i.i49.i, i64 88
+  %1947 = getelementptr inbounds nuw i8, ptr %.0.i.i49.i, i64 88
   store ptr %1946, ptr %1947, align 8
   %1948 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %21) #21
   %1949 = load ptr, ptr %21, align 8
@@ -6910,7 +6910,7 @@ _ZNSt4pairIN4llvm11SmallVectorIPNS0_5ValueELj4EEEPNS0_12DIExpressionEEC2IRS4_DnT
   %1960 = getelementptr inbounds nuw i8, ptr %1959, i64 40
   %1961 = getelementptr inbounds i8, ptr %1959, i64 56
   call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %1960, ptr noundef nonnull %1961, i64 noundef 4) #21
-  %1962 = getelementptr inbounds i8, ptr %1959, i64 88
+  %1962 = getelementptr inbounds nuw i8, ptr %1959, i64 88
   store ptr null, ptr %1962, align 8
   br label %_ZN4llvm12DenseMapBaseINS_8DenseMapINS_13DebugVariableESt4pairINS_11SmallVectorIPNS_5ValueELj4EEEPNS_12DIExpressionEENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_SA_EEEES2_SA_SC_SF_EixERKS2_.exit52.i
 
@@ -6919,7 +6919,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapINS_13DebugVariableESt4pairINS_11SmallVectorI
   %1963 = getelementptr inbounds nuw i8, ptr %.0.i.i51.i, i64 40
   %1964 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15SmallVectorImplIPNS_5ValueEEaSEOS3_(ptr noundef nonnull align 8 dereferenceable(16) %1963, ptr noundef nonnull align 8 dereferenceable(16) %22)
   %1965 = load ptr, ptr %1804, align 8
-  %1966 = getelementptr inbounds i8, ptr %.0.i.i51.i, i64 88
+  %1966 = getelementptr inbounds nuw i8, ptr %.0.i.i51.i, i64 88
   store ptr %1965, ptr %1966, align 8
   %1967 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %22) #21
   %1968 = load ptr, ptr %22, align 8
@@ -7008,7 +7008,7 @@ _ZN4llvm11SmallVectorIPNS_5ValueELj4EED2Ev.exit.i: ; preds = %1986, %_ZNSt4pairI
   br i1 %2003, label %_ZSteqIN4llvm23DbgVariableFragmentInfoES1_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7declvalIRKT_EEclsr3stdE7declvalIRKT0_EEEbEE5valueEbE4typeERKSt8optionalIS3_ERKSC_IS6_E.exit.i.i.i.i.i.i.i58.i, label %_ZN4llvm12DenseMapInfoINS_13DebugVariableEvE7isEqualERKS1_S4_.exit11.thread.i.i.i
 
 _ZSteqIN4llvm23DbgVariableFragmentInfoES1_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7declvalIRKT_EEclsr3stdE7declvalIRKT0_EEEbEE5valueEbE4typeERKSt8optionalIS3_ERKSC_IS6_E.exit.i.i.i.i.i.i.i58.i: ; preds = %.lr.ph.i.i.i51
-  %2004 = getelementptr inbounds i8, ptr %.021.i.i.i, i64 24
+  %2004 = getelementptr inbounds nuw i8, ptr %.021.i.i.i, i64 24
   %2005 = load i8, ptr %2004, align 8
   %2006 = trunc i8 %2005 to i1
   br i1 %2006, label %2009, label %_ZN4llvm12DenseMapInfoINS_13DebugVariableEvE7isEqualERKS1_S4_.exit.i.i59.i
@@ -7019,7 +7019,7 @@ _ZN4llvm12DenseMapInfoINS_13DebugVariableEvE7isEqualERKS1_S4_.exit.i.i59.i: ; pr
   br i1 %2008, label %_ZNSt4pairIN4llvm11SmallVectorIPNS0_5ValueELj4EEEPNS0_12DIExpressionEED2Ev.exit.i.i.i, label %_ZN4llvm12DenseMapInfoINS_13DebugVariableEvE7isEqualERKS1_S4_.exit11.thread.i.i.i
 
 2009:                                             ; preds = %_ZSteqIN4llvm23DbgVariableFragmentInfoES1_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7declvalIRKT_EEclsr3stdE7declvalIRKT0_EEEbEE5valueEbE4typeERKSt8optionalIS3_ERKSC_IS6_E.exit.i.i.i.i.i.i.i58.i
-  %2010 = getelementptr inbounds i8, ptr %.021.i.i.i, i64 16
+  %2010 = getelementptr inbounds nuw i8, ptr %.021.i.i.i, i64 16
   %2011 = load i64, ptr %2000, align 8
   %2012 = icmp eq i64 %2011, 0
   %2013 = load i64, ptr %2010, align 8
@@ -7405,7 +7405,7 @@ _ZNK4llvm10BasicBlock7isEHPadEv.exit:             ; preds = %19
   br i1 %.not, label %35, label %27
 
 27:                                               ; preds = %25
-  %28 = getelementptr inbounds i8, ptr %1, i64 56
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %29 = load ptr, ptr %28, align 8
   %30 = icmp eq ptr %29, null
   %31 = getelementptr inbounds i8, ptr %29, i64 -24
@@ -8073,14 +8073,14 @@ _ZN4llvm23SmallVectorTemplateBaseINS_3cfg6UpdateIPNS_10BasicBlockEEELb1EE9push_b
 _ZN4llvm11SmallVectorINS_3cfg6UpdateIPNS_10BasicBlockEEELj3EED2Ev.exit: ; preds = %329, %333
   call void @_ZN4llvm21GenericDomTreeUpdaterINS_14DomTreeUpdaterENS_13DominatorTreeENS_17PostDominatorTreeEE5flushEv(ptr noundef nonnull align 8 dereferenceable(410) %13) #21
   %334 = load ptr, ptr %282, align 8
-  %335 = getelementptr inbounds i8, ptr %13, i64 424
+  %335 = getelementptr inbounds nuw i8, ptr %13, i64 424
   %336 = load ptr, ptr %335, align 8
   %.not4.i.i.i.i.i151 = icmp eq ptr %334, %336
   br i1 %.not4.i.i.i.i.i151, label %_ZSt8_DestroyIPN4llvm14DomTreeUpdater18CallBackOnDeletionES2_EvT_S4_RSaIT0_E.exit.i.i, label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %_ZN4llvm11SmallVectorINS_3cfg6UpdateIPNS_10BasicBlockEEELj3EED2Ev.exit, %_ZSt8_DestroyIN4llvm14DomTreeUpdater18CallBackOnDeletionEEvPT_.exit.i.i.i.i.i
   %.05.i.i.i.i.i = phi ptr [ %346, %_ZSt8_DestroyIN4llvm14DomTreeUpdater18CallBackOnDeletionEEvPT_.exit.i.i.i.i.i ], [ %334, %_ZN4llvm11SmallVectorINS_3cfg6UpdateIPNS_10BasicBlockEEELj3EED2Ev.exit ]
-  %337 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i, i64 56
+  %337 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i, i64 56
   %338 = load ptr, ptr %337, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %338, null
   br i1 %.not.i.i.i.i.i.i.i.i.i, label %_ZNSt8functionIFvPN4llvm10BasicBlockEEED2Ev.exit.i.i.i.i.i.i.i, label %339
@@ -8120,7 +8120,7 @@ _ZSt8_DestroyIPN4llvm14DomTreeUpdater18CallBackOnDeletionES2_EvT_S4_RSaIT0_E.exi
   br i1 %.not.i.i.i.i, label %_ZN4llvm14DomTreeUpdaterD2Ev.exit, label %348
 
 348:                                              ; preds = %_ZSt8_DestroyIPN4llvm14DomTreeUpdater18CallBackOnDeletionES2_EvT_S4_RSaIT0_E.exit.i.i
-  %349 = getelementptr inbounds i8, ptr %13, i64 432
+  %349 = getelementptr inbounds nuw i8, ptr %13, i64 432
   %350 = load ptr, ptr %349, align 8
   %351 = ptrtoint ptr %350 to i64
   %352 = ptrtoint ptr %347 to i64
@@ -8490,7 +8490,7 @@ define dso_local void @_ZN4llvm26createPHIsForSplitLoopExitENS_8ArrayRefIPNS_10B
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 33
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 48
-  %14 = getelementptr inbounds i8, ptr %2, i64 56
+  %14 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %15 = getelementptr inbounds ptr, ptr %0, i64 %1
   %.not3656 = icmp eq i64 %1, 0
   br label %16
@@ -8747,7 +8747,7 @@ declare void @_ZN4llvm11Instruction12insertBeforeENS_21ilist_iterator_w_bitsINS_
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local noundef i32 @_ZN4llvm21SplitAllCriticalEdgesERNS_8FunctionERKNS_28CriticalEdgeSplittingOptionsE(ptr noundef nonnull readonly align 8 dereferenceable(136) %0, ptr noundef nonnull align 8 dereferenceable(37) %1) local_unnamed_addr #0 {
   %3 = alloca %"class.llvm::Twine", align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 80
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %.sroa.014.020 = load ptr, ptr %4, align 8
   %.not1721 = icmp eq ptr %.sroa.014.020, %5
@@ -8846,14 +8846,14 @@ define internal fastcc noundef ptr @_ZL14SplitBlockImplPN4llvm10BasicBlockENS_21
   %21 = call noundef ptr @_ZN4llvm16splitBlockBeforeEPNS_10BasicBlockENS_21ilist_iterator_w_bitsINS_12ilist_detail12node_optionsINS_11InstructionELb0ELb0EvLb1ES0_EELb0ELb0EEEPNS_14DomTreeUpdaterEPNS_8LoopInfoEPNS_16MemorySSAUpdaterERKNS_5TwineE(ptr noundef %0, ptr %1, i64 %2, ptr noundef %20, ptr noundef %5, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(34) %7)
   call void @_ZN4llvm21GenericDomTreeUpdaterINS_14DomTreeUpdaterENS_13DominatorTreeENS_17PostDominatorTreeEE5flushEv(ptr noundef nonnull align 8 dereferenceable(410) %10) #21
   %22 = load ptr, ptr %19, align 8
-  %23 = getelementptr inbounds i8, ptr %10, i64 424
+  %23 = getelementptr inbounds nuw i8, ptr %10, i64 424
   %24 = load ptr, ptr %23, align 8
   %.not4.i.i.i.i.i = icmp eq ptr %22, %24
   br i1 %.not4.i.i.i.i.i, label %_ZSt8_DestroyIPN4llvm14DomTreeUpdater18CallBackOnDeletionES2_EvT_S4_RSaIT0_E.exit.i.i, label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %18, %_ZSt8_DestroyIN4llvm14DomTreeUpdater18CallBackOnDeletionEEvPT_.exit.i.i.i.i.i
   %.05.i.i.i.i.i = phi ptr [ %34, %_ZSt8_DestroyIN4llvm14DomTreeUpdater18CallBackOnDeletionEEvPT_.exit.i.i.i.i.i ], [ %22, %18 ]
-  %25 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i, i64 56
+  %25 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i, i64 56
   %26 = load ptr, ptr %25, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %26, null
   br i1 %.not.i.i.i.i.i.i.i.i.i, label %_ZNSt8functionIFvPN4llvm10BasicBlockEEED2Ev.exit.i.i.i.i.i.i.i, label %27
@@ -8893,7 +8893,7 @@ _ZSt8_DestroyIPN4llvm14DomTreeUpdater18CallBackOnDeletionES2_EvT_S4_RSaIT0_E.exi
   br i1 %.not.i.i.i.i, label %_ZN4llvm14DomTreeUpdaterD2Ev.exit, label %36
 
 36:                                               ; preds = %_ZSt8_DestroyIPN4llvm14DomTreeUpdater18CallBackOnDeletionES2_EvT_S4_RSaIT0_E.exit.i.i
-  %37 = getelementptr inbounds i8, ptr %10, i64 432
+  %37 = getelementptr inbounds nuw i8, ptr %10, i64 432
   %38 = load ptr, ptr %37, align 8
   %39 = ptrtoint ptr %38 to i64
   %40 = ptrtoint ptr %35 to i64
@@ -9238,7 +9238,7 @@ _ZN4llvm11SmallVectorINS_3cfg6UpdateIPNS_10BasicBlockEEELj8EED2Ev.exit: ; preds 
   br i1 %.not75, label %187, label %181
 
 181:                                              ; preds = %_ZN4llvm11SmallVectorINS_3cfg6UpdateIPNS_10BasicBlockEEELj8EED2Ev.exit
-  %182 = getelementptr inbounds i8, ptr %60, i64 56
+  %182 = getelementptr inbounds nuw i8, ptr %60, i64 56
   %183 = load ptr, ptr %182, align 8
   %184 = icmp eq ptr %183, null
   %185 = getelementptr inbounds i8, ptr %183, i64 -24
@@ -9860,7 +9860,7 @@ _ZN4llvm10BasicBlock13getTerminatorEv.exit:       ; preds = %_ZN4llvm8DebugLocD2
   br label %150
 
 ._crit_edge.thread:                               ; preds = %_ZN4llvm8DebugLocD2Ev.exit85
-  %95 = getelementptr inbounds i8, ptr %0, i64 56
+  %95 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %.sroa.0.0113 = load ptr, ptr %95, align 8
   %96 = getelementptr inbounds i8, ptr %.sroa.0.0113, i64 -24
   %97 = load i8, ptr %96, align 8
@@ -12787,7 +12787,7 @@ _ZNKSt8functionIFvRN4llvm13IRBuilderBaseEPNS0_5ValueEEEclES2_S4_.exit: ; preds =
 
 34:                                               ; preds = %3
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %36 = getelementptr inbounds i8, ptr %0, i64 32
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %37 = load i32, ptr %36, align 8
   %38 = icmp ult i32 %37, 65
   %39 = load ptr, ptr %35, align 8
@@ -12843,7 +12843,7 @@ _ZN4llvm9IRBuilderINS_14ConstantFolderENS_24IRBuilderDefaultInserterEED2Ev.exit:
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local noundef ptr @_ZN4llvm14GetIfConditionEPNS_10BasicBlockERS1_S2_(ptr noundef readonly %0, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %1, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %2) local_unnamed_addr #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 56
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
   %7 = getelementptr inbounds i8, ptr %5, i64 -24
@@ -13251,7 +13251,7 @@ declare void @_ZN4llvm10BranchInst14swapSuccessorsEv(ptr noundef nonnull align 8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, inaccessiblemem: write) uwtable
 define dso_local noundef zeroext i1 @_ZN4llvm23hasOnlySimpleTerminatorERKNS_8FunctionE(ptr noundef nonnull readonly align 8 dereferenceable(136) %0) local_unnamed_addr #8 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 80
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %.sroa.07.010 = load ptr, ptr %2, align 8
   %.not11 = icmp eq ptr %.sroa.07.010, %3
@@ -13417,7 +13417,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK4llvm12DenseMapBaseINS_13Smal
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = select i1 %.not.i.i, ptr %7, ptr %6
-  %9 = getelementptr inbounds i8, ptr %0, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = load i32, ptr %9, align 8
   %11 = select i1 %.not.i.i, i32 %10, i32 4
   %12 = icmp eq i32 %11, 0
@@ -13494,7 +13494,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK4llvm12DenseMapBaseINS_13Smal
   br i1 %52, label %_ZSteqIN4llvm23DbgVariableFragmentInfoES1_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7declvalIRKT_EEclsr3stdE7declvalIRKT0_EEEbEE5valueEbE4typeERKSt8optionalIS3_ERKSC_IS6_E.exit.i.i.i.i.i.us, label %_ZN4llvm12DenseMapInfoINS_13DebugVariableEvE7isEqualERKS1_S4_.exit.thread.us
 
 _ZSteqIN4llvm23DbgVariableFragmentInfoES1_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7declvalIRKT_EEclsr3stdE7declvalIRKT0_EEEbEE5valueEbE4typeERKSt8optionalIS3_ERKSC_IS6_E.exit.i.i.i.i.i.us: ; preds = %.split.us
-  %53 = getelementptr inbounds i8, ptr %48, i64 24
+  %53 = getelementptr inbounds nuw i8, ptr %48, i64 24
   %54 = load i8, ptr %53, align 8
   %55 = xor i8 %54, %.sroa.3.0.copyload.i.i.fr
   %56 = trunc i8 %55 to i1
@@ -13510,7 +13510,7 @@ _ZN4llvm12DenseMapInfoINS_13DebugVariableEvE7isEqualERKS1_S4_.exit.thread.us: ; 
   br i1 %59, label %_ZSteqIN4llvm23DbgVariableFragmentInfoES1_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7declvalIRKT_EEclsr3stdE7declvalIRKT0_EEEbEE5valueEbE4typeERKSt8optionalIS3_ERKSC_IS6_E.exit.i.i.i.i.i32.us, label %_ZN4llvm12DenseMapInfoINS_13DebugVariableEvE7isEqualERKS1_S4_.exit37.us
 
 _ZSteqIN4llvm23DbgVariableFragmentInfoES1_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7declvalIRKT_EEclsr3stdE7declvalIRKT0_EEEbEE5valueEbE4typeERKSt8optionalIS3_ERKSC_IS6_E.exit.i.i.i.i.i32.us: ; preds = %_ZN4llvm12DenseMapInfoINS_13DebugVariableEvE7isEqualERKS1_S4_.exit.thread.us
-  %60 = getelementptr inbounds i8, ptr %48, i64 24
+  %60 = getelementptr inbounds nuw i8, ptr %48, i64 24
   %61 = load i8, ptr %60, align 8
   %62 = trunc i8 %61 to i1
   br i1 %62, label %65, label %_ZN4llvm12DenseMapInfoINS_13DebugVariableEvE7isEqualERKS1_S4_.exit33.us
@@ -13521,7 +13521,7 @@ _ZN4llvm12DenseMapInfoINS_13DebugVariableEvE7isEqualERKS1_S4_.exit33.us: ; preds
   br i1 %64, label %.split51.us, label %_ZN4llvm12DenseMapInfoINS_13DebugVariableEvE7isEqualERKS1_S4_.exit37.us
 
 65:                                               ; preds = %_ZSteqIN4llvm23DbgVariableFragmentInfoES1_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7declvalIRKT_EEclsr3stdE7declvalIRKT0_EEEbEE5valueEbE4typeERKSt8optionalIS3_ERKSC_IS6_E.exit.i.i.i.i.i32.us
-  %66 = getelementptr inbounds i8, ptr %48, i64 16
+  %66 = getelementptr inbounds nuw i8, ptr %48, i64 16
   %67 = load i64, ptr %49, align 8
   %68 = icmp eq i64 %67, 0
   %69 = load i64, ptr %66, align 8
@@ -13557,14 +13557,14 @@ _ZN4llvm12DenseMapInfoINS_13DebugVariableEvE7isEqualERKS1_S4_.exit37.us: ; preds
   br i1 %84, label %85, label %_ZN4llvm12DenseMapInfoINS_13DebugVariableEvE7isEqualERKS1_S4_.exit.thread
 
 85:                                               ; preds = %.split
-  %86 = getelementptr inbounds i8, ptr %80, i64 24
+  %86 = getelementptr inbounds nuw i8, ptr %80, i64 24
   %87 = load i8, ptr %86, align 8
   %88 = xor i8 %87, %.sroa.3.0.copyload.i.i.fr
   %89 = trunc i8 %88 to i1
   br i1 %89, label %_ZN4llvm12DenseMapInfoINS_13DebugVariableEvE7isEqualERKS1_S4_.exit.thread, label %90
 
 90:                                               ; preds = %85
-  %91 = getelementptr inbounds i8, ptr %80, i64 16
+  %91 = getelementptr inbounds nuw i8, ptr %80, i64 16
   %92 = load i64, ptr %81, align 8
   %93 = icmp eq i64 %.sroa.04.0.copyload.i.i, %92
   %94 = load i64, ptr %91, align 8
@@ -13582,7 +13582,7 @@ _ZN4llvm12DenseMapInfoINS_13DebugVariableEvE7isEqualERKS1_S4_.exit.thread: ; pre
   br i1 %99, label %_ZSteqIN4llvm23DbgVariableFragmentInfoES1_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7declvalIRKT_EEclsr3stdE7declvalIRKT0_EEEbEE5valueEbE4typeERKSt8optionalIS3_ERKSC_IS6_E.exit.i.i.i.i.i32, label %_ZN4llvm12DenseMapInfoINS_13DebugVariableEvE7isEqualERKS1_S4_.exit37
 
 _ZSteqIN4llvm23DbgVariableFragmentInfoES1_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7declvalIRKT_EEclsr3stdE7declvalIRKT0_EEEbEE5valueEbE4typeERKSt8optionalIS3_ERKSC_IS6_E.exit.i.i.i.i.i32: ; preds = %_ZN4llvm12DenseMapInfoINS_13DebugVariableEvE7isEqualERKS1_S4_.exit.thread
-  %100 = getelementptr inbounds i8, ptr %80, i64 24
+  %100 = getelementptr inbounds nuw i8, ptr %80, i64 24
   %101 = load i8, ptr %100, align 8
   %102 = trunc i8 %101 to i1
   br i1 %102, label %106, label %_ZN4llvm12DenseMapInfoINS_13DebugVariableEvE7isEqualERKS1_S4_.exit33
@@ -13600,7 +13600,7 @@ _ZN4llvm12DenseMapInfoINS_13DebugVariableEvE7isEqualERKS1_S4_.exit33: ; preds = 
   br label %.split49.us
 
 106:                                              ; preds = %_ZSteqIN4llvm23DbgVariableFragmentInfoES1_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7declvalIRKT_EEclsr3stdE7declvalIRKT0_EEEbEE5valueEbE4typeERKSt8optionalIS3_ERKSC_IS6_E.exit.i.i.i.i.i32
-  %107 = getelementptr inbounds i8, ptr %80, i64 16
+  %107 = getelementptr inbounds nuw i8, ptr %80, i64 16
   %108 = load i64, ptr %81, align 8
   %109 = icmp eq i64 %108, 0
   %110 = load i64, ptr %107, align 8
@@ -13640,7 +13640,7 @@ define linkonce_odr hidden noundef ptr @_ZN4llvm12DenseMapBaseINS_13SmallDenseMa
   %8 = lshr i32 %7, 1
   %9 = and i32 %7, 1
   %.not.i.i = icmp eq i32 %9, 0
-  %10 = getelementptr inbounds i8, ptr %0, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %11 = load i32, ptr %10, align 8
   %12 = select i1 %.not.i.i, i32 %11, i32 4
   %13 = shl i32 %8, 2
@@ -13690,7 +13690,7 @@ define linkonce_odr hidden noundef ptr @_ZN4llvm12DenseMapBaseINS_13SmallDenseMa
   br i1 %36, label %_ZSteqIN4llvm23DbgVariableFragmentInfoES1_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7declvalIRKT_EEclsr3stdE7declvalIRKT0_EEEbEE5valueEbE4typeERKSt8optionalIS3_ERKSC_IS6_E.exit.i.i.i.i.i, label %_ZN4llvm12DenseMapInfoINS_13DebugVariableEvE7isEqualERKS1_S4_.exit.thread
 
 _ZSteqIN4llvm23DbgVariableFragmentInfoES1_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7declvalIRKT_EEclsr3stdE7declvalIRKT0_EEEbEE5valueEbE4typeERKSt8optionalIS3_ERKSC_IS6_E.exit.i.i.i.i.i: ; preds = %28
-  %37 = getelementptr inbounds i8, ptr %.0, i64 24
+  %37 = getelementptr inbounds nuw i8, ptr %.0, i64 24
   %38 = load i8, ptr %37, align 8
   %39 = trunc i8 %38 to i1
   br i1 %39, label %_ZN4llvm12DenseMapInfoINS_13DebugVariableEvE7isEqualERKS1_S4_.exit.thread, label %_ZN4llvm12DenseMapInfoINS_13DebugVariableEvE7isEqualERKS1_S4_.exit
@@ -13756,7 +13756,7 @@ define linkonce_odr hidden void @_ZN4llvm13SmallDenseMapINS_13DebugVariableENS_6
   br i1 %29, label %_ZSteqIN4llvm23DbgVariableFragmentInfoES1_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7declvalIRKT_EEclsr3stdE7declvalIRKT0_EEEbEE5valueEbE4typeERKSt8optionalIS3_ERKSC_IS6_E.exit.i.i.i.i.i, label %_ZN4llvm12DenseMapInfoINS_13DebugVariableEvE7isEqualERKS1_S4_.exit33.thread
 
 _ZSteqIN4llvm23DbgVariableFragmentInfoES1_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7declvalIRKT_EEclsr3stdE7declvalIRKT0_EEEbEE5valueEbE4typeERKSt8optionalIS3_ERKSC_IS6_E.exit.i.i.i.i.i: ; preds = %.preheader
-  %30 = getelementptr inbounds i8, ptr %.026.ptr67, i64 24
+  %30 = getelementptr inbounds nuw i8, ptr %.026.ptr67, i64 24
   %31 = load i8, ptr %30, align 8
   %32 = trunc i8 %31 to i1
   br i1 %32, label %35, label %_ZN4llvm12DenseMapInfoINS_13DebugVariableEvE7isEqualERKS1_S4_.exit
@@ -13767,7 +13767,7 @@ _ZN4llvm12DenseMapInfoINS_13DebugVariableEvE7isEqualERKS1_S4_.exit: ; preds = %_
   br i1 %34, label %45, label %_ZN4llvm12DenseMapInfoINS_13DebugVariableEvE7isEqualERKS1_S4_.exit33.thread
 
 35:                                               ; preds = %_ZSteqIN4llvm23DbgVariableFragmentInfoES1_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7declvalIRKT_EEclsr3stdE7declvalIRKT0_EEEbEE5valueEbE4typeERKSt8optionalIS3_ERKSC_IS6_E.exit.i.i.i.i.i
-  %36 = getelementptr inbounds i8, ptr %.026.ptr67, i64 16
+  %36 = getelementptr inbounds nuw i8, ptr %.026.ptr67, i64 16
   %37 = load i64, ptr %26, align 8
   %38 = icmp eq i64 %37, 0
   %39 = load i64, ptr %36, align 8
@@ -13798,7 +13798,7 @@ _ZN4llvm12DenseMapInfoINS_13DebugVariableEvE7isEqualERKS1_S4_.exit33.thread: ; p
 
 ._crit_edge:                                      ; preds = %46
   %.pre69 = load ptr, ptr %25, align 8
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 16
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.pre70 = load i32, ptr %.phi.trans.insert, align 8
   br label %54
 
@@ -13809,7 +13809,7 @@ _ZN4llvm12DenseMapInfoINS_13DebugVariableEvE7isEqualERKS1_S4_.exit33.thread: ; p
   %51 = mul nuw nsw i64 %50, 40
   %52 = tail call noalias noundef nonnull ptr @_ZN4llvm15allocate_bufferEmm(i64 noundef %51, i64 noundef 8) #21
   store ptr %52, ptr %25, align 8
-  %53 = getelementptr inbounds i8, ptr %0, i64 16
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 %.0, ptr %53, align 8
   %.pre = load i32, ptr %0, align 8
   br label %54
@@ -13854,7 +13854,7 @@ _ZN4llvm12DenseMapBaseINS_13SmallDenseMapINS_13DebugVariableENS_6detail13DenseSe
   br i1 %68, label %_ZSteqIN4llvm23DbgVariableFragmentInfoES1_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7declvalIRKT_EEclsr3stdE7declvalIRKT0_EEEbEE5valueEbE4typeERKSt8optionalIS3_ERKSC_IS6_E.exit.i.i.i.i.i.i, label %_ZN4llvm12DenseMapInfoINS_13DebugVariableEvE7isEqualERKS1_S4_.exit16.thread.i
 
 _ZSteqIN4llvm23DbgVariableFragmentInfoES1_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7declvalIRKT_EEclsr3stdE7declvalIRKT0_EEEbEE5valueEbE4typeERKSt8optionalIS3_ERKSC_IS6_E.exit.i.i.i.i.i.i: ; preds = %.lr.ph.i
-  %69 = getelementptr inbounds i8, ptr %.027.i, i64 24
+  %69 = getelementptr inbounds nuw i8, ptr %.027.i, i64 24
   %70 = load i8, ptr %69, align 8
   %71 = trunc i8 %70 to i1
   br i1 %71, label %74, label %_ZN4llvm12DenseMapInfoINS_13DebugVariableEvE7isEqualERKS1_S4_.exit.i
@@ -13865,7 +13865,7 @@ _ZN4llvm12DenseMapInfoINS_13DebugVariableEvE7isEqualERKS1_S4_.exit.i: ; preds = 
   br i1 %73, label %90, label %_ZN4llvm12DenseMapInfoINS_13DebugVariableEvE7isEqualERKS1_S4_.exit16.thread.i
 
 74:                                               ; preds = %_ZSteqIN4llvm23DbgVariableFragmentInfoES1_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7declvalIRKT_EEclsr3stdE7declvalIRKT0_EEEbEE5valueEbE4typeERKSt8optionalIS3_ERKSC_IS6_E.exit.i.i.i.i.i.i
-  %75 = getelementptr inbounds i8, ptr %.027.i, i64 16
+  %75 = getelementptr inbounds nuw i8, ptr %.027.i, i64 16
   %76 = load i64, ptr %65, align 8
   %77 = icmp eq i64 %76, 0
   %78 = load i64, ptr %75, align 8
@@ -13955,7 +13955,7 @@ _ZN4llvm12DenseMapBaseINS_13SmallDenseMapINS_13DebugVariableENS_6detail13DenseSe
   br i1 %114, label %_ZSteqIN4llvm23DbgVariableFragmentInfoES1_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7declvalIRKT_EEclsr3stdE7declvalIRKT0_EEEbEE5valueEbE4typeERKSt8optionalIS3_ERKSC_IS6_E.exit.i.i.i.i.i.i50, label %_ZN4llvm12DenseMapInfoINS_13DebugVariableEvE7isEqualERKS1_S4_.exit16.thread.i48
 
 _ZSteqIN4llvm23DbgVariableFragmentInfoES1_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7declvalIRKT_EEclsr3stdE7declvalIRKT0_EEEbEE5valueEbE4typeERKSt8optionalIS3_ERKSC_IS6_E.exit.i.i.i.i.i.i50: ; preds = %.lr.ph.i46
-  %115 = getelementptr inbounds i8, ptr %.027.i47, i64 24
+  %115 = getelementptr inbounds nuw i8, ptr %.027.i47, i64 24
   %116 = load i8, ptr %115, align 8
   %117 = trunc i8 %116 to i1
   br i1 %117, label %120, label %_ZN4llvm12DenseMapInfoINS_13DebugVariableEvE7isEqualERKS1_S4_.exit.i51
@@ -13966,7 +13966,7 @@ _ZN4llvm12DenseMapInfoINS_13DebugVariableEvE7isEqualERKS1_S4_.exit.i51: ; preds 
   br i1 %119, label %136, label %_ZN4llvm12DenseMapInfoINS_13DebugVariableEvE7isEqualERKS1_S4_.exit16.thread.i48
 
 120:                                              ; preds = %_ZSteqIN4llvm23DbgVariableFragmentInfoES1_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7declvalIRKT_EEclsr3stdE7declvalIRKT0_EEEbEE5valueEbE4typeERKSt8optionalIS3_ERKSC_IS6_E.exit.i.i.i.i.i.i50
-  %121 = getelementptr inbounds i8, ptr %.027.i47, i64 16
+  %121 = getelementptr inbounds nuw i8, ptr %.027.i47, i64 16
   %122 = load i64, ptr %111, align 8
   %123 = icmp eq i64 %122, 0
   %124 = load i64, ptr %121, align 8
@@ -14035,7 +14035,7 @@ define linkonce_odr hidden void @_ZN4llvm13SmallDenseMapINS_13DebugVariableENS_6
   br i1 %or.cond3, label %._crit_edge, label %14
 
 ._crit_edge:                                      ; preds = %10
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 16
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.pre = load i32, ptr %.phi.trans.insert, align 8
   br label %19
 
@@ -14043,7 +14043,7 @@ define linkonce_odr hidden void @_ZN4llvm13SmallDenseMapINS_13DebugVariableENS_6
   br i1 %12, label %_ZN4llvm13SmallDenseMapINS_13DebugVariableENS_6detail13DenseSetEmptyELj4ENS_12DenseMapInfoIS1_vEENS2_12DenseSetPairIS1_EEE17deallocateBucketsEv.exit, label %15
 
 15:                                               ; preds = %14
-  %16 = getelementptr inbounds i8, ptr %0, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %17 = load i32, ptr %16, align 8
   %18 = icmp eq i32 %.0, %17
   br i1 %18, label %19, label %29
@@ -14089,7 +14089,7 @@ _ZN4llvm13SmallDenseMapINS_13DebugVariableENS_6detail13DenseSetEmptyELj4ENS_12De
 ._crit_edge.i:                                    ; preds = %_ZN4llvm13SmallDenseMapINS_13DebugVariableENS_6detail13DenseSetEmptyELj4ENS_12DenseMapInfoIS1_vEENS2_12DenseSetPairIS1_EEE17deallocateBucketsEv.exit
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.pre2.i = load ptr, ptr %.phi.trans.insert.i, align 8
-  %.phi.trans.insert3.i = getelementptr inbounds i8, ptr %0, i64 16
+  %.phi.trans.insert3.i = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.pre4.i = load i32, ptr %.phi.trans.insert3.i, align 8
   br label %44
 
@@ -14102,7 +14102,7 @@ _ZN4llvm13SmallDenseMapINS_13DebugVariableENS_6detail13DenseSetEmptyELj4ENS_12De
   %40 = mul nuw nsw i64 %39, 40
   %41 = tail call noalias noundef nonnull ptr @_ZN4llvm15allocate_bufferEmm(i64 noundef %40, i64 noundef 8) #21
   store ptr %41, ptr %38, align 8
-  %42 = getelementptr inbounds i8, ptr %0, i64 16
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 %.0, ptr %42, align 8
   %.pre.i = load i32, ptr %0, align 8
   %43 = and i32 %.pre.i, 1
@@ -14342,7 +14342,7 @@ define linkonce_odr hidden noundef ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapINS_1
   br i1 %45, label %_ZSteqIN4llvm23DbgVariableFragmentInfoES1_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7declvalIRKT_EEclsr3stdE7declvalIRKT0_EEEbEE5valueEbE4typeERKSt8optionalIS3_ERKSC_IS6_E.exit.i.i.i.i.i.us, label %_ZN4llvm12DenseMapInfoINS_13DebugVariableEvE7isEqualERKS1_S4_.exit.thread.us
 
 _ZSteqIN4llvm23DbgVariableFragmentInfoES1_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7declvalIRKT_EEclsr3stdE7declvalIRKT0_EEEbEE5valueEbE4typeERKSt8optionalIS3_ERKSC_IS6_E.exit.i.i.i.i.i.us: ; preds = %.split.us
-  %46 = getelementptr inbounds i8, ptr %42, i64 24
+  %46 = getelementptr inbounds nuw i8, ptr %42, i64 24
   %47 = load i8, ptr %46, align 8
   %48 = xor i8 %47, %.sroa.3.0.copyload.i.i.fr
   %49 = trunc i8 %48 to i1
@@ -14358,7 +14358,7 @@ _ZN4llvm12DenseMapInfoINS_13DebugVariableEvE7isEqualERKS1_S4_.exit.thread.us: ; 
   br i1 %52, label %_ZSteqIN4llvm23DbgVariableFragmentInfoES1_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7declvalIRKT_EEclsr3stdE7declvalIRKT0_EEEbEE5valueEbE4typeERKSt8optionalIS3_ERKSC_IS6_E.exit.i.i.i.i.i19.us, label %_ZN4llvm12DenseMapInfoINS_13DebugVariableEvE7isEqualERKS1_S4_.exit20.thread.us
 
 _ZSteqIN4llvm23DbgVariableFragmentInfoES1_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7declvalIRKT_EEclsr3stdE7declvalIRKT0_EEEbEE5valueEbE4typeERKSt8optionalIS3_ERKSC_IS6_E.exit.i.i.i.i.i19.us: ; preds = %_ZN4llvm12DenseMapInfoINS_13DebugVariableEvE7isEqualERKS1_S4_.exit.thread.us
-  %53 = getelementptr inbounds i8, ptr %42, i64 24
+  %53 = getelementptr inbounds nuw i8, ptr %42, i64 24
   %54 = load i8, ptr %53, align 8
   %55 = trunc i8 %54 to i1
   br i1 %55, label %_ZN4llvm12DenseMapInfoINS_13DebugVariableEvE7isEqualERKS1_S4_.exit20.thread.us, label %_ZN4llvm12DenseMapInfoINS_13DebugVariableEvE7isEqualERKS1_S4_.exit20.us
@@ -14386,14 +14386,14 @@ _ZN4llvm12DenseMapInfoINS_13DebugVariableEvE7isEqualERKS1_S4_.exit20.thread.us: 
   br i1 %65, label %66, label %_ZN4llvm12DenseMapInfoINS_13DebugVariableEvE7isEqualERKS1_S4_.exit.thread
 
 66:                                               ; preds = %.split
-  %67 = getelementptr inbounds i8, ptr %61, i64 24
+  %67 = getelementptr inbounds nuw i8, ptr %61, i64 24
   %68 = load i8, ptr %67, align 8
   %69 = xor i8 %68, %.sroa.3.0.copyload.i.i.fr
   %70 = trunc i8 %69 to i1
   br i1 %70, label %_ZN4llvm12DenseMapInfoINS_13DebugVariableEvE7isEqualERKS1_S4_.exit.thread, label %71
 
 71:                                               ; preds = %66
-  %72 = getelementptr inbounds i8, ptr %61, i64 16
+  %72 = getelementptr inbounds nuw i8, ptr %61, i64 16
   %73 = load i64, ptr %62, align 8
   %74 = icmp eq i64 %.sroa.04.0.copyload.i.i, %73
   %75 = load i64, ptr %72, align 8
@@ -14411,7 +14411,7 @@ _ZN4llvm12DenseMapInfoINS_13DebugVariableEvE7isEqualERKS1_S4_.exit.thread: ; pre
   br i1 %80, label %_ZSteqIN4llvm23DbgVariableFragmentInfoES1_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7declvalIRKT_EEclsr3stdE7declvalIRKT0_EEEbEE5valueEbE4typeERKSt8optionalIS3_ERKSC_IS6_E.exit.i.i.i.i.i19, label %_ZN4llvm12DenseMapInfoINS_13DebugVariableEvE7isEqualERKS1_S4_.exit20.thread
 
 _ZSteqIN4llvm23DbgVariableFragmentInfoES1_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7declvalIRKT_EEclsr3stdE7declvalIRKT0_EEEbEE5valueEbE4typeERKSt8optionalIS3_ERKSC_IS6_E.exit.i.i.i.i.i19: ; preds = %_ZN4llvm12DenseMapInfoINS_13DebugVariableEvE7isEqualERKS1_S4_.exit.thread
-  %81 = getelementptr inbounds i8, ptr %61, i64 24
+  %81 = getelementptr inbounds nuw i8, ptr %61, i64 24
   %82 = load i8, ptr %81, align 8
   %83 = trunc i8 %82 to i1
   br i1 %83, label %_ZN4llvm12DenseMapInfoINS_13DebugVariableEvE7isEqualERKS1_S4_.exit20.thread, label %_ZN4llvm12DenseMapInfoINS_13DebugVariableEvE7isEqualERKS1_S4_.exit20
@@ -14515,7 +14515,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK4llvm12DenseMapBaseINS_8Dense
   br i1 %47, label %_ZSteqIN4llvm23DbgVariableFragmentInfoES1_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7declvalIRKT_EEclsr3stdE7declvalIRKT0_EEEbEE5valueEbE4typeERKSt8optionalIS3_ERKSC_IS6_E.exit.i.i.i.i.i.us, label %_ZN4llvm12DenseMapInfoINS_13DebugVariableEvE7isEqualERKS1_S4_.exit.thread.us
 
 _ZSteqIN4llvm23DbgVariableFragmentInfoES1_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7declvalIRKT_EEclsr3stdE7declvalIRKT0_EEEbEE5valueEbE4typeERKSt8optionalIS3_ERKSC_IS6_E.exit.i.i.i.i.i.us: ; preds = %.split.us
-  %48 = getelementptr inbounds i8, ptr %43, i64 24
+  %48 = getelementptr inbounds nuw i8, ptr %43, i64 24
   %49 = load i8, ptr %48, align 8
   %50 = xor i8 %49, %.sroa.3.0.copyload.i.i.fr
   %51 = trunc i8 %50 to i1
@@ -14531,7 +14531,7 @@ _ZN4llvm12DenseMapInfoINS_13DebugVariableEvE7isEqualERKS1_S4_.exit.thread.us: ; 
   br i1 %54, label %_ZSteqIN4llvm23DbgVariableFragmentInfoES1_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7declvalIRKT_EEclsr3stdE7declvalIRKT0_EEEbEE5valueEbE4typeERKSt8optionalIS3_ERKSC_IS6_E.exit.i.i.i.i.i31.us, label %_ZN4llvm12DenseMapInfoINS_13DebugVariableEvE7isEqualERKS1_S4_.exit36.us
 
 _ZSteqIN4llvm23DbgVariableFragmentInfoES1_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7declvalIRKT_EEclsr3stdE7declvalIRKT0_EEEbEE5valueEbE4typeERKSt8optionalIS3_ERKSC_IS6_E.exit.i.i.i.i.i31.us: ; preds = %_ZN4llvm12DenseMapInfoINS_13DebugVariableEvE7isEqualERKS1_S4_.exit.thread.us
-  %55 = getelementptr inbounds i8, ptr %43, i64 24
+  %55 = getelementptr inbounds nuw i8, ptr %43, i64 24
   %56 = load i8, ptr %55, align 8
   %57 = trunc i8 %56 to i1
   br i1 %57, label %60, label %_ZN4llvm12DenseMapInfoINS_13DebugVariableEvE7isEqualERKS1_S4_.exit32.us
@@ -14542,7 +14542,7 @@ _ZN4llvm12DenseMapInfoINS_13DebugVariableEvE7isEqualERKS1_S4_.exit32.us: ; preds
   br i1 %59, label %.split50.us, label %_ZN4llvm12DenseMapInfoINS_13DebugVariableEvE7isEqualERKS1_S4_.exit36.us
 
 60:                                               ; preds = %_ZSteqIN4llvm23DbgVariableFragmentInfoES1_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7declvalIRKT_EEclsr3stdE7declvalIRKT0_EEEbEE5valueEbE4typeERKSt8optionalIS3_ERKSC_IS6_E.exit.i.i.i.i.i31.us
-  %61 = getelementptr inbounds i8, ptr %43, i64 16
+  %61 = getelementptr inbounds nuw i8, ptr %43, i64 16
   %62 = load i64, ptr %44, align 8
   %63 = icmp eq i64 %62, 0
   %64 = load i64, ptr %61, align 8
@@ -14578,14 +14578,14 @@ _ZN4llvm12DenseMapInfoINS_13DebugVariableEvE7isEqualERKS1_S4_.exit36.us: ; preds
   br i1 %79, label %80, label %_ZN4llvm12DenseMapInfoINS_13DebugVariableEvE7isEqualERKS1_S4_.exit.thread
 
 80:                                               ; preds = %.split
-  %81 = getelementptr inbounds i8, ptr %75, i64 24
+  %81 = getelementptr inbounds nuw i8, ptr %75, i64 24
   %82 = load i8, ptr %81, align 8
   %83 = xor i8 %82, %.sroa.3.0.copyload.i.i.fr
   %84 = trunc i8 %83 to i1
   br i1 %84, label %_ZN4llvm12DenseMapInfoINS_13DebugVariableEvE7isEqualERKS1_S4_.exit.thread, label %85
 
 85:                                               ; preds = %80
-  %86 = getelementptr inbounds i8, ptr %75, i64 16
+  %86 = getelementptr inbounds nuw i8, ptr %75, i64 16
   %87 = load i64, ptr %76, align 8
   %88 = icmp eq i64 %.sroa.04.0.copyload.i.i, %87
   %89 = load i64, ptr %86, align 8
@@ -14603,7 +14603,7 @@ _ZN4llvm12DenseMapInfoINS_13DebugVariableEvE7isEqualERKS1_S4_.exit.thread: ; pre
   br i1 %94, label %_ZSteqIN4llvm23DbgVariableFragmentInfoES1_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7declvalIRKT_EEclsr3stdE7declvalIRKT0_EEEbEE5valueEbE4typeERKSt8optionalIS3_ERKSC_IS6_E.exit.i.i.i.i.i31, label %_ZN4llvm12DenseMapInfoINS_13DebugVariableEvE7isEqualERKS1_S4_.exit36
 
 _ZSteqIN4llvm23DbgVariableFragmentInfoES1_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7declvalIRKT_EEclsr3stdE7declvalIRKT0_EEEbEE5valueEbE4typeERKSt8optionalIS3_ERKSC_IS6_E.exit.i.i.i.i.i31: ; preds = %_ZN4llvm12DenseMapInfoINS_13DebugVariableEvE7isEqualERKS1_S4_.exit.thread
-  %95 = getelementptr inbounds i8, ptr %75, i64 24
+  %95 = getelementptr inbounds nuw i8, ptr %75, i64 24
   %96 = load i8, ptr %95, align 8
   %97 = trunc i8 %96 to i1
   br i1 %97, label %101, label %_ZN4llvm12DenseMapInfoINS_13DebugVariableEvE7isEqualERKS1_S4_.exit32
@@ -14621,7 +14621,7 @@ _ZN4llvm12DenseMapInfoINS_13DebugVariableEvE7isEqualERKS1_S4_.exit32: ; preds = 
   br label %.split48.us
 
 101:                                              ; preds = %_ZSteqIN4llvm23DbgVariableFragmentInfoES1_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7declvalIRKT_EEclsr3stdE7declvalIRKT0_EEEbEE5valueEbE4typeERKSt8optionalIS3_ERKSC_IS6_E.exit.i.i.i.i.i31
-  %102 = getelementptr inbounds i8, ptr %75, i64 16
+  %102 = getelementptr inbounds nuw i8, ptr %75, i64 16
   %103 = load i64, ptr %76, align 8
   %104 = icmp eq i64 %103, 0
   %105 = load i64, ptr %102, align 8
@@ -14702,7 +14702,7 @@ define linkonce_odr hidden noundef ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapINS_1
   br i1 %31, label %_ZSteqIN4llvm23DbgVariableFragmentInfoES1_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7declvalIRKT_EEclsr3stdE7declvalIRKT0_EEEbEE5valueEbE4typeERKSt8optionalIS3_ERKSC_IS6_E.exit.i.i.i.i.i, label %_ZN4llvm12DenseMapInfoINS_13DebugVariableEvE7isEqualERKS1_S4_.exit.thread
 
 _ZSteqIN4llvm23DbgVariableFragmentInfoES1_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7declvalIRKT_EEclsr3stdE7declvalIRKT0_EEEbEE5valueEbE4typeERKSt8optionalIS3_ERKSC_IS6_E.exit.i.i.i.i.i: ; preds = %26
-  %32 = getelementptr inbounds i8, ptr %.0, i64 24
+  %32 = getelementptr inbounds nuw i8, ptr %.0, i64 24
   %33 = load i8, ptr %32, align 8
   %34 = trunc i8 %33 to i1
   br i1 %34, label %_ZN4llvm12DenseMapInfoINS_13DebugVariableEvE7isEqualERKS1_S4_.exit.thread, label %_ZN4llvm12DenseMapInfoINS_13DebugVariableEvE7isEqualERKS1_S4_.exit
@@ -14812,7 +14812,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapINS_13DebugVariableENS_6detail13DenseSetEmpty
   br i1 %42, label %_ZSteqIN4llvm23DbgVariableFragmentInfoES1_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7declvalIRKT_EEclsr3stdE7declvalIRKT0_EEEbEE5valueEbE4typeERKSt8optionalIS3_ERKSC_IS6_E.exit.i.i.i.i.i.i, label %_ZN4llvm12DenseMapInfoINS_13DebugVariableEvE7isEqualERKS1_S4_.exit16.thread.i
 
 _ZSteqIN4llvm23DbgVariableFragmentInfoES1_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7declvalIRKT_EEclsr3stdE7declvalIRKT0_EEEbEE5valueEbE4typeERKSt8optionalIS3_ERKSC_IS6_E.exit.i.i.i.i.i.i: ; preds = %.lr.ph.i7
-  %43 = getelementptr inbounds i8, ptr %.027.i, i64 24
+  %43 = getelementptr inbounds nuw i8, ptr %.027.i, i64 24
   %44 = load i8, ptr %43, align 8
   %45 = trunc i8 %44 to i1
   br i1 %45, label %48, label %_ZN4llvm12DenseMapInfoINS_13DebugVariableEvE7isEqualERKS1_S4_.exit.i
@@ -14823,7 +14823,7 @@ _ZN4llvm12DenseMapInfoINS_13DebugVariableEvE7isEqualERKS1_S4_.exit.i: ; preds = 
   br i1 %47, label %61, label %_ZN4llvm12DenseMapInfoINS_13DebugVariableEvE7isEqualERKS1_S4_.exit16.thread.i
 
 48:                                               ; preds = %_ZSteqIN4llvm23DbgVariableFragmentInfoES1_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7declvalIRKT_EEclsr3stdE7declvalIRKT0_EEEbEE5valueEbE4typeERKSt8optionalIS3_ERKSC_IS6_E.exit.i.i.i.i.i.i
-  %49 = getelementptr inbounds i8, ptr %.027.i, i64 16
+  %49 = getelementptr inbounds nuw i8, ptr %.027.i, i64 16
   %50 = load i64, ptr %39, align 8
   %51 = icmp eq i64 %50, 0
   %52 = load i64, ptr %49, align 8
@@ -14941,7 +14941,7 @@ define linkonce_odr hidden noundef ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapINS_1
   br i1 %45, label %_ZSteqIN4llvm23DbgVariableFragmentInfoES1_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7declvalIRKT_EEclsr3stdE7declvalIRKT0_EEEbEE5valueEbE4typeERKSt8optionalIS3_ERKSC_IS6_E.exit.i.i.i.i.i.us, label %_ZN4llvm12DenseMapInfoINS_13DebugVariableEvE7isEqualERKS1_S4_.exit.thread.us
 
 _ZSteqIN4llvm23DbgVariableFragmentInfoES1_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7declvalIRKT_EEclsr3stdE7declvalIRKT0_EEEbEE5valueEbE4typeERKSt8optionalIS3_ERKSC_IS6_E.exit.i.i.i.i.i.us: ; preds = %.split.us
-  %46 = getelementptr inbounds i8, ptr %42, i64 24
+  %46 = getelementptr inbounds nuw i8, ptr %42, i64 24
   %47 = load i8, ptr %46, align 8
   %48 = xor i8 %47, %.sroa.3.0.copyload.i.i.fr
   %49 = trunc i8 %48 to i1
@@ -14957,7 +14957,7 @@ _ZN4llvm12DenseMapInfoINS_13DebugVariableEvE7isEqualERKS1_S4_.exit.thread.us: ; 
   br i1 %52, label %_ZSteqIN4llvm23DbgVariableFragmentInfoES1_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7declvalIRKT_EEclsr3stdE7declvalIRKT0_EEEbEE5valueEbE4typeERKSt8optionalIS3_ERKSC_IS6_E.exit.i.i.i.i.i19.us, label %_ZN4llvm12DenseMapInfoINS_13DebugVariableEvE7isEqualERKS1_S4_.exit20.thread.us
 
 _ZSteqIN4llvm23DbgVariableFragmentInfoES1_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7declvalIRKT_EEclsr3stdE7declvalIRKT0_EEEbEE5valueEbE4typeERKSt8optionalIS3_ERKSC_IS6_E.exit.i.i.i.i.i19.us: ; preds = %_ZN4llvm12DenseMapInfoINS_13DebugVariableEvE7isEqualERKS1_S4_.exit.thread.us
-  %53 = getelementptr inbounds i8, ptr %42, i64 24
+  %53 = getelementptr inbounds nuw i8, ptr %42, i64 24
   %54 = load i8, ptr %53, align 8
   %55 = trunc i8 %54 to i1
   br i1 %55, label %_ZN4llvm12DenseMapInfoINS_13DebugVariableEvE7isEqualERKS1_S4_.exit20.thread.us, label %_ZN4llvm12DenseMapInfoINS_13DebugVariableEvE7isEqualERKS1_S4_.exit20.us
@@ -14985,14 +14985,14 @@ _ZN4llvm12DenseMapInfoINS_13DebugVariableEvE7isEqualERKS1_S4_.exit20.thread.us: 
   br i1 %65, label %66, label %_ZN4llvm12DenseMapInfoINS_13DebugVariableEvE7isEqualERKS1_S4_.exit.thread
 
 66:                                               ; preds = %.split
-  %67 = getelementptr inbounds i8, ptr %61, i64 24
+  %67 = getelementptr inbounds nuw i8, ptr %61, i64 24
   %68 = load i8, ptr %67, align 8
   %69 = xor i8 %68, %.sroa.3.0.copyload.i.i.fr
   %70 = trunc i8 %69 to i1
   br i1 %70, label %_ZN4llvm12DenseMapInfoINS_13DebugVariableEvE7isEqualERKS1_S4_.exit.thread, label %71
 
 71:                                               ; preds = %66
-  %72 = getelementptr inbounds i8, ptr %61, i64 16
+  %72 = getelementptr inbounds nuw i8, ptr %61, i64 16
   %73 = load i64, ptr %62, align 8
   %74 = icmp eq i64 %.sroa.04.0.copyload.i.i, %73
   %75 = load i64, ptr %72, align 8
@@ -15010,7 +15010,7 @@ _ZN4llvm12DenseMapInfoINS_13DebugVariableEvE7isEqualERKS1_S4_.exit.thread: ; pre
   br i1 %80, label %_ZSteqIN4llvm23DbgVariableFragmentInfoES1_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7declvalIRKT_EEclsr3stdE7declvalIRKT0_EEEbEE5valueEbE4typeERKSt8optionalIS3_ERKSC_IS6_E.exit.i.i.i.i.i19, label %_ZN4llvm12DenseMapInfoINS_13DebugVariableEvE7isEqualERKS1_S4_.exit20.thread
 
 _ZSteqIN4llvm23DbgVariableFragmentInfoES1_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7declvalIRKT_EEclsr3stdE7declvalIRKT0_EEEbEE5valueEbE4typeERKSt8optionalIS3_ERKSC_IS6_E.exit.i.i.i.i.i19: ; preds = %_ZN4llvm12DenseMapInfoINS_13DebugVariableEvE7isEqualERKS1_S4_.exit.thread
-  %81 = getelementptr inbounds i8, ptr %61, i64 24
+  %81 = getelementptr inbounds nuw i8, ptr %61, i64 24
   %82 = load i8, ptr %81, align 8
   %83 = trunc i8 %82 to i1
   br i1 %83, label %_ZN4llvm12DenseMapInfoINS_13DebugVariableEvE7isEqualERKS1_S4_.exit20.thread, label %_ZN4llvm12DenseMapInfoINS_13DebugVariableEvE7isEqualERKS1_S4_.exit20
@@ -15272,7 +15272,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK4llvm12DenseMapBaseINS_8Dense
   br i1 %47, label %_ZSteqIN4llvm23DbgVariableFragmentInfoES1_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7declvalIRKT_EEclsr3stdE7declvalIRKT0_EEEbEE5valueEbE4typeERKSt8optionalIS3_ERKSC_IS6_E.exit.i.i.i.i.i.us, label %_ZN4llvm12DenseMapInfoINS_13DebugVariableEvE7isEqualERKS1_S4_.exit.thread.us
 
 _ZSteqIN4llvm23DbgVariableFragmentInfoES1_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7declvalIRKT_EEclsr3stdE7declvalIRKT0_EEEbEE5valueEbE4typeERKSt8optionalIS3_ERKSC_IS6_E.exit.i.i.i.i.i.us: ; preds = %.split.us
-  %48 = getelementptr inbounds i8, ptr %43, i64 24
+  %48 = getelementptr inbounds nuw i8, ptr %43, i64 24
   %49 = load i8, ptr %48, align 8
   %50 = xor i8 %49, %.sroa.3.0.copyload.i.i.fr
   %51 = trunc i8 %50 to i1
@@ -15288,7 +15288,7 @@ _ZN4llvm12DenseMapInfoINS_13DebugVariableEvE7isEqualERKS1_S4_.exit.thread.us: ; 
   br i1 %54, label %_ZSteqIN4llvm23DbgVariableFragmentInfoES1_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7declvalIRKT_EEclsr3stdE7declvalIRKT0_EEEbEE5valueEbE4typeERKSt8optionalIS3_ERKSC_IS6_E.exit.i.i.i.i.i31.us, label %_ZN4llvm12DenseMapInfoINS_13DebugVariableEvE7isEqualERKS1_S4_.exit36.us
 
 _ZSteqIN4llvm23DbgVariableFragmentInfoES1_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7declvalIRKT_EEclsr3stdE7declvalIRKT0_EEEbEE5valueEbE4typeERKSt8optionalIS3_ERKSC_IS6_E.exit.i.i.i.i.i31.us: ; preds = %_ZN4llvm12DenseMapInfoINS_13DebugVariableEvE7isEqualERKS1_S4_.exit.thread.us
-  %55 = getelementptr inbounds i8, ptr %43, i64 24
+  %55 = getelementptr inbounds nuw i8, ptr %43, i64 24
   %56 = load i8, ptr %55, align 8
   %57 = trunc i8 %56 to i1
   br i1 %57, label %60, label %_ZN4llvm12DenseMapInfoINS_13DebugVariableEvE7isEqualERKS1_S4_.exit32.us
@@ -15299,7 +15299,7 @@ _ZN4llvm12DenseMapInfoINS_13DebugVariableEvE7isEqualERKS1_S4_.exit32.us: ; preds
   br i1 %59, label %.split50.us, label %_ZN4llvm12DenseMapInfoINS_13DebugVariableEvE7isEqualERKS1_S4_.exit36.us
 
 60:                                               ; preds = %_ZSteqIN4llvm23DbgVariableFragmentInfoES1_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7declvalIRKT_EEclsr3stdE7declvalIRKT0_EEEbEE5valueEbE4typeERKSt8optionalIS3_ERKSC_IS6_E.exit.i.i.i.i.i31.us
-  %61 = getelementptr inbounds i8, ptr %43, i64 16
+  %61 = getelementptr inbounds nuw i8, ptr %43, i64 16
   %62 = load i64, ptr %44, align 8
   %63 = icmp eq i64 %62, 0
   %64 = load i64, ptr %61, align 8
@@ -15335,14 +15335,14 @@ _ZN4llvm12DenseMapInfoINS_13DebugVariableEvE7isEqualERKS1_S4_.exit36.us: ; preds
   br i1 %79, label %80, label %_ZN4llvm12DenseMapInfoINS_13DebugVariableEvE7isEqualERKS1_S4_.exit.thread
 
 80:                                               ; preds = %.split
-  %81 = getelementptr inbounds i8, ptr %75, i64 24
+  %81 = getelementptr inbounds nuw i8, ptr %75, i64 24
   %82 = load i8, ptr %81, align 8
   %83 = xor i8 %82, %.sroa.3.0.copyload.i.i.fr
   %84 = trunc i8 %83 to i1
   br i1 %84, label %_ZN4llvm12DenseMapInfoINS_13DebugVariableEvE7isEqualERKS1_S4_.exit.thread, label %85
 
 85:                                               ; preds = %80
-  %86 = getelementptr inbounds i8, ptr %75, i64 16
+  %86 = getelementptr inbounds nuw i8, ptr %75, i64 16
   %87 = load i64, ptr %76, align 8
   %88 = icmp eq i64 %.sroa.04.0.copyload.i.i, %87
   %89 = load i64, ptr %86, align 8
@@ -15360,7 +15360,7 @@ _ZN4llvm12DenseMapInfoINS_13DebugVariableEvE7isEqualERKS1_S4_.exit.thread: ; pre
   br i1 %94, label %_ZSteqIN4llvm23DbgVariableFragmentInfoES1_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7declvalIRKT_EEclsr3stdE7declvalIRKT0_EEEbEE5valueEbE4typeERKSt8optionalIS3_ERKSC_IS6_E.exit.i.i.i.i.i31, label %_ZN4llvm12DenseMapInfoINS_13DebugVariableEvE7isEqualERKS1_S4_.exit36
 
 _ZSteqIN4llvm23DbgVariableFragmentInfoES1_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7declvalIRKT_EEclsr3stdE7declvalIRKT0_EEEbEE5valueEbE4typeERKSt8optionalIS3_ERKSC_IS6_E.exit.i.i.i.i.i31: ; preds = %_ZN4llvm12DenseMapInfoINS_13DebugVariableEvE7isEqualERKS1_S4_.exit.thread
-  %95 = getelementptr inbounds i8, ptr %75, i64 24
+  %95 = getelementptr inbounds nuw i8, ptr %75, i64 24
   %96 = load i8, ptr %95, align 8
   %97 = trunc i8 %96 to i1
   br i1 %97, label %101, label %_ZN4llvm12DenseMapInfoINS_13DebugVariableEvE7isEqualERKS1_S4_.exit32
@@ -15378,7 +15378,7 @@ _ZN4llvm12DenseMapInfoINS_13DebugVariableEvE7isEqualERKS1_S4_.exit32: ; preds = 
   br label %.split48.us
 
 101:                                              ; preds = %_ZSteqIN4llvm23DbgVariableFragmentInfoES1_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7declvalIRKT_EEclsr3stdE7declvalIRKT0_EEEbEE5valueEbE4typeERKSt8optionalIS3_ERKSC_IS6_E.exit.i.i.i.i.i31
-  %102 = getelementptr inbounds i8, ptr %75, i64 16
+  %102 = getelementptr inbounds nuw i8, ptr %75, i64 16
   %103 = load i64, ptr %76, align 8
   %104 = icmp eq i64 %103, 0
   %105 = load i64, ptr %102, align 8
@@ -15459,7 +15459,7 @@ define linkonce_odr hidden noundef ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapINS_1
   br i1 %31, label %_ZSteqIN4llvm23DbgVariableFragmentInfoES1_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7declvalIRKT_EEclsr3stdE7declvalIRKT0_EEEbEE5valueEbE4typeERKSt8optionalIS3_ERKSC_IS6_E.exit.i.i.i.i.i, label %_ZN4llvm12DenseMapInfoINS_13DebugVariableEvE7isEqualERKS1_S4_.exit.thread
 
 _ZSteqIN4llvm23DbgVariableFragmentInfoES1_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7declvalIRKT_EEclsr3stdE7declvalIRKT0_EEEbEE5valueEbE4typeERKSt8optionalIS3_ERKSC_IS6_E.exit.i.i.i.i.i: ; preds = %26
-  %32 = getelementptr inbounds i8, ptr %.0, i64 24
+  %32 = getelementptr inbounds nuw i8, ptr %.0, i64 24
   %33 = load i8, ptr %32, align 8
   %34 = trunc i8 %33 to i1
   br i1 %34, label %_ZN4llvm12DenseMapInfoINS_13DebugVariableEvE7isEqualERKS1_S4_.exit.thread, label %_ZN4llvm12DenseMapInfoINS_13DebugVariableEvE7isEqualERKS1_S4_.exit
@@ -15582,7 +15582,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapINS_13DebugVariableESt4pairINS_11SmallVectorI
   br i1 %16, label %_ZSteqIN4llvm23DbgVariableFragmentInfoES1_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7declvalIRKT_EEclsr3stdE7declvalIRKT0_EEEbEE5valueEbE4typeERKSt8optionalIS3_ERKSC_IS6_E.exit.i.i.i.i.i, label %_ZN4llvm12DenseMapInfoINS_13DebugVariableEvE7isEqualERKS1_S4_.exit16.thread
 
 _ZSteqIN4llvm23DbgVariableFragmentInfoES1_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7declvalIRKT_EEclsr3stdE7declvalIRKT0_EEEbEE5valueEbE4typeERKSt8optionalIS3_ERKSC_IS6_E.exit.i.i.i.i.i: ; preds = %.lr.ph
-  %17 = getelementptr inbounds i8, ptr %.027, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %.027, i64 24
   %18 = load i8, ptr %17, align 8
   %19 = trunc i8 %18 to i1
   br i1 %19, label %22, label %_ZN4llvm12DenseMapInfoINS_13DebugVariableEvE7isEqualERKS1_S4_.exit
@@ -15593,7 +15593,7 @@ _ZN4llvm12DenseMapInfoINS_13DebugVariableEvE7isEqualERKS1_S4_.exit: ; preds = %_
   br i1 %21, label %_ZNSt4pairIN4llvm11SmallVectorIPNS0_5ValueELj4EEEPNS0_12DIExpressionEED2Ev.exit, label %_ZN4llvm12DenseMapInfoINS_13DebugVariableEvE7isEqualERKS1_S4_.exit16.thread
 
 22:                                               ; preds = %_ZSteqIN4llvm23DbgVariableFragmentInfoES1_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7declvalIRKT_EEclsr3stdE7declvalIRKT0_EEEbEE5valueEbE4typeERKSt8optionalIS3_ERKSC_IS6_E.exit.i.i.i.i.i
-  %23 = getelementptr inbounds i8, ptr %.027, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %.027, i64 16
   %24 = load i64, ptr %13, align 8
   %25 = icmp eq i64 %24, 0
   %26 = load i64, ptr %23, align 8
@@ -15624,8 +15624,8 @@ _ZN4llvm12DenseMapInfoINS_13DebugVariableEvE7isEqualERKS1_S4_.exit16.thread: ; p
   br label %_ZNSt4pairIN4llvm11SmallVectorIPNS0_5ValueELj4EEEPNS0_12DIExpressionEEC2EOS7_.exit
 
 _ZNSt4pairIN4llvm11SmallVectorIPNS0_5ValueELj4EEEPNS0_12DIExpressionEEC2EOS7_.exit: ; preds = %_ZN4llvm12DenseMapInfoINS_13DebugVariableEvE7isEqualERKS1_S4_.exit16.thread, %37
-  %39 = getelementptr inbounds i8, ptr %32, i64 88
-  %40 = getelementptr inbounds i8, ptr %.027, i64 88
+  %39 = getelementptr inbounds nuw i8, ptr %32, i64 88
+  %40 = getelementptr inbounds nuw i8, ptr %.027, i64 88
   %41 = load ptr, ptr %40, align 8
   store ptr %41, ptr %39, align 8
   %42 = load i32, ptr %5, align 8
@@ -16336,7 +16336,7 @@ _ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i.i.i: ; preds = %.lr.ph.i.i.
 
 _ZN4llvm11SmallPtrSetIPNS_10BasicBlockELj16EEC2IPKS2_EET_S7_.exit: ; preds = %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i.i.i, %6
   %39 = phi ptr [ %13, %6 ], [ %37, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i.i.i ]
-  %40 = getelementptr inbounds i8, ptr %0, i64 56
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %41 = load ptr, ptr %40, align 8
   %42 = getelementptr inbounds i8, ptr %41, i64 -24
   %43 = load i8, ptr %42, align 8
@@ -17471,15 +17471,15 @@ define linkonce_odr hidden void @_ZN4llvm2cl6OptionC2ENS0_18NumOccurrencesFlagEN
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(52) %15, i8 0, i64 52, i1 false)
   tail call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %16, ptr noundef nonnull %17, i64 noundef 1) #21
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %19 = getelementptr inbounds i8, ptr %0, i64 120
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 120
   store ptr %19, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %0, i64 96
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store ptr %19, ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %0, i64 104
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store i32 1, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %0, i64 108
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 108
   store i32 0, ptr %22, align 4
-  %23 = getelementptr inbounds i8, ptr %0, i64 112
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store i32 0, ptr %23, align 8
   %24 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZN4llvm2cl18getGeneralCategoryEv() #21
   %25 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %16) #21
@@ -17618,9 +17618,9 @@ _ZN4llvm23df_iterator_default_setIPNS_10BasicBlockELj8EE6insertES2_.exit: ; pred
   br i1 %23, label %24, label %_ZNSt6vectorISt4pairIPN4llvm10BasicBlockESt8optionalINS1_12SuccIteratorINS1_11InstructionES2_EEEESaIS9_EE9push_backEOS9_.exit
 
 24:                                               ; preds = %.critedge, %_ZN4llvm23df_iterator_default_setIPNS_10BasicBlockELj8EE6insertES2_.exit
-  %25 = getelementptr inbounds i8, ptr %0, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %26 = load ptr, ptr %25, align 8
-  %27 = getelementptr inbounds i8, ptr %0, i64 24
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %28 = load ptr, ptr %27, align 8
   %.not.i.i = icmp eq ptr %26, %28
   br i1 %.not.i.i, label %32, label %29
@@ -17703,7 +17703,7 @@ _ZNSt6vectorISt4pairIPN4llvm10BasicBlockESt8optionalINS1_12SuccIteratorINS1_11In
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvm11df_iteratorIPNS_8FunctionENS_23df_iterator_default_setIPNS_10BasicBlockELj8EEELb1ENS_11GraphTraitsIS2_EEE6toNextEv(ptr noundef nonnull align 8 dereferenceable(32) %0) local_unnamed_addr #0 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.pre = load ptr, ptr %3, align 8
   br label %4
 
@@ -17823,7 +17823,7 @@ _ZN4llvm23df_iterator_default_setIPNS_10BasicBlockELj8EE6insertES2_.exit: ; pred
 
 .loopexit:                                        ; preds = %_ZN4llvm23df_iterator_default_setIPNS_10BasicBlockELj8EE6insertES2_.exit, %.critedge
   %59 = load ptr, ptr %3, align 8
-  %60 = getelementptr inbounds i8, ptr %0, i64 24
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %61 = load ptr, ptr %60, align 8
   %.not.i.i = icmp eq ptr %59, %61
   br i1 %.not.i.i, label %65, label %62
@@ -18144,8 +18144,8 @@ define internal void @_GLOBAL__sub_I_BasicBlockUtils.cpp() #15 section ".text.st
   tail call void @_ZN4llvm2cl12basic_parserIjEC2ERNS0_6OptionE(ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds nuw (i8, ptr @_ZL40MaxDeoptOrUnreachableSuccessorCheckDepth, i64 152), ptr noundef nonnull align 8 dereferenceable(128) @_ZL40MaxDeoptOrUnreachableSuccessorCheckDepth) #21
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4llvm2cl6parserIjEE, i64 16), ptr getelementptr inbounds nuw (i8, ptr @_ZL40MaxDeoptOrUnreachableSuccessorCheckDepth, i64 152), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZL40MaxDeoptOrUnreachableSuccessorCheckDepth, i64 160), i8 0, i64 16, i1 false)
-  store ptr @_ZNSt17_Function_handlerIFvRKjEN4llvm2cl3optIjLb0ENS4_6parserIjEEEUlS1_E_EE9_M_invokeERKSt9_Any_dataS1_, ptr getelementptr inbounds (i8, ptr @_ZL40MaxDeoptOrUnreachableSuccessorCheckDepth, i64 184), align 8
-  store ptr @_ZNSt17_Function_handlerIFvRKjEN4llvm2cl3optIjLb0ENS4_6parserIjEEEUlS1_E_EE10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation, ptr getelementptr inbounds (i8, ptr @_ZL40MaxDeoptOrUnreachableSuccessorCheckDepth, i64 176), align 8
+  store ptr @_ZNSt17_Function_handlerIFvRKjEN4llvm2cl3optIjLb0ENS4_6parserIjEEEUlS1_E_EE9_M_invokeERKSt9_Any_dataS1_, ptr getelementptr inbounds nuw (i8, ptr @_ZL40MaxDeoptOrUnreachableSuccessorCheckDepth, i64 184), align 8
+  store ptr @_ZNSt17_Function_handlerIFvRKjEN4llvm2cl3optIjLb0ENS4_6parserIjEEEUlS1_E_EE10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation, ptr getelementptr inbounds nuw (i8, ptr @_ZL40MaxDeoptOrUnreachableSuccessorCheckDepth, i64 176), align 8
   tail call void @_ZN4llvm2cl6Option9setArgStrENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(128) @_ZL40MaxDeoptOrUnreachableSuccessorCheckDepth, ptr nonnull @.str, i64 41) #21
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1)
   store i32 8, ptr %1, align 4

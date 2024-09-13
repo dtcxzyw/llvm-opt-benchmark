@@ -299,7 +299,7 @@ define void @_ZNK32pxrInternal_v0_24__pxrReserved__12UsdCrateInfo15GetSummarySta
   %18 = sdiv exact i64 %17, 12
   store i64 %18, ptr %0, align 8
   %19 = getelementptr inbounds nuw i8, ptr %11, i64 96
-  %20 = getelementptr inbounds i8, ptr %11, i64 104
+  %20 = getelementptr inbounds nuw i8, ptr %11, i64 104
   %21 = load ptr, ptr %20, align 8
   %22 = load ptr, ptr %19, align 8
   %23 = ptrtoint ptr %21 to i64
@@ -309,7 +309,7 @@ define void @_ZNK32pxrInternal_v0_24__pxrReserved__12UsdCrateInfo15GetSummarySta
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %26, ptr %27, align 8
   %28 = getelementptr inbounds nuw i8, ptr %11, i64 120
-  %29 = getelementptr inbounds i8, ptr %11, i64 128
+  %29 = getelementptr inbounds nuw i8, ptr %11, i64 128
   %30 = load ptr, ptr %29, align 8
   %31 = load ptr, ptr %28, align 8
   %32 = ptrtoint ptr %30 to i64
@@ -319,7 +319,7 @@ define void @_ZNK32pxrInternal_v0_24__pxrReserved__12UsdCrateInfo15GetSummarySta
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %35, ptr %36, align 8
   %37 = getelementptr inbounds nuw i8, ptr %11, i64 144
-  %38 = getelementptr inbounds i8, ptr %11, i64 152
+  %38 = getelementptr inbounds nuw i8, ptr %11, i64 152
   %39 = load ptr, ptr %38, align 8
   %40 = load ptr, ptr %37, align 8
   %41 = ptrtoint ptr %39 to i64
@@ -329,7 +329,7 @@ define void @_ZNK32pxrInternal_v0_24__pxrReserved__12UsdCrateInfo15GetSummarySta
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 %44, ptr %45, align 8
   %46 = getelementptr inbounds nuw i8, ptr %11, i64 48
-  %47 = getelementptr inbounds i8, ptr %11, i64 56
+  %47 = getelementptr inbounds nuw i8, ptr %11, i64 56
   %48 = load ptr, ptr %47, align 8
   %49 = load ptr, ptr %46, align 8
   %50 = ptrtoint ptr %48 to i64
@@ -340,7 +340,7 @@ define void @_ZNK32pxrInternal_v0_24__pxrReserved__12UsdCrateInfo15GetSummarySta
   store i64 %53, ptr %54, align 8
   %55 = getelementptr inbounds nuw i8, ptr %11, i64 72
   %56 = load ptr, ptr %55, align 8
-  %57 = getelementptr inbounds i8, ptr %11, i64 80
+  %57 = getelementptr inbounds nuw i8, ptr %11, i64 80
   %58 = load ptr, ptr %57, align 8
   %.not5.i.i.i = icmp eq ptr %56, %58
   br i1 %.not5.i.i.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__13Usd_CrateFile9CrateFile21GetNumUniqueFieldSetsEv.exit, label %.lr.ph.i.i.i

@@ -790,7 +790,7 @@ define void @_ZN10OpenSubdiv6v3_6_03Bfr25RefinerSurfaceFactoryBaseC2ERKNS0_3Far1
   %14 = load ptr, ptr %13, align 8
   %15 = load ptr, ptr %14, align 8
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 456
-  %17 = getelementptr inbounds i8, ptr %15, i64 464
+  %17 = getelementptr inbounds nuw i8, ptr %15, i64 464
   %18 = load ptr, ptr %17, align 8
   %19 = load ptr, ptr %16, align 8
   %20 = ptrtoint ptr %18 to i64

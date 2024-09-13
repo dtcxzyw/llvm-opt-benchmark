@@ -116,7 +116,7 @@ _ZN4llvm15SmallVectorImplIPNS_8ConstantEE5eraseEPKS2_S5_.exit: ; preds = %2, %14
 23:                                               ; preds = %_ZN4llvm15SmallVectorImplIPNS_8ConstantEE5eraseEPKS2_S5_.exit
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %0, i64 160
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %27 = load ptr, ptr %26, align 8
   %.not11 = icmp eq ptr %25, %27
   br i1 %.not11, label %_ZNSt6vectorIN5clang7CodeGen23ConstantInitBuilderBase13SelfReferenceESaIS3_EE5clearEv.exit, label %.lr.ph
@@ -185,7 +185,7 @@ define dso_local void @_ZN5clang7CodeGen18ConstantInitFuture15installInGlobalEPN
   tail call void @_ZN4llvm14GlobalVariable14setInitializerEPNS_8ConstantE(ptr noundef nonnull align 8 dereferenceable(81) %1, ptr noundef %10) #11
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 152
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %5, i64 160
+  %13 = getelementptr inbounds nuw i8, ptr %5, i64 160
   %14 = load ptr, ptr %13, align 8
   %15 = icmp eq ptr %12, %14
   br i1 %15, label %_ZN5clang7CodeGen23ConstantInitBuilderBase20setGlobalInitializerEPN4llvm14GlobalVariableEPNS2_8ConstantE.exit, label %16
@@ -196,7 +196,7 @@ define dso_local void @_ZN5clang7CodeGen18ConstantInitFuture15installInGlobalEPN
 
 _ZN5clang7CodeGen23ConstantInitBuilderBase20setGlobalInitializerEPN4llvm14GlobalVariableEPNS2_8ConstantE.exit: ; preds = %7, %16
   %17 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %8) #11
-  %18 = getelementptr inbounds i8, ptr %5, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i32 0, ptr %18, align 8
   store i64 0, ptr %0, align 8
   br label %19
@@ -212,7 +212,7 @@ define dso_local void @_ZN5clang7CodeGen23ConstantInitBuilderBase20setGlobalInit
   tail call void @_ZN4llvm14GlobalVariable14setInitializerEPNS_8ConstantE(ptr noundef nonnull align 8 dereferenceable(81) %1, ptr noundef %2) #11
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 160
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %5, %7
   br i1 %8, label %10, label %9
@@ -280,7 +280,7 @@ define dso_local void @_ZN5clang7CodeGen23ConstantInitBuilderBase21resolveSelfRe
   %3 = alloca %"class.std::optional.423", align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 160
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %7 = load ptr, ptr %6, align 8
   %.not14 = icmp eq ptr %5, %7
   br i1 %.not14, label %_ZNSt6vectorIN5clang7CodeGen23ConstantInitBuilderBase13SelfReferenceESaIS3_EE5clearEv.exit, label %.lr.ph
@@ -288,7 +288,7 @@ define dso_local void @_ZN5clang7CodeGen23ConstantInitBuilderBase21resolveSelfRe
 .lr.ph:                                           ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  %10 = getelementptr inbounds i8, ptr %3, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 8
   br label %13
@@ -499,9 +499,9 @@ define dso_local noundef ptr @_ZN5clang7CodeGen28ConstantAggregateBuilderBase17g
   call void @_ZN4llvm14GlobalVariableC1ERNS_6ModuleEPNS_4TypeEbNS_11GlobalValue12LinkageTypesEPNS_8ConstantERKNS_5TwineEPS0_NS5_15ThreadLocalModeESt8optionalIjEb(ptr noundef nonnull align 8 dereferenceable(81) %6, ptr noundef nonnull align 8 dereferenceable(857) %10, ptr noundef %1, i1 noundef zeroext true, i32 noundef 8, ptr noundef null, ptr noundef nonnull align 8 dereferenceable(34) %5, ptr noundef null, i32 noundef 0, i64 0, i1 noundef zeroext false) #11
   store ptr %6, ptr %4, align 8
   %12 = load ptr, ptr %0, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 160
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 160
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %12, i64 168
+  %15 = getelementptr inbounds nuw i8, ptr %12, i64 168
   %16 = load ptr, ptr %15, align 8
   %.not.i = icmp eq ptr %14, %16
   br i1 %.not.i, label %22, label %17
@@ -523,7 +523,7 @@ define dso_local noundef ptr @_ZN5clang7CodeGen28ConstantAggregateBuilderBase17g
 
 _ZNSt6vectorIN5clang7CodeGen23ConstantInitBuilderBase13SelfReferenceESaIS3_EE12emplace_backIJRPN4llvm14GlobalVariableEEEERS3_DpOT_.exit: ; preds = %17, %22
   %24 = load ptr, ptr %0, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 160
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 160
   %26 = load ptr, ptr %25, align 8
   %27 = getelementptr inbounds i8, ptr %26, i64 -48
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -627,9 +627,9 @@ define dso_local noundef ptr @_ZN5clang7CodeGen28ConstantAggregateBuilderBase24g
   call void @_ZN4llvm14GlobalVariableC1ERNS_6ModuleEPNS_4TypeEbNS_11GlobalValue12LinkageTypesEPNS_8ConstantERKNS_5TwineEPS0_NS5_15ThreadLocalModeESt8optionalIjEb(ptr noundef nonnull align 8 dereferenceable(81) %5, ptr noundef nonnull align 8 dereferenceable(857) %9, ptr noundef %1, i1 noundef zeroext true, i32 noundef 8, ptr noundef null, ptr noundef nonnull align 8 dereferenceable(34) %4, ptr noundef null, i32 noundef 0, i64 0, i1 noundef zeroext false) #11
   store ptr %5, ptr %3, align 8
   %11 = load ptr, ptr %0, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 160
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 160
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %11, i64 168
+  %14 = getelementptr inbounds nuw i8, ptr %11, i64 168
   %15 = load ptr, ptr %14, align 8
   %.not.i = icmp eq ptr %13, %15
   br i1 %.not.i, label %21, label %16
@@ -651,7 +651,7 @@ define dso_local noundef ptr @_ZN5clang7CodeGen28ConstantAggregateBuilderBase24g
 
 _ZNSt6vectorIN5clang7CodeGen23ConstantInitBuilderBase13SelfReferenceESaIS3_EE12emplace_backIJRPN4llvm14GlobalVariableEEEERS3_DpOT_.exit: ; preds = %16, %21
   %23 = load ptr, ptr %0, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 160
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 160
   %25 = load ptr, ptr %24, align 8
   %26 = getelementptr inbounds i8, ptr %25, i64 -48
   %27 = getelementptr inbounds nuw i8, ptr %23, i64 8
@@ -1132,8 +1132,8 @@ define linkonce_odr hidden noundef ptr @_ZN4llvm12ConstantExpr16getGetElementPtr
 _ZN4llvm5APIntC2ERKS0_.exit.i.i.i.i.i.i.i.i:      ; preds = %20, %18
   %21 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %22 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %23 = getelementptr inbounds i8, ptr %8, i64 24
-  %24 = getelementptr inbounds i8, ptr %5, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %8, i64 24
+  %24 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %25 = load i32, ptr %24, align 8
   store i32 %25, ptr %23, align 8
   %26 = icmp ult i32 %25, 65
@@ -1160,7 +1160,7 @@ _ZNSt8optionalIN4llvm13ConstantRangeEEC2ERKS2_.exit: ; preds = %7, %_ZNSt22_Opti
 
 33:                                               ; preds = %_ZNSt8optionalIN4llvm13ConstantRangeEEC2ERKS2_.exit
   store i8 0, ptr %10, align 8
-  %34 = getelementptr inbounds i8, ptr %8, i64 24
+  %34 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %35 = load i32, ptr %34, align 8
   %36 = icmp ugt i32 %35, 64
   br i1 %36, label %37, label %_ZN4llvm5APIntD2Ev.exit.i.i.i.i.i.i

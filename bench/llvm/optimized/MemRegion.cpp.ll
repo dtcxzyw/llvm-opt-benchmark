@@ -505,21 +505,21 @@ declare void @llvm.trap() #2
 define dso_local void @_ZN5clang4ento16MemRegionManagerD2Ev(ptr noundef nonnull align 8 dereferenceable(152) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 120
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %5 = load i32, ptr %4, align 8
   %6 = zext i32 %5 to i64
   %7 = shl nuw nsw i64 %6, 4
   tail call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef %3, i64 noundef %7, i64 noundef 8) #20
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 96
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %11 = load i32, ptr %10, align 8
   %12 = zext i32 %11 to i64
   %13 = shl nuw nsw i64 %12, 4
   tail call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef %9, i64 noundef %13, i64 noundef 8) #20
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 72
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %17 = load i32, ptr %16, align 8
   %18 = zext i32 %17 to i64
   %19 = shl nuw nsw i64 %18, 4
@@ -701,7 +701,7 @@ define dso_local void @_ZN5clang4ento14ObjCIvarRegionC2EPKNS_12ObjCIvarDeclEPKNS
   store ptr null, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 21, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 40
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i8 0, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr %2, ptr %7, align 8
@@ -5115,7 +5115,7 @@ define dso_local noundef ptr @_ZN5clang4ento16MemRegionManager20getStackLocalsRe
   store ptr %1, ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 72
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %7 = load i32, ptr %6, align 8
   %8 = icmp eq i32 %7, 0
   br i1 %8, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang17StackFrameContextEPNS2_4ento22StackLocalsSpaceRegionENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S8_EEEES5_S8_SA_SD_E15LookupBucketForIS5_EEbRKT_RPSD_.exit.i.i, label %9
@@ -5222,7 +5222,7 @@ _ZnwIN4llvm15MallocAllocatorELm4096ELm4096ELm128EEPvmRNS0_20BumpPtrAllocatorImpl
   store ptr null, ptr %63, align 8
   %64 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 16
   store i32 7, ptr %64, align 8
-  %65 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 40
+  %65 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 40
   store i8 0, ptr %65, align 8
   %66 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 48
   store ptr %0, ptr %66, align 8
@@ -5243,7 +5243,7 @@ define dso_local noundef ptr @_ZN5clang4ento16MemRegionManager23getStackArgument
   store ptr %1, ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 96
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %7 = load i32, ptr %6, align 8
   %8 = icmp eq i32 %7, 0
   br i1 %8, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang17StackFrameContextEPNS2_4ento25StackArgumentsSpaceRegionENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S8_EEEES5_S8_SA_SD_E15LookupBucketForIS5_EEbRKT_RPSD_.exit.i.i, label %9
@@ -5350,7 +5350,7 @@ _ZnwIN4llvm15MallocAllocatorELm4096ELm4096ELm128EEPvmRNS0_20BumpPtrAllocatorImpl
   store ptr null, ptr %63, align 8
   %64 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 16
   store i32 6, ptr %64, align 8
-  %65 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 40
+  %65 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 40
   store i8 0, ptr %65, align 8
   %66 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 48
   store ptr %0, ptr %66, align 8
@@ -5427,7 +5427,7 @@ _ZnwIN4llvm15MallocAllocatorELm4096ELm4096ELm128EEPvmRNS0_20BumpPtrAllocatorImpl
   store ptr null, ptr %32, align 8
   %33 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 16
   store i32 3, ptr %33, align 8
-  %34 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 40
+  %34 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 40
   store i8 0, ptr %34, align 8
   %35 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 48
   store ptr %0, ptr %35, align 8
@@ -5484,7 +5484,7 @@ _ZnwIN4llvm15MallocAllocatorELm4096ELm4096ELm128EEPvmRNS0_20BumpPtrAllocatorImpl
   store ptr null, ptr %62, align 8
   %63 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i16, i64 16
   store i32 1, ptr %63, align 8
-  %64 = getelementptr inbounds i8, ptr %.0.i.i.i.i16, i64 40
+  %64 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i16, i64 40
   store i8 0, ptr %64, align 8
   %65 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i16, i64 48
   store ptr %0, ptr %65, align 8
@@ -5541,7 +5541,7 @@ _ZnwIN4llvm15MallocAllocatorELm4096ELm4096ELm128EEPvmRNS0_20BumpPtrAllocatorImpl
   store ptr null, ptr %92, align 8
   %93 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i24, i64 16
   store i32 2, ptr %93, align 8
-  %94 = getelementptr inbounds i8, ptr %.0.i.i.i.i24, i64 40
+  %94 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i24, i64 40
   store i8 0, ptr %94, align 8
   %95 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i24, i64 48
   store ptr %0, ptr %95, align 8
@@ -5552,7 +5552,7 @@ _ZnwIN4llvm15MallocAllocatorELm4096ELm4096ELm128EEPvmRNS0_20BumpPtrAllocatorImpl
 96:                                               ; preds = %3
   %97 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %98 = load ptr, ptr %97, align 8
-  %99 = getelementptr inbounds i8, ptr %0, i64 120
+  %99 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %100 = load i32, ptr %99, align 8
   %101 = icmp eq i32 %100, 0
   br i1 %101, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4ento14CodeTextRegionEPNS3_23StaticGlobalSpaceRegionENS_12DenseMapInfoIS6_vEENS_6detail12DenseMapPairIS6_S8_EEEES6_S8_SA_SD_E15LookupBucketForIS6_EEbRKT_RPSD_.exit.i.i, label %102
@@ -5659,7 +5659,7 @@ _ZnwIN4llvm15MallocAllocatorELm4096ELm4096ELm128EEPvmRNS0_20BumpPtrAllocatorImpl
   store ptr null, ptr %156, align 8
   %157 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 16
   store i32 4, ptr %157, align 8
-  %158 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 40
+  %158 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 40
   store i8 0, ptr %158, align 8
   %159 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 48
   store ptr %0, ptr %159, align 8
@@ -5724,7 +5724,7 @@ _ZnwIN4llvm15MallocAllocatorELm4096ELm4096ELm128EEPvmRNS0_20BumpPtrAllocatorImpl
   store ptr null, ptr %27, align 8
   %28 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 16
   store i32 5, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 40
+  %29 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 40
   store i8 0, ptr %29, align 8
   %30 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 48
   store ptr %0, ptr %30, align 8
@@ -5787,7 +5787,7 @@ _ZnwIN4llvm15MallocAllocatorELm4096ELm4096ELm128EEPvmRNS0_20BumpPtrAllocatorImpl
   store ptr null, ptr %27, align 8
   %28 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 16
   store i32 8, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 40
+  %29 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 40
   store i8 0, ptr %29, align 8
   %30 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 48
   store ptr %0, ptr %30, align 8
@@ -5850,7 +5850,7 @@ _ZnwIN4llvm15MallocAllocatorELm4096ELm4096ELm128EEPvmRNS0_20BumpPtrAllocatorImpl
   store ptr null, ptr %27, align 8
   %28 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 16
   store i32 0, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 40
+  %29 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 40
   store i8 0, ptr %29, align 8
   %30 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 48
   store ptr %0, ptr %30, align 8
@@ -5913,7 +5913,7 @@ _ZnwIN4llvm15MallocAllocatorELm4096ELm4096ELm128EEPvmRNS0_20BumpPtrAllocatorImpl
   store ptr null, ptr %28, align 8
   %29 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i24.i, i64 16
   store i32 2, ptr %29, align 8
-  %30 = getelementptr inbounds i8, ptr %.0.i.i.i.i24.i, i64 40
+  %30 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i24.i, i64 40
   store i8 0, ptr %30, align 8
   %31 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i24.i, i64 48
   store ptr %0, ptr %31, align 8
@@ -5983,7 +5983,7 @@ _ZnwIN4llvm15MallocAllocatorELm4096ELm4096ELm128EEPvmRNS0_20BumpPtrAllocatorImpl
   store ptr null, ptr %34, align 8
   %35 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 16
   store i32 26, ptr %35, align 8
-  %36 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 40
+  %36 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 40
   store i8 0, ptr %36, align 8
   %37 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 48
   store ptr %2, ptr %37, align 8
@@ -6059,7 +6059,7 @@ _ZnwIN4llvm15MallocAllocatorELm4096ELm4096ELm128EEPvmRNS0_20BumpPtrAllocatorImpl
   store ptr null, ptr %28, align 8
   %29 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i24.i, i64 16
   store i32 2, ptr %29, align 8
-  %30 = getelementptr inbounds i8, ptr %.0.i.i.i.i24.i, i64 40
+  %30 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i24.i, i64 40
   store i8 0, ptr %30, align 8
   %31 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i24.i, i64 48
   store ptr %0, ptr %31, align 8
@@ -6129,7 +6129,7 @@ _ZnwIN4llvm15MallocAllocatorELm4096ELm4096ELm128EEPvmRNS0_20BumpPtrAllocatorImpl
   store ptr null, ptr %34, align 8
   %35 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 16
   store i32 25, ptr %35, align 8
-  %36 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 40
+  %36 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 40
   store i8 0, ptr %36, align 8
   %37 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 48
   store ptr %2, ptr %37, align 8
@@ -6396,7 +6396,7 @@ _ZnwIN4llvm15MallocAllocatorELm4096ELm4096ELm128EEPvmRNS0_20BumpPtrAllocatorImpl
   store ptr null, ptr %138, align 8
   %139 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i16.i, i64 16
   store i32 1, ptr %139, align 8
-  %140 = getelementptr inbounds i8, ptr %.0.i.i.i.i16.i, i64 40
+  %140 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i16.i, i64 40
   store i8 0, ptr %140, align 8
   %141 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i16.i, i64 48
   store ptr %0, ptr %141, align 8
@@ -6469,7 +6469,7 @@ _ZnwIN4llvm15MallocAllocatorELm4096ELm4096ELm128EEPvmRNS0_20BumpPtrAllocatorImpl
   store ptr null, ptr %175, align 8
   %176 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i78, i64 16
   store i32 3, ptr %176, align 8
-  %177 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i78, i64 40
+  %177 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i78, i64 40
   store i8 0, ptr %177, align 8
   %178 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i78, i64 48
   store ptr %0, ptr %178, align 8
@@ -6526,7 +6526,7 @@ _ZnwIN4llvm15MallocAllocatorELm4096ELm4096ELm128EEPvmRNS0_20BumpPtrAllocatorImpl
   store ptr null, ptr %204, align 8
   %205 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i24.i, i64 16
   store i32 2, ptr %205, align 8
-  %206 = getelementptr inbounds i8, ptr %.0.i.i.i.i24.i, i64 40
+  %206 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i24.i, i64 40
   store i8 0, ptr %206, align 8
   %207 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i24.i, i64 48
   store ptr %0, ptr %207, align 8
@@ -6715,7 +6715,7 @@ _ZnwIN4llvm15MallocAllocatorELm4096ELm4096ELm128EEPvmRNS0_20BumpPtrAllocatorImpl
   store ptr null, ptr %294, align 8
   %295 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i92, i64 16
   store i32 8, ptr %295, align 8
-  %296 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i92, i64 40
+  %296 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i92, i64 40
   store i8 0, ptr %296, align 8
   %297 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i92, i64 48
   store ptr %0, ptr %297, align 8
@@ -6810,7 +6810,7 @@ _ZnwIN4llvm15MallocAllocatorELm4096ELm4096ELm128EEPvmRNS0_20BumpPtrAllocatorImpl
   store ptr null, ptr %342, align 8
   %343 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i, i64 16
   store i32 0, ptr %343, align 8
-  %344 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i, i64 40
+  %344 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i, i64 40
   store i8 0, ptr %344, align 8
   %345 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i, i64 48
   store ptr %0, ptr %345, align 8
@@ -6879,7 +6879,7 @@ _ZNK5clang4Type5getAsINS_12FunctionTypeEEEPKT_v.exit.thread: ; preds = %362, %_Z
   store i32 0, ptr %373, align 8
   %374 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store i32 0, ptr %374, align 8
-  %375 = getelementptr inbounds i8, ptr %4, i64 32
+  %375 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %376 = getelementptr inbounds nuw i8, ptr %4, i64 88
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %376, i8 0, i64 32, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(52) %375, i8 0, i64 52, i1 false)
@@ -6946,7 +6946,7 @@ _ZnwIN4llvm15MallocAllocatorELm4096ELm4096ELm128EEPvmRNS0_20BumpPtrAllocatorImpl
   store ptr null, ptr %413, align 8
   %414 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i107, i64 16
   store i32 0, ptr %414, align 8
-  %415 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i107, i64 40
+  %415 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i107, i64 40
   store i8 0, ptr %415, align 8
   %416 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i107, i64 48
   store ptr %0, ptr %416, align 8
@@ -7040,7 +7040,7 @@ _ZnwIN4llvm15MallocAllocatorELm4096ELm4096ELm128EEPvmRNS0_20BumpPtrAllocatorImpl
   store ptr null, ptr %35, align 8
   %36 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 16
   store i32 23, ptr %36, align 8
-  %37 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 40
+  %37 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 40
   store i8 0, ptr %37, align 8
   %38 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 48
   store ptr %3, ptr %38, align 8
@@ -7279,7 +7279,7 @@ _ZnwIN4llvm15MallocAllocatorELm4096ELm4096ELm128EEPvmRNS0_20BumpPtrAllocatorImpl
   store ptr null, ptr %28, align 8
   %29 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i, i64 16
   store i32 0, ptr %29, align 8
-  %30 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i, i64 40
+  %30 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i, i64 40
   store i8 0, ptr %30, align 8
   %31 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i, i64 48
   store ptr %0, ptr %31, align 8
@@ -7345,7 +7345,7 @@ _ZnwIN4llvm15MallocAllocatorELm4096ELm4096ELm128EEPvmRNS0_20BumpPtrAllocatorImpl
   store ptr null, ptr %30, align 8
   %31 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i, i64 16
   store i32 0, ptr %31, align 8
-  %32 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i, i64 40
+  %32 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i, i64 40
   store i8 0, ptr %32, align 8
   %33 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i, i64 48
   store ptr %0, ptr %33, align 8
@@ -7429,7 +7429,7 @@ _ZnwIN4llvm15MallocAllocatorELm4096ELm4096ELm128EEPvmRNS0_20BumpPtrAllocatorImpl
   store ptr null, ptr %34, align 8
   %35 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 16
   store i32 22, ptr %35, align 8
-  %36 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 40
+  %36 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 40
   store i8 0, ptr %36, align 8
   %37 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 48
   store ptr %2, ptr %37, align 8
@@ -7526,7 +7526,7 @@ _ZnwIN4llvm15MallocAllocatorELm4096ELm4096ELm128EEPvmRNS0_20BumpPtrAllocatorImpl
   store ptr null, ptr %40, align 8
   %41 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i16.i, i64 16
   store i32 1, ptr %41, align 8
-  %42 = getelementptr inbounds i8, ptr %.0.i.i.i.i16.i, i64 40
+  %42 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i16.i, i64 40
   store i8 0, ptr %42, align 8
   %43 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i16.i, i64 48
   store ptr %0, ptr %43, align 8
@@ -7600,7 +7600,7 @@ _ZnwIN4llvm15MallocAllocatorELm4096ELm4096ELm128EEPvmRNS0_20BumpPtrAllocatorImpl
   store ptr null, ptr %81, align 8
   %82 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i, i64 16
   store i32 8, ptr %82, align 8
-  %83 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i, i64 40
+  %83 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i, i64 40
   store i8 0, ptr %83, align 8
   %84 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i, i64 48
   store ptr %0, ptr %84, align 8
@@ -7670,7 +7670,7 @@ _ZnwIN4llvm15MallocAllocatorELm4096ELm4096ELm128EEPvmRNS0_20BumpPtrAllocatorImpl
   store ptr null, ptr %36, align 8
   %37 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 16
   store i32 11, ptr %37, align 8
-  %38 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 40
+  %38 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 40
   store i8 0, ptr %38, align 8
   %39 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 48
   store ptr %4, ptr %39, align 8
@@ -7759,7 +7759,7 @@ _ZnwIN4llvm15MallocAllocatorELm4096ELm4096ELm128EEPvmRNS0_20BumpPtrAllocatorImpl
   store ptr null, ptr %32, align 8
   %33 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i24.i, i64 16
   store i32 2, ptr %33, align 8
-  %34 = getelementptr inbounds i8, ptr %.0.i.i.i.i24.i, i64 40
+  %34 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i24.i, i64 40
   store i8 0, ptr %34, align 8
   %35 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i24.i, i64 48
   store ptr %0, ptr %35, align 8
@@ -7834,7 +7834,7 @@ _ZnwIN4llvm15MallocAllocatorELm4096ELm4096ELm128EEPvmRNS0_20BumpPtrAllocatorImpl
   store ptr null, ptr %34, align 8
   %35 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 16
   store i32 14, ptr %35, align 8
-  %36 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 40
+  %36 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 40
   store i8 0, ptr %36, align 8
   %37 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 48
   store ptr %2, ptr %37, align 8
@@ -7925,7 +7925,7 @@ _ZnwIN4llvm15MallocAllocatorELm4096ELm4096ELm128EEPvmRNS0_20BumpPtrAllocatorImpl
   store ptr null, ptr %46, align 8
   %47 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 16
   store i32 24, ptr %47, align 8
-  %48 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 40
+  %48 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 40
   store i8 0, ptr %48, align 8
   %49 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 48
   store ptr %4, ptr %49, align 8
@@ -8011,7 +8011,7 @@ _ZnwIN4llvm15MallocAllocatorELm4096ELm4096ELm128EEPvmRNS0_20BumpPtrAllocatorImpl
   store ptr null, ptr %34, align 8
   %35 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 16
   store i32 13, ptr %35, align 8
-  %36 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 40
+  %36 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 40
   store i8 0, ptr %36, align 8
   %37 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 48
   store ptr %2, ptr %37, align 8
@@ -8112,7 +8112,7 @@ _ZnwIN4llvm15MallocAllocatorELm4096ELm4096ELm128EEPvmRNS0_20BumpPtrAllocatorImpl
   store ptr null, ptr %46, align 8
   %47 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 16
   store i32 12, ptr %47, align 8
-  %48 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 40
+  %48 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 40
   store i8 0, ptr %48, align 8
   %49 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 48
   store ptr %4, ptr %49, align 8
@@ -8196,7 +8196,7 @@ _ZnwIN4llvm15MallocAllocatorELm4096ELm4096ELm128EEPvmRNS0_20BumpPtrAllocatorImpl
   store ptr null, ptr %31, align 8
   %32 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i, i64 16
   store i32 8, ptr %32, align 8
-  %33 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i, i64 40
+  %33 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i, i64 40
   store i8 0, ptr %33, align 8
   %34 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i, i64 48
   store ptr %0, ptr %34, align 8
@@ -8266,7 +8266,7 @@ _ZnwIN4llvm15MallocAllocatorELm4096ELm4096ELm128EEPvmRNS0_20BumpPtrAllocatorImpl
   store ptr null, ptr %34, align 8
   %35 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 16
   store i32 10, ptr %35, align 8
-  %36 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 40
+  %36 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 40
   store i8 0, ptr %36, align 8
   %37 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 48
   store ptr %2, ptr %37, align 8
@@ -8342,7 +8342,7 @@ _ZnwIN4llvm15MallocAllocatorELm4096ELm4096ELm128EEPvmRNS0_20BumpPtrAllocatorImpl
   store ptr null, ptr %28, align 8
   %29 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i, i64 16
   store i32 5, ptr %29, align 8
-  %30 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i, i64 40
+  %30 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i, i64 40
   store i8 0, ptr %30, align 8
   %31 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i, i64 48
   store ptr %0, ptr %31, align 8
@@ -8412,7 +8412,7 @@ _ZnwIN4llvm15MallocAllocatorELm4096ELm4096ELm128EEPvmRNS0_20BumpPtrAllocatorImpl
   store ptr null, ptr %34, align 8
   %35 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 16
   store i32 10, ptr %35, align 8
-  %36 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 40
+  %36 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 40
   store i8 0, ptr %36, align 8
   %37 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 48
   store ptr %2, ptr %37, align 8
@@ -8500,7 +8500,7 @@ _ZnwIN4llvm15MallocAllocatorELm4096ELm4096ELm128EEPvmRNS0_20BumpPtrAllocatorImpl
   store ptr null, ptr %34, align 8
   %35 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 16
   store i32 20, ptr %35, align 8
-  %36 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 40
+  %36 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 40
   store i8 0, ptr %36, align 8
   %37 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 48
   store ptr %2, ptr %37, align 8
@@ -8674,7 +8674,7 @@ _ZnwIN4llvm15MallocAllocatorELm4096ELm4096ELm128EEPvmRNS0_20BumpPtrAllocatorImpl
   store ptr null, ptr %36, align 8
   %37 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 16
   store i32 17, ptr %37, align 8
-  %38 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 40
+  %38 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 40
   store i8 0, ptr %38, align 8
   %39 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 48
   store ptr %2, ptr %39, align 8
@@ -8769,7 +8769,7 @@ _ZnwIN4llvm15MallocAllocatorELm4096ELm4096ELm128EEPvmRNS0_20BumpPtrAllocatorImpl
   store ptr null, ptr %38, align 8
   %39 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 16
   store i32 18, ptr %39, align 8
-  %40 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 40
+  %40 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 40
   store i8 0, ptr %40, align 8
   %41 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 48
   store ptr %3, ptr %41, align 8
@@ -8847,7 +8847,7 @@ _ZnwIN4llvm15MallocAllocatorELm4096ELm4096ELm128EEPvmRNS0_20BumpPtrAllocatorImpl
   store ptr null, ptr %29, align 8
   %30 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i24.i, i64 16
   store i32 2, ptr %30, align 8
-  %31 = getelementptr inbounds i8, ptr %.0.i.i.i.i24.i, i64 40
+  %31 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i24.i, i64 40
   store i8 0, ptr %31, align 8
   %32 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i24.i, i64 48
   store ptr %0, ptr %32, align 8
@@ -8922,7 +8922,7 @@ _ZnwIN4llvm15MallocAllocatorELm4096ELm4096ELm128EEPvmRNS0_20BumpPtrAllocatorImpl
   store ptr null, ptr %38, align 8
   %39 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 16
   store i32 18, ptr %39, align 8
-  %40 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 40
+  %40 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 40
   store i8 0, ptr %40, align 8
   %41 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 48
   store ptr %3, ptr %41, align 8
@@ -9031,7 +9031,7 @@ _ZnwIN4llvm15MallocAllocatorELm4096ELm4096ELm128EEPvmRNS0_20BumpPtrAllocatorImpl
   store ptr null, ptr %35, align 8
   %36 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 16
   store i32 15, ptr %36, align 8
-  %37 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 40
+  %37 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 40
   store i8 0, ptr %37, align 8
   %38 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 48
   store ptr %3, ptr %38, align 8
@@ -9126,7 +9126,7 @@ _ZnwIN4llvm15MallocAllocatorELm4096ELm4096ELm128EEPvmRNS0_20BumpPtrAllocatorImpl
   store ptr null, ptr %36, align 8
   %37 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 16
   store i32 16, ptr %37, align 8
-  %38 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 40
+  %38 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 40
   store i8 0, ptr %38, align 8
   %39 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 48
   store ptr %2, ptr %39, align 8
@@ -9323,7 +9323,7 @@ _ZnwIN4llvm15MallocAllocatorELm4096ELm4096ELm128EEPvmRNS0_20BumpPtrAllocatorImpl
   store ptr null, ptr %34, align 8
   %35 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 16
   store i32 19, ptr %35, align 8
-  %36 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 40
+  %36 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 40
   store i8 0, ptr %36, align 8
   %37 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 48
   store ptr %2, ptr %37, align 8
@@ -9413,7 +9413,7 @@ _ZnwIN4llvm15MallocAllocatorELm4096ELm4096ELm128EEPvmRNS0_20BumpPtrAllocatorImpl
   store ptr null, ptr %35, align 8
   %36 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 16
   store i32 9, ptr %36, align 8
-  %37 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 40
+  %37 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 40
   store i8 0, ptr %37, align 8
   %38 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 48
   store ptr %3, ptr %38, align 8
@@ -9726,7 +9726,7 @@ declare i64 @_ZNK5clang10ASTContext18getTypeSizeInCharsENS_8QualTypeE(ptr nounde
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local { ptr, i64 } @_ZNK5clang4ento9MemRegion11getAsOffsetEv(ptr noundef nonnull align 8 dereferenceable(48) %0) local_unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %3 = getelementptr inbounds i8, ptr %0, i64 40
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load i8, ptr %3, align 8
   %5 = trunc i8 %4 to i1
   br i1 %5, label %._ZNSt8optionalIN5clang4ento12RegionOffsetEEaSIS2_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS3_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIS2_ES7_IS2_NSt5decayISA_E4typeEEEEESt16is_constructibleIS2_JSA_EESt13is_assignableIRS2_SA_EEERS3_E4typeEOSA_.exit_crit_edge, label %.outer.outer.i.outer
@@ -10354,7 +10354,7 @@ _ZnwIN4llvm15MallocAllocatorELm4096ELm4096ELm128EEPvmRNS0_20BumpPtrAllocatorImpl
   store ptr null, ptr %72, align 8
   %73 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i, i64 16
   store i32 8, ptr %73, align 8
-  %74 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i, i64 40
+  %74 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i, i64 40
   store i8 0, ptr %74, align 8
   %75 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i, i64 48
   store ptr %6, ptr %75, align 8
@@ -10867,7 +10867,7 @@ define dso_local void @_ZN5clang4ento33RegionAndSymbolInvalidationTraits8setTrai
   store ptr %1, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 40
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %8 = load i32, ptr %7, align 8
   %9 = icmp eq i32 %8, 0
   br i1 %9, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4ento7SymExprEhNS_12DenseMapInfoIS6_vEENS_6detail12DenseMapPairIS6_hEEEES6_hS8_SB_E15LookupBucketForIS6_EEbRKT_RPSB_.exit.i.i, label %10
@@ -10952,7 +10952,7 @@ define dso_local void @_ZN5clang4ento33RegionAndSymbolInvalidationTraits8setTrai
   store ptr %11, ptr %4, align 8
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 40
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %15 = load i32, ptr %14, align 8
   %16 = icmp eq i32 %15, 0
   br i1 %16, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4ento7SymExprEhNS_12DenseMapInfoIS6_vEENS_6detail12DenseMapPairIS6_hEEEES6_hS8_SB_E15LookupBucketForIS6_EEbRKT_RPSB_.exit.i.i.i, label %17
@@ -11093,7 +11093,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4ento9MemRegionEhNS_12DenseMapInfoI
 define dso_local noundef zeroext i1 @_ZNK5clang4ento33RegionAndSymbolInvalidationTraits8hasTraitEPKNS0_7SymExprENS1_17InvalidationKindsE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #4 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 40
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %7 = load i32, ptr %6, align 8
   %8 = icmp eq i32 %7, 0
   br i1 %8, label %.loopexit.i, label %9
@@ -11170,7 +11170,7 @@ define dso_local noundef zeroext i1 @_ZNK5clang4ento33RegionAndSymbolInvalidatio
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 40
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %13 = load i32, ptr %12, align 8
   %14 = icmp eq i32 %13, 0
   br i1 %14, label %.loopexit.i.i, label %15
@@ -12195,7 +12195,7 @@ define linkonce_odr hidden noundef ptr @_ZNK5clang12RedeclarableINS_7TagDeclEE8D
 
 15:                                               ; preds = %10
   %16 = getelementptr inbounds nuw i8, ptr %12, i64 2144
-  %17 = getelementptr inbounds i8, ptr %12, i64 2224
+  %17 = getelementptr inbounds nuw i8, ptr %12, i64 2224
   %18 = load i64, ptr %17, align 8
   %19 = add i64 %18, 24
   store i64 %19, ptr %17, align 8
@@ -12204,7 +12204,7 @@ define linkonce_odr hidden noundef ptr @_ZNK5clang12RedeclarableINS_7TagDeclEE8D
   %22 = add i64 %21, 7
   %23 = and i64 %22, -8
   %24 = add i64 %23, 24
-  %25 = getelementptr inbounds i8, ptr %12, i64 2152
+  %25 = getelementptr inbounds nuw i8, ptr %12, i64 2152
   %26 = load ptr, ptr %25, align 8
   %27 = ptrtoint ptr %26 to i64
   %.not.i.i.i.i.i.i = icmp ugt i64 %24, %27
@@ -12420,7 +12420,7 @@ _ZNK5clang13CXXRecordDecl13getDefinitionEv.exit:  ; preds = %6, %.thread.i
   %17 = load ptr, ptr %16, align 8
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 88
   %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %17, i64 104
+  %20 = getelementptr inbounds nuw i8, ptr %17, i64 104
   %21 = load i32, ptr %20, align 8
   %22 = icmp eq i32 %21, 0
   br i1 %22, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang13CXXRecordDeclENS2_15ASTRecordLayout9VBaseInfoENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S7_EEEES5_S7_S9_SC_E15LookupBucketForIS5_EEbRKT_RPSC_.exit.i.i, label %23
@@ -12513,7 +12513,7 @@ _ZNK5clang13CXXRecordDecl13getDefinitionEv.exit:  ; preds = %6, %.thread.i
   %17 = load ptr, ptr %16, align 8
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 64
   %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %17, i64 80
+  %20 = getelementptr inbounds nuw i8, ptr %17, i64 80
   %21 = load i32, ptr %20, align 8
   %22 = icmp eq i32 %21, 0
   br i1 %22, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang13CXXRecordDeclENS2_9CharUnitsENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S6_EEEES5_S6_S8_SB_E15LookupBucketForIS5_EEbRKT_RPSB_.exit.i.i, label %23

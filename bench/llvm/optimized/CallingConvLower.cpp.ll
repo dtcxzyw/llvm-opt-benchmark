@@ -115,7 +115,7 @@ define dso_local void @_ZN4llvm7CCStateC2EjbRNS_15MachineFunctionERNS_15SmallVec
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 416
   store i32 0, ptr %33, align 8
   %34 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %30) #10
-  %35 = getelementptr inbounds i8, ptr %0, i64 376
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 376
   store i32 0, ptr %35, align 8
   %36 = load ptr, ptr %13, align 8
   %37 = getelementptr inbounds i8, ptr %36, i64 16

@@ -1331,7 +1331,7 @@ _ZN5Eigen8internal13first_alignedILi16EdlEET1_PKT0_S2_.exit: ; preds = %1, %9
   %24 = getelementptr inbounds double, ptr %23, i64 %.05.i
   %25 = getelementptr inbounds nuw i8, ptr %22, i64 56
   %26 = load ptr, ptr %25, align 8, !noalias !43
-  %27 = getelementptr inbounds i8, ptr %22, i64 64
+  %27 = getelementptr inbounds nuw i8, ptr %22, i64 64
   %28 = load i64, ptr %27, align 8, !noalias !43
   %29 = icmp eq i64 %28, 0
   br i1 %29, label %_ZN5Eigen8internal31generic_dense_assignment_kernelINS0_9evaluatorINS_5BlockINS_6MatrixIdLi3ELi3ELi0ELi3ELi3EEELin1ELi1ELb0EEEEENS2_INS_7ProductINS3_IS5_Lin1ELin1ELb0EEENS3_INS4_IdLi3ELi1ELi0ELi3ELi1EEELin1ELi1ELb0EEELi1EEEEENS0_13sub_assign_opIddEELi0EE11assignCoeffEl.exit.i, label %30
@@ -1436,7 +1436,7 @@ _ZN5Eigen8internal31generic_dense_assignment_kernelINS0_9evaluatorINS_5BlockINS_
   %83 = getelementptr inbounds double, ptr %82, i64 %.05.i18
   %84 = getelementptr inbounds nuw i8, ptr %81, i64 56
   %85 = load ptr, ptr %84, align 8, !noalias !53
-  %86 = getelementptr inbounds i8, ptr %81, i64 64
+  %86 = getelementptr inbounds nuw i8, ptr %81, i64 64
   %87 = load i64, ptr %86, align 8, !noalias !53
   %88 = icmp eq i64 %87, 0
   br i1 %88, label %_ZN5Eigen8internal31generic_dense_assignment_kernelINS0_9evaluatorINS_5BlockINS_6MatrixIdLi3ELi3ELi0ELi3ELi3EEELin1ELi1ELb0EEEEENS2_INS_7ProductINS3_IS5_Lin1ELin1ELb0EEENS3_INS4_IdLi3ELi1ELi0ELi3ELi1EEELin1ELi1ELb0EEELi1EEEEENS0_13sub_assign_opIddEELi0EE11assignCoeffEl.exit.i19, label %89

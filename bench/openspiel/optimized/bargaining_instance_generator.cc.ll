@@ -511,11 +511,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; 
   %.phi.trans.insert.i.i59.i.i = getelementptr inbounds i8, ptr %10, i64 1816
   %66 = getelementptr inbounds i8, ptr %10, i64 4984
   %67 = getelementptr inbounds i8, ptr %10, i64 3168
-  %68 = getelementptr inbounds i8, ptr %14, i64 32
+  %68 = getelementptr inbounds nuw i8, ptr %14, i64 32
   %69 = getelementptr inbounds i8, ptr %5, i64 4
   %70 = getelementptr inbounds i8, ptr %6, i64 4
   %71 = getelementptr inbounds i8, ptr %4, i64 4
-  %72 = getelementptr inbounds i8, ptr %14, i64 40
+  %72 = getelementptr inbounds nuw i8, ptr %14, i64 40
   %73 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %74 = getelementptr inbounds nuw i8, ptr %14, i64 16
   br label %75
@@ -1388,7 +1388,7 @@ define linkonce_odr dso_local void @_ZN10open_spiel10bargaining8InstanceD2Ev(ptr
   br i1 %.not.i.i.i, label %_ZNSt6vectorIiSaIiEED2Ev.exit, label %4
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 40
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %6 = load ptr, ptr %5, align 8
   %7 = ptrtoint ptr %6 to i64
   %8 = ptrtoint ptr %3 to i64
@@ -1539,9 +1539,9 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %27, %31
 
 .noexc23:                                         ; preds = %38
   store ptr %40, ptr %39, align 8
-  %41 = getelementptr inbounds i8, ptr %0, i64 32
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %42 = getelementptr inbounds i8, ptr %40, i64 12
-  %43 = getelementptr inbounds i8, ptr %0, i64 40
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %42, ptr %43, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %40, i8 0, i64 12, i1 false)
   store ptr %42, ptr %41, align 8

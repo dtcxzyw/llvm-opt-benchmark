@@ -297,10 +297,10 @@ define i32 @PaAlsa_Initialize(ptr nocapture noundef %0, i32 noundef %1) local_un
   %23 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 1, ptr %23, align 8
   %24 = load ptr, ptr %0, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 12
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 12
   store i32 8, ptr %25, align 4
   %26 = load ptr, ptr %0, align 8
-  %27 = getelementptr inbounds i8, ptr %26, i64 16
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 16
   store ptr @.str.2, ptr %27, align 8
   %28 = load ptr, ptr %0, align 8
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 48
@@ -603,9 +603,9 @@ define internal i32 @OpenStream(ptr noundef %0, ptr nocapture noundef writeonly 
   br i1 %105, label %PaAlsaStream_Initialize.exit, label %106
 
 106:                                              ; preds = %102, %101
-  %107 = getelementptr inbounds i8, ptr %80, i64 732
+  %107 = getelementptr inbounds nuw i8, ptr %80, i64 732
   %108 = load i32, ptr %107, align 4
-  %109 = getelementptr inbounds i8, ptr %80, i64 860
+  %109 = getelementptr inbounds nuw i8, ptr %80, i64 860
   %110 = load i32, ptr %109, align 4
   %111 = add i32 %110, %108
   %112 = zext i32 %111 to i64
@@ -644,13 +644,13 @@ PaAlsaStream_Initialize.exit:                     ; preds = %102, %97
 
 124:                                              ; preds = %121
   %125 = load i64, ptr %95, align 8
-  %126 = getelementptr inbounds i8, ptr %80, i64 668
+  %126 = getelementptr inbounds nuw i8, ptr %80, i64 668
   %127 = load i32, ptr %126, align 4
   %.not74 = icmp eq i32 %127, 0
   %128 = select i1 %.not74, i64 2147483648, i64 0
   %129 = or i64 %128, %125
   %130 = load i64, ptr %96, align 8
-  %131 = getelementptr inbounds i8, ptr %80, i64 796
+  %131 = getelementptr inbounds nuw i8, ptr %80, i64 796
   %132 = load i32, ptr %131, align 4
   %.not75 = icmp eq i32 %132, 0
   %133 = select i1 %.not75, i64 2147483648, i64 0
@@ -674,7 +674,7 @@ PaAlsaStream_Initialize.exit:                     ; preds = %102, %97
   %146 = uitofp i64 %145 to double
   %147 = fdiv double %146, %4
   %148 = fadd double %144, %147
-  %149 = getelementptr inbounds i8, ptr %80, i64 56
+  %149 = getelementptr inbounds nuw i8, ptr %80, i64 56
   store double %148, ptr %149, align 8
   br label %150
 
@@ -688,7 +688,7 @@ PaAlsaStream_Initialize.exit:                     ; preds = %102, %97
   %155 = uitofp i64 %154 to double
   %156 = fdiv double %155, %4
   %157 = fadd double %153, %156
-  %158 = getelementptr inbounds i8, ptr %80, i64 64
+  %158 = getelementptr inbounds nuw i8, ptr %80, i64 64
   store double %157, ptr %158, align 8
   br label %159
 
@@ -906,9 +906,9 @@ define internal fastcc i32 @BuildDeviceList(ptr nocapture noundef %0) unnamed_ad
 19:                                               ; preds = %17, %15
   %.0148 = phi ptr [ @.str.36, %15 ], [ %spec.select184, %17 ]
   %.0147 = phi i32 [ 0, %15 ], [ %spec.select185, %17 ]
-  %20 = getelementptr inbounds i8, ptr %0, i64 28
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i32 -1, ptr %20, align 4
-  %21 = getelementptr inbounds i8, ptr %0, i64 32
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i32 -1, ptr %21, align 8
   store i32 -1, ptr %2, align 4
   %22 = tail call i64 @snd_ctl_card_info_sizeof() #25, !callees !6
@@ -1519,7 +1519,7 @@ IgnorePlugin.exit.thread:                         ; preds = %199, %IgnorePlugin.
 ._crit_edge:                                      ; preds = %285, %266
   call void @free(ptr noundef %.6) #25
   %287 = load i32, ptr %3, align 4
-  %288 = getelementptr inbounds i8, ptr %0, i64 24
+  %288 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 %287, ptr %288, align 8
   br label %289
 
@@ -1709,13 +1709,13 @@ define internal double @GetStreamTime(ptr nocapture noundef readonly %0) #2 {
   %3 = tail call i64 @snd_pcm_status_sizeof() #25, !callees !40
   %4 = alloca i8, i64 %3, align 16
   call void @llvm.memset.p0.i64(ptr nonnull align 16 %4, i8 0, i64 %3, i1 false)
-  %5 = getelementptr inbounds i8, ptr %0, i64 704
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 704
   %6 = load ptr, ptr %5, align 8
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %7, label %.sink.split
 
 7:                                                ; preds = %1
-  %8 = getelementptr inbounds i8, ptr %0, i64 832
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 832
   %9 = load ptr, ptr %8, align 8
   %.not11 = icmp eq ptr %9, null
   br i1 %.not11, label %11, label %.sink.split
@@ -1761,9 +1761,9 @@ define internal i32 @ReadStream(ptr noundef %0, ptr noundef %1, i64 noundef %2) 
   %5 = alloca i64, align 8
   %6 = alloca ptr, align 8
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %0, i64 832
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 832
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 704
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 704
   %11 = load ptr, ptr %10, align 8
   %12 = icmp eq ptr %11, null
   br i1 %12, label %13, label %14
@@ -1785,15 +1785,15 @@ define internal i32 @ReadStream(ptr noundef %0, ptr noundef %1, i64 noundef %2) 
 
 19:                                               ; preds = %18, %14
   %.025 = phi i32 [ -9981, %18 ], [ 0, %14 ]
-  %20 = getelementptr inbounds i8, ptr %0, i64 664
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 664
   %21 = load i32, ptr %20, align 8
   %.not = icmp eq i32 %21, 0
   br i1 %.not, label %22, label %29
 
 22:                                               ; preds = %19
-  %23 = getelementptr inbounds i8, ptr %0, i64 744
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 744
   %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %0, i64 656
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 656
   %26 = load i32, ptr %25, align 8
   %27 = sext i32 %26 to i64
   %28 = shl nsw i64 %27, 3
@@ -1906,9 +1906,9 @@ define internal i32 @WriteStream(ptr noundef %0, ptr noundef %1, i64 noundef %2)
   %5 = alloca i64, align 8
   %6 = alloca ptr, align 8
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %0, i64 704
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 704
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 832
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 832
   %11 = load ptr, ptr %10, align 8
   %12 = icmp eq ptr %11, null
   br i1 %12, label %13, label %14
@@ -1930,15 +1930,15 @@ define internal i32 @WriteStream(ptr noundef %0, ptr noundef %1, i64 noundef %2)
 
 19:                                               ; preds = %18, %14
   %.030 = phi i32 [ -9980, %18 ], [ 0, %14 ]
-  %20 = getelementptr inbounds i8, ptr %0, i64 792
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 792
   %21 = load i32, ptr %20, align 8
   %.not = icmp eq i32 %21, 0
   br i1 %.not, label %22, label %29
 
 22:                                               ; preds = %19
-  %23 = getelementptr inbounds i8, ptr %0, i64 872
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 872
   %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %0, i64 784
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 784
   %26 = load i32, ptr %25, align 8
   %27 = sext i32 %26 to i64
   %28 = shl nsw i64 %27, 3
@@ -1953,8 +1953,8 @@ define internal i32 @WriteStream(ptr noundef %0, ptr noundef %1, i64 noundef %2)
 
 .lr.ph:                                           ; preds = %29
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %31 = getelementptr inbounds i8, ptr %0, i64 848
-  %32 = getelementptr inbounds i8, ptr %0, i64 840
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 848
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 840
   br label %33
 
 33:                                               ; preds = %.lr.ph, %81
@@ -2306,7 +2306,7 @@ GetAlsaStreamPointer.exit:                        ; preds = %11, %6, %10, %20
   %.08 = phi ptr [ null, %6 ], [ null, %10 ], [ null, %20 ], [ %0, %11 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   store i32 0, ptr @paUtilErr_, align 4
-  %21 = getelementptr inbounds i8, ptr %.08, i64 704
+  %21 = getelementptr inbounds nuw i8, ptr %.08, i64 704
   %22 = load ptr, ptr %21, align 8
   %23 = icmp eq ptr %22, null
   br i1 %23, label %24, label %25
@@ -2385,7 +2385,7 @@ GetAlsaStreamPointer.exit:                        ; preds = %11, %6, %10, %20
   %.08 = phi ptr [ null, %6 ], [ null, %10 ], [ null, %20 ], [ %0, %11 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   store i32 0, ptr @paUtilErr_, align 4
-  %21 = getelementptr inbounds i8, ptr %.08, i64 832
+  %21 = getelementptr inbounds nuw i8, ptr %.08, i64 832
   %22 = load ptr, ptr %21, align 8
   %23 = icmp eq ptr %22, null
   br i1 %23, label %24, label %25
@@ -2731,13 +2731,13 @@ define internal fastcc void @FillInDevInfo(ptr nocapture noundef %0, ptr nocaptu
   br i1 %53, label %54, label %85
 
 54:                                               ; preds = %51
-  %55 = getelementptr inbounds i8, ptr %0, i64 28
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %56 = load i32, ptr %55, align 4
   %57 = icmp eq i32 %56, -1
   br i1 %57, label %67, label %61
 
 .thread:                                          ; preds = %39
-  %58 = getelementptr inbounds i8, ptr %0, i64 28
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %59 = load i32, ptr %58, align 4
   %60 = icmp eq i32 %59, -1
   br i1 %60, label %.thread50, label %61
@@ -2757,7 +2757,7 @@ define internal fastcc void @FillInDevInfo(ptr nocapture noundef %0, ptr nocaptu
   br label %67
 
 67:                                               ; preds = %54, %61, %.thread50
-  %68 = getelementptr inbounds i8, ptr %0, i64 32
+  %68 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %69 = load i32, ptr %68, align 8
   %70 = icmp eq i32 %69, -1
   br i1 %70, label %._crit_edge47, label %71
@@ -3528,7 +3528,7 @@ define internal fastcc i32 @PaAlsaStream_Configure(ptr noundef %0, ptr nocapture
   %22 = alloca i8, i64 %21, align 16
   call void @llvm.memset.p0.i64(ptr nonnull align 16 %22, i8 0, i64 %21, i1 false)
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 648
-  %24 = getelementptr inbounds i8, ptr %0, i64 704
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 704
   %25 = load ptr, ptr %24, align 8
   %.not = icmp eq ptr %25, null
   br i1 %.not, label %31, label %26
@@ -3546,7 +3546,7 @@ define internal fastcc i32 @PaAlsaStream_Configure(ptr noundef %0, ptr nocapture
 
 31:                                               ; preds = %26, %8
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 776
-  %33 = getelementptr inbounds i8, ptr %0, i64 832
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 832
   %34 = load ptr, ptr %33, align 8
   %.not59 = icmp eq ptr %34, null
   br i1 %.not59, label %40, label %35
@@ -3788,14 +3788,14 @@ define internal fastcc i32 @PaAlsaStream_Configure(ptr noundef %0, ptr nocapture
   br i1 %.not224.i, label %PaAlsaStream_DetermineFramesPerBuffer.exit.thread, label %PaAlsaStream_DetermineFramesPerBuffer.exit.thread.sink.split
 
 160:                                              ; preds = %152
-  %161 = getelementptr inbounds i8, ptr %0, i64 840
+  %161 = getelementptr inbounds nuw i8, ptr %0, i64 840
   store i64 %spec.select233.i, ptr %161, align 8
-  %162 = getelementptr inbounds i8, ptr %0, i64 712
+  %162 = getelementptr inbounds nuw i8, ptr %0, i64 712
   store i64 %spec.select233.i, ptr %162, align 8
   br label %232
 
 163:                                              ; preds = %._crit_edge248.i
-  %164 = getelementptr inbounds i8, ptr %0, i64 712
+  %164 = getelementptr inbounds nuw i8, ptr %0, i64 712
   store i64 %127, ptr %164, align 8
   store i32 0, ptr %9, align 4
   %165 = load ptr, ptr %24, align 8
@@ -3811,7 +3811,7 @@ define internal fastcc i32 @PaAlsaStream_Configure(ptr noundef %0, ptr nocapture
   br i1 %.not220.i, label %PaAlsaStream_DetermineFramesPerBuffer.exit.thread, label %PaAlsaStream_DetermineFramesPerBuffer.exit.thread.sink.split
 
 172:                                              ; preds = %163
-  %173 = getelementptr inbounds i8, ptr %0, i64 840
+  %173 = getelementptr inbounds nuw i8, ptr %0, i64 840
   store i64 %127, ptr %173, align 8
   store i32 0, ptr %9, align 4
   %174 = load ptr, ptr %33, align 8
@@ -3888,9 +3888,9 @@ define internal fastcc i32 @PaAlsaStream_Configure(ptr noundef %0, ptr nocapture
   br i1 %.not210.i, label %PaAlsaStream_DetermineFramesPerBuffer.exit.thread, label %PaAlsaStream_DetermineFramesPerBuffer.exit.thread.sink.split
 
 211:                                              ; preds = %199
-  %212 = getelementptr inbounds i8, ptr %0, i64 712
+  %212 = getelementptr inbounds nuw i8, ptr %0, i64 712
   %213 = load i64, ptr %212, align 8
-  %214 = getelementptr inbounds i8, ptr %0, i64 840
+  %214 = getelementptr inbounds nuw i8, ptr %0, i64 840
   %215 = load i64, ptr %214, align 8
   %216 = icmp eq i64 %213, %215
   br i1 %216, label %232, label %217
@@ -3909,7 +3909,7 @@ define internal fastcc i32 @PaAlsaStream_Configure(ptr noundef %0, ptr nocapture
   br i1 %221, label %PaAlsaStream_DetermineFramesPerBuffer.exit, label %222
 
 222:                                              ; preds = %218
-  %223 = getelementptr inbounds i8, ptr %0, i64 712
+  %223 = getelementptr inbounds nuw i8, ptr %0, i64 712
   %224 = load i64, ptr %223, align 8
   br label %232
 
@@ -3922,7 +3922,7 @@ define internal fastcc i32 @PaAlsaStream_Configure(ptr noundef %0, ptr nocapture
   br i1 %228, label %PaAlsaStream_DetermineFramesPerBuffer.exit, label %229
 
 229:                                              ; preds = %225
-  %230 = getelementptr inbounds i8, ptr %0, i64 840
+  %230 = getelementptr inbounds nuw i8, ptr %0, i64 840
   %231 = load i64, ptr %230, align 8
   br label %232
 
@@ -3939,7 +3939,7 @@ define internal fastcc i32 @PaAlsaStream_Configure(ptr noundef %0, ptr nocapture
   br i1 %.not222.i, label %242, label %236
 
 236:                                              ; preds = %233
-  %237 = getelementptr inbounds i8, ptr %0, i64 800
+  %237 = getelementptr inbounds nuw i8, ptr %0, i64 800
   %238 = load i32, ptr %237, align 8
   %239 = icmp ne i32 %238, 0
   %240 = load i32, ptr %10, align 4
@@ -4065,7 +4065,7 @@ PaAlsaStream_DetermineFramesPerBuffer.exit:       ; preds = %225, %218, %195
   br label %303
 
 270:                                              ; preds = %263, %261
-  %271 = getelementptr inbounds i8, ptr %0, i64 72
+  %271 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store double %.pre.pre, ptr %271, align 8
   %272 = getelementptr inbounds nuw i8, ptr %0, i64 548
   %273 = load i32, ptr %272, align 4
@@ -4098,7 +4098,7 @@ PaAlsaStream_DetermineFramesPerBuffer.exit:       ; preds = %225, %218, %195
   br i1 %.not65, label %.thread, label %.thread76
 
 .thread76:                                        ; preds = %276, %283
-  %284 = getelementptr inbounds i8, ptr %0, i64 712
+  %284 = getelementptr inbounds nuw i8, ptr %0, i64 712
   %285 = load i64, ptr %284, align 8
   br label %.thread
 
@@ -4115,7 +4115,7 @@ PaAlsaStream_DetermineFramesPerBuffer.exit:       ; preds = %225, %218, %195
   br i1 %brmerge, label %295, label %292
 
 .thread79:                                        ; preds = %.thread
-  %289 = getelementptr inbounds i8, ptr %0, i64 840
+  %289 = getelementptr inbounds nuw i8, ptr %0, i64 840
   %290 = load i64, ptr %289, align 8
   %291 = icmp uge i64 %286, %290
   %brmerge85 = or i1 %291, %.not6575
@@ -4123,7 +4123,7 @@ PaAlsaStream_DetermineFramesPerBuffer.exit:       ; preds = %225, %218, %195
   br i1 %brmerge85, label %295, label %292
 
 292:                                              ; preds = %.thread79, %288
-  %293 = getelementptr inbounds i8, ptr %0, i64 712
+  %293 = getelementptr inbounds nuw i8, ptr %0, i64 712
   %294 = load i64, ptr %293, align 8
   br label %295
 
@@ -4152,33 +4152,33 @@ declare i64 @PaUtil_GetBufferProcessorOutputLatencyFrames(ptr noundef) local_unn
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @PaAlsaStream_Terminate(ptr noundef %0) unnamed_addr #2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 704
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 704
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %10, label %4
 
 4:                                                ; preds = %1
   %5 = tail call i32 @snd_pcm_close(ptr noundef nonnull %3) #25, !callees !60
-  %6 = getelementptr inbounds i8, ptr %0, i64 744
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 744
   %7 = load ptr, ptr %6, align 8
   tail call void @PaUtil_FreeMemory(ptr noundef %7) #25
-  %8 = getelementptr inbounds i8, ptr %0, i64 680
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 680
   %9 = load ptr, ptr %8, align 8
   tail call void @PaUtil_FreeMemory(ptr noundef %9) #25
   br label %10
 
 10:                                               ; preds = %4, %1
-  %11 = getelementptr inbounds i8, ptr %0, i64 832
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 832
   %12 = load ptr, ptr %11, align 8
   %.not7 = icmp eq ptr %12, null
   br i1 %.not7, label %19, label %13
 
 13:                                               ; preds = %10
   %14 = tail call i32 @snd_pcm_close(ptr noundef nonnull %12) #25, !callees !60
-  %15 = getelementptr inbounds i8, ptr %0, i64 872
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 872
   %16 = load ptr, ptr %15, align 8
   tail call void @PaUtil_FreeMemory(ptr noundef %16) #25
-  %17 = getelementptr inbounds i8, ptr %0, i64 808
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 808
   %18 = load ptr, ptr %17, align 8
   tail call void @PaUtil_FreeMemory(ptr noundef %18) #25
   br label %19
@@ -5222,7 +5222,7 @@ define internal noundef ptr @CallbackThreadFunc(ptr noundef %0) #17 {
   br i1 %.not70, label %48, label %14
 
 14:                                               ; preds = %10
-  %15 = getelementptr inbounds i8, ptr %0, i64 832
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 832
   %16 = load ptr, ptr %15, align 8
   %.not71 = icmp eq ptr %16, null
   br i1 %.not71, label %28, label %17
@@ -5250,7 +5250,7 @@ define internal noundef ptr @CallbackThreadFunc(ptr noundef %0) #17 {
   br label %.loopexit90
 
 28:                                               ; preds = %17, %14
-  %29 = getelementptr inbounds i8, ptr %0, i64 704
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 704
   %30 = load ptr, ptr %29, align 8
   %.not72 = icmp eq ptr %30, null
   br i1 %.not72, label %45, label %31
@@ -5328,12 +5328,12 @@ define internal noundef ptr @CallbackThreadFunc(ptr noundef %0) #17 {
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 632
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 640
-  %70 = getelementptr inbounds i8, ptr %0, i64 704
-  %71 = getelementptr inbounds i8, ptr %0, i64 832
-  %72 = getelementptr inbounds i8, ptr %0, i64 736
-  %73 = getelementptr inbounds i8, ptr %0, i64 864
+  %70 = getelementptr inbounds nuw i8, ptr %0, i64 704
+  %71 = getelementptr inbounds nuw i8, ptr %0, i64 832
+  %72 = getelementptr inbounds nuw i8, ptr %0, i64 736
+  %73 = getelementptr inbounds nuw i8, ptr %0, i64 864
   %74 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %75 = getelementptr inbounds i8, ptr %0, i64 120
+  %75 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %76 = getelementptr inbounds nuw i8, ptr %0, i64 536
   br label %.backedge
 
@@ -5549,7 +5549,7 @@ define internal fastcc range(i32 -9999, 1) i32 @AlsaStart(ptr nocapture noundef 
   %2 = alloca ptr, align 8
   %3 = alloca i64, align 8
   %4 = alloca i64, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 832
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 832
   %6 = load ptr, ptr %5, align 8
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %.thread, label %7
@@ -5583,7 +5583,7 @@ define internal fastcc range(i32 -9999, 1) i32 @AlsaStart(ptr nocapture noundef 
   br label %90
 
 21:                                               ; preds = %12
-  %22 = getelementptr inbounds i8, ptr %0, i64 800
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 800
   %23 = load i32, ptr %22, align 8
   %.not32 = icmp eq i32 %23, 0
   br i1 %.not32, label %.thread, label %24
@@ -5599,10 +5599,10 @@ define internal fastcc range(i32 -9999, 1) i32 @AlsaStart(ptr nocapture noundef 
   %28 = call i32 @snd_pcm_mmap_begin(ptr noundef %27, ptr noundef nonnull %2, ptr noundef nonnull %4, ptr noundef nonnull %3) #25, !callees !97
   %29 = load ptr, ptr %2, align 8
   %30 = load i64, ptr %4, align 8
-  %31 = getelementptr inbounds i8, ptr %0, i64 788
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 788
   %32 = load i32, ptr %31, align 4
   %33 = load i64, ptr %3, align 8
-  %34 = getelementptr inbounds i8, ptr %0, i64 856
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 856
   %35 = load i32, ptr %34, align 8
   %36 = call i32 @snd_pcm_areas_silence(ptr noundef %29, i64 noundef %30, i32 noundef %32, i64 noundef %33, i32 noundef %35) #25, !callees !98
   %37 = load ptr, ptr %5, align 8
@@ -5660,7 +5660,7 @@ define internal fastcc range(i32 -9999, 1) i32 @AlsaStart(ptr nocapture noundef 
   br label %90
 
 .thread:                                          ; preds = %21, %41, %24, %53, %1
-  %62 = getelementptr inbounds i8, ptr %0, i64 704
+  %62 = getelementptr inbounds nuw i8, ptr %0, i64 704
   %63 = load ptr, ptr %62, align 8
   %.not34 = icmp eq ptr %63, null
   br i1 %.not34, label %90, label %64
@@ -5774,13 +5774,13 @@ define internal fastcc i32 @PaAlsaStream_WaitForFrames(ptr noundef %0, ptr nocap
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 776
-  %9 = getelementptr inbounds i8, ptr %0, i64 832
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 832
   %10 = load ptr, ptr %9, align 8
   %11 = icmp ne ptr %10, null
   %12 = zext i1 %11 to i32
   store i32 %12, ptr %4, align 4
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 648
-  %14 = getelementptr inbounds i8, ptr %0, i64 704
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 704
   %15 = load ptr, ptr %14, align 8
   %16 = icmp ne ptr %15, null
   %17 = zext i1 %16 to i32
@@ -5821,7 +5821,7 @@ define internal fastcc i32 @PaAlsaStream_WaitForFrames(ptr noundef %0, ptr nocap
   br i1 %.not84, label %35, label %33
 
 33:                                               ; preds = %31
-  %34 = getelementptr inbounds i8, ptr %0, i64 736
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 736
   store i32 1, ptr %34, align 8
   br label %35
 
@@ -5831,7 +5831,7 @@ define internal fastcc i32 @PaAlsaStream_WaitForFrames(ptr noundef %0, ptr nocap
   br i1 %.not85, label %.preheader, label %37
 
 37:                                               ; preds = %35
-  %38 = getelementptr inbounds i8, ptr %0, i64 864
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 864
   store i32 1, ptr %38, align 8
   br label %.preheader
 
@@ -5841,10 +5841,10 @@ define internal fastcc i32 @PaAlsaStream_WaitForFrames(ptr noundef %0, ptr nocap
 
 .lr.ph.lr.ph:                                     ; preds = %39
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 560
-  %42 = getelementptr inbounds i8, ptr %0, i64 732
-  %43 = getelementptr inbounds i8, ptr %0, i64 736
-  %44 = getelementptr inbounds i8, ptr %0, i64 860
-  %45 = getelementptr inbounds i8, ptr %0, i64 864
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 732
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 736
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 860
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 864
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.lr.ph, %.outer
@@ -6108,7 +6108,7 @@ define internal fastcc i32 @PaAlsaStream_WaitForFrames(ptr noundef %0, ptr nocap
   br i1 %.not97, label %165, label %162
 
 162:                                              ; preds = %.outer._crit_edge
-  %163 = getelementptr inbounds i8, ptr %0, i64 736
+  %163 = getelementptr inbounds nuw i8, ptr %0, i64 736
   %164 = load i32, ptr %163, align 8
   br label %165
 
@@ -6119,7 +6119,7 @@ define internal fastcc i32 @PaAlsaStream_WaitForFrames(ptr noundef %0, ptr nocap
   br i1 %.not98, label %171, label %168
 
 168:                                              ; preds = %165
-  %169 = getelementptr inbounds i8, ptr %0, i64 864
+  %169 = getelementptr inbounds nuw i8, ptr %0, i64 864
   %170 = load i32, ptr %169, align 8
   br label %171
 
@@ -6146,7 +6146,7 @@ define internal fastcc i32 @PaAlsaStream_WaitForFrames(ptr noundef %0, ptr nocap
   br i1 %.not100, label %.preheader, label %181
 
 181:                                              ; preds = %179
-  %182 = getelementptr inbounds i8, ptr %0, i64 864
+  %182 = getelementptr inbounds nuw i8, ptr %0, i64 864
   %183 = load i32, ptr %182, align 8
   %.not101 = icmp eq i32 %183, 0
   br i1 %.not101, label %184, label %.preheader
@@ -6158,13 +6158,13 @@ define internal fastcc i32 @PaAlsaStream_WaitForFrames(ptr noundef %0, ptr nocap
   br i1 %.not102, label %187, label %.preheader
 
 187:                                              ; preds = %184
-  %188 = getelementptr inbounds i8, ptr %0, i64 712
+  %188 = getelementptr inbounds nuw i8, ptr %0, i64 712
   %189 = load i64, ptr %188, align 8
   %190 = load i64, ptr %1, align 8
   %. = tail call i64 @llvm.umin.i64(i64 %189, i64 %190)
   %191 = call fastcc i32 @PaAlsaStreamComponent_EndProcessing(ptr noundef nonnull %13, i64 noundef %., ptr noundef nonnull %7)
   store i64 0, ptr %1, align 8
-  %192 = getelementptr inbounds i8, ptr %0, i64 736
+  %192 = getelementptr inbounds nuw i8, ptr %0, i64 736
   store i32 0, ptr %192, align 8
   br label %.preheader
 
@@ -6172,8 +6172,8 @@ define internal fastcc i32 @PaAlsaStream_WaitForFrames(ptr noundef %0, ptr nocap
   %.0.ph.ph = phi i32 [ 0, %37 ], [ 0, %35 ], [ 0, %187 ], [ 0, %184 ], [ 0, %181 ], [ 0, %177 ], [ 0, %179 ], [ %113, %.split153.us ], [ %155, %154 ], [ %147, %146 ], [ %126, %125 ], [ %132, %131 ], [ %176, %175 ], [ %26, %25 ]
   %.pr = load i32, ptr %7, align 4
   %.not105 = icmp eq i32 %.pr, 0
-  %193 = getelementptr inbounds i8, ptr %0, i64 736
-  %194 = getelementptr inbounds i8, ptr %0, i64 864
+  %193 = getelementptr inbounds nuw i8, ptr %0, i64 736
+  %194 = getelementptr inbounds nuw i8, ptr %0, i64 864
   br i1 %.not105, label %.preheader.split.us, label %.preheader.split
 
 .preheader.split.us:                              ; preds = %.preheader
@@ -6238,7 +6238,7 @@ define internal fastcc void @CalculateTimeInfo(ptr nocapture noundef readonly %0
   %5 = tail call i64 @snd_pcm_status_sizeof() #25, !callees !40
   %6 = alloca i8, i64 %5, align 16
   call void @llvm.memset.p0.i64(ptr nonnull align 16 %6, i8 0, i64 %5, i1 false)
-  %7 = getelementptr inbounds i8, ptr %0, i64 704
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 704
   %8 = load ptr, ptr %7, align 8
   %.not = icmp eq ptr %8, null
   br i1 %.not, label %24, label %9
@@ -6258,7 +6258,7 @@ define internal fastcc void @CalculateTimeInfo(ptr nocapture noundef readonly %0
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store double %17, ptr %18, align 8
   %19 = sitofp i64 %11 to double
-  %20 = getelementptr inbounds i8, ptr %0, i64 72
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %21 = load double, ptr %20, align 8
   %22 = fdiv double %19, %21
   %23 = fsub double %17, %22
@@ -6266,7 +6266,7 @@ define internal fastcc void @CalculateTimeInfo(ptr nocapture noundef readonly %0
   br label %24
 
 24:                                               ; preds = %9, %2
-  %25 = getelementptr inbounds i8, ptr %0, i64 832
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 832
   %26 = load ptr, ptr %25, align 8
   %.not25 = icmp eq ptr %26, null
   br i1 %.not25, label %47, label %27
@@ -6300,7 +6300,7 @@ define internal fastcc void @CalculateTimeInfo(ptr nocapture noundef readonly %0
 39:                                               ; preds = %._crit_edge, %34
   %40 = phi double [ %.pre, %._crit_edge ], [ %37, %34 ]
   %41 = sitofp i64 %29 to double
-  %42 = getelementptr inbounds i8, ptr %0, i64 72
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %43 = load double, ptr %42, align 8
   %44 = fdiv double %41, %43
   %45 = fadd double %40, %44
@@ -6334,13 +6334,13 @@ define internal fastcc i32 @PaAlsaStream_SetUpBuffers(ptr noundef %0, ptr nocapt
 
 9:                                                ; preds = %3
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 648
-  %11 = getelementptr inbounds i8, ptr %0, i64 736
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 736
   %12 = load i32, ptr %11, align 8
   %.not38 = icmp eq i32 %12, 0
   br i1 %.not38, label %13, label %.critedge.thread
 
 13:                                               ; preds = %9
-  %14 = getelementptr inbounds i8, ptr %0, i64 864
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 864
   %15 = load i32, ptr %14, align 8
   %.not39 = icmp eq i32 %15, 0
   br i1 %.not39, label %16, label %.critedge
@@ -6350,11 +6350,11 @@ define internal fastcc i32 @PaAlsaStream_SetUpBuffers(ptr noundef %0, ptr nocapt
   br label %.preheader
 
 .critedge:                                        ; preds = %13
-  %17 = getelementptr inbounds i8, ptr %0, i64 704
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 704
   br label %27
 
 .critedge.thread:                                 ; preds = %9
-  %18 = getelementptr inbounds i8, ptr %0, i64 704
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 704
   %19 = load ptr, ptr %18, align 8
   %.not4050 = icmp eq ptr %19, null
   br i1 %.not4050, label %27, label %20
@@ -6376,13 +6376,13 @@ define internal fastcc i32 @PaAlsaStream_SetUpBuffers(ptr noundef %0, ptr nocapt
 27:                                               ; preds = %.critedge, %.critedge.thread, %20
   %28 = phi ptr [ %18, %.critedge.thread ], [ %18, %20 ], [ %17, %.critedge ]
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 776
-  %30 = getelementptr inbounds i8, ptr %0, i64 832
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 832
   %31 = load ptr, ptr %30, align 8
   %.not42 = icmp eq ptr %31, null
   br i1 %.not42, label %42, label %32
 
 32:                                               ; preds = %27
-  %33 = getelementptr inbounds i8, ptr %0, i64 864
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 864
   %34 = load i32, ptr %33, align 8
   %.not43 = icmp eq i32 %34, 0
   br i1 %.not43, label %42, label %35
@@ -6439,7 +6439,7 @@ define internal fastcc i32 @PaAlsaStream_SetUpBuffers(ptr noundef %0, ptr nocapt
   br i1 %.not47, label %65, label %59
 
 59:                                               ; preds = %57
-  %60 = getelementptr inbounds i8, ptr %0, i64 864
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 864
   %61 = load i32, ptr %60, align 8
   %.not48 = icmp eq i32 %61, 0
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 104
@@ -6499,7 +6499,7 @@ declare i64 @PaUtil_EndBufferProcessing(ptr noundef, ptr noundef) local_unnamed_
 define internal fastcc i32 @PaAlsaStream_EndProcessing(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef writeonly %2) unnamed_addr #2 {
   %4 = alloca i32, align 4
   store i32 0, ptr %4, align 4
-  %5 = getelementptr inbounds i8, ptr %0, i64 704
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 704
   %6 = load ptr, ptr %5, align 8
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %11, label %7
@@ -6513,15 +6513,15 @@ define internal fastcc i32 @PaAlsaStream_EndProcessing(ptr nocapture noundef rea
 
 11:                                               ; preds = %7, %3
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 776
-  %13 = getelementptr inbounds i8, ptr %0, i64 832
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 832
   %14 = load ptr, ptr %13, align 8
   %.not12 = icmp eq ptr %14, null
   br i1 %.not12, label %132, label %15
 
 15:                                               ; preds = %11
-  %16 = getelementptr inbounds i8, ptr %0, i64 788
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 788
   %17 = load i32, ptr %16, align 4
-  %18 = getelementptr inbounds i8, ptr %0, i64 784
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 784
   %19 = load i32, ptr %18, align 8
   %20 = icmp sgt i32 %17, %19
   br i1 %20, label %21, label %128
@@ -6534,25 +6534,25 @@ define internal fastcc i32 @PaAlsaStream_EndProcessing(ptr nocapture noundef rea
   %26 = and i32 %19, 1
   %27 = icmp ne i32 %26, 0
   %28 = and i1 %25, %27
-  %29 = getelementptr inbounds i8, ptr %0, i64 796
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 796
   %30 = load i32, ptr %29, align 4
   %.not.i = icmp eq i32 %30, 0
   br i1 %.not.i, label %90, label %31
 
 31:                                               ; preds = %21
-  %32 = getelementptr inbounds i8, ptr %0, i64 856
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 856
   %33 = load i32, ptr %32, align 8
   %34 = tail call i64 @snd_pcm_format_size(i32 noundef %33, i64 noundef 1) #25, !callees !104
   %35 = trunc i64 %34 to i32
-  %36 = getelementptr inbounds i8, ptr %0, i64 800
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 800
   %37 = load i32, ptr %36, align 8
   %.not69.i = icmp eq i32 %37, 0
   br i1 %.not69.i, label %54, label %38
 
 38:                                               ; preds = %31
-  %39 = getelementptr inbounds i8, ptr %0, i64 896
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 896
   %40 = load ptr, ptr %39, align 8
-  %41 = getelementptr inbounds i8, ptr %0, i64 880
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 880
   %42 = load i64, ptr %41, align 8
   %43 = load ptr, ptr %40, align 8
   %44 = getelementptr inbounds nuw i8, ptr %40, i64 8
@@ -6568,7 +6568,7 @@ define internal fastcc i32 @PaAlsaStream_EndProcessing(ptr nocapture noundef rea
   br label %57
 
 54:                                               ; preds = %31
-  %55 = getelementptr inbounds i8, ptr %0, i64 808
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 808
   %56 = load ptr, ptr %55, align 8
   br label %57
 
@@ -6646,14 +6646,14 @@ define internal fastcc i32 @PaAlsaStream_EndProcessing(ptr nocapture noundef rea
   br i1 %28, label %91, label %112
 
 91:                                               ; preds = %90
-  %92 = getelementptr inbounds i8, ptr %0, i64 896
+  %92 = getelementptr inbounds nuw i8, ptr %0, i64 896
   %93 = load ptr, ptr %92, align 8
   %94 = sext i32 %19 to i64
   %95 = getelementptr inbounds %struct._snd_pcm_channel_area, ptr %93, i64 %94
-  %96 = getelementptr inbounds i8, ptr %0, i64 880
+  %96 = getelementptr inbounds nuw i8, ptr %0, i64 880
   %97 = load i64, ptr %96, align 8
   %98 = getelementptr i8, ptr %95, i64 -16
-  %99 = getelementptr inbounds i8, ptr %0, i64 856
+  %99 = getelementptr inbounds nuw i8, ptr %0, i64 856
   %100 = load i32, ptr %99, align 8
   %101 = tail call i32 @snd_pcm_area_copy(ptr noundef %95, i64 noundef %97, ptr noundef %98, i64 noundef %97, i32 noundef %22, i32 noundef %100) #25, !callees !107
   %102 = icmp slt i32 %101, 0
@@ -6682,17 +6682,17 @@ define internal fastcc i32 @PaAlsaStream_EndProcessing(ptr nocapture noundef rea
   br i1 %113, label %114, label %PaAlsaStreamComponent_DoChannelAdaption.exit.thread
 
 114:                                              ; preds = %112
-  %115 = getelementptr inbounds i8, ptr %0, i64 896
+  %115 = getelementptr inbounds nuw i8, ptr %0, i64 896
   %116 = load ptr, ptr %115, align 8
   %117 = load i32, ptr %16, align 4
   %118 = sub nsw i32 %117, %.165.i
   %119 = sext i32 %118 to i64
   %120 = getelementptr inbounds %struct._snd_pcm_channel_area, ptr %116, i64 %119
-  %121 = getelementptr inbounds i8, ptr %0, i64 880
+  %121 = getelementptr inbounds nuw i8, ptr %0, i64 880
   %122 = load i64, ptr %121, align 8
   %sext = shl i64 %1, 32
   %123 = ashr exact i64 %sext, 32
-  %124 = getelementptr inbounds i8, ptr %0, i64 856
+  %124 = getelementptr inbounds nuw i8, ptr %0, i64 856
   %125 = load i32, ptr %124, align 8
   %126 = tail call i32 @snd_pcm_areas_silence(ptr noundef %120, i64 noundef %122, i32 noundef %.165.i, i64 noundef %123, i32 noundef %125) #25, !callees !98
   br label %PaAlsaStreamComponent_DoChannelAdaption.exit.thread
@@ -6739,7 +6739,7 @@ declare void @PaUtil_ResetCpuLoadMeasurer(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 -9999, 1) i32 @AlsaStop(ptr nocapture noundef readonly %0) unnamed_addr #2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 832
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 832
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %11, label %4
@@ -6757,7 +6757,7 @@ define internal fastcc range(i32 -9999, 1) i32 @AlsaStop(ptr nocapture noundef r
   br i1 %.not28, label %.sink.split, label %.sink.split.sink.split
 
 11:                                               ; preds = %4, %1
-  %12 = getelementptr inbounds i8, ptr %0, i64 704
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 704
   %13 = load ptr, ptr %12, align 8
   %.not25 = icmp eq ptr %13, null
   br i1 %.not25, label %26, label %14
@@ -7042,7 +7042,7 @@ define internal fastcc range(i32 -9999, 1) i32 @ContinuePoll(ptr nocapture nound
   br i1 %23, label %24, label %28
 
 24:                                               ; preds = %22
-  %25 = getelementptr inbounds i8, ptr %0, i64 720
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 720
   %26 = load i64, ptr %25, align 8
   %27 = sub i64 %26, %.pre
   br label %28
@@ -7221,7 +7221,7 @@ define internal fastcc i32 @PaAlsaStream_HandleXrun(ptr noundef %0) unnamed_addr
   %6 = tail call i64 @snd_pcm_status_sizeof() #25, !callees !40
   %7 = alloca i8, i64 %6, align 16
   call void @llvm.memset.p0.i64(ptr nonnull align 16 %7, i8 0, i64 %6, i1 false)
-  %8 = getelementptr inbounds i8, ptr %0, i64 832
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 832
   %9 = load ptr, ptr %8, align 8
   %.not = icmp eq ptr %9, null
   br i1 %.not, label %30, label %10
@@ -7247,7 +7247,7 @@ define internal fastcc i32 @PaAlsaStream_HandleXrun(ptr noundef %0) unnamed_addr
   %22 = fmul double %21, 1.000000e+03
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 632
   store double %22, ptr %23, align 8
-  %24 = getelementptr inbounds i8, ptr %0, i64 800
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 800
   %25 = load i32, ptr %24, align 8
   %.not31 = icmp eq i32 %25, 0
   br i1 %.not31, label %26, label %30
@@ -7260,7 +7260,7 @@ define internal fastcc i32 @PaAlsaStream_HandleXrun(ptr noundef %0) unnamed_addr
 
 30:                                               ; preds = %26, %14, %10, %1
   %.028 = phi i1 [ true, %10 ], [ true, %1 ], [ %29, %26 ], [ false, %14 ]
-  %31 = getelementptr inbounds i8, ptr %0, i64 704
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 704
   %32 = load ptr, ptr %31, align 8
   %.not32 = icmp eq ptr %32, null
   br i1 %.not32, label %53, label %33
@@ -7285,7 +7285,7 @@ define internal fastcc i32 @PaAlsaStream_HandleXrun(ptr noundef %0) unnamed_addr
   %45 = fmul double %44, 1.000000e+03
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 640
   store double %45, ptr %46, align 8
-  %47 = getelementptr inbounds i8, ptr %0, i64 672
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 672
   %48 = load i32, ptr %47, align 8
   %.not33 = icmp eq i32 %48, 0
   br i1 %.not33, label %49, label %.thread

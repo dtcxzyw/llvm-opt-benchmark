@@ -259,7 +259,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit25.i: 
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %58) #15
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %59) #15
   %78 = load ptr, ptr %57, align 8
-  %79 = getelementptr inbounds i8, ptr %78, i64 88
+  %79 = getelementptr inbounds nuw i8, ptr %78, i64 88
   %80 = load i32, ptr %79, align 8
   store i32 %80, ptr %60, align 4
   store i32 2, ptr %61, align 4

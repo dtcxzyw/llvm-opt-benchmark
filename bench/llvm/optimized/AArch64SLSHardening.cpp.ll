@@ -215,7 +215,7 @@ define dso_local noalias noundef nonnull ptr @_ZN4llvm29createAArch64SLSHardenin
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store i32 2, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %6 = getelementptr inbounds i8, ptr %1, i64 324
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 324
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(296) %5, i8 0, i64 296, i1 false)
   store i8 1, ptr %6, align 4
   store ptr getelementptr inbounds inrange(-16, 176) (i8, ptr @_ZTVN12_GLOBAL__N_119AArch64SLSHardeningE, i64 16), ptr %1, align 8
@@ -235,7 +235,7 @@ define internal noalias noundef nonnull ptr @_ZN4llvm15callDefaultCtorIN12_GLOBA
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store i32 2, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %6 = getelementptr inbounds i8, ptr %1, i64 324
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 324
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(296) %5, i8 0, i64 296, i1 false)
   store i8 1, ptr %6, align 4
   store ptr getelementptr inbounds inrange(-16, 176) (i8, ptr @_ZTVN12_GLOBAL__N_119AArch64SLSHardeningE, i64 16), ptr %1, align 8
@@ -392,7 +392,7 @@ _ZNK4llvm9StringRef11starts_withES0_.exit.thread25.i.i: ; preds = %_ZNK4llvm9Str
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 304
   %67 = load i8, ptr %66, align 8
   %68 = trunc i8 %67 to i1
-  %69 = getelementptr inbounds i8, ptr %0, i64 324
+  %69 = getelementptr inbounds nuw i8, ptr %0, i64 324
   %70 = load i8, ptr %69, align 4
   %71 = and i8 %70, 1
   %72 = icmp ne i8 %71, 0
@@ -415,7 +415,7 @@ _ZN12_GLOBAL__N_120SLSHardeningInserter11mayUseThunkERKN4llvm15MachineFunctionE.
 _ZN12_GLOBAL__N_120SLSHardeningInserter11mayUseThunkERKN4llvm15MachineFunctionE.exit.thread.i.i: ; preds = %_ZN12_GLOBAL__N_120SLSHardeningInserter11mayUseThunkERKN4llvm15MachineFunctionE.exit.i.i, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread25.i.i
   call void @llvm.lifetime.start.p0(i64 268, ptr nonnull %40)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(268) %40, ptr noundef nonnull align 8 dereferenceable(268) %59, i64 268, i1 false)
-  %82 = getelementptr inbounds i8, ptr %1, i64 328
+  %82 = getelementptr inbounds nuw i8, ptr %1, i64 328
   %83 = getelementptr inbounds nuw i8, ptr %1, i64 320
   %.sroa.034.039.i.i.i = load ptr, ptr %82, align 8, !noalias !4
   %.not40.i.i.i = icmp eq ptr %.sroa.034.039.i.i.i, %83
@@ -431,7 +431,7 @@ _ZN12_GLOBAL__N_120SLSHardeningInserter11mayUseThunkERKN4llvm15MachineFunctionE.
   %.sroa.2.0..sroa_idx.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %30, i64 24
   %89 = getelementptr inbounds nuw i8, ptr %30, i64 32
   %90 = getelementptr inbounds nuw i8, ptr %30, i64 40
-  %91 = getelementptr inbounds i8, ptr %30, i64 48
+  %91 = getelementptr inbounds nuw i8, ptr %30, i64 48
   %92 = getelementptr inbounds i8, ptr %30, i64 56
   %93 = getelementptr inbounds i8, ptr %30, i64 64
   %94 = getelementptr inbounds i8, ptr %30, i64 72
@@ -450,7 +450,7 @@ _ZN12_GLOBAL__N_120SLSHardeningInserter11mayUseThunkERKN4llvm15MachineFunctionE.
   %.sroa.2.0..sroa_idx.i.i.i.i9.i.i.i.i.i.i = getelementptr inbounds i8, ptr %32, i64 24
   %104 = getelementptr inbounds nuw i8, ptr %32, i64 32
   %105 = getelementptr inbounds nuw i8, ptr %32, i64 40
-  %106 = getelementptr inbounds i8, ptr %32, i64 48
+  %106 = getelementptr inbounds nuw i8, ptr %32, i64 48
   %107 = getelementptr inbounds i8, ptr %32, i64 56
   %108 = getelementptr inbounds i8, ptr %32, i64 64
   %109 = getelementptr inbounds i8, ptr %32, i64 72
@@ -472,7 +472,7 @@ _ZN12_GLOBAL__N_120SLSHardeningInserter11mayUseThunkERKN4llvm15MachineFunctionE.
   %122 = getelementptr inbounds nuw i8, ptr %40, i64 12
   %123 = getelementptr inbounds nuw i8, ptr %40, i64 8
   %124 = getelementptr inbounds nuw i8, ptr %40, i64 4
-  %125 = getelementptr inbounds i8, ptr %57, i64 2480
+  %125 = getelementptr inbounds nuw i8, ptr %57, i64 2480
   %126 = getelementptr inbounds nuw i8, ptr %23, i64 32
   %127 = getelementptr inbounds nuw i8, ptr %23, i64 33
   %128 = getelementptr inbounds nuw i8, ptr %23, i64 8
@@ -499,7 +499,7 @@ _ZN12_GLOBAL__N_120SLSHardeningInserter11mayUseThunkERKN4llvm15MachineFunctionE.
   %148 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %149 = getelementptr inbounds nuw i8, ptr %22, i64 16
   %150 = getelementptr inbounds nuw i8, ptr %22, i64 4
-  %151 = getelementptr inbounds i8, ptr %22, i64 24
+  %151 = getelementptr inbounds nuw i8, ptr %22, i64 24
   %152 = getelementptr inbounds nuw i8, ptr %38, i64 8
   %153 = getelementptr inbounds nuw i8, ptr %38, i64 4
   %154 = getelementptr inbounds nuw i8, ptr %38, i64 16
@@ -1437,23 +1437,23 @@ _ZN12_GLOBAL__N_120SLSHardeningInserter12insertThunksERN4llvm17MachineModuleInfo
   store i32 %473, ptr %59, align 8
   %474 = getelementptr inbounds nuw i8, ptr %41, i64 4
   %475 = load i32, ptr %474, align 4
-  %476 = getelementptr inbounds i8, ptr %0, i64 60
+  %476 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %477 = load i32, ptr %476, align 4
   %478 = or i32 %477, %475
   store i32 %478, ptr %476, align 4
   %479 = getelementptr inbounds nuw i8, ptr %41, i64 8
   %480 = load i32, ptr %479, align 4
-  %481 = getelementptr inbounds i8, ptr %0, i64 64
+  %481 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %482 = load i32, ptr %481, align 8
   %483 = or i32 %482, %480
   store i32 %483, ptr %481, align 8
   %484 = getelementptr inbounds nuw i8, ptr %41, i64 12
-  %485 = getelementptr inbounds i8, ptr %0, i64 68
+  %485 = getelementptr inbounds nuw i8, ptr %0, i64 68
   br label %488
 
 .preheader.i.i.i:                                 ; preds = %488
   %486 = getelementptr inbounds nuw i8, ptr %41, i64 140
-  %487 = getelementptr inbounds i8, ptr %0, i64 196
+  %487 = getelementptr inbounds nuw i8, ptr %0, i64 196
   br label %494
 
 488:                                              ; preds = %488, %_ZN12_GLOBAL__N_120SLSHardeningInserter12insertThunksERN4llvm17MachineModuleInfoERNS1_15MachineFunctionENS_9ThunksSetE.exit.i.i
@@ -1538,7 +1538,7 @@ _ZN4llvm12StringSwitchIPKN12_GLOBAL__N_19ThunkKindES4_E10StartsWithENS_13StringL
   %.sroa.15.3.i.i.i.i = phi i8 [ %.sroa.15.2.i.i.i.i, %_ZN4llvm12StringSwitchIPKN12_GLOBAL__N_19ThunkKindES4_E10StartsWithENS_13StringLiteralES4_.exit24.i.i.i.i ], [ 1, %_ZNK4llvm9StringRef11starts_withES0_.exit.i14.i.i.i.i ], [ 1, %_ZNK4llvm9StringRef11starts_withES0_.exit.i21.i.i.i.i ], [ %spec.select86.i.i.i.i, %_ZNK4llvm9StringRef11starts_withES0_.exit.i28.i.i.i.i ], [ 0, %_ZN4llvm12StringSwitchIPKN12_GLOBAL__N_19ThunkKindES4_E10StartsWithENS_13StringLiteralES4_.exit17.i.i.i.i ]
   %510 = trunc nuw i8 %.sroa.15.3.i.i.i.i to i1
   %spec.select.i.i.i9.i.i = select i1 %510, ptr %.sroa.10.3.i.i.i.i, ptr @_ZN12_GLOBAL__N_19ThunkKind2BRE
-  %511 = getelementptr inbounds i8, ptr %spec.select.i.i.i9.i.i, i64 16
+  %511 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i9.i.i, i64 16
   %512 = load i64, ptr %511, align 8, !noalias !46
   %.sroa.speculated5.i.i32.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %504, i64 %512)
   %513 = getelementptr inbounds i8, ptr %503, i64 %.sroa.speculated5.i.i32.i.i.i.i
@@ -1621,7 +1621,7 @@ _ZL14parseThunkNameN4llvm9StringRefE.exit.i.i.i:  ; preds = %541, %_ZNK4llvm9Str
   %556 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %557 = load ptr, ptr %556, align 8
   %558 = getelementptr inbounds nuw i8, ptr %1, i64 320
-  %559 = getelementptr inbounds i8, ptr %1, i64 328
+  %559 = getelementptr inbounds nuw i8, ptr %1, i64 328
   %560 = load ptr, ptr %559, align 8
   %.not4.i.i.i.i.i.i.i = icmp eq ptr %560, %558
   br i1 %.not4.i.i.i.i.i.i.i, label %_ZNK4llvm15MachineFunction4sizeEv.exit.thread.i.i.i, label %.lr.ph.i.i.i.i.i.i.i
@@ -1741,9 +1741,9 @@ _ZN4llvm17MachineBasicBlock5eraseENS_26MachineInstrBundleIteratorINS_12MachineIn
 
 _ZN4llvm17MachineBasicBlock5clearEv.exit.i.i.i:   ; preds = %.lr.ph.i.i.i33.i.i.i, %_ZN4llvm17MachineBasicBlock5eraseENS_26MachineInstrBundleIteratorINS_12MachineInstrELb0EEE.exit.i.i.i
   %607 = getelementptr inbounds nuw i8, ptr %593, i64 184
-  %608 = getelementptr inbounds i8, ptr %593, i64 192
+  %608 = getelementptr inbounds nuw i8, ptr %593, i64 192
   %609 = load ptr, ptr %608, align 8
-  %610 = getelementptr inbounds i8, ptr %593, i64 200
+  %610 = getelementptr inbounds nuw i8, ptr %593, i64 200
   %611 = load ptr, ptr %610, align 8
   %.not.i.i.i39.i.i.i = icmp eq ptr %609, %611
   br i1 %.not.i.i.i39.i.i.i, label %615, label %612

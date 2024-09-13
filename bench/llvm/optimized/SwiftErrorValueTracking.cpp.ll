@@ -124,7 +124,7 @@ define dso_local i32 @_ZN4llvm23SwiftErrorValueTracking15getOrCreateVRegEPKNS_17
   store ptr %2, ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 48
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %9 = load i32, ptr %8, align 8
   %10 = icmp eq i32 %9, 0
   br i1 %10, label %.loopexit.i, label %11
@@ -261,7 +261,7 @@ define dso_local i32 @_ZN4llvm23SwiftErrorValueTracking20getOrCreateVRegDefAtEPK
   store i64 %8, ptr %6, align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 96
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %12 = load i32, ptr %11, align 8
   %13 = icmp eq i32 %12, 0
   br i1 %13, label %.loopexit.i, label %14
@@ -411,7 +411,7 @@ define dso_local i32 @_ZN4llvm23SwiftErrorValueTracking20getOrCreateVRegUseAtEPK
   store i64 %7, ptr %5, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 96
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %11 = load i32, ptr %10, align 8
   %12 = icmp eq i32 %11, 0
   br i1 %12, label %.loopexit.i, label %13
@@ -562,13 +562,13 @@ define dso_local void @_ZN4llvm23SwiftErrorValueTracking11setFunctionERNS_15Mach
 25:                                               ; preds = %2
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %27 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %26) #9
-  %28 = getelementptr inbounds i8, ptr %0, i64 120
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 120
   store i32 0, ptr %28, align 8
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %30 = getelementptr inbounds i8, ptr %0, i64 40
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %31 = load i32, ptr %30, align 8
   %32 = icmp eq i32 %31, 0
-  %33 = getelementptr inbounds i8, ptr %0, i64 44
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %34 = load i32, ptr %33, align 4
   %35 = icmp eq i32 %34, 0
   %or.cond = select i1 %32, i1 %35, i1 false
@@ -576,7 +576,7 @@ define dso_local void @_ZN4llvm23SwiftErrorValueTracking11setFunctionERNS_15Mach
 
 36:                                               ; preds = %25
   %37 = shl i32 %31, 2
-  %38 = getelementptr inbounds i8, ptr %0, i64 48
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %39 = load i32, ptr %38, align 8
   %40 = icmp ult i32 %37, %39
   %41 = icmp ugt i32 %39, 64
@@ -610,10 +610,10 @@ define dso_local void @_ZN4llvm23SwiftErrorValueTracking11setFunctionERNS_15Mach
 
 _ZN4llvm12DenseMapBaseINS_8DenseMapISt4pairIPKNS_17MachineBasicBlockEPKNS_5ValueEENS_8RegisterENS_12DenseMapInfoIS9_vEENS_6detail12DenseMapPairIS9_SA_EEEES9_SA_SC_SF_E5clearEv.exit: ; preds = %25, %42, %._crit_edge.i
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %50 = getelementptr inbounds i8, ptr %0, i64 64
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %51 = load i32, ptr %50, align 8
   %52 = icmp eq i32 %51, 0
-  %53 = getelementptr inbounds i8, ptr %0, i64 68
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 68
   %54 = load i32, ptr %53, align 4
   %55 = icmp eq i32 %54, 0
   %or.cond52 = select i1 %52, i1 %55, i1 false
@@ -621,7 +621,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapISt4pairIPKNS_17MachineBasicBlockEPKNS_5Value
 
 56:                                               ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapISt4pairIPKNS_17MachineBasicBlockEPKNS_5ValueEENS_8RegisterENS_12DenseMapInfoIS9_vEENS_6detail12DenseMapPairIS9_SA_EEEES9_SA_SC_SF_E5clearEv.exit
   %57 = shl i32 %51, 2
-  %58 = getelementptr inbounds i8, ptr %0, i64 72
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %59 = load i32, ptr %58, align 8
   %60 = icmp ult i32 %57, %59
   %61 = icmp ugt i32 %59, 64
@@ -655,10 +655,10 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapISt4pairIPKNS_17MachineBasicBlockEPKNS_5Value
 
 _ZN4llvm12DenseMapBaseINS_8DenseMapISt4pairIPKNS_17MachineBasicBlockEPKNS_5ValueEENS_8RegisterENS_12DenseMapInfoIS9_vEENS_6detail12DenseMapPairIS9_SA_EEEES9_SA_SC_SF_E5clearEv.exit29: ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapISt4pairIPKNS_17MachineBasicBlockEPKNS_5ValueEENS_8RegisterENS_12DenseMapInfoIS9_vEENS_6detail12DenseMapPairIS9_SA_EEEES9_SA_SC_SF_E5clearEv.exit, %62, %._crit_edge.i28
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %70 = getelementptr inbounds i8, ptr %0, i64 88
+  %70 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %71 = load i32, ptr %70, align 8
   %72 = icmp eq i32 %71, 0
-  %73 = getelementptr inbounds i8, ptr %0, i64 92
+  %73 = getelementptr inbounds nuw i8, ptr %0, i64 92
   %74 = load i32, ptr %73, align 4
   %75 = icmp eq i32 %74, 0
   %or.cond55 = select i1 %72, i1 %75, i1 false
@@ -666,7 +666,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapISt4pairIPKNS_17MachineBasicBlockEPKNS_5Value
 
 76:                                               ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapISt4pairIPKNS_17MachineBasicBlockEPKNS_5ValueEENS_8RegisterENS_12DenseMapInfoIS9_vEENS_6detail12DenseMapPairIS9_SA_EEEES9_SA_SC_SF_E5clearEv.exit29
   %77 = shl i32 %71, 2
-  %78 = getelementptr inbounds i8, ptr %0, i64 96
+  %78 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %79 = load i32, ptr %78, align 8
   %80 = icmp ult i32 %77, %79
   %81 = icmp ugt i32 %79, 64
@@ -776,7 +776,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPKNS_5ValueELb1EE9push_backES3_.exit: ; preds 
 
 ._crit_edge:                                      ; preds = %120, %_ZNK4llvm8Function7arg_endEv.exit
   %122 = load ptr, ptr %4, align 8
-  %123 = getelementptr inbounds i8, ptr %122, i64 80
+  %123 = getelementptr inbounds nuw i8, ptr %122, i64 80
   %124 = getelementptr inbounds nuw i8, ptr %122, i64 72
   %.sroa.045.067 = load ptr, ptr %123, align 8
   %.not5668 = icmp eq ptr %.sroa.045.067, %124
@@ -791,7 +791,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPKNS_5ValueELb1EE9push_backES3_.exit: ; preds 
   %127 = icmp eq ptr %.sroa.045.069, null
   %128 = getelementptr inbounds i8, ptr %.sroa.045.069, i64 -24
   %129 = select i1 %127, ptr null, ptr %128
-  %130 = getelementptr inbounds i8, ptr %129, i64 56
+  %130 = getelementptr inbounds nuw i8, ptr %129, i64 56
   %131 = getelementptr inbounds nuw i8, ptr %129, i64 48
   %.sroa.041.061 = load ptr, ptr %130, align 8
   %.not5762 = icmp eq ptr %.sroa.041.061, %131
@@ -874,7 +874,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm23SwiftErrorValueTracking25createEn
 
 15:                                               ; preds = %12
   %16 = load ptr, ptr %0, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 328
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 328
   %18 = load ptr, ptr %17, align 8
   %19 = tail call noundef nonnull align 8 dereferenceable(512) ptr @_ZNK4llvm15MachineFunction13getDataLayoutEv(ptr noundef nonnull align 8 dereferenceable(1041) %16) #9
   %20 = load ptr, ptr %6, align 8
@@ -1109,9 +1109,9 @@ define dso_local void @_ZN4llvm23SwiftErrorValueTracking14propagateVRegsEv(ptr n
 
 .lr.ph271:                                        ; preds = %27
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %34 = getelementptr inbounds i8, ptr %0, i64 72
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %36 = getelementptr inbounds i8, ptr %0, i64 48
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %37 = getelementptr inbounds i8, ptr %9, i64 16
   %38 = getelementptr inbounds nuw i8, ptr %10, i64 32
   %39 = getelementptr inbounds nuw i8, ptr %10, i64 8
@@ -2210,11 +2210,11 @@ _ZN4llvm11SmallVectorISt4pairIPNS_17MachineBasicBlockENS_8RegisterEELj4EED2Ev.ex
   %615 = getelementptr inbounds nuw i8, ptr %614, i64 32
   %616 = load ptr, ptr %615, align 8
   %617 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %618 = getelementptr inbounds i8, ptr %0, i64 64
+  %618 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %619 = load i32, ptr %618, align 8
   %620 = icmp eq i32 %619, 0
   %621 = load ptr, ptr %617, align 8
-  %622 = getelementptr inbounds i8, ptr %0, i64 72
+  %622 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %623 = load i32, ptr %622, align 8
   %624 = zext i32 %623 to i64
   %625 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair", ptr %621, i64 %624
@@ -2281,7 +2281,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapISt4pairIPKNS_17MachineBasicBlockEPKNS_5Value
   br i1 %.not.i.i.i127, label %655, label %_ZNK4llvm19MachineRegisterInfo9def_beginENS_8RegisterE.exit
 
 655:                                              ; preds = %652
-  %656 = getelementptr inbounds i8, ptr %.0.i.i125, i64 24
+  %656 = getelementptr inbounds nuw i8, ptr %.0.i.i125, i64 24
   %657 = load ptr, ptr %656, align 8
   %.not.i4.i.i = icmp eq ptr %657, null
   br i1 %.not.i4.i.i, label %_ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit130, label %658
@@ -2397,7 +2397,7 @@ define dso_local void @_ZN4llvm23SwiftErrorValueTracking14preassignVRegsEPNS_17M
 
 .lr.ph72:                                         ; preds = %15
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %19 = getelementptr inbounds i8, ptr %0, i64 96
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 104
   br label %21
 
@@ -3828,7 +3828,7 @@ define linkonce_odr hidden void @_ZN4llvm25ReversePostOrderTraversalIPNS_15Machi
   %3 = alloca %"class.llvm::po_iterator", align 8
   %4 = alloca %"class.llvm::po_iterator", align 8
   %5 = load ptr, ptr %1, align 8, !noalias !45
-  %6 = getelementptr inbounds i8, ptr %5, i64 328
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 328
   %7 = load ptr, ptr %6, align 8, !noalias !45
   call void @_ZN4llvm11po_iteratorIPNS_15MachineFunctionENS_11SmallPtrSetIPNS_17MachineBasicBlockELj8EEELb0ENS_11GraphTraitsIS2_EEEC2ES5_(ptr noundef nonnull align 8 dereferenceable(304) %3, ptr noundef %7)
   %8 = getelementptr inbounds i8, ptr %4, i64 24

@@ -30,11 +30,11 @@ define dso_local void @_ZN5clang4sema17DelayedDiagnostic16makeAvailabilityENS_18
   store i32 %13, ptr %11, align 4
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %4, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %5, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %6, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %0, i64 32
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %7, ptr %17, align 8
   %18 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %19 = load i64, ptr %18, align 8
@@ -49,23 +49,23 @@ define dso_local void @_ZN5clang4sema17DelayedDiagnostic16makeAvailabilityENS_18
 
 .loopexit:                                        ; preds = %21, %10
   %.0 = phi ptr [ null, %10 ], [ %22, %21 ]
-  %24 = getelementptr inbounds i8, ptr %0, i64 40
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %.0, ptr %24, align 8
-  %25 = getelementptr inbounds i8, ptr %0, i64 48
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i64 %19, ptr %25, align 8
   %26 = icmp ugt i64 %3, 4611686018427387903
   %27 = shl i64 %3, 2
   %28 = select i1 %26, i64 -1, i64 %27
   %29 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %28) #7
   %30 = zext i1 %9 to i8
-  %31 = getelementptr inbounds i8, ptr %0, i64 56
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store ptr %29, ptr %31, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %29, ptr nonnull align 4 %2, i64 %27, i1 false)
-  %32 = getelementptr inbounds i8, ptr %0, i64 64
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i64 %3, ptr %32, align 8
-  %33 = getelementptr inbounds i8, ptr %0, i64 72
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store i32 %1, ptr %33, align 8
-  %34 = getelementptr inbounds i8, ptr %0, i64 76
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 76
   store i8 %30, ptr %34, align 4
   ret void
 }
@@ -85,13 +85,13 @@ define dso_local void @_ZN5clang4sema17DelayedDiagnostic7DestroyEv(ptr nocapture
   ]
 
 3:                                                ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %0, i64 40
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %5 = load ptr, ptr %4, align 8
   %.not.i.i.i.i = icmp eq ptr %5, null
   br i1 %.not.i.i.i.i, label %_ZN5clang4sema14AccessedEntityD2Ev.exit, label %6
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %0, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %8 = load ptr, ptr %7, align 8
   %.not.i.i.i.i.i = icmp eq ptr %8, null
   br i1 %.not.i.i.i.i.i, label %_ZN5clang4sema14AccessedEntityD2Ev.exit, label %9
@@ -123,7 +123,7 @@ _ZN5clang19StreamingDiagnostic20DiagStorageAllocator10DeallocateEPNS_17Diagnosti
   br label %_ZN5clang4sema14AccessedEntityD2Ev.exit
 
 20:                                               ; preds = %1
-  %21 = getelementptr inbounds i8, ptr %0, i64 40
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %22 = load ptr, ptr %21, align 8
   %23 = icmp eq ptr %22, null
   br i1 %23, label %25, label %24
@@ -133,7 +133,7 @@ _ZN5clang19StreamingDiagnostic20DiagStorageAllocator10DeallocateEPNS_17Diagnosti
   br label %25
 
 25:                                               ; preds = %24, %20
-  %26 = getelementptr inbounds i8, ptr %0, i64 56
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %27 = load ptr, ptr %26, align 8
   %28 = icmp eq ptr %27, null
   br i1 %28, label %_ZN5clang4sema14AccessedEntityD2Ev.exit, label %29

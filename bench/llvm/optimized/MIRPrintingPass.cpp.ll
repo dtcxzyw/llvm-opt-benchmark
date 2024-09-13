@@ -66,15 +66,15 @@ define dso_local void @_ZN4llvm19PrintMIRPreparePass3runERNS_6ModuleERNS_15Analy
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 0, ptr %10, align 8, !alias.scope !4
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %12 = getelementptr inbounds i8, ptr %0, i64 80
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store ptr %12, ptr %11, align 8, !alias.scope !4
-  %13 = getelementptr inbounds i8, ptr %0, i64 56
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store ptr %12, ptr %13, align 8, !alias.scope !4
-  %14 = getelementptr inbounds i8, ptr %0, i64 64
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i32 2, ptr %14, align 8, !alias.scope !4
-  %15 = getelementptr inbounds i8, ptr %0, i64 68
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 68
   store i32 0, ptr %15, align 4, !alias.scope !4
-  %16 = getelementptr inbounds i8, ptr %0, i64 72
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store i32 0, ptr %16, align 8, !alias.scope !4
   store i32 1, ptr %9, align 4, !alias.scope !4, !noalias !7
   store ptr @_ZN4llvm17PreservedAnalyses14AllAnalysesKeyE, ptr %6, align 8, !alias.scope !4, !noalias !7
@@ -111,15 +111,15 @@ _ZNK4llvm25OuterAnalysisManagerProxyINS_15AnalysisManagerINS_6ModuleEJEEENS_15Ma
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 0, ptr %19, align 8, !alias.scope !10
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %21 = getelementptr inbounds i8, ptr %0, i64 80
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store ptr %21, ptr %20, align 8, !alias.scope !10
-  %22 = getelementptr inbounds i8, ptr %0, i64 56
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store ptr %21, ptr %22, align 8, !alias.scope !10
-  %23 = getelementptr inbounds i8, ptr %0, i64 64
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i32 2, ptr %23, align 8, !alias.scope !10
-  %24 = getelementptr inbounds i8, ptr %0, i64 68
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 68
   store i32 0, ptr %24, align 4, !alias.scope !10
-  %25 = getelementptr inbounds i8, ptr %0, i64 72
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store i32 0, ptr %25, align 8, !alias.scope !10
   store i32 1, ptr %18, align 4, !alias.scope !10, !noalias !13
   store ptr @_ZN4llvm17PreservedAnalyses14AllAnalysesKeyE, ptr %15, align 8, !alias.scope !10, !noalias !13
@@ -438,11 +438,11 @@ define linkonce_odr hidden void @_ZNK4llvm15AnalysisManagerINS_6ModuleEJEE20veri
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 20
   store i32 0, ptr %11, align 4, !alias.scope !16
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 48
-  %13 = getelementptr inbounds i8, ptr %4, i64 80
+  %13 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr %13, ptr %12, align 8, !alias.scope !16
-  %14 = getelementptr inbounds i8, ptr %4, i64 56
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 56
   store ptr %13, ptr %14, align 8, !alias.scope !16
-  %15 = getelementptr inbounds i8, ptr %4, i64 64
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 64
   store i32 2, ptr %15, align 8, !alias.scope !16
   %.phi.trans.insert.i.i.ptr = getelementptr inbounds i8, ptr %5, i64 8
   store i32 1, ptr %5, align 8
@@ -467,7 +467,7 @@ _ZN4llvm13SmallDenseMapIPNS_11AnalysisKeyEbLj8ENS_12DenseMapInfoIS2_vEENS_6detai
   br i1 %.not.i.i, label %20, label %_ZN4llvm13SmallDenseMapIPNS_11AnalysisKeyEbLj8ENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_bEEED2Ev.exit
 
 20:                                               ; preds = %_ZN4llvm13SmallDenseMapIPNS_11AnalysisKeyEbLj8ENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_bEEEC2Ej.exit
-  %.phi.trans.insert3.i.i = getelementptr inbounds i8, ptr %5, i64 16
+  %.phi.trans.insert3.i.i = getelementptr inbounds nuw i8, ptr %5, i64 16
   %21 = load ptr, ptr %.phi.trans.insert.i.i.ptr, align 8
   %22 = load i32, ptr %.phi.trans.insert3.i.i, align 8
   %23 = zext i32 %22 to i64

@@ -23,7 +23,7 @@ define dso_local void @_ZN4llvm22InferFunctionAttrsPass3runERNS_6ModuleERNS_15An
   %5 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm15AnalysisManagerINS_6ModuleEJEE13getResultImplEPNS_11AnalysisKeyERS1_(ptr noundef nonnull align 8 dereferenceable(72) %3, ptr noundef nonnull @_ZN4llvm25InnerAnalysisManagerProxyINS_15AnalysisManagerINS_8FunctionEJEEENS_6ModuleEJEE3KeyE, ptr noundef nonnull align 8 dereferenceable(857) %2) #3
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = tail call noundef nonnull align 8 dereferenceable(72) ptr @_ZN4llvm25InnerAnalysisManagerProxyINS_15AnalysisManagerINS_8FunctionEJEEENS_6ModuleEJEE6Result10getManagerEv(ptr noundef nonnull align 8 dereferenceable(8) %6) #3
-  %8 = getelementptr inbounds i8, ptr %2, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %.sroa.012.018.i = load ptr, ptr %8, align 8
   %.not19.i = icmp eq ptr %.sroa.012.018.i, %9
@@ -80,15 +80,15 @@ _ZL27inferAllPrototypeAttributesRN4llvm6ModuleENS_12function_refIFRNS_17TargetLi
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 0, ptr %32, align 8, !alias.scope !4
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %34 = getelementptr inbounds i8, ptr %0, i64 80
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store ptr %34, ptr %33, align 8, !alias.scope !4
-  %35 = getelementptr inbounds i8, ptr %0, i64 56
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store ptr %34, ptr %35, align 8, !alias.scope !4
-  %36 = getelementptr inbounds i8, ptr %0, i64 64
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i32 2, ptr %36, align 8, !alias.scope !4
-  %37 = getelementptr inbounds i8, ptr %0, i64 68
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 68
   store i32 0, ptr %37, align 4, !alias.scope !4
-  %38 = getelementptr inbounds i8, ptr %0, i64 72
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store i32 0, ptr %38, align 8, !alias.scope !4
   store i32 1, ptr %31, align 4, !alias.scope !4, !noalias !7
   store ptr @_ZN4llvm17PreservedAnalyses14AllAnalysesKeyE, ptr %28, align 8, !alias.scope !4, !noalias !7
@@ -106,11 +106,11 @@ _ZL27inferAllPrototypeAttributesRN4llvm6ModuleENS_12function_refIFRNS_17TargetLi
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 0, ptr %44, align 4, !alias.scope !10
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %46 = getelementptr inbounds i8, ptr %0, i64 80
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store ptr %46, ptr %45, align 8, !alias.scope !10
-  %47 = getelementptr inbounds i8, ptr %0, i64 56
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store ptr %46, ptr %47, align 8, !alias.scope !10
-  %48 = getelementptr inbounds i8, ptr %0, i64 64
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i32 2, ptr %48, align 8, !alias.scope !10
   br label %49
 

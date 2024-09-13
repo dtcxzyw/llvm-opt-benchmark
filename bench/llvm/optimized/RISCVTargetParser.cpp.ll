@@ -262,7 +262,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit.thread13.i:     ; preds = %_ZN4llvmeqENS_9Stri
 
 .split13.us:                                      ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i, %.split.us
   %.us-phi = phi ptr [ %.011.ptr16.i.us, %.split.us ], [ %.011.ptr16.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i ]
-  %6 = getelementptr inbounds i8, ptr %.us-phi, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %.us-phi, i64 24
   %7 = load i64, ptr %6, align 8
   %.not.i.i6 = icmp ult i64 %7, 4
   br i1 %.not.i.i6, label %_ZNK4llvm5RISCV7CPUInfo7is64BitEv.exit, label %8
@@ -346,7 +346,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit.thread13.i.i:   ; preds = %_ZN4llvmeqENS_9Stri
 
 .split13.us.i:                                    ; preds = %.split.us.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i
   %.us-phi.i = phi ptr [ %.011.ptr16.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i ], [ %.011.ptr16.i.us.i, %.split.us.i ]
-  %8 = getelementptr inbounds i8, ptr %.us-phi.i, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %.us-phi.i, i64 24
   %9 = load i64, ptr %8, align 8
   %.not.i.i6.i = icmp ult i64 %9, 4
   br i1 %.not.i.i6.i, label %_ZNK4llvm5RISCV7CPUInfo7is64BitEv.exit.i, label %10
@@ -430,7 +430,7 @@ define dso_local void @_ZN4llvm5RISCV20fillValidCPUArchListERNS_15SmallVectorImp
 .split.us:                                        ; preds = %2, %._ZNK4llvm5RISCV7CPUInfo7is64BitEv.exit_crit_edge.us
   %.0.idx7.us = phi i64 [ %.0.add.us, %._ZNK4llvm5RISCV7CPUInfo7is64BitEv.exit_crit_edge.us ], [ 0, %2 ]
   %.0.ptr8.us = getelementptr inbounds i8, ptr @_ZN4llvm5RISCVL12RISCVCPUInfoE, i64 %.0.idx7.us
-  %3 = getelementptr inbounds i8, ptr %.0.ptr8.us, i64 24
+  %3 = getelementptr inbounds nuw i8, ptr %.0.ptr8.us, i64 24
   %4 = load i64, ptr %3, align 8
   %.not.i.i.us = icmp ult i64 %4, 4
   br i1 %.not.i.i.us, label %._ZNK4llvm5RISCV7CPUInfo7is64BitEv.exit_crit_edge.us, label %_ZNK4llvm5RISCV7CPUInfo7is64BitEv.exit.us
@@ -454,7 +454,7 @@ _ZNK4llvm5RISCV7CPUInfo7is64BitEv.exit.us:        ; preds = %.split.us
 .split:                                           ; preds = %2, %15
   %.0.idx7 = phi i64 [ %.0.add, %15 ], [ 0, %2 ]
   %.0.ptr8 = getelementptr inbounds i8, ptr @_ZN4llvm5RISCVL12RISCVCPUInfoE, i64 %.0.idx7
-  %9 = getelementptr inbounds i8, ptr %.0.ptr8, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %.0.ptr8, i64 24
   %10 = load i64, ptr %9, align 8
   %.not.i.i = icmp ult i64 %10, 4
   br i1 %.not.i.i, label %._ZNK4llvm5RISCV7CPUInfo7is64BitEv.exit_crit_edge, label %_ZNK4llvm5RISCV7CPUInfo7is64BitEv.exit
@@ -519,7 +519,7 @@ define dso_local void @_ZN4llvm5RISCV24fillValidTuneCPUArchListERNS_15SmallVecto
 .split.us:                                        ; preds = %2, %._ZNK4llvm5RISCV7CPUInfo7is64BitEv.exit_crit_edge.us
   %.0.idx10.us = phi i64 [ %.0.add.us, %._ZNK4llvm5RISCV7CPUInfo7is64BitEv.exit_crit_edge.us ], [ 0, %2 ]
   %.0.ptr11.us = getelementptr inbounds i8, ptr @_ZN4llvm5RISCVL12RISCVCPUInfoE, i64 %.0.idx10.us
-  %6 = getelementptr inbounds i8, ptr %.0.ptr11.us, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %.0.ptr11.us, i64 24
   %7 = load i64, ptr %6, align 8
   %.not.i.i.us = icmp ult i64 %7, 4
   br i1 %.not.i.i.us, label %._ZNK4llvm5RISCV7CPUInfo7is64BitEv.exit_crit_edge.us, label %_ZNK4llvm5RISCV7CPUInfo7is64BitEv.exit.us
@@ -543,7 +543,7 @@ _ZNK4llvm5RISCV7CPUInfo7is64BitEv.exit.us:        ; preds = %.split.us
 .split:                                           ; preds = %2, %18
   %.0.idx10 = phi i64 [ %.0.add, %18 ], [ 0, %2 ]
   %.0.ptr11 = getelementptr inbounds i8, ptr @_ZN4llvm5RISCVL12RISCVCPUInfoE, i64 %.0.idx10
-  %12 = getelementptr inbounds i8, ptr %.0.ptr11, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %.0.ptr11, i64 24
   %13 = load i64, ptr %12, align 8
   %.not.i.i = icmp ult i64 %13, 4
   br i1 %.not.i.i, label %._ZNK4llvm5RISCV7CPUInfo7is64BitEv.exit_crit_edge, label %_ZNK4llvm5RISCV7CPUInfo7is64BitEv.exit
@@ -1179,7 +1179,7 @@ _ZN4llvm12ErrorSuccessD2Ev.exit:                  ; preds = %3
 13:                                               ; preds = %8
   %14 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %7, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %17 = load ptr, ptr %16, align 8
   %.not3334 = icmp eq ptr %15, %17
   br i1 %.not3334, label %_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i17, label %.lr.ph
@@ -1329,14 +1329,14 @@ _ZNK4llvm5Error3isAINS_9ErrorListEEEbv.exit9:     ; preds = %17
   store ptr null, ptr %2, align 8, !noalias !32
   %25 = getelementptr inbounds nuw i8, ptr %.pre52, i64 8
   %26 = load ptr, ptr %25, align 8
-  %27 = getelementptr inbounds i8, ptr %.pre52, i64 16
+  %27 = getelementptr inbounds nuw i8, ptr %.pre52, i64 16
   %28 = load ptr, ptr %27, align 8
   %.not4849 = icmp eq ptr %26, %28
   br i1 %.not4849, label %_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i, label %.lr.ph
 
 .lr.ph:                                           ; preds = %24
-  %29 = getelementptr inbounds i8, ptr %18, i64 16
-  %30 = getelementptr inbounds i8, ptr %18, i64 24
+  %29 = getelementptr inbounds nuw i8, ptr %18, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %18, i64 24
   %31 = getelementptr inbounds nuw i8, ptr %18, i64 8
   br label %32
 
@@ -1381,9 +1381,9 @@ _ZNK4llvm5Error3isAINS_9ErrorListEEEbv.exit9.thread: ; preds = %17, %_ZNK4llvm5E
   tail call void @llvm.experimental.noalias.scope.decl(metadata !35)
   store ptr %44, ptr %4, align 8, !alias.scope !35
   store ptr null, ptr %2, align 8, !noalias !35
-  %45 = getelementptr inbounds i8, ptr %18, i64 16
+  %45 = getelementptr inbounds nuw i8, ptr %18, i64 16
   %46 = load ptr, ptr %45, align 8
-  %47 = getelementptr inbounds i8, ptr %18, i64 24
+  %47 = getelementptr inbounds nuw i8, ptr %18, i64 24
   %48 = load ptr, ptr %47, align 8
   %.not.i.i11 = icmp eq ptr %46, %48
   br i1 %.not.i.i11, label %_ZNSt6vectorISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_EE9push_backEOS5_.exit12, label %_ZNSt6vectorISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_EE9push_backEOS5_.exit12.thread
@@ -1440,9 +1440,9 @@ _ZNK4llvm5Error3isAINS_9ErrorListEEEbv.exit17:    ; preds = %57
   %69 = ptrtoint ptr %66 to i64
   %70 = ptrtoint ptr %68 to i64
   %71 = sub i64 %69, %70
-  %72 = getelementptr inbounds i8, ptr %64, i64 16
+  %72 = getelementptr inbounds nuw i8, ptr %64, i64 16
   %73 = load ptr, ptr %72, align 8
-  %74 = getelementptr inbounds i8, ptr %64, i64 24
+  %74 = getelementptr inbounds nuw i8, ptr %64, i64 24
   %75 = load ptr, ptr %74, align 8
   %.not.i.i18 = icmp eq ptr %73, %75
   %76 = ptrtoint ptr %67 to i64
@@ -1546,10 +1546,10 @@ _ZNK4llvm5Error3isAINS_9ErrorListEEEbv.exit17.thread: ; preds = %57, %_ZNK4llvm5
   store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN4llvm9ErrorListE, i64 16), ptr %110, align 8
   %113 = getelementptr inbounds nuw i8, ptr %110, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %113, i8 0, i64 24, i1 false)
-  %114 = getelementptr inbounds i8, ptr %110, i64 16
+  %114 = getelementptr inbounds nuw i8, ptr %110, i64 16
   call void @_ZNSt6vectorISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %113, ptr null, ptr noundef nonnull align 8 dereferenceable(8) %6)
   %.pre.i = load ptr, ptr %114, align 8
-  %115 = getelementptr inbounds i8, ptr %110, i64 24
+  %115 = getelementptr inbounds nuw i8, ptr %110, i64 24
   %.pre3.i = load ptr, ptr %115, align 8
   %.not.i.i1.i = icmp eq ptr %.pre.i, %.pre3.i
   br i1 %.not.i.i1.i, label %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit24, label %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit24.thread

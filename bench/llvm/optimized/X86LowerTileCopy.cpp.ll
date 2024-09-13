@@ -292,8 +292,8 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_116X86LowerTileCopy20runOnMa
 48:                                               ; preds = %2
   %49 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %50 = load ptr, ptr %49, align 8
-  %51 = getelementptr inbounds i8, ptr %50, i64 696
-  %52 = getelementptr inbounds i8, ptr %50, i64 960
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 696
+  %52 = getelementptr inbounds nuw i8, ptr %50, i64 960
   %53 = load ptr, ptr %52, align 8
   %54 = getelementptr inbounds i8, ptr %53, i64 576
   %55 = load ptr, ptr %54, align 8
@@ -302,7 +302,7 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_116X86LowerTileCopy20runOnMa
   %57 = getelementptr inbounds i8, ptr %56, i64 1064
   %58 = load ptr, ptr %57, align 8
   call void @_ZNK4llvm18TargetRegisterInfo17getAllocatableSetERKNS_15MachineFunctionEPKNS_19TargetRegisterClassE(ptr dead_on_unwind nonnull writable sret(%"class.llvm::BitVector") align 8 %28, ptr noundef nonnull align 8 dereferenceable(308) %51, ptr noundef nonnull align 8 dereferenceable(1041) %1, ptr noundef %58) #12
-  %59 = getelementptr inbounds i8, ptr %1, i64 328
+  %59 = getelementptr inbounds nuw i8, ptr %1, i64 328
   %60 = getelementptr inbounds nuw i8, ptr %1, i64 320
   %.sroa.0257.0308 = load ptr, ptr %59, align 8
   %.not279309 = icmp eq ptr %.sroa.0257.0308, %60
@@ -311,10 +311,10 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_116X86LowerTileCopy20runOnMa
 .lr.ph313:                                        ; preds = %48
   %61 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %62 = getelementptr inbounds i8, ptr %29, i64 24
-  %63 = getelementptr inbounds i8, ptr %29, i64 72
-  %64 = getelementptr inbounds i8, ptr %50, i64 984
-  %65 = getelementptr inbounds i8, ptr %50, i64 968
-  %66 = getelementptr inbounds i8, ptr %50, i64 1000
+  %63 = getelementptr inbounds nuw i8, ptr %29, i64 72
+  %64 = getelementptr inbounds nuw i8, ptr %50, i64 984
+  %65 = getelementptr inbounds nuw i8, ptr %50, i64 968
+  %66 = getelementptr inbounds nuw i8, ptr %50, i64 1000
   %67 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %68 = getelementptr inbounds nuw i8, ptr %27, i64 64
   %69 = getelementptr inbounds nuw i8, ptr %30, i64 8
@@ -1652,7 +1652,7 @@ define linkonce_odr hidden void @_ZN4llvm12LiveRegUnits4initERKNS_18TargetRegist
 _ZN4llvm9BitVector5resetEv.exit:                  ; preds = %2, %.lr.ph.i.i.i.i.preheader.i
   %7 = getelementptr inbounds i8, ptr %1, i64 44
   %8 = load i32, ptr %7, align 4
-  %9 = getelementptr inbounds i8, ptr %0, i64 72
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %10 = load i32, ptr %9, align 8
   %11 = and i32 %10, 63
   %.not.i.i = icmp eq i32 %11, 0

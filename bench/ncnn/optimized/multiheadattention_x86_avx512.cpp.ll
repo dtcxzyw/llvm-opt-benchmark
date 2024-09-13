@@ -173,7 +173,7 @@ define hidden noundef i32 @_ZN4ncnn29MultiHeadAttention_x86_avx51215create_pipel
   br i1 %58, label %110, label %59
 
 59:                                               ; preds = %55
-  %60 = getelementptr inbounds i8, ptr %0, i64 248
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %61 = load ptr, ptr %60, align 8
   %.not = icmp eq ptr %61, null
   br i1 %.not, label %64, label %62
@@ -228,32 +228,32 @@ define hidden noundef i32 @_ZN4ncnn29MultiHeadAttention_x86_avx51215create_pipel
   store ptr %89, ptr %4, align 16
   %90 = load ptr, ptr %60, align 8
   store ptr %90, ptr %65, align 8
-  %91 = getelementptr inbounds i8, ptr %0, i64 256
+  %91 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %92 = load i64, ptr %91, align 8
   store i64 %92, ptr %81, align 16
-  %93 = getelementptr inbounds i8, ptr %0, i64 264
+  %93 = getelementptr inbounds nuw i8, ptr %0, i64 264
   %94 = load i32, ptr %93, align 8
   store i32 %94, ptr %82, align 8
-  %95 = getelementptr inbounds i8, ptr %0, i64 272
+  %95 = getelementptr inbounds nuw i8, ptr %0, i64 272
   %96 = load ptr, ptr %95, align 8
   %97 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store ptr %96, ptr %97, align 16
-  %98 = getelementptr inbounds i8, ptr %0, i64 280
+  %98 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %99 = load i32, ptr %98, align 8
   store i32 %99, ptr %83, align 8
-  %100 = getelementptr inbounds i8, ptr %0, i64 284
+  %100 = getelementptr inbounds nuw i8, ptr %0, i64 284
   %101 = load i32, ptr %100, align 4
   store i32 %101, ptr %84, align 4
-  %102 = getelementptr inbounds i8, ptr %0, i64 288
+  %102 = getelementptr inbounds nuw i8, ptr %0, i64 288
   %103 = load i32, ptr %102, align 8
   store i32 %103, ptr %85, align 16
-  %104 = getelementptr inbounds i8, ptr %0, i64 292
+  %104 = getelementptr inbounds nuw i8, ptr %0, i64 292
   %105 = load i32, ptr %104, align 4
   store i32 %105, ptr %86, align 4
-  %106 = getelementptr inbounds i8, ptr %0, i64 296
+  %106 = getelementptr inbounds nuw i8, ptr %0, i64 296
   %107 = load i32, ptr %106, align 8
   store i32 %107, ptr %87, align 8
-  %108 = getelementptr inbounds i8, ptr %0, i64 304
+  %108 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %109 = load i64, ptr %108, align 8
   store i64 %109, ptr %88, align 16
   br label %110
@@ -265,7 +265,7 @@ define hidden noundef i32 @_ZN4ncnn29MultiHeadAttention_x86_avx51215create_pipel
   br i1 %113, label %165, label %114
 
 114:                                              ; preds = %110
-  %115 = getelementptr inbounds i8, ptr %0, i64 320
+  %115 = getelementptr inbounds nuw i8, ptr %0, i64 320
   %116 = load ptr, ptr %115, align 8
   %.not399 = icmp eq ptr %116, null
   br i1 %.not399, label %119, label %117
@@ -320,32 +320,32 @@ define hidden noundef i32 @_ZN4ncnn29MultiHeadAttention_x86_avx51215create_pipel
   store ptr %144, ptr %112, align 8
   %145 = load ptr, ptr %115, align 8
   store ptr %145, ptr %120, align 16
-  %146 = getelementptr inbounds i8, ptr %0, i64 328
+  %146 = getelementptr inbounds nuw i8, ptr %0, i64 328
   %147 = load i64, ptr %146, align 8
   store i64 %147, ptr %136, align 8
-  %148 = getelementptr inbounds i8, ptr %0, i64 336
+  %148 = getelementptr inbounds nuw i8, ptr %0, i64 336
   %149 = load i32, ptr %148, align 8
   store i32 %149, ptr %137, align 16
-  %150 = getelementptr inbounds i8, ptr %0, i64 344
+  %150 = getelementptr inbounds nuw i8, ptr %0, i64 344
   %151 = load ptr, ptr %150, align 8
   %152 = getelementptr inbounds i8, ptr %4, i64 104
   store ptr %151, ptr %152, align 8
-  %153 = getelementptr inbounds i8, ptr %0, i64 352
+  %153 = getelementptr inbounds nuw i8, ptr %0, i64 352
   %154 = load i32, ptr %153, align 8
   store i32 %154, ptr %138, align 16
-  %155 = getelementptr inbounds i8, ptr %0, i64 356
+  %155 = getelementptr inbounds nuw i8, ptr %0, i64 356
   %156 = load i32, ptr %155, align 4
   store i32 %156, ptr %139, align 4
-  %157 = getelementptr inbounds i8, ptr %0, i64 360
+  %157 = getelementptr inbounds nuw i8, ptr %0, i64 360
   %158 = load i32, ptr %157, align 8
   store i32 %158, ptr %140, align 8
-  %159 = getelementptr inbounds i8, ptr %0, i64 364
+  %159 = getelementptr inbounds nuw i8, ptr %0, i64 364
   %160 = load i32, ptr %159, align 4
   store i32 %160, ptr %141, align 4
-  %161 = getelementptr inbounds i8, ptr %0, i64 368
+  %161 = getelementptr inbounds nuw i8, ptr %0, i64 368
   %162 = load i32, ptr %161, align 8
   store i32 %162, ptr %142, align 16
-  %163 = getelementptr inbounds i8, ptr %0, i64 376
+  %163 = getelementptr inbounds nuw i8, ptr %0, i64 376
   %164 = load i64, ptr %163, align 8
   store i64 %164, ptr %143, align 8
   br label %165
@@ -380,7 +380,7 @@ define hidden noundef i32 @_ZN4ncnn29MultiHeadAttention_x86_avx51215create_pipel
   br label %224
 
 181:                                              ; preds = %178
-  %182 = getelementptr inbounds i8, ptr %0, i64 248
+  %182 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %183 = load ptr, ptr %182, align 8
   %.not403 = icmp eq ptr %183, null
   br i1 %.not403, label %197, label %184
@@ -391,7 +391,7 @@ define hidden noundef i32 @_ZN4ncnn29MultiHeadAttention_x86_avx51215create_pipel
   br i1 %186, label %187, label %197
 
 187:                                              ; preds = %184
-  %188 = getelementptr inbounds i8, ptr %0, i64 272
+  %188 = getelementptr inbounds nuw i8, ptr %0, i64 272
   %189 = load ptr, ptr %188, align 8
   %.not404 = icmp eq ptr %189, null
   %190 = load ptr, ptr %57, align 8
@@ -413,10 +413,10 @@ define hidden noundef i32 @_ZN4ncnn29MultiHeadAttention_x86_avx51215create_pipel
   br label %197
 
 197:                                              ; preds = %191, %196, %195, %184, %181
-  %198 = getelementptr inbounds i8, ptr %0, i64 280
-  %199 = getelementptr inbounds i8, ptr %0, i64 304
+  %198 = getelementptr inbounds nuw i8, ptr %0, i64 280
+  %199 = getelementptr inbounds nuw i8, ptr %0, i64 304
   store i64 0, ptr %199, align 8
-  %200 = getelementptr inbounds i8, ptr %0, i64 320
+  %200 = getelementptr inbounds nuw i8, ptr %0, i64 320
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %57, i8 0, i64 28, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %198, i8 0, i64 20, i1 false)
   %201 = load ptr, ptr %200, align 8
@@ -429,7 +429,7 @@ define hidden noundef i32 @_ZN4ncnn29MultiHeadAttention_x86_avx51215create_pipel
   br i1 %204, label %205, label %215
 
 205:                                              ; preds = %202
-  %206 = getelementptr inbounds i8, ptr %0, i64 344
+  %206 = getelementptr inbounds nuw i8, ptr %0, i64 344
   %207 = load ptr, ptr %206, align 8
   %.not407 = icmp eq ptr %207, null
   %208 = load ptr, ptr %111, align 8
@@ -451,8 +451,8 @@ define hidden noundef i32 @_ZN4ncnn29MultiHeadAttention_x86_avx51215create_pipel
   br label %215
 
 215:                                              ; preds = %209, %214, %213, %202, %197
-  %216 = getelementptr inbounds i8, ptr %0, i64 352
-  %217 = getelementptr inbounds i8, ptr %0, i64 376
+  %216 = getelementptr inbounds nuw i8, ptr %0, i64 352
+  %217 = getelementptr inbounds nuw i8, ptr %0, i64 376
   store i64 0, ptr %217, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %111, i8 0, i64 28, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %216, i8 0, i64 20, i1 false)
@@ -608,7 +608,7 @@ define hidden noundef i32 @_ZN4ncnn29MultiHeadAttention_x86_avx51215create_pipel
   br i1 %278, label %330, label %279
 
 279:                                              ; preds = %275
-  %280 = getelementptr inbounds i8, ptr %0, i64 392
+  %280 = getelementptr inbounds nuw i8, ptr %0, i64 392
   %281 = load ptr, ptr %280, align 8
   %.not421 = icmp eq ptr %281, null
   br i1 %.not421, label %284, label %282
@@ -663,32 +663,32 @@ define hidden noundef i32 @_ZN4ncnn29MultiHeadAttention_x86_avx51215create_pipel
   store ptr %309, ptr %7, align 16
   %310 = load ptr, ptr %280, align 8
   store ptr %310, ptr %285, align 8
-  %311 = getelementptr inbounds i8, ptr %0, i64 400
+  %311 = getelementptr inbounds nuw i8, ptr %0, i64 400
   %312 = load i64, ptr %311, align 8
   store i64 %312, ptr %301, align 16
-  %313 = getelementptr inbounds i8, ptr %0, i64 408
+  %313 = getelementptr inbounds nuw i8, ptr %0, i64 408
   %314 = load i32, ptr %313, align 8
   store i32 %314, ptr %302, align 8
-  %315 = getelementptr inbounds i8, ptr %0, i64 416
+  %315 = getelementptr inbounds nuw i8, ptr %0, i64 416
   %316 = load ptr, ptr %315, align 8
   %317 = getelementptr inbounds nuw i8, ptr %7, i64 32
   store ptr %316, ptr %317, align 16
-  %318 = getelementptr inbounds i8, ptr %0, i64 424
+  %318 = getelementptr inbounds nuw i8, ptr %0, i64 424
   %319 = load i32, ptr %318, align 8
   store i32 %319, ptr %303, align 8
-  %320 = getelementptr inbounds i8, ptr %0, i64 428
+  %320 = getelementptr inbounds nuw i8, ptr %0, i64 428
   %321 = load i32, ptr %320, align 4
   store i32 %321, ptr %304, align 4
-  %322 = getelementptr inbounds i8, ptr %0, i64 432
+  %322 = getelementptr inbounds nuw i8, ptr %0, i64 432
   %323 = load i32, ptr %322, align 8
   store i32 %323, ptr %305, align 16
-  %324 = getelementptr inbounds i8, ptr %0, i64 436
+  %324 = getelementptr inbounds nuw i8, ptr %0, i64 436
   %325 = load i32, ptr %324, align 4
   store i32 %325, ptr %306, align 4
-  %326 = getelementptr inbounds i8, ptr %0, i64 440
+  %326 = getelementptr inbounds nuw i8, ptr %0, i64 440
   %327 = load i32, ptr %326, align 8
   store i32 %327, ptr %307, align 8
-  %328 = getelementptr inbounds i8, ptr %0, i64 448
+  %328 = getelementptr inbounds nuw i8, ptr %0, i64 448
   %329 = load i64, ptr %328, align 8
   store i64 %329, ptr %308, align 16
   br label %330
@@ -700,7 +700,7 @@ define hidden noundef i32 @_ZN4ncnn29MultiHeadAttention_x86_avx51215create_pipel
   br i1 %333, label %385, label %334
 
 334:                                              ; preds = %330
-  %335 = getelementptr inbounds i8, ptr %0, i64 464
+  %335 = getelementptr inbounds nuw i8, ptr %0, i64 464
   %336 = load ptr, ptr %335, align 8
   %.not425 = icmp eq ptr %336, null
   br i1 %.not425, label %339, label %337
@@ -755,32 +755,32 @@ define hidden noundef i32 @_ZN4ncnn29MultiHeadAttention_x86_avx51215create_pipel
   store ptr %364, ptr %332, align 8
   %365 = load ptr, ptr %335, align 8
   store ptr %365, ptr %340, align 16
-  %366 = getelementptr inbounds i8, ptr %0, i64 472
+  %366 = getelementptr inbounds nuw i8, ptr %0, i64 472
   %367 = load i64, ptr %366, align 8
   store i64 %367, ptr %356, align 8
-  %368 = getelementptr inbounds i8, ptr %0, i64 480
+  %368 = getelementptr inbounds nuw i8, ptr %0, i64 480
   %369 = load i32, ptr %368, align 8
   store i32 %369, ptr %357, align 16
-  %370 = getelementptr inbounds i8, ptr %0, i64 488
+  %370 = getelementptr inbounds nuw i8, ptr %0, i64 488
   %371 = load ptr, ptr %370, align 8
   %372 = getelementptr inbounds i8, ptr %7, i64 104
   store ptr %371, ptr %372, align 8
-  %373 = getelementptr inbounds i8, ptr %0, i64 496
+  %373 = getelementptr inbounds nuw i8, ptr %0, i64 496
   %374 = load i32, ptr %373, align 8
   store i32 %374, ptr %358, align 16
-  %375 = getelementptr inbounds i8, ptr %0, i64 500
+  %375 = getelementptr inbounds nuw i8, ptr %0, i64 500
   %376 = load i32, ptr %375, align 4
   store i32 %376, ptr %359, align 4
-  %377 = getelementptr inbounds i8, ptr %0, i64 504
+  %377 = getelementptr inbounds nuw i8, ptr %0, i64 504
   %378 = load i32, ptr %377, align 8
   store i32 %378, ptr %360, align 8
-  %379 = getelementptr inbounds i8, ptr %0, i64 508
+  %379 = getelementptr inbounds nuw i8, ptr %0, i64 508
   %380 = load i32, ptr %379, align 4
   store i32 %380, ptr %361, align 4
-  %381 = getelementptr inbounds i8, ptr %0, i64 512
+  %381 = getelementptr inbounds nuw i8, ptr %0, i64 512
   %382 = load i32, ptr %381, align 8
   store i32 %382, ptr %362, align 16
-  %383 = getelementptr inbounds i8, ptr %0, i64 520
+  %383 = getelementptr inbounds nuw i8, ptr %0, i64 520
   %384 = load i64, ptr %383, align 8
   store i64 %384, ptr %363, align 8
   br label %385
@@ -815,7 +815,7 @@ define hidden noundef i32 @_ZN4ncnn29MultiHeadAttention_x86_avx51215create_pipel
   br label %470
 
 401:                                              ; preds = %398
-  %402 = getelementptr inbounds i8, ptr %0, i64 392
+  %402 = getelementptr inbounds nuw i8, ptr %0, i64 392
   %403 = load ptr, ptr %402, align 8
   %.not429 = icmp eq ptr %403, null
   br i1 %.not429, label %417, label %404
@@ -826,7 +826,7 @@ define hidden noundef i32 @_ZN4ncnn29MultiHeadAttention_x86_avx51215create_pipel
   br i1 %406, label %407, label %417
 
 407:                                              ; preds = %404
-  %408 = getelementptr inbounds i8, ptr %0, i64 416
+  %408 = getelementptr inbounds nuw i8, ptr %0, i64 416
   %409 = load ptr, ptr %408, align 8
   %.not430 = icmp eq ptr %409, null
   %410 = load ptr, ptr %277, align 8
@@ -848,10 +848,10 @@ define hidden noundef i32 @_ZN4ncnn29MultiHeadAttention_x86_avx51215create_pipel
   br label %417
 
 417:                                              ; preds = %411, %416, %415, %404, %401
-  %418 = getelementptr inbounds i8, ptr %0, i64 424
-  %419 = getelementptr inbounds i8, ptr %0, i64 448
+  %418 = getelementptr inbounds nuw i8, ptr %0, i64 424
+  %419 = getelementptr inbounds nuw i8, ptr %0, i64 448
   store i64 0, ptr %419, align 8
-  %420 = getelementptr inbounds i8, ptr %0, i64 464
+  %420 = getelementptr inbounds nuw i8, ptr %0, i64 464
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %277, i8 0, i64 28, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %418, i8 0, i64 20, i1 false)
   %421 = load ptr, ptr %420, align 8
@@ -864,7 +864,7 @@ define hidden noundef i32 @_ZN4ncnn29MultiHeadAttention_x86_avx51215create_pipel
   br i1 %424, label %425, label %435
 
 425:                                              ; preds = %422
-  %426 = getelementptr inbounds i8, ptr %0, i64 488
+  %426 = getelementptr inbounds nuw i8, ptr %0, i64 488
   %427 = load ptr, ptr %426, align 8
   %.not433 = icmp eq ptr %427, null
   %428 = load ptr, ptr %331, align 8
@@ -886,8 +886,8 @@ define hidden noundef i32 @_ZN4ncnn29MultiHeadAttention_x86_avx51215create_pipel
   br label %435
 
 435:                                              ; preds = %429, %434, %433, %422, %417
-  %436 = getelementptr inbounds i8, ptr %0, i64 496
-  %437 = getelementptr inbounds i8, ptr %0, i64 520
+  %436 = getelementptr inbounds nuw i8, ptr %0, i64 496
+  %437 = getelementptr inbounds nuw i8, ptr %0, i64 520
   store i64 0, ptr %437, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %331, i8 0, i64 28, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %436, i8 0, i64 20, i1 false)
@@ -1098,7 +1098,7 @@ define hidden noundef i32 @_ZN4ncnn29MultiHeadAttention_x86_avx51215create_pipel
   br i1 %524, label %576, label %525
 
 525:                                              ; preds = %521
-  %526 = getelementptr inbounds i8, ptr %0, i64 536
+  %526 = getelementptr inbounds nuw i8, ptr %0, i64 536
   %527 = load ptr, ptr %526, align 8
   %.not448 = icmp eq ptr %527, null
   br i1 %.not448, label %530, label %528
@@ -1153,32 +1153,32 @@ define hidden noundef i32 @_ZN4ncnn29MultiHeadAttention_x86_avx51215create_pipel
   store ptr %555, ptr %10, align 16
   %556 = load ptr, ptr %526, align 8
   store ptr %556, ptr %531, align 8
-  %557 = getelementptr inbounds i8, ptr %0, i64 544
+  %557 = getelementptr inbounds nuw i8, ptr %0, i64 544
   %558 = load i64, ptr %557, align 8
   store i64 %558, ptr %547, align 16
-  %559 = getelementptr inbounds i8, ptr %0, i64 552
+  %559 = getelementptr inbounds nuw i8, ptr %0, i64 552
   %560 = load i32, ptr %559, align 8
   store i32 %560, ptr %548, align 8
-  %561 = getelementptr inbounds i8, ptr %0, i64 560
+  %561 = getelementptr inbounds nuw i8, ptr %0, i64 560
   %562 = load ptr, ptr %561, align 8
   %563 = getelementptr inbounds nuw i8, ptr %10, i64 32
   store ptr %562, ptr %563, align 16
-  %564 = getelementptr inbounds i8, ptr %0, i64 568
+  %564 = getelementptr inbounds nuw i8, ptr %0, i64 568
   %565 = load i32, ptr %564, align 8
   store i32 %565, ptr %549, align 8
-  %566 = getelementptr inbounds i8, ptr %0, i64 572
+  %566 = getelementptr inbounds nuw i8, ptr %0, i64 572
   %567 = load i32, ptr %566, align 4
   store i32 %567, ptr %550, align 4
-  %568 = getelementptr inbounds i8, ptr %0, i64 576
+  %568 = getelementptr inbounds nuw i8, ptr %0, i64 576
   %569 = load i32, ptr %568, align 8
   store i32 %569, ptr %551, align 16
-  %570 = getelementptr inbounds i8, ptr %0, i64 580
+  %570 = getelementptr inbounds nuw i8, ptr %0, i64 580
   %571 = load i32, ptr %570, align 4
   store i32 %571, ptr %552, align 4
-  %572 = getelementptr inbounds i8, ptr %0, i64 584
+  %572 = getelementptr inbounds nuw i8, ptr %0, i64 584
   %573 = load i32, ptr %572, align 8
   store i32 %573, ptr %553, align 8
-  %574 = getelementptr inbounds i8, ptr %0, i64 592
+  %574 = getelementptr inbounds nuw i8, ptr %0, i64 592
   %575 = load i64, ptr %574, align 8
   store i64 %575, ptr %554, align 16
   br label %576
@@ -1190,7 +1190,7 @@ define hidden noundef i32 @_ZN4ncnn29MultiHeadAttention_x86_avx51215create_pipel
   br i1 %579, label %631, label %580
 
 580:                                              ; preds = %576
-  %581 = getelementptr inbounds i8, ptr %0, i64 608
+  %581 = getelementptr inbounds nuw i8, ptr %0, i64 608
   %582 = load ptr, ptr %581, align 8
   %.not452 = icmp eq ptr %582, null
   br i1 %.not452, label %585, label %583
@@ -1245,32 +1245,32 @@ define hidden noundef i32 @_ZN4ncnn29MultiHeadAttention_x86_avx51215create_pipel
   store ptr %610, ptr %578, align 8
   %611 = load ptr, ptr %581, align 8
   store ptr %611, ptr %586, align 16
-  %612 = getelementptr inbounds i8, ptr %0, i64 616
+  %612 = getelementptr inbounds nuw i8, ptr %0, i64 616
   %613 = load i64, ptr %612, align 8
   store i64 %613, ptr %602, align 8
-  %614 = getelementptr inbounds i8, ptr %0, i64 624
+  %614 = getelementptr inbounds nuw i8, ptr %0, i64 624
   %615 = load i32, ptr %614, align 8
   store i32 %615, ptr %603, align 16
-  %616 = getelementptr inbounds i8, ptr %0, i64 632
+  %616 = getelementptr inbounds nuw i8, ptr %0, i64 632
   %617 = load ptr, ptr %616, align 8
   %618 = getelementptr inbounds i8, ptr %10, i64 104
   store ptr %617, ptr %618, align 8
-  %619 = getelementptr inbounds i8, ptr %0, i64 640
+  %619 = getelementptr inbounds nuw i8, ptr %0, i64 640
   %620 = load i32, ptr %619, align 8
   store i32 %620, ptr %604, align 16
-  %621 = getelementptr inbounds i8, ptr %0, i64 644
+  %621 = getelementptr inbounds nuw i8, ptr %0, i64 644
   %622 = load i32, ptr %621, align 4
   store i32 %622, ptr %605, align 4
-  %623 = getelementptr inbounds i8, ptr %0, i64 648
+  %623 = getelementptr inbounds nuw i8, ptr %0, i64 648
   %624 = load i32, ptr %623, align 8
   store i32 %624, ptr %606, align 8
-  %625 = getelementptr inbounds i8, ptr %0, i64 652
+  %625 = getelementptr inbounds nuw i8, ptr %0, i64 652
   %626 = load i32, ptr %625, align 4
   store i32 %626, ptr %607, align 4
-  %627 = getelementptr inbounds i8, ptr %0, i64 656
+  %627 = getelementptr inbounds nuw i8, ptr %0, i64 656
   %628 = load i32, ptr %627, align 8
   store i32 %628, ptr %608, align 16
-  %629 = getelementptr inbounds i8, ptr %0, i64 664
+  %629 = getelementptr inbounds nuw i8, ptr %0, i64 664
   %630 = load i64, ptr %629, align 8
   store i64 %630, ptr %609, align 8
   br label %631
@@ -1305,7 +1305,7 @@ define hidden noundef i32 @_ZN4ncnn29MultiHeadAttention_x86_avx51215create_pipel
   br label %716
 
 647:                                              ; preds = %644
-  %648 = getelementptr inbounds i8, ptr %0, i64 536
+  %648 = getelementptr inbounds nuw i8, ptr %0, i64 536
   %649 = load ptr, ptr %648, align 8
   %.not456 = icmp eq ptr %649, null
   br i1 %.not456, label %663, label %650
@@ -1316,7 +1316,7 @@ define hidden noundef i32 @_ZN4ncnn29MultiHeadAttention_x86_avx51215create_pipel
   br i1 %652, label %653, label %663
 
 653:                                              ; preds = %650
-  %654 = getelementptr inbounds i8, ptr %0, i64 560
+  %654 = getelementptr inbounds nuw i8, ptr %0, i64 560
   %655 = load ptr, ptr %654, align 8
   %.not457 = icmp eq ptr %655, null
   %656 = load ptr, ptr %523, align 8
@@ -1338,10 +1338,10 @@ define hidden noundef i32 @_ZN4ncnn29MultiHeadAttention_x86_avx51215create_pipel
   br label %663
 
 663:                                              ; preds = %657, %662, %661, %650, %647
-  %664 = getelementptr inbounds i8, ptr %0, i64 568
-  %665 = getelementptr inbounds i8, ptr %0, i64 592
+  %664 = getelementptr inbounds nuw i8, ptr %0, i64 568
+  %665 = getelementptr inbounds nuw i8, ptr %0, i64 592
   store i64 0, ptr %665, align 8
-  %666 = getelementptr inbounds i8, ptr %0, i64 608
+  %666 = getelementptr inbounds nuw i8, ptr %0, i64 608
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %523, i8 0, i64 28, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %664, i8 0, i64 20, i1 false)
   %667 = load ptr, ptr %666, align 8
@@ -1354,7 +1354,7 @@ define hidden noundef i32 @_ZN4ncnn29MultiHeadAttention_x86_avx51215create_pipel
   br i1 %670, label %671, label %681
 
 671:                                              ; preds = %668
-  %672 = getelementptr inbounds i8, ptr %0, i64 632
+  %672 = getelementptr inbounds nuw i8, ptr %0, i64 632
   %673 = load ptr, ptr %672, align 8
   %.not460 = icmp eq ptr %673, null
   %674 = load ptr, ptr %577, align 8
@@ -1376,8 +1376,8 @@ define hidden noundef i32 @_ZN4ncnn29MultiHeadAttention_x86_avx51215create_pipel
   br label %681
 
 681:                                              ; preds = %675, %680, %679, %668, %663
-  %682 = getelementptr inbounds i8, ptr %0, i64 640
-  %683 = getelementptr inbounds i8, ptr %0, i64 664
+  %682 = getelementptr inbounds nuw i8, ptr %0, i64 640
+  %683 = getelementptr inbounds nuw i8, ptr %0, i64 664
   store i64 0, ptr %683, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %577, i8 0, i64 28, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %682, i8 0, i64 20, i1 false)
@@ -1793,7 +1793,7 @@ define hidden noundef i32 @_ZN4ncnn29MultiHeadAttention_x86_avx51215create_pipel
   br i1 %861, label %913, label %862
 
 862:                                              ; preds = %858
-  %863 = getelementptr inbounds i8, ptr %0, i64 680
+  %863 = getelementptr inbounds nuw i8, ptr %0, i64 680
   %864 = load ptr, ptr %863, align 8
   %.not483 = icmp eq ptr %864, null
   br i1 %.not483, label %867, label %865
@@ -1848,32 +1848,32 @@ define hidden noundef i32 @_ZN4ncnn29MultiHeadAttention_x86_avx51215create_pipel
   store ptr %892, ptr %21, align 16
   %893 = load ptr, ptr %863, align 8
   store ptr %893, ptr %868, align 8
-  %894 = getelementptr inbounds i8, ptr %0, i64 688
+  %894 = getelementptr inbounds nuw i8, ptr %0, i64 688
   %895 = load i64, ptr %894, align 8
   store i64 %895, ptr %884, align 16
-  %896 = getelementptr inbounds i8, ptr %0, i64 696
+  %896 = getelementptr inbounds nuw i8, ptr %0, i64 696
   %897 = load i32, ptr %896, align 8
   store i32 %897, ptr %885, align 8
-  %898 = getelementptr inbounds i8, ptr %0, i64 704
+  %898 = getelementptr inbounds nuw i8, ptr %0, i64 704
   %899 = load ptr, ptr %898, align 8
   %900 = getelementptr inbounds nuw i8, ptr %21, i64 32
   store ptr %899, ptr %900, align 16
-  %901 = getelementptr inbounds i8, ptr %0, i64 712
+  %901 = getelementptr inbounds nuw i8, ptr %0, i64 712
   %902 = load i32, ptr %901, align 8
   store i32 %902, ptr %886, align 8
-  %903 = getelementptr inbounds i8, ptr %0, i64 716
+  %903 = getelementptr inbounds nuw i8, ptr %0, i64 716
   %904 = load i32, ptr %903, align 4
   store i32 %904, ptr %887, align 4
-  %905 = getelementptr inbounds i8, ptr %0, i64 720
+  %905 = getelementptr inbounds nuw i8, ptr %0, i64 720
   %906 = load i32, ptr %905, align 8
   store i32 %906, ptr %888, align 16
-  %907 = getelementptr inbounds i8, ptr %0, i64 724
+  %907 = getelementptr inbounds nuw i8, ptr %0, i64 724
   %908 = load i32, ptr %907, align 4
   store i32 %908, ptr %889, align 4
-  %909 = getelementptr inbounds i8, ptr %0, i64 728
+  %909 = getelementptr inbounds nuw i8, ptr %0, i64 728
   %910 = load i32, ptr %909, align 8
   store i32 %910, ptr %890, align 8
-  %911 = getelementptr inbounds i8, ptr %0, i64 736
+  %911 = getelementptr inbounds nuw i8, ptr %0, i64 736
   %912 = load i64, ptr %911, align 8
   store i64 %912, ptr %891, align 16
   br label %913
@@ -1885,7 +1885,7 @@ define hidden noundef i32 @_ZN4ncnn29MultiHeadAttention_x86_avx51215create_pipel
   br i1 %916, label %968, label %917
 
 917:                                              ; preds = %913
-  %918 = getelementptr inbounds i8, ptr %0, i64 752
+  %918 = getelementptr inbounds nuw i8, ptr %0, i64 752
   %919 = load ptr, ptr %918, align 8
   %.not487 = icmp eq ptr %919, null
   br i1 %.not487, label %922, label %920
@@ -1940,32 +1940,32 @@ define hidden noundef i32 @_ZN4ncnn29MultiHeadAttention_x86_avx51215create_pipel
   store ptr %947, ptr %915, align 8
   %948 = load ptr, ptr %918, align 8
   store ptr %948, ptr %923, align 16
-  %949 = getelementptr inbounds i8, ptr %0, i64 760
+  %949 = getelementptr inbounds nuw i8, ptr %0, i64 760
   %950 = load i64, ptr %949, align 8
   store i64 %950, ptr %939, align 8
-  %951 = getelementptr inbounds i8, ptr %0, i64 768
+  %951 = getelementptr inbounds nuw i8, ptr %0, i64 768
   %952 = load i32, ptr %951, align 8
   store i32 %952, ptr %940, align 16
-  %953 = getelementptr inbounds i8, ptr %0, i64 776
+  %953 = getelementptr inbounds nuw i8, ptr %0, i64 776
   %954 = load ptr, ptr %953, align 8
   %955 = getelementptr inbounds i8, ptr %21, i64 104
   store ptr %954, ptr %955, align 8
-  %956 = getelementptr inbounds i8, ptr %0, i64 784
+  %956 = getelementptr inbounds nuw i8, ptr %0, i64 784
   %957 = load i32, ptr %956, align 8
   store i32 %957, ptr %941, align 16
-  %958 = getelementptr inbounds i8, ptr %0, i64 788
+  %958 = getelementptr inbounds nuw i8, ptr %0, i64 788
   %959 = load i32, ptr %958, align 4
   store i32 %959, ptr %942, align 4
-  %960 = getelementptr inbounds i8, ptr %0, i64 792
+  %960 = getelementptr inbounds nuw i8, ptr %0, i64 792
   %961 = load i32, ptr %960, align 8
   store i32 %961, ptr %943, align 8
-  %962 = getelementptr inbounds i8, ptr %0, i64 796
+  %962 = getelementptr inbounds nuw i8, ptr %0, i64 796
   %963 = load i32, ptr %962, align 4
   store i32 %963, ptr %944, align 4
-  %964 = getelementptr inbounds i8, ptr %0, i64 800
+  %964 = getelementptr inbounds nuw i8, ptr %0, i64 800
   %965 = load i32, ptr %964, align 8
   store i32 %965, ptr %945, align 16
-  %966 = getelementptr inbounds i8, ptr %0, i64 808
+  %966 = getelementptr inbounds nuw i8, ptr %0, i64 808
   %967 = load i64, ptr %966, align 8
   store i64 %967, ptr %946, align 8
   br label %968
@@ -2000,7 +2000,7 @@ define hidden noundef i32 @_ZN4ncnn29MultiHeadAttention_x86_avx51215create_pipel
   br label %1065
 
 984:                                              ; preds = %981
-  %985 = getelementptr inbounds i8, ptr %0, i64 680
+  %985 = getelementptr inbounds nuw i8, ptr %0, i64 680
   %986 = load ptr, ptr %985, align 8
   %.not491 = icmp eq ptr %986, null
   br i1 %.not491, label %1000, label %987
@@ -2011,7 +2011,7 @@ define hidden noundef i32 @_ZN4ncnn29MultiHeadAttention_x86_avx51215create_pipel
   br i1 %989, label %990, label %1000
 
 990:                                              ; preds = %987
-  %991 = getelementptr inbounds i8, ptr %0, i64 704
+  %991 = getelementptr inbounds nuw i8, ptr %0, i64 704
   %992 = load ptr, ptr %991, align 8
   %.not492 = icmp eq ptr %992, null
   %993 = load ptr, ptr %860, align 8
@@ -2033,10 +2033,10 @@ define hidden noundef i32 @_ZN4ncnn29MultiHeadAttention_x86_avx51215create_pipel
   br label %1000
 
 1000:                                             ; preds = %994, %999, %998, %987, %984
-  %1001 = getelementptr inbounds i8, ptr %0, i64 712
-  %1002 = getelementptr inbounds i8, ptr %0, i64 736
+  %1001 = getelementptr inbounds nuw i8, ptr %0, i64 712
+  %1002 = getelementptr inbounds nuw i8, ptr %0, i64 736
   store i64 0, ptr %1002, align 8
-  %1003 = getelementptr inbounds i8, ptr %0, i64 752
+  %1003 = getelementptr inbounds nuw i8, ptr %0, i64 752
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %860, i8 0, i64 28, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %1001, i8 0, i64 20, i1 false)
   %1004 = load ptr, ptr %1003, align 8
@@ -2049,7 +2049,7 @@ define hidden noundef i32 @_ZN4ncnn29MultiHeadAttention_x86_avx51215create_pipel
   br i1 %1007, label %1008, label %1018
 
 1008:                                             ; preds = %1005
-  %1009 = getelementptr inbounds i8, ptr %0, i64 776
+  %1009 = getelementptr inbounds nuw i8, ptr %0, i64 776
   %1010 = load ptr, ptr %1009, align 8
   %.not495 = icmp eq ptr %1010, null
   %1011 = load ptr, ptr %914, align 8
@@ -2071,8 +2071,8 @@ define hidden noundef i32 @_ZN4ncnn29MultiHeadAttention_x86_avx51215create_pipel
   br label %1018
 
 1018:                                             ; preds = %1012, %1017, %1016, %1005, %1000
-  %1019 = getelementptr inbounds i8, ptr %0, i64 784
-  %1020 = getelementptr inbounds i8, ptr %0, i64 808
+  %1019 = getelementptr inbounds nuw i8, ptr %0, i64 784
+  %1020 = getelementptr inbounds nuw i8, ptr %0, i64 808
   store i64 0, ptr %1020, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %914, i8 0, i64 28, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %1019, i8 0, i64 20, i1 false)
@@ -5016,7 +5016,7 @@ declare void @_ZN4ncnn3Mat6createEiimPNS_9AllocatorE(ptr noundef nonnull align 8
 define linkonce_odr hidden void @_ZN4ncnn18MultiHeadAttentionD2Ev(ptr noundef nonnull align 8 dereferenceable(816) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTVN4ncnn18MultiHeadAttentionE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 744
-  %3 = getelementptr inbounds i8, ptr %0, i64 752
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 752
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %18, label %5
@@ -5027,7 +5027,7 @@ define linkonce_odr hidden void @_ZN4ncnn18MultiHeadAttentionD2Ev(ptr noundef no
   br i1 %7, label %8, label %18
 
 8:                                                ; preds = %5
-  %9 = getelementptr inbounds i8, ptr %0, i64 776
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 776
   %10 = load ptr, ptr %9, align 8
   %.not71 = icmp eq ptr %10, null
   %11 = load ptr, ptr %2, align 8
@@ -5049,11 +5049,11 @@ define linkonce_odr hidden void @_ZN4ncnn18MultiHeadAttentionD2Ev(ptr noundef no
   br label %18
 
 18:                                               ; preds = %12, %17, %16, %5, %1
-  %19 = getelementptr inbounds i8, ptr %0, i64 784
-  %20 = getelementptr inbounds i8, ptr %0, i64 808
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 784
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 808
   store i64 0, ptr %20, align 8
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 672
-  %22 = getelementptr inbounds i8, ptr %0, i64 680
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 680
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %2, i8 0, i64 28, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %19, i8 0, i64 20, i1 false)
   %23 = load ptr, ptr %22, align 8
@@ -5073,7 +5073,7 @@ define linkonce_odr hidden void @_ZN4ncnn18MultiHeadAttentionD2Ev(ptr noundef no
   br i1 %29, label %30, label %40
 
 30:                                               ; preds = %27
-  %31 = getelementptr inbounds i8, ptr %0, i64 704
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 704
   %32 = load ptr, ptr %31, align 8
   %.not74 = icmp eq ptr %32, null
   %33 = load ptr, ptr %21, align 8
@@ -5095,11 +5095,11 @@ define linkonce_odr hidden void @_ZN4ncnn18MultiHeadAttentionD2Ev(ptr noundef no
   br label %40
 
 40:                                               ; preds = %34, %39, %38, %27, %18
-  %41 = getelementptr inbounds i8, ptr %0, i64 712
-  %42 = getelementptr inbounds i8, ptr %0, i64 736
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 712
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 736
   store i64 0, ptr %42, align 8
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 600
-  %44 = getelementptr inbounds i8, ptr %0, i64 608
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 608
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %21, i8 0, i64 28, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %41, i8 0, i64 20, i1 false)
   %45 = load ptr, ptr %44, align 8
@@ -5119,7 +5119,7 @@ define linkonce_odr hidden void @_ZN4ncnn18MultiHeadAttentionD2Ev(ptr noundef no
   br i1 %51, label %52, label %62
 
 52:                                               ; preds = %49
-  %53 = getelementptr inbounds i8, ptr %0, i64 632
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 632
   %54 = load ptr, ptr %53, align 8
   %.not77 = icmp eq ptr %54, null
   %55 = load ptr, ptr %43, align 8
@@ -5141,11 +5141,11 @@ define linkonce_odr hidden void @_ZN4ncnn18MultiHeadAttentionD2Ev(ptr noundef no
   br label %62
 
 62:                                               ; preds = %56, %61, %60, %49, %40
-  %63 = getelementptr inbounds i8, ptr %0, i64 640
-  %64 = getelementptr inbounds i8, ptr %0, i64 664
+  %63 = getelementptr inbounds nuw i8, ptr %0, i64 640
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 664
   store i64 0, ptr %64, align 8
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 528
-  %66 = getelementptr inbounds i8, ptr %0, i64 536
+  %66 = getelementptr inbounds nuw i8, ptr %0, i64 536
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %43, i8 0, i64 28, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %63, i8 0, i64 20, i1 false)
   %67 = load ptr, ptr %66, align 8
@@ -5165,7 +5165,7 @@ define linkonce_odr hidden void @_ZN4ncnn18MultiHeadAttentionD2Ev(ptr noundef no
   br i1 %73, label %74, label %84
 
 74:                                               ; preds = %71
-  %75 = getelementptr inbounds i8, ptr %0, i64 560
+  %75 = getelementptr inbounds nuw i8, ptr %0, i64 560
   %76 = load ptr, ptr %75, align 8
   %.not80 = icmp eq ptr %76, null
   %77 = load ptr, ptr %65, align 8
@@ -5187,11 +5187,11 @@ define linkonce_odr hidden void @_ZN4ncnn18MultiHeadAttentionD2Ev(ptr noundef no
   br label %84
 
 84:                                               ; preds = %78, %83, %82, %71, %62
-  %85 = getelementptr inbounds i8, ptr %0, i64 568
-  %86 = getelementptr inbounds i8, ptr %0, i64 592
+  %85 = getelementptr inbounds nuw i8, ptr %0, i64 568
+  %86 = getelementptr inbounds nuw i8, ptr %0, i64 592
   store i64 0, ptr %86, align 8
   %87 = getelementptr inbounds nuw i8, ptr %0, i64 456
-  %88 = getelementptr inbounds i8, ptr %0, i64 464
+  %88 = getelementptr inbounds nuw i8, ptr %0, i64 464
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %65, i8 0, i64 28, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %85, i8 0, i64 20, i1 false)
   %89 = load ptr, ptr %88, align 8
@@ -5211,7 +5211,7 @@ define linkonce_odr hidden void @_ZN4ncnn18MultiHeadAttentionD2Ev(ptr noundef no
   br i1 %95, label %96, label %106
 
 96:                                               ; preds = %93
-  %97 = getelementptr inbounds i8, ptr %0, i64 488
+  %97 = getelementptr inbounds nuw i8, ptr %0, i64 488
   %98 = load ptr, ptr %97, align 8
   %.not83 = icmp eq ptr %98, null
   %99 = load ptr, ptr %87, align 8
@@ -5233,11 +5233,11 @@ define linkonce_odr hidden void @_ZN4ncnn18MultiHeadAttentionD2Ev(ptr noundef no
   br label %106
 
 106:                                              ; preds = %100, %105, %104, %93, %84
-  %107 = getelementptr inbounds i8, ptr %0, i64 496
-  %108 = getelementptr inbounds i8, ptr %0, i64 520
+  %107 = getelementptr inbounds nuw i8, ptr %0, i64 496
+  %108 = getelementptr inbounds nuw i8, ptr %0, i64 520
   store i64 0, ptr %108, align 8
   %109 = getelementptr inbounds nuw i8, ptr %0, i64 384
-  %110 = getelementptr inbounds i8, ptr %0, i64 392
+  %110 = getelementptr inbounds nuw i8, ptr %0, i64 392
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %87, i8 0, i64 28, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %107, i8 0, i64 20, i1 false)
   %111 = load ptr, ptr %110, align 8
@@ -5257,7 +5257,7 @@ define linkonce_odr hidden void @_ZN4ncnn18MultiHeadAttentionD2Ev(ptr noundef no
   br i1 %117, label %118, label %128
 
 118:                                              ; preds = %115
-  %119 = getelementptr inbounds i8, ptr %0, i64 416
+  %119 = getelementptr inbounds nuw i8, ptr %0, i64 416
   %120 = load ptr, ptr %119, align 8
   %.not86 = icmp eq ptr %120, null
   %121 = load ptr, ptr %109, align 8
@@ -5279,11 +5279,11 @@ define linkonce_odr hidden void @_ZN4ncnn18MultiHeadAttentionD2Ev(ptr noundef no
   br label %128
 
 128:                                              ; preds = %122, %127, %126, %115, %106
-  %129 = getelementptr inbounds i8, ptr %0, i64 424
-  %130 = getelementptr inbounds i8, ptr %0, i64 448
+  %129 = getelementptr inbounds nuw i8, ptr %0, i64 424
+  %130 = getelementptr inbounds nuw i8, ptr %0, i64 448
   store i64 0, ptr %130, align 8
   %131 = getelementptr inbounds nuw i8, ptr %0, i64 312
-  %132 = getelementptr inbounds i8, ptr %0, i64 320
+  %132 = getelementptr inbounds nuw i8, ptr %0, i64 320
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %109, i8 0, i64 28, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %129, i8 0, i64 20, i1 false)
   %133 = load ptr, ptr %132, align 8
@@ -5303,7 +5303,7 @@ define linkonce_odr hidden void @_ZN4ncnn18MultiHeadAttentionD2Ev(ptr noundef no
   br i1 %139, label %140, label %150
 
 140:                                              ; preds = %137
-  %141 = getelementptr inbounds i8, ptr %0, i64 344
+  %141 = getelementptr inbounds nuw i8, ptr %0, i64 344
   %142 = load ptr, ptr %141, align 8
   %.not89 = icmp eq ptr %142, null
   %143 = load ptr, ptr %131, align 8
@@ -5325,11 +5325,11 @@ define linkonce_odr hidden void @_ZN4ncnn18MultiHeadAttentionD2Ev(ptr noundef no
   br label %150
 
 150:                                              ; preds = %144, %149, %148, %137, %128
-  %151 = getelementptr inbounds i8, ptr %0, i64 352
-  %152 = getelementptr inbounds i8, ptr %0, i64 376
+  %151 = getelementptr inbounds nuw i8, ptr %0, i64 352
+  %152 = getelementptr inbounds nuw i8, ptr %0, i64 376
   store i64 0, ptr %152, align 8
   %153 = getelementptr inbounds nuw i8, ptr %0, i64 240
-  %154 = getelementptr inbounds i8, ptr %0, i64 248
+  %154 = getelementptr inbounds nuw i8, ptr %0, i64 248
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %131, i8 0, i64 28, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %151, i8 0, i64 20, i1 false)
   %155 = load ptr, ptr %154, align 8
@@ -5349,7 +5349,7 @@ define linkonce_odr hidden void @_ZN4ncnn18MultiHeadAttentionD2Ev(ptr noundef no
   br i1 %161, label %162, label %172
 
 162:                                              ; preds = %159
-  %163 = getelementptr inbounds i8, ptr %0, i64 272
+  %163 = getelementptr inbounds nuw i8, ptr %0, i64 272
   %164 = load ptr, ptr %163, align 8
   %.not92 = icmp eq ptr %164, null
   %165 = load ptr, ptr %153, align 8
@@ -5371,8 +5371,8 @@ define linkonce_odr hidden void @_ZN4ncnn18MultiHeadAttentionD2Ev(ptr noundef no
   br label %172
 
 172:                                              ; preds = %166, %171, %170, %159, %150
-  %173 = getelementptr inbounds i8, ptr %0, i64 280
-  %174 = getelementptr inbounds i8, ptr %0, i64 304
+  %173 = getelementptr inbounds nuw i8, ptr %0, i64 280
+  %174 = getelementptr inbounds nuw i8, ptr %0, i64 304
   store i64 0, ptr %174, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %153, i8 0, i64 28, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %173, i8 0, i64 20, i1 false)

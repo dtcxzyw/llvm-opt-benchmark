@@ -3773,7 +3773,7 @@ declare noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull al
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN5clang15VariablePattern20addVariableOccurenceEPKNS_7VarDeclEPKNS_4StmtE(ptr nocapture noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #1 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %5 = getelementptr inbounds i8, ptr %0, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %6 = load ptr, ptr %5, align 8
   %7 = load ptr, ptr %4, align 8
   %8 = ptrtoint ptr %6 to i64
@@ -3959,7 +3959,7 @@ _ZNSt6vectorIN5clang15VariablePattern17VariableOccurenceESaIS2_EE17_M_realloc_in
 
 _ZNSt6vectorIN5clang15VariablePattern17VariableOccurenceESaIS2_EE12emplace_backIJmRPKNS0_4StmtEEEERS2_DpOT_.exit: ; preds = %53, %_ZNSt6vectorIN5clang15VariablePattern17VariableOccurenceESaIS2_EE17_M_realloc_insertIJmRPKNS0_4StmtEEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit
   %80 = load ptr, ptr %5, align 8
-  %81 = getelementptr inbounds i8, ptr %0, i64 40
+  %81 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %82 = load ptr, ptr %81, align 8
   %.not.i3 = icmp eq ptr %80, %82
   br i1 %.not.i3, label %86, label %83
@@ -4141,11 +4141,11 @@ define dso_local noundef i32 @_ZN5clang15VariablePattern23countPatternDifference
 .lr.ph:                                           ; preds = %3
   %8 = icmp eq ptr %2, null
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %10 = getelementptr inbounds i8, ptr %0, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %.sroa.236.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 8
   %.sroa.337.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 16
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %12 = getelementptr inbounds i8, ptr %1, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 32
   %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 40
@@ -17194,7 +17194,7 @@ _ZN5clang15VariablePattern23countPatternDifferencesERKS0_PNS0_19SuspiciousCloneP
   br i1 %.not.i.i.i.i.i, label %_ZNSt6vectorIPKN5clang7VarDeclESaIS3_EED2Ev.exit.i.i, label %52
 
 52:                                               ; preds = %_ZN5clang15VariablePattern23countPatternDifferencesERKS0_PNS0_19SuspiciousClonePairE.exit.i
-  %53 = getelementptr inbounds i8, ptr %5, i64 40
+  %53 = getelementptr inbounds nuw i8, ptr %5, i64 40
   %54 = load ptr, ptr %53, align 8
   %55 = ptrtoint ptr %54 to i64
   %56 = ptrtoint ptr %51 to i64
@@ -17223,7 +17223,7 @@ _ZN5clang15VariablePatternD2Ev.exit.i:            ; preds = %59, %_ZNSt6vectorIP
   br i1 %.not.i.i.i.i11.i, label %_ZNSt6vectorIPKN5clang7VarDeclESaIS3_EED2Ev.exit.i12.i, label %67
 
 67:                                               ; preds = %_ZN5clang15VariablePatternD2Ev.exit.i
-  %68 = getelementptr inbounds i8, ptr %4, i64 40
+  %68 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %69 = load ptr, ptr %68, align 8
   %70 = ptrtoint ptr %69 to i64
   %71 = ptrtoint ptr %66 to i64

@@ -39,7 +39,7 @@ define dso_local void @_ZN4llvm26UnifyFunctionExitNodesPass3runERNS_8FunctionERN
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %11)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %13)
-  %14 = getelementptr inbounds i8, ptr %2, i64 80
+  %14 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 72
   %.sroa.021.036.i = load ptr, ptr %14, align 8
   %.not37.i = icmp eq ptr %.sroa.021.036.i, %15
@@ -559,7 +559,7 @@ _ZN12_GLOBAL__N_117unifyReturnBlocksERN4llvm8FunctionE.exit: ; preds = %.loopexi
 250:                                              ; preds = %248, %245
   %.sink23 = phi ptr [ %247, %245 ], [ %249, %248 ]
   %.sink21 = phi i32 [ 0, %245 ], [ 1, %248 ]
-  %.sink20 = getelementptr inbounds i8, ptr %0, i64 80
+  %.sink20 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store ptr %.sink23, ptr %0, align 8
   %251 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sink23, ptr %251, align 8
@@ -571,13 +571,13 @@ _ZN12_GLOBAL__N_117unifyReturnBlocksERN4llvm8FunctionE.exit: ; preds = %.loopexi
   store i32 0, ptr %254, align 8
   %255 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr %.sink20, ptr %255, align 8
-  %256 = getelementptr inbounds i8, ptr %0, i64 56
+  %256 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store ptr %.sink20, ptr %256, align 8
-  %257 = getelementptr inbounds i8, ptr %0, i64 64
+  %257 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i32 2, ptr %257, align 8
-  %258 = getelementptr inbounds i8, ptr %0, i64 68
+  %258 = getelementptr inbounds nuw i8, ptr %0, i64 68
   store i32 0, ptr %258, align 4
-  %259 = getelementptr inbounds i8, ptr %0, i64 72
+  %259 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store i32 0, ptr %259, align 8
   ret void
 }

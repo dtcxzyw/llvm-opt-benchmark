@@ -238,7 +238,7 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_120AArch64BranchTargets20run
 22:                                               ; preds = %14
   %23 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %21, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %26 = load ptr, ptr %25, align 8
   %.not5266 = icmp eq ptr %24, %26
   br i1 %.not5266, label %.loopexit, label %.lr.ph69
@@ -324,7 +324,7 @@ _ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i: ; preds = %.lr.ph.i.i, %52
   %66 = getelementptr inbounds nuw i8, ptr %1, i64 343
   %67 = load i8, ptr %66, align 1
   %68 = trunc i8 %67 to i1
-  %69 = getelementptr inbounds i8, ptr %1, i64 328
+  %69 = getelementptr inbounds nuw i8, ptr %1, i64 328
   %70 = getelementptr inbounds nuw i8, ptr %1, i64 320
   %.sroa.037.070 = load ptr, ptr %69, align 8
   %.not5471 = icmp eq ptr %.sroa.037.070, %70

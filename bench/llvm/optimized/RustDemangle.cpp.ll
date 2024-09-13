@@ -61,12 +61,12 @@ _ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIc
   store i64 500, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 56
-  %7 = getelementptr inbounds i8, ptr %3, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 80
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false)
   store i32 -1, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %3, i64 84
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 84
   store i32 -1, ptr %8, align 4
-  %9 = getelementptr inbounds i8, ptr %3, i64 88
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 88
   store i32 1, ptr %9, align 8
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 40
   store i64 0, ptr %10, align 8
@@ -143,10 +143,10 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findEcm.exit.thread.i: ; preds = 
   br i1 %36, label %37, label %_ZN12_GLOBAL__N_19Demangler5printESt17basic_string_viewIcSt11char_traitsIcEE.exit.i
 
 37:                                               ; preds = %34
-  %38 = getelementptr inbounds i8, ptr %3, i64 64
+  %38 = getelementptr inbounds nuw i8, ptr %3, i64 64
   %39 = load i64, ptr %38, align 8
   %40 = add i64 %39, 2
-  %41 = getelementptr inbounds i8, ptr %3, i64 72
+  %41 = getelementptr inbounds nuw i8, ptr %3, i64 72
   %42 = load i64, ptr %41, align 8
   %43 = icmp ugt i64 %40, %42
   %.pre.i.i.i = load ptr, ptr %6, align 8
@@ -203,10 +203,10 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i: ; preds = %_ZN1
   br i1 %or.cond.not, label %64, label %_ZN12_GLOBAL__N_19Demangler5printESt17basic_string_viewIcSt11char_traitsIcEE.exit24.i
 
 64:                                               ; preds = %61
-  %65 = getelementptr inbounds i8, ptr %3, i64 64
+  %65 = getelementptr inbounds nuw i8, ptr %3, i64 64
   %66 = load i64, ptr %65, align 8
   %67 = add i64 %66, %57
-  %68 = getelementptr inbounds i8, ptr %3, i64 72
+  %68 = getelementptr inbounds nuw i8, ptr %3, i64 72
   %69 = load i64, ptr %68, align 8
   %70 = icmp ugt i64 %67, %69
   %.pre.i.i19.i = load ptr, ptr %6, align 8
@@ -252,10 +252,10 @@ _ZN12_GLOBAL__N_19Demangler5printESt17basic_string_viewIcSt11char_traitsIcEE.exi
   br i1 %86, label %87, label %_ZN12_GLOBAL__N_19Demangler8demangleESt17basic_string_viewIcSt11char_traitsIcEE.exit
 
 87:                                               ; preds = %84
-  %88 = getelementptr inbounds i8, ptr %3, i64 64
+  %88 = getelementptr inbounds nuw i8, ptr %3, i64 64
   %89 = load i64, ptr %88, align 8
   %90 = add i64 %89, 1
-  %91 = getelementptr inbounds i8, ptr %3, i64 72
+  %91 = getelementptr inbounds nuw i8, ptr %3, i64 72
   %92 = load i64, ptr %91, align 8
   %93 = icmp ugt i64 %90, %92
   %.pre.i.i26.i = load ptr, ptr %6, align 8
@@ -301,10 +301,10 @@ _ZN12_GLOBAL__N_19Demangler8demangleESt17basic_string_viewIcSt11char_traitsIcEE.
   br label %_ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEES4_.exit.thread
 
 108:                                              ; preds = %_ZN12_GLOBAL__N_19Demangler8demangleESt17basic_string_viewIcSt11char_traitsIcEE.exit
-  %109 = getelementptr inbounds i8, ptr %3, i64 64
+  %109 = getelementptr inbounds nuw i8, ptr %3, i64 64
   %110 = load i64, ptr %109, align 8
   %111 = add i64 %110, 1
-  %112 = getelementptr inbounds i8, ptr %3, i64 72
+  %112 = getelementptr inbounds nuw i8, ptr %3, i64 72
   %113 = load i64, ptr %112, align 8
   %114 = icmp ugt i64 %111, %113
   br i1 %114, label %115, label %_ZN4llvm16itanium_demangle12OutputBufferpLEc.exit
@@ -385,7 +385,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_19Demangler12demangle
 _ZN12_GLOBAL__N_19Demangler7consumeEv.exit:       ; preds = %14
   %20 = add nuw i64 %17, 1
   store i64 %20, ptr %16, align 8
-  %21 = getelementptr inbounds i8, ptr %0, i64 32
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %22 = load ptr, ptr %21, align 8
   %23 = getelementptr inbounds i8, ptr %22, i64 %17
   %24 = load i8, ptr %23, align 1
@@ -613,10 +613,10 @@ _ZN12_GLOBAL__N_19Demangler25parseOptionalBase62NumberEc.exit134: ; preds = %.sp
 
 97:                                               ; preds = %95
   %98 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %99 = getelementptr inbounds i8, ptr %0, i64 64
+  %99 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %100 = load i64, ptr %99, align 8
   %101 = add i64 %100, 1
-  %102 = getelementptr inbounds i8, ptr %0, i64 72
+  %102 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %103 = load i64, ptr %102, align 8
   %104 = icmp ugt i64 %101, %103
   %.pre.i.i = load ptr, ptr %98, align 8
@@ -663,10 +663,10 @@ _ZN12_GLOBAL__N_19Demangler5printESt17basic_string_viewIcSt11char_traitsIcEE.exi
 
 121:                                              ; preds = %118
   %122 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %123 = getelementptr inbounds i8, ptr %0, i64 64
+  %123 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %124 = load i64, ptr %123, align 8
   %125 = add i64 %124, 1
-  %126 = getelementptr inbounds i8, ptr %0, i64 72
+  %126 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %127 = load i64, ptr %126, align 8
   %128 = icmp ugt i64 %125, %127
   %.pre.i.i19 = load ptr, ptr %122, align 8
@@ -813,10 +813,10 @@ _ZN12_GLOBAL__N_19Demangler25parseOptionalBase62NumberEc.exit158: ; preds = %.sp
 
 180:                                              ; preds = %178
   %181 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %182 = getelementptr inbounds i8, ptr %0, i64 64
+  %182 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %183 = load i64, ptr %182, align 8
   %184 = add i64 %183, 1
-  %185 = getelementptr inbounds i8, ptr %0, i64 72
+  %185 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %186 = load i64, ptr %185, align 8
   %187 = icmp ugt i64 %184, %186
   %.pre.i.i26 = load ptr, ptr %181, align 8
@@ -863,10 +863,10 @@ _ZN12_GLOBAL__N_19Demangler5printESt17basic_string_viewIcSt11char_traitsIcEE.exi
 
 204:                                              ; preds = %201
   %205 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %206 = getelementptr inbounds i8, ptr %0, i64 64
+  %206 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %207 = load i64, ptr %206, align 8
   %208 = add i64 %207, 4
-  %209 = getelementptr inbounds i8, ptr %0, i64 72
+  %209 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %210 = load i64, ptr %209, align 8
   %211 = icmp ugt i64 %208, %210
   %.pre.i.i33 = load ptr, ptr %205, align 8
@@ -913,10 +913,10 @@ _ZN12_GLOBAL__N_19Demangler5printESt17basic_string_viewIcSt11char_traitsIcEE.exi
 
 229:                                              ; preds = %226
   %230 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %231 = getelementptr inbounds i8, ptr %0, i64 64
+  %231 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %232 = load i64, ptr %231, align 8
   %233 = add i64 %232, 1
-  %234 = getelementptr inbounds i8, ptr %0, i64 72
+  %234 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %235 = load i64, ptr %234, align 8
   %236 = icmp ugt i64 %233, %235
   %.pre.i.i40 = load ptr, ptr %230, align 8
@@ -958,10 +958,10 @@ _ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i41: ; preds = %._ZN4llvm
 
 252:                                              ; preds = %248
   %253 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %254 = getelementptr inbounds i8, ptr %0, i64 64
+  %254 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %255 = load i64, ptr %254, align 8
   %256 = add i64 %255, 1
-  %257 = getelementptr inbounds i8, ptr %0, i64 72
+  %257 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %258 = load i64, ptr %257, align 8
   %259 = icmp ugt i64 %256, %258
   %.pre.i.i47 = load ptr, ptr %253, align 8
@@ -1009,10 +1009,10 @@ _ZN12_GLOBAL__N_19Demangler5printESt17basic_string_viewIcSt11char_traitsIcEE.exi
 
 277:                                              ; preds = %273
   %278 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %279 = getelementptr inbounds i8, ptr %0, i64 64
+  %279 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %280 = load i64, ptr %279, align 8
   %281 = add i64 %280, 4
-  %282 = getelementptr inbounds i8, ptr %0, i64 72
+  %282 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %283 = load i64, ptr %282, align 8
   %284 = icmp ugt i64 %281, %283
   %.pre.i.i54 = load ptr, ptr %278, align 8
@@ -1060,10 +1060,10 @@ _ZN12_GLOBAL__N_19Demangler5printESt17basic_string_viewIcSt11char_traitsIcEE.exi
 
 303:                                              ; preds = %299
   %304 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %305 = getelementptr inbounds i8, ptr %0, i64 64
+  %305 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %306 = load i64, ptr %305, align 8
   %307 = add i64 %306, 1
-  %308 = getelementptr inbounds i8, ptr %0, i64 72
+  %308 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %309 = load i64, ptr %308, align 8
   %310 = icmp ugt i64 %307, %309
   %.pre.i.i61 = load ptr, ptr %304, align 8
@@ -1302,10 +1302,10 @@ _ZN12_GLOBAL__N_19Demangler25parseOptionalBase62NumberEc.exit93: ; preds = %328,
 
 393:                                              ; preds = %389
   %394 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %395 = getelementptr inbounds i8, ptr %0, i64 64
+  %395 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %396 = load i64, ptr %395, align 8
   %397 = add i64 %396, 1
-  %398 = getelementptr inbounds i8, ptr %0, i64 72
+  %398 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %399 = load i64, ptr %398, align 8
   %400 = icmp ugt i64 %397, %399
   %.pre.i.i95 = load ptr, ptr %394, align 8
@@ -1348,8 +1348,8 @@ _ZN12_GLOBAL__N_19Demangler5printESt17basic_string_viewIcSt11char_traitsIcEE.exi
 .lr.ph:                                           ; preds = %_ZN12_GLOBAL__N_19Demangler5printESt17basic_string_viewIcSt11char_traitsIcEE.exit100
   %414 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %415 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %416 = getelementptr inbounds i8, ptr %0, i64 64
-  %417 = getelementptr inbounds i8, ptr %0, i64 72
+  %416 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %417 = getelementptr inbounds nuw i8, ptr %0, i64 72
   br label %418
 
 418:                                              ; preds = %.lr.ph, %_ZN12_GLOBAL__N_19Demangler18demangleGenericArgEv.exit
@@ -1677,10 +1677,10 @@ define internal fastcc void @_ZN12_GLOBAL__N_19Demangler5printESt17basic_string_
   br i1 %.not.i, label %_ZN4llvm16itanium_demangle12OutputBufferpLESt17basic_string_viewIcSt11char_traitsIcEE.exit, label %13
 
 13:                                               ; preds = %11
-  %14 = getelementptr inbounds i8, ptr %0, i64 64
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %15 = load i64, ptr %14, align 8
   %16 = add i64 %15, %1
-  %17 = getelementptr inbounds i8, ptr %0, i64 72
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %18 = load i64, ptr %17, align 8
   %19 = icmp ugt i64 %16, %18
   %.pre.i = load ptr, ptr %12, align 8
@@ -1748,7 +1748,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_19Demangler15printIdentifierENS_10I
   br i1 %13, label %15, label %218
 
 15:                                               ; preds = %10
-  %16 = getelementptr inbounds i8, ptr %0, i64 64
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %17 = load i64, ptr %16, align 8
   %.not126.i = icmp eq i64 %.sroa.01.0.copyload, 0
   br i1 %.not126.i, label %._crit_edge132.i, label %.lr.ph.i
@@ -1771,7 +1771,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_19Demangler15printIdentifierENS_10I
   ]
 
 .lr.ph131.i:                                      ; preds = %._crit_edge.i
-  %22 = getelementptr inbounds i8, ptr %0, i64 72
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 72
   br label %23
 
 23:                                               ; preds = %_ZN4llvm16itanium_demangle12OutputBufferpLESt17basic_string_viewIcSt11char_traitsIcEE.exit.i, %.lr.ph131.i
@@ -1845,7 +1845,7 @@ _ZN4llvm16itanium_demangle12OutputBufferpLESt17basic_string_viewIcSt11char_trait
   br i1 %.not73138.i, label %._crit_edge144.i, label %.preheader.lr.ph.i
 
 .preheader.lr.ph.i:                               ; preds = %._crit_edge132.i
-  %51 = getelementptr inbounds i8, ptr %0, i64 72
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 72
   br label %.preheader.i
 
 .preheader.i:                                     ; preds = %_ZN4llvm16itanium_demangle12OutputBuffer6insertEmPKcm.exit.i, %.preheader.lr.ph.i
@@ -2197,10 +2197,10 @@ _ZL14decodePunycodeSt17basic_string_viewIcSt11char_traitsIcEERN4llvm16itanium_de
   br i1 %.not.i.i, label %_ZN12_GLOBAL__N_19Demangler5printESt17basic_string_viewIcSt11char_traitsIcEE.exit, label %219
 
 219:                                              ; preds = %218
-  %220 = getelementptr inbounds i8, ptr %0, i64 64
+  %220 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %221 = load i64, ptr %220, align 8
   %222 = add i64 %221, %.sroa.01.0.copyload
-  %223 = getelementptr inbounds i8, ptr %0, i64 72
+  %223 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %224 = load i64, ptr %223, align 8
   %225 = icmp ugt i64 %222, %224
   %.pre.i.i4 = load ptr, ptr %14, align 8
@@ -2254,7 +2254,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_19Demangler15parseIdentifierEv(ptr 
   br i1 %.not.i, label %11, label %18
 
 11:                                               ; preds = %6
-  %12 = getelementptr inbounds i8, ptr %1, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr inbounds i8, ptr %13, i64 %8
   %15 = load i8, ptr %14, align 1
@@ -2273,7 +2273,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_19Demangler15parseIdentifierEv(ptr 
   br i1 %.not.i.i, label %_ZNK12_GLOBAL__N_19Demangler4lookEv.exit.i, label %_ZN12_GLOBAL__N_19Demangler9consumeIfEc.exit9
 
 _ZNK12_GLOBAL__N_19Demangler4lookEv.exit.i:       ; preds = %18
-  %20 = getelementptr inbounds i8, ptr %1, i64 32
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %21 = load ptr, ptr %20, align 8
   %22 = getelementptr inbounds i8, ptr %21, i64 %19
   %23 = load i8, ptr %22, align 1
@@ -2353,7 +2353,7 @@ _ZN12_GLOBAL__N_19Demangler18parseDecimalNumberEv.exit: ; preds = %30, %.lr.ph.i
   br i1 %.not.i6, label %59, label %66
 
 59:                                               ; preds = %54
-  %60 = getelementptr inbounds i8, ptr %1, i64 32
+  %60 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %61 = load ptr, ptr %60, align 8
   %62 = getelementptr inbounds i8, ptr %61, i64 %56
   %63 = load i8, ptr %62, align 1
@@ -2385,7 +2385,7 @@ _ZN12_GLOBAL__N_19Demangler9consumeIfEc.exit9:    ; preds = %_ZN12_GLOBAL__N_19D
   unreachable
 
 _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit: ; preds = %70
-  %73 = getelementptr inbounds i8, ptr %1, i64 32
+  %73 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %74 = load ptr, ptr %73, align 8
   %75 = getelementptr inbounds i8, ptr %74, i64 %67
   %76 = add i64 %67, %.0.i4
@@ -2614,7 +2614,7 @@ _ZL14parseBasicTypecRN12_GLOBAL__N_19BasicTypeE.exit.thread104: ; preds = %10
 _ZN12_GLOBAL__N_19Demangler7consumeEv.exit:       ; preds = %10
   %16 = add nuw i64 %13, 1
   store i64 %16, ptr %12, align 8
-  %17 = getelementptr inbounds i8, ptr %0, i64 32
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %18 = load ptr, ptr %17, align 8
   %19 = getelementptr inbounds i8, ptr %18, i64 %13
   %20 = load i8, ptr %19, align 1
@@ -2660,10 +2660,10 @@ _ZN12_GLOBAL__N_19Demangler7consumeEv.exit:       ; preds = %10
 
 25:                                               ; preds = %21
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %27 = getelementptr inbounds i8, ptr %0, i64 64
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %28 = load i64, ptr %27, align 8
   %29 = add i64 %28, 4
-  %30 = getelementptr inbounds i8, ptr %0, i64 72
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %31 = load i64, ptr %30, align 8
   %32 = icmp ugt i64 %29, %31
   %.pre.i.i.i = load ptr, ptr %26, align 8
@@ -2702,10 +2702,10 @@ _ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i.i: ; preds = %._ZN4llvm
 
 46:                                               ; preds = %42
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %48 = getelementptr inbounds i8, ptr %0, i64 64
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %49 = load i64, ptr %48, align 8
   %50 = add i64 %49, 4
-  %51 = getelementptr inbounds i8, ptr %0, i64 72
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %52 = load i64, ptr %51, align 8
   %53 = icmp ugt i64 %50, %52
   %.pre.i.i2.i = load ptr, ptr %47, align 8
@@ -2744,10 +2744,10 @@ _ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i3.i: ; preds = %._ZN4llv
 
 67:                                               ; preds = %63
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %69 = getelementptr inbounds i8, ptr %0, i64 64
+  %69 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %70 = load i64, ptr %69, align 8
   %71 = add i64 %70, 2
-  %72 = getelementptr inbounds i8, ptr %0, i64 72
+  %72 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %73 = load i64, ptr %72, align 8
   %74 = icmp ugt i64 %71, %73
   %.pre.i.i9.i = load ptr, ptr %68, align 8
@@ -2786,10 +2786,10 @@ _ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i10.i: ; preds = %._ZN4ll
 
 88:                                               ; preds = %84
   %89 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %90 = getelementptr inbounds i8, ptr %0, i64 64
+  %90 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %91 = load i64, ptr %90, align 8
   %92 = add i64 %91, 3
-  %93 = getelementptr inbounds i8, ptr %0, i64 72
+  %93 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %94 = load i64, ptr %93, align 8
   %95 = icmp ugt i64 %92, %94
   %.pre.i.i16.i = load ptr, ptr %89, align 8
@@ -2828,10 +2828,10 @@ _ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i17.i: ; preds = %._ZN4ll
 
 109:                                              ; preds = %105
   %110 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %111 = getelementptr inbounds i8, ptr %0, i64 64
+  %111 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %112 = load i64, ptr %111, align 8
   %113 = add i64 %112, 3
-  %114 = getelementptr inbounds i8, ptr %0, i64 72
+  %114 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %115 = load i64, ptr %114, align 8
   %116 = icmp ugt i64 %113, %115
   %.pre.i.i23.i = load ptr, ptr %110, align 8
@@ -2870,10 +2870,10 @@ _ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i24.i: ; preds = %._ZN4ll
 
 130:                                              ; preds = %126
   %131 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %132 = getelementptr inbounds i8, ptr %0, i64 64
+  %132 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %133 = load i64, ptr %132, align 8
   %134 = add i64 %133, 3
-  %135 = getelementptr inbounds i8, ptr %0, i64 72
+  %135 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %136 = load i64, ptr %135, align 8
   %137 = icmp ugt i64 %134, %136
   %.pre.i.i30.i = load ptr, ptr %131, align 8
@@ -2912,10 +2912,10 @@ _ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i31.i: ; preds = %._ZN4ll
 
 151:                                              ; preds = %147
   %152 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %153 = getelementptr inbounds i8, ptr %0, i64 64
+  %153 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %154 = load i64, ptr %153, align 8
   %155 = add i64 %154, 4
-  %156 = getelementptr inbounds i8, ptr %0, i64 72
+  %156 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %157 = load i64, ptr %156, align 8
   %158 = icmp ugt i64 %155, %157
   %.pre.i.i37.i = load ptr, ptr %152, align 8
@@ -2954,10 +2954,10 @@ _ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i38.i: ; preds = %._ZN4ll
 
 172:                                              ; preds = %168
   %173 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %174 = getelementptr inbounds i8, ptr %0, i64 64
+  %174 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %175 = load i64, ptr %174, align 8
   %176 = add i64 %175, 5
-  %177 = getelementptr inbounds i8, ptr %0, i64 72
+  %177 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %178 = load i64, ptr %177, align 8
   %179 = icmp ugt i64 %176, %178
   %.pre.i.i44.i = load ptr, ptr %173, align 8
@@ -2996,10 +2996,10 @@ _ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i45.i: ; preds = %._ZN4ll
 
 193:                                              ; preds = %189
   %194 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %195 = getelementptr inbounds i8, ptr %0, i64 64
+  %195 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %196 = load i64, ptr %195, align 8
   %197 = add i64 %196, 2
-  %198 = getelementptr inbounds i8, ptr %0, i64 72
+  %198 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %199 = load i64, ptr %198, align 8
   %200 = icmp ugt i64 %197, %199
   %.pre.i.i51.i = load ptr, ptr %194, align 8
@@ -3038,10 +3038,10 @@ _ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i52.i: ; preds = %._ZN4ll
 
 214:                                              ; preds = %210
   %215 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %216 = getelementptr inbounds i8, ptr %0, i64 64
+  %216 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %217 = load i64, ptr %216, align 8
   %218 = add i64 %217, 3
-  %219 = getelementptr inbounds i8, ptr %0, i64 72
+  %219 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %220 = load i64, ptr %219, align 8
   %221 = icmp ugt i64 %218, %220
   %.pre.i.i58.i = load ptr, ptr %215, align 8
@@ -3080,10 +3080,10 @@ _ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i59.i: ; preds = %._ZN4ll
 
 235:                                              ; preds = %231
   %236 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %237 = getelementptr inbounds i8, ptr %0, i64 64
+  %237 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %238 = load i64, ptr %237, align 8
   %239 = add i64 %238, 3
-  %240 = getelementptr inbounds i8, ptr %0, i64 72
+  %240 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %241 = load i64, ptr %240, align 8
   %242 = icmp ugt i64 %239, %241
   %.pre.i.i65.i = load ptr, ptr %236, align 8
@@ -3122,10 +3122,10 @@ _ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i66.i: ; preds = %._ZN4ll
 
 256:                                              ; preds = %252
   %257 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %258 = getelementptr inbounds i8, ptr %0, i64 64
+  %258 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %259 = load i64, ptr %258, align 8
   %260 = add i64 %259, 3
-  %261 = getelementptr inbounds i8, ptr %0, i64 72
+  %261 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %262 = load i64, ptr %261, align 8
   %263 = icmp ugt i64 %260, %262
   %.pre.i.i72.i = load ptr, ptr %257, align 8
@@ -3164,10 +3164,10 @@ _ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i73.i: ; preds = %._ZN4ll
 
 277:                                              ; preds = %273
   %278 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %279 = getelementptr inbounds i8, ptr %0, i64 64
+  %279 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %280 = load i64, ptr %279, align 8
   %281 = add i64 %280, 4
-  %282 = getelementptr inbounds i8, ptr %0, i64 72
+  %282 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %283 = load i64, ptr %282, align 8
   %284 = icmp ugt i64 %281, %283
   %.pre.i.i79.i = load ptr, ptr %278, align 8
@@ -3206,10 +3206,10 @@ _ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i80.i: ; preds = %._ZN4ll
 
 298:                                              ; preds = %294
   %299 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %300 = getelementptr inbounds i8, ptr %0, i64 64
+  %300 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %301 = load i64, ptr %300, align 8
   %302 = add i64 %301, 5
-  %303 = getelementptr inbounds i8, ptr %0, i64 72
+  %303 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %304 = load i64, ptr %303, align 8
   %305 = icmp ugt i64 %302, %304
   %.pre.i.i86.i = load ptr, ptr %299, align 8
@@ -3248,10 +3248,10 @@ _ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i87.i: ; preds = %._ZN4ll
 
 319:                                              ; preds = %315
   %320 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %321 = getelementptr inbounds i8, ptr %0, i64 64
+  %321 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %322 = load i64, ptr %321, align 8
   %323 = add i64 %322, 3
-  %324 = getelementptr inbounds i8, ptr %0, i64 72
+  %324 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %325 = load i64, ptr %324, align 8
   %326 = icmp ugt i64 %323, %325
   %.pre.i.i93.i = load ptr, ptr %320, align 8
@@ -3290,10 +3290,10 @@ _ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i94.i: ; preds = %._ZN4ll
 
 340:                                              ; preds = %336
   %341 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %342 = getelementptr inbounds i8, ptr %0, i64 64
+  %342 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %343 = load i64, ptr %342, align 8
   %344 = add i64 %343, 3
-  %345 = getelementptr inbounds i8, ptr %0, i64 72
+  %345 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %346 = load i64, ptr %345, align 8
   %347 = icmp ugt i64 %344, %346
   %.pre.i.i100.i = load ptr, ptr %341, align 8
@@ -3332,10 +3332,10 @@ _ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i101.i: ; preds = %._ZN4l
 
 361:                                              ; preds = %357
   %362 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %363 = getelementptr inbounds i8, ptr %0, i64 64
+  %363 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %364 = load i64, ptr %363, align 8
   %365 = add i64 %364, 3
-  %366 = getelementptr inbounds i8, ptr %0, i64 72
+  %366 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %367 = load i64, ptr %366, align 8
   %368 = icmp ugt i64 %365, %367
   %.pre.i.i107.i = load ptr, ptr %362, align 8
@@ -3374,10 +3374,10 @@ _ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i108.i: ; preds = %._ZN4l
 
 382:                                              ; preds = %378
   %383 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %384 = getelementptr inbounds i8, ptr %0, i64 64
+  %384 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %385 = load i64, ptr %384, align 8
   %386 = add i64 %385, 1
-  %387 = getelementptr inbounds i8, ptr %0, i64 72
+  %387 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %388 = load i64, ptr %387, align 8
   %389 = icmp ugt i64 %386, %388
   %.pre.i.i114.i = load ptr, ptr %383, align 8
@@ -3416,10 +3416,10 @@ _ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i115.i: ; preds = %._ZN4l
 
 403:                                              ; preds = %399
   %404 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %405 = getelementptr inbounds i8, ptr %0, i64 64
+  %405 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %406 = load i64, ptr %405, align 8
   %407 = add i64 %406, 2
-  %408 = getelementptr inbounds i8, ptr %0, i64 72
+  %408 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %409 = load i64, ptr %408, align 8
   %410 = icmp ugt i64 %407, %409
   %.pre.i.i121.i = load ptr, ptr %404, align 8
@@ -3458,10 +3458,10 @@ _ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i122.i: ; preds = %._ZN4l
 
 424:                                              ; preds = %420
   %425 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %426 = getelementptr inbounds i8, ptr %0, i64 64
+  %426 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %427 = load i64, ptr %426, align 8
   %428 = add i64 %427, 3
-  %429 = getelementptr inbounds i8, ptr %0, i64 72
+  %429 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %430 = load i64, ptr %429, align 8
   %431 = icmp ugt i64 %428, %430
   %.pre.i.i128.i = load ptr, ptr %425, align 8
@@ -3500,10 +3500,10 @@ _ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i129.i: ; preds = %._ZN4l
 
 445:                                              ; preds = %441
   %446 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %447 = getelementptr inbounds i8, ptr %0, i64 64
+  %447 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %448 = load i64, ptr %447, align 8
   %449 = add i64 %448, 1
-  %450 = getelementptr inbounds i8, ptr %0, i64 72
+  %450 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %451 = load i64, ptr %450, align 8
   %452 = icmp ugt i64 %449, %451
   %.pre.i.i135.i = load ptr, ptr %446, align 8
@@ -3565,8 +3565,8 @@ _ZN12_GLOBAL__N_19Demangler5printESt17basic_string_viewIcSt11char_traitsIcEE.exi
 .lr.ph:                                           ; preds = %466
   %469 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %470 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %471 = getelementptr inbounds i8, ptr %0, i64 64
-  %472 = getelementptr inbounds i8, ptr %0, i64 72
+  %471 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %472 = getelementptr inbounds nuw i8, ptr %0, i64 72
   br label %473
 
 473:                                              ; preds = %.lr.ph, %_ZN12_GLOBAL__N_19Demangler5printESt17basic_string_viewIcSt11char_traitsIcEE.exit
@@ -3661,10 +3661,10 @@ _ZN12_GLOBAL__N_19Demangler5printESt17basic_string_viewIcSt11char_traitsIcEE.exi
 
 510:                                              ; preds = %506
   %511 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %512 = getelementptr inbounds i8, ptr %0, i64 64
+  %512 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %513 = load i64, ptr %512, align 8
   %514 = add i64 %513, 1
-  %515 = getelementptr inbounds i8, ptr %0, i64 72
+  %515 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %516 = load i64, ptr %515, align 8
   %517 = icmp ugt i64 %514, %516
   %.pre.i.i21 = load ptr, ptr %511, align 8
@@ -3822,10 +3822,10 @@ define internal fastcc void @_ZN12_GLOBAL__N_19Demangler5printEc(ptr nocapture n
 
 10:                                               ; preds = %6
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %12 = getelementptr inbounds i8, ptr %0, i64 64
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %13 = load i64, ptr %12, align 8
   %14 = add i64 %13, 1
-  %15 = getelementptr inbounds i8, ptr %0, i64 72
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %16 = load i64, ptr %15, align 8
   %17 = icmp ugt i64 %14, %16
   %.pre.i = load ptr, ptr %11, align 8
@@ -3902,10 +3902,10 @@ define internal fastcc void @_ZN12_GLOBAL__N_19Demangler18printDecimalNumberEm(p
   br i1 %.not.i.i.i.i, label %_ZN4llvm16itanium_demangle12OutputBufferlsEm.exit, label %19
 
 19:                                               ; preds = %17
-  %20 = getelementptr inbounds i8, ptr %0, i64 64
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %21 = load i64, ptr %20, align 8
   %22 = add i64 %21, %gepdiff.i.i.i
-  %23 = getelementptr inbounds i8, ptr %0, i64 72
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %24 = load i64, ptr %23, align 8
   %25 = icmp ugt i64 %22, %24
   %.pre.i.i.i.i = load ptr, ptr %18, align 8
@@ -3963,7 +3963,7 @@ define internal fastcc noundef i64 @_ZN12_GLOBAL__N_19Demangler17parseBase62Numb
   br i1 %.not.i, label %10, label %.lr.ph
 
 10:                                               ; preds = %5
-  %11 = getelementptr inbounds i8, ptr %0, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr inbounds i8, ptr %12, i64 %7
   %14 = load i8, ptr %13, align 1
@@ -3979,7 +3979,7 @@ _ZN12_GLOBAL__N_19Demangler9consumeIfEc.exit:     ; preds = %10
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %18 = load i64, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %0, i64 32
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %20 = load ptr, ptr %19, align 8
   %.promoted = load i64, ptr %16, align 8
   %.not.i1139 = icmp ult i64 %.promoted, %18
@@ -4096,7 +4096,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_19Demangler13demangleConstEv(ptr no
 _ZN12_GLOBAL__N_19Demangler7consumeEv.exit:       ; preds = %12
   %18 = add nuw i64 %15, 1
   store i64 %18, ptr %14, align 8
-  %19 = getelementptr inbounds i8, ptr %0, i64 32
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %20 = load ptr, ptr %19, align 8
   %21 = getelementptr inbounds i8, ptr %20, i64 %15
   %22 = load i8, ptr %21, align 1
@@ -4146,10 +4146,10 @@ _ZN12_GLOBAL__N_19Demangler7consumeEv.exit:       ; preds = %12
 
 32:                                               ; preds = %27
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %34 = getelementptr inbounds i8, ptr %0, i64 64
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %35 = load i64, ptr %34, align 8
   %36 = add i64 %35, 1
-  %37 = getelementptr inbounds i8, ptr %0, i64 72
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %38 = load i64, ptr %37, align 8
   %39 = icmp ugt i64 %36, %38
   %.pre.i.i.i = load ptr, ptr %33, align 8
@@ -4226,10 +4226,10 @@ _ZN12_GLOBAL__N_19Demangler5printEc.exit.i:       ; preds = %_ZN4llvm16itanium_d
   br i1 %.not.i.i.i.i.i.i, label %_ZN4llvm16itanium_demangle12OutputBufferlsEm.exit.i.i, label %67
 
 67:                                               ; preds = %65
-  %68 = getelementptr inbounds i8, ptr %0, i64 64
+  %68 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %69 = load i64, ptr %68, align 8
   %70 = add i64 %69, %gepdiff.i.i.i.i.i
-  %71 = getelementptr inbounds i8, ptr %0, i64 72
+  %71 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %72 = load i64, ptr %71, align 8
   %73 = icmp ugt i64 %70, %72
   %.pre.i.i.i.i.i.i = load ptr, ptr %66, align 8
@@ -4278,10 +4278,10 @@ _ZN4llvm16itanium_demangle12OutputBufferlsEm.exit.i.i: ; preds = %_ZN4llvm16itan
 
 90:                                               ; preds = %86
   %91 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %92 = getelementptr inbounds i8, ptr %0, i64 64
+  %92 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %93 = load i64, ptr %92, align 8
   %94 = add i64 %93, 2
-  %95 = getelementptr inbounds i8, ptr %0, i64 72
+  %95 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %96 = load i64, ptr %95, align 8
   %97 = icmp ugt i64 %94, %96
   %.pre.i.i1.i = load ptr, ptr %91, align 8
@@ -4331,10 +4331,10 @@ _ZN12_GLOBAL__N_19Demangler5printESt17basic_string_viewIcSt11char_traitsIcEE.exi
 
 115:                                              ; preds = %111
   %116 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %117 = getelementptr inbounds i8, ptr %0, i64 64
+  %117 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %118 = load i64, ptr %117, align 8
   %119 = add i64 %118, %50
-  %120 = getelementptr inbounds i8, ptr %0, i64 72
+  %120 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %121 = load i64, ptr %120, align 8
   %122 = icmp ugt i64 %119, %121
   %.pre.i.i5.i = load ptr, ptr %116, align 8
@@ -4508,10 +4508,10 @@ define internal fastcc void @_ZN12_GLOBAL__N_19Demangler13printLifetimeEm(ptr no
 
 13:                                               ; preds = %9
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %15 = getelementptr inbounds i8, ptr %0, i64 64
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %16 = load i64, ptr %15, align 8
   %17 = add i64 %16, 2
-  %18 = getelementptr inbounds i8, ptr %0, i64 72
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %19 = load i64, ptr %18, align 8
   %20 = icmp ugt i64 %17, %19
   %.pre.i.i = load ptr, ptr %14, align 8
@@ -4572,10 +4572,10 @@ _ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i: ; preds = %._ZN4llvm16
 
 47:                                               ; preds = %43
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %49 = getelementptr inbounds i8, ptr %0, i64 64
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %50 = load i64, ptr %49, align 8
   %51 = add i64 %50, 1
-  %52 = getelementptr inbounds i8, ptr %0, i64 72
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %53 = load i64, ptr %52, align 8
   %54 = icmp ugt i64 %51, %53
   %.pre.i.i9 = load ptr, ptr %48, align 8
@@ -4628,10 +4628,10 @@ _ZN12_GLOBAL__N_19Demangler5printEc.exit:         ; preds = %38, %43, %_ZN4llvm1
 
 74:                                               ; preds = %70
   %75 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %76 = getelementptr inbounds i8, ptr %0, i64 64
+  %76 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %77 = load i64, ptr %76, align 8
   %78 = add i64 %77, 1
-  %79 = getelementptr inbounds i8, ptr %0, i64 72
+  %79 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %80 = load i64, ptr %79, align 8
   %81 = icmp ugt i64 %78, %80
   %.pre.i.i12 = load ptr, ptr %75, align 8
@@ -4678,10 +4678,10 @@ _ZN4llvm16itanium_demangle12OutputBufferpLEc.exit.i13: ; preds = %._ZN4llvm16ita
 
 98:                                               ; preds = %94
   %99 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %100 = getelementptr inbounds i8, ptr %0, i64 64
+  %100 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %101 = load i64, ptr %100, align 8
   %102 = add i64 %101, 1
-  %103 = getelementptr inbounds i8, ptr %0, i64 72
+  %103 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %104 = load i64, ptr %103, align 8
   %105 = icmp ugt i64 %102, %104
   %.pre.i.i20 = load ptr, ptr %99, align 8
@@ -4753,10 +4753,10 @@ _ZN12_GLOBAL__N_19Demangler5printEc.exit27:       ; preds = %91, %94, %_ZN4llvm1
   br i1 %.not.i.i.i.i.i, label %_ZN4llvm16itanium_demangle12OutputBufferlsEm.exit.i, label %130
 
 130:                                              ; preds = %128
-  %131 = getelementptr inbounds i8, ptr %0, i64 64
+  %131 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %132 = load i64, ptr %131, align 8
   %133 = add i64 %132, %gepdiff.i.i.i.i
-  %134 = getelementptr inbounds i8, ptr %0, i64 72
+  %134 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %135 = load i64, ptr %134, align 8
   %136 = icmp ugt i64 %133, %135
   %.pre.i.i.i.i.i = load ptr, ptr %129, align 8
@@ -4818,7 +4818,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_19Demangler13demangleFnSigEv(ptr no
   br i1 %.not.i, label %13, label %_ZN12_GLOBAL__N_19Demangler5printESt17basic_string_viewIcSt11char_traitsIcEE.exit
 
 13:                                               ; preds = %8
-  %14 = getelementptr inbounds i8, ptr %0, i64 32
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %15 = load ptr, ptr %14, align 8
   %16 = getelementptr inbounds i8, ptr %15, i64 %10
   %17 = load i8, ptr %16, align 1
@@ -4835,10 +4835,10 @@ define internal fastcc void @_ZN12_GLOBAL__N_19Demangler13demangleFnSigEv(ptr no
 
 23:                                               ; preds = %18
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %25 = getelementptr inbounds i8, ptr %0, i64 64
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %26 = load i64, ptr %25, align 8
   %27 = add i64 %26, 7
-  %28 = getelementptr inbounds i8, ptr %0, i64 72
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %29 = load i64, ptr %28, align 8
   %30 = icmp ugt i64 %27, %29
   %.pre.i.i = load ptr, ptr %24, align 8
@@ -4887,7 +4887,7 @@ _ZN12_GLOBAL__N_19Demangler5printESt17basic_string_viewIcSt11char_traitsIcEE.exi
   br i1 %.not.i12, label %49, label %_ZN12_GLOBAL__N_19Demangler5printESt17basic_string_viewIcSt11char_traitsIcEE.exit43
 
 49:                                               ; preds = %44
-  %50 = getelementptr inbounds i8, ptr %0, i64 32
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %51 = load ptr, ptr %50, align 8
   %52 = getelementptr inbounds i8, ptr %51, i64 %46
   %53 = load i8, ptr %52, align 1
@@ -4904,10 +4904,10 @@ _ZN12_GLOBAL__N_19Demangler5printESt17basic_string_viewIcSt11char_traitsIcEE.exi
 
 59:                                               ; preds = %54
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %61 = getelementptr inbounds i8, ptr %0, i64 64
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %62 = load i64, ptr %61, align 8
   %63 = add i64 %62, 8
-  %64 = getelementptr inbounds i8, ptr %0, i64 72
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %65 = load i64, ptr %64, align 8
   %66 = icmp ugt i64 %63, %65
   %.pre.i.i17 = load ptr, ptr %60, align 8
@@ -4969,10 +4969,10 @@ _ZN12_GLOBAL__N_19Demangler5printESt17basic_string_viewIcSt11char_traitsIcEE.exi
 
 91:                                               ; preds = %87
   %92 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %93 = getelementptr inbounds i8, ptr %0, i64 64
+  %93 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %94 = load i64, ptr %93, align 8
   %95 = add i64 %94, 1
-  %96 = getelementptr inbounds i8, ptr %0, i64 72
+  %96 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %97 = load i64, ptr %96, align 8
   %98 = icmp ugt i64 %95, %97
   %.pre.i.i28 = load ptr, ptr %92, align 8
@@ -5027,8 +5027,8 @@ _ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i29: ; preds = %._ZN4llvm
 
 .lr.ph:                                           ; preds = %115
   %120 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %121 = getelementptr inbounds i8, ptr %0, i64 64
-  %122 = getelementptr inbounds i8, ptr %0, i64 72
+  %121 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %122 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %123 = load i8, ptr %5, align 1
   %124 = trunc i8 %123 to i1
   br i1 %124, label %_ZN12_GLOBAL__N_19Demangler5printESt17basic_string_viewIcSt11char_traitsIcEE.exit33, label %.lr.ph.split
@@ -5100,10 +5100,10 @@ _ZN12_GLOBAL__N_19Demangler5printESt17basic_string_viewIcSt11char_traitsIcEE.exi
 
 152:                                              ; preds = %149
   %153 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %154 = getelementptr inbounds i8, ptr %0, i64 64
+  %154 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %155 = load i64, ptr %154, align 8
   %156 = add i64 %155, 2
-  %157 = getelementptr inbounds i8, ptr %0, i64 72
+  %157 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %158 = load i64, ptr %157, align 8
   %159 = icmp ugt i64 %156, %158
   %.pre.i.i38 = load ptr, ptr %153, align 8
@@ -5151,10 +5151,10 @@ _ZN12_GLOBAL__N_19Demangler5printESt17basic_string_viewIcSt11char_traitsIcEE.exi
 
 177:                                              ; preds = %173
   %178 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %179 = getelementptr inbounds i8, ptr %0, i64 64
+  %179 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %180 = load i64, ptr %179, align 8
   %181 = add i64 %180, 3
-  %182 = getelementptr inbounds i8, ptr %0, i64 72
+  %182 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %183 = load i64, ptr %182, align 8
   %184 = icmp ugt i64 %181, %183
   %.pre.i.i45 = load ptr, ptr %178, align 8
@@ -5197,11 +5197,11 @@ _ZN12_GLOBAL__N_19Demangler5printESt17basic_string_viewIcSt11char_traitsIcEE.exi
 .lr.ph107:                                        ; preds = %_ZN12_GLOBAL__N_19Demangler5printESt17basic_string_viewIcSt11char_traitsIcEE.exit50
   %198 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %199 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %200 = getelementptr inbounds i8, ptr %0, i64 32
+  %200 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %201 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %202 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %203 = getelementptr inbounds i8, ptr %0, i64 64
-  %204 = getelementptr inbounds i8, ptr %0, i64 72
+  %203 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %204 = getelementptr inbounds nuw i8, ptr %0, i64 72
   br label %205
 
 205:                                              ; preds = %.lr.ph107, %_ZN12_GLOBAL__N_19Demangler5printESt17basic_string_viewIcSt11char_traitsIcEE.exit61
@@ -5329,7 +5329,7 @@ _ZN12_GLOBAL__N_19Demangler5printESt17basic_string_viewIcSt11char_traitsIcEE.exi
   br i1 %.not.i69, label %263, label %269
 
 263:                                              ; preds = %258
-  %264 = getelementptr inbounds i8, ptr %0, i64 32
+  %264 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %265 = load ptr, ptr %264, align 8
   %266 = getelementptr inbounds i8, ptr %265, i64 %260
   %267 = load i8, ptr %266, align 1
@@ -5349,10 +5349,10 @@ _ZN12_GLOBAL__N_19Demangler9consumeIfEc.exit72:   ; preds = %263
 
 273:                                              ; preds = %269
   %274 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %275 = getelementptr inbounds i8, ptr %0, i64 64
+  %275 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %276 = load i64, ptr %275, align 8
   %277 = add i64 %276, 4
-  %278 = getelementptr inbounds i8, ptr %0, i64 72
+  %278 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %279 = load i64, ptr %278, align 8
   %280 = icmp ugt i64 %277, %279
   %.pre.i.i74 = load ptr, ptr %274, align 8
@@ -5413,10 +5413,10 @@ define internal fastcc void @_ZN12_GLOBAL__N_19Demangler17demangleDynBoundsEv(pt
 
 12:                                               ; preds = %8
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %14 = getelementptr inbounds i8, ptr %0, i64 64
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %15 = load i64, ptr %14, align 8
   %16 = add i64 %15, 4
-  %17 = getelementptr inbounds i8, ptr %0, i64 72
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %18 = load i64, ptr %17, align 8
   %19 = icmp ugt i64 %16, %18
   %.pre.i.i = load ptr, ptr %13, align 8
@@ -5459,11 +5459,11 @@ _ZN12_GLOBAL__N_19Demangler5printESt17basic_string_viewIcSt11char_traitsIcEE.exi
 .lr.ph76:                                         ; preds = %_ZN12_GLOBAL__N_19Demangler5printESt17basic_string_viewIcSt11char_traitsIcEE.exit
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %35 = getelementptr inbounds i8, ptr %0, i64 32
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %38 = getelementptr inbounds i8, ptr %0, i64 64
-  %39 = getelementptr inbounds i8, ptr %0, i64 72
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %2, i64 8
   br label %40
 
@@ -5836,7 +5836,7 @@ define internal fastcc void @"_ZN12_GLOBAL__N_19Demangler15demangleBackrefIZNS0_
   br i1 %.not.i.i, label %11, label %_ZN12_GLOBAL__N_19Demangler17parseBase62NumberEv.exit.thread
 
 11:                                               ; preds = %6
-  %12 = getelementptr inbounds i8, ptr %0, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr inbounds i8, ptr %13, i64 %8
   %15 = load i8, ptr %14, align 1
@@ -5958,10 +5958,10 @@ _ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_
 
 12:                                               ; preds = %8
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %14 = getelementptr inbounds i8, ptr %0, i64 64
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %15 = load i64, ptr %14, align 8
   %16 = add i64 %15, 5
-  %17 = getelementptr inbounds i8, ptr %0, i64 72
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %18 = load i64, ptr %17, align 8
   %19 = icmp ugt i64 %16, %18
   %.pre.i.i = load ptr, ptr %13, align 8
@@ -6014,10 +6014,10 @@ _ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_
 
 39:                                               ; preds = %35
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %41 = getelementptr inbounds i8, ptr %0, i64 64
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %42 = load i64, ptr %41, align 8
   %43 = add i64 %42, 4
-  %44 = getelementptr inbounds i8, ptr %0, i64 72
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %45 = load i64, ptr %44, align 8
   %46 = icmp ugt i64 %43, %45
   %.pre.i.i8 = load ptr, ptr %40, align 8
@@ -6087,10 +6087,10 @@ define internal fastcc void @_ZN12_GLOBAL__N_19Demangler17demangleConstCharEv(pt
 
 15:                                               ; preds = %11
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %17 = getelementptr inbounds i8, ptr %0, i64 64
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %18 = load i64, ptr %17, align 8
   %19 = add i64 %18, 1
-  %20 = getelementptr inbounds i8, ptr %0, i64 72
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %21 = load i64, ptr %20, align 8
   %22 = icmp ugt i64 %19, %21
   %.pre.i.i = load ptr, ptr %16, align 8
@@ -6146,10 +6146,10 @@ _ZN12_GLOBAL__N_19Demangler5printESt17basic_string_viewIcSt11char_traitsIcEE.exi
 
 40:                                               ; preds = %37
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %42 = getelementptr inbounds i8, ptr %0, i64 64
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %43 = load i64, ptr %42, align 8
   %44 = add i64 %43, 2
-  %45 = getelementptr inbounds i8, ptr %0, i64 72
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %46 = load i64, ptr %45, align 8
   %47 = icmp ugt i64 %44, %46
   %.pre.i.i5 = load ptr, ptr %41, align 8
@@ -6195,10 +6195,10 @@ _ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i6: ; preds = %._ZN4llvm1
 
 65:                                               ; preds = %62
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %67 = getelementptr inbounds i8, ptr %0, i64 64
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %68 = load i64, ptr %67, align 8
   %69 = add i64 %68, 2
-  %70 = getelementptr inbounds i8, ptr %0, i64 72
+  %70 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %71 = load i64, ptr %70, align 8
   %72 = icmp ugt i64 %69, %71
   %.pre.i.i12 = load ptr, ptr %66, align 8
@@ -6244,10 +6244,10 @@ _ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i13: ; preds = %._ZN4llvm
 
 90:                                               ; preds = %87
   %91 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %92 = getelementptr inbounds i8, ptr %0, i64 64
+  %92 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %93 = load i64, ptr %92, align 8
   %94 = add i64 %93, 2
-  %95 = getelementptr inbounds i8, ptr %0, i64 72
+  %95 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %96 = load i64, ptr %95, align 8
   %97 = icmp ugt i64 %94, %96
   %.pre.i.i19 = load ptr, ptr %91, align 8
@@ -6293,10 +6293,10 @@ _ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i20: ; preds = %._ZN4llvm
 
 115:                                              ; preds = %112
   %116 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %117 = getelementptr inbounds i8, ptr %0, i64 64
+  %117 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %118 = load i64, ptr %117, align 8
   %119 = add i64 %118, 2
-  %120 = getelementptr inbounds i8, ptr %0, i64 72
+  %120 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %121 = load i64, ptr %120, align 8
   %122 = icmp ugt i64 %119, %121
   %.pre.i.i26 = load ptr, ptr %116, align 8
@@ -6342,10 +6342,10 @@ _ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i27: ; preds = %._ZN4llvm
 
 140:                                              ; preds = %137
   %141 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %142 = getelementptr inbounds i8, ptr %0, i64 64
+  %142 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %143 = load i64, ptr %142, align 8
   %144 = add i64 %143, 1
-  %145 = getelementptr inbounds i8, ptr %0, i64 72
+  %145 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %146 = load i64, ptr %145, align 8
   %147 = icmp ugt i64 %144, %146
   %.pre.i.i33 = load ptr, ptr %141, align 8
@@ -6391,10 +6391,10 @@ _ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i34: ; preds = %._ZN4llvm
 
 165:                                              ; preds = %162
   %166 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %167 = getelementptr inbounds i8, ptr %0, i64 64
+  %167 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %168 = load i64, ptr %167, align 8
   %169 = add i64 %168, 2
-  %170 = getelementptr inbounds i8, ptr %0, i64 72
+  %170 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %171 = load i64, ptr %170, align 8
   %172 = icmp ugt i64 %169, %171
   %.pre.i.i40 = load ptr, ptr %166, align 8
@@ -6458,10 +6458,10 @@ _ZN12_GLOBAL__N_19Demangler5printESt17basic_string_viewIcSt11char_traitsIcEE.exi
 
 195:                                              ; preds = %192
   %196 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %197 = getelementptr inbounds i8, ptr %0, i64 64
+  %197 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %198 = load i64, ptr %197, align 8
   %199 = add i64 %198, 1
-  %200 = getelementptr inbounds i8, ptr %0, i64 72
+  %200 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %201 = load i64, ptr %200, align 8
   %202 = icmp ugt i64 %199, %201
   %.pre.i.i46 = load ptr, ptr %196, align 8
@@ -6513,7 +6513,7 @@ define internal fastcc noundef i64 @_ZN12_GLOBAL__N_19Demangler14parseHexNumberE
   br i1 %or.cond39.not, label %_ZNK12_GLOBAL__N_19Demangler4lookEv.exit, label %10
 
 10:                                               ; preds = %2
-  %11 = getelementptr inbounds i8, ptr %0, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr inbounds i8, ptr %12, i64 %4
   %14 = load i8, ptr %13, align 1
@@ -6534,7 +6534,7 @@ _ZNK12_GLOBAL__N_19Demangler4lookEv.exit:         ; preds = %2, %10
   br i1 %or.cond42.not, label %_ZN12_GLOBAL__N_19Demangler9consumeIfEc.exit, label %21
 
 21:                                               ; preds = %19
-  %22 = getelementptr inbounds i8, ptr %0, i64 32
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %23 = load ptr, ptr %22, align 8
   %24 = getelementptr inbounds i8, ptr %23, i64 %4
   %25 = load i8, ptr %24, align 1
@@ -6545,7 +6545,7 @@ _ZN12_GLOBAL__N_19Demangler9consumeIfEc.exit:     ; preds = %19, %21
   br i1 %20, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZN12_GLOBAL__N_19Demangler9consumeIfEc.exit
-  %26 = getelementptr inbounds i8, ptr %0, i64 32
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %27 = load ptr, ptr %26, align 8
   %28 = trunc i8 %6 to i1
   br label %35
@@ -6643,7 +6643,7 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit: ; preds = %59
   %63 = add i64 %57, %62
   %64 = sub nuw i64 %9, %4
   %.sroa.speculated.i = tail call i64 @llvm.umin.i64(i64 %64, i64 %63)
-  %65 = getelementptr inbounds i8, ptr %0, i64 32
+  %65 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %66 = load ptr, ptr %65, align 8
   %67 = getelementptr inbounds i8, ptr %66, i64 %4
   store i64 %.sroa.speculated.i, ptr %1, align 8
@@ -6672,7 +6672,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_19Demangler22demangleOptionalBinder
   br i1 %.not.i.i, label %10, label %_ZN12_GLOBAL__N_19Demangler5printESt17basic_string_viewIcSt11char_traitsIcEE.exit24
 
 10:                                               ; preds = %5
-  %11 = getelementptr inbounds i8, ptr %0, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr inbounds i8, ptr %12, i64 %7
   %14 = load i8, ptr %13, align 1
@@ -6789,10 +6789,10 @@ _ZN12_GLOBAL__N_19Demangler25parseOptionalBase62NumberEc.exit: ; preds = %_ZN12_
 
 53:                                               ; preds = %49
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %55 = getelementptr inbounds i8, ptr %0, i64 64
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %56 = load i64, ptr %55, align 8
   %57 = add i64 %56, 4
-  %58 = getelementptr inbounds i8, ptr %0, i64 72
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %59 = load i64, ptr %58, align 8
   %60 = icmp ugt i64 %57, %59
   %.pre.i.i = load ptr, ptr %54, align 8
@@ -6828,8 +6828,8 @@ _ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i: ; preds = %._ZN4llvm16
 
 _ZN12_GLOBAL__N_19Demangler5printESt17basic_string_viewIcSt11char_traitsIcEE.exit: ; preds = %49, %_ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %73 = getelementptr inbounds i8, ptr %0, i64 64
-  %74 = getelementptr inbounds i8, ptr %0, i64 72
+  %73 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %74 = getelementptr inbounds nuw i8, ptr %0, i64 72
   br label %75
 
 75:                                               ; preds = %_ZN12_GLOBAL__N_19Demangler5printESt17basic_string_viewIcSt11char_traitsIcEE.exit, %_ZN12_GLOBAL__N_19Demangler5printESt17basic_string_viewIcSt11char_traitsIcEE.exit17

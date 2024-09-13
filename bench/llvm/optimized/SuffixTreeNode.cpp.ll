@@ -130,7 +130,7 @@ define linkonce_odr hidden void @_ZN4llvm22SuffixTreeInternalNodeD2Ev(ptr nounde
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN4llvm22SuffixTreeInternalNodeE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 56
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %5 = load i32, ptr %4, align 8
   %6 = zext i32 %5 to i64
   %7 = shl nuw nsw i64 %6, 4
@@ -143,7 +143,7 @@ define linkonce_odr hidden void @_ZN4llvm22SuffixTreeInternalNodeD0Ev(ptr nounde
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN4llvm22SuffixTreeInternalNodeE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 56
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %5 = load i32, ptr %4, align 8
   %6 = zext i32 %5 to i64
   %7 = shl nuw nsw i64 %6, 4

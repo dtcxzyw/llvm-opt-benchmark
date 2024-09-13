@@ -407,7 +407,7 @@ _ZN4llvm16FoldingSetNodeID10AddIntegerEi.exit:    ; preds = %3, %13
 
 .thread23:                                        ; preds = %.thread
   %24 = getelementptr inbounds nuw i8, ptr %8, i64 2168
-  %25 = getelementptr inbounds i8, ptr %8, i64 2248
+  %25 = getelementptr inbounds nuw i8, ptr %8, i64 2248
   %26 = load i64, ptr %25, align 8
   %27 = add i64 %26, 16
   store i64 %27, ptr %25, align 8
@@ -416,7 +416,7 @@ _ZN4llvm16FoldingSetNodeID10AddIntegerEi.exit:    ; preds = %3, %13
   %30 = add i64 %29, 15
   %31 = and i64 %30, -16
   %32 = add i64 %31, 16
-  %33 = getelementptr inbounds i8, ptr %8, i64 2176
+  %33 = getelementptr inbounds nuw i8, ptr %8, i64 2176
   %34 = load ptr, ptr %33, align 8
   %35 = ptrtoint ptr %34 to i64
   %.not.i.i.i = icmp ugt i64 %32, %35
@@ -452,7 +452,7 @@ _ZnwIN4llvm15MallocAllocatorELm4096ELm4096ELm128EEPvmRNS0_20BumpPtrAllocatorImpl
 
 47:                                               ; preds = %19
   %48 = getelementptr inbounds nuw i8, ptr %8, i64 2168
-  %49 = getelementptr inbounds i8, ptr %8, i64 2248
+  %49 = getelementptr inbounds nuw i8, ptr %8, i64 2248
   %50 = load i64, ptr %49, align 8
   %51 = add i64 %50, 24
   store i64 %51, ptr %49, align 8
@@ -461,7 +461,7 @@ _ZnwIN4llvm15MallocAllocatorELm4096ELm4096ELm128EEPvmRNS0_20BumpPtrAllocatorImpl
   %54 = add i64 %53, 15
   %55 = and i64 %54, -16
   %56 = add i64 %55, 24
-  %57 = getelementptr inbounds i8, ptr %8, i64 2176
+  %57 = getelementptr inbounds nuw i8, ptr %8, i64 2176
   %58 = load ptr, ptr %57, align 8
   %59 = ptrtoint ptr %58 to i64
   %.not.i.i.i16 = icmp ugt i64 %56, %59
@@ -544,7 +544,7 @@ define dso_local noundef ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS_9Strin
   %16 = getelementptr inbounds nuw i8, ptr %8, i64 2168
   %17 = add i64 %2, 26
   %18 = add i64 %17, %4
-  %19 = getelementptr inbounds i8, ptr %8, i64 2248
+  %19 = getelementptr inbounds nuw i8, ptr %8, i64 2248
   %20 = load i64, ptr %19, align 8
   %21 = add i64 %20, %18
   store i64 %21, ptr %19, align 8
@@ -553,7 +553,7 @@ define dso_local noundef ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS_9Strin
   %24 = add i64 %23, 7
   %25 = and i64 %24, -8
   %26 = add i64 %25, %18
-  %27 = getelementptr inbounds i8, ptr %8, i64 2176
+  %27 = getelementptr inbounds nuw i8, ptr %8, i64 2176
   %28 = load ptr, ptr %27, align 8
   %29 = ptrtoint ptr %28 to i64
   %.not.i.i = icmp ugt i64 %26, %29
@@ -671,7 +671,7 @@ _ZN4llvm16FoldingSetNodeID10AddIntegerEi.exit:    ; preds = %3, %11
 
 20:                                               ; preds = %_ZN4llvm16FoldingSetNodeID10AddIntegerEi.exit
   %21 = getelementptr inbounds nuw i8, ptr %6, i64 2168
-  %22 = getelementptr inbounds i8, ptr %6, i64 2248
+  %22 = getelementptr inbounds nuw i8, ptr %6, i64 2248
   %23 = load i64, ptr %22, align 8
   %24 = add i64 %23, 24
   store i64 %24, ptr %22, align 8
@@ -680,7 +680,7 @@ _ZN4llvm16FoldingSetNodeID10AddIntegerEi.exit:    ; preds = %3, %11
   %27 = add i64 %26, 15
   %28 = and i64 %27, -16
   %29 = add i64 %28, 24
-  %30 = getelementptr inbounds i8, ptr %6, i64 2176
+  %30 = getelementptr inbounds nuw i8, ptr %6, i64 2176
   %31 = load ptr, ptr %30, align 8
   %32 = ptrtoint ptr %31 to i64
   %.not.i.i.i = icmp ugt i64 %29, %32
@@ -768,7 +768,7 @@ _ZN4llvm16FoldingSetNodeID10AddIntegerEi.exit:    ; preds = %3, %11
 
 20:                                               ; preds = %_ZN4llvm16FoldingSetNodeID10AddIntegerEi.exit
   %21 = getelementptr inbounds nuw i8, ptr %6, i64 2296
-  %22 = getelementptr inbounds i8, ptr %6, i64 2376
+  %22 = getelementptr inbounds nuw i8, ptr %6, i64 2376
   %23 = load i64, ptr %22, align 8
   %24 = add i64 %23, 48
   store i64 %24, ptr %22, align 8
@@ -777,7 +777,7 @@ _ZN4llvm16FoldingSetNodeID10AddIntegerEi.exit:    ; preds = %3, %11
   %27 = add i64 %26, 7
   %28 = and i64 %27, -8
   %29 = add i64 %28, 48
-  %30 = getelementptr inbounds i8, ptr %6, i64 2304
+  %30 = getelementptr inbounds nuw i8, ptr %6, i64 2304
   %31 = load ptr, ptr %30, align 8
   %32 = ptrtoint ptr %31 to i64
   %.not.i.i.i.i.i = icmp ugt i64 %29, %32
@@ -810,7 +810,7 @@ _ZN4llvm24SpecificBumpPtrAllocatorINS_26ConstantRangeAttributeImplEE8AllocateEm.
   %43 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i, i64 12
   store i32 %1, ptr %43, align 4
   %44 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i, i64 16
-  %45 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i, i64 24
+  %45 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i, i64 24
   %46 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %47 = load i32, ptr %46, align 8
   store i32 %47, ptr %45, align 8
@@ -827,9 +827,9 @@ _ZN4llvm24SpecificBumpPtrAllocatorINS_26ConstantRangeAttributeImplEE8AllocateEm.
   br label %_ZN4llvm5APIntC2ERKS0_.exit.i.i
 
 _ZN4llvm5APIntC2ERKS0_.exit.i.i:                  ; preds = %51, %49
-  %52 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i, i64 32
-  %53 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i, i64 40
-  %54 = getelementptr inbounds i8, ptr %2, i64 24
+  %52 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i, i64 32
+  %53 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i, i64 40
+  %54 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %55 = load i32, ptr %54, align 8
   store i32 %55, ptr %53, align 8
   %56 = icmp ult i32 %55, 65
@@ -915,7 +915,7 @@ _ZN4llvm16FoldingSetNodeID10AddIntegerEi.exit:    ; preds = %4, %12
   %24 = getelementptr inbounds nuw i8, ptr %7, i64 2168
   %25 = shl i64 %3, 5
   %26 = or disjoint i64 %25, 24
-  %27 = getelementptr inbounds i8, ptr %7, i64 2248
+  %27 = getelementptr inbounds nuw i8, ptr %7, i64 2248
   %28 = load i64, ptr %27, align 8
   %29 = add i64 %28, %26
   store i64 %29, ptr %27, align 8
@@ -924,7 +924,7 @@ _ZN4llvm16FoldingSetNodeID10AddIntegerEi.exit:    ; preds = %4, %12
   %32 = add i64 %31, 7
   %33 = and i64 %32, -8
   %34 = add i64 %33, %26
-  %35 = getelementptr inbounds i8, ptr %7, i64 2176
+  %35 = getelementptr inbounds nuw i8, ptr %7, i64 2176
   %36 = load ptr, ptr %35, align 8
   %37 = ptrtoint ptr %36 to i64
   %.not.i.i = icmp ugt i64 %34, %37
@@ -980,8 +980,8 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
 _ZN4llvm5APIntC2ERKS0_.exit.i.i.i.i.i.i:          ; preds = %53, %51
   %54 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i, i64 16
   %55 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i, i64 16
-  %56 = getelementptr inbounds i8, ptr %.011.i.i.i.i, i64 24
-  %57 = getelementptr inbounds i8, ptr %.0810.i.i.i.i, i64 24
+  %56 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i, i64 24
+  %57 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i, i64 24
   %58 = load i32, ptr %57, align 8
   store i32 %58, ptr %56, align 8
   %59 = icmp ult i32 %58, 65
@@ -1006,9 +1006,9 @@ _ZN4llvm30ConstantRangeListAttributeImplC2ENS_9Attribute8AttrKindENS_8ArrayRefIN
   %65 = load ptr, ptr %6, align 8
   call void @_ZN4llvm14FoldingSetBase10InsertNodeEPNS0_4NodeEPvRKNS0_14FoldingSetInfoE(ptr noundef nonnull align 8 dereferenceable(16) %21, ptr noundef nonnull %.0.i.i, ptr noundef %65, ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4llvm10FoldingSetINS_13AttributeImplEE17getFoldingSetInfoEvE4Info) #25
   %66 = getelementptr inbounds nuw i8, ptr %7, i64 1328
-  %67 = getelementptr inbounds i8, ptr %7, i64 1336
+  %67 = getelementptr inbounds nuw i8, ptr %7, i64 1336
   %68 = load ptr, ptr %67, align 8
-  %69 = getelementptr inbounds i8, ptr %7, i64 1344
+  %69 = getelementptr inbounds nuw i8, ptr %7, i64 1344
   %70 = load ptr, ptr %69, align 8
   %.not.i.i25 = icmp eq ptr %68, %70
   br i1 %.not.i.i25, label %74, label %71
@@ -3552,14 +3552,14 @@ _ZNK4llvm13AttributeImpl12hasAttributeENS_9Attribute8AttrKindE.exit.i137: ; pred
   %278 = getelementptr inbounds nuw i8, ptr %277, i64 16
   %279 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %47, ptr noundef nonnull @.str.125)
   %280 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %47, ptr noundef nonnull @.str.126)
-  %281 = getelementptr inbounds i8, ptr %277, i64 24
+  %281 = getelementptr inbounds nuw i8, ptr %277, i64 24
   %282 = load i32, ptr %281, align 8
   %283 = zext i32 %282 to i64
   %284 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %280, i64 noundef %283) #25
   %285 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %284, ptr noundef nonnull @.str.127)
   call void @_ZNK4llvm5APInt5printERNS_11raw_ostreamEb(ptr noundef nonnull align 8 dereferenceable(12) %278, ptr noundef nonnull align 8 dereferenceable(48) %47, i1 noundef zeroext true) #25
   %286 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %47, ptr noundef nonnull @.str.122)
-  %287 = getelementptr inbounds i8, ptr %277, i64 32
+  %287 = getelementptr inbounds nuw i8, ptr %277, i64 32
   call void @_ZNK4llvm5APInt5printERNS_11raw_ostreamEb(ptr noundef nonnull align 8 dereferenceable(12) %287, ptr noundef nonnull align 8 dereferenceable(48) %286, i1 noundef zeroext true) #25
   %288 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %47, ptr noundef nonnull @.str.110)
   %289 = getelementptr inbounds nuw i8, ptr %47, i64 32
@@ -6080,7 +6080,7 @@ define dso_local ptr @_ZNK4llvm12AttributeSet12getAttributeENS_9Attribute8AttrKi
   %17 = load i32, ptr %16, align 8
   %18 = zext i32 %17 to i64
   %19 = getelementptr inbounds %"class.llvm::Attribute", ptr %15, i64 %18
-  %20 = getelementptr inbounds i8, ptr %3, i64 40
+  %20 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %21 = load i32, ptr %20, align 8
   %22 = zext i32 %21 to i64
   %23 = sub nsw i64 0, %22
@@ -6148,7 +6148,7 @@ define dso_local ptr @_ZNK4llvm16AttributeSetNode12getAttributeENS_9Attribute8At
   %15 = load i32, ptr %14, align 8
   %16 = zext i32 %15 to i64
   %17 = getelementptr inbounds %"class.llvm::Attribute", ptr %13, i64 %16
-  %18 = getelementptr inbounds i8, ptr %0, i64 40
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %19 = load i32, ptr %18, align 8
   %20 = zext i32 %19 to i64
   %21 = sub nsw i64 0, %20
@@ -6270,7 +6270,7 @@ define dso_local range(i16 0, 320) i16 @_ZNK4llvm12AttributeSet12getAlignmentEv(
   %10 = load i32, ptr %9, align 8
   %11 = zext i32 %10 to i64
   %12 = getelementptr inbounds %"class.llvm::Attribute", ptr %8, i64 %11
-  %13 = getelementptr inbounds i8, ptr %2, i64 40
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %14 = load i32, ptr %13, align 8
   %15 = zext i32 %14 to i64
   %16 = sub nsw i64 0, %15
@@ -6347,7 +6347,7 @@ define dso_local range(i16 0, 320) i16 @_ZNK4llvm16AttributeSetNode12getAlignmen
   %8 = load i32, ptr %7, align 8
   %9 = zext i32 %8 to i64
   %10 = getelementptr inbounds %"class.llvm::Attribute", ptr %6, i64 %9
-  %11 = getelementptr inbounds i8, ptr %0, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %12 = load i32, ptr %11, align 8
   %13 = zext i32 %12 to i64
   %14 = sub nsw i64 0, %13
@@ -6429,7 +6429,7 @@ define dso_local range(i16 0, 320) i16 @_ZNK4llvm12AttributeSet17getStackAlignme
   %10 = load i32, ptr %9, align 8
   %11 = zext i32 %10 to i64
   %12 = getelementptr inbounds %"class.llvm::Attribute", ptr %8, i64 %11
-  %13 = getelementptr inbounds i8, ptr %2, i64 40
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %14 = load i32, ptr %13, align 8
   %15 = zext i32 %14 to i64
   %16 = sub nsw i64 0, %15
@@ -6506,7 +6506,7 @@ define dso_local range(i16 0, 320) i16 @_ZNK4llvm16AttributeSetNode17getStackAli
   %8 = load i32, ptr %7, align 8
   %9 = zext i32 %8 to i64
   %10 = getelementptr inbounds %"class.llvm::Attribute", ptr %6, i64 %9
-  %11 = getelementptr inbounds i8, ptr %0, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %12 = load i32, ptr %11, align 8
   %13 = zext i32 %12 to i64
   %14 = sub nsw i64 0, %13
@@ -6588,7 +6588,7 @@ define dso_local noundef i64 @_ZNK4llvm12AttributeSet23getDereferenceableBytesEv
   %10 = load i32, ptr %9, align 8
   %11 = zext i32 %10 to i64
   %12 = getelementptr inbounds %"class.llvm::Attribute", ptr %8, i64 %11
-  %13 = getelementptr inbounds i8, ptr %2, i64 40
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %14 = load i32, ptr %13, align 8
   %15 = zext i32 %14 to i64
   %16 = sub nsw i64 0, %15
@@ -6660,7 +6660,7 @@ define dso_local noundef i64 @_ZNK4llvm16AttributeSetNode23getDereferenceableByt
   %8 = load i32, ptr %7, align 8
   %9 = zext i32 %8 to i64
   %10 = getelementptr inbounds %"class.llvm::Attribute", ptr %6, i64 %9
-  %11 = getelementptr inbounds i8, ptr %0, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %12 = load i32, ptr %11, align 8
   %13 = zext i32 %12 to i64
   %14 = sub nsw i64 0, %13
@@ -6737,7 +6737,7 @@ define dso_local noundef i64 @_ZNK4llvm12AttributeSet29getDereferenceableOrNullB
   %10 = load i32, ptr %9, align 8
   %11 = zext i32 %10 to i64
   %12 = getelementptr inbounds %"class.llvm::Attribute", ptr %8, i64 %11
-  %13 = getelementptr inbounds i8, ptr %2, i64 40
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %14 = load i32, ptr %13, align 8
   %15 = zext i32 %14 to i64
   %16 = sub nsw i64 0, %15
@@ -6809,7 +6809,7 @@ define dso_local noundef i64 @_ZNK4llvm16AttributeSetNode29getDereferenceableOrN
   %8 = load i32, ptr %7, align 8
   %9 = zext i32 %8 to i64
   %10 = getelementptr inbounds %"class.llvm::Attribute", ptr %6, i64 %9
-  %11 = getelementptr inbounds i8, ptr %0, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %12 = load i32, ptr %11, align 8
   %13 = zext i32 %12 to i64
   %14 = sub nsw i64 0, %13
@@ -6886,7 +6886,7 @@ define dso_local noundef ptr @_ZNK4llvm12AttributeSet12getByRefTypeEv(ptr nocapt
   %10 = load i32, ptr %9, align 8
   %11 = zext i32 %10 to i64
   %12 = getelementptr inbounds %"class.llvm::Attribute", ptr %8, i64 %11
-  %13 = getelementptr inbounds i8, ptr %2, i64 40
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %14 = load i32, ptr %13, align 8
   %15 = zext i32 %14 to i64
   %16 = sub nsw i64 0, %15
@@ -6968,7 +6968,7 @@ define dso_local noundef ptr @_ZNK4llvm16AttributeSetNode16getAttributeTypeENS_9
   %15 = load i32, ptr %14, align 8
   %16 = zext i32 %15 to i64
   %17 = getelementptr inbounds %"class.llvm::Attribute", ptr %13, i64 %16
-  %18 = getelementptr inbounds i8, ptr %0, i64 40
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %19 = load i32, ptr %18, align 8
   %20 = zext i32 %19 to i64
   %21 = sub nsw i64 0, %20
@@ -7041,7 +7041,7 @@ define dso_local noundef ptr @_ZNK4llvm12AttributeSet12getByValTypeEv(ptr nocapt
   %10 = load i32, ptr %9, align 8
   %11 = zext i32 %10 to i64
   %12 = getelementptr inbounds %"class.llvm::Attribute", ptr %8, i64 %11
-  %13 = getelementptr inbounds i8, ptr %2, i64 40
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %14 = load i32, ptr %13, align 8
   %15 = zext i32 %14 to i64
   %16 = sub nsw i64 0, %15
@@ -7122,7 +7122,7 @@ define dso_local noundef ptr @_ZNK4llvm12AttributeSet16getStructRetTypeEv(ptr no
   %10 = load i32, ptr %9, align 8
   %11 = zext i32 %10 to i64
   %12 = getelementptr inbounds %"class.llvm::Attribute", ptr %8, i64 %11
-  %13 = getelementptr inbounds i8, ptr %2, i64 40
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %14 = load i32, ptr %13, align 8
   %15 = zext i32 %14 to i64
   %16 = sub nsw i64 0, %15
@@ -7203,7 +7203,7 @@ define dso_local noundef ptr @_ZNK4llvm12AttributeSet19getPreallocatedTypeEv(ptr
   %10 = load i32, ptr %9, align 8
   %11 = zext i32 %10 to i64
   %12 = getelementptr inbounds %"class.llvm::Attribute", ptr %8, i64 %11
-  %13 = getelementptr inbounds i8, ptr %2, i64 40
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %14 = load i32, ptr %13, align 8
   %15 = zext i32 %14 to i64
   %16 = sub nsw i64 0, %15
@@ -7283,7 +7283,7 @@ define dso_local noundef ptr @_ZNK4llvm12AttributeSet15getInAllocaTypeEv(ptr noc
   %9 = load i32, ptr %8, align 8
   %10 = zext i32 %9 to i64
   %11 = getelementptr inbounds %"class.llvm::Attribute", ptr %7, i64 %10
-  %12 = getelementptr inbounds i8, ptr %2, i64 40
+  %12 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %13 = load i32, ptr %12, align 8
   %14 = zext i32 %13 to i64
   %15 = sub nsw i64 0, %14
@@ -7364,7 +7364,7 @@ define dso_local noundef ptr @_ZNK4llvm12AttributeSet14getElementTypeEv(ptr noca
   %10 = load i32, ptr %9, align 8
   %11 = zext i32 %10 to i64
   %12 = getelementptr inbounds %"class.llvm::Attribute", ptr %8, i64 %11
-  %13 = getelementptr inbounds i8, ptr %2, i64 40
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %14 = load i32, ptr %13, align 8
   %15 = zext i32 %14 to i64
   %16 = sub nsw i64 0, %15
@@ -7446,7 +7446,7 @@ define dso_local { i64, i64 } @_ZNK4llvm12AttributeSet16getAllocSizeArgsEv(ptr n
   %11 = load i32, ptr %10, align 8
   %12 = zext i32 %11 to i64
   %13 = getelementptr inbounds %"class.llvm::Attribute", ptr %9, i64 %12
-  %14 = getelementptr inbounds i8, ptr %3, i64 40
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %15 = load i32, ptr %14, align 8
   %16 = zext i32 %15 to i64
   %17 = sub nsw i64 0, %16
@@ -7542,7 +7542,7 @@ define dso_local { i64, i64 } @_ZNK4llvm16AttributeSetNode16getAllocSizeArgsEv(p
   %9 = load i32, ptr %8, align 8
   %10 = zext i32 %9 to i64
   %11 = getelementptr inbounds %"class.llvm::Attribute", ptr %7, i64 %10
-  %12 = getelementptr inbounds i8, ptr %0, i64 40
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %13 = load i32, ptr %12, align 8
   %14 = zext i32 %13 to i64
   %15 = sub nsw i64 0, %14
@@ -7638,7 +7638,7 @@ define dso_local noundef i32 @_ZNK4llvm12AttributeSet17getVScaleRangeMinEv(ptr n
   %11 = load i32, ptr %10, align 8
   %12 = zext i32 %11 to i64
   %13 = getelementptr inbounds %"class.llvm::Attribute", ptr %9, i64 %12
-  %14 = getelementptr inbounds i8, ptr %3, i64 40
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %15 = load i32, ptr %14, align 8
   %16 = zext i32 %15 to i64
   %17 = sub nsw i64 0, %16
@@ -7724,7 +7724,7 @@ define dso_local noundef i32 @_ZNK4llvm16AttributeSetNode17getVScaleRangeMinEv(p
   %9 = load i32, ptr %8, align 8
   %10 = zext i32 %9 to i64
   %11 = getelementptr inbounds %"class.llvm::Attribute", ptr %7, i64 %10
-  %12 = getelementptr inbounds i8, ptr %0, i64 40
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %13 = load i32, ptr %12, align 8
   %14 = zext i32 %13 to i64
   %15 = sub nsw i64 0, %14
@@ -7815,7 +7815,7 @@ define dso_local i64 @_ZNK4llvm12AttributeSet17getVScaleRangeMaxEv(ptr nocapture
   %11 = load i32, ptr %10, align 8
   %12 = zext i32 %11 to i64
   %13 = getelementptr inbounds %"class.llvm::Attribute", ptr %9, i64 %12
-  %14 = getelementptr inbounds i8, ptr %3, i64 40
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %15 = load i32, ptr %14, align 8
   %16 = zext i32 %15 to i64
   %17 = sub nsw i64 0, %16
@@ -7902,7 +7902,7 @@ define dso_local i64 @_ZNK4llvm16AttributeSetNode17getVScaleRangeMaxEv(ptr nound
   %9 = load i32, ptr %8, align 8
   %10 = zext i32 %9 to i64
   %11 = getelementptr inbounds %"class.llvm::Attribute", ptr %7, i64 %10
-  %12 = getelementptr inbounds i8, ptr %0, i64 40
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %13 = load i32, ptr %12, align 8
   %14 = zext i32 %13 to i64
   %15 = sub nsw i64 0, %14
@@ -7993,7 +7993,7 @@ define dso_local noundef i32 @_ZNK4llvm12AttributeSet14getUWTableKindEv(ptr noca
   %10 = load i32, ptr %9, align 8
   %11 = zext i32 %10 to i64
   %12 = getelementptr inbounds %"class.llvm::Attribute", ptr %8, i64 %11
-  %13 = getelementptr inbounds i8, ptr %2, i64 40
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %14 = load i32, ptr %13, align 8
   %15 = zext i32 %14 to i64
   %16 = sub nsw i64 0, %15
@@ -8066,7 +8066,7 @@ define dso_local noundef i32 @_ZNK4llvm16AttributeSetNode14getUWTableKindEv(ptr 
   %8 = load i32, ptr %7, align 8
   %9 = zext i32 %8 to i64
   %10 = getelementptr inbounds %"class.llvm::Attribute", ptr %6, i64 %9
-  %11 = getelementptr inbounds i8, ptr %0, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %12 = load i32, ptr %11, align 8
   %13 = zext i32 %12 to i64
   %14 = sub nsw i64 0, %13
@@ -8144,7 +8144,7 @@ define dso_local noundef i64 @_ZNK4llvm12AttributeSet12getAllocKindEv(ptr nocapt
   %10 = load i32, ptr %9, align 8
   %11 = zext i32 %10 to i64
   %12 = getelementptr inbounds %"class.llvm::Attribute", ptr %8, i64 %11
-  %13 = getelementptr inbounds i8, ptr %2, i64 40
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %14 = load i32, ptr %13, align 8
   %15 = zext i32 %14 to i64
   %16 = sub nsw i64 0, %15
@@ -8216,7 +8216,7 @@ define dso_local noundef i64 @_ZNK4llvm16AttributeSetNode12getAllocKindEv(ptr no
   %8 = load i32, ptr %7, align 8
   %9 = zext i32 %8 to i64
   %10 = getelementptr inbounds %"class.llvm::Attribute", ptr %6, i64 %9
-  %11 = getelementptr inbounds i8, ptr %0, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %12 = load i32, ptr %11, align 8
   %13 = zext i32 %12 to i64
   %14 = sub nsw i64 0, %13
@@ -8292,7 +8292,7 @@ define dso_local i32 @_ZNK4llvm12AttributeSet16getMemoryEffectsEv(ptr nocapture 
   %9 = load i32, ptr %8, align 8
   %10 = zext i32 %9 to i64
   %11 = getelementptr inbounds %"class.llvm::Attribute", ptr %7, i64 %10
-  %12 = getelementptr inbounds i8, ptr %2, i64 40
+  %12 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %13 = load i32, ptr %12, align 8
   %14 = zext i32 %13 to i64
   %15 = sub nsw i64 0, %14
@@ -8364,7 +8364,7 @@ define dso_local i32 @_ZNK4llvm16AttributeSetNode16getMemoryEffectsEv(ptr nounde
   %7 = load i32, ptr %6, align 8
   %8 = zext i32 %7 to i64
   %9 = getelementptr inbounds %"class.llvm::Attribute", ptr %5, i64 %8
-  %10 = getelementptr inbounds i8, ptr %0, i64 40
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %11 = load i32, ptr %10, align 8
   %12 = zext i32 %11 to i64
   %13 = sub nsw i64 0, %12
@@ -8442,7 +8442,7 @@ define dso_local noundef i32 @_ZNK4llvm12AttributeSet12getNoFPClassEv(ptr nocapt
   %10 = load i32, ptr %9, align 8
   %11 = zext i32 %10 to i64
   %12 = getelementptr inbounds %"class.llvm::Attribute", ptr %8, i64 %11
-  %13 = getelementptr inbounds i8, ptr %2, i64 40
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %14 = load i32, ptr %13, align 8
   %15 = zext i32 %14 to i64
   %16 = sub nsw i64 0, %15
@@ -8515,7 +8515,7 @@ define dso_local noundef i32 @_ZNK4llvm16AttributeSetNode12getNoFPClassEv(ptr no
   %8 = load i32, ptr %7, align 8
   %9 = zext i32 %8 to i64
   %10 = getelementptr inbounds %"class.llvm::Attribute", ptr %6, i64 %9
-  %11 = getelementptr inbounds i8, ptr %0, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %12 = load i32, ptr %11, align 8
   %13 = zext i32 %12 to i64
   %14 = sub nsw i64 0, %13
@@ -8918,7 +8918,7 @@ define dso_local { ptr, i8 } @_ZNK4llvm16AttributeSetNode17findEnumAttributeENS_
   %15 = load i32, ptr %14, align 8
   %16 = zext i32 %15 to i64
   %17 = getelementptr inbounds %"class.llvm::Attribute", ptr %13, i64 %16
-  %18 = getelementptr inbounds i8, ptr %0, i64 40
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %19 = load i32, ptr %18, align 8
   %20 = zext i32 %19 to i64
   %21 = sub nsw i64 0, %20
@@ -9241,7 +9241,7 @@ _ZN4llvm17AttributeListImpl7ProfileERNS_16FoldingSetNodeIDENS_8ArrayRefINS_12Att
   %15 = getelementptr inbounds nuw i8, ptr %6, i64 2168
   %16 = shl i64 %2, 3
   %17 = add i64 %16, 48
-  %18 = getelementptr inbounds i8, ptr %6, i64 2248
+  %18 = getelementptr inbounds nuw i8, ptr %6, i64 2248
   %19 = load i64, ptr %18, align 8
   %20 = add i64 %19, %17
   store i64 %20, ptr %18, align 8
@@ -9250,7 +9250,7 @@ _ZN4llvm17AttributeListImpl7ProfileERNS_16FoldingSetNodeIDENS_8ArrayRefINS_12Att
   %23 = add i64 %22, 7
   %24 = and i64 %23, -8
   %25 = add i64 %24, %17
-  %26 = getelementptr inbounds i8, ptr %6, i64 2176
+  %26 = getelementptr inbounds nuw i8, ptr %6, i64 2176
   %27 = load ptr, ptr %26, align 8
   %28 = ptrtoint ptr %27 to i64
   %.not.i.i = icmp ugt i64 %25, %28
@@ -11804,7 +11804,7 @@ _ZNK4llvm13AttributeList13getAttributesEj.exit:   ; preds = %_ZNK4llvm13Attribut
   %26 = load i32, ptr %25, align 8
   %27 = zext i32 %26 to i64
   %28 = getelementptr inbounds %"class.llvm::Attribute", ptr %24, i64 %27
-  %29 = getelementptr inbounds i8, ptr %12, i64 40
+  %29 = getelementptr inbounds nuw i8, ptr %12, i64 40
   %30 = load i32, ptr %29, align 8
   %31 = zext i32 %30 to i64
   %32 = sub nsw i64 0, %31
@@ -11933,7 +11933,7 @@ _ZNK4llvm13AttributeList13getAttributesEj.exit:   ; preds = %_ZNK4llvm13Attribut
   %15 = load i32, ptr %14, align 8
   %16 = zext i32 %15 to i64
   %17 = getelementptr inbounds %"class.llvm::Attribute", ptr %13, i64 %16
-  %18 = getelementptr inbounds i8, ptr %7, i64 40
+  %18 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %19 = load i32, ptr %18, align 8
   %20 = zext i32 %19 to i64
   %21 = sub nsw i64 0, %20
@@ -12031,7 +12031,7 @@ _ZNK4llvm13AttributeList13getAttributesEj.exit:   ; preds = %_ZNK4llvm13Attribut
   %19 = load i32, ptr %18, align 8
   %20 = zext i32 %19 to i64
   %21 = getelementptr inbounds %"class.llvm::Attribute", ptr %17, i64 %20
-  %22 = getelementptr inbounds i8, ptr %11, i64 40
+  %22 = getelementptr inbounds nuw i8, ptr %11, i64 40
   %23 = load i32, ptr %22, align 8
   %24 = zext i32 %23 to i64
   %25 = sub nsw i64 0, %24
@@ -12129,7 +12129,7 @@ _ZNK4llvm13AttributeList13getAttributesEj.exit:   ; preds = %_ZNK4llvm13Attribut
   %19 = load i32, ptr %18, align 8
   %20 = zext i32 %19 to i64
   %21 = getelementptr inbounds %"class.llvm::Attribute", ptr %17, i64 %20
-  %22 = getelementptr inbounds i8, ptr %11, i64 40
+  %22 = getelementptr inbounds nuw i8, ptr %11, i64 40
   %23 = load i32, ptr %22, align 8
   %24 = zext i32 %23 to i64
   %25 = sub nsw i64 0, %24
@@ -12227,7 +12227,7 @@ _ZNK4llvm13AttributeList13getAttributesEj.exit:   ; preds = %_ZNK4llvm13Attribut
   %19 = load i32, ptr %18, align 8
   %20 = zext i32 %19 to i64
   %21 = getelementptr inbounds %"class.llvm::Attribute", ptr %17, i64 %20
-  %22 = getelementptr inbounds i8, ptr %11, i64 40
+  %22 = getelementptr inbounds nuw i8, ptr %11, i64 40
   %23 = load i32, ptr %22, align 8
   %24 = zext i32 %23 to i64
   %25 = sub nsw i64 0, %24
@@ -12324,7 +12324,7 @@ _ZNK4llvm13AttributeList13getAttributesEj.exit:   ; preds = %_ZNK4llvm13Attribut
   %19 = load i32, ptr %18, align 8
   %20 = zext i32 %19 to i64
   %21 = getelementptr inbounds %"class.llvm::Attribute", ptr %17, i64 %20
-  %22 = getelementptr inbounds i8, ptr %11, i64 40
+  %22 = getelementptr inbounds nuw i8, ptr %11, i64 40
   %23 = load i32, ptr %22, align 8
   %24 = zext i32 %23 to i64
   %25 = sub nsw i64 0, %24
@@ -12421,7 +12421,7 @@ _ZNK4llvm13AttributeList13getAttributesEj.exit:   ; preds = %_ZNK4llvm13Attribut
   %19 = load i32, ptr %18, align 8
   %20 = zext i32 %19 to i64
   %21 = getelementptr inbounds %"class.llvm::Attribute", ptr %17, i64 %20
-  %22 = getelementptr inbounds i8, ptr %11, i64 40
+  %22 = getelementptr inbounds nuw i8, ptr %11, i64 40
   %23 = load i32, ptr %22, align 8
   %24 = zext i32 %23 to i64
   %25 = sub nsw i64 0, %24
@@ -12518,7 +12518,7 @@ _ZNK4llvm13AttributeList13getAttributesEj.exit:   ; preds = %_ZNK4llvm13Attribut
   %19 = load i32, ptr %18, align 8
   %20 = zext i32 %19 to i64
   %21 = getelementptr inbounds %"class.llvm::Attribute", ptr %17, i64 %20
-  %22 = getelementptr inbounds i8, ptr %11, i64 40
+  %22 = getelementptr inbounds nuw i8, ptr %11, i64 40
   %23 = load i32, ptr %22, align 8
   %24 = zext i32 %23 to i64
   %25 = sub nsw i64 0, %24
@@ -12614,7 +12614,7 @@ _ZNK4llvm13AttributeList13getAttributesEj.exit:   ; preds = %_ZNK4llvm13Attribut
   %18 = load i32, ptr %17, align 8
   %19 = zext i32 %18 to i64
   %20 = getelementptr inbounds %"class.llvm::Attribute", ptr %16, i64 %19
-  %21 = getelementptr inbounds i8, ptr %11, i64 40
+  %21 = getelementptr inbounds nuw i8, ptr %11, i64 40
   %22 = load i32, ptr %21, align 8
   %23 = zext i32 %22 to i64
   %24 = sub nsw i64 0, %23
@@ -12711,7 +12711,7 @@ _ZNK4llvm13AttributeList13getAttributesEj.exit:   ; preds = %_ZNK4llvm13Attribut
   %19 = load i32, ptr %18, align 8
   %20 = zext i32 %19 to i64
   %21 = getelementptr inbounds %"class.llvm::Attribute", ptr %17, i64 %20
-  %22 = getelementptr inbounds i8, ptr %11, i64 40
+  %22 = getelementptr inbounds nuw i8, ptr %11, i64 40
   %23 = load i32, ptr %22, align 8
   %24 = zext i32 %23 to i64
   %25 = sub nsw i64 0, %24
@@ -12805,7 +12805,7 @@ _ZNK4llvm13AttributeList10getFnAttrsEv.exit:      ; preds = %_ZNK4llvm13Attribut
   %15 = load i32, ptr %14, align 8
   %16 = zext i32 %15 to i64
   %17 = getelementptr inbounds %"class.llvm::Attribute", ptr %13, i64 %16
-  %18 = getelementptr inbounds i8, ptr %7, i64 40
+  %18 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %19 = load i32, ptr %18, align 8
   %20 = zext i32 %19 to i64
   %21 = sub nsw i64 0, %20
@@ -12900,7 +12900,7 @@ _ZNK4llvm13AttributeList11getRetAttrsEv.exit:     ; preds = %_ZNK4llvm13Attribut
   %15 = load i32, ptr %14, align 8
   %16 = zext i32 %15 to i64
   %17 = getelementptr inbounds %"class.llvm::Attribute", ptr %13, i64 %16
-  %18 = getelementptr inbounds i8, ptr %7, i64 40
+  %18 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %19 = load i32, ptr %18, align 8
   %20 = zext i32 %19 to i64
   %21 = sub nsw i64 0, %20
@@ -12995,7 +12995,7 @@ _ZNK4llvm13AttributeList11getRetAttrsEv.exit:     ; preds = %_ZNK4llvm13Attribut
   %15 = load i32, ptr %14, align 8
   %16 = zext i32 %15 to i64
   %17 = getelementptr inbounds %"class.llvm::Attribute", ptr %13, i64 %16
-  %18 = getelementptr inbounds i8, ptr %7, i64 40
+  %18 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %19 = load i32, ptr %18, align 8
   %20 = zext i32 %19 to i64
   %21 = sub nsw i64 0, %20
@@ -13088,7 +13088,7 @@ _ZNK4llvm13AttributeList13getParamAttrsEj.exit:   ; preds = %_ZNK4llvm13Attribut
   %19 = load i32, ptr %18, align 8
   %20 = zext i32 %19 to i64
   %21 = getelementptr inbounds %"class.llvm::Attribute", ptr %17, i64 %20
-  %22 = getelementptr inbounds i8, ptr %11, i64 40
+  %22 = getelementptr inbounds nuw i8, ptr %11, i64 40
   %23 = load i32, ptr %22, align 8
   %24 = zext i32 %23 to i64
   %25 = sub nsw i64 0, %24
@@ -13178,7 +13178,7 @@ _ZNK4llvm13AttributeList11getRetAttrsEv.exit:     ; preds = %_ZNK4llvm13Attribut
   %15 = load i32, ptr %14, align 8
   %16 = zext i32 %15 to i64
   %17 = getelementptr inbounds %"class.llvm::Attribute", ptr %13, i64 %16
-  %18 = getelementptr inbounds i8, ptr %7, i64 40
+  %18 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %19 = load i32, ptr %18, align 8
   %20 = zext i32 %19 to i64
   %21 = sub nsw i64 0, %20
@@ -13271,7 +13271,7 @@ _ZNK4llvm13AttributeList13getParamAttrsEj.exit:   ; preds = %_ZNK4llvm13Attribut
   %19 = load i32, ptr %18, align 8
   %20 = zext i32 %19 to i64
   %21 = getelementptr inbounds %"class.llvm::Attribute", ptr %17, i64 %20
-  %22 = getelementptr inbounds i8, ptr %11, i64 40
+  %22 = getelementptr inbounds nuw i8, ptr %11, i64 40
   %23 = load i32, ptr %22, align 8
   %24 = zext i32 %23 to i64
   %25 = sub nsw i64 0, %24
@@ -13361,7 +13361,7 @@ _ZNK4llvm13AttributeList11getRetAttrsEv.exit:     ; preds = %_ZNK4llvm13Attribut
   %15 = load i32, ptr %14, align 8
   %16 = zext i32 %15 to i64
   %17 = getelementptr inbounds %"class.llvm::Attribute", ptr %13, i64 %16
-  %18 = getelementptr inbounds i8, ptr %7, i64 40
+  %18 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %19 = load i32, ptr %18, align 8
   %20 = zext i32 %19 to i64
   %21 = sub nsw i64 0, %20
@@ -13455,7 +13455,7 @@ _ZNK4llvm13AttributeList13getParamAttrsEj.exit:   ; preds = %_ZNK4llvm13Attribut
   %19 = load i32, ptr %18, align 8
   %20 = zext i32 %19 to i64
   %21 = getelementptr inbounds %"class.llvm::Attribute", ptr %17, i64 %20
-  %22 = getelementptr inbounds i8, ptr %11, i64 40
+  %22 = getelementptr inbounds nuw i8, ptr %11, i64 40
   %23 = load i32, ptr %22, align 8
   %24 = zext i32 %23 to i64
   %25 = sub nsw i64 0, %24
@@ -13546,7 +13546,7 @@ _ZNK4llvm13AttributeList10getFnAttrsEv.exit:      ; preds = %_ZNK4llvm13Attribut
   %15 = load i32, ptr %14, align 8
   %16 = zext i32 %15 to i64
   %17 = getelementptr inbounds %"class.llvm::Attribute", ptr %13, i64 %16
-  %18 = getelementptr inbounds i8, ptr %7, i64 40
+  %18 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %19 = load i32, ptr %18, align 8
   %20 = zext i32 %19 to i64
   %21 = sub nsw i64 0, %20
@@ -13637,7 +13637,7 @@ _ZNK4llvm13AttributeList10getFnAttrsEv.exit:      ; preds = %_ZNK4llvm13Attribut
   %15 = load i32, ptr %14, align 8
   %16 = zext i32 %15 to i64
   %17 = getelementptr inbounds %"class.llvm::Attribute", ptr %13, i64 %16
-  %18 = getelementptr inbounds i8, ptr %7, i64 40
+  %18 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %19 = load i32, ptr %18, align 8
   %20 = zext i32 %19 to i64
   %21 = sub nsw i64 0, %20
@@ -13726,7 +13726,7 @@ _ZNK4llvm13AttributeList10getFnAttrsEv.exit:      ; preds = %_ZNK4llvm13Attribut
   %14 = load i32, ptr %13, align 8
   %15 = zext i32 %14 to i64
   %16 = getelementptr inbounds %"class.llvm::Attribute", ptr %12, i64 %15
-  %17 = getelementptr inbounds i8, ptr %7, i64 40
+  %17 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %18 = load i32, ptr %17, align 8
   %19 = zext i32 %18 to i64
   %20 = sub nsw i64 0, %19
@@ -14149,7 +14149,7 @@ _ZN4llvm12append_rangeINS_11SmallVectorINS_9AttributeELj8EEERNS_12AttributeSetEE
 define dso_local void @_ZN4llvm11AttrBuilder5clearEv(ptr noundef nonnull align 8 dereferenceable(88) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %2) #25
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 0, ptr %4, align 8
   ret void
 }
@@ -16956,8 +16956,8 @@ define linkonce_odr hidden void @_ZN4llvm23SmallVectorTemplateBaseINS_13Constant
 _ZN4llvm5APIntC2ERKS0_.exit.i:                    ; preds = %13, %11
   %14 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %15 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %16 = getelementptr inbounds i8, ptr %6, i64 24
-  %17 = getelementptr inbounds i8, ptr %3, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %6, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %18 = load i32, ptr %17, align 8
   store i32 %18, ptr %16, align 8
   %19 = icmp ult i32 %18, 65
@@ -17055,8 +17055,8 @@ define linkonce_odr void @_ZN4llvm23SmallVectorTemplateBaseINS_13ConstantRangeEL
   store i32 0, ptr %7, align 8
   %10 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i, i64 16
   %11 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i.i, i64 16
-  %12 = getelementptr inbounds i8, ptr %.09.i.i.i.i.i, i64 24
-  %13 = getelementptr inbounds i8, ptr %.sroa.04.08.i.i.i.i.i, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i.i, i64 24
   %14 = load i32, ptr %13, align 8
   store i32 %14, ptr %12, align 8
   %15 = load i64, ptr %11, align 8

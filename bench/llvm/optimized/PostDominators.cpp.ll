@@ -91,13 +91,13 @@ define dso_local void @_ZN4llvm28PostDominatorTreeWrapperPassC2Ev(ptr noundef no
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %8 = getelementptr inbounds i8, ptr %0, i64 48
   tail call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull %8, i64 noundef 4) #14
-  %9 = getelementptr inbounds i8, ptr %0, i64 80
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %10 = getelementptr inbounds i8, ptr %0, i64 96
   tail call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull %10, i64 noundef 6) #14
-  %11 = getelementptr inbounds i8, ptr %0, i64 152
-  %12 = getelementptr inbounds i8, ptr %0, i64 172
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 152
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 172
   store i32 0, ptr %12, align 4
-  %13 = getelementptr inbounds i8, ptr %0, i64 176
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 176
   store i32 0, ptr %13, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %11, i8 0, i64 17, i1 false)
   %14 = tail call noundef ptr @_ZN4llvm12PassRegistry15getPassRegistryEv() #14
@@ -187,14 +187,14 @@ define dso_local noundef zeroext i1 @_ZN4llvm17PostDominatorTree10invalidateERNS
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr @_ZN4llvm25PostDominatorTreeAnalysis3KeyE, ptr %6, align 8, !alias.scope !4
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 48
-  %8 = getelementptr inbounds i8, ptr %2, i64 56
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %9 = load ptr, ptr %8, align 8, !noalias !4
   %10 = load ptr, ptr %7, align 8, !noalias !4
   %11 = icmp eq ptr %9, %10
   br i1 %11, label %12, label %22
 
 12:                                               ; preds = %4
-  %13 = getelementptr inbounds i8, ptr %2, i64 68
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 68
   %14 = load i32, ptr %13, align 4, !noalias !4
   %15 = zext i32 %14 to i64
   %16 = getelementptr inbounds ptr, ptr %10, i64 %15
@@ -224,15 +224,15 @@ define dso_local noundef zeroext i1 @_ZN4llvm17PostDominatorTree10invalidateERNS
   br i1 %.not.i.i.i.i, label %24, label %._ZNK4llvm19SmallPtrSetImplBase8find_impEPKv.exit_crit_edge.i.i.i
 
 ._ZNK4llvm19SmallPtrSetImplBase8find_impEPKv.exit_crit_edge.i.i.i: ; preds = %22
-  %.phi.trans.insert.i.i.i = getelementptr inbounds i8, ptr %2, i64 68
+  %.phi.trans.insert.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 68
   %.pre5.i.i.i = load i32, ptr %.phi.trans.insert.i.i.i, align 4, !noalias !4
   br label %_ZNK4llvm17PreservedAnalyses10getCheckerINS_25PostDominatorTreeAnalysisEEENS0_24PreservedAnalysisCheckerEv.exit
 
 24:                                               ; preds = %22
   %25 = icmp eq ptr %.pre.i.i.i, %.pre4.i.i.i
-  %26 = getelementptr inbounds i8, ptr %2, i64 68
+  %26 = getelementptr inbounds nuw i8, ptr %2, i64 68
   %27 = load i32, ptr %26, align 4, !noalias !4
-  %28 = getelementptr inbounds i8, ptr %2, i64 64
+  %28 = getelementptr inbounds nuw i8, ptr %2, i64 64
   %29 = load i32, ptr %28, align 8, !noalias !4
   %.v.v.i14.i.i.i.i = select i1 %25, i32 %27, i32 %29
   %.v.i15.i.i.i.i = zext i32 %.v.v.i14.i.i.i.i to i64
@@ -246,7 +246,7 @@ _ZNK4llvm17PreservedAnalyses10getCheckerINS_25PostDominatorTreeAnalysisEEENS0_24
   %.0.i.i.i.i = phi ptr [ %21, %._crit_edge.i.i.i.i ], [ %30, %24 ], [ %23, %._ZNK4llvm19SmallPtrSetImplBase8find_impEPKv.exit_crit_edge.i.i.i ], [ %.01118.i.i.i.i, %.lr.ph.i.i.i.i ]
   %34 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %35 = icmp eq ptr %33, %32
-  %36 = getelementptr inbounds i8, ptr %2, i64 64
+  %36 = getelementptr inbounds nuw i8, ptr %2, i64 64
   %37 = load i32, ptr %36, align 8, !noalias !4
   %.v.v.i.i.i.i = select i1 %35, i32 %31, i32 %37
   %.v.i.i.i.i = zext i32 %.v.v.i.i.i.i to i64
@@ -742,7 +742,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm17PostDominatorTree9dominatesEPKNS
   br i1 %15, label %.critedge, label %16
 
 16:                                               ; preds = %13, %10
-  %17 = getelementptr inbounds i8, ptr %5, i64 56
+  %17 = getelementptr inbounds nuw i8, ptr %5, i64 56
   br label %18
 
 18:                                               ; preds = %18, %16
@@ -914,15 +914,15 @@ _ZN4llvm11raw_ostreamlsEPKc.exit6:                ; preds = %40, %42
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 0, ptr %53, align 8, !alias.scope !10
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %55 = getelementptr inbounds i8, ptr %0, i64 80
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store ptr %55, ptr %54, align 8, !alias.scope !10
-  %56 = getelementptr inbounds i8, ptr %0, i64 56
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store ptr %55, ptr %56, align 8, !alias.scope !10
-  %57 = getelementptr inbounds i8, ptr %0, i64 64
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i32 2, ptr %57, align 8, !alias.scope !10
-  %58 = getelementptr inbounds i8, ptr %0, i64 68
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 68
   store i32 0, ptr %58, align 4, !alias.scope !10
-  %59 = getelementptr inbounds i8, ptr %0, i64 72
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store i32 0, ptr %59, align 8, !alias.scope !10
   store i32 1, ptr %52, align 4, !alias.scope !10, !noalias !13
   store ptr @_ZN4llvm17PreservedAnalyses14AllAnalysesKeyE, ptr %49, align 8, !alias.scope !10, !noalias !13

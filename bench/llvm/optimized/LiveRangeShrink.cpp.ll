@@ -274,7 +274,7 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_115LiveRangeShrink20runOnMac
   %25 = tail call noundef ptr %24(ptr noundef nonnull align 8 dereferenceable(288) %21) #14
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %3, i8 0, i64 20, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %4, i8 0, i64 20, i1 false)
-  %26 = getelementptr inbounds i8, ptr %1, i64 328
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 328
   %27 = getelementptr inbounds nuw i8, ptr %1, i64 320
   %.sroa.0388.0536 = load ptr, ptr %26, align 8
   %.not407537 = icmp eq ptr %.sroa.0388.0536, %27
@@ -832,7 +832,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIjSt4pairIjPNS_12MachineInstrEENS_12DenseMapI
   store i32 %144, ptr %.0.i298, align 4
   %295 = getelementptr inbounds nuw i8, ptr %.0.i298, i64 8
   store i32 0, ptr %295, align 8
-  %296 = getelementptr inbounds i8, ptr %.0.i298, i64 16
+  %296 = getelementptr inbounds nuw i8, ptr %.0.i298, i64 16
   store ptr null, ptr %296, align 8
   br label %_ZN4llvm12DenseMapBaseINS_8DenseMapIjSt4pairIjPNS_12MachineInstrEENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjS5_EEEEjS5_S7_SA_EixEOj.exit
 
@@ -840,7 +840,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIjSt4pairIjPNS_12MachineInstrEENS_12DenseMapI
   %.0.i.i135 = phi ptr [ %.0.i298, %_ZN4llvm12DenseMapBaseINS_8DenseMapIjSt4pairIjPNS_12MachineInstrEENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjS5_EEEEjS5_S7_SA_E20InsertIntoBucketImplIjEEPSA_RKjRKT_SE_.exit ], [ %152, %148 ], [ %166, %160 ]
   %297 = getelementptr inbounds nuw i8, ptr %.0.i.i135, i64 8
   store i32 %131, ptr %297, align 8
-  %298 = getelementptr inbounds i8, ptr %.0.i.i135, i64 16
+  %298 = getelementptr inbounds nuw i8, ptr %.0.i.i135, i64 16
   store ptr %.sroa.0384.0532, ptr %298, align 8
   br label %.critedge
 
@@ -907,7 +907,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIjSt4pairIjPNS_12MachineInstrEENS_12DenseMapI
   store i32 %330, ptr %329, align 4
   %331 = getelementptr inbounds nuw i8, ptr %329, i64 8
   store i32 0, ptr %331, align 8
-  %332 = getelementptr inbounds i8, ptr %329, i64 16
+  %332 = getelementptr inbounds nuw i8, ptr %329, i64 16
   store ptr null, ptr %332, align 8
   br label %_ZN4llvm12DenseMapBaseINS_8DenseMapIjSt4pairIjPNS_12MachineInstrEENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjS5_EEEEjS5_S7_SA_EixEOj.exit151
 
@@ -991,7 +991,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIjSt4pairIjPNS_12MachineInstrEENS_12DenseMapI
   store i32 %374, ptr %373, align 4
   %375 = getelementptr inbounds nuw i8, ptr %373, i64 8
   store i32 0, ptr %375, align 8
-  %376 = getelementptr inbounds i8, ptr %373, i64 16
+  %376 = getelementptr inbounds nuw i8, ptr %373, i64 16
   store ptr null, ptr %376, align 8
   %.pre = load i32, ptr %303, align 4
   %.pre623 = load ptr, ptr %4, align 8
@@ -1059,14 +1059,14 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIjSt4pairIjPNS_12MachineInstrEENS_12DenseMapI
   store i32 %410, ptr %409, align 4
   %411 = getelementptr inbounds nuw i8, ptr %409, i64 8
   store i32 0, ptr %411, align 8
-  %412 = getelementptr inbounds i8, ptr %409, i64 16
+  %412 = getelementptr inbounds nuw i8, ptr %409, i64 16
   store ptr null, ptr %412, align 8
   br label %_ZN4llvm12DenseMapBaseINS_8DenseMapIjSt4pairIjPNS_12MachineInstrEENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjS5_EEEEjS5_S7_SA_EixEOj.exit177
 
 _ZN4llvm12DenseMapBaseINS_8DenseMapIjSt4pairIjPNS_12MachineInstrEENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjS5_EEEEjS5_S7_SA_EixEOj.exit177: ; preds = %399, %383, %_ZN4llvm12DenseMapBaseINS_8DenseMapIjSt4pairIjPNS_12MachineInstrEENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjS5_EEEEjS5_S7_SA_E15LookupBucketForIjEEbRKT_RPSA_.exit.i.i175
   %413 = phi i32 [ %408, %_ZN4llvm12DenseMapBaseINS_8DenseMapIjSt4pairIjPNS_12MachineInstrEENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjS5_EEEEjS5_S7_SA_E15LookupBucketForIjEEbRKT_RPSA_.exit.i.i175 ], [ %384, %383 ], [ %384, %399 ]
   %.0.i.i173 = phi ptr [ %409, %_ZN4llvm12DenseMapBaseINS_8DenseMapIjSt4pairIjPNS_12MachineInstrEENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjS5_EEEEjS5_S7_SA_E15LookupBucketForIjEEbRKT_RPSA_.exit.i.i175 ], [ %391, %383 ], [ %405, %399 ]
-  %414 = getelementptr inbounds i8, ptr %.0.i.i173, i64 16
+  %414 = getelementptr inbounds nuw i8, ptr %.0.i.i173, i64 16
   %415 = load ptr, ptr %414, align 8
   br label %.critedge
 
@@ -1171,7 +1171,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIjSt4pairIjPNS_12MachineInstrEENS_12DenseMapI
   br i1 %.not.i.i.i.i.i, label %457, label %.lr.ph.i.i.i.preheader.i.i
 
 457:                                              ; preds = %454
-  %458 = getelementptr inbounds i8, ptr %.0.i.i.i.i180, i64 24
+  %458 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i180, i64 24
   %459 = load ptr, ptr %458, align 8
   %.not.i4.i.i.i.i = icmp eq ptr %459, null
   br i1 %.not.i4.i.i.i.i, label %_ZNK4llvm19MachineRegisterInfo9hasOneDefENS_8RegisterE.exit.thread, label %460
@@ -1184,7 +1184,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIjSt4pairIjPNS_12MachineInstrEENS_12DenseMapI
 
 .lr.ph.i.i.i.preheader.i.i:                       ; preds = %460, %454
   %.sroa.0.0.i.i.i182 = phi ptr [ %.0.i.i.i.i180, %454 ], [ %459, %460 ]
-  %463 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i.i182, i64 24
+  %463 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i.i182, i64 24
   %464 = load ptr, ptr %463, align 8
   %.not.i.i.i.i.i.i.i = icmp eq ptr %464, null
   br i1 %.not.i.i.i.i.i.i.i, label %_ZNK4llvm19MachineRegisterInfo9hasOneDefENS_8RegisterE.exit, label %465
@@ -1224,7 +1224,7 @@ _ZNK4llvm19MachineRegisterInfo9hasOneDefENS_8RegisterE.exit: ; preds = %.lr.ph.i
   br i1 %.not.i.i.i.i.i, label %486, label %_ZNK4llvm19MachineRegisterInfo15def_instr_beginENS_8RegisterE.exit
 
 486:                                              ; preds = %485
-  %487 = getelementptr inbounds i8, ptr %.0.i.i.i.i180, i64 24
+  %487 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i180, i64 24
   %488 = load ptr, ptr %487, align 8, !nonnull !13, !noundef !13
   %489 = load i32, ptr %488, align 8
   %490 = and i32 %489, 16777216

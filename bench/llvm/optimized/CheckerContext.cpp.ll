@@ -412,7 +412,7 @@ define dso_local { ptr, i64 } @_ZN5clang4ento14CheckerContext22getMacroNameOrSpe
 
 6:                                                ; preds = %2
   %7 = load ptr, ptr %0, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 664
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 664
   %9 = load ptr, ptr %8, align 8
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr inbounds i8, ptr %10, i64 32
@@ -435,7 +435,7 @@ define dso_local { ptr, i64 } @_ZN5clang4ento14CheckerContext22getMacroNameOrSpe
   call void @_ZN4llvm15SmallVectorBaseImEC2EPvm(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull %25, i64 noundef 16) #9
   %.sroa.0.0.copyload = load i32, ptr %1, align 4
   %26 = load ptr, ptr %0, align 8
-  %27 = getelementptr inbounds i8, ptr %26, i64 664
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 664
   %28 = load ptr, ptr %27, align 8
   %29 = load ptr, ptr %28, align 8
   %30 = getelementptr inbounds i8, ptr %29, i64 32

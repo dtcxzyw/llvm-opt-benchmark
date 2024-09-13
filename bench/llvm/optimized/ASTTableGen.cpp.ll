@@ -574,7 +574,7 @@ _ZNK4llvm12RecordKeeper8getClassENS_9StringRefE.exit.thread.i: ; preds = %5
   br label %29
 
 _ZNK4llvm12RecordKeeper8getClassENS_9StringRefE.exit.i: ; preds = %5
-  %27 = getelementptr inbounds i8, ptr %24, i64 64
+  %27 = getelementptr inbounds nuw i8, ptr %24, i64 64
   %28 = load ptr, ptr %27, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
   %.not.i = icmp eq ptr %28, null
@@ -649,7 +649,7 @@ _ZNK4llvm12RecordKeeper8getClassENS_9StringRefE.exit.i: ; preds = %5
   store ptr @.str.16, ptr %15, align 8, !alias.scope !17
   %57 = getelementptr inbounds nuw i8, ptr %15, i64 16
   store ptr %1, ptr %57, align 8, !alias.scope !17
-  %58 = getelementptr inbounds i8, ptr %15, i64 24
+  %58 = getelementptr inbounds nuw i8, ptr %15, i64 24
   store i64 %2, ptr %58, align 8, !alias.scope !17
   %59 = getelementptr inbounds nuw i8, ptr %16, i64 32
   %60 = getelementptr inbounds nuw i8, ptr %16, i64 33
@@ -948,7 +948,7 @@ _ZNKSt8multimapIN5clang6tblgen7ASTNodeES2_St4lessIS2_ESaISt4pairIKS2_S2_EEE11upp
 
 .lr.ph:                                           ; preds = %_ZNKSt8multimapIN5clang6tblgen7ASTNodeES2_St4lessIS2_ESaISt4pairIKS2_S2_EEE11upper_boundERS6_.exit, %.lr.ph
   %.sroa.030.039 = phi ptr [ %33, %.lr.ph ], [ %.19.i.i.i, %_ZNKSt8multimapIN5clang6tblgen7ASTNodeES2_St4lessIS2_ESaISt4pairIKS2_S2_EEE11upper_boundERS6_.exit ]
-  %32 = getelementptr inbounds i8, ptr %.sroa.030.039, i64 40
+  %32 = getelementptr inbounds nuw i8, ptr %.sroa.030.039, i64 40
   %.sroa.02.0.copyload = load ptr, ptr %32, align 8
   tail call fastcc void @_ZL21visitASTNodeRecursiveN5clang6tblgen7ASTNodeES1_RKSt8multimapIS1_S1_St4lessIS1_ESaISt4pairIKS1_S1_EEEN4llvm12function_refIFvS1_S1_EEE(ptr %.sroa.02.0.copyload, ptr nonnull %0, ptr noundef nonnull align 8 dereferenceable(48) %2, ptr %3, i64 %4)
   %33 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.030.039) #18
@@ -1049,7 +1049,7 @@ define linkonce_odr ptr @_ZNSt8_Rb_treeIN5clang6tblgen7ASTNodeESt4pairIKS2_S2_ES
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %5 = load i64, ptr %1, align 8
   store i64 %5, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %3, i64 40
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = load i64, ptr %7, align 8
   store i64 %8, ptr %6, align 8

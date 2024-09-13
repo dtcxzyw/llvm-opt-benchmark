@@ -351,7 +351,7 @@ define noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__16UsdSkelAnimQu
   store i8 0, ptr %6, align 8, !alias.scope !4
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store double 0x7FF0000000000000, ptr %7, align 8, !alias.scope !4
-  %8 = getelementptr inbounds i8, ptr %5, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store i8 0, ptr %8, align 8, !alias.scope !4
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4)
   %9 = load ptr, ptr %0, align 8
@@ -721,7 +721,7 @@ define noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__16UsdSkelAnimQu
   store i8 0, ptr %6, align 8, !alias.scope !7
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store double 0x7FF0000000000000, ptr %7, align 8, !alias.scope !7
-  %8 = getelementptr inbounds i8, ptr %5, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store i8 0, ptr %8, align 8, !alias.scope !7
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4)
   %9 = load ptr, ptr %0, align 8
@@ -995,7 +995,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathC2ERKS0_.exit.i: ; preds = %12
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %24 = atomicrmw add ptr %23, i32 1 monotonic, align 4, !noalias !10
   %25 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  %26 = getelementptr inbounds i8, ptr %4, i64 20
+  %26 = getelementptr inbounds nuw i8, ptr %4, i64 20
   %27 = load i32, ptr %26, align 4, !noalias !10
   store i32 %27, ptr %25, align 4, !alias.scope !10
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7GetPathEv.exit
@@ -1033,7 +1033,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathC2ERKS0_.exit.i: ; preds = %12
 
 _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathC2ERKS0_.exit5.i: ; preds = %37, %35
   %48 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  %49 = getelementptr inbounds i8, ptr %30, i64 20
+  %49 = getelementptr inbounds nuw i8, ptr %30, i64 20
   %50 = load i32, ptr %49, align 4, !noalias !10
   store i32 %50, ptr %48, align 4, !alias.scope !10
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7GetPathEv.exit

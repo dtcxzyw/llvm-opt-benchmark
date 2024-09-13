@@ -79,12 +79,12 @@ define dso_local void @_ZN4llvm17DWARFDebugAranges7extractENS_18DWARFDataExtract
   %19 = getelementptr inbounds nuw i8, ptr %14, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %19, i8 0, i64 24, i1 false)
   call void @_ZN4llvm19DWARFDebugArangeSet5clearEv(ptr noundef nonnull align 8 dereferenceable(64) %14) #13
-  %20 = getelementptr inbounds i8, ptr %14, i64 24
-  %21 = getelementptr inbounds i8, ptr %14, i64 48
+  %20 = getelementptr inbounds nuw i8, ptr %14, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %14, i64 48
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %25 = getelementptr inbounds i8, ptr %0, i64 64
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 64
   br label %26
 
 26:                                               ; preds = %.lr.ph31, %_ZN4llvm6detail12DenseSetImplImNS_8DenseMapImNS0_13DenseSetEmptyENS_12DenseMapInfoImvEENS0_12DenseSetPairImEEEES5_E6insertERKm.exit
@@ -270,7 +270,7 @@ _ZN4llvm5ErrorD2Ev.exit9:                         ; preds = %_ZN4llvm6detail12De
   br i1 %.not.i.i.i.i12, label %_ZN4llvm19DWARFDebugArangeSetD2Ev.exit, label %102
 
 102:                                              ; preds = %_ZN4llvm5ErrorD2Ev.exit9
-  %103 = getelementptr inbounds i8, ptr %14, i64 56
+  %103 = getelementptr inbounds nuw i8, ptr %14, i64 56
   %104 = load ptr, ptr %103, align 8
   %105 = ptrtoint ptr %104 to i64
   %106 = ptrtoint ptr %101 to i64
@@ -377,7 +377,7 @@ define dso_local void @_ZN4llvm17DWARFDebugAranges8generateEPNS_12DWARFContextE(
 _ZNSt6vectorIN4llvm17DWARFDebugAranges13RangeEndpointESaIS2_EE5clearEv.exit.i: ; preds = %15, %2
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 32
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %19 = load ptr, ptr %18, align 8
   %.not.i.i1.i = icmp eq ptr %19, %17
   br i1 %.not.i.i1.i, label %_ZNSt6vectorIN4llvm17DWARFDebugAranges5RangeESaIS2_EE5clearEv.exit.i, label %20
@@ -388,10 +388,10 @@ _ZNSt6vectorIN4llvm17DWARFDebugAranges13RangeEndpointESaIS2_EE5clearEv.exit.i: ;
 
 _ZNSt6vectorIN4llvm17DWARFDebugAranges5RangeESaIS2_EE5clearEv.exit.i: ; preds = %20, %_ZNSt6vectorIN4llvm17DWARFDebugAranges13RangeEndpointESaIS2_EE5clearEv.exit.i
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %22 = getelementptr inbounds i8, ptr %0, i64 56
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %23 = load i32, ptr %22, align 8
   %24 = icmp eq i32 %23, 0
-  %25 = getelementptr inbounds i8, ptr %0, i64 60
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %26 = load i32, ptr %25, align 4
   %27 = icmp eq i32 %26, 0
   %or.cond.i.i = select i1 %24, i1 %27, i1 false
@@ -399,7 +399,7 @@ _ZNSt6vectorIN4llvm17DWARFDebugAranges5RangeESaIS2_EE5clearEv.exit.i: ; preds = 
 
 28:                                               ; preds = %_ZNSt6vectorIN4llvm17DWARFDebugAranges5RangeESaIS2_EE5clearEv.exit.i
   %29 = shl i32 %23, 2
-  %30 = getelementptr inbounds i8, ptr %0, i64 64
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %31 = load i32, ptr %30, align 8
   %32 = icmp ult i32 %29, %31
   %33 = icmp ugt i32 %31, 64
@@ -488,7 +488,7 @@ _ZN4llvm12DWARFContext18info_section_unitsEv.exit.i: ; preds = %68, %39
 .lr.ph.i.i.i.i.i:                                 ; preds = %_ZN4llvm12DWARFContext18info_section_unitsEv.exit.i, %78
   %.sroa.010.0.i.i = phi ptr [ %79, %78 ], [ %64, %_ZN4llvm12DWARFContext18info_section_unitsEv.exit.i ]
   %74 = load ptr, ptr %.sroa.010.0.i.i, align 8, !noalias !15
-  %75 = getelementptr inbounds i8, ptr %74, i64 96
+  %75 = getelementptr inbounds nuw i8, ptr %74, i64 96
   %76 = load i8, ptr %75, align 8, !noalias !15
   %77 = and i8 %76, -5
   %spec.select.i.i.i.not.i = icmp eq i8 %77, 2
@@ -505,13 +505,13 @@ _ZN4llvm12DWARFContext13compile_unitsEv.exit:     ; preds = %.lr.ph.i.i.i.i.i, %
   br i1 %.not4854, label %._crit_edge, label %.lr.ph56
 
 .lr.ph56:                                         ; preds = %_ZN4llvm12DWARFContext13compile_unitsEv.exit
-  %80 = getelementptr inbounds i8, ptr %0, i64 64
+  %80 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %81 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %82 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %83 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %84 = getelementptr inbounds nuw i8, ptr %11, i64 16
-  %85 = getelementptr inbounds i8, ptr %1, i64 48
-  %86 = getelementptr inbounds i8, ptr %1, i64 56
+  %85 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  %86 = getelementptr inbounds nuw i8, ptr %1, i64 56
   br label %87
 
 87:                                               ; preds = %.lr.ph56, %_ZN4llvm20filter_iterator_baseIPSt10unique_ptrINS_9DWARFUnitESt14default_deleteIS2_EEPFbRKS5_ESt26bidirectional_iterator_tagEppEv.exit
@@ -733,7 +733,7 @@ _ZN4llvm8ExpectedISt6vectorINS_17DWARFAddressRangeESaIS2_EEED2Ev.exit: ; preds =
 .lr.ph.i.i:                                       ; preds = %_ZN4llvm8ExpectedISt6vectorINS_17DWARFAddressRangeESaIS2_EEED2Ev.exit, %179
   %.sroa.035.1 = phi ptr [ %180, %179 ], [ %174, %_ZN4llvm8ExpectedISt6vectorINS_17DWARFAddressRangeESaIS2_EEED2Ev.exit ]
   %175 = load ptr, ptr %.sroa.035.1, align 8
-  %176 = getelementptr inbounds i8, ptr %175, i64 96
+  %176 = getelementptr inbounds nuw i8, ptr %175, i64 96
   %177 = load i8, ptr %176, align 8
   %178 = and i8 %177, -5
   %spec.select.i.i.i.not = icmp eq i8 %178, 2
@@ -771,7 +771,7 @@ define dso_local void @_ZN4llvm17DWARFDebugAranges5clearEv(ptr noundef nonnull a
 _ZNSt6vectorIN4llvm17DWARFDebugAranges13RangeEndpointESaIS2_EE5clearEv.exit: ; preds = %1, %5
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %9 = load ptr, ptr %8, align 8
   %.not.i.i1 = icmp eq ptr %9, %7
   br i1 %.not.i.i1, label %_ZNSt6vectorIN4llvm17DWARFDebugAranges5RangeESaIS2_EE5clearEv.exit, label %10
@@ -782,10 +782,10 @@ _ZNSt6vectorIN4llvm17DWARFDebugAranges13RangeEndpointESaIS2_EE5clearEv.exit: ; p
 
 _ZNSt6vectorIN4llvm17DWARFDebugAranges5RangeESaIS2_EE5clearEv.exit: ; preds = %_ZNSt6vectorIN4llvm17DWARFDebugAranges13RangeEndpointESaIS2_EE5clearEv.exit, %10
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %12 = getelementptr inbounds i8, ptr %0, i64 56
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %13 = load i32, ptr %12, align 8
   %14 = icmp eq i32 %13, 0
-  %15 = getelementptr inbounds i8, ptr %0, i64 60
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %16 = load i32, ptr %15, align 4
   %17 = icmp eq i32 %16, 0
   %or.cond.i = select i1 %14, i1 %17, i1 false
@@ -793,7 +793,7 @@ _ZNSt6vectorIN4llvm17DWARFDebugAranges5RangeESaIS2_EE5clearEv.exit: ; preds = %_
 
 18:                                               ; preds = %_ZNSt6vectorIN4llvm17DWARFDebugAranges5RangeESaIS2_EE5clearEv.exit
   %19 = shl i32 %13, 2
-  %20 = getelementptr inbounds i8, ptr %0, i64 64
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %21 = load i32, ptr %20, align 8
   %22 = icmp ult i32 %19, %21
   %23 = icmp ugt i32 %21, 64
@@ -868,8 +868,8 @@ _ZN4llvm4sortIRSt6vectorINS_17DWARFDebugAranges13RangeEndpointESaIS3_EEEEvOT_.ex
 
 .lr.ph:                                           ; preds = %_ZN4llvm4sortIRSt6vectorINS_17DWARFDebugAranges13RangeEndpointESaIS3_EEEEvOT_.exit
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %20 = getelementptr inbounds i8, ptr %0, i64 32
-  %21 = getelementptr inbounds i8, ptr %0, i64 40
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %.pre48 = load i64, ptr %8, align 8
   br label %22
 

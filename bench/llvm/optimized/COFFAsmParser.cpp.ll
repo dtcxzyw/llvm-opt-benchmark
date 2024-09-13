@@ -488,7 +488,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_113COFFAsmParser21par
   br label %57
 
 41:                                               ; preds = %34
-  %42 = getelementptr inbounds i8, ptr %36, i64 16
+  %42 = getelementptr inbounds nuw i8, ptr %36, i64 16
   %43 = load i64, ptr %42, align 8
   %44 = add i64 %43, -1
   %45 = icmp ne i64 %43, 0
@@ -561,7 +561,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_113COFFAsmParser21par
   %92 = load ptr, ptr %14, align 8
   %93 = tail call noundef nonnull align 8 dereferenceable(40) ptr @_ZNK4llvm11MCAsmParser6getTokEv(ptr noundef nonnull align 8 dereferenceable(34) %92) #11
   %94 = getelementptr inbounds nuw i8, ptr %93, i64 8
-  %95 = getelementptr inbounds i8, ptr %93, i64 16
+  %95 = getelementptr inbounds nuw i8, ptr %93, i64 16
   %96 = load i64, ptr %95, align 8
   %97 = add i64 %96, -1
   %98 = icmp ne i64 %96, 0
@@ -910,7 +910,7 @@ _ZN12_GLOBAL__N_113COFFAsmParser17ParseSectionFlagsEN4llvm9StringRefES2_Pj.exit:
   %266 = getelementptr inbounds i8, ptr %265, i64 48
   %267 = load ptr, ptr %266, align 8
   %268 = call noundef nonnull align 8 dereferenceable(2432) ptr %267(ptr noundef nonnull align 8 dereferenceable(34) %264) #11
-  %269 = getelementptr inbounds i8, ptr %268, i64 56
+  %269 = getelementptr inbounds nuw i8, ptr %268, i64 56
   %270 = load i32, ptr %269, align 8
   switch i32 %270, label %273 [
     i32 1, label %271
@@ -1001,7 +1001,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_113COFFAsmParser15par
   br label %23
 
 12:                                               ; preds = %2
-  %13 = getelementptr inbounds i8, ptr %7, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %14 = load i64, ptr %13, align 8
   %15 = add i64 %14, -1
   %16 = icmp ne i64 %14, 0
@@ -1070,7 +1070,7 @@ _ZN4llvm12StringSwitchINS_4COFF10COMDATTypeES2_E4CaseENS_13StringLiteralES2_.exi
   store ptr @.str.45, ptr %4, align 8, !alias.scope !4
   %33 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %.sroa.0.0.copyload.i.pn.i, ptr %33, align 8, !alias.scope !4
-  %34 = getelementptr inbounds i8, ptr %4, i64 24
+  %34 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store i64 %.sroa.2.0.copyload.i.pn.i, ptr %34, align 8, !alias.scope !4
   store ptr %4, ptr %3, align 8, !alias.scope !7
   %35 = getelementptr inbounds nuw i8, ptr %3, i64 16

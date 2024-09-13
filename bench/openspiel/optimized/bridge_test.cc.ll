@@ -1640,7 +1640,7 @@ _ZN4absl7debian211string_viewC2ISaIcEEERKNSt7__cxx1112basic_stringIcSt11char_tra
   store i64 1, ptr %560, align 8
   %561 = getelementptr inbounds nuw i8, ptr %25, i64 16
   store ptr @.str.29, ptr %561, align 8
-  %562 = getelementptr inbounds i8, ptr %25, i64 24
+  %562 = getelementptr inbounds nuw i8, ptr %25, i64 24
   store i64 1, ptr %562, align 8
   invoke void @_ZN4absl7debian213StrReplaceAllB5cxx11ENS0_11string_viewESt16initializer_listISt4pairIS1_S1_EE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %24, ptr %556, i64 %557, ptr nonnull %25, i64 1)
           to label %563 unwind label %571
@@ -1911,7 +1911,7 @@ _ZN4absl7debian211string_viewC2ISaIcEEERKNSt7__cxx1112basic_stringIcSt11char_tra
   store i64 1, ptr %643, align 8
   %644 = getelementptr inbounds nuw i8, ptr %13, i64 16
   store ptr @.str.28, ptr %644, align 8
-  %645 = getelementptr inbounds i8, ptr %13, i64 24
+  %645 = getelementptr inbounds nuw i8, ptr %13, i64 24
   store i64 1, ptr %645, align 8
   invoke void @_ZN4absl7debian213StrReplaceAllB5cxx11ENS0_11string_viewESt16initializer_listISt4pairIS1_S1_EE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %12, ptr %639, i64 %640, ptr nonnull %13, i64 1)
           to label %646 unwind label %676

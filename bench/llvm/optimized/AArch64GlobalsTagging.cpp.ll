@@ -267,7 +267,7 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_121AArch64GlobalsTagging11ru
   %4 = alloca %"class.llvm::SmallVector.94", align 8
   %5 = alloca [2 x ptr], align 8
   %6 = alloca %"class.llvm::Twine", align 8
-  %7 = getelementptr inbounds i8, ptr %1, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.021.036 = load ptr, ptr %7, align 8
   %.not37 = icmp eq ptr %.sroa.021.036, %8

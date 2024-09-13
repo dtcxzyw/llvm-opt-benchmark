@@ -119,7 +119,7 @@ define linkonce_odr void @_ZN10OpenSubdiv6v3_6_03Vtr8internal5Level14resizeVerti
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 264
   %5 = shl nsw i32 %1, 1
   %6 = sext i32 %5 to i64
-  %7 = getelementptr inbounds i8, ptr %0, i64 272
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 272
   %8 = load ptr, ptr %7, align 8
   %9 = load ptr, ptr %4, align 8
   %10 = ptrtoint ptr %8 to i64
@@ -149,7 +149,7 @@ define linkonce_odr void @_ZN10OpenSubdiv6v3_6_03Vtr8internal5Level14resizeVerti
 
 _ZNSt6vectorIiSaIiEE6resizeEm.exit:               ; preds = %15, %17, %19, %21
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 336
-  %23 = getelementptr inbounds i8, ptr %0, i64 344
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 344
   %24 = load ptr, ptr %23, align 8
   %25 = load ptr, ptr %22, align 8
   %26 = ptrtoint ptr %24 to i64
@@ -180,7 +180,7 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit:               ; preds = %15, %17, %19, %21
 _ZNSt6vectorIiSaIiEE6resizeEm.exit6:              ; preds = %31, %33, %35, %37
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 408
   %39 = sext i32 %1 to i64
-  %40 = getelementptr inbounds i8, ptr %0, i64 416
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 416
   %41 = load ptr, ptr %40, align 8
   %42 = load ptr, ptr %38, align 8
   %43 = ptrtoint ptr %41 to i64
@@ -534,7 +534,7 @@ define linkonce_odr void @_ZN10OpenSubdiv6v3_6_03Vtr8internal5Level11resizeFaces
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = shl nsw i32 %1, 1
   %5 = sext i32 %4 to i64
-  %6 = getelementptr inbounds i8, ptr %0, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %7 = load ptr, ptr %6, align 8
   %8 = load ptr, ptr %3, align 8
   %9 = ptrtoint ptr %7 to i64
@@ -565,7 +565,7 @@ define linkonce_odr void @_ZN10OpenSubdiv6v3_6_03Vtr8internal5Level11resizeFaces
 _ZNSt6vectorIiSaIiEE6resizeEm.exit:               ; preds = %14, %16, %18, %20
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %22 = sext i32 %1 to i64
-  %23 = getelementptr inbounds i8, ptr %0, i64 104
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %24 = load ptr, ptr %23, align 8
   %25 = load ptr, ptr %21, align 8
   %26 = ptrtoint ptr %24 to i64
@@ -576,7 +576,7 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit:               ; preds = %14, %16, %18, %20
 
 30:                                               ; preds = %_ZNSt6vectorIiSaIiEE6resizeEm.exit
   %31 = sub nuw i64 %22, %28
-  %32 = getelementptr inbounds i8, ptr %0, i64 112
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %33 = load ptr, ptr %32, align 8
   %34 = ptrtoint ptr %33 to i64
   %35 = sub i64 %34, %26

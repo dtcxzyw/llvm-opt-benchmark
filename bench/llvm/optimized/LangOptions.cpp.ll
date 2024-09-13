@@ -107,7 +107,7 @@ define dso_local void @_ZN5clang11LangOptionsC2Ev(ptr noundef nonnull align 8 de
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %16) #12
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 688
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %17) #12
-  %18 = getelementptr inbounds i8, ptr %0, i64 724
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 724
   store i8 0, ptr %18, align 4
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 728
   store i8 0, ptr %19, align 8
@@ -293,7 +293,7 @@ define dso_local void @_ZN5clang11LangOptions22resetNonModularOptionsEv(ptr noun
   store i64 %49, ptr %15, align 8
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %51 = load ptr, ptr %50, align 8
-  %52 = getelementptr inbounds i8, ptr %0, i64 240
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 240
   %53 = load ptr, ptr %52, align 8
   %.not.i.i = icmp eq ptr %53, %51
   br i1 %.not.i.i, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE5clearEv.exit, label %.lr.ph.i.i.i.i.i
@@ -312,7 +312,7 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSa
 _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE5clearEv.exit: ; preds = %1, %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i.i
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %56 = load ptr, ptr %55, align 8
-  %57 = getelementptr inbounds i8, ptr %0, i64 264
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 264
   %58 = load ptr, ptr %57, align 8
   %.not.i.i1 = icmp eq ptr %58, %56
   br i1 %.not.i.i1, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE5clearEv.exit6, label %.lr.ph.i.i.i.i.i2
@@ -331,7 +331,7 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSa
 _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE5clearEv.exit6: ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE5clearEv.exit, %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i.i5
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %61 = load ptr, ptr %60, align 8
-  %62 = getelementptr inbounds i8, ptr %0, i64 288
+  %62 = getelementptr inbounds nuw i8, ptr %0, i64 288
   %63 = load ptr, ptr %62, align 8
   %.not.i.i7 = icmp eq ptr %63, %61
   br i1 %.not.i.i7, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE5clearEv.exit12, label %.lr.ph.i.i.i.i.i8
@@ -362,7 +362,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr 
 define dso_local noundef zeroext i1 @_ZNK5clang11LangOptions15isNoBuiltinFuncEN4llvm9StringRefE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(841) %0, ptr nocapture readonly %1, i64 %2) local_unnamed_addr #0 align 2 {
   %.fr21 = freeze i64 %2
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 560
-  %5 = getelementptr inbounds i8, ptr %0, i64 568
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 568
   %6 = load ptr, ptr %5, align 8
   %7 = load ptr, ptr %4, align 8
   %8 = ptrtoint ptr %6 to i64
@@ -499,7 +499,7 @@ define dso_local void @_ZNK5clang11LangOptions15remapPathPrefixERN4llvm15SmallVe
   %6 = getelementptr inbounds nuw i8, ptr %.sroa.09.013, i64 32
   %7 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %6) #12
   %8 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %6) #12
-  %9 = getelementptr inbounds i8, ptr %.sroa.09.013, i64 64
+  %9 = getelementptr inbounds nuw i8, ptr %.sroa.09.013, i64 64
   %10 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %9) #12
   %11 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %9) #12
   %12 = tail call noundef zeroext i1 @_ZN4llvm3sys4path19replace_path_prefixERNS_15SmallVectorImplIcEENS_9StringRefES5_NS1_5StyleE(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr %7, i64 %8, ptr %10, i64 %11, i32 noundef 0) #12

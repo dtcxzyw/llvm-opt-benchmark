@@ -1208,10 +1208,10 @@ define linkonce_odr hidden { ptr, i32 } @_ZN4llvm16DAGTypeLegalizer16GetSoftened
   %6 = load i32, ptr %5, align 8
   %7 = and i32 %6, 1
   %.not.i.i.i.i.i = icmp eq i32 %7, 0
-  %8 = getelementptr inbounds i8, ptr %0, i64 840
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 840
   %9 = load ptr, ptr %8, align 8
   %10 = select i1 %.not.i.i.i.i.i, ptr %9, ptr %8
-  %11 = getelementptr inbounds i8, ptr %0, i64 848
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 848
   %12 = load i32, ptr %11, align 8
   %13 = select i1 %.not.i.i.i.i.i, i32 %12, i32 8
   %14 = icmp eq i32 %13, 0
@@ -1257,10 +1257,10 @@ _ZN4llvm12DenseMapBaseINS_13SmallDenseMapIjjLj8ENS_12DenseMapInfoIjvEENS_6detail
   %36 = load i32, ptr %35, align 8
   %37 = and i32 %36, 1
   %.not.i.i.i.i.i.i = icmp eq i32 %37, 0
-  %38 = getelementptr inbounds i8, ptr %0, i64 464
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 464
   %39 = load ptr, ptr %38, align 8
   %40 = select i1 %.not.i.i.i.i.i.i, ptr %39, ptr %38
-  %41 = getelementptr inbounds i8, ptr %0, i64 472
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 472
   %42 = load i32, ptr %41, align 8
   %43 = select i1 %.not.i.i.i.i.i.i, i32 %42, i32 8
   %44 = icmp eq i32 %43, 0
@@ -1330,10 +1330,10 @@ define linkonce_odr hidden { ptr, i32 } @_ZN4llvm16DAGTypeLegalizer19GetScalariz
   %7 = load i32, ptr %5, align 8
   %8 = and i32 %7, 1
   %.not.i.i.i.i.i.i = icmp eq i32 %8, 0
-  %9 = getelementptr inbounds i8, ptr %0, i64 1160
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 1160
   %10 = load ptr, ptr %9, align 8
   %11 = select i1 %.not.i.i.i.i.i.i, ptr %10, ptr %9
-  %12 = getelementptr inbounds i8, ptr %0, i64 1168
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 1168
   %13 = load i32, ptr %12, align 8
   %14 = select i1 %.not.i.i.i.i.i.i, i32 %13, i32 8
   %15 = icmp eq i32 %14, 0
@@ -1394,10 +1394,10 @@ _ZN4llvm12DenseMapBaseINS_13SmallDenseMapIjjLj8ENS_12DenseMapInfoIjvEENS_6detail
   %42 = load i32, ptr %41, align 8
   %43 = and i32 %42, 1
   %.not.i.i.i.i.i.i7 = icmp eq i32 %43, 0
-  %44 = getelementptr inbounds i8, ptr %0, i64 464
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 464
   %45 = load ptr, ptr %44, align 8
   %46 = select i1 %.not.i.i.i.i.i.i7, ptr %45, ptr %44
-  %47 = getelementptr inbounds i8, ptr %0, i64 472
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 472
   %48 = load i32, ptr %47, align 8
   %49 = select i1 %.not.i.i.i.i.i.i7, i32 %48, i32 8
   %50 = icmp eq i32 %49, 0
@@ -1459,10 +1459,10 @@ define linkonce_odr hidden { ptr, i32 } @_ZN4llvm16DAGTypeLegalizer16GetWidenedV
   %7 = load i32, ptr %5, align 8
   %8 = and i32 %7, 1
   %.not.i.i.i.i.i.i = icmp eq i32 %8, 0
-  %9 = getelementptr inbounds i8, ptr %0, i64 1336
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 1336
   %10 = load ptr, ptr %9, align 8
   %11 = select i1 %.not.i.i.i.i.i.i, ptr %10, ptr %9
-  %12 = getelementptr inbounds i8, ptr %0, i64 1344
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 1344
   %13 = load i32, ptr %12, align 8
   %14 = select i1 %.not.i.i.i.i.i.i, i32 %13, i32 8
   %15 = icmp eq i32 %14, 0
@@ -1523,10 +1523,10 @@ _ZN4llvm12DenseMapBaseINS_13SmallDenseMapIjjLj8ENS_12DenseMapInfoIjvEENS_6detail
   %42 = load i32, ptr %41, align 8
   %43 = and i32 %42, 1
   %.not.i.i.i.i.i.i7 = icmp eq i32 %43, 0
-  %44 = getelementptr inbounds i8, ptr %0, i64 464
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 464
   %45 = load ptr, ptr %44, align 8
   %46 = select i1 %.not.i.i.i.i.i.i7, ptr %45, ptr %44
-  %47 = getelementptr inbounds i8, ptr %0, i64 472
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 472
   %48 = load i32, ptr %47, align 8
   %49 = select i1 %.not.i.i.i.i.i.i7, i32 %48, i32 8
   %50 = icmp eq i32 %49, 0
@@ -1681,7 +1681,7 @@ _ZN4llvm16DAGTypeLegalizer13GetExpandedOpENS_7SDValueERS1_S2_.exit: ; preds = %_
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 88
   %24 = load ptr, ptr %23, align 8
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 24
-  %26 = getelementptr inbounds i8, ptr %24, i64 32
+  %26 = getelementptr inbounds nuw i8, ptr %24, i64 32
   %27 = load i32, ptr %26, align 8
   %28 = icmp ult i32 %27, 65
   %29 = load ptr, ptr %25, align 8
@@ -2326,7 +2326,7 @@ _ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit:              ; preds = %4, %26
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 88
   %35 = load ptr, ptr %34, align 8
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 24
-  %37 = getelementptr inbounds i8, ptr %35, i64 32
+  %37 = getelementptr inbounds nuw i8, ptr %35, i64 32
   %38 = load i32, ptr %37, align 8
   %39 = icmp ult i32 %38, 65
   %40 = load ptr, ptr %36, align 8
@@ -3149,7 +3149,7 @@ _ZN4llvm16DAGTypeLegalizer13GetExpandedOpENS_7SDValueERS1_S2_.exit: ; preds = %_
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 88
   %26 = load ptr, ptr %25, align 8
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 24
-  %28 = getelementptr inbounds i8, ptr %26, i64 32
+  %28 = getelementptr inbounds nuw i8, ptr %26, i64 32
   %29 = load i32, ptr %28, align 8
   %30 = icmp ult i32 %29, 65
   %31 = load ptr, ptr %27, align 8
@@ -4946,10 +4946,10 @@ define linkonce_odr hidden noundef i32 @_ZN4llvm16DAGTypeLegalizer10getTableIdEN
   %8 = load i32, ptr %7, align 8
   %9 = and i32 %8, 1
   %.not.i.i.i.i.i = icmp eq i32 %9, 0
-  %10 = getelementptr inbounds i8, ptr %0, i64 264
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 264
   %11 = load ptr, ptr %10, align 8
   %12 = select i1 %.not.i.i.i.i.i, ptr %11, ptr %10
-  %13 = getelementptr inbounds i8, ptr %0, i64 272
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 272
   %14 = load i32, ptr %13, align 8
   %15 = select i1 %.not.i.i.i.i.i, i32 %14, i32 8
   %16 = icmp eq i32 %15, 0
@@ -5036,10 +5036,10 @@ _ZN4llvm12DenseMapBaseINS_13SmallDenseMapINS_7SDValueEjLj8ENS_12DenseMapInfoIS2_
   %63 = load i32, ptr %60, align 8, !noalias !38
   %64 = and i32 %63, 1
   %.not.i.i.i.i.i.i = icmp eq i32 %64, 0
-  %65 = getelementptr inbounds i8, ptr %0, i64 464
+  %65 = getelementptr inbounds nuw i8, ptr %0, i64 464
   %66 = load ptr, ptr %65, align 8, !noalias !38
   %67 = select i1 %.not.i.i.i.i.i.i, ptr %66, ptr %65
-  %68 = getelementptr inbounds i8, ptr %0, i64 472
+  %68 = getelementptr inbounds nuw i8, ptr %0, i64 472
   %69 = load i32, ptr %68, align 8, !noalias !38
   %70 = select i1 %.not.i.i.i.i.i.i, i32 %69, i32 8
   %71 = icmp eq i32 %70, 0
@@ -5114,7 +5114,7 @@ define linkonce_odr hidden void @_ZN4llvm12DenseMapBaseINS_13SmallDenseMapINS_7S
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = load ptr, ptr %7, align 8
   %9 = select i1 %.not.i.i.i.i, ptr %8, ptr %7
-  %10 = getelementptr inbounds i8, ptr %1, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %11 = load i32, ptr %10, align 8
   %12 = select i1 %.not.i.i.i.i, i32 %11, i32 8
   %13 = icmp eq i32 %12, 0
@@ -5215,7 +5215,7 @@ define linkonce_odr hidden noundef ptr @_ZN4llvm12DenseMapBaseINS_13SmallDenseMa
   %6 = lshr i32 %5, 1
   %7 = and i32 %5, 1
   %.not.i.i = icmp eq i32 %7, 0
-  %8 = getelementptr inbounds i8, ptr %0, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = load i32, ptr %8, align 8
   %10 = select i1 %.not.i.i, i32 %9, i32 8
   %11 = shl i32 %6, 2
@@ -5475,7 +5475,7 @@ define linkonce_odr hidden void @_ZN4llvm13SmallDenseMapINS_7SDValueEjLj8ENS_12D
   %41 = mul nuw nsw i64 %40, 24
   %42 = tail call noalias noundef nonnull ptr @_ZN4llvm15allocate_bufferEmm(i64 noundef %41, i64 noundef 8) #13
   store ptr %42, ptr %23, align 8
-  %43 = getelementptr inbounds i8, ptr %0, i64 16
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 %.0, ptr %43, align 8
   br label %44
 
@@ -5526,7 +5526,7 @@ define linkonce_odr hidden void @_ZN4llvm12DenseMapBaseINS_13SmallDenseMapINS_7S
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8
   %9 = select i1 %.not.i.i.i.i, ptr %8, ptr %7
-  %10 = getelementptr inbounds i8, ptr %0, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %11 = load i32, ptr %10, align 8
   %12 = select i1 %.not.i.i.i.i, i32 %11, i32 8
   %13 = zext i32 %12 to i64
@@ -5655,7 +5655,7 @@ define linkonce_odr hidden noundef ptr @_ZN4llvm12DenseMapBaseINS_13SmallDenseMa
   %6 = lshr i32 %5, 1
   %7 = and i32 %5, 1
   %.not.i.i = icmp eq i32 %7, 0
-  %8 = getelementptr inbounds i8, ptr %0, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = load i32, ptr %8, align 8
   %10 = select i1 %.not.i.i, i32 %9, i32 8
   %11 = shl i32 %6, 2
@@ -5868,7 +5868,7 @@ define linkonce_odr hidden void @_ZN4llvm13SmallDenseMapIjNS_7SDValueELj8ENS_12D
   %36 = mul nuw nsw i64 %35, 24
   %37 = tail call noalias noundef nonnull ptr @_ZN4llvm15allocate_bufferEmm(i64 noundef %36, i64 noundef 8) #13
   store ptr %37, ptr %23, align 8
-  %38 = getelementptr inbounds i8, ptr %0, i64 16
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 %.0, ptr %38, align 8
   br label %39
 
@@ -5919,7 +5919,7 @@ define linkonce_odr hidden void @_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIjNS_7
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8
   %9 = select i1 %.not.i.i.i.i, ptr %8, ptr %7
-  %10 = getelementptr inbounds i8, ptr %0, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %11 = load i32, ptr %10, align 8
   %12 = select i1 %.not.i.i.i.i, i32 %11, i32 8
   %13 = zext i32 %12 to i64
@@ -6022,7 +6022,7 @@ define linkonce_odr hidden noundef ptr @_ZN4llvm12DenseMapBaseINS_13SmallDenseMa
   %6 = lshr i32 %5, 1
   %7 = and i32 %5, 1
   %.not.i.i = icmp eq i32 %7, 0
-  %8 = getelementptr inbounds i8, ptr %0, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = load i32, ptr %8, align 8
   %10 = select i1 %.not.i.i, i32 %9, i32 8
   %11 = shl i32 %6, 2
@@ -6231,7 +6231,7 @@ define linkonce_odr hidden void @_ZN4llvm13SmallDenseMapIjjLj8ENS_12DenseMapInfo
 
 ._crit_edge:                                      ; preds = %31
   %.pre80 = load ptr, ptr %23, align 8
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 16
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.pre81 = load i32, ptr %.phi.trans.insert, align 8
   br label %39
 
@@ -6242,7 +6242,7 @@ define linkonce_odr hidden void @_ZN4llvm13SmallDenseMapIjjLj8ENS_12DenseMapInfo
   %36 = shl nuw nsw i64 %35, 3
   %37 = tail call noalias noundef nonnull ptr @_ZN4llvm15allocate_bufferEmm(i64 noundef %36, i64 noundef 4) #13
   store ptr %37, ptr %23, align 8
-  %38 = getelementptr inbounds i8, ptr %0, i64 16
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 %.0, ptr %38, align 8
   %.pre = load i32, ptr %0, align 8
   br label %39
@@ -6257,7 +6257,7 @@ define linkonce_odr hidden void @_ZN4llvm13SmallDenseMapIjjLj8ENS_12DenseMapInfo
   store i32 0, ptr %44, align 4
   %.not.i.i.i.i.i = icmp eq i32 %43, 0
   %45 = select i1 %.not.i.i.i.i.i, ptr %41, ptr %23
-  %46 = getelementptr inbounds i8, ptr %0, i64 16
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %47 = select i1 %.not.i.i.i.i.i, i32 %40, i32 8
   %48 = zext i32 %47 to i64
   %49 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair", ptr %45, i64 %48

@@ -1129,7 +1129,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__34UsdImaging_CoordSysBindingStrategy10value_typeD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i.i, label %_ZNSt10shared_ptrISt6vectorIN32pxrInternal_v0_24__pxrReserved__19UsdShadeCoordSysAPI7BindingESaIS3_EEED2Ev.exit, label %4
@@ -1361,13 +1361,13 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit: ; preds = %3, %7, %1
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathC2ERKS0_.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathC2ERKS0_.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit, %16
-  %27 = getelementptr inbounds i8, ptr %4, i64 12
+  %27 = getelementptr inbounds nuw i8, ptr %4, i64 12
   %28 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %29 = load i32, ptr %28, align 4
   store i32 %29, ptr %27, align 4
-  %30 = getelementptr inbounds i8, ptr %0, i64 72
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %31 = load ptr, ptr %30, align 8
-  %32 = getelementptr inbounds i8, ptr %0, i64 80
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %33 = load ptr, ptr %32, align 8
   %.not.i = icmp eq ptr %31, %33
   br i1 %.not.i, label %63, label %34
@@ -1415,7 +1415,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit.i.i.i.i: ; preds = %4
   br label %_ZNSt16allocator_traitsISaIN32pxrInternal_v0_24__pxrReserved__20UsdImagingIndexProxy12_TypeAndPathEEE9constructIS2_JRKS2_EEEvRS3_PT_DpOT0_.exit.i
 
 _ZNSt16allocator_traitsISaIN32pxrInternal_v0_24__pxrReserved__20UsdImagingIndexProxy12_TypeAndPathEEE9constructIS2_JRKS2_EEEvRS3_PT_DpOT0_.exit.i: ; preds = %48, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit.i.i.i.i
-  %59 = getelementptr inbounds i8, ptr %31, i64 12
+  %59 = getelementptr inbounds nuw i8, ptr %31, i64 12
   %60 = load i32, ptr %27, align 4
   store i32 %60, ptr %59, align 4
   %61 = load ptr, ptr %30, align 8
@@ -1429,9 +1429,9 @@ _ZNSt16allocator_traitsISaIN32pxrInternal_v0_24__pxrReserved__20UsdImagingIndexP
           to label %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__20UsdImagingIndexProxy12_TypeAndPathESaIS2_EE9push_backERKS2_.exit unwind label %114
 
 _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__20UsdImagingIndexProxy12_TypeAndPathESaIS2_EE9push_backERKS2_.exit: ; preds = %_ZNSt16allocator_traitsISaIN32pxrInternal_v0_24__pxrReserved__20UsdImagingIndexProxy12_TypeAndPathEEE9constructIS2_JRKS2_EEEvRS3_PT_DpOT0_.exit.i, %63
-  %65 = getelementptr inbounds i8, ptr %0, i64 144
+  %65 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %66 = load ptr, ptr %65, align 8
-  %67 = getelementptr inbounds i8, ptr %0, i64 152
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %68 = load ptr, ptr %67, align 8
   %.not.i7 = icmp eq ptr %66, %68
   br i1 %.not.i7, label %86, label %69
@@ -1566,8 +1566,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__18Usd_PrimDataHandleC2ERKS0_.exit.i.i: ; pr
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathC2ERKS0_.exit.i.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathC2ERKS0_.exit.i.i: ; preds = %17, %_ZN32pxrInternal_v0_24__pxrReserved__18Usd_PrimDataHandleC2ERKS0_.exit.i.i
-  %28 = getelementptr inbounds i8, ptr %6, i64 20
-  %29 = getelementptr inbounds i8, ptr %1, i64 20
+  %28 = getelementptr inbounds nuw i8, ptr %6, i64 20
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %30 = load i32, ptr %29, align 4
   store i32 %30, ptr %28, align 4
   %31 = getelementptr inbounds nuw i8, ptr %6, i64 24
@@ -2314,8 +2314,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit.i.i.i: ; preds = %32,
   br label %_ZNSt16allocator_traitsISaIN32pxrInternal_v0_24__pxrReserved__20UsdImagingIndexProxy12_TypeAndPathEEE9constructIS2_JRKS2_EEEvRS3_PT_DpOT0_.exit
 
 _ZNSt16allocator_traitsISaIN32pxrInternal_v0_24__pxrReserved__20UsdImagingIndexProxy12_TypeAndPathEEE9constructIS2_JRKS2_EEEvRS3_PT_DpOT0_.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit.i.i.i, %36
-  %47 = getelementptr inbounds i8, ptr %24, i64 12
-  %48 = getelementptr inbounds i8, ptr %2, i64 12
+  %47 = getelementptr inbounds nuw i8, ptr %24, i64 12
+  %48 = getelementptr inbounds nuw i8, ptr %2, i64 12
   %49 = load i32, ptr %48, align 4
   store i32 %49, ptr %47, align 4
   %.not10.i.i.i = icmp eq ptr %6, %1
@@ -2334,8 +2334,8 @@ _ZNSt16allocator_traitsISaIN32pxrInternal_v0_24__pxrReserved__20UsdImagingIndexP
   %53 = load i32, ptr %52, align 4, !alias.scope !16, !noalias !13
   store i32 %53, ptr %51, align 4, !alias.scope !13, !noalias !16
   store i32 0, ptr %52, align 4, !alias.scope !16, !noalias !13
-  %54 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 12
-  %55 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 12
+  %54 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 12
+  %55 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 12
   %56 = load i32, ptr %55, align 4, !alias.scope !16, !noalias !13
   store i32 %56, ptr %54, align 4, !alias.scope !13, !noalias !16
   store i32 0, ptr %55, align 4, !alias.scope !16, !noalias !13
@@ -2363,8 +2363,8 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__20UsdImagingIndexProxy12_TypeAnd
   %63 = load i32, ptr %62, align 4, !alias.scope !22, !noalias !19
   store i32 %63, ptr %61, align 4, !alias.scope !19, !noalias !22
   store i32 0, ptr %62, align 4, !alias.scope !22, !noalias !19
-  %64 = getelementptr inbounds i8, ptr %.012.i.i.i18, i64 12
-  %65 = getelementptr inbounds i8, ptr %.0911.i.i.i19, i64 12
+  %64 = getelementptr inbounds nuw i8, ptr %.012.i.i.i18, i64 12
+  %65 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i19, i64 12
   %66 = load i32, ptr %65, align 4, !alias.scope !22, !noalias !19
   store i32 %66, ptr %64, align 4, !alias.scope !19, !noalias !22
   store i32 0, ptr %65, align 4, !alias.scope !22, !noalias !19

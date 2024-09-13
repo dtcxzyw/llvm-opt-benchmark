@@ -54,7 +54,7 @@ define dso_local range(i32 0, 65536) i32 @_ZN5clang15FrontendOptions24getInputKi
   store ptr %0, ptr %6, align 8
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %6, i64 8
   store i64 %1, ptr %.sroa.2.0..sroa_idx.i, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 20
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 20
   store i8 0, ptr %7, align 4
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 16
   switch i64 %1, label %_ZN4llvm12StringSwitchIN5clang9InputKindES2_E4CaseENS_13StringLiteralES2_.exit [
@@ -269,7 +269,7 @@ _ZN4llvm12StringSwitchIN5clang9InputKindES2_E5CasesENS_13StringLiteralES4_S4_S4_
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 16
-  %41 = getelementptr inbounds i8, ptr %39, i64 20
+  %41 = getelementptr inbounds nuw i8, ptr %39, i64 20
   %42 = load i8, ptr %41, align 4
   %43 = trunc i8 %42 to i1
   %.sroa.22.0..sroa_idx.i131 = getelementptr inbounds i8, ptr %39, i64 8
@@ -452,7 +452,7 @@ _ZN4llvm12StringSwitchIN5clang9InputKindES2_E4CaseENS_13StringLiteralES2_.exit22
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZN4llvm12StringSwitchIN5clang9InputKindES2_E5CasesENS_13StringLiteralES4_S4_S4_S4_S2_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %1, i64 %2, ptr %3, i64 %4, ptr noundef byval(%"class.llvm::StringLiteral") align 8 %5, ptr noundef byval(%"class.llvm::StringLiteral") align 8 %6, ptr noundef byval(%"class.llvm::StringLiteral") align 8 %7, i32 %8) local_unnamed_addr #0 comdat align 2 {
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %11 = getelementptr inbounds i8, ptr %0, i64 20
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %12 = load i8, ptr %11, align 4
   %13 = trunc i8 %12 to i1
   br i1 %13, label %_ZN4llvm12StringSwitchIN5clang9InputKindES2_E4CaseENS_13StringLiteralES2_.exit, label %14

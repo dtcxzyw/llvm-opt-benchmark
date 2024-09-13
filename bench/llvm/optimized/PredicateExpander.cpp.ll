@@ -5575,7 +5575,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit43:               ; preds = %69, %71
 
 78:                                               ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit43
   %79 = getelementptr inbounds nuw i8, ptr %.067, i64 16
-  %80 = getelementptr inbounds i8, ptr %.067, i64 24
+  %80 = getelementptr inbounds nuw i8, ptr %.067, i64 24
   %81 = load i32, ptr %80, align 8
   %82 = icmp ult i32 %81, 65
   br i1 %82, label %83, label %_ZNK4llvm5APInt6isZeroEv.exit
@@ -5865,7 +5865,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit50:               ; preds = %60, %62
 _ZN4llvm11raw_ostreamlsEPKc.exit53:               ; preds = %72, %74
   %77 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %78 = load ptr, ptr %77, align 8
-  %79 = getelementptr inbounds i8, ptr %2, i64 40
+  %79 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %80 = load ptr, ptr %79, align 8
   %.not88 = icmp eq ptr %78, %80
   br i1 %.not88, label %._crit_edge91, label %.lr.ph90
@@ -5879,7 +5879,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit53:               ; preds = %72, %74
   %.089 = phi ptr [ %78, %.lr.ph90 ], [ %184, %_ZN4llvm11raw_ostreamlsEPKc.exit77 ]
   %83 = getelementptr inbounds nuw i8, ptr %.089, i64 24
   %84 = load ptr, ptr %83, align 8
-  %85 = getelementptr inbounds i8, ptr %.089, i64 32
+  %85 = getelementptr inbounds nuw i8, ptr %.089, i64 32
   %86 = load ptr, ptr %85, align 8
   %.not4186 = icmp eq ptr %84, %86
   br i1 %.not4186, label %._crit_edge, label %.lr.ph

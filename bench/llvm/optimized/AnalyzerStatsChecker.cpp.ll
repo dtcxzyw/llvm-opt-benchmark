@@ -73,7 +73,7 @@ define dso_local void @_ZN5clang4ento28registerAnalyzerStatsCheckerERNS0_14Check
   store ptr @_ZZN5clang4ento14CheckerManager6getTagIN12_GLOBAL__N_120AnalyzerStatsCheckerEEEPvvE3tag, ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 904
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 920
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 920
   %6 = load i32, ptr %5, align 8
   %7 = icmp eq i32 %6, 0
   br i1 %7, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKvPN5clang4ento11CheckerBaseENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S7_EEEES3_S7_S9_SC_E15LookupBucketForIS3_EEbRKT_RPSC_.exit.i.i.i, label %8
@@ -136,9 +136,9 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKvPN5clang4ento11CheckerBaseENS_12DenseMapI
   %36 = getelementptr inbounds nuw i8, ptr %34, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %36, ptr noundef nonnull align 8 dereferenceable(16) %35, i64 16, i1 false)
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 928
-  %38 = getelementptr inbounds i8, ptr %0, i64 936
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 936
   %39 = load ptr, ptr %38, align 8
-  %40 = getelementptr inbounds i8, ptr %0, i64 944
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 944
   %41 = load ptr, ptr %40, align 8
   %.not.i.i.i = icmp eq ptr %39, %41
   br i1 %.not.i.i.i, label %45, label %42
@@ -658,7 +658,7 @@ define internal void @_ZN5clang4ento5check11EndAnalysis17_checkEndAnalysisIN12_G
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
   %49 = load ptr, ptr %46, align 8
-  %50 = getelementptr inbounds i8, ptr %1, i64 56
+  %50 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %51 = load i32, ptr %50, align 8
   %52 = zext i32 %51 to i64
   %53 = getelementptr inbounds ptr, ptr %49, i64 %52
@@ -753,7 +753,7 @@ _ZNK5clang12ProgramPoint5getAsINS_13BlockEntranceEEESt8optionalIT_Ev.exit.i: ; p
   %96 = getelementptr inbounds nuw i8, ptr %95, i64 40
   %97 = load ptr, ptr %96, align 8
   %98 = ptrtoint ptr %97 to i64
-  %99 = getelementptr inbounds i8, ptr %95, i64 48
+  %99 = getelementptr inbounds nuw i8, ptr %95, i64 48
   %100 = load ptr, ptr %99, align 8
   %.not177.i = icmp eq ptr %97, %100
   br i1 %.not177.i, label %._crit_edge183.i, label %.lr.ph182.i
@@ -1073,9 +1073,9 @@ _ZN4llvm11raw_ostreamlsEPKc.exit71.i:             ; preds = %235, %233
 _ZN4llvm11raw_ostreamlsEPKc.exit74.i:             ; preds = %250, %248
   %253 = phi ptr [ %.pre.i, %248 ], [ %252, %250 ]
   %.0.i.i73.i = phi ptr [ %249, %248 ], [ %239, %250 ]
-  %254 = getelementptr inbounds i8, ptr %3, i64 208
+  %254 = getelementptr inbounds nuw i8, ptr %3, i64 208
   %255 = load ptr, ptr %254, align 8
-  %256 = getelementptr inbounds i8, ptr %3, i64 216
+  %256 = getelementptr inbounds nuw i8, ptr %3, i64 216
   %257 = load ptr, ptr %256, align 8
   %.not171.i = icmp eq ptr %255, %257
   %258 = select i1 %.not171.i, ptr @.str.13, ptr @.str.12
@@ -1127,7 +1127,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit78.i:             ; preds = %268, %266
 
 _ZN4llvm11raw_ostreamlsEPKc.exit81.i:             ; preds = %281, %279
   %.0.i.i80.i = phi ptr [ %280, %279 ], [ %.0.i.i77.i, %281 ]
-  %285 = getelementptr inbounds i8, ptr %3, i64 184
+  %285 = getelementptr inbounds nuw i8, ptr %3, i64 184
   %286 = load ptr, ptr %285, align 8
   %287 = load ptr, ptr %286, align 8
   %288 = getelementptr inbounds i8, ptr %287, i64 16
@@ -1177,7 +1177,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit85.i:             ; preds = %303, %301
   %315 = call { i32, ptr } @_ZNK5clang4ento22PathDiagnosticLocation11genLocationENS_14SourceLocationEN4llvm12PointerUnionIJPKNS_15LocationContextEPNS_19AnalysisDeclContextEEEE(ptr noundef nonnull align 8 dereferenceable(60) %17, i32 0, i64 4) #16
   %316 = extractvalue { i32, ptr } %315, 0
   store i32 %316, ptr %314, align 8
-  %317 = getelementptr inbounds i8, ptr %17, i64 40
+  %317 = getelementptr inbounds nuw i8, ptr %17, i64 40
   %318 = extractvalue { i32, ptr } %315, 1
   store ptr %318, ptr %317, align 8
   %319 = getelementptr inbounds nuw i8, ptr %17, i64 48

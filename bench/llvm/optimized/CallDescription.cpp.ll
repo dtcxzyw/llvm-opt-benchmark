@@ -99,8 +99,8 @@ _ZL18readRequiredParamsSt8optionalIjES0_.exit:    ; preds = %14, %15
   br i1 %.not5.i.i, label %"_ZN4llvm9transformIRNS_8ArrayRefINS_9StringRefEEESt20back_insert_iteratorISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISC_EEEZN5clang4ento15CallDescriptionC1ENSI_4ModeES3_St8optionalIjESL_E3$_0EET0_OT_SN_T1_.exit", label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %_ZL18readRequiredParamsSt8optionalIjES0_.exit
-  %19 = getelementptr inbounds i8, ptr %0, i64 24
-  %20 = getelementptr inbounds i8, ptr %0, i64 32
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 32
   br label %21
 
 21:                                               ; preds = %_ZNSt20back_insert_iteratorISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EEEaSEOS6_.exit.i.i, %.lr.ph.i.i
@@ -292,7 +292,7 @@ define dso_local noundef zeroext i1 @_ZNK5clang4ento15CallDescription11matchesIm
   br i1 %15, label %16, label %40
 
 16:                                               ; preds = %14
-  %17 = getelementptr inbounds i8, ptr %0, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %18 = load ptr, ptr %17, align 8
   %19 = getelementptr inbounds i8, ptr %18, i64 -32
   %20 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %19) #13
@@ -302,7 +302,7 @@ define dso_local noundef zeroext i1 @_ZNK5clang4ento15CallDescription11matchesIm
 
 23:                                               ; preds = %16
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %25 = getelementptr inbounds i8, ptr %0, i64 44
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %26 = load i8, ptr %25, align 4
   %27 = trunc i8 %26 to i1
   %28 = load i32, ptr %24, align 8
@@ -314,7 +314,7 @@ define dso_local noundef zeroext i1 @_ZNK5clang4ento15CallDescription11matchesIm
 
 31:                                               ; preds = %23
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %33 = getelementptr inbounds i8, ptr %0, i64 52
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %34 = load i8, ptr %33, align 4
   %35 = trunc i8 %34 to i1
   %36 = load i32, ptr %32, align 8
@@ -326,7 +326,7 @@ define dso_local noundef zeroext i1 @_ZNK5clang4ento15CallDescription11matchesIm
 
 40:                                               ; preds = %14, %16, %12
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %42 = getelementptr inbounds i8, ptr %0, i64 44
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %43 = load i8, ptr %42, align 4
   %44 = trunc i8 %43 to i1
   %45 = load i32, ptr %41, align 8
@@ -338,7 +338,7 @@ define dso_local noundef zeroext i1 @_ZNK5clang4ento15CallDescription11matchesIm
 
 48:                                               ; preds = %40
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %50 = getelementptr inbounds i8, ptr %0, i64 52
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %51 = load i8, ptr %50, align 4
   %52 = trunc i8 %51 to i1
   %53 = load i32, ptr %49, align 8
@@ -366,7 +366,7 @@ define dso_local noundef zeroext i1 @_ZNK5clang4ento15CallDescription11matchesIm
 
 65:                                               ; preds = %63
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %67 = getelementptr inbounds i8, ptr %0, i64 24
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %68 = load ptr, ptr %67, align 8
   %69 = load ptr, ptr %66, align 8
   %70 = ptrtoint ptr %68 to i64
@@ -446,7 +446,7 @@ define dso_local noundef zeroext i1 @_ZNK5clang4ento15CallDescription13matchName
   %15 = tail call noundef nonnull align 8 dereferenceable(23096) ptr @_ZNK5clang4Decl13getASTContextEv(ptr noundef nonnull align 8 dereferenceable(33) %1) #17
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 17296
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %19 = load ptr, ptr %18, align 8
   %20 = getelementptr inbounds i8, ptr %19, i64 -32
   %21 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %20) #13
@@ -473,7 +473,7 @@ _ZNSt8optionalIPKN5clang14IdentifierInfoEEaSIPS1_EENSt9enable_ifIX7__and_vISt6__
   call void @_ZNK5clang15DeclarationName11getAsStringB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %4, ptr noundef nonnull align 8 dereferenceable(8) %3) #13
   %31 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %4) #13
   %32 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %4) #13
-  %33 = getelementptr inbounds i8, ptr %0, i64 24
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %34 = load ptr, ptr %33, align 8
   %35 = getelementptr inbounds i8, ptr %34, i64 -32
   %36 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %35) #13
@@ -588,7 +588,7 @@ _ZN4llvm13AllocatorBaseINS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden { ptr, i64 } @_ZNK5clang4ento15CallDescription15getFunctionNameEv(ptr noundef nonnull align 8 dereferenceable(60) %0) local_unnamed_addr #0 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 -32
   %5 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %4) #13
@@ -605,7 +605,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noun
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local noundef zeroext i1 @_ZNK5clang4ento15CallDescription23matchQualifiedNamePartsEPKNS_4DeclE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(60) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 24
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8, !noalias !13
   %5 = getelementptr inbounds i8, ptr %4, i64 -32
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -789,8 +789,8 @@ define dso_local void @_ZN5clang4ento18CallDescriptionSetC2EOSt16initializer_lis
 
 .lr.ph:                                           ; preds = %2
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %10 = getelementptr inbounds i8, ptr %3, i64 24
-  %11 = getelementptr inbounds i8, ptr %3, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 64
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -801,7 +801,7 @@ define dso_local void @_ZN5clang4ento18CallDescriptionSetC2EOSt16initializer_lis
   %.012 = phi ptr [ %6, %.lr.ph ], [ %57, %_ZNSt4pairIN5clang4ento15CallDescriptionEbED2Ev.exit ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %.012, i64 16, i1 false)
   %17 = getelementptr inbounds nuw i8, ptr %.012, i64 16
-  %18 = getelementptr inbounds i8, ptr %.012, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %.012, i64 24
   %19 = load ptr, ptr %18, align 8
   %20 = load ptr, ptr %17, align 8
   %21 = ptrtoint ptr %19 to i64
@@ -862,10 +862,10 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSa
   %38 = getelementptr inbounds nuw i8, ptr %36, i64 16
   %39 = load ptr, ptr %9, align 8
   store ptr %39, ptr %38, align 8
-  %40 = getelementptr inbounds i8, ptr %36, i64 24
+  %40 = getelementptr inbounds nuw i8, ptr %36, i64 24
   %41 = load ptr, ptr %10, align 8
   store ptr %41, ptr %40, align 8
-  %42 = getelementptr inbounds i8, ptr %36, i64 32
+  %42 = getelementptr inbounds nuw i8, ptr %36, i64 32
   %43 = load ptr, ptr %11, align 8
   store ptr %43, ptr %42, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, i8 0, i64 24, i1 false)
@@ -960,12 +960,12 @@ _ZNSt12_Vector_baseISt4pairIN5clang4ento15CallDescriptionEbESaIS4_EE11_M_allocat
   %21 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 16
   %22 = load ptr, ptr %21, align 8, !alias.scope !30, !noalias !27
   store ptr %22, ptr %20, align 8, !alias.scope !27, !noalias !30
-  %23 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 24
-  %24 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 24
+  %24 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 24
   %25 = load ptr, ptr %24, align 8, !alias.scope !30, !noalias !27
   store ptr %25, ptr %23, align 8, !alias.scope !27, !noalias !30
-  %26 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 32
-  %27 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 32
+  %26 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 32
+  %27 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 32
   %28 = load ptr, ptr %27, align 8, !alias.scope !30, !noalias !27
   store ptr %28, ptr %26, align 8, !alias.scope !27, !noalias !30
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %21, i8 0, i64 24, i1 false), !alias.scope !30, !noalias !27
@@ -1504,7 +1504,7 @@ _ZNSt12_Vector_baseISt4pairIN5clang4ento15CallDescriptionEbESaIS4_EE11_M_allocat
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.012.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.0811.i.i.i.i, i64 16, i1 false)
   %15 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i, i64 16
   %16 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i, i64 16
-  %17 = getelementptr inbounds i8, ptr %.0811.i.i.i.i, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i, i64 24
   %18 = load ptr, ptr %17, align 8
   %19 = load ptr, ptr %16, align 8
   %20 = ptrtoint ptr %18 to i64
@@ -1534,10 +1534,10 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
   %29 = phi ptr [ %.pre, %_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE8allocateERS6_m.exit.i.i.i.i.i.i.i.i.i.i.i ], [ %19, %.lr.ph.i.i.i.i ]
   %30 = phi ptr [ %27, %_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE8allocateERS6_m.exit.i.i.i.i.i.i.i.i.i.i.i ], [ null, %.lr.ph.i.i.i.i ]
   store ptr %30, ptr %15, align 8
-  %31 = getelementptr inbounds i8, ptr %.012.i.i.i.i, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i, i64 24
   store ptr %30, ptr %31, align 8
   %32 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %30, i64 %23
-  %33 = getelementptr inbounds i8, ptr %.012.i.i.i.i, i64 32
+  %33 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i, i64 32
   store ptr %32, ptr %33, align 8
   %.not7.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %29, %28
   br i1 %.not7.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZSt10_ConstructISt4pairIN5clang4ento15CallDescriptionEbEJRKS4_EEvPT_DpOT0_.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i
@@ -1615,12 +1615,12 @@ _ZNSt12_Vector_baseISt4pairIN5clang4ento15CallDescriptionEbESaIS4_EE11_M_allocat
   %26 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %27 = load ptr, ptr %26, align 8
   store ptr %27, ptr %25, align 8
-  %28 = getelementptr inbounds i8, ptr %24, i64 24
-  %29 = getelementptr inbounds i8, ptr %2, i64 24
+  %28 = getelementptr inbounds nuw i8, ptr %24, i64 24
+  %29 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %30 = load ptr, ptr %29, align 8
   store ptr %30, ptr %28, align 8
-  %31 = getelementptr inbounds i8, ptr %24, i64 32
-  %32 = getelementptr inbounds i8, ptr %2, i64 32
+  %31 = getelementptr inbounds nuw i8, ptr %24, i64 32
+  %32 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %33 = load ptr, ptr %32, align 8
   store ptr %33, ptr %31, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %26, i8 0, i64 24, i1 false)
@@ -1645,12 +1645,12 @@ _ZNSt12_Vector_baseISt4pairIN5clang4ento15CallDescriptionEbESaIS4_EE11_M_allocat
   %41 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 16
   %42 = load ptr, ptr %41, align 8, !alias.scope !39, !noalias !36
   store ptr %42, ptr %40, align 8, !alias.scope !36, !noalias !39
-  %43 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 24
-  %44 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 24
+  %43 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 24
+  %44 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 24
   %45 = load ptr, ptr %44, align 8, !alias.scope !39, !noalias !36
   store ptr %45, ptr %43, align 8, !alias.scope !36, !noalias !39
-  %46 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 32
-  %47 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 32
+  %46 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 32
+  %47 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 32
   %48 = load ptr, ptr %47, align 8, !alias.scope !39, !noalias !36
   store ptr %48, ptr %46, align 8, !alias.scope !36, !noalias !39
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %41, i8 0, i64 24, i1 false), !alias.scope !39, !noalias !36
@@ -1683,12 +1683,12 @@ _ZNSt6vectorISt4pairIN5clang4ento15CallDescriptionEbESaIS4_EE11_S_relocateEPS4_S
   %59 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i19, i64 16
   %60 = load ptr, ptr %59, align 8, !alias.scope !45, !noalias !42
   store ptr %60, ptr %58, align 8, !alias.scope !42, !noalias !45
-  %61 = getelementptr inbounds i8, ptr %.012.i.i.i18, i64 24
-  %62 = getelementptr inbounds i8, ptr %.0911.i.i.i19, i64 24
+  %61 = getelementptr inbounds nuw i8, ptr %.012.i.i.i18, i64 24
+  %62 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i19, i64 24
   %63 = load ptr, ptr %62, align 8, !alias.scope !45, !noalias !42
   store ptr %63, ptr %61, align 8, !alias.scope !42, !noalias !45
-  %64 = getelementptr inbounds i8, ptr %.012.i.i.i18, i64 32
-  %65 = getelementptr inbounds i8, ptr %.0911.i.i.i19, i64 32
+  %64 = getelementptr inbounds nuw i8, ptr %.012.i.i.i18, i64 32
+  %65 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i19, i64 32
   %66 = load ptr, ptr %65, align 8, !alias.scope !45, !noalias !42
   store ptr %66, ptr %64, align 8, !alias.scope !42, !noalias !45
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %59, i8 0, i64 24, i1 false), !alias.scope !45, !noalias !42

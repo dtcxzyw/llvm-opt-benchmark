@@ -132,8 +132,8 @@ define dso_local void @_ZN5clang5arcmt20writeARCDiagsToPlistERKNSt7__cxx1112basi
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 408
   %15 = getelementptr inbounds nuw i8, ptr %3, i64 184
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 256
-  %17 = getelementptr inbounds i8, ptr %3, i64 208
-  %18 = getelementptr inbounds i8, ptr %3, i64 224
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 208
+  %18 = getelementptr inbounds nuw i8, ptr %3, i64 224
   %19 = getelementptr inbounds nuw i8, ptr %3, i64 248
   br label %20
 
@@ -144,7 +144,7 @@ define dso_local void @_ZN5clang5arcmt20writeARCDiagsToPlistERKNSt7__cxx1112basi
   %22 = call noundef i32 @_ZN5clang6markup6AddFIDERN4llvm8DenseMapINS_6FileIDEjNS1_12DenseMapInfoIS3_vEENS1_6detail12DenseMapPairIS3_jEEEERNS1_15SmallVectorImplIS3_EERKNS_13SourceManagerENS_14SourceLocationE(ptr noundef nonnull align 8 dereferenceable(20) %8, ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(696) %3, i32 %.sroa.060.0.copyload)
   %23 = getelementptr inbounds nuw i8, ptr %.0247, i64 56
   %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %.0247, i64 64
+  %25 = getelementptr inbounds nuw i8, ptr %.0247, i64 64
   %26 = load ptr, ptr %25, align 8
   %.not242244 = icmp eq ptr %24, %26
   br i1 %.not242244, label %._crit_edge, label %.lr.ph
@@ -854,7 +854,7 @@ _ZN5clang13SourceManager18getSLocEntryOrNullENS_6FileIDE.exit.thread.i.i.i: ; pr
   br i1 %373, label %_ZNK5clang13SourceManager19getSLocEntryForFileENS_6FileIDE.exit.i, label %_ZNK5clang13SourceManager20getFileEntryRefForIDENS_6FileIDE.exit.preheader
 
 _ZNK5clang13SourceManager19getSLocEntryForFileENS_6FileIDE.exit.i: ; preds = %371
-  %374 = getelementptr inbounds i8, ptr %369, i64 16
+  %374 = getelementptr inbounds nuw i8, ptr %369, i64 16
   %.0.copyload.i.i.i.i.i = load i64, ptr %374, align 8
   %375 = and i64 %.0.copyload.i.i.i.i.i, -8
   %376 = inttoptr i64 %375 to ptr
@@ -1115,7 +1115,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit137:              ; preds = %499, %501
   call void @_ZN5clang6markup12EmitLocationERN4llvm11raw_ostreamERKNS_13SourceManagerENS_14SourceLocationERKNS1_8DenseMapINS_6FileIDEjNS1_12DenseMapInfoIS9_vEENS1_6detail12DenseMapPairIS9_jEEEEj(ptr noundef nonnull align 8 dereferenceable(48) %11, ptr noundef nonnull align 8 dereferenceable(696) %3, i32 %.sroa.030.0.copyload, ptr noundef nonnull align 8 dereferenceable(20) %8, i32 noundef 2)
   %505 = getelementptr inbounds nuw i8, ptr %.080260, i64 56
   %506 = load ptr, ptr %505, align 8
-  %507 = getelementptr inbounds i8, ptr %.080260, i64 64
+  %507 = getelementptr inbounds nuw i8, ptr %.080260, i64 64
   %508 = load ptr, ptr %507, align 8
   %509 = icmp eq ptr %508, %506
   %.pre265 = load ptr, ptr %342, align 8
@@ -2282,7 +2282,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZN5
   br i1 %.not.i.i, label %54, label %17
 
 17:                                               ; preds = %5
-  %18 = getelementptr inbounds i8, ptr %0, i64 208
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %19 = udiv i32 %6, 42
   %20 = urem i32 %6, 42
   %.zext.i.i = zext nneg i32 %19 to i64
@@ -2293,7 +2293,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZN5
   br i1 %.not.i.i.i, label %24, label %_ZNK4llvm11PagedVectorIN5clang6SrcMgr9SLocEntryELm42EEixEm.exit.i.i
 
 24:                                               ; preds = %17
-  %25 = getelementptr inbounds i8, ptr %0, i64 224
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %.0.copyload.i.i.i.i.i.i = load i64, ptr %25, align 8
   %26 = and i64 %.0.copyload.i.i.i.i.i.i, -8
   %27 = inttoptr i64 %26 to ptr

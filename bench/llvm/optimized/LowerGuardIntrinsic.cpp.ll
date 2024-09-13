@@ -167,11 +167,11 @@ _ZL19lowerGuardIntrinsicRN4llvm8FunctionE.exit:   ; preds = %_ZL19lowerGuardIntr
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 0, ptr %73, align 4, !alias.scope !4
   %74 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %75 = getelementptr inbounds i8, ptr %0, i64 80
+  %75 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store ptr %75, ptr %74, align 8, !alias.scope !4
-  %76 = getelementptr inbounds i8, ptr %0, i64 56
+  %76 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store ptr %75, ptr %76, align 8, !alias.scope !4
-  %77 = getelementptr inbounds i8, ptr %0, i64 64
+  %77 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i32 2, ptr %77, align 8, !alias.scope !4
   br label %89
 
@@ -188,15 +188,15 @@ _ZL19lowerGuardIntrinsicRN4llvm8FunctionE.exit:   ; preds = %_ZL19lowerGuardIntr
   %82 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 0, ptr %82, align 8, !alias.scope !7
   %83 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %84 = getelementptr inbounds i8, ptr %0, i64 80
+  %84 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store ptr %84, ptr %83, align 8, !alias.scope !7
-  %85 = getelementptr inbounds i8, ptr %0, i64 56
+  %85 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store ptr %84, ptr %85, align 8, !alias.scope !7
-  %86 = getelementptr inbounds i8, ptr %0, i64 64
+  %86 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i32 2, ptr %86, align 8, !alias.scope !7
-  %87 = getelementptr inbounds i8, ptr %0, i64 68
+  %87 = getelementptr inbounds nuw i8, ptr %0, i64 68
   store i32 0, ptr %87, align 4, !alias.scope !7
-  %88 = getelementptr inbounds i8, ptr %0, i64 72
+  %88 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store i32 0, ptr %88, align 8, !alias.scope !7
   store i32 1, ptr %81, align 4, !alias.scope !7, !noalias !10
   store ptr @_ZN4llvm17PreservedAnalyses14AllAnalysesKeyE, ptr %78, align 8, !alias.scope !7, !noalias !10

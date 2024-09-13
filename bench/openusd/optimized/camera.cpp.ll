@@ -196,7 +196,7 @@ $_ZTISt6vectorIN32pxrInternal_v0_24__pxrReserved__7GfVec4dESaIS1_EE = comdat any
 define void @_ZN32pxrInternal_v0_24__pxrReserved__30HdCameraTokens_StaticTokenTypeD2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(296) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 272
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 280
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %5 = load ptr, ptr %4, align 8
   %.not4.i.i.i.i = icmp eq ptr %3, %5
   br i1 %.not4.i.i.i.i, label %_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__7TfTokenES1_EvT_S3_RSaIT0_E.exit.i, label %.lr.ph.i.i.i.i
@@ -230,7 +230,7 @@ _ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__7TfTokenES1_EvT_S3_RSaIT0_E.ex
   br i1 %.not.i.i.i, label %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7TfTokenESaIS1_EED2Ev.exit, label %15
 
 15:                                               ; preds = %_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__7TfTokenES1_EvT_S3_RSaIT0_E.exit.i
-  %16 = getelementptr inbounds i8, ptr %0, i64 288
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 288
   %17 = load ptr, ptr %16, align 8
   %18 = ptrtoint ptr %17 to i64
   %19 = ptrtoint ptr %14 to i64
@@ -1710,7 +1710,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit173: ; preds = %_ZN32p
 .noexc3.i:                                        ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit173
   store ptr %512, ptr %69, align 8
   %513 = getelementptr inbounds i8, ptr %512, i64 272
-  %514 = getelementptr inbounds i8, ptr %0, i64 288
+  %514 = getelementptr inbounds nuw i8, ptr %0, i64 288
   store ptr %513, ptr %514, align 8
   br label %.lr.ph.i.i.i.i.i.i
 
@@ -1747,7 +1747,7 @@ _ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__7TfTokenEJRKS1_EEvPT_DpOT0_.
   br i1 %.not.i.i.i.i.i.i, label %528, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !6
 
 528:                                              ; preds = %_ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__7TfTokenEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i.i
-  %529 = getelementptr inbounds i8, ptr %0, i64 280
+  %529 = getelementptr inbounds nuw i8, ptr %0, i64 280
   store ptr %527, ptr %529, align 8
   br label %530
 
@@ -2458,7 +2458,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__8HdCameraC2ERKNS_7SdfPathE(ptr
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 168
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false)
   store float 0x47EFFFFFE0000000, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 172
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 172
   store float 0xC7EFFFFFE0000000, ptr %8, align 4
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 212
@@ -2558,7 +2558,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit: ; preds = %_ZNK32pxr
   br i1 %.not.i.i.i, label %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7GfVec4dESaIS1_EED2Ev.exit, label %51
 
 51:                                               ; preds = %.body
-  %52 = getelementptr inbounds i8, ptr %0, i64 192
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %53 = load ptr, ptr %52, align 8
   %54 = ptrtoint ptr %53 to i64
   %55 = ptrtoint ptr %50 to i64
@@ -2600,7 +2600,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit: ; preds = %1, %6
   br i1 %.not.i.i.i, label %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7GfVec4dESaIS1_EED2Ev.exit, label %12
 
 12:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit
-  %13 = getelementptr inbounds i8, ptr %0, i64 192
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %14 = load ptr, ptr %13, align 8
   %15 = ptrtoint ptr %14 to i64
   %16 = ptrtoint ptr %11 to i64
@@ -7497,7 +7497,7 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7GfVec4fESaIS1_EED2Ev.exit: ; pr
   br i1 %.not.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__8GfCameraD2Ev.exit, label %77
 
 77:                                               ; preds = %74
-  %78 = getelementptr inbounds i8, ptr %5, i64 176
+  %78 = getelementptr inbounds nuw i8, ptr %5, i64 176
   %79 = load ptr, ptr %78, align 8
   %80 = ptrtoint ptr %79 to i64
   %81 = ptrtoint ptr %76 to i64
@@ -7561,7 +7561,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoD2Ev.exit: ; preds = %_ZN32
   br i1 %.not.i.i.i.i8, label %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7GfVec4fESaIS1_EED2Ev.exit7, label %103
 
 103:                                              ; preds = %100
-  %104 = getelementptr inbounds i8, ptr %5, i64 176
+  %104 = getelementptr inbounds nuw i8, ptr %5, i64 176
   %105 = load ptr, ptr %104, align 8
   %106 = ptrtoint ptr %105 to i64
   %107 = ptrtoint ptr %102 to i64

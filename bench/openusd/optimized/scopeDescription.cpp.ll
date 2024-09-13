@@ -1597,7 +1597,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_MessageWriter5WriteEPKc.ex
   %172 = getelementptr inbounds nuw i8, ptr %.033292.i, i64 48
   %173 = load ptr, ptr %172, align 8
   %.not.i111.i = icmp ne ptr %173, null
-  %174 = getelementptr inbounds i8, ptr %.033292.i, i64 56
+  %174 = getelementptr inbounds nuw i8, ptr %.033292.i, i64 56
   %175 = load ptr, ptr %174, align 8
   %176 = icmp ne ptr %175, null
   %177 = select i1 %.not.i111.i, i1 %176, i1 false
@@ -1708,7 +1708,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_MessageWriter5WriteEPKc.ex
   br i1 %201, label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_MessageWriter5WriteEPKc.exit165.i, label %.preheader.i144.preheader.i
 
 .preheader.i144.preheader.i:                      ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_MessageWriter5WriteEPKc.exit143.i
-  %202 = getelementptr inbounds i8, ptr %.033292.i, i64 64
+  %202 = getelementptr inbounds nuw i8, ptr %.033292.i, i64 64
   %203 = load i64, ptr %202, align 8
   br label %.preheader.i144.i
 

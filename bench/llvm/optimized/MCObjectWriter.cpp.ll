@@ -44,7 +44,7 @@ _ZN4llvm11SmallVectorINS_14MCObjectWriter14CGProfileEntryELj0EED2Ev.exit: ; pred
   br i1 %.not.i.i.i, label %_ZNSt6vectorIPKN4llvm8MCSymbolESaIS3_EED2Ev.exit, label %10
 
 10:                                               ; preds = %_ZN4llvm11SmallVectorINS_14MCObjectWriter14CGProfileEntryELj0EED2Ev.exit
-  %11 = getelementptr inbounds i8, ptr %0, i64 72
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %12 = load ptr, ptr %11, align 8
   %13 = ptrtoint ptr %12 to i64
   %14 = ptrtoint ptr %9 to i64
@@ -117,11 +117,11 @@ define dso_local void @_ZN4llvm14MCObjectWriter5resetEv(ptr noundef nonnull alig
   br i1 %.not.i.i, label %_ZN4llvm15SmallVectorImplISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmEE5clearEv.exit, label %.lr.ph.i.i, !llvm.loop !4
 
 _ZN4llvm15SmallVectorImplISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmEE5clearEv.exit: ; preds = %.lr.ph.i.i, %1
-  %7 = getelementptr inbounds i8, ptr %0, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 0, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 64
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %11 = load ptr, ptr %10, align 8
   %.not.i.i1 = icmp eq ptr %11, %9
   br i1 %.not.i.i1, label %_ZNSt6vectorIPKN4llvm8MCSymbolESaIS3_EE5clearEv.exit, label %12
@@ -137,7 +137,7 @@ _ZNSt6vectorIPKN4llvm8MCSymbolESaIS3_EE5clearEv.exit: ; preds = %_ZN4llvm15Small
   store i8 0, ptr %14, align 1
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %16 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %15) #9
-  %17 = getelementptr inbounds i8, ptr %0, i64 96
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store i32 0, ptr %17, align 8
   ret void
 }

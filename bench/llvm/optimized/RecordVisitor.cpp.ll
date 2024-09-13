@@ -215,7 +215,7 @@ define dso_local void @_ZN4llvm5MachO15SymbolConverter18visitObjCInterfaceERKNS0
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %20 = load i8, ptr %19, align 8
   %21 = icmp ugt i8 %20, 2
-  %22 = getelementptr inbounds i8, ptr %1, i64 65
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 65
   %23 = load i8, ptr %22, align 1
   %24 = icmp ugt i8 %23, 2
   %25 = select i1 %21, i1 %24, i1 false
@@ -231,7 +231,7 @@ define dso_local void @_ZN4llvm5MachO15SymbolConverter18visitObjCInterfaceERKNS0
   %30 = load i8, ptr %29, align 1
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %32 = tail call noundef ptr @_ZN4llvm5MachO9SymbolSet9addGlobalENS0_10EncodeKindENS_9StringRefENS0_11SymbolFlagsERKNS0_6TargetE(ptr noundef nonnull align 8 dereferenceable(120) %28, i8 noundef zeroext 1, ptr %.sroa.0.0.copyload.i, i64 %.sroa.2.0.copyload.i, i8 noundef zeroext %30, ptr noundef nonnull align 4 dereferenceable(24) %31) #9
-  %33 = getelementptr inbounds i8, ptr %1, i64 66
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 66
   %34 = load i8, ptr %33, align 2
   %.not = icmp eq i8 %34, 0
   br i1 %.not, label %81, label %35

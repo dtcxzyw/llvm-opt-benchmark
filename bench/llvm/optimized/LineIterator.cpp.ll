@@ -40,7 +40,7 @@ define dso_local void @_ZN4llvm13line_iteratorC2ERKNS_12MemoryBufferEbc(ptr noca
   %16 = load ptr, ptr %5, align 8
   %spec.select.i = select i1 %.not.i, ptr null, ptr %16
   store ptr %spec.select.i, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %0, i64 56
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i64 0, ptr %17, align 8
   br i1 %.not.i, label %_ZN4llvm13line_iteratorC2ERKNS_15MemoryBufferRefEbc.exit, label %18
 
@@ -98,7 +98,7 @@ define dso_local void @_ZN4llvm13line_iteratorC2ERKNS_15MemoryBufferRefEbc(ptr n
   %16 = load ptr, ptr %1, align 8
   %spec.select = select i1 %.not9, ptr null, ptr %16
   store ptr %spec.select, ptr %14, align 8
-  %17 = getelementptr inbounds i8, ptr %0, i64 56
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i64 0, ptr %17, align 8
   %18 = load i64, ptr %6, align 8
   %.not10 = icmp eq i64 %18, 0
@@ -133,7 +133,7 @@ _ZL11isAtLineEndPKc.exit.thread:                  ; preds = %23, %20, %_ZL11isAt
 define dso_local void @_ZN4llvm13line_iterator7advanceEv(ptr nocapture noundef nonnull align 8 dereferenceable(64) %0) local_unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 56
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %5 = load i64, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %3, i64 %5
   %7 = load i8, ptr %6, align 1

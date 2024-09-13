@@ -1181,7 +1181,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueaSERKS0_.exit: ; preds = %4, %13
   br label %265
 
 24:                                               ; preds = %19, %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueaSERKS0_.exit
-  %25 = getelementptr inbounds i8, ptr %0, i64 32
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %26 = load ptr, ptr %25, align 8
   %27 = ptrtoint ptr %26 to i64
   %.not.i14 = icmp eq ptr %26, null
@@ -3565,7 +3565,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__16HdVtBufferSourceC2ERKNS_7TfT
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit: ; preds = %5, %10, %15
-  %20 = getelementptr inbounds i8, ptr %0, i64 32
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr null, ptr %20, align 8
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__16HdVtBufferSource9_SetValueERKNS_7VtValueEib(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(16) %2, i32 noundef %3, i1 noundef zeroext %4)
           to label %21 unwind label %22
@@ -3629,7 +3629,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__16HdVtBufferSourceC2ERKNS_7TfT
 
 _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit: ; preds = %4, %10, %15
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %21 = getelementptr inbounds i8, ptr %0, i64 32
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr null, ptr %21, align 8
   br i1 %3, label %22, label %26
 
@@ -3800,7 +3800,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__16HdVtBufferSourceC2ERKNS_7TfT
 
 _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit: ; preds = %5, %11, %16
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %22 = getelementptr inbounds i8, ptr %0, i64 32
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr null, ptr %22, align 8
   br i1 %4, label %23, label %27
 
@@ -3897,7 +3897,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit: ; preds = %.body, %56
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN32pxrInternal_v0_24__pxrReserved__16HdVtBufferSourceD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %4 = ptrtoint ptr %3 to i64
   %.not.i.i = icmp eq ptr %3, null

@@ -75,7 +75,7 @@ define dso_local noundef ptr @_ZN4llvm12DIExpression16foldConstantMathEv(ptr noc
   %23 = alloca %"class.llvm::SmallVector.2", align 8
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %0, i64 24
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %27 = load ptr, ptr %26, align 8
   call void @_ZN4llvm11SmallVectorImLj8EEC2IN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEEvEET_SA_(ptr noundef nonnull align 8 dereferenceable(80) %18, ptr %25, ptr %27)
   %28 = load ptr, ptr %18, align 8

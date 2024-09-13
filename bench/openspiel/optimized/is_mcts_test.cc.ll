@@ -467,9 +467,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i13: 
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN10open_spiel10algorithms22RandomRolloutEvaluatorESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %87, align 8, !noalias !7
   %90 = getelementptr inbounds nuw i8, ptr %87, i64 16
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN10open_spiel10algorithms22RandomRolloutEvaluatorE, i64 16), ptr %90, align 8, !noalias !7
-  %91 = getelementptr inbounds i8, ptr %87, i64 24
+  %91 = getelementptr inbounds nuw i8, ptr %87, i64 24
   store i32 1, ptr %91, align 8, !noalias !7
-  %92 = getelementptr inbounds i8, ptr %87, i64 32
+  %92 = getelementptr inbounds nuw i8, ptr %87, i64 32
   store i64 93879211, ptr %92, align 8, !noalias !7
   br label %93
 
@@ -489,7 +489,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i13: 
 
 102:                                              ; preds = %93
   %103 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %104 = getelementptr inbounds i8, ptr %87, i64 5024
+  %104 = getelementptr inbounds nuw i8, ptr %87, i64 5024
   store i64 624, ptr %104, align 8, !noalias !7
   store ptr %87, ptr %103, align 8, !alias.scope !7
   store ptr %90, ptr %10, align 8, !alias.scope !7
@@ -767,9 +767,9 @@ define internal fastcc void @_ZN10open_spiel12_GLOBAL__N_119ISMCTSTest_PlayGameE
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN10open_spiel10algorithms22RandomRolloutEvaluatorESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %18, align 8, !noalias !10
   %21 = getelementptr inbounds nuw i8, ptr %18, i64 16
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN10open_spiel10algorithms22RandomRolloutEvaluatorE, i64 16), ptr %21, align 8, !noalias !10
-  %22 = getelementptr inbounds i8, ptr %18, i64 24
+  %22 = getelementptr inbounds nuw i8, ptr %18, i64 24
   store i32 1, ptr %22, align 8, !noalias !10
-  %23 = getelementptr inbounds i8, ptr %18, i64 32
+  %23 = getelementptr inbounds nuw i8, ptr %18, i64 32
   store i64 93879211, ptr %23, align 8, !noalias !10
   br label %24
 
@@ -789,7 +789,7 @@ define internal fastcc void @_ZN10open_spiel12_GLOBAL__N_119ISMCTSTest_PlayGameE
 
 33:                                               ; preds = %24
   %34 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %35 = getelementptr inbounds i8, ptr %18, i64 5024
+  %35 = getelementptr inbounds nuw i8, ptr %18, i64 5024
   store i64 624, ptr %35, align 8, !noalias !10
   store ptr %18, ptr %34, align 8, !alias.scope !10
   store ptr %21, ptr %3, align 8, !alias.scope !10

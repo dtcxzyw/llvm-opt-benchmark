@@ -119,15 +119,15 @@ define dso_local void @_ZN4llvm8KCFIPass3runERNS_8FunctionERNS_15AnalysisManager
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 0, ptr %28, align 8, !alias.scope !4
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %30 = getelementptr inbounds i8, ptr %0, i64 80
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store ptr %30, ptr %29, align 8, !alias.scope !4
-  %31 = getelementptr inbounds i8, ptr %0, i64 56
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store ptr %30, ptr %31, align 8, !alias.scope !4
-  %32 = getelementptr inbounds i8, ptr %0, i64 64
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i32 2, ptr %32, align 8, !alias.scope !4
-  %33 = getelementptr inbounds i8, ptr %0, i64 68
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 68
   store i32 0, ptr %33, align 4, !alias.scope !4
-  %34 = getelementptr inbounds i8, ptr %0, i64 72
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store i32 0, ptr %34, align 8, !alias.scope !4
   store i32 1, ptr %27, align 4, !alias.scope !4, !noalias !7
   store ptr @_ZN4llvm17PreservedAnalyses14AllAnalysesKeyE, ptr %24, align 8, !alias.scope !4, !noalias !7
@@ -137,7 +137,7 @@ define dso_local void @_ZN4llvm8KCFIPass3runERNS_8FunctionERNS_15AnalysisManager
   %36 = getelementptr inbounds i8, ptr %6, i64 16
   call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull %36, i64 noundef 6) #9
   %37 = getelementptr inbounds nuw i8, ptr %2, i64 72
-  %38 = getelementptr inbounds i8, ptr %2, i64 80
+  %38 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %39 = load ptr, ptr %38, align 8, !noalias !10
   %.not.i.i.i = icmp eq ptr %39, %37
   br i1 %.not.i.i.i, label %_ZN4llvm12instructionsERNS_8FunctionE.exit, label %40
@@ -146,7 +146,7 @@ define dso_local void @_ZN4llvm8KCFIPass3runERNS_8FunctionERNS_15AnalysisManager
   %41 = icmp eq ptr %39, null
   %42 = getelementptr inbounds i8, ptr %39, i64 -24
   %43 = select i1 %41, ptr null, ptr %42
-  %44 = getelementptr inbounds i8, ptr %43, i64 56
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 56
   %45 = load ptr, ptr %44, align 8, !noalias !10
   %46 = getelementptr inbounds nuw i8, ptr %43, i64 48
   %47 = icmp eq ptr %45, %46
@@ -169,7 +169,7 @@ define dso_local void @_ZN4llvm8KCFIPass3runERNS_8FunctionERNS_15AnalysisManager
   %55 = icmp eq ptr %54, null
   %56 = getelementptr inbounds i8, ptr %54, i64 -24
   %57 = select i1 %55, ptr null, ptr %56
-  %58 = getelementptr inbounds i8, ptr %57, i64 56
+  %58 = getelementptr inbounds nuw i8, ptr %57, i64 56
   %59 = load ptr, ptr %58, align 8, !noalias !10
   %60 = getelementptr inbounds nuw i8, ptr %57, i64 48
   %61 = icmp eq ptr %59, %60
@@ -296,7 +296,7 @@ _ZNK4llvm8CallBase16getOperandBundleEj.exit.thread: ; preds = %86, %_ZNK4llvm8Ca
   %121 = icmp eq ptr %120, null
   %122 = getelementptr inbounds i8, ptr %120, i64 -24
   %123 = select i1 %121, ptr null, ptr %122
-  %124 = getelementptr inbounds i8, ptr %123, i64 56
+  %124 = getelementptr inbounds nuw i8, ptr %123, i64 56
   %125 = load ptr, ptr %124, align 8
   %126 = getelementptr inbounds nuw i8, ptr %123, i64 48
   %127 = icmp eq ptr %125, %126
@@ -323,15 +323,15 @@ _ZNK4llvm12InstIteratorINS_15SymbolTableListINS_10BasicBlockEJEEENS_14ilist_iter
   %135 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 0, ptr %135, align 8, !alias.scope !27
   %136 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %137 = getelementptr inbounds i8, ptr %0, i64 80
+  %137 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store ptr %137, ptr %136, align 8, !alias.scope !27
-  %138 = getelementptr inbounds i8, ptr %0, i64 56
+  %138 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store ptr %137, ptr %138, align 8, !alias.scope !27
-  %139 = getelementptr inbounds i8, ptr %0, i64 64
+  %139 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i32 2, ptr %139, align 8, !alias.scope !27
-  %140 = getelementptr inbounds i8, ptr %0, i64 68
+  %140 = getelementptr inbounds nuw i8, ptr %0, i64 68
   store i32 0, ptr %140, align 4, !alias.scope !27
-  %141 = getelementptr inbounds i8, ptr %0, i64 72
+  %141 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store i32 0, ptr %141, align 8, !alias.scope !27
   store i32 1, ptr %134, align 4, !alias.scope !27, !noalias !30
   store ptr @_ZN4llvm17PreservedAnalyses14AllAnalysesKeyE, ptr %131, align 8, !alias.scope !27, !noalias !30
@@ -476,7 +476,7 @@ _ZNK4llvm8CallBase16getOperandBundleEj.exit68:    ; preds = %202, %_ZNK4llvm8Cal
   %.sroa.085.1 = phi ptr [ %.sroa.085.0119, %_ZNK4llvm8CallBase20getNumOperandBundlesEv.exit.i55 ], [ %221, %212 ], [ %.sroa.085.0119, %202 ]
   %222 = load ptr, ptr %.sroa.085.1, align 8
   %223 = getelementptr inbounds nuw i8, ptr %222, i64 24
-  %224 = getelementptr inbounds i8, ptr %222, i64 32
+  %224 = getelementptr inbounds nuw i8, ptr %222, i64 32
   %225 = load i32, ptr %224, align 8
   %226 = icmp ult i32 %225, 65
   %227 = load ptr, ptr %223, align 8
@@ -619,11 +619,11 @@ _ZN4llvm9IRBuilderINS_14ConstantFolderENS_24IRBuilderDefaultInserterEED2Ev.exit:
   %284 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 0, ptr %284, align 4, !alias.scope !43
   %285 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %286 = getelementptr inbounds i8, ptr %0, i64 80
+  %286 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store ptr %286, ptr %285, align 8, !alias.scope !43
-  %287 = getelementptr inbounds i8, ptr %0, i64 56
+  %287 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store ptr %286, ptr %287, align 8, !alias.scope !43
-  %288 = getelementptr inbounds i8, ptr %0, i64 64
+  %288 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i32 2, ptr %288, align 8, !alias.scope !43
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %10) #9
   br label %289
@@ -1522,7 +1522,7 @@ define linkonce_odr hidden noundef ptr @_ZN4llvm8CallInst6CreateEPNS_12FunctionT
   %.012.i = phi i32 [ %21, %.lr.ph.i ], [ 0, %8 ]
   %.0811.i = phi ptr [ %22, %.lr.ph.i ], [ %4, %8 ]
   %12 = getelementptr inbounds nuw i8, ptr %.0811.i, i64 32
-  %13 = getelementptr inbounds i8, ptr %.0811.i, i64 40
+  %13 = getelementptr inbounds nuw i8, ptr %.0811.i, i64 40
   %14 = load ptr, ptr %13, align 8
   %15 = load ptr, ptr %12, align 8
   %16 = ptrtoint ptr %14 to i64
@@ -1555,7 +1555,7 @@ _ZN4llvm8CallBase17CountBundleInputsENS_8ArrayRefINS_17OperandBundleDefTIPNS_5Va
   %.012.i.i = phi i32 [ %39, %.lr.ph.i.i ], [ 0, %_ZN4llvm8CallBase17CountBundleInputsENS_8ArrayRefINS_17OperandBundleDefTIPNS_5ValueEEEEE.exit ]
   %.0811.i.i = phi ptr [ %40, %.lr.ph.i.i ], [ %4, %_ZN4llvm8CallBase17CountBundleInputsENS_8ArrayRefINS_17OperandBundleDefTIPNS_5ValueEEEEE.exit ]
   %30 = getelementptr inbounds nuw i8, ptr %.0811.i.i, i64 32
-  %31 = getelementptr inbounds i8, ptr %.0811.i.i, i64 40
+  %31 = getelementptr inbounds nuw i8, ptr %.0811.i.i, i64 40
   %32 = load ptr, ptr %31, align 8
   %33 = load ptr, ptr %30, align 8
   %34 = ptrtoint ptr %32 to i64
@@ -1572,7 +1572,7 @@ _ZN4llvm8CallBase17CountBundleInputsENS_8ArrayRefINS_17OperandBundleDefTIPNS_5Va
   %.012.i11.i = phi i32 [ %50, %.lr.ph.i10.i ], [ 0, %.lr.ph.i.i ]
   %.0811.i12.i = phi ptr [ %51, %.lr.ph.i10.i ], [ %4, %.lr.ph.i.i ]
   %41 = getelementptr inbounds nuw i8, ptr %.0811.i12.i, i64 32
-  %42 = getelementptr inbounds i8, ptr %.0811.i12.i, i64 40
+  %42 = getelementptr inbounds nuw i8, ptr %.0811.i12.i, i64 40
   %43 = load ptr, ptr %42, align 8
   %44 = load ptr, ptr %41, align 8
   %45 = ptrtoint ptr %43 to i64

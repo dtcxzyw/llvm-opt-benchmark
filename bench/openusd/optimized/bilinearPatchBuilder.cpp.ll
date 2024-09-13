@@ -49,7 +49,7 @@ define void @_ZN10OpenSubdiv6v3_6_03Far20BilinearPatchBuilderC2ERKNS1_15Topology
   %8 = load i32, ptr %7, align 4
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i32 %8, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 20
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %11 = load i32, ptr %10, align 4
   %12 = icmp eq i32 %11, 0
   br i1 %12, label %17, label %13

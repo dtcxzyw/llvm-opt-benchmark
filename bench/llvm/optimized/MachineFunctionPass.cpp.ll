@@ -224,7 +224,7 @@ _ZNK4llvm4Pass11getAnalysisINS_28MachineModuleInfoWrapperPassEEERT_v.exit: ; pre
 
 66:                                               ; preds = %_ZNK4llvm4Pass11getAnalysisINS_28MachineModuleInfoWrapperPassEEERT_v.exit
   %67 = getelementptr inbounds nuw i8, ptr %56, i64 320
-  %68 = getelementptr inbounds i8, ptr %56, i64 328
+  %68 = getelementptr inbounds nuw i8, ptr %56, i64 328
   %.sroa.05.08.i = load ptr, ptr %68, align 8
   %.not9.i = icmp eq ptr %.sroa.05.08.i, %67
   br i1 %.not9.i, label %_ZNK4llvm15MachineFunction19getInstructionCountEv.exit, label %.lr.ph.i
@@ -329,7 +329,7 @@ _ZNK4llvm15MachineFunction19getInstructionCountEv.exit: ; preds = %_ZNK4llvm17Ma
 
 110:                                              ; preds = %.thread
   %111 = getelementptr inbounds nuw i8, ptr %56, i64 320
-  %112 = getelementptr inbounds i8, ptr %56, i64 328
+  %112 = getelementptr inbounds nuw i8, ptr %56, i64 328
   %.sroa.05.08.i57 = load ptr, ptr %112, align 8
   %.not9.i58 = icmp eq ptr %.sroa.05.08.i57, %111
   br i1 %.not9.i58, label %_ZNK4llvm15MachineFunction19getInstructionCountEv.exit72, label %.lr.ph.i59
@@ -420,7 +420,7 @@ _ZNK4llvm15MachineFunction19getInstructionCountEv.exit72: ; preds = %_ZNK4llvm17
   store ptr @.str.14, ptr %150, align 8, !alias.scope !6
   %.sroa.2.0..sroa_idx.i.i.i.i.i = getelementptr inbounds i8, ptr %14, i64 56
   store i64 20, ptr %.sroa.2.0..sroa_idx.i.i.i.i.i, align 8, !alias.scope !6
-  %151 = getelementptr inbounds i8, ptr %14, i64 72
+  %151 = getelementptr inbounds nuw i8, ptr %14, i64 72
   store i8 0, ptr %151, align 8, !alias.scope !6
   %152 = getelementptr inbounds nuw i8, ptr %14, i64 80
   %153 = getelementptr inbounds i8, ptr %14, i64 96
@@ -625,7 +625,7 @@ _ZN4llvmplERKNS_5TwineES2_.exit135:               ; preds = %207, %_ZNK4llvm15Sm
   store ptr @.str, ptr %25, align 8, !alias.scope !10
   %223 = getelementptr inbounds nuw i8, ptr %25, i64 16
   store ptr %219, ptr %223, align 8, !alias.scope !10
-  %224 = getelementptr inbounds i8, ptr %25, i64 24
+  %224 = getelementptr inbounds nuw i8, ptr %25, i64 24
   store i64 %220, ptr %224, align 8, !alias.scope !10
   store ptr %25, ptr %24, align 8, !alias.scope !13
   %225 = getelementptr inbounds nuw i8, ptr %24, i64 16

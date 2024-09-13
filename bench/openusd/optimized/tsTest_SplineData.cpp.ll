@@ -877,17 +877,17 @@ _ZSteqIN32pxrInternal_v0_24__pxrReserved__17TsTest_SplineData4KnotESt4lessIS2_ES
   ]
 
 27:                                               ; preds = %26
-  %28 = getelementptr inbounds i8, ptr %0, i64 64
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %29 = load double, ptr %28, align 8
-  %30 = getelementptr inbounds i8, ptr %1, i64 64
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %31 = load double, ptr %30, align 8
   %32 = fcmp oeq double %29, %31
   br i1 %32, label %_ZNK32pxrInternal_v0_24__pxrReserved__17TsTest_SplineData13ExtrapolationeqERKS1_.exit.thread, label %_ZNK32pxrInternal_v0_24__pxrReserved__17TsTest_SplineData15InnerLoopParamseqERKS1_.exit
 
 _ZNK32pxrInternal_v0_24__pxrReserved__17TsTest_SplineData13ExtrapolationeqERKS1_.exit: ; preds = %26
-  %33 = getelementptr inbounds i8, ptr %0, i64 72
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %34 = load i32, ptr %33, align 8
-  %35 = getelementptr inbounds i8, ptr %1, i64 72
+  %35 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %36 = load i32, ptr %35, align 8
   %37 = icmp eq i32 %34, %36
   br i1 %37, label %_ZNK32pxrInternal_v0_24__pxrReserved__17TsTest_SplineData13ExtrapolationeqERKS1_.exit.thread, label %_ZNK32pxrInternal_v0_24__pxrReserved__17TsTest_SplineData15InnerLoopParamseqERKS1_.exit
@@ -907,17 +907,17 @@ _ZNK32pxrInternal_v0_24__pxrReserved__17TsTest_SplineData13ExtrapolationeqERKS1_
   ]
 
 44:                                               ; preds = %43
-  %45 = getelementptr inbounds i8, ptr %0, i64 88
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %46 = load double, ptr %45, align 8
-  %47 = getelementptr inbounds i8, ptr %1, i64 88
+  %47 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %48 = load double, ptr %47, align 8
   %49 = fcmp oeq double %46, %48
   br i1 %49, label %_ZNK32pxrInternal_v0_24__pxrReserved__17TsTest_SplineData13ExtrapolationeqERKS1_.exit7.thread, label %_ZNK32pxrInternal_v0_24__pxrReserved__17TsTest_SplineData15InnerLoopParamseqERKS1_.exit
 
 _ZNK32pxrInternal_v0_24__pxrReserved__17TsTest_SplineData13ExtrapolationeqERKS1_.exit7: ; preds = %43
-  %50 = getelementptr inbounds i8, ptr %0, i64 96
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %51 = load i32, ptr %50, align 8
-  %52 = getelementptr inbounds i8, ptr %1, i64 96
+  %52 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %53 = load i32, ptr %52, align 8
   %54 = icmp eq i32 %51, %53
   br i1 %54, label %_ZNK32pxrInternal_v0_24__pxrReserved__17TsTest_SplineData13ExtrapolationeqERKS1_.exit7.thread, label %_ZNK32pxrInternal_v0_24__pxrReserved__17TsTest_SplineData15InnerLoopParamseqERKS1_.exit
@@ -933,41 +933,41 @@ _ZNK32pxrInternal_v0_24__pxrReserved__17TsTest_SplineData13ExtrapolationeqERKS1_
   br i1 %61, label %62, label %_ZNK32pxrInternal_v0_24__pxrReserved__17TsTest_SplineData15InnerLoopParamseqERKS1_.exit
 
 62:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__17TsTest_SplineData13ExtrapolationeqERKS1_.exit7.thread
-  %63 = getelementptr inbounds i8, ptr %0, i64 112
+  %63 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %64 = load double, ptr %63, align 8
-  %65 = getelementptr inbounds i8, ptr %1, i64 112
+  %65 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %66 = load double, ptr %65, align 8
   %67 = fcmp oeq double %64, %66
   br i1 %67, label %68, label %_ZNK32pxrInternal_v0_24__pxrReserved__17TsTest_SplineData15InnerLoopParamseqERKS1_.exit
 
 68:                                               ; preds = %62
-  %69 = getelementptr inbounds i8, ptr %0, i64 120
+  %69 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %70 = load double, ptr %69, align 8
-  %71 = getelementptr inbounds i8, ptr %1, i64 120
+  %71 = getelementptr inbounds nuw i8, ptr %1, i64 120
   %72 = load double, ptr %71, align 8
   %73 = fcmp oeq double %70, %72
   br i1 %73, label %74, label %_ZNK32pxrInternal_v0_24__pxrReserved__17TsTest_SplineData15InnerLoopParamseqERKS1_.exit
 
 74:                                               ; preds = %68
-  %75 = getelementptr inbounds i8, ptr %0, i64 128
+  %75 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %76 = load double, ptr %75, align 8
-  %77 = getelementptr inbounds i8, ptr %1, i64 128
+  %77 = getelementptr inbounds nuw i8, ptr %1, i64 128
   %78 = load double, ptr %77, align 8
   %79 = fcmp oeq double %76, %78
   br i1 %79, label %80, label %_ZNK32pxrInternal_v0_24__pxrReserved__17TsTest_SplineData15InnerLoopParamseqERKS1_.exit
 
 80:                                               ; preds = %74
-  %81 = getelementptr inbounds i8, ptr %0, i64 136
+  %81 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %82 = load double, ptr %81, align 8
-  %83 = getelementptr inbounds i8, ptr %1, i64 136
+  %83 = getelementptr inbounds nuw i8, ptr %1, i64 136
   %84 = load double, ptr %83, align 8
   %85 = fcmp oeq double %82, %84
   br i1 %85, label %86, label %_ZNK32pxrInternal_v0_24__pxrReserved__17TsTest_SplineData15InnerLoopParamseqERKS1_.exit
 
 86:                                               ; preds = %80
-  %87 = getelementptr inbounds i8, ptr %0, i64 144
+  %87 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %88 = load i8, ptr %87, align 8
-  %89 = getelementptr inbounds i8, ptr %1, i64 144
+  %89 = getelementptr inbounds nuw i8, ptr %1, i64 144
   %90 = load i8, ptr %89, align 8
   %91 = xor i8 %90, %88
   %92 = and i8 %91, 1
@@ -975,9 +975,9 @@ _ZNK32pxrInternal_v0_24__pxrReserved__17TsTest_SplineData13ExtrapolationeqERKS1_
   br i1 %93, label %94, label %_ZNK32pxrInternal_v0_24__pxrReserved__17TsTest_SplineData15InnerLoopParamseqERKS1_.exit
 
 94:                                               ; preds = %86
-  %95 = getelementptr inbounds i8, ptr %0, i64 152
+  %95 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %96 = load double, ptr %95, align 8
-  %97 = getelementptr inbounds i8, ptr %1, i64 152
+  %97 = getelementptr inbounds nuw i8, ptr %1, i64 152
   %98 = load double, ptr %97, align 8
   %99 = fcmp oeq double %96, %98
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__17TsTest_SplineData15InnerLoopParamseqERKS1_.exit
@@ -1139,7 +1139,7 @@ define noundef range(i32 0, 512) i32 @_ZNK32pxrInternal_v0_24__pxrReserved__17Ts
 8:                                                ; preds = %.lr.ph, %31
   %.027 = phi i32 [ 0, %.lr.ph ], [ %.3, %31 ]
   %.sroa.021.025 = phi ptr [ %3, %.lr.ph ], [ %32, %31 ]
-  %9 = getelementptr inbounds i8, ptr %.sroa.021.025, i64 40
+  %9 = getelementptr inbounds nuw i8, ptr %.sroa.021.025, i64 40
   %10 = load i32, ptr %9, align 8
   switch i32 %10, label %17 [
     i32 0, label %11
@@ -1161,18 +1161,18 @@ define noundef range(i32 0, 512) i32 @_ZNK32pxrInternal_v0_24__pxrReserved__17Ts
 
 17:                                               ; preds = %15, %13, %11, %8
   %.1 = phi i32 [ %.027, %8 ], [ %16, %15 ], [ %14, %13 ], [ %12, %11 ]
-  %18 = getelementptr inbounds i8, ptr %.sroa.021.025, i64 56
+  %18 = getelementptr inbounds nuw i8, ptr %.sroa.021.025, i64 56
   %19 = load i8, ptr %18, align 8
   %20 = trunc i8 %19 to i1
   %21 = or i32 %.1, 32
   %spec.select = select i1 %20, i32 %21, i32 %.1
-  %22 = getelementptr inbounds i8, ptr %.sroa.021.025, i64 104
+  %22 = getelementptr inbounds nuw i8, ptr %.sroa.021.025, i64 104
   %23 = load i8, ptr %22, align 8
   %24 = trunc i8 %23 to i1
   br i1 %24, label %29, label %25
 
 25:                                               ; preds = %17
-  %26 = getelementptr inbounds i8, ptr %.sroa.021.025, i64 105
+  %26 = getelementptr inbounds nuw i8, ptr %.sroa.021.025, i64 105
   %27 = load i8, ptr %26, align 1
   %28 = trunc i8 %27 to i1
   br i1 %28, label %29, label %31
@@ -1296,7 +1296,7 @@ define void @_ZNK32pxrInternal_v0_24__pxrReserved__17TsTest_SplineData19GetDebug
           to label %46 unwind label %.loopexit.split-lp
 
 46:                                               ; preds = %44
-  %47 = getelementptr inbounds i8, ptr %1, i64 112
+  %47 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %48 = load double, ptr %47, align 8
   %49 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEd(ptr noundef nonnull align 8 dereferenceable(8) %45, double noundef %48)
           to label %50 unwind label %.loopexit.split-lp
@@ -1306,7 +1306,7 @@ define void @_ZNK32pxrInternal_v0_24__pxrReserved__17TsTest_SplineData19GetDebug
           to label %52 unwind label %.loopexit.split-lp
 
 52:                                               ; preds = %50
-  %53 = getelementptr inbounds i8, ptr %1, i64 120
+  %53 = getelementptr inbounds nuw i8, ptr %1, i64 120
   %54 = load double, ptr %53, align 8
   %55 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEd(ptr noundef nonnull align 8 dereferenceable(8) %51, double noundef %54)
           to label %56 unwind label %.loopexit.split-lp
@@ -1316,7 +1316,7 @@ define void @_ZNK32pxrInternal_v0_24__pxrReserved__17TsTest_SplineData19GetDebug
           to label %58 unwind label %.loopexit.split-lp
 
 58:                                               ; preds = %56
-  %59 = getelementptr inbounds i8, ptr %1, i64 128
+  %59 = getelementptr inbounds nuw i8, ptr %1, i64 128
   %60 = load double, ptr %59, align 8
   %61 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEd(ptr noundef nonnull align 8 dereferenceable(8) %57, double noundef %60)
           to label %62 unwind label %.loopexit.split-lp
@@ -1326,7 +1326,7 @@ define void @_ZNK32pxrInternal_v0_24__pxrReserved__17TsTest_SplineData19GetDebug
           to label %64 unwind label %.loopexit.split-lp
 
 64:                                               ; preds = %62
-  %65 = getelementptr inbounds i8, ptr %1, i64 136
+  %65 = getelementptr inbounds nuw i8, ptr %1, i64 136
   %66 = load double, ptr %65, align 8
   %67 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEd(ptr noundef nonnull align 8 dereferenceable(8) %63, double noundef %66)
           to label %68 unwind label %.loopexit.split-lp
@@ -1336,7 +1336,7 @@ define void @_ZNK32pxrInternal_v0_24__pxrReserved__17TsTest_SplineData19GetDebug
           to label %70 unwind label %.loopexit.split-lp
 
 70:                                               ; preds = %68
-  %71 = getelementptr inbounds i8, ptr %1, i64 144
+  %71 = getelementptr inbounds nuw i8, ptr %1, i64 144
   %72 = load i8, ptr %71, align 8
   %73 = trunc i8 %72 to i1
   %74 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEb(ptr noundef nonnull align 8 dereferenceable(8) %69, i1 noundef zeroext %73)
@@ -1347,7 +1347,7 @@ define void @_ZNK32pxrInternal_v0_24__pxrReserved__17TsTest_SplineData19GetDebug
           to label %77 unwind label %.loopexit.split-lp
 
 77:                                               ; preds = %75
-  %78 = getelementptr inbounds i8, ptr %1, i64 152
+  %78 = getelementptr inbounds nuw i8, ptr %1, i64 152
   %79 = load double, ptr %78, align 8
   %80 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEd(ptr noundef nonnull align 8 dereferenceable(8) %76, double noundef %79)
           to label %81 unwind label %.loopexit.split-lp
@@ -1413,7 +1413,7 @@ define void @_ZNK32pxrInternal_v0_24__pxrReserved__17TsTest_SplineData19GetDebug
           to label %103 unwind label %.loopexit
 
 103:                                              ; preds = %101
-  %104 = getelementptr inbounds i8, ptr %.sroa.023.027, i64 48
+  %104 = getelementptr inbounds nuw i8, ptr %.sroa.023.027, i64 48
   %105 = load double, ptr %104, align 8
   %106 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEd(ptr noundef nonnull align 8 dereferenceable(8) %102, double noundef %105)
           to label %107 unwind label %.loopexit
@@ -1423,7 +1423,7 @@ define void @_ZNK32pxrInternal_v0_24__pxrReserved__17TsTest_SplineData19GetDebug
           to label %109 unwind label %.loopexit
 
 109:                                              ; preds = %107
-  %110 = getelementptr inbounds i8, ptr %.sroa.023.027, i64 40
+  %110 = getelementptr inbounds nuw i8, ptr %.sroa.023.027, i64 40
   %111 = load i32, ptr %110, align 8
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__6TfEnum7GetNameB5cxx11ES0_(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %7, ptr nonnull @_ZTIN32pxrInternal_v0_24__pxrReserved__17TsTest_SplineData12InterpMethodE, i32 %111)
           to label %112 unwind label %.loopexit
@@ -1448,7 +1448,7 @@ define void @_ZNK32pxrInternal_v0_24__pxrReserved__17TsTest_SplineData19GetDebug
           to label %120 unwind label %.loopexit
 
 120:                                              ; preds = %118
-  %121 = getelementptr inbounds i8, ptr %.sroa.023.027, i64 72
+  %121 = getelementptr inbounds nuw i8, ptr %.sroa.023.027, i64 72
   %122 = load double, ptr %121, align 8
   %123 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEd(ptr noundef nonnull align 8 dereferenceable(8) %119, double noundef %122)
           to label %124 unwind label %.loopexit
@@ -1458,7 +1458,7 @@ define void @_ZNK32pxrInternal_v0_24__pxrReserved__17TsTest_SplineData19GetDebug
           to label %126 unwind label %.loopexit
 
 126:                                              ; preds = %124
-  %127 = getelementptr inbounds i8, ptr %.sroa.023.027, i64 80
+  %127 = getelementptr inbounds nuw i8, ptr %.sroa.023.027, i64 80
   %128 = load double, ptr %127, align 8
   %129 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEd(ptr noundef nonnull align 8 dereferenceable(8) %125, double noundef %128)
           to label %130 unwind label %.loopexit
@@ -1473,7 +1473,7 @@ define void @_ZNK32pxrInternal_v0_24__pxrReserved__17TsTest_SplineData19GetDebug
           to label %135 unwind label %.loopexit
 
 135:                                              ; preds = %133
-  %136 = getelementptr inbounds i8, ptr %.sroa.023.027, i64 88
+  %136 = getelementptr inbounds nuw i8, ptr %.sroa.023.027, i64 88
   %137 = load double, ptr %136, align 8
   %138 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEd(ptr noundef nonnull align 8 dereferenceable(8) %134, double noundef %137)
           to label %139 unwind label %.loopexit
@@ -1483,7 +1483,7 @@ define void @_ZNK32pxrInternal_v0_24__pxrReserved__17TsTest_SplineData19GetDebug
           to label %141 unwind label %.loopexit
 
 141:                                              ; preds = %139
-  %142 = getelementptr inbounds i8, ptr %.sroa.023.027, i64 96
+  %142 = getelementptr inbounds nuw i8, ptr %.sroa.023.027, i64 96
   %143 = load double, ptr %142, align 8
   %144 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEd(ptr noundef nonnull align 8 dereferenceable(8) %140, double noundef %143)
           to label %150 unwind label %.loopexit
@@ -1509,7 +1509,7 @@ define void @_ZNK32pxrInternal_v0_24__pxrReserved__17TsTest_SplineData19GetDebug
           to label %152 unwind label %.loopexit
 
 152:                                              ; preds = %150
-  %153 = getelementptr inbounds i8, ptr %.sroa.023.027, i64 104
+  %153 = getelementptr inbounds nuw i8, ptr %.sroa.023.027, i64 104
   %154 = load i8, ptr %153, align 8
   %155 = trunc i8 %154 to i1
   %156 = select i1 %155, ptr @.str.4, ptr @.str.5
@@ -1521,7 +1521,7 @@ define void @_ZNK32pxrInternal_v0_24__pxrReserved__17TsTest_SplineData19GetDebug
           to label %160 unwind label %.loopexit
 
 160:                                              ; preds = %158
-  %161 = getelementptr inbounds i8, ptr %.sroa.023.027, i64 105
+  %161 = getelementptr inbounds nuw i8, ptr %.sroa.023.027, i64 105
   %162 = load i8, ptr %161, align 1
   %163 = trunc i8 %162 to i1
   %164 = select i1 %163, ptr @.str.4, ptr @.str.5
@@ -2307,25 +2307,25 @@ define linkonce_odr noundef zeroext i1 @_ZNSt7__equalILb0EE5equalISt23_Rb_tree_c
   br i1 %8, label %9, label %_ZNK32pxrInternal_v0_24__pxrReserved__17TsTest_SplineData4KnoteqERKS1_.exit.thread
 
 9:                                                ; preds = %.lr.ph
-  %10 = getelementptr inbounds i8, ptr %.sroa.03.07, i64 40
+  %10 = getelementptr inbounds nuw i8, ptr %.sroa.03.07, i64 40
   %11 = load i32, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %.sroa.0.08, i64 40
+  %12 = getelementptr inbounds nuw i8, ptr %.sroa.0.08, i64 40
   %13 = load i32, ptr %12, align 8
   %14 = icmp eq i32 %11, %13
   br i1 %14, label %15, label %_ZNK32pxrInternal_v0_24__pxrReserved__17TsTest_SplineData4KnoteqERKS1_.exit.thread
 
 15:                                               ; preds = %9
-  %16 = getelementptr inbounds i8, ptr %.sroa.03.07, i64 48
+  %16 = getelementptr inbounds nuw i8, ptr %.sroa.03.07, i64 48
   %17 = load double, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %.sroa.0.08, i64 48
+  %18 = getelementptr inbounds nuw i8, ptr %.sroa.0.08, i64 48
   %19 = load double, ptr %18, align 8
   %20 = fcmp oeq double %17, %19
   br i1 %20, label %21, label %_ZNK32pxrInternal_v0_24__pxrReserved__17TsTest_SplineData4KnoteqERKS1_.exit.thread
 
 21:                                               ; preds = %15
-  %22 = getelementptr inbounds i8, ptr %.sroa.03.07, i64 56
+  %22 = getelementptr inbounds nuw i8, ptr %.sroa.03.07, i64 56
   %23 = load i8, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %.sroa.0.08, i64 56
+  %24 = getelementptr inbounds nuw i8, ptr %.sroa.0.08, i64 56
   %25 = load i8, ptr %24, align 8
   %26 = xor i8 %25, %23
   %27 = and i8 %26, 1
@@ -2333,49 +2333,49 @@ define linkonce_odr noundef zeroext i1 @_ZNSt7__equalILb0EE5equalISt23_Rb_tree_c
   br i1 %28, label %29, label %_ZNK32pxrInternal_v0_24__pxrReserved__17TsTest_SplineData4KnoteqERKS1_.exit.thread
 
 29:                                               ; preds = %21
-  %30 = getelementptr inbounds i8, ptr %.sroa.03.07, i64 64
+  %30 = getelementptr inbounds nuw i8, ptr %.sroa.03.07, i64 64
   %31 = load double, ptr %30, align 8
-  %32 = getelementptr inbounds i8, ptr %.sroa.0.08, i64 64
+  %32 = getelementptr inbounds nuw i8, ptr %.sroa.0.08, i64 64
   %33 = load double, ptr %32, align 8
   %34 = fcmp oeq double %31, %33
   br i1 %34, label %35, label %_ZNK32pxrInternal_v0_24__pxrReserved__17TsTest_SplineData4KnoteqERKS1_.exit.thread
 
 35:                                               ; preds = %29
-  %36 = getelementptr inbounds i8, ptr %.sroa.03.07, i64 72
+  %36 = getelementptr inbounds nuw i8, ptr %.sroa.03.07, i64 72
   %37 = load double, ptr %36, align 8
-  %38 = getelementptr inbounds i8, ptr %.sroa.0.08, i64 72
+  %38 = getelementptr inbounds nuw i8, ptr %.sroa.0.08, i64 72
   %39 = load double, ptr %38, align 8
   %40 = fcmp oeq double %37, %39
   br i1 %40, label %41, label %_ZNK32pxrInternal_v0_24__pxrReserved__17TsTest_SplineData4KnoteqERKS1_.exit.thread
 
 41:                                               ; preds = %35
-  %42 = getelementptr inbounds i8, ptr %.sroa.03.07, i64 80
+  %42 = getelementptr inbounds nuw i8, ptr %.sroa.03.07, i64 80
   %43 = load double, ptr %42, align 8
-  %44 = getelementptr inbounds i8, ptr %.sroa.0.08, i64 80
+  %44 = getelementptr inbounds nuw i8, ptr %.sroa.0.08, i64 80
   %45 = load double, ptr %44, align 8
   %46 = fcmp oeq double %43, %45
   br i1 %46, label %47, label %_ZNK32pxrInternal_v0_24__pxrReserved__17TsTest_SplineData4KnoteqERKS1_.exit.thread
 
 47:                                               ; preds = %41
-  %48 = getelementptr inbounds i8, ptr %.sroa.03.07, i64 88
+  %48 = getelementptr inbounds nuw i8, ptr %.sroa.03.07, i64 88
   %49 = load double, ptr %48, align 8
-  %50 = getelementptr inbounds i8, ptr %.sroa.0.08, i64 88
+  %50 = getelementptr inbounds nuw i8, ptr %.sroa.0.08, i64 88
   %51 = load double, ptr %50, align 8
   %52 = fcmp oeq double %49, %51
   br i1 %52, label %53, label %_ZNK32pxrInternal_v0_24__pxrReserved__17TsTest_SplineData4KnoteqERKS1_.exit.thread
 
 53:                                               ; preds = %47
-  %54 = getelementptr inbounds i8, ptr %.sroa.03.07, i64 96
+  %54 = getelementptr inbounds nuw i8, ptr %.sroa.03.07, i64 96
   %55 = load double, ptr %54, align 8
-  %56 = getelementptr inbounds i8, ptr %.sroa.0.08, i64 96
+  %56 = getelementptr inbounds nuw i8, ptr %.sroa.0.08, i64 96
   %57 = load double, ptr %56, align 8
   %58 = fcmp oeq double %55, %57
   br i1 %58, label %59, label %_ZNK32pxrInternal_v0_24__pxrReserved__17TsTest_SplineData4KnoteqERKS1_.exit.thread
 
 59:                                               ; preds = %53
-  %60 = getelementptr inbounds i8, ptr %.sroa.03.07, i64 104
+  %60 = getelementptr inbounds nuw i8, ptr %.sroa.03.07, i64 104
   %61 = load i8, ptr %60, align 8
-  %62 = getelementptr inbounds i8, ptr %.sroa.0.08, i64 104
+  %62 = getelementptr inbounds nuw i8, ptr %.sroa.0.08, i64 104
   %63 = load i8, ptr %62, align 8
   %64 = xor i8 %63, %61
   %65 = and i8 %64, 1
@@ -2383,9 +2383,9 @@ define linkonce_odr noundef zeroext i1 @_ZNSt7__equalILb0EE5equalISt23_Rb_tree_c
   br i1 %66, label %_ZNK32pxrInternal_v0_24__pxrReserved__17TsTest_SplineData4KnoteqERKS1_.exit, label %_ZNK32pxrInternal_v0_24__pxrReserved__17TsTest_SplineData4KnoteqERKS1_.exit.thread
 
 _ZNK32pxrInternal_v0_24__pxrReserved__17TsTest_SplineData4KnoteqERKS1_.exit: ; preds = %59
-  %67 = getelementptr inbounds i8, ptr %.sroa.03.07, i64 105
+  %67 = getelementptr inbounds nuw i8, ptr %.sroa.03.07, i64 105
   %68 = load i8, ptr %67, align 1
-  %69 = getelementptr inbounds i8, ptr %.sroa.0.08, i64 105
+  %69 = getelementptr inbounds nuw i8, ptr %.sroa.0.08, i64 105
   %70 = load i8, ptr %69, align 1
   %71 = xor i8 %70, %68
   %72 = and i8 %71, 1

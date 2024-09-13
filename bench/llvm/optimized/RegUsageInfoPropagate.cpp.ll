@@ -305,7 +305,7 @@ _ZNK4llvm4Pass11getAnalysisINS_25PhysicalRegisterUsageInfoEEERT_v.exit: ; preds 
   br i1 %30, label %31, label %.loopexit
 
 31:                                               ; preds = %27, %_ZNK4llvm4Pass11getAnalysisINS_25PhysicalRegisterUsageInfoEEERT_v.exit
-  %32 = getelementptr inbounds i8, ptr %1, i64 328
+  %32 = getelementptr inbounds nuw i8, ptr %1, i64 328
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 320
   %.sroa.028.052 = load ptr, ptr %32, align 8
   %.not3953 = icmp eq ptr %.sroa.028.052, %33

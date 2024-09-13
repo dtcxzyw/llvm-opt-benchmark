@@ -2834,7 +2834,7 @@ _ZN4llvm5ErrorD2Ev.exit106:                       ; preds = %_ZN5clang15ASTNodeI
   %381 = load ptr, ptr %380, align 8
   %382 = mul i64 %378, 24
   %383 = getelementptr inbounds nuw i8, ptr %381, i64 2144
-  %384 = getelementptr inbounds i8, ptr %381, i64 2224
+  %384 = getelementptr inbounds nuw i8, ptr %381, i64 2224
   %385 = load i64, ptr %384, align 8
   %386 = add i64 %385, %382
   store i64 %386, ptr %384, align 8
@@ -2843,7 +2843,7 @@ _ZN4llvm5ErrorD2Ev.exit106:                       ; preds = %_ZN5clang15ASTNodeI
   %389 = add i64 %388, 7
   %390 = and i64 %389, -8
   %391 = add i64 %390, %382
-  %392 = getelementptr inbounds i8, ptr %381, i64 2152
+  %392 = getelementptr inbounds nuw i8, ptr %381, i64 2152
   %393 = load ptr, ptr %392, align 8
   %394 = ptrtoint ptr %393 to i64
   %.not.i.i.i.i.i = icmp ugt i64 %391, %394
@@ -3439,7 +3439,7 @@ define dso_local void @_ZN5clang15ASTNodeImporter6importINS_18DesignatedInitExpr
 
 _ZN5clang11ASTImporter6ImportEPKNS_14IdentifierInfoE.exit: ; preds = %11, %14, %31, %39
   %.0.i = phi ptr [ null, %11 ], [ %24, %39 ], [ %24, %31 ], [ %24, %14 ]
-  %46 = getelementptr inbounds i8, ptr %2, i64 16
+  %46 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %.sroa.0.0.copyload.i = load i32, ptr %46, align 8
   %47 = load ptr, ptr %1, align 8, !noalias !261
   call void @_ZN5clang11ASTImporter6ImportENS_14SourceLocationE(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Expected.85") align 8 %4, ptr noundef nonnull align 8 dereferenceable(280360) %47, i32 %.sroa.0.0.copyload.i)
@@ -3449,7 +3449,7 @@ _ZN5clang11ASTImporter6ImportEPKNS_14IdentifierInfoE.exit: ; preds = %11, %14, %
   br i1 %50, label %69, label %51
 
 51:                                               ; preds = %_ZN5clang11ASTImporter6ImportEPKNS_14IdentifierInfoE.exit
-  %52 = getelementptr inbounds i8, ptr %2, i64 20
+  %52 = getelementptr inbounds nuw i8, ptr %2, i64 20
   %.sroa.0.0.copyload.i19 = load i32, ptr %52, align 4
   %53 = load ptr, ptr %1, align 8, !noalias !264
   call void @_ZN5clang11ASTImporter6ImportENS_14SourceLocationE(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Expected.85") align 8 %5, ptr noundef nonnull align 8 dereferenceable(280360) %53, i32 %.sroa.0.0.copyload.i19)
@@ -3499,7 +3499,7 @@ _ZN5clang11ASTImporter6ImportEPKNS_14IdentifierInfoE.exit: ; preds = %11, %14, %
   br label %_ZN4llvm8ExpectedIN5clang14SourceLocationEED2Ev.exit29
 
 75:                                               ; preds = %3
-  %76 = getelementptr inbounds i8, ptr %2, i64 12
+  %76 = getelementptr inbounds nuw i8, ptr %2, i64 12
   %.sroa.0.0.copyload.i30 = load i32, ptr %76, align 4
   %77 = load ptr, ptr %1, align 8, !noalias !279
   call void @_ZN5clang11ASTImporter6ImportENS_14SourceLocationE(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Expected.85") align 8 %6, ptr noundef nonnull align 8 dereferenceable(280360) %77, i32 %.sroa.0.0.copyload.i30)
@@ -3509,7 +3509,7 @@ _ZN5clang11ASTImporter6ImportEPKNS_14IdentifierInfoE.exit: ; preds = %11, %14, %
   br i1 %80, label %120, label %81
 
 81:                                               ; preds = %75
-  %82 = getelementptr inbounds i8, ptr %2, i64 20
+  %82 = getelementptr inbounds nuw i8, ptr %2, i64 20
   %.sroa.0.0.copyload.i36 = load i32, ptr %82, align 4
   %83 = load ptr, ptr %1, align 8, !noalias !282
   call void @_ZN5clang11ASTImporter6ImportENS_14SourceLocationE(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Expected.85") align 8 %7, ptr noundef nonnull align 8 dereferenceable(280360) %83, i32 %.sroa.0.0.copyload.i36)
@@ -3544,7 +3544,7 @@ _ZN5clang11ASTImporter6ImportEPKNS_14IdentifierInfoE.exit: ; preds = %11, %14, %
   br label %_ZN4llvm8ExpectedIN5clang14SourceLocationEED2Ev.exit29
 
 96:                                               ; preds = %87
-  %97 = getelementptr inbounds i8, ptr %2, i64 16
+  %97 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %.sroa.0.0.copyload.i42 = load i32, ptr %97, align 8
   %98 = load ptr, ptr %1, align 8, !noalias !285
   call void @_ZN5clang11ASTImporter6ImportENS_14SourceLocationE(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Expected.85") align 8 %8, ptr noundef nonnull align 8 dereferenceable(280360) %98, i32 %.sroa.0.0.copyload.i42)
@@ -3722,7 +3722,7 @@ _ZN5clang15ASTNodeImporter13importCheckedINS_14SourceLocationEEET_RN4llvm5ErrorE
   %23 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %24 = load i8, ptr %23, align 8
   %25 = trunc i8 %24 to i1
-  %26 = getelementptr inbounds i8, ptr %2, i64 32
+  %26 = getelementptr inbounds nuw i8, ptr %2, i64 32
   br i1 %25, label %_ZN5clang15ASTNodeImporter13importCheckedINS_14SourceLocationEEET_RN4llvm5ErrorERKS3_.exit, label %_ZN5clang15ASTNodeImporter13importCheckedINS_14SourceLocationEEET_RN4llvm5ErrorERKS3_.exit.thread
 
 _ZN5clang15ASTNodeImporter13importCheckedINS_14SourceLocationEEET_RN4llvm5ErrorERKS3_.exit.thread: ; preds = %21
@@ -4096,7 +4096,7 @@ define dso_local noundef zeroext i1 @_ZN5clang15ASTNodeImporter34hasSameVisibili
   %11 = load ptr, ptr %0, align 8
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 280240
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %11, i64 280256
+  %14 = getelementptr inbounds nuw i8, ptr %11, i64 280256
   %15 = load i32, ptr %14, align 8
   %16 = icmp eq i32 %15, 0
   br i1 %16, label %.loopexit.i.i, label %17
@@ -4176,7 +4176,7 @@ declare noundef zeroext i1 @_ZNK5clang4Decl22isInAnonymousNamespaceEv(ptr nounde
 define dso_local noundef ptr @_ZN5clang11ASTImporter9GetFromTUEPNS_4DeclE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(280360) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 280240
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 280256
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 280256
   %6 = load i32, ptr %5, align 8
   %7 = icmp eq i32 %6, 0
   br i1 %7, label %.loopexit.i, label %8
@@ -4364,11 +4364,11 @@ define dso_local void @_ZN5clang11ASTImporter8FromDiagENS_14SourceLocationEj(ptr
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 25
   store i8 0, ptr %29, align 1, !alias.scope !387
   store i8 0, ptr %25, align 8, !noalias !387
-  %30 = getelementptr inbounds i8, ptr %21, i64 792
+  %30 = getelementptr inbounds nuw i8, ptr %21, i64 792
   %31 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %30) #23, !noalias !387
-  %32 = getelementptr inbounds i8, ptr %21, i64 800
+  %32 = getelementptr inbounds nuw i8, ptr %21, i64 800
   store i32 0, ptr %32, align 8, !noalias !387
-  %33 = getelementptr inbounds i8, ptr %21, i64 904
+  %33 = getelementptr inbounds nuw i8, ptr %21, i64 904
   %34 = load ptr, ptr %33, align 8, !noalias !387
   %35 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %33) #23, !noalias !387
   %.not4.i.i.i.i = icmp eq i64 %35, 0
@@ -4387,7 +4387,7 @@ define dso_local void @_ZN5clang11ASTImporter8FromDiagENS_14SourceLocationEj(ptr
   br i1 %.not.i.i.i.i, label %_ZN5clang17DiagnosticsEngine6ReportENS_14SourceLocationEj.exit, label %.lr.ph.i.i.i.i, !llvm.loop !390
 
 _ZN5clang17DiagnosticsEngine6ReportENS_14SourceLocationEj.exit: ; preds = %.lr.ph.i.i.i.i, %18
-  %39 = getelementptr inbounds i8, ptr %21, i64 912
+  %39 = getelementptr inbounds nuw i8, ptr %21, i64 912
   store i32 0, ptr %39, align 8, !noalias !387
   ret void
 }
@@ -12149,7 +12149,7 @@ _ZNK5clang8QualType18getLocalQualifiersEv.exit.i: ; preds = %14
   %32 = load ptr, ptr %1, align 8
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 280120
   %34 = load ptr, ptr %33, align 8
-  %35 = getelementptr inbounds i8, ptr %2, i64 20
+  %35 = getelementptr inbounds nuw i8, ptr %2, i64 20
   %36 = load i32, ptr %35, align 4
   %37 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %38 = load i32, ptr %37, align 16
@@ -12237,7 +12237,7 @@ _ZNK5clang8QualType18getLocalQualifiersEv.exit.i: ; preds = %14
   %32 = load ptr, ptr %1, align 8
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 280120
   %34 = load ptr, ptr %33, align 8
-  %35 = getelementptr inbounds i8, ptr %2, i64 20
+  %35 = getelementptr inbounds nuw i8, ptr %2, i64 20
   %36 = load i32, ptr %35, align 4
   %37 = tail call i64 @_ZNK5clang10ASTContext16getExtVectorTypeENS_8QualTypeEj(ptr noundef nonnull align 8 dereferenceable(23096) %34, i64 %.sroa.0.0.ph, i32 noundef %36) #23
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -12664,7 +12664,7 @@ _ZN4llvm8ExpectedIN5clang8QualTypeEED2Ev.exit45:  ; preds = %135
   %167 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %168 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %169 = getelementptr inbounds nuw i8, ptr %13, i64 24
-  %170 = getelementptr inbounds i8, ptr %13, i64 32
+  %170 = getelementptr inbounds nuw i8, ptr %13, i64 32
   %171 = getelementptr inbounds nuw i8, ptr %13, i64 88
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %171, i8 0, i64 32, i1 false)
   %172 = getelementptr inbounds i8, ptr %13, i64 72
@@ -12684,7 +12684,7 @@ _ZN4llvm8ExpectedIN5clang8QualTypeEED2Ev.exit45:  ; preds = %135
   %181 = getelementptr inbounds nuw i8, ptr %12, i64 24
   %182 = load i32, ptr %181, align 8
   store i32 %182, ptr %169, align 8
-  %183 = getelementptr inbounds i8, ptr %12, i64 48
+  %183 = getelementptr inbounds nuw i8, ptr %12, i64 48
   %184 = load ptr, ptr %183, align 8
   %185 = load ptr, ptr %1, align 8, !noalias !667
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
@@ -12692,8 +12692,8 @@ _ZN4llvm8ExpectedIN5clang8QualTypeEED2Ev.exit45:  ; preds = %135
   %186 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %187 = load i8, ptr %186, align 8, !noalias !670
   %188 = trunc i8 %187 to i1
-  %189 = getelementptr inbounds i8, ptr %13, i64 48
-  %190 = getelementptr inbounds i8, ptr %12, i64 56
+  %189 = getelementptr inbounds nuw i8, ptr %13, i64 48
+  %190 = getelementptr inbounds nuw i8, ptr %12, i64 56
   br i1 %188, label %_ZN5clang15ASTNodeImporter13importCheckedIPNS_4ExprEEET_RN4llvm5ErrorERKS4_.exit, label %_ZN5clang15ASTNodeImporter13importCheckedIPNS_4ExprEEET_RN4llvm5ErrorERKS4_.exit.thread
 
 _ZN5clang15ASTNodeImporter13importCheckedIPNS_4ExprEEET_RN4llvm5ErrorERKS4_.exit.thread: ; preds = %.loopexit
@@ -12711,7 +12711,7 @@ _ZN5clang15ASTNodeImporter13importCheckedIPNS_4ExprEEET_RN4llvm5ErrorERKS4_.exit
 
 _ZN5clang15ASTNodeImporter13importCheckedIPNS_12FunctionDeclEEET_RN4llvm5ErrorERKS4_.exit.thread164: ; preds = %_ZN5clang15ASTNodeImporter13importCheckedIPNS_4ExprEEET_RN4llvm5ErrorERKS4_.exit
   %193 = inttoptr i64 %192 to ptr
-  %194 = getelementptr inbounds i8, ptr %13, i64 56
+  %194 = getelementptr inbounds nuw i8, ptr %13, i64 56
   store ptr null, ptr %194, align 8
   br label %_ZN5clang15ASTNodeImporter13importCheckedIPNS_12FunctionDeclEEET_RN4llvm5ErrorERKS4_.exit123
 
@@ -12728,18 +12728,18 @@ _ZN5clang15ASTNodeImporter13importCheckedIPNS_12FunctionDeclEEET_RN4llvm5ErrorER
 _ZN5clang15ASTNodeImporter13importCheckedIPNS_12FunctionDeclEEET_RN4llvm5ErrorERKS4_.exit.thread: ; preds = %195
   %201 = load ptr, ptr %5, align 8, !noalias !676
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
-  %202 = getelementptr inbounds i8, ptr %13, i64 56
+  %202 = getelementptr inbounds nuw i8, ptr %13, i64 56
   store ptr %201, ptr %202, align 8
-  %203 = getelementptr inbounds i8, ptr %12, i64 64
+  %203 = getelementptr inbounds nuw i8, ptr %12, i64 64
   br label %208
 
 _ZN5clang15ASTNodeImporter13importCheckedIPNS_12FunctionDeclEEET_RN4llvm5ErrorERKS4_.exit: ; preds = %195
   %204 = load i64, ptr %5, align 8, !noalias !679
   %205 = inttoptr i64 %204 to ptr
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
-  %206 = getelementptr inbounds i8, ptr %13, i64 56
+  %206 = getelementptr inbounds nuw i8, ptr %13, i64 56
   store ptr null, ptr %206, align 8
-  %207 = getelementptr inbounds i8, ptr %12, i64 64
+  %207 = getelementptr inbounds nuw i8, ptr %12, i64 64
   %.not.i117 = icmp eq i64 %204, 0
   br i1 %.not.i117, label %208, label %_ZN5clang15ASTNodeImporter13importCheckedIPNS_12FunctionDeclEEET_RN4llvm5ErrorERKS4_.exit123
 
@@ -12768,7 +12768,7 @@ _ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i5.i12
 _ZN5clang15ASTNodeImporter13importCheckedIPNS_12FunctionDeclEEET_RN4llvm5ErrorERKS4_.exit123: ; preds = %_ZN5clang15ASTNodeImporter13importCheckedIPNS_12FunctionDeclEEET_RN4llvm5ErrorERKS4_.exit.thread164, %_ZN5clang15ASTNodeImporter13importCheckedIPNS_12FunctionDeclEEET_RN4llvm5ErrorERKS4_.exit, %215, %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i5.i121
   %.sroa.0.2 = phi ptr [ %218, %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i5.i121 ], [ null, %215 ], [ %205, %_ZN5clang15ASTNodeImporter13importCheckedIPNS_12FunctionDeclEEET_RN4llvm5ErrorERKS4_.exit ], [ %193, %_ZN5clang15ASTNodeImporter13importCheckedIPNS_12FunctionDeclEEET_RN4llvm5ErrorERKS4_.exit.thread164 ]
   %.0.i118 = phi ptr [ null, %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i5.i121 ], [ %216, %215 ], [ null, %_ZN5clang15ASTNodeImporter13importCheckedIPNS_12FunctionDeclEEET_RN4llvm5ErrorERKS4_.exit ], [ null, %_ZN5clang15ASTNodeImporter13importCheckedIPNS_12FunctionDeclEEET_RN4llvm5ErrorERKS4_.exit.thread164 ]
-  %219 = getelementptr inbounds i8, ptr %13, i64 64
+  %219 = getelementptr inbounds nuw i8, ptr %13, i64 64
   store ptr %.0.i118, ptr %219, align 8
   %220 = load ptr, ptr %11, align 8
   %221 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %11) #23
@@ -14052,7 +14052,7 @@ _ZN4llvm5ErrorD2Ev.exit10:                        ; preds = %35
   %49 = getelementptr inbounds i8, ptr %7, i64 16
   call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull %49, i64 noundef 2) #23
   %50 = getelementptr inbounds i8, ptr %2, i64 48
-  %51 = getelementptr inbounds i8, ptr %2, i64 20
+  %51 = getelementptr inbounds nuw i8, ptr %2, i64 20
   %52 = load i32, ptr %51, align 4
   %53 = zext i32 %52 to i64
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
@@ -14248,7 +14248,7 @@ _ZNK5clang8QualType18getLocalQualifiersEv.exit.i: ; preds = %21
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 280120
   %41 = load ptr, ptr %40, align 8
   %.sroa.01.0.copyload = load i64, ptr %5, align 8
-  %42 = getelementptr inbounds i8, ptr %2, i64 17
+  %42 = getelementptr inbounds nuw i8, ptr %2, i64 17
   %43 = load i16, ptr %42, align 1
   %44 = and i16 %43, 4
   %45 = icmp ne i16 %44, 0
@@ -14636,7 +14636,7 @@ _ZN5clang15ASTNodeImporter13importCheckedIPNS_4ExprEEET_RN4llvm5ErrorERKS4_.exit
   call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull %45, i64 noundef 1) #23
   %46 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %47 = load ptr, ptr %46, align 8
-  %48 = getelementptr inbounds i8, ptr %2, i64 48
+  %48 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %49 = load i64, ptr %48, align 8
   %50 = getelementptr inbounds %"class.clang::TypeCoupledDeclRefInfo", ptr %47, i64 %49
   %.not34 = icmp eq i64 %49, 0
@@ -15129,7 +15129,7 @@ define dso_local void @_ZN5clang15ASTNodeImporter31VisitTemplateSpecializationTy
   %14 = getelementptr inbounds i8, ptr %7, i64 16
   call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull %14, i64 noundef 2) #23
   %15 = getelementptr inbounds i8, ptr %2, i64 48
-  %16 = getelementptr inbounds i8, ptr %2, i64 20
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 20
   %17 = load i32, ptr %16, align 4
   %18 = zext i32 %17 to i64
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
@@ -15523,7 +15523,7 @@ _ZNK5clang8QualType18getLocalQualifiersEv.exit.i: ; preds = %14
   %32 = load ptr, ptr %1, align 8
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 280120
   %34 = load ptr, ptr %33, align 8
-  %35 = getelementptr inbounds i8, ptr %2, i64 20
+  %35 = getelementptr inbounds nuw i8, ptr %2, i64 20
   %36 = load i32, ptr %35, align 4
   %.not.not.i = icmp eq i32 %36, 0
   %37 = add i32 %36, -1
@@ -15627,7 +15627,7 @@ _ZN5clang11ASTImporter6ImportEPKNS_14IdentifierInfoE.exit: ; preds = %13, %17, %
   %50 = getelementptr inbounds i8, ptr %6, i64 16
   call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull %50, i64 noundef 2) #23
   %51 = getelementptr inbounds i8, ptr %2, i64 48
-  %52 = getelementptr inbounds i8, ptr %2, i64 20
+  %52 = getelementptr inbounds nuw i8, ptr %2, i64 20
   %53 = load i32, ptr %52, align 4
   %54 = zext i32 %53 to i64
   %55 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE8capacityEv(ptr noundef nonnull align 8 dereferenceable(16) %6) #23
@@ -16207,7 +16207,7 @@ _ZN5clang15ASTNodeImporter6importINS_16ObjCProtocolDeclEEENSt11conditionalIXsr3s
   %117 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %7) #23
   %118 = load ptr, ptr %8, align 8
   %119 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %8) #23
-  %120 = getelementptr inbounds i8, ptr %2, i64 20
+  %120 = getelementptr inbounds nuw i8, ptr %2, i64 20
   %121 = load i8, ptr %120, align 4
   %122 = and i8 %121, 1
   %123 = icmp ne i8 %122, 0
@@ -18139,7 +18139,7 @@ _ZN5clang15ASTNodeImporter10importIntoINS_14SourceLocationEEEN4llvm5ErrorERT_RKS
   %175 = load ptr, ptr %1, align 8
   %176 = getelementptr inbounds nuw i8, ptr %175, i64 280192
   %177 = load ptr, ptr %176, align 8
-  %178 = getelementptr inbounds i8, ptr %175, i64 280208
+  %178 = getelementptr inbounds nuw i8, ptr %175, i64 280208
   %179 = load i32, ptr %178, align 8
   %180 = icmp eq i32 %179, 0
   br i1 %180, label %_ZNK5clang11ASTImporter24GetAlreadyImportedOrNullEPKNS_4DeclE.exit.thread, label %181
@@ -18285,7 +18285,7 @@ _ZN4llvm8ExpectedIPN5clang11DeclContextEED2Ev.exit24: ; preds = %_ZN4llvm12Error
 define dso_local noundef ptr @_ZNK5clang11ASTImporter24GetAlreadyImportedOrNullEPKNS_4DeclE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(280360) %0, ptr noundef %1) local_unnamed_addr #7 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 280192
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 280208
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 280208
   %6 = load i32, ptr %5, align 8
   %7 = icmp eq i32 %6, 0
   br i1 %7, label %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPN5clang4DeclES4_NS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit, label %8
@@ -18491,7 +18491,7 @@ _ZN5clang15ASTNodeImporter10importIntoINS_14SourceLocationEEEN4llvm5ErrorERT_RKS
   %27 = load ptr, ptr %1, align 8
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 280192
   %29 = load ptr, ptr %28, align 8
-  %30 = getelementptr inbounds i8, ptr %27, i64 280208
+  %30 = getelementptr inbounds nuw i8, ptr %27, i64 280208
   %31 = load i32, ptr %30, align 8
   %32 = icmp eq i32 %31, 0
   br i1 %32, label %_ZNK5clang11ASTImporter24GetAlreadyImportedOrNullEPKNS_4DeclE.exit.thread, label %33
@@ -19328,7 +19328,7 @@ _ZN5clang15ASTNodeImporter6importINS_14TypeSourceInfoEEENSt11conditionalIXsr3std
   %470 = getelementptr inbounds nuw i8, ptr %469, i64 280120
   %471 = load ptr, ptr %470, align 8
   %472 = getelementptr inbounds nuw i8, ptr %471, i64 2144
-  %473 = getelementptr inbounds i8, ptr %471, i64 2224
+  %473 = getelementptr inbounds nuw i8, ptr %471, i64 2224
   %474 = load i64, ptr %473, align 8
   %475 = add i64 %474, 24
   store i64 %475, ptr %473, align 8
@@ -19337,7 +19337,7 @@ _ZN5clang15ASTNodeImporter6importINS_14TypeSourceInfoEEENSt11conditionalIXsr3std
   %478 = add i64 %477, 7
   %479 = and i64 %478, -8
   %480 = add i64 %479, 24
-  %481 = getelementptr inbounds i8, ptr %471, i64 2152
+  %481 = getelementptr inbounds nuw i8, ptr %471, i64 2152
   %482 = load ptr, ptr %481, align 8
   %483 = ptrtoint ptr %482 to i64
   %.not.i.i.i.i = icmp ugt i64 %480, %483
@@ -20292,7 +20292,7 @@ _ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i64: ;
   %142 = load ptr, ptr %1, align 8
   %143 = getelementptr inbounds nuw i8, ptr %142, i64 280192
   %144 = load ptr, ptr %143, align 8
-  %145 = getelementptr inbounds i8, ptr %142, i64 280208
+  %145 = getelementptr inbounds nuw i8, ptr %142, i64 280208
   %146 = load i32, ptr %145, align 8
   %147 = icmp eq i32 %146, 0
   br i1 %147, label %"_ZZN5clang15ASTNodeImporter17ImportDeclContextEPNS_11DeclContextEbENK3$_0clEPKNS_4DeclE.exit73", label %148
@@ -21228,7 +21228,7 @@ define linkonce_odr hidden noundef ptr @_ZnwmRKN5clang10ASTContextEm(i64 noundef
   %6 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %5, i1 false)
   %7 = trunc nuw nsw i64 %6 to i8
   %8 = sub nsw i8 63, %7
-  %9 = getelementptr inbounds i8, ptr %1, i64 2224
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 2224
   %10 = load i64, ptr %9, align 8
   %11 = add i64 %10, %0
   store i64 %11, ptr %9, align 8
@@ -21241,7 +21241,7 @@ define linkonce_odr hidden noundef ptr @_ZnwmRKN5clang10ASTContextEm(i64 noundef
   %18 = sub i64 0, %15
   %19 = and i64 %17, %18
   %20 = add i64 %19, %0
-  %21 = getelementptr inbounds i8, ptr %1, i64 2152
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 2152
   %22 = load ptr, ptr %21, align 8
   %23 = ptrtoint ptr %22 to i64
   %.not.i.i.i = icmp ugt i64 %20, %23
@@ -21431,27 +21431,27 @@ define dso_local noundef zeroext i1 @_ZN5clang15ASTNodeImporter17IsStructuralMat
   %23 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %16, ptr %23, align 8
   %24 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %25 = getelementptr inbounds i8, ptr %6, i64 24
+  %25 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store i64 8, ptr %25, align 8
   %26 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #25
   store ptr %26, ptr %24, align 8
   %.06.i.i.ptr.i.i.i.i = getelementptr inbounds i8, ptr %26, i64 24
   %27 = tail call noalias noundef nonnull dereferenceable(512) ptr @_Znwm(i64 noundef 512) #25
   store ptr %27, ptr %.06.i.i.ptr.i.i.i.i, align 8
-  %28 = getelementptr inbounds i8, ptr %6, i64 32
-  %29 = getelementptr inbounds i8, ptr %6, i64 56
+  %28 = getelementptr inbounds nuw i8, ptr %6, i64 32
+  %29 = getelementptr inbounds nuw i8, ptr %6, i64 56
   store ptr %.06.i.i.ptr.i.i.i.i, ptr %29, align 8
-  %30 = getelementptr inbounds i8, ptr %6, i64 40
+  %30 = getelementptr inbounds nuw i8, ptr %6, i64 40
   store ptr %27, ptr %30, align 8
   %31 = getelementptr inbounds i8, ptr %27, i64 512
-  %32 = getelementptr inbounds i8, ptr %6, i64 48
+  %32 = getelementptr inbounds nuw i8, ptr %6, i64 48
   store ptr %31, ptr %32, align 8
-  %33 = getelementptr inbounds i8, ptr %6, i64 64
-  %34 = getelementptr inbounds i8, ptr %6, i64 88
+  %33 = getelementptr inbounds nuw i8, ptr %6, i64 64
+  %34 = getelementptr inbounds nuw i8, ptr %6, i64 88
   store ptr %.06.i.i.ptr.i.i.i.i, ptr %34, align 8
-  %35 = getelementptr inbounds i8, ptr %6, i64 72
+  %35 = getelementptr inbounds nuw i8, ptr %6, i64 72
   store ptr %27, ptr %35, align 8
-  %36 = getelementptr inbounds i8, ptr %6, i64 80
+  %36 = getelementptr inbounds nuw i8, ptr %6, i64 80
   store ptr %31, ptr %36, align 8
   store ptr %27, ptr %28, align 8
   store ptr %27, ptr %33, align 8
@@ -21473,7 +21473,7 @@ define dso_local noundef zeroext i1 @_ZN5clang15ASTNodeImporter17IsStructuralMat
   store i8 %22, ptr %44, align 8
   %45 = call noundef zeroext i1 @_ZN5clang28StructuralEquivalenceContext12IsEquivalentEPNS_4DeclES2_(ptr noundef nonnull align 8 dereferenceable(137) %6, ptr noundef %1, ptr noundef %spec.select) #23
   %46 = load ptr, ptr %37, align 8
-  %47 = getelementptr inbounds i8, ptr %6, i64 112
+  %47 = getelementptr inbounds nuw i8, ptr %6, i64 112
   %48 = load i32, ptr %47, align 8
   %49 = zext i32 %48 to i64
   %50 = shl nuw nsw i64 %49, 4
@@ -21870,7 +21870,7 @@ define dso_local noundef ptr @_ZN5clang11ASTImporter11MapImportedEPNS_4DeclES2_(
   store ptr %2, ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 280192
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 280208
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 280208
   %9 = load i32, ptr %8, align 8
   %10 = icmp eq i32 %9, 0
   br i1 %10, label %.loopexit.i, label %11
@@ -21988,7 +21988,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPN5clang4DeclES4_NS_12DenseMapInfoIS4_vEENS_
   store ptr %2, ptr %66, align 8
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 280240
   %68 = load ptr, ptr %67, align 8
-  %69 = getelementptr inbounds i8, ptr %0, i64 280256
+  %69 = getelementptr inbounds nuw i8, ptr %0, i64 280256
   %70 = load i32, ptr %69, align 8
   %71 = icmp eq i32 %70, 0
   br i1 %71, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPN5clang4DeclES4_NS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E15LookupBucketForIS4_EEbRKT_RPS9_.exit.i.i13, label %72
@@ -23590,7 +23590,7 @@ _ZN5clang4Decl14getDeclContextEv.exit:            ; preds = %33, %40
   %42 = tail call noundef ptr @_ZN5clang4Decl19castFromDeclContextEPKNS_11DeclContextE(ptr noundef %.0.i) #23
   %43 = getelementptr inbounds nuw i8, ptr %34, i64 280192
   %44 = load ptr, ptr %43, align 8
-  %45 = getelementptr inbounds i8, ptr %34, i64 280208
+  %45 = getelementptr inbounds nuw i8, ptr %34, i64 280208
   %46 = load i32, ptr %45, align 8
   %47 = icmp eq i32 %46, 0
   br i1 %47, label %_ZN4llvm12cast_or_nullIN5clang11DeclContextENS1_4DeclEEEDaPT0_.exit, label %48
@@ -23658,7 +23658,7 @@ _ZN5clang4Decl21getLexicalDeclContextEv.exit:     ; preds = %_ZN4llvm12cast_or_n
   %82 = tail call noundef ptr @_ZN5clang4Decl19castFromDeclContextEPKNS_11DeclContextE(ptr noundef %.0.i60) #23
   %83 = getelementptr inbounds nuw i8, ptr %74, i64 280192
   %84 = load ptr, ptr %83, align 8
-  %85 = getelementptr inbounds i8, ptr %74, i64 280208
+  %85 = getelementptr inbounds nuw i8, ptr %74, i64 280208
   %86 = load i32, ptr %85, align 8
   %87 = icmp eq i32 %86, 0
   br i1 %87, label %_ZN4llvm12cast_or_nullIN5clang11DeclContextENS1_4DeclEEEDaPT0_.exit71, label %88
@@ -24226,7 +24226,7 @@ define dso_local noundef zeroext i1 @_ZN5clang11ASTImporter24IsStructurallyEquiv
   %12 = inttoptr i64 %11 to ptr
   %13 = load ptr, ptr %12, align 16
   %14 = load ptr, ptr %10, align 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 280184
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 280184
   %16 = load i32, ptr %15, align 8
   %17 = icmp eq i32 %16, 0
   br i1 %17, label %.loopexit.i, label %18
@@ -24381,27 +24381,27 @@ _ZN4llvm8ExpectedIN5clang8QualTypeEED2Ev.exit.thread36: ; preds = %64, %_ZN4llvm
   %98 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr %92, ptr %98, align 8
   %99 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  %100 = getelementptr inbounds i8, ptr %9, i64 24
+  %100 = getelementptr inbounds nuw i8, ptr %9, i64 24
   store i64 8, ptr %100, align 8
   %101 = call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #25
   store ptr %101, ptr %99, align 8
   %.06.i.i.ptr.i.i.i.i = getelementptr inbounds i8, ptr %101, i64 24
   %102 = call noalias noundef nonnull dereferenceable(512) ptr @_Znwm(i64 noundef 512) #25
   store ptr %102, ptr %.06.i.i.ptr.i.i.i.i, align 8
-  %103 = getelementptr inbounds i8, ptr %9, i64 32
-  %104 = getelementptr inbounds i8, ptr %9, i64 56
+  %103 = getelementptr inbounds nuw i8, ptr %9, i64 32
+  %104 = getelementptr inbounds nuw i8, ptr %9, i64 56
   store ptr %.06.i.i.ptr.i.i.i.i, ptr %104, align 8
-  %105 = getelementptr inbounds i8, ptr %9, i64 40
+  %105 = getelementptr inbounds nuw i8, ptr %9, i64 40
   store ptr %102, ptr %105, align 8
   %106 = getelementptr inbounds i8, ptr %102, i64 512
-  %107 = getelementptr inbounds i8, ptr %9, i64 48
+  %107 = getelementptr inbounds nuw i8, ptr %9, i64 48
   store ptr %106, ptr %107, align 8
-  %108 = getelementptr inbounds i8, ptr %9, i64 64
-  %109 = getelementptr inbounds i8, ptr %9, i64 88
+  %108 = getelementptr inbounds nuw i8, ptr %9, i64 64
+  %109 = getelementptr inbounds nuw i8, ptr %9, i64 88
   store ptr %.06.i.i.ptr.i.i.i.i, ptr %109, align 8
-  %110 = getelementptr inbounds i8, ptr %9, i64 72
+  %110 = getelementptr inbounds nuw i8, ptr %9, i64 72
   store ptr %102, ptr %110, align 8
-  %111 = getelementptr inbounds i8, ptr %9, i64 80
+  %111 = getelementptr inbounds nuw i8, ptr %9, i64 80
   store ptr %106, ptr %111, align 8
   store ptr %102, ptr %103, align 8
   store ptr %102, ptr %108, align 8
@@ -24423,7 +24423,7 @@ _ZN4llvm8ExpectedIN5clang8QualTypeEED2Ev.exit.thread36: ; preds = %64, %_ZN4llvm
   store i8 0, ptr %119, align 8
   %120 = call noundef zeroext i1 @_ZN5clang28StructuralEquivalenceContext12IsEquivalentENS_8QualTypeES1_(ptr noundef nonnull align 8 dereferenceable(137) %9, i64 %1, i64 %2) #23
   %121 = load ptr, ptr %112, align 8
-  %122 = getelementptr inbounds i8, ptr %9, i64 112
+  %122 = getelementptr inbounds nuw i8, ptr %9, i64 112
   %123 = load i32, ptr %122, align 8
   %124 = zext i32 %123 to i64
   %125 = shl nuw nsw i64 %124, 4
@@ -24486,7 +24486,7 @@ _ZNK5clang9NamedDecl24hasExternalFormalLinkageEv.exit: ; preds = %6, %6
   %11 = load ptr, ptr %0, align 8
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 280240
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %11, i64 280256
+  %14 = getelementptr inbounds nuw i8, ptr %11, i64 280256
   %15 = load i32, ptr %14, align 8
   %16 = icmp eq i32 %15, 0
   br i1 %16, label %.loopexit.i.i, label %17
@@ -25958,7 +25958,7 @@ _ZNK5clang9NamedDecl24hasExternalFormalLinkageEv.exit: ; preds = %6, %6
   %11 = load ptr, ptr %0, align 8
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 280240
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %11, i64 280256
+  %14 = getelementptr inbounds nuw i8, ptr %11, i64 280256
   %15 = load i32, ptr %14, align 8
   %16 = icmp eq i32 %15, 0
   br i1 %16, label %.loopexit.i.i, label %17
@@ -27274,7 +27274,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5clang15ASTNodeImporter30GetIm
   %13 = load ptr, ptr %0, align 8
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 280216
   %15 = load ptr, ptr %14, align 8, !noalias !1875
-  %16 = getelementptr inbounds i8, ptr %13, i64 280232
+  %16 = getelementptr inbounds nuw i8, ptr %13, i64 280232
   %17 = load i32, ptr %16, align 8, !noalias !1875
   %18 = icmp eq i32 %17, 0
   br i1 %18, label %.loopexit.i.i, label %19
@@ -27329,7 +27329,7 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapIPN5clang4DeclENS2_14ASTImportErrorENS_12Den
 _ZNSt8optionalIN5clang14ASTImportErrorEED2Ev.exit: ; preds = %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPN5clang4DeclENS2_14ASTImportErrorENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S5_EEEES4_S5_S7_SA_E4findEPKS3_.exit.i
   %44 = getelementptr inbounds nuw i8, ptr %13, i64 280192
   %45 = load ptr, ptr %44, align 8
-  %46 = getelementptr inbounds i8, ptr %13, i64 280208
+  %46 = getelementptr inbounds nuw i8, ptr %13, i64 280208
   %47 = load i32, ptr %46, align 8
   %48 = icmp eq i32 %47, 0
   br i1 %48, label %_ZNK5clang11ASTImporter24GetAlreadyImportedOrNullEPKNS_4DeclE.exit.thread, label %49
@@ -27397,7 +27397,7 @@ _ZNK5clang11ASTImporter24GetAlreadyImportedOrNullEPKNS_4DeclE.exit: ; preds = %6
   store ptr %85, ptr %12, align 8
   %86 = getelementptr inbounds nuw i8, ptr %84, i64 32
   %87 = load ptr, ptr %86, align 8, !noalias !1879
-  %88 = getelementptr inbounds i8, ptr %84, i64 48
+  %88 = getelementptr inbounds nuw i8, ptr %84, i64 48
   %89 = load i32, ptr %88, align 8, !noalias !1879
   %90 = icmp eq i32 %89, 0
   br i1 %90, label %116, label %91
@@ -29498,14 +29498,14 @@ _ZNK5clang4Type5getAsINS_17FunctionProtoTypeEEEPKT_v.exit.thread685: ; preds = %
 377:                                              ; preds = %372, %_ZNK5clang4Type5getAsINS_17FunctionProtoTypeEEEPKT_v.exit.thread685
   %.sroa.0102.0 = phi i64 [ %.sroa.0.0.copyload.i380, %372 ], [ %.sroa.0.0.copyload.i379, %_ZNK5clang4Type5getAsINS_17FunctionProtoTypeEEEPKT_v.exit.thread685 ]
   call void @_ZNK5clang17FunctionProtoType15getExtProtoInfoEv(ptr dead_on_unwind nonnull writable sret(%"struct.clang::FunctionProtoType::ExtProtoInfo") align 8 %36, ptr noundef nonnull align 16 dereferenceable(48) %.0.i378688)
-  %378 = getelementptr inbounds i8, ptr %36, i64 56
+  %378 = getelementptr inbounds nuw i8, ptr %36, i64 56
   %379 = load ptr, ptr %378, align 8
   %380 = icmp ne ptr %379, null
-  %381 = getelementptr inbounds i8, ptr %36, i64 64
+  %381 = getelementptr inbounds nuw i8, ptr %36, i64 64
   %382 = load ptr, ptr %381, align 8
   %383 = icmp ne ptr %382, null
   %or.cond = select i1 %380, i1 true, i1 %383
-  %384 = getelementptr inbounds i8, ptr %36, i64 48
+  %384 = getelementptr inbounds nuw i8, ptr %36, i64 48
   %385 = load ptr, ptr %384, align 8
   %386 = icmp ne ptr %385, null
   %or.cond25 = select i1 %or.cond, i1 true, i1 %386
@@ -30974,7 +30974,7 @@ _ZNK5clang9NamedDecl24hasExternalFormalLinkageEv.exit: ; preds = %6, %6
   %11 = load ptr, ptr %0, align 8
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 280240
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %11, i64 280256
+  %14 = getelementptr inbounds nuw i8, ptr %11, i64 280256
   %15 = load i32, ptr %14, align 8
   %16 = icmp eq i32 %15, 0
   br i1 %16, label %.loopexit.i.i, label %17
@@ -31106,11 +31106,11 @@ define dso_local void @_ZN5clang11ASTImporter6ToDiagENS_14SourceLocationEj(ptr d
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 25
   store i8 0, ptr %29, align 1, !alias.scope !2160
   store i8 0, ptr %25, align 8, !noalias !2160
-  %30 = getelementptr inbounds i8, ptr %21, i64 792
+  %30 = getelementptr inbounds nuw i8, ptr %21, i64 792
   %31 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %30) #23, !noalias !2160
-  %32 = getelementptr inbounds i8, ptr %21, i64 800
+  %32 = getelementptr inbounds nuw i8, ptr %21, i64 800
   store i32 0, ptr %32, align 8, !noalias !2160
-  %33 = getelementptr inbounds i8, ptr %21, i64 904
+  %33 = getelementptr inbounds nuw i8, ptr %21, i64 904
   %34 = load ptr, ptr %33, align 8, !noalias !2160
   %35 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %33) #23, !noalias !2160
   %.not4.i.i.i.i = icmp eq i64 %35, 0
@@ -31129,7 +31129,7 @@ define dso_local void @_ZN5clang11ASTImporter6ToDiagENS_14SourceLocationEj(ptr d
   br i1 %.not.i.i.i.i, label %_ZN5clang17DiagnosticsEngine6ReportENS_14SourceLocationEj.exit, label %.lr.ph.i.i.i.i, !llvm.loop !390
 
 _ZN5clang17DiagnosticsEngine6ReportENS_14SourceLocationEj.exit: ; preds = %.lr.ph.i.i.i.i, %18
-  %39 = getelementptr inbounds i8, ptr %21, i64 912
+  %39 = getelementptr inbounds nuw i8, ptr %21, i64 912
   store i32 0, ptr %39, align 8, !noalias !2160
   ret void
 }
@@ -31351,7 +31351,7 @@ define linkonce_odr void @_ZN5clang12RedeclarableINS_12FunctionDeclEE15setPrevio
 
 31:                                               ; preds = %26
   %32 = getelementptr inbounds nuw i8, ptr %28, i64 2144
-  %33 = getelementptr inbounds i8, ptr %28, i64 2224
+  %33 = getelementptr inbounds nuw i8, ptr %28, i64 2224
   %34 = load i64, ptr %33, align 8
   %35 = add i64 %34, 24
   store i64 %35, ptr %33, align 8
@@ -31360,7 +31360,7 @@ define linkonce_odr void @_ZN5clang12RedeclarableINS_12FunctionDeclEE15setPrevio
   %38 = add i64 %37, 7
   %39 = and i64 %38, -8
   %40 = add i64 %39, 24
-  %41 = getelementptr inbounds i8, ptr %28, i64 2152
+  %41 = getelementptr inbounds nuw i8, ptr %28, i64 2152
   %42 = load ptr, ptr %41, align 8
   %43 = ptrtoint ptr %42 to i64
   %.not.i.i.i.i.i.i.i = icmp ugt i64 %40, %43
@@ -31544,7 +31544,7 @@ define linkonce_odr hidden noundef ptr @_ZnamRKN5clang10ASTContextEm(i64 noundef
   %6 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %5, i1 false)
   %7 = trunc nuw nsw i64 %6 to i8
   %8 = sub nsw i8 63, %7
-  %9 = getelementptr inbounds i8, ptr %1, i64 2224
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 2224
   %10 = load i64, ptr %9, align 8
   %11 = add i64 %10, %0
   store i64 %11, ptr %9, align 8
@@ -31557,7 +31557,7 @@ define linkonce_odr hidden noundef ptr @_ZnamRKN5clang10ASTContextEm(i64 noundef
   %18 = sub i64 0, %15
   %19 = and i64 %17, %18
   %20 = add i64 %19, %0
-  %21 = getelementptr inbounds i8, ptr %1, i64 2152
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 2152
   %22 = load ptr, ptr %21, align 8
   %23 = ptrtoint ptr %22 to i64
   %.not.i.i.i = icmp ugt i64 %20, %23
@@ -33114,7 +33114,7 @@ _ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i: ; p
   %261 = getelementptr inbounds nuw i8, ptr %260, i64 280120
   %262 = load ptr, ptr %261, align 8
   %263 = getelementptr inbounds nuw i8, ptr %262, i64 2144
-  %264 = getelementptr inbounds i8, ptr %262, i64 2224
+  %264 = getelementptr inbounds nuw i8, ptr %262, i64 2224
   %265 = load i64, ptr %264, align 8
   %266 = add i64 %265, %259
   store i64 %266, ptr %264, align 8
@@ -33123,7 +33123,7 @@ _ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i: ; p
   %269 = add i64 %268, 7
   %270 = and i64 %269, -8
   %271 = add i64 %270, %259
-  %272 = getelementptr inbounds i8, ptr %262, i64 2152
+  %272 = getelementptr inbounds nuw i8, ptr %262, i64 2152
   %273 = load ptr, ptr %272, align 8
   %274 = ptrtoint ptr %273 to i64
   %.not.i.i.i.i88 = icmp ugt i64 %271, %274
@@ -33950,27 +33950,27 @@ define internal fastcc noundef zeroext i1 @_ZL18IsEquivalentFriendRN5clang11ASTI
   %21 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %20, ptr %21, align 8
   %22 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %23 = getelementptr inbounds i8, ptr %5, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store i64 8, ptr %23, align 8
   %24 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #25
   store ptr %24, ptr %22, align 8
   %.06.i.i.ptr.i.i.i.i = getelementptr inbounds i8, ptr %24, i64 24
   %25 = tail call noalias noundef nonnull dereferenceable(512) ptr @_Znwm(i64 noundef 512) #25
   store ptr %25, ptr %.06.i.i.ptr.i.i.i.i, align 8
-  %26 = getelementptr inbounds i8, ptr %5, i64 32
-  %27 = getelementptr inbounds i8, ptr %5, i64 56
+  %26 = getelementptr inbounds nuw i8, ptr %5, i64 32
+  %27 = getelementptr inbounds nuw i8, ptr %5, i64 56
   store ptr %.06.i.i.ptr.i.i.i.i, ptr %27, align 8
-  %28 = getelementptr inbounds i8, ptr %5, i64 40
+  %28 = getelementptr inbounds nuw i8, ptr %5, i64 40
   store ptr %25, ptr %28, align 8
   %29 = getelementptr inbounds i8, ptr %25, i64 512
-  %30 = getelementptr inbounds i8, ptr %5, i64 48
+  %30 = getelementptr inbounds nuw i8, ptr %5, i64 48
   store ptr %29, ptr %30, align 8
-  %31 = getelementptr inbounds i8, ptr %5, i64 64
-  %32 = getelementptr inbounds i8, ptr %5, i64 88
+  %31 = getelementptr inbounds nuw i8, ptr %5, i64 64
+  %32 = getelementptr inbounds nuw i8, ptr %5, i64 88
   store ptr %.06.i.i.ptr.i.i.i.i, ptr %32, align 8
-  %33 = getelementptr inbounds i8, ptr %5, i64 72
+  %33 = getelementptr inbounds nuw i8, ptr %5, i64 72
   store ptr %25, ptr %33, align 8
-  %34 = getelementptr inbounds i8, ptr %5, i64 80
+  %34 = getelementptr inbounds nuw i8, ptr %5, i64 80
   store ptr %29, ptr %34, align 8
   store ptr %25, ptr %26, align 8
   store ptr %25, ptr %31, align 8
@@ -33982,7 +33982,7 @@ define internal fastcc noundef zeroext i1 @_ZL18IsEquivalentFriendRN5clang11ASTI
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(9) %37, i8 0, i64 9, i1 false)
   %38 = call noundef zeroext i1 @_ZN5clang28StructuralEquivalenceContext12IsEquivalentEPNS_4DeclES2_(ptr noundef nonnull align 8 dereferenceable(137) %5, ptr noundef nonnull %1, ptr noundef nonnull %2) #23
   %39 = load ptr, ptr %35, align 8
-  %40 = getelementptr inbounds i8, ptr %5, i64 112
+  %40 = getelementptr inbounds nuw i8, ptr %5, i64 112
   %41 = load i32, ptr %40, align 8
   %42 = zext i32 %41 to i64
   %43 = shl nuw nsw i64 %42, 4
@@ -35752,7 +35752,7 @@ _ZNK5clang9NamedDecl24hasExternalFormalLinkageEv.exit: ; preds = %6, %6
   %11 = load ptr, ptr %0, align 8
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 280240
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %11, i64 280256
+  %14 = getelementptr inbounds nuw i8, ptr %11, i64 280256
   %15 = load i32, ptr %14, align 8
   %16 = icmp eq i32 %15, 0
   br i1 %16, label %.loopexit.i.i, label %17
@@ -35911,7 +35911,7 @@ define linkonce_odr void @_ZN5clang12RedeclarableINS_7VarDeclEE15setPreviousDecl
 
 31:                                               ; preds = %26
   %32 = getelementptr inbounds nuw i8, ptr %28, i64 2144
-  %33 = getelementptr inbounds i8, ptr %28, i64 2224
+  %33 = getelementptr inbounds nuw i8, ptr %28, i64 2224
   %34 = load i64, ptr %33, align 8
   %35 = add i64 %34, 24
   store i64 %35, ptr %33, align 8
@@ -35920,7 +35920,7 @@ define linkonce_odr void @_ZN5clang12RedeclarableINS_7VarDeclEE15setPreviousDecl
   %38 = add i64 %37, 7
   %39 = and i64 %38, -8
   %40 = add i64 %39, 24
-  %41 = getelementptr inbounds i8, ptr %28, i64 2152
+  %41 = getelementptr inbounds nuw i8, ptr %28, i64 2152
   %42 = load ptr, ptr %41, align 8
   %43 = ptrtoint ptr %42 to i64
   %.not.i.i.i.i.i.i.i = icmp ugt i64 %40, %43
@@ -36144,7 +36144,7 @@ _ZN5clang15ASTNodeImporter13importCheckedINS_8QualTypeEEET_RN4llvm5ErrorERKS3_.e
   %74 = inttoptr i64 %73 to ptr
   %.0.i = select i1 %72, ptr %74, ptr null
   store ptr %.0.i, ptr %11, align 8
-  %75 = getelementptr inbounds i8, ptr %2, i64 98
+  %75 = getelementptr inbounds nuw i8, ptr %2, i64 98
   %76 = load i8, ptr %75, align 2
   %77 = lshr i8 %76, 2
   %78 = and i8 %77, 7
@@ -38275,7 +38275,7 @@ _ZN4llvm8ExpectedIPN5clang17ObjCTypeParamListEED2Ev.exit: ; preds = %107
   call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %27, ptr noundef nonnull %125, i64 noundef 4) #23
   %126 = getelementptr inbounds nuw i8, ptr %2, i64 104
   %127 = load ptr, ptr %126, align 8
-  %128 = getelementptr inbounds i8, ptr %2, i64 112
+  %128 = getelementptr inbounds nuw i8, ptr %2, i64 112
   %129 = load i32, ptr %128, align 8
   %130 = zext i32 %129 to i64
   %131 = getelementptr inbounds ptr, ptr %127, i64 %130
@@ -38284,7 +38284,7 @@ _ZN4llvm8ExpectedIPN5clang17ObjCTypeParamListEED2Ev.exit: ; preds = %107
   br i1 %.not36189, label %_ZN4llvm8ExpectedIPN5clang16ObjCProtocolDeclEED2Ev.exit.thread, label %_ZN5clang15ASTNodeImporter6importINS_16ObjCProtocolDeclEEENSt11conditionalIXsr3stdE12is_base_of_vINS_4TypeET_EEN4llvm8ExpectedIPKS5_EENS7_IPS5_EEE4typeESB_.exit.lr.ph
 
 _ZN5clang15ASTNodeImporter6importINS_16ObjCProtocolDeclEEENSt11conditionalIXsr3stdE12is_base_of_vINS_4TypeET_EEN4llvm8ExpectedIPKS5_EENS7_IPS5_EEE4typeESB_.exit.lr.ph: ; preds = %121
-  %132 = getelementptr inbounds i8, ptr %2, i64 120
+  %132 = getelementptr inbounds nuw i8, ptr %2, i64 120
   %133 = load ptr, ptr %132, align 8
   %134 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %135 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -38716,7 +38716,7 @@ _ZNK5clang16ObjCProtocolDecl13hasDefinitionEv.exit.i32: ; preds = %31, %_ZN5clan
 _ZNK5clang16ObjCProtocolDecl13hasDefinitionEv.exit.i36.thread: ; preds = %_ZNK5clang16ObjCProtocolDecl13hasDefinitionEv.exit.i32
   %37 = and i64 %.0.copyload.i.i.i.i34, -8
   %38 = inttoptr i64 %37 to ptr
-  %39 = getelementptr inbounds i8, ptr %38, i64 24
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 24
   %40 = load ptr, ptr %39, align 8
   br label %_ZNK5clang16ObjCProtocolDecl13hasDefinitionEv.exit.i42.thread104
 
@@ -38776,7 +38776,7 @@ _ZNK5clang16ObjCProtocolDecl12protocol_endEv.exit: ; preds = %_ZNK5clang16ObjCPr
   %.0.i3893108 = phi ptr [ null, %_ZNK5clang16ObjCProtocolDecl13hasDefinitionEv.exit.i42._ZNK5clang16ObjCProtocolDecl12protocol_endEv.exit_crit_edge ], [ %47, %_ZNK5clang16ObjCProtocolDecl13hasDefinitionEv.exit.i42.thread104 ]
   %52 = getelementptr inbounds nuw i8, ptr %.pre-phi141, i64 8
   %53 = load ptr, ptr %52, align 8
-  %54 = getelementptr inbounds i8, ptr %.pre-phi141, i64 16
+  %54 = getelementptr inbounds nuw i8, ptr %.pre-phi141, i64 16
   %55 = load i32, ptr %54, align 8
   %56 = zext i32 %55 to i64
   %57 = getelementptr inbounds ptr, ptr %53, i64 %56
@@ -40896,7 +40896,7 @@ define dso_local void @_ZN5clang11ASTImporter6ImportEPNS_4DeclE(ptr dead_on_unwi
   tail call void @_ZN5clang11ASTImporter12ImportPathTy4pushEPNS_4DeclE(ptr noundef nonnull align 8 dereferenceable(792) %25, ptr noundef nonnull %2)
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 280216
   %27 = load ptr, ptr %26, align 8, !noalias !2973
-  %28 = getelementptr inbounds i8, ptr %1, i64 280232
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 280232
   %29 = load i32, ptr %28, align 8, !noalias !2973
   %30 = icmp eq i32 %29, 0
   br i1 %30, label %.loopexit.i.i, label %31
@@ -40945,7 +40945,7 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapIPN5clang4DeclENS2_14ASTImportErrorENS_12Den
   br i1 %.not.i, label %_ZNSt8optionalIN5clang14ASTImportErrorEED2Ev.exit57, label %_ZNSt8optionalIN5clang14ASTImportErrorEED2Ev.exit
 
 _ZNSt8optionalIN5clang14ASTImportErrorEED2Ev.exit: ; preds = %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPN5clang4DeclENS2_14ASTImportErrorENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S5_EEEES4_S5_S7_SA_E4findEPKS3_.exit.i
-  %55 = getelementptr inbounds i8, ptr %.0.i.i.pn.i.i, i64 16
+  %55 = getelementptr inbounds nuw i8, ptr %.0.i.i.pn.i.i, i64 16
   %56 = load i32, ptr %55, align 8, !noalias !2974
   %57 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #25, !noalias !2977
   store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN5clang14ASTImportErrorE, i64 16), ptr %57, align 8, !noalias !2977
@@ -40961,7 +40961,7 @@ _ZNSt8optionalIN5clang14ASTImportErrorEED2Ev.exit: ; preds = %_ZNK4llvm12DenseMa
 _ZNSt8optionalIN5clang14ASTImportErrorEED2Ev.exit57: ; preds = %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPN5clang4DeclENS2_14ASTImportErrorENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S5_EEEES4_S5_S7_SA_E4findEPKS3_.exit.i
   %62 = getelementptr inbounds nuw i8, ptr %1, i64 280192
   %63 = load ptr, ptr %62, align 8
-  %64 = getelementptr inbounds i8, ptr %1, i64 280208
+  %64 = getelementptr inbounds nuw i8, ptr %1, i64 280208
   %65 = load i32, ptr %64, align 8
   %66 = icmp eq i32 %65, 0
   br i1 %66, label %_ZNK5clang11ASTImporter24GetAlreadyImportedOrNullEPKNS_4DeclE.exit.thread, label %67
@@ -41009,7 +41009,7 @@ _ZNK5clang11ASTImporter24GetAlreadyImportedOrNullEPKNS_4DeclE.exit: ; preds = %8
   %92 = load ptr, ptr %91, align 8
   %93 = getelementptr inbounds nuw i8, ptr %92, i64 8
   %94 = load ptr, ptr %93, align 8, !noalias !2985
-  %95 = getelementptr inbounds i8, ptr %92, i64 24
+  %95 = getelementptr inbounds nuw i8, ptr %92, i64 24
   %96 = load i32, ptr %95, align 8, !noalias !2985
   %97 = icmp eq i32 %96, 0
   br i1 %97, label %.loopexit.i.i72, label %98
@@ -41058,13 +41058,13 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapIPN5clang4DeclENS2_14ASTImportErrorENS_12Den
   br i1 %.not.i70, label %_ZNSt8optionalIN5clang14ASTImportErrorEED2Ev.exit75, label %122
 
 122:                                              ; preds = %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPN5clang4DeclENS2_14ASTImportErrorENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S5_EEEES4_S5_S7_SA_E4findEPKS3_.exit.i68
-  %123 = getelementptr inbounds i8, ptr %.0.i.i.pn.i.i69, i64 16
+  %123 = getelementptr inbounds nuw i8, ptr %.0.i.i.pn.i.i69, i64 16
   %124 = load i32, ptr %123, align 8, !noalias !2985
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %15)
   store ptr %2, ptr %15, align 8
   %125 = getelementptr inbounds nuw i8, ptr %15, i64 8
   store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN5clang14ASTImportErrorE, i64 16), ptr %125, align 8
-  %126 = getelementptr inbounds i8, ptr %15, i64 16
+  %126 = getelementptr inbounds nuw i8, ptr %15, i64 16
   store i32 %124, ptr %126, align 8
   br i1 %30, label %147, label %127
 
@@ -41112,7 +41112,7 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapIPN5clang4DeclENS2_14ASTImportErrorENS_12Den
   store ptr %149, ptr %148, align 8, !noalias !2988
   %150 = getelementptr inbounds nuw i8, ptr %148, i64 8
   store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN5clang14ASTImportErrorE, i64 16), ptr %150, align 8, !noalias !2988
-  %151 = getelementptr inbounds i8, ptr %148, i64 16
+  %151 = getelementptr inbounds nuw i8, ptr %148, i64 16
   %152 = load i32, ptr %126, align 8, !noalias !2988
   store i32 %152, ptr %151, align 8, !noalias !2988
   br label %_ZNSt8optionalIN5clang14ASTImportErrorEED2Ev.exit74
@@ -41150,7 +41150,7 @@ _ZNSt8optionalIN5clang14ASTImportErrorEED2Ev.exit75: ; preds = %_ZNK4llvm12Dense
   br label %_ZN5clang11updateFlagsEPKNS_4DeclEPS0_.exit
 
 _ZN5clang11updateFlagsEPKNS_4DeclEPS0_.exit:      ; preds = %_ZNSt8optionalIN5clang14ASTImportErrorEED2Ev.exit75, %159, %161
-  %169 = getelementptr inbounds i8, ptr %1, i64 296
+  %169 = getelementptr inbounds nuw i8, ptr %1, i64 296
   %170 = load ptr, ptr %25, align 8
   %171 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %25) #23
   %172 = getelementptr inbounds ptr, ptr %170, i64 %171
@@ -41159,10 +41159,10 @@ _ZN5clang11updateFlagsEPKNS_4DeclEPS0_.exit:      ; preds = %_ZNSt8optionalIN5cl
   %175 = load i32, ptr %169, align 8
   %176 = and i32 %175, 1
   %.not.i.i.i.i.i.i.i = icmp eq i32 %176, 0
-  %177 = getelementptr inbounds i8, ptr %1, i64 304
+  %177 = getelementptr inbounds nuw i8, ptr %1, i64 304
   %178 = load ptr, ptr %177, align 8
   %179 = select i1 %.not.i.i.i.i.i.i.i, ptr %178, ptr %177
-  %180 = getelementptr inbounds i8, ptr %1, i64 312
+  %180 = getelementptr inbounds nuw i8, ptr %1, i64 312
   %181 = load i32, ptr %180, align 8
   %182 = select i1 %.not.i.i.i.i.i.i.i, i32 %181, i32 32
   %183 = icmp eq i32 %182, 0
@@ -41222,10 +41222,10 @@ _ZNK5clang11ASTImporter12ImportPathTy14hasCycleAtBackEv.exit: ; preds = %_ZNK4ll
   %213 = load i32, ptr %212, align 8
   %214 = and i32 %213, 1
   %.not.i.i.i.i.i.i = icmp eq i32 %214, 0
-  %215 = getelementptr inbounds i8, ptr %1, i64 824
+  %215 = getelementptr inbounds nuw i8, ptr %1, i64 824
   %216 = load ptr, ptr %215, align 8
   %217 = select i1 %.not.i.i.i.i.i.i, ptr %216, ptr %215
-  %218 = getelementptr inbounds i8, ptr %1, i64 832
+  %218 = getelementptr inbounds nuw i8, ptr %1, i64 832
   %219 = load i32, ptr %218, align 8
   %220 = select i1 %.not.i.i.i.i.i.i, i32 %219, i32 32
   %221 = icmp eq i32 %220, 0
@@ -41377,17 +41377,17 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPN5clang4DeclES4_NS_12DenseMapInfoIS4_vEENS_
   %293 = getelementptr inbounds nuw i8, ptr %.0.i.pn.i, i64 8
   %294 = load ptr, ptr %293, align 8
   store ptr inttoptr (i64 -8192 to ptr), ptr %.0.i.pn.i, align 8
-  %295 = getelementptr inbounds i8, ptr %1, i64 280200
+  %295 = getelementptr inbounds nuw i8, ptr %1, i64 280200
   %296 = load i32, ptr %295, align 8
   %297 = add i32 %296, -1
   store i32 %297, ptr %295, align 8
-  %298 = getelementptr inbounds i8, ptr %1, i64 280204
+  %298 = getelementptr inbounds nuw i8, ptr %1, i64 280204
   %299 = load i32, ptr %298, align 4
   %300 = add i32 %299, 1
   store i32 %300, ptr %298, align 4
   %301 = getelementptr inbounds nuw i8, ptr %1, i64 280240
   %302 = load ptr, ptr %301, align 8
-  %303 = getelementptr inbounds i8, ptr %1, i64 280256
+  %303 = getelementptr inbounds nuw i8, ptr %1, i64 280256
   %304 = load i32, ptr %303, align 8
   %305 = icmp eq i32 %304, 0
   br i1 %305, label %.loopexit.i98, label %306
@@ -41474,11 +41474,11 @@ _ZN5clang4Decl14getDeclContextEv.exit:            ; preds = %330, %336
 
 _ZN5clang22ASTImporterSharedState20removeDeclFromLookupEPNS_4DeclE.exit: ; preds = %348, %342, %338, %_ZN5clang4Decl14getDeclContextEv.exit
   store ptr inttoptr (i64 -8192 to ptr), ptr %.0.i.pn.i94, align 8
-  %349 = getelementptr inbounds i8, ptr %1, i64 280248
+  %349 = getelementptr inbounds nuw i8, ptr %1, i64 280248
   %350 = load i32, ptr %349, align 8
   %351 = add i32 %350, -1
   store i32 %351, ptr %349, align 8
-  %352 = getelementptr inbounds i8, ptr %1, i64 280252
+  %352 = getelementptr inbounds nuw i8, ptr %1, i64 280252
   %353 = load i32, ptr %352, align 4
   %354 = add i32 %353, 1
   store i32 %354, ptr %352, align 4
@@ -41515,7 +41515,7 @@ _ZN4llvm8ExpectedIPN5clang4DeclEE9takeErrorEv.exit: ; preds = %355
 365:                                              ; preds = %360
   %366 = getelementptr inbounds nuw i8, ptr %359, i64 8
   %367 = load ptr, ptr %366, align 8, !noalias !3016
-  %368 = getelementptr inbounds i8, ptr %359, i64 16
+  %368 = getelementptr inbounds nuw i8, ptr %359, i64 16
   %369 = load ptr, ptr %368, align 8, !noalias !3016
   %.not3435.i.i = icmp eq ptr %367, %369
   br i1 %.not3435.i.i, label %_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i18.i.i, label %.lr.ph.i.i103
@@ -41618,7 +41618,7 @@ _ZN4llvm5ErrorD2Ev.exit104:                       ; preds = %_ZNKSt14default_del
   store ptr %407, ptr %8, align 8
   %408 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN5clang14ASTImportErrorE, i64 16), ptr %408, align 8
-  %409 = getelementptr inbounds i8, ptr %8, i64 16
+  %409 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store i32 %.sroa.1.3, ptr %409, align 8
   %410 = load ptr, ptr %26, align 8, !noalias !3026
   %411 = load i32, ptr %28, align 8, !noalias !3026
@@ -41674,7 +41674,7 @@ _ZN4llvm5ErrorD2Ev.exit104:                       ; preds = %_ZNKSt14default_del
   store ptr %440, ptr %439, align 8, !noalias !3026
   %441 = getelementptr inbounds nuw i8, ptr %439, i64 8
   store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN5clang14ASTImportErrorE, i64 16), ptr %441, align 8, !noalias !3026
-  %442 = getelementptr inbounds i8, ptr %439, i64 16
+  %442 = getelementptr inbounds nuw i8, ptr %439, i64 16
   %443 = load i32, ptr %409, align 8, !noalias !3026
   store i32 %443, ptr %442, align 8, !noalias !3026
   br label %_ZN5clang11ASTImporter18setImportDeclErrorEPNS_4DeclENS_14ASTImportErrorE.exit115
@@ -41697,7 +41697,7 @@ _ZN5clang11ASTImporter18setImportDeclErrorEPNS_4DeclENS_14ASTImportErrorE.exit11
   store ptr %452, ptr %7, align 8
   %453 = getelementptr inbounds nuw i8, ptr %450, i64 8
   %454 = load ptr, ptr %453, align 8
-  %455 = getelementptr inbounds i8, ptr %450, i64 24
+  %455 = getelementptr inbounds nuw i8, ptr %450, i64 24
   %456 = load i32, ptr %455, align 8
   %457 = icmp eq i32 %456, 0
   br i1 %457, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPN5clang4DeclENS2_14ASTImportErrorENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S5_EEEES4_S5_S7_SA_E15LookupBucketForIS4_EEbRKT_RPSA_.exit.i.i.i, label %458
@@ -41751,13 +41751,13 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPN5clang4DeclENS2_14ASTImportErrorENS_12Dens
   store ptr %484, ptr %483, align 8
   %485 = getelementptr inbounds nuw i8, ptr %483, i64 8
   store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN5clang14ASTImportErrorE, i64 16), ptr %485, align 8
-  %486 = getelementptr inbounds i8, ptr %483, i64 16
+  %486 = getelementptr inbounds nuw i8, ptr %483, i64 16
   store i32 2, ptr %486, align 8
   br label %_ZN5clang22ASTImporterSharedState18setImportDeclErrorEPNS_4DeclENS_14ASTImportErrorE.exit
 
 _ZN5clang22ASTImporterSharedState18setImportDeclErrorEPNS_4DeclENS_14ASTImportErrorE.exit: ; preds = %474, %458, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPN5clang4DeclENS2_14ASTImportErrorENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S5_EEEES4_S5_S7_SA_E15LookupBucketForIS4_EEbRKT_RPSA_.exit.i.i.i
   %.0.i.i.i = phi ptr [ %483, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPN5clang4DeclENS2_14ASTImportErrorENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S5_EEEES4_S5_S7_SA_E15LookupBucketForIS4_EEbRKT_RPSA_.exit.i.i.i ], [ %466, %458 ], [ %480, %474 ]
-  %487 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 16
+  %487 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 16
   store i32 %.sroa.1.3, ptr %487, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   br label %488
@@ -41767,10 +41767,10 @@ _ZN5clang22ASTImporterSharedState18setImportDeclErrorEPNS_4DeclENS_14ASTImportEr
   %490 = load i32, ptr %489, align 8
   %491 = and i32 %490, 1
   %.not.i.i.i.i.i.i128 = icmp eq i32 %491, 0
-  %492 = getelementptr inbounds i8, ptr %1, i64 824
+  %492 = getelementptr inbounds nuw i8, ptr %1, i64 824
   %493 = load ptr, ptr %492, align 8
   %494 = select i1 %.not.i.i.i.i.i.i128, ptr %493, ptr %492
-  %495 = getelementptr inbounds i8, ptr %1, i64 832
+  %495 = getelementptr inbounds nuw i8, ptr %1, i64 832
   %496 = load i32, ptr %495, align 8
   %497 = select i1 %.not.i.i.i.i.i.i128, i32 %496, i32 32
   %498 = icmp eq i32 %497, 0
@@ -41840,7 +41840,7 @@ _ZN4llvm12DenseMapBaseINS_13SmallDenseMapIPN5clang4DeclENS_11SmallVectorINS5_IS4
 
 .lr.ph364:                                        ; preds = %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIPN5clang4DeclENS_11SmallVectorINS5_IS4_Lj32EEELj32EEELj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S7_EEEES4_S7_S9_SC_EixERKS4_.exit141
   %533 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %534 = getelementptr inbounds i8, ptr %6, i64 16
+  %534 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %535 = getelementptr inbounds nuw i8, ptr %1, i64 8
   br label %536
 
@@ -41939,7 +41939,7 @@ _ZNK5clang26ChildErrorHandlingStrategy24ignoreChildErrorOnParentEPNS_4DeclE.exit
   store ptr %583, ptr %582, align 8, !noalias !3031
   %584 = getelementptr inbounds nuw i8, ptr %582, i64 8
   store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN5clang14ASTImportErrorE, i64 16), ptr %584, align 8, !noalias !3031
-  %585 = getelementptr inbounds i8, ptr %582, i64 16
+  %585 = getelementptr inbounds nuw i8, ptr %582, i64 16
   %586 = load i32, ptr %534, align 8, !noalias !3031
   store i32 %586, ptr %585, align 8, !noalias !3031
   br label %_ZN5clang11ASTImporter18setImportDeclErrorEPNS_4DeclENS_14ASTImportErrorE.exit155
@@ -42002,7 +42002,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPN5clang4DeclES4_NS_12DenseMapInfoIS4_vEENS_
   store ptr %617, ptr %5, align 8
   %618 = getelementptr inbounds nuw i8, ptr %615, i64 8
   %619 = load ptr, ptr %618, align 8
-  %620 = getelementptr inbounds i8, ptr %615, i64 24
+  %620 = getelementptr inbounds nuw i8, ptr %615, i64 24
   %621 = load i32, ptr %620, align 8
   %622 = icmp eq i32 %621, 0
   br i1 %622, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPN5clang4DeclENS2_14ASTImportErrorENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S5_EEEES4_S5_S7_SA_E15LookupBucketForIS4_EEbRKT_RPSA_.exit.i.i.i181, label %623
@@ -42056,13 +42056,13 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPN5clang4DeclENS2_14ASTImportErrorENS_12Dens
   store ptr %649, ptr %648, align 8
   %650 = getelementptr inbounds nuw i8, ptr %648, i64 8
   store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN5clang14ASTImportErrorE, i64 16), ptr %650, align 8
-  %651 = getelementptr inbounds i8, ptr %648, i64 16
+  %651 = getelementptr inbounds nuw i8, ptr %648, i64 16
   store i32 2, ptr %651, align 8
   br label %_ZN5clang22ASTImporterSharedState18setImportDeclErrorEPNS_4DeclENS_14ASTImportErrorE.exit183
 
 _ZN5clang22ASTImporterSharedState18setImportDeclErrorEPNS_4DeclENS_14ASTImportErrorE.exit183: ; preds = %639, %623, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPN5clang4DeclENS2_14ASTImportErrorENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S5_EEEES4_S5_S7_SA_E15LookupBucketForIS4_EEbRKT_RPSA_.exit.i.i.i181
   %.0.i.i.i179 = phi ptr [ %648, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPN5clang4DeclENS2_14ASTImportErrorENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S5_EEEES4_S5_S7_SA_E15LookupBucketForIS4_EEbRKT_RPSA_.exit.i.i.i181 ], [ %631, %623 ], [ %645, %639 ]
-  %652 = getelementptr inbounds i8, ptr %.0.i.i.i179, i64 16
+  %652 = getelementptr inbounds nuw i8, ptr %.0.i.i.i179, i64 16
   store i32 %.sroa.1.3, ptr %652, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   br label %653
@@ -42147,7 +42147,7 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapIPN5clang4DeclENS2_14ASTImportErrorENS_12Den
   br i1 %.not.i192, label %_ZN4llvm5ErrorD2Ev.exit196, label %693
 
 693:                                              ; preds = %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPN5clang4DeclENS2_14ASTImportErrorENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S5_EEEES4_S5_S7_SA_E4findEPKS3_.exit.i190
-  %694 = getelementptr inbounds i8, ptr %.0.i.i.pn.i.i191, i64 16
+  %694 = getelementptr inbounds nuw i8, ptr %.0.i.i.pn.i.i191, i64 16
   %695 = load i32, ptr %694, align 8, !noalias !3044
   br label %_ZN4llvm5ErrorD2Ev.exit196
 
@@ -42169,7 +42169,7 @@ _ZN4llvm5ErrorD2Ev.exit196:                       ; preds = %693, %_ZNK4llvm12De
   %703 = load ptr, ptr %702, align 8
   %704 = getelementptr inbounds nuw i8, ptr %703, i64 8
   %705 = load ptr, ptr %704, align 8, !noalias !3055
-  %706 = getelementptr inbounds i8, ptr %703, i64 24
+  %706 = getelementptr inbounds nuw i8, ptr %703, i64 24
   %707 = load i32, ptr %706, align 8, !noalias !3055
   %708 = icmp eq i32 %707, 0
   br i1 %708, label %.loopexit.i.i207, label %709
@@ -42218,14 +42218,14 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapIPN5clang4DeclENS2_14ASTImportErrorENS_12Den
   br i1 %.not.i205, label %_ZNSt8optionalIN5clang14ASTImportErrorEED2Ev.exit211, label %_ZNSt8optionalIN5clang14ASTImportErrorEED2Ev.exit210
 
 _ZNSt8optionalIN5clang14ASTImportErrorEED2Ev.exit210: ; preds = %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPN5clang4DeclENS2_14ASTImportErrorENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S5_EEEES4_S5_S7_SA_E4findEPKS3_.exit.i203
-  %733 = getelementptr inbounds i8, ptr %.0.i.i.pn.i.i204, i64 16
+  %733 = getelementptr inbounds nuw i8, ptr %.0.i.i.pn.i.i204, i64 16
   %734 = load i32, ptr %733, align 8, !noalias !3055
   %735 = load ptr, ptr %16, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
   store ptr %735, ptr %4, align 8
   %736 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN5clang14ASTImportErrorE, i64 16), ptr %736, align 8
-  %737 = getelementptr inbounds i8, ptr %4, i64 16
+  %737 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i32 %734, ptr %737, align 8
   %738 = load ptr, ptr %26, align 8, !noalias !3058
   %739 = load i32, ptr %28, align 8, !noalias !3058
@@ -42281,7 +42281,7 @@ _ZNSt8optionalIN5clang14ASTImportErrorEED2Ev.exit210: ; preds = %_ZNK4llvm12Dens
   store ptr %768, ptr %767, align 8, !noalias !3058
   %769 = getelementptr inbounds nuw i8, ptr %767, i64 8
   store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN5clang14ASTImportErrorE, i64 16), ptr %769, align 8, !noalias !3058
-  %770 = getelementptr inbounds i8, ptr %767, i64 16
+  %770 = getelementptr inbounds nuw i8, ptr %767, i64 16
   %771 = load i32, ptr %737, align 8, !noalias !3058
   store i32 %771, ptr %770, align 8, !noalias !3058
   br label %_ZN5clang11ASTImporter18setImportDeclErrorEPNS_4DeclENS_14ASTImportErrorE.exit
@@ -43485,7 +43485,7 @@ _ZNK5clang17ObjCInterfaceDecl13hasDefinitionEv.exit.i140: ; preds = %268, %_ZN4l
 281:                                              ; preds = %280, %274
   %.0.copyload.i.i.i.i149239 = phi i64 [ %.0.copyload.i.i.i.i3.pre.i144, %280 ], [ %.0.copyload.i.i.i.i2.i141, %274 ]
   %.pre-phi6.i147 = phi ptr [ %.pre5.i146, %280 ], [ %276, %274 ]
-  %282 = getelementptr inbounds i8, ptr %.pre-phi6.i147, i64 32
+  %282 = getelementptr inbounds nuw i8, ptr %.pre-phi6.i147, i64 32
   %283 = load ptr, ptr %282, align 8
   br label %_ZNK5clang17ObjCInterfaceDecl18protocol_loc_beginEv.exit
 
@@ -43570,7 +43570,7 @@ _ZNK5clang17ObjCInterfaceDecl13hasDefinitionEv.exit.i162: ; preds = %300, %_ZNK5
   %.pre-phi6.i169 = phi ptr [ %.pre5.i168, %312 ], [ %308, %306 ]
   %314 = getelementptr inbounds nuw i8, ptr %.pre-phi6.i169, i64 16
   %315 = load ptr, ptr %314, align 8
-  %316 = getelementptr inbounds i8, ptr %.pre-phi6.i169, i64 24
+  %316 = getelementptr inbounds nuw i8, ptr %.pre-phi6.i169, i64 24
   %317 = load i32, ptr %316, align 8
   %318 = zext i32 %317 to i64
   %319 = getelementptr inbounds ptr, ptr %315, i64 %318
@@ -48149,7 +48149,7 @@ _ZNK5clang9NamedDecl24hasExternalFormalLinkageEv.exit: ; preds = %6, %6
   %11 = load ptr, ptr %0, align 8
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 280240
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %11, i64 280256
+  %14 = getelementptr inbounds nuw i8, ptr %11, i64 280256
   %15 = load i32, ptr %14, align 8
   %16 = icmp eq i32 %15, 0
   br i1 %16, label %.loopexit.i.i, label %17
@@ -48288,7 +48288,7 @@ define linkonce_odr void @_ZN5clang12RedeclarableINS_7TagDeclEE15setPreviousDecl
 
 31:                                               ; preds = %26
   %32 = getelementptr inbounds nuw i8, ptr %28, i64 2144
-  %33 = getelementptr inbounds i8, ptr %28, i64 2224
+  %33 = getelementptr inbounds nuw i8, ptr %28, i64 2224
   %34 = load i64, ptr %33, align 8
   %35 = add i64 %34, 24
   store i64 %35, ptr %33, align 8
@@ -48297,7 +48297,7 @@ define linkonce_odr void @_ZN5clang12RedeclarableINS_7TagDeclEE15setPreviousDecl
   %38 = add i64 %37, 7
   %39 = and i64 %38, -8
   %40 = add i64 %39, 24
-  %41 = getelementptr inbounds i8, ptr %28, i64 2152
+  %41 = getelementptr inbounds nuw i8, ptr %28, i64 2152
   %42 = load ptr, ptr %41, align 8
   %43 = ptrtoint ptr %42 to i64
   %.not.i.i.i.i.i.i.i = icmp ugt i64 %40, %43
@@ -48412,7 +48412,7 @@ define linkonce_odr void @_ZN5clang12RedeclarableINS_24RedeclarableTemplateDeclE
 
 31:                                               ; preds = %26
   %32 = getelementptr inbounds nuw i8, ptr %28, i64 2144
-  %33 = getelementptr inbounds i8, ptr %28, i64 2224
+  %33 = getelementptr inbounds nuw i8, ptr %28, i64 2224
   %34 = load i64, ptr %33, align 8
   %35 = add i64 %34, 24
   store i64 %35, ptr %33, align 8
@@ -48421,7 +48421,7 @@ define linkonce_odr void @_ZN5clang12RedeclarableINS_24RedeclarableTemplateDeclE
   %38 = add i64 %37, 7
   %39 = and i64 %38, -8
   %40 = add i64 %39, 24
-  %41 = getelementptr inbounds i8, ptr %28, i64 2152
+  %41 = getelementptr inbounds nuw i8, ptr %28, i64 2152
   %42 = load ptr, ptr %41, align 8
   %43 = ptrtoint ptr %42 to i64
   %.not.i.i.i.i.i.i.i = icmp ugt i64 %40, %43
@@ -50008,7 +50008,7 @@ define linkonce_odr hidden void @_ZN4llvm11SmallVectorIN5clang16TemplateArgument
 define linkonce_odr hidden void @_ZN5clang31ClassTemplateSpecializationDecl18setInstantiationOfEPNS_38ClassTemplatePartialSpecializationDeclEPKNS_20TemplateArgumentListE(ptr noundef nonnull align 8 dereferenceable(181) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 comdat align 2 {
   %4 = tail call noundef nonnull align 8 dereferenceable(23096) ptr @_ZNK5clang4Decl13getASTContextEv(ptr noundef nonnull align 8 dereferenceable(33) %0) #26
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 2144
-  %6 = getelementptr inbounds i8, ptr %4, i64 2224
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 2224
   %7 = load i64, ptr %6, align 8
   %8 = add i64 %7, 16
   store i64 %8, ptr %6, align 8
@@ -50017,7 +50017,7 @@ define linkonce_odr hidden void @_ZN5clang31ClassTemplateSpecializationDecl18set
   %11 = add i64 %10, 7
   %12 = and i64 %11, -8
   %13 = add i64 %12, 16
-  %14 = getelementptr inbounds i8, ptr %4, i64 2152
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 2152
   %15 = load ptr, ptr %14, align 8
   %16 = ptrtoint ptr %15 to i64
   %.not.i.i.i.i = icmp ugt i64 %13, %16
@@ -52007,7 +52007,7 @@ _ZNK5clang9NamedDecl24hasExternalFormalLinkageEv.exit: ; preds = %6, %6
   %11 = load ptr, ptr %0, align 8
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 280240
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %11, i64 280256
+  %14 = getelementptr inbounds nuw i8, ptr %11, i64 280256
   %15 = load i32, ptr %14, align 8
   %16 = icmp eq i32 %15, 0
   br i1 %16, label %.loopexit.i.i, label %17
@@ -66055,7 +66055,7 @@ _ZN5clang15ASTNodeImporter13importCheckedINS_14SourceLocationEEET_RN4llvm5ErrorE
   %46 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %47 = load i8, ptr %46, align 8
   %48 = trunc i8 %47 to i1
-  %49 = getelementptr inbounds i8, ptr %2, i64 28
+  %49 = getelementptr inbounds nuw i8, ptr %2, i64 28
   br i1 %48, label %_ZN5clang15ASTNodeImporter13importCheckedINS_14SourceLocationEEET_RN4llvm5ErrorERKS3_.exit, label %_ZN5clang15ASTNodeImporter13importCheckedINS_14SourceLocationEEET_RN4llvm5ErrorERKS3_.exit.thread
 
 _ZN5clang15ASTNodeImporter13importCheckedINS_14SourceLocationEEET_RN4llvm5ErrorERKS3_.exit.thread: ; preds = %44
@@ -66148,7 +66148,7 @@ _ZN5clang15ASTNodeImporter13importCheckedINS_14SourceLocationEEET_RN4llvm5ErrorE
   store ptr %.0.i62, ptr %85, align 8
   %86 = getelementptr inbounds nuw i8, ptr %76, i64 24
   store i32 %.sroa.06.0.i76, ptr %86, align 4
-  %87 = getelementptr inbounds i8, ptr %76, i64 28
+  %87 = getelementptr inbounds nuw i8, ptr %76, i64 28
   store i32 %.sroa.06.0.i1683, ptr %87, align 4
   %88 = icmp eq i32 %.0, 0
   %89 = load i24, ptr %76, align 8
@@ -66427,7 +66427,7 @@ _ZN4llvm8ExpectedIPN5clang4ExprEED2Ev.exit.thread.thread: ; preds = %26
   %43 = load ptr, ptr %1, align 8
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 280240
   %45 = load ptr, ptr %44, align 8
-  %46 = getelementptr inbounds i8, ptr %43, i64 280256
+  %46 = getelementptr inbounds nuw i8, ptr %43, i64 280256
   %47 = load i32, ptr %46, align 8
   %48 = icmp eq i32 %47, 0
   br i1 %48, label %.loopexit.i.i, label %49
@@ -70321,7 +70321,7 @@ _ZN5clang15ASTNodeImporter13importCheckedINS_14SourceLocationEEET_RN4llvm5ErrorE
   br label %_ZN5clang11ASTImporter6ImportEPKNS_14IdentifierInfoE.exit
 
 _ZN5clang11ASTImporter6ImportEPKNS_14IdentifierInfoE.exit: ; preds = %71, %89, %97
-  %104 = getelementptr inbounds i8, ptr %2, i64 72
+  %104 = getelementptr inbounds nuw i8, ptr %2, i64 72
   %.sroa.0.0.copyload.i.i38 = load i32, ptr %104, align 8
   %105 = load ptr, ptr %1, align 8, !noalias !6627
   call void @_ZN5clang11ASTImporter6ImportENS_14SourceLocationE(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Expected.85") align 8 %11, ptr noundef nonnull align 8 dereferenceable(280360) %105, i32 %.sroa.0.0.copyload.i.i38)
@@ -70755,7 +70755,7 @@ _ZN4llvm5ErrorD2Ev.exit59:                        ; preds = %_ZNK5clang27CXXDepe
   %148 = trunc i8 %147 to i1
   %149 = load i64, ptr %4, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
-  %150 = getelementptr inbounds i8, ptr %2, i64 56
+  %150 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %.sroa.0.0.copyload.i.i62 = load i32, ptr %150, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9)
   br i1 %148, label %_ZN5clang15ASTNodeImporter13importCheckedINS_15DeclarationNameEEET_RN4llvm5ErrorERKS3_.exit, label %_ZN5clang15ASTNodeImporter13importCheckedINS_15DeclarationNameEEET_RN4llvm5ErrorERKS3_.exit.thread
@@ -70945,7 +70945,7 @@ _ZN5clang15ASTNodeImporter13importCheckedINS_14SourceLocationEEET_RN4llvm5ErrorE
 
 _ZN5clang15ASTNodeImporter13importCheckedINS_15DeclarationNameEEET_RN4llvm5ErrorERKS3_.exit.thread114: ; preds = %36
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
-  %43 = getelementptr inbounds i8, ptr %2, i64 40
+  %43 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %.sroa.0.0.copyload.i30118 = load i32, ptr %43, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8)
   br label %46
@@ -70960,7 +70960,7 @@ _ZN5clang15ASTNodeImporter13importCheckedINS_15DeclarationNameEEET_RN4llvm5Error
 _ZN5clang15ASTNodeImporter13importCheckedINS_15DeclarationNameEEET_RN4llvm5ErrorERKS3_.exit: ; preds = %36
   %44 = inttoptr i64 %42 to ptr
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
-  %45 = getelementptr inbounds i8, ptr %2, i64 40
+  %45 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %.sroa.0.0.copyload.i30 = load i32, ptr %45, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8)
   %.not.i31 = icmp eq i64 %42, 0
@@ -71525,7 +71525,7 @@ define dso_local void @_ZN5clang15ASTNodeImporter25VisitUnresolvedLookupExprEPNS
   %34 = trunc i8 %33 to i1
   %35 = load i64, ptr %5, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
-  %36 = getelementptr inbounds i8, ptr %2, i64 24
+  %36 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %.sroa.0.0.copyload.i.i47 = load i32, ptr %36, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
   br i1 %34, label %_ZN5clang15ASTNodeImporter13importCheckedINS_15DeclarationNameEEET_RN4llvm5ErrorERKS3_.exit, label %_ZN5clang15ASTNodeImporter13importCheckedINS_15DeclarationNameEEET_RN4llvm5ErrorERKS3_.exit.thread
@@ -72092,7 +72092,7 @@ _ZN5clang15ASTNodeImporter13importCheckedINS_14SourceLocationEEET_RN4llvm5ErrorE
 
 _ZN5clang15ASTNodeImporter13importCheckedINS_15DeclarationNameEEET_RN4llvm5ErrorERKS3_.exit.thread227: ; preds = %86
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
-  %93 = getelementptr inbounds i8, ptr %2, i64 24
+  %93 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %.sroa.0.0.copyload.i.i52231 = load i32, ptr %93, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10)
   br label %96
@@ -72106,7 +72106,7 @@ _ZN5clang15ASTNodeImporter13importCheckedINS_15DeclarationNameEEET_RN4llvm5Error
 _ZN5clang15ASTNodeImporter13importCheckedINS_15DeclarationNameEEET_RN4llvm5ErrorERKS3_.exit: ; preds = %86
   %94 = inttoptr i64 %92 to ptr
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
-  %95 = getelementptr inbounds i8, ptr %2, i64 24
+  %95 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %.sroa.0.0.copyload.i.i52 = load i32, ptr %95, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10)
   %.not.i53 = icmp eq i64 %92, 0
@@ -73147,7 +73147,7 @@ _ZN4llvm11SmallVectorIPN5clang4ExprELj4EED2Ev.exit.thread: ; preds = %_ZN5clang1
 64:                                               ; preds = %_ZN5clang15ASTNodeImporter13importCheckedINS_8QualTypeEEET_RN4llvm5ErrorERKS3_.exit.thread, %_ZN5clang15ASTNodeImporter13importCheckedINS_8QualTypeEEET_RN4llvm5ErrorERKS3_.exit
   %.sroa.06.0.i150 = phi i64 [ %.sroa.0140.0.ph, %_ZN5clang15ASTNodeImporter13importCheckedINS_8QualTypeEEET_RN4llvm5ErrorERKS3_.exit.thread ], [ 0, %_ZN5clang15ASTNodeImporter13importCheckedINS_8QualTypeEEET_RN4llvm5ErrorERKS3_.exit ]
   %65 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %66 = getelementptr inbounds i8, ptr %2, i64 24
+  %66 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %67 = load ptr, ptr %66, align 8
   %68 = load ptr, ptr %65, align 8
   %69 = ptrtoint ptr %67 to i64
@@ -75473,7 +75473,7 @@ define dso_local void @_ZN5clang11ASTImporterC2ERNS_10ASTContextERNS_11FileManag
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load ptr, ptr %6, align 8
   store ptr %11, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %13 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %14 = load ptr, ptr %13, align 8
   store ptr %14, ptr %12, align 8
@@ -75500,9 +75500,9 @@ _ZNSt10shared_ptrIN5clang22ASTImporterSharedStateEEC2ERKS2_.exit: ; preds = %7, 
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %24 = getelementptr inbounds i8, ptr %0, i64 40
   tail call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %23, ptr noundef nonnull %24, i64 noundef 32) #23
-  %25 = getelementptr inbounds i8, ptr %0, i64 296
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 296
   store i32 1, ptr %25, align 8
-  %26 = getelementptr inbounds i8, ptr %0, i64 300
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 300
   store i32 0, ptr %26, align 4
   br label %.lr.ph.i.i.i.i
 
@@ -75517,7 +75517,7 @@ _ZNSt10shared_ptrIN5clang22ASTImporterSharedStateEEC2ERKS2_.exit: ; preds = %7, 
 _ZN5clang11ASTImporter12ImportPathTyC2Ev.exit:    ; preds = %.lr.ph.i.i.i.i
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 816
   store i32 1, ptr %27, align 8
-  %28 = getelementptr inbounds i8, ptr %0, i64 820
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 820
   store i32 0, ptr %28, align 4
   br label %.lr.ph.i.i.i
 
@@ -75662,7 +75662,7 @@ _ZNSt10shared_ptrIN5clang22ASTImporterSharedStateEED2Ev.exit: ; preds = %45, %67
   %96 = tail call noundef ptr @_ZNK5clang12RedeclarableINS_19TranslationUnitDeclEE8DeclLink11getPreviousEPKS1_(ptr noundef nonnull align 8 dereferenceable(8) %95, ptr noundef nonnull %94)
   store ptr %96, ptr %8, align 8
   %97 = load ptr, ptr %37, align 8
-  %98 = getelementptr inbounds i8, ptr %0, i64 280208
+  %98 = getelementptr inbounds nuw i8, ptr %0, i64 280208
   %99 = load i32, ptr %98, align 8
   %100 = icmp eq i32 %99, 0
   br i1 %100, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPN5clang4DeclES4_NS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E15LookupBucketForIS4_EEbRKT_RPS9_.exit.i.i, label %101
@@ -75730,41 +75730,41 @@ define dso_local void @_ZN5clang11ASTImporterD2Ev(ptr noundef nonnull align 8 de
   store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN5clang11ASTImporterE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 280336
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 280352
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 280352
   %5 = load i32, ptr %4, align 8
   %6 = zext i32 %5 to i64
   %7 = shl nuw nsw i64 %6, 4
   tail call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef %3, i64 noundef %7, i64 noundef 8) #23
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 280312
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 280328
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 280328
   %11 = load i32, ptr %10, align 8
   %12 = zext i32 %11 to i64
   %13 = shl nuw nsw i64 %12, 4
   tail call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef %9, i64 noundef %13, i64 noundef 8) #23
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 280288
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 280304
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 280304
   %17 = load i32, ptr %16, align 8
   %18 = zext i32 %17 to i64
   %19 = shl nuw nsw i64 %18, 3
   tail call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef %15, i64 noundef %19, i64 noundef 4) #23
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 280264
   %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %0, i64 280280
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 280280
   %23 = load i32, ptr %22, align 8
   %24 = zext i32 %23 to i64
   %25 = shl nuw nsw i64 %24, 4
   tail call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef %21, i64 noundef %25, i64 noundef 8) #23
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 280240
   %27 = load ptr, ptr %26, align 8
-  %28 = getelementptr inbounds i8, ptr %0, i64 280256
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 280256
   %29 = load i32, ptr %28, align 8
   %30 = zext i32 %29 to i64
   %31 = shl nuw nsw i64 %30, 4
   tail call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef %27, i64 noundef %31, i64 noundef 8) #23
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 280216
-  %33 = getelementptr inbounds i8, ptr %0, i64 280232
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 280232
   %34 = load i32, ptr %33, align 8
   %35 = icmp eq i32 %34, 0
   %.pre1.i = load ptr, ptr %32, align 8
@@ -75809,14 +75809,14 @@ _ZN4llvm8DenseMapIPN5clang4DeclENS1_14ASTImportErrorENS_12DenseMapInfoIS3_vEENS_
   tail call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef %48, i64 noundef %47, i64 noundef 8) #23
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 280192
   %50 = load ptr, ptr %49, align 8
-  %51 = getelementptr inbounds i8, ptr %0, i64 280208
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 280208
   %52 = load i32, ptr %51, align 8
   %53 = zext i32 %52 to i64
   %54 = shl nuw nsw i64 %53, 4
   tail call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef %50, i64 noundef %54, i64 noundef 8) #23
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 280168
   %56 = load ptr, ptr %55, align 8
-  %57 = getelementptr inbounds i8, ptr %0, i64 280184
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 280184
   %58 = load i32, ptr %57, align 8
   %59 = zext i32 %58 to i64
   %60 = shl nuw nsw i64 %59, 4
@@ -75829,9 +75829,9 @@ _ZN4llvm8DenseMapIPN5clang4DeclENS1_14ASTImportErrorENS_12DenseMapInfoIS3_vEENS_
   br i1 %.not.i.i1, label %64, label %_ZN4llvm13SmallDenseMapIPN5clang4DeclENS_11SmallVectorINS4_IS3_Lj32EEELj32EEELj32ENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S6_EEED2Ev.exit
 
 64:                                               ; preds = %_ZN4llvm8DenseMapIPN5clang4DeclENS1_14ASTImportErrorENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S4_EEED2Ev.exit
-  %65 = getelementptr inbounds i8, ptr %0, i64 824
+  %65 = getelementptr inbounds nuw i8, ptr %0, i64 824
   %66 = load ptr, ptr %65, align 8
-  %67 = getelementptr inbounds i8, ptr %0, i64 832
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 832
   %68 = load i32, ptr %67, align 8
   %69 = zext i32 %68 to i64
   %70 = mul nuw nsw i64 %69, 8728
@@ -75840,16 +75840,16 @@ _ZN4llvm8DenseMapIPN5clang4DeclENS1_14ASTImportErrorENS_12DenseMapInfoIS3_vEENS_
 
 _ZN4llvm13SmallDenseMapIPN5clang4DeclENS_11SmallVectorINS4_IS3_Lj32EEELj32EEELj32ENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S6_EEED2Ev.exit: ; preds = %_ZN4llvm8DenseMapIPN5clang4DeclENS1_14ASTImportErrorENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S4_EEED2Ev.exit, %64
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %72 = getelementptr inbounds i8, ptr %0, i64 296
+  %72 = getelementptr inbounds nuw i8, ptr %0, i64 296
   %73 = load i32, ptr %72, align 8
   %74 = and i32 %73, 1
   %.not.i.i.i = icmp eq i32 %74, 0
   br i1 %.not.i.i.i, label %75, label %_ZN4llvm13SmallDenseMapIPN5clang4DeclEiLj32ENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_iEEED2Ev.exit.i
 
 75:                                               ; preds = %_ZN4llvm13SmallDenseMapIPN5clang4DeclENS_11SmallVectorINS4_IS3_Lj32EEELj32EEELj32ENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S6_EEED2Ev.exit
-  %76 = getelementptr inbounds i8, ptr %0, i64 304
+  %76 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %77 = load ptr, ptr %76, align 8
-  %78 = getelementptr inbounds i8, ptr %0, i64 312
+  %78 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %79 = load i32, ptr %78, align 8
   %80 = zext i32 %79 to i64
   %81 = shl nuw nsw i64 %80, 4
@@ -75868,7 +75868,7 @@ _ZN4llvm13SmallDenseMapIPN5clang4DeclEiLj32ENS_12DenseMapInfoIS3_vEENS_6detail12
   br label %_ZN5clang11ASTImporter12ImportPathTyD2Ev.exit
 
 _ZN5clang11ASTImporter12ImportPathTyD2Ev.exit:    ; preds = %_ZN4llvm13SmallDenseMapIPN5clang4DeclEiLj32ENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_iEEED2Ev.exit.i, %86
-  %87 = getelementptr inbounds i8, ptr %0, i64 16
+  %87 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %88 = load ptr, ptr %87, align 8
   %.not.i.i.i2 = icmp eq ptr %88, null
   br i1 %.not.i.i.i2, label %_ZNSt10shared_ptrIN5clang22ASTImporterSharedStateEED2Ev.exit, label %89
@@ -76534,7 +76534,7 @@ define dso_local void @_ZN5clang11ASTImporter6ImportEPKNS_4TypeE(ptr dead_on_unw
 11:                                               ; preds = %3
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 280168
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %1, i64 280184
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 280184
   %15 = load i32, ptr %14, align 8
   %16 = icmp eq i32 %15, 0
   br i1 %16, label %.loopexit.i, label %17
@@ -83189,10 +83189,10 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang4DeclELb1EE9push_backES3_.exit: ; pred
   %16 = load i32, ptr %15, align 8
   %17 = and i32 %16, 1
   %.not.i.i.i.i.i.i = icmp eq i32 %17, 0
-  %18 = getelementptr inbounds i8, ptr %0, i64 280
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %19 = load ptr, ptr %18, align 8
   %20 = select i1 %.not.i.i.i.i.i.i, ptr %19, ptr %18
-  %21 = getelementptr inbounds i8, ptr %0, i64 288
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 288
   %22 = load i32, ptr %21, align 8
   %23 = select i1 %.not.i.i.i.i.i.i, i32 %22, i32 32
   %24 = icmp eq i32 %23, 0
@@ -83261,7 +83261,7 @@ _ZN4llvm12DenseMapBaseINS_13SmallDenseMapIPN5clang4DeclEiLj32ENS_12DenseMapInfoI
 define dso_local void @_ZNK5clang11ASTImporter23getImportDeclErrorIfAnyEPNS_4DeclE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::optional.1442") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(280360) %1, ptr noundef %2) local_unnamed_addr #10 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 280216
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 280232
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 280232
   %7 = load i32, ptr %6, align 8
   %8 = icmp eq i32 %7, 0
   br i1 %8, label %.loopexit.i, label %9
@@ -83312,7 +83312,7 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapIPN5clang4DeclENS2_14ASTImportErrorENS_12Den
 33:                                               ; preds = %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPN5clang4DeclENS2_14ASTImportErrorENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S5_EEEES4_S5_S7_SA_E4findEPKS3_.exit
   store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN5clang14ASTImportErrorE, i64 16), ptr %0, align 8
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %35 = getelementptr inbounds i8, ptr %.0.i.i.pn.i, i64 16
+  %35 = getelementptr inbounds nuw i8, ptr %.0.i.i.pn.i, i64 16
   %36 = load i32, ptr %35, align 8
   store i32 %36, ptr %34, align 8
   br label %37
@@ -83331,12 +83331,12 @@ define dso_local void @_ZN5clang11ASTImporter18setImportDeclErrorEPNS_4DeclENS_1
   store ptr %1, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN5clang14ASTImportErrorE, i64 16), ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %4, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %9 = load i32, ptr %8, align 8
   store i32 %9, ptr %7, align 8
   %10 = load ptr, ptr %5, align 8, !noalias !8078
-  %11 = getelementptr inbounds i8, ptr %0, i64 280232
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 280232
   %12 = load i32, ptr %11, align 8, !noalias !8078
   %13 = icmp eq i32 %12, 0
   br i1 %13, label %39, label %14
@@ -83390,7 +83390,7 @@ define dso_local void @_ZN5clang11ASTImporter18setImportDeclErrorEPNS_4DeclENS_1
   store ptr %41, ptr %40, align 8, !noalias !8078
   %42 = getelementptr inbounds nuw i8, ptr %40, i64 8
   store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN5clang14ASTImportErrorE, i64 16), ptr %42, align 8, !noalias !8078
-  %43 = getelementptr inbounds i8, ptr %40, i64 16
+  %43 = getelementptr inbounds nuw i8, ptr %40, i64 16
   %44 = load i32, ptr %7, align 8, !noalias !8078
   store i32 %44, ptr %43, align 8, !noalias !8078
   br label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPN5clang4DeclENS2_14ASTImportErrorENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S5_EEEES4_S5_S7_SA_E6insertEOSt4pairIS4_S5_E.exit
@@ -83434,7 +83434,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm12DenseMapBaseINS_13Small
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = select i1 %.not.i.i.i.i, ptr %6, ptr %5
-  %8 = getelementptr inbounds i8, ptr %0, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = load i32, ptr %8, align 8
   %10 = select i1 %.not.i.i.i.i, i32 %9, i32 32
   %11 = icmp eq i32 %10, 0
@@ -83622,7 +83622,7 @@ define dso_local void @_ZN5clang11ASTImporter6ImportEPNS_4StmtE(ptr dead_on_unwi
 10:                                               ; preds = %3
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 280264
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %1, i64 280280
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 280280
   %14 = load i32, ptr %13, align 8
   %15 = icmp eq i32 %14, 0
   br i1 %15, label %.loopexit.i, label %16
@@ -87014,7 +87014,7 @@ _ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i51: ;
 
 _ZNK5clang15DeclarationName24getCXXOverloadedOperatorEv.exit: ; preds = %238, %243
   %.0.i53 = phi i64 [ %247, %243 ], [ 0, %238 ]
-  %248 = getelementptr inbounds i8, ptr %240, i64 17384
+  %248 = getelementptr inbounds nuw i8, ptr %240, i64 17384
   %249 = getelementptr inbounds [46 x %"class.clang::detail::CXXOperatorIdName"], ptr %248, i64 0, i64 %.0.i53
   %250 = ptrtoint ptr %249 to i64
   %251 = or disjoint i64 %250, 6
@@ -87264,7 +87264,7 @@ define dso_local void @_ZN5clang11ASTImporter6ImportENS_6FileIDEb(ptr dead_on_un
   store i32 %2, ptr %5, align 4
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 280288
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %1, i64 280304
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 280304
   %17 = load i32, ptr %16, align 8
   %18 = icmp eq i32 %17, 0
   br i1 %18, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIN5clang6FileIDES3_NS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S3_EEEES3_S3_S5_S8_E4findERKS3_.exit.thread, label %19
@@ -87343,7 +87343,7 @@ _ZN5clang13SourceManager12getSLocEntryENS_6FileIDEPb.exit: ; preds = %47, %50
 55:                                               ; preds = %_ZN5clang13SourceManager12getSLocEntryENS_6FileIDEPb.exit
   %56 = load i32, ptr %54, align 4
   %57 = icmp eq i32 %56, 0
-  %58 = getelementptr inbounds i8, ptr %.0.i, i64 12
+  %58 = getelementptr inbounds nuw i8, ptr %.0.i, i64 12
   %.sroa.0.0.copyload.i.i = load i32, ptr %58, align 4
   %.sroa.0.0.i = select i1 %57, i32 %.sroa.0.0.copyload.i.i, i32 %56
   call void @_ZN5clang11ASTImporter6ImportENS_14SourceLocationE(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Expected.85") align 8 %6, ptr noundef nonnull align 8 dereferenceable(280360) %1, i32 %.sroa.0.0.i)
@@ -87364,7 +87364,7 @@ _ZN5clang13SourceManager12getSLocEntryENS_6FileIDEPb.exit: ; preds = %47, %50
   %67 = tail call noundef i32 @_ZNK5clang13SourceManager13getFileIDSizeENS_6FileIDE(ptr noundef nonnull align 8 dereferenceable(696) %41, i32 %2) #23
   %.sroa.0.0.copyload.i.i64 = load i32, ptr %58, align 4
   %68 = icmp ne i32 %.sroa.0.0.copyload.i.i64, 0
-  %69 = getelementptr inbounds i8, ptr %.0.i, i64 16
+  %69 = getelementptr inbounds nuw i8, ptr %.0.i, i64 16
   %70 = load i32, ptr %69, align 4
   %71 = icmp eq i32 %70, 0
   %72 = select i1 %68, i1 %71, i1 false
@@ -87388,7 +87388,7 @@ _ZN5clang13SourceManager12getSLocEntryENS_6FileIDEPb.exit: ; preds = %47, %50
   %.sroa.019.0.copyload = load i32, ptr %6, align 8
   %.sroa.018.0.copyload = load i32, ptr %7, align 8
   %.sroa.017.0.copyload = load i32, ptr %8, align 8
-  %80 = getelementptr inbounds i8, ptr %.0.i, i64 20
+  %80 = getelementptr inbounds nuw i8, ptr %.0.i, i64 20
   %81 = load i8, ptr %80, align 4
   %82 = trunc i8 %81 to i1
   %83 = tail call i32 @_ZN5clang13SourceManager18createExpansionLocENS_14SourceLocationES1_S1_jbij(ptr noundef nonnull align 8 dereferenceable(696) %45, i32 %.sroa.019.0.copyload, i32 %.sroa.018.0.copyload, i32 %.sroa.017.0.copyload, i32 noundef %67, i1 noundef zeroext %82, i32 noundef 0, i32 noundef 0) #23
@@ -87485,7 +87485,7 @@ _ZNK5clang13SourceManager16isOffsetInFileIDENS_6FileIDEj.exit.thread4.i.i: ; pre
   br label %_ZN4llvm8ExpectedIN5clang14SourceLocationEED2Ev.exit81.thread159
 
 129:                                              ; preds = %_ZN5clang13SourceManager12getSLocEntryENS_6FileIDEPb.exit
-  %130 = getelementptr inbounds i8, ptr %.0.i, i64 16
+  %130 = getelementptr inbounds nuw i8, ptr %.0.i, i64 16
   %.0.copyload.i.i.i.i = load i64, ptr %130, align 8
   %131 = and i64 %.0.copyload.i.i.i.i, -8
   %132 = inttoptr i64 %131 to ptr
@@ -87538,7 +87538,7 @@ _ZNK5clang13SourceManager16isOffsetInFileIDENS_6FileIDEj.exit.thread4.i.i: ; pre
   br i1 %.not136, label %.thread, label %155
 
 155:                                              ; preds = %152
-  %156 = getelementptr inbounds i8, ptr %154, i64 16
+  %156 = getelementptr inbounds nuw i8, ptr %154, i64 16
   %.sroa.0.0.copyload.i89 = load ptr, ptr %156, align 8
   %157 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i89, i64 8
   %158 = load ptr, ptr %157, align 8
@@ -87943,7 +87943,7 @@ _ZN4llvm5ErrorD2Ev.exit45:                        ; preds = %43, %_ZN5clang11AST
   %61 = getelementptr inbounds nuw i8, ptr %1, i64 280120
   %62 = load ptr, ptr %61, align 8
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 2144
-  %64 = getelementptr inbounds i8, ptr %62, i64 2224
+  %64 = getelementptr inbounds nuw i8, ptr %62, i64 2224
   %65 = load i64, ptr %64, align 8
   %66 = add i64 %65, 32
   store i64 %66, ptr %64, align 8
@@ -87952,7 +87952,7 @@ _ZN4llvm5ErrorD2Ev.exit45:                        ; preds = %43, %_ZN5clang11AST
   %69 = add i64 %68, 7
   %70 = and i64 %69, -8
   %71 = add i64 %70, 32
-  %72 = getelementptr inbounds i8, ptr %62, i64 2152
+  %72 = getelementptr inbounds nuw i8, ptr %62, i64 2152
   %73 = load ptr, ptr %72, align 8
   %74 = ptrtoint ptr %73 to i64
   %.not.i.i.i.i = icmp ugt i64 %71, %74
@@ -88220,7 +88220,7 @@ define dso_local void @_ZN5clang11ASTImporter6ImportEPKNS_16CXXBaseSpecifierE(pt
   store ptr %2, ptr %6, align 8
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 280312
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %1, i64 280328
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 280328
   %12 = load i32, ptr %11, align 8
   %13 = icmp eq i32 %12, 0
   br i1 %13, label %.loopexit.i, label %14
@@ -88380,7 +88380,7 @@ _ZN4llvm8ExpectedIN5clang14SourceLocationEED2Ev.exit.thread: ; preds = %63
   %85 = getelementptr inbounds nuw i8, ptr %1, i64 280120
   %86 = load ptr, ptr %85, align 8
   %87 = getelementptr inbounds nuw i8, ptr %86, i64 2144
-  %88 = getelementptr inbounds i8, ptr %86, i64 2224
+  %88 = getelementptr inbounds nuw i8, ptr %86, i64 2224
   %89 = load i64, ptr %88, align 8
   %90 = add i64 %89, 24
   store i64 %90, ptr %88, align 8
@@ -88389,7 +88389,7 @@ _ZN4llvm8ExpectedIN5clang14SourceLocationEED2Ev.exit.thread: ; preds = %63
   %93 = add i64 %92, 7
   %94 = and i64 %93, -8
   %95 = add i64 %94, 24
-  %96 = getelementptr inbounds i8, ptr %86, i64 2152
+  %96 = getelementptr inbounds nuw i8, ptr %86, i64 2152
   %97 = load ptr, ptr %96, align 8
   %98 = ptrtoint ptr %97 to i64
   %.not.i.i.i.i = icmp ugt i64 %95, %98
@@ -88587,7 +88587,7 @@ _ZN4llvm12ErrorSuccessD2Ev.exit:
   %43 = getelementptr inbounds nuw i8, ptr %23, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %43, i8 0, i64 16, i1 false)
   store i32 8, ptr %23, align 8
-  %44 = getelementptr inbounds i8, ptr %2, i64 16
+  %44 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %45 = load i32, ptr %44, align 8
   %46 = zext i32 %45 to i64
   %47 = mul nuw nsw i64 %46, 72
@@ -88600,7 +88600,7 @@ _ZN4llvm12ErrorSuccessD2Ev.exit:
 
 _ZN5clang7APValue15setVectorUninitEj.exit.thread: ; preds = %42
   store ptr %50, ptr %43, align 8
-  %52 = getelementptr inbounds i8, ptr %23, i64 16
+  %52 = getelementptr inbounds nuw i8, ptr %23, i64 16
   store i32 0, ptr %52, align 8
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %22)
   br label %"_ZZN5clang15ASTNodeImporter13ImportAPValueERKNS_7APValueEENK3$_0clEPS2_PS1_j.exit"
@@ -88618,7 +88618,7 @@ _ZN5clang7APValue15setVectorUninitEj.exit.thread: ; preds = %42
 
 _ZN5clang7APValue15setVectorUninitEj.exit:        ; preds = %55
   store ptr %50, ptr %43, align 8
-  %59 = getelementptr inbounds i8, ptr %23, i64 16
+  %59 = getelementptr inbounds nuw i8, ptr %23, i64 16
   store i32 %45, ptr %59, align 8
   %60 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %61 = load ptr, ptr %60, align 8
@@ -88712,9 +88712,9 @@ _ZN5clang7APValueD2Ev.exit100:                    ; preds = %_ZN5clang15ASTNodeI
   br label %.loopexit
 
 90:                                               ; preds = %_ZN4llvm12ErrorSuccessD2Ev.exit
-  %91 = getelementptr inbounds i8, ptr %2, i64 16
+  %91 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %92 = load i32, ptr %91, align 8
-  %93 = getelementptr inbounds i8, ptr %2, i64 20
+  %93 = getelementptr inbounds nuw i8, ptr %2, i64 20
   %94 = load i32, ptr %93, align 4
   call void @_ZN5clang7APValue9MakeArrayEjj(ptr noundef nonnull align 8 dereferenceable(72) %23, i32 noundef %92, i32 noundef %94) #23
   %95 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -88817,9 +88817,9 @@ _ZN5clang7APValueD2Ev.exit102:                    ; preds = %_ZN5clang15ASTNodeI
   br label %.loopexit
 
 128:                                              ; preds = %_ZN4llvm12ErrorSuccessD2Ev.exit
-  %129 = getelementptr inbounds i8, ptr %2, i64 16
+  %129 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %130 = load i32, ptr %129, align 8
-  %131 = getelementptr inbounds i8, ptr %2, i64 20
+  %131 = getelementptr inbounds nuw i8, ptr %2, i64 20
   %132 = load i32, ptr %131, align 4
   %133 = getelementptr inbounds nuw i8, ptr %23, i64 8
   call void @_ZN5clang7APValue10StructDataC1Ejj(ptr noundef nonnull align 8 dereferenceable(16) %133, i32 noundef %130, i32 noundef %132) #23
@@ -88941,7 +88941,7 @@ _ZN5clang7APValueD2Ev.exit104:                    ; preds = %_ZN5clang15ASTNodeI
 _ZN5clang15ASTNodeImporter13importCheckedIPKNS_9FieldDeclEEET_RN4llvm5ErrorERKS5_.exit.thread: ; preds = %168
   %176 = load ptr, ptr %13, align 8, !noalias !8399
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13)
-  %177 = getelementptr inbounds i8, ptr %2, i64 16
+  %177 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %178 = load ptr, ptr %177, align 8
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %12)
   br label %183
@@ -88951,7 +88951,7 @@ _ZN5clang15ASTNodeImporter13importCheckedIPKNS_9FieldDeclEEET_RN4llvm5ErrorERKS5
   %180 = inttoptr i64 %179 to ptr
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13)
   store ptr %180, ptr %24, align 8
-  %181 = getelementptr inbounds i8, ptr %2, i64 16
+  %181 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %182 = load ptr, ptr %181, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !8405)
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %12)
@@ -89078,7 +89078,7 @@ _ZN5clang15ASTNodeImporter13importCheckedIPKNS_13AddrLabelExprEEET_RN4llvm5Error
 
 224:                                              ; preds = %_ZN5clang15ASTNodeImporter13importCheckedIPKNS_13AddrLabelExprEEET_RN4llvm5ErrorERKS5_.exit.thread, %_ZN5clang15ASTNodeImporter13importCheckedIPKNS_13AddrLabelExprEEET_RN4llvm5ErrorERKS5_.exit
   %.0.i224320 = phi ptr [ %221, %_ZN5clang15ASTNodeImporter13importCheckedIPKNS_13AddrLabelExprEEET_RN4llvm5ErrorERKS5_.exit.thread ], [ null, %_ZN5clang15ASTNodeImporter13importCheckedIPKNS_13AddrLabelExprEEET_RN4llvm5ErrorERKS5_.exit ]
-  %225 = getelementptr inbounds i8, ptr %2, i64 16
+  %225 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %226 = load ptr, ptr %225, align 8
   %227 = load ptr, ptr %1, align 8, !noalias !8429
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3), !noalias !8429
@@ -89115,7 +89115,7 @@ _ZN5clang15ASTNodeImporter13importCheckedIPKNS_13AddrLabelExprEEET_RN4llvm5Error
 238:                                              ; preds = %_ZN5clang15ASTNodeImporter13importCheckedIPKNS_13AddrLabelExprEEET_RN4llvm5ErrorERKS5_.exit230.thread, %_ZN5clang15ASTNodeImporter13importCheckedIPKNS_13AddrLabelExprEEET_RN4llvm5ErrorERKS5_.exit230
   %.0.i227325 = phi ptr [ %231, %_ZN5clang15ASTNodeImporter13importCheckedIPKNS_13AddrLabelExprEEET_RN4llvm5ErrorERKS5_.exit230.thread ], [ null, %_ZN5clang15ASTNodeImporter13importCheckedIPKNS_13AddrLabelExprEEET_RN4llvm5ErrorERKS5_.exit230 ]
   store ptr %.0.i224320, ptr %214, align 8
-  %239 = getelementptr inbounds i8, ptr %23, i64 16
+  %239 = getelementptr inbounds nuw i8, ptr %23, i64 16
   store ptr %.0.i227325, ptr %239, align 8
   br label %.loopexit
 
@@ -90820,7 +90820,7 @@ _ZN4llvm12ErrorSuccessD2Ev.exit:                  ; preds = %3
 13:                                               ; preds = %8
   %14 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %7, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %17 = load ptr, ptr %16, align 8
   %.not3334 = icmp eq ptr %15, %17
   br i1 %.not3334, label %_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i17, label %.lr.ph
@@ -90970,14 +90970,14 @@ _ZNK4llvm5Error3isAINS_9ErrorListEEEbv.exit9:     ; preds = %17
   store ptr null, ptr %2, align 8, !noalias !8533
   %25 = getelementptr inbounds nuw i8, ptr %.pre52, i64 8
   %26 = load ptr, ptr %25, align 8
-  %27 = getelementptr inbounds i8, ptr %.pre52, i64 16
+  %27 = getelementptr inbounds nuw i8, ptr %.pre52, i64 16
   %28 = load ptr, ptr %27, align 8
   %.not4849 = icmp eq ptr %26, %28
   br i1 %.not4849, label %_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i, label %.lr.ph
 
 .lr.ph:                                           ; preds = %24
-  %29 = getelementptr inbounds i8, ptr %18, i64 16
-  %30 = getelementptr inbounds i8, ptr %18, i64 24
+  %29 = getelementptr inbounds nuw i8, ptr %18, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %18, i64 24
   %31 = getelementptr inbounds nuw i8, ptr %18, i64 8
   br label %32
 
@@ -91022,9 +91022,9 @@ _ZNK4llvm5Error3isAINS_9ErrorListEEEbv.exit9.thread: ; preds = %17, %_ZNK4llvm5E
   tail call void @llvm.experimental.noalias.scope.decl(metadata !8536)
   store ptr %44, ptr %4, align 8, !alias.scope !8536
   store ptr null, ptr %2, align 8, !noalias !8536
-  %45 = getelementptr inbounds i8, ptr %18, i64 16
+  %45 = getelementptr inbounds nuw i8, ptr %18, i64 16
   %46 = load ptr, ptr %45, align 8
-  %47 = getelementptr inbounds i8, ptr %18, i64 24
+  %47 = getelementptr inbounds nuw i8, ptr %18, i64 24
   %48 = load ptr, ptr %47, align 8
   %.not.i.i11 = icmp eq ptr %46, %48
   br i1 %.not.i.i11, label %_ZNSt6vectorISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_EE9push_backEOS5_.exit12, label %_ZNSt6vectorISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_EE9push_backEOS5_.exit12.thread
@@ -91081,9 +91081,9 @@ _ZNK4llvm5Error3isAINS_9ErrorListEEEbv.exit17:    ; preds = %57
   %69 = ptrtoint ptr %66 to i64
   %70 = ptrtoint ptr %68 to i64
   %71 = sub i64 %69, %70
-  %72 = getelementptr inbounds i8, ptr %64, i64 16
+  %72 = getelementptr inbounds nuw i8, ptr %64, i64 16
   %73 = load ptr, ptr %72, align 8
-  %74 = getelementptr inbounds i8, ptr %64, i64 24
+  %74 = getelementptr inbounds nuw i8, ptr %64, i64 24
   %75 = load ptr, ptr %74, align 8
   %.not.i.i18 = icmp eq ptr %73, %75
   %76 = ptrtoint ptr %67 to i64
@@ -91187,10 +91187,10 @@ _ZNK4llvm5Error3isAINS_9ErrorListEEEbv.exit17.thread: ; preds = %57, %_ZNK4llvm5
   store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN4llvm9ErrorListE, i64 16), ptr %110, align 8
   %113 = getelementptr inbounds nuw i8, ptr %110, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %113, i8 0, i64 24, i1 false)
-  %114 = getelementptr inbounds i8, ptr %110, i64 16
+  %114 = getelementptr inbounds nuw i8, ptr %110, i64 16
   call void @_ZNSt6vectorISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %113, ptr null, ptr noundef nonnull align 8 dereferenceable(8) %6)
   %.pre.i = load ptr, ptr %114, align 8
-  %115 = getelementptr inbounds i8, ptr %110, i64 24
+  %115 = getelementptr inbounds nuw i8, ptr %110, i64 24
   %.pre3.i = load ptr, ptr %115, align 8
   %.not.i.i1.i = icmp eq ptr %.pre.i, %.pre3.i
   br i1 %.not.i.i1.i, label %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit24, label %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit24.thread
@@ -91475,7 +91475,7 @@ define linkonce_odr hidden noundef ptr @_ZNK5clang12RedeclarableINS_19Translatio
 
 15:                                               ; preds = %10
   %16 = getelementptr inbounds nuw i8, ptr %12, i64 2144
-  %17 = getelementptr inbounds i8, ptr %12, i64 2224
+  %17 = getelementptr inbounds nuw i8, ptr %12, i64 2224
   %18 = load i64, ptr %17, align 8
   %19 = add i64 %18, 24
   store i64 %19, ptr %17, align 8
@@ -91484,7 +91484,7 @@ define linkonce_odr hidden noundef ptr @_ZNK5clang12RedeclarableINS_19Translatio
   %22 = add i64 %21, 7
   %23 = and i64 %22, -8
   %24 = add i64 %23, 24
-  %25 = getelementptr inbounds i8, ptr %12, i64 2152
+  %25 = getelementptr inbounds nuw i8, ptr %12, i64 2152
   %26 = load ptr, ptr %25, align 8
   %27 = ptrtoint ptr %26 to i64
   %.not.i.i.i.i.i.i = icmp ugt i64 %24, %27
@@ -91604,7 +91604,7 @@ define linkonce_odr hidden noundef ptr @_ZNK5clang12RedeclarableINS_7TagDeclEE8D
 
 15:                                               ; preds = %10
   %16 = getelementptr inbounds nuw i8, ptr %12, i64 2144
-  %17 = getelementptr inbounds i8, ptr %12, i64 2224
+  %17 = getelementptr inbounds nuw i8, ptr %12, i64 2224
   %18 = load i64, ptr %17, align 8
   %19 = add i64 %18, 24
   store i64 %19, ptr %17, align 8
@@ -91613,7 +91613,7 @@ define linkonce_odr hidden noundef ptr @_ZNK5clang12RedeclarableINS_7TagDeclEE8D
   %22 = add i64 %21, 7
   %23 = and i64 %22, -8
   %24 = add i64 %23, 24
-  %25 = getelementptr inbounds i8, ptr %12, i64 2152
+  %25 = getelementptr inbounds nuw i8, ptr %12, i64 2152
   %26 = load ptr, ptr %25, align 8
   %27 = ptrtoint ptr %26 to i64
   %.not.i.i.i.i.i.i = icmp ugt i64 %24, %27
@@ -91821,7 +91821,7 @@ define internal fastcc range(i16 0, 258) i16 @_ZN5clang11TypeVisitorIN12_GLOBAL_
   br label %_ZN12_GLOBAL__N_127IsTypeDeclaredInsideVisitor14VisitUsingTypeEPKN5clang9UsingTypeE.exit
 
 25:                                               ; preds = %2
-  %26 = getelementptr inbounds i8, ptr %1, i64 20
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %27 = load i32, ptr %26, align 4
   %28 = zext i32 %27 to i64
   %.idx.i = mul nuw nsw i64 %28, 24
@@ -92423,7 +92423,7 @@ define linkonce_odr hidden noundef ptr @_ZNK5clang12RedeclarableINS_16ObjCProtoc
 
 15:                                               ; preds = %10
   %16 = getelementptr inbounds nuw i8, ptr %12, i64 2144
-  %17 = getelementptr inbounds i8, ptr %12, i64 2224
+  %17 = getelementptr inbounds nuw i8, ptr %12, i64 2224
   %18 = load i64, ptr %17, align 8
   %19 = add i64 %18, 24
   store i64 %19, ptr %17, align 8
@@ -92432,7 +92432,7 @@ define linkonce_odr hidden noundef ptr @_ZNK5clang12RedeclarableINS_16ObjCProtoc
   %22 = add i64 %21, 7
   %23 = and i64 %22, -8
   %24 = add i64 %23, 24
-  %25 = getelementptr inbounds i8, ptr %12, i64 2152
+  %25 = getelementptr inbounds nuw i8, ptr %12, i64 2152
   %26 = load ptr, ptr %25, align 8
   %27 = ptrtoint ptr %26 to i64
   %.not.i.i.i.i.i.i = icmp ugt i64 %24, %27
@@ -92542,7 +92542,7 @@ define linkonce_odr hidden noundef ptr @_ZNK5clang12RedeclarableINS_17ObjCInterf
 
 15:                                               ; preds = %10
   %16 = getelementptr inbounds nuw i8, ptr %12, i64 2144
-  %17 = getelementptr inbounds i8, ptr %12, i64 2224
+  %17 = getelementptr inbounds nuw i8, ptr %12, i64 2224
   %18 = load i64, ptr %17, align 8
   %19 = add i64 %18, 24
   store i64 %19, ptr %17, align 8
@@ -92551,7 +92551,7 @@ define linkonce_odr hidden noundef ptr @_ZNK5clang12RedeclarableINS_17ObjCInterf
   %22 = add i64 %21, 7
   %23 = and i64 %22, -8
   %24 = add i64 %23, 24
-  %25 = getelementptr inbounds i8, ptr %12, i64 2152
+  %25 = getelementptr inbounds nuw i8, ptr %12, i64 2152
   %26 = load ptr, ptr %25, align 8
   %27 = ptrtoint ptr %26 to i64
   %.not.i.i.i.i.i.i = icmp ugt i64 %24, %27
@@ -92669,7 +92669,7 @@ define linkonce_odr hidden noundef ptr @_ZNK5clang12RedeclarableINS_24Redeclarab
 
 15:                                               ; preds = %10
   %16 = getelementptr inbounds nuw i8, ptr %12, i64 2144
-  %17 = getelementptr inbounds i8, ptr %12, i64 2224
+  %17 = getelementptr inbounds nuw i8, ptr %12, i64 2224
   %18 = load i64, ptr %17, align 8
   %19 = add i64 %18, 24
   store i64 %19, ptr %17, align 8
@@ -92678,7 +92678,7 @@ define linkonce_odr hidden noundef ptr @_ZNK5clang12RedeclarableINS_24Redeclarab
   %22 = add i64 %21, 7
   %23 = and i64 %22, -8
   %24 = add i64 %23, 24
-  %25 = getelementptr inbounds i8, ptr %12, i64 2152
+  %25 = getelementptr inbounds nuw i8, ptr %12, i64 2152
   %26 = load ptr, ptr %25, align 8
   %27 = ptrtoint ptr %26 to i64
   %.not.i.i.i.i.i.i = icmp ugt i64 %24, %27
@@ -93261,7 +93261,7 @@ define linkonce_odr hidden noundef ptr @_ZN4llvm12DenseMapBaseINS_13SmallDenseMa
   %6 = lshr i32 %5, 1
   %7 = and i32 %5, 1
   %.not.i.i = icmp eq i32 %7, 0
-  %8 = getelementptr inbounds i8, ptr %0, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = load i32, ptr %8, align 8
   %10 = select i1 %.not.i.i, i32 %9, i32 32
   %11 = shl i32 %6, 2
@@ -93486,7 +93486,7 @@ define linkonce_odr hidden void @_ZN4llvm13SmallDenseMapIPN5clang4DeclEiLj32ENS_
   %37 = shl nuw nsw i64 %36, 4
   %38 = tail call noalias noundef nonnull ptr @_ZN4llvm15allocate_bufferEmm(i64 noundef %37, i64 noundef 8) #23
   store ptr %38, ptr %23, align 8
-  %39 = getelementptr inbounds i8, ptr %0, i64 16
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 %.0, ptr %39, align 8
   br label %40
 
@@ -93537,7 +93537,7 @@ define linkonce_odr hidden void @_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIPN5cl
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8
   %9 = select i1 %.not.i.i.i.i, ptr %8, ptr %7
-  %10 = getelementptr inbounds i8, ptr %0, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %11 = load i32, ptr %10, align 8
   %12 = select i1 %.not.i.i.i.i, i32 %11, i32 32
   %13 = zext i32 %12 to i64
@@ -94094,8 +94094,8 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPN5clang4DeclENS2_14ASTImportErrorENS_12Dens
   %66 = getelementptr inbounds nuw i8, ptr %.sink.i.i.i, i64 8
   %67 = getelementptr inbounds nuw i8, ptr %.020.i, i64 8
   store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN5clang14ASTImportErrorE, i64 16), ptr %66, align 8
-  %68 = getelementptr inbounds i8, ptr %.sink.i.i.i, i64 16
-  %69 = getelementptr inbounds i8, ptr %.020.i, i64 16
+  %68 = getelementptr inbounds nuw i8, ptr %.sink.i.i.i, i64 16
+  %69 = getelementptr inbounds nuw i8, ptr %.020.i, i64 16
   %70 = load i32, ptr %69, align 8
   store i32 %70, ptr %68, align 8
   %71 = load i32, ptr %32, align 8
@@ -94152,7 +94152,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZN5
   br i1 %.not.i.i, label %54, label %17
 
 17:                                               ; preds = %5
-  %18 = getelementptr inbounds i8, ptr %0, i64 208
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %19 = udiv i32 %6, 42
   %20 = urem i32 %6, 42
   %.zext.i.i = zext nneg i32 %19 to i64
@@ -94163,7 +94163,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZN5
   br i1 %.not.i.i.i, label %24, label %_ZNK4llvm11PagedVectorIN5clang6SrcMgr9SLocEntryELm42EEixEm.exit.i.i
 
 24:                                               ; preds = %17
-  %25 = getelementptr inbounds i8, ptr %0, i64 224
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %.0.copyload.i.i.i.i.i.i = load i64, ptr %25, align 8
   %26 = and i64 %.0.copyload.i.i.i.i.i.i, -8
   %27 = inttoptr i64 %26 to ptr
@@ -94459,7 +94459,7 @@ define linkonce_odr hidden noundef ptr @_ZNK5clang12RedeclarableINS_7VarDeclEE8D
 
 15:                                               ; preds = %10
   %16 = getelementptr inbounds nuw i8, ptr %12, i64 2144
-  %17 = getelementptr inbounds i8, ptr %12, i64 2224
+  %17 = getelementptr inbounds nuw i8, ptr %12, i64 2224
   %18 = load i64, ptr %17, align 8
   %19 = add i64 %18, 24
   store i64 %19, ptr %17, align 8
@@ -94468,7 +94468,7 @@ define linkonce_odr hidden noundef ptr @_ZNK5clang12RedeclarableINS_7VarDeclEE8D
   %22 = add i64 %21, 7
   %23 = and i64 %22, -8
   %24 = add i64 %23, 24
-  %25 = getelementptr inbounds i8, ptr %12, i64 2152
+  %25 = getelementptr inbounds nuw i8, ptr %12, i64 2152
   %26 = load ptr, ptr %25, align 8
   %27 = ptrtoint ptr %26 to i64
   %.not.i.i.i.i.i.i = icmp ugt i64 %24, %27
@@ -94578,7 +94578,7 @@ define linkonce_odr hidden noundef ptr @_ZNK5clang12RedeclarableINS_12FunctionDe
 
 15:                                               ; preds = %10
   %16 = getelementptr inbounds nuw i8, ptr %12, i64 2144
-  %17 = getelementptr inbounds i8, ptr %12, i64 2224
+  %17 = getelementptr inbounds nuw i8, ptr %12, i64 2224
   %18 = load i64, ptr %17, align 8
   %19 = add i64 %18, 24
   store i64 %19, ptr %17, align 8
@@ -94587,7 +94587,7 @@ define linkonce_odr hidden noundef ptr @_ZNK5clang12RedeclarableINS_12FunctionDe
   %22 = add i64 %21, 7
   %23 = and i64 %22, -8
   %24 = add i64 %23, 24
-  %25 = getelementptr inbounds i8, ptr %12, i64 2152
+  %25 = getelementptr inbounds nuw i8, ptr %12, i64 2152
   %26 = load ptr, ptr %25, align 8
   %27 = ptrtoint ptr %26 to i64
   %.not.i.i.i.i.i.i = icmp ugt i64 %24, %27
@@ -95316,7 +95316,7 @@ _ZN5clang17DiagnosticStorageC2Ev.exit:            ; preds = %7
   store i8 0, ptr %18, align 8
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 416
   %20 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %19) #23
-  %21 = getelementptr inbounds i8, ptr %18, i64 424
+  %21 = getelementptr inbounds nuw i8, ptr %18, i64 424
   store i32 0, ptr %21, align 8
   %22 = getelementptr inbounds nuw i8, ptr %18, i64 528
   %23 = load ptr, ptr %22, align 8
@@ -95337,7 +95337,7 @@ _ZN5clang17DiagnosticStorageC2Ev.exit:            ; preds = %7
   br i1 %.not.i.i, label %_ZN4llvm15SmallVectorImplIN5clang9FixItHintEE5clearEv.exit, label %.lr.ph.i.i, !llvm.loop !390
 
 _ZN4llvm15SmallVectorImplIN5clang9FixItHintEE5clearEv.exit: ; preds = %.lr.ph.i.i, %13
-  %28 = getelementptr inbounds i8, ptr %18, i64 536
+  %28 = getelementptr inbounds nuw i8, ptr %18, i64 536
   store i32 0, ptr %28, align 8
   br label %29
 
@@ -95388,7 +95388,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5clang15ASTNodeImporter30GetIm
   %8 = load ptr, ptr %0, align 8
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 280216
   %10 = load ptr, ptr %9, align 8, !noalias !8602
-  %11 = getelementptr inbounds i8, ptr %8, i64 280232
+  %11 = getelementptr inbounds nuw i8, ptr %8, i64 280232
   %12 = load i32, ptr %11, align 8, !noalias !8602
   %13 = icmp eq i32 %12, 0
   br i1 %13, label %.loopexit.i.i, label %14
@@ -95443,7 +95443,7 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapIPN5clang4DeclENS2_14ASTImportErrorENS_12Den
 _ZNSt8optionalIN5clang14ASTImportErrorEED2Ev.exit: ; preds = %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPN5clang4DeclENS2_14ASTImportErrorENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S5_EEEES4_S5_S7_SA_E4findEPKS3_.exit.i
   %39 = getelementptr inbounds nuw i8, ptr %8, i64 280192
   %40 = load ptr, ptr %39, align 8
-  %41 = getelementptr inbounds i8, ptr %8, i64 280208
+  %41 = getelementptr inbounds nuw i8, ptr %8, i64 280208
   %42 = load i32, ptr %41, align 8
   %43 = icmp eq i32 %42, 0
   br i1 %43, label %_ZNK5clang11ASTImporter24GetAlreadyImportedOrNullEPKNS_4DeclE.exit.thread, label %44
@@ -95506,7 +95506,7 @@ _ZNK5clang11ASTImporter24GetAlreadyImportedOrNullEPKNS_4DeclE.exit: ; preds = %5
   store ptr %75, ptr %7, align 8
   %76 = getelementptr inbounds nuw i8, ptr %74, i64 32
   %77 = load ptr, ptr %76, align 8, !noalias !8605
-  %78 = getelementptr inbounds i8, ptr %74, i64 48
+  %78 = getelementptr inbounds nuw i8, ptr %74, i64 48
   %79 = load i32, ptr %78, align 8, !noalias !8605
   %80 = icmp eq i32 %79, 0
   br i1 %80, label %106, label %81
@@ -95901,7 +95901,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5clang15ASTNodeImporter30GetIm
   %9 = load ptr, ptr %0, align 8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 280216
   %11 = load ptr, ptr %10, align 8, !noalias !8612
-  %12 = getelementptr inbounds i8, ptr %9, i64 280232
+  %12 = getelementptr inbounds nuw i8, ptr %9, i64 280232
   %13 = load i32, ptr %12, align 8, !noalias !8612
   %14 = icmp eq i32 %13, 0
   br i1 %14, label %.loopexit.i.i, label %15
@@ -95956,7 +95956,7 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapIPN5clang4DeclENS2_14ASTImportErrorENS_12Den
 _ZNSt8optionalIN5clang14ASTImportErrorEED2Ev.exit: ; preds = %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPN5clang4DeclENS2_14ASTImportErrorENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S5_EEEES4_S5_S7_SA_E4findEPKS3_.exit.i
   %40 = getelementptr inbounds nuw i8, ptr %9, i64 280192
   %41 = load ptr, ptr %40, align 8
-  %42 = getelementptr inbounds i8, ptr %9, i64 280208
+  %42 = getelementptr inbounds nuw i8, ptr %9, i64 280208
   %43 = load i32, ptr %42, align 8
   %44 = icmp eq i32 %43, 0
   br i1 %44, label %_ZNK5clang11ASTImporter24GetAlreadyImportedOrNullEPKNS_4DeclE.exit.thread, label %45
@@ -96020,7 +96020,7 @@ _ZNK5clang11ASTImporter24GetAlreadyImportedOrNullEPKNS_4DeclE.exit: ; preds = %5
   store ptr %77, ptr %8, align 8
   %78 = getelementptr inbounds nuw i8, ptr %76, i64 32
   %79 = load ptr, ptr %78, align 8, !noalias !8615
-  %80 = getelementptr inbounds i8, ptr %76, i64 48
+  %80 = getelementptr inbounds nuw i8, ptr %76, i64 48
   %81 = load i32, ptr %80, align 8, !noalias !8615
   %82 = icmp eq i32 %81, 0
   br i1 %82, label %108, label %83
@@ -96125,7 +96125,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5clang15ASTNodeImporter30GetIm
   %10 = load ptr, ptr %0, align 8
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 280216
   %12 = load ptr, ptr %11, align 8, !noalias !8620
-  %13 = getelementptr inbounds i8, ptr %10, i64 280232
+  %13 = getelementptr inbounds nuw i8, ptr %10, i64 280232
   %14 = load i32, ptr %13, align 8, !noalias !8620
   %15 = icmp eq i32 %14, 0
   br i1 %15, label %.loopexit.i.i, label %16
@@ -96180,7 +96180,7 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapIPN5clang4DeclENS2_14ASTImportErrorENS_12Den
 _ZNSt8optionalIN5clang14ASTImportErrorEED2Ev.exit: ; preds = %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPN5clang4DeclENS2_14ASTImportErrorENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S5_EEEES4_S5_S7_SA_E4findEPKS3_.exit.i
   %41 = getelementptr inbounds nuw i8, ptr %10, i64 280192
   %42 = load ptr, ptr %41, align 8
-  %43 = getelementptr inbounds i8, ptr %10, i64 280208
+  %43 = getelementptr inbounds nuw i8, ptr %10, i64 280208
   %44 = load i32, ptr %43, align 8
   %45 = icmp eq i32 %44, 0
   br i1 %45, label %_ZNK5clang11ASTImporter24GetAlreadyImportedOrNullEPKNS_4DeclE.exit.thread, label %46
@@ -96256,7 +96256,7 @@ _ZNK5clang11ASTImporter24GetAlreadyImportedOrNullEPKNS_4DeclE.exit: ; preds = %5
   store ptr %85, ptr %9, align 8
   %86 = getelementptr inbounds nuw i8, ptr %84, i64 32
   %87 = load ptr, ptr %86, align 8, !noalias !8623
-  %88 = getelementptr inbounds i8, ptr %84, i64 48
+  %88 = getelementptr inbounds nuw i8, ptr %84, i64 48
   %89 = load i32, ptr %88, align 8, !noalias !8623
   %90 = icmp eq i32 %89, 0
   br i1 %90, label %116, label %91
@@ -96437,7 +96437,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5clang15ASTNodeImporter30GetIm
   %12 = load ptr, ptr %0, align 8
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 280216
   %14 = load ptr, ptr %13, align 8, !noalias !8628
-  %15 = getelementptr inbounds i8, ptr %12, i64 280232
+  %15 = getelementptr inbounds nuw i8, ptr %12, i64 280232
   %16 = load i32, ptr %15, align 8, !noalias !8628
   %17 = icmp eq i32 %16, 0
   br i1 %17, label %.loopexit.i.i, label %18
@@ -96492,7 +96492,7 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapIPN5clang4DeclENS2_14ASTImportErrorENS_12Den
 _ZNSt8optionalIN5clang14ASTImportErrorEED2Ev.exit: ; preds = %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPN5clang4DeclENS2_14ASTImportErrorENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S5_EEEES4_S5_S7_SA_E4findEPKS3_.exit.i
   %43 = getelementptr inbounds nuw i8, ptr %12, i64 280192
   %44 = load ptr, ptr %43, align 8
-  %45 = getelementptr inbounds i8, ptr %12, i64 280208
+  %45 = getelementptr inbounds nuw i8, ptr %12, i64 280208
   %46 = load i32, ptr %45, align 8
   %47 = icmp eq i32 %46, 0
   br i1 %47, label %_ZNK5clang11ASTImporter24GetAlreadyImportedOrNullEPKNS_4DeclE.exit.thread, label %48
@@ -96560,7 +96560,7 @@ _ZNK5clang11ASTImporter24GetAlreadyImportedOrNullEPKNS_4DeclE.exit: ; preds = %6
   store ptr %83, ptr %11, align 8
   %84 = getelementptr inbounds nuw i8, ptr %82, i64 32
   %85 = load ptr, ptr %84, align 8, !noalias !8631
-  %86 = getelementptr inbounds i8, ptr %82, i64 48
+  %86 = getelementptr inbounds nuw i8, ptr %82, i64 48
   %87 = load i32, ptr %86, align 8, !noalias !8631
   %88 = icmp eq i32 %87, 0
   br i1 %88, label %114, label %89
@@ -96665,7 +96665,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5clang15ASTNodeImporter30GetIm
   %13 = load ptr, ptr %0, align 8
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 280216
   %15 = load ptr, ptr %14, align 8, !noalias !8636
-  %16 = getelementptr inbounds i8, ptr %13, i64 280232
+  %16 = getelementptr inbounds nuw i8, ptr %13, i64 280232
   %17 = load i32, ptr %16, align 8, !noalias !8636
   %18 = icmp eq i32 %17, 0
   br i1 %18, label %.loopexit.i.i, label %19
@@ -96720,7 +96720,7 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapIPN5clang4DeclENS2_14ASTImportErrorENS_12Den
 _ZNSt8optionalIN5clang14ASTImportErrorEED2Ev.exit: ; preds = %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPN5clang4DeclENS2_14ASTImportErrorENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S5_EEEES4_S5_S7_SA_E4findEPKS3_.exit.i
   %44 = getelementptr inbounds nuw i8, ptr %13, i64 280192
   %45 = load ptr, ptr %44, align 8
-  %46 = getelementptr inbounds i8, ptr %13, i64 280208
+  %46 = getelementptr inbounds nuw i8, ptr %13, i64 280208
   %47 = load i32, ptr %46, align 8
   %48 = icmp eq i32 %47, 0
   br i1 %48, label %_ZNK5clang11ASTImporter24GetAlreadyImportedOrNullEPKNS_4DeclE.exit.thread, label %49
@@ -96789,7 +96789,7 @@ _ZNK5clang11ASTImporter24GetAlreadyImportedOrNullEPKNS_4DeclE.exit: ; preds = %6
   store ptr %85, ptr %12, align 8
   %86 = getelementptr inbounds nuw i8, ptr %84, i64 32
   %87 = load ptr, ptr %86, align 8, !noalias !8639
-  %88 = getelementptr inbounds i8, ptr %84, i64 48
+  %88 = getelementptr inbounds nuw i8, ptr %84, i64 48
   %89 = load i32, ptr %88, align 8, !noalias !8639
   %90 = icmp eq i32 %89, 0
   br i1 %90, label %116, label %91
@@ -96894,7 +96894,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5clang15ASTNodeImporter30GetIm
   %13 = load ptr, ptr %0, align 8
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 280216
   %15 = load ptr, ptr %14, align 8, !noalias !8644
-  %16 = getelementptr inbounds i8, ptr %13, i64 280232
+  %16 = getelementptr inbounds nuw i8, ptr %13, i64 280232
   %17 = load i32, ptr %16, align 8, !noalias !8644
   %18 = icmp eq i32 %17, 0
   br i1 %18, label %.loopexit.i.i, label %19
@@ -96949,7 +96949,7 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapIPN5clang4DeclENS2_14ASTImportErrorENS_12Den
 _ZNSt8optionalIN5clang14ASTImportErrorEED2Ev.exit: ; preds = %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPN5clang4DeclENS2_14ASTImportErrorENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S5_EEEES4_S5_S7_SA_E4findEPKS3_.exit.i
   %44 = getelementptr inbounds nuw i8, ptr %13, i64 280192
   %45 = load ptr, ptr %44, align 8
-  %46 = getelementptr inbounds i8, ptr %13, i64 280208
+  %46 = getelementptr inbounds nuw i8, ptr %13, i64 280208
   %47 = load i32, ptr %46, align 8
   %48 = icmp eq i32 %47, 0
   br i1 %48, label %_ZNK5clang11ASTImporter24GetAlreadyImportedOrNullEPKNS_4DeclE.exit.thread, label %49
@@ -97016,7 +97016,7 @@ _ZNK5clang11ASTImporter24GetAlreadyImportedOrNullEPKNS_4DeclE.exit: ; preds = %6
   store ptr %82, ptr %12, align 8
   %83 = getelementptr inbounds nuw i8, ptr %81, i64 32
   %84 = load ptr, ptr %83, align 8, !noalias !8647
-  %85 = getelementptr inbounds i8, ptr %81, i64 48
+  %85 = getelementptr inbounds nuw i8, ptr %81, i64 48
   %86 = load i32, ptr %85, align 8, !noalias !8647
   %87 = icmp eq i32 %86, 0
   br i1 %87, label %113, label %88
@@ -97121,7 +97121,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5clang15ASTNodeImporter30GetIm
   %11 = load ptr, ptr %0, align 8
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 280216
   %13 = load ptr, ptr %12, align 8, !noalias !8652
-  %14 = getelementptr inbounds i8, ptr %11, i64 280232
+  %14 = getelementptr inbounds nuw i8, ptr %11, i64 280232
   %15 = load i32, ptr %14, align 8, !noalias !8652
   %16 = icmp eq i32 %15, 0
   br i1 %16, label %.loopexit.i.i, label %17
@@ -97176,7 +97176,7 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapIPN5clang4DeclENS2_14ASTImportErrorENS_12Den
 _ZNSt8optionalIN5clang14ASTImportErrorEED2Ev.exit: ; preds = %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPN5clang4DeclENS2_14ASTImportErrorENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S5_EEEES4_S5_S7_SA_E4findEPKS3_.exit.i
   %42 = getelementptr inbounds nuw i8, ptr %11, i64 280192
   %43 = load ptr, ptr %42, align 8
-  %44 = getelementptr inbounds i8, ptr %11, i64 280208
+  %44 = getelementptr inbounds nuw i8, ptr %11, i64 280208
   %45 = load i32, ptr %44, align 8
   %46 = icmp eq i32 %45, 0
   br i1 %46, label %_ZNK5clang11ASTImporter24GetAlreadyImportedOrNullEPKNS_4DeclE.exit.thread, label %47
@@ -97242,7 +97242,7 @@ _ZNK5clang11ASTImporter24GetAlreadyImportedOrNullEPKNS_4DeclE.exit: ; preds = %6
   store ptr %80, ptr %10, align 8
   %81 = getelementptr inbounds nuw i8, ptr %79, i64 32
   %82 = load ptr, ptr %81, align 8, !noalias !8655
-  %83 = getelementptr inbounds i8, ptr %79, i64 48
+  %83 = getelementptr inbounds nuw i8, ptr %79, i64 48
   %84 = load i32, ptr %83, align 8, !noalias !8655
   %85 = icmp eq i32 %84, 0
   br i1 %85, label %111, label %86
@@ -97347,7 +97347,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5clang15ASTNodeImporter30GetIm
   %11 = load ptr, ptr %0, align 8
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 280216
   %13 = load ptr, ptr %12, align 8, !noalias !8660
-  %14 = getelementptr inbounds i8, ptr %11, i64 280232
+  %14 = getelementptr inbounds nuw i8, ptr %11, i64 280232
   %15 = load i32, ptr %14, align 8, !noalias !8660
   %16 = icmp eq i32 %15, 0
   br i1 %16, label %.loopexit.i.i, label %17
@@ -97402,7 +97402,7 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapIPN5clang4DeclENS2_14ASTImportErrorENS_12Den
 _ZNSt8optionalIN5clang14ASTImportErrorEED2Ev.exit: ; preds = %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPN5clang4DeclENS2_14ASTImportErrorENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S5_EEEES4_S5_S7_SA_E4findEPKS3_.exit.i
   %42 = getelementptr inbounds nuw i8, ptr %11, i64 280192
   %43 = load ptr, ptr %42, align 8
-  %44 = getelementptr inbounds i8, ptr %11, i64 280208
+  %44 = getelementptr inbounds nuw i8, ptr %11, i64 280208
   %45 = load i32, ptr %44, align 8
   %46 = icmp eq i32 %45, 0
   br i1 %46, label %_ZNK5clang11ASTImporter24GetAlreadyImportedOrNullEPKNS_4DeclE.exit.thread, label %47
@@ -97468,7 +97468,7 @@ _ZNK5clang11ASTImporter24GetAlreadyImportedOrNullEPKNS_4DeclE.exit: ; preds = %6
   store ptr %80, ptr %10, align 8
   %81 = getelementptr inbounds nuw i8, ptr %79, i64 32
   %82 = load ptr, ptr %81, align 8, !noalias !8663
-  %83 = getelementptr inbounds i8, ptr %79, i64 48
+  %83 = getelementptr inbounds nuw i8, ptr %79, i64 48
   %84 = load i32, ptr %83, align 8, !noalias !8663
   %85 = icmp eq i32 %84, 0
   br i1 %85, label %111, label %86
@@ -97573,7 +97573,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5clang15ASTNodeImporter30GetIm
   %11 = load ptr, ptr %0, align 8
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 280216
   %13 = load ptr, ptr %12, align 8, !noalias !8668
-  %14 = getelementptr inbounds i8, ptr %11, i64 280232
+  %14 = getelementptr inbounds nuw i8, ptr %11, i64 280232
   %15 = load i32, ptr %14, align 8, !noalias !8668
   %16 = icmp eq i32 %15, 0
   br i1 %16, label %.loopexit.i.i, label %17
@@ -97628,7 +97628,7 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapIPN5clang4DeclENS2_14ASTImportErrorENS_12Den
 _ZNSt8optionalIN5clang14ASTImportErrorEED2Ev.exit: ; preds = %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPN5clang4DeclENS2_14ASTImportErrorENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S5_EEEES4_S5_S7_SA_E4findEPKS3_.exit.i
   %42 = getelementptr inbounds nuw i8, ptr %11, i64 280192
   %43 = load ptr, ptr %42, align 8
-  %44 = getelementptr inbounds i8, ptr %11, i64 280208
+  %44 = getelementptr inbounds nuw i8, ptr %11, i64 280208
   %45 = load i32, ptr %44, align 8
   %46 = icmp eq i32 %45, 0
   br i1 %46, label %_ZNK5clang11ASTImporter24GetAlreadyImportedOrNullEPKNS_4DeclE.exit.thread, label %47
@@ -97694,7 +97694,7 @@ _ZNK5clang11ASTImporter24GetAlreadyImportedOrNullEPKNS_4DeclE.exit: ; preds = %6
   store ptr %80, ptr %10, align 8
   %81 = getelementptr inbounds nuw i8, ptr %79, i64 32
   %82 = load ptr, ptr %81, align 8, !noalias !8671
-  %83 = getelementptr inbounds i8, ptr %79, i64 48
+  %83 = getelementptr inbounds nuw i8, ptr %79, i64 48
   %84 = load i32, ptr %83, align 8, !noalias !8671
   %85 = icmp eq i32 %84, 0
   br i1 %85, label %111, label %86
@@ -97799,7 +97799,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5clang15ASTNodeImporter30GetIm
   %10 = load ptr, ptr %0, align 8
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 280216
   %12 = load ptr, ptr %11, align 8, !noalias !8676
-  %13 = getelementptr inbounds i8, ptr %10, i64 280232
+  %13 = getelementptr inbounds nuw i8, ptr %10, i64 280232
   %14 = load i32, ptr %13, align 8, !noalias !8676
   %15 = icmp eq i32 %14, 0
   br i1 %15, label %.loopexit.i.i, label %16
@@ -97854,7 +97854,7 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapIPN5clang4DeclENS2_14ASTImportErrorENS_12Den
 _ZNSt8optionalIN5clang14ASTImportErrorEED2Ev.exit: ; preds = %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPN5clang4DeclENS2_14ASTImportErrorENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S5_EEEES4_S5_S7_SA_E4findEPKS3_.exit.i
   %41 = getelementptr inbounds nuw i8, ptr %10, i64 280192
   %42 = load ptr, ptr %41, align 8
-  %43 = getelementptr inbounds i8, ptr %10, i64 280208
+  %43 = getelementptr inbounds nuw i8, ptr %10, i64 280208
   %44 = load i32, ptr %43, align 8
   %45 = icmp eq i32 %44, 0
   br i1 %45, label %_ZNK5clang11ASTImporter24GetAlreadyImportedOrNullEPKNS_4DeclE.exit.thread, label %46
@@ -97919,7 +97919,7 @@ _ZNK5clang11ASTImporter24GetAlreadyImportedOrNullEPKNS_4DeclE.exit: ; preds = %5
   store ptr %78, ptr %9, align 8
   %79 = getelementptr inbounds nuw i8, ptr %77, i64 32
   %80 = load ptr, ptr %79, align 8, !noalias !8679
-  %81 = getelementptr inbounds i8, ptr %77, i64 48
+  %81 = getelementptr inbounds nuw i8, ptr %77, i64 48
   %82 = load i32, ptr %81, align 8, !noalias !8679
   %83 = icmp eq i32 %82, 0
   br i1 %83, label %109, label %84
@@ -98024,7 +98024,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5clang15ASTNodeImporter30GetIm
   %9 = load ptr, ptr %0, align 8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 280216
   %11 = load ptr, ptr %10, align 8, !noalias !8684
-  %12 = getelementptr inbounds i8, ptr %9, i64 280232
+  %12 = getelementptr inbounds nuw i8, ptr %9, i64 280232
   %13 = load i32, ptr %12, align 8, !noalias !8684
   %14 = icmp eq i32 %13, 0
   br i1 %14, label %.loopexit.i.i, label %15
@@ -98079,7 +98079,7 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapIPN5clang4DeclENS2_14ASTImportErrorENS_12Den
 _ZNSt8optionalIN5clang14ASTImportErrorEED2Ev.exit: ; preds = %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPN5clang4DeclENS2_14ASTImportErrorENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S5_EEEES4_S5_S7_SA_E4findEPKS3_.exit.i
   %40 = getelementptr inbounds nuw i8, ptr %9, i64 280192
   %41 = load ptr, ptr %40, align 8
-  %42 = getelementptr inbounds i8, ptr %9, i64 280208
+  %42 = getelementptr inbounds nuw i8, ptr %9, i64 280208
   %43 = load i32, ptr %42, align 8
   %44 = icmp eq i32 %43, 0
   br i1 %44, label %_ZNK5clang11ASTImporter24GetAlreadyImportedOrNullEPKNS_4DeclE.exit.thread, label %45
@@ -98143,7 +98143,7 @@ _ZNK5clang11ASTImporter24GetAlreadyImportedOrNullEPKNS_4DeclE.exit: ; preds = %5
   store ptr %77, ptr %8, align 8
   %78 = getelementptr inbounds nuw i8, ptr %76, i64 32
   %79 = load ptr, ptr %78, align 8, !noalias !8687
-  %80 = getelementptr inbounds i8, ptr %76, i64 48
+  %80 = getelementptr inbounds nuw i8, ptr %76, i64 48
   %81 = load i32, ptr %80, align 8, !noalias !8687
   %82 = icmp eq i32 %81, 0
   br i1 %82, label %108, label %83
@@ -98248,7 +98248,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5clang15ASTNodeImporter30GetIm
   %14 = load ptr, ptr %0, align 8
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 280216
   %16 = load ptr, ptr %15, align 8, !noalias !8692
-  %17 = getelementptr inbounds i8, ptr %14, i64 280232
+  %17 = getelementptr inbounds nuw i8, ptr %14, i64 280232
   %18 = load i32, ptr %17, align 8, !noalias !8692
   %19 = icmp eq i32 %18, 0
   br i1 %19, label %.loopexit.i.i, label %20
@@ -98303,7 +98303,7 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapIPN5clang4DeclENS2_14ASTImportErrorENS_12Den
 _ZNSt8optionalIN5clang14ASTImportErrorEED2Ev.exit: ; preds = %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPN5clang4DeclENS2_14ASTImportErrorENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S5_EEEES4_S5_S7_SA_E4findEPKS3_.exit.i
   %45 = getelementptr inbounds nuw i8, ptr %14, i64 280192
   %46 = load ptr, ptr %45, align 8
-  %47 = getelementptr inbounds i8, ptr %14, i64 280208
+  %47 = getelementptr inbounds nuw i8, ptr %14, i64 280208
   %48 = load i32, ptr %47, align 8
   %49 = icmp eq i32 %48, 0
   br i1 %49, label %_ZNK5clang11ASTImporter24GetAlreadyImportedOrNullEPKNS_4DeclE.exit.thread, label %50
@@ -98375,7 +98375,7 @@ _ZNK5clang11ASTImporter24GetAlreadyImportedOrNullEPKNS_4DeclE.exit: ; preds = %6
   store ptr %89, ptr %13, align 8
   %90 = getelementptr inbounds nuw i8, ptr %88, i64 32
   %91 = load ptr, ptr %90, align 8, !noalias !8695
-  %92 = getelementptr inbounds i8, ptr %88, i64 48
+  %92 = getelementptr inbounds nuw i8, ptr %88, i64 48
   %93 = load i32, ptr %92, align 8, !noalias !8695
   %94 = icmp eq i32 %93, 0
   br i1 %94, label %120, label %95
@@ -98480,7 +98480,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5clang15ASTNodeImporter30GetIm
   %13 = load ptr, ptr %0, align 8
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 280216
   %15 = load ptr, ptr %14, align 8, !noalias !8700
-  %16 = getelementptr inbounds i8, ptr %13, i64 280232
+  %16 = getelementptr inbounds nuw i8, ptr %13, i64 280232
   %17 = load i32, ptr %16, align 8, !noalias !8700
   %18 = icmp eq i32 %17, 0
   br i1 %18, label %.loopexit.i.i, label %19
@@ -98535,7 +98535,7 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapIPN5clang4DeclENS2_14ASTImportErrorENS_12Den
 _ZNSt8optionalIN5clang14ASTImportErrorEED2Ev.exit: ; preds = %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPN5clang4DeclENS2_14ASTImportErrorENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S5_EEEES4_S5_S7_SA_E4findEPKS3_.exit.i
   %44 = getelementptr inbounds nuw i8, ptr %13, i64 280192
   %45 = load ptr, ptr %44, align 8
-  %46 = getelementptr inbounds i8, ptr %13, i64 280208
+  %46 = getelementptr inbounds nuw i8, ptr %13, i64 280208
   %47 = load i32, ptr %46, align 8
   %48 = icmp eq i32 %47, 0
   br i1 %48, label %_ZNK5clang11ASTImporter24GetAlreadyImportedOrNullEPKNS_4DeclE.exit.thread, label %49
@@ -98604,7 +98604,7 @@ _ZNK5clang11ASTImporter24GetAlreadyImportedOrNullEPKNS_4DeclE.exit: ; preds = %6
   store ptr %85, ptr %12, align 8
   %86 = getelementptr inbounds nuw i8, ptr %84, i64 32
   %87 = load ptr, ptr %86, align 8, !noalias !8703
-  %88 = getelementptr inbounds i8, ptr %84, i64 48
+  %88 = getelementptr inbounds nuw i8, ptr %84, i64 48
   %89 = load i32, ptr %88, align 8, !noalias !8703
   %90 = icmp eq i32 %89, 0
   br i1 %90, label %116, label %91
@@ -98709,7 +98709,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5clang15ASTNodeImporter30GetIm
   %12 = load ptr, ptr %0, align 8
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 280216
   %14 = load ptr, ptr %13, align 8, !noalias !8708
-  %15 = getelementptr inbounds i8, ptr %12, i64 280232
+  %15 = getelementptr inbounds nuw i8, ptr %12, i64 280232
   %16 = load i32, ptr %15, align 8, !noalias !8708
   %17 = icmp eq i32 %16, 0
   br i1 %17, label %.loopexit.i.i, label %18
@@ -98764,7 +98764,7 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapIPN5clang4DeclENS2_14ASTImportErrorENS_12Den
 _ZNSt8optionalIN5clang14ASTImportErrorEED2Ev.exit: ; preds = %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPN5clang4DeclENS2_14ASTImportErrorENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S5_EEEES4_S5_S7_SA_E4findEPKS3_.exit.i
   %43 = getelementptr inbounds nuw i8, ptr %12, i64 280192
   %44 = load ptr, ptr %43, align 8
-  %45 = getelementptr inbounds i8, ptr %12, i64 280208
+  %45 = getelementptr inbounds nuw i8, ptr %12, i64 280208
   %46 = load i32, ptr %45, align 8
   %47 = icmp eq i32 %46, 0
   br i1 %47, label %_ZNK5clang11ASTImporter24GetAlreadyImportedOrNullEPKNS_4DeclE.exit.thread, label %48
@@ -98831,7 +98831,7 @@ _ZNK5clang11ASTImporter24GetAlreadyImportedOrNullEPKNS_4DeclE.exit: ; preds = %6
   store ptr %82, ptr %11, align 8
   %83 = getelementptr inbounds nuw i8, ptr %81, i64 32
   %84 = load ptr, ptr %83, align 8, !noalias !8711
-  %85 = getelementptr inbounds i8, ptr %81, i64 48
+  %85 = getelementptr inbounds nuw i8, ptr %81, i64 48
   %86 = load i32, ptr %85, align 8, !noalias !8711
   %87 = icmp eq i32 %86, 0
   br i1 %87, label %113, label %88
@@ -98934,7 +98934,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5clang15ASTNodeImporter30GetIm
   %12 = load ptr, ptr %0, align 8
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 280216
   %14 = load ptr, ptr %13, align 8, !noalias !8716
-  %15 = getelementptr inbounds i8, ptr %12, i64 280232
+  %15 = getelementptr inbounds nuw i8, ptr %12, i64 280232
   %16 = load i32, ptr %15, align 8, !noalias !8716
   %17 = icmp eq i32 %16, 0
   br i1 %17, label %.loopexit.i.i, label %18
@@ -98989,7 +98989,7 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapIPN5clang4DeclENS2_14ASTImportErrorENS_12Den
 _ZNSt8optionalIN5clang14ASTImportErrorEED2Ev.exit: ; preds = %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPN5clang4DeclENS2_14ASTImportErrorENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S5_EEEES4_S5_S7_SA_E4findEPKS3_.exit.i
   %43 = getelementptr inbounds nuw i8, ptr %12, i64 280192
   %44 = load ptr, ptr %43, align 8
-  %45 = getelementptr inbounds i8, ptr %12, i64 280208
+  %45 = getelementptr inbounds nuw i8, ptr %12, i64 280208
   %46 = load i32, ptr %45, align 8
   %47 = icmp eq i32 %46, 0
   br i1 %47, label %_ZNK5clang11ASTImporter24GetAlreadyImportedOrNullEPKNS_4DeclE.exit.thread, label %48
@@ -99056,7 +99056,7 @@ _ZNK5clang11ASTImporter24GetAlreadyImportedOrNullEPKNS_4DeclE.exit: ; preds = %6
   store ptr %82, ptr %11, align 8
   %83 = getelementptr inbounds nuw i8, ptr %81, i64 32
   %84 = load ptr, ptr %83, align 8, !noalias !8719
-  %85 = getelementptr inbounds i8, ptr %81, i64 48
+  %85 = getelementptr inbounds nuw i8, ptr %81, i64 48
   %86 = load i32, ptr %85, align 8, !noalias !8719
   %87 = icmp eq i32 %86, 0
   br i1 %87, label %113, label %88
@@ -99161,7 +99161,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5clang15ASTNodeImporter30GetIm
   %12 = load ptr, ptr %0, align 8
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 280216
   %14 = load ptr, ptr %13, align 8, !noalias !8724
-  %15 = getelementptr inbounds i8, ptr %12, i64 280232
+  %15 = getelementptr inbounds nuw i8, ptr %12, i64 280232
   %16 = load i32, ptr %15, align 8, !noalias !8724
   %17 = icmp eq i32 %16, 0
   br i1 %17, label %.loopexit.i.i, label %18
@@ -99216,7 +99216,7 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapIPN5clang4DeclENS2_14ASTImportErrorENS_12Den
 _ZNSt8optionalIN5clang14ASTImportErrorEED2Ev.exit: ; preds = %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPN5clang4DeclENS2_14ASTImportErrorENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S5_EEEES4_S5_S7_SA_E4findEPKS3_.exit.i
   %43 = getelementptr inbounds nuw i8, ptr %12, i64 280192
   %44 = load ptr, ptr %43, align 8
-  %45 = getelementptr inbounds i8, ptr %12, i64 280208
+  %45 = getelementptr inbounds nuw i8, ptr %12, i64 280208
   %46 = load i32, ptr %45, align 8
   %47 = icmp eq i32 %46, 0
   br i1 %47, label %_ZNK5clang11ASTImporter24GetAlreadyImportedOrNullEPKNS_4DeclE.exit.thread, label %48
@@ -99282,7 +99282,7 @@ _ZNK5clang11ASTImporter24GetAlreadyImportedOrNullEPKNS_4DeclE.exit: ; preds = %6
   store ptr %81, ptr %11, align 8
   %82 = getelementptr inbounds nuw i8, ptr %80, i64 32
   %83 = load ptr, ptr %82, align 8, !noalias !8727
-  %84 = getelementptr inbounds i8, ptr %80, i64 48
+  %84 = getelementptr inbounds nuw i8, ptr %80, i64 48
   %85 = load i32, ptr %84, align 8, !noalias !8727
   %86 = icmp eq i32 %85, 0
   br i1 %86, label %112, label %87
@@ -99520,7 +99520,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5clang15ASTNodeImporter30GetIm
   %18 = load ptr, ptr %0, align 8
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 280216
   %20 = load ptr, ptr %19, align 8, !noalias !8732
-  %21 = getelementptr inbounds i8, ptr %18, i64 280232
+  %21 = getelementptr inbounds nuw i8, ptr %18, i64 280232
   %22 = load i32, ptr %21, align 8, !noalias !8732
   %23 = icmp eq i32 %22, 0
   br i1 %23, label %.loopexit.i.i, label %24
@@ -99575,7 +99575,7 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapIPN5clang4DeclENS2_14ASTImportErrorENS_12Den
 _ZNSt8optionalIN5clang14ASTImportErrorEED2Ev.exit: ; preds = %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPN5clang4DeclENS2_14ASTImportErrorENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S5_EEEES4_S5_S7_SA_E4findEPKS3_.exit.i
   %49 = getelementptr inbounds nuw i8, ptr %18, i64 280192
   %50 = load ptr, ptr %49, align 8
-  %51 = getelementptr inbounds i8, ptr %18, i64 280208
+  %51 = getelementptr inbounds nuw i8, ptr %18, i64 280208
   %52 = load i32, ptr %51, align 8
   %53 = icmp eq i32 %52, 0
   br i1 %53, label %_ZNK5clang11ASTImporter24GetAlreadyImportedOrNullEPKNS_4DeclE.exit.thread, label %54
@@ -99649,7 +99649,7 @@ _ZNK5clang11ASTImporter24GetAlreadyImportedOrNullEPKNS_4DeclE.exit: ; preds = %6
   store ptr %94, ptr %17, align 8
   %95 = getelementptr inbounds nuw i8, ptr %93, i64 32
   %96 = load ptr, ptr %95, align 8, !noalias !8735
-  %97 = getelementptr inbounds i8, ptr %93, i64 48
+  %97 = getelementptr inbounds nuw i8, ptr %93, i64 48
   %98 = load i32, ptr %97, align 8, !noalias !8735
   %99 = icmp eq i32 %98, 0
   br i1 %99, label %125, label %100
@@ -99754,7 +99754,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5clang15ASTNodeImporter30GetIm
   %16 = load ptr, ptr %0, align 8
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 280216
   %18 = load ptr, ptr %17, align 8, !noalias !8740
-  %19 = getelementptr inbounds i8, ptr %16, i64 280232
+  %19 = getelementptr inbounds nuw i8, ptr %16, i64 280232
   %20 = load i32, ptr %19, align 8, !noalias !8740
   %21 = icmp eq i32 %20, 0
   br i1 %21, label %.loopexit.i.i, label %22
@@ -99809,7 +99809,7 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapIPN5clang4DeclENS2_14ASTImportErrorENS_12Den
 _ZNSt8optionalIN5clang14ASTImportErrorEED2Ev.exit: ; preds = %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPN5clang4DeclENS2_14ASTImportErrorENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S5_EEEES4_S5_S7_SA_E4findEPKS3_.exit.i
   %47 = getelementptr inbounds nuw i8, ptr %16, i64 280192
   %48 = load ptr, ptr %47, align 8
-  %49 = getelementptr inbounds i8, ptr %16, i64 280208
+  %49 = getelementptr inbounds nuw i8, ptr %16, i64 280208
   %50 = load i32, ptr %49, align 8
   %51 = icmp eq i32 %50, 0
   br i1 %51, label %_ZNK5clang11ASTImporter24GetAlreadyImportedOrNullEPKNS_4DeclE.exit.thread, label %52
@@ -99882,7 +99882,7 @@ _ZNK5clang11ASTImporter24GetAlreadyImportedOrNullEPKNS_4DeclE.exit: ; preds = %6
   store ptr %92, ptr %15, align 8
   %93 = getelementptr inbounds nuw i8, ptr %91, i64 32
   %94 = load ptr, ptr %93, align 8, !noalias !8743
-  %95 = getelementptr inbounds i8, ptr %91, i64 48
+  %95 = getelementptr inbounds nuw i8, ptr %91, i64 48
   %96 = load i32, ptr %95, align 8, !noalias !8743
   %97 = icmp eq i32 %96, 0
   br i1 %97, label %123, label %98
@@ -99987,7 +99987,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5clang15ASTNodeImporter30GetIm
   %17 = load ptr, ptr %0, align 8
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 280216
   %19 = load ptr, ptr %18, align 8, !noalias !8748
-  %20 = getelementptr inbounds i8, ptr %17, i64 280232
+  %20 = getelementptr inbounds nuw i8, ptr %17, i64 280232
   %21 = load i32, ptr %20, align 8, !noalias !8748
   %22 = icmp eq i32 %21, 0
   br i1 %22, label %.loopexit.i.i, label %23
@@ -100042,7 +100042,7 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapIPN5clang4DeclENS2_14ASTImportErrorENS_12Den
 _ZNSt8optionalIN5clang14ASTImportErrorEED2Ev.exit: ; preds = %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPN5clang4DeclENS2_14ASTImportErrorENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S5_EEEES4_S5_S7_SA_E4findEPKS3_.exit.i
   %48 = getelementptr inbounds nuw i8, ptr %17, i64 280192
   %49 = load ptr, ptr %48, align 8
-  %50 = getelementptr inbounds i8, ptr %17, i64 280208
+  %50 = getelementptr inbounds nuw i8, ptr %17, i64 280208
   %51 = load i32, ptr %50, align 8
   %52 = icmp eq i32 %51, 0
   br i1 %52, label %_ZNK5clang11ASTImporter24GetAlreadyImportedOrNullEPKNS_4DeclE.exit.thread, label %53
@@ -100115,7 +100115,7 @@ _ZNK5clang11ASTImporter24GetAlreadyImportedOrNullEPKNS_4DeclE.exit: ; preds = %6
   store ptr %91, ptr %16, align 8
   %92 = getelementptr inbounds nuw i8, ptr %90, i64 32
   %93 = load ptr, ptr %92, align 8, !noalias !8751
-  %94 = getelementptr inbounds i8, ptr %90, i64 48
+  %94 = getelementptr inbounds nuw i8, ptr %90, i64 48
   %95 = load i32, ptr %94, align 8, !noalias !8751
   %96 = icmp eq i32 %95, 0
   br i1 %96, label %122, label %97
@@ -100220,7 +100220,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5clang15ASTNodeImporter30GetIm
   %17 = load ptr, ptr %0, align 8
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 280216
   %19 = load ptr, ptr %18, align 8, !noalias !8756
-  %20 = getelementptr inbounds i8, ptr %17, i64 280232
+  %20 = getelementptr inbounds nuw i8, ptr %17, i64 280232
   %21 = load i32, ptr %20, align 8, !noalias !8756
   %22 = icmp eq i32 %21, 0
   br i1 %22, label %.loopexit.i.i, label %23
@@ -100275,7 +100275,7 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapIPN5clang4DeclENS2_14ASTImportErrorENS_12Den
 _ZNSt8optionalIN5clang14ASTImportErrorEED2Ev.exit: ; preds = %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPN5clang4DeclENS2_14ASTImportErrorENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S5_EEEES4_S5_S7_SA_E4findEPKS3_.exit.i
   %48 = getelementptr inbounds nuw i8, ptr %17, i64 280192
   %49 = load ptr, ptr %48, align 8
-  %50 = getelementptr inbounds i8, ptr %17, i64 280208
+  %50 = getelementptr inbounds nuw i8, ptr %17, i64 280208
   %51 = load i32, ptr %50, align 8
   %52 = icmp eq i32 %51, 0
   br i1 %52, label %_ZNK5clang11ASTImporter24GetAlreadyImportedOrNullEPKNS_4DeclE.exit.thread, label %53
@@ -100348,7 +100348,7 @@ _ZNK5clang11ASTImporter24GetAlreadyImportedOrNullEPKNS_4DeclE.exit: ; preds = %6
   store ptr %92, ptr %16, align 8
   %93 = getelementptr inbounds nuw i8, ptr %91, i64 32
   %94 = load ptr, ptr %93, align 8, !noalias !8759
-  %95 = getelementptr inbounds i8, ptr %91, i64 48
+  %95 = getelementptr inbounds nuw i8, ptr %91, i64 48
   %96 = load i32, ptr %95, align 8, !noalias !8759
   %97 = icmp eq i32 %96, 0
   br i1 %97, label %123, label %98
@@ -100453,7 +100453,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5clang15ASTNodeImporter30GetIm
   %14 = load ptr, ptr %0, align 8
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 280216
   %16 = load ptr, ptr %15, align 8, !noalias !8764
-  %17 = getelementptr inbounds i8, ptr %14, i64 280232
+  %17 = getelementptr inbounds nuw i8, ptr %14, i64 280232
   %18 = load i32, ptr %17, align 8, !noalias !8764
   %19 = icmp eq i32 %18, 0
   br i1 %19, label %.loopexit.i.i, label %20
@@ -100508,7 +100508,7 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapIPN5clang4DeclENS2_14ASTImportErrorENS_12Den
 _ZNSt8optionalIN5clang14ASTImportErrorEED2Ev.exit: ; preds = %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPN5clang4DeclENS2_14ASTImportErrorENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S5_EEEES4_S5_S7_SA_E4findEPKS3_.exit.i
   %45 = getelementptr inbounds nuw i8, ptr %14, i64 280192
   %46 = load ptr, ptr %45, align 8
-  %47 = getelementptr inbounds i8, ptr %14, i64 280208
+  %47 = getelementptr inbounds nuw i8, ptr %14, i64 280208
   %48 = load i32, ptr %47, align 8
   %49 = icmp eq i32 %48, 0
   br i1 %49, label %_ZNK5clang11ASTImporter24GetAlreadyImportedOrNullEPKNS_4DeclE.exit.thread, label %50
@@ -100576,7 +100576,7 @@ _ZNK5clang11ASTImporter24GetAlreadyImportedOrNullEPKNS_4DeclE.exit: ; preds = %6
   store ptr %83, ptr %13, align 8
   %84 = getelementptr inbounds nuw i8, ptr %82, i64 32
   %85 = load ptr, ptr %84, align 8, !noalias !8767
-  %86 = getelementptr inbounds i8, ptr %82, i64 48
+  %86 = getelementptr inbounds nuw i8, ptr %82, i64 48
   %87 = load i32, ptr %86, align 8, !noalias !8767
   %88 = icmp eq i32 %87, 0
   br i1 %88, label %114, label %89
@@ -100681,7 +100681,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5clang15ASTNodeImporter30GetIm
   %17 = load ptr, ptr %0, align 8
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 280216
   %19 = load ptr, ptr %18, align 8, !noalias !8772
-  %20 = getelementptr inbounds i8, ptr %17, i64 280232
+  %20 = getelementptr inbounds nuw i8, ptr %17, i64 280232
   %21 = load i32, ptr %20, align 8, !noalias !8772
   %22 = icmp eq i32 %21, 0
   br i1 %22, label %.loopexit.i.i, label %23
@@ -100736,7 +100736,7 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapIPN5clang4DeclENS2_14ASTImportErrorENS_12Den
 _ZNSt8optionalIN5clang14ASTImportErrorEED2Ev.exit: ; preds = %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPN5clang4DeclENS2_14ASTImportErrorENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S5_EEEES4_S5_S7_SA_E4findEPKS3_.exit.i
   %48 = getelementptr inbounds nuw i8, ptr %17, i64 280192
   %49 = load ptr, ptr %48, align 8
-  %50 = getelementptr inbounds i8, ptr %17, i64 280208
+  %50 = getelementptr inbounds nuw i8, ptr %17, i64 280208
   %51 = load i32, ptr %50, align 8
   %52 = icmp eq i32 %51, 0
   br i1 %52, label %_ZNK5clang11ASTImporter24GetAlreadyImportedOrNullEPKNS_4DeclE.exit.thread, label %53
@@ -100810,7 +100810,7 @@ _ZNK5clang11ASTImporter24GetAlreadyImportedOrNullEPKNS_4DeclE.exit: ; preds = %6
   store ptr %94, ptr %16, align 8
   %95 = getelementptr inbounds nuw i8, ptr %93, i64 32
   %96 = load ptr, ptr %95, align 8, !noalias !8775
-  %97 = getelementptr inbounds i8, ptr %93, i64 48
+  %97 = getelementptr inbounds nuw i8, ptr %93, i64 48
   %98 = load i32, ptr %97, align 8, !noalias !8775
   %99 = icmp eq i32 %98, 0
   br i1 %99, label %125, label %100
@@ -100971,7 +100971,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5clang15ASTNodeImporter30GetIm
   %15 = load ptr, ptr %0, align 8
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 280216
   %17 = load ptr, ptr %16, align 8, !noalias !8780
-  %18 = getelementptr inbounds i8, ptr %15, i64 280232
+  %18 = getelementptr inbounds nuw i8, ptr %15, i64 280232
   %19 = load i32, ptr %18, align 8, !noalias !8780
   %20 = icmp eq i32 %19, 0
   br i1 %20, label %.loopexit.i.i, label %21
@@ -101026,7 +101026,7 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapIPN5clang4DeclENS2_14ASTImportErrorENS_12Den
 _ZNSt8optionalIN5clang14ASTImportErrorEED2Ev.exit: ; preds = %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPN5clang4DeclENS2_14ASTImportErrorENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S5_EEEES4_S5_S7_SA_E4findEPKS3_.exit.i
   %46 = getelementptr inbounds nuw i8, ptr %15, i64 280192
   %47 = load ptr, ptr %46, align 8
-  %48 = getelementptr inbounds i8, ptr %15, i64 280208
+  %48 = getelementptr inbounds nuw i8, ptr %15, i64 280208
   %49 = load i32, ptr %48, align 8
   %50 = icmp eq i32 %49, 0
   br i1 %50, label %_ZNK5clang11ASTImporter24GetAlreadyImportedOrNullEPKNS_4DeclE.exit.thread, label %51
@@ -101097,7 +101097,7 @@ _ZNK5clang11ASTImporter24GetAlreadyImportedOrNullEPKNS_4DeclE.exit: ; preds = %6
   store ptr %88, ptr %14, align 8
   %89 = getelementptr inbounds nuw i8, ptr %87, i64 32
   %90 = load ptr, ptr %89, align 8, !noalias !8783
-  %91 = getelementptr inbounds i8, ptr %87, i64 48
+  %91 = getelementptr inbounds nuw i8, ptr %87, i64 48
   %92 = load i32, ptr %91, align 8, !noalias !8783
   %93 = icmp eq i32 %92, 0
   br i1 %93, label %119, label %94
@@ -101202,7 +101202,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5clang15ASTNodeImporter30GetIm
   %11 = load ptr, ptr %0, align 8
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 280216
   %13 = load ptr, ptr %12, align 8, !noalias !8788
-  %14 = getelementptr inbounds i8, ptr %11, i64 280232
+  %14 = getelementptr inbounds nuw i8, ptr %11, i64 280232
   %15 = load i32, ptr %14, align 8, !noalias !8788
   %16 = icmp eq i32 %15, 0
   br i1 %16, label %.loopexit.i.i, label %17
@@ -101257,7 +101257,7 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapIPN5clang4DeclENS2_14ASTImportErrorENS_12Den
 _ZNSt8optionalIN5clang14ASTImportErrorEED2Ev.exit: ; preds = %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPN5clang4DeclENS2_14ASTImportErrorENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S5_EEEES4_S5_S7_SA_E4findEPKS3_.exit.i
   %42 = getelementptr inbounds nuw i8, ptr %11, i64 280192
   %43 = load ptr, ptr %42, align 8
-  %44 = getelementptr inbounds i8, ptr %11, i64 280208
+  %44 = getelementptr inbounds nuw i8, ptr %11, i64 280208
   %45 = load i32, ptr %44, align 8
   %46 = icmp eq i32 %45, 0
   br i1 %46, label %_ZNK5clang11ASTImporter24GetAlreadyImportedOrNullEPKNS_4DeclE.exit.thread, label %47
@@ -101322,7 +101322,7 @@ _ZNK5clang11ASTImporter24GetAlreadyImportedOrNullEPKNS_4DeclE.exit: ; preds = %6
   store ptr %79, ptr %10, align 8
   %80 = getelementptr inbounds nuw i8, ptr %78, i64 32
   %81 = load ptr, ptr %80, align 8, !noalias !8791
-  %82 = getelementptr inbounds i8, ptr %78, i64 48
+  %82 = getelementptr inbounds nuw i8, ptr %78, i64 48
   %83 = load i32, ptr %82, align 8, !noalias !8791
   %84 = icmp eq i32 %83, 0
   br i1 %84, label %110, label %85
@@ -101428,7 +101428,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5clang15ASTNodeImporter30GetIm
   %13 = load ptr, ptr %0, align 8
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 280216
   %15 = load ptr, ptr %14, align 8, !noalias !8796
-  %16 = getelementptr inbounds i8, ptr %13, i64 280232
+  %16 = getelementptr inbounds nuw i8, ptr %13, i64 280232
   %17 = load i32, ptr %16, align 8, !noalias !8796
   %18 = icmp eq i32 %17, 0
   br i1 %18, label %.loopexit.i.i, label %19
@@ -101483,7 +101483,7 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapIPN5clang4DeclENS2_14ASTImportErrorENS_12Den
 _ZNSt8optionalIN5clang14ASTImportErrorEED2Ev.exit: ; preds = %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPN5clang4DeclENS2_14ASTImportErrorENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S5_EEEES4_S5_S7_SA_E4findEPKS3_.exit.i
   %44 = getelementptr inbounds nuw i8, ptr %13, i64 280192
   %45 = load ptr, ptr %44, align 8
-  %46 = getelementptr inbounds i8, ptr %13, i64 280208
+  %46 = getelementptr inbounds nuw i8, ptr %13, i64 280208
   %47 = load i32, ptr %46, align 8
   %48 = icmp eq i32 %47, 0
   br i1 %48, label %_ZNK5clang11ASTImporter24GetAlreadyImportedOrNullEPKNS_4DeclE.exit.thread, label %49
@@ -101556,7 +101556,7 @@ _ZNK5clang11ASTImporter24GetAlreadyImportedOrNullEPKNS_4DeclE.exit: ; preds = %6
   store ptr %83, ptr %11, align 8
   %84 = getelementptr inbounds nuw i8, ptr %82, i64 32
   %85 = load ptr, ptr %84, align 8, !noalias !8799
-  %86 = getelementptr inbounds i8, ptr %82, i64 48
+  %86 = getelementptr inbounds nuw i8, ptr %82, i64 48
   %87 = load i32, ptr %86, align 8, !noalias !8799
   %88 = icmp eq i32 %87, 0
   br i1 %88, label %114, label %89
@@ -101661,7 +101661,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5clang15ASTNodeImporter30GetIm
   %15 = load ptr, ptr %0, align 8
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 280216
   %17 = load ptr, ptr %16, align 8, !noalias !8804
-  %18 = getelementptr inbounds i8, ptr %15, i64 280232
+  %18 = getelementptr inbounds nuw i8, ptr %15, i64 280232
   %19 = load i32, ptr %18, align 8, !noalias !8804
   %20 = icmp eq i32 %19, 0
   br i1 %20, label %.loopexit.i.i, label %21
@@ -101716,7 +101716,7 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapIPN5clang4DeclENS2_14ASTImportErrorENS_12Den
 _ZNSt8optionalIN5clang14ASTImportErrorEED2Ev.exit: ; preds = %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPN5clang4DeclENS2_14ASTImportErrorENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S5_EEEES4_S5_S7_SA_E4findEPKS3_.exit.i
   %46 = getelementptr inbounds nuw i8, ptr %15, i64 280192
   %47 = load ptr, ptr %46, align 8
-  %48 = getelementptr inbounds i8, ptr %15, i64 280208
+  %48 = getelementptr inbounds nuw i8, ptr %15, i64 280208
   %49 = load i32, ptr %48, align 8
   %50 = icmp eq i32 %49, 0
   br i1 %50, label %_ZNK5clang11ASTImporter24GetAlreadyImportedOrNullEPKNS_4DeclE.exit.thread, label %51
@@ -101787,7 +101787,7 @@ _ZNK5clang11ASTImporter24GetAlreadyImportedOrNullEPKNS_4DeclE.exit: ; preds = %6
   store ptr %88, ptr %14, align 8
   %89 = getelementptr inbounds nuw i8, ptr %87, i64 32
   %90 = load ptr, ptr %89, align 8, !noalias !8807
-  %91 = getelementptr inbounds i8, ptr %87, i64 48
+  %91 = getelementptr inbounds nuw i8, ptr %87, i64 48
   %92 = load i32, ptr %91, align 8, !noalias !8807
   %93 = icmp eq i32 %92, 0
   br i1 %93, label %119, label %94
@@ -101949,7 +101949,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5clang15ASTNodeImporter30GetIm
   %14 = load ptr, ptr %0, align 8
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 280216
   %16 = load ptr, ptr %15, align 8, !noalias !8812
-  %17 = getelementptr inbounds i8, ptr %14, i64 280232
+  %17 = getelementptr inbounds nuw i8, ptr %14, i64 280232
   %18 = load i32, ptr %17, align 8, !noalias !8812
   %19 = icmp eq i32 %18, 0
   br i1 %19, label %.loopexit.i.i, label %20
@@ -102004,7 +102004,7 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapIPN5clang4DeclENS2_14ASTImportErrorENS_12Den
 _ZNSt8optionalIN5clang14ASTImportErrorEED2Ev.exit: ; preds = %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPN5clang4DeclENS2_14ASTImportErrorENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S5_EEEES4_S5_S7_SA_E4findEPKS3_.exit.i
   %45 = getelementptr inbounds nuw i8, ptr %14, i64 280192
   %46 = load ptr, ptr %45, align 8
-  %47 = getelementptr inbounds i8, ptr %14, i64 280208
+  %47 = getelementptr inbounds nuw i8, ptr %14, i64 280208
   %48 = load i32, ptr %47, align 8
   %49 = icmp eq i32 %48, 0
   br i1 %49, label %_ZNK5clang11ASTImporter24GetAlreadyImportedOrNullEPKNS_4DeclE.exit.thread, label %50
@@ -102078,7 +102078,7 @@ _ZNK5clang11ASTImporter24GetAlreadyImportedOrNullEPKNS_4DeclE.exit: ; preds = %6
   store ptr %86, ptr %12, align 8
   %87 = getelementptr inbounds nuw i8, ptr %85, i64 32
   %88 = load ptr, ptr %87, align 8, !noalias !8815
-  %89 = getelementptr inbounds i8, ptr %85, i64 48
+  %89 = getelementptr inbounds nuw i8, ptr %85, i64 48
   %90 = load i32, ptr %89, align 8, !noalias !8815
   %91 = icmp eq i32 %90, 0
   br i1 %91, label %117, label %92
@@ -102183,7 +102183,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5clang15ASTNodeImporter30GetIm
   %13 = load ptr, ptr %0, align 8
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 280216
   %15 = load ptr, ptr %14, align 8, !noalias !8820
-  %16 = getelementptr inbounds i8, ptr %13, i64 280232
+  %16 = getelementptr inbounds nuw i8, ptr %13, i64 280232
   %17 = load i32, ptr %16, align 8, !noalias !8820
   %18 = icmp eq i32 %17, 0
   br i1 %18, label %.loopexit.i.i, label %19
@@ -102238,7 +102238,7 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapIPN5clang4DeclENS2_14ASTImportErrorENS_12Den
 _ZNSt8optionalIN5clang14ASTImportErrorEED2Ev.exit: ; preds = %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPN5clang4DeclENS2_14ASTImportErrorENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S5_EEEES4_S5_S7_SA_E4findEPKS3_.exit.i
   %44 = getelementptr inbounds nuw i8, ptr %13, i64 280192
   %45 = load ptr, ptr %44, align 8
-  %46 = getelementptr inbounds i8, ptr %13, i64 280208
+  %46 = getelementptr inbounds nuw i8, ptr %13, i64 280208
   %47 = load i32, ptr %46, align 8
   %48 = icmp eq i32 %47, 0
   br i1 %48, label %_ZNK5clang11ASTImporter24GetAlreadyImportedOrNullEPKNS_4DeclE.exit.thread, label %49
@@ -102306,7 +102306,7 @@ _ZNK5clang11ASTImporter24GetAlreadyImportedOrNullEPKNS_4DeclE.exit: ; preds = %6
   store ptr %83, ptr %12, align 8
   %84 = getelementptr inbounds nuw i8, ptr %82, i64 32
   %85 = load ptr, ptr %84, align 8, !noalias !8823
-  %86 = getelementptr inbounds i8, ptr %82, i64 48
+  %86 = getelementptr inbounds nuw i8, ptr %82, i64 48
   %87 = load i32, ptr %86, align 8, !noalias !8823
   %88 = icmp eq i32 %87, 0
   br i1 %88, label %114, label %89
@@ -102411,7 +102411,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5clang15ASTNodeImporter30GetIm
   %11 = load ptr, ptr %0, align 8
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 280216
   %13 = load ptr, ptr %12, align 8, !noalias !8828
-  %14 = getelementptr inbounds i8, ptr %11, i64 280232
+  %14 = getelementptr inbounds nuw i8, ptr %11, i64 280232
   %15 = load i32, ptr %14, align 8, !noalias !8828
   %16 = icmp eq i32 %15, 0
   br i1 %16, label %.loopexit.i.i, label %17
@@ -102466,7 +102466,7 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapIPN5clang4DeclENS2_14ASTImportErrorENS_12Den
 _ZNSt8optionalIN5clang14ASTImportErrorEED2Ev.exit: ; preds = %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPN5clang4DeclENS2_14ASTImportErrorENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S5_EEEES4_S5_S7_SA_E4findEPKS3_.exit.i
   %42 = getelementptr inbounds nuw i8, ptr %11, i64 280192
   %43 = load ptr, ptr %42, align 8
-  %44 = getelementptr inbounds i8, ptr %11, i64 280208
+  %44 = getelementptr inbounds nuw i8, ptr %11, i64 280208
   %45 = load i32, ptr %44, align 8
   %46 = icmp eq i32 %45, 0
   br i1 %46, label %_ZNK5clang11ASTImporter24GetAlreadyImportedOrNullEPKNS_4DeclE.exit.thread, label %47
@@ -102532,7 +102532,7 @@ _ZNK5clang11ASTImporter24GetAlreadyImportedOrNullEPKNS_4DeclE.exit: ; preds = %6
   store ptr %80, ptr %10, align 8
   %81 = getelementptr inbounds nuw i8, ptr %79, i64 32
   %82 = load ptr, ptr %81, align 8, !noalias !8831
-  %83 = getelementptr inbounds i8, ptr %79, i64 48
+  %83 = getelementptr inbounds nuw i8, ptr %79, i64 48
   %84 = load i32, ptr %83, align 8, !noalias !8831
   %85 = icmp eq i32 %84, 0
   br i1 %85, label %111, label %86
@@ -102637,7 +102637,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5clang15ASTNodeImporter30GetIm
   %14 = load ptr, ptr %0, align 8
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 280216
   %16 = load ptr, ptr %15, align 8, !noalias !8836
-  %17 = getelementptr inbounds i8, ptr %14, i64 280232
+  %17 = getelementptr inbounds nuw i8, ptr %14, i64 280232
   %18 = load i32, ptr %17, align 8, !noalias !8836
   %19 = icmp eq i32 %18, 0
   br i1 %19, label %.loopexit.i.i, label %20
@@ -102692,7 +102692,7 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapIPN5clang4DeclENS2_14ASTImportErrorENS_12Den
 _ZNSt8optionalIN5clang14ASTImportErrorEED2Ev.exit: ; preds = %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPN5clang4DeclENS2_14ASTImportErrorENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S5_EEEES4_S5_S7_SA_E4findEPKS3_.exit.i
   %45 = getelementptr inbounds nuw i8, ptr %14, i64 280192
   %46 = load ptr, ptr %45, align 8
-  %47 = getelementptr inbounds i8, ptr %14, i64 280208
+  %47 = getelementptr inbounds nuw i8, ptr %14, i64 280208
   %48 = load i32, ptr %47, align 8
   %49 = icmp eq i32 %48, 0
   br i1 %49, label %_ZNK5clang11ASTImporter24GetAlreadyImportedOrNullEPKNS_4DeclE.exit.thread, label %50
@@ -102760,7 +102760,7 @@ _ZNK5clang11ASTImporter24GetAlreadyImportedOrNullEPKNS_4DeclE.exit: ; preds = %6
   store ptr %84, ptr %13, align 8
   %85 = getelementptr inbounds nuw i8, ptr %83, i64 32
   %86 = load ptr, ptr %85, align 8, !noalias !8839
-  %87 = getelementptr inbounds i8, ptr %83, i64 48
+  %87 = getelementptr inbounds nuw i8, ptr %83, i64 48
   %88 = load i32, ptr %87, align 8, !noalias !8839
   %89 = icmp eq i32 %88, 0
   br i1 %89, label %115, label %90
@@ -102865,7 +102865,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5clang15ASTNodeImporter30GetIm
   %20 = load ptr, ptr %0, align 8
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 280216
   %22 = load ptr, ptr %21, align 8, !noalias !8844
-  %23 = getelementptr inbounds i8, ptr %20, i64 280232
+  %23 = getelementptr inbounds nuw i8, ptr %20, i64 280232
   %24 = load i32, ptr %23, align 8, !noalias !8844
   %25 = icmp eq i32 %24, 0
   br i1 %25, label %.loopexit.i.i, label %26
@@ -102920,7 +102920,7 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapIPN5clang4DeclENS2_14ASTImportErrorENS_12Den
 _ZNSt8optionalIN5clang14ASTImportErrorEED2Ev.exit: ; preds = %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPN5clang4DeclENS2_14ASTImportErrorENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S5_EEEES4_S5_S7_SA_E4findEPKS3_.exit.i
   %51 = getelementptr inbounds nuw i8, ptr %20, i64 280192
   %52 = load ptr, ptr %51, align 8
-  %53 = getelementptr inbounds i8, ptr %20, i64 280208
+  %53 = getelementptr inbounds nuw i8, ptr %20, i64 280208
   %54 = load i32, ptr %53, align 8
   %55 = icmp eq i32 %54, 0
   br i1 %55, label %_ZNK5clang11ASTImporter24GetAlreadyImportedOrNullEPKNS_4DeclE.exit.thread, label %56
@@ -103002,7 +103002,7 @@ _ZNK5clang11ASTImporter24GetAlreadyImportedOrNullEPKNS_4DeclE.exit: ; preds = %6
   store ptr %103, ptr %19, align 8
   %104 = getelementptr inbounds nuw i8, ptr %102, i64 32
   %105 = load ptr, ptr %104, align 8, !noalias !8847
-  %106 = getelementptr inbounds i8, ptr %102, i64 48
+  %106 = getelementptr inbounds nuw i8, ptr %102, i64 48
   %107 = load i32, ptr %106, align 8, !noalias !8847
   %108 = icmp eq i32 %107, 0
   br i1 %108, label %134, label %109
@@ -103163,7 +103163,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5clang15ASTNodeImporter30GetIm
   %14 = load ptr, ptr %0, align 8
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 280216
   %16 = load ptr, ptr %15, align 8, !noalias !8852
-  %17 = getelementptr inbounds i8, ptr %14, i64 280232
+  %17 = getelementptr inbounds nuw i8, ptr %14, i64 280232
   %18 = load i32, ptr %17, align 8, !noalias !8852
   %19 = icmp eq i32 %18, 0
   br i1 %19, label %.loopexit.i.i, label %20
@@ -103218,7 +103218,7 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapIPN5clang4DeclENS2_14ASTImportErrorENS_12Den
 _ZNSt8optionalIN5clang14ASTImportErrorEED2Ev.exit: ; preds = %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPN5clang4DeclENS2_14ASTImportErrorENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S5_EEEES4_S5_S7_SA_E4findEPKS3_.exit.i
   %45 = getelementptr inbounds nuw i8, ptr %14, i64 280192
   %46 = load ptr, ptr %45, align 8
-  %47 = getelementptr inbounds i8, ptr %14, i64 280208
+  %47 = getelementptr inbounds nuw i8, ptr %14, i64 280208
   %48 = load i32, ptr %47, align 8
   %49 = icmp eq i32 %48, 0
   br i1 %49, label %_ZNK5clang11ASTImporter24GetAlreadyImportedOrNullEPKNS_4DeclE.exit.thread, label %50
@@ -103287,7 +103287,7 @@ _ZNK5clang11ASTImporter24GetAlreadyImportedOrNullEPKNS_4DeclE.exit: ; preds = %6
   store ptr %85, ptr %13, align 8
   %86 = getelementptr inbounds nuw i8, ptr %84, i64 32
   %87 = load ptr, ptr %86, align 8, !noalias !8855
-  %88 = getelementptr inbounds i8, ptr %84, i64 48
+  %88 = getelementptr inbounds nuw i8, ptr %84, i64 48
   %89 = load i32, ptr %88, align 8, !noalias !8855
   %90 = icmp eq i32 %89, 0
   br i1 %90, label %116, label %91
@@ -103392,7 +103392,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5clang15ASTNodeImporter30GetIm
   %15 = load ptr, ptr %0, align 8
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 280216
   %17 = load ptr, ptr %16, align 8, !noalias !8860
-  %18 = getelementptr inbounds i8, ptr %15, i64 280232
+  %18 = getelementptr inbounds nuw i8, ptr %15, i64 280232
   %19 = load i32, ptr %18, align 8, !noalias !8860
   %20 = icmp eq i32 %19, 0
   br i1 %20, label %.loopexit.i.i, label %21
@@ -103447,7 +103447,7 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapIPN5clang4DeclENS2_14ASTImportErrorENS_12Den
 _ZNSt8optionalIN5clang14ASTImportErrorEED2Ev.exit: ; preds = %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPN5clang4DeclENS2_14ASTImportErrorENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S5_EEEES4_S5_S7_SA_E4findEPKS3_.exit.i
   %46 = getelementptr inbounds nuw i8, ptr %15, i64 280192
   %47 = load ptr, ptr %46, align 8
-  %48 = getelementptr inbounds i8, ptr %15, i64 280208
+  %48 = getelementptr inbounds nuw i8, ptr %15, i64 280208
   %49 = load i32, ptr %48, align 8
   %50 = icmp eq i32 %49, 0
   br i1 %50, label %_ZNK5clang11ASTImporter24GetAlreadyImportedOrNullEPKNS_4DeclE.exit.thread, label %51
@@ -103516,7 +103516,7 @@ _ZNK5clang11ASTImporter24GetAlreadyImportedOrNullEPKNS_4DeclE.exit: ; preds = %6
   store ptr %84, ptr %14, align 8
   %85 = getelementptr inbounds nuw i8, ptr %83, i64 32
   %86 = load ptr, ptr %85, align 8, !noalias !8863
-  %87 = getelementptr inbounds i8, ptr %83, i64 48
+  %87 = getelementptr inbounds nuw i8, ptr %83, i64 48
   %88 = load i32, ptr %87, align 8, !noalias !8863
   %89 = icmp eq i32 %88, 0
   br i1 %89, label %115, label %90
@@ -103621,7 +103621,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5clang15ASTNodeImporter30GetIm
   %11 = load ptr, ptr %0, align 8
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 280216
   %13 = load ptr, ptr %12, align 8, !noalias !8868
-  %14 = getelementptr inbounds i8, ptr %11, i64 280232
+  %14 = getelementptr inbounds nuw i8, ptr %11, i64 280232
   %15 = load i32, ptr %14, align 8, !noalias !8868
   %16 = icmp eq i32 %15, 0
   br i1 %16, label %.loopexit.i.i, label %17
@@ -103676,7 +103676,7 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapIPN5clang4DeclENS2_14ASTImportErrorENS_12Den
 _ZNSt8optionalIN5clang14ASTImportErrorEED2Ev.exit: ; preds = %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPN5clang4DeclENS2_14ASTImportErrorENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S5_EEEES4_S5_S7_SA_E4findEPKS3_.exit.i
   %42 = getelementptr inbounds nuw i8, ptr %11, i64 280192
   %43 = load ptr, ptr %42, align 8
-  %44 = getelementptr inbounds i8, ptr %11, i64 280208
+  %44 = getelementptr inbounds nuw i8, ptr %11, i64 280208
   %45 = load i32, ptr %44, align 8
   %46 = icmp eq i32 %45, 0
   br i1 %46, label %_ZNK5clang11ASTImporter24GetAlreadyImportedOrNullEPKNS_4DeclE.exit.thread, label %47
@@ -103741,7 +103741,7 @@ _ZNK5clang11ASTImporter24GetAlreadyImportedOrNullEPKNS_4DeclE.exit: ; preds = %6
   store ptr %79, ptr %10, align 8
   %80 = getelementptr inbounds nuw i8, ptr %78, i64 32
   %81 = load ptr, ptr %80, align 8, !noalias !8871
-  %82 = getelementptr inbounds i8, ptr %78, i64 48
+  %82 = getelementptr inbounds nuw i8, ptr %78, i64 48
   %83 = load i32, ptr %82, align 8, !noalias !8871
   %84 = icmp eq i32 %83, 0
   br i1 %84, label %110, label %85
@@ -103846,7 +103846,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5clang15ASTNodeImporter30GetIm
   %11 = load ptr, ptr %0, align 8
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 280216
   %13 = load ptr, ptr %12, align 8, !noalias !8876
-  %14 = getelementptr inbounds i8, ptr %11, i64 280232
+  %14 = getelementptr inbounds nuw i8, ptr %11, i64 280232
   %15 = load i32, ptr %14, align 8, !noalias !8876
   %16 = icmp eq i32 %15, 0
   br i1 %16, label %.loopexit.i.i, label %17
@@ -103901,7 +103901,7 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapIPN5clang4DeclENS2_14ASTImportErrorENS_12Den
 _ZNSt8optionalIN5clang14ASTImportErrorEED2Ev.exit: ; preds = %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPN5clang4DeclENS2_14ASTImportErrorENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S5_EEEES4_S5_S7_SA_E4findEPKS3_.exit.i
   %42 = getelementptr inbounds nuw i8, ptr %11, i64 280192
   %43 = load ptr, ptr %42, align 8
-  %44 = getelementptr inbounds i8, ptr %11, i64 280208
+  %44 = getelementptr inbounds nuw i8, ptr %11, i64 280208
   %45 = load i32, ptr %44, align 8
   %46 = icmp eq i32 %45, 0
   br i1 %46, label %_ZNK5clang11ASTImporter24GetAlreadyImportedOrNullEPKNS_4DeclE.exit.thread, label %47
@@ -103968,7 +103968,7 @@ _ZNK5clang11ASTImporter24GetAlreadyImportedOrNullEPKNS_4DeclE.exit: ; preds = %6
   store ptr %81, ptr %10, align 8
   %82 = getelementptr inbounds nuw i8, ptr %80, i64 32
   %83 = load ptr, ptr %82, align 8, !noalias !8879
-  %84 = getelementptr inbounds i8, ptr %80, i64 48
+  %84 = getelementptr inbounds nuw i8, ptr %80, i64 48
   %85 = load i32, ptr %84, align 8, !noalias !8879
   %86 = icmp eq i32 %85, 0
   br i1 %86, label %112, label %87
@@ -104073,7 +104073,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5clang15ASTNodeImporter30GetIm
   %11 = load ptr, ptr %0, align 8
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 280216
   %13 = load ptr, ptr %12, align 8, !noalias !8884
-  %14 = getelementptr inbounds i8, ptr %11, i64 280232
+  %14 = getelementptr inbounds nuw i8, ptr %11, i64 280232
   %15 = load i32, ptr %14, align 8, !noalias !8884
   %16 = icmp eq i32 %15, 0
   br i1 %16, label %.loopexit.i.i, label %17
@@ -104128,7 +104128,7 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapIPN5clang4DeclENS2_14ASTImportErrorENS_12Den
 _ZNSt8optionalIN5clang14ASTImportErrorEED2Ev.exit: ; preds = %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPN5clang4DeclENS2_14ASTImportErrorENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S5_EEEES4_S5_S7_SA_E4findEPKS3_.exit.i
   %42 = getelementptr inbounds nuw i8, ptr %11, i64 280192
   %43 = load ptr, ptr %42, align 8
-  %44 = getelementptr inbounds i8, ptr %11, i64 280208
+  %44 = getelementptr inbounds nuw i8, ptr %11, i64 280208
   %45 = load i32, ptr %44, align 8
   %46 = icmp eq i32 %45, 0
   br i1 %46, label %_ZNK5clang11ASTImporter24GetAlreadyImportedOrNullEPKNS_4DeclE.exit.thread, label %47
@@ -104196,7 +104196,7 @@ _ZNK5clang11ASTImporter24GetAlreadyImportedOrNullEPKNS_4DeclE.exit: ; preds = %6
   store ptr %80, ptr %10, align 8
   %81 = getelementptr inbounds nuw i8, ptr %79, i64 32
   %82 = load ptr, ptr %81, align 8, !noalias !8887
-  %83 = getelementptr inbounds i8, ptr %79, i64 48
+  %83 = getelementptr inbounds nuw i8, ptr %79, i64 48
   %84 = load i32, ptr %83, align 8, !noalias !8887
   %85 = icmp eq i32 %84, 0
   br i1 %85, label %111, label %86
@@ -104301,7 +104301,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5clang15ASTNodeImporter30GetIm
   %11 = load ptr, ptr %0, align 8
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 280216
   %13 = load ptr, ptr %12, align 8, !noalias !8892
-  %14 = getelementptr inbounds i8, ptr %11, i64 280232
+  %14 = getelementptr inbounds nuw i8, ptr %11, i64 280232
   %15 = load i32, ptr %14, align 8, !noalias !8892
   %16 = icmp eq i32 %15, 0
   br i1 %16, label %.loopexit.i.i, label %17
@@ -104356,7 +104356,7 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapIPN5clang4DeclENS2_14ASTImportErrorENS_12Den
 _ZNSt8optionalIN5clang14ASTImportErrorEED2Ev.exit: ; preds = %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPN5clang4DeclENS2_14ASTImportErrorENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S5_EEEES4_S5_S7_SA_E4findEPKS3_.exit.i
   %42 = getelementptr inbounds nuw i8, ptr %11, i64 280192
   %43 = load ptr, ptr %42, align 8
-  %44 = getelementptr inbounds i8, ptr %11, i64 280208
+  %44 = getelementptr inbounds nuw i8, ptr %11, i64 280208
   %45 = load i32, ptr %44, align 8
   %46 = icmp eq i32 %45, 0
   br i1 %46, label %_ZNK5clang11ASTImporter24GetAlreadyImportedOrNullEPKNS_4DeclE.exit.thread, label %47
@@ -104422,7 +104422,7 @@ _ZNK5clang11ASTImporter24GetAlreadyImportedOrNullEPKNS_4DeclE.exit: ; preds = %6
   store ptr %79, ptr %10, align 8
   %80 = getelementptr inbounds nuw i8, ptr %78, i64 32
   %81 = load ptr, ptr %80, align 8, !noalias !8895
-  %82 = getelementptr inbounds i8, ptr %78, i64 48
+  %82 = getelementptr inbounds nuw i8, ptr %78, i64 48
   %83 = load i32, ptr %82, align 8, !noalias !8895
   %84 = icmp eq i32 %83, 0
   br i1 %84, label %110, label %85
@@ -104527,7 +104527,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5clang15ASTNodeImporter30GetIm
   %11 = load ptr, ptr %0, align 8
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 280216
   %13 = load ptr, ptr %12, align 8, !noalias !8900
-  %14 = getelementptr inbounds i8, ptr %11, i64 280232
+  %14 = getelementptr inbounds nuw i8, ptr %11, i64 280232
   %15 = load i32, ptr %14, align 8, !noalias !8900
   %16 = icmp eq i32 %15, 0
   br i1 %16, label %.loopexit.i.i, label %17
@@ -104582,7 +104582,7 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapIPN5clang4DeclENS2_14ASTImportErrorENS_12Den
 _ZNSt8optionalIN5clang14ASTImportErrorEED2Ev.exit: ; preds = %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPN5clang4DeclENS2_14ASTImportErrorENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S5_EEEES4_S5_S7_SA_E4findEPKS3_.exit.i
   %42 = getelementptr inbounds nuw i8, ptr %11, i64 280192
   %43 = load ptr, ptr %42, align 8
-  %44 = getelementptr inbounds i8, ptr %11, i64 280208
+  %44 = getelementptr inbounds nuw i8, ptr %11, i64 280208
   %45 = load i32, ptr %44, align 8
   %46 = icmp eq i32 %45, 0
   br i1 %46, label %_ZNK5clang11ASTImporter24GetAlreadyImportedOrNullEPKNS_4DeclE.exit.thread, label %47
@@ -104649,7 +104649,7 @@ _ZNK5clang11ASTImporter24GetAlreadyImportedOrNullEPKNS_4DeclE.exit: ; preds = %6
   store ptr %82, ptr %10, align 8
   %83 = getelementptr inbounds nuw i8, ptr %81, i64 32
   %84 = load ptr, ptr %83, align 8, !noalias !8903
-  %85 = getelementptr inbounds i8, ptr %81, i64 48
+  %85 = getelementptr inbounds nuw i8, ptr %81, i64 48
   %86 = load i32, ptr %85, align 8, !noalias !8903
   %87 = icmp eq i32 %86, 0
   br i1 %87, label %113, label %88
@@ -104754,7 +104754,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5clang15ASTNodeImporter30GetIm
   %11 = load ptr, ptr %0, align 8
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 280216
   %13 = load ptr, ptr %12, align 8, !noalias !8908
-  %14 = getelementptr inbounds i8, ptr %11, i64 280232
+  %14 = getelementptr inbounds nuw i8, ptr %11, i64 280232
   %15 = load i32, ptr %14, align 8, !noalias !8908
   %16 = icmp eq i32 %15, 0
   br i1 %16, label %.loopexit.i.i, label %17
@@ -104809,7 +104809,7 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapIPN5clang4DeclENS2_14ASTImportErrorENS_12Den
 _ZNSt8optionalIN5clang14ASTImportErrorEED2Ev.exit: ; preds = %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPN5clang4DeclENS2_14ASTImportErrorENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S5_EEEES4_S5_S7_SA_E4findEPKS3_.exit.i
   %42 = getelementptr inbounds nuw i8, ptr %11, i64 280192
   %43 = load ptr, ptr %42, align 8
-  %44 = getelementptr inbounds i8, ptr %11, i64 280208
+  %44 = getelementptr inbounds nuw i8, ptr %11, i64 280208
   %45 = load i32, ptr %44, align 8
   %46 = icmp eq i32 %45, 0
   br i1 %46, label %_ZNK5clang11ASTImporter24GetAlreadyImportedOrNullEPKNS_4DeclE.exit.thread, label %47
@@ -104876,7 +104876,7 @@ _ZNK5clang11ASTImporter24GetAlreadyImportedOrNullEPKNS_4DeclE.exit: ; preds = %6
   store ptr %80, ptr %10, align 8
   %81 = getelementptr inbounds nuw i8, ptr %79, i64 32
   %82 = load ptr, ptr %81, align 8, !noalias !8911
-  %83 = getelementptr inbounds i8, ptr %79, i64 48
+  %83 = getelementptr inbounds nuw i8, ptr %79, i64 48
   %84 = load i32, ptr %83, align 8, !noalias !8911
   %85 = icmp eq i32 %84, 0
   br i1 %85, label %111, label %86
@@ -104981,7 +104981,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5clang15ASTNodeImporter30GetIm
   %13 = load ptr, ptr %0, align 8
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 280216
   %15 = load ptr, ptr %14, align 8, !noalias !8916
-  %16 = getelementptr inbounds i8, ptr %13, i64 280232
+  %16 = getelementptr inbounds nuw i8, ptr %13, i64 280232
   %17 = load i32, ptr %16, align 8, !noalias !8916
   %18 = icmp eq i32 %17, 0
   br i1 %18, label %.loopexit.i.i, label %19
@@ -105036,7 +105036,7 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapIPN5clang4DeclENS2_14ASTImportErrorENS_12Den
 _ZNSt8optionalIN5clang14ASTImportErrorEED2Ev.exit: ; preds = %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPN5clang4DeclENS2_14ASTImportErrorENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S5_EEEES4_S5_S7_SA_E4findEPKS3_.exit.i
   %44 = getelementptr inbounds nuw i8, ptr %13, i64 280192
   %45 = load ptr, ptr %44, align 8
-  %46 = getelementptr inbounds i8, ptr %13, i64 280208
+  %46 = getelementptr inbounds nuw i8, ptr %13, i64 280208
   %47 = load i32, ptr %46, align 8
   %48 = icmp eq i32 %47, 0
   br i1 %48, label %_ZNK5clang11ASTImporter24GetAlreadyImportedOrNullEPKNS_4DeclE.exit.thread, label %49
@@ -105106,7 +105106,7 @@ _ZNK5clang11ASTImporter24GetAlreadyImportedOrNullEPKNS_4DeclE.exit: ; preds = %6
   store ptr %82, ptr %12, align 8
   %83 = getelementptr inbounds nuw i8, ptr %81, i64 32
   %84 = load ptr, ptr %83, align 8, !noalias !8919
-  %85 = getelementptr inbounds i8, ptr %81, i64 48
+  %85 = getelementptr inbounds nuw i8, ptr %81, i64 48
   %86 = load i32, ptr %85, align 8, !noalias !8919
   %87 = icmp eq i32 %86, 0
   br i1 %87, label %113, label %88
@@ -105211,7 +105211,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5clang15ASTNodeImporter30GetIm
   %9 = load ptr, ptr %0, align 8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 280216
   %11 = load ptr, ptr %10, align 8, !noalias !8924
-  %12 = getelementptr inbounds i8, ptr %9, i64 280232
+  %12 = getelementptr inbounds nuw i8, ptr %9, i64 280232
   %13 = load i32, ptr %12, align 8, !noalias !8924
   %14 = icmp eq i32 %13, 0
   br i1 %14, label %.loopexit.i.i, label %15
@@ -105266,7 +105266,7 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapIPN5clang4DeclENS2_14ASTImportErrorENS_12Den
 _ZNSt8optionalIN5clang14ASTImportErrorEED2Ev.exit: ; preds = %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPN5clang4DeclENS2_14ASTImportErrorENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S5_EEEES4_S5_S7_SA_E4findEPKS3_.exit.i
   %40 = getelementptr inbounds nuw i8, ptr %9, i64 280192
   %41 = load ptr, ptr %40, align 8
-  %42 = getelementptr inbounds i8, ptr %9, i64 280208
+  %42 = getelementptr inbounds nuw i8, ptr %9, i64 280208
   %43 = load i32, ptr %42, align 8
   %44 = icmp eq i32 %43, 0
   br i1 %44, label %_ZNK5clang11ASTImporter24GetAlreadyImportedOrNullEPKNS_4DeclE.exit.thread, label %45
@@ -105331,7 +105331,7 @@ _ZNK5clang11ASTImporter24GetAlreadyImportedOrNullEPKNS_4DeclE.exit: ; preds = %5
   store ptr %79, ptr %8, align 8
   %80 = getelementptr inbounds nuw i8, ptr %78, i64 32
   %81 = load ptr, ptr %80, align 8, !noalias !8927
-  %82 = getelementptr inbounds i8, ptr %78, i64 48
+  %82 = getelementptr inbounds nuw i8, ptr %78, i64 48
   %83 = load i32, ptr %82, align 8, !noalias !8927
   %84 = icmp eq i32 %83, 0
   br i1 %84, label %110, label %85
@@ -105436,7 +105436,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5clang15ASTNodeImporter30GetIm
   %11 = load ptr, ptr %0, align 8
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 280216
   %13 = load ptr, ptr %12, align 8, !noalias !8932
-  %14 = getelementptr inbounds i8, ptr %11, i64 280232
+  %14 = getelementptr inbounds nuw i8, ptr %11, i64 280232
   %15 = load i32, ptr %14, align 8, !noalias !8932
   %16 = icmp eq i32 %15, 0
   br i1 %16, label %.loopexit.i.i, label %17
@@ -105491,7 +105491,7 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapIPN5clang4DeclENS2_14ASTImportErrorENS_12Den
 _ZNSt8optionalIN5clang14ASTImportErrorEED2Ev.exit: ; preds = %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPN5clang4DeclENS2_14ASTImportErrorENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S5_EEEES4_S5_S7_SA_E4findEPKS3_.exit.i
   %42 = getelementptr inbounds nuw i8, ptr %11, i64 280192
   %43 = load ptr, ptr %42, align 8
-  %44 = getelementptr inbounds i8, ptr %11, i64 280208
+  %44 = getelementptr inbounds nuw i8, ptr %11, i64 280208
   %45 = load i32, ptr %44, align 8
   %46 = icmp eq i32 %45, 0
   br i1 %46, label %_ZNK5clang11ASTImporter24GetAlreadyImportedOrNullEPKNS_4DeclE.exit.thread, label %47
@@ -105558,7 +105558,7 @@ _ZNK5clang11ASTImporter24GetAlreadyImportedOrNullEPKNS_4DeclE.exit: ; preds = %6
   store ptr %78, ptr %10, align 8
   %79 = getelementptr inbounds nuw i8, ptr %77, i64 32
   %80 = load ptr, ptr %79, align 8, !noalias !8935
-  %81 = getelementptr inbounds i8, ptr %77, i64 48
+  %81 = getelementptr inbounds nuw i8, ptr %77, i64 48
   %82 = load i32, ptr %81, align 8, !noalias !8935
   %83 = icmp eq i32 %82, 0
   br i1 %83, label %109, label %84
@@ -105663,7 +105663,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5clang15ASTNodeImporter30GetIm
   %13 = load ptr, ptr %0, align 8
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 280216
   %15 = load ptr, ptr %14, align 8, !noalias !8940
-  %16 = getelementptr inbounds i8, ptr %13, i64 280232
+  %16 = getelementptr inbounds nuw i8, ptr %13, i64 280232
   %17 = load i32, ptr %16, align 8, !noalias !8940
   %18 = icmp eq i32 %17, 0
   br i1 %18, label %.loopexit.i.i, label %19
@@ -105718,7 +105718,7 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapIPN5clang4DeclENS2_14ASTImportErrorENS_12Den
 _ZNSt8optionalIN5clang14ASTImportErrorEED2Ev.exit: ; preds = %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPN5clang4DeclENS2_14ASTImportErrorENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S5_EEEES4_S5_S7_SA_E4findEPKS3_.exit.i
   %44 = getelementptr inbounds nuw i8, ptr %13, i64 280192
   %45 = load ptr, ptr %44, align 8
-  %46 = getelementptr inbounds i8, ptr %13, i64 280208
+  %46 = getelementptr inbounds nuw i8, ptr %13, i64 280208
   %47 = load i32, ptr %46, align 8
   %48 = icmp eq i32 %47, 0
   br i1 %48, label %_ZNK5clang11ASTImporter24GetAlreadyImportedOrNullEPKNS_4DeclE.exit.thread, label %49
@@ -105788,7 +105788,7 @@ _ZNK5clang11ASTImporter24GetAlreadyImportedOrNullEPKNS_4DeclE.exit: ; preds = %6
   store ptr %80, ptr %12, align 8
   %81 = getelementptr inbounds nuw i8, ptr %79, i64 32
   %82 = load ptr, ptr %81, align 8, !noalias !8943
-  %83 = getelementptr inbounds i8, ptr %79, i64 48
+  %83 = getelementptr inbounds nuw i8, ptr %79, i64 48
   %84 = load i32, ptr %83, align 8, !noalias !8943
   %85 = icmp eq i32 %84, 0
   br i1 %85, label %111, label %86
@@ -105893,7 +105893,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5clang15ASTNodeImporter30GetIm
   %13 = load ptr, ptr %0, align 8
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 280216
   %15 = load ptr, ptr %14, align 8, !noalias !8948
-  %16 = getelementptr inbounds i8, ptr %13, i64 280232
+  %16 = getelementptr inbounds nuw i8, ptr %13, i64 280232
   %17 = load i32, ptr %16, align 8, !noalias !8948
   %18 = icmp eq i32 %17, 0
   br i1 %18, label %.loopexit.i.i, label %19
@@ -105948,7 +105948,7 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapIPN5clang4DeclENS2_14ASTImportErrorENS_12Den
 _ZNSt8optionalIN5clang14ASTImportErrorEED2Ev.exit: ; preds = %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPN5clang4DeclENS2_14ASTImportErrorENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S5_EEEES4_S5_S7_SA_E4findEPKS3_.exit.i
   %44 = getelementptr inbounds nuw i8, ptr %13, i64 280192
   %45 = load ptr, ptr %44, align 8
-  %46 = getelementptr inbounds i8, ptr %13, i64 280208
+  %46 = getelementptr inbounds nuw i8, ptr %13, i64 280208
   %47 = load i32, ptr %46, align 8
   %48 = icmp eq i32 %47, 0
   br i1 %48, label %_ZNK5clang11ASTImporter24GetAlreadyImportedOrNullEPKNS_4DeclE.exit.thread, label %49
@@ -106015,7 +106015,7 @@ _ZNK5clang11ASTImporter24GetAlreadyImportedOrNullEPKNS_4DeclE.exit: ; preds = %6
   store ptr %83, ptr %12, align 8
   %84 = getelementptr inbounds nuw i8, ptr %82, i64 32
   %85 = load ptr, ptr %84, align 8, !noalias !8951
-  %86 = getelementptr inbounds i8, ptr %82, i64 48
+  %86 = getelementptr inbounds nuw i8, ptr %82, i64 48
   %87 = load i32, ptr %86, align 8, !noalias !8951
   %88 = icmp eq i32 %87, 0
   br i1 %88, label %114, label %89
@@ -106120,7 +106120,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5clang15ASTNodeImporter30GetIm
   %12 = load ptr, ptr %0, align 8
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 280216
   %14 = load ptr, ptr %13, align 8, !noalias !8956
-  %15 = getelementptr inbounds i8, ptr %12, i64 280232
+  %15 = getelementptr inbounds nuw i8, ptr %12, i64 280232
   %16 = load i32, ptr %15, align 8, !noalias !8956
   %17 = icmp eq i32 %16, 0
   br i1 %17, label %.loopexit.i.i, label %18
@@ -106175,7 +106175,7 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapIPN5clang4DeclENS2_14ASTImportErrorENS_12Den
 _ZNSt8optionalIN5clang14ASTImportErrorEED2Ev.exit: ; preds = %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPN5clang4DeclENS2_14ASTImportErrorENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S5_EEEES4_S5_S7_SA_E4findEPKS3_.exit.i
   %43 = getelementptr inbounds nuw i8, ptr %12, i64 280192
   %44 = load ptr, ptr %43, align 8
-  %45 = getelementptr inbounds i8, ptr %12, i64 280208
+  %45 = getelementptr inbounds nuw i8, ptr %12, i64 280208
   %46 = load i32, ptr %45, align 8
   %47 = icmp eq i32 %46, 0
   br i1 %47, label %_ZNK5clang11ASTImporter24GetAlreadyImportedOrNullEPKNS_4DeclE.exit.thread, label %48
@@ -106242,7 +106242,7 @@ _ZNK5clang11ASTImporter24GetAlreadyImportedOrNullEPKNS_4DeclE.exit: ; preds = %6
   store ptr %81, ptr %11, align 8
   %82 = getelementptr inbounds nuw i8, ptr %80, i64 32
   %83 = load ptr, ptr %82, align 8, !noalias !8959
-  %84 = getelementptr inbounds i8, ptr %80, i64 48
+  %84 = getelementptr inbounds nuw i8, ptr %80, i64 48
   %85 = load i32, ptr %84, align 8, !noalias !8959
   %86 = icmp eq i32 %85, 0
   br i1 %86, label %112, label %87
@@ -106347,7 +106347,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5clang15ASTNodeImporter30GetIm
   %14 = load ptr, ptr %0, align 8
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 280216
   %16 = load ptr, ptr %15, align 8, !noalias !8964
-  %17 = getelementptr inbounds i8, ptr %14, i64 280232
+  %17 = getelementptr inbounds nuw i8, ptr %14, i64 280232
   %18 = load i32, ptr %17, align 8, !noalias !8964
   %19 = icmp eq i32 %18, 0
   br i1 %19, label %.loopexit.i.i, label %20
@@ -106402,7 +106402,7 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapIPN5clang4DeclENS2_14ASTImportErrorENS_12Den
 _ZNSt8optionalIN5clang14ASTImportErrorEED2Ev.exit: ; preds = %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPN5clang4DeclENS2_14ASTImportErrorENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S5_EEEES4_S5_S7_SA_E4findEPKS3_.exit.i
   %45 = getelementptr inbounds nuw i8, ptr %14, i64 280192
   %46 = load ptr, ptr %45, align 8
-  %47 = getelementptr inbounds i8, ptr %14, i64 280208
+  %47 = getelementptr inbounds nuw i8, ptr %14, i64 280208
   %48 = load i32, ptr %47, align 8
   %49 = icmp eq i32 %48, 0
   br i1 %49, label %_ZNK5clang11ASTImporter24GetAlreadyImportedOrNullEPKNS_4DeclE.exit.thread, label %50
@@ -106471,7 +106471,7 @@ _ZNK5clang11ASTImporter24GetAlreadyImportedOrNullEPKNS_4DeclE.exit: ; preds = %6
   store ptr %83, ptr %13, align 8
   %84 = getelementptr inbounds nuw i8, ptr %82, i64 32
   %85 = load ptr, ptr %84, align 8, !noalias !8967
-  %86 = getelementptr inbounds i8, ptr %82, i64 48
+  %86 = getelementptr inbounds nuw i8, ptr %82, i64 48
   %87 = load i32, ptr %86, align 8, !noalias !8967
   %88 = icmp eq i32 %87, 0
   br i1 %88, label %114, label %89
@@ -106576,7 +106576,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5clang15ASTNodeImporter30GetIm
   %14 = load ptr, ptr %0, align 8
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 280216
   %16 = load ptr, ptr %15, align 8, !noalias !8972
-  %17 = getelementptr inbounds i8, ptr %14, i64 280232
+  %17 = getelementptr inbounds nuw i8, ptr %14, i64 280232
   %18 = load i32, ptr %17, align 8, !noalias !8972
   %19 = icmp eq i32 %18, 0
   br i1 %19, label %.loopexit.i.i, label %20
@@ -106631,7 +106631,7 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapIPN5clang4DeclENS2_14ASTImportErrorENS_12Den
 _ZNSt8optionalIN5clang14ASTImportErrorEED2Ev.exit: ; preds = %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPN5clang4DeclENS2_14ASTImportErrorENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S5_EEEES4_S5_S7_SA_E4findEPKS3_.exit.i
   %45 = getelementptr inbounds nuw i8, ptr %14, i64 280192
   %46 = load ptr, ptr %45, align 8
-  %47 = getelementptr inbounds i8, ptr %14, i64 280208
+  %47 = getelementptr inbounds nuw i8, ptr %14, i64 280208
   %48 = load i32, ptr %47, align 8
   %49 = icmp eq i32 %48, 0
   br i1 %49, label %_ZNK5clang11ASTImporter24GetAlreadyImportedOrNullEPKNS_4DeclE.exit.thread, label %50
@@ -106700,7 +106700,7 @@ _ZNK5clang11ASTImporter24GetAlreadyImportedOrNullEPKNS_4DeclE.exit: ; preds = %6
   store ptr %84, ptr %13, align 8
   %85 = getelementptr inbounds nuw i8, ptr %83, i64 32
   %86 = load ptr, ptr %85, align 8, !noalias !8975
-  %87 = getelementptr inbounds i8, ptr %83, i64 48
+  %87 = getelementptr inbounds nuw i8, ptr %83, i64 48
   %88 = load i32, ptr %87, align 8, !noalias !8975
   %89 = icmp eq i32 %88, 0
   br i1 %89, label %115, label %90
@@ -106805,7 +106805,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5clang15ASTNodeImporter30GetIm
   %13 = load ptr, ptr %0, align 8
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 280216
   %15 = load ptr, ptr %14, align 8, !noalias !8980
-  %16 = getelementptr inbounds i8, ptr %13, i64 280232
+  %16 = getelementptr inbounds nuw i8, ptr %13, i64 280232
   %17 = load i32, ptr %16, align 8, !noalias !8980
   %18 = icmp eq i32 %17, 0
   br i1 %18, label %.loopexit.i.i, label %19
@@ -106860,7 +106860,7 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapIPN5clang4DeclENS2_14ASTImportErrorENS_12Den
 _ZNSt8optionalIN5clang14ASTImportErrorEED2Ev.exit: ; preds = %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPN5clang4DeclENS2_14ASTImportErrorENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S5_EEEES4_S5_S7_SA_E4findEPKS3_.exit.i
   %44 = getelementptr inbounds nuw i8, ptr %13, i64 280192
   %45 = load ptr, ptr %44, align 8
-  %46 = getelementptr inbounds i8, ptr %13, i64 280208
+  %46 = getelementptr inbounds nuw i8, ptr %13, i64 280208
   %47 = load i32, ptr %46, align 8
   %48 = icmp eq i32 %47, 0
   br i1 %48, label %_ZNK5clang11ASTImporter24GetAlreadyImportedOrNullEPKNS_4DeclE.exit.thread, label %49
@@ -106928,7 +106928,7 @@ _ZNK5clang11ASTImporter24GetAlreadyImportedOrNullEPKNS_4DeclE.exit: ; preds = %6
   store ptr %83, ptr %12, align 8
   %84 = getelementptr inbounds nuw i8, ptr %82, i64 32
   %85 = load ptr, ptr %84, align 8, !noalias !8983
-  %86 = getelementptr inbounds i8, ptr %82, i64 48
+  %86 = getelementptr inbounds nuw i8, ptr %82, i64 48
   %87 = load i32, ptr %86, align 8, !noalias !8983
   %88 = icmp eq i32 %87, 0
   br i1 %88, label %114, label %89
@@ -107033,7 +107033,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5clang15ASTNodeImporter30GetIm
   %15 = load ptr, ptr %0, align 8
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 280216
   %17 = load ptr, ptr %16, align 8, !noalias !8988
-  %18 = getelementptr inbounds i8, ptr %15, i64 280232
+  %18 = getelementptr inbounds nuw i8, ptr %15, i64 280232
   %19 = load i32, ptr %18, align 8, !noalias !8988
   %20 = icmp eq i32 %19, 0
   br i1 %20, label %.loopexit.i.i, label %21
@@ -107088,7 +107088,7 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapIPN5clang4DeclENS2_14ASTImportErrorENS_12Den
 _ZNSt8optionalIN5clang14ASTImportErrorEED2Ev.exit: ; preds = %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPN5clang4DeclENS2_14ASTImportErrorENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S5_EEEES4_S5_S7_SA_E4findEPKS3_.exit.i
   %46 = getelementptr inbounds nuw i8, ptr %15, i64 280192
   %47 = load ptr, ptr %46, align 8
-  %48 = getelementptr inbounds i8, ptr %15, i64 280208
+  %48 = getelementptr inbounds nuw i8, ptr %15, i64 280208
   %49 = load i32, ptr %48, align 8
   %50 = icmp eq i32 %49, 0
   br i1 %50, label %_ZNK5clang11ASTImporter24GetAlreadyImportedOrNullEPKNS_4DeclE.exit.thread, label %51
@@ -107164,7 +107164,7 @@ _ZNK5clang11ASTImporter24GetAlreadyImportedOrNullEPKNS_4DeclE.exit: ; preds = %6
   store ptr %93, ptr %14, align 8
   %94 = getelementptr inbounds nuw i8, ptr %92, i64 32
   %95 = load ptr, ptr %94, align 8, !noalias !8991
-  %96 = getelementptr inbounds i8, ptr %92, i64 48
+  %96 = getelementptr inbounds nuw i8, ptr %92, i64 48
   %97 = load i32, ptr %96, align 8, !noalias !8991
   %98 = icmp eq i32 %97, 0
   br i1 %98, label %124, label %99
@@ -107269,7 +107269,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5clang15ASTNodeImporter30GetIm
   %15 = load ptr, ptr %0, align 8
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 280216
   %17 = load ptr, ptr %16, align 8, !noalias !8996
-  %18 = getelementptr inbounds i8, ptr %15, i64 280232
+  %18 = getelementptr inbounds nuw i8, ptr %15, i64 280232
   %19 = load i32, ptr %18, align 8, !noalias !8996
   %20 = icmp eq i32 %19, 0
   br i1 %20, label %.loopexit.i.i, label %21
@@ -107324,7 +107324,7 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapIPN5clang4DeclENS2_14ASTImportErrorENS_12Den
 _ZNSt8optionalIN5clang14ASTImportErrorEED2Ev.exit: ; preds = %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPN5clang4DeclENS2_14ASTImportErrorENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S5_EEEES4_S5_S7_SA_E4findEPKS3_.exit.i
   %46 = getelementptr inbounds nuw i8, ptr %15, i64 280192
   %47 = load ptr, ptr %46, align 8
-  %48 = getelementptr inbounds i8, ptr %15, i64 280208
+  %48 = getelementptr inbounds nuw i8, ptr %15, i64 280208
   %49 = load i32, ptr %48, align 8
   %50 = icmp eq i32 %49, 0
   br i1 %50, label %_ZNK5clang11ASTImporter24GetAlreadyImportedOrNullEPKNS_4DeclE.exit.thread, label %51
@@ -107398,7 +107398,7 @@ _ZNK5clang11ASTImporter24GetAlreadyImportedOrNullEPKNS_4DeclE.exit: ; preds = %6
   store ptr %90, ptr %14, align 8
   %91 = getelementptr inbounds nuw i8, ptr %89, i64 32
   %92 = load ptr, ptr %91, align 8, !noalias !8999
-  %93 = getelementptr inbounds i8, ptr %89, i64 48
+  %93 = getelementptr inbounds nuw i8, ptr %89, i64 48
   %94 = load i32, ptr %93, align 8, !noalias !8999
   %95 = icmp eq i32 %94, 0
   br i1 %95, label %121, label %96
@@ -107503,7 +107503,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5clang15ASTNodeImporter30GetIm
   %14 = load ptr, ptr %0, align 8
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 280216
   %16 = load ptr, ptr %15, align 8, !noalias !9004
-  %17 = getelementptr inbounds i8, ptr %14, i64 280232
+  %17 = getelementptr inbounds nuw i8, ptr %14, i64 280232
   %18 = load i32, ptr %17, align 8, !noalias !9004
   %19 = icmp eq i32 %18, 0
   br i1 %19, label %.loopexit.i.i, label %20
@@ -107558,7 +107558,7 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapIPN5clang4DeclENS2_14ASTImportErrorENS_12Den
 _ZNSt8optionalIN5clang14ASTImportErrorEED2Ev.exit: ; preds = %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPN5clang4DeclENS2_14ASTImportErrorENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S5_EEEES4_S5_S7_SA_E4findEPKS3_.exit.i
   %45 = getelementptr inbounds nuw i8, ptr %14, i64 280192
   %46 = load ptr, ptr %45, align 8
-  %47 = getelementptr inbounds i8, ptr %14, i64 280208
+  %47 = getelementptr inbounds nuw i8, ptr %14, i64 280208
   %48 = load i32, ptr %47, align 8
   %49 = icmp eq i32 %48, 0
   br i1 %49, label %_ZNK5clang11ASTImporter24GetAlreadyImportedOrNullEPKNS_4DeclE.exit.thread, label %50
@@ -107632,7 +107632,7 @@ _ZNK5clang11ASTImporter24GetAlreadyImportedOrNullEPKNS_4DeclE.exit: ; preds = %6
   store ptr %91, ptr %13, align 8
   %92 = getelementptr inbounds nuw i8, ptr %90, i64 32
   %93 = load ptr, ptr %92, align 8, !noalias !9007
-  %94 = getelementptr inbounds i8, ptr %90, i64 48
+  %94 = getelementptr inbounds nuw i8, ptr %90, i64 48
   %95 = load i32, ptr %94, align 8, !noalias !9007
   %96 = icmp eq i32 %95, 0
   br i1 %96, label %122, label %97
@@ -107737,7 +107737,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5clang15ASTNodeImporter30GetIm
   %11 = load ptr, ptr %0, align 8
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 280216
   %13 = load ptr, ptr %12, align 8, !noalias !9012
-  %14 = getelementptr inbounds i8, ptr %11, i64 280232
+  %14 = getelementptr inbounds nuw i8, ptr %11, i64 280232
   %15 = load i32, ptr %14, align 8, !noalias !9012
   %16 = icmp eq i32 %15, 0
   br i1 %16, label %.loopexit.i.i, label %17
@@ -107792,7 +107792,7 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapIPN5clang4DeclENS2_14ASTImportErrorENS_12Den
 _ZNSt8optionalIN5clang14ASTImportErrorEED2Ev.exit: ; preds = %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPN5clang4DeclENS2_14ASTImportErrorENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S5_EEEES4_S5_S7_SA_E4findEPKS3_.exit.i
   %42 = getelementptr inbounds nuw i8, ptr %11, i64 280192
   %43 = load ptr, ptr %42, align 8
-  %44 = getelementptr inbounds i8, ptr %11, i64 280208
+  %44 = getelementptr inbounds nuw i8, ptr %11, i64 280208
   %45 = load i32, ptr %44, align 8
   %46 = icmp eq i32 %45, 0
   br i1 %46, label %_ZNK5clang11ASTImporter24GetAlreadyImportedOrNullEPKNS_4DeclE.exit.thread, label %47
@@ -107858,7 +107858,7 @@ _ZNK5clang11ASTImporter24GetAlreadyImportedOrNullEPKNS_4DeclE.exit: ; preds = %6
   store ptr %80, ptr %10, align 8
   %81 = getelementptr inbounds nuw i8, ptr %79, i64 32
   %82 = load ptr, ptr %81, align 8, !noalias !9015
-  %83 = getelementptr inbounds i8, ptr %79, i64 48
+  %83 = getelementptr inbounds nuw i8, ptr %79, i64 48
   %84 = load i32, ptr %83, align 8, !noalias !9015
   %85 = icmp eq i32 %84, 0
   br i1 %85, label %111, label %86
@@ -107963,7 +107963,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5clang15ASTNodeImporter30GetIm
   %15 = load ptr, ptr %0, align 8
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 280216
   %17 = load ptr, ptr %16, align 8, !noalias !9020
-  %18 = getelementptr inbounds i8, ptr %15, i64 280232
+  %18 = getelementptr inbounds nuw i8, ptr %15, i64 280232
   %19 = load i32, ptr %18, align 8, !noalias !9020
   %20 = icmp eq i32 %19, 0
   br i1 %20, label %.loopexit.i.i, label %21
@@ -108018,7 +108018,7 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapIPN5clang4DeclENS2_14ASTImportErrorENS_12Den
 _ZNSt8optionalIN5clang14ASTImportErrorEED2Ev.exit: ; preds = %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPN5clang4DeclENS2_14ASTImportErrorENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S5_EEEES4_S5_S7_SA_E4findEPKS3_.exit.i
   %46 = getelementptr inbounds nuw i8, ptr %15, i64 280192
   %47 = load ptr, ptr %46, align 8
-  %48 = getelementptr inbounds i8, ptr %15, i64 280208
+  %48 = getelementptr inbounds nuw i8, ptr %15, i64 280208
   %49 = load i32, ptr %48, align 8
   %50 = icmp eq i32 %49, 0
   br i1 %50, label %_ZNK5clang11ASTImporter24GetAlreadyImportedOrNullEPKNS_4DeclE.exit.thread, label %51
@@ -108087,7 +108087,7 @@ _ZNK5clang11ASTImporter24GetAlreadyImportedOrNullEPKNS_4DeclE.exit: ; preds = %6
   store ptr %86, ptr %14, align 8
   %87 = getelementptr inbounds nuw i8, ptr %85, i64 32
   %88 = load ptr, ptr %87, align 8, !noalias !9023
-  %89 = getelementptr inbounds i8, ptr %85, i64 48
+  %89 = getelementptr inbounds nuw i8, ptr %85, i64 48
   %90 = load i32, ptr %89, align 8, !noalias !9023
   %91 = icmp eq i32 %90, 0
   br i1 %91, label %117, label %92
@@ -108193,7 +108193,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5clang15ASTNodeImporter30GetIm
   %14 = load ptr, ptr %0, align 8
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 280216
   %16 = load ptr, ptr %15, align 8, !noalias !9028
-  %17 = getelementptr inbounds i8, ptr %14, i64 280232
+  %17 = getelementptr inbounds nuw i8, ptr %14, i64 280232
   %18 = load i32, ptr %17, align 8, !noalias !9028
   %19 = icmp eq i32 %18, 0
   br i1 %19, label %.loopexit.i.i, label %20
@@ -108248,7 +108248,7 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapIPN5clang4DeclENS2_14ASTImportErrorENS_12Den
 _ZNSt8optionalIN5clang14ASTImportErrorEED2Ev.exit: ; preds = %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPN5clang4DeclENS2_14ASTImportErrorENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S5_EEEES4_S5_S7_SA_E4findEPKS3_.exit.i
   %45 = getelementptr inbounds nuw i8, ptr %14, i64 280192
   %46 = load ptr, ptr %45, align 8
-  %47 = getelementptr inbounds i8, ptr %14, i64 280208
+  %47 = getelementptr inbounds nuw i8, ptr %14, i64 280208
   %48 = load i32, ptr %47, align 8
   %49 = icmp eq i32 %48, 0
   br i1 %49, label %_ZNK5clang11ASTImporter24GetAlreadyImportedOrNullEPKNS_4DeclE.exit.thread, label %50
@@ -108322,7 +108322,7 @@ _ZNK5clang11ASTImporter24GetAlreadyImportedOrNullEPKNS_4DeclE.exit: ; preds = %6
   store ptr %87, ptr %12, align 8
   %88 = getelementptr inbounds nuw i8, ptr %86, i64 32
   %89 = load ptr, ptr %88, align 8, !noalias !9031
-  %90 = getelementptr inbounds i8, ptr %86, i64 48
+  %90 = getelementptr inbounds nuw i8, ptr %86, i64 48
   %91 = load i32, ptr %90, align 8, !noalias !9031
   %92 = icmp eq i32 %91, 0
   br i1 %92, label %118, label %93
@@ -108480,7 +108480,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5clang15ASTNodeImporter30GetIm
   %11 = load ptr, ptr %0, align 8
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 280216
   %13 = load ptr, ptr %12, align 8, !noalias !9037
-  %14 = getelementptr inbounds i8, ptr %11, i64 280232
+  %14 = getelementptr inbounds nuw i8, ptr %11, i64 280232
   %15 = load i32, ptr %14, align 8, !noalias !9037
   %16 = icmp eq i32 %15, 0
   br i1 %16, label %.loopexit.i.i, label %17
@@ -108535,7 +108535,7 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapIPN5clang4DeclENS2_14ASTImportErrorENS_12Den
 _ZNSt8optionalIN5clang14ASTImportErrorEED2Ev.exit: ; preds = %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPN5clang4DeclENS2_14ASTImportErrorENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S5_EEEES4_S5_S7_SA_E4findEPKS3_.exit.i
   %42 = getelementptr inbounds nuw i8, ptr %11, i64 280192
   %43 = load ptr, ptr %42, align 8
-  %44 = getelementptr inbounds i8, ptr %11, i64 280208
+  %44 = getelementptr inbounds nuw i8, ptr %11, i64 280208
   %45 = load i32, ptr %44, align 8
   %46 = icmp eq i32 %45, 0
   br i1 %46, label %_ZNK5clang11ASTImporter24GetAlreadyImportedOrNullEPKNS_4DeclE.exit.thread, label %47
@@ -108601,7 +108601,7 @@ _ZNK5clang11ASTImporter24GetAlreadyImportedOrNullEPKNS_4DeclE.exit: ; preds = %6
   store ptr %80, ptr %10, align 8
   %81 = getelementptr inbounds nuw i8, ptr %79, i64 32
   %82 = load ptr, ptr %81, align 8, !noalias !9040
-  %83 = getelementptr inbounds i8, ptr %79, i64 48
+  %83 = getelementptr inbounds nuw i8, ptr %79, i64 48
   %84 = load i32, ptr %83, align 8, !noalias !9040
   %85 = icmp eq i32 %84, 0
   br i1 %85, label %111, label %86
@@ -108707,7 +108707,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5clang15ASTNodeImporter30GetIm
   %16 = load ptr, ptr %0, align 8
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 280216
   %18 = load ptr, ptr %17, align 8, !noalias !9045
-  %19 = getelementptr inbounds i8, ptr %16, i64 280232
+  %19 = getelementptr inbounds nuw i8, ptr %16, i64 280232
   %20 = load i32, ptr %19, align 8, !noalias !9045
   %21 = icmp eq i32 %20, 0
   br i1 %21, label %.loopexit.i.i, label %22
@@ -108762,7 +108762,7 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapIPN5clang4DeclENS2_14ASTImportErrorENS_12Den
 _ZNSt8optionalIN5clang14ASTImportErrorEED2Ev.exit: ; preds = %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPN5clang4DeclENS2_14ASTImportErrorENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S5_EEEES4_S5_S7_SA_E4findEPKS3_.exit.i
   %47 = getelementptr inbounds nuw i8, ptr %16, i64 280192
   %48 = load ptr, ptr %47, align 8
-  %49 = getelementptr inbounds i8, ptr %16, i64 280208
+  %49 = getelementptr inbounds nuw i8, ptr %16, i64 280208
   %50 = load i32, ptr %49, align 8
   %51 = icmp eq i32 %50, 0
   br i1 %51, label %_ZNK5clang11ASTImporter24GetAlreadyImportedOrNullEPKNS_4DeclE.exit.thread, label %52
@@ -108837,7 +108837,7 @@ _ZNK5clang11ASTImporter24GetAlreadyImportedOrNullEPKNS_4DeclE.exit: ; preds = %6
   store ptr %89, ptr %14, align 8
   %90 = getelementptr inbounds nuw i8, ptr %88, i64 32
   %91 = load ptr, ptr %90, align 8, !noalias !9048
-  %92 = getelementptr inbounds i8, ptr %88, i64 48
+  %92 = getelementptr inbounds nuw i8, ptr %88, i64 48
   %93 = load i32, ptr %92, align 8, !noalias !9048
   %94 = icmp eq i32 %93, 0
   br i1 %94, label %120, label %95
@@ -108943,7 +108943,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5clang15ASTNodeImporter30GetIm
   %15 = load ptr, ptr %0, align 8
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 280216
   %17 = load ptr, ptr %16, align 8, !noalias !9053
-  %18 = getelementptr inbounds i8, ptr %15, i64 280232
+  %18 = getelementptr inbounds nuw i8, ptr %15, i64 280232
   %19 = load i32, ptr %18, align 8, !noalias !9053
   %20 = icmp eq i32 %19, 0
   br i1 %20, label %.loopexit.i.i, label %21
@@ -108998,7 +108998,7 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapIPN5clang4DeclENS2_14ASTImportErrorENS_12Den
 _ZNSt8optionalIN5clang14ASTImportErrorEED2Ev.exit: ; preds = %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPN5clang4DeclENS2_14ASTImportErrorENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S5_EEEES4_S5_S7_SA_E4findEPKS3_.exit.i
   %46 = getelementptr inbounds nuw i8, ptr %15, i64 280192
   %47 = load ptr, ptr %46, align 8
-  %48 = getelementptr inbounds i8, ptr %15, i64 280208
+  %48 = getelementptr inbounds nuw i8, ptr %15, i64 280208
   %49 = load i32, ptr %48, align 8
   %50 = icmp eq i32 %49, 0
   br i1 %50, label %_ZNK5clang11ASTImporter24GetAlreadyImportedOrNullEPKNS_4DeclE.exit.thread, label %51
@@ -109072,7 +109072,7 @@ _ZNK5clang11ASTImporter24GetAlreadyImportedOrNullEPKNS_4DeclE.exit: ; preds = %6
   store ptr %87, ptr %13, align 8
   %88 = getelementptr inbounds nuw i8, ptr %86, i64 32
   %89 = load ptr, ptr %88, align 8, !noalias !9056
-  %90 = getelementptr inbounds i8, ptr %86, i64 48
+  %90 = getelementptr inbounds nuw i8, ptr %86, i64 48
   %91 = load i32, ptr %90, align 8, !noalias !9056
   %92 = icmp eq i32 %91, 0
   br i1 %92, label %118, label %93
@@ -109177,7 +109177,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5clang15ASTNodeImporter30GetIm
   %11 = load ptr, ptr %0, align 8
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 280216
   %13 = load ptr, ptr %12, align 8, !noalias !9061
-  %14 = getelementptr inbounds i8, ptr %11, i64 280232
+  %14 = getelementptr inbounds nuw i8, ptr %11, i64 280232
   %15 = load i32, ptr %14, align 8, !noalias !9061
   %16 = icmp eq i32 %15, 0
   br i1 %16, label %.loopexit.i.i, label %17
@@ -109232,7 +109232,7 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapIPN5clang4DeclENS2_14ASTImportErrorENS_12Den
 _ZNSt8optionalIN5clang14ASTImportErrorEED2Ev.exit: ; preds = %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPN5clang4DeclENS2_14ASTImportErrorENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S5_EEEES4_S5_S7_SA_E4findEPKS3_.exit.i
   %42 = getelementptr inbounds nuw i8, ptr %11, i64 280192
   %43 = load ptr, ptr %42, align 8
-  %44 = getelementptr inbounds i8, ptr %11, i64 280208
+  %44 = getelementptr inbounds nuw i8, ptr %11, i64 280208
   %45 = load i32, ptr %44, align 8
   %46 = icmp eq i32 %45, 0
   br i1 %46, label %_ZNK5clang11ASTImporter24GetAlreadyImportedOrNullEPKNS_4DeclE.exit.thread, label %47
@@ -109298,7 +109298,7 @@ _ZNK5clang11ASTImporter24GetAlreadyImportedOrNullEPKNS_4DeclE.exit: ; preds = %6
   store ptr %80, ptr %10, align 8
   %81 = getelementptr inbounds nuw i8, ptr %79, i64 32
   %82 = load ptr, ptr %81, align 8, !noalias !9064
-  %83 = getelementptr inbounds i8, ptr %79, i64 48
+  %83 = getelementptr inbounds nuw i8, ptr %79, i64 48
   %84 = load i32, ptr %83, align 8, !noalias !9064
   %85 = icmp eq i32 %84, 0
   br i1 %85, label %111, label %86
@@ -109695,7 +109695,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5clang15ASTNodeImporter30GetIm
   %8 = load ptr, ptr %0, align 8
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 280216
   %10 = load ptr, ptr %9, align 8, !noalias !9069
-  %11 = getelementptr inbounds i8, ptr %8, i64 280232
+  %11 = getelementptr inbounds nuw i8, ptr %8, i64 280232
   %12 = load i32, ptr %11, align 8, !noalias !9069
   %13 = icmp eq i32 %12, 0
   br i1 %13, label %.loopexit.i.i, label %14
@@ -109750,7 +109750,7 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapIPN5clang4DeclENS2_14ASTImportErrorENS_12Den
 _ZNSt8optionalIN5clang14ASTImportErrorEED2Ev.exit: ; preds = %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPN5clang4DeclENS2_14ASTImportErrorENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S5_EEEES4_S5_S7_SA_E4findEPKS3_.exit.i
   %39 = getelementptr inbounds nuw i8, ptr %8, i64 280192
   %40 = load ptr, ptr %39, align 8
-  %41 = getelementptr inbounds i8, ptr %8, i64 280208
+  %41 = getelementptr inbounds nuw i8, ptr %8, i64 280208
   %42 = load i32, ptr %41, align 8
   %43 = icmp eq i32 %42, 0
   br i1 %43, label %_ZNK5clang11ASTImporter24GetAlreadyImportedOrNullEPKNS_4DeclE.exit.thread, label %44
@@ -109854,7 +109854,7 @@ _ZN5clang15ASTNodeImporter23CallOverloadedCreateFunINS_29LifetimeExtendedTempora
   store ptr %96, ptr %7, align 8
   %97 = getelementptr inbounds nuw i8, ptr %95, i64 32
   %98 = load ptr, ptr %97, align 8, !noalias !9072
-  %99 = getelementptr inbounds i8, ptr %95, i64 48
+  %99 = getelementptr inbounds nuw i8, ptr %95, i64 48
   %100 = load i32, ptr %99, align 8, !noalias !9072
   %101 = icmp eq i32 %100, 0
   br i1 %101, label %127, label %102
@@ -110058,7 +110058,7 @@ define linkonce_odr hidden void @_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIPN5cl
   %2 = load i32, ptr %0, align 8
   %3 = and i32 %2, 1
   %.not.i.i = icmp eq i32 %3, 0
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i32, ptr %4, align 8
   %6 = select i1 %.not.i.i, i32 %5, i32 32
   %7 = icmp eq i32 %6, 0
@@ -110173,13 +110173,13 @@ define linkonce_odr hidden noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN5clang22
 define linkonce_odr hidden void @_ZN5clang22ASTImporterSharedStateD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #0 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 48
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %5 = load i32, ptr %4, align 8
   %6 = zext i32 %5 to i64
   %7 = shl nuw nsw i64 %6, 3
   tail call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef %3, i64 noundef %7, i64 noundef 8) #23
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %10 = load i32, ptr %9, align 8
   %11 = icmp eq i32 %10, 0
   %.pre1.i = load ptr, ptr %8, align 8
@@ -110281,7 +110281,7 @@ define linkonce_odr hidden void @_ZN4llvm13SmallDenseMapIN5clang15DeclarationNam
   %2 = load i32, ptr %0, align 8
   %3 = and i32 %2, 1
   %.not.i.i.i = icmp eq i32 %3, 0
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i32, ptr %4, align 8
   %6 = select i1 %.not.i.i.i, i32 %5, i32 4
   %7 = icmp eq i32 %6, 0
@@ -110303,7 +110303,7 @@ define linkonce_odr hidden void @_ZN4llvm13SmallDenseMapIN5clang15DeclarationNam
 
 13:                                               ; preds = %.lr.ph.i
   %14 = getelementptr inbounds nuw i8, ptr %.014.i, i64 8
-  %15 = getelementptr inbounds i8, ptr %.014.i, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %.014.i, i64 32
   %16 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %15) #23
   %17 = load ptr, ptr %15, align 8
   %18 = getelementptr inbounds i8, ptr %.014.i, i64 48
@@ -110316,7 +110316,7 @@ define linkonce_odr hidden void @_ZN4llvm13SmallDenseMapIN5clang15DeclarationNam
 
 _ZN4llvm14SmallSetVectorIPN5clang9NamedDeclELj2EED2Ev.exit.i: ; preds = %20, %13
   %21 = load ptr, ptr %14, align 8
-  %22 = getelementptr inbounds i8, ptr %.014.i, i64 24
+  %22 = getelementptr inbounds nuw i8, ptr %.014.i, i64 24
   %23 = load i32, ptr %22, align 8
   %24 = zext i32 %23 to i64
   %25 = shl nuw nsw i64 %24, 3
@@ -110831,10 +110831,10 @@ define linkonce_odr hidden void @_ZN5clang11ASTImporter12ImportPathTy3popEv(ptr 
   %9 = load i32, ptr %4, align 8
   %10 = and i32 %9, 1
   %.not.i.i.i.i.i.i = icmp eq i32 %10, 0
-  %11 = getelementptr inbounds i8, ptr %0, i64 280
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %12 = load ptr, ptr %11, align 8
   %13 = select i1 %.not.i.i.i.i.i.i, ptr %12, ptr %11
-  %14 = getelementptr inbounds i8, ptr %0, i64 288
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 288
   %15 = load i32, ptr %14, align 8
   %16 = select i1 %.not.i.i.i.i.i.i, i32 %15, i32 32
   %17 = icmp eq i32 %16, 0
@@ -110913,7 +110913,7 @@ define linkonce_odr hidden noundef ptr @_ZN4llvm12DenseMapBaseINS_13SmallDenseMa
   %6 = lshr i32 %5, 1
   %7 = and i32 %5, 1
   %.not.i.i = icmp eq i32 %7, 0
-  %8 = getelementptr inbounds i8, ptr %0, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = load i32, ptr %8, align 8
   %10 = select i1 %.not.i.i, i32 %9, i32 32
   %11 = shl i32 %6, 2
@@ -111180,7 +111180,7 @@ _ZN4llvm11SmallVectorINS0_IPN5clang4DeclELj32EEELj32EED2Ev.exit: ; preds = %.pre
   %52 = mul nuw nsw i64 %51, 8728
   %53 = call noalias noundef nonnull ptr @_ZN4llvm15allocate_bufferEmm(i64 noundef %52, i64 noundef 8) #23
   store ptr %53, ptr %23, align 8
-  %54 = getelementptr inbounds i8, ptr %0, i64 16
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 %.0, ptr %54, align 8
   br label %55
 
@@ -111231,7 +111231,7 @@ define linkonce_odr hidden void @_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIPN5cl
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8
   %9 = select i1 %.not.i.i.i.i, ptr %8, ptr %7
-  %10 = getelementptr inbounds i8, ptr %0, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %11 = load i32, ptr %10, align 8
   %12 = select i1 %.not.i.i.i.i, i32 %11, i32 32
   %13 = zext i32 %12 to i64

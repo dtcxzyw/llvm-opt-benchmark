@@ -60,7 +60,7 @@ define dso_local void @_ZN4llvm3pdb17NativeTypePointerC2ERNS0_13NativeSessionEjN
   store ptr getelementptr inbounds inrange(-16, 1448) (i8, ptr @_ZTVN4llvm3pdb17NativeTypePointerE, i64 16), ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 %3, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 48
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i8 0, ptr %6, align 8
   ret void
 }
@@ -78,7 +78,7 @@ define dso_local void @_ZN4llvm3pdb17NativeTypePointerC2ERNS0_13NativeSessionEjN
   store i32 %3, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 28
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %7, ptr noundef nonnull align 8 dereferenceable(20) %4, i64 20, i1 false)
-  %8 = getelementptr inbounds i8, ptr %0, i64 48
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i8 1, ptr %8, align 8
   ret void
 }
@@ -500,7 +500,7 @@ _ZNK4llvm3pdb17NativeTypePointer15isMemberPointerEv.exit: ; preds = %1
   br i1 %9, label %_ZNK4llvm3pdb17NativeTypePointer15isMemberPointerEv.exit.thread, label %15
 
 _ZNK4llvm3pdb17NativeTypePointer15isMemberPointerEv.exit.thread: ; preds = %1, %_ZNK4llvm3pdb17NativeTypePointer15isMemberPointerEv.exit
-  %10 = getelementptr inbounds i8, ptr %0, i64 40
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %.sroa.0.0.copyload.i = load i48, ptr %10, align 8
   %.sroa.0.0.extract.trunc = trunc i48 %.sroa.0.0.copyload.i to i32
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -518,13 +518,13 @@ declare noundef i32 @_ZNK4llvm3pdb11SymbolCache21findSymbolByTypeIndexENS_8codev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read, inaccessiblemem: write) uwtable
 define dso_local noundef range(i64 0, 256) i64 @_ZNK4llvm3pdb17NativeTypePointer9getLengthEv(ptr noundef nonnull align 8 dereferenceable(52) %0) unnamed_addr #4 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 48
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load i8, ptr %2, align 8
   %4 = trunc i8 %3 to i1
   br i1 %4, label %5, label %11
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 36
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %7 = load i32, ptr %6, align 4
   %8 = lshr i32 %7, 13
   %9 = and i32 %8, 255
@@ -554,13 +554,13 @@ switch.lookup:                                    ; preds = %11
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local noundef i32 @_ZNK4llvm3pdb17NativeTypePointer9getTypeIdEv(ptr noundef nonnull align 8 dereferenceable(52) %0) unnamed_addr #0 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 48
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load i8, ptr %2, align 8
   %4 = trunc i8 %3 to i1
   br i1 %4, label %5, label %7
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 30
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 30
   %.sroa.01.0.copyload = load i32, ptr %6, align 2
   br label %10
 
@@ -582,10 +582,10 @@ define dso_local noundef i32 @_ZNK4llvm3pdb17NativeTypePointer9getTypeIdEv(ptr n
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local noundef zeroext i1 @_ZNK4llvm3pdb17NativeTypePointer11isReferenceEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(52) %0) unnamed_addr #5 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 48
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load i8, ptr %2, align 8
   %4 = trunc i8 %3 to i1
-  %5 = getelementptr inbounds i8, ptr %0, i64 36
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %6 = load i32, ptr %5, align 4
   %.mask2 = and i32 %6, 224
   %7 = icmp eq i32 %.mask2, 32
@@ -595,10 +595,10 @@ define dso_local noundef zeroext i1 @_ZNK4llvm3pdb17NativeTypePointer11isReferen
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local noundef zeroext i1 @_ZNK4llvm3pdb17NativeTypePointer17isRValueReferenceEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(52) %0) unnamed_addr #5 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 48
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load i8, ptr %2, align 8
   %4 = trunc i8 %3 to i1
-  %5 = getelementptr inbounds i8, ptr %0, i64 36
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %6 = load i32, ptr %5, align 4
   %.mask2 = and i32 %6, 224
   %7 = icmp eq i32 %.mask2, 128
@@ -608,10 +608,10 @@ define dso_local noundef zeroext i1 @_ZNK4llvm3pdb17NativeTypePointer17isRValueR
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local noundef zeroext i1 @_ZNK4llvm3pdb17NativeTypePointer21isPointerToDataMemberEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(52) %0) unnamed_addr #5 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 48
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load i8, ptr %2, align 8
   %4 = trunc i8 %3 to i1
-  %5 = getelementptr inbounds i8, ptr %0, i64 36
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %6 = load i32, ptr %5, align 4
   %.mask2 = and i32 %6, 224
   %7 = icmp eq i32 %.mask2, 64
@@ -621,10 +621,10 @@ define dso_local noundef zeroext i1 @_ZNK4llvm3pdb17NativeTypePointer21isPointer
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local noundef zeroext i1 @_ZNK4llvm3pdb17NativeTypePointer25isPointerToMemberFunctionEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(52) %0) unnamed_addr #5 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 48
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load i8, ptr %2, align 8
   %4 = trunc i8 %3 to i1
-  %5 = getelementptr inbounds i8, ptr %0, i64 36
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %6 = load i32, ptr %5, align 4
   %.mask2 = and i32 %6, 224
   %7 = icmp eq i32 %.mask2, 96
@@ -634,10 +634,10 @@ define dso_local noundef zeroext i1 @_ZNK4llvm3pdb17NativeTypePointer25isPointer
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local noundef zeroext i1 @_ZNK4llvm3pdb17NativeTypePointer11isConstTypeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(52) %0) unnamed_addr #5 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 48
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load i8, ptr %2, align 8
   %4 = trunc i8 %3 to i1
-  %5 = getelementptr inbounds i8, ptr %0, i64 36
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %6 = load i32, ptr %5, align 4
   %7 = and i32 %6, 1024
   %8 = icmp ne i32 %7, 0
@@ -647,10 +647,10 @@ define dso_local noundef zeroext i1 @_ZNK4llvm3pdb17NativeTypePointer11isConstTy
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local noundef zeroext i1 @_ZNK4llvm3pdb17NativeTypePointer16isRestrictedTypeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(52) %0) unnamed_addr #5 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 48
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load i8, ptr %2, align 8
   %4 = trunc i8 %3 to i1
-  %5 = getelementptr inbounds i8, ptr %0, i64 36
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %6 = load i32, ptr %5, align 4
   %7 = and i32 %6, 4096
   %8 = icmp ne i32 %7, 0
@@ -660,10 +660,10 @@ define dso_local noundef zeroext i1 @_ZNK4llvm3pdb17NativeTypePointer16isRestric
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local noundef zeroext i1 @_ZNK4llvm3pdb17NativeTypePointer14isVolatileTypeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(52) %0) unnamed_addr #5 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 48
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load i8, ptr %2, align 8
   %4 = trunc i8 %3 to i1
-  %5 = getelementptr inbounds i8, ptr %0, i64 36
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %6 = load i32, ptr %5, align 4
   %7 = and i32 %6, 512
   %8 = icmp ne i32 %7, 0
@@ -673,10 +673,10 @@ define dso_local noundef zeroext i1 @_ZNK4llvm3pdb17NativeTypePointer14isVolatil
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local noundef zeroext i1 @_ZNK4llvm3pdb17NativeTypePointer15isUnalignedTypeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(52) %0) unnamed_addr #5 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 48
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load i8, ptr %2, align 8
   %4 = trunc i8 %3 to i1
-  %5 = getelementptr inbounds i8, ptr %0, i64 36
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %6 = load i32, ptr %5, align 4
   %7 = and i32 %6, 2048
   %8 = icmp ne i32 %7, 0
@@ -700,7 +700,7 @@ _ZNK4llvm3pdb17NativeTypePointer15isMemberPointerEv.exit: ; preds = %1
   br i1 %9, label %_ZNK4llvm3pdb17NativeTypePointer15isMemberPointerEv.exit.thread, label %12
 
 _ZNK4llvm3pdb17NativeTypePointer15isMemberPointerEv.exit.thread: ; preds = %1, %_ZNK4llvm3pdb17NativeTypePointer15isMemberPointerEv.exit
-  %10 = getelementptr inbounds i8, ptr %0, i64 40
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %.sroa.0.0.copyload.i = load i48, ptr %10, align 8
   %11 = and i48 %.sroa.0.0.copyload.i, -21474836480
   %spec.select.i = icmp eq i48 %11, 4294967296
@@ -727,7 +727,7 @@ _ZNK4llvm3pdb17NativeTypePointer15isMemberPointerEv.exit: ; preds = %1
   br i1 %9, label %_ZNK4llvm3pdb17NativeTypePointer15isMemberPointerEv.exit.thread, label %12
 
 _ZNK4llvm3pdb17NativeTypePointer15isMemberPointerEv.exit.thread: ; preds = %1, %_ZNK4llvm3pdb17NativeTypePointer15isMemberPointerEv.exit
-  %10 = getelementptr inbounds i8, ptr %0, i64 40
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %.sroa.0.0.copyload.i = load i48, ptr %10, align 8
   %11 = and i48 %.sroa.0.0.copyload.i, -21474836480
   %spec.select.i = icmp eq i48 %11, 8589934592
@@ -754,7 +754,7 @@ _ZNK4llvm3pdb17NativeTypePointer15isMemberPointerEv.exit: ; preds = %1
   br i1 %9, label %_ZNK4llvm3pdb17NativeTypePointer15isMemberPointerEv.exit.thread, label %12
 
 _ZNK4llvm3pdb17NativeTypePointer15isMemberPointerEv.exit.thread: ; preds = %1, %_ZNK4llvm3pdb17NativeTypePointer15isMemberPointerEv.exit
-  %10 = getelementptr inbounds i8, ptr %0, i64 40
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %.sroa.0.0.copyload.i = load i48, ptr %10, align 8
   %11 = and i48 %.sroa.0.0.copyload.i, -21474836480
   %spec.select.i = icmp eq i48 %11, 12884901888

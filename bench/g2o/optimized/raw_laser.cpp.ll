@@ -66,7 +66,7 @@ define void @_ZN3g2o8RawLaserC2Ev(ptr noundef nonnull align 16 dereferenceable(2
   br i1 %.not.i.i.i, label %_ZNSt6vectorIdSaIdEED2Ev.exit, label %9
 
 9:                                                ; preds = %5
-  %10 = getelementptr inbounds i8, ptr %0, i64 144
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %11 = load ptr, ptr %10, align 16
   %12 = ptrtoint ptr %11 to i64
   %13 = ptrtoint ptr %8 to i64
@@ -80,7 +80,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit:                    ; preds = %5, %9
   br i1 %.not.i.i.i2, label %_ZNSt6vectorIdSaIdEED2Ev.exit3, label %16
 
 16:                                               ; preds = %_ZNSt6vectorIdSaIdEED2Ev.exit
-  %17 = getelementptr inbounds i8, ptr %0, i64 120
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %18 = load ptr, ptr %17, align 8
   %19 = ptrtoint ptr %18 to i64
   %20 = ptrtoint ptr %15 to i64
@@ -111,7 +111,7 @@ define void @_ZN3g2o8RawLaserD2Ev(ptr noundef nonnull align 16 dereferenceable(2
   br i1 %.not.i.i.i, label %_ZNSt6vectorIdSaIdEED2Ev.exit, label %4
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 144
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %6 = load ptr, ptr %5, align 16
   %7 = ptrtoint ptr %6 to i64
   %8 = ptrtoint ptr %3 to i64
@@ -126,7 +126,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit:                    ; preds = %1, %4
   br i1 %.not.i.i.i1, label %_ZNSt6vectorIdSaIdEED2Ev.exit2, label %12
 
 12:                                               ; preds = %_ZNSt6vectorIdSaIdEED2Ev.exit
-  %13 = getelementptr inbounds i8, ptr %0, i64 120
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %14 = load ptr, ptr %13, align 8
   %15 = ptrtoint ptr %14 to i64
   %16 = ptrtoint ptr %11 to i64
@@ -184,16 +184,16 @@ define noundef zeroext i1 @_ZN3g2o8RawLaser4readERSi(ptr noundef nonnull align 1
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %28 = load i64, ptr %11, align 16
   store i64 %28, ptr %27, align 16
-  %29 = getelementptr inbounds i8, ptr %0, i64 176
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %30 = getelementptr inbounds nuw i8, ptr %11, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %29, ptr noundef nonnull align 16 dereferenceable(16) %30, i64 16, i1 false)
-  %31 = getelementptr inbounds i8, ptr %0, i64 192
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %32 = getelementptr inbounds nuw i8, ptr %11, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %31, ptr noundef nonnull align 16 dereferenceable(64) %32, i64 64, i1 false)
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %34 = load i32, ptr %10, align 4
   %35 = sext i32 %34 to i64
-  %36 = getelementptr inbounds i8, ptr %0, i64 112
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %37 = load ptr, ptr %36, align 16
   %38 = load ptr, ptr %33, align 8
   %39 = ptrtoint ptr %37 to i64
@@ -243,7 +243,7 @@ _ZNSt6vectorIdSaIdEE6resizeEm.exit:               ; preds = %44, %46, %48, %50
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %61 = load i32, ptr %10, align 4
   %62 = sext i32 %61 to i64
-  %63 = getelementptr inbounds i8, ptr %0, i64 136
+  %63 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %64 = load ptr, ptr %63, align 8
   %65 = load ptr, ptr %60, align 16
   %66 = ptrtoint ptr %64 to i64
@@ -433,11 +433,11 @@ define void @_ZN3g2o8RawLaser14setLaserParamsERKNS_15LaserParametersE(ptr nocapt
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %4 = load i64, ptr %1, align 16
   store i64 %4, ptr %3, align 16
-  %5 = getelementptr inbounds i8, ptr %0, i64 176
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %7 = load <2 x double>, ptr %6, align 16
   store <2 x double> %7, ptr %5, align 16
-  %8 = getelementptr inbounds i8, ptr %0, i64 192
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %8, ptr noundef nonnull align 16 dereferenceable(64) %9, i64 64, i1 false)
   ret void
@@ -447,17 +447,17 @@ define void @_ZN3g2o8RawLaser14setLaserParamsERKNS_15LaserParametersE(ptr nocapt
 define void @_ZNK3g2o8RawLaser9cartesianEv(ptr dead_on_unwind noalias nocapture writable sret(%"class.std::vector.6") align 8 %0, ptr nocapture noundef nonnull readonly align 16 dereferenceable(256) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 104
-  %4 = getelementptr inbounds i8, ptr %1, i64 112
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %5 = load ptr, ptr %4, align 16
   %6 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %5, %6
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %1, i64 240
-  %8 = getelementptr inbounds i8, ptr %1, i64 248
-  %9 = getelementptr inbounds i8, ptr %1, i64 200
-  %10 = getelementptr inbounds i8, ptr %1, i64 216
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 240
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 248
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 200
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 216
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br label %13

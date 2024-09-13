@@ -227,10 +227,10 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_134X86WinFixupBufferSecurity
   %19 = alloca %"class.llvm::MIMetadata", align 8
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 540
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 540
   %23 = load i32, ptr %22, align 4
   %24 = icmp eq i32 %23, 14
-  %25 = getelementptr inbounds i8, ptr %21, i64 544
+  %25 = getelementptr inbounds nuw i8, ptr %21, i64 544
   %26 = load i32, ptr %25, align 8
   %27 = add i32 %26, -19
   %28 = icmp ult i32 %27, 2
@@ -653,7 +653,7 @@ _ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit.i: ; preds = %_ZNK4llvm
   store ptr %158, ptr %196, align 8, !alias.scope !18
   %197 = getelementptr inbounds nuw i8, ptr %9, i64 4
   store i32 0, ptr %197, align 4, !alias.scope !18
-  %198 = getelementptr inbounds i8, ptr %9, i64 24
+  %198 = getelementptr inbounds nuw i8, ptr %9, i64 24
   store i32 0, ptr %198, align 8, !alias.scope !18
   store i32 10, ptr %9, align 8, !alias.scope !18
   call void @_ZN4llvm12MachineInstr10addOperandERNS_15MachineFunctionERKNS_14MachineOperandE(ptr noundef nonnull align 8 dereferenceable(70) %182, ptr noundef nonnull align 8 dereferenceable(1041) %181, ptr noundef nonnull align 8 dereferenceable(32) %9) #13
@@ -1013,9 +1013,9 @@ _ZN4llvm17MachineBasicBlock6spliceENS_26MachineInstrBundleIteratorINS_12MachineI
   %344 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %345 = getelementptr inbounds i8, ptr %4, i64 32
   call void @_ZN4llvm15SmallVectorBaseImEC2EPvm(ptr noundef nonnull align 8 dereferenceable(24) %344, ptr noundef nonnull %345, i64 noundef 8) #13
-  %346 = getelementptr inbounds i8, ptr %4, i64 48
+  %346 = getelementptr inbounds nuw i8, ptr %4, i64 48
   store ptr null, ptr %346, align 8
-  %347 = getelementptr inbounds i8, ptr %4, i64 56
+  %347 = getelementptr inbounds nuw i8, ptr %4, i64 56
   store i32 0, ptr %347, align 8
   call void @_ZN4llvm20computeAndAddLiveInsERNS_12LivePhysRegsERNS_17MachineBasicBlockE(ptr noundef nonnull align 8 dereferenceable(64) %4, ptr noundef nonnull align 8 dereferenceable(288) %84) #13
   %348 = load ptr, ptr %346, align 8
@@ -1036,9 +1036,9 @@ _ZN12_GLOBAL__N_134X86WinFixupBufferSecurityCheckPass11FinishBlockEPN4llvm17Mach
   %353 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %354 = getelementptr inbounds i8, ptr %3, i64 32
   call void @_ZN4llvm15SmallVectorBaseImEC2EPvm(ptr noundef nonnull align 8 dereferenceable(24) %353, ptr noundef nonnull %354, i64 noundef 8) #13
-  %355 = getelementptr inbounds i8, ptr %3, i64 48
+  %355 = getelementptr inbounds nuw i8, ptr %3, i64 48
   store ptr null, ptr %355, align 8
-  %356 = getelementptr inbounds i8, ptr %3, i64 56
+  %356 = getelementptr inbounds nuw i8, ptr %3, i64 56
   store i32 0, ptr %356, align 8
   call void @_ZN4llvm20computeAndAddLiveInsERNS_12LivePhysRegsERNS_17MachineBasicBlockE(ptr noundef nonnull align 8 dereferenceable(64) %3, ptr noundef nonnull align 8 dereferenceable(288) %85) #13
   %357 = load ptr, ptr %355, align 8

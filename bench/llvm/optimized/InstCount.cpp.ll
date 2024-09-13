@@ -28,15 +28,15 @@ define dso_local void @_ZN4llvm13InstCountPass3runERNS_8FunctionERNS_15AnalysisM
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 0, ptr %9, align 8, !alias.scope !4
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %11 = getelementptr inbounds i8, ptr %0, i64 80
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store ptr %11, ptr %10, align 8, !alias.scope !4
-  %12 = getelementptr inbounds i8, ptr %0, i64 56
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store ptr %11, ptr %12, align 8, !alias.scope !4
-  %13 = getelementptr inbounds i8, ptr %0, i64 64
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i32 2, ptr %13, align 8, !alias.scope !4
-  %14 = getelementptr inbounds i8, ptr %0, i64 68
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 68
   store i32 0, ptr %14, align 4, !alias.scope !4
-  %15 = getelementptr inbounds i8, ptr %0, i64 72
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store i32 0, ptr %15, align 8, !alias.scope !4
   store i32 1, ptr %8, align 4, !alias.scope !4, !noalias !7
   store ptr @_ZN4llvm17PreservedAnalyses14AllAnalysesKeyE, ptr %5, align 8, !alias.scope !4, !noalias !7

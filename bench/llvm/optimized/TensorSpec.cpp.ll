@@ -263,7 +263,7 @@ define dso_local void @_ZNK4llvm10TensorSpec6toJSONERNS_4json7OStreamE(ptr nound
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3)
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %0, i64 48
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %21 = load ptr, ptr %20, align 8
   %.not6.i.i.i.i = icmp eq ptr %19, %21
   br i1 %.not6.i.i.i.i, label %"_ZN4llvm12function_refIFvvEE11callback_fnIZNKS_10TensorSpec6toJSONERNS_4json7OStreamEE3$_0EEvl.exit", label %.lr.ph.i.i.i.i
@@ -329,10 +329,10 @@ _ZNSt16allocator_traitsISaIlEE8allocateERS0_m.exit.i.i.i.i: ; preds = %17
 _ZNSt12_Vector_baseIlSaIlEEC2EmRKS0_.exit.i:      ; preds = %_ZNSt16allocator_traitsISaIlEE8allocateERS0_m.exit.i.i.i.i, %6
   %21 = phi ptr [ %20, %_ZNSt16allocator_traitsISaIlEE8allocateERS0_m.exit.i.i.i.i ], [ null, %6 ]
   store ptr %21, ptr %9, align 8
-  %22 = getelementptr inbounds i8, ptr %0, i64 48
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr %21, ptr %22, align 8
   %23 = getelementptr inbounds i64, ptr %21, i64 %16
-  %24 = getelementptr inbounds i8, ptr %0, i64 56
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store ptr %23, ptr %24, align 8
   %25 = load ptr, ptr %5, align 8
   %26 = load ptr, ptr %10, align 8
@@ -418,7 +418,7 @@ define dso_local void @_ZN4llvm21getTensorSpecFromJSONERNS_11LLVMContextERKNS_4j
   store i64 11, ptr %.sroa.2.0..sroa_idx.i, align 8
   %34 = getelementptr inbounds nuw i8, ptr %12, i64 16
   store ptr @.str.22, ptr %34, align 8
-  %35 = getelementptr inbounds i8, ptr %12, i64 24
+  %35 = getelementptr inbounds nuw i8, ptr %12, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %35, i8 0, i64 32, i1 false)
   %36 = ptrtoint ptr %12 to i64
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10)
@@ -739,7 +739,7 @@ _ZNSt6vectorIlSaIlEED2Ev.exit:                    ; preds = %128, %130
   br i1 %.not.i.i.i.i, label %_ZN4llvm4json4Path4RootD2Ev.exit, label %139
 
 139:                                              ; preds = %136
-  %140 = getelementptr inbounds i8, ptr %12, i64 48
+  %140 = getelementptr inbounds nuw i8, ptr %12, i64 48
   %141 = load ptr, ptr %140, align 8
   %142 = ptrtoint ptr %141 to i64
   %143 = ptrtoint ptr %138 to i64
@@ -970,12 +970,12 @@ define linkonce_odr hidden void @_ZNSt8optionalIN4llvm10TensorSpecEEC2IS1_TnNSt9
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %8 = load ptr, ptr %7, align 8
   store ptr %8, ptr %6, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 48
-  %10 = getelementptr inbounds i8, ptr %1, i64 48
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %11 = load ptr, ptr %10, align 8
   store ptr %11, ptr %9, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 56
-  %13 = getelementptr inbounds i8, ptr %1, i64 56
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %14 = load ptr, ptr %13, align 8
   store ptr %14, ptr %12, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false)
@@ -995,7 +995,7 @@ define linkonce_odr hidden void @_ZN4llvm10TensorSpecD2Ev(ptr noundef nonnull al
   br i1 %.not.i.i.i, label %_ZNSt6vectorIlSaIlEED2Ev.exit, label %4
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 56
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %6 = load ptr, ptr %5, align 8
   %7 = ptrtoint ptr %6 to i64
   %8 = ptrtoint ptr %3 to i64
@@ -2008,7 +2008,7 @@ define linkonce_odr noundef zeroext i1 @_ZN4llvm4json8fromJSONIlEEbRKNS0_5ValueE
   br label %_ZNSt6vectorIlSaIlEE5clearEv.exit
 
 _ZNSt6vectorIlSaIlEE5clearEv.exit:                ; preds = %8, %12
-  %13 = getelementptr inbounds i8, ptr %0, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %14 = load ptr, ptr %13, align 8
   %15 = load ptr, ptr %7, align 8
   %.not23 = icmp eq ptr %14, %15

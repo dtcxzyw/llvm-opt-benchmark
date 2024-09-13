@@ -1840,7 +1840,7 @@ define dso_local void @_ZN4llvm13MCELFStreamer14emitInstToDataERKNS_6MCInstERKNS
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %25 = load ptr, ptr %24, align 8
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 288
-  %27 = getelementptr inbounds i8, ptr %25, i64 368
+  %27 = getelementptr inbounds nuw i8, ptr %25, i64 368
   %28 = load i64, ptr %27, align 8
   %29 = add i64 %28, 208
   store i64 %29, ptr %27, align 8
@@ -1849,7 +1849,7 @@ define dso_local void @_ZN4llvm13MCELFStreamer14emitInstToDataERKNS_6MCInstERKNS
   %32 = add i64 %31, 7
   %33 = and i64 %32, -8
   %34 = add i64 %33, 208
-  %35 = getelementptr inbounds i8, ptr %25, i64 296
+  %35 = getelementptr inbounds nuw i8, ptr %25, i64 296
   %36 = load ptr, ptr %35, align 8
   %37 = ptrtoint ptr %36 to i64
   %.not.i.i.i = icmp ugt i64 %34, %37

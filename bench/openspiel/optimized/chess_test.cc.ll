@@ -1900,7 +1900,7 @@ _ZNSt10shared_ptrIKN10open_spiel4GameEED2Ev.exit.i9: ; preds = %_ZNSt16_Sp_count
   br i1 %.not.i.i.i.i.i.i.i.i.i.i, label %547, label %526
 
 526:                                              ; preds = %523
-  %527 = getelementptr inbounds i8, ptr %76, i64 24
+  %527 = getelementptr inbounds nuw i8, ptr %76, i64 24
   %528 = load ptr, ptr %527, align 8
   %529 = ptrtoint ptr %528 to i64
   %530 = ptrtoint ptr %525 to i64
@@ -2199,7 +2199,7 @@ _ZNSt10shared_ptrIKN10open_spiel4GameEED2Ev.exit90.i: ; preds = %_ZNSt16_Sp_coun
   br i1 %.not.i.i.i.i.i.i.i.i.i91.i, label %669, label %638
 
 638:                                              ; preds = %635
-  %639 = getelementptr inbounds i8, ptr %75, i64 24
+  %639 = getelementptr inbounds nuw i8, ptr %75, i64 24
   %640 = load ptr, ptr %639, align 8
   %641 = ptrtoint ptr %640 to i64
   %642 = ptrtoint ptr %637 to i64
@@ -2509,7 +2509,7 @@ _ZNSt10shared_ptrIKN10open_spiel4GameEED2Ev.exit131.i: ; preds = %_ZNSt16_Sp_cou
   br i1 %.not.i.i.i.i.i.i.i.i.i132.i, label %791, label %760
 
 760:                                              ; preds = %757
-  %761 = getelementptr inbounds i8, ptr %74, i64 24
+  %761 = getelementptr inbounds nuw i8, ptr %74, i64 24
   %762 = load ptr, ptr %761, align 8
   %763 = ptrtoint ptr %762 to i64
   %764 = ptrtoint ptr %759 to i64
@@ -2819,7 +2819,7 @@ _ZNSt10shared_ptrIKN10open_spiel4GameEED2Ev.exit172.i: ; preds = %_ZNSt16_Sp_cou
   br i1 %.not.i.i.i.i.i.i.i.i.i173.i, label %888, label %882
 
 882:                                              ; preds = %879
-  %883 = getelementptr inbounds i8, ptr %73, i64 24
+  %883 = getelementptr inbounds nuw i8, ptr %73, i64 24
   %884 = load ptr, ptr %883, align 8
   %885 = ptrtoint ptr %884 to i64
   %886 = ptrtoint ptr %881 to i64
@@ -3070,7 +3070,7 @@ _ZNSt10shared_ptrIKN10open_spiel4GameEED2Ev.exit196.i: ; preds = %_ZNSt16_Sp_cou
   br i1 %.not.i.i.i.i.i.i.i.i.i197.i, label %982, label %976
 
 976:                                              ; preds = %973
-  %977 = getelementptr inbounds i8, ptr %72, i64 24
+  %977 = getelementptr inbounds nuw i8, ptr %72, i64 24
   %978 = load ptr, ptr %977, align 8
   %979 = ptrtoint ptr %978 to i64
   %980 = ptrtoint ptr %975 to i64
@@ -3145,7 +3145,7 @@ _ZNSt10shared_ptrIKN10open_spiel4GameEED2Ev.exit196.i: ; preds = %_ZNSt16_Sp_cou
   br i1 %.not.i.i.i.i.i.i.i.i.i200.i, label %1011, label %1000
 
 1000:                                             ; preds = %997
-  %1001 = getelementptr inbounds i8, ptr %71, i64 24
+  %1001 = getelementptr inbounds nuw i8, ptr %71, i64 24
   %1002 = load ptr, ptr %1001, align 8
   %1003 = ptrtoint ptr %1002 to i64
   %1004 = ptrtoint ptr %999 to i64
@@ -3921,7 +3921,7 @@ _ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm429496
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(168) %59, ptr noundef nonnull align 8 dereferenceable(168) %1321, i64 168, i1 false)
   %1322 = getelementptr inbounds nuw i8, ptr %1148, i64 64
   %1323 = load ptr, ptr %1322, align 8
-  %1324 = getelementptr inbounds i8, ptr %1148, i64 72
+  %1324 = getelementptr inbounds nuw i8, ptr %1148, i64 72
   %1325 = load ptr, ptr %1324, align 8
   %.not73.i = icmp eq ptr %1323, %1325
   br i1 %.not73.i, label %._crit_edge.i, label %.lr.ph.i
@@ -11099,13 +11099,13 @@ define linkonce_odr dso_local void @_ZN10open_spiel5chess10ChessStateD2Ev(ptr no
   br i1 %4, label %5, label %_ZN4absl7debian28optionalISt6vectorIlSaIlEEED2Ev.exit
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 504
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 504
   %7 = load ptr, ptr %6, align 8
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %7, null
   br i1 %.not.i.i.i.i.i.i.i.i, label %_ZNSt6vectorIlSaIlEED2Ev.exit.i.i.i.i.i, label %8
 
 8:                                                ; preds = %5
-  %9 = getelementptr inbounds i8, ptr %0, i64 520
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 520
   %10 = load ptr, ptr %9, align 8
   %11 = ptrtoint ptr %10 to i64
   %12 = ptrtoint ptr %7 to i64
@@ -11118,14 +11118,14 @@ _ZNSt6vectorIlSaIlEED2Ev.exit.i.i.i.i.i:          ; preds = %8, %5
   br label %_ZN4absl7debian28optionalISt6vectorIlSaIlEEED2Ev.exit
 
 _ZN4absl7debian28optionalISt6vectorIlSaIlEEED2Ev.exit: ; preds = %1, %_ZNSt6vectorIlSaIlEED2Ev.exit.i.i.i.i.i
-  %14 = getelementptr inbounds i8, ptr %0, i64 480
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 480
   %15 = load i64, ptr %14, align 8
   %.not.i.i.i.i = icmp eq i64 %15, 0
   br i1 %.not.i.i.i.i, label %_ZN4absl7debian213flat_hash_mapImiN10open_spiel5chess10ChessState15PassthroughHashESt8equal_toImESaISt4pairIKmiEEED2Ev.exit, label %.preheader.preheader.i.i.i.i
 
 .preheader.preheader.i.i.i.i:                     ; preds = %_ZN4absl7debian28optionalISt6vectorIlSaIlEEED2Ev.exit
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 456
-  %17 = getelementptr inbounds i8, ptr %0, i64 464
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 464
   %18 = load ptr, ptr %16, align 8
   %19 = add i64 %15, 24
   %20 = shl i64 %15, 4
@@ -11145,7 +11145,7 @@ _ZN4absl7debian213flat_hash_mapImiN10open_spiel5chess10ChessState15PassthroughHa
   br i1 %.not.i.i.i, label %_ZNSt6vectorIN10open_spiel5chess4MoveESaIS2_EED2Ev.exit, label %26
 
 26:                                               ; preds = %_ZN4absl7debian213flat_hash_mapImiN10open_spiel5chess10ChessState15PassthroughHashESt8equal_toImESaISt4pairIKmiEEED2Ev.exit
-  %27 = getelementptr inbounds i8, ptr %0, i64 80
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %28 = load ptr, ptr %27, align 8
   %29 = ptrtoint ptr %28 to i64
   %30 = ptrtoint ptr %25 to i64
@@ -11161,7 +11161,7 @@ _ZNSt6vectorIN10open_spiel5chess4MoveESaIS2_EED2Ev.exit: ; preds = %_ZN4absl7deb
   br i1 %.not.i.i.i.i1, label %_ZNSt6vectorIN10open_spiel5State12PlayerActionESaIS2_EED2Ev.exit.i, label %34
 
 34:                                               ; preds = %_ZNSt6vectorIN10open_spiel5chess4MoveESaIS2_EED2Ev.exit
-  %35 = getelementptr inbounds i8, ptr %0, i64 48
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %36 = load ptr, ptr %35, align 8
   %37 = ptrtoint ptr %36 to i64
   %38 = ptrtoint ptr %33 to i64
@@ -11170,7 +11170,7 @@ _ZNSt6vectorIN10open_spiel5chess4MoveESaIS2_EED2Ev.exit: ; preds = %_ZN4absl7deb
   br label %_ZNSt6vectorIN10open_spiel5State12PlayerActionESaIS2_EED2Ev.exit.i
 
 _ZNSt6vectorIN10open_spiel5State12PlayerActionESaIS2_EED2Ev.exit.i: ; preds = %34, %_ZNSt6vectorIN10open_spiel5chess4MoveESaIS2_EED2Ev.exit
-  %40 = getelementptr inbounds i8, ptr %0, i64 16
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %41 = load ptr, ptr %40, align 8
   %.not.i.i.i1.i = icmp eq ptr %41, null
   br i1 %.not.i.i.i1.i, label %_ZN10open_spiel5StateD2Ev.exit, label %42

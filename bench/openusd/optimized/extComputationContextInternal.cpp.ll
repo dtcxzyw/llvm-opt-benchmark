@@ -317,7 +317,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfToken7GetTextEv.exit: ; preds = %9, %14
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueaSERKS0_.exit
 
 19:                                               ; preds = %3
-  %20 = getelementptr inbounds i8, ptr %6, i64 40
+  %20 = getelementptr inbounds nuw i8, ptr %6, i64 40
   %.not.i5 = icmp eq ptr %2, %20
   br i1 %.not.i5, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueaSERKS0_.exit, label %21
 
@@ -398,7 +398,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfToken7GetTextEv.exit: ; preds = %8, %13
   br label %26
 
 24:                                               ; preds = %2
-  %25 = getelementptr inbounds i8, ptr %5, i64 40
+  %25 = getelementptr inbounds nuw i8, ptr %5, i64 40
   br label %26
 
 26:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7TfToken7GetTextEv.exit, %20, %22, %24
@@ -456,7 +456,7 @@ define noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__31HdExtComputationCont
   %4 = tail call ptr @_ZNKSt8_Rb_treeIN32pxrInternal_v0_24__pxrReserved__7TfTokenESt4pairIKS1_NS0_7VtValueEESt10_Select1stIS5_ESt4lessIS1_ESaIS5_EE4findERS3_(ptr noundef nonnull align 8 dereferenceable(48) %3, ptr noundef nonnull align 8 dereferenceable(8) %1)
   %5 = getelementptr inbounds i8, ptr %0, i64 16
   %6 = icmp eq ptr %4, %5
-  %7 = getelementptr inbounds i8, ptr %4, i64 40
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %.0 = select i1 %6, ptr null, ptr %7
   ret ptr %.0
 }
@@ -493,7 +493,7 @@ define linkonce_odr void @_ZNSt8_Rb_treeIN32pxrInternal_v0_24__pxrReserved__7TfT
   %5 = getelementptr inbounds nuw i8, ptr %.07, i64 16
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %.07, i64 32
-  %8 = getelementptr inbounds i8, ptr %.07, i64 48
+  %8 = getelementptr inbounds nuw i8, ptr %.07, i64 48
   %9 = load ptr, ptr %8, align 8
   %10 = ptrtoint ptr %9 to i64
   %.not.i.i.i.i.i.i.i = icmp eq ptr %9, null
@@ -503,7 +503,7 @@ define linkonce_odr void @_ZNSt8_Rb_treeIN32pxrInternal_v0_24__pxrReserved__7TfT
   br i1 %or.cond.i.i.i.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit.i.i.i.i.i, label %13
 
 13:                                               ; preds = %.lr.ph
-  %14 = getelementptr inbounds i8, ptr %.07, i64 40
+  %14 = getelementptr inbounds nuw i8, ptr %.07, i64 40
   %15 = and i64 %10, -8
   %16 = inttoptr i64 %15 to ptr
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 32
@@ -779,7 +779,7 @@ _ZStltIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.
   resume { ptr, i32 } %53
 
 54:                                               ; preds = %10
-  %55 = getelementptr inbounds i8, ptr %7, i64 48
+  %55 = getelementptr inbounds nuw i8, ptr %7, i64 48
   %56 = load ptr, ptr %55, align 8
   %57 = ptrtoint ptr %56 to i64
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %56, null
@@ -789,7 +789,7 @@ _ZStltIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.
   br i1 %or.cond.i.i.i.i.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit.i.i.i.i.i.i, label %60
 
 60:                                               ; preds = %54
-  %61 = getelementptr inbounds i8, ptr %7, i64 40
+  %61 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %62 = and i64 %57, -8
   %63 = inttoptr i64 %62 to ptr
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 32
@@ -1181,7 +1181,7 @@ define linkonce_odr void @_ZNSt8_Rb_treeIN32pxrInternal_v0_24__pxrReserved__7TfT
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  %6 = getelementptr inbounds i8, ptr %3, i64 48
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %7 = load ptr, ptr %6, align 8
   %8 = ptrtoint ptr %7 to i64
   %.not.i.i.i.i.i.i.i = icmp eq ptr %7, null
@@ -1191,7 +1191,7 @@ define linkonce_odr void @_ZNSt8_Rb_treeIN32pxrInternal_v0_24__pxrReserved__7TfT
   br i1 %or.cond.i.i.i.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit.i.i.i.i.i, label %11
 
 11:                                               ; preds = %4
-  %12 = getelementptr inbounds i8, ptr %3, i64 40
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %13 = and i64 %8, -8
   %14 = inttoptr i64 %13 to ptr
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 32
@@ -1254,8 +1254,8 @@ define linkonce_odr void @_ZNSt8_Rb_treeIN32pxrInternal_v0_24__pxrReserved__7TfT
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit.i.i.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit.i.i.i: ; preds = %13, %8, %4
-  %18 = getelementptr inbounds i8, ptr %1, i64 40
-  %19 = getelementptr inbounds i8, ptr %1, i64 48
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 48
   store ptr null, ptr %19, align 8
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__7VtValue5_CopyERKS0_RS0_(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %18)
           to label %_ZNSt16allocator_traitsISaISt13_Rb_tree_nodeISt4pairIKN32pxrInternal_v0_24__pxrReserved__7TfTokenENS2_7VtValueEEEEE9constructIS6_JRS4_RKS5_EEEvRS8_PT_DpOT0_.exit unwind label %20

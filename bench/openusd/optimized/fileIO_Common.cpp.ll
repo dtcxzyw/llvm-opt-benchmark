@@ -409,7 +409,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfTokencvRKNSt7__cxx1112basic_stringIcSt1
 37:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7TfTokencvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEv.exit
   %38 = getelementptr inbounds nuw i8, ptr %3, i64 104
   %39 = load ptr, ptr %38, align 8
-  %40 = getelementptr inbounds i8, ptr %3, i64 112
+  %40 = getelementptr inbounds nuw i8, ptr %3, i64 112
   %41 = load ptr, ptr %40, align 8
   %42 = icmp eq ptr %39, %41
   br i1 %42, label %58, label %43
@@ -482,7 +482,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; 
 58:                                               ; preds = %53, %37
   %59 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %60 = load ptr, ptr %59, align 8
-  %61 = getelementptr inbounds i8, ptr %3, i64 40
+  %61 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %62 = load ptr, ptr %61, align 8
   %63 = icmp eq ptr %60, %62
   br i1 %63, label %79, label %64
@@ -555,7 +555,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit53.i: 
 79:                                               ; preds = %74, %58
   %80 = getelementptr inbounds nuw i8, ptr %3, i64 56
   %81 = load ptr, ptr %80, align 8
-  %82 = getelementptr inbounds i8, ptr %3, i64 64
+  %82 = getelementptr inbounds nuw i8, ptr %3, i64 64
   %83 = load ptr, ptr %82, align 8
   %84 = icmp eq ptr %81, %83
   br i1 %84, label %100, label %85
@@ -628,7 +628,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit58.i: 
 100:                                              ; preds = %95, %79
   %101 = getelementptr inbounds nuw i8, ptr %3, i64 80
   %102 = load ptr, ptr %101, align 8
-  %103 = getelementptr inbounds i8, ptr %3, i64 88
+  %103 = getelementptr inbounds nuw i8, ptr %3, i64 88
   %104 = load ptr, ptr %103, align 8
   %105 = icmp eq ptr %102, %104
   br i1 %105, label %121, label %106
@@ -701,7 +701,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit63.i: 
 121:                                              ; preds = %116, %100
   %122 = getelementptr inbounds nuw i8, ptr %3, i64 128
   %123 = load ptr, ptr %122, align 8
-  %124 = getelementptr inbounds i8, ptr %3, i64 136
+  %124 = getelementptr inbounds nuw i8, ptr %3, i64 136
   %125 = load ptr, ptr %124, align 8
   %126 = icmp eq ptr %123, %125
   br i1 %126, label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_112_WriteListOpINS_9SdfListOpINS_7SdfPathEEEEEvRNS_14Sdf_TextOutputEmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_.exit, label %127
@@ -859,7 +859,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfTokencvRKNSt7__cxx1112basic_stringIcSt1
 37:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7TfTokencvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEv.exit
   %38 = getelementptr inbounds nuw i8, ptr %3, i64 104
   %39 = load ptr, ptr %38, align 8
-  %40 = getelementptr inbounds i8, ptr %3, i64 112
+  %40 = getelementptr inbounds nuw i8, ptr %3, i64 112
   %41 = load ptr, ptr %40, align 8
   %42 = icmp eq ptr %39, %41
   br i1 %42, label %58, label %43
@@ -932,7 +932,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; 
 58:                                               ; preds = %53, %37
   %59 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %60 = load ptr, ptr %59, align 8
-  %61 = getelementptr inbounds i8, ptr %3, i64 40
+  %61 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %62 = load ptr, ptr %61, align 8
   %63 = icmp eq ptr %60, %62
   br i1 %63, label %79, label %64
@@ -1005,7 +1005,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit53.i: 
 79:                                               ; preds = %74, %58
   %80 = getelementptr inbounds nuw i8, ptr %3, i64 56
   %81 = load ptr, ptr %80, align 8
-  %82 = getelementptr inbounds i8, ptr %3, i64 64
+  %82 = getelementptr inbounds nuw i8, ptr %3, i64 64
   %83 = load ptr, ptr %82, align 8
   %84 = icmp eq ptr %81, %83
   br i1 %84, label %100, label %85
@@ -1078,7 +1078,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit58.i: 
 100:                                              ; preds = %95, %79
   %101 = getelementptr inbounds nuw i8, ptr %3, i64 80
   %102 = load ptr, ptr %101, align 8
-  %103 = getelementptr inbounds i8, ptr %3, i64 88
+  %103 = getelementptr inbounds nuw i8, ptr %3, i64 88
   %104 = load ptr, ptr %103, align 8
   %105 = icmp eq ptr %102, %104
   br i1 %105, label %121, label %106
@@ -1151,7 +1151,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit63.i: 
 121:                                              ; preds = %116, %100
   %122 = getelementptr inbounds nuw i8, ptr %3, i64 128
   %123 = load ptr, ptr %122, align 8
-  %124 = getelementptr inbounds i8, ptr %3, i64 136
+  %124 = getelementptr inbounds nuw i8, ptr %3, i64 136
   %125 = load ptr, ptr %124, align 8
   %126 = icmp eq ptr %123, %125
   br i1 %126, label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_112_WriteListOpINS_9SdfListOpINS_10SdfPayloadEEEEEvRNS_14Sdf_TextOutputEmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_.exit, label %127
@@ -1309,7 +1309,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfTokencvRKNSt7__cxx1112basic_stringIcSt1
 37:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7TfTokencvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEv.exit
   %38 = getelementptr inbounds nuw i8, ptr %3, i64 104
   %39 = load ptr, ptr %38, align 8
-  %40 = getelementptr inbounds i8, ptr %3, i64 112
+  %40 = getelementptr inbounds nuw i8, ptr %3, i64 112
   %41 = load ptr, ptr %40, align 8
   %42 = icmp eq ptr %39, %41
   br i1 %42, label %58, label %43
@@ -1382,7 +1382,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; 
 58:                                               ; preds = %53, %37
   %59 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %60 = load ptr, ptr %59, align 8
-  %61 = getelementptr inbounds i8, ptr %3, i64 40
+  %61 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %62 = load ptr, ptr %61, align 8
   %63 = icmp eq ptr %60, %62
   br i1 %63, label %79, label %64
@@ -1455,7 +1455,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit53.i: 
 79:                                               ; preds = %74, %58
   %80 = getelementptr inbounds nuw i8, ptr %3, i64 56
   %81 = load ptr, ptr %80, align 8
-  %82 = getelementptr inbounds i8, ptr %3, i64 64
+  %82 = getelementptr inbounds nuw i8, ptr %3, i64 64
   %83 = load ptr, ptr %82, align 8
   %84 = icmp eq ptr %81, %83
   br i1 %84, label %100, label %85
@@ -1528,7 +1528,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit58.i: 
 100:                                              ; preds = %95, %79
   %101 = getelementptr inbounds nuw i8, ptr %3, i64 80
   %102 = load ptr, ptr %101, align 8
-  %103 = getelementptr inbounds i8, ptr %3, i64 88
+  %103 = getelementptr inbounds nuw i8, ptr %3, i64 88
   %104 = load ptr, ptr %103, align 8
   %105 = icmp eq ptr %102, %104
   br i1 %105, label %121, label %106
@@ -1601,7 +1601,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit63.i: 
 121:                                              ; preds = %116, %100
   %122 = getelementptr inbounds nuw i8, ptr %3, i64 128
   %123 = load ptr, ptr %122, align 8
-  %124 = getelementptr inbounds i8, ptr %3, i64 136
+  %124 = getelementptr inbounds nuw i8, ptr %3, i64 136
   %125 = load ptr, ptr %124, align 8
   %126 = icmp eq ptr %123, %125
   br i1 %126, label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_112_WriteListOpINS_9SdfListOpINS_12SdfReferenceEEEEEvRNS_14Sdf_TextOutputEmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_.exit, label %127
@@ -1759,7 +1759,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfTokencvRKNSt7__cxx1112basic_stringIcSt1
 37:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7TfTokencvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEv.exit
   %38 = getelementptr inbounds nuw i8, ptr %3, i64 104
   %39 = load ptr, ptr %38, align 8
-  %40 = getelementptr inbounds i8, ptr %3, i64 112
+  %40 = getelementptr inbounds nuw i8, ptr %3, i64 112
   %41 = load ptr, ptr %40, align 8
   %42 = icmp eq ptr %39, %41
   br i1 %42, label %58, label %43
@@ -1832,7 +1832,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; 
 58:                                               ; preds = %53, %37
   %59 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %60 = load ptr, ptr %59, align 8
-  %61 = getelementptr inbounds i8, ptr %3, i64 40
+  %61 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %62 = load ptr, ptr %61, align 8
   %63 = icmp eq ptr %60, %62
   br i1 %63, label %79, label %64
@@ -1905,7 +1905,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit53.i: 
 79:                                               ; preds = %74, %58
   %80 = getelementptr inbounds nuw i8, ptr %3, i64 56
   %81 = load ptr, ptr %80, align 8
-  %82 = getelementptr inbounds i8, ptr %3, i64 64
+  %82 = getelementptr inbounds nuw i8, ptr %3, i64 64
   %83 = load ptr, ptr %82, align 8
   %84 = icmp eq ptr %81, %83
   br i1 %84, label %100, label %85
@@ -1978,7 +1978,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit58.i: 
 100:                                              ; preds = %95, %79
   %101 = getelementptr inbounds nuw i8, ptr %3, i64 80
   %102 = load ptr, ptr %101, align 8
-  %103 = getelementptr inbounds i8, ptr %3, i64 88
+  %103 = getelementptr inbounds nuw i8, ptr %3, i64 88
   %104 = load ptr, ptr %103, align 8
   %105 = icmp eq ptr %102, %104
   br i1 %105, label %121, label %106
@@ -2051,7 +2051,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit63.i: 
 121:                                              ; preds = %116, %100
   %122 = getelementptr inbounds nuw i8, ptr %3, i64 128
   %123 = load ptr, ptr %122, align 8
-  %124 = getelementptr inbounds i8, ptr %3, i64 136
+  %124 = getelementptr inbounds nuw i8, ptr %3, i64 136
   %125 = load ptr, ptr %124, align 8
   %126 = icmp eq ptr %123, %125
   br i1 %126, label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_112_WriteListOpINS_9SdfListOpIiEEEEvRNS_14Sdf_TextOutputEmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_.exit, label %127
@@ -2209,7 +2209,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfTokencvRKNSt7__cxx1112basic_stringIcSt1
 37:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7TfTokencvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEv.exit
   %38 = getelementptr inbounds nuw i8, ptr %3, i64 104
   %39 = load ptr, ptr %38, align 8
-  %40 = getelementptr inbounds i8, ptr %3, i64 112
+  %40 = getelementptr inbounds nuw i8, ptr %3, i64 112
   %41 = load ptr, ptr %40, align 8
   %42 = icmp eq ptr %39, %41
   br i1 %42, label %58, label %43
@@ -2282,7 +2282,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; 
 58:                                               ; preds = %53, %37
   %59 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %60 = load ptr, ptr %59, align 8
-  %61 = getelementptr inbounds i8, ptr %3, i64 40
+  %61 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %62 = load ptr, ptr %61, align 8
   %63 = icmp eq ptr %60, %62
   br i1 %63, label %79, label %64
@@ -2355,7 +2355,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit53.i: 
 79:                                               ; preds = %74, %58
   %80 = getelementptr inbounds nuw i8, ptr %3, i64 56
   %81 = load ptr, ptr %80, align 8
-  %82 = getelementptr inbounds i8, ptr %3, i64 64
+  %82 = getelementptr inbounds nuw i8, ptr %3, i64 64
   %83 = load ptr, ptr %82, align 8
   %84 = icmp eq ptr %81, %83
   br i1 %84, label %100, label %85
@@ -2428,7 +2428,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit58.i: 
 100:                                              ; preds = %95, %79
   %101 = getelementptr inbounds nuw i8, ptr %3, i64 80
   %102 = load ptr, ptr %101, align 8
-  %103 = getelementptr inbounds i8, ptr %3, i64 88
+  %103 = getelementptr inbounds nuw i8, ptr %3, i64 88
   %104 = load ptr, ptr %103, align 8
   %105 = icmp eq ptr %102, %104
   br i1 %105, label %121, label %106
@@ -2501,7 +2501,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit63.i: 
 121:                                              ; preds = %116, %100
   %122 = getelementptr inbounds nuw i8, ptr %3, i64 128
   %123 = load ptr, ptr %122, align 8
-  %124 = getelementptr inbounds i8, ptr %3, i64 136
+  %124 = getelementptr inbounds nuw i8, ptr %3, i64 136
   %125 = load ptr, ptr %124, align 8
   %126 = icmp eq ptr %123, %125
   br i1 %126, label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_112_WriteListOpINS_9SdfListOpIlEEEEvRNS_14Sdf_TextOutputEmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_.exit, label %127
@@ -2659,7 +2659,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfTokencvRKNSt7__cxx1112basic_stringIcSt1
 37:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7TfTokencvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEv.exit
   %38 = getelementptr inbounds nuw i8, ptr %3, i64 104
   %39 = load ptr, ptr %38, align 8
-  %40 = getelementptr inbounds i8, ptr %3, i64 112
+  %40 = getelementptr inbounds nuw i8, ptr %3, i64 112
   %41 = load ptr, ptr %40, align 8
   %42 = icmp eq ptr %39, %41
   br i1 %42, label %58, label %43
@@ -2732,7 +2732,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; 
 58:                                               ; preds = %53, %37
   %59 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %60 = load ptr, ptr %59, align 8
-  %61 = getelementptr inbounds i8, ptr %3, i64 40
+  %61 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %62 = load ptr, ptr %61, align 8
   %63 = icmp eq ptr %60, %62
   br i1 %63, label %79, label %64
@@ -2805,7 +2805,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit53.i: 
 79:                                               ; preds = %74, %58
   %80 = getelementptr inbounds nuw i8, ptr %3, i64 56
   %81 = load ptr, ptr %80, align 8
-  %82 = getelementptr inbounds i8, ptr %3, i64 64
+  %82 = getelementptr inbounds nuw i8, ptr %3, i64 64
   %83 = load ptr, ptr %82, align 8
   %84 = icmp eq ptr %81, %83
   br i1 %84, label %100, label %85
@@ -2878,7 +2878,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit58.i: 
 100:                                              ; preds = %95, %79
   %101 = getelementptr inbounds nuw i8, ptr %3, i64 80
   %102 = load ptr, ptr %101, align 8
-  %103 = getelementptr inbounds i8, ptr %3, i64 88
+  %103 = getelementptr inbounds nuw i8, ptr %3, i64 88
   %104 = load ptr, ptr %103, align 8
   %105 = icmp eq ptr %102, %104
   br i1 %105, label %121, label %106
@@ -2951,7 +2951,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit63.i: 
 121:                                              ; preds = %116, %100
   %122 = getelementptr inbounds nuw i8, ptr %3, i64 128
   %123 = load ptr, ptr %122, align 8
-  %124 = getelementptr inbounds i8, ptr %3, i64 136
+  %124 = getelementptr inbounds nuw i8, ptr %3, i64 136
   %125 = load ptr, ptr %124, align 8
   %126 = icmp eq ptr %123, %125
   br i1 %126, label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_112_WriteListOpINS_9SdfListOpIjEEEEvRNS_14Sdf_TextOutputEmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_.exit, label %127
@@ -3109,7 +3109,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfTokencvRKNSt7__cxx1112basic_stringIcSt1
 37:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7TfTokencvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEv.exit
   %38 = getelementptr inbounds nuw i8, ptr %3, i64 104
   %39 = load ptr, ptr %38, align 8
-  %40 = getelementptr inbounds i8, ptr %3, i64 112
+  %40 = getelementptr inbounds nuw i8, ptr %3, i64 112
   %41 = load ptr, ptr %40, align 8
   %42 = icmp eq ptr %39, %41
   br i1 %42, label %58, label %43
@@ -3182,7 +3182,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; 
 58:                                               ; preds = %53, %37
   %59 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %60 = load ptr, ptr %59, align 8
-  %61 = getelementptr inbounds i8, ptr %3, i64 40
+  %61 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %62 = load ptr, ptr %61, align 8
   %63 = icmp eq ptr %60, %62
   br i1 %63, label %79, label %64
@@ -3255,7 +3255,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit53.i: 
 79:                                               ; preds = %74, %58
   %80 = getelementptr inbounds nuw i8, ptr %3, i64 56
   %81 = load ptr, ptr %80, align 8
-  %82 = getelementptr inbounds i8, ptr %3, i64 64
+  %82 = getelementptr inbounds nuw i8, ptr %3, i64 64
   %83 = load ptr, ptr %82, align 8
   %84 = icmp eq ptr %81, %83
   br i1 %84, label %100, label %85
@@ -3328,7 +3328,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit58.i: 
 100:                                              ; preds = %95, %79
   %101 = getelementptr inbounds nuw i8, ptr %3, i64 80
   %102 = load ptr, ptr %101, align 8
-  %103 = getelementptr inbounds i8, ptr %3, i64 88
+  %103 = getelementptr inbounds nuw i8, ptr %3, i64 88
   %104 = load ptr, ptr %103, align 8
   %105 = icmp eq ptr %102, %104
   br i1 %105, label %121, label %106
@@ -3401,7 +3401,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit63.i: 
 121:                                              ; preds = %116, %100
   %122 = getelementptr inbounds nuw i8, ptr %3, i64 128
   %123 = load ptr, ptr %122, align 8
-  %124 = getelementptr inbounds i8, ptr %3, i64 136
+  %124 = getelementptr inbounds nuw i8, ptr %3, i64 136
   %125 = load ptr, ptr %124, align 8
   %126 = icmp eq ptr %123, %125
   br i1 %126, label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_112_WriteListOpINS_9SdfListOpImEEEEvRNS_14Sdf_TextOutputEmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_.exit, label %127
@@ -3559,7 +3559,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfTokencvRKNSt7__cxx1112basic_stringIcSt1
 37:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7TfTokencvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEv.exit
   %38 = getelementptr inbounds nuw i8, ptr %3, i64 104
   %39 = load ptr, ptr %38, align 8
-  %40 = getelementptr inbounds i8, ptr %3, i64 112
+  %40 = getelementptr inbounds nuw i8, ptr %3, i64 112
   %41 = load ptr, ptr %40, align 8
   %42 = icmp eq ptr %39, %41
   br i1 %42, label %58, label %43
@@ -3632,7 +3632,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; 
 58:                                               ; preds = %53, %37
   %59 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %60 = load ptr, ptr %59, align 8
-  %61 = getelementptr inbounds i8, ptr %3, i64 40
+  %61 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %62 = load ptr, ptr %61, align 8
   %63 = icmp eq ptr %60, %62
   br i1 %63, label %79, label %64
@@ -3705,7 +3705,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit53.i: 
 79:                                               ; preds = %74, %58
   %80 = getelementptr inbounds nuw i8, ptr %3, i64 56
   %81 = load ptr, ptr %80, align 8
-  %82 = getelementptr inbounds i8, ptr %3, i64 64
+  %82 = getelementptr inbounds nuw i8, ptr %3, i64 64
   %83 = load ptr, ptr %82, align 8
   %84 = icmp eq ptr %81, %83
   br i1 %84, label %100, label %85
@@ -3778,7 +3778,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit58.i: 
 100:                                              ; preds = %95, %79
   %101 = getelementptr inbounds nuw i8, ptr %3, i64 80
   %102 = load ptr, ptr %101, align 8
-  %103 = getelementptr inbounds i8, ptr %3, i64 88
+  %103 = getelementptr inbounds nuw i8, ptr %3, i64 88
   %104 = load ptr, ptr %103, align 8
   %105 = icmp eq ptr %102, %104
   br i1 %105, label %121, label %106
@@ -3851,7 +3851,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit63.i: 
 121:                                              ; preds = %116, %100
   %122 = getelementptr inbounds nuw i8, ptr %3, i64 128
   %123 = load ptr, ptr %122, align 8
-  %124 = getelementptr inbounds i8, ptr %3, i64 136
+  %124 = getelementptr inbounds nuw i8, ptr %3, i64 136
   %125 = load ptr, ptr %124, align 8
   %126 = icmp eq ptr %123, %125
   br i1 %126, label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_112_WriteListOpINS_9SdfListOpINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEEvRNS_14Sdf_TextOutputEmRKS8_RKT_.exit, label %127
@@ -4009,7 +4009,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfTokencvRKNSt7__cxx1112basic_stringIcSt1
 37:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7TfTokencvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEv.exit
   %38 = getelementptr inbounds nuw i8, ptr %3, i64 104
   %39 = load ptr, ptr %38, align 8
-  %40 = getelementptr inbounds i8, ptr %3, i64 112
+  %40 = getelementptr inbounds nuw i8, ptr %3, i64 112
   %41 = load ptr, ptr %40, align 8
   %42 = icmp eq ptr %39, %41
   br i1 %42, label %58, label %43
@@ -4082,7 +4082,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; 
 58:                                               ; preds = %53, %37
   %59 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %60 = load ptr, ptr %59, align 8
-  %61 = getelementptr inbounds i8, ptr %3, i64 40
+  %61 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %62 = load ptr, ptr %61, align 8
   %63 = icmp eq ptr %60, %62
   br i1 %63, label %79, label %64
@@ -4155,7 +4155,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit53.i: 
 79:                                               ; preds = %74, %58
   %80 = getelementptr inbounds nuw i8, ptr %3, i64 56
   %81 = load ptr, ptr %80, align 8
-  %82 = getelementptr inbounds i8, ptr %3, i64 64
+  %82 = getelementptr inbounds nuw i8, ptr %3, i64 64
   %83 = load ptr, ptr %82, align 8
   %84 = icmp eq ptr %81, %83
   br i1 %84, label %100, label %85
@@ -4228,7 +4228,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit58.i: 
 100:                                              ; preds = %95, %79
   %101 = getelementptr inbounds nuw i8, ptr %3, i64 80
   %102 = load ptr, ptr %101, align 8
-  %103 = getelementptr inbounds i8, ptr %3, i64 88
+  %103 = getelementptr inbounds nuw i8, ptr %3, i64 88
   %104 = load ptr, ptr %103, align 8
   %105 = icmp eq ptr %102, %104
   br i1 %105, label %121, label %106
@@ -4301,7 +4301,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit63.i: 
 121:                                              ; preds = %116, %100
   %122 = getelementptr inbounds nuw i8, ptr %3, i64 128
   %123 = load ptr, ptr %122, align 8
-  %124 = getelementptr inbounds i8, ptr %3, i64 136
+  %124 = getelementptr inbounds nuw i8, ptr %3, i64 136
   %125 = load ptr, ptr %124, align 8
   %126 = icmp eq ptr %123, %125
   br i1 %126, label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_112_WriteListOpINS_9SdfListOpINS_7TfTokenEEEEEvRNS_14Sdf_TextOutputEmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_.exit, label %127
@@ -4459,7 +4459,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfTokencvRKNSt7__cxx1112basic_stringIcSt1
 37:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7TfTokencvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEv.exit
   %38 = getelementptr inbounds nuw i8, ptr %3, i64 104
   %39 = load ptr, ptr %38, align 8
-  %40 = getelementptr inbounds i8, ptr %3, i64 112
+  %40 = getelementptr inbounds nuw i8, ptr %3, i64 112
   %41 = load ptr, ptr %40, align 8
   %42 = icmp eq ptr %39, %41
   br i1 %42, label %58, label %43
@@ -4532,7 +4532,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; 
 58:                                               ; preds = %53, %37
   %59 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %60 = load ptr, ptr %59, align 8
-  %61 = getelementptr inbounds i8, ptr %3, i64 40
+  %61 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %62 = load ptr, ptr %61, align 8
   %63 = icmp eq ptr %60, %62
   br i1 %63, label %79, label %64
@@ -4605,7 +4605,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit53.i: 
 79:                                               ; preds = %74, %58
   %80 = getelementptr inbounds nuw i8, ptr %3, i64 56
   %81 = load ptr, ptr %80, align 8
-  %82 = getelementptr inbounds i8, ptr %3, i64 64
+  %82 = getelementptr inbounds nuw i8, ptr %3, i64 64
   %83 = load ptr, ptr %82, align 8
   %84 = icmp eq ptr %81, %83
   br i1 %84, label %100, label %85
@@ -4678,7 +4678,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit58.i: 
 100:                                              ; preds = %95, %79
   %101 = getelementptr inbounds nuw i8, ptr %3, i64 80
   %102 = load ptr, ptr %101, align 8
-  %103 = getelementptr inbounds i8, ptr %3, i64 88
+  %103 = getelementptr inbounds nuw i8, ptr %3, i64 88
   %104 = load ptr, ptr %103, align 8
   %105 = icmp eq ptr %102, %104
   br i1 %105, label %121, label %106
@@ -4751,7 +4751,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit63.i: 
 121:                                              ; preds = %116, %100
   %122 = getelementptr inbounds nuw i8, ptr %3, i64 128
   %123 = load ptr, ptr %122, align 8
-  %124 = getelementptr inbounds i8, ptr %3, i64 136
+  %124 = getelementptr inbounds nuw i8, ptr %3, i64 136
   %125 = load ptr, ptr %124, align 8
   %126 = icmp eq ptr %123, %125
   br i1 %126, label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_112_WriteListOpINS_9SdfListOpINS_20SdfUnregisteredValueEEEEEvRNS_14Sdf_TextOutputEmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_.exit, label %127
@@ -7072,8 +7072,8 @@ _ZNSt8_Rb_treeIdSt4pairIKdN32pxrInternal_v0_24__pxrReserved__7VtValueEESt10_Sele
 
 90:                                               ; preds = %87, %89
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %8)
-  %91 = getelementptr inbounds i8, ptr %.sroa.0.093, i64 40
-  %92 = getelementptr inbounds i8, ptr %.sroa.0.093, i64 48
+  %91 = getelementptr inbounds nuw i8, ptr %.sroa.0.093, i64 40
+  %92 = getelementptr inbounds nuw i8, ptr %.sroa.0.093, i64 48
   %93 = load ptr, ptr %92, align 8
   %94 = ptrtoint ptr %93 to i64
   %.not.i28 = icmp eq ptr %93, null
@@ -7926,7 +7926,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__17Sdf_FileIOUtility4PutsERNS_14Sdf_TextOutp
 
 _ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorIKSt3mapINS_7SdfPathES2_St4lessIS2_ESaISt4pairIKS2_S2_EEELb0EEptEv.exit41: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_FileIOUtility4PutsERNS_14Sdf_TextOutputEmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, %36
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %6)
-  %37 = getelementptr inbounds i8, ptr %.sroa.0.082, i64 40
+  %37 = getelementptr inbounds nuw i8, ptr %.sroa.0.082, i64 40
   %38 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath9GetStringB5cxx11Ev(ptr noundef nonnull align 4 dereferenceable(8) %37)
   %39 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %38) #18
   call void (ptr, i64, ptr, ...) @_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_FileIOUtility5WriteERNS_14Sdf_TextOutputEmPKcz(ptr noundef nonnull align 8 dereferenceable(48) %0, i64 noundef 0, ptr noundef nonnull @.str.7, ptr noundef %39)
@@ -8277,7 +8277,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorISt3mapIPKNSt7__cxx1112basic_st
   %.sroa.0229.0269.us = phi ptr [ %.sroa.0229.1.us, %_ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorISt3mapIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKNS_7VtValueENS_17Sdf_FileIOUtility15_StringLessThanESaISt4pairIKS9_SC_EEELb0EEppEv.exit.us ], [ %43, %_ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorISt3mapIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKNS_7VtValueENS_17Sdf_FileIOUtility15_StringLessThanESaISt4pairIKS9_SC_EEELb0EEptEv.exit.lr.ph ]
   %74 = add i64 %.059272.us, -1
   %75 = getelementptr inbounds nuw i8, ptr %.sroa.0229.0269.us, i64 32
-  %76 = getelementptr inbounds i8, ptr %.sroa.0229.0269.us, i64 40
+  %76 = getelementptr inbounds nuw i8, ptr %.sroa.0229.0269.us, i64 40
   %77 = load ptr, ptr %76, align 8
   %78 = getelementptr inbounds nuw i8, ptr %77, i64 8
   %79 = load ptr, ptr %78, align 8
@@ -8670,7 +8670,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorISt3mapIPKNSt7__cxx1112basic_st
   %.sroa.0229.0269 = phi ptr [ %.sroa.0229.1, %_ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorISt3mapIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKNS_7VtValueENS_17Sdf_FileIOUtility15_StringLessThanESaISt4pairIKS9_SC_EEELb0EEppEv.exit ], [ %43, %_ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorISt3mapIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKNS_7VtValueENS_17Sdf_FileIOUtility15_StringLessThanESaISt4pairIKS9_SC_EEELb0EEptEv.exit.lr.ph ]
   %175 = add i64 %.059272, -1
   %176 = getelementptr inbounds nuw i8, ptr %.sroa.0229.0269, i64 32
-  %177 = getelementptr inbounds i8, ptr %.sroa.0229.0269, i64 40
+  %177 = getelementptr inbounds nuw i8, ptr %.sroa.0229.0269, i64 40
   %178 = load ptr, ptr %177, align 8
   %179 = load ptr, ptr %176, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %22, ptr noundef nonnull align 8 dereferenceable(32) %179)
@@ -8910,7 +8910,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__14TfMakeIteratorIRKNS_12VtDictionaryEEENS_1
   %.sroa.0.0329 = phi ptr [ %.sroa.0.2, %_ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorIKNS_12VtDictionaryELb0EEppEv.exit ], [ %259, %_ZN32pxrInternal_v0_24__pxrReserved__14TfMakeIteratorIRKNS_12VtDictionaryEEENS_10TfIteratorINSt16remove_referenceIT_E4typeELb0EEEOS6_.exit ]
   %.sroa.9.0328 = phi ptr [ %.sroa.9.2, %_ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorIKNS_12VtDictionaryELb0EEppEv.exit ], [ %258, %_ZN32pxrInternal_v0_24__pxrReserved__14TfMakeIteratorIRKNS_12VtDictionaryEEENS_10TfIteratorINSt16remove_referenceIT_E4typeELb0EEEOS6_.exit ]
   %265 = getelementptr inbounds nuw i8, ptr %.sroa.0.0329, i64 32
-  %266 = getelementptr inbounds i8, ptr %.sroa.0.0329, i64 64
+  %266 = getelementptr inbounds nuw i8, ptr %.sroa.0.0329, i64 64
   %267 = load ptr, ptr %50, align 8
   %.not11.i.i.i.i = icmp eq ptr %267, null
   br i1 %.not11.i.i.i.i, label %.critedge.i149, label %.lr.ph.i.i.i.i
@@ -8969,7 +8969,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__17Sdf_FileIOUtility15_StringLessThanclEPKN
 .noexc212:                                        ; preds = %.critedge.i149
   %284 = getelementptr inbounds nuw i8, ptr %283, i64 32
   store ptr %265, ptr %284, align 8
-  %285 = getelementptr inbounds i8, ptr %283, i64 40
+  %285 = getelementptr inbounds nuw i8, ptr %283, i64 40
   store ptr null, ptr %285, align 8
   %286 = invoke { ptr, ptr } @_ZNSt8_Rb_treeIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS7_PKN32pxrInternal_v0_24__pxrReserved__7VtValueEESt10_Select1stISE_ENSA_17Sdf_FileIOUtility15_StringLessThanESaISE_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorISE_ERS9_(ptr noundef nonnull align 8 dereferenceable(48) %25, ptr %.08.lcssa.i.i.i10.i, ptr noundef nonnull align 8 dereferenceable(8) %284)
           to label %287 unwind label %_ZNSt8_Rb_treeIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS7_PKN32pxrInternal_v0_24__pxrReserved__7VtValueEESt10_Select1stISE_ENSA_17Sdf_FileIOUtility15_StringLessThanESaISE_EE10_Auto_nodeD2Ev.exit.i
@@ -9024,7 +9024,7 @@ _ZNSt8_Rb_treeIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS7
 
 306:                                              ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__17Sdf_FileIOUtility15_StringLessThanclEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_.exit.i, %305, %.thread.i
   %.sroa.05.0.i = phi ptr [ %.19.i.i.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__17Sdf_FileIOUtility15_StringLessThanclEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_.exit.i ], [ %283, %.thread.i ], [ %288, %305 ]
-  %307 = getelementptr inbounds i8, ptr %.sroa.05.0.i, i64 40
+  %307 = getelementptr inbounds nuw i8, ptr %.sroa.05.0.i, i64 40
   store ptr %266, ptr %307, align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %10)
   br i1 %264, label %308, label %_ZNK32pxrInternal_v0_24__pxrReserved__10TfIteratorIKNS_12VtDictionaryELb0EEntEv.exit.i
@@ -9623,7 +9623,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__17Sdf_FileIOUtility15_StringLessThanclEPKN
 
 27:                                               ; preds = %.critedge, %_ZNK32pxrInternal_v0_24__pxrReserved__17Sdf_FileIOUtility15_StringLessThanclEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_.exit
   %.sroa.05.0 = phi ptr [ %26, %.critedge ], [ %.19.i.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__17Sdf_FileIOUtility15_StringLessThanclEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_.exit ]
-  %28 = getelementptr inbounds i8, ptr %.sroa.05.0, i64 40
+  %28 = getelementptr inbounds nuw i8, ptr %.sroa.05.0, i64 40
   ret ptr %28
 }
 
@@ -10292,7 +10292,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__14TfMakeIteratorIRKNS_12VtDictionaryEEENS_1
           to label %31 unwind label %.loopexit
 
 31:                                               ; preds = %.lr.ph
-  %32 = getelementptr inbounds i8, ptr %.sroa.0.040, i64 64
+  %32 = getelementptr inbounds nuw i8, ptr %.sroa.0.040, i64 64
   store ptr %32, ptr %30, align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %7)
   br i1 %28, label %33, label %_ZNK32pxrInternal_v0_24__pxrReserved__10TfIteratorIKNS_12VtDictionaryELb0EEntEv.exit.i
@@ -10826,9 +10826,9 @@ define linkonce_odr noundef ptr @_ZNSt8_Rb_treeIdSt4pairIKdN32pxrInternal_v0_24_
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %7 = load double, ptr %4, align 8
   store double %7, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %5, i64 40
-  %9 = getelementptr inbounds i8, ptr %1, i64 40
-  %10 = getelementptr inbounds i8, ptr %5, i64 48
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 40
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 48
   store ptr null, ptr %10, align 8
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__7VtValue5_CopyERKS0_RS0_(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %8)
           to label %_ZNKSt8_Rb_treeIdSt4pairIKdN32pxrInternal_v0_24__pxrReserved__7VtValueEESt10_Select1stIS4_ESt4lessIdESaIS4_EE11_Alloc_nodeclIRKS4_EEPSt13_Rb_tree_nodeIS4_EOT_.exit unwind label %11
@@ -10881,7 +10881,7 @@ define linkonce_odr void @_ZNSt8_Rb_treeIdSt4pairIKdN32pxrInternal_v0_24__pxrRes
   tail call void @_ZNSt8_Rb_treeIdSt4pairIKdN32pxrInternal_v0_24__pxrReserved__7VtValueEESt10_Select1stIS4_ESt4lessIdESaIS4_EE8_M_eraseEPSt13_Rb_tree_nodeIS4_E(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %4)
   %5 = getelementptr inbounds nuw i8, ptr %.07, i64 16
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %.07, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %.07, i64 48
   %8 = load ptr, ptr %7, align 8
   %9 = ptrtoint ptr %8 to i64
   %.not.i.i.i.i.i.i.i = icmp eq ptr %8, null
@@ -10891,7 +10891,7 @@ define linkonce_odr void @_ZNSt8_Rb_treeIdSt4pairIKdN32pxrInternal_v0_24__pxrRes
   br i1 %or.cond.i.i.i.i.i.i.i, label %_ZNSt8_Rb_treeIdSt4pairIKdN32pxrInternal_v0_24__pxrReserved__7VtValueEESt10_Select1stIS4_ESt4lessIdESaIS4_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS4_E.exit, label %12
 
 12:                                               ; preds = %.lr.ph
-  %13 = getelementptr inbounds i8, ptr %.07, i64 40
+  %13 = getelementptr inbounds nuw i8, ptr %.07, i64 40
   %14 = and i64 %9, -8
   %15 = inttoptr i64 %14 to ptr
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 32
@@ -11298,7 +11298,7 @@ define linkonce_odr void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_tra
   tail call void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N32pxrInternal_v0_24__pxrReserved__7VtValueEESt10_Select1stISA_ESt4lessIvESaISA_EE8_M_eraseEPSt13_Rb_tree_nodeISA_E(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %4)
   %5 = getelementptr inbounds nuw i8, ptr %.07, i64 16
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %.07, i64 72
+  %7 = getelementptr inbounds nuw i8, ptr %.07, i64 72
   %8 = load ptr, ptr %7, align 8
   %9 = ptrtoint ptr %8 to i64
   %.not.i.i.i.i.i.i.i = icmp eq ptr %8, null
@@ -11308,7 +11308,7 @@ define linkonce_odr void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_tra
   br i1 %or.cond.i.i.i.i.i.i.i, label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N32pxrInternal_v0_24__pxrReserved__7VtValueEESt10_Select1stISA_ESt4lessIvESaISA_EE12_M_drop_nodeEPSt13_Rb_tree_nodeISA_E.exit, label %12
 
 12:                                               ; preds = %.lr.ph
-  %13 = getelementptr inbounds i8, ptr %.07, i64 64
+  %13 = getelementptr inbounds nuw i8, ptr %.07, i64 64
   %14 = and i64 %9, -8
   %15 = inttoptr i64 %14 to ptr
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 32
@@ -11602,7 +11602,7 @@ define linkonce_odr ptr @_ZNSt8_Rb_treeIPKNSt7__cxx1112basic_stringIcSt11char_tr
   %9 = inttoptr i64 %8 to ptr
   %10 = load ptr, ptr %9, align 8
   store ptr %10, ptr %7, align 8
-  %11 = getelementptr inbounds i8, ptr %6, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %6, i64 40
   store ptr null, ptr %11, align 8
   %12 = invoke { ptr, ptr } @_ZNSt8_Rb_treeIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS7_PKN32pxrInternal_v0_24__pxrReserved__7VtValueEESt10_Select1stISE_ENSA_17Sdf_FileIOUtility15_StringLessThanESaISE_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorISE_ERS9_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %1, ptr noundef nonnull align 8 dereferenceable(8) %7)
           to label %13 unwind label %_ZNSt8_Rb_treeIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS7_PKN32pxrInternal_v0_24__pxrReserved__7VtValueEESt10_Select1stISE_ENSA_17Sdf_FileIOUtility15_StringLessThanESaISE_EE10_Auto_nodeD2Ev.exit

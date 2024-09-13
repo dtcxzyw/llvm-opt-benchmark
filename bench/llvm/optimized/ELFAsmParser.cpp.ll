@@ -548,7 +548,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112ELFAsmParser21Pars
   br label %_ZN12_GLOBAL__N_112ELFAsmParser16ParseSectionNameERN4llvm9StringRefE.exit.thread
 
 84:                                               ; preds = %78
-  %85 = getelementptr inbounds i8, ptr %79, i64 16
+  %85 = getelementptr inbounds nuw i8, ptr %79, i64 16
   %86 = load i64, ptr %85, align 8
   %87 = add i64 %86, -1
   %88 = icmp ne i64 %86, 0
@@ -984,7 +984,7 @@ _ZL9hasPrefixN4llvm9StringRefES0_.exit.thread410: ; preds = %_ZNK4llvm9StringRef
   br label %_ZNK4llvm8AsmToken13getIdentifierEv.exit.i153
 
 323:                                              ; preds = %316
-  %324 = getelementptr inbounds i8, ptr %318, i64 16
+  %324 = getelementptr inbounds nuw i8, ptr %318, i64 16
   %325 = load i64, ptr %324, align 8
   %326 = add i64 %325, -1
   %327 = icmp ne i64 %325, 0
@@ -1065,7 +1065,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit.thread.i:       ; preds = %_ZN4llvmeqENS_9Stri
 368:                                              ; preds = %269
   %369 = call noundef nonnull align 8 dereferenceable(40) ptr @_ZNK4llvm11MCAsmParser6getTokEv(ptr noundef nonnull align 8 dereferenceable(34) %278) #15
   %370 = getelementptr inbounds nuw i8, ptr %369, i64 8
-  %371 = getelementptr inbounds i8, ptr %369, i64 16
+  %371 = getelementptr inbounds nuw i8, ptr %369, i64 16
   %372 = load i64, ptr %371, align 8
   %373 = add i64 %372, -1
   %374 = icmp ne i64 %372, 0
@@ -1107,8 +1107,8 @@ _ZN4llvmeqENS_9StringRefES0_.exit.thread.i:       ; preds = %_ZN4llvmeqENS_9Stri
   br i1 %.not44.i, label %.thread, label %.lr.ph.i159
 
 .lr.ph.i159:                                      ; preds = %396
-  %398 = getelementptr inbounds i8, ptr %390, i64 56
-  %399 = getelementptr inbounds i8, ptr %390, i64 68
+  %398 = getelementptr inbounds nuw i8, ptr %390, i64 56
+  %399 = getelementptr inbounds nuw i8, ptr %390, i64 68
   %400 = load i32, ptr %399, align 4
   %401 = icmp eq i32 %400, 12
   %402 = load i32, ptr %398, align 8
@@ -1819,7 +1819,7 @@ _ZL24allowSectionTypeMismatchRKN4llvm6TripleENS_9StringRefEj.exit.thread: ; pred
   store ptr @.str.58, ptr %32, align 8, !alias.scope !7
   %703 = getelementptr inbounds nuw i8, ptr %32, i64 16
   store ptr %.sroa.0372.2409, ptr %703, align 8, !alias.scope !7
-  %704 = getelementptr inbounds i8, ptr %32, i64 24
+  %704 = getelementptr inbounds nuw i8, ptr %32, i64 24
   store i64 %.sroa.27.2408, ptr %704, align 8, !alias.scope !7
   %705 = getelementptr inbounds nuw i8, ptr %33, i64 32
   %706 = getelementptr inbounds nuw i8, ptr %33, i64 33
@@ -1865,7 +1865,7 @@ _ZN4llvmplERKNS_5TwineES2_.exit:                  ; preds = %719
   store ptr @.str.60, ptr %38, align 8, !alias.scope !10
   %724 = getelementptr inbounds nuw i8, ptr %38, i64 16
   store ptr %.sroa.0372.2409, ptr %724, align 8, !alias.scope !10
-  %725 = getelementptr inbounds i8, ptr %38, i64 24
+  %725 = getelementptr inbounds nuw i8, ptr %38, i64 24
   store i64 %.sroa.27.2408, ptr %725, align 8, !alias.scope !10
   store ptr %38, ptr %37, align 8, !alias.scope !13
   %726 = getelementptr inbounds nuw i8, ptr %37, i64 16
@@ -1981,7 +1981,7 @@ _ZN4llvmplERKNS_5TwineES2_.exit290:               ; preds = %754
   store ptr @.str.61, ptr %42, align 8, !alias.scope !29
   %760 = getelementptr inbounds nuw i8, ptr %42, i64 16
   store ptr %.sroa.0372.2409, ptr %760, align 8, !alias.scope !29
-  %761 = getelementptr inbounds i8, ptr %42, i64 24
+  %761 = getelementptr inbounds nuw i8, ptr %42, i64 24
   store i64 %.sroa.27.2408, ptr %761, align 8, !alias.scope !29
   store ptr %42, ptr %41, align 8, !alias.scope !32
   %762 = getelementptr inbounds nuw i8, ptr %41, i64 16
@@ -2299,7 +2299,7 @@ _ZNK4llvm8MCSymbol11isInSectionEv.exit.thread:    ; preds = %67, %_ZNK4llvm8MCSy
   %78 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr %77, ptr %78, align 8, !alias.scope !42
   %79 = load i64, ptr %56, align 8, !noalias !42
-  %80 = getelementptr inbounds i8, ptr %7, i64 24
+  %80 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store i64 %79, ptr %80, align 8, !alias.scope !42
   %81 = load ptr, ptr %8, align 8
   %82 = call noundef zeroext i1 @_ZN4llvm11MCAsmParser5ErrorENS_5SMLocERKNS_5TwineENS_7SMRangeE(ptr noundef nonnull align 8 dereferenceable(34) %81, ptr %28, ptr noundef nonnull align 8 dereferenceable(34) %7, ptr null, ptr null) #15
@@ -3912,7 +3912,7 @@ define internal noundef zeroext i1 @_ZN4llvm20MCAsmParserExtension15HandleDirect
   br label %_ZNK4llvm8AsmToken13getIdentifierEv.exit.i
 
 28:                                               ; preds = %21
-  %29 = getelementptr inbounds i8, ptr %23, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %23, i64 16
   %30 = load i64, ptr %29, align 8
   %31 = add i64 %30, -1
   %32 = icmp ne i64 %30, 0
@@ -4247,7 +4247,7 @@ define internal noundef zeroext i1 @_ZN4llvm20MCAsmParserExtension15HandleDirect
   br label %_ZNK4llvm8AsmToken13getIdentifierEv.exit.i
 
 30:                                               ; preds = %23
-  %31 = getelementptr inbounds i8, ptr %25, i64 16
+  %31 = getelementptr inbounds nuw i8, ptr %25, i64 16
   %32 = load i64, ptr %31, align 8
   %33 = add i64 %32, -1
   %34 = icmp ne i64 %32, 0

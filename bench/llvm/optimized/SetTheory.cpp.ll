@@ -169,11 +169,11 @@ define dso_local void @_ZN4llvm9SetTheoryC2Ev(ptr noundef nonnull align 8 derefe
   store ptr %2, ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 40
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %8 = getelementptr inbounds i8, ptr %0, i64 68
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 68
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %6, i8 0, i64 28, i1 false)
   store i32 16, ptr %8, align 4
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %10 = getelementptr inbounds i8, ptr %0, i64 92
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 92
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %9, i8 0, i64 20, i1 false)
   store i32 16, ptr %10, align 4
   %11 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #17, !noalias !4
@@ -596,7 +596,7 @@ define dso_local void @_ZN4llvm9SetTheory8evaluateEPKNS_4InitERNS_14SmallSetVect
   %67 = tail call noundef i32 @_ZN4llvm13StringMapImpl4hashENS_9StringRefE(ptr %.sroa.0.0.copyload.i.i, i64 %.sroa.2.0.copyload.i.i) #18
   %68 = tail call noundef i32 @_ZNK4llvm13StringMapImpl7FindKeyENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(24) %62, ptr %.sroa.0.0.copyload.i.i, i64 %.sroa.2.0.copyload.i.i, i32 noundef %67) #18
   %69 = icmp eq i32 %68, -1
-  %70 = getelementptr inbounds i8, ptr %0, i64 56
+  %70 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %71 = load i32, ptr %70, align 8
   %72 = zext i32 %71 to i64
   %73 = sext i32 %68 to i64
@@ -671,7 +671,7 @@ _ZNSt3mapIPKN4llvm6RecordESt6vectorIPS1_SaIS5_EESt4lessIS3_ESaISt4pairIKS3_S7_EE
   br i1 %16, label %_ZNSt3mapIPKN4llvm6RecordESt6vectorIPS1_SaIS5_EESt4lessIS3_ESaISt4pairIKS3_S7_EEE4findERSB_.exit.thread, label %17
 
 17:                                               ; preds = %_ZNSt3mapIPKN4llvm6RecordESt6vectorIPS1_SaIS5_EESt4lessIS3_ESaISt4pairIKS3_S7_EEE4findERSB_.exit
-  %18 = getelementptr inbounds i8, ptr %.19.i.i.i, i64 40
+  %18 = getelementptr inbounds nuw i8, ptr %.19.i.i.i, i64 40
   br label %.loopexit
 
 _ZNSt3mapIPKN4llvm6RecordESt6vectorIPS1_SaIS5_EESt4lessIS3_ESaISt4pairIKS3_S7_EEE4findERSB_.exit.thread: ; preds = %2, %_ZNSt8_Rb_treeIPKN4llvm6RecordESt4pairIKS3_St6vectorIPS1_SaIS7_EEESt10_Select1stISA_ESt4lessIS3_ESaISA_EE14_M_lower_boundEPSt13_Rb_tree_nodeISA_EPSt18_Rb_tree_node_baseRS5_.exit.i.i, %_ZNSt3mapIPKN4llvm6RecordESt6vectorIPS1_SaIS5_EESt4lessIS3_ESaISt4pairIKS3_S7_EEE4findERSB_.exit
@@ -684,7 +684,7 @@ _ZNSt3mapIPKN4llvm6RecordESt6vectorIPS1_SaIS5_EESt4lessIS3_ESaISt4pairIKS3_S7_EE
 
 .lr.ph:                                           ; preds = %_ZNSt3mapIPKN4llvm6RecordESt6vectorIPS1_SaIS5_EESt4lessIS3_ESaISt4pairIKS3_S7_EEE4findERSB_.exit.thread
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %24 = getelementptr inbounds i8, ptr %0, i64 80
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 80
   br label %25
 
 25:                                               ; preds = %.lr.ph, %75
@@ -751,7 +751,7 @@ _ZNSt3mapIPKN4llvm6RecordESt6vectorIPS1_SaIS5_EESt4lessIS3_ESaISt4pairIKS3_S7_EE
 
 _ZNSt3mapIPKN4llvm6RecordESt6vectorIPS1_SaIS5_EESt4lessIS3_ESaISt4pairIKS3_S7_EEEixERSB_.exit: ; preds = %48, %.critedge.i
   %.sroa.05.0.i = phi ptr [ %52, %.critedge.i ], [ %.19.i.i.i.i, %48 ]
-  %53 = getelementptr inbounds i8, ptr %.sroa.05.0.i, i64 40
+  %53 = getelementptr inbounds nuw i8, ptr %.sroa.05.0.i, i64 40
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %6, i8 0, i64 20, i1 false)
@@ -3026,7 +3026,7 @@ _ZNK4llvm12RecordKeeper6getDefENS_9StringRefE.exit.thread: ; preds = %131
   br label %.loopexit
 
 _ZNK4llvm12RecordKeeper6getDefENS_9StringRefE.exit: ; preds = %131
-  %139 = getelementptr inbounds i8, ptr %137, i64 64
+  %139 = getelementptr inbounds nuw i8, ptr %137, i64 64
   %140 = load ptr, ptr %139, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
   store ptr %140, ptr %32, align 8
@@ -3506,7 +3506,7 @@ define linkonce_odr ptr @_ZNSt8_Rb_treeIPKN4llvm6RecordESt4pairIKS3_St6vectorIPS
   %9 = inttoptr i64 %8 to ptr
   %10 = load ptr, ptr %9, align 8
   store ptr %10, ptr %7, align 8
-  %11 = getelementptr inbounds i8, ptr %6, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %6, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %11, i8 0, i64 24, i1 false)
   %12 = tail call { ptr, ptr } @_ZNSt8_Rb_treeIPKN4llvm6RecordESt4pairIKS3_St6vectorIPS1_SaIS7_EEESt10_Select1stISA_ESt4lessIS3_ESaISA_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorISA_ERS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %1, ptr noundef nonnull align 8 dereferenceable(8) %7)
   %13 = extractvalue { ptr, ptr } %12, 0
@@ -3543,7 +3543,7 @@ define linkonce_odr ptr @_ZNSt8_Rb_treeIPKN4llvm6RecordESt4pairIKS3_St6vectorIPS
   br i1 %.not.i.i.i.i.i.i.i.i.i, label %_ZNSt8_Rb_treeIPKN4llvm6RecordESt4pairIKS3_St6vectorIPS1_SaIS7_EEESt10_Select1stISA_ESt4lessIS3_ESaISA_EE12_M_drop_nodeEPSt13_Rb_tree_nodeISA_E.exit.i, label %29
 
 29:                                               ; preds = %27
-  %30 = getelementptr inbounds i8, ptr %6, i64 56
+  %30 = getelementptr inbounds nuw i8, ptr %6, i64 56
   %31 = load ptr, ptr %30, align 8
   %32 = ptrtoint ptr %31 to i64
   %33 = ptrtoint ptr %28 to i64

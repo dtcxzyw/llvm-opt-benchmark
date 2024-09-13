@@ -26,7 +26,7 @@ define dso_local noundef zeroext i1 @_Z14inferAlignmentRN4llvm8FunctionERNS_15As
   %4 = alloca %"struct.llvm::KnownBits", align 8
   %5 = alloca %"struct.llvm::KnownBits", align 8
   %6 = tail call noundef nonnull align 8 dereferenceable(512) ptr @_ZNK4llvm8Function13getDataLayoutEv(ptr noundef nonnull align 8 dereferenceable(136) %0) #7
-  %7 = getelementptr inbounds i8, ptr %0, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %.sroa.067.077 = load ptr, ptr %7, align 8
   %.not78 = icmp eq ptr %.sroa.067.077, %8
@@ -44,10 +44,10 @@ define dso_local noundef zeroext i1 @_Z14inferAlignmentRN4llvm8FunctionERNS_15As
 
 .lr.ph96.preheader:                               ; preds = %.preheader
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %10 = getelementptr inbounds i8, ptr %4, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %13 = getelementptr inbounds i8, ptr %5, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %14 = getelementptr inbounds nuw i8, ptr %5, i64 16
   br label %.lr.ph96
 
@@ -57,7 +57,7 @@ define dso_local noundef zeroext i1 @_Z14inferAlignmentRN4llvm8FunctionERNS_15As
   %15 = icmp eq ptr %.sroa.067.080, null
   %16 = getelementptr inbounds i8, ptr %.sroa.067.080, i64 -24
   %17 = select i1 %15, ptr null, ptr %16
-  %18 = getelementptr inbounds i8, ptr %17, i64 56
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 56
   %19 = getelementptr inbounds nuw i8, ptr %17, i64 48
   %.sroa.061.073 = load ptr, ptr %18, align 8
   %.not7274 = icmp eq ptr %.sroa.061.073, %19
@@ -149,7 +149,7 @@ _ZL17tryToImproveAlignRKN4llvm10DataLayoutEPNS_11InstructionENS_12function_refIF
   %61 = icmp eq ptr %.sroa.054.095, null
   %62 = getelementptr inbounds i8, ptr %.sroa.054.095, i64 -24
   %63 = select i1 %61, ptr null, ptr %62
-  %64 = getelementptr inbounds i8, ptr %63, i64 56
+  %64 = getelementptr inbounds nuw i8, ptr %63, i64 56
   %65 = getelementptr inbounds nuw i8, ptr %63, i64 48
   %.sroa.050.084 = load ptr, ptr %64, align 8
   %.not7185 = icmp eq ptr %.sroa.050.084, %65
@@ -353,15 +353,15 @@ define dso_local void @_ZN4llvm18InferAlignmentPass3runERNS_8FunctionERNS_15Anal
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 0, ptr %14, align 8, !alias.scope !4
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %16 = getelementptr inbounds i8, ptr %0, i64 80
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store ptr %16, ptr %15, align 8, !alias.scope !4
-  %17 = getelementptr inbounds i8, ptr %0, i64 56
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store ptr %16, ptr %17, align 8, !alias.scope !4
-  %18 = getelementptr inbounds i8, ptr %0, i64 64
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i32 2, ptr %18, align 8, !alias.scope !4
-  %19 = getelementptr inbounds i8, ptr %0, i64 68
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 68
   store i32 0, ptr %19, align 4, !alias.scope !4
-  %20 = getelementptr inbounds i8, ptr %0, i64 72
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store i32 0, ptr %20, align 8, !alias.scope !4
   store i32 1, ptr %13, align 4, !alias.scope !4, !noalias !7
   store ptr @_ZN4llvm17PreservedAnalyses14AllAnalysesKeyE, ptr %10, align 8, !alias.scope !4, !noalias !7

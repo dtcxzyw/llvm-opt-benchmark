@@ -77,9 +77,9 @@ define dso_local void @_ZN4llvm21ValueProfileCollectorC2ERNS_8FunctionERNS_17Tar
   store ptr %1, ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %1, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %4, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store ptr %2, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %4, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store ptr null, ptr %8, align 8
   store ptr %4, ptr %0, align 8
   ret void
@@ -124,10 +124,10 @@ define dso_local void @_ZNK4llvm21ValueProfileCollector3getENS_18InstrProfValueK
 
 .split5.i:                                        ; preds = %3
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %7 = getelementptr inbounds i8, ptr %4, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store ptr %0, ptr %7, align 8
   %8 = load ptr, ptr %6, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 80
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 80
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 72
   %.not3.i.i.i.i = icmp eq ptr %10, %11
@@ -140,7 +140,7 @@ define dso_local void @_ZNK4llvm21ValueProfileCollector3getENS_18InstrProfValueK
   %14 = icmp eq ptr %.sroa.02.04.i.i.i.i, null
   %15 = getelementptr inbounds i8, ptr %.sroa.02.04.i.i.i.i, i64 -24
   %16 = select i1 %14, ptr null, ptr %15
-  %17 = getelementptr inbounds i8, ptr %16, i64 56
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 56
   %18 = load ptr, ptr %17, align 8
   %19 = getelementptr inbounds nuw i8, ptr %16, i64 48
   %.not4.i.i.i.i.i.i = icmp eq ptr %18, %19
@@ -684,7 +684,7 @@ _ZNSt6vectorIPN4llvm8CallBaseESaIS2_EED2Ev.exit:  ; preds = %._crit_edge, %45
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvm17findIndirectCallsERNS_8FunctionE(ptr dead_on_unwind noalias writable sret(%"class.std::vector.47") align 8 %0, ptr noundef nonnull align 8 dereferenceable(136) %1) local_unnamed_addr #0 comdat {
   %3 = alloca %"struct.llvm::PGOIndirectCallVisitor", align 8
-  %4 = getelementptr inbounds i8, ptr %1, i64 80
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 80
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(52) %3, i8 0, i64 52, i1 false)
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 72
@@ -734,7 +734,7 @@ _ZNSt6vectorIPN4llvm8CallBaseESaIS2_EEC2ERKS4_.exit: ; preds = %_ZNSt12_Vector_b
   br i1 %.not.i.i.i.i1, label %_ZNSt6vectorIPN4llvm11InstructionESaIS2_EED2Ev.exit.i, label %27
 
 27:                                               ; preds = %_ZNSt6vectorIPN4llvm8CallBaseESaIS2_EEC2ERKS4_.exit
-  %28 = getelementptr inbounds i8, ptr %3, i64 40
+  %28 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %29 = load ptr, ptr %28, align 8
   %30 = ptrtoint ptr %29 to i64
   %31 = ptrtoint ptr %26 to i64
@@ -773,7 +773,7 @@ define linkonce_odr hidden void @_ZN4llvm11InstVisitorINS_22PGOIndirectCallVisit
   %6 = icmp eq ptr %.sroa.02.04, null
   %7 = getelementptr inbounds i8, ptr %.sroa.02.04, i64 -24
   %8 = select i1 %6, ptr null, ptr %7
-  %9 = getelementptr inbounds i8, ptr %8, i64 56
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 56
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 48
   %.not4.i.i = icmp eq ptr %10, %11
@@ -980,9 +980,9 @@ _ZNSt6vectorIPN4llvm8CallBaseESaIS2_EE9push_backEOS2_.exit: ; preds = %9, %_ZNSt
 
 _ZN4llvm22PGOIndirectCallVisitor23tryGetVTableInstructionEPNS_8CallBaseE.exit: ; preds = %47
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %51 = getelementptr inbounds i8, ptr %0, i64 32
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %52 = load ptr, ptr %51, align 8
-  %53 = getelementptr inbounds i8, ptr %0, i64 40
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %54 = load ptr, ptr %53, align 8
   %.not.i5 = icmp eq ptr %52, %54
   br i1 %.not.i5, label %58, label %55
@@ -1205,12 +1205,12 @@ define linkonce_odr hidden void @_ZN4llvm15findVTableAddrsERNS_8FunctionE(ptr de
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %3, i8 0, i64 48, i1 false)
   store i32 1, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 80
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 72
   call void @_ZN4llvm11InstVisitorINS_22PGOIndirectCallVisitorEvE5visitINS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_10BasicBlockELb0ELb0EvLb0EvEELb0ELb0EEEEEvT_SA_(ptr noundef nonnull align 1 dereferenceable(1) %3, ptr %6, ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %9 = getelementptr inbounds i8, ptr %3, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %10 = load ptr, ptr %9, align 8
   %11 = load ptr, ptr %8, align 8
   %12 = ptrtoint ptr %10 to i64
@@ -1253,7 +1253,7 @@ _ZNSt6vectorIPN4llvm11InstructionESaIS2_EEC2ERKS4_.exit: ; preds = %_ZNSt12_Vect
   br i1 %.not.i.i.i.i1, label %_ZNSt6vectorIPN4llvm11InstructionESaIS2_EED2Ev.exit.i, label %27
 
 27:                                               ; preds = %_ZNSt6vectorIPN4llvm11InstructionESaIS2_EEC2ERKS4_.exit
-  %28 = getelementptr inbounds i8, ptr %3, i64 40
+  %28 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %29 = load ptr, ptr %28, align 8
   %30 = ptrtoint ptr %29 to i64
   %31 = sub i64 %30, %13

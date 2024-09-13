@@ -7296,7 +7296,7 @@ define dso_local void @_ZN4llvm12APFixedPoint17getFromFloatValueERKNS_7APFloatER
   %22 = load ptr, ptr %21, align 8
   %23 = tail call noundef nonnull align 1 ptr @_ZN4llvm11APFloatBase15PPCDoubleDoubleEv() #19
   %.not.i.i.i = icmp eq ptr %22, %23
-  %24 = getelementptr inbounds i8, ptr %1, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %25 = load ptr, ptr %24, align 8
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 8
   %.0.i.i.i = select i1 %.not.i.i.i, ptr %26, ptr %21

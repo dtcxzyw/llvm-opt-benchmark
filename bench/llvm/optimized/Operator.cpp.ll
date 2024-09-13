@@ -155,7 +155,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm8Operator24hasPoisonGeneratingFlag
 43:                                               ; preds = %41
   %44 = getelementptr inbounds nuw i8, ptr %2, i64 32
   store i8 0, ptr %44, align 8
-  %45 = getelementptr inbounds i8, ptr %2, i64 24
+  %45 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %46 = load i32, ptr %45, align 8
   %47 = icmp ugt i32 %46, 64
   br i1 %47, label %48, label %_ZN4llvm5APIntD2Ev.exit.i.i.i.i.i.i
@@ -451,7 +451,7 @@ _ZN4llvm12gep_type_endEPKNS_4UserE.exit:          ; preds = %14, %17
 32:                                               ; preds = %24
   %33 = call noundef ptr @_ZNK4llvm10DataLayout15getStructLayoutEPNS_10StructTypeE(ptr noundef nonnull align 8 dereferenceable(512) %1, ptr noundef nonnull %31) #9
   %34 = getelementptr inbounds nuw i8, ptr %spec.select.i.i, i64 24
-  %35 = getelementptr inbounds i8, ptr %spec.select.i.i, i64 32
+  %35 = getelementptr inbounds nuw i8, ptr %spec.select.i.i, i64 32
   %36 = load i32, ptr %35, align 8
   %37 = icmp ult i32 %36, 65
   %38 = load ptr, ptr %34, align 8
@@ -473,7 +473,7 @@ _ZN4llvm12gep_type_endEPKNS_4UserE.exit:          ; preds = %14, %17
 
 43:                                               ; preds = %42
   %44 = getelementptr inbounds nuw i8, ptr %spec.select.i.i, i64 24
-  %45 = getelementptr inbounds i8, ptr %spec.select.i.i, i64 32
+  %45 = getelementptr inbounds nuw i8, ptr %spec.select.i.i, i64 32
   %46 = load i32, ptr %45, align 8
   %47 = icmp ult i32 %46, 65
   %48 = load ptr, ptr %44, align 8
@@ -787,7 +787,7 @@ _ZNK4llvm25generic_gep_type_iteratorIPKPKNS_5ValueEE14getIndexedTypeEv.exit: ; p
 
 65:                                               ; preds = %_ZNK4llvm25generic_gep_type_iteratorIPKPKNS_5ValueEE14getIndexedTypeEv.exit
   %66 = getelementptr inbounds nuw i8, ptr %62, i64 24
-  %67 = getelementptr inbounds i8, ptr %62, i64 32
+  %67 = getelementptr inbounds nuw i8, ptr %62, i64 32
   %68 = load i32, ptr %67, align 8
   %69 = icmp ult i32 %68, 65
   br i1 %69, label %70, label %_ZNK4llvm11ConstantInt6isZeroEv.exit
@@ -1352,7 +1352,7 @@ _ZN4llvm12gep_type_endEPKNS_4UserE.exit:          ; preds = %26, %29
   %36 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %37 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %38 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %39 = getelementptr inbounds i8, ptr %14, i64 16
+  %39 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %.sroa.214.0..sroa_idx = getelementptr inbounds i8, ptr %9, i64 8
   %40 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %41 = getelementptr inbounds nuw i8, ptr %10, i64 8
@@ -1397,7 +1397,7 @@ _ZNK4llvm25generic_gep_type_iteratorIPKNS_3UseEE14getIndexedTypeEv.exit: ; preds
 
 59:                                               ; preds = %_ZNK4llvm25generic_gep_type_iteratorIPKNS_3UseEE14getIndexedTypeEv.exit
   %60 = getelementptr inbounds nuw i8, ptr %56, i64 24
-  %61 = getelementptr inbounds i8, ptr %56, i64 32
+  %61 = getelementptr inbounds nuw i8, ptr %56, i64 32
   %62 = load i32, ptr %61, align 8
   %63 = icmp ult i32 %62, 65
   br i1 %63, label %64, label %_ZNK4llvm11ConstantInt6isZeroEv.exit
@@ -2394,7 +2394,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZN4
   %17 = load ptr, ptr %14, align 8
   store ptr %17, ptr %12, align 8
   %18 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  %19 = getelementptr inbounds i8, ptr %12, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %20 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %21 = load i32, ptr %20, align 8
   store i32 %21, ptr %19, align 8
@@ -2727,7 +2727,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZN4
   %14 = load ptr, ptr %11, align 8
   store ptr %14, ptr %9, align 8
   %15 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %16 = getelementptr inbounds i8, ptr %9, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %17 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %18 = load i32, ptr %17, align 8
   store i32 %18, ptr %16, align 8
@@ -2747,8 +2747,8 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZN4
   store ptr %23, ptr %.09.i.i.i.i.i.i, align 8
   %24 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i.i, i64 8
   %25 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i.i.i, i64 8
-  %26 = getelementptr inbounds i8, ptr %.09.i.i.i.i.i.i, i64 16
-  %27 = getelementptr inbounds i8, ptr %.sroa.04.08.i.i.i.i.i.i, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i.i, i64 16
+  %27 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i.i.i, i64 16
   %28 = load i32, ptr %27, align 8
   store i32 %28, ptr %26, align 8
   %29 = load i64, ptr %25, align 8

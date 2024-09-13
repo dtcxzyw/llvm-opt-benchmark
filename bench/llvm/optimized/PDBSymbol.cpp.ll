@@ -292,7 +292,7 @@ define dso_local void @_ZNK4llvm3pdb9PDBSymbol14dumpChildStatsEv(ptr nocapture n
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, i8 0, i64 16, i1 false)
   store float 1.000000e+00, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %2, i64 40
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, i8 0, i64 16, i1 false)
   call void @_ZNK4llvm3pdb9PDBSymbol13getChildStatsERSt13unordered_mapINS0_11PDB_SymTypeEiSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_iEEE(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr.12") align 8 %3, ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(56) %2)
   %9 = load ptr, ptr %3, align 8

@@ -2017,7 +2017,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1593:             ; preds = %150, %152
   %156 = load ptr, ptr %155, align 8
   %.cast = ptrtoint ptr %156 to i64
   store i64 %.cast, ptr %6, align 8
-  %157 = getelementptr inbounds i8, ptr %0, i64 32
+  %157 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %158 = load ptr, ptr %157, align 8
   %.not2213 = icmp eq ptr %156, %158
   br i1 %.not2213, label %._crit_edge, label %.lr.ph
@@ -18530,7 +18530,7 @@ _ZN5clang10ColorScopeD2Ev.exit:                   ; preds = %18, %20
 
 _ZN4llvm11raw_ostreamlsEPKc.exit98:               ; preds = %37, %39
   %.0.i.i97 = phi ptr [ %38, %37 ], [ %1, %39 ]
-  %42 = getelementptr inbounds i8, ptr %0, i64 144
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %43 = load ptr, ptr %42, align 8
   %44 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %42) #15
   %45 = getelementptr inbounds ptr, ptr %43, i64 %44
@@ -18560,7 +18560,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit98:               ; preds = %37, %39
 
 ._crit_edge.i:                                    ; preds = %48, %_ZN4llvm11raw_ostreamlsEPKc.exit98
   %.0.lcssa.i = phi i64 [ 0, %_ZN4llvm11raw_ostreamlsEPKc.exit98 ], [ %55, %48 ]
-  %57 = getelementptr inbounds i8, ptr %0, i64 192
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %58 = load ptr, ptr %57, align 8
   %59 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %57) #15
   %60 = getelementptr inbounds %"struct.std::pair.539", ptr %58, i64 %59
@@ -18624,7 +18624,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit101:              ; preds = %74, %76
 _ZN4llvm11raw_ostreamlsEPKc.exit104:              ; preds = %85, %87
   %.0.i.i103 = phi ptr [ %86, %85 ], [ %1, %87 ]
   %90 = getelementptr inbounds nuw i8, ptr %0, i64 224
-  %91 = getelementptr inbounds i8, ptr %0, i64 232
+  %91 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %92 = load ptr, ptr %91, align 8
   %93 = load ptr, ptr %90, align 8
   %94 = ptrtoint ptr %92 to i64
@@ -18668,7 +18668,7 @@ _ZN5clang10ColorScopeD2Ev.exit108:                ; preds = %104, %106
   %119 = getelementptr inbounds nuw i8, ptr %5, i64 48
   %120 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %121 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %122 = getelementptr inbounds i8, ptr %3, i64 32
+  %122 = getelementptr inbounds nuw i8, ptr %3, i64 32
   br label %123
 
 123:                                              ; preds = %.lr.ph349, %_ZN4llvm11raw_ostreamlsEPKc.exit305
@@ -20118,7 +20118,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit305:              ; preds = %803, %801, %252, %2
 _ZN4llvm11raw_ostreamlsEPKc.exit308:              ; preds = %818, %820
   %.0.i.i307 = phi ptr [ %819, %818 ], [ %1, %820 ]
   %823 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %824 = getelementptr inbounds i8, ptr %0, i64 16
+  %824 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %825 = load i32, ptr %824, align 8
   %826 = zext i32 %825 to i64
   %827 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %.0.i.i307, i64 noundef %826) #15
@@ -20148,7 +20148,7 @@ _ZN5clang10ColorScopeD2Ev.exit312:                ; preds = %833, %835
   %842 = load i32, ptr %824, align 8
   %843 = icmp eq i32 %842, 0
   %844 = load ptr, ptr %823, align 8
-  %845 = getelementptr inbounds i8, ptr %0, i64 24
+  %845 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %846 = load i32, ptr %845, align 8
   %847 = zext i32 %846 to i64
   %848 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair", ptr %844, i64 %847
@@ -20209,7 +20209,7 @@ _ZN4llvm16DenseMapIteratorIPKN5clang12FunctionDeclESt10unique_ptrINS1_6interp8Fu
 ._crit_edge353:                                   ; preds = %.critedge2.i8.i14.i6.i, %_ZN4llvm16DenseMapIteratorIPKN5clang12FunctionDeclESt10unique_ptrINS1_6interp8FunctionESt14default_deleteIS7_EENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_SA_EELb1EEppEv.exit, %_ZN5clang10ColorScopeD2Ev.exit312, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang12FunctionDeclESt10unique_ptrINS2_6interp8FunctionESt14default_deleteIS8_EENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_SB_EEEES5_SB_SD_SG_E5beginEv.exit
   %858 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %859 = load ptr, ptr %858, align 8
-  %860 = getelementptr inbounds i8, ptr %0, i64 40
+  %860 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %861 = load ptr, ptr %860, align 8
   %.not339354 = icmp eq ptr %859, %861
   br i1 %.not339354, label %._crit_edge358, label %.lr.ph357
@@ -22499,7 +22499,7 @@ define dso_local void @_ZNK5clang6interp16EvaluationResult4dumpEv(ptr noundef no
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit38
 
 _ZN4llvm11raw_ostreamlsEPKc.exit38:               ; preds = %32, %34
-  %37 = getelementptr inbounds i8, ptr %0, i64 80
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %38 = load i8, ptr %37, align 8
   %.not.i.i = icmp eq i8 %38, 3
   br i1 %.not.i.i, label %_ZSt3getIN5clang7APValueEJSt9monostateNS0_6interp7PointerENS3_15FunctionPointerES1_EERKT_RKSt7variantIJDpT0_EE.exit, label %39
@@ -22568,7 +22568,7 @@ _ZSt3getIN5clang7APValueEJSt9monostateNS0_6interp7PointerENS3_15FunctionPointerE
 
 _ZN4llvm11raw_ostreamlsEPKc.exit44:               ; preds = %64, %66
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %70 = getelementptr inbounds i8, ptr %0, i64 80
+  %70 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %71 = load i8, ptr %70, align 8
   switch i8 %71, label %_ZN5clang7APValueD2Ev.exit [
     i8 1, label %72

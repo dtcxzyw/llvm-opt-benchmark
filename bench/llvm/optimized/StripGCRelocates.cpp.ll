@@ -47,7 +47,7 @@ _ZL16stripGCRelocatesRN4llvm8FunctionE.exit.thread: ; preds = %4
   %9 = getelementptr inbounds i8, ptr %5, i64 16
   call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull %9, i64 noundef 20) #4
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 72
-  %11 = getelementptr inbounds i8, ptr %2, i64 80
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %12 = load ptr, ptr %11, align 8, !noalias !4
   %.not.i.i.i.i = icmp eq ptr %12, %10
   br i1 %.not.i.i.i.i, label %_ZN4llvm12instructionsERNS_8FunctionE.exit.i, label %13
@@ -56,7 +56,7 @@ _ZL16stripGCRelocatesRN4llvm8FunctionE.exit.thread: ; preds = %4
   %14 = icmp eq ptr %12, null
   %15 = getelementptr inbounds i8, ptr %12, i64 -24
   %16 = select i1 %14, ptr null, ptr %15
-  %17 = getelementptr inbounds i8, ptr %16, i64 56
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 56
   %18 = load ptr, ptr %17, align 8, !noalias !4
   %19 = getelementptr inbounds nuw i8, ptr %16, i64 48
   %20 = icmp eq ptr %18, %19
@@ -79,7 +79,7 @@ _ZL16stripGCRelocatesRN4llvm8FunctionE.exit.thread: ; preds = %4
   %28 = icmp eq ptr %27, null
   %29 = getelementptr inbounds i8, ptr %27, i64 -24
   %30 = select i1 %28, ptr null, ptr %29
-  %31 = getelementptr inbounds i8, ptr %30, i64 56
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 56
   %32 = load ptr, ptr %31, align 8, !noalias !4
   %33 = getelementptr inbounds nuw i8, ptr %30, i64 48
   %34 = icmp eq ptr %32, %33
@@ -226,7 +226,7 @@ _ZN4llvm8dyn_castINS_14GCRelocateInstENS_11InstructionEEEDcPT0_.exit.thread.i: ;
   %106 = icmp eq ptr %105, null
   %107 = getelementptr inbounds i8, ptr %105, i64 -24
   %108 = select i1 %106, ptr null, ptr %107
-  %109 = getelementptr inbounds i8, ptr %108, i64 56
+  %109 = getelementptr inbounds nuw i8, ptr %108, i64 56
   %110 = load ptr, ptr %109, align 8
   %111 = getelementptr inbounds nuw i8, ptr %108, i64 48
   %112 = icmp eq ptr %110, %111
@@ -308,15 +308,15 @@ _ZL16stripGCRelocatesRN4llvm8FunctionE.exit:      ; preds = %._crit_edge.i
   %143 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 0, ptr %143, align 8, !alias.scope !11
   %144 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %145 = getelementptr inbounds i8, ptr %0, i64 80
+  %145 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store ptr %145, ptr %144, align 8, !alias.scope !11
-  %146 = getelementptr inbounds i8, ptr %0, i64 56
+  %146 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store ptr %145, ptr %146, align 8, !alias.scope !11
-  %147 = getelementptr inbounds i8, ptr %0, i64 64
+  %147 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i32 2, ptr %147, align 8, !alias.scope !11
-  %148 = getelementptr inbounds i8, ptr %0, i64 68
+  %148 = getelementptr inbounds nuw i8, ptr %0, i64 68
   store i32 0, ptr %148, align 4, !alias.scope !11
-  %149 = getelementptr inbounds i8, ptr %0, i64 72
+  %149 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store i32 0, ptr %149, align 8, !alias.scope !11
   store i32 1, ptr %142, align 4, !alias.scope !11, !noalias !14
   store ptr @_ZN4llvm17PreservedAnalyses14AllAnalysesKeyE, ptr %139, align 8, !alias.scope !11, !noalias !14
@@ -334,15 +334,15 @@ _ZL16stripGCRelocatesRN4llvm8FunctionE.exit:      ; preds = %._crit_edge.i
   %155 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 0, ptr %155, align 8
   %156 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %157 = getelementptr inbounds i8, ptr %0, i64 80
+  %157 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store ptr %157, ptr %156, align 8
-  %158 = getelementptr inbounds i8, ptr %0, i64 56
+  %158 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store ptr %157, ptr %158, align 8
-  %159 = getelementptr inbounds i8, ptr %0, i64 64
+  %159 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i32 2, ptr %159, align 8
-  %160 = getelementptr inbounds i8, ptr %0, i64 68
+  %160 = getelementptr inbounds nuw i8, ptr %0, i64 68
   store i32 0, ptr %160, align 4
-  %161 = getelementptr inbounds i8, ptr %0, i64 72
+  %161 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store i32 0, ptr %161, align 8
   call void @_ZN4llvm17PreservedAnalyses11preserveSetEPNS_14AnalysisSetKeyE(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull @_ZN4llvm11CFGAnalyses6SetKeyE)
   br label %162
@@ -382,9 +382,9 @@ declare { ptr, i8 } @_ZN4llvm19SmallPtrSetImplBase14insert_imp_bigEPKv(ptr nound
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvm17PreservedAnalyses11preserveSetEPNS_14AnalysisSetKeyE(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef %1) local_unnamed_addr #0 comdat align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 68
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 68
   %4 = load i32, ptr %3, align 4
-  %5 = getelementptr inbounds i8, ptr %0, i64 72
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %6 = load i32, ptr %5, align 8
   %7 = icmp eq i32 %4, %6
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8

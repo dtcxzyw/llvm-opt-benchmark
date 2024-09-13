@@ -158,7 +158,7 @@ _ZNSt10unique_ptrIKN4llvm12MemoryBufferESt14default_deleteIS2_EED2Ev.exit: ; pre
   %57 = getelementptr inbounds nuw i8, ptr %54, i64 8
   store i8 %56, ptr %57, align 8
   %58 = getelementptr inbounds nuw i8, ptr %54, i64 16
-  %59 = getelementptr inbounds i8, ptr %54, i64 36
+  %59 = getelementptr inbounds nuw i8, ptr %54, i64 36
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %58, i8 0, i64 20, i1 false)
   store i32 24, ptr %59, align 4
   br label %_ZN5clang13HeaderMapImpl11checkHeaderERKN4llvm12MemoryBufferERb.exit.thread
@@ -1146,7 +1146,7 @@ declare noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull al
 define dso_local { ptr, i64 } @_ZNK5clang13HeaderMapImpl21reverseLookupFilenameEN4llvm9StringRefE(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr %1, i64 %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %"class.llvm::SmallVector.76", align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %6 = getelementptr inbounds i8, ptr %0, i64 28
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %7 = load i32, ptr %6, align 4
   %8 = icmp eq i32 %7, 0
   br i1 %8, label %21, label %9
@@ -1155,7 +1155,7 @@ define dso_local { ptr, i64 } @_ZNK5clang13HeaderMapImpl21reverseLookupFilenameE
   %10 = tail call noundef i32 @_ZN4llvm13StringMapImpl4hashENS_9StringRefE(ptr %1, i64 %2) #14
   %11 = tail call noundef i32 @_ZNK4llvm13StringMapImpl7FindKeyENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr %1, i64 %2, i32 noundef %10) #14
   %12 = icmp eq i32 %11, -1
-  %13 = getelementptr inbounds i8, ptr %0, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %14 = load i32, ptr %13, align 8
   %15 = zext i32 %14 to i64
   %16 = sext i32 %11 to i64

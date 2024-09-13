@@ -165,11 +165,11 @@ define dso_local void @_ZN4llvm14FlattenCFGPass3runERNS_8FunctionERNS_15Analysis
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 0, ptr %14, align 4, !alias.scope !6
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %16 = getelementptr inbounds i8, ptr %0, i64 80
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store ptr %16, ptr %15, align 8, !alias.scope !6
-  %17 = getelementptr inbounds i8, ptr %0, i64 56
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store ptr %16, ptr %17, align 8, !alias.scope !6
-  %18 = getelementptr inbounds i8, ptr %0, i64 64
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i32 2, ptr %18, align 8, !alias.scope !6
   br label %30
 
@@ -184,15 +184,15 @@ define dso_local void @_ZN4llvm14FlattenCFGPass3runERNS_8FunctionERNS_15Analysis
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 0, ptr %23, align 8, !alias.scope !9
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %25 = getelementptr inbounds i8, ptr %0, i64 80
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store ptr %25, ptr %24, align 8, !alias.scope !9
-  %26 = getelementptr inbounds i8, ptr %0, i64 56
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store ptr %25, ptr %26, align 8, !alias.scope !9
-  %27 = getelementptr inbounds i8, ptr %0, i64 64
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i32 2, ptr %27, align 8, !alias.scope !9
-  %28 = getelementptr inbounds i8, ptr %0, i64 68
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 68
   store i32 0, ptr %28, align 4, !alias.scope !9
-  %29 = getelementptr inbounds i8, ptr %0, i64 72
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store i32 0, ptr %29, align 8, !alias.scope !9
   store i32 1, ptr %22, align 4, !alias.scope !9, !noalias !12
   store ptr @_ZN4llvm17PreservedAnalyses14AllAnalysesKeyE, ptr %19, align 8, !alias.scope !9, !noalias !12
@@ -208,7 +208,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_121iterativelyFlatten
   %4 = alloca %"class.llvm::WeakVH", align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, i8 0, i64 24, i1 false)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %6 = getelementptr inbounds i8, ptr %0, i64 80
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %7 = load ptr, ptr %6, align 8
   %.not4.i.i.i.i = icmp eq ptr %7, %5
   br i1 %.not4.i.i.i.i, label %_ZNK4llvm8Function4sizeEv.exit, label %.lr.ph.i.i.i.i

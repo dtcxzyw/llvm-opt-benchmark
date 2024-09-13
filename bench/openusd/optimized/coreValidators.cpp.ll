@@ -300,14 +300,14 @@ _ZNK32pxrInternal_v0_24__pxrReserved__15TfWeakPtrFacadeINS_9TfWeakPtrENS_8UsdSta
   %39 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %40 = getelementptr inbounds i8, ptr %7, i64 24
   %41 = getelementptr inbounds i8, ptr %7, i64 32
-  %42 = getelementptr inbounds i8, ptr %7, i64 36
+  %42 = getelementptr inbounds nuw i8, ptr %7, i64 36
   br label %43
 
 43:                                               ; preds = %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__18UsdValidationErrorESaIS1_EE12emplace_backIJNS0_22UsdValidationErrorTypeES_INS0_22UsdValidationErrorSiteESaIS6_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEERS1_DpOT_.exit.i.i.i, %.lr.ph.i.i.i
   %.sroa.01.09.i.i.i = phi ptr [ %31, %.lr.ph.i.i.i ], [ %131, %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__18UsdValidationErrorESaIS1_EE12emplace_backIJNS0_22UsdValidationErrorTypeES_INS0_22UsdValidationErrorSiteESaIS6_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEERS1_DpOT_.exit.i.i.i ]
   %44 = load ptr, ptr %.sroa.01.09.i.i.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, i8 0, i64 16, i1 false), !noalias !14
-  %45 = getelementptr inbounds i8, ptr %44, i64 96
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 96
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__22UsdValidationErrorSiteC1ERKNS_9TfWeakPtrINS_8UsdStageEEERKNS_7SdfPathERKNS1_INS_8SdfLayerEEE(ptr noundef nonnull align 8 dereferenceable(40) %7, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 4 dereferenceable(8) %45, ptr noundef nonnull align 8 dereferenceable(16) %8)
           to label %46 unwind label %136
 
@@ -337,7 +337,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_8UsdStageEEC2ERKS2_.exit.i.i.
   %55 = getelementptr inbounds nuw i8, ptr %47, i64 16
   %56 = load ptr, ptr %39, align 8, !noalias !14
   store ptr %56, ptr %55, align 8
-  %57 = getelementptr inbounds i8, ptr %47, i64 24
+  %57 = getelementptr inbounds nuw i8, ptr %47, i64 24
   %58 = load ptr, ptr %40, align 8, !noalias !14
   store ptr %58, ptr %57, align 8
   %.not.i.i.i.i5.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %58, null
@@ -356,7 +356,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_8SdfLayerEEC2ERKS2_.exit.i.i.
   br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i.i, label %.thread.i.i.i, label %66
 
 .thread.i.i.i:                                    ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_8SdfLayerEEC2ERKS2_.exit.i.i.i.i.i.i.i.i.i.i.i
-  %64 = getelementptr inbounds i8, ptr %47, i64 36
+  %64 = getelementptr inbounds nuw i8, ptr %47, i64 36
   %65 = load i32, ptr %42, align 4, !noalias !14
   store i32 %65, ptr %64, align 4
   store ptr %48, ptr %34, align 8, !noalias !14
@@ -374,7 +374,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_8SdfLayerEEC2ERKS2_.exit.i.i.
   %75 = getelementptr inbounds nuw i8, ptr %74, i64 8
   %76 = atomicrmw add ptr %75, i32 1 monotonic, align 4
   %.pre.i.i.i = load i32, ptr %41, align 8, !noalias !14
-  %77 = getelementptr inbounds i8, ptr %47, i64 36
+  %77 = getelementptr inbounds nuw i8, ptr %47, i64 36
   %78 = load i32, ptr %42, align 4, !noalias !14
   store i32 %78, ptr %77, align 4
   store ptr %48, ptr %34, align 8, !noalias !14
@@ -750,12 +750,12 @@ _ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__18UsdValidationErrorESaIS
   %21 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 16
   %22 = load ptr, ptr %21, align 8, !alias.scope !20, !noalias !17
   store ptr %22, ptr %20, align 8, !alias.scope !17, !noalias !20
-  %23 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 24
-  %24 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 24
+  %24 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 24
   %25 = load ptr, ptr %24, align 8, !alias.scope !20, !noalias !17
   store ptr %25, ptr %23, align 8, !alias.scope !17, !noalias !20
-  %26 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 32
-  %27 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 32
+  %26 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 32
+  %27 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 32
   %28 = load ptr, ptr %27, align 8, !alias.scope !20, !noalias !17
   store ptr %28, ptr %26, align 8, !alias.scope !17, !noalias !20
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %21, i8 0, i64 24, i1 false), !alias.scope !20, !noalias !17
@@ -834,7 +834,7 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__22UsdValidationEr
   unreachable
 
 _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit: ; preds = %1, %4, %17
-  %21 = getelementptr inbounds i8, ptr %0, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %22 = load ptr, ptr %21, align 8
   %.not.i.i.i.i = icmp eq ptr %22, null
   br i1 %.not.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_8SdfLayerEED2Ev.exit, label %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i
@@ -920,7 +920,7 @@ define linkonce_odr void @_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__22UsdV
   unreachable
 
 _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit.i.i.i.i.i: ; preds = %20, %7, %.lr.ph.i.i.i
-  %24 = getelementptr inbounds i8, ptr %.05.i.i.i, i64 24
+  %24 = getelementptr inbounds nuw i8, ptr %.05.i.i.i, i64 24
   %25 = load ptr, ptr %24, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %25, null
   br i1 %.not.i.i.i.i.i.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_8SdfLayerEED2Ev.exit.i.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i.i.i.i.i.i
@@ -1345,12 +1345,12 @@ _ZNSt16allocator_traitsISaIN32pxrInternal_v0_24__pxrReserved__18UsdValidationErr
   %28 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 16
   %29 = load ptr, ptr %28, align 8, !alias.scope !29, !noalias !26
   store ptr %29, ptr %27, align 8, !alias.scope !26, !noalias !29
-  %30 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 24
-  %31 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 24
+  %30 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 24
   %32 = load ptr, ptr %31, align 8, !alias.scope !29, !noalias !26
   store ptr %32, ptr %30, align 8, !alias.scope !26, !noalias !29
-  %33 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 32
-  %34 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 32
+  %33 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 32
+  %34 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 32
   %35 = load ptr, ptr %34, align 8, !alias.scope !29, !noalias !26
   store ptr %35, ptr %33, align 8, !alias.scope !26, !noalias !29
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %28, i8 0, i64 24, i1 false), !alias.scope !29, !noalias !26
@@ -1380,12 +1380,12 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__18UsdValidationErrorESaIS1_EE11_
   %42 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i31, i64 16
   %43 = load ptr, ptr %42, align 8, !alias.scope !35, !noalias !32
   store ptr %43, ptr %41, align 8, !alias.scope !32, !noalias !35
-  %44 = getelementptr inbounds i8, ptr %.012.i.i.i30, i64 24
-  %45 = getelementptr inbounds i8, ptr %.0911.i.i.i31, i64 24
+  %44 = getelementptr inbounds nuw i8, ptr %.012.i.i.i30, i64 24
+  %45 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i31, i64 24
   %46 = load ptr, ptr %45, align 8, !alias.scope !35, !noalias !32
   store ptr %46, ptr %44, align 8, !alias.scope !32, !noalias !35
-  %47 = getelementptr inbounds i8, ptr %.012.i.i.i30, i64 32
-  %48 = getelementptr inbounds i8, ptr %.0911.i.i.i31, i64 32
+  %47 = getelementptr inbounds nuw i8, ptr %.012.i.i.i30, i64 32
+  %48 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i31, i64 32
   %49 = load ptr, ptr %48, align 8, !alias.scope !35, !noalias !32
   store ptr %49, ptr %47, align 8, !alias.scope !32, !noalias !35
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %42, i8 0, i64 24, i1 false), !alias.scope !35, !noalias !32

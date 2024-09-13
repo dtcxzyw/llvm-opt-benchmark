@@ -198,7 +198,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm19TargetFrameLowering25needsFrameI
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %4, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %8 = load ptr, ptr %7, align 8
   %9 = icmp ne ptr %6, %8
   ret i1 %9
@@ -268,7 +268,7 @@ _ZN4llvm9BitVector6resizeEjb.exit:                ; preds = %_ZN4llvm9BitVector1
 45:                                               ; preds = %_ZN4llvm9BitVector6resizeEjb.exit
   %46 = getelementptr inbounds nuw i8, ptr %41, i64 96
   %47 = load ptr, ptr %46, align 8
-  %48 = getelementptr inbounds i8, ptr %41, i64 104
+  %48 = getelementptr inbounds nuw i8, ptr %41, i64 104
   %49 = load ptr, ptr %48, align 8
   %.not14 = icmp eq ptr %47, %49
   br i1 %.not14, label %.loopexit, label %.lr.ph
@@ -350,7 +350,7 @@ _ZN4llvm9BitVector15set_unused_bitsEb.exit.i:     ; preds = %16, %4
 _ZN4llvm9BitVector6resizeEjb.exit:                ; preds = %_ZN4llvm9BitVector15set_unused_bitsEb.exit.i, %31
   %41 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %42 = load ptr, ptr %41, align 8
-  %43 = getelementptr inbounds i8, ptr %42, i64 892
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 892
   %44 = load i32, ptr %43, align 4
   %45 = and i32 %44, 2097152
   %.not = icmp eq i32 %45, 0

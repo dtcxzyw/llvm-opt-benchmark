@@ -677,8 +677,8 @@ _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1858: ; preds = %_ZN4l
 474:                                              ; preds = %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1858.thread, %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1858
   %475 = phi ptr [ %466, %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1858.thread ], [ %473, %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1858 ]
   %476 = phi ptr [ @"_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZL21typeIsLegalIntOrFPVecjSt16initializer_listINS0_3LLTEERKNS0_14RISCVSubtargetEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation", %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1858.thread ], [ %.pre, %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1858 ]
-  %477 = getelementptr inbounds i8, ptr %67, i64 56
-  %478 = getelementptr inbounds i8, ptr %67, i64 48
+  %477 = getelementptr inbounds nuw i8, ptr %67, i64 56
+  %478 = getelementptr inbounds nuw i8, ptr %67, i64 48
   %479 = call noundef zeroext i1 %476(ptr noundef nonnull align 8 dereferenceable(16) %475, ptr noundef nonnull align 8 dereferenceable(16) %271, i32 noundef 2) #15, !noalias !7
   %480 = load ptr, ptr %462, align 8, !noalias !7
   store ptr %480, ptr %477, align 8, !noalias !7
@@ -715,7 +715,7 @@ _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit2.i1864: ; preds = %474,
 
 _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2EOS5_.exit.i.i.i.i.i1866: ; preds = %490, %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit2.i1864
   %493 = getelementptr inbounds nuw i8, ptr %488, i64 32
-  %494 = getelementptr inbounds i8, ptr %488, i64 56
+  %494 = getelementptr inbounds nuw i8, ptr %488, i64 56
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %493, i8 0, i64 24, i1 false), !noalias !7
   store ptr %484, ptr %494, align 8, !noalias !7
   %.not.i.i.not.i3.i.i.i.i.i1867 = icmp eq ptr %483, null
@@ -731,7 +731,7 @@ _ZN4llvm18LegalityPredicates3allISt8functionIFbRKNS_13LegalityQueryEEEEET_S8_S8_
   br label %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEED2Ev.exit.i
 
 497:                                              ; preds = %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2EOS5_.exit.i.i.i.i.i1866
-  %498 = getelementptr inbounds i8, ptr %488, i64 48
+  %498 = getelementptr inbounds nuw i8, ptr %488, i64 48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %493, ptr noundef nonnull align 8 dereferenceable(16) %482, i64 16, i1 false), !noalias !7
   store ptr %483, ptr %498, align 8, !noalias !7
   store ptr %488, ptr %278, align 8, !alias.scope !7
@@ -1168,8 +1168,8 @@ _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1873: ; preds = %_ZN4l
 657:                                              ; preds = %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1873.thread, %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1873
   %658 = phi ptr [ %649, %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1873.thread ], [ %656, %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1873 ]
   %659 = phi ptr [ @"_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZL21typeIsLegalIntOrFPVecjSt16initializer_listINS0_3LLTEERKNS0_14RISCVSubtargetEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation", %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1873.thread ], [ %.pre2470, %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1873 ]
-  %660 = getelementptr inbounds i8, ptr %66, i64 56
-  %661 = getelementptr inbounds i8, ptr %66, i64 48
+  %660 = getelementptr inbounds nuw i8, ptr %66, i64 56
+  %661 = getelementptr inbounds nuw i8, ptr %66, i64 48
   %662 = call noundef zeroext i1 %659(ptr noundef nonnull align 8 dereferenceable(16) %658, ptr noundef nonnull align 8 dereferenceable(16) %257, i32 noundef 2) #15, !noalias !14
   %663 = load ptr, ptr %645, align 8, !noalias !14
   store ptr %663, ptr %660, align 8, !noalias !14
@@ -1206,7 +1206,7 @@ _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit2.i1879: ; preds = %657,
 
 _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2EOS5_.exit.i.i.i.i.i1881: ; preds = %673, %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit2.i1879
   %676 = getelementptr inbounds nuw i8, ptr %671, i64 32
-  %677 = getelementptr inbounds i8, ptr %671, i64 56
+  %677 = getelementptr inbounds nuw i8, ptr %671, i64 56
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %676, i8 0, i64 24, i1 false), !noalias !14
   store ptr %667, ptr %677, align 8, !noalias !14
   %.not.i.i.not.i3.i.i.i.i.i1882 = icmp eq ptr %666, null
@@ -1222,7 +1222,7 @@ _ZN4llvm18LegalityPredicates3allISt8functionIFbRKNS_13LegalityQueryEEEEET_S8_S8_
   br label %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEED2Ev.exit.i994
 
 680:                                              ; preds = %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2EOS5_.exit.i.i.i.i.i1881
-  %681 = getelementptr inbounds i8, ptr %671, i64 48
+  %681 = getelementptr inbounds nuw i8, ptr %671, i64 48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %676, ptr noundef nonnull align 8 dereferenceable(16) %665, i64 16, i1 false), !noalias !14
   store ptr %666, ptr %681, align 8, !noalias !14
   store ptr %671, ptr %287, align 8, !alias.scope !14
@@ -1289,8 +1289,8 @@ _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1888: ; preds = %_ZL21
 702:                                              ; preds = %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1888.thread, %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1888
   %703 = phi ptr [ %694, %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1888.thread ], [ %701, %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1888 ]
   %704 = phi ptr [ @"_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZL21typeIsLegalIntOrFPVecjSt16initializer_listINS0_3LLTEERKNS0_14RISCVSubtargetEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation", %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1888.thread ], [ %.pre2472, %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1888 ]
-  %705 = getelementptr inbounds i8, ptr %65, i64 56
-  %706 = getelementptr inbounds i8, ptr %65, i64 48
+  %705 = getelementptr inbounds nuw i8, ptr %65, i64 56
+  %706 = getelementptr inbounds nuw i8, ptr %65, i64 48
   %707 = call noundef zeroext i1 %704(ptr noundef nonnull align 8 dereferenceable(16) %703, ptr noundef nonnull align 8 dereferenceable(16) %255, i32 noundef 2) #15, !noalias !20
   %708 = load ptr, ptr %690, align 8, !noalias !20
   store ptr %708, ptr %705, align 8, !noalias !20
@@ -1327,7 +1327,7 @@ _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit2.i1894: ; preds = %702,
 
 _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2EOS5_.exit.i.i.i.i.i1896: ; preds = %718, %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit2.i1894
   %721 = getelementptr inbounds nuw i8, ptr %716, i64 32
-  %722 = getelementptr inbounds i8, ptr %716, i64 56
+  %722 = getelementptr inbounds nuw i8, ptr %716, i64 56
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %721, i8 0, i64 24, i1 false), !noalias !20
   store ptr %712, ptr %722, align 8, !noalias !20
   %.not.i.i.not.i3.i.i.i.i.i1897 = icmp eq ptr %711, null
@@ -1343,7 +1343,7 @@ _ZN4llvm18LegalityPredicates3allISt8functionIFbRKNS_13LegalityQueryEEEEET_S8_S8_
   br label %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEED2Ev.exit.i999
 
 725:                                              ; preds = %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2EOS5_.exit.i.i.i.i.i1896
-  %726 = getelementptr inbounds i8, ptr %716, i64 48
+  %726 = getelementptr inbounds nuw i8, ptr %716, i64 48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %721, ptr noundef nonnull align 8 dereferenceable(16) %710, i64 16, i1 false), !noalias !20
   store ptr %711, ptr %726, align 8, !noalias !20
   store ptr %716, ptr %288, align 8, !alias.scope !20
@@ -1427,14 +1427,14 @@ _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit2.i: ; preds = %746, %_Z
 
 _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2EOS5_.exit.i.i.i.i.i: ; preds = %757, %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit2.i
   %759 = getelementptr inbounds nuw i8, ptr %755, i64 32
-  %760 = getelementptr inbounds i8, ptr %755, i64 56
+  %760 = getelementptr inbounds nuw i8, ptr %755, i64 56
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %759, i8 0, i64 24, i1 false), !noalias !23
   store ptr %751, ptr %760, align 8, !noalias !23
   %.not.i.i.not.i3.i.i.i.i.i = icmp eq ptr %750, null
   br i1 %.not.i.i.not.i3.i.i.i.i.i, label %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1005, label %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2IZNS0_18LegalityPredicates3allIS5_EET_S9_S9_EUlS3_E_vEEOS9_.exit.i
 
 _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2IZNS0_18LegalityPredicates3allIS5_EET_S9_S9_EUlS3_E_vEEOS9_.exit.i: ; preds = %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2EOS5_.exit.i.i.i.i.i
-  %761 = getelementptr inbounds i8, ptr %755, i64 48
+  %761 = getelementptr inbounds nuw i8, ptr %755, i64 48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %759, ptr noundef nonnull align 8 dereferenceable(16) %744, i64 16, i1 false), !noalias !23
   store ptr %750, ptr %761, align 8, !noalias !23
   br label %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1005
@@ -1463,7 +1463,7 @@ _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1005: ; preds = %_ZNSt
   store ptr %772, ptr %769, align 8
   %773 = load ptr, ptr %768, align 8
   store ptr %773, ptr %770, align 8
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %755, i64 48
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %755, i64 48
   %.pre2680 = load ptr, ptr %.phi.trans.insert, align 8
   br label %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i.i.i.i
 
@@ -1475,9 +1475,9 @@ _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i.i.i.i: ; preds = %767
   br i1 %.not.i.i.not.i3.i.i.i.i, label %_ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates3allISt8functionIFbRKNS1_13LegalityQueryEEEEET_SA_SA_EUlS7_E_E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit, label %776
 
 776:                                              ; preds = %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i.i.i.i
-  %777 = getelementptr inbounds i8, ptr %755, i64 48
-  %778 = getelementptr inbounds i8, ptr %766, i64 56
-  %779 = getelementptr inbounds i8, ptr %766, i64 48
+  %777 = getelementptr inbounds nuw i8, ptr %755, i64 48
+  %778 = getelementptr inbounds nuw i8, ptr %766, i64 56
+  %779 = getelementptr inbounds nuw i8, ptr %766, i64 48
   %780 = call noundef zeroext i1 %774(ptr noundef nonnull align 8 dereferenceable(16) %775, ptr noundef nonnull align 8 dereferenceable(16) %759, i32 noundef 2) #15
   %781 = load ptr, ptr %760, align 8
   store ptr %781, ptr %778, align 8
@@ -1676,8 +1676,8 @@ _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1903: ; preds = %839
 852:                                              ; preds = %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1903.thread, %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1903
   %853 = phi ptr [ %844, %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1903.thread ], [ %851, %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1903 ]
   %854 = phi ptr [ @"_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZL18typeIsLegalBoolVecjSt16initializer_listINS0_3LLTEERKNS0_14RISCVSubtargetEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation", %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1903.thread ], [ %.pre2474, %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1903 ]
-  %855 = getelementptr inbounds i8, ptr %64, i64 56
-  %856 = getelementptr inbounds i8, ptr %64, i64 48
+  %855 = getelementptr inbounds nuw i8, ptr %64, i64 56
+  %856 = getelementptr inbounds nuw i8, ptr %64, i64 48
   %857 = call noundef zeroext i1 %854(ptr noundef nonnull align 8 dereferenceable(16) %853, ptr noundef nonnull align 8 dereferenceable(16) %246, i32 noundef 2) #15, !noalias !29
   %858 = load ptr, ptr %840, align 8, !noalias !29
   store ptr %858, ptr %855, align 8, !noalias !29
@@ -1714,7 +1714,7 @@ _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit2.i1909: ; preds = %852,
 
 _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2EOS5_.exit.i.i.i.i.i1911: ; preds = %868, %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit2.i1909
   %871 = getelementptr inbounds nuw i8, ptr %866, i64 32
-  %872 = getelementptr inbounds i8, ptr %866, i64 56
+  %872 = getelementptr inbounds nuw i8, ptr %866, i64 56
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %871, i8 0, i64 24, i1 false), !noalias !29
   store ptr %862, ptr %872, align 8, !noalias !29
   %.not.i.i.not.i3.i.i.i.i.i1912 = icmp eq ptr %861, null
@@ -1730,7 +1730,7 @@ _ZN4llvm18LegalityPredicates3allISt8functionIFbRKNS_13LegalityQueryEEEEET_S8_S8_
   br label %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEED2Ev.exit.i1028
 
 875:                                              ; preds = %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2EOS5_.exit.i.i.i.i.i1911
-  %876 = getelementptr inbounds i8, ptr %866, i64 48
+  %876 = getelementptr inbounds nuw i8, ptr %866, i64 48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %871, ptr noundef nonnull align 8 dereferenceable(16) %860, i64 16, i1 false), !noalias !29
   store ptr %861, ptr %876, align 8, !noalias !29
   store ptr %866, ptr %292, align 8, !alias.scope !29
@@ -1891,14 +1891,14 @@ _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit2.i1043: ; preds = %939,
 
 _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2EOS5_.exit.i.i.i.i.i1045: ; preds = %949, %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit2.i1043
   %951 = getelementptr inbounds nuw i8, ptr %947, i64 32
-  %952 = getelementptr inbounds i8, ptr %947, i64 56
+  %952 = getelementptr inbounds nuw i8, ptr %947, i64 56
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %951, i8 0, i64 24, i1 false), !noalias !32
   store ptr %944, ptr %952, align 8, !noalias !32
   %.not.i.i.not.i3.i.i.i.i.i1046 = icmp eq ptr %943, null
   br i1 %.not.i.i.not.i3.i.i.i.i.i1046, label %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1052, label %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2IZNS0_18LegalityPredicates3allIS5_EET_S9_S9_EUlS3_E_vEEOS9_.exit.i1047
 
 _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2IZNS0_18LegalityPredicates3allIS5_EET_S9_S9_EUlS3_E_vEEOS9_.exit.i1047: ; preds = %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2EOS5_.exit.i.i.i.i.i1045
-  %953 = getelementptr inbounds i8, ptr %947, i64 48
+  %953 = getelementptr inbounds nuw i8, ptr %947, i64 48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %951, ptr noundef nonnull align 8 dereferenceable(16) %907, i64 16, i1 false), !noalias !32
   store ptr %943, ptr %953, align 8, !noalias !32
   br label %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1052
@@ -1923,7 +1923,7 @@ _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1052: ; preds = %_ZNSt
   store ptr %960, ptr %957, align 8
   %961 = load ptr, ptr %956, align 8
   store ptr %961, ptr %958, align 8
-  %.phi.trans.insert2681 = getelementptr inbounds i8, ptr %947, i64 48
+  %.phi.trans.insert2681 = getelementptr inbounds nuw i8, ptr %947, i64 48
   %.pre2682 = load ptr, ptr %.phi.trans.insert2681, align 8
   br label %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i.i.i.i2629
 
@@ -1935,9 +1935,9 @@ _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i.i.i.i2629: ; preds = 
   br i1 %.not.i.i.not.i3.i.i.i.i2630, label %_ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates3allISt8functionIFbRKNS1_13LegalityQueryEEEEET_SA_SA_EUlS7_E_E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit2631, label %964
 
 964:                                              ; preds = %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i.i.i.i2629
-  %965 = getelementptr inbounds i8, ptr %947, i64 48
-  %966 = getelementptr inbounds i8, ptr %954, i64 56
-  %967 = getelementptr inbounds i8, ptr %954, i64 48
+  %965 = getelementptr inbounds nuw i8, ptr %947, i64 48
+  %966 = getelementptr inbounds nuw i8, ptr %954, i64 56
+  %967 = getelementptr inbounds nuw i8, ptr %954, i64 48
   %968 = call noundef zeroext i1 %962(ptr noundef nonnull align 8 dereferenceable(16) %963, ptr noundef nonnull align 8 dereferenceable(16) %951, i32 noundef 2) #15
   %969 = load ptr, ptr %952, align 8
   store ptr %969, ptr %966, align 8
@@ -2182,14 +2182,14 @@ _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit2.i1084: ; preds = %1052
 
 _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2EOS5_.exit.i.i.i.i.i1086: ; preds = %1064, %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit2.i1084
   %1066 = getelementptr inbounds nuw i8, ptr %1062, i64 32
-  %1067 = getelementptr inbounds i8, ptr %1062, i64 56
+  %1067 = getelementptr inbounds nuw i8, ptr %1062, i64 56
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1066, i8 0, i64 24, i1 false), !noalias !35
   store ptr %1058, ptr %1067, align 8, !noalias !35
   %.not.i.i.not.i3.i.i.i.i.i1087 = icmp eq ptr %1057, null
   br i1 %.not.i.i.not.i3.i.i.i.i.i1087, label %_ZN4llvm18LegalityPredicates3allISt8functionIFbRKNS_13LegalityQueryEEEEET_S8_S8_.exit1091, label %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2IZNS0_18LegalityPredicates3allIS5_EET_S9_S9_EUlS3_E_vEEOS9_.exit.i1088
 
 _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2IZNS0_18LegalityPredicates3allIS5_EET_S9_S9_EUlS3_E_vEEOS9_.exit.i1088: ; preds = %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2EOS5_.exit.i.i.i.i.i1086
-  %1068 = getelementptr inbounds i8, ptr %1062, i64 48
+  %1068 = getelementptr inbounds nuw i8, ptr %1062, i64 48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1066, ptr noundef nonnull align 8 dereferenceable(16) %1049, i64 16, i1 false), !noalias !35
   store ptr %1057, ptr %1068, align 8, !noalias !35
   br label %_ZN4llvm18LegalityPredicates3allISt8functionIFbRKNS_13LegalityQueryEEEEET_S8_S8_.exit1091
@@ -2381,8 +2381,8 @@ _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1918: ; preds = %_ZN4l
 1137:                                             ; preds = %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1918.thread, %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1918
   %1138 = phi ptr [ %1129, %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1918.thread ], [ %1136, %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1918 ]
   %1139 = phi ptr [ @"_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZL21typeIsLegalIntOrFPVecjSt16initializer_listINS0_3LLTEERKNS0_14RISCVSubtargetEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation", %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1918.thread ], [ %.pre2476, %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1918 ]
-  %1140 = getelementptr inbounds i8, ptr %63, i64 56
-  %1141 = getelementptr inbounds i8, ptr %63, i64 48
+  %1140 = getelementptr inbounds nuw i8, ptr %63, i64 56
+  %1141 = getelementptr inbounds nuw i8, ptr %63, i64 48
   %1142 = call noundef zeroext i1 %1139(ptr noundef nonnull align 8 dereferenceable(16) %1138, ptr noundef nonnull align 8 dereferenceable(16) %230, i32 noundef 2) #15, !noalias !41
   %1143 = load ptr, ptr %1125, align 8, !noalias !41
   store ptr %1143, ptr %1140, align 8, !noalias !41
@@ -2419,7 +2419,7 @@ _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit2.i1924: ; preds = %1137
 
 _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2EOS5_.exit.i.i.i.i.i1926: ; preds = %1153, %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit2.i1924
   %1156 = getelementptr inbounds nuw i8, ptr %1151, i64 32
-  %1157 = getelementptr inbounds i8, ptr %1151, i64 56
+  %1157 = getelementptr inbounds nuw i8, ptr %1151, i64 56
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1156, i8 0, i64 24, i1 false), !noalias !41
   store ptr %1147, ptr %1157, align 8, !noalias !41
   %.not.i.i.not.i3.i.i.i.i.i1927 = icmp eq ptr %1146, null
@@ -2435,7 +2435,7 @@ _ZN4llvm18LegalityPredicates3allISt8functionIFbRKNS_13LegalityQueryEEEEET_S8_S8_
   br label %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEED2Ev.exit.i1113
 
 1160:                                             ; preds = %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2EOS5_.exit.i.i.i.i.i1926
-  %1161 = getelementptr inbounds i8, ptr %1151, i64 48
+  %1161 = getelementptr inbounds nuw i8, ptr %1151, i64 48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1156, ptr noundef nonnull align 8 dereferenceable(16) %1145, i64 16, i1 false), !noalias !41
   store ptr %1146, ptr %1161, align 8, !noalias !41
   store ptr %1151, ptr %306, align 8, !alias.scope !41
@@ -2502,8 +2502,8 @@ _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1933: ; preds = %_ZL21
 1182:                                             ; preds = %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1933.thread, %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1933
   %1183 = phi ptr [ %1174, %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1933.thread ], [ %1181, %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1933 ]
   %1184 = phi ptr [ @"_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZL18typeIsLegalBoolVecjSt16initializer_listINS0_3LLTEERKNS0_14RISCVSubtargetEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation", %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1933.thread ], [ %.pre2478, %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1933 ]
-  %1185 = getelementptr inbounds i8, ptr %62, i64 56
-  %1186 = getelementptr inbounds i8, ptr %62, i64 48
+  %1185 = getelementptr inbounds nuw i8, ptr %62, i64 56
+  %1186 = getelementptr inbounds nuw i8, ptr %62, i64 48
   %1187 = call noundef zeroext i1 %1184(ptr noundef nonnull align 8 dereferenceable(16) %1183, ptr noundef nonnull align 8 dereferenceable(16) %228, i32 noundef 2) #15, !noalias !47
   %1188 = load ptr, ptr %1170, align 8, !noalias !47
   store ptr %1188, ptr %1185, align 8, !noalias !47
@@ -2540,7 +2540,7 @@ _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit2.i1939: ; preds = %1182
 
 _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2EOS5_.exit.i.i.i.i.i1941: ; preds = %1198, %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit2.i1939
   %1201 = getelementptr inbounds nuw i8, ptr %1196, i64 32
-  %1202 = getelementptr inbounds i8, ptr %1196, i64 56
+  %1202 = getelementptr inbounds nuw i8, ptr %1196, i64 56
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1201, i8 0, i64 24, i1 false), !noalias !47
   store ptr %1192, ptr %1202, align 8, !noalias !47
   %.not.i.i.not.i3.i.i.i.i.i1942 = icmp eq ptr %1191, null
@@ -2556,7 +2556,7 @@ _ZN4llvm18LegalityPredicates3allISt8functionIFbRKNS_13LegalityQueryEEEEET_S8_S8_
   br label %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEED2Ev.exit.i1118
 
 1205:                                             ; preds = %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2EOS5_.exit.i.i.i.i.i1941
-  %1206 = getelementptr inbounds i8, ptr %1196, i64 48
+  %1206 = getelementptr inbounds nuw i8, ptr %1196, i64 48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1201, ptr noundef nonnull align 8 dereferenceable(16) %1190, i64 16, i1 false), !noalias !47
   store ptr %1191, ptr %1206, align 8, !noalias !47
   store ptr %1196, ptr %307, align 8, !alias.scope !47
@@ -2640,14 +2640,14 @@ _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit2.i1128: ; preds = %1226
 
 _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2EOS5_.exit.i.i.i.i.i1130: ; preds = %1237, %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit2.i1128
   %1239 = getelementptr inbounds nuw i8, ptr %1235, i64 32
-  %1240 = getelementptr inbounds i8, ptr %1235, i64 56
+  %1240 = getelementptr inbounds nuw i8, ptr %1235, i64 56
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1239, i8 0, i64 24, i1 false), !noalias !50
   store ptr %1231, ptr %1240, align 8, !noalias !50
   %.not.i.i.not.i3.i.i.i.i.i1131 = icmp eq ptr %1230, null
   br i1 %.not.i.i.not.i3.i.i.i.i.i1131, label %_ZN4llvm18LegalityPredicates3anyISt8functionIFbRKNS_13LegalityQueryEEEEET_S8_S8_.exit, label %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2IZNS0_18LegalityPredicates3anyIS5_EET_S9_S9_EUlS3_E_vEEOS9_.exit.i
 
 _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2IZNS0_18LegalityPredicates3anyIS5_EET_S9_S9_EUlS3_E_vEEOS9_.exit.i: ; preds = %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2EOS5_.exit.i.i.i.i.i1130
-  %1241 = getelementptr inbounds i8, ptr %1235, i64 48
+  %1241 = getelementptr inbounds nuw i8, ptr %1235, i64 48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1239, ptr noundef nonnull align 8 dereferenceable(16) %1224, i64 16, i1 false), !noalias !50
   store ptr %1230, ptr %1241, align 8, !noalias !50
   br label %_ZN4llvm18LegalityPredicates3anyISt8functionIFbRKNS_13LegalityQueryEEEEET_S8_S8_.exit
@@ -2700,8 +2700,8 @@ _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1948: ; preds = %_ZN4l
 1256:                                             ; preds = %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1948.thread, %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1948
   %1257 = phi ptr [ %1248, %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1948.thread ], [ %1255, %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1948 ]
   %1258 = phi ptr [ @"_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZL21typeIsLegalIntOrFPVecjSt16initializer_listINS0_3LLTEERKNS0_14RISCVSubtargetEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation", %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1948.thread ], [ %.pre2480, %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1948 ]
-  %1259 = getelementptr inbounds i8, ptr %61, i64 56
-  %1260 = getelementptr inbounds i8, ptr %61, i64 48
+  %1259 = getelementptr inbounds nuw i8, ptr %61, i64 56
+  %1260 = getelementptr inbounds nuw i8, ptr %61, i64 48
   %1261 = call noundef zeroext i1 %1258(ptr noundef nonnull align 8 dereferenceable(16) %1257, ptr noundef nonnull align 8 dereferenceable(16) %225, i32 noundef 2) #15, !noalias !56
   %1262 = load ptr, ptr %1244, align 8, !noalias !56
   store ptr %1262, ptr %1259, align 8, !noalias !56
@@ -2738,7 +2738,7 @@ _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit2.i1954: ; preds = %1256
 
 _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2EOS5_.exit.i.i.i.i.i1956: ; preds = %1272, %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit2.i1954
   %1275 = getelementptr inbounds nuw i8, ptr %1270, i64 32
-  %1276 = getelementptr inbounds i8, ptr %1270, i64 56
+  %1276 = getelementptr inbounds nuw i8, ptr %1270, i64 56
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1275, i8 0, i64 24, i1 false), !noalias !56
   store ptr %1266, ptr %1276, align 8, !noalias !56
   %.not.i.i.not.i3.i.i.i.i.i1957 = icmp eq ptr %1265, null
@@ -2754,7 +2754,7 @@ _ZN4llvm18LegalityPredicates3allISt8functionIFbRKNS_13LegalityQueryEEEEET_S8_S8_
   br label %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEED2Ev.exit.i1136
 
 1279:                                             ; preds = %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2EOS5_.exit.i.i.i.i.i1956
-  %1280 = getelementptr inbounds i8, ptr %1270, i64 48
+  %1280 = getelementptr inbounds nuw i8, ptr %1270, i64 48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1275, ptr noundef nonnull align 8 dereferenceable(16) %1264, i64 16, i1 false), !noalias !56
   store ptr %1265, ptr %1280, align 8, !noalias !56
   store ptr %1270, ptr %309, align 8, !alias.scope !56
@@ -2821,8 +2821,8 @@ _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1963: ; preds = %_ZL21
 1301:                                             ; preds = %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1963.thread, %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1963
   %1302 = phi ptr [ %1293, %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1963.thread ], [ %1300, %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1963 ]
   %1303 = phi ptr [ @"_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZL18typeIsLegalBoolVecjSt16initializer_listINS0_3LLTEERKNS0_14RISCVSubtargetEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation", %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1963.thread ], [ %.pre2482, %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1963 ]
-  %1304 = getelementptr inbounds i8, ptr %60, i64 56
-  %1305 = getelementptr inbounds i8, ptr %60, i64 48
+  %1304 = getelementptr inbounds nuw i8, ptr %60, i64 56
+  %1305 = getelementptr inbounds nuw i8, ptr %60, i64 48
   %1306 = call noundef zeroext i1 %1303(ptr noundef nonnull align 8 dereferenceable(16) %1302, ptr noundef nonnull align 8 dereferenceable(16) %223, i32 noundef 2) #15, !noalias !62
   %1307 = load ptr, ptr %1289, align 8, !noalias !62
   store ptr %1307, ptr %1304, align 8, !noalias !62
@@ -2859,7 +2859,7 @@ _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit2.i1969: ; preds = %1301
 
 _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2EOS5_.exit.i.i.i.i.i1971: ; preds = %1317, %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit2.i1969
   %1320 = getelementptr inbounds nuw i8, ptr %1315, i64 32
-  %1321 = getelementptr inbounds i8, ptr %1315, i64 56
+  %1321 = getelementptr inbounds nuw i8, ptr %1315, i64 56
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1320, i8 0, i64 24, i1 false), !noalias !62
   store ptr %1311, ptr %1321, align 8, !noalias !62
   %.not.i.i.not.i3.i.i.i.i.i1972 = icmp eq ptr %1310, null
@@ -2875,7 +2875,7 @@ _ZN4llvm18LegalityPredicates3allISt8functionIFbRKNS_13LegalityQueryEEEEET_S8_S8_
   br label %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEED2Ev.exit.i1141
 
 1324:                                             ; preds = %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2EOS5_.exit.i.i.i.i.i1971
-  %1325 = getelementptr inbounds i8, ptr %1315, i64 48
+  %1325 = getelementptr inbounds nuw i8, ptr %1315, i64 48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1320, ptr noundef nonnull align 8 dereferenceable(16) %1309, i64 16, i1 false), !noalias !62
   store ptr %1310, ptr %1325, align 8, !noalias !62
   store ptr %1315, ptr %310, align 8, !alias.scope !62
@@ -2959,14 +2959,14 @@ _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit2.i1151: ; preds = %1345
 
 _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2EOS5_.exit.i.i.i.i.i1153: ; preds = %1356, %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit2.i1151
   %1358 = getelementptr inbounds nuw i8, ptr %1354, i64 32
-  %1359 = getelementptr inbounds i8, ptr %1354, i64 56
+  %1359 = getelementptr inbounds nuw i8, ptr %1354, i64 56
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1358, i8 0, i64 24, i1 false), !noalias !65
   store ptr %1350, ptr %1359, align 8, !noalias !65
   %.not.i.i.not.i3.i.i.i.i.i1154 = icmp eq ptr %1349, null
   br i1 %.not.i.i.not.i3.i.i.i.i.i1154, label %_ZN4llvm18LegalityPredicates3anyISt8functionIFbRKNS_13LegalityQueryEEEEET_S8_S8_.exit1158, label %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2IZNS0_18LegalityPredicates3anyIS5_EET_S9_S9_EUlS3_E_vEEOS9_.exit.i1155
 
 _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2IZNS0_18LegalityPredicates3anyIS5_EET_S9_S9_EUlS3_E_vEEOS9_.exit.i1155: ; preds = %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2EOS5_.exit.i.i.i.i.i1153
-  %1360 = getelementptr inbounds i8, ptr %1354, i64 48
+  %1360 = getelementptr inbounds nuw i8, ptr %1354, i64 48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1358, ptr noundef nonnull align 8 dereferenceable(16) %1343, i64 16, i1 false), !noalias !65
   store ptr %1349, ptr %1360, align 8, !noalias !65
   br label %_ZN4llvm18LegalityPredicates3anyISt8functionIFbRKNS_13LegalityQueryEEEEET_S8_S8_.exit1158
@@ -3007,8 +3007,8 @@ _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1160: ; preds = %_ZN4l
 1370:                                             ; preds = %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1160.thread, %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1160
   %1371 = phi ptr [ %1363, %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1160.thread ], [ %1369, %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1160 ]
   %1372 = phi ptr [ @_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZNS0_18LegalityPredicates3anyISt8functionIS4_EEET_S9_S9_EUlS3_E_E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation, %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1160.thread ], [ %.pre2514, %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1160 ]
-  %1373 = getelementptr inbounds i8, ptr %220, i64 56
-  %1374 = getelementptr inbounds i8, ptr %220, i64 48
+  %1373 = getelementptr inbounds nuw i8, ptr %220, i64 56
+  %1374 = getelementptr inbounds nuw i8, ptr %220, i64 48
   %1375 = call noundef zeroext i1 %1372(ptr noundef nonnull align 8 dereferenceable(16) %1371, ptr noundef nonnull align 8 dereferenceable(16) %308, i32 noundef 2) #15, !noalias !68
   %1376 = load ptr, ptr %1361, align 8, !noalias !68
   store ptr %1376, ptr %1373, align 8, !noalias !68
@@ -3045,14 +3045,14 @@ _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit2.i1166: ; preds = %1370
 
 _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2EOS5_.exit.i.i.i.i.i1168: ; preds = %1386, %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit2.i1166
   %1389 = getelementptr inbounds nuw i8, ptr %1384, i64 32
-  %1390 = getelementptr inbounds i8, ptr %1384, i64 56
+  %1390 = getelementptr inbounds nuw i8, ptr %1384, i64 56
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1389, i8 0, i64 24, i1 false), !noalias !68
   store ptr %1380, ptr %1390, align 8, !noalias !68
   %.not.i.i.not.i3.i.i.i.i.i1169 = icmp eq ptr %1379, null
   br i1 %.not.i.i.not.i3.i.i.i.i.i1169, label %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1175, label %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2IZNS0_18LegalityPredicates3allIS5_EET_S9_S9_EUlS3_E_vEEOS9_.exit.i1170
 
 _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2IZNS0_18LegalityPredicates3allIS5_EET_S9_S9_EUlS3_E_vEEOS9_.exit.i1170: ; preds = %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2EOS5_.exit.i.i.i.i.i1168
-  %1391 = getelementptr inbounds i8, ptr %1384, i64 48
+  %1391 = getelementptr inbounds nuw i8, ptr %1384, i64 48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1389, ptr noundef nonnull align 8 dereferenceable(16) %1378, i64 16, i1 false), !noalias !68
   store ptr %1379, ptr %1391, align 8, !noalias !68
   br label %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1175
@@ -3081,7 +3081,7 @@ _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1175: ; preds = %_ZNSt
   store ptr %1402, ptr %1399, align 8
   %1403 = load ptr, ptr %1398, align 8
   store ptr %1403, ptr %1400, align 8
-  %.phi.trans.insert2683 = getelementptr inbounds i8, ptr %1384, i64 48
+  %.phi.trans.insert2683 = getelementptr inbounds nuw i8, ptr %1384, i64 48
   %.pre2684 = load ptr, ptr %.phi.trans.insert2683, align 8
   br label %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i.i.i.i2633
 
@@ -3093,9 +3093,9 @@ _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i.i.i.i2633: ; preds = 
   br i1 %.not.i.i.not.i3.i.i.i.i2634, label %_ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates3allISt8functionIFbRKNS1_13LegalityQueryEEEEET_SA_SA_EUlS7_E_E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit2635, label %1406
 
 1406:                                             ; preds = %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i.i.i.i2633
-  %1407 = getelementptr inbounds i8, ptr %1384, i64 48
-  %1408 = getelementptr inbounds i8, ptr %1396, i64 56
-  %1409 = getelementptr inbounds i8, ptr %1396, i64 48
+  %1407 = getelementptr inbounds nuw i8, ptr %1384, i64 48
+  %1408 = getelementptr inbounds nuw i8, ptr %1396, i64 56
+  %1409 = getelementptr inbounds nuw i8, ptr %1396, i64 48
   %1410 = call noundef zeroext i1 %1404(ptr noundef nonnull align 8 dereferenceable(16) %1405, ptr noundef nonnull align 8 dereferenceable(16) %1389, i32 noundef 2) #15
   %1411 = load ptr, ptr %1390, align 8
   store ptr %1411, ptr %1408, align 8
@@ -3685,8 +3685,8 @@ _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1978: ; preds = %_ZN4l
 1633:                                             ; preds = %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1978.thread, %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1978
   %1634 = phi ptr [ %1625, %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1978.thread ], [ %1632, %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1978 ]
   %1635 = phi ptr [ @"_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZL18typeIsLegalBoolVecjSt16initializer_listINS0_3LLTEERKNS0_14RISCVSubtargetEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation", %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1978.thread ], [ %.pre2484, %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1978 ]
-  %1636 = getelementptr inbounds i8, ptr %59, i64 56
-  %1637 = getelementptr inbounds i8, ptr %59, i64 48
+  %1636 = getelementptr inbounds nuw i8, ptr %59, i64 56
+  %1637 = getelementptr inbounds nuw i8, ptr %59, i64 48
   %1638 = call noundef zeroext i1 %1635(ptr noundef nonnull align 8 dereferenceable(16) %1634, ptr noundef nonnull align 8 dereferenceable(16) %202, i32 noundef 2) #15, !noalias !74
   %1639 = load ptr, ptr %1621, align 8, !noalias !74
   store ptr %1639, ptr %1636, align 8, !noalias !74
@@ -3723,7 +3723,7 @@ _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit2.i1984: ; preds = %1633
 
 _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2EOS5_.exit.i.i.i.i.i1986: ; preds = %1649, %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit2.i1984
   %1652 = getelementptr inbounds nuw i8, ptr %1647, i64 32
-  %1653 = getelementptr inbounds i8, ptr %1647, i64 56
+  %1653 = getelementptr inbounds nuw i8, ptr %1647, i64 56
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1652, i8 0, i64 24, i1 false), !noalias !74
   store ptr %1643, ptr %1653, align 8, !noalias !74
   %.not.i.i.not.i3.i.i.i.i.i1987 = icmp eq ptr %1642, null
@@ -3739,7 +3739,7 @@ _ZN4llvm18LegalityPredicates3allISt8functionIFbRKNS_13LegalityQueryEEEEET_S8_S8_
   br label %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEED2Ev.exit.i1234
 
 1656:                                             ; preds = %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2EOS5_.exit.i.i.i.i.i1986
-  %1657 = getelementptr inbounds i8, ptr %1647, i64 48
+  %1657 = getelementptr inbounds nuw i8, ptr %1647, i64 48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1652, ptr noundef nonnull align 8 dereferenceable(16) %1641, i64 16, i1 false), !noalias !74
   store ptr %1642, ptr %1657, align 8, !noalias !74
   store ptr %1647, ptr %320, align 8, !alias.scope !74
@@ -3835,8 +3835,8 @@ _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1993: ; preds = %_ZN4l
 1690:                                             ; preds = %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1993.thread, %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1993
   %1691 = phi ptr [ %1682, %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1993.thread ], [ %1689, %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1993 ]
   %1692 = phi ptr [ @"_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZL21typeIsLegalIntOrFPVecjSt16initializer_listINS0_3LLTEERKNS0_14RISCVSubtargetEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation", %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1993.thread ], [ %.pre2486, %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1993 ]
-  %1693 = getelementptr inbounds i8, ptr %58, i64 56
-  %1694 = getelementptr inbounds i8, ptr %58, i64 48
+  %1693 = getelementptr inbounds nuw i8, ptr %58, i64 56
+  %1694 = getelementptr inbounds nuw i8, ptr %58, i64 48
   %1695 = call noundef zeroext i1 %1692(ptr noundef nonnull align 8 dereferenceable(16) %1691, ptr noundef nonnull align 8 dereferenceable(16) %199, i32 noundef 2) #15, !noalias !80
   %1696 = load ptr, ptr %1678, align 8, !noalias !80
   store ptr %1696, ptr %1693, align 8, !noalias !80
@@ -3873,7 +3873,7 @@ _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit2.i1999: ; preds = %1690
 
 _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2EOS5_.exit.i.i.i.i.i2001: ; preds = %1706, %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit2.i1999
   %1709 = getelementptr inbounds nuw i8, ptr %1704, i64 32
-  %1710 = getelementptr inbounds i8, ptr %1704, i64 56
+  %1710 = getelementptr inbounds nuw i8, ptr %1704, i64 56
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1709, i8 0, i64 24, i1 false), !noalias !80
   store ptr %1700, ptr %1710, align 8, !noalias !80
   %.not.i.i.not.i3.i.i.i.i.i2002 = icmp eq ptr %1699, null
@@ -3889,7 +3889,7 @@ _ZN4llvm18LegalityPredicates3allISt8functionIFbRKNS_13LegalityQueryEEEEET_S8_S8_
   br label %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEED2Ev.exit.i1244
 
 1713:                                             ; preds = %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2EOS5_.exit.i.i.i.i.i2001
-  %1714 = getelementptr inbounds i8, ptr %1704, i64 48
+  %1714 = getelementptr inbounds nuw i8, ptr %1704, i64 48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1709, ptr noundef nonnull align 8 dereferenceable(16) %1698, i64 16, i1 false), !noalias !80
   store ptr %1699, ptr %1714, align 8, !noalias !80
   store ptr %1704, ptr %321, align 8, !alias.scope !80
@@ -4089,8 +4089,8 @@ _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i2008: ; preds = %_ZN4l
 1784:                                             ; preds = %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i2008.thread, %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i2008
   %1785 = phi ptr [ %1776, %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i2008.thread ], [ %1783, %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i2008 ]
   %1786 = phi ptr [ @"_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZL18typeIsLegalBoolVecjSt16initializer_listINS0_3LLTEERKNS0_14RISCVSubtargetEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation", %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i2008.thread ], [ %.pre2488, %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i2008 ]
-  %1787 = getelementptr inbounds i8, ptr %57, i64 56
-  %1788 = getelementptr inbounds i8, ptr %57, i64 48
+  %1787 = getelementptr inbounds nuw i8, ptr %57, i64 56
+  %1788 = getelementptr inbounds nuw i8, ptr %57, i64 48
   %1789 = call noundef zeroext i1 %1786(ptr noundef nonnull align 8 dereferenceable(16) %1785, ptr noundef nonnull align 8 dereferenceable(16) %193, i32 noundef 2) #15, !noalias !86
   %1790 = load ptr, ptr %1772, align 8, !noalias !86
   store ptr %1790, ptr %1787, align 8, !noalias !86
@@ -4127,7 +4127,7 @@ _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit2.i2014: ; preds = %1784
 
 _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2EOS5_.exit.i.i.i.i.i2016: ; preds = %1800, %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit2.i2014
   %1803 = getelementptr inbounds nuw i8, ptr %1798, i64 32
-  %1804 = getelementptr inbounds i8, ptr %1798, i64 56
+  %1804 = getelementptr inbounds nuw i8, ptr %1798, i64 56
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1803, i8 0, i64 24, i1 false), !noalias !86
   store ptr %1794, ptr %1804, align 8, !noalias !86
   %.not.i.i.not.i3.i.i.i.i.i2017 = icmp eq ptr %1793, null
@@ -4143,7 +4143,7 @@ _ZN4llvm18LegalityPredicates3allISt8functionIFbRKNS_13LegalityQueryEEEEET_S8_S8_
   br label %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEED2Ev.exit.i1265
 
 1807:                                             ; preds = %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2EOS5_.exit.i.i.i.i.i2016
-  %1808 = getelementptr inbounds i8, ptr %1798, i64 48
+  %1808 = getelementptr inbounds nuw i8, ptr %1798, i64 48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1803, ptr noundef nonnull align 8 dereferenceable(16) %1792, i64 16, i1 false), !noalias !86
   store ptr %1793, ptr %1808, align 8, !noalias !86
   store ptr %1798, ptr %324, align 8, !alias.scope !86
@@ -4210,8 +4210,8 @@ _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i2023: ; preds = %_ZL18
 1829:                                             ; preds = %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i2023.thread, %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i2023
   %1830 = phi ptr [ %1821, %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i2023.thread ], [ %1828, %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i2023 ]
   %1831 = phi ptr [ @"_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZL21typeIsLegalIntOrFPVecjSt16initializer_listINS0_3LLTEERKNS0_14RISCVSubtargetEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation", %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i2023.thread ], [ %.pre2490, %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i2023 ]
-  %1832 = getelementptr inbounds i8, ptr %56, i64 56
-  %1833 = getelementptr inbounds i8, ptr %56, i64 48
+  %1832 = getelementptr inbounds nuw i8, ptr %56, i64 56
+  %1833 = getelementptr inbounds nuw i8, ptr %56, i64 48
   %1834 = call noundef zeroext i1 %1831(ptr noundef nonnull align 8 dereferenceable(16) %1830, ptr noundef nonnull align 8 dereferenceable(16) %191, i32 noundef 2) #15, !noalias !92
   %1835 = load ptr, ptr %1817, align 8, !noalias !92
   store ptr %1835, ptr %1832, align 8, !noalias !92
@@ -4248,7 +4248,7 @@ _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit2.i2029: ; preds = %1829
 
 _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2EOS5_.exit.i.i.i.i.i2031: ; preds = %1845, %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit2.i2029
   %1848 = getelementptr inbounds nuw i8, ptr %1843, i64 32
-  %1849 = getelementptr inbounds i8, ptr %1843, i64 56
+  %1849 = getelementptr inbounds nuw i8, ptr %1843, i64 56
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1848, i8 0, i64 24, i1 false), !noalias !92
   store ptr %1839, ptr %1849, align 8, !noalias !92
   %.not.i.i.not.i3.i.i.i.i.i2032 = icmp eq ptr %1838, null
@@ -4264,7 +4264,7 @@ _ZN4llvm18LegalityPredicates3allISt8functionIFbRKNS_13LegalityQueryEEEEET_S8_S8_
   br label %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEED2Ev.exit.i1270
 
 1852:                                             ; preds = %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2EOS5_.exit.i.i.i.i.i2031
-  %1853 = getelementptr inbounds i8, ptr %1843, i64 48
+  %1853 = getelementptr inbounds nuw i8, ptr %1843, i64 48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1848, ptr noundef nonnull align 8 dereferenceable(16) %1837, i64 16, i1 false), !noalias !92
   store ptr %1838, ptr %1853, align 8, !noalias !92
   store ptr %1843, ptr %325, align 8, !alias.scope !92
@@ -4348,14 +4348,14 @@ _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit2.i1280: ; preds = %1873
 
 _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2EOS5_.exit.i.i.i.i.i1282: ; preds = %1884, %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit2.i1280
   %1886 = getelementptr inbounds nuw i8, ptr %1882, i64 32
-  %1887 = getelementptr inbounds i8, ptr %1882, i64 56
+  %1887 = getelementptr inbounds nuw i8, ptr %1882, i64 56
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1886, i8 0, i64 24, i1 false), !noalias !95
   store ptr %1878, ptr %1887, align 8, !noalias !95
   %.not.i.i.not.i3.i.i.i.i.i1283 = icmp eq ptr %1877, null
   br i1 %.not.i.i.not.i3.i.i.i.i.i1283, label %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1289, label %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2IZNS0_18LegalityPredicates3allIS5_EET_S9_S9_EUlS3_E_vEEOS9_.exit.i1284
 
 _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2IZNS0_18LegalityPredicates3allIS5_EET_S9_S9_EUlS3_E_vEEOS9_.exit.i1284: ; preds = %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2EOS5_.exit.i.i.i.i.i1282
-  %1888 = getelementptr inbounds i8, ptr %1882, i64 48
+  %1888 = getelementptr inbounds nuw i8, ptr %1882, i64 48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1886, ptr noundef nonnull align 8 dereferenceable(16) %1871, i64 16, i1 false), !noalias !95
   store ptr %1877, ptr %1888, align 8, !noalias !95
   br label %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1289
@@ -4384,7 +4384,7 @@ _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1289: ; preds = %_ZNSt
   store ptr %1899, ptr %1896, align 8
   %1900 = load ptr, ptr %1895, align 8
   store ptr %1900, ptr %1897, align 8
-  %.phi.trans.insert2685 = getelementptr inbounds i8, ptr %1882, i64 48
+  %.phi.trans.insert2685 = getelementptr inbounds nuw i8, ptr %1882, i64 48
   %.pre2686 = load ptr, ptr %.phi.trans.insert2685, align 8
   br label %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i.i.i.i2637
 
@@ -4396,9 +4396,9 @@ _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i.i.i.i2637: ; preds = 
   br i1 %.not.i.i.not.i3.i.i.i.i2638, label %_ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates3allISt8functionIFbRKNS1_13LegalityQueryEEEEET_SA_SA_EUlS7_E_E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit2639, label %1903
 
 1903:                                             ; preds = %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i.i.i.i2637
-  %1904 = getelementptr inbounds i8, ptr %1882, i64 48
-  %1905 = getelementptr inbounds i8, ptr %1893, i64 56
-  %1906 = getelementptr inbounds i8, ptr %1893, i64 48
+  %1904 = getelementptr inbounds nuw i8, ptr %1882, i64 48
+  %1905 = getelementptr inbounds nuw i8, ptr %1893, i64 56
+  %1906 = getelementptr inbounds nuw i8, ptr %1893, i64 48
   %1907 = call noundef zeroext i1 %1901(ptr noundef nonnull align 8 dereferenceable(16) %1902, ptr noundef nonnull align 8 dereferenceable(16) %1886, i32 noundef 2) #15
   %1908 = load ptr, ptr %1887, align 8
   store ptr %1908, ptr %1905, align 8
@@ -4521,8 +4521,8 @@ _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i2038: ; preds = %_ZN4l
 1952:                                             ; preds = %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i2038.thread, %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i2038
   %1953 = phi ptr [ %1944, %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i2038.thread ], [ %1951, %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i2038 ]
   %1954 = phi ptr [ @"_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZL21typeIsLegalIntOrFPVecjSt16initializer_listINS0_3LLTEERKNS0_14RISCVSubtargetEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation", %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i2038.thread ], [ %.pre2492, %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i2038 ]
-  %1955 = getelementptr inbounds i8, ptr %55, i64 56
-  %1956 = getelementptr inbounds i8, ptr %55, i64 48
+  %1955 = getelementptr inbounds nuw i8, ptr %55, i64 56
+  %1956 = getelementptr inbounds nuw i8, ptr %55, i64 48
   %1957 = call noundef zeroext i1 %1954(ptr noundef nonnull align 8 dereferenceable(16) %1953, ptr noundef nonnull align 8 dereferenceable(16) %186, i32 noundef 2) #15, !noalias !101
   %1958 = load ptr, ptr %1940, align 8, !noalias !101
   store ptr %1958, ptr %1955, align 8, !noalias !101
@@ -4559,7 +4559,7 @@ _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit2.i2044: ; preds = %1952
 
 _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2EOS5_.exit.i.i.i.i.i2046: ; preds = %1968, %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit2.i2044
   %1971 = getelementptr inbounds nuw i8, ptr %1966, i64 32
-  %1972 = getelementptr inbounds i8, ptr %1966, i64 56
+  %1972 = getelementptr inbounds nuw i8, ptr %1966, i64 56
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1971, i8 0, i64 24, i1 false), !noalias !101
   store ptr %1962, ptr %1972, align 8, !noalias !101
   %.not.i.i.not.i3.i.i.i.i.i2047 = icmp eq ptr %1961, null
@@ -4575,7 +4575,7 @@ _ZN4llvm18LegalityPredicates3allISt8functionIFbRKNS_13LegalityQueryEEEEET_S8_S8_
   br label %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEED2Ev.exit.i1303
 
 1975:                                             ; preds = %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2EOS5_.exit.i.i.i.i.i2046
-  %1976 = getelementptr inbounds i8, ptr %1966, i64 48
+  %1976 = getelementptr inbounds nuw i8, ptr %1966, i64 48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1971, ptr noundef nonnull align 8 dereferenceable(16) %1960, i64 16, i1 false), !noalias !101
   store ptr %1961, ptr %1976, align 8, !noalias !101
   store ptr %1966, ptr %328, align 8, !alias.scope !101
@@ -4642,8 +4642,8 @@ _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i2053: ; preds = %_ZL21
 1997:                                             ; preds = %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i2053.thread, %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i2053
   %1998 = phi ptr [ %1989, %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i2053.thread ], [ %1996, %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i2053 ]
   %1999 = phi ptr [ @"_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZL18typeIsLegalBoolVecjSt16initializer_listINS0_3LLTEERKNS0_14RISCVSubtargetEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation", %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i2053.thread ], [ %.pre2494, %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i2053 ]
-  %2000 = getelementptr inbounds i8, ptr %54, i64 56
-  %2001 = getelementptr inbounds i8, ptr %54, i64 48
+  %2000 = getelementptr inbounds nuw i8, ptr %54, i64 56
+  %2001 = getelementptr inbounds nuw i8, ptr %54, i64 48
   %2002 = call noundef zeroext i1 %1999(ptr noundef nonnull align 8 dereferenceable(16) %1998, ptr noundef nonnull align 8 dereferenceable(16) %184, i32 noundef 2) #15, !noalias !107
   %2003 = load ptr, ptr %1985, align 8, !noalias !107
   store ptr %2003, ptr %2000, align 8, !noalias !107
@@ -4680,7 +4680,7 @@ _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit2.i2059: ; preds = %1997
 
 _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2EOS5_.exit.i.i.i.i.i2061: ; preds = %2013, %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit2.i2059
   %2016 = getelementptr inbounds nuw i8, ptr %2011, i64 32
-  %2017 = getelementptr inbounds i8, ptr %2011, i64 56
+  %2017 = getelementptr inbounds nuw i8, ptr %2011, i64 56
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2016, i8 0, i64 24, i1 false), !noalias !107
   store ptr %2007, ptr %2017, align 8, !noalias !107
   %.not.i.i.not.i3.i.i.i.i.i2062 = icmp eq ptr %2006, null
@@ -4696,7 +4696,7 @@ _ZN4llvm18LegalityPredicates3allISt8functionIFbRKNS_13LegalityQueryEEEEET_S8_S8_
   br label %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEED2Ev.exit.i1308
 
 2020:                                             ; preds = %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2EOS5_.exit.i.i.i.i.i2061
-  %2021 = getelementptr inbounds i8, ptr %2011, i64 48
+  %2021 = getelementptr inbounds nuw i8, ptr %2011, i64 48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2016, ptr noundef nonnull align 8 dereferenceable(16) %2005, i64 16, i1 false), !noalias !107
   store ptr %2006, ptr %2021, align 8, !noalias !107
   store ptr %2011, ptr %329, align 8, !alias.scope !107
@@ -4780,14 +4780,14 @@ _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit2.i1318: ; preds = %2041
 
 _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2EOS5_.exit.i.i.i.i.i1320: ; preds = %2052, %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit2.i1318
   %2054 = getelementptr inbounds nuw i8, ptr %2050, i64 32
-  %2055 = getelementptr inbounds i8, ptr %2050, i64 56
+  %2055 = getelementptr inbounds nuw i8, ptr %2050, i64 56
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2054, i8 0, i64 24, i1 false), !noalias !110
   store ptr %2046, ptr %2055, align 8, !noalias !110
   %.not.i.i.not.i3.i.i.i.i.i1321 = icmp eq ptr %2045, null
   br i1 %.not.i.i.not.i3.i.i.i.i.i1321, label %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1327, label %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2IZNS0_18LegalityPredicates3allIS5_EET_S9_S9_EUlS3_E_vEEOS9_.exit.i1322
 
 _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2IZNS0_18LegalityPredicates3allIS5_EET_S9_S9_EUlS3_E_vEEOS9_.exit.i1322: ; preds = %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2EOS5_.exit.i.i.i.i.i1320
-  %2056 = getelementptr inbounds i8, ptr %2050, i64 48
+  %2056 = getelementptr inbounds nuw i8, ptr %2050, i64 48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2054, ptr noundef nonnull align 8 dereferenceable(16) %2039, i64 16, i1 false), !noalias !110
   store ptr %2045, ptr %2056, align 8, !noalias !110
   br label %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1327
@@ -4816,7 +4816,7 @@ _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1327: ; preds = %_ZNSt
   store ptr %2067, ptr %2064, align 8
   %2068 = load ptr, ptr %2063, align 8
   store ptr %2068, ptr %2065, align 8
-  %.phi.trans.insert2687 = getelementptr inbounds i8, ptr %2050, i64 48
+  %.phi.trans.insert2687 = getelementptr inbounds nuw i8, ptr %2050, i64 48
   %.pre2688 = load ptr, ptr %.phi.trans.insert2687, align 8
   br label %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i.i.i.i2641
 
@@ -4828,9 +4828,9 @@ _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i.i.i.i2641: ; preds = 
   br i1 %.not.i.i.not.i3.i.i.i.i2642, label %_ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates3allISt8functionIFbRKNS1_13LegalityQueryEEEEET_SA_SA_EUlS7_E_E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit2643, label %2071
 
 2071:                                             ; preds = %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i.i.i.i2641
-  %2072 = getelementptr inbounds i8, ptr %2050, i64 48
-  %2073 = getelementptr inbounds i8, ptr %2061, i64 56
-  %2074 = getelementptr inbounds i8, ptr %2061, i64 48
+  %2072 = getelementptr inbounds nuw i8, ptr %2050, i64 48
+  %2073 = getelementptr inbounds nuw i8, ptr %2061, i64 56
+  %2074 = getelementptr inbounds nuw i8, ptr %2061, i64 48
   %2075 = call noundef zeroext i1 %2069(ptr noundef nonnull align 8 dereferenceable(16) %2070, ptr noundef nonnull align 8 dereferenceable(16) %2054, i32 noundef 2) #15
   %2076 = load ptr, ptr %2055, align 8
   store ptr %2076, ptr %2073, align 8
@@ -5795,8 +5795,8 @@ _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i2068: ; preds = %2489
 2502:                                             ; preds = %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i2068.thread, %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i2068
   %2503 = phi ptr [ %2494, %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i2068.thread ], [ %2501, %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i2068 ]
   %2504 = phi ptr [ @"_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZL21typeIsLegalIntOrFPVecjSt16initializer_listINS0_3LLTEERKNS0_14RISCVSubtargetEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation", %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i2068.thread ], [ %.pre2497, %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i2068 ]
-  %2505 = getelementptr inbounds i8, ptr %53, i64 56
-  %2506 = getelementptr inbounds i8, ptr %53, i64 48
+  %2505 = getelementptr inbounds nuw i8, ptr %53, i64 56
+  %2506 = getelementptr inbounds nuw i8, ptr %53, i64 48
   %2507 = call noundef zeroext i1 %2504(ptr noundef nonnull align 8 dereferenceable(16) %2503, ptr noundef nonnull align 8 dereferenceable(16) %163, i32 noundef 2) #15, !noalias !116
   %2508 = load ptr, ptr %2490, align 8, !noalias !116
   store ptr %2508, ptr %2505, align 8, !noalias !116
@@ -5833,7 +5833,7 @@ _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit2.i2074: ; preds = %2502
 
 _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2EOS5_.exit.i.i.i.i.i2076: ; preds = %2518, %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit2.i2074
   %2521 = getelementptr inbounds nuw i8, ptr %2516, i64 32
-  %2522 = getelementptr inbounds i8, ptr %2516, i64 56
+  %2522 = getelementptr inbounds nuw i8, ptr %2516, i64 56
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2521, i8 0, i64 24, i1 false), !noalias !116
   store ptr %2512, ptr %2522, align 8, !noalias !116
   %.not.i.i.not.i3.i.i.i.i.i2077 = icmp eq ptr %2511, null
@@ -5849,7 +5849,7 @@ _ZN4llvm18LegalityPredicates3allISt8functionIFbRKNS_13LegalityQueryEEEEET_S8_S8_
   br label %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEED2Ev.exit.i1387
 
 2525:                                             ; preds = %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2EOS5_.exit.i.i.i.i.i2076
-  %2526 = getelementptr inbounds i8, ptr %2516, i64 48
+  %2526 = getelementptr inbounds nuw i8, ptr %2516, i64 48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2521, ptr noundef nonnull align 8 dereferenceable(16) %2510, i64 16, i1 false), !noalias !116
   store ptr %2511, ptr %2526, align 8, !noalias !116
   store ptr %2516, ptr %346, align 8, !alias.scope !116
@@ -5954,8 +5954,8 @@ _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i2083: ; preds = %_ZNSt
 2562:                                             ; preds = %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i2083.thread, %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i2083
   %2563 = phi ptr [ %2554, %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i2083.thread ], [ %2561, %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i2083 ]
   %2564 = phi ptr [ @"_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZL21typeIsLegalIntOrFPVecjSt16initializer_listINS0_3LLTEERKNS0_14RISCVSubtargetEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation", %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i2083.thread ], [ %.pre2499, %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i2083 ]
-  %2565 = getelementptr inbounds i8, ptr %52, i64 56
-  %2566 = getelementptr inbounds i8, ptr %52, i64 48
+  %2565 = getelementptr inbounds nuw i8, ptr %52, i64 56
+  %2566 = getelementptr inbounds nuw i8, ptr %52, i64 48
   %2567 = call noundef zeroext i1 %2564(ptr noundef nonnull align 8 dereferenceable(16) %2563, ptr noundef nonnull align 8 dereferenceable(16) %160, i32 noundef 2) #15, !noalias !122
   %2568 = load ptr, ptr %2550, align 8, !noalias !122
   store ptr %2568, ptr %2565, align 8, !noalias !122
@@ -5992,7 +5992,7 @@ _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit2.i2089: ; preds = %2562
 
 _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2EOS5_.exit.i.i.i.i.i2091: ; preds = %2578, %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit2.i2089
   %2581 = getelementptr inbounds nuw i8, ptr %2576, i64 32
-  %2582 = getelementptr inbounds i8, ptr %2576, i64 56
+  %2582 = getelementptr inbounds nuw i8, ptr %2576, i64 56
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2581, i8 0, i64 24, i1 false), !noalias !122
   store ptr %2572, ptr %2582, align 8, !noalias !122
   %.not.i.i.not.i3.i.i.i.i.i2092 = icmp eq ptr %2571, null
@@ -6008,7 +6008,7 @@ _ZN4llvm18LegalityPredicates3allISt8functionIFbRKNS_13LegalityQueryEEEEET_S8_S8_
   br label %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEED2Ev.exit.i1399
 
 2585:                                             ; preds = %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2EOS5_.exit.i.i.i.i.i2091
-  %2586 = getelementptr inbounds i8, ptr %2576, i64 48
+  %2586 = getelementptr inbounds nuw i8, ptr %2576, i64 48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2581, ptr noundef nonnull align 8 dereferenceable(16) %2570, i64 16, i1 false), !noalias !122
   store ptr %2571, ptr %2586, align 8, !noalias !122
   store ptr %2576, ptr %347, align 8, !alias.scope !122
@@ -6121,8 +6121,8 @@ _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i2098: ; preds = %2614
 2627:                                             ; preds = %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i2098.thread, %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i2098
   %2628 = phi ptr [ %2619, %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i2098.thread ], [ %2626, %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i2098 ]
   %2629 = phi ptr [ @"_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZL17typeIsLegalPtrVecjSt16initializer_listINS0_3LLTEERKNS0_14RISCVSubtargetEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation", %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i2098.thread ], [ %.pre2501, %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i2098 ]
-  %2630 = getelementptr inbounds i8, ptr %51, i64 56
-  %2631 = getelementptr inbounds i8, ptr %51, i64 48
+  %2630 = getelementptr inbounds nuw i8, ptr %51, i64 56
+  %2631 = getelementptr inbounds nuw i8, ptr %51, i64 48
   %2632 = call noundef zeroext i1 %2629(ptr noundef nonnull align 8 dereferenceable(16) %2628, ptr noundef nonnull align 8 dereferenceable(16) %157, i32 noundef 2) #15, !noalias !128
   %2633 = load ptr, ptr %2615, align 8, !noalias !128
   store ptr %2633, ptr %2630, align 8, !noalias !128
@@ -6159,7 +6159,7 @@ _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit2.i2104: ; preds = %2627
 
 _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2EOS5_.exit.i.i.i.i.i2106: ; preds = %2643, %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit2.i2104
   %2646 = getelementptr inbounds nuw i8, ptr %2641, i64 32
-  %2647 = getelementptr inbounds i8, ptr %2641, i64 56
+  %2647 = getelementptr inbounds nuw i8, ptr %2641, i64 56
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2646, i8 0, i64 24, i1 false), !noalias !128
   store ptr %2637, ptr %2647, align 8, !noalias !128
   %.not.i.i.not.i3.i.i.i.i.i2107 = icmp eq ptr %2636, null
@@ -6175,7 +6175,7 @@ _ZN4llvm18LegalityPredicates3allISt8functionIFbRKNS_13LegalityQueryEEEEET_S8_S8_
   br label %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEED2Ev.exit.i1411
 
 2650:                                             ; preds = %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2EOS5_.exit.i.i.i.i.i2106
-  %2651 = getelementptr inbounds i8, ptr %2641, i64 48
+  %2651 = getelementptr inbounds nuw i8, ptr %2641, i64 48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2646, ptr noundef nonnull align 8 dereferenceable(16) %2635, i64 16, i1 false), !noalias !128
   store ptr %2636, ptr %2651, align 8, !noalias !128
   store ptr %2641, ptr %348, align 8, !alias.scope !128
@@ -6280,8 +6280,8 @@ _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i2113: ; preds = %_ZNSt
 2687:                                             ; preds = %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i2113.thread, %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i2113
   %2688 = phi ptr [ %2679, %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i2113.thread ], [ %2686, %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i2113 ]
   %2689 = phi ptr [ @"_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZL17typeIsLegalPtrVecjSt16initializer_listINS0_3LLTEERKNS0_14RISCVSubtargetEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation", %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i2113.thread ], [ %.pre2503, %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i2113 ]
-  %2690 = getelementptr inbounds i8, ptr %50, i64 56
-  %2691 = getelementptr inbounds i8, ptr %50, i64 48
+  %2690 = getelementptr inbounds nuw i8, ptr %50, i64 56
+  %2691 = getelementptr inbounds nuw i8, ptr %50, i64 48
   %2692 = call noundef zeroext i1 %2689(ptr noundef nonnull align 8 dereferenceable(16) %2688, ptr noundef nonnull align 8 dereferenceable(16) %154, i32 noundef 2) #15, !noalias !134
   %2693 = load ptr, ptr %2675, align 8, !noalias !134
   store ptr %2693, ptr %2690, align 8, !noalias !134
@@ -6318,7 +6318,7 @@ _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit2.i2119: ; preds = %2687
 
 _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2EOS5_.exit.i.i.i.i.i2121: ; preds = %2703, %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit2.i2119
   %2706 = getelementptr inbounds nuw i8, ptr %2701, i64 32
-  %2707 = getelementptr inbounds i8, ptr %2701, i64 56
+  %2707 = getelementptr inbounds nuw i8, ptr %2701, i64 56
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2706, i8 0, i64 24, i1 false), !noalias !134
   store ptr %2697, ptr %2707, align 8, !noalias !134
   %.not.i.i.not.i3.i.i.i.i.i2122 = icmp eq ptr %2696, null
@@ -6334,7 +6334,7 @@ _ZN4llvm18LegalityPredicates3allISt8functionIFbRKNS_13LegalityQueryEEEEET_S8_S8_
   br label %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEED2Ev.exit.i1422
 
 2710:                                             ; preds = %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2EOS5_.exit.i.i.i.i.i2121
-  %2711 = getelementptr inbounds i8, ptr %2701, i64 48
+  %2711 = getelementptr inbounds nuw i8, ptr %2701, i64 48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2706, ptr noundef nonnull align 8 dereferenceable(16) %2695, i64 16, i1 false), !noalias !134
   store ptr %2696, ptr %2711, align 8, !noalias !134
   store ptr %2701, ptr %349, align 8, !alias.scope !134
@@ -7624,9 +7624,9 @@ _ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates3allISt8function
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3202, ptr noundef nonnull align 8 dereferenceable(16) %385, i64 16, i1 false)
   store ptr @"_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZL19typeIsScalarFPArithjRKNS0_14RISCVSubtargetEE3$_0E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation", ptr %3204, align 8, !noalias !146
   %3205 = getelementptr inbounds nuw i8, ptr %3202, i64 32
-  %3206 = getelementptr inbounds i8, ptr %3202, i64 56
+  %3206 = getelementptr inbounds nuw i8, ptr %3202, i64 56
   store ptr @"_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZL19typeIsScalarFPArithjRKNS0_14RISCVSubtargetEE3$_0E9_M_invokeERKSt9_Any_dataS3_", ptr %3206, align 8, !noalias !146
-  %3207 = getelementptr inbounds i8, ptr %3202, i64 48
+  %3207 = getelementptr inbounds nuw i8, ptr %3202, i64 48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3205, ptr noundef nonnull align 8 dereferenceable(16) %386, i64 16, i1 false)
   store ptr @"_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZL19typeIsScalarFPArithjRKNS0_14RISCVSubtargetEE3$_0E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation", ptr %3207, align 8, !noalias !146
   store ptr %3202, ptr %384, align 8, !alias.scope !146
@@ -7646,8 +7646,8 @@ _ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates3allISt8function
   store ptr @"_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZL19typeIsScalarFPArithjRKNS0_14RISCVSubtargetEE3$_0E9_M_invokeERKSt9_Any_dataS3_", ptr %3214, align 8
   store ptr @"_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZL19typeIsScalarFPArithjRKNS0_14RISCVSubtargetEE3$_0E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation", ptr %3215, align 8
   %3216 = getelementptr inbounds nuw i8, ptr %3213, i64 32
-  %3217 = getelementptr inbounds i8, ptr %3213, i64 56
-  %3218 = getelementptr inbounds i8, ptr %3213, i64 48
+  %3217 = getelementptr inbounds nuw i8, ptr %3213, i64 56
+  %3218 = getelementptr inbounds nuw i8, ptr %3213, i64 48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3216, ptr noundef nonnull align 8 dereferenceable(16) %386, i64 16, i1 false)
   store ptr @"_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZL19typeIsScalarFPArithjRKNS0_14RISCVSubtargetEE3$_0E9_M_invokeERKSt9_Any_dataS3_", ptr %3217, align 8
   store ptr @"_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZL19typeIsScalarFPArithjRKNS0_14RISCVSubtargetEE3$_0E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation", ptr %3218, align 8
@@ -7825,8 +7825,8 @@ _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1608: ; preds = %_ZNSt
 3278:                                             ; preds = %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1608.thread, %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1608
   %3279 = phi ptr [ %3270, %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1608.thread ], [ %3277, %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1608 ]
   %3280 = phi ptr [ @"_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZL19typeIsScalarFPArithjRKNS0_14RISCVSubtargetEE3$_0E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation", %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1608.thread ], [ %.pre2505, %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1608 ]
-  %3281 = getelementptr inbounds i8, ptr %97, i64 56
-  %3282 = getelementptr inbounds i8, ptr %97, i64 48
+  %3281 = getelementptr inbounds nuw i8, ptr %97, i64 56
+  %3282 = getelementptr inbounds nuw i8, ptr %97, i64 48
   %3283 = call noundef zeroext i1 %3280(ptr noundef nonnull align 8 dereferenceable(16) %3279, ptr noundef nonnull align 8 dereferenceable(16) %391, i32 noundef 2) #15, !noalias !152
   %3284 = load ptr, ptr %3266, align 8, !noalias !152
   store ptr %3284, ptr %3281, align 8, !noalias !152
@@ -7863,14 +7863,14 @@ _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit2.i1614: ; preds = %3278
 
 _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2EOS5_.exit.i.i.i.i.i1616: ; preds = %3294, %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit2.i1614
   %3297 = getelementptr inbounds nuw i8, ptr %3292, i64 32
-  %3298 = getelementptr inbounds i8, ptr %3292, i64 56
+  %3298 = getelementptr inbounds nuw i8, ptr %3292, i64 56
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3297, i8 0, i64 24, i1 false), !noalias !152
   store ptr %3288, ptr %3298, align 8, !noalias !152
   %.not.i.i.not.i3.i.i.i.i.i1617 = icmp eq ptr %3287, null
   br i1 %.not.i.i.not.i3.i.i.i.i.i1617, label %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1623, label %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2IZNS0_18LegalityPredicates3allIS5_EET_S9_S9_EUlS3_E_vEEOS9_.exit.i1618
 
 _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2IZNS0_18LegalityPredicates3allIS5_EET_S9_S9_EUlS3_E_vEEOS9_.exit.i1618: ; preds = %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2EOS5_.exit.i.i.i.i.i1616
-  %3299 = getelementptr inbounds i8, ptr %3292, i64 48
+  %3299 = getelementptr inbounds nuw i8, ptr %3292, i64 48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3297, ptr noundef nonnull align 8 dereferenceable(16) %3286, i64 16, i1 false), !noalias !152
   store ptr %3287, ptr %3299, align 8, !noalias !152
   br label %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1623
@@ -7899,7 +7899,7 @@ _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1623: ; preds = %_ZNSt
   store ptr %3310, ptr %3307, align 8
   %3311 = load ptr, ptr %3306, align 8
   store ptr %3311, ptr %3308, align 8
-  %.phi.trans.insert2692 = getelementptr inbounds i8, ptr %3292, i64 48
+  %.phi.trans.insert2692 = getelementptr inbounds nuw i8, ptr %3292, i64 48
   %.pre2693 = load ptr, ptr %.phi.trans.insert2692, align 8
   br label %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i.i.i.i2649
 
@@ -7911,9 +7911,9 @@ _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i.i.i.i2649: ; preds = 
   br i1 %.not.i.i.not.i3.i.i.i.i2650, label %_ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates3allISt8functionIFbRKNS1_13LegalityQueryEEEEET_SA_SA_EUlS7_E_E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit2651, label %3314
 
 3314:                                             ; preds = %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i.i.i.i2649
-  %3315 = getelementptr inbounds i8, ptr %3292, i64 48
-  %3316 = getelementptr inbounds i8, ptr %3304, i64 56
-  %3317 = getelementptr inbounds i8, ptr %3304, i64 48
+  %3315 = getelementptr inbounds nuw i8, ptr %3292, i64 48
+  %3316 = getelementptr inbounds nuw i8, ptr %3304, i64 56
+  %3317 = getelementptr inbounds nuw i8, ptr %3304, i64 48
   %3318 = call noundef zeroext i1 %3312(ptr noundef nonnull align 8 dereferenceable(16) %3313, ptr noundef nonnull align 8 dereferenceable(16) %3297, i32 noundef 2) #15
   %3319 = load ptr, ptr %3298, align 8
   store ptr %3319, ptr %3316, align 8
@@ -8008,8 +8008,8 @@ _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1635: ; preds = %_ZNSt
 3352:                                             ; preds = %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1635.thread, %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1635
   %3353 = phi ptr [ %3344, %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1635.thread ], [ %3351, %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1635 ]
   %3354 = phi ptr [ @"_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZL19typeIsScalarFPArithjRKNS0_14RISCVSubtargetEE3$_0E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation", %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1635.thread ], [ %.pre2506, %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1635 ]
-  %3355 = getelementptr inbounds i8, ptr %95, i64 56
-  %3356 = getelementptr inbounds i8, ptr %95, i64 48
+  %3355 = getelementptr inbounds nuw i8, ptr %95, i64 56
+  %3356 = getelementptr inbounds nuw i8, ptr %95, i64 48
   %3357 = call noundef zeroext i1 %3354(ptr noundef nonnull align 8 dereferenceable(16) %3353, ptr noundef nonnull align 8 dereferenceable(16) %394, i32 noundef 2) #15, !noalias !158
   %3358 = load ptr, ptr %3340, align 8, !noalias !158
   store ptr %3358, ptr %3355, align 8, !noalias !158
@@ -8046,14 +8046,14 @@ _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit2.i1641: ; preds = %3352
 
 _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2EOS5_.exit.i.i.i.i.i1643: ; preds = %3368, %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit2.i1641
   %3371 = getelementptr inbounds nuw i8, ptr %3366, i64 32
-  %3372 = getelementptr inbounds i8, ptr %3366, i64 56
+  %3372 = getelementptr inbounds nuw i8, ptr %3366, i64 56
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3371, i8 0, i64 24, i1 false), !noalias !158
   store ptr %3362, ptr %3372, align 8, !noalias !158
   %.not.i.i.not.i3.i.i.i.i.i1644 = icmp eq ptr %3361, null
   br i1 %.not.i.i.not.i3.i.i.i.i.i1644, label %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1650, label %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2IZNS0_18LegalityPredicates3allIS5_EET_S9_S9_EUlS3_E_vEEOS9_.exit.i1645
 
 _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2IZNS0_18LegalityPredicates3allIS5_EET_S9_S9_EUlS3_E_vEEOS9_.exit.i1645: ; preds = %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2EOS5_.exit.i.i.i.i.i1643
-  %3373 = getelementptr inbounds i8, ptr %3366, i64 48
+  %3373 = getelementptr inbounds nuw i8, ptr %3366, i64 48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3371, ptr noundef nonnull align 8 dereferenceable(16) %3360, i64 16, i1 false), !noalias !158
   store ptr %3361, ptr %3373, align 8, !noalias !158
   br label %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1650
@@ -8082,7 +8082,7 @@ _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1650: ; preds = %_ZNSt
   store ptr %3384, ptr %3381, align 8
   %3385 = load ptr, ptr %3380, align 8
   store ptr %3385, ptr %3382, align 8
-  %.phi.trans.insert2694 = getelementptr inbounds i8, ptr %3366, i64 48
+  %.phi.trans.insert2694 = getelementptr inbounds nuw i8, ptr %3366, i64 48
   %.pre2695 = load ptr, ptr %.phi.trans.insert2694, align 8
   br label %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i.i.i.i2653
 
@@ -8094,9 +8094,9 @@ _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i.i.i.i2653: ; preds = 
   br i1 %.not.i.i.not.i3.i.i.i.i2654, label %_ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates3allISt8functionIFbRKNS1_13LegalityQueryEEEEET_SA_SA_EUlS7_E_E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit2655, label %3388
 
 3388:                                             ; preds = %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i.i.i.i2653
-  %3389 = getelementptr inbounds i8, ptr %3366, i64 48
-  %3390 = getelementptr inbounds i8, ptr %3378, i64 56
-  %3391 = getelementptr inbounds i8, ptr %3378, i64 48
+  %3389 = getelementptr inbounds nuw i8, ptr %3366, i64 48
+  %3390 = getelementptr inbounds nuw i8, ptr %3378, i64 56
+  %3391 = getelementptr inbounds nuw i8, ptr %3378, i64 48
   %3392 = call noundef zeroext i1 %3386(ptr noundef nonnull align 8 dereferenceable(16) %3387, ptr noundef nonnull align 8 dereferenceable(16) %3371, i32 noundef 2) #15
   %3393 = load ptr, ptr %3372, align 8
   store ptr %3393, ptr %3390, align 8
@@ -8246,8 +8246,8 @@ _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1672: ; preds = %_ZNSt
 3446:                                             ; preds = %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1672.thread, %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1672
   %3447 = phi ptr [ %3438, %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1672.thread ], [ %3445, %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1672 ]
   %3448 = phi ptr [ @"_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZL19typeIsScalarFPArithjRKNS0_14RISCVSubtargetEE3$_0E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation", %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1672.thread ], [ %.pre2507, %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1672 ]
-  %3449 = getelementptr inbounds i8, ptr %91, i64 56
-  %3450 = getelementptr inbounds i8, ptr %91, i64 48
+  %3449 = getelementptr inbounds nuw i8, ptr %91, i64 56
+  %3450 = getelementptr inbounds nuw i8, ptr %91, i64 48
   %3451 = call noundef zeroext i1 %3448(ptr noundef nonnull align 8 dereferenceable(16) %3447, ptr noundef nonnull align 8 dereferenceable(16) %401, i32 noundef 2) #15, !noalias !167
   %3452 = load ptr, ptr %3434, align 8, !noalias !167
   store ptr %3452, ptr %3449, align 8, !noalias !167
@@ -8284,14 +8284,14 @@ _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit2.i1678: ; preds = %3446
 
 _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2EOS5_.exit.i.i.i.i.i1680: ; preds = %3462, %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit2.i1678
   %3465 = getelementptr inbounds nuw i8, ptr %3460, i64 32
-  %3466 = getelementptr inbounds i8, ptr %3460, i64 56
+  %3466 = getelementptr inbounds nuw i8, ptr %3460, i64 56
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3465, i8 0, i64 24, i1 false), !noalias !167
   store ptr %3456, ptr %3466, align 8, !noalias !167
   %.not.i.i.not.i3.i.i.i.i.i1681 = icmp eq ptr %3455, null
   br i1 %.not.i.i.not.i3.i.i.i.i.i1681, label %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1687, label %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2IZNS0_18LegalityPredicates3allIS5_EET_S9_S9_EUlS3_E_vEEOS9_.exit.i1682
 
 _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2IZNS0_18LegalityPredicates3allIS5_EET_S9_S9_EUlS3_E_vEEOS9_.exit.i1682: ; preds = %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2EOS5_.exit.i.i.i.i.i1680
-  %3467 = getelementptr inbounds i8, ptr %3460, i64 48
+  %3467 = getelementptr inbounds nuw i8, ptr %3460, i64 48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3465, ptr noundef nonnull align 8 dereferenceable(16) %3454, i64 16, i1 false), !noalias !167
   store ptr %3455, ptr %3467, align 8, !noalias !167
   br label %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1687
@@ -8320,7 +8320,7 @@ _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1687: ; preds = %_ZNSt
   store ptr %3478, ptr %3475, align 8
   %3479 = load ptr, ptr %3474, align 8
   store ptr %3479, ptr %3476, align 8
-  %.phi.trans.insert2696 = getelementptr inbounds i8, ptr %3460, i64 48
+  %.phi.trans.insert2696 = getelementptr inbounds nuw i8, ptr %3460, i64 48
   %.pre2697 = load ptr, ptr %.phi.trans.insert2696, align 8
   br label %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i.i.i.i2657
 
@@ -8332,9 +8332,9 @@ _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i.i.i.i2657: ; preds = 
   br i1 %.not.i.i.not.i3.i.i.i.i2658, label %_ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates3allISt8functionIFbRKNS1_13LegalityQueryEEEEET_SA_SA_EUlS7_E_E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit2659, label %3482
 
 3482:                                             ; preds = %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i.i.i.i2657
-  %3483 = getelementptr inbounds i8, ptr %3460, i64 48
-  %3484 = getelementptr inbounds i8, ptr %3472, i64 56
-  %3485 = getelementptr inbounds i8, ptr %3472, i64 48
+  %3483 = getelementptr inbounds nuw i8, ptr %3460, i64 48
+  %3484 = getelementptr inbounds nuw i8, ptr %3472, i64 56
+  %3485 = getelementptr inbounds nuw i8, ptr %3472, i64 48
   %3486 = call noundef zeroext i1 %3480(ptr noundef nonnull align 8 dereferenceable(16) %3481, ptr noundef nonnull align 8 dereferenceable(16) %3465, i32 noundef 2) #15
   %3487 = load ptr, ptr %3466, align 8
   store ptr %3487, ptr %3484, align 8
@@ -8544,14 +8544,14 @@ _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit2.i1713: ; preds = %3551
 
 _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2EOS5_.exit.i.i.i.i.i1715: ; preds = %3563, %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit2.i1713
   %3565 = getelementptr inbounds nuw i8, ptr %3561, i64 32
-  %3566 = getelementptr inbounds i8, ptr %3561, i64 56
+  %3566 = getelementptr inbounds nuw i8, ptr %3561, i64 56
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3565, i8 0, i64 24, i1 false), !noalias !173
   store ptr %3557, ptr %3566, align 8, !noalias !173
   %.not.i.i.not.i3.i.i.i.i.i1716 = icmp eq ptr %3556, null
   br i1 %.not.i.i.not.i3.i.i.i.i.i1716, label %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1722, label %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2IZNS0_18LegalityPredicates3allIS5_EET_S9_S9_EUlS3_E_vEEOS9_.exit.i1717
 
 _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2IZNS0_18LegalityPredicates3allIS5_EET_S9_S9_EUlS3_E_vEEOS9_.exit.i1717: ; preds = %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2EOS5_.exit.i.i.i.i.i1715
-  %3567 = getelementptr inbounds i8, ptr %3561, i64 48
+  %3567 = getelementptr inbounds nuw i8, ptr %3561, i64 48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3565, ptr noundef nonnull align 8 dereferenceable(16) %3548, i64 16, i1 false), !noalias !173
   store ptr %3556, ptr %3567, align 8, !noalias !173
   br label %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1722
@@ -8580,7 +8580,7 @@ _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1722: ; preds = %_ZNSt
   store ptr %3578, ptr %3575, align 8
   %3579 = load ptr, ptr %3574, align 8
   store ptr %3579, ptr %3576, align 8
-  %.phi.trans.insert2698 = getelementptr inbounds i8, ptr %3561, i64 48
+  %.phi.trans.insert2698 = getelementptr inbounds nuw i8, ptr %3561, i64 48
   %.pre2699 = load ptr, ptr %.phi.trans.insert2698, align 8
   br label %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i.i.i.i2661
 
@@ -8592,9 +8592,9 @@ _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i.i.i.i2661: ; preds = 
   br i1 %.not.i.i.not.i3.i.i.i.i2662, label %_ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates3allISt8functionIFbRKNS1_13LegalityQueryEEEEET_SA_SA_EUlS7_E_E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit2663, label %3582
 
 3582:                                             ; preds = %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i.i.i.i2661
-  %3583 = getelementptr inbounds i8, ptr %3561, i64 48
-  %3584 = getelementptr inbounds i8, ptr %3572, i64 56
-  %3585 = getelementptr inbounds i8, ptr %3572, i64 48
+  %3583 = getelementptr inbounds nuw i8, ptr %3561, i64 48
+  %3584 = getelementptr inbounds nuw i8, ptr %3572, i64 56
+  %3585 = getelementptr inbounds nuw i8, ptr %3572, i64 48
   %3586 = call noundef zeroext i1 %3580(ptr noundef nonnull align 8 dereferenceable(16) %3581, ptr noundef nonnull align 8 dereferenceable(16) %3565, i32 noundef 2) #15
   %3587 = load ptr, ptr %3566, align 8
   store ptr %3587, ptr %3584, align 8
@@ -8818,8 +8818,8 @@ _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i2128: ; preds = %_ZN4l
 3667:                                             ; preds = %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i2128.thread, %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i2128
   %3668 = phi ptr [ %3659, %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i2128.thread ], [ %3666, %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i2128 ]
   %3669 = phi ptr [ @"_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZL21typeIsLegalIntOrFPVecjSt16initializer_listINS0_3LLTEERKNS0_14RISCVSubtargetEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation", %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i2128.thread ], [ %.pre2508, %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i2128 ]
-  %3670 = getelementptr inbounds i8, ptr %49, i64 56
-  %3671 = getelementptr inbounds i8, ptr %49, i64 48
+  %3670 = getelementptr inbounds nuw i8, ptr %49, i64 56
+  %3671 = getelementptr inbounds nuw i8, ptr %49, i64 48
   %3672 = call noundef zeroext i1 %3669(ptr noundef nonnull align 8 dereferenceable(16) %3668, ptr noundef nonnull align 8 dereferenceable(16) %79, i32 noundef 2) #15, !noalias !179
   %3673 = load ptr, ptr %3655, align 8, !noalias !179
   store ptr %3673, ptr %3670, align 8, !noalias !179
@@ -8856,7 +8856,7 @@ _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit2.i2134: ; preds = %3667
 
 _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2EOS5_.exit.i.i.i.i.i2136: ; preds = %3683, %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit2.i2134
   %3686 = getelementptr inbounds nuw i8, ptr %3681, i64 32
-  %3687 = getelementptr inbounds i8, ptr %3681, i64 56
+  %3687 = getelementptr inbounds nuw i8, ptr %3681, i64 56
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3686, i8 0, i64 24, i1 false), !noalias !179
   store ptr %3677, ptr %3687, align 8, !noalias !179
   %.not.i.i.not.i3.i.i.i.i.i2137 = icmp eq ptr %3676, null
@@ -8872,7 +8872,7 @@ _ZN4llvm18LegalityPredicates3allISt8functionIFbRKNS_13LegalityQueryEEEEET_S8_S8_
   br label %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEED2Ev.exit.i1745
 
 3690:                                             ; preds = %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2EOS5_.exit.i.i.i.i.i2136
-  %3691 = getelementptr inbounds i8, ptr %3681, i64 48
+  %3691 = getelementptr inbounds nuw i8, ptr %3681, i64 48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3686, ptr noundef nonnull align 8 dereferenceable(16) %3675, i64 16, i1 false), !noalias !179
   store ptr %3676, ptr %3691, align 8, !noalias !179
   store ptr %3681, ptr %414, align 8, !alias.scope !179
@@ -8960,14 +8960,14 @@ _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit2.i1755: ; preds = %3712
 
 _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2EOS5_.exit.i.i.i.i.i1757: ; preds = %3724, %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit2.i1755
   %3726 = getelementptr inbounds nuw i8, ptr %3722, i64 32
-  %3727 = getelementptr inbounds i8, ptr %3722, i64 56
+  %3727 = getelementptr inbounds nuw i8, ptr %3722, i64 56
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3726, i8 0, i64 24, i1 false), !noalias !182
   store ptr %3718, ptr %3727, align 8, !noalias !182
   %.not.i.i.not.i3.i.i.i.i.i1758 = icmp eq ptr %3717, null
   br i1 %.not.i.i.not.i3.i.i.i.i.i1758, label %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1764, label %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2IZNS0_18LegalityPredicates3allIS5_EET_S9_S9_EUlS3_E_vEEOS9_.exit.i1759
 
 _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2IZNS0_18LegalityPredicates3allIS5_EET_S9_S9_EUlS3_E_vEEOS9_.exit.i1759: ; preds = %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2EOS5_.exit.i.i.i.i.i1757
-  %3728 = getelementptr inbounds i8, ptr %3722, i64 48
+  %3728 = getelementptr inbounds nuw i8, ptr %3722, i64 48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3726, ptr noundef nonnull align 8 dereferenceable(16) %3709, i64 16, i1 false), !noalias !182
   store ptr %3717, ptr %3728, align 8, !noalias !182
   br label %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1764
@@ -8996,7 +8996,7 @@ _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1764: ; preds = %_ZNSt
   store ptr %3739, ptr %3736, align 8
   %3740 = load ptr, ptr %3735, align 8
   store ptr %3740, ptr %3737, align 8
-  %.phi.trans.insert2700 = getelementptr inbounds i8, ptr %3722, i64 48
+  %.phi.trans.insert2700 = getelementptr inbounds nuw i8, ptr %3722, i64 48
   %.pre2701 = load ptr, ptr %.phi.trans.insert2700, align 8
   br label %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i.i.i.i2665
 
@@ -9008,9 +9008,9 @@ _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i.i.i.i2665: ; preds = 
   br i1 %.not.i.i.not.i3.i.i.i.i2666, label %_ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates3allISt8functionIFbRKNS1_13LegalityQueryEEEEET_SA_SA_EUlS7_E_E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit2667, label %3743
 
 3743:                                             ; preds = %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i.i.i.i2665
-  %3744 = getelementptr inbounds i8, ptr %3722, i64 48
-  %3745 = getelementptr inbounds i8, ptr %3733, i64 56
-  %3746 = getelementptr inbounds i8, ptr %3733, i64 48
+  %3744 = getelementptr inbounds nuw i8, ptr %3722, i64 48
+  %3745 = getelementptr inbounds nuw i8, ptr %3733, i64 56
+  %3746 = getelementptr inbounds nuw i8, ptr %3733, i64 48
   %3747 = call noundef zeroext i1 %3741(ptr noundef nonnull align 8 dereferenceable(16) %3742, ptr noundef nonnull align 8 dereferenceable(16) %3726, i32 noundef 2) #15
   %3748 = load ptr, ptr %3727, align 8
   store ptr %3748, ptr %3745, align 8
@@ -9076,8 +9076,8 @@ _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i2143: ; preds = %_ZN4l
 3768:                                             ; preds = %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i2143.thread, %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i2143
   %3769 = phi ptr [ %3760, %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i2143.thread ], [ %3767, %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i2143 ]
   %3770 = phi ptr [ @"_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZL18typeIsLegalBoolVecjSt16initializer_listINS0_3LLTEERKNS0_14RISCVSubtargetEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation", %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i2143.thread ], [ %.pre2510, %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i2143 ]
-  %3771 = getelementptr inbounds i8, ptr %48, i64 56
-  %3772 = getelementptr inbounds i8, ptr %48, i64 48
+  %3771 = getelementptr inbounds nuw i8, ptr %48, i64 56
+  %3772 = getelementptr inbounds nuw i8, ptr %48, i64 48
   %3773 = call noundef zeroext i1 %3770(ptr noundef nonnull align 8 dereferenceable(16) %3769, ptr noundef nonnull align 8 dereferenceable(16) %75, i32 noundef 2) #15, !noalias !188
   %3774 = load ptr, ptr %3756, align 8, !noalias !188
   store ptr %3774, ptr %3771, align 8, !noalias !188
@@ -9114,7 +9114,7 @@ _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit2.i2149: ; preds = %3768
 
 _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2EOS5_.exit.i.i.i.i.i2151: ; preds = %3784, %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit2.i2149
   %3787 = getelementptr inbounds nuw i8, ptr %3782, i64 32
-  %3788 = getelementptr inbounds i8, ptr %3782, i64 56
+  %3788 = getelementptr inbounds nuw i8, ptr %3782, i64 56
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3787, i8 0, i64 24, i1 false), !noalias !188
   store ptr %3778, ptr %3788, align 8, !noalias !188
   %.not.i.i.not.i3.i.i.i.i.i2152 = icmp eq ptr %3777, null
@@ -9130,7 +9130,7 @@ _ZN4llvm18LegalityPredicates3allISt8functionIFbRKNS_13LegalityQueryEEEEET_S8_S8_
   br label %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEED2Ev.exit.i1770
 
 3791:                                             ; preds = %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2EOS5_.exit.i.i.i.i.i2151
-  %3792 = getelementptr inbounds i8, ptr %3782, i64 48
+  %3792 = getelementptr inbounds nuw i8, ptr %3782, i64 48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3787, ptr noundef nonnull align 8 dereferenceable(16) %3776, i64 16, i1 false), !noalias !188
   store ptr %3777, ptr %3792, align 8, !noalias !188
   store ptr %3782, ptr %417, align 8, !alias.scope !188
@@ -9217,14 +9217,14 @@ _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit2.i1780: ; preds = %3813
 
 _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2EOS5_.exit.i.i.i.i.i1782: ; preds = %3825, %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit2.i1780
   %3827 = getelementptr inbounds nuw i8, ptr %3823, i64 32
-  %3828 = getelementptr inbounds i8, ptr %3823, i64 56
+  %3828 = getelementptr inbounds nuw i8, ptr %3823, i64 56
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3827, i8 0, i64 24, i1 false), !noalias !191
   store ptr %3819, ptr %3828, align 8, !noalias !191
   %.not.i.i.not.i3.i.i.i.i.i1783 = icmp eq ptr %3818, null
   br i1 %.not.i.i.not.i3.i.i.i.i.i1783, label %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1789, label %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2IZNS0_18LegalityPredicates3allIS5_EET_S9_S9_EUlS3_E_vEEOS9_.exit.i1784
 
 _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2IZNS0_18LegalityPredicates3allIS5_EET_S9_S9_EUlS3_E_vEEOS9_.exit.i1784: ; preds = %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2EOS5_.exit.i.i.i.i.i1782
-  %3829 = getelementptr inbounds i8, ptr %3823, i64 48
+  %3829 = getelementptr inbounds nuw i8, ptr %3823, i64 48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3827, ptr noundef nonnull align 8 dereferenceable(16) %3810, i64 16, i1 false), !noalias !191
   store ptr %3818, ptr %3829, align 8, !noalias !191
   br label %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1789
@@ -9253,7 +9253,7 @@ _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1789: ; preds = %_ZNSt
   store ptr %3840, ptr %3837, align 8
   %3841 = load ptr, ptr %3836, align 8
   store ptr %3841, ptr %3838, align 8
-  %.phi.trans.insert2702 = getelementptr inbounds i8, ptr %3823, i64 48
+  %.phi.trans.insert2702 = getelementptr inbounds nuw i8, ptr %3823, i64 48
   %.pre2703 = load ptr, ptr %.phi.trans.insert2702, align 8
   br label %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i.i.i.i2669
 
@@ -9265,9 +9265,9 @@ _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i.i.i.i2669: ; preds = 
   br i1 %.not.i.i.not.i3.i.i.i.i2670, label %_ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates3allISt8functionIFbRKNS1_13LegalityQueryEEEEET_SA_SA_EUlS7_E_E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit2671, label %3844
 
 3844:                                             ; preds = %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i.i.i.i2669
-  %3845 = getelementptr inbounds i8, ptr %3823, i64 48
-  %3846 = getelementptr inbounds i8, ptr %3834, i64 56
-  %3847 = getelementptr inbounds i8, ptr %3834, i64 48
+  %3845 = getelementptr inbounds nuw i8, ptr %3823, i64 48
+  %3846 = getelementptr inbounds nuw i8, ptr %3834, i64 56
+  %3847 = getelementptr inbounds nuw i8, ptr %3834, i64 48
   %3848 = call noundef zeroext i1 %3842(ptr noundef nonnull align 8 dereferenceable(16) %3843, ptr noundef nonnull align 8 dereferenceable(16) %3827, i32 noundef 2) #15
   %3849 = load ptr, ptr %3828, align 8
   store ptr %3849, ptr %3846, align 8
@@ -9424,14 +9424,14 @@ _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit2.i1812: ; preds = %3899
 
 _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2EOS5_.exit.i.i.i.i.i1814: ; preds = %3910, %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit2.i1812
   %3912 = getelementptr inbounds nuw i8, ptr %3908, i64 32
-  %3913 = getelementptr inbounds i8, ptr %3908, i64 56
+  %3913 = getelementptr inbounds nuw i8, ptr %3908, i64 56
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3912, i8 0, i64 24, i1 false), !noalias !194
   store ptr %3905, ptr %3913, align 8, !noalias !194
   %.not.i.i.not.i3.i.i.i.i.i1815 = icmp eq ptr %3904, null
   br i1 %.not.i.i.not.i3.i.i.i.i.i1815, label %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1821, label %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2IZNS0_18LegalityPredicates3allIS5_EET_S9_S9_EUlS3_E_vEEOS9_.exit.i1816
 
 _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2IZNS0_18LegalityPredicates3allIS5_EET_S9_S9_EUlS3_E_vEEOS9_.exit.i1816: ; preds = %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2EOS5_.exit.i.i.i.i.i1814
-  %3914 = getelementptr inbounds i8, ptr %3908, i64 48
+  %3914 = getelementptr inbounds nuw i8, ptr %3908, i64 48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3912, ptr noundef nonnull align 8 dereferenceable(16) %3896, i64 16, i1 false), !noalias !194
   store ptr %3904, ptr %3914, align 8, !noalias !194
   br label %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1821
@@ -9456,7 +9456,7 @@ _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1821: ; preds = %_ZNSt
   store ptr %3924, ptr %3921, align 8
   %3925 = load ptr, ptr %3920, align 8
   store ptr %3925, ptr %3922, align 8
-  %.phi.trans.insert2706 = getelementptr inbounds i8, ptr %3908, i64 48
+  %.phi.trans.insert2706 = getelementptr inbounds nuw i8, ptr %3908, i64 48
   %.pre2707 = load ptr, ptr %.phi.trans.insert2706, align 8
   br label %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i.i.i.i2673
 
@@ -9468,9 +9468,9 @@ _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i.i.i.i2673: ; preds = 
   br i1 %.not.i.i.not.i3.i.i.i.i2674, label %_ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates3allISt8functionIFbRKNS1_13LegalityQueryEEEEET_SA_SA_EUlS7_E_E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit2675, label %3928
 
 3928:                                             ; preds = %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i.i.i.i2673
-  %3929 = getelementptr inbounds i8, ptr %3908, i64 48
-  %3930 = getelementptr inbounds i8, ptr %3918, i64 56
-  %3931 = getelementptr inbounds i8, ptr %3918, i64 48
+  %3929 = getelementptr inbounds nuw i8, ptr %3908, i64 48
+  %3930 = getelementptr inbounds nuw i8, ptr %3918, i64 56
+  %3931 = getelementptr inbounds nuw i8, ptr %3918, i64 48
   %3932 = call noundef zeroext i1 %3926(ptr noundef nonnull align 8 dereferenceable(16) %3927, ptr noundef nonnull align 8 dereferenceable(16) %3912, i32 noundef 2) #15
   %3933 = load ptr, ptr %3913, align 8
   store ptr %3933, ptr %3930, align 8
@@ -9493,7 +9493,7 @@ _ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates3allISt8function
 
 3939:                                             ; preds = %3937, %_ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates3allISt8functionIFbRKNS1_13LegalityQueryEEEEET_SA_SA_EUlS7_E_E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit2675
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %70)
-  %3940 = getelementptr inbounds i8, ptr %3908, i64 48
+  %3940 = getelementptr inbounds nuw i8, ptr %3908, i64 48
   %3941 = load ptr, ptr %3940, align 8
   %.not.i.i.i.i.i = icmp eq ptr %3941, null
   br i1 %.not.i.i.i.i.i, label %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEED2Ev.exit.i.i.i, label %3942
@@ -9600,14 +9600,14 @@ _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit2.i1838: ; preds = %3973
 
 _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2EOS5_.exit.i.i.i.i.i1840: ; preds = %3984, %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit2.i1838
   %3986 = getelementptr inbounds nuw i8, ptr %3982, i64 32
-  %3987 = getelementptr inbounds i8, ptr %3982, i64 56
+  %3987 = getelementptr inbounds nuw i8, ptr %3982, i64 56
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3986, i8 0, i64 24, i1 false), !noalias !197
   store ptr %3979, ptr %3987, align 8, !noalias !197
   %.not.i.i.not.i3.i.i.i.i.i1841 = icmp eq ptr %3978, null
   br i1 %.not.i.i.not.i3.i.i.i.i.i1841, label %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1847, label %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2IZNS0_18LegalityPredicates3allIS5_EET_S9_S9_EUlS3_E_vEEOS9_.exit.i1842
 
 _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2IZNS0_18LegalityPredicates3allIS5_EET_S9_S9_EUlS3_E_vEEOS9_.exit.i1842: ; preds = %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2EOS5_.exit.i.i.i.i.i1840
-  %3988 = getelementptr inbounds i8, ptr %3982, i64 48
+  %3988 = getelementptr inbounds nuw i8, ptr %3982, i64 48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3986, ptr noundef nonnull align 8 dereferenceable(16) %3970, i64 16, i1 false), !noalias !197
   store ptr %3978, ptr %3988, align 8, !noalias !197
   br label %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1847
@@ -9632,7 +9632,7 @@ _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1847: ; preds = %_ZNSt
   store ptr %3998, ptr %3995, align 8
   %3999 = load ptr, ptr %3994, align 8
   store ptr %3999, ptr %3996, align 8
-  %.phi.trans.insert2704 = getelementptr inbounds i8, ptr %3982, i64 48
+  %.phi.trans.insert2704 = getelementptr inbounds nuw i8, ptr %3982, i64 48
   %.pre2705 = load ptr, ptr %.phi.trans.insert2704, align 8
   br label %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i.i.i.i2677
 
@@ -9644,9 +9644,9 @@ _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i.i.i.i2677: ; preds = 
   br i1 %.not.i.i.not.i3.i.i.i.i2678, label %_ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates3allISt8functionIFbRKNS1_13LegalityQueryEEEEET_SA_SA_EUlS7_E_E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit2679, label %4002
 
 4002:                                             ; preds = %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i.i.i.i2677
-  %4003 = getelementptr inbounds i8, ptr %3982, i64 48
-  %4004 = getelementptr inbounds i8, ptr %3992, i64 56
-  %4005 = getelementptr inbounds i8, ptr %3992, i64 48
+  %4003 = getelementptr inbounds nuw i8, ptr %3982, i64 48
+  %4004 = getelementptr inbounds nuw i8, ptr %3992, i64 56
+  %4005 = getelementptr inbounds nuw i8, ptr %3992, i64 48
   %4006 = call noundef zeroext i1 %4000(ptr noundef nonnull align 8 dereferenceable(16) %4001, ptr noundef nonnull align 8 dereferenceable(16) %3986, i32 noundef 2) #15
   %4007 = load ptr, ptr %3987, align 8
   store ptr %4007, ptr %4004, align 8
@@ -9669,7 +9669,7 @@ _ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates3allISt8function
 
 4013:                                             ; preds = %4011, %_ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates3allISt8functionIFbRKNS1_13LegalityQueryEEEEET_SA_SA_EUlS7_E_E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit2679
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %68)
-  %4014 = getelementptr inbounds i8, ptr %3982, i64 48
+  %4014 = getelementptr inbounds nuw i8, ptr %3982, i64 48
   %4015 = load ptr, ptr %4014, align 8
   %.not.i.i.i.i.i2709 = icmp eq ptr %4015, null
   br i1 %.not.i.i.i.i.i2709, label %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEED2Ev.exit.i.i.i2710, label %4016
@@ -10021,7 +10021,7 @@ _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i: ; preds = %11, %3
   br i1 %.not.i.i.not.i1.i, label %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit2.i, label %23
 
 23:                                               ; preds = %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i
-  %24 = getelementptr inbounds i8, ptr %4, i64 56
+  %24 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %25 = call noundef zeroext i1 %22(ptr noundef nonnull align 8 dereferenceable(16) %20, ptr noundef nonnull align 8 dereferenceable(16) %7, i32 noundef 2) #15, !noalias !200
   %26 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %27 = load ptr, ptr %26, align 8, !noalias !200
@@ -10055,14 +10055,14 @@ _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit2.i: ; preds = %23, %_ZN
 
 _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2EOS5_.exit.i.i.i.i.i: ; preds = %36, %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit2.i
   %38 = getelementptr inbounds nuw i8, ptr %34, i64 32
-  %39 = getelementptr inbounds i8, ptr %34, i64 56
+  %39 = getelementptr inbounds nuw i8, ptr %34, i64 56
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %38, i8 0, i64 24, i1 false), !noalias !200
   store ptr %30, ptr %39, align 8, !noalias !200
   %.not.i.i.not.i3.i.i.i.i.i = icmp eq ptr %29, null
   br i1 %.not.i.i.not.i3.i.i.i.i.i, label %_ZN4llvm18LegalityPredicates3anyISt8functionIFbRKNS_13LegalityQueryEEEEET_S8_S8_.exit, label %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2IZNS0_18LegalityPredicates3anyIS5_EET_S9_S9_EUlS3_E_vEEOS9_.exit.i
 
 _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2IZNS0_18LegalityPredicates3anyIS5_EET_S9_S9_EUlS3_E_vEEOS9_.exit.i: ; preds = %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2EOS5_.exit.i.i.i.i.i
-  %40 = getelementptr inbounds i8, ptr %34, i64 48
+  %40 = getelementptr inbounds nuw i8, ptr %34, i64 48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %38, ptr noundef nonnull align 8 dereferenceable(16) %20, i64 16, i1 false), !noalias !200
   store ptr %29, ptr %40, align 8, !noalias !200
   br label %_ZN4llvm18LegalityPredicates3anyISt8functionIFbRKNS_13LegalityQueryEEEEET_S8_S8_.exit
@@ -10141,7 +10141,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm18RISCVLegalizerInfo17legalizeIntr
 
 18:                                               ; preds = %3
   %19 = load ptr, ptr %1, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 24
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 24
   %21 = load ptr, ptr %20, align 8
   %22 = tail call noundef ptr @_ZNK4llvm12MachineInstr5getMFEv(ptr noundef nonnull align 8 dereferenceable(70) %2) #15
   %23 = getelementptr inbounds nuw i8, ptr %19, i64 8
@@ -10227,7 +10227,7 @@ declare void @_ZN4llvm12MachineInstr15eraseFromParentEv(ptr noundef nonnull alig
 define dso_local noundef zeroext i1 @_ZNK4llvm18RISCVLegalizerInfo19legalizeShlAshrLshrERNS_12MachineInstrERNS_16MachineIRBuilderERNS_19GISelChangeObserverE(ptr nocapture nonnull readnone align 8 %0, ptr noundef nonnull align 8 dereferenceable(70) %1, ptr noundef nonnull align 8 dereferenceable(88) %2, ptr noundef nonnull align 8 dereferenceable(72) %3) local_unnamed_addr #0 align 2 {
   %5 = alloca %"class.std::optional.281", align 8
   %6 = alloca %"class.llvm::DstOp", align 8
-  %7 = getelementptr inbounds i8, ptr %2, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %10 = load ptr, ptr %9, align 8
@@ -10325,7 +10325,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm18RISCVLegalizerInfo15legalizeVASt
   br i1 %19, label %20, label %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit
 
 20:                                               ; preds = %3
-  %21 = getelementptr inbounds i8, ptr %2, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %22 = load ptr, ptr %21, align 8
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 456
   %24 = and i32 %18, 2147483647
@@ -10546,7 +10546,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm18RISCVLegalizerInfo14legalizeVSca
   %44 = getelementptr inbounds i8, ptr %43, i64 48
   %45 = load ptr, ptr %44, align 8
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 24
-  %47 = getelementptr inbounds i8, ptr %45, i64 32
+  %47 = getelementptr inbounds nuw i8, ptr %45, i64 32
   %48 = load i32, ptr %47, align 8
   %49 = icmp ult i32 %48, 65
   %50 = load ptr, ptr %46, align 8
@@ -10823,7 +10823,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm18RISCVLegalizerInfo11legalizeExtE
   br i1 %22, label %23, label %.thread42
 
 23:                                               ; preds = %3
-  %24 = getelementptr inbounds i8, ptr %2, i64 24
+  %24 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %25 = load ptr, ptr %24, align 8
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 456
   %27 = and i32 %19, 2147483647
@@ -10964,7 +10964,7 @@ declare { ptr, ptr } @_ZN4llvm16MachineIRBuilder11buildSelectERKNS_5DstOpERKNS_5
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local noundef zeroext i1 @_ZNK4llvm18RISCVLegalizerInfo17legalizeLoadStoreERNS_12MachineInstrERNS_15LegalizerHelperERNS_16MachineIRBuilderE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(121064) %0, ptr noundef nonnull align 8 dereferenceable(70) %1, ptr noundef nonnull align 8 dereferenceable(48) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %3) local_unnamed_addr #0 align 2 {
-  %5 = getelementptr inbounds i8, ptr %3, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %6 = load ptr, ptr %5, align 8
   %7 = tail call noundef ptr @_ZNK4llvm12MachineInstr5getMFEv(ptr noundef nonnull align 8 dereferenceable(70) %1) #15
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -11126,7 +11126,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm18RISCVLegalizerInfo19legalizeSpla
   %31 = alloca %"class.llvm::DstOp", align 8
   %32 = alloca %"class.llvm::SrcOp", align 8
   %33 = alloca %"class.llvm::SrcOp", align 8
-  %34 = getelementptr inbounds i8, ptr %2, i64 24
+  %34 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %35 = load ptr, ptr %34, align 8
   %36 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %37 = load ptr, ptr %36, align 8
@@ -11653,7 +11653,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm18RISCVLegalizerInfo14legalizeCust
   %18 = alloca %"class.llvm::SrcOp", align 8
   %19 = alloca %"class.llvm::SrcOp", align 8
   %20 = load ptr, ptr %1, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   %22 = load ptr, ptr %21, align 8
   %23 = getelementptr inbounds nuw i8, ptr %2, i64 68
   %24 = load i16, ptr %23, align 4
@@ -11705,7 +11705,7 @@ _ZNK4llvm8Function10hasOptSizeEv.exit.thread:     ; preds = %28, %36, %_ZNK4llvm
   %42 = load ptr, ptr %41, align 8
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 24
   %44 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %45 = getelementptr inbounds i8, ptr %42, i64 32
+  %45 = getelementptr inbounds nuw i8, ptr %42, i64 32
   %46 = load i32, ptr %45, align 8
   store i32 %46, ptr %44, align 8
   %47 = icmp ult i32 %46, 65
@@ -11988,7 +11988,7 @@ _ZN4llvm5APIntD2Ev.exit56:                        ; preds = %_ZN4llvm5APIntD2Ev.
 
 _ZN4llvm5APIntD2Ev.exit58:                        ; preds = %_ZN4llvm5APIntD2Ev.exit56, %177, %180
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN4llvm16MachineIRBuilderE, i64 16), ptr %9, align 8
-  %181 = getelementptr inbounds i8, ptr %9, i64 32
+  %181 = getelementptr inbounds nuw i8, ptr %9, i64 32
   %182 = load ptr, ptr %181, align 8
   %.not.i.i.i.i.i.i = icmp eq ptr %182, null
   br i1 %.not.i.i.i.i.i.i, label %_ZN4llvm16MachineIRBuilderD2Ev.exit, label %183
@@ -12038,9 +12038,9 @@ define linkonce_odr hidden void @_ZN4llvm16MachineIRBuilderC2ERNS_12MachineInstr
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %7 = load ptr, ptr %6, align 8
   tail call void @_ZN4llvm16MachineIRBuilder5setMFERNS_15MachineFunctionE(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef nonnull align 8 dereferenceable(1041) %7) #15
-  %8 = getelementptr inbounds i8, ptr %0, i64 56
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store ptr %4, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 64
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr %1, ptr %9, align 8
   %10 = load ptr, ptr %3, align 8
   store ptr %10, ptr %8, align 8
@@ -12090,7 +12090,7 @@ define linkonce_odr hidden void @_ZN4llvm16MachineIRBuilderC2ERNS_12MachineInstr
 
 _ZNK4llvm12MachineInstr13getPCSectionsEv.exit.i:  ; preds = %24, %20, %15, %2
   %.0.i.i = phi ptr [ null, %2 ], [ null, %15 ], [ %42, %24 ], [ null, %20 ]
-  %43 = getelementptr inbounds i8, ptr %0, i64 40
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %.0.i.i, ptr %43, align 8
   %44 = load i64, ptr %12, align 8
   %45 = icmp ugt i64 %44, 7
@@ -12139,10 +12139,10 @@ _ZNK4llvm12MachineInstr13getPCSectionsEv.exit.i:  ; preds = %24, %20, %15, %2
 
 _ZN4llvm16MachineIRBuilder8setInstrERNS_12MachineInstrE.exit: ; preds = %_ZNK4llvm12MachineInstr13getPCSectionsEv.exit.i, %46, %51, %55
   %.0.i5.i = phi ptr [ null, %_ZNK4llvm12MachineInstr13getPCSectionsEv.exit.i ], [ null, %46 ], [ %76, %55 ], [ null, %51 ]
-  %77 = getelementptr inbounds i8, ptr %0, i64 48
+  %77 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr %.0.i5.i, ptr %77, align 8
   %78 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %79 = getelementptr inbounds i8, ptr %0, i64 32
+  %79 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %80 = icmp eq ptr %78, %79
   br i1 %80, label %_ZN4llvm16MachineIRBuilder11setDebugLocERKNS_8DebugLocE.exit, label %81
 
@@ -12367,7 +12367,7 @@ _ZN4llvm12LegalizeRuleC2ESt8functionIFbRKNS_13LegalityQueryEEENS_15LegalizeActio
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %25, i8 0, i64 32, i1 false)
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @_ZN4llvm23SmallVectorTemplateBaseINS_12LegalizeRuleELb0EE9push_backERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %27, ptr noundef nonnull align 8 dereferenceable(72) %4)
-  %28 = getelementptr inbounds i8, ptr %4, i64 56
+  %28 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %29 = load ptr, ptr %28, align 8
   %.not.i.i.i = icmp eq ptr %29, null
   br i1 %.not.i.i.i, label %_ZNSt8functionIFSt4pairIjN4llvm3LLTEERKNS1_13LegalityQueryEEED2Ev.exit.i, label %30
@@ -12437,7 +12437,7 @@ _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i: ; preds = %9, %2
   %18 = load i8, ptr %17, align 8
   store i8 %18, ptr %16, align 8
   %19 = getelementptr inbounds nuw i8, ptr %6, i64 40
-  %20 = getelementptr inbounds i8, ptr %3, i64 56
+  %20 = getelementptr inbounds nuw i8, ptr %3, i64 56
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %19, i8 0, i64 32, i1 false)
   %21 = load ptr, ptr %20, align 8
   %.not.i.i.not.i4.i = icmp eq ptr %21, null
@@ -12445,10 +12445,10 @@ _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i: ; preds = %9, %2
 
 22:                                               ; preds = %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i
   %23 = getelementptr inbounds nuw i8, ptr %3, i64 40
-  %24 = getelementptr inbounds i8, ptr %6, i64 64
-  %25 = getelementptr inbounds i8, ptr %6, i64 56
+  %24 = getelementptr inbounds nuw i8, ptr %6, i64 64
+  %25 = getelementptr inbounds nuw i8, ptr %6, i64 56
   %26 = tail call noundef zeroext i1 %21(ptr noundef nonnull align 8 dereferenceable(16) %19, ptr noundef nonnull align 8 dereferenceable(16) %23, i32 noundef 2) #15
-  %27 = getelementptr inbounds i8, ptr %3, i64 64
+  %27 = getelementptr inbounds nuw i8, ptr %3, i64 64
   %28 = load ptr, ptr %27, align 8
   store ptr %28, ptr %24, align 8
   %29 = load ptr, ptr %20, align 8
@@ -12557,19 +12557,19 @@ _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2EOS5_.exit.i.i.i.i.i.i.i: ; preds =
   %16 = load i8, ptr %15, align 8
   store i8 %16, ptr %14, align 8
   %17 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i, i64 40
-  %18 = getelementptr inbounds i8, ptr %.09.i.i.i.i.i, i64 64
-  %19 = getelementptr inbounds i8, ptr %.sroa.04.08.i.i.i.i.i, i64 64
+  %18 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i, i64 64
+  %19 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i.i, i64 64
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %17, i8 0, i64 24, i1 false)
   %20 = load ptr, ptr %19, align 8
   store ptr %20, ptr %18, align 8
-  %21 = getelementptr inbounds i8, ptr %.sroa.04.08.i.i.i.i.i, i64 56
+  %21 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i.i, i64 56
   %22 = load ptr, ptr %21, align 8
   %.not.i.i.not.i4.i.i.i.i.i.i.i = icmp eq ptr %22, null
   br i1 %.not.i.i.not.i4.i.i.i.i.i.i.i, label %_ZSt10_ConstructIN4llvm12LegalizeRuleEJS1_EEvPT_DpOT0_.exit.i.i.i.i.i, label %23
 
 23:                                               ; preds = %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2EOS5_.exit.i.i.i.i.i.i.i
   %24 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i.i, i64 40
-  %25 = getelementptr inbounds i8, ptr %.09.i.i.i.i.i, i64 56
+  %25 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i, i64 56
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %17, ptr noundef nonnull align 8 dereferenceable(16) %24, i64 16, i1 false)
   %26 = load ptr, ptr %21, align 8
   store ptr %26, ptr %25, align 8
@@ -12799,8 +12799,8 @@ _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i: ; preds = %30, %_ZNS
   br i1 %.not.i.i.not.i1.i, label %_ZN4llvm12LegalizeRuleC2ESt8functionIFbRKNS_13LegalityQueryEEENS_15LegalizeActions14LegalizeActionES1_IFSt4pairIjNS_3LLTEES4_EE.exit, label %41
 
 41:                                               ; preds = %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i
-  %42 = getelementptr inbounds i8, ptr %5, i64 64
-  %43 = getelementptr inbounds i8, ptr %5, i64 56
+  %42 = getelementptr inbounds nuw i8, ptr %5, i64 64
+  %43 = getelementptr inbounds nuw i8, ptr %5, i64 56
   %44 = call noundef zeroext i1 %37(ptr noundef nonnull align 8 dereferenceable(16) %39, ptr noundef nonnull align 8 dereferenceable(16) %7, i32 noundef 2) #15
   %45 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %46 = load ptr, ptr %45, align 8
@@ -12812,7 +12812,7 @@ _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i: ; preds = %30, %_ZNS
 _ZN4llvm12LegalizeRuleC2ESt8functionIFbRKNS_13LegalityQueryEEENS_15LegalizeActions14LegalizeActionES1_IFSt4pairIjNS_3LLTEES4_EE.exit: ; preds = %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i, %41
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @_ZN4llvm23SmallVectorTemplateBaseINS_12LegalizeRuleELb0EE9push_backERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %48, ptr noundef nonnull align 8 dereferenceable(72) %5)
-  %49 = getelementptr inbounds i8, ptr %5, i64 56
+  %49 = getelementptr inbounds nuw i8, ptr %5, i64 56
   %50 = load ptr, ptr %49, align 8
   %.not.i.i.i = icmp eq ptr %50, null
   br i1 %.not.i.i.i, label %_ZNSt8functionIFSt4pairIjN4llvm3LLTEERKNS1_13LegalityQueryEEED2Ev.exit.i, label %51
@@ -13665,7 +13665,7 @@ _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i: ; preds = %13, %6
   br i1 %.not.i.i.not.i1.i, label %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit2.i, label %25
 
 25:                                               ; preds = %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i
-  %26 = getelementptr inbounds i8, ptr %7, i64 56
+  %26 = getelementptr inbounds nuw i8, ptr %7, i64 56
   %27 = call noundef zeroext i1 %24(ptr noundef nonnull align 8 dereferenceable(16) %22, ptr noundef nonnull align 8 dereferenceable(16) %10, i32 noundef 2) #15, !noalias !215
   %28 = getelementptr inbounds nuw i8, ptr %10, i64 24
   %29 = load ptr, ptr %28, align 8, !noalias !215
@@ -13699,14 +13699,14 @@ _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit2.i: ; preds = %25, %_ZN
 
 _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2EOS5_.exit.i.i.i.i.i: ; preds = %38, %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit2.i
   %40 = getelementptr inbounds nuw i8, ptr %36, i64 32
-  %41 = getelementptr inbounds i8, ptr %36, i64 56
+  %41 = getelementptr inbounds nuw i8, ptr %36, i64 56
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %40, i8 0, i64 24, i1 false), !noalias !215
   store ptr %32, ptr %41, align 8, !noalias !215
   %.not.i.i.not.i3.i.i.i.i.i = icmp eq ptr %31, null
   br i1 %.not.i.i.not.i3.i.i.i.i.i, label %_ZN4llvm18LegalityPredicates3allISt8functionIFbRKNS_13LegalityQueryEEEEET_S8_S8_.exit, label %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2IZNS0_18LegalityPredicates3allIS5_EET_S9_S9_EUlS3_E_vEEOS9_.exit.i
 
 _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2IZNS0_18LegalityPredicates3allIS5_EET_S9_S9_EUlS3_E_vEEOS9_.exit.i: ; preds = %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2EOS5_.exit.i.i.i.i.i
-  %42 = getelementptr inbounds i8, ptr %36, i64 48
+  %42 = getelementptr inbounds nuw i8, ptr %36, i64 48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %40, ptr noundef nonnull align 8 dereferenceable(16) %22, i64 16, i1 false), !noalias !215
   store ptr %31, ptr %42, align 8, !noalias !215
   br label %_ZN4llvm18LegalityPredicates3allISt8functionIFbRKNS_13LegalityQueryEEEEET_S8_S8_.exit
@@ -14124,7 +14124,7 @@ _ZNKSt8functionIFbRKN4llvm13LegalityQueryEEEclES3_.exit.i.i.i: ; preds = %2
   br i1 %9, label %10, label %_ZSt10__invoke_rIbRZN4llvm18LegalityPredicates3allISt8functionIFbRKNS0_13LegalityQueryEEEEET_S9_S9_EUlS6_E_JS6_EENSt9enable_ifIX16is_invocable_r_vIS9_T0_DpT1_EES9_E4typeEOSD_DpOSE_.exit
 
 10:                                               ; preds = %_ZNKSt8functionIFbRKN4llvm13LegalityQueryEEEclES3_.exit.i.i.i
-  %11 = getelementptr inbounds i8, ptr %3, i64 48
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %12 = load ptr, ptr %11, align 8
   %.not.i.i3.i.i.i = icmp eq ptr %12, null
   br i1 %.not.i.i3.i.i.i, label %13, label %_ZNKSt8functionIFbRKN4llvm13LegalityQueryEEEclES3_.exit4.i.i.i
@@ -14135,7 +14135,7 @@ _ZNKSt8functionIFbRKN4llvm13LegalityQueryEEEclES3_.exit.i.i.i: ; preds = %2
 
 _ZNKSt8functionIFbRKN4llvm13LegalityQueryEEEclES3_.exit4.i.i.i: ; preds = %10
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  %15 = getelementptr inbounds i8, ptr %3, i64 56
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 56
   %16 = load ptr, ptr %15, align 8
   %17 = tail call noundef zeroext i1 %16(ptr noundef nonnull align 8 dereferenceable(16) %14, ptr noundef nonnull align 8 dereferenceable(40) %1) #15
   br label %_ZSt10__invoke_rIbRZN4llvm18LegalityPredicates3allISt8functionIFbRKNS0_13LegalityQueryEEEEET_S9_S9_EUlS6_E_JS6_EENSt9enable_ifIX16is_invocable_r_vIS9_T0_DpT1_EES9_E4typeEOSD_DpOSE_.exit
@@ -14209,7 +14209,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNSt14_Function_base13_Base_mana
 
 _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i.i.i: ; preds = %12, %7
   %19 = getelementptr inbounds nuw i8, ptr %9, i64 32
-  %20 = getelementptr inbounds i8, ptr %8, i64 48
+  %20 = getelementptr inbounds nuw i8, ptr %8, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %19, i8 0, i64 32, i1 false)
   %21 = load ptr, ptr %20, align 8
   %.not.i.i.not.i3.i.i.i = icmp eq ptr %21, null
@@ -14217,10 +14217,10 @@ _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i.i.i: ; preds = %12, %
 
 22:                                               ; preds = %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i.i.i
   %23 = getelementptr inbounds nuw i8, ptr %8, i64 32
-  %24 = getelementptr inbounds i8, ptr %9, i64 56
-  %25 = getelementptr inbounds i8, ptr %9, i64 48
+  %24 = getelementptr inbounds nuw i8, ptr %9, i64 56
+  %25 = getelementptr inbounds nuw i8, ptr %9, i64 48
   %26 = tail call noundef zeroext i1 %21(ptr noundef nonnull align 8 dereferenceable(16) %19, ptr noundef nonnull align 8 dereferenceable(16) %23, i32 noundef 2) #15
-  %27 = getelementptr inbounds i8, ptr %8, i64 56
+  %27 = getelementptr inbounds nuw i8, ptr %8, i64 56
   %28 = load ptr, ptr %27, align 8
   store ptr %28, ptr %24, align 8
   %29 = load ptr, ptr %20, align 8
@@ -14237,7 +14237,7 @@ _ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates3allISt8function
   br i1 %32, label %_ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates3allISt8functionIFbRKNS1_13LegalityQueryEEEEET_SA_SA_EUlS7_E_E10_M_destroyERSt9_Any_dataSt17integral_constantIbLb0EE.exit, label %33
 
 33:                                               ; preds = %30
-  %34 = getelementptr inbounds i8, ptr %31, i64 48
+  %34 = getelementptr inbounds nuw i8, ptr %31, i64 48
   %35 = load ptr, ptr %34, align 8
   %.not.i.i.i.i = icmp eq ptr %35, null
   br i1 %.not.i.i.i.i, label %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEED2Ev.exit.i.i, label %36
@@ -14284,7 +14284,7 @@ _ZNKSt8functionIFbRKN4llvm13LegalityQueryEEEclES3_.exit.i.i.i: ; preds = %2
   br i1 %9, label %_ZSt10__invoke_rIbRZN4llvm18LegalityPredicates3anyISt8functionIFbRKNS0_13LegalityQueryEEEEET_S9_S9_EUlS6_E_JS6_EENSt9enable_ifIX16is_invocable_r_vIS9_T0_DpT1_EES9_E4typeEOSD_DpOSE_.exit, label %10
 
 10:                                               ; preds = %_ZNKSt8functionIFbRKN4llvm13LegalityQueryEEEclES3_.exit.i.i.i
-  %11 = getelementptr inbounds i8, ptr %3, i64 48
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %12 = load ptr, ptr %11, align 8
   %.not.i.i3.i.i.i = icmp eq ptr %12, null
   br i1 %.not.i.i3.i.i.i, label %13, label %_ZNKSt8functionIFbRKN4llvm13LegalityQueryEEEclES3_.exit4.i.i.i
@@ -14295,7 +14295,7 @@ _ZNKSt8functionIFbRKN4llvm13LegalityQueryEEEclES3_.exit.i.i.i: ; preds = %2
 
 _ZNKSt8functionIFbRKN4llvm13LegalityQueryEEEclES3_.exit4.i.i.i: ; preds = %10
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  %15 = getelementptr inbounds i8, ptr %3, i64 56
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 56
   %16 = load ptr, ptr %15, align 8
   %17 = tail call noundef zeroext i1 %16(ptr noundef nonnull align 8 dereferenceable(16) %14, ptr noundef nonnull align 8 dereferenceable(40) %1) #15
   br label %_ZSt10__invoke_rIbRZN4llvm18LegalityPredicates3anyISt8functionIFbRKNS0_13LegalityQueryEEEEET_S9_S9_EUlS6_E_JS6_EENSt9enable_ifIX16is_invocable_r_vIS9_T0_DpT1_EES9_E4typeEOSD_DpOSE_.exit
@@ -14363,7 +14363,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNSt14_Function_base13_Base_mana
 
 _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i.i.i: ; preds = %12, %7
   %19 = getelementptr inbounds nuw i8, ptr %9, i64 32
-  %20 = getelementptr inbounds i8, ptr %8, i64 48
+  %20 = getelementptr inbounds nuw i8, ptr %8, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %19, i8 0, i64 32, i1 false)
   %21 = load ptr, ptr %20, align 8
   %.not.i.i.not.i3.i.i.i = icmp eq ptr %21, null
@@ -14371,10 +14371,10 @@ _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i.i.i: ; preds = %12, %
 
 22:                                               ; preds = %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i.i.i
   %23 = getelementptr inbounds nuw i8, ptr %8, i64 32
-  %24 = getelementptr inbounds i8, ptr %9, i64 56
-  %25 = getelementptr inbounds i8, ptr %9, i64 48
+  %24 = getelementptr inbounds nuw i8, ptr %9, i64 56
+  %25 = getelementptr inbounds nuw i8, ptr %9, i64 48
   %26 = tail call noundef zeroext i1 %21(ptr noundef nonnull align 8 dereferenceable(16) %19, ptr noundef nonnull align 8 dereferenceable(16) %23, i32 noundef 2) #15
-  %27 = getelementptr inbounds i8, ptr %8, i64 56
+  %27 = getelementptr inbounds nuw i8, ptr %8, i64 56
   %28 = load ptr, ptr %27, align 8
   store ptr %28, ptr %24, align 8
   %29 = load ptr, ptr %20, align 8
@@ -14391,7 +14391,7 @@ _ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates3anyISt8function
   br i1 %32, label %_ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates3anyISt8functionIFbRKNS1_13LegalityQueryEEEEET_SA_SA_EUlS7_E_E10_M_destroyERSt9_Any_dataSt17integral_constantIbLb0EE.exit, label %33
 
 33:                                               ; preds = %30
-  %34 = getelementptr inbounds i8, ptr %31, i64 48
+  %34 = getelementptr inbounds nuw i8, ptr %31, i64 48
   %35 = load ptr, ptr %34, align 8
   %.not.i.i.i.i = icmp eq ptr %35, null
   br i1 %.not.i.i.i.i, label %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEED2Ev.exit.i.i, label %36

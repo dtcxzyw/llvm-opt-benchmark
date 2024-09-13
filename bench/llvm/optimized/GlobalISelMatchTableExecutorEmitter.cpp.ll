@@ -980,7 +980,7 @@ _ZNSt8_Rb_treeIPN4llvm6RecordESt4pairIKS2_NS0_20SubtargetFeatureInfoEESt10_Selec
 
 _ZNSt3mapIPN4llvm6RecordENS0_20SubtargetFeatureInfoENS0_14LessRecordByIDESaISt4pairIKS2_S3_EEE4findERS6_.exit: ; preds = %.lr.ph185, %_ZNSt8_Rb_treeIPN4llvm6RecordESt4pairIKS2_NS0_20SubtargetFeatureInfoEESt10_Select1stIS6_ENS0_14LessRecordByIDESaIS6_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS6_EPSt18_Rb_tree_node_baseRS4_.exit.i.i, %418
   %.sroa.0.0.i.i = phi ptr [ %25, %_ZNSt8_Rb_treeIPN4llvm6RecordESt4pairIKS2_NS0_20SubtargetFeatureInfoEESt10_Select1stIS6_ENS0_14LessRecordByIDESaIS6_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS6_EPSt18_Rb_tree_node_baseRS4_.exit.i.i ], [ %25, %.lr.ph185 ], [ %spec.select.i.i, %418 ]
-  %424 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i, i64 40
+  %424 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i, i64 40
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7)
   %425 = load ptr, ptr %424, align 8, !noalias !10

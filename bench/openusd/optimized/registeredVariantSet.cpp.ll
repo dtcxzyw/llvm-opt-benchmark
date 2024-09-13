@@ -139,7 +139,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit11.i.i.i.i: ; preds = 
 .noexc3.i.i.i.i.i:                                ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit11.i.i.i.i
   store ptr %38, ptr %10, align 8
   %39 = getelementptr inbounds i8, ptr %38, i64 24
-  %40 = getelementptr inbounds i8, ptr %5, i64 40
+  %40 = getelementptr inbounds nuw i8, ptr %5, i64 40
   store ptr %39, ptr %40, align 8
   br label %.lr.ph.i.i.i.i.i.i.i.i.i.i
 
@@ -176,7 +176,7 @@ _ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__7TfTokenEJRKS1_EEvPT_DpOT0_.
   br i1 %.not.i.i.i.i.i.i.i.i.i.i, label %54, label %.lr.ph.i.i.i.i.i.i.i.i.i.i, !llvm.loop !4
 
 54:                                               ; preds = %_ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__7TfTokenEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i.i.i.i.i.i
-  %55 = getelementptr inbounds i8, ptr %5, i64 32
+  %55 = getelementptr inbounds nuw i8, ptr %5, i64 32
   store ptr %53, ptr %55, align 8
   br label %56
 

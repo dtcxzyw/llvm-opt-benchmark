@@ -300,7 +300,7 @@ define dso_local { i32, ptr } @_ZN5clang17MemorizeStatCalls7getStatEN4llvm9Strin
   %22 = load ptr, ptr %.fca.0.extract.i, align 8
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %24 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %23, ptr noundef nonnull align 8 dereferenceable(32) %3) #12
-  %25 = getelementptr inbounds i8, ptr %22, i64 40
+  %25 = getelementptr inbounds nuw i8, ptr %22, i64 40
   %26 = getelementptr inbounds nuw i8, ptr %3, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(49) %25, ptr noundef nonnull align 8 dereferenceable(49) %26, i64 49, i1 false)
   br label %27
@@ -334,13 +334,13 @@ declare void @__cxa_pure_virtual() unnamed_addr
 define linkonce_odr hidden void @_ZN5clang17MemorizeStatCallsD2Ev(ptr noundef nonnull align 8 dereferenceable(128) %0) unnamed_addr #1 comdat align 2 {
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN5clang17MemorizeStatCallsE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 20
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %4 = load i32, ptr %3, align 4
   %5 = icmp eq i32 %4, 0
   br i1 %5, label %_ZN4llvm9StringMapINS_3vfs6StatusENS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EEEED2Ev.exit, label %6
 
 6:                                                ; preds = %1
-  %7 = getelementptr inbounds i8, ptr %0, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load i32, ptr %7, align 8
   %.not10.i = icmp eq i32 %8, 0
   br i1 %.not10.i, label %_ZN4llvm9StringMapINS_3vfs6StatusENS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EEEED2Ev.exit, label %.lr.ph.preheader.i
@@ -382,13 +382,13 @@ _ZN4llvm9StringMapINS_3vfs6StatusENS_20BumpPtrAllocatorImplINS_15MallocAllocator
 define linkonce_odr hidden void @_ZN5clang17MemorizeStatCallsD0Ev(ptr noundef nonnull align 8 dereferenceable(128) %0) unnamed_addr #1 comdat align 2 {
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN5clang17MemorizeStatCallsE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 20
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %4 = load i32, ptr %3, align 4
   %5 = icmp eq i32 %4, 0
   br i1 %5, label %_ZN5clang17MemorizeStatCallsD2Ev.exit, label %6
 
 6:                                                ; preds = %1
-  %7 = getelementptr inbounds i8, ptr %0, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load i32, ptr %7, align 8
   %.not10.i.i = icmp eq i32 %8, 0
   br i1 %.not10.i.i, label %_ZN5clang17MemorizeStatCallsD2Ev.exit, label %.lr.ph.preheader.i.i
@@ -603,11 +603,11 @@ _ZN4llvm14StringMapEntryINS_3vfs6StatusEE6createINS_20BumpPtrAllocatorImplINS_15
   %37 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %37, i8 0, i64 88, i1 false)
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %37) #12
-  %38 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 56
+  %38 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 56
   store i64 0, ptr %38, align 8
-  %39 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 80
+  %39 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 80
   store i32 0, ptr %39, align 8
-  %40 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 88
+  %40 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 88
   store i8 0, ptr %40, align 8
   store ptr %.0.i.i.i.i, ptr %8, align 8
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 12

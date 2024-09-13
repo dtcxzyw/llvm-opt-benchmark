@@ -892,7 +892,7 @@ define linkonce_odr void @_ZN10OpenSubdiv6v3_6_03Far16StencilTableRealIfED2Ev(pt
   br i1 %.not.i.i.i, label %_ZNSt6vectorIfSaIfEED2Ev.exit, label %4
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 104
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %6 = load ptr, ptr %5, align 8
   %7 = ptrtoint ptr %6 to i64
   %8 = ptrtoint ptr %3 to i64
@@ -907,7 +907,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %1, %4
   br i1 %.not.i.i.i1, label %_ZNSt6vectorIiSaIiEED2Ev.exit, label %12
 
 12:                                               ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit
-  %13 = getelementptr inbounds i8, ptr %0, i64 80
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %14 = load ptr, ptr %13, align 8
   %15 = ptrtoint ptr %14 to i64
   %16 = ptrtoint ptr %11 to i64
@@ -922,7 +922,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %_ZNSt6vectorIfSaIfE
   br i1 %.not.i.i.i2, label %_ZNSt6vectorIiSaIiEED2Ev.exit3, label %20
 
 20:                                               ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit
-  %21 = getelementptr inbounds i8, ptr %0, i64 56
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %22 = load ptr, ptr %21, align 8
   %23 = ptrtoint ptr %22 to i64
   %24 = ptrtoint ptr %19 to i64
@@ -937,7 +937,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit3:                   ; preds = %_ZNSt6vectorIiSaIiE
   br i1 %.not.i.i.i4, label %_ZNSt6vectorIiSaIiEED2Ev.exit5, label %28
 
 28:                                               ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit3
-  %29 = getelementptr inbounds i8, ptr %0, i64 32
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %30 = load ptr, ptr %29, align 8
   %31 = ptrtoint ptr %30 to i64
   %32 = ptrtoint ptr %27 to i64
@@ -958,7 +958,7 @@ define linkonce_odr void @_ZN10OpenSubdiv6v3_6_03Far16StencilTableRealIfED0Ev(pt
   br i1 %.not.i.i.i.i, label %_ZNSt6vectorIfSaIfEED2Ev.exit.i, label %4
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 104
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %6 = load ptr, ptr %5, align 8
   %7 = ptrtoint ptr %6 to i64
   %8 = ptrtoint ptr %3 to i64
@@ -973,7 +973,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit.i:                  ; preds = %4, %1
   br i1 %.not.i.i.i1.i, label %_ZNSt6vectorIiSaIiEED2Ev.exit.i, label %12
 
 12:                                               ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit.i
-  %13 = getelementptr inbounds i8, ptr %0, i64 80
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %14 = load ptr, ptr %13, align 8
   %15 = ptrtoint ptr %14 to i64
   %16 = ptrtoint ptr %11 to i64
@@ -988,7 +988,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit.i:                  ; preds = %12, %_ZNSt6vectorIf
   br i1 %.not.i.i.i2.i, label %_ZNSt6vectorIiSaIiEED2Ev.exit3.i, label %20
 
 20:                                               ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit.i
-  %21 = getelementptr inbounds i8, ptr %0, i64 56
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %22 = load ptr, ptr %21, align 8
   %23 = ptrtoint ptr %22 to i64
   %24 = ptrtoint ptr %19 to i64
@@ -1003,7 +1003,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit3.i:                 ; preds = %20, %_ZNSt6vectorIi
   br i1 %.not.i.i.i4.i, label %_ZN10OpenSubdiv6v3_6_03Far16StencilTableRealIfED2Ev.exit, label %28
 
 28:                                               ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit3.i
-  %29 = getelementptr inbounds i8, ptr %0, i64 32
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %30 = load ptr, ptr %29, align 8
   %31 = ptrtoint ptr %30 to i64
   %32 = ptrtoint ptr %27 to i64
@@ -7892,7 +7892,7 @@ define weak_odr noundef ptr @_ZN10OpenSubdiv6v3_6_03Far23StencilTableFactoryReal
 ._crit_edge90:                                    ; preds = %7, %11
   %12 = phi i32 [ %.05178, %11 ], [ %10, %7 ]
   %13 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %14 = getelementptr inbounds i8, ptr %6, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %15 = load ptr, ptr %14, align 8
   %16 = load ptr, ptr %13, align 8
   %17 = ptrtoint ptr %15 to i64
@@ -7902,7 +7902,7 @@ define weak_odr noundef ptr @_ZN10OpenSubdiv6v3_6_03Far23StencilTableFactoryReal
   %21 = trunc i64 %20 to i32
   %22 = add nsw i32 %.05277, %21
   %23 = getelementptr inbounds nuw i8, ptr %6, i64 64
-  %24 = getelementptr inbounds i8, ptr %6, i64 72
+  %24 = getelementptr inbounds nuw i8, ptr %6, i64 72
   %25 = load ptr, ptr %24, align 8
   %26 = load ptr, ptr %23, align 8
   %27 = ptrtoint ptr %25 to i64
@@ -7952,14 +7952,14 @@ define weak_odr noundef ptr @_ZN10OpenSubdiv6v3_6_03Far23StencilTableFactoryReal
 
 46:                                               ; preds = %.lr.ph
   %47 = getelementptr inbounds nuw i8, ptr %45, i64 16
-  %48 = getelementptr inbounds i8, ptr %45, i64 24
+  %48 = getelementptr inbounds nuw i8, ptr %45, i64 24
   %49 = load ptr, ptr %48, align 8
   %50 = load ptr, ptr %47, align 8
   %51 = ptrtoint ptr %49 to i64
   %52 = ptrtoint ptr %50 to i64
   %53 = sub i64 %51, %52
   %54 = getelementptr inbounds nuw i8, ptr %45, i64 64
-  %55 = getelementptr inbounds i8, ptr %45, i64 72
+  %55 = getelementptr inbounds nuw i8, ptr %45, i64 72
   %56 = load ptr, ptr %55, align 8
   %57 = load ptr, ptr %54, align 8
   %58 = ptrtoint ptr %56 to i64
@@ -7993,7 +7993,7 @@ define weak_odr noundef ptr @_ZN10OpenSubdiv6v3_6_03Far23StencilTableFactoryReal
 ._crit_edge:                                      ; preds = %71
   %.pre91 = load ptr, ptr %38, align 8
   store i32 %.1, ptr %37, align 8
-  %72 = getelementptr inbounds i8, ptr %36, i64 24
+  %72 = getelementptr inbounds nuw i8, ptr %36, i64 24
   %73 = load ptr, ptr %72, align 8
   %74 = ptrtoint ptr %73 to i64
   %75 = ptrtoint ptr %.pre91 to i64
@@ -8001,7 +8001,7 @@ define weak_odr noundef ptr @_ZN10OpenSubdiv6v3_6_03Far23StencilTableFactoryReal
   %77 = getelementptr inbounds nuw i8, ptr %36, i64 40
   %sext.i = shl i64 %76, 30
   %78 = ashr exact i64 %sext.i, 32
-  %79 = getelementptr inbounds i8, ptr %36, i64 48
+  %79 = getelementptr inbounds nuw i8, ptr %36, i64 48
   %80 = load ptr, ptr %79, align 8
   %81 = load ptr, ptr %77, align 8
   %82 = ptrtoint ptr %80 to i64
@@ -8070,7 +8070,7 @@ _ZN10OpenSubdiv6v3_6_03Far16StencilTableRealIfE15generateOffsetsEv.exit: ; preds
 define linkonce_odr void @_ZN10OpenSubdiv6v3_6_03Far16StencilTableRealIfE6resizeEii(ptr noundef nonnull align 8 dereferenceable(112) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = sext i32 %1 to i64
-  %6 = getelementptr inbounds i8, ptr %0, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = load ptr, ptr %6, align 8
   %8 = load ptr, ptr %4, align 8
   %9 = ptrtoint ptr %7 to i64
@@ -8101,7 +8101,7 @@ define linkonce_odr void @_ZN10OpenSubdiv6v3_6_03Far16StencilTableRealIfE6resize
 _ZNSt6vectorIiSaIiEE6resizeEm.exit:               ; preds = %14, %16, %18, %20
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %22 = sext i32 %2 to i64
-  %23 = getelementptr inbounds i8, ptr %0, i64 72
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %24 = load ptr, ptr %23, align 8
   %25 = load ptr, ptr %21, align 8
   %26 = ptrtoint ptr %24 to i64
@@ -8131,7 +8131,7 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit:               ; preds = %14, %16, %18, %20
 
 _ZNSt6vectorIiSaIiEE6resizeEm.exit4:              ; preds = %31, %33, %35, %37
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %39 = getelementptr inbounds i8, ptr %0, i64 96
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %40 = load ptr, ptr %39, align 8
   %41 = load ptr, ptr %38, align 8
   %42 = ptrtoint ptr %40 to i64
@@ -8387,7 +8387,7 @@ define weak_odr noundef ptr @_ZN10OpenSubdiv6v3_6_03Far23StencilTableFactoryReal
 
 11:                                               ; preds = %5
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %13 = getelementptr inbounds i8, ptr %2, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %14 = load ptr, ptr %13, align 8
   %15 = load ptr, ptr %12, align 8
   %16 = ptrtoint ptr %14 to i64
@@ -8420,7 +8420,7 @@ define weak_odr noundef ptr @_ZN10OpenSubdiv6v3_6_03Far23StencilTableFactoryReal
 
 34:                                               ; preds = %31
   %35 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %36 = getelementptr inbounds i8, ptr %1, i64 24
+  %36 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %37 = load ptr, ptr %36, align 8
   %38 = load ptr, ptr %35, align 8
   %39 = ptrtoint ptr %37 to i64
@@ -8449,7 +8449,7 @@ define weak_odr noundef ptr @_ZN10OpenSubdiv6v3_6_03Far23StencilTableFactoryReal
 
 51:                                               ; preds = %34
   %52 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  %53 = getelementptr inbounds i8, ptr %1, i64 72
+  %53 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %54 = load ptr, ptr %53, align 8
   %55 = load ptr, ptr %52, align 8
   %56 = ptrtoint ptr %54 to i64
@@ -8782,7 +8782,7 @@ define weak_odr noundef ptr @_ZN10OpenSubdiv6v3_6_03Far23StencilTableFactoryReal
   br i1 %exitcond192.not, label %._crit_edge166, label %.lr.ph165, !llvm.loop !96
 
 ._crit_edge166:                                   ; preds = %._crit_edge, %161
-  %201 = getelementptr inbounds i8, ptr %155, i64 24
+  %201 = getelementptr inbounds nuw i8, ptr %155, i64 24
   %202 = load ptr, ptr %201, align 8
   %203 = load ptr, ptr %158, align 8
   %204 = ptrtoint ptr %202 to i64
@@ -8791,7 +8791,7 @@ define weak_odr noundef ptr @_ZN10OpenSubdiv6v3_6_03Far23StencilTableFactoryReal
   %207 = getelementptr inbounds nuw i8, ptr %155, i64 40
   %sext.i = shl i64 %206, 30
   %208 = ashr exact i64 %sext.i, 32
-  %209 = getelementptr inbounds i8, ptr %155, i64 48
+  %209 = getelementptr inbounds nuw i8, ptr %155, i64 48
   %210 = load ptr, ptr %209, align 8
   %211 = load ptr, ptr %207, align 8
   %212 = ptrtoint ptr %210 to i64
@@ -8876,7 +8876,7 @@ define linkonce_odr void @_ZN10OpenSubdiv6v3_6_03Far16StencilTableRealIfEC2ERKS3
   store i32 %5, ptr %3, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %8 = getelementptr inbounds i8, ptr %1, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %9 = load ptr, ptr %8, align 8
   %10 = load ptr, ptr %7, align 8
   %11 = ptrtoint ptr %9 to i64
@@ -8902,10 +8902,10 @@ _ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i: ; preds = %15
 18:                                               ; preds = %_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i, %2
   %19 = phi ptr [ null, %2 ], [ %17, %_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i ]
   store ptr %19, ptr %6, align 8
-  %20 = getelementptr inbounds i8, ptr %0, i64 24
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %19, ptr %20, align 8
   %21 = getelementptr inbounds i32, ptr %19, i64 %14
-  %22 = getelementptr inbounds i8, ptr %0, i64 32
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %21, ptr %22, align 8
   %23 = load ptr, ptr %7, align 8
   %24 = load ptr, ptr %8, align 8
@@ -8924,7 +8924,7 @@ _ZNSt6vectorIiSaIiEEC2ERKS1_.exit:                ; preds = %18, %28
   store ptr %29, ptr %20, align 8
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %32 = getelementptr inbounds i8, ptr %1, i64 48
+  %32 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %33 = load ptr, ptr %32, align 8
   %34 = load ptr, ptr %31, align 8
   %35 = ptrtoint ptr %33 to i64
@@ -8953,10 +8953,10 @@ _ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i12: ; preds = %39
 .noexc15:                                         ; preds = %_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i12, %_ZNSt6vectorIiSaIiEEC2ERKS1_.exit
   %42 = phi ptr [ null, %_ZNSt6vectorIiSaIiEEC2ERKS1_.exit ], [ %41, %_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i12 ]
   store ptr %42, ptr %30, align 8
-  %43 = getelementptr inbounds i8, ptr %0, i64 48
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr %42, ptr %43, align 8
   %44 = getelementptr inbounds i32, ptr %42, i64 %38
-  %45 = getelementptr inbounds i8, ptr %0, i64 56
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store ptr %44, ptr %45, align 8
   %46 = load ptr, ptr %31, align 8
   %47 = load ptr, ptr %32, align 8
@@ -8975,7 +8975,7 @@ _ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i12: ; preds = %39
   store ptr %53, ptr %43, align 8
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %55 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  %56 = getelementptr inbounds i8, ptr %1, i64 72
+  %56 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %57 = load ptr, ptr %56, align 8
   %58 = load ptr, ptr %55, align 8
   %59 = ptrtoint ptr %57 to i64
@@ -9004,10 +9004,10 @@ _ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i18: ; preds = %63
 .noexc22:                                         ; preds = %_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i18, %52
   %66 = phi ptr [ null, %52 ], [ %65, %_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i18 ]
   store ptr %66, ptr %54, align 8
-  %67 = getelementptr inbounds i8, ptr %0, i64 72
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store ptr %66, ptr %67, align 8
   %68 = getelementptr inbounds i32, ptr %66, i64 %62
-  %69 = getelementptr inbounds i8, ptr %0, i64 80
+  %69 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store ptr %68, ptr %69, align 8
   %70 = load ptr, ptr %55, align 8
   %71 = load ptr, ptr %56, align 8
@@ -9026,7 +9026,7 @@ _ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i18: ; preds = %63
   store ptr %77, ptr %67, align 8
   %78 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %79 = getelementptr inbounds nuw i8, ptr %1, i64 88
-  %80 = getelementptr inbounds i8, ptr %1, i64 96
+  %80 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %81 = load ptr, ptr %80, align 8
   %82 = load ptr, ptr %79, align 8
   %83 = ptrtoint ptr %81 to i64
@@ -9055,10 +9055,10 @@ _ZNSt16allocator_traitsISaIfEE8allocateERS0_m.exit.i.i.i.i: ; preds = %87
 .noexc28:                                         ; preds = %_ZNSt16allocator_traitsISaIfEE8allocateERS0_m.exit.i.i.i.i, %76
   %90 = phi ptr [ null, %76 ], [ %89, %_ZNSt16allocator_traitsISaIfEE8allocateERS0_m.exit.i.i.i.i ]
   store ptr %90, ptr %78, align 8
-  %91 = getelementptr inbounds i8, ptr %0, i64 96
+  %91 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store ptr %90, ptr %91, align 8
   %92 = getelementptr inbounds float, ptr %90, i64 %86
-  %93 = getelementptr inbounds i8, ptr %0, i64 104
+  %93 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store ptr %92, ptr %93, align 8
   %94 = load ptr, ptr %79, align 8
   %95 = load ptr, ptr %80, align 8
@@ -9794,7 +9794,7 @@ define linkonce_odr void @_ZN10OpenSubdiv6v3_6_03Far16StencilTableRealIdED2Ev(pt
   br i1 %.not.i.i.i, label %_ZNSt6vectorIdSaIdEED2Ev.exit, label %4
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 104
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %6 = load ptr, ptr %5, align 8
   %7 = ptrtoint ptr %6 to i64
   %8 = ptrtoint ptr %3 to i64
@@ -9809,7 +9809,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit:                    ; preds = %1, %4
   br i1 %.not.i.i.i1, label %_ZNSt6vectorIiSaIiEED2Ev.exit, label %12
 
 12:                                               ; preds = %_ZNSt6vectorIdSaIdEED2Ev.exit
-  %13 = getelementptr inbounds i8, ptr %0, i64 80
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %14 = load ptr, ptr %13, align 8
   %15 = ptrtoint ptr %14 to i64
   %16 = ptrtoint ptr %11 to i64
@@ -9824,7 +9824,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %_ZNSt6vectorIdSaIdE
   br i1 %.not.i.i.i2, label %_ZNSt6vectorIiSaIiEED2Ev.exit3, label %20
 
 20:                                               ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit
-  %21 = getelementptr inbounds i8, ptr %0, i64 56
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %22 = load ptr, ptr %21, align 8
   %23 = ptrtoint ptr %22 to i64
   %24 = ptrtoint ptr %19 to i64
@@ -9839,7 +9839,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit3:                   ; preds = %_ZNSt6vectorIiSaIiE
   br i1 %.not.i.i.i4, label %_ZNSt6vectorIiSaIiEED2Ev.exit5, label %28
 
 28:                                               ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit3
-  %29 = getelementptr inbounds i8, ptr %0, i64 32
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %30 = load ptr, ptr %29, align 8
   %31 = ptrtoint ptr %30 to i64
   %32 = ptrtoint ptr %27 to i64
@@ -9860,7 +9860,7 @@ define linkonce_odr void @_ZN10OpenSubdiv6v3_6_03Far16StencilTableRealIdED0Ev(pt
   br i1 %.not.i.i.i.i, label %_ZNSt6vectorIdSaIdEED2Ev.exit.i, label %4
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 104
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %6 = load ptr, ptr %5, align 8
   %7 = ptrtoint ptr %6 to i64
   %8 = ptrtoint ptr %3 to i64
@@ -9875,7 +9875,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit.i:                  ; preds = %4, %1
   br i1 %.not.i.i.i1.i, label %_ZNSt6vectorIiSaIiEED2Ev.exit.i, label %12
 
 12:                                               ; preds = %_ZNSt6vectorIdSaIdEED2Ev.exit.i
-  %13 = getelementptr inbounds i8, ptr %0, i64 80
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %14 = load ptr, ptr %13, align 8
   %15 = ptrtoint ptr %14 to i64
   %16 = ptrtoint ptr %11 to i64
@@ -9890,7 +9890,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit.i:                  ; preds = %12, %_ZNSt6vectorId
   br i1 %.not.i.i.i2.i, label %_ZNSt6vectorIiSaIiEED2Ev.exit3.i, label %20
 
 20:                                               ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit.i
-  %21 = getelementptr inbounds i8, ptr %0, i64 56
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %22 = load ptr, ptr %21, align 8
   %23 = ptrtoint ptr %22 to i64
   %24 = ptrtoint ptr %19 to i64
@@ -9905,7 +9905,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit3.i:                 ; preds = %20, %_ZNSt6vectorIi
   br i1 %.not.i.i.i4.i, label %_ZN10OpenSubdiv6v3_6_03Far16StencilTableRealIdED2Ev.exit, label %28
 
 28:                                               ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit3.i
-  %29 = getelementptr inbounds i8, ptr %0, i64 32
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %30 = load ptr, ptr %29, align 8
   %31 = ptrtoint ptr %30 to i64
   %32 = ptrtoint ptr %27 to i64
@@ -16679,7 +16679,7 @@ define weak_odr noundef ptr @_ZN10OpenSubdiv6v3_6_03Far23StencilTableFactoryReal
 ._crit_edge90:                                    ; preds = %7, %11
   %12 = phi i32 [ %.05178, %11 ], [ %10, %7 ]
   %13 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %14 = getelementptr inbounds i8, ptr %6, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %15 = load ptr, ptr %14, align 8
   %16 = load ptr, ptr %13, align 8
   %17 = ptrtoint ptr %15 to i64
@@ -16689,7 +16689,7 @@ define weak_odr noundef ptr @_ZN10OpenSubdiv6v3_6_03Far23StencilTableFactoryReal
   %21 = trunc i64 %20 to i32
   %22 = add nsw i32 %.05277, %21
   %23 = getelementptr inbounds nuw i8, ptr %6, i64 64
-  %24 = getelementptr inbounds i8, ptr %6, i64 72
+  %24 = getelementptr inbounds nuw i8, ptr %6, i64 72
   %25 = load ptr, ptr %24, align 8
   %26 = load ptr, ptr %23, align 8
   %27 = ptrtoint ptr %25 to i64
@@ -16739,14 +16739,14 @@ define weak_odr noundef ptr @_ZN10OpenSubdiv6v3_6_03Far23StencilTableFactoryReal
 
 46:                                               ; preds = %.lr.ph
   %47 = getelementptr inbounds nuw i8, ptr %45, i64 16
-  %48 = getelementptr inbounds i8, ptr %45, i64 24
+  %48 = getelementptr inbounds nuw i8, ptr %45, i64 24
   %49 = load ptr, ptr %48, align 8
   %50 = load ptr, ptr %47, align 8
   %51 = ptrtoint ptr %49 to i64
   %52 = ptrtoint ptr %50 to i64
   %53 = sub i64 %51, %52
   %54 = getelementptr inbounds nuw i8, ptr %45, i64 64
-  %55 = getelementptr inbounds i8, ptr %45, i64 72
+  %55 = getelementptr inbounds nuw i8, ptr %45, i64 72
   %56 = load ptr, ptr %55, align 8
   %57 = load ptr, ptr %54, align 8
   %58 = ptrtoint ptr %56 to i64
@@ -16781,7 +16781,7 @@ define weak_odr noundef ptr @_ZN10OpenSubdiv6v3_6_03Far23StencilTableFactoryReal
 ._crit_edge:                                      ; preds = %72
   %.pre91 = load ptr, ptr %38, align 8
   store i32 %.1, ptr %37, align 8
-  %73 = getelementptr inbounds i8, ptr %36, i64 24
+  %73 = getelementptr inbounds nuw i8, ptr %36, i64 24
   %74 = load ptr, ptr %73, align 8
   %75 = ptrtoint ptr %74 to i64
   %76 = ptrtoint ptr %.pre91 to i64
@@ -16789,7 +16789,7 @@ define weak_odr noundef ptr @_ZN10OpenSubdiv6v3_6_03Far23StencilTableFactoryReal
   %78 = getelementptr inbounds nuw i8, ptr %36, i64 40
   %sext.i = shl i64 %77, 30
   %79 = ashr exact i64 %sext.i, 32
-  %80 = getelementptr inbounds i8, ptr %36, i64 48
+  %80 = getelementptr inbounds nuw i8, ptr %36, i64 48
   %81 = load ptr, ptr %80, align 8
   %82 = load ptr, ptr %78, align 8
   %83 = ptrtoint ptr %81 to i64
@@ -16858,7 +16858,7 @@ _ZN10OpenSubdiv6v3_6_03Far16StencilTableRealIdE15generateOffsetsEv.exit: ; preds
 define linkonce_odr void @_ZN10OpenSubdiv6v3_6_03Far16StencilTableRealIdE6resizeEii(ptr noundef nonnull align 8 dereferenceable(112) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = sext i32 %1 to i64
-  %6 = getelementptr inbounds i8, ptr %0, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = load ptr, ptr %6, align 8
   %8 = load ptr, ptr %4, align 8
   %9 = ptrtoint ptr %7 to i64
@@ -16889,7 +16889,7 @@ define linkonce_odr void @_ZN10OpenSubdiv6v3_6_03Far16StencilTableRealIdE6resize
 _ZNSt6vectorIiSaIiEE6resizeEm.exit:               ; preds = %14, %16, %18, %20
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %22 = sext i32 %2 to i64
-  %23 = getelementptr inbounds i8, ptr %0, i64 72
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %24 = load ptr, ptr %23, align 8
   %25 = load ptr, ptr %21, align 8
   %26 = ptrtoint ptr %24 to i64
@@ -16919,7 +16919,7 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit:               ; preds = %14, %16, %18, %20
 
 _ZNSt6vectorIiSaIiEE6resizeEm.exit4:              ; preds = %31, %33, %35, %37
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %39 = getelementptr inbounds i8, ptr %0, i64 96
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %40 = load ptr, ptr %39, align 8
   %41 = load ptr, ptr %38, align 8
   %42 = ptrtoint ptr %40 to i64
@@ -17067,7 +17067,7 @@ define weak_odr noundef ptr @_ZN10OpenSubdiv6v3_6_03Far23StencilTableFactoryReal
 
 11:                                               ; preds = %5
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %13 = getelementptr inbounds i8, ptr %2, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %14 = load ptr, ptr %13, align 8
   %15 = load ptr, ptr %12, align 8
   %16 = ptrtoint ptr %14 to i64
@@ -17100,7 +17100,7 @@ define weak_odr noundef ptr @_ZN10OpenSubdiv6v3_6_03Far23StencilTableFactoryReal
 
 34:                                               ; preds = %31
   %35 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %36 = getelementptr inbounds i8, ptr %1, i64 24
+  %36 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %37 = load ptr, ptr %36, align 8
   %38 = load ptr, ptr %35, align 8
   %39 = ptrtoint ptr %37 to i64
@@ -17129,7 +17129,7 @@ define weak_odr noundef ptr @_ZN10OpenSubdiv6v3_6_03Far23StencilTableFactoryReal
 
 51:                                               ; preds = %34
   %52 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  %53 = getelementptr inbounds i8, ptr %1, i64 72
+  %53 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %54 = load ptr, ptr %53, align 8
   %55 = load ptr, ptr %52, align 8
   %56 = ptrtoint ptr %54 to i64
@@ -17463,7 +17463,7 @@ define weak_odr noundef ptr @_ZN10OpenSubdiv6v3_6_03Far23StencilTableFactoryReal
   br i1 %exitcond192.not, label %._crit_edge166, label %.lr.ph165, !llvm.loop !184
 
 ._crit_edge166:                                   ; preds = %._crit_edge, %161
-  %202 = getelementptr inbounds i8, ptr %155, i64 24
+  %202 = getelementptr inbounds nuw i8, ptr %155, i64 24
   %203 = load ptr, ptr %202, align 8
   %204 = load ptr, ptr %158, align 8
   %205 = ptrtoint ptr %203 to i64
@@ -17472,7 +17472,7 @@ define weak_odr noundef ptr @_ZN10OpenSubdiv6v3_6_03Far23StencilTableFactoryReal
   %208 = getelementptr inbounds nuw i8, ptr %155, i64 40
   %sext.i = shl i64 %207, 30
   %209 = ashr exact i64 %sext.i, 32
-  %210 = getelementptr inbounds i8, ptr %155, i64 48
+  %210 = getelementptr inbounds nuw i8, ptr %155, i64 48
   %211 = load ptr, ptr %210, align 8
   %212 = load ptr, ptr %208, align 8
   %213 = ptrtoint ptr %211 to i64
@@ -17557,7 +17557,7 @@ define linkonce_odr void @_ZN10OpenSubdiv6v3_6_03Far16StencilTableRealIdEC2ERKS3
   store i32 %5, ptr %3, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %8 = getelementptr inbounds i8, ptr %1, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %9 = load ptr, ptr %8, align 8
   %10 = load ptr, ptr %7, align 8
   %11 = ptrtoint ptr %9 to i64
@@ -17583,10 +17583,10 @@ _ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i: ; preds = %15
 18:                                               ; preds = %_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i, %2
   %19 = phi ptr [ null, %2 ], [ %17, %_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i ]
   store ptr %19, ptr %6, align 8
-  %20 = getelementptr inbounds i8, ptr %0, i64 24
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %19, ptr %20, align 8
   %21 = getelementptr inbounds i32, ptr %19, i64 %14
-  %22 = getelementptr inbounds i8, ptr %0, i64 32
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %21, ptr %22, align 8
   %23 = load ptr, ptr %7, align 8
   %24 = load ptr, ptr %8, align 8
@@ -17605,7 +17605,7 @@ _ZNSt6vectorIiSaIiEEC2ERKS1_.exit:                ; preds = %18, %28
   store ptr %29, ptr %20, align 8
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %32 = getelementptr inbounds i8, ptr %1, i64 48
+  %32 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %33 = load ptr, ptr %32, align 8
   %34 = load ptr, ptr %31, align 8
   %35 = ptrtoint ptr %33 to i64
@@ -17634,10 +17634,10 @@ _ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i12: ; preds = %39
 .noexc15:                                         ; preds = %_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i12, %_ZNSt6vectorIiSaIiEEC2ERKS1_.exit
   %42 = phi ptr [ null, %_ZNSt6vectorIiSaIiEEC2ERKS1_.exit ], [ %41, %_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i12 ]
   store ptr %42, ptr %30, align 8
-  %43 = getelementptr inbounds i8, ptr %0, i64 48
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr %42, ptr %43, align 8
   %44 = getelementptr inbounds i32, ptr %42, i64 %38
-  %45 = getelementptr inbounds i8, ptr %0, i64 56
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store ptr %44, ptr %45, align 8
   %46 = load ptr, ptr %31, align 8
   %47 = load ptr, ptr %32, align 8
@@ -17656,7 +17656,7 @@ _ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i12: ; preds = %39
   store ptr %53, ptr %43, align 8
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %55 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  %56 = getelementptr inbounds i8, ptr %1, i64 72
+  %56 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %57 = load ptr, ptr %56, align 8
   %58 = load ptr, ptr %55, align 8
   %59 = ptrtoint ptr %57 to i64
@@ -17685,10 +17685,10 @@ _ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i18: ; preds = %63
 .noexc22:                                         ; preds = %_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i18, %52
   %66 = phi ptr [ null, %52 ], [ %65, %_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i18 ]
   store ptr %66, ptr %54, align 8
-  %67 = getelementptr inbounds i8, ptr %0, i64 72
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store ptr %66, ptr %67, align 8
   %68 = getelementptr inbounds i32, ptr %66, i64 %62
-  %69 = getelementptr inbounds i8, ptr %0, i64 80
+  %69 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store ptr %68, ptr %69, align 8
   %70 = load ptr, ptr %55, align 8
   %71 = load ptr, ptr %56, align 8
@@ -17707,7 +17707,7 @@ _ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i18: ; preds = %63
   store ptr %77, ptr %67, align 8
   %78 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %79 = getelementptr inbounds nuw i8, ptr %1, i64 88
-  %80 = getelementptr inbounds i8, ptr %1, i64 96
+  %80 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %81 = load ptr, ptr %80, align 8
   %82 = load ptr, ptr %79, align 8
   %83 = ptrtoint ptr %81 to i64
@@ -17736,10 +17736,10 @@ _ZNSt16allocator_traitsISaIdEE8allocateERS0_m.exit.i.i.i.i: ; preds = %87
 .noexc28:                                         ; preds = %_ZNSt16allocator_traitsISaIdEE8allocateERS0_m.exit.i.i.i.i, %76
   %90 = phi ptr [ null, %76 ], [ %89, %_ZNSt16allocator_traitsISaIdEE8allocateERS0_m.exit.i.i.i.i ]
   store ptr %90, ptr %78, align 8
-  %91 = getelementptr inbounds i8, ptr %0, i64 96
+  %91 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store ptr %90, ptr %91, align 8
   %92 = getelementptr inbounds double, ptr %90, i64 %86
-  %93 = getelementptr inbounds i8, ptr %0, i64 104
+  %93 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store ptr %92, ptr %93, align 8
   %94 = load ptr, ptr %79, align 8
   %95 = load ptr, ptr %80, align 8
@@ -17986,7 +17986,7 @@ define weak_odr noundef ptr @_ZN10OpenSubdiv6v3_6_03Far28LimitStencilTableFactor
 
 62:                                               ; preds = %61
   %63 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %64 = getelementptr inbounds i8, ptr %2, i64 24
+  %64 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %65 = load ptr, ptr %64, align 8
   %66 = load ptr, ptr %63, align 8
   %67 = ptrtoint ptr %65 to i64
@@ -18088,7 +18088,7 @@ define weak_odr noundef ptr @_ZN10OpenSubdiv6v3_6_03Far28LimitStencilTableFactor
 
 119:                                              ; preds = %116
   %120 = getelementptr inbounds nuw i8, ptr %.0207, i64 200
-  %121 = getelementptr inbounds i8, ptr %.0207, i64 208
+  %121 = getelementptr inbounds nuw i8, ptr %.0207, i64 208
   %122 = load ptr, ptr %121, align 8
   %123 = load ptr, ptr %120, align 8
   %124 = ptrtoint ptr %122 to i64
@@ -18120,7 +18120,7 @@ _ZNK10OpenSubdiv6v3_6_03Far10PatchTable36GetLocalPointFaceVaryingStencilTableIfE
 
 135:                                              ; preds = %_ZNK10OpenSubdiv6v3_6_03Far10PatchTable36GetLocalPointFaceVaryingStencilTableIfEEPKNS1_16StencilTableRealIT_EEi.exit
   %136 = getelementptr inbounds nuw i8, ptr %.0204, i64 16
-  %137 = getelementptr inbounds i8, ptr %.0204, i64 24
+  %137 = getelementptr inbounds nuw i8, ptr %.0204, i64 24
   %138 = load ptr, ptr %137, align 8
   %139 = load ptr, ptr %136, align 8
   %140 = ptrtoint ptr %138 to i64
@@ -18727,7 +18727,7 @@ _ZNK10OpenSubdiv6v3_6_03Far8PatchMap9FindPatchEidd.exit.thread: ; preds = %267, 
   br i1 %.not.i.i.i.i, label %_ZNSt6vectorIN10OpenSubdiv6v3_6_03Far8PatchMap8QuadNodeESaIS4_EED2Ev.exit.i, label %406
 
 406:                                              ; preds = %403
-  %407 = getelementptr inbounds i8, ptr %8, i64 56
+  %407 = getelementptr inbounds nuw i8, ptr %8, i64 56
   %408 = load ptr, ptr %407, align 8
   %409 = ptrtoint ptr %408 to i64
   %410 = ptrtoint ptr %405 to i64
@@ -18742,7 +18742,7 @@ _ZNSt6vectorIN10OpenSubdiv6v3_6_03Far8PatchMap8QuadNodeESaIS4_EED2Ev.exit.i: ; p
   br i1 %.not.i.i.i1.i, label %_ZN10OpenSubdiv6v3_6_03Far8PatchMapD2Ev.exit, label %414
 
 414:                                              ; preds = %_ZNSt6vectorIN10OpenSubdiv6v3_6_03Far8PatchMap8QuadNodeESaIS4_EED2Ev.exit.i
-  %415 = getelementptr inbounds i8, ptr %8, i64 32
+  %415 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %416 = load ptr, ptr %415, align 8
   %417 = ptrtoint ptr %416 to i64
   %418 = ptrtoint ptr %413 to i64
@@ -18816,7 +18816,7 @@ define linkonce_odr void @_ZN10OpenSubdiv6v3_6_03Far8PatchMapD2Ev(ptr noundef no
   br i1 %.not.i.i.i, label %_ZNSt6vectorIN10OpenSubdiv6v3_6_03Far8PatchMap8QuadNodeESaIS4_EED2Ev.exit, label %4
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 56
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %6 = load ptr, ptr %5, align 8
   %7 = ptrtoint ptr %6 to i64
   %8 = ptrtoint ptr %3 to i64
@@ -18831,7 +18831,7 @@ _ZNSt6vectorIN10OpenSubdiv6v3_6_03Far8PatchMap8QuadNodeESaIS4_EED2Ev.exit: ; pre
   br i1 %.not.i.i.i1, label %_ZNSt6vectorIN10OpenSubdiv6v3_6_03Far10PatchTable11PatchHandleESaIS4_EED2Ev.exit, label %12
 
 12:                                               ; preds = %_ZNSt6vectorIN10OpenSubdiv6v3_6_03Far8PatchMap8QuadNodeESaIS4_EED2Ev.exit
-  %13 = getelementptr inbounds i8, ptr %0, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %14 = load ptr, ptr %13, align 8
   %15 = ptrtoint ptr %14 to i64
   %16 = ptrtoint ptr %11 to i64
@@ -18960,7 +18960,7 @@ define weak_odr noundef ptr @_ZN10OpenSubdiv6v3_6_03Far28LimitStencilTableFactor
 
 62:                                               ; preds = %61
   %63 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %64 = getelementptr inbounds i8, ptr %2, i64 24
+  %64 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %65 = load ptr, ptr %64, align 8
   %66 = load ptr, ptr %63, align 8
   %67 = ptrtoint ptr %65 to i64
@@ -19062,7 +19062,7 @@ define weak_odr noundef ptr @_ZN10OpenSubdiv6v3_6_03Far28LimitStencilTableFactor
 
 119:                                              ; preds = %116
   %120 = getelementptr inbounds nuw i8, ptr %.0207, i64 200
-  %121 = getelementptr inbounds i8, ptr %.0207, i64 208
+  %121 = getelementptr inbounds nuw i8, ptr %.0207, i64 208
   %122 = load ptr, ptr %121, align 8
   %123 = load ptr, ptr %120, align 8
   %124 = ptrtoint ptr %122 to i64
@@ -19094,7 +19094,7 @@ _ZNK10OpenSubdiv6v3_6_03Far10PatchTable36GetLocalPointFaceVaryingStencilTableIdE
 
 135:                                              ; preds = %_ZNK10OpenSubdiv6v3_6_03Far10PatchTable36GetLocalPointFaceVaryingStencilTableIdEEPKNS1_16StencilTableRealIT_EEi.exit
   %136 = getelementptr inbounds nuw i8, ptr %.0204, i64 16
-  %137 = getelementptr inbounds i8, ptr %.0204, i64 24
+  %137 = getelementptr inbounds nuw i8, ptr %.0204, i64 24
   %138 = load ptr, ptr %137, align 8
   %139 = load ptr, ptr %136, align 8
   %140 = ptrtoint ptr %138 to i64
@@ -19699,7 +19699,7 @@ _ZNK10OpenSubdiv6v3_6_03Far8PatchMap9FindPatchEidd.exit.thread: ; preds = %265, 
   br i1 %.not.i.i.i.i, label %_ZNSt6vectorIN10OpenSubdiv6v3_6_03Far8PatchMap8QuadNodeESaIS4_EED2Ev.exit.i, label %404
 
 404:                                              ; preds = %401
-  %405 = getelementptr inbounds i8, ptr %8, i64 56
+  %405 = getelementptr inbounds nuw i8, ptr %8, i64 56
   %406 = load ptr, ptr %405, align 8
   %407 = ptrtoint ptr %406 to i64
   %408 = ptrtoint ptr %403 to i64
@@ -19714,7 +19714,7 @@ _ZNSt6vectorIN10OpenSubdiv6v3_6_03Far8PatchMap8QuadNodeESaIS4_EED2Ev.exit.i: ; p
   br i1 %.not.i.i.i1.i, label %_ZN10OpenSubdiv6v3_6_03Far8PatchMapD2Ev.exit, label %412
 
 412:                                              ; preds = %_ZNSt6vectorIN10OpenSubdiv6v3_6_03Far8PatchMap8QuadNodeESaIS4_EED2Ev.exit.i
-  %413 = getelementptr inbounds i8, ptr %8, i64 32
+  %413 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %414 = load ptr, ptr %413, align 8
   %415 = ptrtoint ptr %414 to i64
   %416 = ptrtoint ptr %411 to i64

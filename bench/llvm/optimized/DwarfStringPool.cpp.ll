@@ -79,11 +79,11 @@ define dso_local noundef nonnull align 8 dereferenceable(32) ptr @_ZN4llvm15Dwar
   br i1 %11, label %12, label %34
 
 12:                                               ; preds = %4
-  %13 = getelementptr inbounds i8, ptr %9, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %9, i64 24
   store i32 -1, ptr %13, align 8
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %15 = load i64, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %9, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store i64 %15, ptr %16, align 8
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %18 = load i8, ptr %17, align 4
@@ -98,7 +98,7 @@ define dso_local noundef nonnull align 8 dereferenceable(32) ptr @_ZN4llvm15Dwar
   store i8 1, ptr %23, align 1
   %24 = load ptr, ptr %21, align 8
   store ptr %24, ptr %6, align 8
-  %25 = getelementptr inbounds i8, ptr %0, i64 40
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %26 = load i64, ptr %25, align 8
   %27 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i64 %26, ptr %27, align 8
@@ -147,11 +147,11 @@ define dso_local i64 @_ZN4llvm15DwarfStringPool8getEntryERNS_10AsmPrinterENS_9St
   br i1 %11, label %12, label %_ZN4llvm15DwarfStringPool12getEntryImplERNS_10AsmPrinterENS_9StringRefE.exit
 
 12:                                               ; preds = %4
-  %13 = getelementptr inbounds i8, ptr %9, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %9, i64 24
   store i32 -1, ptr %13, align 8
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %15 = load i64, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %9, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store i64 %15, ptr %16, align 8
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %18 = load i8, ptr %17, align 4
@@ -166,7 +166,7 @@ define dso_local i64 @_ZN4llvm15DwarfStringPool8getEntryERNS_10AsmPrinterENS_9St
   store i8 1, ptr %23, align 1
   %24 = load ptr, ptr %21, align 8
   store ptr %24, ptr %6, align 8
-  %25 = getelementptr inbounds i8, ptr %0, i64 40
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %26 = load i64, ptr %25, align 8
   %27 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i64 %26, ptr %27, align 8
@@ -212,11 +212,11 @@ define dso_local i64 @_ZN4llvm15DwarfStringPool15getIndexedEntryERNS_10AsmPrinte
   br i1 %11, label %12, label %_ZN4llvm15DwarfStringPool12getEntryImplERNS_10AsmPrinterENS_9StringRefE.exit
 
 12:                                               ; preds = %4
-  %13 = getelementptr inbounds i8, ptr %9, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %9, i64 24
   store i32 -1, ptr %13, align 8
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %15 = load i64, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %9, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store i64 %15, ptr %16, align 8
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %18 = load i8, ptr %17, align 4
@@ -231,7 +231,7 @@ define dso_local i64 @_ZN4llvm15DwarfStringPool15getIndexedEntryERNS_10AsmPrinte
   store i8 1, ptr %23, align 1
   %24 = load ptr, ptr %21, align 8
   store ptr %24, ptr %6, align 8
-  %25 = getelementptr inbounds i8, ptr %0, i64 40
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %26 = load i64, ptr %25, align 8
   %27 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i64 %26, ptr %27, align 8
@@ -251,7 +251,7 @@ define dso_local i64 @_ZN4llvm15DwarfStringPool15getIndexedEntryERNS_10AsmPrinte
 _ZN4llvm15DwarfStringPool12getEntryImplERNS_10AsmPrinterENS_9StringRefE.exit: ; preds = %4, %29
   %34 = phi ptr [ %.pre.i, %29 ], [ %9, %4 ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6)
-  %35 = getelementptr inbounds i8, ptr %34, i64 24
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 24
   %36 = load i32, ptr %35, align 8
   %.not = icmp eq i32 %36, -1
   br i1 %.not, label %37, label %41
@@ -607,7 +607,7 @@ _ZN4llvm17StringMapIterBaseINS_17StringMapIteratorINS_20DwarfStringPoolEntryEEEN
 _ZN4llvmplERKNS_5TwineES2_.exit:                  ; preds = %91, %94
   %102 = load ptr, ptr %12, align 8
   %103 = load ptr, ptr %.073, align 8
-  %104 = getelementptr inbounds i8, ptr %103, i64 16
+  %104 = getelementptr inbounds nuw i8, ptr %103, i64 16
   store ptr @.str.1, ptr %7, align 8, !alias.scope !9
   store ptr %104, ptr %88, align 8, !alias.scope !9
   store i8 3, ptr %89, align 8, !alias.scope !9
@@ -674,7 +674,7 @@ _ZN4llvm17StringMapIterBaseINS_17StringMapIteratorINS_20DwarfStringPoolEntryEEEN
 .lr.ph83:                                         ; preds = %.lr.ph83.preheader, %_ZN4llvm17StringMapIterBaseINS_17StringMapIteratorINS_20DwarfStringPoolEntryEEENS_14StringMapEntryIS2_EEEppEv.exit55.loopexit
   %128 = phi ptr [ %135, %_ZN4llvm17StringMapIterBaseINS_17StringMapIteratorINS_20DwarfStringPoolEntryEEENS_14StringMapEntryIS2_EEEppEv.exit55.loopexit ], [ %.pre95, %.lr.ph83.preheader ]
   %.sroa.056.082 = phi ptr [ %storemerge.i52, %_ZN4llvm17StringMapIterBaseINS_17StringMapIteratorINS_20DwarfStringPoolEntryEEENS_14StringMapEntryIS2_EEEppEv.exit55.loopexit ], [ %.sroa.0.1.i49, %.lr.ph83.preheader ]
-  %129 = getelementptr inbounds i8, ptr %128, i64 24
+  %129 = getelementptr inbounds nuw i8, ptr %128, i64 24
   %130 = load i32, ptr %129, align 8
   %.not67 = icmp eq i32 %130, -1
   br i1 %.not67, label %.critedge.i.i54.preheader, label %131
@@ -731,7 +731,7 @@ _ZN4llvm17StringMapIterBaseINS_17StringMapIteratorINS_20DwarfStringPoolEntryEEEN
   %.03985 = phi ptr [ %154, %.lr.ph87.split ], [ %141, %.lr.ph87 ]
   %147 = load ptr, ptr %12, align 8
   %148 = load ptr, ptr %.03985, align 8
-  %149 = getelementptr inbounds i8, ptr %148, i64 16
+  %149 = getelementptr inbounds nuw i8, ptr %148, i64 16
   %150 = load i64, ptr %149, align 8
   %151 = load ptr, ptr %147, align 8
   %152 = getelementptr inbounds i8, ptr %151, i64 520

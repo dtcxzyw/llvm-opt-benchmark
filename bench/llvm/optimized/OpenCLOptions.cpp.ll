@@ -118,13 +118,13 @@ define dso_local noundef zeroext i1 @_ZNK5clang13OpenCLOptions17isAvailableOptio
   %.sroa.0.0.i.i = getelementptr inbounds ptr, ptr %18, i64 %.sroa.0.0.v.i.i
   %22 = load ptr, ptr %.sroa.0.0.i.i, align 8
   %23 = tail call noundef i32 @_ZNK5clang11LangOptions26getOpenCLCompatibleVersionEv(ptr noundef nonnull align 8 dereferenceable(841) %3) #11
-  %24 = getelementptr inbounds i8, ptr %22, i64 12
+  %24 = getelementptr inbounds nuw i8, ptr %22, i64 12
   %25 = load i32, ptr %24, align 4
   %.not.i = icmp ult i32 %23, %25
   br i1 %.not.i, label %_ZNK5clang13OpenCLOptions16OpenCLOptionInfo8isCoreInERKNS_11LangOptionsE.exit.thread, label %26
 
 26:                                               ; preds = %14
-  %27 = getelementptr inbounds i8, ptr %22, i64 16
+  %27 = getelementptr inbounds nuw i8, ptr %22, i64 16
   %28 = load i32, ptr %27, align 4
   %29 = tail call noundef i32 @_ZNK5clang11LangOptions26getOpenCLCompatibleVersionEv(ptr noundef nonnull align 8 dereferenceable(841) %3) #11
   switch i32 %29, label %30 [
@@ -163,7 +163,7 @@ _ZNK5clang13OpenCLOptions16OpenCLOptionInfo8isCoreInERKNS_11LangOptionsE.exit.th
   br i1 %.not.i17, label %_ZNK5clang13OpenCLOptions16OpenCLOptionInfo16isOptionalCoreInERKNS_11LangOptionsE.exit.thread, label %38
 
 38:                                               ; preds = %_ZNK5clang13OpenCLOptions16OpenCLOptionInfo8isCoreInERKNS_11LangOptionsE.exit.thread
-  %39 = getelementptr inbounds i8, ptr %22, i64 20
+  %39 = getelementptr inbounds nuw i8, ptr %22, i64 20
   %40 = load i32, ptr %39, align 4
   %41 = tail call noundef i32 @_ZNK5clang11LangOptions26getOpenCLCompatibleVersionEv(ptr noundef nonnull align 8 dereferenceable(841) %3) #11
   switch i32 %41, label %42 [
@@ -210,14 +210,14 @@ _ZNK5clang13OpenCLOptions16OpenCLOptionInfo16isOptionalCoreInERKNS_11LangOptions
   %56 = load ptr, ptr %0, align 8
   %.sroa.0.0.i.i.i = getelementptr inbounds ptr, ptr %56, i64 %54
   %57 = load ptr, ptr %.sroa.0.0.i.i.i, align 8
-  %58 = getelementptr inbounds i8, ptr %57, i64 24
+  %58 = getelementptr inbounds nuw i8, ptr %57, i64 24
   %59 = load i8, ptr %58, align 4
   %60 = trunc i8 %59 to i1
   br i1 %60, label %61, label %_ZNK5clang13OpenCLOptions11isSupportedEN4llvm9StringRefERKNS_11LangOptionsE.exit
 
 61:                                               ; preds = %55
   %62 = tail call noundef i32 @_ZNK5clang11LangOptions26getOpenCLCompatibleVersionEv(ptr noundef nonnull align 8 dereferenceable(841) %3) #11
-  %63 = getelementptr inbounds i8, ptr %57, i64 12
+  %63 = getelementptr inbounds nuw i8, ptr %57, i64 12
   %64 = load i32, ptr %63, align 4
   %65 = icmp uge i32 %62, %64
   br label %_ZNK5clang13OpenCLOptions11isSupportedEN4llvm9StringRefERKNS_11LangOptionsE.exit
@@ -237,7 +237,7 @@ _ZNK5clang13OpenCLOptions16OpenCLOptionInfo16isOptionalCoreInERKNS_11LangOptions
   %73 = load ptr, ptr %0, align 8
   %.sroa.0.0.i.i.i22 = getelementptr inbounds ptr, ptr %73, i64 %71
   %74 = load ptr, ptr %.sroa.0.0.i.i.i22, align 8
-  %75 = getelementptr inbounds i8, ptr %74, i64 25
+  %75 = getelementptr inbounds nuw i8, ptr %74, i64 25
   %76 = load i8, ptr %75, align 1
   %77 = trunc i8 %76 to i1
   br label %_ZNK5clang13OpenCLOptions11isSupportedEN4llvm9StringRefERKNS_11LangOptionsE.exit
@@ -264,14 +264,14 @@ define dso_local noundef zeroext i1 @_ZNK5clang13OpenCLOptions11isSupportedEN4ll
   %13 = load ptr, ptr %0, align 8
   %.sroa.0.0.i.i = getelementptr inbounds ptr, ptr %13, i64 %11
   %14 = load ptr, ptr %.sroa.0.0.i.i, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 24
   %16 = load i8, ptr %15, align 4
   %17 = trunc i8 %16 to i1
   br i1 %17, label %18, label %23
 
 18:                                               ; preds = %12
   %19 = tail call noundef i32 @_ZNK5clang11LangOptions26getOpenCLCompatibleVersionEv(ptr noundef nonnull align 8 dereferenceable(841) %3) #11
-  %20 = getelementptr inbounds i8, ptr %14, i64 12
+  %20 = getelementptr inbounds nuw i8, ptr %14, i64 12
   %21 = load i32, ptr %20, align 4
   %22 = icmp uge i32 %19, %21
   br label %23
@@ -298,7 +298,7 @@ define dso_local noundef zeroext i1 @_ZNK5clang13OpenCLOptions9isEnabledEN4llvm9
   %12 = load ptr, ptr %0, align 8
   %.sroa.0.0.i.i = getelementptr inbounds ptr, ptr %12, i64 %10
   %13 = load ptr, ptr %.sroa.0.0.i.i, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 25
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 25
   %15 = load i8, ptr %14, align 1
   %16 = trunc i8 %15 to i1
   br label %17
@@ -352,20 +352,20 @@ define dso_local noundef zeroext i1 @_ZNK5clang13OpenCLOptions15isSupportedCoreE
   %13 = load ptr, ptr %0, align 8
   %.sroa.0.0.i.i = getelementptr inbounds ptr, ptr %13, i64 %11
   %14 = load ptr, ptr %.sroa.0.0.i.i, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 24
   %16 = load i8, ptr %15, align 4
   %17 = trunc i8 %16 to i1
   br i1 %17, label %18, label %_ZNK5clang13OpenCLOptions16OpenCLOptionInfo8isCoreInERKNS_11LangOptionsE.exit
 
 18:                                               ; preds = %12
   %19 = tail call noundef i32 @_ZNK5clang11LangOptions26getOpenCLCompatibleVersionEv(ptr noundef nonnull align 8 dereferenceable(841) %3) #11
-  %20 = getelementptr inbounds i8, ptr %14, i64 12
+  %20 = getelementptr inbounds nuw i8, ptr %14, i64 12
   %21 = load i32, ptr %20, align 4
   %.not.i = icmp ult i32 %19, %21
   br i1 %.not.i, label %_ZNK5clang13OpenCLOptions16OpenCLOptionInfo8isCoreInERKNS_11LangOptionsE.exit, label %22
 
 22:                                               ; preds = %18
-  %23 = getelementptr inbounds i8, ptr %14, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %24 = load i32, ptr %23, align 4
   %25 = tail call noundef i32 @_ZNK5clang11LangOptions26getOpenCLCompatibleVersionEv(ptr noundef nonnull align 8 dereferenceable(841) %3) #11
   switch i32 %25, label %26 [
@@ -419,20 +419,20 @@ define dso_local noundef zeroext i1 @_ZNK5clang13OpenCLOptions23isSupportedOptio
   %13 = load ptr, ptr %0, align 8
   %.sroa.0.0.i.i = getelementptr inbounds ptr, ptr %13, i64 %11
   %14 = load ptr, ptr %.sroa.0.0.i.i, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 24
   %16 = load i8, ptr %15, align 4
   %17 = trunc i8 %16 to i1
   br i1 %17, label %18, label %_ZNK5clang13OpenCLOptions16OpenCLOptionInfo16isOptionalCoreInERKNS_11LangOptionsE.exit
 
 18:                                               ; preds = %12
   %19 = tail call noundef i32 @_ZNK5clang11LangOptions26getOpenCLCompatibleVersionEv(ptr noundef nonnull align 8 dereferenceable(841) %3) #11
-  %20 = getelementptr inbounds i8, ptr %14, i64 12
+  %20 = getelementptr inbounds nuw i8, ptr %14, i64 12
   %21 = load i32, ptr %20, align 4
   %.not.i = icmp ult i32 %19, %21
   br i1 %.not.i, label %_ZNK5clang13OpenCLOptions16OpenCLOptionInfo16isOptionalCoreInERKNS_11LangOptionsE.exit, label %22
 
 22:                                               ; preds = %18
-  %23 = getelementptr inbounds i8, ptr %14, i64 20
+  %23 = getelementptr inbounds nuw i8, ptr %14, i64 20
   %24 = load i32, ptr %23, align 4
   %25 = tail call noundef i32 @_ZNK5clang11LangOptions26getOpenCLCompatibleVersionEv(ptr noundef nonnull align 8 dereferenceable(841) %3) #11
   switch i32 %25, label %26 [
@@ -500,14 +500,14 @@ define dso_local noundef zeroext i1 @_ZNK5clang13OpenCLOptions20isSupportedExten
   %13 = load ptr, ptr %0, align 8
   %.sroa.0.0.i.i = getelementptr inbounds ptr, ptr %13, i64 %11
   %14 = load ptr, ptr %.sroa.0.0.i.i, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 24
   %16 = load i8, ptr %15, align 4
   %17 = trunc i8 %16 to i1
   br i1 %17, label %18, label %_ZNK5clang13OpenCLOptions29isSupportedCoreOrOptionalCoreEN4llvm9StringRefERKNS_11LangOptionsE.exit
 
 18:                                               ; preds = %12
   %19 = tail call noundef i32 @_ZNK5clang11LangOptions26getOpenCLCompatibleVersionEv(ptr noundef nonnull align 8 dereferenceable(841) %3) #11
-  %20 = getelementptr inbounds i8, ptr %14, i64 12
+  %20 = getelementptr inbounds nuw i8, ptr %14, i64 12
   %21 = load i32, ptr %20, align 4
   %.not13 = icmp ult i32 %19, %21
   br i1 %.not13, label %_ZNK5clang13OpenCLOptions29isSupportedCoreOrOptionalCoreEN4llvm9StringRefERKNS_11LangOptionsE.exit, label %22
@@ -533,7 +533,7 @@ define dso_local void @_ZN5clang13OpenCLOptions6enableEN4llvm9StringRefEb(ptr no
   %7 = tail call { ptr, i8 } @_ZN4llvm9StringMapIN5clang13OpenCLOptions16OpenCLOptionInfoENS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIS3_EEbENS_9StringRefEjDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %1, i64 %2, i32 noundef %6)
   %.fca.0.extract.i = extractvalue { ptr, i8 } %7, 0
   %8 = load ptr, ptr %.fca.0.extract.i, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 25
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 25
   store i8 %5, ptr %9, align 1
   ret void
 }
@@ -557,7 +557,7 @@ define dso_local void @_ZN5clang13OpenCLOptions7supportEN4llvm9StringRefEb(ptr n
   %7 = tail call { ptr, i8 } @_ZN4llvm9StringMapIN5clang13OpenCLOptions16OpenCLOptionInfoENS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIS3_EEbENS_9StringRefEjDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %1, i64 %2, i32 noundef %6)
   %.fca.0.extract.i = extractvalue { ptr, i8 } %7, 0
   %8 = load ptr, ptr %.fca.0.extract.i, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 24
   store i8 %5, ptr %9, align 4
   ret void
 }
@@ -1502,7 +1502,7 @@ _ZN4llvm17StringMapIterBaseINS_22StringMapConstIteratorIbEEKNS_14StringMapEntryI
   %.fca.0.extract.i = extractvalue { ptr, i8 } %31, 0
   %32 = load ptr, ptr %.fca.0.extract.i, align 8
   %33 = tail call noundef i32 @_ZNK5clang11LangOptions26getOpenCLCompatibleVersionEv(ptr noundef nonnull align 8 dereferenceable(841) %2) #11
-  %34 = getelementptr inbounds i8, ptr %32, i64 12
+  %34 = getelementptr inbounds nuw i8, ptr %32, i64 12
   %35 = load i32, ptr %34, align 4
   %.not19 = icmp ult i32 %33, %35
   br i1 %.not19, label %.critedge.i.i.preheader, label %36
@@ -1512,7 +1512,7 @@ _ZN4llvm17StringMapIterBaseINS_22StringMapConstIteratorIbEEKNS_14StringMapEntryI
   %38 = tail call { ptr, i8 } @_ZN4llvm9StringMapIN5clang13OpenCLOptions16OpenCLOptionInfoENS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIS3_EEbENS_9StringRefEjDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr nonnull %15, i64 %16, i32 noundef %37)
   %.fca.0.extract.i.i = extractvalue { ptr, i8 } %38, 0
   %39 = load ptr, ptr %.fca.0.extract.i.i, align 8
-  %40 = getelementptr inbounds i8, ptr %39, i64 24
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 24
   store i8 1, ptr %40, align 4
   br label %.critedge.i.i.preheader
 
@@ -1575,7 +1575,7 @@ _ZN4llvm17StringMapIterBaseINS_17StringMapIteratorIN5clang13OpenCLOptions16OpenC
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZN4llvm17StringMapIterBaseINS_17StringMapIteratorIN5clang13OpenCLOptions16OpenCLOptionInfoEEENS_14StringMapEntryIS4_EEEppEv.exit.loopexit
   %10 = phi ptr [ %12, %_ZN4llvm17StringMapIterBaseINS_17StringMapIteratorIN5clang13OpenCLOptions16OpenCLOptionInfoEEENS_14StringMapEntryIS4_EEEppEv.exit.loopexit ], [ %.pre, %.lr.ph.preheader ]
   %.sroa.04.08 = phi ptr [ %storemerge.i, %_ZN4llvm17StringMapIterBaseINS_17StringMapIteratorIN5clang13OpenCLOptions16OpenCLOptionInfoEEENS_14StringMapEntryIS4_EEEppEv.exit.loopexit ], [ %.sroa.0.1.i, %.lr.ph.preheader ]
-  %11 = getelementptr inbounds i8, ptr %10, i64 25
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 25
   store i8 0, ptr %11, align 1
   br label %.critedge.i.i
 
@@ -1606,13 +1606,13 @@ define dso_local noundef zeroext i1 @_ZN5clang13OpenCLOptions38diagnoseUnsupport
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 20
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %3, i8 0, i64 20, i1 false)
   store i32 16, ptr %8, align 4
-  %9 = getelementptr inbounds i8, ptr %6, i64 316
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 316
   %10 = load i32, ptr %9, align 4
   %11 = icmp eq i32 %10, 0
   br i1 %11, label %_ZN4llvm9StringMapIbNS_15MallocAllocatorEEC2ERKS2_.exit, label %12
 
 12:                                               ; preds = %2
-  %13 = getelementptr inbounds i8, ptr %6, i64 312
+  %13 = getelementptr inbounds nuw i8, ptr %6, i64 312
   %14 = load i32, ptr %13, align 8
   call void @_ZN4llvm13StringMapImpl4initEj(ptr noundef nonnull align 8 dereferenceable(24) %3, i32 noundef %14) #11
   %15 = load ptr, ptr %3, align 8
@@ -1627,7 +1627,7 @@ define dso_local noundef zeroext i1 @_ZN5clang13OpenCLOptions38diagnoseUnsupport
   %24 = load i32, ptr %9, align 4
   %25 = getelementptr inbounds nuw i8, ptr %3, i64 12
   store i32 %24, ptr %25, align 4
-  %26 = getelementptr inbounds i8, ptr %6, i64 320
+  %26 = getelementptr inbounds nuw i8, ptr %6, i64 320
   %27 = load i32, ptr %26, align 8
   %28 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 %27, ptr %28, align 8
@@ -1696,10 +1696,10 @@ _ZN4llvm9StringMapIbNS_15MallocAllocatorEEC2ERKS2_.exit: ; preds = %52, %2, %12
   %58 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %59 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %60 = getelementptr inbounds nuw i8, ptr %4, i64 25
-  %61 = getelementptr inbounds i8, ptr %1, i64 792
-  %62 = getelementptr inbounds i8, ptr %1, i64 800
-  %63 = getelementptr inbounds i8, ptr %1, i64 904
-  %64 = getelementptr inbounds i8, ptr %1, i64 912
+  %61 = getelementptr inbounds nuw i8, ptr %1, i64 792
+  %62 = getelementptr inbounds nuw i8, ptr %1, i64 800
+  %63 = getelementptr inbounds nuw i8, ptr %1, i64 904
+  %64 = getelementptr inbounds nuw i8, ptr %1, i64 912
   br label %65
 
 65:                                               ; preds = %_ZN4llvm9StringMapIbNS_15MallocAllocatorEEC2ERKS2_.exit, %_ZN5clang17DiagnosticBuilderD2Ev.exit
@@ -1871,13 +1871,13 @@ define dso_local noundef zeroext i1 @_ZN5clang13OpenCLOptions35diagnoseFeatureEx
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 20
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %3, i8 0, i64 20, i1 false)
   store i32 16, ptr %8, align 4
-  %9 = getelementptr inbounds i8, ptr %6, i64 316
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 316
   %10 = load i32, ptr %9, align 4
   %11 = icmp eq i32 %10, 0
   br i1 %11, label %_ZN4llvm9StringMapIbNS_15MallocAllocatorEEC2ERKS2_.exit, label %12
 
 12:                                               ; preds = %2
-  %13 = getelementptr inbounds i8, ptr %6, i64 312
+  %13 = getelementptr inbounds nuw i8, ptr %6, i64 312
   %14 = load i32, ptr %13, align 8
   call void @_ZN4llvm13StringMapImpl4initEj(ptr noundef nonnull align 8 dereferenceable(24) %3, i32 noundef %14) #11
   %15 = load ptr, ptr %3, align 8
@@ -1892,7 +1892,7 @@ define dso_local noundef zeroext i1 @_ZN5clang13OpenCLOptions35diagnoseFeatureEx
   %24 = load i32, ptr %9, align 4
   %25 = getelementptr inbounds nuw i8, ptr %3, i64 12
   store i32 %24, ptr %25, align 4
-  %26 = getelementptr inbounds i8, ptr %6, i64 320
+  %26 = getelementptr inbounds nuw i8, ptr %6, i64 320
   %27 = load i32, ptr %26, align 8
   %28 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 %27, ptr %28, align 8
@@ -1961,10 +1961,10 @@ _ZN4llvm9StringMapIbNS_15MallocAllocatorEEC2ERKS2_.exit: ; preds = %52, %2, %12
   %58 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %59 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %60 = getelementptr inbounds nuw i8, ptr %4, i64 25
-  %61 = getelementptr inbounds i8, ptr %1, i64 792
-  %62 = getelementptr inbounds i8, ptr %1, i64 800
-  %63 = getelementptr inbounds i8, ptr %1, i64 904
-  %64 = getelementptr inbounds i8, ptr %1, i64 912
+  %61 = getelementptr inbounds nuw i8, ptr %1, i64 792
+  %62 = getelementptr inbounds nuw i8, ptr %1, i64 800
+  %63 = getelementptr inbounds nuw i8, ptr %1, i64 904
+  %64 = getelementptr inbounds nuw i8, ptr %1, i64 912
   br label %65
 
 65:                                               ; preds = %_ZN4llvm9StringMapIbNS_15MallocAllocatorEEC2ERKS2_.exit, %_ZN5clang17DiagnosticBuilderD2Ev.exit
@@ -2256,10 +2256,10 @@ _ZN4llvm14StringMapEntryIN5clang13OpenCLOptions16OpenCLOptionInfoEE6createINS_15
   store i8 0, ptr %21, align 1
   store i64 %2, ptr %18, align 8
   %22 = getelementptr inbounds nuw i8, ptr %18, i64 8
-  %23 = getelementptr inbounds i8, ptr %18, i64 12
+  %23 = getelementptr inbounds nuw i8, ptr %18, i64 12
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %22, i8 0, i64 20, i1 false)
   store i32 100, ptr %23, align 4
-  %24 = getelementptr inbounds i8, ptr %18, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %18, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(10) %24, i8 0, i64 10, i1 false)
   store ptr %18, ptr %8, align 8
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 12
@@ -2481,7 +2481,7 @@ _ZN5clang17DiagnosticStorageC2Ev.exit:            ; preds = %7
   store i8 0, ptr %18, align 8
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 416
   %20 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %19) #11
-  %21 = getelementptr inbounds i8, ptr %18, i64 424
+  %21 = getelementptr inbounds nuw i8, ptr %18, i64 424
   store i32 0, ptr %21, align 8
   %22 = getelementptr inbounds nuw i8, ptr %18, i64 528
   %23 = load ptr, ptr %22, align 8
@@ -2502,7 +2502,7 @@ _ZN5clang17DiagnosticStorageC2Ev.exit:            ; preds = %7
   br i1 %.not.i.i, label %_ZN4llvm15SmallVectorImplIN5clang9FixItHintEE5clearEv.exit, label %.lr.ph.i.i, !llvm.loop !15
 
 _ZN4llvm15SmallVectorImplIN5clang9FixItHintEE5clearEv.exit: ; preds = %.lr.ph.i.i, %13
-  %28 = getelementptr inbounds i8, ptr %18, i64 536
+  %28 = getelementptr inbounds nuw i8, ptr %18, i64 536
   store i32 0, ptr %28, align 8
   br label %29
 

@@ -265,11 +265,11 @@ _ZNK4llvm9StringRef3strB5cxx11Ev.exit:            ; preds = %30, %31
   %45 = getelementptr inbounds nuw i8, ptr %11, i64 25
   store i8 0, ptr %45, align 1, !alias.scope !13
   store i8 0, ptr %41, align 8, !noalias !13
-  %46 = getelementptr inbounds i8, ptr %37, i64 792
+  %46 = getelementptr inbounds nuw i8, ptr %37, i64 792
   %47 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %46) #14, !noalias !13
-  %48 = getelementptr inbounds i8, ptr %37, i64 800
+  %48 = getelementptr inbounds nuw i8, ptr %37, i64 800
   store i32 0, ptr %48, align 8, !noalias !13
-  %49 = getelementptr inbounds i8, ptr %37, i64 904
+  %49 = getelementptr inbounds nuw i8, ptr %37, i64 904
   %50 = load ptr, ptr %49, align 8, !noalias !13
   %51 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %49) #14, !noalias !13
   %.not4.i.i.i.i.i = icmp eq i64 %51, 0
@@ -288,7 +288,7 @@ _ZNK4llvm9StringRef3strB5cxx11Ev.exit:            ; preds = %30, %31
   br i1 %.not.i.i.i.i.i, label %_ZN5clang17DiagnosticsEngine6ReportEj.exit, label %.lr.ph.i.i.i.i.i, !llvm.loop !14
 
 _ZN5clang17DiagnosticsEngine6ReportEj.exit:       ; preds = %.lr.ph.i.i.i.i.i, %35
-  %55 = getelementptr inbounds i8, ptr %37, i64 912
+  %55 = getelementptr inbounds nuw i8, ptr %37, i64 912
   store i32 0, ptr %55, align 8, !noalias !13
   %56 = load ptr, ptr %27, align 8, !noalias !16
   %57 = load i32, ptr %9, align 8, !noalias !16
@@ -386,7 +386,7 @@ _ZN4llvm11raw_ostream13SetUnbufferedEv.exit:      ; preds = %87, %92
 96:                                               ; preds = %93
   %97 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %98 = load ptr, ptr %97, align 8
-  %99 = getelementptr inbounds i8, ptr %1, i64 120
+  %99 = getelementptr inbounds nuw i8, ptr %1, i64 120
   %100 = load ptr, ptr %99, align 8
   %.not7172 = icmp eq ptr %98, %100
   br i1 %.not7172, label %._crit_edge, label %.lr.ph
@@ -889,7 +889,7 @@ _ZN5clang17DiagnosticStorageC2Ev.exit:            ; preds = %7
   store i8 0, ptr %18, align 8
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 416
   %20 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %19) #14
-  %21 = getelementptr inbounds i8, ptr %18, i64 424
+  %21 = getelementptr inbounds nuw i8, ptr %18, i64 424
   store i32 0, ptr %21, align 8
   %22 = getelementptr inbounds nuw i8, ptr %18, i64 528
   %23 = load ptr, ptr %22, align 8
@@ -910,7 +910,7 @@ _ZN5clang17DiagnosticStorageC2Ev.exit:            ; preds = %7
   br i1 %.not.i.i, label %_ZN4llvm15SmallVectorImplIN5clang9FixItHintEE5clearEv.exit, label %.lr.ph.i.i, !llvm.loop !14
 
 _ZN4llvm15SmallVectorImplIN5clang9FixItHintEE5clearEv.exit: ; preds = %.lr.ph.i.i, %13
-  %28 = getelementptr inbounds i8, ptr %18, i64 536
+  %28 = getelementptr inbounds nuw i8, ptr %18, i64 536
   store i32 0, ptr %28, align 8
   br label %29
 
@@ -1668,7 +1668,7 @@ _ZN5clang13SourceManager18getSLocEntryOrNullENS_6FileIDE.exit.thread.i.i.i: ; pr
   br i1 %21, label %_ZNK5clang13SourceManager19getSLocEntryForFileENS_6FileIDE.exit.i, label %_ZNK5clang13SourceManager20getFileEntryRefForIDENS_6FileIDE.exit.preheader
 
 _ZNK5clang13SourceManager19getSLocEntryForFileENS_6FileIDE.exit.i: ; preds = %19
-  %22 = getelementptr inbounds i8, ptr %17, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %.0.copyload.i.i.i.i.i = load i64, ptr %22, align 8
   %23 = and i64 %.0.copyload.i.i.i.i.i, -8
   %24 = inttoptr i64 %23 to ptr
@@ -1992,7 +1992,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZN5
   br i1 %.not.i.i, label %54, label %17
 
 17:                                               ; preds = %5
-  %18 = getelementptr inbounds i8, ptr %0, i64 208
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %19 = udiv i32 %6, 42
   %20 = urem i32 %6, 42
   %.zext.i.i = zext nneg i32 %19 to i64
@@ -2003,7 +2003,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZN5
   br i1 %.not.i.i.i, label %24, label %_ZNK4llvm11PagedVectorIN5clang6SrcMgr9SLocEntryELm42EEixEm.exit.i.i
 
 24:                                               ; preds = %17
-  %25 = getelementptr inbounds i8, ptr %0, i64 224
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %.0.copyload.i.i.i.i.i.i = load i64, ptr %25, align 8
   %26 = and i64 %.0.copyload.i.i.i.i.i.i, -8
   %27 = inttoptr i64 %26 to ptr

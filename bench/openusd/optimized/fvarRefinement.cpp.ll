@@ -58,7 +58,7 @@ define void @_ZN10OpenSubdiv6v3_6_03Vtr8internal14FVarRefinementD2Ev(ptr nocaptu
   br i1 %.not.i.i.i, label %_ZNSt6vectorItSaItEED2Ev.exit, label %4
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 56
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %6 = load ptr, ptr %5, align 8
   %7 = ptrtoint ptr %6 to i64
   %8 = ptrtoint ptr %3 to i64
@@ -306,7 +306,7 @@ define void @_ZN10OpenSubdiv6v3_6_03Vtr8internal14FVarRefinement30estimateAndAll
   %64 = load ptr, ptr %62, align 8
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 168
   %66 = sext i32 %.1.lcssa to i64
-  %67 = getelementptr inbounds i8, ptr %64, i64 176
+  %67 = getelementptr inbounds nuw i8, ptr %64, i64 176
   %68 = load ptr, ptr %67, align 8
   %69 = load ptr, ptr %65, align 8
   %70 = ptrtoint ptr %68 to i64
@@ -317,7 +317,7 @@ define void @_ZN10OpenSubdiv6v3_6_03Vtr8internal14FVarRefinement30estimateAndAll
 
 74:                                               ; preds = %._crit_edge25
   %75 = sub nuw i64 %66, %72
-  %76 = getelementptr inbounds i8, ptr %64, i64 184
+  %76 = getelementptr inbounds nuw i8, ptr %64, i64 184
   %77 = load ptr, ptr %76, align 8
   %78 = ptrtoint ptr %77 to i64
   %79 = sub i64 %78, %70
@@ -395,7 +395,7 @@ _ZNSt12_Vector_baseIN10OpenSubdiv6v3_6_03Vtr8internal9FVarLevel8ValueTagESaIS5_E
 _ZNSt6vectorIN10OpenSubdiv6v3_6_03Vtr8internal9FVarLevel8ValueTagESaIS5_EE6resizeEm.exit: ; preds = %83, %_ZNSt12_Vector_baseIN10OpenSubdiv6v3_6_03Vtr8internal9FVarLevel8ValueTagESaIS5_EE13_M_deallocateEPS5_m.exit32.i.i, %97, %99, %101
   %102 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i16 0, ptr %2, align 2
-  %103 = getelementptr inbounds i8, ptr %0, i64 48
+  %103 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %104 = load ptr, ptr %103, align 8
   %105 = load ptr, ptr %102, align 8
   %106 = ptrtoint ptr %104 to i64
@@ -665,7 +665,7 @@ define void @_ZN10OpenSubdiv6v3_6_03Vtr8internal14FVarRefinement26trimAndFinaliz
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %6 = load i32, ptr %5, align 8
   %7 = sext i32 %6 to i64
-  %8 = getelementptr inbounds i8, ptr %3, i64 176
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 176
   %9 = load ptr, ptr %8, align 8
   %10 = load ptr, ptr %4, align 8
   %11 = ptrtoint ptr %9 to i64
@@ -676,7 +676,7 @@ define void @_ZN10OpenSubdiv6v3_6_03Vtr8internal14FVarRefinement26trimAndFinaliz
 
 15:                                               ; preds = %1
   %16 = sub nuw i64 %7, %13
-  %17 = getelementptr inbounds i8, ptr %3, i64 184
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 184
   %18 = load ptr, ptr %17, align 8
   %19 = ptrtoint ptr %18 to i64
   %20 = sub i64 %19, %11
@@ -763,7 +763,7 @@ _ZNSt6vectorIN10OpenSubdiv6v3_6_03Vtr8internal9FVarLevel8ValueTagESaIS5_EE6resiz
   %49 = getelementptr inbounds nuw i8, ptr %43, i64 16
   %50 = load i32, ptr %49, align 8
   %51 = sext i32 %50 to i64
-  %52 = getelementptr inbounds i8, ptr %43, i64 200
+  %52 = getelementptr inbounds nuw i8, ptr %43, i64 200
   %53 = load ptr, ptr %52, align 8
   %54 = load ptr, ptr %48, align 8
   %55 = ptrtoint ptr %53 to i64
@@ -797,7 +797,7 @@ _ZNSt6vectorIN10OpenSubdiv6v3_6_03Vtr8internal9FVarLevel13CreaseEndPairESaIS5_EE
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 16
   %70 = load i32, ptr %69, align 8
   %71 = sext i32 %70 to i64
-  %72 = getelementptr inbounds i8, ptr %0, i64 48
+  %72 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %73 = load ptr, ptr %72, align 8
   %74 = load ptr, ptr %67, align 8
   %75 = ptrtoint ptr %73 to i64
@@ -832,7 +832,7 @@ _ZNSt6vectorItSaItEE6resizeEm.exit:               ; preds = %80, %82, %84, %86
   %89 = getelementptr inbounds nuw i8, ptr %87, i64 16
   %90 = load i32, ptr %89, align 8
   %91 = sext i32 %90 to i64
-  %92 = getelementptr inbounds i8, ptr %87, i64 152
+  %92 = getelementptr inbounds nuw i8, ptr %87, i64 152
   %93 = load ptr, ptr %92, align 8
   %94 = load ptr, ptr %88, align 8
   %95 = ptrtoint ptr %93 to i64
@@ -1471,7 +1471,7 @@ _ZN10OpenSubdiv6v3_6_03Vtr8internal11StackBufferIiLj16ELb0EEC2Ej.exit: ; preds =
   %84 = load ptr, ptr %83, align 8
   %85 = getelementptr inbounds %"struct.OpenSubdiv::v3_6_0::Vtr::internal::FVarLevel::CreaseEndPair", ptr %84, i64 %44
   %86 = getelementptr inbounds nuw i8, ptr %68, i64 360
-  %87 = getelementptr inbounds i8, ptr %68, i64 368
+  %87 = getelementptr inbounds nuw i8, ptr %68, i64 368
   %88 = load ptr, ptr %87, align 8
   %89 = load ptr, ptr %86, align 8
   %90 = ptrtoint ptr %88 to i64
@@ -2688,7 +2688,7 @@ define noundef float @_ZNK10OpenSubdiv6v3_6_03Vtr8internal14FVarRefinement19getF
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %30 = load ptr, ptr %29, align 8
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 360
-  %32 = getelementptr inbounds i8, ptr %30, i64 368
+  %32 = getelementptr inbounds nuw i8, ptr %30, i64 368
   %33 = load ptr, ptr %32, align 8
   %34 = load ptr, ptr %31, align 8
   %35 = ptrtoint ptr %33 to i64

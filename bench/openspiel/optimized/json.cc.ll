@@ -1145,7 +1145,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   %.02255 = phi i1 [ true, %.lr.ph ], [ false, %71 ]
   %.sroa.049.054 = phi ptr [ %27, %.lr.ph ], [ %72, %71 ]
   %40 = getelementptr inbounds nuw i8, ptr %.sroa.049.054, i64 32
-  %41 = getelementptr inbounds i8, ptr %.sroa.049.054, i64 64
+  %41 = getelementptr inbounds nuw i8, ptr %.sroa.049.054, i64 64
   br i1 %.02255, label %45, label %42
 
 42:                                               ; preds = %39
@@ -2126,7 +2126,7 @@ _ZN4absl7debian210StartsWithENS0_11string_viewES1_.exit.thread.i.i: ; preds = %_
   %96 = add i64 %.sroa.26.0.copyload.i, -4
   store i64 %96, ptr %25, align 8, !noalias !18
   store i8 1, ptr %0, align 8, !alias.scope !18
-  %97 = getelementptr inbounds i8, ptr %0, i64 56
+  %97 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i8 0, ptr %97, align 8, !alias.scope !18
   br label %_ZN10open_spiel4json12_GLOBAL__N_113ParseConstantINS0_4NullEEEN4absl7debian28optionalINS0_5ValueEEEPNS5_11string_viewES9_T_.exit
 
@@ -2155,7 +2155,7 @@ _ZN4absl7debian210StartsWithENS0_11string_viewES1_.exit.thread.i.i28: ; preds = 
   store i8 1, ptr %0, align 8, !alias.scope !21
   %102 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 1, ptr %102, align 8, !alias.scope !21
-  %103 = getelementptr inbounds i8, ptr %0, i64 56
+  %103 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i8 1, ptr %103, align 8, !alias.scope !21
   br label %_ZN10open_spiel4json12_GLOBAL__N_113ParseConstantINS0_4NullEEEN4absl7debian28optionalINS0_5ValueEEEPNS5_11string_viewES9_T_.exit
 
@@ -2184,7 +2184,7 @@ _ZN4absl7debian210StartsWithENS0_11string_viewES1_.exit.thread.i.i38: ; preds = 
   store i8 1, ptr %0, align 8, !alias.scope !24
   %108 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 0, ptr %108, align 8, !alias.scope !24
-  %109 = getelementptr inbounds i8, ptr %0, i64 56
+  %109 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i8 1, ptr %109, align 8, !alias.scope !24
   br label %_ZN10open_spiel4json12_GLOBAL__N_113ParseConstantINS0_4NullEEEN4absl7debian28optionalINS0_5ValueEEEPNS5_11string_viewES9_T_.exit
 
@@ -2207,7 +2207,7 @@ _ZN4absl7debian211string_viewC2EPKc.exit.i37:     ; preds = %_ZN4absl7debian210S
 115:                                              ; preds = %111
   %116 = getelementptr inbounds nuw i8, ptr %22, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %112, ptr noundef nonnull align 8 dereferenceable(32) %116) #22
-  %117 = getelementptr inbounds i8, ptr %0, i64 56
+  %117 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i8 4, ptr %117, align 8
   store i8 1, ptr %0, align 8
   %.pre417 = load i8, ptr %22, align 8
@@ -2238,7 +2238,7 @@ _ZN4absl7debian210StartsWithENS0_11string_viewES1_.exit.thread.i87: ; preds = %_
   %125 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %126 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %127 = getelementptr inbounds nuw i8, ptr %14, i64 16
-  %128 = getelementptr inbounds i8, ptr %15, i64 56
+  %128 = getelementptr inbounds nuw i8, ptr %15, i64 56
   br label %130
 
 thread-pre-split:                                 ; preds = %_ZN4absl7debian28optionalIN10open_spiel4json5ValueEED2Ev.exit
@@ -2549,11 +2549,11 @@ _ZNSt6vectorIN10open_spiel4json5ValueESaIS2_EED2Ev.exit: ; preds = %_ZSt8_Destro
 
 _ZNSt6vectorIN10open_spiel4json5ValueESaIS2_EED2Ev.exit.i.i.i.i.i: ; preds = %_ZNSt6vectorIN10open_spiel4json5ValueESaIS2_EED2Ev.exit
   store ptr %.sroa.17.1, ptr %217, align 8
-  %218 = getelementptr inbounds i8, ptr %0, i64 16
+  %218 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %.sroa.25.1, ptr %218, align 8
-  %219 = getelementptr inbounds i8, ptr %0, i64 24
+  %219 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %.sroa.28.1, ptr %219, align 8
-  %220 = getelementptr inbounds i8, ptr %0, i64 56
+  %220 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i8 5, ptr %220, align 8
   store i8 1, ptr %0, align 8
   br label %_ZN10open_spiel4json12_GLOBAL__N_113ParseConstantINS0_4NullEEEN4absl7debian28optionalINS0_5ValueEEEPNS5_11string_viewES9_T_.exit
@@ -2579,7 +2579,7 @@ _ZN4absl7debian210StartsWithENS0_11string_viewES1_.exit.thread.i166: ; preds = %
   %228 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %229 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %230 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  %231 = getelementptr inbounds i8, ptr %13, i64 56
+  %231 = getelementptr inbounds nuw i8, ptr %13, i64 56
   br label %232
 
 232:                                              ; preds = %_ZN4absl7debian28optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit95, %_ZN4absl7debian210StartsWithENS0_11string_viewES1_.exit.thread.i166
@@ -3118,7 +3118,7 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN10open_spiel4json
 399:                                              ; preds = %381, %395
   %.sink.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = phi ptr [ %392, %381 ], [ %398, %395 ]
   store i64 0, ptr %.sink.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8
-  %400 = getelementptr inbounds i8, ptr %0, i64 56
+  %400 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i8 6, ptr %400, align 8
   store i8 1, ptr %0, align 8
   br label %_ZN10open_spiel4json12_GLOBAL__N_113ParseConstantINS0_4NullEEEN4absl7debian28optionalINS0_5ValueEEEPNS5_11string_viewES9_T_.exit
@@ -3579,13 +3579,13 @@ define linkonce_odr void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_tra
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %.08, i64 32
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3)
-  %9 = getelementptr inbounds i8, ptr %.08, i64 112
+  %9 = getelementptr inbounds nuw i8, ptr %.08, i64 112
   %10 = load i8, ptr %9, align 8
   %.not6 = icmp eq i8 %10, -1
   br i1 %.not6, label %_ZNSt8__detail9__variant17_Copy_assign_baseILb0EJN10open_spiel4json4NullEbldNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorINS3_5ValueESaISC_EESt3mapISA_SC_St4lessISA_ESaISt4pairIKSA_SC_EEEEED2Ev.exit, label %11
 
 11:                                               ; preds = %.lr.ph
-  %12 = getelementptr inbounds i8, ptr %.08, i64 64
+  %12 = getelementptr inbounds nuw i8, ptr %.08, i64 64
   invoke void @_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJN10open_spiel4json4NullEbldNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorINS4_5ValueESaISD_EESt3mapISB_SD_St4lessISB_ESaISt4pairIKSB_SD_EEEEE8_M_resetEvEUlOT_E_JRSt7variantIJS5_bldSB_SF_SN_EEEEDcOT0_DpOT1_(ptr noundef nonnull align 1 dereferenceable(1) %3, ptr noundef nonnull align 8 dereferenceable(49) %12)
           to label %.noexc.i unwind label %13
 
@@ -4032,7 +4032,7 @@ define linkonce_odr void @_ZN4absl7debian28optionalIN10open_spiel4json5ValueEED2
 
 5:                                                ; preds = %1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2)
-  %6 = getelementptr inbounds i8, ptr %0, i64 56
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %7 = load i8, ptr %6, align 8
   %.not.i.i.i.i.i.i = icmp eq i8 %7, -1
   br i1 %.not.i.i.i.i.i.i, label %_ZN10open_spiel4json5ValueD2Ev.exit.i.i.i.i, label %8
@@ -4693,10 +4693,10 @@ define linkonce_odr void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_tra
           to label %.noexc unwind label %10
 
 .noexc:                                           ; preds = %3
-  %6 = getelementptr inbounds i8, ptr %1, i64 64
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 32
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
-  %8 = getelementptr inbounds i8, ptr %1, i64 112
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 112
   store i8 -1, ptr %8, align 8
   store ptr %6, ptr %4, align 8
   invoke void @_ZSt10__do_visitINSt8__detail9__variant20__variant_idx_cookieEZNS1_15_Copy_ctor_baseILb0EJN10open_spiel4json4NullEbldNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorINS5_5ValueESaISE_EESt3mapISC_SE_St4lessISC_ESaISt4pairIKSC_SE_EEEEEC1ERKSP_EUlOT_T0_E_JRKSt7variantIJS6_bldSC_SG_SO_EEEEDcOSU_DpOT1_(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(49) %7)
@@ -4729,7 +4729,7 @@ define linkonce_odr void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_tra
           to label %19 unwind label %20
 
 16:                                               ; preds = %.noexc
-  %17 = getelementptr inbounds i8, ptr %2, i64 80
+  %17 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %18 = load i8, ptr %17, align 8
   store i8 %18, ptr %8, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
@@ -4813,13 +4813,13 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
 
 30:                                               ; preds = %11
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5)
-  %31 = getelementptr inbounds i8, ptr %8, i64 112
+  %31 = getelementptr inbounds nuw i8, ptr %8, i64 112
   %32 = load i8, ptr %31, align 8
   %.not.i.i.i.i.i = icmp eq i8 %32, -1
   br i1 %.not.i.i.i.i.i, label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N10open_spiel4json5ValueEESt10_Select1stISB_ESt4lessIS5_ESaISB_EE12_M_drop_nodeEPSt13_Rb_tree_nodeISB_E.exit.i, label %33
 
 33:                                               ; preds = %30
-  %34 = getelementptr inbounds i8, ptr %8, i64 64
+  %34 = getelementptr inbounds nuw i8, ptr %8, i64 64
   invoke void @_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJN10open_spiel4json4NullEbldNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorINS4_5ValueESaISD_EESt3mapISB_SD_St4lessISB_ESaISt4pairIKSB_SD_EEEEE8_M_resetEvEUlOT_E_JRSt7variantIJS5_bldSB_SF_SN_EEEEDcOT0_DpOT1_(ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef nonnull align 8 dereferenceable(49) %34)
           to label %.noexc.i.i.i.i.i unwind label %35
 
@@ -5172,13 +5172,13 @@ define linkonce_odr void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_tra
 
 5:                                                ; preds = %1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2)
-  %6 = getelementptr inbounds i8, ptr %4, i64 112
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 112
   %7 = load i8, ptr %6, align 8
   %.not.i.i.i.i = icmp eq i8 %7, -1
   br i1 %.not.i.i.i.i, label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N10open_spiel4json5ValueEESt10_Select1stISB_ESt4lessIS5_ESaISB_EE12_M_drop_nodeEPSt13_Rb_tree_nodeISB_E.exit, label %8
 
 8:                                                ; preds = %5
-  %9 = getelementptr inbounds i8, ptr %4, i64 64
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 64
   invoke void @_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJN10open_spiel4json4NullEbldNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorINS4_5ValueESaISD_EESt3mapISB_SD_St4lessISB_ESaISt4pairIKSB_SD_EEEEE8_M_resetEvEUlOT_E_JRSt7variantIJS5_bldSB_SF_SN_EEEEDcOT0_DpOT1_(ptr noundef nonnull align 1 dereferenceable(1) %2, ptr noundef nonnull align 8 dereferenceable(49) %9)
           to label %.noexc.i.i.i.i unwind label %10
 
@@ -5212,9 +5212,9 @@ define linkonce_odr void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_tra
           to label %.noexc unwind label %10
 
 .noexc:                                           ; preds = %4
-  %7 = getelementptr inbounds i8, ptr %1, i64 64
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 64
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
-  %8 = getelementptr inbounds i8, ptr %1, i64 112
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 112
   store i8 -1, ptr %8, align 8
   store ptr %7, ptr %5, align 8
   invoke void @_ZSt10__do_visitINSt8__detail9__variant20__variant_idx_cookieEZNS1_15_Copy_ctor_baseILb0EJN10open_spiel4json4NullEbldNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorINS5_5ValueESaISE_EESt3mapISC_SE_St4lessISC_ESaISt4pairIKSC_SE_EEEEEC1ERKSP_EUlOT_T0_E_JRKSt7variantIJS6_bldSC_SG_SO_EEEEDcOSU_DpOT1_(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(49) %3)

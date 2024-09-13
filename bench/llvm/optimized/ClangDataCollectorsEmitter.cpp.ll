@@ -42,7 +42,7 @@ define dso_local void @_ZN5clang23EmitClangDataCollectorsERN4llvm12RecordKeeperE
 
 9:                                                ; preds = %.lr.ph31, %_ZN4llvm11raw_ostreamlsEPKc.exit20
   %.sroa.025.030 = phi ptr [ %5, %.lr.ph31 ], [ %93, %_ZN4llvm11raw_ostreamlsEPKc.exit20 ]
-  %10 = getelementptr inbounds i8, ptr %.sroa.025.030, i64 64
+  %10 = getelementptr inbounds nuw i8, ptr %.sroa.025.030, i64 64
   %11 = load ptr, ptr %10, align 8
   %12 = load ptr, ptr %7, align 8
   %13 = load ptr, ptr %8, align 8

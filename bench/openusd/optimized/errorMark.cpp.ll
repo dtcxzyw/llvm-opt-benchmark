@@ -87,7 +87,7 @@ define noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__11TfErrorMark12
 .lr.ph.i.i.i.preheader:                           ; preds = %2
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 152
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 152
   %13 = load i64, ptr %12, align 8
   %14 = load i64, ptr %0, align 8
   %15 = icmp ult i64 %13, %14
@@ -156,7 +156,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__11TfErrorMarkC2Ev(ptr nocaptur
 _ZN32pxrInternal_v0_24__pxrReserved__15TfDiagnosticMgr11GetInstanceEv.exit: ; preds = %1, %4
   %.0.i.i = phi ptr [ %.0.i.i.i, %1 ], [ %5, %4 ]
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2)
-  %6 = getelementptr inbounds i8, ptr %.0.i.i, i64 392
+  %6 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 392
   %7 = load i32, ptr %6, align 8
   %8 = tail call noundef ptr @pthread_getspecific(i32 noundef %7) #12
   %.not.i.i.i.i = icmp eq ptr %8, null
@@ -210,7 +210,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__11TfErrorMarkD2Ev(ptr nocaptur
 _ZN32pxrInternal_v0_24__pxrReserved__15TfDiagnosticMgr11GetInstanceEv.exit: ; preds = %1, %7
   %.0.i.i = phi ptr [ %.0.i.i.i, %1 ], [ %8, %7 ]
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5)
-  %9 = getelementptr inbounds i8, ptr %.0.i.i, i64 392
+  %9 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 392
   %10 = load i32, ptr %9, align 8
   %11 = tail call noundef ptr @pthread_getspecific(i32 noundef %10) #12
   %.not.i.i.i.i = icmp eq ptr %11, null
@@ -274,7 +274,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__15TfDiagnosticMgr11GetInstanceEv.exit.i: ; 
 _ZNK32pxrInternal_v0_24__pxrReserved__11TfErrorMark7IsCleanEv.exit: ; preds = %.noexc8
   %34 = getelementptr inbounds nuw i8, ptr %32, i64 8
   %35 = load ptr, ptr %34, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 152
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 152
   %37 = load i64, ptr %36, align 8
   %38 = load i64, ptr %0, align 8
   %39 = icmp ult i64 %37, %38
@@ -412,7 +412,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__24TfReportActiveErrorMarksEv()
   %26 = getelementptr inbounds nuw i8, ptr %2, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %26, i8 0, i64 16, i1 false)
   store float 1.000000e+00, ptr %23, align 8
-  %27 = getelementptr inbounds i8, ptr %2, i64 40
+  %27 = getelementptr inbounds nuw i8, ptr %2, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %27, i8 0, i64 16, i1 false)
   %28 = atomicrmw xchg ptr @_ZN32pxrInternal_v0_24__pxrReserved__L21_activeMarkStacksLockE, i8 1 seq_cst, align 1
   %29 = trunc i8 %28 to i1
@@ -464,7 +464,7 @@ _ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEEC2ERS3_.exit: ; preds = 
   store i64 1, ptr getelementptr inbounds nuw (i8, ptr @_ZZN32pxrInternal_v0_24__pxrReserved__L31TfErrorMark_GetActiveMarkStacksEvE16activeMarkStacks, i64 8), align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZZN32pxrInternal_v0_24__pxrReserved__L31TfErrorMark_GetActiveMarkStacksEvE16activeMarkStacks, i64 16), i8 0, i64 16, i1 false)
   store float 1.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @_ZZN32pxrInternal_v0_24__pxrReserved__L31TfErrorMark_GetActiveMarkStacksEvE16activeMarkStacks, i64 32), align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZZN32pxrInternal_v0_24__pxrReserved__L31TfErrorMark_GetActiveMarkStacksEvE16activeMarkStacks, i64 40), i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZZN32pxrInternal_v0_24__pxrReserved__L31TfErrorMark_GetActiveMarkStacksEvE16activeMarkStacks, i64 40), i8 0, i64 16, i1 false)
   %45 = call i32 @__cxa_atexit(ptr nonnull @_ZN32pxrInternal_v0_24__pxrReserved__9TfHashMapIPKNS_11TfErrorMarkESt6vectorImSaImEENS_6TfHashESt8equal_toIS3_ESaISt4pairIKS3_S6_EEED2Ev, ptr nonnull @_ZZN32pxrInternal_v0_24__pxrReserved__L31TfErrorMark_GetActiveMarkStacksEvE16activeMarkStacks, ptr nonnull @__dso_handle) #12
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN32pxrInternal_v0_24__pxrReserved__L31TfErrorMark_GetActiveMarkStacksEvE16activeMarkStacks) #12
   br label %_ZN32pxrInternal_v0_24__pxrReserved__L31TfErrorMark_GetActiveMarkStacksEv.exit
@@ -927,7 +927,7 @@ define linkonce_odr void @_ZNSt10_HashtableIPKN32pxrInternal_v0_24__pxrReserved_
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i64, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %7 = getelementptr inbounds i8, ptr %0, i64 40
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %8 = load i64, ptr %7, align 8
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %10 = load i64, ptr %9, align 8
@@ -1330,7 +1330,7 @@ _ZNSt16allocator_traitsISaINSt8__detail10_Hash_nodeISt4pairIKPKN32pxrInternal_v0
   %15 = load ptr, ptr %1, align 8
   store ptr %15, ptr %6, align 8
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %17 = getelementptr inbounds i8, ptr %1, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %18 = load ptr, ptr %17, align 8
   %19 = load ptr, ptr %16, align 8
   %20 = ptrtoint ptr %18 to i64
@@ -1429,7 +1429,7 @@ define linkonce_odr noundef ptr @_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_
   store ptr %5, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %3, i64 16
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %8 = getelementptr inbounds i8, ptr %1, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %9 = load ptr, ptr %8, align 8
   %10 = load ptr, ptr %7, align 8
   %11 = ptrtoint ptr %9 to i64

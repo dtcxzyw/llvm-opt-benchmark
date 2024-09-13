@@ -503,15 +503,15 @@ _ZN10open_spiel17morpion_solitaire12_GLOBAL__N_117BasicMorpionTestsEv.exit: ; pr
   %166 = getelementptr inbounds nuw i8, ptr %30, i64 24
   %167 = getelementptr inbounds nuw i8, ptr %35, i64 24
   %168 = load ptr, ptr %166, align 8
-  %169 = getelementptr inbounds i8, ptr %30, i64 32
-  %170 = getelementptr inbounds i8, ptr %30, i64 40
+  %169 = getelementptr inbounds nuw i8, ptr %30, i64 32
+  %170 = getelementptr inbounds nuw i8, ptr %30, i64 40
   %171 = load ptr, ptr %170, align 8
   %172 = load ptr, ptr %167, align 8
   store ptr %172, ptr %166, align 8
-  %173 = getelementptr inbounds i8, ptr %35, i64 32
+  %173 = getelementptr inbounds nuw i8, ptr %35, i64 32
   %174 = load ptr, ptr %173, align 8
   store ptr %174, ptr %169, align 8
-  %175 = getelementptr inbounds i8, ptr %35, i64 40
+  %175 = getelementptr inbounds nuw i8, ptr %35, i64 40
   %176 = load ptr, ptr %175, align 8
   store ptr %176, ptr %170, align 8
   %.not.i.i.i.i.i.i.i1 = icmp eq ptr %168, null
@@ -584,7 +584,7 @@ _ZN10open_spiel17morpion_solitaire4LineD2Ev.exit.i: ; preds = %180, %_ZN10open_s
   br i1 %.not.i.i.i.i5.i, label %common.resume, label %203
 
 203:                                              ; preds = %200
-  %204 = getelementptr inbounds i8, ptr %30, i64 40
+  %204 = getelementptr inbounds nuw i8, ptr %30, i64 40
   %205 = load ptr, ptr %204, align 8
   %206 = ptrtoint ptr %205 to i64
   %207 = ptrtoint ptr %202 to i64
@@ -645,7 +645,7 @@ _ZN10open_spiel17morpion_solitaire12_GLOBAL__N_118MoveConversionTestEv.exit: ; p
   br i1 %.not.i.i.i.i.i5, label %_ZN10open_spiel17morpion_solitaire4LineD2Ev.exit.i6, label %214
 
 214:                                              ; preds = %211
-  %215 = getelementptr inbounds i8, ptr %5, i64 40
+  %215 = getelementptr inbounds nuw i8, ptr %5, i64 40
   %216 = load ptr, ptr %215, align 8
   %217 = ptrtoint ptr %216 to i64
   %218 = ptrtoint ptr %213 to i64
@@ -685,7 +685,7 @@ _ZN10open_spiel17morpion_solitaire4LineD2Ev.exit.i6: ; preds = %214, %211
   br i1 %.not.i.i.i.i3.i4, label %_ZN10open_spiel17morpion_solitaire4LineD2Ev.exit4.i, label %230
 
 230:                                              ; preds = %226
-  %231 = getelementptr inbounds i8, ptr %5, i64 40
+  %231 = getelementptr inbounds nuw i8, ptr %5, i64 40
   %232 = load ptr, ptr %231, align 8
   %233 = ptrtoint ptr %232 to i64
   %234 = ptrtoint ptr %229 to i64
@@ -714,7 +714,7 @@ _ZN10open_spiel17morpion_solitaire4LineD2Ev.exit.i6: ; preds = %214, %211
   br i1 %.not.i.i.i.i5.i7, label %_ZN10open_spiel17morpion_solitaire4LineD2Ev.exit6.i8, label %244
 
 244:                                              ; preds = %241
-  %245 = getelementptr inbounds i8, ptr %10, i64 40
+  %245 = getelementptr inbounds nuw i8, ptr %10, i64 40
   %246 = load ptr, ptr %245, align 8
   %247 = ptrtoint ptr %246 to i64
   %248 = ptrtoint ptr %243 to i64
@@ -749,7 +749,7 @@ _ZN10open_spiel17morpion_solitaire4LineD2Ev.exit6.i8: ; preds = %244, %241
   br i1 %.not.i.i.i.i7.i, label %_ZN10open_spiel17morpion_solitaire4LineD2Ev.exit4.i, label %258
 
 258:                                              ; preds = %254
-  %259 = getelementptr inbounds i8, ptr %10, i64 40
+  %259 = getelementptr inbounds nuw i8, ptr %10, i64 40
   %260 = load ptr, ptr %259, align 8
   %261 = ptrtoint ptr %260 to i64
   %262 = ptrtoint ptr %257 to i64
@@ -778,7 +778,7 @@ _ZN10open_spiel17morpion_solitaire4LineD2Ev.exit6.i8: ; preds = %244, %241
   br i1 %.not.i.i.i.i9.i, label %_ZN10open_spiel17morpion_solitaire4LineD2Ev.exit10.i, label %272
 
 272:                                              ; preds = %269
-  %273 = getelementptr inbounds i8, ptr %15, i64 40
+  %273 = getelementptr inbounds nuw i8, ptr %15, i64 40
   %274 = load ptr, ptr %273, align 8
   %275 = ptrtoint ptr %274 to i64
   %276 = ptrtoint ptr %271 to i64
@@ -813,7 +813,7 @@ _ZN10open_spiel17morpion_solitaire4LineD2Ev.exit10.i: ; preds = %272, %269
   br i1 %.not.i.i.i.i11.i, label %_ZN10open_spiel17morpion_solitaire4LineD2Ev.exit4.i, label %286
 
 286:                                              ; preds = %282
-  %287 = getelementptr inbounds i8, ptr %15, i64 40
+  %287 = getelementptr inbounds nuw i8, ptr %15, i64 40
   %288 = load ptr, ptr %287, align 8
   %289 = ptrtoint ptr %288 to i64
   %290 = ptrtoint ptr %285 to i64
@@ -836,15 +836,15 @@ _ZN10open_spiel17morpion_solitaire4LineD2Ev.exit10.i: ; preds = %272, %269
   %296 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %297 = getelementptr inbounds nuw i8, ptr %19, i64 24
   %298 = load ptr, ptr %296, align 8
-  %299 = getelementptr inbounds i8, ptr %3, i64 32
-  %300 = getelementptr inbounds i8, ptr %3, i64 40
+  %299 = getelementptr inbounds nuw i8, ptr %3, i64 32
+  %300 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %301 = load ptr, ptr %300, align 8
   %302 = load ptr, ptr %297, align 8
   store ptr %302, ptr %296, align 8
-  %303 = getelementptr inbounds i8, ptr %19, i64 32
+  %303 = getelementptr inbounds nuw i8, ptr %19, i64 32
   %304 = load ptr, ptr %303, align 8
   store ptr %304, ptr %299, align 8
-  %305 = getelementptr inbounds i8, ptr %19, i64 40
+  %305 = getelementptr inbounds nuw i8, ptr %19, i64 40
   %306 = load ptr, ptr %305, align 8
   store ptr %306, ptr %300, align 8
   %.not.i.i.i.i.i.i.i9 = icmp eq ptr %298, null
@@ -883,7 +883,7 @@ _ZN10open_spiel17morpion_solitaire4LineD2Ev.exit14.i: ; preds = %310, %_ZN10open
   br i1 %.not.i.i.i.i15.i, label %_ZN10open_spiel17morpion_solitaire4LineD2Ev.exit16.i, label %320
 
 320:                                              ; preds = %317
-  %321 = getelementptr inbounds i8, ptr %21, i64 40
+  %321 = getelementptr inbounds nuw i8, ptr %21, i64 40
   %322 = load ptr, ptr %321, align 8
   %323 = ptrtoint ptr %322 to i64
   %324 = ptrtoint ptr %319 to i64
@@ -918,7 +918,7 @@ _ZN10open_spiel17morpion_solitaire4LineD2Ev.exit16.i: ; preds = %320, %317
   br i1 %.not.i.i.i.i17.i12, label %_ZN10open_spiel17morpion_solitaire4LineD2Ev.exit4.i, label %334
 
 334:                                              ; preds = %330
-  %335 = getelementptr inbounds i8, ptr %21, i64 40
+  %335 = getelementptr inbounds nuw i8, ptr %21, i64 40
   %336 = load ptr, ptr %335, align 8
   %337 = ptrtoint ptr %336 to i64
   %338 = ptrtoint ptr %333 to i64
@@ -947,7 +947,7 @@ _ZN10open_spiel17morpion_solitaire4LineD2Ev.exit16.i: ; preds = %320, %317
   br i1 %.not.i.i.i.i19.i, label %_ZN10open_spiel17morpion_solitaire4LineD2Ev.exit20.i, label %348
 
 348:                                              ; preds = %345
-  %349 = getelementptr inbounds i8, ptr %26, i64 40
+  %349 = getelementptr inbounds nuw i8, ptr %26, i64 40
   %350 = load ptr, ptr %349, align 8
   %351 = ptrtoint ptr %350 to i64
   %352 = ptrtoint ptr %347 to i64
@@ -982,7 +982,7 @@ _ZN10open_spiel17morpion_solitaire4LineD2Ev.exit20.i: ; preds = %348, %345
   br i1 %.not.i.i.i.i21.i, label %_ZN10open_spiel17morpion_solitaire4LineD2Ev.exit4.i, label %362
 
 362:                                              ; preds = %358
-  %363 = getelementptr inbounds i8, ptr %26, i64 40
+  %363 = getelementptr inbounds nuw i8, ptr %26, i64 40
   %364 = load ptr, ptr %363, align 8
   %365 = ptrtoint ptr %364 to i64
   %366 = ptrtoint ptr %361 to i64
@@ -1017,7 +1017,7 @@ _ZN10open_spiel17morpion_solitaire4LineD2Ev.exit4.i: ; preds = %368, %362, %358,
   br i1 %.not.i.i.i.i25.i, label %common.resume, label %379
 
 379:                                              ; preds = %_ZN10open_spiel17morpion_solitaire4LineD2Ev.exit4.i
-  %380 = getelementptr inbounds i8, ptr %3, i64 40
+  %380 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %381 = load ptr, ptr %380, align 8
   %382 = ptrtoint ptr %381 to i64
   %383 = ptrtoint ptr %378 to i64

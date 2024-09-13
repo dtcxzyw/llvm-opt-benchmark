@@ -169,7 +169,7 @@ _ZN4llvm11GlobalValue13setVisibilityENS0_15VisibilityTypesE.exit: ; preds = %_ZN
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 2768
   store ptr %1, ptr %4, align 8
   %43 = load ptr, ptr %42, align 8
-  %44 = getelementptr inbounds i8, ptr %41, i64 2784
+  %44 = getelementptr inbounds nuw i8, ptr %41, i64 2784
   %45 = load i32, ptr %44, align 8
   %46 = icmp eq i32 %45, 0
   br i1 %46, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_11GlobalValueENS2_17SanitizerMetadataENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S5_EEEES4_S5_S7_SA_E15LookupBucketForIS4_EEbRKT_RPSA_.exit.i.i.i, label %47
@@ -238,7 +238,7 @@ _ZNK4llvm11GlobalValue20getSanitizerMetadataEv.exit: ; preds = %63, %47, %_ZN4ll
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 2768
   store ptr %0, ptr %3, align 8
   %81 = load ptr, ptr %80, align 8
-  %82 = getelementptr inbounds i8, ptr %79, i64 2784
+  %82 = getelementptr inbounds nuw i8, ptr %79, i64 2784
   %83 = load i32, ptr %82, align 8
   %84 = icmp eq i32 %83, 0
   br i1 %84, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_11GlobalValueENS2_17SanitizerMetadataENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S5_EEEES4_S5_S7_SA_E15LookupBucketForIS4_EEbRKT_RPSA_.exit.i.i.i20, label %85
@@ -312,7 +312,7 @@ _ZN4llvm11GlobalValue20setSanitizerMetadataENS0_17SanitizerMetadataE.exit: ; pre
   %120 = load ptr, ptr %119, align 8
   %121 = getelementptr inbounds nuw i8, ptr %120, i64 2768
   %122 = load ptr, ptr %121, align 8
-  %123 = getelementptr inbounds i8, ptr %120, i64 2784
+  %123 = getelementptr inbounds nuw i8, ptr %120, i64 2784
   %124 = load i32, ptr %123, align 8
   %125 = icmp eq i32 %124, 0
   br i1 %125, label %_ZN4llvm11GlobalValue23removeSanitizerMetadataEv.exit, label %126
@@ -351,11 +351,11 @@ _ZN4llvm11GlobalValue20setSanitizerMetadataENS0_17SanitizerMetadataE.exit: ; pre
 .loopexit.i.i:                                    ; preds = %139, %126
   %.0.i.ph.i.i = phi ptr [ %134, %126 ], [ %143, %139 ]
   store ptr inttoptr (i64 -8192 to ptr), ptr %.0.i.ph.i.i, align 8
-  %146 = getelementptr inbounds i8, ptr %120, i64 2776
+  %146 = getelementptr inbounds nuw i8, ptr %120, i64 2776
   %147 = load i32, ptr %146, align 8
   %148 = add i32 %147, -1
   store i32 %148, ptr %146, align 8
-  %149 = getelementptr inbounds i8, ptr %120, i64 2780
+  %149 = getelementptr inbounds nuw i8, ptr %120, i64 2780
   %150 = load i32, ptr %149, align 4
   %151 = add i32 %150, 1
   store i32 %151, ptr %149, align 4
@@ -404,7 +404,7 @@ define dso_local void @_ZN4llvm11GlobalValue12setPartitionENS_9StringRefE(ptr no
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 2744
   store ptr %0, ptr %4, align 8
   %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %19, i64 2760
+  %22 = getelementptr inbounds nuw i8, ptr %19, i64 2760
   %23 = load i32, ptr %22, align 8
   %24 = icmp eq i32 %23, 0
   br i1 %24, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_11GlobalValueENS_9StringRefENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S5_EEEES4_S5_S7_SA_E15LookupBucketForIS4_EEbRKT_RPSA_.exit.i.i, label %25
@@ -493,7 +493,7 @@ define dso_local { ptr, i64 } @_ZNK4llvm11GlobalValue12getPartitionEv(ptr nounde
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 2744
   store ptr %0, ptr %2, align 8
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %8, i64 2760
+  %11 = getelementptr inbounds nuw i8, ptr %8, i64 2760
   %12 = load i32, ptr %11, align 8
   %13 = icmp eq i32 %12, 0
   br i1 %13, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_11GlobalValueENS_9StringRefENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S5_EEEES4_S5_S7_SA_E15LookupBucketForIS4_EEbRKT_RPSA_.exit.i.i, label %14
@@ -573,7 +573,7 @@ define dso_local void @_ZN4llvm11GlobalValue20setSanitizerMetadataENS0_17Sanitiz
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 2768
   store ptr %0, ptr %3, align 8
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %5, i64 2784
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 2784
   %9 = load i32, ptr %8, align 8
   %10 = icmp eq i32 %9, 0
   br i1 %10, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_11GlobalValueENS2_17SanitizerMetadataENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S5_EEEES4_S5_S7_SA_E15LookupBucketForIS4_EEbRKT_RPSA_.exit.i.i, label %11
@@ -651,7 +651,7 @@ define dso_local noundef nonnull align 4 dereferenceable(1) ptr @_ZNK4llvm11Glob
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 2768
   store ptr %0, ptr %2, align 8
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %4, i64 2784
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 2784
   %8 = load i32, ptr %7, align 8
   %9 = icmp eq i32 %8, 0
   br i1 %9, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_11GlobalValueENS2_17SanitizerMetadataENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S5_EEEES4_S5_S7_SA_E15LookupBucketForIS4_EEbRKT_RPSA_.exit.i.i, label %10
@@ -724,7 +724,7 @@ define dso_local void @_ZN4llvm11GlobalValue23removeSanitizerMetadataEv(ptr noun
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 2768
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %3, i64 2784
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 2784
   %7 = load i32, ptr %6, align 8
   %8 = icmp eq i32 %7, 0
   br i1 %8, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_11GlobalValueENS2_17SanitizerMetadataENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S5_EEEES4_S5_S7_SA_E5eraseERKS4_.exit, label %9
@@ -763,11 +763,11 @@ define dso_local void @_ZN4llvm11GlobalValue23removeSanitizerMetadataEv(ptr noun
 .loopexit.i:                                      ; preds = %22, %9
   %.0.i.ph.i = phi ptr [ %17, %9 ], [ %26, %22 ]
   store ptr inttoptr (i64 -8192 to ptr), ptr %.0.i.ph.i, align 8
-  %29 = getelementptr inbounds i8, ptr %3, i64 2776
+  %29 = getelementptr inbounds nuw i8, ptr %3, i64 2776
   %30 = load i32, ptr %29, align 8
   %31 = add i32 %30, -1
   store i32 %31, ptr %29, align 8
-  %32 = getelementptr inbounds i8, ptr %3, i64 2780
+  %32 = getelementptr inbounds nuw i8, ptr %3, i64 2780
   %33 = load i32, ptr %32, align 4
   %34 = add i32 %33, 1
   store i32 %34, ptr %32, align 4
@@ -1403,7 +1403,7 @@ define dso_local void @_ZN4llvm12GlobalObject10setSectionENS_9StringRefE(ptr nou
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 2720
   store ptr %0, ptr %4, align 8
   %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %19, i64 2736
+  %22 = getelementptr inbounds nuw i8, ptr %19, i64 2736
   %23 = load i32, ptr %22, align 8
   %24 = icmp eq i32 %23, 0
   br i1 %24, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_12GlobalObjectENS_9StringRefENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S5_EEEES4_S5_S7_SA_E15LookupBucketForIS4_EEbRKT_RPSA_.exit.i.i, label %25
@@ -1493,7 +1493,7 @@ define linkonce_odr hidden { ptr, i64 } @_ZNK4llvm12GlobalObject10getSectionEv(p
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 2720
   store ptr %0, ptr %2, align 8
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %8, i64 2736
+  %11 = getelementptr inbounds nuw i8, ptr %8, i64 2736
   %12 = load i32, ptr %11, align 8
   %13 = icmp eq i32 %12, 0
   br i1 %13, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_12GlobalObjectENS_9StringRefENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S5_EEEES4_S5_S7_SA_E15LookupBucketForIS4_EEbRKT_RPSA_.exit.i.i.i, label %14
@@ -1753,7 +1753,7 @@ define dso_local void @_ZN4llvm11GlobalValue21setNoSanitizeMetadataEv(ptr nounde
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 2768
   store ptr %0, ptr %2, align 8
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %4, i64 2784
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 2784
   %8 = load i32, ptr %7, align 8
   %9 = icmp eq i32 %8, 0
   br i1 %9, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_11GlobalValueENS2_17SanitizerMetadataENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S5_EEEES4_S5_S7_SA_E15LookupBucketForIS4_EEbRKT_RPSA_.exit.i.i.i, label %10
@@ -1831,7 +1831,7 @@ define dso_local { ptr, i64 } @_ZNK4llvm12GlobalObject14getSectionImplEv(ptr nou
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 2720
   store ptr %0, ptr %2, align 8
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %4, i64 2736
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 2736
   %8 = load i32, ptr %7, align 8
   %9 = icmp eq i32 %8, 0
   br i1 %9, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_12GlobalObjectENS_9StringRefENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S5_EEEES4_S5_S7_SA_E15LookupBucketForIS4_EEbRKT_RPSA_.exit.i.i, label %10
@@ -2270,8 +2270,8 @@ _ZN4llvm5APIntD2Ev.exit.i:                        ; preds = %_ZNK4llvm5Value11ge
   store i64 %12, ptr %0, align 8
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %15 = getelementptr inbounds i8, ptr %0, i64 24
-  %16 = getelementptr inbounds i8, ptr %3, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %17 = load i32, ptr %16, align 8
   store i32 %17, ptr %15, align 8
   %18 = load i64, ptr %14, align 8
@@ -2418,7 +2418,7 @@ define dso_local void @_ZN4llvm14GlobalVariableC2ERNS_6ModuleEPNS_4TypeEbNS_11Gl
   %.sroa.0.0.extract.trunc = trunc i64 %9 to i32
   %12 = and i64 %9, 4294967296
   %.not12 = icmp eq i64 %12, 0
-  %13 = getelementptr inbounds i8, ptr %1, i64 300
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 300
   %14 = load i32, ptr %13, align 4
   %15 = select i1 %.not12, i32 %14, i32 %.sroa.0.0.extract.trunc
   tail call void @_ZN4llvm14GlobalVariableC2EPNS_4TypeEbNS_11GlobalValue12LinkageTypesEPNS_8ConstantERKNS_5TwineENS3_15ThreadLocalModeEjb(ptr noundef nonnull align 8 dereferenceable(81) %0, ptr noundef %2, i1 noundef zeroext %3, i32 noundef %4, ptr noundef %5, ptr noundef nonnull align 8 dereferenceable(34) %6, i32 noundef %8, i32 noundef %15, i1 noundef zeroext %10)

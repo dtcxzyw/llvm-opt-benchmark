@@ -1264,7 +1264,7 @@ define dso_local { i64, i8 } @_ZNK4llvm20DbgVariableIntrinsic21getFragmentSizeIn
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %14 = load ptr, ptr %13, align 8, !noalias !32
-  %15 = getelementptr inbounds i8, ptr %12, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %12, i64 24
   %16 = load ptr, ptr %15, align 8, !noalias !32
   %17 = ptrtoint ptr %16 to i64
   %18 = ptrtoint ptr %14 to i64
@@ -4319,7 +4319,7 @@ _ZNK4llvm11VPIntrinsic20getVectorLengthParamEv.exit: ; preds = %_ZNK4llvm11VPInt
 
 57:                                               ; preds = %53
   %58 = getelementptr inbounds nuw i8, ptr %55, i64 24
-  %59 = getelementptr inbounds i8, ptr %55, i64 32
+  %59 = getelementptr inbounds nuw i8, ptr %55, i64 32
   %60 = load i32, ptr %59, align 8
   %61 = icmp ult i32 %60, 65
   br i1 %61, label %65, label %_ZNK4llvm5APInt13getActiveBitsEv.exit.i.i.i.i.i.i
@@ -4356,7 +4356,7 @@ _ZNK4llvm5APInt13getActiveBitsEv.exit.i.i.i.i.i.i: ; preds = %57
 
 77:                                               ; preds = %75
   %78 = getelementptr inbounds nuw i8, ptr %43, i64 24
-  %79 = getelementptr inbounds i8, ptr %43, i64 32
+  %79 = getelementptr inbounds nuw i8, ptr %43, i64 32
   %80 = load i32, ptr %79, align 8
   %81 = icmp ult i32 %80, 65
   %82 = load ptr, ptr %78, align 8
@@ -5058,7 +5058,7 @@ _ZNK4llvm8CallBase20getNumOperandBundlesEv.exit.i: ; preds = %42, %_ZNK4llvm8Cal
   %78 = getelementptr inbounds i8, ptr %77, i64 32
   %79 = load ptr, ptr %78, align 8
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 24
-  %81 = getelementptr inbounds i8, ptr %79, i64 32
+  %81 = getelementptr inbounds nuw i8, ptr %79, i64 32
   %82 = load i32, ptr %81, align 8
   %83 = icmp ult i32 %82, 65
   %84 = load ptr, ptr %80, align 8
@@ -5083,7 +5083,7 @@ _ZNK4llvm8CallBase20getNumOperandBundlesEv.exit.i: ; preds = %42, %_ZNK4llvm8Cal
   %98 = getelementptr inbounds i8, ptr %97, i64 32
   %99 = load ptr, ptr %98, align 8
   %100 = getelementptr inbounds nuw i8, ptr %99, i64 24
-  %101 = getelementptr inbounds i8, ptr %99, i64 32
+  %101 = getelementptr inbounds nuw i8, ptr %99, i64 32
   %102 = load i32, ptr %101, align 8
   %103 = icmp ult i32 %102, 65
   %104 = load ptr, ptr %100, align 8
@@ -5229,7 +5229,7 @@ _ZNK4llvm8CallBase20getNumOperandBundlesEv.exit.i: ; preds = %42, %_ZNK4llvm8Cal
   %78 = getelementptr inbounds i8, ptr %77, i64 64
   %79 = load ptr, ptr %78, align 8
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 24
-  %81 = getelementptr inbounds i8, ptr %79, i64 32
+  %81 = getelementptr inbounds nuw i8, ptr %79, i64 32
   %82 = load i32, ptr %81, align 8
   %83 = icmp ult i32 %82, 65
   %84 = load ptr, ptr %80, align 8
@@ -5254,7 +5254,7 @@ _ZNK4llvm8CallBase20getNumOperandBundlesEv.exit.i: ; preds = %42, %_ZNK4llvm8Cal
   %98 = getelementptr inbounds i8, ptr %97, i64 64
   %99 = load ptr, ptr %98, align 8
   %100 = getelementptr inbounds nuw i8, ptr %99, i64 24
-  %101 = getelementptr inbounds i8, ptr %99, i64 32
+  %101 = getelementptr inbounds nuw i8, ptr %99, i64 32
   %102 = load i32, ptr %101, align 8
   %103 = icmp ult i32 %102, 65
   %104 = load ptr, ptr %100, align 8
@@ -5593,7 +5593,7 @@ _ZN4llvm16dyn_cast_or_nullINS_11ConstantIntENS_8ConstantEEEDaPT0_.exit: ; preds 
   %.0 = phi ptr [ %1, %2 ], [ %13, %14 ]
   %17 = getelementptr inbounds nuw i8, ptr %.0, i64 24
   %18 = load i64, ptr %0, align 8
-  %19 = getelementptr inbounds i8, ptr %.0, i64 32
+  %19 = getelementptr inbounds nuw i8, ptr %.0, i64 32
   %20 = load i32, ptr %19, align 8
   %21 = icmp ult i32 %20, 65
   br i1 %21, label %25, label %_ZNK4llvm5APInt13getActiveBitsEv.exit.i
@@ -5629,7 +5629,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm12PatternMatch14cstval_pr
 
 4:                                                ; preds = %2
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %6 = getelementptr inbounds i8, ptr %1, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %7 = load i32, ptr %6, align 8
   %8 = icmp ult i32 %7, 65
   br i1 %8, label %9, label %12
@@ -5668,7 +5668,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm12PatternMatch14cstval_pr
 
 _ZN4llvm16dyn_cast_or_nullINS_11ConstantIntENS_8ConstantEEEDaPT0_.exit: ; preds = %24
   %27 = getelementptr inbounds nuw i8, ptr %23, i64 24
-  %28 = getelementptr inbounds i8, ptr %23, i64 32
+  %28 = getelementptr inbounds nuw i8, ptr %23, i64 32
   %29 = load i32, ptr %28, align 8
   %30 = icmp ult i32 %29, 65
   br i1 %30, label %31, label %34
@@ -5711,7 +5711,7 @@ _ZN4llvm16dyn_cast_or_nullINS_11ConstantIntENS_8ConstantEEEDaPT0_.exit: ; preds 
 
 46:                                               ; preds = %44
   %47 = getelementptr inbounds nuw i8, ptr %43, i64 24
-  %48 = getelementptr inbounds i8, ptr %43, i64 32
+  %48 = getelementptr inbounds nuw i8, ptr %43, i64 32
   %49 = load i32, ptr %48, align 8
   %50 = icmp ult i32 %49, 65
   br i1 %50, label %51, label %_ZN4llvm12PatternMatch11is_zero_int7isValueERKNS_5APIntE.exit44

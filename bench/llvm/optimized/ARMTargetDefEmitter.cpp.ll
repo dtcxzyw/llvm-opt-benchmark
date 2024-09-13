@@ -887,7 +887,7 @@ _ZNK4llvm12RecordKeeper8getClassENS_9StringRefE.exit.thread: ; preds = %_ZN4llvm
   br label %_ZNSt6vectorIPN4llvm6RecordESaIS2_EED2Ev.exit601
 
 _ZNK4llvm12RecordKeeper8getClassENS_9StringRefE.exit: ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit267
-  %319 = getelementptr inbounds i8, ptr %316, i64 64
+  %319 = getelementptr inbounds nuw i8, ptr %316, i64 64
   %320 = load ptr, ptr %319, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %14)
   %.not = icmp eq ptr %320, null
@@ -3415,7 +3415,7 @@ _ZNSt6vectorIPN4llvm6RecordESaIS2_EED2Ev.exit549: ; preds = %._crit_edge993, %16
   %.sroa.2.0..sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %63, i64 24
   %1620 = getelementptr inbounds nuw i8, ptr %63, i64 32
   %1621 = getelementptr inbounds nuw i8, ptr %63, i64 40
-  %1622 = getelementptr inbounds i8, ptr %63, i64 48
+  %1622 = getelementptr inbounds nuw i8, ptr %63, i64 48
   %1623 = getelementptr inbounds i8, ptr %63, i64 56
   %1624 = getelementptr inbounds i8, ptr %63, i64 64
   %.sroa.2.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %63, i64 80
@@ -3649,7 +3649,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit569:              ; preds = %1704, %1706
   %1748 = getelementptr inbounds nuw i8, ptr %53, i64 16
   store ptr %1747, ptr %1748, align 8, !alias.scope !23
   %1749 = load i64, ptr %1616, align 8, !noalias !23
-  %1750 = getelementptr inbounds i8, ptr %53, i64 24
+  %1750 = getelementptr inbounds nuw i8, ptr %53, i64 24
   store i64 %1749, ptr %1750, align 8, !alias.scope !23
   %1751 = getelementptr inbounds nuw i8, ptr %54, i64 32
   %1752 = getelementptr inbounds nuw i8, ptr %54, i64 33
@@ -3695,7 +3695,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit569:              ; preds = %1704, %1706
   %1767 = getelementptr inbounds nuw i8, ptr %58, i64 16
   store ptr %1766, ptr %1767, align 8, !alias.scope !26
   %1768 = load i64, ptr %1616, align 8, !noalias !26
-  %1769 = getelementptr inbounds i8, ptr %58, i64 24
+  %1769 = getelementptr inbounds nuw i8, ptr %58, i64 24
   store i64 %1768, ptr %1769, align 8, !alias.scope !26
   %1770 = getelementptr inbounds nuw i8, ptr %59, i64 32
   %1771 = getelementptr inbounds nuw i8, ptr %59, i64 33
@@ -3726,7 +3726,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit569:              ; preds = %1704, %1706
   %1780 = getelementptr inbounds nuw i8, ptr %61, i64 16
   store ptr %1779, ptr %1780, align 8, !alias.scope !29
   %1781 = load i64, ptr %1616, align 8, !noalias !29
-  %1782 = getelementptr inbounds i8, ptr %61, i64 24
+  %1782 = getelementptr inbounds nuw i8, ptr %61, i64 24
   store i64 %1781, ptr %1782, align 8, !alias.scope !29
   %1783 = getelementptr inbounds nuw i8, ptr %62, i64 32
   %1784 = getelementptr inbounds nuw i8, ptr %62, i64 33
@@ -4048,7 +4048,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit607.thread:      ; preds = %_ZN4llvmeqENS_9Stri
   br i1 %1910, label %_ZNK4llvm12RecordKeeper6getDefENS_9StringRefE.exit, label %1911
 
 1911:                                             ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit607.thread
-  %1912 = getelementptr inbounds i8, ptr %1909, i64 64
+  %1912 = getelementptr inbounds nuw i8, ptr %1909, i64 64
   %1913 = load ptr, ptr %1912, align 8
   br label %_ZNK4llvm12RecordKeeper6getDefENS_9StringRefE.exit
 
@@ -4395,7 +4395,7 @@ _ZNKSt3setIPN4llvm6RecordESt4lessIS2_ESaIS2_EE5countERKS2_.exit.thread.i: ; pred
   store ptr @.str.130, ptr %10, align 8, !alias.scope !48
   %2038 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store ptr %.sroa.0.0.copyload.i.i.i, ptr %2038, align 8, !alias.scope !48
-  %2039 = getelementptr inbounds i8, ptr %10, i64 24
+  %2039 = getelementptr inbounds nuw i8, ptr %10, i64 24
   store i64 %.sroa.2.0.copyload.i.i.i, ptr %2039, align 8, !alias.scope !48
   %2040 = getelementptr inbounds nuw i8, ptr %11, i64 32
   %2041 = getelementptr inbounds nuw i8, ptr %11, i64 33
@@ -4821,7 +4821,7 @@ _ZNK4llvm6Record12isSubClassOfENS_9StringRefE.exit: ; preds = %_ZN4llvmeqENS_9St
   store ptr @.str.117, ptr %73, align 8, !alias.scope !54
   %2227 = getelementptr inbounds nuw i8, ptr %73, i64 16
   store ptr %.sroa.0.0.copyload.i.i653, ptr %2227, align 8, !alias.scope !54
-  %2228 = getelementptr inbounds i8, ptr %73, i64 24
+  %2228 = getelementptr inbounds nuw i8, ptr %73, i64 24
   store i64 %.sroa.2.0.copyload.i.i655, ptr %2228, align 8, !alias.scope !54
   call void @_ZN4llvm15PrintFatalErrorEPKNS_6RecordERKNS_5TwineE(ptr noundef nonnull %1903, ptr noundef nonnull align 8 dereferenceable(34) %73) #21
   unreachable

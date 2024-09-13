@@ -68,7 +68,7 @@ define void @_ZN3g2o18ParameterSE2OffsetC2Ev(ptr noundef nonnull align 16 derefe
   tail call void @_ZN3g2o9ParameterC2Ev(ptr noundef nonnull align 8 dereferenceable(12) %0)
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN3g2o18ParameterSE2OffsetE, i64 16), ptr %0, align 16
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %3 = getelementptr inbounds i8, ptr %0, i64 32
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %5 = getelementptr inbounds i8, ptr %0, i64 64
   %6 = getelementptr inbounds i8, ptr %0, i64 88
@@ -117,7 +117,7 @@ define void @_ZN3g2o18ParameterSE2Offset9setOffsetERKNS_3SE2E(ptr nocapture noun
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i64, ptr %1, align 16
   store i64 %4, ptr %3, align 16
-  %5 = getelementptr inbounds i8, ptr %0, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %7 = load <2 x double>, ptr %6, align 16
   store <2 x double> %7, ptr %5, align 16
@@ -216,7 +216,7 @@ _ZN3g2o8internal10readVectorIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEEEEbRSiRNS2_9D
   %27 = load <2 x double>, ptr %3, align 16
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store double %26, ptr %28, align 16
-  %29 = getelementptr inbounds i8, ptr %0, i64 32
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store <2 x double> %27, ptr %29, align 16
   %30 = call double @sin(double noundef %26) #15, !noalias !15
   %31 = load double, ptr %28, align 16, !noalias !15
@@ -273,7 +273,7 @@ define noundef zeroext i1 @_ZNK3g2o18ParameterSE2Offset5writeERSo(ptr nocapture 
   %3 = alloca %"class.Eigen::Matrix.31", align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !21)
-  %5 = getelementptr inbounds i8, ptr %0, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %6 = getelementptr inbounds i8, ptr %0, i64 40
   %7 = load double, ptr %4, align 16, !noalias !21
   %8 = load double, ptr %5, align 16, !noalias !21
@@ -328,8 +328,8 @@ define void @_ZN3g2o14CacheSE2OffsetC2Ev(ptr noundef nonnull align 16 dereferenc
 11:                                               ; preds = %5, %3
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN3g2o14CacheSE2OffsetE, i64 16), ptr %0, align 16
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %13 = getelementptr inbounds i8, ptr %0, i64 96
-  %14 = getelementptr inbounds i8, ptr %0, i64 128
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 128
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %14, i8 0, i64 16, i1 false)
   %15 = getelementptr inbounds i8, ptr %0, i64 160
   store double 0.000000e+00, ptr %15, align 16
@@ -409,9 +409,9 @@ define void @_ZN3g2o14CacheSE2Offset10updateImplEv(ptr noundef nonnull align 16 
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %7 = load double, ptr %3, align 16, !noalias !25
-  %8 = getelementptr inbounds i8, ptr %2, i64 192
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 192
   %.sroa.291.16.copyload = load <2 x double>, ptr %8, align 16
-  %9 = getelementptr inbounds i8, ptr %5, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %10 = tail call double @sin(double noundef %7) #15, !noalias !28
   %11 = tail call double @cos(double noundef %7) #15, !noalias !28
   %12 = fneg double %10
@@ -435,7 +435,7 @@ define void @_ZN3g2o14CacheSE2Offset10updateImplEv(ptr noundef nonnull align 16 
   %.0.i.i.i = fadd double %23, %.0.v.i.i.i
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store double %.0.i.i.i, ptr %25, align 16
-  %26 = getelementptr inbounds i8, ptr %0, i64 128
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store <2 x double> %19, ptr %26, align 16
   %27 = tail call double @sin(double noundef %.0.i.i.i) #15, !noalias !34
   %28 = load double, ptr %25, align 16, !noalias !34
@@ -485,7 +485,7 @@ define void @_ZN3g2o14CacheSE2Offset10updateImplEv(ptr noundef nonnull align 16 
   %56 = fadd <2 x double> %49, %55
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store double %.0.i.i, ptr %57, align 16
-  %58 = getelementptr inbounds i8, ptr %0, i64 96
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store <2 x double> %56, ptr %58, align 16
   %59 = tail call double @sin(double noundef %.0.i.i) #15, !noalias !52
   %60 = load double, ptr %57, align 16, !noalias !52
@@ -644,7 +644,7 @@ define linkonce_odr void @_ZN3g2o14CacheSE2OffsetD2Ev(ptr noundef nonnull align 
   br i1 %.not.i.i.i.i, label %_ZNSt6vectorIPN3g2o5CacheESaIS2_EED2Ev.exit.i, label %4
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 56
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %6 = load ptr, ptr %5, align 8
   %7 = ptrtoint ptr %6 to i64
   %8 = ptrtoint ptr %3 to i64
@@ -659,7 +659,7 @@ _ZNSt6vectorIPN3g2o5CacheESaIS2_EED2Ev.exit.i:    ; preds = %4, %1
   br i1 %.not.i.i.i1.i, label %_ZN3g2o5CacheD2Ev.exit, label %12
 
 12:                                               ; preds = %_ZNSt6vectorIPN3g2o5CacheESaIS2_EED2Ev.exit.i
-  %13 = getelementptr inbounds i8, ptr %0, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %14 = load ptr, ptr %13, align 16
   %15 = ptrtoint ptr %14 to i64
   %16 = ptrtoint ptr %11 to i64
@@ -680,7 +680,7 @@ define linkonce_odr void @_ZN3g2o14CacheSE2OffsetD0Ev(ptr noundef nonnull align 
   br i1 %.not.i.i.i.i.i, label %_ZNSt6vectorIPN3g2o5CacheESaIS2_EED2Ev.exit.i.i, label %4
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 56
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %6 = load ptr, ptr %5, align 8
   %7 = ptrtoint ptr %6 to i64
   %8 = ptrtoint ptr %3 to i64
@@ -695,7 +695,7 @@ _ZNSt6vectorIPN3g2o5CacheESaIS2_EED2Ev.exit.i.i:  ; preds = %4, %1
   br i1 %.not.i.i.i1.i.i, label %_ZN3g2o14CacheSE2OffsetD2Ev.exit, label %12
 
 12:                                               ; preds = %_ZNSt6vectorIPN3g2o5CacheESaIS2_EED2Ev.exit.i.i
-  %13 = getelementptr inbounds i8, ptr %0, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %14 = load ptr, ptr %13, align 16
   %15 = ptrtoint ptr %14 to i64
   %16 = ptrtoint ptr %11 to i64

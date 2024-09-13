@@ -49,7 +49,7 @@ define dso_local i64 @_ZN4llvm24NonRelocatableStringpool8getEntryENS_9StringRefE
   br i1 %9, label %13, label %10
 
 10:                                               ; preds = %3
-  %11 = getelementptr inbounds i8, ptr %7, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %12 = load i32, ptr %11, align 8
   %.not = icmp eq i32 %12, -1
   br i1 %.not, label %13, label %24
@@ -59,11 +59,11 @@ define dso_local i64 @_ZN4llvm24NonRelocatableStringpool8getEntryENS_9StringRefE
   %15 = load i32, ptr %14, align 8
   %16 = add i32 %15, 1
   store i32 %16, ptr %14, align 8
-  %17 = getelementptr inbounds i8, ptr %7, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store i32 %15, ptr %17, align 8
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %19 = load i64, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %7, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store i64 %19, ptr %20, align 8
   store ptr null, ptr %8, align 8
   %21 = add i64 %2, 1
@@ -174,7 +174,7 @@ _ZN4llvm17StringMapIterBaseINS_22StringMapConstIteratorINS_20DwarfStringPoolEntr
   %.sroa.08.015 = phi ptr [ %.sroa.0.1.i, %.lr.ph ], [ %storemerge.i, %_ZN4llvm17StringMapIterBaseINS_22StringMapConstIteratorINS_20DwarfStringPoolEntryEEEKNS_14StringMapEntryIS2_EEEppEv.exit.loopexit ]
   %23 = phi ptr [ %.promoted, %.lr.ph ], [ %56, %_ZN4llvm17StringMapIterBaseINS_22StringMapConstIteratorINS_20DwarfStringPoolEntryEEEKNS_14StringMapEntryIS2_EEEppEv.exit.loopexit ]
   %24 = phi ptr [ %.promoted13, %.lr.ph ], [ %55, %_ZN4llvm17StringMapIterBaseINS_22StringMapConstIteratorINS_20DwarfStringPoolEntryEEEKNS_14StringMapEntryIS2_EEEppEv.exit.loopexit ]
-  %25 = getelementptr inbounds i8, ptr %22, i64 24
+  %25 = getelementptr inbounds nuw i8, ptr %22, i64 24
   %26 = load i32, ptr %25, align 8
   %.not11 = icmp eq i32 %26, -1
   br i1 %.not11, label %_ZNSt6vectorIN4llvm23DwarfStringPoolEntryRefESaIS1_EE12emplace_backIJRKNS0_14StringMapEntryINS0_20DwarfStringPoolEntryEEEEEERS1_DpOT_.exit, label %27

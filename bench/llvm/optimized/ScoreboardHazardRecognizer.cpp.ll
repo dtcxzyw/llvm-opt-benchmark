@@ -138,21 +138,21 @@ thread-pre-split.loopexit:                        ; preds = %_ZNK4llvm18InstrIti
 _ZN4llvm26ScoreboardHazardRecognizer10Scoreboard5resetEm.exit36: ; preds = %12, %thread-pre-split.loopexit, %4
   %.not37 = phi i1 [ true, %4 ], [ true, %12 ], [ %47, %thread-pre-split.loopexit ]
   %.0 = phi i64 [ 1, %4 ], [ 1, %12 ], [ %46, %thread-pre-split.loopexit ]
-  %48 = getelementptr inbounds i8, ptr %0, i64 56
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i64 %.0, ptr %48, align 8
   %49 = shl nuw nsw i64 %.0, 3
   %50 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %49) #9
   store ptr %50, ptr %10, align 8
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %50, i8 0, i64 %49, i1 false)
-  %51 = getelementptr inbounds i8, ptr %0, i64 64
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i64 0, ptr %51, align 8
-  %52 = getelementptr inbounds i8, ptr %0, i64 80
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store i64 %.0, ptr %52, align 8
   %53 = shl nuw nsw i64 %.0, 3
   %54 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %53) #9
   store ptr %54, ptr %11, align 8
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %54, i8 0, i64 %53, i1 false)
-  %55 = getelementptr inbounds i8, ptr %0, i64 88
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 88
   store i64 0, ptr %55, align 8
   br i1 %.not37, label %58, label %56
 
@@ -172,7 +172,7 @@ define dso_local void @_ZN4llvm26ScoreboardHazardRecognizer5ResetEv(ptr nocaptur
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %4 = load ptr, ptr %3, align 8
   %.not.i = icmp eq ptr %4, null
-  %5 = getelementptr inbounds i8, ptr %0, i64 80
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 80
   br i1 %.not.i, label %6, label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %1
@@ -190,12 +190,12 @@ _ZN4llvm26ScoreboardHazardRecognizer10Scoreboard5resetEm.exit: ; preds = %._crit
   %.pre-phi.i = phi i64 [ %.pre1.i, %._crit_edge.i ], [ 8, %6 ]
   %8 = phi ptr [ %4, %._crit_edge.i ], [ %7, %6 ]
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %8, i8 0, i64 %.pre-phi.i, i1 false)
-  %9 = getelementptr inbounds i8, ptr %0, i64 88
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 88
   store i64 0, ptr %9, align 8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %11 = load ptr, ptr %10, align 8
   %.not.i1 = icmp eq ptr %11, null
-  %12 = getelementptr inbounds i8, ptr %0, i64 56
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 56
   br i1 %.not.i1, label %13, label %._crit_edge.i2
 
 ._crit_edge.i2:                                   ; preds = %_ZN4llvm26ScoreboardHazardRecognizer10Scoreboard5resetEm.exit
@@ -213,7 +213,7 @@ _ZN4llvm26ScoreboardHazardRecognizer10Scoreboard5resetEm.exit6: ; preds = %._cri
   %.pre-phi.i5 = phi i64 [ %.pre1.i4, %._crit_edge.i2 ], [ 8, %13 ]
   %15 = phi ptr [ %11, %._crit_edge.i2 ], [ %14, %13 ]
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %15, i8 0, i64 %.pre-phi.i5, i1 false)
-  %16 = getelementptr inbounds i8, ptr %0, i64 64
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i64 0, ptr %16, align 8
   ret void
 }
@@ -291,18 +291,18 @@ _ZNK4llvm11ScheduleDAG12getInstrDescEPKNS_5SUnitE.exit: ; preds = %17, %20
   %39 = zext i16 %32 to i64
   %40 = getelementptr inbounds %"struct.llvm::InstrStage", ptr %34, i64 %39
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %42 = getelementptr inbounds i8, ptr %0, i64 80
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %43 = load i64, ptr %42, align 8
   %44 = trunc i64 %43 to i32
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %46 = load ptr, ptr %45, align 8
-  %47 = getelementptr inbounds i8, ptr %0, i64 64
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %48 = load i64, ptr %47, align 8
-  %49 = getelementptr inbounds i8, ptr %0, i64 56
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %50 = load i64, ptr %49, align 8
   %51 = add i64 %50, -1
   %52 = load ptr, ptr %41, align 8
-  %53 = getelementptr inbounds i8, ptr %0, i64 88
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %54 = load i64, ptr %53, align 8
   %55 = add i64 %43, -1
   br label %.preheader
@@ -455,11 +455,11 @@ _ZNK4llvm11ScheduleDAG12getInstrDescEPKNS_5SUnitE.exit: ; preds = %16, %19
   %43 = zext i16 %36 to i64
   %44 = getelementptr inbounds %"struct.llvm::InstrStage", ptr %38, i64 %43
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %46 = getelementptr inbounds i8, ptr %0, i64 64
-  %47 = getelementptr inbounds i8, ptr %0, i64 56
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %49 = getelementptr inbounds i8, ptr %0, i64 88
-  %50 = getelementptr inbounds i8, ptr %0, i64 80
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 80
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %._crit_edge
@@ -579,9 +579,9 @@ define dso_local void @_ZN4llvm26ScoreboardHazardRecognizer12AdvanceCycleEv(ptr 
   store i32 0, ptr %2, align 4
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 64
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %6 = load i64, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 56
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %8 = load i64, ptr %7, align 8
   %9 = add i64 %8, -1
   %10 = and i64 %9, %6
@@ -595,9 +595,9 @@ define dso_local void @_ZN4llvm26ScoreboardHazardRecognizer12AdvanceCycleEv(ptr 
   store i64 %16, ptr %5, align 8
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %0, i64 88
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %20 = load i64, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %0, i64 80
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %22 = load i64, ptr %21, align 8
   %23 = add i64 %22, -1
   %24 = and i64 %23, %20
@@ -617,11 +617,11 @@ define dso_local void @_ZN4llvm26ScoreboardHazardRecognizer11RecedeCycleEv(ptr n
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 44
   store i32 0, ptr %2, align 4
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %4 = getelementptr inbounds i8, ptr %0, i64 56
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %5 = load i64, ptr %4, align 8
   %6 = add i64 %5, -1
   %7 = load ptr, ptr %3, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 64
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %9 = load i64, ptr %8, align 8
   %10 = add i64 %9, %6
   %11 = and i64 %10, %6
@@ -634,11 +634,11 @@ define dso_local void @_ZN4llvm26ScoreboardHazardRecognizer11RecedeCycleEv(ptr n
   %17 = and i64 %16, %14
   store i64 %17, ptr %8, align 8
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %19 = getelementptr inbounds i8, ptr %0, i64 80
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %20 = load i64, ptr %19, align 8
   %21 = add i64 %20, -1
   %22 = load ptr, ptr %18, align 8
-  %23 = getelementptr inbounds i8, ptr %0, i64 88
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %24 = load i64, ptr %23, align 8
   %25 = add i64 %24, %21
   %26 = and i64 %25, %21

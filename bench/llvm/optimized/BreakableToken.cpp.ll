@@ -169,7 +169,7 @@ $_ZN4llvm23SmallVectorTemplateBaseINSt7__cxx1112basic_stringIcSt11char_traitsIcE
 define dso_local noundef zeroext i1 @_ZN5clang6format18switchesFormattingERKNS0_11FormatTokenE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(305) %0) local_unnamed_addr #0 {
   %2 = alloca %"class.llvm::StringRef", align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %4 = getelementptr inbounds i8, ptr %0, i64 32
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load i64, ptr %4, align 8
   %.sroa.speculated5.i = tail call i64 @llvm.umin.i64(i64 %5, i64 2)
   %6 = load ptr, ptr %3, align 8
@@ -227,11 +227,11 @@ define dso_local noundef i32 @_ZNK5clang6format22BreakableStringLiteral14getRang
 define dso_local noundef i32 @_ZNK5clang6format22BreakableStringLiteral18getRemainingLengthEjjj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(92) %0, i32 %1, i32 noundef %2, i32 noundef %3) unnamed_addr #0 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %6 = load i32, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 64
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %8 = load i64, ptr %7, align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %10 = zext i32 %2 to i64
-  %11 = getelementptr inbounds i8, ptr %0, i64 80
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %12 = load i64, ptr %11, align 8
   %.sroa.speculated5.i = tail call i64 @llvm.umin.i64(i64 %12, i64 %10)
   %13 = load ptr, ptr %9, align 8
@@ -410,7 +410,7 @@ _ZN5clang6format8encoding11columnWidthEN4llvm9StringRefENS1_8EncodingE.exit22: ;
 define dso_local noundef i32 @_ZNK5clang6format22BreakableStringLiteral21getContentStartColumnEjb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(92) %0, i32 %1, i1 zeroext %2) unnamed_addr #3 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load i32, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 48
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %7 = load i64, ptr %6, align 8
   %8 = trunc i64 %7 to i32
   %9 = add i32 %5, %8
@@ -442,7 +442,7 @@ define dso_local void @_ZN5clang6format22BreakableStringLiteralC2ERKNS0_11Format
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 88
   store i32 %6, ptr %20, align 8
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %22 = getelementptr inbounds i8, ptr %1, i64 32
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %23 = load i64, ptr %22, align 8
   %24 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %25 = load i64, ptr %24, align 8
@@ -465,11 +465,11 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local { i64, i32 } @_ZNK5clang6format22BreakableStringLiteral8getSplitEjjjjRKN4llvm5RegexE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(92) %0, i32 %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture nonnull readnone align 8 %5) unnamed_addr #0 align 2 {
   %7 = zext i32 %2 to i64
-  %8 = getelementptr inbounds i8, ptr %0, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %9 = load i64, ptr %8, align 8
   %.sroa.speculated5.i = tail call i64 @llvm.umin.i64(i64 %9, i64 %7)
   %10 = sub i64 %9, %.sroa.speculated5.i
-  %11 = getelementptr inbounds i8, ptr %0, i64 64
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %12 = load i64, ptr %11, align 8
   %13 = trunc i64 %12 to i32
   %14 = sub i32 %3, %13
@@ -695,7 +695,7 @@ define dso_local void @_ZNK5clang6format22BreakableStringLiteral11insertBreakEjj
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %11 = getelementptr inbounds i8, ptr %0, i64 48
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %12 = load i64, ptr %11, align 8
   %13 = zext i32 %2 to i64
   %14 = add i64 %3, %13
@@ -749,7 +749,7 @@ define dso_local void @_ZN5clang6format36BreakableStringLiteralUsingOperatorsC2E
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 88
   store i32 %5, ptr %25, align 8
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %27 = getelementptr inbounds i8, ptr %1, i64 32
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %28 = load i64, ptr %27, align 8
   %.neg = xor i64 %14, -1
   %29 = add i64 %28, %.neg
@@ -806,7 +806,7 @@ define dso_local void @_ZN5clang6format36BreakableStringLiteralUsingOperatorsC2E
   br label %92
 
 58:                                               ; preds = %9
-  %59 = getelementptr inbounds i8, ptr %8, i64 757
+  %59 = getelementptr inbounds nuw i8, ptr %8, i64 757
   %60 = load i8, ptr %59, align 1
   %61 = trunc i8 %60 to i1
   br i1 %10, label %62, label %73
@@ -859,7 +859,7 @@ define dso_local void @_ZN5clang6format36BreakableStringLiteralUsingOperatorsC2E
   store i64 %74, ptr %84, align 8
   store ptr %.sink70, ptr %22, align 8
   store i64 %.sink, ptr %.sroa.2.0..sroa_idx8.i, align 8
-  %85 = getelementptr inbounds i8, ptr %8, i64 757
+  %85 = getelementptr inbounds nuw i8, ptr %8, i64 757
   %86 = load i8, ptr %85, align 1
   %87 = trunc i8 %86 to i1
   %88 = select i1 %87, ptr @.str.23, ptr @.str.24
@@ -909,13 +909,13 @@ define dso_local noundef i32 @_ZNK5clang6format36BreakableStringLiteralUsingOper
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 92
   %8 = load i8, ptr %7, align 4
   %9 = trunc i8 %8 to i1
-  %10 = getelementptr inbounds i8, ptr %0, i64 128
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %11 = load i64, ptr %10, align 8
   %12 = trunc i64 %11 to i32
   %13 = select i1 %9, i32 %12, i32 1
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %15 = zext i32 %2 to i64
-  %16 = getelementptr inbounds i8, ptr %0, i64 80
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %17 = load i64, ptr %16, align 8
   %.sroa.speculated5.i = tail call i64 @llvm.umin.i64(i64 %17, i64 %15)
   %18 = load ptr, ptr %14, align 8
@@ -942,7 +942,7 @@ define dso_local noundef range(i32 0, -2147483648) i32 @_ZNK5clang6format36Break
 6:                                                ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %8 = load i32, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 48
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %10 = load i64, ptr %9, align 8
   %11 = trunc i64 %10 to i32
   %12 = add nsw i32 %8, %11
@@ -952,7 +952,7 @@ define dso_local noundef range(i32 0, -2147483648) i32 @_ZNK5clang6format36Break
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 92
   %15 = load i8, ptr %14, align 4
   %16 = trunc i8 %15 to i1
-  %17 = getelementptr inbounds i8, ptr %0, i64 112
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %18 = load i64, ptr %17, align 8
   %19 = trunc i64 %18 to i32
   %20 = add nsw i32 %19, -1
@@ -1017,7 +1017,7 @@ define dso_local void @_ZNK5clang6format36BreakableStringLiteralUsingOperators17
   %13 = trunc i8 %12 to i1
   tail call void @_ZN5clang6format17WhitespaceManager24replaceWhitespaceInTokenERKNS0_11FormatTokenEjjN4llvm9StringRefES6_bji(ptr noundef nonnull align 8 dereferenceable(2257) %1, ptr noundef nonnull align 8 dereferenceable(305) %9, i32 noundef 0, i32 noundef 1, ptr nonnull @.str.26, i64 0, ptr noundef nonnull byval(%"class.llvm::StringRef") align 8 %10, i1 noundef zeroext %13, i32 noundef 0, i32 noundef 0) #21
   %14 = load ptr, ptr %8, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 32
   %16 = load i64, ptr %15, align 8
   %17 = trunc i64 %16 to i32
   %18 = add i32 %17, -1
@@ -1065,7 +1065,7 @@ define dso_local void @_ZN5clang6format16BreakableCommentC2ERKNS0_11FormatTokenE
   store i32 %2, ptr %20, align 8
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 808
   store ptr @.str.27, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %0, i64 816
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 816
   store i64 1, ptr %22, align 8
   ret void
 }
@@ -1485,7 +1485,7 @@ define dso_local void @_ZN5clang6format21BreakableBlockCommentC2ERKNS0_11FormatT
   store i32 %2, ptr %24, align 8
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 808
   store ptr @.str.27, ptr %25, align 8
-  %26 = getelementptr inbounds i8, ptr %0, i64 816
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 816
   store i64 1, ptr %26, align 8
   store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN5clang6format21BreakableBlockCommentE, i64 16), ptr %0, align 8
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 832
@@ -1988,7 +1988,7 @@ define dso_local { i64, i32 } @_ZNK5clang6format21BreakableBlockComment8getSplit
   %24 = load i32, ptr %23, align 4
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %26 = load i32, ptr %25, align 4
-  %27 = getelementptr inbounds i8, ptr %0, i64 840
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 840
   %28 = load i64, ptr %27, align 8
   %.not.i = icmp eq i64 %28, 0
   br i1 %.not.i, label %_ZNK4llvm9StringRef9ends_withES0_.exit, label %29
@@ -2745,7 +2745,7 @@ _ZNK4llvm9StringRef11starts_withES0_.exit.thread26: ; preds = %3, %_ZNK4llvm9Str
   %45 = select i1 %.not.i21, ptr %36, ptr %44
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 24
-  %47 = getelementptr inbounds i8, ptr %45, i64 32
+  %47 = getelementptr inbounds nuw i8, ptr %45, i64 32
   %48 = load i64, ptr %47, align 8
   %.sroa.speculated5.i.i = tail call i64 @llvm.umin.i64(i64 %48, i64 2)
   %49 = load ptr, ptr %46, align 8
@@ -2943,7 +2943,7 @@ define dso_local void @_ZN5clang6format27BreakableLineCommentSectionC2ERKNS0_11F
   store i32 %2, ptr %31, align 8
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 808
   store ptr @.str.27, ptr %32, align 8
-  %33 = getelementptr inbounds i8, ptr %0, i64 816
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 816
   store i64 1, ptr %33, align 8
   store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN5clang6format27BreakableLineCommentSectionE, i64 16), ptr %0, align 8
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 824
@@ -2968,7 +2968,7 @@ define dso_local void @_ZN5clang6format27BreakableLineCommentSectionC2ERKNS0_11F
   %44 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %cond.i.i = icmp eq i32 %4, 0
   %45 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  %46 = getelementptr inbounds i8, ptr %5, i64 748
+  %46 = getelementptr inbounds nuw i8, ptr %5, i64 748
   %47 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %48 = getelementptr inbounds nuw i8, ptr %5, i64 836
   br label %49
@@ -3007,7 +3007,7 @@ define dso_local void @_ZN5clang6format27BreakableLineCommentSectionC2ERKNS0_11F
 .lr.ph:                                           ; preds = %53
   %.not80 = icmp eq ptr %.0255, null
   %64 = getelementptr inbounds nuw i8, ptr %.0255, i64 24
-  %65 = getelementptr inbounds i8, ptr %.0255, i64 32
+  %65 = getelementptr inbounds nuw i8, ptr %.0255, i64 32
   br label %66
 
 66:                                               ; preds = %.lr.ph, %297
@@ -3978,7 +3978,7 @@ _ZNK4llvm9StringRef11starts_withES0_.exit.thread22: ; preds = %3, %_ZNK4llvm9Str
   %35 = select i1 %.not.i19, ptr %26, ptr %34
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 24
-  %37 = getelementptr inbounds i8, ptr %35, i64 32
+  %37 = getelementptr inbounds nuw i8, ptr %35, i64 32
   %38 = load i64, ptr %37, align 8
   %.sroa.speculated5.i.i = tail call i64 @llvm.umin.i64(i64 %38, i64 2)
   %39 = load ptr, ptr %36, align 8

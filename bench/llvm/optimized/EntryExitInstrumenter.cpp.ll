@@ -196,15 +196,15 @@ define dso_local void @_ZN4llvm25EntryExitInstrumenterPass3runERNS_8FunctionERNS
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 0, ptr %13, align 8, !alias.scope !4
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %15 = getelementptr inbounds i8, ptr %0, i64 80
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store ptr %15, ptr %14, align 8, !alias.scope !4
-  %16 = getelementptr inbounds i8, ptr %0, i64 56
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store ptr %15, ptr %16, align 8, !alias.scope !4
-  %17 = getelementptr inbounds i8, ptr %0, i64 64
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i32 2, ptr %17, align 8, !alias.scope !4
-  %18 = getelementptr inbounds i8, ptr %0, i64 68
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 68
   store i32 0, ptr %18, align 4, !alias.scope !4
-  %19 = getelementptr inbounds i8, ptr %0, i64 72
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store i32 0, ptr %19, align 8, !alias.scope !4
   store i32 1, ptr %11, align 4, !alias.scope !4, !noalias !7
   store ptr @_ZN4llvm17PreservedAnalyses14AllAnalysesKeyE, ptr %8, align 8, !alias.scope !4, !noalias !7
@@ -215,15 +215,15 @@ define dso_local void @_ZN4llvm25EntryExitInstrumenterPass3runERNS_8FunctionERNS
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 0, ptr %21, align 8
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %23 = getelementptr inbounds i8, ptr %0, i64 80
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store ptr %23, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %0, i64 56
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store ptr %23, ptr %24, align 8
-  %25 = getelementptr inbounds i8, ptr %0, i64 64
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i32 2, ptr %25, align 8
-  %26 = getelementptr inbounds i8, ptr %0, i64 68
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 68
   store i32 0, ptr %26, align 4
-  %27 = getelementptr inbounds i8, ptr %0, i64 72
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store i32 0, ptr %27, align 8
   tail call void @_ZN4llvm17PreservedAnalyses11preserveSetEPNS_14AnalysisSetKeyE(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull @_ZN4llvm11CFGAnalyses6SetKeyE)
   br label %28
@@ -309,7 +309,7 @@ _ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i:     ; preds = %40, %_ZNK4llvm6MDNo
   br label %_ZN4llvm8DebugLocD2Ev.exit
 
 _ZN4llvm8DebugLocD2Ev.exit:                       ; preds = %_ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i, %42, %27
-  %44 = getelementptr inbounds i8, ptr %0, i64 80
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %45 = load ptr, ptr %44, align 8
   %46 = icmp eq ptr %45, null
   %47 = getelementptr inbounds i8, ptr %45, i64 -24
@@ -354,7 +354,7 @@ _ZN4llvm8DebugLocD2Ev.exit64:                     ; preds = %56, %_ZN4llvm8Debug
   br i1 %57, label %107, label %58
 
 58:                                               ; preds = %_ZN4llvm8DebugLocD2Ev.exit64
-  %59 = getelementptr inbounds i8, ptr %0, i64 80
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %.sroa.091.0116 = load ptr, ptr %59, align 8
   %.not114117 = icmp eq ptr %.sroa.091.0116, %60
@@ -1503,9 +1503,9 @@ declare i32 @pthread_once(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvm17PreservedAnalyses11preserveSetEPNS_14AnalysisSetKeyE(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef %1) local_unnamed_addr #0 comdat align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 68
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 68
   %4 = load i32, ptr %3, align 4
-  %5 = getelementptr inbounds i8, ptr %0, i64 72
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %6 = load i32, ptr %5, align 8
   %7 = icmp eq i32 %4, %6
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8

@@ -505,8 +505,8 @@ define dso_local void @_ZN4llvm3pdb15typesetItemListENS_8ArrayRefINSt7__cxx1112b
   %.sroa.2.0..sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %10, i64 24
   %16 = getelementptr inbounds nuw i8, ptr %10, i64 32
   %17 = getelementptr inbounds nuw i8, ptr %10, i64 40
-  %18 = getelementptr inbounds i8, ptr %10, i64 48
-  %19 = getelementptr inbounds i8, ptr %10, i64 56
+  %18 = getelementptr inbounds nuw i8, ptr %10, i64 48
+  %19 = getelementptr inbounds nuw i8, ptr %10, i64 56
   %20 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %21 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %22 = getelementptr inbounds nuw i8, ptr %7, i64 44
@@ -616,7 +616,7 @@ define dso_local void @_ZN4llvm3pdb17typesetStringListB5cxx11EjNS_8ArrayRefINS_9
   %.sroa.2.0..sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %8, i64 24
   %14 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %15 = getelementptr inbounds nuw i8, ptr %8, i64 40
-  %16 = getelementptr inbounds i8, ptr %8, i64 48
+  %16 = getelementptr inbounds nuw i8, ptr %8, i64 48
   %17 = getelementptr inbounds i8, ptr %8, i64 56
   %18 = getelementptr inbounds i8, ptr %8, i64 64
   %19 = getelementptr inbounds i8, ptr %8, i64 72
@@ -1056,7 +1056,7 @@ define linkonce_odr void @_ZN4llvm3pdb17formatUnknownEnumINS_8codeview19DebugSub
   store i8 1, ptr %7, align 8, !alias.scope !26
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 40
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4llvm7support6detail23provider_format_adapterIjEE, i64 16), ptr %8, align 8, !alias.scope !26
-  %9 = getelementptr inbounds i8, ptr %4, i64 48
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 48
   store i32 %1, ptr %9, align 8, !alias.scope !26
   store ptr %8, ptr %5, align 8, !alias.scope !26
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %3)
@@ -2687,7 +2687,7 @@ define linkonce_odr void @_ZN4llvm3pdb17formatUnknownEnumINS_8codeview10SymbolKi
   store i8 1, ptr %7, align 8, !alias.scope !34
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 40
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4llvm7support6detail23provider_format_adapterItEE, i64 16), ptr %8, align 8, !alias.scope !34
-  %9 = getelementptr inbounds i8, ptr %4, i64 48
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 48
   store i16 %1, ptr %9, align 8, !alias.scope !34
   store ptr %8, ptr %5, align 8, !alias.scope !34
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %3)
@@ -3131,7 +3131,7 @@ define dso_local void @_ZN4llvm3pdb18formatTypeLeafKindB5cxx11ENS_8codeview12Typ
   store i8 1, ptr %125, align 8, !alias.scope !42
   %126 = getelementptr inbounds nuw i8, ptr %43, i64 40
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4llvm7support6detail23provider_format_adapterItEE, i64 16), ptr %126, align 8, !alias.scope !42
-  %127 = getelementptr inbounds i8, ptr %43, i64 48
+  %127 = getelementptr inbounds nuw i8, ptr %43, i64 48
   store i16 %1, ptr %127, align 8, !alias.scope !42
   store ptr %126, ptr %123, align 8, !alias.scope !42
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %3)
@@ -3188,7 +3188,7 @@ define dso_local void @_ZN4llvm3pdb19formatSegmentOffsetB5cxx11Etj(ptr dead_on_u
   store i8 1, ptr %10, align 8, !alias.scope !50
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 40
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4llvm7support6detail23provider_format_adapterIRjEE, i64 16), ptr %11, align 8, !alias.scope !50
-  %12 = getelementptr inbounds i8, ptr %7, i64 48
+  %12 = getelementptr inbounds nuw i8, ptr %7, i64 48
   store ptr %6, ptr %12, align 8, !alias.scope !50
   %13 = getelementptr inbounds i8, ptr %7, i64 56
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4llvm7support6detail23provider_format_adapterIRtEE, i64 16), ptr %13, align 8, !alias.scope !50

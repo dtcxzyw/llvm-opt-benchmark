@@ -100,7 +100,7 @@ declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local noundef ptr @_ZN4llvm29createX86ObjectTargetStreamerERNS_10MCStreamerERKNS_15MCSubtargetInfoE(ptr noundef nonnull align 8 dereferenceable(288) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(288) %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 60
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 60
   %4 = load i32, ptr %3, align 4
   %5 = icmp eq i32 %4, 1
   br i1 %5, label %6, label %10
@@ -858,7 +858,7 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_124X86WinCOFFTargetStreamer1
   %.val6 = load ptr, ptr %6, align 8
   %23 = getelementptr inbounds nuw i8, ptr %.val6, i64 40
   %24 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %23) #13
-  %25 = getelementptr inbounds i8, ptr %.val6, i64 48
+  %25 = getelementptr inbounds nuw i8, ptr %.val6, i64 48
   store i32 0, ptr %25, align 8
   br label %26
 
@@ -2006,7 +2006,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115FPOStateMachine19emitFrameDataRe
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %14 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %13) #13
-  %15 = getelementptr inbounds i8, ptr %0, i64 48
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i64 0, ptr %15, align 8
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 2, ptr %16, align 8

@@ -228,7 +228,7 @@ _ZN5clang4ExprC2ENS_4Stmt9StmtClassENS_8QualTypeENS_13ExprValueKindENS_14ExprObj
   %37 = and i64 %.sroa.0.0.copyload.i40, -16
   %38 = inttoptr i64 %37 to ptr
   %39 = load ptr, ptr %38, align 16
-  %40 = getelementptr inbounds i8, ptr %39, i64 17
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 17
   %41 = load i16, ptr %40, align 1
   %42 = trunc i16 %41 to i8
   %43 = lshr i8 %42, 1
@@ -417,7 +417,7 @@ define dso_local noundef ptr @_ZN5clang12RequiresExpr6CreateERNS_10ASTContextENS
   %reass.mul.i.i = shl i64 %reass.add.i.i, 3
   %13 = add i64 %reass.mul.i.i, 48
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 2144
-  %15 = getelementptr inbounds i8, ptr %0, i64 2224
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 2224
   %16 = load i64, ptr %15, align 8
   %17 = add i64 %13, %16
   store i64 %17, ptr %15, align 8
@@ -426,7 +426,7 @@ define dso_local noundef ptr @_ZN5clang12RequiresExpr6CreateERNS_10ASTContextENS
   %20 = add i64 %19, 7
   %21 = and i64 %20, -8
   %22 = add i64 %21, %13
-  %23 = getelementptr inbounds i8, ptr %0, i64 2152
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 2152
   %24 = load ptr, ptr %23, align 8
   %25 = ptrtoint ptr %24 to i64
   %.not.i.i.i = icmp ugt i64 %22, %25
@@ -466,7 +466,7 @@ define dso_local noundef ptr @_ZN5clang12RequiresExpr6CreateERNS_10ASTContextENS
   %reass.mul.i.i = shl nuw nsw i64 %reass.add.i.i, 3
   %6 = add nuw nsw i64 %reass.mul.i.i, 48
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 2144
-  %8 = getelementptr inbounds i8, ptr %0, i64 2224
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 2224
   %9 = load i64, ptr %8, align 8
   %10 = add i64 %9, %6
   store i64 %10, ptr %8, align 8
@@ -475,7 +475,7 @@ define dso_local noundef ptr @_ZN5clang12RequiresExpr6CreateERNS_10ASTContextENS
   %13 = add i64 %12, 7
   %14 = and i64 %13, -8
   %15 = add i64 %14, %6
-  %16 = getelementptr inbounds i8, ptr %0, i64 2152
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 2152
   %17 = load ptr, ptr %16, align 8
   %18 = ptrtoint ptr %17 to i64
   %.not.i.i.i = icmp ugt i64 %15, %18

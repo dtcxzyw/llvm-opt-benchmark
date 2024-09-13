@@ -134,7 +134,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
 define dso_local void @_ZN4llvm3pdb26DbiModuleDescriptorBuilderD2Ev(ptr noundef nonnull align 8 dereferenceable(256) %0) unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 176
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %5 = load ptr, ptr %4, align 8
   %.not4.i.i.i.i = icmp eq ptr %3, %5
   br i1 %.not4.i.i.i.i, label %_ZSt8_DestroyIPN4llvm8codeview28DebugSubsectionRecordBuilderES2_EvT_S4_RSaIT0_E.exit.i, label %.lr.ph.i.i.i.i
@@ -156,7 +156,7 @@ _ZSt8_DestroyIPN4llvm8codeview28DebugSubsectionRecordBuilderES2_EvT_S4_RSaIT0_E.
   br i1 %.not.i.i.i, label %_ZNSt6vectorIN4llvm8codeview28DebugSubsectionRecordBuilderESaIS2_EED2Ev.exit, label %8
 
 8:                                                ; preds = %_ZSt8_DestroyIPN4llvm8codeview28DebugSubsectionRecordBuilderES2_EvT_S4_RSaIT0_E.exit.i
-  %9 = getelementptr inbounds i8, ptr %0, i64 184
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %10 = load ptr, ptr %9, align 8
   %11 = ptrtoint ptr %10 to i64
   %12 = ptrtoint ptr %7 to i64
@@ -171,7 +171,7 @@ _ZNSt6vectorIN4llvm8codeview28DebugSubsectionRecordBuilderESaIS2_EED2Ev.exit: ; 
   br i1 %.not.i.i.i1, label %_ZNSt6vectorIN4llvm3pdb16StringTableFixupESaIS2_EED2Ev.exit, label %16
 
 16:                                               ; preds = %_ZNSt6vectorIN4llvm8codeview28DebugSubsectionRecordBuilderESaIS2_EED2Ev.exit
-  %17 = getelementptr inbounds i8, ptr %0, i64 160
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %18 = load ptr, ptr %17, align 8
   %19 = ptrtoint ptr %18 to i64
   %20 = ptrtoint ptr %15 to i64
@@ -186,7 +186,7 @@ _ZNSt6vectorIN4llvm3pdb16StringTableFixupESaIS2_EED2Ev.exit: ; preds = %_ZNSt6ve
   br i1 %.not.i.i.i2, label %_ZNSt6vectorIN4llvm3pdb17SymbolListWrapperESaIS2_EED2Ev.exit, label %24
 
 24:                                               ; preds = %_ZNSt6vectorIN4llvm3pdb16StringTableFixupESaIS2_EED2Ev.exit
-  %25 = getelementptr inbounds i8, ptr %0, i64 120
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %26 = load ptr, ptr %25, align 8
   %27 = ptrtoint ptr %26 to i64
   %28 = ptrtoint ptr %23 to i64
@@ -197,7 +197,7 @@ _ZNSt6vectorIN4llvm3pdb16StringTableFixupESaIS2_EED2Ev.exit: ; preds = %_ZNSt6ve
 _ZNSt6vectorIN4llvm3pdb17SymbolListWrapperESaIS2_EED2Ev.exit: ; preds = %_ZNSt6vectorIN4llvm3pdb16StringTableFixupESaIS2_EED2Ev.exit, %24
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %31 = load ptr, ptr %30, align 8
-  %32 = getelementptr inbounds i8, ptr %0, i64 88
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %33 = load ptr, ptr %32, align 8
   %.not4.i.i.i.i3 = icmp eq ptr %31, %33
   br i1 %.not4.i.i.i.i3, label %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i, label %.lr.ph.i.i.i.i4
@@ -219,7 +219,7 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSa
   br i1 %.not.i.i.i8, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit, label %36
 
 36:                                               ; preds = %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i
-  %37 = getelementptr inbounds i8, ptr %0, i64 96
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %38 = load ptr, ptr %37, align 8
   %39 = ptrtoint ptr %38 to i64
   %40 = ptrtoint ptr %35 to i64
@@ -240,7 +240,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noun
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read, inaccessiblemem: write) uwtable
 define dso_local noundef zeroext i16 @_ZNK4llvm3pdb26DbiModuleDescriptorBuilder14getStreamIndexEv(ptr noundef nonnull align 8 dereferenceable(256) %0) local_unnamed_addr #3 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 226
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 226
   call void @llvm.assume(i1 true) [ "align"(ptr %2, i64 1) ]
   %.0.copyload.i.i.i = load i16, ptr %2, align 2
   ret i16 %.0.copyload.i.i.i
@@ -281,7 +281,7 @@ define dso_local void @_ZN4llvm3pdb26DbiModuleDescriptorBuilder16setPdbFilePathN
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define dso_local void @_ZN4llvm3pdb26DbiModuleDescriptorBuilder22setFirstSectionContribERKNS0_14SectionContribE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(256) %0, ptr nocapture noundef nonnull readonly align 1 dereferenceable(28) %1) local_unnamed_addr #5 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 196
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 196
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %3, ptr noundef nonnull align 1 dereferenceable(28) %1, i64 28, i1 false)
   ret void
 }
@@ -303,9 +303,9 @@ define dso_local void @_ZN4llvm3pdb26DbiModuleDescriptorBuilder16addSymbolsInBul
 5:                                                ; preds = %3
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %7 = trunc i64 %2 to i32
-  %8 = getelementptr inbounds i8, ptr %0, i64 112
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 120
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %11 = load ptr, ptr %10, align 8
   %.not.i.i = icmp eq ptr %9, %11
   br i1 %.not.i.i, label %15, label %12
@@ -399,9 +399,9 @@ _ZNSt6vectorIN4llvm3pdb17SymbolListWrapperESaIS2_EE9push_backEOS2_.exit: ; preds
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN4llvm3pdb26DbiModuleDescriptorBuilder18addUnmergedSymbolsEPvj(ptr nocapture noundef nonnull align 8 dereferenceable(256) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %5 = getelementptr inbounds i8, ptr %0, i64 112
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 120
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %8 = load ptr, ptr %7, align 8
   %.not.i.i = icmp eq ptr %6, %8
   br i1 %.not.i.i, label %12, label %9
@@ -505,9 +505,9 @@ define dso_local void @_ZN4llvm3pdb26DbiModuleDescriptorBuilder13addSourceFileEN
   %12 = load ptr, ptr %11, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ENS4_12__sv_wrapperERKS3_(ptr noundef nonnull align 8 dereferenceable(32) %5, i64 %10, ptr %12, ptr noundef nonnull align 1 dereferenceable(1) %6) #16
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
-  %13 = getelementptr inbounds i8, ptr %0, i64 88
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 96
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %16 = load ptr, ptr %15, align 8
   %.not.i.i = icmp eq ptr %14, %16
   br i1 %.not.i.i, label %20, label %17
@@ -534,7 +534,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_b
 define dso_local noundef i32 @_ZNK4llvm3pdb26DbiModuleDescriptorBuilder25calculateC13DebugInfoSizeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(256) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 176
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %5 = load ptr, ptr %4, align 8
   %.not8 = icmp eq ptr %3, %5
   br i1 %.not8, label %._crit_edge, label %.lr.ph
@@ -579,18 +579,18 @@ declare noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4size
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN4llvm3pdb26DbiModuleDescriptorBuilder8finalizeEv(ptr noundef nonnull align 8 dereferenceable(256) %0) local_unnamed_addr #0 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 244
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 244
   call void @llvm.assume(i1 true) [ "align"(ptr %2, i64 1) ]
   store i32 0, ptr %2, align 4
-  %3 = getelementptr inbounds i8, ptr %0, i64 224
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 224
   call void @llvm.assume(i1 true) [ "align"(ptr %3, i64 1) ]
   store i16 0, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 232
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 232
   call void @llvm.assume(i1 true) [ "align"(ptr %4, i64 1) ]
   store i32 0, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 176
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %8 = load ptr, ptr %7, align 8
   %.not8.i = icmp eq ptr %6, %8
   br i1 %.not8.i, label %_ZNK4llvm3pdb26DbiModuleDescriptorBuilder25calculateC13DebugInfoSizeEv.exit, label %.lr.ph.i
@@ -606,11 +606,11 @@ define dso_local void @_ZN4llvm3pdb26DbiModuleDescriptorBuilder8finalizeEv(ptr n
 
 _ZNK4llvm3pdb26DbiModuleDescriptorBuilder25calculateC13DebugInfoSizeEv.exit: ; preds = %.lr.ph.i, %1
   %.0.lcssa.i = phi i32 [ 0, %1 ], [ %10, %.lr.ph.i ]
-  %12 = getelementptr inbounds i8, ptr %0, i64 236
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 236
   call void @llvm.assume(i1 true) [ "align"(ptr %12, i64 1) ]
   store i32 %.0.lcssa.i, ptr %12, align 4
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %14 = getelementptr inbounds i8, ptr %0, i64 88
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %15 = load ptr, ptr %14, align 8
   %16 = load ptr, ptr %13, align 8
   %17 = ptrtoint ptr %15 to i64
@@ -618,18 +618,18 @@ _ZNK4llvm3pdb26DbiModuleDescriptorBuilder25calculateC13DebugInfoSizeEv.exit: ; p
   %19 = sub i64 %17, %18
   %20 = lshr exact i64 %19, 5
   %21 = trunc i64 %20 to i16
-  %22 = getelementptr inbounds i8, ptr %0, i64 240
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 240
   call void @llvm.assume(i1 true) [ "align"(ptr %22, i64 1) ]
   store i16 %21, ptr %22, align 8
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %24 = load i32, ptr %23, align 4
-  %25 = getelementptr inbounds i8, ptr %0, i64 252
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 252
   call void @llvm.assume(i1 true) [ "align"(ptr %25, i64 1) ]
   store i32 %24, ptr %25, align 4
-  %26 = getelementptr inbounds i8, ptr %0, i64 248
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 248
   call void @llvm.assume(i1 true) [ "align"(ptr %26, i64 1) ]
   store i32 0, ptr %26, align 8
-  %27 = getelementptr inbounds i8, ptr %0, i64 226
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 226
   call void @llvm.assume(i1 true) [ "align"(ptr %27, i64 1) ]
   %.0.copyload.i.i.i = load i16, ptr %27, align 2
   %28 = icmp eq i16 %.0.copyload.i.i.i, -1
@@ -637,7 +637,7 @@ _ZNK4llvm3pdb26DbiModuleDescriptorBuilder25calculateC13DebugInfoSizeEv.exit: ; p
   %30 = load i32, ptr %29, align 8
   %31 = add i32 %30, 4
   %32 = select i1 %28, i32 0, i32 %31
-  %33 = getelementptr inbounds i8, ptr %0, i64 228
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 228
   call void @llvm.assume(i1 true) [ "align"(ptr %33, i64 1) ]
   store i32 %32, ptr %33, align 4
   ret void
@@ -646,12 +646,12 @@ _ZNK4llvm3pdb26DbiModuleDescriptorBuilder25calculateC13DebugInfoSizeEv.exit: ; p
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN4llvm3pdb26DbiModuleDescriptorBuilder17finalizeMsfLayoutEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(256) %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %"class.llvm::Expected", align 8
-  %4 = getelementptr inbounds i8, ptr %1, i64 226
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 226
   call void @llvm.assume(i1 true) [ "align"(ptr %4, i64 1) ]
   store i16 -1, ptr %4, align 2
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 168
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %1, i64 176
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 176
   %8 = load ptr, ptr %7, align 8
   %.not8.i = icmp eq ptr %6, %8
   br i1 %.not8.i, label %_ZNK4llvm3pdb26DbiModuleDescriptorBuilder25calculateC13DebugInfoSizeEv.exit.thread, label %.lr.ph.i
@@ -774,7 +774,7 @@ define dso_local void @_ZN4llvm3pdb26DbiModuleDescriptorBuilder18commitSymbolStr
   %11 = alloca %"class.llvm::BinaryStreamWriter", align 8
   %12 = alloca %"class.llvm::WritableBinaryStreamRef", align 8
   %13 = alloca i32, align 4
-  %14 = getelementptr inbounds i8, ptr %1, i64 226
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 226
   call void @llvm.assume(i1 true) [ "align"(ptr %14, i64 1) ]
   %.0.copyload.i.i.i = load i16, ptr %14, align 2
   %15 = icmp eq i16 %.0.copyload.i.i.i, -1
@@ -999,7 +999,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
 
 _ZN4llvm23WritableBinaryStreamRefD2Ev.exit59:     ; preds = %_ZN4llvm23WritableBinaryStreamRefC2ERKS0_.exit52, %101, %114, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i58
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
-  %119 = getelementptr inbounds i8, ptr %11, i64 24
+  %119 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %120 = load ptr, ptr %119, align 8, !noalias !19
   %121 = load ptr, ptr %120, align 8, !noalias !19
   %122 = getelementptr inbounds i8, ptr %121, i64 16
@@ -1018,7 +1018,7 @@ _ZN4llvm23WritableBinaryStreamRefD2Ev.exit59:     ; preds = %_ZN4llvm23WritableB
 _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %_ZN4llvm23WritableBinaryStreamRefD2Ev.exit59
   %126 = getelementptr inbounds nuw i8, ptr %1, i64 104
   %127 = load ptr, ptr %126, align 8
-  %128 = getelementptr inbounds i8, ptr %1, i64 112
+  %128 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %129 = load ptr, ptr %128, align 8
   %.not95105 = icmp eq ptr %127, %129
   br i1 %.not95105, label %._crit_edge, label %.lr.ph
@@ -1064,7 +1064,7 @@ _ZN4llvm5ErrorD2Ev.exit60:                        ; preds = %141, %136
   %149 = load i64, ptr %148, align 8
   %150 = getelementptr inbounds nuw i8, ptr %1, i64 144
   %151 = load ptr, ptr %150, align 8
-  %152 = getelementptr inbounds i8, ptr %1, i64 152
+  %152 = getelementptr inbounds nuw i8, ptr %1, i64 152
   %153 = load ptr, ptr %152, align 8
   %.not96107 = icmp eq ptr %151, %153
   br i1 %.not96107, label %._crit_edge109, label %_ZN4llvm5ErrorD2Ev.exit64
@@ -1102,7 +1102,7 @@ _ZN4llvm5ErrorD2Ev.exit64:                        ; preds = %._crit_edge, %154
   store i64 %149, ptr %148, align 8
   %167 = getelementptr inbounds nuw i8, ptr %1, i64 168
   %168 = load ptr, ptr %167, align 8
-  %169 = getelementptr inbounds i8, ptr %1, i64 176
+  %169 = getelementptr inbounds nuw i8, ptr %1, i64 176
   %170 = load ptr, ptr %169, align 8
   %.not97110 = icmp eq ptr %168, %170
   br i1 %.not97110, label %._crit_edge112, label %_ZN4llvm5ErrorD2Ev.exit65
@@ -1135,13 +1135,13 @@ _ZN4llvm5ErrorD2Ev.exit65:                        ; preds = %._crit_edge109, %17
   br i1 %.not98, label %_ZN4llvm5ErrorD2Ev.exit68, label %.critedge
 
 _ZN4llvm5ErrorD2Ev.exit68:                        ; preds = %._crit_edge112
-  %180 = getelementptr inbounds i8, ptr %11, i64 48
+  %180 = getelementptr inbounds nuw i8, ptr %11, i64 48
   %181 = load i8, ptr %180, align 8
   %182 = trunc i8 %181 to i1
   br i1 %182, label %183, label %186
 
 183:                                              ; preds = %_ZN4llvm5ErrorD2Ev.exit68
-  %184 = getelementptr inbounds i8, ptr %11, i64 40
+  %184 = getelementptr inbounds nuw i8, ptr %11, i64 40
   %185 = load i64, ptr %184, align 8
   br label %_ZNK4llvm18BinaryStreamWriter14bytesRemainingEv.exit
 
@@ -1155,7 +1155,7 @@ _ZN4llvm5ErrorD2Ev.exit68:                        ; preds = %._crit_edge112
   %190 = getelementptr inbounds i8, ptr %189, i64 40
   %191 = load ptr, ptr %190, align 8
   %192 = call noundef i64 %191(ptr noundef nonnull align 8 dereferenceable(8) %187) #16
-  %193 = getelementptr inbounds i8, ptr %11, i64 32
+  %193 = getelementptr inbounds nuw i8, ptr %11, i64 32
   %194 = load i64, ptr %193, align 8
   %195 = sub i64 %192, %194
   br label %_ZNK4llvm18BinaryStreamWriter14bytesRemainingEv.exit
@@ -1177,7 +1177,7 @@ _ZN4llvm12ErrorSuccessD2Ev.exit70:                ; preds = %_ZNK4llvm18BinarySt
 
 .critedge:                                        ; preds = %141, %136, %_ZN4llvm5ErrorD2Ev.exit64, %_ZN4llvm5ErrorD2Ev.exit65, %._crit_edge112, %_ZN4llvm23WritableBinaryStreamRefD2Ev.exit59, %_ZN4llvm12ErrorSuccessD2Ev.exit70, %197
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN4llvm18BinaryStreamWriterE, i64 16), ptr %11, align 8
-  %198 = getelementptr inbounds i8, ptr %11, i64 16
+  %198 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %199 = load ptr, ptr %198, align 8
   %.not.i.i.i.i.i.i71 = icmp eq ptr %199, null
   br i1 %.not.i.i.i.i.i.i71, label %_ZN4llvm18BinaryStreamWriterD2Ev.exit, label %200
@@ -1371,7 +1371,7 @@ _ZNSt10unique_ptrIN4llvm3pdb8RawErrorESt14default_deleteIS2_EED2Ev.exit:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvm18BinaryStreamWriterD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #0 comdat align 2 {
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN4llvm18BinaryStreamWriterE, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i.i.i.i, label %_ZN4llvm23WritableBinaryStreamRefD2Ev.exit, label %4
@@ -1461,9 +1461,9 @@ define dso_local void @_ZN4llvm3pdb26DbiModuleDescriptorBuilder18addDebugSubsect
   store ptr %8, ptr %6, align 8
   store ptr null, ptr %1, align 8
   call void @_ZN4llvm8codeview28DebugSubsectionRecordBuilderC1ESt10shared_ptrINS0_15DebugSubsectionEE(ptr noundef nonnull align 8 dereferenceable(72) %3, ptr noundef nonnull %4) #16
-  %9 = getelementptr inbounds i8, ptr %0, i64 176
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 184
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %12 = load ptr, ptr %11, align 8
   %.not.i.i = icmp eq ptr %10, %12
   br i1 %.not.i.i, label %31, label %13
@@ -1482,19 +1482,19 @@ define dso_local void @_ZN4llvm3pdb26DbiModuleDescriptorBuilder18addDebugSubsect
   %19 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %20 = load i32, ptr %19, align 8
   store i32 %20, ptr %18, align 8
-  %21 = getelementptr inbounds i8, ptr %10, i64 24
-  %22 = getelementptr inbounds i8, ptr %3, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %10, i64 24
+  %22 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %23 = load ptr, ptr %22, align 8
   store ptr %23, ptr %21, align 8
-  %24 = getelementptr inbounds i8, ptr %10, i64 32
+  %24 = getelementptr inbounds nuw i8, ptr %10, i64 32
   store ptr null, ptr %24, align 8
-  %25 = getelementptr inbounds i8, ptr %3, i64 32
+  %25 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %26 = load ptr, ptr %25, align 8
   store ptr null, ptr %25, align 8
   store ptr %26, ptr %24, align 8
   store ptr null, ptr %22, align 8
-  %27 = getelementptr inbounds i8, ptr %10, i64 40
-  %28 = getelementptr inbounds i8, ptr %3, i64 40
+  %27 = getelementptr inbounds nuw i8, ptr %10, i64 40
+  %28 = getelementptr inbounds nuw i8, ptr %3, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %27, ptr noundef nonnull align 8 dereferenceable(32) %28, i64 32, i1 false)
   %29 = load ptr, ptr %9, align 8
   %30 = getelementptr inbounds i8, ptr %29, i64 72
@@ -1588,7 +1588,7 @@ declare void @_ZN4llvm8codeview28DebugSubsectionRecordBuilderC1ESt10shared_ptrIN
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvm8codeview28DebugSubsectionRecordBuilderD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #0 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i.i.i.i.i, label %_ZN4llvm8codeview21DebugSubsectionRecordD2Ev.exit, label %4
@@ -1743,9 +1743,9 @@ _ZNSt10shared_ptrIN4llvm8codeview15DebugSubsectionEED2Ev.exit: ; preds = %_ZN4ll
 define dso_local void @_ZN4llvm3pdb26DbiModuleDescriptorBuilder18addDebugSubsectionERKNS_8codeview21DebugSubsectionRecordE(ptr noundef nonnull align 8 dereferenceable(256) %0, ptr noundef nonnull align 8 dereferenceable(56) %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %"class.llvm::codeview::DebugSubsectionRecordBuilder", align 8
   call void @_ZN4llvm8codeview28DebugSubsectionRecordBuilderC1ERKNS0_21DebugSubsectionRecordE(ptr noundef nonnull align 8 dereferenceable(72) %3, ptr noundef nonnull align 8 dereferenceable(56) %1) #16
-  %4 = getelementptr inbounds i8, ptr %0, i64 176
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 184
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %7 = load ptr, ptr %6, align 8
   %.not.i.i = icmp eq ptr %5, %7
   br i1 %.not.i.i, label %26, label %8
@@ -1764,19 +1764,19 @@ define dso_local void @_ZN4llvm3pdb26DbiModuleDescriptorBuilder18addDebugSubsect
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %15 = load i32, ptr %14, align 8
   store i32 %15, ptr %13, align 8
-  %16 = getelementptr inbounds i8, ptr %5, i64 24
-  %17 = getelementptr inbounds i8, ptr %3, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %18 = load ptr, ptr %17, align 8
   store ptr %18, ptr %16, align 8
-  %19 = getelementptr inbounds i8, ptr %5, i64 32
+  %19 = getelementptr inbounds nuw i8, ptr %5, i64 32
   store ptr null, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %3, i64 32
+  %20 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %21 = load ptr, ptr %20, align 8
   store ptr null, ptr %20, align 8
   store ptr %21, ptr %19, align 8
   store ptr null, ptr %17, align 8
-  %22 = getelementptr inbounds i8, ptr %5, i64 40
-  %23 = getelementptr inbounds i8, ptr %3, i64 40
+  %22 = getelementptr inbounds nuw i8, ptr %5, i64 40
+  %23 = getelementptr inbounds nuw i8, ptr %3, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %22, ptr noundef nonnull align 8 dereferenceable(32) %23, i64 32, i1 false)
   %24 = load ptr, ptr %4, align 8
   %25 = getelementptr inbounds i8, ptr %24, i64 72
@@ -1804,7 +1804,7 @@ declare noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6leng
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvm18BinaryStreamWriterD0Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #0 comdat align 2 {
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN4llvm18BinaryStreamWriterE, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i.i.i.i.i, label %_ZN4llvm18BinaryStreamWriterD2Ev.exit, label %4
@@ -2120,18 +2120,18 @@ _ZNSt12_Vector_baseIN4llvm8codeview28DebugSubsectionRecordBuilderESaIS2_EE11_M_a
   %30 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %31 = load i32, ptr %30, align 8
   store i32 %31, ptr %29, align 8
-  %32 = getelementptr inbounds i8, ptr %24, i64 24
-  %33 = getelementptr inbounds i8, ptr %2, i64 24
+  %32 = getelementptr inbounds nuw i8, ptr %24, i64 24
+  %33 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %34 = load ptr, ptr %33, align 8
   store ptr %34, ptr %32, align 8
-  %35 = getelementptr inbounds i8, ptr %24, i64 32
-  %36 = getelementptr inbounds i8, ptr %2, i64 32
+  %35 = getelementptr inbounds nuw i8, ptr %24, i64 32
+  %36 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %37 = load ptr, ptr %36, align 8
   store ptr null, ptr %36, align 8
   store ptr %37, ptr %35, align 8
   store ptr null, ptr %33, align 8
-  %38 = getelementptr inbounds i8, ptr %24, i64 40
-  %39 = getelementptr inbounds i8, ptr %2, i64 40
+  %38 = getelementptr inbounds nuw i8, ptr %24, i64 40
+  %39 = getelementptr inbounds nuw i8, ptr %2, i64 40
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %38, ptr noundef nonnull align 8 dereferenceable(32) %39, i64 32, i1 false)
   %.not10.i.i.i = icmp eq ptr %6, %1
   br i1 %.not10.i.i.i, label %_ZNSt6vectorIN4llvm8codeview28DebugSubsectionRecordBuilderESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit, label %.lr.ph.i.i.i
@@ -2153,18 +2153,18 @@ _ZNSt12_Vector_baseIN4llvm8codeview28DebugSubsectionRecordBuilderESaIS2_EE11_M_a
   %45 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 16
   %46 = load i32, ptr %45, align 8, !alias.scope !35, !noalias !32
   store i32 %46, ptr %44, align 8, !alias.scope !32, !noalias !35
-  %47 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 24
-  %48 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 24
+  %47 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 24
+  %48 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 24
   %49 = load ptr, ptr %48, align 8, !alias.scope !35, !noalias !32
   store ptr %49, ptr %47, align 8, !alias.scope !32, !noalias !35
-  %50 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 32
-  %51 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 32
+  %50 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 32
+  %51 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 32
   %52 = load ptr, ptr %51, align 8, !alias.scope !35, !noalias !32
   store ptr null, ptr %51, align 8, !alias.scope !35, !noalias !32
   store ptr %52, ptr %50, align 8, !alias.scope !32, !noalias !35
   store ptr null, ptr %48, align 8, !alias.scope !35, !noalias !32
-  %53 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 40
-  %54 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 40
+  %53 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 40
+  %54 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 40
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %53, ptr noundef nonnull align 8 dereferenceable(32) %54, i64 32, i1 false), !alias.scope !37
   tail call void @_ZN4llvm8codeview28DebugSubsectionRecordBuilderD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %.0911.i.i.i) #16, !noalias !32
   %55 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 72
@@ -2195,18 +2195,18 @@ _ZNSt6vectorIN4llvm8codeview28DebugSubsectionRecordBuilderESaIS2_EE11_S_relocate
   %63 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i19, i64 16
   %64 = load i32, ptr %63, align 8, !alias.scope !42, !noalias !39
   store i32 %64, ptr %62, align 8, !alias.scope !39, !noalias !42
-  %65 = getelementptr inbounds i8, ptr %.012.i.i.i18, i64 24
-  %66 = getelementptr inbounds i8, ptr %.0911.i.i.i19, i64 24
+  %65 = getelementptr inbounds nuw i8, ptr %.012.i.i.i18, i64 24
+  %66 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i19, i64 24
   %67 = load ptr, ptr %66, align 8, !alias.scope !42, !noalias !39
   store ptr %67, ptr %65, align 8, !alias.scope !39, !noalias !42
-  %68 = getelementptr inbounds i8, ptr %.012.i.i.i18, i64 32
-  %69 = getelementptr inbounds i8, ptr %.0911.i.i.i19, i64 32
+  %68 = getelementptr inbounds nuw i8, ptr %.012.i.i.i18, i64 32
+  %69 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i19, i64 32
   %70 = load ptr, ptr %69, align 8, !alias.scope !42, !noalias !39
   store ptr null, ptr %69, align 8, !alias.scope !42, !noalias !39
   store ptr %70, ptr %68, align 8, !alias.scope !39, !noalias !42
   store ptr null, ptr %66, align 8, !alias.scope !42, !noalias !39
-  %71 = getelementptr inbounds i8, ptr %.012.i.i.i18, i64 40
-  %72 = getelementptr inbounds i8, ptr %.0911.i.i.i19, i64 40
+  %71 = getelementptr inbounds nuw i8, ptr %.012.i.i.i18, i64 40
+  %72 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i19, i64 40
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %71, ptr noundef nonnull align 8 dereferenceable(32) %72, i64 32, i1 false), !alias.scope !44
   tail call void @_ZN4llvm8codeview28DebugSubsectionRecordBuilderD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %.0911.i.i.i19) #16, !noalias !39
   %73 = getelementptr inbounds i8, ptr %.0911.i.i.i19, i64 72

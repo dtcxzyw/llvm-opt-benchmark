@@ -46,24 +46,24 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_116GOFFObjectWriterESt14default_deleteIS1_EED2Ev
   store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN12_GLOBAL__N_116GOFFObjectWriterE, i64 16), ptr %3, align 8, !noalias !4
   store i64 %4, ptr %9, align 8, !noalias !4
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 112
-  %11 = getelementptr inbounds i8, ptr %3, i64 120
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 120
   store i32 0, ptr %11, align 8, !noalias !4
-  %12 = getelementptr inbounds i8, ptr %3, i64 152
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 152
   store i8 0, ptr %12, align 8, !noalias !4
-  %13 = getelementptr inbounds i8, ptr %3, i64 156
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 156
   store i32 1, ptr %13, align 4, !noalias !4
-  %14 = getelementptr inbounds i8, ptr %3, i64 128
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 128
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %14, i8 0, i64 24, i1 false), !noalias !4
   store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTVN12_GLOBAL__N_111GOFFOstreamE, i64 16), ptr %10, align 8, !noalias !4
-  %15 = getelementptr inbounds i8, ptr %3, i64 160
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 160
   store ptr %2, ptr %15, align 8, !noalias !4
-  %16 = getelementptr inbounds i8, ptr %3, i64 168
+  %16 = getelementptr inbounds nuw i8, ptr %3, i64 168
   store i64 0, ptr %16, align 8, !noalias !4
-  %17 = getelementptr inbounds i8, ptr %3, i64 176
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 176
   store i32 0, ptr %17, align 8, !noalias !4
-  %18 = getelementptr inbounds i8, ptr %3, i64 181
+  %18 = getelementptr inbounds nuw i8, ptr %3, i64 181
   store i8 0, ptr %18, align 1, !noalias !4
-  %19 = getelementptr inbounds i8, ptr %3, i64 182
+  %19 = getelementptr inbounds nuw i8, ptr %3, i64 182
   tail call void @_ZN4llvm11raw_ostream16SetBufferAndModeEPcmNS0_10BufferKindE(ptr noundef nonnull align 8 dereferenceable(48) %10, ptr noundef nonnull %19, i64 noundef 77, i32 noundef 2) #10, !noalias !4
   store ptr %3, ptr %0, align 8
   ret void
@@ -77,11 +77,11 @@ define internal void @_ZN12_GLOBAL__N_116GOFFObjectWriterD2Ev(ptr noundef nonnul
   store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN12_GLOBAL__N_116GOFFObjectWriterE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTVN12_GLOBAL__N_111GOFFOstreamE, i64 16), ptr %2, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 168
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %4 = load i64, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 144
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 128
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %8 = load ptr, ptr %7, align 8
   %9 = ptrtoint ptr %6 to i64
   %10 = ptrtoint ptr %8 to i64
@@ -132,11 +132,11 @@ define internal void @_ZN12_GLOBAL__N_116GOFFObjectWriterD0Ev(ptr noundef nonnul
   store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN12_GLOBAL__N_116GOFFObjectWriterE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTVN12_GLOBAL__N_111GOFFOstreamE, i64 16), ptr %2, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 168
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %4 = load i64, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 144
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 128
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %8 = load ptr, ptr %7, align 8
   %9 = ptrtoint ptr %6 to i64
   %10 = ptrtoint ptr %8 to i64
@@ -213,11 +213,11 @@ define internal noundef i64 @_ZN12_GLOBAL__N_116GOFFObjectWriter11writeObjectERN
   %14 = getelementptr inbounds i8, ptr %13, i64 80
   %15 = load ptr, ptr %14, align 8
   %16 = tail call noundef i64 %15(ptr noundef nonnull align 8 dereferenceable(48) %12) #10
-  %17 = getelementptr inbounds i8, ptr %0, i64 144
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %0, i64 128
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %0, i64 168
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %22 = load i64, ptr %21, align 8
   %23 = ptrtoint ptr %18 to i64
   %24 = ptrtoint ptr %20 to i64
@@ -244,12 +244,12 @@ define internal noundef i64 @_ZN12_GLOBAL__N_116GOFFObjectWriter11writeObjectERN
   br label %_ZN12_GLOBAL__N_116GOFFObjectWriter11writeHeaderEv.exit
 
 _ZN12_GLOBAL__N_116GOFFObjectWriter11writeHeaderEv.exit: ; preds = %30, %33
-  %34 = getelementptr inbounds i8, ptr %0, i64 180
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 180
   store i8 15, ptr %34, align 4
   store i64 77, ptr %21, align 8
-  %35 = getelementptr inbounds i8, ptr %0, i64 181
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 181
   store i8 1, ptr %35, align 1
-  %36 = getelementptr inbounds i8, ptr %0, i64 176
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %37 = load i32, ptr %36, align 8
   %38 = add i32 %37, 1
   store i32 %38, ptr %36, align 8

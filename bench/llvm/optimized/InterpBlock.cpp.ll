@@ -176,13 +176,13 @@ _ZN5clang6interp9DeadBlock4freeEv.exit:           ; preds = %33, %37
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN5clang6interp9DeadBlock4freeEv(ptr noundef nonnull align 8 dereferenceable(64) %0) local_unnamed_addr #1 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 51
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 51
   %3 = load i8, ptr %2, align 1
   %4 = trunc i8 %3 to i1
   br i1 %4, label %5, label %17
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 56
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 64
   %9 = load ptr, ptr %8, align 8
@@ -331,21 +331,21 @@ define dso_local void @_ZN5clang6interp9DeadBlockC2ERPS1_PNS0_5BlockE(ptr nounde
   %11 = and i8 %8, 1
   %12 = and i8 %10, 1
   store i32 -1, ptr %4, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr null, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 44
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 44
   store i8 0, ptr %14, align 4
-  %15 = getelementptr inbounds i8, ptr %0, i64 48
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i8 %12, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 49
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 49
   store i8 %11, ptr %16, align 1
-  %17 = getelementptr inbounds i8, ptr %0, i64 50
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 50
   store i8 1, ptr %17, align 2
-  %18 = getelementptr inbounds i8, ptr %0, i64 51
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 51
   store i8 0, ptr %18, align 1
-  %19 = getelementptr inbounds i8, ptr %0, i64 52
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 52
   store i8 0, ptr %19, align 4
-  %20 = getelementptr inbounds i8, ptr %0, i64 56
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store ptr %6, ptr %20, align 8
   %21 = load ptr, ptr %1, align 8
   %.not = icmp eq ptr %21, null

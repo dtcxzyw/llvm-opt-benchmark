@@ -497,14 +497,14 @@ _ZNK4llvm8codeview8CVRecordINS0_12TypeLeafKindEE4kindEv.exit23: ; preds = %21, %
   %.0.i22 = phi i32 [ %28, %24 ], [ 65536, %21 ]
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 %.0.i22, ptr %29, align 8
-  %30 = getelementptr inbounds i8, ptr %1, i64 72
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %31 = load ptr, ptr %30, align 8
   %.not.i = icmp ne ptr %31, null
-  %32 = getelementptr inbounds i8, ptr %1, i64 56
+  %32 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %33 = load ptr, ptr %32, align 8
   %34 = icmp eq ptr %33, null
   %or.cond.i = select i1 %.not.i, i1 %34, i1 false
-  %35 = getelementptr inbounds i8, ptr %1, i64 64
+  %35 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %36 = load ptr, ptr %35, align 8
   %37 = icmp eq ptr %36, null
   %or.cond = select i1 %or.cond.i, i1 %37, i1 false
@@ -707,7 +707,7 @@ _ZN4llvm12ErrorSuccessD2Ev.exit:                  ; preds = %40, %_ZN4llvm8codev
 46:                                               ; preds = %44
   %47 = load i16, ptr %2, align 2
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %6)
-  %48 = getelementptr inbounds i8, ptr %14, i64 24
+  %48 = getelementptr inbounds nuw i8, ptr %14, i64 24
   %49 = load ptr, ptr %48, align 8, !noalias !7
   %50 = load ptr, ptr %49, align 8, !noalias !7
   %51 = getelementptr inbounds i8, ptr %50, i64 16
@@ -733,7 +733,7 @@ _ZNK4llvm8codeview16CodeViewRecordIO9isWritingEv.exit.thread: ; preds = %44, %_Z
 
 _ZN4llvm12ErrorSuccessD2Ev.exit.i:                ; preds = %_ZNK4llvm8codeview16CodeViewRecordIO9isWritingEv.exit.thread
   %55 = load ptr, ptr %5, align 8, !noalias !10
-  %56 = getelementptr inbounds i8, ptr %11, i64 24
+  %56 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %57 = load ptr, ptr %56, align 8, !noalias !10
   %58 = load ptr, ptr %57, align 8
   %59 = getelementptr inbounds i8, ptr %58, i64 16
@@ -863,14 +863,14 @@ define dso_local void @_ZN4llvm8codeview17TypeRecordMapping14visitTypeBeginERNS0
   %9 = alloca %"class.llvm::Twine", align 8
   %10 = alloca %"class.llvm::Twine", align 8
   %11 = alloca %"class.std::__cxx11::basic_string", align 8
-  %12 = getelementptr inbounds i8, ptr %1, i64 72
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %13 = load ptr, ptr %12, align 8
   %.not.i = icmp ne ptr %13, null
-  %14 = getelementptr inbounds i8, ptr %1, i64 56
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %15 = load ptr, ptr %14, align 8
   %16 = icmp eq ptr %15, null
   %or.cond.i = select i1 %.not.i, i1 %16, i1 false
-  %17 = getelementptr inbounds i8, ptr %1, i64 64
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %18 = load ptr, ptr %17, align 8
   %19 = icmp eq ptr %18, null
   %or.cond = select i1 %or.cond.i, i1 %19, i1 false
@@ -901,7 +901,7 @@ _ZN4llvmplERKNS_5TwineES2_.exit:                  ; preds = %24, %20
   store ptr @.str.2, ptr %10, align 8, !alias.scope !19
   %32 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store ptr %28, ptr %32, align 8, !alias.scope !19
-  %33 = getelementptr inbounds i8, ptr %10, i64 24
+  %33 = getelementptr inbounds nuw i8, ptr %10, i64 24
   store i64 %29, ptr %33, align 8, !alias.scope !19
   store ptr %10, ptr %9, align 8, !alias.scope !22
   %34 = getelementptr inbounds nuw i8, ptr %9, i64 16
@@ -1230,7 +1230,7 @@ _ZN4llvm5ErrorD2Ev.exit:
   br i1 %.not, label %5, label %10
 
 5:                                                ; preds = %_ZN4llvm5ErrorD2Ev.exit
-  %6 = getelementptr inbounds i8, ptr %1, i64 10
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 10
   %7 = load i8, ptr %6, align 2
   %8 = trunc i8 %7 to i1
   br i1 %8, label %9, label %_ZN4llvm12ErrorSuccessD2Ev.exit
@@ -1275,14 +1275,14 @@ _ZN4llvm5ErrorD2Ev.exit:
   %.sroa.023.0.insert.ext = zext i16 %17 to i32
   %.sroa.023.0.insert.insert = or disjoint i32 %.sroa.023.0.insert.ext, 65536
   store i32 %.sroa.023.0.insert.insert, ptr %18, align 4
-  %19 = getelementptr inbounds i8, ptr %1, i64 72
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %20 = load ptr, ptr %19, align 8
   %.not.i = icmp ne ptr %20, null
-  %21 = getelementptr inbounds i8, ptr %1, i64 56
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %22 = load ptr, ptr %21, align 8
   %23 = icmp eq ptr %22, null
   %or.cond.i = select i1 %.not.i, i1 %23, i1 false
-  %24 = getelementptr inbounds i8, ptr %1, i64 64
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %25 = load ptr, ptr %24, align 8
   %26 = icmp eq ptr %25, null
   %or.cond = select i1 %or.cond.i, i1 %26, i1 false
@@ -1406,14 +1406,14 @@ declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_st
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN4llvm8codeview17TypeRecordMapping14visitMemberEndERNS0_14CVMemberRecordE(ptr dead_on_unwind noalias writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(88) %1, ptr nocapture nonnull readnone align 8 %2) unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %5 = getelementptr inbounds i8, ptr %1, i64 56
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %6 = load ptr, ptr %5, align 8
   %.not.i = icmp ne ptr %6, null
-  %7 = getelementptr inbounds i8, ptr %1, i64 72
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %8 = load ptr, ptr %7, align 8
   %9 = icmp eq ptr %8, null
   %or.cond.i = select i1 %.not.i, i1 %9, i1 false
-  %10 = getelementptr inbounds i8, ptr %1, i64 64
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %11 = load ptr, ptr %10, align 8
   %12 = icmp eq ptr %11, null
   %or.cond = select i1 %or.cond.i, i1 %12, i1 false
@@ -1426,7 +1426,7 @@ _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %3
   br i1 %.not, label %_ZNK4llvm8codeview16CodeViewRecordIO9isReadingEv.exit.thread, label %_ZN4llvm12ErrorSuccessD2Ev.exit
 
 _ZNK4llvm8codeview16CodeViewRecordIO9isReadingEv.exit.thread: ; preds = %3, %_ZN4llvm5ErrorD2Ev.exit
-  %14 = getelementptr inbounds i8, ptr %1, i64 14
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 14
   %15 = load i8, ptr %14, align 2
   %16 = trunc i8 %15 to i1
   br i1 %16, label %17, label %_ZNSt8optionalIN4llvm8codeview12TypeLeafKindEE5resetEv.exit
@@ -2174,14 +2174,14 @@ define dso_local void @_ZN4llvm8codeview17TypeRecordMapping16visitKnownRecordERN
   %21 = getelementptr inbounds nuw i8, ptr %3, i64 6
   %22 = load i8, ptr %21, align 2
   %23 = tail call { ptr, i64 } @_ZN4llvm8codeview21getCallingConventionsEv() #17
-  %24 = getelementptr inbounds i8, ptr %1, i64 72
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %25 = load ptr, ptr %24, align 8
   %.not.i.i = icmp ne ptr %25, null
-  %26 = getelementptr inbounds i8, ptr %1, i64 56
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %27 = load ptr, ptr %26, align 8
   %28 = icmp eq ptr %27, null
   %or.cond.i.i = select i1 %.not.i.i, i1 %28, i1 false
-  %29 = getelementptr inbounds i8, ptr %1, i64 64
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %30 = load ptr, ptr %29, align 8
   %31 = icmp eq ptr %30, null
   %or.cond.i = select i1 %or.cond.i.i, i1 %31, i1 false
@@ -3102,14 +3102,14 @@ define dso_local void @_ZN4llvm8codeview17TypeRecordMapping16visitKnownRecordERN
   %24 = getelementptr inbounds nuw i8, ptr %3, i64 14
   %25 = load i8, ptr %24, align 2
   %26 = tail call { ptr, i64 } @_ZN4llvm8codeview21getCallingConventionsEv() #17
-  %27 = getelementptr inbounds i8, ptr %1, i64 72
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %28 = load ptr, ptr %27, align 8
   %.not.i.i = icmp ne ptr %28, null
-  %29 = getelementptr inbounds i8, ptr %1, i64 56
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %30 = load ptr, ptr %29, align 8
   %31 = icmp eq ptr %30, null
   %or.cond.i.i = select i1 %.not.i.i, i1 %31, i1 false
-  %32 = getelementptr inbounds i8, ptr %1, i64 64
+  %32 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %33 = load ptr, ptr %32, align 8
   %34 = icmp eq ptr %33, null
   %or.cond.i = select i1 %or.cond.i.i, i1 %34, i1 false
@@ -3372,7 +3372,7 @@ _ZN4llvm12ErrorSuccessD2Ev.exit:                  ; preds = %40, %_ZN4llvm8codev
 46:                                               ; preds = %44
   %47 = load i32, ptr %2, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
-  %48 = getelementptr inbounds i8, ptr %14, i64 24
+  %48 = getelementptr inbounds nuw i8, ptr %14, i64 24
   %49 = load ptr, ptr %48, align 8, !noalias !127
   %50 = load ptr, ptr %49, align 8, !noalias !127
   %51 = getelementptr inbounds i8, ptr %50, i64 16
@@ -3398,7 +3398,7 @@ _ZNK4llvm8codeview16CodeViewRecordIO9isWritingEv.exit.thread: ; preds = %44, %_Z
 
 _ZN4llvm12ErrorSuccessD2Ev.exit.i:                ; preds = %_ZNK4llvm8codeview16CodeViewRecordIO9isWritingEv.exit.thread
   %56 = load ptr, ptr %5, align 8, !noalias !130
-  %57 = getelementptr inbounds i8, ptr %11, i64 24
+  %57 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %58 = load ptr, ptr %57, align 8, !noalias !130
   %59 = load ptr, ptr %58, align 8
   %60 = getelementptr inbounds i8, ptr %59, i64 16
@@ -3434,14 +3434,14 @@ define dso_local void @_ZN4llvm8codeview17TypeRecordMapping16visitKnownRecordERN
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !133)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11)
-  %14 = getelementptr inbounds i8, ptr %1, i64 72
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %15 = load ptr, ptr %14, align 8, !noalias !133
   %.not.i.i = icmp ne ptr %15, null
-  %16 = getelementptr inbounds i8, ptr %1, i64 56
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %17 = load ptr, ptr %16, align 8, !noalias !133
   %18 = icmp eq ptr %17, null
   %or.cond.i.i = select i1 %.not.i.i, i1 %18, i1 false
-  %19 = getelementptr inbounds i8, ptr %1, i64 64
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %20 = load ptr, ptr %19, align 8, !noalias !133
   br i1 %or.cond.i.i, label %_ZNK4llvm8codeview16CodeViewRecordIO11isStreamingEv.exit.i, label %60
 
@@ -3450,7 +3450,7 @@ _ZNK4llvm8codeview16CodeViewRecordIO11isStreamingEv.exit.i: ; preds = %4
   br i1 %21, label %22, label %_ZNK4llvm8codeview16CodeViewRecordIO9isWritingEv.exit.thread.i
 
 22:                                               ; preds = %_ZNK4llvm8codeview16CodeViewRecordIO11isStreamingEv.exit.i
-  %23 = getelementptr inbounds i8, ptr %3, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %24 = load ptr, ptr %23, align 8, !noalias !133
   %25 = load ptr, ptr %13, align 8, !noalias !133
   %26 = ptrtoint ptr %24 to i64
@@ -3496,7 +3496,7 @@ _ZN4llvm8codeview16CodeViewRecordIO11emitCommentERKNS_5TwineE.exit.i: ; preds = 
   br i1 %or.cond.i44.i, label %49, label %_ZN4llvm8codeview16CodeViewRecordIO15incrStreamedLenERKm.exit.i
 
 49:                                               ; preds = %_ZN4llvm8codeview16CodeViewRecordIO11emitCommentERKNS_5TwineE.exit.i
-  %50 = getelementptr inbounds i8, ptr %1, i64 80
+  %50 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %51 = load i64, ptr %50, align 8, !noalias !133
   %52 = add i64 %51, 4
   store i64 %52, ptr %50, align 8, !noalias !133
@@ -3538,7 +3538,7 @@ _ZN4llvm5ErrorD2Ev.exit.i:                        ; preds = %57, %_ZN4llvm5Error
   br i1 %brmerge.not.i, label %_ZN4llvm5ErrorD2Ev.exit48.i, label %_ZNK4llvm8codeview16CodeViewRecordIO9isWritingEv.exit.thread.i
 
 _ZN4llvm5ErrorD2Ev.exit48.i:                      ; preds = %60
-  %62 = getelementptr inbounds i8, ptr %3, i64 16
+  %62 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %63 = load ptr, ptr %62, align 8, !noalias !133
   %64 = load ptr, ptr %13, align 8, !noalias !133
   %65 = ptrtoint ptr %63 to i64
@@ -3547,7 +3547,7 @@ _ZN4llvm5ErrorD2Ev.exit48.i:                      ; preds = %60
   %68 = lshr exact i64 %67, 2
   %69 = trunc i64 %68 to i32
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8), !noalias !133
-  %70 = getelementptr inbounds i8, ptr %20, i64 24
+  %70 = getelementptr inbounds nuw i8, ptr %20, i64 24
   %71 = load ptr, ptr %70, align 8, !noalias !139
   %72 = load ptr, ptr %71, align 8, !noalias !139
   %73 = getelementptr inbounds i8, ptr %72, i64 16
@@ -3607,7 +3607,7 @@ _ZNK4llvm8codeview16CodeViewRecordIO9isWritingEv.exit.thread.i: ; preds = %60, %
 
 87:                                               ; preds = %_ZNK4llvm8codeview16CodeViewRecordIO9isWritingEv.exit.thread.i
   %88 = load ptr, ptr %6, align 8, !noalias !148
-  %89 = getelementptr inbounds i8, ptr %17, i64 24
+  %89 = getelementptr inbounds nuw i8, ptr %17, i64 24
   %90 = load ptr, ptr %89, align 8, !noalias !145
   %91 = load ptr, ptr %90, align 8
   %92 = getelementptr inbounds i8, ptr %91, i64 16
@@ -3627,8 +3627,8 @@ _ZN4llvm5ErrorD2Ev.exit54.lr.ph.i:                ; preds = %87
   call void @llvm.assume(i1 true) [ "align"(ptr %11, i64 1) ]
   %96 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %97 = getelementptr inbounds nuw i8, ptr %5, i64 33
-  %98 = getelementptr inbounds i8, ptr %3, i64 16
-  %99 = getelementptr inbounds i8, ptr %3, i64 24
+  %98 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %99 = getelementptr inbounds nuw i8, ptr %3, i64 24
   br label %_ZN4llvm5ErrorD2Ev.exit54.i
 
 _ZN4llvm5ErrorD2Ev.exit54.i:                      ; preds = %_ZNSt6vectorIN4llvm8codeview9TypeIndexESaIS2_EE9push_backERKS2_.exit.i, %_ZN4llvm5ErrorD2Ev.exit54.lr.ph.i
@@ -3753,14 +3753,14 @@ define dso_local void @_ZN4llvm8codeview17TypeRecordMapping16visitKnownRecordERN
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !159)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11)
-  %14 = getelementptr inbounds i8, ptr %1, i64 72
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %15 = load ptr, ptr %14, align 8, !noalias !159
   %.not.i.i = icmp ne ptr %15, null
-  %16 = getelementptr inbounds i8, ptr %1, i64 56
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %17 = load ptr, ptr %16, align 8, !noalias !159
   %18 = icmp eq ptr %17, null
   %or.cond.i.i = select i1 %.not.i.i, i1 %18, i1 false
-  %19 = getelementptr inbounds i8, ptr %1, i64 64
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %20 = load ptr, ptr %19, align 8, !noalias !159
   br i1 %or.cond.i.i, label %_ZNK4llvm8codeview16CodeViewRecordIO11isStreamingEv.exit.i, label %60
 
@@ -3769,7 +3769,7 @@ _ZNK4llvm8codeview16CodeViewRecordIO11isStreamingEv.exit.i: ; preds = %4
   br i1 %21, label %22, label %_ZNK4llvm8codeview16CodeViewRecordIO9isWritingEv.exit.thread.i
 
 22:                                               ; preds = %_ZNK4llvm8codeview16CodeViewRecordIO11isStreamingEv.exit.i
-  %23 = getelementptr inbounds i8, ptr %3, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %24 = load ptr, ptr %23, align 8, !noalias !159
   %25 = load ptr, ptr %13, align 8, !noalias !159
   %26 = ptrtoint ptr %24 to i64
@@ -3815,7 +3815,7 @@ _ZN4llvm8codeview16CodeViewRecordIO11emitCommentERKNS_5TwineE.exit.i: ; preds = 
   br i1 %or.cond.i44.i, label %49, label %_ZN4llvm8codeview16CodeViewRecordIO15incrStreamedLenERKm.exit.i
 
 49:                                               ; preds = %_ZN4llvm8codeview16CodeViewRecordIO11emitCommentERKNS_5TwineE.exit.i
-  %50 = getelementptr inbounds i8, ptr %1, i64 80
+  %50 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %51 = load i64, ptr %50, align 8, !noalias !159
   %52 = add i64 %51, 4
   store i64 %52, ptr %50, align 8, !noalias !159
@@ -3857,7 +3857,7 @@ _ZN4llvm5ErrorD2Ev.exit.i:                        ; preds = %57, %_ZN4llvm5Error
   br i1 %brmerge.not.i, label %_ZN4llvm5ErrorD2Ev.exit48.i, label %_ZNK4llvm8codeview16CodeViewRecordIO9isWritingEv.exit.thread.i
 
 _ZN4llvm5ErrorD2Ev.exit48.i:                      ; preds = %60
-  %62 = getelementptr inbounds i8, ptr %3, i64 16
+  %62 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %63 = load ptr, ptr %62, align 8, !noalias !159
   %64 = load ptr, ptr %13, align 8, !noalias !159
   %65 = ptrtoint ptr %63 to i64
@@ -3866,7 +3866,7 @@ _ZN4llvm5ErrorD2Ev.exit48.i:                      ; preds = %60
   %68 = lshr exact i64 %67, 2
   %69 = trunc i64 %68 to i32
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8), !noalias !159
-  %70 = getelementptr inbounds i8, ptr %20, i64 24
+  %70 = getelementptr inbounds nuw i8, ptr %20, i64 24
   %71 = load ptr, ptr %70, align 8, !noalias !165
   %72 = load ptr, ptr %71, align 8, !noalias !165
   %73 = getelementptr inbounds i8, ptr %72, i64 16
@@ -3926,7 +3926,7 @@ _ZNK4llvm8codeview16CodeViewRecordIO9isWritingEv.exit.thread.i: ; preds = %60, %
 
 87:                                               ; preds = %_ZNK4llvm8codeview16CodeViewRecordIO9isWritingEv.exit.thread.i
   %88 = load ptr, ptr %6, align 8, !noalias !174
-  %89 = getelementptr inbounds i8, ptr %17, i64 24
+  %89 = getelementptr inbounds nuw i8, ptr %17, i64 24
   %90 = load ptr, ptr %89, align 8, !noalias !171
   %91 = load ptr, ptr %90, align 8
   %92 = getelementptr inbounds i8, ptr %91, i64 16
@@ -3946,8 +3946,8 @@ _ZN4llvm5ErrorD2Ev.exit54.lr.ph.i:                ; preds = %87
   call void @llvm.assume(i1 true) [ "align"(ptr %11, i64 1) ]
   %96 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %97 = getelementptr inbounds nuw i8, ptr %5, i64 33
-  %98 = getelementptr inbounds i8, ptr %3, i64 16
-  %99 = getelementptr inbounds i8, ptr %3, i64 24
+  %98 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %99 = getelementptr inbounds nuw i8, ptr %3, i64 24
   br label %_ZN4llvm5ErrorD2Ev.exit54.i
 
 _ZN4llvm5ErrorD2Ev.exit54.i:                      ; preds = %_ZNSt6vectorIN4llvm8codeview9TypeIndexESaIS2_EE9push_backERKS2_.exit.i, %_ZN4llvm5ErrorD2Ev.exit54.lr.ph.i
@@ -4090,14 +4090,14 @@ define dso_local void @_ZN4llvm8codeview17TypeRecordMapping16visitKnownRecordERN
   call void @_ZN4llvm15SmallVectorBaseImEC2EPvm(ptr noundef nonnull align 8 dereferenceable(24) %14, ptr noundef nonnull %30, i64 noundef 128) #17
   call void @_ZN4llvm15SmallVectorImplIcE6appendIPKcvEEvT_S5_(ptr noundef nonnull align 8 dereferenceable(24) %14, ptr noundef nonnull @.str.20, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.20, i64 7))
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %32 = getelementptr inbounds i8, ptr %1, i64 72
+  %32 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %33 = load ptr, ptr %32, align 8
   %.not.i = icmp ne ptr %33, null
-  %34 = getelementptr inbounds i8, ptr %1, i64 56
+  %34 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %35 = load ptr, ptr %34, align 8
   %36 = icmp eq ptr %35, null
   %or.cond.i = select i1 %.not.i, i1 %36, i1 false
-  %37 = getelementptr inbounds i8, ptr %1, i64 64
+  %37 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %38 = load ptr, ptr %37, align 8
   %39 = icmp eq ptr %38, null
   %or.cond = select i1 %or.cond.i, i1 %39, i1 false
@@ -4393,7 +4393,7 @@ _ZN4llvm5ErrorD2Ev.exit63:                        ; preds = %_ZN4llvm5ErrorD2Ev.
 
 162:                                              ; preds = %156
   %163 = getelementptr inbounds nuw i8, ptr %3, i64 12
-  %164 = getelementptr inbounds i8, ptr %3, i64 18
+  %164 = getelementptr inbounds nuw i8, ptr %3, i64 18
   call void @llvm.assume(i1 true) [ "align"(ptr %163, i64 1) ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(6) %163, i8 0, i64 6, i1 false)
   store i8 1, ptr %164, align 2
@@ -4412,7 +4412,7 @@ _ZNK4llvm8codeview16CodeViewRecordIO9isReadingEv.exit.thread: ; preds = %156, %1
   br i1 %.not125, label %_ZN4llvm5ErrorD2Ev.exit66, label %.critedge
 
 _ZN4llvm5ErrorD2Ev.exit66:                        ; preds = %_ZNK4llvm8codeview16CodeViewRecordIO9isReadingEv.exit.thread
-  %169 = getelementptr inbounds i8, ptr %3, i64 16
+  %169 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %170 = load i16, ptr %169, align 4
   %171 = call { ptr, i64 } @_ZN4llvm8codeview20getPtrMemberRepNamesEv() #17
   %172 = load ptr, ptr %32, align 8
@@ -4681,7 +4681,7 @@ _ZN4llvm12ErrorSuccessD2Ev.exit:                  ; preds = %40, %_ZN4llvm8codev
 46:                                               ; preds = %44
   %47 = load i32, ptr %2, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
-  %48 = getelementptr inbounds i8, ptr %14, i64 24
+  %48 = getelementptr inbounds nuw i8, ptr %14, i64 24
   %49 = load ptr, ptr %48, align 8, !noalias !203
   %50 = load ptr, ptr %49, align 8, !noalias !203
   %51 = getelementptr inbounds i8, ptr %50, i64 16
@@ -4707,7 +4707,7 @@ _ZNK4llvm8codeview16CodeViewRecordIO9isWritingEv.exit.thread: ; preds = %44, %_Z
 
 _ZN4llvm12ErrorSuccessD2Ev.exit.i:                ; preds = %_ZNK4llvm8codeview16CodeViewRecordIO9isWritingEv.exit.thread
   %56 = load ptr, ptr %5, align 8, !noalias !206
-  %57 = getelementptr inbounds i8, ptr %11, i64 24
+  %57 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %58 = load ptr, ptr %57, align 8, !noalias !206
   %59 = load ptr, ptr %58, align 8
   %60 = getelementptr inbounds i8, ptr %59, i64 16
@@ -5175,7 +5175,7 @@ _ZN4llvmplERKNS_5TwineES2_.exit75:                ; preds = %37
   store ptr @.str.293, ptr %13, align 8, !alias.scope !224
   %50 = getelementptr inbounds nuw i8, ptr %13, i64 16
   store ptr %46, ptr %50, align 8, !alias.scope !224
-  %51 = getelementptr inbounds i8, ptr %13, i64 24
+  %51 = getelementptr inbounds nuw i8, ptr %13, i64 24
   store i64 %47, ptr %51, align 8, !alias.scope !224
   store ptr %13, ptr %12, align 8, !alias.scope !227
   %52 = getelementptr inbounds nuw i8, ptr %12, i64 16
@@ -5634,7 +5634,7 @@ _ZN4llvm12ErrorSuccessD2Ev.exit:                  ; preds = %40, %_ZN4llvm8codev
 46:                                               ; preds = %44
   %47 = load i8, ptr %2, align 1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6)
-  %48 = getelementptr inbounds i8, ptr %14, i64 24
+  %48 = getelementptr inbounds nuw i8, ptr %14, i64 24
   %49 = load ptr, ptr %48, align 8, !noalias !243
   %50 = load ptr, ptr %49, align 8, !noalias !243
   %51 = getelementptr inbounds i8, ptr %50, i64 16
@@ -5657,7 +5657,7 @@ _ZNK4llvm8codeview16CodeViewRecordIO9isWritingEv.exit.thread: ; preds = %44, %_Z
 
 _ZN4llvm12ErrorSuccessD2Ev.exit.i:                ; preds = %_ZNK4llvm8codeview16CodeViewRecordIO9isWritingEv.exit.thread
   %55 = load ptr, ptr %5, align 8, !noalias !246
-  %56 = getelementptr inbounds i8, ptr %11, i64 24
+  %56 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %57 = load ptr, ptr %56, align 8, !noalias !246
   %58 = load ptr, ptr %57, align 8
   %59 = getelementptr inbounds i8, ptr %58, i64 16
@@ -5687,14 +5687,14 @@ define dso_local void @_ZN4llvm8codeview17TypeRecordMapping16visitKnownRecordERN
   %10 = alloca i8, align 1
   %11 = alloca %"class.llvm::Twine", align 8
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %13 = getelementptr inbounds i8, ptr %1, i64 56
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %14 = load ptr, ptr %13, align 8
   %.not.i = icmp ne ptr %14, null
-  %15 = getelementptr inbounds i8, ptr %1, i64 72
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %16 = load ptr, ptr %15, align 8
   %17 = icmp eq ptr %16, null
   %or.cond.i = select i1 %.not.i, i1 %17, i1 false
-  %18 = getelementptr inbounds i8, ptr %1, i64 64
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %19 = load ptr, ptr %18, align 8
   %20 = icmp eq ptr %19, null
   %or.cond = select i1 %or.cond.i, i1 %20, i1 false
@@ -5702,12 +5702,12 @@ define dso_local void @_ZN4llvm8codeview17TypeRecordMapping16visitKnownRecordERN
 
 _ZNK4llvm8codeview16CodeViewRecordIO9isReadingEv.exit.thread: ; preds = %4
   %21 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %22 = getelementptr inbounds i8, ptr %3, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %23 = load i64, ptr %22, align 8
   %24 = icmp eq i64 %23, 0
   %25 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %26 = load ptr, ptr %25, align 8
-  %27 = getelementptr inbounds i8, ptr %3, i64 32
+  %27 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %28 = load ptr, ptr %27, align 8
   %29 = ptrtoint ptr %28 to i64
   %30 = ptrtoint ptr %26 to i64
@@ -5780,8 +5780,8 @@ _ZN4llvm5ErrorD2Ev.exit34:                        ; preds = %4
 _ZN4llvm5ErrorD2Ev.exit35.lr.ph:                  ; preds = %.preheader
   %54 = getelementptr inbounds nuw i8, ptr %11, i64 32
   %55 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %56 = getelementptr inbounds i8, ptr %3, i64 32
-  %57 = getelementptr inbounds i8, ptr %3, i64 40
+  %56 = getelementptr inbounds nuw i8, ptr %3, i64 32
+  %57 = getelementptr inbounds nuw i8, ptr %3, i64 40
   br label %_ZN4llvm5ErrorD2Ev.exit35
 
 _ZN4llvm5ErrorD2Ev.exit35:                        ; preds = %_ZN4llvm5ErrorD2Ev.exit35.lr.ph, %_ZNSt6vectorIN4llvm8codeview15VFTableSlotKindESaIS2_EE9push_backEOS2_.exit44
@@ -5999,14 +5999,14 @@ _ZN4llvm5ErrorD2Ev.exit31:                        ; preds = %_ZN4llvm5ErrorD2Ev.
 
 26:                                               ; preds = %_ZN4llvm5ErrorD2Ev.exit31
   store i32 0, ptr %11, align 4
-  %27 = getelementptr inbounds i8, ptr %1, i64 56
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %28 = load ptr, ptr %27, align 8
   %.not.i = icmp ne ptr %28, null
-  %29 = getelementptr inbounds i8, ptr %1, i64 72
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %30 = load ptr, ptr %29, align 8
   %31 = icmp eq ptr %30, null
   %or.cond.i = select i1 %.not.i, i1 %31, i1 false
-  %32 = getelementptr inbounds i8, ptr %1, i64 64
+  %32 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %33 = load ptr, ptr %32, align 8
   %34 = icmp eq ptr %33, null
   %or.cond = select i1 %or.cond.i, i1 %34, i1 false
@@ -6015,7 +6015,7 @@ _ZN4llvm5ErrorD2Ev.exit31:                        ; preds = %_ZN4llvm5ErrorD2Ev.
 _ZNK4llvm8codeview16CodeViewRecordIO9isReadingEv.exit.thread: ; preds = %26
   %35 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %36 = load ptr, ptr %35, align 8
-  %37 = getelementptr inbounds i8, ptr %3, i64 24
+  %37 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %38 = load ptr, ptr %37, align 8
   %.not4953 = icmp eq ptr %36, %38
   br i1 %.not4953, label %_ZN4llvm5ErrorD2Ev.exit32, label %.lr.ph
@@ -6107,7 +6107,7 @@ _ZNK4llvm8codeview16CodeViewRecordIO11isStreamingEv.exit.i: ; preds = %_ZN4llvm8
 
 70:                                               ; preds = %68, %_ZNK4llvm8codeview16CodeViewRecordIO11isStreamingEv.exit.i
   %71 = load ptr, ptr %47, align 8, !noalias !251
-  %72 = getelementptr inbounds i8, ptr %3, i64 24
+  %72 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %73 = load ptr, ptr %72, align 8, !noalias !251
   %.not1115.i = icmp eq ptr %71, %73
   br i1 %.not1115.i, label %_ZN4llvm12ErrorSuccessD2Ev.exit, label %_ZN4llvm5ErrorD2Ev.exit.lr.ph.i
@@ -6138,24 +6138,24 @@ _ZNK4llvm8codeview16CodeViewRecordIO9isWritingEv.exit.thread.i: ; preds = %68, %
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, i8 0, i64 16, i1 false), !noalias !251
   %79 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %80 = getelementptr inbounds nuw i8, ptr %4, i64 33
-  %81 = getelementptr inbounds i8, ptr %3, i64 24
-  %82 = getelementptr inbounds i8, ptr %3, i64 32
+  %81 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %82 = getelementptr inbounds nuw i8, ptr %3, i64 32
   br label %83
 
 83:                                               ; preds = %_ZNSt6vectorIN4llvm9StringRefESaIS1_EE9push_backERKS1_.exit.i, %_ZNK4llvm8codeview16CodeViewRecordIO9isWritingEv.exit.thread.i
   %84 = phi ptr [ %.pre.i, %_ZNSt6vectorIN4llvm9StringRefESaIS1_EE9push_backERKS1_.exit.i ], [ %63, %_ZNK4llvm8codeview16CodeViewRecordIO9isWritingEv.exit.thread.i ]
-  %85 = getelementptr inbounds i8, ptr %84, i64 48
+  %85 = getelementptr inbounds nuw i8, ptr %84, i64 48
   %86 = load i8, ptr %85, align 8
   %87 = trunc i8 %86 to i1
   br i1 %87, label %88, label %91
 
 88:                                               ; preds = %83
-  %89 = getelementptr inbounds i8, ptr %84, i64 40
+  %89 = getelementptr inbounds nuw i8, ptr %84, i64 40
   %90 = load i64, ptr %89, align 8
   br label %_ZNK4llvm18BinaryStreamReader5emptyEv.exit.i
 
 91:                                               ; preds = %83
-  %92 = getelementptr inbounds i8, ptr %84, i64 24
+  %92 = getelementptr inbounds nuw i8, ptr %84, i64 24
   %93 = load ptr, ptr %92, align 8
   %.not.i.i.i.i.i = icmp eq ptr %93, null
   br i1 %.not.i.i.i.i.i, label %_ZNK4llvm18BinaryStreamReader5emptyEv.exit.i, label %94
@@ -6165,7 +6165,7 @@ _ZNK4llvm8codeview16CodeViewRecordIO9isWritingEv.exit.thread.i: ; preds = %68, %
   %96 = getelementptr inbounds i8, ptr %95, i64 40
   %97 = load ptr, ptr %96, align 8
   %98 = call noundef i64 %97(ptr noundef nonnull align 8 dereferenceable(8) %93) #17
-  %99 = getelementptr inbounds i8, ptr %84, i64 32
+  %99 = getelementptr inbounds nuw i8, ptr %84, i64 32
   %100 = load i64, ptr %99, align 8
   %101 = sub i64 %98, %100
   br label %_ZNK4llvm18BinaryStreamReader5emptyEv.exit.i
@@ -6517,14 +6517,14 @@ define dso_local void @_ZN4llvm8codeview17TypeRecordMapping16visitKnownRecordERN
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !266)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11)
-  %14 = getelementptr inbounds i8, ptr %1, i64 72
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %15 = load ptr, ptr %14, align 8, !noalias !266
   %.not.i.i = icmp ne ptr %15, null
-  %16 = getelementptr inbounds i8, ptr %1, i64 56
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %17 = load ptr, ptr %16, align 8, !noalias !266
   %18 = icmp eq ptr %17, null
   %or.cond.i.i = select i1 %.not.i.i, i1 %18, i1 false
-  %19 = getelementptr inbounds i8, ptr %1, i64 64
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %20 = load ptr, ptr %19, align 8, !noalias !266
   br i1 %or.cond.i.i, label %_ZNK4llvm8codeview16CodeViewRecordIO11isStreamingEv.exit.i, label %60
 
@@ -6585,7 +6585,7 @@ _ZN4llvm8codeview16CodeViewRecordIO11emitCommentERKNS_5TwineE.exit.i: ; preds = 
   br i1 %or.cond.i55.i, label %48, label %_ZN4llvm8codeview16CodeViewRecordIO15incrStreamedLenERKm.exit.i
 
 48:                                               ; preds = %_ZN4llvm8codeview16CodeViewRecordIO11emitCommentERKNS_5TwineE.exit.i
-  %49 = getelementptr inbounds i8, ptr %1, i64 80
+  %49 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %50 = load i64, ptr %49, align 8, !noalias !266
   %51 = add i64 %50, 2
   store i64 %51, ptr %49, align 8, !noalias !266
@@ -6632,7 +6632,7 @@ _ZN4llvm5ErrorD2Ev.exit59.i:                      ; preds = %60
   %63 = trunc i64 %62 to i16
   %64 = load ptr, ptr %19, align 8, !noalias !266
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %8), !noalias !266
-  %65 = getelementptr inbounds i8, ptr %64, i64 24
+  %65 = getelementptr inbounds nuw i8, ptr %64, i64 24
   %66 = load ptr, ptr %65, align 8, !noalias !272
   %67 = load ptr, ptr %66, align 8, !noalias !272
   %68 = getelementptr inbounds i8, ptr %67, i64 16
@@ -6693,7 +6693,7 @@ _ZNK4llvm8codeview16CodeViewRecordIO9isWritingEv.exit.thread.i: ; preds = %60, %
 
 82:                                               ; preds = %_ZNK4llvm8codeview16CodeViewRecordIO9isWritingEv.exit.thread.i
   %83 = load ptr, ptr %6, align 8, !noalias !281
-  %84 = getelementptr inbounds i8, ptr %17, i64 24
+  %84 = getelementptr inbounds nuw i8, ptr %17, i64 24
   %85 = load ptr, ptr %84, align 8, !noalias !278
   %86 = load ptr, ptr %85, align 8
   %87 = getelementptr inbounds i8, ptr %86, i64 16
@@ -6776,14 +6776,14 @@ define dso_local void @_ZN4llvm8codeview17TypeRecordMapping16visitKnownRecordERN
   store i8 1, ptr %7, align 1
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5), !noalias !286
-  %10 = getelementptr inbounds i8, ptr %1, i64 72
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %11 = load ptr, ptr %10, align 8, !noalias !286
   %.not.i.i.i = icmp ne ptr %11, null
-  %12 = getelementptr inbounds i8, ptr %1, i64 56
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %13 = load ptr, ptr %12, align 8, !noalias !286
   %14 = icmp eq ptr %13, null
   %or.cond.i.i.i = select i1 %.not.i.i.i, i1 %14, i1 false
-  %15 = getelementptr inbounds i8, ptr %1, i64 64
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %16 = load ptr, ptr %15, align 8, !noalias !286
   %17 = icmp eq ptr %16, null
   %or.cond.i.i = select i1 %or.cond.i.i.i, i1 %17, i1 false
@@ -6838,7 +6838,7 @@ _ZNK4llvm8codeview16CodeViewRecordIO11isStreamingEv.exit.i: ; preds = %_ZN4llvm8
 
 35:                                               ; preds = %33, %_ZNK4llvm8codeview16CodeViewRecordIO11isStreamingEv.exit.i
   %36 = load ptr, ptr %9, align 8, !noalias !286
-  %37 = getelementptr inbounds i8, ptr %3, i64 16
+  %37 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %38 = load ptr, ptr %37, align 8, !noalias !286
   %.not3135.i = icmp eq ptr %36, %38
   br i1 %.not3135.i, label %_ZN4llvm12ErrorSuccessD2Ev.exit, label %_ZN4llvm5ErrorD2Ev.exit.i
@@ -6865,24 +6865,24 @@ _ZNK4llvm8codeview16CodeViewRecordIO9isWritingEv.exit.thread.i: ; preds = %33, %
   store i32 0, ptr %44, align 8, !noalias !286
   %45 = getelementptr inbounds nuw i8, ptr %6, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %45, i8 0, i64 16, i1 false), !noalias !286
-  %46 = getelementptr inbounds i8, ptr %3, i64 16
-  %47 = getelementptr inbounds i8, ptr %3, i64 24
+  %46 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %47 = getelementptr inbounds nuw i8, ptr %3, i64 24
   br label %48
 
 48:                                               ; preds = %_ZNSt6vectorIN4llvm8codeview15OneMethodRecordESaIS2_EE9push_backERKS2_.exit.i, %_ZNK4llvm8codeview16CodeViewRecordIO9isWritingEv.exit.thread.i
   %49 = phi ptr [ %.pre.i, %_ZNSt6vectorIN4llvm8codeview15OneMethodRecordESaIS2_EE9push_backERKS2_.exit.i ], [ %28, %_ZNK4llvm8codeview16CodeViewRecordIO9isWritingEv.exit.thread.i ]
-  %50 = getelementptr inbounds i8, ptr %49, i64 48
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 48
   %51 = load i8, ptr %50, align 8
   %52 = trunc i8 %51 to i1
   br i1 %52, label %53, label %56
 
 53:                                               ; preds = %48
-  %54 = getelementptr inbounds i8, ptr %49, i64 40
+  %54 = getelementptr inbounds nuw i8, ptr %49, i64 40
   %55 = load i64, ptr %54, align 8
   br label %_ZNK4llvm18BinaryStreamReader5emptyEv.exit.i
 
 56:                                               ; preds = %48
-  %57 = getelementptr inbounds i8, ptr %49, i64 24
+  %57 = getelementptr inbounds nuw i8, ptr %49, i64 24
   %58 = load ptr, ptr %57, align 8
   %.not.i.i.i.i.i = icmp eq ptr %58, null
   br i1 %.not.i.i.i.i.i, label %_ZNK4llvm18BinaryStreamReader5emptyEv.exit.i, label %59
@@ -6892,7 +6892,7 @@ _ZNK4llvm8codeview16CodeViewRecordIO9isWritingEv.exit.thread.i: ; preds = %33, %
   %61 = getelementptr inbounds i8, ptr %60, i64 40
   %62 = load ptr, ptr %61, align 8
   %63 = call noundef i64 %62(ptr noundef nonnull align 8 dereferenceable(8) %58) #17
-  %64 = getelementptr inbounds i8, ptr %49, i64 32
+  %64 = getelementptr inbounds nuw i8, ptr %49, i64 32
   %65 = load i64, ptr %64, align 8
   %66 = sub i64 %63, %65
   br label %_ZNK4llvm18BinaryStreamReader5emptyEv.exit.i
@@ -7009,14 +7009,14 @@ _ZN4llvm12ErrorSuccessD2Ev.exit:                  ; preds = %_ZNK4llvm18BinarySt
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN4llvm8codeview17TypeRecordMapping16visitKnownRecordERNS0_8CVRecordINS0_12TypeLeafKindEEERNS0_15FieldListRecordE(ptr dead_on_unwind noalias writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(88) %1, ptr nocapture nonnull readnone align 8 %2, ptr noundef nonnull align 8 dereferenceable(24) %3) unnamed_addr #0 align 2 {
   %5 = alloca %"class.llvm::Twine", align 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 72
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %7 = load ptr, ptr %6, align 8
   %.not.i = icmp ne ptr %7, null
-  %8 = getelementptr inbounds i8, ptr %1, i64 56
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %9 = load ptr, ptr %8, align 8
   %10 = icmp eq ptr %9, null
   %or.cond.i = select i1 %.not.i, i1 %10, i1 false
-  %11 = getelementptr inbounds i8, ptr %1, i64 64
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %12 = load ptr, ptr %11, align 8
   %13 = icmp eq ptr %12, null
   %or.cond = select i1 %or.cond.i, i1 %13, i1 false
@@ -7112,14 +7112,14 @@ define dso_local void @_ZN4llvm8codeview17TypeRecordMapping16visitKnownRecordERN
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 2
   %13 = load i16, ptr %12, align 2
   %14 = tail call { ptr, i64 } @_ZN4llvm8codeview16getLabelTypeEnumEv() #17
-  %15 = getelementptr inbounds i8, ptr %1, i64 72
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %16 = load ptr, ptr %15, align 8
   %.not.i.i = icmp ne ptr %16, null
-  %17 = getelementptr inbounds i8, ptr %1, i64 56
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %18 = load ptr, ptr %17, align 8
   %19 = icmp eq ptr %18, null
   %or.cond.i.i = select i1 %.not.i.i, i1 %19, i1 false
-  %20 = getelementptr inbounds i8, ptr %1, i64 64
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %21 = load ptr, ptr %20, align 8
   %22 = icmp eq ptr %21, null
   %or.cond.i = select i1 %or.cond.i.i, i1 %22, i1 false
@@ -8327,7 +8327,7 @@ _ZN4llvm12ErrorSuccessD2Ev.exit:                  ; preds = %_ZN4llvm5ErrorD2Ev.
 define dso_local void @_ZN4llvm8codeview17TypeRecordMapping16visitKnownMemberERNS0_14CVMemberRecordERNS0_15OneMethodRecordE(ptr dead_on_unwind noalias writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(88) %1, ptr nocapture nonnull readnone align 8 %2, ptr noundef nonnull align 8 dereferenceable(32) %3) unnamed_addr #0 align 2 {
   %5 = alloca %"struct.(anonymous namespace)::MapOneMethodRecord", align 1
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %7 = getelementptr inbounds i8, ptr %1, i64 10
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 10
   %8 = load i8, ptr %7, align 2
   %9 = trunc i8 %8 to i1
   %10 = load i16, ptr %6, align 8

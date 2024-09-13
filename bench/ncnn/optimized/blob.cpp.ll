@@ -9,8 +9,8 @@ target triple = "x86_64-pc-linux-gnu"
 define hidden void @_ZN4ncnn4BlobC2Ev(ptr noundef nonnull align 8 dereferenceable(112) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #3
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %3 = getelementptr inbounds i8, ptr %0, i64 72
-  %4 = getelementptr inbounds i8, ptr %0, i64 104
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store i64 0, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %2, i8 0, i64 28, i1 false)

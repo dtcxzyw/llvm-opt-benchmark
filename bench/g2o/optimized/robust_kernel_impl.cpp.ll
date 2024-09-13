@@ -502,7 +502,7 @@ define void @_ZN3g2o22RobustKernelScaleDeltaC2ERKSt10shared_ptrINS_12RobustKerne
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %1, align 8
   store ptr %5, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = load ptr, ptr %7, align 8
   store ptr %8, ptr %6, align 8
@@ -545,7 +545,7 @@ define void @_ZN3g2o22RobustKernelScaleDelta9setKernelERKSt10shared_ptrINS_12Rob
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %1, align 8
   store ptr %4, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = load ptr, ptr %5, align 8
@@ -2446,7 +2446,7 @@ define linkonce_odr void @_ZN3g2o25RegisterRobustKernelProxyINS_15RobustKernelDC
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3g2o22RobustKernelScaleDeltaD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN3g2o22RobustKernelScaleDeltaE, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i.i, label %_ZNSt10shared_ptrIN3g2o12RobustKernelEED2Ev.exit, label %4
@@ -2526,7 +2526,7 @@ _ZNSt10shared_ptrIN3g2o12RobustKernelEED2Ev.exit: ; preds = %1, %20, %33, %_ZNSt
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3g2o22RobustKernelScaleDeltaD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN3g2o22RobustKernelScaleDeltaE, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i.i.i, label %_ZN3g2o22RobustKernelScaleDeltaD2Ev.exit, label %4

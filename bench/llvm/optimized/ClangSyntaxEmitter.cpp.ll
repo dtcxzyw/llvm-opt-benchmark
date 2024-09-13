@@ -227,19 +227,19 @@ define internal fastcc void @_ZN12_GLOBAL__N_19HierarchyC2ERKN4llvm12RecordKeepe
   %11 = tail call noalias noundef nonnull dereferenceable(480) ptr @_Znwm(i64 noundef 480) #16
   store ptr %11, ptr %.01.i.ptr.i.i.i, align 8
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %13 = getelementptr inbounds i8, ptr %0, i64 40
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %.01.i.ptr.i.i.i, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %11, ptr %14, align 8
   %15 = getelementptr inbounds i8, ptr %11, i64 480
-  %16 = getelementptr inbounds i8, ptr %0, i64 32
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %15, ptr %16, align 8
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %18 = getelementptr inbounds i8, ptr %0, i64 72
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store ptr %.01.i.ptr.i.i.i, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %0, i64 56
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store ptr %11, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %0, i64 64
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr %15, ptr %20, align 8
   store ptr %11, ptr %12, align 8
   store ptr %11, ptr %17, align 8
@@ -716,9 +716,9 @@ _ZNSt6vectorIPN4llvm6RecordESaIS2_EED2Ev.exit22:  ; preds = %._crit_edge53, %212
   %.sroa.2.0.copyload.i.i11.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i10.i, align 8
   %230 = call fastcc noundef nonnull align 8 dereferenceable(40) ptr @_ZN12_GLOBAL__N_19Hierarchy3getEN4llvm9StringRefE(ptr noundef nonnull readonly align 8 dereferenceable(104) %0, ptr %.sroa.0.0.copyload.i.i9.i, i64 %.sroa.2.0.copyload.i.i11.i)
   %231 = getelementptr inbounds nuw i8, ptr %230, i64 16
-  %232 = getelementptr inbounds i8, ptr %230, i64 24
+  %232 = getelementptr inbounds nuw i8, ptr %230, i64 24
   %233 = load ptr, ptr %232, align 8
-  %234 = getelementptr inbounds i8, ptr %230, i64 32
+  %234 = getelementptr inbounds nuw i8, ptr %230, i64 32
   %235 = load ptr, ptr %234, align 8
   %.not.i.i.i23 = icmp eq ptr %233, %235
   br i1 %.not.i.i.i23, label %239, label %236
@@ -941,15 +941,15 @@ define internal fastcc void @_ZN12_GLOBAL__N_19HierarchyD2Ev(ptr nocapture nound
   tail call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef %.val, i64 noundef %5, i64 noundef 8) #15
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load ptr, ptr %6, align 8, !noalias !24
-  %8 = getelementptr inbounds i8, ptr %0, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %9 = load ptr, ptr %8, align 8, !noalias !24
-  %10 = getelementptr inbounds i8, ptr %0, i64 40
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %11 = load ptr, ptr %10, align 8, !noalias !24
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %13 = load ptr, ptr %12, align 8, !noalias !27
-  %14 = getelementptr inbounds i8, ptr %0, i64 56
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %15 = load ptr, ptr %14, align 8, !noalias !27
-  %16 = getelementptr inbounds i8, ptr %0, i64 72
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %17 = load ptr, ptr %16, align 8, !noalias !27
   %.02.i.i.i = getelementptr inbounds i8, ptr %11, i64 8
   %18 = icmp ult ptr %.02.i.i.i, %17
@@ -2283,7 +2283,7 @@ define internal void @"_ZN4llvm12function_refIFvRKN12_GLOBAL__N_19Hierarchy8Node
   store i8 1, ptr %20, align 8, !alias.scope !44
   %21 = getelementptr inbounds nuw i8, ptr %3, i64 40
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4llvm7support6detail23provider_format_adapterINS_9StringRefEEE, i64 16), ptr %21, align 8, !alias.scope !44
-  %22 = getelementptr inbounds i8, ptr %3, i64 48
+  %22 = getelementptr inbounds nuw i8, ptr %3, i64 48
   store ptr %.val11.val.val.i, ptr %22, align 8
   %.sroa.28.0..sroa_idx.i = getelementptr inbounds i8, ptr %3, i64 56
   store i64 %.val11.val.val17.i, ptr %.sroa.28.0..sroa_idx.i, align 8
@@ -2347,7 +2347,7 @@ _ZN12_GLOBAL__N_112lastConcreteERKNS_9Hierarchy8NodeTypeE.exit.i: ; preds = %tai
   store i8 1, ptr %40, align 8, !alias.scope !49
   %41 = getelementptr inbounds nuw i8, ptr %4, i64 40
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4llvm7support6detail23provider_format_adapterINS_9StringRefEEE, i64 16), ptr %41, align 8, !alias.scope !49
-  %42 = getelementptr inbounds i8, ptr %4, i64 48
+  %42 = getelementptr inbounds nuw i8, ptr %4, i64 48
   store ptr %.val15.val.val.i, ptr %42, align 8
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %4, i64 56
   store i64 %.val15.val.val21.i, ptr %.sroa.2.0..sroa_idx.i, align 8
@@ -2583,8 +2583,8 @@ define internal void @"_ZN4llvm12function_refIFvRKN12_GLOBAL__N_19Hierarchy8Node
   %.sink122.i.sroa.gep10 = getelementptr inbounds nuw i8, ptr %9, i64 32
   %.sink122.i.sroa.gep12 = getelementptr inbounds nuw i8, ptr %10, i64 40
   %.sink122.i.sroa.gep13 = getelementptr inbounds nuw i8, ptr %9, i64 40
-  %.sink122.i.sroa.gep15 = getelementptr inbounds i8, ptr %10, i64 48
-  %.sink122.i.sroa.gep16 = getelementptr inbounds i8, ptr %9, i64 48
+  %.sink122.i.sroa.gep15 = getelementptr inbounds nuw i8, ptr %10, i64 48
+  %.sink122.i.sroa.gep16 = getelementptr inbounds nuw i8, ptr %9, i64 48
   %.sink122.i.sroa.gep18 = getelementptr inbounds i8, ptr %10, i64 56
   %.sink122.i.sroa.gep19 = getelementptr inbounds i8, ptr %9, i64 56
   %.sink122.i.sroa.gep21 = getelementptr inbounds i8, ptr %10, i64 64
@@ -2890,7 +2890,7 @@ _ZL8printDocN4llvm9StringRefERNS_11raw_ostreamE.exit.i: ; preds = %_ZNK4llvm9Str
   store i8 1, ptr %133, align 8, !alias.scope !69
   %134 = getelementptr inbounds nuw i8, ptr %8, i64 40
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4llvm7support6detail23provider_format_adapterINS_9StringRefEEE, i64 16), ptr %134, align 8, !alias.scope !69
-  %135 = getelementptr inbounds i8, ptr %8, i64 48
+  %135 = getelementptr inbounds nuw i8, ptr %8, i64 48
   store ptr %.val30.val.val.i, ptr %135, align 8
   %.sroa.286.0..sroa_idx.i = getelementptr inbounds i8, ptr %8, i64 56
   store i64 %.val30.val.val36.i, ptr %.sroa.286.0..sroa_idx.i, align 8
@@ -2989,7 +2989,7 @@ _ZL8printDocN4llvm9StringRefERNS_11raw_ostreamE.exit.i: ; preds = %_ZNK4llvm9Str
   %.sroa.2.0..sroa_idx.i.i.i.i56.i = getelementptr inbounds i8, ptr %16, i64 24
   %165 = getelementptr inbounds nuw i8, ptr %16, i64 32
   %166 = getelementptr inbounds nuw i8, ptr %16, i64 40
-  %167 = getelementptr inbounds i8, ptr %16, i64 48
+  %167 = getelementptr inbounds nuw i8, ptr %16, i64 48
   %168 = getelementptr inbounds i8, ptr %16, i64 56
   %169 = getelementptr inbounds i8, ptr %16, i64 64
   %170 = getelementptr inbounds i8, ptr %16, i64 72

@@ -254,7 +254,7 @@ define dso_local void @_ZN4llvm7remarks20YAMLRemarkSerializerC2ENS0_6FormatERNS_
   store ptr %2, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 %3, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 160
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 160
   store i8 0, ptr %9, align 8
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4llvm7remarks20YAMLRemarkSerializerE, i64 16), ptr %0, align 8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 168
@@ -280,19 +280,19 @@ define dso_local void @_ZN4llvm7remarks20YAMLRemarkSerializerC2ENS0_6FormatERNS_
 20:                                               ; preds = %.thread.i.i.i.i.i
   %21 = load ptr, ptr %4, align 8
   store ptr %21, ptr %11, align 8
-  %22 = getelementptr inbounds i8, ptr %0, i64 40
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %23 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %24 = load i32, ptr %23, align 8
   store i32 %24, ptr %22, align 8
-  %25 = getelementptr inbounds i8, ptr %0, i64 44
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %26 = getelementptr inbounds nuw i8, ptr %4, i64 12
   %27 = load i32, ptr %26, align 4
   store i32 %27, ptr %25, align 4
-  %28 = getelementptr inbounds i8, ptr %0, i64 48
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %29 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %30 = load i32, ptr %29, align 8
   store i32 %30, ptr %28, align 8
-  %31 = getelementptr inbounds i8, ptr %0, i64 52
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %32 = getelementptr inbounds nuw i8, ptr %4, i64 20
   %33 = load i32, ptr %32, align 4
   store i32 %33, ptr %31, align 4
@@ -300,7 +300,7 @@ define dso_local void @_ZN4llvm7remarks20YAMLRemarkSerializerC2ENS0_6FormatERNS_
   %34 = getelementptr inbounds i8, ptr %0, i64 56
   %35 = getelementptr inbounds i8, ptr %4, i64 24
   tail call void @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EEC2EOS2_(ptr noundef nonnull align 8 dereferenceable(96) %34, ptr noundef nonnull align 8 dereferenceable(96) %35)
-  %36 = getelementptr inbounds i8, ptr %0, i64 152
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %37 = getelementptr inbounds nuw i8, ptr %4, i64 120
   %38 = load i64, ptr %37, align 8
   store i64 %38, ptr %36, align 8
@@ -491,7 +491,7 @@ _ZL10emitStrTabRN4llvm11raw_ostreamESt8optionalIPKNS_7remarks11StringTableEE.exi
   store i64 0, ptr %2, align 8
   %23 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %22, ptr noundef nonnull %2, i64 noundef 8) #13
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
-  %24 = getelementptr inbounds i8, ptr %0, i64 32
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %25 = load i8, ptr %24, align 8
   %26 = trunc i8 %25 to i1
   br i1 %26, label %27, label %30
@@ -583,7 +583,7 @@ _ZL10emitStrTabRN4llvm11raw_ostreamESt8optionalIPKNS_7remarks11StringTableEE.exi
   %27 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %22, ptr noundef nonnull %2, i64 noundef 8) #13
   call void @_ZNK4llvm7remarks11StringTable9serializeERNS_11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(128) %24, ptr noundef nonnull align 8 dereferenceable(48) %22) #13
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
-  %28 = getelementptr inbounds i8, ptr %0, i64 32
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %29 = load i8, ptr %28, align 8
   %30 = trunc i8 %29 to i1
   br i1 %30, label %31, label %34
@@ -618,7 +618,7 @@ define linkonce_odr hidden void @_ZN4llvm7remarks20YAMLRemarkSerializerD2Ev(ptr 
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 168
   tail call void @_ZN4llvm4yaml6OutputD1Ev(ptr noundef nonnull align 8 dereferenceable(128) %2) #13
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4llvm7remarks16RemarkSerializerE, i64 16), ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 160
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %4 = load i8, ptr %3, align 8
   %5 = trunc i8 %4 to i1
   br i1 %5, label %6, label %_ZN4llvm7remarks16RemarkSerializerD2Ev.exit
@@ -642,7 +642,7 @@ define linkonce_odr hidden void @_ZN4llvm7remarks20YAMLRemarkSerializerD0Ev(ptr 
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 168
   tail call void @_ZN4llvm4yaml6OutputD1Ev(ptr noundef nonnull align 8 dereferenceable(128) %2) #13
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4llvm7remarks16RemarkSerializerE, i64 16), ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 160
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %4 = load i8, ptr %3, align 8
   %5 = trunc i8 %4 to i1
   br i1 %5, label %6, label %_ZN4llvm7remarks20YAMLRemarkSerializerD2Ev.exit
@@ -667,7 +667,7 @@ define linkonce_odr hidden void @_ZN4llvm7remarks26YAMLStrTabRemarkSerializerD2E
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 168
   tail call void @_ZN4llvm4yaml6OutputD1Ev(ptr noundef nonnull align 8 dereferenceable(128) %2) #13
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4llvm7remarks16RemarkSerializerE, i64 16), ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 160
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %4 = load i8, ptr %3, align 8
   %5 = trunc i8 %4 to i1
   br i1 %5, label %6, label %_ZN4llvm7remarks20YAMLRemarkSerializerD2Ev.exit
@@ -691,7 +691,7 @@ define linkonce_odr hidden void @_ZN4llvm7remarks26YAMLStrTabRemarkSerializerD0E
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 168
   tail call void @_ZN4llvm4yaml6OutputD1Ev(ptr noundef nonnull align 8 dereferenceable(128) %2) #13
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4llvm7remarks16RemarkSerializerE, i64 16), ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 160
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %4 = load i8, ptr %3, align 8
   %5 = trunc i8 %4 to i1
   br i1 %5, label %6, label %_ZN4llvm7remarks26YAMLStrTabRemarkSerializerD2Ev.exit
@@ -1017,7 +1017,7 @@ declare void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef, i64 noundef, i64 nou
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvm7remarks16RemarkSerializerD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %0) unnamed_addr #0 comdat align 2 {
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4llvm7remarks16RemarkSerializerE, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 160
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %3 = load i8, ptr %2, align 8
   %4 = trunc i8 %3 to i1
   br i1 %4, label %5, label %_ZNSt8optionalIN4llvm7remarks11StringTableEED2Ev.exit
@@ -1150,10 +1150,10 @@ _ZN4llvm11SmallVectorISt4pairIPvmELj0EEC2EOS4_.exit: ; preds = %_ZN4llvm11SmallV
   store i64 0, ptr %19, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1, i8 0, i64 16, i1 false)
   %24 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %8) #13
-  %25 = getelementptr inbounds i8, ptr %1, i64 24
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store i32 0, ptr %25, align 8
   %26 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %14) #13
-  %27 = getelementptr inbounds i8, ptr %1, i64 72
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 72
   store i32 0, ptr %27, align 8
   ret void
 }
@@ -1230,7 +1230,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE26Deall
   br i1 %40, label %42, label %44
 
 42:                                               ; preds = %39
-  %43 = getelementptr inbounds i8, ptr %0, i64 72
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 72
   br label %.sink.split.i
 
 44:                                               ; preds = %39
@@ -1245,13 +1245,13 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE26Deall
 _ZN4llvm15SmallVectorImplISt4pairIPvmEE12assignRemoteEOS4_.exit.i: ; preds = %47, %44
   %48 = load ptr, ptr %37, align 8
   store ptr %48, ptr %17, align 8
-  %49 = getelementptr inbounds i8, ptr %1, i64 72
+  %49 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %50 = load i32, ptr %49, align 8
-  %51 = getelementptr inbounds i8, ptr %0, i64 72
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store i32 %50, ptr %51, align 8
-  %52 = getelementptr inbounds i8, ptr %1, i64 76
+  %52 = getelementptr inbounds nuw i8, ptr %1, i64 76
   %53 = load i32, ptr %52, align 4
-  %54 = getelementptr inbounds i8, ptr %0, i64 76
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 76
   store i32 %53, ptr %54, align 4
   store ptr %29, ptr %37, align 8
   store i32 0, ptr %52, align 4
@@ -1266,10 +1266,10 @@ _ZN4llvm11SmallVectorISt4pairIPvmELj0EEaSEOS4_.exit: ; preds = %_ZN4llvm20BumpPt
   store i64 0, ptr %29, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1, i8 0, i64 16, i1 false)
   %55 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %35) #13
-  %56 = getelementptr inbounds i8, ptr %1, i64 24
+  %56 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store i32 0, ptr %56, align 8
   %57 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %37) #13
-  %58 = getelementptr inbounds i8, ptr %1, i64 72
+  %58 = getelementptr inbounds nuw i8, ptr %1, i64 72
   store i32 0, ptr %58, align 8
   ret ptr %0
 }

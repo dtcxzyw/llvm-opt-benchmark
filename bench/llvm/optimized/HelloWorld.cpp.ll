@@ -80,15 +80,15 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %27, %29
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 0, ptr %37, align 8, !alias.scope !4
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %39 = getelementptr inbounds i8, ptr %0, i64 80
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store ptr %39, ptr %38, align 8, !alias.scope !4
-  %40 = getelementptr inbounds i8, ptr %0, i64 56
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store ptr %39, ptr %40, align 8, !alias.scope !4
-  %41 = getelementptr inbounds i8, ptr %0, i64 64
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i32 2, ptr %41, align 8, !alias.scope !4
-  %42 = getelementptr inbounds i8, ptr %0, i64 68
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 68
   store i32 0, ptr %42, align 4, !alias.scope !4
-  %43 = getelementptr inbounds i8, ptr %0, i64 72
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store i32 0, ptr %43, align 8, !alias.scope !4
   store i32 1, ptr %36, align 4, !alias.scope !4, !noalias !7
   store ptr @_ZN4llvm17PreservedAnalyses14AllAnalysesKeyE, ptr %33, align 8, !alias.scope !4, !noalias !7

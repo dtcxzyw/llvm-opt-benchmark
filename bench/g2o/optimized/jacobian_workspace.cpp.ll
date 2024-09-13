@@ -208,7 +208,7 @@ define void @_ZN3g2o17JacobianWorkspace10updateSizeEPKNS_10HyperGraph4EdgeEb(ptr
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %9 = load i32, ptr %8, align 8
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %11 = getelementptr inbounds i8, ptr %1, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %12 = load ptr, ptr %11, align 8
   %13 = load ptr, ptr %10, align 8
   %.not25.i = icmp eq ptr %13, %12
@@ -249,7 +249,7 @@ define void @_ZN3g2o17JacobianWorkspace10updateSizeEPKNS_10HyperGraph4EdgeE(ptr 
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %4 = load i32, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %7 = load ptr, ptr %6, align 8
   %8 = load ptr, ptr %5, align 8
   %.not25 = icmp eq ptr %8, %7
@@ -319,7 +319,7 @@ define void @_ZN3g2o17JacobianWorkspace10updateSizeERKNS_16OptimizableGraphEb(pt
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 56
   %17 = load i32, ptr %16, align 8
   %18 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  %19 = getelementptr inbounds i8, ptr %15, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %20 = load ptr, ptr %19, align 8
   %21 = load ptr, ptr %18, align 8
   %.not25.i = icmp eq ptr %21, %20

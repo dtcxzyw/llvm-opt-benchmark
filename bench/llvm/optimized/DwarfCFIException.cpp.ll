@@ -39,7 +39,7 @@ define hidden void @_ZN4llvm17DwarfCFIExceptionD2Ev(ptr noundef nonnull align 8 
   br i1 %.not.i.i.i, label %_ZNSt6vectorIPKN4llvm11GlobalValueESaIS3_EED2Ev.exit, label %4
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 48
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %6 = load ptr, ptr %5, align 8
   %7 = ptrtoint ptr %6 to i64
   %8 = ptrtoint ptr %3 to i64
@@ -64,7 +64,7 @@ define hidden void @_ZN4llvm17DwarfCFIExceptionD0Ev(ptr noundef nonnull align 8 
   br i1 %.not.i.i.i.i, label %_ZN4llvm17DwarfCFIExceptionD2Ev.exit, label %4
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 48
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %6 = load ptr, ptr %5, align 8
   %7 = ptrtoint ptr %6 to i64
   %8 = ptrtoint ptr %3 to i64
@@ -85,7 +85,7 @@ declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #3
 define hidden void @_ZN4llvm17DwarfCFIException14addPersonalityEPKNS_11GlobalValueE(ptr nocapture noundef nonnull align 8 dereferenceable(56) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 40
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %6 = load ptr, ptr %5, align 8
   %7 = ptrtoint ptr %6 to i64
   %8 = ptrtoint ptr %4 to i64
@@ -189,7 +189,7 @@ _ZN4llvm12is_containedIRSt6vectorIPKNS_11GlobalValueESaIS4_EES4_EEbOT_RKT0_.exit
   br i1 %.not, label %_ZN4llvm12is_containedIRSt6vectorIPKNS_11GlobalValueESaIS4_EES4_EEbOT_RKT0_.exit.thread, label %_ZNSt6vectorIPKN4llvm11GlobalValueESaIS3_EE9push_backERKS3_.exit
 
 _ZN4llvm12is_containedIRSt6vectorIPKNS_11GlobalValueESaIS4_EES4_EEbOT_RKT0_.exit.thread: ; preds = %._crit_edge.i.i.i.i, %_ZN4llvm12is_containedIRSt6vectorIPKNS_11GlobalValueESaIS4_EES4_EEbOT_RKT0_.exit
-  %47 = getelementptr inbounds i8, ptr %0, i64 48
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %48 = load ptr, ptr %47, align 8
   %.not.i = icmp eq ptr %6, %48
   br i1 %.not.i, label %52, label %49
@@ -290,7 +290,7 @@ _ZNK4llvm9MCAsmInfo12usesCFIForEHEv.exit.thread:  ; preds = %_ZNK4llvm9MCAsmInfo
 14:                                               ; preds = %_ZNK4llvm9MCAsmInfo12usesCFIForEHEv.exit.thread
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %0, i64 40
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %18 = load ptr, ptr %17, align 8
   %.not12 = icmp eq ptr %16, %18
   br i1 %.not12, label %_ZNSt6vectorIPKN4llvm11GlobalValueESaIS3_EE5clearEv.exit, label %.lr.ph
@@ -341,7 +341,7 @@ define hidden void @_ZN4llvm17DwarfCFIException13beginFunctionEPKNS_15MachineFun
   %5 = load ptr, ptr %1, align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 432
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %1, i64 440
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 440
   %9 = load ptr, ptr %8, align 8
   %10 = icmp eq ptr %7, %9
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -507,7 +507,7 @@ define hidden void @_ZN4llvm17DwarfCFIException22beginBasicBlockSectionERKNS_17M
 16:                                               ; preds = %10
   %17 = getelementptr inbounds nuw i8, ptr %12, i64 56
   %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 920
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 920
   %20 = load i16, ptr %19, align 8
   %21 = and i16 %20, 16
   %.not = icmp eq i16 %21, 0

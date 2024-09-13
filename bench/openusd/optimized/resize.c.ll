@@ -2009,18 +2009,18 @@ define hidden void @av1_resize_and_extend_frame_c(ptr nocapture noundef readonly
   %15 = load ptr, ptr %14, align 8
   store ptr %15, ptr %6, align 16
   %16 = getelementptr inbounds i8, ptr %6, i64 8
-  %17 = getelementptr inbounds i8, ptr %0, i64 48
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %18 = load ptr, ptr %17, align 8
   store ptr %18, ptr %16, align 8
   %19 = getelementptr inbounds i8, ptr %6, i64 16
-  %20 = getelementptr inbounds i8, ptr %0, i64 56
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %21 = load ptr, ptr %20, align 8
   store ptr %21, ptr %19, align 16
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %23 = load i32, ptr %22, align 8
   store i32 %23, ptr %7, align 4
   %24 = getelementptr inbounds i8, ptr %7, i64 4
-  %25 = getelementptr inbounds i8, ptr %0, i64 36
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %26 = load i32, ptr %25, align 4
   store i32 %26, ptr %24, align 4
   %27 = getelementptr inbounds i8, ptr %7, i64 8
@@ -2029,18 +2029,18 @@ define hidden void @av1_resize_and_extend_frame_c(ptr nocapture noundef readonly
   %29 = load ptr, ptr %28, align 8
   store ptr %29, ptr %8, align 16
   %30 = getelementptr inbounds i8, ptr %8, i64 8
-  %31 = getelementptr inbounds i8, ptr %1, i64 48
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %32 = load ptr, ptr %31, align 8
   store ptr %32, ptr %30, align 8
   %33 = getelementptr inbounds i8, ptr %8, i64 16
-  %34 = getelementptr inbounds i8, ptr %1, i64 56
+  %34 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %35 = load ptr, ptr %34, align 8
   store ptr %35, ptr %33, align 16
   %36 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %37 = load i32, ptr %36, align 8
   store i32 %37, ptr %9, align 4
   %38 = getelementptr inbounds i8, ptr %9, i64 4
-  %39 = getelementptr inbounds i8, ptr %1, i64 36
+  %39 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %40 = load i32, ptr %39, align 4
   store i32 %40, ptr %38, align 4
   %41 = getelementptr inbounds i8, ptr %9, i64 8
@@ -2211,7 +2211,7 @@ define hidden void @av1_upscale_normative_rows(ptr noundef %0, ptr noundef %1, i
   br i1 %9, label %10, label %15
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %0, i64 25280
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 25280
   %12 = load i32, ptr %11, align 16
   %13 = icmp ne i32 %12, 0
   %14 = zext i1 %13 to i32
@@ -2255,8 +2255,8 @@ define hidden void @av1_upscale_normative_rows(ptr noundef %0, ptr noundef %1, i
   %44 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %45 = sub nuw nsw i32 2, %16
   %46 = getelementptr inbounds nuw i8, ptr %8, i64 12
-  %47 = getelementptr inbounds i8, ptr %0, i64 25260
-  %48 = getelementptr inbounds i8, ptr %0, i64 25256
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 25260
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 25256
   %49 = sext i32 %6 to i64
   %50 = mul nsw i64 %49, 10
   %51 = icmp sgt i32 %6, 0
@@ -2646,7 +2646,7 @@ define hidden noundef ptr @av1_scale_if_required(ptr nocapture noundef readonly 
   %.val = load i8, ptr %26, align 1
   %.not.i = icmp eq i8 %.val, 0
   %27 = select i1 %.not.i, i32 3, i32 1
-  %28 = getelementptr inbounds i8, ptr %0, i64 25256
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 25256
   %29 = load i32, ptr %28, align 8
   %30 = icmp eq i32 %29, 8
   %or.cond = select i1 %5, i1 %30, i1 false
@@ -2794,7 +2794,7 @@ define hidden void @av1_superres_upscale(ptr noundef %0, ptr noundef %1) local_u
   br i1 %.not57, label %119, label %8
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %0, i64 1056
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 1056
   %10 = load i32, ptr %9, align 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(208) %3, i8 0, i64 208, i1 false)
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 632
@@ -2804,11 +2804,11 @@ define hidden void @av1_superres_upscale(ptr noundef %0, ptr noundef %1) local_u
   %15 = and i32 %14, -8
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 460
   %17 = load i32, ptr %16, align 4
-  %18 = getelementptr inbounds i8, ptr %0, i64 25280
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 25280
   %19 = load i32, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %0, i64 25284
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 25284
   %21 = load i32, ptr %20, align 4
-  %22 = getelementptr inbounds i8, ptr %0, i64 25260
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 25260
   %23 = load i8, ptr %22, align 4
   %24 = zext i8 %23 to i32
   %25 = call i32 @aom_alloc_frame_buffer(ptr noundef nonnull %3, i32 noundef %15, i32 noundef %17, i32 noundef %19, i32 noundef %21, i32 noundef %24, i32 noundef 288, i32 noundef %10) #11
@@ -2868,31 +2868,31 @@ define hidden void @av1_superres_upscale(ptr noundef %0, ptr noundef %1) local_u
   br label %97
 
 57:                                               ; preds = %28
-  %58 = getelementptr inbounds i8, ptr %12, i64 1464
+  %58 = getelementptr inbounds nuw i8, ptr %12, i64 1464
   %59 = load i32, ptr %58, align 8
   %60 = getelementptr inbounds nuw i8, ptr %3, i64 152
   store i32 %59, ptr %60, align 8
-  %61 = getelementptr inbounds i8, ptr %12, i64 1468
+  %61 = getelementptr inbounds nuw i8, ptr %12, i64 1468
   %62 = load i32, ptr %61, align 4
   %63 = getelementptr inbounds nuw i8, ptr %3, i64 156
   store i32 %62, ptr %63, align 4
-  %64 = getelementptr inbounds i8, ptr %12, i64 1472
+  %64 = getelementptr inbounds nuw i8, ptr %12, i64 1472
   %65 = load i32, ptr %64, align 8
   %66 = getelementptr inbounds nuw i8, ptr %3, i64 160
   store i32 %65, ptr %66, align 8
-  %67 = getelementptr inbounds i8, ptr %12, i64 1476
+  %67 = getelementptr inbounds nuw i8, ptr %12, i64 1476
   %68 = load i32, ptr %67, align 4
   %69 = getelementptr inbounds nuw i8, ptr %3, i64 164
   store i32 %68, ptr %69, align 4
-  %70 = getelementptr inbounds i8, ptr %12, i64 1480
+  %70 = getelementptr inbounds nuw i8, ptr %12, i64 1480
   %71 = load i8, ptr %70, align 8
   %72 = getelementptr inbounds nuw i8, ptr %3, i64 168
   store i8 %71, ptr %72, align 8
-  %73 = getelementptr inbounds i8, ptr %12, i64 1484
+  %73 = getelementptr inbounds nuw i8, ptr %12, i64 1484
   %74 = load i32, ptr %73, align 4
   %75 = getelementptr inbounds nuw i8, ptr %3, i64 172
   store i32 %74, ptr %75, align 4
-  %76 = getelementptr inbounds i8, ptr %12, i64 1488
+  %76 = getelementptr inbounds nuw i8, ptr %12, i64 1488
   %77 = load i32, ptr %76, align 8
   %78 = getelementptr inbounds nuw i8, ptr %3, i64 176
   store i32 %77, ptr %78, align 8
@@ -2935,8 +2935,8 @@ define hidden void @av1_superres_upscale(ptr noundef %0, ptr noundef %1) local_u
   %98 = select i1 %.not.i.i, i32 3, i32 1
   %99 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %100 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  %101 = getelementptr inbounds i8, ptr %12, i64 1352
-  %102 = getelementptr inbounds i8, ptr %12, i64 1344
+  %101 = getelementptr inbounds nuw i8, ptr %12, i64 1352
+  %102 = getelementptr inbounds nuw i8, ptr %12, i64 1344
   %103 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %wide.trip.count.i = zext nneg i32 %98 to i64
   br label %104

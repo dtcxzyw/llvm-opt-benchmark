@@ -651,7 +651,7 @@ _ZN12_GLOBAL__N_121RegUsageInfoCollector22computeCalleeSavedRegsERN4llvm9BitVect
   br i1 %.not.i.i.i.i, label %199, label %_ZNK4llvm19MachineRegisterInfo9def_emptyENS_8RegisterE.exit.thread70
 
 199:                                              ; preds = %196
-  %200 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 24
+  %200 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 24
   %201 = load ptr, ptr %200, align 8
   %.not.i4.i.i.i = icmp eq ptr %201, null
   br i1 %.not.i4.i.i.i, label %_ZNK4llvm19MachineRegisterInfo9def_emptyENS_8RegisterE.exit.thread, label %_ZNK4llvm19MachineRegisterInfo9def_emptyENS_8RegisterE.exit

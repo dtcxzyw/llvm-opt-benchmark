@@ -2197,7 +2197,7 @@ _ZL15isWave32CapableN4llvm9StringRefERKNS_6TripleE.exit: ; preds = %_ZN4llvmeqEN
   store i32 1, ptr %0, align 8
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr @.str.45, ptr %34, align 8
-  %35 = getelementptr inbounds i8, ptr %0, i64 16
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 62, ptr %35, align 8
   br label %48
 
@@ -2210,7 +2210,7 @@ _ZL15isWave32CapableN4llvm9StringRefERKNS_6TripleE.exit: ; preds = %_ZN4llvmeqEN
   store i32 2, ptr %0, align 8
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr @.str.41, ptr %38, align 8
-  %39 = getelementptr inbounds i8, ptr %0, i64 16
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 15, ptr %39, align 8
   br label %48
 

@@ -114,7 +114,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm10FlattenCFGEPNS_10BasicBlockEPNS_9
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %12)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %13)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %14)
-  %33 = getelementptr inbounds i8, ptr %0, i64 56
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %34 = load ptr, ptr %33, align 8
   %35 = icmp eq ptr %34, null
   %36 = getelementptr inbounds i8, ptr %34, i64 -24
@@ -479,7 +479,7 @@ _ZNK4llvm15SmallPtrSetImplIPNS_10BasicBlockEE5countEPKS1_.exit.i.i: ; preds = %.
   br i1 %.not30.i.i, label %202, label %_ZNK4llvm5Value9hasOneUseEv.exit.thread.i.i
 
 202:                                              ; preds = %198
-  %203 = getelementptr inbounds i8, ptr %113, i64 56
+  %203 = getelementptr inbounds nuw i8, ptr %113, i64 56
   %204 = load ptr, ptr %203, align 8
   %205 = getelementptr inbounds i8, ptr %spec.select.i.i.i.i, i64 24
   br label %206
@@ -756,7 +756,7 @@ _ZN4llvm10BasicBlock13getTerminatorEv.exit249.i.i: ; preds = %_ZN4llvm10BasicBlo
   br i1 %.not169.i.i, label %_ZNK4llvm5Value9hasOneUseEv.exit.thread.i.i, label %_ZN4llvm10BasicBlock13getTerminatorEv.exit249.i.i, !llvm.loop !14
 
 341:                                              ; preds = %_ZN4llvm10BasicBlock13getTerminatorEv.exit243.i.i
-  %342 = getelementptr inbounds i8, ptr %282, i64 56
+  %342 = getelementptr inbounds nuw i8, ptr %282, i64 56
   %343 = load ptr, ptr %342, align 8
   %344 = icmp eq ptr %343, null
   %345 = getelementptr inbounds i8, ptr %343, i64 -24
@@ -819,7 +819,7 @@ _ZN4llvm10BasicBlock13getTerminatorEv.exit262.i.i: ; preds = %395, %_ZN4llvm10Ba
   %377 = select i1 %375, ptr null, ptr %376
   %378 = call { ptr, i64 } @_ZN4llvm11Instruction15eraseFromParentEv(ptr noundef nonnull align 8 dereferenceable(72) %377) #8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9)
-  %379 = getelementptr inbounds i8, ptr %373, i64 56
+  %379 = getelementptr inbounds nuw i8, ptr %373, i64 56
   %380 = load ptr, ptr %379, align 8
   %381 = getelementptr inbounds nuw i8, ptr %373, i64 48
   store ptr %381, ptr %9, align 8
@@ -1032,7 +1032,7 @@ _ZN12_GLOBAL__N_113FlattenCFGOpt20FlattenParallelAndOrEPN4llvm10BasicBlockERNS1_
 
 _ZN4llvm10BasicBlock13getTerminatorEv.exit.i10.i: ; preds = %462, %458
   %.0.i.i.i.i = phi ptr [ null, %458 ], [ %spec.select.i.i91.i.i, %462 ]
-  %468 = getelementptr inbounds i8, ptr %422, i64 56
+  %468 = getelementptr inbounds nuw i8, ptr %422, i64 56
   %469 = load ptr, ptr %468, align 8
   %470 = icmp eq ptr %469, null
   %471 = getelementptr inbounds i8, ptr %469, i64 -24
@@ -1852,12 +1852,12 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_113FlattenCFGOpt20Com
 
 _ZN4llvm10BasicBlock13getTerminatorEv.exit:       ; preds = %4, %10
   %.0.i.i = phi ptr [ null, %4 ], [ %spec.select.i.i, %10 ]
-  %16 = getelementptr inbounds i8, ptr %3, i64 56
+  %16 = getelementptr inbounds nuw i8, ptr %3, i64 56
   %17 = load ptr, ptr %16, align 8
   %18 = icmp eq ptr %17, null
   %19 = getelementptr inbounds i8, ptr %17, i64 -24
   %20 = select i1 %18, ptr null, ptr %19
-  %21 = getelementptr inbounds i8, ptr %1, i64 56
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %22 = load ptr, ptr %21, align 8
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %24 = load ptr, ptr %23, align 8
@@ -1876,7 +1876,7 @@ _ZN4llvm10BasicBlock13getTerminatorEv.exit:       ; preds = %4, %10
 _ZN4llvm10BasicBlock13getTerminatorEv.exit30:     ; preds = %_ZN4llvm10BasicBlock13getTerminatorEv.exit, %26
   %.0.i.i29 = phi ptr [ null, %_ZN4llvm10BasicBlock13getTerminatorEv.exit ], [ %spec.select.i.i28, %26 ]
   %32 = getelementptr inbounds i8, ptr %.0.i.i29, i64 24
-  %33 = getelementptr inbounds i8, ptr %2, i64 56
+  %33 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %34 = load ptr, ptr %33, align 8
   %35 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %36 = load ptr, ptr %35, align 8

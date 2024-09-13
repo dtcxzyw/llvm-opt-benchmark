@@ -111,7 +111,7 @@ _ZN4llvm9symbolize10MarkupNodeD2Ev.exit.i.i:      ; preds = %14, %.lr.ph.i.i
   br i1 %.not.i.i, label %_ZN4llvm15SmallVectorImplINS_9symbolize10MarkupNodeEE5clearEv.exit, label %.lr.ph.i.i, !llvm.loop !4
 
 _ZN4llvm15SmallVectorImplINS_9symbolize10MarkupNodeEE5clearEv.exit: ; preds = %_ZN4llvm9symbolize10MarkupNodeD2Ev.exit.i.i, %3
-  %15 = getelementptr inbounds i8, ptr %0, i64 112
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store i32 0, ptr %15, align 8
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 216
   store i64 0, ptr %16, align 8
@@ -200,7 +200,7 @@ _ZN4llvm9symbolize10MarkupNodeD2Ev.exit.i.i:      ; preds = %36, %.lr.ph.i.i
   br i1 %.not.i.i, label %_ZN4llvm15SmallVectorImplINS_9symbolize10MarkupNodeEE5clearEv.exit, label %.lr.ph.i.i, !llvm.loop !4
 
 _ZN4llvm15SmallVectorImplINS_9symbolize10MarkupNodeEE5clearEv.exit: ; preds = %_ZN4llvm9symbolize10MarkupNodeD2Ev.exit.i.i, %26
-  %37 = getelementptr inbounds i8, ptr %1, i64 112
+  %37 = getelementptr inbounds nuw i8, ptr %1, i64 112
   store i32 0, ptr %37, align 8
   br label %38
 
@@ -863,7 +863,7 @@ _ZN4llvm9symbolize10MarkupNodeD2Ev.exit.i.i:      ; preds = %12, %.lr.ph.i.i
   br i1 %.not.i.i, label %_ZN4llvm15SmallVectorImplINS_9symbolize10MarkupNodeEE5clearEv.exit, label %.lr.ph.i.i, !llvm.loop !4
 
 _ZN4llvm15SmallVectorImplINS_9symbolize10MarkupNodeEE5clearEv.exit: ; preds = %_ZN4llvm9symbolize10MarkupNodeD2Ev.exit.i.i, %1
-  %13 = getelementptr inbounds i8, ptr %0, i64 112
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store i32 0, ptr %13, align 8
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 216
   store i64 0, ptr %14, align 8

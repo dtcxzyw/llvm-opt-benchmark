@@ -4271,7 +4271,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathC2ERKS0_.exit.i: ; preds = %163
   %174 = getelementptr inbounds nuw i8, ptr %173, i64 8
   %175 = atomicrmw add ptr %174, i32 1 monotonic, align 4, !noalias !4
   %176 = getelementptr inbounds nuw i8, ptr %15, i64 4
-  %177 = getelementptr inbounds i8, ptr %160, i64 20
+  %177 = getelementptr inbounds nuw i8, ptr %160, i64 20
   %178 = load i32, ptr %177, align 4, !noalias !4
   store i32 %178, ptr %176, align 4, !alias.scope !4
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7GetPathEv.exit
@@ -4309,7 +4309,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathC2ERKS0_.exit.i: ; preds = %163
 
 _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathC2ERKS0_.exit5.i: ; preds = %188, %186
   %199 = getelementptr inbounds nuw i8, ptr %15, i64 4
-  %200 = getelementptr inbounds i8, ptr %181, i64 20
+  %200 = getelementptr inbounds nuw i8, ptr %181, i64 20
   %201 = load i32, ptr %200, align 4, !noalias !4
   store i32 %201, ptr %199, align 4, !alias.scope !4
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7GetPathEv.exit
@@ -6776,7 +6776,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathC2ERKS0_.exit.i: ; preds = %168
   %179 = getelementptr inbounds nuw i8, ptr %178, i64 8
   %180 = atomicrmw add ptr %179, i32 1 monotonic, align 4, !noalias !8
   %181 = getelementptr inbounds nuw i8, ptr %15, i64 4
-  %182 = getelementptr inbounds i8, ptr %165, i64 20
+  %182 = getelementptr inbounds nuw i8, ptr %165, i64 20
   %183 = load i32, ptr %182, align 4, !noalias !8
   store i32 %183, ptr %181, align 4, !alias.scope !8
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7GetPathEv.exit
@@ -6814,7 +6814,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathC2ERKS0_.exit.i: ; preds = %168
 
 _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathC2ERKS0_.exit5.i: ; preds = %193, %191
   %204 = getelementptr inbounds nuw i8, ptr %15, i64 4
-  %205 = getelementptr inbounds i8, ptr %186, i64 20
+  %205 = getelementptr inbounds nuw i8, ptr %186, i64 20
   %206 = load i32, ptr %205, align 4, !noalias !8
   store i32 %206, ptr %204, align 4, !alias.scope !8
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7GetPathEv.exit

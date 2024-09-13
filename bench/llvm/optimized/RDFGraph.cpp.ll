@@ -254,14 +254,14 @@ _ZNK4llvm3rdf13DataFlowGraph4addrIPNS0_8NodeBaseEEENS0_8NodeAddrIT_EEj.exit: ; p
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %21 = load ptr, ptr %20, align 8
   %22 = add i32 %4, -1
-  %23 = getelementptr inbounds i8, ptr %21, i64 284
+  %23 = getelementptr inbounds nuw i8, ptr %21, i64 284
   %24 = load i32, ptr %23, align 4
   %25 = lshr i32 %22, %24
-  %26 = getelementptr inbounds i8, ptr %21, i64 288
+  %26 = getelementptr inbounds nuw i8, ptr %21, i64 288
   %27 = load i32, ptr %26, align 8
   %28 = and i32 %27, %22
   %29 = shl i32 %28, 5
-  %30 = getelementptr inbounds i8, ptr %21, i64 304
+  %30 = getelementptr inbounds nuw i8, ptr %21, i64 304
   %31 = zext i32 %25 to i64
   %32 = load ptr, ptr %30, align 8
   %33 = getelementptr inbounds ptr, ptr %32, i64 %31
@@ -677,7 +677,7 @@ _ZN4llvm11raw_ostreamlsEc.exit:                   ; preds = %21, %23
 _ZN4llvm11raw_ostreamlsEc.exit25:                 ; preds = %36, %38
   %40 = load ptr, ptr %1, align 8
   %41 = load ptr, ptr %40, align 8
-  %42 = getelementptr inbounds i8, ptr %41, i64 16
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 16
   %43 = load i32, ptr %42, align 8
   store i32 %43, ptr %5, align 4
   %.not20 = icmp eq i32 %43, 0
@@ -710,7 +710,7 @@ _ZN4llvm11raw_ostreamlsEc.exit25:                 ; preds = %36, %38
 _ZN4llvm11raw_ostreamlsEc.exit28:                 ; preds = %51, %53
   %55 = load ptr, ptr %1, align 8
   %56 = load ptr, ptr %55, align 8
-  %57 = getelementptr inbounds i8, ptr %56, i64 20
+  %57 = getelementptr inbounds nuw i8, ptr %56, i64 20
   %58 = load i32, ptr %57, align 4
   store i32 %58, ptr %7, align 4
   %.not21 = icmp eq i32 %58, 0
@@ -747,7 +747,7 @@ _ZN4llvm11raw_ostreamlsEc.exit28:                 ; preds = %51, %53
 _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %70, %72
   %75 = load ptr, ptr %1, align 8
   %76 = load ptr, ptr %75, align 8
-  %77 = getelementptr inbounds i8, ptr %76, i64 12
+  %77 = getelementptr inbounds nuw i8, ptr %76, i64 12
   %78 = load i32, ptr %77, align 4
   store i32 %78, ptr %9, align 4
   %.not22 = icmp eq i32 %78, 0
@@ -799,7 +799,7 @@ _ZN4llvm11raw_ostreamlsEc.exit:                   ; preds = %14, %16
   %19 = load i16, ptr %18, align 8
   %20 = and i16 %19, 128
   %.not.i5 = icmp eq i16 %20, 0
-  %21 = getelementptr inbounds i8, ptr %18, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %18, i64 24
   br i1 %.not.i5, label %32, label %22
 
 22:                                               ; preds = %_ZN4llvm11raw_ostreamlsEc.exit
@@ -954,7 +954,7 @@ _ZN4llvm11raw_ostreamlsEc.exit:                   ; preds = %17, %19
 _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %36, %38
   %41 = load ptr, ptr %1, align 8
   %42 = load ptr, ptr %41, align 8
-  %43 = getelementptr inbounds i8, ptr %42, i64 12
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 12
   %44 = load i32, ptr %43, align 4
   store i32 %44, ptr %5, align 4
   %.not12 = icmp eq i32 %44, 0
@@ -1040,7 +1040,7 @@ _ZN4llvm11raw_ostreamlsEc.exit:                   ; preds = %19, %21
 _ZN4llvm11raw_ostreamlsEc.exit20:                 ; preds = %34, %36
   %38 = load ptr, ptr %1, align 8
   %39 = load ptr, ptr %38, align 8
-  %40 = getelementptr inbounds i8, ptr %39, i64 16
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 16
   %41 = load i32, ptr %40, align 8
   store i32 %41, ptr %5, align 4
   %.not16 = icmp eq i32 %41, 0
@@ -1077,7 +1077,7 @@ _ZN4llvm11raw_ostreamlsEc.exit20:                 ; preds = %34, %36
 _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %53, %55
   %58 = load ptr, ptr %1, align 8
   %59 = load ptr, ptr %58, align 8
-  %60 = getelementptr inbounds i8, ptr %59, i64 12
+  %60 = getelementptr inbounds nuw i8, ptr %59, i64 12
   %61 = load i32, ptr %60, align 4
   store i32 %61, ptr %7, align 4
   %.not17 = icmp eq i32 %61, 0
@@ -1483,21 +1483,21 @@ define dso_local void @_ZNK4llvm3rdf8CodeNode7membersERKNS0_13DataFlowGraphE(ptr
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4)
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %4, i64 noundef 4) #22
-  %5 = getelementptr inbounds i8, ptr %1, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load i32, ptr %5, align 8, !noalias !4
   %7 = icmp eq i32 %6, 0
   br i1 %7, label %"_ZNK4llvm3rdf8CodeNode10members_ifIZNKS1_7membersERKNS0_13DataFlowGraphEE3$_0EENS_11SmallVectorINS0_8NodeAddrIPNS0_8NodeBaseEEELj4EEET_S5_.exit", label %_ZNK4llvm3rdf8CodeNode14getFirstMemberERKNS0_13DataFlowGraphE.exit.i
 
 _ZNK4llvm3rdf8CodeNode14getFirstMemberERKNS0_13DataFlowGraphE.exit.i: ; preds = %3
   %8 = add i32 %6, -1
-  %9 = getelementptr inbounds i8, ptr %2, i64 284
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 284
   %10 = load i32, ptr %9, align 4, !noalias !4
   %11 = lshr i32 %8, %10
-  %12 = getelementptr inbounds i8, ptr %2, i64 288
+  %12 = getelementptr inbounds nuw i8, ptr %2, i64 288
   %13 = load i32, ptr %12, align 8, !noalias !4
   %14 = and i32 %13, %8
   %15 = shl i32 %14, 5
-  %16 = getelementptr inbounds i8, ptr %2, i64 304
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 304
   %17 = zext i32 %11 to i64
   %18 = load ptr, ptr %16, align 8, !noalias !4
   %19 = getelementptr inbounds ptr, ptr %18, i64 %17
@@ -2997,7 +2997,7 @@ _ZN4llvm11raw_ostreamlsEc.exit:                   ; preds = %22, %24
   %30 = load i16, ptr %28, align 8
   %31 = and i16 %30, 128
   %.not.i17 = icmp eq i16 %31, 0
-  %32 = getelementptr inbounds i8, ptr %28, i64 24
+  %32 = getelementptr inbounds nuw i8, ptr %28, i64 24
   br i1 %.not.i17, label %43, label %33
 
 33:                                               ; preds = %_ZN4llvm11raw_ostreamlsEc.exit
@@ -3105,7 +3105,7 @@ define dso_local { i32, i64 } @_ZNK4llvm3rdf7RefNode9getRegRefERKNS0_13DataFlowG
   %3 = load i16, ptr %0, align 8
   %4 = and i16 %3, 128
   %.not = icmp eq i16 %4, 0
-  %5 = getelementptr inbounds i8, ptr %0, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   br i1 %.not, label %16, label %6
 
 6:                                                ; preds = %2
@@ -3149,7 +3149,7 @@ define dso_local void @_ZN4llvm3rdf13NodeAllocator13startNewBlockEv(ptr noundef 
   %3 = load i32, ptr %0, align 8
   %4 = shl i32 %3, 5
   %5 = zext i32 %4 to i64
-  %6 = getelementptr inbounds i8, ptr %0, i64 128
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %7 = load i64, ptr %6, align 8
   %8 = add i64 %7, %5
   store i64 %8, ptr %6, align 8
@@ -3158,7 +3158,7 @@ define dso_local void @_ZN4llvm3rdf13NodeAllocator13startNewBlockEv(ptr noundef 
   %11 = add i64 %10, 31
   %12 = and i64 %11, -32
   %13 = add i64 %12, %5
-  %14 = getelementptr inbounds i8, ptr %0, i64 56
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %15 = load ptr, ptr %14, align 8
   %16 = ptrtoint ptr %15 to i64
   %.not.i.i = icmp ugt i64 %13, %16
@@ -3179,9 +3179,9 @@ define dso_local void @_ZN4llvm3rdf13NodeAllocator13startNewBlockEv(ptr noundef 
 _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm65536ELm65536ELm128EE8AllocateEmm.exit: ; preds = %17, %.critedge.i.i
   %.0.i.i = phi ptr [ %19, %17 ], [ %20, %.critedge.i.i ]
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %22 = getelementptr inbounds i8, ptr %0, i64 32
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %0, i64 40
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %25 = load ptr, ptr %24, align 8
   %.not.i = icmp eq ptr %23, %25
   br i1 %.not.i, label %29, label %26
@@ -3258,7 +3258,7 @@ _ZNSt6vectorIPcSaIS0_EE9push_backERKS0_.exit:     ; preds = %26, %_ZNSt6vectorIP
 define dso_local noundef zeroext i1 @_ZN4llvm3rdf13NodeAllocator12needNewBlockEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(144) %0) local_unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 32
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %3, %5
   br i1 %6, label %19, label %7
@@ -3286,7 +3286,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm3rdf13NodeAllocator12needNewBlockEv
 define dso_local { ptr, i32 } @_ZN4llvm3rdf13NodeAllocator3NewEv(ptr noundef nonnull align 8 dereferenceable(144) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 32
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %3, %5
   br i1 %6, label %_ZN4llvm3rdf13NodeAllocator12needNewBlockEv.exit.thread, label %_ZN4llvm3rdf13NodeAllocator12needNewBlockEv.exit
@@ -3349,7 +3349,7 @@ _ZN4llvm3rdf13NodeAllocator12needNewBlockEv.exit.thread: ; preds = %1, %_ZN4llvm
 define dso_local noundef i32 @_ZNK4llvm3rdf13NodeAllocator2idEPKNS0_8NodeBaseE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(144) %0, ptr noundef %1) local_unnamed_addr #4 align 2 {
   %3 = ptrtoint ptr %1 to i64
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %5 = getelementptr inbounds i8, ptr %0, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %6 = load ptr, ptr %5, align 8
   %7 = load ptr, ptr %4, align 8
   %8 = ptrtoint ptr %6 to i64
@@ -3395,7 +3395,7 @@ define dso_local void @_ZN4llvm3rdf13NodeAllocator5clearEv(ptr noundef nonnull a
   tail call void @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm65536ELm65536ELm128EE5ResetEv(ptr noundef nonnull align 8 dereferenceable(96) %2)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %6 = load ptr, ptr %5, align 8
   %.not.i.i = icmp eq ptr %6, %4
   br i1 %.not.i.i, label %_ZNSt6vectorIPcSaIS0_EE5clearEv.exit, label %7
@@ -3431,7 +3431,7 @@ define linkonce_odr hidden void @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAlloc
 
 _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm65536ELm65536ELm128EE26DeallocateCustomSizedSlabsEv.exit: ; preds = %.lr.ph.i, %1
   %10 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %2) #22
-  %11 = getelementptr inbounds i8, ptr %0, i64 72
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store i32 0, ptr %11, align 8
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %13 = tail call noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseIjE5emptyEv(ptr noundef nonnull align 8 dereferenceable(16) %12) #22
@@ -3554,9 +3554,9 @@ _ZNK4llvm3rdf13DataFlowGraph10makeRegRefEjj.exit: ; preds = %6, %11
 17:                                               ; preds = %2
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %0, i64 40
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %0, i64 48
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %23 = load ptr, ptr %22, align 8
   %24 = ptrtoint ptr %23 to i64
   %25 = ptrtoint ptr %21 to i64
@@ -3690,14 +3690,14 @@ _ZN4llvm3rdf13DataFlowGraph4packENS0_11RegisterRefE.exit: ; preds = %4, %6
   %.sroa.23.0.insert.ext.i = phi i64 [ %10, %6 ], [ 0, %4 ]
   %.sroa.02.0.insert.ext.i = zext i32 %1 to i64
   %.sroa.02.0.insert.insert.i = or disjoint i64 %.sroa.23.0.insert.ext.i, %.sroa.02.0.insert.ext.i
-  %11 = getelementptr inbounds i8, ptr %0, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 %.sroa.02.0.insert.insert.i, ptr %11, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define dso_local void @_ZN4llvm3rdf7RefNode9setRegRefEPNS_14MachineOperandERNS0_13DataFlowGraphE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) %0, ptr noundef %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(736) %2) local_unnamed_addr #6 align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %1, ptr %4, align 8
   ret void
 }
@@ -3710,14 +3710,14 @@ _ZNK4llvm3rdf13DataFlowGraph4addrIPNS0_8NodeBaseEEENS0_8NodeAddrIT_EEj.exit:
   %4 = icmp ne i32 %3, 0
   tail call void @llvm.assume(i1 %4)
   %5 = add i32 %3, -1
-  %6 = getelementptr inbounds i8, ptr %1, i64 284
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 284
   %7 = load i32, ptr %6, align 4
   %8 = lshr i32 %5, %7
-  %9 = getelementptr inbounds i8, ptr %1, i64 288
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 288
   %10 = load i32, ptr %9, align 8
   %11 = and i32 %10, %5
   %12 = shl i32 %11, 5
-  %13 = getelementptr inbounds i8, ptr %1, i64 304
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 304
   %14 = zext i32 %8 to i64
   %15 = load ptr, ptr %13, align 8
   %16 = getelementptr inbounds ptr, ptr %15, i64 %14
@@ -3765,9 +3765,9 @@ _ZNK4llvm3rdf13DataFlowGraph4addrIPNS0_8NodeBaseEEENS0_8NodeAddrIT_EEj.exit16: ;
 define dso_local void @_ZN4llvm3rdf7DefNode9linkToDefEjNS0_8NodeAddrIPS1_EE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) %0, i32 noundef %1, ptr nocapture %2, i32 %3) local_unnamed_addr #5 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %3, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %2, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %7 = load i32, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 12
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 %7, ptr %8, align 4
   store i32 %1, ptr %6, align 8
   ret void
@@ -3777,9 +3777,9 @@ define dso_local void @_ZN4llvm3rdf7DefNode9linkToDefEjNS0_8NodeAddrIPS1_EE(ptr 
 define dso_local void @_ZN4llvm3rdf7UseNode9linkToDefEjNS0_8NodeAddrIPNS0_7DefNodeEEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) %0, i32 noundef %1, ptr nocapture %2, i32 %3) local_unnamed_addr #5 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %3, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %2, i64 20
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 20
   %7 = load i32, ptr %6, align 4
-  %8 = getelementptr inbounds i8, ptr %0, i64 12
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 %7, ptr %8, align 4
   store i32 %1, ptr %6, align 4
   ret void
@@ -3787,21 +3787,21 @@ define dso_local void @_ZN4llvm3rdf7UseNode9linkToDefEjNS0_8NodeAddrIPNS0_7DefNo
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local { ptr, i32 } @_ZNK4llvm3rdf8CodeNode14getFirstMemberERKNS0_13DataFlowGraphE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(736) %1) local_unnamed_addr #3 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i32, ptr %3, align 8
   %5 = icmp eq i32 %4, 0
   br i1 %5, label %21, label %_ZNK4llvm3rdf13DataFlowGraph4addrIPNS0_8NodeBaseEEENS0_8NodeAddrIT_EEj.exit
 
 _ZNK4llvm3rdf13DataFlowGraph4addrIPNS0_8NodeBaseEEENS0_8NodeAddrIT_EEj.exit: ; preds = %2
   %6 = add i32 %4, -1
-  %7 = getelementptr inbounds i8, ptr %1, i64 284
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 284
   %8 = load i32, ptr %7, align 4
   %9 = lshr i32 %6, %8
-  %10 = getelementptr inbounds i8, ptr %1, i64 288
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 288
   %11 = load i32, ptr %10, align 8
   %12 = and i32 %11, %6
   %13 = shl i32 %12, 5
-  %14 = getelementptr inbounds i8, ptr %1, i64 304
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 304
   %15 = zext i32 %9 to i64
   %16 = load ptr, ptr %14, align 8
   %17 = getelementptr inbounds ptr, ptr %16, i64 %15
@@ -3822,21 +3822,21 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local { ptr, i32 } @_ZNK4llvm3rdf8CodeNode13getLastMemberERKNS0_13DataFlowGraphE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(736) %1) local_unnamed_addr #3 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 20
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %4 = load i32, ptr %3, align 4
   %5 = icmp eq i32 %4, 0
   br i1 %5, label %21, label %_ZNK4llvm3rdf13DataFlowGraph4addrIPNS0_8NodeBaseEEENS0_8NodeAddrIT_EEj.exit
 
 _ZNK4llvm3rdf13DataFlowGraph4addrIPNS0_8NodeBaseEEENS0_8NodeAddrIT_EEj.exit: ; preds = %2
   %6 = add i32 %4, -1
-  %7 = getelementptr inbounds i8, ptr %1, i64 284
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 284
   %8 = load i32, ptr %7, align 4
   %9 = lshr i32 %6, %8
-  %10 = getelementptr inbounds i8, ptr %1, i64 288
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 288
   %11 = load i32, ptr %10, align 8
   %12 = and i32 %11, %6
   %13 = shl i32 %12, 5
-  %14 = getelementptr inbounds i8, ptr %1, i64 304
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 304
   %15 = zext i32 %9 to i64
   %16 = load ptr, ptr %14, align 8
   %17 = getelementptr inbounds ptr, ptr %16, i64 %15
@@ -3854,21 +3854,21 @@ _ZNK4llvm3rdf13DataFlowGraph4addrIPNS0_8NodeBaseEEENS0_8NodeAddrIT_EEj.exit: ; p
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: write) uwtable
 define dso_local void @_ZN4llvm3rdf8CodeNode9addMemberENS0_8NodeAddrIPNS0_8NodeBaseEEERKNS0_13DataFlowGraphE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr nocapture writeonly %1, i32 %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(736) %3) local_unnamed_addr #8 align 2 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 20
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %6 = load i32, ptr %5, align 4
   %7 = icmp eq i32 %6, 0
   br i1 %7, label %27, label %8
 
 8:                                                ; preds = %4
   %9 = add i32 %6, -1
-  %10 = getelementptr inbounds i8, ptr %3, i64 284
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 284
   %11 = load i32, ptr %10, align 4
   %12 = lshr i32 %9, %11
-  %13 = getelementptr inbounds i8, ptr %3, i64 288
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 288
   %14 = load i32, ptr %13, align 8
   %15 = and i32 %14, %9
   %16 = shl i32 %15, 5
-  %17 = getelementptr inbounds i8, ptr %3, i64 304
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 304
   %18 = zext i32 %12 to i64
   %19 = load ptr, ptr %17, align 8
   %20 = getelementptr inbounds ptr, ptr %19, i64 %18
@@ -3885,12 +3885,12 @@ define dso_local void @_ZN4llvm3rdf8CodeNode9addMemberENS0_8NodeAddrIPNS0_8NodeB
   br label %_ZN4llvm3rdf8NodeBase6appendENS0_8NodeAddrIPS1_EE.exit.sink.split
 
 27:                                               ; preds = %4
-  %28 = getelementptr inbounds i8, ptr %0, i64 16
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 %2, ptr %28, align 8
   %29 = getelementptr inbounds nuw i8, ptr %3, i64 280
   %30 = ptrtoint ptr %0 to i64
-  %31 = getelementptr inbounds i8, ptr %3, i64 304
-  %32 = getelementptr inbounds i8, ptr %3, i64 312
+  %31 = getelementptr inbounds nuw i8, ptr %3, i64 304
+  %32 = getelementptr inbounds nuw i8, ptr %3, i64 312
   %33 = load ptr, ptr %32, align 8
   %34 = load ptr, ptr %31, align 8
   %35 = ptrtoint ptr %33 to i64
@@ -3922,7 +3922,7 @@ _ZNK4llvm3rdf13DataFlowGraph2idEPKNS0_8NodeBaseE.exit: ; preds = %43
   %52 = sub i64 %30, %48
   %53 = lshr i64 %52, 5
   %54 = trunc i64 %53 to i32
-  %55 = getelementptr inbounds i8, ptr %3, i64 284
+  %55 = getelementptr inbounds nuw i8, ptr %3, i64 284
   %56 = load i32, ptr %55, align 4
   %57 = shl i32 %.0.i.i, %56
   %58 = or i32 %57, %54
@@ -3948,8 +3948,8 @@ define dso_local noundef i32 @_ZNK4llvm3rdf13DataFlowGraph2idEPKNS0_8NodeBaseE(p
 4:                                                ; preds = %2
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %6 = ptrtoint ptr %1 to i64
-  %7 = getelementptr inbounds i8, ptr %0, i64 304
-  %8 = getelementptr inbounds i8, ptr %0, i64 312
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 304
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %9 = load ptr, ptr %8, align 8
   %10 = load ptr, ptr %7, align 8
   %11 = ptrtoint ptr %9 to i64
@@ -3981,7 +3981,7 @@ _ZNK4llvm3rdf13NodeAllocator2idEPKNS0_8NodeBaseE.exit: ; preds = %19
   %28 = sub i64 %6, %24
   %29 = lshr i64 %28, 5
   %30 = trunc i64 %29 to i32
-  %31 = getelementptr inbounds i8, ptr %0, i64 284
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 284
   %32 = load i32, ptr %31, align 4
   %33 = shl i32 %.0.i, %32
   %34 = or i32 %33, %30
@@ -4007,7 +4007,7 @@ define dso_local void @_ZN4llvm3rdf8CodeNode14addMemberAfterENS0_8NodeAddrIPNS0_
   br label %_ZN4llvm3rdf8NodeBase6appendENS0_8NodeAddrIPS1_EE.exit
 
 _ZN4llvm3rdf8NodeBase6appendENS0_8NodeAddrIPS1_EE.exit: ; preds = %6, %9
-  %11 = getelementptr inbounds i8, ptr %0, i64 20
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %12 = load i32, ptr %11, align 4
   %13 = icmp eq i32 %12, %2
   br i1 %13, label %14, label %15
@@ -4022,21 +4022,21 @@ _ZN4llvm3rdf8NodeBase6appendENS0_8NodeAddrIPS1_EE.exit: ; preds = %6, %9
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: write) uwtable
 define dso_local void @_ZN4llvm3rdf8CodeNode12removeMemberENS0_8NodeAddrIPNS0_8NodeBaseEEERKNS0_13DataFlowGraphE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr nocapture readonly %1, i32 %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(736) %3) local_unnamed_addr #8 align 2 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load i32, ptr %5, align 8
   %7 = icmp eq i32 %6, 0
   br i1 %7, label %_ZNK4llvm3rdf8CodeNode14getFirstMemberERKNS0_13DataFlowGraphE.exit, label %_ZNK4llvm3rdf13DataFlowGraph4addrIPNS0_8NodeBaseEEENS0_8NodeAddrIT_EEj.exit.i
 
 _ZNK4llvm3rdf13DataFlowGraph4addrIPNS0_8NodeBaseEEENS0_8NodeAddrIT_EEj.exit.i: ; preds = %4
   %8 = add i32 %6, -1
-  %9 = getelementptr inbounds i8, ptr %3, i64 284
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 284
   %10 = load i32, ptr %9, align 4
   %11 = lshr i32 %8, %10
-  %12 = getelementptr inbounds i8, ptr %3, i64 288
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 288
   %13 = load i32, ptr %12, align 8
   %14 = and i32 %13, %8
   %15 = shl i32 %14, 5
-  %16 = getelementptr inbounds i8, ptr %3, i64 304
+  %16 = getelementptr inbounds nuw i8, ptr %3, i64 304
   %17 = zext i32 %11 to i64
   %18 = load ptr, ptr %16, align 8
   %19 = getelementptr inbounds ptr, ptr %18, i64 %17
@@ -4059,16 +4059,16 @@ _ZNK4llvm3rdf8CodeNode14getFirstMemberERKNS0_13DataFlowGraphE.exit: ; preds = %4
   br i1 %27, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
-  %28 = getelementptr inbounds i8, ptr %3, i64 284
+  %28 = getelementptr inbounds nuw i8, ptr %3, i64 284
   %29 = load i32, ptr %28, align 4
-  %30 = getelementptr inbounds i8, ptr %3, i64 288
+  %30 = getelementptr inbounds nuw i8, ptr %3, i64 288
   %31 = load i32, ptr %30, align 8
-  %32 = getelementptr inbounds i8, ptr %3, i64 304
+  %32 = getelementptr inbounds nuw i8, ptr %3, i64 304
   %33 = load ptr, ptr %32, align 8
   br label %_ZNK4llvm3rdf13DataFlowGraph4addrIPNS0_8NodeBaseEEENS0_8NodeAddrIT_EEj.exit
 
 34:                                               ; preds = %_ZNK4llvm3rdf8CodeNode14getFirstMemberERKNS0_13DataFlowGraphE.exit
-  %35 = getelementptr inbounds i8, ptr %0, i64 20
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %36 = load i32, ptr %35, align 4
   %37 = icmp eq i32 %36, %2
   br i1 %37, label %38, label %39
@@ -4091,7 +4091,7 @@ _ZNK4llvm3rdf8CodeNode14getFirstMemberERKNS0_13DataFlowGraphE.exit: ; preds = %4
   %43 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %44 = load i32, ptr %43, align 4
   store i32 %44, ptr %42, align 4
-  %45 = getelementptr inbounds i8, ptr %0, i64 20
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %46 = load i32, ptr %45, align 4
   %47 = icmp eq i32 %46, %2
   br i1 %47, label %48, label %64
@@ -4132,14 +4132,14 @@ _ZNK4llvm3rdf13DataFlowGraph4addrIPNS0_8NodeBaseEEENS0_8NodeAddrIT_EEj.exit:
   %4 = icmp ne i32 %3, 0
   tail call void @llvm.assume(i1 %4)
   %5 = add i32 %3, -1
-  %6 = getelementptr inbounds i8, ptr %1, i64 284
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 284
   %7 = load i32, ptr %6, align 4
   %8 = lshr i32 %5, %7
-  %9 = getelementptr inbounds i8, ptr %1, i64 288
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 288
   %10 = load i32, ptr %9, align 8
   %11 = and i32 %10, %5
   %12 = shl i32 %11, 5
-  %13 = getelementptr inbounds i8, ptr %1, i64 304
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 304
   %14 = zext i32 %8 to i64
   %15 = load ptr, ptr %13, align 8
   %16 = getelementptr inbounds ptr, ptr %15, i64 %14
@@ -4185,27 +4185,27 @@ _ZNK4llvm3rdf13DataFlowGraph4addrIPNS0_8NodeBaseEEENS0_8NodeAddrIT_EEj.exit16: ;
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: write) uwtable
 define dso_local void @_ZN4llvm3rdf9BlockNode6addPhiENS0_8NodeAddrIPNS0_7PhiNodeEEERKNS0_13DataFlowGraphE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr nocapture writeonly %1, i32 %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(736) %3) local_unnamed_addr #8 align 2 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load i32, ptr %5, align 8
   %7 = icmp eq i32 %6, 0
   br i1 %7, label %8, label %64
 
 8:                                                ; preds = %4
-  %9 = getelementptr inbounds i8, ptr %0, i64 20
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %10 = load i32, ptr %9, align 4
   %11 = icmp eq i32 %10, 0
   br i1 %11, label %31, label %12
 
 12:                                               ; preds = %8
   %13 = add i32 %10, -1
-  %14 = getelementptr inbounds i8, ptr %3, i64 284
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 284
   %15 = load i32, ptr %14, align 4
   %16 = lshr i32 %13, %15
-  %17 = getelementptr inbounds i8, ptr %3, i64 288
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 288
   %18 = load i32, ptr %17, align 8
   %19 = and i32 %18, %13
   %20 = shl i32 %19, 5
-  %21 = getelementptr inbounds i8, ptr %3, i64 304
+  %21 = getelementptr inbounds nuw i8, ptr %3, i64 304
   %22 = zext i32 %16 to i64
   %23 = load ptr, ptr %21, align 8
   %24 = getelementptr inbounds ptr, ptr %23, i64 %22
@@ -4225,8 +4225,8 @@ define dso_local void @_ZN4llvm3rdf9BlockNode6addPhiENS0_8NodeAddrIPNS0_7PhiNode
   store i32 %2, ptr %5, align 8
   %32 = getelementptr inbounds nuw i8, ptr %3, i64 280
   %33 = ptrtoint ptr %0 to i64
-  %34 = getelementptr inbounds i8, ptr %3, i64 304
-  %35 = getelementptr inbounds i8, ptr %3, i64 312
+  %34 = getelementptr inbounds nuw i8, ptr %3, i64 304
+  %35 = getelementptr inbounds nuw i8, ptr %3, i64 312
   %36 = load ptr, ptr %35, align 8
   %37 = load ptr, ptr %34, align 8
   %38 = ptrtoint ptr %36 to i64
@@ -4258,7 +4258,7 @@ _ZNK4llvm3rdf13DataFlowGraph2idEPKNS0_8NodeBaseE.exit.i: ; preds = %46
   %55 = sub i64 %33, %51
   %56 = lshr i64 %55, 5
   %57 = trunc i64 %56 to i32
-  %58 = getelementptr inbounds i8, ptr %3, i64 284
+  %58 = getelementptr inbounds nuw i8, ptr %3, i64 284
   %59 = load i32, ptr %58, align 4
   %60 = shl i32 %.0.i.i.i, %59
   %61 = or i32 %60, %57
@@ -4277,14 +4277,14 @@ _ZN4llvm3rdf8CodeNode9addMemberENS0_8NodeAddrIPNS0_8NodeBaseEEERKNS0_13DataFlowG
 
 64:                                               ; preds = %4
   %65 = add i32 %6, -1
-  %66 = getelementptr inbounds i8, ptr %3, i64 284
+  %66 = getelementptr inbounds nuw i8, ptr %3, i64 284
   %67 = load i32, ptr %66, align 4
   %68 = lshr i32 %65, %67
-  %69 = getelementptr inbounds i8, ptr %3, i64 288
+  %69 = getelementptr inbounds nuw i8, ptr %3, i64 288
   %70 = load i32, ptr %69, align 8
   %71 = and i32 %70, %65
   %72 = shl i32 %71, 5
-  %73 = getelementptr inbounds i8, ptr %3, i64 304
+  %73 = getelementptr inbounds nuw i8, ptr %3, i64 304
   %74 = zext i32 %68 to i64
   %75 = load ptr, ptr %73, align 8
   %76 = getelementptr inbounds ptr, ptr %75, i64 %74
@@ -4335,7 +4335,7 @@ _ZNK4llvm3rdf13DataFlowGraph4addrIPNS0_8NodeBaseEEENS0_8NodeAddrIT_EEj.exit: ; p
   br label %_ZN4llvm3rdf8NodeBase6appendENS0_8NodeAddrIPS1_EE.exit.i
 
 _ZN4llvm3rdf8NodeBase6appendENS0_8NodeAddrIPS1_EE.exit.i: ; preds = %101, %100
-  %104 = getelementptr inbounds i8, ptr %0, i64 20
+  %104 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %105 = load i32, ptr %104, align 4
   %106 = icmp eq i32 %105, %.sroa.4.0
   br i1 %106, label %107, label %_ZN4llvm3rdf8CodeNode14addMemberAfterENS0_8NodeAddrIPNS0_8NodeBaseEEES5_RKNS0_13DataFlowGraphE.exit
@@ -4354,21 +4354,21 @@ define dso_local { ptr, i32 } @_ZNK4llvm3rdf8FuncNode9findBlockEPKNS_17MachineBa
   tail call void @llvm.experimental.noalias.scope.decl(metadata !18)
   %5 = getelementptr inbounds i8, ptr %4, i64 16
   call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull %5, i64 noundef 4) #22
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load i32, ptr %6, align 8, !noalias !18
   %8 = icmp eq i32 %7, 0
   br i1 %8, label %"_ZNK4llvm3rdf8CodeNode10members_ifIZNKS0_8FuncNode9findBlockEPKNS_17MachineBasicBlockERKNS0_13DataFlowGraphEE3$_0EENS_11SmallVectorINS0_8NodeAddrIPNS0_8NodeBaseEEELj4EEET_S9_.exit", label %_ZNK4llvm3rdf8CodeNode14getFirstMemberERKNS0_13DataFlowGraphE.exit.i
 
 _ZNK4llvm3rdf8CodeNode14getFirstMemberERKNS0_13DataFlowGraphE.exit.i: ; preds = %3
   %9 = add i32 %7, -1
-  %10 = getelementptr inbounds i8, ptr %2, i64 284
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 284
   %11 = load i32, ptr %10, align 4, !noalias !18
   %12 = lshr i32 %9, %11
-  %13 = getelementptr inbounds i8, ptr %2, i64 288
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 288
   %14 = load i32, ptr %13, align 8, !noalias !18
   %15 = and i32 %14, %9
   %16 = shl i32 %15, 5
-  %17 = getelementptr inbounds i8, ptr %2, i64 304
+  %17 = getelementptr inbounds nuw i8, ptr %2, i64 304
   %18 = zext i32 %12 to i64
   %19 = load ptr, ptr %17, align 8, !noalias !18
   %20 = getelementptr inbounds ptr, ptr %19, i64 %18
@@ -4470,7 +4470,7 @@ declare noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseIjE5emptyEv(ptr noundef no
 define dso_local { ptr, i32 } @_ZN4llvm3rdf8FuncNode13getEntryBlockERKNS0_13DataFlowGraphE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(736) %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 328
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 328
   %6 = load ptr, ptr %5, align 8
   %7 = tail call { ptr, i32 } @_ZNK4llvm3rdf8FuncNode9findBlockEPKNS_17MachineBasicBlockERKNS0_13DataFlowGraphE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %6, ptr noundef nonnull align 8 dereferenceable(736) %1)
   ret { ptr, i32 } %7
@@ -4831,30 +4831,30 @@ define dso_local void @_ZN4llvm3rdf13DataFlowGraphC2ERNS_15MachineFunctionERKNS_
   %24 = getelementptr inbounds i8, ptr %0, i64 200
   tail call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %17, ptr noundef nonnull %24, i64 noundef 6) #22
   tail call void @_ZN4llvm15SmallVectorImplImE6assignEmm(ptr noundef nonnull align 8 dereferenceable(16) %17, i64 noundef %23, i64 noundef 0)
-  %25 = getelementptr inbounds i8, ptr %0, i64 248
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 248
   store i32 %20, ptr %25, align 8
-  %26 = getelementptr inbounds i8, ptr %0, i64 256
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 256
   store ptr %12, ptr %26, align 8
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 264
   store ptr null, ptr %27, align 8
-  %28 = getelementptr inbounds i8, ptr %0, i64 272
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 272
   store i32 0, ptr %28, align 8
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 280
   store i32 4096, ptr %29, align 8
-  %30 = getelementptr inbounds i8, ptr %0, i64 284
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 284
   store i32 12, ptr %30, align 4
-  %31 = getelementptr inbounds i8, ptr %0, i64 288
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 288
   store i32 4095, ptr %31, align 8
-  %32 = getelementptr inbounds i8, ptr %0, i64 296
-  %33 = getelementptr inbounds i8, ptr %0, i64 344
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 296
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 344
   %34 = getelementptr inbounds i8, ptr %0, i64 360
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %32, i8 0, i64 48, i1 false)
   tail call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %33, ptr noundef nonnull %34, i64 noundef 4) #22
-  %35 = getelementptr inbounds i8, ptr %0, i64 392
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 392
   %36 = getelementptr inbounds i8, ptr %0, i64 408
   tail call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %35, ptr noundef nonnull %36, i64 noundef 0) #22
   store i64 0, ptr %36, align 8
-  %37 = getelementptr inbounds i8, ptr %0, i64 416
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 416
   store i64 1, ptr %37, align 8
   %38 = getelementptr inbounds i8, ptr %0, i64 432
   store i32 0, ptr %38, align 8
@@ -4867,16 +4867,16 @@ define dso_local void @_ZN4llvm3rdf13DataFlowGraphC2ERNS_15MachineFunctionERKNS_
   %42 = getelementptr inbounds i8, ptr %0, i64 464
   store i64 0, ptr %42, align 8
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 472
-  %44 = getelementptr inbounds i8, ptr %0, i64 488
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 488
   %45 = tail call noalias noundef nonnull dereferenceable(256) ptr @_Znwm(i64 noundef 256) #25
-  %46 = getelementptr inbounds i8, ptr %0, i64 480
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 480
   store ptr %45, ptr %43, align 8
   store ptr %45, ptr %46, align 8
   %47 = getelementptr inbounds i8, ptr %45, i64 256
   store ptr %47, ptr %44, align 8
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 496
   store i32 0, ptr %48, align 8
-  %49 = getelementptr inbounds i8, ptr %0, i64 504
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 504
   %50 = getelementptr inbounds i8, ptr %0, i64 520
   tail call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %49, ptr noundef nonnull %50, i64 noundef 6) #22
   %51 = getelementptr inbounds i8, ptr %0, i64 576
@@ -4902,7 +4902,7 @@ define dso_local void @_ZN4llvm3rdf13DataFlowGraphC2ERNS_15MachineFunctionERKNS_
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 664
   %62 = getelementptr inbounds i8, ptr %0, i64 680
   tail call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %61, ptr noundef nonnull %62, i64 noundef 6) #22
-  %63 = getelementptr inbounds i8, ptr %0, i64 728
+  %63 = getelementptr inbounds nuw i8, ptr %0, i64 728
   store i32 0, ptr %63, align 8
   ret void
 }
@@ -4936,30 +4936,30 @@ define dso_local void @_ZN4llvm3rdf13DataFlowGraphC2ERNS_15MachineFunctionERKNS_
   %22 = getelementptr inbounds i8, ptr %0, i64 200
   tail call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %15, ptr noundef nonnull %22, i64 noundef 6) #22
   tail call void @_ZN4llvm15SmallVectorImplImE6assignEmm(ptr noundef nonnull align 8 dereferenceable(16) %15, i64 noundef %21, i64 noundef 0)
-  %23 = getelementptr inbounds i8, ptr %0, i64 248
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 248
   store i32 %18, ptr %23, align 8
-  %24 = getelementptr inbounds i8, ptr %0, i64 256
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 256
   store ptr %11, ptr %24, align 8
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 264
   store ptr null, ptr %25, align 8
-  %26 = getelementptr inbounds i8, ptr %0, i64 272
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 272
   store i32 0, ptr %26, align 8
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 280
   store i32 4096, ptr %27, align 8
-  %28 = getelementptr inbounds i8, ptr %0, i64 284
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 284
   store i32 12, ptr %28, align 4
-  %29 = getelementptr inbounds i8, ptr %0, i64 288
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 288
   store i32 4095, ptr %29, align 8
-  %30 = getelementptr inbounds i8, ptr %0, i64 296
-  %31 = getelementptr inbounds i8, ptr %0, i64 344
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 296
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 344
   %32 = getelementptr inbounds i8, ptr %0, i64 360
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %30, i8 0, i64 48, i1 false)
   tail call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %31, ptr noundef nonnull %32, i64 noundef 4) #22
-  %33 = getelementptr inbounds i8, ptr %0, i64 392
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 392
   %34 = getelementptr inbounds i8, ptr %0, i64 408
   tail call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %33, ptr noundef nonnull %34, i64 noundef 0) #22
   store i64 0, ptr %34, align 8
-  %35 = getelementptr inbounds i8, ptr %0, i64 416
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 416
   store i64 1, ptr %35, align 8
   %36 = getelementptr inbounds i8, ptr %0, i64 432
   store i32 0, ptr %36, align 8
@@ -4972,16 +4972,16 @@ define dso_local void @_ZN4llvm3rdf13DataFlowGraphC2ERNS_15MachineFunctionERKNS_
   %40 = getelementptr inbounds i8, ptr %0, i64 464
   store i64 0, ptr %40, align 8
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 472
-  %42 = getelementptr inbounds i8, ptr %0, i64 488
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 488
   %43 = tail call noalias noundef nonnull dereferenceable(256) ptr @_Znwm(i64 noundef 256) #25
-  %44 = getelementptr inbounds i8, ptr %0, i64 480
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 480
   store ptr %43, ptr %41, align 8
   store ptr %43, ptr %44, align 8
   %45 = getelementptr inbounds i8, ptr %43, i64 256
   store ptr %45, ptr %42, align 8
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 496
   store i32 0, ptr %46, align 8
-  %47 = getelementptr inbounds i8, ptr %0, i64 504
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 504
   %48 = getelementptr inbounds i8, ptr %0, i64 520
   tail call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %47, ptr noundef nonnull %48, i64 noundef 6) #22
   %49 = getelementptr inbounds i8, ptr %0, i64 576
@@ -5007,7 +5007,7 @@ define dso_local void @_ZN4llvm3rdf13DataFlowGraphC2ERNS_15MachineFunctionERKNS_
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 664
   %60 = getelementptr inbounds i8, ptr %0, i64 680
   tail call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %59, ptr noundef nonnull %60, i64 noundef 6) #22
-  %61 = getelementptr inbounds i8, ptr %0, i64 728
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 728
   store i32 0, ptr %61, align 8
   ret void
 }
@@ -5457,14 +5457,14 @@ define dso_local noundef ptr @_ZNK4llvm3rdf13DataFlowGraph3ptrEj(ptr nocapture n
 
 4:                                                ; preds = %2
   %5 = add i32 %1, -1
-  %6 = getelementptr inbounds i8, ptr %0, i64 284
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 284
   %7 = load i32, ptr %6, align 4
   %8 = lshr i32 %5, %7
-  %9 = getelementptr inbounds i8, ptr %0, i64 288
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 288
   %10 = load i32, ptr %9, align 8
   %11 = and i32 %10, %5
   %12 = shl i32 %11, 5
-  %13 = getelementptr inbounds i8, ptr %0, i64 304
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %14 = zext i32 %8 to i64
   %15 = load ptr, ptr %13, align 8
   %16 = getelementptr inbounds ptr, ptr %15, i64 %14
@@ -5481,9 +5481,9 @@ define dso_local noundef ptr @_ZNK4llvm3rdf13DataFlowGraph3ptrEj(ptr nocapture n
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local { ptr, i32 } @_ZN4llvm3rdf13DataFlowGraph7newNodeEt(ptr noundef nonnull align 8 dereferenceable(736) %0, i16 noundef zeroext %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 280
-  %4 = getelementptr inbounds i8, ptr %0, i64 304
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 312
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %5, %7
   br i1 %8, label %_ZN4llvm3rdf13NodeAllocator12needNewBlockEv.exit.thread.i, label %_ZN4llvm3rdf13NodeAllocator12needNewBlockEv.exit.i
@@ -5491,7 +5491,7 @@ define dso_local { ptr, i32 } @_ZN4llvm3rdf13DataFlowGraph7newNodeEt(ptr noundef
 _ZN4llvm3rdf13NodeAllocator12needNewBlockEv.exit.i: ; preds = %2
   %9 = getelementptr inbounds i8, ptr %7, i64 -8
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 296
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 296
   %12 = load ptr, ptr %11, align 8
   %13 = ptrtoint ptr %12 to i64
   %14 = ptrtoint ptr %10 to i64
@@ -5506,7 +5506,7 @@ _ZN4llvm3rdf13NodeAllocator12needNewBlockEv.exit.thread.i: ; preds = %_ZN4llvm3r
   tail call void @_ZN4llvm3rdf13NodeAllocator13startNewBlockEv(ptr noundef nonnull align 8 dereferenceable(144) %3)
   %.pre.i = load ptr, ptr %6, align 8
   %.pre4.i = load ptr, ptr %4, align 8
-  %.phi.trans.insert.i = getelementptr inbounds i8, ptr %0, i64 296
+  %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %0, i64 296
   %.pre5.i = load ptr, ptr %.phi.trans.insert.i, align 8
   %.pre6.i = ptrtoint ptr %.pre5.i to i64
   br label %_ZN4llvm3rdf13NodeAllocator3NewEv.exit
@@ -5522,7 +5522,7 @@ _ZN4llvm3rdf13NodeAllocator3NewEv.exit:           ; preds = %_ZN4llvm3rdf13NodeA
   %25 = lshr exact i64 %24, 3
   %26 = trunc i64 %25 to i32
   %27 = add i32 %26, -1
-  %28 = getelementptr inbounds i8, ptr %0, i64 296
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 296
   %29 = zext i32 %27 to i64
   %30 = getelementptr inbounds ptr, ptr %20, i64 %29
   %31 = load ptr, ptr %30, align 8
@@ -5530,7 +5530,7 @@ _ZN4llvm3rdf13NodeAllocator3NewEv.exit:           ; preds = %_ZN4llvm3rdf13NodeA
   %33 = sub i64 %.pre-phi.i, %32
   %34 = sdiv i64 %33, 32
   %35 = trunc i64 %34 to i32
-  %36 = getelementptr inbounds i8, ptr %0, i64 284
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 284
   %37 = load i32, ptr %36, align 4
   %38 = shl i32 %27, %37
   %39 = or i32 %38, %35
@@ -5547,9 +5547,9 @@ _ZN4llvm3rdf13NodeAllocator3NewEv.exit:           ; preds = %_ZN4llvm3rdf13NodeA
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local { ptr, i32 } @_ZN4llvm3rdf13DataFlowGraph9cloneNodeENS0_8NodeAddrIPNS0_8NodeBaseEEE(ptr noundef nonnull align 8 dereferenceable(736) %0, ptr nocapture readonly %1, i32 %2) local_unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 280
-  %5 = getelementptr inbounds i8, ptr %0, i64 304
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 312
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %8 = load ptr, ptr %7, align 8
   %9 = icmp eq ptr %6, %8
   br i1 %9, label %_ZN4llvm3rdf13NodeAllocator12needNewBlockEv.exit.thread.i.i, label %_ZN4llvm3rdf13NodeAllocator12needNewBlockEv.exit.i.i
@@ -5557,7 +5557,7 @@ define dso_local { ptr, i32 } @_ZN4llvm3rdf13DataFlowGraph9cloneNodeENS0_8NodeAd
 _ZN4llvm3rdf13NodeAllocator12needNewBlockEv.exit.i.i: ; preds = %3
   %10 = getelementptr inbounds i8, ptr %8, i64 -8
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 296
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 296
   %13 = load ptr, ptr %12, align 8
   %14 = ptrtoint ptr %13 to i64
   %15 = ptrtoint ptr %11 to i64
@@ -5572,7 +5572,7 @@ _ZN4llvm3rdf13NodeAllocator12needNewBlockEv.exit.thread.i.i: ; preds = %_ZN4llvm
   tail call void @_ZN4llvm3rdf13NodeAllocator13startNewBlockEv(ptr noundef nonnull align 8 dereferenceable(144) %4)
   %.pre.i.i = load ptr, ptr %7, align 8
   %.pre4.i.i = load ptr, ptr %5, align 8
-  %.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %0, i64 296
+  %.phi.trans.insert.i.i = getelementptr inbounds nuw i8, ptr %0, i64 296
   %.pre5.i.i = load ptr, ptr %.phi.trans.insert.i.i, align 8
   %.pre6.i.i = ptrtoint ptr %.pre5.i.i to i64
   br label %_ZN4llvm3rdf13DataFlowGraph7newNodeEt.exit
@@ -5588,11 +5588,11 @@ _ZN4llvm3rdf13DataFlowGraph7newNodeEt.exit:       ; preds = %_ZN4llvm3rdf13NodeA
   %26 = lshr exact i64 %25, 3
   %27 = trunc i64 %26 to i32
   %28 = add i32 %27, -1
-  %29 = getelementptr inbounds i8, ptr %0, i64 296
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 296
   %30 = zext i32 %28 to i64
   %31 = getelementptr inbounds ptr, ptr %21, i64 %30
   %32 = load ptr, ptr %31, align 8
-  %33 = getelementptr inbounds i8, ptr %0, i64 284
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 284
   %34 = load i32, ptr %33, align 4
   %35 = getelementptr inbounds i8, ptr %20, i64 32
   store ptr %35, ptr %29, align 8
@@ -5606,16 +5606,16 @@ _ZN4llvm3rdf13DataFlowGraph7newNodeEt.exit:       ; preds = %_ZN4llvm3rdf13NodeA
 39:                                               ; preds = %_ZN4llvm3rdf13DataFlowGraph7newNodeEt.exit
   %40 = getelementptr inbounds nuw i8, ptr %20, i64 8
   store i32 0, ptr %40, align 8
-  %41 = getelementptr inbounds i8, ptr %20, i64 12
+  %41 = getelementptr inbounds nuw i8, ptr %20, i64 12
   store i32 0, ptr %41, align 4
   %42 = and i16 %36, 28
   %43 = icmp eq i16 %42, 4
   br i1 %43, label %44, label %47
 
 44:                                               ; preds = %39
-  %45 = getelementptr inbounds i8, ptr %20, i64 16
+  %45 = getelementptr inbounds nuw i8, ptr %20, i64 16
   store i32 0, ptr %45, align 8
-  %46 = getelementptr inbounds i8, ptr %20, i64 20
+  %46 = getelementptr inbounds nuw i8, ptr %20, i64 20
   store i32 0, ptr %46, align 4
   br label %47
 
@@ -5635,9 +5635,9 @@ _ZN4llvm3rdf13DataFlowGraph7newNodeEt.exit:       ; preds = %_ZN4llvm3rdf13NodeA
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local { ptr, i32 } @_ZN4llvm3rdf13DataFlowGraph6newUseENS0_8NodeAddrIPNS0_9InstrNodeEEERNS_14MachineOperandEt(ptr noundef nonnull align 8 dereferenceable(736) %0, ptr nocapture readnone %1, i32 %2, ptr noundef nonnull align 8 dereferenceable(32) %3, i16 noundef zeroext %4) local_unnamed_addr #0 align 2 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 280
-  %7 = getelementptr inbounds i8, ptr %0, i64 304
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 312
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %10 = load ptr, ptr %9, align 8
   %11 = icmp eq ptr %8, %10
   br i1 %11, label %_ZN4llvm3rdf13NodeAllocator12needNewBlockEv.exit.thread.i.i, label %_ZN4llvm3rdf13NodeAllocator12needNewBlockEv.exit.i.i
@@ -5645,7 +5645,7 @@ define dso_local { ptr, i32 } @_ZN4llvm3rdf13DataFlowGraph6newUseENS0_8NodeAddrI
 _ZN4llvm3rdf13NodeAllocator12needNewBlockEv.exit.i.i: ; preds = %5
   %12 = getelementptr inbounds i8, ptr %10, i64 -8
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 296
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 296
   %15 = load ptr, ptr %14, align 8
   %16 = ptrtoint ptr %15 to i64
   %17 = ptrtoint ptr %13 to i64
@@ -5660,7 +5660,7 @@ _ZN4llvm3rdf13NodeAllocator12needNewBlockEv.exit.thread.i.i: ; preds = %_ZN4llvm
   tail call void @_ZN4llvm3rdf13NodeAllocator13startNewBlockEv(ptr noundef nonnull align 8 dereferenceable(144) %6)
   %.pre.i.i = load ptr, ptr %9, align 8
   %.pre4.i.i = load ptr, ptr %7, align 8
-  %.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %0, i64 296
+  %.phi.trans.insert.i.i = getelementptr inbounds nuw i8, ptr %0, i64 296
   %.pre5.i.i = load ptr, ptr %.phi.trans.insert.i.i, align 8
   %.pre6.i.i = ptrtoint ptr %.pre5.i.i to i64
   br label %_ZN4llvm3rdf13DataFlowGraph7newNodeEt.exit
@@ -5677,7 +5677,7 @@ _ZN4llvm3rdf13DataFlowGraph7newNodeEt.exit:       ; preds = %_ZN4llvm3rdf13NodeA
   %29 = lshr exact i64 %28, 3
   %30 = trunc i64 %29 to i32
   %31 = add i32 %30, -1
-  %32 = getelementptr inbounds i8, ptr %0, i64 296
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 296
   %33 = zext i32 %31 to i64
   %34 = getelementptr inbounds ptr, ptr %23, i64 %33
   %35 = load ptr, ptr %34, align 8
@@ -5685,7 +5685,7 @@ _ZN4llvm3rdf13DataFlowGraph7newNodeEt.exit:       ; preds = %_ZN4llvm3rdf13NodeA
   %37 = sub i64 %.pre-phi.i.i, %36
   %38 = sdiv i64 %37, 32
   %39 = trunc i64 %38 to i32
-  %40 = getelementptr inbounds i8, ptr %0, i64 284
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 284
   %41 = load i32, ptr %40, align 4
   %42 = shl i32 %31, %41
   %43 = or i32 %42, %39
@@ -5696,7 +5696,7 @@ _ZN4llvm3rdf13DataFlowGraph7newNodeEt.exit:       ; preds = %_ZN4llvm3rdf13NodeA
   %.fca.1.insert.i.i = insertvalue { ptr, i32 } %.fca.0.insert.i.i, i32 %44, 1
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %22, i8 0, i64 24, i1 false)
   store i16 %25, ptr %22, align 8
-  %46 = getelementptr inbounds i8, ptr %22, i64 24
+  %46 = getelementptr inbounds nuw i8, ptr %22, i64 24
   store ptr %3, ptr %46, align 8
   ret { ptr, i32 } %.fca.1.insert.i.i
 }
@@ -5705,9 +5705,9 @@ _ZN4llvm3rdf13DataFlowGraph7newNodeEt.exit:       ; preds = %_ZN4llvm3rdf13NodeA
 define dso_local { ptr, i32 } @_ZN4llvm3rdf13DataFlowGraph9newPhiUseENS0_8NodeAddrIPNS0_7PhiNodeEEENS0_11RegisterRefENS2_IPNS0_9BlockNodeEEEt(ptr noundef nonnull align 8 dereferenceable(736) %0, ptr nocapture readnone %1, i32 %2, i32 %3, i64 %4, ptr nocapture noundef readonly byval(%"struct.llvm::rdf::NodeAddr.138") align 8 %5, i16 noundef zeroext %6) local_unnamed_addr #0 align 2 {
   %8 = or i16 %6, 10
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 280
-  %10 = getelementptr inbounds i8, ptr %0, i64 304
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 312
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %13 = load ptr, ptr %12, align 8
   %14 = icmp eq ptr %11, %13
   br i1 %14, label %_ZN4llvm3rdf13NodeAllocator12needNewBlockEv.exit.thread.i.i, label %_ZN4llvm3rdf13NodeAllocator12needNewBlockEv.exit.i.i
@@ -5715,7 +5715,7 @@ define dso_local { ptr, i32 } @_ZN4llvm3rdf13DataFlowGraph9newPhiUseENS0_8NodeAd
 _ZN4llvm3rdf13NodeAllocator12needNewBlockEv.exit.i.i: ; preds = %7
   %15 = getelementptr inbounds i8, ptr %13, i64 -8
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %0, i64 296
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 296
   %18 = load ptr, ptr %17, align 8
   %19 = ptrtoint ptr %18 to i64
   %20 = ptrtoint ptr %16 to i64
@@ -5730,7 +5730,7 @@ _ZN4llvm3rdf13NodeAllocator12needNewBlockEv.exit.thread.i.i: ; preds = %_ZN4llvm
   tail call void @_ZN4llvm3rdf13NodeAllocator13startNewBlockEv(ptr noundef nonnull align 8 dereferenceable(144) %9)
   %.pre.i.i = load ptr, ptr %12, align 8
   %.pre4.i.i = load ptr, ptr %10, align 8
-  %.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %0, i64 296
+  %.phi.trans.insert.i.i = getelementptr inbounds nuw i8, ptr %0, i64 296
   %.pre5.i.i = load ptr, ptr %.phi.trans.insert.i.i, align 8
   %.pre6.i.i = ptrtoint ptr %.pre5.i.i to i64
   br label %_ZN4llvm3rdf13DataFlowGraph7newNodeEt.exit
@@ -5746,11 +5746,11 @@ _ZN4llvm3rdf13DataFlowGraph7newNodeEt.exit:       ; preds = %_ZN4llvm3rdf13NodeA
   %31 = lshr exact i64 %30, 3
   %32 = trunc i64 %31 to i32
   %33 = add i32 %32, -1
-  %34 = getelementptr inbounds i8, ptr %0, i64 296
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 296
   %35 = zext i32 %33 to i64
   %36 = getelementptr inbounds ptr, ptr %26, i64 %35
   %37 = load ptr, ptr %36, align 8
-  %38 = getelementptr inbounds i8, ptr %0, i64 284
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 284
   %39 = load i32, ptr %38, align 4
   %40 = getelementptr inbounds i8, ptr %25, i64 32
   store ptr %40, ptr %34, align 8
@@ -5779,11 +5779,11 @@ _ZN4llvm3rdf7RefNode9setRegRefENS0_11RegisterRefERNS0_13DataFlowGraphE.exit: ; p
   %.fca.1.insert.i.i = insertvalue { ptr, i32 } %.fca.0.insert.i.i, i32 %53, 1
   %.sroa.02.0.insert.ext.i.i = zext i32 %3 to i64
   %.sroa.02.0.insert.insert.i.i = or disjoint i64 %.sroa.23.0.insert.ext.i.i, %.sroa.02.0.insert.ext.i.i
-  %54 = getelementptr inbounds i8, ptr %25, i64 24
+  %54 = getelementptr inbounds nuw i8, ptr %25, i64 24
   store i64 %.sroa.02.0.insert.insert.i.i, ptr %54, align 8
   %55 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %56 = load i32, ptr %55, align 8
-  %57 = getelementptr inbounds i8, ptr %25, i64 16
+  %57 = getelementptr inbounds nuw i8, ptr %25, i64 16
   store i32 %56, ptr %57, align 8
   ret { ptr, i32 } %.fca.1.insert.i.i
 }
@@ -5791,9 +5791,9 @@ _ZN4llvm3rdf7RefNode9setRegRefENS0_11RegisterRefERNS0_13DataFlowGraphE.exit: ; p
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local { ptr, i32 } @_ZN4llvm3rdf13DataFlowGraph6newDefENS0_8NodeAddrIPNS0_9InstrNodeEEERNS_14MachineOperandEt(ptr noundef nonnull align 8 dereferenceable(736) %0, ptr nocapture readnone %1, i32 %2, ptr noundef nonnull align 8 dereferenceable(32) %3, i16 noundef zeroext %4) local_unnamed_addr #0 align 2 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 280
-  %7 = getelementptr inbounds i8, ptr %0, i64 304
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 312
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %10 = load ptr, ptr %9, align 8
   %11 = icmp eq ptr %8, %10
   br i1 %11, label %_ZN4llvm3rdf13NodeAllocator12needNewBlockEv.exit.thread.i.i, label %_ZN4llvm3rdf13NodeAllocator12needNewBlockEv.exit.i.i
@@ -5801,7 +5801,7 @@ define dso_local { ptr, i32 } @_ZN4llvm3rdf13DataFlowGraph6newDefENS0_8NodeAddrI
 _ZN4llvm3rdf13NodeAllocator12needNewBlockEv.exit.i.i: ; preds = %5
   %12 = getelementptr inbounds i8, ptr %10, i64 -8
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 296
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 296
   %15 = load ptr, ptr %14, align 8
   %16 = ptrtoint ptr %15 to i64
   %17 = ptrtoint ptr %13 to i64
@@ -5816,7 +5816,7 @@ _ZN4llvm3rdf13NodeAllocator12needNewBlockEv.exit.thread.i.i: ; preds = %_ZN4llvm
   tail call void @_ZN4llvm3rdf13NodeAllocator13startNewBlockEv(ptr noundef nonnull align 8 dereferenceable(144) %6)
   %.pre.i.i = load ptr, ptr %9, align 8
   %.pre4.i.i = load ptr, ptr %7, align 8
-  %.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %0, i64 296
+  %.phi.trans.insert.i.i = getelementptr inbounds nuw i8, ptr %0, i64 296
   %.pre5.i.i = load ptr, ptr %.phi.trans.insert.i.i, align 8
   %.pre6.i.i = ptrtoint ptr %.pre5.i.i to i64
   br label %_ZN4llvm3rdf13DataFlowGraph7newNodeEt.exit
@@ -5833,7 +5833,7 @@ _ZN4llvm3rdf13DataFlowGraph7newNodeEt.exit:       ; preds = %_ZN4llvm3rdf13NodeA
   %29 = lshr exact i64 %28, 3
   %30 = trunc i64 %29 to i32
   %31 = add i32 %30, -1
-  %32 = getelementptr inbounds i8, ptr %0, i64 296
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 296
   %33 = zext i32 %31 to i64
   %34 = getelementptr inbounds ptr, ptr %23, i64 %33
   %35 = load ptr, ptr %34, align 8
@@ -5841,7 +5841,7 @@ _ZN4llvm3rdf13DataFlowGraph7newNodeEt.exit:       ; preds = %_ZN4llvm3rdf13NodeA
   %37 = sub i64 %.pre-phi.i.i, %36
   %38 = sdiv i64 %37, 32
   %39 = trunc i64 %38 to i32
-  %40 = getelementptr inbounds i8, ptr %0, i64 284
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 284
   %41 = load i32, ptr %40, align 4
   %42 = shl i32 %31, %41
   %43 = or i32 %42, %39
@@ -5852,7 +5852,7 @@ _ZN4llvm3rdf13DataFlowGraph7newNodeEt.exit:       ; preds = %_ZN4llvm3rdf13NodeA
   %.fca.1.insert.i.i = insertvalue { ptr, i32 } %.fca.0.insert.i.i, i32 %44, 1
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %22, i8 0, i64 24, i1 false)
   store i16 %25, ptr %22, align 8
-  %46 = getelementptr inbounds i8, ptr %22, i64 24
+  %46 = getelementptr inbounds nuw i8, ptr %22, i64 24
   store ptr %3, ptr %46, align 8
   ret { ptr, i32 } %.fca.1.insert.i.i
 }
@@ -5861,9 +5861,9 @@ _ZN4llvm3rdf13DataFlowGraph7newNodeEt.exit:       ; preds = %_ZN4llvm3rdf13NodeA
 define dso_local { ptr, i32 } @_ZN4llvm3rdf13DataFlowGraph6newDefENS0_8NodeAddrIPNS0_9InstrNodeEEENS0_11RegisterRefEt(ptr noundef nonnull align 8 dereferenceable(736) %0, ptr nocapture readnone %1, i32 %2, i32 %3, i64 %4, i16 noundef zeroext %5) local_unnamed_addr #0 align 2 {
   %7 = or i16 %5, 6
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 280
-  %9 = getelementptr inbounds i8, ptr %0, i64 304
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 312
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %12 = load ptr, ptr %11, align 8
   %13 = icmp eq ptr %10, %12
   br i1 %13, label %_ZN4llvm3rdf13NodeAllocator12needNewBlockEv.exit.thread.i.i, label %_ZN4llvm3rdf13NodeAllocator12needNewBlockEv.exit.i.i
@@ -5871,7 +5871,7 @@ define dso_local { ptr, i32 } @_ZN4llvm3rdf13DataFlowGraph6newDefENS0_8NodeAddrI
 _ZN4llvm3rdf13NodeAllocator12needNewBlockEv.exit.i.i: ; preds = %6
   %14 = getelementptr inbounds i8, ptr %12, i64 -8
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 296
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 296
   %17 = load ptr, ptr %16, align 8
   %18 = ptrtoint ptr %17 to i64
   %19 = ptrtoint ptr %15 to i64
@@ -5886,7 +5886,7 @@ _ZN4llvm3rdf13NodeAllocator12needNewBlockEv.exit.thread.i.i: ; preds = %_ZN4llvm
   tail call void @_ZN4llvm3rdf13NodeAllocator13startNewBlockEv(ptr noundef nonnull align 8 dereferenceable(144) %8)
   %.pre.i.i = load ptr, ptr %11, align 8
   %.pre4.i.i = load ptr, ptr %9, align 8
-  %.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %0, i64 296
+  %.phi.trans.insert.i.i = getelementptr inbounds nuw i8, ptr %0, i64 296
   %.pre5.i.i = load ptr, ptr %.phi.trans.insert.i.i, align 8
   %.pre6.i.i = ptrtoint ptr %.pre5.i.i to i64
   br label %_ZN4llvm3rdf13DataFlowGraph7newNodeEt.exit
@@ -5902,11 +5902,11 @@ _ZN4llvm3rdf13DataFlowGraph7newNodeEt.exit:       ; preds = %_ZN4llvm3rdf13NodeA
   %30 = lshr exact i64 %29, 3
   %31 = trunc i64 %30 to i32
   %32 = add i32 %31, -1
-  %33 = getelementptr inbounds i8, ptr %0, i64 296
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 296
   %34 = zext i32 %32 to i64
   %35 = getelementptr inbounds ptr, ptr %25, i64 %34
   %36 = load ptr, ptr %35, align 8
-  %37 = getelementptr inbounds i8, ptr %0, i64 284
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 284
   %38 = load i32, ptr %37, align 4
   %39 = getelementptr inbounds i8, ptr %24, i64 32
   store ptr %39, ptr %33, align 8
@@ -5935,7 +5935,7 @@ _ZN4llvm3rdf7RefNode9setRegRefENS0_11RegisterRefERNS0_13DataFlowGraphE.exit: ; p
   %.fca.1.insert.i.i = insertvalue { ptr, i32 } %.fca.0.insert.i.i, i32 %52, 1
   %.sroa.02.0.insert.ext.i.i = zext i32 %3 to i64
   %.sroa.02.0.insert.insert.i.i = or disjoint i64 %.sroa.23.0.insert.ext.i.i, %.sroa.02.0.insert.ext.i.i
-  %53 = getelementptr inbounds i8, ptr %24, i64 24
+  %53 = getelementptr inbounds nuw i8, ptr %24, i64 24
   store i64 %.sroa.02.0.insert.insert.i.i, ptr %53, align 8
   ret { ptr, i32 } %.fca.1.insert.i.i
 }
@@ -5943,9 +5943,9 @@ _ZN4llvm3rdf7RefNode9setRegRefENS0_11RegisterRefERNS0_13DataFlowGraphE.exit: ; p
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local { ptr, i32 } @_ZN4llvm3rdf13DataFlowGraph6newPhiENS0_8NodeAddrIPNS0_9BlockNodeEEE(ptr noundef nonnull align 8 dereferenceable(736) %0, ptr %1, i32 %2) local_unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 280
-  %5 = getelementptr inbounds i8, ptr %0, i64 304
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 312
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %8 = load ptr, ptr %7, align 8
   %9 = icmp eq ptr %6, %8
   br i1 %9, label %_ZN4llvm3rdf13NodeAllocator12needNewBlockEv.exit.thread.i.i, label %_ZN4llvm3rdf13NodeAllocator12needNewBlockEv.exit.i.i
@@ -5953,7 +5953,7 @@ define dso_local { ptr, i32 } @_ZN4llvm3rdf13DataFlowGraph6newPhiENS0_8NodeAddrI
 _ZN4llvm3rdf13NodeAllocator12needNewBlockEv.exit.i.i: ; preds = %3
   %10 = getelementptr inbounds i8, ptr %8, i64 -8
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 296
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 296
   %13 = load ptr, ptr %12, align 8
   %14 = ptrtoint ptr %13 to i64
   %15 = ptrtoint ptr %11 to i64
@@ -5968,7 +5968,7 @@ _ZN4llvm3rdf13NodeAllocator12needNewBlockEv.exit.thread.i.i: ; preds = %_ZN4llvm
   tail call void @_ZN4llvm3rdf13NodeAllocator13startNewBlockEv(ptr noundef nonnull align 8 dereferenceable(144) %4)
   %.pre.i.i = load ptr, ptr %7, align 8
   %.pre4.i.i = load ptr, ptr %5, align 8
-  %.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %0, i64 296
+  %.phi.trans.insert.i.i = getelementptr inbounds nuw i8, ptr %0, i64 296
   %.pre5.i.i = load ptr, ptr %.phi.trans.insert.i.i, align 8
   %.pre6.i.i = ptrtoint ptr %.pre5.i.i to i64
   br label %_ZN4llvm3rdf13DataFlowGraph7newNodeEt.exit
@@ -5984,7 +5984,7 @@ _ZN4llvm3rdf13DataFlowGraph7newNodeEt.exit:       ; preds = %_ZN4llvm3rdf13NodeA
   %26 = lshr exact i64 %25, 3
   %27 = trunc i64 %26 to i32
   %28 = add i32 %27, -1
-  %29 = getelementptr inbounds i8, ptr %0, i64 296
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 296
   %30 = zext i32 %28 to i64
   %31 = getelementptr inbounds ptr, ptr %21, i64 %30
   %32 = load ptr, ptr %31, align 8
@@ -5992,7 +5992,7 @@ _ZN4llvm3rdf13DataFlowGraph7newNodeEt.exit:       ; preds = %_ZN4llvm3rdf13NodeA
   %34 = sub i64 %.pre-phi.i.i, %33
   %35 = sdiv i64 %34, 32
   %36 = trunc i64 %35 to i32
-  %37 = getelementptr inbounds i8, ptr %0, i64 284
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 284
   %38 = load i32, ptr %37, align 4
   %39 = shl i32 %28, %38
   %40 = or i32 %39, %36
@@ -6010,9 +6010,9 @@ _ZN4llvm3rdf13DataFlowGraph7newNodeEt.exit:       ; preds = %_ZN4llvm3rdf13NodeA
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local { ptr, i32 } @_ZN4llvm3rdf13DataFlowGraph7newStmtENS0_8NodeAddrIPNS0_9BlockNodeEEEPNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(736) %0, ptr %1, i32 %2, ptr noundef %3) local_unnamed_addr #0 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 280
-  %6 = getelementptr inbounds i8, ptr %0, i64 304
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 312
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %9 = load ptr, ptr %8, align 8
   %10 = icmp eq ptr %7, %9
   br i1 %10, label %_ZN4llvm3rdf13NodeAllocator12needNewBlockEv.exit.thread.i.i, label %_ZN4llvm3rdf13NodeAllocator12needNewBlockEv.exit.i.i
@@ -6020,7 +6020,7 @@ define dso_local { ptr, i32 } @_ZN4llvm3rdf13DataFlowGraph7newStmtENS0_8NodeAddr
 _ZN4llvm3rdf13NodeAllocator12needNewBlockEv.exit.i.i: ; preds = %4
   %11 = getelementptr inbounds i8, ptr %9, i64 -8
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 296
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 296
   %14 = load ptr, ptr %13, align 8
   %15 = ptrtoint ptr %14 to i64
   %16 = ptrtoint ptr %12 to i64
@@ -6035,7 +6035,7 @@ _ZN4llvm3rdf13NodeAllocator12needNewBlockEv.exit.thread.i.i: ; preds = %_ZN4llvm
   tail call void @_ZN4llvm3rdf13NodeAllocator13startNewBlockEv(ptr noundef nonnull align 8 dereferenceable(144) %5)
   %.pre.i.i = load ptr, ptr %8, align 8
   %.pre4.i.i = load ptr, ptr %6, align 8
-  %.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %0, i64 296
+  %.phi.trans.insert.i.i = getelementptr inbounds nuw i8, ptr %0, i64 296
   %.pre5.i.i = load ptr, ptr %.phi.trans.insert.i.i, align 8
   %.pre6.i.i = ptrtoint ptr %.pre5.i.i to i64
   br label %_ZN4llvm3rdf13DataFlowGraph7newNodeEt.exit
@@ -6051,7 +6051,7 @@ _ZN4llvm3rdf13DataFlowGraph7newNodeEt.exit:       ; preds = %_ZN4llvm3rdf13NodeA
   %27 = lshr exact i64 %26, 3
   %28 = trunc i64 %27 to i32
   %29 = add i32 %28, -1
-  %30 = getelementptr inbounds i8, ptr %0, i64 296
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 296
   %31 = zext i32 %29 to i64
   %32 = getelementptr inbounds ptr, ptr %22, i64 %31
   %33 = load ptr, ptr %32, align 8
@@ -6059,7 +6059,7 @@ _ZN4llvm3rdf13DataFlowGraph7newNodeEt.exit:       ; preds = %_ZN4llvm3rdf13NodeA
   %35 = sub i64 %.pre-phi.i.i, %34
   %36 = sdiv i64 %35, 32
   %37 = trunc i64 %36 to i32
-  %38 = getelementptr inbounds i8, ptr %0, i64 284
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 284
   %39 = load i32, ptr %38, align 4
   %40 = shl i32 %29, %39
   %41 = or i32 %40, %37
@@ -6070,7 +6070,7 @@ _ZN4llvm3rdf13DataFlowGraph7newNodeEt.exit:       ; preds = %_ZN4llvm3rdf13NodeA
   store i16 17, ptr %21, align 8
   %44 = getelementptr inbounds nuw i8, ptr %21, i64 8
   store ptr %3, ptr %44, align 8
-  %45 = getelementptr inbounds i8, ptr %1, i64 20
+  %45 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %46 = load i32, ptr %45, align 4
   %47 = icmp eq i32 %46, 0
   br i1 %47, label %65, label %48
@@ -6079,7 +6079,7 @@ _ZN4llvm3rdf13DataFlowGraph7newNodeEt.exit:       ; preds = %_ZN4llvm3rdf13NodeA
   %49 = add i32 %46, -1
   %50 = load i32, ptr %38, align 4
   %51 = lshr i32 %49, %50
-  %52 = getelementptr inbounds i8, ptr %0, i64 288
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 288
   %53 = load i32, ptr %52, align 8
   %54 = and i32 %53, %49
   %55 = shl i32 %54, 5
@@ -6099,7 +6099,7 @@ _ZN4llvm3rdf13DataFlowGraph7newNodeEt.exit:       ; preds = %_ZN4llvm3rdf13NodeA
   br label %_ZN4llvm3rdf8NodeBase6appendENS0_8NodeAddrIPS1_EE.exit.sink.split.i
 
 65:                                               ; preds = %_ZN4llvm3rdf13DataFlowGraph7newNodeEt.exit
-  %66 = getelementptr inbounds i8, ptr %1, i64 16
+  %66 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store i32 %42, ptr %66, align 8
   %67 = ptrtoint ptr %1 to i64
   %68 = load ptr, ptr %8, align 8
@@ -6155,9 +6155,9 @@ _ZN4llvm3rdf8CodeNode9addMemberENS0_8NodeAddrIPNS0_8NodeBaseEEERKNS0_13DataFlowG
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local { ptr, i32 } @_ZN4llvm3rdf13DataFlowGraph8newBlockENS0_8NodeAddrIPNS0_8FuncNodeEEEPNS_17MachineBasicBlockE(ptr noundef nonnull align 8 dereferenceable(736) %0, ptr %1, i32 %2, ptr noundef %3) local_unnamed_addr #0 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 280
-  %6 = getelementptr inbounds i8, ptr %0, i64 304
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 312
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %9 = load ptr, ptr %8, align 8
   %10 = icmp eq ptr %7, %9
   br i1 %10, label %_ZN4llvm3rdf13NodeAllocator12needNewBlockEv.exit.thread.i.i, label %_ZN4llvm3rdf13NodeAllocator12needNewBlockEv.exit.i.i
@@ -6165,7 +6165,7 @@ define dso_local { ptr, i32 } @_ZN4llvm3rdf13DataFlowGraph8newBlockENS0_8NodeAdd
 _ZN4llvm3rdf13NodeAllocator12needNewBlockEv.exit.i.i: ; preds = %4
   %11 = getelementptr inbounds i8, ptr %9, i64 -8
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 296
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 296
   %14 = load ptr, ptr %13, align 8
   %15 = ptrtoint ptr %14 to i64
   %16 = ptrtoint ptr %12 to i64
@@ -6180,7 +6180,7 @@ _ZN4llvm3rdf13NodeAllocator12needNewBlockEv.exit.thread.i.i: ; preds = %_ZN4llvm
   tail call void @_ZN4llvm3rdf13NodeAllocator13startNewBlockEv(ptr noundef nonnull align 8 dereferenceable(144) %5)
   %.pre.i.i = load ptr, ptr %8, align 8
   %.pre4.i.i = load ptr, ptr %6, align 8
-  %.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %0, i64 296
+  %.phi.trans.insert.i.i = getelementptr inbounds nuw i8, ptr %0, i64 296
   %.pre5.i.i = load ptr, ptr %.phi.trans.insert.i.i, align 8
   %.pre6.i.i = ptrtoint ptr %.pre5.i.i to i64
   br label %_ZN4llvm3rdf13DataFlowGraph7newNodeEt.exit
@@ -6196,7 +6196,7 @@ _ZN4llvm3rdf13DataFlowGraph7newNodeEt.exit:       ; preds = %_ZN4llvm3rdf13NodeA
   %27 = lshr exact i64 %26, 3
   %28 = trunc i64 %27 to i32
   %29 = add i32 %28, -1
-  %30 = getelementptr inbounds i8, ptr %0, i64 296
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 296
   %31 = zext i32 %29 to i64
   %32 = getelementptr inbounds ptr, ptr %22, i64 %31
   %33 = load ptr, ptr %32, align 8
@@ -6204,7 +6204,7 @@ _ZN4llvm3rdf13DataFlowGraph7newNodeEt.exit:       ; preds = %_ZN4llvm3rdf13NodeA
   %35 = sub i64 %.pre-phi.i.i, %34
   %36 = sdiv i64 %35, 32
   %37 = trunc i64 %36 to i32
-  %38 = getelementptr inbounds i8, ptr %0, i64 284
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 284
   %39 = load i32, ptr %38, align 4
   %40 = shl i32 %29, %39
   %41 = or i32 %40, %37
@@ -6215,7 +6215,7 @@ _ZN4llvm3rdf13DataFlowGraph7newNodeEt.exit:       ; preds = %_ZN4llvm3rdf13NodeA
   store i16 21, ptr %21, align 8
   %44 = getelementptr inbounds nuw i8, ptr %21, i64 8
   store ptr %3, ptr %44, align 8
-  %45 = getelementptr inbounds i8, ptr %1, i64 20
+  %45 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %46 = load i32, ptr %45, align 4
   %47 = icmp eq i32 %46, 0
   br i1 %47, label %65, label %48
@@ -6224,7 +6224,7 @@ _ZN4llvm3rdf13DataFlowGraph7newNodeEt.exit:       ; preds = %_ZN4llvm3rdf13NodeA
   %49 = add i32 %46, -1
   %50 = load i32, ptr %38, align 4
   %51 = lshr i32 %49, %50
-  %52 = getelementptr inbounds i8, ptr %0, i64 288
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 288
   %53 = load i32, ptr %52, align 8
   %54 = and i32 %53, %49
   %55 = shl i32 %54, 5
@@ -6244,7 +6244,7 @@ _ZN4llvm3rdf13DataFlowGraph7newNodeEt.exit:       ; preds = %_ZN4llvm3rdf13NodeA
   br label %_ZN4llvm3rdf8NodeBase6appendENS0_8NodeAddrIPS1_EE.exit.sink.split.i
 
 65:                                               ; preds = %_ZN4llvm3rdf13DataFlowGraph7newNodeEt.exit
-  %66 = getelementptr inbounds i8, ptr %1, i64 16
+  %66 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store i32 %42, ptr %66, align 8
   %67 = ptrtoint ptr %1 to i64
   %68 = load ptr, ptr %8, align 8
@@ -6300,9 +6300,9 @@ _ZN4llvm3rdf8CodeNode9addMemberENS0_8NodeAddrIPNS0_8NodeBaseEEERKNS0_13DataFlowG
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local { ptr, i32 } @_ZN4llvm3rdf13DataFlowGraph7newFuncEPNS_15MachineFunctionE(ptr noundef nonnull align 8 dereferenceable(736) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 280
-  %4 = getelementptr inbounds i8, ptr %0, i64 304
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 312
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %5, %7
   br i1 %8, label %_ZN4llvm3rdf13NodeAllocator12needNewBlockEv.exit.thread.i.i, label %_ZN4llvm3rdf13NodeAllocator12needNewBlockEv.exit.i.i
@@ -6310,7 +6310,7 @@ define dso_local { ptr, i32 } @_ZN4llvm3rdf13DataFlowGraph7newFuncEPNS_15Machine
 _ZN4llvm3rdf13NodeAllocator12needNewBlockEv.exit.i.i: ; preds = %2
   %9 = getelementptr inbounds i8, ptr %7, i64 -8
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 296
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 296
   %12 = load ptr, ptr %11, align 8
   %13 = ptrtoint ptr %12 to i64
   %14 = ptrtoint ptr %10 to i64
@@ -6325,7 +6325,7 @@ _ZN4llvm3rdf13NodeAllocator12needNewBlockEv.exit.thread.i.i: ; preds = %_ZN4llvm
   tail call void @_ZN4llvm3rdf13NodeAllocator13startNewBlockEv(ptr noundef nonnull align 8 dereferenceable(144) %3)
   %.pre.i.i = load ptr, ptr %6, align 8
   %.pre4.i.i = load ptr, ptr %4, align 8
-  %.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %0, i64 296
+  %.phi.trans.insert.i.i = getelementptr inbounds nuw i8, ptr %0, i64 296
   %.pre5.i.i = load ptr, ptr %.phi.trans.insert.i.i, align 8
   %.pre6.i.i = ptrtoint ptr %.pre5.i.i to i64
   br label %_ZN4llvm3rdf13DataFlowGraph7newNodeEt.exit
@@ -6341,7 +6341,7 @@ _ZN4llvm3rdf13DataFlowGraph7newNodeEt.exit:       ; preds = %_ZN4llvm3rdf13NodeA
   %25 = lshr exact i64 %24, 3
   %26 = trunc i64 %25 to i32
   %27 = add i32 %26, -1
-  %28 = getelementptr inbounds i8, ptr %0, i64 296
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 296
   %29 = zext i32 %27 to i64
   %30 = getelementptr inbounds ptr, ptr %20, i64 %29
   %31 = load ptr, ptr %30, align 8
@@ -6349,7 +6349,7 @@ _ZN4llvm3rdf13DataFlowGraph7newNodeEt.exit:       ; preds = %_ZN4llvm3rdf13NodeA
   %33 = sub i64 %.pre-phi.i.i, %32
   %34 = sdiv i64 %33, 32
   %35 = trunc i64 %34 to i32
-  %36 = getelementptr inbounds i8, ptr %0, i64 284
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 284
   %37 = load i32, ptr %36, align 4
   %38 = shl i32 %27, %37
   %39 = or i32 %38, %35
@@ -6392,11 +6392,11 @@ define dso_local void @_ZN4llvm3rdf13DataFlowGraph5buildERKNS1_6ConfigE(ptr noun
   %25 = alloca %"struct.llvm::rdf::RegisterAggr::ref_iterator", align 8
   %26 = alloca %"struct.llvm::rdf::RegisterAggrMap", align 8
   %27 = alloca %"class.std::unordered_map", align 8
-  %28 = getelementptr inbounds i8, ptr %0, i64 328
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 328
   tail call void @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm65536ELm65536ELm128EE5ResetEv(ptr noundef nonnull align 8 dereferenceable(96) %28)
-  %29 = getelementptr inbounds i8, ptr %0, i64 304
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %0, i64 312
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %32 = load ptr, ptr %31, align 8
   %.not.i.i.i.i = icmp eq ptr %32, %30
   br i1 %.not.i.i.i.i, label %_ZN4llvm3rdf13DataFlowGraph5resetEv.exit, label %33
@@ -6406,7 +6406,7 @@ define dso_local void @_ZN4llvm3rdf13DataFlowGraph5buildERKNS1_6ConfigE(ptr noun
   br label %_ZN4llvm3rdf13DataFlowGraph5resetEv.exit
 
 _ZN4llvm3rdf13DataFlowGraph5resetEv.exit:         ; preds = %2, %33
-  %34 = getelementptr inbounds i8, ptr %0, i64 296
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 296
   store ptr null, ptr %34, align 8
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 424
   %36 = getelementptr inbounds i8, ptr %0, i64 440
@@ -6433,10 +6433,10 @@ _ZN4llvm3rdf13DataFlowGraph5resetEv.exit:         ; preds = %2, %33
   %48 = getelementptr inbounds i8, ptr %0, i64 656
   store i64 0, ptr %48, align 8
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 664
-  %50 = getelementptr inbounds i8, ptr %0, i64 728
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 728
   store i32 0, ptr %50, align 8
   %51 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %49) #22
-  %52 = getelementptr inbounds i8, ptr %0, i64 672
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 672
   store i32 0, ptr %52, align 8
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 264
   store ptr null, ptr %53, align 8
@@ -6450,7 +6450,7 @@ _ZN4llvm3rdf13DataFlowGraph5resetEv.exit:         ; preds = %2, %33
   %59 = load ptr, ptr %58, align 8
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 384
   %61 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15SmallVectorImplImEaSERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %49, ptr noundef nonnull align 8 dereferenceable(16) %60)
-  %62 = getelementptr inbounds i8, ptr %59, i64 448
+  %62 = getelementptr inbounds nuw i8, ptr %59, i64 448
   %63 = load i32, ptr %62, align 8
   store i32 %63, ptr %50, align 8
   %64 = load i32, ptr %54, align 8
@@ -6472,7 +6472,7 @@ _ZN4llvm3rdf13DataFlowGraph5resetEv.exit:         ; preds = %2, %33
   store ptr %70, ptr %73, align 8
   %74 = getelementptr inbounds i8, ptr %13, i64 40
   store i64 0, ptr %74, align 8
-  %75 = getelementptr inbounds i8, ptr %0, i64 504
+  %75 = getelementptr inbounds nuw i8, ptr %0, i64 504
   %76 = call noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseIjE5emptyEv(ptr noundef nonnull align 8 dereferenceable(16) %75) #22
   br i1 %76, label %77, label %103
 
@@ -6788,7 +6788,7 @@ _ZN4llvm3rdf13DataFlowGraph7newFuncEPNS_15MachineFunctionE.exit: ; preds = %_ZN4
   %217 = sub i64 %.pre-phi.i.i.i, %216
   %218 = sdiv i64 %217, 32
   %219 = trunc i64 %218 to i32
-  %220 = getelementptr inbounds i8, ptr %0, i64 284
+  %220 = getelementptr inbounds nuw i8, ptr %0, i64 284
   %221 = load i32, ptr %220, align 4
   %222 = shl i32 %212, %221
   %223 = or i32 %222, %219
@@ -6808,7 +6808,7 @@ _ZN4llvm3rdf13DataFlowGraph7newFuncEPNS_15MachineFunctionE.exit: ; preds = %_ZN4
   br i1 %230, label %_ZN4llvm11SmallVectorINS_3rdf8NodeAddrIPNS1_8NodeBaseEEELj4EED2Ev.exit365, label %231
 
 231:                                              ; preds = %_ZN4llvm3rdf13DataFlowGraph7newFuncEPNS_15MachineFunctionE.exit
-  %232 = getelementptr inbounds i8, ptr %227, i64 328
+  %232 = getelementptr inbounds nuw i8, ptr %227, i64 328
   %.sroa.0483.0560 = load ptr, ptr %232, align 8
   %.not514561 = icmp eq ptr %.sroa.0483.0560, %228
   br i1 %.not514561, label %._crit_edge565, label %.lr.ph564
@@ -6890,7 +6890,7 @@ _ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEppEv.exit: ; preds =
   %254 = phi ptr [ %.pre, %._crit_edge565.loopexit ], [ %204, %231 ]
   %255 = getelementptr inbounds nuw i8, ptr %254, i64 8
   %256 = load ptr, ptr %255, align 8
-  %257 = getelementptr inbounds i8, ptr %256, i64 328
+  %257 = getelementptr inbounds nuw i8, ptr %256, i64 328
   %258 = load ptr, ptr %257, align 8
   %259 = call { ptr, i32 } @_ZNK4llvm3rdf8FuncNode9findBlockEPKNS_17MachineBasicBlockERKNS0_13DataFlowGraphE(ptr noundef nonnull align 8 dereferenceable(32) %254, ptr noundef nonnull %258, ptr noundef nonnull readonly align 8 dereferenceable(736) %0)
   %.fca.0.extract106 = extractvalue { ptr, i32 } %259, 0
@@ -6901,7 +6901,7 @@ _ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEppEv.exit: ; preds =
   %262 = load ptr, ptr %261, align 8
   %263 = getelementptr inbounds nuw i8, ptr %59, i64 488
   %264 = load ptr, ptr %263, align 8
-  %265 = getelementptr inbounds i8, ptr %59, i64 496
+  %265 = getelementptr inbounds nuw i8, ptr %59, i64 496
   %266 = load ptr, ptr %265, align 8
   %.not193566 = icmp eq ptr %264, %266
   br i1 %.not193566, label %._crit_edge570, label %.lr.ph569
@@ -6932,7 +6932,7 @@ _ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEppEv.exit: ; preds =
 
 278:                                              ; preds = %._crit_edge570
   %279 = call ptr @_ZNK4llvm17MachineBasicBlock12livein_beginEv(ptr noundef nonnull align 8 dereferenceable(288) %262) #22
-  %280 = getelementptr inbounds i8, ptr %262, i64 192
+  %280 = getelementptr inbounds nuw i8, ptr %262, i64 192
   %281 = load ptr, ptr %280, align 8
   %.not516571 = icmp eq ptr %279, %281
   br i1 %.not516571, label %.loopexit521, label %.lr.ph574
@@ -7075,7 +7075,7 @@ _ZNSt8_Rb_treeIjSt4pairIKjN4llvm11LaneBitmaskEESt10_Select1stIS4_ESt4lessIjESaIS
 _ZNK4llvm14iterator_rangeINS_3rdf12RegisterAggr12ref_iteratorEE3endEv.exit: ; preds = %_ZNK4llvm14iterator_rangeINS_3rdf12RegisterAggr12ref_iteratorEE5beginEv.exit, %_ZNSt8_Rb_treeIjSt4pairIKjN4llvm11LaneBitmaskEESt10_Select1stIS4_ESt4lessIjESaIS4_EE7_M_copyERKSA_.exit.i.i.i.i241
   %330 = phi ptr [ null, %_ZNK4llvm14iterator_rangeINS_3rdf12RegisterAggr12ref_iteratorEE5beginEv.exit ], [ %321, %_ZNSt8_Rb_treeIjSt4pairIKjN4llvm11LaneBitmaskEESt10_Select1stIS4_ESt4lessIjESaIS4_EE7_M_copyERKSA_.exit.i.i.i.i241 ]
   %331 = getelementptr inbounds nuw i8, ptr %20, i64 48
-  %332 = getelementptr inbounds i8, ptr %18, i64 120
+  %332 = getelementptr inbounds nuw i8, ptr %18, i64 120
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %331, ptr noundef nonnull align 8 dereferenceable(24) %332, i64 24, i1 false)
   %333 = getelementptr inbounds nuw i8, ptr %19, i64 56
   %334 = getelementptr inbounds nuw i8, ptr %20, i64 56
@@ -7090,7 +7090,7 @@ _ZNK4llvm14iterator_rangeINS_3rdf12RegisterAggr12ref_iteratorEE3endEv.exit: ; pr
   %339 = getelementptr inbounds i8, ptr %8, i64 8
   %340 = getelementptr inbounds i8, ptr %8, i64 16
   %341 = getelementptr inbounds nuw i8, ptr %0, i64 472
-  %342 = getelementptr inbounds i8, ptr %0, i64 288
+  %342 = getelementptr inbounds nuw i8, ptr %0, i64 288
   %.pre637 = load ptr, ptr %311, align 8
   br label %382
 
@@ -7212,7 +7212,7 @@ _ZNK4llvm3rdf12RegisterAggr5emptyEv.exit:         ; preds = %.lr.ph.i.i.i.i.i.i.
   %383 = phi ptr [ %.pre637, %.lr.ph576 ], [ %535, %533 ]
   %384 = getelementptr inbounds nuw i8, ptr %383, i64 32
   %385 = load i32, ptr %384, align 8
-  %386 = getelementptr inbounds i8, ptr %383, i64 40
+  %386 = getelementptr inbounds nuw i8, ptr %383, i64 40
   %.sroa.0.0.copyload.i242 = load i64, ptr %386, align 8
   %387 = add i32 %385, -1
   %388 = icmp ult i32 %387, 1073741823
@@ -7391,9 +7391,9 @@ _ZN4llvm3rdf13DataFlowGraph6newDefENS0_8NodeAddrIPNS0_9InstrNodeEEENS0_11Registe
   %482 = add i32 %481, 1
   %.sroa.02.0.insert.ext.i.i.i = zext i32 %385 to i64
   %.sroa.02.0.insert.insert.i.i.i = or disjoint i64 %.sroa.23.0.insert.ext.i.i.i, %.sroa.02.0.insert.ext.i.i.i
-  %483 = getelementptr inbounds i8, ptr %457, i64 24
+  %483 = getelementptr inbounds nuw i8, ptr %457, i64 24
   store i64 %.sroa.02.0.insert.insert.i.i.i, ptr %483, align 8
-  %484 = getelementptr inbounds i8, ptr %424, i64 20
+  %484 = getelementptr inbounds nuw i8, ptr %424, i64 20
   %485 = load i32, ptr %484, align 4
   %486 = icmp eq i32 %485, 0
   br i1 %486, label %503, label %487
@@ -7421,7 +7421,7 @@ _ZN4llvm3rdf13DataFlowGraph6newDefENS0_8NodeAddrIPNS0_9InstrNodeEEENS0_11Registe
   br label %_ZN4llvm3rdf8NodeBase6appendENS0_8NodeAddrIPS1_EE.exit.sink.split.i
 
 503:                                              ; preds = %_ZN4llvm3rdf13DataFlowGraph6newDefENS0_8NodeAddrIPNS0_9InstrNodeEEENS0_11RegisterRefEt.exit
-  %504 = getelementptr inbounds i8, ptr %424, i64 16
+  %504 = getelementptr inbounds nuw i8, ptr %424, i64 16
   store i32 %482, ptr %504, align 8
   %505 = ptrtoint ptr %424 to i64
   %506 = load ptr, ptr %31, align 8
@@ -7510,7 +7510,7 @@ _ZN4llvm3rdf8CodeNode9addMemberENS0_8NodeAddrIPNS0_8NodeBaseEEERKNS0_13DataFlowG
   %560 = getelementptr inbounds i8, ptr %23, i64 88
   %561 = getelementptr inbounds i8, ptr %23, i64 112
   %562 = getelementptr inbounds nuw i8, ptr %25, i64 48
-  %563 = getelementptr inbounds i8, ptr %23, i64 120
+  %563 = getelementptr inbounds nuw i8, ptr %23, i64 120
   %564 = getelementptr inbounds nuw i8, ptr %24, i64 56
   %565 = getelementptr inbounds nuw i8, ptr %25, i64 56
   %566 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -7518,15 +7518,15 @@ _ZN4llvm3rdf8CodeNode9addMemberENS0_8NodeAddrIPNS0_8NodeBaseEEERKNS0_13DataFlowG
   %568 = getelementptr inbounds i8, ptr %3, i64 8
   %569 = getelementptr inbounds i8, ptr %3, i64 16
   %570 = getelementptr inbounds i8, ptr %0, i64 408
-  %571 = getelementptr inbounds i8, ptr %0, i64 336
-  %572 = getelementptr inbounds i8, ptr %0, i64 320
-  %573 = getelementptr inbounds i8, ptr %0, i64 288
+  %571 = getelementptr inbounds nuw i8, ptr %0, i64 336
+  %572 = getelementptr inbounds nuw i8, ptr %0, i64 320
+  %573 = getelementptr inbounds nuw i8, ptr %0, i64 288
   %574 = getelementptr inbounds nuw i8, ptr %0, i64 472
-  %575 = getelementptr inbounds i8, ptr %0, i64 344
+  %575 = getelementptr inbounds nuw i8, ptr %0, i64 344
   %576 = getelementptr inbounds i8, ptr %0, i64 360
-  %577 = getelementptr inbounds i8, ptr %0, i64 392
-  %578 = getelementptr inbounds i8, ptr %0, i64 480
-  %579 = getelementptr inbounds i8, ptr %0, i64 488
+  %577 = getelementptr inbounds nuw i8, ptr %0, i64 392
+  %578 = getelementptr inbounds nuw i8, ptr %0, i64 480
+  %579 = getelementptr inbounds nuw i8, ptr %0, i64 488
   %580 = getelementptr inbounds nuw i8, ptr %23, i64 72
   br label %581
 
@@ -7584,7 +7584,7 @@ _ZNKSt3mapIPN4llvm17MachineBasicBlockENS0_3rdf8NodeAddrIPNS3_9BlockNodeEEESt4les
   unreachable
 
 _ZNK4llvm3rdf13DataFlowGraph9findBlockEPNS_17MachineBasicBlockE.exit: ; preds = %599
-  %603 = getelementptr inbounds i8, ptr %.19.i.i.i.i.i, i64 40
+  %603 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i.i, i64 40
   %.sroa.0.0.copyload.i271 = load ptr, ptr %603, align 8
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %.19.i.i.i.i.i, i64 48
   %.sroa.2.0.copyload.i = load i32, ptr %.sroa.2.0..sroa_idx.i, align 8
@@ -7719,8 +7719,8 @@ _ZNK4llvm14iterator_rangeINS_3rdf12RegisterAggr12ref_iteratorEE3endEv.exit291: ;
   br i1 %.not518602, label %._crit_edge604, label %.lr.ph603
 
 .lr.ph603:                                        ; preds = %_ZNK4llvm14iterator_rangeINS_3rdf12RegisterAggr12ref_iteratorEE3endEv.exit291
-  %639 = getelementptr inbounds i8, ptr %582, i64 16
-  %640 = getelementptr inbounds i8, ptr %582, i64 20
+  %639 = getelementptr inbounds nuw i8, ptr %582, i64 16
+  %640 = getelementptr inbounds nuw i8, ptr %582, i64 20
   %641 = ptrtoint ptr %582 to i64
   %.pre639 = load ptr, ptr %553, align 8
   br label %650
@@ -7751,7 +7751,7 @@ _ZNK4llvm14iterator_rangeINS_3rdf12RegisterAggr12ref_iteratorEE3endEv.exit291: ;
   %651 = phi ptr [ %.pre639, %.lr.ph603 ], [ %1223, %.loopexit ]
   %652 = getelementptr inbounds nuw i8, ptr %651, i64 32
   %653 = load i32, ptr %652, align 8
-  %654 = getelementptr inbounds i8, ptr %651, i64 40
+  %654 = getelementptr inbounds nuw i8, ptr %651, i64 40
   %.sroa.0.0.copyload.i292 = load i64, ptr %654, align 8
   %655 = add i32 %653, -1
   %656 = icmp ult i32 %655, 1073741823
@@ -8271,9 +8271,9 @@ _ZN4llvm3rdf13DataFlowGraph6newDefENS0_8NodeAddrIPNS0_9InstrNodeEEENS0_11Registe
   %923 = add i32 %922, 1
   %.sroa.02.0.insert.ext.i.i.i330 = zext i32 %653 to i64
   %.sroa.02.0.insert.insert.i.i.i331 = or disjoint i64 %.sroa.23.0.insert.ext.i.i.i327, %.sroa.02.0.insert.ext.i.i.i330
-  %924 = getelementptr inbounds i8, ptr %898, i64 24
+  %924 = getelementptr inbounds nuw i8, ptr %898, i64 24
   store i64 %.sroa.02.0.insert.insert.i.i.i331, ptr %924, align 8
-  %925 = getelementptr inbounds i8, ptr %734, i64 20
+  %925 = getelementptr inbounds nuw i8, ptr %734, i64 20
   %926 = load i32, ptr %925, align 4
   %927 = icmp eq i32 %926, 0
   br i1 %927, label %944, label %928
@@ -8301,7 +8301,7 @@ _ZN4llvm3rdf13DataFlowGraph6newDefENS0_8NodeAddrIPNS0_9InstrNodeEEENS0_11Registe
   br label %_ZN4llvm3rdf8NodeBase6appendENS0_8NodeAddrIPS1_EE.exit.sink.split.i334
 
 944:                                              ; preds = %_ZN4llvm3rdf13DataFlowGraph6newDefENS0_8NodeAddrIPNS0_9InstrNodeEEENS0_11RegisterRefEt.exit332
-  %945 = getelementptr inbounds i8, ptr %734, i64 16
+  %945 = getelementptr inbounds nuw i8, ptr %734, i64 16
   store i32 %923, ptr %945, align 8
   %946 = ptrtoint ptr %734 to i64
   %947 = load ptr, ptr %31, align 8
@@ -8356,7 +8356,7 @@ _ZN4llvm3rdf8CodeNode9addMemberENS0_8NodeAddrIPNS0_8NodeBaseEEERKNS0_13DataFlowG
   br i1 %.not196599, label %.loopexit, label %.lr.ph601
 
 .lr.ph601:                                        ; preds = %_ZN4llvm3rdf8CodeNode9addMemberENS0_8NodeAddrIPNS0_8NodeBaseEEERKNS0_13DataFlowGraphE.exit340
-  %977 = getelementptr inbounds i8, ptr %734, i64 16
+  %977 = getelementptr inbounds nuw i8, ptr %734, i64 16
   %978 = ptrtoint ptr %734 to i64
   br label %979
 
@@ -8780,9 +8780,9 @@ _ZN4llvm3rdf13DataFlowGraph9newPhiUseENS0_8NodeAddrIPNS0_7PhiNodeEEENS0_11Regist
   %1171 = or i32 %1166, %1170
   %1172 = add i32 %1171, 1
   %.sroa.02.0.insert.insert.i.i.i355 = or disjoint i64 %.sroa.23.0.insert.ext.i.i.i351, %.sroa.02.0.insert.ext.i.i.i330
-  %1173 = getelementptr inbounds i8, ptr %1074, i64 24
+  %1173 = getelementptr inbounds nuw i8, ptr %1074, i64 24
   store i64 %.sroa.02.0.insert.insert.i.i.i355, ptr %1173, align 8
-  %1174 = getelementptr inbounds i8, ptr %1074, i64 16
+  %1174 = getelementptr inbounds nuw i8, ptr %1074, i64 16
   store i32 %981, ptr %1174, align 8
   %1175 = load i32, ptr %925, align 4
   %1176 = icmp eq i32 %1175, 0
@@ -8942,7 +8942,7 @@ _ZNK4llvm3rdf12RegisterAggr5emptyEv.exit.thread:  ; preds = %_ZN4llvm11SmallVect
   %1258 = getelementptr inbounds nuw i8, ptr %27, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1257, i8 0, i64 16, i1 false)
   store float 1.000000e+00, ptr %1258, align 8
-  %1259 = getelementptr inbounds i8, ptr %27, i64 40
+  %1259 = getelementptr inbounds nuw i8, ptr %27, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1259, i8 0, i64 16, i1 false)
   call void @_ZN4llvm3rdf13DataFlowGraph13linkBlockRefsERSt13unordered_mapIjNS1_8DefStackESt4hashIjESt8equal_toIjESaISt4pairIKjS3_EEENS0_8NodeAddrIPNS0_9BlockNodeEEE(ptr noundef nonnull align 8 dereferenceable(736) %0, ptr noundef nonnull align 8 dereferenceable(56) %27, ptr nonnull %.fca.0.extract106, i32 %.fca.1.extract107)
   %1260 = load i32, ptr %54, align 8
@@ -9038,11 +9038,11 @@ _ZN4llvm11SmallVectorINS_3rdf8NodeAddrIPNS1_8NodeBaseEEELj4EED2Ev.exit365: ; pre
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN4llvm3rdf13DataFlowGraph5resetEv(ptr noundef nonnull align 8 dereferenceable(736) %0) local_unnamed_addr #0 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 328
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 328
   tail call void @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm65536ELm65536ELm128EE5ResetEv(ptr noundef nonnull align 8 dereferenceable(96) %2)
-  %3 = getelementptr inbounds i8, ptr %0, i64 304
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 312
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %6 = load ptr, ptr %5, align 8
   %.not.i.i.i = icmp eq ptr %6, %4
   br i1 %.not.i.i.i, label %_ZN4llvm3rdf13NodeAllocator5clearEv.exit, label %7
@@ -9052,7 +9052,7 @@ define dso_local void @_ZN4llvm3rdf13DataFlowGraph5resetEv(ptr noundef nonnull a
   br label %_ZN4llvm3rdf13NodeAllocator5clearEv.exit
 
 _ZN4llvm3rdf13NodeAllocator5clearEv.exit:         ; preds = %1, %7
-  %8 = getelementptr inbounds i8, ptr %0, i64 296
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 296
   store ptr null, ptr %8, align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 424
   %10 = getelementptr inbounds i8, ptr %0, i64 440
@@ -9079,10 +9079,10 @@ _ZN4llvm3rdf13NodeAllocator5clearEv.exit:         ; preds = %1, %7
   %22 = getelementptr inbounds i8, ptr %0, i64 656
   store i64 0, ptr %22, align 8
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 664
-  %24 = getelementptr inbounds i8, ptr %0, i64 728
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 728
   store i32 0, ptr %24, align 8
   %25 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %23) #22
-  %26 = getelementptr inbounds i8, ptr %0, i64 672
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 672
   store i32 0, ptr %26, align 8
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 264
   store ptr null, ptr %27, align 8
@@ -9225,7 +9225,7 @@ _ZNSt3mapIPN4llvm17MachineBasicBlockENS0_3rdf8NodeAddrIPNS3_9BlockNodeEEESt4less
   %14 = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #25
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 32
   store ptr %.pre, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %14, i64 40
+  %16 = getelementptr inbounds nuw i8, ptr %14, i64 40
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %16, ptr noundef nonnull align 8 dereferenceable(16) %17, i64 16, i1 false)
   %18 = tail call { ptr, ptr } @_ZNSt8_Rb_treeIPN4llvm17MachineBasicBlockESt4pairIKS2_NS0_3rdf8NodeAddrIPNS5_9BlockNodeEEEESt10_Select1stISA_ESt4lessIS2_ESaISA_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorISA_ERS4_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %.08.lcssa.i.i.i13, ptr noundef nonnull align 8 dereferenceable(8) %15)
@@ -9404,13 +9404,13 @@ _ZNK4llvm12MachineInstr16isIndirectBranchENS0_9QueryTypeE.exit.i: ; preds = %._c
   %78 = getelementptr inbounds i8, ptr %8, i64 16
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %80 = getelementptr inbounds nuw i8, ptr %0, i64 280
-  %81 = getelementptr inbounds i8, ptr %0, i64 304
-  %82 = getelementptr inbounds i8, ptr %0, i64 312
-  %83 = getelementptr inbounds i8, ptr %0, i64 296
-  %84 = getelementptr inbounds i8, ptr %0, i64 284
-  %85 = getelementptr inbounds i8, ptr %.fca.0.extract93, i64 20
-  %86 = getelementptr inbounds i8, ptr %0, i64 288
-  %87 = getelementptr inbounds i8, ptr %.fca.0.extract93, i64 16
+  %81 = getelementptr inbounds nuw i8, ptr %0, i64 304
+  %82 = getelementptr inbounds nuw i8, ptr %0, i64 312
+  %83 = getelementptr inbounds nuw i8, ptr %0, i64 296
+  %84 = getelementptr inbounds nuw i8, ptr %0, i64 284
+  %85 = getelementptr inbounds nuw i8, ptr %.fca.0.extract93, i64 20
+  %86 = getelementptr inbounds nuw i8, ptr %0, i64 288
+  %87 = getelementptr inbounds nuw i8, ptr %.fca.0.extract93, i64 16
   %88 = ptrtoint ptr %.fca.0.extract93 to i64
   %wide.trip.count = zext i24 %62 to i64
   br label %89
@@ -9644,7 +9644,7 @@ _ZN4llvm3rdf13DataFlowGraph6newDefENS0_8NodeAddrIPNS0_9InstrNodeEEERNS_14Machine
   store ptr %212, ptr %83, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %191, i8 0, i64 24, i1 false)
   store i16 %194, ptr %191, align 8
-  %213 = getelementptr inbounds i8, ptr %191, i64 24
+  %213 = getelementptr inbounds nuw i8, ptr %191, i64 24
   store ptr %91, ptr %213, align 8
   %214 = load i32, ptr %85, align 4
   %215 = icmp eq i32 %214, 0
@@ -9753,13 +9753,13 @@ _ZN4llvm3rdf8CodeNode9addMemberENS0_8NodeAddrIPNS0_8NodeBaseEEERKNS0_13DataFlowG
 .lr.ph340:                                        ; preds = %._crit_edge
   %278 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %279 = getelementptr inbounds nuw i8, ptr %0, i64 280
-  %280 = getelementptr inbounds i8, ptr %0, i64 304
-  %281 = getelementptr inbounds i8, ptr %0, i64 312
-  %282 = getelementptr inbounds i8, ptr %0, i64 296
-  %283 = getelementptr inbounds i8, ptr %0, i64 284
-  %284 = getelementptr inbounds i8, ptr %.fca.0.extract93, i64 20
-  %285 = getelementptr inbounds i8, ptr %0, i64 288
-  %286 = getelementptr inbounds i8, ptr %.fca.0.extract93, i64 16
+  %280 = getelementptr inbounds nuw i8, ptr %0, i64 304
+  %281 = getelementptr inbounds nuw i8, ptr %0, i64 312
+  %282 = getelementptr inbounds nuw i8, ptr %0, i64 296
+  %283 = getelementptr inbounds nuw i8, ptr %0, i64 284
+  %284 = getelementptr inbounds nuw i8, ptr %.fca.0.extract93, i64 20
+  %285 = getelementptr inbounds nuw i8, ptr %0, i64 288
+  %286 = getelementptr inbounds nuw i8, ptr %.fca.0.extract93, i64 16
   %287 = ptrtoint ptr %.fca.0.extract93 to i64
   %288 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %289 = getelementptr inbounds i8, ptr %7, i64 24
@@ -9780,13 +9780,13 @@ _ZN4llvm3rdf8CodeNode9addMemberENS0_8NodeAddrIPNS0_8NodeBaseEEERKNS0_13DataFlowG
   %300 = getelementptr inbounds i8, ptr %6, i64 16
   %301 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %302 = getelementptr inbounds nuw i8, ptr %0, i64 280
-  %303 = getelementptr inbounds i8, ptr %0, i64 304
-  %304 = getelementptr inbounds i8, ptr %0, i64 312
-  %305 = getelementptr inbounds i8, ptr %0, i64 296
-  %306 = getelementptr inbounds i8, ptr %0, i64 284
-  %307 = getelementptr inbounds i8, ptr %.fca.0.extract93, i64 20
-  %308 = getelementptr inbounds i8, ptr %0, i64 288
-  %309 = getelementptr inbounds i8, ptr %.fca.0.extract93, i64 16
+  %303 = getelementptr inbounds nuw i8, ptr %0, i64 304
+  %304 = getelementptr inbounds nuw i8, ptr %0, i64 312
+  %305 = getelementptr inbounds nuw i8, ptr %0, i64 296
+  %306 = getelementptr inbounds nuw i8, ptr %0, i64 284
+  %307 = getelementptr inbounds nuw i8, ptr %.fca.0.extract93, i64 20
+  %308 = getelementptr inbounds nuw i8, ptr %0, i64 288
+  %309 = getelementptr inbounds nuw i8, ptr %.fca.0.extract93, i64 16
   %310 = ptrtoint ptr %.fca.0.extract93 to i64
   %wide.trip.count364 = zext i24 %62 to i64
   br label %462
@@ -9853,7 +9853,7 @@ _ZN4llvm3rdf13DataFlowGraph6newDefENS0_8NodeAddrIPNS0_9InstrNodeEEERNS_14Machine
   store ptr %350, ptr %282, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %330, i8 0, i64 24, i1 false)
   store i16 2630, ptr %330, align 8
-  %351 = getelementptr inbounds i8, ptr %330, i64 24
+  %351 = getelementptr inbounds nuw i8, ptr %330, i64 24
   store ptr %313, ptr %351, align 8
   %352 = load i32, ptr %284, align 4
   %353 = icmp eq i32 %352, 0
@@ -10033,13 +10033,13 @@ _ZNK4llvm3rdf13DataFlowGraph9isTrackedENS0_11RegisterRefE.exit175.thread: ; pred
   %451 = getelementptr inbounds i8, ptr %5, i64 16
   %452 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %453 = getelementptr inbounds nuw i8, ptr %0, i64 280
-  %454 = getelementptr inbounds i8, ptr %0, i64 304
-  %455 = getelementptr inbounds i8, ptr %0, i64 312
-  %456 = getelementptr inbounds i8, ptr %0, i64 296
-  %457 = getelementptr inbounds i8, ptr %0, i64 284
-  %458 = getelementptr inbounds i8, ptr %.fca.0.extract93, i64 20
-  %459 = getelementptr inbounds i8, ptr %0, i64 288
-  %460 = getelementptr inbounds i8, ptr %.fca.0.extract93, i64 16
+  %454 = getelementptr inbounds nuw i8, ptr %0, i64 304
+  %455 = getelementptr inbounds nuw i8, ptr %0, i64 312
+  %456 = getelementptr inbounds nuw i8, ptr %0, i64 296
+  %457 = getelementptr inbounds nuw i8, ptr %0, i64 284
+  %458 = getelementptr inbounds nuw i8, ptr %.fca.0.extract93, i64 20
+  %459 = getelementptr inbounds nuw i8, ptr %0, i64 288
+  %460 = getelementptr inbounds nuw i8, ptr %.fca.0.extract93, i64 16
   %461 = ptrtoint ptr %.fca.0.extract93 to i64
   %wide.trip.count369 = zext i24 %62 to i64
   br label %654
@@ -10296,7 +10296,7 @@ _ZN4llvm3rdf13DataFlowGraph6newDefENS0_8NodeAddrIPNS0_9InstrNodeEEERNS_14Machine
   store ptr %601, ptr %305, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %580, i8 0, i64 24, i1 false)
   store i16 %583, ptr %580, align 8
-  %602 = getelementptr inbounds i8, ptr %580, i64 24
+  %602 = getelementptr inbounds nuw i8, ptr %580, i64 24
   store ptr %464, ptr %602, align 8
   %603 = load i32, ptr %307, align 4
   %604 = icmp eq i32 %603, 0
@@ -10514,7 +10514,7 @@ _ZN4llvm3rdf13DataFlowGraph6newUseENS0_8NodeAddrIPNS0_9InstrNodeEEERNS_14Machine
   store ptr %729, ptr %456, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %708, i8 0, i64 24, i1 false)
   store i16 %711, ptr %708, align 8
-  %730 = getelementptr inbounds i8, ptr %708, i64 24
+  %730 = getelementptr inbounds nuw i8, ptr %708, i64 24
   store ptr %656, ptr %730, align 8
   %731 = load i32, ptr %458, align 4
   %732 = icmp eq i32 %731, 0
@@ -10688,7 +10688,7 @@ define dso_local void @_ZN4llvm3rdf13DataFlowGraph15recordDefsForDFERNS0_15Regis
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 56
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %14, i64 72
+  %17 = getelementptr inbounds nuw i8, ptr %14, i64 72
   %18 = load i32, ptr %17, align 8
   %19 = icmp eq i32 %18, 0
   br i1 %19, label %.loopexit.i.i.i, label %20
@@ -10737,7 +10737,7 @@ _ZNK4llvm24MachineDominanceFrontier4findEPNS_17MachineBasicBlockE.exit: ; preds 
   br i1 %44, label %.critedge, label %45
 
 45:                                               ; preds = %_ZNK4llvm24MachineDominanceFrontier4findEPNS_17MachineBasicBlockE.exit
-  %46 = getelementptr inbounds i8, ptr %.0.i.i.pn.i.i.i, i64 32
+  %46 = getelementptr inbounds nuw i8, ptr %.0.i.i.pn.i.i.i, i64 32
   %47 = tail call noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseIjE5emptyEv(ptr noundef nonnull align 8 dereferenceable(16) %46) #22
   br i1 %47, label %.critedge, label %48
 
@@ -10765,12 +10765,12 @@ _ZNK4llvm24MachineDominanceFrontier4findEPNS_17MachineBasicBlockE.exit: ; preds 
 
 .lr.ph115:                                        ; preds = %48
   %62 = getelementptr inbounds i8, ptr %9, i64 16
-  %63 = getelementptr inbounds i8, ptr %0, i64 284
-  %64 = getelementptr inbounds i8, ptr %0, i64 288
-  %65 = getelementptr inbounds i8, ptr %0, i64 304
+  %63 = getelementptr inbounds nuw i8, ptr %0, i64 284
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 288
+  %65 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 472
-  %67 = getelementptr inbounds i8, ptr %0, i64 40
-  %68 = getelementptr inbounds i8, ptr %0, i64 48
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %68 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %70 = getelementptr inbounds i8, ptr %6, i64 24
   %71 = getelementptr inbounds i8, ptr %6, i64 8
@@ -10822,7 +10822,7 @@ _ZN4llvm9SetVectorIPNS_17MachineBasicBlockENS_11SmallVectorIS2_Lj0EEENS_8DenseSe
   %90 = load ptr, ptr %.0113, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !93)
   call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull %62, i64 noundef 4) #22
-  %91 = getelementptr inbounds i8, ptr %90, i64 16
+  %91 = getelementptr inbounds nuw i8, ptr %90, i64 16
   %92 = load i32, ptr %91, align 8, !noalias !93
   %93 = icmp eq i32 %92, 0
   br i1 %93, label %_ZNK4llvm3rdf8CodeNode10members_ifIPFbNS0_8NodeAddrIPNS0_8NodeBaseEEEEEENS_11SmallVectorIS6_Lj4EEET_RKNS0_13DataFlowGraphE.exit, label %_ZNK4llvm3rdf8CodeNode14getFirstMemberERKNS0_13DataFlowGraphE.exit.i
@@ -10928,7 +10928,7 @@ _ZN4llvm11SmallVectorINS_3rdf8NodeAddrIPNS1_8NodeBaseEEELj4EED2Ev.exit41: ; pred
   %145 = load i16, ptr %144, align 8
   %146 = and i16 %145, 128
   %.not.i42 = icmp eq i16 %146, 0
-  %147 = getelementptr inbounds i8, ptr %144, i64 24
+  %147 = getelementptr inbounds nuw i8, ptr %144, i64 24
   br i1 %.not.i42, label %157, label %148
 
 148:                                              ; preds = %.lr.ph
@@ -11170,7 +11170,7 @@ _ZNK4llvm3rdf13DataFlowGraph9isTrackedENS0_11RegisterRefE.exit.thread: ; preds =
   %254 = load ptr, ptr %253, align 8
   %255 = getelementptr inbounds nuw i8, ptr %251, i64 56
   %256 = load ptr, ptr %255, align 8
-  %257 = getelementptr inbounds i8, ptr %251, i64 72
+  %257 = getelementptr inbounds nuw i8, ptr %251, i64 72
   %258 = load i32, ptr %257, align 8
   %259 = icmp eq i32 %258, 0
   br i1 %259, label %.loopexit.i.i.i55, label %260
@@ -11219,7 +11219,7 @@ _ZNK4llvm24MachineDominanceFrontier4findEPNS_17MachineBasicBlockE.exit56: ; pred
   br i1 %.not97, label %_ZN4llvm9SetVectorIPNS_17MachineBasicBlockENS_11SmallVectorIS2_Lj0EEENS_8DenseSetIS2_NS_12DenseMapInfoIS2_vEEEELj0EE6insertIPKS2_EEvT_SD_.exit, label %284
 
 284:                                              ; preds = %_ZNK4llvm24MachineDominanceFrontier4findEPNS_17MachineBasicBlockE.exit56
-  %285 = getelementptr inbounds i8, ptr %.0.i.i.pn.i.i.i51, i64 32
+  %285 = getelementptr inbounds nuw i8, ptr %.0.i.i.pn.i.i.i51, i64 32
   %286 = load ptr, ptr %285, align 8
   %287 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %285) #22
   %288 = getelementptr inbounds ptr, ptr %286, i64 %287
@@ -11402,7 +11402,7 @@ _ZNSt3mapIjN4llvm3rdf12RegisterAggrESt4lessIjESaISt4pairIKjS2_EEE11lower_boundER
 
 _ZN4llvm3rdf15RegisterAggrMapIjEixEj.exit:        ; preds = %360, %.critedge.i.i72
   %.sroa.017.0.i.i = phi ptr [ %364, %.critedge.i.i72 ], [ %.19.i.i.i.i.i67, %360 ]
-  %365 = getelementptr inbounds i8, ptr %.sroa.017.0.i.i, i64 40
+  %365 = getelementptr inbounds nuw i8, ptr %.sroa.017.0.i.i, i64 40
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
   %366 = call noundef nonnull align 8 dereferenceable(80) ptr @_ZN4llvm3rdf12RegisterAggr6insertERKS1_(ptr noundef nonnull align 8 dereferenceable(80) %365, ptr noundef nonnull align 8 dereferenceable(80) %7) #22
   %367 = getelementptr inbounds i8, ptr %.037121, i64 8
@@ -11480,7 +11480,7 @@ _ZNK4llvm3rdf15RegisterAggrMapIjE4findERKj.exit:  ; preds = %_ZNKSt8_Rb_treeIjSt
   br i1 %23, label %.critedge, label %24
 
 24:                                               ; preds = %_ZNK4llvm3rdf15RegisterAggrMapIjE4findERKj.exit
-  %25 = getelementptr inbounds i8, ptr %.19.i.i.i.i, i64 40
+  %25 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i, i64 40
   %26 = load ptr, ptr %25, align 8
   %27 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %25) #22
   %.idx2.i.i.i.i = shl nsw i64 %27, 3
@@ -11632,7 +11632,7 @@ _ZNKSt3mapIPN4llvm17MachineBasicBlockENS0_3rdf8NodeAddrIPNS3_9BlockNodeEEESt4les
   unreachable
 
 _ZNK4llvm3rdf13DataFlowGraph9findBlockEPNS_17MachineBasicBlockE.exit: ; preds = %77
-  %81 = getelementptr inbounds i8, ptr %.19.i.i.i.i.i, i64 40
+  %81 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i.i, i64 40
   %.sroa.0.0.copyload.i = load ptr, ptr %81, align 8
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %.19.i.i.i.i.i, i64 48
   %.sroa.2.0.copyload.i = load i32, ptr %.sroa.2.0..sroa_idx.i, align 8
@@ -11698,7 +11698,7 @@ _ZNSt3mapIjN4llvm3rdf12RegisterAggrESt4lessIjESaISt4pairIKjS2_EEE11lower_boundER
 
 _ZN4llvm3rdf15RegisterAggrMapIjEixEj.exit:        ; preds = %98, %.critedge.i.i61
   %.sroa.017.0.i.i = phi ptr [ %102, %.critedge.i.i61 ], [ %.19.i.i.i.i.i56, %98 ]
-  %103 = getelementptr inbounds i8, ptr %.sroa.017.0.i.i, i64 40
+  %103 = getelementptr inbounds nuw i8, ptr %.sroa.017.0.i.i, i64 40
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %8)
@@ -11818,7 +11818,7 @@ _ZNSt8_Rb_treeIjSt4pairIKjN4llvm11LaneBitmaskEESt10_Select1stIS4_ESt4lessIjESaIS
 _ZNK4llvm14iterator_rangeINS_3rdf12RegisterAggr12ref_iteratorEE3endEv.exit: ; preds = %_ZNK4llvm14iterator_rangeINS_3rdf12RegisterAggr12ref_iteratorEE5beginEv.exit, %_ZNSt8_Rb_treeIjSt4pairIKjN4llvm11LaneBitmaskEESt10_Select1stIS4_ESt4lessIjESaIS4_EE7_M_copyERKSA_.exit.i.i.i.i69
   %144 = phi ptr [ null, %_ZNK4llvm14iterator_rangeINS_3rdf12RegisterAggr12ref_iteratorEE5beginEv.exit ], [ %135, %_ZNSt8_Rb_treeIjSt4pairIKjN4llvm11LaneBitmaskEESt10_Select1stIS4_ESt4lessIjESaIS4_EE7_M_copyERKSA_.exit.i.i.i.i69 ]
   %145 = getelementptr inbounds nuw i8, ptr %13, i64 48
-  %146 = getelementptr inbounds i8, ptr %11, i64 120
+  %146 = getelementptr inbounds nuw i8, ptr %11, i64 120
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %145, ptr noundef nonnull align 8 dereferenceable(24) %146, i64 24, i1 false)
   %147 = getelementptr inbounds nuw i8, ptr %12, i64 56
   %148 = getelementptr inbounds nuw i8, ptr %13, i64 56
@@ -11829,19 +11829,19 @@ _ZNK4llvm14iterator_rangeINS_3rdf12RegisterAggr12ref_iteratorEE3endEv.exit: ; pr
 
 .lr.ph185:                                        ; preds = %_ZNK4llvm14iterator_rangeINS_3rdf12RegisterAggr12ref_iteratorEE3endEv.exit
   %151 = getelementptr inbounds nuw i8, ptr %0, i64 280
-  %152 = getelementptr inbounds i8, ptr %0, i64 304
-  %153 = getelementptr inbounds i8, ptr %0, i64 312
-  %154 = getelementptr inbounds i8, ptr %0, i64 296
-  %155 = getelementptr inbounds i8, ptr %0, i64 284
+  %152 = getelementptr inbounds nuw i8, ptr %0, i64 304
+  %153 = getelementptr inbounds nuw i8, ptr %0, i64 312
+  %154 = getelementptr inbounds nuw i8, ptr %0, i64 296
+  %155 = getelementptr inbounds nuw i8, ptr %0, i64 284
   %156 = getelementptr inbounds nuw i8, ptr %0, i64 472
-  %157 = getelementptr inbounds i8, ptr %0, i64 288
-  %158 = getelementptr inbounds i8, ptr %0, i64 328
+  %157 = getelementptr inbounds nuw i8, ptr %0, i64 288
+  %158 = getelementptr inbounds nuw i8, ptr %0, i64 328
   %159 = getelementptr inbounds i8, ptr %0, i64 408
-  %160 = getelementptr inbounds i8, ptr %0, i64 336
-  %161 = getelementptr inbounds i8, ptr %0, i64 392
-  %162 = getelementptr inbounds i8, ptr %0, i64 320
-  %163 = getelementptr inbounds i8, ptr %0, i64 480
-  %164 = getelementptr inbounds i8, ptr %0, i64 488
+  %160 = getelementptr inbounds nuw i8, ptr %0, i64 336
+  %161 = getelementptr inbounds nuw i8, ptr %0, i64 392
+  %162 = getelementptr inbounds nuw i8, ptr %0, i64 320
+  %163 = getelementptr inbounds nuw i8, ptr %0, i64 480
+  %164 = getelementptr inbounds nuw i8, ptr %0, i64 488
   %.pre = load ptr, ptr %125, align 8
   br label %174
 
@@ -11872,7 +11872,7 @@ _ZNK4llvm14iterator_rangeINS_3rdf12RegisterAggr12ref_iteratorEE3endEv.exit: ; pr
   %175 = phi ptr [ %.pre, %.lr.ph185 ], [ %536, %._crit_edge183 ]
   %176 = getelementptr inbounds nuw i8, ptr %175, i64 32
   %177 = load i32, ptr %176, align 8
-  %178 = getelementptr inbounds i8, ptr %175, i64 40
+  %178 = getelementptr inbounds nuw i8, ptr %175, i64 40
   %.sroa.0.0.copyload.i70 = load i64, ptr %178, align 8
   %179 = add i32 %177, -1
   %180 = icmp ult i32 %179, 1073741823
@@ -11995,9 +11995,9 @@ _ZN4llvm3rdf13DataFlowGraph6newDefENS0_8NodeAddrIPNS0_9InstrNodeEEENS0_11Registe
   %251 = add i32 %250, 1
   %.sroa.02.0.insert.ext.i.i.i = zext i32 %177 to i64
   %.sroa.02.0.insert.insert.i.i.i = or disjoint i64 %.sroa.23.0.insert.ext.i.i.i, %.sroa.02.0.insert.ext.i.i.i
-  %252 = getelementptr inbounds i8, ptr %226, i64 24
+  %252 = getelementptr inbounds nuw i8, ptr %226, i64 24
   store i64 %.sroa.02.0.insert.insert.i.i.i, ptr %252, align 8
-  %253 = getelementptr inbounds i8, ptr %193, i64 20
+  %253 = getelementptr inbounds nuw i8, ptr %193, i64 20
   %254 = load i32, ptr %253, align 4
   %255 = icmp eq i32 %254, 0
   br i1 %255, label %272, label %256
@@ -12025,7 +12025,7 @@ _ZN4llvm3rdf13DataFlowGraph6newDefENS0_8NodeAddrIPNS0_9InstrNodeEEENS0_11Registe
   br label %_ZN4llvm3rdf8NodeBase6appendENS0_8NodeAddrIPS1_EE.exit.sink.split.i
 
 272:                                              ; preds = %_ZN4llvm3rdf13DataFlowGraph6newDefENS0_8NodeAddrIPNS0_9InstrNodeEEENS0_11RegisterRefEt.exit
-  %273 = getelementptr inbounds i8, ptr %193, i64 16
+  %273 = getelementptr inbounds nuw i8, ptr %193, i64 16
   store i32 %251, ptr %273, align 8
   %274 = ptrtoint ptr %193 to i64
   %275 = load ptr, ptr %153, align 8
@@ -12080,7 +12080,7 @@ _ZN4llvm3rdf8CodeNode9addMemberENS0_8NodeAddrIPNS0_8NodeBaseEEERKNS0_13DataFlowG
   br i1 %.not50180, label %._crit_edge183, label %.lr.ph182
 
 .lr.ph182:                                        ; preds = %_ZN4llvm3rdf8CodeNode9addMemberENS0_8NodeAddrIPNS0_8NodeBaseEEERKNS0_13DataFlowGraphE.exit
-  %305 = getelementptr inbounds i8, ptr %193, i64 16
+  %305 = getelementptr inbounds nuw i8, ptr %193, i64 16
   %306 = ptrtoint ptr %193 to i64
   br label %307
 
@@ -12479,9 +12479,9 @@ _ZN4llvm3rdf13DataFlowGraph9newPhiUseENS0_8NodeAddrIPNS0_7PhiNodeEEENS0_11Regist
   %484 = or i32 %479, %483
   %485 = add i32 %484, 1
   %.sroa.02.0.insert.insert.i.i.i101 = or disjoint i64 %.sroa.23.0.insert.ext.i.i.i97, %.sroa.02.0.insert.ext.i.i.i
-  %486 = getelementptr inbounds i8, ptr %387, i64 24
+  %486 = getelementptr inbounds nuw i8, ptr %387, i64 24
   store i64 %.sroa.02.0.insert.insert.i.i.i101, ptr %486, align 8
-  %487 = getelementptr inbounds i8, ptr %387, i64 16
+  %487 = getelementptr inbounds nuw i8, ptr %387, i64 16
   store i32 %309, ptr %487, align 8
   %488 = load i32, ptr %253, align 4
   %489 = icmp eq i32 %488, 0
@@ -12593,14 +12593,14 @@ define dso_local void @_ZN4llvm3rdf13DataFlowGraph13linkBlockRefsERSt13unordered
 
 .lr.ph:                                           ; preds = %4
   %14 = getelementptr inbounds i8, ptr %6, i64 16
-  %15 = getelementptr inbounds i8, ptr %0, i64 284
-  %16 = getelementptr inbounds i8, ptr %0, i64 288
-  %17 = getelementptr inbounds i8, ptr %0, i64 304
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 284
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 288
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %21 = getelementptr inbounds i8, ptr %0, i64 40
-  %22 = getelementptr inbounds i8, ptr %0, i64 48
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %24 = getelementptr inbounds i8, ptr %5, i64 16
   br label %39
@@ -12648,7 +12648,7 @@ _ZN4llvm11SmallVectorINS_3rdf8NodeAddrIPNS1_8NodeBaseEEELj4EED2Ev.exit: ; preds 
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %6)
   call void @llvm.experimental.noalias.scope.decl(metadata !120)
   call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull %14, i64 noundef 4) #22
-  %47 = getelementptr inbounds i8, ptr %40, i64 16
+  %47 = getelementptr inbounds nuw i8, ptr %40, i64 16
   %48 = load i32, ptr %47, align 8, !noalias !120
   %49 = icmp eq i32 %48, 0
   br i1 %49, label %"_ZNK4llvm3rdf8CodeNode10members_ifIZNS0_13DataFlowGraph13linkBlockRefsERSt13unordered_mapIjNS3_8DefStackESt4hashIjESt8equal_toIjESaISt4pairIKjS5_EEENS0_8NodeAddrIPNS0_9BlockNodeEEEE3$_0EENS_11SmallVectorINSG_IPNS0_8NodeBaseEEELj4EEET_RKS3_.exit.i", label %_ZNK4llvm3rdf8CodeNode14getFirstMemberERKNS0_13DataFlowGraphE.exit.i.i
@@ -12752,7 +12752,7 @@ _ZNK4llvm3rdf13DataFlowGraph4addrIPNS0_8NodeBaseEEENS0_8NodeAddrIT_EEj.exit.i.i:
   %103 = and i16 %102, 28
   %104 = and i16 %102, 128
   %.not.i13.i = icmp eq i16 %104, 0
-  %105 = getelementptr inbounds i8, ptr %99, i64 24
+  %105 = getelementptr inbounds nuw i8, ptr %99, i64 24
   br i1 %.not.i13.i, label %106, label %_ZNK4llvm3rdf13DataFlowGraph6unpackENS0_17PackedRegisterRefE.exit.i.i
 
 _ZNK4llvm3rdf13DataFlowGraph6unpackENS0_17PackedRegisterRefE.exit.i.i: ; preds = %.lr.ph.i
@@ -12980,7 +12980,7 @@ _ZNSt13unordered_mapIjN4llvm3rdf13DataFlowGraph8DefStackESt4hashIjESt8equal_toIj
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %5)
   call void @llvm.experimental.noalias.scope.decl(metadata !125)
   call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull %24, i64 noundef 4) #22
-  %206 = getelementptr inbounds i8, ptr %40, i64 16
+  %206 = getelementptr inbounds nuw i8, ptr %40, i64 16
   %207 = load i32, ptr %206, align 8, !noalias !125
   %208 = icmp eq i32 %207, 0
   br i1 %208, label %"_ZNK4llvm3rdf8CodeNode10members_ifIZNS0_13DataFlowGraph13linkBlockRefsERSt13unordered_mapIjNS3_8DefStackESt4hashIjESt8equal_toIjESaISt4pairIKjS5_EEENS0_8NodeAddrIPNS0_9BlockNodeEEEE3$_1EENS_11SmallVectorINSG_IPNS0_8NodeBaseEEELj4EEET_RKS3_.exit.i", label %_ZNK4llvm3rdf8CodeNode14getFirstMemberERKNS0_13DataFlowGraphE.exit.i.i90
@@ -13084,7 +13084,7 @@ _ZNK4llvm3rdf13DataFlowGraph4addrIPNS0_8NodeBaseEEENS0_8NodeAddrIT_EEj.exit.i.i9
   %262 = and i16 %261, 28
   %263 = and i16 %261, 128
   %.not.i13.i101 = icmp eq i16 %263, 0
-  %264 = getelementptr inbounds i8, ptr %258, i64 24
+  %264 = getelementptr inbounds nuw i8, ptr %258, i64 24
   br i1 %.not.i13.i101, label %265, label %_ZNK4llvm3rdf13DataFlowGraph6unpackENS0_17PackedRegisterRefE.exit.i.i102
 
 _ZNK4llvm3rdf13DataFlowGraph6unpackENS0_17PackedRegisterRefE.exit.i.i102: ; preds = %.lr.ph.i99
@@ -13343,7 +13343,7 @@ _ZNKSt3mapIPN4llvm17MachineBasicBlockENS0_3rdf8NodeAddrIPNS3_9BlockNodeEEESt4les
   unreachable
 
 _ZNK4llvm3rdf13DataFlowGraph9findBlockEPNS_17MachineBasicBlockE.exit: ; preds = %370
-  %374 = getelementptr inbounds i8, ptr %.19.i.i.i.i.i, i64 40
+  %374 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i.i, i64 40
   %.sroa.0.0.copyload.i = load ptr, ptr %374, align 8
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %.19.i.i.i.i.i, i64 48
   %.sroa.2.0.copyload.i = load i32, ptr %.sroa.2.0..sroa_idx.i, align 8
@@ -13366,12 +13366,12 @@ _ZNK4llvm3rdf13DataFlowGraph9findBlockEPNS_17MachineBasicBlockE.exit: ; preds = 
   %381 = getelementptr inbounds i8, ptr %0, i64 440
   %382 = getelementptr inbounds i8, ptr %0, i64 432
   %383 = getelementptr inbounds i8, ptr %9, i64 16
-  %384 = getelementptr inbounds i8, ptr %0, i64 284
-  %385 = getelementptr inbounds i8, ptr %0, i64 288
-  %386 = getelementptr inbounds i8, ptr %0, i64 304
+  %384 = getelementptr inbounds nuw i8, ptr %0, i64 284
+  %385 = getelementptr inbounds nuw i8, ptr %0, i64 288
+  %386 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %387 = getelementptr inbounds nuw i8, ptr %0, i64 472
-  %388 = getelementptr inbounds i8, ptr %0, i64 40
-  %389 = getelementptr inbounds i8, ptr %0, i64 48
+  %388 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %389 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %390 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %391 = getelementptr inbounds i8, ptr %10, i64 16
   %392 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -13419,11 +13419,11 @@ _ZNKSt3mapIPN4llvm17MachineBasicBlockENS0_3rdf8NodeAddrIPNS3_9BlockNodeEEESt4les
   unreachable
 
 _ZNK4llvm3rdf13DataFlowGraph9findBlockEPNS_17MachineBasicBlockE.exit143: ; preds = %407
-  %411 = getelementptr inbounds i8, ptr %.19.i.i.i.i.i131, i64 40
+  %411 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i.i131, i64 40
   %.sroa.0.0.copyload.i137 = load ptr, ptr %411, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !128)
   call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull %383, i64 noundef 4) #22
-  %412 = getelementptr inbounds i8, ptr %.sroa.0.0.copyload.i137, i64 16
+  %412 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i137, i64 16
   %413 = load i32, ptr %412, align 8, !noalias !128
   %414 = icmp eq i32 %413, 0
   br i1 %414, label %_ZNK4llvm3rdf8CodeNode10members_ifIPFbNS0_8NodeAddrIPNS0_8NodeBaseEEEEEENS_11SmallVectorIS6_Lj4EEET_RKNS0_13DataFlowGraphE.exit, label %_ZNK4llvm3rdf8CodeNode14getFirstMemberERKNS0_13DataFlowGraphE.exit.i
@@ -13531,7 +13531,7 @@ _ZN4llvm11SmallVectorINS_3rdf8NodeAddrIPNS1_8NodeBaseEEELj4EED2Ev.exit146: ; pre
   br i1 %401, label %468, label %563
 
 468:                                              ; preds = %.lr.ph363
-  %469 = getelementptr inbounds i8, ptr %465, i64 16
+  %469 = getelementptr inbounds nuw i8, ptr %465, i64 16
   %470 = load i32, ptr %469, align 8
   %471 = icmp eq i32 %470, 0
   br i1 %471, label %_ZNK4llvm3rdf8CodeNode14getFirstMemberERKNS0_13DataFlowGraphE.exit, label %_ZNK4llvm3rdf13DataFlowGraph4addrIPNS0_8NodeBaseEEENS0_8NodeAddrIT_EEj.exit.i147
@@ -13556,7 +13556,7 @@ _ZNK4llvm3rdf8CodeNode14getFirstMemberERKNS0_13DataFlowGraphE.exit: ; preds = %4
   %484 = load i16, ptr %.sroa.0.0.i, align 8
   %485 = and i16 %484, 128
   %.not.i150 = icmp eq i16 %485, 0
-  %486 = getelementptr inbounds i8, ptr %.sroa.0.0.i, i64 24
+  %486 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i, i64 24
   br i1 %.not.i150, label %496, label %487
 
 487:                                              ; preds = %_ZNK4llvm3rdf8CodeNode14getFirstMemberERKNS0_13DataFlowGraphE.exit
@@ -13734,7 +13734,7 @@ _ZNK4llvm3rdf7RefNode9getRegRefERKNS0_13DataFlowGraphE.exit: ; preds = %_ZNK4llv
 563:                                              ; preds = %_ZNK4llvm3rdf7RefNode9getRegRefERKNS0_13DataFlowGraphE.exit, %.lr.ph363
   call void @llvm.experimental.noalias.scope.decl(metadata !131)
   call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull %391, i64 noundef 4) #22
-  %564 = getelementptr inbounds i8, ptr %465, i64 16
+  %564 = getelementptr inbounds nuw i8, ptr %465, i64 16
   %565 = load i32, ptr %564, align 8, !noalias !131
   %566 = icmp eq i32 %565, 0
   br i1 %566, label %"_ZNK4llvm3rdf8CodeNode10members_ifIZNS0_13DataFlowGraph13linkBlockRefsERSt13unordered_mapIjNS3_8DefStackESt4hashIjESt8equal_toIjESaISt4pairIKjS5_EEENS0_8NodeAddrIPNS0_9BlockNodeEEEE3$_2EENS_11SmallVectorINSG_IPNS0_8NodeBaseEEELj4EEET_RKS3_.exit", label %_ZNK4llvm3rdf8CodeNode14getFirstMemberERKNS0_13DataFlowGraphE.exit.i154
@@ -13764,7 +13764,7 @@ _ZNK4llvm3rdf8CodeNode14getFirstMemberERKNS0_13DataFlowGraphE.exit.i154: ; preds
   br i1 %.not.i.i159, label %"_ZZN4llvm3rdf13DataFlowGraph13linkBlockRefsERSt13unordered_mapIjNS1_8DefStackESt4hashIjESt8equal_toIjESaISt4pairIKjS3_EEENS0_8NodeAddrIPNS0_9BlockNodeEEEENK3$_2clENSE_IPNS0_8NodeBaseEEE.exit.i", label %"_ZZN4llvm3rdf13DataFlowGraph13linkBlockRefsERSt13unordered_mapIjNS1_8DefStackESt4hashIjESt8equal_toIjESaISt4pairIKjS3_EEENS0_8NodeAddrIPNS0_9BlockNodeEEEENK3$_2clENSE_IPNS0_8NodeBaseEEE.exit.thread.i"
 
 "_ZZN4llvm3rdf13DataFlowGraph13linkBlockRefsERSt13unordered_mapIjNS1_8DefStackESt4hashIjESt8equal_toIjESaISt4pairIKjS3_EEENS0_8NodeAddrIPNS0_9BlockNodeEEEENK3$_2clENSE_IPNS0_8NodeBaseEEE.exit.i": ; preds = %.lr.ph.i156
-  %581 = getelementptr inbounds i8, ptr %.pn2830.i158, i64 16
+  %581 = getelementptr inbounds nuw i8, ptr %.pn2830.i158, i64 16
   %582 = load i32, ptr %581, align 8
   %583 = icmp eq i32 %582, %3
   br i1 %583, label %584, label %"_ZZN4llvm3rdf13DataFlowGraph13linkBlockRefsERSt13unordered_mapIjNS1_8DefStackESt4hashIjESt8equal_toIjESaISt4pairIKjS3_EEENS0_8NodeAddrIPNS0_9BlockNodeEEEENK3$_2clENSE_IPNS0_8NodeBaseEEE.exit.thread.i"
@@ -13843,7 +13843,7 @@ _ZNK4llvm3rdf13DataFlowGraph4addrIPNS0_8NodeBaseEEENS0_8NodeAddrIT_EEj.exit.i160
   %617 = load i16, ptr %.sroa.0282.0.copyload, align 8
   %618 = and i16 %617, 128
   %.not.i167 = icmp eq i16 %618, 0
-  %619 = getelementptr inbounds i8, ptr %.sroa.0282.0.copyload, i64 24
+  %619 = getelementptr inbounds nuw i8, ptr %.sroa.0282.0.copyload, i64 24
   br i1 %.not.i167, label %620, label %_ZNK4llvm3rdf13DataFlowGraph6unpackENS0_17PackedRegisterRefE.exit.i171
 
 _ZNK4llvm3rdf13DataFlowGraph6unpackENS0_17PackedRegisterRefE.exit.i171: ; preds = %.lr.ph359
@@ -14227,9 +14227,9 @@ define dso_local void @_ZN4llvm3rdf13DataFlowGraph16removeUnusedPhisEv(ptr nocap
 
 .lr.ph219:                                        ; preds = %1
   %14 = getelementptr inbounds i8, ptr %4, i64 16
-  %15 = getelementptr inbounds i8, ptr %0, i64 284
-  %16 = getelementptr inbounds i8, ptr %0, i64 288
-  %17 = getelementptr inbounds i8, ptr %0, i64 304
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 284
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 288
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %19 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %20 = getelementptr inbounds nuw i8, ptr %2, i64 12
@@ -14251,9 +14251,9 @@ _ZN4llvm11SmallVectorINS_3rdf8NodeAddrIPNS1_8NodeBaseEEELj4EED2Ev.exit: ; preds 
   br i1 %26, label %._crit_edge226, label %.lr.ph225
 
 .lr.ph225:                                        ; preds = %_ZN4llvm11SmallVectorINS_3rdf8NodeAddrIPNS1_8NodeBaseEEELj4EED2Ev.exit
-  %27 = getelementptr inbounds i8, ptr %0, i64 284
-  %28 = getelementptr inbounds i8, ptr %0, i64 288
-  %29 = getelementptr inbounds i8, ptr %0, i64 304
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 284
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 288
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %.sroa.220.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 8
   %30 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %31 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -14266,7 +14266,7 @@ _ZN4llvm11SmallVectorINS_3rdf8NodeAddrIPNS1_8NodeBaseEEELj4EED2Ev.exit: ; preds 
   %35 = load ptr, ptr %.0217, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !136)
   call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull %14, i64 noundef 4) #22
-  %36 = getelementptr inbounds i8, ptr %35, i64 16
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 16
   %37 = load i32, ptr %36, align 8, !noalias !136
   %38 = icmp eq i32 %37, 0
   br i1 %38, label %_ZNK4llvm3rdf8CodeNode10members_ifIPFbNS0_8NodeAddrIPNS0_8NodeBaseEEEEEENS_11SmallVectorIS6_Lj4EEET_RKNS0_13DataFlowGraphE.exit, label %_ZNK4llvm3rdf8CodeNode14getFirstMemberERKNS0_13DataFlowGraphE.exit.i
@@ -14845,13 +14845,13 @@ _ZNK4llvm3rdf13DataFlowGraph4addrIPNS0_7PhiNodeEEENS0_8NodeAddrIT_EEj.exit: ; pr
   br i1 %.not9.i, label %326, label %332
 
 326:                                              ; preds = %.lr.ph.i42
-  %327 = getelementptr inbounds i8, ptr %.sroa.02.0.copyload.i, i64 16
+  %327 = getelementptr inbounds nuw i8, ptr %.sroa.02.0.copyload.i, i64 16
   %328 = load i32, ptr %327, align 8
   %.not10.i = icmp eq i32 %328, 0
   br i1 %.not10.i, label %329, label %_ZN4llvm3rdf8CodeNode12removeMemberENS0_8NodeAddrIPNS0_8NodeBaseEEERKNS0_13DataFlowGraphE.exit
 
 329:                                              ; preds = %326
-  %330 = getelementptr inbounds i8, ptr %.sroa.02.0.copyload.i, i64 20
+  %330 = getelementptr inbounds nuw i8, ptr %.sroa.02.0.copyload.i, i64 20
   %331 = load i32, ptr %330, align 4
   %.not11.i = icmp eq i32 %331, 0
   br i1 %.not11.i, label %332, label %_ZN4llvm3rdf8CodeNode12removeMemberENS0_8NodeAddrIPNS0_8NodeBaseEEERKNS0_13DataFlowGraphE.exit
@@ -15185,7 +15185,7 @@ _ZNK4llvm3rdf13DataFlowGraph4addrIPNS0_8NodeBaseEEENS0_8NodeAddrIT_EEj.exit16.i.
 
 _ZN4llvm3rdf7RefNode8getOwnerERKNS0_13DataFlowGraphE.exit.i.i: ; preds = %_ZNK4llvm3rdf13DataFlowGraph4addrIPNS0_8NodeBaseEEENS0_8NodeAddrIT_EEj.exit16.i.i.i, %493
   %.0.i.i.i.pn.lcssa.i.i.i = phi ptr [ %508, %493 ], [ %524, %_ZNK4llvm3rdf13DataFlowGraph4addrIPNS0_8NodeBaseEEENS0_8NodeAddrIT_EEj.exit16.i.i.i ]
-  %529 = getelementptr inbounds i8, ptr %.0.i.i.i.pn.lcssa.i.i.i, i64 16
+  %529 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.pn.lcssa.i.i.i, i64 16
   %530 = load i32, ptr %529, align 8
   %531 = icmp eq i32 %530, 0
   br i1 %531, label %_ZNK4llvm3rdf8CodeNode14getFirstMemberERKNS0_13DataFlowGraphE.exit.i.i.i, label %_ZNK4llvm3rdf13DataFlowGraph4addrIPNS0_8NodeBaseEEENS0_8NodeAddrIT_EEj.exit.i.i.i.i
@@ -15216,7 +15216,7 @@ _ZNK4llvm3rdf8CodeNode14getFirstMemberERKNS0_13DataFlowGraphE.exit.i.i.i: ; pred
   br i1 %545, label %._crit_edge.i.i.i, label %_ZNK4llvm3rdf13DataFlowGraph4addrIPNS0_8NodeBaseEEENS0_8NodeAddrIT_EEj.exit.i.i.i
 
 546:                                              ; preds = %_ZNK4llvm3rdf8CodeNode14getFirstMemberERKNS0_13DataFlowGraphE.exit.i.i.i
-  %547 = getelementptr inbounds i8, ptr %.0.i.i.i.pn.lcssa.i.i.i, i64 20
+  %547 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.pn.lcssa.i.i.i, i64 20
   %548 = load i32, ptr %547, align 4
   %549 = icmp eq i32 %548, %339
   br i1 %549, label %550, label %551
@@ -15237,7 +15237,7 @@ _ZNK4llvm3rdf8CodeNode14getFirstMemberERKNS0_13DataFlowGraphE.exit.i.i.i: ; pred
   %.sroa.6.0.lcssa.i.i.i = phi i32 [ %530, %.preheader.i.i.i ], [ %559, %_ZNK4llvm3rdf13DataFlowGraph4addrIPNS0_8NodeBaseEEENS0_8NodeAddrIT_EEj.exit.i.i.i ]
   %554 = getelementptr inbounds nuw i8, ptr %.sroa.08.0.lcssa.i.i.i, i64 4
   store i32 %495, ptr %554, align 4
-  %555 = getelementptr inbounds i8, ptr %.0.i.i.i.pn.lcssa.i.i.i, i64 20
+  %555 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.pn.lcssa.i.i.i, i64 20
   %556 = load i32, ptr %555, align 4
   %557 = icmp eq i32 %556, %339
   br i1 %557, label %558, label %_ZN4llvm3rdf13DataFlowGraph9unlinkDefENS0_8NodeAddrIPNS0_7DefNodeEEEb.exit
@@ -15268,7 +15268,7 @@ _ZNK4llvm3rdf13DataFlowGraph4addrIPNS0_8NodeBaseEEENS0_8NodeAddrIT_EEj.exit.i.i.
 
 574:                                              ; preds = %_ZN4llvm9SetVectorIjNS_11SmallVectorIjLj0EEENS_8DenseSetIjNS_12DenseMapInfoIjvEEEELj0EE6insertERKj.exit59
   %575 = load i32, ptr %340, align 8
-  %576 = getelementptr inbounds i8, ptr %337, i64 12
+  %576 = getelementptr inbounds nuw i8, ptr %337, i64 12
   %577 = load i32, ptr %576, align 4
   %578 = icmp eq i32 %575, 0
   %.pre274 = load i32, ptr %27, align 4
@@ -15286,7 +15286,7 @@ _ZNK4llvm3rdf13DataFlowGraph4addrIPNS0_7DefNodeEEENS0_8NodeAddrIT_EEj.exit.i.i: 
   %585 = load ptr, ptr %584, align 8
   %586 = zext i32 %582 to i64
   %587 = getelementptr inbounds i8, ptr %585, i64 %586
-  %588 = getelementptr inbounds i8, ptr %587, i64 20
+  %588 = getelementptr inbounds nuw i8, ptr %587, i64 20
   %589 = load i32, ptr %588, align 4
   %590 = icmp eq i32 %589, 0
   br i1 %590, label %_ZNK4llvm3rdf13DataFlowGraph4addrIPNS0_7UseNodeEEENS0_8NodeAddrIT_EEj.exit.i.i, label %_ZNK4llvm3rdf13DataFlowGraph4addrIPNS0_7UseNodeEEENS0_8NodeAddrIT_EEj.exit.thread.i.i
@@ -15309,7 +15309,7 @@ _ZNK4llvm3rdf13DataFlowGraph4addrIPNS0_7UseNodeEEENS0_8NodeAddrIT_EEj.exit.threa
   %599 = shl i32 %598, 5
   %600 = zext i32 %599 to i64
   %601 = getelementptr inbounds i8, ptr %597, i64 %600
-  %602 = getelementptr inbounds i8, ptr %601, i64 12
+  %602 = getelementptr inbounds nuw i8, ptr %601, i64 12
   %603 = load i32, ptr %602, align 4
   %604 = icmp eq i32 %603, %339
   br i1 %604, label %.loopexit.sink.split.i.loopexit.i, label %.lr.ph.i60
@@ -15329,14 +15329,14 @@ _ZNK4llvm3rdf13DataFlowGraph4addrIPNS0_7UseNodeEEENS0_8NodeAddrIT_EEj.exit32.i.i
   %613 = load ptr, ptr %612, align 8
   %614 = zext i32 %610 to i64
   %615 = getelementptr inbounds i8, ptr %613, i64 %614
-  %616 = getelementptr inbounds i8, ptr %615, i64 12
+  %616 = getelementptr inbounds nuw i8, ptr %615, i64 12
   %617 = load i32, ptr %616, align 4
   %618 = icmp eq i32 %617, %339
   br i1 %618, label %.loopexit.sink.split.i.loopexit.i, label %.lr.ph.i60, !llvm.loop !151
 
 .loopexit.sink.split.i.loopexit.i:                ; preds = %_ZNK4llvm3rdf13DataFlowGraph4addrIPNS0_7UseNodeEEENS0_8NodeAddrIT_EEj.exit32.i.i, %.lr.ph.i.preheader.i
   %.0.i.i.i26.pn36.i.lcssa.i = phi ptr [ %601, %.lr.ph.i.preheader.i ], [ %615, %_ZNK4llvm3rdf13DataFlowGraph4addrIPNS0_7UseNodeEEENS0_8NodeAddrIT_EEj.exit32.i.i ]
-  %619 = getelementptr inbounds i8, ptr %.0.i.i.i26.pn36.i.lcssa.i, i64 12
+  %619 = getelementptr inbounds nuw i8, ptr %.0.i.i.i26.pn36.i.lcssa.i, i64 12
   br label %.loopexit.sink.split.i.i
 
 .loopexit.sink.split.i.i:                         ; preds = %.loopexit.sink.split.i.loopexit.i, %_ZNK4llvm3rdf13DataFlowGraph4addrIPNS0_7UseNodeEEENS0_8NodeAddrIT_EEj.exit.thread.i.i, %_ZNK4llvm3rdf13DataFlowGraph4addrIPNS0_7UseNodeEEENS0_8NodeAddrIT_EEj.exit.i.i
@@ -15395,7 +15395,7 @@ _ZNK4llvm3rdf13DataFlowGraph4addrIPNS0_8NodeBaseEEENS0_8NodeAddrIT_EEj.exit16.i.
 
 _ZN4llvm3rdf7RefNode8getOwnerERKNS0_13DataFlowGraphE.exit.i.i63: ; preds = %_ZNK4llvm3rdf13DataFlowGraph4addrIPNS0_8NodeBaseEEENS0_8NodeAddrIT_EEj.exit16.i.i.i61, %_ZN4llvm3rdf13DataFlowGraph11unlinkUseDFENS0_8NodeAddrIPNS0_7UseNodeEEE.exit.i
   %.0.i.i.i.pn.lcssa.i.i.i64 = phi ptr [ %634, %_ZN4llvm3rdf13DataFlowGraph11unlinkUseDFENS0_8NodeAddrIPNS0_7UseNodeEEE.exit.i ], [ %650, %_ZNK4llvm3rdf13DataFlowGraph4addrIPNS0_8NodeBaseEEENS0_8NodeAddrIT_EEj.exit16.i.i.i61 ]
-  %655 = getelementptr inbounds i8, ptr %.0.i.i.i.pn.lcssa.i.i.i64, i64 16
+  %655 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.pn.lcssa.i.i.i64, i64 16
   %656 = load i32, ptr %655, align 8
   %657 = icmp eq i32 %656, 0
   br i1 %657, label %_ZNK4llvm3rdf8CodeNode14getFirstMemberERKNS0_13DataFlowGraphE.exit.i.i.i66, label %_ZNK4llvm3rdf13DataFlowGraph4addrIPNS0_8NodeBaseEEENS0_8NodeAddrIT_EEj.exit.i.i.i.i65
@@ -15426,7 +15426,7 @@ _ZNK4llvm3rdf8CodeNode14getFirstMemberERKNS0_13DataFlowGraphE.exit.i.i.i66: ; pr
   br i1 %671, label %._crit_edge.i.i.i70, label %_ZNK4llvm3rdf13DataFlowGraph4addrIPNS0_8NodeBaseEEENS0_8NodeAddrIT_EEj.exit.i.i.i69
 
 672:                                              ; preds = %_ZNK4llvm3rdf8CodeNode14getFirstMemberERKNS0_13DataFlowGraphE.exit.i.i.i66
-  %673 = getelementptr inbounds i8, ptr %.0.i.i.i.pn.lcssa.i.i.i64, i64 20
+  %673 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.pn.lcssa.i.i.i64, i64 20
   %674 = load i32, ptr %673, align 4
   %675 = icmp eq i32 %674, %339
   br i1 %675, label %676, label %677
@@ -15447,7 +15447,7 @@ _ZNK4llvm3rdf8CodeNode14getFirstMemberERKNS0_13DataFlowGraphE.exit.i.i.i66: ; pr
   %.sroa.6.0.lcssa.i.i.i72 = phi i32 [ %656, %.preheader.i.i.i68 ], [ %685, %_ZNK4llvm3rdf13DataFlowGraph4addrIPNS0_8NodeBaseEEENS0_8NodeAddrIT_EEj.exit.i.i.i69 ]
   %680 = getelementptr inbounds nuw i8, ptr %.sroa.08.0.lcssa.i.i.i71, i64 4
   store i32 %624, ptr %680, align 4
-  %681 = getelementptr inbounds i8, ptr %.0.i.i.i.pn.lcssa.i.i.i64, i64 20
+  %681 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.pn.lcssa.i.i.i64, i64 20
   %682 = load i32, ptr %681, align 4
   %683 = icmp eq i32 %682, %339
   br i1 %683, label %684, label %_ZN4llvm3rdf13DataFlowGraph9unlinkDefENS0_8NodeAddrIPNS0_7DefNodeEEEb.exit
@@ -15531,7 +15531,7 @@ _ZNK4llvm3rdf13DataFlowGraph4addrIPNS0_8NodeBaseEEENS0_8NodeAddrIT_EEj.exit16.i7
 _ZN4llvm3rdf9InstrNode8getOwnerERKNS0_13DataFlowGraphE.exit: ; preds = %_ZNK4llvm3rdf13DataFlowGraph4addrIPNS0_8NodeBaseEEENS0_8NodeAddrIT_EEj.exit16.i74, %._crit_edge224
   %.0.i.i.i.pn.lcssa.i76 = phi ptr [ %716, %._crit_edge224 ], [ %732, %_ZNK4llvm3rdf13DataFlowGraph4addrIPNS0_8NodeBaseEEENS0_8NodeAddrIT_EEj.exit16.i74 ]
   %737 = load i32, ptr %.sroa.220.0..sroa_idx, align 8
-  %738 = getelementptr inbounds i8, ptr %.0.i.i.i.pn.lcssa.i76, i64 16
+  %738 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.pn.lcssa.i76, i64 16
   %739 = load i32, ptr %738, align 8
   %740 = icmp eq i32 %739, 0
   br i1 %740, label %_ZNK4llvm3rdf8CodeNode14getFirstMemberERKNS0_13DataFlowGraphE.exit.i80, label %_ZNK4llvm3rdf13DataFlowGraph4addrIPNS0_8NodeBaseEEENS0_8NodeAddrIT_EEj.exit.i.i
@@ -15562,7 +15562,7 @@ _ZNK4llvm3rdf8CodeNode14getFirstMemberERKNS0_13DataFlowGraphE.exit.i80: ; preds 
   br i1 %754, label %._crit_edge.i, label %_ZNK4llvm3rdf13DataFlowGraph4addrIPNS0_8NodeBaseEEENS0_8NodeAddrIT_EEj.exit.i82
 
 755:                                              ; preds = %_ZNK4llvm3rdf8CodeNode14getFirstMemberERKNS0_13DataFlowGraphE.exit.i80
-  %756 = getelementptr inbounds i8, ptr %.0.i.i.i.pn.lcssa.i76, i64 20
+  %756 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.pn.lcssa.i76, i64 20
   %757 = load i32, ptr %756, align 4
   %758 = icmp eq i32 %757, %737
   br i1 %758, label %759, label %760
@@ -15583,7 +15583,7 @@ _ZNK4llvm3rdf8CodeNode14getFirstMemberERKNS0_13DataFlowGraphE.exit.i80: ; preds 
   %.sroa.6.0.lcssa.i = phi i32 [ %739, %.preheader.i ], [ %768, %_ZNK4llvm3rdf13DataFlowGraph4addrIPNS0_8NodeBaseEEENS0_8NodeAddrIT_EEj.exit.i82 ]
   %763 = getelementptr inbounds nuw i8, ptr %.sroa.08.0.lcssa.i, i64 4
   store i32 %703, ptr %763, align 4
-  %764 = getelementptr inbounds i8, ptr %.0.i.i.i.pn.lcssa.i76, i64 20
+  %764 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.pn.lcssa.i76, i64 20
   %765 = load i32, ptr %764, align 4
   %766 = icmp eq i32 %765, %737
   br i1 %766, label %767, label %_ZN4llvm3rdf8CodeNode12removeMemberENS0_8NodeAddrIPNS0_8NodeBaseEEERKNS0_13DataFlowGraphE.exit
@@ -16080,21 +16080,21 @@ define dso_local void @_ZN4llvm3rdf13DataFlowGraph12pushClobbersENS0_8NodeAddrIP
   call void @llvm.experimental.noalias.scope.decl(metadata !158)
   %23 = getelementptr inbounds i8, ptr %8, i64 16
   call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull %23, i64 noundef 4) #22
-  %24 = getelementptr inbounds i8, ptr %1, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %25 = load i32, ptr %24, align 8, !noalias !158
   %26 = icmp eq i32 %25, 0
   br i1 %26, label %_ZNK4llvm3rdf8CodeNode10members_ifIPFbNS0_8NodeAddrIPNS0_8NodeBaseEEEEEENS_11SmallVectorIS6_Lj4EEET_RKNS0_13DataFlowGraphE.exit, label %_ZNK4llvm3rdf8CodeNode14getFirstMemberERKNS0_13DataFlowGraphE.exit.i
 
 _ZNK4llvm3rdf8CodeNode14getFirstMemberERKNS0_13DataFlowGraphE.exit.i: ; preds = %4
   %27 = add i32 %25, -1
-  %28 = getelementptr inbounds i8, ptr %0, i64 284
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 284
   %29 = load i32, ptr %28, align 4, !noalias !158
   %30 = lshr i32 %27, %29
-  %31 = getelementptr inbounds i8, ptr %0, i64 288
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 288
   %32 = load i32, ptr %31, align 8, !noalias !158
   %33 = and i32 %32, %27
   %34 = shl i32 %33, 5
-  %35 = getelementptr inbounds i8, ptr %0, i64 304
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %36 = zext i32 %30 to i64
   %37 = load ptr, ptr %35, align 8, !noalias !158
   %38 = getelementptr inbounds ptr, ptr %37, i64 %36
@@ -16246,7 +16246,7 @@ _ZNKSt3setIjSt4lessIjESaIjEE5countERKj.exit.thread: ; preds = %93, %_ZNKSt8_Rb_t
   %108 = load i16, ptr %107, align 8
   %109 = and i16 %108, 128
   %.not.i34 = icmp eq i16 %109, 0
-  %110 = getelementptr inbounds i8, ptr %107, i64 24
+  %110 = getelementptr inbounds nuw i8, ptr %107, i64 24
   br i1 %.not.i34, label %120, label %111
 
 111:                                              ; preds = %105
@@ -16723,21 +16723,21 @@ define dso_local void @_ZN4llvm3rdf13DataFlowGraph8pushDefsENS0_8NodeAddrIPNS0_9
   call void @llvm.experimental.noalias.scope.decl(metadata !170)
   %16 = getelementptr inbounds i8, ptr %7, i64 16
   call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull %16, i64 noundef 4) #22
-  %17 = getelementptr inbounds i8, ptr %1, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %18 = load i32, ptr %17, align 8, !noalias !170
   %19 = icmp eq i32 %18, 0
   br i1 %19, label %_ZNK4llvm3rdf8CodeNode10members_ifIPFbNS0_8NodeAddrIPNS0_8NodeBaseEEEEEENS_11SmallVectorIS6_Lj4EEET_RKNS0_13DataFlowGraphE.exit, label %_ZNK4llvm3rdf8CodeNode14getFirstMemberERKNS0_13DataFlowGraphE.exit.i
 
 _ZNK4llvm3rdf8CodeNode14getFirstMemberERKNS0_13DataFlowGraphE.exit.i: ; preds = %4
   %20 = add i32 %18, -1
-  %21 = getelementptr inbounds i8, ptr %0, i64 284
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 284
   %22 = load i32, ptr %21, align 4, !noalias !170
   %23 = lshr i32 %20, %22
-  %24 = getelementptr inbounds i8, ptr %0, i64 288
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 288
   %25 = load i32, ptr %24, align 8, !noalias !170
   %26 = and i32 %25, %20
   %27 = shl i32 %26, 5
-  %28 = getelementptr inbounds i8, ptr %0, i64 304
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %29 = zext i32 %23 to i64
   %30 = load ptr, ptr %28, align 8, !noalias !170
   %31 = getelementptr inbounds ptr, ptr %30, i64 %29
@@ -16891,7 +16891,7 @@ _ZNKSt3setIjSt4lessIjESaIjEE5countERKj.exit.thread: ; preds = %89, %_ZNKSt8_Rb_t
   %104 = load i16, ptr %103, align 8
   %105 = and i16 %104, 128
   %.not.i31 = icmp eq i16 %105, 0
-  %106 = getelementptr inbounds i8, ptr %103, i64 24
+  %106 = getelementptr inbounds nuw i8, ptr %103, i64 24
   br i1 %.not.i31, label %116, label %107
 
 107:                                              ; preds = %101
@@ -17355,21 +17355,21 @@ _ZN4llvm11SmallVectorINS_3rdf8NodeAddrIPNS1_8NodeBaseEEELj4EED2Ev.exit53: ; pred
 define linkonce_odr void @_ZNK4llvm3rdf8CodeNode10members_ifIPFbNS0_8NodeAddrIPNS0_8NodeBaseEEEEEENS_11SmallVectorIS6_Lj4EEET_RKNS0_13DataFlowGraphE(ptr dead_on_unwind noalias writable sret(%"class.llvm::SmallVector.77") align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(736) %3) local_unnamed_addr #0 comdat align 2 {
   %5 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %5, i64 noundef 4) #22
-  %6 = getelementptr inbounds i8, ptr %1, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %7 = load i32, ptr %6, align 8
   %8 = icmp eq i32 %7, 0
   br i1 %8, label %_ZNK4llvm3rdf8CodeNode14getFirstMemberERKNS0_13DataFlowGraphE.exit.thread, label %_ZNK4llvm3rdf8CodeNode14getFirstMemberERKNS0_13DataFlowGraphE.exit
 
 _ZNK4llvm3rdf8CodeNode14getFirstMemberERKNS0_13DataFlowGraphE.exit: ; preds = %4
   %9 = add i32 %7, -1
-  %10 = getelementptr inbounds i8, ptr %3, i64 284
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 284
   %11 = load i32, ptr %10, align 4
   %12 = lshr i32 %9, %11
-  %13 = getelementptr inbounds i8, ptr %3, i64 288
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 288
   %14 = load i32, ptr %13, align 8
   %15 = and i32 %14, %9
   %16 = shl i32 %15, 5
-  %17 = getelementptr inbounds i8, ptr %3, i64 304
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 304
   %18 = zext i32 %12 to i64
   %19 = load ptr, ptr %17, align 8
   %20 = getelementptr inbounds ptr, ptr %19, i64 %18
@@ -17492,7 +17492,7 @@ define dso_local { ptr, i32 } @_ZNK4llvm3rdf13DataFlowGraph14getNextRelatedENS0_
   %8 = load i16, ptr %3, align 8
   %9 = and i16 %8, 128
   %.not.i = icmp eq i16 %9, 0
-  %10 = getelementptr inbounds i8, ptr %3, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 24
   br i1 %.not.i, label %21, label %11
 
 11:                                               ; preds = %5
@@ -17542,14 +17542,14 @@ _ZNK4llvm3rdf7RefNode9getRegRefERKNS0_13DataFlowGraphE.exit: ; preds = %_ZNK4llv
 
 _ZNK4llvm3rdf13DataFlowGraph4addrIPNS0_8NodeBaseEEENS0_8NodeAddrIT_EEj.exit.i: ; preds = %32
   %33 = add i32 %30, -1
-  %34 = getelementptr inbounds i8, ptr %0, i64 284
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 284
   %35 = load i32, ptr %34, align 4
   %36 = lshr i32 %33, %35
-  %37 = getelementptr inbounds i8, ptr %0, i64 288
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 288
   %38 = load i32, ptr %37, align 8
   %39 = and i32 %38, %33
   %40 = shl i32 %39, 5
-  %41 = getelementptr inbounds i8, ptr %0, i64 304
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %42 = zext i32 %36 to i64
   %43 = load ptr, ptr %41, align 8
   %44 = getelementptr inbounds ptr, ptr %43, i64 %42
@@ -17570,7 +17570,7 @@ _ZNK4llvm3rdf13DataFlowGraph4addrIPNS0_8NodeBaseEEENS0_8NodeAddrIT_EEj.exit.thre
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %53 = and i16 %48, 128
   %.not.i.i = icmp eq i16 %53, 0
-  %54 = getelementptr inbounds i8, ptr %.0.i.i.i14.i, i64 24
+  %54 = getelementptr inbounds nuw i8, ptr %.0.i.i.i14.i, i64 24
   br i1 %.not.i.i, label %65, label %55
 
 55:                                               ; preds = %51
@@ -17628,14 +17628,14 @@ _ZNK4llvm3rdf7RefNode9getRegRefERKNS0_13DataFlowGraphE.exit.i: ; preds = %65, %_
 
 _ZNK4llvm3rdf13DataFlowGraph4addrIPNS0_8NodeBaseEEENS0_8NodeAddrIT_EEj.exit.i37: ; preds = %76
   %77 = add i32 %30, -1
-  %78 = getelementptr inbounds i8, ptr %0, i64 284
+  %78 = getelementptr inbounds nuw i8, ptr %0, i64 284
   %79 = load i32, ptr %78, align 4
   %80 = lshr i32 %77, %79
-  %81 = getelementptr inbounds i8, ptr %0, i64 288
+  %81 = getelementptr inbounds nuw i8, ptr %0, i64 288
   %82 = load i32, ptr %81, align 8
   %83 = and i32 %82, %77
   %84 = shl i32 %83, 5
-  %85 = getelementptr inbounds i8, ptr %0, i64 304
+  %85 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %86 = zext i32 %80 to i64
   %87 = load ptr, ptr %85, align 8
   %88 = getelementptr inbounds ptr, ptr %87, i64 %86
@@ -17656,7 +17656,7 @@ _ZNK4llvm3rdf13DataFlowGraph4addrIPNS0_8NodeBaseEEENS0_8NodeAddrIT_EEj.exit.thre
   %96 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %97 = and i16 %92, 128
   %.not.i.i45 = icmp eq i16 %97, 0
-  %98 = getelementptr inbounds i8, ptr %.0.i.i.i14.i40, i64 24
+  %98 = getelementptr inbounds nuw i8, ptr %.0.i.i.i14.i40, i64 24
   br i1 %.not.i.i45, label %109, label %99
 
 99:                                               ; preds = %95
@@ -17707,9 +17707,9 @@ _ZNK4llvm3rdf7RefNode9getRegRefERKNS0_13DataFlowGraphE.exit.i55: ; preds = %109,
   br i1 %.not.i26.i, label %"_ZZNK4llvm3rdf13DataFlowGraph14getNextRelatedENS0_8NodeAddrIPNS0_9InstrNodeEEENS2_IPNS0_7RefNodeEEEENK3$_1clES8_.exit.i", label %"_ZN4llvm3rdf7RefNode10getNextRefIZNKS0_13DataFlowGraph14getNextRelatedENS0_8NodeAddrIPNS0_9InstrNodeEEENS4_IPS1_EEE3$_0EES9_NS0_11RegisterRefET_bRKS3_.exit"
 
 "_ZZNK4llvm3rdf13DataFlowGraph14getNextRelatedENS0_8NodeAddrIPNS0_9InstrNodeEEENS2_IPNS0_7RefNodeEEEENK3$_1clES8_.exit.i": ; preds = %117
-  %120 = getelementptr inbounds i8, ptr %.0.i.i.i14.i40, i64 16
+  %120 = getelementptr inbounds nuw i8, ptr %.0.i.i.i14.i40, i64 16
   %121 = load i32, ptr %120, align 8
-  %122 = getelementptr inbounds i8, ptr %3, i64 16
+  %122 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %123 = load i32, ptr %122, align 8
   %124 = icmp eq i32 %121, %123
   br i1 %124, label %"_ZN4llvm3rdf7RefNode10getNextRefIZNKS0_13DataFlowGraph14getNextRelatedENS0_8NodeAddrIPNS0_9InstrNodeEEENS4_IPS1_EEE3$_0EES9_NS0_11RegisterRefET_bRKS3_.exit", label %"_ZZNK4llvm3rdf13DataFlowGraph14getNextRelatedENS0_8NodeAddrIPNS0_9InstrNodeEEENS2_IPNS0_7RefNodeEEEENK3$_1clES8_.exit.thread16.i"
@@ -17754,9 +17754,9 @@ define dso_local { ptr, i32 } @_ZN4llvm3rdf13DataFlowGraph13getNextShadowENS0_8N
 
 17:                                               ; preds = %"_ZNK4llvm3rdf13DataFlowGraph13locateNextRefIZNS1_13getNextShadowENS0_8NodeAddrIPNS0_9InstrNodeEEENS3_IPNS0_7RefNodeEEEbE3$_0EESt4pairIS9_S9_ES6_S9_T_.exit"
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 280
-  %19 = getelementptr inbounds i8, ptr %0, i64 304
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %0, i64 312
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %22 = load ptr, ptr %21, align 8
   %23 = icmp eq ptr %20, %22
   br i1 %23, label %_ZN4llvm3rdf13NodeAllocator12needNewBlockEv.exit.thread.i.i.i, label %_ZN4llvm3rdf13NodeAllocator12needNewBlockEv.exit.i.i.i
@@ -17764,7 +17764,7 @@ define dso_local { ptr, i32 } @_ZN4llvm3rdf13DataFlowGraph13getNextShadowENS0_8N
 _ZN4llvm3rdf13NodeAllocator12needNewBlockEv.exit.i.i.i: ; preds = %17
   %24 = getelementptr inbounds i8, ptr %22, i64 -8
   %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %0, i64 296
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 296
   %27 = load ptr, ptr %26, align 8
   %28 = ptrtoint ptr %27 to i64
   %29 = ptrtoint ptr %25 to i64
@@ -17779,7 +17779,7 @@ _ZN4llvm3rdf13NodeAllocator12needNewBlockEv.exit.thread.i.i.i: ; preds = %_ZN4ll
   tail call void @_ZN4llvm3rdf13NodeAllocator13startNewBlockEv(ptr noundef nonnull align 8 dereferenceable(144) %18)
   %.pre.i.i.i = load ptr, ptr %21, align 8
   %.pre4.i.i.i = load ptr, ptr %19, align 8
-  %.phi.trans.insert.i.i.i = getelementptr inbounds i8, ptr %0, i64 296
+  %.phi.trans.insert.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 296
   %.pre5.i.i.i = load ptr, ptr %.phi.trans.insert.i.i.i, align 8
   %.pre6.i.i.i = ptrtoint ptr %.pre5.i.i.i to i64
   br label %_ZN4llvm3rdf13DataFlowGraph7newNodeEt.exit.i
@@ -17795,11 +17795,11 @@ _ZN4llvm3rdf13DataFlowGraph7newNodeEt.exit.i:     ; preds = %_ZN4llvm3rdf13NodeA
   %40 = lshr exact i64 %39, 3
   %41 = trunc i64 %40 to i32
   %42 = add i32 %41, -1
-  %43 = getelementptr inbounds i8, ptr %0, i64 296
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 296
   %44 = zext i32 %42 to i64
   %45 = getelementptr inbounds ptr, ptr %35, i64 %44
   %46 = load ptr, ptr %45, align 8
-  %47 = getelementptr inbounds i8, ptr %0, i64 284
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 284
   %48 = load i32, ptr %47, align 4
   %49 = getelementptr inbounds i8, ptr %34, i64 32
   store ptr %49, ptr %43, align 8
@@ -17813,16 +17813,16 @@ _ZN4llvm3rdf13DataFlowGraph7newNodeEt.exit.i:     ; preds = %_ZN4llvm3rdf13NodeA
 53:                                               ; preds = %_ZN4llvm3rdf13DataFlowGraph7newNodeEt.exit.i
   %54 = getelementptr inbounds nuw i8, ptr %34, i64 8
   store i32 0, ptr %54, align 8
-  %55 = getelementptr inbounds i8, ptr %34, i64 12
+  %55 = getelementptr inbounds nuw i8, ptr %34, i64 12
   store i32 0, ptr %55, align 4
   %56 = and i16 %50, 28
   %57 = icmp eq i16 %56, 4
   br i1 %57, label %58, label %_ZN4llvm3rdf13DataFlowGraph9cloneNodeENS0_8NodeAddrIPNS0_8NodeBaseEEE.exit
 
 58:                                               ; preds = %53
-  %59 = getelementptr inbounds i8, ptr %34, i64 16
+  %59 = getelementptr inbounds nuw i8, ptr %34, i64 16
   store i32 0, ptr %59, align 8
-  %60 = getelementptr inbounds i8, ptr %34, i64 20
+  %60 = getelementptr inbounds nuw i8, ptr %34, i64 20
   store i32 0, ptr %60, align 4
   br label %_ZN4llvm3rdf13DataFlowGraph9cloneNodeENS0_8NodeAddrIPNS0_8NodeBaseEEE.exit
 
@@ -17849,7 +17849,7 @@ _ZN4llvm3rdf13DataFlowGraph9cloneNodeENS0_8NodeAddrIPNS0_8NodeBaseEEE.exit: ; pr
   br label %_ZN4llvm3rdf8NodeBase6appendENS0_8NodeAddrIPS1_EE.exit.i
 
 _ZN4llvm3rdf8NodeBase6appendENS0_8NodeAddrIPS1_EE.exit.i: ; preds = %72, %_ZN4llvm3rdf13DataFlowGraph9cloneNodeENS0_8NodeAddrIPNS0_8NodeBaseEEE.exit
-  %74 = getelementptr inbounds i8, ptr %1, i64 20
+  %74 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %75 = load i32, ptr %74, align 4
   %76 = icmp eq i32 %75, %.sroa.524.0.i
   br i1 %76, label %77, label %_ZN4llvm3rdf8CodeNode14addMemberAfterENS0_8NodeAddrIPNS0_8NodeBaseEEES5_RKNS0_13DataFlowGraphE.exit
@@ -18092,7 +18092,7 @@ _ZN4llvm11SmallVectorINS_3rdf8NodeAddrIPNS1_8NodeBaseEEELj4EED2Ev.exit: ; preds 
   %23 = and i16 %22, 28
   %24 = and i16 %22, 128
   %.not.i = icmp eq i16 %24, 0
-  %25 = getelementptr inbounds i8, ptr %19, i64 24
+  %25 = getelementptr inbounds nuw i8, ptr %19, i64 24
   br i1 %.not.i, label %26, label %_ZNK4llvm3rdf13DataFlowGraph6unpackENS0_17PackedRegisterRefE.exit.i
 
 _ZNK4llvm3rdf13DataFlowGraph6unpackENS0_17PackedRegisterRefE.exit.i: ; preds = %18
@@ -18228,7 +18228,7 @@ _ZNK4llvm3rdf13DataFlowGraph8DefStack5emptyEv.exit: ; preds = %6
   %18 = load i16, ptr %3, align 8
   %19 = and i16 %18, 128
   %.not.i = icmp eq i16 %19, 0
-  %20 = getelementptr inbounds i8, ptr %3, i64 24
+  %20 = getelementptr inbounds nuw i8, ptr %3, i64 24
   br i1 %.not.i, label %31, label %21
 
 21:                                               ; preds = %17
@@ -18310,7 +18310,7 @@ _ZNK4llvm3rdf7RefNode9getRegRefERKNS0_13DataFlowGraphE.exit: ; preds = %_ZNK4llv
   %53 = load i16, ptr %52, align 8
   %54 = and i16 %53, 128
   %.not.i52 = icmp eq i16 %54, 0
-  %55 = getelementptr inbounds i8, ptr %52, i64 24
+  %55 = getelementptr inbounds nuw i8, ptr %52, i64 24
   br i1 %.not.i52, label %65, label %56
 
 56:                                               ; preds = %47
@@ -18377,9 +18377,9 @@ _ZNK4llvm3rdf7RefNode9getRegRefERKNS0_13DataFlowGraphE.exit63: ; preds = %_ZNK4l
   %.sroa.6.2 = phi i32 [ %.fca.1.extract, %78 ], [ %4, %74 ]
   %83 = getelementptr inbounds nuw i8, ptr %.sroa.078.2, i64 8
   store i32 %.sroa.2.0.copyload.i, ptr %83, align 8
-  %84 = getelementptr inbounds i8, ptr %.sroa.0.0.copyload.i64, i64 20
+  %84 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i64, i64 20
   %85 = load i32, ptr %84, align 4
-  %86 = getelementptr inbounds i8, ptr %.sroa.078.2, i64 12
+  %86 = getelementptr inbounds nuw i8, ptr %.sroa.078.2, i64 12
   store i32 %85, ptr %86, align 4
   store i32 %.sroa.6.2, ptr %84, align 4
   br i1 %72, label %._crit_edge, label %87
@@ -18426,28 +18426,28 @@ _ZN4llvm3rdf12RegisterAggrD2Ev.exit:              ; preds = %6, %100, %._crit_ed
 define dso_local void @_ZN4llvm3rdf13DataFlowGraph11unlinkUseDFENS0_8NodeAddrIPNS0_7UseNodeEEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(736) %0, ptr nocapture readonly %1, i32 %2) local_unnamed_addr #10 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load i32, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 12
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %7 = load i32, ptr %6, align 4
   %8 = icmp eq i32 %5, 0
   br i1 %8, label %.loopexit, label %_ZNK4llvm3rdf13DataFlowGraph4addrIPNS0_7DefNodeEEENS0_8NodeAddrIT_EEj.exit
 
 _ZNK4llvm3rdf13DataFlowGraph4addrIPNS0_7DefNodeEEENS0_8NodeAddrIT_EEj.exit: ; preds = %3
   %9 = add i32 %5, -1
-  %10 = getelementptr inbounds i8, ptr %0, i64 284
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 284
   %11 = load i32, ptr %10, align 4
   %12 = lshr i32 %9, %11
-  %13 = getelementptr inbounds i8, ptr %0, i64 288
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 288
   %14 = load i32, ptr %13, align 8
   %15 = and i32 %14, %9
   %16 = shl i32 %15, 5
-  %17 = getelementptr inbounds i8, ptr %0, i64 304
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %18 = zext i32 %12 to i64
   %19 = load ptr, ptr %17, align 8
   %20 = getelementptr inbounds ptr, ptr %19, i64 %18
   %21 = load ptr, ptr %20, align 8
   %22 = zext i32 %16 to i64
   %23 = getelementptr inbounds i8, ptr %21, i64 %22
-  %24 = getelementptr inbounds i8, ptr %23, i64 20
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 20
   %25 = load i32, ptr %24, align 4
   %26 = icmp eq i32 %25, 0
   %27 = icmp eq i32 %25, %2
@@ -18469,14 +18469,14 @@ _ZNK4llvm3rdf13DataFlowGraph4addrIPNS0_7UseNodeEEENS0_8NodeAddrIT_EEj.exit.threa
   %34 = shl i32 %33, 5
   %35 = zext i32 %34 to i64
   %36 = getelementptr inbounds i8, ptr %32, i64 %35
-  %37 = getelementptr inbounds i8, ptr %36, i64 12
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 12
   %38 = load i32, ptr %37, align 4
   %39 = icmp eq i32 %38, %2
   br i1 %39, label %.lr.ph._crit_edge, label %.lr.ph45
 
 .lr.ph._crit_edge:                                ; preds = %_ZNK4llvm3rdf13DataFlowGraph4addrIPNS0_7UseNodeEEENS0_8NodeAddrIT_EEj.exit32, %.lr.ph.preheader
   %.0.i.i.i26.pn36.lcssa = phi ptr [ %36, %.lr.ph.preheader ], [ %51, %_ZNK4llvm3rdf13DataFlowGraph4addrIPNS0_7UseNodeEEENS0_8NodeAddrIT_EEj.exit32 ]
-  %40 = getelementptr inbounds i8, ptr %.0.i.i.i26.pn36.lcssa, i64 12
+  %40 = getelementptr inbounds nuw i8, ptr %.0.i.i.i26.pn36.lcssa, i64 12
   br label %.loopexit.sink.split
 
 .lr.ph45:                                         ; preds = %.lr.ph.preheader, %_ZNK4llvm3rdf13DataFlowGraph4addrIPNS0_7UseNodeEEENS0_8NodeAddrIT_EEj.exit32
@@ -18494,7 +18494,7 @@ _ZNK4llvm3rdf13DataFlowGraph4addrIPNS0_7UseNodeEEENS0_8NodeAddrIT_EEj.exit32: ; 
   %49 = load ptr, ptr %48, align 8
   %50 = zext i32 %46 to i64
   %51 = getelementptr inbounds i8, ptr %49, i64 %50
-  %52 = getelementptr inbounds i8, ptr %51, i64 12
+  %52 = getelementptr inbounds nuw i8, ptr %51, i64 12
   %53 = load i32, ptr %52, align 4
   %54 = icmp eq i32 %53, %2
   br i1 %54, label %.lr.ph._crit_edge, label %.lr.ph45, !llvm.loop !151
@@ -18514,10 +18514,10 @@ define dso_local void @_ZN4llvm3rdf13DataFlowGraph11unlinkDefDFENS0_8NodeAddrIPN
   %5 = alloca %"class.llvm::SmallVector.77", align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load i32, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %1, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %9 = load i32, ptr %8, align 8
   call fastcc void @"_ZZN4llvm3rdf13DataFlowGraph11unlinkDefDFENS0_8NodeAddrIPNS0_7DefNodeEEEENK3$_0clEj"(ptr dead_on_unwind noalias nonnull writable align 8 %4, ptr nonnull %0, i32 noundef %9)
-  %10 = getelementptr inbounds i8, ptr %1, i64 20
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %11 = load i32, ptr %10, align 4
   call fastcc void @"_ZZN4llvm3rdf13DataFlowGraph11unlinkDefDFENS0_8NodeAddrIPNS0_7DefNodeEEEENK3$_0clEj"(ptr dead_on_unwind noalias nonnull writable align 8 %5, ptr nonnull %0, i32 noundef %11)
   %12 = icmp eq i32 %7, 0
@@ -18533,7 +18533,7 @@ define dso_local void @_ZN4llvm3rdf13DataFlowGraph11unlinkDefDFENS0_8NodeAddrIPN
 .lr.ph:                                           ; preds = %13, %.lr.ph
   %.091 = phi ptr [ %19, %.lr.ph ], [ %14, %13 ]
   %17 = load ptr, ptr %.091, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 12
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 12
   store i32 0, ptr %18, align 4
   %19 = getelementptr inbounds i8, ptr %.091, i64 16
   %.not = icmp eq ptr %19, %16
@@ -18549,7 +18549,7 @@ define dso_local void @_ZN4llvm3rdf13DataFlowGraph11unlinkDefDFENS0_8NodeAddrIPN
 .lr.ph95:                                         ; preds = %._crit_edge, %.lr.ph95
   %.05793 = phi ptr [ %25, %.lr.ph95 ], [ %20, %._crit_edge ]
   %23 = load ptr, ptr %.05793, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 12
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 12
   store i32 0, ptr %24, align 4
   %25 = getelementptr inbounds i8, ptr %.05793, i64 16
   %.not62 = icmp eq ptr %25, %22
@@ -18588,27 +18588,27 @@ define dso_local void @_ZN4llvm3rdf13DataFlowGraph11unlinkDefDFENS0_8NodeAddrIPN
   br i1 %.not64, label %._crit_edge105, label %.lr.ph104
 
 ._crit_edge105:                                   ; preds = %.lr.ph104, %._crit_edge100
-  %38 = getelementptr inbounds i8, ptr %1, i64 12
+  %38 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %39 = load i32, ptr %38, align 4
   br i1 %12, label %113, label %_ZNK4llvm3rdf13DataFlowGraph4addrIPNS0_7DefNodeEEENS0_8NodeAddrIT_EEj.exit
 
 _ZNK4llvm3rdf13DataFlowGraph4addrIPNS0_7DefNodeEEENS0_8NodeAddrIT_EEj.exit: ; preds = %._crit_edge105
   %40 = add i32 %7, -1
-  %41 = getelementptr inbounds i8, ptr %0, i64 284
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 284
   %42 = load i32, ptr %41, align 4
   %43 = lshr i32 %40, %42
-  %44 = getelementptr inbounds i8, ptr %0, i64 288
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 288
   %45 = load i32, ptr %44, align 8
   %46 = and i32 %45, %40
   %47 = shl i32 %46, 5
-  %48 = getelementptr inbounds i8, ptr %0, i64 304
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %49 = zext i32 %43 to i64
   %50 = load ptr, ptr %48, align 8
   %51 = getelementptr inbounds ptr, ptr %50, i64 %49
   %52 = load ptr, ptr %51, align 8
   %53 = zext i32 %47 to i64
   %54 = getelementptr inbounds i8, ptr %52, i64 %53
-  %55 = getelementptr inbounds i8, ptr %54, i64 16
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 16
   %56 = load i32, ptr %55, align 8
   %57 = icmp eq i32 %56, 0
   %58 = icmp eq i32 %56, %2
@@ -18630,7 +18630,7 @@ _ZNK4llvm3rdf13DataFlowGraph4addrIPNS0_7DefNodeEEENS0_8NodeAddrIT_EEj.exit70.thr
   %65 = shl i32 %64, 5
   %66 = zext i32 %65 to i64
   %67 = getelementptr inbounds i8, ptr %63, i64 %66
-  %68 = getelementptr inbounds i8, ptr %67, i64 12
+  %68 = getelementptr inbounds nuw i8, ptr %67, i64 12
   %69 = load i32, ptr %68, align 4
   %70 = icmp eq i32 %69, %2
   br i1 %70, label %.lr.ph108._crit_edge, label %.lr.ph117
@@ -18641,7 +18641,7 @@ _ZNK4llvm3rdf13DataFlowGraph4addrIPNS0_7DefNodeEEENS0_8NodeAddrIT_EEj.exit70.thr
 
 .lr.ph108._crit_edge:                             ; preds = %_ZNK4llvm3rdf13DataFlowGraph4addrIPNS0_7DefNodeEEENS0_8NodeAddrIT_EEj.exit74, %.lr.ph108.preheader
   %.0.i.i.i67.pn107.lcssa = phi ptr [ %67, %.lr.ph108.preheader ], [ %83, %_ZNK4llvm3rdf13DataFlowGraph4addrIPNS0_7DefNodeEEENS0_8NodeAddrIT_EEj.exit74 ]
-  %72 = getelementptr inbounds i8, ptr %.0.i.i.i67.pn107.lcssa, i64 12
+  %72 = getelementptr inbounds nuw i8, ptr %.0.i.i.i67.pn107.lcssa, i64 12
   store i32 %39, ptr %72, align 4
   br label %.loopexit
 
@@ -18660,7 +18660,7 @@ _ZNK4llvm3rdf13DataFlowGraph4addrIPNS0_7DefNodeEEENS0_8NodeAddrIT_EEj.exit74: ; 
   %81 = load ptr, ptr %80, align 8
   %82 = zext i32 %78 to i64
   %83 = getelementptr inbounds i8, ptr %81, i64 %82
-  %84 = getelementptr inbounds i8, ptr %83, i64 12
+  %84 = getelementptr inbounds nuw i8, ptr %83, i64 12
   %85 = load i32, ptr %84, align 4
   %86 = icmp eq i32 %85, %2
   br i1 %86, label %.lr.ph108._crit_edge, label %.lr.ph117, !llvm.loop !186
@@ -18676,7 +18676,7 @@ _ZNK4llvm3rdf13DataFlowGraph4addrIPNS0_7DefNodeEEENS0_8NodeAddrIT_EEj.exit74: ; 
   %92 = getelementptr inbounds i8, ptr %91, i64 -16
   %93 = load ptr, ptr %92, align 8
   %94 = load i32, ptr %55, align 8
-  %95 = getelementptr inbounds i8, ptr %93, i64 12
+  %95 = getelementptr inbounds nuw i8, ptr %93, i64 12
   store i32 %94, ptr %95, align 4
   %96 = load ptr, ptr %4, align 8
   %97 = getelementptr inbounds nuw i8, ptr %96, i64 8
@@ -18694,9 +18694,9 @@ _ZNK4llvm3rdf13DataFlowGraph4addrIPNS0_7DefNodeEEENS0_8NodeAddrIT_EEj.exit74: ; 
   %104 = getelementptr inbounds %"struct.llvm::rdf::NodeAddr.58", ptr %102, i64 %103
   %105 = getelementptr inbounds i8, ptr %104, i64 -16
   %106 = load ptr, ptr %105, align 8
-  %107 = getelementptr inbounds i8, ptr %54, i64 20
+  %107 = getelementptr inbounds nuw i8, ptr %54, i64 20
   %108 = load i32, ptr %107, align 4
-  %109 = getelementptr inbounds i8, ptr %106, i64 12
+  %109 = getelementptr inbounds nuw i8, ptr %106, i64 12
   store i32 %108, ptr %109, align 4
   %110 = load ptr, ptr %5, align 8
   %111 = getelementptr inbounds nuw i8, ptr %110, i64 8
@@ -18738,9 +18738,9 @@ define internal fastcc void @"_ZZN4llvm3rdf13DataFlowGraph11unlinkDefDFENS0_8Nod
   br i1 %.not3, label %._crit_edge, label %_ZNK4llvm3rdf13DataFlowGraph4addrIPNS0_7RefNodeEEENS0_8NodeAddrIT_EEj.exit.lr.ph
 
 _ZNK4llvm3rdf13DataFlowGraph4addrIPNS0_7RefNodeEEENS0_8NodeAddrIT_EEj.exit.lr.ph: ; preds = %2
-  %4 = getelementptr inbounds i8, ptr %.0.val, i64 284
-  %5 = getelementptr inbounds i8, ptr %.0.val, i64 288
-  %6 = getelementptr inbounds i8, ptr %.0.val, i64 304
+  %4 = getelementptr inbounds nuw i8, ptr %.0.val, i64 284
+  %5 = getelementptr inbounds nuw i8, ptr %.0.val, i64 288
+  %6 = getelementptr inbounds nuw i8, ptr %.0.val, i64 304
   br label %_ZNK4llvm3rdf13DataFlowGraph4addrIPNS0_7RefNodeEEENS0_8NodeAddrIT_EEj.exit
 
 _ZNK4llvm3rdf13DataFlowGraph4addrIPNS0_7RefNodeEEENS0_8NodeAddrIT_EEj.exit: ; preds = %_ZNK4llvm3rdf13DataFlowGraph4addrIPNS0_7RefNodeEEENS0_8NodeAddrIT_EEj.exit.lr.ph, %_ZN4llvm23SmallVectorTemplateBaseINS_3rdf8NodeAddrIPNS1_8NodeBaseEEELb1EE9push_backES5_.exit
@@ -18777,7 +18777,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_3rdf8NodeAddrIPNS1_8NodeBaseEEELb1EE9push_b
   %26 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #22
   %27 = add i64 %26, 1
   tail call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %27) #22
-  %28 = getelementptr inbounds i8, ptr %18, i64 12
+  %28 = getelementptr inbounds nuw i8, ptr %18, i64 12
   %29 = load i32, ptr %28, align 4
   %.not = icmp eq i32 %29, 0
   br i1 %.not, label %._crit_edge, label %_ZNK4llvm3rdf13DataFlowGraph4addrIPNS0_7RefNodeEEENS0_8NodeAddrIT_EEj.exit, !llvm.loop !187
@@ -18814,7 +18814,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm3rdf13DataFlowGraph15hasUntrackedR
 20:                                               ; preds = %.lr.ph, %81
   %.02138 = phi ptr [ %9, %.lr.ph ], [ %82, %81 ]
   %21 = load ptr, ptr %.02138, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 24
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 24
   %23 = load ptr, ptr %22, align 8
   %24 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %6) #22
   %25 = add i64 %24, 1
@@ -20023,7 +20023,7 @@ _ZN4llvm3rdf12RegisterAggr12ref_iteratorC2EOS2_.exit.i: ; preds = %70, %57
 _ZN4llvm14iterator_rangeINS_3rdf12RegisterAggr12ref_iteratorEEC2ES3_S3_.exit: ; preds = %77, %91
   %.sink.i.i.i.i.i2.i = phi ptr [ %95, %91 ], [ %88, %77 ]
   store i64 0, ptr %.sink.i.i.i.i.i2.i, align 8
-  %96 = getelementptr inbounds i8, ptr %0, i64 120
+  %96 = getelementptr inbounds nuw i8, ptr %0, i64 120
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %96, ptr noundef nonnull align 8 dereferenceable(24) %53, i64 24, i1 false)
   call void @_ZNSt8_Rb_treeIjSt4pairIKjN4llvm11LaneBitmaskEESt10_Select1stIS4_ESt4lessIjESaIS4_EE8_M_eraseEPSt13_Rb_tree_nodeIS4_E(ptr noundef nonnull align 8 dereferenceable(48) %5, ptr noundef null)
   %97 = load ptr, ptr %56, align 8
@@ -20068,7 +20068,7 @@ define linkonce_odr void @_ZNSt8_Rb_treeIjSt4pairIKjN4llvm3rdf12RegisterAggrEESt
   tail call void @_ZNSt8_Rb_treeIjSt4pairIKjN4llvm3rdf12RegisterAggrEESt10_Select1stIS5_ESt4lessIjESaIS5_EE8_M_eraseEPSt13_Rb_tree_nodeIS5_E(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %4)
   %5 = getelementptr inbounds nuw i8, ptr %.07, i64 16
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %.07, i64 40
+  %7 = getelementptr inbounds nuw i8, ptr %.07, i64 40
   %8 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %7) #22
   %9 = load ptr, ptr %7, align 8
   %10 = getelementptr inbounds i8, ptr %.07, i64 56
@@ -20893,7 +20893,7 @@ define internal fastcc noundef zeroext i1 @"_ZZNK4llvm3rdf13DataFlowGraph14getNe
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %12 = and i16 %4, 128
   %.not.i = icmp eq i16 %12, 0
-  %13 = getelementptr inbounds i8, ptr %1, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 24
   br i1 %.not.i, label %24, label %14
 
 14:                                               ; preds = %10
@@ -20936,7 +20936,7 @@ _ZNK4llvm3rdf7RefNode9getRegRefERKNS0_13DataFlowGraphE.exit: ; preds = %_ZNK4llv
   %30 = extractvalue { i32, i64 } %.pn.i, 1
   %31 = and i16 %27, 128
   %.not.i6 = icmp eq i16 %31, 0
-  %32 = getelementptr inbounds i8, ptr %28, i64 24
+  %32 = getelementptr inbounds nuw i8, ptr %28, i64 24
   br i1 %.not.i6, label %43, label %33
 
 33:                                               ; preds = %_ZNK4llvm3rdf7RefNode9getRegRefERKNS0_13DataFlowGraphE.exit
@@ -21361,7 +21361,7 @@ define linkonce_odr ptr @_ZNSt8_Rb_treeIjSt4pairIKjN4llvm3rdf12RegisterAggrEESt1
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %7 = load i32, ptr %2, align 4
   store i32 %7, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %5, i64 40
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 40
   %9 = getelementptr inbounds i8, ptr %5, i64 56
   tail call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull %9, i64 noundef 6) #22
   %10 = tail call noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseIjE5emptyEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #22
@@ -21372,11 +21372,11 @@ define linkonce_odr ptr @_ZNSt8_Rb_treeIjSt4pairIKjN4llvm3rdf12RegisterAggrEESt1
   br label %_ZNSt8_Rb_treeIjSt4pairIKjN4llvm3rdf12RegisterAggrEESt10_Select1stIS5_ESt4lessIjESaIS5_EE10_Auto_nodeC2IJRjRS4_EEERSB_DpOT_.exit
 
 _ZNSt8_Rb_treeIjSt4pairIKjN4llvm3rdf12RegisterAggrEESt10_Select1stIS5_ESt4lessIjESaIS5_EE10_Auto_nodeC2IJRjRS4_EEERSB_DpOT_.exit: ; preds = %4, %11
-  %13 = getelementptr inbounds i8, ptr %5, i64 104
+  %13 = getelementptr inbounds nuw i8, ptr %5, i64 104
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 64
   %15 = load i32, ptr %14, align 8
   store i32 %15, ptr %13, align 8
-  %16 = getelementptr inbounds i8, ptr %5, i64 112
+  %16 = getelementptr inbounds nuw i8, ptr %5, i64 112
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 72
   %18 = load ptr, ptr %17, align 8
   store ptr %18, ptr %16, align 8
@@ -21806,7 +21806,7 @@ _ZNK4llvm3rdf13DataFlowGraph8DefStack5emptyEv.exit: ; preds = %6
   %18 = load i16, ptr %3, align 8
   %19 = and i16 %18, 128
   %.not.i = icmp eq i16 %19, 0
-  %20 = getelementptr inbounds i8, ptr %3, i64 24
+  %20 = getelementptr inbounds nuw i8, ptr %3, i64 24
   br i1 %.not.i, label %31, label %21
 
 21:                                               ; preds = %17
@@ -21888,7 +21888,7 @@ _ZNK4llvm3rdf7RefNode9getRegRefERKNS0_13DataFlowGraphE.exit: ; preds = %_ZNK4llv
   %53 = load i16, ptr %52, align 8
   %54 = and i16 %53, 128
   %.not.i52 = icmp eq i16 %54, 0
-  %55 = getelementptr inbounds i8, ptr %52, i64 24
+  %55 = getelementptr inbounds nuw i8, ptr %52, i64 24
   br i1 %.not.i52, label %65, label %56
 
 56:                                               ; preds = %47
@@ -21955,9 +21955,9 @@ _ZNK4llvm3rdf7RefNode9getRegRefERKNS0_13DataFlowGraphE.exit63: ; preds = %_ZNK4l
   %.sroa.6.2 = phi i32 [ %.fca.1.extract, %78 ], [ %4, %74 ]
   %83 = getelementptr inbounds nuw i8, ptr %.sroa.078.2, i64 8
   store i32 %.sroa.2.0.copyload.i, ptr %83, align 8
-  %84 = getelementptr inbounds i8, ptr %.sroa.0.0.copyload.i64, i64 16
+  %84 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i64, i64 16
   %85 = load i32, ptr %84, align 8
-  %86 = getelementptr inbounds i8, ptr %.sroa.078.2, i64 12
+  %86 = getelementptr inbounds nuw i8, ptr %.sroa.078.2, i64 12
   store i32 %85, ptr %86, align 4
   store i32 %.sroa.6.2, ptr %84, align 8
   br i1 %72, label %._crit_edge, label %87

@@ -232,13 +232,13 @@ _ZN4llvmeqENS_9StringRefES0_.exit:                ; preds = %11
 _ZN4llvmeqENS_9StringRefES0_.exit.thread65:       ; preds = %11, %_ZN4llvmeqENS_9StringRefES0_.exit
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 528
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 528
   %20 = load i32, ptr %19, align 8
   %21 = icmp eq i32 %20, 38
   %22 = select i1 %21, i32 3645, i32 3644
   %23 = getelementptr inbounds i8, ptr %4, i64 16
   call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull %23, i64 noundef 16) #12
-  %24 = getelementptr inbounds i8, ptr %1, i64 328
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 328
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 320
   %.sroa.060.074 = load ptr, ptr %24, align 8
   %.not7075 = icmp eq ptr %.sroa.060.074, %25
@@ -339,7 +339,7 @@ _ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEppEv.exit: ; preds =
   %69 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %70 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %71 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  %72 = getelementptr inbounds i8, ptr %3, i64 24
+  %72 = getelementptr inbounds nuw i8, ptr %3, i64 24
   br label %73
 
 73:                                               ; preds = %.lr.ph82, %_ZN4llvm8DebugLocD2Ev.exit51

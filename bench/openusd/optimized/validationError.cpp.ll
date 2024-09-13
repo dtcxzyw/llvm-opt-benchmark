@@ -47,7 +47,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__22UsdValidationErrorSiteC2ERKN
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %1, align 8
   store ptr %5, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = load ptr, ptr %7, align 8
   store ptr %8, ptr %6, align 8
@@ -80,7 +80,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_8SdfLayerEEC2ERKS2_.exit: ; p
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathC2ERKS0_.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathC2ERKS0_.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_8SdfLayerEEC2ERKS2_.exit, %14
-  %25 = getelementptr inbounds i8, ptr %0, i64 36
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %26 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %27 = load i32, ptr %26, align 4
   store i32 %27, ptr %25, align 4
@@ -109,7 +109,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_8UsdStageEEC2ERKS2_.exit: ; p
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %13 = load ptr, ptr %3, align 8
   store ptr %13, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %15 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %16 = load ptr, ptr %15, align 8
   store ptr %16, ptr %14, align 8
@@ -142,7 +142,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_8SdfLayerEEC2ERKS2_.exit: ; p
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathC2ERKS0_.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathC2ERKS0_.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_8SdfLayerEEC2ERKS2_.exit, %22
-  %33 = getelementptr inbounds i8, ptr %0, i64 36
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %34 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %35 = load i32, ptr %34, align 4
   store i32 %35, ptr %33, align 4
@@ -246,8 +246,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_8UsdStageEEC2ERKS2_.exit.i.i.
   %28 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i, i64 16
   %29 = load ptr, ptr %28, align 8
   store ptr %29, ptr %27, align 8
-  %30 = getelementptr inbounds i8, ptr %.013.i.i.i.i, i64 24
-  %31 = getelementptr inbounds i8, ptr %.sroa.08.012.i.i.i.i, i64 24
+  %30 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i, i64 24
   %32 = load ptr, ptr %31, align 8
   store ptr %32, ptr %30, align 8
   %.not.i.i.i.i5.i.i.i.i.i.i = icmp eq ptr %32, null
@@ -280,8 +280,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_8SdfLayerEEC2ERKS2_.exit.i.i.
   br label %50
 
 50:                                               ; preds = %39, %_ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_8SdfLayerEEC2ERKS2_.exit.i.i.i.i.i.i
-  %51 = getelementptr inbounds i8, ptr %.013.i.i.i.i, i64 36
-  %52 = getelementptr inbounds i8, ptr %.sroa.08.012.i.i.i.i, i64 36
+  %51 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i, i64 36
+  %52 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i, i64 36
   %53 = load i32, ptr %52, align 4
   store i32 %53, ptr %51, align 4
   %54 = getelementptr inbounds i8, ptr %.sroa.08.012.i.i.i.i, i64 40
@@ -339,7 +339,7 @@ define linkonce_odr void @_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__22UsdV
   unreachable
 
 _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit.i.i.i.i.i: ; preds = %20, %7, %.lr.ph.i.i.i
-  %24 = getelementptr inbounds i8, ptr %.05.i.i.i, i64 24
+  %24 = getelementptr inbounds nuw i8, ptr %.05.i.i.i, i64 24
   %25 = load ptr, ptr %24, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %25, null
   br i1 %.not.i.i.i.i.i.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_8SdfLayerEED2Ev.exit.i.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i.i.i.i.i.i

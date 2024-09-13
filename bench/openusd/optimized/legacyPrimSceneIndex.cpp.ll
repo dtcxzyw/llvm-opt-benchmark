@@ -174,7 +174,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit: ; preds = %_ZN32pxrI
   %38 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %39 = load ptr, ptr %8, align 8
   store ptr %39, ptr %38, align 8
-  %40 = getelementptr inbounds i8, ptr %7, i64 24
+  %40 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %41 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %42 = load ptr, ptr %41, align 8
   store ptr null, ptr %41, align 8
@@ -238,7 +238,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit.i.i.i.i.i.i.i: ; pred
   %73 = getelementptr inbounds nuw i8, ptr %43, i64 16
   %74 = load ptr, ptr %38, align 8
   store ptr %74, ptr %73, align 8
-  %75 = getelementptr inbounds i8, ptr %43, i64 24
+  %75 = getelementptr inbounds nuw i8, ptr %43, i64 24
   %76 = load ptr, ptr %40, align 8
   store ptr %76, ptr %75, align 8
   %.not.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %76, null
@@ -522,7 +522,7 @@ _ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__20HdRetainedSceneIndex14A
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__20HdRetainedSceneIndex14AddedPrimEntryD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i.i, label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__21HdContainerDataSourceEED2Ev.exit, label %4
@@ -921,8 +921,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit.i.i.i.i.i.i.i: ; pred
   %87 = getelementptr inbounds nuw i8, ptr %59, i64 16
   %88 = load ptr, ptr %58, align 8
   store ptr %88, ptr %87, align 8
-  %89 = getelementptr inbounds i8, ptr %59, i64 24
-  %90 = getelementptr inbounds i8, ptr %5, i64 24
+  %89 = getelementptr inbounds nuw i8, ptr %59, i64 24
+  %90 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %91 = load ptr, ptr %90, align 8
   store ptr %91, ptr %89, align 8
   %.not.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %91, null
@@ -1316,7 +1316,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__22HdLegacyPrimSceneIndex10Dirt
 
 .lr.ph:                                           ; preds = %16
   %25 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %26 = getelementptr inbounds i8, ptr %6, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %27 = getelementptr inbounds nuw i8, ptr %5, i64 8
   br label %28
 
@@ -1694,7 +1694,7 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__22HdLegacyPrimSce
   br i1 %.not.i.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__20HdRetainedSceneIndexD2Ev.exit, label %4
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 136
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %6 = load ptr, ptr %5, align 8
   %7 = ptrtoint ptr %6 to i64
   %8 = ptrtoint ptr %3 to i64
@@ -1717,7 +1717,7 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__22HdLegacyPrimSce
   br i1 %.not.i.i.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__22HdLegacyPrimSceneIndexD2Ev.exit, label %4
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 136
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %6 = load ptr, ptr %5, align 8
   %7 = ptrtoint ptr %6 to i64
   %8 = ptrtoint ptr %3 to i64
@@ -1923,7 +1923,7 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__12SdfPathTableINS
   %12 = getelementptr inbounds nuw i8, ptr %.0912, i64 32
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr inbounds nuw i8, ptr %.0912, i64 8
-  %15 = getelementptr inbounds i8, ptr %.0912, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %.0912, i64 24
   %16 = load ptr, ptr %15, align 8
   %.not.i.i.i.i.i.i = icmp eq ptr %16, null
   br i1 %.not.i.i.i.i.i.i, label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__21HdContainerDataSourceEED2Ev.exit.i.i.i, label %17

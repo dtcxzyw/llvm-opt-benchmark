@@ -779,7 +779,7 @@ _ZN21PXR_INTERNAL_NS_pegtl12memory_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_
 
 .noexc.i:                                         ; preds = %.noexc41
   %35 = getelementptr inbounds nuw i8, ptr %13, i64 16
-  %36 = getelementptr inbounds i8, ptr %13, i64 24
+  %36 = getelementptr inbounds nuw i8, ptr %13, i64 24
   %37 = load ptr, ptr %36, align 8
   %38 = load ptr, ptr %35, align 8
   %39 = ptrtoint ptr %37 to i64
@@ -817,7 +817,7 @@ _ZN21PXR_INTERNAL_NS_pegtl12memory_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_
 
 .noexc9.i:                                        ; preds = %.noexc8.i
   %54 = load ptr, ptr %36, align 8
-  %55 = getelementptr inbounds i8, ptr %13, i64 32
+  %55 = getelementptr inbounds nuw i8, ptr %13, i64 32
   %56 = load ptr, ptr %55, align 8
   %.not.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %54, %56
   br i1 %.not.i.i.i.i.i.i.i.i.i.i, label %61, label %57
@@ -1026,11 +1026,11 @@ _ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13state_controlIN32pxrInternal_v0_
 139:                                              ; preds = %137
   %140 = getelementptr inbounds i8, ptr %136, i64 1
   store ptr %140, ptr %86, align 8
-  %141 = getelementptr inbounds i8, ptr %15, i64 16
+  %141 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %142 = load i64, ptr %141, align 8
   %143 = add i64 %142, 1
   store i64 %143, ptr %141, align 8
-  %144 = getelementptr inbounds i8, ptr %15, i64 32
+  %144 = getelementptr inbounds nuw i8, ptr %15, i64 32
   %145 = load i64, ptr %144, align 8
   %146 = add i64 %145, 1
   store i64 %146, ptr %144, align 8
@@ -1102,7 +1102,7 @@ _ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13state_controlIN32pxrInternal_v0_
   %169 = load i64, ptr %141, align 8, !noalias !10
   store i64 %169, ptr %11, align 8, !alias.scope !10
   %170 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  %171 = getelementptr inbounds i8, ptr %15, i64 24
+  %171 = getelementptr inbounds nuw i8, ptr %15, i64 24
   %172 = load i64, ptr %171, align 8, !noalias !10
   store i64 %172, ptr %170, align 8, !alias.scope !10
   %173 = getelementptr inbounds nuw i8, ptr %11, i64 16
@@ -1195,15 +1195,15 @@ common.resume.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i:      ; preds = %211, %176
   call void @llvm.experimental.noalias.scope.decl(metadata !11)
   call void @llvm.experimental.noalias.scope.decl(metadata !14)
   %201 = getelementptr inbounds nuw i8, ptr %15, i64 48
-  %202 = getelementptr inbounds i8, ptr %15, i64 16
+  %202 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %203 = load i64, ptr %202, align 8, !noalias !17
   store i64 %203, ptr %10, align 8, !alias.scope !17
   %204 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %205 = getelementptr inbounds i8, ptr %15, i64 24
+  %205 = getelementptr inbounds nuw i8, ptr %15, i64 24
   %206 = load i64, ptr %205, align 8, !noalias !17
   store i64 %206, ptr %204, align 8, !alias.scope !17
   %207 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  %208 = getelementptr inbounds i8, ptr %15, i64 32
+  %208 = getelementptr inbounds nuw i8, ptr %15, i64 32
   %209 = load i64, ptr %208, align 8, !noalias !17
   store i64 %209, ptr %207, align 8, !alias.scope !17
   %210 = getelementptr inbounds nuw i8, ptr %10, i64 24
@@ -2137,7 +2137,7 @@ _ZN21PXR_INTERNAL_NS_pegtl8internal6markerINS0_8iteratorELNS_11rewind_modeE1EED2
   %525 = load i32, ptr %13, align 8
   %526 = getelementptr inbounds nuw i8, ptr %524, i64 24
   store i32 %525, ptr %526, align 8
-  %527 = getelementptr inbounds i8, ptr %13, i64 64
+  %527 = getelementptr inbounds nuw i8, ptr %13, i64 64
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %527) #25
   %528 = load ptr, ptr %35, align 8
   %.not.i.i.i.i.i = icmp eq ptr %528, null
@@ -2191,11 +2191,11 @@ _ZN21PXR_INTERNAL_NS_pegtl14standard_traceIN32pxrInternal_v0_24__pxrReserved__12
 544:                                              ; preds = %541
   %545 = getelementptr inbounds i8, ptr %540, i64 1
   store ptr %545, ptr %537, align 8
-  %546 = getelementptr inbounds i8, ptr %15, i64 16
+  %546 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %547 = load i64, ptr %546, align 8
   %548 = add i64 %547, 1
   store i64 %548, ptr %546, align 8
-  %549 = getelementptr inbounds i8, ptr %15, i64 32
+  %549 = getelementptr inbounds nuw i8, ptr %15, i64 32
   %550 = load i64, ptr %549, align 8
   %551 = add i64 %550, 1
   store i64 %551, ptr %549, align 8
@@ -2393,7 +2393,7 @@ _ZN21PXR_INTERNAL_NS_pegtl5parseIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N
   %621 = load ptr, ptr %620, align 8
   %622 = getelementptr inbounds nuw i8, ptr %621, i64 40
   %623 = load ptr, ptr %622, align 8
-  %624 = getelementptr inbounds i8, ptr %621, i64 48
+  %624 = getelementptr inbounds nuw i8, ptr %621, i64 48
   %625 = load ptr, ptr %624, align 8
   %626 = icmp eq ptr %623, %625
   br i1 %626, label %627, label %629
@@ -2506,7 +2506,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2ESt16
   br i1 %.not.i.i.i53, label %.body55, label %660
 
 660:                                              ; preds = %657
-  %661 = getelementptr inbounds i8, ptr %0, i64 24
+  %661 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %662 = load ptr, ptr %661, align 8
   %663 = ptrtoint ptr %662 to i64
   %664 = ptrtoint ptr %659 to i64
@@ -2966,15 +2966,15 @@ define linkonce_odr void @_ZN21PXR_INTERNAL_NS_pegtl11parse_errorC2INS_12memory_
   tail call void @llvm.experimental.noalias.scope.decl(metadata !56)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !59)
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 48
-  %7 = getelementptr inbounds i8, ptr %2, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %8 = load i64, ptr %7, align 8, !noalias !62
   store i64 %8, ptr %5, align 8, !alias.scope !62
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %10 = getelementptr inbounds i8, ptr %2, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %11 = load i64, ptr %10, align 8, !noalias !62
   store i64 %11, ptr %9, align 8, !alias.scope !62
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %13 = getelementptr inbounds i8, ptr %2, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %14 = load i64, ptr %13, align 8, !noalias !62
   store i64 %14, ptr %12, align 8, !alias.scope !62
   %15 = getelementptr inbounds nuw i8, ptr %5, i64 24
@@ -3013,7 +3013,7 @@ declare void @__cxa_free_exception(ptr) local_unnamed_addr
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN21PXR_INTERNAL_NS_pegtl11parse_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN21PXR_INTERNAL_NS_pegtl11parse_errorE, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i.i, label %_ZNSt10shared_ptrIN21PXR_INTERNAL_NS_pegtl8internal11parse_errorEED2Ev.exit, label %4
@@ -3123,7 +3123,7 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN21PXR_INTERNAL_NS_pegtl8i
   br label %.body
 
 10:                                               ; preds = %.noexc
-  %11 = getelementptr inbounds i8, ptr %0, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %5, ptr %11, align 8, !alias.scope !63
   store ptr %8, ptr %4, align 8, !alias.scope !63
   invoke void @_ZN21PXR_INTERNAL_NS_pegtl8internal11parse_error12add_positionEONS_8positionE(ptr noundef nonnull align 8 dereferenceable(64) %8, ptr noundef nonnull align 8 dereferenceable(56) %2)
@@ -3185,9 +3185,9 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.e
   %15 = load i64, ptr %14, align 8
   %16 = add i64 %13, %15
   store i64 %16, ptr %14, align 8
-  %17 = getelementptr inbounds i8, ptr %0, i64 48
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %0, i64 56
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %20 = load ptr, ptr %19, align 8
   %.not.i = icmp eq ptr %18, %20
   br i1 %.not.i, label %33, label %21
@@ -3322,7 +3322,7 @@ declare void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceab
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN21PXR_INTERNAL_NS_pegtl11parse_errorD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN21PXR_INTERNAL_NS_pegtl11parse_errorE, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i.i.i, label %_ZN21PXR_INTERNAL_NS_pegtl11parse_errorD2Ev.exit, label %4
@@ -3425,9 +3425,9 @@ define linkonce_odr void @_ZNSt23_Sp_counted_ptr_inplaceIN21PXR_INTERNAL_NS_pegt
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt23_Sp_counted_ptr_inplaceIN21PXR_INTERNAL_NS_pegtl8internal11parse_errorESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv(ptr noundef nonnull align 8 dereferenceable(80) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 56
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 64
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %5 = load ptr, ptr %4, align 8
   %.not4.i.i.i.i.i.i.i = icmp eq ptr %3, %5
   br i1 %.not4.i.i.i.i.i.i.i, label %_ZSt8_DestroyIPN21PXR_INTERNAL_NS_pegtl8positionES1_EvT_S3_RSaIT0_E.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i
@@ -3450,7 +3450,7 @@ _ZSt8_DestroyIPN21PXR_INTERNAL_NS_pegtl8positionES1_EvT_S3_RSaIT0_E.exit.i.i.i.i
   br i1 %.not.i.i.i.i.i.i, label %_ZNSt16allocator_traitsISaIvEE7destroyIN21PXR_INTERNAL_NS_pegtl8internal11parse_errorEEEvRS0_PT_.exit, label %9
 
 9:                                                ; preds = %_ZSt8_DestroyIPN21PXR_INTERNAL_NS_pegtl8positionES1_EvT_S3_RSaIT0_E.exit.i.i.i.i
-  %10 = getelementptr inbounds i8, ptr %0, i64 72
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %11 = load ptr, ptr %10, align 8
   %12 = ptrtoint ptr %11 to i64
   %13 = ptrtoint ptr %8 to i64
@@ -3799,11 +3799,11 @@ _ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12memory_inputILNS_13track
 21:                                               ; preds = %_ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12memory_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_10input_pairIcEERT_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
   %22 = getelementptr inbounds i8, ptr %15, i64 1
   store ptr %22, ptr %13, align 8
-  %23 = getelementptr inbounds i8, ptr %0, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %24 = load i64, ptr %23, align 8
   %25 = add i64 %24, 1
   store i64 %25, ptr %23, align 8
-  %26 = getelementptr inbounds i8, ptr %0, i64 32
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %27 = load i64, ptr %26, align 8
   %28 = add i64 %27, 1
   store i64 %28, ptr %26, align 8
@@ -3823,11 +3823,11 @@ _ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12memory_inputILNS_13track
 _ZN21PXR_INTERNAL_NS_pegtl6normalINS_5ascii5digitEE5matchILNS_10apply_modeE1ELNS_11rewind_modeE0ETtTpTyEN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16ActionETtTpTyENS8_6ErrorsENS_12memory_inputILNS_13tracking_modeE0ENS1_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS8_13ParserContextEEEEbRT3_DpOT4_.exit.i.i.i.i.i.i.i.i.i.i: ; preds = %_ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12memory_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_10input_pairIcEERT_.exit.i.i.i.i.i.i.i.i.i.i5.i.i.i.i.i
   %34 = getelementptr inbounds i8, ptr %29, i64 1
   store ptr %34, ptr %13, align 8
-  %35 = getelementptr inbounds i8, ptr %0, i64 16
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %36 = load i64, ptr %35, align 8
   %37 = add i64 %36, 1
   store i64 %37, ptr %35, align 8
-  %38 = getelementptr inbounds i8, ptr %0, i64 32
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %39 = load i64, ptr %38, align 8
   %40 = add i64 %39, 1
   store i64 %40, ptr %38, align 8
@@ -3910,11 +3910,11 @@ _ZN21PXR_INTERNAL_NS_pegtl8internal6rangesINS0_9peek_charEJLc97ELc122ELc65ELc90E
 68:                                               ; preds = %_ZN21PXR_INTERNAL_NS_pegtl8internal6rangesINS0_9peek_charEJLc97ELc122ELc65ELc90ELc95EEE4testEc.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %_ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12memory_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_10input_pairIcEERT_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i3
   %69 = getelementptr inbounds i8, ptr %59, i64 1
   store ptr %69, ptr %13, align 8
-  %70 = getelementptr inbounds i8, ptr %0, i64 16
+  %70 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %71 = load i64, ptr %70, align 8
   %72 = add i64 %71, 1
   store i64 %72, ptr %70, align 8
-  %73 = getelementptr inbounds i8, ptr %0, i64 32
+  %73 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %74 = load i64, ptr %73, align 8
   %75 = add i64 %74, 1
   store i64 %75, ptr %73, align 8
@@ -4343,11 +4343,11 @@ define internal fastcc noundef zeroext i1 @_ZN21PXR_INTERNAL_NS_pegtl6normalIN32
 16:                                               ; preds = %13
   %17 = getelementptr inbounds i8, ptr %8, i64 2
   store ptr %17, ptr %7, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %19 = load i64, ptr %18, align 8
   %20 = add i64 %19, 2
   store i64 %20, ptr %18, align 8
-  %21 = getelementptr inbounds i8, ptr %0, i64 32
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %22 = load i64, ptr %21, align 8
   %23 = add i64 %22, 2
   store i64 %23, ptr %21, align 8
@@ -4505,11 +4505,11 @@ define internal fastcc noundef zeroext i1 @_ZN21PXR_INTERNAL_NS_pegtl6normalIN32
 12:                                               ; preds = %10
   %13 = getelementptr inbounds i8, ptr %9, i64 1
   store ptr %13, ptr %6, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %15 = load i64, ptr %14, align 8
   %16 = add i64 %15, 1
   store i64 %16, ptr %14, align 8
-  %17 = getelementptr inbounds i8, ptr %0, i64 32
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %18 = load i64, ptr %17, align 8
   %19 = add i64 %18, 1
   store i64 %19, ptr %17, align 8
@@ -4533,7 +4533,7 @@ _ZN21PXR_INTERNAL_NS_pegtl8internal6markerINS0_8iteratorELNS_11rewind_modeE1EED2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %6, i64 32, i1 false)
   %23 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %24 = getelementptr inbounds i8, ptr %4, i64 1
-  %25 = getelementptr inbounds i8, ptr %0, i64 24
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %26 = getelementptr inbounds i8, ptr %3, i64 1
   br label %_ZN21PXR_INTERNAL_NS_pegtl6normalINS_3sorIJN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_120QuotedStringVariableENS3_17QuotedStringCharsILc34EEEEEEE5matchILNS_10apply_modeE1ELNS_11rewind_modeE1ETtTpTyENS3_6ActionETtTpTyENS3_6ErrorsENS_12memory_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS3_13ParserContextEEEEbRT3_DpOT4_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
@@ -4850,11 +4850,11 @@ define internal fastcc noundef zeroext i1 @_ZN21PXR_INTERNAL_NS_pegtl6normalIN32
 12:                                               ; preds = %10
   %13 = getelementptr inbounds i8, ptr %9, i64 1
   store ptr %13, ptr %6, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %15 = load i64, ptr %14, align 8
   %16 = add i64 %15, 1
   store i64 %16, ptr %14, align 8
-  %17 = getelementptr inbounds i8, ptr %0, i64 32
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %18 = load i64, ptr %17, align 8
   %19 = add i64 %18, 1
   store i64 %19, ptr %17, align 8
@@ -4878,7 +4878,7 @@ _ZN21PXR_INTERNAL_NS_pegtl8internal6markerINS0_8iteratorELNS_11rewind_modeE1EED2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %6, i64 32, i1 false)
   %23 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %24 = getelementptr inbounds i8, ptr %4, i64 1
-  %25 = getelementptr inbounds i8, ptr %0, i64 24
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %26 = getelementptr inbounds i8, ptr %3, i64 1
   br label %_ZN21PXR_INTERNAL_NS_pegtl6normalINS_3sorIJN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_120QuotedStringVariableENS3_17QuotedStringCharsILc39EEEEEEE5matchILNS_10apply_modeE1ELNS_11rewind_modeE1ETtTpTyENS3_6ActionETtTpTyENS3_6ErrorsENS_12memory_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS3_13ParserContextEEEEbRT3_DpOT4_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
@@ -5213,11 +5213,11 @@ define internal fastcc noundef zeroext i1 @_ZN21PXR_INTERNAL_NS_pegtl6normalIN32
 20:                                               ; preds = %15
   %21 = getelementptr inbounds i8, ptr %10, i64 4
   store ptr %21, ptr %7, align 8
-  %22 = getelementptr inbounds i8, ptr %0, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %23 = load i64, ptr %22, align 8
   %24 = add i64 %23, 4
   store i64 %24, ptr %22, align 8
-  %25 = getelementptr inbounds i8, ptr %0, i64 32
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %26 = load i64, ptr %25, align 8
   %27 = add i64 %26, 4
   store i64 %27, ptr %25, align 8
@@ -5272,11 +5272,11 @@ _ZN21PXR_INTERNAL_NS_pegtl6normalINS_8internal6stringIJLc116ELc114ELc117ELc101EE
 45:                                               ; preds = %40
   %46 = getelementptr inbounds i8, ptr %36, i64 4
   store ptr %46, ptr %7, align 8
-  %47 = getelementptr inbounds i8, ptr %0, i64 16
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %48 = load i64, ptr %47, align 8
   %49 = add i64 %48, 4
   store i64 %49, ptr %47, align 8
-  %50 = getelementptr inbounds i8, ptr %0, i64 32
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %51 = load i64, ptr %50, align 8
   %52 = add i64 %51, 4
   store i64 %52, ptr %50, align 8
@@ -5354,11 +5354,11 @@ _ZN21PXR_INTERNAL_NS_pegtl8internal20match_control_unwindIN32pxrInternal_v0_24__
 75:                                               ; preds = %69
   %76 = getelementptr inbounds i8, ptr %65, i64 5
   store ptr %76, ptr %7, align 8
-  %77 = getelementptr inbounds i8, ptr %0, i64 16
+  %77 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %78 = load i64, ptr %77, align 8
   %79 = add i64 %78, 5
   store i64 %79, ptr %77, align 8
-  %80 = getelementptr inbounds i8, ptr %0, i64 32
+  %80 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %81 = load i64, ptr %80, align 8
   %82 = add i64 %81, 5
   store i64 %82, ptr %80, align 8
@@ -5415,11 +5415,11 @@ _ZN21PXR_INTERNAL_NS_pegtl6normalINS_8internal6stringIJLc102ELc97ELc108ELc115ELc
 101:                                              ; preds = %95
   %102 = getelementptr inbounds i8, ptr %91, i64 5
   store ptr %102, ptr %7, align 8
-  %103 = getelementptr inbounds i8, ptr %0, i64 16
+  %103 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %104 = load i64, ptr %103, align 8
   %105 = add i64 %104, 5
   store i64 %105, ptr %103, align 8
-  %106 = getelementptr inbounds i8, ptr %0, i64 32
+  %106 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %107 = load i64, ptr %106, align 8
   %108 = add i64 %107, 5
   store i64 %108, ptr %106, align 8
@@ -5506,11 +5506,11 @@ define internal fastcc noundef zeroext i1 @_ZN21PXR_INTERNAL_NS_pegtl6normalIN32
 18:                                               ; preds = %13
   %19 = getelementptr inbounds i8, ptr %8, i64 4
   store ptr %19, ptr %5, align 8
-  %20 = getelementptr inbounds i8, ptr %0, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %21 = load i64, ptr %20, align 8
   %22 = add i64 %21, 4
   store i64 %22, ptr %20, align 8
-  %23 = getelementptr inbounds i8, ptr %0, i64 32
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %24 = load i64, ptr %23, align 8
   %25 = add i64 %24, 4
   store i64 %25, ptr %23, align 8
@@ -5565,11 +5565,11 @@ _ZN21PXR_INTERNAL_NS_pegtl6normalINS_8internal6stringIJLc110ELc111ELc110ELc101EE
 43:                                               ; preds = %38
   %44 = getelementptr inbounds i8, ptr %34, i64 4
   store ptr %44, ptr %5, align 8
-  %45 = getelementptr inbounds i8, ptr %0, i64 16
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %46 = load i64, ptr %45, align 8
   %47 = add i64 %46, 4
   store i64 %47, ptr %45, align 8
-  %48 = getelementptr inbounds i8, ptr %0, i64 32
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %49 = load i64, ptr %48, align 8
   %50 = add i64 %49, 4
   store i64 %50, ptr %48, align 8
@@ -5988,7 +5988,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_117Strin
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_117StringNodeCreatorE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %.not4.i.i.i.i = icmp eq ptr %3, %5
   br i1 %.not4.i.i.i.i, label %_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__26Sdf_VariableExpressionImpl10StringNode4PartES3_EvT_S5_RSaIT0_E.exit.i, label %.lr.ph.i.i.i.i
@@ -6010,7 +6010,7 @@ _ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__26Sdf_VariableExpressionImpl10
   br i1 %.not.i.i.i, label %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__26Sdf_VariableExpressionImpl10StringNode4PartESaIS3_EED2Ev.exit, label %8
 
 8:                                                ; preds = %_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__26Sdf_VariableExpressionImpl10StringNode4PartES3_EvT_S5_RSaIT0_E.exit.i
-  %9 = getelementptr inbounds i8, ptr %0, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %10 = load ptr, ptr %9, align 8
   %11 = ptrtoint ptr %10 to i64
   %12 = ptrtoint ptr %7 to i64
@@ -6027,7 +6027,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_117Strin
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_117StringNodeCreatorE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %.not4.i.i.i.i.i = icmp eq ptr %3, %5
   br i1 %.not4.i.i.i.i.i, label %_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__26Sdf_VariableExpressionImpl10StringNode4PartES3_EvT_S5_RSaIT0_E.exit.i.i, label %.lr.ph.i.i.i.i.i
@@ -6049,7 +6049,7 @@ _ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__26Sdf_VariableExpressionImpl10
   br i1 %.not.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_117StringNodeCreatorD2Ev.exit, label %8
 
 8:                                                ; preds = %_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__26Sdf_VariableExpressionImpl10StringNode4PartES3_EvT_S5_RSaIT0_E.exit.i.i
-  %9 = getelementptr inbounds i8, ptr %0, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %10 = load ptr, ptr %9, align 8
   %11 = ptrtoint ptr %10 to i64
   %12 = ptrtoint ptr %7 to i64
@@ -6109,11 +6109,11 @@ define internal fastcc noundef zeroext i1 @_ZN21PXR_INTERNAL_NS_pegtl6normalIN32
 16:                                               ; preds = %13
   %17 = getelementptr inbounds i8, ptr %8, i64 2
   store ptr %17, ptr %7, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %19 = load i64, ptr %18, align 8
   %20 = add i64 %19, 2
   store i64 %20, ptr %18, align 8
-  %21 = getelementptr inbounds i8, ptr %0, i64 32
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %22 = load i64, ptr %21, align 8
   %23 = add i64 %22, 2
   store i64 %23, ptr %21, align 8
@@ -6284,9 +6284,9 @@ _ZNK21PXR_INTERNAL_NS_pegtl8internal12action_inputINS_12memory_inputILNS_13track
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
   %15 = getelementptr inbounds nuw i8, ptr %5, i64 32
   store i8 1, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %6, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %6, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %19 = load ptr, ptr %18, align 8
   %.not.i.i.i = icmp eq ptr %17, %19
   br i1 %.not.i.i.i, label %26, label %20
@@ -6457,9 +6457,9 @@ _ZNK21PXR_INTERNAL_NS_pegtl8internal12action_inputINS_12memory_inputILNS_13track
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
   %15 = getelementptr inbounds nuw i8, ptr %5, i64 32
   store i8 0, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %6, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %6, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %19 = load ptr, ptr %18, align 8
   %.not.i.i.i = icmp eq ptr %17, %19
   br i1 %.not.i.i.i, label %26, label %20
@@ -6530,9 +6530,9 @@ _ZNK21PXR_INTERNAL_NS_pegtl8internal12action_inputINS_12memory_inputILNS_13track
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
   %15 = getelementptr inbounds nuw i8, ptr %5, i64 32
   store i8 0, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %6, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %6, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %19 = load ptr, ptr %18, align 8
   %.not.i.i.i = icmp eq ptr %17, %19
   br i1 %.not.i.i.i, label %26, label %20
@@ -7340,7 +7340,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119Funct
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119FunctionNodeCreatorE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 48
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %5 = load ptr, ptr %4, align 8
   %.not4.i.i.i.i = icmp eq ptr %3, %5
   br i1 %.not4.i.i.i.i, label %_ZSt8_DestroyIPSt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__26Sdf_VariableExpressionImpl4NodeESt14default_deleteIS3_EES6_EvT_S8_RSaIT0_E.exit.i, label %.lr.ph.i.i.i.i
@@ -7374,7 +7374,7 @@ _ZSt8_DestroyIPSt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__26Sdf_VariableE
   br i1 %.not.i.i.i, label %_ZNSt6vectorISt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__26Sdf_VariableExpressionImpl4NodeESt14default_deleteIS3_EESaIS6_EED2Ev.exit, label %12
 
 12:                                               ; preds = %_ZSt8_DestroyIPSt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__26Sdf_VariableExpressionImpl4NodeESt14default_deleteIS3_EES6_EvT_S8_RSaIT0_E.exit.i
-  %13 = getelementptr inbounds i8, ptr %0, i64 56
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %14 = load ptr, ptr %13, align 8
   %15 = ptrtoint ptr %14 to i64
   %16 = ptrtoint ptr %11 to i64
@@ -7393,7 +7393,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119Funct
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119FunctionNodeCreatorE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 48
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %5 = load ptr, ptr %4, align 8
   %.not4.i.i.i.i.i = icmp eq ptr %3, %5
   br i1 %.not4.i.i.i.i.i, label %_ZSt8_DestroyIPSt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__26Sdf_VariableExpressionImpl4NodeESt14default_deleteIS3_EES6_EvT_S8_RSaIT0_E.exit.i.i, label %.lr.ph.i.i.i.i.i
@@ -7427,7 +7427,7 @@ _ZSt8_DestroyIPSt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__26Sdf_VariableE
   br i1 %.not.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119FunctionNodeCreatorD2Ev.exit, label %12
 
 12:                                               ; preds = %_ZSt8_DestroyIPSt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__26Sdf_VariableExpressionImpl4NodeESt14default_deleteIS3_EES6_EvT_S8_RSaIT0_E.exit.i.i
-  %13 = getelementptr inbounds i8, ptr %0, i64 56
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %14 = load ptr, ptr %13, align 8
   %15 = ptrtoint ptr %14 to i64
   %16 = ptrtoint ptr %11 to i64
@@ -7824,7 +7824,7 @@ _ZNSt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__26Sdf_VariableExpressionImp
   tail call void @llvm.experimental.noalias.scope.decl(metadata !324)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8), !noalias !323
   %151 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %152 = getelementptr inbounds i8, ptr %1, i64 48
+  %152 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %153 = load ptr, ptr %152, align 8, !noalias !327
   %154 = load ptr, ptr %151, align 8, !noalias !327
   %155 = ptrtoint ptr %153 to i64
@@ -7875,7 +7875,7 @@ _ZNSt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__26Sdf_VariableExpressionImp
   call void @llvm.experimental.noalias.scope.decl(metadata !335)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7), !noalias !334
   %172 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %173 = getelementptr inbounds i8, ptr %1, i64 48
+  %173 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %174 = load ptr, ptr %173, align 8, !noalias !338
   %175 = load ptr, ptr %172, align 8, !noalias !338
   %176 = ptrtoint ptr %174 to i64
@@ -8104,7 +8104,7 @@ _ZNSt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__26Sdf_VariableExpressionImp
   call void @llvm.experimental.noalias.scope.decl(metadata !398)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6), !noalias !397
   %259 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %260 = getelementptr inbounds i8, ptr %1, i64 48
+  %260 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %261 = load ptr, ptr %260, align 8, !noalias !401
   %262 = load ptr, ptr %259, align 8, !noalias !401
   %263 = icmp eq ptr %261, %262
@@ -8152,7 +8152,7 @@ _ZNSt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__26Sdf_VariableExpressionImp
 274:                                              ; preds = %_ZNSt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__26Sdf_VariableExpressionImpl4NodeESt14default_deleteIS2_EED2Ev.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.thread, %_ZNSt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__26Sdf_VariableExpressionImpl4NodeESt14default_deleteIS2_EED2Ev.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
   %275 = phi ptr [ %272, %_ZNSt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__26Sdf_VariableExpressionImpl4NodeESt14default_deleteIS2_EED2Ev.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.thread ], [ %273, %_ZNSt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__26Sdf_VariableExpressionImpl4NodeESt14default_deleteIS2_EED2Ev.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i ]
   %276 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %277 = getelementptr inbounds i8, ptr %1, i64 48
+  %277 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %278 = load ptr, ptr %277, align 8, !noalias !410
   %279 = load ptr, ptr %276, align 8, !noalias !410
   %280 = ptrtoint ptr %278 to i64
@@ -8331,9 +8331,9 @@ define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl6normalIN32pxrInternal_v0
   br label %46
 
 _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_113ParserContext22GetExistingNodeCreatorINS0_19FunctionNodeCreatorEEEPT_v.exit.i: ; preds = %25
-  %35 = getelementptr inbounds i8, ptr %26, i64 48
+  %35 = getelementptr inbounds nuw i8, ptr %26, i64 48
   %36 = load ptr, ptr %35, align 8
-  %37 = getelementptr inbounds i8, ptr %26, i64 56
+  %37 = getelementptr inbounds nuw i8, ptr %26, i64 56
   %38 = load ptr, ptr %37, align 8
   %.not.i.i.i = icmp eq ptr %36, %38
   br i1 %.not.i.i.i, label %41, label %_ZNSt6vectorISt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__26Sdf_VariableExpressionImpl4NodeESt14default_deleteIS3_EESaIS6_EE9push_backEOS6_.exit.thread.i
@@ -8414,11 +8414,11 @@ _ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12memory_inputILNS_13track
 10:                                               ; preds = %_ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12memory_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_10input_pairIcEERT_.exit.i.i.i.i.i
   %11 = getelementptr inbounds i8, ptr %4, i64 1
   store ptr %11, ptr %3, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %13 = load i64, ptr %12, align 8
   %14 = add i64 %13, 1
   store i64 %14, ptr %12, align 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %16 = load i64, ptr %15, align 8
   %17 = add i64 %16, 1
   store i64 %17, ptr %15, align 8
@@ -8604,7 +8604,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115ListN
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115ListNodeCreatorE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %.not4.i.i.i.i = icmp eq ptr %3, %5
   br i1 %.not4.i.i.i.i, label %_ZSt8_DestroyIPSt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__26Sdf_VariableExpressionImpl4NodeESt14default_deleteIS3_EES6_EvT_S8_RSaIT0_E.exit.i, label %.lr.ph.i.i.i.i
@@ -8638,7 +8638,7 @@ _ZSt8_DestroyIPSt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__26Sdf_VariableE
   br i1 %.not.i.i.i, label %_ZNSt6vectorISt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__26Sdf_VariableExpressionImpl4NodeESt14default_deleteIS3_EESaIS6_EED2Ev.exit, label %12
 
 12:                                               ; preds = %_ZSt8_DestroyIPSt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__26Sdf_VariableExpressionImpl4NodeESt14default_deleteIS3_EES6_EvT_S8_RSaIT0_E.exit.i
-  %13 = getelementptr inbounds i8, ptr %0, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %14 = load ptr, ptr %13, align 8
   %15 = ptrtoint ptr %14 to i64
   %16 = ptrtoint ptr %11 to i64
@@ -8655,7 +8655,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115ListN
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115ListNodeCreatorE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %.not4.i.i.i.i.i = icmp eq ptr %3, %5
   br i1 %.not4.i.i.i.i.i, label %_ZSt8_DestroyIPSt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__26Sdf_VariableExpressionImpl4NodeESt14default_deleteIS3_EES6_EvT_S8_RSaIT0_E.exit.i.i, label %.lr.ph.i.i.i.i.i
@@ -8689,7 +8689,7 @@ _ZSt8_DestroyIPSt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__26Sdf_VariableE
   br i1 %.not.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115ListNodeCreatorD2Ev.exit, label %12
 
 12:                                               ; preds = %_ZSt8_DestroyIPSt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__26Sdf_VariableExpressionImpl4NodeESt14default_deleteIS3_EES6_EvT_S8_RSaIT0_E.exit.i.i
-  %13 = getelementptr inbounds i8, ptr %0, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %14 = load ptr, ptr %13, align 8
   %15 = ptrtoint ptr %14 to i64
   %16 = ptrtoint ptr %11 to i64
@@ -8758,8 +8758,8 @@ _ZN21PXR_INTERNAL_NS_pegtl8internal6markerINS0_8iteratorELNS_11rewind_modeE1EED2
 10:                                               ; preds = %8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4)
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %12 = getelementptr inbounds i8, ptr %0, i64 16
-  %13 = getelementptr inbounds i8, ptr %0, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 32
   br label %15
 
@@ -8968,9 +8968,9 @@ define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl6normalIN32pxrInternal_v0
   br label %46
 
 _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_113ParserContext22GetExistingNodeCreatorINS0_15ListNodeCreatorEEEPT_v.exit.i: ; preds = %25
-  %35 = getelementptr inbounds i8, ptr %26, i64 16
+  %35 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %36 = load ptr, ptr %35, align 8
-  %37 = getelementptr inbounds i8, ptr %26, i64 24
+  %37 = getelementptr inbounds nuw i8, ptr %26, i64 24
   %38 = load ptr, ptr %37, align 8
   %.not.i.i.i = icmp eq ptr %36, %38
   br i1 %.not.i.i.i, label %41, label %_ZNSt6vectorISt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__26Sdf_VariableExpressionImpl4NodeESt14default_deleteIS3_EESaIS6_EE9push_backEOS6_.exit.thread.i
@@ -9070,11 +9070,11 @@ _ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12memory_inputILNS_13track
 21:                                               ; preds = %_ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12memory_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_10input_pairIcEERT_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
   %22 = getelementptr inbounds i8, ptr %15, i64 1
   store ptr %22, ptr %13, align 8
-  %23 = getelementptr inbounds i8, ptr %0, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %24 = load i64, ptr %23, align 8
   %25 = add i64 %24, 1
   store i64 %25, ptr %23, align 8
-  %26 = getelementptr inbounds i8, ptr %0, i64 32
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %27 = load i64, ptr %26, align 8
   %28 = add i64 %27, 1
   store i64 %28, ptr %26, align 8
@@ -9094,11 +9094,11 @@ _ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12memory_inputILNS_13track
 _ZN21PXR_INTERNAL_NS_pegtl6normalINS_5ascii5digitEE5matchILNS_10apply_modeE1ELNS_11rewind_modeE0ETtTpTyEN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16ActionETtTpTyENS8_6ErrorsENS_12memory_inputILNS_13tracking_modeE0ENS1_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS8_13ParserContextEEEEbRT3_DpOT4_.exit.i.i.i.i.i.i.i.i.i.i.i: ; preds = %_ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12memory_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_10input_pairIcEERT_.exit.i.i.i.i.i.i.i.i.i.i5.i.i.i.i.i.i
   %34 = getelementptr inbounds i8, ptr %29, i64 1
   store ptr %34, ptr %13, align 8
-  %35 = getelementptr inbounds i8, ptr %0, i64 16
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %36 = load i64, ptr %35, align 8
   %37 = add i64 %36, 1
   store i64 %37, ptr %35, align 8
-  %38 = getelementptr inbounds i8, ptr %0, i64 32
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %39 = load i64, ptr %38, align 8
   %40 = add i64 %39, 1
   store i64 %40, ptr %38, align 8
@@ -9179,11 +9179,11 @@ _ZN21PXR_INTERNAL_NS_pegtl8internal6rangesINS0_9peek_charEJLc97ELc122ELc65ELc90E
 68:                                               ; preds = %_ZN21PXR_INTERNAL_NS_pegtl8internal6rangesINS0_9peek_charEJLc97ELc122ELc65ELc90ELc95EEE4testEc.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %_ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12memory_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_10input_pairIcEERT_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
   %69 = getelementptr inbounds i8, ptr %59, i64 1
   store ptr %69, ptr %13, align 8
-  %70 = getelementptr inbounds i8, ptr %0, i64 16
+  %70 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %71 = load i64, ptr %70, align 8
   %72 = add i64 %71, 1
   store i64 %72, ptr %70, align 8
-  %73 = getelementptr inbounds i8, ptr %0, i64 32
+  %73 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %74 = load i64, ptr %73, align 8
   %75 = add i64 %74, 1
   store i64 %75, ptr %73, align 8
@@ -9792,11 +9792,11 @@ define linkonce_odr void @_ZN21PXR_INTERNAL_NS_pegtl8internal17memory_input_base
   store ptr %1, ptr %0, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %1, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 0, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 1, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i64 1, ptr %9, align 8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %2, ptr %10, align 8
@@ -9855,19 +9855,19 @@ define linkonce_odr void @_ZN21PXR_INTERNAL_NS_pegtl6tracerINS_13tracer_traitsIL
   tail call void @llvm.experimental.noalias.scope.decl(metadata !451)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !454)
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %13 = getelementptr inbounds i8, ptr %1, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %9, i8 0, i64 32, i1 false)
   %14 = load i64, ptr %13, align 8, !noalias !457
   store i64 %14, ptr %11, align 8, !alias.scope !457
-  %15 = getelementptr inbounds i8, ptr %0, i64 48
-  %16 = getelementptr inbounds i8, ptr %1, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %17 = load i64, ptr %16, align 8, !noalias !457
   store i64 %17, ptr %15, align 8, !alias.scope !457
-  %18 = getelementptr inbounds i8, ptr %0, i64 56
-  %19 = getelementptr inbounds i8, ptr %1, i64 32
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %20 = load i64, ptr %19, align 8, !noalias !457
   store i64 %20, ptr %18, align 8, !alias.scope !457
-  %21 = getelementptr inbounds i8, ptr %0, i64 64
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 64
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %21, ptr noundef nonnull align 8 dereferenceable(32) %12)
           to label %_ZNK21PXR_INTERNAL_NS_pegtl12memory_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE8positionEv.exit unwind label %25
 
@@ -9900,7 +9900,7 @@ _ZNK21PXR_INTERNAL_NS_pegtl12memory_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf
   br i1 %.not.i.i.i, label %_ZNSt6vectorImSaImEED2Ev.exit, label %31
 
 31:                                               ; preds = %29
-  %32 = getelementptr inbounds i8, ptr %0, i64 32
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %33 = load ptr, ptr %32, align 8
   %34 = ptrtoint ptr %33 to i64
   %35 = ptrtoint ptr %30 to i64
@@ -9921,7 +9921,7 @@ define linkonce_odr void @_ZN21PXR_INTERNAL_NS_pegtl6tracerINS_13tracer_traitsIL
   %6 = load i32, ptr %0, align 8
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store i32 %6, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 64
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 64
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #25
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = load ptr, ptr %9, align 8
@@ -9929,7 +9929,7 @@ define linkonce_odr void @_ZN21PXR_INTERNAL_NS_pegtl6tracerINS_13tracer_traitsIL
   br i1 %.not.i.i.i, label %_ZNSt6vectorImSaImEED2Ev.exit, label %11
 
 11:                                               ; preds = %1
-  %12 = getelementptr inbounds i8, ptr %0, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %13 = load ptr, ptr %12, align 8
   %14 = ptrtoint ptr %13 to i64
   %15 = ptrtoint ptr %10 to i64
@@ -9956,7 +9956,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(216) ptr @_ZSt4leftR
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNK21PXR_INTERNAL_NS_pegtl6tracerINS_13tracer_traitsILb1ELb1ELm2ELm8EEEE14print_positionEv(ptr noundef nonnull align 8 dereferenceable(96) %0) local_unnamed_addr #3 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %3 = getelementptr inbounds i8, ptr %0, i64 24
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %2, align 8
   %6 = ptrtoint ptr %4 to i64
@@ -9971,14 +9971,14 @@ define linkonce_odr void @_ZNK21PXR_INTERNAL_NS_pegtl6tracerINS_13tracer_traitsI
   %15 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef nonnull @.str.43)
   %16 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %15, ptr noundef nonnull @.str.45, i64 noundef 3)
   %17 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %16, i8 noundef signext 32)
-  %18 = getelementptr inbounds i8, ptr %0, i64 64
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %19 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %17, ptr noundef nonnull align 8 dereferenceable(32) %18)
   %20 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %19, i8 noundef signext 58)
-  %21 = getelementptr inbounds i8, ptr %0, i64 48
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %22 = load i64, ptr %21, align 8
   %23 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %20, i64 noundef %22)
   %24 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %23, i8 noundef signext 58)
-  %25 = getelementptr inbounds i8, ptr %0, i64 56
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %26 = load i64, ptr %25, align 8
   %27 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %24, i64 noundef %26)
   %28 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %27, i8 noundef signext 10)
@@ -10008,7 +10008,7 @@ define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl8internal12unwind_guardIZ
   %8 = load ptr, ptr %7, align 8
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %2)
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  %10 = getelementptr inbounds i8, ptr %8, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr inbounds i8, ptr %11, i64 -8
   %13 = load i64, ptr %12, align 8
@@ -10077,15 +10077,15 @@ define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl8internal12unwind_guardIZ
   tail call void @llvm.experimental.noalias.scope.decl(metadata !458)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !461)
   %36 = getelementptr inbounds nuw i8, ptr %6, i64 48
-  %37 = getelementptr inbounds i8, ptr %6, i64 16
+  %37 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %38 = load i64, ptr %37, align 8, !noalias !464
   store i64 %38, ptr %2, align 8, !alias.scope !464
   %39 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %40 = getelementptr inbounds i8, ptr %6, i64 24
+  %40 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %41 = load i64, ptr %40, align 8, !noalias !464
   store i64 %41, ptr %39, align 8, !alias.scope !464
   %42 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %43 = getelementptr inbounds i8, ptr %6, i64 32
+  %43 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %44 = load i64, ptr %43, align 8, !noalias !464
   store i64 %44, ptr %42, align 8, !alias.scope !464
   %45 = getelementptr inbounds nuw i8, ptr %2, i64 24
@@ -10141,7 +10141,7 @@ define linkonce_odr void @_ZN21PXR_INTERNAL_NS_pegtl6tracerINS_13tracer_traitsIL
   br i1 %6, label %7, label %_ZN21PXR_INTERNAL_NS_pegtlneERKNS_8positionES2_.exit.thread
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %0, i64 64
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %10 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %8) #25
   %11 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %9) #25
@@ -10162,7 +10162,7 @@ _ZN21PXR_INTERNAL_NS_pegtlneERKNS_8positionES2_.exit: ; preds = %13
 
 _ZN21PXR_INTERNAL_NS_pegtlneERKNS_8positionES2_.exit.thread: ; preds = %7, %2, %_ZN21PXR_INTERNAL_NS_pegtlneERKNS_8positionES2_.exit
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
-  %18 = getelementptr inbounds i8, ptr %0, i64 64
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %20 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %18, ptr noundef nonnull align 8 dereferenceable(32) %19)
   tail call void @_ZNK21PXR_INTERNAL_NS_pegtl6tracerINS_13tracer_traitsILb1ELb1ELm2ELm8EEEE14print_positionEv(ptr noundef nonnull align 8 dereferenceable(96) %0)
@@ -10232,7 +10232,7 @@ define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl8internal12unwind_guardIZ
   %8 = load ptr, ptr %7, align 8
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %2)
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  %10 = getelementptr inbounds i8, ptr %8, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr inbounds i8, ptr %11, i64 -8
   %13 = load i64, ptr %12, align 8
@@ -10301,15 +10301,15 @@ define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl8internal12unwind_guardIZ
   tail call void @llvm.experimental.noalias.scope.decl(metadata !465)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !468)
   %36 = getelementptr inbounds nuw i8, ptr %6, i64 48
-  %37 = getelementptr inbounds i8, ptr %6, i64 16
+  %37 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %38 = load i64, ptr %37, align 8, !noalias !471
   store i64 %38, ptr %2, align 8, !alias.scope !471
   %39 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %40 = getelementptr inbounds i8, ptr %6, i64 24
+  %40 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %41 = load i64, ptr %40, align 8, !noalias !471
   store i64 %41, ptr %39, align 8, !alias.scope !471
   %42 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %43 = getelementptr inbounds i8, ptr %6, i64 32
+  %43 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %44 = load i64, ptr %43, align 8, !noalias !471
   store i64 %44, ptr %42, align 8, !alias.scope !471
   %45 = getelementptr inbounds nuw i8, ptr %2, i64 24
@@ -10353,7 +10353,7 @@ define internal fastcc noundef zeroext i1 @_ZN21PXR_INTERNAL_NS_pegtl6normalIN32
   %6 = alloca %"struct.PXR_INTERNAL_NS_pegtl::position", align 8
   %7 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, i8 noundef signext 35)
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %9 = getelementptr inbounds i8, ptr %2, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %10 = load ptr, ptr %9, align 8
   %11 = load ptr, ptr %8, align 8
   %12 = ptrtoint ptr %10 to i64
@@ -10373,7 +10373,7 @@ define internal fastcc noundef zeroext i1 @_ZN21PXR_INTERNAL_NS_pegtl6normalIN32
   %25 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %24, ptr noundef nonnull @.str.45, i64 noundef 3)
   %26 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %25, i8 noundef signext 10)
   %27 = load ptr, ptr %9, align 8
-  %28 = getelementptr inbounds i8, ptr %2, i64 32
+  %28 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %29 = load ptr, ptr %28, align 8
   %.not.i.i.i.i.i = icmp eq ptr %27, %29
   br i1 %.not.i.i.i.i.i, label %34, label %30
@@ -10554,15 +10554,15 @@ _ZN21PXR_INTERNAL_NS_pegtl8internal20match_control_unwindIN32pxrInternal_v0_24__
   tail call void @llvm.experimental.noalias.scope.decl(metadata !472)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !475)
   %100 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %101 = getelementptr inbounds i8, ptr %0, i64 16
+  %101 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %102 = load i64, ptr %101, align 8, !noalias !478
   store i64 %102, ptr %5, align 8, !alias.scope !478
   %103 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %104 = getelementptr inbounds i8, ptr %0, i64 24
+  %104 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %105 = load i64, ptr %104, align 8, !noalias !478
   store i64 %105, ptr %103, align 8, !alias.scope !478
   %106 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %107 = getelementptr inbounds i8, ptr %0, i64 32
+  %107 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %108 = load i64, ptr %107, align 8, !noalias !478
   store i64 %108, ptr %106, align 8, !alias.scope !478
   %109 = getelementptr inbounds nuw i8, ptr %5, i64 24
@@ -10617,15 +10617,15 @@ _ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13state_controlIN32pxrInternal_v0_
   tail call void @llvm.experimental.noalias.scope.decl(metadata !479)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !482)
   %138 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %139 = getelementptr inbounds i8, ptr %0, i64 16
+  %139 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %140 = load i64, ptr %139, align 8, !noalias !485
   store i64 %140, ptr %6, align 8, !alias.scope !485
   %141 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %142 = getelementptr inbounds i8, ptr %0, i64 24
+  %142 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %143 = load i64, ptr %142, align 8, !noalias !485
   store i64 %143, ptr %141, align 8, !alias.scope !485
   %144 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %145 = getelementptr inbounds i8, ptr %0, i64 32
+  %145 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %146 = load i64, ptr %145, align 8, !noalias !485
   store i64 %146, ptr %144, align 8, !alias.scope !485
   %147 = getelementptr inbounds nuw i8, ptr %6, i64 24
@@ -10663,7 +10663,7 @@ define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl8internal12unwind_guardIZ
   %8 = load ptr, ptr %7, align 8
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %2)
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  %10 = getelementptr inbounds i8, ptr %8, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr inbounds i8, ptr %11, i64 -8
   %13 = load i64, ptr %12, align 8
@@ -10732,15 +10732,15 @@ define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl8internal12unwind_guardIZ
   tail call void @llvm.experimental.noalias.scope.decl(metadata !486)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !489)
   %36 = getelementptr inbounds nuw i8, ptr %6, i64 48
-  %37 = getelementptr inbounds i8, ptr %6, i64 16
+  %37 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %38 = load i64, ptr %37, align 8, !noalias !492
   store i64 %38, ptr %2, align 8, !alias.scope !492
   %39 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %40 = getelementptr inbounds i8, ptr %6, i64 24
+  %40 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %41 = load i64, ptr %40, align 8, !noalias !492
   store i64 %41, ptr %39, align 8, !alias.scope !492
   %42 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %43 = getelementptr inbounds i8, ptr %6, i64 32
+  %43 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %44 = load i64, ptr %43, align 8, !noalias !492
   store i64 %44, ptr %42, align 8, !alias.scope !492
   %45 = getelementptr inbounds nuw i8, ptr %2, i64 24
@@ -10789,7 +10789,7 @@ define internal fastcc noundef zeroext i1 @_ZN21PXR_INTERNAL_NS_pegtl6normalIN32
   %10 = alloca %"struct.PXR_INTERNAL_NS_pegtl::internal::unwind_guard.389", align 8
   %11 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, i8 noundef signext 35)
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %13 = getelementptr inbounds i8, ptr %2, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %14 = load ptr, ptr %13, align 8
   %15 = load ptr, ptr %12, align 8
   %16 = ptrtoint ptr %14 to i64
@@ -10809,7 +10809,7 @@ define internal fastcc noundef zeroext i1 @_ZN21PXR_INTERNAL_NS_pegtl6normalIN32
   %29 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %28, ptr noundef nonnull @.str.45, i64 noundef 3)
   %30 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %29, i8 noundef signext 10)
   %31 = load ptr, ptr %13, align 8
-  %32 = getelementptr inbounds i8, ptr %2, i64 32
+  %32 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %33 = load ptr, ptr %32, align 8
   %.not.i.i.i.i.i.i = icmp eq ptr %31, %33
   br i1 %.not.i.i.i.i.i.i, label %38, label %34
@@ -10918,11 +10918,11 @@ _ZN21PXR_INTERNAL_NS_pegtl6normalIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__
 74:                                               ; preds = %71
   %75 = getelementptr inbounds i8, ptr %66, i64 2
   store ptr %75, ptr %65, align 8
-  %76 = getelementptr inbounds i8, ptr %0, i64 16
+  %76 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %77 = load i64, ptr %76, align 8
   %78 = add i64 %77, 2
   store i64 %78, ptr %76, align 8
-  %79 = getelementptr inbounds i8, ptr %0, i64 32
+  %79 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %80 = load i64, ptr %79, align 8
   %81 = add i64 %80, 2
   store i64 %81, ptr %79, align 8
@@ -11225,7 +11225,7 @@ _ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13state_controlIN32pxrInternal_v0_
   %199 = load i64, ptr %76, align 8, !noalias !503
   store i64 %199, ptr %7, align 8, !alias.scope !503
   %200 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %201 = getelementptr inbounds i8, ptr %0, i64 24
+  %201 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %202 = load i64, ptr %201, align 8, !noalias !503
   store i64 %202, ptr %200, align 8, !alias.scope !503
   %203 = getelementptr inbounds nuw i8, ptr %7, i64 16
@@ -11315,7 +11315,7 @@ _ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13state_controlIN32pxrInternal_v0_
   %231 = load i64, ptr %76, align 8, !noalias !510
   store i64 %231, ptr %6, align 8, !alias.scope !510
   %232 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %233 = getelementptr inbounds i8, ptr %0, i64 24
+  %233 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %234 = load i64, ptr %233, align 8, !noalias !510
   store i64 %234, ptr %232, align 8, !alias.scope !510
   %235 = getelementptr inbounds nuw i8, ptr %6, i64 16
@@ -11479,15 +11479,15 @@ _ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13state_controlIN32pxrInternal_v0_
   tail call void @llvm.experimental.noalias.scope.decl(metadata !518)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !521)
   %306 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %307 = getelementptr inbounds i8, ptr %0, i64 16
+  %307 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %308 = load i64, ptr %307, align 8, !noalias !524
   store i64 %308, ptr %4, align 8, !alias.scope !524
   %309 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %310 = getelementptr inbounds i8, ptr %0, i64 24
+  %310 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %311 = load i64, ptr %310, align 8, !noalias !524
   store i64 %311, ptr %309, align 8, !alias.scope !524
   %312 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %313 = getelementptr inbounds i8, ptr %0, i64 32
+  %313 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %314 = load i64, ptr %313, align 8, !noalias !524
   store i64 %314, ptr %312, align 8, !alias.scope !524
   %315 = getelementptr inbounds nuw i8, ptr %4, i64 24
@@ -11539,7 +11539,7 @@ define internal fastcc noundef zeroext i1 @_ZN21PXR_INTERNAL_NS_pegtl6normalIN32
   %24 = alloca %"struct.PXR_INTERNAL_NS_pegtl::internal::unwind_guard.437", align 8
   %25 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, i8 noundef signext 35)
   %26 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %27 = getelementptr inbounds i8, ptr %2, i64 24
+  %27 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %28 = load ptr, ptr %27, align 8
   %29 = load ptr, ptr %26, align 8
   %30 = ptrtoint ptr %28 to i64
@@ -11559,7 +11559,7 @@ define internal fastcc noundef zeroext i1 @_ZN21PXR_INTERNAL_NS_pegtl6normalIN32
   %43 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %42, ptr noundef nonnull @.str.45, i64 noundef 3)
   %44 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %43, i8 noundef signext 10)
   %45 = load ptr, ptr %27, align 8
-  %46 = getelementptr inbounds i8, ptr %2, i64 32
+  %46 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %47 = load ptr, ptr %46, align 8
   %.not.i.i.i.i.i.i = icmp eq ptr %45, %47
   br i1 %.not.i.i.i.i.i.i, label %52, label %48
@@ -11767,11 +11767,11 @@ _ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13state_controlIN32pxrInternal_v0_
 131:                                              ; preds = %129
   %132 = getelementptr inbounds i8, ptr %128, i64 1
   store ptr %132, ptr %77, align 8
-  %133 = getelementptr inbounds i8, ptr %0, i64 16
+  %133 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %134 = load i64, ptr %133, align 8
   %135 = add i64 %134, 1
   store i64 %135, ptr %133, align 8
-  %136 = getelementptr inbounds i8, ptr %0, i64 32
+  %136 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %137 = load i64, ptr %136, align 8
   %138 = add i64 %137, 1
   store i64 %138, ptr %136, align 8
@@ -11898,7 +11898,7 @@ _ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13state_controlIN32pxrInternal_v0_
   %179 = load i64, ptr %133, align 8, !noalias !531
   store i64 %179, ptr %23, align 8, !alias.scope !531
   %180 = getelementptr inbounds nuw i8, ptr %23, i64 8
-  %181 = getelementptr inbounds i8, ptr %0, i64 24
+  %181 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %182 = load i64, ptr %181, align 8, !noalias !531
   store i64 %182, ptr %180, align 8, !alias.scope !531
   %183 = getelementptr inbounds nuw i8, ptr %23, i64 16
@@ -11985,15 +11985,15 @@ _ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13state_controlIN32pxrInternal_v0_
   tail call void @llvm.experimental.noalias.scope.decl(metadata !532)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !535)
   %210 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %211 = getelementptr inbounds i8, ptr %0, i64 16
+  %211 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %212 = load i64, ptr %211, align 8, !noalias !538
   store i64 %212, ptr %22, align 8, !alias.scope !538
   %213 = getelementptr inbounds nuw i8, ptr %22, i64 8
-  %214 = getelementptr inbounds i8, ptr %0, i64 24
+  %214 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %215 = load i64, ptr %214, align 8, !noalias !538
   store i64 %215, ptr %213, align 8, !alias.scope !538
   %216 = getelementptr inbounds nuw i8, ptr %22, i64 16
-  %217 = getelementptr inbounds i8, ptr %0, i64 32
+  %217 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %218 = load i64, ptr %217, align 8, !noalias !538
   store i64 %218, ptr %216, align 8, !alias.scope !538
   %219 = getelementptr inbounds nuw i8, ptr %22, i64 24
@@ -12158,7 +12158,7 @@ _ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13state_controlIN32pxrInternal_v0_
   %284 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %285 = getelementptr inbounds nuw i8, ptr %10, i64 24
   %286 = getelementptr inbounds nuw i8, ptr %2, i64 40
-  %287 = getelementptr inbounds i8, ptr %2, i64 64
+  %287 = getelementptr inbounds nuw i8, ptr %2, i64 64
   br label %288
 
 288:                                              ; preds = %_ZN21PXR_INTERNAL_NS_pegtl6normalINS_3sorIJN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_120QuotedStringVariableENS3_17QuotedStringCharsILc34EEEEEEE5matchILNS_10apply_modeE1ELNS_11rewind_modeE1ETtTpTyENS3_6ActionETtTpTyENS_13state_controlINS3_6ErrorsEE4typeENS_12memory_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS3_13ParserContextERNS_6tracerINS_13tracer_traitsILb1ELb1ELm2ELm8EEEEEEEEbRT3_DpOT4_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %_ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13state_controlIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16ErrorsEE7controlINS3_16QuotedStringBodyILc34EEEEENS_8internal12rotate_rightILm1EEEE5startINS_12memory_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS3_13ParserContextERNS_6tracerINS_13tracer_traitsILb1ELb1ELm2ELm8EEEEEEEEvRKT_DpOT0_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
@@ -13750,7 +13750,7 @@ define internal fastcc noundef zeroext i1 @_ZN21PXR_INTERNAL_NS_pegtl6normalIN32
   %24 = alloca %"struct.PXR_INTERNAL_NS_pegtl::internal::unwind_guard.677", align 8
   %25 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, i8 noundef signext 35)
   %26 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %27 = getelementptr inbounds i8, ptr %2, i64 24
+  %27 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %28 = load ptr, ptr %27, align 8
   %29 = load ptr, ptr %26, align 8
   %30 = ptrtoint ptr %28 to i64
@@ -13770,7 +13770,7 @@ define internal fastcc noundef zeroext i1 @_ZN21PXR_INTERNAL_NS_pegtl6normalIN32
   %43 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %42, ptr noundef nonnull @.str.45, i64 noundef 3)
   %44 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %43, i8 noundef signext 10)
   %45 = load ptr, ptr %27, align 8
-  %46 = getelementptr inbounds i8, ptr %2, i64 32
+  %46 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %47 = load ptr, ptr %46, align 8
   %.not.i.i.i.i.i.i = icmp eq ptr %45, %47
   br i1 %.not.i.i.i.i.i.i, label %52, label %48
@@ -13978,11 +13978,11 @@ _ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13state_controlIN32pxrInternal_v0_
 131:                                              ; preds = %129
   %132 = getelementptr inbounds i8, ptr %128, i64 1
   store ptr %132, ptr %77, align 8
-  %133 = getelementptr inbounds i8, ptr %0, i64 16
+  %133 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %134 = load i64, ptr %133, align 8
   %135 = add i64 %134, 1
   store i64 %135, ptr %133, align 8
-  %136 = getelementptr inbounds i8, ptr %0, i64 32
+  %136 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %137 = load i64, ptr %136, align 8
   %138 = add i64 %137, 1
   store i64 %138, ptr %136, align 8
@@ -14109,7 +14109,7 @@ _ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13state_controlIN32pxrInternal_v0_
   %179 = load i64, ptr %133, align 8, !noalias !619
   store i64 %179, ptr %23, align 8, !alias.scope !619
   %180 = getelementptr inbounds nuw i8, ptr %23, i64 8
-  %181 = getelementptr inbounds i8, ptr %0, i64 24
+  %181 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %182 = load i64, ptr %181, align 8, !noalias !619
   store i64 %182, ptr %180, align 8, !alias.scope !619
   %183 = getelementptr inbounds nuw i8, ptr %23, i64 16
@@ -14196,15 +14196,15 @@ _ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13state_controlIN32pxrInternal_v0_
   tail call void @llvm.experimental.noalias.scope.decl(metadata !620)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !623)
   %210 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %211 = getelementptr inbounds i8, ptr %0, i64 16
+  %211 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %212 = load i64, ptr %211, align 8, !noalias !626
   store i64 %212, ptr %22, align 8, !alias.scope !626
   %213 = getelementptr inbounds nuw i8, ptr %22, i64 8
-  %214 = getelementptr inbounds i8, ptr %0, i64 24
+  %214 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %215 = load i64, ptr %214, align 8, !noalias !626
   store i64 %215, ptr %213, align 8, !alias.scope !626
   %216 = getelementptr inbounds nuw i8, ptr %22, i64 16
-  %217 = getelementptr inbounds i8, ptr %0, i64 32
+  %217 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %218 = load i64, ptr %217, align 8, !noalias !626
   store i64 %218, ptr %216, align 8, !alias.scope !626
   %219 = getelementptr inbounds nuw i8, ptr %22, i64 24
@@ -14369,7 +14369,7 @@ _ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13state_controlIN32pxrInternal_v0_
   %284 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %285 = getelementptr inbounds nuw i8, ptr %10, i64 24
   %286 = getelementptr inbounds nuw i8, ptr %2, i64 40
-  %287 = getelementptr inbounds i8, ptr %2, i64 64
+  %287 = getelementptr inbounds nuw i8, ptr %2, i64 64
   br label %288
 
 288:                                              ; preds = %_ZN21PXR_INTERNAL_NS_pegtl6normalINS_3sorIJN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_120QuotedStringVariableENS3_17QuotedStringCharsILc39EEEEEEE5matchILNS_10apply_modeE1ELNS_11rewind_modeE1ETtTpTyENS3_6ActionETtTpTyENS_13state_controlINS3_6ErrorsEE4typeENS_12memory_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS3_13ParserContextERNS_6tracerINS_13tracer_traitsILb1ELb1ELm2ELm8EEEEEEEEbRT3_DpOT4_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %_ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13state_controlIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16ErrorsEE7controlINS3_16QuotedStringBodyILc39EEEEENS_8internal12rotate_rightILm1EEEE5startINS_12memory_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS3_13ParserContextERNS_6tracerINS_13tracer_traitsILb1ELb1ELm2ELm8EEEEEEEEvRKT_DpOT0_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
@@ -15957,7 +15957,7 @@ define internal fastcc noundef zeroext i1 @_ZN21PXR_INTERNAL_NS_pegtl6normalIN32
 
 .noexc.i:                                         ; preds = %3
   %19 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %20 = getelementptr inbounds i8, ptr %2, i64 24
+  %20 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %21 = load ptr, ptr %20, align 8
   %22 = load ptr, ptr %19, align 8
   %23 = ptrtoint ptr %21 to i64
@@ -15995,7 +15995,7 @@ define internal fastcc noundef zeroext i1 @_ZN21PXR_INTERNAL_NS_pegtl6normalIN32
 
 .noexc26.i:                                       ; preds = %.noexc25.i
   %38 = load ptr, ptr %20, align 8
-  %39 = getelementptr inbounds i8, ptr %2, i64 32
+  %39 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %40 = load ptr, ptr %39, align 8
   %.not.i.i.i.i.i.i = icmp eq ptr %38, %40
   br i1 %.not.i.i.i.i.i.i, label %45, label %41
@@ -16316,11 +16316,11 @@ _ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12memory_inputILNS_13track
 171:                                              ; preds = %_ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12memory_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_10input_pairIcEERT_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i
   %172 = getelementptr inbounds i8, ptr %165, i64 1
   store ptr %172, ptr %16, align 8
-  %173 = getelementptr inbounds i8, ptr %0, i64 16
+  %173 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %174 = load i64, ptr %173, align 8
   %175 = add i64 %174, 1
   store i64 %175, ptr %173, align 8
-  %176 = getelementptr inbounds i8, ptr %0, i64 32
+  %176 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %177 = load i64, ptr %176, align 8
   %178 = add i64 %177, 1
   store i64 %178, ptr %176, align 8
@@ -16395,7 +16395,7 @@ _ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12memory_inputILNS_13track
   %204 = load i64, ptr %173, align 8, !noalias !710
   store i64 %204, ptr %12, align 8, !alias.scope !710
   %205 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  %206 = getelementptr inbounds i8, ptr %0, i64 24
+  %206 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %207 = load i64, ptr %206, align 8, !noalias !710
   store i64 %207, ptr %205, align 8, !alias.scope !710
   %208 = getelementptr inbounds nuw i8, ptr %12, i64 16
@@ -16492,15 +16492,15 @@ _ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13state_controlIN32pxrInternal_v0_
   tail call void @llvm.experimental.noalias.scope.decl(metadata !711)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !714)
   %236 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %237 = getelementptr inbounds i8, ptr %0, i64 16
+  %237 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %238 = load i64, ptr %237, align 8, !noalias !717
   store i64 %238, ptr %11, align 8, !alias.scope !717
   %239 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  %240 = getelementptr inbounds i8, ptr %0, i64 24
+  %240 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %241 = load i64, ptr %240, align 8, !noalias !717
   store i64 %241, ptr %239, align 8, !alias.scope !717
   %242 = getelementptr inbounds nuw i8, ptr %11, i64 16
-  %243 = getelementptr inbounds i8, ptr %0, i64 32
+  %243 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %244 = load i64, ptr %243, align 8, !noalias !717
   store i64 %244, ptr %242, align 8, !alias.scope !717
   %245 = getelementptr inbounds nuw i8, ptr %11, i64 24
@@ -16603,15 +16603,15 @@ _ZN21PXR_INTERNAL_NS_pegtl8internal20match_control_unwindINS_3optIJNS_5ascii3one
   call void @llvm.experimental.noalias.scope.decl(metadata !718)
   call void @llvm.experimental.noalias.scope.decl(metadata !721)
   %274 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %275 = getelementptr inbounds i8, ptr %0, i64 16
+  %275 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %276 = load i64, ptr %275, align 8, !noalias !724
   store i64 %276, ptr %10, align 8, !alias.scope !724
   %277 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %278 = getelementptr inbounds i8, ptr %0, i64 24
+  %278 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %279 = load i64, ptr %278, align 8, !noalias !724
   store i64 %279, ptr %277, align 8, !alias.scope !724
   %280 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  %281 = getelementptr inbounds i8, ptr %0, i64 32
+  %281 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %282 = load i64, ptr %281, align 8, !noalias !724
   store i64 %282, ptr %280, align 8, !alias.scope !724
   %283 = getelementptr inbounds nuw i8, ptr %10, i64 24
@@ -17402,7 +17402,7 @@ define internal fastcc noundef zeroext i1 @_ZN21PXR_INTERNAL_NS_pegtl6normalIN32
 
 .noexc.i:                                         ; preds = %3
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %16 = getelementptr inbounds i8, ptr %2, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %17 = load ptr, ptr %16, align 8
   %18 = load ptr, ptr %15, align 8
   %19 = ptrtoint ptr %17 to i64
@@ -17440,7 +17440,7 @@ define internal fastcc noundef zeroext i1 @_ZN21PXR_INTERNAL_NS_pegtl6normalIN32
 
 .noexc26.i:                                       ; preds = %.noexc25.i
   %34 = load ptr, ptr %16, align 8
-  %35 = getelementptr inbounds i8, ptr %2, i64 32
+  %35 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %36 = load ptr, ptr %35, align 8
   %.not.i.i.i.i.i.i = icmp eq ptr %34, %36
   br i1 %.not.i.i.i.i.i.i, label %41, label %37
@@ -17657,11 +17657,11 @@ _ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13state_controlIN32pxrInternal_v0_
 124:                                              ; preds = %119
   %125 = getelementptr inbounds i8, ptr %114, i64 4
   store ptr %125, ptr %13, align 8
-  %126 = getelementptr inbounds i8, ptr %0, i64 16
+  %126 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %127 = load i64, ptr %126, align 8
   %128 = add i64 %127, 4
   store i64 %128, ptr %126, align 8
-  %129 = getelementptr inbounds i8, ptr %0, i64 32
+  %129 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %130 = load i64, ptr %129, align 8
   %131 = add i64 %130, 4
   store i64 %131, ptr %129, align 8
@@ -17756,7 +17756,7 @@ _ZN21PXR_INTERNAL_NS_pegtl8internal6rangesINS0_9peek_charEJLc97ELc122ELc65ELc90E
   %165 = load i64, ptr %126, align 8, !noalias !767
   store i64 %165, ptr %10, align 8, !alias.scope !767
   %166 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %167 = getelementptr inbounds i8, ptr %0, i64 24
+  %167 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %168 = load i64, ptr %167, align 8, !noalias !767
   store i64 %168, ptr %166, align 8, !alias.scope !767
   %169 = getelementptr inbounds nuw i8, ptr %10, i64 16
@@ -17857,15 +17857,15 @@ _ZN21PXR_INTERNAL_NS_pegtl6normalINS_5ascii7keywordIJLc78ELc111ELc110ELc101EEEEE
   tail call void @llvm.experimental.noalias.scope.decl(metadata !768)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !771)
   %199 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %200 = getelementptr inbounds i8, ptr %0, i64 16
+  %200 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %201 = load i64, ptr %200, align 8, !noalias !774
   store i64 %201, ptr %9, align 8, !alias.scope !774
   %202 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %203 = getelementptr inbounds i8, ptr %0, i64 24
+  %203 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %204 = load i64, ptr %203, align 8, !noalias !774
   store i64 %204, ptr %202, align 8, !alias.scope !774
   %205 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  %206 = getelementptr inbounds i8, ptr %0, i64 32
+  %206 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %207 = load i64, ptr %206, align 8, !noalias !774
   store i64 %207, ptr %205, align 8, !alias.scope !774
   %208 = getelementptr inbounds nuw i8, ptr %9, i64 24
@@ -18359,15 +18359,15 @@ _ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13state_controlIN32pxrInternal_v0_
   call void @llvm.experimental.noalias.scope.decl(metadata !789)
   call void @llvm.experimental.noalias.scope.decl(metadata !792)
   %388 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %389 = getelementptr inbounds i8, ptr %0, i64 16
+  %389 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %390 = load i64, ptr %389, align 8, !noalias !795
   store i64 %390, ptr %5, align 8, !alias.scope !795
   %391 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %392 = getelementptr inbounds i8, ptr %0, i64 24
+  %392 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %393 = load i64, ptr %392, align 8, !noalias !795
   store i64 %393, ptr %391, align 8, !alias.scope !795
   %394 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %395 = getelementptr inbounds i8, ptr %0, i64 32
+  %395 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %396 = load i64, ptr %395, align 8, !noalias !795
   store i64 %396, ptr %394, align 8, !alias.scope !795
   %397 = getelementptr inbounds nuw i8, ptr %5, i64 24
@@ -18615,7 +18615,7 @@ define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl8internal12unwind_guardIZ
   %8 = load ptr, ptr %7, align 8
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %2)
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  %10 = getelementptr inbounds i8, ptr %8, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr inbounds i8, ptr %11, i64 -8
   %13 = load i64, ptr %12, align 8
@@ -18684,15 +18684,15 @@ define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl8internal12unwind_guardIZ
   tail call void @llvm.experimental.noalias.scope.decl(metadata !803)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !806)
   %36 = getelementptr inbounds nuw i8, ptr %6, i64 48
-  %37 = getelementptr inbounds i8, ptr %6, i64 16
+  %37 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %38 = load i64, ptr %37, align 8, !noalias !809
   store i64 %38, ptr %2, align 8, !alias.scope !809
   %39 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %40 = getelementptr inbounds i8, ptr %6, i64 24
+  %40 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %41 = load i64, ptr %40, align 8, !noalias !809
   store i64 %41, ptr %39, align 8, !alias.scope !809
   %42 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %43 = getelementptr inbounds i8, ptr %6, i64 32
+  %43 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %44 = load i64, ptr %43, align 8, !noalias !809
   store i64 %44, ptr %42, align 8, !alias.scope !809
   %45 = getelementptr inbounds nuw i8, ptr %2, i64 24
@@ -18733,7 +18733,7 @@ _ZZN21PXR_INTERNAL_NS_pegtl8internal20match_control_unwindIN32pxrInternal_v0_24_
 define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13state_controlIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16ErrorsEE7controlINS3_13VariableStartEEENS_8internal12rotate_rightILm1EEEE5startINS_12memory_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS3_13ParserContextERNS_6tracerINS_13tracer_traitsILb1ELb1ELm2ELm8EEEEEEEEvRKT_DpOT0_(ptr nocapture noundef nonnull align 8 dereferenceable(96) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, i8 noundef signext 35)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %4 = getelementptr inbounds i8, ptr %0, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %3, align 8
   %7 = ptrtoint ptr %5 to i64
@@ -18753,7 +18753,7 @@ define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13sta
   %20 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %19, ptr noundef nonnull @.str.45, i64 noundef 3)
   %21 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %20, i8 noundef signext 10)
   %22 = load ptr, ptr %4, align 8
-  %23 = getelementptr inbounds i8, ptr %0, i64 32
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %24 = load ptr, ptr %23, align 8
   %.not.i.i.i.i = icmp eq ptr %22, %24
   br i1 %.not.i.i.i.i, label %29, label %25
@@ -18831,7 +18831,7 @@ define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13sta
   %3 = alloca %"struct.PXR_INTERNAL_NS_pegtl::position", align 8
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %5 = getelementptr inbounds i8, ptr %1, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 -8
   %8 = load i64, ptr %7, align 8
@@ -18867,15 +18867,15 @@ define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13sta
   tail call void @llvm.experimental.noalias.scope.decl(metadata !810)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !813)
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %33 = getelementptr inbounds i8, ptr %0, i64 16
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %34 = load i64, ptr %33, align 8, !noalias !816
   store i64 %34, ptr %3, align 8, !alias.scope !816
   %35 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %36 = getelementptr inbounds i8, ptr %0, i64 24
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %37 = load i64, ptr %36, align 8, !noalias !816
   store i64 %37, ptr %35, align 8, !alias.scope !816
   %38 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %39 = getelementptr inbounds i8, ptr %0, i64 32
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %40 = load i64, ptr %39, align 8, !noalias !816
   store i64 %40, ptr %38, align 8, !alias.scope !816
   %41 = getelementptr inbounds nuw i8, ptr %3, i64 24
@@ -18900,7 +18900,7 @@ define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13sta
   %3 = alloca %"struct.PXR_INTERNAL_NS_pegtl::position", align 8
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %5 = getelementptr inbounds i8, ptr %1, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 -8
   %8 = load i64, ptr %7, align 8
@@ -18936,15 +18936,15 @@ define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13sta
   tail call void @llvm.experimental.noalias.scope.decl(metadata !817)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !820)
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %33 = getelementptr inbounds i8, ptr %0, i64 16
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %34 = load i64, ptr %33, align 8, !noalias !823
   store i64 %34, ptr %3, align 8, !alias.scope !823
   %35 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %36 = getelementptr inbounds i8, ptr %0, i64 24
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %37 = load i64, ptr %36, align 8, !noalias !823
   store i64 %37, ptr %35, align 8, !alias.scope !823
   %38 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %39 = getelementptr inbounds i8, ptr %0, i64 32
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %40 = load i64, ptr %39, align 8, !noalias !823
   store i64 %40, ptr %38, align 8, !alias.scope !823
   %41 = getelementptr inbounds nuw i8, ptr %3, i64 24
@@ -18970,7 +18970,7 @@ define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl6normalINS_8internal4must
   %4 = alloca %"struct.PXR_INTERNAL_NS_pegtl::position", align 8
   %5 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, i8 noundef signext 35)
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %7 = getelementptr inbounds i8, ptr %1, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %8 = load ptr, ptr %7, align 8
   %9 = load ptr, ptr %6, align 8
   %10 = ptrtoint ptr %8 to i64
@@ -18990,7 +18990,7 @@ define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl6normalINS_8internal4must
   %23 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %22, ptr noundef nonnull @.str.45, i64 noundef 3)
   %24 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %23, i8 noundef signext 10)
   %25 = load ptr, ptr %7, align 8
-  %26 = getelementptr inbounds i8, ptr %1, i64 32
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %27 = load ptr, ptr %26, align 8
   %.not.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %25, %27
   br i1 %.not.i.i.i.i.i.i.i.i.i.i.i, label %32, label %28
@@ -19076,11 +19076,11 @@ _ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13state_controlIN32pxrInternal_v0_
 63:                                               ; preds = %61
   %64 = getelementptr inbounds i8, ptr %60, i64 1
   store ptr %64, ptr %59, align 8
-  %65 = getelementptr inbounds i8, ptr %0, i64 16
+  %65 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %66 = load i64, ptr %65, align 8
   %67 = add i64 %66, 1
   store i64 %67, ptr %65, align 8
-  %68 = getelementptr inbounds i8, ptr %0, i64 32
+  %68 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %69 = load i64, ptr %68, align 8
   %70 = add i64 %69, 1
   store i64 %70, ptr %68, align 8
@@ -19122,7 +19122,7 @@ _ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13state_controlIN32pxrInternal_v0_
   %97 = load i64, ptr %65, align 8, !noalias !830
   store i64 %97, ptr %4, align 8, !alias.scope !830
   %98 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %99 = getelementptr inbounds i8, ptr %0, i64 24
+  %99 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %100 = load i64, ptr %99, align 8, !noalias !830
   store i64 %100, ptr %98, align 8, !alias.scope !830
   %101 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -19178,15 +19178,15 @@ common.resume.i.i.i.i.i.i:                        ; preds = %140, %104
   tail call void @llvm.experimental.noalias.scope.decl(metadata !831)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !834)
   %130 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %131 = getelementptr inbounds i8, ptr %0, i64 16
+  %131 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %132 = load i64, ptr %131, align 8, !noalias !837
   store i64 %132, ptr %3, align 8, !alias.scope !837
   %133 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %134 = getelementptr inbounds i8, ptr %0, i64 24
+  %134 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %135 = load i64, ptr %134, align 8, !noalias !837
   store i64 %135, ptr %133, align 8, !alias.scope !837
   %136 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %137 = getelementptr inbounds i8, ptr %0, i64 32
+  %137 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %138 = load i64, ptr %137, align 8, !noalias !837
   store i64 %138, ptr %136, align 8, !alias.scope !837
   %139 = getelementptr inbounds nuw i8, ptr %3, i64 24
@@ -19313,7 +19313,7 @@ define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl8internal12unwind_guardIZ
   %8 = load ptr, ptr %7, align 8
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %2)
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  %10 = getelementptr inbounds i8, ptr %8, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr inbounds i8, ptr %11, i64 -8
   %13 = load i64, ptr %12, align 8
@@ -19382,15 +19382,15 @@ define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl8internal12unwind_guardIZ
   tail call void @llvm.experimental.noalias.scope.decl(metadata !838)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !841)
   %36 = getelementptr inbounds nuw i8, ptr %6, i64 48
-  %37 = getelementptr inbounds i8, ptr %6, i64 16
+  %37 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %38 = load i64, ptr %37, align 8, !noalias !844
   store i64 %38, ptr %2, align 8, !alias.scope !844
   %39 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %40 = getelementptr inbounds i8, ptr %6, i64 24
+  %40 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %41 = load i64, ptr %40, align 8, !noalias !844
   store i64 %41, ptr %39, align 8, !alias.scope !844
   %42 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %43 = getelementptr inbounds i8, ptr %6, i64 32
+  %43 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %44 = load i64, ptr %43, align 8, !noalias !844
   store i64 %44, ptr %42, align 8, !alias.scope !844
   %45 = getelementptr inbounds nuw i8, ptr %2, i64 24
@@ -19441,7 +19441,7 @@ define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl8internal12unwind_guardIZ
   %8 = load ptr, ptr %7, align 8
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %2)
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  %10 = getelementptr inbounds i8, ptr %8, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr inbounds i8, ptr %11, i64 -8
   %13 = load i64, ptr %12, align 8
@@ -19510,15 +19510,15 @@ define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl8internal12unwind_guardIZ
   tail call void @llvm.experimental.noalias.scope.decl(metadata !845)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !848)
   %36 = getelementptr inbounds nuw i8, ptr %6, i64 48
-  %37 = getelementptr inbounds i8, ptr %6, i64 16
+  %37 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %38 = load i64, ptr %37, align 8, !noalias !851
   store i64 %38, ptr %2, align 8, !alias.scope !851
   %39 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %40 = getelementptr inbounds i8, ptr %6, i64 24
+  %40 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %41 = load i64, ptr %40, align 8, !noalias !851
   store i64 %41, ptr %39, align 8, !alias.scope !851
   %42 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %43 = getelementptr inbounds i8, ptr %6, i64 32
+  %43 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %44 = load i64, ptr %43, align 8, !noalias !851
   store i64 %44, ptr %42, align 8, !alias.scope !851
   %45 = getelementptr inbounds nuw i8, ptr %2, i64 24
@@ -19569,7 +19569,7 @@ define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl8internal12unwind_guardIZ
   %8 = load ptr, ptr %7, align 8
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %2)
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  %10 = getelementptr inbounds i8, ptr %8, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr inbounds i8, ptr %11, i64 -8
   %13 = load i64, ptr %12, align 8
@@ -19638,15 +19638,15 @@ define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl8internal12unwind_guardIZ
   tail call void @llvm.experimental.noalias.scope.decl(metadata !852)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !855)
   %36 = getelementptr inbounds nuw i8, ptr %6, i64 48
-  %37 = getelementptr inbounds i8, ptr %6, i64 16
+  %37 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %38 = load i64, ptr %37, align 8, !noalias !858
   store i64 %38, ptr %2, align 8, !alias.scope !858
   %39 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %40 = getelementptr inbounds i8, ptr %6, i64 24
+  %40 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %41 = load i64, ptr %40, align 8, !noalias !858
   store i64 %41, ptr %39, align 8, !alias.scope !858
   %42 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %43 = getelementptr inbounds i8, ptr %6, i64 32
+  %43 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %44 = load i64, ptr %43, align 8, !noalias !858
   store i64 %44, ptr %42, align 8, !alias.scope !858
   %45 = getelementptr inbounds nuw i8, ptr %2, i64 24
@@ -19695,7 +19695,7 @@ define internal fastcc noundef zeroext i1 @_ZN21PXR_INTERNAL_NS_pegtl6normalIN32
   %10 = alloca %"struct.PXR_INTERNAL_NS_pegtl::internal::unwind_guard.485", align 8
   %11 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, i8 noundef signext 35)
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %13 = getelementptr inbounds i8, ptr %2, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %14 = load ptr, ptr %13, align 8
   %15 = load ptr, ptr %12, align 8
   %16 = ptrtoint ptr %14 to i64
@@ -19715,7 +19715,7 @@ define internal fastcc noundef zeroext i1 @_ZN21PXR_INTERNAL_NS_pegtl6normalIN32
   %29 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %28, ptr noundef nonnull @.str.45, i64 noundef 3)
   %30 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %29, i8 noundef signext 10)
   %31 = load ptr, ptr %13, align 8
-  %32 = getelementptr inbounds i8, ptr %2, i64 32
+  %32 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %33 = load ptr, ptr %32, align 8
   %.not.i.i.i.i.i.i = icmp eq ptr %31, %33
   br i1 %.not.i.i.i.i.i.i, label %38, label %34
@@ -19824,11 +19824,11 @@ _ZN21PXR_INTERNAL_NS_pegtl6normalIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__
 74:                                               ; preds = %71
   %75 = getelementptr inbounds i8, ptr %66, i64 2
   store ptr %75, ptr %65, align 8
-  %76 = getelementptr inbounds i8, ptr %0, i64 16
+  %76 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %77 = load i64, ptr %76, align 8
   %78 = add i64 %77, 2
   store i64 %78, ptr %76, align 8
-  %79 = getelementptr inbounds i8, ptr %0, i64 32
+  %79 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %80 = load i64, ptr %79, align 8
   %81 = add i64 %80, 2
   store i64 %81, ptr %79, align 8
@@ -20131,7 +20131,7 @@ _ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13state_controlIN32pxrInternal_v0_
   %199 = load i64, ptr %76, align 8, !noalias !868
   store i64 %199, ptr %7, align 8, !alias.scope !868
   %200 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %201 = getelementptr inbounds i8, ptr %0, i64 24
+  %201 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %202 = load i64, ptr %201, align 8, !noalias !868
   store i64 %202, ptr %200, align 8, !alias.scope !868
   %203 = getelementptr inbounds nuw i8, ptr %7, i64 16
@@ -20221,7 +20221,7 @@ _ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13state_controlIN32pxrInternal_v0_
   %231 = load i64, ptr %76, align 8, !noalias !875
   store i64 %231, ptr %6, align 8, !alias.scope !875
   %232 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %233 = getelementptr inbounds i8, ptr %0, i64 24
+  %233 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %234 = load i64, ptr %233, align 8, !noalias !875
   store i64 %234, ptr %232, align 8, !alias.scope !875
   %235 = getelementptr inbounds nuw i8, ptr %6, i64 16
@@ -20385,15 +20385,15 @@ _ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13state_controlIN32pxrInternal_v0_
   tail call void @llvm.experimental.noalias.scope.decl(metadata !883)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !886)
   %306 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %307 = getelementptr inbounds i8, ptr %0, i64 16
+  %307 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %308 = load i64, ptr %307, align 8, !noalias !889
   store i64 %308, ptr %4, align 8, !alias.scope !889
   %309 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %310 = getelementptr inbounds i8, ptr %0, i64 24
+  %310 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %311 = load i64, ptr %310, align 8, !noalias !889
   store i64 %311, ptr %309, align 8, !alias.scope !889
   %312 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %313 = getelementptr inbounds i8, ptr %0, i64 32
+  %313 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %314 = load i64, ptr %313, align 8, !noalias !889
   store i64 %314, ptr %312, align 8, !alias.scope !889
   %315 = getelementptr inbounds nuw i8, ptr %4, i64 24
@@ -20431,7 +20431,7 @@ define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl8internal12unwind_guardIZ
   %8 = load ptr, ptr %7, align 8
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %2)
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  %10 = getelementptr inbounds i8, ptr %8, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr inbounds i8, ptr %11, i64 -8
   %13 = load i64, ptr %12, align 8
@@ -20500,15 +20500,15 @@ define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl8internal12unwind_guardIZ
   tail call void @llvm.experimental.noalias.scope.decl(metadata !890)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !893)
   %36 = getelementptr inbounds nuw i8, ptr %6, i64 48
-  %37 = getelementptr inbounds i8, ptr %6, i64 16
+  %37 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %38 = load i64, ptr %37, align 8, !noalias !896
   store i64 %38, ptr %2, align 8, !alias.scope !896
   %39 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %40 = getelementptr inbounds i8, ptr %6, i64 24
+  %40 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %41 = load i64, ptr %40, align 8, !noalias !896
   store i64 %41, ptr %39, align 8, !alias.scope !896
   %42 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %43 = getelementptr inbounds i8, ptr %6, i64 32
+  %43 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %44 = load i64, ptr %43, align 8, !noalias !896
   store i64 %44, ptr %42, align 8, !alias.scope !896
   %45 = getelementptr inbounds nuw i8, ptr %2, i64 24
@@ -20603,7 +20603,7 @@ define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl8internal12unwind_guardIZ
   %8 = load ptr, ptr %7, align 8
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %2)
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  %10 = getelementptr inbounds i8, ptr %8, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr inbounds i8, ptr %11, i64 -8
   %13 = load i64, ptr %12, align 8
@@ -20672,15 +20672,15 @@ define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl8internal12unwind_guardIZ
   tail call void @llvm.experimental.noalias.scope.decl(metadata !897)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !900)
   %36 = getelementptr inbounds nuw i8, ptr %6, i64 48
-  %37 = getelementptr inbounds i8, ptr %6, i64 16
+  %37 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %38 = load i64, ptr %37, align 8, !noalias !903
   store i64 %38, ptr %2, align 8, !alias.scope !903
   %39 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %40 = getelementptr inbounds i8, ptr %6, i64 24
+  %40 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %41 = load i64, ptr %40, align 8, !noalias !903
   store i64 %41, ptr %39, align 8, !alias.scope !903
   %42 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %43 = getelementptr inbounds i8, ptr %6, i64 32
+  %43 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %44 = load i64, ptr %43, align 8, !noalias !903
   store i64 %44, ptr %42, align 8, !alias.scope !903
   %45 = getelementptr inbounds nuw i8, ptr %2, i64 24
@@ -20721,7 +20721,7 @@ _ZZN21PXR_INTERNAL_NS_pegtl8internal20match_control_unwindIN32pxrInternal_v0_24_
 define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13state_controlIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16ErrorsEE7controlINS_3sorIJNS_3seqIJNS_5ascii3oneIJLc92EEEENS3_23QuotedStringEscapedCharILc34EEEEEENS8_IJNS_6not_atIJNS7_IJNS3_13VariableStartENSA_IJLc34EEEEEEEEEENS9_3anyEEEEEEEEENS_8internal12rotate_rightILm1EEEE5startINS_12memory_inputILNS_13tracking_modeE0ENS9_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS3_13ParserContextERNS_6tracerINS_13tracer_traitsILb1ELb1ELm2ELm8EEEEEEEEvRKT_DpOT0_(ptr nocapture noundef nonnull align 8 dereferenceable(96) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, i8 noundef signext 35)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %4 = getelementptr inbounds i8, ptr %0, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %3, align 8
   %7 = ptrtoint ptr %5 to i64
@@ -20741,7 +20741,7 @@ define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13sta
   %20 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %19, ptr noundef nonnull @.str.45, i64 noundef 3)
   %21 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %20, i8 noundef signext 10)
   %22 = load ptr, ptr %4, align 8
-  %23 = getelementptr inbounds i8, ptr %0, i64 32
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %24 = load ptr, ptr %23, align 8
   %.not.i.i.i.i = icmp eq ptr %22, %24
   br i1 %.not.i.i.i.i, label %29, label %25
@@ -20819,7 +20819,7 @@ define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13sta
   %3 = alloca %"struct.PXR_INTERNAL_NS_pegtl::position", align 8
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %5 = getelementptr inbounds i8, ptr %1, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 -8
   %8 = load i64, ptr %7, align 8
@@ -20855,15 +20855,15 @@ define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13sta
   tail call void @llvm.experimental.noalias.scope.decl(metadata !904)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !907)
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %33 = getelementptr inbounds i8, ptr %0, i64 16
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %34 = load i64, ptr %33, align 8, !noalias !910
   store i64 %34, ptr %3, align 8, !alias.scope !910
   %35 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %36 = getelementptr inbounds i8, ptr %0, i64 24
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %37 = load i64, ptr %36, align 8, !noalias !910
   store i64 %37, ptr %35, align 8, !alias.scope !910
   %38 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %39 = getelementptr inbounds i8, ptr %0, i64 32
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %40 = load i64, ptr %39, align 8, !noalias !910
   store i64 %40, ptr %38, align 8, !alias.scope !910
   %41 = getelementptr inbounds nuw i8, ptr %3, i64 24
@@ -20918,7 +20918,7 @@ define internal fastcc noundef zeroext i1 @_ZN21PXR_INTERNAL_NS_pegtl6normalINS_
   %8 = alloca %"struct.PXR_INTERNAL_NS_pegtl::internal::unwind_guard.533", align 8
   %9 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, i8 noundef signext 35)
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %11 = getelementptr inbounds i8, ptr %2, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %12 = load ptr, ptr %11, align 8
   %13 = load ptr, ptr %10, align 8
   %14 = ptrtoint ptr %12 to i64
@@ -20938,7 +20938,7 @@ define internal fastcc noundef zeroext i1 @_ZN21PXR_INTERNAL_NS_pegtl6normalINS_
   %27 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %26, ptr noundef nonnull @.str.45, i64 noundef 3)
   %28 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %27, i8 noundef signext 10)
   %29 = load ptr, ptr %11, align 8
-  %30 = getelementptr inbounds i8, ptr %2, i64 32
+  %30 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %31 = load ptr, ptr %30, align 8
   %.not.i.i.i.i.i.i = icmp eq ptr %29, %31
   br i1 %.not.i.i.i.i.i.i, label %36, label %32
@@ -21157,11 +21157,11 @@ _ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12memory_inputILNS_13track
 118:                                              ; preds = %_ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12memory_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_10input_pairIcEERT_.exit.i.i.i.i.i.i.i.i.i, %_ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12memory_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_10input_pairIcEERT_.exit.i.i.i.i.i.i.i.i.i, %_ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12memory_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_10input_pairIcEERT_.exit.i.i.i.i.i.i.i.i.i, %_ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12memory_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_10input_pairIcEERT_.exit.i.i.i.i.i.i.i.i.i
   %119 = getelementptr inbounds i8, ptr %113, i64 1
   store ptr %119, ptr %61, align 8
-  %120 = getelementptr inbounds i8, ptr %0, i64 16
+  %120 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %121 = load i64, ptr %120, align 8
   %122 = add i64 %121, 1
   store i64 %122, ptr %120, align 8
-  %123 = getelementptr inbounds i8, ptr %0, i64 32
+  %123 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %124 = load i64, ptr %123, align 8
   %125 = add i64 %124, 1
   store i64 %125, ptr %123, align 8
@@ -21236,7 +21236,7 @@ _ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12memory_inputILNS_13track
   %151 = load i64, ptr %120, align 8, !noalias !917
   store i64 %151, ptr %7, align 8, !alias.scope !917
   %152 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %153 = getelementptr inbounds i8, ptr %0, i64 24
+  %153 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %154 = load i64, ptr %153, align 8, !noalias !917
   store i64 %154, ptr %152, align 8, !alias.scope !917
   %155 = getelementptr inbounds nuw i8, ptr %7, i64 16
@@ -21328,15 +21328,15 @@ common.resume.i.i.i.i.i.i:                        ; preds = %193, %158
   tail call void @llvm.experimental.noalias.scope.decl(metadata !918)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !921)
   %183 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %184 = getelementptr inbounds i8, ptr %0, i64 16
+  %184 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %185 = load i64, ptr %184, align 8, !noalias !924
   store i64 %185, ptr %6, align 8, !alias.scope !924
   %186 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %187 = getelementptr inbounds i8, ptr %0, i64 24
+  %187 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %188 = load i64, ptr %187, align 8, !noalias !924
   store i64 %188, ptr %186, align 8, !alias.scope !924
   %189 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %190 = getelementptr inbounds i8, ptr %0, i64 32
+  %190 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %191 = load i64, ptr %190, align 8, !noalias !924
   store i64 %191, ptr %189, align 8, !alias.scope !924
   %192 = getelementptr inbounds nuw i8, ptr %6, i64 24
@@ -21478,15 +21478,15 @@ _ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13state_controlIN32pxrInternal_v0_
   call void @llvm.experimental.noalias.scope.decl(metadata !932)
   call void @llvm.experimental.noalias.scope.decl(metadata !935)
   %257 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %258 = getelementptr inbounds i8, ptr %0, i64 16
+  %258 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %259 = load i64, ptr %258, align 8, !noalias !938
   store i64 %259, ptr %4, align 8, !alias.scope !938
   %260 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %261 = getelementptr inbounds i8, ptr %0, i64 24
+  %261 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %262 = load i64, ptr %261, align 8, !noalias !938
   store i64 %262, ptr %260, align 8, !alias.scope !938
   %263 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %264 = getelementptr inbounds i8, ptr %0, i64 32
+  %264 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %265 = load i64, ptr %264, align 8, !noalias !938
   store i64 %265, ptr %263, align 8, !alias.scope !938
   %266 = getelementptr inbounds nuw i8, ptr %4, i64 24
@@ -21524,7 +21524,7 @@ define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl8internal12unwind_guardIZ
   %8 = load ptr, ptr %7, align 8
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %2)
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  %10 = getelementptr inbounds i8, ptr %8, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr inbounds i8, ptr %11, i64 -8
   %13 = load i64, ptr %12, align 8
@@ -21593,15 +21593,15 @@ define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl8internal12unwind_guardIZ
   tail call void @llvm.experimental.noalias.scope.decl(metadata !939)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !942)
   %36 = getelementptr inbounds nuw i8, ptr %6, i64 48
-  %37 = getelementptr inbounds i8, ptr %6, i64 16
+  %37 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %38 = load i64, ptr %37, align 8, !noalias !945
   store i64 %38, ptr %2, align 8, !alias.scope !945
   %39 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %40 = getelementptr inbounds i8, ptr %6, i64 24
+  %40 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %41 = load i64, ptr %40, align 8, !noalias !945
   store i64 %41, ptr %39, align 8, !alias.scope !945
   %42 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %43 = getelementptr inbounds i8, ptr %6, i64 32
+  %43 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %44 = load i64, ptr %43, align 8, !noalias !945
   store i64 %44, ptr %42, align 8, !alias.scope !945
   %45 = getelementptr inbounds nuw i8, ptr %2, i64 24
@@ -21644,7 +21644,7 @@ define internal fastcc noundef zeroext i1 @_ZN21PXR_INTERNAL_NS_pegtl6normalINS_
   %4 = alloca %"struct.PXR_INTERNAL_NS_pegtl::position", align 8
   %5 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, i8 noundef signext 35)
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %7 = getelementptr inbounds i8, ptr %1, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %8 = load ptr, ptr %7, align 8
   %9 = load ptr, ptr %6, align 8
   %10 = ptrtoint ptr %8 to i64
@@ -21664,7 +21664,7 @@ define internal fastcc noundef zeroext i1 @_ZN21PXR_INTERNAL_NS_pegtl6normalINS_
   %23 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %22, ptr noundef nonnull @.str.45, i64 noundef 3)
   %24 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %23, i8 noundef signext 10)
   %25 = load ptr, ptr %7, align 8
-  %26 = getelementptr inbounds i8, ptr %1, i64 32
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %27 = load ptr, ptr %26, align 8
   %.not.i.i.i.i.i.i = icmp eq ptr %25, %27
   br i1 %.not.i.i.i.i.i.i, label %32, label %28
@@ -21750,11 +21750,11 @@ _ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12memory_inputILNS_13track
 64:                                               ; preds = %_ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12memory_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_10input_pairIcEERT_.exit.i.i.i.i
   %65 = getelementptr inbounds i8, ptr %58, i64 1
   store ptr %65, ptr %57, align 8
-  %66 = getelementptr inbounds i8, ptr %0, i64 16
+  %66 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %67 = load i64, ptr %66, align 8
   %68 = add i64 %67, 1
   store i64 %68, ptr %66, align 8
-  %69 = getelementptr inbounds i8, ptr %0, i64 32
+  %69 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %70 = load i64, ptr %69, align 8
   %71 = add i64 %70, 1
   store i64 %71, ptr %69, align 8
@@ -21796,7 +21796,7 @@ _ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12memory_inputILNS_13track
   %98 = load i64, ptr %66, align 8, !noalias !952
   store i64 %98, ptr %4, align 8, !alias.scope !952
   %99 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %100 = getelementptr inbounds i8, ptr %0, i64 24
+  %100 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %101 = load i64, ptr %100, align 8, !noalias !952
   store i64 %101, ptr %99, align 8, !alias.scope !952
   %102 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -21857,15 +21857,15 @@ _ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13state_controlIN32pxrInternal_v0_
   tail call void @llvm.experimental.noalias.scope.decl(metadata !953)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !956)
   %131 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %132 = getelementptr inbounds i8, ptr %0, i64 16
+  %132 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %133 = load i64, ptr %132, align 8, !noalias !959
   store i64 %133, ptr %3, align 8, !alias.scope !959
   %134 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %135 = getelementptr inbounds i8, ptr %0, i64 24
+  %135 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %136 = load i64, ptr %135, align 8, !noalias !959
   store i64 %136, ptr %134, align 8, !alias.scope !959
   %137 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %138 = getelementptr inbounds i8, ptr %0, i64 32
+  %138 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %139 = load i64, ptr %138, align 8, !noalias !959
   store i64 %139, ptr %137, align 8, !alias.scope !959
   %140 = getelementptr inbounds nuw i8, ptr %3, i64 24
@@ -21892,7 +21892,7 @@ _ZN21PXR_INTERNAL_NS_pegtl5matchINS_5ascii3oneIJLc92EEEELNS_10apply_modeE1ELNS_1
 define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13state_controlIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16ErrorsEE7controlINS_3seqIJNS_6not_atIJNS_3sorIJNS3_13VariableStartENS_5ascii3oneIJLc34EEEEEEEEEENSB_3anyEEEEEENS_8internal12rotate_rightILm1EEEE5startINS_12memory_inputILNS_13tracking_modeE0ENSB_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS3_13ParserContextERNS_6tracerINS_13tracer_traitsILb1ELb1ELm2ELm8EEEEEEEEvRKT_DpOT0_(ptr nocapture noundef nonnull align 8 dereferenceable(96) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, i8 noundef signext 35)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %4 = getelementptr inbounds i8, ptr %0, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %3, align 8
   %7 = ptrtoint ptr %5 to i64
@@ -21912,7 +21912,7 @@ define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13sta
   %20 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %19, ptr noundef nonnull @.str.45, i64 noundef 3)
   %21 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %20, i8 noundef signext 10)
   %22 = load ptr, ptr %4, align 8
-  %23 = getelementptr inbounds i8, ptr %0, i64 32
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %24 = load ptr, ptr %23, align 8
   %.not.i.i.i.i = icmp eq ptr %22, %24
   br i1 %.not.i.i.i.i, label %29, label %25
@@ -21990,7 +21990,7 @@ define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13sta
   %3 = alloca %"struct.PXR_INTERNAL_NS_pegtl::position", align 8
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %5 = getelementptr inbounds i8, ptr %1, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 -8
   %8 = load i64, ptr %7, align 8
@@ -22026,15 +22026,15 @@ define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13sta
   tail call void @llvm.experimental.noalias.scope.decl(metadata !960)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !963)
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %33 = getelementptr inbounds i8, ptr %0, i64 16
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %34 = load i64, ptr %33, align 8, !noalias !966
   store i64 %34, ptr %3, align 8, !alias.scope !966
   %35 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %36 = getelementptr inbounds i8, ptr %0, i64 24
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %37 = load i64, ptr %36, align 8, !noalias !966
   store i64 %37, ptr %35, align 8, !alias.scope !966
   %38 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %39 = getelementptr inbounds i8, ptr %0, i64 32
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %40 = load i64, ptr %39, align 8, !noalias !966
   store i64 %40, ptr %38, align 8, !alias.scope !966
   %41 = getelementptr inbounds nuw i8, ptr %3, i64 24
@@ -22059,7 +22059,7 @@ define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13sta
   %3 = alloca %"struct.PXR_INTERNAL_NS_pegtl::position", align 8
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %5 = getelementptr inbounds i8, ptr %1, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 -8
   %8 = load i64, ptr %7, align 8
@@ -22095,15 +22095,15 @@ define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13sta
   tail call void @llvm.experimental.noalias.scope.decl(metadata !967)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !970)
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %33 = getelementptr inbounds i8, ptr %0, i64 16
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %34 = load i64, ptr %33, align 8, !noalias !973
   store i64 %34, ptr %3, align 8, !alias.scope !973
   %35 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %36 = getelementptr inbounds i8, ptr %0, i64 24
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %37 = load i64, ptr %36, align 8, !noalias !973
   store i64 %37, ptr %35, align 8, !alias.scope !973
   %38 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %39 = getelementptr inbounds i8, ptr %0, i64 32
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %40 = load i64, ptr %39, align 8, !noalias !973
   store i64 %40, ptr %38, align 8, !alias.scope !973
   %41 = getelementptr inbounds nuw i8, ptr %3, i64 24
@@ -22162,7 +22162,7 @@ define internal fastcc noundef zeroext i1 @_ZN21PXR_INTERNAL_NS_pegtl6normalINS_
   %12 = alloca %"struct.PXR_INTERNAL_NS_pegtl::internal::unwind_guard.581", align 8
   %13 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, i8 noundef signext 35)
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %15 = getelementptr inbounds i8, ptr %2, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %16 = load ptr, ptr %15, align 8
   %17 = load ptr, ptr %14, align 8
   %18 = ptrtoint ptr %16 to i64
@@ -22182,7 +22182,7 @@ define internal fastcc noundef zeroext i1 @_ZN21PXR_INTERNAL_NS_pegtl6normalINS_
   %31 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %30, ptr noundef nonnull @.str.45, i64 noundef 3)
   %32 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %31, i8 noundef signext 10)
   %33 = load ptr, ptr %15, align 8
-  %34 = getelementptr inbounds i8, ptr %2, i64 32
+  %34 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %35 = load ptr, ptr %34, align 8
   %.not.i.i.i.i.i.i = icmp eq ptr %33, %35
   br i1 %.not.i.i.i.i.i.i, label %40, label %36
@@ -22408,11 +22408,11 @@ _ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13state_controlIN32pxrInternal_v0_
 _ZN21PXR_INTERNAL_NS_pegtl6normalIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_113VariableStartEE5matchILNS_10apply_modeE0ELNS_11rewind_modeE1ETtTpTyENS2_6ActionETtTpTyENS_13state_controlINS2_6ErrorsEE4typeENS_12memory_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS2_13ParserContextERNS_6tracerINS_13tracer_traitsILb1ELb1ELm2ELm8EEEEEEEEbRT3_DpOT4_.exit.thread.i.i.i.i.i.i.i.i.i.i: ; preds = %121
   %124 = getelementptr inbounds i8, ptr %116, i64 2
   store ptr %124, ptr %65, align 8
-  %125 = getelementptr inbounds i8, ptr %0, i64 16
+  %125 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %126 = load i64, ptr %125, align 8
   %127 = add i64 %126, 2
   store i64 %127, ptr %125, align 8
-  %128 = getelementptr inbounds i8, ptr %0, i64 32
+  %128 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %129 = load i64, ptr %128, align 8
   %130 = add i64 %129, 2
   store i64 %130, ptr %128, align 8
@@ -22552,11 +22552,11 @@ _ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12memory_inputILNS_13track
 185:                                              ; preds = %_ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12memory_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_10input_pairIcEERT_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
   %186 = getelementptr inbounds i8, ptr %180, i64 1
   store ptr %186, ptr %65, align 8
-  %187 = getelementptr inbounds i8, ptr %0, i64 16
+  %187 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %188 = load i64, ptr %187, align 8
   %189 = add i64 %188, 1
   store i64 %189, ptr %187, align 8
-  %190 = getelementptr inbounds i8, ptr %0, i64 32
+  %190 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %191 = load i64, ptr %190, align 8
   %192 = add i64 %191, 1
   store i64 %192, ptr %190, align 8
@@ -22631,7 +22631,7 @@ _ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12memory_inputILNS_13track
   %218 = load i64, ptr %187, align 8, !noalias !980
   store i64 %218, ptr %9, align 8, !alias.scope !980
   %219 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %220 = getelementptr inbounds i8, ptr %0, i64 24
+  %220 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %221 = load i64, ptr %220, align 8, !noalias !980
   store i64 %221, ptr %219, align 8, !alias.scope !980
   %222 = getelementptr inbounds nuw i8, ptr %9, i64 16
@@ -22728,15 +22728,15 @@ _ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13state_controlIN32pxrInternal_v0_
   tail call void @llvm.experimental.noalias.scope.decl(metadata !981)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !984)
   %250 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %251 = getelementptr inbounds i8, ptr %0, i64 16
+  %251 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %252 = load i64, ptr %251, align 8, !noalias !987
   store i64 %252, ptr %8, align 8, !alias.scope !987
   %253 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %254 = getelementptr inbounds i8, ptr %0, i64 24
+  %254 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %255 = load i64, ptr %254, align 8, !noalias !987
   store i64 %255, ptr %253, align 8, !alias.scope !987
   %256 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  %257 = getelementptr inbounds i8, ptr %0, i64 32
+  %257 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %258 = load i64, ptr %257, align 8, !noalias !987
   store i64 %258, ptr %256, align 8, !alias.scope !987
   %259 = getelementptr inbounds nuw i8, ptr %8, i64 24
@@ -22834,15 +22834,15 @@ _ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13state_controlIN32pxrInternal_v0_
   call void @llvm.experimental.noalias.scope.decl(metadata !988)
   call void @llvm.experimental.noalias.scope.decl(metadata !991)
   %289 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %290 = getelementptr inbounds i8, ptr %0, i64 16
+  %290 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %291 = load i64, ptr %290, align 8, !noalias !994
   store i64 %291, ptr %7, align 8, !alias.scope !994
   %292 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %293 = getelementptr inbounds i8, ptr %0, i64 24
+  %293 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %294 = load i64, ptr %293, align 8, !noalias !994
   store i64 %294, ptr %292, align 8, !alias.scope !994
   %295 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %296 = getelementptr inbounds i8, ptr %0, i64 32
+  %296 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %297 = load i64, ptr %296, align 8, !noalias !994
   store i64 %297, ptr %295, align 8, !alias.scope !994
   %298 = getelementptr inbounds nuw i8, ptr %7, i64 24
@@ -23024,15 +23024,15 @@ _ZN21PXR_INTERNAL_NS_pegtl8internal20match_control_unwindINS_6not_atIJNS_3sorIJN
   call void @llvm.experimental.noalias.scope.decl(metadata !1002)
   call void @llvm.experimental.noalias.scope.decl(metadata !1005)
   %363 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %364 = getelementptr inbounds i8, ptr %0, i64 16
+  %364 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %365 = load i64, ptr %364, align 8, !noalias !1008
   store i64 %365, ptr %5, align 8, !alias.scope !1008
   %366 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %367 = getelementptr inbounds i8, ptr %0, i64 24
+  %367 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %368 = load i64, ptr %367, align 8, !noalias !1008
   store i64 %368, ptr %366, align 8, !alias.scope !1008
   %369 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %370 = getelementptr inbounds i8, ptr %0, i64 32
+  %370 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %371 = load i64, ptr %370, align 8, !noalias !1008
   store i64 %371, ptr %369, align 8, !alias.scope !1008
   %372 = getelementptr inbounds nuw i8, ptr %5, i64 24
@@ -23087,15 +23087,15 @@ _ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13state_controlIN32pxrInternal_v0_
   call void @llvm.experimental.noalias.scope.decl(metadata !1009)
   call void @llvm.experimental.noalias.scope.decl(metadata !1012)
   %401 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %402 = getelementptr inbounds i8, ptr %0, i64 16
+  %402 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %403 = load i64, ptr %402, align 8, !noalias !1015
   store i64 %403, ptr %4, align 8, !alias.scope !1015
   %404 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %405 = getelementptr inbounds i8, ptr %0, i64 24
+  %405 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %406 = load i64, ptr %405, align 8, !noalias !1015
   store i64 %406, ptr %404, align 8, !alias.scope !1015
   %407 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %408 = getelementptr inbounds i8, ptr %0, i64 32
+  %408 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %409 = load i64, ptr %408, align 8, !noalias !1015
   store i64 %409, ptr %407, align 8, !alias.scope !1015
   %410 = getelementptr inbounds nuw i8, ptr %4, i64 24
@@ -23124,7 +23124,7 @@ define internal fastcc noundef zeroext i1 @_ZN21PXR_INTERNAL_NS_pegtl6normalINS_
   %4 = alloca %"struct.PXR_INTERNAL_NS_pegtl::position", align 8
   %5 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, i8 noundef signext 35)
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %7 = getelementptr inbounds i8, ptr %1, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %8 = load ptr, ptr %7, align 8
   %9 = load ptr, ptr %6, align 8
   %10 = ptrtoint ptr %8 to i64
@@ -23144,7 +23144,7 @@ define internal fastcc noundef zeroext i1 @_ZN21PXR_INTERNAL_NS_pegtl6normalINS_
   %23 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %22, ptr noundef nonnull @.str.45, i64 noundef 3)
   %24 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %23, i8 noundef signext 10)
   %25 = load ptr, ptr %7, align 8
-  %26 = getelementptr inbounds i8, ptr %1, i64 32
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %27 = load ptr, ptr %26, align 8
   %.not.i.i.i.i.i.i = icmp eq ptr %25, %27
   br i1 %.not.i.i.i.i.i.i, label %32, label %28
@@ -23223,13 +23223,13 @@ _ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13state_controlIN32pxrInternal_v0_
   br i1 %61, label %62, label %_ZN21PXR_INTERNAL_NS_pegtl8internal20match_control_unwindINS_5ascii3anyELNS_10apply_modeE1ELNS_11rewind_modeE0ETtTpTyEN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16ActionETtTpTyENS_13state_controlINS7_6ErrorsEE4typeENS_12memory_inputILNS_13tracking_modeE0ENS2_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS7_13ParserContextERNS_6tracerINS_13tracer_traitsILb1ELb1ELm2ELm8EEEEEEEEDaRT4_DpOT5_.exit.i
 
 62:                                               ; preds = %_ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13state_controlIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16ErrorsEE7controlINS_5ascii3anyEEENS_8internal12rotate_rightILm1EEEE5startINS_12memory_inputILNS_13tracking_modeE0ENS7_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS3_13ParserContextERNS_6tracerINS_13tracer_traitsILb1ELb1ELm2ELm8EEEEEEEEvRKT_DpOT0_.exit.i
-  %63 = getelementptr inbounds i8, ptr %0, i64 32
+  %63 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %64 = load i8, ptr %58, align 1
   %65 = icmp eq i8 %64, 10
   br i1 %65, label %66, label %69
 
 66:                                               ; preds = %62
-  %67 = getelementptr inbounds i8, ptr %0, i64 24
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.promoted14.i.i.i.i.i.i = load i64, ptr %67, align 8
   %68 = add i64 %.promoted14.i.i.i.i.i.i, 1
   store i64 %68, ptr %67, align 8
@@ -23243,7 +23243,7 @@ _ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13state_controlIN32pxrInternal_v0_
 71:                                               ; preds = %69, %66
   %storemerge.i.i.i.i.i.i = phi i64 [ %70, %69 ], [ 1, %66 ]
   store i64 %storemerge.i.i.i.i.i.i, ptr %63, align 8
-  %72 = getelementptr inbounds i8, ptr %0, i64 16
+  %72 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %73 = load i64, ptr %72, align 8
   %74 = add i64 %73, 1
   store i64 %74, ptr %72, align 8
@@ -23287,7 +23287,7 @@ _ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13state_controlIN32pxrInternal_v0_
   %102 = load i64, ptr %72, align 8, !noalias !1022
   store i64 %102, ptr %4, align 8, !alias.scope !1022
   %103 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %104 = getelementptr inbounds i8, ptr %0, i64 24
+  %104 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %105 = load i64, ptr %104, align 8, !noalias !1022
   store i64 %105, ptr %103, align 8, !alias.scope !1022
   %106 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -23348,15 +23348,15 @@ _ZN21PXR_INTERNAL_NS_pegtl8internal20match_control_unwindINS_5ascii3anyELNS_10ap
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1023)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1026)
   %134 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %135 = getelementptr inbounds i8, ptr %0, i64 16
+  %135 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %136 = load i64, ptr %135, align 8, !noalias !1029
   store i64 %136, ptr %3, align 8, !alias.scope !1029
   %137 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %138 = getelementptr inbounds i8, ptr %0, i64 24
+  %138 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %139 = load i64, ptr %138, align 8, !noalias !1029
   store i64 %139, ptr %137, align 8, !alias.scope !1029
   %140 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %141 = getelementptr inbounds i8, ptr %0, i64 32
+  %141 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %142 = load i64, ptr %141, align 8, !noalias !1029
   store i64 %142, ptr %140, align 8, !alias.scope !1029
   %143 = getelementptr inbounds nuw i8, ptr %3, i64 24
@@ -23392,7 +23392,7 @@ define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl8internal12unwind_guardIZ
   %8 = load ptr, ptr %7, align 8
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %2)
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  %10 = getelementptr inbounds i8, ptr %8, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr inbounds i8, ptr %11, i64 -8
   %13 = load i64, ptr %12, align 8
@@ -23461,15 +23461,15 @@ define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl8internal12unwind_guardIZ
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1030)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1033)
   %36 = getelementptr inbounds nuw i8, ptr %6, i64 48
-  %37 = getelementptr inbounds i8, ptr %6, i64 16
+  %37 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %38 = load i64, ptr %37, align 8, !noalias !1036
   store i64 %38, ptr %2, align 8, !alias.scope !1036
   %39 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %40 = getelementptr inbounds i8, ptr %6, i64 24
+  %40 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %41 = load i64, ptr %40, align 8, !noalias !1036
   store i64 %41, ptr %39, align 8, !alias.scope !1036
   %42 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %43 = getelementptr inbounds i8, ptr %6, i64 32
+  %43 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %44 = load i64, ptr %43, align 8, !noalias !1036
   store i64 %44, ptr %42, align 8, !alias.scope !1036
   %45 = getelementptr inbounds nuw i8, ptr %2, i64 24
@@ -23520,7 +23520,7 @@ define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl8internal12unwind_guardIZ
   %8 = load ptr, ptr %7, align 8
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %2)
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  %10 = getelementptr inbounds i8, ptr %8, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr inbounds i8, ptr %11, i64 -8
   %13 = load i64, ptr %12, align 8
@@ -23589,15 +23589,15 @@ define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl8internal12unwind_guardIZ
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1037)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1040)
   %36 = getelementptr inbounds nuw i8, ptr %6, i64 48
-  %37 = getelementptr inbounds i8, ptr %6, i64 16
+  %37 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %38 = load i64, ptr %37, align 8, !noalias !1043
   store i64 %38, ptr %2, align 8, !alias.scope !1043
   %39 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %40 = getelementptr inbounds i8, ptr %6, i64 24
+  %40 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %41 = load i64, ptr %40, align 8, !noalias !1043
   store i64 %41, ptr %39, align 8, !alias.scope !1043
   %42 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %43 = getelementptr inbounds i8, ptr %6, i64 32
+  %43 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %44 = load i64, ptr %43, align 8, !noalias !1043
   store i64 %44, ptr %42, align 8, !alias.scope !1043
   %45 = getelementptr inbounds nuw i8, ptr %2, i64 24
@@ -23639,7 +23639,7 @@ define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13sta
   %3 = alloca %"struct.PXR_INTERNAL_NS_pegtl::position", align 8
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %5 = getelementptr inbounds i8, ptr %1, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 -8
   %8 = load i64, ptr %7, align 8
@@ -23675,15 +23675,15 @@ define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13sta
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1044)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1047)
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %33 = getelementptr inbounds i8, ptr %0, i64 16
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %34 = load i64, ptr %33, align 8, !noalias !1050
   store i64 %34, ptr %3, align 8, !alias.scope !1050
   %35 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %36 = getelementptr inbounds i8, ptr %0, i64 24
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %37 = load i64, ptr %36, align 8, !noalias !1050
   store i64 %37, ptr %35, align 8, !alias.scope !1050
   %38 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %39 = getelementptr inbounds i8, ptr %0, i64 32
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %40 = load i64, ptr %39, align 8, !noalias !1050
   store i64 %40, ptr %38, align 8, !alias.scope !1050
   %41 = getelementptr inbounds nuw i8, ptr %3, i64 24
@@ -23708,7 +23708,7 @@ define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13sta
   %3 = alloca %"struct.PXR_INTERNAL_NS_pegtl::position", align 8
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %5 = getelementptr inbounds i8, ptr %1, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 -8
   %8 = load i64, ptr %7, align 8
@@ -23744,15 +23744,15 @@ define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13sta
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1051)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1054)
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %33 = getelementptr inbounds i8, ptr %0, i64 16
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %34 = load i64, ptr %33, align 8, !noalias !1057
   store i64 %34, ptr %3, align 8, !alias.scope !1057
   %35 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %36 = getelementptr inbounds i8, ptr %0, i64 24
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %37 = load i64, ptr %36, align 8, !noalias !1057
   store i64 %37, ptr %35, align 8, !alias.scope !1057
   %38 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %39 = getelementptr inbounds i8, ptr %0, i64 32
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %40 = load i64, ptr %39, align 8, !noalias !1057
   store i64 %40, ptr %38, align 8, !alias.scope !1057
   %41 = getelementptr inbounds nuw i8, ptr %3, i64 24
@@ -23880,7 +23880,7 @@ define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl8internal12unwind_guardIZ
   %8 = load ptr, ptr %7, align 8
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %2)
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  %10 = getelementptr inbounds i8, ptr %8, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr inbounds i8, ptr %11, i64 -8
   %13 = load i64, ptr %12, align 8
@@ -23949,15 +23949,15 @@ define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl8internal12unwind_guardIZ
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1058)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1061)
   %36 = getelementptr inbounds nuw i8, ptr %6, i64 48
-  %37 = getelementptr inbounds i8, ptr %6, i64 16
+  %37 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %38 = load i64, ptr %37, align 8, !noalias !1064
   store i64 %38, ptr %2, align 8, !alias.scope !1064
   %39 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %40 = getelementptr inbounds i8, ptr %6, i64 24
+  %40 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %41 = load i64, ptr %40, align 8, !noalias !1064
   store i64 %41, ptr %39, align 8, !alias.scope !1064
   %42 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %43 = getelementptr inbounds i8, ptr %6, i64 32
+  %43 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %44 = load i64, ptr %43, align 8, !noalias !1064
   store i64 %44, ptr %42, align 8, !alias.scope !1064
   %45 = getelementptr inbounds nuw i8, ptr %2, i64 24
@@ -24008,7 +24008,7 @@ define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl8internal12unwind_guardIZ
   %8 = load ptr, ptr %7, align 8
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %2)
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  %10 = getelementptr inbounds i8, ptr %8, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr inbounds i8, ptr %11, i64 -8
   %13 = load i64, ptr %12, align 8
@@ -24077,15 +24077,15 @@ define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl8internal12unwind_guardIZ
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1065)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1068)
   %36 = getelementptr inbounds nuw i8, ptr %6, i64 48
-  %37 = getelementptr inbounds i8, ptr %6, i64 16
+  %37 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %38 = load i64, ptr %37, align 8, !noalias !1071
   store i64 %38, ptr %2, align 8, !alias.scope !1071
   %39 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %40 = getelementptr inbounds i8, ptr %6, i64 24
+  %40 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %41 = load i64, ptr %40, align 8, !noalias !1071
   store i64 %41, ptr %39, align 8, !alias.scope !1071
   %42 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %43 = getelementptr inbounds i8, ptr %6, i64 32
+  %43 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %44 = load i64, ptr %43, align 8, !noalias !1071
   store i64 %44, ptr %42, align 8, !alias.scope !1071
   %45 = getelementptr inbounds nuw i8, ptr %2, i64 24
@@ -24136,7 +24136,7 @@ define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl8internal12unwind_guardIZ
   %8 = load ptr, ptr %7, align 8
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %2)
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  %10 = getelementptr inbounds i8, ptr %8, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr inbounds i8, ptr %11, i64 -8
   %13 = load i64, ptr %12, align 8
@@ -24205,15 +24205,15 @@ define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl8internal12unwind_guardIZ
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1072)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1075)
   %36 = getelementptr inbounds nuw i8, ptr %6, i64 48
-  %37 = getelementptr inbounds i8, ptr %6, i64 16
+  %37 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %38 = load i64, ptr %37, align 8, !noalias !1078
   store i64 %38, ptr %2, align 8, !alias.scope !1078
   %39 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %40 = getelementptr inbounds i8, ptr %6, i64 24
+  %40 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %41 = load i64, ptr %40, align 8, !noalias !1078
   store i64 %41, ptr %39, align 8, !alias.scope !1078
   %42 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %43 = getelementptr inbounds i8, ptr %6, i64 32
+  %43 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %44 = load i64, ptr %43, align 8, !noalias !1078
   store i64 %44, ptr %42, align 8, !alias.scope !1078
   %45 = getelementptr inbounds nuw i8, ptr %2, i64 24
@@ -24264,7 +24264,7 @@ define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl8internal12unwind_guardIZ
   %8 = load ptr, ptr %7, align 8
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %2)
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  %10 = getelementptr inbounds i8, ptr %8, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr inbounds i8, ptr %11, i64 -8
   %13 = load i64, ptr %12, align 8
@@ -24333,15 +24333,15 @@ define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl8internal12unwind_guardIZ
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1079)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1082)
   %36 = getelementptr inbounds nuw i8, ptr %6, i64 48
-  %37 = getelementptr inbounds i8, ptr %6, i64 16
+  %37 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %38 = load i64, ptr %37, align 8, !noalias !1085
   store i64 %38, ptr %2, align 8, !alias.scope !1085
   %39 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %40 = getelementptr inbounds i8, ptr %6, i64 24
+  %40 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %41 = load i64, ptr %40, align 8, !noalias !1085
   store i64 %41, ptr %39, align 8, !alias.scope !1085
   %42 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %43 = getelementptr inbounds i8, ptr %6, i64 32
+  %43 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %44 = load i64, ptr %43, align 8, !noalias !1085
   store i64 %44, ptr %42, align 8, !alias.scope !1085
   %45 = getelementptr inbounds nuw i8, ptr %2, i64 24
@@ -24382,7 +24382,7 @@ _ZZN21PXR_INTERNAL_NS_pegtl8internal20match_control_unwindIN32pxrInternal_v0_24_
 define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13state_controlIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16ErrorsEE7controlINS_3sorIJNS_3seqIJNS_5ascii3oneIJLc92EEEENS3_23QuotedStringEscapedCharILc39EEEEEENS8_IJNS_6not_atIJNS7_IJNS3_13VariableStartENSA_IJLc39EEEEEEEEEENS9_3anyEEEEEEEEENS_8internal12rotate_rightILm1EEEE5startINS_12memory_inputILNS_13tracking_modeE0ENS9_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS3_13ParserContextERNS_6tracerINS_13tracer_traitsILb1ELb1ELm2ELm8EEEEEEEEvRKT_DpOT0_(ptr nocapture noundef nonnull align 8 dereferenceable(96) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, i8 noundef signext 35)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %4 = getelementptr inbounds i8, ptr %0, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %3, align 8
   %7 = ptrtoint ptr %5 to i64
@@ -24402,7 +24402,7 @@ define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13sta
   %20 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %19, ptr noundef nonnull @.str.45, i64 noundef 3)
   %21 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %20, i8 noundef signext 10)
   %22 = load ptr, ptr %4, align 8
-  %23 = getelementptr inbounds i8, ptr %0, i64 32
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %24 = load ptr, ptr %23, align 8
   %.not.i.i.i.i = icmp eq ptr %22, %24
   br i1 %.not.i.i.i.i, label %29, label %25
@@ -24480,7 +24480,7 @@ define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13sta
   %3 = alloca %"struct.PXR_INTERNAL_NS_pegtl::position", align 8
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %5 = getelementptr inbounds i8, ptr %1, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 -8
   %8 = load i64, ptr %7, align 8
@@ -24516,15 +24516,15 @@ define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13sta
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1086)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1089)
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %33 = getelementptr inbounds i8, ptr %0, i64 16
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %34 = load i64, ptr %33, align 8, !noalias !1092
   store i64 %34, ptr %3, align 8, !alias.scope !1092
   %35 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %36 = getelementptr inbounds i8, ptr %0, i64 24
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %37 = load i64, ptr %36, align 8, !noalias !1092
   store i64 %37, ptr %35, align 8, !alias.scope !1092
   %38 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %39 = getelementptr inbounds i8, ptr %0, i64 32
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %40 = load i64, ptr %39, align 8, !noalias !1092
   store i64 %40, ptr %38, align 8, !alias.scope !1092
   %41 = getelementptr inbounds nuw i8, ptr %3, i64 24
@@ -24579,7 +24579,7 @@ define internal fastcc noundef zeroext i1 @_ZN21PXR_INTERNAL_NS_pegtl6normalINS_
   %8 = alloca %"struct.PXR_INTERNAL_NS_pegtl::internal::unwind_guard.749", align 8
   %9 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, i8 noundef signext 35)
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %11 = getelementptr inbounds i8, ptr %2, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %12 = load ptr, ptr %11, align 8
   %13 = load ptr, ptr %10, align 8
   %14 = ptrtoint ptr %12 to i64
@@ -24599,7 +24599,7 @@ define internal fastcc noundef zeroext i1 @_ZN21PXR_INTERNAL_NS_pegtl6normalINS_
   %27 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %26, ptr noundef nonnull @.str.45, i64 noundef 3)
   %28 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %27, i8 noundef signext 10)
   %29 = load ptr, ptr %11, align 8
-  %30 = getelementptr inbounds i8, ptr %2, i64 32
+  %30 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %31 = load ptr, ptr %30, align 8
   %.not.i.i.i.i.i.i = icmp eq ptr %29, %31
   br i1 %.not.i.i.i.i.i.i, label %36, label %32
@@ -24818,11 +24818,11 @@ _ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12memory_inputILNS_13track
 118:                                              ; preds = %_ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12memory_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_10input_pairIcEERT_.exit.i.i.i.i.i.i.i.i.i, %_ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12memory_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_10input_pairIcEERT_.exit.i.i.i.i.i.i.i.i.i, %_ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12memory_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_10input_pairIcEERT_.exit.i.i.i.i.i.i.i.i.i, %_ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12memory_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_10input_pairIcEERT_.exit.i.i.i.i.i.i.i.i.i
   %119 = getelementptr inbounds i8, ptr %113, i64 1
   store ptr %119, ptr %61, align 8
-  %120 = getelementptr inbounds i8, ptr %0, i64 16
+  %120 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %121 = load i64, ptr %120, align 8
   %122 = add i64 %121, 1
   store i64 %122, ptr %120, align 8
-  %123 = getelementptr inbounds i8, ptr %0, i64 32
+  %123 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %124 = load i64, ptr %123, align 8
   %125 = add i64 %124, 1
   store i64 %125, ptr %123, align 8
@@ -24897,7 +24897,7 @@ _ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12memory_inputILNS_13track
   %151 = load i64, ptr %120, align 8, !noalias !1099
   store i64 %151, ptr %7, align 8, !alias.scope !1099
   %152 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %153 = getelementptr inbounds i8, ptr %0, i64 24
+  %153 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %154 = load i64, ptr %153, align 8, !noalias !1099
   store i64 %154, ptr %152, align 8, !alias.scope !1099
   %155 = getelementptr inbounds nuw i8, ptr %7, i64 16
@@ -24989,15 +24989,15 @@ common.resume.i.i.i.i.i.i:                        ; preds = %193, %158
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1100)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1103)
   %183 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %184 = getelementptr inbounds i8, ptr %0, i64 16
+  %184 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %185 = load i64, ptr %184, align 8, !noalias !1106
   store i64 %185, ptr %6, align 8, !alias.scope !1106
   %186 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %187 = getelementptr inbounds i8, ptr %0, i64 24
+  %187 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %188 = load i64, ptr %187, align 8, !noalias !1106
   store i64 %188, ptr %186, align 8, !alias.scope !1106
   %189 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %190 = getelementptr inbounds i8, ptr %0, i64 32
+  %190 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %191 = load i64, ptr %190, align 8, !noalias !1106
   store i64 %191, ptr %189, align 8, !alias.scope !1106
   %192 = getelementptr inbounds nuw i8, ptr %6, i64 24
@@ -25139,15 +25139,15 @@ _ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13state_controlIN32pxrInternal_v0_
   call void @llvm.experimental.noalias.scope.decl(metadata !1114)
   call void @llvm.experimental.noalias.scope.decl(metadata !1117)
   %257 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %258 = getelementptr inbounds i8, ptr %0, i64 16
+  %258 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %259 = load i64, ptr %258, align 8, !noalias !1120
   store i64 %259, ptr %4, align 8, !alias.scope !1120
   %260 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %261 = getelementptr inbounds i8, ptr %0, i64 24
+  %261 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %262 = load i64, ptr %261, align 8, !noalias !1120
   store i64 %262, ptr %260, align 8, !alias.scope !1120
   %263 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %264 = getelementptr inbounds i8, ptr %0, i64 32
+  %264 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %265 = load i64, ptr %264, align 8, !noalias !1120
   store i64 %265, ptr %263, align 8, !alias.scope !1120
   %266 = getelementptr inbounds nuw i8, ptr %4, i64 24
@@ -25185,7 +25185,7 @@ define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl8internal12unwind_guardIZ
   %8 = load ptr, ptr %7, align 8
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %2)
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  %10 = getelementptr inbounds i8, ptr %8, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr inbounds i8, ptr %11, i64 -8
   %13 = load i64, ptr %12, align 8
@@ -25254,15 +25254,15 @@ define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl8internal12unwind_guardIZ
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1121)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1124)
   %36 = getelementptr inbounds nuw i8, ptr %6, i64 48
-  %37 = getelementptr inbounds i8, ptr %6, i64 16
+  %37 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %38 = load i64, ptr %37, align 8, !noalias !1127
   store i64 %38, ptr %2, align 8, !alias.scope !1127
   %39 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %40 = getelementptr inbounds i8, ptr %6, i64 24
+  %40 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %41 = load i64, ptr %40, align 8, !noalias !1127
   store i64 %41, ptr %39, align 8, !alias.scope !1127
   %42 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %43 = getelementptr inbounds i8, ptr %6, i64 32
+  %43 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %44 = load i64, ptr %43, align 8, !noalias !1127
   store i64 %44, ptr %42, align 8, !alias.scope !1127
   %45 = getelementptr inbounds nuw i8, ptr %2, i64 24
@@ -25303,7 +25303,7 @@ _ZZN21PXR_INTERNAL_NS_pegtl8internal20match_control_unwindINS_3seqIJNS_5ascii3on
 define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13state_controlIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16ErrorsEE7controlINS_3seqIJNS_6not_atIJNS_3sorIJNS3_13VariableStartENS_5ascii3oneIJLc39EEEEEEEEEENSB_3anyEEEEEENS_8internal12rotate_rightILm1EEEE5startINS_12memory_inputILNS_13tracking_modeE0ENSB_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS3_13ParserContextERNS_6tracerINS_13tracer_traitsILb1ELb1ELm2ELm8EEEEEEEEvRKT_DpOT0_(ptr nocapture noundef nonnull align 8 dereferenceable(96) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, i8 noundef signext 35)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %4 = getelementptr inbounds i8, ptr %0, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %3, align 8
   %7 = ptrtoint ptr %5 to i64
@@ -25323,7 +25323,7 @@ define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13sta
   %20 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %19, ptr noundef nonnull @.str.45, i64 noundef 3)
   %21 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %20, i8 noundef signext 10)
   %22 = load ptr, ptr %4, align 8
-  %23 = getelementptr inbounds i8, ptr %0, i64 32
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %24 = load ptr, ptr %23, align 8
   %.not.i.i.i.i = icmp eq ptr %22, %24
   br i1 %.not.i.i.i.i, label %29, label %25
@@ -25401,7 +25401,7 @@ define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13sta
   %3 = alloca %"struct.PXR_INTERNAL_NS_pegtl::position", align 8
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %5 = getelementptr inbounds i8, ptr %1, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 -8
   %8 = load i64, ptr %7, align 8
@@ -25437,15 +25437,15 @@ define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13sta
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1128)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1131)
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %33 = getelementptr inbounds i8, ptr %0, i64 16
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %34 = load i64, ptr %33, align 8, !noalias !1134
   store i64 %34, ptr %3, align 8, !alias.scope !1134
   %35 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %36 = getelementptr inbounds i8, ptr %0, i64 24
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %37 = load i64, ptr %36, align 8, !noalias !1134
   store i64 %37, ptr %35, align 8, !alias.scope !1134
   %38 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %39 = getelementptr inbounds i8, ptr %0, i64 32
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %40 = load i64, ptr %39, align 8, !noalias !1134
   store i64 %40, ptr %38, align 8, !alias.scope !1134
   %41 = getelementptr inbounds nuw i8, ptr %3, i64 24
@@ -25470,7 +25470,7 @@ define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13sta
   %3 = alloca %"struct.PXR_INTERNAL_NS_pegtl::position", align 8
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %5 = getelementptr inbounds i8, ptr %1, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 -8
   %8 = load i64, ptr %7, align 8
@@ -25506,15 +25506,15 @@ define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13sta
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1135)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1138)
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %33 = getelementptr inbounds i8, ptr %0, i64 16
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %34 = load i64, ptr %33, align 8, !noalias !1141
   store i64 %34, ptr %3, align 8, !alias.scope !1141
   %35 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %36 = getelementptr inbounds i8, ptr %0, i64 24
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %37 = load i64, ptr %36, align 8, !noalias !1141
   store i64 %37, ptr %35, align 8, !alias.scope !1141
   %38 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %39 = getelementptr inbounds i8, ptr %0, i64 32
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %40 = load i64, ptr %39, align 8, !noalias !1141
   store i64 %40, ptr %38, align 8, !alias.scope !1141
   %41 = getelementptr inbounds nuw i8, ptr %3, i64 24
@@ -25573,7 +25573,7 @@ define internal fastcc noundef zeroext i1 @_ZN21PXR_INTERNAL_NS_pegtl6normalINS_
   %12 = alloca %"struct.PXR_INTERNAL_NS_pegtl::internal::unwind_guard.785", align 8
   %13 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, i8 noundef signext 35)
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %15 = getelementptr inbounds i8, ptr %2, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %16 = load ptr, ptr %15, align 8
   %17 = load ptr, ptr %14, align 8
   %18 = ptrtoint ptr %16 to i64
@@ -25593,7 +25593,7 @@ define internal fastcc noundef zeroext i1 @_ZN21PXR_INTERNAL_NS_pegtl6normalINS_
   %31 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %30, ptr noundef nonnull @.str.45, i64 noundef 3)
   %32 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %31, i8 noundef signext 10)
   %33 = load ptr, ptr %15, align 8
-  %34 = getelementptr inbounds i8, ptr %2, i64 32
+  %34 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %35 = load ptr, ptr %34, align 8
   %.not.i.i.i.i.i.i = icmp eq ptr %33, %35
   br i1 %.not.i.i.i.i.i.i, label %40, label %36
@@ -25819,11 +25819,11 @@ _ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13state_controlIN32pxrInternal_v0_
 _ZN21PXR_INTERNAL_NS_pegtl6normalIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_113VariableStartEE5matchILNS_10apply_modeE0ELNS_11rewind_modeE1ETtTpTyENS2_6ActionETtTpTyENS_13state_controlINS2_6ErrorsEE4typeENS_12memory_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS2_13ParserContextERNS_6tracerINS_13tracer_traitsILb1ELb1ELm2ELm8EEEEEEEEbRT3_DpOT4_.exit.thread.i.i.i.i.i.i.i.i.i.i: ; preds = %121
   %124 = getelementptr inbounds i8, ptr %116, i64 2
   store ptr %124, ptr %65, align 8
-  %125 = getelementptr inbounds i8, ptr %0, i64 16
+  %125 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %126 = load i64, ptr %125, align 8
   %127 = add i64 %126, 2
   store i64 %127, ptr %125, align 8
-  %128 = getelementptr inbounds i8, ptr %0, i64 32
+  %128 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %129 = load i64, ptr %128, align 8
   %130 = add i64 %129, 2
   store i64 %130, ptr %128, align 8
@@ -25963,11 +25963,11 @@ _ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12memory_inputILNS_13track
 185:                                              ; preds = %_ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12memory_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_10input_pairIcEERT_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
   %186 = getelementptr inbounds i8, ptr %180, i64 1
   store ptr %186, ptr %65, align 8
-  %187 = getelementptr inbounds i8, ptr %0, i64 16
+  %187 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %188 = load i64, ptr %187, align 8
   %189 = add i64 %188, 1
   store i64 %189, ptr %187, align 8
-  %190 = getelementptr inbounds i8, ptr %0, i64 32
+  %190 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %191 = load i64, ptr %190, align 8
   %192 = add i64 %191, 1
   store i64 %192, ptr %190, align 8
@@ -26042,7 +26042,7 @@ _ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12memory_inputILNS_13track
   %218 = load i64, ptr %187, align 8, !noalias !1148
   store i64 %218, ptr %9, align 8, !alias.scope !1148
   %219 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %220 = getelementptr inbounds i8, ptr %0, i64 24
+  %220 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %221 = load i64, ptr %220, align 8, !noalias !1148
   store i64 %221, ptr %219, align 8, !alias.scope !1148
   %222 = getelementptr inbounds nuw i8, ptr %9, i64 16
@@ -26139,15 +26139,15 @@ _ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13state_controlIN32pxrInternal_v0_
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1149)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1152)
   %250 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %251 = getelementptr inbounds i8, ptr %0, i64 16
+  %251 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %252 = load i64, ptr %251, align 8, !noalias !1155
   store i64 %252, ptr %8, align 8, !alias.scope !1155
   %253 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %254 = getelementptr inbounds i8, ptr %0, i64 24
+  %254 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %255 = load i64, ptr %254, align 8, !noalias !1155
   store i64 %255, ptr %253, align 8, !alias.scope !1155
   %256 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  %257 = getelementptr inbounds i8, ptr %0, i64 32
+  %257 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %258 = load i64, ptr %257, align 8, !noalias !1155
   store i64 %258, ptr %256, align 8, !alias.scope !1155
   %259 = getelementptr inbounds nuw i8, ptr %8, i64 24
@@ -26245,15 +26245,15 @@ _ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13state_controlIN32pxrInternal_v0_
   call void @llvm.experimental.noalias.scope.decl(metadata !1156)
   call void @llvm.experimental.noalias.scope.decl(metadata !1159)
   %289 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %290 = getelementptr inbounds i8, ptr %0, i64 16
+  %290 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %291 = load i64, ptr %290, align 8, !noalias !1162
   store i64 %291, ptr %7, align 8, !alias.scope !1162
   %292 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %293 = getelementptr inbounds i8, ptr %0, i64 24
+  %293 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %294 = load i64, ptr %293, align 8, !noalias !1162
   store i64 %294, ptr %292, align 8, !alias.scope !1162
   %295 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %296 = getelementptr inbounds i8, ptr %0, i64 32
+  %296 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %297 = load i64, ptr %296, align 8, !noalias !1162
   store i64 %297, ptr %295, align 8, !alias.scope !1162
   %298 = getelementptr inbounds nuw i8, ptr %7, i64 24
@@ -26435,15 +26435,15 @@ _ZN21PXR_INTERNAL_NS_pegtl8internal20match_control_unwindINS_6not_atIJNS_3sorIJN
   call void @llvm.experimental.noalias.scope.decl(metadata !1170)
   call void @llvm.experimental.noalias.scope.decl(metadata !1173)
   %363 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %364 = getelementptr inbounds i8, ptr %0, i64 16
+  %364 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %365 = load i64, ptr %364, align 8, !noalias !1176
   store i64 %365, ptr %5, align 8, !alias.scope !1176
   %366 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %367 = getelementptr inbounds i8, ptr %0, i64 24
+  %367 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %368 = load i64, ptr %367, align 8, !noalias !1176
   store i64 %368, ptr %366, align 8, !alias.scope !1176
   %369 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %370 = getelementptr inbounds i8, ptr %0, i64 32
+  %370 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %371 = load i64, ptr %370, align 8, !noalias !1176
   store i64 %371, ptr %369, align 8, !alias.scope !1176
   %372 = getelementptr inbounds nuw i8, ptr %5, i64 24
@@ -26498,15 +26498,15 @@ _ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13state_controlIN32pxrInternal_v0_
   call void @llvm.experimental.noalias.scope.decl(metadata !1177)
   call void @llvm.experimental.noalias.scope.decl(metadata !1180)
   %401 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %402 = getelementptr inbounds i8, ptr %0, i64 16
+  %402 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %403 = load i64, ptr %402, align 8, !noalias !1183
   store i64 %403, ptr %4, align 8, !alias.scope !1183
   %404 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %405 = getelementptr inbounds i8, ptr %0, i64 24
+  %405 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %406 = load i64, ptr %405, align 8, !noalias !1183
   store i64 %406, ptr %404, align 8, !alias.scope !1183
   %407 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %408 = getelementptr inbounds i8, ptr %0, i64 32
+  %408 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %409 = load i64, ptr %408, align 8, !noalias !1183
   store i64 %409, ptr %407, align 8, !alias.scope !1183
   %410 = getelementptr inbounds nuw i8, ptr %4, i64 24
@@ -26543,7 +26543,7 @@ define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl8internal12unwind_guardIZ
   %8 = load ptr, ptr %7, align 8
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %2)
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  %10 = getelementptr inbounds i8, ptr %8, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr inbounds i8, ptr %11, i64 -8
   %13 = load i64, ptr %12, align 8
@@ -26612,15 +26612,15 @@ define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl8internal12unwind_guardIZ
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1184)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1187)
   %36 = getelementptr inbounds nuw i8, ptr %6, i64 48
-  %37 = getelementptr inbounds i8, ptr %6, i64 16
+  %37 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %38 = load i64, ptr %37, align 8, !noalias !1190
   store i64 %38, ptr %2, align 8, !alias.scope !1190
   %39 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %40 = getelementptr inbounds i8, ptr %6, i64 24
+  %40 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %41 = load i64, ptr %40, align 8, !noalias !1190
   store i64 %41, ptr %39, align 8, !alias.scope !1190
   %42 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %43 = getelementptr inbounds i8, ptr %6, i64 32
+  %43 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %44 = load i64, ptr %43, align 8, !noalias !1190
   store i64 %44, ptr %42, align 8, !alias.scope !1190
   %45 = getelementptr inbounds nuw i8, ptr %2, i64 24
@@ -26671,7 +26671,7 @@ define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl8internal12unwind_guardIZ
   %8 = load ptr, ptr %7, align 8
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %2)
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  %10 = getelementptr inbounds i8, ptr %8, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr inbounds i8, ptr %11, i64 -8
   %13 = load i64, ptr %12, align 8
@@ -26740,15 +26740,15 @@ define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl8internal12unwind_guardIZ
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1191)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1194)
   %36 = getelementptr inbounds nuw i8, ptr %6, i64 48
-  %37 = getelementptr inbounds i8, ptr %6, i64 16
+  %37 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %38 = load i64, ptr %37, align 8, !noalias !1197
   store i64 %38, ptr %2, align 8, !alias.scope !1197
   %39 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %40 = getelementptr inbounds i8, ptr %6, i64 24
+  %40 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %41 = load i64, ptr %40, align 8, !noalias !1197
   store i64 %41, ptr %39, align 8, !alias.scope !1197
   %42 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %43 = getelementptr inbounds i8, ptr %6, i64 32
+  %43 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %44 = load i64, ptr %43, align 8, !noalias !1197
   store i64 %44, ptr %42, align 8, !alias.scope !1197
   %45 = getelementptr inbounds nuw i8, ptr %2, i64 24
@@ -26790,7 +26790,7 @@ define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13sta
   %3 = alloca %"struct.PXR_INTERNAL_NS_pegtl::position", align 8
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %5 = getelementptr inbounds i8, ptr %1, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 -8
   %8 = load i64, ptr %7, align 8
@@ -26826,15 +26826,15 @@ define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13sta
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1198)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1201)
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %33 = getelementptr inbounds i8, ptr %0, i64 16
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %34 = load i64, ptr %33, align 8, !noalias !1204
   store i64 %34, ptr %3, align 8, !alias.scope !1204
   %35 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %36 = getelementptr inbounds i8, ptr %0, i64 24
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %37 = load i64, ptr %36, align 8, !noalias !1204
   store i64 %37, ptr %35, align 8, !alias.scope !1204
   %38 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %39 = getelementptr inbounds i8, ptr %0, i64 32
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %40 = load i64, ptr %39, align 8, !noalias !1204
   store i64 %40, ptr %38, align 8, !alias.scope !1204
   %41 = getelementptr inbounds nuw i8, ptr %3, i64 24
@@ -26859,7 +26859,7 @@ define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13sta
   %3 = alloca %"struct.PXR_INTERNAL_NS_pegtl::position", align 8
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %5 = getelementptr inbounds i8, ptr %1, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 -8
   %8 = load i64, ptr %7, align 8
@@ -26895,15 +26895,15 @@ define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13sta
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1205)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1208)
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %33 = getelementptr inbounds i8, ptr %0, i64 16
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %34 = load i64, ptr %33, align 8, !noalias !1211
   store i64 %34, ptr %3, align 8, !alias.scope !1211
   %35 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %36 = getelementptr inbounds i8, ptr %0, i64 24
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %37 = load i64, ptr %36, align 8, !noalias !1211
   store i64 %37, ptr %35, align 8, !alias.scope !1211
   %38 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %39 = getelementptr inbounds i8, ptr %0, i64 32
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %40 = load i64, ptr %39, align 8, !noalias !1211
   store i64 %40, ptr %38, align 8, !alias.scope !1211
   %41 = getelementptr inbounds nuw i8, ptr %3, i64 24
@@ -27031,7 +27031,7 @@ define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl8internal12unwind_guardIZ
   %8 = load ptr, ptr %7, align 8
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %2)
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  %10 = getelementptr inbounds i8, ptr %8, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr inbounds i8, ptr %11, i64 -8
   %13 = load i64, ptr %12, align 8
@@ -27100,15 +27100,15 @@ define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl8internal12unwind_guardIZ
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1212)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1215)
   %36 = getelementptr inbounds nuw i8, ptr %6, i64 48
-  %37 = getelementptr inbounds i8, ptr %6, i64 16
+  %37 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %38 = load i64, ptr %37, align 8, !noalias !1218
   store i64 %38, ptr %2, align 8, !alias.scope !1218
   %39 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %40 = getelementptr inbounds i8, ptr %6, i64 24
+  %40 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %41 = load i64, ptr %40, align 8, !noalias !1218
   store i64 %41, ptr %39, align 8, !alias.scope !1218
   %42 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %43 = getelementptr inbounds i8, ptr %6, i64 32
+  %43 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %44 = load i64, ptr %43, align 8, !noalias !1218
   store i64 %44, ptr %42, align 8, !alias.scope !1218
   %45 = getelementptr inbounds nuw i8, ptr %2, i64 24
@@ -27159,7 +27159,7 @@ define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl8internal12unwind_guardIZ
   %8 = load ptr, ptr %7, align 8
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %2)
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  %10 = getelementptr inbounds i8, ptr %8, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr inbounds i8, ptr %11, i64 -8
   %13 = load i64, ptr %12, align 8
@@ -27228,15 +27228,15 @@ define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl8internal12unwind_guardIZ
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1219)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1222)
   %36 = getelementptr inbounds nuw i8, ptr %6, i64 48
-  %37 = getelementptr inbounds i8, ptr %6, i64 16
+  %37 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %38 = load i64, ptr %37, align 8, !noalias !1225
   store i64 %38, ptr %2, align 8, !alias.scope !1225
   %39 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %40 = getelementptr inbounds i8, ptr %6, i64 24
+  %40 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %41 = load i64, ptr %40, align 8, !noalias !1225
   store i64 %41, ptr %39, align 8, !alias.scope !1225
   %42 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %43 = getelementptr inbounds i8, ptr %6, i64 32
+  %43 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %44 = load i64, ptr %43, align 8, !noalias !1225
   store i64 %44, ptr %42, align 8, !alias.scope !1225
   %45 = getelementptr inbounds nuw i8, ptr %2, i64 24
@@ -27287,7 +27287,7 @@ define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl8internal12unwind_guardIZ
   %8 = load ptr, ptr %7, align 8
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %2)
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  %10 = getelementptr inbounds i8, ptr %8, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr inbounds i8, ptr %11, i64 -8
   %13 = load i64, ptr %12, align 8
@@ -27356,15 +27356,15 @@ define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl8internal12unwind_guardIZ
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1226)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1229)
   %36 = getelementptr inbounds nuw i8, ptr %6, i64 48
-  %37 = getelementptr inbounds i8, ptr %6, i64 16
+  %37 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %38 = load i64, ptr %37, align 8, !noalias !1232
   store i64 %38, ptr %2, align 8, !alias.scope !1232
   %39 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %40 = getelementptr inbounds i8, ptr %6, i64 24
+  %40 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %41 = load i64, ptr %40, align 8, !noalias !1232
   store i64 %41, ptr %39, align 8, !alias.scope !1232
   %42 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %43 = getelementptr inbounds i8, ptr %6, i64 32
+  %43 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %44 = load i64, ptr %43, align 8, !noalias !1232
   store i64 %44, ptr %42, align 8, !alias.scope !1232
   %45 = getelementptr inbounds nuw i8, ptr %2, i64 24
@@ -27405,7 +27405,7 @@ _ZZN21PXR_INTERNAL_NS_pegtl8internal20match_control_unwindINS_4plusINS_5ascii5di
 define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13state_controlIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16ErrorsEE7controlINS_5ascii5digitEEENS_8internal12rotate_rightILm1EEEE5startINS_12memory_inputILNS_13tracking_modeE0ENS7_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS3_13ParserContextERNS_6tracerINS_13tracer_traitsILb1ELb1ELm2ELm8EEEEEEEEvRKT_DpOT0_(ptr nocapture noundef nonnull align 8 dereferenceable(96) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, i8 noundef signext 35)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %4 = getelementptr inbounds i8, ptr %0, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %3, align 8
   %7 = ptrtoint ptr %5 to i64
@@ -27425,7 +27425,7 @@ define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13sta
   %20 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %19, ptr noundef nonnull @.str.45, i64 noundef 3)
   %21 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %20, i8 noundef signext 10)
   %22 = load ptr, ptr %4, align 8
-  %23 = getelementptr inbounds i8, ptr %0, i64 32
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %24 = load ptr, ptr %23, align 8
   %.not.i.i.i.i = icmp eq ptr %22, %24
   br i1 %.not.i.i.i.i, label %29, label %25
@@ -27503,7 +27503,7 @@ define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13sta
   %3 = alloca %"struct.PXR_INTERNAL_NS_pegtl::position", align 8
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %5 = getelementptr inbounds i8, ptr %1, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 -8
   %8 = load i64, ptr %7, align 8
@@ -27539,15 +27539,15 @@ define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13sta
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1233)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1236)
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %33 = getelementptr inbounds i8, ptr %0, i64 16
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %34 = load i64, ptr %33, align 8, !noalias !1239
   store i64 %34, ptr %3, align 8, !alias.scope !1239
   %35 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %36 = getelementptr inbounds i8, ptr %0, i64 24
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %37 = load i64, ptr %36, align 8, !noalias !1239
   store i64 %37, ptr %35, align 8, !alias.scope !1239
   %38 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %39 = getelementptr inbounds i8, ptr %0, i64 32
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %40 = load i64, ptr %39, align 8, !noalias !1239
   store i64 %40, ptr %38, align 8, !alias.scope !1239
   %41 = getelementptr inbounds nuw i8, ptr %3, i64 24
@@ -27596,7 +27596,7 @@ define internal fastcc noundef zeroext i1 @_ZN21PXR_INTERNAL_NS_pegtl5matchIN32p
   %24 = alloca %"struct.PXR_INTERNAL_NS_pegtl::internal::unwind_guard.929", align 8
   %25 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, i8 noundef signext 35)
   %26 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %27 = getelementptr inbounds i8, ptr %2, i64 24
+  %27 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %28 = load ptr, ptr %27, align 8
   %29 = load ptr, ptr %26, align 8
   %30 = ptrtoint ptr %28 to i64
@@ -27616,7 +27616,7 @@ define internal fastcc noundef zeroext i1 @_ZN21PXR_INTERNAL_NS_pegtl5matchIN32p
   %43 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %42, ptr noundef nonnull @.str.45, i64 noundef 3)
   %44 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %43, i8 noundef signext 10)
   %45 = load ptr, ptr %27, align 8
-  %46 = getelementptr inbounds i8, ptr %2, i64 32
+  %46 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %47 = load ptr, ptr %46, align 8
   %.not.i.i.i.i.i = icmp eq ptr %45, %47
   br i1 %.not.i.i.i.i.i, label %52, label %48
@@ -27953,11 +27953,11 @@ _ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13state_controlIN32pxrInternal_v0_
 184:                                              ; preds = %179
   %185 = getelementptr inbounds i8, ptr %174, i64 4
   store ptr %185, ptr %77, align 8
-  %186 = getelementptr inbounds i8, ptr %0, i64 16
+  %186 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %187 = load i64, ptr %186, align 8
   %188 = add i64 %187, 4
   store i64 %188, ptr %186, align 8
-  %189 = getelementptr inbounds i8, ptr %0, i64 32
+  %189 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %190 = load i64, ptr %189, align 8
   %191 = add i64 %190, 4
   store i64 %191, ptr %189, align 8
@@ -28052,7 +28052,7 @@ _ZN21PXR_INTERNAL_NS_pegtl8internal6rangesINS0_9peek_charEJLc97ELc122ELc65ELc90E
   %225 = load i64, ptr %186, align 8, !noalias !1246
   store i64 %225, ptr %21, align 8, !alias.scope !1246
   %226 = getelementptr inbounds nuw i8, ptr %21, i64 8
-  %227 = getelementptr inbounds i8, ptr %0, i64 24
+  %227 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %228 = load i64, ptr %227, align 8, !noalias !1246
   store i64 %228, ptr %226, align 8, !alias.scope !1246
   %229 = getelementptr inbounds nuw i8, ptr %21, i64 16
@@ -28153,15 +28153,15 @@ _ZN21PXR_INTERNAL_NS_pegtl6normalINS_5ascii7keywordIJLc84ELc114ELc117ELc101EEEEE
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1247)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1250)
   %259 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %260 = getelementptr inbounds i8, ptr %0, i64 16
+  %260 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %261 = load i64, ptr %260, align 8, !noalias !1253
   store i64 %261, ptr %20, align 8, !alias.scope !1253
   %262 = getelementptr inbounds nuw i8, ptr %20, i64 8
-  %263 = getelementptr inbounds i8, ptr %0, i64 24
+  %263 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %264 = load i64, ptr %263, align 8, !noalias !1253
   store i64 %264, ptr %262, align 8, !alias.scope !1253
   %265 = getelementptr inbounds nuw i8, ptr %20, i64 16
-  %266 = getelementptr inbounds i8, ptr %0, i64 32
+  %266 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %267 = load i64, ptr %266, align 8, !noalias !1253
   store i64 %267, ptr %265, align 8, !alias.scope !1253
   %268 = getelementptr inbounds nuw i8, ptr %20, i64 24
@@ -28663,15 +28663,15 @@ common.resume.i.i.i.i:                            ; preds = %900, %868, %834, %.
   call void @llvm.experimental.noalias.scope.decl(metadata !1268)
   call void @llvm.experimental.noalias.scope.decl(metadata !1271)
   %451 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %452 = getelementptr inbounds i8, ptr %0, i64 16
+  %452 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %453 = load i64, ptr %452, align 8, !noalias !1274
   store i64 %453, ptr %16, align 8, !alias.scope !1274
   %454 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  %455 = getelementptr inbounds i8, ptr %0, i64 24
+  %455 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %456 = load i64, ptr %455, align 8, !noalias !1274
   store i64 %456, ptr %454, align 8, !alias.scope !1274
   %457 = getelementptr inbounds nuw i8, ptr %16, i64 16
-  %458 = getelementptr inbounds i8, ptr %0, i64 32
+  %458 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %459 = load i64, ptr %458, align 8, !noalias !1274
   store i64 %459, ptr %457, align 8, !alias.scope !1274
   %460 = getelementptr inbounds nuw i8, ptr %16, i64 24
@@ -29943,15 +29943,15 @@ _ZN21PXR_INTERNAL_NS_pegtl8internal20match_control_unwindIN32pxrInternal_v0_24__
   call void @llvm.experimental.noalias.scope.decl(metadata !1324)
   call void @llvm.experimental.noalias.scope.decl(metadata !1327)
   %946 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %947 = getelementptr inbounds i8, ptr %0, i64 16
+  %947 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %948 = load i64, ptr %947, align 8, !noalias !1330
   store i64 %948, ptr %5, align 8, !alias.scope !1330
   %949 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %950 = getelementptr inbounds i8, ptr %0, i64 24
+  %950 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %951 = load i64, ptr %950, align 8, !noalias !1330
   store i64 %951, ptr %949, align 8, !alias.scope !1330
   %952 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %953 = getelementptr inbounds i8, ptr %0, i64 32
+  %953 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %954 = load i64, ptr %953, align 8, !noalias !1330
   store i64 %954, ptr %952, align 8, !alias.scope !1330
   %955 = getelementptr inbounds nuw i8, ptr %5, i64 24
@@ -30026,7 +30026,7 @@ define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl8internal12unwind_guardIZ
   %8 = load ptr, ptr %7, align 8
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %2)
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  %10 = getelementptr inbounds i8, ptr %8, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr inbounds i8, ptr %11, i64 -8
   %13 = load i64, ptr %12, align 8
@@ -30095,15 +30095,15 @@ define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl8internal12unwind_guardIZ
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1338)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1341)
   %36 = getelementptr inbounds nuw i8, ptr %6, i64 48
-  %37 = getelementptr inbounds i8, ptr %6, i64 16
+  %37 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %38 = load i64, ptr %37, align 8, !noalias !1344
   store i64 %38, ptr %2, align 8, !alias.scope !1344
   %39 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %40 = getelementptr inbounds i8, ptr %6, i64 24
+  %40 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %41 = load i64, ptr %40, align 8, !noalias !1344
   store i64 %41, ptr %39, align 8, !alias.scope !1344
   %42 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %43 = getelementptr inbounds i8, ptr %6, i64 32
+  %43 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %44 = load i64, ptr %43, align 8, !noalias !1344
   store i64 %44, ptr %42, align 8, !alias.scope !1344
   %45 = getelementptr inbounds nuw i8, ptr %2, i64 24
@@ -30154,7 +30154,7 @@ define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl8internal12unwind_guardIZ
   %8 = load ptr, ptr %7, align 8
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %2)
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  %10 = getelementptr inbounds i8, ptr %8, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr inbounds i8, ptr %11, i64 -8
   %13 = load i64, ptr %12, align 8
@@ -30223,15 +30223,15 @@ define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl8internal12unwind_guardIZ
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1345)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1348)
   %36 = getelementptr inbounds nuw i8, ptr %6, i64 48
-  %37 = getelementptr inbounds i8, ptr %6, i64 16
+  %37 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %38 = load i64, ptr %37, align 8, !noalias !1351
   store i64 %38, ptr %2, align 8, !alias.scope !1351
   %39 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %40 = getelementptr inbounds i8, ptr %6, i64 24
+  %40 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %41 = load i64, ptr %40, align 8, !noalias !1351
   store i64 %41, ptr %39, align 8, !alias.scope !1351
   %42 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %43 = getelementptr inbounds i8, ptr %6, i64 32
+  %43 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %44 = load i64, ptr %43, align 8, !noalias !1351
   store i64 %44, ptr %42, align 8, !alias.scope !1351
   %45 = getelementptr inbounds nuw i8, ptr %2, i64 24
@@ -30282,7 +30282,7 @@ define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl8internal12unwind_guardIZ
   %8 = load ptr, ptr %7, align 8
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %2)
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  %10 = getelementptr inbounds i8, ptr %8, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr inbounds i8, ptr %11, i64 -8
   %13 = load i64, ptr %12, align 8
@@ -30351,15 +30351,15 @@ define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl8internal12unwind_guardIZ
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1352)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1355)
   %36 = getelementptr inbounds nuw i8, ptr %6, i64 48
-  %37 = getelementptr inbounds i8, ptr %6, i64 16
+  %37 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %38 = load i64, ptr %37, align 8, !noalias !1358
   store i64 %38, ptr %2, align 8, !alias.scope !1358
   %39 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %40 = getelementptr inbounds i8, ptr %6, i64 24
+  %40 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %41 = load i64, ptr %40, align 8, !noalias !1358
   store i64 %41, ptr %39, align 8, !alias.scope !1358
   %42 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %43 = getelementptr inbounds i8, ptr %6, i64 32
+  %43 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %44 = load i64, ptr %43, align 8, !noalias !1358
   store i64 %44, ptr %42, align 8, !alias.scope !1358
   %45 = getelementptr inbounds nuw i8, ptr %2, i64 24
@@ -30410,7 +30410,7 @@ define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl8internal12unwind_guardIZ
   %8 = load ptr, ptr %7, align 8
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %2)
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  %10 = getelementptr inbounds i8, ptr %8, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr inbounds i8, ptr %11, i64 -8
   %13 = load i64, ptr %12, align 8
@@ -30479,15 +30479,15 @@ define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl8internal12unwind_guardIZ
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1359)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1362)
   %36 = getelementptr inbounds nuw i8, ptr %6, i64 48
-  %37 = getelementptr inbounds i8, ptr %6, i64 16
+  %37 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %38 = load i64, ptr %37, align 8, !noalias !1365
   store i64 %38, ptr %2, align 8, !alias.scope !1365
   %39 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %40 = getelementptr inbounds i8, ptr %6, i64 24
+  %40 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %41 = load i64, ptr %40, align 8, !noalias !1365
   store i64 %41, ptr %39, align 8, !alias.scope !1365
   %42 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %43 = getelementptr inbounds i8, ptr %6, i64 32
+  %43 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %44 = load i64, ptr %43, align 8, !noalias !1365
   store i64 %44, ptr %42, align 8, !alias.scope !1365
   %45 = getelementptr inbounds nuw i8, ptr %2, i64 24
@@ -30528,7 +30528,7 @@ _ZZN21PXR_INTERNAL_NS_pegtl8internal20match_control_unwindIN32pxrInternal_v0_24_
 define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13state_controlIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16ErrorsEE7controlINS3_8FunctionEEENS_8internal12rotate_rightILm1EEEE5startINS_12memory_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS3_13ParserContextERNS_6tracerINS_13tracer_traitsILb1ELb1ELm2ELm8EEEEEEEEvRKT_DpOT0_(ptr nocapture noundef nonnull align 8 dereferenceable(96) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, i8 noundef signext 35)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %4 = getelementptr inbounds i8, ptr %0, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %3, align 8
   %7 = ptrtoint ptr %5 to i64
@@ -30548,7 +30548,7 @@ define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13sta
   %20 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %19, ptr noundef nonnull @.str.45, i64 noundef 3)
   %21 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %20, i8 noundef signext 10)
   %22 = load ptr, ptr %4, align 8
-  %23 = getelementptr inbounds i8, ptr %0, i64 32
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %24 = load ptr, ptr %23, align 8
   %.not.i.i.i.i = icmp eq ptr %22, %24
   br i1 %.not.i.i.i.i, label %29, label %25
@@ -30626,7 +30626,7 @@ define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13sta
   %3 = alloca %"struct.PXR_INTERNAL_NS_pegtl::position", align 8
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %5 = getelementptr inbounds i8, ptr %1, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 -8
   %8 = load i64, ptr %7, align 8
@@ -30662,15 +30662,15 @@ define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13sta
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1366)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1369)
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %33 = getelementptr inbounds i8, ptr %0, i64 16
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %34 = load i64, ptr %33, align 8, !noalias !1372
   store i64 %34, ptr %3, align 8, !alias.scope !1372
   %35 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %36 = getelementptr inbounds i8, ptr %0, i64 24
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %37 = load i64, ptr %36, align 8, !noalias !1372
   store i64 %37, ptr %35, align 8, !alias.scope !1372
   %38 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %39 = getelementptr inbounds i8, ptr %0, i64 32
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %40 = load i64, ptr %39, align 8, !noalias !1372
   store i64 %40, ptr %38, align 8, !alias.scope !1372
   %41 = getelementptr inbounds nuw i8, ptr %3, i64 24
@@ -30695,7 +30695,7 @@ define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13sta
   %3 = alloca %"struct.PXR_INTERNAL_NS_pegtl::position", align 8
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %5 = getelementptr inbounds i8, ptr %1, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 -8
   %8 = load i64, ptr %7, align 8
@@ -30731,15 +30731,15 @@ define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13sta
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1373)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1376)
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %33 = getelementptr inbounds i8, ptr %0, i64 16
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %34 = load i64, ptr %33, align 8, !noalias !1379
   store i64 %34, ptr %3, align 8, !alias.scope !1379
   %35 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %36 = getelementptr inbounds i8, ptr %0, i64 24
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %37 = load i64, ptr %36, align 8, !noalias !1379
   store i64 %37, ptr %35, align 8, !alias.scope !1379
   %38 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %39 = getelementptr inbounds i8, ptr %0, i64 32
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %40 = load i64, ptr %39, align 8, !noalias !1379
   store i64 %40, ptr %38, align 8, !alias.scope !1379
   %41 = getelementptr inbounds nuw i8, ptr %3, i64 24
@@ -30788,7 +30788,7 @@ _ZZN21PXR_INTERNAL_NS_pegtl8internal20match_control_unwindIN32pxrInternal_v0_24_
 define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13state_controlIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16ErrorsEE7controlINS_3seqIJNS3_12FunctionNameENS3_21FunctionArgumentStartEEEEEENS_8internal12rotate_rightILm1EEEE5startINS_12memory_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS3_13ParserContextERNS_6tracerINS_13tracer_traitsILb1ELb1ELm2ELm8EEEEEEEEvRKT_DpOT0_(ptr nocapture noundef nonnull align 8 dereferenceable(96) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, i8 noundef signext 35)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %4 = getelementptr inbounds i8, ptr %0, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %3, align 8
   %7 = ptrtoint ptr %5 to i64
@@ -30808,7 +30808,7 @@ define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13sta
   %20 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %19, ptr noundef nonnull @.str.45, i64 noundef 3)
   %21 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %20, i8 noundef signext 10)
   %22 = load ptr, ptr %4, align 8
-  %23 = getelementptr inbounds i8, ptr %0, i64 32
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %24 = load ptr, ptr %23, align 8
   %.not.i.i.i.i = icmp eq ptr %22, %24
   br i1 %.not.i.i.i.i, label %29, label %25
@@ -30886,7 +30886,7 @@ define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13sta
   %3 = alloca %"struct.PXR_INTERNAL_NS_pegtl::position", align 8
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %5 = getelementptr inbounds i8, ptr %1, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 -8
   %8 = load i64, ptr %7, align 8
@@ -30922,15 +30922,15 @@ define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13sta
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1380)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1383)
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %33 = getelementptr inbounds i8, ptr %0, i64 16
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %34 = load i64, ptr %33, align 8, !noalias !1386
   store i64 %34, ptr %3, align 8, !alias.scope !1386
   %35 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %36 = getelementptr inbounds i8, ptr %0, i64 24
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %37 = load i64, ptr %36, align 8, !noalias !1386
   store i64 %37, ptr %35, align 8, !alias.scope !1386
   %38 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %39 = getelementptr inbounds i8, ptr %0, i64 32
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %40 = load i64, ptr %39, align 8, !noalias !1386
   store i64 %40, ptr %38, align 8, !alias.scope !1386
   %41 = getelementptr inbounds nuw i8, ptr %3, i64 24
@@ -30955,7 +30955,7 @@ define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13sta
   %3 = alloca %"struct.PXR_INTERNAL_NS_pegtl::position", align 8
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %5 = getelementptr inbounds i8, ptr %1, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 -8
   %8 = load i64, ptr %7, align 8
@@ -30991,15 +30991,15 @@ define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13sta
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1387)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1390)
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %33 = getelementptr inbounds i8, ptr %0, i64 16
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %34 = load i64, ptr %33, align 8, !noalias !1393
   store i64 %34, ptr %3, align 8, !alias.scope !1393
   %35 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %36 = getelementptr inbounds i8, ptr %0, i64 24
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %37 = load i64, ptr %36, align 8, !noalias !1393
   store i64 %37, ptr %35, align 8, !alias.scope !1393
   %38 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %39 = getelementptr inbounds i8, ptr %0, i64 32
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %40 = load i64, ptr %39, align 8, !noalias !1393
   store i64 %40, ptr %38, align 8, !alias.scope !1393
   %41 = getelementptr inbounds nuw i8, ptr %3, i64 24
@@ -31059,7 +31059,7 @@ define internal fastcc noundef zeroext i1 @_ZN21PXR_INTERNAL_NS_pegtl6normalIN32
 
 .noexc.i:                                         ; preds = %3
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %11 = getelementptr inbounds i8, ptr %2, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %12 = load ptr, ptr %11, align 8
   %13 = load ptr, ptr %10, align 8
   %14 = ptrtoint ptr %12 to i64
@@ -31097,7 +31097,7 @@ define internal fastcc noundef zeroext i1 @_ZN21PXR_INTERNAL_NS_pegtl6normalIN32
 
 .noexc26.i:                                       ; preds = %.noexc25.i
   %29 = load ptr, ptr %11, align 8
-  %30 = getelementptr inbounds i8, ptr %2, i64 32
+  %30 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %31 = load ptr, ptr %30, align 8
   %.not.i.i.i.i.i.i = icmp eq ptr %29, %31
   br i1 %.not.i.i.i.i.i.i, label %36, label %32
@@ -31193,11 +31193,11 @@ _ZN21PXR_INTERNAL_NS_pegtl8internal6rangesINS0_9peek_charEJLc97ELc122ELc65ELc90E
 71:                                               ; preds = %_ZN21PXR_INTERNAL_NS_pegtl8internal6rangesINS0_9peek_charEJLc97ELc122ELc65ELc90ELc95EEE4testEc.exit.i.i.i.i.i.i.i.i.i, %_ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12memory_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_10input_pairIcEERT_.exit.i.i.i.i.i.i.i.i.i
   %72 = getelementptr inbounds i8, ptr %61, i64 1
   store ptr %72, ptr %7, align 8
-  %73 = getelementptr inbounds i8, ptr %0, i64 16
+  %73 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %74 = load i64, ptr %73, align 8
   %75 = add i64 %74, 1
   store i64 %75, ptr %73, align 8
-  %76 = getelementptr inbounds i8, ptr %0, i64 32
+  %76 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %77 = load i64, ptr %76, align 8
   %78 = add i64 %77, 1
   store i64 %78, ptr %76, align 8
@@ -31349,7 +31349,7 @@ _ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13state_controlIN32pxrInternal_v0_
   %132 = load i64, ptr %73, align 8, !noalias !1403
   store i64 %132, ptr %5, align 8, !alias.scope !1403
   %133 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %134 = getelementptr inbounds i8, ptr %0, i64 24
+  %134 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %135 = load i64, ptr %134, align 8, !noalias !1403
   store i64 %135, ptr %133, align 8, !alias.scope !1403
   %136 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -31436,15 +31436,15 @@ _ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13state_controlIN32pxrInternal_v0_
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1404)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1407)
   %163 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %164 = getelementptr inbounds i8, ptr %0, i64 16
+  %164 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %165 = load i64, ptr %164, align 8, !noalias !1410
   store i64 %165, ptr %4, align 8, !alias.scope !1410
   %166 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %167 = getelementptr inbounds i8, ptr %0, i64 24
+  %167 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %168 = load i64, ptr %167, align 8, !noalias !1410
   store i64 %168, ptr %166, align 8, !alias.scope !1410
   %169 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %170 = getelementptr inbounds i8, ptr %0, i64 32
+  %170 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %171 = load i64, ptr %170, align 8, !noalias !1410
   store i64 %171, ptr %169, align 8, !alias.scope !1410
   %172 = getelementptr inbounds nuw i8, ptr %4, i64 24
@@ -31487,7 +31487,7 @@ define internal fastcc noundef zeroext i1 @_ZN21PXR_INTERNAL_NS_pegtl6normalIN32
   %8 = alloca %"struct.PXR_INTERNAL_NS_pegtl::internal::unwind_guard.1085", align 8
   %9 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, i8 noundef signext 35)
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %11 = getelementptr inbounds i8, ptr %2, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %12 = load ptr, ptr %11, align 8
   %13 = load ptr, ptr %10, align 8
   %14 = ptrtoint ptr %12 to i64
@@ -31507,7 +31507,7 @@ define internal fastcc noundef zeroext i1 @_ZN21PXR_INTERNAL_NS_pegtl6normalIN32
   %27 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %26, ptr noundef nonnull @.str.45, i64 noundef 3)
   %28 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %27, i8 noundef signext 10)
   %29 = load ptr, ptr %11, align 8
-  %30 = getelementptr inbounds i8, ptr %2, i64 32
+  %30 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %31 = load ptr, ptr %30, align 8
   %.not.i.i.i.i.i.i = icmp eq ptr %29, %31
   br i1 %.not.i.i.i.i.i.i, label %36, label %32
@@ -31723,11 +31723,11 @@ _ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12memory_inputILNS_13track
 118:                                              ; preds = %_ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12memory_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_10input_pairIcEERT_.exit.i.i.i.i.i.i.i.i.i
   %119 = getelementptr inbounds i8, ptr %112, i64 1
   store ptr %119, ptr %111, align 8
-  %120 = getelementptr inbounds i8, ptr %0, i64 16
+  %120 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %121 = load i64, ptr %120, align 8
   %122 = add i64 %121, 1
   store i64 %122, ptr %120, align 8
-  %123 = getelementptr inbounds i8, ptr %0, i64 32
+  %123 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %124 = load i64, ptr %123, align 8
   %125 = add i64 %124, 1
   store i64 %125, ptr %123, align 8
@@ -31802,7 +31802,7 @@ _ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12memory_inputILNS_13track
   %151 = load i64, ptr %120, align 8, !noalias !1418
   store i64 %151, ptr %7, align 8, !alias.scope !1418
   %152 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %153 = getelementptr inbounds i8, ptr %0, i64 24
+  %153 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %154 = load i64, ptr %153, align 8, !noalias !1418
   store i64 %154, ptr %152, align 8, !alias.scope !1418
   %155 = getelementptr inbounds nuw i8, ptr %7, i64 16
@@ -31894,15 +31894,15 @@ common.resume.i.i.i.i.i.i:                        ; preds = %193, %158
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1419)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1422)
   %183 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %184 = getelementptr inbounds i8, ptr %0, i64 16
+  %184 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %185 = load i64, ptr %184, align 8, !noalias !1425
   store i64 %185, ptr %6, align 8, !alias.scope !1425
   %186 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %187 = getelementptr inbounds i8, ptr %0, i64 24
+  %187 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %188 = load i64, ptr %187, align 8, !noalias !1425
   store i64 %188, ptr %186, align 8, !alias.scope !1425
   %189 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %190 = getelementptr inbounds i8, ptr %0, i64 32
+  %190 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %191 = load i64, ptr %190, align 8, !noalias !1425
   store i64 %191, ptr %189, align 8, !alias.scope !1425
   %192 = getelementptr inbounds nuw i8, ptr %6, i64 24
@@ -32099,7 +32099,7 @@ define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl8internal12unwind_guardIZ
   %8 = load ptr, ptr %7, align 8
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %2)
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  %10 = getelementptr inbounds i8, ptr %8, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr inbounds i8, ptr %11, i64 -8
   %13 = load i64, ptr %12, align 8
@@ -32168,15 +32168,15 @@ define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl8internal12unwind_guardIZ
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1440)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1443)
   %36 = getelementptr inbounds nuw i8, ptr %6, i64 48
-  %37 = getelementptr inbounds i8, ptr %6, i64 16
+  %37 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %38 = load i64, ptr %37, align 8, !noalias !1446
   store i64 %38, ptr %2, align 8, !alias.scope !1446
   %39 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %40 = getelementptr inbounds i8, ptr %6, i64 24
+  %40 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %41 = load i64, ptr %40, align 8, !noalias !1446
   store i64 %41, ptr %39, align 8, !alias.scope !1446
   %42 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %43 = getelementptr inbounds i8, ptr %6, i64 32
+  %43 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %44 = load i64, ptr %43, align 8, !noalias !1446
   store i64 %44, ptr %42, align 8, !alias.scope !1446
   %45 = getelementptr inbounds nuw i8, ptr %2, i64 24
@@ -32219,7 +32219,7 @@ define internal fastcc noundef zeroext i1 @_ZN21PXR_INTERNAL_NS_pegtl6normalINS_
   %4 = alloca %"struct.PXR_INTERNAL_NS_pegtl::position", align 8
   %5 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, i8 noundef signext 35)
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %7 = getelementptr inbounds i8, ptr %1, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %8 = load ptr, ptr %7, align 8
   %9 = load ptr, ptr %6, align 8
   %10 = ptrtoint ptr %8 to i64
@@ -32239,7 +32239,7 @@ define internal fastcc noundef zeroext i1 @_ZN21PXR_INTERNAL_NS_pegtl6normalINS_
   %23 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %22, ptr noundef nonnull @.str.45, i64 noundef 3)
   %24 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %23, i8 noundef signext 10)
   %25 = load ptr, ptr %7, align 8
-  %26 = getelementptr inbounds i8, ptr %1, i64 32
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %27 = load ptr, ptr %26, align 8
   %.not.i.i.i.i.i.i = icmp eq ptr %25, %27
   br i1 %.not.i.i.i.i.i.i, label %32, label %28
@@ -32325,11 +32325,11 @@ _ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12memory_inputILNS_13track
 64:                                               ; preds = %_ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12memory_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_10input_pairIcEERT_.exit.i.i.i.i
   %65 = getelementptr inbounds i8, ptr %58, i64 1
   store ptr %65, ptr %57, align 8
-  %66 = getelementptr inbounds i8, ptr %0, i64 16
+  %66 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %67 = load i64, ptr %66, align 8
   %68 = add i64 %67, 1
   store i64 %68, ptr %66, align 8
-  %69 = getelementptr inbounds i8, ptr %0, i64 32
+  %69 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %70 = load i64, ptr %69, align 8
   %71 = add i64 %70, 1
   store i64 %71, ptr %69, align 8
@@ -32371,7 +32371,7 @@ _ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12memory_inputILNS_13track
   %98 = load i64, ptr %66, align 8, !noalias !1453
   store i64 %98, ptr %4, align 8, !alias.scope !1453
   %99 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %100 = getelementptr inbounds i8, ptr %0, i64 24
+  %100 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %101 = load i64, ptr %100, align 8, !noalias !1453
   store i64 %101, ptr %99, align 8, !alias.scope !1453
   %102 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -32432,15 +32432,15 @@ _ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13state_controlIN32pxrInternal_v0_
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1454)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1457)
   %131 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %132 = getelementptr inbounds i8, ptr %0, i64 16
+  %132 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %133 = load i64, ptr %132, align 8, !noalias !1460
   store i64 %133, ptr %3, align 8, !alias.scope !1460
   %134 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %135 = getelementptr inbounds i8, ptr %0, i64 24
+  %135 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %136 = load i64, ptr %135, align 8, !noalias !1460
   store i64 %136, ptr %134, align 8, !alias.scope !1460
   %137 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %138 = getelementptr inbounds i8, ptr %0, i64 32
+  %138 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %139 = load i64, ptr %138, align 8, !noalias !1460
   store i64 %139, ptr %137, align 8, !alias.scope !1460
   %140 = getelementptr inbounds nuw i8, ptr %3, i64 24
@@ -32468,7 +32468,7 @@ define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13sta
   %3 = alloca %"struct.PXR_INTERNAL_NS_pegtl::position", align 8
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %5 = getelementptr inbounds i8, ptr %1, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 -8
   %8 = load i64, ptr %7, align 8
@@ -32504,15 +32504,15 @@ define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13sta
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1461)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1464)
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %33 = getelementptr inbounds i8, ptr %0, i64 16
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %34 = load i64, ptr %33, align 8, !noalias !1467
   store i64 %34, ptr %3, align 8, !alias.scope !1467
   %35 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %36 = getelementptr inbounds i8, ptr %0, i64 24
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %37 = load i64, ptr %36, align 8, !noalias !1467
   store i64 %37, ptr %35, align 8, !alias.scope !1467
   %38 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %39 = getelementptr inbounds i8, ptr %0, i64 32
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %40 = load i64, ptr %39, align 8, !noalias !1467
   store i64 %40, ptr %38, align 8, !alias.scope !1467
   %41 = getelementptr inbounds nuw i8, ptr %3, i64 24
@@ -32541,7 +32541,7 @@ define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl6normalINS_8internal4must
   %8 = alloca %"struct.PXR_INTERNAL_NS_pegtl::internal::unwind_guard.1277", align 8
   %9 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, i8 noundef signext 35)
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %11 = getelementptr inbounds i8, ptr %2, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %12 = load ptr, ptr %11, align 8
   %13 = load ptr, ptr %10, align 8
   %14 = ptrtoint ptr %12 to i64
@@ -32561,7 +32561,7 @@ define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl6normalINS_8internal4must
   %27 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %26, ptr noundef nonnull @.str.45, i64 noundef 3)
   %28 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %27, i8 noundef signext 10)
   %29 = load ptr, ptr %11, align 8
-  %30 = getelementptr inbounds i8, ptr %2, i64 32
+  %30 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %31 = load ptr, ptr %30, align 8
   %.not.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %29, %31
   br i1 %.not.i.i.i.i.i.i.i.i.i.i.i, label %36, label %32
@@ -32777,11 +32777,11 @@ _ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12memory_inputILNS_13track
 118:                                              ; preds = %_ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12memory_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_10input_pairIcEERT_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i
   %119 = getelementptr inbounds i8, ptr %112, i64 1
   store ptr %119, ptr %111, align 8
-  %120 = getelementptr inbounds i8, ptr %0, i64 16
+  %120 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %121 = load i64, ptr %120, align 8
   %122 = add i64 %121, 1
   store i64 %122, ptr %120, align 8
-  %123 = getelementptr inbounds i8, ptr %0, i64 32
+  %123 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %124 = load i64, ptr %123, align 8
   %125 = add i64 %124, 1
   store i64 %125, ptr %123, align 8
@@ -32856,7 +32856,7 @@ _ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12memory_inputILNS_13track
   %151 = load i64, ptr %120, align 8, !noalias !1475
   store i64 %151, ptr %7, align 8, !alias.scope !1475
   %152 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %153 = getelementptr inbounds i8, ptr %0, i64 24
+  %153 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %154 = load i64, ptr %153, align 8, !noalias !1475
   store i64 %154, ptr %152, align 8, !alias.scope !1475
   %155 = getelementptr inbounds nuw i8, ptr %7, i64 16
@@ -32948,15 +32948,15 @@ common.resume.i.i.i.i.i.i.i.i.i.i.i:              ; preds = %193, %158
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1476)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1479)
   %183 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %184 = getelementptr inbounds i8, ptr %0, i64 16
+  %184 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %185 = load i64, ptr %184, align 8, !noalias !1482
   store i64 %185, ptr %6, align 8, !alias.scope !1482
   %186 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %187 = getelementptr inbounds i8, ptr %0, i64 24
+  %187 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %188 = load i64, ptr %187, align 8, !noalias !1482
   store i64 %188, ptr %186, align 8, !alias.scope !1482
   %189 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %190 = getelementptr inbounds i8, ptr %0, i64 32
+  %190 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %191 = load i64, ptr %190, align 8, !noalias !1482
   store i64 %191, ptr %189, align 8, !alias.scope !1482
   %192 = getelementptr inbounds nuw i8, ptr %6, i64 24
@@ -33147,7 +33147,7 @@ define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl5matchIN32pxrInternal_v0_
   %8 = alloca %"struct.PXR_INTERNAL_NS_pegtl::internal::unwind_guard.1121", align 8
   %9 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, i8 noundef signext 35)
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %11 = getelementptr inbounds i8, ptr %2, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %12 = load ptr, ptr %11, align 8
   %13 = load ptr, ptr %10, align 8
   %14 = ptrtoint ptr %12 to i64
@@ -33167,7 +33167,7 @@ define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl5matchIN32pxrInternal_v0_
   %27 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %26, ptr noundef nonnull @.str.45, i64 noundef 3)
   %28 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %27, i8 noundef signext 10)
   %29 = load ptr, ptr %11, align 8
-  %30 = getelementptr inbounds i8, ptr %2, i64 32
+  %30 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %31 = load ptr, ptr %30, align 8
   %.not.i.i.i.i.i = icmp eq ptr %29, %31
   br i1 %.not.i.i.i.i.i, label %36, label %32
@@ -33486,15 +33486,15 @@ _ZN21PXR_INTERNAL_NS_pegtl8internal3seqIJN32pxrInternal_v0_24__pxrReserved__12_G
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1497)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1500)
   %143 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %144 = getelementptr inbounds i8, ptr %0, i64 16
+  %144 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %145 = load i64, ptr %144, align 8, !noalias !1503
   store i64 %145, ptr %5, align 8, !alias.scope !1503
   %146 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %147 = getelementptr inbounds i8, ptr %0, i64 24
+  %147 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %148 = load i64, ptr %147, align 8, !noalias !1503
   store i64 %148, ptr %146, align 8, !alias.scope !1503
   %149 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %150 = getelementptr inbounds i8, ptr %0, i64 32
+  %150 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %151 = load i64, ptr %150, align 8, !noalias !1503
   store i64 %151, ptr %149, align 8, !alias.scope !1503
   %152 = getelementptr inbounds nuw i8, ptr %5, i64 24
@@ -33590,15 +33590,15 @@ _ZN21PXR_INTERNAL_NS_pegtl8internal3seqIJN32pxrInternal_v0_24__pxrReserved__12_G
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1504)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1507)
   %179 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %180 = getelementptr inbounds i8, ptr %0, i64 16
+  %180 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %181 = load i64, ptr %180, align 8, !noalias !1510
   store i64 %181, ptr %4, align 8, !alias.scope !1510
   %182 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %183 = getelementptr inbounds i8, ptr %0, i64 24
+  %183 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %184 = load i64, ptr %183, align 8, !noalias !1510
   store i64 %184, ptr %182, align 8, !alias.scope !1510
   %185 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %186 = getelementptr inbounds i8, ptr %0, i64 32
+  %186 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %187 = load i64, ptr %186, align 8, !noalias !1510
   store i64 %187, ptr %185, align 8, !alias.scope !1510
   %188 = getelementptr inbounds nuw i8, ptr %4, i64 24
@@ -33674,15 +33674,15 @@ _ZN21PXR_INTERNAL_NS_pegtl8internal20match_control_unwindIN32pxrInternal_v0_24__
   call void @llvm.experimental.noalias.scope.decl(metadata !1511)
   call void @llvm.experimental.noalias.scope.decl(metadata !1514)
   %219 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %220 = getelementptr inbounds i8, ptr %0, i64 16
+  %220 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %221 = load i64, ptr %220, align 8, !noalias !1517
   store i64 %221, ptr %7, align 8, !alias.scope !1517
   %222 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %223 = getelementptr inbounds i8, ptr %0, i64 24
+  %223 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %224 = load i64, ptr %223, align 8, !noalias !1517
   store i64 %224, ptr %222, align 8, !alias.scope !1517
   %225 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %226 = getelementptr inbounds i8, ptr %0, i64 32
+  %226 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %227 = load i64, ptr %226, align 8, !noalias !1517
   store i64 %227, ptr %225, align 8, !alias.scope !1517
   %228 = getelementptr inbounds nuw i8, ptr %7, i64 24
@@ -33716,7 +33716,7 @@ define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl8internal12unwind_guardIZ
   %8 = load ptr, ptr %7, align 8
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %2)
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  %10 = getelementptr inbounds i8, ptr %8, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr inbounds i8, ptr %11, i64 -8
   %13 = load i64, ptr %12, align 8
@@ -33785,15 +33785,15 @@ define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl8internal12unwind_guardIZ
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1518)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1521)
   %36 = getelementptr inbounds nuw i8, ptr %6, i64 48
-  %37 = getelementptr inbounds i8, ptr %6, i64 16
+  %37 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %38 = load i64, ptr %37, align 8, !noalias !1524
   store i64 %38, ptr %2, align 8, !alias.scope !1524
   %39 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %40 = getelementptr inbounds i8, ptr %6, i64 24
+  %40 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %41 = load i64, ptr %40, align 8, !noalias !1524
   store i64 %41, ptr %39, align 8, !alias.scope !1524
   %42 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %43 = getelementptr inbounds i8, ptr %6, i64 32
+  %43 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %44 = load i64, ptr %43, align 8, !noalias !1524
   store i64 %44, ptr %42, align 8, !alias.scope !1524
   %45 = getelementptr inbounds nuw i8, ptr %2, i64 24
@@ -33836,7 +33836,7 @@ define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl6normalINS_4starINS_5asci
   %5 = alloca %"struct.PXR_INTERNAL_NS_pegtl::internal::unwind_guard.1265", align 8
   %6 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, i8 noundef signext 35)
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %8 = getelementptr inbounds i8, ptr %2, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %9 = load ptr, ptr %8, align 8
   %10 = load ptr, ptr %7, align 8
   %11 = ptrtoint ptr %9 to i64
@@ -33856,7 +33856,7 @@ define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl6normalINS_4starINS_5asci
   %24 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %23, ptr noundef nonnull @.str.45, i64 noundef 3)
   %25 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %24, i8 noundef signext 10)
   %26 = load ptr, ptr %8, align 8
-  %27 = getelementptr inbounds i8, ptr %2, i64 32
+  %27 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %28 = load ptr, ptr %27, align 8
   %.not.i.i.i.i.i.i = icmp eq ptr %26, %28
   br i1 %.not.i.i.i.i.i.i, label %33, label %29
@@ -33992,15 +33992,15 @@ _ZN21PXR_INTERNAL_NS_pegtl8internal20match_control_unwindINS_4starINS_5ascii3one
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1525)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1528)
   %87 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %88 = getelementptr inbounds i8, ptr %0, i64 16
+  %88 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %89 = load i64, ptr %88, align 8, !noalias !1531
   store i64 %89, ptr %4, align 8, !alias.scope !1531
   %90 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %91 = getelementptr inbounds i8, ptr %0, i64 24
+  %91 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %92 = load i64, ptr %91, align 8, !noalias !1531
   store i64 %92, ptr %90, align 8, !alias.scope !1531
   %93 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %94 = getelementptr inbounds i8, ptr %0, i64 32
+  %94 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %95 = load i64, ptr %94, align 8, !noalias !1531
   store i64 %95, ptr %93, align 8, !alias.scope !1531
   %96 = getelementptr inbounds nuw i8, ptr %4, i64 24
@@ -34034,7 +34034,7 @@ define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl8internal12unwind_guardIZ
   %8 = load ptr, ptr %7, align 8
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %2)
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  %10 = getelementptr inbounds i8, ptr %8, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr inbounds i8, ptr %11, i64 -8
   %13 = load i64, ptr %12, align 8
@@ -34103,15 +34103,15 @@ define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl8internal12unwind_guardIZ
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1532)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1535)
   %36 = getelementptr inbounds nuw i8, ptr %6, i64 48
-  %37 = getelementptr inbounds i8, ptr %6, i64 16
+  %37 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %38 = load i64, ptr %37, align 8, !noalias !1538
   store i64 %38, ptr %2, align 8, !alias.scope !1538
   %39 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %40 = getelementptr inbounds i8, ptr %6, i64 24
+  %40 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %41 = load i64, ptr %40, align 8, !noalias !1538
   store i64 %41, ptr %39, align 8, !alias.scope !1538
   %42 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %43 = getelementptr inbounds i8, ptr %6, i64 32
+  %43 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %44 = load i64, ptr %43, align 8, !noalias !1538
   store i64 %44, ptr %42, align 8, !alias.scope !1538
   %45 = getelementptr inbounds nuw i8, ptr %2, i64 24
@@ -34166,7 +34166,7 @@ define internal fastcc noundef zeroext i1 @_ZN21PXR_INTERNAL_NS_pegtl6normalIN32
 
 .noexc42:                                         ; preds = %3
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %13 = getelementptr inbounds i8, ptr %2, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %14 = load ptr, ptr %13, align 8
   %15 = load ptr, ptr %12, align 8
   %16 = ptrtoint ptr %14 to i64
@@ -34204,7 +34204,7 @@ define internal fastcc noundef zeroext i1 @_ZN21PXR_INTERNAL_NS_pegtl6normalIN32
 
 .noexc48:                                         ; preds = %.noexc47
   %31 = load ptr, ptr %13, align 8
-  %32 = getelementptr inbounds i8, ptr %2, i64 32
+  %32 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %33 = load ptr, ptr %32, align 8
   %.not.i.i.i.i.i = icmp eq ptr %31, %33
   br i1 %.not.i.i.i.i.i, label %38, label %34
@@ -34324,11 +34324,11 @@ _ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12memory_inputILNS_13track
 73:                                               ; preds = %_ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12memory_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_10input_pairIcEERT_.exit.i.i.i.i.i.i.i
   %74 = getelementptr inbounds i8, ptr %67, i64 1
   store ptr %74, ptr %9, align 8
-  %75 = getelementptr inbounds i8, ptr %0, i64 16
+  %75 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %76 = load i64, ptr %75, align 8
   %77 = add i64 %76, 1
   store i64 %77, ptr %75, align 8
-  %78 = getelementptr inbounds i8, ptr %0, i64 32
+  %78 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %79 = load i64, ptr %78, align 8
   %80 = add i64 %79, 1
   store i64 %80, ptr %78, align 8
@@ -34550,15 +34550,15 @@ _ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13state_controlIN32pxrInternal_v0_
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1542)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1545)
   %140 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %141 = getelementptr inbounds i8, ptr %0, i64 16
+  %141 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %142 = load i64, ptr %141, align 8, !noalias !1548
   store i64 %142, ptr %6, align 8, !alias.scope !1548
   %143 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %144 = getelementptr inbounds i8, ptr %0, i64 24
+  %144 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %145 = load i64, ptr %144, align 8, !noalias !1548
   store i64 %145, ptr %143, align 8, !alias.scope !1548
   %146 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %147 = getelementptr inbounds i8, ptr %0, i64 32
+  %147 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %148 = load i64, ptr %147, align 8, !noalias !1548
   store i64 %148, ptr %146, align 8, !alias.scope !1548
   %149 = getelementptr inbounds nuw i8, ptr %6, i64 24
@@ -34647,15 +34647,15 @@ _ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13state_controlIN32pxrInternal_v0_
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1549)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1552)
   %176 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %177 = getelementptr inbounds i8, ptr %0, i64 16
+  %177 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %178 = load i64, ptr %177, align 8, !noalias !1555
   store i64 %178, ptr %7, align 8, !alias.scope !1555
   %179 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %180 = getelementptr inbounds i8, ptr %0, i64 24
+  %180 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %181 = load i64, ptr %180, align 8, !noalias !1555
   store i64 %181, ptr %179, align 8, !alias.scope !1555
   %182 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %183 = getelementptr inbounds i8, ptr %0, i64 32
+  %183 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %184 = load i64, ptr %183, align 8, !noalias !1555
   store i64 %184, ptr %182, align 8, !alias.scope !1555
   %185 = getelementptr inbounds nuw i8, ptr %7, i64 24
@@ -34703,7 +34703,7 @@ define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl8internal12unwind_guardIZ
   %8 = load ptr, ptr %7, align 8
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %2)
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  %10 = getelementptr inbounds i8, ptr %8, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr inbounds i8, ptr %11, i64 -8
   %13 = load i64, ptr %12, align 8
@@ -34772,15 +34772,15 @@ define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl8internal12unwind_guardIZ
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1556)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1559)
   %36 = getelementptr inbounds nuw i8, ptr %6, i64 48
-  %37 = getelementptr inbounds i8, ptr %6, i64 16
+  %37 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %38 = load i64, ptr %37, align 8, !noalias !1562
   store i64 %38, ptr %2, align 8, !alias.scope !1562
   %39 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %40 = getelementptr inbounds i8, ptr %6, i64 24
+  %40 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %41 = load i64, ptr %40, align 8, !noalias !1562
   store i64 %41, ptr %39, align 8, !alias.scope !1562
   %42 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %43 = getelementptr inbounds i8, ptr %6, i64 32
+  %43 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %44 = load i64, ptr %43, align 8, !noalias !1562
   store i64 %44, ptr %42, align 8, !alias.scope !1562
   %45 = getelementptr inbounds nuw i8, ptr %2, i64 24
@@ -34821,7 +34821,7 @@ _ZZN21PXR_INTERNAL_NS_pegtl8internal20match_control_unwindIN32pxrInternal_v0_24_
 define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13state_controlIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16ErrorsEE7controlINS3_14ListExpressionEEENS_8internal12rotate_rightILm1EEEE5startINS_12memory_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS3_13ParserContextERNS_6tracerINS_13tracer_traitsILb1ELb1ELm2ELm8EEEEEEEEvRKT_DpOT0_(ptr nocapture noundef nonnull align 8 dereferenceable(96) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, i8 noundef signext 35)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %4 = getelementptr inbounds i8, ptr %0, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %3, align 8
   %7 = ptrtoint ptr %5 to i64
@@ -34841,7 +34841,7 @@ define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13sta
   %20 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %19, ptr noundef nonnull @.str.45, i64 noundef 3)
   %21 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %20, i8 noundef signext 10)
   %22 = load ptr, ptr %4, align 8
-  %23 = getelementptr inbounds i8, ptr %0, i64 32
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %24 = load ptr, ptr %23, align 8
   %.not.i.i.i.i = icmp eq ptr %22, %24
   br i1 %.not.i.i.i.i, label %29, label %25
@@ -34919,7 +34919,7 @@ define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13sta
   %3 = alloca %"struct.PXR_INTERNAL_NS_pegtl::position", align 8
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %5 = getelementptr inbounds i8, ptr %1, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 -8
   %8 = load i64, ptr %7, align 8
@@ -34955,15 +34955,15 @@ define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13sta
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1563)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1566)
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %33 = getelementptr inbounds i8, ptr %0, i64 16
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %34 = load i64, ptr %33, align 8, !noalias !1569
   store i64 %34, ptr %3, align 8, !alias.scope !1569
   %35 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %36 = getelementptr inbounds i8, ptr %0, i64 24
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %37 = load i64, ptr %36, align 8, !noalias !1569
   store i64 %37, ptr %35, align 8, !alias.scope !1569
   %38 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %39 = getelementptr inbounds i8, ptr %0, i64 32
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %40 = load i64, ptr %39, align 8, !noalias !1569
   store i64 %40, ptr %38, align 8, !alias.scope !1569
   %41 = getelementptr inbounds nuw i8, ptr %3, i64 24
@@ -34988,7 +34988,7 @@ define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13sta
   %3 = alloca %"struct.PXR_INTERNAL_NS_pegtl::position", align 8
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %5 = getelementptr inbounds i8, ptr %1, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 -8
   %8 = load i64, ptr %7, align 8
@@ -35024,15 +35024,15 @@ define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13sta
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1570)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1573)
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %33 = getelementptr inbounds i8, ptr %0, i64 16
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %34 = load i64, ptr %33, align 8, !noalias !1576
   store i64 %34, ptr %3, align 8, !alias.scope !1576
   %35 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %36 = getelementptr inbounds i8, ptr %0, i64 24
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %37 = load i64, ptr %36, align 8, !noalias !1576
   store i64 %37, ptr %35, align 8, !alias.scope !1576
   %38 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %39 = getelementptr inbounds i8, ptr %0, i64 32
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %40 = load i64, ptr %39, align 8, !noalias !1576
   store i64 %40, ptr %38, align 8, !alias.scope !1576
   %41 = getelementptr inbounds nuw i8, ptr %3, i64 24
@@ -35081,7 +35081,7 @@ _ZZN21PXR_INTERNAL_NS_pegtl8internal20match_control_unwindIN32pxrInternal_v0_24_
 define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13state_controlIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16ErrorsEE7controlINS3_9ListStartEEENS_8internal12rotate_rightILm1EEEE5startINS_12memory_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNS3_13ParserContextERNS_6tracerINS_13tracer_traitsILb1ELb1ELm2ELm8EEEEEEEEvRKT_DpOT0_(ptr nocapture noundef nonnull align 8 dereferenceable(96) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, i8 noundef signext 35)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %4 = getelementptr inbounds i8, ptr %0, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %3, align 8
   %7 = ptrtoint ptr %5 to i64
@@ -35101,7 +35101,7 @@ define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13sta
   %20 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %19, ptr noundef nonnull @.str.45, i64 noundef 3)
   %21 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %20, i8 noundef signext 10)
   %22 = load ptr, ptr %4, align 8
-  %23 = getelementptr inbounds i8, ptr %0, i64 32
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %24 = load ptr, ptr %23, align 8
   %.not.i.i.i.i = icmp eq ptr %22, %24
   br i1 %.not.i.i.i.i, label %29, label %25
@@ -35179,7 +35179,7 @@ define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13sta
   %3 = alloca %"struct.PXR_INTERNAL_NS_pegtl::position", align 8
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %5 = getelementptr inbounds i8, ptr %1, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 -8
   %8 = load i64, ptr %7, align 8
@@ -35215,15 +35215,15 @@ define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13sta
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1577)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1580)
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %33 = getelementptr inbounds i8, ptr %0, i64 16
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %34 = load i64, ptr %33, align 8, !noalias !1583
   store i64 %34, ptr %3, align 8, !alias.scope !1583
   %35 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %36 = getelementptr inbounds i8, ptr %0, i64 24
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %37 = load i64, ptr %36, align 8, !noalias !1583
   store i64 %37, ptr %35, align 8, !alias.scope !1583
   %38 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %39 = getelementptr inbounds i8, ptr %0, i64 32
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %40 = load i64, ptr %39, align 8, !noalias !1583
   store i64 %40, ptr %38, align 8, !alias.scope !1583
   %41 = getelementptr inbounds nuw i8, ptr %3, i64 24
@@ -35248,7 +35248,7 @@ define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13sta
   %3 = alloca %"struct.PXR_INTERNAL_NS_pegtl::position", align 8
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %5 = getelementptr inbounds i8, ptr %1, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 -8
   %8 = load i64, ptr %7, align 8
@@ -35284,15 +35284,15 @@ define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13sta
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1584)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1587)
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %33 = getelementptr inbounds i8, ptr %0, i64 16
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %34 = load i64, ptr %33, align 8, !noalias !1590
   store i64 %34, ptr %3, align 8, !alias.scope !1590
   %35 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %36 = getelementptr inbounds i8, ptr %0, i64 24
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %37 = load i64, ptr %36, align 8, !noalias !1590
   store i64 %37, ptr %35, align 8, !alias.scope !1590
   %38 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %39 = getelementptr inbounds i8, ptr %0, i64 32
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %40 = load i64, ptr %39, align 8, !noalias !1590
   store i64 %40, ptr %38, align 8, !alias.scope !1590
   %41 = getelementptr inbounds nuw i8, ptr %3, i64 24
@@ -35323,7 +35323,7 @@ define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl5matchIN32pxrInternal_v0_
   %8 = alloca %"struct.PXR_INTERNAL_NS_pegtl::internal::unwind_guard.1181", align 8
   %9 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, i8 noundef signext 35)
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %11 = getelementptr inbounds i8, ptr %2, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %12 = load ptr, ptr %11, align 8
   %13 = load ptr, ptr %10, align 8
   %14 = ptrtoint ptr %12 to i64
@@ -35343,7 +35343,7 @@ define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl5matchIN32pxrInternal_v0_
   %27 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %26, ptr noundef nonnull @.str.45, i64 noundef 3)
   %28 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %27, i8 noundef signext 10)
   %29 = load ptr, ptr %11, align 8
-  %30 = getelementptr inbounds i8, ptr %2, i64 32
+  %30 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %31 = load ptr, ptr %30, align 8
   %.not.i.i.i.i.i = icmp eq ptr %29, %31
   br i1 %.not.i.i.i.i.i, label %36, label %32
@@ -35662,15 +35662,15 @@ _ZN21PXR_INTERNAL_NS_pegtl8internal3seqIJN32pxrInternal_v0_24__pxrReserved__12_G
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1591)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1594)
   %143 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %144 = getelementptr inbounds i8, ptr %0, i64 16
+  %144 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %145 = load i64, ptr %144, align 8, !noalias !1597
   store i64 %145, ptr %5, align 8, !alias.scope !1597
   %146 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %147 = getelementptr inbounds i8, ptr %0, i64 24
+  %147 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %148 = load i64, ptr %147, align 8, !noalias !1597
   store i64 %148, ptr %146, align 8, !alias.scope !1597
   %149 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %150 = getelementptr inbounds i8, ptr %0, i64 32
+  %150 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %151 = load i64, ptr %150, align 8, !noalias !1597
   store i64 %151, ptr %149, align 8, !alias.scope !1597
   %152 = getelementptr inbounds nuw i8, ptr %5, i64 24
@@ -35766,15 +35766,15 @@ _ZN21PXR_INTERNAL_NS_pegtl8internal3seqIJN32pxrInternal_v0_24__pxrReserved__12_G
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1598)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1601)
   %179 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %180 = getelementptr inbounds i8, ptr %0, i64 16
+  %180 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %181 = load i64, ptr %180, align 8, !noalias !1604
   store i64 %181, ptr %4, align 8, !alias.scope !1604
   %182 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %183 = getelementptr inbounds i8, ptr %0, i64 24
+  %183 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %184 = load i64, ptr %183, align 8, !noalias !1604
   store i64 %184, ptr %182, align 8, !alias.scope !1604
   %185 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %186 = getelementptr inbounds i8, ptr %0, i64 32
+  %186 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %187 = load i64, ptr %186, align 8, !noalias !1604
   store i64 %187, ptr %185, align 8, !alias.scope !1604
   %188 = getelementptr inbounds nuw i8, ptr %4, i64 24
@@ -35850,15 +35850,15 @@ _ZN21PXR_INTERNAL_NS_pegtl8internal20match_control_unwindIN32pxrInternal_v0_24__
   call void @llvm.experimental.noalias.scope.decl(metadata !1605)
   call void @llvm.experimental.noalias.scope.decl(metadata !1608)
   %219 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %220 = getelementptr inbounds i8, ptr %0, i64 16
+  %220 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %221 = load i64, ptr %220, align 8, !noalias !1611
   store i64 %221, ptr %7, align 8, !alias.scope !1611
   %222 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %223 = getelementptr inbounds i8, ptr %0, i64 24
+  %223 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %224 = load i64, ptr %223, align 8, !noalias !1611
   store i64 %224, ptr %222, align 8, !alias.scope !1611
   %225 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %226 = getelementptr inbounds i8, ptr %0, i64 32
+  %226 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %227 = load i64, ptr %226, align 8, !noalias !1611
   store i64 %227, ptr %225, align 8, !alias.scope !1611
   %228 = getelementptr inbounds nuw i8, ptr %7, i64 24
@@ -35892,7 +35892,7 @@ define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl8internal12unwind_guardIZ
   %8 = load ptr, ptr %7, align 8
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %2)
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  %10 = getelementptr inbounds i8, ptr %8, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr inbounds i8, ptr %11, i64 -8
   %13 = load i64, ptr %12, align 8
@@ -35961,15 +35961,15 @@ define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl8internal12unwind_guardIZ
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1612)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1615)
   %36 = getelementptr inbounds nuw i8, ptr %6, i64 48
-  %37 = getelementptr inbounds i8, ptr %6, i64 16
+  %37 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %38 = load i64, ptr %37, align 8, !noalias !1618
   store i64 %38, ptr %2, align 8, !alias.scope !1618
   %39 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %40 = getelementptr inbounds i8, ptr %6, i64 24
+  %40 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %41 = load i64, ptr %40, align 8, !noalias !1618
   store i64 %41, ptr %39, align 8, !alias.scope !1618
   %42 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %43 = getelementptr inbounds i8, ptr %6, i64 32
+  %43 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %44 = load i64, ptr %43, align 8, !noalias !1618
   store i64 %44, ptr %42, align 8, !alias.scope !1618
   %45 = getelementptr inbounds nuw i8, ptr %2, i64 24
@@ -36020,7 +36020,7 @@ define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl8internal12unwind_guardIZ
   %8 = load ptr, ptr %7, align 8
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %2)
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  %10 = getelementptr inbounds i8, ptr %8, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr inbounds i8, ptr %11, i64 -8
   %13 = load i64, ptr %12, align 8
@@ -36089,15 +36089,15 @@ define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl8internal12unwind_guardIZ
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1619)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1622)
   %36 = getelementptr inbounds nuw i8, ptr %6, i64 48
-  %37 = getelementptr inbounds i8, ptr %6, i64 16
+  %37 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %38 = load i64, ptr %37, align 8, !noalias !1625
   store i64 %38, ptr %2, align 8, !alias.scope !1625
   %39 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %40 = getelementptr inbounds i8, ptr %6, i64 24
+  %40 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %41 = load i64, ptr %40, align 8, !noalias !1625
   store i64 %41, ptr %39, align 8, !alias.scope !1625
   %42 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %43 = getelementptr inbounds i8, ptr %6, i64 32
+  %43 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %44 = load i64, ptr %43, align 8, !noalias !1625
   store i64 %44, ptr %42, align 8, !alias.scope !1625
   %45 = getelementptr inbounds nuw i8, ptr %2, i64 24
@@ -36150,7 +36150,7 @@ define internal fastcc noundef zeroext i1 @_ZN21PXR_INTERNAL_NS_pegtl6normalIN32
 
 .noexc42:                                         ; preds = %3
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %12 = getelementptr inbounds i8, ptr %2, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %13 = load ptr, ptr %12, align 8
   %14 = load ptr, ptr %11, align 8
   %15 = ptrtoint ptr %13 to i64
@@ -36188,7 +36188,7 @@ define internal fastcc noundef zeroext i1 @_ZN21PXR_INTERNAL_NS_pegtl6normalIN32
 
 .noexc48:                                         ; preds = %.noexc47
   %30 = load ptr, ptr %12, align 8
-  %31 = getelementptr inbounds i8, ptr %2, i64 32
+  %31 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %32 = load ptr, ptr %31, align 8
   %.not.i.i.i.i.i = icmp eq ptr %30, %32
   br i1 %.not.i.i.i.i.i, label %37, label %33
@@ -36447,15 +36447,15 @@ _ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13state_controlIN32pxrInternal_v0_
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1629)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1632)
   %117 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %118 = getelementptr inbounds i8, ptr %0, i64 16
+  %118 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %119 = load i64, ptr %118, align 8, !noalias !1635
   store i64 %119, ptr %5, align 8, !alias.scope !1635
   %120 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %121 = getelementptr inbounds i8, ptr %0, i64 24
+  %121 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %122 = load i64, ptr %121, align 8, !noalias !1635
   store i64 %122, ptr %120, align 8, !alias.scope !1635
   %123 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %124 = getelementptr inbounds i8, ptr %0, i64 32
+  %124 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %125 = load i64, ptr %124, align 8, !noalias !1635
   store i64 %125, ptr %123, align 8, !alias.scope !1635
   %126 = getelementptr inbounds nuw i8, ptr %5, i64 24
@@ -36541,15 +36541,15 @@ _ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13state_controlIN32pxrInternal_v0_
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1636)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1639)
   %153 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %154 = getelementptr inbounds i8, ptr %0, i64 16
+  %154 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %155 = load i64, ptr %154, align 8, !noalias !1642
   store i64 %155, ptr %6, align 8, !alias.scope !1642
   %156 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %157 = getelementptr inbounds i8, ptr %0, i64 24
+  %157 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %158 = load i64, ptr %157, align 8, !noalias !1642
   store i64 %158, ptr %156, align 8, !alias.scope !1642
   %159 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %160 = getelementptr inbounds i8, ptr %0, i64 32
+  %160 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %161 = load i64, ptr %160, align 8, !noalias !1642
   store i64 %161, ptr %159, align 8, !alias.scope !1642
   %162 = getelementptr inbounds nuw i8, ptr %6, i64 24
@@ -36597,7 +36597,7 @@ define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl8internal12unwind_guardIZ
   %8 = load ptr, ptr %7, align 8
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %2)
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  %10 = getelementptr inbounds i8, ptr %8, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr inbounds i8, ptr %11, i64 -8
   %13 = load i64, ptr %12, align 8
@@ -36666,15 +36666,15 @@ define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl8internal12unwind_guardIZ
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1643)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1646)
   %36 = getelementptr inbounds nuw i8, ptr %6, i64 48
-  %37 = getelementptr inbounds i8, ptr %6, i64 16
+  %37 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %38 = load i64, ptr %37, align 8, !noalias !1649
   store i64 %38, ptr %2, align 8, !alias.scope !1649
   %39 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %40 = getelementptr inbounds i8, ptr %6, i64 24
+  %40 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %41 = load i64, ptr %40, align 8, !noalias !1649
   store i64 %41, ptr %39, align 8, !alias.scope !1649
   %42 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %43 = getelementptr inbounds i8, ptr %6, i64 32
+  %43 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %44 = load i64, ptr %43, align 8, !noalias !1649
   store i64 %44, ptr %42, align 8, !alias.scope !1649
   %45 = getelementptr inbounds nuw i8, ptr %2, i64 24
@@ -36856,7 +36856,7 @@ define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13sta
   %3 = alloca %"struct.PXR_INTERNAL_NS_pegtl::position", align 8
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %5 = getelementptr inbounds i8, ptr %1, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 -8
   %8 = load i64, ptr %7, align 8
@@ -36892,15 +36892,15 @@ define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13sta
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1650)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1653)
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %33 = getelementptr inbounds i8, ptr %0, i64 16
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %34 = load i64, ptr %33, align 8, !noalias !1656
   store i64 %34, ptr %3, align 8, !alias.scope !1656
   %35 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %36 = getelementptr inbounds i8, ptr %0, i64 24
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %37 = load i64, ptr %36, align 8, !noalias !1656
   store i64 %37, ptr %35, align 8, !alias.scope !1656
   %38 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %39 = getelementptr inbounds i8, ptr %0, i64 32
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %40 = load i64, ptr %39, align 8, !noalias !1656
   store i64 %40, ptr %38, align 8, !alias.scope !1656
   %41 = getelementptr inbounds nuw i8, ptr %3, i64 24
@@ -36933,7 +36933,7 @@ define internal fastcc noundef zeroext i1 @_ZN21PXR_INTERNAL_NS_pegtl6normalINS_
 _ZN21PXR_INTERNAL_NS_pegtl6normalINS_8internal4starINS_5ascii3oneIJLc32EEEEJEEEE5matchILNS_10apply_modeE1ELNS_11rewind_modeE0ETtTpTyEN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16ActionETtTpTyENS_13state_controlINSC_6ErrorsEE4typeENS_12memory_inputILNS_13tracking_modeE0ENS3_3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEJRNSC_13ParserContextERNS_6tracerINS_13tracer_traitsILb1ELb1ELm2ELm8EEEEEEEEbRT3_DpOT4_.exit.i.i.i.i: ; preds = %5
   %7 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, i8 noundef signext 35)
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %9 = getelementptr inbounds i8, ptr %1, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %10 = load ptr, ptr %9, align 8
   %11 = load ptr, ptr %8, align 8
   %12 = ptrtoint ptr %10 to i64
@@ -36953,7 +36953,7 @@ _ZN21PXR_INTERNAL_NS_pegtl6normalINS_8internal4starINS_5ascii3oneIJLc32EEEEJEEEE
   %25 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %24, ptr noundef nonnull @.str.45, i64 noundef 3)
   %26 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %25, i8 noundef signext 10)
   %27 = load ptr, ptr %9, align 8
-  %28 = getelementptr inbounds i8, ptr %1, i64 32
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %29 = load ptr, ptr %28, align 8
   %.not.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %27, %29
   br i1 %.not.i.i.i.i.i.i.i.i.i.i.i, label %34, label %30
@@ -37039,11 +37039,11 @@ _ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12memory_inputILNS_13track
 66:                                               ; preds = %_ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12memory_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_10input_pairIcEERT_.exit.i.i.i.i.i.i.i.i.i
   %67 = getelementptr inbounds i8, ptr %60, i64 1
   store ptr %67, ptr %59, align 8
-  %68 = getelementptr inbounds i8, ptr %0, i64 16
+  %68 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %69 = load i64, ptr %68, align 8
   %70 = add i64 %69, 1
   store i64 %70, ptr %68, align 8
-  %71 = getelementptr inbounds i8, ptr %0, i64 32
+  %71 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %72 = load i64, ptr %71, align 8
   %73 = add i64 %72, 1
   store i64 %73, ptr %71, align 8
@@ -37085,7 +37085,7 @@ _ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12memory_inputILNS_13track
   %100 = load i64, ptr %68, align 8, !noalias !1663
   store i64 %100, ptr %4, align 8, !alias.scope !1663
   %101 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %102 = getelementptr inbounds i8, ptr %0, i64 24
+  %102 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %103 = load i64, ptr %102, align 8, !noalias !1663
   store i64 %103, ptr %101, align 8, !alias.scope !1663
   %104 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -37141,15 +37141,15 @@ common.resume.i.i.i.i.i.i:                        ; preds = %143, %107
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1664)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1667)
   %133 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %134 = getelementptr inbounds i8, ptr %0, i64 16
+  %134 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %135 = load i64, ptr %134, align 8, !noalias !1670
   store i64 %135, ptr %3, align 8, !alias.scope !1670
   %136 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %137 = getelementptr inbounds i8, ptr %0, i64 24
+  %137 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %138 = load i64, ptr %137, align 8, !noalias !1670
   store i64 %138, ptr %136, align 8, !alias.scope !1670
   %139 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %140 = getelementptr inbounds i8, ptr %0, i64 32
+  %140 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %141 = load i64, ptr %140, align 8, !noalias !1670
   store i64 %141, ptr %139, align 8, !alias.scope !1670
   %142 = getelementptr inbounds nuw i8, ptr %3, i64 24
@@ -37187,7 +37187,7 @@ define internal fastcc noundef zeroext i1 @_ZN21PXR_INTERNAL_NS_pegtl6normalIN32
   %4 = alloca %"struct.PXR_INTERNAL_NS_pegtl::position", align 8
   %5 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, i8 noundef signext 35)
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %7 = getelementptr inbounds i8, ptr %1, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %8 = load ptr, ptr %7, align 8
   %9 = load ptr, ptr %6, align 8
   %10 = ptrtoint ptr %8 to i64
@@ -37207,7 +37207,7 @@ define internal fastcc noundef zeroext i1 @_ZN21PXR_INTERNAL_NS_pegtl6normalIN32
   %23 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %22, ptr noundef nonnull @.str.45, i64 noundef 3)
   %24 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %23, i8 noundef signext 10)
   %25 = load ptr, ptr %7, align 8
-  %26 = getelementptr inbounds i8, ptr %1, i64 32
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %27 = load ptr, ptr %26, align 8
   %.not.i.i.i.i.i.i = icmp eq ptr %25, %27
   br i1 %.not.i.i.i.i.i.i, label %32, label %28
@@ -37293,11 +37293,11 @@ _ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12memory_inputILNS_13track
 64:                                               ; preds = %_ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12memory_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_10input_pairIcEERT_.exit.i.i.i.i
   %65 = getelementptr inbounds i8, ptr %58, i64 1
   store ptr %65, ptr %57, align 8
-  %66 = getelementptr inbounds i8, ptr %0, i64 16
+  %66 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %67 = load i64, ptr %66, align 8
   %68 = add i64 %67, 1
   store i64 %68, ptr %66, align 8
-  %69 = getelementptr inbounds i8, ptr %0, i64 32
+  %69 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %70 = load i64, ptr %69, align 8
   %71 = add i64 %70, 1
   store i64 %71, ptr %69, align 8
@@ -37339,7 +37339,7 @@ _ZN21PXR_INTERNAL_NS_pegtl8internal9peek_char4peekINS_12memory_inputILNS_13track
   %98 = load i64, ptr %66, align 8, !noalias !1677
   store i64 %98, ptr %4, align 8, !alias.scope !1677
   %99 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %100 = getelementptr inbounds i8, ptr %0, i64 24
+  %100 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %101 = load i64, ptr %100, align 8, !noalias !1677
   store i64 %101, ptr %99, align 8, !alias.scope !1677
   %102 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -37400,15 +37400,15 @@ _ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13state_controlIN32pxrInternal_v0_
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1678)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1681)
   %131 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %132 = getelementptr inbounds i8, ptr %0, i64 16
+  %132 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %133 = load i64, ptr %132, align 8, !noalias !1684
   store i64 %133, ptr %3, align 8, !alias.scope !1684
   %134 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %135 = getelementptr inbounds i8, ptr %0, i64 24
+  %135 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %136 = load i64, ptr %135, align 8, !noalias !1684
   store i64 %136, ptr %134, align 8, !alias.scope !1684
   %137 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %138 = getelementptr inbounds i8, ptr %0, i64 32
+  %138 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %139 = load i64, ptr %138, align 8, !noalias !1684
   store i64 %139, ptr %137, align 8, !alias.scope !1684
   %140 = getelementptr inbounds nuw i8, ptr %3, i64 24
@@ -37480,7 +37480,7 @@ define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13sta
   %3 = alloca %"struct.PXR_INTERNAL_NS_pegtl::position", align 8
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %5 = getelementptr inbounds i8, ptr %1, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 -8
   %8 = load i64, ptr %7, align 8
@@ -37516,15 +37516,15 @@ define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl14shuffle_statesINS_13sta
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1685)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1688)
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %33 = getelementptr inbounds i8, ptr %0, i64 16
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %34 = load i64, ptr %33, align 8, !noalias !1691
   store i64 %34, ptr %3, align 8, !alias.scope !1691
   %35 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %36 = getelementptr inbounds i8, ptr %0, i64 24
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %37 = load i64, ptr %36, align 8, !noalias !1691
   store i64 %37, ptr %35, align 8, !alias.scope !1691
   %38 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %39 = getelementptr inbounds i8, ptr %0, i64 32
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %40 = load i64, ptr %39, align 8, !noalias !1691
   store i64 %40, ptr %38, align 8, !alias.scope !1691
   %41 = getelementptr inbounds nuw i8, ptr %3, i64 24
@@ -37558,7 +37558,7 @@ define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl8internal12unwind_guardIZ
   %8 = load ptr, ptr %7, align 8
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %2)
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  %10 = getelementptr inbounds i8, ptr %8, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr inbounds i8, ptr %11, i64 -8
   %13 = load i64, ptr %12, align 8
@@ -37627,15 +37627,15 @@ define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl8internal12unwind_guardIZ
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1692)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1695)
   %36 = getelementptr inbounds nuw i8, ptr %6, i64 48
-  %37 = getelementptr inbounds i8, ptr %6, i64 16
+  %37 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %38 = load i64, ptr %37, align 8, !noalias !1698
   store i64 %38, ptr %2, align 8, !alias.scope !1698
   %39 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %40 = getelementptr inbounds i8, ptr %6, i64 24
+  %40 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %41 = load i64, ptr %40, align 8, !noalias !1698
   store i64 %41, ptr %39, align 8, !alias.scope !1698
   %42 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %43 = getelementptr inbounds i8, ptr %6, i64 32
+  %43 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %44 = load i64, ptr %43, align 8, !noalias !1698
   store i64 %44, ptr %42, align 8, !alias.scope !1698
   %45 = getelementptr inbounds nuw i8, ptr %2, i64 24
@@ -37696,7 +37696,7 @@ define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl8internal12unwind_guardIZ
   %8 = load ptr, ptr %7, align 8
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %2)
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  %10 = getelementptr inbounds i8, ptr %8, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr inbounds i8, ptr %11, i64 -8
   %13 = load i64, ptr %12, align 8
@@ -37765,15 +37765,15 @@ define internal fastcc void @_ZN21PXR_INTERNAL_NS_pegtl8internal12unwind_guardIZ
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1699)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1702)
   %36 = getelementptr inbounds nuw i8, ptr %6, i64 48
-  %37 = getelementptr inbounds i8, ptr %6, i64 16
+  %37 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %38 = load i64, ptr %37, align 8, !noalias !1705
   store i64 %38, ptr %2, align 8, !alias.scope !1705
   %39 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %40 = getelementptr inbounds i8, ptr %6, i64 24
+  %40 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %41 = load i64, ptr %40, align 8, !noalias !1705
   store i64 %41, ptr %39, align 8, !alias.scope !1705
   %42 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %43 = getelementptr inbounds i8, ptr %6, i64 32
+  %43 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %44 = load i64, ptr %43, align 8, !noalias !1705
   store i64 %44, ptr %42, align 8, !alias.scope !1705
   %45 = getelementptr inbounds nuw i8, ptr %2, i64 24

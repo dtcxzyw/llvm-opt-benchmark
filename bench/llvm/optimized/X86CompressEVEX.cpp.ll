@@ -213,7 +213,7 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_116CompressEVEXPass20runOnMa
   br i1 %15, label %16, label %.loopexit
 
 16:                                               ; preds = %12, %8, %2
-  %17 = getelementptr inbounds i8, ptr %1, i64 328
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 328
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 320
   %.sroa.019.029 = load ptr, ptr %17, align 8
   %.not30 = icmp eq ptr %.sroa.019.029, %18

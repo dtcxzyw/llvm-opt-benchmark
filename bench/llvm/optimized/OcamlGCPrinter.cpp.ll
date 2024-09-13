@@ -183,7 +183,7 @@ define internal void @_ZN12_GLOBAL__N_122OcamlGCMetadataPrinter14finishAssemblyE
   tail call fastcc void @_ZL14EmitCamlGlobalRKN4llvm6ModuleERNS_10AsmPrinterEPKc(ptr noundef nonnull align 8 dereferenceable(857) %1, ptr noundef nonnull align 8 dereferenceable(785) %3, ptr noundef nonnull @.str.8)
   %56 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %57 = load ptr, ptr %56, align 8
-  %58 = getelementptr inbounds i8, ptr %2, i64 88
+  %58 = getelementptr inbounds nuw i8, ptr %2, i64 88
   %59 = load ptr, ptr %58, align 8
   %.not99 = icmp eq ptr %57, %59
   br i1 %.not99, label %._crit_edge.thread, label %.lr.ph
@@ -221,7 +221,7 @@ _ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit:
 _ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.thread88: ; preds = %71, %_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit
   %76 = load ptr, ptr %.sroa.083.0100, align 8
   %77 = getelementptr inbounds nuw i8, ptr %76, i64 48
-  %78 = getelementptr inbounds i8, ptr %76, i64 56
+  %78 = getelementptr inbounds nuw i8, ptr %76, i64 56
   %79 = load ptr, ptr %78, align 8
   %80 = load ptr, ptr %77, align 8
   %81 = ptrtoint ptr %79 to i64
@@ -314,7 +314,7 @@ _ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit6
   store ptr @.str.10, ptr %11, align 8, !alias.scope !7
   %125 = getelementptr inbounds nuw i8, ptr %11, i64 16
   store ptr %121, ptr %125, align 8, !alias.scope !7
-  %126 = getelementptr inbounds i8, ptr %11, i64 24
+  %126 = getelementptr inbounds nuw i8, ptr %11, i64 24
   store i64 %122, ptr %126, align 8, !alias.scope !7
   %127 = getelementptr inbounds nuw i8, ptr %12, i64 32
   %128 = getelementptr inbounds nuw i8, ptr %12, i64 33
@@ -407,7 +407,7 @@ _ZN4llvmplERKNS_5TwineES2_.exit:                  ; preds = %_ZN4llvmplERKNS_5Tw
   %156 = load ptr, ptr %.sroa.076.0111, align 8
   %157 = getelementptr inbounds nuw i8, ptr %156, i64 48
   %158 = load ptr, ptr %157, align 8
-  %159 = getelementptr inbounds i8, ptr %156, i64 56
+  %159 = getelementptr inbounds nuw i8, ptr %156, i64 56
   %160 = load ptr, ptr %159, align 8
   %.not93107 = icmp eq ptr %158, %160
   br i1 %.not93107, label %_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit60.thread, label %.lr.ph109.preheader
@@ -420,7 +420,7 @@ _ZN4llvmplERKNS_5TwineES2_.exit:                  ; preds = %_ZN4llvmplERKNS_5Tw
   %.sroa.068.0108 = phi ptr [ %202, %._crit_edge106 ], [ %158, %.lr.ph109.preheader ]
   %162 = load ptr, ptr %.sroa.076.0111, align 8
   %163 = getelementptr inbounds nuw i8, ptr %162, i64 24
-  %164 = getelementptr inbounds i8, ptr %162, i64 32
+  %164 = getelementptr inbounds nuw i8, ptr %162, i64 32
   %165 = load ptr, ptr %164, align 8
   %166 = load ptr, ptr %163, align 8
   %167 = ptrtoint ptr %165 to i64
@@ -443,7 +443,7 @@ _ZN4llvmplERKNS_5TwineES2_.exit:                  ; preds = %_ZN4llvmplERKNS_5Tw
   store ptr @.str.10, ptr %24, align 8, !alias.scope !17
   %179 = getelementptr inbounds nuw i8, ptr %24, i64 16
   store ptr %175, ptr %179, align 8, !alias.scope !17
-  %180 = getelementptr inbounds i8, ptr %24, i64 24
+  %180 = getelementptr inbounds nuw i8, ptr %24, i64 24
   store i64 %176, ptr %180, align 8, !alias.scope !17
   %181 = getelementptr inbounds nuw i8, ptr %25, i64 32
   %182 = getelementptr inbounds nuw i8, ptr %25, i64 33
@@ -476,7 +476,7 @@ _ZN4llvmplERKNS_5TwineES2_.exit:                  ; preds = %_ZN4llvmplERKNS_5Tw
   %191 = load ptr, ptr %.sroa.076.0111, align 8
   %192 = getelementptr inbounds nuw i8, ptr %191, i64 24
   %193 = load ptr, ptr %192, align 8
-  %194 = getelementptr inbounds i8, ptr %191, i64 32
+  %194 = getelementptr inbounds nuw i8, ptr %191, i64 32
   %195 = load ptr, ptr %194, align 8
   %.not94102 = icmp eq ptr %193, %195
   br i1 %.not94102, label %._crit_edge106, label %.lr.ph105

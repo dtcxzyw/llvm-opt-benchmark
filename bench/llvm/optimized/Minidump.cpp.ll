@@ -117,7 +117,7 @@ $_ZTVN4llvm6object12MinidumpFileE = comdat any
 define dso_local void @_ZNK4llvm6object12MinidumpFile12getRawStreamENS_8minidump10StreamTypeE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::optional") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 88
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %7 = load i32, ptr %6, align 8
   %8 = icmp eq i32 %7, 0
   br i1 %8, label %.loopexit.i, label %9
@@ -170,7 +170,7 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapINS_8minidump10StreamTypeEmNS_12DenseMapInfo
   %35 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.sroa.0.0.copyload.i.i.i = load ptr, ptr %35, align 8
   %36 = getelementptr inbounds nuw i8, ptr %34, i64 4
-  %37 = getelementptr inbounds i8, ptr %34, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %34, i64 8
   call void @llvm.assume(i1 true) [ "align"(ptr %37, i64 1) ]
   %.0.copyload.i.i.i.i = load i32, ptr %37, align 1
   %38 = zext i32 %.0.copyload.i.i.i.i to i64
@@ -382,7 +382,7 @@ define dso_local void @_ZNK4llvm6object12MinidumpFile17getMemoryInfoListEv(ptr d
   %5 = alloca %"class.llvm::Twine", align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %7 = load ptr, ptr %6, align 8, !noalias !59
-  %8 = getelementptr inbounds i8, ptr %1, i64 88
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %9 = load i32, ptr %8, align 8, !noalias !59
   %10 = icmp eq i32 %9, 0
   br i1 %10, label %.loopexit.i.i, label %11
@@ -453,7 +453,7 @@ _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %_ZNK4llvm12DenseMap
   %43 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.sroa.0.0.copyload.i.i.i.i = load ptr, ptr %43, align 8, !noalias !59
   %44 = getelementptr inbounds nuw i8, ptr %42, i64 4
-  %45 = getelementptr inbounds i8, ptr %42, i64 8
+  %45 = getelementptr inbounds nuw i8, ptr %42, i64 8
   call void @llvm.assume(i1 true) [ "align"(ptr %45, i64 1) ]
   %.0.copyload.i.i.i.i.i = load i32, ptr %45, align 1, !noalias !59
   %46 = zext i32 %.0.copyload.i.i.i.i.i to i64
@@ -589,7 +589,7 @@ define weak_odr void @_ZNK4llvm6object12MinidumpFile13getListStreamINS_8minidump
   %5 = alloca %"class.llvm::Twine", align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %7 = load ptr, ptr %6, align 8, !noalias !109
-  %8 = getelementptr inbounds i8, ptr %1, i64 88
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %9 = load i32, ptr %8, align 8, !noalias !109
   %10 = icmp eq i32 %9, 0
   br i1 %10, label %.loopexit.i.i, label %11
@@ -661,7 +661,7 @@ _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %_ZNK4llvm12DenseMap
   %44 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.sroa.0.0.copyload.i.i.i.i = load ptr, ptr %44, align 8, !noalias !109
   %45 = getelementptr inbounds nuw i8, ptr %43, i64 4
-  %46 = getelementptr inbounds i8, ptr %43, i64 8
+  %46 = getelementptr inbounds nuw i8, ptr %43, i64 8
   call void @llvm.assume(i1 true) [ "align"(ptr %46, i64 1) ]
   %.0.copyload.i.i.i.i.i = load i32, ptr %46, align 1, !noalias !109
   call void @llvm.assume(i1 true) [ "align"(ptr %45, i64 1) ]
@@ -774,7 +774,7 @@ define weak_odr void @_ZNK4llvm6object12MinidumpFile13getListStreamINS_8minidump
   %5 = alloca %"class.llvm::Twine", align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %7 = load ptr, ptr %6, align 8, !noalias !162
-  %8 = getelementptr inbounds i8, ptr %1, i64 88
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %9 = load i32, ptr %8, align 8, !noalias !162
   %10 = icmp eq i32 %9, 0
   br i1 %10, label %.loopexit.i.i, label %11
@@ -846,7 +846,7 @@ _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %_ZNK4llvm12DenseMap
   %44 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.sroa.0.0.copyload.i.i.i.i = load ptr, ptr %44, align 8, !noalias !162
   %45 = getelementptr inbounds nuw i8, ptr %43, i64 4
-  %46 = getelementptr inbounds i8, ptr %43, i64 8
+  %46 = getelementptr inbounds nuw i8, ptr %43, i64 8
   call void @llvm.assume(i1 true) [ "align"(ptr %46, i64 1) ]
   %.0.copyload.i.i.i.i.i = load i32, ptr %46, align 1, !noalias !162
   call void @llvm.assume(i1 true) [ "align"(ptr %45, i64 1) ]
@@ -959,7 +959,7 @@ define weak_odr void @_ZNK4llvm6object12MinidumpFile13getListStreamINS_8minidump
   %5 = alloca %"class.llvm::Twine", align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %7 = load ptr, ptr %6, align 8, !noalias !215
-  %8 = getelementptr inbounds i8, ptr %1, i64 88
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %9 = load i32, ptr %8, align 8, !noalias !215
   %10 = icmp eq i32 %9, 0
   br i1 %10, label %.loopexit.i.i, label %11
@@ -1031,7 +1031,7 @@ _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %_ZNK4llvm12DenseMap
   %44 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.sroa.0.0.copyload.i.i.i.i = load ptr, ptr %44, align 8, !noalias !215
   %45 = getelementptr inbounds nuw i8, ptr %43, i64 4
-  %46 = getelementptr inbounds i8, ptr %43, i64 8
+  %46 = getelementptr inbounds nuw i8, ptr %43, i64 8
   call void @llvm.assume(i1 true) [ "align"(ptr %46, i64 1) ]
   %.0.copyload.i.i.i.i.i = load i32, ptr %46, align 1, !noalias !215
   call void @llvm.assume(i1 true) [ "align"(ptr %45, i64 1) ]
@@ -1252,7 +1252,7 @@ _ZN4llvm5ErrorD2Ev.exit30:                        ; preds = %21
   %.0.copyload.i.i.i38 = load i32, ptr %.sroa.088.0139, align 1
   store i32 %.0.copyload.i.i.i38, ptr %11, align 4
   %55 = getelementptr inbounds nuw i8, ptr %.sroa.088.0139, i64 4
-  %56 = getelementptr inbounds i8, ptr %.sroa.088.0139, i64 8
+  %56 = getelementptr inbounds nuw i8, ptr %.sroa.088.0139, i64 8
   call void @llvm.assume(i1 true) [ "align"(ptr %56, i64 1) ]
   %.0.copyload.i.i.i39 = load i32, ptr %56, align 1
   %57 = zext i32 %.0.copyload.i.i.i39 to i64
@@ -1417,11 +1417,11 @@ _ZNSt10unique_ptrIN4llvm6object12MinidumpFileESt14default_deleteIS2_EED2Ev.exit:
   store i64 %35, ptr %.sroa.2.0..sroa_idx.i51, align 8
   %112 = getelementptr inbounds nuw i8, ptr %109, i64 72
   store ptr %108, ptr %112, align 8
-  %113 = getelementptr inbounds i8, ptr %109, i64 80
+  %113 = getelementptr inbounds nuw i8, ptr %109, i64 80
   store i32 %107, ptr %113, align 4
-  %114 = getelementptr inbounds i8, ptr %109, i64 84
+  %114 = getelementptr inbounds nuw i8, ptr %109, i64 84
   store i32 %106, ptr %114, align 4
-  %115 = getelementptr inbounds i8, ptr %109, i64 88
+  %115 = getelementptr inbounds nuw i8, ptr %109, i64 88
   store i32 %105, ptr %115, align 4
   %116 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %117 = load i8, ptr %116, align 8
@@ -1519,7 +1519,7 @@ _ZN4llvm8ExpectedINS_8ArrayRefINS_8minidump19MemoryDescriptor_64EEEED2Ev.exit.th
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %17 = load ptr, ptr %16, align 8, !noalias !362
-  %18 = getelementptr inbounds i8, ptr %1, i64 88
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %19 = load i32, ptr %18, align 8, !noalias !362
   %20 = icmp eq i32 %19, 0
   br i1 %20, label %.loopexit.i.i, label %21
@@ -1588,7 +1588,7 @@ _ZN4llvm5ErrorD2Ev.exit11:                        ; preds = %_ZNK4llvm12DenseMap
   %50 = getelementptr inbounds %"struct.llvm::minidump::Directory", ptr %49, i64 %48
   %51 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.sroa.0.0.copyload.i.i.i.i = load ptr, ptr %51, align 8
-  %52 = getelementptr inbounds i8, ptr %50, i64 8
+  %52 = getelementptr inbounds nuw i8, ptr %50, i64 8
   call void @llvm.assume(i1 true) [ "align"(ptr %52, i64 1) ]
   %.0.copyload.i.i.i.i.i = load i32, ptr %52, align 1, !noalias !362
   %53 = zext i32 %.0.copyload.i.i.i.i.i to i64
@@ -1732,7 +1732,7 @@ define linkonce_odr hidden void @_ZN4llvm6object12MinidumpFileD2Ev(ptr noundef n
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN4llvm6object12MinidumpFileE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 88
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %5 = load i32, ptr %4, align 8
   %6 = zext i32 %5 to i64
   %7 = shl nuw nsw i64 %6, 4
@@ -1746,7 +1746,7 @@ define linkonce_odr hidden void @_ZN4llvm6object12MinidumpFileD0Ev(ptr noundef n
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN4llvm6object12MinidumpFileE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 88
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %5 = load i32, ptr %4, align 8
   %6 = zext i32 %5 to i64
   %7 = shl nuw nsw i64 %6, 4
@@ -1775,7 +1775,7 @@ define linkonce_odr void @_ZNK4llvm6object12MinidumpFile9getStreamINS_8minidump1
   %5 = alloca %"class.llvm::Twine", align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %7 = load ptr, ptr %6, align 8, !noalias !404
-  %8 = getelementptr inbounds i8, ptr %1, i64 88
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %9 = load i32, ptr %8, align 8, !noalias !404
   %10 = icmp eq i32 %9, 0
   br i1 %10, label %.loopexit.i.i, label %11
@@ -1828,7 +1828,7 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapINS_8minidump10StreamTypeEmNS_12DenseMapInfo
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.sroa.0.0.copyload.i.i.i.i = load ptr, ptr %37, align 8, !noalias !404
   %38 = getelementptr inbounds nuw i8, ptr %36, i64 4
-  %39 = getelementptr inbounds i8, ptr %36, i64 8
+  %39 = getelementptr inbounds nuw i8, ptr %36, i64 8
   call void @llvm.assume(i1 true) [ "align"(ptr %39, i64 1) ]
   %.0.copyload.i.i.i.i.i = load i32, ptr %39, align 1, !noalias !404
   call void @llvm.assume(i1 true) [ "align"(ptr %38, i64 1) ]

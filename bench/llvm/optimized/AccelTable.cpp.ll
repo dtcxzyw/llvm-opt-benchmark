@@ -261,7 +261,7 @@ define dso_local void @_ZN4llvm14AccelTableBase18computeBucketCountEv(ptr nounde
   %2 = alloca %"class.llvm::SmallVector", align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 16
   call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull %3, i64 noundef 0) #18
-  %4 = getelementptr inbounds i8, ptr %0, i64 120
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %5 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %4) #18
   %6 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE8capacityEv(ptr noundef nonnull align 8 dereferenceable(16) %2) #18
   %7 = icmp ult i64 %6, %5
@@ -280,7 +280,7 @@ _ZN4llvm15SmallVectorImplIjE7reserveEm.exit:      ; preds = %1, %8
 
 .lr.ph:                                           ; preds = %_ZN4llvm15SmallVectorImplIjE7reserveEm.exit, %_ZN4llvm23SmallVectorTemplateBaseIjLb1EE9push_backEj.exit
   %.011 = phi ptr [ %23, %_ZN4llvm23SmallVectorTemplateBaseIjLb1EE9push_backEj.exit ], [ %9, %_ZN4llvm15SmallVectorImplIjE7reserveEm.exit ]
-  %12 = getelementptr inbounds i8, ptr %.011, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %.011, i64 24
   %13 = load i32, ptr %12, align 8
   %14 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %2) #18
   %15 = add i64 %14, 1
@@ -411,7 +411,7 @@ _ZN4llvm11SmallVectorIjLj0EED2Ev.exit:            ; preds = %_ZN4llvm5dwarf24get
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN4llvm14AccelTableBase8finalizeEPNS_10AsmPrinterENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(200) %0, ptr noundef %1, ptr %2, i64 %3) local_unnamed_addr #0 align 2 {
   %5 = alloca %"class.llvm::Twine", align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 120
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %7 = load ptr, ptr %6, align 8
   %8 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %6) #18
   %9 = getelementptr inbounds %"struct.std::pair", ptr %7, i64 %8
@@ -420,7 +420,7 @@ define dso_local void @_ZN4llvm14AccelTableBase8finalizeEPNS_10AsmPrinterENS_9St
 
 .lr.ph:                                           ; preds = %4, %_ZNSt6vectorIPN4llvm14AccelTableDataESaIS2_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS2_S4_EES9_.exit
   %.067 = phi ptr [ %42, %_ZNSt6vectorIPN4llvm14AccelTableDataESaIS2_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS2_S4_EES9_.exit ], [ %7, %4 ]
-  %10 = getelementptr inbounds i8, ptr %.067, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %.067, i64 32
   %.val = load ptr, ptr %10, align 8
   %11 = getelementptr i8, ptr %.067, i64 40
   %.val26 = load ptr, ptr %11, align 8
@@ -532,7 +532,7 @@ _ZNSt6vectorIPN4llvm14AccelTableDataESaIS2_EE5eraseEN9__gnu_cxx17__normal_iterat
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %45 = load i32, ptr %44, align 8
   %46 = zext i32 %45 to i64
-  %47 = getelementptr inbounds i8, ptr %0, i64 184
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %48 = load ptr, ptr %47, align 8
   %49 = load ptr, ptr %43, align 8
   %50 = ptrtoint ptr %48 to i64
@@ -596,7 +596,7 @@ _ZNSt6vectorIS_IPN4llvm14AccelTableBase8HashDataESaIS3_EESaIS5_EE6resizeEm.exit:
 75:                                               ; preds = %.lr.ph70, %_ZNSt6vectorIPN4llvm14AccelTableBase8HashDataESaIS3_EE9push_backEOS3_.exit
   %.02469 = phi ptr [ %69, %.lr.ph70 ], [ %116, %_ZNSt6vectorIPN4llvm14AccelTableBase8HashDataESaIS3_EE9push_backEOS3_.exit ]
   %76 = getelementptr inbounds nuw i8, ptr %.02469, i64 16
-  %77 = getelementptr inbounds i8, ptr %.02469, i64 24
+  %77 = getelementptr inbounds nuw i8, ptr %.02469, i64 24
   %78 = load i32, ptr %77, align 8
   %79 = load i32, ptr %44, align 8
   %80 = urem i32 %78, %79
@@ -678,7 +678,7 @@ _ZNSt6vectorIPN4llvm14AccelTableBase8HashDataESaIS3_EE9push_backEOS3_.exit: ; pr
   store ptr %2, ptr %5, align 8
   store i64 %3, ptr %74, align 8
   %114 = call noundef ptr @_ZNK4llvm10AsmPrinter16createTempSymbolERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(785) %1, ptr noundef nonnull align 8 dereferenceable(34) %5) #18
-  %115 = getelementptr inbounds i8, ptr %.02469, i64 56
+  %115 = getelementptr inbounds nuw i8, ptr %.02469, i64 56
   store ptr %114, ptr %115, align 8
   %116 = getelementptr inbounds i8, ptr %.02469, i64 64
   %.not25 = icmp eq ptr %116, %71
@@ -749,9 +749,9 @@ define dso_local void @_ZN4llvm20DWARF5AccelTableDataC2ERKNS_3DIEEjb(ptr nocaptu
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN4llvm20DWARF5AccelTableDataE, i64 16), ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %1, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i8 0, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i8 0, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 28
@@ -918,19 +918,19 @@ define dso_local void @_ZN4llvm23emitAppleAccelTableImplEPNS_10AsmPrinterERNS_14
   %32 = shl i32 %.tr.i, 2
   %33 = add i32 %32, 8
   store i32 1212240712, ptr %27, align 4
-  %34 = getelementptr inbounds i8, ptr %24, i64 24
+  %34 = getelementptr inbounds nuw i8, ptr %24, i64 24
   store i16 1, ptr %34, align 8
-  %35 = getelementptr inbounds i8, ptr %24, i64 26
+  %35 = getelementptr inbounds nuw i8, ptr %24, i64 26
   store i16 0, ptr %35, align 2
-  %36 = getelementptr inbounds i8, ptr %24, i64 28
+  %36 = getelementptr inbounds nuw i8, ptr %24, i64 28
   store i32 %29, ptr %36, align 4
-  %37 = getelementptr inbounds i8, ptr %24, i64 32
+  %37 = getelementptr inbounds nuw i8, ptr %24, i64 32
   store i32 %31, ptr %37, align 8
-  %38 = getelementptr inbounds i8, ptr %24, i64 36
+  %38 = getelementptr inbounds nuw i8, ptr %24, i64 36
   store i32 %33, ptr %38, align 4
   %39 = getelementptr inbounds nuw i8, ptr %24, i64 40
   store i32 0, ptr %39, align 8
-  %40 = getelementptr inbounds i8, ptr %24, i64 48
+  %40 = getelementptr inbounds nuw i8, ptr %24, i64 48
   %41 = getelementptr inbounds i8, ptr %24, i64 64
   call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %40, ptr noundef nonnull %41, i64 noundef 4) #18
   %42 = getelementptr inbounds %"struct.llvm::AppleAccelTableData::Atom", ptr %.sroa.0.0.copyload, i64 %.sroa.2.0.copyload
@@ -1122,7 +1122,7 @@ _ZNK12_GLOBAL__N_121AppleAccelTableWriter10HeaderData4emitEPN4llvm10AsmPrinterE.
   %141 = load ptr, ptr %25, align 8
   %142 = getelementptr inbounds nuw i8, ptr %141, i64 176
   %143 = load ptr, ptr %142, align 8
-  %144 = getelementptr inbounds i8, ptr %141, i64 184
+  %144 = getelementptr inbounds nuw i8, ptr %141, i64 184
   %145 = load ptr, ptr %144, align 8
   %146 = ptrtoint ptr %145 to i64
   %147 = ptrtoint ptr %143 to i64
@@ -1200,7 +1200,7 @@ _ZNK12_GLOBAL__N_121AppleAccelTableWriter11emitBucketsEv.exit.i: ; preds = %._cr
   %.pre.i = load ptr, ptr %25, align 8
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %.pre.i, i64 176
   %.pre11.i = load ptr, ptr %.phi.trans.insert.i, align 8
-  %.phi.trans.insert12.i = getelementptr inbounds i8, ptr %.pre.i, i64 184
+  %.phi.trans.insert12.i = getelementptr inbounds nuw i8, ptr %.pre.i, i64 184
   %.pre13.i = load ptr, ptr %.phi.trans.insert12.i, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %13)
@@ -1289,7 +1289,7 @@ _ZNK12_GLOBAL__N_116AccelTableWriter10emitHashesEv.exit.i: ; preds = %._crit_edg
   %.pre = load ptr, ptr %25, align 8
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 176
   %.pre10 = load ptr, ptr %.phi.trans.insert, align 8
-  %.phi.trans.insert11 = getelementptr inbounds i8, ptr %.pre, i64 184
+  %.phi.trans.insert11 = getelementptr inbounds nuw i8, ptr %.pre, i64 184
   %.pre12 = load ptr, ptr %.phi.trans.insert11, align 8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %11)
   %206 = load ptr, ptr %43, align 8
@@ -1373,7 +1373,7 @@ _ZNK12_GLOBAL__N_116AccelTableWriter11emitOffsetsEPKN4llvm8MCSymbolE.exit.loopex
   %.pre13 = load ptr, ptr %25, align 8
   %.phi.trans.insert14 = getelementptr inbounds nuw i8, ptr %.pre13, i64 176
   %.pre15 = load ptr, ptr %.phi.trans.insert14, align 8
-  %.phi.trans.insert16 = getelementptr inbounds i8, ptr %.pre13, i64 184
+  %.phi.trans.insert16 = getelementptr inbounds nuw i8, ptr %.pre13, i64 184
   %.pre17 = load ptr, ptr %.phi.trans.insert16, align 8
   br label %_ZNK12_GLOBAL__N_116AccelTableWriter11emitOffsetsEPKN4llvm8MCSymbolE.exit
 
@@ -1490,7 +1490,7 @@ _ZNK4llvm23DwarfStringPoolEntryRef9getStringEv.exit.i.i: ; preds = %278, %276
   %295 = load ptr, ptr %24, align 8
   %296 = load ptr, ptr %.sroa.050.060.i.i, align 8
   %297 = getelementptr inbounds nuw i8, ptr %296, i64 16
-  %298 = getelementptr inbounds i8, ptr %296, i64 24
+  %298 = getelementptr inbounds nuw i8, ptr %296, i64 24
   %299 = load ptr, ptr %298, align 8
   %300 = load ptr, ptr %297, align 8
   %301 = ptrtoint ptr %299 to i64
@@ -1502,7 +1502,7 @@ _ZNK4llvm23DwarfStringPoolEntryRef9getStringEv.exit.i.i: ; preds = %278, %276
   %306 = load ptr, ptr %.sroa.050.060.i.i, align 8
   %307 = getelementptr inbounds nuw i8, ptr %306, i64 16
   %308 = load ptr, ptr %307, align 8, !noalias !29
-  %309 = getelementptr inbounds i8, ptr %306, i64 24
+  %309 = getelementptr inbounds nuw i8, ptr %306, i64 24
   %310 = load ptr, ptr %309, align 8, !noalias !29
   %.not5657.i.i = icmp eq ptr %308, %310
   br i1 %.not5657.i.i, label %._crit_edge.i9.i, label %.lr.ph.i8.i
@@ -2201,27 +2201,27 @@ define internal fastcc void @_ZN12_GLOBAL__N_122Dwarf5AccelTableWriterC2EPN4llvm
   %24 = select i1 %7, i32 %22, i32 0
   %25 = getelementptr inbounds nuw i8, ptr %2, i64 144
   %26 = load i32, ptr %25, align 8
-  %27 = getelementptr inbounds i8, ptr %2, i64 120
+  %27 = getelementptr inbounds nuw i8, ptr %2, i64 120
   %28 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %27) #18
   %29 = trunc i64 %28 to i32
   store i16 5, ptr %18, align 4
-  %30 = getelementptr inbounds i8, ptr %0, i64 22
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 22
   store i16 0, ptr %30, align 2
-  %31 = getelementptr inbounds i8, ptr %0, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 %19, ptr %31, align 8
-  %32 = getelementptr inbounds i8, ptr %0, i64 28
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i32 %23, ptr %32, align 4
-  %33 = getelementptr inbounds i8, ptr %0, i64 32
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i32 %24, ptr %33, align 8
-  %34 = getelementptr inbounds i8, ptr %0, i64 36
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 36
   store i32 %26, ptr %34, align 4
-  %35 = getelementptr inbounds i8, ptr %0, i64 40
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i32 %29, ptr %35, align 8
-  %36 = getelementptr inbounds i8, ptr %0, i64 44
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 44
   store i32 0, ptr %36, align 4
-  %37 = getelementptr inbounds i8, ptr %0, i64 48
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i32 8, ptr %37, align 8
-  %38 = getelementptr inbounds i8, ptr %0, i64 52
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 52
   store i8 76, ptr %38, align 4
   %39 = getelementptr inbounds i8, ptr %0, i64 53
   store i8 76, ptr %39, align 1
@@ -2243,15 +2243,15 @@ define internal fastcc void @_ZN12_GLOBAL__N_122Dwarf5AccelTableWriterC2EPN4llvm
   %48 = getelementptr inbounds i8, ptr %0, i64 96
   tail call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %47, ptr noundef nonnull %48, i64 noundef 5) #18
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  %50 = getelementptr inbounds i8, ptr %0, i64 152
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %51 = getelementptr inbounds i8, ptr %0, i64 168
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %49, i8 0, i64 16, i1 false)
   tail call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %50, ptr noundef nonnull %51, i64 noundef 4) #18
-  %52 = getelementptr inbounds i8, ptr %0, i64 200
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %53 = getelementptr inbounds i8, ptr %0, i64 216
   tail call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %52, ptr noundef nonnull %53, i64 noundef 0) #18
   store i64 0, ptr %53, align 8
-  %54 = getelementptr inbounds i8, ptr %0, i64 224
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 224
   store i64 1, ptr %54, align 8
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 232
   store ptr %3, ptr %55, align 8
@@ -2296,15 +2296,15 @@ define internal fastcc void @_ZN12_GLOBAL__N_122Dwarf5AccelTableWriterC2EPN4llvm
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %75, i8 0, i64 20, i1 false)
   %76 = getelementptr inbounds nuw i8, ptr %2, i64 176
   %77 = load ptr, ptr %76, align 8
-  %78 = getelementptr inbounds i8, ptr %2, i64 184
+  %78 = getelementptr inbounds nuw i8, ptr %2, i64 184
   %79 = load ptr, ptr %78, align 8
   %.not212 = icmp eq ptr %77, %79
   br i1 %.not212, label %._crit_edge216, label %.lr.ph215
 
 .lr.ph215:                                        ; preds = %8
-  %80 = getelementptr inbounds i8, ptr %0, i64 336
-  %81 = getelementptr inbounds i8, ptr %0, i64 328
-  %82 = getelementptr inbounds i8, ptr %0, i64 332
+  %80 = getelementptr inbounds nuw i8, ptr %0, i64 336
+  %81 = getelementptr inbounds nuw i8, ptr %0, i64 328
+  %82 = getelementptr inbounds nuw i8, ptr %0, i64 332
   %.sroa.0.i.8.i.8.i.8..sroa_idx = getelementptr inbounds i8, ptr %.sroa.0.i, i64 8
   %.sroa.0.i.12.i.12.i.12..sroa_idx = getelementptr inbounds i8, ptr %.sroa.0.i, i64 12
   %.sroa.0.i.5.i.5.i.5..sroa_idx = getelementptr inbounds i8, ptr %.sroa.0.i, i64 5
@@ -2335,7 +2335,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_122Dwarf5AccelTableWriterC2EPN4llvm
   %87 = load ptr, ptr %.sroa.0168.0208, align 8
   %88 = getelementptr inbounds nuw i8, ptr %87, i64 16
   %89 = load ptr, ptr %88, align 8, !noalias !49
-  %90 = getelementptr inbounds i8, ptr %87, i64 24
+  %90 = getelementptr inbounds nuw i8, ptr %87, i64 24
   %91 = load ptr, ptr %90, align 8, !noalias !49
   %.not184205 = icmp eq ptr %89, %91
   br i1 %.not184205, label %._crit_edge, label %.lr.ph
@@ -2343,7 +2343,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_122Dwarf5AccelTableWriterC2EPN4llvm
 .lr.ph:                                           ; preds = %.lr.ph210, %_ZN4llvm6detail12DenseSetImplINS_15OffsetAndUnitIDENS_8DenseMapIS2_NS0_13DenseSetEmptyENS_12DenseMapInfoIS2_vEENS0_12DenseSetPairIS2_EEEES6_E6insertEOS2_.exit
   %.sroa.0161.0206 = phi ptr [ %491, %_ZN4llvm6detail12DenseSetImplINS_15OffsetAndUnitIDENS_8DenseMapIS2_NS0_13DenseSetEmptyENS_12DenseMapInfoIS2_vEENS0_12DenseSetPairIS2_EEEES6_E6insertEOS2_.exit ], [ %89, %.lr.ph210 ]
   %92 = load ptr, ptr %.sroa.0161.0206, align 8
-  %93 = getelementptr inbounds i8, ptr %92, i64 16
+  %93 = getelementptr inbounds nuw i8, ptr %92, i64 16
   %94 = load i8, ptr %93, align 8
   %.not.i.i.i.i = icmp eq i8 %94, 1
   br i1 %.not.i.i.i.i, label %_ZNK4llvm20DWARF5AccelTableData21getDieOffsetAndUnitIDEv.exit, label %95
@@ -3171,20 +3171,20 @@ _ZN4llvm6detail12DenseSetImplINS_15OffsetAndUnitIDENS_8DenseMapIS2_NS0_13DenseSe
   %494 = load ptr, ptr %16, align 8
   %495 = getelementptr inbounds nuw i8, ptr %494, i64 176
   %496 = load ptr, ptr %495, align 8
-  %497 = getelementptr inbounds i8, ptr %494, i64 184
+  %497 = getelementptr inbounds nuw i8, ptr %494, i64 184
   %498 = load ptr, ptr %497, align 8
   %.not112.i = icmp eq ptr %496, %498
   br i1 %.not112.i, label %_ZN12_GLOBAL__N_122Dwarf5AccelTableWriter18populateAbbrevsMapEv.exit, label %.lr.ph118.i
 
 .lr.ph118.i:                                      ; preds = %._crit_edge216
-  %499 = getelementptr inbounds i8, ptr %0, i64 272
+  %499 = getelementptr inbounds nuw i8, ptr %0, i64 272
   %500 = getelementptr inbounds i8, ptr %0, i64 336
   %501 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %502 = getelementptr inbounds nuw i8, ptr %9, i64 12
   %503 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %504 = getelementptr inbounds i8, ptr %9, i64 32
   %505 = getelementptr inbounds i8, ptr %10, i64 16
-  %506 = getelementptr inbounds i8, ptr %0, i64 144
+  %506 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %.sroa.056.i.8.i.8.i.8..sroa_idx = getelementptr inbounds i8, ptr %.sroa.056.i, i64 8
   %.sroa.0.i.i.i.i.i.i.8.i.i.i.i.i.i.8.i.i.i.i.i.i.8.i.i.i.i.i.8.i.i.i.i.i.8.i.i.i.i.8.i.i.i.i.8.i.i.i.8.i.i.i.8.i.i.8.i.i.8.i.8.i.8..sroa_idx = getelementptr inbounds i8, ptr %.sroa.0.i.i.i.i.i.i, i64 8
   %.sroa.0.i.i.i.i.i.i.12.i.i.i.i.i.i.12.i.i.i.i.i.i.12.i.i.i.i.i.12.i.i.i.i.i.12.i.i.i.i.12.i.i.i.i.12.i.i.i.12.i.i.i.12.i.i.12.i.i.12.i.12.i.12..sroa_idx = getelementptr inbounds i8, ptr %.sroa.0.i.i.i.i.i.i, i64 12
@@ -3205,7 +3205,7 @@ _ZN4llvm6detail12DenseSetImplINS_15OffsetAndUnitIDENS_8DenseMapIS2_NS0_13DenseSe
   %511 = load ptr, ptr %.sroa.070.0105.i, align 8
   %512 = getelementptr inbounds nuw i8, ptr %511, i64 16
   %513 = load ptr, ptr %512, align 8, !noalias !62
-  %514 = getelementptr inbounds i8, ptr %511, i64 24
+  %514 = getelementptr inbounds nuw i8, ptr %511, i64 24
   %515 = load ptr, ptr %514, align 8, !noalias !62
   %.not9194.i = icmp eq ptr %513, %515
   br i1 %.not9194.i, label %._crit_edge.i, label %.lr.ph.i
@@ -3220,7 +3220,7 @@ _ZN4llvm6detail12DenseSetImplINS_15OffsetAndUnitIDENS_8DenseMapIS2_NS0_13DenseSe
   store i64 %520, ptr %.sroa.056.i, align 8
   %521 = extractvalue { i64, i64 } %519, 1
   store i64 %521, ptr %.sroa.056.i.8.i.8.i.8..sroa_idx, align 8
-  %522 = getelementptr inbounds i8, ptr %516, i64 32
+  %522 = getelementptr inbounds nuw i8, ptr %516, i64 32
   %523 = load i8, ptr %522, align 8, !noalias !67
   %524 = trunc i8 %523 to i1
   br i1 %524, label %525, label %.lr.ph._ZL19getFormForIdxParentRKN4llvm8DenseSetINS_15OffsetAndUnitIDENS_12DenseMapInfoIS1_vEEEESt8optionalIS1_E.exit_crit_edge.i
@@ -3666,7 +3666,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_122Dwarf5AccelTableWriter4emitEv(pt
   %57 = getelementptr inbounds i8, ptr %56, i64 120
   %58 = load ptr, ptr %57, align 8
   call void %58(ptr noundef nonnull align 8 dereferenceable(288) %53, ptr noundef nonnull align 8 dereferenceable(34) %27, i1 noundef zeroext true) #18
-  %59 = getelementptr inbounds i8, ptr %0, i64 22
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 22
   %60 = load i16, ptr %59, align 2
   %61 = zext i16 %60 to i32
   call void @_ZNK4llvm10AsmPrinter9emitInt16Ei(ptr noundef nonnull align 8 dereferenceable(785) %37, i32 noundef %61) #18
@@ -3680,7 +3680,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_122Dwarf5AccelTableWriter4emitEv(pt
   %66 = getelementptr inbounds i8, ptr %65, i64 120
   %67 = load ptr, ptr %66, align 8
   call void %67(ptr noundef nonnull align 8 dereferenceable(288) %62, ptr noundef nonnull align 8 dereferenceable(34) %28, i1 noundef zeroext true) #18
-  %68 = getelementptr inbounds i8, ptr %0, i64 24
+  %68 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %69 = load i32, ptr %68, align 8
   call void @_ZNK4llvm10AsmPrinter9emitInt32Ei(ptr noundef nonnull align 8 dereferenceable(785) %37, i32 noundef %69) #18
   %70 = load ptr, ptr %44, align 8
@@ -3693,7 +3693,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_122Dwarf5AccelTableWriter4emitEv(pt
   %74 = getelementptr inbounds i8, ptr %73, i64 120
   %75 = load ptr, ptr %74, align 8
   call void %75(ptr noundef nonnull align 8 dereferenceable(288) %70, ptr noundef nonnull align 8 dereferenceable(34) %29, i1 noundef zeroext true) #18
-  %76 = getelementptr inbounds i8, ptr %0, i64 28
+  %76 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %77 = load i32, ptr %76, align 4
   call void @_ZNK4llvm10AsmPrinter9emitInt32Ei(ptr noundef nonnull align 8 dereferenceable(785) %37, i32 noundef %77) #18
   %78 = load ptr, ptr %44, align 8
@@ -3706,7 +3706,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_122Dwarf5AccelTableWriter4emitEv(pt
   %82 = getelementptr inbounds i8, ptr %81, i64 120
   %83 = load ptr, ptr %82, align 8
   call void %83(ptr noundef nonnull align 8 dereferenceable(288) %78, ptr noundef nonnull align 8 dereferenceable(34) %30, i1 noundef zeroext true) #18
-  %84 = getelementptr inbounds i8, ptr %0, i64 32
+  %84 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %85 = load i32, ptr %84, align 8
   call void @_ZNK4llvm10AsmPrinter9emitInt32Ei(ptr noundef nonnull align 8 dereferenceable(785) %37, i32 noundef %85) #18
   %86 = load ptr, ptr %44, align 8
@@ -3719,7 +3719,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_122Dwarf5AccelTableWriter4emitEv(pt
   %90 = getelementptr inbounds i8, ptr %89, i64 120
   %91 = load ptr, ptr %90, align 8
   call void %91(ptr noundef nonnull align 8 dereferenceable(288) %86, ptr noundef nonnull align 8 dereferenceable(34) %31, i1 noundef zeroext true) #18
-  %92 = getelementptr inbounds i8, ptr %0, i64 36
+  %92 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %93 = load i32, ptr %92, align 4
   call void @_ZNK4llvm10AsmPrinter9emitInt32Ei(ptr noundef nonnull align 8 dereferenceable(785) %37, i32 noundef %93) #18
   %94 = load ptr, ptr %44, align 8
@@ -3732,7 +3732,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_122Dwarf5AccelTableWriter4emitEv(pt
   %98 = getelementptr inbounds i8, ptr %97, i64 120
   %99 = load ptr, ptr %98, align 8
   call void %99(ptr noundef nonnull align 8 dereferenceable(288) %94, ptr noundef nonnull align 8 dereferenceable(34) %32, i1 noundef zeroext true) #18
-  %100 = getelementptr inbounds i8, ptr %0, i64 40
+  %100 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %101 = load i32, ptr %100, align 8
   call void @_ZNK4llvm10AsmPrinter9emitInt32Ei(ptr noundef nonnull align 8 dereferenceable(785) %37, i32 noundef %101) #18
   %102 = load ptr, ptr %44, align 8
@@ -3760,7 +3760,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_122Dwarf5AccelTableWriter4emitEv(pt
   %116 = getelementptr inbounds i8, ptr %115, i64 120
   %117 = load ptr, ptr %116, align 8
   call void %117(ptr noundef nonnull align 8 dereferenceable(288) %112, ptr noundef nonnull align 8 dereferenceable(34) %34, i1 noundef zeroext true) #18
-  %118 = getelementptr inbounds i8, ptr %0, i64 48
+  %118 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %119 = load i32, ptr %118, align 8
   call void @_ZNK4llvm10AsmPrinter9emitInt32Ei(ptr noundef nonnull align 8 dereferenceable(785) %37, i32 noundef %119) #18
   %120 = load ptr, ptr %44, align 8
@@ -3774,7 +3774,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_122Dwarf5AccelTableWriter4emitEv(pt
   %125 = load ptr, ptr %124, align 8
   call void %125(ptr noundef nonnull align 8 dereferenceable(288) %120, ptr noundef nonnull align 8 dereferenceable(34) %35, i1 noundef zeroext true) #18
   %126 = load ptr, ptr %44, align 8
-  %127 = getelementptr inbounds i8, ptr %0, i64 52
+  %127 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %128 = load i32, ptr %118, align 8
   %129 = zext i32 %128 to i64
   %130 = load ptr, ptr %126, align 8
@@ -3797,7 +3797,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_122Dwarf5AccelTableWriter4emitEv(pt
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %23)
   %133 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %134 = load ptr, ptr %133, align 8, !noalias !71
-  %135 = getelementptr inbounds i8, ptr %0, i64 240
+  %135 = getelementptr inbounds nuw i8, ptr %0, i64 240
   %136 = load i64, ptr %135, align 8, !noalias !72
   %137 = getelementptr inbounds %"class.std::variant.422", ptr %134, i64 %136
   %.not19.i = icmp eq i64 %136, 0
@@ -3892,7 +3892,7 @@ _ZNK12_GLOBAL__N_122Dwarf5AccelTableWriter10emitCUListEv.exit: ; preds = %167, %
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %21)
   %170 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %171 = load ptr, ptr %170, align 8, !noalias !71
-  %172 = getelementptr inbounds i8, ptr %0, i64 256
+  %172 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %173 = load i64, ptr %172, align 8, !noalias !83
   %174 = getelementptr inbounds %"class.std::variant.422", ptr %171, i64 %173
   %.not23.i = icmp eq i64 %173, 0
@@ -4008,7 +4008,7 @@ _ZNK12_GLOBAL__N_122Dwarf5AccelTableWriter10emitTUListEv.exit: ; preds = %212, %
   %216 = load ptr, ptr %215, align 8
   %217 = getelementptr inbounds nuw i8, ptr %216, i64 176
   %218 = load ptr, ptr %217, align 8
-  %219 = getelementptr inbounds i8, ptr %216, i64 184
+  %219 = getelementptr inbounds nuw i8, ptr %216, i64 184
   %220 = load ptr, ptr %219, align 8
   %.not19.i12 = icmp eq ptr %218, %220
   br i1 %.not19.i12, label %_ZNK12_GLOBAL__N_122Dwarf5AccelTableWriter17emitStringOffsetsEv.exit.thread, label %_ZN4llvmplERKNS_5TwineES2_.exit.lr.ph.i13
@@ -4067,7 +4067,7 @@ _ZNK12_GLOBAL__N_122Dwarf5AccelTableWriter11emitBucketsEv.exit: ; preds = %_ZN4l
   %.pre = load ptr, ptr %215, align 8
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 176
   %.pre114 = load ptr, ptr %.phi.trans.insert, align 8
-  %.phi.trans.insert115 = getelementptr inbounds i8, ptr %.pre, i64 184
+  %.phi.trans.insert115 = getelementptr inbounds nuw i8, ptr %.pre, i64 184
   %.pre116 = load ptr, ptr %.phi.trans.insert115, align 8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %18)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %19)
@@ -4150,7 +4150,7 @@ _ZNK12_GLOBAL__N_116AccelTableWriter10emitHashesEv.exit.loopexit: ; preds = %._c
   %.pre117 = load ptr, ptr %215, align 8
   %.phi.trans.insert118 = getelementptr inbounds nuw i8, ptr %.pre117, i64 176
   %.pre119 = load ptr, ptr %.phi.trans.insert118, align 8
-  %.phi.trans.insert120 = getelementptr inbounds i8, ptr %.pre117, i64 184
+  %.phi.trans.insert120 = getelementptr inbounds nuw i8, ptr %.pre117, i64 184
   %.pre121 = load ptr, ptr %.phi.trans.insert120, align 8
   br label %_ZNK12_GLOBAL__N_116AccelTableWriter10emitHashesEv.exit
 
@@ -4252,7 +4252,7 @@ _ZNK12_GLOBAL__N_122Dwarf5AccelTableWriter17emitStringOffsetsEv.exit.loopexit: ;
   %.pre122 = load ptr, ptr %215, align 8
   %.phi.trans.insert123 = getelementptr inbounds nuw i8, ptr %.pre122, i64 176
   %.pre124 = load ptr, ptr %.phi.trans.insert123, align 8
-  %.phi.trans.insert125 = getelementptr inbounds i8, ptr %.pre122, i64 184
+  %.phi.trans.insert125 = getelementptr inbounds nuw i8, ptr %.pre122, i64 184
   %.pre126 = load ptr, ptr %.phi.trans.insert125, align 8
   br label %_ZNK12_GLOBAL__N_122Dwarf5AccelTableWriter17emitStringOffsetsEv.exit
 
@@ -4465,11 +4465,11 @@ _ZNK12_GLOBAL__N_122Dwarf5AccelTableWriter11emitAbbrevsEv.exit: ; preds = %._cri
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %8)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %4, i8 0, i64 20, i1 false)
   %422 = getelementptr inbounds nuw i8, ptr %0, i64 320
-  %423 = getelementptr inbounds i8, ptr %0, i64 328
+  %423 = getelementptr inbounds nuw i8, ptr %0, i64 328
   %424 = load i32, ptr %423, align 8
   %425 = icmp eq i32 %424, 0
   %426 = load ptr, ptr %422, align 8
-  %427 = getelementptr inbounds i8, ptr %0, i64 336
+  %427 = getelementptr inbounds nuw i8, ptr %0, i64 336
   %428 = load i32, ptr %427, align 8
   %429 = zext i32 %428 to i64
   %430 = getelementptr inbounds %"class.llvm::detail::DenseSetPair", ptr %426, i64 %429
@@ -4709,14 +4709,14 @@ _ZN4llvm6detail12DenseSetImplINS_15OffsetAndUnitIDENS_8DenseMapIS2_NS0_13DenseSe
   %542 = load ptr, ptr %215, align 8
   %543 = getelementptr inbounds nuw i8, ptr %542, i64 176
   %544 = load ptr, ptr %543, align 8
-  %545 = getelementptr inbounds i8, ptr %542, i64 184
+  %545 = getelementptr inbounds nuw i8, ptr %542, i64 184
   %546 = load ptr, ptr %545, align 8
   %.not214.i = icmp eq ptr %544, %546
   br i1 %.not214.i, label %_ZN12_GLOBAL__N_122Dwarf5AccelTableWriter8emitDataEv.exit, label %.lr.ph221.i
 
 .lr.ph221.i:                                      ; preds = %._crit_edge.i34
   %547 = getelementptr inbounds nuw i8, ptr %0, i64 264
-  %548 = getelementptr inbounds i8, ptr %0, i64 272
+  %548 = getelementptr inbounds nuw i8, ptr %0, i64 272
   %549 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %550 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %551 = getelementptr inbounds nuw i8, ptr %2, i64 33
@@ -4724,7 +4724,7 @@ _ZN4llvm6detail12DenseSetImplINS_15OffsetAndUnitIDENS_8DenseMapIS2_NS0_13DenseSe
   %553 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %554 = getelementptr inbounds nuw i8, ptr %8, i64 33
   %555 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  %556 = getelementptr inbounds i8, ptr %8, i64 24
+  %556 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %.sroa.0.i.i.i.i.i.8.i.i.i.i.i.8.i.i.i.i.i.8.i.i.i.i.8.i.i.i.i.8.i.i.i.8.i.i.i.8.i.i.8.i.i.8.i.8.i.8..sroa_idx = getelementptr inbounds i8, ptr %.sroa.0.i.i.i.i.i, i64 8
   %.sroa.0.i.i.i.i.i.12.i.i.i.i.i.12.i.i.i.i.i.12.i.i.i.i.12.i.i.i.i.12.i.i.i.12.i.i.i.12.i.i.12.i.i.12.i.12.i.12..sroa_idx = getelementptr inbounds i8, ptr %.sroa.0.i.i.i.i.i, i64 12
   %.sroa.0.i.i.i.i.i.5.i.i.i.i.i.5.i.i.i.i.i.5.i.i.i.i.5.i.i.i.i.5.i.i.i.5.i.i.i.5.i.i.5.i.i.5.i.5.i.5..sroa_idx = getelementptr inbounds i8, ptr %.sroa.0.i.i.i.i.i, i64 5
@@ -4763,7 +4763,7 @@ _ZN4llvm6detail12DenseSetImplINS_15OffsetAndUnitIDENS_8DenseMapIS2_NS0_13DenseSe
   call void %569(ptr noundef nonnull align 8 dereferenceable(288) %564, ptr noundef %566, ptr null) #18
   %570 = getelementptr inbounds nuw i8, ptr %561, i64 16
   %571 = load ptr, ptr %570, align 8, !noalias !130
-  %572 = getelementptr inbounds i8, ptr %561, i64 24
+  %572 = getelementptr inbounds nuw i8, ptr %561, i64 24
   %573 = load ptr, ptr %572, align 8, !noalias !130
   %.not128189.i = icmp eq ptr %571, %573
   br i1 %.not128189.i, label %._crit_edge197.i, label %.lr.ph196.i
@@ -4790,7 +4790,7 @@ _ZN4llvm6detail12DenseSetImplINS_15OffsetAndUnitIDENS_8DenseMapIS2_NS0_13DenseSe
   %585 = load i64, ptr %548, align 8
   %586 = call { i64, i64 } %584(i64 noundef %585, ptr noundef nonnull align 8 dereferenceable(48) %574) #18
   %587 = extractvalue { i64, i64 } %586, 0
-  %588 = getelementptr inbounds i8, ptr %574, i64 32
+  %588 = getelementptr inbounds nuw i8, ptr %574, i64 32
   %589 = load i8, ptr %588, align 8, !noalias !135
   %590 = trunc i8 %589 to i1
   %591 = getelementptr inbounds nuw i8, ptr %574, i64 24
@@ -4803,7 +4803,7 @@ _ZN4llvm6detail12DenseSetImplINS_15OffsetAndUnitIDENS_8DenseMapIS2_NS0_13DenseSe
   %.sroa.051.0.i.i = select i1 %590, i64 %592, i64 undef
   %.sroa.252.0.i.i = select i1 %590, i32 %594, i32 undef
   %.sroa.453.0.i.i = select i1 %590, i8 %596, i8 undef
-  %597 = getelementptr inbounds i8, ptr %574, i64 16
+  %597 = getelementptr inbounds nuw i8, ptr %574, i64 16
   %598 = load i8, ptr %597, align 8
   %.not.i.i.i.i.i.i = icmp eq i8 %598, 1
   br i1 %.not.i.i.i.i.i.i, label %_ZNK4llvm20DWARF5AccelTableData21getDieOffsetAndUnitIDEv.exit.i.i, label %599
@@ -5605,7 +5605,7 @@ _ZN4llvm16DebugNamesAbbrevD2Ev.exit:              ; preds = %.lr.ph, %12
 ._crit_edge:                                      ; preds = %_ZN4llvm16DebugNamesAbbrevD2Ev.exit, %1
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 320
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 336
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 336
   %17 = load i32, ptr %16, align 8
   %18 = zext i32 %17 to i64
   %19 = shl nuw nsw i64 %18, 4
@@ -5870,7 +5870,7 @@ define linkonce_odr hidden void @_ZN4llvm20DWARF5AccelTableDataD0Ev(ptr noundef 
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef i64 @_ZNK4llvm20DWARF5AccelTableData5orderEv(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #0 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i8, ptr %2, align 8
   %.not.i.i.i = icmp eq i8 %3, 1
   br i1 %.not.i.i.i, label %_ZNK4llvm20DWARF5AccelTableData12getDieOffsetEv.exit, label %4

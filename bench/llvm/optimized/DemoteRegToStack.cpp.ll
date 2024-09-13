@@ -107,12 +107,12 @@ define dso_local noundef ptr @_ZN4llvm16DemoteRegToStackERNS_11InstructionEbSt8o
   store i64 %39, ptr %48, align 8, !alias.scope !7
   %49 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr @.str, ptr %49, align 8, !alias.scope !7
-  %50 = getelementptr inbounds i8, ptr %27, i64 80
+  %50 = getelementptr inbounds nuw i8, ptr %27, i64 80
   %51 = load ptr, ptr %50, align 8
   %52 = icmp eq ptr %51, null
   %53 = getelementptr inbounds i8, ptr %51, i64 -24
   %54 = select i1 %52, ptr null, ptr %53
-  %55 = getelementptr inbounds i8, ptr %54, i64 56
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 56
   %56 = load ptr, ptr %55, align 8
   store ptr %56, ptr %7, align 8
   %.sroa.2.0..sroa_idx.i178 = getelementptr inbounds i8, ptr %7, i64 8
@@ -833,12 +833,12 @@ define dso_local noundef ptr @_ZN4llvm16DemotePHIToStackEPNS_7PHINodeESt8optiona
   store i64 %45, ptr %48, align 8, !alias.scope !31
   %49 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr @.str, ptr %49, align 8, !alias.scope !31
-  %50 = getelementptr inbounds i8, ptr %37, i64 80
+  %50 = getelementptr inbounds nuw i8, ptr %37, i64 80
   %51 = load ptr, ptr %50, align 8
   %52 = icmp eq ptr %51, null
   %53 = getelementptr inbounds i8, ptr %51, i64 -24
   %54 = select i1 %52, ptr null, ptr %53
-  %55 = getelementptr inbounds i8, ptr %54, i64 56
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 56
   %56 = load ptr, ptr %55, align 8
   store ptr %56, ptr %6, align 8
   %.sroa.2.0..sroa_idx.i87 = getelementptr inbounds i8, ptr %6, i64 8

@@ -686,7 +686,7 @@ define dso_local noundef ptr @_ZN4llvm7objcarc20findSingleDependencyENS0_14Depen
   %31 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %7) #7, !noalias !10
   %32 = add i64 %31, -1
   call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %7, i64 noundef %32) #7, !noalias !10
-  %33 = getelementptr inbounds i8, ptr %.sroa.0121.0.copyload.i, i64 56
+  %33 = getelementptr inbounds nuw i8, ptr %.sroa.0121.0.copyload.i, i64 56
   %34 = load ptr, ptr %33, align 8
   br label %35
 

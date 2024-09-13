@@ -54,7 +54,7 @@ define noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__33SdfPredicateParamNam
 .lr.ph:                                           ; preds = %1, %.lr.ph
   %.010 = phi i64 [ %spec.select, %.lr.ph ], [ 0, %1 ]
   %.sroa.05.09 = phi ptr [ %9, %.lr.ph ], [ %2, %1 ]
-  %5 = getelementptr inbounds i8, ptr %.sroa.05.09, i64 40
+  %5 = getelementptr inbounds nuw i8, ptr %.sroa.05.09, i64 40
   %6 = load ptr, ptr %5, align 8
   %7 = icmp ne ptr %6, null
   %8 = zext i1 %7 to i64
@@ -122,7 +122,7 @@ define noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__33SdfPredicateP
   resume { ptr, i32 } %lpad.phi
 
 20:                                               ; preds = %18, %16
-  %21 = getelementptr inbounds i8, ptr %.sroa.013.018, i64 40
+  %21 = getelementptr inbounds nuw i8, ptr %.sroa.013.018, i64 40
   %22 = load ptr, ptr %21, align 8
   %23 = icmp eq ptr %22, null
   %.not = icmp eq ptr %.019, null

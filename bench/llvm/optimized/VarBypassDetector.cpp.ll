@@ -41,13 +41,13 @@ define dso_local void @_ZN5clang7CodeGen17VarBypassDetector4InitEPKNS_4StmtE(ptr
   %4 = alloca i32, align 4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 784
   %6 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %5) #8
-  %7 = getelementptr inbounds i8, ptr %0, i64 792
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 792
   store i32 0, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 1056
-  %9 = getelementptr inbounds i8, ptr %0, i64 1064
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 1064
   %10 = load i32, ptr %9, align 8
   %11 = icmp eq i32 %10, 0
-  %12 = getelementptr inbounds i8, ptr %0, i64 1068
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 1068
   %13 = load i32, ptr %12, align 4
   %14 = icmp eq i32 %13, 0
   %or.cond = select i1 %11, i1 %14, i1 false
@@ -55,7 +55,7 @@ define dso_local void @_ZN5clang7CodeGen17VarBypassDetector4InitEPKNS_4StmtE(ptr
 
 15:                                               ; preds = %2
   %16 = shl i32 %10, 2
-  %17 = getelementptr inbounds i8, ptr %0, i64 1072
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 1072
   %18 = load i32, ptr %17, align 8
   %19 = icmp ult i32 %16, %18
   %20 = icmp ugt i32 %18, 64
@@ -87,10 +87,10 @@ define dso_local void @_ZN5clang7CodeGen17VarBypassDetector4InitEPKNS_4StmtE(ptr
 
 _ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4StmtEjNS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_jEEEES5_jS7_SA_E5clearEv.exit: ; preds = %2, %21, %._crit_edge.i
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 1080
-  %28 = getelementptr inbounds i8, ptr %0, i64 1088
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 1088
   %29 = load i32, ptr %28, align 8
   %30 = icmp eq i32 %29, 0
-  %31 = getelementptr inbounds i8, ptr %0, i64 1092
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 1092
   %32 = load i32, ptr %31, align 4
   %33 = icmp eq i32 %32, 0
   %or.cond.i2 = select i1 %30, i1 %33, i1 false
@@ -98,7 +98,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4StmtEjNS_12DenseMapInfoIS5_vEENS_6
 
 34:                                               ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4StmtEjNS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_jEEEES5_jS7_SA_E5clearEv.exit
   %35 = shl i32 %29, 2
-  %36 = getelementptr inbounds i8, ptr %0, i64 1096
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 1096
   %37 = load i32, ptr %36, align 8
   %38 = icmp ult i32 %35, %37
   %39 = icmp ugt i32 %37, 64
@@ -289,9 +289,9 @@ _ZNK5clang8DeclStmt5declsEv.exit:                 ; preds = %43, %47
 
 .lr.ph116:                                        ; preds = %57
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 1056
-  %65 = getelementptr inbounds i8, ptr %0, i64 1072
-  %66 = getelementptr inbounds i8, ptr %0, i64 1064
-  %67 = getelementptr inbounds i8, ptr %0, i64 1068
+  %65 = getelementptr inbounds nuw i8, ptr %0, i64 1072
+  %66 = getelementptr inbounds nuw i8, ptr %0, i64 1064
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 1068
   br label %68
 
 68:                                               ; preds = %.lr.ph116, %_ZN5clang16StmtIteratorImplINS_17ConstStmtIteratorEPKNS_4StmtEEppEv.exit
@@ -736,13 +736,13 @@ define dso_local void @_ZN5clang7CodeGen17VarBypassDetector6DetectEv(ptr noundef
 
 .lr.ph209:                                        ; preds = %1
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 1056
-  %8 = getelementptr inbounds i8, ptr %0, i64 1072
-  %9 = getelementptr inbounds i8, ptr %0, i64 1064
-  %10 = getelementptr inbounds i8, ptr %0, i64 1068
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 1072
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 1064
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 1068
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 1080
-  %12 = getelementptr inbounds i8, ptr %0, i64 1096
-  %13 = getelementptr inbounds i8, ptr %0, i64 1088
-  %14 = getelementptr inbounds i8, ptr %0, i64 1092
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 1096
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 1088
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 1092
   br label %15
 
 15:                                               ; preds = %.lr.ph209, %_ZN5clang7CodeGen17VarBypassDetector6DetectEjj.exit
@@ -1976,7 +1976,7 @@ define dso_local void @_ZN5clang7CodeGen17VarBypassDetector6DetectEjj(ptr nounde
 
 .lr.ph:                                           ; preds = %3
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1080
-  %5 = getelementptr inbounds i8, ptr %0, i64 1096
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 1096
   br label %6
 
 6:                                                ; preds = %.lr.ph, %_ZN4llvm6detail12DenseSetImplIPKN5clang7VarDeclENS_8DenseMapIS5_NS0_13DenseSetEmptyENS_12DenseMapInfoIS5_vEENS0_12DenseSetPairIS5_EEEES9_E6insertERKS5_.exit

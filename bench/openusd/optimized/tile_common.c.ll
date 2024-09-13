@@ -8,11 +8,11 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define hidden void @av1_tile_init(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
-  %5 = getelementptr inbounds i8, ptr %1, i64 27456
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 27456
   %6 = sext i32 %2 to i64
   %7 = getelementptr inbounds [65 x i32], ptr %5, i64 0, i64 %6
   %8 = load i32, ptr %7, align 4
-  %9 = getelementptr inbounds i8, ptr %1, i64 25220
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 25220
   %10 = load i32, ptr %9, align 4
   %11 = shl i32 %8, %10
   %12 = add nsw i32 %2, 1
@@ -23,12 +23,12 @@ define hidden void @av1_tile_init(ptr nocapture noundef writeonly %0, ptr nocapt
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 %2, ptr %17, align 4
   store i32 %11, ptr %0, align 4
-  %18 = getelementptr inbounds i8, ptr %1, i64 1076
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 1076
   %19 = load i32, ptr %18, align 4
   %..i = tail call i32 @llvm.smin.i32(i32 %16, i32 %19)
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %..i, ptr %20, align 4
-  %21 = getelementptr inbounds i8, ptr %1, i64 27196
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 27196
   %22 = sext i32 %3 to i64
   %23 = getelementptr inbounds [65 x i32], ptr %21, i64 0, i64 %22
   %24 = load i32, ptr %23, align 4
@@ -43,7 +43,7 @@ define hidden void @av1_tile_init(ptr nocapture noundef writeonly %0, ptr nocapt
   store i32 %3, ptr %32, align 4
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %26, ptr %33, align 4
-  %34 = getelementptr inbounds i8, ptr %1, i64 1080
+  %34 = getelementptr inbounds nuw i8, ptr %1, i64 1080
   %35 = load i32, ptr %34, align 8
   %..i5 = tail call i32 @llvm.smin.i32(i32 %31, i32 %35)
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 12
@@ -53,11 +53,11 @@ define hidden void @av1_tile_init(ptr nocapture noundef writeonly %0, ptr nocapt
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define hidden void @av1_tile_set_row(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #0 {
-  %4 = getelementptr inbounds i8, ptr %1, i64 27456
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 27456
   %5 = sext i32 %2 to i64
   %6 = getelementptr inbounds [65 x i32], ptr %4, i64 0, i64 %5
   %7 = load i32, ptr %6, align 4
-  %8 = getelementptr inbounds i8, ptr %1, i64 25220
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 25220
   %9 = load i32, ptr %8, align 4
   %10 = shl i32 %7, %9
   %11 = add nsw i32 %2, 1
@@ -68,7 +68,7 @@ define hidden void @av1_tile_set_row(ptr nocapture noundef writeonly %0, ptr noc
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 %2, ptr %16, align 4
   store i32 %10, ptr %0, align 4
-  %17 = getelementptr inbounds i8, ptr %1, i64 1076
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 1076
   %18 = load i32, ptr %17, align 4
   %. = tail call i32 @llvm.smin.i32(i32 %15, i32 %18)
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -78,11 +78,11 @@ define hidden void @av1_tile_set_row(ptr nocapture noundef writeonly %0, ptr noc
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define hidden void @av1_tile_set_col(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #0 {
-  %4 = getelementptr inbounds i8, ptr %1, i64 27196
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 27196
   %5 = sext i32 %2 to i64
   %6 = getelementptr inbounds [65 x i32], ptr %4, i64 0, i64 %5
   %7 = load i32, ptr %6, align 4
-  %8 = getelementptr inbounds i8, ptr %1, i64 25220
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 25220
   %9 = load i32, ptr %8, align 4
   %10 = shl i32 %7, %9
   %11 = add nsw i32 %2, 1
@@ -94,7 +94,7 @@ define hidden void @av1_tile_set_col(ptr nocapture noundef writeonly %0, ptr noc
   store i32 %2, ptr %16, align 4
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %10, ptr %17, align 4
-  %18 = getelementptr inbounds i8, ptr %1, i64 1080
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 1080
   %19 = load i32, ptr %18, align 8
   %. = tail call i32 @llvm.smin.i32(i32 %15, i32 %19)
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 12
@@ -104,21 +104,21 @@ define hidden void @av1_tile_set_col(ptr nocapture noundef writeonly %0, ptr noc
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define hidden void @av1_get_tile_limits(ptr nocapture noundef %0) local_unnamed_addr #1 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 1080
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 1080
   %3 = load i32, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 25220
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 25220
   %5 = load i32, ptr %4, align 4
   %notmask = shl nsw i32 -1, %5
   %6 = xor i32 %notmask, -1
   %7 = add nsw i32 %3, %6
   %8 = and i32 %7, %notmask
-  %9 = getelementptr inbounds i8, ptr %0, i64 1076
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 1076
   %10 = load i32, ptr %9, align 4
   %11 = add nsw i32 %10, %6
   %12 = ashr i32 %8, %5
   %13 = add nsw i32 %5, 2
   %14 = lshr i32 4096, %13
-  %15 = getelementptr inbounds i8, ptr %0, i64 27144
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 27144
   store i32 %14, ptr %15, align 4
   %16 = shl nsw i32 %13, 1
   br label %17
@@ -133,7 +133,7 @@ define hidden void @av1_get_tile_limits(ptr nocapture noundef %0) local_unnamed_
 tile_log2.exit:                                   ; preds = %17
   %21 = and i32 %11, %notmask
   %22 = ashr i32 %21, %5
-  %23 = getelementptr inbounds i8, ptr %0, i64 27176
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 27176
   store i32 %.0.i, ptr %23, align 4
   %24 = tail call i32 @llvm.smin.i32(i32 %12, i32 64)
   br label %25
@@ -146,7 +146,7 @@ tile_log2.exit:                                   ; preds = %17
   br i1 %27, label %25, label %tile_log2.exit35, !llvm.loop !4
 
 tile_log2.exit35:                                 ; preds = %25
-  %29 = getelementptr inbounds i8, ptr %0, i64 27184
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 27184
   store i32 %.0.i34, ptr %29, align 4
   %30 = tail call i32 @llvm.smin.i32(i32 %22, i32 64)
   br label %31
@@ -160,7 +160,7 @@ tile_log2.exit35:                                 ; preds = %25
 
 tile_log2.exit37:                                 ; preds = %31
   %35 = lshr i32 9437184, %16
-  %36 = getelementptr inbounds i8, ptr %0, i64 27188
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 27188
   store i32 %.0.i36, ptr %36, align 4
   %37 = mul nsw i32 %12, %22
   br label %38
@@ -173,7 +173,7 @@ tile_log2.exit37:                                 ; preds = %31
   br i1 %40, label %38, label %tile_log2.exit39, !llvm.loop !4
 
 tile_log2.exit39:                                 ; preds = %38
-  %42 = getelementptr inbounds i8, ptr %0, i64 27192
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 27192
   %. = tail call i32 @llvm.umax.i32(i32 %.0.i38, i32 %.0.i)
   store i32 %., ptr %42, align 4
   ret void
@@ -408,7 +408,7 @@ define hidden i32 @av1_get_sb_rows_in_tile(ptr nocapture noundef readonly %0, pt
   %4 = load i32, ptr %3, align 4
   %5 = load i32, ptr %1, align 8
   %6 = sub i32 %4, %5
-  %7 = getelementptr inbounds i8, ptr %0, i64 25220
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 25220
   %8 = load i32, ptr %7, align 4
   %notmask = shl nsw i32 -1, %8
   %9 = xor i32 %notmask, -1
@@ -425,7 +425,7 @@ define hidden i32 @av1_get_sb_cols_in_tile(ptr nocapture noundef readonly %0, pt
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load i32, ptr %5, align 8
   %7 = sub i32 %4, %6
-  %8 = getelementptr inbounds i8, ptr %0, i64 25220
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 25220
   %9 = load i32, ptr %8, align 4
   %notmask = shl nsw i32 -1, %9
   %10 = xor i32 %notmask, -1
@@ -486,11 +486,11 @@ define hidden { i64, i64 } @av1_get_tile_rect(ptr nocapture noundef readonly %0,
   br i1 %.not24, label %.thread, label %33
 
 33:                                               ; preds = %27
-  %34 = getelementptr inbounds i8, ptr %1, i64 25280
+  %34 = getelementptr inbounds nuw i8, ptr %1, i64 25280
   %35 = load i32, ptr %34, align 16
   %36 = icmp ne i32 %35, 0
   %37 = zext i1 %36 to i32
-  %38 = getelementptr inbounds i8, ptr %1, i64 25284
+  %38 = getelementptr inbounds nuw i8, ptr %1, i64 25284
   %39 = load i32, ptr %38, align 4
   %40 = icmp ne i32 %39, 0
   %41 = zext i1 %40 to i32
@@ -531,7 +531,7 @@ declare void @av1_calculate_unscaled_superres_size(ptr noundef, ptr noundef, i32
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define hidden void @av1_get_uniform_tile_size(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #1 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 27136
-  %5 = getelementptr inbounds i8, ptr %0, i64 27156
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 27156
   %6 = load i32, ptr %5, align 4
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %.preheader28, label %11
@@ -542,28 +542,28 @@ define hidden void @av1_get_uniform_tile_size(ptr nocapture noundef readonly %0,
   br i1 %8, label %.lr.ph, label %.preheader
 
 .lr.ph:                                           ; preds = %.preheader28
-  %9 = getelementptr inbounds i8, ptr %0, i64 27196
-  %10 = getelementptr inbounds i8, ptr %0, i64 25216
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 27196
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 25216
   br label %21
 
 11:                                               ; preds = %3
-  %12 = getelementptr inbounds i8, ptr %0, i64 27168
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 27168
   %13 = load i32, ptr %12, align 4
   store i32 %13, ptr %1, align 4
-  %14 = getelementptr inbounds i8, ptr %0, i64 27172
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 27172
   %15 = load i32, ptr %14, align 4
   store i32 %15, ptr %2, align 4
   br label %.loopexit
 
 .preheader:                                       ; preds = %21, %.preheader28
-  %16 = getelementptr inbounds i8, ptr %0, i64 27140
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 27140
   %17 = load i32, ptr %16, align 4
   %18 = icmp sgt i32 %17, 0
   br i1 %18, label %.lr.ph31, label %.loopexit
 
 .lr.ph31:                                         ; preds = %.preheader
-  %19 = getelementptr inbounds i8, ptr %0, i64 27456
-  %20 = getelementptr inbounds i8, ptr %0, i64 25216
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 27456
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 25216
   br label %32
 
 21:                                               ; preds = %.lr.ph, %21
@@ -610,7 +610,7 @@ define hidden range(i32 0, 2) i32 @av1_is_min_tile_width_satisfied(ptr nocapture
   br i1 %4, label %16, label %5
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 27152
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 27152
   %7 = load i32, ptr %6, align 16
   %8 = shl i32 %7, 2
   %9 = getelementptr i8, ptr %0, i64 456

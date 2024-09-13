@@ -177,12 +177,12 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr nocapture noundef readnon
   %10 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, i64 noundef 24)
   call void @_ZN32pxrInternal_v0_24__pxrReserved__14WorkDispatcherC1Ev(ptr noundef nonnull align 8 dereferenceable(345) %9)
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 128
-  %12 = getelementptr inbounds i8, ptr %9, i64 136
+  %12 = getelementptr inbounds nuw i8, ptr %9, i64 136
   %13 = ptrtoint ptr %11 to i64
   %14 = getelementptr inbounds nuw i8, ptr %9, i64 272
-  %15 = getelementptr inbounds i8, ptr %9, i64 144
-  %16 = getelementptr inbounds i8, ptr %9, i64 159
-  %17 = getelementptr inbounds i8, ptr %9, i64 160
+  %15 = getelementptr inbounds nuw i8, ptr %9, i64 144
+  %16 = getelementptr inbounds nuw i8, ptr %9, i64 159
+  %17 = getelementptr inbounds nuw i8, ptr %9, i64 160
   br label %18
 
 18:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__14WorkDispatcher3RunIPFvvEEEvOT_.exit.i, %2
@@ -971,7 +971,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__11TfErrorMark7IsCleanEv.exit.i.i: ; preds 
   br i1 %12, label %_ZN3tbb6detail2d212_GLOBAL__N_119task_ptr_or_nullptrIRKN32pxrInternal_v0_24__pxrReserved__14WorkDispatcher12_InvokerTaskIPFvvEEEEEPNS0_2d14taskEOT_.exit, label %13
 
 13:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__11TfErrorMark7IsCleanEv.exit.i.i
-  %14 = getelementptr inbounds i8, ptr %0, i64 72
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %15 = load ptr, ptr %14, align 8
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__14WorkDispatcher16_TransportErrorsERKNS_11TfErrorMarkEPN3tbb6detail2d117concurrent_vectorINS_16TfErrorTransportENS6_23cache_aligned_allocatorIS8_EEEE(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef %15)
           to label %_ZN3tbb6detail2d212_GLOBAL__N_119task_ptr_or_nullptrIRKN32pxrInternal_v0_24__pxrReserved__14WorkDispatcher12_InvokerTaskIPFvvEEEEEPNS0_2d14taskEOT_.exit unwind label %16
@@ -1084,7 +1084,7 @@ define internal fastcc void @_ZL6AuthorRKN32pxrInternal_v0_24__pxrReserved__7Usd
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %18 = getelementptr inbounds nuw i8, ptr %7, i64 4
-  %19 = getelementptr inbounds i8, ptr %0, i64 20
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %21 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %22 = getelementptr inbounds nuw i8, ptr %11, i64 16
@@ -1192,7 +1192,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathC2ERKS0_.exit.i: ; preds = %40
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathC2ERKS0_.exit5.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathC2ERKS0_.exit5.i: ; preds = %63, %61
-  %74 = getelementptr inbounds i8, ptr %56, i64 20
+  %74 = getelementptr inbounds nuw i8, ptr %56, i64 20
   %75 = load i32, ptr %74, align 4, !noalias !21
   store i32 %75, ptr %18, align 4, !alias.scope !21
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7GetPathEv.exit
@@ -2951,7 +2951,7 @@ define internal fastcc void @_ZL5CheckRKN32pxrInternal_v0_24__pxrReserved__7UsdP
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %20 = getelementptr inbounds nuw i8, ptr %10, i64 4
-  %21 = getelementptr inbounds i8, ptr %0, i64 20
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %23 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %24 = getelementptr inbounds nuw i8, ptr %13, i64 8
@@ -3059,7 +3059,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathC2ERKS0_.exit.i: ; preds = %42
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathC2ERKS0_.exit5.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathC2ERKS0_.exit5.i: ; preds = %65, %63
-  %76 = getelementptr inbounds i8, ptr %58, i64 20
+  %76 = getelementptr inbounds nuw i8, ptr %58, i64 20
   %77 = load i32, ptr %76, align 4, !noalias !40
   store i32 %77, ptr %20, align 4, !alias.scope !40
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7GetPathEv.exit

@@ -267,7 +267,7 @@ define void @_ZN10open_spiel24ActionObservationHistoryC2EiRKNS_5StateE(ptr nound
 38:                                               ; preds = %29
   %39 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %40 = load ptr, ptr %39, align 8, !noalias !4
-  %41 = getelementptr inbounds i8, ptr %2, i64 16
+  %41 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %42 = load ptr, ptr %41, align 8, !noalias !4
   %.not.i.i.i.i = icmp eq ptr %42, null
   br i1 %.not.i.i.i.i, label %_ZNK10open_spiel5State7GetGameEv.exit, label %43
@@ -289,13 +289,13 @@ define void @_ZN10open_spiel24ActionObservationHistoryC2EiRKNS_5StateE(ptr nound
   br label %54
 
 _ZNK10open_spiel5State7GetGameEv.exit:            ; preds = %38
-  %51 = getelementptr inbounds i8, ptr %40, i64 118
+  %51 = getelementptr inbounds nuw i8, ptr %40, i64 118
   %52 = load i8, ptr %51, align 2
   %53 = trunc i8 %52 to i1
   br i1 %53, label %95, label %90
 
 54:                                               ; preds = %46, %49
-  %55 = getelementptr inbounds i8, ptr %40, i64 118
+  %55 = getelementptr inbounds nuw i8, ptr %40, i64 118
   %56 = load i8, ptr %55, align 2
   %57 = trunc i8 %56 to i1
   %58 = load atomic i64, ptr %44 acquire, align 8
@@ -387,7 +387,7 @@ _ZNSt10shared_ptrIKN10open_spiel4GameEED2Ev.exit: ; preds = %72, %85
 
 95:                                               ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i, %_ZNK10open_spiel5State7GetGameEv.exit, %_ZNSt10shared_ptrIKN10open_spiel4GameEED2Ev.exit
   %96 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %97 = getelementptr inbounds i8, ptr %2, i64 40
+  %97 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %98 = load ptr, ptr %97, align 8
   %99 = load ptr, ptr %96, align 8
   %100 = ptrtoint ptr %98 to i64
@@ -517,9 +517,9 @@ _ZNSt10shared_ptrIKN10open_spiel4GameEED2Ev.exit36: ; preds = %120, %138, %151, 
   store i8 0, ptr %16, align 8
   %161 = getelementptr inbounds nuw i8, ptr %16, i64 16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %161, ptr noundef nonnull align 8 dereferenceable(32) %17) #19
-  %162 = getelementptr inbounds i8, ptr %0, i64 16
+  %162 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %163 = load ptr, ptr %162, align 8
-  %164 = getelementptr inbounds i8, ptr %0, i64 24
+  %164 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %165 = load ptr, ptr %164, align 8
   %.not.i.i = icmp eq ptr %163, %165
   br i1 %.not.i.i, label %170, label %166
@@ -1080,11 +1080,11 @@ define void @_ZN10open_spiel24ActionObservationHistoryC2EiSt6vectorISt4pairIN4ab
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %15 = load ptr, ptr %2, align 8
   store ptr %15, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %18 = load ptr, ptr %17, align 8
   store ptr %18, ptr %16, align 8
-  %19 = getelementptr inbounds i8, ptr %0, i64 24
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %20 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %21 = load ptr, ptr %20, align 8
   store ptr %21, ptr %19, align 8
@@ -1321,7 +1321,7 @@ define noundef i32 @_ZNK10open_spiel24ActionObservationHistory10MoveNumberEv(ptr
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %11 = load ptr, ptr %10, align 8
   %12 = icmp eq ptr %9, %11
   br i1 %12, label %13, label %_ZNKSt6vectorISt4pairIN4absl7debian28optionalIlEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaISB_EE2atEm.exit
@@ -1410,7 +1410,7 @@ _ZN10open_spiel8internal11SpielStrOutINSt7__cxx1119basic_ostringstreamIcSt11char
 define noundef nonnull align 8 dereferenceable(32) ptr @_ZNK10open_spiel24ActionObservationHistory13ObservationAtB5cxx11Ei(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, i32 noundef %1) local_unnamed_addr #3 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = sext i32 %1 to i64
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load ptr, ptr %5, align 8
   %7 = load ptr, ptr %3, align 8
   %8 = ptrtoint ptr %6 to i64
@@ -1433,7 +1433,7 @@ _ZNKSt6vectorISt4pairIN4absl7debian28optionalIlEENSt7__cxx1112basic_stringIcSt11
 define { i8, i64 } @_ZNK10open_spiel24ActionObservationHistory8ActionAtEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, i32 noundef %1) local_unnamed_addr #3 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = sext i32 %1 to i64
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load ptr, ptr %5, align 8
   %7 = load ptr, ptr %3, align 8
   %8 = ptrtoint ptr %6 to i64
@@ -1542,7 +1542,7 @@ define noundef zeroext i1 @_ZNK10open_spiel24ActionObservationHistory36CheckStat
   %20 = load ptr, ptr %19, align 8, !noalias !18
   store ptr %20, ptr %6, align 8, !alias.scope !18
   %21 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %22 = getelementptr inbounds i8, ptr %2, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %23 = load ptr, ptr %22, align 8, !noalias !18
   store ptr %23, ptr %21, align 8, !alias.scope !18
   %.not.i.i.i.i = icmp eq ptr %23, null
@@ -1654,9 +1654,9 @@ _ZNSt10shared_ptrIKN10open_spiel4GameEED2Ev.exit: ; preds = %36, %54, %67, %_ZNS
   br i1 %.not51, label %.lr.ph, label %_ZNKSt14default_deleteIN10open_spiel5StateEEclEPS1_.exit.i
 
 .lr.ph:                                           ; preds = %_ZNSt10shared_ptrIKN10open_spiel4GameEED2Ev.exit
-  %75 = getelementptr inbounds i8, ptr %2, i64 40
+  %75 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %76 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %77 = getelementptr inbounds i8, ptr %0, i64 16
+  %77 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br label %78
 
 78:                                               ; preds = %.lr.ph, %164
@@ -1906,7 +1906,7 @@ define noundef zeroext i1 @_ZNK10open_spiel24ActionObservationHistory10IsPrefixO
   %8 = load ptr, ptr %7, align 8, !noalias !22
   store ptr %8, ptr %4, align 8, !alias.scope !22
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %10 = getelementptr inbounds i8, ptr %2, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %11 = load ptr, ptr %10, align 8, !noalias !22
   store ptr %11, ptr %9, align 8, !alias.scope !22
   %.not.i.i.i.i = icmp eq ptr %11, null
@@ -1931,7 +1931,7 @@ define noundef zeroext i1 @_ZNK10open_spiel24ActionObservationHistory10IsPrefixO
 
 _ZNK10open_spiel5State7GetGameEv.exit:            ; preds = %3, %15, %18
   %20 = phi ptr [ %8, %3 ], [ %8, %15 ], [ %.pre, %18 ]
-  %21 = getelementptr inbounds i8, ptr %20, i64 118
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 118
   %22 = load i8, ptr %21, align 2
   %23 = trunc i8 %22 to i1
   br i1 %23, label %31, label %24
@@ -2122,7 +2122,7 @@ define noundef zeroext i1 @_ZNK10open_spiel24ActionObservationHistory13IsExtensi
   %9 = load ptr, ptr %8, align 8, !noalias !25
   store ptr %9, ptr %4, align 8, !alias.scope !25
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %11 = getelementptr inbounds i8, ptr %2, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %12 = load ptr, ptr %11, align 8, !noalias !25
   store ptr %12, ptr %10, align 8, !alias.scope !25
   %.not.i.i.i.i = icmp eq ptr %12, null
@@ -2147,7 +2147,7 @@ define noundef zeroext i1 @_ZNK10open_spiel24ActionObservationHistory13IsExtensi
 
 _ZNK10open_spiel5State7GetGameEv.exit:            ; preds = %3, %16, %19
   %21 = phi ptr [ %9, %3 ], [ %9, %16 ], [ %.pre, %19 ]
-  %22 = getelementptr inbounds i8, ptr %21, i64 118
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 118
   %23 = load i8, ptr %22, align 2
   %24 = trunc i8 %23 to i1
   br i1 %24, label %32, label %25
@@ -2178,7 +2178,7 @@ _ZNK10open_spiel5State7GetGameEv.exit:            ; preds = %3, %16, %19
 32:                                               ; preds = %_ZNK10open_spiel5State7GetGameEv.exit
   %33 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %34 = load ptr, ptr %33, align 8
-  %35 = getelementptr inbounds i8, ptr %2, i64 40
+  %35 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %36 = load ptr, ptr %35, align 8
   %37 = icmp eq ptr %34, %36
   br i1 %37, label %75, label %38
@@ -2204,7 +2204,7 @@ _ZNK10open_spiel5State7GetGameEv.exit:            ; preds = %3, %16, %19
   %49 = load i32, ptr %39, align 8
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %51 = sext i32 %49 to i64
-  %52 = getelementptr inbounds i8, ptr %0, i64 16
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %53 = load ptr, ptr %52, align 8
   %54 = load ptr, ptr %50, align 8
   %55 = ptrtoint ptr %53 to i64
@@ -2400,13 +2400,13 @@ define noundef zeroext i1 @_ZNK10open_spiel24ActionObservationHistory13Correspon
 10:                                               ; preds = %2
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %14 = load ptr, ptr %13, align 8
   %15 = load ptr, ptr %11, align 8
   %16 = ptrtoint ptr %14 to i64
   %17 = ptrtoint ptr %15 to i64
   %18 = sub i64 %16, %17
-  %19 = getelementptr inbounds i8, ptr %1, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %20 = load ptr, ptr %19, align 8
   %21 = load ptr, ptr %12, align 8
   %22 = ptrtoint ptr %20 to i64
@@ -2498,14 +2498,14 @@ define noundef zeroext i1 @_ZNK10open_spiel24ActionObservationHistory10IsPrefixO
 11:                                               ; preds = %8
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %15 = load ptr, ptr %14, align 8
   %16 = load ptr, ptr %12, align 8
   %17 = ptrtoint ptr %15 to i64
   %18 = ptrtoint ptr %16 to i64
   %19 = sub i64 %17, %18
   %20 = sdiv exact i64 %19, 48
-  %21 = getelementptr inbounds i8, ptr %1, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %22 = load ptr, ptr %21, align 8
   %23 = load ptr, ptr %13, align 8
   %24 = ptrtoint ptr %22 to i64
@@ -2699,9 +2699,9 @@ define void @_ZN10open_spiel24ActionObservationHistory6ExtendEN4absl7debian28opt
   store i64 %2, ptr %.sroa.23.0..sroa_idx, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %3)
-  %7 = getelementptr inbounds i8, ptr %0, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %10 = load ptr, ptr %9, align 8
   %.not.i.i = icmp eq ptr %8, %10
   br i1 %.not.i.i, label %15, label %11
@@ -2738,7 +2738,7 @@ define void @_ZN10open_spiel24ActionObservationHistory10RemoveLastEv(ptr nocaptu
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca i32, align 4
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load ptr, ptr %7, align 8
   %9 = load ptr, ptr %6, align 8
   %10 = ptrtoint ptr %8 to i64
@@ -3007,7 +3007,7 @@ define void @_ZNK10open_spiel24ActionObservationHistory8ToStringB5cxx11Ev(ptr de
   %6 = alloca %"class.std::allocator.0", align 1
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #19
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %8 = getelementptr inbounds i8, ptr %1, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %9 = load ptr, ptr %8, align 8
   %10 = load ptr, ptr %7, align 8
   %.not41 = icmp eq ptr %9, %10
@@ -3331,7 +3331,7 @@ define void @_ZN10open_spiel24PublicObservationHistoryC2ERKNS_5StateE(ptr nounde
   %11 = load ptr, ptr %10, align 8, !noalias !32
   store ptr %11, ptr %3, align 8, !alias.scope !32
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %13 = getelementptr inbounds i8, ptr %1, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %14 = load ptr, ptr %13, align 8, !noalias !32
   store ptr %14, ptr %12, align 8, !alias.scope !32
   %.not.i.i.i.i = icmp eq ptr %14, null
@@ -3462,7 +3462,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
 
 _ZNSt10shared_ptrIKN10open_spiel4GameEED2Ev.exit: ; preds = %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN10open_spiel13GameParameterESt4lessIS5_ESaISt4pairIKS5_S7_EEED2Ev.exit, %55, %68, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i
   %73 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %74 = getelementptr inbounds i8, ptr %1, i64 40
+  %74 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %75 = load ptr, ptr %74, align 8
   %76 = load ptr, ptr %73, align 8
   %77 = ptrtoint ptr %75 to i64
@@ -4280,7 +4280,7 @@ define noundef zeroext i1 @_ZNK10open_spiel24PublicObservationHistory36CheckStat
   %19 = load ptr, ptr %18, align 8, !noalias !41
   store ptr %19, ptr %5, align 8, !alias.scope !41
   %20 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %21 = getelementptr inbounds i8, ptr %1, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %22 = load ptr, ptr %21, align 8, !noalias !41
   store ptr %22, ptr %20, align 8, !alias.scope !41
   %.not.i.i.i.i = icmp eq ptr %22, null
@@ -4392,7 +4392,7 @@ _ZNSt10shared_ptrIKN10open_spiel4GameEED2Ev.exit: ; preds = %35, %53, %66, %_ZNS
   br i1 %.not52, label %.lr.ph, label %_ZNKSt14default_deleteIN10open_spiel5StateEEclEPS1_.exit.i
 
 .lr.ph:                                           ; preds = %_ZNSt10shared_ptrIKN10open_spiel4GameEED2Ev.exit
-  %74 = getelementptr inbounds i8, ptr %1, i64 40
+  %74 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %75 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %76 = getelementptr inbounds nuw i8, ptr %0, i64 24
   br label %77
@@ -5099,7 +5099,7 @@ define linkonce_odr void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_tra
   tail call void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N10open_spiel13GameParameterEESt10_Select1stISA_ESt4lessIS5_ESaISA_EE8_M_eraseEPSt13_Rb_tree_nodeISA_E(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %4)
   %5 = getelementptr inbounds nuw i8, ptr %.07, i64 16
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %.07, i64 120
+  %7 = getelementptr inbounds nuw i8, ptr %.07, i64 120
   %8 = getelementptr inbounds i8, ptr %.07, i64 136
   %9 = load ptr, ptr %8, align 8
   invoke void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N10open_spiel13GameParameterEESt10_Select1stISA_ESt4lessIS5_ESaISA_EE8_M_eraseEPSt13_Rb_tree_nodeISA_E(ptr noundef nonnull align 8 dereferenceable(48) %7, ptr noundef %9)
@@ -5114,7 +5114,7 @@ define linkonce_odr void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_tra
 
 _ZNSt15__new_allocatorISt13_Rb_tree_nodeISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN10open_spiel13GameParameterEEEE7destroyISB_EEvPT_.exit: ; preds = %.lr.ph
   %13 = getelementptr inbounds nuw i8, ptr %.07, i64 32
-  %14 = getelementptr inbounds i8, ptr %.07, i64 80
+  %14 = getelementptr inbounds nuw i8, ptr %.07, i64 80
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %14) #19
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %13) #19
   tail call void @_ZdlPvm(ptr noundef nonnull %.07, i64 noundef 176) #21

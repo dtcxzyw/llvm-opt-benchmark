@@ -65,10 +65,10 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__17TraceReporterBaseC2ESt10uniq
   store ptr null, ptr %1, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr inttoptr (i64 1 to ptr), ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 48
-  %9 = getelementptr inbounds i8, ptr %0, i64 56
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store ptr %9, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 80
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 80
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %10, i8 0, i64 17, i1 false)
   br label %.lr.ph.i.i.i.i
 
@@ -94,12 +94,12 @@ define noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__17TraceReporter
   %3 = alloca %"class.std::vector", align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, i8 0, i64 24, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %5 = getelementptr inbounds i8, ptr %0, i64 88
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %6 = load atomic i64, ptr %5 acquire, align 8, !noalias !6
-  %7 = getelementptr inbounds i8, ptr %0, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %8 = load atomic i64, ptr %7 acquire, align 8, !noalias !6
   %.0.i.i.i.i.i.i = inttoptr i64 %8 to ptr
-  %9 = getelementptr inbounds i8, ptr %0, i64 56
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %10 = icmp eq ptr %9, %.0.i.i.i.i.i.i
   %11 = select i1 %10, i64 3, i64 64
   %12 = load ptr, ptr %4, align 8, !noalias !6
@@ -514,13 +514,13 @@ declare void @llvm.trap() #6
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN32pxrInternal_v0_24__pxrReserved__17TraceReporterBase6_ClearEv(ptr nocapture noundef nonnull align 8 dereferenceable(104) %0) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 88
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %3 = load atomic i64, ptr %2 monotonic, align 8
   %.not.i.i = icmp eq i64 %3, 0
   br i1 %.not.i.i, label %_ZN3tbb6detail2d117concurrent_vectorISt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__15TraceCollectionEENS1_23cache_aligned_allocatorIS6_EEE5clearEv.exit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %0, i64 48
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
   br label %5
 
 5:                                                ; preds = %_ZNSt16allocator_traitsIN3tbb6detail2d123cache_aligned_allocatorISt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__15TraceCollectionEEEEE7destroyIS7_EEvRS8_PT_.exit.i.i, %.lr.ph.i.i
@@ -651,8 +651,8 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__17TraceReporterBase7_UpdateEv(
 
 .lr.ph:                                           ; preds = %5
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %13 = getelementptr inbounds i8, ptr %0, i64 88
-  %14 = getelementptr inbounds i8, ptr %0, i64 80
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 80
   br label %15
 
 15:                                               ; preds = %.lr.ph, %_ZN3tbb6detail2d117concurrent_vectorISt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__15TraceCollectionEENS1_23cache_aligned_allocatorIS6_EEE9push_backERKS6_.exit

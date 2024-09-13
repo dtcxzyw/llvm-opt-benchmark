@@ -77,7 +77,7 @@ _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12PcpPrimIndexEEC2ERKS2_.ex
   store i64 0, ptr %23, align 8
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 88
   store ptr null, ptr %25, align 8
-  %26 = getelementptr inbounds i8, ptr %0, i64 32
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %24, ptr noundef nonnull align 8 dereferenceable(16) %26, i64 16, i1 false)
   %27 = load ptr, ptr %1, align 8
   %28 = invoke { ptr, i64 } @_ZNK32pxrInternal_v0_24__pxrReserved__12PcpPrimIndex21GetNodeIteratorAtNodeERKNS_10PcpNodeRefE(ptr noundef nonnull align 8 dereferenceable(40) %27, ptr noundef nonnull align 8 dereferenceable(16) %2)
@@ -90,7 +90,7 @@ _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12PcpPrimIndexEEC2ERKS2_.ex
   store i64 %31, ptr %22, align 8
   %32 = load ptr, ptr %26, align 8
   %33 = icmp ne ptr %30, %32
-  %34 = getelementptr inbounds i8, ptr %0, i64 40
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %35 = load i64, ptr %34, align 8
   %36 = icmp ne i64 %31, %35
   %.not3.i = or i1 %33, %36
@@ -382,14 +382,14 @@ _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12PcpPrimIndexEEC2ERKS2_.ex
 37:                                               ; preds = %34
   %38 = extractvalue { ptr, i64 } %36, 0
   %39 = extractvalue { ptr, i64 } %36, 1
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 32
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 32
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
-  %.phi.trans.insert20 = getelementptr inbounds i8, ptr %0, i64 40
+  %.phi.trans.insert20 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %.pre21 = load i64, ptr %.phi.trans.insert20, align 8
   br label %42
 
 40:                                               ; preds = %23
-  %41 = getelementptr inbounds i8, ptr %0, i64 32
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %.sroa.03.0.copyload = load ptr, ptr %41, align 8
   %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 40
   %.sroa.3.0.copyload = load i64, ptr %.sroa.3.0..sroa_idx, align 8
@@ -402,9 +402,9 @@ _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12PcpPrimIndexEEC2ERKS2_.ex
   %.sroa.3.0 = phi i64 [ %39, %37 ], [ %.sroa.3.0.copyload, %40 ]
   store ptr %.sroa.03.0, ptr %27, align 8
   store i64 %.sroa.3.0, ptr %28, align 8
-  %45 = getelementptr inbounds i8, ptr %0, i64 32
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %46 = icmp ne ptr %.sroa.03.0, %44
-  %47 = getelementptr inbounds i8, ptr %0, i64 40
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %48 = icmp ne i64 %.sroa.3.0, %43
   %.not3.i = or i1 %46, %48
   br i1 %.not3.i, label %49, label %55
@@ -461,13 +461,13 @@ _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12PcpPrimIndexEEC2ERKS2_.ex
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define { ptr, i64 } @_ZNK32pxrInternal_v0_24__pxrReserved__16UsdResolveTarget12GetStartNodeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0) local_unnamed_addr #4 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %3 = getelementptr inbounds i8, ptr %0, i64 32
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %2, align 8
   %5 = load ptr, ptr %3, align 8
   %6 = icmp ne ptr %4, %5
-  %7 = getelementptr inbounds i8, ptr %0, i64 56
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %8 = load i64, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 40
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %10 = load i64, ptr %9, align 8
   %11 = icmp ne i64 %8, %10
   %.not3.i = or i1 %6, %11
@@ -481,13 +481,13 @@ define { ptr, i64 } @_ZNK32pxrInternal_v0_24__pxrReserved__16UsdResolveTarget12G
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define { ptr, i64 } @_ZNK32pxrInternal_v0_24__pxrReserved__16UsdResolveTarget11GetStopNodeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0) local_unnamed_addr #4 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %3 = getelementptr inbounds i8, ptr %0, i64 32
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %2, align 8
   %5 = load ptr, ptr %3, align 8
   %6 = icmp ne ptr %4, %5
-  %7 = getelementptr inbounds i8, ptr %0, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %8 = load i64, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 40
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %10 = load i64, ptr %9, align 8
   %11 = icmp ne i64 %8, %10
   %.not3.i = or i1 %6, %11
@@ -502,13 +502,13 @@ define { ptr, i64 } @_ZNK32pxrInternal_v0_24__pxrReserved__16UsdResolveTarget11G
 define void @_ZNK32pxrInternal_v0_24__pxrReserved__16UsdResolveTarget13GetStartLayerEv(ptr dead_on_unwind noalias nocapture writable sret(%"class.pxrInternal_v0_24__pxrReserved__::TfWeakPtr") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfRefPtr.3", align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %5 = getelementptr inbounds i8, ptr %1, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %6 = load ptr, ptr %4, align 8
   %7 = load ptr, ptr %5, align 8
   %8 = icmp ne ptr %6, %7
-  %9 = getelementptr inbounds i8, ptr %1, i64 56
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %10 = load i64, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %1, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %12 = load i64, ptr %11, align 8
   %13 = icmp ne i64 %10, %12
   %.not3.i = or i1 %8, %13
@@ -762,13 +762,13 @@ _ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_8SdfLayerEE10_RemoveRefEPKNS_
 define void @_ZNK32pxrInternal_v0_24__pxrReserved__16UsdResolveTarget12GetStopLayerEv(ptr dead_on_unwind noalias nocapture writable sret(%"class.pxrInternal_v0_24__pxrReserved__::TfWeakPtr") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfRefPtr.3", align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  %5 = getelementptr inbounds i8, ptr %1, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %6 = load ptr, ptr %4, align 8
   %7 = load ptr, ptr %5, align 8
   %8 = icmp ne ptr %6, %7
-  %9 = getelementptr inbounds i8, ptr %1, i64 80
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %10 = load i64, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %1, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %12 = load i64, ptr %11, align 8
   %13 = icmp ne i64 %10, %12
   %.not3.i = or i1 %8, %13

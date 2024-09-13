@@ -62,7 +62,7 @@ define hidden void @_ZN4llvm12AIXException22emitExceptionInfoTableEPKNS_8MCSymbo
   %11 = load ptr, ptr %6, align 8
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 56
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 892
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 892
   %15 = load i32, ptr %14, align 4
   %16 = and i32 %15, 4
   %.not = icmp eq i32 %16, 0

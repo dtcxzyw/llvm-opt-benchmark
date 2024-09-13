@@ -403,7 +403,7 @@ _ZN4llvm5ErrorD2Ev.exit40:                        ; preds = %63
   %71 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm15SmallVectorImplINS_6object11DataRefImplEE12emplace_backIJRS2_EEES5_DpOT_(ptr noundef nonnull align 8 dereferenceable(16) %42, ptr noundef nonnull align 8 dereferenceable(8) %19)
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %73 = load ptr, ptr %72, align 8
-  %74 = getelementptr inbounds i8, ptr %0, i64 24
+  %74 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %75 = load i64, ptr %74, align 8
   %76 = getelementptr inbounds i8, ptr %73, i64 %75
   store ptr %73, ptr %20, align 8
@@ -825,7 +825,7 @@ define dso_local void @_ZNK4llvm6object14GOFFObjectFile13getSymbolNameENS0_11Dat
   store i64 %2, ptr %4, align 8
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 2144
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %1, i64 2160
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 2160
   %11 = load i32, ptr %10, align 8
   %12 = icmp eq i32 %11, 0
   %13 = trunc i64 %2 to i32
@@ -894,7 +894,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIjSt4pairImSt10unique_ptrIA_cSt14default_dele
 _ZN4llvm12DenseMapBaseINS_8DenseMapIjSt4pairImSt10unique_ptrIA_cSt14default_deleteIS4_EEENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjS8_EEEEjS8_SA_SD_EixERKj.exit: ; preds = %36, %14, %_ZN4llvm12DenseMapBaseINS_8DenseMapIjSt4pairImSt10unique_ptrIA_cSt14default_deleteIS4_EEENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjS8_EEEEjS8_SA_SD_E15LookupBucketForIjEEbRKT_RPSD_.exit.i.i
   %.0.i.i = phi ptr [ %33, %_ZN4llvm12DenseMapBaseINS_8DenseMapIjSt4pairImSt10unique_ptrIA_cSt14default_deleteIS4_EEENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjS8_EEEEjS8_SA_SD_E15LookupBucketForIjEEbRKT_RPSD_.exit.i.i ], [ %18, %14 ], [ %42, %36 ]
   %45 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 8
-  %46 = getelementptr inbounds i8, ptr %.0.i.i, i64 16
+  %46 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 16
   %47 = load ptr, ptr %46, align 8
   %48 = load i64, ptr %45, align 8
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -1001,7 +1001,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIjSt4pairImSt10unique_ptrIA_cSt14default_dele
   %.0.i.i16 = phi ptr [ %94, %_ZN4llvm12DenseMapBaseINS_8DenseMapIjSt4pairImSt10unique_ptrIA_cSt14default_deleteIS4_EEENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjS8_EEEEjS8_SA_SD_E15LookupBucketForIjEEbRKT_RPSD_.exit.i.i18 ], [ %77, %72 ], [ %91, %85 ]
   %97 = getelementptr inbounds nuw i8, ptr %.0.i.i16, i64 8
   store i64 %66, ptr %97, align 8
-  %98 = getelementptr inbounds i8, ptr %.0.i.i16, i64 16
+  %98 = getelementptr inbounds nuw i8, ptr %.0.i.i16, i64 16
   %99 = load ptr, ptr %98, align 8
   store ptr %67, ptr %98, align 8
   %.not.i.i.i.i.i = icmp eq ptr %99, null
@@ -1965,7 +1965,7 @@ define dso_local void @_ZNK4llvm6object14GOFFObjectFile18getSectionContentsENS0_
   store i64 %2, ptr %4, align 8
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 4232
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %1, i64 4248
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 4248
   %11 = load i32, ptr %10, align 8
   %12 = icmp eq i32 %11, 0
   %13 = trunc i64 %2 to i32
@@ -2695,7 +2695,7 @@ define dso_local void @_ZN4llvm6object9ENDRecord7getDataEPKhRNS_11SmallStringILj
 define linkonce_odr hidden void @_ZN4llvm6object14GOFFObjectFileD2Ev(ptr noundef nonnull align 8 dereferenceable(4256) %0) unnamed_addr #0 comdat align 2 {
   store ptr getelementptr inbounds inrange(-16, 456) (i8, ptr @_ZTVN4llvm6object14GOFFObjectFileE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4232
-  %3 = getelementptr inbounds i8, ptr %0, i64 4248
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 4248
   %4 = load i32, ptr %3, align 8
   %5 = icmp eq i32 %4, 0
   %.pre1.i = load ptr, ptr %2, align 8
@@ -2753,7 +2753,7 @@ _ZN4llvm8DenseMapIjNS_11SmallVectorIhLj40EEENS_12DenseMapInfoIjvEENS_6detail12De
 
 _ZN4llvm11SmallVectorINS_6object11DataRefImplELj256EED2Ev.exit: ; preds = %_ZN4llvm8DenseMapIjNS_11SmallVectorIhLj40EEENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjS2_EEED2Ev.exit, %26
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 2144
-  %28 = getelementptr inbounds i8, ptr %0, i64 2160
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 2160
   %29 = load i32, ptr %28, align 8
   %30 = icmp eq i32 %29, 0
   %.pre1.i1 = load ptr, ptr %27, align 8
@@ -2771,7 +2771,7 @@ _ZN4llvm11SmallVectorINS_6object11DataRefImplELj256EED2Ev.exit: ; preds = %_ZN4l
   br i1 %switch.i.i5, label %37, label %34
 
 34:                                               ; preds = %.lr.ph.i.i3
-  %35 = getelementptr inbounds i8, ptr %.010.i.i4, i64 16
+  %35 = getelementptr inbounds nuw i8, ptr %.010.i.i4, i64 16
   %36 = load ptr, ptr %35, align 8
   %.not.i.i.i.i = icmp eq ptr %36, null
   br i1 %.not.i.i.i.i, label %_ZNSt4pairImSt10unique_ptrIA_cSt14default_deleteIS1_EEED2Ev.exit.i.i, label %_ZNKSt14default_deleteIA_cEclIcEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i.i.i
@@ -3572,8 +3572,8 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIjSt4pairImSt10unique_ptrIA_cSt14default_dele
   %38 = getelementptr inbounds nuw i8, ptr %.020, i64 8
   %39 = load i64, ptr %38, align 8
   store i64 %39, ptr %37, align 8
-  %40 = getelementptr inbounds i8, ptr %.sink.i.i, i64 16
-  %41 = getelementptr inbounds i8, ptr %.020, i64 16
+  %40 = getelementptr inbounds nuw i8, ptr %.sink.i.i, i64 16
+  %41 = getelementptr inbounds nuw i8, ptr %.020, i64 16
   %42 = load i64, ptr %41, align 8
   store i64 %42, ptr %40, align 8
   store ptr null, ptr %41, align 8

@@ -333,7 +333,7 @@ $_ZNK4llvm12MCAsmBackend29generateCompactUnwindEncodingEPKNS_16MCDwarfFrameInfoE
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local noundef nonnull ptr @_ZN4llvm25createAArch64leAsmBackendERKNS_6TargetERKNS_15MCSubtargetInfoERKNS_14MCRegisterInfoERKNS_15MCTargetOptionsE(ptr nocapture noundef nonnull readnone align 8 dereferenceable(248) %0, ptr noundef nonnull align 8 dereferenceable(288) %1, ptr noundef nonnull align 8 dereferenceable(224) %2, ptr nocapture noundef nonnull readnone align 8 dereferenceable(201) %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 60
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 60
   %7 = load i32, ptr %6, align 4
   switch i32 %7, label %19 [
     i32 5, label %8
@@ -346,8 +346,8 @@ define dso_local noundef nonnull ptr @_ZN4llvm25createAArch64leAsmBackendERKNS_6
   store ptr getelementptr inbounds inrange(-16, 232) (i8, ptr @_ZTVN12_GLOBAL__N_117AArch64AsmBackendE, i64 16), ptr %9, align 8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull align 8 dereferenceable(32) %5) #17
-  %11 = getelementptr inbounds i8, ptr %9, i64 48
-  %12 = getelementptr inbounds i8, ptr %1, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %9, i64 48
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 40
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 dereferenceable(24) %12, i64 24, i1 false)
   store ptr getelementptr inbounds inrange(-16, 232) (i8, ptr @_ZTVN12_GLOBAL__N_123DarwinAArch64AsmBackendE, i64 16), ptr %9, align 8
   %13 = getelementptr inbounds nuw i8, ptr %9, i64 72
@@ -360,14 +360,14 @@ define dso_local noundef nonnull ptr @_ZN4llvm25createAArch64leAsmBackendERKNS_6
   store ptr getelementptr inbounds inrange(-16, 232) (i8, ptr @_ZTVN12_GLOBAL__N_117AArch64AsmBackendE, i64 16), ptr %15, align 8
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 16
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %16, ptr noundef nonnull align 8 dereferenceable(32) %5) #17
-  %17 = getelementptr inbounds i8, ptr %15, i64 48
-  %18 = getelementptr inbounds i8, ptr %1, i64 40
+  %17 = getelementptr inbounds nuw i8, ptr %15, i64 48
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 40
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %17, ptr noundef nonnull align 8 dereferenceable(24) %18, i64 24, i1 false)
   store ptr getelementptr inbounds inrange(-16, 232) (i8, ptr @_ZTVN12_GLOBAL__N_121COFFAArch64AsmBackendE, i64 16), ptr %15, align 8
   br label %36
 
 19:                                               ; preds = %4
-  %20 = getelementptr inbounds i8, ptr %1, i64 52
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 52
   %21 = load i32, ptr %20, align 4
   switch i32 %21, label %25 [
     i32 33, label %_ZN4llvm23MCELFObjectTargetWriter8getOSABIENS_6Triple6OSTypeE.exit
@@ -391,7 +391,7 @@ define dso_local noundef nonnull ptr @_ZN4llvm25createAArch64leAsmBackendERKNS_6
 
 _ZN4llvm23MCELFObjectTargetWriter8getOSABIENS_6Triple6OSTypeE.exit: ; preds = %19, %22, %23, %24, %25
   %.0.i = phi i8 [ 0, %25 ], [ 12, %24 ], [ 6, %23 ], [ 9, %22 ], [ -1, %19 ]
-  %26 = getelementptr inbounds i8, ptr %1, i64 56
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %27 = load i32, ptr %26, align 8
   %28 = icmp eq i32 %27, 10
   %29 = tail call noalias noundef nonnull dereferenceable(80) ptr @_Znwm(i64 noundef 80) #16
@@ -400,8 +400,8 @@ _ZN4llvm23MCELFObjectTargetWriter8getOSABIENS_6Triple6OSTypeE.exit: ; preds = %1
   store ptr getelementptr inbounds inrange(-16, 232) (i8, ptr @_ZTVN12_GLOBAL__N_117AArch64AsmBackendE, i64 16), ptr %29, align 8
   %31 = getelementptr inbounds nuw i8, ptr %29, i64 16
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %31, ptr noundef nonnull align 8 dereferenceable(32) %5) #17
-  %32 = getelementptr inbounds i8, ptr %29, i64 48
-  %33 = getelementptr inbounds i8, ptr %1, i64 40
+  %32 = getelementptr inbounds nuw i8, ptr %29, i64 48
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 40
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %32, ptr noundef nonnull align 8 dereferenceable(24) %33, i64 24, i1 false)
   store ptr getelementptr inbounds inrange(-16, 232) (i8, ptr @_ZTVN12_GLOBAL__N_120ELFAArch64AsmBackendE, i64 16), ptr %29, align 8
   %34 = getelementptr inbounds nuw i8, ptr %29, i64 72
@@ -420,7 +420,7 @@ declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local noundef nonnull ptr @_ZN4llvm25createAArch64beAsmBackendERKNS_6TargetERKNS_15MCSubtargetInfoERKNS_14MCRegisterInfoERKNS_15MCTargetOptionsE(ptr nocapture noundef nonnull readnone align 8 dereferenceable(248) %0, ptr noundef nonnull align 8 dereferenceable(288) %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(224) %2, ptr nocapture noundef nonnull readnone align 8 dereferenceable(201) %3) local_unnamed_addr #0 {
-  %5 = getelementptr inbounds i8, ptr %1, i64 52
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 52
   %6 = load i32, ptr %5, align 4
   switch i32 %6, label %10 [
     i32 33, label %_ZN4llvm23MCELFObjectTargetWriter8getOSABIENS_6Triple6OSTypeE.exit
@@ -445,7 +445,7 @@ define dso_local noundef nonnull ptr @_ZN4llvm25createAArch64beAsmBackendERKNS_6
 _ZN4llvm23MCELFObjectTargetWriter8getOSABIENS_6Triple6OSTypeE.exit: ; preds = %4, %7, %8, %9, %10
   %.0.i = phi i8 [ 0, %10 ], [ 12, %9 ], [ 6, %8 ], [ 9, %7 ], [ -1, %4 ]
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %12 = getelementptr inbounds i8, ptr %1, i64 56
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %13 = load i32, ptr %12, align 8
   %14 = icmp eq i32 %13, 10
   %15 = tail call noalias noundef nonnull dereferenceable(80) ptr @_Znwm(i64 noundef 80) #16
@@ -454,8 +454,8 @@ _ZN4llvm23MCELFObjectTargetWriter8getOSABIENS_6Triple6OSTypeE.exit: ; preds = %4
   store ptr getelementptr inbounds inrange(-16, 232) (i8, ptr @_ZTVN12_GLOBAL__N_117AArch64AsmBackendE, i64 16), ptr %15, align 8
   %17 = getelementptr inbounds nuw i8, ptr %15, i64 16
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef nonnull align 8 dereferenceable(32) %11) #17
-  %18 = getelementptr inbounds i8, ptr %15, i64 48
-  %19 = getelementptr inbounds i8, ptr %1, i64 40
+  %18 = getelementptr inbounds nuw i8, ptr %15, i64 48
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 40
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %18, ptr noundef nonnull align 8 dereferenceable(24) %19, i64 24, i1 false)
   store ptr getelementptr inbounds inrange(-16, 232) (i8, ptr @_ZTVN12_GLOBAL__N_120ELFAArch64AsmBackendE, i64 16), ptr %15, align 8
   %20 = getelementptr inbounds nuw i8, ptr %15, i64 72
@@ -531,7 +531,7 @@ define internal noundef i32 @_ZNK12_GLOBAL__N_117AArch64AsmBackend16getNumFixupK
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
 define internal noundef i64 @_ZNK12_GLOBAL__N_117AArch64AsmBackend12getFixupKindEN4llvm9StringRefE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %0, ptr readonly %1, i64 %2) unnamed_addr #3 align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 68
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 68
   %5 = load i32, ptr %4, align 4
   %6 = icmp eq i32 %5, 3
   br i1 %6, label %7, label %_ZN4llvm12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit1867.thread
@@ -2767,7 +2767,7 @@ define linkonce_odr hidden void @_ZN4llvm12MCAsmBackend19handleAssemblerFlagENS_
 define internal noundef i64 @_ZNK12_GLOBAL__N_123DarwinAArch64AsmBackend29generateCompactUnwindEncodingEPKN4llvm16MCDwarfFrameInfoEPKNS1_9MCContextE(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr nocapture noundef readonly %1, ptr noundef %2) unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 40
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %7 = load ptr, ptr %6, align 8
   %8 = ptrtoint ptr %7 to i64
   %9 = ptrtoint ptr %5 to i64
@@ -2839,7 +2839,7 @@ define internal noundef i64 @_ZNK12_GLOBAL__N_123DarwinAArch64AsmBackend29genera
   br i1 %.not125, label %36, label %_ZN4llvmL15getDRegFromBRegEj.exit170.thread.thread.thread.thread
 
 36:                                               ; preds = %32
-  %.0.in.i144 = getelementptr inbounds i8, ptr %33, i64 16
+  %.0.in.i144 = getelementptr inbounds nuw i8, ptr %33, i64 16
   %.0.i145 = load i64, ptr %.0.in.i144, align 8
   %37 = add nsw i64 %.0.i145, 8
   %.0.in.i146 = getelementptr i8, ptr %21, i64 120
@@ -2870,7 +2870,7 @@ define internal noundef i64 @_ZNK12_GLOBAL__N_123DarwinAArch64AsmBackend29genera
   br i1 %.not121, label %48, label %_ZN4llvmL15getDRegFromBRegEj.exit170.thread.thread.thread.thread
 
 48:                                               ; preds = %47
-  %.0.in.i154 = getelementptr inbounds i8, ptr %21, i64 16
+  %.0.in.i154 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %.0.i155 = load i64, ptr %.0.in.i154, align 8
   %49 = tail call noundef i64 @llvm.abs.i64(i64 %.0.i155, i1 true)
   br label %127
@@ -2890,7 +2890,7 @@ define internal noundef i64 @_ZNK12_GLOBAL__N_123DarwinAArch64AsmBackend29genera
   br i1 %.not117, label %58, label %56
 
 56:                                               ; preds = %55
-  %.0.in.i158 = getelementptr inbounds i8, ptr %21, i64 16
+  %.0.in.i158 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %.0.i159 = load i64, ptr %.0.in.i158, align 8
   %57 = add nsw i64 %.0111203, -8
   %.not118 = icmp eq i64 %.0.i159, %57
@@ -2904,13 +2904,13 @@ define internal noundef i64 @_ZNK12_GLOBAL__N_123DarwinAArch64AsmBackend29genera
   br i1 %.not119, label %62, label %_ZN4llvmL15getDRegFromBRegEj.exit170.thread.thread.thread.thread
 
 62:                                               ; preds = %58
-  %.0.in.i160 = getelementptr inbounds i8, ptr %21, i64 16
+  %.0.in.i160 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %.0.i161 = load i64, ptr %.0.in.i160, align 8
   %63 = load ptr, ptr %19, align 8
   %.0.in.i162 = getelementptr inbounds nuw i8, ptr %59, i64 8
   %.0.i163 = load i32, ptr %.0.in.i162, align 8
   %64 = tail call i64 @_ZNK4llvm14MCRegisterInfo13getLLVMRegNumEjb(ptr noundef nonnull align 8 dereferenceable(224) %63, i32 noundef %.0.i163, i1 noundef zeroext true) #17
-  %.0.in.i164 = getelementptr inbounds i8, ptr %59, i64 16
+  %.0.in.i164 = getelementptr inbounds nuw i8, ptr %59, i64 16
   %.0.i165 = load i64, ptr %.0.in.i164, align 8
   %65 = add nsw i64 %.0.i161, -8
   %.not120 = icmp eq i64 %.0.i165, %65

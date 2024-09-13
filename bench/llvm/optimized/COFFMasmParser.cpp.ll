@@ -647,7 +647,7 @@ _ZN4llvmplERKNS_5TwineES2_.exit.i:                ; preds = %32
   store ptr @.str.43, ptr %10, align 8, !alias.scope !6
   %39 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store ptr %1, ptr %39, align 8, !alias.scope !6
-  %40 = getelementptr inbounds i8, ptr %10, i64 24
+  %40 = getelementptr inbounds nuw i8, ptr %10, i64 24
   store i64 %2, ptr %40, align 8, !alias.scope !6
   store ptr %10, ptr %9, align 8, !alias.scope !9
   %41 = getelementptr inbounds nuw i8, ptr %9, i64 16
@@ -1223,7 +1223,7 @@ _ZN4llvmplERKNS_5TwineES2_.exit.i:                ; preds = %_ZNK4llvm9StringRef
   %78 = load ptr, ptr %2, align 8, !noalias !17
   %79 = getelementptr inbounds nuw i8, ptr %13, i64 16
   store ptr %78, ptr %79, align 8, !alias.scope !17
-  %80 = getelementptr inbounds i8, ptr %13, i64 24
+  %80 = getelementptr inbounds nuw i8, ptr %13, i64 24
   store i64 %75, ptr %80, align 8, !alias.scope !17
   store ptr %13, ptr %12, align 8, !alias.scope !20
   %81 = getelementptr inbounds nuw i8, ptr %12, i64 16
@@ -1342,7 +1342,7 @@ _ZN4llvmplERKNS_5TwineES2_.exit.i:                ; preds = %_ZNK4llvm9StringRef
   store ptr %48, ptr %49, align 8, !alias.scope !25
   %50 = getelementptr inbounds i8, ptr %44, i64 -8
   %51 = load i64, ptr %50, align 8, !noalias !25
-  %52 = getelementptr inbounds i8, ptr %9, i64 24
+  %52 = getelementptr inbounds nuw i8, ptr %9, i64 24
   store i64 %51, ptr %52, align 8, !alias.scope !25
   store ptr %9, ptr %8, align 8, !alias.scope !28
   %53 = getelementptr inbounds nuw i8, ptr %8, i64 16
@@ -1772,7 +1772,7 @@ define internal noundef zeroext i1 @_ZN4llvm20MCAsmParserExtension15HandleDirect
   br label %_ZNK4llvm8AsmToken13getIdentifierEv.exit.i
 
 46:                                               ; preds = %39
-  %47 = getelementptr inbounds i8, ptr %41, i64 16
+  %47 = getelementptr inbounds nuw i8, ptr %41, i64 16
   %48 = load i64, ptr %47, align 8
   %49 = add i64 %48, -1
   %50 = icmp ne i64 %48, 0
@@ -1825,7 +1825,7 @@ _ZNK4llvm9StringRef11starts_withES0_.exit.i:      ; preds = %_ZN4llvmeqENS_9Stri
   store ptr @.str.75, ptr %7, align 8, !alias.scope !33
   %69 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr %65, ptr %69, align 8, !alias.scope !33
-  %70 = getelementptr inbounds i8, ptr %7, i64 24
+  %70 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store i64 %66, ptr %70, align 8, !alias.scope !33
   %71 = call { ptr, i64 } @_ZNK4llvm5Twine11toStringRefERNS_15SmallVectorImplIcEE(ptr noundef nonnull align 8 dereferenceable(34) %7, ptr noundef nonnull align 8 dereferenceable(24) %6)
   %72 = extractvalue { ptr, i64 } %71, 0
@@ -1852,7 +1852,7 @@ _ZNK4llvm9StringRef11starts_withES0_.exit.thread80.i: ; preds = %.thread.i, %_ZN
 .lr.ph.i:                                         ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit.thread80.i
   %82 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %19, i64 8
-  %83 = getelementptr inbounds i8, ptr %19, i64 20
+  %83 = getelementptr inbounds nuw i8, ptr %19, i64 20
   %84 = getelementptr inbounds nuw i8, ptr %19, i64 16
   %85 = getelementptr inbounds nuw i8, ptr %15, i64 32
   %86 = getelementptr inbounds nuw i8, ptr %15, i64 33
@@ -1886,7 +1886,7 @@ _ZNK4llvm9StringRef11starts_withES0_.exit.thread80.i: ; preds = %.thread.i, %_ZN
   %100 = load ptr, ptr %24, align 8
   %101 = call noundef nonnull align 8 dereferenceable(40) ptr @_ZNK4llvm11MCAsmParser6getTokEv(ptr noundef nonnull align 8 dereferenceable(34) %100) #16
   %102 = getelementptr inbounds nuw i8, ptr %101, i64 8
-  %103 = getelementptr inbounds i8, ptr %101, i64 16
+  %103 = getelementptr inbounds nuw i8, ptr %101, i64 16
   %104 = load i64, ptr %103, align 8
   %105 = add i64 %104, -1
   %106 = icmp ne i64 %104, 0
@@ -2112,7 +2112,7 @@ _ZNK4llvm9StringRef18equals_insensitiveES0_.exit71._ZNK4llvm9StringRef18equals_i
   %199 = load ptr, ptr %24, align 8
   %200 = call noundef nonnull align 8 dereferenceable(40) ptr @_ZNK4llvm11MCAsmParser6getTokEv(ptr noundef nonnull align 8 dereferenceable(34) %199) #16
   %201 = getelementptr inbounds nuw i8, ptr %200, i64 8
-  %202 = getelementptr inbounds i8, ptr %200, i64 16
+  %202 = getelementptr inbounds nuw i8, ptr %200, i64 16
   %203 = load i64, ptr %202, align 8
   %204 = add i64 %203, -1
   %205 = icmp ne i64 %203, 0
@@ -2352,7 +2352,7 @@ _ZN4llvm12StringSwitchIjjE9CaseLowerENS_13StringLiteralEj.exit96.i: ; preds = %2
   %288 = getelementptr inbounds nuw i8, ptr %21, i64 16
   store ptr %287, ptr %288, align 8, !alias.scope !36
   %289 = load i64, ptr %82, align 8, !noalias !36
-  %290 = getelementptr inbounds i8, ptr %21, i64 24
+  %290 = getelementptr inbounds nuw i8, ptr %21, i64 24
   store i64 %289, ptr %290, align 8, !alias.scope !36
   %291 = getelementptr inbounds nuw i8, ptr %22, i64 32
   %292 = getelementptr inbounds nuw i8, ptr %22, i64 33
@@ -2398,7 +2398,7 @@ _ZN4llvm12StringSwitchIjjE9CaseLowerENS_13StringLiteralEj.exit96.i: ; preds = %2
   store ptr %.sroa.070.1.lcssa.i, ptr %23, align 8
   %.sroa.2.0..sroa_idx.i97.i = getelementptr inbounds i8, ptr %23, i64 8
   store i64 %.sroa.4.1.lcssa.i, ptr %.sroa.2.0..sroa_idx.i97.i, align 8
-  %306 = getelementptr inbounds i8, ptr %23, i64 20
+  %306 = getelementptr inbounds nuw i8, ptr %23, i64 20
   store i8 0, ptr %306, align 4
   %307 = getelementptr inbounds nuw i8, ptr %23, i64 16
   %.not82.i = icmp eq i64 %.sroa.4.1.lcssa.i, 4

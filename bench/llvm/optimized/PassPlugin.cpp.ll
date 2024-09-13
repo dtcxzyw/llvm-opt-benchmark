@@ -194,7 +194,7 @@ _ZN4llvm5ErrorD2Ev.exit166:                       ; preds = %56
   br label %105
 
 84:                                               ; preds = %56
-  %85 = getelementptr inbounds i8, ptr %8, i64 64
+  %85 = getelementptr inbounds nuw i8, ptr %8, i64 64
   %86 = load ptr, ptr %85, align 8
   %.not8 = icmp eq ptr %86, null
   br i1 %.not8, label %_ZN4llvm5ErrorD2Ev.exit200, label %100

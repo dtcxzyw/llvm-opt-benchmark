@@ -294,7 +294,7 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64CondBrTuning20runO
   %26 = load ptr, ptr %25, align 8
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store ptr %26, ptr %27, align 8
-  %28 = getelementptr inbounds i8, ptr %1, i64 328
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 328
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 320
   %.sroa.042.057 = load ptr, ptr %28, align 8
   %.not4958 = icmp eq ptr %.sroa.042.057, %29

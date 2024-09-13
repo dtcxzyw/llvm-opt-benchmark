@@ -29,12 +29,12 @@ define hidden void @_ZN4ncnn12Gemm_x86_avxC2Ev(ptr noundef nonnull align 8 deref
   tail call void @_ZN4ncnn4GemmC2Ev(ptr noundef nonnull align 8 dereferenceable(496) %0)
   store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTVN4ncnn12Gemm_x86_avxE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 504
-  %3 = getelementptr inbounds i8, ptr %0, i64 536
-  %4 = getelementptr inbounds i8, ptr %0, i64 568
-  %5 = getelementptr inbounds i8, ptr %0, i64 608
-  %6 = getelementptr inbounds i8, ptr %0, i64 640
-  %7 = getelementptr inbounds i8, ptr %0, i64 680
-  %8 = getelementptr inbounds i8, ptr %0, i64 712
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 536
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 568
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 608
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 640
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 680
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 712
   store i64 0, ptr %8, align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 11
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %2, i8 0, i64 28, i1 false)
@@ -57,7 +57,7 @@ declare i32 @__gxx_personality_v0(...)
 define linkonce_odr hidden void @_ZN4ncnn4GemmD2Ev(ptr noundef nonnull align 8 dereferenceable(496) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTVN4ncnn4GemmE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 424
-  %3 = getelementptr inbounds i8, ptr %0, i64 432
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 432
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %18, label %5
@@ -68,7 +68,7 @@ define linkonce_odr hidden void @_ZN4ncnn4GemmD2Ev(ptr noundef nonnull align 8 d
   br i1 %7, label %8, label %18
 
 8:                                                ; preds = %5
-  %9 = getelementptr inbounds i8, ptr %0, i64 456
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 456
   %10 = load ptr, ptr %9, align 8
   %.not26 = icmp eq ptr %10, null
   %11 = load ptr, ptr %2, align 8
@@ -90,11 +90,11 @@ define linkonce_odr hidden void @_ZN4ncnn4GemmD2Ev(ptr noundef nonnull align 8 d
   br label %18
 
 18:                                               ; preds = %12, %17, %16, %5, %1
-  %19 = getelementptr inbounds i8, ptr %0, i64 464
-  %20 = getelementptr inbounds i8, ptr %0, i64 488
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 464
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 488
   store i64 0, ptr %20, align 8
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 352
-  %22 = getelementptr inbounds i8, ptr %0, i64 360
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 360
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %2, i8 0, i64 28, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %19, i8 0, i64 20, i1 false)
   %23 = load ptr, ptr %22, align 8
@@ -114,7 +114,7 @@ define linkonce_odr hidden void @_ZN4ncnn4GemmD2Ev(ptr noundef nonnull align 8 d
   br i1 %29, label %30, label %40
 
 30:                                               ; preds = %27
-  %31 = getelementptr inbounds i8, ptr %0, i64 384
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 384
   %32 = load ptr, ptr %31, align 8
   %.not29 = icmp eq ptr %32, null
   %33 = load ptr, ptr %21, align 8
@@ -136,11 +136,11 @@ define linkonce_odr hidden void @_ZN4ncnn4GemmD2Ev(ptr noundef nonnull align 8 d
   br label %40
 
 40:                                               ; preds = %34, %39, %38, %27, %18
-  %41 = getelementptr inbounds i8, ptr %0, i64 392
-  %42 = getelementptr inbounds i8, ptr %0, i64 416
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 392
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 416
   store i64 0, ptr %42, align 8
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 280
-  %44 = getelementptr inbounds i8, ptr %0, i64 288
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 288
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %21, i8 0, i64 28, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %41, i8 0, i64 20, i1 false)
   %45 = load ptr, ptr %44, align 8
@@ -160,7 +160,7 @@ define linkonce_odr hidden void @_ZN4ncnn4GemmD2Ev(ptr noundef nonnull align 8 d
   br i1 %51, label %52, label %62
 
 52:                                               ; preds = %49
-  %53 = getelementptr inbounds i8, ptr %0, i64 312
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %54 = load ptr, ptr %53, align 8
   %.not32 = icmp eq ptr %54, null
   %55 = load ptr, ptr %43, align 8
@@ -182,8 +182,8 @@ define linkonce_odr hidden void @_ZN4ncnn4GemmD2Ev(ptr noundef nonnull align 8 d
   br label %62
 
 62:                                               ; preds = %56, %61, %60, %49, %40
-  %63 = getelementptr inbounds i8, ptr %0, i64 320
-  %64 = getelementptr inbounds i8, ptr %0, i64 344
+  %63 = getelementptr inbounds nuw i8, ptr %0, i64 320
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 344
   store i64 0, ptr %64, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %43, i8 0, i64 28, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %63, i8 0, i64 20, i1 false)
@@ -242,9 +242,9 @@ define hidden noundef range(i32 -100, 1) i32 @_ZN4ncnn12Gemm_x86_avx15create_pip
   br i1 %36, label %.critedge, label %37
 
 37:                                               ; preds = %12
-  %38 = getelementptr inbounds i8, ptr %0, i64 568
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 568
   %39 = load i64, ptr %38, align 8
-  %40 = getelementptr inbounds i8, ptr %0, i64 560
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 560
   %41 = load i32, ptr %40, align 8
   %42 = sext i32 %41 to i64
   %43 = mul i64 %39, %42
@@ -257,8 +257,8 @@ define hidden noundef range(i32 -100, 1) i32 @_ZN4ncnn12Gemm_x86_avx15create_pip
 
 .lr.ph430:                                        ; preds = %.preheader
   %46 = icmp sgt i32 %16, 0
-  %47 = getelementptr inbounds i8, ptr %0, i64 548
-  %48 = getelementptr inbounds i8, ptr %0, i64 520
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 548
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 520
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 280
   br i1 %46, label %.lr.ph.us.preheader, label %._crit_edge431
@@ -324,7 +324,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZN4ncnn12Gemm_x86_avx15create_pip
 
 80:                                               ; preds = %._crit_edge431
   %81 = getelementptr inbounds nuw i8, ptr %0, i64 280
-  %82 = getelementptr inbounds i8, ptr %0, i64 288
+  %82 = getelementptr inbounds nuw i8, ptr %0, i64 288
   %83 = load ptr, ptr %82, align 8
   %.not343 = icmp eq ptr %83, null
   br i1 %.not343, label %97, label %84
@@ -335,7 +335,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZN4ncnn12Gemm_x86_avx15create_pip
   br i1 %86, label %87, label %97
 
 87:                                               ; preds = %84
-  %88 = getelementptr inbounds i8, ptr %0, i64 312
+  %88 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %89 = load ptr, ptr %88, align 8
   %.not344 = icmp eq ptr %89, null
   %90 = load ptr, ptr %81, align 8
@@ -357,8 +357,8 @@ define hidden noundef range(i32 -100, 1) i32 @_ZN4ncnn12Gemm_x86_avx15create_pip
   br label %97
 
 97:                                               ; preds = %91, %96, %95, %84, %80
-  %98 = getelementptr inbounds i8, ptr %0, i64 320
-  %99 = getelementptr inbounds i8, ptr %0, i64 344
+  %98 = getelementptr inbounds nuw i8, ptr %0, i64 320
+  %99 = getelementptr inbounds nuw i8, ptr %0, i64 344
   store i64 0, ptr %99, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %81, i8 0, i64 28, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %98, i8 0, i64 20, i1 false)
@@ -400,9 +400,9 @@ define hidden noundef range(i32 -100, 1) i32 @_ZN4ncnn12Gemm_x86_avx15create_pip
   br i1 %127, label %.critedge, label %128
 
 128:                                              ; preds = %103
-  %129 = getelementptr inbounds i8, ptr %0, i64 640
+  %129 = getelementptr inbounds nuw i8, ptr %0, i64 640
   %130 = load i64, ptr %129, align 8
-  %131 = getelementptr inbounds i8, ptr %0, i64 632
+  %131 = getelementptr inbounds nuw i8, ptr %0, i64 632
   %132 = load i32, ptr %131, align 8
   %133 = sext i32 %132 to i64
   %134 = mul i64 %130, %133
@@ -415,8 +415,8 @@ define hidden noundef range(i32 -100, 1) i32 @_ZN4ncnn12Gemm_x86_avx15create_pip
   br i1 %138, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %136
-  %139 = getelementptr inbounds i8, ptr %0, i64 620
-  %140 = getelementptr inbounds i8, ptr %0, i64 592
+  %139 = getelementptr inbounds nuw i8, ptr %0, i64 620
+  %140 = getelementptr inbounds nuw i8, ptr %0, i64 592
   %141 = getelementptr inbounds nuw i8, ptr %0, i64 220
   %142 = getelementptr inbounds nuw i8, ptr %0, i64 352
   br label %143
@@ -468,7 +468,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZN4ncnn12Gemm_x86_avx15create_pip
 
 170:                                              ; preds = %._crit_edge
   %171 = getelementptr inbounds nuw i8, ptr %0, i64 352
-  %172 = getelementptr inbounds i8, ptr %0, i64 360
+  %172 = getelementptr inbounds nuw i8, ptr %0, i64 360
   %173 = load ptr, ptr %172, align 8
   %.not347 = icmp eq ptr %173, null
   br i1 %.not347, label %187, label %174
@@ -479,7 +479,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZN4ncnn12Gemm_x86_avx15create_pip
   br i1 %176, label %177, label %187
 
 177:                                              ; preds = %174
-  %178 = getelementptr inbounds i8, ptr %0, i64 384
+  %178 = getelementptr inbounds nuw i8, ptr %0, i64 384
   %179 = load ptr, ptr %178, align 8
   %.not348 = icmp eq ptr %179, null
   %180 = load ptr, ptr %171, align 8
@@ -501,8 +501,8 @@ define hidden noundef range(i32 -100, 1) i32 @_ZN4ncnn12Gemm_x86_avx15create_pip
   br label %187
 
 187:                                              ; preds = %181, %186, %185, %174, %170
-  %188 = getelementptr inbounds i8, ptr %0, i64 392
-  %189 = getelementptr inbounds i8, ptr %0, i64 416
+  %188 = getelementptr inbounds nuw i8, ptr %0, i64 392
+  %189 = getelementptr inbounds nuw i8, ptr %0, i64 416
   store i64 0, ptr %189, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %171, i8 0, i64 28, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %188, i8 0, i64 20, i1 false)
@@ -523,7 +523,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZN4ncnn12Gemm_x86_avx15create_pip
 196:                                              ; preds = %193
   %197 = getelementptr inbounds nuw i8, ptr %0, i64 424
   %198 = getelementptr inbounds nuw i8, ptr %0, i64 648
-  %199 = getelementptr inbounds i8, ptr %0, i64 432
+  %199 = getelementptr inbounds nuw i8, ptr %0, i64 432
   %200 = load ptr, ptr %199, align 8
   %.not352 = icmp eq ptr %200, null
   br i1 %.not352, label %203, label %201
@@ -533,7 +533,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZN4ncnn12Gemm_x86_avx15create_pip
   br label %203
 
 203:                                              ; preds = %201, %196
-  %204 = getelementptr inbounds i8, ptr %0, i64 656
+  %204 = getelementptr inbounds nuw i8, ptr %0, i64 656
   %205 = load ptr, ptr %204, align 8
   %.not353 = icmp eq ptr %205, null
   br i1 %.not353, label %219, label %206
@@ -544,7 +544,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZN4ncnn12Gemm_x86_avx15create_pip
   br i1 %208, label %209, label %219
 
 209:                                              ; preds = %206
-  %210 = getelementptr inbounds i8, ptr %0, i64 680
+  %210 = getelementptr inbounds nuw i8, ptr %0, i64 680
   %211 = load ptr, ptr %210, align 8
   %.not354 = icmp eq ptr %211, null
   %212 = load ptr, ptr %198, align 8
@@ -566,44 +566,44 @@ define hidden noundef range(i32 -100, 1) i32 @_ZN4ncnn12Gemm_x86_avx15create_pip
   br label %219
 
 219:                                              ; preds = %213, %218, %217, %206, %203
-  %220 = getelementptr inbounds i8, ptr %0, i64 664
-  %221 = getelementptr inbounds i8, ptr %0, i64 672
-  %222 = getelementptr inbounds i8, ptr %0, i64 688
-  %223 = getelementptr inbounds i8, ptr %0, i64 692
-  %224 = getelementptr inbounds i8, ptr %0, i64 696
-  %225 = getelementptr inbounds i8, ptr %0, i64 700
-  %226 = getelementptr inbounds i8, ptr %0, i64 704
-  %227 = getelementptr inbounds i8, ptr %0, i64 712
+  %220 = getelementptr inbounds nuw i8, ptr %0, i64 664
+  %221 = getelementptr inbounds nuw i8, ptr %0, i64 672
+  %222 = getelementptr inbounds nuw i8, ptr %0, i64 688
+  %223 = getelementptr inbounds nuw i8, ptr %0, i64 692
+  %224 = getelementptr inbounds nuw i8, ptr %0, i64 696
+  %225 = getelementptr inbounds nuw i8, ptr %0, i64 700
+  %226 = getelementptr inbounds nuw i8, ptr %0, i64 704
+  %227 = getelementptr inbounds nuw i8, ptr %0, i64 712
   %228 = load ptr, ptr %197, align 8
   store ptr %228, ptr %198, align 8
   %229 = load ptr, ptr %199, align 8
   store ptr %229, ptr %204, align 8
-  %230 = getelementptr inbounds i8, ptr %0, i64 440
+  %230 = getelementptr inbounds nuw i8, ptr %0, i64 440
   %231 = load i64, ptr %230, align 8
   store i64 %231, ptr %220, align 8
-  %232 = getelementptr inbounds i8, ptr %0, i64 448
+  %232 = getelementptr inbounds nuw i8, ptr %0, i64 448
   %233 = load i32, ptr %232, align 8
   store i32 %233, ptr %221, align 8
-  %234 = getelementptr inbounds i8, ptr %0, i64 456
+  %234 = getelementptr inbounds nuw i8, ptr %0, i64 456
   %235 = load ptr, ptr %234, align 8
-  %236 = getelementptr inbounds i8, ptr %0, i64 680
+  %236 = getelementptr inbounds nuw i8, ptr %0, i64 680
   store ptr %235, ptr %236, align 8
-  %237 = getelementptr inbounds i8, ptr %0, i64 464
+  %237 = getelementptr inbounds nuw i8, ptr %0, i64 464
   %238 = load i32, ptr %237, align 8
   store i32 %238, ptr %222, align 8
-  %239 = getelementptr inbounds i8, ptr %0, i64 468
+  %239 = getelementptr inbounds nuw i8, ptr %0, i64 468
   %240 = load i32, ptr %239, align 4
   store i32 %240, ptr %223, align 4
-  %241 = getelementptr inbounds i8, ptr %0, i64 472
+  %241 = getelementptr inbounds nuw i8, ptr %0, i64 472
   %242 = load i32, ptr %241, align 8
   store i32 %242, ptr %224, align 8
-  %243 = getelementptr inbounds i8, ptr %0, i64 476
+  %243 = getelementptr inbounds nuw i8, ptr %0, i64 476
   %244 = load i32, ptr %243, align 4
   store i32 %244, ptr %225, align 4
-  %245 = getelementptr inbounds i8, ptr %0, i64 480
+  %245 = getelementptr inbounds nuw i8, ptr %0, i64 480
   %246 = load i32, ptr %245, align 8
   store i32 %246, ptr %226, align 8
-  %247 = getelementptr inbounds i8, ptr %0, i64 488
+  %247 = getelementptr inbounds nuw i8, ptr %0, i64 488
   %248 = load i64, ptr %247, align 8
   store i64 %248, ptr %227, align 8
   %249 = load i32, ptr %194, align 8
@@ -4939,7 +4939,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn12Gemm_x86_avx7forwardERK
   br i1 %119, label %157, label %120
 
 120:                                              ; preds = %117
-  %121 = getelementptr inbounds i8, ptr %0, i64 656
+  %121 = getelementptr inbounds nuw i8, ptr %0, i64 656
   %122 = load ptr, ptr %121, align 8
   %.not547 = icmp eq ptr %122, null
   br i1 %.not547, label %.thread894, label %123
@@ -4981,31 +4981,31 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn12Gemm_x86_avx7forwardERK
   store ptr %137, ptr %29, align 8
   %138 = load ptr, ptr %121, align 8
   store ptr %138, ptr %105, align 8
-  %139 = getelementptr inbounds i8, ptr %0, i64 664
+  %139 = getelementptr inbounds nuw i8, ptr %0, i64 664
   %140 = load i64, ptr %139, align 8
   store i64 %140, ptr %106, align 8
-  %141 = getelementptr inbounds i8, ptr %0, i64 672
+  %141 = getelementptr inbounds nuw i8, ptr %0, i64 672
   %142 = load i32, ptr %141, align 8
   store i32 %142, ptr %107, align 8
-  %143 = getelementptr inbounds i8, ptr %0, i64 680
+  %143 = getelementptr inbounds nuw i8, ptr %0, i64 680
   %144 = load ptr, ptr %143, align 8
   store ptr %144, ptr %108, align 8
-  %145 = getelementptr inbounds i8, ptr %0, i64 688
+  %145 = getelementptr inbounds nuw i8, ptr %0, i64 688
   %146 = load i32, ptr %145, align 8
   store i32 %146, ptr %109, align 8
-  %147 = getelementptr inbounds i8, ptr %0, i64 692
+  %147 = getelementptr inbounds nuw i8, ptr %0, i64 692
   %148 = load i32, ptr %147, align 4
   store i32 %148, ptr %110, align 4
-  %149 = getelementptr inbounds i8, ptr %0, i64 696
+  %149 = getelementptr inbounds nuw i8, ptr %0, i64 696
   %150 = load i32, ptr %149, align 8
   store i32 %150, ptr %111, align 8
-  %151 = getelementptr inbounds i8, ptr %0, i64 700
+  %151 = getelementptr inbounds nuw i8, ptr %0, i64 700
   %152 = load i32, ptr %151, align 4
   store i32 %152, ptr %112, align 4
-  %153 = getelementptr inbounds i8, ptr %0, i64 704
+  %153 = getelementptr inbounds nuw i8, ptr %0, i64 704
   %154 = load i32, ptr %153, align 8
   store i32 %154, ptr %113, align 8
-  %155 = getelementptr inbounds i8, ptr %0, i64 712
+  %155 = getelementptr inbounds nuw i8, ptr %0, i64 712
   %156 = load i64, ptr %155, align 8
   store i64 %156, ptr %114, align 8
   br label %157
@@ -6092,12 +6092,12 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn12Gemm_x86_avx7forwardERK
   %676 = getelementptr inbounds nuw i8, ptr %28, i64 64
   %677 = icmp sgt i32 %621, 0
   %678 = icmp sgt i32 %623, 0
-  %679 = getelementptr inbounds i8, ptr %0, i64 548
-  %680 = getelementptr inbounds i8, ptr %0, i64 568
-  %681 = getelementptr inbounds i8, ptr %0, i64 520
-  %682 = getelementptr inbounds i8, ptr %0, i64 620
-  %683 = getelementptr inbounds i8, ptr %0, i64 640
-  %684 = getelementptr inbounds i8, ptr %0, i64 592
+  %679 = getelementptr inbounds nuw i8, ptr %0, i64 548
+  %680 = getelementptr inbounds nuw i8, ptr %0, i64 568
+  %681 = getelementptr inbounds nuw i8, ptr %0, i64 520
+  %682 = getelementptr inbounds nuw i8, ptr %0, i64 620
+  %683 = getelementptr inbounds nuw i8, ptr %0, i64 640
+  %684 = getelementptr inbounds nuw i8, ptr %0, i64 592
   %not..i = xor i1 %648, true
   %685 = zext nneg i32 %634 to i64
   br label %686
@@ -6628,9 +6628,9 @@ _ZN4ncnnL14gemm_AT_BT_x86ERKNS_3MatES2_S2_RS0_iiiiiiiiiRKNS_6OptionE.exit: ; pre
   %958 = getelementptr inbounds nuw i8, ptr %23, i64 64
   %959 = icmp sgt i32 %847, 0
   %960 = icmp sgt i32 %825, 0
-  %961 = getelementptr inbounds i8, ptr %0, i64 548
-  %962 = getelementptr inbounds i8, ptr %0, i64 568
-  %963 = getelementptr inbounds i8, ptr %0, i64 520
+  %961 = getelementptr inbounds nuw i8, ptr %0, i64 548
+  %962 = getelementptr inbounds nuw i8, ptr %0, i64 568
+  %963 = getelementptr inbounds nuw i8, ptr %0, i64 520
   %not..i589 = xor i1 %932, true
   %964 = zext nneg i32 %851 to i64
   br label %965
@@ -7182,9 +7182,9 @@ _ZN4ncnnL11gemm_AT_x86ERKNS_3MatES2_S2_RS0_iiiiiiiiiRKNS_6OptionE.exit: ; preds 
   %1227 = getelementptr inbounds nuw i8, ptr %17, i64 56
   %1228 = getelementptr inbounds nuw i8, ptr %17, i64 64
   %1229 = icmp sgt i32 %1135, 0
-  %1230 = getelementptr inbounds i8, ptr %0, i64 620
-  %1231 = getelementptr inbounds i8, ptr %0, i64 640
-  %1232 = getelementptr inbounds i8, ptr %0, i64 592
+  %1230 = getelementptr inbounds nuw i8, ptr %0, i64 620
+  %1231 = getelementptr inbounds nuw i8, ptr %0, i64 640
+  %1232 = getelementptr inbounds nuw i8, ptr %0, i64 592
   %not..i607 = xor i1 %1198, true
   br label %1233
 
@@ -8671,7 +8671,7 @@ declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readon
 define linkonce_odr hidden void @_ZN4ncnn12Gemm_x86_avxD2Ev(ptr noundef nonnull align 8 dereferenceable(720) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTVN4ncnn12Gemm_x86_avxE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 648
-  %3 = getelementptr inbounds i8, ptr %0, i64 656
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 656
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %18, label %5
@@ -8682,7 +8682,7 @@ define linkonce_odr hidden void @_ZN4ncnn12Gemm_x86_avxD2Ev(ptr noundef nonnull 
   br i1 %7, label %8, label %18
 
 8:                                                ; preds = %5
-  %9 = getelementptr inbounds i8, ptr %0, i64 680
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 680
   %10 = load ptr, ptr %9, align 8
   %.not26 = icmp eq ptr %10, null
   %11 = load ptr, ptr %2, align 8
@@ -8704,11 +8704,11 @@ define linkonce_odr hidden void @_ZN4ncnn12Gemm_x86_avxD2Ev(ptr noundef nonnull 
   br label %18
 
 18:                                               ; preds = %12, %17, %16, %5, %1
-  %19 = getelementptr inbounds i8, ptr %0, i64 688
-  %20 = getelementptr inbounds i8, ptr %0, i64 712
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 688
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 712
   store i64 0, ptr %20, align 8
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 576
-  %22 = getelementptr inbounds i8, ptr %0, i64 584
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 584
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %2, i8 0, i64 28, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %19, i8 0, i64 20, i1 false)
   %23 = load ptr, ptr %22, align 8
@@ -8728,7 +8728,7 @@ define linkonce_odr hidden void @_ZN4ncnn12Gemm_x86_avxD2Ev(ptr noundef nonnull 
   br i1 %29, label %30, label %40
 
 30:                                               ; preds = %27
-  %31 = getelementptr inbounds i8, ptr %0, i64 608
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 608
   %32 = load ptr, ptr %31, align 8
   %.not29 = icmp eq ptr %32, null
   %33 = load ptr, ptr %21, align 8
@@ -8750,11 +8750,11 @@ define linkonce_odr hidden void @_ZN4ncnn12Gemm_x86_avxD2Ev(ptr noundef nonnull 
   br label %40
 
 40:                                               ; preds = %34, %39, %38, %27, %18
-  %41 = getelementptr inbounds i8, ptr %0, i64 616
-  %42 = getelementptr inbounds i8, ptr %0, i64 640
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 616
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 640
   store i64 0, ptr %42, align 8
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 504
-  %44 = getelementptr inbounds i8, ptr %0, i64 512
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 512
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %21, i8 0, i64 28, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %41, i8 0, i64 20, i1 false)
   %45 = load ptr, ptr %44, align 8
@@ -8774,7 +8774,7 @@ define linkonce_odr hidden void @_ZN4ncnn12Gemm_x86_avxD2Ev(ptr noundef nonnull 
   br i1 %51, label %52, label %62
 
 52:                                               ; preds = %49
-  %53 = getelementptr inbounds i8, ptr %0, i64 536
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 536
   %54 = load ptr, ptr %53, align 8
   %.not32 = icmp eq ptr %54, null
   %55 = load ptr, ptr %43, align 8
@@ -8796,8 +8796,8 @@ define linkonce_odr hidden void @_ZN4ncnn12Gemm_x86_avxD2Ev(ptr noundef nonnull 
   br label %62
 
 62:                                               ; preds = %56, %61, %60, %49, %40
-  %63 = getelementptr inbounds i8, ptr %0, i64 544
-  %64 = getelementptr inbounds i8, ptr %0, i64 568
+  %63 = getelementptr inbounds nuw i8, ptr %0, i64 544
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 568
   store i64 0, ptr %64, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %43, i8 0, i64 28, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %63, i8 0, i64 20, i1 false)

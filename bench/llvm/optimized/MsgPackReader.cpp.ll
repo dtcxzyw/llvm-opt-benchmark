@@ -1345,7 +1345,7 @@ _ZN4llvm5ErrorD2Ev.exit10:                        ; preds = %19
   br label %44
 
 37:                                               ; preds = %19
-  %38 = getelementptr inbounds i8, ptr %2, i64 16
+  %38 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr %25, ptr %38, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 24
   store i64 %23, ptr %.sroa.2.0..sroa_idx, align 8

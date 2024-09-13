@@ -1924,7 +1924,7 @@ define internal void @_ZN12_GLOBAL__N_124PrintPPOutputPPCallbacks11FileChangedEN
 50:                                               ; preds = %45, %35, %30
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 520
   %52 = call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %51) #14
-  %53 = getelementptr inbounds i8, ptr %0, i64 528
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 528
   store i64 0, ptr %53, align 8
   %54 = load ptr, ptr %7, align 8
   %.not.i13 = icmp eq ptr %54, null
@@ -2172,7 +2172,7 @@ _ZN4llvm11raw_ostreamlsENS_9StringRefE.exit:      ; preds = %54, %56, %57
   br label %_ZN4llvm11raw_ostreamlsEc.exit27
 
 _ZN4llvm11raw_ostreamlsEc.exit27:                 ; preds = %64, %66
-  %69 = getelementptr inbounds i8, ptr %6, i64 120
+  %69 = getelementptr inbounds nuw i8, ptr %6, i64 120
   %70 = load i8, ptr %69, align 8
   %71 = trunc i8 %70 to i1
   br i1 %71, label %72, label %113
@@ -2201,7 +2201,7 @@ _ZN4llvm11raw_ostreamlsEc.exit27:                 ; preds = %64, %66
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit30
 
 _ZN4llvm11raw_ostreamlsEPKc.exit30:               ; preds = %82, %84
-  %87 = getelementptr inbounds i8, ptr %6, i64 56
+  %87 = getelementptr inbounds nuw i8, ptr %6, i64 56
   %88 = load ptr, ptr %87, align 8
   %89 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %87) #14
   call fastcc void @"_ZZN12_GLOBAL__N_124PrintPPOutputPPCallbacks14EmbedDirectiveEN5clang14SourceLocationEN4llvm9StringRefEbNS1_20CustomizableOptionalINS1_12FileEntryRefEEERKNS1_24LexEmbedParametersResultEENK3$_0clENS3_8ArrayRefINS1_5TokenEEE"(ptr nonnull %0, ptr %88, i64 %89)
@@ -2309,7 +2309,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit36:               ; preds = %127, %129
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit39
 
 _ZN4llvm11raw_ostreamlsEPKc.exit39:               ; preds = %142, %140, %113
-  %145 = getelementptr inbounds i8, ptr %6, i64 40
+  %145 = getelementptr inbounds nuw i8, ptr %6, i64 40
   %146 = load i8, ptr %145, align 8
   %147 = trunc i8 %146 to i1
   br i1 %147, label %148, label %_ZN4llvm11raw_ostreamlsEPKc.exit45
@@ -2339,7 +2339,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit39:               ; preds = %142, %140, %113
 
 _ZN4llvm11raw_ostreamlsEPKc.exit42:               ; preds = %158, %160
   %.0.i.i41 = phi ptr [ %159, %158 ], [ %149, %160 ]
-  %163 = getelementptr inbounds i8, ptr %6, i64 32
+  %163 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %164 = load i64, ptr %163, align 8
   %165 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %.0.i.i41, i64 noundef %164) #14
   %166 = getelementptr inbounds nuw i8, ptr %165, i64 24
@@ -2361,7 +2361,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit42:               ; preds = %158, %160
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit45
 
 _ZN4llvm11raw_ostreamlsEPKc.exit45:               ; preds = %173, %171, %_ZN4llvm11raw_ostreamlsEPKc.exit39
-  %176 = getelementptr inbounds i8, ptr %6, i64 200
+  %176 = getelementptr inbounds nuw i8, ptr %6, i64 200
   %177 = load i8, ptr %176, align 8
   %178 = trunc i8 %177 to i1
   br i1 %178, label %179, label %213
@@ -2390,7 +2390,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit45:               ; preds = %173, %171, %_ZN4llv
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit48
 
 _ZN4llvm11raw_ostreamlsEPKc.exit48:               ; preds = %189, %191
-  %194 = getelementptr inbounds i8, ptr %6, i64 136
+  %194 = getelementptr inbounds nuw i8, ptr %6, i64 136
   %195 = load ptr, ptr %194, align 8
   %196 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %194) #14
   call fastcc void @"_ZZN12_GLOBAL__N_124PrintPPOutputPPCallbacks14EmbedDirectiveEN5clang14SourceLocationEN4llvm9StringRefEbNS1_20CustomizableOptionalINS1_12FileEntryRefEEERKNS1_24LexEmbedParametersResultEENK3$_0clENS3_8ArrayRefINS1_5TokenEEE"(ptr nonnull %0, ptr %195, i64 %196)
@@ -2423,7 +2423,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit51:               ; preds = %203, %205
   br label %213
 
 213:                                              ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit51, %_ZN4llvm11raw_ostreamlsEPKc.exit45
-  %214 = getelementptr inbounds i8, ptr %6, i64 280
+  %214 = getelementptr inbounds nuw i8, ptr %6, i64 280
   %215 = load i8, ptr %214, align 8
   %216 = trunc i8 %215 to i1
   br i1 %216, label %217, label %251
@@ -2452,7 +2452,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit51:               ; preds = %203, %205
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit54
 
 _ZN4llvm11raw_ostreamlsEPKc.exit54:               ; preds = %227, %229
-  %232 = getelementptr inbounds i8, ptr %6, i64 216
+  %232 = getelementptr inbounds nuw i8, ptr %6, i64 216
   %233 = load ptr, ptr %232, align 8
   %234 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %232) #14
   call fastcc void @"_ZZN12_GLOBAL__N_124PrintPPOutputPPCallbacks14EmbedDirectiveEN5clang14SourceLocationEN4llvm9StringRefEbNS1_20CustomizableOptionalINS1_12FileEntryRefEEERKNS1_24LexEmbedParametersResultEENK3$_0clENS3_8ArrayRefINS1_5TokenEEE"(ptr nonnull %0, ptr %233, i64 %234)

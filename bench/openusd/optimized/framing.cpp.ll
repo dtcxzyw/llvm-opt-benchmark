@@ -29,7 +29,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__17CameraUtilFramingC2Ev(ptr no
   store i32 0, ptr %5, align 4
   %6 = getelementptr inbounds i8, ptr %0, i64 20
   store i32 0, ptr %6, align 4
-  %7 = getelementptr inbounds i8, ptr %0, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 -1, ptr %7, align 4
   %8 = getelementptr inbounds i8, ptr %0, i64 28
   store i32 -1, ptr %8, align 4
@@ -83,7 +83,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__17CameraUtilFramingC2ERKNS_8Gf
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__17CameraUtilFraming7IsValidEv(ptr nocapture noundef nonnull readonly align 4 dereferenceable(36) %0) local_unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %3 = getelementptr inbounds i8, ptr %0, i64 24
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load i32, ptr %3, align 4
   %5 = load i32, ptr %2, align 4
   %6 = add i32 %4, 1
@@ -167,8 +167,8 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9GfRange2feqERKS0_.exit: ; preds = %2
   br i1 %34, label %_ZN32pxrInternal_v0_24__pxrReserved__eqERKNS_8GfRect2iES2_.exit, label %_ZNK32pxrInternal_v0_24__pxrReserved__9GfRange2feqERKS0_.exit.thread
 
 _ZN32pxrInternal_v0_24__pxrReserved__eqERKNS_8GfRect2iES2_.exit: ; preds = %23
-  %35 = getelementptr inbounds i8, ptr %0, i64 24
-  %36 = getelementptr inbounds i8, ptr %1, i64 24
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %36 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %37 = load i32, ptr %35, align 4
   %38 = load i32, ptr %36, align 4
   %39 = icmp eq i32 %37, %38
@@ -235,8 +235,8 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9GfRange2feqERKS0_.exit.i: ; preds = %2
   br i1 %34, label %_ZN32pxrInternal_v0_24__pxrReserved__eqERKNS_8GfRect2iES2_.exit.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__17CameraUtilFramingeqERKS0_.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__eqERKNS_8GfRect2iES2_.exit.i: ; preds = %23
-  %35 = getelementptr inbounds i8, ptr %0, i64 24
-  %36 = getelementptr inbounds i8, ptr %1, i64 24
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %36 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %37 = load i32, ptr %35, align 4
   %38 = load i32, ptr %36, align 4
   %39 = icmp eq i32 %37, %38
@@ -282,7 +282,7 @@ define void @_ZNK32pxrInternal_v0_24__pxrReserved__17CameraUtilFraming23ApplyToP
   %.sroa.0.4.vec.extract.i.i = extractelement <2 x float> %15, i64 1
   %20 = fsub float %.sroa.0.4.vec.extract.i.i, %19
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %22 = getelementptr inbounds i8, ptr %1, i64 24
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %23 = load i32, ptr %22, align 4
   %24 = load i32, ptr %21, align 4
   %25 = add i32 %23, 1

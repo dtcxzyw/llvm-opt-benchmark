@@ -10329,7 +10329,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathC2ERKS0_.exit.i.i: ; preds = %18, %
   br label %_ZSt9make_pairIRKN32pxrInternal_v0_24__pxrReserved__7SdfPathES3_ESt4pairINSt25__strip_reference_wrapperINSt5decayIT_E4typeEE6__typeENS5_INS6_IT0_E4typeEE6__typeEEOS7_OSC_.exit
 
 _ZSt9make_pairIRKN32pxrInternal_v0_24__pxrReserved__7SdfPathES3_ESt4pairINSt25__strip_reference_wrapperINSt5decayIT_E4typeEE6__typeENS5_INS6_IT0_E4typeEE6__typeEEOS7_OSC_.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathC2ERKS0_.exit.i.i, %35
-  %46 = getelementptr inbounds i8, ptr %0, i64 12
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %47 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %48 = load i32, ptr %47, align 4, !noalias !116
   store i32 %48, ptr %46, align 4, !alias.scope !116
@@ -10462,7 +10462,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit: ; preds = %_ZN32pxrInter
   store i32 %storemerge.i, ptr %121, align 4, !alias.scope !121
   %122 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %109, ptr %122, align 4, !alias.scope !121
-  %123 = getelementptr inbounds i8, ptr %0, i64 12
+  %123 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 %storemerge.i60, ptr %123, align 4, !alias.scope !121
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit67
 
@@ -10597,7 +10597,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__22Sdf_PathNodeHandleImplINS_8Sdf_PoolINS_15
   %186 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %171, ptr %186, align 4, !alias.scope !125
   store i32 0, ptr %6, align 4, !noalias !125
-  %187 = getelementptr inbounds i8, ptr %0, i64 12
+  %187 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 %storemerge.i83, ptr %187, align 4, !alias.scope !125
   store i32 0, ptr %184, align 4, !noalias !125
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev(ptr noundef nonnull align 4 dereferenceable(8) %6) #20
@@ -10704,7 +10704,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit100: ; preds = %242, %237
   store i32 0, ptr %245, align 4, !alias.scope !128
   %246 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %.sroa.0.0.i.i.i.i95, ptr %246, align 4, !alias.scope !128
-  %247 = getelementptr inbounds i8, ptr %0, i64 12
+  %247 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 0, ptr %247, align 4, !alias.scope !128
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit67
 
@@ -10819,7 +10819,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit124: ; preds = %_ZN32pxrIn
   store i32 0, ptr %292, align 4, !alias.scope !132
   %293 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %.sroa.0.0, ptr %293, align 4, !alias.scope !132
-  %294 = getelementptr inbounds i8, ptr %0, i64 12
+  %294 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 0, ptr %294, align 4, !alias.scope !132
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit67
 

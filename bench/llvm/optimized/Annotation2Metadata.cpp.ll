@@ -166,7 +166,7 @@ _ZNK4llvm4User10getOperandEj.exit42.i:            ; preds = %67, %64
 
 85:                                               ; preds = %76
   %86 = getelementptr inbounds nuw i8, ptr %83, i64 72
-  %87 = getelementptr inbounds i8, ptr %83, i64 80
+  %87 = getelementptr inbounds nuw i8, ptr %83, i64 80
   %88 = load ptr, ptr %87, align 8, !noalias !4
   %.not.i.i.i.i = icmp eq ptr %88, %86
   br i1 %.not.i.i.i.i, label %_ZN4llvm12instructionsEPNS_8FunctionE.exit.i, label %89
@@ -175,7 +175,7 @@ _ZNK4llvm4User10getOperandEj.exit42.i:            ; preds = %67, %64
   %90 = icmp eq ptr %88, null
   %91 = getelementptr inbounds i8, ptr %88, i64 -24
   %92 = select i1 %90, ptr null, ptr %91
-  %93 = getelementptr inbounds i8, ptr %92, i64 56
+  %93 = getelementptr inbounds nuw i8, ptr %92, i64 56
   %94 = load ptr, ptr %93, align 8, !noalias !4
   %95 = getelementptr inbounds nuw i8, ptr %92, i64 48
   %96 = icmp eq ptr %94, %95
@@ -198,7 +198,7 @@ _ZNK4llvm4User10getOperandEj.exit42.i:            ; preds = %67, %64
   %104 = icmp eq ptr %103, null
   %105 = getelementptr inbounds i8, ptr %103, i64 -24
   %106 = select i1 %104, ptr null, ptr %105
-  %107 = getelementptr inbounds i8, ptr %106, i64 56
+  %107 = getelementptr inbounds nuw i8, ptr %106, i64 56
   %108 = load ptr, ptr %107, align 8, !noalias !4
   %109 = getelementptr inbounds nuw i8, ptr %106, i64 48
   %110 = icmp eq ptr %108, %109
@@ -248,7 +248,7 @@ _ZN4llvm12instructionsEPNS_8FunctionE.exit.i:     ; preds = %.lr.ph.i.i.i, %.lr.
   %133 = icmp eq ptr %132, null
   %134 = getelementptr inbounds i8, ptr %132, i64 -24
   %135 = select i1 %133, ptr null, ptr %134
-  %136 = getelementptr inbounds i8, ptr %135, i64 56
+  %136 = getelementptr inbounds nuw i8, ptr %135, i64 56
   %137 = load ptr, ptr %136, align 8
   %138 = getelementptr inbounds nuw i8, ptr %135, i64 48
   %139 = icmp eq ptr %137, %138
@@ -277,11 +277,11 @@ _ZL26convertAnnotation2MetadataRN4llvm6ModuleE.exit: ; preds = %_ZNK4llvm12InstI
   %146 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 0, ptr %146, align 4, !alias.scope !11
   %147 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %148 = getelementptr inbounds i8, ptr %0, i64 80
+  %148 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store ptr %148, ptr %147, align 8, !alias.scope !11
-  %149 = getelementptr inbounds i8, ptr %0, i64 56
+  %149 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store ptr %148, ptr %149, align 8, !alias.scope !11
-  %150 = getelementptr inbounds i8, ptr %0, i64 64
+  %150 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i32 2, ptr %150, align 8, !alias.scope !11
   br label %163
 
@@ -296,15 +296,15 @@ _ZL26convertAnnotation2MetadataRN4llvm6ModuleE.exit: ; preds = %_ZNK4llvm12InstI
   %156 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 0, ptr %156, align 8, !alias.scope !14
   %157 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %158 = getelementptr inbounds i8, ptr %0, i64 80
+  %158 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store ptr %158, ptr %157, align 8, !alias.scope !14
-  %159 = getelementptr inbounds i8, ptr %0, i64 56
+  %159 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store ptr %158, ptr %159, align 8, !alias.scope !14
-  %160 = getelementptr inbounds i8, ptr %0, i64 64
+  %160 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i32 2, ptr %160, align 8, !alias.scope !14
-  %161 = getelementptr inbounds i8, ptr %0, i64 68
+  %161 = getelementptr inbounds nuw i8, ptr %0, i64 68
   store i32 0, ptr %161, align 4, !alias.scope !14
-  %162 = getelementptr inbounds i8, ptr %0, i64 72
+  %162 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store i32 0, ptr %162, align 8, !alias.scope !14
   store i32 1, ptr %155, align 4, !alias.scope !14, !noalias !17
   store ptr @_ZN4llvm17PreservedAnalyses14AllAnalysesKeyE, ptr %152, align 8, !alias.scope !14, !noalias !17

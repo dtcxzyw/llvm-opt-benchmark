@@ -2834,7 +2834,7 @@ _ZNK4llvm17TargetLibraryInfo8getStateENS_7LibFuncE.exit: ; preds = %2
 23:                                               ; preds = %_ZNK4llvm17TargetLibraryInfo8getStateENS_7LibFuncE.exit
   %24 = getelementptr inbounds nuw i8, ptr %11, i64 128
   %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %11, i64 144
+  %26 = getelementptr inbounds nuw i8, ptr %11, i64 144
   %27 = load i32, ptr %26, align 8
   %28 = icmp eq i32 %27, 0
   br i1 %28, label %.loopexit.i, label %29
@@ -3488,7 +3488,7 @@ _ZNK4llvm17TargetLibraryInfo8getStateENS_7LibFuncE.exit.i: ; preds = %7
 24:                                               ; preds = %_ZNK4llvm17TargetLibraryInfo8getStateENS_7LibFuncE.exit.i
   %25 = getelementptr inbounds nuw i8, ptr %18, i64 128
   %26 = load ptr, ptr %25, align 8
-  %27 = getelementptr inbounds i8, ptr %18, i64 144
+  %27 = getelementptr inbounds nuw i8, ptr %18, i64 144
   %28 = load i32, ptr %27, align 8
   %29 = icmp eq i32 %28, 0
   br i1 %29, label %.loopexit.i.i, label %30
@@ -4426,7 +4426,7 @@ _ZNK4llvm17TargetLibraryInfo8getStateENS_7LibFuncE.exit.i29: ; preds = %3
 17:                                               ; preds = %_ZNK4llvm17TargetLibraryInfo8getStateENS_7LibFuncE.exit.i29
   %18 = getelementptr inbounds nuw i8, ptr %12, i64 128
   %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %12, i64 144
+  %20 = getelementptr inbounds nuw i8, ptr %12, i64 144
   %21 = load i32, ptr %20, align 8
   %22 = icmp eq i32 %21, 0
   br i1 %22, label %.loopexit.i.i39, label %23
@@ -4533,7 +4533,7 @@ _ZNK4llvm17TargetLibraryInfo8getStateENS_7LibFuncE.exit.i: ; preds = %_ZN4llvm18
 67:                                               ; preds = %_ZNK4llvm17TargetLibraryInfo8getStateENS_7LibFuncE.exit.i
   %68 = getelementptr inbounds nuw i8, ptr %62, i64 128
   %69 = load ptr, ptr %68, align 8
-  %70 = getelementptr inbounds i8, ptr %62, i64 144
+  %70 = getelementptr inbounds nuw i8, ptr %62, i64 144
   %71 = load i32, ptr %70, align 8
   %72 = icmp eq i32 %71, 0
   br i1 %72, label %.loopexit.i.i, label %73
@@ -4654,7 +4654,7 @@ _ZNK4llvm17TargetLibraryInfo8getStateENS_7LibFuncE.exit.i29: ; preds = %3
 18:                                               ; preds = %_ZNK4llvm17TargetLibraryInfo8getStateENS_7LibFuncE.exit.i29
   %19 = getelementptr inbounds nuw i8, ptr %12, i64 128
   %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %12, i64 144
+  %21 = getelementptr inbounds nuw i8, ptr %12, i64 144
   %22 = load i32, ptr %21, align 8
   %23 = icmp eq i32 %22, 0
   br i1 %23, label %.loopexit.i.i39, label %24
@@ -4762,7 +4762,7 @@ _ZNK4llvm17TargetLibraryInfo8getStateENS_7LibFuncE.exit.i: ; preds = %_ZN4llvm18
 69:                                               ; preds = %_ZNK4llvm17TargetLibraryInfo8getStateENS_7LibFuncE.exit.i
   %70 = getelementptr inbounds nuw i8, ptr %63, i64 128
   %71 = load ptr, ptr %70, align 8
-  %72 = getelementptr inbounds i8, ptr %63, i64 144
+  %72 = getelementptr inbounds nuw i8, ptr %63, i64 144
   %73 = load i32, ptr %72, align 8
   %74 = icmp eq i32 %73, 0
   br i1 %74, label %.loopexit.i.i, label %75
@@ -4883,7 +4883,7 @@ _ZNK4llvm17TargetLibraryInfo8getStateENS_7LibFuncE.exit.i33: ; preds = %4
 18:                                               ; preds = %_ZNK4llvm17TargetLibraryInfo8getStateENS_7LibFuncE.exit.i33
   %19 = getelementptr inbounds nuw i8, ptr %13, i64 128
   %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %13, i64 144
+  %21 = getelementptr inbounds nuw i8, ptr %13, i64 144
   %22 = load i32, ptr %21, align 8
   %23 = icmp eq i32 %22, 0
   br i1 %23, label %.loopexit.i.i43, label %24
@@ -4990,7 +4990,7 @@ _ZNK4llvm17TargetLibraryInfo8getStateENS_7LibFuncE.exit.i: ; preds = %_ZN4llvm18
 68:                                               ; preds = %_ZNK4llvm17TargetLibraryInfo8getStateENS_7LibFuncE.exit.i
   %69 = getelementptr inbounds nuw i8, ptr %63, i64 128
   %70 = load ptr, ptr %69, align 8
-  %71 = getelementptr inbounds i8, ptr %63, i64 144
+  %71 = getelementptr inbounds nuw i8, ptr %63, i64 144
   %72 = load i32, ptr %71, align 8
   %73 = icmp eq i32 %72, 0
   br i1 %73, label %.loopexit.i.i, label %74
@@ -5123,7 +5123,7 @@ _ZNK4llvm17TargetLibraryInfo8getStateENS_7LibFuncE.exit.i33: ; preds = %4
 19:                                               ; preds = %_ZNK4llvm17TargetLibraryInfo8getStateENS_7LibFuncE.exit.i33
   %20 = getelementptr inbounds nuw i8, ptr %13, i64 128
   %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %13, i64 144
+  %22 = getelementptr inbounds nuw i8, ptr %13, i64 144
   %23 = load i32, ptr %22, align 8
   %24 = icmp eq i32 %23, 0
   br i1 %24, label %.loopexit.i.i43, label %25
@@ -5231,7 +5231,7 @@ _ZNK4llvm17TargetLibraryInfo8getStateENS_7LibFuncE.exit.i: ; preds = %_ZN4llvm18
 70:                                               ; preds = %_ZNK4llvm17TargetLibraryInfo8getStateENS_7LibFuncE.exit.i
   %71 = getelementptr inbounds nuw i8, ptr %64, i64 128
   %72 = load ptr, ptr %71, align 8
-  %73 = getelementptr inbounds i8, ptr %64, i64 144
+  %73 = getelementptr inbounds nuw i8, ptr %64, i64 144
   %74 = load i32, ptr %73, align 8
   %75 = icmp eq i32 %74, 0
   br i1 %75, label %.loopexit.i.i, label %76
@@ -5365,7 +5365,7 @@ _ZNK4llvm17TargetLibraryInfo8getStateENS_7LibFuncE.exit.i38: ; preds = %6
 20:                                               ; preds = %_ZNK4llvm17TargetLibraryInfo8getStateENS_7LibFuncE.exit.i38
   %21 = getelementptr inbounds nuw i8, ptr %15, i64 128
   %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %15, i64 144
+  %23 = getelementptr inbounds nuw i8, ptr %15, i64 144
   %24 = load i32, ptr %23, align 8
   %25 = icmp eq i32 %24, 0
   br i1 %25, label %.loopexit.i.i48, label %26
@@ -5473,7 +5473,7 @@ _ZNK4llvm17TargetLibraryInfo8getStateENS_7LibFuncE.exit.i: ; preds = %_ZN4llvm18
 74:                                               ; preds = %_ZNK4llvm17TargetLibraryInfo8getStateENS_7LibFuncE.exit.i
   %75 = getelementptr inbounds nuw i8, ptr %69, i64 128
   %76 = load ptr, ptr %75, align 8
-  %77 = getelementptr inbounds i8, ptr %69, i64 144
+  %77 = getelementptr inbounds nuw i8, ptr %69, i64 144
   %78 = load i32, ptr %77, align 8
   %79 = icmp eq i32 %78, 0
   br i1 %79, label %.loopexit.i.i, label %80
@@ -5608,7 +5608,7 @@ _ZNK4llvm17TargetLibraryInfo8getStateENS_7LibFuncE.exit.i28: ; preds = %4
 18:                                               ; preds = %_ZNK4llvm17TargetLibraryInfo8getStateENS_7LibFuncE.exit.i28
   %19 = getelementptr inbounds nuw i8, ptr %13, i64 128
   %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %13, i64 144
+  %21 = getelementptr inbounds nuw i8, ptr %13, i64 144
   %22 = load i32, ptr %21, align 8
   %23 = icmp eq i32 %22, 0
   br i1 %23, label %.loopexit.i.i38, label %24
@@ -5709,7 +5709,7 @@ _ZNK4llvm17TargetLibraryInfo8getStateENS_7LibFuncE.exit.i: ; preds = %_ZN4llvm18
 65:                                               ; preds = %_ZNK4llvm17TargetLibraryInfo8getStateENS_7LibFuncE.exit.i
   %66 = getelementptr inbounds nuw i8, ptr %60, i64 128
   %67 = load ptr, ptr %66, align 8
-  %68 = getelementptr inbounds i8, ptr %60, i64 144
+  %68 = getelementptr inbounds nuw i8, ptr %60, i64 144
   %69 = load i32, ptr %68, align 8
   %70 = icmp eq i32 %69, 0
   br i1 %70, label %.loopexit.i.i, label %71
@@ -5837,7 +5837,7 @@ _ZNK4llvm17TargetLibraryInfo8getStateENS_7LibFuncE.exit.i31: ; preds = %4
 18:                                               ; preds = %_ZNK4llvm17TargetLibraryInfo8getStateENS_7LibFuncE.exit.i31
   %19 = getelementptr inbounds nuw i8, ptr %13, i64 128
   %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %13, i64 144
+  %21 = getelementptr inbounds nuw i8, ptr %13, i64 144
   %22 = load i32, ptr %21, align 8
   %23 = icmp eq i32 %22, 0
   br i1 %23, label %.loopexit.i.i41, label %24
@@ -5938,7 +5938,7 @@ _ZNK4llvm17TargetLibraryInfo8getStateENS_7LibFuncE.exit.i: ; preds = %_ZN4llvm18
 65:                                               ; preds = %_ZNK4llvm17TargetLibraryInfo8getStateENS_7LibFuncE.exit.i
   %66 = getelementptr inbounds nuw i8, ptr %60, i64 128
   %67 = load ptr, ptr %66, align 8
-  %68 = getelementptr inbounds i8, ptr %60, i64 144
+  %68 = getelementptr inbounds nuw i8, ptr %60, i64 144
   %69 = load i32, ptr %68, align 8
   %70 = icmp eq i32 %69, 0
   br i1 %70, label %.loopexit.i.i, label %71
@@ -7088,7 +7088,7 @@ define linkonce_odr hidden noundef ptr @_ZN4llvm8CallInst6CreateEPNS_12FunctionT
   %.012.i = phi i32 [ %21, %.lr.ph.i ], [ 0, %8 ]
   %.0811.i = phi ptr [ %22, %.lr.ph.i ], [ %4, %8 ]
   %12 = getelementptr inbounds nuw i8, ptr %.0811.i, i64 32
-  %13 = getelementptr inbounds i8, ptr %.0811.i, i64 40
+  %13 = getelementptr inbounds nuw i8, ptr %.0811.i, i64 40
   %14 = load ptr, ptr %13, align 8
   %15 = load ptr, ptr %12, align 8
   %16 = ptrtoint ptr %14 to i64
@@ -7121,7 +7121,7 @@ _ZN4llvm8CallBase17CountBundleInputsENS_8ArrayRefINS_17OperandBundleDefTIPNS_5Va
   %.012.i.i = phi i32 [ %39, %.lr.ph.i.i ], [ 0, %_ZN4llvm8CallBase17CountBundleInputsENS_8ArrayRefINS_17OperandBundleDefTIPNS_5ValueEEEEE.exit ]
   %.0811.i.i = phi ptr [ %40, %.lr.ph.i.i ], [ %4, %_ZN4llvm8CallBase17CountBundleInputsENS_8ArrayRefINS_17OperandBundleDefTIPNS_5ValueEEEEE.exit ]
   %30 = getelementptr inbounds nuw i8, ptr %.0811.i.i, i64 32
-  %31 = getelementptr inbounds i8, ptr %.0811.i.i, i64 40
+  %31 = getelementptr inbounds nuw i8, ptr %.0811.i.i, i64 40
   %32 = load ptr, ptr %31, align 8
   %33 = load ptr, ptr %30, align 8
   %34 = ptrtoint ptr %32 to i64
@@ -7138,7 +7138,7 @@ _ZN4llvm8CallBase17CountBundleInputsENS_8ArrayRefINS_17OperandBundleDefTIPNS_5Va
   %.012.i11.i = phi i32 [ %50, %.lr.ph.i10.i ], [ 0, %.lr.ph.i.i ]
   %.0811.i12.i = phi ptr [ %51, %.lr.ph.i10.i ], [ %4, %.lr.ph.i.i ]
   %41 = getelementptr inbounds nuw i8, ptr %.0811.i12.i, i64 32
-  %42 = getelementptr inbounds i8, ptr %.0811.i12.i, i64 40
+  %42 = getelementptr inbounds nuw i8, ptr %.0811.i12.i, i64 40
   %43 = load ptr, ptr %42, align 8
   %44 = load ptr, ptr %41, align 8
   %45 = ptrtoint ptr %43 to i64

@@ -243,8 +243,8 @@ define dso_local noundef range(i32 0, 2) i32 @main(i32 noundef %0, ptr nocapture
 
 .lr.ph.i:                                         ; preds = %25
   %35 = getelementptr inbounds nuw i8, ptr %29, i64 8
-  %36 = getelementptr inbounds i8, ptr %29, i64 16
-  %37 = getelementptr inbounds i8, ptr %29, i64 24
+  %36 = getelementptr inbounds nuw i8, ptr %29, i64 16
+  %37 = getelementptr inbounds nuw i8, ptr %29, i64 24
   br label %38
 
 38:                                               ; preds = %_ZN4Node8AddInputEPKS_.exit.i, %.lr.ph.i
@@ -330,9 +330,9 @@ _ZNSt6vectorIPK4NodeSaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_
 
 _ZNSt6vectorIPK4NodeSaIS2_EE9push_backERKS2_.exit.i.i: ; preds = %_ZNSt6vectorIPK4NodeSaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i.i, %57
   %82 = getelementptr inbounds nuw i8, ptr %54, i64 32
-  %83 = getelementptr inbounds i8, ptr %54, i64 40
+  %83 = getelementptr inbounds nuw i8, ptr %54, i64 40
   %84 = load ptr, ptr %83, align 8
-  %85 = getelementptr inbounds i8, ptr %54, i64 48
+  %85 = getelementptr inbounds nuw i8, ptr %54, i64 48
   %86 = load ptr, ptr %85, align 8
   %.not.i.i.i.i = icmp eq ptr %84, %86
   br i1 %.not.i.i.i.i, label %90, label %87
@@ -495,7 +495,7 @@ _ZNSt10unique_ptrI5GraphSt14default_deleteIS0_EE5resetEPS0_.exit15.thread: ; pre
 .noexc17:                                         ; preds = %132
   %133 = getelementptr inbounds nuw i8, ptr %5, i64 128
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
-  %134 = getelementptr inbounds i8, ptr %5, i64 136
+  %134 = getelementptr inbounds nuw i8, ptr %5, i64 136
   %135 = atomicrmw add ptr %134, i64 1 seq_cst, align 8
   %.not.i.i.i.i.i.i.i16 = icmp eq i64 %135, -1
   br i1 %.not.i.i.i.i.i.i.i16, label %136, label %_ZN32pxrInternal_v0_24__pxrReserved__14WorkDispatcher3RunISt5_BindIFPFbP5GraphES4_EEEEvOT_.exit.i.i
@@ -518,9 +518,9 @@ _ZN32pxrInternal_v0_24__pxrReserved__14WorkDispatcher3RunISt5_BindIFPFbP5GraphES
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN3tbb6detail2d113function_taskIN32pxrInternal_v0_24__pxrReserved__14WorkDispatcher12_InvokerTaskISt5_BindIFPFbP5GraphES8_EEEEEE, i64 16), ptr %138, align 64
   %142 = getelementptr inbounds nuw i8, ptr %138, i64 64
   store ptr @_ZL17_DelayedGraphTaskIN32pxrInternal_v0_24__pxrReserved__14WorkDispatcherEEbP5Graph, ptr %142, align 8
-  %143 = getelementptr inbounds i8, ptr %138, i64 72
+  %143 = getelementptr inbounds nuw i8, ptr %138, i64 72
   store i64 %140, ptr %143, align 8
-  %144 = getelementptr inbounds i8, ptr %138, i64 80
+  %144 = getelementptr inbounds nuw i8, ptr %138, i64 80
   store ptr %139, ptr %144, align 8
   %145 = getelementptr inbounds nuw i8, ptr %138, i64 88
   store ptr %133, ptr %145, align 8
@@ -528,11 +528,11 @@ _ZN32pxrInternal_v0_24__pxrReserved__14WorkDispatcher3RunISt5_BindIFPFbP5GraphES
   %147 = load i64, ptr %4, align 8
   store i64 %147, ptr %146, align 32
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  %148 = getelementptr inbounds i8, ptr %5, i64 144
-  %149 = getelementptr inbounds i8, ptr %5, i64 159
+  %148 = getelementptr inbounds nuw i8, ptr %5, i64 144
+  %149 = getelementptr inbounds nuw i8, ptr %5, i64 159
   %150 = load atomic i8, ptr %149 monotonic, align 1
   %151 = icmp eq i8 %150, -1
-  %152 = getelementptr inbounds i8, ptr %5, i64 160
+  %152 = getelementptr inbounds nuw i8, ptr %5, i64 160
   %153 = load ptr, ptr %152, align 8
   %.0.i.i.i.i.i.i = select i1 %151, ptr %153, ptr %148
   invoke void @_ZN3tbb6detail2r15spawnERNS0_2d14taskERNS2_18task_group_contextE(ptr noundef nonnull align 64 dereferenceable(64) %138, ptr noundef nonnull align 8 dereferenceable(128) %.0.i.i.i.i.i.i)
@@ -717,7 +717,7 @@ define linkonce_odr dso_local void @_ZNK5Graph4SaveEPKc(ptr noundef nonnull alig
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %6)
   %42 = load ptr, ptr %.sroa.031.047, align 8
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 8
-  %44 = getelementptr inbounds i8, ptr %42, i64 16
+  %44 = getelementptr inbounds nuw i8, ptr %42, i64 16
   %45 = load ptr, ptr %44, align 8
   %46 = load ptr, ptr %43, align 8
   %47 = ptrtoint ptr %45 to i64
@@ -750,7 +750,7 @@ define linkonce_odr dso_local void @_ZNK5Graph4SaveEPKc(ptr noundef nonnull alig
   %57 = load ptr, ptr %.sroa.031.047, align 8
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 8
   %59 = load ptr, ptr %58, align 8
-  %60 = getelementptr inbounds i8, ptr %57, i64 16
+  %60 = getelementptr inbounds nuw i8, ptr %57, i64 16
   %61 = load ptr, ptr %60, align 8
   %.not4044 = icmp eq ptr %59, %61
   br i1 %.not4044, label %._crit_edge, label %.lr.ph
@@ -872,14 +872,14 @@ define internal fastcc noundef zeroext i1 @_ZL15_TestDispatcherIN32pxrInternal_v
 
 .lr.ph:                                           ; preds = %10
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 128
-  %16 = getelementptr inbounds i8, ptr %4, i64 136
+  %16 = getelementptr inbounds nuw i8, ptr %4, i64 136
   %17 = ptrtoint ptr %15 to i64
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 272
   %19 = ptrtoint ptr %4 to i64
   %20 = ptrtoint ptr %0 to i64
-  %21 = getelementptr inbounds i8, ptr %4, i64 144
-  %22 = getelementptr inbounds i8, ptr %4, i64 159
-  %23 = getelementptr inbounds i8, ptr %4, i64 160
+  %21 = getelementptr inbounds nuw i8, ptr %4, i64 144
+  %22 = getelementptr inbounds nuw i8, ptr %4, i64 159
+  %23 = getelementptr inbounds nuw i8, ptr %4, i64 160
   %24 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %25 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %26 = getelementptr inbounds nuw i8, ptr %2, i64 24
@@ -912,13 +912,13 @@ _ZN32pxrInternal_v0_24__pxrReserved__14WorkDispatcher3RunISt5_BindIFM5GraphFvP4N
   store i64 ptrtoint (ptr @_ZN5Graph15CallbackDynamicIN32pxrInternal_v0_24__pxrReserved__14WorkDispatcherEEEvP4NodePT_ to i64), ptr %35, align 8
   %.repack5.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %32, i64 72
   store i64 0, ptr %.repack5.i.i.i.i.i.i.i.i, align 8
-  %36 = getelementptr inbounds i8, ptr %32, i64 80
+  %36 = getelementptr inbounds nuw i8, ptr %32, i64 80
   store i64 %19, ptr %36, align 8
   %37 = getelementptr inbounds i8, ptr %32, i64 88
   store i64 %33, ptr %37, align 8
   %38 = getelementptr inbounds i8, ptr %32, i64 96
   store i64 %20, ptr %38, align 8
-  %39 = getelementptr inbounds i8, ptr %32, i64 104
+  %39 = getelementptr inbounds nuw i8, ptr %32, i64 104
   store ptr %18, ptr %39, align 8
   %40 = getelementptr inbounds nuw i8, ptr %32, i64 112
   store ptr %15, ptr %40, align 16
@@ -1591,9 +1591,9 @@ _ZNSt6vectorIiSaIiEE9push_backERKi.exit37:        ; preds = %_ZNSt6vectorIiSaIiE
   %135 = getelementptr inbounds ptr, ptr %126, i64 %134
   %136 = load ptr, ptr %135, align 8
   %137 = getelementptr inbounds nuw i8, ptr %128, i64 8
-  %138 = getelementptr inbounds i8, ptr %128, i64 16
+  %138 = getelementptr inbounds nuw i8, ptr %128, i64 16
   %139 = load ptr, ptr %138, align 8
-  %140 = getelementptr inbounds i8, ptr %128, i64 24
+  %140 = getelementptr inbounds nuw i8, ptr %128, i64 24
   %141 = load ptr, ptr %140, align 8
   %.not.i.i39 = icmp eq ptr %139, %141
   br i1 %.not.i.i39, label %145, label %142
@@ -1658,9 +1658,9 @@ _ZNSt6vectorIPK4NodeSaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_
 
 _ZNSt6vectorIPK4NodeSaIS2_EE9push_backERKS2_.exit.i: ; preds = %_ZNSt6vectorIPK4NodeSaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i, %142
   %167 = getelementptr inbounds nuw i8, ptr %136, i64 32
-  %168 = getelementptr inbounds i8, ptr %136, i64 40
+  %168 = getelementptr inbounds nuw i8, ptr %136, i64 40
   %169 = load ptr, ptr %168, align 8
-  %170 = getelementptr inbounds i8, ptr %136, i64 48
+  %170 = getelementptr inbounds nuw i8, ptr %136, i64 48
   %171 = load ptr, ptr %170, align 8
   %.not.i.i.i40 = icmp eq ptr %169, %171
   br i1 %.not.i.i.i40, label %175, label %172
@@ -1902,7 +1902,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorISt6vectorIP4NodeSaIS3_EELb0EEd
   %.sroa.0.023 = phi ptr [ %5, %_ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorISt6vectorIP4NodeSaIS3_EELb0EEdeEv.exit.lr.ph ], [ %.sroa.0.1, %_ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorISt6vectorIP4NodeSaIS3_EELb0EEppEv.exit ]
   %15 = load ptr, ptr %.sroa.0.023, align 8
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  %17 = getelementptr inbounds i8, ptr %15, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %18 = load ptr, ptr %17, align 8
   %19 = load ptr, ptr %16, align 8
   %20 = icmp eq ptr %18, %19
@@ -1994,7 +1994,7 @@ _ZNSt6vectorIP4NodeSaIS1_EE9push_backERKS1_.exit: ; preds = %_ZNSt6vectorIP4Node
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4)
   %52 = load ptr, ptr %.sroa.0.023, align 8
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 8
-  %54 = getelementptr inbounds i8, ptr %52, i64 16
+  %54 = getelementptr inbounds nuw i8, ptr %52, i64 16
   %55 = load ptr, ptr %54, align 8
   %56 = load ptr, ptr %53, align 8
   %57 = ptrtoint ptr %55 to i64
@@ -2016,7 +2016,7 @@ _ZNSt6vectorIP4NodeSaIS1_EE9push_backERKS1_.exit: ; preds = %_ZNSt6vectorIP4Node
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4)
   %63 = load ptr, ptr %.sroa.0.023, align 8
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 8
-  %65 = getelementptr inbounds i8, ptr %63, i64 16
+  %65 = getelementptr inbounds nuw i8, ptr %63, i64 16
   %66 = load ptr, ptr %65, align 8
   %67 = load ptr, ptr %64, align 8
   %68 = ptrtoint ptr %66 to i64
@@ -2047,21 +2047,21 @@ define linkonce_odr dso_local void @_ZN5Graph15CallbackDynamicIN32pxrInternal_v0
   %5 = alloca %"class.tbb::detail::d1::small_object_allocator", align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %1, i64 40
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %9 = load ptr, ptr %8, align 8
   %.not19 = icmp eq ptr %7, %9
   br i1 %.not19, label %._crit_edge, label %_ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorIKSt6vectorIPK4NodeSaIS4_EELb0EEdeEv.exit.lr.ph
 
 _ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorIKSt6vectorIPK4NodeSaIS4_EELb0EEdeEv.exit.lr.ph: ; preds = %3
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 128
-  %11 = getelementptr inbounds i8, ptr %2, i64 136
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 136
   %12 = ptrtoint ptr %10 to i64
   %13 = ptrtoint ptr %0 to i64
   %14 = ptrtoint ptr %2 to i64
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 272
-  %16 = getelementptr inbounds i8, ptr %2, i64 144
-  %17 = getelementptr inbounds i8, ptr %2, i64 159
-  %18 = getelementptr inbounds i8, ptr %2, i64 160
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 144
+  %17 = getelementptr inbounds nuw i8, ptr %2, i64 159
+  %18 = getelementptr inbounds nuw i8, ptr %2, i64 160
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %21 = getelementptr inbounds nuw i8, ptr %4, i64 24
@@ -2098,13 +2098,13 @@ _ZN32pxrInternal_v0_24__pxrReserved__14WorkDispatcher3RunIM5GraphFvP4NodePS0_EPS
   store i64 ptrtoint (ptr @_ZN5Graph15CallbackDynamicIN32pxrInternal_v0_24__pxrReserved__14WorkDispatcherEEEvP4NodePT_ to i64), ptr %33, align 8
   %.repack5.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %31, i64 72
   store i64 0, ptr %.repack5.i.i.i.i.i.i.i.i, align 8
-  %34 = getelementptr inbounds i8, ptr %31, i64 80
+  %34 = getelementptr inbounds nuw i8, ptr %31, i64 80
   store i64 %14, ptr %34, align 8
   %35 = getelementptr inbounds i8, ptr %31, i64 88
   store i64 %30, ptr %35, align 8
   %36 = getelementptr inbounds i8, ptr %31, i64 96
   store i64 %13, ptr %36, align 8
-  %37 = getelementptr inbounds i8, ptr %31, i64 104
+  %37 = getelementptr inbounds nuw i8, ptr %31, i64 104
   store ptr %15, ptr %37, align 8
   %38 = getelementptr inbounds nuw i8, ptr %31, i64 112
   store ptr %10, ptr %38, align 16
@@ -2359,7 +2359,7 @@ define linkonce_odr dso_local noundef ptr @_ZN3tbb6detail2d113function_taskIN32p
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 64
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   call void @_ZN32pxrInternal_v0_24__pxrReserved__11TfErrorMarkC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  %5 = getelementptr inbounds i8, ptr %0, i64 72
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %6 = load ptr, ptr %4, align 64
   %7 = load ptr, ptr %5, align 8
   %8 = invoke noundef zeroext i1 %6(ptr noundef %7)
@@ -2384,7 +2384,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__11TfErrorMark7IsCleanEv.exit.i.i: ; preds 
   br i1 %14, label %_ZN3tbb6detail2d212_GLOBAL__N_119task_ptr_or_nullptrIRKN32pxrInternal_v0_24__pxrReserved__14WorkDispatcher12_InvokerTaskISt5_BindIFPFbP5GraphES9_EEEEEEPNS0_2d14taskEOT_.exit, label %15
 
 15:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__11TfErrorMark7IsCleanEv.exit.i.i
-  %16 = getelementptr inbounds i8, ptr %0, i64 80
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %17 = load ptr, ptr %16, align 16
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__14WorkDispatcher16_TransportErrorsERKNS_11TfErrorMarkEPN3tbb6detail2d117concurrent_vectorINS_16TfErrorTransportENS6_23cache_aligned_allocatorIS8_EEEE(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef %17)
           to label %_ZN3tbb6detail2d212_GLOBAL__N_119task_ptr_or_nullptrIRKN32pxrInternal_v0_24__pxrReserved__14WorkDispatcher12_InvokerTaskISt5_BindIFPFbP5GraphES9_EEEEEEPNS0_2d14taskEOT_.exit unwind label %18

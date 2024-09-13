@@ -270,9 +270,9 @@ _ZN4llvm17OperandBundleDefTIPNS_5ValueEEC2ENSt7__cxx1112basic_stringIcSt11char_t
   %19 = ptrtoint ptr %16 to i64
   store i64 %19, ptr %18, align 8, !noalias !7
   %.sink.i.i = getelementptr inbounds i8, ptr %18, i64 8
-  %20 = getelementptr inbounds i8, ptr %12, i64 48
+  %20 = getelementptr inbounds nuw i8, ptr %12, i64 48
   store ptr %.sink.i.i, ptr %20, align 8, !alias.scope !7
-  %21 = getelementptr inbounds i8, ptr %12, i64 40
+  %21 = getelementptr inbounds nuw i8, ptr %12, i64 40
   store ptr %.sink.i.i, ptr %21, align 8, !alias.scope !7
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #13
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #13
@@ -302,7 +302,7 @@ define linkonce_odr hidden noundef ptr @_ZN4llvm8CallInst6CreateEPNS_12FunctionT
   %.012.i = phi i32 [ %21, %.lr.ph.i ], [ 0, %8 ]
   %.0811.i = phi ptr [ %22, %.lr.ph.i ], [ %4, %8 ]
   %12 = getelementptr inbounds nuw i8, ptr %.0811.i, i64 32
-  %13 = getelementptr inbounds i8, ptr %.0811.i, i64 40
+  %13 = getelementptr inbounds nuw i8, ptr %.0811.i, i64 40
   %14 = load ptr, ptr %13, align 8
   %15 = load ptr, ptr %12, align 8
   %16 = ptrtoint ptr %14 to i64
@@ -335,7 +335,7 @@ _ZN4llvm8CallBase17CountBundleInputsENS_8ArrayRefINS_17OperandBundleDefTIPNS_5Va
   %.012.i.i = phi i32 [ %39, %.lr.ph.i.i ], [ 0, %_ZN4llvm8CallBase17CountBundleInputsENS_8ArrayRefINS_17OperandBundleDefTIPNS_5ValueEEEEE.exit ]
   %.0811.i.i = phi ptr [ %40, %.lr.ph.i.i ], [ %4, %_ZN4llvm8CallBase17CountBundleInputsENS_8ArrayRefINS_17OperandBundleDefTIPNS_5ValueEEEEE.exit ]
   %30 = getelementptr inbounds nuw i8, ptr %.0811.i.i, i64 32
-  %31 = getelementptr inbounds i8, ptr %.0811.i.i, i64 40
+  %31 = getelementptr inbounds nuw i8, ptr %.0811.i.i, i64 40
   %32 = load ptr, ptr %31, align 8
   %33 = load ptr, ptr %30, align 8
   %34 = ptrtoint ptr %32 to i64
@@ -352,7 +352,7 @@ _ZN4llvm8CallBase17CountBundleInputsENS_8ArrayRefINS_17OperandBundleDefTIPNS_5Va
   %.012.i11.i = phi i32 [ %50, %.lr.ph.i10.i ], [ 0, %.lr.ph.i.i ]
   %.0811.i12.i = phi ptr [ %51, %.lr.ph.i10.i ], [ %4, %.lr.ph.i.i ]
   %41 = getelementptr inbounds nuw i8, ptr %.0811.i12.i, i64 32
-  %42 = getelementptr inbounds i8, ptr %.0811.i12.i, i64 40
+  %42 = getelementptr inbounds nuw i8, ptr %.0811.i12.i, i64 40
   %43 = load ptr, ptr %42, align 8
   %44 = load ptr, ptr %41, align 8
   %45 = ptrtoint ptr %43 to i64
@@ -389,7 +389,7 @@ define dso_local range(i16 0, 512) i16 @_ZN4llvm7objcarc21BundledRetainClaimRVs1
   %4 = alloca %"class.llvm::DenseMap", align 8
   %5 = alloca %"struct.llvm::CriticalEdgeSplittingOptions", align 8
   %6 = alloca %"class.llvm::Twine", align 8
-  %7 = getelementptr inbounds i8, ptr %1, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %.sroa.020.029 = load ptr, ptr %7, align 8
   %.not2730 = icmp eq ptr %.sroa.020.029, %8
@@ -1063,9 +1063,9 @@ _ZN4llvm17OperandBundleDefTIPNS_5ValueEEC2ENSt7__cxx1112basic_stringIcSt11char_t
   %16 = ptrtoint ptr %13 to i64
   store i64 %16, ptr %15, align 8, !noalias !33
   %.sink.i.i = getelementptr inbounds i8, ptr %15, i64 8
-  %17 = getelementptr inbounds i8, ptr %9, i64 48
+  %17 = getelementptr inbounds nuw i8, ptr %9, i64 48
   store ptr %.sink.i.i, ptr %17, align 8, !alias.scope !33
-  %18 = getelementptr inbounds i8, ptr %9, i64 40
+  %18 = getelementptr inbounds nuw i8, ptr %9, i64 40
   store ptr %.sink.i.i, ptr %18, align 8, !alias.scope !33
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #13
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #13
@@ -1115,12 +1115,12 @@ define linkonce_odr void @_ZN4llvm23SmallVectorTemplateBaseINS_17OperandBundleDe
   %7 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i.i, i64 32
   %8 = load ptr, ptr %7, align 8
   store ptr %8, ptr %6, align 8
-  %9 = getelementptr inbounds i8, ptr %.09.i.i.i.i.i, i64 40
-  %10 = getelementptr inbounds i8, ptr %.sroa.04.08.i.i.i.i.i, i64 40
+  %9 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i, i64 40
+  %10 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i.i, i64 40
   %11 = load ptr, ptr %10, align 8
   store ptr %11, ptr %9, align 8
-  %12 = getelementptr inbounds i8, ptr %.09.i.i.i.i.i, i64 48
-  %13 = getelementptr inbounds i8, ptr %.sroa.04.08.i.i.i.i.i, i64 48
+  %12 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i, i64 48
+  %13 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i.i, i64 48
   %14 = load ptr, ptr %13, align 8
   store ptr %14, ptr %12, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false)

@@ -113,10 +113,10 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__15ArInMemoryAsset10FromBufferE
 
 .noexc.i.i.i.i:                                   ; preds = %3
   store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__15ArInMemoryAssetE, i64 16), ptr %7, align 8, !noalias !4
-  %8 = getelementptr inbounds i8, ptr %4, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %9 = load ptr, ptr %1, align 8, !noalias !4
   store ptr %9, ptr %8, align 8, !noalias !4
-  %10 = getelementptr inbounds i8, ptr %4, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %12 = load ptr, ptr %11, align 8, !noalias !4
   store ptr %12, ptr %10, align 8, !noalias !4
@@ -147,7 +147,7 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN32pxrInternal_v0_24__pxrR
 
 _ZSt11make_sharedIN32pxrInternal_v0_24__pxrReserved__15ArInMemoryAssetEJRKSt10shared_ptrIKcERmNS1_14PrivateCtorTagEEES2_INSt9enable_ifIXntsr8is_arrayIT_EE5valueESA_E4typeEEDpOT0_.exit: ; preds = %.noexc.i.i.i.i, %16, %19
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %23 = getelementptr inbounds i8, ptr %4, i64 40
+  %23 = getelementptr inbounds nuw i8, ptr %4, i64 40
   store i64 %2, ptr %23, align 8, !noalias !4
   store ptr %4, ptr %22, align 8, !alias.scope !4
   store ptr %7, ptr %0, align 8, !alias.scope !4
@@ -177,16 +177,16 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN32pxrInternal_v0_24__pxrR
 _ZSt11make_sharedIN32pxrInternal_v0_24__pxrReserved__15ArInMemoryAssetEJSt10shared_ptrIKcERmNS1_14PrivateCtorTagEEES2_INSt9enable_ifIXntsr8is_arrayIT_EE5valueES8_E4typeEEDpOT0_.exit: ; preds = %3
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__15ArInMemoryAssetE, i64 16), ptr %7, align 8, !noalias !7
-  %10 = getelementptr inbounds i8, ptr %4, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %11 = load ptr, ptr %1, align 8, !noalias !7
   store ptr %11, ptr %10, align 8, !noalias !7
-  %12 = getelementptr inbounds i8, ptr %4, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %14 = load ptr, ptr %13, align 8, !noalias !7
   store ptr null, ptr %13, align 8, !noalias !7
   store ptr %14, ptr %12, align 8, !noalias !7
   store ptr null, ptr %1, align 8, !noalias !7
-  %15 = getelementptr inbounds i8, ptr %4, i64 40
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 40
   store i64 %2, ptr %15, align 8, !noalias !7
   store ptr %4, ptr %9, align 8, !alias.scope !7
   store ptr %7, ptr %0, align 8, !alias.scope !7
@@ -196,7 +196,7 @@ _ZSt11make_sharedIN32pxrInternal_v0_24__pxrReserved__15ArInMemoryAssetEJSt10shar
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN32pxrInternal_v0_24__pxrReserved__15ArInMemoryAssetD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__15ArInMemoryAssetE, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i.i, label %_ZNSt10shared_ptrIKcED2Ev.exit, label %4
@@ -487,13 +487,13 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN32pxrInternal_v0_24__pxrR
 _ZNSt10shared_ptrIKcED2Ev.exit:                   ; preds = %.noexc
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__15ArInMemoryAssetE, i64 16), ptr %51, align 8, !noalias !16
-  %54 = getelementptr inbounds i8, ptr %48, i64 24
+  %54 = getelementptr inbounds nuw i8, ptr %48, i64 24
   store ptr %44, ptr %54, align 8, !noalias !16
-  %55 = getelementptr inbounds i8, ptr %48, i64 32
+  %55 = getelementptr inbounds nuw i8, ptr %48, i64 32
   store ptr null, ptr %45, align 8, !noalias !16
   store ptr %47, ptr %55, align 8, !noalias !16
   store ptr null, ptr %6, align 8, !noalias !16
-  %56 = getelementptr inbounds i8, ptr %48, i64 40
+  %56 = getelementptr inbounds nuw i8, ptr %48, i64 40
   store i64 %10, ptr %56, align 8, !noalias !16
   store ptr %48, ptr %53, align 8, !alias.scope !16
   store ptr %51, ptr %0, align 8, !alias.scope !16
@@ -842,7 +842,7 @@ define void @_ZNK32pxrInternal_v0_24__pxrReserved__15ArInMemoryAsset9GetBufferEv
   %4 = load ptr, ptr %3, align 8
   store ptr %4, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %7 = load ptr, ptr %6, align 8
   store ptr %7, ptr %5, align 8
   %.not.i.i.i = icmp eq ptr %7, null
@@ -913,11 +913,11 @@ define void @_ZNK32pxrInternal_v0_24__pxrReserved__15ArInMemoryAsset16GetDetache
 .noexc.i.i.i.i.i:                                 ; preds = %2
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__15ArInMemoryAssetE, i64 16), ptr %8, align 8, !noalias !17
-  %10 = getelementptr inbounds i8, ptr %5, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %11 = load ptr, ptr %9, align 8, !noalias !17
   store ptr %11, ptr %10, align 8, !noalias !17
-  %12 = getelementptr inbounds i8, ptr %5, i64 32
-  %13 = getelementptr inbounds i8, ptr %1, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %5, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %14 = load ptr, ptr %13, align 8, !noalias !17
   store ptr %14, ptr %12, align 8, !noalias !17
   %.not.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %14, null
@@ -946,7 +946,7 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN32pxrInternal_v0_24__pxrR
   resume { ptr, i32 } %23
 
 _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__15ArInMemoryAssetEED2Ev.exit: ; preds = %21, %18, %.noexc.i.i.i.i.i
-  %24 = getelementptr inbounds i8, ptr %5, i64 40
+  %24 = getelementptr inbounds nuw i8, ptr %5, i64 40
   store i64 %4, ptr %24, align 8, !noalias !17
   store ptr %8, ptr %0, align 8
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 8

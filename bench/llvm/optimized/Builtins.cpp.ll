@@ -2105,7 +2105,7 @@ define dso_local void @_ZN5clang7Builtin7Context18initializeBuiltinsERNS_15Ident
 
 ._crit_edge:                                      ; preds = %33, %15
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %35 = getelementptr inbounds i8, ptr %0, i64 24
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %36 = load i64, ptr %35, align 8
   %37 = and i64 %36, 4294967295
   %.not4070 = icmp eq i64 %37, 0
@@ -2140,7 +2140,7 @@ define dso_local void @_ZN5clang7Builtin7Context18initializeBuiltinsERNS_15Ident
 ._crit_edge74:                                    ; preds = %.lr.ph73, %._crit_edge
   %51 = getelementptr inbounds nuw i8, ptr %2, i64 560
   %52 = load ptr, ptr %51, align 8
-  %53 = getelementptr inbounds i8, ptr %2, i64 568
+  %53 = getelementptr inbounds nuw i8, ptr %2, i64 568
   %54 = load ptr, ptr %53, align 8
   %.not5875 = icmp eq ptr %52, %54
   br i1 %.not5875, label %._crit_edge79, label %.lr.ph78
@@ -3440,7 +3440,7 @@ _ZNK4llvm9StringMapIbNS_15MallocAllocatorEE6lookupENS_9StringRefE.exit: ; preds 
   %46 = getelementptr inbounds i8, ptr %2, i64 %.sroa.speculated5.i
   %47 = sub i64 %3, %.sroa.speculated5.i
   store ptr %46, ptr %45, align 8
-  %48 = getelementptr inbounds i8, ptr %0, i64 16
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %47, ptr %48, align 8
   br label %70
 

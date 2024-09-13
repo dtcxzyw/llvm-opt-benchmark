@@ -411,9 +411,9 @@ _ZN4llvmeqENS_9StringRefES0_.exit114.thread:      ; preds = %_ZN4llvmeqENS_9Stri
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6), !noalias !7
   %45 = call noalias noundef nonnull ptr @_Znam(i64 noundef %44) #15, !noalias !7
   store ptr %45, ptr %6, align 8, !noalias !7
-  %46 = getelementptr inbounds i8, ptr %42, i64 56
+  %46 = getelementptr inbounds nuw i8, ptr %42, i64 56
   %47 = load ptr, ptr %46, align 8, !noalias !7
-  %48 = getelementptr inbounds i8, ptr %42, i64 64
+  %48 = getelementptr inbounds nuw i8, ptr %42, i64 64
   %49 = load ptr, ptr %48, align 8, !noalias !7
   %.not.i.i.i.i = icmp eq ptr %47, %49
   br i1 %.not.i.i.i.i, label %_ZNSt6vectorISt10unique_ptrIA_cSt14default_deleteIS1_EESaIS4_EE9push_backEOS4_.exit.i.i, label %_ZNSt6vectorISt10unique_ptrIA_cSt14default_deleteIS1_EESaIS4_EE9push_backEOS4_.exit.thread.i.i

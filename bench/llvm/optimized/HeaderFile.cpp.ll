@@ -396,7 +396,7 @@ _ZN4llvm3vfs28recursive_directory_iteratorD2Ev.exit: ; preds = %30
   %36 = load ptr, ptr %11, align 8, !noalias !21
   store ptr %36, ptr %0, align 8, !alias.scope !21
   store ptr null, ptr %11, align 8, !noalias !21
-  %37 = getelementptr inbounds i8, ptr %9, i64 16
+  %37 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %38 = load ptr, ptr %37, align 8
   %.not.i.i.i.i6 = icmp eq ptr %38, null
   br i1 %.not.i.i.i.i6, label %_ZN4llvm3vfs28recursive_directory_iteratorD2Ev.exit12, label %39
@@ -553,7 +553,7 @@ _ZN4llvm7ErrorOrINS_3vfs6StatusEED2Ev.exit:       ; preds = %_ZN4llvmeqINS_3vfs6
   br i1 %.not, label %_ZN4llvm3vfs28recursive_directory_iteratorD2Ev.exit21, label %30, !llvm.loop !24
 
 _ZN4llvm3vfs28recursive_directory_iteratorD2Ev.exit21: ; preds = %113, %4
-  %116 = getelementptr inbounds i8, ptr %9, i64 16
+  %116 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %117 = load ptr, ptr %116, align 8
   %.not.i.i.i.i22 = icmp eq ptr %117, null
   br i1 %.not.i.i.i.i22, label %_ZN4llvm3vfs28recursive_directory_iteratorD2Ev.exit28, label %118

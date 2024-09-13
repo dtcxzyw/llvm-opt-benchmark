@@ -1066,7 +1066,7 @@ _ZNKSt8multimapIPN4llvm6RecordES2_St4lessIS2_ESaISt4pairIKS2_S2_EEE11upper_bound
 
 .lr.ph:                                           ; preds = %_ZNKSt8multimapIPN4llvm6RecordES2_St4lessIS2_ESaISt4pairIKS2_S2_EEE11upper_boundERS6_.exit, %.lr.ph
   %.sroa.018.027 = phi ptr [ %59, %.lr.ph ], [ %.19.i.i.i, %_ZNKSt8multimapIPN4llvm6RecordES2_St4lessIS2_ESaISt4pairIKS2_S2_EEE11upper_boundERS6_.exit ]
-  %57 = getelementptr inbounds i8, ptr %.sroa.018.027, i64 40
+  %57 = getelementptr inbounds nuw i8, ptr %.sroa.018.027, i64 40
   %58 = load ptr, ptr %57, align 8
   tail call void @_Z16printDeclContextRKSt8multimapIPN4llvm6RecordES2_St4lessIS2_ESaISt4pairIKS2_S2_EEES2_RNS0_11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %58, ptr noundef nonnull align 8 dereferenceable(48) %2)
   %59 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.018.027) #17
@@ -1180,7 +1180,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit20:               ; preds = %37, %39
   %53 = call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #18
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 32
   store ptr %51, ptr %54, align 8
-  %55 = getelementptr inbounds i8, ptr %53, i64 40
+  %55 = getelementptr inbounds nuw i8, ptr %53, i64 40
   store ptr %50, ptr %55, align 8
   %.078.i.i.i = load ptr, ptr %43, align 8
   %.not9.i.i.i = icmp eq ptr %.078.i.i.i, null
@@ -1761,7 +1761,7 @@ _ZNSt8multimapIN5clang6tblgen7ASTNodeES2_St4lessIS2_ESaISt4pairIKS2_S2_EEE11uppe
 
 .lr.ph:                                           ; preds = %_ZNSt8multimapIN5clang6tblgen7ASTNodeES2_St4lessIS2_ESaISt4pairIKS2_S2_EEE11upper_boundERS6_.exit, %"_ZNSt3setIN5clang6tblgen7ASTNodeEZN12_GLOBAL__N_120ClangASTNodesEmitter8EmitNodeERN4llvm11raw_ostreamES2_E3$_0SaIS2_EE6insertERKS2_.exit"
   %.sroa.0180.0193 = phi ptr [ %90, %"_ZNSt3setIN5clang6tblgen7ASTNodeEZN12_GLOBAL__N_120ClangASTNodesEmitter8EmitNodeERN4llvm11raw_ostreamES2_E3$_0SaIS2_EE6insertERKS2_.exit" ], [ %.08.lcssa.i.i.i187, %_ZNSt8multimapIN5clang6tblgen7ASTNodeES2_St4lessIS2_ESaISt4pairIKS2_S2_EEE11upper_boundERS6_.exit ]
-  %71 = getelementptr inbounds i8, ptr %.sroa.0180.0193, i64 40
+  %71 = getelementptr inbounds nuw i8, ptr %.sroa.0180.0193, i64 40
   %.val38 = load ptr, ptr %71, align 8
   %.01618.i.i.i = load ptr, ptr %67, align 8
   %.not19.i.i.i = icmp eq ptr %.01618.i.i.i, null
@@ -2714,7 +2714,7 @@ define linkonce_odr ptr @_ZNSt8_Rb_treeIN5clang6tblgen7ASTNodeESt4pairIKS2_S2_ES
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %5 = load ptr, ptr %1, align 8
   store ptr %5, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %3, i64 40
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = load ptr, ptr %7, align 8
   store ptr %8, ptr %6, align 8

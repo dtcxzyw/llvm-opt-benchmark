@@ -76,8 +76,8 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__14HdRenderThreadC2Ev(ptr nound
   store ptr @_ZNSt17_Function_handlerIFvvEPS0_E9_M_invokeERKSt9_Any_data, ptr %3, align 8
   store ptr @_ZNSt17_Function_handlerIFvvEPS0_E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation, ptr %2, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %6 = getelementptr inbounds i8, ptr %0, i64 48
-  %7 = getelementptr inbounds i8, ptr %0, i64 56
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %8 = getelementptr inbounds i8, ptr %0, i64 40
   store i64 0, ptr %8, align 8
   store ptr @_ZN32pxrInternal_v0_24__pxrReserved__14HdRenderThread24_DefaultShutdownCallbackEv, ptr %5, align 8
@@ -165,7 +165,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__14HdRenderThread10StopThreadEv.exit: ; pred
 _ZNSt6threadD2Ev.exit:                            ; preds = %1, %_ZN32pxrInternal_v0_24__pxrReserved__14HdRenderThread10StopThreadEv.exit
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 112
   tail call void @_ZNSt18condition_variableD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %13) #15
-  %14 = getelementptr inbounds i8, ptr %0, i64 48
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %15 = load ptr, ptr %14, align 8
   %.not.i.i = icmp eq ptr %15, null
   br i1 %.not.i.i, label %_ZNSt8functionIFvvEED2Ev.exit, label %16
@@ -393,11 +393,11 @@ _ZNSt8functionIFvvEEC2ERKS1_.exit.i:              ; preds = %11, %2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %4, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i.i)
-  %25 = getelementptr inbounds i8, ptr %0, i64 48
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %26 = load ptr, ptr %25, align 8
   store ptr %26, ptr %5, align 8
   store ptr %24, ptr %25, align 8
-  %27 = getelementptr inbounds i8, ptr %0, i64 56
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %28 = load ptr, ptr %27, align 8
   store ptr %28, ptr %6, align 8
   store ptr %23, ptr %27, align 8
@@ -635,7 +635,7 @@ _ZNSt11unique_lockISt5mutexED2Ev.exit8:           ; preds = %27, %30, %32
   br i1 %switch, label %11, label %34
 
 34:                                               ; preds = %_ZNSt11unique_lockISt5mutexED2Ev.exit8
-  %35 = getelementptr inbounds i8, ptr %0, i64 48
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %36 = load ptr, ptr %35, align 8
   %.not.i.i9 = icmp eq ptr %36, null
   br i1 %.not.i.i9, label %37, label %_ZNKSt8functionIFvvEEclEv.exit10
@@ -646,7 +646,7 @@ _ZNSt11unique_lockISt5mutexED2Ev.exit8:           ; preds = %27, %30, %32
 
 _ZNKSt8functionIFvvEEclEv.exit10:                 ; preds = %34
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %39 = getelementptr inbounds i8, ptr %0, i64 56
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %40 = load ptr, ptr %39, align 8
   call void %40(ptr noundef nonnull align 8 dereferenceable(16) %38)
   ret void

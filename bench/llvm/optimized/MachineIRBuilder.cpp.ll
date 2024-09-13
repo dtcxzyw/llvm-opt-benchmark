@@ -105,11 +105,11 @@ define dso_local void @_ZN4llvm16MachineIRBuilder5setMFERNS_15MachineFunctionE(p
   %3 = alloca %"class.llvm::DebugLoc", align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %1, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 56
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store ptr null, ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %7, ptr %8, align 8
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %10 = load ptr, ptr %9, align 8
@@ -117,10 +117,10 @@ define dso_local void @_ZN4llvm16MachineIRBuilder5setMFERNS_15MachineFunctionE(p
   %12 = getelementptr inbounds i8, ptr %11, i64 128
   %13 = load ptr, ptr %12, align 8
   %14 = tail call noundef ptr %13(ptr noundef nonnull align 8 dereferenceable(288) %10) #11
-  %15 = getelementptr inbounds i8, ptr %0, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %14, ptr %15, align 8
   store ptr null, ptr %3, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 32
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %17 = icmp eq ptr %3, %16
   br i1 %17, label %_ZN4llvm8DebugLocD2Ev.exit, label %18
 
@@ -141,8 +141,8 @@ _ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i:     ; preds = %18
   br label %_ZN4llvm8DebugLocD2Ev.exit
 
 _ZN4llvm8DebugLocD2Ev.exit:                       ; preds = %18, %20, %_ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i, %2
-  %22 = getelementptr inbounds i8, ptr %0, i64 40
-  %23 = getelementptr inbounds i8, ptr %0, i64 64
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %22, i8 0, i64 16, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %23, i8 0, i64 16, i1 false)
   ret void
@@ -161,16 +161,16 @@ define dso_local { ptr, ptr } @_ZN4llvm16MachineIRBuilder18buildInstrNoInsertEj(
   %5 = alloca %"class.llvm::DebugLoc", align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %9 = load ptr, ptr %8, align 8
   store ptr %9, ptr %5, align 8
   %.not.i.i.i.i = icmp eq ptr %9, null
   br i1 %.not.i.i.i.i, label %_ZN4llvm8DebugLocC2ERKS0_.exit.thread, label %_ZN4llvm8DebugLocC2ERKS0_.exit
 
 _ZN4llvm8DebugLocC2ERKS0_.exit.thread:            ; preds = %2
-  %10 = getelementptr inbounds i8, ptr %0, i64 40
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 48
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %13 = load ptr, ptr %12, align 8
   store ptr null, ptr %4, align 8
   br label %_ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit
@@ -178,9 +178,9 @@ _ZN4llvm8DebugLocC2ERKS0_.exit.thread:            ; preds = %2
 _ZN4llvm8DebugLocC2ERKS0_.exit:                   ; preds = %2
   %14 = call noundef zeroext i1 @_ZN4llvm16MetadataTracking5trackEPvRNS_8MetadataENS_12PointerUnionIJPNS_15MetadataAsValueEPS2_PNS_14DebugValueUserEEEE(ptr noundef nonnull %5, ptr noundef nonnull align 4 dereferenceable(8) %9, i64 1) #11
   %.pr = load ptr, ptr %5, align 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 40
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %0, i64 48
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %18 = load ptr, ptr %17, align 8
   store ptr %.pr, ptr %4, align 8
   %.not.i.i.i.i.i = icmp eq ptr %.pr, null
@@ -200,7 +200,7 @@ _ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit: ; preds = %_ZN4llvm8De
   store ptr %23, ptr %24, align 8
   %25 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %22, ptr %25, align 8
-  %26 = getelementptr inbounds i8, ptr %0, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %27 = load ptr, ptr %26, align 8
   %28 = getelementptr inbounds i8, ptr %27, i64 8
   %29 = load ptr, ptr %28, align 8
@@ -271,9 +271,9 @@ _ZN4llvm8DebugLocD2Ev.exit:                       ; preds = %_ZN4llvm10MIMetadat
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local { ptr, ptr } @_ZN4llvm16MachineIRBuilder11insertInstrENS_19MachineInstrBuilderE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %0, ptr %1, ptr %2) local_unnamed_addr #0 align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 56
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 64
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %.sroa.0.0.copyload.i = load ptr, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 40
   tail call void @_ZN4llvm12ilist_traitsINS_12MachineInstrEE13addNodeToListEPS1_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef %2) #11
@@ -293,7 +293,7 @@ define dso_local { ptr, ptr } @_ZN4llvm16MachineIRBuilder11insertInstrENS_19Mach
   %15 = and i64 %.0.copyload.i.i.i.i10.i.i.i.i.i, 7
   %16 = or disjoint i64 %15, %14
   store i64 %16, ptr %.sroa.0.0.copyload.i, align 8
-  %17 = getelementptr inbounds i8, ptr %0, i64 72
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %18 = load ptr, ptr %17, align 8
   %.not.i = icmp eq ptr %18, null
   br i1 %.not.i, label %_ZNK4llvm16MachineIRBuilder15recordInsertionEPNS_12MachineInstrE.exit, label %19
@@ -315,17 +315,17 @@ _ZNK4llvm16MachineIRBuilder15recordInsertionEPNS_12MachineInstrE.exit: ; preds =
 define dso_local { ptr, ptr } @_ZN4llvm16MachineIRBuilder19buildDirectDbgValueENS_8RegisterEPKNS_6MDNodeES4_(ptr noundef nonnull align 8 dereferenceable(88) %0, i32 %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 32
-  %8 = getelementptr inbounds i8, ptr %0, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds i8, ptr %9, i64 8
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr inbounds i8, ptr %11, i64 -416
   %13 = tail call { ptr, ptr } @_ZN4llvm7BuildMIERNS_15MachineFunctionERKNS_8DebugLocERKNS_11MCInstrDescEbNS_8RegisterEPKNS_6MDNodeESB_(ptr noundef nonnull align 8 dereferenceable(1041) %6, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(32) %12, i1 noundef zeroext false, i32 %1, ptr noundef %2, ptr noundef %3) #11
   %14 = extractvalue { ptr, ptr } %13, 1
-  %15 = getelementptr inbounds i8, ptr %0, i64 56
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %0, i64 64
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %.sroa.0.0.copyload.i.i = load ptr, ptr %17, align 8
   %18 = getelementptr inbounds nuw i8, ptr %16, i64 40
   tail call void @_ZN4llvm12ilist_traitsINS_12MachineInstrEE13addNodeToListEPS1_(ptr noundef nonnull align 8 dereferenceable(8) %18, ptr noundef %14) #11
@@ -345,7 +345,7 @@ define dso_local { ptr, ptr } @_ZN4llvm16MachineIRBuilder19buildDirectDbgValueEN
   %26 = and i64 %.0.copyload.i.i.i.i10.i.i.i.i.i.i, 7
   %27 = or disjoint i64 %26, %25
   store i64 %27, ptr %.sroa.0.0.copyload.i.i, align 8
-  %28 = getelementptr inbounds i8, ptr %0, i64 72
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %29 = load ptr, ptr %28, align 8
   %.not.i.i = icmp eq ptr %29, null
   br i1 %.not.i.i, label %_ZN4llvm16MachineIRBuilder11insertInstrENS_19MachineInstrBuilderE.exit, label %30
@@ -367,17 +367,17 @@ declare { ptr, ptr } @_ZN4llvm7BuildMIERNS_15MachineFunctionERKNS_8DebugLocERKNS
 define dso_local { ptr, ptr } @_ZN4llvm16MachineIRBuilder21buildIndirectDbgValueENS_8RegisterEPKNS_6MDNodeES4_(ptr noundef nonnull align 8 dereferenceable(88) %0, i32 %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 32
-  %8 = getelementptr inbounds i8, ptr %0, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds i8, ptr %9, i64 8
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr inbounds i8, ptr %11, i64 -416
   %13 = tail call { ptr, ptr } @_ZN4llvm7BuildMIERNS_15MachineFunctionERKNS_8DebugLocERKNS_11MCInstrDescEbNS_8RegisterEPKNS_6MDNodeESB_(ptr noundef nonnull align 8 dereferenceable(1041) %6, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(32) %12, i1 noundef zeroext true, i32 %1, ptr noundef %2, ptr noundef %3) #11
   %14 = extractvalue { ptr, ptr } %13, 1
-  %15 = getelementptr inbounds i8, ptr %0, i64 56
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %0, i64 64
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %.sroa.0.0.copyload.i.i = load ptr, ptr %17, align 8
   %18 = getelementptr inbounds nuw i8, ptr %16, i64 40
   tail call void @_ZN4llvm12ilist_traitsINS_12MachineInstrEE13addNodeToListEPS1_(ptr noundef nonnull align 8 dereferenceable(8) %18, ptr noundef %14) #11
@@ -397,7 +397,7 @@ define dso_local { ptr, ptr } @_ZN4llvm16MachineIRBuilder21buildIndirectDbgValue
   %26 = and i64 %.0.copyload.i.i.i.i10.i.i.i.i.i.i, 7
   %27 = or disjoint i64 %26, %25
   store i64 %27, ptr %.sroa.0.0.copyload.i.i, align 8
-  %28 = getelementptr inbounds i8, ptr %0, i64 72
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %29 = load ptr, ptr %28, align 8
   %.not.i.i = icmp eq ptr %29, null
   br i1 %.not.i.i, label %_ZN4llvm16MachineIRBuilder11insertInstrENS_19MachineInstrBuilderE.exit, label %30
@@ -452,9 +452,9 @@ define dso_local { ptr, ptr } @_ZN4llvm16MachineIRBuilder15buildFIDbgValueEiPKNS
   store ptr %3, ptr %18, align 8, !alias.scope !13
   call void @_ZN4llvm12MachineInstr10addOperandERNS_15MachineFunctionERKNS_14MachineOperandE(ptr noundef nonnull align 8 dereferenceable(70) %11, ptr noundef nonnull align 8 dereferenceable(1041) %10, ptr noundef nonnull align 8 dereferenceable(32) %5) #11
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
-  %19 = getelementptr inbounds i8, ptr %0, i64 56
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %0, i64 64
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %.sroa.0.0.copyload.i.i = load ptr, ptr %21, align 8
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 40
   call void @_ZN4llvm12ilist_traitsINS_12MachineInstrEE13addNodeToListEPS1_(ptr noundef nonnull align 8 dereferenceable(8) %22, ptr noundef nonnull %11) #11
@@ -474,7 +474,7 @@ define dso_local { ptr, ptr } @_ZN4llvm16MachineIRBuilder15buildFIDbgValueEiPKNS
   %30 = and i64 %.0.copyload.i.i.i.i10.i.i.i.i.i.i, 7
   %31 = or disjoint i64 %30, %29
   store i64 %31, ptr %.sroa.0.0.copyload.i.i, align 8
-  %32 = getelementptr inbounds i8, ptr %0, i64 72
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %33 = load ptr, ptr %32, align 8
   %.not.i.i = icmp eq ptr %33, null
   br i1 %.not.i.i, label %_ZN4llvm16MachineIRBuilder11insertInstrENS_19MachineInstrBuilderE.exit, label %34
@@ -534,7 +534,7 @@ define dso_local { ptr, ptr } @_ZN4llvm16MachineIRBuilder18buildConstDbgValueERK
   ]
 
 30:                                               ; preds = %"_ZZN4llvm16MachineIRBuilder18buildConstDbgValueERKNS_8ConstantEPKNS_6MDNodeES6_ENK3$_0clEv.exit"
-  %31 = getelementptr inbounds i8, ptr %.0.i, i64 32
+  %31 = getelementptr inbounds nuw i8, ptr %.0.i, i64 32
   %32 = load i32, ptr %31, align 8
   %33 = icmp ugt i32 %32, 64
   br i1 %33, label %34, label %37
@@ -613,9 +613,9 @@ define dso_local { ptr, ptr } @_ZN4llvm16MachineIRBuilder18buildConstDbgValueERK
   store ptr %3, ptr %51, align 8, !alias.scope !34
   call void @_ZN4llvm12MachineInstr10addOperandERNS_15MachineFunctionERKNS_14MachineOperandE(ptr noundef nonnull align 8 dereferenceable(70) %15, ptr noundef nonnull align 8 dereferenceable(1041) %14, ptr noundef nonnull align 8 dereferenceable(32) %5) #11
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
-  %52 = getelementptr inbounds i8, ptr %0, i64 56
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %53 = load ptr, ptr %52, align 8
-  %54 = getelementptr inbounds i8, ptr %0, i64 64
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %.sroa.0.0.copyload.i.i = load ptr, ptr %54, align 8
   %55 = getelementptr inbounds nuw i8, ptr %53, i64 40
   call void @_ZN4llvm12ilist_traitsINS_12MachineInstrEE13addNodeToListEPS1_(ptr noundef nonnull align 8 dereferenceable(8) %55, ptr noundef nonnull %15) #11
@@ -635,7 +635,7 @@ define dso_local { ptr, ptr } @_ZN4llvm16MachineIRBuilder18buildConstDbgValueERK
   %63 = and i64 %.0.copyload.i.i.i.i10.i.i.i.i.i.i, 7
   %64 = or disjoint i64 %63, %62
   store i64 %64, ptr %.sroa.0.0.copyload.i.i, align 8
-  %65 = getelementptr inbounds i8, ptr %0, i64 72
+  %65 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %66 = load ptr, ptr %65, align 8
   %.not.i.i = icmp eq ptr %66, null
   br i1 %.not.i.i, label %_ZN4llvm16MachineIRBuilder11insertInstrENS_19MachineInstrBuilderE.exit, label %67
@@ -656,9 +656,9 @@ define dso_local { ptr, ptr } @_ZN4llvm16MachineIRBuilder13buildDbgLabelEPKNS_6M
   %3 = alloca %"class.llvm::MachineOperand", align 8
   %4 = tail call { ptr, ptr } @_ZN4llvm16MachineIRBuilder18buildInstrNoInsertEj(ptr noundef nonnull align 8 dereferenceable(88) %0, i32 noundef 17)
   %5 = extractvalue { ptr, ptr } %4, 1
-  %6 = getelementptr inbounds i8, ptr %0, i64 56
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 64
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %.sroa.0.0.copyload.i.i.i = load ptr, ptr %8, align 8
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 40
   tail call void @_ZN4llvm12ilist_traitsINS_12MachineInstrEE13addNodeToListEPS1_(ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef %5) #11
@@ -678,7 +678,7 @@ define dso_local { ptr, ptr } @_ZN4llvm16MachineIRBuilder13buildDbgLabelEPKNS_6M
   %17 = and i64 %.0.copyload.i.i.i.i10.i.i.i.i.i.i.i, 7
   %18 = or disjoint i64 %17, %16
   store i64 %18, ptr %.sroa.0.0.copyload.i.i.i, align 8
-  %19 = getelementptr inbounds i8, ptr %0, i64 72
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %20 = load ptr, ptr %19, align 8
   %.not.i.i.i = icmp eq ptr %20, null
   br i1 %.not.i.i.i, label %_ZN4llvm16MachineIRBuilder10buildInstrEj.exit, label %21
@@ -709,9 +709,9 @@ define dso_local { ptr, ptr } @_ZN4llvm16MachineIRBuilder18buildDynStackAllocERK
   %6 = alloca %"class.llvm::MachineInstrBuilder", align 8
   %7 = tail call { ptr, ptr } @_ZN4llvm16MachineIRBuilder18buildInstrNoInsertEj(ptr noundef nonnull align 8 dereferenceable(88) %0, i32 noundef 256)
   %8 = extractvalue { ptr, ptr } %7, 1
-  %9 = getelementptr inbounds i8, ptr %0, i64 56
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 64
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %.sroa.0.0.copyload.i.i.i = load ptr, ptr %11, align 8
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 40
   tail call void @_ZN4llvm12ilist_traitsINS_12MachineInstrEE13addNodeToListEPS1_(ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef %8) #11
@@ -731,7 +731,7 @@ define dso_local { ptr, ptr } @_ZN4llvm16MachineIRBuilder18buildDynStackAllocERK
   %20 = and i64 %.0.copyload.i.i.i.i10.i.i.i.i.i.i.i, 7
   %21 = or disjoint i64 %20, %19
   store i64 %21, ptr %.sroa.0.0.copyload.i.i.i, align 8
-  %22 = getelementptr inbounds i8, ptr %0, i64 72
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %23 = load ptr, ptr %22, align 8
   %.not.i.i.i = icmp eq ptr %23, null
   br i1 %.not.i.i.i, label %_ZN4llvm16MachineIRBuilder10buildInstrEj.exit, label %24
@@ -748,7 +748,7 @@ _ZN4llvm16MachineIRBuilder10buildInstrEj.exit:    ; preds = %4, %24
   store ptr %28, ptr %6, align 8
   %29 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %8, ptr %29, align 8
-  %30 = getelementptr inbounds i8, ptr %0, i64 24
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %31 = load ptr, ptr %30, align 8
   call void @_ZNK4llvm5DstOp11addDefToMIBERNS_19MachineRegisterInfoERNS_19MachineInstrBuilderE(ptr noundef nonnull align 8 dereferenceable(12) %1, ptr noundef nonnull align 8 dereferenceable(512) %31, ptr noundef nonnull align 8 dereferenceable(16) %6)
   call void @_ZNK4llvm5SrcOp11addSrcToMIBERNS_19MachineInstrBuilderE(ptr noundef nonnull align 8 dereferenceable(20) %2, ptr noundef nonnull align 8 dereferenceable(16) %6)
@@ -935,9 +935,9 @@ define dso_local { ptr, ptr } @_ZN4llvm16MachineIRBuilder15buildFrameIndexERKNS_
   %5 = alloca %"class.llvm::MachineInstrBuilder", align 8
   %6 = tail call { ptr, ptr } @_ZN4llvm16MachineIRBuilder18buildInstrNoInsertEj(ptr noundef nonnull align 8 dereferenceable(88) %0, i32 noundef 66)
   %7 = extractvalue { ptr, ptr } %6, 1
-  %8 = getelementptr inbounds i8, ptr %0, i64 56
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 64
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %.sroa.0.0.copyload.i.i.i = load ptr, ptr %10, align 8
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 40
   tail call void @_ZN4llvm12ilist_traitsINS_12MachineInstrEE13addNodeToListEPS1_(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef %7) #11
@@ -957,7 +957,7 @@ define dso_local { ptr, ptr } @_ZN4llvm16MachineIRBuilder15buildFrameIndexERKNS_
   %19 = and i64 %.0.copyload.i.i.i.i10.i.i.i.i.i.i.i, 7
   %20 = or disjoint i64 %19, %18
   store i64 %20, ptr %.sroa.0.0.copyload.i.i.i, align 8
-  %21 = getelementptr inbounds i8, ptr %0, i64 72
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %22 = load ptr, ptr %21, align 8
   %.not.i.i.i = icmp eq ptr %22, null
   br i1 %.not.i.i.i, label %_ZN4llvm16MachineIRBuilder10buildInstrEj.exit, label %23
@@ -974,7 +974,7 @@ _ZN4llvm16MachineIRBuilder10buildInstrEj.exit:    ; preds = %3, %23
   store ptr %27, ptr %5, align 8
   %28 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %7, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %0, i64 24
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %30 = load ptr, ptr %29, align 8
   call void @_ZNK4llvm5DstOp11addDefToMIBERNS_19MachineRegisterInfoERNS_19MachineInstrBuilderE(ptr noundef nonnull align 8 dereferenceable(12) %1, ptr noundef nonnull align 8 dereferenceable(512) %30, ptr noundef nonnull align 8 dereferenceable(16) %5)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
@@ -1000,9 +1000,9 @@ define dso_local { ptr, ptr } @_ZN4llvm16MachineIRBuilder16buildGlobalValueERKNS
   %5 = alloca %"class.llvm::MachineInstrBuilder", align 8
   %6 = tail call { ptr, ptr } @_ZN4llvm16MachineIRBuilder18buildInstrNoInsertEj(ptr noundef nonnull align 8 dereferenceable(88) %0, i32 noundef 67)
   %7 = extractvalue { ptr, ptr } %6, 1
-  %8 = getelementptr inbounds i8, ptr %0, i64 56
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 64
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %.sroa.0.0.copyload.i.i.i = load ptr, ptr %10, align 8
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 40
   tail call void @_ZN4llvm12ilist_traitsINS_12MachineInstrEE13addNodeToListEPS1_(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef %7) #11
@@ -1022,7 +1022,7 @@ define dso_local { ptr, ptr } @_ZN4llvm16MachineIRBuilder16buildGlobalValueERKNS
   %19 = and i64 %.0.copyload.i.i.i.i10.i.i.i.i.i.i.i, 7
   %20 = or disjoint i64 %19, %18
   store i64 %20, ptr %.sroa.0.0.copyload.i.i.i, align 8
-  %21 = getelementptr inbounds i8, ptr %0, i64 72
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %22 = load ptr, ptr %21, align 8
   %.not.i.i.i = icmp eq ptr %22, null
   br i1 %.not.i.i.i, label %_ZN4llvm16MachineIRBuilder10buildInstrEj.exit, label %23
@@ -1039,7 +1039,7 @@ _ZN4llvm16MachineIRBuilder10buildInstrEj.exit:    ; preds = %3, %23
   store ptr %27, ptr %5, align 8
   %28 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %7, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %0, i64 24
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %30 = load ptr, ptr %29, align 8
   call void @_ZNK4llvm5DstOp11addDefToMIBERNS_19MachineRegisterInfoERNS_19MachineInstrBuilderE(ptr noundef nonnull align 8 dereferenceable(12) %1, ptr noundef nonnull align 8 dereferenceable(512) %30, ptr noundef nonnull align 8 dereferenceable(16) %5)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
@@ -1051,7 +1051,7 @@ _ZN4llvm16MachineIRBuilder10buildInstrEj.exit:    ; preds = %3, %23
   store ptr %2, ptr %34, align 8, !alias.scope !67
   %35 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i32 0, ptr %35, align 4, !alias.scope !67
-  %36 = getelementptr inbounds i8, ptr %4, i64 24
+  %36 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store i32 0, ptr %36, align 8, !alias.scope !67
   store i32 10, ptr %4, align 8, !alias.scope !67
   call void @_ZN4llvm12MachineInstr10addOperandERNS_15MachineFunctionERKNS_14MachineOperandE(ptr noundef nonnull align 8 dereferenceable(70) %31, ptr noundef nonnull align 8 dereferenceable(1041) %32, ptr noundef nonnull align 8 dereferenceable(32) %4) #11
@@ -1069,9 +1069,9 @@ define dso_local { ptr, ptr } @_ZN4llvm16MachineIRBuilder17buildConstantPoolERKN
   %5 = alloca %"class.llvm::MachineInstrBuilder", align 8
   %6 = tail call { ptr, ptr } @_ZN4llvm16MachineIRBuilder18buildInstrNoInsertEj(ptr noundef nonnull align 8 dereferenceable(88) %0, i32 noundef 69)
   %7 = extractvalue { ptr, ptr } %6, 1
-  %8 = getelementptr inbounds i8, ptr %0, i64 56
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 64
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %.sroa.0.0.copyload.i.i.i = load ptr, ptr %10, align 8
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 40
   tail call void @_ZN4llvm12ilist_traitsINS_12MachineInstrEE13addNodeToListEPS1_(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef %7) #11
@@ -1091,7 +1091,7 @@ define dso_local { ptr, ptr } @_ZN4llvm16MachineIRBuilder17buildConstantPoolERKN
   %19 = and i64 %.0.copyload.i.i.i.i10.i.i.i.i.i.i.i, 7
   %20 = or disjoint i64 %19, %18
   store i64 %20, ptr %.sroa.0.0.copyload.i.i.i, align 8
-  %21 = getelementptr inbounds i8, ptr %0, i64 72
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %22 = load ptr, ptr %21, align 8
   %.not.i.i.i = icmp eq ptr %22, null
   br i1 %.not.i.i.i, label %_ZN4llvm16MachineIRBuilder10buildInstrEj.exit, label %23
@@ -1108,7 +1108,7 @@ _ZN4llvm16MachineIRBuilder10buildInstrEj.exit:    ; preds = %3, %23
   store ptr %27, ptr %5, align 8
   %28 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %7, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %0, i64 24
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %30 = load ptr, ptr %29, align 8
   call void @_ZNK4llvm5DstOp11addDefToMIBERNS_19MachineRegisterInfoERNS_19MachineInstrBuilderE(ptr noundef nonnull align 8 dereferenceable(12) %1, ptr noundef nonnull align 8 dereferenceable(512) %30, ptr noundef nonnull align 8 dereferenceable(16) %5)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
@@ -1120,7 +1120,7 @@ _ZN4llvm16MachineIRBuilder10buildInstrEj.exit:    ; preds = %3, %23
   store i32 %2, ptr %34, align 8, !alias.scope !70
   %35 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i32 0, ptr %35, align 4, !alias.scope !70
-  %36 = getelementptr inbounds i8, ptr %4, i64 24
+  %36 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store i32 0, ptr %36, align 8, !alias.scope !70
   store i32 6, ptr %4, align 8, !alias.scope !70
   call void @_ZN4llvm12MachineInstr10addOperandERNS_15MachineFunctionERKNS_14MachineOperandE(ptr noundef nonnull align 8 dereferenceable(70) %31, ptr noundef nonnull align 8 dereferenceable(1041) %32, ptr noundef nonnull align 8 dereferenceable(32) %4) #11
@@ -1199,7 +1199,7 @@ define dso_local void @_ZN4llvm16MachineIRBuilder17materializePtrAddERNS_8Regist
   br label %41
 
 12:                                               ; preds = %6
-  %13 = getelementptr inbounds i8, ptr %1, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %14 = load ptr, ptr %13, align 8
   %15 = icmp slt i32 %3, 0
   br i1 %15, label %16, label %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit
@@ -1272,7 +1272,7 @@ define dso_local { ptr, ptr } @_ZN4llvm16MachineIRBuilder13buildConstantERKNS_5D
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %5, align 8
   %7 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK4llvm8Function10getContextEv(ptr noundef nonnull align 8 dereferenceable(136) %6) #11
-  %8 = getelementptr inbounds i8, ptr %0, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %11 = load i32, ptr %10, align 8
@@ -1351,7 +1351,7 @@ define dso_local { ptr, ptr } @_ZN4llvm16MachineIRBuilder19buildMaskLowPtrBitsER
   %6 = alloca [2 x %"class.llvm::SrcOp"], align 8
   %7 = alloca %"class.llvm::TypeSize", align 8
   %8 = alloca %"class.llvm::DstOp", align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %12 = load i32, ptr %11, align 8
@@ -1487,7 +1487,7 @@ declare noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 derefer
 define dso_local { ptr, ptr } @_ZN4llvm16MachineIRBuilder31buildPadVectorWithUndefElementsERKNS_5DstOpERKNS_5SrcOpE(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef nonnull align 8 dereferenceable(12) %1, ptr noundef nonnull align 8 dereferenceable(20) %2) local_unnamed_addr #0 align 2 {
   %4 = alloca [1 x %"class.llvm::DstOp"], align 8
   %5 = alloca %"class.llvm::SmallVector.197", align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load i32, ptr %8, align 8
@@ -1783,7 +1783,7 @@ define dso_local { ptr, ptr } @_ZN4llvm16MachineIRBuilder12buildUnmergeENS_3LLTE
   %4 = alloca %"class.llvm::TypeSize", align 8
   %5 = alloca %"class.llvm::TypeSize", align 8
   %6 = alloca %"class.llvm::SmallVector.250", align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %10 = load i32, ptr %9, align 8
@@ -2021,7 +2021,7 @@ _ZN4llvm11SmallVectorINS_5SrcOpELj8EED2Ev.exit:   ; preds = %4, %20
 define dso_local { ptr, ptr } @_ZN4llvm16MachineIRBuilder33buildDeleteTrailingVectorElementsERKNS_5DstOpERKNS_5SrcOpE(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef nonnull align 8 dereferenceable(12) %1, ptr noundef nonnull align 8 dereferenceable(20) %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %"class.llvm::SrcOp", align 8
   %5 = alloca %"class.llvm::SmallVector.197", align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load i32, ptr %8, align 8
@@ -2295,9 +2295,9 @@ define dso_local { ptr, ptr } @_ZN4llvm16MachineIRBuilder7buildBrERNS_17MachineB
   %3 = alloca %"class.llvm::MachineOperand", align 8
   %4 = tail call { ptr, ptr } @_ZN4llvm16MachineIRBuilder18buildInstrNoInsertEj(ptr noundef nonnull align 8 dereferenceable(88) %0, i32 noundef 222)
   %5 = extractvalue { ptr, ptr } %4, 1
-  %6 = getelementptr inbounds i8, ptr %0, i64 56
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 64
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %.sroa.0.0.copyload.i.i.i = load ptr, ptr %8, align 8
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 40
   tail call void @_ZN4llvm12ilist_traitsINS_12MachineInstrEE13addNodeToListEPS1_(ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef %5) #11
@@ -2317,7 +2317,7 @@ define dso_local { ptr, ptr } @_ZN4llvm16MachineIRBuilder7buildBrERNS_17MachineB
   %17 = and i64 %.0.copyload.i.i.i.i10.i.i.i.i.i.i.i, 7
   %18 = or disjoint i64 %17, %16
   store i64 %18, ptr %.sroa.0.0.copyload.i.i.i, align 8
-  %19 = getelementptr inbounds i8, ptr %0, i64 72
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %20 = load ptr, ptr %19, align 8
   %.not.i.i.i = icmp eq ptr %20, null
   br i1 %.not.i.i.i, label %_ZN4llvm16MachineIRBuilder10buildInstrEj.exit, label %21
@@ -2347,9 +2347,9 @@ define dso_local { ptr, ptr } @_ZN4llvm16MachineIRBuilder15buildBrIndirectENS_8R
   %3 = alloca %"class.llvm::MachineOperand", align 8
   %4 = tail call { ptr, ptr } @_ZN4llvm16MachineIRBuilder18buildInstrNoInsertEj(ptr noundef nonnull align 8 dereferenceable(88) %0, i32 noundef 120)
   %5 = extractvalue { ptr, ptr } %4, 1
-  %6 = getelementptr inbounds i8, ptr %0, i64 56
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 64
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %.sroa.0.0.copyload.i.i.i = load ptr, ptr %8, align 8
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 40
   tail call void @_ZN4llvm12ilist_traitsINS_12MachineInstrEE13addNodeToListEPS1_(ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef %5) #11
@@ -2369,7 +2369,7 @@ define dso_local { ptr, ptr } @_ZN4llvm16MachineIRBuilder15buildBrIndirectENS_8R
   %17 = and i64 %.0.copyload.i.i.i.i10.i.i.i.i.i.i.i, 7
   %18 = or disjoint i64 %17, %16
   store i64 %18, ptr %.sroa.0.0.copyload.i.i.i, align 8
-  %19 = getelementptr inbounds i8, ptr %0, i64 72
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %20 = load ptr, ptr %19, align 8
   %.not.i.i.i = icmp eq ptr %20, null
   br i1 %.not.i.i.i, label %_ZN4llvm16MachineIRBuilder10buildInstrEj.exit, label %21
@@ -2403,9 +2403,9 @@ define dso_local { ptr, ptr } @_ZN4llvm16MachineIRBuilder9buildBrJTENS_8Register
   %7 = alloca %"class.llvm::MachineOperand", align 8
   %8 = tail call { ptr, ptr } @_ZN4llvm16MachineIRBuilder18buildInstrNoInsertEj(ptr noundef nonnull align 8 dereferenceable(88) %0, i32 noundef 223)
   %9 = extractvalue { ptr, ptr } %8, 1
-  %10 = getelementptr inbounds i8, ptr %0, i64 56
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 64
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %.sroa.0.0.copyload.i.i.i = load ptr, ptr %12, align 8
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 40
   tail call void @_ZN4llvm12ilist_traitsINS_12MachineInstrEE13addNodeToListEPS1_(ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef %9) #11
@@ -2425,7 +2425,7 @@ define dso_local { ptr, ptr } @_ZN4llvm16MachineIRBuilder9buildBrJTENS_8Register
   %21 = and i64 %.0.copyload.i.i.i.i10.i.i.i.i.i.i.i, 7
   %22 = or disjoint i64 %21, %20
   store i64 %22, ptr %.sroa.0.0.copyload.i.i.i, align 8
-  %23 = getelementptr inbounds i8, ptr %0, i64 72
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %24 = load ptr, ptr %23, align 8
   %.not.i.i.i = icmp eq ptr %24, null
   br i1 %.not.i.i.i, label %_ZN4llvm16MachineIRBuilder10buildInstrEj.exit, label %25
@@ -2478,7 +2478,7 @@ define dso_local { ptr, ptr } @_ZN4llvm16MachineIRBuilder13buildConstantERKNS_5D
   %7 = alloca %"class.llvm::MachineInstrBuilder", align 8
   %8 = alloca %"class.llvm::SrcOp", align 8
   %9 = alloca %"class.llvm::DebugLoc", align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %13 = load i32, ptr %12, align 8
@@ -2553,9 +2553,9 @@ _ZNK4llvm3LLT13isFixedVectorEv.exit:              ; preds = %_ZNK4llvm3LLT19getS
 45:                                               ; preds = %_ZNK4llvm3LLT13isFixedVectorEv.exit
   %46 = tail call { ptr, ptr } @_ZN4llvm16MachineIRBuilder18buildInstrNoInsertEj(ptr noundef nonnull align 8 dereferenceable(88) %0, i32 noundef 128)
   %47 = extractvalue { ptr, ptr } %46, 1
-  %48 = getelementptr inbounds i8, ptr %0, i64 56
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %49 = load ptr, ptr %48, align 8
-  %50 = getelementptr inbounds i8, ptr %0, i64 64
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %.sroa.0.0.copyload.i.i.i = load ptr, ptr %50, align 8
   %51 = getelementptr inbounds nuw i8, ptr %49, i64 40
   tail call void @_ZN4llvm12ilist_traitsINS_12MachineInstrEE13addNodeToListEPS1_(ptr noundef nonnull align 8 dereferenceable(8) %51, ptr noundef %47) #11
@@ -2575,7 +2575,7 @@ _ZNK4llvm3LLT13isFixedVectorEv.exit:              ; preds = %_ZNK4llvm3LLT19getS
   %59 = and i64 %.0.copyload.i.i.i.i10.i.i.i.i.i.i.i, 7
   %60 = or disjoint i64 %59, %58
   store i64 %60, ptr %.sroa.0.0.copyload.i.i.i, align 8
-  %61 = getelementptr inbounds i8, ptr %0, i64 72
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %62 = load ptr, ptr %61, align 8
   %.not.i.i.i = icmp eq ptr %62, null
   br i1 %.not.i.i.i, label %_ZN4llvm16MachineIRBuilder10buildInstrEj.exit, label %63
@@ -2622,9 +2622,9 @@ _ZN4llvm16MachineIRBuilder10buildInstrEj.exit:    ; preds = %45, %63
 _ZNK4llvm3LLT13isFixedVectorEv.exit.thread:       ; preds = %14, %16, %3, %_ZNK4llvm5DstOp8getLLTTyERKNS_19MachineRegisterInfoE.exit, %_ZNK4llvm3LLT13isFixedVectorEv.exit
   %79 = tail call { ptr, ptr } @_ZN4llvm16MachineIRBuilder18buildInstrNoInsertEj(ptr noundef nonnull align 8 dereferenceable(88) %0, i32 noundef 128)
   %80 = extractvalue { ptr, ptr } %79, 1
-  %81 = getelementptr inbounds i8, ptr %0, i64 56
+  %81 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %82 = load ptr, ptr %81, align 8
-  %83 = getelementptr inbounds i8, ptr %0, i64 64
+  %83 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %.sroa.0.0.copyload.i.i.i11 = load ptr, ptr %83, align 8
   %84 = getelementptr inbounds nuw i8, ptr %82, i64 40
   tail call void @_ZN4llvm12ilist_traitsINS_12MachineInstrEE13addNodeToListEPS1_(ptr noundef nonnull align 8 dereferenceable(8) %84, ptr noundef %80) #11
@@ -2644,7 +2644,7 @@ _ZNK4llvm3LLT13isFixedVectorEv.exit.thread:       ; preds = %14, %16, %3, %_ZNK4
   %92 = and i64 %.0.copyload.i.i.i.i10.i.i.i.i.i.i.i14, 7
   %93 = or disjoint i64 %92, %91
   store i64 %93, ptr %.sroa.0.0.copyload.i.i.i11, align 8
-  %94 = getelementptr inbounds i8, ptr %0, i64 72
+  %94 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %95 = load ptr, ptr %94, align 8
   %.not.i.i.i15 = icmp eq ptr %95, null
   br i1 %.not.i.i.i15, label %_ZN4llvm16MachineIRBuilder10buildInstrEj.exit16, label %96
@@ -2711,7 +2711,7 @@ _ZN4llvm8DebugLocD2Ev.exit:                       ; preds = %104, %106, %_ZN4llv
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local { ptr, ptr } @_ZN4llvm16MachineIRBuilder21buildSplatBuildVectorERKNS_5DstOpERKNS_5SrcOpE(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef nonnull align 8 dereferenceable(12) %1, ptr noundef nonnull align 8 dereferenceable(20) %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %"class.llvm::SmallVector.244", align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = load i32, ptr %7, align 8
@@ -2799,7 +2799,7 @@ define dso_local { ptr, ptr } @_ZN4llvm16MachineIRBuilder14buildFConstantERKNS_5
   %7 = alloca %"class.llvm::MachineInstrBuilder", align 8
   %8 = alloca %"class.llvm::SrcOp", align 8
   %9 = alloca %"class.llvm::DebugLoc", align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %13 = load i32, ptr %12, align 8
@@ -2874,9 +2874,9 @@ _ZNK4llvm3LLT13isFixedVectorEv.exit:              ; preds = %_ZNK4llvm3LLT19getS
 45:                                               ; preds = %_ZNK4llvm3LLT13isFixedVectorEv.exit
   %46 = tail call { ptr, ptr } @_ZN4llvm16MachineIRBuilder18buildInstrNoInsertEj(ptr noundef nonnull align 8 dereferenceable(88) %0, i32 noundef 129)
   %47 = extractvalue { ptr, ptr } %46, 1
-  %48 = getelementptr inbounds i8, ptr %0, i64 56
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %49 = load ptr, ptr %48, align 8
-  %50 = getelementptr inbounds i8, ptr %0, i64 64
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %.sroa.0.0.copyload.i.i.i = load ptr, ptr %50, align 8
   %51 = getelementptr inbounds nuw i8, ptr %49, i64 40
   tail call void @_ZN4llvm12ilist_traitsINS_12MachineInstrEE13addNodeToListEPS1_(ptr noundef nonnull align 8 dereferenceable(8) %51, ptr noundef %47) #11
@@ -2896,7 +2896,7 @@ _ZNK4llvm3LLT13isFixedVectorEv.exit:              ; preds = %_ZNK4llvm3LLT19getS
   %59 = and i64 %.0.copyload.i.i.i.i10.i.i.i.i.i.i.i, 7
   %60 = or disjoint i64 %59, %58
   store i64 %60, ptr %.sroa.0.0.copyload.i.i.i, align 8
-  %61 = getelementptr inbounds i8, ptr %0, i64 72
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %62 = load ptr, ptr %61, align 8
   %.not.i.i.i = icmp eq ptr %62, null
   br i1 %.not.i.i.i, label %_ZN4llvm16MachineIRBuilder10buildInstrEj.exit, label %63
@@ -2943,9 +2943,9 @@ _ZN4llvm16MachineIRBuilder10buildInstrEj.exit:    ; preds = %45, %63
 _ZNK4llvm3LLT13isFixedVectorEv.exit.thread:       ; preds = %14, %16, %3, %_ZNK4llvm5DstOp8getLLTTyERKNS_19MachineRegisterInfoE.exit, %_ZNK4llvm3LLT13isFixedVectorEv.exit
   %79 = tail call { ptr, ptr } @_ZN4llvm16MachineIRBuilder18buildInstrNoInsertEj(ptr noundef nonnull align 8 dereferenceable(88) %0, i32 noundef 129)
   %80 = extractvalue { ptr, ptr } %79, 1
-  %81 = getelementptr inbounds i8, ptr %0, i64 56
+  %81 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %82 = load ptr, ptr %81, align 8
-  %83 = getelementptr inbounds i8, ptr %0, i64 64
+  %83 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %.sroa.0.0.copyload.i.i.i11 = load ptr, ptr %83, align 8
   %84 = getelementptr inbounds nuw i8, ptr %82, i64 40
   tail call void @_ZN4llvm12ilist_traitsINS_12MachineInstrEE13addNodeToListEPS1_(ptr noundef nonnull align 8 dereferenceable(8) %84, ptr noundef %80) #11
@@ -2965,7 +2965,7 @@ _ZNK4llvm3LLT13isFixedVectorEv.exit.thread:       ; preds = %14, %16, %3, %_ZNK4
   %92 = and i64 %.0.copyload.i.i.i.i10.i.i.i.i.i.i.i14, 7
   %93 = or disjoint i64 %92, %91
   store i64 %93, ptr %.sroa.0.0.copyload.i.i.i11, align 8
-  %94 = getelementptr inbounds i8, ptr %0, i64 72
+  %94 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %95 = load ptr, ptr %94, align 8
   %.not.i.i.i15 = icmp eq ptr %95, null
   br i1 %.not.i.i.i15, label %_ZN4llvm16MachineIRBuilder10buildInstrEj.exit16, label %96
@@ -3048,7 +3048,7 @@ declare noundef ptr @_ZN4llvm11ConstantInt3getERNS_11LLVMContextERKNS_5APIntE(pt
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local { ptr, ptr } @_ZN4llvm16MachineIRBuilder14buildFConstantERKNS_5DstOpEd(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef nonnull align 8 dereferenceable(12) %1, double noundef %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %"class.llvm::APFloat", align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = load i32, ptr %7, align 8
@@ -3170,9 +3170,9 @@ define dso_local { ptr, ptr } @_ZN4llvm16MachineIRBuilder20buildConstantPtrAuthE
   %10 = alloca %"class.llvm::MachineInstrBuilder", align 8
   %11 = tail call { ptr, ptr } @_ZN4llvm16MachineIRBuilder18buildInstrNoInsertEj(ptr noundef nonnull align 8 dereferenceable(88) %0, i32 noundef 68)
   %12 = extractvalue { ptr, ptr } %11, 1
-  %13 = getelementptr inbounds i8, ptr %0, i64 56
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 64
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %.sroa.0.0.copyload.i.i.i = load ptr, ptr %15, align 8
   %16 = getelementptr inbounds nuw i8, ptr %14, i64 40
   tail call void @_ZN4llvm12ilist_traitsINS_12MachineInstrEE13addNodeToListEPS1_(ptr noundef nonnull align 8 dereferenceable(8) %16, ptr noundef %12) #11
@@ -3192,7 +3192,7 @@ define dso_local { ptr, ptr } @_ZN4llvm16MachineIRBuilder20buildConstantPtrAuthE
   %24 = and i64 %.0.copyload.i.i.i.i10.i.i.i.i.i.i.i, 7
   %25 = or disjoint i64 %24, %23
   store i64 %25, ptr %.sroa.0.0.copyload.i.i.i, align 8
-  %26 = getelementptr inbounds i8, ptr %0, i64 72
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %27 = load ptr, ptr %26, align 8
   %.not.i.i.i = icmp eq ptr %27, null
   br i1 %.not.i.i.i, label %_ZN4llvm16MachineIRBuilder10buildInstrEj.exit, label %28
@@ -3209,7 +3209,7 @@ _ZN4llvm16MachineIRBuilder10buildInstrEj.exit:    ; preds = %5, %28
   store ptr %32, ptr %10, align 8
   %33 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store ptr %12, ptr %33, align 8
-  %34 = getelementptr inbounds i8, ptr %0, i64 24
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %35 = load ptr, ptr %34, align 8
   call void @_ZNK4llvm5DstOp11addDefToMIBERNS_19MachineRegisterInfoERNS_19MachineInstrBuilderE(ptr noundef nonnull align 8 dereferenceable(12) %1, ptr noundef nonnull align 8 dereferenceable(512) %35, ptr noundef nonnull align 8 dereferenceable(16) %10)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9)
@@ -3227,7 +3227,7 @@ _ZN4llvm16MachineIRBuilder10buildInstrEj.exit:    ; preds = %5, %28
   %41 = getelementptr inbounds i8, ptr %2, i64 -96
   %42 = load ptr, ptr %41, align 8
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 24
-  %44 = getelementptr inbounds i8, ptr %42, i64 32
+  %44 = getelementptr inbounds nuw i8, ptr %42, i64 32
   %45 = load i32, ptr %44, align 8
   %46 = icmp ult i32 %45, 65
   %47 = load ptr, ptr %43, align 8
@@ -3258,7 +3258,7 @@ _ZN4llvm16MachineIRBuilder10buildInstrEj.exit:    ; preds = %5, %28
   %57 = getelementptr inbounds i8, ptr %2, i64 -64
   %58 = load ptr, ptr %57, align 8
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 24
-  %60 = getelementptr inbounds i8, ptr %58, i64 32
+  %60 = getelementptr inbounds nuw i8, ptr %58, i64 32
   %61 = load i32, ptr %60, align 8
   %62 = icmp ult i32 %61, 65
   %63 = load ptr, ptr %59, align 8
@@ -3287,9 +3287,9 @@ define dso_local { ptr, ptr } @_ZN4llvm16MachineIRBuilder11buildBrCondERKNS_5Src
   %5 = alloca %"class.llvm::MachineInstrBuilder", align 8
   %6 = tail call { ptr, ptr } @_ZN4llvm16MachineIRBuilder18buildInstrNoInsertEj(ptr noundef nonnull align 8 dereferenceable(88) %0, i32 noundef 119)
   %7 = extractvalue { ptr, ptr } %6, 1
-  %8 = getelementptr inbounds i8, ptr %0, i64 56
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 64
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %.sroa.0.0.copyload.i.i.i = load ptr, ptr %10, align 8
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 40
   tail call void @_ZN4llvm12ilist_traitsINS_12MachineInstrEE13addNodeToListEPS1_(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef %7) #11
@@ -3309,7 +3309,7 @@ define dso_local { ptr, ptr } @_ZN4llvm16MachineIRBuilder11buildBrCondERKNS_5Src
   %19 = and i64 %.0.copyload.i.i.i.i10.i.i.i.i.i.i.i, 7
   %20 = or disjoint i64 %19, %18
   store i64 %20, ptr %.sroa.0.0.copyload.i.i.i, align 8
-  %21 = getelementptr inbounds i8, ptr %0, i64 72
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %22 = load ptr, ptr %21, align 8
   %.not.i.i.i = icmp eq ptr %22, null
   br i1 %.not.i.i.i, label %_ZN4llvm16MachineIRBuilder10buildInstrEj.exit, label %23
@@ -3346,7 +3346,7 @@ _ZN4llvm16MachineIRBuilder10buildInstrEj.exit:    ; preds = %3, %23
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local { ptr, ptr } @_ZN4llvm16MachineIRBuilder9buildLoadERKNS_5DstOpERKNS_5SrcOpENS_18MachinePointerInfoENS_5AlignENS_17MachineMemOperand5FlagsERKNS_9AAMDNodesE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %0, ptr noundef nonnull align 8 dereferenceable(12) %1, ptr noundef nonnull align 8 dereferenceable(20) %2, ptr nocapture noundef readonly byval(%"struct.llvm::MachinePointerInfo") align 8 %3, i8 %4, i16 noundef zeroext %5, ptr noundef nonnull align 8 dereferenceable(32) %6) local_unnamed_addr #0 align 2 {
-  %8 = getelementptr inbounds i8, ptr %0, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %11 = load i32, ptr %10, align 8
@@ -3399,9 +3399,9 @@ define dso_local { ptr, ptr } @_ZN4llvm16MachineIRBuilder14buildLoadInstrEjRKNS_
   %6 = alloca %"class.llvm::MachineInstrBuilder", align 8
   %7 = tail call { ptr, ptr } @_ZN4llvm16MachineIRBuilder18buildInstrNoInsertEj(ptr noundef nonnull align 8 dereferenceable(88) %0, i32 noundef %1)
   %8 = extractvalue { ptr, ptr } %7, 1
-  %9 = getelementptr inbounds i8, ptr %0, i64 56
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 64
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %.sroa.0.0.copyload.i.i.i = load ptr, ptr %11, align 8
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 40
   tail call void @_ZN4llvm12ilist_traitsINS_12MachineInstrEE13addNodeToListEPS1_(ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef %8) #11
@@ -3421,7 +3421,7 @@ define dso_local { ptr, ptr } @_ZN4llvm16MachineIRBuilder14buildLoadInstrEjRKNS_
   %20 = and i64 %.0.copyload.i.i.i.i10.i.i.i.i.i.i.i, 7
   %21 = or disjoint i64 %20, %19
   store i64 %21, ptr %.sroa.0.0.copyload.i.i.i, align 8
-  %22 = getelementptr inbounds i8, ptr %0, i64 72
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %23 = load ptr, ptr %22, align 8
   %.not.i.i.i = icmp eq ptr %23, null
   br i1 %.not.i.i.i, label %_ZN4llvm16MachineIRBuilder10buildInstrEj.exit, label %24
@@ -3438,7 +3438,7 @@ _ZN4llvm16MachineIRBuilder10buildInstrEj.exit:    ; preds = %5, %24
   store ptr %28, ptr %6, align 8
   %29 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %8, ptr %29, align 8
-  %30 = getelementptr inbounds i8, ptr %0, i64 24
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %31 = load ptr, ptr %30, align 8
   call void @_ZNK4llvm5DstOp11addDefToMIBERNS_19MachineRegisterInfoERNS_19MachineInstrBuilderE(ptr noundef nonnull align 8 dereferenceable(12) %2, ptr noundef nonnull align 8 dereferenceable(512) %31, ptr noundef nonnull align 8 dereferenceable(16) %6)
   call void @_ZNK4llvm5SrcOp11addSrcToMIBERNS_19MachineInstrBuilderE(ptr noundef nonnull align 8 dereferenceable(20) %3, ptr noundef nonnull align 8 dereferenceable(16) %6)
@@ -3459,7 +3459,7 @@ define dso_local { ptr, ptr } @_ZN4llvm16MachineIRBuilder19buildLoadFromOffsetER
   %8 = alloca %"class.llvm::TypeSize", align 8
   %9 = alloca %"class.llvm::DstOp", align 8
   %10 = alloca %"class.llvm::SrcOp", align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %14 = load i32, ptr %13, align 8
@@ -3664,9 +3664,9 @@ define dso_local { ptr, ptr } @_ZN4llvm16MachineIRBuilder10buildStoreERKNS_5SrcO
   %5 = alloca %"class.llvm::MachineInstrBuilder", align 8
   %6 = tail call { ptr, ptr } @_ZN4llvm16MachineIRBuilder18buildInstrNoInsertEj(ptr noundef nonnull align 8 dereferenceable(88) %0, i32 noundef 96)
   %7 = extractvalue { ptr, ptr } %6, 1
-  %8 = getelementptr inbounds i8, ptr %0, i64 56
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 64
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %.sroa.0.0.copyload.i.i.i = load ptr, ptr %10, align 8
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 40
   tail call void @_ZN4llvm12ilist_traitsINS_12MachineInstrEE13addNodeToListEPS1_(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef %7) #11
@@ -3686,7 +3686,7 @@ define dso_local { ptr, ptr } @_ZN4llvm16MachineIRBuilder10buildStoreERKNS_5SrcO
   %19 = and i64 %.0.copyload.i.i.i.i10.i.i.i.i.i.i.i, 7
   %20 = or disjoint i64 %19, %18
   store i64 %20, ptr %.sroa.0.0.copyload.i.i.i, align 8
-  %21 = getelementptr inbounds i8, ptr %0, i64 72
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %22 = load ptr, ptr %21, align 8
   %.not.i.i.i = icmp eq ptr %22, null
   br i1 %.not.i.i.i, label %_ZN4llvm16MachineIRBuilder10buildInstrEj.exit, label %23
@@ -3717,7 +3717,7 @@ _ZN4llvm16MachineIRBuilder10buildInstrEj.exit:    ; preds = %4, %23
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local { ptr, ptr } @_ZN4llvm16MachineIRBuilder10buildStoreERKNS_5SrcOpES3_NS_18MachinePointerInfoENS_5AlignENS_17MachineMemOperand5FlagsERKNS_9AAMDNodesE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %0, ptr noundef nonnull align 8 dereferenceable(20) %1, ptr noundef nonnull align 8 dereferenceable(20) %2, ptr nocapture noundef readonly byval(%"struct.llvm::MachinePointerInfo") align 8 %3, i8 %4, i16 noundef zeroext %5, ptr noundef nonnull align 8 dereferenceable(32) %6) local_unnamed_addr #0 align 2 {
-  %8 = getelementptr inbounds i8, ptr %0, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %11 = load i32, ptr %10, align 8
@@ -3823,7 +3823,7 @@ define dso_local noundef range(i32 126, 135) i32 @_ZNK4llvm16MachineIRBuilder12g
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local { ptr, ptr } @_ZN4llvm16MachineIRBuilder12buildBoolExtERKNS_5DstOpERKNS_5SrcOpEb(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef nonnull align 8 dereferenceable(12) %1, ptr noundef nonnull align 8 dereferenceable(20) %2, i1 noundef zeroext %3) local_unnamed_addr #0 align 2 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %8 = load i32, ptr %7, align 8
@@ -3952,7 +3952,7 @@ define dso_local { ptr, ptr } @_ZN4llvm16MachineIRBuilder14buildZExtInRegERKNS_5
   %6 = alloca [2 x %"class.llvm::SrcOp"], align 8
   %7 = alloca %"class.llvm::DstOp", align 8
   %8 = alloca %"class.llvm::APInt", align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %12 = load i32, ptr %11, align 8
@@ -4123,7 +4123,7 @@ define dso_local { ptr, ptr } @_ZN4llvm16MachineIRBuilder15buildExtOrTruncEjRKNS
   %6 = alloca %"class.llvm::TypeSize", align 8
   %7 = alloca %"class.llvm::TypeSize", align 8
   %8 = alloca %"class.llvm::TypeSize", align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %12 = load i32, ptr %11, align 8
@@ -4567,7 +4567,7 @@ define dso_local { ptr, ptr } @_ZN4llvm16MachineIRBuilder18buildAnyExtOrTruncERK
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local { ptr, ptr } @_ZN4llvm16MachineIRBuilder9buildCastERKNS_5DstOpERKNS_5SrcOpE(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef nonnull align 8 dereferenceable(12) %1, ptr noundef nonnull align 8 dereferenceable(20) %2) local_unnamed_addr #0 align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %7 = load i32, ptr %6, align 8
@@ -4694,7 +4694,7 @@ _ZNK4llvm3LLT9isPointerEv.exit14.thread:          ; preds = %49, %_ZNK4llvm3LLT9
 define dso_local { ptr, ptr } @_ZN4llvm16MachineIRBuilder12buildExtractERKNS_5DstOpERKNS_5SrcOpEm(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef nonnull align 8 dereferenceable(12) %1, ptr noundef nonnull align 8 dereferenceable(20) %2, i64 noundef %3) local_unnamed_addr #0 align 2 {
   %5 = alloca %"class.llvm::MachineOperand", align 8
   %6 = alloca %"class.llvm::MachineInstrBuilder", align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %10 = load i32, ptr %9, align 8
@@ -4905,9 +4905,9 @@ _ZNK4llvm3LLT13getSizeInBitsEv.exit31:            ; preds = %84, %88, %91, %_ZNK
 _ZNK4llvm7details23FixedOrScalableQuantityINS_8TypeSizeEmEeqERKS3_.exit.thread: ; preds = %_ZNK4llvm3LLT13getSizeInBitsEv.exit31
   %110 = tail call { ptr, ptr } @_ZN4llvm16MachineIRBuilder18buildInstrNoInsertEj(ptr noundef nonnull align 8 dereferenceable(88) %0, i32 noundef 70)
   %111 = extractvalue { ptr, ptr } %110, 1
-  %112 = getelementptr inbounds i8, ptr %0, i64 56
+  %112 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %113 = load ptr, ptr %112, align 8
-  %114 = getelementptr inbounds i8, ptr %0, i64 64
+  %114 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %.sroa.0.0.copyload.i.i.i = load ptr, ptr %114, align 8
   %115 = getelementptr inbounds nuw i8, ptr %113, i64 40
   tail call void @_ZN4llvm12ilist_traitsINS_12MachineInstrEE13addNodeToListEPS1_(ptr noundef nonnull align 8 dereferenceable(8) %115, ptr noundef %111) #11
@@ -4927,7 +4927,7 @@ _ZNK4llvm7details23FixedOrScalableQuantityINS_8TypeSizeEmEeqERKS3_.exit.thread: 
   %123 = and i64 %.0.copyload.i.i.i.i10.i.i.i.i.i.i.i, 7
   %124 = or disjoint i64 %123, %122
   store i64 %124, ptr %.sroa.0.0.copyload.i.i.i, align 8
-  %125 = getelementptr inbounds i8, ptr %0, i64 72
+  %125 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %126 = load ptr, ptr %125, align 8
   %.not.i.i.i = icmp eq ptr %126, null
   br i1 %.not.i.i.i, label %_ZN4llvm16MachineIRBuilder10buildInstrEj.exit, label %127
@@ -4997,7 +4997,7 @@ _ZN4llvm11SmallVectorINS_5SrcOpELj8EED2Ev.exit:   ; preds = %4, %17
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local noundef range(i32 73, 77) i32 @_ZNK4llvm16MachineIRBuilder17getOpcodeForMergeERKNS_5DstOpENS_8ArrayRefINS_5SrcOpEEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %1, ptr nocapture readonly %2, i64 %3) local_unnamed_addr #0 align 2 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = load i32, ptr %7, align 8
@@ -5205,7 +5205,7 @@ define dso_local { ptr, ptr } @_ZN4llvm16MachineIRBuilder24buildBuildVectorConst
   br label %_ZN4llvm15SmallVectorImplINS_5SrcOpEE7reserveEm.exit
 
 _ZN4llvm15SmallVectorImplINS_5SrcOpEE7reserveEm.exit: ; preds = %4, %11
-  %12 = getelementptr inbounds i8, ptr %0, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %15 = load i32, ptr %14, align 8
@@ -5401,7 +5401,7 @@ define dso_local { ptr, ptr } @_ZN4llvm16MachineIRBuilder21buildBuildVectorTrunc
   %7 = getelementptr inbounds %"class.llvm::Register", ptr %2, i64 %3
   call void @_ZN4llvm15SmallVectorImplINS_5SrcOpEE6appendIPKNS_8RegisterEvEEvT_S7_(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef %2, ptr noundef %7)
   %8 = load ptr, ptr %5, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %12 = load i32, ptr %11, align 8
@@ -5682,7 +5682,7 @@ define dso_local { ptr, ptr } @_ZN4llvm16MachineIRBuilder17buildShuffleSplatERKN
   %9 = alloca %"class.llvm::DstOp", align 8
   %10 = alloca %"class.llvm::SrcOp", align 8
   %11 = alloca %"class.llvm::SrcOp", align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %15 = load i32, ptr %14, align 8
@@ -5827,7 +5827,7 @@ define dso_local { ptr, ptr } @_ZN4llvm16MachineIRBuilder18buildShuffleVectorERK
   %7 = alloca %"class.llvm::MachineOperand", align 8
   %8 = alloca [1 x %"class.llvm::DstOp"], align 8
   %9 = alloca [2 x %"class.llvm::SrcOp"], align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %12 = load i32, ptr %11, align 8
   %switch = icmp eq i32 %12, 1
@@ -5965,7 +5965,7 @@ _ZN4llvm11SmallVectorINS_5SrcOpELj8EED2Ev.exit:   ; preds = %4, %17
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local { ptr, ptr } @_ZN4llvm16MachineIRBuilder11buildInsertERKNS_5DstOpERKNS_5SrcOpES6_j(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef nonnull align 8 dereferenceable(12) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %2, ptr noundef nonnull align 8 dereferenceable(20) %3, i32 noundef %4) local_unnamed_addr #0 align 2 {
   %6 = alloca [3 x %"class.llvm::SrcOp"], align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %10 = load i32, ptr %9, align 8
@@ -6197,7 +6197,7 @@ define dso_local { ptr, ptr } @_ZN4llvm16MachineIRBuilder11buildVScaleERKNS_5Dst
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %5, align 8
   %7 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK4llvm8Function10getContextEv(ptr noundef nonnull align 8 dereferenceable(136) %6) #11
-  %8 = getelementptr inbounds i8, ptr %0, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %11 = load i32, ptr %10, align 8
@@ -6275,9 +6275,9 @@ define dso_local { ptr, ptr } @_ZN4llvm16MachineIRBuilder11buildVScaleERKNS_5Dst
   %6 = alloca %"class.llvm::DebugLoc", align 8
   %7 = tail call { ptr, ptr } @_ZN4llvm16MachineIRBuilder18buildInstrNoInsertEj(ptr noundef nonnull align 8 dereferenceable(88) %0, i32 noundef 224)
   %8 = extractvalue { ptr, ptr } %7, 1
-  %9 = getelementptr inbounds i8, ptr %0, i64 56
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 64
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %.sroa.0.0.copyload.i.i.i = load ptr, ptr %11, align 8
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 40
   tail call void @_ZN4llvm12ilist_traitsINS_12MachineInstrEE13addNodeToListEPS1_(ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef %8) #11
@@ -6297,7 +6297,7 @@ define dso_local { ptr, ptr } @_ZN4llvm16MachineIRBuilder11buildVScaleERKNS_5Dst
   %20 = and i64 %.0.copyload.i.i.i.i10.i.i.i.i.i.i.i, 7
   %21 = or disjoint i64 %20, %19
   store i64 %21, ptr %.sroa.0.0.copyload.i.i.i, align 8
-  %22 = getelementptr inbounds i8, ptr %0, i64 72
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %23 = load ptr, ptr %22, align 8
   %.not.i.i.i = icmp eq ptr %23, null
   br i1 %.not.i.i.i, label %_ZN4llvm16MachineIRBuilder10buildInstrEj.exit, label %24
@@ -6337,7 +6337,7 @@ _ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i:   ; preds = %32
   br label %_ZN4llvm8DebugLocD2Ev.exit
 
 _ZN4llvm8DebugLocD2Ev.exit:                       ; preds = %32, %34, %_ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i, %_ZN4llvm16MachineIRBuilder10buildInstrEj.exit
-  %36 = getelementptr inbounds i8, ptr %0, i64 24
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %37 = load ptr, ptr %36, align 8
   call void @_ZNK4llvm5DstOp11addDefToMIBERNS_19MachineRegisterInfoERNS_19MachineInstrBuilderE(ptr noundef nonnull align 8 dereferenceable(12) %1, ptr noundef nonnull align 8 dereferenceable(512) %37, ptr noundef nonnull align 8 dereferenceable(16) %5)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
@@ -6377,9 +6377,9 @@ define dso_local { ptr, ptr } @_ZN4llvm16MachineIRBuilder14buildIntrinsicEjNS_8A
   %.0.i = select i1 %4, i32 %spec.select.i, i32 %..i
   %9 = tail call { ptr, ptr } @_ZN4llvm16MachineIRBuilder18buildInstrNoInsertEj(ptr noundef nonnull align 8 dereferenceable(88) %0, i32 noundef %.0.i)
   %10 = extractvalue { ptr, ptr } %9, 1
-  %11 = getelementptr inbounds i8, ptr %0, i64 56
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 64
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %.sroa.0.0.copyload.i.i.i = load ptr, ptr %13, align 8
   %14 = getelementptr inbounds nuw i8, ptr %12, i64 40
   tail call void @_ZN4llvm12ilist_traitsINS_12MachineInstrEE13addNodeToListEPS1_(ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef %10) #11
@@ -6399,7 +6399,7 @@ define dso_local { ptr, ptr } @_ZN4llvm16MachineIRBuilder14buildIntrinsicEjNS_8A
   %22 = and i64 %.0.copyload.i.i.i.i10.i.i.i.i.i.i.i, 7
   %23 = or disjoint i64 %22, %21
   store i64 %23, ptr %.sroa.0.0.copyload.i.i.i, align 8
-  %24 = getelementptr inbounds i8, ptr %0, i64 72
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %25 = load ptr, ptr %24, align 8
   %.not.i.i.i = icmp eq ptr %25, null
   br i1 %.not.i.i.i, label %_ZN4llvm16MachineIRBuilder10buildInstrEj.exit, label %26
@@ -6481,9 +6481,9 @@ define dso_local { ptr, ptr } @_ZN4llvm16MachineIRBuilder14buildIntrinsicEjNS_8A
   %.0.i = select i1 %4, i32 %spec.select.i, i32 %..i
   %10 = tail call { ptr, ptr } @_ZN4llvm16MachineIRBuilder18buildInstrNoInsertEj(ptr noundef nonnull align 8 dereferenceable(88) %0, i32 noundef %.0.i)
   %11 = extractvalue { ptr, ptr } %10, 1
-  %12 = getelementptr inbounds i8, ptr %0, i64 56
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 64
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %.sroa.0.0.copyload.i.i.i = load ptr, ptr %14, align 8
   %15 = getelementptr inbounds nuw i8, ptr %13, i64 40
   tail call void @_ZN4llvm12ilist_traitsINS_12MachineInstrEE13addNodeToListEPS1_(ptr noundef nonnull align 8 dereferenceable(8) %15, ptr noundef %11) #11
@@ -6503,7 +6503,7 @@ define dso_local { ptr, ptr } @_ZN4llvm16MachineIRBuilder14buildIntrinsicEjNS_8A
   %23 = and i64 %.0.copyload.i.i.i.i10.i.i.i.i.i.i.i, 7
   %24 = or disjoint i64 %23, %22
   store i64 %24, ptr %.sroa.0.0.copyload.i.i.i, align 8
-  %25 = getelementptr inbounds i8, ptr %0, i64 72
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %26 = load ptr, ptr %25, align 8
   %.not.i.i.i = icmp eq ptr %26, null
   br i1 %.not.i.i.i, label %_ZN4llvm16MachineIRBuilder10buildInstrEj.exit, label %27
@@ -6525,7 +6525,7 @@ _ZN4llvm16MachineIRBuilder10buildInstrEj.exit:    ; preds = %6, %27
   br i1 %.not10, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZN4llvm16MachineIRBuilder10buildInstrEj.exit
-  %34 = getelementptr inbounds i8, ptr %0, i64 24
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 24
   br label %35
 
 35:                                               ; preds = %.lr.ph, %35
@@ -6723,9 +6723,9 @@ define dso_local { ptr, ptr } @_ZN4llvm16MachineIRBuilder29buildAtomicCmpXchgWit
   %8 = alloca %"class.llvm::MachineInstrBuilder", align 8
   %9 = tail call { ptr, ptr } @_ZN4llvm16MachineIRBuilder18buildInstrNoInsertEj(ptr noundef nonnull align 8 dereferenceable(88) %0, i32 noundef 98)
   %10 = extractvalue { ptr, ptr } %9, 1
-  %11 = getelementptr inbounds i8, ptr %0, i64 56
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 64
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %.sroa.0.0.copyload.i.i.i = load ptr, ptr %13, align 8
   %14 = getelementptr inbounds nuw i8, ptr %12, i64 40
   tail call void @_ZN4llvm12ilist_traitsINS_12MachineInstrEE13addNodeToListEPS1_(ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef %10) #11
@@ -6745,7 +6745,7 @@ define dso_local { ptr, ptr } @_ZN4llvm16MachineIRBuilder29buildAtomicCmpXchgWit
   %22 = and i64 %.0.copyload.i.i.i.i10.i.i.i.i.i.i.i, 7
   %23 = or disjoint i64 %22, %21
   store i64 %23, ptr %.sroa.0.0.copyload.i.i.i, align 8
-  %24 = getelementptr inbounds i8, ptr %0, i64 72
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %25 = load ptr, ptr %24, align 8
   %.not.i.i.i = icmp eq ptr %25, null
   br i1 %.not.i.i.i, label %_ZN4llvm16MachineIRBuilder10buildInstrEj.exit, label %26
@@ -6762,7 +6762,7 @@ _ZN4llvm16MachineIRBuilder10buildInstrEj.exit:    ; preds = %7, %26
   store ptr %30, ptr %8, align 8
   %31 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %10, ptr %31, align 8
-  %32 = getelementptr inbounds i8, ptr %0, i64 24
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %33 = load ptr, ptr %32, align 8
   call void @_ZNK4llvm5DstOp11addDefToMIBERNS_19MachineRegisterInfoERNS_19MachineInstrBuilderE(ptr noundef nonnull align 8 dereferenceable(12) %1, ptr noundef nonnull align 8 dereferenceable(512) %33, ptr noundef nonnull align 8 dereferenceable(16) %8)
   %34 = load ptr, ptr %32, align 8
@@ -6785,9 +6785,9 @@ define dso_local { ptr, ptr } @_ZN4llvm16MachineIRBuilder18buildAtomicCmpXchgERK
   %7 = alloca %"class.llvm::MachineInstrBuilder", align 8
   %8 = tail call { ptr, ptr } @_ZN4llvm16MachineIRBuilder18buildInstrNoInsertEj(ptr noundef nonnull align 8 dereferenceable(88) %0, i32 noundef 99)
   %9 = extractvalue { ptr, ptr } %8, 1
-  %10 = getelementptr inbounds i8, ptr %0, i64 56
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 64
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %.sroa.0.0.copyload.i.i.i = load ptr, ptr %12, align 8
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 40
   tail call void @_ZN4llvm12ilist_traitsINS_12MachineInstrEE13addNodeToListEPS1_(ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef %9) #11
@@ -6807,7 +6807,7 @@ define dso_local { ptr, ptr } @_ZN4llvm16MachineIRBuilder18buildAtomicCmpXchgERK
   %21 = and i64 %.0.copyload.i.i.i.i10.i.i.i.i.i.i.i, 7
   %22 = or disjoint i64 %21, %20
   store i64 %22, ptr %.sroa.0.0.copyload.i.i.i, align 8
-  %23 = getelementptr inbounds i8, ptr %0, i64 72
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %24 = load ptr, ptr %23, align 8
   %.not.i.i.i = icmp eq ptr %24, null
   br i1 %.not.i.i.i, label %_ZN4llvm16MachineIRBuilder10buildInstrEj.exit, label %25
@@ -6824,7 +6824,7 @@ _ZN4llvm16MachineIRBuilder10buildInstrEj.exit:    ; preds = %6, %25
   store ptr %29, ptr %7, align 8
   %30 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %9, ptr %30, align 8
-  %31 = getelementptr inbounds i8, ptr %0, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %32 = load ptr, ptr %31, align 8
   call void @_ZNK4llvm5DstOp11addDefToMIBERNS_19MachineRegisterInfoERNS_19MachineInstrBuilderE(ptr noundef nonnull align 8 dereferenceable(12) %1, ptr noundef nonnull align 8 dereferenceable(512) %32, ptr noundef nonnull align 8 dereferenceable(16) %7)
   call void @_ZNK4llvm5SrcOp11addSrcToMIBERNS_19MachineInstrBuilderE(ptr noundef nonnull align 8 dereferenceable(20) %2, ptr noundef nonnull align 8 dereferenceable(16) %7)
@@ -6845,9 +6845,9 @@ define dso_local { ptr, ptr } @_ZN4llvm16MachineIRBuilder14buildAtomicRMWEjRKNS_
   %7 = alloca %"class.llvm::MachineInstrBuilder", align 8
   %8 = tail call { ptr, ptr } @_ZN4llvm16MachineIRBuilder18buildInstrNoInsertEj(ptr noundef nonnull align 8 dereferenceable(88) %0, i32 noundef %1)
   %9 = extractvalue { ptr, ptr } %8, 1
-  %10 = getelementptr inbounds i8, ptr %0, i64 56
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 64
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %.sroa.0.0.copyload.i.i.i = load ptr, ptr %12, align 8
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 40
   tail call void @_ZN4llvm12ilist_traitsINS_12MachineInstrEE13addNodeToListEPS1_(ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef %9) #11
@@ -6867,7 +6867,7 @@ define dso_local { ptr, ptr } @_ZN4llvm16MachineIRBuilder14buildAtomicRMWEjRKNS_
   %21 = and i64 %.0.copyload.i.i.i.i10.i.i.i.i.i.i.i, 7
   %22 = or disjoint i64 %21, %20
   store i64 %22, ptr %.sroa.0.0.copyload.i.i.i, align 8
-  %23 = getelementptr inbounds i8, ptr %0, i64 72
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %24 = load ptr, ptr %23, align 8
   %.not.i.i.i = icmp eq ptr %24, null
   br i1 %.not.i.i.i, label %_ZN4llvm16MachineIRBuilder10buildInstrEj.exit, label %25
@@ -6884,7 +6884,7 @@ _ZN4llvm16MachineIRBuilder10buildInstrEj.exit:    ; preds = %6, %25
   store ptr %29, ptr %7, align 8
   %30 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %9, ptr %30, align 8
-  %31 = getelementptr inbounds i8, ptr %0, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %32 = load ptr, ptr %31, align 8
   call void @_ZNK4llvm5DstOp11addDefToMIBERNS_19MachineRegisterInfoERNS_19MachineInstrBuilderE(ptr noundef nonnull align 8 dereferenceable(12) %2, ptr noundef nonnull align 8 dereferenceable(512) %32, ptr noundef nonnull align 8 dereferenceable(16) %7)
   call void @_ZNK4llvm5SrcOp11addSrcToMIBERNS_19MachineInstrBuilderE(ptr noundef nonnull align 8 dereferenceable(20) %3, ptr noundef nonnull align 8 dereferenceable(16) %7)
@@ -7127,9 +7127,9 @@ define dso_local { ptr, ptr } @_ZN4llvm16MachineIRBuilder10buildFenceEjj(ptr noc
   %5 = alloca %"class.llvm::MachineOperand", align 8
   %6 = tail call { ptr, ptr } @_ZN4llvm16MachineIRBuilder18buildInstrNoInsertEj(ptr noundef nonnull align 8 dereferenceable(88) %0, i32 noundef 117)
   %7 = extractvalue { ptr, ptr } %6, 1
-  %8 = getelementptr inbounds i8, ptr %0, i64 56
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 64
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %.sroa.0.0.copyload.i.i.i = load ptr, ptr %10, align 8
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 40
   tail call void @_ZN4llvm12ilist_traitsINS_12MachineInstrEE13addNodeToListEPS1_(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef %7) #11
@@ -7149,7 +7149,7 @@ define dso_local { ptr, ptr } @_ZN4llvm16MachineIRBuilder10buildFenceEjj(ptr noc
   %19 = and i64 %.0.copyload.i.i.i.i10.i.i.i.i.i.i.i, 7
   %20 = or disjoint i64 %19, %18
   store i64 %20, ptr %.sroa.0.0.copyload.i.i.i, align 8
-  %21 = getelementptr inbounds i8, ptr %0, i64 72
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %22 = load ptr, ptr %21, align 8
   %.not.i.i.i = icmp eq ptr %22, null
   br i1 %.not.i.i.i, label %_ZN4llvm16MachineIRBuilder10buildInstrEj.exit, label %23
@@ -7192,9 +7192,9 @@ define dso_local { ptr, ptr } @_ZN4llvm16MachineIRBuilder13buildPrefetchERKNS_5S
   %10 = alloca %"class.llvm::MachineInstrBuilder", align 8
   %11 = tail call { ptr, ptr } @_ZN4llvm16MachineIRBuilder18buildInstrNoInsertEj(ptr noundef nonnull align 8 dereferenceable(88) %0, i32 noundef 118)
   %12 = extractvalue { ptr, ptr } %11, 1
-  %13 = getelementptr inbounds i8, ptr %0, i64 56
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 64
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %.sroa.0.0.copyload.i.i.i = load ptr, ptr %15, align 8
   %16 = getelementptr inbounds nuw i8, ptr %14, i64 40
   tail call void @_ZN4llvm12ilist_traitsINS_12MachineInstrEE13addNodeToListEPS1_(ptr noundef nonnull align 8 dereferenceable(8) %16, ptr noundef %12) #11
@@ -7214,7 +7214,7 @@ define dso_local { ptr, ptr } @_ZN4llvm16MachineIRBuilder13buildPrefetchERKNS_5S
   %24 = and i64 %.0.copyload.i.i.i.i10.i.i.i.i.i.i.i, 7
   %25 = or disjoint i64 %24, %23
   store i64 %25, ptr %.sroa.0.0.copyload.i.i.i, align 8
-  %26 = getelementptr inbounds i8, ptr %0, i64 72
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %27 = load ptr, ptr %26, align 8
   %.not.i.i.i = icmp eq ptr %27, null
   br i1 %.not.i.i.i, label %_ZN4llvm16MachineIRBuilder10buildInstrEj.exit, label %28
@@ -7281,9 +7281,9 @@ define dso_local { ptr, ptr } @_ZN4llvm16MachineIRBuilder17buildBlockAddressENS_
   %5 = alloca %"class.llvm::MachineOperand", align 8
   %6 = tail call { ptr, ptr } @_ZN4llvm16MachineIRBuilder18buildInstrNoInsertEj(ptr noundef nonnull align 8 dereferenceable(88) %0, i32 noundef 254)
   %7 = extractvalue { ptr, ptr } %6, 1
-  %8 = getelementptr inbounds i8, ptr %0, i64 56
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 64
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %.sroa.0.0.copyload.i.i.i = load ptr, ptr %10, align 8
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 40
   tail call void @_ZN4llvm12ilist_traitsINS_12MachineInstrEE13addNodeToListEPS1_(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef %7) #11
@@ -7303,7 +7303,7 @@ define dso_local { ptr, ptr } @_ZN4llvm16MachineIRBuilder17buildBlockAddressENS_
   %19 = and i64 %.0.copyload.i.i.i.i10.i.i.i.i.i.i.i, 7
   %20 = or disjoint i64 %19, %18
   store i64 %20, ptr %.sroa.0.0.copyload.i.i.i, align 8
-  %21 = getelementptr inbounds i8, ptr %0, i64 72
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %22 = load ptr, ptr %21, align 8
   %.not.i.i.i = icmp eq ptr %22, null
   br i1 %.not.i.i.i, label %_ZN4llvm16MachineIRBuilder10buildInstrEj.exit, label %23
@@ -7334,7 +7334,7 @@ _ZN4llvm16MachineIRBuilder10buildInstrEj.exit:    ; preds = %3, %23
   store ptr %2, ptr %32, align 8, !alias.scope !166
   %33 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i32 0, ptr %33, align 4, !alias.scope !166
-  %34 = getelementptr inbounds i8, ptr %4, i64 24
+  %34 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store i32 0, ptr %34, align 8, !alias.scope !166
   store i32 11, ptr %4, align 8, !alias.scope !166
   call void @_ZN4llvm12MachineInstr10addOperandERNS_15MachineFunctionERKNS_14MachineOperandE(ptr noundef nonnull align 8 dereferenceable(70) %7, ptr noundef nonnull align 8 dereferenceable(1041) %27, ptr noundef nonnull align 8 dereferenceable(32) %4) #11
@@ -7391,7 +7391,7 @@ define dso_local { ptr, ptr } @_ZN4llvm16MachineIRBuilder10buildInstrEjNS_8Array
   ]
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %0, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %13 = load i32, ptr %12, align 8
@@ -7488,7 +7488,7 @@ _ZNK4llvm5SrcOp8getLLTTyERKNS_19MachineRegisterInfoE.exit41: ; preds = %_ZNK4llv
   br i1 %63, label %_ZNK4llvm5SrcOp8getLLTTyERKNS_19MachineRegisterInfoE.exit48.sink.split, label %_ZNK4llvm5SrcOp8getLLTTyERKNS_19MachineRegisterInfoE.exit48
 
 64:                                               ; preds = %7, %7
-  %65 = getelementptr inbounds i8, ptr %0, i64 24
+  %65 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %66 = load ptr, ptr %65, align 8
   %67 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %68 = load i32, ptr %67, align 8
@@ -7529,7 +7529,7 @@ _ZNK4llvm5DstOp8getLLTTyERKNS_19MachineRegisterInfoE.exit53: ; preds = %71, %64,
   br i1 %86, label %_ZNK4llvm5SrcOp8getLLTTyERKNS_19MachineRegisterInfoE.exit48.sink.split, label %_ZNK4llvm5SrcOp8getLLTTyERKNS_19MachineRegisterInfoE.exit48
 
 87:                                               ; preds = %7, %7, %7, %7, %7, %7, %7, %7, %7, %7, %7, %7, %7, %7, %7, %7, %7, %7
-  %88 = getelementptr inbounds i8, ptr %0, i64 24
+  %88 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %89 = load ptr, ptr %88, align 8
   %90 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %91 = load i32, ptr %90, align 8
@@ -7598,7 +7598,7 @@ _ZNK4llvm5SrcOp8getLLTTyERKNS_19MachineRegisterInfoE.exit72: ; preds = %_ZNK4llv
   br i1 %125, label %_ZNK4llvm5SrcOp8getLLTTyERKNS_19MachineRegisterInfoE.exit48.sink.split, label %_ZNK4llvm5SrcOp8getLLTTyERKNS_19MachineRegisterInfoE.exit48
 
 126:                                              ; preds = %7, %7, %7, %7, %7
-  %127 = getelementptr inbounds i8, ptr %0, i64 24
+  %127 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %128 = load ptr, ptr %127, align 8
   %129 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %130 = load i32, ptr %129, align 8
@@ -7667,7 +7667,7 @@ _ZNK4llvm5SrcOp8getLLTTyERKNS_19MachineRegisterInfoE.exit91: ; preds = %_ZNK4llv
   br i1 %164, label %_ZNK4llvm5SrcOp8getLLTTyERKNS_19MachineRegisterInfoE.exit48.sink.split, label %_ZNK4llvm5SrcOp8getLLTTyERKNS_19MachineRegisterInfoE.exit48
 
 165:                                              ; preds = %7, %7, %7
-  %166 = getelementptr inbounds i8, ptr %0, i64 24
+  %166 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %167 = load ptr, ptr %166, align 8
   %168 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %169 = load i32, ptr %168, align 8
@@ -7708,7 +7708,7 @@ _ZNK4llvm5DstOp8getLLTTyERKNS_19MachineRegisterInfoE.exit103: ; preds = %172, %1
   br i1 %187, label %_ZNK4llvm5SrcOp8getLLTTyERKNS_19MachineRegisterInfoE.exit48.sink.split, label %_ZNK4llvm5SrcOp8getLLTTyERKNS_19MachineRegisterInfoE.exit48
 
 188:                                              ; preds = %7, %7
-  %189 = getelementptr inbounds i8, ptr %0, i64 24
+  %189 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %190 = load ptr, ptr %189, align 8
   %191 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %192 = load i32, ptr %191, align 8
@@ -7757,9 +7757,9 @@ _ZNK4llvm5SrcOp8getLLTTyERKNS_19MachineRegisterInfoE.exit48.sink.split: ; preds 
 _ZNK4llvm5SrcOp8getLLTTyERKNS_19MachineRegisterInfoE.exit48: ; preds = %_ZNK4llvm5SrcOp8getLLTTyERKNS_19MachineRegisterInfoE.exit48.sink.split, %203, %201, %180, %178, %157, %154, %118, %115, %79, %77, %56, %53, %7
   %213 = tail call { ptr, ptr } @_ZN4llvm16MachineIRBuilder18buildInstrNoInsertEj(ptr noundef nonnull align 8 dereferenceable(88) %0, i32 noundef %1)
   %214 = extractvalue { ptr, ptr } %213, 1
-  %215 = getelementptr inbounds i8, ptr %0, i64 56
+  %215 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %216 = load ptr, ptr %215, align 8
-  %217 = getelementptr inbounds i8, ptr %0, i64 64
+  %217 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %.sroa.0.0.copyload.i.i.i = load ptr, ptr %217, align 8
   %218 = getelementptr inbounds nuw i8, ptr %216, i64 40
   tail call void @_ZN4llvm12ilist_traitsINS_12MachineInstrEE13addNodeToListEPS1_(ptr noundef nonnull align 8 dereferenceable(8) %218, ptr noundef %214) #11
@@ -7779,7 +7779,7 @@ _ZNK4llvm5SrcOp8getLLTTyERKNS_19MachineRegisterInfoE.exit48: ; preds = %_ZNK4llv
   %226 = and i64 %.0.copyload.i.i.i.i10.i.i.i.i.i.i.i, 7
   %227 = or disjoint i64 %226, %225
   store i64 %227, ptr %.sroa.0.0.copyload.i.i.i, align 8
-  %228 = getelementptr inbounds i8, ptr %0, i64 72
+  %228 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %229 = load ptr, ptr %228, align 8
   %.not.i.i.i = icmp eq ptr %229, null
   br i1 %.not.i.i.i, label %_ZN4llvm16MachineIRBuilder10buildInstrEj.exit, label %230
@@ -7801,7 +7801,7 @@ _ZN4llvm16MachineIRBuilder10buildInstrEj.exit:    ; preds = %_ZNK4llvm5SrcOp8get
   br i1 %.not154, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZN4llvm16MachineIRBuilder10buildInstrEj.exit
-  %237 = getelementptr inbounds i8, ptr %0, i64 24
+  %237 = getelementptr inbounds nuw i8, ptr %0, i64 24
   br label %238
 
 238:                                              ; preds = %.lr.ph, %238
@@ -7849,7 +7849,7 @@ _ZN4llvm16MachineIRBuilder10buildInstrEj.exit:    ; preds = %_ZNK4llvm5SrcOp8get
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvm16MachineIRBuilderD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %0) unnamed_addr #0 comdat align 2 {
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN4llvm16MachineIRBuilderE, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i.i.i.i, label %_ZN4llvm21MachineIRBuilderStateD2Ev.exit, label %4
@@ -7865,7 +7865,7 @@ _ZN4llvm21MachineIRBuilderStateD2Ev.exit:         ; preds = %1, %4
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvm16MachineIRBuilderD0Ev(ptr noundef nonnull align 8 dereferenceable(88) %0) unnamed_addr #0 comdat align 2 {
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN4llvm16MachineIRBuilderE, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i.i.i.i.i, label %_ZN4llvm16MachineIRBuilderD2Ev.exit, label %4

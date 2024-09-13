@@ -165,7 +165,7 @@ _ZNSt10unique_ptrIN4llvm12MemoryBufferESt14default_deleteIS1_EED2Ev.exit16: ; pr
 
 35:                                               ; preds = %_ZNSt10unique_ptrIN4llvm12MemoryBufferESt14default_deleteIS1_EED2Ev.exit16
   %36 = and i64 %34, 4294967295
-  %37 = getelementptr inbounds i8, ptr %12, i64 104
+  %37 = getelementptr inbounds nuw i8, ptr %12, i64 104
   %38 = load ptr, ptr %37, align 8
   %39 = load ptr, ptr %15, align 8
   %40 = ptrtoint ptr %38 to i64
@@ -326,7 +326,7 @@ _ZNK4llvm6Target17createMCAsmParserERKNS_15MCSubtargetInfoERNS_11MCAsmParserERKN
 
 74:                                               ; preds = %_ZNK4llvm6Target17createMCAsmParserERKNS_15MCSubtargetInfoERNS_11MCAsmParserERKNS_11MCInstrInfoERKNS_15MCTargetOptionsE.exit
   %75 = load ptr, ptr %14, align 8
-  %76 = getelementptr inbounds i8, ptr %75, i64 560
+  %76 = getelementptr inbounds nuw i8, ptr %75, i64 560
   %77 = load i32, ptr %76, align 8
   %78 = add i32 %77, -37
   %spec.select.i = icmp ult i32 %78, 2
@@ -612,7 +612,7 @@ _ZNK4llvm6MDNode10getOperandEj.exit:              ; preds = %120, %124
 
 _ZN4llvm7mdconst11dyn_extractINS_11ConstantIntERKNS_9MDOperandEEENSt9enable_ifIXsr6detail14IsValidPointerIT_T0_EE5valueEPS7_E4typeEOS8_.exit: ; preds = %131
   %136 = getelementptr inbounds nuw i8, ptr %133, i64 24
-  %137 = getelementptr inbounds i8, ptr %133, i64 32
+  %137 = getelementptr inbounds nuw i8, ptr %133, i64 32
   %138 = load i32, ptr %137, align 8
   %139 = icmp ult i32 %138, 65
   %140 = load ptr, ptr %136, align 8
@@ -1702,7 +1702,7 @@ _ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit: ;
   %599 = call noundef nonnull align 8 dereferenceable(288) ptr @_ZNK4llvm10AsmPrinter16getSubtargetInfoEv(ptr noundef nonnull align 8 dereferenceable(785) %0) #16
   %600 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %601 = load ptr, ptr %600, align 8
-  %602 = getelementptr inbounds i8, ptr %601, i64 992
+  %602 = getelementptr inbounds nuw i8, ptr %601, i64 992
   %603 = call noundef i32 @_ZNK4llvm12MachineInstr19getInlineAsmDialectEv(ptr noundef nonnull align 8 dereferenceable(70) %1) #16
   call void @_ZNK4llvm10AsmPrinter13emitInlineAsmENS_9StringRefERKNS_15MCSubtargetInfoERKNS_15MCTargetOptionsEPKNS_6MDNodeENS_9InlineAsm10AsmDialectE(ptr noundef nonnull align 8 dereferenceable(785) %0, ptr %597, i64 %598, ptr noundef nonnull align 8 dereferenceable(288) %599, ptr noundef nonnull align 8 dereferenceable(201) %602, ptr noundef %.1, i32 noundef %603)
   %604 = load ptr, ptr %60, align 8
@@ -2044,7 +2044,7 @@ define dso_local void @_ZN4llvm10AsmPrinter18PrintSymbolOperandERKNS_14MachineOp
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %8 = load ptr, ptr %7, align 8
   tail call void @_ZNK4llvm8MCSymbol5printERNS_11raw_ostreamEPKNS_9MCAsmInfoE(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(48) %2, ptr noundef %8) #16
-  %9 = getelementptr inbounds i8, ptr %1, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %10 = load i32, ptr %9, align 8
   %11 = sext i32 %10 to i64
   %12 = shl nsw i64 %11, 32

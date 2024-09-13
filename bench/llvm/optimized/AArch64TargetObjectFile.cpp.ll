@@ -290,7 +290,7 @@ _ZN4llvmplERKNS_5TwineES2_.exit34.i:              ; preds = %29, %_ZN4llvm17Mach
   store ptr %51, ptr %7, align 8
   %52 = getelementptr inbounds nuw i8, ptr %20, i64 32
   %53 = load ptr, ptr %52, align 8
-  %54 = getelementptr inbounds i8, ptr %20, i64 48
+  %54 = getelementptr inbounds nuw i8, ptr %20, i64 48
   %55 = load i32, ptr %54, align 8
   %56 = icmp eq i32 %55, 0
   br i1 %56, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_8MCSymbolEPKNS_6MCExprENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S6_EEEES3_S6_S8_SB_E15LookupBucketForIS3_EEbRKT_RPSB_.exit.i.i.i.i, label %57
@@ -484,7 +484,7 @@ _ZN4llvmplERKNS_5TwineES2_.exit34.i:              ; preds = %30, %_ZN4llvm17Mach
   store ptr %52, ptr %7, align 8
   %53 = getelementptr inbounds nuw i8, ptr %21, i64 56
   %54 = load ptr, ptr %53, align 8
-  %55 = getelementptr inbounds i8, ptr %21, i64 72
+  %55 = getelementptr inbounds nuw i8, ptr %21, i64 72
   %56 = load i32, ptr %55, align 8
   %57 = icmp eq i32 %56, 0
   br i1 %57, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_8MCSymbolEPKNS_6MCExprENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S6_EEEES3_S6_S8_SB_E15LookupBucketForIS3_EEbRKT_RPSB_.exit.i.i.i.i, label %58
@@ -570,7 +570,7 @@ _ZL26getAuthPtrSlotSymbolHelperIN4llvm22MachineModuleInfoMachOEEPNS0_8MCSymbolER
 define linkonce_odr hidden void @_ZN4llvm27AArch64_ELFTargetObjectFileD2Ev(ptr noundef nonnull align 8 dereferenceable(1026) %0) unnamed_addr #0 comdat align 2 {
   store ptr getelementptr inbounds inrange(-16, 256) (i8, ptr @_ZTVN4llvm27TargetLoweringObjectFileELFE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 976
-  %3 = getelementptr inbounds i8, ptr %0, i64 984
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 984
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %2, align 8
   %6 = icmp eq ptr %4, %5
@@ -589,7 +589,7 @@ _ZN4llvm27TargetLoweringObjectFileELFD2Ev.exit:   ; preds = %1, %7
 define linkonce_odr hidden void @_ZN4llvm27AArch64_ELFTargetObjectFileD0Ev(ptr noundef nonnull align 8 dereferenceable(1026) %0) unnamed_addr #0 comdat align 2 {
   store ptr getelementptr inbounds inrange(-16, 256) (i8, ptr @_ZTVN4llvm27TargetLoweringObjectFileELFE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 976
-  %3 = getelementptr inbounds i8, ptr %0, i64 984
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 984
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %2, align 8
   %6 = icmp eq ptr %4, %5

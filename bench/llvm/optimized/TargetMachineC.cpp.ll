@@ -300,9 +300,9 @@ define dso_local noundef nonnull ptr @LLVMCreateTargetMachineOptions() local_unn
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #15
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 96
   store i32 2, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 104
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 104
   store i8 0, ptr %5, align 4
-  %6 = getelementptr inbounds i8, ptr %1, i64 112
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 112
   store i8 0, ptr %6, align 4
   ret ptr %1
 }
@@ -464,11 +464,11 @@ define dso_local noundef ptr @LLVMCreateTargetMachineWithOptions(ptr noundef %0,
   store i32 0, ptr %21, align 4
   %22 = getelementptr inbounds nuw i8, ptr %6, i64 112
   store i8 0, ptr %22, align 8
-  %23 = getelementptr inbounds i8, ptr %6, i64 113
+  %23 = getelementptr inbounds nuw i8, ptr %6, i64 113
   store i8 0, ptr %23, align 1
   %24 = getelementptr inbounds nuw i8, ptr %6, i64 114
   store i8 -1, ptr %24, align 2
-  %25 = getelementptr inbounds i8, ptr %6, i64 115
+  %25 = getelementptr inbounds nuw i8, ptr %6, i64 115
   store i8 -1, ptr %25, align 1
   %26 = getelementptr inbounds nuw i8, ptr %6, i64 116
   store i32 0, ptr %26, align 4
@@ -477,7 +477,7 @@ define dso_local noundef ptr @LLVMCreateTargetMachineWithOptions(ptr noundef %0,
   %28 = getelementptr inbounds nuw i8, ptr %6, i64 328
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %28) #15
   %29 = getelementptr inbounds nuw i8, ptr %2, i64 64
-  %30 = getelementptr inbounds i8, ptr %6, i64 144
+  %30 = getelementptr inbounds nuw i8, ptr %6, i64 144
   %31 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %30, ptr noundef nonnull align 8 dereferenceable(32) %29) #15
   %.not.i = icmp eq ptr %1, null
   br i1 %.not.i, label %_ZN4llvm9StringRefC2EPKc.exit, label %32
@@ -536,9 +536,9 @@ declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_st
 define linkonce_odr hidden void @_ZN4llvm13TargetOptionsD2Ev(ptr noundef nonnull align 8 dereferenceable(360) %0) unnamed_addr #0 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 328
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #15
-  %3 = getelementptr inbounds i8, ptr %0, i64 296
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 296
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 304
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %6 = load ptr, ptr %5, align 8
   %.not4.i.i.i.i.i = icmp eq ptr %4, %6
   br i1 %.not4.i.i.i.i.i, label %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i.i, label %.lr.ph.i.i.i.i.i
@@ -560,7 +560,7 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSa
   br i1 %.not.i.i.i.i, label %_ZN4llvm15MCTargetOptionsD2Ev.exit, label %9
 
 9:                                                ; preds = %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i.i
-  %10 = getelementptr inbounds i8, ptr %0, i64 312
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %11 = load ptr, ptr %10, align 8
   %12 = ptrtoint ptr %11 to i64
   %13 = ptrtoint ptr %8 to i64
@@ -569,17 +569,17 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSa
   br label %_ZN4llvm15MCTargetOptionsD2Ev.exit
 
 _ZN4llvm15MCTargetOptionsD2Ev.exit:               ; preds = %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i.i, %9
-  %15 = getelementptr inbounds i8, ptr %0, i64 240
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 240
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %15) #15
-  %16 = getelementptr inbounds i8, ptr %0, i64 208
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 208
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %16) #15
-  %17 = getelementptr inbounds i8, ptr %0, i64 176
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 176
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %17) #15
-  %18 = getelementptr inbounds i8, ptr %0, i64 144
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 144
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %18) #15
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 56
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %19) #15
-  %20 = getelementptr inbounds i8, ptr %0, i64 40
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %21 = load ptr, ptr %20, align 8
   %.not.i.i.i = icmp eq ptr %21, null
   br i1 %.not.i.i.i, label %_ZNSt10shared_ptrIN4llvm12MemoryBufferEED2Ev.exit, label %22
@@ -668,9 +668,9 @@ LLVMTargetMachineOptionsSetCodeGenOptLevel.exit:
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #15
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 96
   store i32 2, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %7, i64 104
+  %11 = getelementptr inbounds nuw i8, ptr %7, i64 104
   store i8 0, ptr %11, align 4
-  %12 = getelementptr inbounds i8, ptr %7, i64 112
+  %12 = getelementptr inbounds nuw i8, ptr %7, i64 112
   store i8 0, ptr %12, align 4
   %13 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef %2) #15
   %14 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef %3) #15
@@ -831,7 +831,7 @@ define dso_local noalias ptr @LLVMGetTargetMachineFeatureString(ptr noundef %0) 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define dso_local void @LLVMSetTargetMachineAsmVerbosity(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #9 {
   %.not = icmp eq i32 %1, 0
-  %3 = getelementptr inbounds i8, ptr %0, i64 992
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 992
   %4 = load i16, ptr %3, align 8
   %5 = select i1 %.not, i16 0, i16 2048
   %6 = and i16 %4, -2049
@@ -843,7 +843,7 @@ define dso_local void @LLVMSetTargetMachineAsmVerbosity(ptr nocapture noundef %0
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define dso_local void @LLVMSetTargetMachineFastISel(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #9 {
   %.not = icmp eq i32 %1, 0
-  %3 = getelementptr inbounds i8, ptr %0, i64 880
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 880
   %4 = load i16, ptr %3, align 8
   %5 = select i1 %.not, i16 0, i16 2048
   %6 = and i16 %4, -2049
@@ -855,7 +855,7 @@ define dso_local void @LLVMSetTargetMachineFastISel(ptr nocapture noundef %0, i3
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define dso_local void @LLVMSetTargetMachineGlobalISel(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #9 {
   %.not = icmp eq i32 %1, 0
-  %3 = getelementptr inbounds i8, ptr %0, i64 880
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 880
   %4 = load i16, ptr %3, align 8
   %5 = select i1 %.not, i16 0, i16 4096
   %6 = and i16 %4, -4097
@@ -870,7 +870,7 @@ define dso_local void @LLVMSetTargetMachineGlobalISelAbort(ptr nocapture noundef
   %switch.select = select i1 %switch.selectcmp, i32 2, i32 1
   %switch.selectcmp2 = icmp eq i32 %1, 1
   %switch.select3 = select i1 %switch.selectcmp2, i32 0, i32 %switch.select
-  %3 = getelementptr inbounds i8, ptr %0, i64 884
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 884
   store i32 %switch.select3, ptr %3, align 4
   ret void
 }
@@ -878,7 +878,7 @@ define dso_local void @LLVMSetTargetMachineGlobalISelAbort(ptr nocapture noundef
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define dso_local void @LLVMSetTargetMachineMachineOutliner(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #9 {
   %.not = icmp eq i32 %1, 0
-  %3 = getelementptr inbounds i8, ptr %0, i64 892
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 892
   %4 = load i32, ptr %3, align 4
   %5 = select i1 %.not, i32 0, i32 8388608
   %6 = and i32 %4, -8388609
@@ -898,9 +898,9 @@ define dso_local noundef nonnull ptr @LLVMCreateTargetDataLayout(ptr noundef %0)
   store i32 0, ptr %5, align 8, !alias.scope !7
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 12
   store i32 0, ptr %6, align 4, !alias.scope !7
-  %7 = getelementptr inbounds i8, ptr %2, i64 17
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 17
   store i8 0, ptr %7, align 1, !alias.scope !7
-  %8 = getelementptr inbounds i8, ptr %2, i64 19
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 19
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %10 = getelementptr inbounds i8, ptr %2, i64 56
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(9) %8, i8 0, i64 9, i1 false), !alias.scope !7
@@ -1003,9 +1003,9 @@ define internal fastcc noundef range(i32 0, 2) i32 @_ZL21LLVMTargetMachineEmitP2
   store i32 0, ptr %11, align 8, !alias.scope !13
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 12
   store i32 0, ptr %12, align 4, !alias.scope !13
-  %13 = getelementptr inbounds i8, ptr %8, i64 17
+  %13 = getelementptr inbounds nuw i8, ptr %8, i64 17
   store i8 0, ptr %13, align 1, !alias.scope !13
-  %14 = getelementptr inbounds i8, ptr %8, i64 19
+  %14 = getelementptr inbounds nuw i8, ptr %8, i64 19
   %15 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %16 = getelementptr inbounds i8, ptr %8, i64 56
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(9) %14, i8 0, i64 9, i1 false), !alias.scope !13

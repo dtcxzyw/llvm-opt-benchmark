@@ -46,7 +46,7 @@ define void @_ZN3g2o10RobotLaserC2Ev(ptr noundef nonnull align 16 dereferenceabl
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN3g2o10RobotLaserE, i64 16), ptr %0, align 16
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 256
   store double 0.000000e+00, ptr %2, align 16
-  %3 = getelementptr inbounds i8, ptr %0, i64 272
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 272
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(56) %3, i8 0, i64 56, i1 false)
   ret void
 }
@@ -107,16 +107,16 @@ define noundef zeroext i1 @_ZN3g2o10RobotLaser4readERSi(ptr noundef nonnull alig
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %31 = load i64, ptr %11, align 16
   store i64 %31, ptr %30, align 16
-  %32 = getelementptr inbounds i8, ptr %0, i64 176
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %33 = getelementptr inbounds nuw i8, ptr %11, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %32, ptr noundef nonnull align 16 dereferenceable(16) %33, i64 16, i1 false)
-  %34 = getelementptr inbounds i8, ptr %0, i64 192
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %35 = getelementptr inbounds nuw i8, ptr %11, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %34, ptr noundef nonnull align 16 dereferenceable(64) %35, i64 64, i1 false)
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %37 = load i32, ptr %10, align 4
   %38 = sext i32 %37 to i64
-  %39 = getelementptr inbounds i8, ptr %0, i64 112
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %40 = load ptr, ptr %39, align 16
   %41 = load ptr, ptr %36, align 8
   %42 = ptrtoint ptr %40 to i64
@@ -166,7 +166,7 @@ _ZNSt6vectorIdSaIdEE6resizeEm.exit:               ; preds = %47, %49, %51, %53
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %64 = load i32, ptr %10, align 4
   %65 = sext i32 %64 to i64
-  %66 = getelementptr inbounds i8, ptr %0, i64 136
+  %66 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %67 = load ptr, ptr %66, align 8
   %68 = load ptr, ptr %63, align 16
   %69 = ptrtoint ptr %67 to i64
@@ -227,7 +227,7 @@ _ZNSt6vectorIdSaIdEE6resizeEm.exit19:             ; preds = %74, %76, %78, %80
   %100 = load i64, ptr %14, align 8
   %101 = getelementptr inbounds nuw i8, ptr %0, i64 256
   store i64 %100, ptr %101, align 16
-  %102 = getelementptr inbounds i8, ptr %0, i64 272
+  %102 = getelementptr inbounds nuw i8, ptr %0, i64 272
   store double %98, ptr %102, align 16
   %.sroa.4.16..sroa_idx = getelementptr inbounds i8, ptr %0, i64 280
   store double %99, ptr %.sroa.4.16..sroa_idx, align 8
@@ -306,36 +306,36 @@ declare noundef nonnull align 8 dereferenceable(16) ptr @_ZStrsIcSt11char_traits
 
 ; Function Attrs: mustprogress uwtable
 define noundef zeroext i1 @_ZNK3g2o10RobotLaser5writeERSo(ptr noundef nonnull align 16 dereferenceable(328) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 192
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %4 = load i32, ptr %3, align 16
   %5 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %1, i32 noundef %4)
   %6 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull @.str)
-  %7 = getelementptr inbounds i8, ptr %0, i64 200
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %8 = load double, ptr %7, align 8
   %9 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEd(ptr noundef nonnull align 8 dereferenceable(8) %6, double noundef %8)
   %10 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull @.str)
-  %11 = getelementptr inbounds i8, ptr %0, i64 208
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %12 = load double, ptr %11, align 16
   %13 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEd(ptr noundef nonnull align 8 dereferenceable(8) %10, double noundef %12)
   %14 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull @.str)
-  %15 = getelementptr inbounds i8, ptr %0, i64 216
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %16 = load double, ptr %15, align 8
   %17 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEd(ptr noundef nonnull align 8 dereferenceable(8) %14, double noundef %16)
   %18 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %17, ptr noundef nonnull @.str)
-  %19 = getelementptr inbounds i8, ptr %0, i64 240
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 240
   %20 = load double, ptr %19, align 16
   %21 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEd(ptr noundef nonnull align 8 dereferenceable(8) %18, double noundef %20)
   %22 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %21, ptr noundef nonnull @.str)
-  %23 = getelementptr inbounds i8, ptr %0, i64 224
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %24 = load double, ptr %23, align 16
   %25 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEd(ptr noundef nonnull align 8 dereferenceable(8) %22, double noundef %24)
   %26 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %25, ptr noundef nonnull @.str)
-  %27 = getelementptr inbounds i8, ptr %0, i64 232
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %28 = load i32, ptr %27, align 8
   %29 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %26, i32 noundef %28)
   %30 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %29, ptr noundef nonnull @.str)
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %32 = getelementptr inbounds i8, ptr %0, i64 112
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %33 = load ptr, ptr %32, align 16
   %34 = load ptr, ptr %31, align 8
   %35 = ptrtoint ptr %33 to i64
@@ -368,7 +368,7 @@ define noundef zeroext i1 @_ZNK3g2o10RobotLaser5writeERSo(ptr noundef nonnull al
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   %55 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str)
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %57 = getelementptr inbounds i8, ptr %0, i64 136
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %58 = load ptr, ptr %57, align 8
   %59 = load ptr, ptr %56, align 16
   %60 = ptrtoint ptr %58 to i64
@@ -402,9 +402,9 @@ define noundef zeroext i1 @_ZNK3g2o10RobotLaser5writeERSo(ptr noundef nonnull al
   %80 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %81 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %82 = load double, ptr %81, align 16, !noalias !32
-  %83 = getelementptr inbounds i8, ptr %0, i64 272
+  %83 = getelementptr inbounds nuw i8, ptr %0, i64 272
   %.sroa.219.16.copyload = load <2 x double>, ptr %83, align 16
-  %84 = getelementptr inbounds i8, ptr %0, i64 176
+  %84 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %85 = tail call double @sin(double noundef %82) #16, !noalias !35
   %86 = tail call double @cos(double noundef %82) #16, !noalias !35
   %87 = fneg double %85
@@ -518,7 +518,7 @@ define void @_ZN3g2o10RobotLaser11setOdomPoseERKNS_3SE2E(ptr nocapture noundef n
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %4 = load i64, ptr %1, align 16
   store i64 %4, ptr %3, align 16
-  %5 = getelementptr inbounds i8, ptr %0, i64 272
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 272
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %7 = load <2 x double>, ptr %6, align 16
   store <2 x double> %7, ptr %5, align 16

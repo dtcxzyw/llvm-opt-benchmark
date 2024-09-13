@@ -85,7 +85,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #0
 define dso_local void @_ZN4llvm13LiveRangeCalc15resetLiveOutMapEv(ptr noundef nonnull align 8 dereferenceable(704) %0) local_unnamed_addr #1 align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 96
-  %4 = getelementptr inbounds i8, ptr %2, i64 104
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 104
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %3, align 8
   %7 = ptrtoint ptr %5 to i64
@@ -94,10 +94,10 @@ define dso_local void @_ZN4llvm13LiveRangeCalc15resetLiveOutMapEv(ptr noundef no
   %10 = lshr exact i64 %9, 3
   %11 = trunc i64 %10 to i32
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %13 = getelementptr inbounds i8, ptr %0, i64 104
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store i32 0, ptr %13, align 8
   %14 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %12) #12
-  %15 = getelementptr inbounds i8, ptr %0, i64 48
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i32 0, ptr %15, align 8
   %16 = load i32, ptr %13, align 8
   %17 = and i32 %16, 63
@@ -146,7 +146,7 @@ _ZN4llvm9BitVector6resizeEjb.exit:                ; preds = %_ZN4llvm9BitVector1
   tail call void @_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_9LiveRangeESt4pairINS_9BitVectorES5_ENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S6_EEEES3_S6_S8_SB_E5clearEv(ptr noundef nonnull align 1 dereferenceable(1) %43)
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %45 = and i64 %10, 4294967295
-  %46 = getelementptr inbounds i8, ptr %0, i64 152
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %.sroa.0.0.copyload.i = load ptr, ptr %46, align 8
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 160
   %.sroa.2.0.copyload.i = load ptr, ptr %.sroa.2.0..sroa_idx.i, align 8
@@ -198,7 +198,7 @@ define linkonce_odr hidden void @_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_9LiveRa
 
 21:                                               ; preds = %.lr.ph
   %22 = getelementptr inbounds nuw i8, ptr %.01113, i64 8
-  %23 = getelementptr inbounds i8, ptr %.01113, i64 80
+  %23 = getelementptr inbounds nuw i8, ptr %.01113, i64 80
   %24 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %23) #12
   %25 = load ptr, ptr %23, align 8
   %26 = getelementptr inbounds i8, ptr %.01113, i64 96
@@ -255,7 +255,7 @@ define dso_local void @_ZN4llvm13LiveRangeCalc5resetEPKNS_15MachineFunctionEPNS_
   tail call void @_ZN4llvm13LiveRangeCalc15resetLiveOutMapEv(ptr noundef nonnull align 8 dereferenceable(704) %0)
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %13 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %12) #12
-  %14 = getelementptr inbounds i8, ptr %0, i64 184
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 184
   store i32 0, ptr %14, align 8
   ret void
 }
@@ -350,7 +350,7 @@ _ZN4llvm16LiveRangeUpdater7setDestEPNS_9LiveRangeE.exit: ; preds = %38, %42
 
 ._crit_edge:                                      ; preds = %45, %1
   %47 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %7) #12
-  %48 = getelementptr inbounds i8, ptr %0, i64 184
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 184
   store i32 0, ptr %48, align 8
   call void @_ZN4llvm16LiveRangeUpdater5flushEv(ptr noundef nonnull align 8 dereferenceable(432) %3) #12
   %49 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %5) #12
@@ -693,7 +693,7 @@ _ZN4llvm23SmallVectorTemplateBaseIjLb1EE9push_backEj.exit: ; preds = %88, %93
   %.074.lcssa = phi i1 [ true, %.._crit_edge162_crit_edge ], [ %.1.lcssa, %._crit_edge162.loopexit ]
   %106 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %107 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %106) #12
-  %108 = getelementptr inbounds i8, ptr %0, i64 184
+  %108 = getelementptr inbounds nuw i8, ptr %0, i64 184
   store i32 0, ptr %108, align 8
   %109 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %110 = icmp eq i64 %105, 0
@@ -840,7 +840,7 @@ _ZN4llvm9BitVectorC2EOS0_.exit.i.i:               ; preds = %174, %166
   br label %_ZSt9make_pairIN4llvm9BitVectorES1_ESt4pairINSt25__strip_reference_wrapperINSt5decayIT_E4typeEE6__typeENS3_INS4_IT0_E4typeEE6__typeEEOS5_OSA_.exit
 
 _ZSt9make_pairIN4llvm9BitVectorES1_ESt4pairINSt25__strip_reference_wrapperINSt5decayIT_E4typeEE6__typeENS3_INS4_IT0_E4typeEE6__typeEEOS5_OSA_.exit: ; preds = %_ZN4llvm9BitVectorC2EOS0_.exit.i.i, %181
-  %183 = getelementptr inbounds i8, ptr %12, i64 136
+  %183 = getelementptr inbounds nuw i8, ptr %12, i64 136
   %184 = load i32, ptr %171, align 8, !noalias !8
   store i32 %184, ptr %183, align 8, !alias.scope !8
   call void @llvm.experimental.noalias.scope.decl(metadata !11)
@@ -856,10 +856,10 @@ _ZSt9make_pairIN4llvm9BitVectorES1_ESt4pairINSt25__strip_reference_wrapperINSt5d
   br label %_ZN4llvm9BitVectorC2EOS0_.exit.i.i.i
 
 _ZN4llvm9BitVectorC2EOS0_.exit.i.i.i:             ; preds = %188, %_ZSt9make_pairIN4llvm9BitVectorES1_ESt4pairINSt25__strip_reference_wrapperINSt5decayIT_E4typeEE6__typeENS3_INS4_IT0_E4typeEE6__typeEEOS5_OSA_.exit
-  %190 = getelementptr inbounds i8, ptr %11, i64 72
+  %190 = getelementptr inbounds nuw i8, ptr %11, i64 72
   %191 = load i32, ptr %176, align 8, !noalias !11
   store i32 %191, ptr %190, align 8, !alias.scope !11
-  %192 = getelementptr inbounds i8, ptr %11, i64 80
+  %192 = getelementptr inbounds nuw i8, ptr %11, i64 80
   %193 = getelementptr inbounds i8, ptr %11, i64 96
   call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %192, ptr noundef nonnull %193, i64 noundef 6) #12
   %194 = call noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseIjE5emptyEv(ptr noundef nonnull align 8 dereferenceable(16) %178) #12
@@ -870,11 +870,11 @@ _ZN4llvm9BitVectorC2EOS0_.exit.i.i.i:             ; preds = %188, %_ZSt9make_pai
   br label %_ZSt9make_pairIPN4llvm9LiveRangeESt4pairINS0_9BitVectorES4_EES3_INSt25__strip_reference_wrapperINSt5decayIT_E4typeEE6__typeENS6_INS7_IT0_E4typeEE6__typeEEOS8_OSD_.exit
 
 _ZSt9make_pairIPN4llvm9LiveRangeESt4pairINS0_9BitVectorES4_EES3_INSt25__strip_reference_wrapperINSt5decayIT_E4typeEE6__typeENS6_INS7_IT0_E4typeEE6__typeEEOS8_OSD_.exit: ; preds = %_ZN4llvm9BitVectorC2EOS0_.exit.i.i.i, %195
-  %197 = getelementptr inbounds i8, ptr %11, i64 144
+  %197 = getelementptr inbounds nuw i8, ptr %11, i64 144
   %198 = load i32, ptr %183, align 8, !noalias !11
   store i32 %198, ptr %197, align 8, !alias.scope !11
   %199 = load ptr, ptr %167, align 8, !noalias !14
-  %200 = getelementptr inbounds i8, ptr %0, i64 128
+  %200 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %201 = load i32, ptr %200, align 8, !noalias !14
   %202 = icmp eq i32 %201, 0
   br i1 %202, label %229, label %203
@@ -995,7 +995,7 @@ _ZN4llvm9BitVectorD2Ev.exit99:                    ; preds = %_ZN4llvm9BitVectorD
 255:                                              ; preds = %_ZN4llvm9BitVectorD2Ev.exit99
   %256 = load ptr, ptr %0, align 8
   %257 = getelementptr inbounds nuw i8, ptr %256, i64 96
-  %258 = getelementptr inbounds i8, ptr %256, i64 104
+  %258 = getelementptr inbounds nuw i8, ptr %256, i64 104
   %259 = load ptr, ptr %258, align 8
   %260 = load ptr, ptr %257, align 8
   %261 = ptrtoint ptr %259 to i64
@@ -1004,7 +1004,7 @@ _ZN4llvm9BitVectorD2Ev.exit99:                    ; preds = %_ZN4llvm9BitVectorD
   %264 = lshr exact i64 %263, 3
   %265 = trunc i64 %264 to i32
   %266 = getelementptr inbounds nuw i8, ptr %.sink25.i.i, i64 8
-  %267 = getelementptr inbounds i8, ptr %.sink25.i.i, i64 72
+  %267 = getelementptr inbounds nuw i8, ptr %.sink25.i.i, i64 72
   %268 = load i32, ptr %267, align 8
   %269 = and i32 %268, 63
   %.not.i.i = icmp eq i32 %269, 0
@@ -1048,8 +1048,8 @@ _ZN4llvm9BitVector15set_unused_bitsEb.exit.i:     ; preds = %270, %255
   br label %_ZN4llvm9BitVector6resizeEjb.exit
 
 _ZN4llvm9BitVector6resizeEjb.exit:                ; preds = %_ZN4llvm9BitVector15set_unused_bitsEb.exit.i, %285
-  %295 = getelementptr inbounds i8, ptr %.sink25.i.i, i64 80
-  %296 = getelementptr inbounds i8, ptr %.sink25.i.i, i64 144
+  %295 = getelementptr inbounds nuw i8, ptr %.sink25.i.i, i64 80
+  %296 = getelementptr inbounds nuw i8, ptr %.sink25.i.i, i64 144
   %297 = load i32, ptr %296, align 8
   %298 = and i32 %297, 63
   %.not.i.i101 = icmp eq i32 %298, 0
@@ -1091,7 +1091,7 @@ _ZN4llvm9BitVector15set_unused_bitsEb.exit.i102:  ; preds = %299, %_ZN4llvm9BitV
 
 _ZN4llvm9BitVector6resizeEjb.exit104:             ; preds = %311, %_ZN4llvm9BitVector15set_unused_bitsEb.exit.i102, %_ZN4llvm9BitVectorD2Ev.exit99
   %321 = getelementptr inbounds nuw i8, ptr %.sink25.i.i, i64 8
-  %322 = getelementptr inbounds i8, ptr %.sink25.i.i, i64 80
+  %322 = getelementptr inbounds nuw i8, ptr %.sink25.i.i, i64 80
   %323 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %9) #12
   %324 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE8capacityEv(ptr noundef nonnull align 8 dereferenceable(16) %106) #12
   %325 = icmp ult i64 %324, %323
@@ -2076,7 +2076,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm13LiveRangeCalc18isJointlyDominated
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 96
-  %11 = getelementptr inbounds i8, ptr %9, i64 104
+  %11 = getelementptr inbounds nuw i8, ptr %9, i64 104
   %12 = load ptr, ptr %11, align 8
   %13 = load ptr, ptr %10, align 8
   %14 = ptrtoint ptr %12 to i64
@@ -3328,7 +3328,7 @@ define linkonce_odr hidden void @_ZN4llvm8DenseMapIPNS_9LiveRangeESt4pairINS_9Bi
 
 11:                                               ; preds = %.lr.ph.i
   %12 = getelementptr inbounds nuw i8, ptr %.011.i, i64 8
-  %13 = getelementptr inbounds i8, ptr %.011.i, i64 80
+  %13 = getelementptr inbounds nuw i8, ptr %.011.i, i64 80
   %14 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %13) #12
   %15 = load ptr, ptr %13, align 8
   %16 = getelementptr inbounds i8, ptr %.011.i, i64 96
@@ -3882,11 +3882,11 @@ define linkonce_odr hidden noundef ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_
   br label %_ZN4llvm9BitVectorC2EOS0_.exit.i
 
 _ZN4llvm9BitVectorC2EOS0_.exit.i:                 ; preds = %10, %4
-  %12 = getelementptr inbounds i8, ptr %5, i64 72
+  %12 = getelementptr inbounds nuw i8, ptr %5, i64 72
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 64
   %14 = load i32, ptr %13, align 8
   store i32 %14, ptr %12, align 8
-  %15 = getelementptr inbounds i8, ptr %5, i64 80
+  %15 = getelementptr inbounds nuw i8, ptr %5, i64 80
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 72
   %17 = getelementptr inbounds i8, ptr %5, i64 96
   tail call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %15, ptr noundef nonnull %17, i64 noundef 6) #12
@@ -3898,8 +3898,8 @@ _ZN4llvm9BitVectorC2EOS0_.exit.i:                 ; preds = %10, %4
   br label %_ZNSt4pairIN4llvm9BitVectorES1_EC2EOS2_.exit
 
 _ZNSt4pairIN4llvm9BitVectorES1_EC2EOS2_.exit:     ; preds = %_ZN4llvm9BitVectorC2EOS0_.exit.i, %19
-  %21 = getelementptr inbounds i8, ptr %5, i64 144
-  %22 = getelementptr inbounds i8, ptr %3, i64 136
+  %21 = getelementptr inbounds nuw i8, ptr %5, i64 144
+  %22 = getelementptr inbounds nuw i8, ptr %3, i64 136
   %23 = load i32, ptr %22, align 8
   store i32 %23, ptr %21, align 8
   ret ptr %5
@@ -4243,12 +4243,12 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_9LiveRangeESt4pairINS_9BitVectorES5_ENS_
   br label %_ZN4llvm9BitVectorC2EOS0_.exit.i
 
 _ZN4llvm9BitVectorC2EOS0_.exit.i:                 ; preds = %44, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_9LiveRangeESt4pairINS_9BitVectorES5_ENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S6_EEEES3_S6_S8_SB_E15LookupBucketForIS3_EEbRKT_RPSB_.exit
-  %46 = getelementptr inbounds i8, ptr %.sink.i.i, i64 72
-  %47 = getelementptr inbounds i8, ptr %.020, i64 72
+  %46 = getelementptr inbounds nuw i8, ptr %.sink.i.i, i64 72
+  %47 = getelementptr inbounds nuw i8, ptr %.020, i64 72
   %48 = load i32, ptr %47, align 8
   store i32 %48, ptr %46, align 8
-  %49 = getelementptr inbounds i8, ptr %.sink.i.i, i64 80
-  %50 = getelementptr inbounds i8, ptr %.020, i64 80
+  %49 = getelementptr inbounds nuw i8, ptr %.sink.i.i, i64 80
+  %50 = getelementptr inbounds nuw i8, ptr %.020, i64 80
   %51 = getelementptr inbounds i8, ptr %.sink.i.i, i64 96
   tail call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %49, ptr noundef nonnull %51, i64 noundef 6) #12
   %52 = tail call noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseIjE5emptyEv(ptr noundef nonnull align 8 dereferenceable(16) %50) #12
@@ -4259,8 +4259,8 @@ _ZN4llvm9BitVectorC2EOS0_.exit.i:                 ; preds = %44, %_ZN4llvm12Dens
   br label %_ZNSt4pairIN4llvm9BitVectorES1_EC2EOS2_.exit
 
 _ZNSt4pairIN4llvm9BitVectorES1_EC2EOS2_.exit:     ; preds = %_ZN4llvm9BitVectorC2EOS0_.exit.i, %53
-  %55 = getelementptr inbounds i8, ptr %.sink.i.i, i64 144
-  %56 = getelementptr inbounds i8, ptr %.020, i64 144
+  %55 = getelementptr inbounds nuw i8, ptr %.sink.i.i, i64 144
+  %56 = getelementptr inbounds nuw i8, ptr %.020, i64 144
   %57 = load i32, ptr %56, align 8
   store i32 %57, ptr %55, align 8
   %58 = load i32, ptr %4, align 8

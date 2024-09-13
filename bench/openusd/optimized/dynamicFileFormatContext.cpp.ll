@@ -188,7 +188,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__27PcpDynamicFileFormatContextC
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathC2ERKS0_.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathC2ERKS0_.exit: ; preds = %7, %10
-  %21 = getelementptr inbounds i8, ptr %0, i64 20
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %22 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %23 = load i32, ptr %22, align 4
   store i32 %23, ptr %21, align 4
@@ -429,8 +429,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__27PcpDynamicFileFormatContext19_ComposeValu
   %39 = getelementptr inbounds i8, ptr %36, i64 %38
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 8
   %41 = atomicrmw add ptr %40, i32 1 monotonic, align 4
-  %42 = getelementptr inbounds i8, ptr %6, i64 52
-  %43 = getelementptr inbounds i8, ptr %0, i64 20
+  %42 = getelementptr inbounds nuw i8, ptr %6, i64 52
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %44 = load i32, ptr %43, align 4
   store i32 %44, ptr %42, align 4
   %45 = getelementptr inbounds nuw i8, ptr %6, i64 56
@@ -441,8 +441,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__27PcpDynamicFileFormatContext19_ComposeValu
   br label %.noexc.i
 
 48:                                               ; preds = %22
-  %49 = getelementptr inbounds i8, ptr %6, i64 52
-  %50 = getelementptr inbounds i8, ptr %0, i64 20
+  %49 = getelementptr inbounds nuw i8, ptr %6, i64 52
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %51 = load i32, ptr %50, align 4
   store i32 %51, ptr %49, align 4
   %52 = getelementptr inbounds nuw i8, ptr %6, i64 56
@@ -602,8 +602,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__27PcpDynamicFileFormatContext19_ComposeValu
   %124 = getelementptr inbounds i8, ptr %121, i64 %123
   %125 = getelementptr inbounds nuw i8, ptr %124, i64 8
   %126 = atomicrmw add ptr %125, i32 1 monotonic, align 4
-  %127 = getelementptr inbounds i8, ptr %4, i64 52
-  %128 = getelementptr inbounds i8, ptr %0, i64 20
+  %127 = getelementptr inbounds nuw i8, ptr %4, i64 52
+  %128 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %129 = load i32, ptr %128, align 4
   store i32 %129, ptr %127, align 4
   %130 = getelementptr inbounds nuw i8, ptr %4, i64 56
@@ -614,8 +614,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__27PcpDynamicFileFormatContext19_ComposeValu
   br label %.noexc.i10
 
 133:                                              ; preds = %107
-  %134 = getelementptr inbounds i8, ptr %4, i64 52
-  %135 = getelementptr inbounds i8, ptr %0, i64 20
+  %134 = getelementptr inbounds nuw i8, ptr %4, i64 52
+  %135 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %136 = load i32, ptr %135, align 4
   store i32 %136, ptr %134, align 4
   %137 = getelementptr inbounds nuw i8, ptr %4, i64 56
@@ -921,8 +921,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__27PcpDynamicFileFormatContext19_ComposeValu
   %31 = getelementptr inbounds i8, ptr %28, i64 %30
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 8
   %33 = atomicrmw add ptr %32, i32 1 monotonic, align 4
-  %34 = getelementptr inbounds i8, ptr %4, i64 52
-  %35 = getelementptr inbounds i8, ptr %0, i64 20
+  %34 = getelementptr inbounds nuw i8, ptr %4, i64 52
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %36 = load i32, ptr %35, align 4
   store i32 %36, ptr %34, align 4
   %37 = getelementptr inbounds nuw i8, ptr %4, i64 56
@@ -933,8 +933,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__27PcpDynamicFileFormatContext19_ComposeValu
   br label %.noexc.i
 
 40:                                               ; preds = %14
-  %41 = getelementptr inbounds i8, ptr %4, i64 52
-  %42 = getelementptr inbounds i8, ptr %0, i64 20
+  %41 = getelementptr inbounds nuw i8, ptr %4, i64 52
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %43 = load i32, ptr %42, align 4
   store i32 %43, ptr %41, align 4
   %44 = getelementptr inbounds nuw i8, ptr %4, i64 56
@@ -1075,8 +1075,8 @@ define noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__27PcpDynamicFil
   br label %_ZN32pxrInternal_v0_24__pxrReserved__27PcpDynamicFileFormatContext19_ComposeValueHelperC2EPKS0_b.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__27PcpDynamicFileFormatContext19_ComposeValueHelperC2EPKS0_b.exit.i: ; preds = %21, %11
-  %32 = getelementptr inbounds i8, ptr %4, i64 52
-  %33 = getelementptr inbounds i8, ptr %0, i64 20
+  %32 = getelementptr inbounds nuw i8, ptr %4, i64 52
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %34 = load i32, ptr %33, align 4
   store i32 %34, ptr %32, align 4
   %35 = getelementptr inbounds nuw i8, ptr %4, i64 56
@@ -1215,7 +1215,7 @@ define linkonce_odr void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_tra
   tail call void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N32pxrInternal_v0_24__pxrReserved__7VtValueEESt10_Select1stISA_ESt4lessIvESaISA_EE8_M_eraseEPSt13_Rb_tree_nodeISA_E(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %4)
   %5 = getelementptr inbounds nuw i8, ptr %.07, i64 16
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %.07, i64 72
+  %7 = getelementptr inbounds nuw i8, ptr %.07, i64 72
   %8 = load ptr, ptr %7, align 8
   %9 = ptrtoint ptr %8 to i64
   %.not.i.i.i.i.i.i.i = icmp eq ptr %8, null
@@ -1225,7 +1225,7 @@ define linkonce_odr void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_tra
   br i1 %or.cond.i.i.i.i.i.i.i, label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N32pxrInternal_v0_24__pxrReserved__7VtValueEESt10_Select1stISA_ESt4lessIvESaISA_EE12_M_drop_nodeEPSt13_Rb_tree_nodeISA_E.exit, label %12
 
 12:                                               ; preds = %.lr.ph
-  %13 = getelementptr inbounds i8, ptr %.07, i64 64
+  %13 = getelementptr inbounds nuw i8, ptr %.07, i64 64
   %14 = and i64 %9, -8
   %15 = inttoptr i64 %14 to ptr
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 32
@@ -1992,7 +1992,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit47: ; preds = %117, %122
   %130 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %131 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %132 = load i64, ptr %131, align 8
-  %133 = getelementptr inbounds i8, ptr %0, i64 40
+  %133 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %134 = load i64, ptr %133, align 8
   %135 = icmp eq i64 %132, %134
   %136 = load ptr, ptr %1, align 8
@@ -3058,7 +3058,7 @@ define linkonce_odr noundef i64 @_ZN32pxrInternal_v0_24__pxrReserved__10hash_val
   %12 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %11) #17
   %13 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %11) #17
   call void @_ZN32pxrInternal_v0_24__pxrReserved__12Tf_HashState12_AppendBytesEPKcm(ptr noundef nonnull align 8 dereferenceable(9) %2, ptr noundef %12, i64 noundef %13)
-  %14 = getelementptr inbounds i8, ptr %.sroa.02.04.i.i.i.i.i, i64 64
+  %14 = getelementptr inbounds nuw i8, ptr %.sroa.02.04.i.i.i.i.i, i64 64
   %15 = call noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue7GetHashEv(ptr noundef nonnull align 8 dereferenceable(16) %14)
   %16 = load i8, ptr %6, align 8
   %17 = trunc i8 %16 to i1
@@ -3737,7 +3737,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit43: ; preds = %87, %92
   %100 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %101 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %102 = load i64, ptr %101, align 8
-  %103 = getelementptr inbounds i8, ptr %0, i64 40
+  %103 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %104 = load i64, ptr %103, align 8
   %105 = icmp eq i64 %102, %104
   %106 = load ptr, ptr %1, align 8
@@ -4699,7 +4699,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit44: ; preds = %95, %100
   %108 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %109 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %110 = load i64, ptr %109, align 8
-  %111 = getelementptr inbounds i8, ptr %0, i64 40
+  %111 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %112 = load i64, ptr %111, align 8
   %113 = icmp eq i64 %110, %112
   %114 = load ptr, ptr %1, align 8
@@ -5798,7 +5798,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit43: ; preds = %87, %92
   %100 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %101 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %102 = load i64, ptr %101, align 8
-  %103 = getelementptr inbounds i8, ptr %0, i64 40
+  %103 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %104 = load i64, ptr %103, align 8
   %105 = icmp eq i64 %102, %104
   %106 = load ptr, ptr %1, align 8

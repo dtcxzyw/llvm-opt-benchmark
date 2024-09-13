@@ -242,7 +242,7 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_114FEntryInserter20runOnMach
   br i1 %.not, label %_ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit, label %_ZN4llvm8DebugLocD2Ev.exit
 
 _ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit: ; preds = %2
-  %20 = getelementptr inbounds i8, ptr %1, i64 328
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 328
   %21 = load ptr, ptr %20, align 8
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %23 = load ptr, ptr %22, align 8

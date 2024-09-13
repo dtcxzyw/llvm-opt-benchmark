@@ -241,7 +241,7 @@ define hidden void @_ZNK5clang6driver5tools9dragonfly9Assembler12ConstructJobERN
   %17 = getelementptr inbounds i8, ptr %12, i64 16
   call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull %17, i64 noundef 16) #9
   call void @_ZN5clang6driver5tools15claimNoWarnArgsERKN4llvm3opt7ArgListE(ptr noundef nonnull align 8 dereferenceable(176) %5) #9
-  %18 = getelementptr inbounds i8, ptr %16, i64 48
+  %18 = getelementptr inbounds nuw i8, ptr %16, i64 48
   %19 = load i32, ptr %18, align 8
   %20 = icmp eq i32 %19, 37
   br i1 %20, label %21, label %31
@@ -456,7 +456,7 @@ define hidden void @_ZNK5clang6driver5tools9dragonfly6Linker12ConstructJobERNS0_
   %37 = load ptr, ptr %36, align 8
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 8
   %39 = load ptr, ptr %38, align 8
-  %40 = getelementptr inbounds i8, ptr %37, i64 48
+  %40 = getelementptr inbounds nuw i8, ptr %37, i64 48
   %41 = load i32, ptr %40, align 8
   %42 = tail call noundef ptr @_ZNK4llvm3opt7ArgList10getLastArgIJN5clang6driver7options2IDEEEEPNS0_3ArgEDpT_(ptr noundef nonnull align 8 dereferenceable(176) %5, i32 noundef 3176)
   %.not = icmp eq ptr %42, null

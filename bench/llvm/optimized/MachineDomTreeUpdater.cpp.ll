@@ -134,15 +134,15 @@ define weak_odr void @_ZN4llvm21GenericDomTreeUpdaterINS_21MachineDomTreeUpdater
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, i8 0, i64 32, i1 false)
   store i8 %1, ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 312
-  %7 = getelementptr inbounds i8, ptr %0, i64 344
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 344
   store ptr %7, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 320
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 320
   store ptr %7, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 328
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 328
   store i32 8, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 332
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 332
   store i32 0, ptr %10, align 4
-  %11 = getelementptr inbounds i8, ptr %0, i64 336
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 336
   store i32 0, ptr %11, align 8
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 408
   store i8 0, ptr %12, align 8
@@ -164,15 +164,15 @@ define weak_odr void @_ZN4llvm21GenericDomTreeUpdaterINS_21MachineDomTreeUpdater
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 304
   store i8 %2, ptr %8, align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 312
-  %10 = getelementptr inbounds i8, ptr %0, i64 344
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 344
   store ptr %10, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 320
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 320
   store ptr %10, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 328
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 328
   store i32 8, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 332
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 332
   store i32 0, ptr %13, align 4
-  %14 = getelementptr inbounds i8, ptr %0, i64 336
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 336
   store i32 0, ptr %14, align 8
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 408
   store i8 0, ptr %15, align 8
@@ -194,15 +194,15 @@ define weak_odr void @_ZN4llvm21GenericDomTreeUpdaterINS_21MachineDomTreeUpdater
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 304
   store i8 %2, ptr %8, align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 312
-  %10 = getelementptr inbounds i8, ptr %0, i64 344
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 344
   store ptr %10, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 320
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 320
   store ptr %10, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 328
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 328
   store i32 8, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 332
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 332
   store i32 0, ptr %13, align 4
-  %14 = getelementptr inbounds i8, ptr %0, i64 336
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 336
   store i32 0, ptr %14, align 8
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 408
   store i8 0, ptr %15, align 8
@@ -222,15 +222,15 @@ define weak_odr void @_ZN4llvm21GenericDomTreeUpdaterINS_21MachineDomTreeUpdater
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 304
   store i8 %2, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 312
-  %9 = getelementptr inbounds i8, ptr %0, i64 344
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 344
   store ptr %9, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 320
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 320
   store ptr %9, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 328
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 328
   store i32 8, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 332
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 332
   store i32 0, ptr %12, align 4
-  %13 = getelementptr inbounds i8, ptr %0, i64 336
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 336
   store i32 0, ptr %13, align 8
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 408
   store i8 0, ptr %14, align 8
@@ -250,15 +250,15 @@ define weak_odr void @_ZN4llvm21GenericDomTreeUpdaterINS_21MachineDomTreeUpdater
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 304
   store i8 %2, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 312
-  %9 = getelementptr inbounds i8, ptr %0, i64 344
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 344
   store ptr %9, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 320
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 320
   store ptr %9, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 328
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 328
   store i32 8, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 332
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 332
   store i32 0, ptr %12, align 4
-  %13 = getelementptr inbounds i8, ptr %0, i64 336
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 336
   store i32 0, ptr %13, align 8
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 408
   store i8 0, ptr %14, align 8
@@ -280,15 +280,15 @@ define weak_odr void @_ZN4llvm21GenericDomTreeUpdaterINS_21MachineDomTreeUpdater
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 304
   store i8 %3, ptr %9, align 8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 312
-  %11 = getelementptr inbounds i8, ptr %0, i64 344
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 344
   store ptr %11, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 320
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 320
   store ptr %11, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 328
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 328
   store i32 8, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 332
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 332
   store i32 0, ptr %14, align 4
-  %15 = getelementptr inbounds i8, ptr %0, i64 336
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 336
   store i32 0, ptr %15, align 8
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 408
   store i8 0, ptr %16, align 8
@@ -310,15 +310,15 @@ define weak_odr void @_ZN4llvm21GenericDomTreeUpdaterINS_21MachineDomTreeUpdater
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 304
   store i8 %3, ptr %9, align 8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 312
-  %11 = getelementptr inbounds i8, ptr %0, i64 344
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 344
   store ptr %11, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 320
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 320
   store ptr %11, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 328
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 328
   store i32 8, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 332
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 332
   store i32 0, ptr %14, align 4
-  %15 = getelementptr inbounds i8, ptr %0, i64 336
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 336
   store i32 0, ptr %15, align 8
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 408
   store i8 0, ptr %16, align 8
@@ -330,7 +330,7 @@ define weak_odr void @_ZN4llvm21GenericDomTreeUpdaterINS_21MachineDomTreeUpdater
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr void @_ZN4llvm21GenericDomTreeUpdaterINS_21MachineDomTreeUpdaterENS_20MachineDominatorTreeENS_24MachinePostDominatorTreeEED2Ev(ptr noundef nonnull align 8 dereferenceable(410) %0) unnamed_addr #0 comdat($_ZN4llvm21GenericDomTreeUpdaterINS_21MachineDomTreeUpdaterENS_20MachineDominatorTreeENS_24MachinePostDominatorTreeEED5Ev) align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 312
-  %3 = getelementptr inbounds i8, ptr %0, i64 320
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 320
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %2, align 8
   %6 = icmp eq ptr %4, %5
@@ -389,9 +389,9 @@ define weak_odr noundef zeroext i1 @_ZNK4llvm21GenericDomTreeUpdaterINS_21Machin
 
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr noundef zeroext i1 @_ZNK4llvm21GenericDomTreeUpdaterINS_21MachineDomTreeUpdaterENS_20MachineDominatorTreeENS_24MachinePostDominatorTreeEE19hasPendingDeletedBBEv(ptr noundef nonnull align 8 dereferenceable(410) %0) local_unnamed_addr #0 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 332
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 332
   %3 = load i32, ptr %2, align 4
-  %4 = getelementptr inbounds i8, ptr %0, i64 336
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 336
   %5 = load i32, ptr %4, align 8
   %6 = icmp ne i32 %3, %5
   ret i1 %6
@@ -406,15 +406,15 @@ define weak_odr noundef zeroext i1 @_ZNK4llvm21GenericDomTreeUpdaterINS_21Machin
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 312
-  %8 = getelementptr inbounds i8, ptr %0, i64 332
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 332
   %9 = load i32, ptr %8, align 4
-  %10 = getelementptr inbounds i8, ptr %0, i64 336
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 336
   %11 = load i32, ptr %10, align 8
   %12 = icmp eq i32 %9, %11
   br i1 %12, label %42, label %13
 
 13:                                               ; preds = %6
-  %14 = getelementptr inbounds i8, ptr %0, i64 320
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 320
   %15 = load ptr, ptr %14, align 8
   %16 = load ptr, ptr %7, align 8
   %17 = icmp eq ptr %15, %16
@@ -455,7 +455,7 @@ define weak_odr noundef zeroext i1 @_ZNK4llvm21GenericDomTreeUpdaterINS_21Machin
 28:                                               ; preds = %26
   %29 = icmp eq ptr %.pre.i, %.pre4.i
   %30 = load i32, ptr %8, align 4
-  %31 = getelementptr inbounds i8, ptr %0, i64 328
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 328
   %32 = load i32, ptr %31, align 8
   %.v.v.i14.i.i = select i1 %29, i32 %30, i32 %32
   %.v.i15.i.i = zext i32 %.v.v.i14.i.i to i64
@@ -468,7 +468,7 @@ _ZNK4llvm15SmallPtrSetImplIPNS_17MachineBasicBlockEE8containsEPKS1_.exit: ; pred
   %36 = phi ptr [ %15, %._crit_edge.i.i ], [ %.pre.i, %28 ], [ %.pre.i, %._ZNK4llvm19SmallPtrSetImplBase8find_impEPKv.exit_crit_edge.i ], [ %15, %.lr.ph.i.i ]
   %.0.i.i = phi ptr [ %25, %._crit_edge.i.i ], [ %33, %28 ], [ %27, %._ZNK4llvm19SmallPtrSetImplBase8find_impEPKv.exit_crit_edge.i ], [ %.01118.i.i, %.lr.ph.i.i ]
   %37 = icmp eq ptr %36, %35
-  %38 = getelementptr inbounds i8, ptr %0, i64 328
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 328
   %39 = load i32, ptr %38, align 8
   %.v.v.i.i = select i1 %37, i32 %34, i32 %39
   %.v.i.i = zext i32 %.v.v.i.i to i64
@@ -1013,7 +1013,7 @@ _ZNK4llvm8SmallSetISt4pairIPNS_17MachineBasicBlockES3_ELj8ESt4lessIS4_EE5vfindER
   br i1 %41, label %_ZNKSt4lessISt4pairIPN4llvm17MachineBasicBlockES3_EEclERKS4_S7_.exit.thread10.i.i.i, label %_ZNKSt4lessISt4pairIPN4llvm17MachineBasicBlockES3_EEclERKS4_S7_.exit.i.i.i
 
 _ZNKSt4lessISt4pairIPN4llvm17MachineBasicBlockES3_EEclERKS4_S7_.exit.i.i.i: ; preds = %40
-  %42 = getelementptr inbounds i8, ptr %.013.i.i.i, i64 40
+  %42 = getelementptr inbounds nuw i8, ptr %.013.i.i.i, i64 40
   %43 = load ptr, ptr %42, align 8
   %44 = icmp ult ptr %43, %35
   br i1 %44, label %_ZNKSt4lessISt4pairIPN4llvm17MachineBasicBlockES3_EEclERKS4_S7_.exit.thread.i.i.i, label %_ZNKSt4lessISt4pairIPN4llvm17MachineBasicBlockES3_EEclERKS4_S7_.exit.thread10.i.i.i
@@ -1044,7 +1044,7 @@ _ZNKSt8_Rb_treeISt4pairIPN4llvm17MachineBasicBlockES3_ES4_St9_IdentityIS4_ESt4le
   br i1 %52, label %_ZNKSt4lessISt4pairIPN4llvm17MachineBasicBlockES3_EEclERKS4_S7_.exit.thread6.i.i, label %_ZNKSt4lessISt4pairIPN4llvm17MachineBasicBlockES3_EEclERKS4_S7_.exit.i.i
 
 _ZNKSt4lessISt4pairIPN4llvm17MachineBasicBlockES3_EEclERKS4_S7_.exit.i.i: ; preds = %51
-  %53 = getelementptr inbounds i8, ptr %.19.i.i.i, i64 40
+  %53 = getelementptr inbounds nuw i8, ptr %.19.i.i.i, i64 40
   %54 = load ptr, ptr %53, align 8
   %55 = icmp ult ptr %35, %54
   br i1 %55, label %_ZNKSt3setISt4pairIPN4llvm17MachineBasicBlockES3_ESt4lessIS4_ESaIS4_EE5countERKS4_.exit, label %_ZNKSt4lessISt4pairIPN4llvm17MachineBasicBlockES3_EEclERKS4_S7_.exit.thread6.i.i
@@ -1738,19 +1738,19 @@ _ZNK4llvm21GenericDomTreeUpdaterINS_21MachineDomTreeUpdaterENS_20MachineDominato
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local noundef zeroext i1 @_ZN4llvm21MachineDomTreeUpdater19forceFlushDeletedBBEv(ptr noundef nonnull align 8 dereferenceable(410) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 312
-  %3 = getelementptr inbounds i8, ptr %0, i64 332
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 332
   %4 = load i32, ptr %3, align 4
-  %5 = getelementptr inbounds i8, ptr %0, i64 336
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 336
   %6 = load i32, ptr %5, align 8
   %7 = icmp ne i32 %4, %6
   br i1 %7, label %8, label %_ZN4llvm19SmallPtrSetImplBase5clearEv.exit
 
 8:                                                ; preds = %1
-  %9 = getelementptr inbounds i8, ptr %0, i64 320
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 320
   %10 = load ptr, ptr %9, align 8
   %11 = load ptr, ptr %2, align 8
   %12 = icmp eq ptr %10, %11
-  %13 = getelementptr inbounds i8, ptr %0, i64 328
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 328
   %14 = load i32, ptr %13, align 8
   %.v.v.i4.i2.i = select i1 %12, i32 %4, i32 %14
   %.v.i5.i3.i = zext i32 %.v.v.i4.i2.i to i64
@@ -1922,14 +1922,14 @@ define dso_local void @_ZN4llvm21MachineDomTreeUpdater8deleteBBEPNS_17MachineBas
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 312
-  %8 = getelementptr inbounds i8, ptr %0, i64 320
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 320
   %9 = load ptr, ptr %8, align 8, !noalias !11
   %10 = load ptr, ptr %7, align 8, !noalias !11
   %11 = icmp eq ptr %9, %10
   br i1 %11, label %12, label %26
 
 12:                                               ; preds = %6
-  %13 = getelementptr inbounds i8, ptr %0, i64 332
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 332
   %14 = load i32, ptr %13, align 4, !noalias !11
   %15 = zext i32 %14 to i64
   %16 = getelementptr inbounds ptr, ptr %10, i64 %15
@@ -1948,7 +1948,7 @@ define dso_local void @_ZN4llvm21MachineDomTreeUpdater8deleteBBEPNS_17MachineBas
   br i1 %.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !14
 
 ._crit_edge.i.i:                                  ; preds = %19, %12
-  %21 = getelementptr inbounds i8, ptr %0, i64 328
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 328
   %22 = load i32, ptr %21, align 8, !noalias !11
   %23 = icmp ult i32 %14, %22
   br i1 %23, label %24, label %26
@@ -2054,7 +2054,7 @@ define linkonce_odr { ptr, i8 } @_ZNSt8_Rb_treeISt4pairIPN4llvm17MachineBasicBlo
   br i1 %12, label %_ZNKSt4lessISt4pairIPN4llvm17MachineBasicBlockES3_EEclERKS4_S7_.exit.thread.i.thread, label %_ZNKSt4lessISt4pairIPN4llvm17MachineBasicBlockES3_EEclERKS4_S7_.exit.i
 
 _ZNKSt4lessISt4pairIPN4llvm17MachineBasicBlockES3_EEclERKS4_S7_.exit.i: ; preds = %11
-  %13 = getelementptr inbounds i8, ptr %.02126.i, i64 40
+  %13 = getelementptr inbounds nuw i8, ptr %.02126.i, i64 40
   %14 = load ptr, ptr %13, align 8
   %15 = icmp ult ptr %7, %14
   br i1 %15, label %_ZNKSt4lessISt4pairIPN4llvm17MachineBasicBlockES3_EEclERKS4_S7_.exit.thread.i, label %_ZNKSt4lessISt4pairIPN4llvm17MachineBasicBlockES3_EEclERKS4_S7_.exit.thread.i.thread
@@ -2102,7 +2102,7 @@ _ZNKSt4lessISt4pairIPN4llvm17MachineBasicBlockES3_EEclERKS4_S7_.exit.thread.i.th
   br i1 %27, label %54, label %_ZNKSt4lessISt4pairIPN4llvm17MachineBasicBlockES3_EEclERKS4_S7_.exit5.i
 
 _ZNKSt4lessISt4pairIPN4llvm17MachineBasicBlockES3_EEclERKS4_S7_.exit5.i: ; preds = %26
-  %28 = getelementptr inbounds i8, ptr %.sroa.06.0.i, i64 40
+  %28 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.i, i64 40
   %29 = load ptr, ptr %28, align 8
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %31 = load ptr, ptr %30, align 8
@@ -2128,7 +2128,7 @@ _ZNKSt4lessISt4pairIPN4llvm17MachineBasicBlockES3_EEclERKS4_S7_.exit5.i: ; preds
 42:                                               ; preds = %40
   %43 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %44 = load ptr, ptr %43, align 8
-  %45 = getelementptr inbounds i8, ptr %.sroa.4.0.i.ph, i64 40
+  %45 = getelementptr inbounds nuw i8, ptr %.sroa.4.0.i.ph, i64 40
   %46 = load ptr, ptr %45, align 8
   %47 = icmp ult ptr %44, %46
   br label %_ZNSt8_Rb_treeISt4pairIPN4llvm17MachineBasicBlockES3_ES4_St9_IdentityIS4_ESt4lessIS4_ESaIS4_EE10_M_insert_IRKS4_NSA_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS4_EPSt18_Rb_tree_node_baseSI_OT_RT0_.exit

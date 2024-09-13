@@ -189,7 +189,7 @@ _ZN4llvm9CallGraph19getOrInsertFunctionEPKNS_8FunctionE.exit: ; preds = %2, %_ZN
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %19, i8 0, i64 36, i1 false), !noalias !7
   store ptr %18, ptr %17, align 8, !alias.scope !7
-  %20 = getelementptr inbounds i8, ptr %1, i64 32
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %.sroa.07.010 = load ptr, ptr %20, align 8
   %.not11 = icmp eq ptr %.sroa.07.010, %21
@@ -372,7 +372,7 @@ _ZNSt3mapIPKN4llvm8FunctionESt10unique_ptrINS0_13CallGraphNodeESt14default_delet
 
 .lr.ph:                                           ; preds = %_ZNSt3mapIPKN4llvm8FunctionESt10unique_ptrINS0_13CallGraphNodeESt14default_deleteIS5_EESt4lessIS3_ESaISt4pairIKS3_S8_EEEC2EOSF_.exit, %.lr.ph
   %.sroa.010.014 = phi ptr [ %44, %.lr.ph ], [ %41, %_ZNSt3mapIPKN4llvm8FunctionESt10unique_ptrINS0_13CallGraphNodeESt14default_deleteIS5_EESt4lessIS3_ESaISt4pairIKS3_S8_EEEC2EOSF_.exit ]
-  %42 = getelementptr inbounds i8, ptr %.sroa.010.014, i64 40
+  %42 = getelementptr inbounds nuw i8, ptr %.sroa.010.014, i64 40
   %43 = load ptr, ptr %42, align 8
   store ptr %0, ptr %43, align 8
   %44 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %.sroa.010.014) #20
@@ -400,7 +400,7 @@ define dso_local void @_ZN4llvm9CallGraphD2Ev(ptr noundef nonnull align 8 derefe
 6:                                                ; preds = %4
   %7 = getelementptr inbounds nuw i8, ptr %.pr, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %.pr, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %.pr, i64 24
   %10 = load ptr, ptr %9, align 8
   %.not4.i.i.i.i.i.i.i = icmp eq ptr %8, %10
   br i1 %.not4.i.i.i.i.i.i.i, label %_ZSt8_DestroyIPSt4pairISt8optionalIN4llvm14WeakTrackingVHEEPNS2_13CallGraphNodeEES7_EvT_S9_RSaIT0_E.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i
@@ -442,7 +442,7 @@ _ZSt8_DestroyIPSt4pairISt8optionalIN4llvm14WeakTrackingVHEEPNS2_13CallGraphNodeE
   br i1 %.not.i.i.i.i.i.i, label %_ZNKSt14default_deleteIN4llvm13CallGraphNodeEEclEPS1_.exit.i, label %20
 
 20:                                               ; preds = %_ZSt8_DestroyIPSt4pairISt8optionalIN4llvm14WeakTrackingVHEEPNS2_13CallGraphNodeEES7_EvT_S9_RSaIT0_E.exit.i.i.i.i
-  %21 = getelementptr inbounds i8, ptr %.pr, i64 32
+  %21 = getelementptr inbounds nuw i8, ptr %.pr, i64 32
   %22 = load ptr, ptr %21, align 8
   %23 = ptrtoint ptr %22 to i64
   %24 = ptrtoint ptr %19 to i64
@@ -471,14 +471,14 @@ define dso_local noundef zeroext i1 @_ZN4llvm9CallGraph10invalidateERNS_6ModuleE
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr @_ZN4llvm17CallGraphAnalysis3KeyE, ptr %6, align 8, !alias.scope !18
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 48
-  %8 = getelementptr inbounds i8, ptr %2, i64 56
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %9 = load ptr, ptr %8, align 8, !noalias !18
   %10 = load ptr, ptr %7, align 8, !noalias !18
   %11 = icmp eq ptr %9, %10
   br i1 %11, label %12, label %22
 
 12:                                               ; preds = %4
-  %13 = getelementptr inbounds i8, ptr %2, i64 68
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 68
   %14 = load i32, ptr %13, align 4, !noalias !18
   %15 = zext i32 %14 to i64
   %16 = getelementptr inbounds ptr, ptr %10, i64 %15
@@ -508,15 +508,15 @@ define dso_local noundef zeroext i1 @_ZN4llvm9CallGraph10invalidateERNS_6ModuleE
   br i1 %.not.i.i.i.i, label %24, label %._ZNK4llvm19SmallPtrSetImplBase8find_impEPKv.exit_crit_edge.i.i.i
 
 ._ZNK4llvm19SmallPtrSetImplBase8find_impEPKv.exit_crit_edge.i.i.i: ; preds = %22
-  %.phi.trans.insert.i.i.i = getelementptr inbounds i8, ptr %2, i64 68
+  %.phi.trans.insert.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 68
   %.pre5.i.i.i = load i32, ptr %.phi.trans.insert.i.i.i, align 4, !noalias !18
   br label %_ZNK4llvm17PreservedAnalyses10getCheckerINS_17CallGraphAnalysisEEENS0_24PreservedAnalysisCheckerEv.exit
 
 24:                                               ; preds = %22
   %25 = icmp eq ptr %.pre.i.i.i, %.pre4.i.i.i
-  %26 = getelementptr inbounds i8, ptr %2, i64 68
+  %26 = getelementptr inbounds nuw i8, ptr %2, i64 68
   %27 = load i32, ptr %26, align 4, !noalias !18
-  %28 = getelementptr inbounds i8, ptr %2, i64 64
+  %28 = getelementptr inbounds nuw i8, ptr %2, i64 64
   %29 = load i32, ptr %28, align 8, !noalias !18
   %.v.v.i14.i.i.i.i = select i1 %25, i32 %27, i32 %29
   %.v.i15.i.i.i.i = zext i32 %.v.v.i14.i.i.i.i to i64
@@ -530,7 +530,7 @@ _ZNK4llvm17PreservedAnalyses10getCheckerINS_17CallGraphAnalysisEEENS0_24Preserve
   %.0.i.i.i.i = phi ptr [ %21, %._crit_edge.i.i.i.i ], [ %30, %24 ], [ %23, %._ZNK4llvm19SmallPtrSetImplBase8find_impEPKv.exit_crit_edge.i.i.i ], [ %.01118.i.i.i.i, %.lr.ph.i.i.i.i ]
   %34 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %35 = icmp eq ptr %33, %32
-  %36 = getelementptr inbounds i8, ptr %2, i64 64
+  %36 = getelementptr inbounds nuw i8, ptr %2, i64 64
   %37 = load i32, ptr %36, align 8, !noalias !18
   %.v.v.i.i.i.i = select i1 %35, i32 %31, i32 %37
   %.v.i.i.i.i = zext i32 %.v.v.i.i.i.i to i64
@@ -880,9 +880,9 @@ _ZNSt8optionalIN4llvm14WeakTrackingVHEEC2IRPNS0_8CallBaseETnNSt9enable_ifIX7__an
   %.sink = phi i8 [ 1, %6 ], [ 1, %6 ], [ 1, %9 ], [ 0, %3 ]
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store i8 %.sink, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %14 = load ptr, ptr %13, align 8
   %.not.i = icmp eq ptr %12, %14
   br i1 %.not.i, label %31, label %15
@@ -990,7 +990,7 @@ define dso_local void @_ZN4llvm9CallGraph21populateCallGraphNodeEPNS_13CallGraph
   br label %19
 
 19:                                               ; preds = %16, %14, %2
-  %20 = getelementptr inbounds i8, ptr %12, i64 80
+  %20 = getelementptr inbounds nuw i8, ptr %12, i64 80
   %21 = getelementptr inbounds nuw i8, ptr %12, i64 72
   %.sroa.0101.0125 = load ptr, ptr %20, align 8
   %.not126 = icmp eq ptr %.sroa.0101.0125, %21
@@ -1004,8 +1004,8 @@ define dso_local void @_ZN4llvm9CallGraph21populateCallGraphNodeEPNS_13CallGraph
   %26 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %27 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %28 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  %29 = getelementptr inbounds i8, ptr %1, i64 24
-  %30 = getelementptr inbounds i8, ptr %1, i64 32
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %33 = getelementptr inbounds nuw i8, ptr %10, i64 8
@@ -1023,7 +1023,7 @@ define dso_local void @_ZN4llvm9CallGraph21populateCallGraphNodeEPNS_13CallGraph
   %42 = icmp eq ptr %.sroa.0101.0127, null
   %43 = getelementptr inbounds i8, ptr %.sroa.0101.0127, i64 -24
   %44 = select i1 %42, ptr null, ptr %43
-  %45 = getelementptr inbounds i8, ptr %44, i64 56
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 56
   %46 = getelementptr inbounds nuw i8, ptr %44, i64 48
   %.sroa.097.0122 = load ptr, ptr %45, align 8
   %.not121123 = icmp eq ptr %.sroa.097.0122, %46
@@ -1198,7 +1198,7 @@ _ZNSt3mapIPKN4llvm8FunctionESt10unique_ptrINS0_13CallGraphNodeESt14default_delet
   %102 = call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #18
   %103 = getelementptr inbounds nuw i8, ptr %102, i64 32
   store ptr %52, ptr %103, align 8
-  %104 = getelementptr inbounds i8, ptr %102, i64 40
+  %104 = getelementptr inbounds nuw i8, ptr %102, i64 40
   store ptr null, ptr %104, align 8
   %105 = call { ptr, ptr } @_ZNSt8_Rb_treeIPKN4llvm8FunctionESt4pairIKS3_St10unique_ptrINS0_13CallGraphNodeESt14default_deleteIS7_EEESt10_Select1stISB_ESt4lessIS3_ESaISB_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorISB_ERS5_(ptr noundef nonnull align 8 dereferenceable(48) %22, ptr %.08.lcssa.i.i.i12.i, ptr noundef nonnull align 8 dereferenceable(8) %103)
   %106 = extractvalue { ptr, ptr } %105, 0
@@ -1235,7 +1235,7 @@ _ZNSt8_Rb_treeIPKN4llvm8FunctionESt4pairIKS3_St10unique_ptrINS0_13CallGraphNodeE
 119:                                              ; preds = %_ZNSt8_Rb_treeIPKN4llvm8FunctionESt4pairIKS3_St10unique_ptrINS0_13CallGraphNodeESt14default_deleteIS7_EEESt10_Select1stISB_ESt4lessIS3_ESaISB_EE22_M_emplace_hint_uniqueIJRKSt21piecewise_construct_tSt5tupleIJRS5_EESM_IJEEEEESt17_Rb_tree_iteratorISB_ESt23_Rb_tree_const_iteratorISB_EDpOT_.exit.i
   %120 = getelementptr inbounds nuw i8, ptr %118, i64 16
   %121 = load ptr, ptr %120, align 8
-  %122 = getelementptr inbounds i8, ptr %118, i64 24
+  %122 = getelementptr inbounds nuw i8, ptr %118, i64 24
   %123 = load ptr, ptr %122, align 8
   %.not4.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %121, %123
   br i1 %.not4.i.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyIPSt4pairISt8optionalIN4llvm14WeakTrackingVHEEPNS2_13CallGraphNodeEES7_EvT_S9_RSaIT0_E.exit.i.i.i.i.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i.i
@@ -1277,7 +1277,7 @@ _ZSt8_DestroyIPSt4pairISt8optionalIN4llvm14WeakTrackingVHEEPNS2_13CallGraphNodeE
   br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZNKSt14default_deleteIN4llvm13CallGraphNodeEEclEPS1_.exit.i.i.i.i.i.i.i, label %133
 
 133:                                              ; preds = %_ZSt8_DestroyIPSt4pairISt8optionalIN4llvm14WeakTrackingVHEEPNS2_13CallGraphNodeEES7_EvT_S9_RSaIT0_E.exit.i.i.i.i.i.i.i.i.i.i
-  %134 = getelementptr inbounds i8, ptr %118, i64 32
+  %134 = getelementptr inbounds nuw i8, ptr %118, i64 32
   %135 = load ptr, ptr %134, align 8
   %136 = ptrtoint ptr %135 to i64
   %137 = ptrtoint ptr %132 to i64
@@ -1295,7 +1295,7 @@ _ZNSt8_Rb_treeIPKN4llvm8FunctionESt4pairIKS3_St10unique_ptrINS0_13CallGraphNodeE
 
 _ZNSt3mapIPKN4llvm8FunctionESt10unique_ptrINS0_13CallGraphNodeESt14default_deleteIS5_EESt4lessIS3_ESaISt4pairIKS3_S8_EEEixERSC_.exit: ; preds = %_ZNSt8_Rb_treeIPKN4llvm8FunctionESt4pairIKS3_St10unique_ptrINS0_13CallGraphNodeESt14default_deleteIS7_EEESt10_Select1stISB_ESt4lessIS3_ESaISB_EE12_M_drop_nodeEPSt13_Rb_tree_nodeISB_E.exit.i, %_ZNSt8_Rb_treeIPKN4llvm8FunctionESt4pairIKS3_St10unique_ptrINS0_13CallGraphNodeESt14default_deleteIS7_EEESt10_Select1stISB_ESt4lessIS3_ESaISB_EE22_M_emplace_hint_uniqueIJRKSt21piecewise_construct_tSt5tupleIJRS5_EESM_IJEEEEESt17_Rb_tree_iteratorISB_ESt23_Rb_tree_const_iteratorISB_EDpOT_.exit.i.thread, %98
   %.sroa.07.0.i = phi ptr [ %.19.i.i.i.i, %98 ], [ %102, %_ZNSt8_Rb_treeIPKN4llvm8FunctionESt4pairIKS3_St10unique_ptrINS0_13CallGraphNodeESt14default_deleteIS7_EEESt10_Select1stISB_ESt4lessIS3_ESaISB_EE22_M_emplace_hint_uniqueIJRKSt21piecewise_construct_tSt5tupleIJRS5_EESM_IJEEEEESt17_Rb_tree_iteratorISB_ESt23_Rb_tree_const_iteratorISB_EDpOT_.exit.i.thread ], [ %106, %_ZNSt8_Rb_treeIPKN4llvm8FunctionESt4pairIKS3_St10unique_ptrINS0_13CallGraphNodeESt14default_deleteIS7_EEESt10_Select1stISB_ESt4lessIS3_ESaISB_EE12_M_drop_nodeEPSt13_Rb_tree_nodeISB_E.exit.i ]
-  %139 = getelementptr inbounds i8, ptr %.sroa.07.0.i, i64 40
+  %139 = getelementptr inbounds nuw i8, ptr %.sroa.07.0.i, i64 40
   %140 = load ptr, ptr %139, align 8
   %.not.i33 = icmp eq ptr %140, null
   br i1 %.not.i33, label %_ZNSt10unique_ptrIN4llvm13CallGraphNodeESt14default_deleteIS1_EED2Ev.exit.i, label %144
@@ -1496,7 +1496,7 @@ _ZNSt3mapIPKN4llvm8FunctionESt10unique_ptrINS0_13CallGraphNodeESt14default_delet
   %207 = call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #18
   %208 = getelementptr inbounds nuw i8, ptr %207, i64 32
   store ptr %195, ptr %208, align 8
-  %209 = getelementptr inbounds i8, ptr %207, i64 40
+  %209 = getelementptr inbounds nuw i8, ptr %207, i64 40
   store ptr null, ptr %209, align 8
   %210 = call { ptr, ptr } @_ZNSt8_Rb_treeIPKN4llvm8FunctionESt4pairIKS3_St10unique_ptrINS0_13CallGraphNodeESt14default_deleteIS7_EEESt10_Select1stISB_ESt4lessIS3_ESaISB_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorISB_ERS5_(ptr noundef nonnull align 8 dereferenceable(48) %22, ptr %.08.lcssa.i.i.i12.i73, ptr noundef nonnull align 8 dereferenceable(8) %208)
   %211 = extractvalue { ptr, ptr } %210, 0
@@ -1533,7 +1533,7 @@ _ZNSt8_Rb_treeIPKN4llvm8FunctionESt4pairIKS3_St10unique_ptrINS0_13CallGraphNodeE
 224:                                              ; preds = %_ZNSt8_Rb_treeIPKN4llvm8FunctionESt4pairIKS3_St10unique_ptrINS0_13CallGraphNodeESt14default_deleteIS7_EEESt10_Select1stISB_ESt4lessIS3_ESaISB_EE22_M_emplace_hint_uniqueIJRKSt21piecewise_construct_tSt5tupleIJRS5_EESM_IJEEEEESt17_Rb_tree_iteratorISB_ESt23_Rb_tree_const_iteratorISB_EDpOT_.exit.i78
   %225 = getelementptr inbounds nuw i8, ptr %223, i64 16
   %226 = load ptr, ptr %225, align 8
-  %227 = getelementptr inbounds i8, ptr %223, i64 24
+  %227 = getelementptr inbounds nuw i8, ptr %223, i64 24
   %228 = load ptr, ptr %227, align 8
   %.not4.i.i.i.i.i.i.i.i.i.i.i.i.i84 = icmp eq ptr %226, %228
   br i1 %.not4.i.i.i.i.i.i.i.i.i.i.i.i.i84, label %_ZSt8_DestroyIPSt4pairISt8optionalIN4llvm14WeakTrackingVHEEPNS2_13CallGraphNodeEES7_EvT_S9_RSaIT0_E.exit.i.i.i.i.i.i.i.i.i.i91, label %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i.i85
@@ -1575,7 +1575,7 @@ _ZSt8_DestroyIPSt4pairISt8optionalIN4llvm14WeakTrackingVHEEPNS2_13CallGraphNodeE
   br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i92, label %_ZNKSt14default_deleteIN4llvm13CallGraphNodeEEclEPS1_.exit.i.i.i.i.i.i.i93, label %238
 
 238:                                              ; preds = %_ZSt8_DestroyIPSt4pairISt8optionalIN4llvm14WeakTrackingVHEEPNS2_13CallGraphNodeEES7_EvT_S9_RSaIT0_E.exit.i.i.i.i.i.i.i.i.i.i91
-  %239 = getelementptr inbounds i8, ptr %223, i64 32
+  %239 = getelementptr inbounds nuw i8, ptr %223, i64 32
   %240 = load ptr, ptr %239, align 8
   %241 = ptrtoint ptr %240 to i64
   %242 = ptrtoint ptr %237 to i64
@@ -1593,7 +1593,7 @@ _ZNSt8_Rb_treeIPKN4llvm8FunctionESt4pairIKS3_St10unique_ptrINS0_13CallGraphNodeE
 
 _ZNSt3mapIPKN4llvm8FunctionESt10unique_ptrINS0_13CallGraphNodeESt14default_deleteIS5_EESt4lessIS3_ESaISt4pairIKS3_S8_EEEixERSC_.exit80: ; preds = %_ZNSt8_Rb_treeIPKN4llvm8FunctionESt4pairIKS3_St10unique_ptrINS0_13CallGraphNodeESt14default_deleteIS7_EEESt10_Select1stISB_ESt4lessIS3_ESaISB_EE12_M_drop_nodeEPSt13_Rb_tree_nodeISB_E.exit.i94, %_ZNSt8_Rb_treeIPKN4llvm8FunctionESt4pairIKS3_St10unique_ptrINS0_13CallGraphNodeESt14default_deleteIS7_EEESt10_Select1stISB_ESt4lessIS3_ESaISB_EE22_M_emplace_hint_uniqueIJRKSt21piecewise_construct_tSt5tupleIJRS5_EESM_IJEEEEESt17_Rb_tree_iteratorISB_ESt23_Rb_tree_const_iteratorISB_EDpOT_.exit.i78.thread, %203
   %.sroa.07.0.i71 = phi ptr [ %.19.i.i.i.i65, %203 ], [ %207, %_ZNSt8_Rb_treeIPKN4llvm8FunctionESt4pairIKS3_St10unique_ptrINS0_13CallGraphNodeESt14default_deleteIS7_EEESt10_Select1stISB_ESt4lessIS3_ESaISB_EE22_M_emplace_hint_uniqueIJRKSt21piecewise_construct_tSt5tupleIJRS5_EESM_IJEEEEESt17_Rb_tree_iteratorISB_ESt23_Rb_tree_const_iteratorISB_EDpOT_.exit.i78.thread ], [ %211, %_ZNSt8_Rb_treeIPKN4llvm8FunctionESt4pairIKS3_St10unique_ptrINS0_13CallGraphNodeESt14default_deleteIS7_EEESt10_Select1stISB_ESt4lessIS3_ESaISB_EE12_M_drop_nodeEPSt13_Rb_tree_nodeISB_E.exit.i94 ]
-  %244 = getelementptr inbounds i8, ptr %.sroa.07.0.i71, i64 40
+  %244 = getelementptr inbounds nuw i8, ptr %.sroa.07.0.i71, i64 40
   %245 = load ptr, ptr %244, align 8
   %.not.i.i.i.i.i = icmp eq ptr %245, null
   br i1 %.not.i.i.i.i.i, label %_ZNSt10unique_ptrIN4llvm13CallGraphNodeESt14default_deleteIS1_EED2Ev.exit.i.i.i.i.i, label %"_ZZN4llvm9CallGraph21populateCallGraphNodeEPNS_13CallGraphNodeEENK3$_0clEPNS_8FunctionE.exit.i.i.i"
@@ -1769,7 +1769,7 @@ _ZN4llvm15SmallVectorImplIPNS_13CallGraphNodeEE7reserveEm.exit: ; preds = %2, %9
 
 .lr.ph:                                           ; preds = %_ZN4llvm15SmallVectorImplIPNS_13CallGraphNodeEE7reserveEm.exit, %_ZN4llvm23SmallVectorTemplateBaseIPNS_13CallGraphNodeELb1EE9push_backES2_.exit
   %.sroa.012.017 = phi ptr [ %25, %_ZN4llvm23SmallVectorTemplateBaseIPNS_13CallGraphNodeELb1EE9push_backES2_.exit ], [ %11, %_ZN4llvm15SmallVectorImplIPNS_13CallGraphNodeEE7reserveEm.exit ]
-  %13 = getelementptr inbounds i8, ptr %.sroa.012.017, i64 40
+  %13 = getelementptr inbounds nuw i8, ptr %.sroa.012.017, i64 40
   %14 = load ptr, ptr %13, align 8
   %15 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #19
   %16 = add i64 %15, 1
@@ -2074,7 +2074,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit31:               ; preds = %75, %77
 _ZN4llvm11raw_ostreamlsEc.exit:                   ; preds = %88, %90
   %92 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %93 = load ptr, ptr %92, align 8
-  %94 = getelementptr inbounds i8, ptr %0, i64 24
+  %94 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %95 = load ptr, ptr %94, align 8
   %.not5859 = icmp eq ptr %93, %95
   br i1 %.not5859, label %._crit_edge, label %.lr.ph
@@ -2268,7 +2268,7 @@ define dso_local void @_ZN4llvm9CallGraph23ReplaceExternalCallEdgeEPNS_13CallGra
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %5, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %9 = load ptr, ptr %8, align 8
   %.not12 = icmp eq ptr %7, %9
   br i1 %.not12, label %._crit_edge, label %.lr.ph
@@ -2374,7 +2374,7 @@ _ZNSt3mapIPKN4llvm8FunctionESt10unique_ptrINS0_13CallGraphNodeESt14default_delet
   %16 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #18
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 32
   store ptr %.pre, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %16, i64 40
+  %18 = getelementptr inbounds nuw i8, ptr %16, i64 40
   store ptr null, ptr %18, align 8
   store ptr %16, ptr %15, align 8
   %19 = tail call { ptr, ptr } @_ZNSt8_Rb_treeIPKN4llvm8FunctionESt4pairIKS3_St10unique_ptrINS0_13CallGraphNodeESt14default_deleteIS7_EEESt10_Select1stISB_ESt4lessIS3_ESaISB_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorISB_ERS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %.08.lcssa.i.i.i12, ptr noundef nonnull align 8 dereferenceable(8) %17)
@@ -2414,7 +2414,7 @@ _ZNSt8_Rb_treeIPKN4llvm8FunctionESt4pairIKS3_St10unique_ptrINS0_13CallGraphNodeE
 
 33:                                               ; preds = %_ZNSt8_Rb_treeIPKN4llvm8FunctionESt4pairIKS3_St10unique_ptrINS0_13CallGraphNodeESt14default_deleteIS7_EEESt10_Select1stISB_ESt4lessIS3_ESaISB_EE22_M_emplace_hint_uniqueIJRKSt21piecewise_construct_tSt5tupleIJRS5_EESM_IJEEEEESt17_Rb_tree_iteratorISB_ESt23_Rb_tree_const_iteratorISB_EDpOT_.exit, %11
   %.sroa.07.0 = phi ptr [ %.sroa.0.0.i, %_ZNSt8_Rb_treeIPKN4llvm8FunctionESt4pairIKS3_St10unique_ptrINS0_13CallGraphNodeESt14default_deleteIS7_EEESt10_Select1stISB_ESt4lessIS3_ESaISB_EE22_M_emplace_hint_uniqueIJRKSt21piecewise_construct_tSt5tupleIJRS5_EESM_IJEEEEESt17_Rb_tree_iteratorISB_ESt23_Rb_tree_const_iteratorISB_EDpOT_.exit ], [ %.19.i.i.i, %11 ]
-  %34 = getelementptr inbounds i8, ptr %.sroa.07.0, i64 40
+  %34 = getelementptr inbounds nuw i8, ptr %.sroa.07.0, i64 40
   ret ptr %34
 }
 
@@ -2451,7 +2451,7 @@ define dso_local void @_ZN4llvm13CallGraphNode17removeCallEdgeForERNS_8CallBaseE
   %20 = load i32, ptr %19, align 8
   %21 = add i32 %20, -1
   store i32 %21, ptr %19, align 8
-  %22 = getelementptr inbounds i8, ptr %0, i64 24
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %23 = load ptr, ptr %22, align 8
   %24 = getelementptr inbounds i8, ptr %23, i64 -40
   tail call void @_ZNSt22_Optional_payload_baseIN4llvm14WeakTrackingVHEE14_M_copy_assignERKS2_(ptr noundef nonnull align 8 dereferenceable(25) %.sroa.0.0, ptr noundef nonnull align 8 dereferenceable(25) %24)
@@ -2658,7 +2658,7 @@ _ZN4llvm16AbstractCallSiteD2Ev.exit.i.i:          ; preds = %105, %"_ZZN4llvm23f
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN4llvm13CallGraphNode19removeAnyCallEdgeToEPS0_(ptr nocapture noundef nonnull align 8 dereferenceable(44) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %4 = getelementptr inbounds i8, ptr %0, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %3, align 8
   %7 = ptrtoint ptr %5 to i64
@@ -2760,7 +2760,7 @@ define dso_local void @_ZN4llvm13CallGraphNode23removeOneAbstractEdgeToEPS0_(ptr
   %16 = load i32, ptr %15, align 8
   %17 = add i32 %16, -1
   store i32 %17, ptr %15, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %19 = load ptr, ptr %18, align 8
   %20 = getelementptr inbounds i8, ptr %19, i64 -40
   tail call void @_ZNSt22_Optional_payload_baseIN4llvm14WeakTrackingVHEE14_M_copy_assignERKS2_(ptr noundef nonnull align 8 dereferenceable(25) %.sroa.0.0, ptr noundef nonnull align 8 dereferenceable(25) %20)
@@ -3226,7 +3226,7 @@ _ZN4llvm16AbstractCallSiteD2Ev.exit.i.i44:        ; preds = %151, %"_ZZN4llvm23f
   br i1 %.not72, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %191
-  %195 = getelementptr inbounds i8, ptr %0, i64 24
+  %195 = getelementptr inbounds nuw i8, ptr %0, i64 24
   br label %196
 
 196:                                              ; preds = %.lr.ph, %_ZN4llvm13CallGraphNode23removeOneAbstractEdgeToEPS0_.exit
@@ -3353,15 +3353,15 @@ define dso_local void @_ZN4llvm20CallGraphPrinterPass3runERNS_6ModuleERNS_15Anal
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 0, ptr %12, align 8, !alias.scope !46
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %14 = getelementptr inbounds i8, ptr %0, i64 80
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store ptr %14, ptr %13, align 8, !alias.scope !46
-  %15 = getelementptr inbounds i8, ptr %0, i64 56
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store ptr %14, ptr %15, align 8, !alias.scope !46
-  %16 = getelementptr inbounds i8, ptr %0, i64 64
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i32 2, ptr %16, align 8, !alias.scope !46
-  %17 = getelementptr inbounds i8, ptr %0, i64 68
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 68
   store i32 0, ptr %17, align 4, !alias.scope !46
-  %18 = getelementptr inbounds i8, ptr %0, i64 72
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store i32 0, ptr %18, align 8, !alias.scope !46
   store i32 1, ptr %11, align 4, !alias.scope !46, !noalias !49
   store ptr @_ZN4llvm17PreservedAnalyses14AllAnalysesKeyE, ptr %8, align 8, !alias.scope !46, !noalias !49
@@ -3398,7 +3398,7 @@ define dso_local void @_ZN4llvm24CallGraphSCCsPrinterPass3runERNS_6ModuleERNS_15
 _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %17, %19
   tail call void @llvm.experimental.noalias.scope.decl(metadata !52)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !55)
-  %22 = getelementptr inbounds i8, ptr %7, i64 64
+  %22 = getelementptr inbounds nuw i8, ptr %7, i64 64
   %23 = load ptr, ptr %22, align 8, !noalias !58
   store i32 0, ptr %6, align 8, !alias.scope !58
   %24 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -3408,7 +3408,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %17, %19
   call void @_ZN4llvm12scc_iteratorIPNS_9CallGraphENS_11GraphTraitsIS2_EEE11DFSVisitOneEPNS_13CallGraphNodeE(ptr noundef nonnull align 8 dereferenceable(104) %6, ptr noundef %23)
   call void @_ZN4llvm12scc_iteratorIPNS_9CallGraphENS_11GraphTraitsIS2_EEE10GetNextSCCEv(ptr noundef nonnull align 8 dereferenceable(104) %6)
   %26 = getelementptr inbounds nuw i8, ptr %6, i64 56
-  %27 = getelementptr inbounds i8, ptr %6, i64 64
+  %27 = getelementptr inbounds nuw i8, ptr %6, i64 64
   %28 = load ptr, ptr %26, align 8
   %29 = load ptr, ptr %27, align 8
   %30 = icmp eq ptr %28, %29
@@ -3429,7 +3429,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %17, %19
   br i1 %.not.i.i.i.i, label %_ZNSt6vectorIN4llvm12scc_iteratorIPNS0_9CallGraphENS0_11GraphTraitsIS3_EEE12StackElementESaIS7_EED2Ev.exit.i, label %38
 
 38:                                               ; preds = %._crit_edge40
-  %39 = getelementptr inbounds i8, ptr %6, i64 96
+  %39 = getelementptr inbounds nuw i8, ptr %6, i64 96
   %40 = load ptr, ptr %39, align 8
   %41 = ptrtoint ptr %40 to i64
   %42 = ptrtoint ptr %37 to i64
@@ -3444,7 +3444,7 @@ _ZNSt6vectorIN4llvm12scc_iteratorIPNS0_9CallGraphENS0_11GraphTraitsIS3_EEE12Stac
   br i1 %.not.i.i.i1.i, label %_ZNSt6vectorIPN4llvm13CallGraphNodeESaIS2_EED2Ev.exit.i, label %45
 
 45:                                               ; preds = %_ZNSt6vectorIN4llvm12scc_iteratorIPNS0_9CallGraphENS0_11GraphTraitsIS3_EEE12StackElementESaIS7_EED2Ev.exit.i
-  %46 = getelementptr inbounds i8, ptr %6, i64 72
+  %46 = getelementptr inbounds nuw i8, ptr %6, i64 72
   %47 = load ptr, ptr %46, align 8
   %48 = ptrtoint ptr %47 to i64
   %49 = ptrtoint ptr %44 to i64
@@ -3458,7 +3458,7 @@ _ZNSt6vectorIPN4llvm13CallGraphNodeESaIS2_EED2Ev.exit.i: ; preds = %45, %_ZNSt6v
   br i1 %.not.i.i.i2.i, label %_ZN4llvm12scc_iteratorIPNS_9CallGraphENS_11GraphTraitsIS2_EEED2Ev.exit, label %52
 
 52:                                               ; preds = %_ZNSt6vectorIPN4llvm13CallGraphNodeESaIS2_EED2Ev.exit.i
-  %53 = getelementptr inbounds i8, ptr %6, i64 48
+  %53 = getelementptr inbounds nuw i8, ptr %6, i64 48
   %54 = load ptr, ptr %53, align 8
   %55 = ptrtoint ptr %54 to i64
   %56 = ptrtoint ptr %51 to i64
@@ -3468,7 +3468,7 @@ _ZNSt6vectorIPN4llvm13CallGraphNodeESaIS2_EED2Ev.exit.i: ; preds = %45, %_ZNSt6v
 
 _ZN4llvm12scc_iteratorIPNS_9CallGraphENS_11GraphTraitsIS2_EEED2Ev.exit: ; preds = %_ZNSt6vectorIPN4llvm13CallGraphNodeESaIS2_EED2Ev.exit.i, %52
   %58 = load ptr, ptr %24, align 8
-  %59 = getelementptr inbounds i8, ptr %6, i64 24
+  %59 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %60 = load i32, ptr %59, align 8
   %61 = zext i32 %60 to i64
   %62 = shl nuw nsw i64 %61, 4
@@ -3503,15 +3503,15 @@ _ZN4llvm11raw_ostreamlsEPKc.exit14:               ; preds = %69, %71
   %78 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 0, ptr %78, align 8, !alias.scope !59
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %80 = getelementptr inbounds i8, ptr %0, i64 80
+  %80 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store ptr %80, ptr %79, align 8, !alias.scope !59
-  %81 = getelementptr inbounds i8, ptr %0, i64 56
+  %81 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store ptr %80, ptr %81, align 8, !alias.scope !59
-  %82 = getelementptr inbounds i8, ptr %0, i64 64
+  %82 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i32 2, ptr %82, align 8, !alias.scope !59
-  %83 = getelementptr inbounds i8, ptr %0, i64 68
+  %83 = getelementptr inbounds nuw i8, ptr %0, i64 68
   store i32 0, ptr %83, align 4, !alias.scope !59
-  %84 = getelementptr inbounds i8, ptr %0, i64 72
+  %84 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store i32 0, ptr %84, align 8, !alias.scope !59
   store i32 1, ptr %77, align 4, !alias.scope !59, !noalias !62
   store ptr @_ZN4llvm17PreservedAnalyses14AllAnalysesKeyE, ptr %74, align 8, !alias.scope !59, !noalias !62
@@ -3678,7 +3678,7 @@ _ZN4llvm11raw_ostreamlsENS_9StringRefE.exit:      ; preds = %157, %159, %.thread
   %172 = load ptr, ptr %165, align 8
   %173 = getelementptr inbounds nuw i8, ptr %172, i64 16
   %174 = load ptr, ptr %173, align 8
-  %175 = getelementptr inbounds i8, ptr %172, i64 24
+  %175 = getelementptr inbounds nuw i8, ptr %172, i64 24
   %176 = load ptr, ptr %175, align 8
   %.not10.i = icmp eq ptr %174, %176
   br i1 %.not10.i, label %_ZNK4llvm12scc_iteratorIPNS_9CallGraphENS_11GraphTraitsIS2_EEE8hasCycleEv.exit, label %.lr.ph.i
@@ -4026,7 +4026,7 @@ define linkonce_odr void @_ZNSt8_Rb_treeIPKN4llvm8FunctionESt4pairIKS3_St10uniqu
   tail call void @_ZNSt8_Rb_treeIPKN4llvm8FunctionESt4pairIKS3_St10unique_ptrINS0_13CallGraphNodeESt14default_deleteIS7_EEESt10_Select1stISB_ESt4lessIS3_ESaISB_EE8_M_eraseEPSt13_Rb_tree_nodeISB_E(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %4)
   %5 = getelementptr inbounds nuw i8, ptr %.07, i64 16
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %.07, i64 40
+  %7 = getelementptr inbounds nuw i8, ptr %.07, i64 40
   %8 = load ptr, ptr %7, align 8
   %.not.i.i.i.i.i.i = icmp eq ptr %8, null
   br i1 %.not.i.i.i.i.i.i, label %_ZNSt8_Rb_treeIPKN4llvm8FunctionESt4pairIKS3_St10unique_ptrINS0_13CallGraphNodeESt14default_deleteIS7_EEESt10_Select1stISB_ESt4lessIS3_ESaISB_EE12_M_drop_nodeEPSt13_Rb_tree_nodeISB_E.exit, label %9
@@ -4034,7 +4034,7 @@ define linkonce_odr void @_ZNSt8_Rb_treeIPKN4llvm8FunctionESt4pairIKS3_St10uniqu
 9:                                                ; preds = %.lr.ph
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %8, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %13 = load ptr, ptr %12, align 8
   %.not4.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %11, %13
   br i1 %.not4.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyIPSt4pairISt8optionalIN4llvm14WeakTrackingVHEEPNS2_13CallGraphNodeEES7_EvT_S9_RSaIT0_E.exit.i.i.i.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i
@@ -4076,7 +4076,7 @@ _ZSt8_DestroyIPSt4pairISt8optionalIN4llvm14WeakTrackingVHEEPNS2_13CallGraphNodeE
   br i1 %.not.i.i.i.i.i.i.i.i.i.i.i, label %_ZNKSt14default_deleteIN4llvm13CallGraphNodeEEclEPS1_.exit.i.i.i.i.i.i, label %23
 
 23:                                               ; preds = %_ZSt8_DestroyIPSt4pairISt8optionalIN4llvm14WeakTrackingVHEEPNS2_13CallGraphNodeEES7_EvT_S9_RSaIT0_E.exit.i.i.i.i.i.i.i.i.i
-  %24 = getelementptr inbounds i8, ptr %8, i64 32
+  %24 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %25 = load ptr, ptr %24, align 8
   %26 = ptrtoint ptr %25 to i64
   %27 = ptrtoint ptr %22 to i64
@@ -5308,7 +5308,7 @@ _ZNSt8_Rb_treeIPKN4llvm8FunctionESt4pairIKS3_St10unique_ptrINS0_13CallGraphNodeE
 define linkonce_odr void @_ZNSt8_Rb_treeIPKN4llvm8FunctionESt4pairIKS3_St10unique_ptrINS0_13CallGraphNodeESt14default_deleteIS7_EEESt10_Select1stISB_ESt4lessIS3_ESaISB_EE12_M_erase_auxESt23_Rb_tree_const_iteratorISB_E(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %1) local_unnamed_addr #0 comdat align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = tail call noundef nonnull ptr @_ZSt28_Rb_tree_rebalance_for_erasePSt18_Rb_tree_node_baseRS_(ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(32) %3) #19
-  %5 = getelementptr inbounds i8, ptr %4, i64 40
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %6 = load ptr, ptr %5, align 8
   %.not.i.i.i.i.i.i = icmp eq ptr %6, null
   br i1 %.not.i.i.i.i.i.i, label %_ZNSt8_Rb_treeIPKN4llvm8FunctionESt4pairIKS3_St10unique_ptrINS0_13CallGraphNodeESt14default_deleteIS7_EEESt10_Select1stISB_ESt4lessIS3_ESaISB_EE12_M_drop_nodeEPSt13_Rb_tree_nodeISB_E.exit, label %7
@@ -5316,7 +5316,7 @@ define linkonce_odr void @_ZNSt8_Rb_treeIPKN4llvm8FunctionESt4pairIKS3_St10uniqu
 7:                                                ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %6, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %11 = load ptr, ptr %10, align 8
   %.not4.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %9, %11
   br i1 %.not4.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyIPSt4pairISt8optionalIN4llvm14WeakTrackingVHEEPNS2_13CallGraphNodeEES7_EvT_S9_RSaIT0_E.exit.i.i.i.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i
@@ -5358,7 +5358,7 @@ _ZSt8_DestroyIPSt4pairISt8optionalIN4llvm14WeakTrackingVHEEPNS2_13CallGraphNodeE
   br i1 %.not.i.i.i.i.i.i.i.i.i.i.i, label %_ZNKSt14default_deleteIN4llvm13CallGraphNodeEEclEPS1_.exit.i.i.i.i.i.i, label %21
 
 21:                                               ; preds = %_ZSt8_DestroyIPSt4pairISt8optionalIN4llvm14WeakTrackingVHEEPNS2_13CallGraphNodeEES7_EvT_S9_RSaIT0_E.exit.i.i.i.i.i.i.i.i.i
-  %22 = getelementptr inbounds i8, ptr %6, i64 32
+  %22 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %23 = load ptr, ptr %22, align 8
   %24 = ptrtoint ptr %23 to i64
   %25 = ptrtoint ptr %20 to i64
@@ -5604,7 +5604,7 @@ define linkonce_odr hidden void @_ZNSt8_Rb_treeIPKN4llvm8FunctionESt4pairIKS3_St
   br i1 %.not, label %27, label %4
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %3, i64 40
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %6 = load ptr, ptr %5, align 8
   %.not.i.i.i.i.i.i = icmp eq ptr %6, null
   br i1 %.not.i.i.i.i.i.i, label %_ZNSt8_Rb_treeIPKN4llvm8FunctionESt4pairIKS3_St10unique_ptrINS0_13CallGraphNodeESt14default_deleteIS7_EEESt10_Select1stISB_ESt4lessIS3_ESaISB_EE12_M_drop_nodeEPSt13_Rb_tree_nodeISB_E.exit, label %7
@@ -5612,7 +5612,7 @@ define linkonce_odr hidden void @_ZNSt8_Rb_treeIPKN4llvm8FunctionESt4pairIKS3_St
 7:                                                ; preds = %4
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %6, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %11 = load ptr, ptr %10, align 8
   %.not4.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %9, %11
   br i1 %.not4.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyIPSt4pairISt8optionalIN4llvm14WeakTrackingVHEEPNS2_13CallGraphNodeEES7_EvT_S9_RSaIT0_E.exit.i.i.i.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i
@@ -5654,7 +5654,7 @@ _ZSt8_DestroyIPSt4pairISt8optionalIN4llvm14WeakTrackingVHEEPNS2_13CallGraphNodeE
   br i1 %.not.i.i.i.i.i.i.i.i.i.i.i, label %_ZNKSt14default_deleteIN4llvm13CallGraphNodeEEclEPS1_.exit.i.i.i.i.i.i, label %21
 
 21:                                               ; preds = %_ZSt8_DestroyIPSt4pairISt8optionalIN4llvm14WeakTrackingVHEEPNS2_13CallGraphNodeEES7_EvT_S9_RSaIT0_E.exit.i.i.i.i.i.i.i.i.i
-  %22 = getelementptr inbounds i8, ptr %6, i64 32
+  %22 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %23 = load ptr, ptr %22, align 8
   %24 = ptrtoint ptr %23 to i64
   %25 = ptrtoint ptr %20 to i64
@@ -5693,7 +5693,7 @@ define linkonce_odr void @_ZN4llvm12scc_iteratorIPNS_9CallGraphENS_11GraphTraits
   store i32 %5, ptr %0, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %9 = load i32, ptr %8, align 8
   %10 = icmp eq i32 %9, 0
   br i1 %10, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_13CallGraphNodeEjNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E15LookupBucketForIS3_EEbRKT_RPS8_.exit.i.i, label %11
@@ -5755,9 +5755,9 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_13CallGraphNodeEjNS_12DenseMapInfoIS3_vE
   %40 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 8
   store i32 %5, ptr %40, align 4
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %42 = getelementptr inbounds i8, ptr %0, i64 40
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %43 = load ptr, ptr %42, align 8
-  %44 = getelementptr inbounds i8, ptr %0, i64 48
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %45 = load ptr, ptr %44, align 8
   %.not.i = icmp eq ptr %43, %45
   br i1 %.not.i, label %49, label %46
@@ -5830,9 +5830,9 @@ _ZNSt6vectorIPN4llvm13CallGraphNodeESaIS2_EE9push_backERKS2_.exit: ; preds = %46
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 16
   %75 = load ptr, ptr %74, align 8
   %76 = load i32, ptr %0, align 8
-  %77 = getelementptr inbounds i8, ptr %0, i64 88
+  %77 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %78 = load ptr, ptr %77, align 8
-  %79 = getelementptr inbounds i8, ptr %0, i64 96
+  %79 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %80 = load ptr, ptr %79, align 8
   %.not.i.i = icmp eq ptr %78, %80
   br i1 %.not.i.i, label %84, label %81
@@ -5925,7 +5925,7 @@ define linkonce_odr void @_ZN4llvm12scc_iteratorIPNS_9CallGraphENS_11GraphTraits
   %2 = alloca ptr, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 64
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %6 = load ptr, ptr %5, align 8
   %.not.i.i = icmp eq ptr %6, %4
   br i1 %.not.i.i, label %_ZNSt6vectorIPN4llvm13CallGraphNodeESaIS2_EE5clearEv.exit, label %7
@@ -5936,9 +5936,9 @@ define linkonce_odr void @_ZN4llvm12scc_iteratorIPNS_9CallGraphENS_11GraphTraits
 
 _ZNSt6vectorIPN4llvm13CallGraphNodeESaIS2_EE5clearEv.exit: ; preds = %1, %7
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %9 = getelementptr inbounds i8, ptr %0, i64 88
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
   br label %12
 
 12:                                               ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_13CallGraphNodeEjNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_EixERKS3_.exit, %_ZNSt6vectorIPN4llvm13CallGraphNodeESaIS2_EE5clearEv.exit
@@ -6036,8 +6036,8 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_13CallGraphNodeEjNS_12DenseMapInfoIS3_vE
   br i1 %.not, label %.preheader, label %12, !llvm.loop !90
 
 .preheader:                                       ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_13CallGraphNodeEjNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_EixERKS3_.exit
-  %64 = getelementptr inbounds i8, ptr %0, i64 40
-  %65 = getelementptr inbounds i8, ptr %0, i64 72
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %65 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %.pre = load ptr, ptr %5, align 8
   br label %66
 
@@ -6496,12 +6496,12 @@ define linkonce_odr hidden noundef ptr @_ZN4llvm11GraphTraitsIPNS_13CallGraphNod
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN4llvm12scc_iteratorIPNS_9CallGraphENS_11GraphTraitsIS2_EEE16DFSVisitChildrenEv(ptr noundef nonnull align 8 dereferenceable(104) %0) local_unnamed_addr #0 comdat align 2 {
   %2 = alloca %"struct.std::pair.125", align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 88
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 -32
   %6 = getelementptr inbounds i8, ptr %4, i64 -24
   %7 = load ptr, ptr %5, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %9 = load ptr, ptr %8, align 8
   %10 = load ptr, ptr %6, align 8
   %.not12 = icmp eq ptr %10, %9
@@ -6513,7 +6513,7 @@ define linkonce_odr void @_ZN4llvm12scc_iteratorIPNS_9CallGraphENS_11GraphTraits
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 24
   br label %17
 
 17:                                               ; preds = %.lr.ph, %.backedge
@@ -6637,7 +6637,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_13CallGraphNodeEjNS_12DenseMapInfoIS3_vE
   %69 = getelementptr inbounds i8, ptr %68, i64 -32
   %70 = getelementptr inbounds i8, ptr %68, i64 -24
   %71 = load ptr, ptr %69, align 8
-  %72 = getelementptr inbounds i8, ptr %71, i64 24
+  %72 = getelementptr inbounds nuw i8, ptr %71, i64 24
   %73 = load ptr, ptr %72, align 8
   %74 = load ptr, ptr %70, align 8
   %.not = icmp eq ptr %74, %73

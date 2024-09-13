@@ -472,7 +472,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm27DeadArgumentEliminationPass17dele
   br i1 %27, label %_ZNSt6vectorIPN4llvm4TypeESaIS2_EED2Ev.exit, label %28
 
 28:                                               ; preds = %26
-  %29 = getelementptr inbounds i8, ptr %1, i64 80
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %.sroa.0204.0220 = load ptr, ptr %29, align 8
   %.not212221 = icmp eq ptr %.sroa.0204.0220, %30
@@ -483,7 +483,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm27DeadArgumentEliminationPass17dele
   %31 = icmp eq ptr %.sroa.0204.0222, null
   %32 = getelementptr inbounds i8, ptr %.sroa.0204.0222, i64 -24
   %33 = select i1 %31, ptr null, ptr %32
-  %34 = getelementptr inbounds i8, ptr %33, i64 56
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 56
   %35 = getelementptr inbounds nuw i8, ptr %33, i64 48
   %.sroa.0200.0217 = load ptr, ptr %34, align 8
   %.not216218 = icmp eq ptr %.sroa.0200.0217, %35
@@ -758,7 +758,7 @@ _ZN4llvm14FunctionCalleeC2INS_8FunctionEMS2_KFPNS_12FunctionTypeEvEEEPT_.exit: ;
   %.012.i.i.i = phi i32 [ %198, %.lr.ph.i.i.i ], [ 0, %_ZN4llvm14FunctionCalleeC2INS_8FunctionEMS2_KFPNS_12FunctionTypeEvEEEPT_.exit ]
   %.0811.i.i.i = phi ptr [ %199, %.lr.ph.i.i.i ], [ %185, %_ZN4llvm14FunctionCalleeC2INS_8FunctionEMS2_KFPNS_12FunctionTypeEvEEEPT_.exit ]
   %189 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i, i64 32
-  %190 = getelementptr inbounds i8, ptr %.0811.i.i.i, i64 40
+  %190 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i, i64 40
   %191 = load ptr, ptr %190, align 8
   %192 = load ptr, ptr %189, align 8
   %193 = ptrtoint ptr %191 to i64
@@ -911,7 +911,7 @@ _ZN4llvm11SmallVectorINS_17OperandBundleDefTIPNS_5ValueEEELj1EED2Ev.exit: ; pred
   br i1 %.not213, label %._crit_edge234, label %133
 
 ._crit_edge234:                                   ; preds = %_ZN4llvm11SmallVectorINS_17OperandBundleDefTIPNS_5ValueEEELj1EED2Ev.exit, %._crit_edge225
-  %262 = getelementptr inbounds i8, ptr %108, i64 80
+  %262 = getelementptr inbounds nuw i8, ptr %108, i64 80
   %263 = load ptr, ptr %262, align 8
   %264 = load ptr, ptr %29, align 8
   call void @_ZN4llvm8Function6spliceENS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_10BasicBlockELb0ELb0EvLb0EvEELb0ELb0EEEPS0_S6_S6_(ptr noundef nonnull align 8 dereferenceable(136) %108, ptr %263, ptr noundef nonnull %1, ptr %264, ptr nonnull %30) #17
@@ -1536,8 +1536,8 @@ _ZNKSt3setIPKN4llvm8FunctionESt4lessIS3_ESaIS3_EE5countERKS3_.exit.thread.i: ; p
   %.014.i.i.i.i = phi ptr [ %15, %.lr.ph.i.i.i3.i ], [ %.1.i.i.i5.i, %_ZNKSt4lessIN4llvm27DeadArgumentEliminationPass8RetOrArgEEclERKS2_S5_.exit.thread11.i.i.i.i ]
   %.0813.i.i.i.i = phi ptr [ %16, %.lr.ph.i.i.i3.i ], [ %.19.i.i.i4.i, %_ZNKSt4lessIN4llvm27DeadArgumentEliminationPass8RetOrArgEEclERKS2_S5_.exit.thread11.i.i.i.i ]
   %19 = getelementptr inbounds nuw i8, ptr %.014.i.i.i.i, i64 32
-  %20 = getelementptr inbounds i8, ptr %.014.i.i.i.i, i64 40
-  %21 = getelementptr inbounds i8, ptr %.014.i.i.i.i, i64 44
+  %20 = getelementptr inbounds nuw i8, ptr %.014.i.i.i.i, i64 40
+  %21 = getelementptr inbounds nuw i8, ptr %.014.i.i.i.i, i64 44
   %22 = load ptr, ptr %19, align 8
   %23 = icmp ult ptr %22, %1
   br i1 %23, label %_ZNKSt4lessIN4llvm27DeadArgumentEliminationPass8RetOrArgEEclERKS2_S5_.exit.thread.i.i.i.i, label %24
@@ -1578,8 +1578,8 @@ _ZNKSt8_Rb_treeIN4llvm27DeadArgumentEliminationPass8RetOrArgES2_St9_IdentityIS2_
 
 36:                                               ; preds = %_ZNKSt8_Rb_treeIN4llvm27DeadArgumentEliminationPass8RetOrArgES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS2_EPKSt18_Rb_tree_node_baseRKS2_.exit.i.i.i
   %37 = getelementptr inbounds nuw i8, ptr %.19.i.i.i4.i, i64 32
-  %38 = getelementptr inbounds i8, ptr %.19.i.i.i4.i, i64 40
-  %39 = getelementptr inbounds i8, ptr %.19.i.i.i4.i, i64 44
+  %38 = getelementptr inbounds nuw i8, ptr %.19.i.i.i4.i, i64 40
+  %39 = getelementptr inbounds nuw i8, ptr %.19.i.i.i4.i, i64 44
   %40 = load ptr, ptr %37, align 8
   %41 = icmp ult ptr %1, %40
   br i1 %41, label %_ZN4llvm27DeadArgumentEliminationPass6isLiveERKNS0_8RetOrArgE.exit.thread3, label %42
@@ -1687,8 +1687,8 @@ _ZNKSt3setIPKN4llvm8FunctionESt4lessIS3_ESaIS3_EE5countERKS3_.exit.thread: ; pre
   %.014.i.i.i = phi ptr [ %15, %.lr.ph.i.i.i3 ], [ %.1.i.i.i5, %_ZNKSt4lessIN4llvm27DeadArgumentEliminationPass8RetOrArgEEclERKS2_S5_.exit.thread11.i.i.i ]
   %.0813.i.i.i = phi ptr [ %16, %.lr.ph.i.i.i3 ], [ %.19.i.i.i4, %_ZNKSt4lessIN4llvm27DeadArgumentEliminationPass8RetOrArgEEclERKS2_S5_.exit.thread11.i.i.i ]
   %24 = getelementptr inbounds nuw i8, ptr %.014.i.i.i, i64 32
-  %25 = getelementptr inbounds i8, ptr %.014.i.i.i, i64 40
-  %26 = getelementptr inbounds i8, ptr %.014.i.i.i, i64 44
+  %25 = getelementptr inbounds nuw i8, ptr %.014.i.i.i, i64 40
+  %26 = getelementptr inbounds nuw i8, ptr %.014.i.i.i, i64 44
   %27 = load ptr, ptr %24, align 8
   %28 = icmp ult ptr %27, %19
   br i1 %28, label %_ZNKSt4lessIN4llvm27DeadArgumentEliminationPass8RetOrArgEEclERKS2_S5_.exit.thread.i.i.i, label %29
@@ -1729,8 +1729,8 @@ _ZNKSt8_Rb_treeIN4llvm27DeadArgumentEliminationPass8RetOrArgES2_St9_IdentityIS2_
 
 41:                                               ; preds = %_ZNKSt8_Rb_treeIN4llvm27DeadArgumentEliminationPass8RetOrArgES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS2_EPKSt18_Rb_tree_node_baseRKS2_.exit.i.i
   %42 = getelementptr inbounds nuw i8, ptr %.19.i.i.i4, i64 32
-  %43 = getelementptr inbounds i8, ptr %.19.i.i.i4, i64 40
-  %44 = getelementptr inbounds i8, ptr %.19.i.i.i4, i64 44
+  %43 = getelementptr inbounds nuw i8, ptr %.19.i.i.i4, i64 40
+  %44 = getelementptr inbounds nuw i8, ptr %.19.i.i.i4, i64 44
   %45 = load ptr, ptr %42, align 8
   %46 = icmp ult ptr %19, %45
   br i1 %46, label %_ZNKSt3setIN4llvm27DeadArgumentEliminationPass8RetOrArgESt4lessIS2_ESaIS2_EE5countERKS2_.exit, label %47
@@ -2127,7 +2127,7 @@ _ZL10numRetValsPKN4llvm8FunctionE.exit:           ; preds = %18, %_ZL10numRetVal
   %32 = getelementptr inbounds i8, ptr %6, i64 16
   call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull %32, i64 noundef 5) #17
   call void @_ZN4llvm15SmallVectorImplINS_11SmallVectorINS_27DeadArgumentEliminationPass8RetOrArgELj5EEEE10resizeImplILb0EEEvm(ptr noundef nonnull align 8 dereferenceable(16) %6, i64 noundef %30)
-  %33 = getelementptr inbounds i8, ptr %1, i64 80
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %34 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %.sroa.0136.0155 = load ptr, ptr %33, align 8
   %.not143156 = icmp eq ptr %.sroa.0136.0155, %34
@@ -2909,8 +2909,8 @@ _ZNKSt3setIPKN4llvm8FunctionESt4lessIS3_ESaIS3_EE5countERKS3_.exit.thread.i: ; p
   %.014.i.i.i.i = phi ptr [ %23, %.lr.ph.i.i.i3.i ], [ %.1.i.i.i5.i, %_ZNKSt4lessIN4llvm27DeadArgumentEliminationPass8RetOrArgEEclERKS2_S5_.exit.thread11.i.i.i.i ]
   %.0813.i.i.i.i = phi ptr [ %12, %.lr.ph.i.i.i3.i ], [ %.19.i.i.i4.i, %_ZNKSt4lessIN4llvm27DeadArgumentEliminationPass8RetOrArgEEclERKS2_S5_.exit.thread11.i.i.i.i ]
   %31 = getelementptr inbounds nuw i8, ptr %.014.i.i.i.i, i64 32
-  %32 = getelementptr inbounds i8, ptr %.014.i.i.i.i, i64 40
-  %33 = getelementptr inbounds i8, ptr %.014.i.i.i.i, i64 44
+  %32 = getelementptr inbounds nuw i8, ptr %.014.i.i.i.i, i64 40
+  %33 = getelementptr inbounds nuw i8, ptr %.014.i.i.i.i, i64 44
   %34 = load ptr, ptr %31, align 8
   %35 = icmp ult ptr %34, %26
   br i1 %35, label %_ZNKSt4lessIN4llvm27DeadArgumentEliminationPass8RetOrArgEEclERKS2_S5_.exit.thread.i.i.i.i, label %36
@@ -2951,8 +2951,8 @@ _ZNKSt8_Rb_treeIN4llvm27DeadArgumentEliminationPass8RetOrArgES2_St9_IdentityIS2_
 
 48:                                               ; preds = %_ZNKSt8_Rb_treeIN4llvm27DeadArgumentEliminationPass8RetOrArgES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS2_EPKSt18_Rb_tree_node_baseRKS2_.exit.i.i.i
   %49 = getelementptr inbounds nuw i8, ptr %.19.i.i.i4.i, i64 32
-  %50 = getelementptr inbounds i8, ptr %.19.i.i.i4.i, i64 40
-  %51 = getelementptr inbounds i8, ptr %.19.i.i.i4.i, i64 44
+  %50 = getelementptr inbounds nuw i8, ptr %.19.i.i.i4.i, i64 40
+  %51 = getelementptr inbounds nuw i8, ptr %.19.i.i.i4.i, i64 44
   %52 = load ptr, ptr %49, align 8
   %53 = icmp ult ptr %26, %52
   br i1 %53, label %_ZN4llvm27DeadArgumentEliminationPass6isLiveERKNS0_8RetOrArgE.exit.thread13, label %54
@@ -3045,8 +3045,8 @@ _ZNKSt3setIPKN4llvm8FunctionESt4lessIS3_ESaIS3_EE5countERKS3_.exit.thread.i: ; p
   %.014.i.i.i.i = phi ptr [ %15, %.lr.ph.i.i.i3.i ], [ %.1.i.i.i5.i, %_ZNKSt4lessIN4llvm27DeadArgumentEliminationPass8RetOrArgEEclERKS2_S5_.exit.thread11.i.i.i.i ]
   %.0813.i.i.i.i = phi ptr [ %16, %.lr.ph.i.i.i3.i ], [ %.19.i.i.i4.i, %_ZNKSt4lessIN4llvm27DeadArgumentEliminationPass8RetOrArgEEclERKS2_S5_.exit.thread11.i.i.i.i ]
   %24 = getelementptr inbounds nuw i8, ptr %.014.i.i.i.i, i64 32
-  %25 = getelementptr inbounds i8, ptr %.014.i.i.i.i, i64 40
-  %26 = getelementptr inbounds i8, ptr %.014.i.i.i.i, i64 44
+  %25 = getelementptr inbounds nuw i8, ptr %.014.i.i.i.i, i64 40
+  %26 = getelementptr inbounds nuw i8, ptr %.014.i.i.i.i, i64 44
   %27 = load ptr, ptr %24, align 8
   %28 = icmp ult ptr %27, %19
   br i1 %28, label %_ZNKSt4lessIN4llvm27DeadArgumentEliminationPass8RetOrArgEEclERKS2_S5_.exit.thread.i.i.i.i, label %29
@@ -3087,8 +3087,8 @@ _ZNKSt8_Rb_treeIN4llvm27DeadArgumentEliminationPass8RetOrArgES2_St9_IdentityIS2_
 
 41:                                               ; preds = %_ZNKSt8_Rb_treeIN4llvm27DeadArgumentEliminationPass8RetOrArgES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS2_EPKSt18_Rb_tree_node_baseRKS2_.exit.i.i.i
   %42 = getelementptr inbounds nuw i8, ptr %.19.i.i.i4.i, i64 32
-  %43 = getelementptr inbounds i8, ptr %.19.i.i.i4.i, i64 40
-  %44 = getelementptr inbounds i8, ptr %.19.i.i.i4.i, i64 44
+  %43 = getelementptr inbounds nuw i8, ptr %.19.i.i.i4.i, i64 40
+  %44 = getelementptr inbounds nuw i8, ptr %.19.i.i.i4.i, i64 44
   %45 = load ptr, ptr %42, align 8
   %46 = icmp ult ptr %19, %45
   br i1 %46, label %_ZN4llvm27DeadArgumentEliminationPass6isLiveERKNS0_8RetOrArgE.exit.thread4, label %47
@@ -3143,8 +3143,8 @@ define dso_local void @_ZN4llvm27DeadArgumentEliminationPass17propagateLivenessE
   %.014.i.i.i = phi ptr [ %4, %.lr.ph.i.i.i ], [ %.1.i.i.i, %_ZNKSt4lessIN4llvm27DeadArgumentEliminationPass8RetOrArgEEclERKS2_S5_.exit.thread11.i.i.i ]
   %.0813.i.i.i = phi ptr [ %5, %.lr.ph.i.i.i ], [ %.19.i.i.i, %_ZNKSt4lessIN4llvm27DeadArgumentEliminationPass8RetOrArgEEclERKS2_S5_.exit.thread11.i.i.i ]
   %13 = getelementptr inbounds nuw i8, ptr %.014.i.i.i, i64 32
-  %14 = getelementptr inbounds i8, ptr %.014.i.i.i, i64 40
-  %15 = getelementptr inbounds i8, ptr %.014.i.i.i, i64 44
+  %14 = getelementptr inbounds nuw i8, ptr %.014.i.i.i, i64 40
+  %15 = getelementptr inbounds nuw i8, ptr %.014.i.i.i, i64 44
   %16 = load ptr, ptr %13, align 8
   %17 = icmp ult ptr %16, %8
   br i1 %17, label %_ZNKSt4lessIN4llvm27DeadArgumentEliminationPass8RetOrArgEEclERKS2_S5_.exit.thread.i.i.i, label %18
@@ -3202,14 +3202,14 @@ _ZNSt8multimapIN4llvm27DeadArgumentEliminationPass8RetOrArgES2_St4lessIS2_ESaISt
   br i1 %40, label %41, label %.critedge
 
 41:                                               ; preds = %36
-  %42 = getelementptr inbounds i8, ptr %.sroa.07.019, i64 40
+  %42 = getelementptr inbounds nuw i8, ptr %.sroa.07.019, i64 40
   %43 = load i32, ptr %42, align 8
   %44 = load i32, ptr %29, align 8
   %45 = icmp eq i32 %43, %44
   br i1 %45, label %_ZNK4llvm27DeadArgumentEliminationPass8RetOrArgeqERKS1_.exit, label %.critedge
 
 _ZNK4llvm27DeadArgumentEliminationPass8RetOrArgeqERKS1_.exit: ; preds = %41
-  %46 = getelementptr inbounds i8, ptr %.sroa.07.019, i64 44
+  %46 = getelementptr inbounds nuw i8, ptr %.sroa.07.019, i64 44
   %47 = load i8, ptr %46, align 4
   %48 = load i8, ptr %30, align 4
   %49 = xor i8 %48, %47
@@ -3218,7 +3218,7 @@ _ZNK4llvm27DeadArgumentEliminationPass8RetOrArgeqERKS1_.exit: ; preds = %41
   br i1 %51, label %52, label %.critedge
 
 52:                                               ; preds = %_ZNK4llvm27DeadArgumentEliminationPass8RetOrArgeqERKS1_.exit
-  %53 = getelementptr inbounds i8, ptr %.sroa.07.019, i64 48
+  %53 = getelementptr inbounds nuw i8, ptr %.sroa.07.019, i64 48
   %54 = load ptr, ptr %31, align 8
   %.not10.i.i.i.i = icmp eq ptr %54, null
   br i1 %.not10.i.i.i.i, label %_ZNKSt3setIPKN4llvm8FunctionESt4lessIS3_ESaIS3_EE5countERKS3_.exit.thread.i, label %.lr.ph.i.i.i.i
@@ -3256,8 +3256,8 @@ _ZNKSt3setIPKN4llvm8FunctionESt4lessIS3_ESaIS3_EE5countERKS3_.exit.thread.i: ; p
   br i1 %.not12.i.i.i.i, label %_ZN4llvm27DeadArgumentEliminationPass6isLiveERKNS0_8RetOrArgE.exit.thread14, label %.lr.ph.i.i.i3.i
 
 .lr.ph.i.i.i3.i:                                  ; preds = %_ZNKSt3setIPKN4llvm8FunctionESt4lessIS3_ESaIS3_EE5countERKS3_.exit.thread.i
-  %64 = getelementptr inbounds i8, ptr %.sroa.07.019, i64 56
-  %65 = getelementptr inbounds i8, ptr %.sroa.07.019, i64 60
+  %64 = getelementptr inbounds nuw i8, ptr %.sroa.07.019, i64 56
+  %65 = getelementptr inbounds nuw i8, ptr %.sroa.07.019, i64 60
   %66 = load ptr, ptr %53, align 8
   %67 = load i32, ptr %64, align 4
   %68 = load i8, ptr %65, align 1
@@ -3268,8 +3268,8 @@ _ZNKSt3setIPKN4llvm8FunctionESt4lessIS3_ESaIS3_EE5countERKS3_.exit.thread.i: ; p
   %.014.i.i.i.i = phi ptr [ %63, %.lr.ph.i.i.i3.i ], [ %.1.i.i.i5.i, %_ZNKSt4lessIN4llvm27DeadArgumentEliminationPass8RetOrArgEEclERKS2_S5_.exit.thread11.i.i.i.i ]
   %.0813.i.i.i.i = phi ptr [ %34, %.lr.ph.i.i.i3.i ], [ %.19.i.i.i4.i, %_ZNKSt4lessIN4llvm27DeadArgumentEliminationPass8RetOrArgEEclERKS2_S5_.exit.thread11.i.i.i.i ]
   %71 = getelementptr inbounds nuw i8, ptr %.014.i.i.i.i, i64 32
-  %72 = getelementptr inbounds i8, ptr %.014.i.i.i.i, i64 40
-  %73 = getelementptr inbounds i8, ptr %.014.i.i.i.i, i64 44
+  %72 = getelementptr inbounds nuw i8, ptr %.014.i.i.i.i, i64 40
+  %73 = getelementptr inbounds nuw i8, ptr %.014.i.i.i.i, i64 44
   %74 = load ptr, ptr %71, align 8
   %75 = icmp ult ptr %74, %66
   br i1 %75, label %_ZNKSt4lessIN4llvm27DeadArgumentEliminationPass8RetOrArgEEclERKS2_S5_.exit.thread.i.i.i.i, label %76
@@ -3310,8 +3310,8 @@ _ZNKSt8_Rb_treeIN4llvm27DeadArgumentEliminationPass8RetOrArgES2_St9_IdentityIS2_
 
 88:                                               ; preds = %_ZNKSt8_Rb_treeIN4llvm27DeadArgumentEliminationPass8RetOrArgES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS2_EPKSt18_Rb_tree_node_baseRKS2_.exit.i.i.i
   %89 = getelementptr inbounds nuw i8, ptr %.19.i.i.i4.i, i64 32
-  %90 = getelementptr inbounds i8, ptr %.19.i.i.i4.i, i64 40
-  %91 = getelementptr inbounds i8, ptr %.19.i.i.i4.i, i64 44
+  %90 = getelementptr inbounds nuw i8, ptr %.19.i.i.i4.i, i64 40
+  %91 = getelementptr inbounds nuw i8, ptr %.19.i.i.i4.i, i64 44
   %92 = load ptr, ptr %89, align 8
   %93 = icmp ult ptr %66, %92
   br i1 %93, label %_ZN4llvm27DeadArgumentEliminationPass6isLiveERKNS0_8RetOrArgE.exit.thread14, label %94
@@ -4639,7 +4639,7 @@ _ZN4llvm14FunctionCalleeC2INS_8FunctionEMS2_KFPNS_12FunctionTypeEvEEEPT_.exit: ;
   %.012.i.i.i310 = phi i32 [ %583, %.lr.ph.i.i.i309 ], [ 0, %_ZN4llvm14FunctionCalleeC2INS_8FunctionEMS2_KFPNS_12FunctionTypeEvEEEPT_.exit ]
   %.0811.i.i.i311 = phi ptr [ %584, %.lr.ph.i.i.i309 ], [ %569, %_ZN4llvm14FunctionCalleeC2INS_8FunctionEMS2_KFPNS_12FunctionTypeEvEEEPT_.exit ]
   %574 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i311, i64 32
-  %575 = getelementptr inbounds i8, ptr %.0811.i.i.i311, i64 40
+  %575 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i311, i64 40
   %576 = load ptr, ptr %575, align 8
   %577 = load ptr, ptr %574, align 8
   %578 = ptrtoint ptr %576 to i64
@@ -4956,9 +4956,9 @@ _ZN4llvm11AttrBuilderD2Ev.exit326:                ; preds = %_ZN4llvm11SmallVect
 ._crit_edge614:                                   ; preds = %._crit_edge614.loopexit, %366
   %.sroa.21.0.lcssa = phi i64 [ 0, %366 ], [ %717, %._crit_edge614.loopexit ]
   %.sroa.0408.0.lcssa = phi ptr [ null, %366 ], [ %.sroa.0408.3.lcssa, %._crit_edge614.loopexit ]
-  %718 = getelementptr inbounds i8, ptr %376, i64 80
+  %718 = getelementptr inbounds nuw i8, ptr %376, i64 80
   %719 = load ptr, ptr %718, align 8
-  %720 = getelementptr inbounds i8, ptr %1, i64 80
+  %720 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %721 = load ptr, ptr %720, align 8
   %722 = getelementptr inbounds nuw i8, ptr %1, i64 72
   call void @_ZN4llvm8Function6spliceENS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_10BasicBlockELb0ELb0EvLb0EvEELb0ELb0EEEPS0_S6_S6_(ptr noundef nonnull align 8 dereferenceable(136) %376, ptr %719, ptr noundef nonnull %1, ptr %721, ptr nonnull %722) #17
@@ -5605,7 +5605,7 @@ define linkonce_odr hidden noundef ptr @_ZN4llvm8CallInst6CreateEPNS_12FunctionT
   %.012.i = phi i32 [ %21, %.lr.ph.i ], [ 0, %8 ]
   %.0811.i = phi ptr [ %22, %.lr.ph.i ], [ %4, %8 ]
   %12 = getelementptr inbounds nuw i8, ptr %.0811.i, i64 32
-  %13 = getelementptr inbounds i8, ptr %.0811.i, i64 40
+  %13 = getelementptr inbounds nuw i8, ptr %.0811.i, i64 40
   %14 = load ptr, ptr %13, align 8
   %15 = load ptr, ptr %12, align 8
   %16 = ptrtoint ptr %14 to i64
@@ -5638,7 +5638,7 @@ _ZN4llvm8CallBase17CountBundleInputsENS_8ArrayRefINS_17OperandBundleDefTIPNS_5Va
   %.012.i.i = phi i32 [ %39, %.lr.ph.i.i ], [ 0, %_ZN4llvm8CallBase17CountBundleInputsENS_8ArrayRefINS_17OperandBundleDefTIPNS_5ValueEEEEE.exit ]
   %.0811.i.i = phi ptr [ %40, %.lr.ph.i.i ], [ %4, %_ZN4llvm8CallBase17CountBundleInputsENS_8ArrayRefINS_17OperandBundleDefTIPNS_5ValueEEEEE.exit ]
   %30 = getelementptr inbounds nuw i8, ptr %.0811.i.i, i64 32
-  %31 = getelementptr inbounds i8, ptr %.0811.i.i, i64 40
+  %31 = getelementptr inbounds nuw i8, ptr %.0811.i.i, i64 40
   %32 = load ptr, ptr %31, align 8
   %33 = load ptr, ptr %30, align 8
   %34 = ptrtoint ptr %32 to i64
@@ -5655,7 +5655,7 @@ _ZN4llvm8CallBase17CountBundleInputsENS_8ArrayRefINS_17OperandBundleDefTIPNS_5Va
   %.012.i11.i = phi i32 [ %50, %.lr.ph.i10.i ], [ 0, %.lr.ph.i.i ]
   %.0811.i12.i = phi ptr [ %51, %.lr.ph.i10.i ], [ %4, %.lr.ph.i.i ]
   %41 = getelementptr inbounds nuw i8, ptr %.0811.i12.i, i64 32
-  %42 = getelementptr inbounds i8, ptr %.0811.i12.i, i64 40
+  %42 = getelementptr inbounds nuw i8, ptr %.0811.i12.i, i64 40
   %43 = load ptr, ptr %42, align 8
   %44 = load ptr, ptr %41, align 8
   %45 = ptrtoint ptr %43 to i64
@@ -6223,7 +6223,7 @@ _ZNSt8_Rb_treeIPKN4llvm8FunctionES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE22_M_in
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN4llvm27DeadArgumentEliminationPass3runERNS_6ModuleERNS_15AnalysisManagerIS1_JEEE(ptr dead_on_unwind noalias writable sret(%"class.llvm::PreservedAnalyses") align 8 %0, ptr noundef nonnull align 8 dereferenceable(145) %1, ptr noundef nonnull readonly align 8 dereferenceable(857) %2, ptr nocapture nonnull readnone align 8 %3) local_unnamed_addr #0 align 2 {
-  %5 = getelementptr inbounds i8, ptr %2, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %.not46 = icmp eq ptr %6, %7
@@ -6321,7 +6321,7 @@ define dso_local void @_ZN4llvm27DeadArgumentEliminationPass3runERNS_6ModuleERNS
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 0, ptr %38, align 8, !alias.scope !53
-  %39 = getelementptr inbounds i8, ptr %0, i64 68
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 68
   store i32 0, ptr %39, align 4, !alias.scope !53
   store ptr @_ZN4llvm17PreservedAnalyses14AllAnalysesKeyE, ptr %37, align 8, !alias.scope !53, !noalias !56
   br label %43
@@ -6335,7 +6335,7 @@ define dso_local void @_ZN4llvm27DeadArgumentEliminationPass3runERNS_6ModuleERNS
 43:                                               ; preds = %40, %36
   %.sink70 = phi ptr [ %42, %40 ], [ %37, %36 ]
   %.sink68 = phi i32 [ 0, %40 ], [ 1, %36 ]
-  %.sink67 = getelementptr inbounds i8, ptr %0, i64 80
+  %.sink67 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store ptr %.sink70, ptr %0, align 8
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sink70, ptr %44, align 8
@@ -6345,11 +6345,11 @@ define dso_local void @_ZN4llvm27DeadArgumentEliminationPass3runERNS_6ModuleERNS
   store i32 %.sink68, ptr %46, align 4
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr %.sink67, ptr %47, align 8
-  %48 = getelementptr inbounds i8, ptr %0, i64 56
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store ptr %.sink67, ptr %48, align 8
-  %49 = getelementptr inbounds i8, ptr %0, i64 64
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i32 2, ptr %49, align 8
-  %50 = getelementptr inbounds i8, ptr %0, i64 72
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store i32 0, ptr %50, align 8
   ret void
 }
@@ -6507,9 +6507,9 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_13DAE11runOnModuleERN4llvm6M
   store i8 %12, ptr %28, align 8
   call void @_ZN4llvm15AnalysisManagerINS_6ModuleEJEEC1Ev(ptr noundef nonnull align 8 dereferenceable(72) %4) #17
   call void @_ZN4llvm27DeadArgumentEliminationPass3runERNS_6ModuleERNS_15AnalysisManagerIS1_JEEE(ptr dead_on_unwind nonnull writable sret(%"class.llvm::PreservedAnalyses") align 8 %5, ptr noundef nonnull align 8 dereferenceable(145) %3, ptr noundef nonnull align 8 dereferenceable(857) %1, ptr nonnull align 8 poison)
-  %29 = getelementptr inbounds i8, ptr %5, i64 68
+  %29 = getelementptr inbounds nuw i8, ptr %5, i64 68
   %30 = load i32, ptr %29, align 4
-  %31 = getelementptr inbounds i8, ptr %5, i64 72
+  %31 = getelementptr inbounds nuw i8, ptr %5, i64 72
   %32 = load i32, ptr %31, align 8
   %33 = icmp eq i32 %30, %32
   br i1 %33, label %34, label %_ZNK4llvm17PreservedAnalyses15areAllPreservedEv.exit
@@ -6584,7 +6584,7 @@ _ZNK4llvm15SmallPtrSetImplIPvE5countEPKv.exit.i:  ; preds = %.lr.ph.i.i.i, %51, 
 _ZNK4llvm17PreservedAnalyses15areAllPreservedEv.exit: ; preds = %7, %_ZNK4llvm15SmallPtrSetImplIPvE5countEPKv.exit.i
   %66 = phi i1 [ true, %7 ], [ %65, %_ZNK4llvm15SmallPtrSetImplIPvE5countEPKv.exit.i ]
   %67 = getelementptr inbounds nuw i8, ptr %5, i64 48
-  %68 = getelementptr inbounds i8, ptr %5, i64 56
+  %68 = getelementptr inbounds nuw i8, ptr %5, i64 56
   %69 = load ptr, ptr %68, align 8
   %70 = load ptr, ptr %67, align 8
   %71 = icmp eq ptr %69, %70
@@ -6641,13 +6641,13 @@ declare void @_ZN4llvm15AnalysisManagerINS_6ModuleEJEEC1Ev(ptr noundef nonnull a
 define linkonce_odr hidden void @_ZN4llvm15AnalysisManagerINS_6ModuleEJEED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #0 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 64
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %5 = load i32, ptr %4, align 8
   %6 = zext i32 %5 to i64
   %7 = mul nuw nsw i64 %6, 24
   tail call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef %3, i64 noundef %7, i64 noundef 8) #17
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %9 = getelementptr inbounds i8, ptr %0, i64 40
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %10 = load i32, ptr %9, align 8
   %11 = icmp eq i32 %10, 0
   %.pre1.i = load ptr, ptr %8, align 8
@@ -6676,7 +6676,7 @@ define linkonce_odr hidden void @_ZN4llvm15AnalysisManagerINS_6ModuleEJEED2Ev(pt
 .lr.ph.i.i.i.i.i:                                 ; preds = %15, %_ZNSt16allocator_traitsISaISt10_List_nodeISt4pairIPN4llvm11AnalysisKeyESt10unique_ptrINS2_6detail21AnalysisResultConceptINS2_6ModuleENS2_15AnalysisManagerIS8_JEE11InvalidatorEEESt14default_deleteISC_EEEEEE7destroyISG_EEvRSI_PT_.exit.i.i.i.i.i
   %.09.i.i.i.i.i = phi ptr [ %18, %_ZNSt16allocator_traitsISaISt10_List_nodeISt4pairIPN4llvm11AnalysisKeyESt10unique_ptrINS2_6detail21AnalysisResultConceptINS2_6ModuleENS2_15AnalysisManagerIS8_JEE11InvalidatorEEESt14default_deleteISC_EEEEEE7destroyISG_EEvRSI_PT_.exit.i.i.i.i.i ], [ %17, %15 ]
   %18 = load ptr, ptr %.09.i.i.i.i.i, align 8
-  %19 = getelementptr inbounds i8, ptr %.09.i.i.i.i.i, i64 24
+  %19 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i, i64 24
   %20 = load ptr, ptr %19, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %20, null
   br i1 %.not.i.i.i.i.i.i.i.i.i, label %_ZNSt16allocator_traitsISaISt10_List_nodeISt4pairIPN4llvm11AnalysisKeyESt10unique_ptrINS2_6detail21AnalysisResultConceptINS2_6ModuleENS2_15AnalysisManagerIS8_JEE11InvalidatorEEESt14default_deleteISC_EEEEEE7destroyISG_EEvRSI_PT_.exit.i.i.i.i.i, label %_ZNKSt14default_deleteIN4llvm6detail21AnalysisResultConceptINS0_6ModuleENS0_15AnalysisManagerIS3_JEE11InvalidatorEEEEclEPS7_.exit.i.i.i.i.i.i.i.i.i
@@ -7541,7 +7541,7 @@ define linkonce_odr ptr @_ZNSt8_Rb_treeIN4llvm27DeadArgumentEliminationPass8RetO
   %4 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #19
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false)
-  %6 = getelementptr inbounds i8, ptr %4, i64 48
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 48
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %2, i64 16, i1 false)
   %7 = getelementptr inbounds i8, ptr %0, i64 16
   %8 = getelementptr inbounds i8, ptr %0, i64 8
@@ -7550,8 +7550,8 @@ define linkonce_odr ptr @_ZNSt8_Rb_treeIN4llvm27DeadArgumentEliminationPass8RetO
   br i1 %.not11.i, label %_ZNSt8_Rb_treeIN4llvm27DeadArgumentEliminationPass8RetOrArgESt4pairIKS2_S2_ESt10_Select1stIS5_ESt4lessIS2_ESaIS5_EE10_Auto_nodeD2Ev.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %3
-  %9 = getelementptr inbounds i8, ptr %4, i64 40
-  %10 = getelementptr inbounds i8, ptr %4, i64 44
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 40
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 44
   %11 = load ptr, ptr %5, align 8
   %12 = load i32, ptr %9, align 4
   %13 = load i8, ptr %10, align 1
@@ -7561,8 +7561,8 @@ define linkonce_odr ptr @_ZNSt8_Rb_treeIN4llvm27DeadArgumentEliminationPass8RetO
 15:                                               ; preds = %_ZNKSt4lessIN4llvm27DeadArgumentEliminationPass8RetOrArgEEclERKS2_S5_.exit.thread.i, %.lr.ph.i
   %.0712.i = phi ptr [ %.0710.i, %.lr.ph.i ], [ %.07.i, %_ZNKSt4lessIN4llvm27DeadArgumentEliminationPass8RetOrArgEEclERKS2_S5_.exit.thread.i ]
   %16 = getelementptr inbounds nuw i8, ptr %.0712.i, i64 32
-  %17 = getelementptr inbounds i8, ptr %.0712.i, i64 40
-  %18 = getelementptr inbounds i8, ptr %.0712.i, i64 44
+  %17 = getelementptr inbounds nuw i8, ptr %.0712.i, i64 40
+  %18 = getelementptr inbounds nuw i8, ptr %.0712.i, i64 44
   %19 = load ptr, ptr %16, align 8
   %20 = icmp ult ptr %11, %19
   br i1 %20, label %_ZNKSt4lessIN4llvm27DeadArgumentEliminationPass8RetOrArgEEclERKS2_S5_.exit.thread.i, label %21
@@ -7657,8 +7657,8 @@ define linkonce_odr { ptr, i8 } @_ZNSt8_Rb_treeIN4llvm27DeadArgumentEliminationP
 .backedge:                                        ; preds = %.backedge.backedge, %.lr.ph.i
   %.02128.i = phi ptr [ %.02126.i, %.lr.ph.i ], [ %.02128.i.be, %.backedge.backedge ]
   %11 = getelementptr inbounds nuw i8, ptr %.02128.i, i64 32
-  %12 = getelementptr inbounds i8, ptr %.02128.i, i64 40
-  %13 = getelementptr inbounds i8, ptr %.02128.i, i64 44
+  %12 = getelementptr inbounds nuw i8, ptr %.02128.i, i64 40
+  %13 = getelementptr inbounds nuw i8, ptr %.02128.i, i64 44
   %14 = load ptr, ptr %11, align 8
   %15 = icmp ult ptr %7, %14
   br i1 %15, label %_ZNKSt4lessIN4llvm27DeadArgumentEliminationPass8RetOrArgEEclERKS2_S5_.exit.thread.i, label %16
@@ -7717,8 +7717,8 @@ _ZNKSt4lessIN4llvm27DeadArgumentEliminationPass8RetOrArgEEclERKS2_S5_.exit.threa
   %34 = phi ptr [ %.pre, %31 ], [ %14, %_ZNKSt4lessIN4llvm27DeadArgumentEliminationPass8RetOrArgEEclERKS2_S5_.exit.thread.i.thread ]
   %.020.lcssa32.i = phi ptr [ %.020.lcssa33.i, %31 ], [ %.02128.i, %_ZNKSt4lessIN4llvm27DeadArgumentEliminationPass8RetOrArgEEclERKS2_S5_.exit.thread.i.thread ]
   %.sroa.06.0.i = phi ptr [ %32, %31 ], [ %.02128.i, %_ZNKSt4lessIN4llvm27DeadArgumentEliminationPass8RetOrArgEEclERKS2_S5_.exit.thread.i.thread ]
-  %35 = getelementptr inbounds i8, ptr %.sroa.06.0.i, i64 40
-  %36 = getelementptr inbounds i8, ptr %.sroa.06.0.i, i64 44
+  %35 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.i, i64 40
+  %36 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.i, i64 44
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %38 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %39 = icmp ult ptr %34, %33
@@ -7755,8 +7755,8 @@ _ZNKSt4lessIN4llvm27DeadArgumentEliminationPass8RetOrArgEEclERKS2_S5_.exit5.i: ;
   %56 = getelementptr inbounds nuw i8, ptr %.sroa.4.0.i.ph, i64 32
   %57 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %58 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %59 = getelementptr inbounds i8, ptr %.sroa.4.0.i.ph, i64 40
-  %60 = getelementptr inbounds i8, ptr %.sroa.4.0.i.ph, i64 44
+  %59 = getelementptr inbounds nuw i8, ptr %.sroa.4.0.i.ph, i64 40
+  %60 = getelementptr inbounds nuw i8, ptr %.sroa.4.0.i.ph, i64 44
   %61 = load ptr, ptr %1, align 8
   %62 = load ptr, ptr %56, align 8
   %63 = icmp ult ptr %61, %62
@@ -7953,8 +7953,8 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeIN4llvm27DeadArgumentElimination
   %.052 = phi ptr [ %.049, %.lr.ph ], [ %.0, %_ZNKSt4lessIN4llvm27DeadArgumentEliminationPass8RetOrArgEEclERKS2_S5_.exit.thread ]
   %.02251 = phi ptr [ %4, %.lr.ph ], [ %.123, %_ZNKSt4lessIN4llvm27DeadArgumentEliminationPass8RetOrArgEEclERKS2_S5_.exit.thread ]
   %12 = getelementptr inbounds nuw i8, ptr %.052, i64 32
-  %13 = getelementptr inbounds i8, ptr %.052, i64 40
-  %14 = getelementptr inbounds i8, ptr %.052, i64 44
+  %13 = getelementptr inbounds nuw i8, ptr %.052, i64 40
+  %14 = getelementptr inbounds nuw i8, ptr %.052, i64 44
   %15 = load ptr, ptr %12, align 8
   %16 = icmp ult ptr %15, %7
   br i1 %16, label %_ZNKSt4lessIN4llvm27DeadArgumentEliminationPass8RetOrArgEEclERKS2_S5_.exit.thread, label %17
@@ -8005,8 +8005,8 @@ _ZNKSt4lessIN4llvm27DeadArgumentEliminationPass8RetOrArgEEclERKS2_S5_.exit24.thr
   %.014.i = phi ptr [ %.1.i, %_ZNKSt4lessIN4llvm27DeadArgumentEliminationPass8RetOrArgEEclERKS2_S5_.exit.thread11.i ], [ %36, %_ZNKSt4lessIN4llvm27DeadArgumentEliminationPass8RetOrArgEEclERKS2_S5_.exit24.thread43 ]
   %.0813.i = phi ptr [ %.19.i, %_ZNKSt4lessIN4llvm27DeadArgumentEliminationPass8RetOrArgEEclERKS2_S5_.exit.thread11.i ], [ %.052, %_ZNKSt4lessIN4llvm27DeadArgumentEliminationPass8RetOrArgEEclERKS2_S5_.exit24.thread43 ]
   %39 = getelementptr inbounds nuw i8, ptr %.014.i, i64 32
-  %40 = getelementptr inbounds i8, ptr %.014.i, i64 40
-  %41 = getelementptr inbounds i8, ptr %.014.i, i64 44
+  %40 = getelementptr inbounds nuw i8, ptr %.014.i, i64 40
+  %41 = getelementptr inbounds nuw i8, ptr %.014.i, i64 44
   %42 = load ptr, ptr %39, align 8
   %43 = icmp ult ptr %42, %7
   br i1 %43, label %_ZNKSt4lessIN4llvm27DeadArgumentEliminationPass8RetOrArgEEclERKS2_S5_.exit.thread.i, label %44
@@ -8050,8 +8050,8 @@ _ZNSt8_Rb_treeIN4llvm27DeadArgumentEliminationPass8RetOrArgES2_St9_IdentityIS2_E
   %.014.i27 = phi ptr [ %.1.i34, %_ZNKSt4lessIN4llvm27DeadArgumentEliminationPass8RetOrArgEEclERKS2_S5_.exit.thread.i31 ], [ %38, %_ZNSt8_Rb_treeIN4llvm27DeadArgumentEliminationPass8RetOrArgES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS2_EPSt18_Rb_tree_node_baseRKS2_.exit ]
   %.0813.i28 = phi ptr [ %.19.i33, %_ZNKSt4lessIN4llvm27DeadArgumentEliminationPass8RetOrArgEEclERKS2_S5_.exit.thread.i31 ], [ %.02251, %_ZNSt8_Rb_treeIN4llvm27DeadArgumentEliminationPass8RetOrArgES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS2_EPSt18_Rb_tree_node_baseRKS2_.exit ]
   %55 = getelementptr inbounds nuw i8, ptr %.014.i27, i64 32
-  %56 = getelementptr inbounds i8, ptr %.014.i27, i64 40
-  %57 = getelementptr inbounds i8, ptr %.014.i27, i64 44
+  %56 = getelementptr inbounds nuw i8, ptr %.014.i27, i64 40
+  %57 = getelementptr inbounds nuw i8, ptr %.014.i27, i64 44
   %58 = load ptr, ptr %55, align 8
   %59 = icmp ult ptr %7, %58
   br i1 %59, label %_ZNKSt4lessIN4llvm27DeadArgumentEliminationPass8RetOrArgEEclERKS2_S5_.exit.thread.i31, label %60

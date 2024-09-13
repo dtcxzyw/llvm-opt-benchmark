@@ -188,7 +188,7 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_124X86AvoidTrailingCallPass2
   br i1 %10, label %11, label %.loopexit
 
 11:                                               ; preds = %2
-  %12 = getelementptr inbounds i8, ptr %1, i64 328
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 328
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 320
   %.sroa.052.070 = load ptr, ptr %12, align 8
   %.not6571 = icmp eq ptr %.sroa.052.070, %13

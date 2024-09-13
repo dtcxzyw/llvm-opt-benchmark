@@ -289,7 +289,7 @@ define dso_local void @_ZN5clang4edit12EditedSource14finishedCommitEv(ptr nounde
 .lr.ph:                                           ; preds = %1
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %11 = getelementptr inbounds i8, ptr %0, i64 88
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 88
   br label %12
 
 12:                                               ; preds = %.lr.ph, %59
@@ -401,7 +401,7 @@ _ZN4llvm23SmallVectorTemplateBaseIN5clang4edit12EditedSource11MacroArgUseELb1EE9
 
 ._crit_edge:                                      ; preds = %59, %1
   %61 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %5) #16
-  %62 = getelementptr inbounds i8, ptr %0, i64 104
+  %62 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store i32 0, ptr %62, align 8
   ret void
 }
@@ -419,14 +419,14 @@ define dso_local { ptr, i64 } @_ZN5clang4edit12EditedSource10copyStringERKN4llvm
   br i1 %9, label %_ZN5clang4edit12EditedSource10copyStringEN4llvm9StringRefE.exit, label %10
 
 10:                                               ; preds = %2
-  %11 = getelementptr inbounds i8, ptr %0, i64 368
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 368
   %12 = load i64, ptr %11, align 8
   %13 = add i64 %12, %7
   store i64 %13, ptr %11, align 8
   %14 = load ptr, ptr %8, align 8
   %15 = ptrtoint ptr %14 to i64
   %16 = add i64 %7, %15
-  %17 = getelementptr inbounds i8, ptr %0, i64 296
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 296
   %18 = load ptr, ptr %17, align 8
   %19 = ptrtoint ptr %18 to i64
   %.not.i.i.i.i.i.i = icmp ugt i64 %16, %19
@@ -573,7 +573,7 @@ _ZNSt3mapIN5clang4edit10FileOffsetENS1_12EditedSource8FileEditESt4lessIS2_ESaISt
   %22 = load i64, ptr %21, align 8
   %.sroa.3.0.extract.shift.i = lshr i64 %22, 32
   %.sroa.3.0.extract.trunc.i = trunc nuw i64 %.sroa.3.0.extract.shift.i to i32
-  %23 = getelementptr inbounds i8, ptr %20, i64 56
+  %23 = getelementptr inbounds nuw i8, ptr %20, i64 56
   %24 = load i32, ptr %23, align 8
   %25 = add i32 %24, %.sroa.3.0.extract.trunc.i
   %.sroa.2.0.insert.ext.i.i = zext i32 %25 to i64
@@ -613,7 +613,7 @@ _ZN5clang4edit12EditedSource18getActionForOffsetENS0_10FileOffsetE.exit.thread: 
   call void @_ZN5clang4edit12EditedSource22deconstructMacroArgLocENS_14SourceLocationERS2_RNS1_11MacroArgUseE(ptr noundef nonnull align 8 dereferenceable(384) %0, i32 %1, ptr noundef nonnull align 4 dereferenceable(4) %5, ptr noundef nonnull align 8 dereferenceable(16) %6)
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %38 = load ptr, ptr %37, align 8
-  %39 = getelementptr inbounds i8, ptr %0, i64 88
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %40 = load i32, ptr %39, align 8
   %41 = icmp eq i32 %40, 0
   br i1 %41, label %.loopexit.i, label %42
@@ -947,7 +947,7 @@ _ZNSt3mapIN5clang4edit10FileOffsetENS1_12EditedSource8FileEditESt4lessIS2_ESaISt
   %18 = load i64, ptr %17, align 8
   %.sroa.3.0.extract.shift = lshr i64 %18, 32
   %.sroa.3.0.extract.trunc = trunc nuw i64 %.sroa.3.0.extract.shift to i32
-  %19 = getelementptr inbounds i8, ptr %16, i64 56
+  %19 = getelementptr inbounds nuw i8, ptr %16, i64 56
   %20 = load i32, ptr %19, align 8
   %21 = add i32 %20, %.sroa.3.0.extract.trunc
   %.sroa.2.0.insert.ext.i = zext i32 %21 to i64
@@ -1023,14 +1023,14 @@ define dso_local noundef zeroext i1 @_ZN5clang4edit12EditedSource12commitInsertE
 
 30:                                               ; preds = %24
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 288
-  %32 = getelementptr inbounds i8, ptr %0, i64 368
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 368
   %33 = load i64, ptr %32, align 8
   %34 = add i64 %33, %4
   store i64 %34, ptr %32, align 8
   %35 = load ptr, ptr %31, align 8
   %36 = ptrtoint ptr %35 to i64
   %37 = add i64 %4, %36
-  %38 = getelementptr inbounds i8, ptr %0, i64 296
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 296
   %39 = load ptr, ptr %38, align 8
   %40 = ptrtoint ptr %39 to i64
   %.not.i.i.i.i.i.i = icmp ugt i64 %37, %40
@@ -1208,7 +1208,7 @@ _ZNKSt4lessIN5clang4edit10FileOffsetEEclERKS2_S5_.exit: ; preds = %14
   %19 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #18
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 32
   store i64 %.pre, ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %19, i64 40
+  %21 = getelementptr inbounds nuw i8, ptr %19, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %21, i8 0, i64 24, i1 false)
   %22 = tail call { ptr, ptr } @_ZNSt8_Rb_treeIN5clang4edit10FileOffsetESt4pairIKS2_NS1_12EditedSource8FileEditEESt10_Select1stIS7_ESt4lessIS2_ESaIS7_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS7_ERS4_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %.08.lcssa.i.i.i19, ptr noundef nonnull align 4 dereferenceable(8) %20)
   %23 = extractvalue { ptr, ptr } %22, 0
@@ -1254,7 +1254,7 @@ _ZNKSt4lessIN5clang4edit10FileOffsetEEclERKS2_S5_.exit: ; preds = %14
 
 _ZNSt8_Rb_treeIN5clang4edit10FileOffsetESt4pairIKS2_NS1_12EditedSource8FileEditEESt10_Select1stIS7_ESt4lessIS2_ESaIS7_EE22_M_emplace_hint_uniqueIJRKSt21piecewise_construct_tSt5tupleIJRS4_EESI_IJEEEEESt17_Rb_tree_iteratorIS7_ESt23_Rb_tree_const_iteratorIS7_EDpOT_.exit: ; preds = %37, %.thread.i, %_ZNKSt4lessIN5clang4edit10FileOffsetEEclERKS2_S5_.exit
   %.sroa.014.0 = phi ptr [ %.19.i.i.i, %_ZNKSt4lessIN5clang4edit10FileOffsetEEclERKS2_S5_.exit ], [ %19, %.thread.i ], [ %23, %37 ]
-  %38 = getelementptr inbounds i8, ptr %.sroa.014.0, i64 40
+  %38 = getelementptr inbounds nuw i8, ptr %.sroa.014.0, i64 40
   ret ptr %38
 }
 
@@ -1330,7 +1330,7 @@ _ZNSt3mapIN5clang4edit10FileOffsetENS1_12EditedSource8FileEditESt4lessIS2_ESaISt
   %30 = load i64, ptr %29, align 8
   %.sroa.4104.0.extract.shift = lshr i64 %30, 32
   %.sroa.4104.0.extract.trunc = trunc nuw i64 %.sroa.4104.0.extract.shift to i32
-  %31 = getelementptr inbounds i8, ptr %.sroa.0111.1187, i64 56
+  %31 = getelementptr inbounds nuw i8, ptr %.sroa.0111.1187, i64 56
   %32 = load i32, ptr %31, align 8
   %33 = add i32 %32, %.sroa.4104.0.extract.trunc
   %.sroa.2.0.insert.ext.i47 = zext i32 %33 to i64
@@ -1396,9 +1396,9 @@ _ZN5clang4editgtENS0_10FileOffsetES1_.exit56:     ; preds = %46
   br i1 %spec.select.i.i55, label %_ZN5clang4editgtENS0_10FileOffsetES1_.exit56.thread, label %.critedge
 
 _ZN5clang4editgtENS0_10FileOffsetES1_.exit56.thread: ; preds = %46, %_ZN5clang4editgtENS0_10FileOffsetES1_.exit56
-  %51 = getelementptr inbounds i8, ptr %.sroa.0111.3191, i64 40
+  %51 = getelementptr inbounds nuw i8, ptr %.sroa.0111.3191, i64 40
   %.sroa.4.0.extract.trunc = trunc nuw i64 %.pre to i32
-  %52 = getelementptr inbounds i8, ptr %.sroa.0111.3191, i64 56
+  %52 = getelementptr inbounds nuw i8, ptr %.sroa.0111.3191, i64 56
   %53 = load i32, ptr %52, align 8
   %54 = add i32 %53, %.sroa.4.0.extract.trunc
   %55 = icmp slt i32 %.sroa.0123.1192, %.sroa.0.0.extract.trunc.i.i51
@@ -1671,7 +1671,7 @@ _ZNSt3mapIN5clang4edit10FileOffsetENS1_12EditedSource8FileEditESt4lessIS2_ESaISt
   br i1 %26, label %_ZN5clang4editltENS0_10FileOffsetES1_.exit.thread, label %_ZN5clang4editltENS0_10FileOffsetES1_.exit
 
 _ZN5clang4editltENS0_10FileOffsetES1_.exit:       ; preds = %23
-  %27 = getelementptr inbounds i8, ptr %.sroa.0171.1260, i64 56
+  %27 = getelementptr inbounds nuw i8, ptr %.sroa.0171.1260, i64 56
   %28 = load i32, ptr %27, align 8
   %.sroa.2168.0.extract.shift = lshr i64 %25, 32
   %.sroa.2168.0.extract.trunc = trunc nuw i64 %.sroa.2168.0.extract.shift to i32
@@ -1696,7 +1696,7 @@ _ZN5clang4editltENS0_10FileOffsetES1_.exit.thread: ; preds = %32, %_ZN5clang4edi
   %36 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #18
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 32
   store i64 %2, ptr %37, align 8
-  %38 = getelementptr inbounds i8, ptr %36, i64 40
+  %38 = getelementptr inbounds nuw i8, ptr %36, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %38, i8 0, i64 24, i1 false)
   %39 = tail call { ptr, ptr } @_ZNSt8_Rb_treeIN5clang4edit10FileOffsetESt4pairIKS2_NS1_12EditedSource8FileEditEESt10_Select1stIS7_ESt4lessIS2_ESaIS7_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS7_ERS4_(ptr noundef nonnull align 8 dereferenceable(48) %8, ptr %.sroa.0171.1.lcssa, ptr noundef nonnull align 4 dereferenceable(8) %37)
   %40 = extractvalue { ptr, ptr } %39, 0
@@ -1742,7 +1742,7 @@ _ZN5clang4editltENS0_10FileOffsetES1_.exit.thread: ; preds = %32, %_ZN5clang4edi
 
 _ZNSt3mapIN5clang4edit10FileOffsetENS1_12EditedSource8FileEditESt4lessIS2_ESaISt4pairIKS2_S4_EEE6insertIS7_IS2_S4_EEENSt9enable_ifIXsr16is_constructibleIS9_T_EE5valueESt17_Rb_tree_iteratorIS9_EE4typeESt23_Rb_tree_const_iteratorIS9_EOSF_.exit: ; preds = %.thread.i.i, %54
   %.sroa.07.011.i.i = phi ptr [ %36, %.thread.i.i ], [ %40, %54 ]
-  %55 = getelementptr inbounds i8, ptr %.sroa.07.011.i.i, i64 56
+  %55 = getelementptr inbounds nuw i8, ptr %.sroa.07.011.i.i, i64 56
   store i32 %3, ptr %55, align 8
   br label %.loopexit
 
@@ -1751,7 +1751,7 @@ _ZNSt3mapIN5clang4edit10FileOffsetENS1_12EditedSource8FileEditESt4lessIS2_ESaISt
   %58 = load i64, ptr %57, align 8
   %.sroa.5.0.extract.shift = lshr i64 %58, 32
   %.sroa.5.0.extract.trunc = trunc nuw i64 %.sroa.5.0.extract.shift to i32
-  %59 = getelementptr inbounds i8, ptr %.sroa.0171.1.lcssa, i64 56
+  %59 = getelementptr inbounds nuw i8, ptr %.sroa.0171.1.lcssa, i64 56
   %60 = load i32, ptr %59, align 8
   %61 = add i32 %60, %.sroa.5.0.extract.trunc
   %.sroa.0.0.extract.trunc.i48 = trunc i64 %2 to i32
@@ -1769,7 +1769,7 @@ _ZN5clang4editltENS0_10FileOffsetES1_.exit52.thread: ; preds = %56, %_ZN5clang4e
   %65 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #18
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 32
   store i64 %2, ptr %66, align 8
-  %67 = getelementptr inbounds i8, ptr %65, i64 40
+  %67 = getelementptr inbounds nuw i8, ptr %65, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %67, i8 0, i64 24, i1 false)
   %68 = tail call { ptr, ptr } @_ZNSt8_Rb_treeIN5clang4edit10FileOffsetESt4pairIKS2_NS1_12EditedSource8FileEditEESt10_Select1stIS7_ESt4lessIS2_ESaIS7_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS7_ERS4_(ptr noundef nonnull align 8 dereferenceable(48) %8, ptr nonnull %.sroa.0171.1.lcssa, ptr noundef nonnull align 4 dereferenceable(8) %66)
   %69 = extractvalue { ptr, ptr } %68, 0
@@ -1815,12 +1815,12 @@ _ZN5clang4editltENS0_10FileOffsetES1_.exit52.thread: ; preds = %56, %_ZN5clang4e
 
 _ZNSt3mapIN5clang4edit10FileOffsetENS1_12EditedSource8FileEditESt4lessIS2_ESaISt4pairIKS2_S4_EEE6insertIS7_IS2_S4_EEENSt9enable_ifIXsr16is_constructibleIS9_T_EE5valueESt17_Rb_tree_iteratorIS9_EE4typeESt23_Rb_tree_const_iteratorIS9_EOSF_.exit65: ; preds = %.thread.i.i63, %83
   %.sroa.07.011.i.i64 = phi ptr [ %65, %.thread.i.i63 ], [ %69, %83 ]
-  %84 = getelementptr inbounds i8, ptr %.sroa.07.011.i.i64, i64 56
+  %84 = getelementptr inbounds nuw i8, ptr %.sroa.07.011.i.i64, i64 56
   store i32 %3, ptr %84, align 8
   br label %93
 
 85:                                               ; preds = %_ZN5clang4editltENS0_10FileOffsetES1_.exit52
-  %86 = getelementptr inbounds i8, ptr %.sroa.0171.1.lcssa, i64 40
+  %86 = getelementptr inbounds nuw i8, ptr %.sroa.0171.1.lcssa, i64 40
   %87 = icmp slt i32 %.sroa.03.0.extract.trunc.i49, %.sroa.0.0.extract.trunc.i48
   %.not274 = icmp ult i32 %61, %7
   %or.cond = select i1 %87, i1 true, i1 %.not274
@@ -1857,7 +1857,7 @@ _ZN5clang4editgeENS0_10FileOffsetES1_.exit.thread: ; preds = %85
   %98 = load i64, ptr %97, align 8
   %.sroa.4.0.extract.shift = lshr i64 %98, 32
   %.sroa.4.0.extract.trunc = trunc nuw i64 %.sroa.4.0.extract.shift to i32
-  %99 = getelementptr inbounds i8, ptr %.sroa.0171.3265, i64 56
+  %99 = getelementptr inbounds nuw i8, ptr %.sroa.0171.3265, i64 56
   %100 = load i32, ptr %99, align 8
   %101 = add i32 %100, %.sroa.4.0.extract.trunc
   %.sroa.0.0.extract.trunc.i.i73 = trunc i64 %98 to i32
@@ -1895,7 +1895,7 @@ _ZN5clang4editltENS0_10FileOffsetES1_.exit90:     ; preds = %_ZN5clang4editgeENS
 
 _ZN5clang4editltENS0_10FileOffsetES1_.exit90.thread: ; preds = %_ZN5clang4editltENS0_10FileOffsetES1_.exit90
   %114 = sub i32 %101, %7
-  %115 = getelementptr inbounds i8, ptr %94, i64 56
+  %115 = getelementptr inbounds nuw i8, ptr %94, i64 56
   %116 = load i32, ptr %115, align 8
   %117 = add i32 %114, %116
   store i32 %117, ptr %115, align 8
@@ -2003,7 +2003,7 @@ define dso_local void @_ZN5clang4edit12EditedSource13applyRewritesERNS0_13EditsR
   %.sroa.057.0.extract.trunc61 = trunc i64 %13 to i32
   %.sroa.7.0.extract.shift66 = lshr i64 %13, 32
   %.sroa.7.0.extract.trunc67 = trunc nuw i64 %.sroa.7.0.extract.shift66 to i32
-  %14 = getelementptr inbounds i8, ptr %11, i64 40
+  %14 = getelementptr inbounds nuw i8, ptr %11, i64 40
   %.sroa.019.0.copyload = load ptr, ptr %14, align 8
   %.sroa.220.0..sroa_idx = getelementptr inbounds i8, ptr %11, i64 48
   %.sroa.220.0.copyload = load i64, ptr %.sroa.220.0..sroa_idx, align 8
@@ -2012,7 +2012,7 @@ define dso_local void @_ZN5clang4edit12EditedSource13applyRewritesERNS0_13EditsR
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 0, ptr %17, align 8
   call void @_ZN4llvm15SmallVectorImplIcE6appendIPKcvEEvT_S5_(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef %.sroa.019.0.copyload, ptr noundef %15)
-  %18 = getelementptr inbounds i8, ptr %11, i64 56
+  %18 = getelementptr inbounds nuw i8, ptr %11, i64 56
   %19 = load i32, ptr %18, align 8
   %20 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %11) #17
   %21 = getelementptr inbounds i8, ptr %0, i64 32
@@ -2033,7 +2033,7 @@ define dso_local void @_ZN5clang4edit12EditedSource13applyRewritesERNS0_13EditsR
   %.sroa.057.069 = phi i32 [ %.sroa.057.0.extract.trunc61, %.lr.ph ], [ %.sroa.057.1, %39 ]
   %25 = getelementptr inbounds nuw i8, ptr %.sroa.045.072, i64 32
   %.sroa.016.0.copyload = load i64, ptr %25, align 8
-  %26 = getelementptr inbounds i8, ptr %.sroa.045.072, i64 40
+  %26 = getelementptr inbounds nuw i8, ptr %.sroa.045.072, i64 40
   %.sroa.013.0.copyload = load ptr, ptr %26, align 8
   %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %.sroa.045.072, i64 48
   %.sroa.3.0.copyload = load i64, ptr %.sroa.3.0..sroa_idx, align 8
@@ -2329,7 +2329,7 @@ define linkonce_odr hidden void @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAlloc
 
 _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE26DeallocateCustomSizedSlabsEv.exit: ; preds = %.lr.ph.i, %1
   %10 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %2) #16
-  %11 = getelementptr inbounds i8, ptr %0, i64 72
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store i32 0, ptr %11, align 8
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %13 = tail call noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseIjE5emptyEv(ptr noundef nonnull align 8 dereferenceable(16) %12) #16
@@ -2692,7 +2692,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZN5
   br i1 %.not.i.i, label %54, label %17
 
 17:                                               ; preds = %5
-  %18 = getelementptr inbounds i8, ptr %0, i64 208
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %19 = udiv i32 %6, 42
   %20 = urem i32 %6, 42
   %.zext.i.i = zext nneg i32 %19 to i64
@@ -2703,7 +2703,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZN5
   br i1 %.not.i.i.i, label %24, label %_ZNK4llvm11PagedVectorIN5clang6SrcMgr9SLocEntryELm42EEixEm.exit.i.i
 
 24:                                               ; preds = %17
-  %25 = getelementptr inbounds i8, ptr %0, i64 224
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %.0.copyload.i.i.i.i.i.i = load i64, ptr %25, align 8
   %26 = and i64 %.0.copyload.i.i.i.i.i.i, -8
   %27 = inttoptr i64 %26 to ptr

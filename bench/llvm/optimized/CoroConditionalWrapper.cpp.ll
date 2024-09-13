@@ -42,15 +42,15 @@ define dso_local void @_ZN4llvm22CoroConditionalWrapper3runERNS_6ModuleERNS_15An
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 0, ptr %11, align 8, !alias.scope !4
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %13 = getelementptr inbounds i8, ptr %0, i64 80
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store ptr %13, ptr %12, align 8, !alias.scope !4
-  %14 = getelementptr inbounds i8, ptr %0, i64 56
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store ptr %13, ptr %14, align 8, !alias.scope !4
-  %15 = getelementptr inbounds i8, ptr %0, i64 64
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i32 2, ptr %15, align 8, !alias.scope !4
-  %16 = getelementptr inbounds i8, ptr %0, i64 68
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 68
   store i32 0, ptr %16, align 4, !alias.scope !4
-  %17 = getelementptr inbounds i8, ptr %0, i64 72
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store i32 0, ptr %17, align 8, !alias.scope !4
   store i32 1, ptr %10, align 4, !alias.scope !4, !noalias !7
   store ptr @_ZN4llvm17PreservedAnalyses14AllAnalysesKeyE, ptr %7, align 8, !alias.scope !4, !noalias !7

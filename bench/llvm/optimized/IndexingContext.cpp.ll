@@ -368,7 +368,7 @@ _ZN5clang13SourceManager12getSLocEntryENS_6FileIDEPb.exit: ; preds = %64
   br i1 %or.cond87.not, label %_ZL22shouldSkipNamelessDeclPKN5clang9NamedDeclE.exit.thread, label %70
 
 70:                                               ; preds = %_ZN5clang13SourceManager12getSLocEntryENS_6FileIDEPb.exit
-  %71 = getelementptr inbounds i8, ptr %66, i64 16
+  %71 = getelementptr inbounds nuw i8, ptr %66, i64 16
   %.0.copyload.i.i.i.i = load i64, ptr %71, align 8
   %72 = and i64 %.0.copyload.i.i.i.i, 7
   %.not = icmp eq i64 %72, 0
@@ -690,7 +690,7 @@ _ZN5clang13SourceManager12getSLocEntryENS_6FileIDEPb.exit: ; preds = %50
   br i1 %or.cond42.not, label %_ZN5clang13SourceManager12getSLocEntryENS_6FileIDEPb.exit.thread, label %56
 
 56:                                               ; preds = %_ZN5clang13SourceManager12getSLocEntryENS_6FileIDEPb.exit
-  %57 = getelementptr inbounds i8, ptr %52, i64 16
+  %57 = getelementptr inbounds nuw i8, ptr %52, i64 16
   %.0.copyload.i.i.i.i = load i64, ptr %57, align 8
   %58 = and i64 %.0.copyload.i.i.i.i, 7
   %.not = icmp ne i64 %58, 0
@@ -1658,7 +1658,7 @@ _ZN5clang13SourceManager12getSLocEntryENS_6FileIDEPb.exit: ; preds = %47
   br i1 %or.cond.not, label %_ZN5clang13SourceManager12getSLocEntryENS_6FileIDEPb.exit.thread, label %53
 
 53:                                               ; preds = %_ZN5clang13SourceManager12getSLocEntryENS_6FileIDEPb.exit
-  %54 = getelementptr inbounds i8, ptr %49, i64 16
+  %54 = getelementptr inbounds nuw i8, ptr %49, i64 16
   %.0.copyload.i.i.i.i = load i64, ptr %54, align 8
   %55 = and i64 %.0.copyload.i.i.i.i, 7
   %56 = icmp eq i64 %55, 0
@@ -1734,7 +1734,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZN5
   br i1 %.not.i.i, label %54, label %17
 
 17:                                               ; preds = %5
-  %18 = getelementptr inbounds i8, ptr %0, i64 208
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %19 = udiv i32 %6, 42
   %20 = urem i32 %6, 42
   %.zext.i.i = zext nneg i32 %19 to i64
@@ -1745,7 +1745,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZN5
   br i1 %.not.i.i.i, label %24, label %_ZNK4llvm11PagedVectorIN5clang6SrcMgr9SLocEntryELm42EEixEm.exit.i.i
 
 24:                                               ; preds = %17
-  %25 = getelementptr inbounds i8, ptr %0, i64 224
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %.0.copyload.i.i.i.i.i.i = load i64, ptr %25, align 8
   %26 = and i64 %.0.copyload.i.i.i.i.i.i, -8
   %27 = inttoptr i64 %26 to ptr

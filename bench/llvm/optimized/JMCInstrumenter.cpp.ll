@@ -136,7 +136,7 @@ define dso_local void @_ZN4llvm19JMCInstrumenterPass3runERNS_6ModuleERNS_15Analy
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 0, ptr %11, align 8, !alias.scope !7
-  %12 = getelementptr inbounds i8, ptr %0, i64 68
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 68
   store i32 0, ptr %12, align 4, !alias.scope !7
   store ptr @_ZN4llvm17PreservedAnalyses14AllAnalysesKeyE, ptr %10, align 8, !alias.scope !7, !noalias !10
   br label %13
@@ -144,7 +144,7 @@ define dso_local void @_ZN4llvm19JMCInstrumenterPass3runERNS_6ModuleERNS_15Analy
 13:                                               ; preds = %9, %6
   %.sink4 = phi ptr [ %8, %6 ], [ %10, %9 ]
   %.sink2 = phi i32 [ 0, %6 ], [ 1, %9 ]
-  %.sink1 = getelementptr inbounds i8, ptr %0, i64 80
+  %.sink1 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store ptr %.sink4, ptr %0, align 8
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sink4, ptr %14, align 8
@@ -154,11 +154,11 @@ define dso_local void @_ZN4llvm19JMCInstrumenterPass3runERNS_6ModuleERNS_15Analy
   store i32 %.sink2, ptr %16, align 4
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr %.sink1, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 56
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store ptr %.sink1, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %0, i64 64
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i32 2, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %0, i64 72
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store i32 0, ptr %20, align 8
   ret void
 }
@@ -259,7 +259,7 @@ define internal fastcc noundef zeroext i1 @_ZL7runImplRN4llvm6ModuleE(ptr nounde
   br i1 %.not.i.i.i, label %_ZN4llvm8DenseMapIPNS_12DISubprogramEPNS_8ConstantENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S4_EEEC2Ej.exit, label %.lr.ph.i.i.i, !llvm.loop !13
 
 _ZN4llvm8DenseMapIPNS_12DISubprogramEPNS_8ConstantENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S4_EEEC2Ej.exit: ; preds = %.lr.ph.i.i.i, %62
-  %73 = getelementptr inbounds i8, ptr %0, i64 32
+  %73 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %74 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.sroa.093.0105 = load ptr, ptr %73, align 8
   %.not96106 = icmp eq ptr %.sroa.093.0105, %74
@@ -1074,7 +1074,7 @@ _ZN4llvm8CallInst6CreateEPNS_12FunctionTypeEPNS_5ValueENS_8ArrayRefIS4_EERKNS_5T
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   %439 = load ptr, ptr %145, align 8
   store ptr %439, ptr %42, align 8
-  %440 = getelementptr inbounds i8, ptr %108, i64 80
+  %440 = getelementptr inbounds nuw i8, ptr %108, i64 80
   store i16 257, ptr %104, align 8
   %441 = load ptr, ptr %440, align 8
   %442 = icmp eq ptr %441, null

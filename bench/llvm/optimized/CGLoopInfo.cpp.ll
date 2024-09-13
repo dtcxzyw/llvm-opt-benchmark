@@ -2079,13 +2079,13 @@ define dso_local void @_ZN5clang7CodeGen8LoopInfo6finishEv(ptr nocapture noundef
   br i1 %.not, label %109, label %17
 
 17:                                               ; preds = %10
-  %18 = getelementptr inbounds i8, ptr %16, i64 28
+  %18 = getelementptr inbounds nuw i8, ptr %16, i64 28
   %19 = load i32, ptr %18, align 4
   %.not16 = icmp eq i32 %19, 0
   br i1 %.not16, label %20, label %23
 
 20:                                               ; preds = %17
-  %21 = getelementptr inbounds i8, ptr %16, i64 52
+  %21 = getelementptr inbounds nuw i8, ptr %16, i64 52
   %22 = load i32, ptr %21, align 4
   %.not17 = icmp eq i32 %22, 0
   br i1 %.not17, label %109, label %23
@@ -2097,31 +2097,31 @@ define dso_local void @_ZN5clang7CodeGen8LoopInfo6finishEv(ptr nocapture noundef
   %25 = and i8 %24, 1
   store i8 %25, ptr %4, align 4
   store i8 %25, ptr %3, align 4
-  %26 = getelementptr inbounds i8, ptr %0, i64 36
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %27 = load i32, ptr %26, align 4
   %28 = getelementptr inbounds nuw i8, ptr %3, i64 20
   store i32 %27, ptr %28, align 4
-  %29 = getelementptr inbounds i8, ptr %0, i64 40
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %30 = load i32, ptr %29, align 8
   %31 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i32 %30, ptr %31, align 4
-  %32 = getelementptr inbounds i8, ptr %0, i64 44
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %33 = load i32, ptr %32, align 4
   %34 = getelementptr inbounds nuw i8, ptr %3, i64 28
   store i32 %33, ptr %34, align 4
-  %35 = getelementptr inbounds i8, ptr %0, i64 20
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %36 = load i32, ptr %35, align 4
   %37 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i32 %36, ptr %37, align 4
-  %38 = getelementptr inbounds i8, ptr %0, i64 56
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %39 = load i32, ptr %38, align 8
   %40 = getelementptr inbounds nuw i8, ptr %3, i64 40
   store i32 %39, ptr %40, align 4
-  %41 = getelementptr inbounds i8, ptr %0, i64 32
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %42 = load i32, ptr %41, align 8
   %43 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 %42, ptr %43, align 4
-  %44 = getelementptr inbounds i8, ptr %0, i64 24
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %45 = load i32, ptr %44, align 8
   switch i32 %45, label %49 [
     i32 0, label %46
@@ -2146,24 +2146,24 @@ define dso_local void @_ZN5clang7CodeGen8LoopInfo6finishEv(ptr nocapture noundef
 49:                                               ; preds = %.sink.split, %23
   %50 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i32 %42, ptr %50, align 4
-  %51 = getelementptr inbounds i8, ptr %0, i64 48
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %52 = load i32, ptr %51, align 8
   %53 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store i32 %52, ptr %53, align 4
-  %54 = getelementptr inbounds i8, ptr %0, i64 60
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %55 = load i8, ptr %54, align 4
   %56 = getelementptr inbounds nuw i8, ptr %4, i64 44
   %57 = and i8 %55, 1
   store i8 %57, ptr %56, align 4
-  %58 = getelementptr inbounds i8, ptr %0, i64 64
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %59 = load i32, ptr %58, align 8
   %60 = getelementptr inbounds nuw i8, ptr %4, i64 48
   store i32 %59, ptr %60, align 4
-  %61 = getelementptr inbounds i8, ptr %0, i64 52
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %62 = load i32, ptr %61, align 4
   %63 = getelementptr inbounds nuw i8, ptr %3, i64 36
   store i32 %62, ptr %63, align 4
-  %64 = getelementptr inbounds i8, ptr %0, i64 28
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %65 = load i32, ptr %64, align 4
   %66 = getelementptr inbounds nuw i8, ptr %3, i64 12
   store i32 %65, ptr %66, align 4

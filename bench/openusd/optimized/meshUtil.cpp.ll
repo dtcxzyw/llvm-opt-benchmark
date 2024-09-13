@@ -741,38 +741,38 @@ _ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoD2Ev.exit: ; preds = %.body
   br i1 %or.cond, label %.invoke, label %29
 
 29:                                               ; preds = %26
-  %30 = getelementptr inbounds i8, ptr %21, i64 24
+  %30 = getelementptr inbounds nuw i8, ptr %21, i64 24
   %31 = invoke noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIiE5cdataEv(ptr noundef nonnull align 8 dereferenceable(40) %30)
           to label %32 unwind label %.loopexit.split-lp
 
 32:                                               ; preds = %29
   %33 = load ptr, ptr %20, align 8
-  %34 = getelementptr inbounds i8, ptr %33, i64 64
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 64
   %35 = invoke noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIiE5cdataEv(ptr noundef nonnull align 8 dereferenceable(40) %34)
           to label %36 unwind label %.loopexit.split-lp
 
 36:                                               ; preds = %32
   %37 = load ptr, ptr %20, align 8
-  %38 = getelementptr inbounds i8, ptr %37, i64 104
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 104
   %39 = invoke noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIiE5cdataEv(ptr noundef nonnull align 8 dereferenceable(40) %38)
           to label %40 unwind label %.loopexit.split-lp
 
 40:                                               ; preds = %36
   %41 = load ptr, ptr %20, align 8
-  %42 = getelementptr inbounds i8, ptr %41, i64 24
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 24
   %43 = invoke noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIiE4sizeEv(ptr noundef nonnull align 8 dereferenceable(40) %42)
           to label %44 unwind label %.loopexit.split-lp
 
 44:                                               ; preds = %40
   %45 = trunc i64 %43 to i32
   %46 = load ptr, ptr %20, align 8
-  %47 = getelementptr inbounds i8, ptr %46, i64 64
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 64
   %48 = invoke noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIiE4sizeEv(ptr noundef nonnull align 8 dereferenceable(40) %47)
           to label %49 unwind label %.loopexit.split-lp
 
 49:                                               ; preds = %44
   %50 = load ptr, ptr %20, align 8
-  %51 = getelementptr inbounds i8, ptr %50, i64 104
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 104
   %52 = invoke noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIiE4sizeEv(ptr noundef nonnull align 8 dereferenceable(40) %51)
           to label %53 unwind label %.loopexit.split-lp
 
@@ -867,7 +867,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoD2Ev.exit: ; preds = %.body
 
 85:                                               ; preds = %83, %84
   %86 = load ptr, ptr %20, align 8
-  %87 = getelementptr inbounds i8, ptr %86, i64 16
+  %87 = getelementptr inbounds nuw i8, ptr %86, i64 16
   %88 = load atomic i64, ptr @_ZN32pxrInternal_v0_24__pxrReserved__8HdTokensE seq_cst, align 8
   %89 = inttoptr i64 %88 to ptr
   %.not.i.i = icmp eq i64 %88, 0
@@ -1338,7 +1338,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoC2ERKNS_18TraceStaticKeyDat
           to label %1171 unwind label %48
 
 53:                                               ; preds = %50
-  %54 = getelementptr inbounds i8, ptr %46, i64 24
+  %54 = getelementptr inbounds nuw i8, ptr %46, i64 24
   %55 = getelementptr inbounds nuw i8, ptr %46, i64 488
   %56 = load i32, ptr %55, align 8
   %57 = icmp sgt i32 %56, 0
@@ -1349,13 +1349,13 @@ _ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoC2ERKNS_18TraceStaticKeyDat
           to label %61 unwind label %48
 
 59:                                               ; preds = %53
-  %60 = getelementptr inbounds i8, ptr %46, i64 104
+  %60 = getelementptr inbounds nuw i8, ptr %46, i64 104
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIiEC1ERKS1_(ptr noundef nonnull align 8 dereferenceable(40) %34, ptr noundef nonnull align 8 dereferenceable(40) %60)
           to label %61 unwind label %48
 
 61:                                               ; preds = %58, %59
   %62 = load ptr, ptr %45, align 8
-  %63 = getelementptr inbounds i8, ptr %62, i64 16
+  %63 = getelementptr inbounds nuw i8, ptr %62, i64 16
   %64 = load atomic i64, ptr @_ZN32pxrInternal_v0_24__pxrReserved__8HdTokensE seq_cst, align 8
   %65 = inttoptr i64 %64 to ptr
   %.not.i.i = icmp eq i64 %64, 0
@@ -5196,39 +5196,39 @@ _ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoD2Ev.exit: ; preds = %.loop
           to label %166 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 25:                                               ; preds = %22
-  %26 = getelementptr inbounds i8, ptr %18, i64 24
+  %26 = getelementptr inbounds nuw i8, ptr %18, i64 24
   %27 = invoke noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIiE5cdataEv(ptr noundef nonnull align 8 dereferenceable(40) %26)
           to label %28 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 28:                                               ; preds = %25
   %29 = load ptr, ptr %17, align 8
-  %30 = getelementptr inbounds i8, ptr %29, i64 64
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 64
   %31 = invoke noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIiE5cdataEv(ptr noundef nonnull align 8 dereferenceable(40) %30)
           to label %32 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 32:                                               ; preds = %28
   %33 = load ptr, ptr %17, align 8
-  %34 = getelementptr inbounds i8, ptr %33, i64 104
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 104
   %35 = invoke noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIiE5cdataEv(ptr noundef nonnull align 8 dereferenceable(40) %34)
           to label %36 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 36:                                               ; preds = %32
   %37 = load ptr, ptr %17, align 8
-  %38 = getelementptr inbounds i8, ptr %37, i64 24
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 24
   %39 = invoke noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIiE4sizeEv(ptr noundef nonnull align 8 dereferenceable(40) %38)
           to label %40 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 40:                                               ; preds = %36
   %41 = trunc i64 %39 to i32
   %42 = load ptr, ptr %17, align 8
-  %43 = getelementptr inbounds i8, ptr %42, i64 64
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 64
   %44 = invoke noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIiE4sizeEv(ptr noundef nonnull align 8 dereferenceable(40) %43)
           to label %45 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 45:                                               ; preds = %40
   %46 = trunc i64 %44 to i32
   %47 = load ptr, ptr %17, align 8
-  %48 = getelementptr inbounds i8, ptr %47, i64 104
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 104
   %49 = invoke noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIiE4sizeEv(ptr noundef nonnull align 8 dereferenceable(40) %48)
           to label %50 unwind label %.loopexit.split-lp.loopexit.split-lp
 
@@ -5241,7 +5241,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoD2Ev.exit: ; preds = %.loop
 54:                                               ; preds = %50
   %55 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %56 = load ptr, ptr %55, align 8
-  %57 = getelementptr inbounds i8, ptr %1, i64 24
+  %57 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %58 = load ptr, ptr %57, align 8
   %.not.i.i = icmp eq ptr %58, %56
   br i1 %.not.i.i, label %_ZNSt6vectorIiSaIiEE5clearEv.exit, label %59
@@ -5253,7 +5253,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoD2Ev.exit: ; preds = %.loop
 _ZNSt6vectorIiSaIiEE5clearEv.exit:                ; preds = %54, %59
   %60 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %61 = load ptr, ptr %60, align 8
-  %62 = getelementptr inbounds i8, ptr %1, i64 48
+  %62 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %63 = load ptr, ptr %62, align 8
   %.not.i.i50 = icmp eq ptr %63, %61
   br i1 %.not.i.i50, label %_ZNSt6vectorIiSaIiEE5clearEv.exit51, label %64
@@ -5268,8 +5268,8 @@ _ZNSt6vectorIiSaIiEE5clearEv.exit51:              ; preds = %_ZNSt6vectorIiSaIiE
   br i1 %65, label %.lr.ph122, label %.critedge
 
 .lr.ph122:                                        ; preds = %_ZNSt6vectorIiSaIiEE5clearEv.exit51
-  %66 = getelementptr inbounds i8, ptr %1, i64 32
-  %67 = getelementptr inbounds i8, ptr %1, i64 56
+  %66 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %67 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %wide.trip.count = and i64 %39, 2147483647
   br label %68
 
@@ -5635,39 +5635,39 @@ _ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoD2Ev.exit: ; preds = %.body
           to label %241 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 31:                                               ; preds = %27
-  %32 = getelementptr inbounds i8, ptr %23, i64 24
+  %32 = getelementptr inbounds nuw i8, ptr %23, i64 24
   %33 = invoke noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIiE5cdataEv(ptr noundef nonnull align 8 dereferenceable(40) %32)
           to label %34 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 34:                                               ; preds = %31
   %35 = load ptr, ptr %22, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 64
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 64
   %37 = invoke noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIiE5cdataEv(ptr noundef nonnull align 8 dereferenceable(40) %36)
           to label %38 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 38:                                               ; preds = %34
   %39 = load ptr, ptr %22, align 8
-  %40 = getelementptr inbounds i8, ptr %39, i64 104
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 104
   %41 = invoke noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIiE5cdataEv(ptr noundef nonnull align 8 dereferenceable(40) %40)
           to label %42 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 42:                                               ; preds = %38
   %43 = load ptr, ptr %22, align 8
-  %44 = getelementptr inbounds i8, ptr %43, i64 24
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 24
   %45 = invoke noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIiE4sizeEv(ptr noundef nonnull align 8 dereferenceable(40) %44)
           to label %46 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 46:                                               ; preds = %42
   %47 = trunc i64 %45 to i32
   %48 = load ptr, ptr %22, align 8
-  %49 = getelementptr inbounds i8, ptr %48, i64 64
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 64
   %50 = invoke noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIiE4sizeEv(ptr noundef nonnull align 8 dereferenceable(40) %49)
           to label %51 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 51:                                               ; preds = %46
   %52 = trunc i64 %50 to i32
   %53 = load ptr, ptr %22, align 8
-  %54 = getelementptr inbounds i8, ptr %53, i64 104
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 104
   %55 = invoke noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIiE4sizeEv(ptr noundef nonnull align 8 dereferenceable(40) %54)
           to label %56 unwind label %.loopexit.split-lp.loopexit.split-lp
 
@@ -5680,8 +5680,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoD2Ev.exit: ; preds = %.body
 60:                                               ; preds = %56
   store i8 0, ptr %10, align 1
   %61 = load ptr, ptr %22, align 8
-  %62 = getelementptr inbounds i8, ptr %61, i64 24
-  %63 = getelementptr inbounds i8, ptr %61, i64 104
+  %62 = getelementptr inbounds nuw i8, ptr %61, i64 24
+  %63 = getelementptr inbounds nuw i8, ptr %61, i64 104
   %64 = invoke noundef i32 @_ZNK32pxrInternal_v0_24__pxrReserved__10HdMeshUtil16_ComputeNumQuadsERKNS_7VtArrayIiEES4_Pb(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(40) %62, ptr noundef nonnull align 8 dereferenceable(40) %63, ptr noundef nonnull %10)
           to label %65 unwind label %.loopexit.split-lp.loopexit.split-lp
 
@@ -5738,7 +5738,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoD2Ev.exit: ; preds = %.body
 
 87:                                               ; preds = %85, %86
   %88 = load ptr, ptr %22, align 8
-  %89 = getelementptr inbounds i8, ptr %88, i64 16
+  %89 = getelementptr inbounds nuw i8, ptr %88, i64 16
   %90 = load atomic i64, ptr @_ZN32pxrInternal_v0_24__pxrReserved__8HdTokensE seq_cst, align 8
   %91 = inttoptr i64 %90 to ptr
   %.not.i.i = icmp eq i64 %90, 0
@@ -6329,7 +6329,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoD2Ev.exit: ; preds = %.body
 .loopexit57.i:                                    ; preds = %77, %71, %58
   %81 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %82 = load ptr, ptr %81, align 8
-  %83 = getelementptr inbounds i8, ptr %1, i64 24
+  %83 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %84 = load ptr, ptr %83, align 8
   %.not5368.i = icmp eq ptr %82, %84
   br i1 %.not5368.i, label %._crit_edge74.i, label %.lr.ph73.i
@@ -6528,7 +6528,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__L14_QuadrangulateIfEEvRKNS_7SdfPathEPKviPKN
 .loopexit65.i:                                    ; preds = %158, %152, %139
   %162 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %163 = load ptr, ptr %162, align 8
-  %164 = getelementptr inbounds i8, ptr %1, i64 24
+  %164 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %165 = load ptr, ptr %164, align 8
   %.not6179.i = icmp eq ptr %163, %165
   br i1 %.not6179.i, label %._crit_edge85.i, label %.lr.ph84.i
@@ -6750,7 +6750,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__L14_QuadrangulateINS_7GfVec2fEEEvRKNS_7SdfP
 .loopexit74.i:                                    ; preds = %252, %246, %233
   %256 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %257 = load ptr, ptr %256, align 8
-  %258 = getelementptr inbounds i8, ptr %1, i64 24
+  %258 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %259 = load ptr, ptr %258, align 8
   %.not7091.i = icmp eq ptr %257, %259
   br i1 %.not7091.i, label %._crit_edge97.i, label %.lr.ph96.i
@@ -6986,7 +6986,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__L14_QuadrangulateINS_7GfVec3fEEEvRKNS_7SdfP
 .loopexit73.i:                                    ; preds = %355, %349, %336
   %359 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %360 = load ptr, ptr %359, align 8
-  %361 = getelementptr inbounds i8, ptr %1, i64 24
+  %361 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %362 = load ptr, ptr %361, align 8
   %.not6993.i = icmp eq ptr %360, %362
   br i1 %.not6993.i, label %._crit_edge99.i, label %.lr.ph98.i
@@ -7240,7 +7240,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__L14_QuadrangulateINS_7GfVec4fEEEvRKNS_7SdfP
 .loopexit57.i115:                                 ; preds = %468, %462, %449
   %472 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %473 = load ptr, ptr %472, align 8
-  %474 = getelementptr inbounds i8, ptr %1, i64 24
+  %474 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %475 = load ptr, ptr %474, align 8
   %.not5368.i116 = icmp eq ptr %473, %475
   br i1 %.not5368.i116, label %._crit_edge74.i127, label %.lr.ph73.i117
@@ -7437,7 +7437,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__L14_QuadrangulateIdEEvRKNS_7SdfPathEPKviPKN
 .loopexit63.i:                                    ; preds = %549, %543, %530
   %553 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %554 = load ptr, ptr %553, align 8
-  %555 = getelementptr inbounds i8, ptr %1, i64 24
+  %555 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %556 = load ptr, ptr %555, align 8
   %.not5977.i = icmp eq ptr %554, %556
   br i1 %.not5977.i, label %._crit_edge83.i, label %.lr.ph82.i
@@ -7651,7 +7651,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__L14_QuadrangulateINS_7GfVec2dEEEvRKNS_7SdfP
 .loopexit69.i:                                    ; preds = %638, %632, %619
   %642 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %643 = load ptr, ptr %642, align 8
-  %644 = getelementptr inbounds i8, ptr %1, i64 24
+  %644 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %645 = load ptr, ptr %644, align 8
   %.not6586.i = icmp eq ptr %643, %645
   br i1 %.not6586.i, label %._crit_edge92.i, label %.lr.ph91.i
@@ -7881,7 +7881,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__L14_QuadrangulateINS_7GfVec3dEEEvRKNS_7SdfP
 .loopexit76.i:                                    ; preds = %735, %729, %716
   %739 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %740 = load ptr, ptr %739, align 8
-  %741 = getelementptr inbounds i8, ptr %1, i64 24
+  %741 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %742 = load ptr, ptr %741, align 8
   %.not7296.i = icmp eq ptr %740, %742
   br i1 %.not7296.i, label %._crit_edge102.i, label %.lr.ph101.i
@@ -8153,7 +8153,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoC2ERKNS_18TraceStaticKeyDat
           to label %2528 unwind label %48
 
 53:                                               ; preds = %50
-  %54 = getelementptr inbounds i8, ptr %46, i64 24
+  %54 = getelementptr inbounds nuw i8, ptr %46, i64 24
   %55 = getelementptr inbounds nuw i8, ptr %46, i64 488
   %56 = load i32, ptr %55, align 8
   %57 = icmp sgt i32 %56, 0
@@ -8164,13 +8164,13 @@ _ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoC2ERKNS_18TraceStaticKeyDat
           to label %61 unwind label %48
 
 59:                                               ; preds = %53
-  %60 = getelementptr inbounds i8, ptr %46, i64 104
+  %60 = getelementptr inbounds nuw i8, ptr %46, i64 104
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIiEC1ERKS1_(ptr noundef nonnull align 8 dereferenceable(40) %34, ptr noundef nonnull align 8 dereferenceable(40) %60)
           to label %61 unwind label %48
 
 61:                                               ; preds = %58, %59
   %62 = load ptr, ptr %45, align 8
-  %63 = getelementptr inbounds i8, ptr %62, i64 16
+  %63 = getelementptr inbounds nuw i8, ptr %62, i64 16
   %64 = load atomic i64, ptr @_ZN32pxrInternal_v0_24__pxrReserved__8HdTokensE seq_cst, align 8
   %65 = inttoptr i64 %64 to ptr
   %.not.i.i = icmp eq i64 %64, 0
@@ -13859,19 +13859,19 @@ _ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoD2Ev.exit: ; preds = %.body
           to label %.loopexit91 unwind label %19
 
 26:                                               ; preds = %23
-  %27 = getelementptr inbounds i8, ptr %17, i64 24
+  %27 = getelementptr inbounds nuw i8, ptr %17, i64 24
   %28 = invoke noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIiE5cdataEv(ptr noundef nonnull align 8 dereferenceable(40) %27)
           to label %29 unwind label %19
 
 29:                                               ; preds = %26
   %30 = load ptr, ptr %16, align 8
-  %31 = getelementptr inbounds i8, ptr %30, i64 64
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 64
   %32 = invoke noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIiE5cdataEv(ptr noundef nonnull align 8 dereferenceable(40) %31)
           to label %33 unwind label %19
 
 33:                                               ; preds = %29
   %34 = load ptr, ptr %16, align 8
-  %35 = getelementptr inbounds i8, ptr %34, i64 24
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 24
   %36 = invoke noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIiE4sizeEv(ptr noundef nonnull align 8 dereferenceable(40) %35)
           to label %37 unwind label %19
 
@@ -13941,7 +13941,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoD2Ev.exit: ; preds = %.body
 
 70:                                               ; preds = %59, %61, %67, %69
   %71 = load ptr, ptr %16, align 8
-  %72 = getelementptr inbounds i8, ptr %71, i64 16
+  %72 = getelementptr inbounds nuw i8, ptr %71, i64 16
   %73 = load atomic i64, ptr @_ZN32pxrInternal_v0_24__pxrReserved__8HdTokensE seq_cst, align 8
   %74 = inttoptr i64 %73 to ptr
   %.not.i.i56 = icmp eq i64 %73, 0
@@ -14129,7 +14129,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit:
   store ptr %1, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i32 0, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %2, i64 20
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 20
   store i32 0, ptr %6, align 4
   invoke void @_ZNK32pxrInternal_v0_24__pxrReserved__10HdMeshUtil14EnumerateEdgesEPSt6vectorINS_7GfVec2iESaIS2_EE(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull %0)
           to label %7 unwind label %46
@@ -14142,7 +14142,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit:
   %12 = ptrtoint ptr %10 to i64
   %13 = sub i64 %11, %12
   %14 = ashr exact i64 %13, 3
-  %15 = getelementptr inbounds i8, ptr %0, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %16 = load ptr, ptr %15, align 8
   %17 = load ptr, ptr %3, align 8
   %18 = ptrtoint ptr %16 to i64
@@ -14220,7 +14220,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__20HdMeshEdgeIndexTable5_EdgeC2ERKNS_7GfVec2
   br i1 %.not.i.i.i10, label %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__20HdMeshEdgeIndexTable5_EdgeESaIS2_EED2Ev.exit, label %49
 
 49:                                               ; preds = %46
-  %50 = getelementptr inbounds i8, ptr %0, i64 40
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %51 = load ptr, ptr %50, align 8
   %52 = ptrtoint ptr %51 to i64
   %53 = ptrtoint ptr %48 to i64
@@ -14319,7 +14319,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__20HdMeshEdgeIndexTableD2Ev(ptr
   br i1 %.not.i.i.i, label %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__20HdMeshEdgeIndexTable5_EdgeESaIS2_EED2Ev.exit, label %4
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 40
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %6 = load ptr, ptr %5, align 8
   %7 = ptrtoint ptr %6 to i64
   %8 = ptrtoint ptr %3 to i64
@@ -14387,7 +14387,7 @@ define noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__20HdMeshEdgeInd
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, i8 0, i64 16, i1 false)
   store float 1.000000e+00, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %5, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %11, i8 0, i64 16, i1 false)
   %12 = load ptr, ptr %1, align 8
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -14553,7 +14553,7 @@ define noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__20HdMeshEdgeInd
 _ZN32pxrInternal_v0_24__pxrReserved__20HdMeshEdgeIndexTable5_EdgeC2ERKNS_7GfVec2iEi.exit: ; preds = %3, %11
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %16 = load ptr, ptr %15, align 8
   %17 = call { ptr, ptr } @_ZSt13__equal_rangeIN9__gnu_cxx17__normal_iteratorIPKN32pxrInternal_v0_24__pxrReserved__20HdMeshEdgeIndexTable5_EdgeESt6vectorIS4_SaIS4_EEEES4_NS0_5__ops14_Iter_comp_valINS3_20_CompareEdgeVerticesEEENSB_14_Val_comp_iterISD_EEESt4pairIT_SI_ESI_SI_RKT0_T1_T2_(ptr %14, ptr %16, ptr noundef nonnull align 4 dereferenceable(12) %4)
   %18 = extractvalue { ptr, ptr } %17, 0
@@ -19401,7 +19401,7 @@ _ZNKSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__7GfVec2iES1_SaIS1_ENSt8__d
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr ptr @_ZNSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__7GfVec2iES1_SaIS1_ENSt8__detail9_IdentityESt8equal_toIS1_ENS0_20HdMeshEdgeIndexTable17_EdgeVerticesHashENS3_18_Mod_range_hashingENS3_20_Default_ranged_hashENS3_20_Prime_rehash_policyENS3_17_Hashtable_traitsILb1ELb1ELb1EEEE21_M_insert_unique_nodeEmmPNS3_10_Hash_nodeIS1_Lb1EEEm(ptr noundef nonnull align 8 dereferenceable(56) %0, i64 noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %7 = getelementptr inbounds i8, ptr %0, i64 40
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %8 = load i64, ptr %7, align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load i64, ptr %9, align 8

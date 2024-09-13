@@ -565,7 +565,7 @@ _ZL16isSuitableForBSSPKN4llvm14GlobalVariableE.exit: ; preds = %13
   br i1 %.not.i, label %19, label %_ZL16isSuitableForBSSPKN4llvm14GlobalVariableE.exit.thread
 
 19:                                               ; preds = %_ZL16isSuitableForBSSPKN4llvm14GlobalVariableE.exit
-  %20 = getelementptr inbounds i8, ptr %1, i64 880
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 880
   %21 = load i16, ptr %20, align 8
   %22 = and i16 %21, 256
   %.not46 = icmp eq i16 %22, 0
@@ -604,7 +604,7 @@ _ZL16isSuitableForBSSPKN4llvm14GlobalVariableE.exit: ; preds = %13
   br i1 %or.cond.not, label %_ZL16isSuitableForBSSPKN4llvm14GlobalVariableE.exit49.thread, label %38
 
 38:                                               ; preds = %33
-  %39 = getelementptr inbounds i8, ptr %1, i64 880
+  %39 = getelementptr inbounds nuw i8, ptr %1, i64 880
   %40 = load i16, ptr %39, align 8
   %41 = and i16 %40, 256
   %.not = icmp eq i16 %41, 0

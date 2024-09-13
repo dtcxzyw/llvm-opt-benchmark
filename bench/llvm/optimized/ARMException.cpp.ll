@@ -219,7 +219,7 @@ _ZNK4llvm8Function21needsUnwindTableEntryEv.exit: ; preds = %24
   %.027 = phi ptr [ %spec.select.i.i, %19 ], [ %spec.select.i.i, %13 ], [ %spec.select.i.i, %_ZNK4llvm8Function21needsUnwindTableEntryEv.exit ], [ null, %2 ]
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 432
   %29 = load ptr, ptr %28, align 8
-  %30 = getelementptr inbounds i8, ptr %1, i64 440
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 440
   %31 = load ptr, ptr %30, align 8
   %32 = icmp ne ptr %29, %31
   br label %_ZNK4llvm8Function21needsUnwindTableEntryEv.exit.thread
@@ -329,7 +329,7 @@ define hidden void @_ZN4llvm12ARMException13emitTypeInfosEjPNS_8MCSymbolE(ptr no
 
 20:                                               ; preds = %3
   %21 = load ptr, ptr %12, align 8
-  %22 = getelementptr inbounds i8, ptr %11, i64 576
+  %22 = getelementptr inbounds nuw i8, ptr %11, i64 576
   %23 = load ptr, ptr %22, align 8
   %24 = icmp eq ptr %21, %23
   br i1 %24, label %47, label %25
@@ -371,7 +371,7 @@ define hidden void @_ZN4llvm12ARMException13emitTypeInfosEjPNS_8MCSymbolE(ptr no
   br i1 %.not5355, label %._crit_edge, label %.lr.ph
 
 .thread:                                          ; preds = %3
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %11, i64 576
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %11, i64 576
   %.pre = load ptr, ptr %.phi.trans.insert, align 8, !noalias !4
   %.pre105 = load ptr, ptr %12, align 8, !noalias !15
   %.not5355109 = icmp eq ptr %.pre, %.pre105
@@ -435,7 +435,7 @@ _ZN4llvmplERKNS_5TwineES2_.exit.us:               ; preds = %.lr.ph, %_ZN4llvmpl
   %78 = load ptr, ptr %77, align 8
   call void %78(ptr noundef nonnull align 8 dereferenceable(288) %75, ptr noundef %2, ptr null) #5
   %.pre107 = load ptr, ptr %13, align 8
-  %79 = getelementptr inbounds i8, ptr %11, i64 600
+  %79 = getelementptr inbounds nuw i8, ptr %11, i64 600
   %80 = load ptr, ptr %79, align 8
   br i1 %19, label %81, label %.thread113
 
@@ -469,7 +469,7 @@ _ZN4llvmplERKNS_5TwineES2_.exit.us:               ; preds = %.lr.ph, %_ZN4llvmpl
 98:                                               ; preds = %83, %81
   %99 = phi ptr [ %.pre107, %81 ], [ %.pre106, %83 ]
   %.3 = phi i32 [ %.1.lcssa, %81 ], [ 0, %83 ]
-  %100 = getelementptr inbounds i8, ptr %11, i64 600
+  %100 = getelementptr inbounds nuw i8, ptr %11, i64 600
   %101 = load ptr, ptr %100, align 8
   %102 = icmp ult ptr %99, %101
   br i1 %102, label %.lr.ph75, label %._crit_edge76

@@ -76,7 +76,7 @@ define dso_local void @_ZN4llvm10TypeFinder3runERKNS_6ModuleEb(ptr noundef nonnu
   %9 = zext i1 %2 to i8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 120
   store i8 %9, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %1, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.0260.0300 = load ptr, ptr %11, align 8
   %.not269301 = icmp eq ptr %.sroa.0260.0300, %12
@@ -106,7 +106,7 @@ define dso_local void @_ZN4llvm10TypeFinder3runERKNS_6ModuleEb(ptr noundef nonnu
   br i1 %.not269, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %22, %3
-  %24 = getelementptr inbounds i8, ptr %1, i64 48
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %.sroa.0254.0303 = load ptr, ptr %24, align 8
   %.not270304 = icmp eq ptr %.sroa.0254.0303, %25
@@ -136,7 +136,7 @@ define dso_local void @_ZN4llvm10TypeFinder3runERKNS_6ModuleEb(ptr noundef nonnu
   br i1 %.not270, label %._crit_edge308, label %.lr.ph307
 
 ._crit_edge308:                                   ; preds = %34, %._crit_edge
-  %36 = getelementptr inbounds i8, ptr %1, i64 64
+  %36 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %.sroa.0248.0309 = load ptr, ptr %36, align 8
   %.not271310 = icmp eq ptr %.sroa.0248.0309, %37
@@ -158,7 +158,7 @@ define dso_local void @_ZN4llvm10TypeFinder3runERKNS_6ModuleEb(ptr noundef nonnu
 ._crit_edge314:                                   ; preds = %.lr.ph313, %._crit_edge308
   %44 = getelementptr inbounds i8, ptr %7, i64 16
   call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull %44, i64 noundef 4) #12
-  %45 = getelementptr inbounds i8, ptr %1, i64 32
+  %45 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %46 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %.sroa.0244.0352 = load ptr, ptr %45, align 8
   %.not272353 = icmp eq ptr %.sroa.0244.0352, %46
@@ -166,9 +166,9 @@ define dso_local void @_ZN4llvm10TypeFinder3runERKNS_6ModuleEb(ptr noundef nonnu
 
 .lr.ph356:                                        ; preds = %._crit_edge314
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %48 = getelementptr inbounds i8, ptr %0, i64 64
-  %49 = getelementptr inbounds i8, ptr %0, i64 56
-  %50 = getelementptr inbounds i8, ptr %0, i64 60
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %51 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %52 = getelementptr inbounds nuw i8, ptr %8, i64 8
   br label %53
@@ -262,7 +262,7 @@ _ZNK4llvm8Function4argsEv.exit:                   ; preds = %_ZNK4llvm8Function9
   br i1 %.not116, label %._crit_edge322, label %.lr.ph321
 
 ._crit_edge322:                                   ; preds = %.lr.ph321, %_ZNK4llvm8Function4argsEv.exit
-  %90 = getelementptr inbounds i8, ptr %56, i64 80
+  %90 = getelementptr inbounds nuw i8, ptr %56, i64 80
   %91 = getelementptr inbounds nuw i8, ptr %56, i64 72
   %.sroa.0236.0346 = load ptr, ptr %90, align 8
   %.not275347 = icmp eq ptr %.sroa.0236.0346, %91
@@ -273,7 +273,7 @@ _ZNK4llvm8Function4argsEv.exit:                   ; preds = %_ZNK4llvm8Function9
   %92 = icmp eq ptr %.sroa.0236.0348, null
   %93 = getelementptr inbounds i8, ptr %.sroa.0236.0348, i64 -24
   %94 = select i1 %92, ptr null, ptr %93
-  %95 = getelementptr inbounds i8, ptr %94, i64 56
+  %95 = getelementptr inbounds nuw i8, ptr %94, i64 56
   %96 = getelementptr inbounds nuw i8, ptr %94, i64 48
   %.sroa.0232.0340 = load ptr, ptr %95, align 8
   %.not276341 = icmp eq ptr %.sroa.0232.0340, %96
@@ -988,7 +988,7 @@ _ZN4llvm17DbgVariableRecord20location_op_iteratordeEv.exit: ; preds = %.lr.ph334
   br i1 %.not272, label %._crit_edge357, label %53
 
 ._crit_edge357:                                   ; preds = %._crit_edge351, %._crit_edge314
-  %401 = getelementptr inbounds i8, ptr %1, i64 80
+  %401 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %402 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %.sroa.0213.0363 = load ptr, ptr %401, align 8
   %.not273364 = icmp eq ptr %.sroa.0213.0363, %402
@@ -1035,7 +1035,7 @@ define dso_local void @_ZN4llvm10TypeFinder15incorporateTypeEPNS_4TypeE(ptr noun
   store ptr %1, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %6 = load ptr, ptr %5, align 8, !noalias !22
-  %7 = getelementptr inbounds i8, ptr %0, i64 88
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %8 = load i32, ptr %7, align 8, !noalias !22
   %9 = icmp eq i32 %8, 0
   br i1 %9, label %35, label %10
@@ -1111,10 +1111,10 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_4TypeELb1EE9push_backES2_.exit: ; preds = 
   call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %4, i64 noundef %49) #12
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %52 = getelementptr inbounds i8, ptr %0, i64 104
-  %53 = getelementptr inbounds i8, ptr %0, i64 112
-  %54 = getelementptr inbounds i8, ptr %0, i64 80
-  %55 = getelementptr inbounds i8, ptr %0, i64 84
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 104
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 84
   br label %56
 
 56:                                               ; preds = %._crit_edge, %_ZN4llvm23SmallVectorTemplateBaseIPNS_4TypeELb1EE9push_backES2_.exit
@@ -1914,7 +1914,7 @@ define dso_local void @_ZN4llvm10TypeFinder21incorporateAttributesENS_13Attribut
   store ptr %1, ptr %3, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %7 = load ptr, ptr %6, align 8, !noalias !42
-  %8 = getelementptr inbounds i8, ptr %0, i64 64
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %9 = load i32, ptr %8, align 8, !noalias !42
   %10 = icmp eq i32 %9, 0
   br i1 %10, label %33, label %11
@@ -2012,7 +2012,7 @@ define dso_local void @_ZN4llvm10TypeFinder17incorporateMDNodeEPKNS_6MDNodeE(ptr
   store ptr %1, ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8, !noalias !47
-  %6 = getelementptr inbounds i8, ptr %0, i64 40
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %7 = load i32, ptr %6, align 8, !noalias !47
   %8 = icmp eq i32 %7, 0
   br i1 %8, label %34, label %9
@@ -2176,10 +2176,10 @@ define dso_local void @_ZN4llvm10TypeFinder5clearEv(ptr noundef nonnull align 8 
 
 _ZN4llvm6detail12DenseSetImplIPKNS_5ValueENS_8DenseMapIS4_NS0_13DenseSetEmptyENS_12DenseMapInfoIS4_vEENS0_12DenseSetPairIS4_EEEES8_E5clearEv.exit: ; preds = %1, %14, %._crit_edge.i.i
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %21 = getelementptr inbounds i8, ptr %0, i64 80
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %22 = load i32, ptr %21, align 8
   %23 = icmp eq i32 %22, 0
-  %24 = getelementptr inbounds i8, ptr %0, i64 84
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 84
   %25 = load i32, ptr %24, align 4
   %26 = icmp eq i32 %25, 0
   %or.cond.i1 = select i1 %23, i1 %26, i1 false
@@ -2187,7 +2187,7 @@ _ZN4llvm6detail12DenseSetImplIPKNS_5ValueENS_8DenseMapIS4_NS0_13DenseSetEmptyENS
 
 27:                                               ; preds = %_ZN4llvm6detail12DenseSetImplIPKNS_5ValueENS_8DenseMapIS4_NS0_13DenseSetEmptyENS_12DenseMapInfoIS4_vEENS0_12DenseSetPairIS4_EEEES8_E5clearEv.exit
   %28 = shl i32 %22, 2
-  %29 = getelementptr inbounds i8, ptr %0, i64 88
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %30 = load i32, ptr %29, align 8
   %31 = icmp ult i32 %28, %30
   %32 = icmp ugt i32 %30, 64
@@ -2220,7 +2220,7 @@ _ZN4llvm6detail12DenseSetImplIPKNS_5ValueENS_8DenseMapIS4_NS0_13DenseSetEmptyENS
 _ZN4llvm6detail12DenseSetImplIPNS_4TypeENS_8DenseMapIS3_NS0_13DenseSetEmptyENS_12DenseMapInfoIS3_vEENS0_12DenseSetPairIS3_EEEES7_E5clearEv.exit: ; preds = %_ZN4llvm6detail12DenseSetImplIPKNS_5ValueENS_8DenseMapIS4_NS0_13DenseSetEmptyENS_12DenseMapInfoIS4_vEENS0_12DenseSetPairIS4_EEEES8_E5clearEv.exit, %33, %._crit_edge.i.i7
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %40 = load ptr, ptr %39, align 8
-  %41 = getelementptr inbounds i8, ptr %0, i64 104
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %42 = load ptr, ptr %41, align 8
   %.not.i.i8 = icmp eq ptr %42, %40
   br i1 %.not.i.i8, label %_ZNSt6vectorIPN4llvm10StructTypeESaIS2_EE5clearEv.exit, label %43

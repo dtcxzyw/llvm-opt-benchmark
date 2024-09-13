@@ -459,7 +459,7 @@ declare void @_ZN4llvm8LoopBaseINS_10BasicBlockENS_4LoopEE19addBasicBlockToLoopE
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local noundef nonnull ptr @_ZN4llvm8TileInfo16CreateTiledLoopsEPNS_10BasicBlockES2_RNS_13IRBuilderBaseERNS_14DomTreeUpdaterERNS_8LoopInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(88) %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(128) %3, ptr noundef nonnull align 8 dereferenceable(440) %4, ptr noundef nonnull align 8 dereferenceable(144) %5) local_unnamed_addr #0 align 2 {
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 48
-  %8 = getelementptr inbounds i8, ptr %5, i64 128
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 128
   %9 = load i64, ptr %8, align 8
   %10 = add i64 %9, 152
   store i64 %10, ptr %8, align 8
@@ -468,7 +468,7 @@ define dso_local noundef nonnull ptr @_ZN4llvm8TileInfo16CreateTiledLoopsEPNS_10
   %13 = add i64 %12, 7
   %14 = and i64 %13, -8
   %15 = add i64 %14, 152
-  %16 = getelementptr inbounds i8, ptr %5, i64 56
+  %16 = getelementptr inbounds nuw i8, ptr %5, i64 56
   %17 = load ptr, ptr %16, align 8
   %18 = ptrtoint ptr %17 to i64
   %.not.i.i.i.i.i = icmp ugt i64 %15, %18
@@ -600,7 +600,7 @@ _ZN4llvm12LoopInfoBaseINS_10BasicBlockENS_4LoopEE12AllocateLoopIJEEEPS2_DpOT_.ex
   %81 = tail call noundef ptr @_ZN4llvm8TileInfo10CreateLoopEPNS_10BasicBlockES2_PNS_5ValueES4_NS_9StringRefERNS_13IRBuilderBaseERNS_14DomTreeUpdaterEPNS_4LoopERNS_8LoopInfoE(ptr noundef %1, ptr noundef %2, ptr noundef %74, ptr noundef %80, ptr nonnull @.str.6, i64 4, ptr noundef nonnull align 8 dereferenceable(128) %3, ptr noundef nonnull align 8 dereferenceable(440) %4, ptr noundef nonnull %.0.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(144) %5)
   %82 = tail call noundef ptr @_ZNK4llvm10BasicBlock18getSingleSuccessorEv(ptr noundef nonnull align 8 dereferenceable(80) %81) #6
   %83 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %84 = getelementptr inbounds i8, ptr %0, i64 56
+  %84 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store ptr %82, ptr %84, align 8
   %85 = load i32, ptr %0, align 8
   %86 = zext i32 %85 to i64
@@ -615,7 +615,7 @@ _ZN4llvm12LoopInfoBaseINS_10BasicBlockENS_4LoopEE12AllocateLoopIJEEEPS2_DpOT_.ex
   %95 = tail call noundef ptr @_ZN4llvm8TileInfo10CreateLoopEPNS_10BasicBlockES2_PNS_5ValueES4_NS_9StringRefERNS_13IRBuilderBaseERNS_14DomTreeUpdaterEPNS_4LoopERNS_8LoopInfoE(ptr noundef nonnull %81, ptr noundef %82, ptr noundef %89, ptr noundef %94, ptr nonnull @.str.7, i64 4, ptr noundef nonnull align 8 dereferenceable(128) %3, ptr noundef nonnull align 8 dereferenceable(440) %4, ptr noundef nonnull %.0.i.i.i.i.i56, ptr noundef nonnull align 8 dereferenceable(144) %5)
   %96 = tail call noundef ptr @_ZNK4llvm10BasicBlock18getSingleSuccessorEv(ptr noundef nonnull align 8 dereferenceable(80) %95) #6
   %97 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %98 = getelementptr inbounds i8, ptr %0, i64 32
+  %98 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %96, ptr %98, align 8
   %99 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %100 = load i32, ptr %99, align 8
@@ -631,32 +631,32 @@ _ZN4llvm12LoopInfoBaseINS_10BasicBlockENS_4LoopEE12AllocateLoopIJEEEPS2_DpOT_.ex
   %110 = tail call noundef ptr @_ZN4llvm8TileInfo10CreateLoopEPNS_10BasicBlockES2_PNS_5ValueES4_NS_9StringRefERNS_13IRBuilderBaseERNS_14DomTreeUpdaterEPNS_4LoopERNS_8LoopInfoE(ptr noundef nonnull %95, ptr noundef %96, ptr noundef %104, ptr noundef %109, ptr nonnull @.str.8, i64 5, ptr noundef nonnull align 8 dereferenceable(128) %3, ptr noundef nonnull align 8 dereferenceable(440) %4, ptr noundef nonnull %.0.i.i.i.i.i63, ptr noundef nonnull align 8 dereferenceable(144) %5)
   %111 = tail call noundef ptr @_ZNK4llvm10BasicBlock18getSingleSuccessorEv(ptr noundef nonnull align 8 dereferenceable(80) %110) #6
   %112 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %113 = getelementptr inbounds i8, ptr %0, i64 80
+  %113 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store ptr %111, ptr %113, align 8
   %114 = tail call noundef ptr @_ZNK4llvm10BasicBlock20getSinglePredecessorEv(ptr noundef nonnull align 8 dereferenceable(80) %81) #6
-  %115 = getelementptr inbounds i8, ptr %0, i64 48
+  %115 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr %114, ptr %115, align 8
   %116 = tail call noundef ptr @_ZNK4llvm10BasicBlock20getSinglePredecessorEv(ptr noundef nonnull align 8 dereferenceable(80) %95) #6
-  %117 = getelementptr inbounds i8, ptr %0, i64 24
+  %117 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %116, ptr %117, align 8
   %118 = tail call noundef ptr @_ZNK4llvm10BasicBlock20getSinglePredecessorEv(ptr noundef nonnull align 8 dereferenceable(80) %110) #6
-  %119 = getelementptr inbounds i8, ptr %0, i64 72
+  %119 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store ptr %118, ptr %119, align 8
   %120 = load ptr, ptr %117, align 8
-  %121 = getelementptr inbounds i8, ptr %120, i64 56
+  %121 = getelementptr inbounds nuw i8, ptr %120, i64 56
   %122 = load ptr, ptr %121, align 8
   %123 = icmp eq ptr %122, null
   %124 = getelementptr inbounds i8, ptr %122, i64 -24
   %125 = select i1 %123, ptr null, ptr %124
   store ptr %125, ptr %97, align 8
   %126 = load ptr, ptr %115, align 8
-  %127 = getelementptr inbounds i8, ptr %126, i64 56
+  %127 = getelementptr inbounds nuw i8, ptr %126, i64 56
   %128 = load ptr, ptr %127, align 8
   %129 = icmp eq ptr %128, null
   %130 = getelementptr inbounds i8, ptr %128, i64 -24
   %131 = select i1 %129, ptr null, ptr %130
   store ptr %131, ptr %83, align 8
-  %132 = getelementptr inbounds i8, ptr %118, i64 56
+  %132 = getelementptr inbounds nuw i8, ptr %118, i64 56
   %133 = load ptr, ptr %132, align 8
   %134 = icmp eq ptr %133, null
   %135 = getelementptr inbounds i8, ptr %133, i64 -24

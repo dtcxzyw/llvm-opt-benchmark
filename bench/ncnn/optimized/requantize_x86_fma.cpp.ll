@@ -12310,7 +12310,7 @@ declare float @llvm.tanh.f32(float) #5
 define linkonce_odr hidden void @_ZN4ncnn10RequantizeD2Ev(ptr noundef nonnull align 8 dereferenceable(512) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTVN4ncnn10RequantizeE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 440
-  %3 = getelementptr inbounds i8, ptr %0, i64 448
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 448
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %18, label %5
@@ -12321,7 +12321,7 @@ define linkonce_odr hidden void @_ZN4ncnn10RequantizeD2Ev(ptr noundef nonnull al
   br i1 %7, label %8, label %18
 
 8:                                                ; preds = %5
-  %9 = getelementptr inbounds i8, ptr %0, i64 472
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 472
   %10 = load ptr, ptr %9, align 8
   %.not35 = icmp eq ptr %10, null
   %11 = load ptr, ptr %2, align 8
@@ -12343,11 +12343,11 @@ define linkonce_odr hidden void @_ZN4ncnn10RequantizeD2Ev(ptr noundef nonnull al
   br label %18
 
 18:                                               ; preds = %12, %17, %16, %5, %1
-  %19 = getelementptr inbounds i8, ptr %0, i64 480
-  %20 = getelementptr inbounds i8, ptr %0, i64 504
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 480
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 504
   store i64 0, ptr %20, align 8
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 368
-  %22 = getelementptr inbounds i8, ptr %0, i64 376
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 376
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %2, i8 0, i64 28, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %19, i8 0, i64 20, i1 false)
   %23 = load ptr, ptr %22, align 8
@@ -12367,7 +12367,7 @@ define linkonce_odr hidden void @_ZN4ncnn10RequantizeD2Ev(ptr noundef nonnull al
   br i1 %29, label %30, label %40
 
 30:                                               ; preds = %27
-  %31 = getelementptr inbounds i8, ptr %0, i64 400
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 400
   %32 = load ptr, ptr %31, align 8
   %.not38 = icmp eq ptr %32, null
   %33 = load ptr, ptr %21, align 8
@@ -12389,11 +12389,11 @@ define linkonce_odr hidden void @_ZN4ncnn10RequantizeD2Ev(ptr noundef nonnull al
   br label %40
 
 40:                                               ; preds = %34, %39, %38, %27, %18
-  %41 = getelementptr inbounds i8, ptr %0, i64 408
-  %42 = getelementptr inbounds i8, ptr %0, i64 432
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 408
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 432
   store i64 0, ptr %42, align 8
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 296
-  %44 = getelementptr inbounds i8, ptr %0, i64 304
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 304
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %21, i8 0, i64 28, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %41, i8 0, i64 20, i1 false)
   %45 = load ptr, ptr %44, align 8
@@ -12413,7 +12413,7 @@ define linkonce_odr hidden void @_ZN4ncnn10RequantizeD2Ev(ptr noundef nonnull al
   br i1 %51, label %52, label %62
 
 52:                                               ; preds = %49
-  %53 = getelementptr inbounds i8, ptr %0, i64 328
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 328
   %54 = load ptr, ptr %53, align 8
   %.not41 = icmp eq ptr %54, null
   %55 = load ptr, ptr %43, align 8
@@ -12435,11 +12435,11 @@ define linkonce_odr hidden void @_ZN4ncnn10RequantizeD2Ev(ptr noundef nonnull al
   br label %62
 
 62:                                               ; preds = %56, %61, %60, %49, %40
-  %63 = getelementptr inbounds i8, ptr %0, i64 336
-  %64 = getelementptr inbounds i8, ptr %0, i64 360
+  %63 = getelementptr inbounds nuw i8, ptr %0, i64 336
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 360
   store i64 0, ptr %64, align 8
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 224
-  %66 = getelementptr inbounds i8, ptr %0, i64 232
+  %66 = getelementptr inbounds nuw i8, ptr %0, i64 232
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %43, i8 0, i64 28, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %63, i8 0, i64 20, i1 false)
   %67 = load ptr, ptr %66, align 8
@@ -12459,7 +12459,7 @@ define linkonce_odr hidden void @_ZN4ncnn10RequantizeD2Ev(ptr noundef nonnull al
   br i1 %73, label %74, label %84
 
 74:                                               ; preds = %71
-  %75 = getelementptr inbounds i8, ptr %0, i64 256
+  %75 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %76 = load ptr, ptr %75, align 8
   %.not44 = icmp eq ptr %76, null
   %77 = load ptr, ptr %65, align 8
@@ -12481,8 +12481,8 @@ define linkonce_odr hidden void @_ZN4ncnn10RequantizeD2Ev(ptr noundef nonnull al
   br label %84
 
 84:                                               ; preds = %78, %83, %82, %71, %62
-  %85 = getelementptr inbounds i8, ptr %0, i64 264
-  %86 = getelementptr inbounds i8, ptr %0, i64 288
+  %85 = getelementptr inbounds nuw i8, ptr %0, i64 264
+  %86 = getelementptr inbounds nuw i8, ptr %0, i64 288
   store i64 0, ptr %86, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %65, i8 0, i64 28, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %85, i8 0, i64 20, i1 false)

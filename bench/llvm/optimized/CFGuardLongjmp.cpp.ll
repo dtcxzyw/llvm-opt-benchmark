@@ -293,7 +293,7 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_114CFGuardLongjmp20runOnMach
 14:                                               ; preds = %11
   %15 = getelementptr inbounds i8, ptr %3, i64 16
   call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull %15, i64 noundef 8) #14
-  %16 = getelementptr inbounds i8, ptr %1, i64 328
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 328
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 320
   %.sroa.051.068 = load ptr, ptr %16, align 8
   %.not5669 = icmp eq ptr %.sroa.051.068, %17
@@ -451,8 +451,8 @@ _ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEppEv.exit: ; preds =
   %89 = getelementptr inbounds nuw i8, ptr %6, i64 33
   %90 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %91 = getelementptr inbounds nuw i8, ptr %1, i64 384
-  %92 = getelementptr inbounds i8, ptr %1, i64 392
-  %93 = getelementptr inbounds i8, ptr %1, i64 400
+  %92 = getelementptr inbounds nuw i8, ptr %1, i64 392
+  %93 = getelementptr inbounds nuw i8, ptr %1, i64 400
   br label %94
 
 94:                                               ; preds = %.lr.ph78, %_ZN4llvm11SmallStringILj128EED2Ev.exit

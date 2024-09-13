@@ -162,7 +162,7 @@ define dso_local noundef i32 @main() local_unnamed_addr #3 personality ptr @__gx
   %.05.i.i.i.i.i = phi ptr [ %48, %_ZSt8_DestroyIN32pxrInternal_v0_24__pxrReserved__40UsdUtilsCoalescingDiagnosticDelegateItemEEvPT_.exit.i.i.i.i.i ], [ %24, %23 ]
   %33 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i, i64 72
   %34 = load ptr, ptr %33, align 8
-  %35 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i, i64 80
+  %35 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i, i64 80
   %36 = load ptr, ptr %35, align 8
   %.not4.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %34, %36
   br i1 %.not4.i.i.i.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__48UsdUtilsCoalescingDiagnosticDelegateUnsharedItemES1_EvT_S3_RSaIT0_E.exit.i.i.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i.i.i.i
@@ -185,7 +185,7 @@ _ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__48UsdUtilsCoalescingDiagnostic
   br i1 %.not.i.i.i.i.i.i.i.i.i.i67, label %_ZSt8_DestroyIN32pxrInternal_v0_24__pxrReserved__40UsdUtilsCoalescingDiagnosticDelegateItemEEvPT_.exit.i.i.i.i.i, label %40
 
 40:                                               ; preds = %_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__48UsdUtilsCoalescingDiagnosticDelegateUnsharedItemES1_EvT_S3_RSaIT0_E.exit.i.i.i.i.i.i.i.i
-  %41 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i, i64 88
+  %41 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i, i64 88
   %42 = load ptr, ptr %41, align 8
   %43 = ptrtoint ptr %42 to i64
   %44 = ptrtoint ptr %39 to i64
@@ -223,7 +223,7 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__40UsdUtilsCoalescingDiagnosticDe
   %.05.i.i.i.i = phi ptr [ %70, %_ZSt8_DestroyIN32pxrInternal_v0_24__pxrReserved__40UsdUtilsCoalescingDiagnosticDelegateItemEEvPT_.exit.i.i.i.i ], [ %53, %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__40UsdUtilsCoalescingDiagnosticDelegateItemESaIS1_EE14_M_move_assignEOS3_St17integral_constantIbLb1EE.exit ]
   %55 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i, i64 72
   %56 = load ptr, ptr %55, align 8
-  %57 = getelementptr inbounds i8, ptr %.05.i.i.i.i, i64 80
+  %57 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i, i64 80
   %58 = load ptr, ptr %57, align 8
   %.not4.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %56, %58
   br i1 %.not4.i.i.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__48UsdUtilsCoalescingDiagnosticDelegateUnsharedItemES1_EvT_S3_RSaIT0_E.exit.i.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i.i.i
@@ -246,7 +246,7 @@ _ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__48UsdUtilsCoalescingDiagnostic
   br i1 %.not.i.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyIN32pxrInternal_v0_24__pxrReserved__40UsdUtilsCoalescingDiagnosticDelegateItemEEvPT_.exit.i.i.i.i, label %62
 
 62:                                               ; preds = %_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__48UsdUtilsCoalescingDiagnosticDelegateUnsharedItemES1_EvT_S3_RSaIT0_E.exit.i.i.i.i.i.i.i
-  %63 = getelementptr inbounds i8, ptr %.05.i.i.i.i, i64 88
+  %63 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i, i64 88
   %64 = load ptr, ptr %63, align 8
   %65 = ptrtoint ptr %64 to i64
   %66 = ptrtoint ptr %61 to i64
@@ -693,7 +693,7 @@ _ZNSt3setImSt4lessImESaImEED2Ev.exit:             ; preds = %187
   %.05.i.i.i.i51 = phi ptr [ %209, %_ZSt8_DestroyIN32pxrInternal_v0_24__pxrReserved__40UsdUtilsCoalescingDiagnosticDelegateItemEEvPT_.exit.i.i.i.i60 ], [ %192, %_ZNSt3setImSt4lessImESaImEED2Ev.exit ]
   %194 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i51, i64 72
   %195 = load ptr, ptr %194, align 8
-  %196 = getelementptr inbounds i8, ptr %.05.i.i.i.i51, i64 80
+  %196 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i51, i64 80
   %197 = load ptr, ptr %196, align 8
   %.not4.i.i.i.i.i.i.i.i.i.i52 = icmp eq ptr %195, %197
   br i1 %.not4.i.i.i.i.i.i.i.i.i.i52, label %_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__48UsdUtilsCoalescingDiagnosticDelegateUnsharedItemES1_EvT_S3_RSaIT0_E.exit.i.i.i.i.i.i.i58, label %.lr.ph.i.i.i.i.i.i.i.i.i.i53
@@ -716,7 +716,7 @@ _ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__48UsdUtilsCoalescingDiagnostic
   br i1 %.not.i.i.i.i.i.i.i.i.i59, label %_ZSt8_DestroyIN32pxrInternal_v0_24__pxrReserved__40UsdUtilsCoalescingDiagnosticDelegateItemEEvPT_.exit.i.i.i.i60, label %201
 
 201:                                              ; preds = %_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__48UsdUtilsCoalescingDiagnosticDelegateUnsharedItemES1_EvT_S3_RSaIT0_E.exit.i.i.i.i.i.i.i58
-  %202 = getelementptr inbounds i8, ptr %.05.i.i.i.i51, i64 88
+  %202 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i51, i64 88
   %203 = load ptr, ptr %202, align 8
   %204 = ptrtoint ptr %203 to i64
   %205 = ptrtoint ptr %200 to i64
@@ -930,7 +930,7 @@ define linkonce_odr dso_local void @_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserv
   %.05.i.i.i = phi ptr [ %20, %_ZSt8_DestroyIN32pxrInternal_v0_24__pxrReserved__40UsdUtilsCoalescingDiagnosticDelegateItemEEvPT_.exit.i.i.i ], [ %2, %1 ]
   %5 = getelementptr inbounds nuw i8, ptr %.05.i.i.i, i64 72
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %.05.i.i.i, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %.05.i.i.i, i64 80
   %8 = load ptr, ptr %7, align 8
   %.not4.i.i.i.i.i.i.i.i.i = icmp eq ptr %6, %8
   br i1 %.not4.i.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__48UsdUtilsCoalescingDiagnosticDelegateUnsharedItemES1_EvT_S3_RSaIT0_E.exit.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i.i
@@ -953,7 +953,7 @@ _ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__48UsdUtilsCoalescingDiagnostic
   br i1 %.not.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyIN32pxrInternal_v0_24__pxrReserved__40UsdUtilsCoalescingDiagnosticDelegateItemEEvPT_.exit.i.i.i, label %12
 
 12:                                               ; preds = %_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__48UsdUtilsCoalescingDiagnosticDelegateUnsharedItemES1_EvT_S3_RSaIT0_E.exit.i.i.i.i.i.i
-  %13 = getelementptr inbounds i8, ptr %.05.i.i.i, i64 88
+  %13 = getelementptr inbounds nuw i8, ptr %.05.i.i.i, i64 88
   %14 = load ptr, ptr %13, align 8
   %15 = ptrtoint ptr %14 to i64
   %16 = ptrtoint ptr %11 to i64

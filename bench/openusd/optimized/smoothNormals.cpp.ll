@@ -583,9 +583,9 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__16WorkParallelFor
 .noexc7:                                          ; preds = %.noexc
   %21 = getelementptr inbounds nuw i8, ptr %15, i64 104
   %22 = sext i32 %20 to i64
-  %23 = getelementptr inbounds i8, ptr %15, i64 112
+  %23 = getelementptr inbounds nuw i8, ptr %15, i64 112
   store i32 0, ptr %23, align 8
-  %24 = getelementptr inbounds i8, ptr %15, i64 116
+  %24 = getelementptr inbounds nuw i8, ptr %15, i64 116
   store i8 5, ptr %24, align 4
   %25 = shl nsw i64 %22, 1
   %26 = and i64 %25, 9223372036854775806
@@ -598,7 +598,7 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__16WorkParallelFor
   store i32 1, ptr %29, align 8
   %30 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i64 1, ptr %30, align 8
-  %31 = getelementptr inbounds i8, ptr %5, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store i64 1, ptr %31, align 8
   %32 = getelementptr inbounds nuw i8, ptr %15, i64 96
   store ptr %5, ptr %32, align 32
@@ -748,7 +748,7 @@ _ZN3tbb6detail2d116is_same_affinityERKNS1_14execution_dataE.exit.thread: ; preds
   %23 = load ptr, ptr %17, align 32
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 24
   store atomic i8 1, ptr %24 monotonic, align 1
-  %25 = getelementptr inbounds i8, ptr %0, i64 116
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 116
   %26 = load i8, ptr %25, align 4
   %spec.select.i = tail call i8 @llvm.umax.i8(i8 %26, i8 1)
   %27 = add i8 %spec.select.i, 1
@@ -789,7 +789,7 @@ _ZN3tbb6detail2d122dynamic_grainsize_modeINS1_13adaptive_modeINS1_19auto_partiti
   br i1 %47, label %_ZN3tbb6detail2d19start_forINS1_13blocked_rangeImEEZN32pxrInternal_v0_24__pxrReserved__16WorkParallelForNISt5_BindIFMNS5_20_SmoothNormalsWorkerINS5_7GfVec3fES9_EEFvmmESt17reference_wrapperISA_ESt12_PlaceholderILi1EESF_ILi2EEEEEEvmOT_mE21Work_ParallelForN_TBBKNS1_16auto_partitionerEE8finalizeERKNS1_14execution_dataE.exit, label %.lr.ph.i.i, !llvm.loop !32
 
 48:                                               ; preds = %.lr.ph.i.i
-  %49 = getelementptr inbounds i8, ptr %.015.i.i, i64 24
+  %49 = getelementptr inbounds nuw i8, ptr %.015.i.i, i64 24
   %50 = atomicrmw add ptr %49, i64 -1 seq_cst, align 8
   %.not.i.i.i.i = icmp eq i64 %50, 1
   br i1 %.not.i.i.i.i, label %51, label %_ZN3tbb6detail2d19start_forINS1_13blocked_rangeImEEZN32pxrInternal_v0_24__pxrReserved__16WorkParallelForNISt5_BindIFMNS5_20_SmoothNormalsWorkerINS5_7GfVec3fES9_EEFvmmESt17reference_wrapperISA_ESt12_PlaceholderILi1EESF_ILi2EEEEEEvmOT_mE21Work_ParallelForN_TBBKNS1_16auto_partitionerEE8finalizeERKNS1_14execution_dataE.exit
@@ -839,7 +839,7 @@ define linkonce_odr noundef ptr @_ZN3tbb6detail2d19start_forINS1_13blocked_range
   br i1 %21, label %_ZN3tbb6detail2d19start_forINS1_13blocked_rangeImEEZN32pxrInternal_v0_24__pxrReserved__16WorkParallelForNISt5_BindIFMNS5_20_SmoothNormalsWorkerINS5_7GfVec3fES9_EEFvmmESt17reference_wrapperISA_ESt12_PlaceholderILi1EESF_ILi2EEEEEEvmOT_mE21Work_ParallelForN_TBBKNS1_16auto_partitionerEE8finalizeERKNS1_14execution_dataE.exit, label %.lr.ph.i.i, !llvm.loop !32
 
 22:                                               ; preds = %.lr.ph.i.i
-  %23 = getelementptr inbounds i8, ptr %.015.i.i, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %.015.i.i, i64 24
   %24 = atomicrmw add ptr %23, i64 -1 seq_cst, align 8
   %.not.i.i.i.i = icmp eq i64 %24, 1
   br i1 %.not.i.i.i.i, label %25, label %_ZN3tbb6detail2d19start_forINS1_13blocked_rangeImEEZN32pxrInternal_v0_24__pxrReserved__16WorkParallelForNISt5_BindIFMNS5_20_SmoothNormalsWorkerINS5_7GfVec3fES9_EEFvmmESt17reference_wrapperISA_ESt12_PlaceholderILi1EESF_ILi2EEEEEEvmOT_mE21Work_ParallelForN_TBBKNS1_16auto_partitionerEE8finalizeERKNS1_14execution_dataE.exit
@@ -897,11 +897,11 @@ define linkonce_odr void @_ZN3tbb6detail2d119partition_type_baseINS1_19auto_part
 _ZN3tbb6detail2d119auto_partition_type12is_divisibleEv.exit: ; preds = %13, %20
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  %24 = getelementptr inbounds i8, ptr %1, i64 72
-  %25 = getelementptr inbounds i8, ptr %1, i64 80
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 72
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %27 = getelementptr inbounds nuw i8, ptr %1, i64 104
-  %28 = getelementptr inbounds i8, ptr %1, i64 116
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 116
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 96
   br label %_ZN3tbb6detail2d119auto_partition_type12is_divisibleEv.exit11
 
@@ -915,14 +915,14 @@ _ZN3tbb6detail2d119auto_partition_type12is_divisibleEv.exit11: ; preds = %_ZN3tb
   %32 = getelementptr inbounds nuw i8, ptr %30, i64 64
   %33 = load i64, ptr %23, align 64
   store i64 %33, ptr %32, align 8
-  %34 = getelementptr inbounds i8, ptr %30, i64 72
+  %34 = getelementptr inbounds nuw i8, ptr %30, i64 72
   %35 = load i64, ptr %24, align 8
   %36 = sub i64 %33, %35
   %37 = lshr i64 %36, 1
   %38 = add i64 %37, %35
   store i64 %38, ptr %23, align 64
   store i64 %38, ptr %34, align 8
-  %39 = getelementptr inbounds i8, ptr %30, i64 80
+  %39 = getelementptr inbounds nuw i8, ptr %30, i64 80
   %40 = load i64, ptr %25, align 16
   store i64 %40, ptr %39, align 8
   %41 = getelementptr inbounds nuw i8, ptr %30, i64 88
@@ -933,9 +933,9 @@ _ZN3tbb6detail2d119auto_partition_type12is_divisibleEv.exit11: ; preds = %_ZN3tb
   %45 = lshr i64 %44, 1
   store i64 %45, ptr %27, align 8
   store i64 %45, ptr %43, align 8
-  %46 = getelementptr inbounds i8, ptr %30, i64 112
+  %46 = getelementptr inbounds nuw i8, ptr %30, i64 112
   store i32 2, ptr %46, align 8
-  %47 = getelementptr inbounds i8, ptr %30, i64 116
+  %47 = getelementptr inbounds nuw i8, ptr %30, i64 116
   %48 = load i8, ptr %28, align 4
   store i8 %48, ptr %47, align 4
   %49 = getelementptr inbounds nuw i8, ptr %30, i64 120
@@ -1067,7 +1067,7 @@ _ZN3tbb6detail2d19start_forINS1_13blocked_rangeImEEZN32pxrInternal_v0_24__pxrRes
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %38 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %39 = getelementptr inbounds nuw i8, ptr %1, i64 104
-  %40 = getelementptr inbounds i8, ptr %1, i64 116
+  %40 = getelementptr inbounds nuw i8, ptr %1, i64 116
   br label %41
 
 thread-pre-split:                                 ; preds = %_ZN3tbb6detail2d118task_group_context28is_group_execution_cancelledEv.exit
@@ -1182,9 +1182,9 @@ _ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE13split_to_fillEh.ex
   %98 = lshr i64 %97, 1
   store i64 %98, ptr %39, align 8
   store i64 %98, ptr %96, align 8
-  %99 = getelementptr inbounds i8, ptr %90, i64 112
+  %99 = getelementptr inbounds nuw i8, ptr %90, i64 112
   store i32 2, ptr %99, align 8
-  %100 = getelementptr inbounds i8, ptr %90, i64 116
+  %100 = getelementptr inbounds nuw i8, ptr %90, i64 116
   %101 = load i8, ptr %40, align 4
   %102 = getelementptr inbounds nuw i8, ptr %90, i64 120
   %103 = load i64, ptr %5, align 8
@@ -1482,9 +1482,9 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__16WorkParallelFor
 .noexc7:                                          ; preds = %.noexc
   %21 = getelementptr inbounds nuw i8, ptr %15, i64 104
   %22 = sext i32 %20 to i64
-  %23 = getelementptr inbounds i8, ptr %15, i64 112
+  %23 = getelementptr inbounds nuw i8, ptr %15, i64 112
   store i32 0, ptr %23, align 8
-  %24 = getelementptr inbounds i8, ptr %15, i64 116
+  %24 = getelementptr inbounds nuw i8, ptr %15, i64 116
   store i8 5, ptr %24, align 4
   %25 = shl nsw i64 %22, 1
   %26 = and i64 %25, 9223372036854775806
@@ -1497,7 +1497,7 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__16WorkParallelFor
   store i32 1, ptr %29, align 8
   %30 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i64 1, ptr %30, align 8
-  %31 = getelementptr inbounds i8, ptr %5, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store i64 1, ptr %31, align 8
   %32 = getelementptr inbounds nuw i8, ptr %15, i64 96
   store ptr %5, ptr %32, align 32
@@ -1613,7 +1613,7 @@ _ZN3tbb6detail2d116is_same_affinityERKNS1_14execution_dataE.exit.thread: ; preds
   %23 = load ptr, ptr %17, align 32
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 24
   store atomic i8 1, ptr %24 monotonic, align 1
-  %25 = getelementptr inbounds i8, ptr %0, i64 116
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 116
   %26 = load i8, ptr %25, align 4
   %spec.select.i = tail call i8 @llvm.umax.i8(i8 %26, i8 1)
   %27 = add i8 %spec.select.i, 1
@@ -1654,7 +1654,7 @@ _ZN3tbb6detail2d122dynamic_grainsize_modeINS1_13adaptive_modeINS1_19auto_partiti
   br i1 %47, label %_ZN3tbb6detail2d19start_forINS1_13blocked_rangeImEEZN32pxrInternal_v0_24__pxrReserved__16WorkParallelForNISt5_BindIFMNS5_20_SmoothNormalsWorkerINS5_7GfVec3dES9_EEFvmmESt17reference_wrapperISA_ESt12_PlaceholderILi1EESF_ILi2EEEEEEvmOT_mE21Work_ParallelForN_TBBKNS1_16auto_partitionerEE8finalizeERKNS1_14execution_dataE.exit, label %.lr.ph.i.i, !llvm.loop !32
 
 48:                                               ; preds = %.lr.ph.i.i
-  %49 = getelementptr inbounds i8, ptr %.015.i.i, i64 24
+  %49 = getelementptr inbounds nuw i8, ptr %.015.i.i, i64 24
   %50 = atomicrmw add ptr %49, i64 -1 seq_cst, align 8
   %.not.i.i.i.i = icmp eq i64 %50, 1
   br i1 %.not.i.i.i.i, label %51, label %_ZN3tbb6detail2d19start_forINS1_13blocked_rangeImEEZN32pxrInternal_v0_24__pxrReserved__16WorkParallelForNISt5_BindIFMNS5_20_SmoothNormalsWorkerINS5_7GfVec3dES9_EEFvmmESt17reference_wrapperISA_ESt12_PlaceholderILi1EESF_ILi2EEEEEEvmOT_mE21Work_ParallelForN_TBBKNS1_16auto_partitionerEE8finalizeERKNS1_14execution_dataE.exit
@@ -1704,7 +1704,7 @@ define linkonce_odr noundef ptr @_ZN3tbb6detail2d19start_forINS1_13blocked_range
   br i1 %21, label %_ZN3tbb6detail2d19start_forINS1_13blocked_rangeImEEZN32pxrInternal_v0_24__pxrReserved__16WorkParallelForNISt5_BindIFMNS5_20_SmoothNormalsWorkerINS5_7GfVec3dES9_EEFvmmESt17reference_wrapperISA_ESt12_PlaceholderILi1EESF_ILi2EEEEEEvmOT_mE21Work_ParallelForN_TBBKNS1_16auto_partitionerEE8finalizeERKNS1_14execution_dataE.exit, label %.lr.ph.i.i, !llvm.loop !32
 
 22:                                               ; preds = %.lr.ph.i.i
-  %23 = getelementptr inbounds i8, ptr %.015.i.i, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %.015.i.i, i64 24
   %24 = atomicrmw add ptr %23, i64 -1 seq_cst, align 8
   %.not.i.i.i.i = icmp eq i64 %24, 1
   br i1 %.not.i.i.i.i, label %25, label %_ZN3tbb6detail2d19start_forINS1_13blocked_rangeImEEZN32pxrInternal_v0_24__pxrReserved__16WorkParallelForNISt5_BindIFMNS5_20_SmoothNormalsWorkerINS5_7GfVec3dES9_EEFvmmESt17reference_wrapperISA_ESt12_PlaceholderILi1EESF_ILi2EEEEEEvmOT_mE21Work_ParallelForN_TBBKNS1_16auto_partitionerEE8finalizeERKNS1_14execution_dataE.exit
@@ -1757,11 +1757,11 @@ define linkonce_odr void @_ZN3tbb6detail2d119partition_type_baseINS1_19auto_part
 _ZN3tbb6detail2d119auto_partition_type12is_divisibleEv.exit: ; preds = %13, %20
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  %24 = getelementptr inbounds i8, ptr %1, i64 72
-  %25 = getelementptr inbounds i8, ptr %1, i64 80
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 72
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %27 = getelementptr inbounds nuw i8, ptr %1, i64 104
-  %28 = getelementptr inbounds i8, ptr %1, i64 116
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 116
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 96
   br label %_ZN3tbb6detail2d119auto_partition_type12is_divisibleEv.exit11
 
@@ -1775,14 +1775,14 @@ _ZN3tbb6detail2d119auto_partition_type12is_divisibleEv.exit11: ; preds = %_ZN3tb
   %32 = getelementptr inbounds nuw i8, ptr %30, i64 64
   %33 = load i64, ptr %23, align 64
   store i64 %33, ptr %32, align 8
-  %34 = getelementptr inbounds i8, ptr %30, i64 72
+  %34 = getelementptr inbounds nuw i8, ptr %30, i64 72
   %35 = load i64, ptr %24, align 8
   %36 = sub i64 %33, %35
   %37 = lshr i64 %36, 1
   %38 = add i64 %37, %35
   store i64 %38, ptr %23, align 64
   store i64 %38, ptr %34, align 8
-  %39 = getelementptr inbounds i8, ptr %30, i64 80
+  %39 = getelementptr inbounds nuw i8, ptr %30, i64 80
   %40 = load i64, ptr %25, align 16
   store i64 %40, ptr %39, align 8
   %41 = getelementptr inbounds nuw i8, ptr %30, i64 88
@@ -1793,9 +1793,9 @@ _ZN3tbb6detail2d119auto_partition_type12is_divisibleEv.exit11: ; preds = %_ZN3tb
   %45 = lshr i64 %44, 1
   store i64 %45, ptr %27, align 8
   store i64 %45, ptr %43, align 8
-  %46 = getelementptr inbounds i8, ptr %30, i64 112
+  %46 = getelementptr inbounds nuw i8, ptr %30, i64 112
   store i32 2, ptr %46, align 8
-  %47 = getelementptr inbounds i8, ptr %30, i64 116
+  %47 = getelementptr inbounds nuw i8, ptr %30, i64 116
   %48 = load i8, ptr %28, align 4
   store i8 %48, ptr %47, align 4
   %49 = getelementptr inbounds nuw i8, ptr %30, i64 120
@@ -1913,7 +1913,7 @@ _ZN3tbb6detail2d19start_forINS1_13blocked_rangeImEEZN32pxrInternal_v0_24__pxrRes
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %38 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %39 = getelementptr inbounds nuw i8, ptr %1, i64 104
-  %40 = getelementptr inbounds i8, ptr %1, i64 116
+  %40 = getelementptr inbounds nuw i8, ptr %1, i64 116
   br label %41
 
 thread-pre-split:                                 ; preds = %_ZN3tbb6detail2d118task_group_context28is_group_execution_cancelledEv.exit
@@ -2028,9 +2028,9 @@ _ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE13split_to_fillEh.ex
   %98 = lshr i64 %97, 1
   store i64 %98, ptr %39, align 8
   store i64 %98, ptr %96, align 8
-  %99 = getelementptr inbounds i8, ptr %90, i64 112
+  %99 = getelementptr inbounds nuw i8, ptr %90, i64 112
   store i32 2, ptr %99, align 8
-  %100 = getelementptr inbounds i8, ptr %90, i64 116
+  %100 = getelementptr inbounds nuw i8, ptr %90, i64 116
   %101 = load i8, ptr %40, align 4
   %102 = getelementptr inbounds nuw i8, ptr %90, i64 120
   %103 = load i64, ptr %5, align 8
@@ -2837,9 +2837,9 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__16WorkParallelFor
 .noexc7:                                          ; preds = %.noexc
   %21 = getelementptr inbounds nuw i8, ptr %15, i64 104
   %22 = sext i32 %20 to i64
-  %23 = getelementptr inbounds i8, ptr %15, i64 112
+  %23 = getelementptr inbounds nuw i8, ptr %15, i64 112
   store i32 0, ptr %23, align 8
-  %24 = getelementptr inbounds i8, ptr %15, i64 116
+  %24 = getelementptr inbounds nuw i8, ptr %15, i64 116
   store i8 5, ptr %24, align 4
   %25 = shl nsw i64 %22, 1
   %26 = and i64 %25, 9223372036854775806
@@ -2852,7 +2852,7 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__16WorkParallelFor
   store i32 1, ptr %29, align 8
   %30 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i64 1, ptr %30, align 8
-  %31 = getelementptr inbounds i8, ptr %5, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store i64 1, ptr %31, align 8
   %32 = getelementptr inbounds nuw i8, ptr %15, i64 96
   store ptr %5, ptr %32, align 32
@@ -2968,7 +2968,7 @@ _ZN3tbb6detail2d116is_same_affinityERKNS1_14execution_dataE.exit.thread: ; preds
   %23 = load ptr, ptr %17, align 32
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 24
   store atomic i8 1, ptr %24 monotonic, align 1
-  %25 = getelementptr inbounds i8, ptr %0, i64 116
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 116
   %26 = load i8, ptr %25, align 4
   %spec.select.i = tail call i8 @llvm.umax.i8(i8 %26, i8 1)
   %27 = add i8 %spec.select.i, 1
@@ -3009,7 +3009,7 @@ _ZN3tbb6detail2d122dynamic_grainsize_modeINS1_13adaptive_modeINS1_19auto_partiti
   br i1 %47, label %_ZN3tbb6detail2d19start_forINS1_13blocked_rangeImEEZN32pxrInternal_v0_24__pxrReserved__16WorkParallelForNISt5_BindIFMNS5_20_SmoothNormalsWorkerINS5_7GfVec3fENS5_22HdVec4f_2_10_10_10_REVEEEFvmmESt17reference_wrapperISB_ESt12_PlaceholderILi1EESG_ILi2EEEEEEvmOT_mE21Work_ParallelForN_TBBKNS1_16auto_partitionerEE8finalizeERKNS1_14execution_dataE.exit, label %.lr.ph.i.i, !llvm.loop !32
 
 48:                                               ; preds = %.lr.ph.i.i
-  %49 = getelementptr inbounds i8, ptr %.015.i.i, i64 24
+  %49 = getelementptr inbounds nuw i8, ptr %.015.i.i, i64 24
   %50 = atomicrmw add ptr %49, i64 -1 seq_cst, align 8
   %.not.i.i.i.i = icmp eq i64 %50, 1
   br i1 %.not.i.i.i.i, label %51, label %_ZN3tbb6detail2d19start_forINS1_13blocked_rangeImEEZN32pxrInternal_v0_24__pxrReserved__16WorkParallelForNISt5_BindIFMNS5_20_SmoothNormalsWorkerINS5_7GfVec3fENS5_22HdVec4f_2_10_10_10_REVEEEFvmmESt17reference_wrapperISB_ESt12_PlaceholderILi1EESG_ILi2EEEEEEvmOT_mE21Work_ParallelForN_TBBKNS1_16auto_partitionerEE8finalizeERKNS1_14execution_dataE.exit
@@ -3059,7 +3059,7 @@ define linkonce_odr noundef ptr @_ZN3tbb6detail2d19start_forINS1_13blocked_range
   br i1 %21, label %_ZN3tbb6detail2d19start_forINS1_13blocked_rangeImEEZN32pxrInternal_v0_24__pxrReserved__16WorkParallelForNISt5_BindIFMNS5_20_SmoothNormalsWorkerINS5_7GfVec3fENS5_22HdVec4f_2_10_10_10_REVEEEFvmmESt17reference_wrapperISB_ESt12_PlaceholderILi1EESG_ILi2EEEEEEvmOT_mE21Work_ParallelForN_TBBKNS1_16auto_partitionerEE8finalizeERKNS1_14execution_dataE.exit, label %.lr.ph.i.i, !llvm.loop !32
 
 22:                                               ; preds = %.lr.ph.i.i
-  %23 = getelementptr inbounds i8, ptr %.015.i.i, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %.015.i.i, i64 24
   %24 = atomicrmw add ptr %23, i64 -1 seq_cst, align 8
   %.not.i.i.i.i = icmp eq i64 %24, 1
   br i1 %.not.i.i.i.i, label %25, label %_ZN3tbb6detail2d19start_forINS1_13blocked_rangeImEEZN32pxrInternal_v0_24__pxrReserved__16WorkParallelForNISt5_BindIFMNS5_20_SmoothNormalsWorkerINS5_7GfVec3fENS5_22HdVec4f_2_10_10_10_REVEEEFvmmESt17reference_wrapperISB_ESt12_PlaceholderILi1EESG_ILi2EEEEEEvmOT_mE21Work_ParallelForN_TBBKNS1_16auto_partitionerEE8finalizeERKNS1_14execution_dataE.exit
@@ -3112,11 +3112,11 @@ define linkonce_odr void @_ZN3tbb6detail2d119partition_type_baseINS1_19auto_part
 _ZN3tbb6detail2d119auto_partition_type12is_divisibleEv.exit: ; preds = %13, %20
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  %24 = getelementptr inbounds i8, ptr %1, i64 72
-  %25 = getelementptr inbounds i8, ptr %1, i64 80
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 72
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %27 = getelementptr inbounds nuw i8, ptr %1, i64 104
-  %28 = getelementptr inbounds i8, ptr %1, i64 116
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 116
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 96
   br label %_ZN3tbb6detail2d119auto_partition_type12is_divisibleEv.exit11
 
@@ -3130,14 +3130,14 @@ _ZN3tbb6detail2d119auto_partition_type12is_divisibleEv.exit11: ; preds = %_ZN3tb
   %32 = getelementptr inbounds nuw i8, ptr %30, i64 64
   %33 = load i64, ptr %23, align 64
   store i64 %33, ptr %32, align 8
-  %34 = getelementptr inbounds i8, ptr %30, i64 72
+  %34 = getelementptr inbounds nuw i8, ptr %30, i64 72
   %35 = load i64, ptr %24, align 8
   %36 = sub i64 %33, %35
   %37 = lshr i64 %36, 1
   %38 = add i64 %37, %35
   store i64 %38, ptr %23, align 64
   store i64 %38, ptr %34, align 8
-  %39 = getelementptr inbounds i8, ptr %30, i64 80
+  %39 = getelementptr inbounds nuw i8, ptr %30, i64 80
   %40 = load i64, ptr %25, align 16
   store i64 %40, ptr %39, align 8
   %41 = getelementptr inbounds nuw i8, ptr %30, i64 88
@@ -3148,9 +3148,9 @@ _ZN3tbb6detail2d119auto_partition_type12is_divisibleEv.exit11: ; preds = %_ZN3tb
   %45 = lshr i64 %44, 1
   store i64 %45, ptr %27, align 8
   store i64 %45, ptr %43, align 8
-  %46 = getelementptr inbounds i8, ptr %30, i64 112
+  %46 = getelementptr inbounds nuw i8, ptr %30, i64 112
   store i32 2, ptr %46, align 8
-  %47 = getelementptr inbounds i8, ptr %30, i64 116
+  %47 = getelementptr inbounds nuw i8, ptr %30, i64 116
   %48 = load i8, ptr %28, align 4
   store i8 %48, ptr %47, align 4
   %49 = getelementptr inbounds nuw i8, ptr %30, i64 120
@@ -3268,7 +3268,7 @@ _ZN3tbb6detail2d19start_forINS1_13blocked_rangeImEEZN32pxrInternal_v0_24__pxrRes
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %38 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %39 = getelementptr inbounds nuw i8, ptr %1, i64 104
-  %40 = getelementptr inbounds i8, ptr %1, i64 116
+  %40 = getelementptr inbounds nuw i8, ptr %1, i64 116
   br label %41
 
 thread-pre-split:                                 ; preds = %_ZN3tbb6detail2d118task_group_context28is_group_execution_cancelledEv.exit
@@ -3383,9 +3383,9 @@ _ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE13split_to_fillEh.ex
   %98 = lshr i64 %97, 1
   store i64 %98, ptr %39, align 8
   store i64 %98, ptr %96, align 8
-  %99 = getelementptr inbounds i8, ptr %90, i64 112
+  %99 = getelementptr inbounds nuw i8, ptr %90, i64 112
   store i32 2, ptr %99, align 8
-  %100 = getelementptr inbounds i8, ptr %90, i64 116
+  %100 = getelementptr inbounds nuw i8, ptr %90, i64 116
   %101 = load i8, ptr %40, align 4
   %102 = getelementptr inbounds nuw i8, ptr %90, i64 120
   %103 = load i64, ptr %5, align 8
@@ -3687,9 +3687,9 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__16WorkParallelFor
 .noexc7:                                          ; preds = %.noexc
   %21 = getelementptr inbounds nuw i8, ptr %15, i64 104
   %22 = sext i32 %20 to i64
-  %23 = getelementptr inbounds i8, ptr %15, i64 112
+  %23 = getelementptr inbounds nuw i8, ptr %15, i64 112
   store i32 0, ptr %23, align 8
-  %24 = getelementptr inbounds i8, ptr %15, i64 116
+  %24 = getelementptr inbounds nuw i8, ptr %15, i64 116
   store i8 5, ptr %24, align 4
   %25 = shl nsw i64 %22, 1
   %26 = and i64 %25, 9223372036854775806
@@ -3702,7 +3702,7 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__16WorkParallelFor
   store i32 1, ptr %29, align 8
   %30 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i64 1, ptr %30, align 8
-  %31 = getelementptr inbounds i8, ptr %5, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store i64 1, ptr %31, align 8
   %32 = getelementptr inbounds nuw i8, ptr %15, i64 96
   store ptr %5, ptr %32, align 32
@@ -3818,7 +3818,7 @@ _ZN3tbb6detail2d116is_same_affinityERKNS1_14execution_dataE.exit.thread: ; preds
   %23 = load ptr, ptr %17, align 32
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 24
   store atomic i8 1, ptr %24 monotonic, align 1
-  %25 = getelementptr inbounds i8, ptr %0, i64 116
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 116
   %26 = load i8, ptr %25, align 4
   %spec.select.i = tail call i8 @llvm.umax.i8(i8 %26, i8 1)
   %27 = add i8 %spec.select.i, 1
@@ -3859,7 +3859,7 @@ _ZN3tbb6detail2d122dynamic_grainsize_modeINS1_13adaptive_modeINS1_19auto_partiti
   br i1 %47, label %_ZN3tbb6detail2d19start_forINS1_13blocked_rangeImEEZN32pxrInternal_v0_24__pxrReserved__16WorkParallelForNISt5_BindIFMNS5_20_SmoothNormalsWorkerINS5_7GfVec3dENS5_22HdVec4f_2_10_10_10_REVEEEFvmmESt17reference_wrapperISB_ESt12_PlaceholderILi1EESG_ILi2EEEEEEvmOT_mE21Work_ParallelForN_TBBKNS1_16auto_partitionerEE8finalizeERKNS1_14execution_dataE.exit, label %.lr.ph.i.i, !llvm.loop !32
 
 48:                                               ; preds = %.lr.ph.i.i
-  %49 = getelementptr inbounds i8, ptr %.015.i.i, i64 24
+  %49 = getelementptr inbounds nuw i8, ptr %.015.i.i, i64 24
   %50 = atomicrmw add ptr %49, i64 -1 seq_cst, align 8
   %.not.i.i.i.i = icmp eq i64 %50, 1
   br i1 %.not.i.i.i.i, label %51, label %_ZN3tbb6detail2d19start_forINS1_13blocked_rangeImEEZN32pxrInternal_v0_24__pxrReserved__16WorkParallelForNISt5_BindIFMNS5_20_SmoothNormalsWorkerINS5_7GfVec3dENS5_22HdVec4f_2_10_10_10_REVEEEFvmmESt17reference_wrapperISB_ESt12_PlaceholderILi1EESG_ILi2EEEEEEvmOT_mE21Work_ParallelForN_TBBKNS1_16auto_partitionerEE8finalizeERKNS1_14execution_dataE.exit
@@ -3909,7 +3909,7 @@ define linkonce_odr noundef ptr @_ZN3tbb6detail2d19start_forINS1_13blocked_range
   br i1 %21, label %_ZN3tbb6detail2d19start_forINS1_13blocked_rangeImEEZN32pxrInternal_v0_24__pxrReserved__16WorkParallelForNISt5_BindIFMNS5_20_SmoothNormalsWorkerINS5_7GfVec3dENS5_22HdVec4f_2_10_10_10_REVEEEFvmmESt17reference_wrapperISB_ESt12_PlaceholderILi1EESG_ILi2EEEEEEvmOT_mE21Work_ParallelForN_TBBKNS1_16auto_partitionerEE8finalizeERKNS1_14execution_dataE.exit, label %.lr.ph.i.i, !llvm.loop !32
 
 22:                                               ; preds = %.lr.ph.i.i
-  %23 = getelementptr inbounds i8, ptr %.015.i.i, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %.015.i.i, i64 24
   %24 = atomicrmw add ptr %23, i64 -1 seq_cst, align 8
   %.not.i.i.i.i = icmp eq i64 %24, 1
   br i1 %.not.i.i.i.i, label %25, label %_ZN3tbb6detail2d19start_forINS1_13blocked_rangeImEEZN32pxrInternal_v0_24__pxrReserved__16WorkParallelForNISt5_BindIFMNS5_20_SmoothNormalsWorkerINS5_7GfVec3dENS5_22HdVec4f_2_10_10_10_REVEEEFvmmESt17reference_wrapperISB_ESt12_PlaceholderILi1EESG_ILi2EEEEEEvmOT_mE21Work_ParallelForN_TBBKNS1_16auto_partitionerEE8finalizeERKNS1_14execution_dataE.exit
@@ -3962,11 +3962,11 @@ define linkonce_odr void @_ZN3tbb6detail2d119partition_type_baseINS1_19auto_part
 _ZN3tbb6detail2d119auto_partition_type12is_divisibleEv.exit: ; preds = %13, %20
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  %24 = getelementptr inbounds i8, ptr %1, i64 72
-  %25 = getelementptr inbounds i8, ptr %1, i64 80
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 72
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %27 = getelementptr inbounds nuw i8, ptr %1, i64 104
-  %28 = getelementptr inbounds i8, ptr %1, i64 116
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 116
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 96
   br label %_ZN3tbb6detail2d119auto_partition_type12is_divisibleEv.exit11
 
@@ -3980,14 +3980,14 @@ _ZN3tbb6detail2d119auto_partition_type12is_divisibleEv.exit11: ; preds = %_ZN3tb
   %32 = getelementptr inbounds nuw i8, ptr %30, i64 64
   %33 = load i64, ptr %23, align 64
   store i64 %33, ptr %32, align 8
-  %34 = getelementptr inbounds i8, ptr %30, i64 72
+  %34 = getelementptr inbounds nuw i8, ptr %30, i64 72
   %35 = load i64, ptr %24, align 8
   %36 = sub i64 %33, %35
   %37 = lshr i64 %36, 1
   %38 = add i64 %37, %35
   store i64 %38, ptr %23, align 64
   store i64 %38, ptr %34, align 8
-  %39 = getelementptr inbounds i8, ptr %30, i64 80
+  %39 = getelementptr inbounds nuw i8, ptr %30, i64 80
   %40 = load i64, ptr %25, align 16
   store i64 %40, ptr %39, align 8
   %41 = getelementptr inbounds nuw i8, ptr %30, i64 88
@@ -3998,9 +3998,9 @@ _ZN3tbb6detail2d119auto_partition_type12is_divisibleEv.exit11: ; preds = %_ZN3tb
   %45 = lshr i64 %44, 1
   store i64 %45, ptr %27, align 8
   store i64 %45, ptr %43, align 8
-  %46 = getelementptr inbounds i8, ptr %30, i64 112
+  %46 = getelementptr inbounds nuw i8, ptr %30, i64 112
   store i32 2, ptr %46, align 8
-  %47 = getelementptr inbounds i8, ptr %30, i64 116
+  %47 = getelementptr inbounds nuw i8, ptr %30, i64 116
   %48 = load i8, ptr %28, align 4
   store i8 %48, ptr %47, align 4
   %49 = getelementptr inbounds nuw i8, ptr %30, i64 120
@@ -4118,7 +4118,7 @@ _ZN3tbb6detail2d19start_forINS1_13blocked_rangeImEEZN32pxrInternal_v0_24__pxrRes
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %38 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %39 = getelementptr inbounds nuw i8, ptr %1, i64 104
-  %40 = getelementptr inbounds i8, ptr %1, i64 116
+  %40 = getelementptr inbounds nuw i8, ptr %1, i64 116
   br label %41
 
 thread-pre-split:                                 ; preds = %_ZN3tbb6detail2d118task_group_context28is_group_execution_cancelledEv.exit
@@ -4233,9 +4233,9 @@ _ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE13split_to_fillEh.ex
   %98 = lshr i64 %97, 1
   store i64 %98, ptr %39, align 8
   store i64 %98, ptr %96, align 8
-  %99 = getelementptr inbounds i8, ptr %90, i64 112
+  %99 = getelementptr inbounds nuw i8, ptr %90, i64 112
   store i32 2, ptr %99, align 8
-  %100 = getelementptr inbounds i8, ptr %90, i64 116
+  %100 = getelementptr inbounds nuw i8, ptr %90, i64 116
   %101 = load i8, ptr %40, align 4
   %102 = getelementptr inbounds nuw i8, ptr %90, i64 120
   %103 = load i64, ptr %5, align 8

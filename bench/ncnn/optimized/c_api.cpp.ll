@@ -1735,16 +1735,16 @@ define hidden i32 @ncnn_blob_get_consumer(ptr nocapture noundef readonly %0) loc
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define hidden void @ncnn_blob_get_shape(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4) local_unnamed_addr #10 {
-  %6 = getelementptr inbounds i8, ptr %0, i64 80
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %7 = load i32, ptr %6, align 8
   store i32 %7, ptr %1, align 4
-  %8 = getelementptr inbounds i8, ptr %0, i64 84
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 84
   %9 = load i32, ptr %8, align 4
   store i32 %9, ptr %2, align 4
-  %10 = getelementptr inbounds i8, ptr %0, i64 88
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %11 = load i32, ptr %10, align 8
   store i32 %11, ptr %3, align 4
-  %12 = getelementptr inbounds i8, ptr %0, i64 96
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %13 = load i32, ptr %12, align 8
   store i32 %13, ptr %4, align 4
   ret void
@@ -4609,7 +4609,7 @@ define hidden void @ncnn_layer_set_support_image_storage(ptr nocapture noundef r
 define hidden i32 @ncnn_layer_get_bottom_count(ptr nocapture noundef readonly %0) local_unnamed_addr #13 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 112
-  %4 = getelementptr inbounds i8, ptr %2, i64 120
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 120
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %3, align 8
   %7 = ptrtoint ptr %5 to i64
@@ -4635,7 +4635,7 @@ define hidden i32 @ncnn_layer_get_bottom(ptr nocapture noundef readonly %0, i32 
 define hidden i32 @ncnn_layer_get_top_count(ptr nocapture noundef readonly %0) local_unnamed_addr #13 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 136
-  %4 = getelementptr inbounds i8, ptr %2, i64 144
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 144
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %3, align 8
   %7 = ptrtoint ptr %5 to i64

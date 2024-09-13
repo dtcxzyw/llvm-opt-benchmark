@@ -130,21 +130,21 @@ define dso_local void @_ZN4llvm6object12IRObjectFileC2ENS_15MemoryBufferRefESt6v
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %5 = load ptr, ptr %2, align 8
   store ptr %5, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 56
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %8 = load ptr, ptr %7, align 8
   store ptr %8, ptr %6, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 64
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %11 = load ptr, ptr %10, align 8
   store ptr %11, ptr %9, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, i8 0, i64 24, i1 false)
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %13 = getelementptr inbounds i8, ptr %0, i64 96
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %14 = getelementptr inbounds i8, ptr %0, i64 112
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %12, i8 0, i64 24, i1 false)
   tail call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %13, ptr noundef nonnull %14, i64 noundef 4) #14
-  %15 = getelementptr inbounds i8, ptr %0, i64 144
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %16 = getelementptr inbounds i8, ptr %0, i64 160
   tail call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %15, ptr noundef nonnull %16, i64 noundef 0) #14
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(60) %16, i8 0, i64 60, i1 false)
@@ -175,20 +175,20 @@ declare void @_ZN4llvm17ModuleSymbolTable9addModuleEPNS_6ModuleE(ptr noundef non
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN4llvm6object12IRObjectFileD2Ev(ptr noundef nonnull align 8 dereferenceable(224) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN4llvm6object12IRObjectFileE, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 200
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 216
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %5 = load i32, ptr %4, align 8
   %6 = zext i32 %5 to i64
   %7 = shl nuw nsw i64 %6, 4
   tail call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef %3, i64 noundef %7, i64 noundef 8) #14
-  %8 = getelementptr inbounds i8, ptr %0, i64 176
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %9 = load ptr, ptr %8, align 8
   %.not.i.i.i.i = icmp eq ptr %9, null
   br i1 %.not.i.i.i.i, label %_ZN4llvm17ModuleSymbolTableD2Ev.exit, label %10
 
 10:                                               ; preds = %1
-  %11 = getelementptr inbounds i8, ptr %0, i64 192
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %12 = load ptr, ptr %11, align 8
   %13 = ptrtoint ptr %12 to i64
   %14 = ptrtoint ptr %9 to i64
@@ -197,12 +197,12 @@ define dso_local void @_ZN4llvm6object12IRObjectFileD2Ev(ptr noundef nonnull ali
   br label %_ZN4llvm17ModuleSymbolTableD2Ev.exit
 
 _ZN4llvm17ModuleSymbolTableD2Ev.exit:             ; preds = %1, %10
-  %16 = getelementptr inbounds i8, ptr %0, i64 80
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 80
   tail call void @_ZN4llvm24SpecificBumpPtrAllocatorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEjEE10DestroyAllEv(ptr noundef nonnull align 8 dereferenceable(96) %16)
   tail call void @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EED2Ev(ptr noundef nonnull align 8 dereferenceable(96) %16) #14
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %0, i64 56
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %20 = load ptr, ptr %19, align 8
   %.not4.i.i.i.i = icmp eq ptr %18, %20
   br i1 %.not4.i.i.i.i, label %_ZSt8_DestroyIPSt10unique_ptrIN4llvm6ModuleESt14default_deleteIS2_EES5_EvT_S7_RSaIT0_E.exit.i, label %.lr.ph.i.i.i.i
@@ -234,7 +234,7 @@ _ZSt8_DestroyIPSt10unique_ptrIN4llvm6ModuleESt14default_deleteIS2_EES5_EvT_S7_RS
   br i1 %.not.i.i.i, label %_ZNSt6vectorISt10unique_ptrIN4llvm6ModuleESt14default_deleteIS2_EESaIS5_EED2Ev.exit, label %24
 
 24:                                               ; preds = %_ZSt8_DestroyIPSt10unique_ptrIN4llvm6ModuleESt14default_deleteIS2_EES5_EvT_S7_RSaIT0_E.exit.i
-  %25 = getelementptr inbounds i8, ptr %0, i64 64
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %26 = load ptr, ptr %25, align 8
   %27 = ptrtoint ptr %26 to i64
   %28 = ptrtoint ptr %23 to i64
@@ -299,7 +299,7 @@ declare noundef i32 @_ZNK4llvm17ModuleSymbolTable14getSymbolFlagsENS_12PointerUn
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local { i64, ptr } @_ZNK4llvm6object12IRObjectFile12symbol_beginEv(ptr noundef nonnull align 8 dereferenceable(224) %0) unnamed_addr #6 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 176
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %3 = load ptr, ptr %2, align 8
   %4 = ptrtoint ptr %3 to i64
   %.fca.0.insert = insertvalue { i64, ptr } poison, i64 %4, 0
@@ -309,7 +309,7 @@ define dso_local { i64, ptr } @_ZNK4llvm6object12IRObjectFile12symbol_beginEv(pt
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local { i64, ptr } @_ZNK4llvm6object12IRObjectFile10symbol_endEv(ptr noundef nonnull align 8 dereferenceable(224) %0) unnamed_addr #6 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 184
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %3 = load ptr, ptr %2, align 8
   %4 = ptrtoint ptr %3 to i64
   %.fca.0.insert = insertvalue { i64, ptr } poison, i64 %4, 0
@@ -607,12 +607,12 @@ _ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i4: ; 
 
 .lr.ph:                                           ; preds = %27
   %31 = getelementptr inbounds nuw i8, ptr %8, i64 32
-  %32 = getelementptr inbounds i8, ptr %8, i64 72
-  %33 = getelementptr inbounds i8, ptr %8, i64 112
+  %32 = getelementptr inbounds nuw i8, ptr %8, i64 72
+  %33 = getelementptr inbounds nuw i8, ptr %8, i64 112
   %34 = getelementptr inbounds nuw i8, ptr %8, i64 80
-  %35 = getelementptr inbounds i8, ptr %8, i64 96
+  %35 = getelementptr inbounds nuw i8, ptr %8, i64 96
   %36 = getelementptr inbounds nuw i8, ptr %8, i64 40
-  %37 = getelementptr inbounds i8, ptr %8, i64 56
+  %37 = getelementptr inbounds nuw i8, ptr %8, i64 56
   %38 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %39 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1033,7 +1033,7 @@ _ZNSt6vectorIN4llvm13BitcodeModuleESaIS1_EEaSEOS3_.exit: ; preds = %31, %41
   br i1 %45, label %47, label %49
 
 47:                                               ; preds = %_ZNSt6vectorIN4llvm13BitcodeModuleESaIS1_EEaSEOS3_.exit
-  %48 = getelementptr inbounds i8, ptr %3, i64 32
+  %48 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store i64 0, ptr %48, align 8
   br label %_ZN4llvm11SmallVectorIcLj0EEaSEOS1_.exit
 
@@ -1051,11 +1051,11 @@ _ZN4llvm15SmallVectorImplIcE12assignRemoteEOS1_.exit.i: ; preds = %52, %49
   store ptr %53, ptr %7, align 8
   %54 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %55 = load i64, ptr %54, align 8
-  %56 = getelementptr inbounds i8, ptr %3, i64 32
+  %56 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store i64 %55, ptr %56, align 8
   %57 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %58 = load i64, ptr %57, align 8
-  %59 = getelementptr inbounds i8, ptr %3, i64 40
+  %59 = getelementptr inbounds nuw i8, ptr %3, i64 40
   store i64 %58, ptr %59, align 8
   %60 = getelementptr inbounds i8, ptr %6, i64 24
   store ptr %60, ptr %6, align 8
@@ -1085,11 +1085,11 @@ _ZN4llvm11SmallVectorIcLj0EEaSEOS1_.exit:         ; preds = %47, %_ZN4llvm15Smal
 _ZN4llvm15SmallVectorImplIcE12assignRemoteEOS1_.exit.i7: ; preds = %69, %66
   %70 = load ptr, ptr %61, align 8
   store ptr %70, ptr %8, align 8
-  %71 = getelementptr inbounds i8, ptr %6, i64 32
+  %71 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %72 = load i64, ptr %71, align 8
   %73 = getelementptr inbounds i8, ptr %3, i64 56
   store i64 %72, ptr %73, align 8
-  %74 = getelementptr inbounds i8, ptr %6, i64 40
+  %74 = getelementptr inbounds nuw i8, ptr %6, i64 40
   %75 = load i64, ptr %74, align 8
   %76 = getelementptr inbounds i8, ptr %3, i64 64
   store i64 %75, ptr %76, align 8
@@ -1466,7 +1466,7 @@ define linkonce_odr hidden void @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAlloc
 
 _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE26DeallocateCustomSizedSlabsEv.exit: ; preds = %.lr.ph.i, %1
   %10 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %2) #14
-  %11 = getelementptr inbounds i8, ptr %0, i64 72
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store i32 0, ptr %11, align 8
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %13 = tail call noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseIjE5emptyEv(ptr noundef nonnull align 8 dereferenceable(16) %12) #14

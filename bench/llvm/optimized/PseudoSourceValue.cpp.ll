@@ -440,17 +440,17 @@ define dso_local void @_ZN4llvm24PseudoSourceValueManagerC2ERKNS_13TargetMachine
   %11 = getelementptr inbounds i8, ptr %0, i64 88
   tail call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull %11, i64 noundef 6) #16
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  %13 = getelementptr inbounds i8, ptr %0, i64 156
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 156
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %12, i8 0, i64 20, i1 false)
   store i32 16, ptr %13, align 4
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 160
-  %15 = getelementptr inbounds i8, ptr %0, i64 176
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 176
   store i32 128, ptr %15, align 8
   %16 = tail call noalias noundef nonnull ptr @_ZN4llvm15allocate_bufferEmm(i64 noundef 6144, i64 noundef 8) #16
   store ptr %16, ptr %14, align 8
-  %17 = getelementptr inbounds i8, ptr %0, i64 168
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 168
   store i32 0, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 172
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 172
   store i32 0, ptr %18, align 4
   %19 = load i32, ptr %15, align 8
   %20 = zext i32 %19 to i64
@@ -474,7 +474,7 @@ _ZN4llvm18ValueMapCallbackVHIPKNS_11GlobalValueESt10unique_ptrIKNS_28GlobalValue
   br i1 %.not.i.i.i.i, label %_ZN4llvm8ValueMapIPKNS_11GlobalValueESt10unique_ptrIKNS_28GlobalValuePseudoSourceValueESt14default_deleteIS6_EENS_14ValueMapConfigIS3_NS_3sys10SmartMutexILb0EEEEEEC2Ej.exit, label %_ZN4llvm18ValueMapCallbackVHIPKNS_11GlobalValueESt10unique_ptrIKNS_28GlobalValuePseudoSourceValueESt14default_deleteIS6_EENS_14ValueMapConfigIS3_NS_3sys10SmartMutexILb0EEEEEEC2ERKSF_.exit.i.i.i.i, !llvm.loop !4
 
 _ZN4llvm8ValueMapIPKNS_11GlobalValueESt10unique_ptrIKNS_28GlobalValuePseudoSourceValueESt14default_deleteIS6_EENS_14ValueMapConfigIS3_NS_3sys10SmartMutexILb0EEEEEEC2Ej.exit: ; preds = %_ZN4llvm18ValueMapCallbackVHIPKNS_11GlobalValueESt10unique_ptrIKNS_28GlobalValuePseudoSourceValueESt14default_deleteIS6_EENS_14ValueMapConfigIS3_NS_3sys10SmartMutexILb0EEEEEEC2ERKSF_.exit.i.i.i.i, %2
-  %27 = getelementptr inbounds i8, ptr %0, i64 208
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 208
   store i8 0, ptr %27, align 8
   ret void
 }

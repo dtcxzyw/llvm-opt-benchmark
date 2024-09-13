@@ -174,7 +174,7 @@ _ZNK4llvm15concat_iteratorINS_12GlobalObjectEJNS_14ilist_iteratorINS_12ilist_det
   br i1 %50, label %_ZN4llvm15concat_iteratorINS_12GlobalObjectEJNS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_8FunctionELb0ELb0EvLb0EvEELb0ELb0EEENS2_INS4_INS_14GlobalVariableELb0ELb0EvLb0EvEELb0ELb0EEEEEppEv.exit, label %37
 
 51:                                               ; preds = %_ZNK4llvm20iterator_facade_baseINS_15concat_iteratorINS_12GlobalObjectEJNS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_8FunctionELb0ELb0EvLb0EvEELb0ELb0EEENS3_INS5_INS_14GlobalVariableELb0ELb0EvLb0EvEELb0ELb0EEEEEESt20forward_iterator_tagS2_lPS2_RS2_EneERKSC_.exit
-  %52 = getelementptr inbounds i8, ptr %0, i64 48
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %.sroa.017.023 = load ptr, ptr %52, align 8
   %.not24 = icmp eq ptr %.sroa.017.023, %53
@@ -235,7 +235,7 @@ define internal fastcc void @"_ZZN4llvm17nameUnamedGlobalsERNS_6ModuleEENK3$_0cl
 21:                                               ; preds = %15
   call void @_ZN4llvm3MD5C1Ev(ptr noundef nonnull align 4 dereferenceable(152) %4) #9
   %22 = load ptr, ptr %18, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 32
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 32
   %24 = getelementptr inbounds nuw i8, ptr %22, i64 24
   %.sroa.027.033.i = load ptr, ptr %23, align 8
   %.not34.i = icmp eq ptr %.sroa.027.033.i, %24
@@ -283,7 +283,7 @@ define internal fastcc void @"_ZZN4llvm17nameUnamedGlobalsERNS_6ModuleEENK3$_0cl
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %21
   %44 = phi ptr [ %.pre.i, %._crit_edge.loopexit.i ], [ %22, %21 ]
-  %45 = getelementptr inbounds i8, ptr %44, i64 16
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 16
   %46 = getelementptr inbounds nuw i8, ptr %44, i64 8
   %.sroa.022.036.i = load ptr, ptr %45, align 8
   %.not3037.i = icmp eq ptr %.sroa.022.036.i, %46
@@ -460,7 +460,7 @@ define dso_local void @_ZN4llvm18NameAnonGlobalPass3runERNS_6ModuleERNS_15Analys
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 0, ptr %8, align 8, !alias.scope !27
-  %9 = getelementptr inbounds i8, ptr %0, i64 68
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 68
   store i32 0, ptr %9, align 4, !alias.scope !27
   store ptr @_ZN4llvm17PreservedAnalyses14AllAnalysesKeyE, ptr %7, align 8, !alias.scope !27, !noalias !30
   br label %13
@@ -474,7 +474,7 @@ define dso_local void @_ZN4llvm18NameAnonGlobalPass3runERNS_6ModuleERNS_15Analys
 13:                                               ; preds = %10, %6
   %.sink4 = phi ptr [ %12, %10 ], [ %7, %6 ]
   %.sink2 = phi i32 [ 0, %10 ], [ 1, %6 ]
-  %.sink1 = getelementptr inbounds i8, ptr %0, i64 80
+  %.sink1 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store ptr %.sink4, ptr %0, align 8
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sink4, ptr %14, align 8
@@ -484,11 +484,11 @@ define dso_local void @_ZN4llvm18NameAnonGlobalPass3runERNS_6ModuleERNS_15Analys
   store i32 %.sink2, ptr %16, align 4
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr %.sink1, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 56
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store ptr %.sink1, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %0, i64 64
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i32 2, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %0, i64 72
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store i32 0, ptr %20, align 8
   ret void
 }

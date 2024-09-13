@@ -2559,15 +2559,15 @@ define dso_local noundef zeroext i1 @_ZN4llvm19X86IntelInstPrinter15printAliasIn
   store i64 3, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr @_ZZN4llvm19X86IntelInstPrinter15printAliasInstrEPKNS_6MCInstEmRNS_11raw_ostreamEE8Patterns, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %5, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store i64 3, ptr %8, align 8
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 32
   store ptr @_ZZN4llvm19X86IntelInstPrinter15printAliasInstrEPKNS_6MCInstEmRNS_11raw_ostreamEE5Conds, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %5, i64 40
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 40
   store i64 2, ptr %10, align 8
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 48
   store ptr @_ZZN4llvm19X86IntelInstPrinter15printAliasInstrEPKNS_6MCInstEmRNS_11raw_ostreamEE10AsmStrings, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %5, i64 56
+  %12 = getelementptr inbounds nuw i8, ptr %5, i64 56
   store i64 19, ptr %12, align 8
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 64
   store ptr null, ptr %13, align 8

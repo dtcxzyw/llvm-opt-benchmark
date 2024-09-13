@@ -1275,41 +1275,41 @@ define dso_local noundef ptr @_ZN4llvm15itaniumDemangleESt17basic_string_viewIcS
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %.ptr2.i.i.i = getelementptr inbounds i8, ptr %4, i64 40
   store ptr %.ptr2.i.i.i, ptr %10, align 16
-  %11 = getelementptr inbounds i8, ptr %4, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store ptr %.ptr2.i.i.i, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %4, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %13 = getelementptr inbounds i8, ptr %4, i64 296
   store ptr %13, ptr %12, align 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(256) %.ptr2.i.i.i, i8 0, i64 256, i1 false)
   %.ptr2.i5.i.i = getelementptr inbounds i8, ptr %4, i64 320
   store ptr %.ptr2.i5.i.i, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %4, i64 304
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 304
   store ptr %.ptr2.i5.i.i, ptr %14, align 16
-  %15 = getelementptr inbounds i8, ptr %4, i64 312
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 312
   %16 = getelementptr inbounds i8, ptr %4, i64 576
   store ptr %16, ptr %15, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %.ptr2.i5.i.i, i8 0, i64 256, i1 false)
   %.ptr2.i6.i.i = getelementptr inbounds i8, ptr %4, i64 600
   store ptr %.ptr2.i6.i.i, ptr %16, align 16
-  %17 = getelementptr inbounds i8, ptr %4, i64 584
+  %17 = getelementptr inbounds nuw i8, ptr %4, i64 584
   store ptr %.ptr2.i6.i.i, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %4, i64 592
+  %18 = getelementptr inbounds nuw i8, ptr %4, i64 592
   %19 = getelementptr inbounds i8, ptr %4, i64 664
   store ptr %19, ptr %18, align 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %.ptr2.i6.i.i, i8 0, i64 64, i1 false)
   %.ptr2.i7.i.i = getelementptr inbounds i8, ptr %4, i64 688
   store ptr %.ptr2.i7.i.i, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %4, i64 672
+  %20 = getelementptr inbounds nuw i8, ptr %4, i64 672
   store ptr %.ptr2.i7.i.i, ptr %20, align 16
-  %21 = getelementptr inbounds i8, ptr %4, i64 680
+  %21 = getelementptr inbounds nuw i8, ptr %4, i64 680
   %22 = getelementptr inbounds i8, ptr %4, i64 720
   store ptr %22, ptr %21, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %.ptr2.i7.i.i, i8 0, i64 32, i1 false)
   %.ptr2.i8.i.i = getelementptr inbounds i8, ptr %4, i64 744
   store ptr %.ptr2.i8.i.i, ptr %22, align 16
-  %23 = getelementptr inbounds i8, ptr %4, i64 728
+  %23 = getelementptr inbounds nuw i8, ptr %4, i64 728
   store ptr %.ptr2.i8.i.i, ptr %23, align 8
-  %24 = getelementptr inbounds i8, ptr %4, i64 736
+  %24 = getelementptr inbounds nuw i8, ptr %4, i64 736
   %25 = getelementptr inbounds i8, ptr %4, i64 776
   store ptr %25, ptr %24, align 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.ptr2.i8.i.i, i8 0, i64 32, i1 false)
@@ -1323,7 +1323,7 @@ define dso_local noundef ptr @_ZN4llvm15itaniumDemangleESt17basic_string_viewIcS
   %scevgep.i.i = getelementptr inbounds i8, ptr %4, i64 792
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %scevgep.i.i, i8 0, i64 12, i1 false)
   %29 = getelementptr inbounds nuw i8, ptr %4, i64 816
-  %30 = getelementptr inbounds i8, ptr %4, i64 4912
+  %30 = getelementptr inbounds nuw i8, ptr %4, i64 4912
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %29, i8 0, i64 16, i1 false)
   store ptr %29, ptr %30, align 16
   %31 = call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E5parseEb(ptr noundef nonnull align 16 dereferenceable(4928) %4, i1 noundef zeroext %2)
@@ -1453,7 +1453,7 @@ _ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLO
   br i1 %23, label %24, label %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit.thread
 
 24:                                               ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit
-  %25 = getelementptr inbounds i8, ptr %0, i64 4912
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 4912
   %26 = load ptr, ptr %25, align 16
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %28 = load i64, ptr %27, align 8
@@ -1648,7 +1648,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @_ZN4llvm16itanium_demangle14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEED2Ev(ptr noundef nonnull align 16 dereferenceable(4928) %0) unnamed_addr #1 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 816
-  %3 = getelementptr inbounds i8, ptr %0, i64 4912
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 4912
   %4 = load ptr, ptr %3, align 16
   %.not4.i.i.i.i = icmp eq ptr %4, null
   br i1 %.not4.i.i.i.i, label %_ZN12_GLOBAL__N_116DefaultAllocatorD2Ev.exit.i, label %.lr.ph.i.i.i.i
@@ -1675,7 +1675,7 @@ _ZN12_GLOBAL__N_116DefaultAllocatorD2Ev.exit.i:   ; preds = %8, %1
   store ptr %2, ptr %3, align 16
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 720
   %11 = load ptr, ptr %10, align 16
-  %12 = getelementptr inbounds i8, ptr %0, i64 744
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 744
   %13 = icmp eq ptr %11, %12
   br i1 %13, label %_ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_24ForwardTemplateReferenceELm4EED2Ev.exit.i, label %14
 
@@ -1686,7 +1686,7 @@ _ZN12_GLOBAL__N_116DefaultAllocatorD2Ev.exit.i:   ; preds = %8, %1
 _ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_24ForwardTemplateReferenceELm4EED2Ev.exit.i: ; preds = %14, %_ZN12_GLOBAL__N_116DefaultAllocatorD2Ev.exit.i
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 664
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %0, i64 688
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 688
   %18 = icmp eq ptr %16, %17
   br i1 %18, label %_ZN4llvm16itanium_demangle14PODSmallVectorIPNS1_IPNS0_4NodeELm8EEELm4EED2Ev.exit.i, label %19
 
@@ -1697,7 +1697,7 @@ _ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_24ForwardTemplateReferenceELm4EE
 _ZN4llvm16itanium_demangle14PODSmallVectorIPNS1_IPNS0_4NodeELm8EEELm4EED2Ev.exit.i: ; preds = %19, %_ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_24ForwardTemplateReferenceELm4EED2Ev.exit.i
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 576
   %21 = load ptr, ptr %20, align 16
-  %22 = getelementptr inbounds i8, ptr %0, i64 600
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 600
   %23 = icmp eq ptr %21, %22
   br i1 %23, label %_ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm8EED2Ev.exit.i, label %24
 
@@ -1708,7 +1708,7 @@ _ZN4llvm16itanium_demangle14PODSmallVectorIPNS1_IPNS0_4NodeELm8EEELm4EED2Ev.exit
 _ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm8EED2Ev.exit.i: ; preds = %24, %_ZN4llvm16itanium_demangle14PODSmallVectorIPNS1_IPNS0_4NodeELm8EEELm4EED2Ev.exit.i
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 296
   %26 = load ptr, ptr %25, align 8
-  %27 = getelementptr inbounds i8, ptr %0, i64 320
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 320
   %28 = icmp eq ptr %26, %27
   br i1 %28, label %_ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EED2Ev.exit.i, label %29
 
@@ -1719,7 +1719,7 @@ _ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm8EED2Ev.exit.i: ; preds 
 _ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EED2Ev.exit.i: ; preds = %29, %_ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm8EED2Ev.exit.i
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %31 = load ptr, ptr %30, align 16
-  %32 = getelementptr inbounds i8, ptr %0, i64 40
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %33 = icmp eq ptr %31, %32
   br i1 %33, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_ED2Ev.exit, label %34
 
@@ -1740,41 +1740,41 @@ define dso_local void @_ZN4llvm23ItaniumPartialDemanglerC2Ev(ptr nocapture nound
   %.ptr2.i.i.i = getelementptr inbounds i8, ptr %3, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %3, i8 0, i64 16, i1 false)
   store ptr %.ptr2.i.i.i, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %3, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store ptr %.ptr2.i.i.i, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %3, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %7 = getelementptr inbounds i8, ptr %3, i64 296
   store ptr %7, ptr %6, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(256) %.ptr2.i.i.i, i8 0, i64 256, i1 false)
   %.ptr2.i5.i.i = getelementptr inbounds i8, ptr %3, i64 320
   store ptr %.ptr2.i5.i.i, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %3, i64 304
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 304
   store ptr %.ptr2.i5.i.i, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %3, i64 312
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 312
   %10 = getelementptr inbounds i8, ptr %3, i64 576
   store ptr %10, ptr %9, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %.ptr2.i5.i.i, i8 0, i64 256, i1 false)
   %.ptr2.i6.i.i = getelementptr inbounds i8, ptr %3, i64 600
   store ptr %.ptr2.i6.i.i, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %3, i64 584
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 584
   store ptr %.ptr2.i6.i.i, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %3, i64 592
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 592
   %13 = getelementptr inbounds i8, ptr %3, i64 664
   store ptr %13, ptr %12, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %.ptr2.i6.i.i, i8 0, i64 64, i1 false)
   %.ptr2.i7.i.i = getelementptr inbounds i8, ptr %3, i64 688
   store ptr %.ptr2.i7.i.i, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %3, i64 672
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 672
   store ptr %.ptr2.i7.i.i, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %3, i64 680
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 680
   %16 = getelementptr inbounds i8, ptr %3, i64 720
   store ptr %16, ptr %15, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %.ptr2.i7.i.i, i8 0, i64 32, i1 false)
   %.ptr2.i8.i.i = getelementptr inbounds i8, ptr %3, i64 744
   store ptr %.ptr2.i8.i.i, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %3, i64 728
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 728
   store ptr %.ptr2.i8.i.i, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %3, i64 736
+  %18 = getelementptr inbounds nuw i8, ptr %3, i64 736
   %19 = getelementptr inbounds i8, ptr %3, i64 776
   store ptr %19, ptr %18, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.ptr2.i8.i.i, i8 0, i64 32, i1 false)
@@ -1788,7 +1788,7 @@ define dso_local void @_ZN4llvm23ItaniumPartialDemanglerC2Ev(ptr nocapture nound
   %scevgep.i.i = getelementptr inbounds i8, ptr %3, i64 792
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %scevgep.i.i, i8 0, i64 12, i1 false)
   %23 = getelementptr inbounds nuw i8, ptr %3, i64 816
-  %24 = getelementptr inbounds i8, ptr %3, i64 4912
+  %24 = getelementptr inbounds nuw i8, ptr %3, i64 4912
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %23, i8 0, i64 16, i1 false)
   store ptr %23, ptr %24, align 16
   store ptr %3, ptr %2, align 8
@@ -1855,15 +1855,15 @@ define dso_local noundef zeroext i1 @_ZN4llvm23ItaniumPartialDemangler15partialD
   store ptr %6, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %4, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store ptr %9, ptr %10, align 8
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 296
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %4, i64 304
+  %13 = getelementptr inbounds nuw i8, ptr %4, i64 304
   store ptr %12, ptr %13, align 8
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 664
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %4, i64 672
+  %16 = getelementptr inbounds nuw i8, ptr %4, i64 672
   store ptr %15, ptr %16, align 8
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 784
   store i64 -1, ptr %17, align 16
@@ -1874,7 +1874,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm23ItaniumPartialDemangler15partialD
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 792
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %20, i8 0, i64 12, i1 false)
   %21 = getelementptr inbounds nuw i8, ptr %4, i64 816
-  %22 = getelementptr inbounds i8, ptr %4, i64 4912
+  %22 = getelementptr inbounds nuw i8, ptr %4, i64 4912
   %23 = load ptr, ptr %22, align 16
   %.not4.i.i.i = icmp eq ptr %23, null
   br i1 %.not4.i.i.i, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E5resetEPKcS8_.exit, label %.lr.ph.i.i.i
@@ -3094,7 +3094,7 @@ _ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLO
   br i1 %123, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E16parseSpecialNameEv.exit, label %124
 
 124:                                              ; preds = %120
-  %125 = getelementptr inbounds i8, ptr %0, i64 4912
+  %125 = getelementptr inbounds nuw i8, ptr %0, i64 4912
   %126 = load ptr, ptr %125, align 16
   %127 = getelementptr inbounds nuw i8, ptr %126, i64 8
   %128 = load i64, ptr %127, align 8
@@ -3225,7 +3225,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
   br i1 %or.cond.i, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E16parseSpecialNameEv.exit, label %179
 
 179:                                              ; preds = %174
-  %180 = getelementptr inbounds i8, ptr %0, i64 4912
+  %180 = getelementptr inbounds nuw i8, ptr %0, i64 4912
   %181 = load ptr, ptr %180, align 16
   %182 = getelementptr inbounds nuw i8, ptr %181, i64 8
   %183 = load i64, ptr %182, align 8
@@ -3304,7 +3304,7 @@ _ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLO
   store i8 0, ptr %210, align 8
   %211 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %212 = getelementptr inbounds nuw i8, ptr %0, i64 720
-  %213 = getelementptr inbounds i8, ptr %0, i64 728
+  %213 = getelementptr inbounds nuw i8, ptr %0, i64 728
   %214 = load ptr, ptr %213, align 8
   %215 = load ptr, ptr %212, align 16
   %216 = ptrtoint ptr %214 to i64
@@ -3332,7 +3332,7 @@ _ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLO
 
 .lr.ph.i:                                         ; preds = %223
   %232 = getelementptr inbounds nuw i8, ptr %0, i64 664
-  %233 = getelementptr inbounds i8, ptr %0, i64 672
+  %233 = getelementptr inbounds nuw i8, ptr %0, i64 672
   br label %234
 
 234:                                              ; preds = %253, %.lr.ph.i
@@ -3425,15 +3425,15 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
   %274 = getelementptr inbounds i8, ptr %.val14.val, i64 13
   store ptr %274, ptr %0, align 16
   %275 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %276 = getelementptr inbounds i8, ptr %0, i64 24
+  %276 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %277 = load ptr, ptr %276, align 8
   %278 = load ptr, ptr %275, align 16
   %279 = ptrtoint ptr %277 to i64
   %280 = ptrtoint ptr %278 to i64
   %281 = sub i64 %279, %280
   %282 = ashr exact i64 %281, 3
-  %283 = getelementptr inbounds i8, ptr %0, i64 32
-  %284 = getelementptr inbounds i8, ptr %0, i64 40
+  %283 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %284 = getelementptr inbounds nuw i8, ptr %0, i64 40
   br label %285
 
 285:                                              ; preds = %_ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exit, %273
@@ -3564,7 +3564,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
 
 343:                                              ; preds = %339, %336
   %344 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %345 = getelementptr inbounds i8, ptr %0, i64 24
+  %345 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %346 = load ptr, ptr %345, align 8
   %347 = load ptr, ptr %344, align 16
   %348 = ptrtoint ptr %346 to i64
@@ -3576,9 +3576,9 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
   br i1 %353, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E26resolveForwardTemplateRefsERNS6_9NameStateE.exit.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %343
-  %354 = getelementptr inbounds i8, ptr %0, i64 4912
-  %355 = getelementptr inbounds i8, ptr %0, i64 32
-  %356 = getelementptr inbounds i8, ptr %0, i64 40
+  %354 = getelementptr inbounds nuw i8, ptr %0, i64 4912
+  %355 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %356 = getelementptr inbounds nuw i8, ptr %0, i64 40
   br label %357
 
 357:                                              ; preds = %.lr.ph, %.critedge84.backedge
@@ -3830,7 +3830,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
 define internal fastcc noundef nonnull ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4makeINS0_11SpecialNameEJRA34_KcRPNS0_4NodeEEEESD_DpOT0_(ptr nocapture noundef nonnull align 16 dereferenceable(4928) %0, ptr noundef nonnull align 1 dereferenceable(34) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %2) unnamed_addr #12 align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 4912
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 4912
   %5 = load ptr, ptr %4, align 16
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = load i64, ptr %6, align 8
@@ -4040,7 +4040,7 @@ _ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLO
 55:                                               ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit
   %56 = getelementptr inbounds i8, ptr %.val61, i64 1
   store ptr %56, ptr %0, align 16
-  %57 = getelementptr inbounds i8, ptr %0, i64 4912
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 4912
   %58 = load ptr, ptr %57, align 16
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 8
   %60 = load i64, ptr %59, align 8
@@ -4093,7 +4093,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
 84:                                               ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit
   %85 = getelementptr inbounds i8, ptr %.val61, i64 1
   store ptr %85, ptr %0, align 16
-  %86 = getelementptr inbounds i8, ptr %0, i64 4912
+  %86 = getelementptr inbounds nuw i8, ptr %0, i64 4912
   %87 = load ptr, ptr %86, align 16
   %88 = getelementptr inbounds nuw i8, ptr %87, i64 8
   %89 = load i64, ptr %88, align 8
@@ -4146,7 +4146,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
 113:                                              ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit
   %114 = getelementptr inbounds i8, ptr %.val61, i64 1
   store ptr %114, ptr %0, align 16
-  %115 = getelementptr inbounds i8, ptr %0, i64 4912
+  %115 = getelementptr inbounds nuw i8, ptr %0, i64 4912
   %116 = load ptr, ptr %115, align 16
   %117 = getelementptr inbounds nuw i8, ptr %116, i64 8
   %118 = load i64, ptr %117, align 8
@@ -4199,7 +4199,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
 142:                                              ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit
   %143 = getelementptr inbounds i8, ptr %.val61, i64 1
   store ptr %143, ptr %0, align 16
-  %144 = getelementptr inbounds i8, ptr %0, i64 4912
+  %144 = getelementptr inbounds nuw i8, ptr %0, i64 4912
   %145 = load ptr, ptr %144, align 16
   %146 = getelementptr inbounds nuw i8, ptr %145, i64 8
   %147 = load i64, ptr %146, align 8
@@ -4252,7 +4252,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
 171:                                              ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit
   %172 = getelementptr inbounds i8, ptr %.val61, i64 1
   store ptr %172, ptr %0, align 16
-  %173 = getelementptr inbounds i8, ptr %0, i64 4912
+  %173 = getelementptr inbounds nuw i8, ptr %0, i64 4912
   %174 = load ptr, ptr %173, align 16
   %175 = getelementptr inbounds nuw i8, ptr %174, i64 8
   %176 = load i64, ptr %175, align 8
@@ -4305,7 +4305,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
 200:                                              ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit
   %201 = getelementptr inbounds i8, ptr %.val61, i64 1
   store ptr %201, ptr %0, align 16
-  %202 = getelementptr inbounds i8, ptr %0, i64 4912
+  %202 = getelementptr inbounds nuw i8, ptr %0, i64 4912
   %203 = load ptr, ptr %202, align 16
   %204 = getelementptr inbounds nuw i8, ptr %203, i64 8
   %205 = load i64, ptr %204, align 8
@@ -4358,7 +4358,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
 229:                                              ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit
   %230 = getelementptr inbounds i8, ptr %.val61, i64 1
   store ptr %230, ptr %0, align 16
-  %231 = getelementptr inbounds i8, ptr %0, i64 4912
+  %231 = getelementptr inbounds nuw i8, ptr %0, i64 4912
   %232 = load ptr, ptr %231, align 16
   %233 = getelementptr inbounds nuw i8, ptr %232, i64 8
   %234 = load i64, ptr %233, align 8
@@ -4411,7 +4411,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
 258:                                              ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit
   %259 = getelementptr inbounds i8, ptr %.val61, i64 1
   store ptr %259, ptr %0, align 16
-  %260 = getelementptr inbounds i8, ptr %0, i64 4912
+  %260 = getelementptr inbounds nuw i8, ptr %0, i64 4912
   %261 = load ptr, ptr %260, align 16
   %262 = getelementptr inbounds nuw i8, ptr %261, i64 8
   %263 = load i64, ptr %262, align 8
@@ -4464,7 +4464,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
 287:                                              ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit
   %288 = getelementptr inbounds i8, ptr %.val61, i64 1
   store ptr %288, ptr %0, align 16
-  %289 = getelementptr inbounds i8, ptr %0, i64 4912
+  %289 = getelementptr inbounds nuw i8, ptr %0, i64 4912
   %290 = load ptr, ptr %289, align 16
   %291 = getelementptr inbounds nuw i8, ptr %290, i64 8
   %292 = load i64, ptr %291, align 8
@@ -4517,7 +4517,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
 316:                                              ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit
   %317 = getelementptr inbounds i8, ptr %.val61, i64 1
   store ptr %317, ptr %0, align 16
-  %318 = getelementptr inbounds i8, ptr %0, i64 4912
+  %318 = getelementptr inbounds nuw i8, ptr %0, i64 4912
   %319 = load ptr, ptr %318, align 16
   %320 = getelementptr inbounds nuw i8, ptr %319, i64 8
   %321 = load i64, ptr %320, align 8
@@ -4570,7 +4570,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
 345:                                              ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit
   %346 = getelementptr inbounds i8, ptr %.val61, i64 1
   store ptr %346, ptr %0, align 16
-  %347 = getelementptr inbounds i8, ptr %0, i64 4912
+  %347 = getelementptr inbounds nuw i8, ptr %0, i64 4912
   %348 = load ptr, ptr %347, align 16
   %349 = getelementptr inbounds nuw i8, ptr %348, i64 8
   %350 = load i64, ptr %349, align 8
@@ -4623,7 +4623,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
 374:                                              ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit
   %375 = getelementptr inbounds i8, ptr %.val61, i64 1
   store ptr %375, ptr %0, align 16
-  %376 = getelementptr inbounds i8, ptr %0, i64 4912
+  %376 = getelementptr inbounds nuw i8, ptr %0, i64 4912
   %377 = load ptr, ptr %376, align 16
   %378 = getelementptr inbounds nuw i8, ptr %377, i64 8
   %379 = load i64, ptr %378, align 8
@@ -4676,7 +4676,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
 403:                                              ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit
   %404 = getelementptr inbounds i8, ptr %.val61, i64 1
   store ptr %404, ptr %0, align 16
-  %405 = getelementptr inbounds i8, ptr %0, i64 4912
+  %405 = getelementptr inbounds nuw i8, ptr %0, i64 4912
   %406 = load ptr, ptr %405, align 16
   %407 = getelementptr inbounds nuw i8, ptr %406, i64 8
   %408 = load i64, ptr %407, align 8
@@ -4729,7 +4729,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
 432:                                              ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit
   %433 = getelementptr inbounds i8, ptr %.val61, i64 1
   store ptr %433, ptr %0, align 16
-  %434 = getelementptr inbounds i8, ptr %0, i64 4912
+  %434 = getelementptr inbounds nuw i8, ptr %0, i64 4912
   %435 = load ptr, ptr %434, align 16
   %436 = getelementptr inbounds nuw i8, ptr %435, i64 8
   %437 = load i64, ptr %436, align 8
@@ -4782,7 +4782,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
 461:                                              ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit
   %462 = getelementptr inbounds i8, ptr %.val61, i64 1
   store ptr %462, ptr %0, align 16
-  %463 = getelementptr inbounds i8, ptr %0, i64 4912
+  %463 = getelementptr inbounds nuw i8, ptr %0, i64 4912
   %464 = load ptr, ptr %463, align 16
   %465 = getelementptr inbounds nuw i8, ptr %464, i64 8
   %466 = load i64, ptr %465, align 8
@@ -4835,7 +4835,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
 490:                                              ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit
   %491 = getelementptr inbounds i8, ptr %.val61, i64 1
   store ptr %491, ptr %0, align 16
-  %492 = getelementptr inbounds i8, ptr %0, i64 4912
+  %492 = getelementptr inbounds nuw i8, ptr %0, i64 4912
   %493 = load ptr, ptr %492, align 16
   %494 = getelementptr inbounds nuw i8, ptr %493, i64 8
   %495 = load i64, ptr %494, align 8
@@ -4888,7 +4888,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
 519:                                              ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit
   %520 = getelementptr inbounds i8, ptr %.val61, i64 1
   store ptr %520, ptr %0, align 16
-  %521 = getelementptr inbounds i8, ptr %0, i64 4912
+  %521 = getelementptr inbounds nuw i8, ptr %0, i64 4912
   %522 = load ptr, ptr %521, align 16
   %523 = getelementptr inbounds nuw i8, ptr %522, i64 8
   %524 = load i64, ptr %523, align 8
@@ -4941,7 +4941,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
 548:                                              ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit
   %549 = getelementptr inbounds i8, ptr %.val61, i64 1
   store ptr %549, ptr %0, align 16
-  %550 = getelementptr inbounds i8, ptr %0, i64 4912
+  %550 = getelementptr inbounds nuw i8, ptr %0, i64 4912
   %551 = load ptr, ptr %550, align 16
   %552 = getelementptr inbounds nuw i8, ptr %551, i64 8
   %553 = load i64, ptr %552, align 8
@@ -4994,7 +4994,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
 577:                                              ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit
   %578 = getelementptr inbounds i8, ptr %.val61, i64 1
   store ptr %578, ptr %0, align 16
-  %579 = getelementptr inbounds i8, ptr %0, i64 4912
+  %579 = getelementptr inbounds nuw i8, ptr %0, i64 4912
   %580 = load ptr, ptr %579, align 16
   %581 = getelementptr inbounds nuw i8, ptr %580, i64 8
   %582 = load i64, ptr %581, align 8
@@ -5047,7 +5047,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
 606:                                              ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit
   %607 = getelementptr inbounds i8, ptr %.val61, i64 1
   store ptr %607, ptr %0, align 16
-  %608 = getelementptr inbounds i8, ptr %0, i64 4912
+  %608 = getelementptr inbounds nuw i8, ptr %0, i64 4912
   %609 = load ptr, ptr %608, align 16
   %610 = getelementptr inbounds nuw i8, ptr %609, i64 8
   %611 = load i64, ptr %610, align 8
@@ -5100,7 +5100,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
 635:                                              ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit
   %636 = getelementptr inbounds i8, ptr %.val61, i64 1
   store ptr %636, ptr %0, align 16
-  %637 = getelementptr inbounds i8, ptr %0, i64 4912
+  %637 = getelementptr inbounds nuw i8, ptr %0, i64 4912
   %638 = load ptr, ptr %637, align 16
   %639 = getelementptr inbounds nuw i8, ptr %638, i64 8
   %640 = load i64, ptr %639, align 8
@@ -5759,9 +5759,9 @@ thread-pre-split:                                 ; preds = %776, %778, %785, %_
 .thread250:                                       ; preds = %.thread250.sink.split, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit183.thread, %839, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit177, %843, %thread-pre-split
   %903 = phi ptr [ %.sink, %thread-pre-split ], [ %884, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit183.thread ], [ %837, %839 ], [ %837, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit177 ], [ %837, %843 ], [ %.sink269, %.thread250.sink.split ]
   %904 = getelementptr inbounds nuw i8, ptr %0, i64 296
-  %905 = getelementptr inbounds i8, ptr %0, i64 304
+  %905 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %906 = load ptr, ptr %905, align 16
-  %907 = getelementptr inbounds i8, ptr %0, i64 312
+  %907 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %908 = load ptr, ptr %907, align 8
   %909 = icmp eq ptr %906, %908
   br i1 %909, label %910, label %_ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exit
@@ -5772,7 +5772,7 @@ thread-pre-split:                                 ; preds = %776, %778, %785, %_
   %913 = ptrtoint ptr %911 to i64
   %914 = sub i64 %912, %913
   %915 = ashr exact i64 %914, 2
-  %916 = getelementptr inbounds i8, ptr %0, i64 320
+  %916 = getelementptr inbounds nuw i8, ptr %0, i64 320
   %917 = icmp eq ptr %911, %916
   %918 = shl i64 %914, 1
   br i1 %917, label %919, label %925
@@ -5840,28 +5840,28 @@ define internal fastcc void @_ZN4llvm16itanium_demangle22AbstractManglingParserI
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.ptr2.i = getelementptr inbounds i8, ptr %0, i64 32
   store ptr %.ptr2.i, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %.ptr2.i, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = getelementptr inbounds i8, ptr %0, i64 64
   store ptr %6, ptr %5, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.ptr2.i, i8 0, i64 32, i1 false)
   %.ptr2.i2 = getelementptr inbounds i8, ptr %0, i64 88
   store ptr %.ptr2.i2, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 72
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store ptr %.ptr2.i2, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %9 = getelementptr inbounds i8, ptr %0, i64 152
   store ptr %9, ptr %8, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %.ptr2.i2, i8 0, i64 64, i1 false)
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 664
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %1, i64 688
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 688
   %13 = icmp eq ptr %11, %12
   br i1 %13, label %14, label %28
 
 14:                                               ; preds = %2
-  %15 = getelementptr inbounds i8, ptr %1, i64 672
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 672
   %16 = load ptr, ptr %15, align 8
   %.not.i.i.i.i.i.i = icmp eq ptr %16, %11
   br i1 %.not.i.i.i.i.i.i, label %_ZSt4copyIPPN4llvm16itanium_demangle14PODSmallVectorIPNS1_4NodeELm8EEES7_ET0_T_S9_S8_.exit.i, label %17
@@ -5889,10 +5889,10 @@ _ZSt4copyIPPN4llvm16itanium_demangle14PODSmallVectorIPNS1_4NodeELm8EEES7_ET0_T_S
 
 28:                                               ; preds = %2
   store ptr %11, ptr %3, align 8
-  %29 = getelementptr inbounds i8, ptr %1, i64 672
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 672
   %30 = load ptr, ptr %29, align 8
   store ptr %30, ptr %4, align 8
-  %31 = getelementptr inbounds i8, ptr %1, i64 680
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 680
   %32 = load ptr, ptr %31, align 8
   store ptr %32, ptr %5, align 8
   store ptr %12, ptr %10, align 8
@@ -5905,7 +5905,7 @@ _ZN4llvm16itanium_demangle14PODSmallVectorIPNS1_IPNS0_4NodeELm8EEELm4EEaSEOS6_.e
   %34 = load ptr, ptr %0, align 8
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 576
   %36 = load ptr, ptr %35, align 8
-  %37 = getelementptr inbounds i8, ptr %34, i64 600
+  %37 = getelementptr inbounds nuw i8, ptr %34, i64 600
   %38 = icmp eq ptr %36, %37
   %39 = load ptr, ptr %6, align 8
   %40 = icmp eq ptr %39, %.ptr2.i2
@@ -5925,7 +5925,7 @@ _ZN4llvm16itanium_demangle14PODSmallVectorIPNS1_IPNS0_4NodeELm8EEELm4EEaSEOS6_.e
 43:                                               ; preds = %42, %41
   %44 = phi ptr [ %.ptr2.i2, %42 ], [ %39, %41 ]
   %45 = phi ptr [ %.pre.i3, %42 ], [ %36, %41 ]
-  %46 = getelementptr inbounds i8, ptr %34, i64 584
+  %46 = getelementptr inbounds nuw i8, ptr %34, i64 584
   %47 = load ptr, ptr %46, align 8
   %.not.i.i.i.i.i.i4 = icmp eq ptr %47, %45
   br i1 %.not.i.i.i.i.i.i4, label %_ZSt4copyIPPN4llvm16itanium_demangle4NodeES4_ET0_T_S6_S5_.exit.i, label %48
@@ -5958,10 +5958,10 @@ _ZSt4copyIPPN4llvm16itanium_demangle4NodeES4_ET0_T_S6_S5_.exit.i: ; preds = %48,
   br i1 %40, label %61, label %67
 
 61:                                               ; preds = %60
-  %62 = getelementptr inbounds i8, ptr %34, i64 584
+  %62 = getelementptr inbounds nuw i8, ptr %34, i64 584
   %63 = load ptr, ptr %62, align 8
   store ptr %63, ptr %7, align 8
-  %64 = getelementptr inbounds i8, ptr %34, i64 592
+  %64 = getelementptr inbounds nuw i8, ptr %34, i64 592
   %65 = load ptr, ptr %64, align 8
   store ptr %65, ptr %8, align 8
   store ptr %37, ptr %35, align 8
@@ -5972,12 +5972,12 @@ _ZSt4copyIPPN4llvm16itanium_demangle4NodeES4_ET0_T_S6_S5_.exit.i: ; preds = %48,
 
 67:                                               ; preds = %60
   store ptr %39, ptr %35, align 8
-  %68 = getelementptr inbounds i8, ptr %34, i64 584
+  %68 = getelementptr inbounds nuw i8, ptr %34, i64 584
   %69 = load ptr, ptr %7, align 8
   %70 = load ptr, ptr %68, align 8
   store ptr %70, ptr %7, align 8
   store ptr %69, ptr %68, align 8
-  %71 = getelementptr inbounds i8, ptr %34, i64 592
+  %71 = getelementptr inbounds nuw i8, ptr %34, i64 592
   %72 = load ptr, ptr %8, align 8
   %73 = load ptr, ptr %71, align 8
   store ptr %73, ptr %8, align 8
@@ -5990,12 +5990,12 @@ _ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm8EEaSEOS4_.exit: ; preds
   %75 = load ptr, ptr %0, align 8
   %76 = getelementptr inbounds nuw i8, ptr %75, i64 664
   %77 = load ptr, ptr %76, align 8
-  %78 = getelementptr inbounds i8, ptr %75, i64 672
+  %78 = getelementptr inbounds nuw i8, ptr %75, i64 672
   store ptr %77, ptr %78, align 8
   %79 = load ptr, ptr %0, align 8
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 576
   %81 = load ptr, ptr %80, align 8
-  %82 = getelementptr inbounds i8, ptr %79, i64 584
+  %82 = getelementptr inbounds nuw i8, ptr %79, i64 584
   store ptr %81, ptr %82, align 8
   ret void
 }
@@ -6134,11 +6134,11 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
 54:                                               ; preds = %.sink.split, %51, %.thread160, %49, %44
   %55 = icmp ne ptr %1, null
   %56 = getelementptr inbounds nuw i8, ptr %1, i64 1
-  %57 = getelementptr inbounds i8, ptr %0, i64 4912
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 4912
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 296
-  %59 = getelementptr inbounds i8, ptr %0, i64 304
-  %60 = getelementptr inbounds i8, ptr %0, i64 312
-  %61 = getelementptr inbounds i8, ptr %0, i64 320
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 304
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 312
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 320
   br label %.backedge
 
 .backedge:                                        ; preds = %.backedge.backedge, %54
@@ -6599,9 +6599,9 @@ _ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLO
 
 259:                                              ; preds = %256
   %260 = getelementptr inbounds nuw i8, ptr %0, i64 296
-  %261 = getelementptr inbounds i8, ptr %0, i64 304
+  %261 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %262 = load ptr, ptr %261, align 16
-  %263 = getelementptr inbounds i8, ptr %0, i64 312
+  %263 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %264 = load ptr, ptr %263, align 8
   %265 = icmp eq ptr %262, %264
   br i1 %265, label %266, label %_ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exit
@@ -6612,7 +6612,7 @@ _ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLO
   %269 = ptrtoint ptr %267 to i64
   %270 = sub i64 %268, %269
   %271 = ashr exact i64 %270, 2
-  %272 = getelementptr inbounds i8, ptr %0, i64 320
+  %272 = getelementptr inbounds nuw i8, ptr %0, i64 320
   %273 = icmp eq ptr %267, %272
   %274 = shl i64 %270, 1
   br i1 %273, label %275, label %281
@@ -6677,7 +6677,7 @@ _ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exi
   br label %297
 
 297:                                              ; preds = %295, %294
-  %298 = getelementptr inbounds i8, ptr %0, i64 4912
+  %298 = getelementptr inbounds nuw i8, ptr %0, i64 4912
   %299 = load ptr, ptr %298, align 16
   %300 = getelementptr inbounds nuw i8, ptr %299, i64 8
   %301 = load i64, ptr %300, align 8
@@ -6792,15 +6792,15 @@ _ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLO
   %24 = getelementptr inbounds i8, ptr %.val11, i64 1
   store ptr %24, ptr %0, align 16
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %26 = getelementptr inbounds i8, ptr %0, i64 24
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %27 = load ptr, ptr %26, align 8
   %28 = load ptr, ptr %25, align 16
   %29 = ptrtoint ptr %27 to i64
   %30 = ptrtoint ptr %28 to i64
   %31 = sub i64 %29, %30
   %32 = ashr exact i64 %31, 3
-  %33 = getelementptr inbounds i8, ptr %0, i64 32
-  %34 = getelementptr inbounds i8, ptr %0, i64 40
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 40
   br label %35
 
 35:                                               ; preds = %_ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exit, %23
@@ -6888,7 +6888,7 @@ _ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exi
   %73 = tail call fastcc { ptr, i64 } @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E20popTrailingNodeArrayEm(ptr noundef nonnull align 16 dereferenceable(4928) %0, i64 noundef %32)
   %74 = extractvalue { ptr, i64 } %73, 0
   %75 = extractvalue { ptr, i64 } %73, 1
-  %76 = getelementptr inbounds i8, ptr %0, i64 4912
+  %76 = getelementptr inbounds nuw i8, ptr %0, i64 4912
   %77 = load ptr, ptr %76, align 16
   %78 = getelementptr inbounds nuw i8, ptr %77, i64 8
   %79 = load i64, ptr %78, align 8
@@ -7018,7 +7018,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
   br i1 %.not8, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E9consumeIfEc.exit.thread, label %137
 
 137:                                              ; preds = %135
-  %138 = getelementptr inbounds i8, ptr %0, i64 4912
+  %138 = getelementptr inbounds nuw i8, ptr %0, i64 4912
   %139 = load ptr, ptr %138, align 16
   %140 = getelementptr inbounds nuw i8, ptr %139, i64 8
   %141 = load i64, ptr %140, align 8
@@ -7147,7 +7147,7 @@ _ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit: ; p
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
 define internal fastcc noundef nonnull ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4makeINS0_12EnableIfAttrEJNS0_9NodeArrayEEEEPNS0_4NodeEDpOT0_(ptr nocapture noundef nonnull align 16 dereferenceable(4928) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) unnamed_addr #12 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 4912
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 4912
   %4 = load ptr, ptr %3, align 16
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load i64, ptr %5, align 8
@@ -7206,14 +7206,14 @@ define internal fastcc { ptr, i64 } @_ZN4llvm16itanium_demangle22AbstractManglin
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 16
   %5 = getelementptr inbounds ptr, ptr %4, i64 %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = load ptr, ptr %6, align 8
   %8 = ptrtoint ptr %7 to i64
   %9 = ptrtoint ptr %5 to i64
   %10 = sub i64 %8, %9
   %11 = add i64 %10, 15
   %12 = and i64 %11, 4294967280
-  %13 = getelementptr inbounds i8, ptr %0, i64 4912
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 4912
   %14 = load ptr, ptr %13, align 16
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load i64, ptr %15, align 8
@@ -7296,7 +7296,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
 define internal fastcc noundef nonnull ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4makeINS0_16FunctionEncodingEJRPNS0_4NodeESB_RNS0_9NodeArrayESB_SB_RNS0_10QualifiersERNS0_15FunctionRefQualEEEESA_DpOT0_(ptr nocapture noundef nonnull align 16 dereferenceable(4928) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %4, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %5, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %6, ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %7) unnamed_addr #12 align 2 {
-  %9 = getelementptr inbounds i8, ptr %0, i64 4912
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 4912
   %10 = load ptr, ptr %9, align 16
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %12 = load i64, ptr %11, align 8
@@ -7374,10 +7374,10 @@ define internal fastcc void @_ZN4llvm16itanium_demangle22AbstractManglingParserI
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 664
   %5 = load ptr, ptr %2, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %7 = icmp eq ptr %5, %6
   %8 = load ptr, ptr %4, align 8
-  %9 = getelementptr inbounds i8, ptr %3, i64 688
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 688
   %10 = icmp eq ptr %8, %9
   br i1 %7, label %11, label %34
 
@@ -7387,10 +7387,10 @@ define internal fastcc void @_ZN4llvm16itanium_demangle22AbstractManglingParserI
 12:                                               ; preds = %11
   tail call void @free(ptr noundef %8) #20
   store ptr %9, ptr %4, align 8
-  %13 = getelementptr inbounds i8, ptr %3, i64 672
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 672
   store ptr %9, ptr %13, align 8
   %14 = getelementptr inbounds i8, ptr %3, i64 720
-  %15 = getelementptr inbounds i8, ptr %3, i64 680
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 680
   store ptr %14, ptr %15, align 8
   %.pre.i = load ptr, ptr %2, align 8
   br label %16
@@ -7398,7 +7398,7 @@ define internal fastcc void @_ZN4llvm16itanium_demangle22AbstractManglingParserI
 16:                                               ; preds = %12, %11
   %17 = phi ptr [ %9, %12 ], [ %8, %11 ]
   %18 = phi ptr [ %.pre.i, %12 ], [ %5, %11 ]
-  %19 = getelementptr inbounds i8, ptr %0, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %20 = load ptr, ptr %19, align 8
   %.not.i.i.i.i.i.i = icmp eq ptr %20, %18
   br i1 %.not.i.i.i.i.i.i, label %_ZSt4copyIPPN4llvm16itanium_demangle14PODSmallVectorIPNS1_4NodeELm8EEES7_ET0_T_S9_S8_.exit.i, label %21
@@ -7421,7 +7421,7 @@ _ZSt4copyIPPN4llvm16itanium_demangle14PODSmallVectorIPNS1_4NodeELm8EEES7_ET0_T_S
   %29 = ptrtoint ptr %25 to i64
   %30 = sub i64 %28, %29
   %31 = getelementptr inbounds i8, ptr %27, i64 %30
-  %32 = getelementptr inbounds i8, ptr %3, i64 672
+  %32 = getelementptr inbounds nuw i8, ptr %3, i64 672
   store ptr %31, ptr %32, align 8
   %33 = load ptr, ptr %2, align 8
   store ptr %33, ptr %19, align 8
@@ -7432,13 +7432,13 @@ _ZSt4copyIPPN4llvm16itanium_demangle14PODSmallVectorIPNS1_4NodeELm8EEES7_ET0_T_S
   br i1 %10, label %35, label %43
 
 35:                                               ; preds = %34
-  %36 = getelementptr inbounds i8, ptr %0, i64 16
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %37 = load ptr, ptr %36, align 8
-  %38 = getelementptr inbounds i8, ptr %3, i64 672
+  %38 = getelementptr inbounds nuw i8, ptr %3, i64 672
   store ptr %37, ptr %38, align 8
-  %39 = getelementptr inbounds i8, ptr %0, i64 24
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %40 = load ptr, ptr %39, align 8
-  %41 = getelementptr inbounds i8, ptr %3, i64 680
+  %41 = getelementptr inbounds nuw i8, ptr %3, i64 680
   store ptr %40, ptr %41, align 8
   store ptr %6, ptr %2, align 8
   store ptr %6, ptr %36, align 8
@@ -7448,14 +7448,14 @@ _ZSt4copyIPPN4llvm16itanium_demangle14PODSmallVectorIPNS1_4NodeELm8EEES7_ET0_T_S
 
 43:                                               ; preds = %34
   store ptr %8, ptr %2, align 8
-  %44 = getelementptr inbounds i8, ptr %3, i64 672
-  %45 = getelementptr inbounds i8, ptr %0, i64 16
+  %44 = getelementptr inbounds nuw i8, ptr %3, i64 672
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %46 = load ptr, ptr %44, align 8
   %47 = load ptr, ptr %45, align 8
   store ptr %47, ptr %44, align 8
   store ptr %46, ptr %45, align 8
-  %48 = getelementptr inbounds i8, ptr %3, i64 680
-  %49 = getelementptr inbounds i8, ptr %0, i64 24
+  %48 = getelementptr inbounds nuw i8, ptr %3, i64 680
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %50 = load ptr, ptr %48, align 8
   %51 = load ptr, ptr %49, align 8
   store ptr %51, ptr %48, align 8
@@ -7469,10 +7469,10 @@ _ZN4llvm16itanium_demangle14PODSmallVectorIPNS1_IPNS0_4NodeELm8EEELm4EEaSEOS6_.e
   %54 = load ptr, ptr %0, align 8
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 576
   %56 = load ptr, ptr %53, align 8
-  %57 = getelementptr inbounds i8, ptr %0, i64 88
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %58 = icmp eq ptr %56, %57
   %59 = load ptr, ptr %55, align 8
-  %60 = getelementptr inbounds i8, ptr %54, i64 600
+  %60 = getelementptr inbounds nuw i8, ptr %54, i64 600
   %61 = icmp eq ptr %59, %60
   br i1 %58, label %62, label %84
 
@@ -7482,10 +7482,10 @@ _ZN4llvm16itanium_demangle14PODSmallVectorIPNS1_IPNS0_4NodeELm8EEELm4EEaSEOS6_.e
 63:                                               ; preds = %62
   tail call void @free(ptr noundef %59) #20
   store ptr %60, ptr %55, align 8
-  %64 = getelementptr inbounds i8, ptr %54, i64 584
+  %64 = getelementptr inbounds nuw i8, ptr %54, i64 584
   store ptr %60, ptr %64, align 8
   %65 = getelementptr inbounds i8, ptr %54, i64 664
-  %66 = getelementptr inbounds i8, ptr %54, i64 592
+  %66 = getelementptr inbounds nuw i8, ptr %54, i64 592
   store ptr %65, ptr %66, align 8
   %.pre.i1 = load ptr, ptr %53, align 8
   br label %67
@@ -7493,7 +7493,7 @@ _ZN4llvm16itanium_demangle14PODSmallVectorIPNS1_IPNS0_4NodeELm8EEELm4EEaSEOS6_.e
 67:                                               ; preds = %63, %62
   %68 = phi ptr [ %60, %63 ], [ %59, %62 ]
   %69 = phi ptr [ %.pre.i1, %63 ], [ %56, %62 ]
-  %70 = getelementptr inbounds i8, ptr %0, i64 72
+  %70 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %71 = load ptr, ptr %70, align 8
   %.not.i.i.i.i.i.i2 = icmp eq ptr %71, %69
   br i1 %.not.i.i.i.i.i.i2, label %_ZSt4copyIPPN4llvm16itanium_demangle4NodeES4_ET0_T_S6_S5_.exit.i, label %72
@@ -7516,7 +7516,7 @@ _ZSt4copyIPPN4llvm16itanium_demangle4NodeES4_ET0_T_S6_S5_.exit.i: ; preds = %72,
   %80 = ptrtoint ptr %76 to i64
   %81 = sub i64 %79, %80
   %82 = getelementptr inbounds i8, ptr %78, i64 %81
-  %83 = getelementptr inbounds i8, ptr %54, i64 584
+  %83 = getelementptr inbounds nuw i8, ptr %54, i64 584
   store ptr %82, ptr %83, align 8
   br label %_ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm8EEaSEOS4_.exit
 
@@ -7525,13 +7525,13 @@ _ZSt4copyIPPN4llvm16itanium_demangle4NodeES4_ET0_T_S6_S5_.exit.i: ; preds = %72,
   br i1 %61, label %_ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm8EEaSEOS4_.exit.thread, label %92
 
 _ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm8EEaSEOS4_.exit.thread: ; preds = %84
-  %85 = getelementptr inbounds i8, ptr %0, i64 72
+  %85 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %86 = load ptr, ptr %85, align 8
-  %87 = getelementptr inbounds i8, ptr %54, i64 584
+  %87 = getelementptr inbounds nuw i8, ptr %54, i64 584
   store ptr %86, ptr %87, align 8
-  %88 = getelementptr inbounds i8, ptr %0, i64 80
+  %88 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %89 = load ptr, ptr %88, align 8
-  %90 = getelementptr inbounds i8, ptr %54, i64 592
+  %90 = getelementptr inbounds nuw i8, ptr %54, i64 592
   store ptr %89, ptr %90, align 8
   store ptr %57, ptr %53, align 8
   store ptr %57, ptr %85, align 8
@@ -7541,14 +7541,14 @@ _ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm8EEaSEOS4_.exit.thread: 
 
 92:                                               ; preds = %84
   store ptr %59, ptr %53, align 8
-  %93 = getelementptr inbounds i8, ptr %54, i64 584
-  %94 = getelementptr inbounds i8, ptr %0, i64 72
+  %93 = getelementptr inbounds nuw i8, ptr %54, i64 584
+  %94 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %95 = load ptr, ptr %93, align 8
   %96 = load ptr, ptr %94, align 8
   store ptr %96, ptr %93, align 8
   store ptr %95, ptr %94, align 8
-  %97 = getelementptr inbounds i8, ptr %54, i64 592
-  %98 = getelementptr inbounds i8, ptr %0, i64 80
+  %97 = getelementptr inbounds nuw i8, ptr %54, i64 592
+  %98 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %99 = load ptr, ptr %97, align 8
   %100 = load ptr, ptr %98, align 8
   store ptr %100, ptr %97, align 8
@@ -7584,7 +7584,7 @@ declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture read
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
 define internal fastcc noundef nonnull ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4makeINS0_11SpecialNameEJRA31_KcRPNS0_4NodeEEEESD_DpOT0_(ptr nocapture noundef nonnull align 16 dereferenceable(4928) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1) unnamed_addr #12 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 4912
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 4912
   %4 = load ptr, ptr %3, align 16
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load i64, ptr %5, align 8
@@ -7640,7 +7640,7 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvm16itanium_demangle11SpecialNa
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
 define internal fastcc noundef nonnull ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4makeINS0_11SpecialNameEJRA12_KcRPNS0_4NodeEEEESD_DpOT0_(ptr nocapture noundef nonnull align 16 dereferenceable(4928) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1) unnamed_addr #12 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 4912
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 4912
   %4 = load ptr, ptr %3, align 16
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load i64, ptr %5, align 8
@@ -7696,7 +7696,7 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvm16itanium_demangle11SpecialNa
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
 define internal fastcc noundef nonnull ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4makeINS0_11SpecialNameEJRA9_KcRPNS0_4NodeEEEESD_DpOT0_(ptr nocapture noundef nonnull align 16 dereferenceable(4928) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1) unnamed_addr #12 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 4912
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 4912
   %4 = load ptr, ptr %3, align 16
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load i64, ptr %5, align 8
@@ -7752,7 +7752,7 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvm16itanium_demangle11SpecialNa
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
 define internal fastcc noundef nonnull ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4makeINS0_11SpecialNameEJRA14_KcRPNS0_4NodeEEEESD_DpOT0_(ptr nocapture noundef nonnull align 16 dereferenceable(4928) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1) unnamed_addr #12 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 4912
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 4912
   %4 = load ptr, ptr %3, align 16
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load i64, ptr %5, align 8
@@ -7808,7 +7808,7 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvm16itanium_demangle11SpecialNa
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
 define internal fastcc noundef nonnull ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4makeINS0_11SpecialNameEJRA19_KcRPNS0_4NodeEEEESD_DpOT0_(ptr nocapture noundef nonnull align 16 dereferenceable(4928) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1) unnamed_addr #12 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 4912
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 4912
   %4 = load ptr, ptr %3, align 16
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load i64, ptr %5, align 8
@@ -8058,7 +8058,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
 define internal fastcc noundef nonnull ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4makeINS0_11SpecialNameEJRA27_KcRPNS0_4NodeEEEESD_DpOT0_(ptr nocapture noundef nonnull align 16 dereferenceable(4928) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1) unnamed_addr #12 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 4912
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 4912
   %4 = load ptr, ptr %3, align 16
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load i64, ptr %5, align 8
@@ -8114,7 +8114,7 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvm16itanium_demangle11SpecialNa
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
 define internal fastcc noundef nonnull ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4makeINS0_21CtorVtableSpecialNameEJRPNS0_4NodeESB_EEESA_DpOT0_(ptr nocapture noundef nonnull align 16 dereferenceable(4928) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %2) unnamed_addr #12 align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 4912
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 4912
   %5 = load ptr, ptr %4, align 16
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = load i64, ptr %6, align 8
@@ -8169,7 +8169,7 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvm16itanium_demangle21CtorVtabl
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
 define internal fastcc noundef nonnull ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4makeINS0_11SpecialNameEJRA41_KcRPNS0_4NodeEEEESD_DpOT0_(ptr nocapture noundef nonnull align 16 dereferenceable(4928) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1) unnamed_addr #12 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 4912
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 4912
   %4 = load ptr, ptr %3, align 16
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load i64, ptr %5, align 8
@@ -8225,7 +8225,7 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvm16itanium_demangle11SpecialNa
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
 define internal fastcc noundef nonnull ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4makeINS0_11SpecialNameEJRA18_KcRPNS0_4NodeEEEESD_DpOT0_(ptr nocapture noundef nonnull align 16 dereferenceable(4928) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1) unnamed_addr #12 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 4912
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 4912
   %4 = load ptr, ptr %3, align 16
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load i64, ptr %5, align 8
@@ -8281,7 +8281,7 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvm16itanium_demangle11SpecialNa
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
 define internal fastcc noundef nonnull ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4makeINS0_11SpecialNameEJRA22_KcRPNS0_4NodeEEEESD_DpOT0_(ptr nocapture noundef nonnull align 16 dereferenceable(4928) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1) unnamed_addr #12 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 4912
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 4912
   %4 = load ptr, ptr %3, align 16
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load i64, ptr %5, align 8
@@ -8337,7 +8337,7 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvm16itanium_demangle11SpecialNa
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
 define internal fastcc noundef nonnull ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4makeINS0_11SpecialNameEJRA25_KcRPNS0_4NodeEEEESD_DpOT0_(ptr nocapture noundef nonnull align 16 dereferenceable(4928) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1) unnamed_addr #12 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 4912
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 4912
   %4 = load ptr, ptr %3, align 16
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load i64, ptr %5, align 8
@@ -8400,11 +8400,11 @@ define internal fastcc noundef zeroext i1 @_ZN4llvm16itanium_demangle22AbstractM
   br i1 %.not.i11, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E9consumeIfEc.exit.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %0, i64 4912
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 4912
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 296
-  %8 = getelementptr inbounds i8, ptr %0, i64 304
-  %9 = getelementptr inbounds i8, ptr %0, i64 312
-  %10 = getelementptr inbounds i8, ptr %0, i64 320
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 304
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 312
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 320
   br label %11
 
 11:                                               ; preds = %.lr.ph, %_ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exit
@@ -8851,7 +8851,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i: ; preds = %17
   br i1 %20, label %_ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEES4_.exit, label %32
 
 _ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEES4_.exit: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i
-  %21 = getelementptr inbounds i8, ptr %0, i64 4912
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 4912
   %22 = load ptr, ptr %21, align 16
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %24 = load i64, ptr %23, align 8
@@ -8876,7 +8876,7 @@ _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i: ; preds = %27
   br label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E20parsePositiveIntegerEPm.exit.thread.sink.split
 
 32:                                               ; preds = %17, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i
-  %33 = getelementptr inbounds i8, ptr %0, i64 4912
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 4912
   %34 = load ptr, ptr %33, align 16
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 8
   %36 = load i64, ptr %35, align 8
@@ -8936,7 +8936,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
 define internal fastcc noundef nonnull ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4makeINS0_8NameTypeEJRSt17basic_string_viewIcSt11char_traitsIcEEEEEPNS0_4NodeEDpOT0_(ptr nocapture noundef nonnull align 16 dereferenceable(4928) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) unnamed_addr #12 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 4912
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 4912
   %4 = load ptr, ptr %3, align 16
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load i64, ptr %5, align 8
@@ -9199,7 +9199,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i: ; preds = %3
 12:                                               ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i
   %13 = getelementptr inbounds i8, ptr %4, i64 2
   store ptr %13, ptr %0, align 16
-  %14 = getelementptr inbounds i8, ptr %0, i64 4912
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 4912
   %15 = load ptr, ptr %14, align 16
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %17 = load i64, ptr %16, align 8
@@ -9313,16 +9313,16 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
 11:                                               ; preds = %9
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 664
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 672
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 672
   store ptr %13, ptr %14, align 16
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 576
-  %16 = getelementptr inbounds i8, ptr %0, i64 680
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 680
   %17 = load ptr, ptr %16, align 8
   %18 = icmp eq ptr %13, %17
   br i1 %18, label %19, label %.split.us.preheader
 
 19:                                               ; preds = %11
-  %20 = getelementptr inbounds i8, ptr %0, i64 688
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 688
   %21 = icmp eq ptr %13, %20
   br i1 %21, label %22, label %26
 
@@ -9356,16 +9356,16 @@ _ZN4llvm16itanium_demangle14PODSmallVectorIPNS1_IPNS0_4NodeELm8EEELm4EE7reserveE
 
 .split.preheader:                                 ; preds = %9
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %32 = getelementptr inbounds i8, ptr %0, i64 24
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %33 = load ptr, ptr %32, align 8
   %34 = load ptr, ptr %31, align 16
   %35 = ptrtoint ptr %33 to i64
   %36 = ptrtoint ptr %34 to i64
   %37 = sub i64 %35, %36
   %38 = ashr exact i64 %37, 3
-  %39 = getelementptr inbounds i8, ptr %0, i64 32
-  %40 = getelementptr inbounds i8, ptr %0, i64 40
-  %41 = getelementptr inbounds i8, ptr %0, i64 4912
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 4912
   %.pre = load ptr, ptr %0, align 16
   %.pre83 = load ptr, ptr %4, align 8
   br label %.split
@@ -9376,23 +9376,23 @@ _ZN4llvm16itanium_demangle14PODSmallVectorIPNS1_IPNS0_4NodeELm8EEELm4EE7reserveE
   store ptr %43, ptr %14, align 16
   store ptr %15, ptr %42, align 8
   %44 = load ptr, ptr %15, align 16
-  %45 = getelementptr inbounds i8, ptr %0, i64 584
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 584
   store ptr %44, ptr %45, align 8
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %47 = getelementptr inbounds i8, ptr %0, i64 24
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %48 = load ptr, ptr %47, align 8
   %49 = load ptr, ptr %46, align 16
   %50 = ptrtoint ptr %48 to i64
   %51 = ptrtoint ptr %49 to i64
   %52 = sub i64 %50, %51
   %53 = ashr exact i64 %52, 3
-  %54 = getelementptr inbounds i8, ptr %0, i64 32
-  %55 = getelementptr inbounds i8, ptr %0, i64 40
-  %56 = getelementptr inbounds i8, ptr %0, i64 4912
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 4912
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 576
-  %58 = getelementptr inbounds i8, ptr %0, i64 584
-  %59 = getelementptr inbounds i8, ptr %0, i64 592
-  %60 = getelementptr inbounds i8, ptr %0, i64 600
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 584
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 592
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 600
   %.pre84 = load ptr, ptr %0, align 16
   %.pre85 = load ptr, ptr %4, align 8
   br label %.split.us
@@ -9782,7 +9782,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
 define internal fastcc noundef nonnull ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4makeINS0_20NameWithTemplateArgsEJRPNS0_4NodeESB_EEESA_DpOT0_(ptr nocapture noundef nonnull align 16 dereferenceable(4928) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %2) unnamed_addr #12 align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 4912
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 4912
   %5 = load ptr, ptr %4, align 16
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = load i64, ptr %6, align 8
@@ -9975,7 +9975,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
   %52 = ptrtoint ptr %.pn to i64
   %53 = ptrtoint ptr %3 to i64
   %54 = sub i64 %52, %53
-  %55 = getelementptr inbounds i8, ptr %0, i64 4912
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 4912
   %56 = load ptr, ptr %55, align 16
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 8
   %58 = load i64, ptr %57, align 8
@@ -10034,7 +10034,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
   br i1 %or.cond, label %87, label %148
 
 87:                                               ; preds = %82
-  %88 = getelementptr inbounds i8, ptr %0, i64 4912
+  %88 = getelementptr inbounds nuw i8, ptr %0, i64 4912
   %89 = load ptr, ptr %88, align 16
   %90 = getelementptr inbounds nuw i8, ptr %89, i64 8
   %91 = load i64, ptr %90, align 8
@@ -10085,9 +10085,9 @@ _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i44: ; preds = %94
   %117 = getelementptr inbounds i8, ptr %108, i64 -16
   store i8 0, ptr %117, align 8
   %118 = getelementptr inbounds nuw i8, ptr %0, i64 720
-  %119 = getelementptr inbounds i8, ptr %0, i64 728
+  %119 = getelementptr inbounds nuw i8, ptr %0, i64 728
   %120 = load ptr, ptr %119, align 8
-  %121 = getelementptr inbounds i8, ptr %0, i64 736
+  %121 = getelementptr inbounds nuw i8, ptr %0, i64 736
   %122 = load ptr, ptr %121, align 16
   %123 = icmp eq ptr %120, %122
   br i1 %123, label %124, label %_ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_24ForwardTemplateReferenceELm4EE9push_backERKS3_.exit
@@ -10098,7 +10098,7 @@ _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i44: ; preds = %94
   %127 = ptrtoint ptr %125 to i64
   %128 = sub i64 %126, %127
   %129 = ashr exact i64 %128, 2
-  %130 = getelementptr inbounds i8, ptr %0, i64 744
+  %130 = getelementptr inbounds nuw i8, ptr %0, i64 744
   %131 = icmp eq ptr %125, %130
   %132 = shl i64 %128, 1
   br i1 %131, label %133, label %139
@@ -10150,7 +10150,7 @@ _ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_24ForwardTemplateReferenceELm4EE
 
 148:                                              ; preds = %82
   %149 = getelementptr inbounds nuw i8, ptr %0, i64 664
-  %150 = getelementptr inbounds i8, ptr %0, i64 672
+  %150 = getelementptr inbounds nuw i8, ptr %0, i64 672
   %151 = load ptr, ptr %150, align 16
   %152 = load ptr, ptr %149, align 8
   %153 = ptrtoint ptr %151 to i64
@@ -10258,7 +10258,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
 24:                                               ; preds = %21
   %25 = getelementptr inbounds i8, ptr %19, i64 1
   store ptr %25, ptr %0, align 16
-  %26 = getelementptr inbounds i8, ptr %0, i64 4912
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 4912
   %27 = load ptr, ptr %26, align 16
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %29 = load i64, ptr %28, align 8
@@ -10374,7 +10374,7 @@ _ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLO
   %.033 = phi i32 [ 2, %17 ], [ 4, %16 ], [ 3, %15 ], [ 5, %14 ], [ 1, %13 ], [ 0, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit22 ]
   %19 = getelementptr inbounds i8, ptr %2, i64 2
   store ptr %19, ptr %0, align 16
-  %20 = getelementptr inbounds i8, ptr %0, i64 4912
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 4912
   %21 = load ptr, ptr %20, align 16
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %23 = load i64, ptr %22, align 8
@@ -10426,9 +10426,9 @@ _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i: ; preds = %26
 
 49:                                               ; preds = %31
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 296
-  %51 = getelementptr inbounds i8, ptr %0, i64 304
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %52 = load ptr, ptr %51, align 16
-  %53 = getelementptr inbounds i8, ptr %0, i64 312
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %54 = load ptr, ptr %53, align 8
   %55 = icmp eq ptr %52, %54
   br i1 %55, label %56, label %_ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exit
@@ -10439,7 +10439,7 @@ _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i: ; preds = %26
   %59 = ptrtoint ptr %57 to i64
   %60 = sub i64 %58, %59
   %61 = ashr exact i64 %60, 2
-  %62 = getelementptr inbounds i8, ptr %0, i64 320
+  %62 = getelementptr inbounds nuw i8, ptr %0, i64 320
   %63 = icmp eq ptr %57, %62
   %64 = shl i64 %60, 1
   br i1 %63, label %65, label %71
@@ -10498,7 +10498,7 @@ _ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exi
   store ptr %83, ptr %0, align 16
   %84 = getelementptr inbounds nuw i8, ptr %0, i64 296
   %85 = load ptr, ptr %84, align 8
-  %86 = getelementptr inbounds i8, ptr %0, i64 304
+  %86 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %87 = load ptr, ptr %86, align 16
   %88 = icmp eq ptr %85, %87
   br i1 %88, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E9consumeIfEc.exit.thread, label %89
@@ -10561,7 +10561,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
   %109 = getelementptr inbounds i8, ptr %103, i64 1
   store ptr %109, ptr %0, align 16
   %110 = getelementptr inbounds nuw i8, ptr %0, i64 296
-  %111 = getelementptr inbounds i8, ptr %0, i64 304
+  %111 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %112 = load ptr, ptr %111, align 16
   %113 = load ptr, ptr %110, align 8
   %114 = ptrtoint ptr %112 to i64
@@ -10675,7 +10675,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i: ; preds = %_ZNK4llvm16itaniu
   %41 = getelementptr inbounds i8, ptr %.val17, i64 2
   store ptr %41, ptr %0, align 16
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %43 = getelementptr inbounds i8, ptr %0, i64 24
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %44 = load ptr, ptr %43, align 8
   %45 = load ptr, ptr %42, align 16
   %46 = ptrtoint ptr %44 to i64
@@ -10687,8 +10687,8 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i: ; preds = %_ZNK4llvm16itaniu
   br i1 %51, label %.thread150, label %.lr.ph
 
 .lr.ph:                                           ; preds = %40
-  %52 = getelementptr inbounds i8, ptr %0, i64 32
-  %53 = getelementptr inbounds i8, ptr %0, i64 40
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 40
   br label %54
 
 54:                                               ; preds = %.lr.ph, %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E9consumeIfEc.exit38
@@ -10772,7 +10772,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
   %91 = tail call fastcc { ptr, i64 } @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E20popTrailingNodeArrayEm(ptr noundef nonnull align 16 dereferenceable(4928) %0, i64 noundef %49)
   %92 = extractvalue { ptr, i64 } %91, 0
   %93 = extractvalue { ptr, i64 } %91, 1
-  %94 = getelementptr inbounds i8, ptr %0, i64 4912
+  %94 = getelementptr inbounds nuw i8, ptr %0, i64 4912
   %95 = load ptr, ptr %94, align 16
   %96 = getelementptr inbounds nuw i8, ptr %95, i64 8
   %97 = load i64, ptr %96, align 8
@@ -10986,7 +10986,7 @@ _ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLO
   br i1 %or.cond3, label %175, label %204
 
 175:                                              ; preds = %170
-  %176 = getelementptr inbounds i8, ptr %0, i64 4912
+  %176 = getelementptr inbounds nuw i8, ptr %0, i64 4912
   %177 = load ptr, ptr %176, align 16
   %178 = getelementptr inbounds nuw i8, ptr %177, i64 8
   %179 = load i64, ptr %178, align 8
@@ -11048,7 +11048,7 @@ _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i47: ; preds = %182
   br i1 %brmerge, label %219, label %207
 
 207:                                              ; preds = %205
-  %208 = getelementptr inbounds i8, ptr %0, i64 4912
+  %208 = getelementptr inbounds nuw i8, ptr %0, i64 4912
   %209 = load ptr, ptr %208, align 16
   %210 = getelementptr inbounds nuw i8, ptr %209, i64 8
   %211 = load i64, ptr %210, align 8
@@ -11079,7 +11079,7 @@ _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i48: ; preds = %214
   br i1 %or.cond5, label %222, label %.thread150
 
 222:                                              ; preds = %219
-  %223 = getelementptr inbounds i8, ptr %0, i64 4912
+  %223 = getelementptr inbounds nuw i8, ptr %0, i64 4912
   %224 = load ptr, ptr %223, align 16
   %225 = getelementptr inbounds nuw i8, ptr %224, i64 8
   %226 = load i64, ptr %225, align 8
@@ -11139,7 +11139,7 @@ _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i49: ; preds = %229
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
 define internal fastcc noundef nonnull ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4makeINS0_8NameTypeEJSt17basic_string_viewIcSt11char_traitsIcEEEEEPNS0_4NodeEDpOT0_(ptr nocapture noundef nonnull align 16 dereferenceable(4928) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) unnamed_addr #12 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 4912
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 4912
   %4 = load ptr, ptr %3, align 16
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load i64, ptr %5, align 8
@@ -11263,7 +11263,7 @@ _ZN4llvm16itanium_demangle14PODSmallVectorIPNS1_IPNS0_4NodeELm8EEELm4EE7reserveE
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
 define internal fastcc noundef nonnull ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4makeINS0_8NameTypeEJRA5_KcEEEPNS0_4NodeEDpOT0_(ptr nocapture noundef nonnull align 16 dereferenceable(4928) %0, ptr noundef nonnull align 1 dereferenceable(5) %1) unnamed_addr #12 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 4912
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 4912
   %4 = load ptr, ptr %3, align 16
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load i64, ptr %5, align 8
@@ -11747,7 +11747,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
   br i1 %118, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E15parsePrefixExprESt17basic_string_viewIcSt11char_traitsIcEENS0_4Node4PrecE.exit, label %119
 
 119:                                              ; preds = %114
-  %120 = getelementptr inbounds i8, ptr %0, i64 4912
+  %120 = getelementptr inbounds nuw i8, ptr %0, i64 4912
   %121 = load ptr, ptr %120, align 16
   %122 = getelementptr inbounds nuw i8, ptr %121, i64 8
   %123 = load i64, ptr %122, align 8
@@ -11899,15 +11899,15 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
 
 194:                                              ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E12OperatorInfo9getSymbolEv.exit
   %195 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %196 = getelementptr inbounds i8, ptr %0, i64 24
+  %196 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %197 = load ptr, ptr %196, align 8
   %198 = load ptr, ptr %195, align 16
   %199 = ptrtoint ptr %197 to i64
   %200 = ptrtoint ptr %198 to i64
   %201 = sub i64 %199, %200
   %202 = ashr exact i64 %201, 3
-  %203 = getelementptr inbounds i8, ptr %0, i64 32
-  %204 = getelementptr inbounds i8, ptr %0, i64 40
+  %203 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %204 = getelementptr inbounds nuw i8, ptr %0, i64 40
   br label %205
 
 205:                                              ; preds = %_ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exit, %194
@@ -12152,7 +12152,7 @@ _ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exi
   %.val86 = load i8, ptr %320, align 1
   %321 = and i8 %.val86, 1
   %322 = lshr i8 %.val86, 1
-  %323 = getelementptr inbounds i8, ptr %0, i64 4912
+  %323 = getelementptr inbounds nuw i8, ptr %0, i64 4912
   %324 = load ptr, ptr %323, align 16
   %325 = getelementptr inbounds nuw i8, ptr %324, i64 8
   %326 = load i64, ptr %325, align 8
@@ -12214,15 +12214,15 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
 
 357:                                              ; preds = %354
   %358 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %359 = getelementptr inbounds i8, ptr %0, i64 24
+  %359 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %360 = load ptr, ptr %359, align 8
   %361 = load ptr, ptr %358, align 16
   %362 = ptrtoint ptr %360 to i64
   %363 = ptrtoint ptr %361 to i64
   %364 = sub i64 %362, %363
   %365 = ashr exact i64 %364, 3
-  %366 = getelementptr inbounds i8, ptr %0, i64 32
-  %367 = getelementptr inbounds i8, ptr %0, i64 40
+  %366 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %367 = getelementptr inbounds nuw i8, ptr %0, i64 40
   br label %368
 
 368:                                              ; preds = %_ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exit110, %357
@@ -12332,7 +12332,7 @@ _ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exi
 
 420:                                              ; preds = %414
   %421 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %422 = getelementptr inbounds i8, ptr %0, i64 24
+  %422 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %423 = load ptr, ptr %422, align 8
   %424 = load ptr, ptr %421, align 16
   %425 = ptrtoint ptr %423 to i64
@@ -12352,8 +12352,8 @@ _ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exi
 _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E9consumeIfEc.exit113.split.us.preheader: ; preds = %431
   %434 = getelementptr inbounds i8, ptr %429, i64 1
   store ptr %434, ptr %0, align 16
-  %435 = getelementptr inbounds i8, ptr %0, i64 32
-  %436 = getelementptr inbounds i8, ptr %0, i64 40
+  %435 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %436 = getelementptr inbounds nuw i8, ptr %0, i64 40
   br label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E9consumeIfEc.exit113.split.us
 
 _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E9consumeIfEc.exit113.split.us: ; preds = %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E9consumeIfEc.exit113.split.us.preheader, %_ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exit120.us
@@ -12432,8 +12432,8 @@ _ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exi
   br i1 %471, label %.split.us, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E9consumeIfEc.exit113.split.thread
 
 _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E9consumeIfEc.exit113.split.thread: ; preds = %420, %470
-  %472 = getelementptr inbounds i8, ptr %0, i64 32
-  %473 = getelementptr inbounds i8, ptr %0, i64 40
+  %472 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %473 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %474 = tail call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E9parseExprEv(ptr noundef nonnull align 16 dereferenceable(4928) %0)
   %475 = icmp eq ptr %474, null
   br i1 %475, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E15parsePrefixExprESt17basic_string_viewIcSt11char_traitsIcEENS0_4Node4PrecE.exit, label %476
@@ -12598,7 +12598,7 @@ _ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exi
 
 549:                                              ; preds = %547
   %550 = lshr i8 %.val87, 1
-  %551 = getelementptr inbounds i8, ptr %0, i64 4912
+  %551 = getelementptr inbounds nuw i8, ptr %0, i64 4912
   %552 = load ptr, ptr %551, align 16
   %553 = getelementptr inbounds nuw i8, ptr %552, i64 8
   %554 = load i64, ptr %553, align 8
@@ -12848,7 +12848,7 @@ _ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIc
 _ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E12OperatorInfo9getSymbolEv.exit.i: ; preds = %651, %_ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEEc.exit.i.i, %643
   %.sroa.7.0.i.i = phi ptr [ %652, %651 ], [ %646, %_ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEEc.exit.i.i ], [ %646, %643 ]
   %.sroa.0.0.i.i = phi i64 [ %653, %651 ], [ %647, %_ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEEc.exit.i.i ], [ 0, %643 ]
-  %654 = getelementptr inbounds i8, ptr %0, i64 4912
+  %654 = getelementptr inbounds nuw i8, ptr %0, i64 4912
   %655 = load ptr, ptr %654, align 16
   %656 = getelementptr inbounds nuw i8, ptr %655, i64 8
   %657 = load i64, ptr %656, align 8
@@ -12913,15 +12913,15 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i139: ; preds = %_ZNK4llvm16ita
   %686 = getelementptr inbounds i8, ptr %64, i64 2
   store ptr %686, ptr %0, align 16
   %687 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %688 = getelementptr inbounds i8, ptr %0, i64 24
+  %688 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %689 = load ptr, ptr %688, align 8
   %690 = load ptr, ptr %687, align 16
   %691 = ptrtoint ptr %689 to i64
   %692 = ptrtoint ptr %690 to i64
   %693 = sub i64 %691, %692
   %694 = ashr exact i64 %693, 3
-  %695 = getelementptr inbounds i8, ptr %0, i64 32
-  %696 = getelementptr inbounds i8, ptr %0, i64 40
+  %695 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %696 = getelementptr inbounds nuw i8, ptr %0, i64 40
   br label %697
 
 697:                                              ; preds = %_ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exit150, %685
@@ -13147,15 +13147,15 @@ _ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLO
   %791 = getelementptr inbounds i8, ptr %64, i64 2
   store ptr %791, ptr %0, align 16
   %792 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %793 = getelementptr inbounds i8, ptr %0, i64 24
+  %793 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %794 = load ptr, ptr %793, align 8
   %795 = load ptr, ptr %792, align 16
   %796 = ptrtoint ptr %794 to i64
   %797 = ptrtoint ptr %795 to i64
   %798 = sub i64 %796, %797
   %799 = ashr exact i64 %798, 3
-  %800 = getelementptr inbounds i8, ptr %0, i64 32
-  %801 = getelementptr inbounds i8, ptr %0, i64 40
+  %800 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %801 = getelementptr inbounds nuw i8, ptr %0, i64 40
   br label %802
 
 802:                                              ; preds = %_ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exit568, %790
@@ -13266,7 +13266,7 @@ _ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exi
 
 852:                                              ; preds = %848
   %853 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %854 = getelementptr inbounds i8, ptr %0, i64 24
+  %854 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %855 = load ptr, ptr %854, align 8
   %856 = load ptr, ptr %853, align 16
   %857 = ptrtoint ptr %855 to i64
@@ -13391,14 +13391,14 @@ _ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_
 
 _ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_E4typeE.exit.thread: ; preds = %905, %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_E4typeE.exit, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i, %894
   %913 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %914 = getelementptr inbounds i8, ptr %0, i64 24
+  %914 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %915 = load ptr, ptr %914, align 8
   %916 = load ptr, ptr %913, align 16
   %917 = ptrtoint ptr %915 to i64
   %918 = ptrtoint ptr %916 to i64
   %919 = sub i64 %917, %918
-  %920 = getelementptr inbounds i8, ptr %0, i64 32
-  %921 = getelementptr inbounds i8, ptr %0, i64 40
+  %920 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %921 = getelementptr inbounds nuw i8, ptr %0, i64 40
   br label %932
 
 922:                                              ; preds = %907, %910
@@ -13408,7 +13408,7 @@ _ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_
   br i1 %923, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E15parsePrefixExprESt17basic_string_viewIcSt11char_traitsIcEENS0_4Node4PrecE.exit, label %924
 
 924:                                              ; preds = %922
-  %925 = getelementptr inbounds i8, ptr %0, i64 24
+  %925 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %926 = load ptr, ptr %925, align 8
   %927 = ptrtoint ptr %926 to i64
   %928 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -13524,7 +13524,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
 define internal fastcc noundef nonnull ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4makeINS0_11PostfixExprEJRPNS0_4NodeERSt17basic_string_viewIcSt11char_traitsIcEENS9_4PrecEEEESA_DpOT0_(ptr nocapture noundef nonnull align 16 dereferenceable(4928) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %2, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %3) unnamed_addr #12 align 2 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 4912
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 4912
   %6 = load ptr, ptr %5, align 16
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %8 = load i64, ptr %7, align 8
@@ -13587,7 +13587,7 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvm16itanium_demangle11PostfixEx
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
 define internal fastcc noundef nonnull ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4makeINS0_18ArraySubscriptExprEJRPNS0_4NodeESB_NS9_4PrecEEEESA_DpOT0_(ptr nocapture noundef nonnull align 16 dereferenceable(4928) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %2, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %3) unnamed_addr #12 align 2 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 4912
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 4912
   %6 = load ptr, ptr %5, align 16
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %8 = load i64, ptr %7, align 8
@@ -13646,7 +13646,7 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvm16itanium_demangle18ArraySubs
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
 define internal fastcc noundef nonnull ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4makeINS0_10MemberExprEJRPNS0_4NodeERSt17basic_string_viewIcSt11char_traitsIcEESB_NS9_4PrecEEEESA_DpOT0_(ptr nocapture noundef nonnull align 16 dereferenceable(4928) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %3, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %4) unnamed_addr #12 align 2 {
-  %6 = getelementptr inbounds i8, ptr %0, i64 4912
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 4912
   %7 = load ptr, ptr %6, align 16
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %9 = load i64, ptr %8, align 8
@@ -13712,7 +13712,7 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvm16itanium_demangle10MemberExp
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
 define internal fastcc noundef nonnull ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4makeINS0_7NewExprEJRNS0_9NodeArrayERPNS0_4NodeESA_RbbNSB_4PrecEEEESC_DpOT0_(ptr nocapture noundef nonnull align 16 dereferenceable(4928) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %3, ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %4, ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %5, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %6) unnamed_addr #12 align 2 {
-  %8 = getelementptr inbounds i8, ptr %0, i64 4912
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 4912
   %9 = load ptr, ptr %8, align 16
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load i64, ptr %10, align 8
@@ -13790,7 +13790,7 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvm16itanium_demangle7NewExprEJR
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
 define internal fastcc noundef nonnull ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4makeINS0_8CallExprEJRPNS0_4NodeENS0_9NodeArrayENS9_4PrecEEEESA_DpOT0_(ptr nocapture noundef nonnull align 16 dereferenceable(4928) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %2, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %3) unnamed_addr #12 align 2 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 4912
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 4912
   %6 = load ptr, ptr %5, align 16
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %8 = load i64, ptr %7, align 8
@@ -13853,7 +13853,7 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvm16itanium_demangle8CallExprEJ
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
 define internal fastcc noundef nonnull ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4makeINS0_14ConversionExprEJRPNS0_4NodeERNS0_9NodeArrayENS9_4PrecEEEESA_DpOT0_(ptr nocapture noundef nonnull align 16 dereferenceable(4928) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %2, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %3) unnamed_addr #12 align 2 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 4912
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 4912
   %6 = load ptr, ptr %5, align 16
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %8 = load i64, ptr %7, align 8
@@ -13916,7 +13916,7 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvm16itanium_demangle14Conversio
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
 define internal fastcc noundef nonnull ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4makeINS0_15ConditionalExprEJRPNS0_4NodeESB_SB_NS9_4PrecEEEESA_DpOT0_(ptr nocapture noundef nonnull align 16 dereferenceable(4928) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %3, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %4) unnamed_addr #12 align 2 {
-  %6 = getelementptr inbounds i8, ptr %0, i64 4912
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 4912
   %7 = load ptr, ptr %6, align 16
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %9 = load i64, ptr %8, align 8
@@ -13978,7 +13978,7 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvm16itanium_demangle15Condition
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
 define internal fastcc noundef nonnull ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4makeINS0_8CastExprEJRSt17basic_string_viewIcSt11char_traitsIcEERPNS0_4NodeESG_NSE_4PrecEEEESF_DpOT0_(ptr nocapture noundef nonnull align 16 dereferenceable(4928) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %3, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %4) unnamed_addr #12 align 2 {
-  %6 = getelementptr inbounds i8, ptr %0, i64 4912
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 4912
   %7 = load ptr, ptr %6, align 16
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %9 = load i64, ptr %8, align 8
@@ -14251,7 +14251,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i: ; preds = %23
 89:                                               ; preds = %86
   %90 = getelementptr inbounds i8, ptr %8, i64 11
   store ptr %90, ptr %0, align 16
-  %91 = getelementptr inbounds i8, ptr %0, i64 4912
+  %91 = getelementptr inbounds nuw i8, ptr %0, i64 4912
   %92 = load ptr, ptr %91, align 16
   %93 = getelementptr inbounds nuw i8, ptr %92, i64 8
   %94 = load i64, ptr %93, align 8
@@ -14342,7 +14342,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
 134:                                              ; preds = %131
   %135 = getelementptr inbounds i8, ptr %8, i64 19
   store ptr %135, ptr %0, align 16
-  %136 = getelementptr inbounds i8, ptr %0, i64 4912
+  %136 = getelementptr inbounds nuw i8, ptr %0, i64 4912
   %137 = load ptr, ptr %136, align 16
   %138 = getelementptr inbounds nuw i8, ptr %137, i64 8
   %139 = load i64, ptr %138, align 8
@@ -14433,7 +14433,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
 179:                                              ; preds = %176
   %180 = getelementptr inbounds i8, ptr %8, i64 23
   store ptr %180, ptr %0, align 16
-  %181 = getelementptr inbounds i8, ptr %0, i64 4912
+  %181 = getelementptr inbounds nuw i8, ptr %0, i64 4912
   %182 = load ptr, ptr %181, align 16
   %183 = getelementptr inbounds nuw i8, ptr %182, i64 8
   %184 = load i64, ptr %183, align 8
@@ -14710,7 +14710,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i: ; preds = %1
 11:                                               ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i
   %12 = getelementptr inbounds i8, ptr %3, i64 3
   store ptr %12, ptr %0, align 16
-  %13 = getelementptr inbounds i8, ptr %0, i64 4912
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 4912
   %14 = load ptr, ptr %13, align 16
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load i64, ptr %15, align 8
@@ -14867,7 +14867,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
 77:                                               ; preds = %74
   %78 = getelementptr inbounds i8, ptr %73, i64 1
   store ptr %78, ptr %0, align 16
-  %79 = getelementptr inbounds i8, ptr %0, i64 4912
+  %79 = getelementptr inbounds nuw i8, ptr %0, i64 4912
   %80 = load ptr, ptr %79, align 16
   %81 = getelementptr inbounds nuw i8, ptr %80, i64 8
   %82 = load i64, ptr %81, align 8
@@ -15111,7 +15111,7 @@ _ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLO
   br i1 %16, label %125, label %17
 
 17:                                               ; preds = %14
-  %18 = getelementptr inbounds i8, ptr %0, i64 4912
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 4912
   %19 = load ptr, ptr %18, align 16
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %21 = load i64, ptr %20, align 8
@@ -15176,7 +15176,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
   br i1 %53, label %125, label %54
 
 54:                                               ; preds = %51
-  %55 = getelementptr inbounds i8, ptr %0, i64 4912
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 4912
   %56 = load ptr, ptr %55, align 16
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 8
   %58 = load i64, ptr %57, align 8
@@ -15246,7 +15246,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
   br i1 %93, label %125, label %94
 
 94:                                               ; preds = %91
-  %95 = getelementptr inbounds i8, ptr %0, i64 4912
+  %95 = getelementptr inbounds nuw i8, ptr %0, i64 4912
   %96 = load ptr, ptr %95, align 16
   %97 = getelementptr inbounds nuw i8, ptr %96, i64 8
   %98 = load i64, ptr %97, align 8
@@ -15309,7 +15309,7 @@ _ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLO
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
 define internal fastcc noundef nonnull ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4makeINS0_12InitListExprEJDnNS0_9NodeArrayEEEEPNS0_4NodeEDpOT0_(ptr nocapture noundef nonnull align 16 dereferenceable(4928) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) unnamed_addr #12 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 4912
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 4912
   %4 = load ptr, ptr %3, align 16
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load i64, ptr %5, align 8
@@ -15442,7 +15442,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
 30:                                               ; preds = %27
   %31 = getelementptr inbounds i8, ptr %26, i64 1
   store ptr %31, ptr %0, align 16
-  %32 = getelementptr inbounds i8, ptr %0, i64 4912
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 4912
   %33 = load ptr, ptr %32, align 16
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 8
   %35 = load i64, ptr %34, align 8
@@ -15503,7 +15503,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
 define internal fastcc noundef nonnull ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4makeINS0_13EnclosingExprEJRA10_KcRPNS0_4NodeENSC_4PrecEEEESD_DpOT0_(ptr nocapture noundef nonnull align 16 dereferenceable(4928) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %2) unnamed_addr #12 align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 4912
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 4912
   %5 = load ptr, ptr %4, align 16
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = load i64, ptr %6, align 8
@@ -15583,15 +15583,15 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i: ; preds = %1
   %11 = getelementptr inbounds i8, ptr %2, i64 2
   store ptr %11, ptr %0, align 16
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %13 = getelementptr inbounds i8, ptr %0, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %14 = load ptr, ptr %13, align 8
   %15 = load ptr, ptr %12, align 16
   %16 = ptrtoint ptr %14 to i64
   %17 = ptrtoint ptr %15 to i64
   %18 = sub i64 %16, %17
   %19 = ashr exact i64 %18, 3
-  %20 = getelementptr inbounds i8, ptr %0, i64 32
-  %21 = getelementptr inbounds i8, ptr %0, i64 40
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 40
   br label %22
 
 22:                                               ; preds = %_ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exit, %10
@@ -15699,16 +15699,16 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
   %.sroa.3.0 = phi i64 [ %62, %58 ], [ 0, %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E9consumeIfESt17basic_string_viewIcSt11char_traitsIcEE.exit7 ]
   %.sroa.043.0 = phi ptr [ %61, %58 ], [ null, %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E9consumeIfESt17basic_string_viewIcSt11char_traitsIcEE.exit7 ]
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %67 = getelementptr inbounds i8, ptr %0, i64 24
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %68 = load ptr, ptr %67, align 8
   %69 = load ptr, ptr %66, align 16
   %70 = ptrtoint ptr %68 to i64
   %71 = ptrtoint ptr %69 to i64
   %72 = sub i64 %70, %71
   %73 = ashr exact i64 %72, 3
-  %74 = getelementptr inbounds i8, ptr %0, i64 4912
-  %75 = getelementptr inbounds i8, ptr %0, i64 32
-  %76 = getelementptr inbounds i8, ptr %0, i64 40
+  %74 = getelementptr inbounds nuw i8, ptr %0, i64 4912
+  %75 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %76 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %.not.i884 = icmp eq ptr %.pre67, %.pre68
   br i1 %.not.i884, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E9consumeIfESt17basic_string_viewIcSt11char_traitsIcEE.exit7.thread, label %.lr.ph
 
@@ -16135,7 +16135,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
   %.sroa.0.0.i = phi i64 [ %25, %.critedge.i ], [ 0, %15 ], [ 0, %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E9consumeIfEc.exit.i ]
   %.sroa.3.0.i = phi ptr [ %6, %.critedge.i ], [ null, %15 ], [ null, %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E9consumeIfEc.exit.i ]
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %28 = getelementptr inbounds i8, ptr %0, i64 24
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %29 = load ptr, ptr %28, align 8
   %30 = load ptr, ptr %27, align 16
   %31 = ptrtoint ptr %29 to i64
@@ -16146,9 +16146,9 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
   br i1 %.not.i445, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E11parseNumberEb.exit
-  %35 = getelementptr inbounds i8, ptr %0, i64 4912
-  %36 = getelementptr inbounds i8, ptr %0, i64 32
-  %37 = getelementptr inbounds i8, ptr %0, i64 40
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 4912
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 40
   br label %38
 
 38:                                               ; preds = %.lr.ph, %_ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exit
@@ -16338,7 +16338,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
   %123 = tail call fastcc { ptr, i64 } @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E20popTrailingNodeArrayEm(ptr noundef nonnull align 16 dereferenceable(4928) %0, i64 noundef %34)
   %124 = extractvalue { ptr, i64 } %123, 0
   %125 = extractvalue { ptr, i64 } %123, 1
-  %126 = getelementptr inbounds i8, ptr %0, i64 4912
+  %126 = getelementptr inbounds nuw i8, ptr %0, i64 4912
   %127 = load ptr, ptr %126, align 16
   %128 = getelementptr inbounds nuw i8, ptr %127, i64 8
   %129 = load i64, ptr %128, align 8
@@ -16405,7 +16405,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
 define internal fastcc noundef nonnull ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4makeINS0_22ParameterPackExpansionEJRPNS0_4NodeEEEESA_DpOT0_(ptr nocapture noundef nonnull align 16 dereferenceable(4928) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1) unnamed_addr #12 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 4912
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 4912
   %4 = load ptr, ptr %3, align 16
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load i64, ptr %5, align 8
@@ -16457,7 +16457,7 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvm16itanium_demangle22Parameter
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
 define internal fastcc noundef nonnull ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4makeINS0_19SizeofParamPackExprEJRPNS0_4NodeEEEESA_DpOT0_(ptr nocapture noundef nonnull align 16 dereferenceable(4928) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1) unnamed_addr #12 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 4912
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 4912
   %4 = load ptr, ptr %3, align 16
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load i64, ptr %5, align 8
@@ -16509,7 +16509,7 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvm16itanium_demangle19SizeofPar
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
 define internal fastcc noundef nonnull ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4makeINS0_13EnclosingExprEJRA11_KcRPNS0_4NodeEEEESD_DpOT0_(ptr nocapture noundef nonnull align 16 dereferenceable(4928) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1) unnamed_addr #12 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 4912
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 4912
   %4 = load ptr, ptr %3, align 16
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load i64, ptr %5, align 8
@@ -16567,7 +16567,7 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvm16itanium_demangle13Enclosing
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
 define internal fastcc noundef nonnull ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4makeINS0_13NodeArrayNodeEJNS0_9NodeArrayEEEEPNS0_4NodeEDpOT0_(ptr nocapture noundef nonnull align 16 dereferenceable(4928) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) unnamed_addr #12 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 4912
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 4912
   %4 = load ptr, ptr %3, align 16
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load i64, ptr %5, align 8
@@ -16623,7 +16623,7 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvm16itanium_demangle13NodeArray
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
 define internal fastcc noundef nonnull ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4makeINS0_12InitListExprEJRPNS0_4NodeENS0_9NodeArrayEEEESA_DpOT0_(ptr nocapture noundef nonnull align 16 dereferenceable(4928) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %2) unnamed_addr #12 align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 4912
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 4912
   %5 = load ptr, ptr %4, align 16
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = load i64, ptr %6, align 8
@@ -16682,7 +16682,7 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvm16itanium_demangle12InitListE
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
 define internal fastcc noundef nonnull ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4makeINS0_8NameTypeEJRA6_KcEEEPNS0_4NodeEDpOT0_(ptr nocapture noundef nonnull align 16 dereferenceable(4928) %0, ptr noundef nonnull align 1 dereferenceable(6) %1) unnamed_addr #12 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 4912
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 4912
   %4 = load ptr, ptr %3, align 16
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load i64, ptr %5, align 8
@@ -16736,7 +16736,7 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvm16itanium_demangle8NameTypeEJ
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
 define internal fastcc noundef nonnull ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4makeINS0_9ThrowExprEJRPNS0_4NodeEEEESA_DpOT0_(ptr nocapture noundef nonnull align 16 dereferenceable(4928) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1) unnamed_addr #12 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 4912
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 4912
   %4 = load ptr, ptr %3, align 16
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load i64, ptr %5, align 8
@@ -16826,7 +16826,7 @@ _ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLO
   br i1 %20, label %.loopexit, label %21
 
 21:                                               ; preds = %18
-  %22 = getelementptr inbounds i8, ptr %0, i64 4912
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 4912
   %23 = load ptr, ptr %22, align 16
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %25 = load i64, ptr %24, align 8
@@ -16878,7 +16878,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
 
 _ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit.thread: ; preds = %15, %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4makeINS0_20NameWithTemplateArgsEJRPNS0_4NodeESB_EEESA_DpOT0_.exit, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit
   %.059 = phi ptr [ %42, %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4makeINS0_20NameWithTemplateArgsEJRPNS0_4NodeESB_EEESA_DpOT0_.exit ], [ %13, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit ], [ %13, %15 ]
-  %50 = getelementptr inbounds i8, ptr %0, i64 4912
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 4912
   br label %51
 
 51:                                               ; preds = %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4makeINS0_13QualifiedNameEJRPNS0_4NodeESB_EEESA_DpOT0_.exit, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit.thread
@@ -17021,7 +17021,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i18: ; preds = %_ZNSt11char_tra
   br i1 %brmerge.not, label %125, label %.loopexit
 
 125:                                              ; preds = %122
-  %126 = getelementptr inbounds i8, ptr %0, i64 4912
+  %126 = getelementptr inbounds nuw i8, ptr %0, i64 4912
   %127 = load ptr, ptr %126, align 16
   %128 = getelementptr inbounds nuw i8, ptr %127, i64 8
   %129 = load i64, ptr %128, align 8
@@ -17088,7 +17088,7 @@ _ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLO
   br i1 %158, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
-  %159 = getelementptr inbounds i8, ptr %0, i64 4912
+  %159 = getelementptr inbounds nuw i8, ptr %0, i64 4912
   br i1 %1, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E9consumeIfEc.exit33.us
@@ -17305,7 +17305,7 @@ _ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLO
   br i1 %261, label %.loopexit, label %262
 
 262:                                              ; preds = %259
-  %263 = getelementptr inbounds i8, ptr %0, i64 4912
+  %263 = getelementptr inbounds nuw i8, ptr %0, i64 4912
   %264 = load ptr, ptr %263, align 16
   %265 = getelementptr inbounds nuw i8, ptr %264, i64 8
   %266 = load i64, ptr %265, align 8
@@ -17362,7 +17362,7 @@ _ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLO
   br i1 %292, label %.loopexit, label %293
 
 293:                                              ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit36.thread
-  %294 = getelementptr inbounds i8, ptr %0, i64 4912
+  %294 = getelementptr inbounds nuw i8, ptr %0, i64 4912
   %295 = load ptr, ptr %294, align 16
   %296 = getelementptr inbounds nuw i8, ptr %295, i64 8
   %297 = load i64, ptr %296, align 8
@@ -17419,7 +17419,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
 define internal fastcc noundef nonnull ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4makeINS0_10BinaryExprEJRPNS0_4NodeERSt17basic_string_viewIcSt11char_traitsIcEESB_RNS9_4PrecEEEESA_DpOT0_(ptr nocapture noundef nonnull align 16 dereferenceable(4928) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %3, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %4) unnamed_addr #12 align 2 {
-  %6 = getelementptr inbounds i8, ptr %0, i64 4912
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 4912
   %7 = load ptr, ptr %6, align 16
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %9 = load i64, ptr %8, align 8
@@ -17761,7 +17761,7 @@ define linkonce_odr hidden void @_ZN4llvm16itanium_demangle10BinaryExprD0Ev(ptr 
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
 define internal fastcc noundef nonnull ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4makeINS0_10PrefixExprEJRSt17basic_string_viewIcSt11char_traitsIcEERPNS0_4NodeERNSE_4PrecEEEESF_DpOT0_(ptr nocapture noundef nonnull align 16 dereferenceable(4928) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %2, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %3) unnamed_addr #12 align 2 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 4912
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 4912
   %6 = load ptr, ptr %5, align 16
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %8 = load i64, ptr %7, align 8
@@ -18265,7 +18265,7 @@ _ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i21: ; preds = %._ZN4llvm16
 _ZN4llvm16itanium_demangle12OutputBufferpLESt17basic_string_viewIcSt11char_traitsIcEE.exit25: ; preds = %_ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i21, %_ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i14
   %59 = phi i64 [ %58, %_ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i21 ], [ %40, %_ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i14 ]
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %61 = getelementptr inbounds i8, ptr %0, i64 24
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %62 = load i64, ptr %61, align 8
   %63 = icmp eq i64 %62, 0
   br i1 %63, label %123, label %64
@@ -18470,7 +18470,7 @@ _ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i39: ; preds = %._ZN4llvm16
 
 _ZNK4llvm16itanium_demangle4Node5printERNS0_12OutputBufferE.exit: ; preds = %_ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i39, %146
   %150 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %151 = getelementptr inbounds i8, ptr %0, i64 48
+  %151 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %152 = load i64, ptr %151, align 8
   %153 = icmp eq i64 %152, 0
   br i1 %153, label %214, label %154
@@ -18886,7 +18886,7 @@ _ZN4llvm16itanium_demangle12OutputBuffer9printOpenEc.exit: ; preds = %_ZNK4llvm1
   %31 = getelementptr inbounds i8, ptr %30, i64 %29
   store i8 40, ptr %31, align 1
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %33 = getelementptr inbounds i8, ptr %0, i64 32
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %34 = load i64, ptr %33, align 8
   %.not13.i = icmp eq i64 %34, 0
   %.pre = load i64, ptr %17, align 8
@@ -19140,7 +19140,7 @@ _ZN4llvm16itanium_demangle12OutputBuffer9printOpenEc.exit19: ; preds = %_ZN4llvm
   %61 = getelementptr inbounds i8, ptr %60, i64 %59
   store i8 40, ptr %61, align 1
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %63 = getelementptr inbounds i8, ptr %0, i64 32
+  %63 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %64 = load i64, ptr %63, align 8
   %.not13.i = icmp eq i64 %64, 0
   %.pre = load i64, ptr %6, align 8
@@ -19834,7 +19834,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
 28:                                               ; preds = %25
   %29 = getelementptr inbounds i8, ptr %20, i64 1
   store ptr %29, ptr %0, align 16
-  %30 = getelementptr inbounds i8, ptr %0, i64 4912
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 4912
   %31 = load ptr, ptr %30, align 16
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 8
   %33 = load i64, ptr %32, align 8
@@ -19895,7 +19895,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
 define internal fastcc noundef nonnull ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4makeINS0_8BoolExprEJiEEEPNS0_4NodeEDpOT0_(ptr nocapture noundef nonnull align 16 dereferenceable(4928) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %1) unnamed_addr #12 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 4912
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 4912
   %4 = load ptr, ptr %3, align 16
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load i64, ptr %5, align 8
@@ -19949,7 +19949,7 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvm16itanium_demangle8BoolExprEJ
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
 define internal fastcc noundef nonnull ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4makeINS0_13StringLiteralEJRPNS0_4NodeEEEESA_DpOT0_(ptr nocapture noundef nonnull align 16 dereferenceable(4928) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1) unnamed_addr #12 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 4912
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 4912
   %4 = load ptr, ptr %3, align 16
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load i64, ptr %5, align 8
@@ -20001,7 +20001,7 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvm16itanium_demangle13StringLit
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
 define internal fastcc noundef nonnull ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4makeINS0_8NameTypeEJRA8_KcEEEPNS0_4NodeEDpOT0_(ptr nocapture noundef nonnull align 16 dereferenceable(4928) %0, ptr noundef nonnull align 1 dereferenceable(8) %1) unnamed_addr #12 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 4912
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 4912
   %4 = load ptr, ptr %3, align 16
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load i64, ptr %5, align 8
@@ -20067,7 +20067,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
 9:                                                ; preds = %2
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 664
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 672
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 672
   store ptr %11, ptr %12, align 16
   br label %13
 
@@ -20139,7 +20139,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
 39:                                               ; preds = %36
   %40 = getelementptr inbounds i8, ptr %35, i64 1
   store ptr %40, ptr %0, align 16
-  %41 = getelementptr inbounds i8, ptr %0, i64 4912
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 4912
   %42 = load ptr, ptr %41, align 16
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 8
   %44 = load i64, ptr %43, align 8
@@ -20199,7 +20199,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i12: ; preds = %_ZNSt11char_tra
   store ptr %70, ptr %0, align 16
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 784
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 664
-  %73 = getelementptr inbounds i8, ptr %0, i64 672
+  %73 = getelementptr inbounds nuw i8, ptr %0, i64 672
   %74 = load ptr, ptr %73, align 16
   %75 = load ptr, ptr %72, align 8
   %76 = ptrtoint ptr %74 to i64
@@ -20214,20 +20214,20 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i12: ; preds = %_ZNSt11char_tra
   %82 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %.ptr2.i.i = getelementptr inbounds i8, ptr %3, i64 40
   store ptr %.ptr2.i.i, ptr %82, align 8
-  %83 = getelementptr inbounds i8, ptr %3, i64 24
+  %83 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store ptr %.ptr2.i.i, ptr %83, align 8
-  %84 = getelementptr inbounds i8, ptr %3, i64 32
+  %84 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %85 = getelementptr inbounds i8, ptr %3, i64 104
   store ptr %85, ptr %84, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %.ptr2.i.i, i8 0, i64 64, i1 false)
-  %86 = getelementptr inbounds i8, ptr %0, i64 680
+  %86 = getelementptr inbounds nuw i8, ptr %0, i64 680
   %87 = load ptr, ptr %86, align 8
   %88 = icmp eq ptr %74, %87
   br i1 %88, label %89, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E23ScopedTemplateParamListC2EPS6_.exit
 
 89:                                               ; preds = %69
   %90 = ashr exact i64 %78, 2
-  %91 = getelementptr inbounds i8, ptr %0, i64 688
+  %91 = getelementptr inbounds nuw i8, ptr %0, i64 688
   %92 = icmp eq ptr %75, %91
   %93 = shl i64 %78, 1
   br i1 %92, label %94, label %100
@@ -20276,7 +20276,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
   store ptr %108, ptr %73, align 16
   store ptr %82, ptr %107, align 8
   %109 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %110 = getelementptr inbounds i8, ptr %0, i64 24
+  %110 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %111 = load ptr, ptr %110, align 8
   %112 = load ptr, ptr %109, align 16
   %113 = ptrtoint ptr %111 to i64
@@ -20292,8 +20292,8 @@ _ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLO
   %117 = ptrtoint ptr %.val10114 to i64
   %118 = ptrtoint ptr %.val9113 to i64
   %119 = sub i64 %117, %118
-  %120 = getelementptr inbounds i8, ptr %0, i64 32
-  %121 = getelementptr inbounds i8, ptr %0, i64 40
+  %120 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %121 = getelementptr inbounds nuw i8, ptr %0, i64 40
   br label %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit.i
 
 _ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit.i: ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit.i.lr.ph, %_ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exit
@@ -20463,8 +20463,8 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
   br i1 %194, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E9consumeIfEc.exit40.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E9consumeIfESt17basic_string_viewIcSt11char_traitsIcEE.exit25
-  %195 = getelementptr inbounds i8, ptr %0, i64 32
-  %196 = getelementptr inbounds i8, ptr %0, i64 40
+  %195 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %196 = getelementptr inbounds nuw i8, ptr %0, i64 40
   br label %197
 
 197:                                              ; preds = %.lr.ph, %.critedge111.backedge
@@ -20654,7 +20654,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
   %273 = load i64, ptr %81, align 8
   %274 = load ptr, ptr %272, align 8
   %275 = getelementptr inbounds ptr, ptr %274, i64 %273
-  %276 = getelementptr inbounds i8, ptr %271, i64 672
+  %276 = getelementptr inbounds nuw i8, ptr %271, i64 672
   store ptr %275, ptr %276, align 8
   %277 = load ptr, ptr %82, align 8
   %278 = icmp eq ptr %277, %.ptr2.i.i
@@ -20713,7 +20713,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
 295:                                              ; preds = %292
   %296 = getelementptr inbounds i8, ptr %291, i64 1
   store ptr %296, ptr %0, align 16
-  %297 = getelementptr inbounds i8, ptr %0, i64 4912
+  %297 = getelementptr inbounds nuw i8, ptr %0, i64 4912
   %298 = load ptr, ptr %297, align 16
   %299 = getelementptr inbounds nuw i8, ptr %298, i64 8
   %300 = load i64, ptr %299, align 8
@@ -20770,7 +20770,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
 define internal fastcc noundef nonnull ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4makeINS0_10LambdaExprEJRPNS0_4NodeEEEESA_DpOT0_(ptr nocapture noundef nonnull align 16 dereferenceable(4928) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1) unnamed_addr #12 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 4912
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 4912
   %4 = load ptr, ptr %3, align 16
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load i64, ptr %5, align 8
@@ -20822,7 +20822,7 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvm16itanium_demangle10LambdaExp
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
 define internal fastcc noundef nonnull ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4makeINS0_11EnumLiteralEJRPNS0_4NodeERSt17basic_string_viewIcSt11char_traitsIcEEEEESA_DpOT0_(ptr nocapture noundef nonnull align 16 dereferenceable(4928) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %2) unnamed_addr #12 align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 4912
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 4912
   %5 = load ptr, ptr %4, align 16
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = load i64, ptr %6, align 8
@@ -21269,7 +21269,7 @@ define linkonce_odr hidden void @_ZNK4llvm16itanium_demangle16FloatLiteralImplIf
   br i1 %7, label %8, label %_ZN4llvm16itanium_demangle12OutputBufferpLESt17basic_string_viewIcSt11char_traitsIcEE.exit
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %0, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %10 = load ptr, ptr %9, align 8
   br label %11
 
@@ -21394,7 +21394,7 @@ define linkonce_odr hidden void @_ZNK4llvm16itanium_demangle16FloatLiteralImplId
   br i1 %7, label %8, label %_ZN4llvm16itanium_demangle12OutputBufferpLESt17basic_string_viewIcSt11char_traitsIcEE.exit
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %0, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %10 = load ptr, ptr %9, align 8
   br label %11
 
@@ -21512,7 +21512,7 @@ define linkonce_odr hidden void @_ZNK4llvm16itanium_demangle16FloatLiteralImplIe
   br i1 %7, label %8, label %_ZN4llvm16itanium_demangle12OutputBufferpLESt17basic_string_viewIcSt11char_traitsIcEE.exit
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %0, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %10 = load ptr, ptr %9, align 8
   br label %11
 
@@ -21755,7 +21755,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i: ; preds = %2
   %20 = getelementptr inbounds i8, ptr %11, i64 2
   store ptr %20, ptr %0, align 16
   %21 = call fastcc noundef ptr @_ZZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E22parseTemplateParamDeclEPNS0_14PODSmallVectorIPNS0_4NodeELm8EEEENKUlNS0_17TemplateParamKindEE_clESC_(ptr noundef nonnull align 8 dereferenceable(16) %4, i32 noundef 0)
-  %22 = getelementptr inbounds i8, ptr %0, i64 4912
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 4912
   %23 = load ptr, ptr %22, align 16
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %25 = load i64, ptr %24, align 8
@@ -21817,7 +21817,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i9: ; preds = %_ZNSt11char_trai
 
 53:                                               ; preds = %50
   %54 = call fastcc noundef ptr @_ZZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E22parseTemplateParamDeclEPNS0_14PODSmallVectorIPNS0_4NodeELm8EEEENKUlNS0_17TemplateParamKindEE_clESC_(ptr noundef nonnull align 8 dereferenceable(16) %4, i32 noundef 0)
-  %55 = getelementptr inbounds i8, ptr %0, i64 4912
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 4912
   %56 = load ptr, ptr %55, align 16
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 8
   %58 = load i64, ptr %57, align 8
@@ -21881,7 +21881,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i15: ; preds = %_ZNSt11char_tra
   br i1 %.not5, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E23ScopedTemplateParamListD2Ev.exit, label %88
 
 88:                                               ; preds = %84
-  %89 = getelementptr inbounds i8, ptr %0, i64 4912
+  %89 = getelementptr inbounds nuw i8, ptr %0, i64 4912
   %90 = load ptr, ptr %89, align 16
   %91 = getelementptr inbounds nuw i8, ptr %90, i64 8
   %92 = load i64, ptr %91, align 8
@@ -21942,7 +21942,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i21: ; preds = %_ZNSt11char_tra
   %120 = call fastcc noundef ptr @_ZZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E22parseTemplateParamDeclEPNS0_14PODSmallVectorIPNS0_4NodeELm8EEEENKUlNS0_17TemplateParamKindEE_clESC_(ptr noundef nonnull align 8 dereferenceable(16) %4, i32 noundef 2)
   store ptr %120, ptr %5, align 8
   %121 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %122 = getelementptr inbounds i8, ptr %0, i64 24
+  %122 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %123 = load ptr, ptr %122, align 8
   %124 = load ptr, ptr %121, align 16
   %125 = ptrtoint ptr %123 to i64
@@ -21952,7 +21952,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i21: ; preds = %_ZNSt11char_tra
   store ptr %0, ptr %6, align 8
   %129 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %130 = getelementptr inbounds nuw i8, ptr %0, i64 664
-  %131 = getelementptr inbounds i8, ptr %0, i64 672
+  %131 = getelementptr inbounds nuw i8, ptr %0, i64 672
   %132 = load ptr, ptr %131, align 16
   %133 = load ptr, ptr %130, align 8
   %134 = ptrtoint ptr %132 to i64
@@ -21963,20 +21963,20 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i21: ; preds = %_ZNSt11char_tra
   %138 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %.ptr2.i.i = getelementptr inbounds i8, ptr %6, i64 40
   store ptr %.ptr2.i.i, ptr %138, align 8
-  %139 = getelementptr inbounds i8, ptr %6, i64 24
+  %139 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store ptr %.ptr2.i.i, ptr %139, align 8
-  %140 = getelementptr inbounds i8, ptr %6, i64 32
+  %140 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %141 = getelementptr inbounds i8, ptr %6, i64 104
   store ptr %141, ptr %140, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %.ptr2.i.i, i8 0, i64 64, i1 false)
-  %142 = getelementptr inbounds i8, ptr %0, i64 680
+  %142 = getelementptr inbounds nuw i8, ptr %0, i64 680
   %143 = load ptr, ptr %142, align 8
   %144 = icmp eq ptr %132, %143
   br i1 %144, label %145, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E23ScopedTemplateParamListC2EPS6_.exit
 
 145:                                              ; preds = %118
   %146 = ashr exact i64 %136, 2
-  %147 = getelementptr inbounds i8, ptr %0, i64 688
+  %147 = getelementptr inbounds nuw i8, ptr %0, i64 688
   %148 = icmp eq ptr %133, %147
   %149 = shl i64 %136, 1
   br i1 %148, label %150, label %156
@@ -22025,8 +22025,8 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
   store ptr %164, ptr %131, align 16
   store ptr %138, ptr %163, align 8
   store ptr null, ptr %7, align 8
-  %165 = getelementptr inbounds i8, ptr %0, i64 32
-  %166 = getelementptr inbounds i8, ptr %0, i64 40
+  %165 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %166 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %.pre = load ptr, ptr %0, align 16
   %.pre68 = load ptr, ptr %12, align 8
   br label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E9consumeIfEc.exit28
@@ -22163,7 +22163,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
   %226 = load i64, ptr %129, align 8
   %227 = load ptr, ptr %225, align 8
   %228 = getelementptr inbounds ptr, ptr %227, i64 %226
-  %229 = getelementptr inbounds i8, ptr %224, i64 672
+  %229 = getelementptr inbounds nuw i8, ptr %224, i64 672
   store ptr %228, ptr %229, align 8
   %230 = load ptr, ptr %138, align 8
   %231 = icmp eq ptr %230, %.ptr2.i.i
@@ -22198,7 +22198,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
 ; Function Attrs: mustprogress nofree nounwind uwtable
 define internal fastcc noundef nonnull ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4makeINS0_15ClosureTypeNameEJRNS0_9NodeArrayERPNS0_4NodeESA_SD_RSt17basic_string_viewIcSt11char_traitsIcEEEEESC_DpOT0_(ptr nocapture noundef nonnull align 16 dereferenceable(4928) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %4, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %5) unnamed_addr #12 align 2 {
   %7 = alloca %"class.std::basic_string_view", align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 4912
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 4912
   %9 = load ptr, ptr %8, align 16
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load i64, ptr %10, align 8
@@ -22409,7 +22409,7 @@ define internal fastcc noundef nonnull ptr @_ZZN4llvm16itanium_demangle22Abstrac
   %7 = load i32, ptr %6, align 4
   %8 = add i32 %7, 1
   store i32 %8, ptr %6, align 4
-  %9 = getelementptr inbounds i8, ptr %3, i64 4912
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 4912
   %10 = load ptr, ptr %9, align 16
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %12 = load i64, ptr %11, align 8
@@ -22533,7 +22533,7 @@ _ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm8EE9push_backERKS3_.exit
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
 define internal fastcc noundef nonnull ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4makeINS0_25TemplateTemplateParamDeclEJRPNS0_4NodeERNS0_9NodeArrayESB_EEESA_DpOT0_(ptr nocapture noundef nonnull align 16 dereferenceable(4928) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %3) unnamed_addr #12 align 2 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 4912
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 4912
   %6 = load ptr, ptr %5, align 16
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %8 = load i64, ptr %7, align 8
@@ -22595,7 +22595,7 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvm16itanium_demangle25TemplateT
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
 define internal fastcc noundef nonnull ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4makeINS0_21TemplateParamPackDeclEJRPNS0_4NodeEEEESA_DpOT0_(ptr nocapture noundef nonnull align 16 dereferenceable(4928) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1) unnamed_addr #12 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 4912
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 4912
   %4 = load ptr, ptr %3, align 16
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load i64, ptr %5, align 8
@@ -23180,7 +23180,7 @@ _ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i: ; preds = %._ZN4llvm16it
   %21 = add i64 %20, 9
   store i64 %21, ptr %5, align 8
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %23 = getelementptr inbounds i8, ptr %0, i64 32
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %24 = load i64, ptr %23, align 8
   %.not13.i = icmp eq i64 %24, 0
   br i1 %.not13.i, label %_ZNK4llvm16itanium_demangle9NodeArray14printWithCommaERNS0_12OutputBufferE.exit, label %.lr.ph.i
@@ -23581,7 +23581,7 @@ define linkonce_odr hidden void @_ZN4llvm16itanium_demangle15ClosureTypeNameD0Ev
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNK4llvm16itanium_demangle15ClosureTypeName15printDeclaratorERNS0_12OutputBufferE(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull align 8 dereferenceable(36) %1) local_unnamed_addr #1 comdat align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %4 = getelementptr inbounds i8, ptr %0, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load i64, ptr %4, align 8
   %6 = icmp eq i64 %5, 0
   br i1 %6, label %70, label %7
@@ -23866,7 +23866,7 @@ _ZN4llvm16itanium_demangle12OutputBuffer9printOpenEc.exit: ; preds = %_ZN4llvm16
   %131 = getelementptr inbounds i8, ptr %130, i64 %129
   store i8 40, ptr %131, align 1
   %132 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %133 = getelementptr inbounds i8, ptr %0, i64 48
+  %133 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %134 = load i64, ptr %133, align 8
   %.not13.i41 = icmp eq i64 %134, 0
   %.pre81 = load i64, ptr %118, align 8
@@ -24370,7 +24370,7 @@ define linkonce_odr hidden void @_ZN4llvm16itanium_demangle11EnumLiteralD0Ev(ptr
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
 define internal fastcc noundef nonnull ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4makeINS0_13FunctionParamEJRSt17basic_string_viewIcSt11char_traitsIcEEEEEPNS0_4NodeEDpOT0_(ptr nocapture noundef nonnull align 16 dereferenceable(4928) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) unnamed_addr #12 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 4912
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 4912
   %4 = load ptr, ptr %3, align 16
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load i64, ptr %5, align 8
@@ -25698,7 +25698,7 @@ _ZN4llvm16itanium_demangle12OutputBufferpLEc.exit: ; preds = %_ZNK4llvm16itanium
   %29 = getelementptr inbounds i8, ptr %28, i64 %27
   store i8 123, ptr %29, align 1
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %31 = getelementptr inbounds i8, ptr %0, i64 32
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %32 = load i64, ptr %31, align 8
   %.not13.i = icmp eq i64 %32, 0
   %.pre = load i64, ptr %15, align 8
@@ -26564,7 +26564,7 @@ _ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i: ; preds = %._ZN4llvm16it
   %19 = add i64 %18, 8
   store i64 %19, ptr %3, align 8
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %21 = getelementptr inbounds i8, ptr %0, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %22 = load i64, ptr %21, align 8
   %23 = icmp eq i64 %22, 0
   br i1 %23, label %96, label %24
@@ -26820,7 +26820,7 @@ _ZN4llvm16itanium_demangle12OutputBuffer9printOpenEc.exit47: ; preds = %_ZN4llvm
   store i8 123, ptr %125, align 1
   %126 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %127 = load ptr, ptr %126, align 8
-  %128 = getelementptr inbounds i8, ptr %0, i64 40
+  %128 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %129 = load i64, ptr %128, align 8
   %130 = getelementptr inbounds ptr, ptr %127, i64 %129
   %.not64 = icmp eq i64 %129, 0
@@ -27383,7 +27383,7 @@ define linkonce_odr hidden void @_ZN4llvm16itanium_demangle19SizeofParamPackExpr
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNK4llvm16itanium_demangle13NodeArrayNode9printLeftERNS0_12OutputBufferE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(36) %1) unnamed_addr #1 comdat align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %4 = getelementptr inbounds i8, ptr %0, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load i64, ptr %4, align 8
   %.not13.i = icmp eq i64 %5, 0
   br i1 %.not13.i, label %_ZNK4llvm16itanium_demangle9NodeArray14printWithCommaERNS0_12OutputBufferE.exit, label %.lr.ph.i
@@ -27565,9 +27565,9 @@ _ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLO
 
 7:                                                ; preds = %4
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 296
-  %9 = getelementptr inbounds i8, ptr %0, i64 304
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %10 = load ptr, ptr %9, align 16
-  %11 = getelementptr inbounds i8, ptr %0, i64 312
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %12 = load ptr, ptr %11, align 8
   %13 = icmp eq ptr %10, %12
   br i1 %13, label %14, label %_ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exit
@@ -27578,7 +27578,7 @@ _ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLO
   %17 = ptrtoint ptr %15 to i64
   %18 = sub i64 %16, %17
   %19 = ashr exact i64 %18, 2
-  %20 = getelementptr inbounds i8, ptr %0, i64 320
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 320
   %21 = icmp eq ptr %15, %20
   %22 = shl i64 %18, 1
   br i1 %21, label %23, label %29
@@ -27635,9 +27635,9 @@ _ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exi
 
 41:                                               ; preds = %38
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 296
-  %43 = getelementptr inbounds i8, ptr %0, i64 304
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %44 = load ptr, ptr %43, align 16
-  %45 = getelementptr inbounds i8, ptr %0, i64 312
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %46 = load ptr, ptr %45, align 8
   %47 = icmp eq ptr %44, %46
   br i1 %47, label %48, label %_ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exit11
@@ -27648,7 +27648,7 @@ _ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exi
   %51 = ptrtoint ptr %49 to i64
   %52 = sub i64 %50, %51
   %53 = ashr exact i64 %52, 2
-  %54 = getelementptr inbounds i8, ptr %0, i64 320
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 320
   %55 = icmp eq ptr %49, %54
   %56 = shl i64 %52, 1
   br i1 %55, label %57, label %63
@@ -27731,7 +27731,7 @@ _ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLO
   br i1 %10, label %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit.thread, label %11
 
 11:                                               ; preds = %8
-  %12 = getelementptr inbounds i8, ptr %0, i64 4912
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 4912
   %13 = load ptr, ptr %12, align 16
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %15 = load i64, ptr %14, align 8
@@ -27844,7 +27844,7 @@ _ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLO
   br i1 %20, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E19parseDestructorNameEv.exit, label %21
 
 21:                                               ; preds = %19
-  %22 = getelementptr inbounds i8, ptr %0, i64 4912
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 4912
   %23 = load ptr, ptr %22, align 16
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %25 = load i64, ptr %24, align 8
@@ -27924,7 +27924,7 @@ _ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLO
   br i1 %58, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E19parseDestructorNameEv.exit, label %59
 
 59:                                               ; preds = %56
-  %60 = getelementptr inbounds i8, ptr %0, i64 4912
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 4912
   %61 = load ptr, ptr %60, align 16
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 8
   %63 = load i64, ptr %62, align 8
@@ -28178,7 +28178,7 @@ _ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLO
   br label %48
 
 48:                                               ; preds = %47, %46
-  %49 = getelementptr inbounds i8, ptr %0, i64 4912
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 4912
   %50 = load ptr, ptr %49, align 16
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 8
   %52 = load i64, ptr %51, align 8
@@ -28250,7 +28250,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
   %85 = getelementptr i8, ptr %25, i64 8
   %.val22 = load ptr, ptr %85, align 8
   %86 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %.val22) #20
-  %87 = getelementptr inbounds i8, ptr %0, i64 4912
+  %87 = getelementptr inbounds nuw i8, ptr %0, i64 4912
   %88 = load ptr, ptr %87, align 16
   %89 = getelementptr inbounds nuw i8, ptr %88, i64 8
   %90 = load i64, ptr %89, align 8
@@ -28313,7 +28313,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i: ; preds = %24, %_ZNK4llvm16i
   br i1 %118, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E9consumeIfEc.exit.thread, label %119
 
 119:                                              ; preds = %115
-  %120 = getelementptr inbounds i8, ptr %0, i64 4912
+  %120 = getelementptr inbounds nuw i8, ptr %0, i64 4912
   %121 = load ptr, ptr %120, align 16
   %122 = getelementptr inbounds nuw i8, ptr %121, i64 8
   %123 = load i64, ptr %122, align 8
@@ -28390,7 +28390,7 @@ _ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLO
   br i1 %157, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E9consumeIfEc.exit.thread, label %158
 
 158:                                              ; preds = %154
-  %159 = getelementptr inbounds i8, ptr %0, i64 4912
+  %159 = getelementptr inbounds nuw i8, ptr %0, i64 4912
   %160 = load ptr, ptr %159, align 16
   %161 = getelementptr inbounds nuw i8, ptr %160, i64 8
   %162 = load i64, ptr %161, align 8
@@ -28733,7 +28733,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   br i1 %.not.i11, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E19parseBareSourceNameEv.exit.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %0, i64 4912
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 4912
   br label %7
 
 7:                                                ; preds = %.lr.ph, %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4makeINS0_10AbiTagAttrEJRPNS0_4NodeERSt17basic_string_viewIcSt11char_traitsIcEEEEESA_DpOT0_.exit
@@ -29425,7 +29425,7 @@ _ZN4llvm16itanium_demangle12OutputBuffer9printOpenEc.exit: ; preds = %2, %._ZN4l
   %20 = getelementptr inbounds i8, ptr %19, i64 %18
   store i8 91, ptr %20, align 1
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %22 = getelementptr inbounds i8, ptr %0, i64 24
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %23 = load i64, ptr %22, align 8
   %.not13.i = icmp eq i64 %23, 0
   %.pre = load i64, ptr %6, align 8
@@ -29547,7 +29547,7 @@ define linkonce_odr hidden void @_ZN4llvm16itanium_demangle21StructuredBindingNa
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
 define internal fastcc noundef nonnull ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4makeINS0_27ExpandedSpecialSubstitutionEJPNS0_19SpecialSubstitutionEEEEPNS0_4NodeEDpOT0_(ptr nocapture noundef nonnull align 16 dereferenceable(4928) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1) unnamed_addr #12 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 4912
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 4912
   %4 = load ptr, ptr %3, align 16
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load i64, ptr %5, align 8
@@ -29601,7 +29601,7 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvm16itanium_demangle27ExpandedS
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
 define internal fastcc noundef nonnull ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4makeINS0_12CtorDtorNameEJRPNS0_4NodeEbRiEEESA_DpOT0_(ptr nocapture noundef nonnull align 16 dereferenceable(4928) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1, ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %2, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %3) unnamed_addr #12 align 2 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 4912
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 4912
   %6 = load ptr, ptr %5, align 16
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %8 = load i64, ptr %7, align 8
@@ -30076,7 +30076,7 @@ define linkonce_odr hidden void @_ZN4llvm16itanium_demangle10NestedNameD0Ev(ptr 
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
 define internal fastcc noundef nonnull ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4makeINS0_8NameTypeEJRA15_KcEEEPNS0_4NodeEDpOT0_(ptr nocapture noundef nonnull align 16 dereferenceable(4928) %0, ptr noundef nonnull align 1 dereferenceable(15) %1) unnamed_addr #12 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 4912
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 4912
   %4 = load ptr, ptr %3, align 16
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load i64, ptr %5, align 8
@@ -30130,7 +30130,7 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvm16itanium_demangle8NameTypeEJ
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
 define internal fastcc noundef nonnull ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4makeINS0_9LocalNameEJRPNS0_4NodeESB_EEESA_DpOT0_(ptr nocapture noundef nonnull align 16 dereferenceable(4928) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %2) unnamed_addr #12 align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 4912
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 4912
   %5 = load ptr, ptr %4, align 16
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = load i64, ptr %6, align 8
@@ -30673,7 +30673,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK4llvm16itanium_demangle13Para
   br label %_ZNK4llvm16itanium_demangle13ParameterPack23initializePackExpansionERNS0_12OutputBufferE.exit
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %0, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %9 = load i64, ptr %8, align 8
   %10 = trunc i64 %9 to i32
   store i32 %10, ptr %3, align 4
@@ -30683,7 +30683,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK4llvm16itanium_demangle13Para
 
 _ZNK4llvm16itanium_demangle13ParameterPack23initializePackExpansionERNS0_12OutputBufferE.exit: ; preds = %._ZNK4llvm16itanium_demangle13ParameterPack23initializePackExpansionERNS0_12OutputBufferE.exit_crit_edge, %7
   %12 = phi i64 [ %6, %._ZNK4llvm16itanium_demangle13ParameterPack23initializePackExpansionERNS0_12OutputBufferE.exit_crit_edge ], [ 0, %7 ]
-  %13 = getelementptr inbounds i8, ptr %0, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %14 = load i64, ptr %13, align 8
   %15 = icmp ugt i64 %14, %12
   br i1 %15, label %16, label %_ZNK4llvm16itanium_demangle4Node15hasRHSComponentERNS0_12OutputBufferE.exit
@@ -30729,7 +30729,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK4llvm16itanium_demangle13Para
   br label %_ZNK4llvm16itanium_demangle13ParameterPack23initializePackExpansionERNS0_12OutputBufferE.exit
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %0, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %9 = load i64, ptr %8, align 8
   %10 = trunc i64 %9 to i32
   store i32 %10, ptr %3, align 4
@@ -30739,7 +30739,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK4llvm16itanium_demangle13Para
 
 _ZNK4llvm16itanium_demangle13ParameterPack23initializePackExpansionERNS0_12OutputBufferE.exit: ; preds = %._ZNK4llvm16itanium_demangle13ParameterPack23initializePackExpansionERNS0_12OutputBufferE.exit_crit_edge, %7
   %12 = phi i64 [ %6, %._ZNK4llvm16itanium_demangle13ParameterPack23initializePackExpansionERNS0_12OutputBufferE.exit_crit_edge ], [ 0, %7 ]
-  %13 = getelementptr inbounds i8, ptr %0, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %14 = load i64, ptr %13, align 8
   %15 = icmp ugt i64 %14, %12
   br i1 %15, label %16, label %_ZNK4llvm16itanium_demangle4Node8hasArrayERNS0_12OutputBufferE.exit
@@ -30787,7 +30787,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK4llvm16itanium_demangle13Para
   br label %_ZNK4llvm16itanium_demangle13ParameterPack23initializePackExpansionERNS0_12OutputBufferE.exit
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %0, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %9 = load i64, ptr %8, align 8
   %10 = trunc i64 %9 to i32
   store i32 %10, ptr %3, align 4
@@ -30797,7 +30797,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK4llvm16itanium_demangle13Para
 
 _ZNK4llvm16itanium_demangle13ParameterPack23initializePackExpansionERNS0_12OutputBufferE.exit: ; preds = %._ZNK4llvm16itanium_demangle13ParameterPack23initializePackExpansionERNS0_12OutputBufferE.exit_crit_edge, %7
   %12 = phi i64 [ %6, %._ZNK4llvm16itanium_demangle13ParameterPack23initializePackExpansionERNS0_12OutputBufferE.exit_crit_edge ], [ 0, %7 ]
-  %13 = getelementptr inbounds i8, ptr %0, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %14 = load i64, ptr %13, align 8
   %15 = icmp ugt i64 %14, %12
   br i1 %15, label %16, label %_ZNK4llvm16itanium_demangle4Node11hasFunctionERNS0_12OutputBufferE.exit
@@ -30845,7 +30845,7 @@ define linkonce_odr hidden noundef ptr @_ZNK4llvm16itanium_demangle13ParameterPa
   br label %_ZNK4llvm16itanium_demangle13ParameterPack23initializePackExpansionERNS0_12OutputBufferE.exit
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %0, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %9 = load i64, ptr %8, align 8
   %10 = trunc i64 %9 to i32
   store i32 %10, ptr %3, align 4
@@ -30855,7 +30855,7 @@ define linkonce_odr hidden noundef ptr @_ZNK4llvm16itanium_demangle13ParameterPa
 
 _ZNK4llvm16itanium_demangle13ParameterPack23initializePackExpansionERNS0_12OutputBufferE.exit: ; preds = %._ZNK4llvm16itanium_demangle13ParameterPack23initializePackExpansionERNS0_12OutputBufferE.exit_crit_edge, %7
   %12 = phi i64 [ %6, %._ZNK4llvm16itanium_demangle13ParameterPack23initializePackExpansionERNS0_12OutputBufferE.exit_crit_edge ], [ 0, %7 ]
-  %13 = getelementptr inbounds i8, ptr %0, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %14 = load i64, ptr %13, align 8
   %15 = icmp ugt i64 %14, %12
   br i1 %15, label %16, label %25
@@ -30890,7 +30890,7 @@ define linkonce_odr hidden void @_ZNK4llvm16itanium_demangle13ParameterPack9prin
   br label %_ZNK4llvm16itanium_demangle13ParameterPack23initializePackExpansionERNS0_12OutputBufferE.exit
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %0, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %9 = load i64, ptr %8, align 8
   %10 = trunc i64 %9 to i32
   store i32 %10, ptr %3, align 4
@@ -30900,7 +30900,7 @@ define linkonce_odr hidden void @_ZNK4llvm16itanium_demangle13ParameterPack9prin
 
 _ZNK4llvm16itanium_demangle13ParameterPack23initializePackExpansionERNS0_12OutputBufferE.exit: ; preds = %._ZNK4llvm16itanium_demangle13ParameterPack23initializePackExpansionERNS0_12OutputBufferE.exit_crit_edge, %7
   %12 = phi i64 [ %6, %._ZNK4llvm16itanium_demangle13ParameterPack23initializePackExpansionERNS0_12OutputBufferE.exit_crit_edge ], [ 0, %7 ]
-  %13 = getelementptr inbounds i8, ptr %0, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %14 = load i64, ptr %13, align 8
   %15 = icmp ugt i64 %14, %12
   br i1 %15, label %16, label %24
@@ -30934,7 +30934,7 @@ define linkonce_odr hidden void @_ZNK4llvm16itanium_demangle13ParameterPack10pri
   br label %_ZNK4llvm16itanium_demangle13ParameterPack23initializePackExpansionERNS0_12OutputBufferE.exit
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %0, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %9 = load i64, ptr %8, align 8
   %10 = trunc i64 %9 to i32
   store i32 %10, ptr %3, align 4
@@ -30944,7 +30944,7 @@ define linkonce_odr hidden void @_ZNK4llvm16itanium_demangle13ParameterPack10pri
 
 _ZNK4llvm16itanium_demangle13ParameterPack23initializePackExpansionERNS0_12OutputBufferE.exit: ; preds = %._ZNK4llvm16itanium_demangle13ParameterPack23initializePackExpansionERNS0_12OutputBufferE.exit_crit_edge, %7
   %12 = phi i64 [ %6, %._ZNK4llvm16itanium_demangle13ParameterPack23initializePackExpansionERNS0_12OutputBufferE.exit_crit_edge ], [ 0, %7 ]
-  %13 = getelementptr inbounds i8, ptr %0, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %14 = load i64, ptr %13, align 8
   %15 = icmp ugt i64 %14, %12
   br i1 %15, label %16, label %24
@@ -31016,7 +31016,7 @@ _ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i: ; preds = %._ZN4llvm16it
   %21 = add i64 %20, 1
   store i64 %21, ptr %5, align 8
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %23 = getelementptr inbounds i8, ptr %0, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %24 = load i64, ptr %23, align 8
   %.not13.i = icmp eq i64 %24, 0
   br i1 %.not13.i, label %_ZNK4llvm16itanium_demangle9NodeArray14printWithCommaERNS0_12OutputBufferE.exit, label %.lr.ph.i
@@ -31203,7 +31203,7 @@ define linkonce_odr hidden void @_ZN4llvm16itanium_demangle20NameWithTemplateArg
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNK4llvm16itanium_demangle20TemplateArgumentPack9printLeftERNS0_12OutputBufferE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(36) %1) unnamed_addr #1 comdat align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %4 = getelementptr inbounds i8, ptr %0, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load i64, ptr %4, align 8
   %.not13.i = icmp eq i64 %5, 0
   br i1 %.not13.i, label %_ZNK4llvm16itanium_demangle9NodeArray14printWithCommaERNS0_12OutputBufferE.exit, label %.lr.ph.i
@@ -31366,7 +31366,7 @@ _ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i: ; preds = %._ZN4llvm16it
   %19 = add i64 %18, 12
   store i64 %19, ptr %3, align 8
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %21 = getelementptr inbounds i8, ptr %0, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %22 = load i64, ptr %21, align 8
   %.not13.i = icmp eq i64 %22, 0
   br i1 %.not13.i, label %_ZNK4llvm16itanium_demangle9NodeArray14printWithCommaERNS0_12OutputBufferE.exit, label %.lr.ph.i
@@ -31697,7 +31697,7 @@ _ZN4llvm16itanium_demangle12OutputBuffer9printOpenEc.exit: ; preds = %2, %._ZN4l
   %20 = getelementptr inbounds i8, ptr %19, i64 %18
   store i8 40, ptr %20, align 1
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %22 = getelementptr inbounds i8, ptr %0, i64 40
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %23 = load i64, ptr %22, align 8
   %.not13.i = icmp eq i64 %23, 0
   %.pre = load i64, ptr %6, align 8
@@ -32338,7 +32338,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i: ; preds = %_ZN4llvm16itanium
 30:                                               ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i
   %31 = getelementptr inbounds i8, ptr %24, i64 2
   store ptr %31, ptr %0, align 16
-  %32 = getelementptr inbounds i8, ptr %0, i64 4912
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 4912
   %33 = load ptr, ptr %32, align 16
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 8
   %35 = load i64, ptr %34, align 8
@@ -32414,7 +32414,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i5: ; preds = %_ZNSt11char_trai
 70:                                               ; preds = %67
   %71 = getelementptr inbounds i8, ptr %65, i64 1
   store ptr %71, ptr %0, align 16
-  %72 = getelementptr inbounds i8, ptr %0, i64 4912
+  %72 = getelementptr inbounds nuw i8, ptr %0, i64 4912
   %73 = load ptr, ptr %72, align 16
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 8
   %75 = load i64, ptr %74, align 8
@@ -32471,15 +32471,15 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i12: ; preds = %_ZNSt11char_tra
   %101 = getelementptr inbounds i8, ptr %24, i64 2
   store ptr %101, ptr %0, align 16
   %102 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %103 = getelementptr inbounds i8, ptr %0, i64 24
+  %103 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %104 = load ptr, ptr %103, align 8
   %105 = load ptr, ptr %102, align 16
   %106 = ptrtoint ptr %104 to i64
   %107 = ptrtoint ptr %105 to i64
   %108 = sub i64 %106, %107
   %109 = ashr exact i64 %108, 3
-  %110 = getelementptr inbounds i8, ptr %0, i64 32
-  %111 = getelementptr inbounds i8, ptr %0, i64 40
+  %110 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %111 = getelementptr inbounds nuw i8, ptr %0, i64 40
   br label %112
 
 112:                                              ; preds = %_ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exit, %100
@@ -32567,7 +32567,7 @@ _ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exi
   %150 = tail call fastcc { ptr, i64 } @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E20popTrailingNodeArrayEm(ptr noundef nonnull align 16 dereferenceable(4928) %0, i64 noundef %109)
   %151 = extractvalue { ptr, i64 } %150, 0
   %152 = extractvalue { ptr, i64 } %150, 1
-  %153 = getelementptr inbounds i8, ptr %0, i64 4912
+  %153 = getelementptr inbounds nuw i8, ptr %0, i64 4912
   %154 = load ptr, ptr %153, align 16
   %155 = getelementptr inbounds nuw i8, ptr %154, i64 8
   %156 = load i64, ptr %155, align 8
@@ -32670,15 +32670,15 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
 
 201:                                              ; preds = %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E9consumeIfEc.exit32
   %202 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %203 = getelementptr inbounds i8, ptr %0, i64 24
+  %203 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %204 = load ptr, ptr %203, align 8
   %205 = load ptr, ptr %202, align 16
   %206 = ptrtoint ptr %204 to i64
   %207 = ptrtoint ptr %205 to i64
   %208 = sub i64 %206, %207
   %209 = ashr exact i64 %208, 3
-  %210 = getelementptr inbounds i8, ptr %0, i64 32
-  %211 = getelementptr inbounds i8, ptr %0, i64 40
+  %210 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %211 = getelementptr inbounds nuw i8, ptr %0, i64 40
   br label %.backedge
 
 .backedge:                                        ; preds = %.backedge.backedge, %201
@@ -32796,7 +32796,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
   %257 = tail call fastcc { ptr, i64 } @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E20popTrailingNodeArrayEm(ptr noundef nonnull align 16 dereferenceable(4928) %0, i64 noundef %209)
   %258 = extractvalue { ptr, i64 } %257, 0
   %259 = extractvalue { ptr, i64 } %257, 1
-  %260 = getelementptr inbounds i8, ptr %0, i64 4912
+  %260 = getelementptr inbounds nuw i8, ptr %0, i64 4912
   %261 = load ptr, ptr %260, align 16
   %262 = getelementptr inbounds nuw i8, ptr %261, i64 8
   %263 = load i64, ptr %262, align 8
@@ -32984,7 +32984,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
   br i1 %47, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E19parseBareSourceNameEv.exit.thread, label %48
 
 48:                                               ; preds = %45
-  %49 = getelementptr inbounds i8, ptr %0, i64 4912
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 4912
   %50 = load ptr, ptr %49, align 16
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 8
   %52 = load i64, ptr %51, align 8
@@ -33057,7 +33057,7 @@ _ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLO
   br i1 %84, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E19parseBareSourceNameEv.exit.thread, label %85
 
 85:                                               ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit.thread
-  %86 = getelementptr inbounds i8, ptr %0, i64 4912
+  %86 = getelementptr inbounds nuw i8, ptr %0, i64 4912
   %87 = load ptr, ptr %86, align 16
   %88 = getelementptr inbounds nuw i8, ptr %87, i64 8
   %89 = load i64, ptr %88, align 8
@@ -33166,7 +33166,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
   br i1 %.not, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E19parseBareSourceNameEv.exit.thread, label %137
 
 137:                                              ; preds = %136
-  %138 = getelementptr inbounds i8, ptr %0, i64 4912
+  %138 = getelementptr inbounds nuw i8, ptr %0, i64 4912
   %139 = load ptr, ptr %138, align 16
   %140 = getelementptr inbounds nuw i8, ptr %139, i64 8
   %141 = load i64, ptr %140, align 8
@@ -33226,7 +33226,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
 define internal fastcc noundef nonnull ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4makeINS0_8NameTypeEJRA10_KcEEEPNS0_4NodeEDpOT0_(ptr nocapture noundef nonnull align 16 dereferenceable(4928) %0, ptr noundef nonnull align 1 dereferenceable(10) %1) unnamed_addr #12 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 4912
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 4912
   %4 = load ptr, ptr %3, align 16
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load i64, ptr %5, align 8
@@ -33280,7 +33280,7 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvm16itanium_demangle8NameTypeEJ
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
 define internal fastcc noundef nonnull ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4makeINS0_8NameTypeEJRA9_KcEEEPNS0_4NodeEDpOT0_(ptr nocapture noundef nonnull align 16 dereferenceable(4928) %0, ptr noundef nonnull align 1 dereferenceable(9) %1) unnamed_addr #12 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 4912
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 4912
   %4 = load ptr, ptr %3, align 16
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load i64, ptr %5, align 8
@@ -33334,7 +33334,7 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvm16itanium_demangle8NameTypeEJ
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
 define internal fastcc noundef nonnull ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4makeINS0_8NameTypeEJRA11_KcEEEPNS0_4NodeEDpOT0_(ptr nocapture noundef nonnull align 16 dereferenceable(4928) %0, ptr noundef nonnull align 1 dereferenceable(11) %1) unnamed_addr #12 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 4912
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 4912
   %4 = load ptr, ptr %3, align 16
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load i64, ptr %5, align 8
@@ -33388,7 +33388,7 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvm16itanium_demangle8NameTypeEJ
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
 define internal fastcc noundef nonnull ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4makeINS0_15TransformedTypeEJRSt17basic_string_viewIcSt11char_traitsIcEERPNS0_4NodeEEEESF_DpOT0_(ptr nocapture noundef nonnull align 16 dereferenceable(4928) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %2) unnamed_addr #12 align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 4912
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 4912
   %5 = load ptr, ptr %4, align 16
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = load i64, ptr %6, align 8
@@ -33447,7 +33447,7 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvm16itanium_demangle15Transform
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
 define internal fastcc noundef nonnull ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4makeINS0_12BinaryFPTypeEJRPNS0_4NodeEEEESA_DpOT0_(ptr nocapture noundef nonnull align 16 dereferenceable(4928) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1) unnamed_addr #12 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 4912
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 4912
   %4 = load ptr, ptr %3, align 16
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load i64, ptr %5, align 8
@@ -33499,7 +33499,7 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvm16itanium_demangle12BinaryFPT
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
 define internal fastcc noundef nonnull ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4makeINS0_10BitIntTypeEJRPNS0_4NodeERbEEESA_DpOT0_(ptr nocapture noundef nonnull align 16 dereferenceable(4928) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1, ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %2) unnamed_addr #12 align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 4912
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 4912
   %5 = load ptr, ptr %4, align 16
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = load i64, ptr %6, align 8
@@ -33555,7 +33555,7 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvm16itanium_demangle10BitIntTyp
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
 define internal fastcc noundef nonnull ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4makeINS0_20PostfixQualifiedTypeEJRPNS0_4NodeERSt17basic_string_viewIcSt11char_traitsIcEEEEESA_DpOT0_(ptr nocapture noundef nonnull align 16 dereferenceable(4928) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %2) unnamed_addr #12 align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 4912
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 4912
   %5 = load ptr, ptr %4, align 16
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = load i64, ptr %6, align 8
@@ -33667,7 +33667,7 @@ _ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLO
 .critedge.i:                                      ; preds = %20, %.lr.ph.i..critedge.i_crit_edge
   %.pre-phi = phi i64 [ %.pre, %.lr.ph.i..critedge.i_crit_edge ], [ %7, %20 ]
   %22 = sub i64 %.pre-phi, %14
-  %23 = getelementptr inbounds i8, ptr %0, i64 4912
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 4912
   %24 = load ptr, ptr %23, align 16
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %26 = load i64, ptr %25, align 8
@@ -33781,7 +33781,7 @@ _ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLO
   br i1 %.not2, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E9consumeIfESt17basic_string_viewIcSt11char_traitsIcEE.exit.thread, label %81
 
 81:                                               ; preds = %78
-  %82 = getelementptr inbounds i8, ptr %0, i64 4912
+  %82 = getelementptr inbounds nuw i8, ptr %0, i64 4912
   %83 = load ptr, ptr %82, align 16
   %84 = getelementptr inbounds nuw i8, ptr %83, i64 8
   %85 = load i64, ptr %84, align 8
@@ -33839,7 +33839,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
   br i1 %.not3, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E9consumeIfESt17basic_string_viewIcSt11char_traitsIcEE.exit.thread, label %113
 
 113:                                              ; preds = %110
-  %114 = getelementptr inbounds i8, ptr %0, i64 4912
+  %114 = getelementptr inbounds nuw i8, ptr %0, i64 4912
   %115 = load ptr, ptr %114, align 16
   %116 = getelementptr inbounds nuw i8, ptr %115, i64 8
   %117 = load i64, ptr %116, align 8
@@ -33934,7 +33934,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i7: ; preds = %_ZNSt11char_trai
   br label %.thread32
 
 17:                                               ; preds = %12
-  %18 = getelementptr inbounds i8, ptr %0, i64 4912
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 4912
   %19 = load ptr, ptr %18, align 16
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %21 = load i64, ptr %20, align 8
@@ -33993,7 +33993,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
 define internal fastcc noundef nonnull ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4makeINS0_11PointerTypeEJRPNS0_4NodeEEEESA_DpOT0_(ptr nocapture noundef nonnull align 16 dereferenceable(4928) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1) unnamed_addr #12 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 4912
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 4912
   %4 = load ptr, ptr %3, align 16
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load i64, ptr %5, align 8
@@ -34049,7 +34049,7 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvm16itanium_demangle11PointerTy
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
 define internal fastcc noundef nonnull ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4makeINS0_13ReferenceTypeEJRPNS0_4NodeENS0_13ReferenceKindEEEESA_DpOT0_(ptr nocapture noundef nonnull align 16 dereferenceable(4928) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %2) unnamed_addr #12 align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 4912
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 4912
   %5 = load ptr, ptr %4, align 16
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = load i64, ptr %6, align 8
@@ -34110,7 +34110,7 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvm16itanium_demangle13Reference
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
 define internal fastcc noundef nonnull ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4makeINS0_20PostfixQualifiedTypeEJRPNS0_4NodeERA9_KcEEESA_DpOT0_(ptr nocapture noundef nonnull align 16 dereferenceable(4928) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1) unnamed_addr #12 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 4912
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 4912
   %4 = load ptr, ptr %3, align 16
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load i64, ptr %5, align 8
@@ -34166,7 +34166,7 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvm16itanium_demangle20PostfixQu
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
 define internal fastcc noundef nonnull ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4makeINS0_20PostfixQualifiedTypeEJRPNS0_4NodeERA11_KcEEESA_DpOT0_(ptr nocapture noundef nonnull align 16 dereferenceable(4928) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1) unnamed_addr #12 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 4912
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 4912
   %4 = load ptr, ptr %3, align 16
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load i64, ptr %5, align 8
@@ -34420,7 +34420,7 @@ _ZN4llvm16itanium_demangle12OutputBuffer9printOpenEc.exit: ; preds = %_ZN4llvm16
   %34 = getelementptr inbounds i8, ptr %33, i64 %32
   store i8 40, ptr %34, align 1
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %36 = getelementptr inbounds i8, ptr %0, i64 24
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %37 = load i64, ptr %36, align 8
   %.not13.i = icmp eq i64 %37, 0
   %.pre = load i64, ptr %3, align 8
@@ -34638,7 +34638,7 @@ _ZN4llvm16itanium_demangle12OutputBuffer9printOpenEc.exit: ; preds = %2, %._ZN4l
   %20 = getelementptr inbounds i8, ptr %19, i64 %18
   store i8 40, ptr %20, align 1
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %22 = getelementptr inbounds i8, ptr %0, i64 32
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %23 = load i64, ptr %22, align 8
   %.not13.i = icmp eq i64 %23, 0
   %.pre = load i64, ptr %6, align 8
@@ -36034,7 +36034,7 @@ define linkonce_odr hidden void @_ZN4llvm16itanium_demangle20PostfixQualifiedTyp
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
 define internal fastcc noundef nonnull ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4makeINS0_15PixelVectorTypeEJRPNS0_4NodeEEEESA_DpOT0_(ptr nocapture noundef nonnull align 16 dereferenceable(4928) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1) unnamed_addr #12 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 4912
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 4912
   %4 = load ptr, ptr %3, align 16
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load i64, ptr %5, align 8
@@ -36086,7 +36086,7 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvm16itanium_demangle15PixelVect
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
 define internal fastcc noundef nonnull ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4makeINS0_10VectorTypeEJRPNS0_4NodeESB_EEESA_DpOT0_(ptr nocapture noundef nonnull align 16 dereferenceable(4928) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %2) unnamed_addr #12 align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 4912
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 4912
   %5 = load ptr, ptr %4, align 16
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = load i64, ptr %6, align 8
@@ -36373,7 +36373,7 @@ define linkonce_odr hidden void @_ZN4llvm16itanium_demangle10VectorTypeD0Ev(ptr 
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
 define internal fastcc noundef nonnull ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4makeINS0_9ArrayTypeEJRPNS0_4NodeESB_EEESA_DpOT0_(ptr nocapture noundef nonnull align 16 dereferenceable(4928) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %2) unnamed_addr #12 align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 4912
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 4912
   %5 = load ptr, ptr %4, align 16
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = load i64, ptr %6, align 8
@@ -36608,7 +36608,7 @@ define linkonce_odr hidden void @_ZN4llvm16itanium_demangle9ArrayTypeD0Ev(ptr no
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
 define internal fastcc noundef nonnull ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4makeINS0_19PointerToMemberTypeEJRPNS0_4NodeESB_EEESA_DpOT0_(ptr nocapture noundef nonnull align 16 dereferenceable(4928) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %2) unnamed_addr #12 align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 4912
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 4912
   %5 = load ptr, ptr %4, align 16
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = load i64, ptr %6, align 8

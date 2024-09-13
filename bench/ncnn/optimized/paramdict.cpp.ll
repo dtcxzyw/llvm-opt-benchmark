@@ -44,8 +44,8 @@ define hidden void @_ZN4ncnn9ParamDictC2Ev(ptr nocapture noundef nonnull align 8
   %.idx.i = phi i64 [ 0, %1 ], [ %.add.i, %3 ]
   %.ptr.i = getelementptr inbounds i8, ptr %2, i64 %.idx.i
   %4 = getelementptr inbounds nuw i8, ptr %.ptr.i, i64 8
-  %5 = getelementptr inbounds i8, ptr %.ptr.i, i64 40
-  %6 = getelementptr inbounds i8, ptr %.ptr.i, i64 72
+  %5 = getelementptr inbounds nuw i8, ptr %.ptr.i, i64 40
+  %6 = getelementptr inbounds nuw i8, ptr %.ptr.i, i64 72
   store i64 0, ptr %6, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %4, i8 0, i64 28, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %5, i8 0, i64 28, i1 false)
@@ -332,8 +332,8 @@ define hidden void @_ZN4ncnn9ParamDictC2ERKS0_(ptr nocapture noundef nonnull ali
   %.idx.i = phi i64 [ 0, %2 ], [ %.add.i, %4 ]
   %.ptr.i = getelementptr inbounds i8, ptr %3, i64 %.idx.i
   %5 = getelementptr inbounds nuw i8, ptr %.ptr.i, i64 8
-  %6 = getelementptr inbounds i8, ptr %.ptr.i, i64 40
-  %7 = getelementptr inbounds i8, ptr %.ptr.i, i64 72
+  %6 = getelementptr inbounds nuw i8, ptr %.ptr.i, i64 40
+  %7 = getelementptr inbounds nuw i8, ptr %.ptr.i, i64 72
   store i64 0, ptr %7, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %5, i8 0, i64 28, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %6, i8 0, i64 28, i1 false)

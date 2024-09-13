@@ -125,12 +125,12 @@ define hidden range(i32 -1, 2) i32 @aom_decode_frame_from_obus(ptr noundef %0, p
   br i1 %21, label %22, label %24
 
 22:                                               ; preds = %4
-  %23 = getelementptr inbounds i8, ptr %0, i64 48008
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 48008
   store i32 7, ptr %23, align 8
   br label %read_and_decode_one_tile_list.exit.thread
 
 24:                                               ; preds = %4
-  %25 = getelementptr inbounds i8, ptr %0, i64 75684
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 75684
   %26 = load i32, ptr %25, align 4
   %.not = icmp eq i32 %26, 0
   br i1 %.not, label %27, label %29
@@ -141,46 +141,46 @@ define hidden range(i32 -1, 2) i32 @aom_decode_frame_from_obus(ptr noundef %0, p
   br label %29
 
 29:                                               ; preds = %27, %24
-  %30 = getelementptr inbounds i8, ptr %0, i64 48008
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 48008
   %31 = ptrtoint ptr %2 to i64
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 458892
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 431920
-  %34 = getelementptr inbounds i8, ptr %0, i64 431928
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 431928
   %35 = getelementptr inbounds nuw i8, ptr %13, i64 20
-  %36 = getelementptr inbounds i8, ptr %0, i64 75856
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 75856
   %37 = getelementptr inbounds nuw i8, ptr %13, i64 24
-  %38 = getelementptr inbounds i8, ptr %0, i64 75864
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 75864
   %39 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %40 = getelementptr i8, ptr %0, i64 431892
   %41 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 431904
-  %43 = getelementptr inbounds i8, ptr %0, i64 49000
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 49000
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 431952
   %45 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 431912
-  %47 = getelementptr inbounds i8, ptr %0, i64 75104
-  %48 = getelementptr inbounds i8, ptr %0, i64 75108
-  %49 = getelementptr inbounds i8, ptr %0, i64 75132
-  %50 = getelementptr inbounds i8, ptr %0, i64 75128
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 75104
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 75108
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 75132
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 75128
   %51 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 431936
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 431940
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 431944
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 458592
-  %56 = getelementptr inbounds i8, ptr %0, i64 73248
-  %57 = getelementptr inbounds i8, ptr %0, i64 73252
-  %58 = getelementptr inbounds i8, ptr %0, i64 73228
-  %59 = getelementptr inbounds i8, ptr %0, i64 73224
-  %60 = getelementptr inbounds i8, ptr %0, i64 49024
-  %61 = getelementptr inbounds i8, ptr %0, i64 48608
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 73248
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 73252
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 73228
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 73224
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 49024
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 48608
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 431960
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 431872
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 431876
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 431948
   %66 = getelementptr i8, ptr %0, i64 73229
-  %67 = getelementptr inbounds i8, ptr %0, i64 48600
-  %68 = getelementptr inbounds i8, ptr %0, i64 458632
-  %69 = getelementptr inbounds i8, ptr %0, i64 73152
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 48600
+  %68 = getelementptr inbounds nuw i8, ptr %0, i64 458632
+  %69 = getelementptr inbounds nuw i8, ptr %0, i64 73152
   %70 = getelementptr inbounds nuw i8, ptr %12, i64 69
   %71 = getelementptr inbounds nuw i8, ptr %12, i64 57
   %72 = getelementptr inbounds nuw i8, ptr %12, i64 58
@@ -192,14 +192,14 @@ define hidden range(i32 -1, 2) i32 @aom_decode_frame_from_obus(ptr noundef %0, p
   %78 = getelementptr inbounds nuw i8, ptr %12, i64 285
   %79 = getelementptr inbounds nuw i8, ptr %12, i64 317
   %80 = getelementptr inbounds nuw i8, ptr %12, i64 352
-  %81 = getelementptr inbounds i8, ptr %12, i64 388
+  %81 = getelementptr inbounds nuw i8, ptr %12, i64 388
   %82 = getelementptr inbounds nuw i8, ptr %12, i64 248
   %83 = getelementptr inbounds nuw i8, ptr %12, i64 268
-  %84 = getelementptr inbounds i8, ptr %12, i64 272
-  %85 = getelementptr inbounds i8, ptr %12, i64 256
+  %84 = getelementptr inbounds nuw i8, ptr %12, i64 272
+  %85 = getelementptr inbounds nuw i8, ptr %12, i64 256
   %86 = getelementptr inbounds nuw i8, ptr %0, i64 431888
-  %87 = getelementptr inbounds i8, ptr %0, i64 75860
-  %88 = getelementptr inbounds i8, ptr %0, i64 75852
+  %87 = getelementptr inbounds nuw i8, ptr %0, i64 75860
+  %88 = getelementptr inbounds nuw i8, ptr %0, i64 75852
   %89 = getelementptr inbounds nuw i8, ptr %0, i64 431844
   %90 = getelementptr inbounds nuw i8, ptr %12, i64 96
   %91 = getelementptr inbounds nuw i8, ptr %12, i64 100
@@ -1485,7 +1485,7 @@ alloc_tile_list_buffer.exit.i:                    ; preds = %585, %581
   %634 = add nsw i32 %633, 1
   %635 = sdiv i32 %.06884.i, %634
   %636 = srem i32 %.06884.i, %634
-  %637 = getelementptr inbounds i8, ptr %631, i64 1352
+  %637 = getelementptr inbounds nuw i8, ptr %631, i64 1352
   br label %638
 
 638:                                              ; preds = %yv12_tile_copy.exit.i.i, %617
@@ -1784,7 +1784,7 @@ define internal fastcc void @alloc_read_metadata(ptr noundef %0, i32 noundef %1,
   br i1 %.not21, label %9, label %11
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %0, i64 48008
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 48008
   tail call void (ptr, i32, ptr, ...) @aom_internal_error(ptr noundef nonnull %10, i32 noundef 2, ptr noundef nonnull @.str.11) #9
   br label %11
 
@@ -1794,7 +1794,7 @@ define internal fastcc void @alloc_read_metadata(ptr noundef %0, i32 noundef %1,
   br i1 %.not22, label %13, label %15
 
 13:                                               ; preds = %11
-  %14 = getelementptr inbounds i8, ptr %0, i64 48008
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 48008
   tail call void (ptr, i32, ptr, ...) @aom_internal_error(ptr noundef nonnull %14, i32 noundef 2, ptr noundef nonnull @.str.12) #9
   br label %15
 
@@ -1811,7 +1811,7 @@ define internal fastcc void @alloc_read_metadata(ptr noundef %0, i32 noundef %1,
 
 23:                                               ; preds = %15
   tail call void @aom_img_metadata_free(ptr noundef %12) #9
-  %24 = getelementptr inbounds i8, ptr %0, i64 48008
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 48008
   tail call void (ptr, i32, ptr, ...) @aom_internal_error(ptr noundef nonnull %24, i32 noundef 2, ptr noundef nonnull @.str.13) #9
   br label %25
 

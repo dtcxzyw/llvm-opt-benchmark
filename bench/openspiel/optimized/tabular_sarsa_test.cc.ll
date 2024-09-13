@@ -5397,13 +5397,13 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEd(ptr noundef no
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN10open_spiel10algorithms18TabularSarsaSolverD2Ev(ptr noundef nonnull align 8 dereferenceable(5136) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 5096
-  %3 = getelementptr inbounds i8, ptr %0, i64 5120
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 5120
   %4 = load i64, ptr %3, align 8
   %.not.i.i.i.i = icmp eq i64 %4, 0
   br i1 %.not.i.i.i.i, label %_ZN4absl7debian213flat_hash_mapISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEElEdNS0_13hash_internal4HashIS9_EESt8equal_toIS9_ESaIS2_IKS9_dEEED2Ev.exit, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 5104
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 5104
   br label %6
 
 6:                                                ; preds = %15, %.lr.ph.i.i.i.i
@@ -5441,13 +5441,13 @@ define linkonce_odr dso_local void @_ZN10open_spiel10algorithms18TabularSarsaSol
 
 _ZN4absl7debian213flat_hash_mapISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEElEdNS0_13hash_internal4HashIS9_EESt8equal_toIS9_ESaIS2_IKS9_dEEED2Ev.exit: ; preds = %1, %._crit_edge.i.i.i.i
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 5056
-  %24 = getelementptr inbounds i8, ptr %0, i64 5080
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 5080
   %25 = load i64, ptr %24, align 8
   %.not.i.i.i.i1 = icmp eq i64 %25, 0
   br i1 %.not.i.i.i.i1, label %_ZN4absl7debian213flat_hash_mapISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEElEdNS0_13hash_internal4HashIS9_EESt8equal_toIS9_ESaIS2_IKS9_dEEED2Ev.exit7, label %.lr.ph.i.i.i.i2
 
 .lr.ph.i.i.i.i2:                                  ; preds = %_ZN4absl7debian213flat_hash_mapISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEElEdNS0_13hash_internal4HashIS9_EESt8equal_toIS9_ESaIS2_IKS9_dEEED2Ev.exit
-  %26 = getelementptr inbounds i8, ptr %0, i64 5064
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 5064
   br label %27
 
 27:                                               ; preds = %36, %.lr.ph.i.i.i.i2

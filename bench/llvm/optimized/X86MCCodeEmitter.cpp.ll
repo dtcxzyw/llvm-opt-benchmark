@@ -2201,7 +2201,7 @@ _ZN4llvm5X86II14getOperandBiasERKNS_11MCInstrDescE.exit.i.i: ; preds = %.thread3
 
 .lr.ph.i.i:                                       ; preds = %_ZN4llvm5X86II14getOperandBiasERKNS_11MCInstrDescE.exit.i.i
   %1369 = load ptr, ptr %1318, align 8
-  %1370 = getelementptr inbounds i8, ptr %3, i64 56
+  %1370 = getelementptr inbounds nuw i8, ptr %3, i64 56
   %1371 = load i32, ptr %1370, align 8
   %.fr.i.i = freeze i32 %1371
   switch i32 %.fr.i.i, label %.lr.ph.split.i.i [

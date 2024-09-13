@@ -26,14 +26,14 @@ define dso_local void @_ZN5clang15ASTRecordLayout7DestroyERNS_10ASTContextE(ptr 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 88
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %4, i64 104
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 104
   %9 = load i32, ptr %8, align 8
   %10 = zext i32 %9 to i64
   %11 = mul nuw nsw i64 %10, 24
   tail call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef %7, i64 noundef %11, i64 noundef 8) #5
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 64
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %4, i64 80
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 80
   %15 = load i32, ptr %14, align 8
   %16 = zext i32 %15 to i64
   %17 = shl nuw nsw i64 %16, 4
@@ -67,12 +67,12 @@ define dso_local void @_ZN5clang15ASTRecordLayoutC2ERKNS_10ASTContextENS_9CharUn
   br i1 %19, label %_ZN5clang9ASTVectorImE6appendIPKmEEvRKNS_10ASTContextET_S8_.exit, label %20
 
 20:                                               ; preds = %9
-  %21 = getelementptr inbounds i8, ptr %0, i64 64
-  %22 = getelementptr inbounds i8, ptr %0, i64 56
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %23 = icmp ugt i64 %18, 2305843009213693951
   %24 = select i1 %23, i64 -1, i64 %.idx
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 2144
-  %26 = getelementptr inbounds i8, ptr %1, i64 2224
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 2224
   %27 = load i64, ptr %26, align 8
   %28 = add i64 %24, %27
   store i64 %28, ptr %26, align 8
@@ -81,7 +81,7 @@ define dso_local void @_ZN5clang15ASTRecordLayoutC2ERKNS_10ASTContextENS_9CharUn
   %31 = add i64 %30, 7
   %32 = and i64 %31, -8
   %33 = add i64 %24, %32
-  %34 = getelementptr inbounds i8, ptr %1, i64 2152
+  %34 = getelementptr inbounds nuw i8, ptr %1, i64 2152
   %35 = load ptr, ptr %34, align 8
   %36 = ptrtoint ptr %35 to i64
   %.not.i.i.i.i.i.i = icmp ugt i64 %33, %36
@@ -139,7 +139,7 @@ define dso_local void @_ZN5clang15ASTRecordLayoutC2ERKNS_10ASTContextENS_9CharUn
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %29, i8 0, i64 24, i1 false)
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 2144
-  %32 = getelementptr inbounds i8, ptr %1, i64 2224
+  %32 = getelementptr inbounds nuw i8, ptr %1, i64 2224
   %33 = load i64, ptr %32, align 8
   %34 = add i64 %33, 112
   store i64 %34, ptr %32, align 8
@@ -148,7 +148,7 @@ define dso_local void @_ZN5clang15ASTRecordLayoutC2ERKNS_10ASTContextENS_9CharUn
   %37 = add i64 %36, 7
   %38 = and i64 %37, -8
   %39 = add i64 %38, 112
-  %40 = getelementptr inbounds i8, ptr %1, i64 2152
+  %40 = getelementptr inbounds nuw i8, ptr %1, i64 2152
   %41 = load ptr, ptr %40, align 8
   %42 = ptrtoint ptr %41 to i64
   %.not.i.i.i.i = icmp ugt i64 %39, %42
@@ -191,10 +191,10 @@ _ZnwmRKN5clang10ASTContextEm.exit:                ; preds = %43, %.critedge.i.i.
   br i1 %58, label %_ZN5clang9ASTVectorImE6appendIPKmEEvRKNS_10ASTContextET_S8_.exit, label %59
 
 59:                                               ; preds = %_ZnwmRKN5clang10ASTContextEm.exit
-  %60 = getelementptr inbounds i8, ptr %0, i64 64
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %.0.copyload.i.i.i.i.i = load i64, ptr %60, align 8
   %61 = and i64 %.0.copyload.i.i.i.i.i, -8
-  %62 = getelementptr inbounds i8, ptr %0, i64 56
+  %62 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %63 = load ptr, ptr %62, align 8
   %64 = ptrtoint ptr %63 to i64
   %65 = sub i64 %61, %64
@@ -303,7 +303,7 @@ _ZN5clang9ASTVectorImE6appendIPKmEEvRKNS_10ASTContextET_S8_.exit: ; preds = %_Zn
 
 120:                                              ; preds = %_ZN5clang9ASTVectorImE6appendIPKmEEvRKNS_10ASTContextET_S8_.exit
   %121 = load ptr, ptr %119, align 8
-  %122 = getelementptr inbounds i8, ptr %118, i64 80
+  %122 = getelementptr inbounds nuw i8, ptr %118, i64 80
   %123 = load i32, ptr %122, align 8
   %124 = zext i32 %123 to i64
   %125 = shl nuw nsw i64 %124, 4
@@ -321,11 +321,11 @@ _ZN5clang9ASTVectorImE6appendIPKmEEvRKNS_10ASTContextET_S8_.exit: ; preds = %_Zn
   store ptr %131, ptr %119, align 8
   %132 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %133 = load i32, ptr %132, align 8
-  %134 = getelementptr inbounds i8, ptr %118, i64 72
+  %134 = getelementptr inbounds nuw i8, ptr %118, i64 72
   store i32 %133, ptr %134, align 8
   %135 = getelementptr inbounds nuw i8, ptr %21, i64 12
   %136 = load i32, ptr %135, align 4
-  %137 = getelementptr inbounds i8, ptr %118, i64 76
+  %137 = getelementptr inbounds nuw i8, ptr %118, i64 76
   store i32 %136, ptr %137, align 4
   %138 = load ptr, ptr %21, align 8
   %139 = load i32, ptr %122, align 8
@@ -346,7 +346,7 @@ _ZN4llvm8DenseMapIPKN5clang13CXXRecordDeclENS1_9CharUnitsENS_12DenseMapInfoIS4_v
 
 145:                                              ; preds = %_ZN4llvm8DenseMapIPKN5clang13CXXRecordDeclENS1_9CharUnitsENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S5_EEEaSERKSB_.exit
   %146 = load ptr, ptr %144, align 8
-  %147 = getelementptr inbounds i8, ptr %143, i64 104
+  %147 = getelementptr inbounds nuw i8, ptr %143, i64 104
   %148 = load i32, ptr %147, align 8
   %149 = zext i32 %148 to i64
   %150 = mul nuw nsw i64 %149, 24
@@ -364,11 +364,11 @@ _ZN4llvm8DenseMapIPKN5clang13CXXRecordDeclENS1_9CharUnitsENS_12DenseMapInfoIS4_v
   store ptr %156, ptr %144, align 8
   %157 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %158 = load i32, ptr %157, align 8
-  %159 = getelementptr inbounds i8, ptr %143, i64 96
+  %159 = getelementptr inbounds nuw i8, ptr %143, i64 96
   store i32 %158, ptr %159, align 8
   %160 = getelementptr inbounds nuw i8, ptr %22, i64 12
   %161 = load i32, ptr %160, align 4
-  %162 = getelementptr inbounds i8, ptr %143, i64 100
+  %162 = getelementptr inbounds nuw i8, ptr %143, i64 100
   store i32 %161, ptr %162, align 4
   %163 = load ptr, ptr %22, align 8
   %164 = load i32, ptr %147, align 8

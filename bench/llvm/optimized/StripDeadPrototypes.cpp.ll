@@ -18,7 +18,7 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN4llvm23StripDeadPrototypesPass3runERNS_6ModuleERNS_15AnalysisManagerIS1_JEEE(ptr dead_on_unwind noalias writable sret(%"class.llvm::PreservedAnalyses") align 8 %0, ptr nocapture noundef nonnull readnone align 1 dereferenceable(1) %1, ptr noundef nonnull readonly align 8 dereferenceable(857) %2, ptr nocapture noundef nonnull readnone align 8 dereferenceable(72) %3) local_unnamed_addr #0 align 2 {
-  %5 = getelementptr inbounds i8, ptr %2, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %.not29.i = icmp eq ptr %6, %7
@@ -50,7 +50,7 @@ define dso_local void @_ZN4llvm23StripDeadPrototypesPass3runERNS_6ModuleERNS_15A
 
 ._crit_edge.i:                                    ; preds = %17, %4
   %.0.lcssa.i = phi i1 [ false, %4 ], [ %.1.i, %17 ]
-  %18 = getelementptr inbounds i8, ptr %2, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %19 = load ptr, ptr %18, align 8
   %20 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.not2832.i = icmp eq ptr %19, %20
@@ -91,7 +91,7 @@ _ZL19stripDeadPrototypesRN4llvm6ModuleE.exit:     ; preds = %30, %._crit_edge.i
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 0, ptr %36, align 8, !alias.scope !7
-  %37 = getelementptr inbounds i8, ptr %0, i64 68
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 68
   store i32 0, ptr %37, align 4, !alias.scope !7
   store ptr @_ZN4llvm17PreservedAnalyses14AllAnalysesKeyE, ptr %35, align 8, !alias.scope !7, !noalias !10
   br label %38
@@ -99,7 +99,7 @@ _ZL19stripDeadPrototypesRN4llvm6ModuleE.exit:     ; preds = %30, %._crit_edge.i
 38:                                               ; preds = %34, %31
   %.sink4 = phi ptr [ %33, %31 ], [ %35, %34 ]
   %.sink2 = phi i32 [ 0, %31 ], [ 1, %34 ]
-  %.sink1 = getelementptr inbounds i8, ptr %0, i64 80
+  %.sink1 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store ptr %.sink4, ptr %0, align 8
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sink4, ptr %39, align 8
@@ -109,11 +109,11 @@ _ZL19stripDeadPrototypesRN4llvm6ModuleE.exit:     ; preds = %30, %._crit_edge.i
   store i32 %.sink2, ptr %41, align 4
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr %.sink1, ptr %42, align 8
-  %43 = getelementptr inbounds i8, ptr %0, i64 56
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store ptr %.sink1, ptr %43, align 8
-  %44 = getelementptr inbounds i8, ptr %0, i64 64
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i32 2, ptr %44, align 8
-  %45 = getelementptr inbounds i8, ptr %0, i64 72
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store i32 0, ptr %45, align 8
   ret void
 }

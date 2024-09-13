@@ -1489,7 +1489,7 @@ _ZN4absl7debian27GetFlagIbEET_RKNS0_14flags_internal4FlagIS2_EE.exit: ; preds = 
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %71) #17
   %540 = load ptr, ptr %70, align 8
   %541 = getelementptr inbounds nuw i8, ptr %540, i64 280
-  %542 = getelementptr inbounds i8, ptr %540, i64 288
+  %542 = getelementptr inbounds nuw i8, ptr %540, i64 288
   %543 = load ptr, ptr %542, align 8
   %544 = load ptr, ptr %541, align 8
   %545 = ptrtoint ptr %543 to i64

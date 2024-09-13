@@ -298,7 +298,7 @@ _ZNSt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__34PcpDynamicFileFormatDepen
 23:                                               ; preds = %17
   store ptr %1, ptr %20, align 8
   %24 = getelementptr inbounds nuw i8, ptr %20, i64 8
-  %25 = getelementptr inbounds i8, ptr %20, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %20, i64 16
   store ptr null, ptr %25, align 8
   tail call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtValue5_MoveERS0_S1_(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %24) #17
   %26 = load ptr, ptr %19, align 8
@@ -586,7 +586,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__34PcpDynamicFileFormatDependen
   store ptr %16, ptr %12, align 8
   %17 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %18 = getelementptr inbounds nuw i8, ptr %.sroa.09.015, i64 8
-  %19 = getelementptr inbounds i8, ptr %12, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %12, i64 16
   store ptr null, ptr %19, align 8
   tail call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtValue5_MoveERS0_S1_(ptr noundef nonnull align 8 dereferenceable(16) %18, ptr noundef nonnull align 8 dereferenceable(16) %17) #17
   %20 = load ptr, ptr %11, align 8
@@ -976,7 +976,7 @@ _ZNSt16allocator_traitsISaISt4pairIPKN32pxrInternal_v0_24__pxrReserved__29PcpDyn
   store ptr %20, ptr %.014.i.i.i.i, align 8
   %21 = getelementptr inbounds nuw i8, ptr %.014.i.i.i.i, i64 8
   %22 = getelementptr inbounds nuw i8, ptr %.sroa.08.013.i.i.i.i, i64 8
-  %23 = getelementptr inbounds i8, ptr %.014.i.i.i.i, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %.014.i.i.i.i, i64 16
   store ptr null, ptr %23, align 8
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__7VtValue5_CopyERKS0_RS0_(ptr noundef nonnull align 8 dereferenceable(16) %22, ptr noundef nonnull align 8 dereferenceable(16) %21)
           to label %_ZSt10_ConstructISt4pairIPKN32pxrInternal_v0_24__pxrReserved__29PcpDynamicFileFormatInterfaceENS1_7VtValueEEJRKS6_EEvPT_DpOT0_.exit.i.i.i.i unwind label %26
@@ -1047,7 +1047,7 @@ define linkonce_odr void @_ZNSt6vectorISt4pairIPKN32pxrInternal_v0_24__pxrReserv
 
 .lr.ph.i.i.i:                                     ; preds = %1, %_ZSt8_DestroyISt4pairIPKN32pxrInternal_v0_24__pxrReserved__29PcpDynamicFileFormatInterfaceENS1_7VtValueEEEvPT_.exit.i.i.i
   %.05.i.i.i = phi ptr [ %19, %_ZSt8_DestroyISt4pairIPKN32pxrInternal_v0_24__pxrReserved__29PcpDynamicFileFormatInterfaceENS1_7VtValueEEEvPT_.exit.i.i.i ], [ %2, %1 ]
-  %5 = getelementptr inbounds i8, ptr %.05.i.i.i, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %.05.i.i.i, i64 16
   %6 = load ptr, ptr %5, align 8
   %7 = ptrtoint ptr %6 to i64
   %.not.i.i.i.i.i.i.i = icmp eq ptr %6, null
@@ -1110,7 +1110,7 @@ define linkonce_odr void @_ZSt8_DestroyIPSt4pairIPKN32pxrInternal_v0_24__pxrRese
 
 .lr.ph.i:                                         ; preds = %2, %_ZSt8_DestroyISt4pairIPKN32pxrInternal_v0_24__pxrReserved__29PcpDynamicFileFormatInterfaceENS1_7VtValueEEEvPT_.exit.i
   %.05.i = phi ptr [ %17, %_ZSt8_DestroyISt4pairIPKN32pxrInternal_v0_24__pxrReserved__29PcpDynamicFileFormatInterfaceENS1_7VtValueEEEvPT_.exit.i ], [ %0, %2 ]
-  %3 = getelementptr inbounds i8, ptr %.05.i, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %.05.i, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = ptrtoint ptr %4 to i64
   %.not.i.i.i.i.i = icmp eq ptr %4, null
@@ -1510,7 +1510,7 @@ _ZNSt3setIN32pxrInternal_v0_24__pxrReserved__7TfTokenENS0_28TfTokenFastArbitrary
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZNSt3setIN32pxrInternal_v0_24__pxrReserved__7TfTokenENS0_28TfTokenFastArbitraryLessThanESaIS1_EED2Ev.exit1, %_ZSt8_DestroyISt4pairIPKN32pxrInternal_v0_24__pxrReserved__29PcpDynamicFileFormatInterfaceENS1_7VtValueEEEvPT_.exit.i.i.i.i
   %.05.i.i.i.i = phi ptr [ %31, %_ZSt8_DestroyISt4pairIPKN32pxrInternal_v0_24__pxrReserved__29PcpDynamicFileFormatInterfaceENS1_7VtValueEEEvPT_.exit.i.i.i.i ], [ %14, %_ZNSt3setIN32pxrInternal_v0_24__pxrReserved__7TfTokenENS0_28TfTokenFastArbitraryLessThanESaIS1_EED2Ev.exit1 ]
-  %17 = getelementptr inbounds i8, ptr %.05.i.i.i.i, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i, i64 16
   %18 = load ptr, ptr %17, align 8
   %19 = ptrtoint ptr %18 to i64
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %18, null
@@ -1602,7 +1602,7 @@ _ZNKSt6vectorISt4pairIPKN32pxrInternal_v0_24__pxrReserved__29PcpDynamicFileForma
   %27 = load ptr, ptr %2, align 8
   store ptr %27, ptr %26, align 8
   %28 = getelementptr inbounds nuw i8, ptr %26, i64 8
-  %29 = getelementptr inbounds i8, ptr %26, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %26, i64 16
   store ptr null, ptr %29, align 8
   tail call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtValue5_MoveERS0_S1_(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %28) #17
   %.not11.i.i.i = icmp eq ptr %7, %1
@@ -1617,10 +1617,10 @@ _ZNKSt6vectorISt4pairIPKN32pxrInternal_v0_24__pxrReserved__29PcpDynamicFileForma
   store ptr %30, ptr %.013.i.i.i, align 8, !alias.scope !13, !noalias !16
   %31 = getelementptr inbounds nuw i8, ptr %.013.i.i.i, i64 8
   %32 = getelementptr inbounds nuw i8, ptr %.0912.i.i.i, i64 8
-  %33 = getelementptr inbounds i8, ptr %.013.i.i.i, i64 16
+  %33 = getelementptr inbounds nuw i8, ptr %.013.i.i.i, i64 16
   store ptr null, ptr %33, align 8, !alias.scope !13, !noalias !16
   tail call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtValue5_MoveERS0_S1_(ptr noundef nonnull align 8 dereferenceable(16) %32, ptr noundef nonnull align 8 dereferenceable(16) %31) #17
-  %34 = getelementptr inbounds i8, ptr %.0912.i.i.i, i64 16
+  %34 = getelementptr inbounds nuw i8, ptr %.0912.i.i.i, i64 16
   %35 = load ptr, ptr %34, align 8, !alias.scope !16, !noalias !13
   %36 = ptrtoint ptr %35 to i64
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %35, null
@@ -1666,10 +1666,10 @@ _ZNSt6vectorISt4pairIPKN32pxrInternal_v0_24__pxrReserved__29PcpDynamicFileFormat
   store ptr %50, ptr %.013.i.i.i29, align 8, !alias.scope !19, !noalias !22
   %51 = getelementptr inbounds nuw i8, ptr %.013.i.i.i29, i64 8
   %52 = getelementptr inbounds nuw i8, ptr %.0912.i.i.i30, i64 8
-  %53 = getelementptr inbounds i8, ptr %.013.i.i.i29, i64 16
+  %53 = getelementptr inbounds nuw i8, ptr %.013.i.i.i29, i64 16
   store ptr null, ptr %53, align 8, !alias.scope !19, !noalias !22
   tail call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtValue5_MoveERS0_S1_(ptr noundef nonnull align 8 dereferenceable(16) %52, ptr noundef nonnull align 8 dereferenceable(16) %51) #17
-  %54 = getelementptr inbounds i8, ptr %.0912.i.i.i30, i64 16
+  %54 = getelementptr inbounds nuw i8, ptr %.0912.i.i.i30, i64 16
   %55 = load ptr, ptr %54, align 8, !alias.scope !22, !noalias !19
   %56 = ptrtoint ptr %55 to i64
   %.not.i.i.i.i.i.i.i.i.i31 = icmp eq ptr %55, null
@@ -1895,7 +1895,7 @@ _ZNSt12_Vector_baseISt4pairIPKN32pxrInternal_v0_24__pxrReserved__29PcpDynamicFil
   store ptr %25, ptr %24, align 8
   %26 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %27 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %28 = getelementptr inbounds i8, ptr %24, i64 16
+  %28 = getelementptr inbounds nuw i8, ptr %24, i64 16
   store ptr null, ptr %28, align 8
   tail call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtValue5_MoveERS0_S1_(ptr noundef nonnull align 8 dereferenceable(16) %27, ptr noundef nonnull align 8 dereferenceable(16) %26) #17
   %.not11.i.i.i = icmp eq ptr %6, %1
@@ -1910,10 +1910,10 @@ _ZNSt12_Vector_baseISt4pairIPKN32pxrInternal_v0_24__pxrReserved__29PcpDynamicFil
   store ptr %29, ptr %.013.i.i.i, align 8, !alias.scope !24, !noalias !27
   %30 = getelementptr inbounds nuw i8, ptr %.013.i.i.i, i64 8
   %31 = getelementptr inbounds nuw i8, ptr %.0912.i.i.i, i64 8
-  %32 = getelementptr inbounds i8, ptr %.013.i.i.i, i64 16
+  %32 = getelementptr inbounds nuw i8, ptr %.013.i.i.i, i64 16
   store ptr null, ptr %32, align 8, !alias.scope !24, !noalias !27
   tail call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtValue5_MoveERS0_S1_(ptr noundef nonnull align 8 dereferenceable(16) %31, ptr noundef nonnull align 8 dereferenceable(16) %30) #17
-  %33 = getelementptr inbounds i8, ptr %.0912.i.i.i, i64 16
+  %33 = getelementptr inbounds nuw i8, ptr %.0912.i.i.i, i64 16
   %34 = load ptr, ptr %33, align 8, !alias.scope !27, !noalias !24
   %35 = ptrtoint ptr %34 to i64
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %34, null
@@ -1959,10 +1959,10 @@ _ZNSt6vectorISt4pairIPKN32pxrInternal_v0_24__pxrReserved__29PcpDynamicFileFormat
   store ptr %49, ptr %.013.i.i.i18, align 8, !alias.scope !29, !noalias !32
   %50 = getelementptr inbounds nuw i8, ptr %.013.i.i.i18, i64 8
   %51 = getelementptr inbounds nuw i8, ptr %.0912.i.i.i19, i64 8
-  %52 = getelementptr inbounds i8, ptr %.013.i.i.i18, i64 16
+  %52 = getelementptr inbounds nuw i8, ptr %.013.i.i.i18, i64 16
   store ptr null, ptr %52, align 8, !alias.scope !29, !noalias !32
   tail call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtValue5_MoveERS0_S1_(ptr noundef nonnull align 8 dereferenceable(16) %51, ptr noundef nonnull align 8 dereferenceable(16) %50) #17
-  %53 = getelementptr inbounds i8, ptr %.0912.i.i.i19, i64 16
+  %53 = getelementptr inbounds nuw i8, ptr %.0912.i.i.i19, i64 16
   %54 = load ptr, ptr %53, align 8, !alias.scope !32, !noalias !29
   %55 = ptrtoint ptr %54 to i64
   %.not.i.i.i.i.i.i.i.i.i20 = icmp eq ptr %54, null

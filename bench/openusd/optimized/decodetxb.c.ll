@@ -228,7 +228,7 @@ aom_read_symbol_.exit:                            ; preds = %get_txb_high.exit, 
   br label %122
 
 122:                                              ; preds = %121, %120
-  %123 = getelementptr inbounds i8, ptr %0, i64 1045
+  %123 = getelementptr inbounds nuw i8, ptr %0, i64 1045
   %124 = load i8, ptr %123, align 1
   %125 = and i8 %124, 1
   %126 = zext nneg i8 %125 to i32
@@ -2311,7 +2311,7 @@ is_inter_block.exit:                              ; preds = %get_txb_ctx.exit
 is_inter_block.exit.thread:                       ; preds = %get_txb_ctx.exit, %is_inter_block.exit
   %220 = icmp ne i32 %3, 0
   %221 = zext i1 %220 to i8
-  %222 = getelementptr inbounds i8, ptr %0, i64 1045
+  %222 = getelementptr inbounds nuw i8, ptr %0, i64 1045
   %223 = load i8, ptr %222, align 1
   %224 = and i8 %223, 1
   %225 = zext nneg i8 %224 to i32

@@ -866,7 +866,7 @@ define internal fastcc void @_ZL30getScalarZeroExpressionForTypeB5cxx11RKN5clang
   call void @_ZN5clang12Preprocessor23getMacroDefinitionAtLocEPKNS_14IdentifierInfoENS_14SourceLocationE(ptr dead_on_unwind nonnull writable sret(%"class.clang::MacroDefinition") align 8 %7, ptr noundef nonnull align 8 dereferenceable(3288) %.val, ptr noundef nonnull %29, i32 %2)
   %.0.copyload.i.i.i.i.i.i = load i64, ptr %7, align 8
   %.not.i.i = icmp ugt i64 %.0.copyload.i.i.i.i.i.i, 7
-  %30 = getelementptr inbounds i8, ptr %7, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %31 = load i64, ptr %30, align 8
   %32 = icmp ne i64 %31, 0
   %33 = select i1 %.not.i.i, i1 true, i1 %32
@@ -931,7 +931,7 @@ _ZNK5clang4Type13isBooleanTypeEv.exit:            ; preds = %40
   call void @_ZN5clang12Preprocessor23getMacroDefinitionAtLocEPKNS_14IdentifierInfoENS_14SourceLocationE(ptr dead_on_unwind nonnull writable sret(%"class.clang::MacroDefinition") align 8 %6, ptr noundef nonnull align 8 dereferenceable(3288) %.val23, ptr noundef nonnull %59, i32 %2)
   %.0.copyload.i.i.i.i.i.i30 = load i64, ptr %6, align 8
   %.not.i.i31 = icmp ugt i64 %.0.copyload.i.i.i.i.i.i30, 7
-  %60 = getelementptr inbounds i8, ptr %6, i64 16
+  %60 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %61 = load i64, ptr %60, align 8
   %62 = icmp ne i64 %61, 0
   %63 = select i1 %.not.i.i31, i1 true, i1 %62
@@ -990,7 +990,7 @@ _ZNK5clang4Type13isBooleanTypeEv.exit.thread:     ; preds = %._ZNK5clang4Type13i
   call void @_ZN5clang12Preprocessor23getMacroDefinitionAtLocEPKNS_14IdentifierInfoENS_14SourceLocationE(ptr dead_on_unwind nonnull writable sret(%"class.clang::MacroDefinition") align 8 %5, ptr noundef nonnull align 8 dereferenceable(3288) %.val25, ptr noundef nonnull %80, i32 %2)
   %.0.copyload.i.i.i.i.i.i34 = load i64, ptr %5, align 8
   %.not.i.i35 = icmp ugt i64 %.0.copyload.i.i.i.i.i.i34, 7
-  %81 = getelementptr inbounds i8, ptr %5, i64 16
+  %81 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %82 = load i64, ptr %81, align 8
   %83 = icmp ne i64 %82, 0
   %84 = select i1 %.not.i.i35, i1 true, i1 %83
@@ -1836,7 +1836,7 @@ define linkonce_odr hidden noundef ptr @_ZNK5clang12Preprocessor10MacroState13ge
 16:                                               ; preds = %10
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 1688
   %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 48
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 48
   %20 = load i32, ptr %19, align 8
   %.not21 = icmp eq i32 %20, 0
   br i1 %.not21, label %60, label %21
@@ -1853,7 +1853,7 @@ define linkonce_odr hidden noundef ptr @_ZNK5clang12Preprocessor10MacroState13ge
 
 25:                                               ; preds = %21
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 128
-  %27 = getelementptr inbounds i8, ptr %1, i64 208
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 208
   %28 = load i64, ptr %27, align 8
   %29 = add i64 %28, 32
   store i64 %29, ptr %27, align 8
@@ -1862,7 +1862,7 @@ define linkonce_odr hidden noundef ptr @_ZNK5clang12Preprocessor10MacroState13ge
   %32 = add i64 %31, 15
   %33 = and i64 %32, -16
   %34 = add i64 %33, 32
-  %35 = getelementptr inbounds i8, ptr %1, i64 136
+  %35 = getelementptr inbounds nuw i8, ptr %1, i64 136
   %36 = load ptr, ptr %35, align 8
   %37 = ptrtoint ptr %36 to i64
   %.not.i.i.i = icmp ugt i64 %34, %37
@@ -1905,7 +1905,7 @@ _ZnwIN4llvm15MallocAllocatorELm4096ELm4096ELm128EEPvmRNS0_20BumpPtrAllocatorImpl
   %54 = or i64 %53, 4
   store i64 %54, ptr %0, align 8
   %.pre27 = load ptr, ptr %17, align 8
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %.pre27, i64 48
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre27, i64 48
   %.pre28 = load i32, ptr %.phi.trans.insert, align 8
   br label %55
 
@@ -2174,7 +2174,7 @@ define linkonce_odr hidden noundef ptr @_ZNK5clang12RedeclarableINS_7TagDeclEE8D
 
 15:                                               ; preds = %10
   %16 = getelementptr inbounds nuw i8, ptr %12, i64 2144
-  %17 = getelementptr inbounds i8, ptr %12, i64 2224
+  %17 = getelementptr inbounds nuw i8, ptr %12, i64 2224
   %18 = load i64, ptr %17, align 8
   %19 = add i64 %18, 24
   store i64 %19, ptr %17, align 8
@@ -2183,7 +2183,7 @@ define linkonce_odr hidden noundef ptr @_ZNK5clang12RedeclarableINS_7TagDeclEE8D
   %22 = add i64 %21, 7
   %23 = and i64 %22, -8
   %24 = add i64 %23, 24
-  %25 = getelementptr inbounds i8, ptr %12, i64 2152
+  %25 = getelementptr inbounds nuw i8, ptr %12, i64 2152
   %26 = load ptr, ptr %25, align 8
   %27 = ptrtoint ptr %26 to i64
   %.not.i.i.i.i.i.i = icmp ugt i64 %24, %27

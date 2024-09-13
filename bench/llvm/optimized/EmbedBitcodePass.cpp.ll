@@ -94,7 +94,7 @@ define dso_local void @_ZN4llvm16EmbedBitcodePass3runERNS_6ModuleERNS_15Analysis
   store ptr null, ptr %32, align 8
   call void @_ZN4llvm24ThinLTOBitcodeWriterPass3runERNS_6ModuleERNS_15AnalysisManagerIS1_JEEE(ptr dead_on_unwind nonnull writable sret(%"class.llvm::PreservedAnalyses") align 8 %9, ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull align 8 dereferenceable(857) %2, ptr noundef nonnull align 8 dereferenceable(72) %3) #6
   %33 = getelementptr inbounds nuw i8, ptr %9, i64 48
-  %34 = getelementptr inbounds i8, ptr %9, i64 56
+  %34 = getelementptr inbounds nuw i8, ptr %9, i64 56
   %35 = load ptr, ptr %34, align 8
   %36 = load ptr, ptr %33, align 8
   %37 = icmp eq ptr %35, %36
@@ -124,7 +124,7 @@ _ZN4llvm11SmallPtrSetIPNS_11AnalysisKeyELj2EED2Ev.exit.i: ; preds = %38, %31
   store i8 0, ptr %49, align 2
   call void @_ZN4llvm17BitcodeWriterPass3runERNS_6ModuleERNS_15AnalysisManagerIS1_JEEE(ptr dead_on_unwind nonnull writable sret(%"class.llvm::PreservedAnalyses") align 8 %11, ptr noundef nonnull align 8 dereferenceable(11) %12, ptr noundef nonnull align 8 dereferenceable(857) %2, ptr noundef nonnull align 8 dereferenceable(72) %3) #6
   %50 = getelementptr inbounds nuw i8, ptr %11, i64 48
-  %51 = getelementptr inbounds i8, ptr %11, i64 56
+  %51 = getelementptr inbounds nuw i8, ptr %11, i64 56
   %52 = load ptr, ptr %51, align 8
   %53 = load ptr, ptr %50, align 8
   %54 = icmp eq ptr %52, %53
@@ -167,15 +167,15 @@ _ZN4llvm17PreservedAnalysesD2Ev.exit:             ; preds = %_ZN4llvm17Preserved
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 0, ptr %67, align 8, !alias.scope !4
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %69 = getelementptr inbounds i8, ptr %0, i64 80
+  %69 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store ptr %69, ptr %68, align 8, !alias.scope !4
-  %70 = getelementptr inbounds i8, ptr %0, i64 56
+  %70 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store ptr %69, ptr %70, align 8, !alias.scope !4
-  %71 = getelementptr inbounds i8, ptr %0, i64 64
+  %71 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i32 2, ptr %71, align 8, !alias.scope !4
-  %72 = getelementptr inbounds i8, ptr %0, i64 68
+  %72 = getelementptr inbounds nuw i8, ptr %0, i64 68
   store i32 0, ptr %72, align 4, !alias.scope !4
-  %73 = getelementptr inbounds i8, ptr %0, i64 72
+  %73 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store i32 0, ptr %73, align 8, !alias.scope !4
   store i32 1, ptr %66, align 4, !alias.scope !4, !noalias !7
   store ptr @_ZN4llvm17PreservedAnalyses14AllAnalysesKeyE, ptr %63, align 8, !alias.scope !4, !noalias !7

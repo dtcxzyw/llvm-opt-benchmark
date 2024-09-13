@@ -157,15 +157,15 @@ define weak_odr void @_ZN4llvm21GenericDomTreeUpdaterINS_14DomTreeUpdaterENS_13D
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, i8 0, i64 32, i1 false)
   store i8 %1, ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 312
-  %7 = getelementptr inbounds i8, ptr %0, i64 344
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 344
   store ptr %7, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 320
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 320
   store ptr %7, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 328
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 328
   store i32 8, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 332
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 332
   store i32 0, ptr %10, align 4
-  %11 = getelementptr inbounds i8, ptr %0, i64 336
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 336
   store i32 0, ptr %11, align 8
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 408
   store i8 0, ptr %12, align 8
@@ -187,15 +187,15 @@ define weak_odr void @_ZN4llvm21GenericDomTreeUpdaterINS_14DomTreeUpdaterENS_13D
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 304
   store i8 %2, ptr %8, align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 312
-  %10 = getelementptr inbounds i8, ptr %0, i64 344
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 344
   store ptr %10, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 320
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 320
   store ptr %10, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 328
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 328
   store i32 8, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 332
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 332
   store i32 0, ptr %13, align 4
-  %14 = getelementptr inbounds i8, ptr %0, i64 336
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 336
   store i32 0, ptr %14, align 8
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 408
   store i8 0, ptr %15, align 8
@@ -217,15 +217,15 @@ define weak_odr void @_ZN4llvm21GenericDomTreeUpdaterINS_14DomTreeUpdaterENS_13D
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 304
   store i8 %2, ptr %8, align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 312
-  %10 = getelementptr inbounds i8, ptr %0, i64 344
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 344
   store ptr %10, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 320
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 320
   store ptr %10, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 328
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 328
   store i32 8, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 332
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 332
   store i32 0, ptr %13, align 4
-  %14 = getelementptr inbounds i8, ptr %0, i64 336
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 336
   store i32 0, ptr %14, align 8
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 408
   store i8 0, ptr %15, align 8
@@ -245,15 +245,15 @@ define weak_odr void @_ZN4llvm21GenericDomTreeUpdaterINS_14DomTreeUpdaterENS_13D
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 304
   store i8 %2, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 312
-  %9 = getelementptr inbounds i8, ptr %0, i64 344
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 344
   store ptr %9, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 320
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 320
   store ptr %9, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 328
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 328
   store i32 8, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 332
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 332
   store i32 0, ptr %12, align 4
-  %13 = getelementptr inbounds i8, ptr %0, i64 336
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 336
   store i32 0, ptr %13, align 8
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 408
   store i8 0, ptr %14, align 8
@@ -273,15 +273,15 @@ define weak_odr void @_ZN4llvm21GenericDomTreeUpdaterINS_14DomTreeUpdaterENS_13D
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 304
   store i8 %2, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 312
-  %9 = getelementptr inbounds i8, ptr %0, i64 344
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 344
   store ptr %9, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 320
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 320
   store ptr %9, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 328
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 328
   store i32 8, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 332
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 332
   store i32 0, ptr %12, align 4
-  %13 = getelementptr inbounds i8, ptr %0, i64 336
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 336
   store i32 0, ptr %13, align 8
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 408
   store i8 0, ptr %14, align 8
@@ -303,15 +303,15 @@ define weak_odr void @_ZN4llvm21GenericDomTreeUpdaterINS_14DomTreeUpdaterENS_13D
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 304
   store i8 %3, ptr %9, align 8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 312
-  %11 = getelementptr inbounds i8, ptr %0, i64 344
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 344
   store ptr %11, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 320
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 320
   store ptr %11, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 328
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 328
   store i32 8, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 332
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 332
   store i32 0, ptr %14, align 4
-  %15 = getelementptr inbounds i8, ptr %0, i64 336
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 336
   store i32 0, ptr %15, align 8
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 408
   store i8 0, ptr %16, align 8
@@ -333,15 +333,15 @@ define weak_odr void @_ZN4llvm21GenericDomTreeUpdaterINS_14DomTreeUpdaterENS_13D
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 304
   store i8 %3, ptr %9, align 8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 312
-  %11 = getelementptr inbounds i8, ptr %0, i64 344
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 344
   store ptr %11, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 320
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 320
   store ptr %11, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 328
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 328
   store i32 8, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 332
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 332
   store i32 0, ptr %14, align 4
-  %15 = getelementptr inbounds i8, ptr %0, i64 336
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 336
   store i32 0, ptr %15, align 8
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 408
   store i8 0, ptr %16, align 8
@@ -353,7 +353,7 @@ define weak_odr void @_ZN4llvm21GenericDomTreeUpdaterINS_14DomTreeUpdaterENS_13D
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr void @_ZN4llvm21GenericDomTreeUpdaterINS_14DomTreeUpdaterENS_13DominatorTreeENS_17PostDominatorTreeEED2Ev(ptr noundef nonnull align 8 dereferenceable(410) %0) unnamed_addr #0 comdat($_ZN4llvm21GenericDomTreeUpdaterINS_14DomTreeUpdaterENS_13DominatorTreeENS_17PostDominatorTreeEED5Ev) align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 312
-  %3 = getelementptr inbounds i8, ptr %0, i64 320
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 320
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %2, align 8
   %6 = icmp eq ptr %4, %5
@@ -412,9 +412,9 @@ define weak_odr noundef zeroext i1 @_ZNK4llvm21GenericDomTreeUpdaterINS_14DomTre
 
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr noundef zeroext i1 @_ZNK4llvm21GenericDomTreeUpdaterINS_14DomTreeUpdaterENS_13DominatorTreeENS_17PostDominatorTreeEE19hasPendingDeletedBBEv(ptr noundef nonnull align 8 dereferenceable(410) %0) local_unnamed_addr #0 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 332
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 332
   %3 = load i32, ptr %2, align 4
-  %4 = getelementptr inbounds i8, ptr %0, i64 336
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 336
   %5 = load i32, ptr %4, align 8
   %6 = icmp ne i32 %3, %5
   ret i1 %6
@@ -429,15 +429,15 @@ define weak_odr noundef zeroext i1 @_ZNK4llvm21GenericDomTreeUpdaterINS_14DomTre
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 312
-  %8 = getelementptr inbounds i8, ptr %0, i64 332
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 332
   %9 = load i32, ptr %8, align 4
-  %10 = getelementptr inbounds i8, ptr %0, i64 336
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 336
   %11 = load i32, ptr %10, align 8
   %12 = icmp eq i32 %9, %11
   br i1 %12, label %42, label %13
 
 13:                                               ; preds = %6
-  %14 = getelementptr inbounds i8, ptr %0, i64 320
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 320
   %15 = load ptr, ptr %14, align 8
   %16 = load ptr, ptr %7, align 8
   %17 = icmp eq ptr %15, %16
@@ -478,7 +478,7 @@ define weak_odr noundef zeroext i1 @_ZNK4llvm21GenericDomTreeUpdaterINS_14DomTre
 28:                                               ; preds = %26
   %29 = icmp eq ptr %.pre.i, %.pre4.i
   %30 = load i32, ptr %8, align 4
-  %31 = getelementptr inbounds i8, ptr %0, i64 328
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 328
   %32 = load i32, ptr %31, align 8
   %.v.v.i14.i.i = select i1 %29, i32 %30, i32 %32
   %.v.i15.i.i = zext i32 %.v.v.i14.i.i to i64
@@ -491,7 +491,7 @@ _ZNK4llvm15SmallPtrSetImplIPNS_10BasicBlockEE8containsEPKS1_.exit: ; preds = %.l
   %36 = phi ptr [ %15, %._crit_edge.i.i ], [ %.pre.i, %28 ], [ %.pre.i, %._ZNK4llvm19SmallPtrSetImplBase8find_impEPKv.exit_crit_edge.i ], [ %15, %.lr.ph.i.i ]
   %.0.i.i = phi ptr [ %25, %._crit_edge.i.i ], [ %33, %28 ], [ %27, %._ZNK4llvm19SmallPtrSetImplBase8find_impEPKv.exit_crit_edge.i ], [ %.01118.i.i, %.lr.ph.i.i ]
   %37 = icmp eq ptr %36, %35
-  %38 = getelementptr inbounds i8, ptr %0, i64 328
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 328
   %39 = load i32, ptr %38, align 8
   %.v.v.i.i = select i1 %37, i32 %34, i32 %39
   %.v.i.i = zext i32 %.v.v.i.i to i64
@@ -1011,7 +1011,7 @@ _ZNK4llvm8SmallSetISt4pairIPNS_10BasicBlockES3_ELj8ESt4lessIS4_EE5vfindERKS4_.ex
   br i1 %41, label %_ZNKSt4lessISt4pairIPN4llvm10BasicBlockES3_EEclERKS4_S7_.exit.thread10.i.i.i, label %_ZNKSt4lessISt4pairIPN4llvm10BasicBlockES3_EEclERKS4_S7_.exit.i.i.i
 
 _ZNKSt4lessISt4pairIPN4llvm10BasicBlockES3_EEclERKS4_S7_.exit.i.i.i: ; preds = %40
-  %42 = getelementptr inbounds i8, ptr %.013.i.i.i, i64 40
+  %42 = getelementptr inbounds nuw i8, ptr %.013.i.i.i, i64 40
   %43 = load ptr, ptr %42, align 8
   %44 = icmp ult ptr %43, %35
   br i1 %44, label %_ZNKSt4lessISt4pairIPN4llvm10BasicBlockES3_EEclERKS4_S7_.exit.thread.i.i.i, label %_ZNKSt4lessISt4pairIPN4llvm10BasicBlockES3_EEclERKS4_S7_.exit.thread10.i.i.i
@@ -1042,7 +1042,7 @@ _ZNKSt8_Rb_treeISt4pairIPN4llvm10BasicBlockES3_ES4_St9_IdentityIS4_ESt4lessIS4_E
   br i1 %52, label %_ZNKSt4lessISt4pairIPN4llvm10BasicBlockES3_EEclERKS4_S7_.exit.thread6.i.i, label %_ZNKSt4lessISt4pairIPN4llvm10BasicBlockES3_EEclERKS4_S7_.exit.i.i
 
 _ZNKSt4lessISt4pairIPN4llvm10BasicBlockES3_EEclERKS4_S7_.exit.i.i: ; preds = %51
-  %53 = getelementptr inbounds i8, ptr %.19.i.i.i, i64 40
+  %53 = getelementptr inbounds nuw i8, ptr %.19.i.i.i, i64 40
   %54 = load ptr, ptr %53, align 8
   %55 = icmp ult ptr %35, %54
   br i1 %55, label %_ZNKSt3setISt4pairIPN4llvm10BasicBlockES3_ESt4lessIS4_ESaIS4_EE5countERKS4_.exit, label %_ZNKSt4lessISt4pairIPN4llvm10BasicBlockES3_EEclERKS4_S7_.exit.thread6.i.i
@@ -1666,19 +1666,19 @@ _ZNK4llvm21GenericDomTreeUpdaterINS_14DomTreeUpdaterENS_13DominatorTreeENS_17Pos
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local noundef zeroext i1 @_ZN4llvm14DomTreeUpdater19forceFlushDeletedBBEv(ptr noundef nonnull align 8 dereferenceable(440) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 312
-  %3 = getelementptr inbounds i8, ptr %0, i64 332
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 332
   %4 = load i32, ptr %3, align 4
-  %5 = getelementptr inbounds i8, ptr %0, i64 336
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 336
   %6 = load i32, ptr %5, align 8
   %7 = icmp ne i32 %4, %6
   br i1 %7, label %8, label %_ZNSt6vectorIN4llvm14DomTreeUpdater18CallBackOnDeletionESaIS2_EE5clearEv.exit
 
 8:                                                ; preds = %1
-  %9 = getelementptr inbounds i8, ptr %0, i64 320
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 320
   %10 = load ptr, ptr %9, align 8
   %11 = load ptr, ptr %2, align 8
   %12 = icmp eq ptr %10, %11
-  %13 = getelementptr inbounds i8, ptr %0, i64 328
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 328
   %14 = load i32, ptr %13, align 8
   %.v.v.i4.i2.i = select i1 %12, i32 %4, i32 %14
   %.v.i5.i3.i = zext i32 %.v.v.i4.i2.i to i64
@@ -1813,14 +1813,14 @@ _ZN4llvm19SmallPtrSetIteratorIPNS_10BasicBlockEEppEv.exit: ; preds = %.lr.ph.i4.
 _ZN4llvm19SmallPtrSetImplBase5clearEv.exit:       ; preds = %56, %60
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 416
   %62 = load ptr, ptr %61, align 8
-  %63 = getelementptr inbounds i8, ptr %0, i64 424
+  %63 = getelementptr inbounds nuw i8, ptr %0, i64 424
   %64 = load ptr, ptr %63, align 8
   %.not.i.i = icmp eq ptr %64, %62
   br i1 %.not.i.i, label %_ZNSt6vectorIN4llvm14DomTreeUpdater18CallBackOnDeletionESaIS2_EE5clearEv.exit, label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %_ZN4llvm19SmallPtrSetImplBase5clearEv.exit, %_ZSt8_DestroyIN4llvm14DomTreeUpdater18CallBackOnDeletionEEvPT_.exit.i.i.i.i.i
   %.05.i.i.i.i.i = phi ptr [ %74, %_ZSt8_DestroyIN4llvm14DomTreeUpdater18CallBackOnDeletionEEvPT_.exit.i.i.i.i.i ], [ %62, %_ZN4llvm19SmallPtrSetImplBase5clearEv.exit ]
-  %65 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i, i64 56
+  %65 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i, i64 56
   %66 = load ptr, ptr %65, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %66, null
   br i1 %.not.i.i.i.i.i.i.i.i.i, label %_ZNSt8functionIFvPN4llvm10BasicBlockEEED2Ev.exit.i.i.i.i.i.i.i, label %67
@@ -1941,14 +1941,14 @@ define dso_local void @_ZN4llvm14DomTreeUpdater8deleteBBEPNS_10BasicBlockE(ptr n
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 312
-  %8 = getelementptr inbounds i8, ptr %0, i64 320
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 320
   %9 = load ptr, ptr %8, align 8, !noalias !17
   %10 = load ptr, ptr %7, align 8, !noalias !17
   %11 = icmp eq ptr %9, %10
   br i1 %11, label %12, label %26
 
 12:                                               ; preds = %6
-  %13 = getelementptr inbounds i8, ptr %0, i64 332
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 332
   %14 = load i32, ptr %13, align 4, !noalias !17
   %15 = zext i32 %14 to i64
   %16 = getelementptr inbounds ptr, ptr %10, i64 %15
@@ -1967,7 +1967,7 @@ define dso_local void @_ZN4llvm14DomTreeUpdater8deleteBBEPNS_10BasicBlockE(ptr n
   br i1 %.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !20
 
 ._crit_edge.i.i:                                  ; preds = %19, %12
-  %21 = getelementptr inbounds i8, ptr %0, i64 328
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 328
   %22 = load i32, ptr %21, align 8, !noalias !17
   %23 = icmp ult i32 %14, %22
   br i1 %23, label %24, label %26
@@ -2144,8 +2144,8 @@ _ZN4llvm10CallbackVHC2EPNS_5ValueE.exit.i:        ; preds = %25, %_ZNSt8function
   br i1 %.not.i.i.not.i.i, label %_ZN4llvm14DomTreeUpdater18CallBackOnDeletionC2EPNS_10BasicBlockESt8functionIFvS3_EE.exit, label %30
 
 30:                                               ; preds = %_ZN4llvm10CallbackVHC2EPNS_5ValueE.exit.i
-  %31 = getelementptr inbounds i8, ptr %5, i64 64
-  %32 = getelementptr inbounds i8, ptr %5, i64 56
+  %31 = getelementptr inbounds nuw i8, ptr %5, i64 64
+  %32 = getelementptr inbounds nuw i8, ptr %5, i64 56
   %33 = call noundef zeroext i1 %26(ptr noundef nonnull align 8 dereferenceable(16) %28, ptr noundef nonnull align 8 dereferenceable(16) %6, i32 noundef 2) #13
   %34 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %35 = load ptr, ptr %34, align 8
@@ -2155,9 +2155,9 @@ _ZN4llvm10CallbackVHC2EPNS_5ValueE.exit.i:        ; preds = %25, %_ZNSt8function
   br label %_ZN4llvm14DomTreeUpdater18CallBackOnDeletionC2EPNS_10BasicBlockESt8functionIFvS3_EE.exit
 
 _ZN4llvm14DomTreeUpdater18CallBackOnDeletionC2EPNS_10BasicBlockESt8functionIFvS3_EE.exit: ; preds = %_ZN4llvm10CallbackVHC2EPNS_5ValueE.exit.i, %30
-  %37 = getelementptr inbounds i8, ptr %0, i64 424
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 424
   %38 = load ptr, ptr %37, align 8
-  %39 = getelementptr inbounds i8, ptr %0, i64 432
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 432
   %40 = load ptr, ptr %39, align 8
   %.not.i.i = icmp eq ptr %38, %40
   br i1 %.not.i.i, label %_ZNSt6vectorIN4llvm14DomTreeUpdater18CallBackOnDeletionESaIS2_EE9push_backEOS2_.exit, label %41
@@ -2192,18 +2192,18 @@ _ZN4llvm10CallbackVHC2ERKS0_.exit.i.i.i.i.i:      ; preds = %47, %41, %41, %41
   %51 = load ptr, ptr %27, align 8
   store ptr %51, ptr %50, align 8
   %52 = getelementptr inbounds nuw i8, ptr %38, i64 40
-  %53 = getelementptr inbounds i8, ptr %38, i64 64
-  %54 = getelementptr inbounds i8, ptr %5, i64 64
+  %53 = getelementptr inbounds nuw i8, ptr %38, i64 64
+  %54 = getelementptr inbounds nuw i8, ptr %5, i64 64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %52, i8 0, i64 24, i1 false)
   %55 = load ptr, ptr %54, align 8
   store ptr %55, ptr %53, align 8
-  %56 = getelementptr inbounds i8, ptr %5, i64 56
+  %56 = getelementptr inbounds nuw i8, ptr %5, i64 56
   %57 = load ptr, ptr %56, align 8
   %.not.i.i.not.i.i.i.i.i.i = icmp eq ptr %57, null
   br i1 %.not.i.i.not.i.i.i.i.i.i, label %_ZNSt6vectorIN4llvm14DomTreeUpdater18CallBackOnDeletionESaIS2_EE9push_backEOS2_.exit.thread, label %58
 
 58:                                               ; preds = %_ZN4llvm10CallbackVHC2ERKS0_.exit.i.i.i.i.i
-  %59 = getelementptr inbounds i8, ptr %38, i64 56
+  %59 = getelementptr inbounds nuw i8, ptr %38, i64 56
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %52, ptr noundef nonnull align 8 dereferenceable(16) %28, i64 16, i1 false)
   %60 = load ptr, ptr %56, align 8
   store ptr %60, ptr %59, align 8
@@ -2218,7 +2218,7 @@ _ZNSt6vectorIN4llvm14DomTreeUpdater18CallBackOnDeletionESaIS2_EE9push_backEOS2_.
 
 _ZNSt6vectorIN4llvm14DomTreeUpdater18CallBackOnDeletionESaIS2_EE9push_backEOS2_.exit: ; preds = %_ZN4llvm14DomTreeUpdater18CallBackOnDeletionC2EPNS_10BasicBlockESt8functionIFvS3_EE.exit
   call void @_ZNSt6vectorIN4llvm14DomTreeUpdater18CallBackOnDeletionESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr %38, ptr noundef nonnull align 8 dereferenceable(72) %5)
-  %.phi.trans.insert14 = getelementptr inbounds i8, ptr %5, i64 56
+  %.phi.trans.insert14 = getelementptr inbounds nuw i8, ptr %5, i64 56
   %.pre15 = load ptr, ptr %.phi.trans.insert14, align 8
   %.not.i.i.i = icmp eq ptr %.pre15, null
   br i1 %.not.i.i.i, label %_ZNSt8functionIFvPN4llvm10BasicBlockEEED2Ev.exit.i, label %63
@@ -2251,14 +2251,14 @@ _ZN4llvm14DomTreeUpdater18CallBackOnDeletionD2Ev.exit: ; preds = %_ZNSt8function
 
 _ZNSt8functionIFvPN4llvm10BasicBlockEEED2Ev.exit: ; preds = %_ZN4llvm14DomTreeUpdater18CallBackOnDeletionD2Ev.exit, %68
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 312
-  %71 = getelementptr inbounds i8, ptr %0, i64 320
+  %71 = getelementptr inbounds nuw i8, ptr %0, i64 320
   %72 = load ptr, ptr %71, align 8, !noalias !22
   %73 = load ptr, ptr %70, align 8, !noalias !22
   %74 = icmp eq ptr %72, %73
   br i1 %74, label %75, label %89
 
 75:                                               ; preds = %_ZNSt8functionIFvPN4llvm10BasicBlockEEED2Ev.exit
-  %76 = getelementptr inbounds i8, ptr %0, i64 332
+  %76 = getelementptr inbounds nuw i8, ptr %0, i64 332
   %77 = load i32, ptr %76, align 4, !noalias !22
   %78 = zext i32 %77 to i64
   %79 = getelementptr inbounds ptr, ptr %73, i64 %78
@@ -2277,7 +2277,7 @@ _ZNSt8functionIFvPN4llvm10BasicBlockEEED2Ev.exit: ; preds = %_ZN4llvm14DomTreeUp
   br i1 %.not.i.i10, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !20
 
 ._crit_edge.i.i:                                  ; preds = %82, %75
-  %84 = getelementptr inbounds i8, ptr %0, i64 328
+  %84 = getelementptr inbounds nuw i8, ptr %0, i64 328
   %85 = load i32, ptr %84, align 8, !noalias !22
   %86 = icmp ult i32 %77, %85
   br i1 %86, label %87, label %89
@@ -2429,7 +2429,7 @@ define linkonce_odr hidden void @_ZN4llvm14DomTreeUpdater18CallBackOnDeletion7de
   %4 = load ptr, ptr %3, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
   store ptr %4, ptr %2, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 56
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %6 = load ptr, ptr %5, align 8
   %.not.i.i = icmp eq ptr %6, null
   br i1 %.not.i.i, label %7, label %_ZNKSt8functionIFvPN4llvm10BasicBlockEEEclES2_.exit
@@ -2440,7 +2440,7 @@ define linkonce_odr hidden void @_ZN4llvm14DomTreeUpdater18CallBackOnDeletion7de
 
 _ZNKSt8functionIFvPN4llvm10BasicBlockEEEclES2_.exit: ; preds = %1
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %9 = getelementptr inbounds i8, ptr %0, i64 64
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %10 = load ptr, ptr %9, align 8
   call void %10(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(8) %2) #13
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
@@ -2519,7 +2519,7 @@ define linkonce_odr { ptr, i8 } @_ZNSt8_Rb_treeISt4pairIPN4llvm10BasicBlockES3_E
   br i1 %12, label %_ZNKSt4lessISt4pairIPN4llvm10BasicBlockES3_EEclERKS4_S7_.exit.thread.i.thread, label %_ZNKSt4lessISt4pairIPN4llvm10BasicBlockES3_EEclERKS4_S7_.exit.i
 
 _ZNKSt4lessISt4pairIPN4llvm10BasicBlockES3_EEclERKS4_S7_.exit.i: ; preds = %11
-  %13 = getelementptr inbounds i8, ptr %.02126.i, i64 40
+  %13 = getelementptr inbounds nuw i8, ptr %.02126.i, i64 40
   %14 = load ptr, ptr %13, align 8
   %15 = icmp ult ptr %7, %14
   br i1 %15, label %_ZNKSt4lessISt4pairIPN4llvm10BasicBlockES3_EEclERKS4_S7_.exit.thread.i, label %_ZNKSt4lessISt4pairIPN4llvm10BasicBlockES3_EEclERKS4_S7_.exit.thread.i.thread
@@ -2567,7 +2567,7 @@ _ZNKSt4lessISt4pairIPN4llvm10BasicBlockES3_EEclERKS4_S7_.exit.thread.i.thread: ;
   br i1 %27, label %54, label %_ZNKSt4lessISt4pairIPN4llvm10BasicBlockES3_EEclERKS4_S7_.exit5.i
 
 _ZNKSt4lessISt4pairIPN4llvm10BasicBlockES3_EEclERKS4_S7_.exit5.i: ; preds = %26
-  %28 = getelementptr inbounds i8, ptr %.sroa.06.0.i, i64 40
+  %28 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.i, i64 40
   %29 = load ptr, ptr %28, align 8
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %31 = load ptr, ptr %30, align 8
@@ -2593,7 +2593,7 @@ _ZNKSt4lessISt4pairIPN4llvm10BasicBlockES3_EEclERKS4_S7_.exit5.i: ; preds = %26
 42:                                               ; preds = %40
   %43 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %44 = load ptr, ptr %43, align 8
-  %45 = getelementptr inbounds i8, ptr %.sroa.4.0.i.ph, i64 40
+  %45 = getelementptr inbounds nuw i8, ptr %.sroa.4.0.i.ph, i64 40
   %46 = load ptr, ptr %45, align 8
   %47 = icmp ult ptr %44, %46
   br label %_ZNSt8_Rb_treeISt4pairIPN4llvm10BasicBlockES3_ES4_St9_IdentityIS4_ESt4lessIS4_ESaIS4_EE10_M_insert_IRKS4_NSA_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS4_EPSt18_Rb_tree_node_baseSI_OT_RT0_.exit
@@ -2802,19 +2802,19 @@ _ZN4llvm10CallbackVHC2ERKS0_.exit.i.i.i:          ; preds = %32, %_ZNSt12_Vector
   %37 = load ptr, ptr %36, align 8
   store ptr %37, ptr %35, align 8
   %38 = getelementptr inbounds nuw i8, ptr %24, i64 40
-  %39 = getelementptr inbounds i8, ptr %24, i64 64
-  %40 = getelementptr inbounds i8, ptr %2, i64 64
+  %39 = getelementptr inbounds nuw i8, ptr %24, i64 64
+  %40 = getelementptr inbounds nuw i8, ptr %2, i64 64
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %38, i8 0, i64 24, i1 false)
   %41 = load ptr, ptr %40, align 8
   store ptr %41, ptr %39, align 8
-  %42 = getelementptr inbounds i8, ptr %2, i64 56
+  %42 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %43 = load ptr, ptr %42, align 8
   %.not.i.i.not.i.i.i.i = icmp eq ptr %43, null
   br i1 %.not.i.i.not.i.i.i.i, label %_ZNSt16allocator_traitsISaIN4llvm14DomTreeUpdater18CallBackOnDeletionEEE9constructIS2_JS2_EEEvRS3_PT_DpOT0_.exit, label %44
 
 44:                                               ; preds = %_ZN4llvm10CallbackVHC2ERKS0_.exit.i.i.i
   %45 = getelementptr inbounds nuw i8, ptr %2, i64 40
-  %46 = getelementptr inbounds i8, ptr %24, i64 56
+  %46 = getelementptr inbounds nuw i8, ptr %24, i64 56
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %38, ptr noundef nonnull align 8 dereferenceable(16) %45, i64 16, i1 false)
   store ptr %43, ptr %46, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %42, i8 0, i64 16, i1 false)
@@ -2858,7 +2858,7 @@ _ZN4llvm10CallbackVHC2ERKS0_.exit.i.i.i.i.i.i.i:  ; preds = %54, %.lr.ph.i.i.i.i
   %59 = load ptr, ptr %58, align 8
   store ptr %59, ptr %57, align 8
   %60 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i.i, i64 40
-  %61 = getelementptr inbounds i8, ptr %.0810.i.i.i.i.i, i64 56
+  %61 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i.i, i64 56
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %60, i8 0, i64 32, i1 false)
   %62 = load ptr, ptr %61, align 8
   %.not.i.i.not.i.i.i.i.i.i.i.i = icmp eq ptr %62, null
@@ -2866,10 +2866,10 @@ _ZN4llvm10CallbackVHC2ERKS0_.exit.i.i.i.i.i.i.i:  ; preds = %54, %.lr.ph.i.i.i.i
 
 63:                                               ; preds = %_ZN4llvm10CallbackVHC2ERKS0_.exit.i.i.i.i.i.i.i
   %64 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i.i, i64 40
-  %65 = getelementptr inbounds i8, ptr %.011.i.i.i.i.i, i64 64
-  %66 = getelementptr inbounds i8, ptr %.011.i.i.i.i.i, i64 56
+  %65 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i.i, i64 64
+  %66 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i.i, i64 56
   %67 = tail call noundef zeroext i1 %62(ptr noundef nonnull align 8 dereferenceable(16) %60, ptr noundef nonnull align 8 dereferenceable(16) %64, i32 noundef 2) #13
-  %68 = getelementptr inbounds i8, ptr %.0810.i.i.i.i.i, i64 64
+  %68 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i.i, i64 64
   %69 = load ptr, ptr %68, align 8
   store ptr %69, ptr %65, align 8
   %70 = load ptr, ptr %61, align 8
@@ -2923,7 +2923,7 @@ _ZN4llvm10CallbackVHC2ERKS0_.exit.i.i.i.i.i.i.i24: ; preds = %81, %.lr.ph.i.i.i.
   %86 = load ptr, ptr %85, align 8
   store ptr %86, ptr %84, align 8
   %87 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i.i20, i64 40
-  %88 = getelementptr inbounds i8, ptr %.0810.i.i.i.i.i21, i64 56
+  %88 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i.i21, i64 56
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %87, i8 0, i64 32, i1 false)
   %89 = load ptr, ptr %88, align 8
   %.not.i.i.not.i.i.i.i.i.i.i.i25 = icmp eq ptr %89, null
@@ -2931,10 +2931,10 @@ _ZN4llvm10CallbackVHC2ERKS0_.exit.i.i.i.i.i.i.i24: ; preds = %81, %.lr.ph.i.i.i.
 
 90:                                               ; preds = %_ZN4llvm10CallbackVHC2ERKS0_.exit.i.i.i.i.i.i.i24
   %91 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i.i21, i64 40
-  %92 = getelementptr inbounds i8, ptr %.011.i.i.i.i.i20, i64 64
-  %93 = getelementptr inbounds i8, ptr %.011.i.i.i.i.i20, i64 56
+  %92 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i.i20, i64 64
+  %93 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i.i20, i64 56
   %94 = tail call noundef zeroext i1 %89(ptr noundef nonnull align 8 dereferenceable(16) %87, ptr noundef nonnull align 8 dereferenceable(16) %91, i32 noundef 2) #13
-  %95 = getelementptr inbounds i8, ptr %.0810.i.i.i.i.i21, i64 64
+  %95 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i.i21, i64 64
   %96 = load ptr, ptr %95, align 8
   store ptr %96, ptr %92, align 8
   %97 = load ptr, ptr %88, align 8
@@ -2954,7 +2954,7 @@ _ZSt34__uninitialized_move_if_noexcept_aIPN4llvm14DomTreeUpdater18CallBackOnDele
 
 .lr.ph.i.i.i:                                     ; preds = %_ZSt34__uninitialized_move_if_noexcept_aIPN4llvm14DomTreeUpdater18CallBackOnDeletionES3_SaIS2_EET0_T_S6_S5_RT1_.exit30, %_ZSt8_DestroyIN4llvm14DomTreeUpdater18CallBackOnDeletionEEvPT_.exit.i.i.i
   %.05.i.i.i = phi ptr [ %109, %_ZSt8_DestroyIN4llvm14DomTreeUpdater18CallBackOnDeletionEEvPT_.exit.i.i.i ], [ %6, %_ZSt34__uninitialized_move_if_noexcept_aIPN4llvm14DomTreeUpdater18CallBackOnDeletionES3_SaIS2_EET0_T_S6_S5_RT1_.exit30 ]
-  %100 = getelementptr inbounds i8, ptr %.05.i.i.i, i64 56
+  %100 = getelementptr inbounds nuw i8, ptr %.05.i.i.i, i64 56
   %101 = load ptr, ptr %100, align 8
   %.not.i.i.i.i.i.i.i = icmp eq ptr %101, null
   br i1 %.not.i.i.i.i.i.i.i, label %_ZNSt8functionIFvPN4llvm10BasicBlockEEED2Ev.exit.i.i.i.i.i, label %102

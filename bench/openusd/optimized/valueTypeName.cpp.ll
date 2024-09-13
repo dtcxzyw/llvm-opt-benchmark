@@ -377,7 +377,7 @@ define void @_ZNK32pxrInternal_v0_24__pxrReserved__16SdfValueTypeName18GetAliase
   %3 = load ptr, ptr %1, align 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 104
-  %6 = getelementptr inbounds i8, ptr %4, i64 112
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 112
   %7 = load ptr, ptr %6, align 8
   %8 = load ptr, ptr %5, align 8
   %9 = ptrtoint ptr %7 to i64

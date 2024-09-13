@@ -96,23 +96,23 @@ define void @_ZN10OpenSubdiv6v3_6_03Bfr14SurfaceFactoryC2ENS0_3Sdc10SchemeTypeER
   store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTVN10OpenSubdiv6v3_6_03Bfr14SurfaceFactoryE, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i8 0, ptr %4, align 4
-  %5 = getelementptr inbounds i8, ptr %0, i64 13
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 13
   store i8 5, ptr %5, align 1
-  %6 = getelementptr inbounds i8, ptr %0, i64 14
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 14
   store i8 0, ptr %6, align 2
-  %7 = getelementptr inbounds i8, ptr %0, i64 15
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 15
   store i8 0, ptr %7, align 1
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 -1, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr null, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %11 = load i8, ptr %10, align 8
   %12 = or i8 %11, 1
   store i8 %12, ptr %10, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 33
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 33
   store i8 2, ptr %13, align 1
-  %14 = getelementptr inbounds i8, ptr %0, i64 34
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 34
   store i8 6, ptr %14, align 2
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr null, ptr %15, align 8
@@ -189,7 +189,7 @@ define void @_ZN10OpenSubdiv6v3_6_03Bfr14SurfaceFactory21setSubdivisionOptionsEN
   %14 = load i8, ptr %12, align 8
   %15 = and i8 %14, -32
   %16 = or disjoint i8 %15, %13
-  %17 = getelementptr inbounds i8, ptr %0, i64 13
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 13
   %18 = load i8, ptr %17, align 1
   %19 = icmp eq i8 %18, 5
   %20 = select i1 %11, i1 true, i1 %19
@@ -216,14 +216,14 @@ define void @_ZN10OpenSubdiv6v3_6_03Bfr14SurfaceFactory21setSubdivisionOptionsEN
 define void @_ZN10OpenSubdiv6v3_6_03Bfr14SurfaceFactory17setFactoryOptionsERKNS2_7OptionsE(ptr nocapture noundef nonnull align 8 dereferenceable(56) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(19) %1) local_unnamed_addr #3 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(19) %3, ptr noundef nonnull align 8 dereferenceable(19) %1, i64 19, i1 false)
-  %4 = getelementptr inbounds i8, ptr %0, i64 32
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load i8, ptr %4, align 8
   %6 = and i8 %5, 1
   %.not2 = icmp eq i8 %6, 0
   br i1 %.not2, label %12, label %7
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %0, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %9 = load ptr, ptr %8, align 8
   %.not = icmp eq ptr %9, null
   br i1 %.not, label %12, label %10
@@ -246,11 +246,11 @@ declare noundef i32 @_ZN10OpenSubdiv6v3_6_03Sdc16SchemeTypeTraits24GetLocalNeigh
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define void @_ZN10OpenSubdiv6v3_6_03Bfr14SurfaceFactory16setInternalCacheEPNS1_19SurfaceFactoryCacheE(ptr nocapture noundef nonnull align 8 dereferenceable(56) %0, ptr noundef %1) local_unnamed_addr #3 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 32
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i8, ptr %3, align 8
   %5 = and i8 %4, 1
   %6 = icmp ne i8 %5, 0
-  %7 = getelementptr inbounds i8, ptr %0, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %8 = load ptr, ptr %7, align 8
   %9 = icmp eq ptr %8, null
   %or.cond = select i1 %6, i1 %9, i1 false
@@ -312,31 +312,31 @@ define noundef zeroext i1 @_ZNK10OpenSubdiv6v3_6_03Bfr14SurfaceFactory24faceHasL
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 144
   store ptr null, ptr %8, align 8
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %10 = getelementptr inbounds i8, ptr %4, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store ptr %10, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %4, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i32 0, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %4, i64 20
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 20
   store i32 16, ptr %12, align 4
-  %13 = getelementptr inbounds i8, ptr %4, i64 88
+  %13 = getelementptr inbounds nuw i8, ptr %4, i64 88
   store ptr null, ptr %13, align 8
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 96
-  %15 = getelementptr inbounds i8, ptr %4, i64 112
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 112
   store ptr %15, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %4, i64 104
+  %16 = getelementptr inbounds nuw i8, ptr %4, i64 104
   store i32 0, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %4, i64 108
+  %17 = getelementptr inbounds nuw i8, ptr %4, i64 108
   store i32 8, ptr %17, align 4
-  %18 = getelementptr inbounds i8, ptr %4, i64 144
+  %18 = getelementptr inbounds nuw i8, ptr %4, i64 144
   store ptr null, ptr %18, align 8
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 168
-  %20 = getelementptr inbounds i8, ptr %4, i64 184
+  %20 = getelementptr inbounds nuw i8, ptr %4, i64 184
   store ptr %20, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %4, i64 176
+  %21 = getelementptr inbounds nuw i8, ptr %4, i64 176
   store i32 0, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %4, i64 180
+  %22 = getelementptr inbounds nuw i8, ptr %4, i64 180
   store i32 16, ptr %22, align 4
-  %23 = getelementptr inbounds i8, ptr %4, i64 216
+  %23 = getelementptr inbounds nuw i8, ptr %4, i64 216
   store ptr null, ptr %23, align 8
   %24 = load ptr, ptr %0, align 8
   %25 = getelementptr inbounds i8, ptr %24, i64 24
@@ -516,28 +516,28 @@ declare void @_ZN10OpenSubdiv6v3_6_03Bfr10FaceVertex21ConnectUnOrderedFacesEPKi(
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN10OpenSubdiv6v3_6_03Bfr10FaceVertexD2Ev(ptr noundef nonnull align 8 dereferenceable(224) %0) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 168
-  %3 = getelementptr inbounds i8, ptr %0, i64 216
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %4 = load ptr, ptr %3, align 8
   tail call void @_ZdlPv(ptr noundef %4) #16
-  %5 = getelementptr inbounds i8, ptr %0, i64 184
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 184
   store ptr %5, ptr %2, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 180
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 180
   store i32 16, ptr %6, align 4
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %8 = getelementptr inbounds i8, ptr %0, i64 144
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %9 = load ptr, ptr %8, align 8
   tail call void @_ZdlPv(ptr noundef %9) #16
-  %10 = getelementptr inbounds i8, ptr %0, i64 112
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store ptr %10, ptr %7, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 108
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 108
   store i32 8, ptr %11, align 4
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 88
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %14 = load ptr, ptr %13, align 8
   tail call void @_ZdlPv(ptr noundef %14) #16
-  %15 = getelementptr inbounds i8, ptr %0, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %15, ptr %12, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 20
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 16, ptr %16, align 4
   ret void
 }
@@ -939,11 +939,11 @@ define void @_ZNK10OpenSubdiv6v3_6_03Bfr14SurfaceFactory22assignIrregularSurface
   %15 = alloca %"class.OpenSubdiv::v3_6_0::Bfr::Parameterization", align 4
   %16 = getelementptr inbounds nuw i8, ptr %7, i64 4
   %17 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 34
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 34
   %19 = load i8, ptr %18, align 2
   %20 = zext i8 %19 to i32
   store i32 %20, ptr %7, align 8
-  %21 = getelementptr inbounds i8, ptr %0, i64 33
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 33
   %22 = load i8, ptr %21, align 1
   %23 = zext i8 %22 to i32
   store i32 %23, ptr %16, align 4
@@ -2053,7 +2053,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   %561 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %562 = load ptr, ptr %9, align 8
   store ptr %562, ptr %561, align 8
-  %563 = getelementptr inbounds i8, ptr %1, i64 120
+  %563 = getelementptr inbounds nuw i8, ptr %1, i64 120
   %564 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %565 = load ptr, ptr %564, align 8
   %566 = load ptr, ptr %563, align 8
@@ -2297,7 +2297,7 @@ _ZNSt10shared_ptrIKN10OpenSubdiv6v3_6_03Bfr9PatchTreeEED2Ev.exit69: ; preds = %6
   br i1 %.not.i.i.i.i70, label %_ZNSt6vectorIiSaIiEED2Ev.exit.i, label %675
 
 675:                                              ; preds = %_ZNSt10shared_ptrIKN10OpenSubdiv6v3_6_03Bfr9PatchTreeEED2Ev.exit69
-  %676 = getelementptr inbounds i8, ptr %8, i64 288
+  %676 = getelementptr inbounds nuw i8, ptr %8, i64 288
   %677 = load ptr, ptr %676, align 8
   %678 = ptrtoint ptr %677 to i64
   %679 = ptrtoint ptr %674 to i64
@@ -2320,7 +2320,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit.i:                  ; preds = %675, %_ZNSt10shared
   unreachable
 
 _ZN10OpenSubdiv6v3_6_03Bfr21IrregularPatchBuilderD2Ev.exit: ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit.i
-  %687 = getelementptr inbounds i8, ptr %8, i64 216
+  %687 = getelementptr inbounds nuw i8, ptr %8, i64 216
   %688 = load ptr, ptr %687, align 8
   call void @_ZdlPv(ptr noundef %688) #16
   ret void
@@ -2425,7 +2425,7 @@ define linkonce_odr void @_ZN10OpenSubdiv6v3_6_03Bfr21IrregularPatchBuilderD2Ev(
   br i1 %.not.i.i.i, label %_ZNSt6vectorIiSaIiEED2Ev.exit, label %4
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 288
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 288
   %6 = load ptr, ptr %5, align 8
   %7 = ptrtoint ptr %6 to i64
   %8 = ptrtoint ptr %3 to i64
@@ -2449,12 +2449,12 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %1, %4
 
 _ZNSt3mapIiiSt4lessIiESaISt4pairIKiiEEED2Ev.exit: ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %17 = getelementptr inbounds i8, ptr %0, i64 216
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %18 = load ptr, ptr %17, align 8
   tail call void @_ZdlPv(ptr noundef %18) #16
-  %19 = getelementptr inbounds i8, ptr %0, i64 56
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store ptr %19, ptr %16, align 8
-  %20 = getelementptr inbounds i8, ptr %0, i64 52
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 52
   store i32 8, ptr %20, align 4
   ret void
 }
@@ -2570,7 +2570,7 @@ _ZN10OpenSubdiv6v3_6_03Bfr8internal11SurfaceData9resizeCVsEi.exit: ; preds = %29
 52:                                               ; preds = %_ZN10OpenSubdiv6v3_6_03Bfr8internal11SurfaceData9resizeCVsEi.exit
   %53 = getelementptr inbounds nuw i8, ptr %2, i64 112
   %54 = load ptr, ptr %53, align 8, !noalias !20
-  %55 = getelementptr inbounds i8, ptr %2, i64 120
+  %55 = getelementptr inbounds nuw i8, ptr %2, i64 120
   %56 = load ptr, ptr %55, align 8, !noalias !20
   %.not.i.i.i.i = icmp eq ptr %56, null
   br i1 %.not.i.i.i.i, label %_ZNK10OpenSubdiv6v3_6_03Bfr8internal11SurfaceData16getIrregPatchPtrEv.exit.thread, label %57
@@ -2594,7 +2594,7 @@ _ZN10OpenSubdiv6v3_6_03Bfr8internal11SurfaceData9resizeCVsEi.exit: ; preds = %29
 _ZNK10OpenSubdiv6v3_6_03Bfr8internal11SurfaceData16getIrregPatchPtrEv.exit: ; preds = %60, %63
   %65 = getelementptr inbounds nuw i8, ptr %1, i64 112
   store ptr %54, ptr %65, align 8
-  %66 = getelementptr inbounds i8, ptr %1, i64 120
+  %66 = getelementptr inbounds nuw i8, ptr %1, i64 120
   %67 = load ptr, ptr %66, align 8
   %.not.i.i.i.i24 = icmp eq ptr %56, %67
   br i1 %.not.i.i.i.i24, label %_ZN10OpenSubdiv6v3_6_03Bfr8internal11SurfaceData16setIrregPatchPtrERKSt10shared_ptrIKNS1_9PatchTreeEE.exit.thread, label %71
@@ -2602,7 +2602,7 @@ _ZNK10OpenSubdiv6v3_6_03Bfr8internal11SurfaceData16getIrregPatchPtrEv.exit: ; pr
 _ZNK10OpenSubdiv6v3_6_03Bfr8internal11SurfaceData16getIrregPatchPtrEv.exit.thread: ; preds = %52
   %68 = getelementptr inbounds nuw i8, ptr %1, i64 112
   store ptr %54, ptr %68, align 8
-  %69 = getelementptr inbounds i8, ptr %1, i64 120
+  %69 = getelementptr inbounds nuw i8, ptr %1, i64 120
   %70 = load ptr, ptr %69, align 8
   %.not.i.i.i.i2429 = icmp eq ptr %70, null
   br i1 %.not.i.i.i.i2429, label %_ZNSt10shared_ptrIKN10OpenSubdiv6v3_6_03Bfr9PatchTreeEED2Ev.exit, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i.i.thread
@@ -2791,7 +2791,7 @@ _ZNSt10shared_ptrIKN10OpenSubdiv6v3_6_03Bfr9PatchTreeEED2Ev.exit: ; preds = %_ZN
   br i1 %.not.i.i.i.i27, label %_ZNSt6vectorIiSaIiEED2Ev.exit.i, label %153
 
 153:                                              ; preds = %150
-  %154 = getelementptr inbounds i8, ptr %6, i64 288
+  %154 = getelementptr inbounds nuw i8, ptr %6, i64 288
   %155 = load ptr, ptr %154, align 8
   %156 = ptrtoint ptr %155 to i64
   %157 = ptrtoint ptr %152 to i64
@@ -2814,7 +2814,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit.i:                  ; preds = %153, %150
   unreachable
 
 _ZN10OpenSubdiv6v3_6_03Bfr21IrregularPatchBuilderD2Ev.exit: ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit.i
-  %165 = getelementptr inbounds i8, ptr %6, i64 216
+  %165 = getelementptr inbounds nuw i8, ptr %6, i64 216
   %166 = load ptr, ptr %165, align 8
   call void @_ZdlPv(ptr noundef %166) #16
   br label %169
@@ -3318,22 +3318,22 @@ define noundef zeroext i1 @_ZNK10OpenSubdiv6v3_6_03Bfr14SurfaceFactory25populate
   %27 = getelementptr inbounds nuw i8, ptr %5, i64 304
   store ptr null, ptr %27, align 8
   %28 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %29 = getelementptr inbounds i8, ptr %6, i64 32
+  %29 = getelementptr inbounds nuw i8, ptr %6, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, i8 0, i64 16, i1 false)
   store ptr %29, ptr %28, align 8
-  %30 = getelementptr inbounds i8, ptr %6, i64 24
+  %30 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store i32 0, ptr %30, align 8
-  %31 = getelementptr inbounds i8, ptr %6, i64 28
+  %31 = getelementptr inbounds nuw i8, ptr %6, i64 28
   store i32 8, ptr %31, align 4
-  %32 = getelementptr inbounds i8, ptr %6, i64 128
+  %32 = getelementptr inbounds nuw i8, ptr %6, i64 128
   store ptr null, ptr %32, align 8
   %33 = getelementptr inbounds nuw i8, ptr %6, i64 138
   store i8 0, ptr %33, align 2
-  %34 = getelementptr inbounds i8, ptr %6, i64 139
+  %34 = getelementptr inbounds nuw i8, ptr %6, i64 139
   store i8 5, ptr %34, align 1
-  %35 = getelementptr inbounds i8, ptr %6, i64 140
+  %35 = getelementptr inbounds nuw i8, ptr %6, i64 140
   store i8 0, ptr %35, align 4
-  %36 = getelementptr inbounds i8, ptr %6, i64 141
+  %36 = getelementptr inbounds nuw i8, ptr %6, i64 141
   store i8 0, ptr %36, align 1
   %37 = load ptr, ptr %0, align 8
   %38 = getelementptr inbounds i8, ptr %37, i64 72
@@ -3615,14 +3615,14 @@ _ZNK10OpenSubdiv6v3_6_03Bfr14SurfaceFactory24faceHasLimitNeighborhoodERKNS1_12Fa
   %144 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %145 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %146 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %147 = getelementptr inbounds i8, ptr %7, i64 32
-  %148 = getelementptr inbounds i8, ptr %7, i64 24
-  %149 = getelementptr inbounds i8, ptr %7, i64 28
-  %150 = getelementptr inbounds i8, ptr %7, i64 128
+  %147 = getelementptr inbounds nuw i8, ptr %7, i64 32
+  %148 = getelementptr inbounds nuw i8, ptr %7, i64 24
+  %149 = getelementptr inbounds nuw i8, ptr %7, i64 28
+  %150 = getelementptr inbounds nuw i8, ptr %7, i64 128
   %151 = getelementptr inbounds nuw i8, ptr %7, i64 138
-  %152 = getelementptr inbounds i8, ptr %7, i64 139
-  %153 = getelementptr inbounds i8, ptr %7, i64 140
-  %154 = getelementptr inbounds i8, ptr %7, i64 141
+  %152 = getelementptr inbounds nuw i8, ptr %7, i64 139
+  %153 = getelementptr inbounds nuw i8, ptr %7, i64 140
+  %154 = getelementptr inbounds nuw i8, ptr %7, i64 141
   %155 = getelementptr inbounds nuw i8, ptr %7, i64 142
   %wide.trip.count = zext nneg i32 %138 to i64
   br label %156
@@ -3851,7 +3851,7 @@ _ZNK10OpenSubdiv6v3_6_03Bfr14SurfaceFactory30gatherFaceNeighborhoodTopologyEiPNS
   store ptr %24, ptr %5, align 8
   store i32 72, ptr %26, align 4
   %232 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  %233 = getelementptr inbounds i8, ptr %4, i64 32
+  %233 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %234 = load i32, ptr %233, align 8
   %.not.i.i.i = icmp eq i32 %234, 0
   br i1 %.not.i.i.i, label %_ZN10OpenSubdiv6v3_6_03Bfr12FaceTopologyD2Ev.exit, label %.lr.ph.i.i.i
@@ -3861,28 +3861,28 @@ _ZNK10OpenSubdiv6v3_6_03Bfr14SurfaceFactory30gatherFaceNeighborhoodTopologyEiPNS
   %235 = load ptr, ptr %232, align 8
   %236 = getelementptr inbounds %"class.OpenSubdiv::v3_6_0::Bfr::FaceVertex", ptr %235, i64 %indvars.iv.i.i.i
   %237 = getelementptr inbounds nuw i8, ptr %236, i64 168
-  %238 = getelementptr inbounds i8, ptr %236, i64 216
+  %238 = getelementptr inbounds nuw i8, ptr %236, i64 216
   %239 = load ptr, ptr %238, align 8
   call void @_ZdlPv(ptr noundef %239) #16
-  %240 = getelementptr inbounds i8, ptr %236, i64 184
+  %240 = getelementptr inbounds nuw i8, ptr %236, i64 184
   store ptr %240, ptr %237, align 8
-  %241 = getelementptr inbounds i8, ptr %236, i64 180
+  %241 = getelementptr inbounds nuw i8, ptr %236, i64 180
   store i32 16, ptr %241, align 4
   %242 = getelementptr inbounds nuw i8, ptr %236, i64 96
-  %243 = getelementptr inbounds i8, ptr %236, i64 144
+  %243 = getelementptr inbounds nuw i8, ptr %236, i64 144
   %244 = load ptr, ptr %243, align 8
   call void @_ZdlPv(ptr noundef %244) #16
-  %245 = getelementptr inbounds i8, ptr %236, i64 112
+  %245 = getelementptr inbounds nuw i8, ptr %236, i64 112
   store ptr %245, ptr %242, align 8
-  %246 = getelementptr inbounds i8, ptr %236, i64 108
+  %246 = getelementptr inbounds nuw i8, ptr %236, i64 108
   store i32 8, ptr %246, align 4
   %247 = getelementptr inbounds nuw i8, ptr %236, i64 8
-  %248 = getelementptr inbounds i8, ptr %236, i64 88
+  %248 = getelementptr inbounds nuw i8, ptr %236, i64 88
   %249 = load ptr, ptr %248, align 8
   call void @_ZdlPv(ptr noundef %249) #16
-  %250 = getelementptr inbounds i8, ptr %236, i64 24
+  %250 = getelementptr inbounds nuw i8, ptr %236, i64 24
   store ptr %250, ptr %247, align 8
-  %251 = getelementptr inbounds i8, ptr %236, i64 20
+  %251 = getelementptr inbounds nuw i8, ptr %236, i64 20
   store i32 16, ptr %251, align 4
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %252 = load i32, ptr %233, align 8
@@ -3891,7 +3891,7 @@ _ZNK10OpenSubdiv6v3_6_03Bfr14SurfaceFactory30gatherFaceNeighborhoodTopologyEiPNS
   br i1 %254, label %.lr.ph.i.i.i, label %_ZN10OpenSubdiv6v3_6_03Bfr12FaceTopologyD2Ev.exit, !llvm.loop !39
 
 _ZN10OpenSubdiv6v3_6_03Bfr12FaceTopologyD2Ev.exit: ; preds = %.lr.ph.i.i.i, %_ZNK10OpenSubdiv6v3_6_03Bfr14SurfaceFactory30gatherFaceNeighborhoodTopologyEiPNS1_12FaceTopologyE.exit
-  %255 = getelementptr inbounds i8, ptr %4, i64 936
+  %255 = getelementptr inbounds nuw i8, ptr %4, i64 936
   %256 = load ptr, ptr %255, align 8
   call void @_ZdlPv(ptr noundef %256) #16
   ret i1 %.0
@@ -4007,7 +4007,7 @@ declare void @_ZN10OpenSubdiv6v3_6_03Bfr11FaceSurface10InitializeERKNS1_12FaceTo
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN10OpenSubdiv6v3_6_03Bfr12FaceTopologyD2Ev(ptr noundef nonnull align 8 dereferenceable(944) %0) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %3 = getelementptr inbounds i8, ptr %0, i64 32
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i32, ptr %3, align 8
   %.not.i.i = icmp eq i32 %4, 0
   br i1 %.not.i.i, label %_ZN10OpenSubdiv6v3_6_03Vtr8internal11StackBufferINS0_3Bfr10FaceVertexELj4ELb0EED2Ev.exit, label %.lr.ph.i.i
@@ -4017,28 +4017,28 @@ define linkonce_odr void @_ZN10OpenSubdiv6v3_6_03Bfr12FaceTopologyD2Ev(ptr nound
   %5 = load ptr, ptr %2, align 8
   %6 = getelementptr inbounds %"class.OpenSubdiv::v3_6_0::Bfr::FaceVertex", ptr %5, i64 %indvars.iv.i.i
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 168
-  %8 = getelementptr inbounds i8, ptr %6, i64 216
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 216
   %9 = load ptr, ptr %8, align 8
   tail call void @_ZdlPv(ptr noundef %9) #16
-  %10 = getelementptr inbounds i8, ptr %6, i64 184
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 184
   store ptr %10, ptr %7, align 8
-  %11 = getelementptr inbounds i8, ptr %6, i64 180
+  %11 = getelementptr inbounds nuw i8, ptr %6, i64 180
   store i32 16, ptr %11, align 4
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 96
-  %13 = getelementptr inbounds i8, ptr %6, i64 144
+  %13 = getelementptr inbounds nuw i8, ptr %6, i64 144
   %14 = load ptr, ptr %13, align 8
   tail call void @_ZdlPv(ptr noundef %14) #16
-  %15 = getelementptr inbounds i8, ptr %6, i64 112
+  %15 = getelementptr inbounds nuw i8, ptr %6, i64 112
   store ptr %15, ptr %12, align 8
-  %16 = getelementptr inbounds i8, ptr %6, i64 108
+  %16 = getelementptr inbounds nuw i8, ptr %6, i64 108
   store i32 8, ptr %16, align 4
   %17 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %18 = getelementptr inbounds i8, ptr %6, i64 88
+  %18 = getelementptr inbounds nuw i8, ptr %6, i64 88
   %19 = load ptr, ptr %18, align 8
   tail call void @_ZdlPv(ptr noundef %19) #16
-  %20 = getelementptr inbounds i8, ptr %6, i64 24
+  %20 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store ptr %20, ptr %17, align 8
-  %21 = getelementptr inbounds i8, ptr %6, i64 20
+  %21 = getelementptr inbounds nuw i8, ptr %6, i64 20
   store i32 16, ptr %21, align 4
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %22 = load i32, ptr %3, align 8
@@ -4047,12 +4047,12 @@ define linkonce_odr void @_ZN10OpenSubdiv6v3_6_03Bfr12FaceTopologyD2Ev(ptr nound
   br i1 %24, label %.lr.ph.i.i, label %_ZN10OpenSubdiv6v3_6_03Vtr8internal11StackBufferINS0_3Bfr10FaceVertexELj4ELb0EED2Ev.exit, !llvm.loop !39
 
 _ZN10OpenSubdiv6v3_6_03Vtr8internal11StackBufferINS0_3Bfr10FaceVertexELj4ELb0EED2Ev.exit: ; preds = %.lr.ph.i.i, %1
-  %25 = getelementptr inbounds i8, ptr %0, i64 936
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 936
   %26 = load ptr, ptr %25, align 8
   tail call void @_ZdlPv(ptr noundef %26) #16
-  %27 = getelementptr inbounds i8, ptr %0, i64 40
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %27, ptr %2, align 8
-  %28 = getelementptr inbounds i8, ptr %0, i64 36
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 36
   store i32 4, ptr %28, align 4
   ret void
 }

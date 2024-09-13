@@ -81,7 +81,7 @@ define dso_local void @_ZN4llvm4yaml22X86MachineFunctionInfo11mappingImplERNS0_2
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local noundef ptr @_ZNK4llvm22X86MachineFunctionInfo5cloneERNS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EEERNS_15MachineFunctionERKNS_8DenseMapIPNS_17MachineBasicBlockES9_NS_12DenseMapInfoIS9_vEENS_6detail12DenseMapPairIS9_S9_EEEE(ptr noundef nonnull align 8 dereferenceable(272) %0, ptr nocapture nonnull readnone align 8 %1, ptr noundef nonnull align 8 dereferenceable(1041) %2, ptr nocapture nonnull readnone align 1 %3) unnamed_addr #1 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 128
-  %6 = getelementptr inbounds i8, ptr %2, i64 208
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 208
   %7 = load i64, ptr %6, align 8
   %8 = add i64 %7, 272
   store i64 %8, ptr %6, align 8
@@ -90,7 +90,7 @@ define dso_local noundef ptr @_ZNK4llvm22X86MachineFunctionInfo5cloneERNS_20Bump
   %11 = add i64 %10, 7
   %12 = and i64 %11, -8
   %13 = add i64 %12, 272
-  %14 = getelementptr inbounds i8, ptr %2, i64 136
+  %14 = getelementptr inbounds nuw i8, ptr %2, i64 136
   %15 = load ptr, ptr %14, align 8
   %16 = ptrtoint ptr %15 to i64
   %.not.i.i.i.i.i.i = icmp ugt i64 %13, %16
@@ -296,7 +296,7 @@ _ZN4llvm11SmallVectorINS0_ImLj4EEELj0EED2Ev.exit: ; preds = %_ZN4llvm23SmallVect
 _ZN4llvm11SmallVectorImLj0EED2Ev.exit:            ; preds = %_ZN4llvm11SmallVectorINS0_ImLj4EEELj0EED2Ev.exit, %26
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %28 = load ptr, ptr %27, align 8
-  %29 = getelementptr inbounds i8, ptr %0, i64 200
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %30 = load i32, ptr %29, align 8
   %31 = zext i32 %30 to i64
   %32 = shl nuw nsw i64 %31, 4
@@ -307,7 +307,7 @@ _ZN4llvm11SmallVectorImLj0EED2Ev.exit:            ; preds = %_ZN4llvm11SmallVect
   tail call void @_ZNSt8_Rb_treeIN4llvm8RegisterES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE8_M_eraseEPSt13_Rb_tree_nodeIS1_E(ptr noundef nonnull align 8 dereferenceable(48) %33, ptr noundef %35)
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %37 = load ptr, ptr %36, align 8
-  %38 = getelementptr inbounds i8, ptr %0, i64 32
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %39 = load i32, ptr %38, align 8
   %40 = zext i32 %39 to i64
   %41 = shl nuw nsw i64 %40, 3
@@ -461,9 +461,9 @@ define linkonce_odr hidden void @_ZN4llvm22X86MachineFunctionInfoC2ERKS0_(ptr no
   store i16 %6, ptr %4, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %7, i8 0, i64 20, i1 false)
-  %8 = getelementptr inbounds i8, ptr %0, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
   tail call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef null, i64 noundef 0, i64 noundef 4) #12
-  %9 = getelementptr inbounds i8, ptr %1, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %10 = load i32, ptr %9, align 8
   store i32 %10, ptr %8, align 8
   %.not.i.i = icmp eq i32 %10, 0
@@ -475,13 +475,13 @@ define linkonce_odr hidden void @_ZN4llvm22X86MachineFunctionInfoC2ERKS0_(ptr no
   %14 = shl nuw nsw i64 %13, 3
   %15 = tail call noalias noundef nonnull ptr @_ZN4llvm15allocate_bufferEmm(i64 noundef %14, i64 noundef 4) #12
   store ptr %15, ptr %7, align 8
-  %16 = getelementptr inbounds i8, ptr %1, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %17 = load i32, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 %17, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %1, i64 28
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 28
   %20 = load i32, ptr %19, align 4
-  %21 = getelementptr inbounds i8, ptr %0, i64 28
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i32 %20, ptr %21, align 4
   %22 = load ptr, ptr %12, align 8
   %23 = load i32, ptr %8, align 8
@@ -553,9 +553,9 @@ _ZNSt3setIN4llvm8RegisterESt4lessIS1_ESaIS1_EEC2ERKS5_.exit: ; preds = %_ZN4llvm
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %47, ptr noundef nonnull align 8 dereferenceable(24) %48, i64 24, i1 false)
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 184
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %49, i8 0, i64 20, i1 false)
-  %50 = getelementptr inbounds i8, ptr %0, i64 200
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 200
   call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef null, i64 noundef 0, i64 noundef 8) #12
-  %51 = getelementptr inbounds i8, ptr %1, i64 200
+  %51 = getelementptr inbounds nuw i8, ptr %1, i64 200
   %52 = load i32, ptr %51, align 8
   store i32 %52, ptr %50, align 8
   %.not.i.i13 = icmp eq i32 %52, 0
@@ -567,13 +567,13 @@ _ZNSt3setIN4llvm8RegisterESt4lessIS1_ESaIS1_EEC2ERKS5_.exit: ; preds = %_ZN4llvm
   %56 = shl nuw nsw i64 %55, 4
   %57 = call noalias noundef nonnull ptr @_ZN4llvm15allocate_bufferEmm(i64 noundef %56, i64 noundef 8) #12
   store ptr %57, ptr %49, align 8
-  %58 = getelementptr inbounds i8, ptr %1, i64 192
+  %58 = getelementptr inbounds nuw i8, ptr %1, i64 192
   %59 = load i32, ptr %58, align 8
-  %60 = getelementptr inbounds i8, ptr %0, i64 192
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 192
   store i32 %59, ptr %60, align 8
-  %61 = getelementptr inbounds i8, ptr %1, i64 196
+  %61 = getelementptr inbounds nuw i8, ptr %1, i64 196
   %62 = load i32, ptr %61, align 4
-  %63 = getelementptr inbounds i8, ptr %0, i64 196
+  %63 = getelementptr inbounds nuw i8, ptr %0, i64 196
   store i32 %62, ptr %63, align 4
   %64 = load ptr, ptr %54, align 8
   %65 = load i32, ptr %50, align 8

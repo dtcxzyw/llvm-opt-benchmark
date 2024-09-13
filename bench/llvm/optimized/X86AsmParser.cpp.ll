@@ -1127,7 +1127,7 @@ $_ZTVN4llvm10X86OperandE = comdat any
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvm2cl3optIbLb0ENS0_6parserIbEEED2Ev(ptr noundef nonnull align 8 dereferenceable(192) %0) unnamed_addr #0 comdat align 2 {
   store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTVN4llvm2cl3optIbLb0ENS0_6parserIbEEEE, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 176
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %3 = load ptr, ptr %2, align 8
   %.not.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i, label %_ZNSt8functionIFvRKbEED2Ev.exit, label %4
@@ -1140,7 +1140,7 @@ define linkonce_odr hidden void @_ZN4llvm2cl3optIbLb0ENS0_6parserIbEEED2Ev(ptr n
 _ZNSt8functionIFvRKbEED2Ev.exit:                  ; preds = %1, %4
   store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTVN4llvm2cl6OptionE, i64 16), ptr %0, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %8 = getelementptr inbounds i8, ptr %0, i64 96
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %9 = load ptr, ptr %8, align 8
   %10 = load ptr, ptr %7, align 8
   %11 = icmp eq ptr %9, %10
@@ -1217,15 +1217,15 @@ define linkonce_odr hidden void @_ZN4llvm2cl6OptionC2ENS0_18NumOccurrencesFlagEN
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(52) %15, i8 0, i64 52, i1 false)
   tail call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %16, ptr noundef nonnull %17, i64 noundef 1) #23
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %19 = getelementptr inbounds i8, ptr %0, i64 120
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 120
   store ptr %19, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %0, i64 96
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store ptr %19, ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %0, i64 104
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store i32 1, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %0, i64 108
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 108
   store i32 0, ptr %22, align 4
-  %23 = getelementptr inbounds i8, ptr %0, i64 112
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store i32 0, ptr %23, align 8
   %24 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZN4llvm2cl18getGeneralCategoryEv() #23
   %25 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %16) #23
@@ -1435,7 +1435,7 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_112X86AsmParser16parsePrimar
   %34 = load ptr, ptr %33, align 8
   %35 = call noundef nonnull align 8 dereferenceable(2432) ptr %34(ptr noundef nonnull align 8 dereferenceable(34) %7) #23
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 192
-  %37 = getelementptr inbounds i8, ptr %35, i64 272
+  %37 = getelementptr inbounds nuw i8, ptr %35, i64 272
   %38 = load i64, ptr %37, align 8
   %39 = add i64 %38, 32
   store i64 %39, ptr %37, align 8
@@ -1444,7 +1444,7 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_112X86AsmParser16parsePrimar
   %42 = add i64 %41, 7
   %43 = and i64 %42, -8
   %44 = add i64 %43, 32
-  %45 = getelementptr inbounds i8, ptr %35, i64 200
+  %45 = getelementptr inbounds nuw i8, ptr %35, i64 200
   %46 = load ptr, ptr %45, align 8
   %47 = ptrtoint ptr %46 to i64
   %.not.i.i.i.i.i = icmp ugt i64 %44, %47
@@ -1549,7 +1549,7 @@ _ZN4llvm11MCAsmParser14MCPendingErrorD2Ev.exit.i.i.i: ; preds = %21, %.lr.ph.i.i
   br i1 %.not.i.i.i, label %_ZN4llvm11MCAsmParser18clearPendingErrorsEv.exit, label %.lr.ph.i.i.i, !llvm.loop !4
 
 _ZN4llvm11MCAsmParser18clearPendingErrorsEv.exit: ; preds = %_ZN4llvm11MCAsmParser14MCPendingErrorD2Ev.exit.i.i.i, %4
-  %22 = getelementptr inbounds i8, ptr %10, i64 24
+  %22 = getelementptr inbounds nuw i8, ptr %10, i64 24
   store i32 0, ptr %22, align 8
   %spec.select = select i1 %5, i32 2, i32 0
   %.sroa.0.0 = select i1 %9, i32 %spec.select, i32 1
@@ -3275,7 +3275,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit1220.thread3314: ; preds = %.thread3305, %610, 
   %639 = getelementptr inbounds nuw i8, ptr %632, i64 112
   store ptr %.sroa.02413.5, ptr %639, align 8, !noalias !13
   %640 = trunc i64 %.sroa.73.5 to i32
-  %641 = getelementptr inbounds i8, ptr %632, i64 120
+  %641 = getelementptr inbounds nuw i8, ptr %632, i64 120
   store i32 %640, ptr %641, align 8, !noalias !13
   store ptr %632, ptr %65, align 8
   call void @_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_18MCParsedAsmOperandESt14default_deleteIS2_EELb0EE9push_backEOS5_(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(8) %65)
@@ -3329,7 +3329,7 @@ _ZNSt10unique_ptrIN4llvm10X86OperandESt14default_deleteIS1_EED2Ev.exit: ; preds 
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(34) %665, i8 0, i64 34, i1 false), !noalias !14
   %666 = getelementptr inbounds nuw i8, ptr %659, i64 112
   store ptr %658, ptr %666, align 8, !noalias !19
-  %667 = getelementptr inbounds i8, ptr %659, i64 120
+  %667 = getelementptr inbounds nuw i8, ptr %659, i64 120
   store i8 0, ptr %667, align 8, !noalias !19
   %668 = getelementptr inbounds nuw i8, ptr %659, i64 80
   %669 = getelementptr inbounds nuw i8, ptr %659, i64 104
@@ -3394,8 +3394,8 @@ _ZNK4llvm9StringRef11starts_withES0_.exit1247.thread: ; preds = %_ZNK4llvm9Strin
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %34, ptr noundef nonnull align 8 dereferenceable(24) %681, i64 24, i1 false)
   %682 = getelementptr inbounds nuw i8, ptr %34, i64 24
   %683 = getelementptr inbounds nuw i8, ptr %681, i64 24
-  %684 = getelementptr inbounds i8, ptr %34, i64 32
-  %685 = getelementptr inbounds i8, ptr %681, i64 32
+  %684 = getelementptr inbounds nuw i8, ptr %34, i64 32
+  %685 = getelementptr inbounds nuw i8, ptr %681, i64 32
   %686 = load i32, ptr %685, align 8
   store i32 %686, ptr %684, align 8
   %687 = icmp ult i32 %686, 65
@@ -3440,7 +3440,7 @@ _ZN4llvm8AsmTokenC2ERKS0_.exit.i:                 ; preds = %690, %688
   br i1 %707, label %708, label %714
 
 708:                                              ; preds = %699
-  %709 = getelementptr inbounds i8, ptr %704, i64 32
+  %709 = getelementptr inbounds nuw i8, ptr %704, i64 32
   %710 = load i32, ptr %709, align 8
   %711 = icmp ult i32 %710, 65
   br i1 %711, label %712, label %714
@@ -3468,7 +3468,7 @@ _ZN4llvm8AsmTokenaSERKS0_.exit.i:                 ; preds = %714, %712
   br label %_ZNK4llvm8AsmToken13getIdentifierEv.exit.i
 
 719:                                              ; preds = %_ZN4llvm8AsmTokenaSERKS0_.exit.i
-  %720 = getelementptr inbounds i8, ptr %34, i64 16
+  %720 = getelementptr inbounds nuw i8, ptr %34, i64 16
   %721 = load i64, ptr %720, align 8
   %722 = add i64 %721, -1
   %723 = icmp ne i64 %721, 0
@@ -3517,7 +3517,7 @@ _ZNK4llvm8AsmToken13getIdentifierEv.exit.i:       ; preds = %719, %718
   br i1 %745, label %746, label %752
 
 746:                                              ; preds = %737
-  %747 = getelementptr inbounds i8, ptr %742, i64 32
+  %747 = getelementptr inbounds nuw i8, ptr %742, i64 32
   %748 = load i32, ptr %747, align 8
   %749 = icmp ult i32 %748, 65
   br i1 %749, label %750, label %752
@@ -3561,7 +3561,7 @@ _ZN4llvm8AsmTokenaSERKS0_.exit50.i:               ; preds = %752, %750
   br i1 %768, label %769, label %775
 
 769:                                              ; preds = %760
-  %770 = getelementptr inbounds i8, ptr %765, i64 32
+  %770 = getelementptr inbounds nuw i8, ptr %765, i64 32
   %771 = load i32, ptr %770, align 8
   %772 = icmp ult i32 %771, 65
   br i1 %772, label %773, label %775
@@ -3610,7 +3610,7 @@ _ZN4llvm8AsmTokenaSERKS0_.exit51.i:               ; preds = %775, %773
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(34) %793, i8 0, i64 34, i1 false), !noalias !20
   %794 = getelementptr inbounds nuw i8, ptr %787, i64 112
   store ptr %786, ptr %794, align 8, !noalias !25
-  %795 = getelementptr inbounds i8, ptr %787, i64 120
+  %795 = getelementptr inbounds nuw i8, ptr %787, i64 120
   store i8 0, ptr %795, align 8, !noalias !25
   %796 = getelementptr inbounds nuw i8, ptr %787, i64 80
   %797 = getelementptr inbounds nuw i8, ptr %787, i64 104
@@ -3648,7 +3648,7 @@ _ZNSt10unique_ptrIN4llvm10X86OperandESt14default_deleteIS1_EED2Ev.exit.i: ; pred
   br i1 %810, label %811, label %817
 
 811:                                              ; preds = %806
-  %812 = getelementptr inbounds i8, ptr %807, i64 32
+  %812 = getelementptr inbounds nuw i8, ptr %807, i64 32
   %813 = load i32, ptr %812, align 8
   %814 = icmp ult i32 %813, 65
   br i1 %814, label %815, label %817
@@ -3761,7 +3761,7 @@ _ZN4llvm12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit87.i: ; preds = %_ZN4ll
   br i1 %857, label %858, label %864
 
 858:                                              ; preds = %848
-  %859 = getelementptr inbounds i8, ptr %854, i64 32
+  %859 = getelementptr inbounds nuw i8, ptr %854, i64 32
   %860 = load i32, ptr %859, align 8
   %861 = icmp ult i32 %860, 65
   br i1 %861, label %862, label %864
@@ -3936,7 +3936,7 @@ _ZNK4llvm9StringRef11starts_withES0_.exit1250.thread3323: ; preds = %674, %_ZNK4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(34) %942, i8 0, i64 34, i1 false), !noalias !27
   %943 = getelementptr inbounds nuw i8, ptr %936, i64 112
   store ptr @.str.170, ptr %943, align 8, !noalias !32
-  %944 = getelementptr inbounds i8, ptr %936, i64 120
+  %944 = getelementptr inbounds nuw i8, ptr %936, i64 120
   store i32 1, ptr %944, align 8, !noalias !32
   store ptr %936, ptr %67, align 8
   call void @_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_18MCParsedAsmOperandESt14default_deleteIS2_EELb0EE9push_backEOS5_(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(8) %67)
@@ -4056,7 +4056,7 @@ _ZNSt10unique_ptrIN4llvm10X86OperandESt14default_deleteIS1_EED2Ev.exit1262: ; pr
   %1005 = getelementptr inbounds nuw i8, ptr %1004, i64 8
   %1006 = load ptr, ptr %1005, align 8
   %1007 = getelementptr inbounds nuw i8, ptr %1006, i64 24
-  %1008 = getelementptr inbounds i8, ptr %1006, i64 32
+  %1008 = getelementptr inbounds nuw i8, ptr %1006, i64 32
   %1009 = load i32, ptr %1008, align 8
   %1010 = icmp ult i32 %1009, 65
   %1011 = load ptr, ptr %1007, align 8
@@ -4183,7 +4183,7 @@ _ZNSt10unique_ptrIN4llvm10X86OperandESt14default_deleteIS1_EED2Ev.exit1262: ; pr
   br label %_ZN4llvmplERKNS_5TwineES2_.exit.i
 
 1052:                                             ; preds = %1040
-  %1053 = getelementptr inbounds i8, ptr %1047, i64 16
+  %1053 = getelementptr inbounds nuw i8, ptr %1047, i64 16
   %1054 = load i64, ptr %1053, align 8
   %1055 = add i64 %1054, -1
   %1056 = icmp ne i64 %1054, 0
@@ -4916,7 +4916,7 @@ _ZN4llvm9StringRefC2EPKc.exit:                    ; preds = %_ZN4llvmeqENS_9Stri
   %1352 = getelementptr inbounds nuw i8, ptr %1350, i64 112
   store ptr %.sroa.10.3, ptr %1352, align 8
   %1353 = trunc i64 %1351 to i32
-  %1354 = getelementptr inbounds i8, ptr %1350, i64 120
+  %1354 = getelementptr inbounds nuw i8, ptr %1350, i64 120
   store i32 %1353, ptr %1354, align 8
   br label %_ZN4llvmeqENS_9StringRefES0_.exit1297.thread3335
 
@@ -6137,7 +6137,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit1694.thread:     ; preds = %_ZN4llvmeqENS_9Stri
   %1712 = getelementptr inbounds nuw i8, ptr %1711, i64 48
   %1713 = load i32, ptr %1712, align 8
   %1714 = icmp eq i32 %1713, 3
-  %1715 = getelementptr inbounds i8, ptr %1711, i64 144
+  %1715 = getelementptr inbounds nuw i8, ptr %1711, i64 144
   %1716 = load i32, ptr %1715, align 8
   %1717 = and i32 %1716, -9
   %spec.select.i1699 = icmp eq i32 %1717, 0
@@ -6162,7 +6162,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit1694.thread:     ; preds = %_ZN4llvmeqENS_9Stri
   %1729 = load ptr, ptr %1728, align 8
   %1730 = getelementptr inbounds nuw i8, ptr %1729, i64 112
   store ptr @.str.237, ptr %1730, align 8
-  %1731 = getelementptr inbounds i8, ptr %1729, i64 120
+  %1731 = getelementptr inbounds nuw i8, ptr %1729, i64 120
   store i32 5, ptr %1731, align 8
   br label %_ZN4llvmeqENS_9StringRefES0_.exit1698.thread3572
 
@@ -6269,7 +6269,7 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_112X86AsmParser14ParseDirect
   br label %_ZNK4llvm8AsmToken13getIdentifierEv.exit
 
 17:                                               ; preds = %2
-  %18 = getelementptr inbounds i8, ptr %1, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %19 = load i64, ptr %18, align 8
   %20 = add i64 %19, -1
   %21 = icmp ne i64 %19, 0
@@ -6448,7 +6448,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit25.thread50.i:   ; preds = %_ZN4llvmeqENS_9Stri
   store ptr @.str.452, ptr %7, align 8, !alias.scope !40
   %113 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr %.sroa.0.0.copyload.i.pn.i, ptr %113, align 8, !alias.scope !40
-  %114 = getelementptr inbounds i8, ptr %7, i64 24
+  %114 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store i64 %28, ptr %114, align 8, !alias.scope !40
   %115 = call noundef zeroext i1 @_ZN4llvm11MCAsmParser5ErrorENS_5SMLocERKNS_5TwineENS_7SMRangeE(ptr noundef nonnull align 8 dereferenceable(34) %37, ptr %36, ptr noundef nonnull align 8 dereferenceable(34) %7, ptr null, ptr null) #23
   br label %_ZN12_GLOBAL__N_112X86AsmParser18ParseDirectiveCodeEN4llvm9StringRefENS1_5SMLocE.exit
@@ -7105,7 +7105,7 @@ _ZN4llvm9StringRefC2EPKc.exit.i:                  ; preds = %63, %_ZN4llvm12Stri
   %73 = getelementptr inbounds nuw i8, ptr %66, i64 112
   store ptr %.sroa.18.797.i, ptr %73, align 8, !noalias !48
   %74 = trunc i64 %64 to i32
-  %75 = getelementptr inbounds i8, ptr %66, i64 120
+  %75 = getelementptr inbounds nuw i8, ptr %66, i64 120
   store i32 %74, ptr %75, align 8, !noalias !48
   %76 = load ptr, ptr %3, align 8
   %77 = load ptr, ptr %76, align 8
@@ -7280,7 +7280,7 @@ _ZL11getPrefixesRN4llvm15SmallVectorImplISt10unique_ptrINS_18MCParsedAsmOperandE
   %144 = getelementptr inbounds nuw i8, ptr %143, i64 48
   %145 = load i32, ptr %144, align 8
   %146 = icmp eq i32 %145, 3
-  %147 = getelementptr inbounds i8, ptr %143, i64 144
+  %147 = getelementptr inbounds nuw i8, ptr %143, i64 144
   %148 = load i32, ptr %147, align 8
   %149 = icmp eq i32 %148, 0
   %150 = select i1 %146, i1 %149, i1 false
@@ -7291,19 +7291,19 @@ _ZL11getPrefixesRN4llvm15SmallVectorImplISt10unique_ptrINS_18MCParsedAsmOperandE
   %152 = load ptr, ptr %151, align 8
   %153 = getelementptr inbounds nuw i8, ptr %152, i64 112
   %154 = load ptr, ptr %153, align 8
-  %155 = getelementptr inbounds i8, ptr %152, i64 120
+  %155 = getelementptr inbounds nuw i8, ptr %152, i64 120
   %156 = load i32, ptr %155, align 8
   %.fr295303.i = freeze i32 %156
   %157 = zext i32 %.fr295303.i to i64
   br label %.loopexit.i
 
 .preheader288.i:                                  ; preds = %.lr.ph.i
-  %158 = getelementptr inbounds i8, ptr %143, i64 144
+  %158 = getelementptr inbounds nuw i8, ptr %143, i64 144
   %159 = load ptr, ptr %3, align 8
   %160 = load ptr, ptr %159, align 8
   %161 = getelementptr inbounds nuw i8, ptr %160, i64 112
   %162 = load ptr, ptr %161, align 8
-  %163 = getelementptr inbounds i8, ptr %160, i64 120
+  %163 = getelementptr inbounds nuw i8, ptr %160, i64 120
   %164 = load i32, ptr %163, align 8
   %.fr295.i = freeze i32 %164
   %165 = zext i32 %.fr295.i to i64
@@ -7401,7 +7401,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit.thread255.i:    ; preds = %_ZN4llvmeqENS_9Stri
   %196 = load ptr, ptr %195, align 8
   %197 = getelementptr inbounds nuw i8, ptr %196, i64 112
   %198 = load ptr, ptr %197, align 8
-  %199 = getelementptr inbounds i8, ptr %196, i64 120
+  %199 = getelementptr inbounds nuw i8, ptr %196, i64 120
   %200 = load i32, ptr %199, align 8
   %201 = zext i32 %200 to i64
   %.not.i156.i = icmp eq i32 %.fr295305.i, 4
@@ -7519,7 +7519,7 @@ _ZN4llvm6isIntNEjl.exit.thread.i:                 ; preds = %_ZN4llvm7isUIntNEjm
   %261 = getelementptr inbounds nuw i8, ptr %138, i64 112
   store ptr %259, ptr %261, align 8
   %262 = trunc i64 %260 to i32
-  %263 = getelementptr inbounds i8, ptr %138, i64 120
+  %263 = getelementptr inbounds nuw i8, ptr %138, i64 120
   store i32 %262, ptr %263, align 8
   %264 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %265 = load i8, ptr %264, align 8
@@ -7577,7 +7577,7 @@ _ZN4llvm11SmallStringILj16EED2Ev.exit.i:          ; preds = %285, %_ZN4llvm23Sma
   %287 = getelementptr inbounds nuw i8, ptr %.0129304.i, i64 48
   %288 = load i32, ptr %287, align 8
   %289 = icmp eq i32 %288, 3
-  %290 = getelementptr inbounds i8, ptr %.0129304.i, i64 144
+  %290 = getelementptr inbounds nuw i8, ptr %.0129304.i, i64 144
   %291 = load i32, ptr %290, align 8
   %292 = icmp eq i32 %291, 0
   %293 = select i1 %289, i1 %292, i1 false
@@ -7734,7 +7734,7 @@ _ZN4llvm23SmallVectorTemplateBaseIjLb1EE9push_backEj.exit171.i: ; preds = %355, 
   br i1 %191, label %369, label %371
 
 369:                                              ; preds = %368
-  %370 = getelementptr inbounds i8, ptr %.0129304.i, i64 144
+  %370 = getelementptr inbounds nuw i8, ptr %.0129304.i, i64 144
   store i32 0, ptr %370, align 8
   br label %371
 
@@ -7755,7 +7755,7 @@ _ZN4llvmplERKNS_5TwineES2_.exit.i:                ; preds = %371
   store ptr @.str.486, ptr %35, align 8, !alias.scope !49
   %380 = getelementptr inbounds nuw i8, ptr %35, i64 16
   store ptr %193, ptr %380, align 8, !alias.scope !49
-  %381 = getelementptr inbounds i8, ptr %35, i64 24
+  %381 = getelementptr inbounds nuw i8, ptr %35, i64 24
   store i64 %192, ptr %381, align 8, !alias.scope !49
   store ptr %35, ptr %34, align 8, !alias.scope !52
   %382 = getelementptr inbounds nuw i8, ptr %34, i64 16
@@ -7816,13 +7816,13 @@ _ZN4llvm5countIRNS_11SmallVectorIjLj8EEENS_17MCTargetAsmParser13MatchResultTyEEE
   br i1 %or.cond.i, label %410, label %437
 
 410:                                              ; preds = %_ZN4llvm5countIRNS_11SmallVectorIjLj8EEENS_17MCTargetAsmParser13MatchResultTyEEEDaOT_RKT0_.exit.i
-  %411 = getelementptr inbounds i8, ptr %.0129304.i, i64 152
+  %411 = getelementptr inbounds nuw i8, ptr %.0129304.i, i64 152
   %412 = load i32, ptr %411, align 8
   %.not139.i = icmp eq i32 %412, 0
   br i1 %.not139.i, label %437, label %413
 
 413:                                              ; preds = %410
-  %414 = getelementptr inbounds i8, ptr %.0129304.i, i64 144
+  %414 = getelementptr inbounds nuw i8, ptr %.0129304.i, i64 144
   store i32 %412, ptr %414, align 8
   %.val.i = load ptr, ptr %131, align 8
   %415 = load ptr, ptr %.val.i, align 8
@@ -7908,7 +7908,7 @@ _ZN4llvmplERKNS_5TwineES2_.exit193.i:             ; preds = %437
   store ptr @.str.488, ptr %41, align 8, !alias.scope !59
   %448 = getelementptr inbounds nuw i8, ptr %41, i64 16
   store ptr %193, ptr %448, align 8, !alias.scope !59
-  %449 = getelementptr inbounds i8, ptr %41, i64 24
+  %449 = getelementptr inbounds nuw i8, ptr %41, i64 24
   store i64 %192, ptr %449, align 8, !alias.scope !59
   store ptr %41, ptr %40, align 8, !alias.scope !62
   %450 = getelementptr inbounds nuw i8, ptr %40, i64 16
@@ -8311,7 +8311,7 @@ _ZN12_GLOBAL__N_112X86AsmParser16MatchInstructionERKN4llvm15SmallVectorImplISt10
 612:                                              ; preds = %577, %577, %577
   %613 = getelementptr inbounds nuw i8, ptr %553, i64 112
   %614 = load ptr, ptr %613, align 8
-  %615 = getelementptr inbounds i8, ptr %553, i64 120
+  %615 = getelementptr inbounds nuw i8, ptr %553, i64 120
   %616 = load i32, ptr %615, align 8
   %617 = zext i32 %616 to i64
   %618 = icmp eq i32 %616, 0
@@ -8483,7 +8483,7 @@ _ZNK4llvm10X86Operand11isVectorRegEv.exit.i:      ; preds = %_ZNK4llvm15MCRegist
   %.0155.lcssa.i = phi i1 [ false, %_ZN4llvm11SmallStringILj16EEpLEc.exit.i ], [ %.0155289.i, %.lr.ph.i37 ], [ %.1156.i, %.thread277.i ]
   %.0157.i = phi ptr [ null, %_ZN4llvm11SmallStringILj16EEpLEc.exit.i ], [ %656, %.lr.ph.i37 ], [ null, %.thread277.i ]
   %.not176.i = icmp eq ptr %.0157.i, null
-  %704 = getelementptr inbounds i8, ptr %.0157.i, i64 144
+  %704 = getelementptr inbounds nuw i8, ptr %.0157.i, i64 144
   br label %705
 
 705:                                              ; preds = %738, %._crit_edge.i
@@ -8907,7 +8907,7 @@ _ZN4llvm5countIRA4_jNS_17MCTargetAsmParser13MatchResultTyEEEDaOT_RKT0_.exit228.i
   store ptr @.str.486, ptr %20, align 8, !alias.scope !73
   %886 = getelementptr inbounds nuw i8, ptr %20, i64 16
   store ptr %614, ptr %886, align 8, !alias.scope !73
-  %887 = getelementptr inbounds i8, ptr %20, i64 24
+  %887 = getelementptr inbounds nuw i8, ptr %20, i64 24
   store i64 %617, ptr %887, align 8, !alias.scope !73
   %888 = getelementptr inbounds nuw i8, ptr %21, i64 32
   %889 = getelementptr inbounds nuw i8, ptr %21, i64 33
@@ -11927,7 +11927,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112X86AsmParser13Pars
 
 78:                                               ; preds = %65
   %79 = getelementptr inbounds nuw i8, ptr %71, i64 24
-  %80 = getelementptr inbounds i8, ptr %71, i64 32
+  %80 = getelementptr inbounds nuw i8, ptr %71, i64 32
   %81 = load i32, ptr %80, align 8
   %82 = icmp ult i32 %81, 65
   %83 = load ptr, ptr %79, align 8
@@ -12108,8 +12108,8 @@ _ZN4llvm23SmallVectorTemplateBaseINS_8AsmTokenELb0EE28reserveForParamAndGetAddre
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %21, ptr noundef nonnull align 8 dereferenceable(24) %.016.i.i, i64 24, i1 false)
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 24
   %23 = getelementptr inbounds nuw i8, ptr %.016.i.i, i64 24
-  %24 = getelementptr inbounds i8, ptr %21, i64 32
-  %25 = getelementptr inbounds i8, ptr %.016.i.i, i64 32
+  %24 = getelementptr inbounds nuw i8, ptr %21, i64 32
+  %25 = getelementptr inbounds nuw i8, ptr %.016.i.i, i64 32
   %26 = load i32, ptr %25, align 8
   store i32 %26, ptr %24, align 8
   %27 = icmp ult i32 %26, 65
@@ -12149,7 +12149,7 @@ define internal fastcc void @"_ZZN12_GLOBAL__N_112X86AsmParser13ParseRegisterERN
 .lr.ph:                                           ; preds = %.preheader
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %10 = getelementptr inbounds i8, ptr %2, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 32
   br label %11
 
 11:                                               ; preds = %.lr.ph, %_ZN4llvm8AsmTokenD2Ev.exit
@@ -12174,7 +12174,7 @@ define internal fastcc void @"_ZZN12_GLOBAL__N_112X86AsmParser13ParseRegisterERN
   %24 = load ptr, ptr %13, align 8, !noalias !183
   %25 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %13) #23, !noalias !183
   %26 = getelementptr inbounds %"class.llvm::AsmToken", ptr %24, i64 %25
-  %27 = getelementptr inbounds i8, ptr %26, i64 32
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 32
   %28 = load i32, ptr %27, align 8, !noalias !183
   %29 = icmp ugt i32 %28, 64
   br i1 %29, label %30, label %_ZN4llvm15SmallVectorImplINS_8AsmTokenEE12pop_back_valEv.exit
@@ -12372,7 +12372,7 @@ _ZN4llvmplERKNS_5TwineES2_.exit:                  ; preds = %40, %_ZNK4llvm15MCR
   %59 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store ptr %58, ptr %59, align 8, !alias.scope !187
   %60 = load i64, ptr %12, align 8, !noalias !187
-  %61 = getelementptr inbounds i8, ptr %10, i64 24
+  %61 = getelementptr inbounds nuw i8, ptr %10, i64 24
   store i64 %60, ptr %61, align 8, !alias.scope !187
   store ptr %10, ptr %9, align 8, !alias.scope !190
   %62 = getelementptr inbounds nuw i8, ptr %9, i64 16
@@ -12560,8 +12560,8 @@ define linkonce_odr void @_ZN4llvm23SmallVectorTemplateBaseINS_8AsmTokenELb0EE4g
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.09.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.04.08.i.i.i.i.i.i, i64 24, i1 false)
   %9 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i.i, i64 24
   %10 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i.i.i, i64 24
-  %11 = getelementptr inbounds i8, ptr %.09.i.i.i.i.i.i, i64 32
-  %12 = getelementptr inbounds i8, ptr %.sroa.04.08.i.i.i.i.i.i, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i.i, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i.i.i, i64 32
   %13 = load i32, ptr %12, align 8
   store i32 %13, ptr %11, align 8
   %14 = load i64, ptr %10, align 8
@@ -12694,7 +12694,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_8AsmTokenELb0EE28reserveForParamAndGetAddre
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %37, ptr noundef nonnull align 8 dereferenceable(24) %41, i64 24, i1 false)
   %42 = getelementptr inbounds nuw i8, ptr %37, i64 24
   %43 = getelementptr inbounds i8, ptr %40, i64 -16
-  %44 = getelementptr inbounds i8, ptr %37, i64 32
+  %44 = getelementptr inbounds nuw i8, ptr %37, i64 32
   %45 = getelementptr inbounds i8, ptr %40, i64 -8
   %46 = load i32, ptr %45, align 8
   store i32 %46, ptr %44, align 8
@@ -12767,13 +12767,13 @@ _ZSt13move_backwardIPN4llvm8AsmTokenES2_ET0_T_S4_S3_.exit: ; preds = %_ZN4llvm8A
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %35, ptr noundef nonnull align 8 dereferenceable(24) %spec.select, i64 24, i1 false)
   %83 = getelementptr inbounds nuw i8, ptr %35, i64 24
   %84 = getelementptr inbounds nuw i8, ptr %spec.select, i64 24
-  %85 = getelementptr inbounds i8, ptr %35, i64 32
+  %85 = getelementptr inbounds nuw i8, ptr %35, i64 32
   %86 = load i32, ptr %85, align 8
   %87 = icmp ult i32 %86, 65
   br i1 %87, label %88, label %95
 
 88:                                               ; preds = %_ZSt13move_backwardIPN4llvm8AsmTokenES2_ET0_T_S4_S3_.exit
-  %89 = getelementptr inbounds i8, ptr %spec.select, i64 32
+  %89 = getelementptr inbounds nuw i8, ptr %spec.select, i64 32
   %90 = load i32, ptr %89, align 8
   %91 = icmp ult i32 %90, 65
   br i1 %91, label %92, label %95
@@ -13139,8 +13139,8 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(121) ptr @_ZN
   %14 = getelementptr inbounds nuw i8, ptr %5, i64 20
   store i8 0, ptr %14, align 4
   %15 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  %16 = getelementptr inbounds i8, ptr %5, i64 56
-  %17 = getelementptr inbounds i8, ptr %5, i64 112
+  %16 = getelementptr inbounds nuw i8, ptr %5, i64 56
+  %17 = getelementptr inbounds nuw i8, ptr %5, i64 112
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %16, i8 0, i64 56, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %15, i8 0, i64 25, i1 false)
   store i32 1, ptr %17, align 8
@@ -13169,8 +13169,8 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(121) ptr @_ZN
   %31 = getelementptr inbounds nuw i8, ptr %25, i64 20
   store i8 0, ptr %31, align 4
   %32 = getelementptr inbounds nuw i8, ptr %25, i64 24
-  %33 = getelementptr inbounds i8, ptr %25, i64 56
-  %34 = getelementptr inbounds i8, ptr %25, i64 112
+  %33 = getelementptr inbounds nuw i8, ptr %25, i64 56
+  %34 = getelementptr inbounds nuw i8, ptr %25, i64 112
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %33, i8 0, i64 56, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %32, i8 0, i64 25, i1 false)
   store i32 1, ptr %34, align 8
@@ -13210,7 +13210,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(40) ptr @_ZN4
   call void %13(ptr dead_on_unwind nonnull writable sret(%"class.llvm::AsmToken") align 8 %2, ptr noundef nonnull align 8 dereferenceable(144) %0) #23
   %14 = load ptr, ptr %3, align 8
   %15 = call noundef ptr @_ZN4llvm15SmallVectorImplINS_8AsmTokenEE15insert_one_implIRKS1_EEPS1_S6_OT_(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef %14, ptr noundef nonnull align 8 dereferenceable(40) %2)
-  %16 = getelementptr inbounds i8, ptr %2, i64 32
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %17 = load i32, ptr %16, align 8
   %18 = icmp ugt i32 %17, 64
   br i1 %18, label %19, label %_ZN4llvm8AsmTokenD2Ev.exit
@@ -13299,7 +13299,7 @@ define linkonce_odr hidden void @_ZN4llvm10X86Operand11CreateTokenENS_9StringRef
   %13 = getelementptr inbounds nuw i8, ptr %6, i64 112
   store ptr %1, ptr %13, align 8
   %14 = trunc i64 %2 to i32
-  %15 = getelementptr inbounds i8, ptr %6, i64 120
+  %15 = getelementptr inbounds nuw i8, ptr %6, i64 120
   store i32 %14, ptr %15, align 8
   ret void
 }
@@ -13346,7 +13346,7 @@ define linkonce_odr hidden void @_ZN4llvm10X86Operand9CreateImmEPKNS_6MCExprENS_
   %16 = getelementptr inbounds nuw i8, ptr %9, i64 112
   store ptr %1, ptr %16, align 8
   %17 = xor i1 %7, true
-  %18 = getelementptr inbounds i8, ptr %9, i64 120
+  %18 = getelementptr inbounds nuw i8, ptr %9, i64 120
   %19 = zext i1 %17 to i8
   store i8 %19, ptr %18, align 8
   %20 = getelementptr inbounds nuw i8, ptr %9, i64 80
@@ -13857,10 +13857,10 @@ _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit.thread.i: ; preds = %_
   %227 = getelementptr inbounds i8, ptr %89, i64 72
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %225, i8 0, i64 48, i1 false)
   call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %226, ptr noundef nonnull %227, i64 noundef 4) #23
-  %228 = getelementptr inbounds i8, ptr %89, i64 88
+  %228 = getelementptr inbounds nuw i8, ptr %89, i64 88
   %229 = getelementptr inbounds i8, ptr %89, i64 104
   call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %228, ptr noundef nonnull %229, i64 noundef 4) #23
-  %230 = getelementptr inbounds i8, ptr %89, i64 192
+  %230 = getelementptr inbounds nuw i8, ptr %89, i64 192
   store i32 0, ptr %230, align 8
   %231 = getelementptr inbounds nuw i8, ptr %89, i64 200
   %232 = getelementptr inbounds nuw i8, ptr %89, i64 208
@@ -14098,7 +14098,7 @@ _ZN12_GLOBAL__N_112X86AsmParser22RewriteIntelExpressionERNS0_21IntelExprStateMac
   %333 = getelementptr inbounds i8, ptr %89, i64 48
   %.val122.i = load i64, ptr %333, align 8
   %334 = load ptr, ptr %331, align 8
-  %335 = getelementptr inbounds i8, ptr %89, i64 176
+  %335 = getelementptr inbounds nuw i8, ptr %89, i64 176
   %336 = load i8, ptr %335, align 8
   %337 = trunc i8 %336 to i1
   call void @_ZN4llvm10X86Operand9CreateImmEPKNS_6MCExprENS_5SMLocES4_NS_9StringRefEPvb(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr.174") align 8 %91, ptr noundef %spec.select.i, ptr %.sroa.049.0.copyload.i, ptr %.sroa.048.0.copyload.i, ptr %.val121.i, i64 %.val122.i, ptr noundef %334, i1 noundef zeroext %337)
@@ -14142,7 +14142,7 @@ _ZNSt10unique_ptrIN4llvm18MCParsedAsmOperandESt14default_deleteIS1_EED2Ev.exit14
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(34) %350, i8 0, i64 34, i1 false), !noalias !206
   %351 = getelementptr inbounds nuw i8, ptr %344, i64 112
   store ptr %spec.select.i, ptr %351, align 8, !noalias !211
-  %352 = getelementptr inbounds i8, ptr %344, i64 120
+  %352 = getelementptr inbounds nuw i8, ptr %344, i64 120
   store i8 0, ptr %352, align 8, !noalias !211
   %353 = getelementptr inbounds nuw i8, ptr %344, i64 80
   %354 = getelementptr inbounds nuw i8, ptr %344, i64 104
@@ -14521,23 +14521,23 @@ _ZN12_GLOBAL__N_112X86AsmParser15getPointerWidthEv.exit.i.i: ; preds = %511, %50
   store i64 0, ptr %524, align 8, !noalias !217
   %525 = getelementptr inbounds nuw i8, ptr %518, i64 112
   store i32 0, ptr %525, align 8, !noalias !217
-  %526 = getelementptr inbounds i8, ptr %518, i64 120
+  %526 = getelementptr inbounds nuw i8, ptr %518, i64 120
   store ptr %spec.select.i, ptr %526, align 8, !noalias !217
-  %527 = getelementptr inbounds i8, ptr %518, i64 128
+  %527 = getelementptr inbounds nuw i8, ptr %518, i64 128
   store i32 0, ptr %527, align 8, !noalias !217
-  %528 = getelementptr inbounds i8, ptr %518, i64 132
+  %528 = getelementptr inbounds nuw i8, ptr %518, i64 132
   store i32 0, ptr %528, align 4, !noalias !217
-  %529 = getelementptr inbounds i8, ptr %518, i64 136
+  %529 = getelementptr inbounds nuw i8, ptr %518, i64 136
   store i32 0, ptr %529, align 8, !noalias !217
-  %530 = getelementptr inbounds i8, ptr %518, i64 140
+  %530 = getelementptr inbounds nuw i8, ptr %518, i64 140
   store i32 1, ptr %530, align 4, !noalias !217
-  %531 = getelementptr inbounds i8, ptr %518, i64 144
+  %531 = getelementptr inbounds nuw i8, ptr %518, i64 144
   store i32 %.0251.i, ptr %531, align 8, !noalias !217
-  %532 = getelementptr inbounds i8, ptr %518, i64 148
+  %532 = getelementptr inbounds nuw i8, ptr %518, i64 148
   store i32 %.0.i.i.i, ptr %532, align 4, !noalias !217
-  %533 = getelementptr inbounds i8, ptr %518, i64 152
+  %533 = getelementptr inbounds nuw i8, ptr %518, i64 152
   store i32 0, ptr %533, align 8, !noalias !217
-  %534 = getelementptr inbounds i8, ptr %518, i64 156
+  %534 = getelementptr inbounds nuw i8, ptr %518, i64 156
   store i8 1, ptr %534, align 4, !noalias !217
   %535 = getelementptr inbounds nuw i8, ptr %518, i64 105
   store i8 0, ptr %535, align 1, !noalias !217
@@ -14557,11 +14557,11 @@ _ZN12_GLOBAL__N_112X86AsmParser15getPointerWidthEv.exit.i.i: ; preds = %511, %50
 
 540:                                              ; preds = %494
   %541 = icmp eq i32 %499, 3
-  %542 = getelementptr inbounds i8, ptr %89, i64 188
+  %542 = getelementptr inbounds nuw i8, ptr %89, i64 188
   %543 = load i32, ptr %542, align 4
   %544 = shl i32 %543, 3
   %545 = load ptr, ptr %498, align 8
-  %546 = getelementptr inbounds i8, ptr %89, i64 176
+  %546 = getelementptr inbounds nuw i8, ptr %89, i64 176
   %547 = load i8, ptr %546, align 8
   %548 = trunc i8 %547 to i1
   %.040.i.i = select i1 %541, i1 %548, i1 false
@@ -14620,23 +14620,23 @@ _ZN12_GLOBAL__N_112X86AsmParser15getPointerWidthEv.exit46.i.i: ; preds = %561, %
   store i64 0, ptr %575, align 8, !noalias !223
   %576 = getelementptr inbounds nuw i8, ptr %569, i64 112
   store i32 0, ptr %576, align 8, !noalias !223
-  %577 = getelementptr inbounds i8, ptr %569, i64 120
+  %577 = getelementptr inbounds nuw i8, ptr %569, i64 120
   store ptr %spec.select.i, ptr %577, align 8, !noalias !223
-  %578 = getelementptr inbounds i8, ptr %569, i64 128
+  %578 = getelementptr inbounds nuw i8, ptr %569, i64 128
   store i32 0, ptr %578, align 8, !noalias !223
-  %579 = getelementptr inbounds i8, ptr %569, i64 132
+  %579 = getelementptr inbounds nuw i8, ptr %569, i64 132
   store i32 0, ptr %579, align 4, !noalias !223
-  %580 = getelementptr inbounds i8, ptr %569, i64 136
+  %580 = getelementptr inbounds nuw i8, ptr %569, i64 136
   store i32 0, ptr %580, align 8, !noalias !223
-  %581 = getelementptr inbounds i8, ptr %569, i64 140
+  %581 = getelementptr inbounds nuw i8, ptr %569, i64 140
   store i32 1, ptr %581, align 4, !noalias !223
-  %582 = getelementptr inbounds i8, ptr %569, i64 144
+  %582 = getelementptr inbounds nuw i8, ptr %569, i64 144
   store i32 %.0251.i, ptr %582, align 8, !noalias !223
-  %583 = getelementptr inbounds i8, ptr %569, i64 148
+  %583 = getelementptr inbounds nuw i8, ptr %569, i64 148
   store i32 %.0.i44.i.i, ptr %583, align 4, !noalias !223
-  %584 = getelementptr inbounds i8, ptr %569, i64 152
+  %584 = getelementptr inbounds nuw i8, ptr %569, i64 152
   store i32 0, ptr %584, align 8, !noalias !223
-  %585 = getelementptr inbounds i8, ptr %569, i64 156
+  %585 = getelementptr inbounds nuw i8, ptr %569, i64 156
   store i8 1, ptr %585, align 4, !noalias !223
   %586 = getelementptr inbounds nuw i8, ptr %569, i64 105
   store i8 %568, ptr %586, align 1, !noalias !223
@@ -14699,23 +14699,23 @@ _ZN12_GLOBAL__N_112X86AsmParser15getPointerWidthEv.exit56.i.i: ; preds = %601, %
   store i64 0, ptr %613, align 8, !noalias !229
   %614 = getelementptr inbounds nuw i8, ptr %607, i64 112
   store i32 %495, ptr %614, align 8, !noalias !229
-  %615 = getelementptr inbounds i8, ptr %607, i64 120
+  %615 = getelementptr inbounds nuw i8, ptr %607, i64 120
   store ptr %spec.select.i, ptr %615, align 8, !noalias !229
-  %616 = getelementptr inbounds i8, ptr %607, i64 128
+  %616 = getelementptr inbounds nuw i8, ptr %607, i64 128
   store i32 %.037.i.i, ptr %616, align 8, !noalias !229
-  %617 = getelementptr inbounds i8, ptr %607, i64 132
+  %617 = getelementptr inbounds nuw i8, ptr %607, i64 132
   store i32 58, ptr %617, align 4, !noalias !229
-  %618 = getelementptr inbounds i8, ptr %607, i64 136
+  %618 = getelementptr inbounds nuw i8, ptr %607, i64 136
   store i32 %.2257277.i, ptr %618, align 8, !noalias !229
-  %619 = getelementptr inbounds i8, ptr %607, i64 140
+  %619 = getelementptr inbounds nuw i8, ptr %607, i64 140
   store i32 %spec.store.select.i, ptr %619, align 4, !noalias !229
-  %620 = getelementptr inbounds i8, ptr %607, i64 144
+  %620 = getelementptr inbounds nuw i8, ptr %607, i64 144
   store i32 %.0251.i, ptr %620, align 8, !noalias !229
-  %621 = getelementptr inbounds i8, ptr %607, i64 148
+  %621 = getelementptr inbounds nuw i8, ptr %607, i64 148
   store i32 %.0.i54.i.i, ptr %621, align 4, !noalias !229
-  %622 = getelementptr inbounds i8, ptr %607, i64 152
+  %622 = getelementptr inbounds nuw i8, ptr %607, i64 152
   store i32 %.038.i.i, ptr %622, align 8, !noalias !229
-  %623 = getelementptr inbounds i8, ptr %607, i64 156
+  %623 = getelementptr inbounds nuw i8, ptr %607, i64 156
   store i8 1, ptr %623, align 4, !noalias !229
   %624 = getelementptr inbounds nuw i8, ptr %607, i64 105
   store i8 0, ptr %624, align 1, !noalias !229
@@ -15075,7 +15075,7 @@ _ZN12_GLOBAL__N_112X86AsmParser17parseIntelOperandERN4llvm15SmallVectorImplISt10
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(34) %768, i8 0, i64 34, i1 false), !noalias !230
   %769 = getelementptr inbounds nuw i8, ptr %762, i64 112
   store ptr %761, ptr %769, align 8, !noalias !235
-  %770 = getelementptr inbounds i8, ptr %762, i64 120
+  %770 = getelementptr inbounds nuw i8, ptr %762, i64 120
   store i8 0, ptr %770, align 8, !noalias !235
   %771 = getelementptr inbounds nuw i8, ptr %762, i64 80
   %772 = getelementptr inbounds nuw i8, ptr %762, i64 104
@@ -15386,7 +15386,7 @@ _ZNSt10unique_ptrIN4llvm18MCParsedAsmOperandESt14default_deleteIS1_EED2Ev.exit56
   %857 = getelementptr inbounds nuw i8, ptr %.ptr.i.i.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %857, i8 0, i64 16, i1 false)
   %858 = getelementptr inbounds nuw i8, ptr %.ptr.i.i.i, i64 24
-  %859 = getelementptr inbounds i8, ptr %.ptr.i.i.i, i64 32
+  %859 = getelementptr inbounds nuw i8, ptr %.ptr.i.i.i, i64 32
   store i32 1, ptr %859, align 8
   store i64 0, ptr %858, align 8
   %.add.i.i.i = add nuw nsw i64 %.idx.i.i.i, 40
@@ -15471,7 +15471,7 @@ _ZNK4llvm8AsmToken13getIdentifierEv.exit.i.i.i:   ; preds = %889, %885
   br label %.critedge.i.i.i
 
 901:                                              ; preds = %897
-  %902 = getelementptr inbounds i8, ptr %5, i64 16
+  %902 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %903 = load i64, ptr %902, align 16
   %904 = add i64 %903, -1
   %905 = icmp ne i64 %903, 0
@@ -15628,23 +15628,23 @@ _ZN12_GLOBAL__N_112X86AsmParser15getPointerWidthEv.exit.i.i12: ; preds = %974, %
   store i64 0, ptr %987, align 8, !noalias !241
   %988 = getelementptr inbounds nuw i8, ptr %981, i64 112
   store i32 0, ptr %988, align 8, !noalias !241
-  %989 = getelementptr inbounds i8, ptr %981, i64 120
+  %989 = getelementptr inbounds nuw i8, ptr %981, i64 120
   store ptr %980, ptr %989, align 8, !noalias !241
-  %990 = getelementptr inbounds i8, ptr %981, i64 128
+  %990 = getelementptr inbounds nuw i8, ptr %981, i64 128
   store i32 0, ptr %990, align 8, !noalias !241
-  %991 = getelementptr inbounds i8, ptr %981, i64 132
+  %991 = getelementptr inbounds nuw i8, ptr %981, i64 132
   store i32 0, ptr %991, align 4, !noalias !241
-  %992 = getelementptr inbounds i8, ptr %981, i64 136
+  %992 = getelementptr inbounds nuw i8, ptr %981, i64 136
   store i32 0, ptr %992, align 8, !noalias !241
-  %993 = getelementptr inbounds i8, ptr %981, i64 140
+  %993 = getelementptr inbounds nuw i8, ptr %981, i64 140
   store i32 1, ptr %993, align 4, !noalias !241
-  %994 = getelementptr inbounds i8, ptr %981, i64 144
+  %994 = getelementptr inbounds nuw i8, ptr %981, i64 144
   store i32 0, ptr %994, align 8, !noalias !241
-  %995 = getelementptr inbounds i8, ptr %981, i64 148
+  %995 = getelementptr inbounds nuw i8, ptr %981, i64 148
   store i32 %.0.i106.i.i, ptr %995, align 4, !noalias !241
-  %996 = getelementptr inbounds i8, ptr %981, i64 152
+  %996 = getelementptr inbounds nuw i8, ptr %981, i64 152
   store i32 0, ptr %996, align 8, !noalias !241
-  %997 = getelementptr inbounds i8, ptr %981, i64 156
+  %997 = getelementptr inbounds nuw i8, ptr %981, i64 156
   store i8 1, ptr %997, align 4, !noalias !241
   %998 = getelementptr inbounds nuw i8, ptr %981, i64 80
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(26) %998, i8 0, i64 26, i1 false)
@@ -15702,23 +15702,23 @@ _ZN12_GLOBAL__N_112X86AsmParser15getPointerWidthEv.exit112.i.i: ; preds = %1009,
   store i64 0, ptr %1022, align 8, !noalias !247
   %1023 = getelementptr inbounds nuw i8, ptr %1016, i64 112
   store i32 %.04280.i, ptr %1023, align 8, !noalias !247
-  %1024 = getelementptr inbounds i8, ptr %1016, i64 120
+  %1024 = getelementptr inbounds nuw i8, ptr %1016, i64 120
   store ptr %1015, ptr %1024, align 8, !noalias !247
-  %1025 = getelementptr inbounds i8, ptr %1016, i64 128
+  %1025 = getelementptr inbounds nuw i8, ptr %1016, i64 128
   store i32 0, ptr %1025, align 8, !noalias !247
-  %1026 = getelementptr inbounds i8, ptr %1016, i64 132
+  %1026 = getelementptr inbounds nuw i8, ptr %1016, i64 132
   store i32 0, ptr %1026, align 4, !noalias !247
-  %1027 = getelementptr inbounds i8, ptr %1016, i64 136
+  %1027 = getelementptr inbounds nuw i8, ptr %1016, i64 136
   store i32 0, ptr %1027, align 8, !noalias !247
-  %1028 = getelementptr inbounds i8, ptr %1016, i64 140
+  %1028 = getelementptr inbounds nuw i8, ptr %1016, i64 140
   store i32 1, ptr %1028, align 4, !noalias !247
-  %1029 = getelementptr inbounds i8, ptr %1016, i64 144
+  %1029 = getelementptr inbounds nuw i8, ptr %1016, i64 144
   store i32 0, ptr %1029, align 8, !noalias !247
-  %1030 = getelementptr inbounds i8, ptr %1016, i64 148
+  %1030 = getelementptr inbounds nuw i8, ptr %1016, i64 148
   store i32 %.0.i110.i.i, ptr %1030, align 4, !noalias !247
-  %1031 = getelementptr inbounds i8, ptr %1016, i64 152
+  %1031 = getelementptr inbounds nuw i8, ptr %1016, i64 152
   store i32 0, ptr %1031, align 8, !noalias !247
-  %1032 = getelementptr inbounds i8, ptr %1016, i64 156
+  %1032 = getelementptr inbounds nuw i8, ptr %1016, i64 156
   store i8 1, ptr %1032, align 4, !noalias !247
   %1033 = getelementptr inbounds nuw i8, ptr %1016, i64 80
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(26) %1033, i8 0, i64 26, i1 false)
@@ -16338,23 +16338,23 @@ _ZN12_GLOBAL__N_112X86AsmParser15getPointerWidthEv.exit146.i.i: ; preds = %1337,
   store i64 0, ptr %1350, align 8, !noalias !253
   %1351 = getelementptr inbounds nuw i8, ptr %1344, i64 112
   store i32 %.04280.i, ptr %1351, align 8, !noalias !253
-  %1352 = getelementptr inbounds i8, ptr %1344, i64 120
+  %1352 = getelementptr inbounds nuw i8, ptr %1344, i64 120
   store ptr %1343, ptr %1352, align 8, !noalias !253
-  %1353 = getelementptr inbounds i8, ptr %1344, i64 128
+  %1353 = getelementptr inbounds nuw i8, ptr %1344, i64 128
   store i32 %.087.i.i, ptr %1353, align 8, !noalias !253
-  %1354 = getelementptr inbounds i8, ptr %1344, i64 132
+  %1354 = getelementptr inbounds nuw i8, ptr %1344, i64 132
   store i32 0, ptr %1354, align 4, !noalias !253
-  %1355 = getelementptr inbounds i8, ptr %1344, i64 136
+  %1355 = getelementptr inbounds nuw i8, ptr %1344, i64 136
   store i32 %.088.i.i, ptr %1355, align 8, !noalias !253
-  %1356 = getelementptr inbounds i8, ptr %1344, i64 140
+  %1356 = getelementptr inbounds nuw i8, ptr %1344, i64 140
   store i32 %.089.i.i, ptr %1356, align 4, !noalias !253
-  %1357 = getelementptr inbounds i8, ptr %1344, i64 144
+  %1357 = getelementptr inbounds nuw i8, ptr %1344, i64 144
   store i32 0, ptr %1357, align 8, !noalias !253
-  %1358 = getelementptr inbounds i8, ptr %1344, i64 148
+  %1358 = getelementptr inbounds nuw i8, ptr %1344, i64 148
   store i32 %.0.i144.i.i, ptr %1358, align 4, !noalias !253
-  %1359 = getelementptr inbounds i8, ptr %1344, i64 152
+  %1359 = getelementptr inbounds nuw i8, ptr %1344, i64 152
   store i32 0, ptr %1359, align 8, !noalias !253
-  %1360 = getelementptr inbounds i8, ptr %1344, i64 156
+  %1360 = getelementptr inbounds nuw i8, ptr %1344, i64 156
   store i8 1, ptr %1360, align 4, !noalias !253
   %1361 = getelementptr inbounds nuw i8, ptr %1344, i64 80
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(26) %1361, i8 0, i64 26, i1 false)
@@ -16492,8 +16492,8 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(121) ptr @_ZN
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 20
   store i8 0, ptr %13, align 4
   %14 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  %15 = getelementptr inbounds i8, ptr %5, i64 56
-  %16 = getelementptr inbounds i8, ptr %5, i64 112
+  %15 = getelementptr inbounds nuw i8, ptr %5, i64 56
+  %16 = getelementptr inbounds nuw i8, ptr %5, i64 112
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %15, i8 0, i64 56, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %14, i8 0, i64 25, i1 false)
   store i32 1, ptr %16, align 8
@@ -16521,8 +16521,8 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(121) ptr @_ZN
   %29 = getelementptr inbounds nuw i8, ptr %24, i64 20
   store i8 0, ptr %29, align 4
   %30 = getelementptr inbounds nuw i8, ptr %24, i64 24
-  %31 = getelementptr inbounds i8, ptr %24, i64 56
-  %32 = getelementptr inbounds i8, ptr %24, i64 112
+  %31 = getelementptr inbounds nuw i8, ptr %24, i64 56
+  %32 = getelementptr inbounds nuw i8, ptr %24, i64 112
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %31, i8 0, i64 56, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %30, i8 0, i64 25, i1 false)
   store i32 1, ptr %32, align 8
@@ -16691,23 +16691,23 @@ _ZN12_GLOBAL__N_112X86AsmParser15getPointerWidthEv.exit: ; preds = %3, %23, %28
   store ptr %40, ptr %0, align 8, !alias.scope !263
   %47 = getelementptr inbounds nuw i8, ptr %40, i64 112
   store i32 0, ptr %47, align 8, !noalias !257
-  %48 = getelementptr inbounds i8, ptr %40, i64 120
+  %48 = getelementptr inbounds nuw i8, ptr %40, i64 120
   store ptr %18, ptr %48, align 8, !noalias !257
-  %49 = getelementptr inbounds i8, ptr %40, i64 128
+  %49 = getelementptr inbounds nuw i8, ptr %40, i64 128
   store i32 %39, ptr %49, align 8, !noalias !257
-  %50 = getelementptr inbounds i8, ptr %40, i64 132
+  %50 = getelementptr inbounds nuw i8, ptr %40, i64 132
   store i32 0, ptr %50, align 4, !noalias !257
-  %51 = getelementptr inbounds i8, ptr %40, i64 136
+  %51 = getelementptr inbounds nuw i8, ptr %40, i64 136
   store i32 0, ptr %51, align 8, !noalias !257
-  %52 = getelementptr inbounds i8, ptr %40, i64 140
+  %52 = getelementptr inbounds nuw i8, ptr %40, i64 140
   store i32 1, ptr %52, align 4, !noalias !257
-  %53 = getelementptr inbounds i8, ptr %40, i64 144
+  %53 = getelementptr inbounds nuw i8, ptr %40, i64 144
   store i32 0, ptr %53, align 8, !noalias !257
-  %54 = getelementptr inbounds i8, ptr %40, i64 148
+  %54 = getelementptr inbounds nuw i8, ptr %40, i64 148
   store i32 %.0.i, ptr %54, align 4, !noalias !257
-  %55 = getelementptr inbounds i8, ptr %40, i64 152
+  %55 = getelementptr inbounds nuw i8, ptr %40, i64 152
   store i32 0, ptr %55, align 8, !noalias !257
-  %56 = getelementptr inbounds i8, ptr %40, i64 156
+  %56 = getelementptr inbounds nuw i8, ptr %40, i64 156
   store i8 1, ptr %56, align 4, !noalias !257
   %57 = getelementptr inbounds nuw i8, ptr %40, i64 80
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(26) %57, i8 0, i64 26, i1 false)
@@ -16782,10 +16782,10 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112X86AsmParser23Veri
 
 45:                                               ; preds = %41
   %46 = getelementptr inbounds nuw i8, ptr %26, i64 112
-  %47 = getelementptr inbounds i8, ptr %26, i64 128
+  %47 = getelementptr inbounds nuw i8, ptr %26, i64 128
   %48 = load i32, ptr %47, align 8
   %49 = getelementptr inbounds nuw i8, ptr %29, i64 112
-  %50 = getelementptr inbounds i8, ptr %29, i64 128
+  %50 = getelementptr inbounds nuw i8, ptr %29, i64 128
   %51 = load i32, ptr %50, align 8
   %.not71 = icmp eq i32 %.063116, -1
   br i1 %.not71, label %._crit_edge134, label %52
@@ -16954,9 +16954,9 @@ _ZN12_GLOBAL__N_112X86AsmParser18GetSIDIForRegClassEjjb.exit: ; preds = %105, %1
   br label %121
 
 121:                                              ; preds = %111, %_ZN12_GLOBAL__N_112X86AsmParser18GetSIDIForRegClassEjjb.exit
-  %122 = getelementptr inbounds i8, ptr %26, i64 144
+  %122 = getelementptr inbounds nuw i8, ptr %26, i64 144
   %123 = load i32, ptr %122, align 8
-  %124 = getelementptr inbounds i8, ptr %29, i64 144
+  %124 = getelementptr inbounds nuw i8, ptr %29, i64 144
   store i32 %123, ptr %124, align 8
   %125 = load i32, ptr %46, align 8
   store i32 %125, ptr %49, align 8
@@ -17152,23 +17152,23 @@ _ZN12_GLOBAL__N_112X86AsmParser15getPointerWidthEv.exit: ; preds = %3, %23, %28
   store ptr %40, ptr %0, align 8, !alias.scope !282
   %47 = getelementptr inbounds nuw i8, ptr %40, i64 112
   store i32 0, ptr %47, align 8, !noalias !276
-  %48 = getelementptr inbounds i8, ptr %40, i64 120
+  %48 = getelementptr inbounds nuw i8, ptr %40, i64 120
   store ptr %18, ptr %48, align 8, !noalias !276
-  %49 = getelementptr inbounds i8, ptr %40, i64 128
+  %49 = getelementptr inbounds nuw i8, ptr %40, i64 128
   store i32 %39, ptr %49, align 8, !noalias !276
-  %50 = getelementptr inbounds i8, ptr %40, i64 132
+  %50 = getelementptr inbounds nuw i8, ptr %40, i64 132
   store i32 0, ptr %50, align 4, !noalias !276
-  %51 = getelementptr inbounds i8, ptr %40, i64 136
+  %51 = getelementptr inbounds nuw i8, ptr %40, i64 136
   store i32 0, ptr %51, align 8, !noalias !276
-  %52 = getelementptr inbounds i8, ptr %40, i64 140
+  %52 = getelementptr inbounds nuw i8, ptr %40, i64 140
   store i32 1, ptr %52, align 4, !noalias !276
-  %53 = getelementptr inbounds i8, ptr %40, i64 144
+  %53 = getelementptr inbounds nuw i8, ptr %40, i64 144
   store i32 0, ptr %53, align 8, !noalias !276
-  %54 = getelementptr inbounds i8, ptr %40, i64 148
+  %54 = getelementptr inbounds nuw i8, ptr %40, i64 148
   store i32 %.0.i, ptr %54, align 4, !noalias !276
-  %55 = getelementptr inbounds i8, ptr %40, i64 152
+  %55 = getelementptr inbounds nuw i8, ptr %40, i64 152
   store i32 0, ptr %55, align 8, !noalias !276
-  %56 = getelementptr inbounds i8, ptr %40, i64 156
+  %56 = getelementptr inbounds nuw i8, ptr %40, i64 156
   store i8 1, ptr %56, align 4, !noalias !276
   %57 = getelementptr inbounds nuw i8, ptr %40, i64 80
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(26) %57, i8 0, i64 26, i1 false)
@@ -17296,7 +17296,7 @@ define linkonce_odr hidden noundef ptr @_ZN4llvm15SmallVectorImplINS_8AsmTokenEE
   %.0910.i.i.i.i.i = phi ptr [ %24, %_ZN4llvm8AsmTokenaSEOS0_.exit.i.i.i.i.i ], [ %3, %.lr.ph.preheader.i.i.i.i.i ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.0811.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %.0910.i.i.i.i.i, i64 24, i1 false)
   %12 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i, i64 24
-  %13 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i, i64 32
   %14 = load i32, ptr %13, align 8
   %15 = icmp ult i32 %14, 65
   br i1 %15, label %_ZN4llvm8AsmTokenaSEOS0_.exit.i.i.i.i.i, label %16
@@ -17314,7 +17314,7 @@ _ZN4llvm8AsmTokenaSEOS0_.exit.i.i.i.i.i:          ; preds = %19, %16, %.lr.ph.i.
   %20 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i, i64 24
   %21 = load i64, ptr %20, align 8
   store i64 %21, ptr %12, align 8
-  %22 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i, i64 32
+  %22 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i, i64 32
   %23 = load i32, ptr %22, align 8
   store i32 %23, ptr %13, align 8
   store i32 0, ptr %22, align 8
@@ -17331,7 +17331,7 @@ _ZSt4moveIPN4llvm8AsmTokenES2_ET0_T_S4_S3_.exit:  ; preds = %_ZN4llvm8AsmTokenaS
   %30 = load ptr, ptr %0, align 8
   %31 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #23
   %32 = getelementptr inbounds %"class.llvm::AsmToken", ptr %30, i64 %31
-  %33 = getelementptr inbounds i8, ptr %32, i64 32
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 32
   %34 = load i32, ptr %33, align 8
   %35 = icmp ugt i32 %34, 64
   br i1 %35, label %36, label %_ZN4llvm23SmallVectorTemplateBaseINS_8AsmTokenELb0EE8pop_backEv.exit
@@ -17496,7 +17496,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK4llvm10X86Operand15isOffsetOf
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load i32, ptr %2, align 8
   %4 = icmp eq i32 %3, 2
-  %5 = getelementptr inbounds i8, ptr %0, i64 120
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %6 = load i8, ptr %5, align 8
   %7 = trunc i8 %6 to i1
   %8 = select i1 %4, i1 %7, i1 false
@@ -17698,11 +17698,11 @@ _ZN4llvm11raw_ostreamlsEPKc.exit33:               ; preds = %82, %84
 _ZN4llvm11raw_ostreamlsEPKc.exit37:               ; preds = %100, %102
   %.0.i.i36 = phi ptr [ %101, %100 ], [ %1, %102 ]
   %105 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %106 = getelementptr inbounds i8, ptr %0, i64 148
+  %106 = getelementptr inbounds nuw i8, ptr %0, i64 148
   %107 = load i32, ptr %106, align 4
   %108 = zext i32 %107 to i64
   %109 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %.0.i.i36, i64 noundef %108) #23
-  %110 = getelementptr inbounds i8, ptr %0, i64 144
+  %110 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %111 = load i32, ptr %110, align 8
   %.not = icmp eq i32 %111, 0
   br i1 %.not, label %127, label %112
@@ -17735,7 +17735,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit41:               ; preds = %119, %121
   br label %127
 
 127:                                              ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit41, %_ZN4llvm11raw_ostreamlsEPKc.exit37
-  %128 = getelementptr inbounds i8, ptr %0, i64 128
+  %128 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %129 = load i32, ptr %128, align 8
   %.not12 = icmp eq i32 %129, 0
   br i1 %.not12, label %_ZN4llvm11raw_ostreamlsEPKc.exit50, label %130
@@ -17795,7 +17795,7 @@ _ZN4llvm9StringRefC2EPKc.exit.i47:                ; preds = %_ZN4llvm11raw_ostre
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit50
 
 _ZN4llvm11raw_ostreamlsEPKc.exit50:               ; preds = %156, %155, %153, %_ZN4llvm11raw_ostreamlsEPKc.exit45, %127
-  %159 = getelementptr inbounds i8, ptr %0, i64 136
+  %159 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %160 = load i32, ptr %159, align 8
   %.not13 = icmp eq i32 %160, 0
   br i1 %.not13, label %_ZN4llvm11raw_ostreamlsEPKc.exit59, label %161
@@ -17855,7 +17855,7 @@ _ZN4llvm9StringRefC2EPKc.exit.i56:                ; preds = %_ZN4llvm11raw_ostre
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit59
 
 _ZN4llvm11raw_ostreamlsEPKc.exit59:               ; preds = %187, %186, %184, %_ZN4llvm11raw_ostreamlsEPKc.exit54, %_ZN4llvm11raw_ostreamlsEPKc.exit50
-  %190 = getelementptr inbounds i8, ptr %0, i64 140
+  %190 = getelementptr inbounds nuw i8, ptr %0, i64 140
   %191 = load i32, ptr %190, align 4
   %.not14 = icmp eq i32 %191, 0
   br i1 %.not14, label %207, label %192
@@ -17888,7 +17888,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit63:               ; preds = %199, %201
   br label %207
 
 207:                                              ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit63, %_ZN4llvm11raw_ostreamlsEPKc.exit59
-  %208 = getelementptr inbounds i8, ptr %0, i64 120
+  %208 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %209 = load ptr, ptr %208, align 8
   %.not15 = icmp eq ptr %209, null
   br i1 %.not15, label %211, label %210
@@ -18268,7 +18268,7 @@ _ZN4llvm12StringSwitchIiiE4CaseENS_13StringLiteralEi.exit78.thread: ; preds = %_
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(34) %95, i8 0, i64 34, i1 false), !noalias !288
   %96 = getelementptr inbounds nuw i8, ptr %89, i64 112
   store ptr %88, ptr %96, align 8, !noalias !293
-  %97 = getelementptr inbounds i8, ptr %89, i64 120
+  %97 = getelementptr inbounds nuw i8, ptr %89, i64 120
   store i8 0, ptr %97, align 8, !noalias !293
   %98 = getelementptr inbounds nuw i8, ptr %89, i64 80
   %99 = getelementptr inbounds nuw i8, ptr %89, i64 104
@@ -18347,7 +18347,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit.thread:         ; preds = %_ZN4llvmeqENS_9Stri
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(34) %135, i8 0, i64 34, i1 false), !noalias !294
   %136 = getelementptr inbounds nuw i8, ptr %129, i64 112
   store ptr @.str.331, ptr %136, align 8, !noalias !299
-  %137 = getelementptr inbounds i8, ptr %129, i64 120
+  %137 = getelementptr inbounds nuw i8, ptr %129, i64 120
   store i32 5, ptr %137, align 8, !noalias !299
   store ptr %129, ptr %10, align 8
   call void @_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_18MCParsedAsmOperandESt14default_deleteIS2_EELb0EE9push_backEOS5_(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(8) %10)
@@ -18481,9 +18481,9 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112X86AsmParser20Pars
   %96 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %97 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %98 = getelementptr inbounds nuw i8, ptr %1, i64 20
-  %99 = getelementptr inbounds i8, ptr %1, i64 240
-  %100 = getelementptr inbounds i8, ptr %1, i64 236
-  %101 = getelementptr inbounds i8, ptr %1, i64 232
+  %99 = getelementptr inbounds nuw i8, ptr %1, i64 240
+  %100 = getelementptr inbounds nuw i8, ptr %1, i64 236
+  %101 = getelementptr inbounds nuw i8, ptr %1, i64 232
   %102 = getelementptr inbounds nuw i8, ptr %1, i64 202
   %103 = getelementptr inbounds nuw i8, ptr %1, i64 203
   %104 = getelementptr inbounds i8, ptr %1, i64 205
@@ -18493,18 +18493,18 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112X86AsmParser20Pars
   %108 = getelementptr inbounds nuw i8, ptr %41, i64 8
   %.sroa.2.0..sroa_idx.i278 = getelementptr inbounds i8, ptr %41, i64 16
   %109 = getelementptr inbounds nuw i8, ptr %41, i64 24
-  %110 = getelementptr inbounds i8, ptr %41, i64 32
+  %110 = getelementptr inbounds nuw i8, ptr %41, i64 32
   %111 = getelementptr inbounds nuw i8, ptr %42, i64 8
   %.sroa.2.0..sroa_idx.i279 = getelementptr inbounds i8, ptr %42, i64 16
   %112 = getelementptr inbounds nuw i8, ptr %42, i64 24
-  %113 = getelementptr inbounds i8, ptr %42, i64 32
+  %113 = getelementptr inbounds nuw i8, ptr %42, i64 32
   %114 = getelementptr inbounds nuw i8, ptr %43, i64 8
   %.sroa.2.0..sroa_idx.i281 = getelementptr inbounds i8, ptr %43, i64 16
   %115 = getelementptr inbounds nuw i8, ptr %43, i64 24
-  %116 = getelementptr inbounds i8, ptr %43, i64 32
+  %116 = getelementptr inbounds nuw i8, ptr %43, i64 32
   %117 = getelementptr inbounds nuw i8, ptr %44, i64 8
   %118 = getelementptr inbounds nuw i8, ptr %44, i64 24
-  %119 = getelementptr inbounds i8, ptr %44, i64 32
+  %119 = getelementptr inbounds nuw i8, ptr %44, i64 32
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %44, i64 16
   %120 = getelementptr inbounds nuw i8, ptr %45, i64 8
   %121 = getelementptr inbounds nuw i8, ptr %1, i64 216
@@ -18527,7 +18527,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112X86AsmParser20Pars
   %137 = getelementptr inbounds nuw i8, ptr %57, i64 32
   %138 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %139 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  %140 = getelementptr inbounds i8, ptr %6, i64 32
+  %140 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %141 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %.sroa.2.0..sroa_idx.i.i448 = getelementptr inbounds i8, ptr %6, i64 16
   %142 = getelementptr inbounds nuw i8, ptr %7, i64 16
@@ -18553,16 +18553,16 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112X86AsmParser20Pars
   %.sroa.2.0..sroa_idx.i.i850 = getelementptr inbounds i8, ptr %1, i64 48
   %161 = getelementptr inbounds nuw i8, ptr %1, i64 204
   %162 = getelementptr inbounds nuw i8, ptr %1, i64 208
-  %163 = getelementptr inbounds i8, ptr %1, i64 88
+  %163 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %164 = getelementptr inbounds i8, ptr %1, i64 104
   %165 = getelementptr inbounds nuw i8, ptr %1, i64 168
   %166 = getelementptr inbounds nuw i8, ptr %11, i64 4
   %167 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %168 = getelementptr inbounds nuw i8, ptr %11, i64 56
   %169 = getelementptr inbounds i8, ptr %11, i64 72
-  %170 = getelementptr inbounds i8, ptr %11, i64 88
+  %170 = getelementptr inbounds nuw i8, ptr %11, i64 88
   %171 = getelementptr inbounds i8, ptr %11, i64 104
-  %172 = getelementptr inbounds i8, ptr %11, i64 192
+  %172 = getelementptr inbounds nuw i8, ptr %11, i64 192
   %173 = getelementptr inbounds nuw i8, ptr %11, i64 200
   %174 = getelementptr inbounds nuw i8, ptr %11, i64 208
   br label %.thread632
@@ -20243,7 +20243,7 @@ _ZN4llvm12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit17.sink.split.i12.i: ; 
   %806 = call noundef nonnull align 8 dereferenceable(40) ptr @_ZNK4llvm11MCAsmParser6getTokEv(ptr noundef nonnull align 8 dereferenceable(34) %784) #23
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %806, i64 24, i1 false)
   %807 = getelementptr inbounds nuw i8, ptr %806, i64 24
-  %808 = getelementptr inbounds i8, ptr %806, i64 32
+  %808 = getelementptr inbounds nuw i8, ptr %806, i64 32
   %809 = load i32, ptr %808, align 8
   store i32 %809, ptr %140, align 8
   %810 = icmp ult i32 %809, 65
@@ -20637,7 +20637,7 @@ _ZN4llvm9StringRef12consume_backES0_.exit:        ; preds = %_ZNK4llvm9StringRef
   %953 = load ptr, ptr %78, align 8
   %954 = call noundef nonnull align 8 dereferenceable(40) ptr @_ZNK4llvm11MCAsmParser6getTokEv(ptr noundef nonnull align 8 dereferenceable(34) %953) #23
   %955 = getelementptr inbounds nuw i8, ptr %954, i64 24
-  %956 = getelementptr inbounds i8, ptr %954, i64 32
+  %956 = getelementptr inbounds nuw i8, ptr %954, i64 32
   %957 = load i32, ptr %956, align 8
   %958 = icmp ult i32 %957, 65
   %959 = load ptr, ptr %955, align 8
@@ -21455,7 +21455,7 @@ define internal fastcc noundef i64 @_ZN12_GLOBAL__N_112X86AsmParser21IntelExprSt
   br i1 %6, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %1
-  %7 = getelementptr inbounds i8, ptr %0, i64 88
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %8 = getelementptr inbounds i8, ptr %0, i64 104
   br label %9
 
@@ -21500,7 +21500,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt4pairIN12_GLOBAL__N_112X86AsmParser18InfixCa
   br i1 %27, label %._crit_edge.i, label %9, !llvm.loop !315
 
 ._crit_edge.i:                                    ; preds = %26, %1
-  %28 = getelementptr inbounds i8, ptr %0, i64 88
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %29 = tail call noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseIjE5emptyEv(ptr noundef nonnull align 8 dereferenceable(16) %28) #23
   br i1 %29, label %_ZN12_GLOBAL__N_112X86AsmParser15InfixCalculator7executeEv.exit, label %30
 
@@ -22336,23 +22336,23 @@ define linkonce_odr hidden void @_ZN4llvm10X86Operand9CreateMemEjjPKNS_6MCExprEj
   store ptr %21, ptr %0, align 8, !alias.scope !316
   %28 = getelementptr inbounds nuw i8, ptr %21, i64 112
   store i32 %2, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %21, i64 120
+  %29 = getelementptr inbounds nuw i8, ptr %21, i64 120
   store ptr %3, ptr %29, align 8
-  %30 = getelementptr inbounds i8, ptr %21, i64 128
+  %30 = getelementptr inbounds nuw i8, ptr %21, i64 128
   store i32 %4, ptr %30, align 8
-  %31 = getelementptr inbounds i8, ptr %21, i64 132
+  %31 = getelementptr inbounds nuw i8, ptr %21, i64 132
   store i32 %10, ptr %31, align 4
-  %32 = getelementptr inbounds i8, ptr %21, i64 136
+  %32 = getelementptr inbounds nuw i8, ptr %21, i64 136
   store i32 %5, ptr %32, align 8
-  %33 = getelementptr inbounds i8, ptr %21, i64 140
+  %33 = getelementptr inbounds nuw i8, ptr %21, i64 140
   store i32 %6, ptr %33, align 4
-  %34 = getelementptr inbounds i8, ptr %21, i64 144
+  %34 = getelementptr inbounds nuw i8, ptr %21, i64 144
   store i32 %9, ptr %34, align 8
-  %35 = getelementptr inbounds i8, ptr %21, i64 148
+  %35 = getelementptr inbounds nuw i8, ptr %21, i64 148
   store i32 %1, ptr %35, align 4
-  %36 = getelementptr inbounds i8, ptr %21, i64 152
+  %36 = getelementptr inbounds nuw i8, ptr %21, i64 152
   store i32 %13, ptr %36, align 8
-  %37 = getelementptr inbounds i8, ptr %21, i64 156
+  %37 = getelementptr inbounds nuw i8, ptr %21, i64 156
   store i8 %20, ptr %37, align 4
   %38 = getelementptr inbounds nuw i8, ptr %21, i64 105
   store i8 %19, ptr %38, align 1
@@ -22419,23 +22419,23 @@ define linkonce_odr hidden void @_ZN4llvm10X86Operand9CreateMemEjPKNS_6MCExprENS
   store ptr %14, ptr %0, align 8, !alias.scope !319
   %21 = getelementptr inbounds nuw i8, ptr %14, i64 112
   store i32 0, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %14, i64 120
+  %22 = getelementptr inbounds nuw i8, ptr %14, i64 120
   store ptr %2, ptr %22, align 8
-  %23 = getelementptr inbounds i8, ptr %14, i64 128
+  %23 = getelementptr inbounds nuw i8, ptr %14, i64 128
   store i32 0, ptr %23, align 8
-  %24 = getelementptr inbounds i8, ptr %14, i64 132
+  %24 = getelementptr inbounds nuw i8, ptr %14, i64 132
   store i32 0, ptr %24, align 4
-  %25 = getelementptr inbounds i8, ptr %14, i64 136
+  %25 = getelementptr inbounds nuw i8, ptr %14, i64 136
   store i32 0, ptr %25, align 8
-  %26 = getelementptr inbounds i8, ptr %14, i64 140
+  %26 = getelementptr inbounds nuw i8, ptr %14, i64 140
   store i32 1, ptr %26, align 4
-  %27 = getelementptr inbounds i8, ptr %14, i64 144
+  %27 = getelementptr inbounds nuw i8, ptr %14, i64 144
   store i32 %5, ptr %27, align 8
-  %28 = getelementptr inbounds i8, ptr %14, i64 148
+  %28 = getelementptr inbounds nuw i8, ptr %14, i64 148
   store i32 %1, ptr %28, align 4
-  %29 = getelementptr inbounds i8, ptr %14, i64 152
+  %29 = getelementptr inbounds nuw i8, ptr %14, i64 152
   store i32 %8, ptr %29, align 8
-  %30 = getelementptr inbounds i8, ptr %14, i64 156
+  %30 = getelementptr inbounds nuw i8, ptr %14, i64 156
   store i8 %13, ptr %30, align 4
   %31 = getelementptr inbounds nuw i8, ptr %14, i64 105
   store i8 %12, ptr %31, align 1
@@ -22451,7 +22451,7 @@ define linkonce_odr hidden void @_ZN4llvm10X86Operand9CreateMemEjPKNS_6MCExprENS
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @_ZN12_GLOBAL__N_112X86AsmParser21IntelExprStateMachineD2Ev(ptr noundef nonnull align 8 dereferenceable(248) %0) unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %3 = getelementptr inbounds i8, ptr %0, i64 88
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %4 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #23
   %5 = load ptr, ptr %3, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 104
@@ -22744,7 +22744,7 @@ _ZNK4llvm9StringRef5splitEc.exit:                 ; preds = %65, %66
   %.sroa.2.0..sroa_idx.i57 = getelementptr inbounds i8, ptr %11, i64 16
   store i64 %.sroa.367.0, ptr %.sroa.2.0..sroa_idx.i57, align 8
   %133 = getelementptr inbounds nuw i8, ptr %11, i64 24
-  %134 = getelementptr inbounds i8, ptr %11, i64 32
+  %134 = getelementptr inbounds nuw i8, ptr %11, i64 32
   store i32 64, ptr %134, align 8
   store i64 0, ptr %133, align 8
   %135 = getelementptr inbounds nuw i8, ptr %131, i64 115
@@ -22879,7 +22879,7 @@ _ZL10checkScalejRN4llvm9StringRefE.exit:          ; preds = %21
   br label %41
 
 30:                                               ; preds = %6
-  %31 = getelementptr inbounds i8, ptr %0, i64 88
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %32 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %31) #23
   %33 = add i64 %32, 1
   %34 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE8capacityEv(ptr noundef nonnull align 8 dereferenceable(16) %31) #23
@@ -22931,7 +22931,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112X86AsmParser21Inte
   store i32 24, ptr %0, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 %1, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 88
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %9 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %8) #23
   %10 = add i64 %9, 1
   %11 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE8capacityEv(ptr noundef nonnull align 8 dereferenceable(16) %8) #23
@@ -22993,7 +22993,7 @@ _ZN12_GLOBAL__N_112X86AsmParser21IntelExprStateMachine14regsUseUpErrorERN4llvm9S
 32:                                               ; preds = %22
   store i32 24, ptr %0, align 8
   store i32 %1, ptr %23, align 4
-  %33 = getelementptr inbounds i8, ptr %0, i64 88
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %.val.i.i.i.i = load ptr, ptr %33, align 8
   %34 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %33) #23
   %35 = getelementptr inbounds %"struct.std::pair.259", ptr %.val.i.i.i.i, i64 %34
@@ -23080,7 +23080,7 @@ _ZN4llvm9StringRefC2EPKc.exit:                    ; preds = %7, %18
   %29 = call ptr @_ZNK4llvm8AsmToken6getLocEv(ptr noundef nonnull align 8 dereferenceable(40) %27) #23
   %30 = load i64, ptr %21, align 8
   %31 = getelementptr inbounds i8, ptr %29, i64 %30
-  %32 = getelementptr inbounds i8, ptr %8, i64 32
+  %32 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %33 = getelementptr inbounds nuw i8, ptr %8, i64 24
   br label %34
 
@@ -23266,7 +23266,7 @@ _ZN12_GLOBAL__N_112X86AsmParser21IntelExprStateMachine9setSymRefEPKN4llvm6MCExpr
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 202
   store i8 1, ptr %30, align 2
   store i32 25, ptr %0, align 8
-  %31 = getelementptr inbounds i8, ptr %0, i64 88
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %32 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %31) #23
   %33 = add i64 %32, 1
   %34 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE8capacityEv(ptr noundef nonnull align 8 dereferenceable(16) %31) #23
@@ -23542,8 +23542,8 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(121) ptr @_ZN
   store i8 0, ptr %15, align 4
   %16 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %17 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  %18 = getelementptr inbounds i8, ptr %6, i64 56
-  %19 = getelementptr inbounds i8, ptr %6, i64 112
+  %18 = getelementptr inbounds nuw i8, ptr %6, i64 56
+  %19 = getelementptr inbounds nuw i8, ptr %6, i64 112
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %18, i8 0, i64 56, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %16, i8 0, i64 25, i1 false)
   store i32 1, ptr %19, align 8
@@ -23579,8 +23579,8 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(121) ptr @_ZN
   store i8 0, ptr %33, align 4
   %34 = getelementptr inbounds nuw i8, ptr %27, i64 24
   %35 = getelementptr inbounds nuw i8, ptr %27, i64 32
-  %36 = getelementptr inbounds i8, ptr %27, i64 56
-  %37 = getelementptr inbounds i8, ptr %27, i64 112
+  %36 = getelementptr inbounds nuw i8, ptr %27, i64 56
+  %37 = getelementptr inbounds nuw i8, ptr %27, i64 112
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %36, i8 0, i64 56, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %34, i8 0, i64 25, i1 false)
   store i32 1, ptr %37, align 8
@@ -23632,8 +23632,8 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(121) ptr @_ZN
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 20
   store i8 0, ptr %13, align 4
   %14 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  %15 = getelementptr inbounds i8, ptr %5, i64 56
-  %16 = getelementptr inbounds i8, ptr %5, i64 112
+  %15 = getelementptr inbounds nuw i8, ptr %5, i64 56
+  %16 = getelementptr inbounds nuw i8, ptr %5, i64 112
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %15, i8 0, i64 56, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %14, i8 0, i64 25, i1 false)
   store i32 1, ptr %16, align 8
@@ -23661,8 +23661,8 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(121) ptr @_ZN
   %29 = getelementptr inbounds nuw i8, ptr %24, i64 20
   store i8 0, ptr %29, align 4
   %30 = getelementptr inbounds nuw i8, ptr %24, i64 24
-  %31 = getelementptr inbounds i8, ptr %24, i64 56
-  %32 = getelementptr inbounds i8, ptr %24, i64 112
+  %31 = getelementptr inbounds nuw i8, ptr %24, i64 56
+  %32 = getelementptr inbounds nuw i8, ptr %24, i64 112
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %31, i8 0, i64 56, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %30, i8 0, i64 25, i1 false)
   store i32 1, ptr %32, align 8
@@ -23872,7 +23872,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112X86AsmParser6Parse
   br label %_ZNK4llvm8AsmToken13getIdentifierEv.exit
 
 27:                                               ; preds = %15
-  %28 = getelementptr inbounds i8, ptr %22, i64 16
+  %28 = getelementptr inbounds nuw i8, ptr %22, i64 16
   %29 = load i64, ptr %28, align 8
   %30 = add i64 %29, -1
   %31 = icmp ne i64 %29, 0
@@ -23952,7 +23952,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit.thread:         ; preds = %_ZN4llvmeqENS_9Stri
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(34) %74, i8 0, i64 34, i1 false), !noalias !334
   %75 = getelementptr inbounds nuw i8, ptr %68, i64 112
   store ptr @.str.414, ptr %75, align 8, !noalias !339
-  %76 = getelementptr inbounds i8, ptr %68, i64 120
+  %76 = getelementptr inbounds nuw i8, ptr %68, i64 120
   store i32 3, ptr %76, align 8, !noalias !339
   %77 = load ptr, ptr %1, align 8
   store ptr %68, ptr %1, align 8
@@ -25307,24 +25307,24 @@ _ZN12_GLOBAL__N_112X86AsmParser15getPointerWidthEv.exit.i: ; preds = %57, %52, %
   %67 = getelementptr inbounds nuw i8, ptr %63, i64 56
   %68 = getelementptr inbounds nuw i8, ptr %63, i64 112
   store i32 0, ptr %68, align 8, !noalias !350
-  %69 = getelementptr inbounds i8, ptr %63, i64 120
+  %69 = getelementptr inbounds nuw i8, ptr %63, i64 120
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %67, i8 0, i64 24, i1 false)
   store ptr %47, ptr %69, align 8, !noalias !350
-  %70 = getelementptr inbounds i8, ptr %63, i64 128
+  %70 = getelementptr inbounds nuw i8, ptr %63, i64 128
   store i32 %40, ptr %70, align 8, !noalias !350
-  %71 = getelementptr inbounds i8, ptr %63, i64 132
+  %71 = getelementptr inbounds nuw i8, ptr %63, i64 132
   store i32 0, ptr %71, align 4, !noalias !350
-  %72 = getelementptr inbounds i8, ptr %63, i64 136
+  %72 = getelementptr inbounds nuw i8, ptr %63, i64 136
   store i32 0, ptr %72, align 8, !noalias !350
-  %73 = getelementptr inbounds i8, ptr %63, i64 140
+  %73 = getelementptr inbounds nuw i8, ptr %63, i64 140
   store i32 1, ptr %73, align 4, !noalias !350
-  %74 = getelementptr inbounds i8, ptr %63, i64 144
+  %74 = getelementptr inbounds nuw i8, ptr %63, i64 144
   store i32 0, ptr %74, align 8, !noalias !350
-  %75 = getelementptr inbounds i8, ptr %63, i64 148
+  %75 = getelementptr inbounds nuw i8, ptr %63, i64 148
   store i32 %.0.i.i, ptr %75, align 4, !noalias !350
-  %76 = getelementptr inbounds i8, ptr %63, i64 152
+  %76 = getelementptr inbounds nuw i8, ptr %63, i64 152
   store i32 0, ptr %76, align 8, !noalias !350
-  %77 = getelementptr inbounds i8, ptr %63, i64 156
+  %77 = getelementptr inbounds nuw i8, ptr %63, i64 156
   store i8 1, ptr %77, align 4, !noalias !350
   %78 = getelementptr inbounds nuw i8, ptr %63, i64 80
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(26) %78, i8 0, i64 26, i1 false)
@@ -25565,7 +25565,7 @@ _ZN12_GLOBAL__N_112X86AsmParser31applyLVILoadHardeningMitigationERN4llvm6MCInstE
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNK4llvm10X86Operand14addMemOperandsERNS_6MCInstEj(ptr noundef nonnull align 8 dereferenceable(160) %0, ptr noundef nonnull align 8 dereferenceable(128) %1, i32 noundef %2) local_unnamed_addr #0 comdat align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 128
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %5 = load i32, ptr %4, align 8
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %13, label %6
@@ -25584,7 +25584,7 @@ define linkonce_odr hidden void @_ZNK4llvm10X86Operand14addMemOperandsERNS_6MCIn
   br label %_ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit
 
 13:                                               ; preds = %3
-  %14 = getelementptr inbounds i8, ptr %0, i64 132
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 132
   %15 = load i32, ptr %14, align 4
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %17 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %16) #23
@@ -25611,7 +25611,7 @@ _ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit:  ; preds = %20, %13, %11, %6
   %25 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %.sink45) #23
   %26 = add i64 %25, 1
   tail call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %.sink45, i64 noundef %26) #23
-  %27 = getelementptr inbounds i8, ptr %0, i64 140
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 140
   %28 = load i32, ptr %27, align 4
   %29 = zext i32 %28 to i64
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -25636,7 +25636,7 @@ _ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit23: ; preds = %_ZN4llvm6MCInst10a
   %39 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %30) #23
   %40 = add i64 %39, 1
   tail call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %30, i64 noundef %40) #23
-  %41 = getelementptr inbounds i8, ptr %0, i64 136
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %42 = load i32, ptr %41, align 8
   %.sroa.3.8.insert.ext.i24 = zext i32 %42 to i64
   %43 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %30) #23
@@ -25660,7 +25660,7 @@ _ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit28: ; preds = %_ZN4llvm6MCInst10a
   %51 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %30) #23
   %52 = add i64 %51, 1
   tail call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %30, i64 noundef %52) #23
-  %53 = getelementptr inbounds i8, ptr %0, i64 120
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %54 = load ptr, ptr %53, align 8
   tail call void @_ZNK4llvm10X86Operand7addExprERNS_6MCInstEPKNS_6MCExprE(ptr noundef nonnull align 8 dereferenceable(160) %0, ptr noundef nonnull align 8 dereferenceable(128) %1, ptr noundef %54)
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 112
@@ -25766,8 +25766,8 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(121) ptr @_ZN
   %17 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store i64 %13, ptr %17, align 8
   %18 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  %19 = getelementptr inbounds i8, ptr %6, i64 56
-  %20 = getelementptr inbounds i8, ptr %6, i64 112
+  %19 = getelementptr inbounds nuw i8, ptr %6, i64 56
+  %20 = getelementptr inbounds nuw i8, ptr %6, i64 112
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %19, i8 0, i64 56, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %18, i8 0, i64 17, i1 false)
   store i32 1, ptr %20, align 8
@@ -25799,8 +25799,8 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(121) ptr @_ZN
   %36 = getelementptr inbounds nuw i8, ptr %28, i64 24
   store i64 %32, ptr %36, align 8
   %37 = getelementptr inbounds nuw i8, ptr %28, i64 32
-  %38 = getelementptr inbounds i8, ptr %28, i64 56
-  %39 = getelementptr inbounds i8, ptr %28, i64 112
+  %38 = getelementptr inbounds nuw i8, ptr %28, i64 56
+  %39 = getelementptr inbounds nuw i8, ptr %28, i64 112
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %38, i8 0, i64 56, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %37, i8 0, i64 17, i1 false)
   store i32 1, ptr %39, align 8
@@ -26067,7 +26067,7 @@ _ZN4llvm9StringRefC2EPKc.exit:                    ; preds = %154, %156
   store ptr @.str.774, ptr %13, align 8, !alias.scope !353
   %169 = getelementptr inbounds nuw i8, ptr %13, i64 16
   store ptr %155, ptr %169, align 8, !alias.scope !353
-  %170 = getelementptr inbounds i8, ptr %13, i64 24
+  %170 = getelementptr inbounds nuw i8, ptr %13, i64 24
   store i64 %158, ptr %170, align 8, !alias.scope !353
   %171 = getelementptr inbounds nuw i8, ptr %14, i64 32
   %172 = getelementptr inbounds nuw i8, ptr %14, i64 33
@@ -26393,7 +26393,7 @@ _ZN4llvmplERKNS_5TwineES2_.exit:                  ; preds = %332, %329
   store ptr @.str.781, ptr %25, align 8, !alias.scope !357
   %343 = getelementptr inbounds nuw i8, ptr %25, i64 16
   store ptr %331, ptr %343, align 8, !alias.scope !357
-  %344 = getelementptr inbounds i8, ptr %25, i64 24
+  %344 = getelementptr inbounds nuw i8, ptr %25, i64 24
   store i64 %334, ptr %344, align 8, !alias.scope !357
   store ptr %25, ptr %24, align 8, !alias.scope !360
   %345 = getelementptr inbounds nuw i8, ptr %24, i64 16
@@ -26466,7 +26466,7 @@ _ZN4llvmplERKNS_5TwineES2_.exit193:               ; preds = %.critedge14, %367
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112X86AsmParser18processInstructionERN4llvm6MCInstERKNS1_15SmallVectorImplISt10unique_ptrINS1_18MCParsedAsmOperandESt14default_deleteIS6_EEEE(ptr noundef nonnull align 8 dereferenceable(330) %0, ptr noundef nonnull align 8 dereferenceable(128) %1) unnamed_addr #0 align 2 {
   %3 = alloca %class.anon.311, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 85
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 85
   %5 = load i8, ptr %4, align 1
   %6 = trunc i8 %5 to i1
   br i1 %6, label %7, label %_ZL15convertSSEToAVXRN4llvm6MCInstE.exit
@@ -26668,7 +26668,7 @@ _ZL15convertSSEToAVXRN4llvm6MCInstE.exit:         ; preds = %18, %_ZN4llvm11lowe
 
 88:                                               ; preds = %85
   %89 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %81) #23
-  %90 = getelementptr inbounds i8, ptr %1, i64 24
+  %90 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store i32 0, ptr %90, align 8
   store i32 1896, ptr %1, align 8
   br label %_ZL15convertSSEToAVXRN4llvm6MCInstE.exit.thread
@@ -27077,7 +27077,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_112X86AsmParser20MatchInstru
   %16 = load ptr, ptr %15, align 8
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 112
   %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %16, i64 120
+  %19 = getelementptr inbounds nuw i8, ptr %16, i64 120
   %20 = load i32, ptr %19, align 8
   %21 = zext i32 %20 to i64
   %.val = load i64, ptr %14, align 8
@@ -29913,7 +29913,7 @@ _ZSt11equal_rangeIPKN12_GLOBAL__N_110MatchEntryEN4llvm9StringRefENS0_10LessOpcod
 
 .preheader:                                       ; preds = %_ZSt11equal_rangeIPKN12_GLOBAL__N_110MatchEntryEN4llvm9StringRefENS0_10LessOpcodeEESt4pairIT_S8_ES8_S8_RKT0_T1_.exit
   %955 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %956 = getelementptr inbounds i8, ptr %2, i64 24
+  %956 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %957 = getelementptr inbounds i8, ptr %2, i64 32
   br label %958
 
@@ -29990,7 +29990,7 @@ _ZNK4llvm13FeatureBitsetanERKS0_.exit:            ; preds = %963
 992:                                              ; preds = %987
   %993 = getelementptr inbounds nuw i8, ptr %985, i64 112
   %994 = load ptr, ptr %993, align 8
-  %995 = getelementptr inbounds i8, ptr %985, i64 120
+  %995 = getelementptr inbounds nuw i8, ptr %985, i64 120
   %996 = load i32, ptr %995, align 8
   switch i32 %996, label %1024 [
     i32 1, label %997
@@ -30541,25 +30541,25 @@ _ZNK4llvm10X86Operand12isGR32orGR64Ev.exit:       ; preds = %_ZNK4llvm15MCRegist
   %1240 = load i32, ptr %1239, align 8
   %.not.i.i282 = icmp eq i32 %1240, 0
   %or.cond.i.i283 = select i1 %1238, i1 %.not.i.i282, i1 false
-  %1241 = getelementptr inbounds i8, ptr %985, i64 128
+  %1241 = getelementptr inbounds nuw i8, ptr %985, i64 128
   %1242 = load i32, ptr %1241, align 8
   %.not1.i.i284 = icmp eq i32 %1242, 0
   %or.cond5.i.i = select i1 %or.cond.i.i283, i1 %.not1.i.i284, i1 false
-  %1243 = getelementptr inbounds i8, ptr %985, i64 136
+  %1243 = getelementptr inbounds nuw i8, ptr %985, i64 136
   %1244 = load i32, ptr %1243, align 8
   %.not2.i.i285 = icmp eq i32 %1244, 0
   %or.cond7.i.i = select i1 %or.cond5.i.i, i1 %.not2.i.i285, i1 false
-  %1245 = getelementptr inbounds i8, ptr %985, i64 140
+  %1245 = getelementptr inbounds nuw i8, ptr %985, i64 140
   %1246 = load i32, ptr %1245, align 4
   %1247 = icmp eq i32 %1246, 1
   %or.cond10.i.i = select i1 %or.cond7.i.i, i1 %1247, i1 false
   br i1 %or.cond10.i.i, label %_ZNK4llvm10X86Operand10isAbsMem16Ev.exit, label %thread-pre-split.i
 
 _ZNK4llvm10X86Operand10isAbsMem16Ev.exit:         ; preds = %1237
-  %1248 = getelementptr inbounds i8, ptr %985, i64 156
+  %1248 = getelementptr inbounds nuw i8, ptr %985, i64 156
   %1249 = load i8, ptr %1248, align 4
   %1250 = trunc i8 %1249 to i1
-  %1251 = getelementptr inbounds i8, ptr %985, i64 148
+  %1251 = getelementptr inbounds nuw i8, ptr %985, i64 148
   %1252 = load i32, ptr %1251, align 4
   %1253 = icmp eq i32 %1252, 16
   %1254 = select i1 %1250, i1 %1253, i1 false
@@ -30567,7 +30567,7 @@ _ZNK4llvm10X86Operand10isAbsMem16Ev.exit:         ; preds = %1237
 
 1255:                                             ; preds = %1026
   %1256 = icmp eq i32 %989, 3
-  %1257 = getelementptr inbounds i8, ptr %985, i64 144
+  %1257 = getelementptr inbounds nuw i8, ptr %985, i64 144
   %1258 = load i32, ptr %1257, align 8
   %1259 = and i32 %1258, -17
   %spec.select.i.i279 = icmp eq i32 %1259, 0
@@ -30575,10 +30575,10 @@ _ZNK4llvm10X86Operand10isAbsMem16Ev.exit:         ; preds = %1237
   br i1 %1260, label %1261, label %thread-pre-split.i
 
 1261:                                             ; preds = %1255
-  %1262 = getelementptr inbounds i8, ptr %985, i64 136
+  %1262 = getelementptr inbounds nuw i8, ptr %985, i64 136
   %1263 = load i32, ptr %1262, align 8
   %.not.i.i280 = icmp eq i32 %1263, 0
-  %1264 = getelementptr inbounds i8, ptr %985, i64 140
+  %1264 = getelementptr inbounds nuw i8, ptr %985, i64 140
   %1265 = load i32, ptr %1264, align 4
   %1266 = icmp eq i32 %1265, 1
   %or.cond.i.i281 = select i1 %.not.i.i280, i1 %1266, i1 false
@@ -30593,7 +30593,7 @@ _ZNK4llvm10X86Operand10isAbsMem16Ev.exit:         ; preds = %1237
   ]
 
 1270:                                             ; preds = %1267, %1267
-  %1271 = getelementptr inbounds i8, ptr %985, i64 128
+  %1271 = getelementptr inbounds nuw i8, ptr %985, i64 128
   %1272 = load i32, ptr %1271, align 8
   switch i32 %1272, label %_ZL20validateOperandClassRN4llvm18MCParsedAsmOperandEN12_GLOBAL__N_114MatchClassKindE.exit [
     i32 55, label %1273
@@ -30602,7 +30602,7 @@ _ZNK4llvm10X86Operand10isAbsMem16Ev.exit:         ; preds = %1237
   ]
 
 1273:                                             ; preds = %1270, %1270, %1270
-  %1274 = getelementptr inbounds i8, ptr %985, i64 120
+  %1274 = getelementptr inbounds nuw i8, ptr %985, i64 120
   %1275 = load ptr, ptr %1274, align 8
   %1276 = load i8, ptr %1275, align 8
   %1277 = icmp eq i8 %1276, 1
@@ -30616,7 +30616,7 @@ _ZNK4llvm10X86Operand10isDstIdx16Ev.exit:         ; preds = %1273
 
 1281:                                             ; preds = %1026
   %1282 = icmp eq i32 %989, 3
-  %1283 = getelementptr inbounds i8, ptr %985, i64 144
+  %1283 = getelementptr inbounds nuw i8, ptr %985, i64 144
   %1284 = load i32, ptr %1283, align 8
   %1285 = and i32 %1284, -33
   %spec.select.i.i276 = icmp eq i32 %1285, 0
@@ -30624,10 +30624,10 @@ _ZNK4llvm10X86Operand10isDstIdx16Ev.exit:         ; preds = %1273
   br i1 %1286, label %1287, label %thread-pre-split.i
 
 1287:                                             ; preds = %1281
-  %1288 = getelementptr inbounds i8, ptr %985, i64 136
+  %1288 = getelementptr inbounds nuw i8, ptr %985, i64 136
   %1289 = load i32, ptr %1288, align 8
   %.not.i.i277 = icmp eq i32 %1289, 0
-  %1290 = getelementptr inbounds i8, ptr %985, i64 140
+  %1290 = getelementptr inbounds nuw i8, ptr %985, i64 140
   %1291 = load i32, ptr %1290, align 4
   %1292 = icmp eq i32 %1291, 1
   %or.cond.i.i278 = select i1 %.not.i.i277, i1 %1292, i1 false
@@ -30642,7 +30642,7 @@ _ZNK4llvm10X86Operand10isDstIdx16Ev.exit:         ; preds = %1273
   ]
 
 1296:                                             ; preds = %1293, %1293
-  %1297 = getelementptr inbounds i8, ptr %985, i64 128
+  %1297 = getelementptr inbounds nuw i8, ptr %985, i64 128
   %1298 = load i32, ptr %1297, align 8
   switch i32 %1298, label %_ZL20validateOperandClassRN4llvm18MCParsedAsmOperandEN12_GLOBAL__N_114MatchClassKindE.exit [
     i32 55, label %1299
@@ -30651,7 +30651,7 @@ _ZNK4llvm10X86Operand10isDstIdx16Ev.exit:         ; preds = %1273
   ]
 
 1299:                                             ; preds = %1296, %1296, %1296
-  %1300 = getelementptr inbounds i8, ptr %985, i64 120
+  %1300 = getelementptr inbounds nuw i8, ptr %985, i64 120
   %1301 = load ptr, ptr %1300, align 8
   %1302 = load i8, ptr %1301, align 8
   %1303 = icmp eq i8 %1302, 1
@@ -30665,7 +30665,7 @@ _ZNK4llvm10X86Operand10isDstIdx32Ev.exit:         ; preds = %1299
 
 1307:                                             ; preds = %1026
   %1308 = icmp eq i32 %989, 3
-  %1309 = getelementptr inbounds i8, ptr %985, i64 144
+  %1309 = getelementptr inbounds nuw i8, ptr %985, i64 144
   %1310 = load i32, ptr %1309, align 8
   %1311 = and i32 %1310, -65
   %spec.select.i.i273 = icmp eq i32 %1311, 0
@@ -30673,10 +30673,10 @@ _ZNK4llvm10X86Operand10isDstIdx32Ev.exit:         ; preds = %1299
   br i1 %1312, label %1313, label %thread-pre-split.i
 
 1313:                                             ; preds = %1307
-  %1314 = getelementptr inbounds i8, ptr %985, i64 136
+  %1314 = getelementptr inbounds nuw i8, ptr %985, i64 136
   %1315 = load i32, ptr %1314, align 8
   %.not.i.i274 = icmp eq i32 %1315, 0
-  %1316 = getelementptr inbounds i8, ptr %985, i64 140
+  %1316 = getelementptr inbounds nuw i8, ptr %985, i64 140
   %1317 = load i32, ptr %1316, align 4
   %1318 = icmp eq i32 %1317, 1
   %or.cond.i.i275 = select i1 %.not.i.i274, i1 %1318, i1 false
@@ -30691,7 +30691,7 @@ _ZNK4llvm10X86Operand10isDstIdx32Ev.exit:         ; preds = %1299
   ]
 
 1322:                                             ; preds = %1319, %1319
-  %1323 = getelementptr inbounds i8, ptr %985, i64 128
+  %1323 = getelementptr inbounds nuw i8, ptr %985, i64 128
   %1324 = load i32, ptr %1323, align 8
   switch i32 %1324, label %_ZL20validateOperandClassRN4llvm18MCParsedAsmOperandEN12_GLOBAL__N_114MatchClassKindE.exit [
     i32 55, label %1325
@@ -30700,7 +30700,7 @@ _ZNK4llvm10X86Operand10isDstIdx32Ev.exit:         ; preds = %1299
   ]
 
 1325:                                             ; preds = %1322, %1322, %1322
-  %1326 = getelementptr inbounds i8, ptr %985, i64 120
+  %1326 = getelementptr inbounds nuw i8, ptr %985, i64 120
   %1327 = load ptr, ptr %1326, align 8
   %1328 = load i8, ptr %1327, align 8
   %1329 = icmp eq i8 %1328, 1
@@ -30714,7 +30714,7 @@ _ZNK4llvm10X86Operand10isDstIdx64Ev.exit:         ; preds = %1325
 
 1333:                                             ; preds = %1026
   %1334 = icmp eq i32 %989, 3
-  %1335 = getelementptr inbounds i8, ptr %985, i64 144
+  %1335 = getelementptr inbounds nuw i8, ptr %985, i64 144
   %1336 = load i32, ptr %1335, align 8
   %1337 = and i32 %1336, -9
   %spec.select.i.i270 = icmp eq i32 %1337, 0
@@ -30722,10 +30722,10 @@ _ZNK4llvm10X86Operand10isDstIdx64Ev.exit:         ; preds = %1325
   br i1 %1338, label %1339, label %thread-pre-split.i
 
 1339:                                             ; preds = %1333
-  %1340 = getelementptr inbounds i8, ptr %985, i64 136
+  %1340 = getelementptr inbounds nuw i8, ptr %985, i64 136
   %1341 = load i32, ptr %1340, align 8
   %.not.i.i271 = icmp eq i32 %1341, 0
-  %1342 = getelementptr inbounds i8, ptr %985, i64 140
+  %1342 = getelementptr inbounds nuw i8, ptr %985, i64 140
   %1343 = load i32, ptr %1342, align 4
   %1344 = icmp eq i32 %1343, 1
   %or.cond.i.i272 = select i1 %.not.i.i271, i1 %1344, i1 false
@@ -30740,7 +30740,7 @@ _ZNK4llvm10X86Operand10isDstIdx64Ev.exit:         ; preds = %1325
   ]
 
 1348:                                             ; preds = %1345, %1345
-  %1349 = getelementptr inbounds i8, ptr %985, i64 128
+  %1349 = getelementptr inbounds nuw i8, ptr %985, i64 128
   %1350 = load i32, ptr %1349, align 8
   switch i32 %1350, label %_ZL20validateOperandClassRN4llvm18MCParsedAsmOperandEN12_GLOBAL__N_114MatchClassKindE.exit [
     i32 55, label %1351
@@ -30749,7 +30749,7 @@ _ZNK4llvm10X86Operand10isDstIdx64Ev.exit:         ; preds = %1325
   ]
 
 1351:                                             ; preds = %1348, %1348, %1348
-  %1352 = getelementptr inbounds i8, ptr %985, i64 120
+  %1352 = getelementptr inbounds nuw i8, ptr %985, i64 120
   %1353 = load ptr, ptr %1352, align 8
   %1354 = load i8, ptr %1353, align 8
   %1355 = icmp eq i8 %1354, 1
@@ -30763,28 +30763,28 @@ _ZNK4llvm10X86Operand9isDstIdx8Ev.exit:           ; preds = %1351
 
 1359:                                             ; preds = %1026
   %1360 = icmp eq i32 %989, 3
-  %1361 = getelementptr inbounds i8, ptr %985, i64 128
+  %1361 = getelementptr inbounds nuw i8, ptr %985, i64 128
   %1362 = load i32, ptr %1361, align 8
   %.not.i.i263 = icmp eq i32 %1362, 0
   %or.cond.i.i264 = select i1 %1360, i1 %.not.i.i263, i1 false
-  %1363 = getelementptr inbounds i8, ptr %985, i64 136
+  %1363 = getelementptr inbounds nuw i8, ptr %985, i64 136
   %1364 = load i32, ptr %1363, align 8
   %.not1.i.i265 = icmp eq i32 %1364, 0
   %or.cond4.i.i266 = select i1 %or.cond.i.i264, i1 %.not1.i.i265, i1 false
   br i1 %or.cond4.i.i266, label %_ZNK4llvm10X86Operand9isMemOffsEv.exit.i267, label %thread-pre-split.i
 
 _ZNK4llvm10X86Operand9isMemOffsEv.exit.i267:      ; preds = %1359
-  %1365 = getelementptr inbounds i8, ptr %985, i64 140
+  %1365 = getelementptr inbounds nuw i8, ptr %985, i64 140
   %1366 = load i32, ptr %1365, align 4
   %1367 = icmp eq i32 %1366, 1
-  %1368 = getelementptr inbounds i8, ptr %985, i64 148
+  %1368 = getelementptr inbounds nuw i8, ptr %985, i64 148
   %1369 = load i32, ptr %1368, align 4
   %1370 = icmp eq i32 %1369, 16
   %or.cond.i268 = select i1 %1367, i1 %1370, i1 false
   br i1 %or.cond.i268, label %_ZNK4llvm10X86Operand14isMemOffs16_16Ev.exit, label %_ZL20validateOperandClassRN4llvm18MCParsedAsmOperandEN12_GLOBAL__N_114MatchClassKindE.exit
 
 _ZNK4llvm10X86Operand14isMemOffs16_16Ev.exit:     ; preds = %_ZNK4llvm10X86Operand9isMemOffsEv.exit.i267
-  %1371 = getelementptr inbounds i8, ptr %985, i64 144
+  %1371 = getelementptr inbounds nuw i8, ptr %985, i64 144
   %1372 = load i32, ptr %1371, align 8
   %1373 = and i32 %1372, -17
   %spec.select.i269 = icmp eq i32 %1373, 0
@@ -30792,28 +30792,28 @@ _ZNK4llvm10X86Operand14isMemOffs16_16Ev.exit:     ; preds = %_ZNK4llvm10X86Opera
 
 1374:                                             ; preds = %1026
   %1375 = icmp eq i32 %989, 3
-  %1376 = getelementptr inbounds i8, ptr %985, i64 128
+  %1376 = getelementptr inbounds nuw i8, ptr %985, i64 128
   %1377 = load i32, ptr %1376, align 8
   %.not.i.i256 = icmp eq i32 %1377, 0
   %or.cond.i.i257 = select i1 %1375, i1 %.not.i.i256, i1 false
-  %1378 = getelementptr inbounds i8, ptr %985, i64 136
+  %1378 = getelementptr inbounds nuw i8, ptr %985, i64 136
   %1379 = load i32, ptr %1378, align 8
   %.not1.i.i258 = icmp eq i32 %1379, 0
   %or.cond4.i.i259 = select i1 %or.cond.i.i257, i1 %.not1.i.i258, i1 false
   br i1 %or.cond4.i.i259, label %_ZNK4llvm10X86Operand9isMemOffsEv.exit.i260, label %thread-pre-split.i
 
 _ZNK4llvm10X86Operand9isMemOffsEv.exit.i260:      ; preds = %1374
-  %1380 = getelementptr inbounds i8, ptr %985, i64 140
+  %1380 = getelementptr inbounds nuw i8, ptr %985, i64 140
   %1381 = load i32, ptr %1380, align 4
   %1382 = icmp eq i32 %1381, 1
-  %1383 = getelementptr inbounds i8, ptr %985, i64 148
+  %1383 = getelementptr inbounds nuw i8, ptr %985, i64 148
   %1384 = load i32, ptr %1383, align 4
   %1385 = icmp eq i32 %1384, 16
   %or.cond.i261 = select i1 %1382, i1 %1385, i1 false
   br i1 %or.cond.i261, label %_ZNK4llvm10X86Operand14isMemOffs16_32Ev.exit, label %_ZL20validateOperandClassRN4llvm18MCParsedAsmOperandEN12_GLOBAL__N_114MatchClassKindE.exit
 
 _ZNK4llvm10X86Operand14isMemOffs16_32Ev.exit:     ; preds = %_ZNK4llvm10X86Operand9isMemOffsEv.exit.i260
-  %1386 = getelementptr inbounds i8, ptr %985, i64 144
+  %1386 = getelementptr inbounds nuw i8, ptr %985, i64 144
   %1387 = load i32, ptr %1386, align 8
   %1388 = and i32 %1387, -33
   %spec.select.i262 = icmp eq i32 %1388, 0
@@ -30821,28 +30821,28 @@ _ZNK4llvm10X86Operand14isMemOffs16_32Ev.exit:     ; preds = %_ZNK4llvm10X86Opera
 
 1389:                                             ; preds = %1026
   %1390 = icmp eq i32 %989, 3
-  %1391 = getelementptr inbounds i8, ptr %985, i64 128
+  %1391 = getelementptr inbounds nuw i8, ptr %985, i64 128
   %1392 = load i32, ptr %1391, align 8
   %.not.i.i249 = icmp eq i32 %1392, 0
   %or.cond.i.i250 = select i1 %1390, i1 %.not.i.i249, i1 false
-  %1393 = getelementptr inbounds i8, ptr %985, i64 136
+  %1393 = getelementptr inbounds nuw i8, ptr %985, i64 136
   %1394 = load i32, ptr %1393, align 8
   %.not1.i.i251 = icmp eq i32 %1394, 0
   %or.cond4.i.i252 = select i1 %or.cond.i.i250, i1 %.not1.i.i251, i1 false
   br i1 %or.cond4.i.i252, label %_ZNK4llvm10X86Operand9isMemOffsEv.exit.i253, label %thread-pre-split.i
 
 _ZNK4llvm10X86Operand9isMemOffsEv.exit.i253:      ; preds = %1389
-  %1395 = getelementptr inbounds i8, ptr %985, i64 140
+  %1395 = getelementptr inbounds nuw i8, ptr %985, i64 140
   %1396 = load i32, ptr %1395, align 4
   %1397 = icmp eq i32 %1396, 1
-  %1398 = getelementptr inbounds i8, ptr %985, i64 148
+  %1398 = getelementptr inbounds nuw i8, ptr %985, i64 148
   %1399 = load i32, ptr %1398, align 4
   %1400 = icmp eq i32 %1399, 16
   %or.cond.i254 = select i1 %1397, i1 %1400, i1 false
   br i1 %or.cond.i254, label %_ZNK4llvm10X86Operand13isMemOffs16_8Ev.exit, label %_ZL20validateOperandClassRN4llvm18MCParsedAsmOperandEN12_GLOBAL__N_114MatchClassKindE.exit
 
 _ZNK4llvm10X86Operand13isMemOffs16_8Ev.exit:      ; preds = %_ZNK4llvm10X86Operand9isMemOffsEv.exit.i253
-  %1401 = getelementptr inbounds i8, ptr %985, i64 144
+  %1401 = getelementptr inbounds nuw i8, ptr %985, i64 144
   %1402 = load i32, ptr %1401, align 8
   %1403 = and i32 %1402, -9
   %spec.select.i255 = icmp eq i32 %1403, 0
@@ -30850,28 +30850,28 @@ _ZNK4llvm10X86Operand13isMemOffs16_8Ev.exit:      ; preds = %_ZNK4llvm10X86Opera
 
 1404:                                             ; preds = %1026
   %1405 = icmp eq i32 %989, 3
-  %1406 = getelementptr inbounds i8, ptr %985, i64 128
+  %1406 = getelementptr inbounds nuw i8, ptr %985, i64 128
   %1407 = load i32, ptr %1406, align 8
   %.not.i.i242 = icmp eq i32 %1407, 0
   %or.cond.i.i243 = select i1 %1405, i1 %.not.i.i242, i1 false
-  %1408 = getelementptr inbounds i8, ptr %985, i64 136
+  %1408 = getelementptr inbounds nuw i8, ptr %985, i64 136
   %1409 = load i32, ptr %1408, align 8
   %.not1.i.i244 = icmp eq i32 %1409, 0
   %or.cond4.i.i245 = select i1 %or.cond.i.i243, i1 %.not1.i.i244, i1 false
   br i1 %or.cond4.i.i245, label %_ZNK4llvm10X86Operand9isMemOffsEv.exit.i246, label %thread-pre-split.i
 
 _ZNK4llvm10X86Operand9isMemOffsEv.exit.i246:      ; preds = %1404
-  %1410 = getelementptr inbounds i8, ptr %985, i64 140
+  %1410 = getelementptr inbounds nuw i8, ptr %985, i64 140
   %1411 = load i32, ptr %1410, align 4
   %1412 = icmp eq i32 %1411, 1
-  %1413 = getelementptr inbounds i8, ptr %985, i64 148
+  %1413 = getelementptr inbounds nuw i8, ptr %985, i64 148
   %1414 = load i32, ptr %1413, align 4
   %1415 = icmp eq i32 %1414, 32
   %or.cond.i247 = select i1 %1412, i1 %1415, i1 false
   br i1 %or.cond.i247, label %_ZNK4llvm10X86Operand14isMemOffs32_16Ev.exit, label %_ZL20validateOperandClassRN4llvm18MCParsedAsmOperandEN12_GLOBAL__N_114MatchClassKindE.exit
 
 _ZNK4llvm10X86Operand14isMemOffs32_16Ev.exit:     ; preds = %_ZNK4llvm10X86Operand9isMemOffsEv.exit.i246
-  %1416 = getelementptr inbounds i8, ptr %985, i64 144
+  %1416 = getelementptr inbounds nuw i8, ptr %985, i64 144
   %1417 = load i32, ptr %1416, align 8
   %1418 = and i32 %1417, -17
   %spec.select.i248 = icmp eq i32 %1418, 0
@@ -30879,28 +30879,28 @@ _ZNK4llvm10X86Operand14isMemOffs32_16Ev.exit:     ; preds = %_ZNK4llvm10X86Opera
 
 1419:                                             ; preds = %1026
   %1420 = icmp eq i32 %989, 3
-  %1421 = getelementptr inbounds i8, ptr %985, i64 128
+  %1421 = getelementptr inbounds nuw i8, ptr %985, i64 128
   %1422 = load i32, ptr %1421, align 8
   %.not.i.i235 = icmp eq i32 %1422, 0
   %or.cond.i.i236 = select i1 %1420, i1 %.not.i.i235, i1 false
-  %1423 = getelementptr inbounds i8, ptr %985, i64 136
+  %1423 = getelementptr inbounds nuw i8, ptr %985, i64 136
   %1424 = load i32, ptr %1423, align 8
   %.not1.i.i237 = icmp eq i32 %1424, 0
   %or.cond4.i.i238 = select i1 %or.cond.i.i236, i1 %.not1.i.i237, i1 false
   br i1 %or.cond4.i.i238, label %_ZNK4llvm10X86Operand9isMemOffsEv.exit.i239, label %thread-pre-split.i
 
 _ZNK4llvm10X86Operand9isMemOffsEv.exit.i239:      ; preds = %1419
-  %1425 = getelementptr inbounds i8, ptr %985, i64 140
+  %1425 = getelementptr inbounds nuw i8, ptr %985, i64 140
   %1426 = load i32, ptr %1425, align 4
   %1427 = icmp eq i32 %1426, 1
-  %1428 = getelementptr inbounds i8, ptr %985, i64 148
+  %1428 = getelementptr inbounds nuw i8, ptr %985, i64 148
   %1429 = load i32, ptr %1428, align 4
   %1430 = icmp eq i32 %1429, 32
   %or.cond.i240 = select i1 %1427, i1 %1430, i1 false
   br i1 %or.cond.i240, label %_ZNK4llvm10X86Operand14isMemOffs32_32Ev.exit, label %_ZL20validateOperandClassRN4llvm18MCParsedAsmOperandEN12_GLOBAL__N_114MatchClassKindE.exit
 
 _ZNK4llvm10X86Operand14isMemOffs32_32Ev.exit:     ; preds = %_ZNK4llvm10X86Operand9isMemOffsEv.exit.i239
-  %1431 = getelementptr inbounds i8, ptr %985, i64 144
+  %1431 = getelementptr inbounds nuw i8, ptr %985, i64 144
   %1432 = load i32, ptr %1431, align 8
   %1433 = and i32 %1432, -33
   %spec.select.i241 = icmp eq i32 %1433, 0
@@ -30908,28 +30908,28 @@ _ZNK4llvm10X86Operand14isMemOffs32_32Ev.exit:     ; preds = %_ZNK4llvm10X86Opera
 
 1434:                                             ; preds = %1026
   %1435 = icmp eq i32 %989, 3
-  %1436 = getelementptr inbounds i8, ptr %985, i64 128
+  %1436 = getelementptr inbounds nuw i8, ptr %985, i64 128
   %1437 = load i32, ptr %1436, align 8
   %.not.i.i228 = icmp eq i32 %1437, 0
   %or.cond.i.i229 = select i1 %1435, i1 %.not.i.i228, i1 false
-  %1438 = getelementptr inbounds i8, ptr %985, i64 136
+  %1438 = getelementptr inbounds nuw i8, ptr %985, i64 136
   %1439 = load i32, ptr %1438, align 8
   %.not1.i.i230 = icmp eq i32 %1439, 0
   %or.cond4.i.i231 = select i1 %or.cond.i.i229, i1 %.not1.i.i230, i1 false
   br i1 %or.cond4.i.i231, label %_ZNK4llvm10X86Operand9isMemOffsEv.exit.i232, label %thread-pre-split.i
 
 _ZNK4llvm10X86Operand9isMemOffsEv.exit.i232:      ; preds = %1434
-  %1440 = getelementptr inbounds i8, ptr %985, i64 140
+  %1440 = getelementptr inbounds nuw i8, ptr %985, i64 140
   %1441 = load i32, ptr %1440, align 4
   %1442 = icmp eq i32 %1441, 1
-  %1443 = getelementptr inbounds i8, ptr %985, i64 148
+  %1443 = getelementptr inbounds nuw i8, ptr %985, i64 148
   %1444 = load i32, ptr %1443, align 4
   %1445 = icmp eq i32 %1444, 32
   %or.cond.i233 = select i1 %1442, i1 %1445, i1 false
   br i1 %or.cond.i233, label %_ZNK4llvm10X86Operand14isMemOffs32_64Ev.exit, label %_ZL20validateOperandClassRN4llvm18MCParsedAsmOperandEN12_GLOBAL__N_114MatchClassKindE.exit
 
 _ZNK4llvm10X86Operand14isMemOffs32_64Ev.exit:     ; preds = %_ZNK4llvm10X86Operand9isMemOffsEv.exit.i232
-  %1446 = getelementptr inbounds i8, ptr %985, i64 144
+  %1446 = getelementptr inbounds nuw i8, ptr %985, i64 144
   %1447 = load i32, ptr %1446, align 8
   %1448 = and i32 %1447, -65
   %spec.select.i234 = icmp eq i32 %1448, 0
@@ -30937,28 +30937,28 @@ _ZNK4llvm10X86Operand14isMemOffs32_64Ev.exit:     ; preds = %_ZNK4llvm10X86Opera
 
 1449:                                             ; preds = %1026
   %1450 = icmp eq i32 %989, 3
-  %1451 = getelementptr inbounds i8, ptr %985, i64 128
+  %1451 = getelementptr inbounds nuw i8, ptr %985, i64 128
   %1452 = load i32, ptr %1451, align 8
   %.not.i.i221 = icmp eq i32 %1452, 0
   %or.cond.i.i222 = select i1 %1450, i1 %.not.i.i221, i1 false
-  %1453 = getelementptr inbounds i8, ptr %985, i64 136
+  %1453 = getelementptr inbounds nuw i8, ptr %985, i64 136
   %1454 = load i32, ptr %1453, align 8
   %.not1.i.i223 = icmp eq i32 %1454, 0
   %or.cond4.i.i224 = select i1 %or.cond.i.i222, i1 %.not1.i.i223, i1 false
   br i1 %or.cond4.i.i224, label %_ZNK4llvm10X86Operand9isMemOffsEv.exit.i225, label %thread-pre-split.i
 
 _ZNK4llvm10X86Operand9isMemOffsEv.exit.i225:      ; preds = %1449
-  %1455 = getelementptr inbounds i8, ptr %985, i64 140
+  %1455 = getelementptr inbounds nuw i8, ptr %985, i64 140
   %1456 = load i32, ptr %1455, align 4
   %1457 = icmp eq i32 %1456, 1
-  %1458 = getelementptr inbounds i8, ptr %985, i64 148
+  %1458 = getelementptr inbounds nuw i8, ptr %985, i64 148
   %1459 = load i32, ptr %1458, align 4
   %1460 = icmp eq i32 %1459, 32
   %or.cond.i226 = select i1 %1457, i1 %1460, i1 false
   br i1 %or.cond.i226, label %_ZNK4llvm10X86Operand13isMemOffs32_8Ev.exit, label %_ZL20validateOperandClassRN4llvm18MCParsedAsmOperandEN12_GLOBAL__N_114MatchClassKindE.exit
 
 _ZNK4llvm10X86Operand13isMemOffs32_8Ev.exit:      ; preds = %_ZNK4llvm10X86Operand9isMemOffsEv.exit.i225
-  %1461 = getelementptr inbounds i8, ptr %985, i64 144
+  %1461 = getelementptr inbounds nuw i8, ptr %985, i64 144
   %1462 = load i32, ptr %1461, align 8
   %1463 = and i32 %1462, -9
   %spec.select.i227 = icmp eq i32 %1463, 0
@@ -30966,28 +30966,28 @@ _ZNK4llvm10X86Operand13isMemOffs32_8Ev.exit:      ; preds = %_ZNK4llvm10X86Opera
 
 1464:                                             ; preds = %1026
   %1465 = icmp eq i32 %989, 3
-  %1466 = getelementptr inbounds i8, ptr %985, i64 128
+  %1466 = getelementptr inbounds nuw i8, ptr %985, i64 128
   %1467 = load i32, ptr %1466, align 8
   %.not.i.i214 = icmp eq i32 %1467, 0
   %or.cond.i.i215 = select i1 %1465, i1 %.not.i.i214, i1 false
-  %1468 = getelementptr inbounds i8, ptr %985, i64 136
+  %1468 = getelementptr inbounds nuw i8, ptr %985, i64 136
   %1469 = load i32, ptr %1468, align 8
   %.not1.i.i216 = icmp eq i32 %1469, 0
   %or.cond4.i.i217 = select i1 %or.cond.i.i215, i1 %.not1.i.i216, i1 false
   br i1 %or.cond4.i.i217, label %_ZNK4llvm10X86Operand9isMemOffsEv.exit.i218, label %thread-pre-split.i
 
 _ZNK4llvm10X86Operand9isMemOffsEv.exit.i218:      ; preds = %1464
-  %1470 = getelementptr inbounds i8, ptr %985, i64 140
+  %1470 = getelementptr inbounds nuw i8, ptr %985, i64 140
   %1471 = load i32, ptr %1470, align 4
   %1472 = icmp eq i32 %1471, 1
-  %1473 = getelementptr inbounds i8, ptr %985, i64 148
+  %1473 = getelementptr inbounds nuw i8, ptr %985, i64 148
   %1474 = load i32, ptr %1473, align 4
   %1475 = icmp eq i32 %1474, 64
   %or.cond.i219 = select i1 %1472, i1 %1475, i1 false
   br i1 %or.cond.i219, label %_ZNK4llvm10X86Operand14isMemOffs64_16Ev.exit, label %_ZL20validateOperandClassRN4llvm18MCParsedAsmOperandEN12_GLOBAL__N_114MatchClassKindE.exit
 
 _ZNK4llvm10X86Operand14isMemOffs64_16Ev.exit:     ; preds = %_ZNK4llvm10X86Operand9isMemOffsEv.exit.i218
-  %1476 = getelementptr inbounds i8, ptr %985, i64 144
+  %1476 = getelementptr inbounds nuw i8, ptr %985, i64 144
   %1477 = load i32, ptr %1476, align 8
   %1478 = and i32 %1477, -17
   %spec.select.i220 = icmp eq i32 %1478, 0
@@ -30995,28 +30995,28 @@ _ZNK4llvm10X86Operand14isMemOffs64_16Ev.exit:     ; preds = %_ZNK4llvm10X86Opera
 
 1479:                                             ; preds = %1026
   %1480 = icmp eq i32 %989, 3
-  %1481 = getelementptr inbounds i8, ptr %985, i64 128
+  %1481 = getelementptr inbounds nuw i8, ptr %985, i64 128
   %1482 = load i32, ptr %1481, align 8
   %.not.i.i207 = icmp eq i32 %1482, 0
   %or.cond.i.i208 = select i1 %1480, i1 %.not.i.i207, i1 false
-  %1483 = getelementptr inbounds i8, ptr %985, i64 136
+  %1483 = getelementptr inbounds nuw i8, ptr %985, i64 136
   %1484 = load i32, ptr %1483, align 8
   %.not1.i.i209 = icmp eq i32 %1484, 0
   %or.cond4.i.i210 = select i1 %or.cond.i.i208, i1 %.not1.i.i209, i1 false
   br i1 %or.cond4.i.i210, label %_ZNK4llvm10X86Operand9isMemOffsEv.exit.i211, label %thread-pre-split.i
 
 _ZNK4llvm10X86Operand9isMemOffsEv.exit.i211:      ; preds = %1479
-  %1485 = getelementptr inbounds i8, ptr %985, i64 140
+  %1485 = getelementptr inbounds nuw i8, ptr %985, i64 140
   %1486 = load i32, ptr %1485, align 4
   %1487 = icmp eq i32 %1486, 1
-  %1488 = getelementptr inbounds i8, ptr %985, i64 148
+  %1488 = getelementptr inbounds nuw i8, ptr %985, i64 148
   %1489 = load i32, ptr %1488, align 4
   %1490 = icmp eq i32 %1489, 64
   %or.cond.i212 = select i1 %1487, i1 %1490, i1 false
   br i1 %or.cond.i212, label %_ZNK4llvm10X86Operand14isMemOffs64_32Ev.exit, label %_ZL20validateOperandClassRN4llvm18MCParsedAsmOperandEN12_GLOBAL__N_114MatchClassKindE.exit
 
 _ZNK4llvm10X86Operand14isMemOffs64_32Ev.exit:     ; preds = %_ZNK4llvm10X86Operand9isMemOffsEv.exit.i211
-  %1491 = getelementptr inbounds i8, ptr %985, i64 144
+  %1491 = getelementptr inbounds nuw i8, ptr %985, i64 144
   %1492 = load i32, ptr %1491, align 8
   %1493 = and i32 %1492, -33
   %spec.select.i213 = icmp eq i32 %1493, 0
@@ -31024,28 +31024,28 @@ _ZNK4llvm10X86Operand14isMemOffs64_32Ev.exit:     ; preds = %_ZNK4llvm10X86Opera
 
 1494:                                             ; preds = %1026
   %1495 = icmp eq i32 %989, 3
-  %1496 = getelementptr inbounds i8, ptr %985, i64 128
+  %1496 = getelementptr inbounds nuw i8, ptr %985, i64 128
   %1497 = load i32, ptr %1496, align 8
   %.not.i.i200 = icmp eq i32 %1497, 0
   %or.cond.i.i201 = select i1 %1495, i1 %.not.i.i200, i1 false
-  %1498 = getelementptr inbounds i8, ptr %985, i64 136
+  %1498 = getelementptr inbounds nuw i8, ptr %985, i64 136
   %1499 = load i32, ptr %1498, align 8
   %.not1.i.i202 = icmp eq i32 %1499, 0
   %or.cond4.i.i203 = select i1 %or.cond.i.i201, i1 %.not1.i.i202, i1 false
   br i1 %or.cond4.i.i203, label %_ZNK4llvm10X86Operand9isMemOffsEv.exit.i204, label %thread-pre-split.i
 
 _ZNK4llvm10X86Operand9isMemOffsEv.exit.i204:      ; preds = %1494
-  %1500 = getelementptr inbounds i8, ptr %985, i64 140
+  %1500 = getelementptr inbounds nuw i8, ptr %985, i64 140
   %1501 = load i32, ptr %1500, align 4
   %1502 = icmp eq i32 %1501, 1
-  %1503 = getelementptr inbounds i8, ptr %985, i64 148
+  %1503 = getelementptr inbounds nuw i8, ptr %985, i64 148
   %1504 = load i32, ptr %1503, align 4
   %1505 = icmp eq i32 %1504, 64
   %or.cond.i205 = select i1 %1502, i1 %1505, i1 false
   br i1 %or.cond.i205, label %_ZNK4llvm10X86Operand14isMemOffs64_64Ev.exit, label %_ZL20validateOperandClassRN4llvm18MCParsedAsmOperandEN12_GLOBAL__N_114MatchClassKindE.exit
 
 _ZNK4llvm10X86Operand14isMemOffs64_64Ev.exit:     ; preds = %_ZNK4llvm10X86Operand9isMemOffsEv.exit.i204
-  %1506 = getelementptr inbounds i8, ptr %985, i64 144
+  %1506 = getelementptr inbounds nuw i8, ptr %985, i64 144
   %1507 = load i32, ptr %1506, align 8
   %1508 = and i32 %1507, -65
   %spec.select.i206 = icmp eq i32 %1508, 0
@@ -31053,28 +31053,28 @@ _ZNK4llvm10X86Operand14isMemOffs64_64Ev.exit:     ; preds = %_ZNK4llvm10X86Opera
 
 1509:                                             ; preds = %1026
   %1510 = icmp eq i32 %989, 3
-  %1511 = getelementptr inbounds i8, ptr %985, i64 128
+  %1511 = getelementptr inbounds nuw i8, ptr %985, i64 128
   %1512 = load i32, ptr %1511, align 8
   %.not.i.i196 = icmp eq i32 %1512, 0
   %or.cond.i.i197 = select i1 %1510, i1 %.not.i.i196, i1 false
-  %1513 = getelementptr inbounds i8, ptr %985, i64 136
+  %1513 = getelementptr inbounds nuw i8, ptr %985, i64 136
   %1514 = load i32, ptr %1513, align 8
   %.not1.i.i = icmp eq i32 %1514, 0
   %or.cond4.i.i = select i1 %or.cond.i.i197, i1 %.not1.i.i, i1 false
   br i1 %or.cond4.i.i, label %_ZNK4llvm10X86Operand9isMemOffsEv.exit.i, label %thread-pre-split.i
 
 _ZNK4llvm10X86Operand9isMemOffsEv.exit.i:         ; preds = %1509
-  %1515 = getelementptr inbounds i8, ptr %985, i64 140
+  %1515 = getelementptr inbounds nuw i8, ptr %985, i64 140
   %1516 = load i32, ptr %1515, align 4
   %1517 = icmp eq i32 %1516, 1
-  %1518 = getelementptr inbounds i8, ptr %985, i64 148
+  %1518 = getelementptr inbounds nuw i8, ptr %985, i64 148
   %1519 = load i32, ptr %1518, align 4
   %1520 = icmp eq i32 %1519, 64
   %or.cond.i198 = select i1 %1517, i1 %1520, i1 false
   br i1 %or.cond.i198, label %_ZNK4llvm10X86Operand13isMemOffs64_8Ev.exit, label %_ZL20validateOperandClassRN4llvm18MCParsedAsmOperandEN12_GLOBAL__N_114MatchClassKindE.exit
 
 _ZNK4llvm10X86Operand13isMemOffs64_8Ev.exit:      ; preds = %_ZNK4llvm10X86Operand9isMemOffsEv.exit.i
-  %1521 = getelementptr inbounds i8, ptr %985, i64 144
+  %1521 = getelementptr inbounds nuw i8, ptr %985, i64 144
   %1522 = load i32, ptr %1521, align 8
   %1523 = and i32 %1522, -9
   %spec.select.i199 = icmp eq i32 %1523, 0
@@ -31082,7 +31082,7 @@ _ZNK4llvm10X86Operand13isMemOffs64_8Ev.exit:      ; preds = %_ZNK4llvm10X86Opera
 
 1524:                                             ; preds = %1026
   %1525 = icmp eq i32 %989, 3
-  %1526 = getelementptr inbounds i8, ptr %985, i64 144
+  %1526 = getelementptr inbounds nuw i8, ptr %985, i64 144
   %1527 = load i32, ptr %1526, align 8
   %1528 = and i32 %1527, -17
   %spec.select.i.i193 = icmp eq i32 %1528, 0
@@ -31090,17 +31090,17 @@ _ZNK4llvm10X86Operand13isMemOffs64_8Ev.exit:      ; preds = %_ZNK4llvm10X86Opera
   br i1 %1529, label %1530, label %thread-pre-split.i
 
 1530:                                             ; preds = %1524
-  %1531 = getelementptr inbounds i8, ptr %985, i64 136
+  %1531 = getelementptr inbounds nuw i8, ptr %985, i64 136
   %1532 = load i32, ptr %1531, align 8
   %.not.i.i194 = icmp eq i32 %1532, 0
-  %1533 = getelementptr inbounds i8, ptr %985, i64 140
+  %1533 = getelementptr inbounds nuw i8, ptr %985, i64 140
   %1534 = load i32, ptr %1533, align 4
   %1535 = icmp eq i32 %1534, 1
   %or.cond.i.i195 = select i1 %.not.i.i194, i1 %1535, i1 false
   br i1 %or.cond.i.i195, label %1536, label %_ZL20validateOperandClassRN4llvm18MCParsedAsmOperandEN12_GLOBAL__N_114MatchClassKindE.exit
 
 1536:                                             ; preds = %1530
-  %1537 = getelementptr inbounds i8, ptr %985, i64 128
+  %1537 = getelementptr inbounds nuw i8, ptr %985, i64 128
   %1538 = load i32, ptr %1537, align 8
   switch i32 %1538, label %_ZL20validateOperandClassRN4llvm18MCParsedAsmOperandEN12_GLOBAL__N_114MatchClassKindE.exit [
     i32 60, label %1539
@@ -31109,7 +31109,7 @@ _ZNK4llvm10X86Operand13isMemOffs64_8Ev.exit:      ; preds = %_ZNK4llvm10X86Opera
   ]
 
 1539:                                             ; preds = %1536, %1536, %1536
-  %1540 = getelementptr inbounds i8, ptr %985, i64 120
+  %1540 = getelementptr inbounds nuw i8, ptr %985, i64 120
   %1541 = load ptr, ptr %1540, align 8
   %1542 = load i8, ptr %1541, align 8
   %1543 = icmp eq i8 %1542, 1
@@ -31123,7 +31123,7 @@ _ZNK4llvm10X86Operand10isSrcIdx16Ev.exit:         ; preds = %1539
 
 1547:                                             ; preds = %1026
   %1548 = icmp eq i32 %989, 3
-  %1549 = getelementptr inbounds i8, ptr %985, i64 144
+  %1549 = getelementptr inbounds nuw i8, ptr %985, i64 144
   %1550 = load i32, ptr %1549, align 8
   %1551 = and i32 %1550, -33
   %spec.select.i.i190 = icmp eq i32 %1551, 0
@@ -31131,17 +31131,17 @@ _ZNK4llvm10X86Operand10isSrcIdx16Ev.exit:         ; preds = %1539
   br i1 %1552, label %1553, label %thread-pre-split.i
 
 1553:                                             ; preds = %1547
-  %1554 = getelementptr inbounds i8, ptr %985, i64 136
+  %1554 = getelementptr inbounds nuw i8, ptr %985, i64 136
   %1555 = load i32, ptr %1554, align 8
   %.not.i.i191 = icmp eq i32 %1555, 0
-  %1556 = getelementptr inbounds i8, ptr %985, i64 140
+  %1556 = getelementptr inbounds nuw i8, ptr %985, i64 140
   %1557 = load i32, ptr %1556, align 4
   %1558 = icmp eq i32 %1557, 1
   %or.cond.i.i192 = select i1 %.not.i.i191, i1 %1558, i1 false
   br i1 %or.cond.i.i192, label %1559, label %_ZL20validateOperandClassRN4llvm18MCParsedAsmOperandEN12_GLOBAL__N_114MatchClassKindE.exit
 
 1559:                                             ; preds = %1553
-  %1560 = getelementptr inbounds i8, ptr %985, i64 128
+  %1560 = getelementptr inbounds nuw i8, ptr %985, i64 128
   %1561 = load i32, ptr %1560, align 8
   switch i32 %1561, label %_ZL20validateOperandClassRN4llvm18MCParsedAsmOperandEN12_GLOBAL__N_114MatchClassKindE.exit [
     i32 60, label %1562
@@ -31150,7 +31150,7 @@ _ZNK4llvm10X86Operand10isSrcIdx16Ev.exit:         ; preds = %1539
   ]
 
 1562:                                             ; preds = %1559, %1559, %1559
-  %1563 = getelementptr inbounds i8, ptr %985, i64 120
+  %1563 = getelementptr inbounds nuw i8, ptr %985, i64 120
   %1564 = load ptr, ptr %1563, align 8
   %1565 = load i8, ptr %1564, align 8
   %1566 = icmp eq i8 %1565, 1
@@ -31164,7 +31164,7 @@ _ZNK4llvm10X86Operand10isSrcIdx32Ev.exit:         ; preds = %1562
 
 1570:                                             ; preds = %1026
   %1571 = icmp eq i32 %989, 3
-  %1572 = getelementptr inbounds i8, ptr %985, i64 144
+  %1572 = getelementptr inbounds nuw i8, ptr %985, i64 144
   %1573 = load i32, ptr %1572, align 8
   %1574 = and i32 %1573, -65
   %spec.select.i.i187 = icmp eq i32 %1574, 0
@@ -31172,17 +31172,17 @@ _ZNK4llvm10X86Operand10isSrcIdx32Ev.exit:         ; preds = %1562
   br i1 %1575, label %1576, label %thread-pre-split.i
 
 1576:                                             ; preds = %1570
-  %1577 = getelementptr inbounds i8, ptr %985, i64 136
+  %1577 = getelementptr inbounds nuw i8, ptr %985, i64 136
   %1578 = load i32, ptr %1577, align 8
   %.not.i.i188 = icmp eq i32 %1578, 0
-  %1579 = getelementptr inbounds i8, ptr %985, i64 140
+  %1579 = getelementptr inbounds nuw i8, ptr %985, i64 140
   %1580 = load i32, ptr %1579, align 4
   %1581 = icmp eq i32 %1580, 1
   %or.cond.i.i189 = select i1 %.not.i.i188, i1 %1581, i1 false
   br i1 %or.cond.i.i189, label %1582, label %_ZL20validateOperandClassRN4llvm18MCParsedAsmOperandEN12_GLOBAL__N_114MatchClassKindE.exit
 
 1582:                                             ; preds = %1576
-  %1583 = getelementptr inbounds i8, ptr %985, i64 128
+  %1583 = getelementptr inbounds nuw i8, ptr %985, i64 128
   %1584 = load i32, ptr %1583, align 8
   switch i32 %1584, label %_ZL20validateOperandClassRN4llvm18MCParsedAsmOperandEN12_GLOBAL__N_114MatchClassKindE.exit [
     i32 60, label %1585
@@ -31191,7 +31191,7 @@ _ZNK4llvm10X86Operand10isSrcIdx32Ev.exit:         ; preds = %1562
   ]
 
 1585:                                             ; preds = %1582, %1582, %1582
-  %1586 = getelementptr inbounds i8, ptr %985, i64 120
+  %1586 = getelementptr inbounds nuw i8, ptr %985, i64 120
   %1587 = load ptr, ptr %1586, align 8
   %1588 = load i8, ptr %1587, align 8
   %1589 = icmp eq i8 %1588, 1
@@ -31205,7 +31205,7 @@ _ZNK4llvm10X86Operand10isSrcIdx64Ev.exit:         ; preds = %1585
 
 1593:                                             ; preds = %1026
   %1594 = icmp eq i32 %989, 3
-  %1595 = getelementptr inbounds i8, ptr %985, i64 144
+  %1595 = getelementptr inbounds nuw i8, ptr %985, i64 144
   %1596 = load i32, ptr %1595, align 8
   %1597 = and i32 %1596, -9
   %spec.select.i.i185 = icmp eq i32 %1597, 0
@@ -31213,17 +31213,17 @@ _ZNK4llvm10X86Operand10isSrcIdx64Ev.exit:         ; preds = %1585
   br i1 %1598, label %1599, label %thread-pre-split.i
 
 1599:                                             ; preds = %1593
-  %1600 = getelementptr inbounds i8, ptr %985, i64 136
+  %1600 = getelementptr inbounds nuw i8, ptr %985, i64 136
   %1601 = load i32, ptr %1600, align 8
   %.not.i.i186 = icmp eq i32 %1601, 0
-  %1602 = getelementptr inbounds i8, ptr %985, i64 140
+  %1602 = getelementptr inbounds nuw i8, ptr %985, i64 140
   %1603 = load i32, ptr %1602, align 4
   %1604 = icmp eq i32 %1603, 1
   %or.cond.i.i = select i1 %.not.i.i186, i1 %1604, i1 false
   br i1 %or.cond.i.i, label %1605, label %_ZL20validateOperandClassRN4llvm18MCParsedAsmOperandEN12_GLOBAL__N_114MatchClassKindE.exit
 
 1605:                                             ; preds = %1599
-  %1606 = getelementptr inbounds i8, ptr %985, i64 128
+  %1606 = getelementptr inbounds nuw i8, ptr %985, i64 128
   %1607 = load i32, ptr %1606, align 8
   switch i32 %1607, label %_ZL20validateOperandClassRN4llvm18MCParsedAsmOperandEN12_GLOBAL__N_114MatchClassKindE.exit [
     i32 60, label %1608
@@ -31232,7 +31232,7 @@ _ZNK4llvm10X86Operand10isSrcIdx64Ev.exit:         ; preds = %1585
   ]
 
 1608:                                             ; preds = %1605, %1605, %1605
-  %1609 = getelementptr inbounds i8, ptr %985, i64 120
+  %1609 = getelementptr inbounds nuw i8, ptr %985, i64 120
   %1610 = load ptr, ptr %1609, align 8
   %1611 = load i8, ptr %1610, align 8
   %1612 = icmp eq i8 %1611, 1
@@ -31250,29 +31250,29 @@ _ZNK4llvm10X86Operand9isSrcIdx8Ev.exit:           ; preds = %1608
   %1619 = load i32, ptr %1618, align 8
   %.not.i182 = icmp eq i32 %1619, 0
   %or.cond.i183 = select i1 %1617, i1 %.not.i182, i1 false
-  %1620 = getelementptr inbounds i8, ptr %985, i64 128
+  %1620 = getelementptr inbounds nuw i8, ptr %985, i64 128
   %1621 = load i32, ptr %1620, align 8
   %.not1.i = icmp eq i32 %1621, 0
   %or.cond5.i = select i1 %or.cond.i183, i1 %.not1.i, i1 false
-  %1622 = getelementptr inbounds i8, ptr %985, i64 136
+  %1622 = getelementptr inbounds nuw i8, ptr %985, i64 136
   %1623 = load i32, ptr %1622, align 8
   %.not2.i184 = icmp eq i32 %1623, 0
   %or.cond7.i = select i1 %or.cond5.i, i1 %.not2.i184, i1 false
-  %1624 = getelementptr inbounds i8, ptr %985, i64 140
+  %1624 = getelementptr inbounds nuw i8, ptr %985, i64 140
   %1625 = load i32, ptr %1624, align 4
   %1626 = icmp eq i32 %1625, 1
   %or.cond10.i = select i1 %or.cond7.i, i1 %1626, i1 false
   br i1 %or.cond10.i, label %_ZNK4llvm10X86Operand8isAbsMemEv.exit, label %thread-pre-split.i
 
 _ZNK4llvm10X86Operand8isAbsMemEv.exit:            ; preds = %1616
-  %1627 = getelementptr inbounds i8, ptr %985, i64 156
+  %1627 = getelementptr inbounds nuw i8, ptr %985, i64 156
   %1628 = load i8, ptr %1627, align 4
   %1629 = trunc i8 %1628 to i1
   br i1 %1629, label %_ZNK4llvm10X86Operand14isImmSExti16i8Ev.exit.thread, label %_ZL20validateOperandClassRN4llvm18MCParsedAsmOperandEN12_GLOBAL__N_114MatchClassKindE.exit
 
 1630:                                             ; preds = %1026
   %1631 = icmp eq i32 %989, 3
-  %1632 = getelementptr inbounds i8, ptr %985, i64 144
+  %1632 = getelementptr inbounds nuw i8, ptr %985, i64 144
   %1633 = load i32, ptr %1632, align 8
   %1634 = and i32 %1633, -129
   %spec.select.i.i = icmp eq i32 %1634, 0
@@ -31281,7 +31281,7 @@ _ZNK4llvm10X86Operand8isAbsMemEv.exit:            ; preds = %1616
 
 1636:                                             ; preds = %1026
   %1637 = icmp eq i32 %989, 3
-  %1638 = getelementptr inbounds i8, ptr %985, i64 144
+  %1638 = getelementptr inbounds nuw i8, ptr %985, i64 144
   %1639 = load i32, ptr %1638, align 8
   %1640 = and i32 %1639, -129
   %spec.select.i.i.i = icmp eq i32 %1640, 0
@@ -31289,7 +31289,7 @@ _ZNK4llvm10X86Operand8isAbsMemEv.exit:            ; preds = %1616
   br i1 %1641, label %_ZNK4llvm10X86Operand14isMem128_RC128Ev.exit.i, label %thread-pre-split.i
 
 _ZNK4llvm10X86Operand14isMem128_RC128Ev.exit.i:   ; preds = %1636
-  %1642 = getelementptr inbounds i8, ptr %985, i64 136
+  %1642 = getelementptr inbounds nuw i8, ptr %985, i64 136
   %1643 = load i32, ptr %1642, align 8
   %1644 = add i32 %1643, -135
   %spec.select.i1.i.i = icmp ult i32 %1644, 16
@@ -31297,7 +31297,7 @@ _ZNK4llvm10X86Operand14isMem128_RC128Ev.exit.i:   ; preds = %1636
 
 1645:                                             ; preds = %1026
   %1646 = icmp eq i32 %989, 3
-  %1647 = getelementptr inbounds i8, ptr %985, i64 144
+  %1647 = getelementptr inbounds nuw i8, ptr %985, i64 144
   %1648 = load i32, ptr %1647, align 8
   %1649 = and i32 %1648, -129
   %spec.select.i.i131.i = icmp eq i32 %1649, 0
@@ -31305,7 +31305,7 @@ _ZNK4llvm10X86Operand14isMem128_RC128Ev.exit.i:   ; preds = %1636
   br i1 %1650, label %_ZNK4llvm10X86Operand15isMem128_RC128XEv.exit.i, label %thread-pre-split.i
 
 _ZNK4llvm10X86Operand15isMem128_RC128XEv.exit.i:  ; preds = %1645
-  %1651 = getelementptr inbounds i8, ptr %985, i64 136
+  %1651 = getelementptr inbounds nuw i8, ptr %985, i64 136
   %1652 = load i32, ptr %1651, align 8
   %1653 = add i32 %1652, -135
   %or.cond.i.i.i = icmp ult i32 %1653, 16
@@ -31316,7 +31316,7 @@ _ZNK4llvm10X86Operand15isMem128_RC128XEv.exit.i:  ; preds = %1645
 
 1657:                                             ; preds = %1026
   %1658 = icmp eq i32 %989, 3
-  %1659 = getelementptr inbounds i8, ptr %985, i64 144
+  %1659 = getelementptr inbounds nuw i8, ptr %985, i64 144
   %1660 = load i32, ptr %1659, align 8
   %1661 = and i32 %1660, -129
   %spec.select.i.i133.i = icmp eq i32 %1661, 0
@@ -31324,7 +31324,7 @@ _ZNK4llvm10X86Operand15isMem128_RC128XEv.exit.i:  ; preds = %1645
   br i1 %1662, label %_ZNK4llvm10X86Operand14isMem128_RC256Ev.exit.i, label %thread-pre-split.i
 
 _ZNK4llvm10X86Operand14isMem128_RC256Ev.exit.i:   ; preds = %1657
-  %1663 = getelementptr inbounds i8, ptr %985, i64 136
+  %1663 = getelementptr inbounds nuw i8, ptr %985, i64 136
   %1664 = load i32, ptr %1663, align 8
   %1665 = add i32 %1664, -191
   %spec.select.i1.i134.i = icmp ult i32 %1665, 16
@@ -31332,7 +31332,7 @@ _ZNK4llvm10X86Operand14isMem128_RC256Ev.exit.i:   ; preds = %1657
 
 1666:                                             ; preds = %1026
   %1667 = icmp eq i32 %989, 3
-  %1668 = getelementptr inbounds i8, ptr %985, i64 144
+  %1668 = getelementptr inbounds nuw i8, ptr %985, i64 144
   %1669 = load i32, ptr %1668, align 8
   %1670 = and i32 %1669, -129
   %spec.select.i.i136.i = icmp eq i32 %1670, 0
@@ -31340,7 +31340,7 @@ _ZNK4llvm10X86Operand14isMem128_RC256Ev.exit.i:   ; preds = %1657
   br i1 %1671, label %_ZNK4llvm10X86Operand15isMem128_RC256XEv.exit.i, label %thread-pre-split.i
 
 _ZNK4llvm10X86Operand15isMem128_RC256XEv.exit.i:  ; preds = %1666
-  %1672 = getelementptr inbounds i8, ptr %985, i64 136
+  %1672 = getelementptr inbounds nuw i8, ptr %985, i64 136
   %1673 = load i32, ptr %1672, align 8
   %1674 = add i32 %1673, -191
   %or.cond.i.i137.i = icmp ult i32 %1674, 16
@@ -31351,7 +31351,7 @@ _ZNK4llvm10X86Operand15isMem128_RC256XEv.exit.i:  ; preds = %1666
 
 1678:                                             ; preds = %1026
   %1679 = icmp eq i32 %989, 3
-  %1680 = getelementptr inbounds i8, ptr %985, i64 144
+  %1680 = getelementptr inbounds nuw i8, ptr %985, i64 144
   %1681 = load i32, ptr %1680, align 8
   %1682 = and i32 %1681, -17
   %spec.select.i139.i = icmp eq i32 %1682, 0
@@ -31360,7 +31360,7 @@ _ZNK4llvm10X86Operand15isMem128_RC256XEv.exit.i:  ; preds = %1666
 
 1684:                                             ; preds = %1026
   %1685 = icmp eq i32 %989, 3
-  %1686 = getelementptr inbounds i8, ptr %985, i64 144
+  %1686 = getelementptr inbounds nuw i8, ptr %985, i64 144
   %1687 = load i32, ptr %1686, align 8
   %1688 = and i32 %1687, -257
   %spec.select.i141.i = icmp eq i32 %1688, 0
@@ -31369,7 +31369,7 @@ _ZNK4llvm10X86Operand15isMem128_RC256XEv.exit.i:  ; preds = %1666
 
 1690:                                             ; preds = %1026
   %1691 = icmp eq i32 %989, 3
-  %1692 = getelementptr inbounds i8, ptr %985, i64 144
+  %1692 = getelementptr inbounds nuw i8, ptr %985, i64 144
   %1693 = load i32, ptr %1692, align 8
   %1694 = and i32 %1693, -257
   %spec.select.i.i143.i = icmp eq i32 %1694, 0
@@ -31377,7 +31377,7 @@ _ZNK4llvm10X86Operand15isMem128_RC256XEv.exit.i:  ; preds = %1666
   br i1 %1695, label %_ZNK4llvm10X86Operand14isMem256_RC128Ev.exit.i, label %thread-pre-split.i
 
 _ZNK4llvm10X86Operand14isMem256_RC128Ev.exit.i:   ; preds = %1690
-  %1696 = getelementptr inbounds i8, ptr %985, i64 136
+  %1696 = getelementptr inbounds nuw i8, ptr %985, i64 136
   %1697 = load i32, ptr %1696, align 8
   %1698 = add i32 %1697, -135
   %spec.select.i1.i144.i = icmp ult i32 %1698, 16
@@ -31385,7 +31385,7 @@ _ZNK4llvm10X86Operand14isMem256_RC128Ev.exit.i:   ; preds = %1690
 
 1699:                                             ; preds = %1026
   %1700 = icmp eq i32 %989, 3
-  %1701 = getelementptr inbounds i8, ptr %985, i64 144
+  %1701 = getelementptr inbounds nuw i8, ptr %985, i64 144
   %1702 = load i32, ptr %1701, align 8
   %1703 = and i32 %1702, -257
   %spec.select.i.i146.i = icmp eq i32 %1703, 0
@@ -31393,7 +31393,7 @@ _ZNK4llvm10X86Operand14isMem256_RC128Ev.exit.i:   ; preds = %1690
   br i1 %1704, label %_ZNK4llvm10X86Operand15isMem256_RC128XEv.exit.i, label %thread-pre-split.i
 
 _ZNK4llvm10X86Operand15isMem256_RC128XEv.exit.i:  ; preds = %1699
-  %1705 = getelementptr inbounds i8, ptr %985, i64 136
+  %1705 = getelementptr inbounds nuw i8, ptr %985, i64 136
   %1706 = load i32, ptr %1705, align 8
   %1707 = add i32 %1706, -135
   %or.cond.i.i147.i = icmp ult i32 %1707, 16
@@ -31404,7 +31404,7 @@ _ZNK4llvm10X86Operand15isMem256_RC128XEv.exit.i:  ; preds = %1699
 
 1711:                                             ; preds = %1026
   %1712 = icmp eq i32 %989, 3
-  %1713 = getelementptr inbounds i8, ptr %985, i64 144
+  %1713 = getelementptr inbounds nuw i8, ptr %985, i64 144
   %1714 = load i32, ptr %1713, align 8
   %1715 = and i32 %1714, -257
   %spec.select.i.i149.i = icmp eq i32 %1715, 0
@@ -31412,7 +31412,7 @@ _ZNK4llvm10X86Operand15isMem256_RC128XEv.exit.i:  ; preds = %1699
   br i1 %1716, label %_ZNK4llvm10X86Operand14isMem256_RC256Ev.exit.i, label %thread-pre-split.i
 
 _ZNK4llvm10X86Operand14isMem256_RC256Ev.exit.i:   ; preds = %1711
-  %1717 = getelementptr inbounds i8, ptr %985, i64 136
+  %1717 = getelementptr inbounds nuw i8, ptr %985, i64 136
   %1718 = load i32, ptr %1717, align 8
   %1719 = add i32 %1718, -191
   %spec.select.i1.i150.i = icmp ult i32 %1719, 16
@@ -31420,7 +31420,7 @@ _ZNK4llvm10X86Operand14isMem256_RC256Ev.exit.i:   ; preds = %1711
 
 1720:                                             ; preds = %1026
   %1721 = icmp eq i32 %989, 3
-  %1722 = getelementptr inbounds i8, ptr %985, i64 144
+  %1722 = getelementptr inbounds nuw i8, ptr %985, i64 144
   %1723 = load i32, ptr %1722, align 8
   %1724 = and i32 %1723, -257
   %spec.select.i.i152.i = icmp eq i32 %1724, 0
@@ -31428,7 +31428,7 @@ _ZNK4llvm10X86Operand14isMem256_RC256Ev.exit.i:   ; preds = %1711
   br i1 %1725, label %_ZNK4llvm10X86Operand15isMem256_RC256XEv.exit.i, label %thread-pre-split.i
 
 _ZNK4llvm10X86Operand15isMem256_RC256XEv.exit.i:  ; preds = %1720
-  %1726 = getelementptr inbounds i8, ptr %985, i64 136
+  %1726 = getelementptr inbounds nuw i8, ptr %985, i64 136
   %1727 = load i32, ptr %1726, align 8
   %1728 = add i32 %1727, -191
   %or.cond.i.i153.i = icmp ult i32 %1728, 16
@@ -31439,7 +31439,7 @@ _ZNK4llvm10X86Operand15isMem256_RC256XEv.exit.i:  ; preds = %1720
 
 1732:                                             ; preds = %1026
   %1733 = icmp eq i32 %989, 3
-  %1734 = getelementptr inbounds i8, ptr %985, i64 144
+  %1734 = getelementptr inbounds nuw i8, ptr %985, i64 144
   %1735 = load i32, ptr %1734, align 8
   %1736 = and i32 %1735, -257
   %spec.select.i.i155.i = icmp eq i32 %1736, 0
@@ -31447,7 +31447,7 @@ _ZNK4llvm10X86Operand15isMem256_RC256XEv.exit.i:  ; preds = %1720
   br i1 %1737, label %_ZNK4llvm10X86Operand14isMem256_RC512Ev.exit.i, label %thread-pre-split.i
 
 _ZNK4llvm10X86Operand14isMem256_RC512Ev.exit.i:   ; preds = %1732
-  %1738 = getelementptr inbounds i8, ptr %985, i64 136
+  %1738 = getelementptr inbounds nuw i8, ptr %985, i64 136
   %1739 = load i32, ptr %1738, align 8
   %1740 = add i32 %1739, -247
   %1741 = icmp ult i32 %1740, 32
@@ -31455,7 +31455,7 @@ _ZNK4llvm10X86Operand14isMem256_RC512Ev.exit.i:   ; preds = %1732
 
 1742:                                             ; preds = %1026
   %1743 = icmp eq i32 %989, 3
-  %1744 = getelementptr inbounds i8, ptr %985, i64 144
+  %1744 = getelementptr inbounds nuw i8, ptr %985, i64 144
   %1745 = load i32, ptr %1744, align 8
   %1746 = and i32 %1745, -33
   %spec.select.i157.i = icmp eq i32 %1746, 0
@@ -31464,7 +31464,7 @@ _ZNK4llvm10X86Operand14isMem256_RC512Ev.exit.i:   ; preds = %1732
 
 1748:                                             ; preds = %1026
   %1749 = icmp eq i32 %989, 3
-  %1750 = getelementptr inbounds i8, ptr %985, i64 144
+  %1750 = getelementptr inbounds nuw i8, ptr %985, i64 144
   %1751 = load i32, ptr %1750, align 8
   %1752 = and i32 %1751, -513
   %spec.select.i159.i = icmp eq i32 %1752, 0
@@ -31473,7 +31473,7 @@ _ZNK4llvm10X86Operand14isMem256_RC512Ev.exit.i:   ; preds = %1732
 
 1754:                                             ; preds = %1026
   %1755 = icmp eq i32 %989, 3
-  %1756 = getelementptr inbounds i8, ptr %985, i64 144
+  %1756 = getelementptr inbounds nuw i8, ptr %985, i64 144
   %1757 = load i32, ptr %1756, align 8
   %1758 = and i32 %1757, -513
   %spec.select.i.i175 = icmp eq i32 %1758, 0
@@ -31481,7 +31481,7 @@ _ZNK4llvm10X86Operand14isMem256_RC512Ev.exit.i:   ; preds = %1732
   br i1 %1759, label %1760, label %thread-pre-split.i
 
 1760:                                             ; preds = %1754
-  %1761 = getelementptr inbounds i8, ptr %985, i64 128
+  %1761 = getelementptr inbounds nuw i8, ptr %985, i64 128
   %1762 = load i32, ptr %1761, align 8
   %.not.i178 = icmp eq i32 %1762, 0
   br i1 %.not.i178, label %_ZNK4llvm10X86Operand14isImmSExti16i8Ev.exit.thread, label %1763
@@ -31507,7 +31507,7 @@ _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit.i180: ; preds = %1763
 
 1775:                                             ; preds = %1026
   %1776 = icmp eq i32 %989, 3
-  %1777 = getelementptr inbounds i8, ptr %985, i64 144
+  %1777 = getelementptr inbounds nuw i8, ptr %985, i64 144
   %1778 = load i32, ptr %1777, align 8
   %1779 = and i32 %1778, -513
   %spec.select.i.i159 = icmp eq i32 %1779, 0
@@ -31515,7 +31515,7 @@ _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit.i180: ; preds = %1763
   br i1 %1780, label %1781, label %thread-pre-split.i
 
 1781:                                             ; preds = %1775
-  %1782 = getelementptr inbounds i8, ptr %985, i64 128
+  %1782 = getelementptr inbounds nuw i8, ptr %985, i64 128
   %1783 = load i32, ptr %1782, align 8
   %.not.i161 = icmp eq i32 %1783, 0
   br i1 %.not.i161, label %1797, label %1784
@@ -31546,7 +31546,7 @@ _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit.thread.i163: ; preds =
   br i1 %.not2.old.i164, label %1797, label %_ZL20validateOperandClassRN4llvm18MCParsedAsmOperandEN12_GLOBAL__N_114MatchClassKindE.exit
 
 1797:                                             ; preds = %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit.thread.i163, %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit.i172, %1781
-  %1798 = getelementptr inbounds i8, ptr %985, i64 136
+  %1798 = getelementptr inbounds nuw i8, ptr %985, i64 136
   %1799 = load i32, ptr %1798, align 8
   %.not3.i165 = icmp eq i32 %1799, 0
   br i1 %.not3.i165, label %_ZNK4llvm10X86Operand14isImmSExti16i8Ev.exit.thread, label %1800
@@ -31578,7 +31578,7 @@ _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit7.thread.i167: ; preds 
 
 1813:                                             ; preds = %1026
   %1814 = icmp eq i32 %989, 3
-  %1815 = getelementptr inbounds i8, ptr %985, i64 144
+  %1815 = getelementptr inbounds nuw i8, ptr %985, i64 144
   %1816 = load i32, ptr %1815, align 8
   %1817 = and i32 %1816, -513
   %spec.select.i.i154 = icmp eq i32 %1817, 0
@@ -31586,7 +31586,7 @@ _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit7.thread.i167: ; preds 
   br i1 %1818, label %1819, label %thread-pre-split.i
 
 1819:                                             ; preds = %1813
-  %1820 = getelementptr inbounds i8, ptr %985, i64 128
+  %1820 = getelementptr inbounds nuw i8, ptr %985, i64 128
   %1821 = load i32, ptr %1820, align 8
   %.not.i156 = icmp eq i32 %1821, 0
   br i1 %.not.i156, label %1835, label %1822
@@ -31617,7 +31617,7 @@ _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit.thread.i: ; preds = %1
   br i1 %.not2.old.i, label %1835, label %_ZL20validateOperandClassRN4llvm18MCParsedAsmOperandEN12_GLOBAL__N_114MatchClassKindE.exit
 
 1835:                                             ; preds = %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit.thread.i, %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit.i, %1819
-  %1836 = getelementptr inbounds i8, ptr %985, i64 136
+  %1836 = getelementptr inbounds nuw i8, ptr %985, i64 136
   %1837 = load i32, ptr %1836, align 8
   %.not3.i = icmp eq i32 %1837, 0
   br i1 %.not3.i, label %_ZNK4llvm10X86Operand14isImmSExti16i8Ev.exit.thread, label %1838
@@ -31649,7 +31649,7 @@ _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit7.thread.i: ; preds = %
 
 1851:                                             ; preds = %1026
   %1852 = icmp eq i32 %989, 3
-  %1853 = getelementptr inbounds i8, ptr %985, i64 144
+  %1853 = getelementptr inbounds nuw i8, ptr %985, i64 144
   %1854 = load i32, ptr %1853, align 8
   %1855 = and i32 %1854, -513
   %spec.select.i.i164.i = icmp eq i32 %1855, 0
@@ -31657,7 +31657,7 @@ _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit7.thread.i: ; preds = %
   br i1 %1856, label %_ZNK4llvm10X86Operand15isMem512_RC256XEv.exit.i, label %thread-pre-split.i
 
 _ZNK4llvm10X86Operand15isMem512_RC256XEv.exit.i:  ; preds = %1851
-  %1857 = getelementptr inbounds i8, ptr %985, i64 136
+  %1857 = getelementptr inbounds nuw i8, ptr %985, i64 136
   %1858 = load i32, ptr %1857, align 8
   %1859 = add i32 %1858, -191
   %or.cond.i.i165.i = icmp ult i32 %1859, 16
@@ -31668,7 +31668,7 @@ _ZNK4llvm10X86Operand15isMem512_RC256XEv.exit.i:  ; preds = %1851
 
 1863:                                             ; preds = %1026
   %1864 = icmp eq i32 %989, 3
-  %1865 = getelementptr inbounds i8, ptr %985, i64 144
+  %1865 = getelementptr inbounds nuw i8, ptr %985, i64 144
   %1866 = load i32, ptr %1865, align 8
   %1867 = and i32 %1866, -513
   %spec.select.i.i167.i = icmp eq i32 %1867, 0
@@ -31676,7 +31676,7 @@ _ZNK4llvm10X86Operand15isMem512_RC256XEv.exit.i:  ; preds = %1851
   br i1 %1868, label %_ZNK4llvm10X86Operand14isMem512_RC512Ev.exit.i, label %thread-pre-split.i
 
 _ZNK4llvm10X86Operand14isMem512_RC512Ev.exit.i:   ; preds = %1863
-  %1869 = getelementptr inbounds i8, ptr %985, i64 136
+  %1869 = getelementptr inbounds nuw i8, ptr %985, i64 136
   %1870 = load i32, ptr %1869, align 8
   %1871 = add i32 %1870, -247
   %1872 = icmp ult i32 %1871, 32
@@ -31684,7 +31684,7 @@ _ZNK4llvm10X86Operand14isMem512_RC512Ev.exit.i:   ; preds = %1863
 
 1873:                                             ; preds = %1026
   %1874 = icmp eq i32 %989, 3
-  %1875 = getelementptr inbounds i8, ptr %985, i64 144
+  %1875 = getelementptr inbounds nuw i8, ptr %985, i64 144
   %1876 = load i32, ptr %1875, align 8
   %1877 = and i32 %1876, -65
   %spec.select.i169.i = icmp eq i32 %1877, 0
@@ -31693,7 +31693,7 @@ _ZNK4llvm10X86Operand14isMem512_RC512Ev.exit.i:   ; preds = %1863
 
 1879:                                             ; preds = %1026
   %1880 = icmp eq i32 %989, 3
-  %1881 = getelementptr inbounds i8, ptr %985, i64 144
+  %1881 = getelementptr inbounds nuw i8, ptr %985, i64 144
   %1882 = load i32, ptr %1881, align 8
   %1883 = and i32 %1882, -65
   %spec.select.i.i171.i = icmp eq i32 %1883, 0
@@ -31701,7 +31701,7 @@ _ZNK4llvm10X86Operand14isMem512_RC512Ev.exit.i:   ; preds = %1863
   br i1 %1884, label %_ZNK4llvm10X86Operand13isMem64_RC128Ev.exit.i, label %thread-pre-split.i
 
 _ZNK4llvm10X86Operand13isMem64_RC128Ev.exit.i:    ; preds = %1879
-  %1885 = getelementptr inbounds i8, ptr %985, i64 136
+  %1885 = getelementptr inbounds nuw i8, ptr %985, i64 136
   %1886 = load i32, ptr %1885, align 8
   %1887 = add i32 %1886, -135
   %spec.select.i1.i172.i = icmp ult i32 %1887, 16
@@ -31709,7 +31709,7 @@ _ZNK4llvm10X86Operand13isMem64_RC128Ev.exit.i:    ; preds = %1879
 
 1888:                                             ; preds = %1026
   %1889 = icmp eq i32 %989, 3
-  %1890 = getelementptr inbounds i8, ptr %985, i64 144
+  %1890 = getelementptr inbounds nuw i8, ptr %985, i64 144
   %1891 = load i32, ptr %1890, align 8
   %1892 = and i32 %1891, -65
   %spec.select.i.i174.i = icmp eq i32 %1892, 0
@@ -31717,7 +31717,7 @@ _ZNK4llvm10X86Operand13isMem64_RC128Ev.exit.i:    ; preds = %1879
   br i1 %1893, label %_ZNK4llvm10X86Operand14isMem64_RC128XEv.exit.i, label %thread-pre-split.i
 
 _ZNK4llvm10X86Operand14isMem64_RC128XEv.exit.i:   ; preds = %1888
-  %1894 = getelementptr inbounds i8, ptr %985, i64 136
+  %1894 = getelementptr inbounds nuw i8, ptr %985, i64 136
   %1895 = load i32, ptr %1894, align 8
   %1896 = add i32 %1895, -135
   %or.cond.i.i175.i = icmp ult i32 %1896, 16
@@ -31733,7 +31733,7 @@ _ZNK4llvm10X86Operand14isMem64_RC128XEv.exit.i:   ; preds = %1888
   ]
 
 _ZNK4llvm10X86Operand7isMem80Ev.exit.i:           ; preds = %1900
-  %1901 = getelementptr inbounds i8, ptr %985, i64 144
+  %1901 = getelementptr inbounds nuw i8, ptr %985, i64 144
   %1902 = load i32, ptr %1901, align 8
   switch i32 %1902, label %_ZL20validateOperandClassRN4llvm18MCParsedAsmOperandEN12_GLOBAL__N_114MatchClassKindE.exit [
     i32 80, label %_ZNK4llvm10X86Operand14isImmSExti16i8Ev.exit.thread
@@ -31742,7 +31742,7 @@ _ZNK4llvm10X86Operand7isMem80Ev.exit.i:           ; preds = %1900
 
 1903:                                             ; preds = %1026
   %1904 = icmp eq i32 %989, 3
-  %1905 = getelementptr inbounds i8, ptr %985, i64 144
+  %1905 = getelementptr inbounds nuw i8, ptr %985, i64 144
   %1906 = load i32, ptr %1905, align 8
   %1907 = and i32 %1906, -9
   %spec.select.i180.i = icmp eq i32 %1907, 0
@@ -31756,7 +31756,7 @@ _ZNK4llvm10X86Operand7isMem80Ev.exit.i:           ; preds = %1900
   ]
 
 _ZNK4llvm10X86Operand8isSibMemEv.exit.i:          ; preds = %1909
-  %1910 = getelementptr inbounds i8, ptr %985, i64 128
+  %1910 = getelementptr inbounds nuw i8, ptr %985, i64 128
   %1911 = load i32, ptr %1910, align 8
   switch i32 %1911, label %_ZNK4llvm10X86Operand14isImmSExti16i8Ev.exit.thread [
     i32 58, label %_ZL20validateOperandClassRN4llvm18MCParsedAsmOperandEN12_GLOBAL__N_114MatchClassKindE.exit
@@ -32615,7 +32615,7 @@ _ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit185.i: ; preds = %2268, %2264
   %2276 = load ptr, ptr %1, align 8
   %2277 = getelementptr inbounds %"class.std::unique_ptr.166", ptr %2276, i64 %2275
   %2278 = load ptr, ptr %2277, align 8
-  %2279 = getelementptr inbounds i8, ptr %2278, i64 128
+  %2279 = getelementptr inbounds nuw i8, ptr %2278, i64 128
   %2280 = load i32, ptr %2279, align 8
   %2281 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %955) #23
   %2282 = add i64 %2281, 1
@@ -35618,7 +35618,7 @@ declare i64 @llvm.ctpop.i64(i64) #15
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNK4llvm10X86Operand17addAbsMemOperandsERNS_6MCInstEj(ptr noundef nonnull align 8 dereferenceable(160) %0, ptr noundef nonnull align 8 dereferenceable(128) %1, i32 noundef %2) local_unnamed_addr #0 comdat align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 120
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %5 = load ptr, ptr %4, align 8
   %6 = load i8, ptr %5, align 8
   %.not = icmp eq i8 %6, 1
@@ -35671,7 +35671,7 @@ _ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit:  ; preds = %21, %16, %14, %7
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNK4llvm10X86Operand17addSrcIdxOperandsERNS_6MCInstEj(ptr noundef nonnull align 8 dereferenceable(160) %0, ptr noundef nonnull align 8 dereferenceable(128) %1, i32 noundef %2) local_unnamed_addr #0 comdat align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 128
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %5 = load i32, ptr %4, align 8
   %.sroa.3.8.insert.ext.i = zext i32 %5 to i64
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -35851,7 +35851,7 @@ _ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit:  ; preds = %_ZNK4llvm15MCRegist
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNK4llvm10X86Operand18addMemOffsOperandsERNS_6MCInstEj(ptr noundef nonnull align 8 dereferenceable(160) %0, ptr noundef nonnull align 8 dereferenceable(128) %1, i32 noundef %2) local_unnamed_addr #0 comdat align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 120
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %5 = load ptr, ptr %4, align 8
   %6 = load i8, ptr %5, align 8
   %.not = icmp eq i8 %6, 1
@@ -36136,8 +36136,8 @@ define internal void @_GLOBAL__sub_I_X86AsmParser.cpp() #16 section ".text.start
   tail call void @_ZN4llvm2cl12basic_parserIbEC2ERNS0_6OptionE(ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds nuw (i8, ptr @_ZL21LVIInlineAsmHardening, i64 152), ptr noundef nonnull align 8 dereferenceable(128) @_ZL21LVIInlineAsmHardening) #23
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4llvm2cl6parserIbEE, i64 16), ptr getelementptr inbounds nuw (i8, ptr @_ZL21LVIInlineAsmHardening, i64 152), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZL21LVIInlineAsmHardening, i64 160), i8 0, i64 16, i1 false)
-  store ptr @_ZNSt17_Function_handlerIFvRKbEN4llvm2cl3optIbLb0ENS4_6parserIbEEEUlS1_E_EE9_M_invokeERKSt9_Any_dataS1_, ptr getelementptr inbounds (i8, ptr @_ZL21LVIInlineAsmHardening, i64 184), align 8
-  store ptr @_ZNSt17_Function_handlerIFvRKbEN4llvm2cl3optIbLb0ENS4_6parserIbEEEUlS1_E_EE10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation, ptr getelementptr inbounds (i8, ptr @_ZL21LVIInlineAsmHardening, i64 176), align 8
+  store ptr @_ZNSt17_Function_handlerIFvRKbEN4llvm2cl3optIbLb0ENS4_6parserIbEEEUlS1_E_EE9_M_invokeERKSt9_Any_dataS1_, ptr getelementptr inbounds nuw (i8, ptr @_ZL21LVIInlineAsmHardening, i64 184), align 8
+  store ptr @_ZNSt17_Function_handlerIFvRKbEN4llvm2cl3optIbLb0ENS4_6parserIbEEEUlS1_E_EE10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation, ptr getelementptr inbounds nuw (i8, ptr @_ZL21LVIInlineAsmHardening, i64 176), align 8
   tail call void @_ZN4llvm2cl6Option9setArgStrENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(128) @_ZL21LVIInlineAsmHardening, ptr nonnull @.str, i64 41) #23
   store ptr @.str.1, ptr getelementptr inbounds nuw (i8, ptr @_ZL21LVIInlineAsmHardening, i64 32), align 8
   store i64 111, ptr getelementptr inbounds (i8, ptr @_ZL21LVIInlineAsmHardening, i64 40), align 8

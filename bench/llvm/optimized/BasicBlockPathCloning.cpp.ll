@@ -186,7 +186,7 @@ _ZNK4llvm4Pass11getAnalysisINS_42BasicBlockSectionsProfileReaderWrapperPassEEERT
 
 31:                                               ; preds = %_ZNK4llvm4Pass11getAnalysisINS_42BasicBlockSectionsProfileReaderWrapperPassEEERT_v.exit
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %4, i8 0, i64 20, i1 false)
-  %32 = getelementptr inbounds i8, ptr %1, i64 328
+  %32 = getelementptr inbounds nuw i8, ptr %1, i64 328
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 320
   %.sroa.0167.0227.i = load ptr, ptr %32, align 8
   %.not170228.i = icmp eq ptr %.sroa.0167.0227.i, %33
@@ -1760,15 +1760,15 @@ _ZN12_GLOBAL__N_122CloneMachineBasicBlockERN4llvm17MachineBasicBlockEj.exit.i: ;
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   call void @_ZN4llvm17MachineBasicBlock22ReplaceUsesOfBlockWithEPS0_S1_(ptr noundef nonnull align 8 dereferenceable(288) %.052239.i, ptr noundef nonnull %701, ptr noundef nonnull %818) #13
   %850 = call ptr @_ZNK4llvm17MachineBasicBlock12livein_beginEv(ptr noundef nonnull align 8 dereferenceable(288) %701) #13
-  %851 = getelementptr inbounds i8, ptr %701, i64 192
+  %851 = getelementptr inbounds nuw i8, ptr %701, i64 192
   %852 = load ptr, ptr %851, align 8
   %.not171234.i = icmp eq ptr %850, %852
   br i1 %.not171234.i, label %_ZN4llvm8DebugLocD2Ev.exit.i, label %.lr.ph236.i
 
 .lr.ph236.i:                                      ; preds = %_ZN12_GLOBAL__N_122CloneMachineBasicBlockERN4llvm17MachineBasicBlockEj.exit.i
   %853 = getelementptr inbounds nuw i8, ptr %818, i64 184
-  %854 = getelementptr inbounds i8, ptr %818, i64 192
-  %855 = getelementptr inbounds i8, ptr %818, i64 200
+  %854 = getelementptr inbounds nuw i8, ptr %818, i64 192
+  %855 = getelementptr inbounds nuw i8, ptr %818, i64 200
   %.pre305.i = load ptr, ptr %854, align 8
   br label %856
 

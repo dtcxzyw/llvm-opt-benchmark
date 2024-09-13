@@ -338,7 +338,7 @@ define void @_ZN3g2o31EdgeStereoSE3ProjectXYZOnlyPose14linearizeOplusEv(ptr noca
   %44 = fmul double %29, %27
   %45 = fadd double %10, %44
   %46 = fadd double %45, %38
-  %47 = getelementptr inbounds i8, ptr %4, i64 224
+  %47 = getelementptr inbounds nuw i8, ptr %4, i64 224
   %48 = load <2 x double>, ptr %47, align 1, !noalias !26
   %49 = fadd <2 x double> %48, %43
   %50 = getelementptr inbounds i8, ptr %4, i64 240
@@ -542,7 +542,7 @@ define void @_ZN3g2o31EdgeStereoSE3ProjectXYZOnlyPose12computeErrorEv(ptr nocapt
   %45 = fmul double %30, %28
   %46 = fadd double %11, %45
   %47 = fadd double %46, %39
-  %48 = getelementptr inbounds i8, ptr %4, i64 224
+  %48 = getelementptr inbounds nuw i8, ptr %4, i64 224
   %49 = load <2 x double>, ptr %48, align 1, !noalias !42
   %50 = fadd <2 x double> %49, %44
   %51 = getelementptr inbounds i8, ptr %4, i64 240

@@ -126,8 +126,8 @@ _ZN10OpenSubdiv6v3_6_03Vtr8internal11StackBufferIiLj20ELb1EE7SetSizeEj.exit: ; p
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %58 = load ptr, ptr %56, align 8
   store ptr %58, ptr %57, align 8
-  %59 = getelementptr inbounds i8, ptr %0, i64 120
-  %60 = getelementptr inbounds i8, ptr %1, i64 120
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 120
+  %60 = getelementptr inbounds nuw i8, ptr %1, i64 120
   %61 = load ptr, ptr %60, align 8
   %62 = load ptr, ptr %59, align 8
   %.not.i.i.i = icmp eq ptr %61, %62
@@ -248,7 +248,7 @@ declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #4
 define void @_ZN10OpenSubdiv6v3_6_03Bfr8internal11SurfaceData10invalidateEv(ptr nocapture noundef nonnull align 8 dereferenceable(128) %0) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store ptr null, ptr %2, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 120
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %4 = load ptr, ptr %3, align 8
   store ptr null, ptr %3, align 8
   %.not.i.i.i.i = icmp eq ptr %4, null

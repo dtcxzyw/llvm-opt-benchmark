@@ -137,17 +137,17 @@ define void @_ZN10OpenSubdiv6v3_6_03Bfr16VertexDescriptor13initFaceSizesEv(ptr n
   br i1 %7, label %8, label %13
 
 8:                                                ; preds = %1
-  %9 = getelementptr inbounds i8, ptr %0, i64 144
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %10 = load ptr, ptr %9, align 8
   tail call void @_ZdlPv(ptr noundef %10) #7
-  %11 = getelementptr inbounds i8, ptr %0, i64 112
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store ptr %11, ptr %2, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 108
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 108
   store i32 8, ptr %12, align 4
   br label %_ZN10OpenSubdiv6v3_6_03Vtr8internal11StackBufferIiLj8ELb1EE7SetSizeEj.exit
 
 13:                                               ; preds = %1
-  %14 = getelementptr inbounds i8, ptr %0, i64 108
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 108
   %15 = load i32, ptr %14, align 4
   %16 = icmp ugt i32 %6, %15
   br i1 %16, label %17, label %._ZN10OpenSubdiv6v3_6_03Vtr8internal11StackBufferIiLj8ELb1EE7SetSizeEj.exit_crit_edge
@@ -157,10 +157,10 @@ define void @_ZN10OpenSubdiv6v3_6_03Bfr16VertexDescriptor13initFaceSizesEv(ptr n
   br label %_ZN10OpenSubdiv6v3_6_03Vtr8internal11StackBufferIiLj8ELb1EE7SetSizeEj.exit
 
 17:                                               ; preds = %13
-  %18 = getelementptr inbounds i8, ptr %0, i64 144
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %19 = load ptr, ptr %18, align 8
   tail call void @_ZdlPv(ptr noundef %19) #7
-  %20 = getelementptr inbounds i8, ptr %0, i64 112
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store ptr %20, ptr %2, align 8
   store i32 8, ptr %14, align 4
   %21 = zext i32 %6 to i64
@@ -173,7 +173,7 @@ define void @_ZN10OpenSubdiv6v3_6_03Bfr16VertexDescriptor13initFaceSizesEv(ptr n
 
 _ZN10OpenSubdiv6v3_6_03Vtr8internal11StackBufferIiLj8ELb1EE7SetSizeEj.exit: ; preds = %._ZN10OpenSubdiv6v3_6_03Vtr8internal11StackBufferIiLj8ELb1EE7SetSizeEj.exit_crit_edge, %8, %17
   %24 = phi ptr [ %.pre, %._ZN10OpenSubdiv6v3_6_03Vtr8internal11StackBufferIiLj8ELb1EE7SetSizeEj.exit_crit_edge ], [ %11, %8 ], [ %23, %17 ]
-  %25 = getelementptr inbounds i8, ptr %0, i64 104
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store i32 %6, ptr %25, align 8
   %26 = load i16, ptr %3, align 2
   %27 = sext i16 %26 to i64
@@ -212,17 +212,17 @@ define void @_ZN10OpenSubdiv6v3_6_03Bfr16VertexDescriptor17initEdgeSharpnessEv(p
   br i1 %7, label %8, label %13
 
 8:                                                ; preds = %1
-  %9 = getelementptr inbounds i8, ptr %0, i64 88
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %10 = load ptr, ptr %9, align 8
   tail call void @_ZdlPv(ptr noundef %10) #7
-  %11 = getelementptr inbounds i8, ptr %0, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %11, ptr %2, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 20
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 16, ptr %12, align 4
   br label %_ZN10OpenSubdiv6v3_6_03Vtr8internal11StackBufferIfLj16ELb1EE7SetSizeEj.exit
 
 13:                                               ; preds = %1
-  %14 = getelementptr inbounds i8, ptr %0, i64 20
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %15 = load i32, ptr %14, align 4
   %16 = icmp ugt i32 %6, %15
   br i1 %16, label %17, label %._ZN10OpenSubdiv6v3_6_03Vtr8internal11StackBufferIfLj16ELb1EE7SetSizeEj.exit_crit_edge
@@ -232,10 +232,10 @@ define void @_ZN10OpenSubdiv6v3_6_03Bfr16VertexDescriptor17initEdgeSharpnessEv(p
   br label %_ZN10OpenSubdiv6v3_6_03Vtr8internal11StackBufferIfLj16ELb1EE7SetSizeEj.exit
 
 17:                                               ; preds = %13
-  %18 = getelementptr inbounds i8, ptr %0, i64 88
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %19 = load ptr, ptr %18, align 8
   tail call void @_ZdlPv(ptr noundef %19) #7
-  %20 = getelementptr inbounds i8, ptr %0, i64 24
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %20, ptr %2, align 8
   store i32 16, ptr %14, align 4
   %21 = zext i32 %6 to i64
@@ -248,7 +248,7 @@ define void @_ZN10OpenSubdiv6v3_6_03Bfr16VertexDescriptor17initEdgeSharpnessEv(p
 
 _ZN10OpenSubdiv6v3_6_03Vtr8internal11StackBufferIfLj16ELb1EE7SetSizeEj.exit: ; preds = %._ZN10OpenSubdiv6v3_6_03Vtr8internal11StackBufferIfLj16ELb1EE7SetSizeEj.exit_crit_edge, %8, %17
   %24 = phi ptr [ %.pre, %._ZN10OpenSubdiv6v3_6_03Vtr8internal11StackBufferIfLj16ELb1EE7SetSizeEj.exit_crit_edge ], [ %11, %8 ], [ %23, %17 ]
-  %25 = getelementptr inbounds i8, ptr %0, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 %6, ptr %25, align 8
   %26 = load i16, ptr %3, align 2
   %.not6.i.i.i = icmp eq i16 %26, 0

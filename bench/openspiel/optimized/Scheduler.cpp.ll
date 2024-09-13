@@ -58,7 +58,7 @@ define void @_ZN9SchedulerC2Ev(ptr noundef nonnull align 8 dereferenceable(43416
   store i32 0, ptr %9, align 8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 43292
   store i32 0, ptr %10, align 4
-  %11 = getelementptr inbounds i8, ptr %0, i64 43304
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 43304
   %12 = load ptr, ptr %11, align 8
   %13 = load ptr, ptr %5, align 8
   %14 = ptrtoint ptr %12 to i64
@@ -136,7 +136,7 @@ _ZN9Scheduler13InitHighCardsEv.exit:              ; preds = %_ZNSt6vectorIiSaIiE
   br i1 %.not.i.i.i4, label %_ZNSt6vectorIiSaIiEED2Ev.exit, label %40
 
 40:                                               ; preds = %38
-  %41 = getelementptr inbounds i8, ptr %0, i64 43312
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 43312
   %42 = load ptr, ptr %41, align 8
   %43 = ptrtoint ptr %42 to i64
   %44 = ptrtoint ptr %39 to i64
@@ -150,7 +150,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %38, %40
   br i1 %.not.i.i.i5, label %_ZNSt6vectorIiSaIiEED2Ev.exit6, label %47
 
 47:                                               ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit
-  %48 = getelementptr inbounds i8, ptr %0, i64 43280
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 43280
   %49 = load ptr, ptr %48, align 8
   %50 = ptrtoint ptr %49 to i64
   %51 = ptrtoint ptr %46 to i64
@@ -164,7 +164,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit6:                   ; preds = %_ZNSt6vectorIiSaIiE
   br i1 %.not.i.i.i7, label %_ZNSt6vectorIiSaIiEED2Ev.exit8, label %54
 
 54:                                               ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit6
-  %55 = getelementptr inbounds i8, ptr %0, i64 43256
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 43256
   %56 = load ptr, ptr %55, align 8
   %57 = ptrtoint ptr %56 to i64
   %58 = ptrtoint ptr %53 to i64
@@ -178,7 +178,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit8:                   ; preds = %_ZNSt6vectorIiSaIiE
   br i1 %.not.i.i.i9, label %_ZNSt6vectorIiSaIiEED2Ev.exit10, label %61
 
 61:                                               ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit8
-  %62 = getelementptr inbounds i8, ptr %0, i64 43232
+  %62 = getelementptr inbounds nuw i8, ptr %0, i64 43232
   %63 = load ptr, ptr %62, align 8
   %64 = ptrtoint ptr %63 to i64
   %65 = ptrtoint ptr %60 to i64
@@ -197,7 +197,7 @@ declare i32 @__gxx_personality_v0(...)
 ; Function Attrs: mustprogress uwtable
 define void @_ZN9Scheduler13InitHighCardsEv(ptr noundef nonnull align 8 dereferenceable(43416) %0) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 43296
-  %3 = getelementptr inbounds i8, ptr %0, i64 43304
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 43304
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %2, align 8
   %6 = ptrtoint ptr %4 to i64
@@ -264,7 +264,7 @@ define void @_ZN9Scheduler15RegisterThreadsEi(ptr noundef nonnull align 8 derefe
   store i32 %1, ptr %3, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 43216
   %8 = zext i32 %1 to i64
-  %9 = getelementptr inbounds i8, ptr %0, i64 43224
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 43224
   %10 = load ptr, ptr %9, align 8
   %11 = load ptr, ptr %7, align 8
   %12 = ptrtoint ptr %10 to i64
@@ -294,7 +294,7 @@ define void @_ZN9Scheduler15RegisterThreadsEi(ptr noundef nonnull align 8 derefe
 
 _ZNSt6vectorIiSaIiEE6resizeEm.exit:               ; preds = %17, %19, %21, %23
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 43240
-  %25 = getelementptr inbounds i8, ptr %0, i64 43248
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 43248
   %26 = load ptr, ptr %25, align 8
   %27 = load ptr, ptr %24, align 8
   %28 = ptrtoint ptr %26 to i64
@@ -324,7 +324,7 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit:               ; preds = %17, %19, %21, %23
 
 _ZNSt6vectorIiSaIiEE6resizeEm.exit7:              ; preds = %33, %35, %37, %39
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 43264
-  %41 = getelementptr inbounds i8, ptr %0, i64 43272
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 43272
   %42 = load ptr, ptr %41, align 8
   %43 = load ptr, ptr %40, align 8
   %44 = ptrtoint ptr %42 to i64
@@ -402,7 +402,7 @@ define void @_ZN9SchedulerD2Ev(ptr noundef nonnull align 8 dereferenceable(43416
   tail call void @_ZN5TimerD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %2) #23
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 43320
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 43328
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 43328
   %6 = load ptr, ptr %5, align 8
   %.not4.i.i.i.i = icmp eq ptr %4, %6
   br i1 %.not4.i.i.i.i, label %_ZSt8_DestroyIP5TimerS0_EvT_S2_RSaIT0_E.exit.i, label %.lr.ph.i.i.i.i
@@ -424,7 +424,7 @@ _ZSt8_DestroyIP5TimerS0_EvT_S2_RSaIT0_E.exit.i:   ; preds = %_ZSt8_DestroyIP5Tim
   br i1 %.not.i.i.i, label %_ZNSt6vectorI5TimerSaIS0_EED2Ev.exit, label %9
 
 9:                                                ; preds = %_ZSt8_DestroyIP5TimerS0_EvT_S2_RSaIT0_E.exit.i
-  %10 = getelementptr inbounds i8, ptr %0, i64 43336
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 43336
   %11 = load ptr, ptr %10, align 8
   %12 = ptrtoint ptr %11 to i64
   %13 = ptrtoint ptr %8 to i64
@@ -439,7 +439,7 @@ _ZNSt6vectorI5TimerSaIS0_EED2Ev.exit:             ; preds = %_ZSt8_DestroyIP5Tim
   br i1 %.not.i.i.i1, label %_ZNSt6vectorIiSaIiEED2Ev.exit, label %17
 
 17:                                               ; preds = %_ZNSt6vectorI5TimerSaIS0_EED2Ev.exit
-  %18 = getelementptr inbounds i8, ptr %0, i64 43312
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 43312
   %19 = load ptr, ptr %18, align 8
   %20 = ptrtoint ptr %19 to i64
   %21 = ptrtoint ptr %16 to i64
@@ -454,7 +454,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %_ZNSt6vectorI5Timer
   br i1 %.not.i.i.i2, label %_ZNSt6vectorIiSaIiEED2Ev.exit3, label %25
 
 25:                                               ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit
-  %26 = getelementptr inbounds i8, ptr %0, i64 43280
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 43280
   %27 = load ptr, ptr %26, align 8
   %28 = ptrtoint ptr %27 to i64
   %29 = ptrtoint ptr %24 to i64
@@ -469,7 +469,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit3:                   ; preds = %_ZNSt6vectorIiSaIiE
   br i1 %.not.i.i.i4, label %_ZNSt6vectorIiSaIiEED2Ev.exit5, label %33
 
 33:                                               ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit3
-  %34 = getelementptr inbounds i8, ptr %0, i64 43256
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 43256
   %35 = load ptr, ptr %34, align 8
   %36 = ptrtoint ptr %35 to i64
   %37 = ptrtoint ptr %32 to i64
@@ -484,7 +484,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit5:                   ; preds = %_ZNSt6vectorIiSaIiE
   br i1 %.not.i.i.i6, label %_ZNSt6vectorIiSaIiEED2Ev.exit7, label %41
 
 41:                                               ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit5
-  %42 = getelementptr inbounds i8, ptr %0, i64 43232
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 43232
   %43 = load ptr, ptr %42, align 8
   %44 = ptrtoint ptr %43 to i64
   %45 = ptrtoint ptr %40 to i64

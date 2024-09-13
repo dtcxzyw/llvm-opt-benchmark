@@ -651,7 +651,7 @@ _ZNK4llvm12LiveRegUnits5emptyEv.exit.thread:      ; preds = %40, %._crit_edge.i.
   tail call fastcc void @_ZL18addCalleeSavedRegsRN4llvm12LiveRegUnitsERKNS_15MachineFunctionE(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr %.val, ptr %.val13)
   %46 = getelementptr inbounds nuw i8, ptr %5, i64 96
   %47 = load ptr, ptr %46, align 8
-  %48 = getelementptr inbounds i8, ptr %5, i64 104
+  %48 = getelementptr inbounds nuw i8, ptr %5, i64 104
   %49 = load ptr, ptr %48, align 8
   %.not3546 = icmp eq ptr %47, %49
   br i1 %.not3546, label %_ZN4llvm12LiveRegUnitsD2Ev.exit, label %.lr.ph48
@@ -717,7 +717,7 @@ _ZN4llvm12LiveRegUnits9removeRegEt.exit:          ; preds = %_ZN4llvm17MCRegUnit
   %84 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %85 = getelementptr inbounds i8, ptr %3, i64 24
   call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %84, ptr noundef nonnull %85, i64 noundef 6) #6
-  %86 = getelementptr inbounds i8, ptr %3, i64 72
+  %86 = getelementptr inbounds nuw i8, ptr %3, i64 72
   store i32 0, ptr %86, align 8
   call void @_ZN4llvm12LiveRegUnits4initERKNS_18TargetRegisterInfoE(ptr noundef nonnull align 8 dereferenceable(80) %3, ptr noundef nonnull align 8 dereferenceable(308) %83)
   %87 = getelementptr inbounds i8, ptr %1, i64 32
@@ -726,7 +726,7 @@ _ZN4llvm12LiveRegUnits9removeRegEt.exit:          ; preds = %_ZN4llvm17MCRegUnit
   call fastcc void @_ZL18addCalleeSavedRegsRN4llvm12LiveRegUnitsERKNS_15MachineFunctionE(ptr noundef nonnull align 8 dereferenceable(80) %3, ptr %.val14, ptr %.val15)
   %88 = getelementptr inbounds nuw i8, ptr %5, i64 96
   %89 = load ptr, ptr %88, align 8
-  %90 = getelementptr inbounds i8, ptr %5, i64 104
+  %90 = getelementptr inbounds nuw i8, ptr %5, i64 104
   %91 = load ptr, ptr %90, align 8
   %.not44 = icmp eq ptr %89, %91
   br i1 %.not44, label %._crit_edge, label %.lr.ph
@@ -1005,7 +1005,7 @@ define dso_local void @_ZN4llvm12LiveRegUnits11addLiveOutsERKNS_17MachineBasicBl
   %.020 = phi ptr [ %6, %.lr.ph ], [ %55, %_ZL15addBlockLiveInsRN4llvm12LiveRegUnitsERKNS_17MachineBasicBlockE.exit ]
   %11 = load ptr, ptr %.020, align 8
   %12 = tail call ptr @_ZNK4llvm17MachineBasicBlock12livein_beginEv(ptr noundef nonnull align 8 dereferenceable(288) %11) #6
-  %13 = getelementptr inbounds i8, ptr %11, i64 192
+  %13 = getelementptr inbounds nuw i8, ptr %11, i64 192
   %14 = load ptr, ptr %13, align 8
   %.not11.i = icmp eq ptr %12, %14
   br i1 %.not11.i, label %_ZL15addBlockLiveInsRN4llvm12LiveRegUnitsERKNS_17MachineBasicBlockE.exit, label %.lr.ph.i
@@ -1161,7 +1161,7 @@ define dso_local void @_ZN4llvm12LiveRegUnits10addLiveInsERKNS_17MachineBasicBlo
   %4 = load ptr, ptr %3, align 8
   tail call void @_ZN4llvm12LiveRegUnits12addPristinesERKNS_15MachineFunctionE(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull align 8 dereferenceable(1041) %4)
   %5 = tail call ptr @_ZNK4llvm17MachineBasicBlock12livein_beginEv(ptr noundef nonnull align 8 dereferenceable(288) %1) #6
-  %6 = getelementptr inbounds i8, ptr %1, i64 192
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 192
   %7 = load ptr, ptr %6, align 8
   %.not11.i = icmp eq ptr %5, %7
   br i1 %.not11.i, label %_ZL15addBlockLiveInsRN4llvm12LiveRegUnitsERKNS_17MachineBasicBlockE.exit, label %.lr.ph.i
@@ -1265,7 +1265,7 @@ define linkonce_odr hidden void @_ZN4llvm12LiveRegUnits4initERKNS_18TargetRegist
 _ZN4llvm9BitVector5resetEv.exit:                  ; preds = %2, %.lr.ph.i.i.i.i.preheader.i
   %7 = getelementptr inbounds i8, ptr %1, i64 44
   %8 = load i32, ptr %7, align 4
-  %9 = getelementptr inbounds i8, ptr %0, i64 72
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %10 = load i32, ptr %9, align 8
   %11 = and i32 %10, 63
   %.not.i.i = icmp eq i32 %11, 0

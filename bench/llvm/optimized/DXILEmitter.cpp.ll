@@ -970,7 +970,7 @@ _ZSt4copyIPKPN4llvm6RecordEPS2_ET0_T_S7_S6_.exit.i202: ; preds = %318, %317
 
 325:                                              ; preds = %322
   %326 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %309) #20
-  %327 = getelementptr inbounds i8, ptr %.011.i.i.i.i.i, i64 80
+  %327 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i.i, i64 80
   store i32 0, ptr %327, align 8
   call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %309, ptr noundef nonnull %311, i64 noundef %315, i64 noundef 8) #20
   br label %_ZSt4copyIPKPN4llvm6RecordEPS2_ET0_T_S7_S6_.exit31.i206
@@ -1044,7 +1044,7 @@ _ZSt4copyIPKPN4llvm6RecordEPS2_ET0_T_S7_S6_.exit.i189: ; preds = %347, %346
 
 354:                                              ; preds = %351
   %355 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %339) #20
-  %356 = getelementptr inbounds i8, ptr %.011.i.i.i.i.i, i64 144
+  %356 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i.i, i64 144
   store i32 0, ptr %356, align 8
   call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %339, ptr noundef nonnull %341, i64 noundef %344, i64 noundef 8) #20
   br label %_ZSt4copyIPKPN4llvm6RecordEPS2_ET0_T_S7_S6_.exit31.i193
@@ -1118,7 +1118,7 @@ _ZSt4copyIPKPN4llvm6RecordEPS2_ET0_T_S7_S6_.exit.i176: ; preds = %376, %375
 
 383:                                              ; preds = %380
   %384 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %368) #20
-  %385 = getelementptr inbounds i8, ptr %.011.i.i.i.i.i, i64 208
+  %385 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i.i, i64 208
   store i32 0, ptr %385, align 8
   call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %368, ptr noundef nonnull %370, i64 noundef %373, i64 noundef 8) #20
   br label %_ZSt4copyIPKPN4llvm6RecordEPS2_ET0_T_S7_S6_.exit31.i180
@@ -1192,7 +1192,7 @@ _ZSt4copyIPKPN4llvm6RecordEPS2_ET0_T_S7_S6_.exit.i: ; preds = %405, %404
 
 412:                                              ; preds = %409
   %413 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %397) #20
-  %414 = getelementptr inbounds i8, ptr %.011.i.i.i.i.i, i64 272
+  %414 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i.i, i64 272
   store i32 0, ptr %414, align 8
   call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %397, ptr noundef nonnull %399, i64 noundef %402, i64 noundef 8) #20
   br label %_ZSt4copyIPKPN4llvm6RecordEPS2_ET0_T_S7_S6_.exit31.i
@@ -1269,7 +1269,7 @@ _ZSt4copyIPKN4llvm9StringRefEPS1_ET0_T_S6_S5_.exit.i153: ; preds = %436, %435
 
 443:                                              ; preds = %440
   %444 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %428) #20
-  %445 = getelementptr inbounds i8, ptr %.011.i.i.i.i.i, i64 352
+  %445 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i.i, i64 352
   store i32 0, ptr %445, align 8
   call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %428, ptr noundef nonnull %430, i64 noundef %433, i64 noundef 16) #20
   br label %_ZSt4copyIPKN4llvm9StringRefEPS1_ET0_T_S6_S5_.exit31.i157
@@ -1347,7 +1347,7 @@ _ZSt4copyIPKN4llvm9StringRefEPS1_ET0_T_S6_S5_.exit.i: ; preds = %468, %467
 
 475:                                              ; preds = %472
   %476 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %460) #20
-  %477 = getelementptr inbounds i8, ptr %.011.i.i.i.i.i, i64 440
+  %477 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i.i, i64 440
   store i32 0, ptr %477, align 8
   call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %460, ptr noundef nonnull %462, i64 noundef %465, i64 noundef 16) #20
   br label %_ZSt4copyIPKN4llvm9StringRefEPS1_ET0_T_S6_S5_.exit31.i
@@ -3557,7 +3557,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   %81 = phi i32 [ %.pre.i, %.lr.ph.i ], [ %88, %80 ]
   %.sroa.01.06.i = phi ptr [ %.pre, %.lr.ph.i ], [ %89, %80 ]
   %82 = getelementptr inbounds nuw i8, ptr %.sroa.01.06.i, i64 32
-  %83 = getelementptr inbounds i8, ptr %.sroa.01.06.i, i64 64
+  %83 = getelementptr inbounds nuw i8, ptr %.sroa.01.06.i, i64 64
   store i32 %81, ptr %83, align 8
   %84 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %82) #20
   %85 = load i32, ptr %63, align 8
@@ -3582,7 +3582,7 @@ _ZN4llvm21SequenceToOffsetTableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaI
   %92 = phi i32 [ %.pre.i61, %.lr.ph.i60 ], [ %99, %91 ]
   %.sroa.01.06.i62 = phi ptr [ %90, %.lr.ph.i60 ], [ %100, %91 ]
   %93 = getelementptr inbounds nuw i8, ptr %.sroa.01.06.i62, i64 32
-  %94 = getelementptr inbounds i8, ptr %.sroa.01.06.i62, i64 64
+  %94 = getelementptr inbounds nuw i8, ptr %.sroa.01.06.i62, i64 64
   store i32 %92, ptr %94, align 8
   %95 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %93) #20
   %96 = load i32, ptr %57, align 8
@@ -3717,7 +3717,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit73:               ; preds = %163, %165
   %168 = load ptr, ptr %59, align 8
   %169 = call ptr @_ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_jESt10_Select1stIS8_EN4llvm21SequenceToOffsetTableIS5_St4lessIcEE7SeqLessESaIS8_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS8_EPKSt18_Rb_tree_node_baseRS7_(ptr noundef nonnull align 8 dereferenceable(48) %36, ptr noundef %168, ptr noundef nonnull %58, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0256.0301)
   %170 = getelementptr inbounds nuw i8, ptr %169, i64 32
-  %171 = getelementptr inbounds i8, ptr %169, i64 64
+  %171 = getelementptr inbounds nuw i8, ptr %169, i64 64
   %172 = load i32, ptr %171, align 8
   %173 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %170) #20
   %174 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0256.0301) #20
@@ -3825,7 +3825,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit81: ; 
   %227 = load ptr, ptr %53, align 8
   %228 = call ptr @_ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_jESt10_Select1stIS8_EN4llvm21SequenceToOffsetTableIS5_St4lessIcEE7SeqLessESaIS8_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS8_EPKSt18_Rb_tree_node_baseRS7_(ptr noundef nonnull align 8 dereferenceable(48) %35, ptr noundef %227, ptr noundef nonnull %52, ptr noundef nonnull align 8 dereferenceable(32) %42)
   %229 = getelementptr inbounds nuw i8, ptr %228, i64 32
-  %230 = getelementptr inbounds i8, ptr %228, i64 64
+  %230 = getelementptr inbounds nuw i8, ptr %228, i64 64
   %231 = load i32, ptr %230, align 8
   %232 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %229) #20
   %233 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %42) #20
@@ -8277,7 +8277,7 @@ _ZN4llvm21SequenceToOffsetTableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaI
   %33 = call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #23
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 32
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %34, ptr noundef nonnull align 8 dereferenceable(32) %9) #20
-  %35 = getelementptr inbounds i8, ptr %33, i64 64
+  %35 = getelementptr inbounds nuw i8, ptr %33, i64 64
   %36 = load i32, ptr %32, align 8
   store i32 %36, ptr %35, align 8
   %37 = call { ptr, ptr } @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_jESt10_Select1stIS8_EN4llvm21SequenceToOffsetTableIS5_St4lessIcEE7SeqLessESaIS8_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS8_ERS7_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %13, ptr noundef nonnull align 8 dereferenceable(32) %34)
@@ -8551,7 +8551,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit34:               ; preds = %92, %94
 .lr.ph:                                           ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit34, %_ZN4llvm11raw_ostreamlsEPKc.exit43
   %.sroa.057.061 = phi ptr [ %143, %_ZN4llvm11raw_ostreamlsEPKc.exit43 ], [ %98, %_ZN4llvm11raw_ostreamlsEPKc.exit34 ]
   %100 = getelementptr inbounds nuw i8, ptr %.sroa.057.061, i64 32
-  %101 = getelementptr inbounds i8, ptr %.sroa.057.061, i64 64
+  %101 = getelementptr inbounds nuw i8, ptr %.sroa.057.061, i64 64
   %102 = load ptr, ptr %32, align 8
   %103 = load ptr, ptr %34, align 8
   %104 = ptrtoint ptr %102 to i64
@@ -9797,7 +9797,7 @@ define linkonce_odr hidden void @_ZNK4llvm21SequenceToOffsetTableINSt7__cxx1112b
 10:                                               ; preds = %.lr.ph42, %_ZN4llvm11raw_ostreamlsEPKc.exit28
   %.sroa.033.040 = phi ptr [ %6, %.lr.ph42 ], [ %81, %_ZN4llvm11raw_ostreamlsEPKc.exit28 ]
   %11 = getelementptr inbounds nuw i8, ptr %.sroa.033.040, i64 32
-  %12 = getelementptr inbounds i8, ptr %.sroa.033.040, i64 64
+  %12 = getelementptr inbounds nuw i8, ptr %.sroa.033.040, i64 64
   %13 = load ptr, ptr %8, align 8
   %14 = load ptr, ptr %9, align 8
   %15 = ptrtoint ptr %13 to i64

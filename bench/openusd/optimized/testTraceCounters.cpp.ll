@@ -3679,7 +3679,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__15TfWeakPtrFacadeINS_9TfWeakPtrENS_13Trace
 
 23:                                               ; preds = %21
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %6)
-  %24 = getelementptr inbounds i8, ptr %22, i64 56
+  %24 = getelementptr inbounds nuw i8, ptr %22, i64 56
   %25 = load i64, ptr %24, align 8
   %.not.not.i.i = icmp eq i64 %25, 0
   %26 = load ptr, ptr %0, align 8
@@ -3688,7 +3688,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__15TfWeakPtrFacadeINS_9TfWeakPtrENS_13Trace
   br i1 %.not.not.i.i, label %29, label %40
 
 29:                                               ; preds = %23
-  %30 = getelementptr inbounds i8, ptr %22, i64 48
+  %30 = getelementptr inbounds nuw i8, ptr %22, i64 48
   %31 = inttoptr i64 %28 to ptr
   br label %32
 
@@ -3711,7 +3711,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__15TfWeakPtrFacadeINS_9TfWeakPtrENS_13Trace
   %41 = getelementptr inbounds nuw i8, ptr %22, i64 32
   %42 = mul i64 %28, -7046029254386353067
   %43 = call noundef i64 @llvm.bswap.i64(i64 %42)
-  %44 = getelementptr inbounds i8, ptr %22, i64 40
+  %44 = getelementptr inbounds nuw i8, ptr %22, i64 40
   %45 = load i64, ptr %44, align 8
   %46 = urem i64 %43, %45
   %47 = load ptr, ptr %41, align 8

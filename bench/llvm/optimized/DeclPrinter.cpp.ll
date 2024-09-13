@@ -2662,7 +2662,7 @@ _ZN12_GLOBAL__N_111DeclPrinter13printDeclTypeEN5clang8QualTypeEN4llvm9StringRefE
   store ptr %56, ptr %4, align 8, !alias.scope !13
   %59 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %.sroa.0.0, ptr %59, align 8, !alias.scope !13
-  %60 = getelementptr inbounds i8, ptr %4, i64 24
+  %60 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store i64 %.sroa.3.018, ptr %60, align 8, !alias.scope !13
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %62 = load i32, ptr %61, align 8
@@ -4116,7 +4116,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %26, %28
   %45 = and i64 %.0.copyload.i.i.i.i.i19, -8
   %46 = inttoptr i64 %45 to ptr
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 8
-  %48 = getelementptr inbounds i8, ptr %46, i64 16
+  %48 = getelementptr inbounds nuw i8, ptr %46, i64 16
   %49 = load i32, ptr %48, align 8
   %50 = icmp eq i32 %49, 0
   %51 = load ptr, ptr %0, align 8
@@ -4549,7 +4549,7 @@ _ZNK5clang17ObjCInterfaceDecl17getSuperClassTypeEv.exit: ; preds = %_ZNK5clang17
 _ZNK5clang17ObjCInterfaceDecl22getReferencedProtocolsEv.exit: ; preds = %139, %145
   %.pre-phi4.i = phi ptr [ %.pre3.i, %145 ], [ %141, %139 ]
   %146 = getelementptr inbounds nuw i8, ptr %.pre-phi4.i, i64 16
-  %147 = getelementptr inbounds i8, ptr %.pre-phi4.i, i64 24
+  %147 = getelementptr inbounds nuw i8, ptr %.pre-phi4.i, i64 24
   %148 = load i32, ptr %147, align 8
   %149 = icmp eq i32 %148, 0
   br i1 %149, label %_ZN4llvm11raw_ostreamlsEPKc.exit66, label %.lr.ph.preheader
@@ -9687,7 +9687,7 @@ _ZN12_GLOBAL__N_111DeclPrinter13printDeclTypeEN5clang8QualTypeEN4llvm9StringRefE
   store ptr %271, ptr %4, align 8, !alias.scope !42
   %275 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %.sroa.0.0, ptr %275, align 8, !alias.scope !42
-  %276 = getelementptr inbounds i8, ptr %4, i64 24
+  %276 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store i64 %.sroa.3.0, ptr %276, align 8, !alias.scope !42
   %277 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %278 = load i32, ptr %277, align 8
@@ -15248,7 +15248,7 @@ define linkonce_odr hidden noundef ptr @_ZNK5clang12RedeclarableINS_16ObjCProtoc
 
 15:                                               ; preds = %10
   %16 = getelementptr inbounds nuw i8, ptr %12, i64 2144
-  %17 = getelementptr inbounds i8, ptr %12, i64 2224
+  %17 = getelementptr inbounds nuw i8, ptr %12, i64 2224
   %18 = load i64, ptr %17, align 8
   %19 = add i64 %18, 24
   store i64 %19, ptr %17, align 8
@@ -15257,7 +15257,7 @@ define linkonce_odr hidden noundef ptr @_ZNK5clang12RedeclarableINS_16ObjCProtoc
   %22 = add i64 %21, 7
   %23 = and i64 %22, -8
   %24 = add i64 %23, 24
-  %25 = getelementptr inbounds i8, ptr %12, i64 2152
+  %25 = getelementptr inbounds nuw i8, ptr %12, i64 2152
   %26 = load ptr, ptr %25, align 8
   %27 = ptrtoint ptr %26 to i64
   %.not.i.i.i.i.i.i = icmp ugt i64 %24, %27
@@ -15716,7 +15716,7 @@ define linkonce_odr hidden noundef ptr @_ZNK5clang12RedeclarableINS_17ObjCInterf
 
 15:                                               ; preds = %10
   %16 = getelementptr inbounds nuw i8, ptr %12, i64 2144
-  %17 = getelementptr inbounds i8, ptr %12, i64 2224
+  %17 = getelementptr inbounds nuw i8, ptr %12, i64 2224
   %18 = load i64, ptr %17, align 8
   %19 = add i64 %18, 24
   store i64 %19, ptr %17, align 8
@@ -15725,7 +15725,7 @@ define linkonce_odr hidden noundef ptr @_ZNK5clang12RedeclarableINS_17ObjCInterf
   %22 = add i64 %21, 7
   %23 = and i64 %22, -8
   %24 = add i64 %23, 24
-  %25 = getelementptr inbounds i8, ptr %12, i64 2152
+  %25 = getelementptr inbounds nuw i8, ptr %12, i64 2152
   %26 = load ptr, ptr %25, align 8
   %27 = ptrtoint ptr %26 to i64
   %.not.i.i.i.i.i.i = icmp ugt i64 %24, %27
@@ -16306,7 +16306,7 @@ define linkonce_odr hidden noundef ptr @_ZNK5clang12RedeclarableINS_7TagDeclEE8D
 
 15:                                               ; preds = %10
   %16 = getelementptr inbounds nuw i8, ptr %12, i64 2144
-  %17 = getelementptr inbounds i8, ptr %12, i64 2224
+  %17 = getelementptr inbounds nuw i8, ptr %12, i64 2224
   %18 = load i64, ptr %17, align 8
   %19 = add i64 %18, 24
   store i64 %19, ptr %17, align 8
@@ -16315,7 +16315,7 @@ define linkonce_odr hidden noundef ptr @_ZNK5clang12RedeclarableINS_7TagDeclEE8D
   %22 = add i64 %21, 7
   %23 = and i64 %22, -8
   %24 = add i64 %23, 24
-  %25 = getelementptr inbounds i8, ptr %12, i64 2152
+  %25 = getelementptr inbounds nuw i8, ptr %12, i64 2152
   %26 = load ptr, ptr %25, align 8
   %27 = ptrtoint ptr %26 to i64
   %.not.i.i.i.i.i.i = icmp ugt i64 %24, %27
@@ -16431,7 +16431,7 @@ define linkonce_odr hidden noundef ptr @_ZNK5clang12RedeclarableINS_12FunctionDe
 
 15:                                               ; preds = %10
   %16 = getelementptr inbounds nuw i8, ptr %12, i64 2144
-  %17 = getelementptr inbounds i8, ptr %12, i64 2224
+  %17 = getelementptr inbounds nuw i8, ptr %12, i64 2224
   %18 = load i64, ptr %17, align 8
   %19 = add i64 %18, 24
   store i64 %19, ptr %17, align 8
@@ -16440,7 +16440,7 @@ define linkonce_odr hidden noundef ptr @_ZNK5clang12RedeclarableINS_12FunctionDe
   %22 = add i64 %21, 7
   %23 = and i64 %22, -8
   %24 = add i64 %23, 24
-  %25 = getelementptr inbounds i8, ptr %12, i64 2152
+  %25 = getelementptr inbounds nuw i8, ptr %12, i64 2152
   %26 = load ptr, ptr %25, align 8
   %27 = ptrtoint ptr %26 to i64
   %.not.i.i.i.i.i.i = icmp ugt i64 %24, %27

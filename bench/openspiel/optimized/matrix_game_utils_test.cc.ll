@@ -184,7 +184,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; 
 48:                                               ; preds = %46
   %49 = load ptr, ptr %20, align 8
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 280
-  %51 = getelementptr inbounds i8, ptr %49, i64 288
+  %51 = getelementptr inbounds nuw i8, ptr %49, i64 288
   %52 = load ptr, ptr %51, align 8
   %53 = load ptr, ptr %50, align 8
   %54 = ptrtoint ptr %52 to i64
@@ -243,7 +243,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; 
 
 73:                                               ; preds = %48
   %74 = getelementptr inbounds nuw i8, ptr %49, i64 304
-  %75 = getelementptr inbounds i8, ptr %49, i64 312
+  %75 = getelementptr inbounds nuw i8, ptr %49, i64 312
   %76 = load ptr, ptr %75, align 8
   %77 = load ptr, ptr %74, align 8
   %78 = ptrtoint ptr %76 to i64
@@ -623,7 +623,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i6: ;
 224:                                              ; preds = %222
   %225 = load ptr, ptr %8, align 8
   %226 = getelementptr inbounds nuw i8, ptr %225, i64 280
-  %227 = getelementptr inbounds i8, ptr %225, i64 288
+  %227 = getelementptr inbounds nuw i8, ptr %225, i64 288
   %228 = load ptr, ptr %227, align 8
   %229 = load ptr, ptr %226, align 8
   %230 = ptrtoint ptr %228 to i64
@@ -682,7 +682,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i6: ;
 
 249:                                              ; preds = %224
   %250 = getelementptr inbounds nuw i8, ptr %225, i64 304
-  %251 = getelementptr inbounds i8, ptr %225, i64 312
+  %251 = getelementptr inbounds nuw i8, ptr %225, i64 312
   %252 = load ptr, ptr %251, align 8
   %253 = load ptr, ptr %250, align 8
   %254 = ptrtoint ptr %252 to i64

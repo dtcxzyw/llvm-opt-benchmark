@@ -114,7 +114,7 @@ define dso_local noundef ptr @_ZNK5clang8comments7Comment9child_endEv(ptr nounde
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %8 = load i64, ptr %7, align 8
   %9 = getelementptr inbounds ptr, ptr %6, i64 %8
   br label %29
@@ -122,7 +122,7 @@ define dso_local noundef ptr @_ZNK5clang8comments7Comment9child_endEv(ptr nounde
 10:                                               ; preds = %1
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %14 = load i64, ptr %13, align 8
   %15 = getelementptr inbounds ptr, ptr %12, i64 %14
   br label %29
@@ -134,7 +134,7 @@ define dso_local noundef ptr @_ZNK5clang8comments7Comment9child_endEv(ptr nounde
 18:                                               ; preds = %1
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %0, i64 72
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %22 = load i64, ptr %21, align 8
   %23 = getelementptr inbounds ptr, ptr %20, i64 %22
   br label %29
@@ -159,7 +159,7 @@ define dso_local noundef ptr @_ZNK5clang8comments7Comment9child_endEv(ptr nounde
 define dso_local noundef zeroext i1 @_ZNK5clang8comments11TextComment19isWhitespaceNoCacheEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0) local_unnamed_addr #1 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load i64, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %3, i64 %5
   %7 = ptrtoint ptr %6 to i64
@@ -291,7 +291,7 @@ _ZN4llvm6all_ofIRKNS_9StringRefEPFbhEEEbOT_T0_.exit: ; preds = %.lr.ph.i.i.i.i.i
 define dso_local noundef zeroext i1 @_ZNK5clang8comments16ParagraphComment19isWhitespaceNoCacheEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0) local_unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load i64, ptr %4, align 8
   %6 = getelementptr inbounds ptr, ptr %3, i64 %5
   %.not13 = icmp eq i64 %5, 0
@@ -1096,7 +1096,7 @@ _ZN5clang15ConcreteTypeLocINS_13UnqualTypeLocENS_29TemplateSpecializationTypeLoc
   br i1 %418, label %419, label %_ZNK5clang14DeclaratorDecl17getTypeSourceInfoEv.exit88.thread
 
 419:                                              ; preds = %_ZN5clang15ConcreteTypeLocINS_13UnqualTypeLocENS_29TemplateSpecializationTypeLocENS_26TemplateSpecializationTypeENS_29TemplateSpecializationLocInfoEE6isKindERKNS_7TypeLocE.exit.i.i
-  %420 = getelementptr inbounds i8, ptr %.sroa.067.0.lcssa.i, i64 20
+  %420 = getelementptr inbounds nuw i8, ptr %.sroa.067.0.lcssa.i, i64 20
   %421 = load i32, ptr %420, align 4
   %.not.i96 = icmp eq i32 %421, 1
   br i1 %.not.i96, label %422, label %_ZNK5clang14DeclaratorDecl17getTypeSourceInfoEv.exit88.thread
@@ -1281,7 +1281,7 @@ define dso_local { ptr, i64 } @_ZNK5clang8comments20TParamCommandComment12getPar
 
 _ZNK5clang8comments11FullComment11getDeclInfoEv.exit: ; preds = %2, %8
   %9 = phi ptr [ %.pre.i, %8 ], [ %4, %2 ]
-  %10 = getelementptr inbounds i8, ptr %0, i64 48
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %11 = load i64, ptr %10, align 8
   %12 = and i64 %11, 4294967295
   %.not21 = icmp eq i64 %12, 0

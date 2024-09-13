@@ -196,7 +196,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver36Conver
   %42 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %43 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %44 = getelementptr inbounds nuw i8, ptr %13, i64 16
-  %45 = getelementptr inbounds i8, ptr %12, i64 16
+  %45 = getelementptr inbounds nuw i8, ptr %12, i64 16
   br label %46
 
 46:                                               ; preds = %.lr.ph74, %.loopexit
@@ -288,7 +288,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver36Conver
 
 _ZNSt16allocator_traitsISaIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEE9constructIS1_JRKS1_EEEvRS2_PT_DpOT0_.exit.i: ; preds = %87, %85
   %98 = getelementptr inbounds nuw i8, ptr %83, i64 4
-  %99 = getelementptr inbounds i8, ptr %.072, i64 12
+  %99 = getelementptr inbounds nuw i8, ptr %.072, i64 12
   %100 = load i32, ptr %99, align 4
   store i32 %100, ptr %98, align 4
   %101 = load ptr, ptr %36, align 8
@@ -1060,7 +1060,7 @@ _ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__7SdfPathESaIS1_EED2Ev.exi
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__16HdSceneIndexPrimD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i.i, label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__21HdContainerDataSourceEED2Ev.exit, label %4

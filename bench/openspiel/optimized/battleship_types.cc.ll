@@ -95,7 +95,7 @@ define noundef zeroext i1 @_ZN10open_spiel10battleship23ExistsFeasiblePlacementE
 
 _ZNSt6vectorIN10open_spiel10battleship13ShipPlacementESaIS2_EE2atEm.exit.lr.ph: ; preds = %2
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %21 = getelementptr inbounds i8, ptr %0, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 4
   br label %_ZNSt6vectorIN10open_spiel10battleship13ShipPlacementESaIS2_EE2atEm.exit
 
@@ -203,7 +203,7 @@ _ZNK10open_spiel10battleship13ShipPlacement14IsWithinBoundsEii.exit.thread: ; pr
 ._crit_edge:                                      ; preds = %23, %2
   %.lcssa84 = phi i64 [ %19, %2 ], [ %29, %23 ]
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %69 = getelementptr inbounds i8, ptr %0, i64 16
+  %69 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %70 = load ptr, ptr %69, align 8
   %71 = load ptr, ptr %68, align 8
   %72 = ptrtoint ptr %70 to i64
@@ -992,13 +992,13 @@ define noundef zeroext i1 @_ZNK10open_spiel10battleship13ShipPlacement10CoversCe
 14:                                               ; preds = %9
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %16 = load i32, ptr %15, align 4
-  %17 = getelementptr inbounds i8, ptr %0, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %18 = load i32, ptr %17, align 8
   %.not14 = icmp slt i32 %16, %18
   br i1 %.not14, label %45, label %19
 
 19:                                               ; preds = %14
-  %20 = getelementptr inbounds i8, ptr %0, i64 20
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %21 = load i32, ptr %20, align 4
   %22 = add nsw i32 %21, %18
   %23 = icmp slt i32 %16, %22
@@ -1028,7 +1028,7 @@ define noundef zeroext i1 @_ZNK10open_spiel10battleship13ShipPlacement10CoversCe
 30:                                               ; preds = %24
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %32 = load i32, ptr %31, align 4
-  %33 = getelementptr inbounds i8, ptr %0, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %34 = load i32, ptr %33, align 8
   %35 = icmp eq i32 %32, %34
   br i1 %35, label %36, label %45
@@ -1041,7 +1041,7 @@ define noundef zeroext i1 @_ZNK10open_spiel10battleship13ShipPlacement10CoversCe
   br i1 %.not, label %45, label %40
 
 40:                                               ; preds = %36
-  %41 = getelementptr inbounds i8, ptr %0, i64 20
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %42 = load i32, ptr %41, align 4
   %43 = add nsw i32 %42, %39
   %44 = icmp slt i32 %38, %43
@@ -1126,9 +1126,9 @@ define i64 @_ZNK10open_spiel10battleship13ShipPlacement17BottomRightCornerEv(ptr
 8:                                                ; preds = %1
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %10 = load i32, ptr %9, align 4
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %12 = load i32, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 20
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %14 = load i32, ptr %13, align 4
   %15 = add i32 %12, -1
   %16 = add i32 %15, %14
@@ -1158,11 +1158,11 @@ define i64 @_ZNK10open_spiel10battleship13ShipPlacement17BottomRightCornerEv(ptr
 23:                                               ; preds = %17
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %25 = load i32, ptr %24, align 4
-  %26 = getelementptr inbounds i8, ptr %0, i64 20
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %27 = load i32, ptr %26, align 4
   %28 = add i32 %25, -1
   %29 = add i32 %28, %27
-  %30 = getelementptr inbounds i8, ptr %0, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %31 = load i32, ptr %30, align 8
   br label %32
 
@@ -1227,7 +1227,7 @@ _ZN4absl7debian219str_format_internal18FormatSpecTemplateIJLNS0_23FormatConversi
   %3 = load i32, ptr %1, align 8
   %4 = icmp eq i32 %3, 0
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %2)
   %7 = select i1 %4, ptr inttoptr (i64 104 to ptr), ptr inttoptr (i64 118 to ptr)
   store ptr %7, ptr %2, align 8, !noalias !22

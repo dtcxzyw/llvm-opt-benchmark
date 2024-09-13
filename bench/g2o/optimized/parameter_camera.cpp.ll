@@ -973,7 +973,7 @@ define linkonce_odr void @_ZN3g2o11CacheCameraD2Ev(ptr noundef nonnull align 16 
   br i1 %.not.i.i.i.i.i, label %_ZNSt6vectorIPN3g2o5CacheESaIS2_EED2Ev.exit.i.i, label %4
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 56
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %6 = load ptr, ptr %5, align 8
   %7 = ptrtoint ptr %6 to i64
   %8 = ptrtoint ptr %3 to i64
@@ -988,7 +988,7 @@ _ZNSt6vectorIPN3g2o5CacheESaIS2_EED2Ev.exit.i.i:  ; preds = %4, %1
   br i1 %.not.i.i.i1.i.i, label %_ZN3g2o14CacheSE3OffsetD2Ev.exit, label %12
 
 12:                                               ; preds = %_ZNSt6vectorIPN3g2o5CacheESaIS2_EED2Ev.exit.i.i
-  %13 = getelementptr inbounds i8, ptr %0, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %14 = load ptr, ptr %13, align 16
   %15 = ptrtoint ptr %14 to i64
   %16 = ptrtoint ptr %11 to i64
@@ -1009,7 +1009,7 @@ define linkonce_odr void @_ZN3g2o11CacheCameraD0Ev(ptr noundef nonnull align 16 
   br i1 %.not.i.i.i.i.i.i, label %_ZNSt6vectorIPN3g2o5CacheESaIS2_EED2Ev.exit.i.i.i, label %4
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 56
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %6 = load ptr, ptr %5, align 8
   %7 = ptrtoint ptr %6 to i64
   %8 = ptrtoint ptr %3 to i64
@@ -1024,7 +1024,7 @@ _ZNSt6vectorIPN3g2o5CacheESaIS2_EED2Ev.exit.i.i.i: ; preds = %4, %1
   br i1 %.not.i.i.i1.i.i.i, label %_ZN3g2o11CacheCameraD2Ev.exit, label %12
 
 12:                                               ; preds = %_ZNSt6vectorIPN3g2o5CacheESaIS2_EED2Ev.exit.i.i.i
-  %13 = getelementptr inbounds i8, ptr %0, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %14 = load ptr, ptr %13, align 16
   %15 = ptrtoint ptr %14 to i64
   %16 = ptrtoint ptr %11 to i64

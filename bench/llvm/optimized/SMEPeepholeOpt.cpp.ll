@@ -280,7 +280,7 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_114SMEPeepholeOpt20runOnMach
   br i1 %11, label %12, label %._crit_edge.thread
 
 12:                                               ; preds = %6
-  %13 = getelementptr inbounds i8, ptr %1, i64 328
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 328
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 320
   %.sroa.015.018 = load ptr, ptr %13, align 8
   %.not19 = icmp eq ptr %.sroa.015.018, %14

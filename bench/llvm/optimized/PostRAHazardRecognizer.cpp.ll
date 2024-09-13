@@ -191,7 +191,7 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_122PostRAHazardRecognizer20r
   br i1 %.not37, label %_ZNSt10unique_ptrIN4llvm24ScheduleHazardRecognizerESt14default_deleteIS1_EED2Ev.exit, label %13
 
 13:                                               ; preds = %2
-  %14 = getelementptr inbounds i8, ptr %1, i64 328
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 328
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 320
   %.sroa.024.044 = load ptr, ptr %14, align 8
   %.not3845 = icmp eq ptr %.sroa.024.044, %15

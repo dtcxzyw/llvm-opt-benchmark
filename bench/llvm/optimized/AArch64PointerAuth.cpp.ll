@@ -1239,14 +1239,14 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_118AArch64PointerAuth20runOn
   %58 = getelementptr inbounds nuw i8, ptr %56, i64 848
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr %58, ptr %59, align 8
-  %60 = getelementptr inbounds i8, ptr %56, i64 928
+  %60 = getelementptr inbounds nuw i8, ptr %56, i64 928
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store ptr %60, ptr %61, align 8
   %62 = getelementptr inbounds i8, ptr %51, i64 16
   call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %51, ptr noundef nonnull %62, i64 noundef 6) #12
   %63 = getelementptr inbounds i8, ptr %52, i64 16
   call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %52, ptr noundef nonnull %63, i64 noundef 6) #12
-  %64 = getelementptr inbounds i8, ptr %1, i64 328
+  %64 = getelementptr inbounds nuw i8, ptr %1, i64 328
   %65 = getelementptr inbounds nuw i8, ptr %1, i64 320
   %.sroa.069.080 = load ptr, ptr %64, align 8
   %.not7281 = icmp eq ptr %.sroa.069.080, %65
@@ -1353,18 +1353,18 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_118AArch64PointerAuth20runOn
   %116 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %117 = getelementptr inbounds nuw i8, ptr %18, i64 16
   %118 = getelementptr inbounds nuw i8, ptr %18, i64 4
-  %119 = getelementptr inbounds i8, ptr %18, i64 24
+  %119 = getelementptr inbounds nuw i8, ptr %18, i64 24
   %120 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %121 = getelementptr inbounds nuw i8, ptr %25, i64 8
   %122 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %123 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %124 = getelementptr inbounds nuw i8, ptr %17, i64 4
-  %125 = getelementptr inbounds i8, ptr %17, i64 24
+  %125 = getelementptr inbounds nuw i8, ptr %17, i64 24
   %126 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %127 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %128 = getelementptr inbounds nuw i8, ptr %30, i64 72
   %129 = getelementptr inbounds nuw i8, ptr %30, i64 48
-  %130 = getelementptr inbounds i8, ptr %30, i64 64
+  %130 = getelementptr inbounds nuw i8, ptr %30, i64 64
   %131 = getelementptr inbounds nuw i8, ptr %31, i64 8
   %132 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %133 = getelementptr inbounds nuw i8, ptr %14, i64 16
@@ -1377,7 +1377,7 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_118AArch64PointerAuth20runOn
   %140 = getelementptr inbounds nuw i8, ptr %37, i64 8
   %141 = getelementptr inbounds nuw i8, ptr %46, i64 72
   %142 = getelementptr inbounds nuw i8, ptr %46, i64 48
-  %143 = getelementptr inbounds i8, ptr %46, i64 64
+  %143 = getelementptr inbounds nuw i8, ptr %46, i64 64
   %144 = getelementptr inbounds nuw i8, ptr %47, i64 8
   %145 = getelementptr inbounds nuw i8, ptr %35, i64 8
   %146 = getelementptr inbounds nuw i8, ptr %35, i64 16
@@ -2741,7 +2741,7 @@ _ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit: ; preds = %_ZN4llvm10M
   store ptr %5, ptr %33, align 8, !alias.scope !101
   %34 = getelementptr inbounds nuw i8, ptr %7, i64 4
   store i32 0, ptr %34, align 4, !alias.scope !101
-  %35 = getelementptr inbounds i8, ptr %7, i64 24
+  %35 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store i32 0, ptr %35, align 8, !alias.scope !101
   store i32 15, ptr %7, align 8, !alias.scope !101
   call void @_ZN4llvm12MachineInstr10addOperandERNS_15MachineFunctionERKNS_14MachineOperandE(ptr noundef nonnull align 8 dereferenceable(70) %28, ptr noundef nonnull align 8 dereferenceable(1041) %27, ptr noundef nonnull align 8 dereferenceable(32) %7) #12
@@ -2873,7 +2873,7 @@ _ZNSt6vectorIcSaIcEE17_S_check_init_lenEmRKS0_.exit.i.i: ; preds = %8
 
 _ZNSt12_Vector_baseIcSaIcEE11_M_allocateEm.exit.thread.i.i: ; preds = %_ZNSt6vectorIcSaIcEE17_S_check_init_lenEmRKS0_.exit.i.i
   store ptr null, ptr %15, align 8
-  %21 = getelementptr inbounds i8, ptr %0, i64 64
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr null, ptr %21, align 8
   br label %_ZNSt6vectorIcSaIcEEC2IPKcvEET_S5_RKS0_.exit
 
@@ -2881,14 +2881,14 @@ _ZNSt12_Vector_baseIcSaIcEE11_M_allocateEm.exit.thread.i.i: ; preds = %_ZNSt6vec
   %23 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %18) #14
   store ptr %23, ptr %15, align 8
   %24 = getelementptr inbounds i8, ptr %23, i64 %18
-  %25 = getelementptr inbounds i8, ptr %0, i64 64
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr %24, ptr %25, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %23, ptr align 1 %16, i64 %18, i1 false)
   br label %_ZNSt6vectorIcSaIcEEC2IPKcvEET_S5_RKS0_.exit
 
 _ZNSt6vectorIcSaIcEEC2IPKcvEET_S5_RKS0_.exit:     ; preds = %_ZNSt12_Vector_baseIcSaIcEE11_M_allocateEm.exit.thread.i.i, %22
   %26 = phi ptr [ null, %_ZNSt12_Vector_baseIcSaIcEE11_M_allocateEm.exit.thread.i.i ], [ %24, %22 ]
-  %27 = getelementptr inbounds i8, ptr %0, i64 56
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store ptr %26, ptr %27, align 8
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %11) #12
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 72

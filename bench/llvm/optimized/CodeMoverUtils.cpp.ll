@@ -1135,7 +1135,7 @@ _ZN4llvm19SmallPtrSetIteratorIPNS_11InstructionEEppEv.exit.i.i.i.i.i: ; preds = 
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local noundef zeroext i1 @_ZN4llvm18isSafeToMoveBeforeERNS_10BasicBlockERNS_11InstructionERNS_13DominatorTreeEPKNS_17PostDominatorTreeEPNS_14DependenceInfoE(ptr noundef nonnull readonly align 8 dereferenceable(80) %0, ptr noundef nonnull align 8 dereferenceable(72) %1, ptr noundef nonnull align 8 dereferenceable(124) %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
-  %6 = getelementptr inbounds i8, ptr %0, i64 56
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %.not18.i.i.i.i.i = icmp eq ptr %7, %8
@@ -1226,7 +1226,7 @@ define dso_local void @_ZN4llvm24moveInstructionsToTheEndERNS_10BasicBlockES1_RN
 _ZN4llvm10BasicBlock13getTerminatorEv.exit:       ; preds = %5, %9
   %.0.i.i = phi ptr [ null, %5 ], [ %spec.select.i.i, %9 ]
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %16 = getelementptr inbounds i8, ptr %0, i64 56
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %17 = load ptr, ptr %16, align 8
   %.not4.i.i.i.i11 = icmp eq ptr %17, %15
   br i1 %.not4.i.i.i.i11, label %_ZNK4llvm10BasicBlock4sizeEv.exit.thread, label %.lr.ph.i.i.i.i.preheader
@@ -2094,7 +2094,7 @@ define internal fastcc void @"_ZZL28collectInstructionsInBetweenRN4llvm11Instruc
   %.sroa.24.017 = phi i32 [ 0, %.lr.ph ], [ %64, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i23 ]
   %40 = load ptr, ptr %35, align 8, !noalias !42
   %41 = tail call noundef ptr @_ZNK4llvm11Instruction12getSuccessorEj(ptr noundef nonnull align 8 dereferenceable(72) %0, i32 noundef %.sroa.24.017) #8
-  %42 = getelementptr inbounds i8, ptr %41, i64 56
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 56
   %43 = load ptr, ptr %42, align 8
   %44 = icmp eq ptr %43, null
   %45 = getelementptr inbounds i8, ptr %43, i64 -24

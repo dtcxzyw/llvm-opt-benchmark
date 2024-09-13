@@ -263,7 +263,7 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_120RISCVLandingPadSetup20run
   br i1 %27, label %.thread, label %28
 
 28:                                               ; preds = %26
-  %29 = getelementptr inbounds i8, ptr %1, i64 328
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 328
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 320
   %.sroa.048.061 = load ptr, ptr %29, align 8
   %.not62 = icmp eq ptr %.sroa.048.061, %30

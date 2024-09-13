@@ -753,7 +753,7 @@ define dso_local void @_ZN4llvm17MCWinCOFFStreamer16endCOFFSymbolDefEv(ptr nocap
 define dso_local void @_ZN4llvm17MCWinCOFFStreamer15emitCOFFSafeSEHEPKNS_8MCSymbolE(ptr noundef nonnull align 8 dereferenceable(432) %0, ptr noundef %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 56
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %6 = load i32, ptr %5, align 8
   %.not = icmp eq i32 %6, 37
   br i1 %.not, label %7, label %64
@@ -785,7 +785,7 @@ define dso_local void @_ZN4llvm17MCWinCOFFStreamer15emitCOFFSafeSEHEPKNS_8MCSymb
 _ZN4llvm9MCSection18ensureMinAlignmentENS_5AlignE.exit: ; preds = %11, %20
   %21 = load ptr, ptr %3, align 8
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 288
-  %23 = getelementptr inbounds i8, ptr %21, i64 368
+  %23 = getelementptr inbounds nuw i8, ptr %21, i64 368
   %24 = load i64, ptr %23, align 8
   %25 = add i64 %24, 40
   store i64 %25, ptr %23, align 8
@@ -794,7 +794,7 @@ _ZN4llvm9MCSection18ensureMinAlignmentENS_5AlignE.exit: ; preds = %11, %20
   %28 = add i64 %27, 7
   %29 = and i64 %28, -8
   %30 = add i64 %29, 40
-  %31 = getelementptr inbounds i8, ptr %21, i64 296
+  %31 = getelementptr inbounds nuw i8, ptr %21, i64 296
   %32 = load ptr, ptr %31, align 8
   %33 = ptrtoint ptr %32 to i64
   %.not.i.i.i = icmp ugt i64 %30, %33
@@ -876,7 +876,7 @@ _ZN4llvm9MCSection18ensureMinAlignmentENS_5AlignE.exit: ; preds = %2, %9
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 288
-  %13 = getelementptr inbounds i8, ptr %11, i64 368
+  %13 = getelementptr inbounds nuw i8, ptr %11, i64 368
   %14 = load i64, ptr %13, align 8
   %15 = add i64 %14, 40
   store i64 %15, ptr %13, align 8
@@ -885,7 +885,7 @@ _ZN4llvm9MCSection18ensureMinAlignmentENS_5AlignE.exit: ; preds = %2, %9
   %18 = add i64 %17, 7
   %19 = and i64 %18, -8
   %20 = add i64 %19, 40
-  %21 = getelementptr inbounds i8, ptr %11, i64 296
+  %21 = getelementptr inbounds nuw i8, ptr %11, i64 296
   %22 = load ptr, ptr %21, align 8
   %23 = ptrtoint ptr %22 to i64
   %.not.i.i.i = icmp ugt i64 %20, %23
@@ -1114,10 +1114,10 @@ define dso_local void @_ZN4llvm17MCWinCOFFStreamer16emitCommonSymbolEPNS_8MCSymb
   %7 = alloca %"class.llvm::raw_svector_ostream", align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 68
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 68
   %11 = load i32, ptr %10, align 4
   %12 = icmp eq i32 %11, 14
-  %13 = getelementptr inbounds i8, ptr %9, i64 72
+  %13 = getelementptr inbounds nuw i8, ptr %9, i64 72
   %14 = load i32, ptr %13, align 8
   %15 = icmp eq i32 %14, 19
   %16 = icmp eq i32 %14, 0

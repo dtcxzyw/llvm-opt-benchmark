@@ -111,7 +111,7 @@ define dso_local void @_ZN4llvm21SymbolRemappingReader4readERNS_12MemoryBufferE(
   %39 = getelementptr inbounds nuw i8, ptr %22, i64 32
   %40 = getelementptr inbounds nuw i8, ptr %22, i64 33
   %41 = getelementptr inbounds nuw i8, ptr %22, i64 16
-  %42 = getelementptr inbounds i8, ptr %22, i64 24
+  %42 = getelementptr inbounds nuw i8, ptr %22, i64 24
   %.sroa.5342.0..sroa_idx345 = getelementptr inbounds i8, ptr %18, i64 16
   %.sroa.7352.0..sroa_idx355 = getelementptr inbounds i8, ptr %18, i64 32
   %.sroa.9357.0..sroa_idx360 = getelementptr inbounds i8, ptr %18, i64 33
@@ -120,7 +120,7 @@ define dso_local void @_ZN4llvm21SymbolRemappingReader4readERNS_12MemoryBufferE(
   %45 = getelementptr inbounds nuw i8, ptr %29, i64 32
   %46 = getelementptr inbounds nuw i8, ptr %29, i64 33
   %47 = getelementptr inbounds nuw i8, ptr %29, i64 16
-  %48 = getelementptr inbounds i8, ptr %29, i64 24
+  %48 = getelementptr inbounds nuw i8, ptr %29, i64 24
   %49 = getelementptr inbounds nuw i8, ptr %28, i64 16
   %50 = getelementptr inbounds nuw i8, ptr %28, i64 32
   %51 = getelementptr inbounds nuw i8, ptr %28, i64 33
@@ -135,7 +135,7 @@ define dso_local void @_ZN4llvm21SymbolRemappingReader4readERNS_12MemoryBufferE(
   %56 = getelementptr inbounds nuw i8, ptr %26, i64 32
   %57 = getelementptr inbounds nuw i8, ptr %26, i64 33
   %58 = getelementptr inbounds nuw i8, ptr %26, i64 16
-  %59 = getelementptr inbounds i8, ptr %26, i64 24
+  %59 = getelementptr inbounds nuw i8, ptr %26, i64 24
   %60 = getelementptr inbounds nuw i8, ptr %25, i64 16
   %61 = getelementptr inbounds nuw i8, ptr %25, i64 32
   %62 = getelementptr inbounds nuw i8, ptr %25, i64 33
@@ -150,7 +150,7 @@ define dso_local void @_ZN4llvm21SymbolRemappingReader4readERNS_12MemoryBufferE(
   %67 = getelementptr inbounds nuw i8, ptr %32, i64 32
   %68 = getelementptr inbounds nuw i8, ptr %32, i64 33
   %69 = getelementptr inbounds nuw i8, ptr %32, i64 16
-  %70 = getelementptr inbounds i8, ptr %32, i64 24
+  %70 = getelementptr inbounds nuw i8, ptr %32, i64 24
   %71 = getelementptr inbounds nuw i8, ptr %31, i64 16
   %72 = getelementptr inbounds nuw i8, ptr %31, i64 32
   %73 = getelementptr inbounds nuw i8, ptr %31, i64 33
@@ -165,7 +165,7 @@ define dso_local void @_ZN4llvm21SymbolRemappingReader4readERNS_12MemoryBufferE(
   %78 = getelementptr inbounds nuw i8, ptr %23, i64 32
   %79 = getelementptr inbounds nuw i8, ptr %23, i64 33
   %80 = getelementptr inbounds nuw i8, ptr %23, i64 16
-  %81 = getelementptr inbounds i8, ptr %23, i64 24
+  %81 = getelementptr inbounds nuw i8, ptr %23, i64 24
   %.sroa.5273.0..sroa_idx276 = getelementptr inbounds i8, ptr %15, i64 16
   %.sroa.7283.0..sroa_idx286 = getelementptr inbounds i8, ptr %15, i64 32
   %.sroa.9288.0..sroa_idx291 = getelementptr inbounds i8, ptr %15, i64 33

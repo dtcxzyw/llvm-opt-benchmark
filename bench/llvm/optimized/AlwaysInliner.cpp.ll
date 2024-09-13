@@ -279,7 +279,7 @@ define dso_local void @_ZN4llvm17AlwaysInlinerPass3runERNS_6ModuleERNS_15Analysi
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 0, ptr %24, align 8, !alias.scope !7
-  %25 = getelementptr inbounds i8, ptr %0, i64 68
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 68
   store i32 0, ptr %25, align 4, !alias.scope !7
   store ptr @_ZN4llvm17PreservedAnalyses14AllAnalysesKeyE, ptr %23, align 8, !alias.scope !7, !noalias !10
   br label %26
@@ -287,7 +287,7 @@ define dso_local void @_ZN4llvm17AlwaysInlinerPass3runERNS_6ModuleERNS_15Analysi
 26:                                               ; preds = %22, %19
   %.sink20 = phi ptr [ %21, %19 ], [ %23, %22 ]
   %.sink18 = phi i32 [ 0, %19 ], [ 1, %22 ]
-  %.sink17 = getelementptr inbounds i8, ptr %0, i64 80
+  %.sink17 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store ptr %.sink20, ptr %0, align 8
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sink20, ptr %27, align 8
@@ -297,11 +297,11 @@ define dso_local void @_ZN4llvm17AlwaysInlinerPass3runERNS_6ModuleERNS_15Analysi
   store i32 %.sink18, ptr %29, align 4
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr %.sink17, ptr %30, align 8
-  %31 = getelementptr inbounds i8, ptr %0, i64 56
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store ptr %.sink17, ptr %31, align 8
-  %32 = getelementptr inbounds i8, ptr %0, i64 64
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i32 2, ptr %32, align 8
-  %33 = getelementptr inbounds i8, ptr %0, i64 72
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store i32 0, ptr %33, align 8
   ret void
 }
@@ -334,7 +334,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_116AlwaysInlineImplER
   call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %24, ptr noundef nonnull %25, i64 noundef 16) #15
   %26 = getelementptr inbounds i8, ptr %16, i64 16
   call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %16, ptr noundef nonnull %26, i64 noundef 16) #15
-  %27 = getelementptr inbounds i8, ptr %0, i64 32
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %28 = load ptr, ptr %27, align 8
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.not2741 = icmp eq ptr %28, %29
@@ -344,7 +344,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_116AlwaysInlineImplER
   %30 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %31 = getelementptr inbounds nuw i8, ptr %15, i64 12
   %32 = getelementptr inbounds nuw i8, ptr %15, i64 16
-  %33 = getelementptr inbounds i8, ptr %15, i64 32
+  %33 = getelementptr inbounds nuw i8, ptr %15, i64 32
   %.not29 = icmp eq ptr %.0.val1, null
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %21, i64 8
   %34 = getelementptr inbounds nuw i8, ptr %21, i64 16
@@ -386,11 +386,11 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_116AlwaysInlineImplER
   %70 = getelementptr inbounds nuw i8, ptr %23, i64 4
   %71 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %72 = getelementptr inbounds nuw i8, ptr %23, i64 16
-  %73 = getelementptr inbounds i8, ptr %23, i64 56
+  %73 = getelementptr inbounds nuw i8, ptr %23, i64 56
   %74 = getelementptr inbounds nuw i8, ptr %23, i64 24
-  %75 = getelementptr inbounds i8, ptr %23, i64 48
-  %76 = getelementptr inbounds i8, ptr %23, i64 40
-  %77 = getelementptr inbounds i8, ptr %23, i64 32
+  %75 = getelementptr inbounds nuw i8, ptr %23, i64 48
+  %76 = getelementptr inbounds nuw i8, ptr %23, i64 40
+  %77 = getelementptr inbounds nuw i8, ptr %23, i64 32
   %78 = getelementptr inbounds nuw i8, ptr %19, i64 16
   br label %79
 

@@ -469,7 +469,7 @@ define dso_local void @_ZN4llvm19LegacyLegalizerInfoC2Ev(ptr noundef nonnull ali
   %42 = getelementptr inbounds nuw i8, ptr %.ptr42, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %41, i8 0, i64 16, i1 false)
   store float 1.000000e+00, ptr %42, align 8
-  %43 = getelementptr inbounds i8, ptr %.ptr42, i64 40
+  %43 = getelementptr inbounds nuw i8, ptr %.ptr42, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %43, i8 0, i64 16, i1 false)
   %.add41 = add nuw nsw i64 %.idx40, 56
   %44 = icmp eq i64 %.add41, 66376
@@ -486,7 +486,7 @@ define dso_local void @_ZN4llvm19LegacyLegalizerInfoC2Ev(ptr noundef nonnull ali
   %48 = getelementptr inbounds nuw i8, ptr %.ptr47, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %47, i8 0, i64 16, i1 false)
   store float 1.000000e+00, ptr %48, align 8
-  %49 = getelementptr inbounds i8, ptr %.ptr47, i64 40
+  %49 = getelementptr inbounds nuw i8, ptr %.ptr47, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %49, i8 0, i64 16, i1 false)
   %.add46 = add nuw nsw i64 %.idx45, 56
   %50 = icmp eq i64 %.add46, 80040
@@ -1363,8 +1363,8 @@ define dso_local void @_ZN4llvm19LegacyLegalizerInfo13computeTablesEv(ptr nounde
   %39 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %40 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %41 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  %42 = getelementptr inbounds i8, ptr %13, i64 16
-  %43 = getelementptr inbounds i8, ptr %13, i64 24
+  %42 = getelementptr inbounds nuw i8, ptr %13, i64 16
+  %43 = getelementptr inbounds nuw i8, ptr %13, i64 24
   %44 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %45 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %46 = getelementptr inbounds nuw i8, ptr %15, i64 16
@@ -1556,7 +1556,7 @@ _ZNSt3mapItSt6vectorISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActio
   %126 = call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #17
   %127 = getelementptr inbounds nuw i8, ptr %126, i64 32
   store i16 %117, ptr %127, align 8
-  %128 = getelementptr inbounds i8, ptr %126, i64 40
+  %128 = getelementptr inbounds nuw i8, ptr %126, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %128, i8 0, i64 24, i1 false)
   %129 = icmp eq ptr %.08.lcssa.i.i.i10.i, %20
   br i1 %129, label %130, label %148
@@ -1765,13 +1765,13 @@ _ZNSt8_Rb_treeItSt4pairIKtSt6vectorIS0_ItN4llvm21LegacyLegalizeActions20LegacyLe
 
 _ZNSt3mapItSt6vectorISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESaIS5_EESt4lessItESaIS1_IKtS7_EEEixEOt.exit: ; preds = %_ZNSt8_Rb_treeItSt4pairIKtSt6vectorIS0_ItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESaIS6_EEESt10_Select1stIS9_ESt4lessItESaIS9_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS9_E.exit.i.i, %.thread.i, %123
   %.sroa.05.0.i = phi ptr [ %.19.i.i.i.i, %123 ], [ %126, %.thread.i ], [ %.sroa.070.0.i760, %_ZNSt8_Rb_treeItSt4pairIKtSt6vectorIS0_ItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESaIS6_EEESt10_Select1stIS9_ESt4lessItESaIS9_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS9_E.exit.i.i ]
-  %207 = getelementptr inbounds i8, ptr %.sroa.05.0.i, i64 40
+  %207 = getelementptr inbounds nuw i8, ptr %.sroa.05.0.i, i64 40
   %208 = call noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9) %9) #16
   %209 = trunc i64 %208 to i32
   %210 = load i8, ptr %30, align 8
-  %211 = getelementptr inbounds i8, ptr %.sroa.05.0.i, i64 48
+  %211 = getelementptr inbounds nuw i8, ptr %.sroa.05.0.i, i64 48
   %212 = load ptr, ptr %211, align 8
-  %213 = getelementptr inbounds i8, ptr %.sroa.05.0.i, i64 56
+  %213 = getelementptr inbounds nuw i8, ptr %.sroa.05.0.i, i64 56
   %214 = load ptr, ptr %213, align 8
   %.not.i.i = icmp eq ptr %212, %214
   br i1 %.not.i.i, label %218, label %215
@@ -1979,7 +1979,7 @@ _ZNSt3mapItSt6vectorISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActio
   %292 = call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #17
   %293 = getelementptr inbounds nuw i8, ptr %292, i64 32
   store i16 %283, ptr %293, align 8
-  %294 = getelementptr inbounds i8, ptr %292, i64 40
+  %294 = getelementptr inbounds nuw i8, ptr %292, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %294, i8 0, i64 24, i1 false)
   %295 = icmp eq ptr %.08.lcssa.i.i.i10.i84, %25
   br i1 %295, label %296, label %314
@@ -2188,13 +2188,13 @@ _ZNSt8_Rb_treeItSt4pairIKtSt6vectorIS0_ItN4llvm21LegacyLegalizeActions20LegacyLe
 
 _ZNSt3mapItSt6vectorISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESaIS5_EESt4lessItESaIS1_IKtS7_EEEixEOt.exit85: ; preds = %_ZNSt8_Rb_treeItSt4pairIKtSt6vectorIS0_ItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESaIS6_EEESt10_Select1stIS9_ESt4lessItESaIS9_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS9_E.exit.i.i158, %.thread.i155, %289
   %.sroa.05.0.i82 = phi ptr [ %.19.i.i.i.i76, %289 ], [ %292, %.thread.i155 ], [ %.sroa.070.0.i533779, %_ZNSt8_Rb_treeItSt4pairIKtSt6vectorIS0_ItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESaIS6_EEESt10_Select1stIS9_ESt4lessItESaIS9_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS9_E.exit.i.i158 ]
-  %373 = getelementptr inbounds i8, ptr %.sroa.05.0.i82, i64 40
+  %373 = getelementptr inbounds nuw i8, ptr %.sroa.05.0.i82, i64 40
   %374 = call noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9) %9) #16
   %375 = trunc i64 %374 to i32
   %376 = load i8, ptr %30, align 8
-  %377 = getelementptr inbounds i8, ptr %.sroa.05.0.i82, i64 48
+  %377 = getelementptr inbounds nuw i8, ptr %.sroa.05.0.i82, i64 48
   %378 = load ptr, ptr %377, align 8
-  %379 = getelementptr inbounds i8, ptr %.sroa.05.0.i82, i64 56
+  %379 = getelementptr inbounds nuw i8, ptr %.sroa.05.0.i82, i64 56
   %380 = load ptr, ptr %379, align 8
   %.not.i.i86 = icmp eq ptr %378, %380
   br i1 %.not.i.i86, label %384, label %381
@@ -3063,8 +3063,8 @@ _ZNSt8functionIFSt6vectorISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalize
   %705 = getelementptr inbounds nuw i8, ptr %.sroa.0669.0859, i64 32
   %706 = load i16, ptr %705, align 8
   store i16 %706, ptr %13, align 8
-  %707 = getelementptr inbounds i8, ptr %.sroa.0669.0859, i64 40
-  %708 = getelementptr inbounds i8, ptr %.sroa.0669.0859, i64 48
+  %707 = getelementptr inbounds nuw i8, ptr %.sroa.0669.0859, i64 40
+  %708 = getelementptr inbounds nuw i8, ptr %.sroa.0669.0859, i64 48
   %709 = load ptr, ptr %708, align 8
   %710 = load ptr, ptr %707, align 8
   %711 = ptrtoint ptr %709 to i64
@@ -3432,8 +3432,8 @@ _ZNSt4pairIKtSt6vectorIS_ItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEE
   %.sroa.0665.0868 = phi ptr [ %1021, %_ZNSt4pairIKtSt6vectorIS_ItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESaIS5_EEED2Ev.exit123 ], [ %834, %._crit_edge ]
   %835 = getelementptr inbounds nuw i8, ptr %.sroa.0665.0868, i64 32
   %836 = load i16, ptr %835, align 8
-  %837 = getelementptr inbounds i8, ptr %.sroa.0665.0868, i64 40
-  %838 = getelementptr inbounds i8, ptr %.sroa.0665.0868, i64 48
+  %837 = getelementptr inbounds nuw i8, ptr %.sroa.0665.0868, i64 40
+  %838 = getelementptr inbounds nuw i8, ptr %.sroa.0665.0868, i64 48
   %839 = load ptr, ptr %838, align 8
   %840 = load ptr, ptr %837, align 8
   %841 = ptrtoint ptr %839 to i64
@@ -6189,7 +6189,7 @@ define dso_local noundef i32 @_ZNK4llvm19LegacyLegalizerInfo21getOpcodeIdxForOpc
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local { i64, i64 } @_ZNK4llvm19LegacyLegalizerInfo9getActionERKNS_13LegalityQueryE(ptr noundef nonnull align 8 dereferenceable(80040) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %"struct.llvm::InstrAspect", align 8
-  %4 = getelementptr inbounds i8, ptr %1, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = load i64, ptr %4, align 8
   %.not16 = icmp eq i64 %5, 0
   br i1 %.not16, label %.loopexit, label %.lr.ph
@@ -7068,13 +7068,13 @@ define linkonce_odr void @_ZNSt8_Rb_treeItSt4pairIKtSt6vectorIS0_ItN4llvm21Legac
   tail call void @_ZNSt8_Rb_treeItSt4pairIKtSt6vectorIS0_ItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESaIS6_EEESt10_Select1stIS9_ESt4lessItESaIS9_EE8_M_eraseEPSt13_Rb_tree_nodeIS9_E(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %4)
   %5 = getelementptr inbounds nuw i8, ptr %.07, i64 16
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %.07, i64 40
+  %7 = getelementptr inbounds nuw i8, ptr %.07, i64 40
   %8 = load ptr, ptr %7, align 8
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %8, null
   br i1 %.not.i.i.i.i.i.i.i.i, label %_ZNSt8_Rb_treeItSt4pairIKtSt6vectorIS0_ItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESaIS6_EEESt10_Select1stIS9_ESt4lessItESaIS9_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS9_E.exit, label %9
 
 9:                                                ; preds = %.lr.ph
-  %10 = getelementptr inbounds i8, ptr %.07, i64 56
+  %10 = getelementptr inbounds nuw i8, ptr %.07, i64 56
   %11 = load ptr, ptr %10, align 8
   %12 = ptrtoint ptr %11 to i64
   %13 = ptrtoint ptr %8 to i64

@@ -95,7 +95,7 @@ define noundef double @_ZN32pxrInternal_v0_24__pxrReserved__23Ts_SolveCubicInInt
   %23 = load i8, ptr %22, align 8
   %.fr58 = freeze i8 %23
   %24 = trunc i8 %.fr58 to i1
-  %25 = getelementptr inbounds i8, ptr %3, i64 24
+  %25 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %26 = load i8, ptr %25, align 8
   %.fr = freeze i8 %26
   %27 = trunc i8 %.fr to i1
@@ -248,7 +248,7 @@ define noundef double @_ZN32pxrInternal_v0_24__pxrReserved__13Ts_SolveCubicEPKdd
   store i8 1, ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store double 1.000000e+00, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %3, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i8 1, ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 24
   %9 = load double, ptr %8, align 8

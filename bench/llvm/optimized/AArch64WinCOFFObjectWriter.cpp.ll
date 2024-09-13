@@ -144,7 +144,7 @@ _ZN4llvmplERKNS_5TwineES2_.exit:                  ; preds = %38
   store ptr @.str.1, ptr %9, align 8, !alias.scope !7
   %48 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store ptr %44, ptr %48, align 8, !alias.scope !7
-  %49 = getelementptr inbounds i8, ptr %9, i64 24
+  %49 = getelementptr inbounds nuw i8, ptr %9, i64 24
   store i64 %45, ptr %49, align 8, !alias.scope !7
   store ptr %9, ptr %8, align 8, !alias.scope !10
   %50 = getelementptr inbounds nuw i8, ptr %8, i64 16
@@ -193,7 +193,7 @@ _ZN4llvmplERKNS_5TwineES2_.exit73:                ; preds = %54
   store ptr @.str.3, ptr %11, align 8, !alias.scope !15
   %61 = getelementptr inbounds nuw i8, ptr %11, i64 16
   store ptr %57, ptr %61, align 8, !alias.scope !15
-  %62 = getelementptr inbounds i8, ptr %11, i64 24
+  %62 = getelementptr inbounds nuw i8, ptr %11, i64 24
   store i64 %58, ptr %62, align 8, !alias.scope !15
   store ptr %11, ptr %10, align 8, !alias.scope !18
   %63 = getelementptr inbounds nuw i8, ptr %10, i64 16

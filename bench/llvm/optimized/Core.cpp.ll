@@ -582,7 +582,7 @@ define dso_local ptr @LLVMCreateConstantRangeAttribute(ptr noundef %0, i32 nound
   call void @_ZN4llvm5APIntC1EjNS_8ArrayRefImEE(ptr noundef nonnull align 8 dereferenceable(12) %8, i32 noundef %2, ptr %4, i64 %14) #35
   call void @_ZN4llvm13ConstantRangeC1ENS_5APIntES1_(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull %7, ptr noundef nonnull %8) #35
   %15 = call ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS0_8AttrKindERKNS_13ConstantRangeE(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(32) %6) #35
-  %16 = getelementptr inbounds i8, ptr %6, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %17 = load i32, ptr %16, align 8
   %18 = icmp ugt i32 %17, 64
   br i1 %18, label %19, label %_ZN4llvm5APIntD2Ev.exit.i
@@ -939,14 +939,14 @@ define dso_local void @LLVMSetSourceFileName(ptr noundef %0, ptr noundef %1, i64
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local noundef ptr @LLVMGetDataLayoutStr(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 704
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 704
   %3 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %2) #35
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local noundef ptr @LLVMGetDataLayout(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 704
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 704
   %3 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %2) #35
   ret ptr %3
 }
@@ -1174,7 +1174,7 @@ define dso_local void @LLVMSetIsNewDbgInfoFormat(ptr noundef %0, i32 noundef %1)
   br i1 %5, label %_ZN4llvm6Module21setIsNewDbgInfoFormatEb.exit, label %7
 
 7:                                                ; preds = %6
-  %8 = getelementptr inbounds i8, ptr %0, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.sroa.04.07.i.i = load ptr, ptr %8, align 8
   %.not8.i.i = icmp eq ptr %.sroa.04.07.i.i, %9
@@ -1195,7 +1195,7 @@ define dso_local void @LLVMSetIsNewDbgInfoFormat(ptr noundef %0, i32 noundef %1)
   br i1 %5, label %14, label %_ZN4llvm6Module21setIsNewDbgInfoFormatEb.exit
 
 14:                                               ; preds = %.critedge.i
-  %15 = getelementptr inbounds i8, ptr %0, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.sroa.04.07.i2.i = load ptr, ptr %15, align 8
   %.not8.i3.i = icmp eq ptr %.sroa.04.07.i2.i, %16
@@ -5492,7 +5492,7 @@ define dso_local ptr @LLVMGetMDString(ptr nocapture noundef readonly %0, ptr noc
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local ptr @LLVMGetFirstNamedMetadata(ptr noundef readonly %0) local_unnamed_addr #11 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 80
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %5 = icmp eq ptr %3, %4
@@ -5503,7 +5503,7 @@ define dso_local ptr @LLVMGetFirstNamedMetadata(ptr noundef readonly %0) local_u
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local ptr @LLVMGetLastNamedMetadata(ptr noundef readonly %0) local_unnamed_addr #11 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %3 = getelementptr inbounds i8, ptr %0, i64 80
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %2, %4
   br i1 %5, label %8, label %6
@@ -5533,7 +5533,7 @@ define dso_local ptr @LLVMGetNextNamedMetadata(ptr nocapture noundef readonly %0
 define dso_local ptr @LLVMGetPreviousNamedMetadata(ptr noundef readonly %0) local_unnamed_addr #14 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 80
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 80
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %0, %5
   br i1 %6, label %9, label %7
@@ -6640,7 +6640,7 @@ define dso_local noundef ptr @LLVMConstRealOfStringAndSize(ptr noundef %0, ptr n
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local i64 @LLVMConstIntGetZExtValue(ptr nocapture noundef readonly %0) local_unnamed_addr #14 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %3 = getelementptr inbounds i8, ptr %0, i64 32
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i32, ptr %3, align 8
   %5 = icmp ult i32 %4, 65
   %6 = load ptr, ptr %2, align 8
@@ -6652,7 +6652,7 @@ define dso_local i64 @LLVMConstIntGetZExtValue(ptr nocapture noundef readonly %0
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local i64 @LLVMConstIntGetSExtValue(ptr nocapture noundef readonly %0) local_unnamed_addr #14 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %3 = getelementptr inbounds i8, ptr %0, i64 32
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i32, ptr %3, align 8
   %5 = icmp ult i32 %4, 65
   br i1 %5, label %6, label %13
@@ -6697,7 +6697,7 @@ define dso_local noundef double @LLVMConstRealGetDouble(ptr noundef %0, ptr noca
 
 13:                                               ; preds = %2
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %16 = load ptr, ptr %15, align 8
   %17 = tail call noundef nonnull align 1 ptr @_ZN4llvm11APFloatBase15PPCDoubleDoubleEv() #40
   %.not.i.i = icmp eq ptr %16, %17
@@ -7039,7 +7039,7 @@ define dso_local noundef ptr @LLVMConstGEP2(ptr noundef %0, ptr noundef %1, ptr 
 
 11:                                               ; preds = %4
   store i8 0, ptr %7, align 8
-  %12 = getelementptr inbounds i8, ptr %5, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %13 = load i32, ptr %12, align 8
   %14 = icmp ugt i32 %13, 64
   br i1 %14, label %15, label %_ZN4llvm5APIntD2Ev.exit.i.i.i.i.i.i
@@ -7103,8 +7103,8 @@ define linkonce_odr hidden noundef ptr @_ZN4llvm12ConstantExpr16getGetElementPtr
 _ZN4llvm5APIntC2ERKS0_.exit.i.i.i.i.i.i.i.i:      ; preds = %20, %18
   %21 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %22 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %23 = getelementptr inbounds i8, ptr %8, i64 24
-  %24 = getelementptr inbounds i8, ptr %5, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %8, i64 24
+  %24 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %25 = load i32, ptr %24, align 8
   store i32 %25, ptr %23, align 8
   %26 = icmp ult i32 %25, 65
@@ -7131,7 +7131,7 @@ _ZNSt8optionalIN4llvm13ConstantRangeEEC2ERKS2_.exit: ; preds = %7, %_ZNSt22_Opti
 
 33:                                               ; preds = %_ZNSt8optionalIN4llvm13ConstantRangeEEC2ERKS2_.exit
   store i8 0, ptr %10, align 8
-  %34 = getelementptr inbounds i8, ptr %8, i64 24
+  %34 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %35 = load i32, ptr %34, align 8
   %36 = icmp ugt i32 %35, 64
   br i1 %36, label %37, label %_ZN4llvm5APIntD2Ev.exit.i.i.i.i.i.i
@@ -7179,7 +7179,7 @@ define dso_local noundef ptr @LLVMConstInBoundsGEP2(ptr noundef %0, ptr noundef 
 
 11:                                               ; preds = %4
   store i8 0, ptr %7, align 8
-  %12 = getelementptr inbounds i8, ptr %5, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %13 = load i32, ptr %12, align 8
   %14 = icmp ugt i32 %13, 64
   br i1 %14, label %15, label %_ZN4llvm5APIntD2Ev.exit.i.i.i.i.i.i.i
@@ -7232,7 +7232,7 @@ define dso_local noundef ptr @LLVMConstGEPWithNoWrapFlags(ptr noundef %0, ptr no
 
 14:                                               ; preds = %5
   store i8 0, ptr %10, align 8
-  %15 = getelementptr inbounds i8, ptr %6, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %16 = load i32, ptr %15, align 8
   %17 = icmp ugt i32 %16, 64
   br i1 %17, label %18, label %_ZN4llvm5APIntD2Ev.exit.i.i.i.i.i.i
@@ -8095,7 +8095,7 @@ define dso_local noundef ptr @LLVMGetNamedGlobalWithLength(ptr noundef nonnull %
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local ptr @LLVMGetFirstGlobal(ptr noundef readonly %0) local_unnamed_addr #11 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = icmp eq ptr %3, %4
@@ -8109,7 +8109,7 @@ define dso_local ptr @LLVMGetFirstGlobal(ptr noundef readonly %0) local_unnamed_
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local ptr @LLVMGetLastGlobal(ptr noundef readonly %0) local_unnamed_addr #11 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %2, %4
   br i1 %5, label %11, label %6
@@ -8151,7 +8151,7 @@ define dso_local ptr @LLVMGetPreviousGlobal(ptr noundef readonly %0) local_unnam
   %spec.select.i.i.i = select i1 %2, ptr null, ptr %3
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %spec.select.i.i.i, %7
   br i1 %8, label %14, label %9
@@ -8359,7 +8359,7 @@ declare noundef ptr @_ZNK4llvm6Module13getNamedAliasENS_9StringRefE(ptr noundef 
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local ptr @LLVMGetFirstGlobalAlias(ptr noundef readonly %0) local_unnamed_addr #11 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 48
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %5 = icmp eq ptr %3, %4
@@ -8373,7 +8373,7 @@ define dso_local ptr @LLVMGetFirstGlobalAlias(ptr noundef readonly %0) local_unn
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local ptr @LLVMGetLastGlobalAlias(ptr noundef readonly %0) local_unnamed_addr #11 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %3 = getelementptr inbounds i8, ptr %0, i64 48
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %2, %4
   br i1 %5, label %11, label %6
@@ -8415,7 +8415,7 @@ define dso_local ptr @LLVMGetPreviousGlobalAlias(ptr noundef readonly %0) local_
   %spec.select.i.i.i = select i1 %2, ptr null, ptr %3
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 48
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 48
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %spec.select.i.i.i, %7
   br i1 %8, label %14, label %9
@@ -8494,7 +8494,7 @@ define dso_local noundef ptr @LLVMGetNamedFunctionWithLength(ptr noundef nonnull
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local ptr @LLVMGetFirstFunction(ptr noundef readonly %0) local_unnamed_addr #11 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = icmp eq ptr %3, %4
@@ -8508,7 +8508,7 @@ define dso_local ptr @LLVMGetFirstFunction(ptr noundef readonly %0) local_unname
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local ptr @LLVMGetLastFunction(ptr noundef readonly %0) local_unnamed_addr #11 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %3 = getelementptr inbounds i8, ptr %0, i64 32
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %2, %4
   br i1 %5, label %11, label %6
@@ -8550,7 +8550,7 @@ define dso_local ptr @LLVMGetPreviousFunction(ptr noundef readonly %0) local_unn
   %spec.select.i.i.i = select i1 %2, ptr null, ptr %3
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %spec.select.i.i.i, %7
   br i1 %8, label %14, label %9
@@ -9221,7 +9221,7 @@ declare noundef ptr @_ZNK4llvm6Module13getNamedIFuncENS_9StringRefE(ptr noundef 
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local ptr @LLVMGetFirstGlobalIFunc(ptr noundef readonly %0) local_unnamed_addr #11 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 64
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %5 = icmp eq ptr %3, %4
@@ -9235,7 +9235,7 @@ define dso_local ptr @LLVMGetFirstGlobalIFunc(ptr noundef readonly %0) local_unn
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local ptr @LLVMGetLastGlobalIFunc(ptr noundef readonly %0) local_unnamed_addr #11 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %3 = getelementptr inbounds i8, ptr %0, i64 64
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %2, %4
   br i1 %5, label %11, label %6
@@ -9277,7 +9277,7 @@ define dso_local ptr @LLVMGetPreviousGlobalIFunc(ptr noundef readonly %0) local_
   %spec.select.i.i.i = select i1 %2, ptr null, ptr %3
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 64
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 64
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %spec.select.i.i.i, %7
   br i1 %8, label %14, label %9
@@ -9393,9 +9393,9 @@ _ZNSt6vectorIPN4llvm5ValueESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i.i.i.i:
 _ZN4llvm17OperandBundleDefTIPNS_5ValueEEC2ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_8ArrayRefIS2_EE.exit: ; preds = %_ZNSt6vectorIPN4llvm5ValueESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i.i.i.i, %9
   %11 = phi ptr [ %10, %9 ], [ null, %_ZNSt6vectorIPN4llvm5ValueESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i.i.i.i ]
   %.sink.i.i = getelementptr inbounds i8, ptr %11, i64 %.idx.i.i
-  %12 = getelementptr inbounds i8, ptr %6, i64 48
+  %12 = getelementptr inbounds nuw i8, ptr %6, i64 48
   store ptr %.sink.i.i, ptr %12, align 8, !alias.scope !19
-  %13 = getelementptr inbounds i8, ptr %6, i64 40
+  %13 = getelementptr inbounds nuw i8, ptr %6, i64 40
   store ptr %.sink.i.i, ptr %13, align 8, !alias.scope !19
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #35
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #35
@@ -9416,7 +9416,7 @@ define dso_local void @LLVMDisposeOperandBundle(ptr noundef %0) local_unnamed_ad
   br i1 %.not.i.i.i.i, label %_ZN4llvm17OperandBundleDefTIPNS_5ValueEED2Ev.exit, label %6
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %0, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %8 = load ptr, ptr %7, align 8
   %9 = ptrtoint ptr %8 to i64
   %10 = ptrtoint ptr %5 to i64
@@ -9445,7 +9445,7 @@ define dso_local noundef ptr @LLVMGetOperandBundleTag(ptr noundef nonnull %0, pt
 define dso_local i32 @LLVMGetNumOperandBundleArgs(ptr nocapture noundef readonly %0) local_unnamed_addr #11 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 40
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %5 = load ptr, ptr %4, align 8
   %6 = ptrtoint ptr %5 to i64
   %7 = ptrtoint ptr %3 to i64
@@ -9521,7 +9521,7 @@ _ZN4llvm10BasicBlock13getTerminatorEv.exit:       ; preds = %1, %5
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local i32 @LLVMCountBasicBlocks(ptr noundef readonly %0) local_unnamed_addr #14 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %3 = getelementptr inbounds i8, ptr %0, i64 80
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %4 = load ptr, ptr %3, align 8
   %.not4.i.i.i.i = icmp eq ptr %4, %2
   br i1 %.not4.i.i.i.i, label %_ZNK4llvm8Function4sizeEv.exit, label %.lr.ph.i.i.i.i
@@ -9542,7 +9542,7 @@ _ZNK4llvm8Function4sizeEv.exit:                   ; preds = %.lr.ph.i.i.i.i, %1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define dso_local void @LLVMGetBasicBlocks(ptr noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #15 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 80
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %.sroa.06.09 = load ptr, ptr %3, align 8
   %.not10 = icmp eq ptr %.sroa.06.09, %4
@@ -9567,7 +9567,7 @@ define dso_local void @LLVMGetBasicBlocks(ptr noundef readonly %0, ptr nocapture
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local ptr @LLVMGetEntryBasicBlock(ptr nocapture noundef readonly %0) local_unnamed_addr #11 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 80
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
   %5 = getelementptr inbounds i8, ptr %3, i64 -24
@@ -9577,7 +9577,7 @@ define dso_local ptr @LLVMGetEntryBasicBlock(ptr nocapture noundef readonly %0) 
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local ptr @LLVMGetFirstBasicBlock(ptr noundef readonly %0) local_unnamed_addr #11 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 80
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %5 = icmp eq ptr %3, %4
@@ -9591,7 +9591,7 @@ define dso_local ptr @LLVMGetFirstBasicBlock(ptr noundef readonly %0) local_unna
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local ptr @LLVMGetLastBasicBlock(ptr noundef readonly %0) local_unnamed_addr #11 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %3 = getelementptr inbounds i8, ptr %0, i64 80
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %2, %4
   br i1 %5, label %11, label %6
@@ -9633,7 +9633,7 @@ define dso_local ptr @LLVMGetPreviousBasicBlock(ptr noundef readonly %0) local_u
   %spec.select.i.i.i = select i1 %2, ptr null, ptr %3
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 80
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 80
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %spec.select.i.i.i, %7
   br i1 %8, label %14, label %9
@@ -9885,7 +9885,7 @@ define dso_local ptr @LLVMGetInstructionParent(ptr nocapture noundef readonly %0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local ptr @LLVMGetFirstInstruction(ptr noundef readonly %0) local_unnamed_addr #11 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 56
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %5 = icmp eq ptr %3, %4
@@ -9899,7 +9899,7 @@ define dso_local ptr @LLVMGetFirstInstruction(ptr noundef readonly %0) local_unn
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local ptr @LLVMGetLastInstruction(ptr noundef readonly %0) local_unnamed_addr #11 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %3 = getelementptr inbounds i8, ptr %0, i64 56
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %2, %4
   br i1 %5, label %11, label %6
@@ -9941,7 +9941,7 @@ define dso_local ptr @LLVMGetPreviousInstruction(ptr noundef readonly %0) local_
   %spec.select.i.i.i = select i1 %2, ptr null, ptr %3
   %4 = getelementptr inbounds i8, ptr %0, i64 40
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 56
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 56
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %spec.select.i.i.i, %7
   br i1 %8, label %14, label %9
@@ -10341,7 +10341,7 @@ define linkonce_odr hidden void @_ZN4llvm17OperandBundleDefTIPNS_5ValueEEC2ERKNS
   %17 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %4) #35
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #35
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #35
-  %18 = getelementptr inbounds i8, ptr %0, i64 40
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %19 = load ptr, ptr %18, align 8
   %20 = load ptr, ptr %1, align 8
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -11975,7 +11975,7 @@ define linkonce_odr hidden void @_ZN4llvm23SmallVectorTemplateBaseINS_17OperandB
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %3) #35
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  %9 = getelementptr inbounds i8, ptr %3, i64 40
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %10 = load ptr, ptr %9, align 8
   %11 = load ptr, ptr %8, align 8
   %12 = ptrtoint ptr %10 to i64
@@ -12001,10 +12001,10 @@ _ZNSt16allocator_traitsISaIPN4llvm5ValueEEE8allocateERS3_m.exit.i.i.i.i.i: ; pre
 _ZNSt12_Vector_baseIPN4llvm5ValueESaIS2_EEC2EmRKS3_.exit.i.i: ; preds = %_ZNSt16allocator_traitsISaIPN4llvm5ValueEEE8allocateERS3_m.exit.i.i.i.i.i, %2
   %20 = phi ptr [ %19, %_ZNSt16allocator_traitsISaIPN4llvm5ValueEEE8allocateERS3_m.exit.i.i.i.i.i ], [ null, %2 ]
   store ptr %20, ptr %7, align 8
-  %21 = getelementptr inbounds i8, ptr %6, i64 40
+  %21 = getelementptr inbounds nuw i8, ptr %6, i64 40
   store ptr %20, ptr %21, align 8
   %22 = getelementptr inbounds ptr, ptr %20, i64 %15
-  %23 = getelementptr inbounds i8, ptr %6, i64 48
+  %23 = getelementptr inbounds nuw i8, ptr %6, i64 48
   store ptr %22, ptr %23, align 8
   %24 = load ptr, ptr %8, align 8
   %25 = load ptr, ptr %9, align 8
@@ -12051,7 +12051,7 @@ define linkonce_odr hidden noundef ptr @_ZN4llvm13IRBuilderBase12CreateCallBrEPN
   %.012.i.i = phi i32 [ %25, %.lr.ph.i.i ], [ 0, %9 ]
   %.0811.i.i = phi ptr [ %26, %.lr.ph.i.i ], [ %.sroa.019.0.copyload, %9 ]
   %16 = getelementptr inbounds nuw i8, ptr %.0811.i.i, i64 32
-  %17 = getelementptr inbounds i8, ptr %.0811.i.i, i64 40
+  %17 = getelementptr inbounds nuw i8, ptr %.0811.i.i, i64 40
   %18 = load ptr, ptr %17, align 8
   %19 = load ptr, ptr %16, align 8
   %20 = ptrtoint ptr %18 to i64
@@ -12344,7 +12344,7 @@ define linkonce_odr hidden noundef ptr @_ZN4llvm13IRBuilderBase12CreateInvokeEPN
   %.012.i.i = phi i32 [ %24, %.lr.ph.i.i ], [ 0, %8 ]
   %.0811.i.i = phi ptr [ %25, %.lr.ph.i.i ], [ %.sroa.018.0.copyload, %8 ]
   %15 = getelementptr inbounds nuw i8, ptr %.0811.i.i, i64 32
-  %16 = getelementptr inbounds i8, ptr %.0811.i.i, i64 40
+  %16 = getelementptr inbounds nuw i8, ptr %.0811.i.i, i64 40
   %17 = load ptr, ptr %16, align 8
   %18 = load ptr, ptr %15, align 8
   %19 = ptrtoint ptr %17 to i64
@@ -16335,7 +16335,7 @@ define linkonce_odr hidden noundef ptr @_ZN4llvm13IRBuilderBase21CreateGlobalStr
 
 22:                                               ; preds = %7
   store i8 0, ptr %18, align 8
-  %23 = getelementptr inbounds i8, ptr %8, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %24 = load i32, ptr %23, align 8
   %25 = icmp ugt i32 %24, 64
   br i1 %25, label %26, label %_ZN4llvm5APIntD2Ev.exit.i.i.i.i.i.i.i
@@ -20246,7 +20246,7 @@ define linkonce_odr hidden noundef ptr @_ZN4llvm8CallInst6CreateEPNS_12FunctionT
   %.012.i = phi i32 [ %21, %.lr.ph.i ], [ 0, %8 ]
   %.0811.i = phi ptr [ %22, %.lr.ph.i ], [ %4, %8 ]
   %12 = getelementptr inbounds nuw i8, ptr %.0811.i, i64 32
-  %13 = getelementptr inbounds i8, ptr %.0811.i, i64 40
+  %13 = getelementptr inbounds nuw i8, ptr %.0811.i, i64 40
   %14 = load ptr, ptr %13, align 8
   %15 = load ptr, ptr %12, align 8
   %16 = ptrtoint ptr %14 to i64
@@ -20279,7 +20279,7 @@ _ZN4llvm8CallBase17CountBundleInputsENS_8ArrayRefINS_17OperandBundleDefTIPNS_5Va
   %.012.i.i = phi i32 [ %39, %.lr.ph.i.i ], [ 0, %_ZN4llvm8CallBase17CountBundleInputsENS_8ArrayRefINS_17OperandBundleDefTIPNS_5ValueEEEEE.exit ]
   %.0811.i.i = phi ptr [ %40, %.lr.ph.i.i ], [ %4, %_ZN4llvm8CallBase17CountBundleInputsENS_8ArrayRefINS_17OperandBundleDefTIPNS_5ValueEEEEE.exit ]
   %30 = getelementptr inbounds nuw i8, ptr %.0811.i.i, i64 32
-  %31 = getelementptr inbounds i8, ptr %.0811.i.i, i64 40
+  %31 = getelementptr inbounds nuw i8, ptr %.0811.i.i, i64 40
   %32 = load ptr, ptr %31, align 8
   %33 = load ptr, ptr %30, align 8
   %34 = ptrtoint ptr %32 to i64
@@ -20296,7 +20296,7 @@ _ZN4llvm8CallBase17CountBundleInputsENS_8ArrayRefINS_17OperandBundleDefTIPNS_5Va
   %.012.i11.i = phi i32 [ %50, %.lr.ph.i10.i ], [ 0, %.lr.ph.i.i ]
   %.0811.i12.i = phi ptr [ %51, %.lr.ph.i10.i ], [ %4, %.lr.ph.i.i ]
   %41 = getelementptr inbounds nuw i8, ptr %.0811.i12.i, i64 32
-  %42 = getelementptr inbounds i8, ptr %.0811.i12.i, i64 40
+  %42 = getelementptr inbounds nuw i8, ptr %.0811.i12.i, i64 40
   %43 = load ptr, ptr %42, align 8
   %44 = load ptr, ptr %41, align 8
   %45 = ptrtoint ptr %43 to i64
@@ -20986,12 +20986,12 @@ define linkonce_odr void @_ZN4llvm23SmallVectorTemplateBaseINS_17OperandBundleDe
   %7 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i.i, i64 32
   %8 = load ptr, ptr %7, align 8
   store ptr %8, ptr %6, align 8
-  %9 = getelementptr inbounds i8, ptr %.09.i.i.i.i.i, i64 40
-  %10 = getelementptr inbounds i8, ptr %.sroa.04.08.i.i.i.i.i, i64 40
+  %9 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i, i64 40
+  %10 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i.i, i64 40
   %11 = load ptr, ptr %10, align 8
   store ptr %11, ptr %9, align 8
-  %12 = getelementptr inbounds i8, ptr %.09.i.i.i.i.i, i64 48
-  %13 = getelementptr inbounds i8, ptr %.sroa.04.08.i.i.i.i.i, i64 48
+  %12 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i, i64 48
+  %13 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i.i, i64 48
   %14 = load ptr, ptr %13, align 8
   store ptr %14, ptr %12, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false)

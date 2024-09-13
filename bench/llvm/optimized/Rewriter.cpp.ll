@@ -135,7 +135,7 @@ _ZNKSt3mapIN5clang6FileIDEN4llvm13RewriteBufferESt4lessIS1_ESaISt4pairIKS1_S3_EE
   br i1 %23, label %_ZNKSt3mapIN5clang6FileIDEN4llvm13RewriteBufferESt4lessIS1_ESaISt4pairIKS1_S3_EEE4findERS7_.exit.thread, label %24
 
 24:                                               ; preds = %_ZNKSt3mapIN5clang6FileIDEN4llvm13RewriteBufferESt4lessIS1_ESaISt4pairIKS1_S3_EEE4findERS7_.exit
-  %25 = getelementptr inbounds i8, ptr %.19.i.i.i, i64 40
+  %25 = getelementptr inbounds nuw i8, ptr %.19.i.i.i, i64 40
   %26 = shl i32 %.sroa.2.0.extract.trunc.i26, 1
   %27 = lshr i24 %2, 8
   %.lobit = and i24 %27, 1
@@ -304,7 +304,7 @@ _ZNKSt3mapIN5clang6FileIDEN4llvm13RewriteBufferESt4lessIS1_ESaISt4pairIKS1_S3_EE
   br label %102
 
 48:                                               ; preds = %_ZNKSt3mapIN5clang6FileIDEN4llvm13RewriteBufferESt4lessIS1_ESaISt4pairIKS1_S3_EEE4findERS7_.exit
-  %49 = getelementptr inbounds i8, ptr %.19.i.i.i, i64 40
+  %49 = getelementptr inbounds nuw i8, ptr %.19.i.i.i, i64 40
   %50 = shl i32 %.sroa.2.0.extract.trunc.i26, 1
   %51 = or disjoint i32 %50, 1
   %52 = tail call noundef i32 @_ZNK4llvm9DeltaTree10getDeltaAtEj(ptr noundef nonnull align 8 dereferenceable(8) %49, i32 noundef %51) #15
@@ -325,7 +325,7 @@ _ZNKSt3mapIN5clang6FileIDEN4llvm13RewriteBufferESt4lessIS1_ESaISt4pairIKS1_S3_EE
 
 64:                                               ; preds = %58, %48
   %.1 = phi i32 [ %63, %58 ], [ %53, %48 ]
-  %65 = getelementptr inbounds i8, ptr %.19.i.i.i, i64 48
+  %65 = getelementptr inbounds nuw i8, ptr %.19.i.i.i, i64 48
   %66 = load ptr, ptr %65, align 8, !noalias !6
   call void @_ZN4llvm22RopePieceBTreeIteratorC1EPKv(ptr noundef nonnull align 8 dereferenceable(20) %8, ptr noundef %66) #15
   %.not1.i.i = icmp eq i32 %56, 0
@@ -567,18 +567,18 @@ _ZNSt3mapIN5clang6FileIDEN4llvm13RewriteBufferESt4lessIS1_ESaISt4pairIKS1_S3_EEE
   call void @_ZN4llvm9DeltaTreeC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #15
   %17 = getelementptr inbounds nuw i8, ptr %5, i64 8
   call void @_ZN4llvm14RopePieceBTreeC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %17) #15
-  %18 = getelementptr inbounds i8, ptr %5, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr null, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %5, i64 24
+  %19 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store i32 4080, ptr %19, align 8
   store i32 %1, ptr %4, align 8, !alias.scope !15
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 8
   call void @_ZN4llvm9DeltaTreeC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %20, ptr noundef nonnull align 8 dereferenceable(8) %5) #15
-  %21 = getelementptr inbounds i8, ptr %4, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %4, i64 16
   call void @_ZN4llvm14RopePieceBTreeC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %21, ptr noundef nonnull align 8 dereferenceable(8) %17) #15
-  %22 = getelementptr inbounds i8, ptr %4, i64 24
+  %22 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store ptr null, ptr %22, align 8, !alias.scope !15
-  %23 = getelementptr inbounds i8, ptr %4, i64 32
+  %23 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store i32 4080, ptr %23, align 8, !alias.scope !15
   %24 = call ptr @_ZNSt8_Rb_treeIN5clang6FileIDESt4pairIKS1_N4llvm13RewriteBufferEESt10_Select1stIS6_ESt4lessIS1_ESaIS6_EE22_M_emplace_hint_uniqueIJS2_IS1_S5_EEEESt17_Rb_tree_iteratorIS6_ESt23_Rb_tree_const_iteratorIS6_EDpOT_(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr %.08.lcssa.i.i.i19, ptr noundef nonnull align 8 dereferenceable(40) %4)
   %25 = load ptr, ptr %22, align 8
@@ -620,7 +620,7 @@ _ZN4llvm13RewriteBufferD2Ev.exit:                 ; preds = %_ZNSt4pairIN5clang6
   %35 = load ptr, ptr %0, align 8
   %36 = call { ptr, i64 } @_ZNK5clang13SourceManager13getBufferDataENS_6FileIDEPb(ptr noundef nonnull align 8 dereferenceable(696) %35, i32 %1, ptr noundef null) #15
   %37 = extractvalue { ptr, i64 } %36, 1
-  %38 = getelementptr inbounds i8, ptr %24, i64 48
+  %38 = getelementptr inbounds nuw i8, ptr %24, i64 48
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
   call void @_ZN4llvm14RopePieceBTree5clearEv(ptr noundef nonnull align 8 dereferenceable(8) %38) #15
   %.not.i.i = icmp eq i64 %37, 0
@@ -652,7 +652,7 @@ _ZN4llvm13RewriteBuffer10InitializeEPKcS2_.exit:  ; preds = %_ZN4llvm13RewriteBu
 
 47:                                               ; preds = %13, %_ZN4llvm13RewriteBuffer10InitializeEPKcS2_.exit
   %48 = phi ptr [ %24, %_ZN4llvm13RewriteBuffer10InitializeEPKcS2_.exit ], [ %.19.i.i.i, %13 ]
-  %.0 = getelementptr inbounds i8, ptr %48, i64 40
+  %.0 = getelementptr inbounds nuw i8, ptr %48, i64 40
   ret ptr %.0
 }
 
@@ -718,7 +718,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i.i: ; preds = %12
 
 _ZN5clang13SourceManager12getSLocEntryENS_6FileIDEPb.exit: ; preds = %31, %34
   %.0.i = phi ptr [ %33, %31 ], [ %35, %34 ]
-  %36 = getelementptr inbounds i8, ptr %.0.i, i64 16
+  %36 = getelementptr inbounds nuw i8, ptr %.0.i, i64 16
   %.0.copyload.i.i.i.i = load i64, ptr %36, align 8
   %37 = and i64 %.0.copyload.i.i.i.i, -8
   %38 = inttoptr i64 %37 to ptr
@@ -1045,7 +1045,7 @@ define dso_local noundef zeroext i1 @_ZN5clang8Rewriter19IncreaseIndentationENS_
 
 _ZN5clang13SourceManager12getSLocEntryENS_6FileIDEPb.exit: ; preds = %34, %37
   %.0.i = phi ptr [ %36, %34 ], [ %38, %37 ]
-  %39 = getelementptr inbounds i8, ptr %.0.i, i64 16
+  %39 = getelementptr inbounds nuw i8, ptr %.0.i, i64 16
   %.0.copyload.i.i.i.i = load i64, ptr %39, align 8
   %40 = and i64 %.0.copyload.i.i.i.i, -8
   %41 = inttoptr i64 %40 to ptr
@@ -1223,10 +1223,10 @@ define dso_local noundef zeroext i1 @_ZN5clang8Rewriter21overwriteChangedFilesEv
   %28 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %29 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %30 = getelementptr inbounds nuw i8, ptr %7, i64 25
-  %31 = getelementptr inbounds i8, ptr %12, i64 792
-  %32 = getelementptr inbounds i8, ptr %12, i64 800
-  %33 = getelementptr inbounds i8, ptr %12, i64 904
-  %34 = getelementptr inbounds i8, ptr %12, i64 912
+  %31 = getelementptr inbounds nuw i8, ptr %12, i64 792
+  %32 = getelementptr inbounds nuw i8, ptr %12, i64 800
+  %33 = getelementptr inbounds nuw i8, ptr %12, i64 904
+  %34 = getelementptr inbounds nuw i8, ptr %12, i64 912
   %35 = getelementptr inbounds i8, ptr %6, i64 8
   br label %36
 
@@ -1259,7 +1259,7 @@ _ZN5clang13SourceManager18getSLocEntryOrNullENS_6FileIDE.exit.thread.i.i.i: ; pr
   br i1 %46, label %_ZNK5clang13SourceManager19getSLocEntryForFileENS_6FileIDE.exit.i, label %_ZNK5clang13SourceManager20getFileEntryRefForIDENS_6FileIDE.exit
 
 _ZNK5clang13SourceManager19getSLocEntryForFileENS_6FileIDE.exit.i: ; preds = %44
-  %47 = getelementptr inbounds i8, ptr %42, i64 16
+  %47 = getelementptr inbounds nuw i8, ptr %42, i64 16
   %.0.copyload.i.i.i.i.i = load i64, ptr %47, align 8
   %48 = and i64 %.0.copyload.i.i.i.i.i, -8
   %49 = inttoptr i64 %48 to ptr
@@ -1512,7 +1512,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZN5
   br i1 %.not.i.i, label %54, label %17
 
 17:                                               ; preds = %5
-  %18 = getelementptr inbounds i8, ptr %0, i64 208
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %19 = udiv i32 %6, 42
   %20 = urem i32 %6, 42
   %.zext.i.i = zext nneg i32 %19 to i64
@@ -1523,7 +1523,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZN5
   br i1 %.not.i.i.i, label %24, label %_ZNK4llvm11PagedVectorIN5clang6SrcMgr9SLocEntryELm42EEixEm.exit.i.i
 
 24:                                               ; preds = %17
-  %25 = getelementptr inbounds i8, ptr %0, i64 224
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %.0.copyload.i.i.i.i.i.i = load i64, ptr %25, align 8
   %26 = and i64 %.0.copyload.i.i.i.i.i.i, -8
   %27 = inttoptr i64 %26 to ptr
@@ -1934,15 +1934,15 @@ define linkonce_odr ptr @_ZNSt8_Rb_treeIN5clang6FileIDESt4pairIKS1_N4llvm13Rewri
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %6 = load i32, ptr %2, align 8
   store i32 %6, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %4, i64 40
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 8
   tail call void @_ZN4llvm9DeltaTreeC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(8) %8) #15
-  %9 = getelementptr inbounds i8, ptr %4, i64 48
-  %10 = getelementptr inbounds i8, ptr %2, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 48
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 16
   tail call void @_ZN4llvm14RopePieceBTreeC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull align 8 dereferenceable(8) %10) #15
-  %11 = getelementptr inbounds i8, ptr %4, i64 56
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 56
   store ptr null, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %4, i64 64
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 64
   store i32 4080, ptr %12, align 8
   %13 = tail call { ptr, ptr } @_ZNSt8_Rb_treeIN5clang6FileIDESt4pairIKS1_N4llvm13RewriteBufferEESt10_Select1stIS6_ESt4lessIS1_ESaIS6_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS6_ERS3_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %1, ptr noundef nonnull align 4 dereferenceable(4) %5)
   %14 = extractvalue { ptr, ptr } %13, 0
@@ -2281,7 +2281,7 @@ define internal void @"_ZNSt17_Function_handlerIFN4llvm5ErrorERNS0_11raw_ostream
   %.val = load ptr, ptr %1, align 8
   %.val.val = load ptr, ptr %.val, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !38)
-  %4 = getelementptr inbounds i8, ptr %.val.val, i64 40
+  %4 = getelementptr inbounds nuw i8, ptr %.val.val, i64 40
   %5 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZNK4llvm13RewriteBuffer5writeERNS_11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(48) %2) #15, !noalias !41
   store ptr null, ptr %0, align 8, !alias.scope !38
   ret void
@@ -2403,7 +2403,7 @@ _ZN5clang17DiagnosticStorageC2Ev.exit:            ; preds = %7
   store i8 0, ptr %18, align 8
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 416
   %20 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %19) #15
-  %21 = getelementptr inbounds i8, ptr %18, i64 424
+  %21 = getelementptr inbounds nuw i8, ptr %18, i64 424
   store i32 0, ptr %21, align 8
   %22 = getelementptr inbounds nuw i8, ptr %18, i64 528
   %23 = load ptr, ptr %22, align 8
@@ -2424,7 +2424,7 @@ _ZN5clang17DiagnosticStorageC2Ev.exit:            ; preds = %7
   br i1 %.not.i.i, label %_ZN4llvm15SmallVectorImplIN5clang9FixItHintEE5clearEv.exit, label %.lr.ph.i.i, !llvm.loop !32
 
 _ZN4llvm15SmallVectorImplIN5clang9FixItHintEE5clearEv.exit: ; preds = %.lr.ph.i.i, %13
-  %28 = getelementptr inbounds i8, ptr %18, i64 536
+  %28 = getelementptr inbounds nuw i8, ptr %18, i64 536
   store i32 0, ptr %28, align 8
   br label %29
 

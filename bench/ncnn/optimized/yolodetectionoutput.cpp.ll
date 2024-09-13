@@ -38,8 +38,8 @@ define hidden void @_ZN4ncnn19YoloDetectionOutputC2Ev(ptr noundef nonnull align 
   tail call void @_ZN4ncnn5LayerC2Ev(ptr noundef nonnull align 8 dereferenceable(208) %0)
   store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTVN4ncnn19YoloDetectionOutputE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 224
-  %3 = getelementptr inbounds i8, ptr %0, i64 256
-  %4 = getelementptr inbounds i8, ptr %0, i64 288
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 256
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 288
   store i64 0, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 0, ptr %5, align 8
@@ -98,7 +98,7 @@ define hidden noundef i32 @_ZN4ncnn19YoloDetectionOutput10load_paramERKNS_9Param
   br label %22
 
 22:                                               ; preds = %20, %19
-  %23 = getelementptr inbounds i8, ptr %0, i64 232
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %24 = load ptr, ptr %23, align 8
   %.not72 = icmp eq ptr %24, null
   br i1 %.not72, label %38, label %25
@@ -109,7 +109,7 @@ define hidden noundef i32 @_ZN4ncnn19YoloDetectionOutput10load_paramERKNS_9Param
   br i1 %27, label %28, label %38
 
 28:                                               ; preds = %25
-  %29 = getelementptr inbounds i8, ptr %0, i64 256
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %30 = load ptr, ptr %29, align 8
   %.not73 = icmp eq ptr %30, null
   %31 = load ptr, ptr %17, align 8
@@ -131,14 +131,14 @@ define hidden noundef i32 @_ZN4ncnn19YoloDetectionOutput10load_paramERKNS_9Param
   br label %38
 
 38:                                               ; preds = %32, %37, %36, %25, %22
-  %39 = getelementptr inbounds i8, ptr %0, i64 240
-  %40 = getelementptr inbounds i8, ptr %0, i64 248
-  %41 = getelementptr inbounds i8, ptr %0, i64 264
-  %42 = getelementptr inbounds i8, ptr %0, i64 268
-  %43 = getelementptr inbounds i8, ptr %0, i64 272
-  %44 = getelementptr inbounds i8, ptr %0, i64 276
-  %45 = getelementptr inbounds i8, ptr %0, i64 280
-  %46 = getelementptr inbounds i8, ptr %0, i64 288
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 240
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 248
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 264
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 268
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 272
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 276
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 280
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 288
   %47 = load ptr, ptr %3, align 8
   store ptr %47, ptr %17, align 8
   %48 = load ptr, ptr %.phi.trans.insert, align 8
@@ -151,7 +151,7 @@ define hidden noundef i32 @_ZN4ncnn19YoloDetectionOutput10load_paramERKNS_9Param
   store i32 %52, ptr %40, align 8
   %53 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %54 = load ptr, ptr %53, align 8
-  %55 = getelementptr inbounds i8, ptr %0, i64 256
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 256
   store ptr %54, ptr %55, align 8
   %56 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %57 = load i32, ptr %56, align 8
@@ -2036,7 +2036,7 @@ declare void @_ZN4ncnn3Mat6createEiimPNS_9AllocatorE(ptr noundef nonnull align 8
 define linkonce_odr hidden void @_ZN4ncnn19YoloDetectionOutputD2Ev(ptr noundef nonnull align 8 dereferenceable(304) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTVN4ncnn19YoloDetectionOutputE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 224
-  %3 = getelementptr inbounds i8, ptr %0, i64 232
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %18, label %5
@@ -2047,7 +2047,7 @@ define linkonce_odr hidden void @_ZN4ncnn19YoloDetectionOutputD2Ev(ptr noundef n
   br i1 %7, label %8, label %18
 
 8:                                                ; preds = %5
-  %9 = getelementptr inbounds i8, ptr %0, i64 256
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %10 = load ptr, ptr %9, align 8
   %.not8 = icmp eq ptr %10, null
   %11 = load ptr, ptr %2, align 8
@@ -2069,8 +2069,8 @@ define linkonce_odr hidden void @_ZN4ncnn19YoloDetectionOutputD2Ev(ptr noundef n
   br label %18
 
 18:                                               ; preds = %12, %17, %16, %5, %1
-  %19 = getelementptr inbounds i8, ptr %0, i64 264
-  %20 = getelementptr inbounds i8, ptr %0, i64 288
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 264
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 288
   store i64 0, ptr %20, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %2, i8 0, i64 28, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %19, i8 0, i64 20, i1 false)
@@ -2089,7 +2089,7 @@ define linkonce_odr hidden void @_ZN4ncnn19YoloDetectionOutputD2Ev(ptr noundef n
 define linkonce_odr hidden void @_ZN4ncnn19YoloDetectionOutputD0Ev(ptr noundef nonnull align 8 dereferenceable(304) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTVN4ncnn19YoloDetectionOutputE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 224
-  %3 = getelementptr inbounds i8, ptr %0, i64 232
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %4 = load ptr, ptr %3, align 8
   %.not.i = icmp eq ptr %4, null
   br i1 %.not.i, label %_ZN4ncnn19YoloDetectionOutputD2Ev.exit, label %5
@@ -2100,7 +2100,7 @@ define linkonce_odr hidden void @_ZN4ncnn19YoloDetectionOutputD0Ev(ptr noundef n
   br i1 %7, label %8, label %_ZN4ncnn19YoloDetectionOutputD2Ev.exit
 
 8:                                                ; preds = %5
-  %9 = getelementptr inbounds i8, ptr %0, i64 256
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %10 = load ptr, ptr %9, align 8
   %.not8.i = icmp eq ptr %10, null
   %11 = load ptr, ptr %2, align 8
@@ -2129,8 +2129,8 @@ define linkonce_odr hidden void @_ZN4ncnn19YoloDetectionOutputD0Ev(ptr noundef n
   unreachable
 
 _ZN4ncnn19YoloDetectionOutputD2Ev.exit:           ; preds = %1, %5, %12, %16, %17
-  %21 = getelementptr inbounds i8, ptr %0, i64 264
-  %22 = getelementptr inbounds i8, ptr %0, i64 288
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 264
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 288
   store i64 0, ptr %22, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %2, i8 0, i64 28, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %21, i8 0, i64 20, i1 false)

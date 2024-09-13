@@ -86,7 +86,7 @@ define dso_local noundef zeroext range(i8 0, 32) i8 @_ZN5clang17computeDependenc
   %3 = and i64 %.sroa.0.0.copyload.i, -16
   %4 = inttoptr i64 %3 to ptr
   %5 = load ptr, ptr %4, align 16
-  %6 = getelementptr inbounds i8, ptr %5, i64 17
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 17
   %7 = load i16, ptr %6, align 1
   %8 = trunc i16 %7 to i8
   %9 = and i8 %8, 4
@@ -134,7 +134,7 @@ define dso_local noundef zeroext range(i8 0, 32) i8 @_ZN5clang17computeDependenc
   %6 = and i64 %.sroa.0.0.copyload.i, -16
   %7 = inttoptr i64 %6 to ptr
   %8 = load ptr, ptr %7, align 16
-  %9 = getelementptr inbounds i8, ptr %8, i64 17
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 17
   %10 = load i16, ptr %9, align 1
   %11 = trunc i16 %10 to i8
   %12 = and i8 %11, 4
@@ -479,7 +479,7 @@ define dso_local noundef zeroext range(i8 0, 32) i8 @_ZN5clang17computeDependenc
   %7 = and i64 %.sroa.0.0.copyload.i.i, -16
   %8 = inttoptr i64 %7 to ptr
   %9 = load ptr, ptr %8, align 16
-  %10 = getelementptr inbounds i8, ptr %9, i64 17
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 17
   %11 = load i16, ptr %10, align 1
   %12 = trunc i16 %11 to i8
   %13 = shl i8 %12, 1
@@ -698,7 +698,7 @@ define dso_local noundef zeroext range(i8 0, 32) i8 @_ZN5clang17computeDependenc
   %5 = and i64 %.sroa.0.0.copyload.i, -16
   %6 = inttoptr i64 %5 to ptr
   %7 = load ptr, ptr %6, align 16
-  %8 = getelementptr inbounds i8, ptr %7, i64 17
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 17
   %9 = load i16, ptr %8, align 1
   %10 = trunc i16 %9 to i8
   %11 = and i8 %10, 4
@@ -710,7 +710,7 @@ define dso_local noundef zeroext range(i8 0, 32) i8 @_ZN5clang17computeDependenc
   %15 = and i64 %.sroa.0.0.copyload.i3, -16
   %16 = inttoptr i64 %15 to ptr
   %17 = load ptr, ptr %16, align 16
-  %18 = getelementptr inbounds i8, ptr %17, i64 17
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 17
   %19 = load i16, ptr %18, align 1
   %20 = trunc i16 %19 to i8
   %21 = and i8 %20, 4
@@ -738,7 +738,7 @@ define dso_local noundef zeroext range(i8 0, 32) i8 @_ZN5clang17computeDependenc
   %3 = and i64 %.sroa.0.0.copyload.i, -16
   %4 = inttoptr i64 %3 to ptr
   %5 = load ptr, ptr %4, align 16
-  %6 = getelementptr inbounds i8, ptr %5, i64 17
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 17
   %7 = load i16, ptr %6, align 1
   %8 = trunc i16 %7 to i8
   %9 = and i8 %8, 4
@@ -773,7 +773,7 @@ define dso_local noundef zeroext range(i8 0, 32) i8 @_ZN5clang17computeDependenc
   %4 = and i64 %.sroa.0.0.copyload.i.i, -16
   %5 = inttoptr i64 %4 to ptr
   %6 = load ptr, ptr %5, align 16
-  %7 = getelementptr inbounds i8, ptr %6, i64 17
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 17
   %8 = load i16, ptr %7, align 1
   %9 = trunc i16 %8 to i8
   %10 = and i8 %9, 4
@@ -785,7 +785,7 @@ define dso_local noundef zeroext range(i8 0, 32) i8 @_ZN5clang17computeDependenc
   %14 = and i64 %.sroa.0.0.copyload.i, -16
   %15 = inttoptr i64 %14 to ptr
   %16 = load ptr, ptr %15, align 16
-  %17 = getelementptr inbounds i8, ptr %16, i64 17
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 17
   %18 = load i16, ptr %17, align 1
   %19 = trunc i16 %18 to i8
   %20 = and i8 %19, 4
@@ -877,7 +877,7 @@ define dso_local noundef zeroext range(i8 0, 31) i8 @_ZN5clang17computeDependenc
   %4 = and i64 %.sroa.0.0.copyload.i, -16
   %5 = inttoptr i64 %4 to ptr
   %6 = load ptr, ptr %5, align 16
-  %7 = getelementptr inbounds i8, ptr %6, i64 17
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 17
   %8 = load i16, ptr %7, align 1
   %9 = trunc i16 %8 to i8
   %10 = and i8 %9, 4
@@ -963,7 +963,7 @@ define dso_local noundef zeroext range(i8 0, 32) i8 @_ZN5clang17computeDependenc
   %4 = and i64 %.sroa.0.0.copyload.i, -16
   %5 = inttoptr i64 %4 to ptr
   %6 = load ptr, ptr %5, align 16
-  %7 = getelementptr inbounds i8, ptr %6, i64 17
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 17
   %8 = load i16, ptr %7, align 1
   %9 = trunc i16 %8 to i8
   %10 = and i8 %9, 4
@@ -984,7 +984,7 @@ define dso_local noundef zeroext range(i8 0, 32) i8 @_ZN5clang17computeDependenc
   %23 = and i64 %.sroa.0.0.copyload.i3, -16
   %24 = inttoptr i64 %23 to ptr
   %25 = load ptr, ptr %24, align 16
-  %26 = getelementptr inbounds i8, ptr %25, i64 17
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 17
   %27 = load i16, ptr %26, align 1
   %28 = and i16 %27, 4
   %.not = icmp eq i16 %28, 0
@@ -1096,7 +1096,7 @@ define dso_local noundef zeroext range(i8 0, 32) i8 @_ZN5clang17computeDependenc
   %5 = and i64 %.sroa.0.0.copyload.i, -16
   %6 = inttoptr i64 %5 to ptr
   %7 = load ptr, ptr %6, align 16
-  %8 = getelementptr inbounds i8, ptr %7, i64 17
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 17
   %9 = load i16, ptr %8, align 1
   %10 = trunc i16 %9 to i8
   %11 = and i8 %10, 4
@@ -1122,7 +1122,7 @@ define dso_local noundef zeroext range(i8 0, 19) i8 @_ZN5clang17computeDependenc
   %3 = and i64 %.sroa.0.0.copyload.i, -16
   %4 = inttoptr i64 %3 to ptr
   %5 = load ptr, ptr %4, align 16
-  %6 = getelementptr inbounds i8, ptr %5, i64 17
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 17
   %7 = load i16, ptr %6, align 1
   %8 = trunc i16 %7 to i8
   %9 = and i8 %8, 18
@@ -1148,7 +1148,7 @@ define dso_local noundef zeroext range(i8 0, 32) i8 @_ZN5clang17computeDependenc
   %15 = and i64 %.sroa.0.0.copyload.i, -16
   %16 = inttoptr i64 %15 to ptr
   %17 = load ptr, ptr %16, align 16
-  %18 = getelementptr inbounds i8, ptr %17, i64 17
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 17
   %19 = load i16, ptr %18, align 1
   %20 = trunc i16 %19 to i8
   %21 = and i8 %20, 2
@@ -1163,7 +1163,7 @@ define dso_local noundef zeroext range(i8 0, 3) i8 @_ZN5clang17computeDependence
   %3 = and i64 %.sroa.0.0.copyload.i, -16
   %4 = inttoptr i64 %3 to ptr
   %5 = load ptr, ptr %4, align 16
-  %6 = getelementptr inbounds i8, ptr %5, i64 17
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 17
   %7 = load i16, ptr %6, align 1
   %8 = trunc i16 %7 to i8
   %9 = and i8 %8, 2
@@ -1189,7 +1189,7 @@ define dso_local noundef zeroext range(i8 0, 32) i8 @_ZN5clang17computeDependenc
   %3 = and i64 %.sroa.0.0.copyload.i, -16
   %4 = inttoptr i64 %3 to ptr
   %5 = load ptr, ptr %4, align 16
-  %6 = getelementptr inbounds i8, ptr %5, i64 17
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 17
   %7 = load i16, ptr %6, align 1
   %8 = trunc i16 %7 to i8
   %9 = and i8 %8, 4
@@ -1215,7 +1215,7 @@ define dso_local noundef zeroext range(i8 0, 32) i8 @_ZN5clang17computeDependenc
   %3 = and i64 %.sroa.0.0.copyload.i, -16
   %4 = inttoptr i64 %3 to ptr
   %5 = load ptr, ptr %4, align 16
-  %6 = getelementptr inbounds i8, ptr %5, i64 17
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 17
   %7 = load i16, ptr %6, align 1
   %8 = trunc i16 %7 to i8
   %9 = and i8 %8, 4
@@ -1264,7 +1264,7 @@ define dso_local noundef zeroext range(i8 0, 32) i8 @_ZN5clang17computeDependenc
   %10 = and i64 %.sroa.0.0.copyload.i, -16
   %11 = inttoptr i64 %10 to ptr
   %12 = load ptr, ptr %11, align 16
-  %13 = getelementptr inbounds i8, ptr %12, i64 17
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 17
   %14 = load i16, ptr %13, align 1
   %15 = trunc i16 %14 to i8
   %16 = and i8 %15, 4
@@ -1291,7 +1291,7 @@ define dso_local noundef zeroext range(i8 0, 28) i8 @_ZN5clang17computeDependenc
   %7 = and i64 %.sroa.0.0.copyload.i, -16
   %8 = inttoptr i64 %7 to ptr
   %9 = load ptr, ptr %8, align 16
-  %10 = getelementptr inbounds i8, ptr %9, i64 17
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 17
   %11 = load i16, ptr %10, align 1
   %12 = trunc i16 %11 to i8
   %13 = and i8 %12, 4
@@ -1353,7 +1353,7 @@ define dso_local noundef zeroext range(i8 0, 32) i8 @_ZN5clang17computeDependenc
   %7 = and i64 %.sroa.0.0.copyload.i, -16
   %8 = inttoptr i64 %7 to ptr
   %9 = load ptr, ptr %8, align 16
-  %10 = getelementptr inbounds i8, ptr %9, i64 17
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 17
   %11 = load i16, ptr %10, align 1
   %12 = trunc i16 %11 to i8
   %13 = shl i8 %12, 1
@@ -1382,7 +1382,7 @@ define dso_local noundef zeroext range(i8 0, 32) i8 @_ZN5clang17computeDependenc
   %3 = and i64 %.sroa.0.0.copyload.i, -16
   %4 = inttoptr i64 %3 to ptr
   %5 = load ptr, ptr %4, align 16
-  %6 = getelementptr inbounds i8, ptr %5, i64 17
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 17
   %7 = load i16, ptr %6, align 1
   %8 = trunc i16 %7 to i8
   %9 = and i8 %8, 4
@@ -1437,7 +1437,7 @@ define dso_local noundef zeroext range(i8 0, 32) i8 @_ZN5clang17computeDependenc
   %3 = and i64 %.sroa.0.0.copyload.i, -16
   %4 = inttoptr i64 %3 to ptr
   %5 = load ptr, ptr %4, align 16
-  %6 = getelementptr inbounds i8, ptr %5, i64 17
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 17
   %7 = load i16, ptr %6, align 1
   %8 = trunc i16 %7 to i8
   %9 = and i8 %8, 4
@@ -1455,7 +1455,7 @@ define dso_local noundef zeroext range(i8 0, 32) i8 @_ZN5clang17computeDependenc
   %16 = and i64 %.sroa.0.0.copyload.i4, -16
   %17 = inttoptr i64 %16 to ptr
   %18 = load ptr, ptr %17, align 16
-  %19 = getelementptr inbounds i8, ptr %18, i64 17
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 17
   %20 = load i16, ptr %19, align 1
   %21 = trunc i16 %20 to i8
   %22 = and i8 %21, 4
@@ -1491,7 +1491,7 @@ define dso_local noundef zeroext range(i8 0, 28) i8 @_ZN5clang17computeDependenc
   %4 = and i64 %.sroa.0.0.copyload.i.i, -16
   %5 = inttoptr i64 %4 to ptr
   %6 = load ptr, ptr %5, align 16
-  %7 = getelementptr inbounds i8, ptr %6, i64 17
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 17
   %8 = load i16, ptr %7, align 1
   %9 = trunc i16 %8 to i8
   %10 = and i8 %9, 4
@@ -1744,7 +1744,7 @@ define dso_local noundef zeroext range(i8 0, 32) i8 @_ZN5clang17computeDependenc
   %4 = and i64 %.sroa.0.0.copyload.i.i, -16
   %5 = inttoptr i64 %4 to ptr
   %6 = load ptr, ptr %5, align 16
-  %7 = getelementptr inbounds i8, ptr %6, i64 17
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 17
   %8 = load i16, ptr %7, align 1
   %9 = trunc i16 %8 to i8
   %10 = and i8 %9, 4
@@ -1791,7 +1791,7 @@ define dso_local noundef zeroext range(i8 0, 28) i8 @_ZN5clang17computeDependenc
   %13 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i, -16
   %14 = inttoptr i64 %13 to ptr
   %15 = load ptr, ptr %14, align 16
-  %16 = getelementptr inbounds i8, ptr %15, i64 17
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 17
   %17 = load i16, ptr %16, align 1
   %18 = trunc i16 %17 to i8
   %19 = and i8 %18, 18
@@ -1959,7 +1959,7 @@ define dso_local noundef zeroext range(i8 0, 32) i8 @_ZN5clang17computeDependenc
   %4 = and i64 %.sroa.0.0.copyload.i, -16
   %5 = inttoptr i64 %4 to ptr
   %6 = load ptr, ptr %5, align 16
-  %7 = getelementptr inbounds i8, ptr %6, i64 17
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 17
   %8 = load i16, ptr %7, align 1
   %9 = trunc i16 %8 to i8
   %10 = and i8 %9, 4
@@ -2008,7 +2008,7 @@ _ZNK5clang14DeclaratorDecl17getTypeSourceInfoEv.exit: ; preds = %20, %25
   %30 = and i64 %.sroa.0.0.copyload.i27, -16
   %31 = inttoptr i64 %30 to ptr
   %32 = load ptr, ptr %31, align 16
-  %33 = getelementptr inbounds i8, ptr %32, i64 17
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 17
   %34 = load i16, ptr %33, align 1
   %35 = trunc i16 %34 to i8
   %36 = and i8 %35, 4
@@ -2167,7 +2167,7 @@ _ZNK5clang11DeclRefExpr15getTemplateArgsEv.exit.thread: ; preds = %.lr.ph, %_ZNK
   %42 = and i64 %.sroa.0.0.copyload.i, -16
   %43 = inttoptr i64 %42 to ptr
   %44 = load ptr, ptr %43, align 16
-  %45 = getelementptr inbounds i8, ptr %44, i64 17
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 17
   %46 = load i16, ptr %45, align 1
   %47 = trunc i16 %46 to i8
   %48 = and i8 %47, 16
@@ -2196,7 +2196,7 @@ _ZNK5clang15DeclarationName14getCXXNameTypeEv.exit: ; preds = %_ZNK5clang11DeclR
   %63 = and i64 %62, -16
   %64 = inttoptr i64 %63 to ptr
   %65 = load ptr, ptr %64, align 16
-  %66 = getelementptr inbounds i8, ptr %65, i64 17
+  %66 = getelementptr inbounds nuw i8, ptr %65, i64 17
   %67 = load i16, ptr %66, align 1
   %68 = and i16 %67, 4
   %.not110 = icmp eq i16 %68, 0
@@ -2396,7 +2396,7 @@ define dso_local noundef zeroext range(i8 26, 32) i8 @_ZN5clang17computeDependen
   %3 = and i64 %.sroa.0.0.copyload.i, -16
   %4 = inttoptr i64 %3 to ptr
   %5 = load ptr, ptr %4, align 16
-  %6 = getelementptr inbounds i8, ptr %5, i64 17
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 17
   %7 = load i16, ptr %6, align 1
   %8 = trunc i16 %7 to i8
   %9 = and i8 %8, 5
@@ -2441,7 +2441,7 @@ define dso_local noundef zeroext range(i8 0, 32) i8 @_ZN5clang17computeDependenc
   %4 = and i64 %.sroa.0.0.copyload.i, -16
   %5 = inttoptr i64 %4 to ptr
   %6 = load ptr, ptr %5, align 16
-  %7 = getelementptr inbounds i8, ptr %6, i64 17
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 17
   %8 = load i16, ptr %7, align 1
   %9 = trunc i16 %8 to i8
   %10 = and i8 %9, 4
@@ -2459,7 +2459,7 @@ define dso_local noundef zeroext range(i8 0, 32) i8 @_ZN5clang17computeDependenc
   %3 = and i64 %.sroa.0.0.copyload.i, -16
   %4 = inttoptr i64 %3 to ptr
   %5 = load ptr, ptr %4, align 16
-  %6 = getelementptr inbounds i8, ptr %5, i64 17
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 17
   %7 = load i16, ptr %6, align 1
   %8 = trunc i16 %7 to i8
   %9 = and i8 %8, 4
@@ -2487,7 +2487,7 @@ define dso_local noundef zeroext range(i8 0, 32) i8 @_ZN5clang17computeDependenc
   %15 = and i64 %.sroa.0.0.copyload.i, -16
   %16 = inttoptr i64 %15 to ptr
   %17 = load ptr, ptr %16, align 16
-  %18 = getelementptr inbounds i8, ptr %17, i64 17
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 17
   %19 = load i16, ptr %18, align 1
   %20 = trunc i16 %19 to i8
   %21 = and i8 %20, 4
@@ -2559,7 +2559,7 @@ define dso_local noundef zeroext range(i8 0, 32) i8 @_ZN5clang17computeDependenc
   %4 = and i64 %.sroa.0.0.copyload.i, -16
   %5 = inttoptr i64 %4 to ptr
   %6 = load ptr, ptr %5, align 16
-  %7 = getelementptr inbounds i8, ptr %6, i64 17
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 17
   %8 = load i16, ptr %7, align 1
   %9 = trunc i16 %8 to i8
   %10 = shl i8 %9, 1
@@ -2753,7 +2753,7 @@ _ZN4llvm16dyn_cast_or_nullIN5clang13CXXRecordDeclENS1_11DeclContextEEEDaPT0_.exi
   %81 = and i64 %.sroa.0.0.copyload.i35, -16
   %82 = inttoptr i64 %81 to ptr
   %83 = load ptr, ptr %82, align 16
-  %84 = getelementptr inbounds i8, ptr %83, i64 17
+  %84 = getelementptr inbounds nuw i8, ptr %83, i64 17
   %85 = load i16, ptr %84, align 1
   %86 = and i16 %85, 4
   %.not54 = icmp eq i16 %86, 0
@@ -2799,7 +2799,7 @@ declare noundef zeroext i1 @_ZNK5clang13CXXRecordDecl22isCurrentInstantiationEPK
 define dso_local noundef zeroext range(i8 0, 32) i8 @_ZN5clang17computeDependenceEPNS_12InitListExprE(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8
   %6 = ptrtoint ptr %5 to i64
   %7 = ptrtoint ptr %3 to i64
@@ -2836,7 +2836,7 @@ define dso_local noundef zeroext range(i8 0, 32) i8 @_ZN5clang17computeDependenc
   %3 = and i64 %.sroa.0.0.copyload.i, -16
   %4 = inttoptr i64 %3 to ptr
   %5 = load ptr, ptr %4, align 16
-  %6 = getelementptr inbounds i8, ptr %5, i64 17
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 17
   %7 = load i16, ptr %6, align 1
   %8 = trunc i16 %7 to i8
   %9 = and i8 %8, 4
@@ -2924,7 +2924,7 @@ define dso_local noundef zeroext range(i8 0, 32) i8 @_ZN5clang17computeDependenc
   %32 = and i64 %.sroa.0.0.copyload.i, -16
   %33 = inttoptr i64 %32 to ptr
   %34 = load ptr, ptr %33, align 16
-  %35 = getelementptr inbounds i8, ptr %34, i64 17
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 17
   %36 = load i16, ptr %35, align 1
   %37 = trunc i16 %36 to i8
   %38 = and i8 %37, 4
@@ -3143,7 +3143,7 @@ define dso_local noundef zeroext range(i8 0, 32) i8 @_ZN5clang17computeDependenc
   %4 = and i64 %.sroa.0.0.copyload.i, -16
   %5 = inttoptr i64 %4 to ptr
   %6 = load ptr, ptr %5, align 16
-  %7 = getelementptr inbounds i8, ptr %6, i64 17
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 17
   %8 = load i16, ptr %7, align 1
   %9 = trunc i16 %8 to i8
   %10 = and i8 %9, 4
@@ -3171,7 +3171,7 @@ _ZNK5clang10CXXNewExpr16getAllocatedTypeEv.exit:  ; preds = %1, %19
   %22 = and i64 %.sroa.0.0.copyload.i1.i, -16
   %23 = inttoptr i64 %22 to ptr
   %24 = load ptr, ptr %23, align 16
-  %25 = getelementptr inbounds i8, ptr %24, i64 17
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 17
   %26 = load i16, ptr %25, align 1
   %27 = trunc i16 %26 to i8
   %28 = and i8 %27, 4
@@ -3290,7 +3290,7 @@ define dso_local noundef zeroext range(i8 0, 32) i8 @_ZN5clang17computeDependenc
   %15 = and i64 %.sroa.0.0.copyload.i, -16
   %16 = inttoptr i64 %15 to ptr
   %17 = load ptr, ptr %16, align 16
-  %18 = getelementptr inbounds i8, ptr %17, i64 17
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 17
   %19 = load i16, ptr %18, align 1
   %20 = trunc i16 %19 to i8
   %21 = and i8 %20, 4
@@ -3313,7 +3313,7 @@ define dso_local noundef zeroext range(i8 0, 32) i8 @_ZN5clang17computeDependenc
   %30 = and i64 %.sroa.0.0.copyload.i14, -16
   %31 = inttoptr i64 %30 to ptr
   %32 = load ptr, ptr %31, align 16
-  %33 = getelementptr inbounds i8, ptr %32, i64 17
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 17
   %34 = load i16, ptr %33, align 1
   %35 = trunc i16 %34 to i8
   %36 = shl i8 %35, 1
@@ -3559,7 +3559,7 @@ define dso_local noundef zeroext range(i8 0, 32) i8 @_ZN5clang17computeDependenc
   %3 = and i64 %.sroa.0.0.copyload.i, -16
   %4 = inttoptr i64 %3 to ptr
   %5 = load ptr, ptr %4, align 16
-  %6 = getelementptr inbounds i8, ptr %5, i64 17
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 17
   %7 = load i16, ptr %6, align 1
   %8 = trunc i16 %7 to i8
   %9 = and i8 %8, 4
@@ -3607,14 +3607,14 @@ define dso_local noundef zeroext range(i8 0, 32) i8 @_ZN5clang17computeDependenc
   %4 = and i64 %.sroa.0.0.copyload.i, -16
   %5 = inttoptr i64 %4 to ptr
   %6 = load ptr, ptr %5, align 16
-  %7 = getelementptr inbounds i8, ptr %6, i64 17
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 17
   %8 = load i16, ptr %7, align 1
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.sroa.0.0.copyload.i.i = load i64, ptr %9, align 8
   %10 = and i64 %.sroa.0.0.copyload.i.i, -16
   %11 = inttoptr i64 %10 to ptr
   %12 = load ptr, ptr %11, align 16
-  %13 = getelementptr inbounds i8, ptr %12, i64 17
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 17
   %14 = load i16, ptr %13, align 1
   %15 = trunc i16 %14 to i8
   %16 = and i8 %15, 4
@@ -3693,7 +3693,7 @@ define dso_local noundef zeroext range(i8 0, 32) i8 @_ZN5clang17computeDependenc
   %4 = and i64 %.sroa.0.0.copyload.i, -16
   %5 = inttoptr i64 %4 to ptr
   %6 = load ptr, ptr %5, align 16
-  %7 = getelementptr inbounds i8, ptr %6, i64 17
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 17
   %8 = load i16, ptr %7, align 1
   %9 = trunc i16 %8 to i8
   %10 = and i8 %9, 4
@@ -3716,7 +3716,7 @@ define dso_local noundef zeroext range(i8 10, 32) i8 @_ZN5clang17computeDependen
   %5 = and i64 %.sroa.0.0.copyload.i.i, -16
   %6 = inttoptr i64 %5 to ptr
   %7 = load ptr, ptr %6, align 16
-  %8 = getelementptr inbounds i8, ptr %7, i64 17
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 17
   %9 = load i16, ptr %8, align 1
   %10 = trunc i16 %9 to i8
   %11 = and i8 %10, 21
@@ -3725,7 +3725,7 @@ define dso_local noundef zeroext range(i8 10, 32) i8 @_ZN5clang17computeDependen
   %13 = and i64 %.sroa.0.0.copyload.i, -16
   %14 = inttoptr i64 %13 to ptr
   %15 = load ptr, ptr %14, align 16
-  %16 = getelementptr inbounds i8, ptr %15, i64 17
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 17
   %17 = load i16, ptr %16, align 1
   %18 = trunc i16 %17 to i8
   %19 = and i8 %18, 20
@@ -3976,7 +3976,7 @@ define dso_local noundef zeroext range(i8 0, 32) i8 @_ZN5clang17computeDependenc
   %7 = and i64 %.sroa.0.0.copyload.i, -16
   %8 = inttoptr i64 %7 to ptr
   %9 = load ptr, ptr %8, align 16
-  %10 = getelementptr inbounds i8, ptr %9, i64 17
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 17
   %11 = load i16, ptr %10, align 1
   %12 = trunc i16 %11 to i8
   %13 = shl i8 %12, 1
@@ -4173,7 +4173,7 @@ _ZN5clang15ObjCMessageExpr19getInstanceReceiverEv.exit.thread: ; preds = %1, %_Z
   %15 = and i64 %.sroa.0.0.copyload.i, -16
   %16 = inttoptr i64 %15 to ptr
   %17 = load ptr, ptr %16, align 16
-  %18 = getelementptr inbounds i8, ptr %17, i64 17
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 17
   %19 = load i16, ptr %18, align 1
   %20 = trunc i16 %19 to i8
   %21 = and i8 %20, 4

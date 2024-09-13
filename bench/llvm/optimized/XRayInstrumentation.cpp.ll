@@ -344,7 +344,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit79:              ; preds = %23
   br i1 %31, label %244, label %32
 
 32:                                               ; preds = %29
-  %33 = getelementptr inbounds i8, ptr %1, i64 328
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 328
   %34 = getelementptr inbounds nuw i8, ptr %1, i64 320
   %.sroa.0103.0131 = load ptr, ptr %33, align 8
   %.not128132 = icmp eq ptr %.sroa.0103.0131, %34
@@ -419,15 +419,15 @@ _ZNK4llvm4Pass22getAnalysisIfAvailableINS_31MachineDominatorTreeWrapperPassEEEPT
   %62 = getelementptr inbounds i8, ptr %8, i64 144
   call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %61, ptr noundef nonnull %62, i64 noundef 32) #12
   %63 = getelementptr inbounds nuw i8, ptr %8, i64 912
-  %64 = getelementptr inbounds i8, ptr %8, i64 944
+  %64 = getelementptr inbounds nuw i8, ptr %8, i64 944
   store ptr %64, ptr %63, align 8
-  %65 = getelementptr inbounds i8, ptr %8, i64 920
+  %65 = getelementptr inbounds nuw i8, ptr %8, i64 920
   store ptr %64, ptr %65, align 8
-  %66 = getelementptr inbounds i8, ptr %8, i64 928
+  %66 = getelementptr inbounds nuw i8, ptr %8, i64 928
   store i32 32, ptr %66, align 8
-  %67 = getelementptr inbounds i8, ptr %8, i64 932
+  %67 = getelementptr inbounds nuw i8, ptr %8, i64 932
   store i32 0, ptr %67, align 4
-  %68 = getelementptr inbounds i8, ptr %8, i64 936
+  %68 = getelementptr inbounds nuw i8, ptr %8, i64 936
   store i32 0, ptr %68, align 8
   %.not69 = icmp eq ptr %54, null
   br i1 %.not69, label %69, label %70
@@ -458,15 +458,15 @@ _ZNK4llvm4Pass22getAnalysisIfAvailableINS_26MachineLoopInfoWrapperPassEEEPT_v.ex
   %78 = phi ptr [ null, %70 ], [ %spec.select140, %_ZNK4llvm4Pass22getAnalysisIfAvailableINS_26MachineLoopInfoWrapperPassEEEPT_v.exit ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %9, i8 0, i64 20, i1 false)
   %79 = getelementptr inbounds nuw i8, ptr %9, i64 24
-  %80 = getelementptr inbounds i8, ptr %9, i64 64
+  %80 = getelementptr inbounds nuw i8, ptr %9, i64 64
   %81 = getelementptr inbounds i8, ptr %9, i64 80
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %79, i8 0, i64 40, i1 false)
   call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %80, ptr noundef nonnull %81, i64 noundef 4) #12
-  %82 = getelementptr inbounds i8, ptr %9, i64 112
+  %82 = getelementptr inbounds nuw i8, ptr %9, i64 112
   %83 = getelementptr inbounds i8, ptr %9, i64 128
   call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %82, ptr noundef nonnull %83, i64 noundef 0) #12
   store i64 0, ptr %83, align 8
-  %84 = getelementptr inbounds i8, ptr %9, i64 136
+  %84 = getelementptr inbounds nuw i8, ptr %9, i64 136
   store i64 1, ptr %84, align 8
   %.not71 = icmp eq ptr %78, null
   br i1 %.not71, label %85, label %86
@@ -508,7 +508,7 @@ _ZN4llvm20MachineDominatorTreeD2Ev.exit:          ; preds = %_ZN4llvm8SmallSetIP
   br i1 %44, label %244, label %97
 
 97:                                               ; preds = %_ZN4llvm20MachineDominatorTreeD2Ev.exit, %96, %.critedge
-  %98 = getelementptr inbounds i8, ptr %1, i64 328
+  %98 = getelementptr inbounds nuw i8, ptr %1, i64 328
   %99 = load ptr, ptr %98, align 8
   %100 = getelementptr inbounds nuw i8, ptr %1, i64 320
   %.not5.i.i.i.i = icmp eq ptr %99, %100
@@ -626,7 +626,7 @@ _ZN4llvm8DebugLocD2Ev.exit:                       ; preds = %145, %_ZN4llvm10MIM
 147:                                              ; preds = %_ZN4llvm8DebugLocD2Ev.exit
   %148 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %149 = load ptr, ptr %148, align 8
-  %150 = getelementptr inbounds i8, ptr %149, i64 560
+  %150 = getelementptr inbounds nuw i8, ptr %149, i64 560
   %151 = load i32, ptr %150, align 8
   switch i32 %151, label %243 [
     i32 1, label %152
@@ -1102,7 +1102,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_119XRayInstrumentation26replaceRetW
   %9 = alloca %"class.llvm::DebugLoc", align 8
   %10 = getelementptr inbounds i8, ptr %7, i64 16
   call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull %10, i64 noundef 4) #12
-  %11 = getelementptr inbounds i8, ptr %0, i64 328
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 328
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 320
   %.sroa.010.026 = load ptr, ptr %11, align 8
   %.not1427 = icmp eq ptr %.sroa.010.026, %12

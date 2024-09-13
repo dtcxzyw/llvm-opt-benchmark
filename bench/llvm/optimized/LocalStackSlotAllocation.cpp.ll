@@ -133,15 +133,15 @@ _ZN12_GLOBAL__N_118LocalStackSlotImplD2Ev.exit:   ; preds = %4, %11
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 0, ptr %17, align 8, !alias.scope !4
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %19 = getelementptr inbounds i8, ptr %0, i64 80
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store ptr %19, ptr %18, align 8, !alias.scope !4
-  %20 = getelementptr inbounds i8, ptr %0, i64 56
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store ptr %19, ptr %20, align 8, !alias.scope !4
-  %21 = getelementptr inbounds i8, ptr %0, i64 64
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i32 2, ptr %21, align 8, !alias.scope !4
-  %22 = getelementptr inbounds i8, ptr %0, i64 68
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 68
   store i32 0, ptr %22, align 4, !alias.scope !4
-  %23 = getelementptr inbounds i8, ptr %0, i64 72
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store i32 0, ptr %23, align 8, !alias.scope !4
   store i32 1, ptr %16, align 4, !alias.scope !4, !noalias !7
   store ptr @_ZN4llvm17PreservedAnalyses14AllAnalysesKeyE, ptr %13, align 8, !alias.scope !4, !noalias !7
@@ -181,7 +181,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_118LocalStackSlotImpl
   %20 = load ptr, ptr %19, align 8
   %21 = tail call noundef ptr %20(ptr noundef nonnull align 8 dereferenceable(288) %17) #16
   %22 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  %23 = getelementptr inbounds i8, ptr %15, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %24 = load ptr, ptr %23, align 8
   %25 = load ptr, ptr %22, align 8
   %26 = ptrtoint ptr %24 to i64
@@ -325,7 +325,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_118LocalStackSlotImpl
 _ZN12_GLOBAL__N_118LocalStackSlotImpl17AdjustStackOffsetERN4llvm16MachineFrameInfoEiRlbRNS1_5AlignE.exit.i: ; preds = %104, %._crit_edge31.i, %65
   %110 = phi i32 [ %.pre26.i, %104 ], [ %.pre26.i, %._crit_edge31.i ], [ %.pre27.i, %65 ]
   %111 = phi ptr [ %.pre24.i, %104 ], [ %.pre24.i, %._crit_edge31.i ], [ %.pre25.i, %65 ]
-  %112 = getelementptr inbounds i8, ptr %.val12, i64 16
+  %112 = getelementptr inbounds nuw i8, ptr %.val12, i64 16
   %113 = load ptr, ptr %112, align 8
   %114 = ptrtoint ptr %113 to i64
   %115 = ptrtoint ptr %111 to i64
@@ -456,7 +456,7 @@ _ZN4llvm14SmallSetVectorIiLj8EED2Ev.exit54.i:     ; preds = %173, %_ZN4llvm14Sma
   %.promoted8.i = phi i8 [ %.promoted8.pre.i, %_ZN4llvm14SmallSetVectorIiLj8EED2Ev.exit54.i ], [ 0, %39 ]
   %.promoted.i = phi i64 [ %.promoted.pre.i, %_ZN4llvm14SmallSetVectorIiLj8EED2Ev.exit54.i ], [ 0, %39 ]
   %180 = getelementptr inbounds nuw i8, ptr %.val12, i64 8
-  %181 = getelementptr inbounds i8, ptr %.val12, i64 16
+  %181 = getelementptr inbounds nuw i8, ptr %.val12, i64 16
   %182 = load ptr, ptr %181, align 8
   %183 = load ptr, ptr %180, align 8
   %184 = ptrtoint ptr %182 to i64
@@ -670,7 +670,7 @@ _ZN12_GLOBAL__N_118LocalStackSlotImpl27calculateFrameObjectOffsetsERN4llvm15Mach
   %287 = icmp eq i32 %286, 1
   %288 = getelementptr inbounds i8, ptr %3, i64 16
   call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull %288, i64 noundef 64) #16
-  %289 = getelementptr inbounds i8, ptr %1, i64 328
+  %289 = getelementptr inbounds nuw i8, ptr %1, i64 328
   %290 = getelementptr inbounds nuw i8, ptr %1, i64 320
   %.sroa.0116.0130.i = load ptr, ptr %289, align 8
   %.not119131.i = icmp eq ptr %.sroa.0116.0130.i, %290
@@ -2421,9 +2421,9 @@ _ZNKSt4lessIN12_GLOBAL__N_18FrameRefEEclERKS1_S4_.exit.thread: ; preds = %27, %1
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvm17PreservedAnalyses11preserveSetEPNS_14AnalysisSetKeyE(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef %1) local_unnamed_addr #0 comdat align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 68
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 68
   %4 = load i32, ptr %3, align 4
-  %5 = getelementptr inbounds i8, ptr %0, i64 72
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %6 = load i32, ptr %5, align 8
   %7 = icmp eq i32 %4, %6
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8

@@ -55,17 +55,17 @@ define noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__eqERKNS_19HgiGra
   br i1 %.not.i.i.i.i.i, label %.loopexit25, label %.lr.ph.i.i.i.i.i, !llvm.loop !4
 
 .loopexit25:                                      ; preds = %22, %20
-  %25 = getelementptr inbounds i8, ptr %0, i64 160
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %26 = load i64, ptr %25, align 8
-  %27 = getelementptr inbounds i8, ptr %1, i64 160
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 160
   %28 = load i64, ptr %27, align 8
   %29 = icmp eq i64 %26, %28
   br i1 %29, label %30, label %_ZSteqIN32pxrInternal_v0_24__pxrReserved__17HgiAttachmentDescESaIS1_EEbRKSt6vectorIT_T0_ES8_.exit
 
 30:                                               ; preds = %.loopexit25
-  %31 = getelementptr inbounds i8, ptr %0, i64 176
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %32 = load i64, ptr %31, align 8
-  %33 = getelementptr inbounds i8, ptr %1, i64 176
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 176
   %34 = load i64, ptr %33, align 8
   %35 = icmp eq i64 %32, %34
   br i1 %35, label %36, label %_ZSteqIN32pxrInternal_v0_24__pxrReserved__17HgiAttachmentDescESaIS1_EEbRKSt6vectorIT_T0_ES8_.exit
@@ -73,13 +73,13 @@ define noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__eqERKNS_19HgiGra
 36:                                               ; preds = %30
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %38 = getelementptr inbounds nuw i8, ptr %1, i64 104
-  %39 = getelementptr inbounds i8, ptr %0, i64 112
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %40 = load ptr, ptr %39, align 8
   %41 = load ptr, ptr %37, align 8
   %42 = ptrtoint ptr %40 to i64
   %43 = ptrtoint ptr %41 to i64
   %44 = sub i64 %42, %43
-  %45 = getelementptr inbounds i8, ptr %1, i64 112
+  %45 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %46 = load ptr, ptr %45, align 8
   %47 = load ptr, ptr %38, align 8
   %48 = ptrtoint ptr %46 to i64
@@ -111,13 +111,13 @@ define noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__eqERKNS_19HgiGra
 .loopexit:                                        ; preds = %58, %52
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %62 = getelementptr inbounds nuw i8, ptr %1, i64 128
-  %63 = getelementptr inbounds i8, ptr %0, i64 136
+  %63 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %64 = load ptr, ptr %63, align 8
   %65 = load ptr, ptr %61, align 8
   %66 = ptrtoint ptr %64 to i64
   %67 = ptrtoint ptr %65 to i64
   %68 = sub i64 %66, %67
-  %69 = getelementptr inbounds i8, ptr %1, i64 136
+  %69 = getelementptr inbounds nuw i8, ptr %1, i64 136
   %70 = load ptr, ptr %69, align 8
   %71 = load ptr, ptr %62, align 8
   %72 = ptrtoint ptr %70 to i64
@@ -169,7 +169,7 @@ define noundef nonnull align 8 dereferenceable(8) ptr @_ZN32pxrInternal_v0_24__p
 
 .preheader34:                                     ; preds = %.lr.ph, %2
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 104
-  %8 = getelementptr inbounds i8, ptr %1, i64 112
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %9 = load ptr, ptr %8, align 8
   %10 = load ptr, ptr %7, align 8
   %.not41 = icmp eq ptr %9, %10
@@ -184,7 +184,7 @@ define noundef nonnull align 8 dereferenceable(8) ptr @_ZN32pxrInternal_v0_24__p
 
 .preheader:                                       ; preds = %.lr.ph38, %.preheader34
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 128
-  %14 = getelementptr inbounds i8, ptr %1, i64 136
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 136
   %15 = load ptr, ptr %14, align 8
   %16 = load ptr, ptr %13, align 8
   %.not42 = icmp eq ptr %15, %16

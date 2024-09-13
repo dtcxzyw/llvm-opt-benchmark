@@ -216,7 +216,7 @@ _ZL14FindUsedValuesPN4llvm14GlobalVariableERNS_15SmallPtrSetImplIPKNS_11GlobalVa
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %9, i8 0, i64 20, i1 false)
   %85 = getelementptr inbounds i8, ptr %10, i64 16
   call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull %85, i64 noundef 32) #8
-  %86 = getelementptr inbounds i8, ptr %2, i64 16
+  %86 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %87 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %88 = getelementptr inbounds i8, ptr %7, i64 16
   %89 = getelementptr inbounds nuw i8, ptr %9, i64 16
@@ -932,7 +932,7 @@ _ZL14mergeConstantsRN4llvm6ModuleE.exit:          ; preds = %_ZN4llvm11SmallVect
   call void @llvm.lifetime.end.p0(i64 528, ptr nonnull %10)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11)
   %405 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %406 = getelementptr inbounds i8, ptr %0, i64 80
+  %406 = getelementptr inbounds nuw i8, ptr %0, i64 80
   br i1 %.not, label %407, label %413
 
 407:                                              ; preds = %_ZL14mergeConstantsRN4llvm6ModuleE.exit
@@ -945,7 +945,7 @@ _ZL14mergeConstantsRN4llvm6ModuleE.exit:          ; preds = %_ZN4llvm11SmallVect
   %411 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 0, ptr %411, align 8, !alias.scope !19
   store ptr %406, ptr %405, align 8, !alias.scope !19
-  %412 = getelementptr inbounds i8, ptr %0, i64 68
+  %412 = getelementptr inbounds nuw i8, ptr %0, i64 68
   store i32 0, ptr %412, align 4, !alias.scope !19
   store ptr @_ZN4llvm17PreservedAnalyses14AllAnalysesKeyE, ptr %408, align 8, !alias.scope !19, !noalias !22
   br label %418
@@ -964,11 +964,11 @@ _ZL14mergeConstantsRN4llvm6ModuleE.exit:          ; preds = %_ZN4llvm11SmallVect
 
 418:                                              ; preds = %413, %407
   %.sink = phi i32 [ 1, %407 ], [ 0, %413 ]
-  %419 = getelementptr inbounds i8, ptr %0, i64 56
+  %419 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store ptr %406, ptr %419, align 8
-  %420 = getelementptr inbounds i8, ptr %0, i64 64
+  %420 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i32 2, ptr %420, align 8
-  %421 = getelementptr inbounds i8, ptr %0, i64 72
+  %421 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store i32 0, ptr %421, align 8
   %422 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 %.sink, ptr %422, align 4

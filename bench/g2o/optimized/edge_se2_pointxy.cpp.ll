@@ -238,7 +238,7 @@ define void @_ZN3g2o14EdgeSE2PointXYC2Ev(ptr noundef nonnull align 16 dereferenc
   store ptr null, ptr %9, align 8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr null, ptr %2, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %12 = load ptr, ptr %11, align 16
   %13 = load ptr, ptr %10, align 8
   %14 = ptrtoint ptr %12 to i64
@@ -476,7 +476,7 @@ _ZNKSt3setIPN3g2o10HyperGraph6VertexESt4lessIS3_ESaIS3_EE5countERKS3_.exit: ; pr
 21:                                               ; preds = %_ZNKSt3setIPN3g2o10HyperGraph6VertexESt4lessIS3_ESaIS3_EE5countERKS3_.exit
   %22 = getelementptr inbounds nuw i8, ptr %6, i64 176
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %24 = getelementptr inbounds i8, ptr %6, i64 192
+  %24 = getelementptr inbounds nuw i8, ptr %6, i64 192
   %25 = load double, ptr %22, align 8, !noalias !17
   %26 = tail call double @sin(double noundef %25) #22, !noalias !17
   %27 = load double, ptr %22, align 8, !noalias !17
@@ -514,7 +514,7 @@ define void @_ZN3g2o14EdgeSE2PointXY14linearizeOplusEv(ptr nocapture noundef non
   %5 = getelementptr inbounds i8, ptr %3, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 176
-  %8 = getelementptr inbounds i8, ptr %4, i64 192
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 192
   %9 = getelementptr inbounds i8, ptr %4, i64 200
   %10 = load double, ptr %7, align 8
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 160
@@ -697,7 +697,7 @@ define noundef ptr @_ZN3g2o32EdgeSE2PointXYWriteGnuplotActionclEPNS_10HyperGraph
   %27 = load ptr, ptr %26, align 8
   %28 = load ptr, ptr %18, align 8
   %29 = getelementptr inbounds nuw i8, ptr %25, i64 176
-  %30 = getelementptr inbounds i8, ptr %25, i64 192
+  %30 = getelementptr inbounds nuw i8, ptr %25, i64 192
   %31 = load double, ptr %30, align 8
   %32 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEd(ptr noundef nonnull align 8 dereferenceable(8) %28, double noundef %31)
   %33 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %32, ptr noundef nonnull @.str)
@@ -799,7 +799,7 @@ define linkonce_odr void @_ZN3g2o14EdgeSE2PointXY12computeErrorEv(ptr noundef no
   %11 = fcmp ugt double %10, 0.000000e+00
   %.0.v.i.i = select i1 %11, double 0xC00921FB54442D18, double 0x400921FB54442D18
   %.0.i.i = fadd double %10, %.0.v.i.i
-  %12 = getelementptr inbounds i8, ptr %4, i64 192
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 192
   %13 = tail call double @sin(double noundef %.0.i.i) #22, !noalias !29
   %14 = tail call double @cos(double noundef %.0.i.i) #22, !noalias !29
   %15 = fneg double %13
@@ -885,7 +885,7 @@ define linkonce_odr noundef zeroext i1 @_ZN3g2o14EdgeSE2PointXY23setMeasurementF
   %11 = fcmp ugt double %10, 0.000000e+00
   %.0.v.i.i = select i1 %11, double 0xC00921FB54442D18, double 0x400921FB54442D18
   %.0.i.i = fadd double %10, %.0.v.i.i
-  %12 = getelementptr inbounds i8, ptr %4, i64 192
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 192
   %13 = tail call double @sin(double noundef %.0.i.i) #22, !noalias !52
   %14 = tail call double @cos(double noundef %.0.i.i) #22, !noalias !52
   %15 = fneg double %13

@@ -1169,7 +1169,7 @@ _ZN4llvm17StringMapIterBaseINS_22StringMapConstIteratorIbEEKNS_14StringMapEntryI
   br label %_ZNK4llvm9StringRef3strB5cxx11Ev.exit11
 
 42:                                               ; preds = %.lr.ph26
-  %43 = getelementptr inbounds i8, ptr %.sroa.013.025, i64 40
+  %43 = getelementptr inbounds nuw i8, ptr %.sroa.013.025, i64 40
   %44 = load i64, ptr %43, align 8, !noalias !36
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #14, !noalias !36
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcmRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef nonnull %40, i64 noundef %44, ptr noundef nonnull align 1 dereferenceable(1) %5) #14
@@ -1201,7 +1201,7 @@ _ZNK4llvm9StringRef3strB5cxx11Ev.exit11:          ; preds = %41, %42
 _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_S9_.exit: ; preds = %52, %54
   %.sink.i = phi ptr [ %55, %54 ], [ %53, %52 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull align 8 dereferenceable(32) %.sink.i) #14
-  %56 = getelementptr inbounds i8, ptr %.sroa.013.025, i64 48
+  %56 = getelementptr inbounds nuw i8, ptr %.sroa.013.025, i64 48
   %57 = load i8, ptr %56, align 8
   %58 = trunc i8 %57 to i1
   %.str..str.1 = select i1 %58, ptr @.str, ptr @.str.1
@@ -1307,7 +1307,7 @@ _ZNKSt4lessIKN4llvm9StringRefEEclERS2_S4_.exit:   ; preds = %18, %_ZN4llvm9Strin
 
 25:                                               ; preds = %22, %.critedge, %_ZNKSt4lessIKN4llvm9StringRefEEclERS2_S4_.exit
   %.sroa.06.0 = phi ptr [ %24, %.critedge ], [ %.19.i.i.i, %_ZNKSt4lessIKN4llvm9StringRefEEclERS2_S4_.exit ], [ %.19.i.i.i, %22 ]
-  %26 = getelementptr inbounds i8, ptr %.sroa.06.0, i64 48
+  %26 = getelementptr inbounds nuw i8, ptr %.sroa.06.0, i64 48
   ret ptr %26
 }
 
@@ -1339,12 +1339,12 @@ define dso_local void @_ZN5clang30getConflictTargetIDCombinationERKSt3setIN4llvm
   %13 = getelementptr inbounds i8, ptr %3, i64 8
   %14 = getelementptr inbounds i8, ptr %4, i64 8
   %15 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %16 = getelementptr inbounds i8, ptr %6, i64 36
+  %16 = getelementptr inbounds nuw i8, ptr %6, i64 36
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 12
-  %18 = getelementptr inbounds i8, ptr %6, i64 24
-  %19 = getelementptr inbounds i8, ptr %6, i64 28
+  %18 = getelementptr inbounds nuw i8, ptr %6, i64 24
+  %19 = getelementptr inbounds nuw i8, ptr %6, i64 28
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %21 = getelementptr inbounds i8, ptr %6, i64 32
+  %21 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %22 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %23 = getelementptr inbounds nuw i8, ptr %3, i64 12
   br label %24
@@ -1500,7 +1500,7 @@ _ZN4llvm14StringMapEntryIZN5clang30getConflictTargetIDCombinationERKSt3setINS_9S
   store i8 0, ptr %87, align 1
   store i64 %.sroa.3.0.copyload, ptr %84, align 8
   %88 = getelementptr inbounds nuw i8, ptr %84, i64 8
-  %89 = getelementptr inbounds i8, ptr %84, i64 44
+  %89 = getelementptr inbounds nuw i8, ptr %84, i64 44
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %88, i8 0, i64 40, i1 false)
   store i32 16, ptr %89, align 4
   store ptr %84, ptr %75, align 8
@@ -1530,7 +1530,7 @@ _ZN4llvm9StringMapIZN5clang30getConflictTargetIDCombinationERKSt3setINS_9StringR
   %.val.val.i = phi ptr [ %77, %.preheader.i.i.i.i.i ], [ %96, %.preheader.i.i26.i.i.i ]
   %98 = getelementptr inbounds nuw i8, ptr %.val.val.i, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %98, ptr noundef nonnull align 8 dereferenceable(16) %6, i64 16, i1 false)
-  %99 = getelementptr inbounds i8, ptr %.val.val.i, i64 24
+  %99 = getelementptr inbounds nuw i8, ptr %.val.val.i, i64 24
   %100 = load ptr, ptr %15, align 8
   %101 = load i32, ptr %18, align 8
   %102 = load i32, ptr %19, align 4
@@ -1538,13 +1538,13 @@ _ZN4llvm9StringMapIZN5clang30getConflictTargetIDCombinationERKSt3setINS_9StringR
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %15, i8 0, i64 20, i1 false)
   %104 = load ptr, ptr %99, align 8
   store ptr %100, ptr %99, align 8
-  %105 = getelementptr inbounds i8, ptr %.val.val.i, i64 32
+  %105 = getelementptr inbounds nuw i8, ptr %.val.val.i, i64 32
   %106 = load i32, ptr %105, align 4
   store i32 %101, ptr %105, align 4
-  %107 = getelementptr inbounds i8, ptr %.val.val.i, i64 36
+  %107 = getelementptr inbounds nuw i8, ptr %.val.val.i, i64 36
   %108 = load i32, ptr %107, align 4
   store i32 %102, ptr %107, align 4
-  %109 = getelementptr inbounds i8, ptr %.val.val.i, i64 40
+  %109 = getelementptr inbounds nuw i8, ptr %.val.val.i, i64 40
   store i32 %103, ptr %109, align 4
   %110 = icmp eq i32 %108, 0
   %.not10.i.i = icmp eq i32 %106, 0
@@ -1620,7 +1620,7 @@ _ZZN5clang30getConflictTargetIDCombinationERKSt3setIN4llvm9StringRefESt4lessIS2_
 
 131:                                              ; preds = %24
   %.val17.val = load ptr, ptr %.sroa.0.0.i.i, align 8
-  %132 = getelementptr inbounds i8, ptr %.val17.val, i64 24
+  %132 = getelementptr inbounds nuw i8, ptr %.val17.val, i64 24
   %.val21 = load ptr, ptr %4, align 8
   %.val22 = load i32, ptr %14, align 8
   %133 = icmp eq i32 %.val22, 0
@@ -1647,7 +1647,7 @@ _ZN4llvm9adl_beginIRNS_9StringMapIbNS_15MallocAllocatorEEEEEDTclsr10adl_detailE1
   br i1 %.not5.i.i.i.i.i.i, label %"_ZN4llvm6any_ofIRNS_9StringMapIbNS_15MallocAllocatorEEEZN5clang30getConflictTargetIDCombinationERKSt3setINS_9StringRefESt4lessIS7_ESaIS7_EEE3$_0EEbOT_T0_.exit", label %.lr.ph.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %_ZN4llvm9adl_beginIRNS_9StringMapIbNS_15MallocAllocatorEEEEEDTclsr10adl_detailE10begin_implclsr3stdE7forwardIT_Efp_EEEOS5_.exit.i
-  %138 = getelementptr inbounds i8, ptr %.val17.val, i64 32
+  %138 = getelementptr inbounds nuw i8, ptr %.val17.val, i64 32
   %.pre.i.i.i.i.i.i = load ptr, ptr %.sroa.0.1.i.i.i.i.i, align 8
   br label %139
 
@@ -1814,14 +1814,14 @@ _ZN4llvm9StringMapIbNS_15MallocAllocatorEED2Ev.exit42: ; preds = %178, %"_ZN4llv
 
 193:                                              ; preds = %.lr.ph.i45
   %194 = load i64, ptr %192, align 8
-  %195 = getelementptr inbounds i8, ptr %192, i64 24
-  %196 = getelementptr inbounds i8, ptr %192, i64 36
+  %195 = getelementptr inbounds nuw i8, ptr %192, i64 24
+  %196 = getelementptr inbounds nuw i8, ptr %192, i64 36
   %197 = load i32, ptr %196, align 4
   %198 = icmp eq i32 %197, 0
   br i1 %198, label %_ZN4llvm14StringMapEntryIZN5clang30getConflictTargetIDCombinationERKSt3setINS_9StringRefESt4lessIS3_ESaIS3_EEE4InfoE7DestroyINS_15MallocAllocatorEEEvRT_.exit.i, label %199
 
 199:                                              ; preds = %193
-  %200 = getelementptr inbounds i8, ptr %192, i64 32
+  %200 = getelementptr inbounds nuw i8, ptr %192, i64 32
   %201 = load i32, ptr %200, align 8
   %.not10.i.i.i.i.i.i = icmp eq i32 %201, 0
   br i1 %.not10.i.i.i.i.i.i, label %_ZN4llvm14StringMapEntryIZN5clang30getConflictTargetIDCombinationERKSt3setINS_9StringRefESt4lessIS3_ESaIS3_EEE4InfoE7DestroyINS_15MallocAllocatorEEEvRT_.exit.i, label %.lr.ph.preheader.i.i.i.i.i.i
@@ -2500,7 +2500,7 @@ define linkonce_odr ptr @_ZNSt8_Rb_treeIKN4llvm9StringRefESt4pairIS2_bESt10_Sele
   %8 = load i64, ptr %3, align 8
   %9 = inttoptr i64 %8 to ptr
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %9, i64 16, i1 false)
-  %10 = getelementptr inbounds i8, ptr %6, i64 48
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 48
   store i8 0, ptr %10, align 8
   %11 = tail call { ptr, ptr } @_ZNSt8_Rb_treeIKN4llvm9StringRefESt4pairIS2_bESt10_Select1stIS4_ESt4lessIS2_ESaIS4_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS4_ERS2_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %1, ptr noundef nonnull align 8 dereferenceable(16) %7)
   %12 = extractvalue { ptr, ptr } %11, 0

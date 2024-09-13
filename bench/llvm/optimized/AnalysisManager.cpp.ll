@@ -126,10 +126,10 @@ _ZNSt16allocator_traitsISaIPN5clang4ento22PathDiagnosticConsumerEEE8allocateERS4
 _ZNSt12_Vector_baseIPN5clang4ento22PathDiagnosticConsumerESaIS3_EEC2EmRKS4_.exit.i: ; preds = %_ZNSt16allocator_traitsISaIPN5clang4ento22PathDiagnosticConsumerEEE8allocateERS4_m.exit.i.i.i.i, %9
   %63 = phi ptr [ %62, %_ZNSt16allocator_traitsISaIPN5clang4ento22PathDiagnosticConsumerEEE8allocateERS4_m.exit.i.i.i.i ], [ null, %9 ]
   store ptr %63, ptr %51, align 8
-  %64 = getelementptr inbounds i8, ptr %0, i64 208
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 208
   store ptr %63, ptr %64, align 8
   %65 = getelementptr inbounds ptr, ptr %63, i64 %58
-  %66 = getelementptr inbounds i8, ptr %0, i64 216
+  %66 = getelementptr inbounds nuw i8, ptr %0, i64 216
   store ptr %65, ptr %66, align 8
   %67 = load ptr, ptr %3, align 8
   %68 = load ptr, ptr %52, align 8
@@ -154,15 +154,15 @@ _ZNSt6vectorIPN5clang4ento22PathDiagnosticConsumerESaIS3_EEC2ERKS5_.exit: ; pred
   store ptr %6, ptr %76, align 8
   %77 = getelementptr inbounds nuw i8, ptr %0, i64 248
   store ptr %7, ptr %77, align 8
-  %78 = getelementptr inbounds i8, ptr %0, i64 56
+  %78 = getelementptr inbounds nuw i8, ptr %0, i64 56
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %78, i8 -1, i64 24, i1 false)
   %79 = getelementptr inbounds i8, ptr %0, i64 80
   store i64 2251799813685247, ptr %79, align 8
-  %80 = getelementptr inbounds i8, ptr %0, i64 119
+  %80 = getelementptr inbounds nuw i8, ptr %0, i64 119
   store i8 1, ptr %80, align 1
   %81 = getelementptr inbounds nuw i8, ptr %7, i64 230
   %82 = load i8, ptr %81, align 2
-  %83 = getelementptr inbounds i8, ptr %0, i64 115
+  %83 = getelementptr inbounds nuw i8, ptr %0, i64 115
   %84 = and i8 %82, 1
   store i8 %84, ptr %83, align 1
   ret void
@@ -189,7 +189,7 @@ define dso_local void @_ZN5clang4ento15AnalysisManagerD2Ev(ptr noundef nonnull a
   call void @_ZN4llvm14FoldingSetBaseC2Ej(ptr noundef nonnull align 8 dereferenceable(16) %8, i32 noundef 6) #10
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 208
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %12 = load ptr, ptr %11, align 8
   %.not7.i = icmp eq ptr %10, %12
   br i1 %.not7.i, label %_ZN5clang4ento15AnalysisManager16FlushDiagnosticsEv.exit, label %.lr.ph.i
@@ -238,7 +238,7 @@ _ZN5clang4ento15AnalysisManager16FlushDiagnosticsEv.exit: ; preds = %.lr.ph.i, %
   br i1 %.not.i.i.i, label %_ZNSt6vectorIPN5clang4ento22PathDiagnosticConsumerESaIS3_EED2Ev.exit, label %26
 
 26:                                               ; preds = %._crit_edge
-  %27 = getelementptr inbounds i8, ptr %0, i64 216
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %28 = load ptr, ptr %27, align 8
   %29 = ptrtoint ptr %28 to i64
   %30 = ptrtoint ptr %25 to i64
@@ -269,7 +269,7 @@ define dso_local void @_ZN5clang4ento15AnalysisManager16FlushDiagnosticsEv(ptr n
   call void @_ZN4llvm14FoldingSetBaseC2Ej(ptr noundef nonnull align 8 dereferenceable(16) %8, i32 noundef 6) #10
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 208
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %12 = load ptr, ptr %11, align 8
   %.not7 = icmp eq ptr %10, %12
   br i1 %.not7, label %._crit_edge, label %.lr.ph
@@ -289,9 +289,9 @@ define dso_local void @_ZN5clang4ento15AnalysisManager16FlushDiagnosticsEv(ptr n
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5clang26AnalysisDeclContextManagerD2Ev(ptr noundef nonnull align 8 dereferenceable(161) %0) unnamed_addr #1 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 128
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 144
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %5 = load i32, ptr %4, align 8
   %6 = zext i32 %5 to i64
   %7 = mul nuw nsw i64 %6, 24
@@ -385,7 +385,7 @@ declare void @_ZN5clang4ento22PathDiagnosticConsumer9FilesMadeD1Ev(ptr noundef n
 define linkonce_odr hidden { ptr, i64 } @_ZN5clang4ento15AnalysisManager26getPathDiagnosticConsumersEv(ptr noundef nonnull align 8 dereferenceable(256) %0) unnamed_addr #1 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 208
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %5 = load ptr, ptr %4, align 8
   %6 = ptrtoint ptr %5 to i64
   %7 = ptrtoint ptr %3 to i64

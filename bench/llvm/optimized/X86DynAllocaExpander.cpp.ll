@@ -333,14 +333,14 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_120X86DynAllocaExpander20run
   %39 = getelementptr inbounds nuw i8, ptr %37, i64 608
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store ptr %39, ptr %40, align 8
-  %41 = getelementptr inbounds i8, ptr %37, i64 696
+  %41 = getelementptr inbounds nuw i8, ptr %37, i64 696
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store ptr %41, ptr %42, align 8
-  %43 = getelementptr inbounds i8, ptr %37, i64 1012
+  %43 = getelementptr inbounds nuw i8, ptr %37, i64 1012
   %44 = load i32, ptr %43, align 4
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 88
   store i32 %44, ptr %45, align 8
-  %46 = getelementptr inbounds i8, ptr %37, i64 1008
+  %46 = getelementptr inbounds nuw i8, ptr %37, i64 1008
   %47 = load i32, ptr %46, align 8
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 92
   store i32 %47, ptr %48, align 4
@@ -371,7 +371,7 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_120X86DynAllocaExpander20run
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %24)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %25)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %21, i8 0, i64 20, i1 false)
-  %61 = getelementptr inbounds i8, ptr %1, i64 328
+  %61 = getelementptr inbounds nuw i8, ptr %1, i64 328
   %62 = getelementptr inbounds nuw i8, ptr %1, i64 320
   %.sroa.0217.0286.i = load ptr, ptr %61, align 8
   %.not229287.i = icmp eq ptr %.sroa.0217.0286.i, %62
@@ -2217,7 +2217,7 @@ _ZN4llvm8DebugLocD2Ev.exit67.i:                   ; preds = %885, %_ZN4llvm10MIM
 
 .preheader.i.i.i.i:                               ; preds = %900, %903
   %.pn.i.i.i.i.i = phi ptr [ %storemerge.i.i.i.i.i, %903 ], [ %.0.i.i.i.i, %900 ]
-  %storemerge.in.i.i.i.i.i = getelementptr inbounds i8, ptr %.pn.i.i.i.i.i, i64 24
+  %storemerge.in.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.pn.i.i.i.i.i, i64 24
   %storemerge.i.i.i.i.i = load ptr, ptr %storemerge.in.i.i.i.i.i, align 8
   %.not.i.i.i.i92.i = icmp eq ptr %storemerge.i.i.i.i.i, null
   br i1 %.not.i.i.i.i92.i, label %.loopexit.i, label %903
@@ -2607,7 +2607,7 @@ define linkonce_odr hidden void @_ZN4llvm25ReversePostOrderTraversalIPNS_15Machi
   %3 = alloca %"class.llvm::po_iterator", align 8
   %4 = alloca %"class.llvm::po_iterator", align 8
   %5 = load ptr, ptr %1, align 8, !noalias !49
-  %6 = getelementptr inbounds i8, ptr %5, i64 328
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 328
   %7 = load ptr, ptr %6, align 8, !noalias !49
   call void @_ZN4llvm11po_iteratorIPNS_15MachineFunctionENS_11SmallPtrSetIPNS_17MachineBasicBlockELj8EEELb0ENS_11GraphTraitsIS2_EEEC2ES5_(ptr noundef nonnull align 8 dereferenceable(304) %3, ptr noundef %7)
   %8 = getelementptr inbounds i8, ptr %4, i64 24

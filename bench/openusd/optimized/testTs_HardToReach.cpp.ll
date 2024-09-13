@@ -2559,13 +2559,13 @@ define linkonce_odr dso_local noundef double @_ZNK32pxrInternal_v0_24__pxrReserv
 
 89:                                               ; preds = %.critedge11
   %90 = load double, ptr %1, align 8
-  %91 = getelementptr inbounds i8, ptr %82, i64 56
+  %91 = getelementptr inbounds nuw i8, ptr %82, i64 56
   %92 = call noundef double @_ZN32pxrInternal_v0_24__pxrReserved__13Ts_SolveCubicEPKdd(ptr noundef nonnull %91, double noundef %90)
   %93 = fcmp olt double %92, 0.000000e+00
   %94 = fcmp ogt double %92, 1.000000e+00
   %..i.i = select i1 %94, double 1.000000e+00, double %92
   %.0.i.i = select i1 %93, double 0.000000e+00, double %..i.i
-  %95 = getelementptr inbounds i8, ptr %82, i64 120
+  %95 = getelementptr inbounds nuw i8, ptr %82, i64 120
   %96 = getelementptr inbounds i8, ptr %82, i64 144
   %97 = load double, ptr %96, align 8
   %98 = getelementptr inbounds i8, ptr %82, i64 136
@@ -2666,7 +2666,7 @@ define linkonce_odr dso_local void @_ZN32pxrInternal_v0_24__pxrReserved__7VtValu
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN32pxrInternal_v0_24__pxrReserved__11TsEvaluatorIdED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__8TsSplineD2Ev.exit, label %4
@@ -3637,9 +3637,9 @@ _ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundeqERKS1_.exit.i: ; pred
   br i1 %71, label %_ZNK32pxrInternal_v0_24__pxrReserved__10GfIntervaleqERKS0_.exit, label %_ZNK32pxrInternal_v0_24__pxrReserved__10GfIntervaleqERKS0_.exit.thread
 
 _ZNK32pxrInternal_v0_24__pxrReserved__10GfIntervaleqERKS0_.exit: ; preds = %66
-  %72 = getelementptr inbounds i8, ptr %5, i64 24
+  %72 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %73 = load i8, ptr %72, align 8
-  %74 = getelementptr inbounds i8, ptr %2, i64 24
+  %74 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %75 = load i8, ptr %74, align 8
   %76 = xor i8 %75, %73
   %77 = and i8 %76, 1
@@ -4867,7 +4867,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueC2IA5_cEERKT_.exit: ; preds = %_ZN1
   store i8 0, ptr %114, align 8
   %115 = getelementptr inbounds nuw i8, ptr %26, i64 16
   store double 1.000000e+00, ptr %115, align 8
-  %116 = getelementptr inbounds i8, ptr %26, i64 24
+  %116 = getelementptr inbounds nuw i8, ptr %26, i64 24
   store i8 0, ptr %116, align 8
   %117 = invoke noundef zeroext i1 @_ZN13_SplineTester11SetKeyFrameERKN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameERKNS0_10GfIntervalE(ptr noundef nonnull align 8 dereferenceable(16) %20, ptr noundef nonnull align 8 dereferenceable(72) %21, ptr noundef nonnull align 8 dereferenceable(32) %26)
           to label %118 unwind label %569
@@ -4992,7 +4992,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueC2IA8_cEERKT_.exit: ; preds = %_ZN3
   store i8 1, ptr %162, align 8
   %163 = getelementptr inbounds nuw i8, ptr %32, i64 16
   store double 0x7FF0000000000000, ptr %163, align 8
-  %164 = getelementptr inbounds i8, ptr %32, i64 24
+  %164 = getelementptr inbounds nuw i8, ptr %32, i64 24
   store i8 0, ptr %164, align 8
   %165 = invoke noundef zeroext i1 @_ZN13_SplineTester11SetKeyFrameERKN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameERKNS0_10GfIntervalE(ptr noundef nonnull align 8 dereferenceable(16) %20, ptr noundef nonnull align 8 dereferenceable(72) %27, ptr noundef nonnull align 8 dereferenceable(32) %32)
           to label %166 unwind label %574
@@ -5117,7 +5117,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueC2IA6_cEERKT_.exit: ; preds = %_ZN3
   store i8 1, ptr %210, align 8
   %211 = getelementptr inbounds nuw i8, ptr %38, i64 16
   store double 0x7FF0000000000000, ptr %211, align 8
-  %212 = getelementptr inbounds i8, ptr %38, i64 24
+  %212 = getelementptr inbounds nuw i8, ptr %38, i64 24
   store i8 0, ptr %212, align 8
   %213 = invoke noundef zeroext i1 @_ZN13_SplineTester11SetKeyFrameERKN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameERKNS0_10GfIntervalE(ptr noundef nonnull align 8 dereferenceable(16) %20, ptr noundef nonnull align 8 dereferenceable(72) %33, ptr noundef nonnull align 8 dereferenceable(32) %38)
           to label %214 unwind label %579
@@ -5242,7 +5242,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueC2IA8_cEERKT_.exit70: ; preds = %_Z
   store i8 1, ptr %258, align 8
   %259 = getelementptr inbounds nuw i8, ptr %44, i64 16
   store double 4.000000e+00, ptr %259, align 8
-  %260 = getelementptr inbounds i8, ptr %44, i64 24
+  %260 = getelementptr inbounds nuw i8, ptr %44, i64 24
   store i8 0, ptr %260, align 8
   %261 = invoke noundef zeroext i1 @_ZN13_SplineTester11SetKeyFrameERKN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameERKNS0_10GfIntervalE(ptr noundef nonnull align 8 dereferenceable(16) %20, ptr noundef nonnull align 8 dereferenceable(72) %39, ptr noundef nonnull align 8 dereferenceable(32) %44)
           to label %262 unwind label %584
@@ -5367,7 +5367,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueC2IA8_cEERKT_.exit83: ; preds = %_Z
   store i8 0, ptr %306, align 8
   %307 = getelementptr inbounds nuw i8, ptr %50, i64 16
   store double 0.000000e+00, ptr %307, align 8
-  %308 = getelementptr inbounds i8, ptr %50, i64 24
+  %308 = getelementptr inbounds nuw i8, ptr %50, i64 24
   store i8 0, ptr %308, align 8
   %309 = invoke noundef zeroext i1 @_ZN13_SplineTester11SetKeyFrameERKN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameERKNS0_10GfIntervalE(ptr noundef nonnull align 8 dereferenceable(16) %20, ptr noundef nonnull align 8 dereferenceable(72) %45, ptr noundef nonnull align 8 dereferenceable(32) %50)
           to label %310 unwind label %589
@@ -5477,7 +5477,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit91: ; preds = %_ZN32pxrInt
   store i8 0, ptr %351, align 8
   %352 = getelementptr inbounds nuw i8, ptr %51, i64 16
   store double 0.000000e+00, ptr %352, align 8
-  %353 = getelementptr inbounds i8, ptr %51, i64 24
+  %353 = getelementptr inbounds nuw i8, ptr %51, i64 24
   store i8 0, ptr %353, align 8
   %354 = invoke noundef zeroext i1 @_ZN13_SplineTester14RemoveKeyFrameEdRKN32pxrInternal_v0_24__pxrReserved__10GfIntervalE(ptr noundef nonnull align 8 dereferenceable(16) %20, double noundef 2.500000e+00, ptr noundef nonnull align 8 dereferenceable(32) %51)
           to label %355 unwind label %565
@@ -5508,7 +5508,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueC2IA5_cEERKT_.exit98: ; preds = %35
   store i8 0, ptr %361, align 8
   %362 = getelementptr inbounds nuw i8, ptr %57, i64 16
   store double 0.000000e+00, ptr %362, align 8
-  %363 = getelementptr inbounds i8, ptr %57, i64 24
+  %363 = getelementptr inbounds nuw i8, ptr %57, i64 24
   store i8 0, ptr %363, align 8
   %364 = invoke noundef zeroext i1 @_ZN13_SplineTester11SetKeyFrameERKN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameERKNS0_10GfIntervalE(ptr noundef nonnull align 8 dereferenceable(16) %20, ptr noundef nonnull align 8 dereferenceable(72) %52, ptr noundef nonnull align 8 dereferenceable(32) %57)
           to label %365 unwind label %594
@@ -5618,7 +5618,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit106: ; preds = %_ZN32pxrIn
   store i8 0, ptr %406, align 8
   %407 = getelementptr inbounds nuw i8, ptr %58, i64 16
   store double 0.000000e+00, ptr %407, align 8
-  %408 = getelementptr inbounds i8, ptr %58, i64 24
+  %408 = getelementptr inbounds nuw i8, ptr %58, i64 24
   store i8 0, ptr %408, align 8
   %409 = invoke noundef zeroext i1 @_ZN13_SplineTester14RemoveKeyFrameEdRKN32pxrInternal_v0_24__pxrReserved__10GfIntervalE(ptr noundef nonnull align 8 dereferenceable(16) %20, double noundef -1.000000e+00, ptr noundef nonnull align 8 dereferenceable(32) %58)
           to label %410 unwind label %565
@@ -5649,7 +5649,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueC2IA6_cEERKT_.exit113: ; preds = %4
   store i8 0, ptr %416, align 8
   %417 = getelementptr inbounds nuw i8, ptr %64, i64 16
   store double 0.000000e+00, ptr %417, align 8
-  %418 = getelementptr inbounds i8, ptr %64, i64 24
+  %418 = getelementptr inbounds nuw i8, ptr %64, i64 24
   store i8 0, ptr %418, align 8
   %419 = invoke noundef zeroext i1 @_ZN13_SplineTester11SetKeyFrameERKN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameERKNS0_10GfIntervalE(ptr noundef nonnull align 8 dereferenceable(16) %20, ptr noundef nonnull align 8 dereferenceable(72) %59, ptr noundef nonnull align 8 dereferenceable(32) %64)
           to label %420 unwind label %599
@@ -5759,7 +5759,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit121: ; preds = %_ZN32pxrIn
   store i8 0, ptr %461, align 8
   %462 = getelementptr inbounds nuw i8, ptr %65, i64 16
   store double 0.000000e+00, ptr %462, align 8
-  %463 = getelementptr inbounds i8, ptr %65, i64 24
+  %463 = getelementptr inbounds nuw i8, ptr %65, i64 24
   store i8 0, ptr %463, align 8
   %464 = invoke noundef zeroext i1 @_ZN13_SplineTester14RemoveKeyFrameEdRKN32pxrInternal_v0_24__pxrReserved__10GfIntervalE(ptr noundef nonnull align 8 dereferenceable(16) %20, double noundef 5.000000e+00, ptr noundef nonnull align 8 dereferenceable(32) %65)
           to label %465 unwind label %565
@@ -5775,7 +5775,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit121: ; preds = %_ZN32pxrIn
   store i8 1, ptr %467, align 8
   %468 = getelementptr inbounds nuw i8, ptr %66, i64 16
   store double 4.000000e+00, ptr %468, align 8
-  %469 = getelementptr inbounds i8, ptr %66, i64 24
+  %469 = getelementptr inbounds nuw i8, ptr %66, i64 24
   store i8 0, ptr %469, align 8
   %470 = invoke noundef zeroext i1 @_ZN13_SplineTester14RemoveKeyFrameEdRKN32pxrInternal_v0_24__pxrReserved__10GfIntervalE(ptr noundef nonnull align 8 dereferenceable(16) %20, double noundef 3.000000e+00, ptr noundef nonnull align 8 dereferenceable(32) %66)
           to label %471 unwind label %565
@@ -5791,7 +5791,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit121: ; preds = %_ZN32pxrIn
   store i8 0, ptr %473, align 8
   %474 = getelementptr inbounds nuw i8, ptr %67, i64 16
   store double 1.000000e+00, ptr %474, align 8
-  %475 = getelementptr inbounds i8, ptr %67, i64 24
+  %475 = getelementptr inbounds nuw i8, ptr %67, i64 24
   store i8 0, ptr %475, align 8
   %476 = invoke noundef zeroext i1 @_ZN13_SplineTester14RemoveKeyFrameEdRKN32pxrInternal_v0_24__pxrReserved__10GfIntervalE(ptr noundef nonnull align 8 dereferenceable(16) %20, double noundef 0.000000e+00, ptr noundef nonnull align 8 dereferenceable(32) %67)
           to label %477 unwind label %565
@@ -5807,7 +5807,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit121: ; preds = %_ZN32pxrIn
   store i8 1, ptr %479, align 8
   %480 = getelementptr inbounds nuw i8, ptr %68, i64 16
   store double 0x7FF0000000000000, ptr %480, align 8
-  %481 = getelementptr inbounds i8, ptr %68, i64 24
+  %481 = getelementptr inbounds nuw i8, ptr %68, i64 24
   store i8 0, ptr %481, align 8
   %482 = invoke noundef zeroext i1 @_ZN13_SplineTester14RemoveKeyFrameEdRKN32pxrInternal_v0_24__pxrReserved__10GfIntervalE(ptr noundef nonnull align 8 dereferenceable(16) %20, double noundef 4.000000e+00, ptr noundef nonnull align 8 dereferenceable(32) %68)
           to label %483 unwind label %565
@@ -6170,7 +6170,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN13_SplineTester11SetKeyFram
   store i8 0, ptr %8, align 8
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store double 0.000000e+00, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %5, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store i8 0, ptr %10, align 8
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %6, ptr noundef nonnull align 8 dereferenceable(72) %1)
           to label %11 unwind label %49
@@ -6208,7 +6208,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundeqERKS1_.exit.i: ; pred
 
 _ZNK32pxrInternal_v0_24__pxrReserved__10GfIntervaleqERKS0_.exit: ; preds = %23
   %28 = load i8, ptr %10, align 8
-  %29 = getelementptr inbounds i8, ptr %2, i64 24
+  %29 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %30 = load i8, ptr %29, align 8
   %31 = xor i8 %30, %28
   %32 = and i8 %31, 1
@@ -6231,7 +6231,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundeqERKS1_.exit.i10: ; pr
   br i1 %or.cond15, label %_ZNK32pxrInternal_v0_24__pxrReserved__10GfIntervaleqERKS0_.exit11, label %_ZNK32pxrInternal_v0_24__pxrReserved__10GfIntervaleqERKS0_.exit.thread
 
 _ZNK32pxrInternal_v0_24__pxrReserved__10GfIntervaleqERKS0_.exit11: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundeqERKS1_.exit.i10
-  %44 = getelementptr inbounds i8, ptr %7, i64 24
+  %44 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %45 = load i8, ptr %44, align 8
   %46 = xor i8 %30, %45
   %47 = and i8 %46, 1
@@ -6396,7 +6396,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN13_SplineTester14RemoveKeyF
   store i8 0, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store double 0.000000e+00, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %5, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store i8 0, ptr %9, align 8
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__8TsSpline14RemoveKeyFrameEdPNS_10GfIntervalE(ptr noundef nonnull align 8 dereferenceable(16) %0, double noundef %1, ptr noundef nonnull %5)
           to label %10 unwind label %47
@@ -6429,7 +6429,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundeqERKS1_.exit.i: ; pred
 
 _ZNK32pxrInternal_v0_24__pxrReserved__10GfIntervaleqERKS0_.exit: ; preds = %21
   %26 = load i8, ptr %9, align 8
-  %27 = getelementptr inbounds i8, ptr %2, i64 24
+  %27 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %28 = load i8, ptr %27, align 8
   %29 = xor i8 %28, %26
   %30 = and i8 %29, 1
@@ -6452,7 +6452,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundeqERKS1_.exit.i7: ; pre
   br i1 %or.cond12, label %_ZNK32pxrInternal_v0_24__pxrReserved__10GfIntervaleqERKS0_.exit8, label %_ZNK32pxrInternal_v0_24__pxrReserved__10GfIntervaleqERKS0_.exit.thread
 
 _ZNK32pxrInternal_v0_24__pxrReserved__10GfIntervaleqERKS0_.exit8: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundeqERKS1_.exit.i7
-  %42 = getelementptr inbounds i8, ptr %6, i64 24
+  %42 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %43 = load i8, ptr %42, align 8
   %44 = xor i8 %28, %43
   %45 = and i8 %44, 1
@@ -6720,7 +6720,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__8TsSplineD2Ev.exit: ; preds = %_ZN13_Spline
   store i8 0, ptr %59, align 8, !alias.scope !26
   %60 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store double 0x7FF0000000000000, ptr %60, align 8, !alias.scope !26
-  %61 = getelementptr inbounds i8, ptr %9, i64 24
+  %61 = getelementptr inbounds nuw i8, ptr %9, i64 24
   store i8 0, ptr %61, align 8, !alias.scope !26
   %62 = invoke noundef zeroext i1 @_ZN13_SplineTester11SetKeyFrameERKN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameERKNS0_10GfIntervalE(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(72) %8, ptr noundef nonnull align 8 dereferenceable(32) %9)
           to label %63 unwind label %155
@@ -6776,7 +6776,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__8TsSplineD2Ev.exit: ; preds = %_ZN13_Spline
   store i8 0, ptr %71, align 8
   %72 = getelementptr inbounds nuw i8, ptr %11, i64 16
   store double 0x7FF0000000000000, ptr %72, align 8
-  %73 = getelementptr inbounds i8, ptr %11, i64 24
+  %73 = getelementptr inbounds nuw i8, ptr %11, i64 24
   store i8 0, ptr %73, align 8
   %74 = invoke noundef zeroext i1 @_ZN13_SplineTester11SetKeyFrameERKN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameERKNS0_10GfIntervalE(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(72) %10, ptr noundef nonnull align 8 dereferenceable(32) %11)
           to label %75 unwind label %157
@@ -6832,7 +6832,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__8TsSplineD2Ev.exit: ; preds = %_ZN13_Spline
   store i8 0, ptr %83, align 8
   %84 = getelementptr inbounds nuw i8, ptr %13, i64 16
   store double 3.000000e+00, ptr %84, align 8
-  %85 = getelementptr inbounds i8, ptr %13, i64 24
+  %85 = getelementptr inbounds nuw i8, ptr %13, i64 24
   store i8 0, ptr %85, align 8
   %86 = invoke noundef zeroext i1 @_ZN13_SplineTester11SetKeyFrameERKN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameERKNS0_10GfIntervalE(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(72) %12, ptr noundef nonnull align 8 dereferenceable(32) %13)
           to label %87 unwind label %159
@@ -6888,7 +6888,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__8TsSplineD2Ev.exit: ; preds = %_ZN13_Spline
   store i8 0, ptr %95, align 8
   %96 = getelementptr inbounds nuw i8, ptr %15, i64 16
   store double 2.000000e+00, ptr %96, align 8
-  %97 = getelementptr inbounds i8, ptr %15, i64 24
+  %97 = getelementptr inbounds nuw i8, ptr %15, i64 24
   store i8 0, ptr %97, align 8
   %98 = invoke noundef zeroext i1 @_ZN13_SplineTester11SetKeyFrameERKN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameERKNS0_10GfIntervalE(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(72) %14, ptr noundef nonnull align 8 dereferenceable(32) %15)
           to label %99 unwind label %161
@@ -6944,7 +6944,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__8TsSplineD2Ev.exit: ; preds = %_ZN13_Spline
   store i8 0, ptr %107, align 8
   %108 = getelementptr inbounds nuw i8, ptr %17, i64 16
   store double 1.000000e+00, ptr %108, align 8
-  %109 = getelementptr inbounds i8, ptr %17, i64 24
+  %109 = getelementptr inbounds nuw i8, ptr %17, i64 24
   store i8 0, ptr %109, align 8
   %110 = invoke noundef zeroext i1 @_ZN13_SplineTester11SetKeyFrameERKN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameERKNS0_10GfIntervalE(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(72) %16, ptr noundef nonnull align 8 dereferenceable(32) %17)
           to label %111 unwind label %163
@@ -7220,7 +7220,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__8TsSplineD2Ev.exit: ; preds = %_ZN13_Spline
   store i8 0, ptr %52, align 8, !alias.scope !29
   %53 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store double 0x7FF0000000000000, ptr %53, align 8, !alias.scope !29
-  %54 = getelementptr inbounds i8, ptr %7, i64 24
+  %54 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store i8 0, ptr %54, align 8, !alias.scope !29
   %55 = invoke noundef zeroext i1 @_ZN13_SplineTester11SetKeyFrameERKN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameERKNS0_10GfIntervalE(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(72) %6, ptr noundef nonnull align 8 dereferenceable(32) %7)
           to label %56 unwind label %120
@@ -7276,7 +7276,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__8TsSplineD2Ev.exit: ; preds = %_ZN13_Spline
   store i8 1, ptr %64, align 8
   %65 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store double 0x7FF0000000000000, ptr %65, align 8
-  %66 = getelementptr inbounds i8, ptr %9, i64 24
+  %66 = getelementptr inbounds nuw i8, ptr %9, i64 24
   store i8 0, ptr %66, align 8
   %67 = invoke noundef zeroext i1 @_ZN13_SplineTester11SetKeyFrameERKN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameERKNS0_10GfIntervalE(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(72) %8, ptr noundef nonnull align 8 dereferenceable(32) %9)
           to label %68 unwind label %122
@@ -7311,7 +7311,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__8TsSplineD2Ev.exit: ; preds = %_ZN13_Spline
   store i8 1, ptr %72, align 8
   %73 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store double 0x7FF0000000000000, ptr %73, align 8
-  %74 = getelementptr inbounds i8, ptr %10, i64 24
+  %74 = getelementptr inbounds nuw i8, ptr %10, i64 24
   store i8 0, ptr %74, align 8
   %75 = invoke noundef zeroext i1 @_ZN13_SplineTester14RemoveKeyFrameEdRKN32pxrInternal_v0_24__pxrReserved__10GfIntervalE(ptr noundef nonnull align 8 dereferenceable(16) %4, double noundef 1.000000e+00, ptr noundef nonnull align 8 dereferenceable(32) %10)
           to label %76 unwind label %118
@@ -7685,7 +7685,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__8TsSplineD2Ev.exit: ; preds = %_ZN13_Spline
   store i8 0, ptr %115, align 8, !alias.scope !32
   %116 = getelementptr inbounds nuw i8, ptr %22, i64 16
   store double 0x7FF0000000000000, ptr %116, align 8, !alias.scope !32
-  %117 = getelementptr inbounds i8, ptr %22, i64 24
+  %117 = getelementptr inbounds nuw i8, ptr %22, i64 24
   store i8 0, ptr %117, align 8, !alias.scope !32
   %118 = invoke noundef zeroext i1 @_ZN13_SplineTester11SetKeyFrameERKN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameERKNS0_10GfIntervalE(ptr noundef nonnull align 8 dereferenceable(16) %19, ptr noundef nonnull align 8 dereferenceable(72) %21, ptr noundef nonnull align 8 dereferenceable(32) %22)
           to label %119 unwind label %899
@@ -7741,7 +7741,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__8TsSplineD2Ev.exit: ; preds = %_ZN13_Spline
   store i8 0, ptr %127, align 8
   %128 = getelementptr inbounds nuw i8, ptr %24, i64 16
   store double 0x7FF0000000000000, ptr %128, align 8
-  %129 = getelementptr inbounds i8, ptr %24, i64 24
+  %129 = getelementptr inbounds nuw i8, ptr %24, i64 24
   store i8 0, ptr %129, align 8
   %130 = invoke noundef zeroext i1 @_ZN13_SplineTester11SetKeyFrameERKN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameERKNS0_10GfIntervalE(ptr noundef nonnull align 8 dereferenceable(16) %19, ptr noundef nonnull align 8 dereferenceable(72) %23, ptr noundef nonnull align 8 dereferenceable(32) %24)
           to label %131 unwind label %901
@@ -7797,7 +7797,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__8TsSplineD2Ev.exit: ; preds = %_ZN13_Spline
   store i8 0, ptr %139, align 8
   %140 = getelementptr inbounds nuw i8, ptr %26, i64 16
   store double 0.000000e+00, ptr %140, align 8
-  %141 = getelementptr inbounds i8, ptr %26, i64 24
+  %141 = getelementptr inbounds nuw i8, ptr %26, i64 24
   store i8 0, ptr %141, align 8
   %142 = invoke noundef zeroext i1 @_ZN13_SplineTester11SetKeyFrameERKN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameERKNS0_10GfIntervalE(ptr noundef nonnull align 8 dereferenceable(16) %19, ptr noundef nonnull align 8 dereferenceable(72) %25, ptr noundef nonnull align 8 dereferenceable(32) %26)
           to label %143 unwind label %903
@@ -7851,7 +7851,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__8TsSplineD2Ev.exit: ; preds = %_ZN13_Spline
   store i8 0, ptr %151, align 8
   %152 = getelementptr inbounds nuw i8, ptr %28, i64 16
   store double 0x7FF0000000000000, ptr %152, align 8
-  %153 = getelementptr inbounds i8, ptr %28, i64 24
+  %153 = getelementptr inbounds nuw i8, ptr %28, i64 24
   store i8 0, ptr %153, align 8
   %154 = invoke noundef zeroext i1 @_ZN13_SplineTester11SetKeyFrameERKN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameERKNS0_10GfIntervalE(ptr noundef nonnull align 8 dereferenceable(16) %19, ptr noundef nonnull align 8 dereferenceable(72) %27, ptr noundef nonnull align 8 dereferenceable(32) %28)
           to label %155 unwind label %905
@@ -7907,7 +7907,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__8TsSplineD2Ev.exit: ; preds = %_ZN13_Spline
   store i8 0, ptr %163, align 8
   %164 = getelementptr inbounds nuw i8, ptr %30, i64 16
   store double 0x7FF0000000000000, ptr %164, align 8
-  %165 = getelementptr inbounds i8, ptr %30, i64 24
+  %165 = getelementptr inbounds nuw i8, ptr %30, i64 24
   store i8 0, ptr %165, align 8
   %166 = invoke noundef zeroext i1 @_ZN13_SplineTester11SetKeyFrameERKN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameERKNS0_10GfIntervalE(ptr noundef nonnull align 8 dereferenceable(16) %19, ptr noundef nonnull align 8 dereferenceable(72) %29, ptr noundef nonnull align 8 dereferenceable(32) %30)
           to label %167 unwind label %907
@@ -7963,7 +7963,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__8TsSplineD2Ev.exit: ; preds = %_ZN13_Spline
   store i8 0, ptr %175, align 8
   %176 = getelementptr inbounds nuw i8, ptr %32, i64 16
   store double 0.000000e+00, ptr %176, align 8
-  %177 = getelementptr inbounds i8, ptr %32, i64 24
+  %177 = getelementptr inbounds nuw i8, ptr %32, i64 24
   store i8 0, ptr %177, align 8
   %178 = invoke noundef zeroext i1 @_ZN13_SplineTester11SetKeyFrameERKN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameERKNS0_10GfIntervalE(ptr noundef nonnull align 8 dereferenceable(16) %19, ptr noundef nonnull align 8 dereferenceable(72) %31, ptr noundef nonnull align 8 dereferenceable(32) %32)
           to label %179 unwind label %909
@@ -8019,7 +8019,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__8TsSplineD2Ev.exit: ; preds = %_ZN13_Spline
   store i8 0, ptr %187, align 8
   %188 = getelementptr inbounds nuw i8, ptr %34, i64 16
   store double 0.000000e+00, ptr %188, align 8
-  %189 = getelementptr inbounds i8, ptr %34, i64 24
+  %189 = getelementptr inbounds nuw i8, ptr %34, i64 24
   store i8 0, ptr %189, align 8
   %190 = invoke noundef zeroext i1 @_ZN13_SplineTester11SetKeyFrameERKN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameERKNS0_10GfIntervalE(ptr noundef nonnull align 8 dereferenceable(16) %19, ptr noundef nonnull align 8 dereferenceable(72) %33, ptr noundef nonnull align 8 dereferenceable(32) %34)
           to label %191 unwind label %911
@@ -8054,7 +8054,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__8TsSplineD2Ev.exit: ; preds = %_ZN13_Spline
   store i8 0, ptr %195, align 8
   %196 = getelementptr inbounds nuw i8, ptr %35, i64 16
   store double 0.000000e+00, ptr %196, align 8
-  %197 = getelementptr inbounds i8, ptr %35, i64 24
+  %197 = getelementptr inbounds nuw i8, ptr %35, i64 24
   store i8 0, ptr %197, align 8
   %198 = invoke noundef zeroext i1 @_ZN13_SplineTester14RemoveKeyFrameEdRKN32pxrInternal_v0_24__pxrReserved__10GfIntervalE(ptr noundef nonnull align 8 dereferenceable(16) %19, double noundef 3.000000e+00, ptr noundef nonnull align 8 dereferenceable(32) %35)
           to label %199 unwind label %897
@@ -8070,7 +8070,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__8TsSplineD2Ev.exit: ; preds = %_ZN13_Spline
   store i8 0, ptr %201, align 8
   %202 = getelementptr inbounds nuw i8, ptr %36, i64 16
   store double 0.000000e+00, ptr %202, align 8
-  %203 = getelementptr inbounds i8, ptr %36, i64 24
+  %203 = getelementptr inbounds nuw i8, ptr %36, i64 24
   store i8 0, ptr %203, align 8
   %204 = invoke noundef zeroext i1 @_ZN13_SplineTester14RemoveKeyFrameEdRKN32pxrInternal_v0_24__pxrReserved__10GfIntervalE(ptr noundef nonnull align 8 dereferenceable(16) %19, double noundef 4.000000e+00, ptr noundef nonnull align 8 dereferenceable(32) %36)
           to label %205 unwind label %897
@@ -8086,7 +8086,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__8TsSplineD2Ev.exit: ; preds = %_ZN13_Spline
   store i8 0, ptr %207, align 8
   %208 = getelementptr inbounds nuw i8, ptr %37, i64 16
   store double 0x7FF0000000000000, ptr %208, align 8
-  %209 = getelementptr inbounds i8, ptr %37, i64 24
+  %209 = getelementptr inbounds nuw i8, ptr %37, i64 24
   store i8 0, ptr %209, align 8
   %210 = invoke noundef zeroext i1 @_ZN13_SplineTester14RemoveKeyFrameEdRKN32pxrInternal_v0_24__pxrReserved__10GfIntervalE(ptr noundef nonnull align 8 dereferenceable(16) %19, double noundef 2.000000e+00, ptr noundef nonnull align 8 dereferenceable(32) %37)
           to label %211 unwind label %897
@@ -8102,7 +8102,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__8TsSplineD2Ev.exit: ; preds = %_ZN13_Spline
   store i8 0, ptr %213, align 8, !alias.scope !35
   %214 = getelementptr inbounds nuw i8, ptr %38, i64 16
   store double 0x7FF0000000000000, ptr %214, align 8, !alias.scope !35
-  %215 = getelementptr inbounds i8, ptr %38, i64 24
+  %215 = getelementptr inbounds nuw i8, ptr %38, i64 24
   store i8 0, ptr %215, align 8, !alias.scope !35
   %216 = invoke noundef zeroext i1 @_ZN13_SplineTester14RemoveKeyFrameEdRKN32pxrInternal_v0_24__pxrReserved__10GfIntervalE(ptr noundef nonnull align 8 dereferenceable(16) %19, double noundef 1.000000e+00, ptr noundef nonnull align 8 dereferenceable(32) %38)
           to label %217 unwind label %897
@@ -8842,7 +8842,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   store i8 0, ptr %529, align 8, !alias.scope !38
   %530 = getelementptr inbounds nuw i8, ptr %69, i64 16
   store double 0x7FF0000000000000, ptr %530, align 8, !alias.scope !38
-  %531 = getelementptr inbounds i8, ptr %69, i64 24
+  %531 = getelementptr inbounds nuw i8, ptr %69, i64 24
   store i8 0, ptr %531, align 8, !alias.scope !38
   %532 = invoke noundef zeroext i1 @_ZN13_SplineTester8SetValueERKN32pxrInternal_v0_24__pxrReserved__8TsSplineERKNS0_10GfIntervalE(ptr noundef nonnull align 8 dereferenceable(16) %19, ptr noundef nonnull align 8 dereferenceable(16) %45, ptr noundef nonnull align 8 dereferenceable(32) %69)
           to label %533 unwind label %934
@@ -9046,7 +9046,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   store i8 0, ptr %619, align 8
   %620 = getelementptr inbounds nuw i8, ptr %71, i64 16
   store double 0.000000e+00, ptr %620, align 8
-  %621 = getelementptr inbounds i8, ptr %71, i64 24
+  %621 = getelementptr inbounds nuw i8, ptr %71, i64 24
   store i8 0, ptr %621, align 8
   %622 = invoke noundef zeroext i1 @_ZN13_SplineTester8SetValueERKN32pxrInternal_v0_24__pxrReserved__8TsSplineERKNS0_10GfIntervalE(ptr noundef nonnull align 8 dereferenceable(16) %19, ptr noundef nonnull align 8 dereferenceable(16) %51, ptr noundef nonnull align 8 dereferenceable(32) %71)
           to label %623 unwind label %934
@@ -9250,7 +9250,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   store i8 0, ptr %709, align 8
   %710 = getelementptr inbounds nuw i8, ptr %73, i64 16
   store double 0.000000e+00, ptr %710, align 8
-  %711 = getelementptr inbounds i8, ptr %73, i64 24
+  %711 = getelementptr inbounds nuw i8, ptr %73, i64 24
   store i8 0, ptr %711, align 8
   %712 = invoke noundef zeroext i1 @_ZN13_SplineTester8SetValueERKN32pxrInternal_v0_24__pxrReserved__8TsSplineERKNS0_10GfIntervalE(ptr noundef nonnull align 8 dereferenceable(16) %19, ptr noundef nonnull align 8 dereferenceable(16) %57, ptr noundef nonnull align 8 dereferenceable(32) %73)
           to label %713 unwind label %934
@@ -10855,7 +10855,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit122: ; preds = %_ZN32pxrIn
   store i8 0, ptr %480, align 8
   %481 = getelementptr inbounds nuw i8, ptr %56, i64 16
   store double 4.000000e+00, ptr %481, align 8
-  %482 = getelementptr inbounds i8, ptr %56, i64 24
+  %482 = getelementptr inbounds nuw i8, ptr %56, i64 24
   store i8 0, ptr %482, align 8
   %483 = invoke noundef zeroext i1 @_ZN13_SplineTester8SetValueERKN32pxrInternal_v0_24__pxrReserved__8TsSplineERKNS0_10GfIntervalE(ptr noundef nonnull align 8 dereferenceable(16) %55, ptr noundef nonnull align 8 dereferenceable(16) %29, ptr noundef nonnull align 8 dereferenceable(32) %56)
           to label %484 unwind label %655
@@ -10871,7 +10871,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit122: ; preds = %_ZN32pxrIn
   store i8 0, ptr %486, align 8
   %487 = getelementptr inbounds nuw i8, ptr %57, i64 16
   store double 0.000000e+00, ptr %487, align 8
-  %488 = getelementptr inbounds i8, ptr %57, i64 24
+  %488 = getelementptr inbounds nuw i8, ptr %57, i64 24
   store i8 0, ptr %488, align 8
   %489 = invoke noundef zeroext i1 @_ZN13_SplineTester8SetValueERKN32pxrInternal_v0_24__pxrReserved__8TsSplineERKNS0_10GfIntervalE(ptr noundef nonnull align 8 dereferenceable(16) %55, ptr noundef nonnull align 8 dereferenceable(16) %29, ptr noundef nonnull align 8 dereferenceable(32) %57)
           to label %490 unwind label %655
@@ -12418,7 +12418,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit47: ; preds = %_ZN32pxrInt
   store i8 0, ptr %402, align 8, !alias.scope !41
   %403 = getelementptr inbounds nuw i8, ptr %112, i64 16
   store double 0x7FF0000000000000, ptr %403, align 8, !alias.scope !41
-  %404 = getelementptr inbounds i8, ptr %112, i64 24
+  %404 = getelementptr inbounds nuw i8, ptr %112, i64 24
   store i8 0, ptr %404, align 8, !alias.scope !41
   %405 = invoke noundef zeroext i1 @_ZN13_SplineTester11SetKeyFrameERKN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameERKNS0_10GfIntervalE(ptr noundef nonnull align 8 dereferenceable(16) %95, ptr noundef nonnull align 8 dereferenceable(72) %97, ptr noundef nonnull align 8 dereferenceable(32) %112)
           to label %406 unwind label %1517
@@ -12434,7 +12434,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit47: ; preds = %_ZN32pxrInt
   store i8 0, ptr %408, align 8
   %409 = getelementptr inbounds nuw i8, ptr %113, i64 16
   store double 0x7FF0000000000000, ptr %409, align 8
-  %410 = getelementptr inbounds i8, ptr %113, i64 24
+  %410 = getelementptr inbounds nuw i8, ptr %113, i64 24
   store i8 0, ptr %410, align 8
   %411 = invoke noundef zeroext i1 @_ZN13_SplineTester11SetKeyFrameERKN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameERKNS0_10GfIntervalE(ptr noundef nonnull align 8 dereferenceable(16) %95, ptr noundef nonnull align 8 dereferenceable(72) %107, ptr noundef nonnull align 8 dereferenceable(32) %113)
           to label %412 unwind label %1517
@@ -12450,7 +12450,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit47: ; preds = %_ZN32pxrInt
   store i8 0, ptr %414, align 8
   %415 = getelementptr inbounds nuw i8, ptr %114, i64 16
   store double 2.000000e+01, ptr %415, align 8
-  %416 = getelementptr inbounds i8, ptr %114, i64 24
+  %416 = getelementptr inbounds nuw i8, ptr %114, i64 24
   store i8 0, ptr %416, align 8
   %417 = invoke noundef zeroext i1 @_ZN13_SplineTester11SetKeyFrameERKN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameERKNS0_10GfIntervalE(ptr noundef nonnull align 8 dereferenceable(16) %95, ptr noundef nonnull align 8 dereferenceable(72) %102, ptr noundef nonnull align 8 dereferenceable(32) %114)
           to label %418 unwind label %1517
@@ -12498,7 +12498,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit47: ; preds = %_ZN32pxrInt
   store i8 0, ptr %435, align 8
   %436 = getelementptr inbounds nuw i8, ptr %116, i64 16
   store double 0.000000e+00, ptr %436, align 8
-  %437 = getelementptr inbounds i8, ptr %116, i64 24
+  %437 = getelementptr inbounds nuw i8, ptr %116, i64 24
   store i8 0, ptr %437, align 8
   %438 = invoke noundef zeroext i1 @_ZN13_SplineTester11SetKeyFrameERKN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameERKNS0_10GfIntervalE(ptr noundef nonnull align 8 dereferenceable(16) %95, ptr noundef nonnull align 8 dereferenceable(72) %97, ptr noundef nonnull align 8 dereferenceable(32) %116)
           to label %439 unwind label %1517
@@ -12518,7 +12518,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit47: ; preds = %_ZN32pxrInt
   store i8 0, ptr %442, align 8
   %443 = getelementptr inbounds nuw i8, ptr %117, i64 16
   store double 0.000000e+00, ptr %443, align 8
-  %444 = getelementptr inbounds i8, ptr %117, i64 24
+  %444 = getelementptr inbounds nuw i8, ptr %117, i64 24
   store i8 0, ptr %444, align 8
   %445 = invoke noundef zeroext i1 @_ZN13_SplineTester11SetKeyFrameERKN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameERKNS0_10GfIntervalE(ptr noundef nonnull align 8 dereferenceable(16) %95, ptr noundef nonnull align 8 dereferenceable(72) %97, ptr noundef nonnull align 8 dereferenceable(32) %117)
           to label %446 unwind label %1517
@@ -12566,7 +12566,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit47: ; preds = %_ZN32pxrInt
   store i8 0, ptr %463, align 8
   %464 = getelementptr inbounds nuw i8, ptr %119, i64 16
   store double 1.000000e+01, ptr %464, align 8
-  %465 = getelementptr inbounds i8, ptr %119, i64 24
+  %465 = getelementptr inbounds nuw i8, ptr %119, i64 24
   store i8 0, ptr %465, align 8
   %466 = invoke noundef zeroext i1 @_ZN13_SplineTester11SetKeyFrameERKN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameERKNS0_10GfIntervalE(ptr noundef nonnull align 8 dereferenceable(16) %95, ptr noundef nonnull align 8 dereferenceable(72) %97, ptr noundef nonnull align 8 dereferenceable(32) %119)
           to label %467 unwind label %1517
@@ -12586,7 +12586,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit47: ; preds = %_ZN32pxrInt
   store i8 0, ptr %470, align 8
   %471 = getelementptr inbounds nuw i8, ptr %120, i64 16
   store double 1.000000e+01, ptr %471, align 8
-  %472 = getelementptr inbounds i8, ptr %120, i64 24
+  %472 = getelementptr inbounds nuw i8, ptr %120, i64 24
   store i8 0, ptr %472, align 8
   %473 = invoke noundef zeroext i1 @_ZN13_SplineTester11SetKeyFrameERKN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameERKNS0_10GfIntervalE(ptr noundef nonnull align 8 dereferenceable(16) %95, ptr noundef nonnull align 8 dereferenceable(72) %97, ptr noundef nonnull align 8 dereferenceable(32) %120)
           to label %474 unwind label %1517
@@ -12604,7 +12604,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit47: ; preds = %_ZN32pxrInt
   store i8 0, ptr %478, align 8
   %479 = getelementptr inbounds nuw i8, ptr %121, i64 16
   store double 1.000000e+01, ptr %479, align 8
-  %480 = getelementptr inbounds i8, ptr %121, i64 24
+  %480 = getelementptr inbounds nuw i8, ptr %121, i64 24
   store i8 0, ptr %480, align 8
   %481 = invoke noundef zeroext i1 @_ZN13_SplineTester14RemoveKeyFrameEdRKN32pxrInternal_v0_24__pxrReserved__10GfIntervalE(ptr noundef nonnull align 8 dereferenceable(16) %95, double noundef %477, ptr noundef nonnull align 8 dereferenceable(32) %121)
           to label %482 unwind label %1517
@@ -12621,7 +12621,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit47: ; preds = %_ZN32pxrInt
   store i8 0, ptr %484, align 8
   %485 = getelementptr inbounds nuw i8, ptr %122, i64 16
   store double 1.000000e+01, ptr %485, align 8
-  %486 = getelementptr inbounds i8, ptr %122, i64 24
+  %486 = getelementptr inbounds nuw i8, ptr %122, i64 24
   store i8 0, ptr %486, align 8
   %487 = invoke noundef zeroext i1 @_ZN13_SplineTester11SetKeyFrameERKN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameERKNS0_10GfIntervalE(ptr noundef nonnull align 8 dereferenceable(16) %95, ptr noundef nonnull align 8 dereferenceable(72) %97, ptr noundef nonnull align 8 dereferenceable(32) %122)
           to label %488 unwind label %1517
@@ -12638,7 +12638,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit47: ; preds = %_ZN32pxrInt
   store i8 0, ptr %491, align 8
   %492 = getelementptr inbounds nuw i8, ptr %123, i64 16
   store double 1.000000e+01, ptr %492, align 8
-  %493 = getelementptr inbounds i8, ptr %123, i64 24
+  %493 = getelementptr inbounds nuw i8, ptr %123, i64 24
   store i8 0, ptr %493, align 8
   %494 = invoke noundef zeroext i1 @_ZN13_SplineTester14RemoveKeyFrameEdRKN32pxrInternal_v0_24__pxrReserved__10GfIntervalE(ptr noundef nonnull align 8 dereferenceable(16) %95, double noundef %490, ptr noundef nonnull align 8 dereferenceable(32) %123)
           to label %495 unwind label %1517
@@ -12655,7 +12655,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit47: ; preds = %_ZN32pxrInt
   store i8 0, ptr %497, align 8
   %498 = getelementptr inbounds nuw i8, ptr %124, i64 16
   store double 1.000000e+01, ptr %498, align 8
-  %499 = getelementptr inbounds i8, ptr %124, i64 24
+  %499 = getelementptr inbounds nuw i8, ptr %124, i64 24
   store i8 0, ptr %499, align 8
   %500 = invoke noundef zeroext i1 @_ZN13_SplineTester11SetKeyFrameERKN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameERKNS0_10GfIntervalE(ptr noundef nonnull align 8 dereferenceable(16) %95, ptr noundef nonnull align 8 dereferenceable(72) %97, ptr noundef nonnull align 8 dereferenceable(32) %124)
           to label %501 unwind label %1517
@@ -12672,7 +12672,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit47: ; preds = %_ZN32pxrInt
   store i8 0, ptr %504, align 8
   %505 = getelementptr inbounds nuw i8, ptr %125, i64 16
   store double 1.000000e+01, ptr %505, align 8
-  %506 = getelementptr inbounds i8, ptr %125, i64 24
+  %506 = getelementptr inbounds nuw i8, ptr %125, i64 24
   store i8 0, ptr %506, align 8
   %507 = invoke noundef zeroext i1 @_ZN13_SplineTester14RemoveKeyFrameEdRKN32pxrInternal_v0_24__pxrReserved__10GfIntervalE(ptr noundef nonnull align 8 dereferenceable(16) %95, double noundef %503, ptr noundef nonnull align 8 dereferenceable(32) %125)
           to label %508 unwind label %1517
@@ -12689,7 +12689,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit47: ; preds = %_ZN32pxrInt
   store i8 0, ptr %510, align 8
   %511 = getelementptr inbounds nuw i8, ptr %126, i64 16
   store double 1.000000e+01, ptr %511, align 8
-  %512 = getelementptr inbounds i8, ptr %126, i64 24
+  %512 = getelementptr inbounds nuw i8, ptr %126, i64 24
   store i8 0, ptr %512, align 8
   %513 = invoke noundef zeroext i1 @_ZN13_SplineTester11SetKeyFrameERKN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameERKNS0_10GfIntervalE(ptr noundef nonnull align 8 dereferenceable(16) %95, ptr noundef nonnull align 8 dereferenceable(72) %97, ptr noundef nonnull align 8 dereferenceable(32) %126)
           to label %514 unwind label %1517
@@ -12737,7 +12737,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit47: ; preds = %_ZN32pxrInt
   store i8 0, ptr %531, align 8
   %532 = getelementptr inbounds nuw i8, ptr %128, i64 16
   store double 1.000000e+01, ptr %532, align 8
-  %533 = getelementptr inbounds i8, ptr %128, i64 24
+  %533 = getelementptr inbounds nuw i8, ptr %128, i64 24
   store i8 0, ptr %533, align 8
   %534 = invoke noundef zeroext i1 @_ZN13_SplineTester11SetKeyFrameERKN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameERKNS0_10GfIntervalE(ptr noundef nonnull align 8 dereferenceable(16) %95, ptr noundef nonnull align 8 dereferenceable(72) %97, ptr noundef nonnull align 8 dereferenceable(32) %128)
           to label %535 unwind label %1517
@@ -12791,7 +12791,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit47: ; preds = %_ZN32pxrInt
   store i8 0, ptr %554, align 8
   %555 = getelementptr inbounds nuw i8, ptr %130, i64 16
   store double 0.000000e+00, ptr %555, align 8
-  %556 = getelementptr inbounds i8, ptr %130, i64 24
+  %556 = getelementptr inbounds nuw i8, ptr %130, i64 24
   store i8 0, ptr %556, align 8
   %557 = invoke noundef zeroext i1 @_ZN13_SplineTester11SetKeyFrameERKN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameERKNS0_10GfIntervalE(ptr noundef nonnull align 8 dereferenceable(16) %95, ptr noundef nonnull align 8 dereferenceable(72) %97, ptr noundef nonnull align 8 dereferenceable(32) %130)
           to label %558 unwind label %1517
@@ -12839,7 +12839,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit47: ; preds = %_ZN32pxrInt
   store i8 0, ptr %575, align 8
   %576 = getelementptr inbounds nuw i8, ptr %132, i64 16
   store double 0.000000e+00, ptr %576, align 8
-  %577 = getelementptr inbounds i8, ptr %132, i64 24
+  %577 = getelementptr inbounds nuw i8, ptr %132, i64 24
   store i8 1, ptr %577, align 8
   %578 = invoke noundef zeroext i1 @_ZN13_SplineTester11SetKeyFrameERKN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameERKNS0_10GfIntervalE(ptr noundef nonnull align 8 dereferenceable(16) %95, ptr noundef nonnull align 8 dereferenceable(72) %97, ptr noundef nonnull align 8 dereferenceable(32) %132)
           to label %579 unwind label %1517
@@ -12887,7 +12887,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit47: ; preds = %_ZN32pxrInt
   store i8 1, ptr %596, align 8
   %597 = getelementptr inbounds nuw i8, ptr %134, i64 16
   store double 1.000000e+01, ptr %597, align 8
-  %598 = getelementptr inbounds i8, ptr %134, i64 24
+  %598 = getelementptr inbounds nuw i8, ptr %134, i64 24
   store i8 0, ptr %598, align 8
   %599 = invoke noundef zeroext i1 @_ZN13_SplineTester11SetKeyFrameERKN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameERKNS0_10GfIntervalE(ptr noundef nonnull align 8 dereferenceable(16) %95, ptr noundef nonnull align 8 dereferenceable(72) %97, ptr noundef nonnull align 8 dereferenceable(32) %134)
           to label %600 unwind label %1517
@@ -12907,7 +12907,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit47: ; preds = %_ZN32pxrInt
   store i8 0, ptr %603, align 8
   %604 = getelementptr inbounds nuw i8, ptr %135, i64 16
   store double 0.000000e+00, ptr %604, align 8
-  %605 = getelementptr inbounds i8, ptr %135, i64 24
+  %605 = getelementptr inbounds nuw i8, ptr %135, i64 24
   store i8 1, ptr %605, align 8
   %606 = invoke noundef zeroext i1 @_ZN13_SplineTester11SetKeyFrameERKN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameERKNS0_10GfIntervalE(ptr noundef nonnull align 8 dereferenceable(16) %95, ptr noundef nonnull align 8 dereferenceable(72) %97, ptr noundef nonnull align 8 dereferenceable(32) %135)
           to label %607 unwind label %1517
@@ -12927,7 +12927,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit47: ; preds = %_ZN32pxrInt
   store i8 0, ptr %610, align 8
   %611 = getelementptr inbounds nuw i8, ptr %136, i64 16
   store double 1.000000e+01, ptr %611, align 8
-  %612 = getelementptr inbounds i8, ptr %136, i64 24
+  %612 = getelementptr inbounds nuw i8, ptr %136, i64 24
   store i8 0, ptr %612, align 8
   %613 = invoke noundef zeroext i1 @_ZN13_SplineTester11SetKeyFrameERKN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameERKNS0_10GfIntervalE(ptr noundef nonnull align 8 dereferenceable(16) %95, ptr noundef nonnull align 8 dereferenceable(72) %97, ptr noundef nonnull align 8 dereferenceable(32) %136)
           to label %614 unwind label %1517
@@ -12947,7 +12947,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit47: ; preds = %_ZN32pxrInt
   store i8 0, ptr %617, align 8
   %618 = getelementptr inbounds nuw i8, ptr %137, i64 16
   store double 1.000000e+01, ptr %618, align 8
-  %619 = getelementptr inbounds i8, ptr %137, i64 24
+  %619 = getelementptr inbounds nuw i8, ptr %137, i64 24
   store i8 0, ptr %619, align 8
   %620 = invoke noundef zeroext i1 @_ZN13_SplineTester11SetKeyFrameERKN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameERKNS0_10GfIntervalE(ptr noundef nonnull align 8 dereferenceable(16) %95, ptr noundef nonnull align 8 dereferenceable(72) %97, ptr noundef nonnull align 8 dereferenceable(32) %137)
           to label %621 unwind label %1517
@@ -12967,7 +12967,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit47: ; preds = %_ZN32pxrInt
   store i8 0, ptr %624, align 8
   %625 = getelementptr inbounds nuw i8, ptr %138, i64 16
   store double 1.000000e+01, ptr %625, align 8
-  %626 = getelementptr inbounds i8, ptr %138, i64 24
+  %626 = getelementptr inbounds nuw i8, ptr %138, i64 24
   store i8 0, ptr %626, align 8
   %627 = invoke noundef zeroext i1 @_ZN13_SplineTester11SetKeyFrameERKN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameERKNS0_10GfIntervalE(ptr noundef nonnull align 8 dereferenceable(16) %95, ptr noundef nonnull align 8 dereferenceable(72) %97, ptr noundef nonnull align 8 dereferenceable(32) %138)
           to label %628 unwind label %1517
@@ -13015,7 +13015,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit47: ; preds = %_ZN32pxrInt
   store i8 0, ptr %645, align 8
   %646 = getelementptr inbounds nuw i8, ptr %140, i64 16
   store double 1.000000e+01, ptr %646, align 8
-  %647 = getelementptr inbounds i8, ptr %140, i64 24
+  %647 = getelementptr inbounds nuw i8, ptr %140, i64 24
   store i8 0, ptr %647, align 8
   %648 = invoke noundef zeroext i1 @_ZN13_SplineTester11SetKeyFrameERKN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameERKNS0_10GfIntervalE(ptr noundef nonnull align 8 dereferenceable(16) %95, ptr noundef nonnull align 8 dereferenceable(72) %102, ptr noundef nonnull align 8 dereferenceable(32) %140)
           to label %649 unwind label %1517
@@ -13035,7 +13035,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit47: ; preds = %_ZN32pxrInt
   store i8 0, ptr %652, align 8
   %653 = getelementptr inbounds nuw i8, ptr %141, i64 16
   store double 1.000000e+01, ptr %653, align 8
-  %654 = getelementptr inbounds i8, ptr %141, i64 24
+  %654 = getelementptr inbounds nuw i8, ptr %141, i64 24
   store i8 0, ptr %654, align 8
   %655 = invoke noundef zeroext i1 @_ZN13_SplineTester11SetKeyFrameERKN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameERKNS0_10GfIntervalE(ptr noundef nonnull align 8 dereferenceable(16) %95, ptr noundef nonnull align 8 dereferenceable(72) %102, ptr noundef nonnull align 8 dereferenceable(32) %141)
           to label %656 unwind label %1517
@@ -13083,7 +13083,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit47: ; preds = %_ZN32pxrInt
   store i8 0, ptr %673, align 8
   %674 = getelementptr inbounds nuw i8, ptr %143, i64 16
   store double 2.000000e+01, ptr %674, align 8
-  %675 = getelementptr inbounds i8, ptr %143, i64 24
+  %675 = getelementptr inbounds nuw i8, ptr %143, i64 24
   store i8 0, ptr %675, align 8
   %676 = invoke noundef zeroext i1 @_ZN13_SplineTester11SetKeyFrameERKN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameERKNS0_10GfIntervalE(ptr noundef nonnull align 8 dereferenceable(16) %95, ptr noundef nonnull align 8 dereferenceable(72) %102, ptr noundef nonnull align 8 dereferenceable(32) %143)
           to label %677 unwind label %1517
@@ -13103,7 +13103,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit47: ; preds = %_ZN32pxrInt
   store i8 0, ptr %680, align 8
   %681 = getelementptr inbounds nuw i8, ptr %144, i64 16
   store double 2.000000e+01, ptr %681, align 8
-  %682 = getelementptr inbounds i8, ptr %144, i64 24
+  %682 = getelementptr inbounds nuw i8, ptr %144, i64 24
   store i8 0, ptr %682, align 8
   %683 = invoke noundef zeroext i1 @_ZN13_SplineTester11SetKeyFrameERKN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameERKNS0_10GfIntervalE(ptr noundef nonnull align 8 dereferenceable(16) %95, ptr noundef nonnull align 8 dereferenceable(72) %102, ptr noundef nonnull align 8 dereferenceable(32) %144)
           to label %684 unwind label %1517
@@ -13121,7 +13121,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit47: ; preds = %_ZN32pxrInt
   store i8 0, ptr %688, align 8
   %689 = getelementptr inbounds nuw i8, ptr %145, i64 16
   store double 2.000000e+01, ptr %689, align 8
-  %690 = getelementptr inbounds i8, ptr %145, i64 24
+  %690 = getelementptr inbounds nuw i8, ptr %145, i64 24
   store i8 0, ptr %690, align 8
   %691 = invoke noundef zeroext i1 @_ZN13_SplineTester14RemoveKeyFrameEdRKN32pxrInternal_v0_24__pxrReserved__10GfIntervalE(ptr noundef nonnull align 8 dereferenceable(16) %95, double noundef %687, ptr noundef nonnull align 8 dereferenceable(32) %145)
           to label %692 unwind label %1517
@@ -13138,7 +13138,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit47: ; preds = %_ZN32pxrInt
   store i8 0, ptr %694, align 8
   %695 = getelementptr inbounds nuw i8, ptr %146, i64 16
   store double 2.000000e+01, ptr %695, align 8
-  %696 = getelementptr inbounds i8, ptr %146, i64 24
+  %696 = getelementptr inbounds nuw i8, ptr %146, i64 24
   store i8 0, ptr %696, align 8
   %697 = invoke noundef zeroext i1 @_ZN13_SplineTester11SetKeyFrameERKN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameERKNS0_10GfIntervalE(ptr noundef nonnull align 8 dereferenceable(16) %95, ptr noundef nonnull align 8 dereferenceable(72) %102, ptr noundef nonnull align 8 dereferenceable(32) %146)
           to label %698 unwind label %1517
@@ -13155,7 +13155,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit47: ; preds = %_ZN32pxrInt
   store i8 0, ptr %701, align 8
   %702 = getelementptr inbounds nuw i8, ptr %147, i64 16
   store double 2.000000e+01, ptr %702, align 8
-  %703 = getelementptr inbounds i8, ptr %147, i64 24
+  %703 = getelementptr inbounds nuw i8, ptr %147, i64 24
   store i8 0, ptr %703, align 8
   %704 = invoke noundef zeroext i1 @_ZN13_SplineTester14RemoveKeyFrameEdRKN32pxrInternal_v0_24__pxrReserved__10GfIntervalE(ptr noundef nonnull align 8 dereferenceable(16) %95, double noundef %700, ptr noundef nonnull align 8 dereferenceable(32) %147)
           to label %705 unwind label %1517
@@ -13172,7 +13172,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit47: ; preds = %_ZN32pxrInt
   store i8 0, ptr %707, align 8
   %708 = getelementptr inbounds nuw i8, ptr %148, i64 16
   store double 2.000000e+01, ptr %708, align 8
-  %709 = getelementptr inbounds i8, ptr %148, i64 24
+  %709 = getelementptr inbounds nuw i8, ptr %148, i64 24
   store i8 0, ptr %709, align 8
   %710 = invoke noundef zeroext i1 @_ZN13_SplineTester11SetKeyFrameERKN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameERKNS0_10GfIntervalE(ptr noundef nonnull align 8 dereferenceable(16) %95, ptr noundef nonnull align 8 dereferenceable(72) %102, ptr noundef nonnull align 8 dereferenceable(32) %148)
           to label %711 unwind label %1517
@@ -13189,7 +13189,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit47: ; preds = %_ZN32pxrInt
   store i8 0, ptr %714, align 8
   %715 = getelementptr inbounds nuw i8, ptr %149, i64 16
   store double 2.000000e+01, ptr %715, align 8
-  %716 = getelementptr inbounds i8, ptr %149, i64 24
+  %716 = getelementptr inbounds nuw i8, ptr %149, i64 24
   store i8 0, ptr %716, align 8
   %717 = invoke noundef zeroext i1 @_ZN13_SplineTester14RemoveKeyFrameEdRKN32pxrInternal_v0_24__pxrReserved__10GfIntervalE(ptr noundef nonnull align 8 dereferenceable(16) %95, double noundef %713, ptr noundef nonnull align 8 dereferenceable(32) %149)
           to label %718 unwind label %1517
@@ -13206,7 +13206,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit47: ; preds = %_ZN32pxrInt
   store i8 0, ptr %720, align 8
   %721 = getelementptr inbounds nuw i8, ptr %150, i64 16
   store double 2.000000e+01, ptr %721, align 8
-  %722 = getelementptr inbounds i8, ptr %150, i64 24
+  %722 = getelementptr inbounds nuw i8, ptr %150, i64 24
   store i8 0, ptr %722, align 8
   %723 = invoke noundef zeroext i1 @_ZN13_SplineTester11SetKeyFrameERKN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameERKNS0_10GfIntervalE(ptr noundef nonnull align 8 dereferenceable(16) %95, ptr noundef nonnull align 8 dereferenceable(72) %102, ptr noundef nonnull align 8 dereferenceable(32) %150)
           to label %724 unwind label %1517
@@ -13254,7 +13254,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit47: ; preds = %_ZN32pxrInt
   store i8 0, ptr %741, align 8
   %742 = getelementptr inbounds nuw i8, ptr %152, i64 16
   store double 2.000000e+01, ptr %742, align 8
-  %743 = getelementptr inbounds i8, ptr %152, i64 24
+  %743 = getelementptr inbounds nuw i8, ptr %152, i64 24
   store i8 0, ptr %743, align 8
   %744 = invoke noundef zeroext i1 @_ZN13_SplineTester11SetKeyFrameERKN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameERKNS0_10GfIntervalE(ptr noundef nonnull align 8 dereferenceable(16) %95, ptr noundef nonnull align 8 dereferenceable(72) %102, ptr noundef nonnull align 8 dereferenceable(32) %152)
           to label %745 unwind label %1517
@@ -13308,7 +13308,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit47: ; preds = %_ZN32pxrInt
   store i8 0, ptr %764, align 8
   %765 = getelementptr inbounds nuw i8, ptr %154, i64 16
   store double 0.000000e+00, ptr %765, align 8
-  %766 = getelementptr inbounds i8, ptr %154, i64 24
+  %766 = getelementptr inbounds nuw i8, ptr %154, i64 24
   store i8 0, ptr %766, align 8
   %767 = invoke noundef zeroext i1 @_ZN13_SplineTester11SetKeyFrameERKN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameERKNS0_10GfIntervalE(ptr noundef nonnull align 8 dereferenceable(16) %95, ptr noundef nonnull align 8 dereferenceable(72) %102, ptr noundef nonnull align 8 dereferenceable(32) %154)
           to label %768 unwind label %1517
@@ -13356,7 +13356,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit47: ; preds = %_ZN32pxrInt
   store i8 0, ptr %785, align 8
   %786 = getelementptr inbounds nuw i8, ptr %156, i64 16
   store double 1.000000e+01, ptr %786, align 8
-  %787 = getelementptr inbounds i8, ptr %156, i64 24
+  %787 = getelementptr inbounds nuw i8, ptr %156, i64 24
   store i8 1, ptr %787, align 8
   %788 = invoke noundef zeroext i1 @_ZN13_SplineTester11SetKeyFrameERKN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameERKNS0_10GfIntervalE(ptr noundef nonnull align 8 dereferenceable(16) %95, ptr noundef nonnull align 8 dereferenceable(72) %102, ptr noundef nonnull align 8 dereferenceable(32) %156)
           to label %789 unwind label %1517
@@ -13404,7 +13404,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit47: ; preds = %_ZN32pxrInt
   store i8 1, ptr %806, align 8
   %807 = getelementptr inbounds nuw i8, ptr %158, i64 16
   store double 2.000000e+01, ptr %807, align 8
-  %808 = getelementptr inbounds i8, ptr %158, i64 24
+  %808 = getelementptr inbounds nuw i8, ptr %158, i64 24
   store i8 0, ptr %808, align 8
   %809 = invoke noundef zeroext i1 @_ZN13_SplineTester11SetKeyFrameERKN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameERKNS0_10GfIntervalE(ptr noundef nonnull align 8 dereferenceable(16) %95, ptr noundef nonnull align 8 dereferenceable(72) %102, ptr noundef nonnull align 8 dereferenceable(32) %158)
           to label %810 unwind label %1517
@@ -13424,7 +13424,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit47: ; preds = %_ZN32pxrInt
   store i8 0, ptr %813, align 8
   %814 = getelementptr inbounds nuw i8, ptr %159, i64 16
   store double 1.000000e+01, ptr %814, align 8
-  %815 = getelementptr inbounds i8, ptr %159, i64 24
+  %815 = getelementptr inbounds nuw i8, ptr %159, i64 24
   store i8 1, ptr %815, align 8
   %816 = invoke noundef zeroext i1 @_ZN13_SplineTester11SetKeyFrameERKN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameERKNS0_10GfIntervalE(ptr noundef nonnull align 8 dereferenceable(16) %95, ptr noundef nonnull align 8 dereferenceable(72) %102, ptr noundef nonnull align 8 dereferenceable(32) %159)
           to label %817 unwind label %1517
@@ -13444,7 +13444,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit47: ; preds = %_ZN32pxrInt
   store i8 0, ptr %820, align 8
   %821 = getelementptr inbounds nuw i8, ptr %160, i64 16
   store double 2.000000e+01, ptr %821, align 8
-  %822 = getelementptr inbounds i8, ptr %160, i64 24
+  %822 = getelementptr inbounds nuw i8, ptr %160, i64 24
   store i8 0, ptr %822, align 8
   %823 = invoke noundef zeroext i1 @_ZN13_SplineTester11SetKeyFrameERKN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameERKNS0_10GfIntervalE(ptr noundef nonnull align 8 dereferenceable(16) %95, ptr noundef nonnull align 8 dereferenceable(72) %102, ptr noundef nonnull align 8 dereferenceable(32) %160)
           to label %824 unwind label %1517
@@ -13464,7 +13464,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit47: ; preds = %_ZN32pxrInt
   store i8 0, ptr %827, align 8
   %828 = getelementptr inbounds nuw i8, ptr %161, i64 16
   store double 2.000000e+01, ptr %828, align 8
-  %829 = getelementptr inbounds i8, ptr %161, i64 24
+  %829 = getelementptr inbounds nuw i8, ptr %161, i64 24
   store i8 0, ptr %829, align 8
   %830 = invoke noundef zeroext i1 @_ZN13_SplineTester11SetKeyFrameERKN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameERKNS0_10GfIntervalE(ptr noundef nonnull align 8 dereferenceable(16) %95, ptr noundef nonnull align 8 dereferenceable(72) %102, ptr noundef nonnull align 8 dereferenceable(32) %161)
           to label %831 unwind label %1517
@@ -13484,7 +13484,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit47: ; preds = %_ZN32pxrInt
   store i8 0, ptr %834, align 8
   %835 = getelementptr inbounds nuw i8, ptr %162, i64 16
   store double 2.000000e+01, ptr %835, align 8
-  %836 = getelementptr inbounds i8, ptr %162, i64 24
+  %836 = getelementptr inbounds nuw i8, ptr %162, i64 24
   store i8 0, ptr %836, align 8
   %837 = invoke noundef zeroext i1 @_ZN13_SplineTester11SetKeyFrameERKN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameERKNS0_10GfIntervalE(ptr noundef nonnull align 8 dereferenceable(16) %95, ptr noundef nonnull align 8 dereferenceable(72) %102, ptr noundef nonnull align 8 dereferenceable(32) %162)
           to label %838 unwind label %1517
@@ -13532,7 +13532,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit47: ; preds = %_ZN32pxrInt
   store i8 0, ptr %855, align 8
   %856 = getelementptr inbounds nuw i8, ptr %164, i64 16
   store double 2.000000e+01, ptr %856, align 8
-  %857 = getelementptr inbounds i8, ptr %164, i64 24
+  %857 = getelementptr inbounds nuw i8, ptr %164, i64 24
   store i8 0, ptr %857, align 8
   %858 = invoke noundef zeroext i1 @_ZN13_SplineTester11SetKeyFrameERKN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameERKNS0_10GfIntervalE(ptr noundef nonnull align 8 dereferenceable(16) %95, ptr noundef nonnull align 8 dereferenceable(72) %107, ptr noundef nonnull align 8 dereferenceable(32) %164)
           to label %859 unwind label %1517
@@ -13552,7 +13552,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit47: ; preds = %_ZN32pxrInt
   store i8 0, ptr %862, align 8
   %863 = getelementptr inbounds nuw i8, ptr %165, i64 16
   store double 2.000000e+01, ptr %863, align 8
-  %864 = getelementptr inbounds i8, ptr %165, i64 24
+  %864 = getelementptr inbounds nuw i8, ptr %165, i64 24
   store i8 0, ptr %864, align 8
   %865 = invoke noundef zeroext i1 @_ZN13_SplineTester11SetKeyFrameERKN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameERKNS0_10GfIntervalE(ptr noundef nonnull align 8 dereferenceable(16) %95, ptr noundef nonnull align 8 dereferenceable(72) %107, ptr noundef nonnull align 8 dereferenceable(32) %165)
           to label %866 unwind label %1517
@@ -13600,7 +13600,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit47: ; preds = %_ZN32pxrInt
   store i8 0, ptr %883, align 8
   %884 = getelementptr inbounds nuw i8, ptr %167, i64 16
   store double 0.000000e+00, ptr %884, align 8
-  %885 = getelementptr inbounds i8, ptr %167, i64 24
+  %885 = getelementptr inbounds nuw i8, ptr %167, i64 24
   store i8 0, ptr %885, align 8
   %886 = invoke noundef zeroext i1 @_ZN13_SplineTester11SetKeyFrameERKN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameERKNS0_10GfIntervalE(ptr noundef nonnull align 8 dereferenceable(16) %95, ptr noundef nonnull align 8 dereferenceable(72) %107, ptr noundef nonnull align 8 dereferenceable(32) %167)
           to label %887 unwind label %1517
@@ -13620,7 +13620,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit47: ; preds = %_ZN32pxrInt
   store i8 0, ptr %890, align 8
   %891 = getelementptr inbounds nuw i8, ptr %168, i64 16
   store double 0.000000e+00, ptr %891, align 8
-  %892 = getelementptr inbounds i8, ptr %168, i64 24
+  %892 = getelementptr inbounds nuw i8, ptr %168, i64 24
   store i8 0, ptr %892, align 8
   %893 = invoke noundef zeroext i1 @_ZN13_SplineTester11SetKeyFrameERKN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameERKNS0_10GfIntervalE(ptr noundef nonnull align 8 dereferenceable(16) %95, ptr noundef nonnull align 8 dereferenceable(72) %107, ptr noundef nonnull align 8 dereferenceable(32) %168)
           to label %894 unwind label %1517
@@ -13638,7 +13638,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit47: ; preds = %_ZN32pxrInt
   store i8 0, ptr %898, align 8
   %899 = getelementptr inbounds nuw i8, ptr %169, i64 16
   store double 0x7FF0000000000000, ptr %899, align 8
-  %900 = getelementptr inbounds i8, ptr %169, i64 24
+  %900 = getelementptr inbounds nuw i8, ptr %169, i64 24
   store i8 0, ptr %900, align 8
   %901 = invoke noundef zeroext i1 @_ZN13_SplineTester14RemoveKeyFrameEdRKN32pxrInternal_v0_24__pxrReserved__10GfIntervalE(ptr noundef nonnull align 8 dereferenceable(16) %95, double noundef %897, ptr noundef nonnull align 8 dereferenceable(32) %169)
           to label %902 unwind label %1517
@@ -13655,7 +13655,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit47: ; preds = %_ZN32pxrInt
   store i8 0, ptr %904, align 8
   %905 = getelementptr inbounds nuw i8, ptr %170, i64 16
   store double 0x7FF0000000000000, ptr %905, align 8
-  %906 = getelementptr inbounds i8, ptr %170, i64 24
+  %906 = getelementptr inbounds nuw i8, ptr %170, i64 24
   store i8 0, ptr %906, align 8
   %907 = invoke noundef zeroext i1 @_ZN13_SplineTester11SetKeyFrameERKN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameERKNS0_10GfIntervalE(ptr noundef nonnull align 8 dereferenceable(16) %95, ptr noundef nonnull align 8 dereferenceable(72) %107, ptr noundef nonnull align 8 dereferenceable(32) %170)
           to label %908 unwind label %1517
@@ -13672,7 +13672,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit47: ; preds = %_ZN32pxrInt
   store i8 0, ptr %911, align 8
   %912 = getelementptr inbounds nuw i8, ptr %171, i64 16
   store double 0x7FF0000000000000, ptr %912, align 8
-  %913 = getelementptr inbounds i8, ptr %171, i64 24
+  %913 = getelementptr inbounds nuw i8, ptr %171, i64 24
   store i8 0, ptr %913, align 8
   %914 = invoke noundef zeroext i1 @_ZN13_SplineTester14RemoveKeyFrameEdRKN32pxrInternal_v0_24__pxrReserved__10GfIntervalE(ptr noundef nonnull align 8 dereferenceable(16) %95, double noundef %910, ptr noundef nonnull align 8 dereferenceable(32) %171)
           to label %915 unwind label %1517
@@ -13689,7 +13689,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit47: ; preds = %_ZN32pxrInt
   store i8 0, ptr %917, align 8
   %918 = getelementptr inbounds nuw i8, ptr %172, i64 16
   store double 0x7FF0000000000000, ptr %918, align 8
-  %919 = getelementptr inbounds i8, ptr %172, i64 24
+  %919 = getelementptr inbounds nuw i8, ptr %172, i64 24
   store i8 0, ptr %919, align 8
   %920 = invoke noundef zeroext i1 @_ZN13_SplineTester11SetKeyFrameERKN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameERKNS0_10GfIntervalE(ptr noundef nonnull align 8 dereferenceable(16) %95, ptr noundef nonnull align 8 dereferenceable(72) %107, ptr noundef nonnull align 8 dereferenceable(32) %172)
           to label %921 unwind label %1517
@@ -13706,7 +13706,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit47: ; preds = %_ZN32pxrInt
   store i8 0, ptr %924, align 8
   %925 = getelementptr inbounds nuw i8, ptr %173, i64 16
   store double 0x7FF0000000000000, ptr %925, align 8
-  %926 = getelementptr inbounds i8, ptr %173, i64 24
+  %926 = getelementptr inbounds nuw i8, ptr %173, i64 24
   store i8 0, ptr %926, align 8
   %927 = invoke noundef zeroext i1 @_ZN13_SplineTester14RemoveKeyFrameEdRKN32pxrInternal_v0_24__pxrReserved__10GfIntervalE(ptr noundef nonnull align 8 dereferenceable(16) %95, double noundef %923, ptr noundef nonnull align 8 dereferenceable(32) %173)
           to label %928 unwind label %1517
@@ -13723,7 +13723,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit47: ; preds = %_ZN32pxrInt
   store i8 0, ptr %930, align 8
   %931 = getelementptr inbounds nuw i8, ptr %174, i64 16
   store double 0x7FF0000000000000, ptr %931, align 8
-  %932 = getelementptr inbounds i8, ptr %174, i64 24
+  %932 = getelementptr inbounds nuw i8, ptr %174, i64 24
   store i8 0, ptr %932, align 8
   %933 = invoke noundef zeroext i1 @_ZN13_SplineTester11SetKeyFrameERKN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameERKNS0_10GfIntervalE(ptr noundef nonnull align 8 dereferenceable(16) %95, ptr noundef nonnull align 8 dereferenceable(72) %107, ptr noundef nonnull align 8 dereferenceable(32) %174)
           to label %934 unwind label %1517
@@ -13771,7 +13771,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit47: ; preds = %_ZN32pxrInt
   store i8 0, ptr %951, align 8
   %952 = getelementptr inbounds nuw i8, ptr %176, i64 16
   store double 0x7FF0000000000000, ptr %952, align 8
-  %953 = getelementptr inbounds i8, ptr %176, i64 24
+  %953 = getelementptr inbounds nuw i8, ptr %176, i64 24
   store i8 0, ptr %953, align 8
   %954 = invoke noundef zeroext i1 @_ZN13_SplineTester11SetKeyFrameERKN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameERKNS0_10GfIntervalE(ptr noundef nonnull align 8 dereferenceable(16) %95, ptr noundef nonnull align 8 dereferenceable(72) %107, ptr noundef nonnull align 8 dereferenceable(32) %176)
           to label %955 unwind label %1517
@@ -13825,7 +13825,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit47: ; preds = %_ZN32pxrInt
   store i8 0, ptr %974, align 8
   %975 = getelementptr inbounds nuw i8, ptr %178, i64 16
   store double 0.000000e+00, ptr %975, align 8
-  %976 = getelementptr inbounds i8, ptr %178, i64 24
+  %976 = getelementptr inbounds nuw i8, ptr %178, i64 24
   store i8 0, ptr %976, align 8
   %977 = invoke noundef zeroext i1 @_ZN13_SplineTester11SetKeyFrameERKN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameERKNS0_10GfIntervalE(ptr noundef nonnull align 8 dereferenceable(16) %95, ptr noundef nonnull align 8 dereferenceable(72) %107, ptr noundef nonnull align 8 dereferenceable(32) %178)
           to label %978 unwind label %1517
@@ -13873,7 +13873,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit47: ; preds = %_ZN32pxrInt
   store i8 0, ptr %995, align 8
   %996 = getelementptr inbounds nuw i8, ptr %180, i64 16
   store double 2.000000e+01, ptr %996, align 8
-  %997 = getelementptr inbounds i8, ptr %180, i64 24
+  %997 = getelementptr inbounds nuw i8, ptr %180, i64 24
   store i8 1, ptr %997, align 8
   %998 = invoke noundef zeroext i1 @_ZN13_SplineTester11SetKeyFrameERKN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameERKNS0_10GfIntervalE(ptr noundef nonnull align 8 dereferenceable(16) %95, ptr noundef nonnull align 8 dereferenceable(72) %107, ptr noundef nonnull align 8 dereferenceable(32) %180)
           to label %999 unwind label %1517
@@ -13921,7 +13921,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit47: ; preds = %_ZN32pxrInt
   store i8 1, ptr %1016, align 8
   %1017 = getelementptr inbounds nuw i8, ptr %182, i64 16
   store double 0x7FF0000000000000, ptr %1017, align 8
-  %1018 = getelementptr inbounds i8, ptr %182, i64 24
+  %1018 = getelementptr inbounds nuw i8, ptr %182, i64 24
   store i8 0, ptr %1018, align 8
   %1019 = invoke noundef zeroext i1 @_ZN13_SplineTester11SetKeyFrameERKN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameERKNS0_10GfIntervalE(ptr noundef nonnull align 8 dereferenceable(16) %95, ptr noundef nonnull align 8 dereferenceable(72) %107, ptr noundef nonnull align 8 dereferenceable(32) %182)
           to label %1020 unwind label %1517
@@ -13941,7 +13941,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit47: ; preds = %_ZN32pxrInt
   store i8 0, ptr %1023, align 8
   %1024 = getelementptr inbounds nuw i8, ptr %183, i64 16
   store double 2.000000e+01, ptr %1024, align 8
-  %1025 = getelementptr inbounds i8, ptr %183, i64 24
+  %1025 = getelementptr inbounds nuw i8, ptr %183, i64 24
   store i8 1, ptr %1025, align 8
   %1026 = invoke noundef zeroext i1 @_ZN13_SplineTester11SetKeyFrameERKN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameERKNS0_10GfIntervalE(ptr noundef nonnull align 8 dereferenceable(16) %95, ptr noundef nonnull align 8 dereferenceable(72) %107, ptr noundef nonnull align 8 dereferenceable(32) %183)
           to label %1027 unwind label %1517
@@ -13961,7 +13961,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit47: ; preds = %_ZN32pxrInt
   store i8 0, ptr %1030, align 8
   %1031 = getelementptr inbounds nuw i8, ptr %184, i64 16
   store double 2.000000e+01, ptr %1031, align 8
-  %1032 = getelementptr inbounds i8, ptr %184, i64 24
+  %1032 = getelementptr inbounds nuw i8, ptr %184, i64 24
   store i8 0, ptr %1032, align 8
   %1033 = invoke noundef zeroext i1 @_ZN13_SplineTester11SetKeyFrameERKN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameERKNS0_10GfIntervalE(ptr noundef nonnull align 8 dereferenceable(16) %95, ptr noundef nonnull align 8 dereferenceable(72) %107, ptr noundef nonnull align 8 dereferenceable(32) %184)
           to label %1034 unwind label %1517
@@ -13981,7 +13981,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit47: ; preds = %_ZN32pxrInt
   store i8 0, ptr %1037, align 8
   %1038 = getelementptr inbounds nuw i8, ptr %185, i64 16
   store double 2.000000e+01, ptr %1038, align 8
-  %1039 = getelementptr inbounds i8, ptr %185, i64 24
+  %1039 = getelementptr inbounds nuw i8, ptr %185, i64 24
   store i8 0, ptr %1039, align 8
   %1040 = invoke noundef zeroext i1 @_ZN13_SplineTester11SetKeyFrameERKN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameERKNS0_10GfIntervalE(ptr noundef nonnull align 8 dereferenceable(16) %95, ptr noundef nonnull align 8 dereferenceable(72) %107, ptr noundef nonnull align 8 dereferenceable(32) %185)
           to label %1041 unwind label %1517
@@ -14001,7 +14001,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit47: ; preds = %_ZN32pxrInt
   store i8 0, ptr %1044, align 8
   %1045 = getelementptr inbounds nuw i8, ptr %186, i64 16
   store double 2.000000e+01, ptr %1045, align 8
-  %1046 = getelementptr inbounds i8, ptr %186, i64 24
+  %1046 = getelementptr inbounds nuw i8, ptr %186, i64 24
   store i8 0, ptr %1046, align 8
   %1047 = invoke noundef zeroext i1 @_ZN13_SplineTester11SetKeyFrameERKN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameERKNS0_10GfIntervalE(ptr noundef nonnull align 8 dereferenceable(16) %95, ptr noundef nonnull align 8 dereferenceable(72) %107, ptr noundef nonnull align 8 dereferenceable(32) %186)
           to label %1048 unwind label %1517
@@ -14053,7 +14053,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit47: ; preds = %_ZN32pxrInt
   store i8 0, ptr %1066, align 8
   %1067 = getelementptr inbounds nuw i8, ptr %188, i64 16
   store double 0.000000e+00, ptr %1067, align 8
-  %1068 = getelementptr inbounds i8, ptr %188, i64 24
+  %1068 = getelementptr inbounds nuw i8, ptr %188, i64 24
   store i8 0, ptr %1068, align 8
   %1069 = invoke noundef zeroext i1 @_ZN13_SplineTester11SetKeyFrameERKN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameERKNS0_10GfIntervalE(ptr noundef nonnull align 8 dereferenceable(16) %95, ptr noundef nonnull align 8 dereferenceable(72) %97, ptr noundef nonnull align 8 dereferenceable(32) %188)
           to label %1070 unwind label %1517
@@ -14073,7 +14073,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit47: ; preds = %_ZN32pxrInt
   store i8 0, ptr %1073, align 8
   %1074 = getelementptr inbounds nuw i8, ptr %189, i64 16
   store double 0.000000e+00, ptr %1074, align 8
-  %1075 = getelementptr inbounds i8, ptr %189, i64 24
+  %1075 = getelementptr inbounds nuw i8, ptr %189, i64 24
   store i8 0, ptr %1075, align 8
   %1076 = invoke noundef zeroext i1 @_ZN13_SplineTester11SetKeyFrameERKN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameERKNS0_10GfIntervalE(ptr noundef nonnull align 8 dereferenceable(16) %95, ptr noundef nonnull align 8 dereferenceable(72) %97, ptr noundef nonnull align 8 dereferenceable(32) %189)
           to label %1077 unwind label %1517
@@ -14121,7 +14121,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit47: ; preds = %_ZN32pxrInt
   store i8 0, ptr %1094, align 8
   %1095 = getelementptr inbounds nuw i8, ptr %191, i64 16
   store double 1.000000e+01, ptr %1095, align 8
-  %1096 = getelementptr inbounds i8, ptr %191, i64 24
+  %1096 = getelementptr inbounds nuw i8, ptr %191, i64 24
   store i8 0, ptr %1096, align 8
   %1097 = invoke noundef zeroext i1 @_ZN13_SplineTester11SetKeyFrameERKN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameERKNS0_10GfIntervalE(ptr noundef nonnull align 8 dereferenceable(16) %95, ptr noundef nonnull align 8 dereferenceable(72) %97, ptr noundef nonnull align 8 dereferenceable(32) %191)
           to label %1098 unwind label %1517
@@ -14141,7 +14141,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit47: ; preds = %_ZN32pxrInt
   store i8 0, ptr %1101, align 8
   %1102 = getelementptr inbounds nuw i8, ptr %192, i64 16
   store double 1.000000e+01, ptr %1102, align 8
-  %1103 = getelementptr inbounds i8, ptr %192, i64 24
+  %1103 = getelementptr inbounds nuw i8, ptr %192, i64 24
   store i8 0, ptr %1103, align 8
   %1104 = invoke noundef zeroext i1 @_ZN13_SplineTester11SetKeyFrameERKN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameERKNS0_10GfIntervalE(ptr noundef nonnull align 8 dereferenceable(16) %95, ptr noundef nonnull align 8 dereferenceable(72) %97, ptr noundef nonnull align 8 dereferenceable(32) %192)
           to label %1105 unwind label %1517
@@ -14158,7 +14158,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit47: ; preds = %_ZN32pxrInt
   store i8 0, ptr %1108, align 8
   %1109 = getelementptr inbounds nuw i8, ptr %193, i64 16
   store double 1.000000e+01, ptr %1109, align 8
-  %1110 = getelementptr inbounds i8, ptr %193, i64 24
+  %1110 = getelementptr inbounds nuw i8, ptr %193, i64 24
   store i8 0, ptr %1110, align 8
   %1111 = invoke noundef zeroext i1 @_ZN13_SplineTester14RemoveKeyFrameEdRKN32pxrInternal_v0_24__pxrReserved__10GfIntervalE(ptr noundef nonnull align 8 dereferenceable(16) %95, double noundef %1107, ptr noundef nonnull align 8 dereferenceable(32) %193)
           to label %1112 unwind label %1517
@@ -14175,7 +14175,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit47: ; preds = %_ZN32pxrInt
   store i8 0, ptr %1114, align 8
   %1115 = getelementptr inbounds nuw i8, ptr %194, i64 16
   store double 1.000000e+01, ptr %1115, align 8
-  %1116 = getelementptr inbounds i8, ptr %194, i64 24
+  %1116 = getelementptr inbounds nuw i8, ptr %194, i64 24
   store i8 0, ptr %1116, align 8
   %1117 = invoke noundef zeroext i1 @_ZN13_SplineTester11SetKeyFrameERKN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameERKNS0_10GfIntervalE(ptr noundef nonnull align 8 dereferenceable(16) %95, ptr noundef nonnull align 8 dereferenceable(72) %97, ptr noundef nonnull align 8 dereferenceable(32) %194)
           to label %1118 unwind label %1517
@@ -14192,7 +14192,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit47: ; preds = %_ZN32pxrInt
   store i8 0, ptr %1121, align 8
   %1122 = getelementptr inbounds nuw i8, ptr %195, i64 16
   store double 1.000000e+01, ptr %1122, align 8
-  %1123 = getelementptr inbounds i8, ptr %195, i64 24
+  %1123 = getelementptr inbounds nuw i8, ptr %195, i64 24
   store i8 0, ptr %1123, align 8
   %1124 = invoke noundef zeroext i1 @_ZN13_SplineTester14RemoveKeyFrameEdRKN32pxrInternal_v0_24__pxrReserved__10GfIntervalE(ptr noundef nonnull align 8 dereferenceable(16) %95, double noundef %1120, ptr noundef nonnull align 8 dereferenceable(32) %195)
           to label %1125 unwind label %1517
@@ -14209,7 +14209,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit47: ; preds = %_ZN32pxrInt
   store i8 0, ptr %1127, align 8
   %1128 = getelementptr inbounds nuw i8, ptr %196, i64 16
   store double 1.000000e+01, ptr %1128, align 8
-  %1129 = getelementptr inbounds i8, ptr %196, i64 24
+  %1129 = getelementptr inbounds nuw i8, ptr %196, i64 24
   store i8 0, ptr %1129, align 8
   %1130 = invoke noundef zeroext i1 @_ZN13_SplineTester11SetKeyFrameERKN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameERKNS0_10GfIntervalE(ptr noundef nonnull align 8 dereferenceable(16) %95, ptr noundef nonnull align 8 dereferenceable(72) %97, ptr noundef nonnull align 8 dereferenceable(32) %196)
           to label %1131 unwind label %1517
@@ -14226,7 +14226,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit47: ; preds = %_ZN32pxrInt
   store i8 0, ptr %1134, align 8
   %1135 = getelementptr inbounds nuw i8, ptr %197, i64 16
   store double 1.000000e+01, ptr %1135, align 8
-  %1136 = getelementptr inbounds i8, ptr %197, i64 24
+  %1136 = getelementptr inbounds nuw i8, ptr %197, i64 24
   store i8 0, ptr %1136, align 8
   %1137 = invoke noundef zeroext i1 @_ZN13_SplineTester14RemoveKeyFrameEdRKN32pxrInternal_v0_24__pxrReserved__10GfIntervalE(ptr noundef nonnull align 8 dereferenceable(16) %95, double noundef %1133, ptr noundef nonnull align 8 dereferenceable(32) %197)
           to label %1138 unwind label %1517
@@ -14243,7 +14243,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit47: ; preds = %_ZN32pxrInt
   store i8 0, ptr %1140, align 8
   %1141 = getelementptr inbounds nuw i8, ptr %198, i64 16
   store double 1.000000e+01, ptr %1141, align 8
-  %1142 = getelementptr inbounds i8, ptr %198, i64 24
+  %1142 = getelementptr inbounds nuw i8, ptr %198, i64 24
   store i8 0, ptr %1142, align 8
   %1143 = invoke noundef zeroext i1 @_ZN13_SplineTester11SetKeyFrameERKN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameERKNS0_10GfIntervalE(ptr noundef nonnull align 8 dereferenceable(16) %95, ptr noundef nonnull align 8 dereferenceable(72) %97, ptr noundef nonnull align 8 dereferenceable(32) %198)
           to label %1144 unwind label %1517
@@ -14291,7 +14291,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit47: ; preds = %_ZN32pxrInt
   store i8 0, ptr %1161, align 8
   %1162 = getelementptr inbounds nuw i8, ptr %200, i64 16
   store double 1.000000e+01, ptr %1162, align 8
-  %1163 = getelementptr inbounds i8, ptr %200, i64 24
+  %1163 = getelementptr inbounds nuw i8, ptr %200, i64 24
   store i8 0, ptr %1163, align 8
   %1164 = invoke noundef zeroext i1 @_ZN13_SplineTester11SetKeyFrameERKN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameERKNS0_10GfIntervalE(ptr noundef nonnull align 8 dereferenceable(16) %95, ptr noundef nonnull align 8 dereferenceable(72) %97, ptr noundef nonnull align 8 dereferenceable(32) %200)
           to label %1165 unwind label %1517
@@ -14345,7 +14345,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit47: ; preds = %_ZN32pxrInt
   store i8 0, ptr %1184, align 8
   %1185 = getelementptr inbounds nuw i8, ptr %202, i64 16
   store double 0.000000e+00, ptr %1185, align 8
-  %1186 = getelementptr inbounds i8, ptr %202, i64 24
+  %1186 = getelementptr inbounds nuw i8, ptr %202, i64 24
   store i8 0, ptr %1186, align 8
   %1187 = invoke noundef zeroext i1 @_ZN13_SplineTester11SetKeyFrameERKN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameERKNS0_10GfIntervalE(ptr noundef nonnull align 8 dereferenceable(16) %95, ptr noundef nonnull align 8 dereferenceable(72) %97, ptr noundef nonnull align 8 dereferenceable(32) %202)
           to label %1188 unwind label %1517
@@ -14393,7 +14393,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit47: ; preds = %_ZN32pxrInt
   store i8 0, ptr %1205, align 8
   %1206 = getelementptr inbounds nuw i8, ptr %204, i64 16
   store double 0.000000e+00, ptr %1206, align 8
-  %1207 = getelementptr inbounds i8, ptr %204, i64 24
+  %1207 = getelementptr inbounds nuw i8, ptr %204, i64 24
   store i8 1, ptr %1207, align 8
   %1208 = invoke noundef zeroext i1 @_ZN13_SplineTester11SetKeyFrameERKN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameERKNS0_10GfIntervalE(ptr noundef nonnull align 8 dereferenceable(16) %95, ptr noundef nonnull align 8 dereferenceable(72) %97, ptr noundef nonnull align 8 dereferenceable(32) %204)
           to label %1209 unwind label %1517
@@ -14441,7 +14441,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit47: ; preds = %_ZN32pxrInt
   store i8 1, ptr %1226, align 8
   %1227 = getelementptr inbounds nuw i8, ptr %206, i64 16
   store double 1.000000e+01, ptr %1227, align 8
-  %1228 = getelementptr inbounds i8, ptr %206, i64 24
+  %1228 = getelementptr inbounds nuw i8, ptr %206, i64 24
   store i8 0, ptr %1228, align 8
   %1229 = invoke noundef zeroext i1 @_ZN13_SplineTester11SetKeyFrameERKN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameERKNS0_10GfIntervalE(ptr noundef nonnull align 8 dereferenceable(16) %95, ptr noundef nonnull align 8 dereferenceable(72) %97, ptr noundef nonnull align 8 dereferenceable(32) %206)
           to label %1230 unwind label %1517
@@ -14461,7 +14461,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit47: ; preds = %_ZN32pxrInt
   store i8 0, ptr %1233, align 8
   %1234 = getelementptr inbounds nuw i8, ptr %207, i64 16
   store double 0.000000e+00, ptr %1234, align 8
-  %1235 = getelementptr inbounds i8, ptr %207, i64 24
+  %1235 = getelementptr inbounds nuw i8, ptr %207, i64 24
   store i8 1, ptr %1235, align 8
   %1236 = invoke noundef zeroext i1 @_ZN13_SplineTester11SetKeyFrameERKN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameERKNS0_10GfIntervalE(ptr noundef nonnull align 8 dereferenceable(16) %95, ptr noundef nonnull align 8 dereferenceable(72) %97, ptr noundef nonnull align 8 dereferenceable(32) %207)
           to label %1237 unwind label %1517
@@ -14481,7 +14481,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit47: ; preds = %_ZN32pxrInt
   store i8 0, ptr %1240, align 8
   %1241 = getelementptr inbounds nuw i8, ptr %208, i64 16
   store double 1.000000e+01, ptr %1241, align 8
-  %1242 = getelementptr inbounds i8, ptr %208, i64 24
+  %1242 = getelementptr inbounds nuw i8, ptr %208, i64 24
   store i8 0, ptr %1242, align 8
   %1243 = invoke noundef zeroext i1 @_ZN13_SplineTester11SetKeyFrameERKN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameERKNS0_10GfIntervalE(ptr noundef nonnull align 8 dereferenceable(16) %95, ptr noundef nonnull align 8 dereferenceable(72) %97, ptr noundef nonnull align 8 dereferenceable(32) %208)
           to label %1244 unwind label %1517
@@ -14501,7 +14501,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit47: ; preds = %_ZN32pxrInt
   store i8 0, ptr %1247, align 8
   %1248 = getelementptr inbounds nuw i8, ptr %209, i64 16
   store double 1.000000e+01, ptr %1248, align 8
-  %1249 = getelementptr inbounds i8, ptr %209, i64 24
+  %1249 = getelementptr inbounds nuw i8, ptr %209, i64 24
   store i8 0, ptr %1249, align 8
   %1250 = invoke noundef zeroext i1 @_ZN13_SplineTester11SetKeyFrameERKN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameERKNS0_10GfIntervalE(ptr noundef nonnull align 8 dereferenceable(16) %95, ptr noundef nonnull align 8 dereferenceable(72) %97, ptr noundef nonnull align 8 dereferenceable(32) %209)
           to label %1251 unwind label %1517
@@ -14521,7 +14521,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit47: ; preds = %_ZN32pxrInt
   store i8 0, ptr %1254, align 8
   %1255 = getelementptr inbounds nuw i8, ptr %210, i64 16
   store double 1.000000e+01, ptr %1255, align 8
-  %1256 = getelementptr inbounds i8, ptr %210, i64 24
+  %1256 = getelementptr inbounds nuw i8, ptr %210, i64 24
   store i8 0, ptr %1256, align 8
   %1257 = invoke noundef zeroext i1 @_ZN13_SplineTester11SetKeyFrameERKN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameERKNS0_10GfIntervalE(ptr noundef nonnull align 8 dereferenceable(16) %95, ptr noundef nonnull align 8 dereferenceable(72) %97, ptr noundef nonnull align 8 dereferenceable(32) %210)
           to label %1258 unwind label %1517
@@ -14573,7 +14573,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit47: ; preds = %_ZN32pxrInt
   store i8 0, ptr %1276, align 8
   %1277 = getelementptr inbounds nuw i8, ptr %212, i64 16
   store double 2.000000e+01, ptr %1277, align 8
-  %1278 = getelementptr inbounds i8, ptr %212, i64 24
+  %1278 = getelementptr inbounds nuw i8, ptr %212, i64 24
   store i8 0, ptr %1278, align 8
   %1279 = invoke noundef zeroext i1 @_ZN13_SplineTester11SetKeyFrameERKN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameERKNS0_10GfIntervalE(ptr noundef nonnull align 8 dereferenceable(16) %95, ptr noundef nonnull align 8 dereferenceable(72) %107, ptr noundef nonnull align 8 dereferenceable(32) %212)
           to label %1280 unwind label %1517
@@ -14593,7 +14593,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit47: ; preds = %_ZN32pxrInt
   store i8 0, ptr %1283, align 8
   %1284 = getelementptr inbounds nuw i8, ptr %213, i64 16
   store double 2.000000e+01, ptr %1284, align 8
-  %1285 = getelementptr inbounds i8, ptr %213, i64 24
+  %1285 = getelementptr inbounds nuw i8, ptr %213, i64 24
   store i8 0, ptr %1285, align 8
   %1286 = invoke noundef zeroext i1 @_ZN13_SplineTester11SetKeyFrameERKN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameERKNS0_10GfIntervalE(ptr noundef nonnull align 8 dereferenceable(16) %95, ptr noundef nonnull align 8 dereferenceable(72) %107, ptr noundef nonnull align 8 dereferenceable(32) %213)
           to label %1287 unwind label %1517
@@ -14641,7 +14641,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit47: ; preds = %_ZN32pxrInt
   store i8 0, ptr %1304, align 8
   %1305 = getelementptr inbounds nuw i8, ptr %215, i64 16
   store double 0x7FF0000000000000, ptr %1305, align 8
-  %1306 = getelementptr inbounds i8, ptr %215, i64 24
+  %1306 = getelementptr inbounds nuw i8, ptr %215, i64 24
   store i8 0, ptr %1306, align 8
   %1307 = invoke noundef zeroext i1 @_ZN13_SplineTester11SetKeyFrameERKN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameERKNS0_10GfIntervalE(ptr noundef nonnull align 8 dereferenceable(16) %95, ptr noundef nonnull align 8 dereferenceable(72) %107, ptr noundef nonnull align 8 dereferenceable(32) %215)
           to label %1308 unwind label %1517
@@ -14661,7 +14661,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit47: ; preds = %_ZN32pxrInt
   store i8 0, ptr %1311, align 8
   %1312 = getelementptr inbounds nuw i8, ptr %216, i64 16
   store double 0.000000e+00, ptr %1312, align 8
-  %1313 = getelementptr inbounds i8, ptr %216, i64 24
+  %1313 = getelementptr inbounds nuw i8, ptr %216, i64 24
   store i8 0, ptr %1313, align 8
   %1314 = invoke noundef zeroext i1 @_ZN13_SplineTester11SetKeyFrameERKN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameERKNS0_10GfIntervalE(ptr noundef nonnull align 8 dereferenceable(16) %95, ptr noundef nonnull align 8 dereferenceable(72) %107, ptr noundef nonnull align 8 dereferenceable(32) %216)
           to label %1315 unwind label %1517
@@ -14678,7 +14678,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit47: ; preds = %_ZN32pxrInt
   store i8 0, ptr %1318, align 8
   %1319 = getelementptr inbounds nuw i8, ptr %217, i64 16
   store double 0x7FF0000000000000, ptr %1319, align 8
-  %1320 = getelementptr inbounds i8, ptr %217, i64 24
+  %1320 = getelementptr inbounds nuw i8, ptr %217, i64 24
   store i8 0, ptr %1320, align 8
   %1321 = invoke noundef zeroext i1 @_ZN13_SplineTester14RemoveKeyFrameEdRKN32pxrInternal_v0_24__pxrReserved__10GfIntervalE(ptr noundef nonnull align 8 dereferenceable(16) %95, double noundef %1317, ptr noundef nonnull align 8 dereferenceable(32) %217)
           to label %1322 unwind label %1517
@@ -14695,7 +14695,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit47: ; preds = %_ZN32pxrInt
   store i8 0, ptr %1324, align 8
   %1325 = getelementptr inbounds nuw i8, ptr %218, i64 16
   store double 0x7FF0000000000000, ptr %1325, align 8
-  %1326 = getelementptr inbounds i8, ptr %218, i64 24
+  %1326 = getelementptr inbounds nuw i8, ptr %218, i64 24
   store i8 0, ptr %1326, align 8
   %1327 = invoke noundef zeroext i1 @_ZN13_SplineTester11SetKeyFrameERKN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameERKNS0_10GfIntervalE(ptr noundef nonnull align 8 dereferenceable(16) %95, ptr noundef nonnull align 8 dereferenceable(72) %107, ptr noundef nonnull align 8 dereferenceable(32) %218)
           to label %1328 unwind label %1517
@@ -14712,7 +14712,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit47: ; preds = %_ZN32pxrInt
   store i8 0, ptr %1331, align 8
   %1332 = getelementptr inbounds nuw i8, ptr %219, i64 16
   store double 0x7FF0000000000000, ptr %1332, align 8
-  %1333 = getelementptr inbounds i8, ptr %219, i64 24
+  %1333 = getelementptr inbounds nuw i8, ptr %219, i64 24
   store i8 0, ptr %1333, align 8
   %1334 = invoke noundef zeroext i1 @_ZN13_SplineTester14RemoveKeyFrameEdRKN32pxrInternal_v0_24__pxrReserved__10GfIntervalE(ptr noundef nonnull align 8 dereferenceable(16) %95, double noundef %1330, ptr noundef nonnull align 8 dereferenceable(32) %219)
           to label %1335 unwind label %1517
@@ -14729,7 +14729,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit47: ; preds = %_ZN32pxrInt
   store i8 0, ptr %1337, align 8
   %1338 = getelementptr inbounds nuw i8, ptr %220, i64 16
   store double 0x7FF0000000000000, ptr %1338, align 8
-  %1339 = getelementptr inbounds i8, ptr %220, i64 24
+  %1339 = getelementptr inbounds nuw i8, ptr %220, i64 24
   store i8 0, ptr %1339, align 8
   %1340 = invoke noundef zeroext i1 @_ZN13_SplineTester11SetKeyFrameERKN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameERKNS0_10GfIntervalE(ptr noundef nonnull align 8 dereferenceable(16) %95, ptr noundef nonnull align 8 dereferenceable(72) %107, ptr noundef nonnull align 8 dereferenceable(32) %220)
           to label %1341 unwind label %1517
@@ -14746,7 +14746,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit47: ; preds = %_ZN32pxrInt
   store i8 0, ptr %1344, align 8
   %1345 = getelementptr inbounds nuw i8, ptr %221, i64 16
   store double 0x7FF0000000000000, ptr %1345, align 8
-  %1346 = getelementptr inbounds i8, ptr %221, i64 24
+  %1346 = getelementptr inbounds nuw i8, ptr %221, i64 24
   store i8 0, ptr %1346, align 8
   %1347 = invoke noundef zeroext i1 @_ZN13_SplineTester14RemoveKeyFrameEdRKN32pxrInternal_v0_24__pxrReserved__10GfIntervalE(ptr noundef nonnull align 8 dereferenceable(16) %95, double noundef %1343, ptr noundef nonnull align 8 dereferenceable(32) %221)
           to label %1348 unwind label %1517
@@ -14763,7 +14763,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit47: ; preds = %_ZN32pxrInt
   store i8 0, ptr %1350, align 8
   %1351 = getelementptr inbounds nuw i8, ptr %222, i64 16
   store double 0x7FF0000000000000, ptr %1351, align 8
-  %1352 = getelementptr inbounds i8, ptr %222, i64 24
+  %1352 = getelementptr inbounds nuw i8, ptr %222, i64 24
   store i8 0, ptr %1352, align 8
   %1353 = invoke noundef zeroext i1 @_ZN13_SplineTester11SetKeyFrameERKN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameERKNS0_10GfIntervalE(ptr noundef nonnull align 8 dereferenceable(16) %95, ptr noundef nonnull align 8 dereferenceable(72) %107, ptr noundef nonnull align 8 dereferenceable(32) %222)
           to label %1354 unwind label %1517
@@ -14811,7 +14811,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit47: ; preds = %_ZN32pxrInt
   store i8 0, ptr %1371, align 8
   %1372 = getelementptr inbounds nuw i8, ptr %224, i64 16
   store double 0x7FF0000000000000, ptr %1372, align 8
-  %1373 = getelementptr inbounds i8, ptr %224, i64 24
+  %1373 = getelementptr inbounds nuw i8, ptr %224, i64 24
   store i8 0, ptr %1373, align 8
   %1374 = invoke noundef zeroext i1 @_ZN13_SplineTester11SetKeyFrameERKN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameERKNS0_10GfIntervalE(ptr noundef nonnull align 8 dereferenceable(16) %95, ptr noundef nonnull align 8 dereferenceable(72) %107, ptr noundef nonnull align 8 dereferenceable(32) %224)
           to label %1375 unwind label %1517
@@ -14865,7 +14865,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit47: ; preds = %_ZN32pxrInt
   store i8 0, ptr %1394, align 8
   %1395 = getelementptr inbounds nuw i8, ptr %226, i64 16
   store double 0.000000e+00, ptr %1395, align 8
-  %1396 = getelementptr inbounds i8, ptr %226, i64 24
+  %1396 = getelementptr inbounds nuw i8, ptr %226, i64 24
   store i8 0, ptr %1396, align 8
   %1397 = invoke noundef zeroext i1 @_ZN13_SplineTester11SetKeyFrameERKN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameERKNS0_10GfIntervalE(ptr noundef nonnull align 8 dereferenceable(16) %95, ptr noundef nonnull align 8 dereferenceable(72) %107, ptr noundef nonnull align 8 dereferenceable(32) %226)
           to label %1398 unwind label %1517
@@ -14913,7 +14913,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit47: ; preds = %_ZN32pxrInt
   store i8 0, ptr %1415, align 8
   %1416 = getelementptr inbounds nuw i8, ptr %228, i64 16
   store double 2.000000e+01, ptr %1416, align 8
-  %1417 = getelementptr inbounds i8, ptr %228, i64 24
+  %1417 = getelementptr inbounds nuw i8, ptr %228, i64 24
   store i8 1, ptr %1417, align 8
   %1418 = invoke noundef zeroext i1 @_ZN13_SplineTester11SetKeyFrameERKN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameERKNS0_10GfIntervalE(ptr noundef nonnull align 8 dereferenceable(16) %95, ptr noundef nonnull align 8 dereferenceable(72) %107, ptr noundef nonnull align 8 dereferenceable(32) %228)
           to label %1419 unwind label %1517
@@ -14961,7 +14961,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit47: ; preds = %_ZN32pxrInt
   store i8 1, ptr %1436, align 8
   %1437 = getelementptr inbounds nuw i8, ptr %230, i64 16
   store double 0x7FF0000000000000, ptr %1437, align 8
-  %1438 = getelementptr inbounds i8, ptr %230, i64 24
+  %1438 = getelementptr inbounds nuw i8, ptr %230, i64 24
   store i8 0, ptr %1438, align 8
   %1439 = invoke noundef zeroext i1 @_ZN13_SplineTester11SetKeyFrameERKN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameERKNS0_10GfIntervalE(ptr noundef nonnull align 8 dereferenceable(16) %95, ptr noundef nonnull align 8 dereferenceable(72) %107, ptr noundef nonnull align 8 dereferenceable(32) %230)
           to label %1440 unwind label %1517
@@ -14981,7 +14981,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit47: ; preds = %_ZN32pxrInt
   store i8 0, ptr %1443, align 8
   %1444 = getelementptr inbounds nuw i8, ptr %231, i64 16
   store double 2.000000e+01, ptr %1444, align 8
-  %1445 = getelementptr inbounds i8, ptr %231, i64 24
+  %1445 = getelementptr inbounds nuw i8, ptr %231, i64 24
   store i8 1, ptr %1445, align 8
   %1446 = invoke noundef zeroext i1 @_ZN13_SplineTester11SetKeyFrameERKN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameERKNS0_10GfIntervalE(ptr noundef nonnull align 8 dereferenceable(16) %95, ptr noundef nonnull align 8 dereferenceable(72) %107, ptr noundef nonnull align 8 dereferenceable(32) %231)
           to label %1447 unwind label %1517
@@ -15001,7 +15001,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit47: ; preds = %_ZN32pxrInt
   store i8 0, ptr %1450, align 8
   %1451 = getelementptr inbounds nuw i8, ptr %232, i64 16
   store double 0x7FF0000000000000, ptr %1451, align 8
-  %1452 = getelementptr inbounds i8, ptr %232, i64 24
+  %1452 = getelementptr inbounds nuw i8, ptr %232, i64 24
   store i8 0, ptr %1452, align 8
   %1453 = invoke noundef zeroext i1 @_ZN13_SplineTester11SetKeyFrameERKN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameERKNS0_10GfIntervalE(ptr noundef nonnull align 8 dereferenceable(16) %95, ptr noundef nonnull align 8 dereferenceable(72) %107, ptr noundef nonnull align 8 dereferenceable(32) %232)
           to label %1454 unwind label %1517
@@ -15021,7 +15021,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit47: ; preds = %_ZN32pxrInt
   store i8 0, ptr %1457, align 8
   %1458 = getelementptr inbounds nuw i8, ptr %233, i64 16
   store double 0x7FF0000000000000, ptr %1458, align 8
-  %1459 = getelementptr inbounds i8, ptr %233, i64 24
+  %1459 = getelementptr inbounds nuw i8, ptr %233, i64 24
   store i8 0, ptr %1459, align 8
   %1460 = invoke noundef zeroext i1 @_ZN13_SplineTester11SetKeyFrameERKN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameERKNS0_10GfIntervalE(ptr noundef nonnull align 8 dereferenceable(16) %95, ptr noundef nonnull align 8 dereferenceable(72) %107, ptr noundef nonnull align 8 dereferenceable(32) %233)
           to label %1461 unwind label %1517
@@ -15041,7 +15041,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit47: ; preds = %_ZN32pxrInt
   store i8 0, ptr %1464, align 8
   %1465 = getelementptr inbounds nuw i8, ptr %234, i64 16
   store double 2.000000e+01, ptr %1465, align 8
-  %1466 = getelementptr inbounds i8, ptr %234, i64 24
+  %1466 = getelementptr inbounds nuw i8, ptr %234, i64 24
   store i8 0, ptr %1466, align 8
   %1467 = invoke noundef zeroext i1 @_ZN13_SplineTester11SetKeyFrameERKN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameERKNS0_10GfIntervalE(ptr noundef nonnull align 8 dereferenceable(16) %95, ptr noundef nonnull align 8 dereferenceable(72) %107, ptr noundef nonnull align 8 dereferenceable(32) %234)
           to label %1468 unwind label %1517
@@ -16545,7 +16545,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit124: ; preds = %_ZN32pxrIn
   store i8 0, ptr %465, align 8, !alias.scope !44
   %466 = getelementptr inbounds nuw i8, ptr %96, i64 16
   store double 0x7FF0000000000000, ptr %466, align 8, !alias.scope !44
-  %467 = getelementptr inbounds i8, ptr %96, i64 24
+  %467 = getelementptr inbounds nuw i8, ptr %96, i64 24
   store i8 0, ptr %467, align 8, !alias.scope !44
   %468 = invoke noundef zeroext i1 @_ZN13_SplineTester11SetKeyFrameERKN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameERKNS0_10GfIntervalE(ptr noundef nonnull align 8 dereferenceable(16) %64, ptr noundef nonnull align 8 dereferenceable(72) %66, ptr noundef nonnull align 8 dereferenceable(32) %96)
           to label %469 unwind label %1126
@@ -16561,7 +16561,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit124: ; preds = %_ZN32pxrIn
   store i8 0, ptr %471, align 8
   %472 = getelementptr inbounds nuw i8, ptr %97, i64 16
   store double 0.000000e+00, ptr %472, align 8
-  %473 = getelementptr inbounds i8, ptr %97, i64 24
+  %473 = getelementptr inbounds nuw i8, ptr %97, i64 24
   store i8 0, ptr %473, align 8
   %474 = invoke noundef zeroext i1 @_ZN13_SplineTester11SetKeyFrameERKN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameERKNS0_10GfIntervalE(ptr noundef nonnull align 8 dereferenceable(16) %64, ptr noundef nonnull align 8 dereferenceable(72) %71, ptr noundef nonnull align 8 dereferenceable(32) %97)
           to label %475 unwind label %1126
@@ -16577,7 +16577,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit124: ; preds = %_ZN32pxrIn
   store i8 0, ptr %477, align 8
   %478 = getelementptr inbounds nuw i8, ptr %98, i64 16
   store double 0x7FF0000000000000, ptr %478, align 8
-  %479 = getelementptr inbounds i8, ptr %98, i64 24
+  %479 = getelementptr inbounds nuw i8, ptr %98, i64 24
   store i8 0, ptr %479, align 8
   %480 = invoke noundef zeroext i1 @_ZN13_SplineTester11SetKeyFrameERKN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameERKNS0_10GfIntervalE(ptr noundef nonnull align 8 dereferenceable(16) %64, ptr noundef nonnull align 8 dereferenceable(72) %76, ptr noundef nonnull align 8 dereferenceable(32) %98)
           to label %481 unwind label %1126
@@ -16593,7 +16593,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit124: ; preds = %_ZN32pxrIn
   store i8 0, ptr %483, align 8
   %484 = getelementptr inbounds nuw i8, ptr %99, i64 16
   store double 0.000000e+00, ptr %484, align 8
-  %485 = getelementptr inbounds i8, ptr %99, i64 24
+  %485 = getelementptr inbounds nuw i8, ptr %99, i64 24
   store i8 0, ptr %485, align 8
   %486 = invoke noundef zeroext i1 @_ZN13_SplineTester11SetKeyFrameERKN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameERKNS0_10GfIntervalE(ptr noundef nonnull align 8 dereferenceable(16) %64, ptr noundef nonnull align 8 dereferenceable(72) %81, ptr noundef nonnull align 8 dereferenceable(32) %99)
           to label %487 unwind label %1126
@@ -16609,7 +16609,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit124: ; preds = %_ZN32pxrIn
   store i8 0, ptr %489, align 8
   %490 = getelementptr inbounds nuw i8, ptr %100, i64 16
   store double 0x7FF0000000000000, ptr %490, align 8
-  %491 = getelementptr inbounds i8, ptr %100, i64 24
+  %491 = getelementptr inbounds nuw i8, ptr %100, i64 24
   store i8 0, ptr %491, align 8
   %492 = invoke noundef zeroext i1 @_ZN13_SplineTester11SetKeyFrameERKN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameERKNS0_10GfIntervalE(ptr noundef nonnull align 8 dereferenceable(16) %64, ptr noundef nonnull align 8 dereferenceable(72) %86, ptr noundef nonnull align 8 dereferenceable(32) %100)
           to label %493 unwind label %1126
@@ -16625,7 +16625,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit124: ; preds = %_ZN32pxrIn
   store i8 0, ptr %495, align 8
   %496 = getelementptr inbounds nuw i8, ptr %101, i64 16
   store double 0.000000e+00, ptr %496, align 8
-  %497 = getelementptr inbounds i8, ptr %101, i64 24
+  %497 = getelementptr inbounds nuw i8, ptr %101, i64 24
   store i8 0, ptr %497, align 8
   %498 = invoke noundef zeroext i1 @_ZN13_SplineTester11SetKeyFrameERKN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameERKNS0_10GfIntervalE(ptr noundef nonnull align 8 dereferenceable(16) %64, ptr noundef nonnull align 8 dereferenceable(72) %91, ptr noundef nonnull align 8 dereferenceable(32) %101)
           to label %499 unwind label %1126
@@ -16751,7 +16751,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit145: ; preds = %_ZN32pxrIn
   store i8 0, ptr %543, align 8
   %544 = getelementptr inbounds nuw i8, ptr %107, i64 16
   store double 0.000000e+00, ptr %544, align 8
-  %545 = getelementptr inbounds i8, ptr %107, i64 24
+  %545 = getelementptr inbounds nuw i8, ptr %107, i64 24
   store i8 0, ptr %545, align 8
   %546 = invoke noundef zeroext i1 @_ZN13_SplineTester11SetKeyFrameERKN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameERKNS0_10GfIntervalE(ptr noundef nonnull align 8 dereferenceable(16) %64, ptr noundef nonnull align 8 dereferenceable(72) %102, ptr noundef nonnull align 8 dereferenceable(32) %107)
           to label %547 unwind label %1130
@@ -16874,7 +16874,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit156: ; preds = %_ZN32pxrIn
   store i8 0, ptr %592, align 8
   %593 = getelementptr inbounds nuw i8, ptr %113, i64 16
   store double 0.000000e+00, ptr %593, align 8
-  %594 = getelementptr inbounds i8, ptr %113, i64 24
+  %594 = getelementptr inbounds nuw i8, ptr %113, i64 24
   store i8 0, ptr %594, align 8
   %595 = invoke noundef zeroext i1 @_ZN13_SplineTester11SetKeyFrameERKN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameERKNS0_10GfIntervalE(ptr noundef nonnull align 8 dereferenceable(16) %64, ptr noundef nonnull align 8 dereferenceable(72) %108, ptr noundef nonnull align 8 dereferenceable(32) %113)
           to label %596 unwind label %1134
@@ -16997,7 +16997,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit167: ; preds = %_ZN32pxrIn
   store i8 0, ptr %641, align 8
   %642 = getelementptr inbounds nuw i8, ptr %119, i64 16
   store double 0.000000e+00, ptr %642, align 8
-  %643 = getelementptr inbounds i8, ptr %119, i64 24
+  %643 = getelementptr inbounds nuw i8, ptr %119, i64 24
   store i8 0, ptr %643, align 8
   %644 = invoke noundef zeroext i1 @_ZN13_SplineTester11SetKeyFrameERKN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameERKNS0_10GfIntervalE(ptr noundef nonnull align 8 dereferenceable(16) %64, ptr noundef nonnull align 8 dereferenceable(72) %114, ptr noundef nonnull align 8 dereferenceable(32) %119)
           to label %645 unwind label %1138
@@ -17015,7 +17015,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit167: ; preds = %_ZN32pxrIn
   store i8 0, ptr %649, align 8
   %650 = getelementptr inbounds nuw i8, ptr %120, i64 16
   store double 0.000000e+00, ptr %650, align 8
-  %651 = getelementptr inbounds i8, ptr %120, i64 24
+  %651 = getelementptr inbounds nuw i8, ptr %120, i64 24
   store i8 0, ptr %651, align 8
   %652 = invoke noundef zeroext i1 @_ZN13_SplineTester14RemoveKeyFrameEdRKN32pxrInternal_v0_24__pxrReserved__10GfIntervalE(ptr noundef nonnull align 8 dereferenceable(16) %64, double noundef %648, ptr noundef nonnull align 8 dereferenceable(32) %120)
           to label %653 unwind label %1138
@@ -17033,7 +17033,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit167: ; preds = %_ZN32pxrIn
   store i8 0, ptr %657, align 8
   %658 = getelementptr inbounds nuw i8, ptr %121, i64 16
   store double 0.000000e+00, ptr %658, align 8
-  %659 = getelementptr inbounds i8, ptr %121, i64 24
+  %659 = getelementptr inbounds nuw i8, ptr %121, i64 24
   store i8 0, ptr %659, align 8
   %660 = invoke noundef zeroext i1 @_ZN13_SplineTester14RemoveKeyFrameEdRKN32pxrInternal_v0_24__pxrReserved__10GfIntervalE(ptr noundef nonnull align 8 dereferenceable(16) %64, double noundef %656, ptr noundef nonnull align 8 dereferenceable(32) %121)
           to label %661 unwind label %1138
@@ -17051,7 +17051,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit167: ; preds = %_ZN32pxrIn
   store i8 0, ptr %665, align 8
   %666 = getelementptr inbounds nuw i8, ptr %122, i64 16
   store double 0.000000e+00, ptr %666, align 8
-  %667 = getelementptr inbounds i8, ptr %122, i64 24
+  %667 = getelementptr inbounds nuw i8, ptr %122, i64 24
   store i8 0, ptr %667, align 8
   %668 = invoke noundef zeroext i1 @_ZN13_SplineTester14RemoveKeyFrameEdRKN32pxrInternal_v0_24__pxrReserved__10GfIntervalE(ptr noundef nonnull align 8 dereferenceable(16) %64, double noundef %664, ptr noundef nonnull align 8 dereferenceable(32) %122)
           to label %669 unwind label %1138
@@ -17071,7 +17071,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit167: ; preds = %_ZN32pxrIn
   store i8 0, ptr %672, align 8
   %673 = getelementptr inbounds nuw i8, ptr %123, i64 16
   store double 0.000000e+00, ptr %673, align 8
-  %674 = getelementptr inbounds i8, ptr %123, i64 24
+  %674 = getelementptr inbounds nuw i8, ptr %123, i64 24
   store i8 0, ptr %674, align 8
   %675 = invoke noundef zeroext i1 @_ZN13_SplineTester11SetKeyFrameERKN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameERKNS0_10GfIntervalE(ptr noundef nonnull align 8 dereferenceable(16) %64, ptr noundef nonnull align 8 dereferenceable(72) %66, ptr noundef nonnull align 8 dereferenceable(32) %123)
           to label %676 unwind label %1138
@@ -17091,7 +17091,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit167: ; preds = %_ZN32pxrIn
   store i8 0, ptr %679, align 8
   %680 = getelementptr inbounds nuw i8, ptr %124, i64 16
   store double 0.000000e+00, ptr %680, align 8
-  %681 = getelementptr inbounds i8, ptr %124, i64 24
+  %681 = getelementptr inbounds nuw i8, ptr %124, i64 24
   store i8 0, ptr %681, align 8
   %682 = invoke noundef zeroext i1 @_ZN13_SplineTester11SetKeyFrameERKN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameERKNS0_10GfIntervalE(ptr noundef nonnull align 8 dereferenceable(16) %64, ptr noundef nonnull align 8 dereferenceable(72) %66, ptr noundef nonnull align 8 dereferenceable(32) %124)
           to label %683 unwind label %1138
@@ -17111,7 +17111,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit167: ; preds = %_ZN32pxrIn
   store i8 0, ptr %686, align 8
   %687 = getelementptr inbounds nuw i8, ptr %125, i64 16
   store double 0.000000e+00, ptr %687, align 8
-  %688 = getelementptr inbounds i8, ptr %125, i64 24
+  %688 = getelementptr inbounds nuw i8, ptr %125, i64 24
   store i8 0, ptr %688, align 8
   %689 = invoke noundef zeroext i1 @_ZN13_SplineTester11SetKeyFrameERKN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameERKNS0_10GfIntervalE(ptr noundef nonnull align 8 dereferenceable(16) %64, ptr noundef nonnull align 8 dereferenceable(72) %71, ptr noundef nonnull align 8 dereferenceable(32) %125)
           to label %690 unwind label %1138
@@ -17131,7 +17131,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit167: ; preds = %_ZN32pxrIn
   store i8 0, ptr %693, align 8
   %694 = getelementptr inbounds nuw i8, ptr %126, i64 16
   store double 2.000000e+01, ptr %694, align 8
-  %695 = getelementptr inbounds i8, ptr %126, i64 24
+  %695 = getelementptr inbounds nuw i8, ptr %126, i64 24
   store i8 0, ptr %695, align 8
   %696 = invoke noundef zeroext i1 @_ZN13_SplineTester11SetKeyFrameERKN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameERKNS0_10GfIntervalE(ptr noundef nonnull align 8 dereferenceable(16) %64, ptr noundef nonnull align 8 dereferenceable(72) %71, ptr noundef nonnull align 8 dereferenceable(32) %126)
           to label %697 unwind label %1138
@@ -17151,7 +17151,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit167: ; preds = %_ZN32pxrIn
   store i8 0, ptr %700, align 8
   %701 = getelementptr inbounds nuw i8, ptr %127, i64 16
   store double 2.000000e+01, ptr %701, align 8
-  %702 = getelementptr inbounds i8, ptr %127, i64 24
+  %702 = getelementptr inbounds nuw i8, ptr %127, i64 24
   store i8 0, ptr %702, align 8
   %703 = invoke noundef zeroext i1 @_ZN13_SplineTester11SetKeyFrameERKN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameERKNS0_10GfIntervalE(ptr noundef nonnull align 8 dereferenceable(16) %64, ptr noundef nonnull align 8 dereferenceable(72) %76, ptr noundef nonnull align 8 dereferenceable(32) %127)
           to label %704 unwind label %1138
@@ -17171,7 +17171,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit167: ; preds = %_ZN32pxrIn
   store i8 0, ptr %707, align 8
   %708 = getelementptr inbounds nuw i8, ptr %128, i64 16
   store double 0.000000e+00, ptr %708, align 8
-  %709 = getelementptr inbounds i8, ptr %128, i64 24
+  %709 = getelementptr inbounds nuw i8, ptr %128, i64 24
   store i8 0, ptr %709, align 8
   %710 = invoke noundef zeroext i1 @_ZN13_SplineTester11SetKeyFrameERKN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameERKNS0_10GfIntervalE(ptr noundef nonnull align 8 dereferenceable(16) %64, ptr noundef nonnull align 8 dereferenceable(72) %76, ptr noundef nonnull align 8 dereferenceable(32) %128)
           to label %711 unwind label %1138
@@ -17191,7 +17191,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit167: ; preds = %_ZN32pxrIn
   store i8 0, ptr %714, align 8
   %715 = getelementptr inbounds nuw i8, ptr %129, i64 16
   store double 0.000000e+00, ptr %715, align 8
-  %716 = getelementptr inbounds i8, ptr %129, i64 24
+  %716 = getelementptr inbounds nuw i8, ptr %129, i64 24
   store i8 0, ptr %716, align 8
   %717 = invoke noundef zeroext i1 @_ZN13_SplineTester11SetKeyFrameERKN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameERKNS0_10GfIntervalE(ptr noundef nonnull align 8 dereferenceable(16) %64, ptr noundef nonnull align 8 dereferenceable(72) %81, ptr noundef nonnull align 8 dereferenceable(32) %129)
           to label %718 unwind label %1138
@@ -17211,7 +17211,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit167: ; preds = %_ZN32pxrIn
   store i8 0, ptr %721, align 8
   %722 = getelementptr inbounds nuw i8, ptr %130, i64 16
   store double 4.000000e+01, ptr %722, align 8
-  %723 = getelementptr inbounds i8, ptr %130, i64 24
+  %723 = getelementptr inbounds nuw i8, ptr %130, i64 24
   store i8 0, ptr %723, align 8
   %724 = invoke noundef zeroext i1 @_ZN13_SplineTester11SetKeyFrameERKN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameERKNS0_10GfIntervalE(ptr noundef nonnull align 8 dereferenceable(16) %64, ptr noundef nonnull align 8 dereferenceable(72) %81, ptr noundef nonnull align 8 dereferenceable(32) %130)
           to label %725 unwind label %1138
@@ -17231,7 +17231,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit167: ; preds = %_ZN32pxrIn
   store i8 0, ptr %728, align 8
   %729 = getelementptr inbounds nuw i8, ptr %131, i64 16
   store double 4.000000e+01, ptr %729, align 8
-  %730 = getelementptr inbounds i8, ptr %131, i64 24
+  %730 = getelementptr inbounds nuw i8, ptr %131, i64 24
   store i8 0, ptr %730, align 8
   %731 = invoke noundef zeroext i1 @_ZN13_SplineTester11SetKeyFrameERKN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameERKNS0_10GfIntervalE(ptr noundef nonnull align 8 dereferenceable(16) %64, ptr noundef nonnull align 8 dereferenceable(72) %86, ptr noundef nonnull align 8 dereferenceable(32) %131)
           to label %732 unwind label %1138
@@ -17251,7 +17251,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit167: ; preds = %_ZN32pxrIn
   store i8 0, ptr %735, align 8
   %736 = getelementptr inbounds nuw i8, ptr %132, i64 16
   store double 0.000000e+00, ptr %736, align 8
-  %737 = getelementptr inbounds i8, ptr %132, i64 24
+  %737 = getelementptr inbounds nuw i8, ptr %132, i64 24
   store i8 0, ptr %737, align 8
   %738 = invoke noundef zeroext i1 @_ZN13_SplineTester11SetKeyFrameERKN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameERKNS0_10GfIntervalE(ptr noundef nonnull align 8 dereferenceable(16) %64, ptr noundef nonnull align 8 dereferenceable(72) %86, ptr noundef nonnull align 8 dereferenceable(32) %132)
           to label %739 unwind label %1138
@@ -17271,7 +17271,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit167: ; preds = %_ZN32pxrIn
   store i8 0, ptr %742, align 8
   %743 = getelementptr inbounds nuw i8, ptr %133, i64 16
   store double 0.000000e+00, ptr %743, align 8
-  %744 = getelementptr inbounds i8, ptr %133, i64 24
+  %744 = getelementptr inbounds nuw i8, ptr %133, i64 24
   store i8 0, ptr %744, align 8
   %745 = invoke noundef zeroext i1 @_ZN13_SplineTester11SetKeyFrameERKN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameERKNS0_10GfIntervalE(ptr noundef nonnull align 8 dereferenceable(16) %64, ptr noundef nonnull align 8 dereferenceable(72) %91, ptr noundef nonnull align 8 dereferenceable(32) %133)
           to label %746 unwind label %1138
@@ -17291,7 +17291,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit167: ; preds = %_ZN32pxrIn
   store i8 0, ptr %749, align 8
   %750 = getelementptr inbounds nuw i8, ptr %134, i64 16
   store double 0.000000e+00, ptr %750, align 8
-  %751 = getelementptr inbounds i8, ptr %134, i64 24
+  %751 = getelementptr inbounds nuw i8, ptr %134, i64 24
   store i8 0, ptr %751, align 8
   %752 = invoke noundef zeroext i1 @_ZN13_SplineTester11SetKeyFrameERKN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameERKNS0_10GfIntervalE(ptr noundef nonnull align 8 dereferenceable(16) %64, ptr noundef nonnull align 8 dereferenceable(72) %91, ptr noundef nonnull align 8 dereferenceable(32) %134)
           to label %753 unwind label %1138
@@ -17309,7 +17309,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit167: ; preds = %_ZN32pxrIn
   store i8 0, ptr %757, align 8
   %758 = getelementptr inbounds nuw i8, ptr %135, i64 16
   store double 0.000000e+00, ptr %758, align 8
-  %759 = getelementptr inbounds i8, ptr %135, i64 24
+  %759 = getelementptr inbounds nuw i8, ptr %135, i64 24
   store i8 0, ptr %759, align 8
   %760 = invoke noundef zeroext i1 @_ZN13_SplineTester14RemoveKeyFrameEdRKN32pxrInternal_v0_24__pxrReserved__10GfIntervalE(ptr noundef nonnull align 8 dereferenceable(16) %64, double noundef %756, ptr noundef nonnull align 8 dereferenceable(32) %135)
           to label %761 unwind label %1138
@@ -17327,7 +17327,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit167: ; preds = %_ZN32pxrIn
   store i8 0, ptr %765, align 8
   %766 = getelementptr inbounds nuw i8, ptr %136, i64 16
   store double 2.000000e+01, ptr %766, align 8
-  %767 = getelementptr inbounds i8, ptr %136, i64 24
+  %767 = getelementptr inbounds nuw i8, ptr %136, i64 24
   store i8 0, ptr %767, align 8
   %768 = invoke noundef zeroext i1 @_ZN13_SplineTester14RemoveKeyFrameEdRKN32pxrInternal_v0_24__pxrReserved__10GfIntervalE(ptr noundef nonnull align 8 dereferenceable(16) %64, double noundef %764, ptr noundef nonnull align 8 dereferenceable(32) %136)
           to label %769 unwind label %1138
@@ -17345,7 +17345,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit167: ; preds = %_ZN32pxrIn
   store i8 0, ptr %773, align 8
   %774 = getelementptr inbounds nuw i8, ptr %137, i64 16
   store double 0.000000e+00, ptr %774, align 8
-  %775 = getelementptr inbounds i8, ptr %137, i64 24
+  %775 = getelementptr inbounds nuw i8, ptr %137, i64 24
   store i8 0, ptr %775, align 8
   %776 = invoke noundef zeroext i1 @_ZN13_SplineTester14RemoveKeyFrameEdRKN32pxrInternal_v0_24__pxrReserved__10GfIntervalE(ptr noundef nonnull align 8 dereferenceable(16) %64, double noundef %772, ptr noundef nonnull align 8 dereferenceable(32) %137)
           to label %777 unwind label %1138
@@ -17363,7 +17363,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit167: ; preds = %_ZN32pxrIn
   store i8 0, ptr %781, align 8
   %782 = getelementptr inbounds nuw i8, ptr %138, i64 16
   store double 4.000000e+01, ptr %782, align 8
-  %783 = getelementptr inbounds i8, ptr %138, i64 24
+  %783 = getelementptr inbounds nuw i8, ptr %138, i64 24
   store i8 0, ptr %783, align 8
   %784 = invoke noundef zeroext i1 @_ZN13_SplineTester14RemoveKeyFrameEdRKN32pxrInternal_v0_24__pxrReserved__10GfIntervalE(ptr noundef nonnull align 8 dereferenceable(16) %64, double noundef %780, ptr noundef nonnull align 8 dereferenceable(32) %138)
           to label %785 unwind label %1138
@@ -17381,7 +17381,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit167: ; preds = %_ZN32pxrIn
   store i8 0, ptr %789, align 8
   %790 = getelementptr inbounds nuw i8, ptr %139, i64 16
   store double 0.000000e+00, ptr %790, align 8
-  %791 = getelementptr inbounds i8, ptr %139, i64 24
+  %791 = getelementptr inbounds nuw i8, ptr %139, i64 24
   store i8 0, ptr %791, align 8
   %792 = invoke noundef zeroext i1 @_ZN13_SplineTester14RemoveKeyFrameEdRKN32pxrInternal_v0_24__pxrReserved__10GfIntervalE(ptr noundef nonnull align 8 dereferenceable(16) %64, double noundef %788, ptr noundef nonnull align 8 dereferenceable(32) %139)
           to label %793 unwind label %1138
@@ -17399,7 +17399,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit167: ; preds = %_ZN32pxrIn
   store i8 0, ptr %797, align 8, !alias.scope !47
   %798 = getelementptr inbounds nuw i8, ptr %140, i64 16
   store double 0x7FF0000000000000, ptr %798, align 8, !alias.scope !47
-  %799 = getelementptr inbounds i8, ptr %140, i64 24
+  %799 = getelementptr inbounds nuw i8, ptr %140, i64 24
   store i8 0, ptr %799, align 8, !alias.scope !47
   %800 = invoke noundef zeroext i1 @_ZN13_SplineTester14RemoveKeyFrameEdRKN32pxrInternal_v0_24__pxrReserved__10GfIntervalE(ptr noundef nonnull align 8 dereferenceable(16) %64, double noundef %796, ptr noundef nonnull align 8 dereferenceable(32) %140)
           to label %801 unwind label %1138
@@ -17433,7 +17433,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit167: ; preds = %_ZN32pxrIn
   store i8 0, ptr %815, align 8, !alias.scope !50
   %816 = getelementptr inbounds nuw i8, ptr %141, i64 16
   store double 0x7FF0000000000000, ptr %816, align 8, !alias.scope !50
-  %817 = getelementptr inbounds i8, ptr %141, i64 24
+  %817 = getelementptr inbounds nuw i8, ptr %141, i64 24
   store i8 0, ptr %817, align 8, !alias.scope !50
   %818 = invoke noundef zeroext i1 @_ZN13_SplineTester11SetKeyFrameERKN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameERKNS0_10GfIntervalE(ptr noundef nonnull align 8 dereferenceable(16) %64, ptr noundef nonnull align 8 dereferenceable(72) %66, ptr noundef nonnull align 8 dereferenceable(32) %141)
           to label %819 unwind label %1138
@@ -17449,7 +17449,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit167: ; preds = %_ZN32pxrIn
   store i8 0, ptr %821, align 8
   %822 = getelementptr inbounds nuw i8, ptr %142, i64 16
   store double 0.000000e+00, ptr %822, align 8
-  %823 = getelementptr inbounds i8, ptr %142, i64 24
+  %823 = getelementptr inbounds nuw i8, ptr %142, i64 24
   store i8 0, ptr %823, align 8
   %824 = invoke noundef zeroext i1 @_ZN13_SplineTester11SetKeyFrameERKN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameERKNS0_10GfIntervalE(ptr noundef nonnull align 8 dereferenceable(16) %64, ptr noundef nonnull align 8 dereferenceable(72) %71, ptr noundef nonnull align 8 dereferenceable(32) %142)
           to label %825 unwind label %1138
@@ -17465,7 +17465,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit167: ; preds = %_ZN32pxrIn
   store i8 0, ptr %827, align 8
   %828 = getelementptr inbounds nuw i8, ptr %143, i64 16
   store double 0x7FF0000000000000, ptr %828, align 8
-  %829 = getelementptr inbounds i8, ptr %143, i64 24
+  %829 = getelementptr inbounds nuw i8, ptr %143, i64 24
   store i8 0, ptr %829, align 8
   %830 = invoke noundef zeroext i1 @_ZN13_SplineTester11SetKeyFrameERKN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameERKNS0_10GfIntervalE(ptr noundef nonnull align 8 dereferenceable(16) %64, ptr noundef nonnull align 8 dereferenceable(72) %76, ptr noundef nonnull align 8 dereferenceable(32) %143)
           to label %831 unwind label %1138
@@ -17481,7 +17481,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit167: ; preds = %_ZN32pxrIn
   store i8 0, ptr %833, align 8
   %834 = getelementptr inbounds nuw i8, ptr %144, i64 16
   store double 0.000000e+00, ptr %834, align 8
-  %835 = getelementptr inbounds i8, ptr %144, i64 24
+  %835 = getelementptr inbounds nuw i8, ptr %144, i64 24
   store i8 0, ptr %835, align 8
   %836 = invoke noundef zeroext i1 @_ZN13_SplineTester11SetKeyFrameERKN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameERKNS0_10GfIntervalE(ptr noundef nonnull align 8 dereferenceable(16) %64, ptr noundef nonnull align 8 dereferenceable(72) %81, ptr noundef nonnull align 8 dereferenceable(32) %144)
           to label %837 unwind label %1138
@@ -17497,7 +17497,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit167: ; preds = %_ZN32pxrIn
   store i8 0, ptr %839, align 8
   %840 = getelementptr inbounds nuw i8, ptr %145, i64 16
   store double 0x7FF0000000000000, ptr %840, align 8
-  %841 = getelementptr inbounds i8, ptr %145, i64 24
+  %841 = getelementptr inbounds nuw i8, ptr %145, i64 24
   store i8 0, ptr %841, align 8
   %842 = invoke noundef zeroext i1 @_ZN13_SplineTester11SetKeyFrameERKN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameERKNS0_10GfIntervalE(ptr noundef nonnull align 8 dereferenceable(16) %64, ptr noundef nonnull align 8 dereferenceable(72) %86, ptr noundef nonnull align 8 dereferenceable(32) %145)
           to label %843 unwind label %1138
@@ -17513,7 +17513,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit167: ; preds = %_ZN32pxrIn
   store i8 0, ptr %845, align 8
   %846 = getelementptr inbounds nuw i8, ptr %146, i64 16
   store double 0.000000e+00, ptr %846, align 8
-  %847 = getelementptr inbounds i8, ptr %146, i64 24
+  %847 = getelementptr inbounds nuw i8, ptr %146, i64 24
   store i8 0, ptr %847, align 8
   %848 = invoke noundef zeroext i1 @_ZN13_SplineTester11SetKeyFrameERKN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameERKNS0_10GfIntervalE(ptr noundef nonnull align 8 dereferenceable(16) %64, ptr noundef nonnull align 8 dereferenceable(72) %91, ptr noundef nonnull align 8 dereferenceable(32) %146)
           to label %849 unwind label %1138
@@ -17530,7 +17530,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit167: ; preds = %_ZN32pxrIn
   store i8 0, ptr %852, align 8
   %853 = getelementptr inbounds nuw i8, ptr %147, i64 16
   store double 0.000000e+00, ptr %853, align 8
-  %854 = getelementptr inbounds i8, ptr %147, i64 24
+  %854 = getelementptr inbounds nuw i8, ptr %147, i64 24
   store i8 0, ptr %854, align 8
   %855 = invoke noundef zeroext i1 @_ZN13_SplineTester14RemoveKeyFrameEdRKN32pxrInternal_v0_24__pxrReserved__10GfIntervalE(ptr noundef nonnull align 8 dereferenceable(16) %64, double noundef %851, ptr noundef nonnull align 8 dereferenceable(32) %147)
           to label %856 unwind label %1138
@@ -17547,7 +17547,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit167: ; preds = %_ZN32pxrIn
   store i8 0, ptr %859, align 8
   %860 = getelementptr inbounds nuw i8, ptr %148, i64 16
   store double 0x7FF0000000000000, ptr %860, align 8
-  %861 = getelementptr inbounds i8, ptr %148, i64 24
+  %861 = getelementptr inbounds nuw i8, ptr %148, i64 24
   store i8 0, ptr %861, align 8
   %862 = invoke noundef zeroext i1 @_ZN13_SplineTester14RemoveKeyFrameEdRKN32pxrInternal_v0_24__pxrReserved__10GfIntervalE(ptr noundef nonnull align 8 dereferenceable(16) %64, double noundef %858, ptr noundef nonnull align 8 dereferenceable(32) %148)
           to label %863 unwind label %1138
@@ -17564,7 +17564,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit167: ; preds = %_ZN32pxrIn
   store i8 0, ptr %866, align 8
   %867 = getelementptr inbounds nuw i8, ptr %149, i64 16
   store double 0.000000e+00, ptr %867, align 8
-  %868 = getelementptr inbounds i8, ptr %149, i64 24
+  %868 = getelementptr inbounds nuw i8, ptr %149, i64 24
   store i8 0, ptr %868, align 8
   %869 = invoke noundef zeroext i1 @_ZN13_SplineTester14RemoveKeyFrameEdRKN32pxrInternal_v0_24__pxrReserved__10GfIntervalE(ptr noundef nonnull align 8 dereferenceable(16) %64, double noundef %865, ptr noundef nonnull align 8 dereferenceable(32) %149)
           to label %870 unwind label %1138
@@ -17581,7 +17581,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit167: ; preds = %_ZN32pxrIn
   store i8 0, ptr %873, align 8
   %874 = getelementptr inbounds nuw i8, ptr %150, i64 16
   store double 0x7FF0000000000000, ptr %874, align 8
-  %875 = getelementptr inbounds i8, ptr %150, i64 24
+  %875 = getelementptr inbounds nuw i8, ptr %150, i64 24
   store i8 0, ptr %875, align 8
   %876 = invoke noundef zeroext i1 @_ZN13_SplineTester14RemoveKeyFrameEdRKN32pxrInternal_v0_24__pxrReserved__10GfIntervalE(ptr noundef nonnull align 8 dereferenceable(16) %64, double noundef %872, ptr noundef nonnull align 8 dereferenceable(32) %150)
           to label %877 unwind label %1138
@@ -17598,7 +17598,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit167: ; preds = %_ZN32pxrIn
   store i8 0, ptr %880, align 8
   %881 = getelementptr inbounds nuw i8, ptr %151, i64 16
   store double 0.000000e+00, ptr %881, align 8
-  %882 = getelementptr inbounds i8, ptr %151, i64 24
+  %882 = getelementptr inbounds nuw i8, ptr %151, i64 24
   store i8 0, ptr %882, align 8
   %883 = invoke noundef zeroext i1 @_ZN13_SplineTester14RemoveKeyFrameEdRKN32pxrInternal_v0_24__pxrReserved__10GfIntervalE(ptr noundef nonnull align 8 dereferenceable(16) %64, double noundef %879, ptr noundef nonnull align 8 dereferenceable(32) %151)
           to label %884 unwind label %1138
@@ -17615,7 +17615,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit167: ; preds = %_ZN32pxrIn
   store i8 0, ptr %887, align 8, !alias.scope !53
   %888 = getelementptr inbounds nuw i8, ptr %152, i64 16
   store double 0x7FF0000000000000, ptr %888, align 8, !alias.scope !53
-  %889 = getelementptr inbounds i8, ptr %152, i64 24
+  %889 = getelementptr inbounds nuw i8, ptr %152, i64 24
   store i8 0, ptr %889, align 8, !alias.scope !53
   %890 = invoke noundef zeroext i1 @_ZN13_SplineTester14RemoveKeyFrameEdRKN32pxrInternal_v0_24__pxrReserved__10GfIntervalE(ptr noundef nonnull align 8 dereferenceable(16) %64, double noundef %886, ptr noundef nonnull align 8 dereferenceable(32) %152)
           to label %891 unwind label %1138
@@ -17649,7 +17649,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit167: ; preds = %_ZN32pxrIn
   store i8 0, ptr %905, align 8, !alias.scope !56
   %906 = getelementptr inbounds nuw i8, ptr %153, i64 16
   store double 0x7FF0000000000000, ptr %906, align 8, !alias.scope !56
-  %907 = getelementptr inbounds i8, ptr %153, i64 24
+  %907 = getelementptr inbounds nuw i8, ptr %153, i64 24
   store i8 0, ptr %907, align 8, !alias.scope !56
   %908 = invoke noundef zeroext i1 @_ZN13_SplineTester11SetKeyFrameERKN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameERKNS0_10GfIntervalE(ptr noundef nonnull align 8 dereferenceable(16) %64, ptr noundef nonnull align 8 dereferenceable(72) %91, ptr noundef nonnull align 8 dereferenceable(32) %153)
           to label %909 unwind label %1138
@@ -17665,7 +17665,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit167: ; preds = %_ZN32pxrIn
   store i8 0, ptr %911, align 8
   %912 = getelementptr inbounds nuw i8, ptr %154, i64 16
   store double 0.000000e+00, ptr %912, align 8
-  %913 = getelementptr inbounds i8, ptr %154, i64 24
+  %913 = getelementptr inbounds nuw i8, ptr %154, i64 24
   store i8 0, ptr %913, align 8
   %914 = invoke noundef zeroext i1 @_ZN13_SplineTester11SetKeyFrameERKN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameERKNS0_10GfIntervalE(ptr noundef nonnull align 8 dereferenceable(16) %64, ptr noundef nonnull align 8 dereferenceable(72) %86, ptr noundef nonnull align 8 dereferenceable(32) %154)
           to label %915 unwind label %1138
@@ -17681,7 +17681,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit167: ; preds = %_ZN32pxrIn
   store i8 0, ptr %917, align 8
   %918 = getelementptr inbounds nuw i8, ptr %155, i64 16
   store double 4.000000e+01, ptr %918, align 8
-  %919 = getelementptr inbounds i8, ptr %155, i64 24
+  %919 = getelementptr inbounds nuw i8, ptr %155, i64 24
   store i8 0, ptr %919, align 8
   %920 = invoke noundef zeroext i1 @_ZN13_SplineTester11SetKeyFrameERKN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameERKNS0_10GfIntervalE(ptr noundef nonnull align 8 dereferenceable(16) %64, ptr noundef nonnull align 8 dereferenceable(72) %81, ptr noundef nonnull align 8 dereferenceable(32) %155)
           to label %921 unwind label %1138
@@ -17697,7 +17697,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit167: ; preds = %_ZN32pxrIn
   store i8 0, ptr %923, align 8
   %924 = getelementptr inbounds nuw i8, ptr %156, i64 16
   store double 0.000000e+00, ptr %924, align 8
-  %925 = getelementptr inbounds i8, ptr %156, i64 24
+  %925 = getelementptr inbounds nuw i8, ptr %156, i64 24
   store i8 0, ptr %925, align 8
   %926 = invoke noundef zeroext i1 @_ZN13_SplineTester11SetKeyFrameERKN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameERKNS0_10GfIntervalE(ptr noundef nonnull align 8 dereferenceable(16) %64, ptr noundef nonnull align 8 dereferenceable(72) %76, ptr noundef nonnull align 8 dereferenceable(32) %156)
           to label %927 unwind label %1138
@@ -17713,7 +17713,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit167: ; preds = %_ZN32pxrIn
   store i8 0, ptr %929, align 8
   %930 = getelementptr inbounds nuw i8, ptr %157, i64 16
   store double 2.000000e+01, ptr %930, align 8
-  %931 = getelementptr inbounds i8, ptr %157, i64 24
+  %931 = getelementptr inbounds nuw i8, ptr %157, i64 24
   store i8 0, ptr %931, align 8
   %932 = invoke noundef zeroext i1 @_ZN13_SplineTester11SetKeyFrameERKN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameERKNS0_10GfIntervalE(ptr noundef nonnull align 8 dereferenceable(16) %64, ptr noundef nonnull align 8 dereferenceable(72) %71, ptr noundef nonnull align 8 dereferenceable(32) %157)
           to label %933 unwind label %1138
@@ -17729,7 +17729,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit167: ; preds = %_ZN32pxrIn
   store i8 0, ptr %935, align 8
   %936 = getelementptr inbounds nuw i8, ptr %158, i64 16
   store double 0.000000e+00, ptr %936, align 8
-  %937 = getelementptr inbounds i8, ptr %158, i64 24
+  %937 = getelementptr inbounds nuw i8, ptr %158, i64 24
   store i8 0, ptr %937, align 8
   %938 = invoke noundef zeroext i1 @_ZN13_SplineTester11SetKeyFrameERKN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameERKNS0_10GfIntervalE(ptr noundef nonnull align 8 dereferenceable(16) %64, ptr noundef nonnull align 8 dereferenceable(72) %66, ptr noundef nonnull align 8 dereferenceable(32) %158)
           to label %939 unwind label %1138
@@ -17777,7 +17777,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit167: ; preds = %_ZN32pxrIn
   store i8 0, ptr %956, align 8
   %957 = getelementptr inbounds nuw i8, ptr %160, i64 16
   store double 1.000000e+01, ptr %957, align 8
-  %958 = getelementptr inbounds i8, ptr %160, i64 24
+  %958 = getelementptr inbounds nuw i8, ptr %160, i64 24
   store i8 0, ptr %958, align 8
   %959 = invoke noundef zeroext i1 @_ZN13_SplineTester11SetKeyFrameERKN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameERKNS0_10GfIntervalE(ptr noundef nonnull align 8 dereferenceable(16) %64, ptr noundef nonnull align 8 dereferenceable(72) %66, ptr noundef nonnull align 8 dereferenceable(32) %160)
           to label %960 unwind label %1138
@@ -17825,7 +17825,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit167: ; preds = %_ZN32pxrIn
   store i8 0, ptr %977, align 8
   %978 = getelementptr inbounds nuw i8, ptr %162, i64 16
   store double 5.000000e+01, ptr %978, align 8
-  %979 = getelementptr inbounds i8, ptr %162, i64 24
+  %979 = getelementptr inbounds nuw i8, ptr %162, i64 24
   store i8 0, ptr %979, align 8
   %980 = invoke noundef zeroext i1 @_ZN13_SplineTester11SetKeyFrameERKN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameERKNS0_10GfIntervalE(ptr noundef nonnull align 8 dereferenceable(16) %64, ptr noundef nonnull align 8 dereferenceable(72) %86, ptr noundef nonnull align 8 dereferenceable(32) %162)
           to label %981 unwind label %1138
@@ -17842,7 +17842,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit167: ; preds = %_ZN32pxrIn
   store i8 0, ptr %984, align 8
   %985 = getelementptr inbounds nuw i8, ptr %163, i64 16
   store double 1.000000e+01, ptr %985, align 8
-  %986 = getelementptr inbounds i8, ptr %163, i64 24
+  %986 = getelementptr inbounds nuw i8, ptr %163, i64 24
   store i8 0, ptr %986, align 8
   %987 = invoke noundef zeroext i1 @_ZN13_SplineTester14RemoveKeyFrameEdRKN32pxrInternal_v0_24__pxrReserved__10GfIntervalE(ptr noundef nonnull align 8 dereferenceable(16) %64, double noundef %983, ptr noundef nonnull align 8 dereferenceable(32) %163)
           to label %988 unwind label %1138
@@ -17859,7 +17859,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit167: ; preds = %_ZN32pxrIn
   store i8 0, ptr %991, align 8
   %992 = getelementptr inbounds nuw i8, ptr %164, i64 16
   store double 2.000000e+01, ptr %992, align 8
-  %993 = getelementptr inbounds i8, ptr %164, i64 24
+  %993 = getelementptr inbounds nuw i8, ptr %164, i64 24
   store i8 0, ptr %993, align 8
   %994 = invoke noundef zeroext i1 @_ZN13_SplineTester14RemoveKeyFrameEdRKN32pxrInternal_v0_24__pxrReserved__10GfIntervalE(ptr noundef nonnull align 8 dereferenceable(16) %64, double noundef %990, ptr noundef nonnull align 8 dereferenceable(32) %164)
           to label %995 unwind label %1138
@@ -17876,7 +17876,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit167: ; preds = %_ZN32pxrIn
   store i8 0, ptr %998, align 8
   %999 = getelementptr inbounds nuw i8, ptr %165, i64 16
   store double 0.000000e+00, ptr %999, align 8
-  %1000 = getelementptr inbounds i8, ptr %165, i64 24
+  %1000 = getelementptr inbounds nuw i8, ptr %165, i64 24
   store i8 0, ptr %1000, align 8
   %1001 = invoke noundef zeroext i1 @_ZN13_SplineTester14RemoveKeyFrameEdRKN32pxrInternal_v0_24__pxrReserved__10GfIntervalE(ptr noundef nonnull align 8 dereferenceable(16) %64, double noundef %997, ptr noundef nonnull align 8 dereferenceable(32) %165)
           to label %1002 unwind label %1138
@@ -17893,7 +17893,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit167: ; preds = %_ZN32pxrIn
   store i8 0, ptr %1005, align 8
   %1006 = getelementptr inbounds nuw i8, ptr %166, i64 16
   store double 4.000000e+01, ptr %1006, align 8
-  %1007 = getelementptr inbounds i8, ptr %166, i64 24
+  %1007 = getelementptr inbounds nuw i8, ptr %166, i64 24
   store i8 0, ptr %1007, align 8
   %1008 = invoke noundef zeroext i1 @_ZN13_SplineTester14RemoveKeyFrameEdRKN32pxrInternal_v0_24__pxrReserved__10GfIntervalE(ptr noundef nonnull align 8 dereferenceable(16) %64, double noundef %1004, ptr noundef nonnull align 8 dereferenceable(32) %166)
           to label %1009 unwind label %1138
@@ -17910,7 +17910,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit167: ; preds = %_ZN32pxrIn
   store i8 0, ptr %1012, align 8
   %1013 = getelementptr inbounds nuw i8, ptr %167, i64 16
   store double 5.000000e+01, ptr %1013, align 8
-  %1014 = getelementptr inbounds i8, ptr %167, i64 24
+  %1014 = getelementptr inbounds nuw i8, ptr %167, i64 24
   store i8 0, ptr %1014, align 8
   %1015 = invoke noundef zeroext i1 @_ZN13_SplineTester14RemoveKeyFrameEdRKN32pxrInternal_v0_24__pxrReserved__10GfIntervalE(ptr noundef nonnull align 8 dereferenceable(16) %64, double noundef %1011, ptr noundef nonnull align 8 dereferenceable(32) %167)
           to label %1016 unwind label %1138
@@ -17927,7 +17927,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit167: ; preds = %_ZN32pxrIn
   store i8 0, ptr %1019, align 8, !alias.scope !59
   %1020 = getelementptr inbounds nuw i8, ptr %168, i64 16
   store double 0x7FF0000000000000, ptr %1020, align 8, !alias.scope !59
-  %1021 = getelementptr inbounds i8, ptr %168, i64 24
+  %1021 = getelementptr inbounds nuw i8, ptr %168, i64 24
   store i8 0, ptr %1021, align 8, !alias.scope !59
   %1022 = invoke noundef zeroext i1 @_ZN13_SplineTester14RemoveKeyFrameEdRKN32pxrInternal_v0_24__pxrReserved__10GfIntervalE(ptr noundef nonnull align 8 dereferenceable(16) %64, double noundef %1018, ptr noundef nonnull align 8 dereferenceable(32) %168)
           to label %1023 unwind label %1138
@@ -17961,7 +17961,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit167: ; preds = %_ZN32pxrIn
   store i8 0, ptr %1037, align 8, !alias.scope !62
   %1038 = getelementptr inbounds nuw i8, ptr %169, i64 16
   store double 0x7FF0000000000000, ptr %1038, align 8, !alias.scope !62
-  %1039 = getelementptr inbounds i8, ptr %169, i64 24
+  %1039 = getelementptr inbounds nuw i8, ptr %169, i64 24
   store i8 0, ptr %1039, align 8, !alias.scope !62
   %1040 = invoke noundef zeroext i1 @_ZN13_SplineTester11SetKeyFrameERKN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameERKNS0_10GfIntervalE(ptr noundef nonnull align 8 dereferenceable(16) %64, ptr noundef nonnull align 8 dereferenceable(72) %66, ptr noundef nonnull align 8 dereferenceable(32) %169)
           to label %1041 unwind label %1138
@@ -17977,7 +17977,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit167: ; preds = %_ZN32pxrIn
   store i8 0, ptr %1043, align 8
   %1044 = getelementptr inbounds nuw i8, ptr %170, i64 16
   store double 1.500000e+01, ptr %1044, align 8
-  %1045 = getelementptr inbounds i8, ptr %170, i64 24
+  %1045 = getelementptr inbounds nuw i8, ptr %170, i64 24
   store i8 0, ptr %1045, align 8
   %1046 = invoke noundef zeroext i1 @_ZN13_SplineTester11SetKeyFrameERKN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameERKNS0_10GfIntervalE(ptr noundef nonnull align 8 dereferenceable(16) %64, ptr noundef nonnull align 8 dereferenceable(72) %71, ptr noundef nonnull align 8 dereferenceable(32) %170)
           to label %1047 unwind label %1138
@@ -17993,7 +17993,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit167: ; preds = %_ZN32pxrIn
   store i8 0, ptr %1049, align 8
   %1050 = getelementptr inbounds nuw i8, ptr %171, i64 16
   store double 0x7FF0000000000000, ptr %1050, align 8
-  %1051 = getelementptr inbounds i8, ptr %171, i64 24
+  %1051 = getelementptr inbounds nuw i8, ptr %171, i64 24
   store i8 0, ptr %1051, align 8
   %1052 = invoke noundef zeroext i1 @_ZN13_SplineTester11SetKeyFrameERKN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameERKNS0_10GfIntervalE(ptr noundef nonnull align 8 dereferenceable(16) %64, ptr noundef nonnull align 8 dereferenceable(72) %76, ptr noundef nonnull align 8 dereferenceable(32) %171)
           to label %1053 unwind label %1138
@@ -18009,7 +18009,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit167: ; preds = %_ZN32pxrIn
   store i8 0, ptr %1055, align 8
   %1056 = getelementptr inbounds nuw i8, ptr %172, i64 16
   store double 0.000000e+00, ptr %1056, align 8
-  %1057 = getelementptr inbounds i8, ptr %172, i64 24
+  %1057 = getelementptr inbounds nuw i8, ptr %172, i64 24
   store i8 0, ptr %1057, align 8
   %1058 = invoke noundef zeroext i1 @_ZN13_SplineTester11SetKeyFrameERKN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameERKNS0_10GfIntervalE(ptr noundef nonnull align 8 dereferenceable(16) %64, ptr noundef nonnull align 8 dereferenceable(72) %81, ptr noundef nonnull align 8 dereferenceable(32) %172)
           to label %1059 unwind label %1138
@@ -18025,7 +18025,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit167: ; preds = %_ZN32pxrIn
   store i8 0, ptr %1061, align 8
   %1062 = getelementptr inbounds nuw i8, ptr %173, i64 16
   store double 0x7FF0000000000000, ptr %1062, align 8
-  %1063 = getelementptr inbounds i8, ptr %173, i64 24
+  %1063 = getelementptr inbounds nuw i8, ptr %173, i64 24
   store i8 0, ptr %1063, align 8
   %1064 = invoke noundef zeroext i1 @_ZN13_SplineTester11SetKeyFrameERKN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameERKNS0_10GfIntervalE(ptr noundef nonnull align 8 dereferenceable(16) %64, ptr noundef nonnull align 8 dereferenceable(72) %86, ptr noundef nonnull align 8 dereferenceable(32) %173)
           to label %1065 unwind label %1138
@@ -18041,7 +18041,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit167: ; preds = %_ZN32pxrIn
   store i8 0, ptr %1067, align 8
   %1068 = getelementptr inbounds nuw i8, ptr %174, i64 16
   store double 5.500000e+01, ptr %1068, align 8
-  %1069 = getelementptr inbounds i8, ptr %174, i64 24
+  %1069 = getelementptr inbounds nuw i8, ptr %174, i64 24
   store i8 0, ptr %1069, align 8
   %1070 = invoke noundef zeroext i1 @_ZN13_SplineTester11SetKeyFrameERKN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameERKNS0_10GfIntervalE(ptr noundef nonnull align 8 dereferenceable(16) %64, ptr noundef nonnull align 8 dereferenceable(72) %91, ptr noundef nonnull align 8 dereferenceable(32) %174)
           to label %1071 unwind label %1138
@@ -19688,7 +19688,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit118: ; preds = %_ZN32pxrIn
   store i8 0, ptr %551, align 8, !alias.scope !65
   %552 = getelementptr inbounds nuw i8, ptr %119, i64 16
   store double 0x7FF0000000000000, ptr %552, align 8, !alias.scope !65
-  %553 = getelementptr inbounds i8, ptr %119, i64 24
+  %553 = getelementptr inbounds nuw i8, ptr %119, i64 24
   store i8 0, ptr %553, align 8, !alias.scope !65
   %554 = invoke noundef zeroext i1 @_ZN13_SplineTester11SetKeyFrameERKN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameERKNS0_10GfIntervalE(ptr noundef nonnull align 8 dereferenceable(16) %82, ptr noundef nonnull align 8 dereferenceable(72) %84, ptr noundef nonnull align 8 dereferenceable(32) %119)
           to label %555 unwind label %1467
@@ -19704,7 +19704,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit118: ; preds = %_ZN32pxrIn
   store i8 0, ptr %557, align 8
   %558 = getelementptr inbounds nuw i8, ptr %120, i64 16
   store double 0.000000e+00, ptr %558, align 8
-  %559 = getelementptr inbounds i8, ptr %120, i64 24
+  %559 = getelementptr inbounds nuw i8, ptr %120, i64 24
   store i8 0, ptr %559, align 8
   %560 = invoke noundef zeroext i1 @_ZN13_SplineTester11SetKeyFrameERKN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameERKNS0_10GfIntervalE(ptr noundef nonnull align 8 dereferenceable(16) %82, ptr noundef nonnull align 8 dereferenceable(72) %89, ptr noundef nonnull align 8 dereferenceable(32) %120)
           to label %561 unwind label %1467
@@ -19720,7 +19720,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit118: ; preds = %_ZN32pxrIn
   store i8 0, ptr %563, align 8
   %564 = getelementptr inbounds nuw i8, ptr %121, i64 16
   store double 0.000000e+00, ptr %564, align 8
-  %565 = getelementptr inbounds i8, ptr %121, i64 24
+  %565 = getelementptr inbounds nuw i8, ptr %121, i64 24
   store i8 0, ptr %565, align 8
   %566 = invoke noundef zeroext i1 @_ZN13_SplineTester11SetKeyFrameERKN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameERKNS0_10GfIntervalE(ptr noundef nonnull align 8 dereferenceable(16) %82, ptr noundef nonnull align 8 dereferenceable(72) %94, ptr noundef nonnull align 8 dereferenceable(32) %121)
           to label %567 unwind label %1467
@@ -19736,7 +19736,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit118: ; preds = %_ZN32pxrIn
   store i8 0, ptr %569, align 8
   %570 = getelementptr inbounds nuw i8, ptr %122, i64 16
   store double 0.000000e+00, ptr %570, align 8
-  %571 = getelementptr inbounds i8, ptr %122, i64 24
+  %571 = getelementptr inbounds nuw i8, ptr %122, i64 24
   store i8 0, ptr %571, align 8
   %572 = invoke noundef zeroext i1 @_ZN13_SplineTester11SetKeyFrameERKN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameERKNS0_10GfIntervalE(ptr noundef nonnull align 8 dereferenceable(16) %82, ptr noundef nonnull align 8 dereferenceable(72) %99, ptr noundef nonnull align 8 dereferenceable(32) %122)
           to label %573 unwind label %1467
@@ -19752,7 +19752,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit118: ; preds = %_ZN32pxrIn
   store i8 0, ptr %575, align 8
   %576 = getelementptr inbounds nuw i8, ptr %123, i64 16
   store double 0.000000e+00, ptr %576, align 8
-  %577 = getelementptr inbounds i8, ptr %123, i64 24
+  %577 = getelementptr inbounds nuw i8, ptr %123, i64 24
   store i8 0, ptr %577, align 8
   %578 = invoke noundef zeroext i1 @_ZN13_SplineTester11SetKeyFrameERKN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameERKNS0_10GfIntervalE(ptr noundef nonnull align 8 dereferenceable(16) %82, ptr noundef nonnull align 8 dereferenceable(72) %104, ptr noundef nonnull align 8 dereferenceable(32) %123)
           to label %579 unwind label %1467
@@ -19768,7 +19768,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit118: ; preds = %_ZN32pxrIn
   store i8 0, ptr %581, align 8
   %582 = getelementptr inbounds nuw i8, ptr %124, i64 16
   store double 0.000000e+00, ptr %582, align 8
-  %583 = getelementptr inbounds i8, ptr %124, i64 24
+  %583 = getelementptr inbounds nuw i8, ptr %124, i64 24
   store i8 0, ptr %583, align 8
   %584 = invoke noundef zeroext i1 @_ZN13_SplineTester11SetKeyFrameERKN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameERKNS0_10GfIntervalE(ptr noundef nonnull align 8 dereferenceable(16) %82, ptr noundef nonnull align 8 dereferenceable(72) %109, ptr noundef nonnull align 8 dereferenceable(32) %124)
           to label %585 unwind label %1467
@@ -19784,7 +19784,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit118: ; preds = %_ZN32pxrIn
   store i8 0, ptr %587, align 8
   %588 = getelementptr inbounds nuw i8, ptr %125, i64 16
   store double 0.000000e+00, ptr %588, align 8
-  %589 = getelementptr inbounds i8, ptr %125, i64 24
+  %589 = getelementptr inbounds nuw i8, ptr %125, i64 24
   store i8 0, ptr %589, align 8
   %590 = invoke noundef zeroext i1 @_ZN13_SplineTester11SetKeyFrameERKN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameERKNS0_10GfIntervalE(ptr noundef nonnull align 8 dereferenceable(16) %82, ptr noundef nonnull align 8 dereferenceable(72) %114, ptr noundef nonnull align 8 dereferenceable(32) %125)
           to label %591 unwind label %1467
@@ -19802,7 +19802,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit118: ; preds = %_ZN32pxrIn
   store i8 0, ptr %595, align 8
   %596 = getelementptr inbounds nuw i8, ptr %126, i64 16
   store double 0.000000e+00, ptr %596, align 8
-  %597 = getelementptr inbounds i8, ptr %126, i64 24
+  %597 = getelementptr inbounds nuw i8, ptr %126, i64 24
   store i8 0, ptr %597, align 8
   %598 = invoke noundef zeroext i1 @_ZN13_SplineTester14RemoveKeyFrameEdRKN32pxrInternal_v0_24__pxrReserved__10GfIntervalE(ptr noundef nonnull align 8 dereferenceable(16) %82, double noundef %594, ptr noundef nonnull align 8 dereferenceable(32) %126)
           to label %599 unwind label %1467
@@ -19820,7 +19820,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit118: ; preds = %_ZN32pxrIn
   store i8 0, ptr %603, align 8
   %604 = getelementptr inbounds nuw i8, ptr %127, i64 16
   store double 0.000000e+00, ptr %604, align 8
-  %605 = getelementptr inbounds i8, ptr %127, i64 24
+  %605 = getelementptr inbounds nuw i8, ptr %127, i64 24
   store i8 0, ptr %605, align 8
   %606 = invoke noundef zeroext i1 @_ZN13_SplineTester14RemoveKeyFrameEdRKN32pxrInternal_v0_24__pxrReserved__10GfIntervalE(ptr noundef nonnull align 8 dereferenceable(16) %82, double noundef %602, ptr noundef nonnull align 8 dereferenceable(32) %127)
           to label %607 unwind label %1467
@@ -19838,7 +19838,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit118: ; preds = %_ZN32pxrIn
   store i8 0, ptr %611, align 8
   %612 = getelementptr inbounds nuw i8, ptr %128, i64 16
   store double 0.000000e+00, ptr %612, align 8
-  %613 = getelementptr inbounds i8, ptr %128, i64 24
+  %613 = getelementptr inbounds nuw i8, ptr %128, i64 24
   store i8 0, ptr %613, align 8
   %614 = invoke noundef zeroext i1 @_ZN13_SplineTester14RemoveKeyFrameEdRKN32pxrInternal_v0_24__pxrReserved__10GfIntervalE(ptr noundef nonnull align 8 dereferenceable(16) %82, double noundef %610, ptr noundef nonnull align 8 dereferenceable(32) %128)
           to label %615 unwind label %1467
@@ -19856,7 +19856,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit118: ; preds = %_ZN32pxrIn
   store i8 0, ptr %619, align 8
   %620 = getelementptr inbounds nuw i8, ptr %129, i64 16
   store double 0.000000e+00, ptr %620, align 8
-  %621 = getelementptr inbounds i8, ptr %129, i64 24
+  %621 = getelementptr inbounds nuw i8, ptr %129, i64 24
   store i8 0, ptr %621, align 8
   %622 = invoke noundef zeroext i1 @_ZN13_SplineTester14RemoveKeyFrameEdRKN32pxrInternal_v0_24__pxrReserved__10GfIntervalE(ptr noundef nonnull align 8 dereferenceable(16) %82, double noundef %618, ptr noundef nonnull align 8 dereferenceable(32) %129)
           to label %623 unwind label %1467
@@ -19874,7 +19874,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit118: ; preds = %_ZN32pxrIn
   store i8 0, ptr %627, align 8
   %628 = getelementptr inbounds nuw i8, ptr %130, i64 16
   store double 0.000000e+00, ptr %628, align 8
-  %629 = getelementptr inbounds i8, ptr %130, i64 24
+  %629 = getelementptr inbounds nuw i8, ptr %130, i64 24
   store i8 0, ptr %629, align 8
   %630 = invoke noundef zeroext i1 @_ZN13_SplineTester14RemoveKeyFrameEdRKN32pxrInternal_v0_24__pxrReserved__10GfIntervalE(ptr noundef nonnull align 8 dereferenceable(16) %82, double noundef %626, ptr noundef nonnull align 8 dereferenceable(32) %130)
           to label %631 unwind label %1467
@@ -19892,7 +19892,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit118: ; preds = %_ZN32pxrIn
   store i8 0, ptr %635, align 8
   %636 = getelementptr inbounds nuw i8, ptr %131, i64 16
   store double 0.000000e+00, ptr %636, align 8
-  %637 = getelementptr inbounds i8, ptr %131, i64 24
+  %637 = getelementptr inbounds nuw i8, ptr %131, i64 24
   store i8 0, ptr %637, align 8
   %638 = invoke noundef zeroext i1 @_ZN13_SplineTester14RemoveKeyFrameEdRKN32pxrInternal_v0_24__pxrReserved__10GfIntervalE(ptr noundef nonnull align 8 dereferenceable(16) %82, double noundef %634, ptr noundef nonnull align 8 dereferenceable(32) %131)
           to label %639 unwind label %1467
@@ -19910,7 +19910,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit118: ; preds = %_ZN32pxrIn
   store i8 0, ptr %643, align 8, !alias.scope !68
   %644 = getelementptr inbounds nuw i8, ptr %132, i64 16
   store double 0x7FF0000000000000, ptr %644, align 8, !alias.scope !68
-  %645 = getelementptr inbounds i8, ptr %132, i64 24
+  %645 = getelementptr inbounds nuw i8, ptr %132, i64 24
   store i8 0, ptr %645, align 8, !alias.scope !68
   %646 = invoke noundef zeroext i1 @_ZN13_SplineTester14RemoveKeyFrameEdRKN32pxrInternal_v0_24__pxrReserved__10GfIntervalE(ptr noundef nonnull align 8 dereferenceable(16) %82, double noundef %642, ptr noundef nonnull align 8 dereferenceable(32) %132)
           to label %647 unwind label %1467
@@ -19947,7 +19947,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit118: ; preds = %_ZN32pxrIn
   store i8 0, ptr %663, align 8, !alias.scope !71
   %664 = getelementptr inbounds nuw i8, ptr %133, i64 16
   store double 0x7FF0000000000000, ptr %664, align 8, !alias.scope !71
-  %665 = getelementptr inbounds i8, ptr %133, i64 24
+  %665 = getelementptr inbounds nuw i8, ptr %133, i64 24
   store i8 0, ptr %665, align 8, !alias.scope !71
   %666 = invoke noundef zeroext i1 @_ZN13_SplineTester11SetKeyFrameERKN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameERKNS0_10GfIntervalE(ptr noundef nonnull align 8 dereferenceable(16) %82, ptr noundef nonnull align 8 dereferenceable(72) %84, ptr noundef nonnull align 8 dereferenceable(32) %133)
           to label %667 unwind label %1467
@@ -19963,7 +19963,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit118: ; preds = %_ZN32pxrIn
   store i8 0, ptr %669, align 8
   %670 = getelementptr inbounds nuw i8, ptr %134, i64 16
   store double 0.000000e+00, ptr %670, align 8
-  %671 = getelementptr inbounds i8, ptr %134, i64 24
+  %671 = getelementptr inbounds nuw i8, ptr %134, i64 24
   store i8 0, ptr %671, align 8
   %672 = invoke noundef zeroext i1 @_ZN13_SplineTester11SetKeyFrameERKN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameERKNS0_10GfIntervalE(ptr noundef nonnull align 8 dereferenceable(16) %82, ptr noundef nonnull align 8 dereferenceable(72) %89, ptr noundef nonnull align 8 dereferenceable(32) %134)
           to label %673 unwind label %1467
@@ -19979,7 +19979,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit118: ; preds = %_ZN32pxrIn
   store i8 0, ptr %675, align 8
   %676 = getelementptr inbounds nuw i8, ptr %135, i64 16
   store double 0.000000e+00, ptr %676, align 8
-  %677 = getelementptr inbounds i8, ptr %135, i64 24
+  %677 = getelementptr inbounds nuw i8, ptr %135, i64 24
   store i8 0, ptr %677, align 8
   %678 = invoke noundef zeroext i1 @_ZN13_SplineTester11SetKeyFrameERKN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameERKNS0_10GfIntervalE(ptr noundef nonnull align 8 dereferenceable(16) %82, ptr noundef nonnull align 8 dereferenceable(72) %94, ptr noundef nonnull align 8 dereferenceable(32) %135)
           to label %679 unwind label %1467
@@ -19995,7 +19995,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit118: ; preds = %_ZN32pxrIn
   store i8 0, ptr %681, align 8
   %682 = getelementptr inbounds nuw i8, ptr %136, i64 16
   store double 0.000000e+00, ptr %682, align 8
-  %683 = getelementptr inbounds i8, ptr %136, i64 24
+  %683 = getelementptr inbounds nuw i8, ptr %136, i64 24
   store i8 0, ptr %683, align 8
   %684 = invoke noundef zeroext i1 @_ZN13_SplineTester11SetKeyFrameERKN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameERKNS0_10GfIntervalE(ptr noundef nonnull align 8 dereferenceable(16) %82, ptr noundef nonnull align 8 dereferenceable(72) %99, ptr noundef nonnull align 8 dereferenceable(32) %136)
           to label %685 unwind label %1467
@@ -20011,7 +20011,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit118: ; preds = %_ZN32pxrIn
   store i8 0, ptr %687, align 8
   %688 = getelementptr inbounds nuw i8, ptr %137, i64 16
   store double 0.000000e+00, ptr %688, align 8
-  %689 = getelementptr inbounds i8, ptr %137, i64 24
+  %689 = getelementptr inbounds nuw i8, ptr %137, i64 24
   store i8 0, ptr %689, align 8
   %690 = invoke noundef zeroext i1 @_ZN13_SplineTester11SetKeyFrameERKN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameERKNS0_10GfIntervalE(ptr noundef nonnull align 8 dereferenceable(16) %82, ptr noundef nonnull align 8 dereferenceable(72) %104, ptr noundef nonnull align 8 dereferenceable(32) %137)
           to label %691 unwind label %1467
@@ -20027,7 +20027,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit118: ; preds = %_ZN32pxrIn
   store i8 0, ptr %693, align 8
   %694 = getelementptr inbounds nuw i8, ptr %138, i64 16
   store double 0.000000e+00, ptr %694, align 8
-  %695 = getelementptr inbounds i8, ptr %138, i64 24
+  %695 = getelementptr inbounds nuw i8, ptr %138, i64 24
   store i8 0, ptr %695, align 8
   %696 = invoke noundef zeroext i1 @_ZN13_SplineTester11SetKeyFrameERKN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameERKNS0_10GfIntervalE(ptr noundef nonnull align 8 dereferenceable(16) %82, ptr noundef nonnull align 8 dereferenceable(72) %109, ptr noundef nonnull align 8 dereferenceable(32) %138)
           to label %697 unwind label %1467
@@ -20043,7 +20043,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit118: ; preds = %_ZN32pxrIn
   store i8 0, ptr %699, align 8
   %700 = getelementptr inbounds nuw i8, ptr %139, i64 16
   store double 0.000000e+00, ptr %700, align 8
-  %701 = getelementptr inbounds i8, ptr %139, i64 24
+  %701 = getelementptr inbounds nuw i8, ptr %139, i64 24
   store i8 0, ptr %701, align 8
   %702 = invoke noundef zeroext i1 @_ZN13_SplineTester11SetKeyFrameERKN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameERKNS0_10GfIntervalE(ptr noundef nonnull align 8 dereferenceable(16) %82, ptr noundef nonnull align 8 dereferenceable(72) %114, ptr noundef nonnull align 8 dereferenceable(32) %139)
           to label %703 unwind label %1467
@@ -20091,7 +20091,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit118: ; preds = %_ZN32pxrIn
   store i8 0, ptr %720, align 8
   %721 = getelementptr inbounds nuw i8, ptr %141, i64 16
   store double 0.000000e+00, ptr %721, align 8
-  %722 = getelementptr inbounds i8, ptr %141, i64 24
+  %722 = getelementptr inbounds nuw i8, ptr %141, i64 24
   store i8 0, ptr %722, align 8
   %723 = invoke noundef zeroext i1 @_ZN13_SplineTester11SetKeyFrameERKN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameERKNS0_10GfIntervalE(ptr noundef nonnull align 8 dereferenceable(16) %82, ptr noundef nonnull align 8 dereferenceable(72) %84, ptr noundef nonnull align 8 dereferenceable(32) %141)
           to label %724 unwind label %1467
@@ -20111,7 +20111,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit118: ; preds = %_ZN32pxrIn
   store i8 0, ptr %727, align 8
   %728 = getelementptr inbounds nuw i8, ptr %142, i64 16
   store double 0.000000e+00, ptr %728, align 8
-  %729 = getelementptr inbounds i8, ptr %142, i64 24
+  %729 = getelementptr inbounds nuw i8, ptr %142, i64 24
   store i8 0, ptr %729, align 8
   %730 = invoke noundef zeroext i1 @_ZN13_SplineTester11SetKeyFrameERKN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameERKNS0_10GfIntervalE(ptr noundef nonnull align 8 dereferenceable(16) %82, ptr noundef nonnull align 8 dereferenceable(72) %84, ptr noundef nonnull align 8 dereferenceable(32) %142)
           to label %731 unwind label %1467
@@ -20159,7 +20159,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit118: ; preds = %_ZN32pxrIn
   store i8 0, ptr %748, align 8
   %749 = getelementptr inbounds nuw i8, ptr %144, i64 16
   store double 0.000000e+00, ptr %749, align 8
-  %750 = getelementptr inbounds i8, ptr %144, i64 24
+  %750 = getelementptr inbounds nuw i8, ptr %144, i64 24
   store i8 0, ptr %750, align 8
   %751 = invoke noundef zeroext i1 @_ZN13_SplineTester11SetKeyFrameERKN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameERKNS0_10GfIntervalE(ptr noundef nonnull align 8 dereferenceable(16) %82, ptr noundef nonnull align 8 dereferenceable(72) %84, ptr noundef nonnull align 8 dereferenceable(32) %144)
           to label %752 unwind label %1467
@@ -20179,7 +20179,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit118: ; preds = %_ZN32pxrIn
   store i8 0, ptr %755, align 8
   %756 = getelementptr inbounds nuw i8, ptr %145, i64 16
   store double 0.000000e+00, ptr %756, align 8
-  %757 = getelementptr inbounds i8, ptr %145, i64 24
+  %757 = getelementptr inbounds nuw i8, ptr %145, i64 24
   store i8 0, ptr %757, align 8
   %758 = invoke noundef zeroext i1 @_ZN13_SplineTester11SetKeyFrameERKN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameERKNS0_10GfIntervalE(ptr noundef nonnull align 8 dereferenceable(16) %82, ptr noundef nonnull align 8 dereferenceable(72) %84, ptr noundef nonnull align 8 dereferenceable(32) %145)
           to label %759 unwind label %1467
@@ -20227,7 +20227,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit118: ; preds = %_ZN32pxrIn
   store i8 0, ptr %776, align 8
   %777 = getelementptr inbounds nuw i8, ptr %147, i64 16
   store double 0.000000e+00, ptr %777, align 8
-  %778 = getelementptr inbounds i8, ptr %147, i64 24
+  %778 = getelementptr inbounds nuw i8, ptr %147, i64 24
   store i8 0, ptr %778, align 8
   %779 = invoke noundef zeroext i1 @_ZN13_SplineTester11SetKeyFrameERKN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameERKNS0_10GfIntervalE(ptr noundef nonnull align 8 dereferenceable(16) %82, ptr noundef nonnull align 8 dereferenceable(72) %89, ptr noundef nonnull align 8 dereferenceable(32) %147)
           to label %780 unwind label %1467
@@ -20247,7 +20247,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit118: ; preds = %_ZN32pxrIn
   store i8 0, ptr %783, align 8
   %784 = getelementptr inbounds nuw i8, ptr %148, i64 16
   store double 0.000000e+00, ptr %784, align 8
-  %785 = getelementptr inbounds i8, ptr %148, i64 24
+  %785 = getelementptr inbounds nuw i8, ptr %148, i64 24
   store i8 0, ptr %785, align 8
   %786 = invoke noundef zeroext i1 @_ZN13_SplineTester11SetKeyFrameERKN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameERKNS0_10GfIntervalE(ptr noundef nonnull align 8 dereferenceable(16) %82, ptr noundef nonnull align 8 dereferenceable(72) %89, ptr noundef nonnull align 8 dereferenceable(32) %148)
           to label %787 unwind label %1467
@@ -20295,7 +20295,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit118: ; preds = %_ZN32pxrIn
   store i8 0, ptr %804, align 8
   %805 = getelementptr inbounds nuw i8, ptr %150, i64 16
   store double 2.500000e+01, ptr %805, align 8
-  %806 = getelementptr inbounds i8, ptr %150, i64 24
+  %806 = getelementptr inbounds nuw i8, ptr %150, i64 24
   store i8 0, ptr %806, align 8
   %807 = invoke noundef zeroext i1 @_ZN13_SplineTester11SetKeyFrameERKN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameERKNS0_10GfIntervalE(ptr noundef nonnull align 8 dereferenceable(16) %82, ptr noundef nonnull align 8 dereferenceable(72) %89, ptr noundef nonnull align 8 dereferenceable(32) %150)
           to label %808 unwind label %1467
@@ -20315,7 +20315,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit118: ; preds = %_ZN32pxrIn
   store i8 0, ptr %811, align 8
   %812 = getelementptr inbounds nuw i8, ptr %151, i64 16
   store double 2.500000e+01, ptr %812, align 8
-  %813 = getelementptr inbounds i8, ptr %151, i64 24
+  %813 = getelementptr inbounds nuw i8, ptr %151, i64 24
   store i8 0, ptr %813, align 8
   %814 = invoke noundef zeroext i1 @_ZN13_SplineTester11SetKeyFrameERKN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameERKNS0_10GfIntervalE(ptr noundef nonnull align 8 dereferenceable(16) %82, ptr noundef nonnull align 8 dereferenceable(72) %89, ptr noundef nonnull align 8 dereferenceable(32) %151)
           to label %815 unwind label %1467
@@ -20363,7 +20363,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit118: ; preds = %_ZN32pxrIn
   store i8 0, ptr %832, align 8
   %833 = getelementptr inbounds nuw i8, ptr %153, i64 16
   store double 0.000000e+00, ptr %833, align 8
-  %834 = getelementptr inbounds i8, ptr %153, i64 24
+  %834 = getelementptr inbounds nuw i8, ptr %153, i64 24
   store i8 0, ptr %834, align 8
   %835 = invoke noundef zeroext i1 @_ZN13_SplineTester11SetKeyFrameERKN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameERKNS0_10GfIntervalE(ptr noundef nonnull align 8 dereferenceable(16) %82, ptr noundef nonnull align 8 dereferenceable(72) %94, ptr noundef nonnull align 8 dereferenceable(32) %153)
           to label %836 unwind label %1467
@@ -20383,7 +20383,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit118: ; preds = %_ZN32pxrIn
   store i8 0, ptr %839, align 8
   %840 = getelementptr inbounds nuw i8, ptr %154, i64 16
   store double 0.000000e+00, ptr %840, align 8
-  %841 = getelementptr inbounds i8, ptr %154, i64 24
+  %841 = getelementptr inbounds nuw i8, ptr %154, i64 24
   store i8 0, ptr %841, align 8
   %842 = invoke noundef zeroext i1 @_ZN13_SplineTester11SetKeyFrameERKN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameERKNS0_10GfIntervalE(ptr noundef nonnull align 8 dereferenceable(16) %82, ptr noundef nonnull align 8 dereferenceable(72) %94, ptr noundef nonnull align 8 dereferenceable(32) %154)
           to label %843 unwind label %1467
@@ -20431,7 +20431,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit118: ; preds = %_ZN32pxrIn
   store i8 0, ptr %860, align 8
   %861 = getelementptr inbounds nuw i8, ptr %156, i64 16
   store double 0.000000e+00, ptr %861, align 8
-  %862 = getelementptr inbounds i8, ptr %156, i64 24
+  %862 = getelementptr inbounds nuw i8, ptr %156, i64 24
   store i8 0, ptr %862, align 8
   %863 = invoke noundef zeroext i1 @_ZN13_SplineTester11SetKeyFrameERKN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameERKNS0_10GfIntervalE(ptr noundef nonnull align 8 dereferenceable(16) %82, ptr noundef nonnull align 8 dereferenceable(72) %94, ptr noundef nonnull align 8 dereferenceable(32) %156)
           to label %864 unwind label %1467
@@ -20451,7 +20451,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit118: ; preds = %_ZN32pxrIn
   store i8 0, ptr %867, align 8
   %868 = getelementptr inbounds nuw i8, ptr %157, i64 16
   store double 0.000000e+00, ptr %868, align 8
-  %869 = getelementptr inbounds i8, ptr %157, i64 24
+  %869 = getelementptr inbounds nuw i8, ptr %157, i64 24
   store i8 0, ptr %869, align 8
   %870 = invoke noundef zeroext i1 @_ZN13_SplineTester11SetKeyFrameERKN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameERKNS0_10GfIntervalE(ptr noundef nonnull align 8 dereferenceable(16) %82, ptr noundef nonnull align 8 dereferenceable(72) %94, ptr noundef nonnull align 8 dereferenceable(32) %157)
           to label %871 unwind label %1467
@@ -20499,7 +20499,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit118: ; preds = %_ZN32pxrIn
   store i8 0, ptr %888, align 8
   %889 = getelementptr inbounds nuw i8, ptr %159, i64 16
   store double 0.000000e+00, ptr %889, align 8
-  %890 = getelementptr inbounds i8, ptr %159, i64 24
+  %890 = getelementptr inbounds nuw i8, ptr %159, i64 24
   store i8 0, ptr %890, align 8
   %891 = invoke noundef zeroext i1 @_ZN13_SplineTester11SetKeyFrameERKN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameERKNS0_10GfIntervalE(ptr noundef nonnull align 8 dereferenceable(16) %82, ptr noundef nonnull align 8 dereferenceable(72) %99, ptr noundef nonnull align 8 dereferenceable(32) %159)
           to label %892 unwind label %1467
@@ -20519,7 +20519,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit118: ; preds = %_ZN32pxrIn
   store i8 0, ptr %895, align 8
   %896 = getelementptr inbounds nuw i8, ptr %160, i64 16
   store double 0.000000e+00, ptr %896, align 8
-  %897 = getelementptr inbounds i8, ptr %160, i64 24
+  %897 = getelementptr inbounds nuw i8, ptr %160, i64 24
   store i8 0, ptr %897, align 8
   %898 = invoke noundef zeroext i1 @_ZN13_SplineTester11SetKeyFrameERKN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameERKNS0_10GfIntervalE(ptr noundef nonnull align 8 dereferenceable(16) %82, ptr noundef nonnull align 8 dereferenceable(72) %99, ptr noundef nonnull align 8 dereferenceable(32) %160)
           to label %899 unwind label %1467
@@ -20567,7 +20567,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit118: ; preds = %_ZN32pxrIn
   store i8 0, ptr %916, align 8
   %917 = getelementptr inbounds nuw i8, ptr %162, i64 16
   store double 0.000000e+00, ptr %917, align 8
-  %918 = getelementptr inbounds i8, ptr %162, i64 24
+  %918 = getelementptr inbounds nuw i8, ptr %162, i64 24
   store i8 0, ptr %918, align 8
   %919 = invoke noundef zeroext i1 @_ZN13_SplineTester11SetKeyFrameERKN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameERKNS0_10GfIntervalE(ptr noundef nonnull align 8 dereferenceable(16) %82, ptr noundef nonnull align 8 dereferenceable(72) %99, ptr noundef nonnull align 8 dereferenceable(32) %162)
           to label %920 unwind label %1467
@@ -20587,7 +20587,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit118: ; preds = %_ZN32pxrIn
   store i8 0, ptr %923, align 8
   %924 = getelementptr inbounds nuw i8, ptr %163, i64 16
   store double 0.000000e+00, ptr %924, align 8
-  %925 = getelementptr inbounds i8, ptr %163, i64 24
+  %925 = getelementptr inbounds nuw i8, ptr %163, i64 24
   store i8 0, ptr %925, align 8
   %926 = invoke noundef zeroext i1 @_ZN13_SplineTester11SetKeyFrameERKN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameERKNS0_10GfIntervalE(ptr noundef nonnull align 8 dereferenceable(16) %82, ptr noundef nonnull align 8 dereferenceable(72) %99, ptr noundef nonnull align 8 dereferenceable(32) %163)
           to label %927 unwind label %1467
@@ -20635,7 +20635,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit118: ; preds = %_ZN32pxrIn
   store i8 0, ptr %944, align 8
   %945 = getelementptr inbounds nuw i8, ptr %165, i64 16
   store double 0.000000e+00, ptr %945, align 8
-  %946 = getelementptr inbounds i8, ptr %165, i64 24
+  %946 = getelementptr inbounds nuw i8, ptr %165, i64 24
   store i8 0, ptr %946, align 8
   %947 = invoke noundef zeroext i1 @_ZN13_SplineTester11SetKeyFrameERKN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameERKNS0_10GfIntervalE(ptr noundef nonnull align 8 dereferenceable(16) %82, ptr noundef nonnull align 8 dereferenceable(72) %104, ptr noundef nonnull align 8 dereferenceable(32) %165)
           to label %948 unwind label %1467
@@ -20655,7 +20655,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit118: ; preds = %_ZN32pxrIn
   store i8 0, ptr %951, align 8
   %952 = getelementptr inbounds nuw i8, ptr %166, i64 16
   store double 0.000000e+00, ptr %952, align 8
-  %953 = getelementptr inbounds i8, ptr %166, i64 24
+  %953 = getelementptr inbounds nuw i8, ptr %166, i64 24
   store i8 0, ptr %953, align 8
   %954 = invoke noundef zeroext i1 @_ZN13_SplineTester11SetKeyFrameERKN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameERKNS0_10GfIntervalE(ptr noundef nonnull align 8 dereferenceable(16) %82, ptr noundef nonnull align 8 dereferenceable(72) %104, ptr noundef nonnull align 8 dereferenceable(32) %166)
           to label %955 unwind label %1467
@@ -20703,7 +20703,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit118: ; preds = %_ZN32pxrIn
   store i8 0, ptr %972, align 8
   %973 = getelementptr inbounds nuw i8, ptr %168, i64 16
   store double 0.000000e+00, ptr %973, align 8
-  %974 = getelementptr inbounds i8, ptr %168, i64 24
+  %974 = getelementptr inbounds nuw i8, ptr %168, i64 24
   store i8 0, ptr %974, align 8
   %975 = invoke noundef zeroext i1 @_ZN13_SplineTester11SetKeyFrameERKN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameERKNS0_10GfIntervalE(ptr noundef nonnull align 8 dereferenceable(16) %82, ptr noundef nonnull align 8 dereferenceable(72) %104, ptr noundef nonnull align 8 dereferenceable(32) %168)
           to label %976 unwind label %1467
@@ -20723,7 +20723,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit118: ; preds = %_ZN32pxrIn
   store i8 0, ptr %979, align 8
   %980 = getelementptr inbounds nuw i8, ptr %169, i64 16
   store double 0.000000e+00, ptr %980, align 8
-  %981 = getelementptr inbounds i8, ptr %169, i64 24
+  %981 = getelementptr inbounds nuw i8, ptr %169, i64 24
   store i8 0, ptr %981, align 8
   %982 = invoke noundef zeroext i1 @_ZN13_SplineTester11SetKeyFrameERKN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameERKNS0_10GfIntervalE(ptr noundef nonnull align 8 dereferenceable(16) %82, ptr noundef nonnull align 8 dereferenceable(72) %104, ptr noundef nonnull align 8 dereferenceable(32) %169)
           to label %983 unwind label %1467
@@ -20771,7 +20771,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit118: ; preds = %_ZN32pxrIn
   store i8 0, ptr %1000, align 8
   %1001 = getelementptr inbounds nuw i8, ptr %171, i64 16
   store double 5.500000e+01, ptr %1001, align 8
-  %1002 = getelementptr inbounds i8, ptr %171, i64 24
+  %1002 = getelementptr inbounds nuw i8, ptr %171, i64 24
   store i8 0, ptr %1002, align 8
   %1003 = invoke noundef zeroext i1 @_ZN13_SplineTester11SetKeyFrameERKN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameERKNS0_10GfIntervalE(ptr noundef nonnull align 8 dereferenceable(16) %82, ptr noundef nonnull align 8 dereferenceable(72) %109, ptr noundef nonnull align 8 dereferenceable(32) %171)
           to label %1004 unwind label %1467
@@ -20791,7 +20791,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit118: ; preds = %_ZN32pxrIn
   store i8 0, ptr %1007, align 8
   %1008 = getelementptr inbounds nuw i8, ptr %172, i64 16
   store double 5.500000e+01, ptr %1008, align 8
-  %1009 = getelementptr inbounds i8, ptr %172, i64 24
+  %1009 = getelementptr inbounds nuw i8, ptr %172, i64 24
   store i8 0, ptr %1009, align 8
   %1010 = invoke noundef zeroext i1 @_ZN13_SplineTester11SetKeyFrameERKN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameERKNS0_10GfIntervalE(ptr noundef nonnull align 8 dereferenceable(16) %82, ptr noundef nonnull align 8 dereferenceable(72) %109, ptr noundef nonnull align 8 dereferenceable(32) %172)
           to label %1011 unwind label %1467
@@ -20839,7 +20839,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit118: ; preds = %_ZN32pxrIn
   store i8 0, ptr %1028, align 8
   %1029 = getelementptr inbounds nuw i8, ptr %174, i64 16
   store double 6.500000e+01, ptr %1029, align 8
-  %1030 = getelementptr inbounds i8, ptr %174, i64 24
+  %1030 = getelementptr inbounds nuw i8, ptr %174, i64 24
   store i8 0, ptr %1030, align 8
   %1031 = invoke noundef zeroext i1 @_ZN13_SplineTester11SetKeyFrameERKN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameERKNS0_10GfIntervalE(ptr noundef nonnull align 8 dereferenceable(16) %82, ptr noundef nonnull align 8 dereferenceable(72) %109, ptr noundef nonnull align 8 dereferenceable(32) %174)
           to label %1032 unwind label %1467
@@ -20859,7 +20859,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit118: ; preds = %_ZN32pxrIn
   store i8 0, ptr %1035, align 8
   %1036 = getelementptr inbounds nuw i8, ptr %175, i64 16
   store double 6.500000e+01, ptr %1036, align 8
-  %1037 = getelementptr inbounds i8, ptr %175, i64 24
+  %1037 = getelementptr inbounds nuw i8, ptr %175, i64 24
   store i8 0, ptr %1037, align 8
   %1038 = invoke noundef zeroext i1 @_ZN13_SplineTester11SetKeyFrameERKN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameERKNS0_10GfIntervalE(ptr noundef nonnull align 8 dereferenceable(16) %82, ptr noundef nonnull align 8 dereferenceable(72) %109, ptr noundef nonnull align 8 dereferenceable(32) %175)
           to label %1039 unwind label %1467
@@ -20907,7 +20907,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit118: ; preds = %_ZN32pxrIn
   store i8 0, ptr %1056, align 8
   %1057 = getelementptr inbounds nuw i8, ptr %177, i64 16
   store double 0.000000e+00, ptr %1057, align 8
-  %1058 = getelementptr inbounds i8, ptr %177, i64 24
+  %1058 = getelementptr inbounds nuw i8, ptr %177, i64 24
   store i8 0, ptr %1058, align 8
   %1059 = invoke noundef zeroext i1 @_ZN13_SplineTester11SetKeyFrameERKN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameERKNS0_10GfIntervalE(ptr noundef nonnull align 8 dereferenceable(16) %82, ptr noundef nonnull align 8 dereferenceable(72) %114, ptr noundef nonnull align 8 dereferenceable(32) %177)
           to label %1060 unwind label %1467
@@ -20927,7 +20927,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit118: ; preds = %_ZN32pxrIn
   store i8 0, ptr %1063, align 8
   %1064 = getelementptr inbounds nuw i8, ptr %178, i64 16
   store double 0.000000e+00, ptr %1064, align 8
-  %1065 = getelementptr inbounds i8, ptr %178, i64 24
+  %1065 = getelementptr inbounds nuw i8, ptr %178, i64 24
   store i8 0, ptr %1065, align 8
   %1066 = invoke noundef zeroext i1 @_ZN13_SplineTester11SetKeyFrameERKN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameERKNS0_10GfIntervalE(ptr noundef nonnull align 8 dereferenceable(16) %82, ptr noundef nonnull align 8 dereferenceable(72) %114, ptr noundef nonnull align 8 dereferenceable(32) %178)
           to label %1067 unwind label %1467
@@ -20975,7 +20975,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit118: ; preds = %_ZN32pxrIn
   store i8 0, ptr %1084, align 8
   %1085 = getelementptr inbounds nuw i8, ptr %180, i64 16
   store double 0.000000e+00, ptr %1085, align 8
-  %1086 = getelementptr inbounds i8, ptr %180, i64 24
+  %1086 = getelementptr inbounds nuw i8, ptr %180, i64 24
   store i8 0, ptr %1086, align 8
   %1087 = invoke noundef zeroext i1 @_ZN13_SplineTester11SetKeyFrameERKN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameERKNS0_10GfIntervalE(ptr noundef nonnull align 8 dereferenceable(16) %82, ptr noundef nonnull align 8 dereferenceable(72) %114, ptr noundef nonnull align 8 dereferenceable(32) %180)
           to label %1088 unwind label %1467
@@ -20995,7 +20995,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit118: ; preds = %_ZN32pxrIn
   store i8 0, ptr %1091, align 8
   %1092 = getelementptr inbounds nuw i8, ptr %181, i64 16
   store double 0.000000e+00, ptr %1092, align 8
-  %1093 = getelementptr inbounds i8, ptr %181, i64 24
+  %1093 = getelementptr inbounds nuw i8, ptr %181, i64 24
   store i8 0, ptr %1093, align 8
   %1094 = invoke noundef zeroext i1 @_ZN13_SplineTester11SetKeyFrameERKN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameERKNS0_10GfIntervalE(ptr noundef nonnull align 8 dereferenceable(16) %82, ptr noundef nonnull align 8 dereferenceable(72) %114, ptr noundef nonnull align 8 dereferenceable(32) %181)
           to label %1095 unwind label %1467
@@ -21043,7 +21043,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit118: ; preds = %_ZN32pxrIn
   store i8 0, ptr %1112, align 8
   %1113 = getelementptr inbounds nuw i8, ptr %183, i64 16
   store double 1.500000e+01, ptr %1113, align 8
-  %1114 = getelementptr inbounds i8, ptr %183, i64 24
+  %1114 = getelementptr inbounds nuw i8, ptr %183, i64 24
   store i8 0, ptr %1114, align 8
   %1115 = invoke noundef zeroext i1 @_ZN13_SplineTester11SetKeyFrameERKN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameERKNS0_10GfIntervalE(ptr noundef nonnull align 8 dereferenceable(16) %82, ptr noundef nonnull align 8 dereferenceable(72) %84, ptr noundef nonnull align 8 dereferenceable(32) %183)
           to label %1116 unwind label %1467
@@ -21091,7 +21091,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit118: ; preds = %_ZN32pxrIn
   store i8 1, ptr %1133, align 8
   %1134 = getelementptr inbounds nuw i8, ptr %185, i64 16
   store double 2.500000e+01, ptr %1134, align 8
-  %1135 = getelementptr inbounds i8, ptr %185, i64 24
+  %1135 = getelementptr inbounds nuw i8, ptr %185, i64 24
   store i8 0, ptr %1135, align 8
   %1136 = invoke noundef zeroext i1 @_ZN13_SplineTester11SetKeyFrameERKN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameERKNS0_10GfIntervalE(ptr noundef nonnull align 8 dereferenceable(16) %82, ptr noundef nonnull align 8 dereferenceable(72) %89, ptr noundef nonnull align 8 dereferenceable(32) %185)
           to label %1137 unwind label %1467
@@ -21139,7 +21139,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit118: ; preds = %_ZN32pxrIn
   store i8 0, ptr %1154, align 8
   %1155 = getelementptr inbounds nuw i8, ptr %187, i64 16
   store double 3.500000e+01, ptr %1155, align 8
-  %1156 = getelementptr inbounds i8, ptr %187, i64 24
+  %1156 = getelementptr inbounds nuw i8, ptr %187, i64 24
   store i8 0, ptr %1156, align 8
   %1157 = invoke noundef zeroext i1 @_ZN13_SplineTester11SetKeyFrameERKN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameERKNS0_10GfIntervalE(ptr noundef nonnull align 8 dereferenceable(16) %82, ptr noundef nonnull align 8 dereferenceable(72) %94, ptr noundef nonnull align 8 dereferenceable(32) %187)
           to label %1158 unwind label %1467
@@ -21187,7 +21187,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit118: ; preds = %_ZN32pxrIn
   store i8 0, ptr %1175, align 8
   %1176 = getelementptr inbounds nuw i8, ptr %189, i64 16
   store double 4.500000e+01, ptr %1176, align 8
-  %1177 = getelementptr inbounds i8, ptr %189, i64 24
+  %1177 = getelementptr inbounds nuw i8, ptr %189, i64 24
   store i8 0, ptr %1177, align 8
   %1178 = invoke noundef zeroext i1 @_ZN13_SplineTester11SetKeyFrameERKN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameERKNS0_10GfIntervalE(ptr noundef nonnull align 8 dereferenceable(16) %82, ptr noundef nonnull align 8 dereferenceable(72) %99, ptr noundef nonnull align 8 dereferenceable(32) %189)
           to label %1179 unwind label %1467
@@ -21235,7 +21235,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit118: ; preds = %_ZN32pxrIn
   store i8 1, ptr %1196, align 8
   %1197 = getelementptr inbounds nuw i8, ptr %191, i64 16
   store double 5.500000e+01, ptr %1197, align 8
-  %1198 = getelementptr inbounds i8, ptr %191, i64 24
+  %1198 = getelementptr inbounds nuw i8, ptr %191, i64 24
   store i8 0, ptr %1198, align 8
   %1199 = invoke noundef zeroext i1 @_ZN13_SplineTester11SetKeyFrameERKN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameERKNS0_10GfIntervalE(ptr noundef nonnull align 8 dereferenceable(16) %82, ptr noundef nonnull align 8 dereferenceable(72) %104, ptr noundef nonnull align 8 dereferenceable(32) %191)
           to label %1200 unwind label %1467
@@ -21283,7 +21283,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit118: ; preds = %_ZN32pxrIn
   store i8 0, ptr %1217, align 8
   %1218 = getelementptr inbounds nuw i8, ptr %193, i64 16
   store double 6.500000e+01, ptr %1218, align 8
-  %1219 = getelementptr inbounds i8, ptr %193, i64 24
+  %1219 = getelementptr inbounds nuw i8, ptr %193, i64 24
   store i8 0, ptr %1219, align 8
   %1220 = invoke noundef zeroext i1 @_ZN13_SplineTester11SetKeyFrameERKN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameERKNS0_10GfIntervalE(ptr noundef nonnull align 8 dereferenceable(16) %82, ptr noundef nonnull align 8 dereferenceable(72) %109, ptr noundef nonnull align 8 dereferenceable(32) %193)
           to label %1221 unwind label %1467
@@ -21331,7 +21331,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit118: ; preds = %_ZN32pxrIn
   store i8 0, ptr %1238, align 8
   %1239 = getelementptr inbounds nuw i8, ptr %195, i64 16
   store double 0x7FF0000000000000, ptr %1239, align 8
-  %1240 = getelementptr inbounds i8, ptr %195, i64 24
+  %1240 = getelementptr inbounds nuw i8, ptr %195, i64 24
   store i8 0, ptr %1240, align 8
   %1241 = invoke noundef zeroext i1 @_ZN13_SplineTester11SetKeyFrameERKN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameERKNS0_10GfIntervalE(ptr noundef nonnull align 8 dereferenceable(16) %82, ptr noundef nonnull align 8 dereferenceable(72) %114, ptr noundef nonnull align 8 dereferenceable(32) %195)
           to label %1242 unwind label %1467
@@ -21351,7 +21351,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit118: ; preds = %_ZN32pxrIn
   store i8 0, ptr %1245, align 8
   %1246 = getelementptr inbounds nuw i8, ptr %196, i64 16
   store double 1.500000e+01, ptr %1246, align 8
-  %1247 = getelementptr inbounds i8, ptr %196, i64 24
+  %1247 = getelementptr inbounds nuw i8, ptr %196, i64 24
   store i8 0, ptr %1247, align 8
   %1248 = invoke noundef zeroext i1 @_ZN13_SplineTester11SetKeyFrameERKN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameERKNS0_10GfIntervalE(ptr noundef nonnull align 8 dereferenceable(16) %82, ptr noundef nonnull align 8 dereferenceable(72) %84, ptr noundef nonnull align 8 dereferenceable(32) %196)
           to label %1249 unwind label %1467
@@ -21371,7 +21371,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit118: ; preds = %_ZN32pxrIn
   store i8 0, ptr %1252, align 8
   %1253 = getelementptr inbounds nuw i8, ptr %197, i64 16
   store double 1.500000e+01, ptr %1253, align 8
-  %1254 = getelementptr inbounds i8, ptr %197, i64 24
+  %1254 = getelementptr inbounds nuw i8, ptr %197, i64 24
   store i8 0, ptr %1254, align 8
   %1255 = invoke noundef zeroext i1 @_ZN13_SplineTester11SetKeyFrameERKN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameERKNS0_10GfIntervalE(ptr noundef nonnull align 8 dereferenceable(16) %82, ptr noundef nonnull align 8 dereferenceable(72) %84, ptr noundef nonnull align 8 dereferenceable(32) %197)
           to label %1256 unwind label %1467
@@ -21391,7 +21391,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit118: ; preds = %_ZN32pxrIn
   store i8 0, ptr %1259, align 8
   %1260 = getelementptr inbounds nuw i8, ptr %198, i64 16
   store double 1.500000e+01, ptr %1260, align 8
-  %1261 = getelementptr inbounds i8, ptr %198, i64 24
+  %1261 = getelementptr inbounds nuw i8, ptr %198, i64 24
   store i8 0, ptr %1261, align 8
   %1262 = invoke noundef zeroext i1 @_ZN13_SplineTester11SetKeyFrameERKN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameERKNS0_10GfIntervalE(ptr noundef nonnull align 8 dereferenceable(16) %82, ptr noundef nonnull align 8 dereferenceable(72) %84, ptr noundef nonnull align 8 dereferenceable(32) %198)
           to label %1263 unwind label %1467
@@ -21411,7 +21411,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit118: ; preds = %_ZN32pxrIn
   store i8 0, ptr %1266, align 8
   %1267 = getelementptr inbounds nuw i8, ptr %199, i64 16
   store double 1.500000e+01, ptr %1267, align 8
-  %1268 = getelementptr inbounds i8, ptr %199, i64 24
+  %1268 = getelementptr inbounds nuw i8, ptr %199, i64 24
   store i8 0, ptr %1268, align 8
   %1269 = invoke noundef zeroext i1 @_ZN13_SplineTester11SetKeyFrameERKN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameERKNS0_10GfIntervalE(ptr noundef nonnull align 8 dereferenceable(16) %82, ptr noundef nonnull align 8 dereferenceable(72) %84, ptr noundef nonnull align 8 dereferenceable(32) %199)
           to label %1270 unwind label %1467
@@ -21431,7 +21431,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit118: ; preds = %_ZN32pxrIn
   store i8 0, ptr %1273, align 8
   %1274 = getelementptr inbounds nuw i8, ptr %200, i64 16
   store double 1.500000e+01, ptr %1274, align 8
-  %1275 = getelementptr inbounds i8, ptr %200, i64 24
+  %1275 = getelementptr inbounds nuw i8, ptr %200, i64 24
   store i8 0, ptr %1275, align 8
   %1276 = invoke noundef zeroext i1 @_ZN13_SplineTester11SetKeyFrameERKN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameERKNS0_10GfIntervalE(ptr noundef nonnull align 8 dereferenceable(16) %82, ptr noundef nonnull align 8 dereferenceable(72) %84, ptr noundef nonnull align 8 dereferenceable(32) %200)
           to label %1277 unwind label %1467
@@ -21451,7 +21451,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit118: ; preds = %_ZN32pxrIn
   store i8 0, ptr %1280, align 8
   %1281 = getelementptr inbounds nuw i8, ptr %201, i64 16
   store double 1.500000e+01, ptr %1281, align 8
-  %1282 = getelementptr inbounds i8, ptr %201, i64 24
+  %1282 = getelementptr inbounds nuw i8, ptr %201, i64 24
   store i8 0, ptr %1282, align 8
   %1283 = invoke noundef zeroext i1 @_ZN13_SplineTester11SetKeyFrameERKN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameERKNS0_10GfIntervalE(ptr noundef nonnull align 8 dereferenceable(16) %82, ptr noundef nonnull align 8 dereferenceable(72) %84, ptr noundef nonnull align 8 dereferenceable(32) %201)
           to label %1284 unwind label %1467
@@ -21471,7 +21471,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit118: ; preds = %_ZN32pxrIn
   store i8 0, ptr %1287, align 8
   %1288 = getelementptr inbounds nuw i8, ptr %202, i64 16
   store double 2.500000e+01, ptr %1288, align 8
-  %1289 = getelementptr inbounds i8, ptr %202, i64 24
+  %1289 = getelementptr inbounds nuw i8, ptr %202, i64 24
   store i8 0, ptr %1289, align 8
   %1290 = invoke noundef zeroext i1 @_ZN13_SplineTester11SetKeyFrameERKN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameERKNS0_10GfIntervalE(ptr noundef nonnull align 8 dereferenceable(16) %82, ptr noundef nonnull align 8 dereferenceable(72) %89, ptr noundef nonnull align 8 dereferenceable(32) %202)
           to label %1291 unwind label %1467
@@ -21491,7 +21491,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit118: ; preds = %_ZN32pxrIn
   store i8 0, ptr %1294, align 8
   %1295 = getelementptr inbounds nuw i8, ptr %203, i64 16
   store double 2.500000e+01, ptr %1295, align 8
-  %1296 = getelementptr inbounds i8, ptr %203, i64 24
+  %1296 = getelementptr inbounds nuw i8, ptr %203, i64 24
   store i8 0, ptr %1296, align 8
   %1297 = invoke noundef zeroext i1 @_ZN13_SplineTester11SetKeyFrameERKN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameERKNS0_10GfIntervalE(ptr noundef nonnull align 8 dereferenceable(16) %82, ptr noundef nonnull align 8 dereferenceable(72) %89, ptr noundef nonnull align 8 dereferenceable(32) %203)
           to label %1298 unwind label %1467
@@ -21511,7 +21511,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit118: ; preds = %_ZN32pxrIn
   store i8 0, ptr %1301, align 8
   %1302 = getelementptr inbounds nuw i8, ptr %204, i64 16
   store double 2.500000e+01, ptr %1302, align 8
-  %1303 = getelementptr inbounds i8, ptr %204, i64 24
+  %1303 = getelementptr inbounds nuw i8, ptr %204, i64 24
   store i8 0, ptr %1303, align 8
   %1304 = invoke noundef zeroext i1 @_ZN13_SplineTester11SetKeyFrameERKN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameERKNS0_10GfIntervalE(ptr noundef nonnull align 8 dereferenceable(16) %82, ptr noundef nonnull align 8 dereferenceable(72) %89, ptr noundef nonnull align 8 dereferenceable(32) %204)
           to label %1305 unwind label %1467
@@ -21531,7 +21531,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit118: ; preds = %_ZN32pxrIn
   store i8 0, ptr %1308, align 8
   %1309 = getelementptr inbounds nuw i8, ptr %205, i64 16
   store double 2.500000e+01, ptr %1309, align 8
-  %1310 = getelementptr inbounds i8, ptr %205, i64 24
+  %1310 = getelementptr inbounds nuw i8, ptr %205, i64 24
   store i8 0, ptr %1310, align 8
   %1311 = invoke noundef zeroext i1 @_ZN13_SplineTester11SetKeyFrameERKN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameERKNS0_10GfIntervalE(ptr noundef nonnull align 8 dereferenceable(16) %82, ptr noundef nonnull align 8 dereferenceable(72) %89, ptr noundef nonnull align 8 dereferenceable(32) %205)
           to label %1312 unwind label %1467
@@ -21551,7 +21551,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit118: ; preds = %_ZN32pxrIn
   store i8 0, ptr %1315, align 8
   %1316 = getelementptr inbounds nuw i8, ptr %206, i64 16
   store double 2.500000e+01, ptr %1316, align 8
-  %1317 = getelementptr inbounds i8, ptr %206, i64 24
+  %1317 = getelementptr inbounds nuw i8, ptr %206, i64 24
   store i8 0, ptr %1317, align 8
   %1318 = invoke noundef zeroext i1 @_ZN13_SplineTester11SetKeyFrameERKN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameERKNS0_10GfIntervalE(ptr noundef nonnull align 8 dereferenceable(16) %82, ptr noundef nonnull align 8 dereferenceable(72) %89, ptr noundef nonnull align 8 dereferenceable(32) %206)
           to label %1319 unwind label %1467
@@ -21571,7 +21571,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit118: ; preds = %_ZN32pxrIn
   store i8 0, ptr %1322, align 8
   %1323 = getelementptr inbounds nuw i8, ptr %207, i64 16
   store double 2.500000e+01, ptr %1323, align 8
-  %1324 = getelementptr inbounds i8, ptr %207, i64 24
+  %1324 = getelementptr inbounds nuw i8, ptr %207, i64 24
   store i8 0, ptr %1324, align 8
   %1325 = invoke noundef zeroext i1 @_ZN13_SplineTester11SetKeyFrameERKN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameERKNS0_10GfIntervalE(ptr noundef nonnull align 8 dereferenceable(16) %82, ptr noundef nonnull align 8 dereferenceable(72) %89, ptr noundef nonnull align 8 dereferenceable(32) %207)
           to label %1326 unwind label %1467
@@ -21591,7 +21591,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit118: ; preds = %_ZN32pxrIn
   store i8 0, ptr %1329, align 8
   %1330 = getelementptr inbounds nuw i8, ptr %208, i64 16
   store double 3.500000e+01, ptr %1330, align 8
-  %1331 = getelementptr inbounds i8, ptr %208, i64 24
+  %1331 = getelementptr inbounds nuw i8, ptr %208, i64 24
   store i8 0, ptr %1331, align 8
   %1332 = invoke noundef zeroext i1 @_ZN13_SplineTester11SetKeyFrameERKN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameERKNS0_10GfIntervalE(ptr noundef nonnull align 8 dereferenceable(16) %82, ptr noundef nonnull align 8 dereferenceable(72) %94, ptr noundef nonnull align 8 dereferenceable(32) %208)
           to label %1333 unwind label %1467
@@ -21611,7 +21611,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit118: ; preds = %_ZN32pxrIn
   store i8 0, ptr %1336, align 8
   %1337 = getelementptr inbounds nuw i8, ptr %209, i64 16
   store double 3.500000e+01, ptr %1337, align 8
-  %1338 = getelementptr inbounds i8, ptr %209, i64 24
+  %1338 = getelementptr inbounds nuw i8, ptr %209, i64 24
   store i8 0, ptr %1338, align 8
   %1339 = invoke noundef zeroext i1 @_ZN13_SplineTester11SetKeyFrameERKN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameERKNS0_10GfIntervalE(ptr noundef nonnull align 8 dereferenceable(16) %82, ptr noundef nonnull align 8 dereferenceable(72) %94, ptr noundef nonnull align 8 dereferenceable(32) %209)
           to label %1340 unwind label %1467
@@ -21631,7 +21631,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit118: ; preds = %_ZN32pxrIn
   store i8 0, ptr %1343, align 8
   %1344 = getelementptr inbounds nuw i8, ptr %210, i64 16
   store double 3.500000e+01, ptr %1344, align 8
-  %1345 = getelementptr inbounds i8, ptr %210, i64 24
+  %1345 = getelementptr inbounds nuw i8, ptr %210, i64 24
   store i8 0, ptr %1345, align 8
   %1346 = invoke noundef zeroext i1 @_ZN13_SplineTester11SetKeyFrameERKN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameERKNS0_10GfIntervalE(ptr noundef nonnull align 8 dereferenceable(16) %82, ptr noundef nonnull align 8 dereferenceable(72) %94, ptr noundef nonnull align 8 dereferenceable(32) %210)
           to label %1347 unwind label %1467
@@ -21651,7 +21651,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit118: ; preds = %_ZN32pxrIn
   store i8 0, ptr %1350, align 8
   %1351 = getelementptr inbounds nuw i8, ptr %211, i64 16
   store double 3.500000e+01, ptr %1351, align 8
-  %1352 = getelementptr inbounds i8, ptr %211, i64 24
+  %1352 = getelementptr inbounds nuw i8, ptr %211, i64 24
   store i8 0, ptr %1352, align 8
   %1353 = invoke noundef zeroext i1 @_ZN13_SplineTester11SetKeyFrameERKN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameERKNS0_10GfIntervalE(ptr noundef nonnull align 8 dereferenceable(16) %82, ptr noundef nonnull align 8 dereferenceable(72) %94, ptr noundef nonnull align 8 dereferenceable(32) %211)
           to label %1354 unwind label %1467
@@ -21671,7 +21671,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit118: ; preds = %_ZN32pxrIn
   store i8 0, ptr %1357, align 8
   %1358 = getelementptr inbounds nuw i8, ptr %212, i64 16
   store double 3.500000e+01, ptr %1358, align 8
-  %1359 = getelementptr inbounds i8, ptr %212, i64 24
+  %1359 = getelementptr inbounds nuw i8, ptr %212, i64 24
   store i8 0, ptr %1359, align 8
   %1360 = invoke noundef zeroext i1 @_ZN13_SplineTester11SetKeyFrameERKN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameERKNS0_10GfIntervalE(ptr noundef nonnull align 8 dereferenceable(16) %82, ptr noundef nonnull align 8 dereferenceable(72) %94, ptr noundef nonnull align 8 dereferenceable(32) %212)
           to label %1361 unwind label %1467
@@ -21691,7 +21691,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit118: ; preds = %_ZN32pxrIn
   store i8 0, ptr %1364, align 8
   %1365 = getelementptr inbounds nuw i8, ptr %213, i64 16
   store double 3.500000e+01, ptr %1365, align 8
-  %1366 = getelementptr inbounds i8, ptr %213, i64 24
+  %1366 = getelementptr inbounds nuw i8, ptr %213, i64 24
   store i8 0, ptr %1366, align 8
   %1367 = invoke noundef zeroext i1 @_ZN13_SplineTester11SetKeyFrameERKN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameERKNS0_10GfIntervalE(ptr noundef nonnull align 8 dereferenceable(16) %82, ptr noundef nonnull align 8 dereferenceable(72) %94, ptr noundef nonnull align 8 dereferenceable(32) %213)
           to label %1368 unwind label %1467
@@ -21711,7 +21711,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit118: ; preds = %_ZN32pxrIn
   store i8 0, ptr %1371, align 8
   %1372 = getelementptr inbounds nuw i8, ptr %214, i64 16
   store double 4.500000e+01, ptr %1372, align 8
-  %1373 = getelementptr inbounds i8, ptr %214, i64 24
+  %1373 = getelementptr inbounds nuw i8, ptr %214, i64 24
   store i8 0, ptr %1373, align 8
   %1374 = invoke noundef zeroext i1 @_ZN13_SplineTester11SetKeyFrameERKN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameERKNS0_10GfIntervalE(ptr noundef nonnull align 8 dereferenceable(16) %82, ptr noundef nonnull align 8 dereferenceable(72) %99, ptr noundef nonnull align 8 dereferenceable(32) %214)
           to label %1375 unwind label %1467
@@ -21731,7 +21731,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit118: ; preds = %_ZN32pxrIn
   store i8 0, ptr %1378, align 8
   %1379 = getelementptr inbounds nuw i8, ptr %215, i64 16
   store double 4.500000e+01, ptr %1379, align 8
-  %1380 = getelementptr inbounds i8, ptr %215, i64 24
+  %1380 = getelementptr inbounds nuw i8, ptr %215, i64 24
   store i8 0, ptr %1380, align 8
   %1381 = invoke noundef zeroext i1 @_ZN13_SplineTester11SetKeyFrameERKN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameERKNS0_10GfIntervalE(ptr noundef nonnull align 8 dereferenceable(16) %82, ptr noundef nonnull align 8 dereferenceable(72) %99, ptr noundef nonnull align 8 dereferenceable(32) %215)
           to label %1382 unwind label %1467
@@ -21751,7 +21751,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit118: ; preds = %_ZN32pxrIn
   store i8 0, ptr %1385, align 8
   %1386 = getelementptr inbounds nuw i8, ptr %216, i64 16
   store double 4.500000e+01, ptr %1386, align 8
-  %1387 = getelementptr inbounds i8, ptr %216, i64 24
+  %1387 = getelementptr inbounds nuw i8, ptr %216, i64 24
   store i8 0, ptr %1387, align 8
   %1388 = invoke noundef zeroext i1 @_ZN13_SplineTester11SetKeyFrameERKN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameERKNS0_10GfIntervalE(ptr noundef nonnull align 8 dereferenceable(16) %82, ptr noundef nonnull align 8 dereferenceable(72) %99, ptr noundef nonnull align 8 dereferenceable(32) %216)
           to label %1389 unwind label %1467
@@ -21771,7 +21771,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit118: ; preds = %_ZN32pxrIn
   store i8 0, ptr %1392, align 8
   %1393 = getelementptr inbounds nuw i8, ptr %217, i64 16
   store double 4.500000e+01, ptr %1393, align 8
-  %1394 = getelementptr inbounds i8, ptr %217, i64 24
+  %1394 = getelementptr inbounds nuw i8, ptr %217, i64 24
   store i8 0, ptr %1394, align 8
   %1395 = invoke noundef zeroext i1 @_ZN13_SplineTester11SetKeyFrameERKN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameERKNS0_10GfIntervalE(ptr noundef nonnull align 8 dereferenceable(16) %82, ptr noundef nonnull align 8 dereferenceable(72) %99, ptr noundef nonnull align 8 dereferenceable(32) %217)
           to label %1396 unwind label %1467
@@ -21791,7 +21791,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit118: ; preds = %_ZN32pxrIn
   store i8 0, ptr %1399, align 8
   %1400 = getelementptr inbounds nuw i8, ptr %218, i64 16
   store double 4.500000e+01, ptr %1400, align 8
-  %1401 = getelementptr inbounds i8, ptr %218, i64 24
+  %1401 = getelementptr inbounds nuw i8, ptr %218, i64 24
   store i8 0, ptr %1401, align 8
   %1402 = invoke noundef zeroext i1 @_ZN13_SplineTester11SetKeyFrameERKN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameERKNS0_10GfIntervalE(ptr noundef nonnull align 8 dereferenceable(16) %82, ptr noundef nonnull align 8 dereferenceable(72) %99, ptr noundef nonnull align 8 dereferenceable(32) %218)
           to label %1403 unwind label %1467
@@ -21811,7 +21811,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit118: ; preds = %_ZN32pxrIn
   store i8 0, ptr %1406, align 8
   %1407 = getelementptr inbounds nuw i8, ptr %219, i64 16
   store double 4.500000e+01, ptr %1407, align 8
-  %1408 = getelementptr inbounds i8, ptr %219, i64 24
+  %1408 = getelementptr inbounds nuw i8, ptr %219, i64 24
   store i8 0, ptr %1408, align 8
   %1409 = invoke noundef zeroext i1 @_ZN13_SplineTester11SetKeyFrameERKN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameERKNS0_10GfIntervalE(ptr noundef nonnull align 8 dereferenceable(16) %82, ptr noundef nonnull align 8 dereferenceable(72) %99, ptr noundef nonnull align 8 dereferenceable(32) %219)
           to label %1410 unwind label %1467
@@ -22668,7 +22668,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit55: ; preds = %_ZN32pxrInt
   store i8 1, ptr %241, align 8
   %242 = getelementptr inbounds nuw i8, ptr %29, i64 16
   store double 2.000000e+00, ptr %242, align 8
-  %243 = getelementptr inbounds i8, ptr %29, i64 24
+  %243 = getelementptr inbounds nuw i8, ptr %29, i64 24
   store i8 0, ptr %243, align 8
   %244 = invoke noundef zeroext i1 @_ZN13_SplineTester11SetKeyFrameERKN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameERKNS0_10GfIntervalE(ptr noundef nonnull align 8 dereferenceable(16) %23, ptr noundef nonnull align 8 dereferenceable(72) %24, ptr noundef nonnull align 8 dereferenceable(32) %29)
           to label %245 unwind label %345
@@ -27031,7 +27031,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit725: ; preds = %1190, %119
   store i8 0, ptr %1225, align 8
   %1226 = getelementptr inbounds nuw i8, ptr %191, i64 16
   store double 0.000000e+00, ptr %1226, align 8
-  %1227 = getelementptr inbounds i8, ptr %191, i64 24
+  %1227 = getelementptr inbounds nuw i8, ptr %191, i64 24
   store i8 0, ptr %1227, align 8
   %1228 = getelementptr inbounds nuw i8, ptr %193, i64 8
   store ptr null, ptr %1228, align 8
@@ -27979,7 +27979,7 @@ _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue3GetIfEERKT_v.exit: ; preds = %_Z
 1543:                                             ; preds = %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue3GetIfEERKT_v.exit
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %114)
   %1544 = getelementptr inbounds nuw i8, ptr %210, i64 16
-  %1545 = getelementptr inbounds i8, ptr %210, i64 24
+  %1545 = getelementptr inbounds nuw i8, ptr %210, i64 24
   %1546 = load ptr, ptr %1545, align 8
   %1547 = ptrtoint ptr %1546 to i64
   %.not.i.i820 = icmp eq ptr %1546, null
@@ -33015,7 +33015,7 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__13TsValueSampleESaIS1_EED2Ev.exi
 
 .lr.ph.i.i.i.i.i2722:                             ; preds = %3388, %_ZSt8_DestroyIN32pxrInternal_v0_24__pxrReserved__13TsValueSampleEEvPT_.exit.i.i.i.i.i2729
   %.05.i.i.i.i.i2723 = phi ptr [ %3422, %_ZSt8_DestroyIN32pxrInternal_v0_24__pxrReserved__13TsValueSampleEEvPT_.exit.i.i.i.i.i2729 ], [ %3382, %3388 ]
-  %3394 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i2723, i64 48
+  %3394 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i2723, i64 48
   %3395 = load ptr, ptr %3394, align 8
   %3396 = ptrtoint ptr %3395 to i64
   %.not.i.i.i.i.i.i.i.i.i2724 = icmp eq ptr %3395, null
@@ -33042,7 +33042,7 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__13TsValueSampleESaIS1_EED2Ev.exi
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit.i.i.i.i.i.i.i2726: ; preds = %3399, %.lr.ph.i.i.i.i.i2722
   store ptr null, ptr %3394, align 8
-  %3408 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i2723, i64 32
+  %3408 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i2723, i64 32
   %3409 = load ptr, ptr %3408, align 8
   %3410 = ptrtoint ptr %3409 to i64
   %.not.i.i1.i.i.i.i.i.i.i2727 = icmp eq ptr %3409, null
@@ -33092,7 +33092,7 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__13TsValueSampleESaIS1_EE14_M_mov
 
 .lr.ph.i.i.i.i1358:                               ; preds = %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__13TsValueSampleESaIS1_EE14_M_move_assignEOS3_St17integral_constantIbLb1EE.exit2733, %_ZSt8_DestroyIN32pxrInternal_v0_24__pxrReserved__13TsValueSampleEEvPT_.exit.i.i.i.i1365
   %.05.i.i.i.i1359 = phi ptr [ %3457, %_ZSt8_DestroyIN32pxrInternal_v0_24__pxrReserved__13TsValueSampleEEvPT_.exit.i.i.i.i1365 ], [ %3427, %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__13TsValueSampleESaIS1_EE14_M_move_assignEOS3_St17integral_constantIbLb1EE.exit2733 ]
-  %3429 = getelementptr inbounds i8, ptr %.05.i.i.i.i1359, i64 48
+  %3429 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i1359, i64 48
   %3430 = load ptr, ptr %3429, align 8
   %3431 = ptrtoint ptr %3430 to i64
   %.not.i.i.i.i.i.i.i.i1360 = icmp eq ptr %3430, null
@@ -33119,7 +33119,7 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__13TsValueSampleESaIS1_EE14_M_mov
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit.i.i.i.i.i.i1362: ; preds = %3434, %.lr.ph.i.i.i.i1358
   store ptr null, ptr %3429, align 8
-  %3443 = getelementptr inbounds i8, ptr %.05.i.i.i.i1359, i64 32
+  %3443 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i1359, i64 32
   %3444 = load ptr, ptr %3443, align 8
   %3445 = ptrtoint ptr %3444 to i64
   %.not.i.i1.i.i.i.i.i.i1363 = icmp eq ptr %3444, null
@@ -33193,7 +33193,7 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__13TsValueSampleESaIS1_EED2Ev.exi
 
 .lr.ph.i.i.i.i.i2735:                             ; preds = %3465, %_ZSt8_DestroyIN32pxrInternal_v0_24__pxrReserved__13TsValueSampleEEvPT_.exit.i.i.i.i.i2742
   %.05.i.i.i.i.i2736 = phi ptr [ %3502, %_ZSt8_DestroyIN32pxrInternal_v0_24__pxrReserved__13TsValueSampleEEvPT_.exit.i.i.i.i.i2742 ], [ %3466, %3465 ]
-  %3474 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i2736, i64 48
+  %3474 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i2736, i64 48
   %3475 = load ptr, ptr %3474, align 8
   %3476 = ptrtoint ptr %3475 to i64
   %.not.i.i.i.i.i.i.i.i.i2737 = icmp eq ptr %3475, null
@@ -33220,7 +33220,7 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__13TsValueSampleESaIS1_EED2Ev.exi
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit.i.i.i.i.i.i.i2739: ; preds = %3479, %.lr.ph.i.i.i.i.i2735
   store ptr null, ptr %3474, align 8
-  %3488 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i2736, i64 32
+  %3488 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i2736, i64 32
   %3489 = load ptr, ptr %3488, align 8
   %3490 = ptrtoint ptr %3489 to i64
   %.not.i.i1.i.i.i.i.i.i.i2740 = icmp eq ptr %3489, null
@@ -33270,7 +33270,7 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__13TsValueSampleESaIS1_EE14_M_mov
 
 .lr.ph.i.i.i.i1373:                               ; preds = %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__13TsValueSampleESaIS1_EE14_M_move_assignEOS3_St17integral_constantIbLb1EE.exit2746, %_ZSt8_DestroyIN32pxrInternal_v0_24__pxrReserved__13TsValueSampleEEvPT_.exit.i.i.i.i1380
   %.05.i.i.i.i1374 = phi ptr [ %3537, %_ZSt8_DestroyIN32pxrInternal_v0_24__pxrReserved__13TsValueSampleEEvPT_.exit.i.i.i.i1380 ], [ %3507, %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__13TsValueSampleESaIS1_EE14_M_move_assignEOS3_St17integral_constantIbLb1EE.exit2746 ]
-  %3509 = getelementptr inbounds i8, ptr %.05.i.i.i.i1374, i64 48
+  %3509 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i1374, i64 48
   %3510 = load ptr, ptr %3509, align 8
   %3511 = ptrtoint ptr %3510 to i64
   %.not.i.i.i.i.i.i.i.i1375 = icmp eq ptr %3510, null
@@ -33297,7 +33297,7 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__13TsValueSampleESaIS1_EE14_M_mov
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit.i.i.i.i.i.i1377: ; preds = %3514, %.lr.ph.i.i.i.i1373
   store ptr null, ptr %3509, align 8
-  %3523 = getelementptr inbounds i8, ptr %.05.i.i.i.i1374, i64 32
+  %3523 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i1374, i64 32
   %3524 = load ptr, ptr %3523, align 8
   %3525 = ptrtoint ptr %3524 to i64
   %.not.i.i1.i.i.i.i.i.i1378 = icmp eq ptr %3524, null
@@ -34490,7 +34490,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameC2IdEERKdRKT_NS_10TsKnotTypeES6
 
 .lr.ph.i.i.i.i.i2748:                             ; preds = %3890, %_ZSt8_DestroyIN32pxrInternal_v0_24__pxrReserved__13TsValueSampleEEvPT_.exit.i.i.i.i.i2755
   %.05.i.i.i.i.i2749 = phi ptr [ %3927, %_ZSt8_DestroyIN32pxrInternal_v0_24__pxrReserved__13TsValueSampleEEvPT_.exit.i.i.i.i.i2755 ], [ %3891, %3890 ]
-  %3899 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i2749, i64 48
+  %3899 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i2749, i64 48
   %3900 = load ptr, ptr %3899, align 8
   %3901 = ptrtoint ptr %3900 to i64
   %.not.i.i.i.i.i.i.i.i.i2750 = icmp eq ptr %3900, null
@@ -34517,7 +34517,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameC2IdEERKdRKT_NS_10TsKnotTypeES6
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit.i.i.i.i.i.i.i2752: ; preds = %3904, %.lr.ph.i.i.i.i.i2748
   store ptr null, ptr %3899, align 8
-  %3913 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i2749, i64 32
+  %3913 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i2749, i64 32
   %3914 = load ptr, ptr %3913, align 8
   %3915 = ptrtoint ptr %3914 to i64
   %.not.i.i1.i.i.i.i.i.i.i2753 = icmp eq ptr %3914, null
@@ -34567,7 +34567,7 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__13TsValueSampleESaIS1_EE14_M_mov
 
 .lr.ph.i.i.i.i1554:                               ; preds = %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__13TsValueSampleESaIS1_EE14_M_move_assignEOS3_St17integral_constantIbLb1EE.exit2759, %_ZSt8_DestroyIN32pxrInternal_v0_24__pxrReserved__13TsValueSampleEEvPT_.exit.i.i.i.i1561
   %.05.i.i.i.i1555 = phi ptr [ %3962, %_ZSt8_DestroyIN32pxrInternal_v0_24__pxrReserved__13TsValueSampleEEvPT_.exit.i.i.i.i1561 ], [ %3932, %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__13TsValueSampleESaIS1_EE14_M_move_assignEOS3_St17integral_constantIbLb1EE.exit2759 ]
-  %3934 = getelementptr inbounds i8, ptr %.05.i.i.i.i1555, i64 48
+  %3934 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i1555, i64 48
   %3935 = load ptr, ptr %3934, align 8
   %3936 = ptrtoint ptr %3935 to i64
   %.not.i.i.i.i.i.i.i.i1556 = icmp eq ptr %3935, null
@@ -34594,7 +34594,7 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__13TsValueSampleESaIS1_EE14_M_mov
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit.i.i.i.i.i.i1558: ; preds = %3939, %.lr.ph.i.i.i.i1554
   store ptr null, ptr %3934, align 8
-  %3948 = getelementptr inbounds i8, ptr %.05.i.i.i.i1555, i64 32
+  %3948 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i1555, i64 32
   %3949 = load ptr, ptr %3948, align 8
   %3950 = ptrtoint ptr %3949 to i64
   %.not.i.i1.i.i.i.i.i.i1559 = icmp eq ptr %3949, null
@@ -34722,7 +34722,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameC2IdEERKdRKT_NS_10TsKnotTypeES6
 
 .lr.ph.i.i.i.i.i2761:                             ; preds = %3979, %_ZSt8_DestroyIN32pxrInternal_v0_24__pxrReserved__13TsValueSampleEEvPT_.exit.i.i.i.i.i2768
   %.05.i.i.i.i.i2762 = phi ptr [ %4016, %_ZSt8_DestroyIN32pxrInternal_v0_24__pxrReserved__13TsValueSampleEEvPT_.exit.i.i.i.i.i2768 ], [ %3980, %3979 ]
-  %3988 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i2762, i64 48
+  %3988 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i2762, i64 48
   %3989 = load ptr, ptr %3988, align 8
   %3990 = ptrtoint ptr %3989 to i64
   %.not.i.i.i.i.i.i.i.i.i2763 = icmp eq ptr %3989, null
@@ -34749,7 +34749,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameC2IdEERKdRKT_NS_10TsKnotTypeES6
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit.i.i.i.i.i.i.i2765: ; preds = %3993, %.lr.ph.i.i.i.i.i2761
   store ptr null, ptr %3988, align 8
-  %4002 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i2762, i64 32
+  %4002 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i2762, i64 32
   %4003 = load ptr, ptr %4002, align 8
   %4004 = ptrtoint ptr %4003 to i64
   %.not.i.i1.i.i.i.i.i.i.i2766 = icmp eq ptr %4003, null
@@ -34799,7 +34799,7 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__13TsValueSampleESaIS1_EE14_M_mov
 
 .lr.ph.i.i.i.i1581:                               ; preds = %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__13TsValueSampleESaIS1_EE14_M_move_assignEOS3_St17integral_constantIbLb1EE.exit2772, %_ZSt8_DestroyIN32pxrInternal_v0_24__pxrReserved__13TsValueSampleEEvPT_.exit.i.i.i.i1588
   %.05.i.i.i.i1582 = phi ptr [ %4051, %_ZSt8_DestroyIN32pxrInternal_v0_24__pxrReserved__13TsValueSampleEEvPT_.exit.i.i.i.i1588 ], [ %4021, %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__13TsValueSampleESaIS1_EE14_M_move_assignEOS3_St17integral_constantIbLb1EE.exit2772 ]
-  %4023 = getelementptr inbounds i8, ptr %.05.i.i.i.i1582, i64 48
+  %4023 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i1582, i64 48
   %4024 = load ptr, ptr %4023, align 8
   %4025 = ptrtoint ptr %4024 to i64
   %.not.i.i.i.i.i.i.i.i1583 = icmp eq ptr %4024, null
@@ -34826,7 +34826,7 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__13TsValueSampleESaIS1_EE14_M_mov
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit.i.i.i.i.i.i1585: ; preds = %4028, %.lr.ph.i.i.i.i1581
   store ptr null, ptr %4023, align 8
-  %4037 = getelementptr inbounds i8, ptr %.05.i.i.i.i1582, i64 32
+  %4037 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i1582, i64 32
   %4038 = load ptr, ptr %4037, align 8
   %4039 = ptrtoint ptr %4038 to i64
   %.not.i.i1.i.i.i.i.i.i1586 = icmp eq ptr %4038, null
@@ -34950,7 +34950,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameC2IdEERKdRKT_NS_10TsKnotTypeES6
 
 .lr.ph.i.i.i.i.i2774:                             ; preds = %4067, %_ZSt8_DestroyIN32pxrInternal_v0_24__pxrReserved__13TsValueSampleEEvPT_.exit.i.i.i.i.i2781
   %.05.i.i.i.i.i2775 = phi ptr [ %4104, %_ZSt8_DestroyIN32pxrInternal_v0_24__pxrReserved__13TsValueSampleEEvPT_.exit.i.i.i.i.i2781 ], [ %4068, %4067 ]
-  %4076 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i2775, i64 48
+  %4076 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i2775, i64 48
   %4077 = load ptr, ptr %4076, align 8
   %4078 = ptrtoint ptr %4077 to i64
   %.not.i.i.i.i.i.i.i.i.i2776 = icmp eq ptr %4077, null
@@ -34977,7 +34977,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameC2IdEERKdRKT_NS_10TsKnotTypeES6
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit.i.i.i.i.i.i.i2778: ; preds = %4081, %.lr.ph.i.i.i.i.i2774
   store ptr null, ptr %4076, align 8
-  %4090 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i2775, i64 32
+  %4090 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i2775, i64 32
   %4091 = load ptr, ptr %4090, align 8
   %4092 = ptrtoint ptr %4091 to i64
   %.not.i.i1.i.i.i.i.i.i.i2779 = icmp eq ptr %4091, null
@@ -35027,7 +35027,7 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__13TsValueSampleESaIS1_EE14_M_mov
 
 .lr.ph.i.i.i.i1608:                               ; preds = %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__13TsValueSampleESaIS1_EE14_M_move_assignEOS3_St17integral_constantIbLb1EE.exit2785, %_ZSt8_DestroyIN32pxrInternal_v0_24__pxrReserved__13TsValueSampleEEvPT_.exit.i.i.i.i1615
   %.05.i.i.i.i1609 = phi ptr [ %4139, %_ZSt8_DestroyIN32pxrInternal_v0_24__pxrReserved__13TsValueSampleEEvPT_.exit.i.i.i.i1615 ], [ %4109, %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__13TsValueSampleESaIS1_EE14_M_move_assignEOS3_St17integral_constantIbLb1EE.exit2785 ]
-  %4111 = getelementptr inbounds i8, ptr %.05.i.i.i.i1609, i64 48
+  %4111 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i1609, i64 48
   %4112 = load ptr, ptr %4111, align 8
   %4113 = ptrtoint ptr %4112 to i64
   %.not.i.i.i.i.i.i.i.i1610 = icmp eq ptr %4112, null
@@ -35054,7 +35054,7 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__13TsValueSampleESaIS1_EE14_M_mov
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit.i.i.i.i.i.i1612: ; preds = %4116, %.lr.ph.i.i.i.i1608
   store ptr null, ptr %4111, align 8
-  %4125 = getelementptr inbounds i8, ptr %.05.i.i.i.i1609, i64 32
+  %4125 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i1609, i64 32
   %4126 = load ptr, ptr %4125, align 8
   %4127 = ptrtoint ptr %4126 to i64
   %.not.i.i1.i.i.i.i.i.i1613 = icmp eq ptr %4126, null
@@ -35162,7 +35162,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameC2IdEERKdRKT_NS_10TsKnotTypeES6
 
 .lr.ph.i.i.i.i.i2787:                             ; preds = %4152, %_ZSt8_DestroyIN32pxrInternal_v0_24__pxrReserved__13TsValueSampleEEvPT_.exit.i.i.i.i.i2794
   %.05.i.i.i.i.i2788 = phi ptr [ %4189, %_ZSt8_DestroyIN32pxrInternal_v0_24__pxrReserved__13TsValueSampleEEvPT_.exit.i.i.i.i.i2794 ], [ %4153, %4152 ]
-  %4161 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i2788, i64 48
+  %4161 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i2788, i64 48
   %4162 = load ptr, ptr %4161, align 8
   %4163 = ptrtoint ptr %4162 to i64
   %.not.i.i.i.i.i.i.i.i.i2789 = icmp eq ptr %4162, null
@@ -35189,7 +35189,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameC2IdEERKdRKT_NS_10TsKnotTypeES6
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit.i.i.i.i.i.i.i2791: ; preds = %4166, %.lr.ph.i.i.i.i.i2787
   store ptr null, ptr %4161, align 8
-  %4175 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i2788, i64 32
+  %4175 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i2788, i64 32
   %4176 = load ptr, ptr %4175, align 8
   %4177 = ptrtoint ptr %4176 to i64
   %.not.i.i1.i.i.i.i.i.i.i2792 = icmp eq ptr %4176, null
@@ -35239,7 +35239,7 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__13TsValueSampleESaIS1_EE14_M_mov
 
 .lr.ph.i.i.i.i1635:                               ; preds = %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__13TsValueSampleESaIS1_EE14_M_move_assignEOS3_St17integral_constantIbLb1EE.exit2798, %_ZSt8_DestroyIN32pxrInternal_v0_24__pxrReserved__13TsValueSampleEEvPT_.exit.i.i.i.i1642
   %.05.i.i.i.i1636 = phi ptr [ %4224, %_ZSt8_DestroyIN32pxrInternal_v0_24__pxrReserved__13TsValueSampleEEvPT_.exit.i.i.i.i1642 ], [ %4194, %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__13TsValueSampleESaIS1_EE14_M_move_assignEOS3_St17integral_constantIbLb1EE.exit2798 ]
-  %4196 = getelementptr inbounds i8, ptr %.05.i.i.i.i1636, i64 48
+  %4196 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i1636, i64 48
   %4197 = load ptr, ptr %4196, align 8
   %4198 = ptrtoint ptr %4197 to i64
   %.not.i.i.i.i.i.i.i.i1637 = icmp eq ptr %4197, null
@@ -35266,7 +35266,7 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__13TsValueSampleESaIS1_EE14_M_mov
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit.i.i.i.i.i.i1639: ; preds = %4201, %.lr.ph.i.i.i.i1635
   store ptr null, ptr %4196, align 8
-  %4210 = getelementptr inbounds i8, ptr %.05.i.i.i.i1636, i64 32
+  %4210 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i1636, i64 32
   %4211 = load ptr, ptr %4210, align 8
   %4212 = ptrtoint ptr %4211 to i64
   %.not.i.i1.i.i.i.i.i.i1640 = icmp eq ptr %4211, null
@@ -35949,7 +35949,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   store i8 0, ptr %4479, align 8
   %4480 = getelementptr inbounds nuw i8, ptr %413, i64 16
   store double 1.000000e+00, ptr %4480, align 8
-  %4481 = getelementptr inbounds i8, ptr %413, i64 24
+  %4481 = getelementptr inbounds nuw i8, ptr %413, i64 24
   store i8 1, ptr %4481, align 8
   %4482 = invoke noundef zeroext i1 @_ZN13_SplineTester8SetValueERKN32pxrInternal_v0_24__pxrReserved__8TsSplineERKNS0_10GfIntervalE(ptr noundef nonnull align 8 dereferenceable(16) %410, ptr noundef nonnull align 8 dereferenceable(16) %403, ptr noundef nonnull align 8 dereferenceable(32) %413)
           to label %4483 unwind label %9488
@@ -36408,7 +36408,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   store i8 1, ptr %4684, align 8
   %4685 = getelementptr inbounds nuw i8, ptr %428, i64 16
   store double 0x7FF0000000000000, ptr %4685, align 8
-  %4686 = getelementptr inbounds i8, ptr %428, i64 24
+  %4686 = getelementptr inbounds nuw i8, ptr %428, i64 24
   store i8 0, ptr %4686, align 8
   %4687 = invoke noundef zeroext i1 @_ZN13_SplineTester8SetValueERKN32pxrInternal_v0_24__pxrReserved__8TsSplineERKNS0_10GfIntervalE(ptr noundef nonnull align 8 dereferenceable(16) %410, ptr noundef nonnull align 8 dereferenceable(16) %403, ptr noundef nonnull align 8 dereferenceable(32) %428)
           to label %4688 unwind label %9488
@@ -37312,7 +37312,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit1844: ; preds = %_ZN32pxrI
   store i8 1, ptr %5098, align 8
   %5099 = getelementptr inbounds nuw i8, ptr %468, i64 16
   store double 1.200000e+01, ptr %5099, align 8
-  %5100 = getelementptr inbounds i8, ptr %468, i64 24
+  %5100 = getelementptr inbounds nuw i8, ptr %468, i64 24
   store i8 0, ptr %5100, align 8
   %5101 = invoke noundef zeroext i1 @_ZN13_SplineTester8SetValueERKN32pxrInternal_v0_24__pxrReserved__8TsSplineERKNS0_10GfIntervalE(ptr noundef nonnull align 8 dereferenceable(16) %467, ptr noundef nonnull align 8 dereferenceable(16) %446, ptr noundef nonnull align 8 dereferenceable(32) %468)
           to label %5102 unwind label %9542
@@ -37940,7 +37940,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit1900: ; preds = %_ZN32pxrI
   store i8 0, ptr %5389, align 8
   %5390 = getelementptr inbounds nuw i8, ptr %492, i64 16
   store double 0.000000e+00, ptr %5390, align 8
-  %5391 = getelementptr inbounds i8, ptr %492, i64 24
+  %5391 = getelementptr inbounds nuw i8, ptr %492, i64 24
   store i8 0, ptr %5391, align 8
   %5392 = invoke noundef zeroext i1 @_Z26_TestSetSingleValueSplinesRKN32pxrInternal_v0_24__pxrReserved__8TsSplineERKNS_7VtValueERKNS_10GfIntervalE(ptr noundef nonnull align 8 dereferenceable(16) %470, ptr noundef nonnull align 8 dereferenceable(16) %491, ptr noundef nonnull align 8 dereferenceable(32) %492)
           to label %5393 unwind label %9568
@@ -38094,7 +38094,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit1914: ; preds = %_ZN32pxrI
   store i8 0, ptr %5453, align 8
   %5454 = getelementptr inbounds nuw i8, ptr %499, i64 16
   store double 2.000000e+01, ptr %5454, align 8
-  %5455 = getelementptr inbounds i8, ptr %499, i64 24
+  %5455 = getelementptr inbounds nuw i8, ptr %499, i64 24
   store i8 0, ptr %5455, align 8
   %5456 = invoke noundef zeroext i1 @_Z26_TestSetSingleValueSplinesRKN32pxrInternal_v0_24__pxrReserved__8TsSplineERKNS_7VtValueERKNS_10GfIntervalE(ptr noundef nonnull align 8 dereferenceable(16) %470, ptr noundef nonnull align 8 dereferenceable(16) %498, ptr noundef nonnull align 8 dereferenceable(32) %499)
           to label %5457 unwind label %9575
@@ -38248,7 +38248,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit1928: ; preds = %_ZN32pxrI
   store i8 0, ptr %5517, align 8
   %5518 = getelementptr inbounds nuw i8, ptr %506, i64 16
   store double 2.000000e+01, ptr %5518, align 8
-  %5519 = getelementptr inbounds i8, ptr %506, i64 24
+  %5519 = getelementptr inbounds nuw i8, ptr %506, i64 24
   store i8 0, ptr %5519, align 8
   %5520 = invoke noundef zeroext i1 @_Z26_TestSetSingleValueSplinesRKN32pxrInternal_v0_24__pxrReserved__8TsSplineERKNS_7VtValueERKNS_10GfIntervalE(ptr noundef nonnull align 8 dereferenceable(16) %470, ptr noundef nonnull align 8 dereferenceable(16) %505, ptr noundef nonnull align 8 dereferenceable(32) %506)
           to label %5521 unwind label %9582
@@ -38402,7 +38402,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit1942: ; preds = %_ZN32pxrI
   store i8 0, ptr %5581, align 8
   %5582 = getelementptr inbounds nuw i8, ptr %513, i64 16
   store double 2.000000e+01, ptr %5582, align 8
-  %5583 = getelementptr inbounds i8, ptr %513, i64 24
+  %5583 = getelementptr inbounds nuw i8, ptr %513, i64 24
   store i8 0, ptr %5583, align 8
   %5584 = invoke noundef zeroext i1 @_Z26_TestSetSingleValueSplinesRKN32pxrInternal_v0_24__pxrReserved__8TsSplineERKNS_7VtValueERKNS_10GfIntervalE(ptr noundef nonnull align 8 dereferenceable(16) %470, ptr noundef nonnull align 8 dereferenceable(16) %512, ptr noundef nonnull align 8 dereferenceable(32) %513)
           to label %5585 unwind label %9589
@@ -38584,7 +38584,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit1959: ; preds = %_ZN32pxrI
   store i8 0, ptr %5658, align 8
   %5659 = getelementptr inbounds nuw i8, ptr %521, i64 16
   store double 1.000000e+01, ptr %5659, align 8
-  %5660 = getelementptr inbounds i8, ptr %521, i64 24
+  %5660 = getelementptr inbounds nuw i8, ptr %521, i64 24
   store i8 1, ptr %5660, align 8
   %5661 = invoke noundef zeroext i1 @_Z26_TestSetSingleValueSplinesRKN32pxrInternal_v0_24__pxrReserved__8TsSplineERKNS_7VtValueERKNS_10GfIntervalE(ptr noundef nonnull align 8 dereferenceable(16) %470, ptr noundef nonnull align 8 dereferenceable(16) %520, ptr noundef nonnull align 8 dereferenceable(32) %521)
           to label %5662 unwind label %9596
@@ -38766,7 +38766,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit1976: ; preds = %_ZN32pxrI
   store i8 0, ptr %5735, align 8
   %5736 = getelementptr inbounds nuw i8, ptr %529, i64 16
   store double 1.000000e+01, ptr %5736, align 8
-  %5737 = getelementptr inbounds i8, ptr %529, i64 24
+  %5737 = getelementptr inbounds nuw i8, ptr %529, i64 24
   store i8 1, ptr %5737, align 8
   %5738 = invoke noundef zeroext i1 @_Z26_TestSetSingleValueSplinesRKN32pxrInternal_v0_24__pxrReserved__8TsSplineERKNS_7VtValueERKNS_10GfIntervalE(ptr noundef nonnull align 8 dereferenceable(16) %470, ptr noundef nonnull align 8 dereferenceable(16) %528, ptr noundef nonnull align 8 dereferenceable(32) %529)
           to label %5739 unwind label %9603
@@ -38948,7 +38948,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit1993: ; preds = %_ZN32pxrI
   store i8 0, ptr %5812, align 8
   %5813 = getelementptr inbounds nuw i8, ptr %537, i64 16
   store double 1.000000e+01, ptr %5813, align 8
-  %5814 = getelementptr inbounds i8, ptr %537, i64 24
+  %5814 = getelementptr inbounds nuw i8, ptr %537, i64 24
   store i8 1, ptr %5814, align 8
   %5815 = invoke noundef zeroext i1 @_Z26_TestSetSingleValueSplinesRKN32pxrInternal_v0_24__pxrReserved__8TsSplineERKNS_7VtValueERKNS_10GfIntervalE(ptr noundef nonnull align 8 dereferenceable(16) %470, ptr noundef nonnull align 8 dereferenceable(16) %536, ptr noundef nonnull align 8 dereferenceable(32) %537)
           to label %5816 unwind label %9610
@@ -39130,7 +39130,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit2010: ; preds = %_ZN32pxrI
   store i8 1, ptr %5889, align 8
   %5890 = getelementptr inbounds nuw i8, ptr %545, i64 16
   store double 2.000000e+01, ptr %5890, align 8
-  %5891 = getelementptr inbounds i8, ptr %545, i64 24
+  %5891 = getelementptr inbounds nuw i8, ptr %545, i64 24
   store i8 0, ptr %5891, align 8
   %5892 = invoke noundef zeroext i1 @_Z26_TestSetSingleValueSplinesRKN32pxrInternal_v0_24__pxrReserved__8TsSplineERKNS_7VtValueERKNS_10GfIntervalE(ptr noundef nonnull align 8 dereferenceable(16) %470, ptr noundef nonnull align 8 dereferenceable(16) %544, ptr noundef nonnull align 8 dereferenceable(32) %545)
           to label %5893 unwind label %9617
@@ -39312,7 +39312,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit2027: ; preds = %_ZN32pxrI
   store i8 1, ptr %5966, align 8
   %5967 = getelementptr inbounds nuw i8, ptr %553, i64 16
   store double 2.000000e+01, ptr %5967, align 8
-  %5968 = getelementptr inbounds i8, ptr %553, i64 24
+  %5968 = getelementptr inbounds nuw i8, ptr %553, i64 24
   store i8 0, ptr %5968, align 8
   %5969 = invoke noundef zeroext i1 @_Z26_TestSetSingleValueSplinesRKN32pxrInternal_v0_24__pxrReserved__8TsSplineERKNS_7VtValueERKNS_10GfIntervalE(ptr noundef nonnull align 8 dereferenceable(16) %470, ptr noundef nonnull align 8 dereferenceable(16) %552, ptr noundef nonnull align 8 dereferenceable(32) %553)
           to label %5970 unwind label %9624
@@ -39494,7 +39494,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit2044: ; preds = %_ZN32pxrI
   store i8 1, ptr %6043, align 8
   %6044 = getelementptr inbounds nuw i8, ptr %561, i64 16
   store double 2.000000e+01, ptr %6044, align 8
-  %6045 = getelementptr inbounds i8, ptr %561, i64 24
+  %6045 = getelementptr inbounds nuw i8, ptr %561, i64 24
   store i8 0, ptr %6045, align 8
   %6046 = invoke noundef zeroext i1 @_Z26_TestSetSingleValueSplinesRKN32pxrInternal_v0_24__pxrReserved__8TsSplineERKNS_7VtValueERKNS_10GfIntervalE(ptr noundef nonnull align 8 dereferenceable(16) %470, ptr noundef nonnull align 8 dereferenceable(16) %560, ptr noundef nonnull align 8 dereferenceable(32) %561)
           to label %6047 unwind label %9631
@@ -39676,7 +39676,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit2061: ; preds = %_ZN32pxrI
   store i8 0, ptr %6120, align 8
   %6121 = getelementptr inbounds nuw i8, ptr %569, i64 16
   store double 0.000000e+00, ptr %6121, align 8
-  %6122 = getelementptr inbounds i8, ptr %569, i64 24
+  %6122 = getelementptr inbounds nuw i8, ptr %569, i64 24
   store i8 0, ptr %6122, align 8
   %6123 = invoke noundef zeroext i1 @_Z26_TestSetSingleValueSplinesRKN32pxrInternal_v0_24__pxrReserved__8TsSplineERKNS_7VtValueERKNS_10GfIntervalE(ptr noundef nonnull align 8 dereferenceable(16) %470, ptr noundef nonnull align 8 dereferenceable(16) %568, ptr noundef nonnull align 8 dereferenceable(32) %569)
           to label %6124 unwind label %9638
@@ -39858,7 +39858,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit2078: ; preds = %_ZN32pxrI
   store i8 0, ptr %6197, align 8
   %6198 = getelementptr inbounds nuw i8, ptr %577, i64 16
   store double 0.000000e+00, ptr %6198, align 8
-  %6199 = getelementptr inbounds i8, ptr %577, i64 24
+  %6199 = getelementptr inbounds nuw i8, ptr %577, i64 24
   store i8 0, ptr %6199, align 8
   %6200 = invoke noundef zeroext i1 @_Z26_TestSetSingleValueSplinesRKN32pxrInternal_v0_24__pxrReserved__8TsSplineERKNS_7VtValueERKNS_10GfIntervalE(ptr noundef nonnull align 8 dereferenceable(16) %470, ptr noundef nonnull align 8 dereferenceable(16) %576, ptr noundef nonnull align 8 dereferenceable(32) %577)
           to label %6201 unwind label %9645
@@ -40040,7 +40040,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit2095: ; preds = %_ZN32pxrI
   store i8 0, ptr %6274, align 8
   %6275 = getelementptr inbounds nuw i8, ptr %585, i64 16
   store double 0.000000e+00, ptr %6275, align 8
-  %6276 = getelementptr inbounds i8, ptr %585, i64 24
+  %6276 = getelementptr inbounds nuw i8, ptr %585, i64 24
   store i8 0, ptr %6276, align 8
   %6277 = invoke noundef zeroext i1 @_Z26_TestSetSingleValueSplinesRKN32pxrInternal_v0_24__pxrReserved__8TsSplineERKNS_7VtValueERKNS_10GfIntervalE(ptr noundef nonnull align 8 dereferenceable(16) %470, ptr noundef nonnull align 8 dereferenceable(16) %584, ptr noundef nonnull align 8 dereferenceable(32) %585)
           to label %6278 unwind label %9652
@@ -40194,7 +40194,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit2109: ; preds = %_ZN32pxrI
   store i8 0, ptr %6338, align 8
   %6339 = getelementptr inbounds nuw i8, ptr %592, i64 16
   store double 3.000000e+01, ptr %6339, align 8
-  %6340 = getelementptr inbounds i8, ptr %592, i64 24
+  %6340 = getelementptr inbounds nuw i8, ptr %592, i64 24
   store i8 0, ptr %6340, align 8
   %6341 = invoke noundef zeroext i1 @_Z26_TestSetSingleValueSplinesRKN32pxrInternal_v0_24__pxrReserved__8TsSplineERKNS_7VtValueERKNS_10GfIntervalE(ptr noundef nonnull align 8 dereferenceable(16) %470, ptr noundef nonnull align 8 dereferenceable(16) %591, ptr noundef nonnull align 8 dereferenceable(32) %592)
           to label %6342 unwind label %9659
@@ -40348,7 +40348,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit2123: ; preds = %_ZN32pxrI
   store i8 0, ptr %6402, align 8
   %6403 = getelementptr inbounds nuw i8, ptr %599, i64 16
   store double 3.000000e+01, ptr %6403, align 8
-  %6404 = getelementptr inbounds i8, ptr %599, i64 24
+  %6404 = getelementptr inbounds nuw i8, ptr %599, i64 24
   store i8 0, ptr %6404, align 8
   %6405 = invoke noundef zeroext i1 @_Z26_TestSetSingleValueSplinesRKN32pxrInternal_v0_24__pxrReserved__8TsSplineERKNS_7VtValueERKNS_10GfIntervalE(ptr noundef nonnull align 8 dereferenceable(16) %470, ptr noundef nonnull align 8 dereferenceable(16) %598, ptr noundef nonnull align 8 dereferenceable(32) %599)
           to label %6406 unwind label %9666
@@ -40502,7 +40502,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit2137: ; preds = %_ZN32pxrI
   store i8 0, ptr %6466, align 8
   %6467 = getelementptr inbounds nuw i8, ptr %606, i64 16
   store double 3.000000e+01, ptr %6467, align 8
-  %6468 = getelementptr inbounds i8, ptr %606, i64 24
+  %6468 = getelementptr inbounds nuw i8, ptr %606, i64 24
   store i8 0, ptr %6468, align 8
   %6469 = invoke noundef zeroext i1 @_Z26_TestSetSingleValueSplinesRKN32pxrInternal_v0_24__pxrReserved__8TsSplineERKNS_7VtValueERKNS_10GfIntervalE(ptr noundef nonnull align 8 dereferenceable(16) %470, ptr noundef nonnull align 8 dereferenceable(16) %605, ptr noundef nonnull align 8 dereferenceable(32) %606)
           to label %6470 unwind label %9673
@@ -40684,7 +40684,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit2154: ; preds = %_ZN32pxrI
   store i8 0, ptr %6543, align 8
   %6544 = getelementptr inbounds nuw i8, ptr %614, i64 16
   store double 2.000000e+01, ptr %6544, align 8
-  %6545 = getelementptr inbounds i8, ptr %614, i64 24
+  %6545 = getelementptr inbounds nuw i8, ptr %614, i64 24
   store i8 1, ptr %6545, align 8
   %6546 = invoke noundef zeroext i1 @_Z26_TestSetSingleValueSplinesRKN32pxrInternal_v0_24__pxrReserved__8TsSplineERKNS_7VtValueERKNS_10GfIntervalE(ptr noundef nonnull align 8 dereferenceable(16) %470, ptr noundef nonnull align 8 dereferenceable(16) %613, ptr noundef nonnull align 8 dereferenceable(32) %614)
           to label %6547 unwind label %9680
@@ -40866,7 +40866,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit2171: ; preds = %_ZN32pxrI
   store i8 0, ptr %6620, align 8
   %6621 = getelementptr inbounds nuw i8, ptr %622, i64 16
   store double 2.000000e+01, ptr %6621, align 8
-  %6622 = getelementptr inbounds i8, ptr %622, i64 24
+  %6622 = getelementptr inbounds nuw i8, ptr %622, i64 24
   store i8 1, ptr %6622, align 8
   %6623 = invoke noundef zeroext i1 @_Z26_TestSetSingleValueSplinesRKN32pxrInternal_v0_24__pxrReserved__8TsSplineERKNS_7VtValueERKNS_10GfIntervalE(ptr noundef nonnull align 8 dereferenceable(16) %470, ptr noundef nonnull align 8 dereferenceable(16) %621, ptr noundef nonnull align 8 dereferenceable(32) %622)
           to label %6624 unwind label %9687
@@ -41048,7 +41048,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit2188: ; preds = %_ZN32pxrI
   store i8 0, ptr %6697, align 8
   %6698 = getelementptr inbounds nuw i8, ptr %630, i64 16
   store double 2.000000e+01, ptr %6698, align 8
-  %6699 = getelementptr inbounds i8, ptr %630, i64 24
+  %6699 = getelementptr inbounds nuw i8, ptr %630, i64 24
   store i8 1, ptr %6699, align 8
   %6700 = invoke noundef zeroext i1 @_Z26_TestSetSingleValueSplinesRKN32pxrInternal_v0_24__pxrReserved__8TsSplineERKNS_7VtValueERKNS_10GfIntervalE(ptr noundef nonnull align 8 dereferenceable(16) %470, ptr noundef nonnull align 8 dereferenceable(16) %629, ptr noundef nonnull align 8 dereferenceable(32) %630)
           to label %6701 unwind label %9694
@@ -41230,7 +41230,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit2205: ; preds = %_ZN32pxrI
   store i8 1, ptr %6774, align 8
   %6775 = getelementptr inbounds nuw i8, ptr %638, i64 16
   store double 3.000000e+01, ptr %6775, align 8
-  %6776 = getelementptr inbounds i8, ptr %638, i64 24
+  %6776 = getelementptr inbounds nuw i8, ptr %638, i64 24
   store i8 0, ptr %6776, align 8
   %6777 = invoke noundef zeroext i1 @_Z26_TestSetSingleValueSplinesRKN32pxrInternal_v0_24__pxrReserved__8TsSplineERKNS_7VtValueERKNS_10GfIntervalE(ptr noundef nonnull align 8 dereferenceable(16) %470, ptr noundef nonnull align 8 dereferenceable(16) %637, ptr noundef nonnull align 8 dereferenceable(32) %638)
           to label %6778 unwind label %9701
@@ -41412,7 +41412,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit2222: ; preds = %_ZN32pxrI
   store i8 1, ptr %6851, align 8
   %6852 = getelementptr inbounds nuw i8, ptr %646, i64 16
   store double 3.000000e+01, ptr %6852, align 8
-  %6853 = getelementptr inbounds i8, ptr %646, i64 24
+  %6853 = getelementptr inbounds nuw i8, ptr %646, i64 24
   store i8 0, ptr %6853, align 8
   %6854 = invoke noundef zeroext i1 @_Z26_TestSetSingleValueSplinesRKN32pxrInternal_v0_24__pxrReserved__8TsSplineERKNS_7VtValueERKNS_10GfIntervalE(ptr noundef nonnull align 8 dereferenceable(16) %470, ptr noundef nonnull align 8 dereferenceable(16) %645, ptr noundef nonnull align 8 dereferenceable(32) %646)
           to label %6855 unwind label %9708
@@ -41594,7 +41594,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit2239: ; preds = %_ZN32pxrI
   store i8 1, ptr %6928, align 8
   %6929 = getelementptr inbounds nuw i8, ptr %654, i64 16
   store double 3.000000e+01, ptr %6929, align 8
-  %6930 = getelementptr inbounds i8, ptr %654, i64 24
+  %6930 = getelementptr inbounds nuw i8, ptr %654, i64 24
   store i8 0, ptr %6930, align 8
   %6931 = invoke noundef zeroext i1 @_Z26_TestSetSingleValueSplinesRKN32pxrInternal_v0_24__pxrReserved__8TsSplineERKNS_7VtValueERKNS_10GfIntervalE(ptr noundef nonnull align 8 dereferenceable(16) %470, ptr noundef nonnull align 8 dereferenceable(16) %653, ptr noundef nonnull align 8 dereferenceable(32) %654)
           to label %6932 unwind label %9715
@@ -41776,7 +41776,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit2256: ; preds = %_ZN32pxrI
   store i8 0, ptr %7005, align 8
   %7006 = getelementptr inbounds nuw i8, ptr %662, i64 16
   store double 0.000000e+00, ptr %7006, align 8
-  %7007 = getelementptr inbounds i8, ptr %662, i64 24
+  %7007 = getelementptr inbounds nuw i8, ptr %662, i64 24
   store i8 0, ptr %7007, align 8
   %7008 = invoke noundef zeroext i1 @_Z26_TestSetSingleValueSplinesRKN32pxrInternal_v0_24__pxrReserved__8TsSplineERKNS_7VtValueERKNS_10GfIntervalE(ptr noundef nonnull align 8 dereferenceable(16) %470, ptr noundef nonnull align 8 dereferenceable(16) %661, ptr noundef nonnull align 8 dereferenceable(32) %662)
           to label %7009 unwind label %9722
@@ -41958,7 +41958,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit2273: ; preds = %_ZN32pxrI
   store i8 0, ptr %7082, align 8
   %7083 = getelementptr inbounds nuw i8, ptr %670, i64 16
   store double 0.000000e+00, ptr %7083, align 8
-  %7084 = getelementptr inbounds i8, ptr %670, i64 24
+  %7084 = getelementptr inbounds nuw i8, ptr %670, i64 24
   store i8 0, ptr %7084, align 8
   %7085 = invoke noundef zeroext i1 @_Z26_TestSetSingleValueSplinesRKN32pxrInternal_v0_24__pxrReserved__8TsSplineERKNS_7VtValueERKNS_10GfIntervalE(ptr noundef nonnull align 8 dereferenceable(16) %470, ptr noundef nonnull align 8 dereferenceable(16) %669, ptr noundef nonnull align 8 dereferenceable(32) %670)
           to label %7086 unwind label %9729
@@ -42140,7 +42140,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit2290: ; preds = %_ZN32pxrI
   store i8 0, ptr %7159, align 8
   %7160 = getelementptr inbounds nuw i8, ptr %678, i64 16
   store double 0.000000e+00, ptr %7160, align 8
-  %7161 = getelementptr inbounds i8, ptr %678, i64 24
+  %7161 = getelementptr inbounds nuw i8, ptr %678, i64 24
   store i8 0, ptr %7161, align 8
   %7162 = invoke noundef zeroext i1 @_Z26_TestSetSingleValueSplinesRKN32pxrInternal_v0_24__pxrReserved__8TsSplineERKNS_7VtValueERKNS_10GfIntervalE(ptr noundef nonnull align 8 dereferenceable(16) %470, ptr noundef nonnull align 8 dereferenceable(16) %677, ptr noundef nonnull align 8 dereferenceable(32) %678)
           to label %7163 unwind label %9736
@@ -42294,7 +42294,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit2304: ; preds = %_ZN32pxrI
   store i8 0, ptr %7223, align 8
   %7224 = getelementptr inbounds nuw i8, ptr %685, i64 16
   store double 4.000000e+01, ptr %7224, align 8
-  %7225 = getelementptr inbounds i8, ptr %685, i64 24
+  %7225 = getelementptr inbounds nuw i8, ptr %685, i64 24
   store i8 0, ptr %7225, align 8
   %7226 = invoke noundef zeroext i1 @_Z26_TestSetSingleValueSplinesRKN32pxrInternal_v0_24__pxrReserved__8TsSplineERKNS_7VtValueERKNS_10GfIntervalE(ptr noundef nonnull align 8 dereferenceable(16) %470, ptr noundef nonnull align 8 dereferenceable(16) %684, ptr noundef nonnull align 8 dereferenceable(32) %685)
           to label %7227 unwind label %9743
@@ -42448,7 +42448,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit2318: ; preds = %_ZN32pxrI
   store i8 0, ptr %7287, align 8
   %7288 = getelementptr inbounds nuw i8, ptr %692, i64 16
   store double 4.000000e+01, ptr %7288, align 8
-  %7289 = getelementptr inbounds i8, ptr %692, i64 24
+  %7289 = getelementptr inbounds nuw i8, ptr %692, i64 24
   store i8 0, ptr %7289, align 8
   %7290 = invoke noundef zeroext i1 @_Z26_TestSetSingleValueSplinesRKN32pxrInternal_v0_24__pxrReserved__8TsSplineERKNS_7VtValueERKNS_10GfIntervalE(ptr noundef nonnull align 8 dereferenceable(16) %470, ptr noundef nonnull align 8 dereferenceable(16) %691, ptr noundef nonnull align 8 dereferenceable(32) %692)
           to label %7291 unwind label %9750
@@ -42602,7 +42602,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit2332: ; preds = %_ZN32pxrI
   store i8 0, ptr %7351, align 8
   %7352 = getelementptr inbounds nuw i8, ptr %699, i64 16
   store double 4.000000e+01, ptr %7352, align 8
-  %7353 = getelementptr inbounds i8, ptr %699, i64 24
+  %7353 = getelementptr inbounds nuw i8, ptr %699, i64 24
   store i8 0, ptr %7353, align 8
   %7354 = invoke noundef zeroext i1 @_Z26_TestSetSingleValueSplinesRKN32pxrInternal_v0_24__pxrReserved__8TsSplineERKNS_7VtValueERKNS_10GfIntervalE(ptr noundef nonnull align 8 dereferenceable(16) %470, ptr noundef nonnull align 8 dereferenceable(16) %698, ptr noundef nonnull align 8 dereferenceable(32) %699)
           to label %7355 unwind label %9757
@@ -42784,7 +42784,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit2349: ; preds = %_ZN32pxrI
   store i8 0, ptr %7428, align 8
   %7429 = getelementptr inbounds nuw i8, ptr %707, i64 16
   store double 3.000000e+01, ptr %7429, align 8
-  %7430 = getelementptr inbounds i8, ptr %707, i64 24
+  %7430 = getelementptr inbounds nuw i8, ptr %707, i64 24
   store i8 1, ptr %7430, align 8
   %7431 = invoke noundef zeroext i1 @_Z26_TestSetSingleValueSplinesRKN32pxrInternal_v0_24__pxrReserved__8TsSplineERKNS_7VtValueERKNS_10GfIntervalE(ptr noundef nonnull align 8 dereferenceable(16) %470, ptr noundef nonnull align 8 dereferenceable(16) %706, ptr noundef nonnull align 8 dereferenceable(32) %707)
           to label %7432 unwind label %9764
@@ -42966,7 +42966,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit2366: ; preds = %_ZN32pxrI
   store i8 0, ptr %7505, align 8
   %7506 = getelementptr inbounds nuw i8, ptr %715, i64 16
   store double 3.000000e+01, ptr %7506, align 8
-  %7507 = getelementptr inbounds i8, ptr %715, i64 24
+  %7507 = getelementptr inbounds nuw i8, ptr %715, i64 24
   store i8 1, ptr %7507, align 8
   %7508 = invoke noundef zeroext i1 @_Z26_TestSetSingleValueSplinesRKN32pxrInternal_v0_24__pxrReserved__8TsSplineERKNS_7VtValueERKNS_10GfIntervalE(ptr noundef nonnull align 8 dereferenceable(16) %470, ptr noundef nonnull align 8 dereferenceable(16) %714, ptr noundef nonnull align 8 dereferenceable(32) %715)
           to label %7509 unwind label %9771
@@ -43148,7 +43148,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit2383: ; preds = %_ZN32pxrI
   store i8 0, ptr %7582, align 8
   %7583 = getelementptr inbounds nuw i8, ptr %723, i64 16
   store double 3.000000e+01, ptr %7583, align 8
-  %7584 = getelementptr inbounds i8, ptr %723, i64 24
+  %7584 = getelementptr inbounds nuw i8, ptr %723, i64 24
   store i8 1, ptr %7584, align 8
   %7585 = invoke noundef zeroext i1 @_Z26_TestSetSingleValueSplinesRKN32pxrInternal_v0_24__pxrReserved__8TsSplineERKNS_7VtValueERKNS_10GfIntervalE(ptr noundef nonnull align 8 dereferenceable(16) %470, ptr noundef nonnull align 8 dereferenceable(16) %722, ptr noundef nonnull align 8 dereferenceable(32) %723)
           to label %7586 unwind label %9778
@@ -43330,7 +43330,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit2400: ; preds = %_ZN32pxrI
   store i8 1, ptr %7659, align 8
   %7660 = getelementptr inbounds nuw i8, ptr %731, i64 16
   store double 4.000000e+01, ptr %7660, align 8
-  %7661 = getelementptr inbounds i8, ptr %731, i64 24
+  %7661 = getelementptr inbounds nuw i8, ptr %731, i64 24
   store i8 0, ptr %7661, align 8
   %7662 = invoke noundef zeroext i1 @_Z26_TestSetSingleValueSplinesRKN32pxrInternal_v0_24__pxrReserved__8TsSplineERKNS_7VtValueERKNS_10GfIntervalE(ptr noundef nonnull align 8 dereferenceable(16) %470, ptr noundef nonnull align 8 dereferenceable(16) %730, ptr noundef nonnull align 8 dereferenceable(32) %731)
           to label %7663 unwind label %9785
@@ -43512,7 +43512,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit2417: ; preds = %_ZN32pxrI
   store i8 1, ptr %7736, align 8
   %7737 = getelementptr inbounds nuw i8, ptr %739, i64 16
   store double 4.000000e+01, ptr %7737, align 8
-  %7738 = getelementptr inbounds i8, ptr %739, i64 24
+  %7738 = getelementptr inbounds nuw i8, ptr %739, i64 24
   store i8 0, ptr %7738, align 8
   %7739 = invoke noundef zeroext i1 @_Z26_TestSetSingleValueSplinesRKN32pxrInternal_v0_24__pxrReserved__8TsSplineERKNS_7VtValueERKNS_10GfIntervalE(ptr noundef nonnull align 8 dereferenceable(16) %470, ptr noundef nonnull align 8 dereferenceable(16) %738, ptr noundef nonnull align 8 dereferenceable(32) %739)
           to label %7740 unwind label %9792
@@ -43694,7 +43694,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit2434: ; preds = %_ZN32pxrI
   store i8 1, ptr %7813, align 8
   %7814 = getelementptr inbounds nuw i8, ptr %747, i64 16
   store double 4.000000e+01, ptr %7814, align 8
-  %7815 = getelementptr inbounds i8, ptr %747, i64 24
+  %7815 = getelementptr inbounds nuw i8, ptr %747, i64 24
   store i8 0, ptr %7815, align 8
   %7816 = invoke noundef zeroext i1 @_Z26_TestSetSingleValueSplinesRKN32pxrInternal_v0_24__pxrReserved__8TsSplineERKNS_7VtValueERKNS_10GfIntervalE(ptr noundef nonnull align 8 dereferenceable(16) %470, ptr noundef nonnull align 8 dereferenceable(16) %746, ptr noundef nonnull align 8 dereferenceable(32) %747)
           to label %7817 unwind label %9799
@@ -43876,7 +43876,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit2451: ; preds = %_ZN32pxrI
   store i8 0, ptr %7890, align 8
   %7891 = getelementptr inbounds nuw i8, ptr %755, i64 16
   store double 0.000000e+00, ptr %7891, align 8
-  %7892 = getelementptr inbounds i8, ptr %755, i64 24
+  %7892 = getelementptr inbounds nuw i8, ptr %755, i64 24
   store i8 0, ptr %7892, align 8
   %7893 = invoke noundef zeroext i1 @_Z26_TestSetSingleValueSplinesRKN32pxrInternal_v0_24__pxrReserved__8TsSplineERKNS_7VtValueERKNS_10GfIntervalE(ptr noundef nonnull align 8 dereferenceable(16) %470, ptr noundef nonnull align 8 dereferenceable(16) %754, ptr noundef nonnull align 8 dereferenceable(32) %755)
           to label %7894 unwind label %9806
@@ -44058,7 +44058,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit2468: ; preds = %_ZN32pxrI
   store i8 0, ptr %7967, align 8
   %7968 = getelementptr inbounds nuw i8, ptr %763, i64 16
   store double 0.000000e+00, ptr %7968, align 8
-  %7969 = getelementptr inbounds i8, ptr %763, i64 24
+  %7969 = getelementptr inbounds nuw i8, ptr %763, i64 24
   store i8 0, ptr %7969, align 8
   %7970 = invoke noundef zeroext i1 @_Z26_TestSetSingleValueSplinesRKN32pxrInternal_v0_24__pxrReserved__8TsSplineERKNS_7VtValueERKNS_10GfIntervalE(ptr noundef nonnull align 8 dereferenceable(16) %470, ptr noundef nonnull align 8 dereferenceable(16) %762, ptr noundef nonnull align 8 dereferenceable(32) %763)
           to label %7971 unwind label %9813
@@ -44240,7 +44240,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit2485: ; preds = %_ZN32pxrI
   store i8 0, ptr %8044, align 8
   %8045 = getelementptr inbounds nuw i8, ptr %771, i64 16
   store double 0.000000e+00, ptr %8045, align 8
-  %8046 = getelementptr inbounds i8, ptr %771, i64 24
+  %8046 = getelementptr inbounds nuw i8, ptr %771, i64 24
   store i8 0, ptr %8046, align 8
   %8047 = invoke noundef zeroext i1 @_Z26_TestSetSingleValueSplinesRKN32pxrInternal_v0_24__pxrReserved__8TsSplineERKNS_7VtValueERKNS_10GfIntervalE(ptr noundef nonnull align 8 dereferenceable(16) %470, ptr noundef nonnull align 8 dereferenceable(16) %770, ptr noundef nonnull align 8 dereferenceable(32) %771)
           to label %8048 unwind label %9820
@@ -44394,7 +44394,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit2499: ; preds = %_ZN32pxrI
   store i8 0, ptr %8108, align 8
   %8109 = getelementptr inbounds nuw i8, ptr %778, i64 16
   store double 0x7FF0000000000000, ptr %8109, align 8
-  %8110 = getelementptr inbounds i8, ptr %778, i64 24
+  %8110 = getelementptr inbounds nuw i8, ptr %778, i64 24
   store i8 0, ptr %8110, align 8
   %8111 = invoke noundef zeroext i1 @_Z26_TestSetSingleValueSplinesRKN32pxrInternal_v0_24__pxrReserved__8TsSplineERKNS_7VtValueERKNS_10GfIntervalE(ptr noundef nonnull align 8 dereferenceable(16) %470, ptr noundef nonnull align 8 dereferenceable(16) %777, ptr noundef nonnull align 8 dereferenceable(32) %778)
           to label %8112 unwind label %9827
@@ -44548,7 +44548,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit2513: ; preds = %_ZN32pxrI
   store i8 0, ptr %8172, align 8
   %8173 = getelementptr inbounds nuw i8, ptr %785, i64 16
   store double 0x7FF0000000000000, ptr %8173, align 8
-  %8174 = getelementptr inbounds i8, ptr %785, i64 24
+  %8174 = getelementptr inbounds nuw i8, ptr %785, i64 24
   store i8 0, ptr %8174, align 8
   %8175 = invoke noundef zeroext i1 @_Z26_TestSetSingleValueSplinesRKN32pxrInternal_v0_24__pxrReserved__8TsSplineERKNS_7VtValueERKNS_10GfIntervalE(ptr noundef nonnull align 8 dereferenceable(16) %470, ptr noundef nonnull align 8 dereferenceable(16) %784, ptr noundef nonnull align 8 dereferenceable(32) %785)
           to label %8176 unwind label %9834
@@ -44702,7 +44702,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit2527: ; preds = %_ZN32pxrI
   store i8 0, ptr %8236, align 8
   %8237 = getelementptr inbounds nuw i8, ptr %792, i64 16
   store double 0x7FF0000000000000, ptr %8237, align 8
-  %8238 = getelementptr inbounds i8, ptr %792, i64 24
+  %8238 = getelementptr inbounds nuw i8, ptr %792, i64 24
   store i8 0, ptr %8238, align 8
   %8239 = invoke noundef zeroext i1 @_Z26_TestSetSingleValueSplinesRKN32pxrInternal_v0_24__pxrReserved__8TsSplineERKNS_7VtValueERKNS_10GfIntervalE(ptr noundef nonnull align 8 dereferenceable(16) %470, ptr noundef nonnull align 8 dereferenceable(16) %791, ptr noundef nonnull align 8 dereferenceable(32) %792)
           to label %8240 unwind label %9841
@@ -44884,7 +44884,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit2544: ; preds = %_ZN32pxrI
   store i8 0, ptr %8313, align 8
   %8314 = getelementptr inbounds nuw i8, ptr %800, i64 16
   store double 4.000000e+01, ptr %8314, align 8
-  %8315 = getelementptr inbounds i8, ptr %800, i64 24
+  %8315 = getelementptr inbounds nuw i8, ptr %800, i64 24
   store i8 1, ptr %8315, align 8
   %8316 = invoke noundef zeroext i1 @_Z26_TestSetSingleValueSplinesRKN32pxrInternal_v0_24__pxrReserved__8TsSplineERKNS_7VtValueERKNS_10GfIntervalE(ptr noundef nonnull align 8 dereferenceable(16) %470, ptr noundef nonnull align 8 dereferenceable(16) %799, ptr noundef nonnull align 8 dereferenceable(32) %800)
           to label %8317 unwind label %9848
@@ -45066,7 +45066,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit2561: ; preds = %_ZN32pxrI
   store i8 0, ptr %8390, align 8
   %8391 = getelementptr inbounds nuw i8, ptr %808, i64 16
   store double 4.000000e+01, ptr %8391, align 8
-  %8392 = getelementptr inbounds i8, ptr %808, i64 24
+  %8392 = getelementptr inbounds nuw i8, ptr %808, i64 24
   store i8 1, ptr %8392, align 8
   %8393 = invoke noundef zeroext i1 @_Z26_TestSetSingleValueSplinesRKN32pxrInternal_v0_24__pxrReserved__8TsSplineERKNS_7VtValueERKNS_10GfIntervalE(ptr noundef nonnull align 8 dereferenceable(16) %470, ptr noundef nonnull align 8 dereferenceable(16) %807, ptr noundef nonnull align 8 dereferenceable(32) %808)
           to label %8394 unwind label %9855
@@ -45248,7 +45248,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit2578: ; preds = %_ZN32pxrI
   store i8 0, ptr %8467, align 8
   %8468 = getelementptr inbounds nuw i8, ptr %816, i64 16
   store double 4.000000e+01, ptr %8468, align 8
-  %8469 = getelementptr inbounds i8, ptr %816, i64 24
+  %8469 = getelementptr inbounds nuw i8, ptr %816, i64 24
   store i8 1, ptr %8469, align 8
   %8470 = invoke noundef zeroext i1 @_Z26_TestSetSingleValueSplinesRKN32pxrInternal_v0_24__pxrReserved__8TsSplineERKNS_7VtValueERKNS_10GfIntervalE(ptr noundef nonnull align 8 dereferenceable(16) %470, ptr noundef nonnull align 8 dereferenceable(16) %815, ptr noundef nonnull align 8 dereferenceable(32) %816)
           to label %8471 unwind label %9862
@@ -45430,7 +45430,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit2595: ; preds = %_ZN32pxrI
   store i8 1, ptr %8544, align 8
   %8545 = getelementptr inbounds nuw i8, ptr %824, i64 16
   store double 0x7FF0000000000000, ptr %8545, align 8
-  %8546 = getelementptr inbounds i8, ptr %824, i64 24
+  %8546 = getelementptr inbounds nuw i8, ptr %824, i64 24
   store i8 0, ptr %8546, align 8
   %8547 = invoke noundef zeroext i1 @_Z26_TestSetSingleValueSplinesRKN32pxrInternal_v0_24__pxrReserved__8TsSplineERKNS_7VtValueERKNS_10GfIntervalE(ptr noundef nonnull align 8 dereferenceable(16) %470, ptr noundef nonnull align 8 dereferenceable(16) %823, ptr noundef nonnull align 8 dereferenceable(32) %824)
           to label %8548 unwind label %9869
@@ -45612,7 +45612,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit2612: ; preds = %_ZN32pxrI
   store i8 1, ptr %8621, align 8
   %8622 = getelementptr inbounds nuw i8, ptr %832, i64 16
   store double 0x7FF0000000000000, ptr %8622, align 8
-  %8623 = getelementptr inbounds i8, ptr %832, i64 24
+  %8623 = getelementptr inbounds nuw i8, ptr %832, i64 24
   store i8 0, ptr %8623, align 8
   %8624 = invoke noundef zeroext i1 @_Z26_TestSetSingleValueSplinesRKN32pxrInternal_v0_24__pxrReserved__8TsSplineERKNS_7VtValueERKNS_10GfIntervalE(ptr noundef nonnull align 8 dereferenceable(16) %470, ptr noundef nonnull align 8 dereferenceable(16) %831, ptr noundef nonnull align 8 dereferenceable(32) %832)
           to label %8625 unwind label %9876
@@ -45794,7 +45794,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit2629: ; preds = %_ZN32pxrI
   store i8 1, ptr %8698, align 8
   %8699 = getelementptr inbounds nuw i8, ptr %840, i64 16
   store double 0x7FF0000000000000, ptr %8699, align 8
-  %8700 = getelementptr inbounds i8, ptr %840, i64 24
+  %8700 = getelementptr inbounds nuw i8, ptr %840, i64 24
   store i8 0, ptr %8700, align 8
   %8701 = invoke noundef zeroext i1 @_Z26_TestSetSingleValueSplinesRKN32pxrInternal_v0_24__pxrReserved__8TsSplineERKNS_7VtValueERKNS_10GfIntervalE(ptr noundef nonnull align 8 dereferenceable(16) %470, ptr noundef nonnull align 8 dereferenceable(16) %839, ptr noundef nonnull align 8 dereferenceable(32) %840)
           to label %8702 unwind label %9883
@@ -45976,7 +45976,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit2646: ; preds = %_ZN32pxrI
   store i8 0, ptr %8775, align 8
   %8776 = getelementptr inbounds nuw i8, ptr %848, i64 16
   store double 0.000000e+00, ptr %8776, align 8
-  %8777 = getelementptr inbounds i8, ptr %848, i64 24
+  %8777 = getelementptr inbounds nuw i8, ptr %848, i64 24
   store i8 0, ptr %8777, align 8
   %8778 = invoke noundef zeroext i1 @_Z26_TestSetSingleValueSplinesRKN32pxrInternal_v0_24__pxrReserved__8TsSplineERKNS_7VtValueERKNS_10GfIntervalE(ptr noundef nonnull align 8 dereferenceable(16) %470, ptr noundef nonnull align 8 dereferenceable(16) %847, ptr noundef nonnull align 8 dereferenceable(32) %848)
           to label %8779 unwind label %9890
@@ -46158,7 +46158,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit2663: ; preds = %_ZN32pxrI
   store i8 0, ptr %8852, align 8
   %8853 = getelementptr inbounds nuw i8, ptr %856, i64 16
   store double 0.000000e+00, ptr %8853, align 8
-  %8854 = getelementptr inbounds i8, ptr %856, i64 24
+  %8854 = getelementptr inbounds nuw i8, ptr %856, i64 24
   store i8 0, ptr %8854, align 8
   %8855 = invoke noundef zeroext i1 @_Z26_TestSetSingleValueSplinesRKN32pxrInternal_v0_24__pxrReserved__8TsSplineERKNS_7VtValueERKNS_10GfIntervalE(ptr noundef nonnull align 8 dereferenceable(16) %470, ptr noundef nonnull align 8 dereferenceable(16) %855, ptr noundef nonnull align 8 dereferenceable(32) %856)
           to label %8856 unwind label %9897
@@ -46340,7 +46340,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit2680: ; preds = %_ZN32pxrI
   store i8 0, ptr %8929, align 8
   %8930 = getelementptr inbounds nuw i8, ptr %864, i64 16
   store double 0.000000e+00, ptr %8930, align 8
-  %8931 = getelementptr inbounds i8, ptr %864, i64 24
+  %8931 = getelementptr inbounds nuw i8, ptr %864, i64 24
   store i8 0, ptr %8931, align 8
   %8932 = invoke noundef zeroext i1 @_Z26_TestSetSingleValueSplinesRKN32pxrInternal_v0_24__pxrReserved__8TsSplineERKNS_7VtValueERKNS_10GfIntervalE(ptr noundef nonnull align 8 dereferenceable(16) %470, ptr noundef nonnull align 8 dereferenceable(16) %863, ptr noundef nonnull align 8 dereferenceable(32) %864)
           to label %8933 unwind label %9904
@@ -46484,7 +46484,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__8TsSplineD2Ev.exit2695: ; preds = %_ZN32pxr
 
 .lr.ph.i.i.i.i2697:                               ; preds = %8985, %_ZSt8_DestroyIN32pxrInternal_v0_24__pxrReserved__13TsValueSampleEEvPT_.exit.i.i.i.i2704
   %.05.i.i.i.i2698 = phi ptr [ %9016, %_ZSt8_DestroyIN32pxrInternal_v0_24__pxrReserved__13TsValueSampleEEvPT_.exit.i.i.i.i2704 ], [ %8986, %8985 ]
-  %8988 = getelementptr inbounds i8, ptr %.05.i.i.i.i2698, i64 48
+  %8988 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i2698, i64 48
   %8989 = load ptr, ptr %8988, align 8
   %8990 = ptrtoint ptr %8989 to i64
   %.not.i.i.i.i.i.i.i.i2699 = icmp eq ptr %8989, null
@@ -46511,7 +46511,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__8TsSplineD2Ev.exit2695: ; preds = %_ZN32pxr
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit.i.i.i.i.i.i2701: ; preds = %8993, %.lr.ph.i.i.i.i2697
   store ptr null, ptr %8988, align 8
-  %9002 = getelementptr inbounds i8, ptr %.05.i.i.i.i2698, i64 32
+  %9002 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i2698, i64 32
   %9003 = load ptr, ptr %9002, align 8
   %9004 = ptrtoint ptr %9003 to i64
   %.not.i.i1.i.i.i.i.i.i2702 = icmp eq ptr %9003, null
@@ -50079,7 +50079,7 @@ define linkonce_odr dso_local void @_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserv
 
 .lr.ph.i.i.i:                                     ; preds = %1, %_ZSt8_DestroyIN32pxrInternal_v0_24__pxrReserved__13TsValueSampleEEvPT_.exit.i.i.i
   %.05.i.i.i = phi ptr [ %33, %_ZSt8_DestroyIN32pxrInternal_v0_24__pxrReserved__13TsValueSampleEEvPT_.exit.i.i.i ], [ %2, %1 ]
-  %5 = getelementptr inbounds i8, ptr %.05.i.i.i, i64 48
+  %5 = getelementptr inbounds nuw i8, ptr %.05.i.i.i, i64 48
   %6 = load ptr, ptr %5, align 8
   %7 = ptrtoint ptr %6 to i64
   %.not.i.i.i.i.i.i.i = icmp eq ptr %6, null
@@ -50106,7 +50106,7 @@ define linkonce_odr dso_local void @_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserv
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit.i.i.i.i.i: ; preds = %10, %.lr.ph.i.i.i
   store ptr null, ptr %5, align 8
-  %19 = getelementptr inbounds i8, ptr %.05.i.i.i, i64 32
+  %19 = getelementptr inbounds nuw i8, ptr %.05.i.i.i, i64 32
   %20 = load ptr, ptr %19, align 8
   %21 = ptrtoint ptr %20 to i64
   %.not.i.i1.i.i.i.i.i = icmp eq ptr %20, null
@@ -50550,7 +50550,7 @@ declare void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(p
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZNSt4pairIN32pxrInternal_v0_24__pxrReserved__7VtValueES1_ED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %4 = ptrtoint ptr %3 to i64
   %.not.i.i = icmp eq ptr %3, null
@@ -51140,10 +51140,10 @@ define linkonce_odr dso_local void @_ZN32pxrInternal_v0_24__pxrReserved__12Ts_Ev
 
 12:                                               ; preds = %3
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %14 = getelementptr inbounds i8, ptr %0, i64 88
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 88
   tail call void @_ZN32pxrInternal_v0_24__pxrReserved__19Ts_UntypedEvalCache20_SetupBezierGeometryIdEEvPdPT_PKNS_12Ts_TypedDataIS3_EES8_(ptr noundef nonnull %13, ptr noundef nonnull %14, ptr noundef nonnull %1, ptr noundef nonnull %2)
   %15 = load double, ptr %13, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 56
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store double %15, ptr %16, align 8
   %17 = getelementptr inbounds i8, ptr %0, i64 32
   %18 = load double, ptr %17, align 8
@@ -51166,7 +51166,7 @@ define linkonce_odr dso_local void @_ZN32pxrInternal_v0_24__pxrReserved__12Ts_Ev
   %33 = getelementptr inbounds i8, ptr %0, i64 80
   store double %32, ptr %33, align 8
   %34 = load double, ptr %14, align 8
-  %35 = getelementptr inbounds i8, ptr %0, i64 120
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 120
   store double %34, ptr %35, align 8
   %36 = getelementptr inbounds i8, ptr %0, i64 96
   %37 = load double, ptr %36, align 8
@@ -51209,7 +51209,7 @@ define linkonce_odr dso_local void @_ZN32pxrInternal_v0_24__pxrReserved__12Ts_Ev
 64:                                               ; preds = %57, %12
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 0, ptr %65, align 8
-  %66 = getelementptr inbounds i8, ptr %1, i64 24
+  %66 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %67 = load double, ptr %66, align 8
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store double %67, ptr %68, align 8
@@ -51232,13 +51232,13 @@ define linkonce_odr dso_local void @_ZNK32pxrInternal_v0_24__pxrReserved__12Ts_E
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__12Ts_EvalCacheIdLb1EE9TypedEvalEd.exit
 
 10:                                               ; preds = %3
-  %11 = getelementptr inbounds i8, ptr %1, i64 56
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %12 = tail call noundef double @_ZN32pxrInternal_v0_24__pxrReserved__13Ts_SolveCubicEPKdd(ptr noundef nonnull %11, double noundef %2)
   %13 = fcmp olt double %12, 0.000000e+00
   %14 = fcmp ogt double %12, 1.000000e+00
   %..i.i = select i1 %14, double 1.000000e+00, double %12
   %.0.i.i = select i1 %13, double 0.000000e+00, double %..i.i
-  %15 = getelementptr inbounds i8, ptr %1, i64 120
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 120
   %16 = getelementptr inbounds i8, ptr %1, i64 144
   %17 = load double, ptr %16, align 8
   %18 = getelementptr inbounds i8, ptr %1, i64 136
@@ -51273,7 +51273,7 @@ define linkonce_odr dso_local void @_ZNK32pxrInternal_v0_24__pxrReserved__12Ts_E
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__12Ts_EvalCacheIdLb1EE19TypedEvalDerivativeEd.exit
 
 9:                                                ; preds = %3
-  %10 = getelementptr inbounds i8, ptr %1, i64 56
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %11 = tail call noundef double @_ZN32pxrInternal_v0_24__pxrReserved__13Ts_SolveCubicEPKdd(ptr noundef nonnull %10, double noundef %2)
   %12 = fcmp olt double %11, 0.000000e+00
   %13 = fcmp ogt double %11, 1.000000e+00
@@ -51377,7 +51377,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__19Ts_UntypedEvalCache20_GetBezierPoint3Time
   %38 = load double, ptr %37, align 8
   %39 = getelementptr inbounds i8, ptr %0, i64 24
   store double %38, ptr %39, align 8
-  %40 = getelementptr inbounds i8, ptr %2, i64 24
+  %40 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %41 = load double, ptr %40, align 8
   store double %41, ptr %1, align 8
   %42 = load i32, ptr %7, align 8
@@ -51391,7 +51391,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__19Ts_UntypedEvalCache20_GetBezierPoint3Time
   %45 = load i8, ptr %44, align 4
   %46 = trunc i8 %45 to i1
   %.in.v.i = select i1 %46, i64 16, i64 24
-  %.in.i = getelementptr inbounds i8, ptr %3, i64 %.in.v.i
+  %.in.i = getelementptr inbounds nuw i8, ptr %3, i64 %.in.v.i
   %47 = load double, ptr %.in.i, align 8
   %48 = tail call double @llvm.fmuladd.f64(double %41, double 2.000000e+00, double %47)
   %49 = fmul double %48, 0x3FD5555555555555
@@ -51400,7 +51400,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__19Ts_UntypedEvalCache20_GetBezierPoint3Time
 50:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__19Ts_UntypedEvalCache20_GetBezierPoint3TimeIdEEdPKNS_12Ts_TypedDataIT_EES6_.exit
   %51 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %52 = load double, ptr %51, align 8
-  %53 = getelementptr inbounds i8, ptr %2, i64 40
+  %53 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %54 = load double, ptr %53, align 8
   %55 = tail call double @llvm.fmuladd.f64(double %52, double %54, double %41)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__19Ts_UntypedEvalCache21_GetBezierPoint2ValueIdEET_PKNS_12Ts_TypedDataIS2_EES6_.exit
@@ -51434,7 +51434,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__19Ts_UntypedEvalCache21_GetBezierPoint2Valu
   %67 = load i8, ptr %66, align 4
   %68 = trunc i8 %67 to i1
   %.in19.v.i = select i1 %68, i64 16, i64 24
-  %.in19.i = getelementptr inbounds i8, ptr %3, i64 %.in19.v.i
+  %.in19.i = getelementptr inbounds nuw i8, ptr %3, i64 %.in19.v.i
   %69 = load double, ptr %.in19.i, align 8
   br label %_ZN32pxrInternal_v0_24__pxrReserved__19Ts_UntypedEvalCache21_GetBezierPoint3ValueIdEET_PKNS_12Ts_TypedDataIS2_EES6_.exit
 
@@ -51444,7 +51444,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__19Ts_UntypedEvalCache21_GetBezierPoint2Valu
   %73 = load i8, ptr %72, align 4
   %74 = trunc i8 %73 to i1
   %.in18.v.i = select i1 %74, i64 16, i64 24
-  %.in18.i = getelementptr inbounds i8, ptr %3, i64 %.in18.v.i
+  %.in18.i = getelementptr inbounds nuw i8, ptr %3, i64 %.in18.v.i
   %75 = load double, ptr %.in18.i, align 8
   %76 = tail call double @llvm.fmuladd.f64(double %75, double 2.000000e+00, double %71)
   %77 = fmul double %76, 0x3FD5555555555555
@@ -51455,11 +51455,11 @@ _ZN32pxrInternal_v0_24__pxrReserved__19Ts_UntypedEvalCache21_GetBezierPoint2Valu
   %80 = load i8, ptr %79, align 4
   %81 = trunc i8 %80 to i1
   %.in.v.i24 = select i1 %81, i64 16, i64 24
-  %.in.i25 = getelementptr inbounds i8, ptr %3, i64 %.in.v.i24
+  %.in.i25 = getelementptr inbounds nuw i8, ptr %3, i64 %.in.v.i24
   %82 = load double, ptr %.in.i25, align 8
   %83 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %84 = load double, ptr %83, align 8
-  %85 = getelementptr inbounds i8, ptr %3, i64 32
+  %85 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %86 = load double, ptr %85, align 8
   %87 = fneg double %84
   %88 = tail call double @llvm.fmuladd.f64(double %87, double %86, double %82)
@@ -51484,7 +51484,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__19Ts_UntypedEvalCache21_GetBezierPoint3Valu
   br label %_ZN32pxrInternal_v0_24__pxrReserved__19Ts_UntypedEvalCache21_GetBezierPoint4ValueIdEET_PKNS_12Ts_TypedDataIS2_EES6_.exit
 
 98:                                               ; preds = %92
-  %99 = getelementptr inbounds i8, ptr %3, i64 24
+  %99 = getelementptr inbounds nuw i8, ptr %3, i64 24
   br label %_ZN32pxrInternal_v0_24__pxrReserved__19Ts_UntypedEvalCache21_GetBezierPoint4ValueIdEET_PKNS_12Ts_TypedDataIS2_EES6_.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__19Ts_UntypedEvalCache21_GetBezierPoint4ValueIdEET_PKNS_12Ts_TypedDataIS2_EES6_.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__19Ts_UntypedEvalCache21_GetBezierPoint3ValueIdEET_PKNS_12Ts_TypedDataIS2_EES6_.exit, %96, %98
@@ -52322,13 +52322,13 @@ define linkonce_odr dso_local void @_ZNK32pxrInternal_v0_24__pxrReserved__12Ts_T
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__12Ts_EvalCacheIdLb1EE4EvalEd.exit
 
 12:                                               ; preds = %4
-  %13 = getelementptr inbounds i8, ptr %5, i64 56
+  %13 = getelementptr inbounds nuw i8, ptr %5, i64 56
   %14 = call noundef double @_ZN32pxrInternal_v0_24__pxrReserved__13Ts_SolveCubicEPKdd(ptr noundef nonnull %13, double noundef %3), !noalias !115
   %15 = fcmp olt double %14, 0.000000e+00
   %16 = fcmp ogt double %14, 1.000000e+00
   %..i.i.i = select i1 %16, double 1.000000e+00, double %14
   %.0.i.i.i = select i1 %15, double 0.000000e+00, double %..i.i.i
-  %17 = getelementptr inbounds i8, ptr %5, i64 120
+  %17 = getelementptr inbounds nuw i8, ptr %5, i64 120
   %18 = getelementptr inbounds i8, ptr %5, i64 144
   %19 = load double, ptr %18, align 8, !noalias !115
   %20 = getelementptr inbounds i8, ptr %5, i64 136
@@ -52367,7 +52367,7 @@ define linkonce_odr dso_local void @_ZNK32pxrInternal_v0_24__pxrReserved__12Ts_T
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__12Ts_EvalCacheIdLb1EE14EvalDerivativeEd.exit
 
 11:                                               ; preds = %4
-  %12 = getelementptr inbounds i8, ptr %5, i64 56
+  %12 = getelementptr inbounds nuw i8, ptr %5, i64 56
   %13 = call noundef double @_ZN32pxrInternal_v0_24__pxrReserved__13Ts_SolveCubicEPKdd(ptr noundef nonnull %12, double noundef %3), !noalias !118
   %14 = fcmp olt double %13, 0.000000e+00
   %15 = fcmp ogt double %13, 1.000000e+00
@@ -53066,7 +53066,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrRe
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNK32pxrInternal_v0_24__pxrReserved__12Ts_TypedDataIdE8GetValueEv(ptr dead_on_unwind noalias writable sret(%"class.pxrInternal_v0_24__pxrReserved__::VtValue") align 8 %0, ptr noundef nonnull align 8 dereferenceable(70) %1) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 24
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = or disjoint i64 3, ptrtoint (ptr @_ZZN32pxrInternal_v0_24__pxrReserved__7VtValue11GetTypeInfoIdEENS_16TfPointerAndBitsIKNS0_9_TypeInfoEEEvE2ti to i64)
   %6 = inttoptr i64 %5 to ptr
@@ -53137,7 +53137,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingIdEEbv.exit.thread3.i: ;
 29:                                               ; preds = %23, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingIdEEbv.exit.thread.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingIdEEbv.exit.thread3.i
   %.0.i = phi ptr [ %3, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingIdEEbv.exit.thread3.i ], [ %21, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingIdEEbv.exit.thread.i ], [ %28, %23 ]
   %30 = load double, ptr %.0.i, align 8
-  %31 = getelementptr inbounds i8, ptr %0, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store double %30, ptr %31, align 8
   %32 = load ptr, ptr %0, align 8
   %33 = getelementptr inbounds i8, ptr %32, i64 152
@@ -53319,7 +53319,7 @@ define linkonce_odr dso_local void @_ZNK32pxrInternal_v0_24__pxrReserved__12Ts_T
   %4 = load i8, ptr %3, align 4
   %5 = trunc i8 %4 to i1
   %.v = select i1 %5, i64 16, i64 24
-  %6 = getelementptr inbounds i8, ptr %1, i64 %.v
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 %.v
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = or disjoint i64 3, ptrtoint (ptr @_ZZN32pxrInternal_v0_24__pxrReserved__7VtValue11GetTypeInfoIdEENS_16TfPointerAndBitsIKNS0_9_TypeInfoEEEvE2ti to i64)
   %9 = inttoptr i64 %8 to ptr
@@ -53770,7 +53770,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrRe
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNK32pxrInternal_v0_24__pxrReserved__12Ts_TypedDataIdE19GetLeftTangentSlopeEv(ptr dead_on_unwind noalias writable sret(%"class.pxrInternal_v0_24__pxrReserved__::VtValue") align 8 %0, ptr noundef nonnull align 8 dereferenceable(70) %1) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 32
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = or disjoint i64 3, ptrtoint (ptr @_ZZN32pxrInternal_v0_24__pxrReserved__7VtValue11GetTypeInfoIdEENS_16TfPointerAndBitsIKNS0_9_TypeInfoEEEvE2ti to i64)
   %6 = inttoptr i64 %5 to ptr
@@ -53782,7 +53782,7 @@ define linkonce_odr dso_local void @_ZNK32pxrInternal_v0_24__pxrReserved__12Ts_T
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNK32pxrInternal_v0_24__pxrReserved__12Ts_TypedDataIdE20GetRightTangentSlopeEv(ptr dead_on_unwind noalias writable sret(%"class.pxrInternal_v0_24__pxrReserved__::VtValue") align 8 %0, ptr noundef nonnull align 8 dereferenceable(70) %1) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 40
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = or disjoint i64 3, ptrtoint (ptr @_ZZN32pxrInternal_v0_24__pxrReserved__7VtValue11GetTypeInfoIdEENS_16TfPointerAndBitsIKNS0_9_TypeInfoEEEvE2ti to i64)
   %6 = inttoptr i64 %5 to ptr
@@ -53873,7 +53873,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingIdEEbv.exit.thread3.i: ;
 _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue3GetIdEERKT_v.exit: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingIdEEbv.exit.thread3.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingIdEEbv.exit.thread.i, %26
   %.0.i = phi ptr [ %1, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingIdEEbv.exit.thread3.i ], [ %24, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingIdEEbv.exit.thread.i ], [ %31, %26 ]
   %32 = load double, ptr %.0.i, align 8
-  %33 = getelementptr inbounds i8, ptr %0, i64 32
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store double %32, ptr %33, align 8
   br label %54
 
@@ -54031,7 +54031,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingIdEEbv.exit.thread3.i: ;
 _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue3GetIdEERKT_v.exit: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingIdEEbv.exit.thread3.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingIdEEbv.exit.thread.i, %26
   %.0.i = phi ptr [ %1, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingIdEEbv.exit.thread3.i ], [ %24, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingIdEEbv.exit.thread.i ], [ %31, %26 ]
   %32 = load double, ptr %.0.i, align 8
-  %33 = getelementptr inbounds i8, ptr %0, i64 40
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store double %32, ptr %33, align 8
   br label %54
 
@@ -54284,9 +54284,9 @@ define linkonce_odr dso_local void @_ZN32pxrInternal_v0_24__pxrReserved__12Ts_Ty
   br i1 %1, label %13, label %9
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %0, i64 40
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %11 = load double, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store double %11, ptr %12, align 8
   br label %13
 
@@ -57246,7 +57246,7 @@ _ZSt18__allocate_guardedISaISt23_Sp_counted_ptr_inplaceIN32pxrInternal_v0_24__px
   %11 = load ptr, ptr %4, align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5)
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12Ts_EvalCacheINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb0EEE, i64 16), ptr %9, align 8
-  %12 = getelementptr inbounds i8, ptr %6, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %6, i64 24
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %12) #22
   %13 = icmp ne ptr %10, null
   %14 = icmp ne ptr %11, null
@@ -57300,7 +57300,7 @@ define linkonce_odr dso_local void @_ZNSt23_Sp_counted_ptr_inplaceIN32pxrInterna
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZNSt23_Sp_counted_ptr_inplaceIN32pxrInternal_v0_24__pxrReserved__12Ts_EvalCacheINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb0EEESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #22
   ret void
 }
@@ -57725,13 +57725,13 @@ define linkonce_odr dso_local void @_ZNK32pxrInternal_v0_24__pxrReserved__12Ts_T
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__12Ts_EvalCacheINS_7GfVec2dELb1EE4EvalEd.exit
 
 11:                                               ; preds = %4
-  %12 = getelementptr inbounds i8, ptr %5, i64 64
+  %12 = getelementptr inbounds nuw i8, ptr %5, i64 64
   %13 = call noundef double @_ZN32pxrInternal_v0_24__pxrReserved__13Ts_SolveCubicEPKdd(ptr noundef nonnull %12, double noundef %3), !noalias !167
   %14 = fcmp olt double %13, 0.000000e+00
   %15 = fcmp ogt double %13, 1.000000e+00
   %..i.i.i = select i1 %15, double 1.000000e+00, double %13
   %.0.i.i.i = select i1 %14, double 0.000000e+00, double %..i.i.i
-  %16 = getelementptr inbounds i8, ptr %5, i64 160
+  %16 = getelementptr inbounds nuw i8, ptr %5, i64 160
   %17 = getelementptr inbounds i8, ptr %5, i64 208
   %.sroa.0.0.copyload2.i.i.i.i.i = load double, ptr %17, align 8, !noalias !167
   %.sroa.4.0..sroa_idx.i.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 216
@@ -59459,10 +59459,10 @@ define linkonce_odr dso_local void @_ZN32pxrInternal_v0_24__pxrReserved__12Ts_Ev
 
 12:                                               ; preds = %3
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %14 = getelementptr inbounds i8, ptr %0, i64 96
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 96
   tail call void @_ZN32pxrInternal_v0_24__pxrReserved__19Ts_UntypedEvalCache20_SetupBezierGeometryINS_7GfVec2dEEEvPdPT_PKNS_12Ts_TypedDataIS4_EES9_(ptr noundef nonnull %13, ptr noundef nonnull %14, ptr noundef nonnull %1, ptr noundef nonnull %2)
   %15 = load double, ptr %13, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 64
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store double %15, ptr %16, align 8
   %17 = getelementptr inbounds i8, ptr %0, i64 40
   %18 = load double, ptr %17, align 8
@@ -59484,7 +59484,7 @@ define linkonce_odr dso_local void @_ZN32pxrInternal_v0_24__pxrReserved__12Ts_Ev
   %32 = fadd double %29, %31
   %33 = getelementptr inbounds i8, ptr %0, i64 88
   store double %32, ptr %33, align 8
-  %34 = getelementptr inbounds i8, ptr %0, i64 160
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 160
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %34, ptr noundef nonnull align 8 dereferenceable(16) %14, i64 16, i1 false)
   %.sroa.0.0.copyload2.i.i.i = load double, ptr %14, align 8
   %.sroa.4.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %0, i64 104
@@ -59580,13 +59580,13 @@ define linkonce_odr dso_local void @_ZNK32pxrInternal_v0_24__pxrReserved__12Ts_E
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__12Ts_EvalCacheINS_7GfVec2dELb1EE9TypedEvalEd.exit
 
 9:                                                ; preds = %3
-  %10 = getelementptr inbounds i8, ptr %1, i64 64
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %11 = tail call noundef double @_ZN32pxrInternal_v0_24__pxrReserved__13Ts_SolveCubicEPKdd(ptr noundef nonnull %10, double noundef %2)
   %12 = fcmp olt double %11, 0.000000e+00
   %13 = fcmp ogt double %11, 1.000000e+00
   %..i.i = select i1 %13, double 1.000000e+00, double %11
   %.0.i.i = select i1 %12, double 0.000000e+00, double %..i.i
-  %14 = getelementptr inbounds i8, ptr %1, i64 160
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 160
   %15 = getelementptr inbounds i8, ptr %1, i64 208
   %.sroa.0.0.copyload2.i.i.i.i = load double, ptr %15, align 8
   %.sroa.4.0..sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 216
@@ -60120,13 +60120,13 @@ define linkonce_odr dso_local void @_ZNK32pxrInternal_v0_24__pxrReserved__12Ts_T
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__12Ts_EvalCacheIfLb1EE4EvalEd.exit
 
 12:                                               ; preds = %4
-  %13 = getelementptr inbounds i8, ptr %5, i64 48
+  %13 = getelementptr inbounds nuw i8, ptr %5, i64 48
   %14 = call noundef double @_ZN32pxrInternal_v0_24__pxrReserved__13Ts_SolveCubicEPKdd(ptr noundef nonnull %13, double noundef %3), !noalias !182
   %15 = fcmp olt double %14, 0.000000e+00
   %16 = fcmp ogt double %14, 1.000000e+00
   %..i.i.i = select i1 %16, double 1.000000e+00, double %14
   %.0.i.i.i = select i1 %15, double 0.000000e+00, double %..i.i.i
-  %17 = getelementptr inbounds i8, ptr %5, i64 96
+  %17 = getelementptr inbounds nuw i8, ptr %5, i64 96
   %18 = getelementptr inbounds i8, ptr %5, i64 108
   %19 = load float, ptr %18, align 4, !noalias !182
   %20 = fpext float %19 to double
@@ -60170,7 +60170,7 @@ define linkonce_odr dso_local void @_ZNK32pxrInternal_v0_24__pxrReserved__12Ts_T
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__12Ts_EvalCacheIfLb1EE14EvalDerivativeEd.exit
 
 11:                                               ; preds = %4
-  %12 = getelementptr inbounds i8, ptr %5, i64 48
+  %12 = getelementptr inbounds nuw i8, ptr %5, i64 48
   %13 = call noundef double @_ZN32pxrInternal_v0_24__pxrReserved__13Ts_SolveCubicEPKdd(ptr noundef nonnull %12, double noundef %3), !noalias !185
   %14 = fcmp olt double %13, 0.000000e+00
   %15 = fcmp ogt double %13, 1.000000e+00
@@ -60875,7 +60875,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrRe
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNK32pxrInternal_v0_24__pxrReserved__12Ts_TypedDataIfE8GetValueEv(ptr dead_on_unwind noalias writable sret(%"class.pxrInternal_v0_24__pxrReserved__::VtValue") align 8 %0, ptr noundef nonnull align 8 dereferenceable(70) %1) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 20
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = or disjoint i64 3, ptrtoint (ptr @_ZZN32pxrInternal_v0_24__pxrReserved__7VtValue11GetTypeInfoIfEENS_16TfPointerAndBitsIKNS0_9_TypeInfoEEEvE2ti to i64)
   %6 = inttoptr i64 %5 to ptr
@@ -60946,7 +60946,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingIfEEbv.exit.thread3.i: ;
 29:                                               ; preds = %23, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingIfEEbv.exit.thread.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingIfEEbv.exit.thread3.i
   %.0.i = phi ptr [ %3, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingIfEEbv.exit.thread3.i ], [ %21, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingIfEEbv.exit.thread.i ], [ %28, %23 ]
   %30 = load float, ptr %.0.i, align 4
-  %31 = getelementptr inbounds i8, ptr %0, i64 20
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store float %30, ptr %31, align 4
   %32 = load ptr, ptr %0, align 8
   %33 = getelementptr inbounds i8, ptr %32, i64 152
@@ -61128,7 +61128,7 @@ define linkonce_odr dso_local void @_ZNK32pxrInternal_v0_24__pxrReserved__12Ts_T
   %4 = load i8, ptr %3, align 4
   %5 = trunc i8 %4 to i1
   %.v = select i1 %5, i64 16, i64 20
-  %6 = getelementptr inbounds i8, ptr %1, i64 %.v
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 %.v
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = or disjoint i64 3, ptrtoint (ptr @_ZZN32pxrInternal_v0_24__pxrReserved__7VtValue11GetTypeInfoIfEENS_16TfPointerAndBitsIKNS0_9_TypeInfoEEEvE2ti to i64)
   %9 = inttoptr i64 %8 to ptr
@@ -61584,7 +61584,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrRe
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNK32pxrInternal_v0_24__pxrReserved__12Ts_TypedDataIfE19GetLeftTangentSlopeEv(ptr dead_on_unwind noalias writable sret(%"class.pxrInternal_v0_24__pxrReserved__::VtValue") align 8 %0, ptr noundef nonnull align 8 dereferenceable(70) %1) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 24
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = or disjoint i64 3, ptrtoint (ptr @_ZZN32pxrInternal_v0_24__pxrReserved__7VtValue11GetTypeInfoIfEENS_16TfPointerAndBitsIKNS0_9_TypeInfoEEEvE2ti to i64)
   %6 = inttoptr i64 %5 to ptr
@@ -61596,7 +61596,7 @@ define linkonce_odr dso_local void @_ZNK32pxrInternal_v0_24__pxrReserved__12Ts_T
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNK32pxrInternal_v0_24__pxrReserved__12Ts_TypedDataIfE20GetRightTangentSlopeEv(ptr dead_on_unwind noalias writable sret(%"class.pxrInternal_v0_24__pxrReserved__::VtValue") align 8 %0, ptr noundef nonnull align 8 dereferenceable(70) %1) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 28
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 28
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = or disjoint i64 3, ptrtoint (ptr @_ZZN32pxrInternal_v0_24__pxrReserved__7VtValue11GetTypeInfoIfEENS_16TfPointerAndBitsIKNS0_9_TypeInfoEEEvE2ti to i64)
   %6 = inttoptr i64 %5 to ptr
@@ -61687,7 +61687,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingIfEEbv.exit.thread3.i: ;
 _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue3GetIfEERKT_v.exit: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingIfEEbv.exit.thread3.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingIfEEbv.exit.thread.i, %26
   %.0.i = phi ptr [ %1, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingIfEEbv.exit.thread3.i ], [ %24, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingIfEEbv.exit.thread.i ], [ %31, %26 ]
   %32 = load float, ptr %.0.i, align 4
-  %33 = getelementptr inbounds i8, ptr %0, i64 24
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store float %32, ptr %33, align 8
   br label %54
 
@@ -61845,7 +61845,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingIfEEbv.exit.thread3.i: ;
 _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue3GetIfEERKT_v.exit: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingIfEEbv.exit.thread3.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingIfEEbv.exit.thread.i, %26
   %.0.i = phi ptr [ %1, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingIfEEbv.exit.thread3.i ], [ %24, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingIfEEbv.exit.thread.i ], [ %31, %26 ]
   %32 = load float, ptr %.0.i, align 4
-  %33 = getelementptr inbounds i8, ptr %0, i64 28
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store float %32, ptr %33, align 4
   br label %54
 
@@ -62098,9 +62098,9 @@ define linkonce_odr dso_local void @_ZN32pxrInternal_v0_24__pxrReserved__12Ts_Ty
   br i1 %1, label %13, label %9
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %0, i64 28
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %11 = load float, ptr %10, align 4
-  %12 = getelementptr inbounds i8, ptr %0, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store float %11, ptr %12, align 8
   br label %13
 
@@ -62187,10 +62187,10 @@ define linkonce_odr dso_local void @_ZN32pxrInternal_v0_24__pxrReserved__12Ts_Ev
 
 12:                                               ; preds = %3
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %14 = getelementptr inbounds i8, ptr %0, i64 80
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 80
   tail call void @_ZN32pxrInternal_v0_24__pxrReserved__19Ts_UntypedEvalCache20_SetupBezierGeometryIfEEvPdPT_PKNS_12Ts_TypedDataIS3_EES8_(ptr noundef nonnull %13, ptr noundef nonnull %14, ptr noundef nonnull %1, ptr noundef nonnull %2)
   %15 = load double, ptr %13, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 48
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store double %15, ptr %16, align 8
   %17 = getelementptr inbounds i8, ptr %0, i64 24
   %18 = load double, ptr %17, align 8
@@ -62213,7 +62213,7 @@ define linkonce_odr dso_local void @_ZN32pxrInternal_v0_24__pxrReserved__12Ts_Ev
   %33 = getelementptr inbounds i8, ptr %0, i64 72
   store double %32, ptr %33, align 8
   %34 = load float, ptr %14, align 8
-  %35 = getelementptr inbounds i8, ptr %0, i64 96
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store float %34, ptr %35, align 8
   %36 = fpext float %34 to double
   %37 = getelementptr inbounds i8, ptr %0, i64 84
@@ -62263,7 +62263,7 @@ define linkonce_odr dso_local void @_ZN32pxrInternal_v0_24__pxrReserved__12Ts_Ev
 71:                                               ; preds = %64, %12
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 0, ptr %72, align 8
-  %73 = getelementptr inbounds i8, ptr %1, i64 20
+  %73 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %74 = load float, ptr %73, align 4
   %75 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store float %74, ptr %75, align 4
@@ -62286,13 +62286,13 @@ define linkonce_odr dso_local void @_ZNK32pxrInternal_v0_24__pxrReserved__12Ts_E
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__12Ts_EvalCacheIfLb1EE9TypedEvalEd.exit
 
 10:                                               ; preds = %3
-  %11 = getelementptr inbounds i8, ptr %1, i64 48
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %12 = tail call noundef double @_ZN32pxrInternal_v0_24__pxrReserved__13Ts_SolveCubicEPKdd(ptr noundef nonnull %11, double noundef %2)
   %13 = fcmp olt double %12, 0.000000e+00
   %14 = fcmp ogt double %12, 1.000000e+00
   %..i.i = select i1 %14, double 1.000000e+00, double %12
   %.0.i.i = select i1 %13, double 0.000000e+00, double %..i.i
-  %15 = getelementptr inbounds i8, ptr %1, i64 96
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %16 = getelementptr inbounds i8, ptr %1, i64 108
   %17 = load float, ptr %16, align 4
   %18 = fpext float %17 to double
@@ -62332,7 +62332,7 @@ define linkonce_odr dso_local void @_ZNK32pxrInternal_v0_24__pxrReserved__12Ts_E
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__12Ts_EvalCacheIfLb1EE19TypedEvalDerivativeEd.exit
 
 9:                                                ; preds = %3
-  %10 = getelementptr inbounds i8, ptr %1, i64 48
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %11 = tail call noundef double @_ZN32pxrInternal_v0_24__pxrReserved__13Ts_SolveCubicEPKdd(ptr noundef nonnull %10, double noundef %2)
   %12 = fcmp olt double %11, 0.000000e+00
   %13 = fcmp ogt double %11, 1.000000e+00
@@ -62438,7 +62438,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__19Ts_UntypedEvalCache20_GetBezierPoint3Time
   %38 = load double, ptr %37, align 8
   %39 = getelementptr inbounds i8, ptr %0, i64 24
   store double %38, ptr %39, align 8
-  %40 = getelementptr inbounds i8, ptr %2, i64 20
+  %40 = getelementptr inbounds nuw i8, ptr %2, i64 20
   %41 = load float, ptr %40, align 4
   store float %41, ptr %1, align 4
   %42 = load i32, ptr %7, align 8
@@ -62453,7 +62453,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__19Ts_UntypedEvalCache20_GetBezierPoint3Time
   %46 = load i8, ptr %45, align 4
   %47 = trunc i8 %46 to i1
   %.in.v.i = select i1 %47, i64 16, i64 20
-  %.in.i = getelementptr inbounds i8, ptr %3, i64 %.in.v.i
+  %.in.i = getelementptr inbounds nuw i8, ptr %3, i64 %.in.v.i
   %48 = load float, ptr %.in.i, align 4
   %49 = fpext float %48 to double
   %50 = tail call double @llvm.fmuladd.f64(double %44, double 2.000000e+00, double %49)
@@ -62465,7 +62465,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__19Ts_UntypedEvalCache20_GetBezierPoint3Time
   %54 = fpext float %41 to double
   %55 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %56 = load double, ptr %55, align 8
-  %57 = getelementptr inbounds i8, ptr %2, i64 28
+  %57 = getelementptr inbounds nuw i8, ptr %2, i64 28
   %58 = load float, ptr %57, align 4
   %59 = fpext float %58 to double
   %60 = tail call double @llvm.fmuladd.f64(double %56, double %59, double %54)
@@ -62501,7 +62501,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__19Ts_UntypedEvalCache21_GetBezierPoint2Valu
   %73 = load i8, ptr %72, align 4
   %74 = trunc i8 %73 to i1
   %.in19.v.i = select i1 %74, i64 16, i64 20
-  %.in19.i = getelementptr inbounds i8, ptr %3, i64 %.in19.v.i
+  %.in19.i = getelementptr inbounds nuw i8, ptr %3, i64 %.in19.v.i
   %75 = load float, ptr %.in19.i, align 4
   br label %_ZN32pxrInternal_v0_24__pxrReserved__19Ts_UntypedEvalCache21_GetBezierPoint3ValueIfEET_PKNS_12Ts_TypedDataIS2_EES6_.exit
 
@@ -62512,7 +62512,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__19Ts_UntypedEvalCache21_GetBezierPoint2Valu
   %80 = load i8, ptr %79, align 4
   %81 = trunc i8 %80 to i1
   %.in18.v.i = select i1 %81, i64 16, i64 20
-  %.in18.i = getelementptr inbounds i8, ptr %3, i64 %.in18.v.i
+  %.in18.i = getelementptr inbounds nuw i8, ptr %3, i64 %.in18.v.i
   %82 = load float, ptr %.in18.i, align 4
   %83 = fpext float %82 to double
   %84 = tail call double @llvm.fmuladd.f64(double %83, double 2.000000e+00, double %78)
@@ -62525,12 +62525,12 @@ _ZN32pxrInternal_v0_24__pxrReserved__19Ts_UntypedEvalCache21_GetBezierPoint2Valu
   %89 = load i8, ptr %88, align 4
   %90 = trunc i8 %89 to i1
   %.in.v.i24 = select i1 %90, i64 16, i64 20
-  %.in.i25 = getelementptr inbounds i8, ptr %3, i64 %.in.v.i24
+  %.in.i25 = getelementptr inbounds nuw i8, ptr %3, i64 %.in.v.i24
   %91 = load float, ptr %.in.i25, align 4
   %92 = fpext float %91 to double
   %93 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %94 = load double, ptr %93, align 8
-  %95 = getelementptr inbounds i8, ptr %3, i64 24
+  %95 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %96 = load float, ptr %95, align 4
   %97 = fpext float %96 to double
   %98 = fneg double %94
@@ -62557,7 +62557,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__19Ts_UntypedEvalCache21_GetBezierPoint3Valu
   br label %_ZN32pxrInternal_v0_24__pxrReserved__19Ts_UntypedEvalCache21_GetBezierPoint4ValueIfEET_PKNS_12Ts_TypedDataIS2_EES6_.exit
 
 110:                                              ; preds = %104
-  %111 = getelementptr inbounds i8, ptr %3, i64 20
+  %111 = getelementptr inbounds nuw i8, ptr %3, i64 20
   br label %_ZN32pxrInternal_v0_24__pxrReserved__19Ts_UntypedEvalCache21_GetBezierPoint4ValueIfEET_PKNS_12Ts_TypedDataIS2_EES6_.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__19Ts_UntypedEvalCache21_GetBezierPoint4ValueIfEET_PKNS_12Ts_TypedDataIS2_EES6_.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__19Ts_UntypedEvalCache21_GetBezierPoint3ValueIfEET_PKNS_12Ts_TypedDataIS2_EES6_.exit, %108, %110
@@ -62718,9 +62718,9 @@ define linkonce_odr dso_local void @_ZNK32pxrInternal_v0_24__pxrReserved__12Ts_T
           to label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12Ts_EvalCacheIiLb0EEEED2Ev.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN32pxrInternal_v0_24__pxrReserved__12Ts_EvalCacheIiLb0EEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit11.i.i.i.i, !noalias !206
 
 14:                                               ; preds = %3
-  %15 = getelementptr inbounds i8, ptr %1, i64 20
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %16 = load i32, ptr %15, align 4, !noalias !206
-  %17 = getelementptr inbounds i8, ptr %5, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store i32 %16, ptr %17, align 8, !noalias !206
   br label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12Ts_EvalCacheIiLb0EEEED2Ev.exit
 
@@ -62759,7 +62759,7 @@ define linkonce_odr dso_local void @_ZNK32pxrInternal_v0_24__pxrReserved__12Ts_T
   br label %_ZN32pxrInternal_v0_24__pxrReserved__12Ts_EvalCacheIiLb0EEC2EPKNS_12Ts_TypedDataIiEES5_.exit
 
 11:                                               ; preds = %4
-  %12 = getelementptr inbounds i8, ptr %1, i64 20
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %13 = load i32, ptr %12, align 4
   br label %_ZN32pxrInternal_v0_24__pxrReserved__12Ts_EvalCacheIiLb0EEC2EPKNS_12Ts_TypedDataIiEES5_.exit
 
@@ -63221,7 +63221,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__16ArchGetDemangledB5cxx11ERKSt9type_info.ex
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNK32pxrInternal_v0_24__pxrReserved__12Ts_TypedDataIiE8GetValueEv(ptr dead_on_unwind noalias writable sret(%"class.pxrInternal_v0_24__pxrReserved__::VtValue") align 8 %0, ptr noundef nonnull align 8 dereferenceable(70) %1) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 20
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = or disjoint i64 3, ptrtoint (ptr @_ZZN32pxrInternal_v0_24__pxrReserved__7VtValue11GetTypeInfoIiEENS_16TfPointerAndBitsIKNS0_9_TypeInfoEEEvE2ti to i64)
   %6 = inttoptr i64 %5 to ptr
@@ -63292,7 +63292,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingIiEEbv.exit.thread3.i: ;
 29:                                               ; preds = %23, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingIiEEbv.exit.thread.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingIiEEbv.exit.thread3.i
   %.0.i = phi ptr [ %3, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingIiEEbv.exit.thread3.i ], [ %21, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingIiEEbv.exit.thread.i ], [ %28, %23 ]
   %30 = load i32, ptr %.0.i, align 4
-  %31 = getelementptr inbounds i8, ptr %0, i64 20
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 %30, ptr %31, align 4
   %32 = load ptr, ptr %0, align 8
   %33 = getelementptr inbounds i8, ptr %32, i64 152
@@ -63467,7 +63467,7 @@ define linkonce_odr dso_local void @_ZNK32pxrInternal_v0_24__pxrReserved__12Ts_T
   %4 = load i8, ptr %3, align 4
   %5 = trunc i8 %4 to i1
   %.v = select i1 %5, i64 16, i64 20
-  %6 = getelementptr inbounds i8, ptr %1, i64 %.v
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 %.v
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = or disjoint i64 3, ptrtoint (ptr @_ZZN32pxrInternal_v0_24__pxrReserved__7VtValue11GetTypeInfoIiEENS_16TfPointerAndBitsIKNS0_9_TypeInfoEEEvE2ti to i64)
   %9 = inttoptr i64 %8 to ptr

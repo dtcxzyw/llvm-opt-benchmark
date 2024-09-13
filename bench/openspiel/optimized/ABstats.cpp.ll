@@ -179,9 +179,9 @@ define void @_ZN7ABstats5ResetEv(ptr nocapture noundef nonnull writeonly align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(204) %1, i8 0, i64 204, i1 false)
   %invariant.gep = getelementptr inbounds i8, ptr %0, i64 680
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(196) %invariant.gep, i8 0, i64 196, i1 false)
-  %2 = getelementptr inbounds i8, ptr %0, i64 876
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 876
   store i32 0, ptr %2, align 4
-  %3 = getelementptr inbounds i8, ptr %0, i64 880
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 880
   store i32 0, ptr %3, align 8
   %gep.c = getelementptr inbounds i8, ptr %0, i64 892
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(196) %gep.c, i8 0, i64 196, i1 false)
@@ -255,13 +255,13 @@ define void @_ZN7ABstatsD2Ev(ptr noundef nonnull align 8 dereferenceable(2800) %
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: write) uwtable
 define void @_ZN7ABstats8ResetCumEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(2800) %0) local_unnamed_addr #4 align 2 {
 .preheader.critedge:
-  %1 = getelementptr inbounds i8, ptr %0, i64 672
+  %1 = getelementptr inbounds nuw i8, ptr %0, i64 672
   store i32 0, ptr %1, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 676
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 676
   store i32 0, ptr %2, align 4
-  %3 = getelementptr inbounds i8, ptr %0, i64 884
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 884
   store i32 0, ptr %3, align 4
-  %4 = getelementptr inbounds i8, ptr %0, i64 888
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 888
   store i32 0, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 1096
   store i32 0, ptr %5, align 8
@@ -354,11 +354,11 @@ define void @_ZN7ABstats8IncrNodeEi(ptr nocapture noundef nonnull align 8 derefe
   %6 = load i32, ptr %5, align 4
   %7 = add nsw i32 %6, 1
   store i32 %7, ptr %5, align 4
-  %8 = getelementptr inbounds i8, ptr %0, i64 452
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 452
   %9 = load i32, ptr %8, align 4
   %10 = add nsw i32 %9, 1
   store i32 %10, ptr %8, align 4
-  %11 = getelementptr inbounds i8, ptr %0, i64 456
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 456
   %12 = load i32, ptr %11, align 8
   %13 = add nsw i32 %12, %1
   store i32 %13, ptr %11, align 8
@@ -367,11 +367,11 @@ define void @_ZN7ABstats8IncrNodeEi(ptr nocapture noundef nonnull align 8 derefe
   %16 = load i32, ptr %15, align 4
   %17 = add nsw i32 %16, 1
   store i32 %17, ptr %15, align 4
-  %18 = getelementptr inbounds i8, ptr %0, i64 672
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 672
   %19 = load i32, ptr %18, align 8
   %20 = add nsw i32 %19, 1
   store i32 %20, ptr %18, align 8
-  %21 = getelementptr inbounds i8, ptr %0, i64 676
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 676
   %22 = load i32, ptr %21, align 4
   %23 = add nsw i32 %22, %1
   store i32 %23, ptr %21, align 4
@@ -380,7 +380,7 @@ define void @_ZN7ABstats8IncrNodeEi(ptr nocapture noundef nonnull align 8 derefe
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef i32 @_ZNK7ABstats8GetNodesEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(2800) %0) local_unnamed_addr #7 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 452
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 452
   %3 = load i32, ptr %2, align 4
   ret i32 %3
 }
@@ -908,7 +908,7 @@ define void @_ZNK7ABstats15PrintStatsDepthERSt14basic_ofstreamIcSt11char_traitsI
   %21 = load i32, ptr %15, align 4
   %22 = sitofp i32 %21 to double
   %23 = fmul double %22, 1.000000e+02
-  %24 = getelementptr inbounds i8, ptr %0, i64 672
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 672
   %25 = load i32, ptr %24, align 8
   %26 = sitofp i32 %25 to double
   %27 = fdiv double %23, %26
@@ -958,11 +958,11 @@ define void @_ZNK7ABstats17PrintAverageDepthERSt14basic_ofstreamIcSt11char_trait
   %4 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str.22)
   %5 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_St5_Setw(ptr noundef nonnull align 8 dereferenceable(8) %4, i32 7)
   %6 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSt8ios_baseS0_E(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull @_ZSt5rightRSt8ios_base)
-  %7 = getelementptr inbounds i8, ptr %0, i64 452
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 452
   %8 = load i32, ptr %7, align 4
   %9 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %6, i32 noundef %8)
   %10 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_St5_Setw(ptr noundef nonnull align 8 dereferenceable(8) %9, i32 7)
-  %11 = getelementptr inbounds i8, ptr %0, i64 672
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 672
   %12 = load i32, ptr %11, align 8
   %13 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %10, i32 noundef %12)
   %14 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull @.str.14)
@@ -983,7 +983,7 @@ define void @_ZNK7ABstats17PrintAverageDepthERSt14basic_ofstreamIcSt11char_trait
 23:                                               ; preds = %16
   %24 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_St13_Setprecision(ptr noundef nonnull align 8 dereferenceable(8) %22, i32 1)
   %25 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSt8ios_baseS0_E(ptr noundef nonnull align 8 dereferenceable(8) %24, ptr noundef nonnull @_ZSt5fixedRSt8ios_base)
-  %26 = getelementptr inbounds i8, ptr %0, i64 456
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 456
   %27 = load i32, ptr %26, align 8
   %28 = sitofp i32 %27 to double
   %29 = load i32, ptr %7, align 4
@@ -1000,7 +1000,7 @@ define void @_ZNK7ABstats17PrintAverageDepthERSt14basic_ofstreamIcSt11char_trait
   %36 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_St5_Setw(ptr noundef nonnull align 8 dereferenceable(8) %1, i32 7)
   %37 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_St13_Setprecision(ptr noundef nonnull align 8 dereferenceable(8) %36, i32 1)
   %38 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSt8ios_baseS0_E(ptr noundef nonnull align 8 dereferenceable(8) %37, ptr noundef nonnull @_ZSt5fixedRSt8ios_base)
-  %39 = getelementptr inbounds i8, ptr %0, i64 676
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 676
   %40 = load i32, ptr %39, align 4
   %41 = sitofp i32 %40 to double
   %42 = load i32, ptr %11, align 8
@@ -1226,7 +1226,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit: ; pre
   %16 = load i32, ptr %15, align 8
   %17 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %14, i32 noundef %16)
   %18 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_St5_Setw(ptr noundef nonnull align 8 dereferenceable(8) %17, i32 7)
-  %19 = getelementptr inbounds i8, ptr %0, i64 876
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 876
   %20 = load i32, ptr %19, align 4
   %21 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %18, i32 noundef %20)
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 1104
@@ -1274,14 +1274,14 @@ define void @_ZN7ABstats10PrintStatsERSt14basic_ofstreamIcSt11char_traitsIcEE(pt
   %9 = getelementptr inbounds i8, ptr %0, i64 892
   %10 = getelementptr inbounds i8, ptr %0, i64 1088
   %11 = load i32, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 876
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 876
   %13 = load i32, ptr %12, align 4
   %14 = add nsw i32 %13, %11
   %15 = getelementptr inbounds nuw i8, ptr %3, i64 196
   store i32 %14, ptr %15, align 4
   %16 = getelementptr inbounds i8, ptr %0, i64 1096
   %17 = load i32, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 884
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 884
   %19 = load i32, ptr %18, align 4
   %20 = add nsw i32 %19, %17
   %21 = getelementptr inbounds nuw i8, ptr %3, i64 204

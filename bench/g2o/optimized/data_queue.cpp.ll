@@ -74,7 +74,7 @@ _ZNKSt3mapIdPN3g2o9RobotDataESt4lessIdESaISt4pairIKdS2_EEE11upper_boundERS6_.exi
 
 30:                                               ; preds = %_ZNKSt3mapIdPN3g2o9RobotDataESt4lessIdESaISt4pairIKdS2_EEE11upper_boundERS6_.exit, %8, %2
   %.08.lcssa.i.i.i.sink = phi ptr [ %4, %2 ], [ %10, %8 ], [ %..08.lcssa.i.i.i, %_ZNKSt3mapIdPN3g2o9RobotDataESt4lessIdESaISt4pairIKdS2_EEE11upper_boundERS6_.exit ]
-  %31 = getelementptr inbounds i8, ptr %.08.lcssa.i.i.i.sink, i64 40
+  %31 = getelementptr inbounds nuw i8, ptr %.08.lcssa.i.i.i.sink, i64 40
   %.0 = load ptr, ptr %31, align 8
   ret ptr %.0
 }
@@ -120,7 +120,7 @@ define noundef ptr @_ZNK3g2o9DataQueue6beforeEd(ptr noundef nonnull readonly ali
 _ZNKSt3mapIdPN3g2o9RobotDataESt4lessIdESaISt4pairIKdS2_EEE11upper_boundERS6_.exit: ; preds = %.lr.ph.i.i.i, %12
   %.08.lcssa.i.i.i = phi ptr [ %15, %12 ], [ %.19.i.i.i, %.lr.ph.i.i.i ]
   %19 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPKSt18_Rb_tree_node_base(ptr noundef %.08.lcssa.i.i.i) #10
-  %20 = getelementptr inbounds i8, ptr %19, i64 40
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 40
   %21 = load ptr, ptr %20, align 8
   br label %.critedge
 
@@ -166,7 +166,7 @@ _ZNKSt3mapIdPN3g2o9RobotDataESt4lessIdESaISt4pairIKdS2_EEE11upper_boundERS6_.exi
   br i1 %17, label %.critedge, label %18
 
 18:                                               ; preds = %_ZNKSt3mapIdPN3g2o9RobotDataESt4lessIdESaISt4pairIKdS2_EEE11upper_boundERS6_.exit
-  %19 = getelementptr inbounds i8, ptr %.19.i.i.i, i64 40
+  %19 = getelementptr inbounds nuw i8, ptr %.19.i.i.i, i64 40
   %20 = load ptr, ptr %19, align 8
   br label %.critedge
 
@@ -223,7 +223,7 @@ _ZNSt3mapIdPN3g2o9RobotDataESt4lessIdESaISt4pairIKdS2_EEE11lower_boundERS6_.exit
   %14 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #11
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 32
   store double %.pre, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %14, i64 40
+  %16 = getelementptr inbounds nuw i8, ptr %14, i64 40
   store ptr null, ptr %16, align 8
   %17 = invoke { ptr, ptr } @_ZNSt8_Rb_treeIdSt4pairIKdPN3g2o9RobotDataEESt10_Select1stIS5_ESt4lessIdESaIS5_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS5_ERS1_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %.08.lcssa.i.i.i12, ptr noundef nonnull align 8 dereferenceable(8) %15)
           to label %18 unwind label %_ZNSt8_Rb_treeIdSt4pairIKdPN3g2o9RobotDataEESt10_Select1stIS5_ESt4lessIdESaIS5_EE10_Auto_nodeD2Ev.exit.i
@@ -268,7 +268,7 @@ _ZNSt8_Rb_treeIdSt4pairIKdPN3g2o9RobotDataEESt10_Select1stIS5_ESt4lessIdESaIS5_E
 
 _ZNSt8_Rb_treeIdSt4pairIKdPN3g2o9RobotDataEESt10_Select1stIS5_ESt4lessIdESaIS5_EE22_M_emplace_hint_uniqueIJRKSt21piecewise_construct_tSt5tupleIJOdEESG_IJEEEEESt17_Rb_tree_iteratorIS5_ESt23_Rb_tree_const_iteratorIS5_EDpOT_.exit: ; preds = %33, %.thread.i, %10
   %.sroa.07.0 = phi ptr [ %.19.i.i.i, %10 ], [ %14, %.thread.i ], [ %19, %33 ]
-  %34 = getelementptr inbounds i8, ptr %.sroa.07.0, i64 40
+  %34 = getelementptr inbounds nuw i8, ptr %.sroa.07.0, i64 40
   ret ptr %34
 }
 

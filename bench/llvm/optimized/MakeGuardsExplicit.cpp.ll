@@ -46,7 +46,7 @@ define dso_local void @_ZN4llvm22MakeGuardsExplicitPass3runERNS_8FunctionERNS_15
   %18 = getelementptr inbounds i8, ptr %5, i64 16
   call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull %18, i64 noundef 8) #5
   %19 = getelementptr inbounds nuw i8, ptr %2, i64 72
-  %20 = getelementptr inbounds i8, ptr %2, i64 80
+  %20 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %21 = load ptr, ptr %20, align 8, !noalias !4
   %.not.i.i.i.i = icmp eq ptr %21, %19
   br i1 %.not.i.i.i.i, label %_ZN4llvm12instructionsERNS_8FunctionE.exit.i, label %22
@@ -55,7 +55,7 @@ define dso_local void @_ZN4llvm22MakeGuardsExplicitPass3runERNS_8FunctionERNS_15
   %23 = icmp eq ptr %21, null
   %24 = getelementptr inbounds i8, ptr %21, i64 -24
   %25 = select i1 %23, ptr null, ptr %24
-  %26 = getelementptr inbounds i8, ptr %25, i64 56
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 56
   %27 = load ptr, ptr %26, align 8, !noalias !4
   %28 = getelementptr inbounds nuw i8, ptr %25, i64 48
   %29 = icmp eq ptr %27, %28
@@ -78,7 +78,7 @@ define dso_local void @_ZN4llvm22MakeGuardsExplicitPass3runERNS_8FunctionERNS_15
   %37 = icmp eq ptr %36, null
   %38 = getelementptr inbounds i8, ptr %36, i64 -24
   %39 = select i1 %37, ptr null, ptr %38
-  %40 = getelementptr inbounds i8, ptr %39, i64 56
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 56
   %41 = load ptr, ptr %40, align 8, !noalias !4
   %42 = getelementptr inbounds nuw i8, ptr %39, i64 48
   %43 = icmp eq ptr %41, %42
@@ -148,7 +148,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_8CallInstELb1EE9push_backES2_.exit.i: ; pr
   %75 = icmp eq ptr %74, null
   %76 = getelementptr inbounds i8, ptr %74, i64 -24
   %77 = select i1 %75, ptr null, ptr %76
-  %78 = getelementptr inbounds i8, ptr %77, i64 56
+  %78 = getelementptr inbounds nuw i8, ptr %77, i64 56
   %79 = load ptr, ptr %78, align 8
   %80 = getelementptr inbounds nuw i8, ptr %77, i64 48
   %81 = icmp eq ptr %79, %80
@@ -237,11 +237,11 @@ _ZL15explicifyGuardsRN4llvm8FunctionE.exit:       ; preds = %_ZL15explicifyGuard
   %118 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 0, ptr %118, align 4, !alias.scope !11
   %119 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %120 = getelementptr inbounds i8, ptr %0, i64 80
+  %120 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store ptr %120, ptr %119, align 8, !alias.scope !11
-  %121 = getelementptr inbounds i8, ptr %0, i64 56
+  %121 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store ptr %120, ptr %121, align 8, !alias.scope !11
-  %122 = getelementptr inbounds i8, ptr %0, i64 64
+  %122 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i32 2, ptr %122, align 8, !alias.scope !11
   br label %134
 
@@ -258,15 +258,15 @@ _ZL15explicifyGuardsRN4llvm8FunctionE.exit:       ; preds = %_ZL15explicifyGuard
   %127 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 0, ptr %127, align 8, !alias.scope !14
   %128 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %129 = getelementptr inbounds i8, ptr %0, i64 80
+  %129 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store ptr %129, ptr %128, align 8, !alias.scope !14
-  %130 = getelementptr inbounds i8, ptr %0, i64 56
+  %130 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store ptr %129, ptr %130, align 8, !alias.scope !14
-  %131 = getelementptr inbounds i8, ptr %0, i64 64
+  %131 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i32 2, ptr %131, align 8, !alias.scope !14
-  %132 = getelementptr inbounds i8, ptr %0, i64 68
+  %132 = getelementptr inbounds nuw i8, ptr %0, i64 68
   store i32 0, ptr %132, align 4, !alias.scope !14
-  %133 = getelementptr inbounds i8, ptr %0, i64 72
+  %133 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store i32 0, ptr %133, align 8, !alias.scope !14
   store i32 1, ptr %126, align 4, !alias.scope !14, !noalias !17
   store ptr @_ZN4llvm17PreservedAnalyses14AllAnalysesKeyE, ptr %123, align 8, !alias.scope !14, !noalias !17

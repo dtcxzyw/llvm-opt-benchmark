@@ -294,13 +294,13 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr nocapture noundef readnon
   %57 = getelementptr inbounds nuw i8, ptr %33, i64 16
   %58 = getelementptr inbounds nuw i8, ptr %33, i64 24
   %59 = getelementptr inbounds nuw i8, ptr %40, i64 4
-  %60 = getelementptr inbounds i8, ptr %33, i64 20
+  %60 = getelementptr inbounds nuw i8, ptr %33, i64 20
   %61 = getelementptr inbounds nuw i8, ptr %33, i64 8
   %62 = getelementptr inbounds nuw i8, ptr %49, i64 8
   %63 = getelementptr inbounds nuw i8, ptr %44, i64 16
   %64 = getelementptr inbounds nuw i8, ptr %44, i64 24
   %65 = getelementptr inbounds nuw i8, ptr %51, i64 4
-  %66 = getelementptr inbounds i8, ptr %44, i64 20
+  %66 = getelementptr inbounds nuw i8, ptr %44, i64 20
   %67 = getelementptr inbounds nuw i8, ptr %44, i64 8
   %68 = getelementptr inbounds nuw i8, ptr %28, i64 24
   %69 = getelementptr inbounds nuw i8, ptr %28, i64 16
@@ -758,7 +758,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathC2ERKS0_.exit.i.i: ; preds = %202
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathC2ERKS0_.exit5.i.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathC2ERKS0_.exit5.i.i: ; preds = %225, %223
-  %236 = getelementptr inbounds i8, ptr %218, i64 20
+  %236 = getelementptr inbounds nuw i8, ptr %218, i64 20
   %237 = load i32, ptr %236, align 4, !noalias !5
   store i32 %237, ptr %59, align 4, !alias.scope !5
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7GetPathEv.exit.i
@@ -1203,7 +1203,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathC2ERKS0_.exit.i119.i: ; preds = %37
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathC2ERKS0_.exit5.i122.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathC2ERKS0_.exit5.i122.i: ; preds = %402, %400
-  %413 = getelementptr inbounds i8, ptr %395, i64 20
+  %413 = getelementptr inbounds nuw i8, ptr %395, i64 20
   %414 = load i32, ptr %413, align 4, !noalias !8
   store i32 %414, ptr %65, align 4, !alias.scope !8
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7GetPathEv.exit125.i
@@ -2338,7 +2338,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_128TestGetTargetsAndConnectionsEv()
   %176 = getelementptr inbounds nuw i8, ptr %79, i64 16
   %177 = getelementptr inbounds nuw i8, ptr %79, i64 24
   %178 = getelementptr inbounds nuw i8, ptr %118, i64 4
-  %179 = getelementptr inbounds i8, ptr %79, i64 20
+  %179 = getelementptr inbounds nuw i8, ptr %79, i64 20
   %180 = getelementptr inbounds nuw i8, ptr %79, i64 8
   %181 = getelementptr inbounds nuw i8, ptr %116, i64 24
   %182 = getelementptr inbounds nuw i8, ptr %116, i64 16
@@ -4482,7 +4482,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathC2ERKS0_.exit.i: ; preds = %923
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathC2ERKS0_.exit5.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathC2ERKS0_.exit5.i: ; preds = %946, %944
-  %957 = getelementptr inbounds i8, ptr %939, i64 20
+  %957 = getelementptr inbounds nuw i8, ptr %939, i64 20
   %958 = load i32, ptr %957, align 4, !noalias !13
   store i32 %958, ptr %178, align 4, !alias.scope !13
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7GetPathEv.exit

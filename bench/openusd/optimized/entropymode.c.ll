@@ -626,7 +626,7 @@ define hidden void @av1_init_mode_probs(ptr noundef writeonly %0) local_unnamed_
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 9372
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(40) %30, ptr noundef nonnull align 16 dereferenceable(40) @default_interintra_mode_cdf, i64 40, i1 false)
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 12490
-  %32 = getelementptr inbounds i8, ptr %0, i64 12508
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 12508
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(18) %32, ptr noundef nonnull align 16 dereferenceable(18) @default_segment_pred_cdf, i64 18, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(18) %31, ptr noundef nonnull align 16 dereferenceable(18) @default_seg_tree_cdf, i64 18, i1 false)
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 12580
@@ -657,7 +657,7 @@ define hidden void @av1_init_mode_probs(ptr noundef writeonly %0) local_unnamed_
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(18) %45, ptr noundef nonnull align 16 dereferenceable(18) @default_skip_txfm_cdfs, i64 18, i1 false)
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 11888
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %46, ptr noundef nonnull align 16 dereferenceable(24) @default_intra_inter_cdf, i64 24, i1 false)
-  %47 = getelementptr inbounds i8, ptr %0, i64 12526
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 12526
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(54) %47, ptr noundef nonnull align 16 dereferenceable(54) @default_spatial_pred_seg_tree_cdf, i64 54, i1 false)
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 15032
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(96) %48, ptr noundef nonnull align 16 dereferenceable(96) @default_tx_size_cdf, i64 96, i1 false)
@@ -711,7 +711,7 @@ define hidden void @av1_setup_frame_contexts(ptr nocapture noundef readonly %0) 
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 27120
   %5 = load ptr, ptr %4, align 16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(21264) %3, ptr noundef nonnull align 4 dereferenceable(21264) %5, i64 21264, i1 false)
-  %6 = getelementptr inbounds i8, ptr %0, i64 27716
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 27716
   %7 = load i32, ptr %6, align 4
   %.not = icmp eq i32 %7, 0
   br i1 %.not, label %.loopexit, label %.preheader18
@@ -811,11 +811,11 @@ define hidden void @av1_setup_past_independence(ptr noundef %0) local_unnamed_ad
   store i8 0, ptr %25, align 1
   %26 = getelementptr inbounds i8, ptr %24, i64 1549
   store i8 0, ptr %26, align 1
-  %27 = getelementptr inbounds i8, ptr %0, i64 23588
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 23588
   store i8 1, ptr %27, align 4
-  %28 = getelementptr inbounds i8, ptr %0, i64 23589
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 23589
   store i8 1, ptr %28, align 1
-  %29 = getelementptr inbounds i8, ptr %0, i64 23590
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 23590
   store i8 1, ptr %29, align 1
   %30 = getelementptr inbounds i8, ptr %0, i64 23591
   store i8 0, ptr %30, align 1
@@ -831,7 +831,7 @@ define hidden void @av1_setup_past_independence(ptr noundef %0) local_unnamed_ad
   store i8 -1, ptr %35, align 1
   %36 = getelementptr inbounds i8, ptr %0, i64 23597
   store i8 -1, ptr %36, align 1
-  %37 = getelementptr inbounds i8, ptr %0, i64 23598
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 23598
   store i8 0, ptr %37, align 1
   %38 = getelementptr inbounds i8, ptr %0, i64 23599
   store i8 0, ptr %38, align 1
@@ -897,7 +897,7 @@ define hidden void @av1_setup_past_independence(ptr noundef %0) local_unnamed_ad
   %69 = getelementptr inbounds nuw i8, ptr %40, i64 9372
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(40) %69, ptr noundef nonnull align 16 dereferenceable(40) @default_interintra_mode_cdf, i64 40, i1 false)
   %70 = getelementptr inbounds nuw i8, ptr %40, i64 12490
-  %71 = getelementptr inbounds i8, ptr %40, i64 12508
+  %71 = getelementptr inbounds nuw i8, ptr %40, i64 12508
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(18) %71, ptr noundef nonnull align 16 dereferenceable(18) @default_segment_pred_cdf, i64 18, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(18) %70, ptr noundef nonnull align 16 dereferenceable(18) @default_seg_tree_cdf, i64 18, i1 false)
   %72 = getelementptr inbounds nuw i8, ptr %40, i64 12580
@@ -928,7 +928,7 @@ define hidden void @av1_setup_past_independence(ptr noundef %0) local_unnamed_ad
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(18) %84, ptr noundef nonnull align 16 dereferenceable(18) @default_skip_txfm_cdfs, i64 18, i1 false)
   %85 = getelementptr inbounds nuw i8, ptr %40, i64 11888
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %85, ptr noundef nonnull align 16 dereferenceable(24) @default_intra_inter_cdf, i64 24, i1 false)
-  %86 = getelementptr inbounds i8, ptr %40, i64 12526
+  %86 = getelementptr inbounds nuw i8, ptr %40, i64 12526
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(54) %86, ptr noundef nonnull align 16 dereferenceable(54) @default_spatial_pred_seg_tree_cdf, i64 54, i1 false)
   %87 = getelementptr inbounds nuw i8, ptr %40, i64 15032
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(96) %87, ptr noundef nonnull align 16 dereferenceable(96) @default_tx_size_cdf, i64 96, i1 false)
@@ -952,7 +952,7 @@ define hidden void @av1_setup_past_independence(ptr noundef %0) local_unnamed_ad
   %97 = load ptr, ptr %96, align 8
   %98 = load ptr, ptr %39, align 16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(21264) %97, ptr noundef nonnull align 4 dereferenceable(21264) %98, i64 21264, i1 false)
-  %99 = getelementptr inbounds i8, ptr %0, i64 27716
+  %99 = getelementptr inbounds nuw i8, ptr %0, i64 27716
   %100 = load i32, ptr %99, align 4
   %.not.i = icmp eq i32 %100, 0
   br i1 %.not.i, label %av1_setup_frame_contexts.exit, label %.preheader18.i

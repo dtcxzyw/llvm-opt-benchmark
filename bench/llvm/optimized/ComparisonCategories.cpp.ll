@@ -296,7 +296,7 @@ define dso_local void @_ZNK5clang22ComparisonCategoryInfo9ValueInfo11getIntValue
   %5 = tail call noundef ptr @_ZNK5clang7VarDecl13evaluateValueEv(ptr noundef nonnull align 8 dereferenceable(100) %4) #13
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %5, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %9 = load i32, ptr %8, align 8
   %10 = zext i32 %9 to i64
   %11 = getelementptr inbounds %"class.clang::APValue", ptr %7, i64 %10, i32 2
@@ -640,7 +640,7 @@ define dso_local noundef ptr @_ZNK5clang20ComparisonCategories10lookupInfoENS_22
   %3 = alloca i8, align 1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = load i32, ptr %6, align 8
   %8 = icmp eq i32 %7, 0
   br i1 %8, label %.loopexit.i, label %9
@@ -840,12 +840,12 @@ _ZL19lookupCXXRecordDeclRKN5clang10ASTContextEPKNS_13NamespaceDeclENS_22Comparis
   store i8 %108, ptr %107, align 1, !noalias !9
   %109 = getelementptr inbounds nuw i8, ptr %107, i64 8
   store ptr %80, ptr %109, align 8, !noalias !9
-  %110 = getelementptr inbounds i8, ptr %107, i64 16
+  %110 = getelementptr inbounds nuw i8, ptr %107, i64 16
   %111 = getelementptr inbounds i8, ptr %107, i64 32
   call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %110, ptr noundef nonnull %111, i64 noundef 5) #13, !noalias !9
-  %112 = getelementptr inbounds i8, ptr %107, i64 112
+  %112 = getelementptr inbounds nuw i8, ptr %107, i64 112
   store ptr %.0.i.i.i10, ptr %112, align 8, !noalias !9
-  %113 = getelementptr inbounds i8, ptr %107, i64 120
+  %113 = getelementptr inbounds nuw i8, ptr %107, i64 120
   store i8 %1, ptr %113, align 8, !noalias !9
   br label %_ZN4llvm12DenseMapBaseINS_8DenseMapIcN5clang22ComparisonCategoryInfoENS_12DenseMapInfoIcvEENS_6detail12DenseMapPairIcS3_EEEEcS3_S5_S8_E11try_emplaceIJRKNS2_10ASTContextERPKNS2_13CXXRecordDeclERNS2_22ComparisonCategoryTypeEEEESt4pairINS_16DenseMapIteratorIcS3_S5_S8_Lb0EEEbEOcDpOT_.exit
 
@@ -875,11 +875,11 @@ define dso_local noundef ptr @_ZNK5clang20ComparisonCategories17lookupInfoForTyp
   %11 = load ptr, ptr %10, align 8
   %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(144) %7) #13
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %15 = load i32, ptr %14, align 8
   %16 = icmp eq i32 %15, 0
   %17 = load ptr, ptr %13, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %19 = load i32, ptr %18, align 8
   %20 = zext i32 %19 to i64
   %21 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair", ptr %17, i64 %20
@@ -907,7 +907,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIcN5clang22ComparisonCategoryInfoENS_12DenseM
 
 .lr.ph:                                           ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIcN5clang22ComparisonCategoryInfoENS_12DenseMapInfoIcvEENS_6detail12DenseMapPairIcS3_EEEEcS3_S5_S8_E5beginEv.exit, %_ZN4llvm16DenseMapIteratorIcN5clang22ComparisonCategoryInfoENS_12DenseMapInfoIcvEENS_6detail12DenseMapPairIcS2_EELb0EEppEv.exit
   %.sroa.022.039 = phi ptr [ %.sroa.022.2, %_ZN4llvm16DenseMapIteratorIcN5clang22ComparisonCategoryInfoENS_12DenseMapInfoIcvEENS_6detail12DenseMapPairIcS2_EELb0EEppEv.exit ], [ %.pn14.i, %_ZN4llvm12DenseMapBaseINS_8DenseMapIcN5clang22ComparisonCategoryInfoENS_12DenseMapInfoIcvEENS_6detail12DenseMapPairIcS3_EEEEcS3_S5_S8_E5beginEv.exit ]
-  %25 = getelementptr inbounds i8, ptr %.sroa.022.039, i64 112
+  %25 = getelementptr inbounds nuw i8, ptr %.sroa.022.039, i64 112
   %26 = load ptr, ptr %25, align 8
   %27 = load ptr, ptr %26, align 8
   %28 = getelementptr inbounds i8, ptr %27, i64 32
@@ -1041,12 +1041,12 @@ _ZN4llvmeqENS_9StringRefES0_.exit:                ; preds = %_ZNK5clang9NamedDec
   store i8 %85, ptr %84, align 1, !noalias !14
   %86 = getelementptr inbounds nuw i8, ptr %84, i64 8
   store ptr %58, ptr %86, align 8, !noalias !14
-  %87 = getelementptr inbounds i8, ptr %84, i64 16
+  %87 = getelementptr inbounds nuw i8, ptr %84, i64 16
   %88 = getelementptr inbounds i8, ptr %84, i64 32
   call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %87, ptr noundef nonnull %88, i64 noundef 5) #13, !noalias !14
-  %89 = getelementptr inbounds i8, ptr %84, i64 112
+  %89 = getelementptr inbounds nuw i8, ptr %84, i64 112
   store ptr %7, ptr %89, align 8, !noalias !14
-  %90 = getelementptr inbounds i8, ptr %84, i64 120
+  %90 = getelementptr inbounds nuw i8, ptr %84, i64 120
   store i8 %48, ptr %90, align 8, !noalias !14
   br label %_ZN4llvm12DenseMapBaseINS_8DenseMapIcN5clang22ComparisonCategoryInfoENS_12DenseMapInfoIcvEENS_6detail12DenseMapPairIcS3_EEEEcS3_S5_S8_E11try_emplaceIJRKNS2_10ASTContextERPKNS2_13CXXRecordDeclERNS2_22ComparisonCategoryTypeEEEESt4pairINS_16DenseMapIteratorIcS3_S5_S8_Lb0EEEbEOcDpOT_.exit
 
@@ -1445,7 +1445,7 @@ define linkonce_odr hidden noundef ptr @_ZNK5clang12RedeclarableINS_19Translatio
 
 15:                                               ; preds = %10
   %16 = getelementptr inbounds nuw i8, ptr %12, i64 2144
-  %17 = getelementptr inbounds i8, ptr %12, i64 2224
+  %17 = getelementptr inbounds nuw i8, ptr %12, i64 2224
   %18 = load i64, ptr %17, align 8
   %19 = add i64 %18, 24
   store i64 %19, ptr %17, align 8
@@ -1454,7 +1454,7 @@ define linkonce_odr hidden noundef ptr @_ZNK5clang12RedeclarableINS_19Translatio
   %22 = add i64 %21, 7
   %23 = and i64 %22, -8
   %24 = add i64 %23, 24
-  %25 = getelementptr inbounds i8, ptr %12, i64 2152
+  %25 = getelementptr inbounds nuw i8, ptr %12, i64 2152
   %26 = load ptr, ptr %25, align 8
   %27 = ptrtoint ptr %26 to i64
   %.not.i.i.i.i.i.i = icmp ugt i64 %24, %27
@@ -1891,8 +1891,8 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIcN5clang22ComparisonCategoryInfoENS_12DenseM
   %39 = getelementptr inbounds nuw i8, ptr %.019, i64 8
   %40 = load ptr, ptr %39, align 8
   store ptr %40, ptr %38, align 8
-  %41 = getelementptr inbounds i8, ptr %.sink.i.i, i64 16
-  %42 = getelementptr inbounds i8, ptr %.019, i64 16
+  %41 = getelementptr inbounds nuw i8, ptr %.sink.i.i, i64 16
+  %42 = getelementptr inbounds nuw i8, ptr %.019, i64 16
   %43 = getelementptr inbounds i8, ptr %.sink.i.i, i64 32
   tail call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %41, ptr noundef nonnull %43, i64 noundef 5) #13
   %44 = tail call noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseIjE5emptyEv(ptr noundef nonnull align 8 dereferenceable(16) %42) #13
@@ -1903,8 +1903,8 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIcN5clang22ComparisonCategoryInfoENS_12DenseM
   br label %_ZN5clang22ComparisonCategoryInfoC2EOS0_.exit
 
 _ZN5clang22ComparisonCategoryInfoC2EOS0_.exit:    ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIcN5clang22ComparisonCategoryInfoENS_12DenseMapInfoIcvEENS_6detail12DenseMapPairIcS3_EEEEcS3_S5_S8_E15LookupBucketForIcEEbRKT_RPS8_.exit, %45
-  %47 = getelementptr inbounds i8, ptr %.sink.i.i, i64 112
-  %48 = getelementptr inbounds i8, ptr %.019, i64 112
+  %47 = getelementptr inbounds nuw i8, ptr %.sink.i.i, i64 112
+  %48 = getelementptr inbounds nuw i8, ptr %.019, i64 112
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(9) %47, ptr noundef nonnull align 8 dereferenceable(9) %48, i64 9, i1 false)
   %49 = load i32, ptr %4, align 8
   %50 = add i32 %49, 1

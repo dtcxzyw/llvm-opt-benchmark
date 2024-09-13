@@ -620,7 +620,7 @@ _ZN4llvm5ErrorD2Ev.exit38:                        ; preds = %117
   store ptr @.str, ptr %18, align 8, !alias.scope !27
   %127 = getelementptr inbounds nuw i8, ptr %18, i64 16
   store ptr %123, ptr %127, align 8, !alias.scope !27
-  %128 = getelementptr inbounds i8, ptr %18, i64 24
+  %128 = getelementptr inbounds nuw i8, ptr %18, i64 24
   store i64 %124, ptr %128, align 8, !alias.scope !27
   store ptr %18, ptr %17, align 8, !alias.scope !30
   %129 = getelementptr inbounds nuw i8, ptr %17, i64 16
@@ -681,7 +681,7 @@ _ZN4llvm5ErrorD2Ev.exit194:                       ; preds = %_ZStneISt4pairIjjES
   store ptr @.str, ptr %31, align 8, !alias.scope !38
   %156 = getelementptr inbounds nuw i8, ptr %31, i64 16
   store ptr %152, ptr %156, align 8, !alias.scope !38
-  %157 = getelementptr inbounds i8, ptr %31, i64 24
+  %157 = getelementptr inbounds nuw i8, ptr %31, i64 24
   store i64 %153, ptr %157, align 8, !alias.scope !38
   store ptr %31, ptr %30, align 8, !alias.scope !41
   %158 = getelementptr inbounds nuw i8, ptr %30, i64 16
@@ -845,7 +845,7 @@ _ZN4llvm5ErrorD2Ev.exit355:                       ; preds = %_ZStneISt4pairIjjES
   store ptr @.str, ptr %45, align 8, !alias.scope !100
   %224 = getelementptr inbounds nuw i8, ptr %45, i64 16
   store ptr %220, ptr %224, align 8, !alias.scope !100
-  %225 = getelementptr inbounds i8, ptr %45, i64 24
+  %225 = getelementptr inbounds nuw i8, ptr %45, i64 24
   store i64 %221, ptr %225, align 8, !alias.scope !100
   store ptr %45, ptr %44, align 8, !alias.scope !103
   %226 = getelementptr inbounds nuw i8, ptr %44, i64 16
@@ -975,7 +975,7 @@ _ZN4llvm5ErrorD2Ev.exit376:                       ; preds = %199
   store ptr @.str, ptr %49, align 8, !alias.scope !156
   %275 = getelementptr inbounds nuw i8, ptr %49, i64 16
   store ptr %271, ptr %275, align 8, !alias.scope !156
-  %276 = getelementptr inbounds i8, ptr %49, i64 24
+  %276 = getelementptr inbounds nuw i8, ptr %49, i64 24
   store i64 %272, ptr %276, align 8, !alias.scope !156
   store ptr %49, ptr %48, align 8, !alias.scope !159
   %277 = getelementptr inbounds nuw i8, ptr %48, i64 16
@@ -1236,7 +1236,7 @@ _ZNSt10unique_ptrIN4llvm6object12IRObjectFileESt14default_deleteIS2_EED2Ev.exit.
   store ptr @.str.7, ptr %55, align 8, !alias.scope !173
   %368 = getelementptr inbounds nuw i8, ptr %55, i64 16
   store ptr %364, ptr %368, align 8, !alias.scope !173
-  %369 = getelementptr inbounds i8, ptr %55, i64 24
+  %369 = getelementptr inbounds nuw i8, ptr %55, i64 24
   store i64 %365, ptr %369, align 8, !alias.scope !173
   store ptr %55, ptr %54, align 8, !alias.scope !176
   %370 = getelementptr inbounds nuw i8, ptr %54, i64 16
@@ -3117,7 +3117,7 @@ _ZN4llvm12ErrorSuccessD2Ev.exit:                  ; preds = %3
 13:                                               ; preds = %8
   %14 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %7, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %17 = load ptr, ptr %16, align 8
   %.not3334 = icmp eq ptr %15, %17
   br i1 %.not3334, label %_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i17, label %.lr.ph
@@ -3274,14 +3274,14 @@ _ZNK4llvm5Error3isAINS_9ErrorListEEEbv.exit9:     ; preds = %17
   store ptr null, ptr %2, align 8, !noalias !355
   %25 = getelementptr inbounds nuw i8, ptr %.pre52, i64 8
   %26 = load ptr, ptr %25, align 8
-  %27 = getelementptr inbounds i8, ptr %.pre52, i64 16
+  %27 = getelementptr inbounds nuw i8, ptr %.pre52, i64 16
   %28 = load ptr, ptr %27, align 8
   %.not4849 = icmp eq ptr %26, %28
   br i1 %.not4849, label %_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i, label %.lr.ph
 
 .lr.ph:                                           ; preds = %24
-  %29 = getelementptr inbounds i8, ptr %18, i64 16
-  %30 = getelementptr inbounds i8, ptr %18, i64 24
+  %29 = getelementptr inbounds nuw i8, ptr %18, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %18, i64 24
   %31 = getelementptr inbounds nuw i8, ptr %18, i64 8
   br label %32
 
@@ -3326,9 +3326,9 @@ _ZNK4llvm5Error3isAINS_9ErrorListEEEbv.exit9.thread: ; preds = %17, %_ZNK4llvm5E
   tail call void @llvm.experimental.noalias.scope.decl(metadata !358)
   store ptr %44, ptr %4, align 8, !alias.scope !358
   store ptr null, ptr %2, align 8, !noalias !358
-  %45 = getelementptr inbounds i8, ptr %18, i64 16
+  %45 = getelementptr inbounds nuw i8, ptr %18, i64 16
   %46 = load ptr, ptr %45, align 8
-  %47 = getelementptr inbounds i8, ptr %18, i64 24
+  %47 = getelementptr inbounds nuw i8, ptr %18, i64 24
   %48 = load ptr, ptr %47, align 8
   %.not.i.i11 = icmp eq ptr %46, %48
   br i1 %.not.i.i11, label %_ZNSt6vectorISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_EE9push_backEOS5_.exit12, label %_ZNSt6vectorISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_EE9push_backEOS5_.exit12.thread
@@ -3385,9 +3385,9 @@ _ZNK4llvm5Error3isAINS_9ErrorListEEEbv.exit17:    ; preds = %57
   %69 = ptrtoint ptr %66 to i64
   %70 = ptrtoint ptr %68 to i64
   %71 = sub i64 %69, %70
-  %72 = getelementptr inbounds i8, ptr %64, i64 16
+  %72 = getelementptr inbounds nuw i8, ptr %64, i64 16
   %73 = load ptr, ptr %72, align 8
-  %74 = getelementptr inbounds i8, ptr %64, i64 24
+  %74 = getelementptr inbounds nuw i8, ptr %64, i64 24
   %75 = load ptr, ptr %74, align 8
   %.not.i.i18 = icmp eq ptr %73, %75
   %76 = ptrtoint ptr %67 to i64
@@ -3491,10 +3491,10 @@ _ZNK4llvm5Error3isAINS_9ErrorListEEEbv.exit17.thread: ; preds = %57, %_ZNK4llvm5
   store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN4llvm9ErrorListE, i64 16), ptr %110, align 8
   %113 = getelementptr inbounds nuw i8, ptr %110, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %113, i8 0, i64 24, i1 false)
-  %114 = getelementptr inbounds i8, ptr %110, i64 16
+  %114 = getelementptr inbounds nuw i8, ptr %110, i64 16
   call void @_ZNSt6vectorISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %113, ptr null, ptr noundef nonnull align 8 dereferenceable(8) %6)
   %.pre.i = load ptr, ptr %114, align 8
-  %115 = getelementptr inbounds i8, ptr %110, i64 24
+  %115 = getelementptr inbounds nuw i8, ptr %110, i64 24
   %.pre3.i = load ptr, ptr %115, align 8
   %.not.i.i1.i = icmp eq ptr %.pre.i, %.pre3.i
   br i1 %.not.i.i1.i, label %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit24, label %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit24.thread

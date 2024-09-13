@@ -72,15 +72,15 @@ define dso_local void @_ZN4llvm3pdb13NativeTypeUDTC2ERNS0_13NativeSessionEjNS_8c
   store i32 %3, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %7, ptr noundef nonnull align 8 dereferenceable(64) %4, i64 64, i1 false)
-  %8 = getelementptr inbounds i8, ptr %0, i64 96
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store i8 1, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 160
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 160
   store i8 0, ptr %9, align 8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 168
   store ptr null, ptr %10, align 8
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 176
   store ptr %7, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 192
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 192
   store i8 0, ptr %12, align 8
   ret void
 }
@@ -96,17 +96,17 @@ define dso_local void @_ZN4llvm3pdb13NativeTypeUDTC2ERNS0_13NativeSessionEjNS_8c
   store ptr getelementptr inbounds inrange(-16, 1448) (i8, ptr @_ZTVN4llvm3pdb13NativeTypeUDTE, i64 16), ptr %0, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 %3, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 96
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store i8 0, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 104
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %8, ptr noundef nonnull align 8 dereferenceable(56) %4, i64 56, i1 false)
-  %9 = getelementptr inbounds i8, ptr %0, i64 160
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 160
   store i8 1, ptr %9, align 8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 168
   store ptr null, ptr %10, align 8
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 176
   store ptr %8, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 192
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 192
   store i8 0, ptr %12, align 8
   ret void
 }
@@ -118,9 +118,9 @@ define dso_local void @_ZN4llvm3pdb13NativeTypeUDTC2ERNS0_13NativeSessionEjRS1_N
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   call void @llvm.assume(i1 true) [ "align"(ptr %6, i64 1) ]
   store i32 0, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 96
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store i8 0, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 160
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 160
   store i8 0, ptr %8, align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 168
   store ptr %3, ptr %9, align 8
@@ -128,7 +128,7 @@ define dso_local void @_ZN4llvm3pdb13NativeTypeUDTC2ERNS0_13NativeSessionEjRS1_N
   store ptr null, ptr %10, align 8
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 184
   store i64 %4, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 192
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 192
   store i8 1, ptr %12, align 8
   ret void
 }
@@ -162,7 +162,7 @@ define dso_local void @_ZNK4llvm3pdb13NativeTypeUDT4dumpERNS_11raw_ostreamEiNS0_
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load ptr, ptr %10, align 8
   call void @_ZN4llvm3pdb17dumpSymbolIdFieldERNS_11raw_ostreamENS_9StringRefEjiRKNS0_11IPDBSessionENS0_16PdbSymbolIdFieldES7_S7_(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr nonnull @.str.1, i64 15, i32 noundef 0, i32 noundef %2, ptr noundef nonnull align 8 dereferenceable(8) %11, i32 noundef 2, i32 noundef %3, i32 noundef %4) #9
-  %12 = getelementptr inbounds i8, ptr %0, i64 192
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %13 = load i8, ptr %12, align 8
   %14 = trunc i8 %13 to i1
   br i1 %14, label %15, label %21
@@ -760,7 +760,7 @@ define dso_local noundef i32 @_ZNK4llvm3pdb13NativeTypeUDT22getVirtualTableShape
   br label %19
 
 9:                                                ; preds = %1
-  %10 = getelementptr inbounds i8, ptr %0, i64 96
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %11 = load i8, ptr %10, align 8
   %12 = trunc i8 %11 to i1
   br i1 %12, label %13, label %19
@@ -769,7 +769,7 @@ define dso_local noundef i32 @_ZNK4llvm3pdb13NativeTypeUDT22getVirtualTableShape
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %15 = load ptr, ptr %14, align 8
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 24
-  %17 = getelementptr inbounds i8, ptr %0, i64 84
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 84
   %.sroa.0.0.copyload = load i32, ptr %17, align 4
   %18 = tail call noundef i32 @_ZNK4llvm3pdb11SymbolCache21findSymbolByTypeIndexENS_8codeview9TypeIndexE(ptr noundef nonnull align 8 dereferenceable(280) %16, i32 %.sroa.0.0.copyload) #9
   br label %19
@@ -796,18 +796,18 @@ define dso_local noundef i64 @_ZNK4llvm3pdb13NativeTypeUDT9getLengthEv(ptr nocap
   br label %19
 
 9:                                                ; preds = %1
-  %10 = getelementptr inbounds i8, ptr %0, i64 96
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %11 = load i8, ptr %10, align 8
   %12 = trunc i8 %11 to i1
   br i1 %12, label %13, label %16
 
 13:                                               ; preds = %9
-  %14 = getelementptr inbounds i8, ptr %0, i64 88
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %15 = load i64, ptr %14, align 8
   br label %19
 
 16:                                               ; preds = %9
-  %17 = getelementptr inbounds i8, ptr %0, i64 152
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %18 = load i64, ptr %17, align 8
   br label %19
 
@@ -888,10 +888,10 @@ define dso_local noundef zeroext i1 @_ZNK4llvm3pdb13NativeTypeUDT14hasConstructo
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local noundef zeroext i1 @_ZNK4llvm3pdb13NativeTypeUDT11isConstTypeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(194) %0) unnamed_addr #6 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 192
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %3 = load i8, ptr %2, align 8
   %4 = trunc i8 %3 to i1
-  %5 = getelementptr inbounds i8, ptr %0, i64 190
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 190
   %6 = load i16, ptr %5, align 2
   %7 = and i16 %6, 1
   %8 = icmp ne i16 %7, 0
@@ -1140,10 +1140,10 @@ define dso_local noundef zeroext i1 @_ZNK4llvm3pdb13NativeTypeUDT10isValueUdtEv(
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local noundef zeroext i1 @_ZNK4llvm3pdb13NativeTypeUDT15isUnalignedTypeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(194) %0) unnamed_addr #6 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 192
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %3 = load i8, ptr %2, align 8
   %4 = trunc i8 %3 to i1
-  %5 = getelementptr inbounds i8, ptr %0, i64 190
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 190
   %6 = load i16, ptr %5, align 2
   %7 = and i16 %6, 4
   %8 = icmp ne i16 %7, 0
@@ -1153,10 +1153,10 @@ define dso_local noundef zeroext i1 @_ZNK4llvm3pdb13NativeTypeUDT15isUnalignedTy
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local noundef zeroext i1 @_ZNK4llvm3pdb13NativeTypeUDT14isVolatileTypeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(194) %0) unnamed_addr #6 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 192
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %3 = load i8, ptr %2, align 8
   %4 = trunc i8 %3 to i1
-  %5 = getelementptr inbounds i8, ptr %0, i64 190
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 190
   %6 = load i16, ptr %5, align 2
   %7 = and i16 %6, 2
   %8 = icmp ne i16 %7, 0

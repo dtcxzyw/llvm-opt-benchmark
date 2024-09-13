@@ -192,7 +192,7 @@ _PaPulseAudio_Read.exit:                          ; preds = %3, %_PaPulseAudio_W
   %20 = call i32 @pa_stream_drop(ptr noundef %19) #5
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
-  %21 = getelementptr inbounds i8, ptr %2, i64 392
+  %21 = getelementptr inbounds nuw i8, ptr %2, i64 392
   %22 = load ptr, ptr %21, align 8
   %.not = icmp eq ptr %22, null
   br i1 %.not, label %24, label %23
@@ -222,7 +222,7 @@ define internal fastcc void @_PaPulseAudio_ProcessAudio(ptr noundef %0, i64 noun
   %12 = alloca ptr, align 8
   %13 = alloca i64, align 8
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %15 = getelementptr inbounds i8, ptr %0, i64 112
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %16 = load i64, ptr %15, align 8
   store i32 0, ptr %11, align 4
   store ptr null, ptr %12, align 8
@@ -251,7 +251,7 @@ define internal fastcc void @_PaPulseAudio_ProcessAudio(ptr noundef %0, i64 noun
   %27 = load i32, ptr %26, align 8
   %28 = sext i32 %27 to i64
   %29 = mul i64 %.087, %28
-  %30 = getelementptr inbounds i8, ptr %0, i64 392
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 392
   %31 = load ptr, ptr %30, align 8
   %.not104 = icmp eq ptr %31, null
   br label %32
@@ -269,7 +269,7 @@ define internal fastcc void @_PaPulseAudio_ProcessAudio(ptr noundef %0, i64 noun
   %37 = load i32, ptr %36, align 4
   %38 = sext i32 %37 to i64
   %39 = mul i64 %.087, %38
-  %40 = getelementptr inbounds i8, ptr %0, i64 392
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 392
   %41 = load ptr, ptr %40, align 8
   %.not106 = icmp eq ptr %41, null
   br label %42
@@ -280,13 +280,13 @@ define internal fastcc void @_PaPulseAudio_ProcessAudio(ptr noundef %0, i64 noun
   br i1 %.not107, label %52, label %43
 
 43:                                               ; preds = %42
-  %44 = getelementptr inbounds i8, ptr %0, i64 448
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 448
   %45 = load i8, ptr %44, align 8
   %46 = icmp eq i8 %45, 2
   br i1 %46, label %47, label %52
 
 47:                                               ; preds = %43
-  %48 = getelementptr inbounds i8, ptr %0, i64 460
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 460
   %49 = load i8, ptr %48, align 4
   %50 = icmp eq i8 %49, 1
   %51 = zext i1 %50 to i64
@@ -319,7 +319,7 @@ define internal fastcc void @_PaPulseAudio_ProcessAudio(ptr noundef %0, i64 noun
   %64 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %65 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %67 = getelementptr inbounds i8, ptr %0, i64 460
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 460
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 528
   br label %69
 
@@ -563,7 +563,7 @@ declare void @pa_threaded_mainloop_signal(ptr noundef, i32 noundef) local_unname
 
 ; Function Attrs: nounwind uwtable
 define void @PaPulseAudio_StreamPlaybackCb(ptr nocapture readnone %0, i64 noundef %1, ptr noundef %2) #0 {
-  %4 = getelementptr inbounds i8, ptr %2, i64 392
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 392
   %5 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %7, label %6
@@ -976,8 +976,8 @@ define range(i32 -10000, 1) i32 @PaPulseAudio_StartStreamCb(ptr noundef %0) loca
 PaPulseAudio_Lock.exit:                           ; preds = %1, %17
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 480
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 500
-  %20 = getelementptr inbounds i8, ptr %0, i64 484
-  %21 = getelementptr inbounds i8, ptr %0, i64 516
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 484
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 516
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 524
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %18, i8 -1, i64 40, i1 false)
   store i32 0, ptr %22, align 4
@@ -1002,7 +1002,7 @@ PaPulseAudio_UnLock.exit:                         ; preds = %PaPulseAudio_Lock.e
   %31 = tail call i64 @pa_usec_to_bytes(i64 noundef %29, ptr noundef nonnull %30) #6
   %32 = trunc i64 %31 to i32
   store i32 %32, ptr %21, align 4
-  %33 = getelementptr inbounds i8, ptr %5, i64 28
+  %33 = getelementptr inbounds nuw i8, ptr %5, i64 28
   %34 = load i32, ptr %33, align 4
   %35 = call i32 @PaUtil_DeviceIndexToHostApiDeviceIndex(ptr noundef nonnull %2, i32 noundef %34, ptr noundef nonnull %5) #5
   %36 = icmp eq i32 %35, 0
@@ -1120,7 +1120,7 @@ PaPulseAudio_UnLock.exit115:                      ; preds = %PaPulseAudio_Lock.e
   br label %119
 
 87:                                               ; preds = %70, %63
-  %88 = getelementptr inbounds i8, ptr %5, i64 32
+  %88 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %89 = load i32, ptr %88, align 8
   %90 = call i32 @PaUtil_DeviceIndexToHostApiDeviceIndex(ptr noundef nonnull %3, i32 noundef %89, ptr noundef nonnull %5) #5
   %91 = icmp eq i32 %90, 0

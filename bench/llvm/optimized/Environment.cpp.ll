@@ -192,7 +192,7 @@ define dso_local { ptr, i8 } @_ZNK5clang4ento11Environment10lookupExprERKNS0_16E
   %9 = getelementptr inbounds nuw i8, ptr %.01113.i.i, i64 48
   %10 = load ptr, ptr %9, align 8
   %11 = icmp eq ptr %5, %10
-  %12 = getelementptr inbounds i8, ptr %.01113.i.i, i64 56
+  %12 = getelementptr inbounds nuw i8, ptr %.01113.i.i, i64 56
   %13 = load ptr, ptr %12, align 8
   %14 = icmp eq ptr %7, %13
   %15 = select i1 %11, i1 %14, i1 false
@@ -211,7 +211,7 @@ _ZN4llvm16ImutKeyValueInfoIN5clang4ento16EnvironmentEntryENS2_4SValEE6isLessERKS
   br i1 %.not.i.i, label %.loopexit, label %8, !llvm.loop !4
 
 21:                                               ; preds = %8
-  %22 = getelementptr inbounds i8, ptr %.01113.i.i, i64 64
+  %22 = getelementptr inbounds nuw i8, ptr %.01113.i.i, i64 64
   %.sroa.3.0..0.1.sroa_idx = getelementptr inbounds i8, ptr %.01113.i.i, i64 72
   %.sroa.3.0.copyload = load i8, ptr %.sroa.3.0..0.1.sroa_idx, align 8
   %.sroa.0.0.in.sroa.speculate.load. = load ptr, ptr %22, align 8
@@ -291,7 +291,7 @@ define dso_local { ptr, i8 } @_ZNK5clang4ento11Environment7getSValERKNS0_16Envir
   %24 = getelementptr inbounds nuw i8, ptr %.01113.i.i.i, i64 48
   %25 = load ptr, ptr %24, align 8
   %26 = icmp eq ptr %20, %25
-  %27 = getelementptr inbounds i8, ptr %.01113.i.i.i, i64 56
+  %27 = getelementptr inbounds nuw i8, ptr %.01113.i.i.i, i64 56
   %28 = load ptr, ptr %27, align 8
   %29 = icmp eq ptr %22, %28
   %30 = select i1 %26, i1 %29, i1 false
@@ -310,7 +310,7 @@ _ZN4llvm16ImutKeyValueInfoIN5clang4ento16EnvironmentEntryENS2_4SValEE6isLessERKS
   br i1 %.not.i.i.i, label %_ZNK5clang4ento11Environment10lookupExprERKNS0_16EnvironmentEntryE.exit, label %23, !llvm.loop !4
 
 36:                                               ; preds = %23
-  %37 = getelementptr inbounds i8, ptr %.01113.i.i.i, i64 64
+  %37 = getelementptr inbounds nuw i8, ptr %.01113.i.i.i, i64 64
   %.sroa.3.0..0.1.sroa_idx.i = getelementptr inbounds i8, ptr %.01113.i.i.i, i64 72
   %.sroa.3.0.copyload.i = load i8, ptr %.sroa.3.0..0.1.sroa_idx.i, align 8
   %.sroa.0.0.in.sroa.speculate.load..i = load ptr, ptr %37, align 8
@@ -450,7 +450,7 @@ define linkonce_odr hidden void @_ZN4llvm12ImmutableMapIN5clang4ento16Environmen
   %6 = tail call noundef ptr @_ZN4llvm14ImutAVLFactoryINS_16ImutKeyValueInfoIN5clang4ento16EnvironmentEntryENS3_4SValEEEE15remove_internalERKS4_PNS_11ImutAVLTreeIS6_EE(ptr noundef nonnull align 8 dereferenceable(80) %1, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef %5)
   tail call void @_ZN4llvm14ImutAVLFactoryINS_16ImutKeyValueInfoIN5clang4ento16EnvironmentEntryENS3_4SValEEEE13markImmutableEPNS_11ImutAVLTreeIS6_EE(ptr noundef nonnull align 8 dereferenceable(80) %1, ptr noundef %6)
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %8 = getelementptr inbounds i8, ptr %1, i64 40
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %9 = load ptr, ptr %8, align 8
   %10 = load ptr, ptr %7, align 8
   %11 = ptrtoint ptr %9 to i64
@@ -543,7 +543,7 @@ define linkonce_odr hidden void @_ZN4llvm12ImmutableMapIN5clang4ento16Environmen
   %9 = call noundef ptr @_ZN4llvm14ImutAVLFactoryINS_16ImutKeyValueInfoIN5clang4ento16EnvironmentEntryENS3_4SValEEEE12add_internalERKSt4pairIS4_S5_EPNS_11ImutAVLTreeIS6_EE(ptr noundef nonnull align 8 dereferenceable(80) %1, ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef %7)
   call void @_ZN4llvm14ImutAVLFactoryINS_16ImutKeyValueInfoIN5clang4ento16EnvironmentEntryENS3_4SValEEEE13markImmutableEPNS_11ImutAVLTreeIS6_EE(ptr noundef nonnull align 8 dereferenceable(80) %1, ptr noundef %9)
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %11 = getelementptr inbounds i8, ptr %1, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %12 = load ptr, ptr %11, align 8
   %13 = load ptr, ptr %10, align 8
   %14 = ptrtoint ptr %12 to i64
@@ -661,7 +661,7 @@ _ZN4llvm15ImmutableMapRefIN5clang4ento16EnvironmentEntryENS2_4SValENS_16ImutKeyV
   %.sroa.3.0..sroa_idx27 = getelementptr inbounds i8, ptr %6, i64 24
   %.sroa.429.0..sroa_idx30 = getelementptr inbounds i8, ptr %6, i64 25
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %20 = getelementptr inbounds i8, ptr %1, i64 40
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 40
   br label %21
 
 21:                                               ; preds = %_ZN4llvm21iterator_adaptor_baseINS_20ImutAVLValueIteratorINS_12ImmutableMapIN5clang4ento16EnvironmentEntryENS4_4SValENS_16ImutKeyValueInfoIS5_S6_EEEEEENS_26ImutAVLTreeInOrderIteratorIS8_EESt26bidirectional_iterator_tagKSt4pairIS5_S6_ElPSG_RSG_EppEv.exit, %_ZN4llvm15ImmutableMapRefIN5clang4ento16EnvironmentEntryENS2_4SValENS_16ImutKeyValueInfoIS3_S4_EEEC2EPKNS_11ImutAVLTreeIS6_EEPNS_14ImutAVLFactoryIS6_EE.exit
@@ -785,7 +785,7 @@ _ZNK4llvm20iterator_facade_baseINS_20ImutAVLValueIteratorINS_12ImmutableMapIN5cl
   %74 = load i64, ptr %73, align 8
   %75 = and i64 %74, -4
   %76 = inttoptr i64 %75 to ptr
-  %77 = getelementptr inbounds i8, ptr %76, i64 64
+  %77 = getelementptr inbounds nuw i8, ptr %76, i64 64
   %.sroa.025.0.copyload = load ptr, ptr %77, align 8
   %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %76, i64 72
   %.sroa.3.0.copyload = load i8, ptr %.sroa.3.0..sroa_idx, align 8
@@ -798,7 +798,7 @@ _ZNK4llvm20iterator_facade_baseINS_20ImutAVLValueIteratorINS_12ImmutableMapIN5cl
   br i1 %spec.select.i.i.i.i.i.i.i.i, label %120, label %81
 
 81:                                               ; preds = %_ZNK4llvm20iterator_facade_baseINS_20ImutAVLValueIteratorINS_12ImmutableMapIN5clang4ento16EnvironmentEntryENS4_4SValENS_16ImutKeyValueInfoIS5_S6_EEEEEESt26bidirectional_iterator_tagKSt4pairIS5_S6_ElPSE_RSE_EneERKSA_.exit.thread
-  %82 = getelementptr inbounds i8, ptr %68, i64 56
+  %82 = getelementptr inbounds nuw i8, ptr %68, i64 56
   %83 = load ptr, ptr %82, align 8
   %84 = call noundef zeroext i1 @_ZNK5clang4ento12SymbolReaper6isLiveEPKNS_4ExprEPKNS_15LocationContextE(ptr noundef nonnull align 8 dereferenceable(160) %3, ptr noundef nonnull %78, ptr noundef %83) #16
   br i1 %84, label %85, label %120
@@ -1139,7 +1139,7 @@ _ZNK4llvm20iterator_facade_baseINS_20ImutAVLValueIteratorINS_12ImmutableMapIN5cl
   %108 = load i64, ptr %107, align 8
   %109 = and i64 %108, -4
   %110 = inttoptr i64 %109 to ptr
-  %111 = getelementptr inbounds i8, ptr %110, i64 56
+  %111 = getelementptr inbounds nuw i8, ptr %110, i64 56
   %112 = load ptr, ptr %111, align 8
   %113 = load ptr, ptr %80, align 8
   %114 = load ptr, ptr %11, align 8
@@ -1640,9 +1640,9 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIjPNS_11ImutAVLTreeINS_16ImutKeyValueInfoIN5c
   store i32 %65, ptr %19, align 8
   %66 = load ptr, ptr %0, align 8
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 56
-  %68 = getelementptr inbounds i8, ptr %66, i64 64
+  %68 = getelementptr inbounds nuw i8, ptr %66, i64 64
   %69 = load ptr, ptr %68, align 8
-  %70 = getelementptr inbounds i8, ptr %66, i64 72
+  %70 = getelementptr inbounds nuw i8, ptr %66, i64 72
   %71 = load ptr, ptr %70, align 8
   %.not.i.i = icmp eq ptr %69, %71
   br i1 %.not.i.i, label %75, label %72
@@ -1748,11 +1748,11 @@ define linkonce_odr hidden noundef i32 @_ZN4llvm11ImutAVLTreeINS_16ImutKeyValueI
   %19 = load ptr, ptr %14, align 8
   %20 = ptrtoint ptr %19 to i64
   call void @_ZN4llvm16FoldingSetNodeID10AddIntegerEy(ptr noundef nonnull align 8 dereferenceable(144) %2, i64 noundef %20)
-  %21 = getelementptr inbounds i8, ptr %0, i64 56
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %22 = load ptr, ptr %21, align 8
   %23 = ptrtoint ptr %22 to i64
   call void @_ZN4llvm16FoldingSetNodeID10AddIntegerEy(ptr noundef nonnull align 8 dereferenceable(144) %2, i64 noundef %23)
-  %24 = getelementptr inbounds i8, ptr %0, i64 64
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 64
   call void @_ZNK5clang4ento4SVal7ProfileERN4llvm16FoldingSetNodeIDE(ptr noundef nonnull align 8 dereferenceable(9) %24, ptr noundef nonnull align 8 dereferenceable(144) %2)
   %25 = load ptr, ptr %2, align 8
   %26 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %2) #16
@@ -3199,7 +3199,7 @@ define linkonce_odr hidden noundef ptr @_ZN4llvm14ImutAVLFactoryINS_16ImutKeyVal
   %9 = icmp eq ptr %7, %8
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %2, i64 56
+  %12 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %13 = load ptr, ptr %12, align 8
   %14 = icmp eq ptr %11, %13
   %15 = select i1 %9, i1 %14, i1 false
@@ -3463,7 +3463,7 @@ define linkonce_odr hidden noundef ptr @_ZN4llvm14ImutAVLFactoryINS_16ImutKeyVal
   %8 = inttoptr i64 %7 to ptr
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 64
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %12 = load ptr, ptr %11, align 8
   %13 = icmp eq ptr %10, %12
   br i1 %13, label %17, label %14
@@ -3578,9 +3578,9 @@ _ZNK4llvm14ImutAVLFactoryINS_16ImutKeyValueInfoIN5clang4ento16EnvironmentEntryEN
 
 _ZN4llvm11ImutAVLTreeINS_16ImutKeyValueInfoIN5clang4ento16EnvironmentEntryENS3_4SValEEEEC2EPNS_14ImutAVLFactoryIS6_EEPS7_SB_RKSt4pairIS4_S5_Ej.exit: ; preds = %65, %67
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %72 = getelementptr inbounds i8, ptr %0, i64 40
+  %72 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %73 = load ptr, ptr %72, align 8
-  %74 = getelementptr inbounds i8, ptr %0, i64 48
+  %74 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %75 = load ptr, ptr %74, align 8
   %.not.i7 = icmp eq ptr %73, %75
   br i1 %.not.i7, label %79, label %76
@@ -3774,21 +3774,21 @@ _ZNK4llvm26ImutAVLTreeInOrderIteratorINS_16ImutKeyValueInfoIN5clang4ento16Enviro
   %45 = load ptr, ptr %44, align 8
   %46 = load ptr, ptr %43, align 8
   %47 = icmp eq ptr %45, %46
-  %48 = getelementptr inbounds i8, ptr %35, i64 56
+  %48 = getelementptr inbounds nuw i8, ptr %35, i64 56
   %49 = load ptr, ptr %48, align 8
-  %50 = getelementptr inbounds i8, ptr %42, i64 56
+  %50 = getelementptr inbounds nuw i8, ptr %42, i64 56
   %51 = load ptr, ptr %50, align 8
   %52 = icmp eq ptr %49, %51
   %53 = select i1 %47, i1 %52, i1 false
   br i1 %53, label %_ZNK4llvm11ImutAVLTreeINS_16ImutKeyValueInfoIN5clang4ento16EnvironmentEntryENS3_4SValEEEE14isElementEqualEPKS7_.exit, label %_ZNK4llvm26ImutAVLTreeInOrderIteratorINS_16ImutKeyValueInfoIN5clang4ento16EnvironmentEntryENS3_4SValEEEEneERKS7_.exit.thread14
 
 _ZNK4llvm11ImutAVLTreeINS_16ImutKeyValueInfoIN5clang4ento16EnvironmentEntryENS3_4SValEEEE14isElementEqualEPKS7_.exit: ; preds = %_ZNK4llvm26ImutAVLTreeInOrderIteratorINS_16ImutKeyValueInfoIN5clang4ento16EnvironmentEntryENS3_4SValEEEEeqERKS7_.exit.thread17
-  %54 = getelementptr inbounds i8, ptr %35, i64 64
-  %55 = getelementptr inbounds i8, ptr %42, i64 64
+  %54 = getelementptr inbounds nuw i8, ptr %35, i64 64
+  %55 = getelementptr inbounds nuw i8, ptr %42, i64 64
   %.sroa.0.0.copyload.i.i.i.i.i = load ptr, ptr %55, align 8
   %.sroa.2.0..sroa_idx.i.i.i.i.i = getelementptr inbounds i8, ptr %42, i64 72
   %.sroa.2.0.copyload.i.i.i.i.i = load i8, ptr %.sroa.2.0..sroa_idx.i.i.i.i.i, align 8
-  %56 = getelementptr inbounds i8, ptr %35, i64 72
+  %56 = getelementptr inbounds nuw i8, ptr %35, i64 72
   %57 = load i8, ptr %56, align 8
   %58 = icmp eq i8 %57, %.sroa.2.0.copyload.i.i.i.i.i
   %59 = load ptr, ptr %54, align 8
@@ -3874,7 +3874,7 @@ define linkonce_odr hidden noundef ptr @_ZN4llvm14ImutAVLFactoryINS_16ImutKeyVal
   %10 = icmp eq ptr %8, %9
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %2, i64 56
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %14 = load ptr, ptr %13, align 8
   %15 = icmp eq ptr %12, %14
   %16 = select i1 %10, i1 %15, i1 false
@@ -4020,7 +4020,7 @@ _ZN4llvm12ImmutableMapIN5clang4ento16EnvironmentEntryENS2_4SValENS_16ImutKeyValu
   %47 = load i64, ptr %46, align 8
   %48 = and i64 %47, -4
   %49 = inttoptr i64 %48 to ptr
-  %50 = getelementptr inbounds i8, ptr %49, i64 56
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 56
   %51 = load ptr, ptr %50, align 8
   %.not9.i.i.i = icmp eq ptr %51, %.val2
   br i1 %.not9.i.i.i, label %52, label %83
@@ -4169,7 +4169,7 @@ _ZN4llvm12ImmutableMapIN5clang4ento16EnvironmentEntryENS2_4SValENS_16ImutKeyValu
   %119 = load i64, ptr %118, align 8
   %120 = and i64 %119, -4
   %121 = inttoptr i64 %120 to ptr
-  %122 = getelementptr inbounds i8, ptr %121, i64 56
+  %122 = getelementptr inbounds nuw i8, ptr %121, i64 56
   %123 = load ptr, ptr %122, align 8
   %.not.i.i.i = icmp eq ptr %123, %.val2
   br i1 %.not.i.i.i, label %124, label %_ZN4llvm11raw_ostreamlsEPKc.exit61.i.i.i.preheader
@@ -4361,7 +4361,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit42.i.i.i:         ; preds = %226, %224
   %233 = load i64, ptr %232, align 8
   %234 = and i64 %233, -4
   %235 = inttoptr i64 %234 to ptr
-  %236 = getelementptr inbounds i8, ptr %235, i64 64
+  %236 = getelementptr inbounds nuw i8, ptr %235, i64 64
   %237 = load ptr, ptr %15, align 8
   call void @_ZNK5clang4ento4SVal9printJsonERN4llvm11raw_ostreamEb(ptr noundef nonnull align 8 dereferenceable(9) %236, ptr noundef nonnull align 8 dereferenceable(48) %237, i1 noundef zeroext true) #16
   %238 = load ptr, ptr %15, align 8

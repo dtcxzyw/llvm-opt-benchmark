@@ -782,7 +782,7 @@ define dso_local void @_ZN4llvm15DWARFDebugMacro9parseImplESt8optionalINS_14iter
   call void @_ZN4llvm9DWARFUnit19extractDIEsIfNeededEb(ptr noundef nonnull align 8 dereferenceable(448) %28, i1 noundef zeroext true) #17
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 288
   %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %28, i64 296
+  %31 = getelementptr inbounds nuw i8, ptr %28, i64 296
   %32 = load ptr, ptr %31, align 8
   %33 = icmp eq ptr %30, %32
   %spec.select.i = select i1 %33, ptr null, ptr %28

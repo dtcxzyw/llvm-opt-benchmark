@@ -912,14 +912,14 @@ _ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefE
   unreachable
 
 _ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_8UsdStageEED2Ev.exit: ; preds = %271, %283, %.noexc.i78, %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i75, %289
-  %296 = getelementptr inbounds i8, ptr %1, i64 48
+  %296 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %297 = load ptr, ptr %296, align 8
   %.not.i.i.not = icmp eq ptr %297, null
   br i1 %.not.i.i.not, label %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_16HdSceneIndexBaseEED2Ev.exit, label %298
 
 298:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_8UsdStageEED2Ev.exit
   %299 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %300 = getelementptr inbounds i8, ptr %1, i64 56
+  %300 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %301 = load ptr, ptr %300, align 8, !noalias !12
   invoke void %301(ptr dead_on_unwind nonnull writable sret(%"class.pxrInternal_v0_24__pxrReserved__::TfRefPtr.1") align 8 %27, ptr noundef nonnull align 8 dereferenceable(16) %299, ptr noundef nonnull align 8 dereferenceable(8) %22)
           to label %_ZNKSt8functionIFN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS0_16HdSceneIndexBaseEEERKS3_EEclES5_.exit unwind label %347

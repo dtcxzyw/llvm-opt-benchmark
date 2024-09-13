@@ -6357,7 +6357,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_111StmtPrinter20VisitObjCIvarRefExp
   br i1 %.not9.i, label %_ZL14isImplicitSelfPKN5clang4ExprE.exit, label %19
 
 19:                                               ; preds = %12
-  %20 = getelementptr inbounds i8, ptr %14, i64 98
+  %20 = getelementptr inbounds nuw i8, ptr %14, i64 98
   %21 = load i8, ptr %20, align 2
   %22 = and i8 %21, 28
   %23 = icmp eq i8 %22, 0
@@ -9711,7 +9711,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_111StmtPrinter17VisitInitListExprEP
 
 _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %24, %26
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %30 = getelementptr inbounds i8, ptr %1, i64 24
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %31 = load ptr, ptr %30, align 8
   %32 = load ptr, ptr %29, align 8
   %33 = ptrtoint ptr %31 to i64
@@ -11294,7 +11294,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_111StmtPrinter23VisitDesignatedInit
   br i1 %16, label %17, label %85
 
 17:                                               ; preds = %14
-  %18 = getelementptr inbounds i8, ptr %.02481, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %.02481, i64 16
   %.sroa.0.0.copyload.i = load i32, ptr %18, align 8
   %19 = icmp eq i32 %.sroa.0.0.copyload.i, 0
   br i1 %19, label %20, label %53
@@ -12995,7 +12995,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_111StmtPrinter26VisitCXXFunctionalC
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 24
   %.0.copyload.i.i.i.i.i9 = load i64, ptr %11, align 8
   %.not.i.i.i = icmp ugt i64 %.0.copyload.i.i.i.i.i9, 15
-  %12 = getelementptr inbounds i8, ptr %9, i64 17
+  %12 = getelementptr inbounds nuw i8, ptr %9, i64 17
   %13 = load i16, ptr %12, align 1
   %14 = and i16 %13, 4
   %15 = icmp ne i16 %14, 0

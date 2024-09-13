@@ -157,10 +157,10 @@ define hidden noundef i32 @_ZN4llvm10EHStreamer13sharedTypeIDsEPKNS_14LandingPad
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %5 = load ptr, ptr %3, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 104
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %7 = load ptr, ptr %6, align 8
   %8 = load ptr, ptr %4, align 8
-  %9 = getelementptr inbounds i8, ptr %1, i64 104
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 104
   %10 = load ptr, ptr %9, align 8
   %11 = icmp ne ptr %5, %7
   %12 = icmp ne ptr %8, %10
@@ -203,7 +203,7 @@ define hidden void @_ZN4llvm10EHStreamer19computeActionsTableERKNS_15SmallVector
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 592
   %11 = getelementptr inbounds i8, ptr %5, i64 16
   call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull %11, i64 noundef 16) #18
-  %12 = getelementptr inbounds i8, ptr %9, i64 600
+  %12 = getelementptr inbounds nuw i8, ptr %9, i64 600
   %13 = load ptr, ptr %12, align 8
   %14 = load ptr, ptr %10, align 8
   %15 = ptrtoint ptr %13 to i64
@@ -289,10 +289,10 @@ _ZN4llvm15SmallVectorImplIjE7reserveEm.exit:      ; preds = %._crit_edge, %41
 51:                                               ; preds = %48
   %52 = getelementptr inbounds nuw i8, ptr %.078127, i64 96
   %53 = load ptr, ptr %50, align 8
-  %54 = getelementptr inbounds i8, ptr %49, i64 104
+  %54 = getelementptr inbounds nuw i8, ptr %49, i64 104
   %55 = load ptr, ptr %54, align 8
   %56 = load ptr, ptr %52, align 8
-  %57 = getelementptr inbounds i8, ptr %.078127, i64 104
+  %57 = getelementptr inbounds nuw i8, ptr %.078127, i64 104
   %58 = load ptr, ptr %57, align 8
   %59 = icmp ne ptr %53, %55
   %60 = icmp ne ptr %56, %58
@@ -330,7 +330,7 @@ _ZN4llvm15SmallVectorImplIjE7reserveEm.exit:      ; preds = %._crit_edge, %41
   br i1 %78, label %82, label %166
 
 .thread:                                          ; preds = %48
-  %79 = getelementptr inbounds i8, ptr %49, i64 104
+  %79 = getelementptr inbounds nuw i8, ptr %49, i64 104
   %80 = load ptr, ptr %79, align 8
   %81 = load ptr, ptr %50, align 8
   %.not103 = icmp eq ptr %80, %81
@@ -998,7 +998,7 @@ define hidden void @_ZN4llvm10EHStreamer20computeCallSiteTableERNS_15SmallVector
   %23 = icmp eq i32 %22, 2
   %24 = getelementptr inbounds nuw i8, ptr %18, i64 88
   %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 328
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 328
   %27 = getelementptr inbounds nuw i8, ptr %25, i64 320
   %.sroa.0105.0123 = load ptr, ptr %26, align 8
   %.not110124 = icmp eq ptr %.sroa.0105.0123, %27
@@ -1041,7 +1041,7 @@ define hidden void @_ZN4llvm10EHStreamer20computeCallSiteTableERNS_15SmallVector
   %55 = load ptr, ptr %17, align 8
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 88
   %57 = load ptr, ptr %56, align 8
-  %58 = getelementptr inbounds i8, ptr %57, i64 328
+  %58 = getelementptr inbounds nuw i8, ptr %57, i64 328
   %59 = load ptr, ptr %58, align 8
   %60 = icmp eq ptr %.sroa.0105.0128, %59
   br i1 %60, label %65, label %61
@@ -1073,7 +1073,7 @@ define hidden void @_ZN4llvm10EHStreamer20computeCallSiteTableERNS_15SmallVector
   br label %_ZN4llvm9MapVectorINS_12MBBSectionIDENS_10AsmPrinter15MBBSectionRangeENS_8DenseMapIS1_jNS_12DenseMapInfoIS1_vEENS_6detail12DenseMapPairIS1_jEEEENS_11SmallVectorISt4pairIS1_S3_ELj0EEEEixERKS1_.exit
 
 72:                                               ; preds = %65
-  %73 = getelementptr inbounds i8, ptr %55, i64 184
+  %73 = getelementptr inbounds nuw i8, ptr %55, i64 184
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %32, i8 0, i64 16, i1 false)
   store i64 %.sroa.0.0.copyload.i, ptr %11, align 8, !alias.scope !13
   call void @_ZN4llvm23SmallVectorTemplateBaseISt4pairINS_12MBBSectionIDENS_10AsmPrinter15MBBSectionRangeEELb1EE9push_backERKS5_(ptr noundef nonnull align 8 dereferenceable(16) %73, ptr noundef nonnull align 8 dereferenceable(24) %11)
@@ -1085,7 +1085,7 @@ define hidden void @_ZN4llvm10EHStreamer20computeCallSiteTableERNS_15SmallVector
 
 _ZN4llvm9MapVectorINS_12MBBSectionIDENS_10AsmPrinter15MBBSectionRangeENS_8DenseMapIS1_jNS_12DenseMapInfoIS1_vEENS_6detail12DenseMapPairIS1_jEEEENS_11SmallVectorISt4pairIS1_S3_ELj0EEEEixERKS1_.exit: ; preds = %._crit_edge.i, %72
   %77 = phi i32 [ %.pre.i, %._crit_edge.i ], [ %76, %72 ]
-  %78 = getelementptr inbounds i8, ptr %55, i64 184
+  %78 = getelementptr inbounds nuw i8, ptr %55, i64 184
   %79 = zext i32 %77 to i64
   %80 = load ptr, ptr %78, align 8
   %81 = getelementptr inbounds %"struct.std::pair.453", ptr %80, i64 %79, i32 1
@@ -1114,7 +1114,7 @@ _ZN4llvm9MapVectorINS_12MBBSectionIDENS_10AsmPrinter15MBBSectionRangeENS_8DenseM
   br label %_ZN4llvm9MapVectorINS_12MBBSectionIDENS_10AsmPrinter15MBBSectionRangeENS_8DenseMapIS1_jNS_12DenseMapInfoIS1_vEENS_6detail12DenseMapPairIS1_jEEEENS_11SmallVectorISt4pairIS1_S3_ELj0EEEEixERKS1_.exit79
 
 89:                                               ; preds = %_ZN4llvm9MapVectorINS_12MBBSectionIDENS_10AsmPrinter15MBBSectionRangeENS_8DenseMapIS1_jNS_12DenseMapInfoIS1_vEENS_6detail12DenseMapPairIS1_jEEEENS_11SmallVectorISt4pairIS1_S3_ELj0EEEEixERKS1_.exit
-  %90 = getelementptr inbounds i8, ptr %83, i64 184
+  %90 = getelementptr inbounds nuw i8, ptr %83, i64 184
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %36, i8 0, i64 16, i1 false)
   store i64 %.sroa.0.0.copyload.i76, ptr %8, align 8, !alias.scope !16
   call void @_ZN4llvm23SmallVectorTemplateBaseISt4pairINS_12MBBSectionIDENS_10AsmPrinter15MBBSectionRangeEELb1EE9push_backERKS5_(ptr noundef nonnull align 8 dereferenceable(16) %90, ptr noundef nonnull align 8 dereferenceable(24) %8)
@@ -1126,7 +1126,7 @@ _ZN4llvm9MapVectorINS_12MBBSectionIDENS_10AsmPrinter15MBBSectionRangeENS_8DenseM
 
 _ZN4llvm9MapVectorINS_12MBBSectionIDENS_10AsmPrinter15MBBSectionRangeENS_8DenseMapIS1_jNS_12DenseMapInfoIS1_vEENS_6detail12DenseMapPairIS1_jEEEENS_11SmallVectorISt4pairIS1_S3_ELj0EEEEixERKS1_.exit79: ; preds = %._crit_edge.i77, %89
   %94 = phi i32 [ %.pre.i78, %._crit_edge.i77 ], [ %93, %89 ]
-  %95 = getelementptr inbounds i8, ptr %83, i64 184
+  %95 = getelementptr inbounds nuw i8, ptr %83, i64 184
   %96 = zext i32 %94 to i64
   %97 = load ptr, ptr %95, align 8
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %6)
@@ -1388,7 +1388,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_10EHStreamer13CallSiteEntryELb1EE9push_back
 .thread:                                          ; preds = %196, %_ZNK4llvm9MCAsmInfo12usesCFIForEHEv.exit, %_ZNK4llvm9MCAsmInfo12usesCFIForEHEv.exit, %_ZN4llvm23SmallVectorTemplateBaseINS_10EHStreamer13CallSiteEntryELb1EE9push_backERKS2_.exit, %188
   %.469 = phi i1 [ false, %_ZN4llvm23SmallVectorTemplateBaseINS_10EHStreamer13CallSiteEntryELb1EE9push_backERKS2_.exit ], [ %.267117, %188 ], [ %.267117, %_ZNK4llvm9MCAsmInfo12usesCFIForEHEv.exit ], [ %.267117, %_ZNK4llvm9MCAsmInfo12usesCFIForEHEv.exit ], [ %.267117, %196 ]
   %224 = getelementptr inbounds nuw i8, ptr %194, i64 32
-  %225 = getelementptr inbounds i8, ptr %.0.i.pn.i, i64 12
+  %225 = getelementptr inbounds nuw i8, ptr %.0.i.pn.i, i64 12
   %226 = load i32, ptr %225, align 4
   %227 = zext i32 %226 to i64
   %228 = load ptr, ptr %224, align 8
@@ -1486,7 +1486,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_10EHStreamer13CallSiteEntryELb1EE9push_back
   %279 = load ptr, ptr %278, align 8
   %280 = getelementptr inbounds nuw i8, ptr %279, i64 504
   %281 = load ptr, ptr %280, align 8
-  %282 = getelementptr inbounds i8, ptr %279, i64 520
+  %282 = getelementptr inbounds nuw i8, ptr %279, i64 520
   %283 = load i32, ptr %282, align 8
   %284 = icmp eq i32 %283, 0
   br i1 %284, label %_ZNK4llvm15MachineFunction21getCallSiteBeginLabelEPNS_8MCSymbolE.exit, label %285
@@ -1787,7 +1787,7 @@ define hidden noundef ptr @_ZN4llvm10EHStreamer18emitExceptionTableEv(ptr nounde
   %44 = getelementptr inbounds nuw i8, ptr %41, i64 432
   %45 = getelementptr inbounds i8, ptr %2, i64 16
   call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull %45, i64 noundef 64) #18
-  %46 = getelementptr inbounds i8, ptr %41, i64 440
+  %46 = getelementptr inbounds nuw i8, ptr %41, i64 440
   %47 = load ptr, ptr %46, align 8
   %48 = load ptr, ptr %44, align 8
   %49 = ptrtoint ptr %47 to i64
@@ -2218,14 +2218,14 @@ _ZNK4llvm8MCSymbol9isDefinedEv.exit.thread438:    ; preds = %62, %_ZNK4llvm8MCSy
   %221 = phi i32 [ %219, %217 ], [ 3, %"_ZN4llvm4sortIRNS_11SmallVectorIPKNS_14LandingPadInfoELj64EEEZNS_10EHStreamer18emitExceptionTableEvE3$_0EEvOT_T0_.exit" ]
   store i32 %221, ptr %7, align 4
   %222 = load ptr, ptr %42, align 8
-  %223 = getelementptr inbounds i8, ptr %41, i64 576
+  %223 = getelementptr inbounds nuw i8, ptr %41, i64 576
   %224 = load ptr, ptr %223, align 8
   %225 = icmp eq ptr %222, %224
   br i1 %225, label %226, label %232
 
 226:                                              ; preds = %220
   %227 = load ptr, ptr %43, align 8
-  %228 = getelementptr inbounds i8, ptr %41, i64 600
+  %228 = getelementptr inbounds nuw i8, ptr %41, i64 600
   %229 = load ptr, ptr %228, align 8
   %230 = icmp ne ptr %227, %229
   %231 = zext i1 %230 to i8
@@ -2398,7 +2398,7 @@ _ZN4llvm5TwineC2EPKc.exit:                        ; preds = %_ZN4llvmplERKNS_5Tw
   %316 = load ptr, ptr %315, align 8
   %317 = getelementptr inbounds nuw i8, ptr %314, i64 88
   %318 = load ptr, ptr %317, align 8
-  %319 = getelementptr inbounds i8, ptr %318, i64 328
+  %319 = getelementptr inbounds nuw i8, ptr %318, i64 328
   %320 = load ptr, ptr %319, align 8
   %321 = call noundef ptr @_ZN4llvm10AsmPrinter18getMBBExceptionSymERKNS_17MachineBasicBlockE(ptr noundef nonnull align 8 dereferenceable(785) %314, ptr noundef nonnull align 8 dereferenceable(288) %320) #18
   %322 = load ptr, ptr %316, align 8
@@ -3433,7 +3433,7 @@ define hidden void @_ZN4llvm10EHStreamer13emitTypeInfosEjPNS_8MCSymbolE(ptr noca
 
 20:                                               ; preds = %3
   %21 = load ptr, ptr %12, align 8
-  %22 = getelementptr inbounds i8, ptr %11, i64 576
+  %22 = getelementptr inbounds nuw i8, ptr %11, i64 576
   %23 = load ptr, ptr %22, align 8
   %24 = icmp eq ptr %21, %23
   br i1 %24, label %47, label %25
@@ -3475,7 +3475,7 @@ define hidden void @_ZN4llvm10EHStreamer13emitTypeInfosEjPNS_8MCSymbolE(ptr noca
   br i1 %.not45, label %._crit_edge, label %.lr.ph
 
 .thread:                                          ; preds = %3
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %11, i64 576
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %11, i64 576
   %.pre = load ptr, ptr %.phi.trans.insert, align 8, !noalias !116
   %.pre103 = load ptr, ptr %12, align 8, !noalias !127
   %.not45107 = icmp eq ptr %.pre, %.pre103
@@ -3539,7 +3539,7 @@ _ZN4llvmplERKNS_5TwineES2_.exit.us:               ; preds = %.lr.ph, %_ZN4llvmpl
   %78 = load ptr, ptr %77, align 8
   call void %78(ptr noundef nonnull align 8 dereferenceable(288) %75, ptr noundef %2, ptr null) #18
   %.pre105 = load ptr, ptr %13, align 8
-  %79 = getelementptr inbounds i8, ptr %11, i64 600
+  %79 = getelementptr inbounds nuw i8, ptr %11, i64 600
   %80 = load ptr, ptr %79, align 8
   br i1 %19, label %81, label %.thread111
 
@@ -3573,7 +3573,7 @@ _ZN4llvmplERKNS_5TwineES2_.exit.us:               ; preds = %.lr.ph, %_ZN4llvmpl
 98:                                               ; preds = %83, %81
   %99 = phi ptr [ %.pre105, %81 ], [ %.pre104, %83 ]
   %.3 = phi i32 [ %.1.lcssa, %81 ], [ 0, %83 ]
-  %100 = getelementptr inbounds i8, ptr %11, i64 600
+  %100 = getelementptr inbounds nuw i8, ptr %11, i64 600
   %101 = load ptr, ptr %100, align 8
   %102 = icmp ult ptr %99, %101
   br i1 %102, label %.lr.ph68, label %._crit_edge69

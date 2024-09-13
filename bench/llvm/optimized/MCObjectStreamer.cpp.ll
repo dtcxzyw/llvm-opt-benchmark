@@ -286,7 +286,7 @@ declare void @_ZN4llvm10MCStreamerC2ERNS_9MCContextE(ptr noundef nonnull align 8
 define dso_local void @_ZN4llvm16MCObjectStreamerD2Ev(ptr noundef nonnull align 8 dereferenceable(424) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 1336) (i8, ptr @_ZTVN4llvm16MCObjectStreamerE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 400
-  %3 = getelementptr inbounds i8, ptr %0, i64 416
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 416
   %4 = load i32, ptr %3, align 8
   %5 = icmp eq i32 %4, 0
   %.pre1.i = load ptr, ptr %2, align 8
@@ -435,7 +435,7 @@ _ZNK4llvm8MCSymbol11isUndefinedEb.exit._ZNK4llvm8MCSymbol11isUndefinedEb.exit.th
 
 _ZNK4llvm8MCSymbol11isUndefinedEb.exit.thread:    ; preds = %14, %_ZNK4llvm8MCSymbol11isUndefinedEb.exit, %10
   %23 = load ptr, ptr %7, align 8
-  %24 = getelementptr inbounds i8, ptr %.027, i64 24
+  %24 = getelementptr inbounds nuw i8, ptr %.027, i64 24
   %.sroa.0.0.copyload.i = load ptr, ptr %24, align 8
   store i8 1, ptr %9, align 1
   store ptr @.str, ptr %2, align 8
@@ -448,7 +448,7 @@ _ZNK4llvm8MCSymbol11isUndefinedEb.exit.thread24:  ; preds = %_ZNK4llvm8MCSymbol1
   %26 = getelementptr inbounds nuw i8, ptr %.027, i64 8
   %27 = getelementptr inbounds nuw i8, ptr %25, i64 24
   %28 = load i64, ptr %27, align 8
-  %29 = getelementptr inbounds i8, ptr %.027, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %.027, i64 16
   %30 = load i32, ptr %29, align 8
   %31 = trunc i64 %28 to i32
   %32 = add i32 %30, %31
@@ -508,7 +508,7 @@ _ZNK4llvm8MCSymbol11getFragmentEb.exit:           ; preds = %_ZNK4llvm8MCSymbol1
 
 ._crit_edge:                                      ; preds = %52, %1
   %54 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #20
-  %55 = getelementptr inbounds i8, ptr %0, i64 312
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 312
   store i32 0, ptr %55, align 8
   ret void
 }
@@ -598,7 +598,7 @@ define dso_local void @_ZN4llvm16MCObjectStreamer22emitAbsoluteSymbolDiffEPKNS_8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 288
   %6 = load ptr, ptr %5, align 8
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 56
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 56
   %9 = load i32, ptr %8, align 8
   %10 = add i32 %9, -27
   %spec.select.i = icmp ult i32 %10, 2
@@ -694,7 +694,7 @@ define dso_local void @_ZN4llvm16MCObjectStreamer31emitAbsoluteSymbolDiffAsULEB1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 288
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 56
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 56
   %8 = load i32, ptr %7, align 8
   %9 = add i32 %8, -27
   %spec.select.i = icmp ult i32 %9, 2
@@ -896,7 +896,7 @@ _ZL20canReuseDataFragmentRKN4llvm14MCDataFragmentERKNS_11MCAssemblerEPKNS_15MCSu
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %21 = load ptr, ptr %20, align 8
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 288
-  %23 = getelementptr inbounds i8, ptr %21, i64 368
+  %23 = getelementptr inbounds nuw i8, ptr %21, i64 368
   %24 = load i64, ptr %23, align 8
   %25 = add i64 %24, 208
   store i64 %25, ptr %23, align 8
@@ -905,7 +905,7 @@ _ZL20canReuseDataFragmentRKN4llvm14MCDataFragmentERKNS_11MCAssemblerEPKNS_15MCSu
   %28 = add i64 %27, 7
   %29 = and i64 %28, -8
   %30 = add i64 %29, 208
-  %31 = getelementptr inbounds i8, ptr %21, i64 296
+  %31 = getelementptr inbounds nuw i8, ptr %21, i64 296
   %32 = load ptr, ptr %31, align 8
   %33 = ptrtoint ptr %32 to i64
   %.not.i.i.i = icmp ugt i64 %30, %33
@@ -1235,7 +1235,7 @@ declare void @_ZN4llvm10MCStreamer9emitLabelEPNS_8MCSymbolENS_5SMLocE(ptr nounde
 define dso_local void @_ZN4llvm16MCObjectStreamer22emitPendingAssignmentsEPNS_8MCSymbolE(ptr noundef nonnull align 8 dereferenceable(424) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 400
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 416
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 416
   %6 = load i32, ptr %5, align 8
   %7 = icmp eq i32 %6, 0
   br i1 %7, label %.loopexit.i, label %8
@@ -1317,11 +1317,11 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8MCSymbolENS_11SmallVectorINS_16MCObjec
 
 _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8MCSymbolENS_11SmallVectorINS_16MCObjectStreamer17PendingAssignmentELj1EEENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S8_EEEES4_S8_SA_SD_E5eraseENS_16DenseMapIteratorIS4_S8_SA_SD_Lb0EEE.exit: ; preds = %._crit_edge, %48
   store ptr inttoptr (i64 -8192 to ptr), ptr %.0.i.pn.i, align 8
-  %49 = getelementptr inbounds i8, ptr %0, i64 408
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 408
   %50 = load i32, ptr %49, align 8
   %51 = add i32 %50, -1
   store i32 %51, ptr %49, align 8
-  %52 = getelementptr inbounds i8, ptr %0, i64 412
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 412
   %53 = load i32, ptr %52, align 4
   %54 = add i32 %53, 1
   store i32 %54, ptr %52, align 4
@@ -1367,7 +1367,7 @@ define dso_local void @_ZN4llvm16MCObjectStreamer16emitULEB128ValueEPKNS_6MCExpr
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 288
-  %16 = getelementptr inbounds i8, ptr %14, i64 368
+  %16 = getelementptr inbounds nuw i8, ptr %14, i64 368
   %17 = load i64, ptr %16, align 8
   %18 = add i64 %17, 104
   store i64 %18, ptr %16, align 8
@@ -1376,7 +1376,7 @@ define dso_local void @_ZN4llvm16MCObjectStreamer16emitULEB128ValueEPKNS_6MCExpr
   %21 = add i64 %20, 7
   %22 = and i64 %21, -8
   %23 = add i64 %22, 104
-  %24 = getelementptr inbounds i8, ptr %14, i64 296
+  %24 = getelementptr inbounds nuw i8, ptr %14, i64 296
   %25 = load ptr, ptr %24, align 8
   %26 = ptrtoint ptr %25 to i64
   %.not.i.i.i = icmp ugt i64 %23, %26
@@ -1448,7 +1448,7 @@ define dso_local void @_ZN4llvm16MCObjectStreamer16emitSLEB128ValueEPKNS_6MCExpr
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 288
-  %16 = getelementptr inbounds i8, ptr %14, i64 368
+  %16 = getelementptr inbounds nuw i8, ptr %14, i64 368
   %17 = load i64, ptr %16, align 8
   %18 = add i64 %17, 104
   store i64 %18, ptr %16, align 8
@@ -1457,7 +1457,7 @@ define dso_local void @_ZN4llvm16MCObjectStreamer16emitSLEB128ValueEPKNS_6MCExpr
   %21 = add i64 %20, 7
   %22 = and i64 %21, -8
   %23 = add i64 %22, 104
-  %24 = getelementptr inbounds i8, ptr %14, i64 296
+  %24 = getelementptr inbounds nuw i8, ptr %14, i64 296
   %25 = load ptr, ptr %24, align 8
   %26 = ptrtoint ptr %25 to i64
   %.not.i.i.i = icmp ugt i64 %23, %26
@@ -1563,7 +1563,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm16MCObjectStreamer17changeSectionIm
   %.027 = phi i64 [ %.030, %.critedge ], [ 0, %3 ], [ %9, %15 ]
   %17 = load ptr, ptr %5, align 8
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 288
-  %19 = getelementptr inbounds i8, ptr %17, i64 368
+  %19 = getelementptr inbounds nuw i8, ptr %17, i64 368
   %20 = load i64, ptr %19, align 8
   %21 = add i64 %20, 208
   store i64 %21, ptr %19, align 8
@@ -1572,7 +1572,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm16MCObjectStreamer17changeSectionIm
   %24 = add i64 %23, 7
   %25 = and i64 %24, -8
   %26 = add i64 %25, 208
-  %27 = getelementptr inbounds i8, ptr %17, i64 296
+  %27 = getelementptr inbounds nuw i8, ptr %17, i64 296
   %28 = load ptr, ptr %27, align 8
   %29 = ptrtoint ptr %28 to i64
   %.not.i.i.i = icmp ugt i64 %26, %29
@@ -1630,7 +1630,7 @@ _ZN4llvm9MCContext13allocFragmentINS_14MCDataFragmentEJEEEPT_DpOT0_.exit: ; pred
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 8
   %54 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr %53, ptr %54, align 8
-  %55 = getelementptr inbounds i8, ptr %52, i64 16
+  %55 = getelementptr inbounds nuw i8, ptr %52, i64 16
   %56 = load ptr, ptr %55, align 8
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 280
   store ptr %56, ptr %57, align 8
@@ -1689,7 +1689,7 @@ define dso_local void @_ZN4llvm16MCObjectStreamer25emitConditionalAssignmentEPNS
 14:                                               ; preds = %3
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 400
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %0, i64 416
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 416
   %18 = load i32, ptr %17, align 8
   %19 = icmp eq i32 %18, 0
   br i1 %19, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8MCSymbolENS_11SmallVectorINS_16MCObjectStreamer17PendingAssignmentELj1EEENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S8_EEEES4_S8_SA_SD_E15LookupBucketForIS4_EEbRKT_RPSD_.exit.i.i, label %20
@@ -2007,7 +2007,7 @@ define dso_local void @_ZN4llvm16MCObjectStreamer18emitInstToFragmentERKNS_6MCIn
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef ptr @_ZN4llvm9MCContext13allocFragmentINS_19MCRelaxableFragmentEJRKNS_6MCInstERKNS_15MCSubtargetInfoEEEEPT_DpOT0_(ptr noundef nonnull align 8 dereferenceable(2432) %0, ptr noundef nonnull align 8 dereferenceable(128) %1, ptr noundef nonnull align 1 %2) local_unnamed_addr #0 comdat align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 288
-  %5 = getelementptr inbounds i8, ptr %0, i64 368
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 368
   %6 = load i64, ptr %5, align 8
   %7 = add i64 %6, 240
   store i64 %7, ptr %5, align 8
@@ -2016,7 +2016,7 @@ define linkonce_odr hidden noundef ptr @_ZN4llvm9MCContext13allocFragmentINS_19M
   %10 = add i64 %9, 7
   %11 = and i64 %10, -8
   %12 = add i64 %11, 240
-  %13 = getelementptr inbounds i8, ptr %0, i64 296
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 296
   %14 = load ptr, ptr %13, align 8
   %15 = ptrtoint ptr %14 to i64
   %.not.i.i = icmp ugt i64 %12, %15
@@ -2056,7 +2056,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
   tail call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %29, ptr noundef nonnull %30, i64 noundef 1) #20
   %31 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 112
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %31, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false)
-  %32 = getelementptr inbounds i8, ptr %.0.i.i, i64 128
+  %32 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 128
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %34 = getelementptr inbounds i8, ptr %.0.i.i, i64 144
   tail call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %32, ptr noundef nonnull %34, i64 noundef 6) #20
@@ -2133,7 +2133,7 @@ define dso_local void @_ZN4llvm16MCObjectStreamer24emitDwarfAdvanceLineAddrElPKN
   %23 = tail call noundef ptr @_ZN4llvm12MCBinaryExpr6createENS0_6OpcodeEPKNS_6MCExprES4_RNS_9MCContextENS_5SMLocE(i32 noundef 18, ptr noundef %21, ptr noundef %22, ptr noundef nonnull align 8 dereferenceable(2432) %.val, ptr null) #20
   %24 = load ptr, ptr %20, align 8
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 288
-  %26 = getelementptr inbounds i8, ptr %24, i64 368
+  %26 = getelementptr inbounds nuw i8, ptr %24, i64 368
   %27 = load i64, ptr %26, align 8
   %28 = add i64 %27, 128
   store i64 %28, ptr %26, align 8
@@ -2142,7 +2142,7 @@ define dso_local void @_ZN4llvm16MCObjectStreamer24emitDwarfAdvanceLineAddrElPKN
   %31 = add i64 %30, 7
   %32 = and i64 %31, -8
   %33 = add i64 %32, 128
-  %34 = getelementptr inbounds i8, ptr %24, i64 296
+  %34 = getelementptr inbounds nuw i8, ptr %24, i64 296
   %35 = load ptr, ptr %34, align 8
   %36 = ptrtoint ptr %35 to i64
   %.not.i.i.i = icmp ugt i64 %33, %36
@@ -2244,7 +2244,7 @@ define dso_local void @_ZN4llvm16MCObjectStreamer25emitDwarfAdvanceFrameAddrEPKN
   %8 = tail call noundef ptr @_ZN4llvm12MCBinaryExpr6createENS0_6OpcodeEPKNS_6MCExprES4_RNS_9MCContextENS_5SMLocE(i32 noundef 18, ptr noundef %6, ptr noundef %7, ptr noundef nonnull align 8 dereferenceable(2432) %.val, ptr %3) #20
   %9 = load ptr, ptr %5, align 8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 288
-  %11 = getelementptr inbounds i8, ptr %9, i64 368
+  %11 = getelementptr inbounds nuw i8, ptr %9, i64 368
   %12 = load i64, ptr %11, align 8
   %13 = add i64 %12, 120
   store i64 %13, ptr %11, align 8
@@ -2253,7 +2253,7 @@ define dso_local void @_ZN4llvm16MCObjectStreamer25emitDwarfAdvanceFrameAddrEPKN
   %16 = add i64 %15, 7
   %17 = and i64 %16, -8
   %18 = add i64 %17, 120
-  %19 = getelementptr inbounds i8, ptr %9, i64 296
+  %19 = getelementptr inbounds nuw i8, ptr %9, i64 296
   %20 = load ptr, ptr %19, align 8
   %21 = ptrtoint ptr %20 to i64
   %.not.i.i.i = icmp ugt i64 %18, %21
@@ -2486,7 +2486,7 @@ define dso_local void @_ZN4llvm16MCObjectStreamer20emitValueToAlignmentENS_5Alig
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 288
-  %13 = getelementptr inbounds i8, ptr %11, i64 368
+  %13 = getelementptr inbounds nuw i8, ptr %11, i64 368
   %14 = load i64, ptr %13, align 8
   %15 = add i64 %14, 56
   store i64 %15, ptr %13, align 8
@@ -2495,7 +2495,7 @@ define dso_local void @_ZN4llvm16MCObjectStreamer20emitValueToAlignmentENS_5Alig
   %18 = add i64 %17, 7
   %19 = and i64 %18, -8
   %20 = add i64 %19, 56
-  %21 = getelementptr inbounds i8, ptr %11, i64 296
+  %21 = getelementptr inbounds nuw i8, ptr %11, i64 296
   %22 = load ptr, ptr %21, align 8
   %23 = ptrtoint ptr %22 to i64
   %.not.i.i.i = icmp ugt i64 %20, %23
@@ -2594,7 +2594,7 @@ define dso_local void @_ZN4llvm16MCObjectStreamer17emitValueToOffsetEPKNS_6MCExp
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 288
-  %8 = getelementptr inbounds i8, ptr %6, i64 368
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 368
   %9 = load i64, ptr %8, align 8
   %10 = add i64 %9, 48
   store i64 %10, ptr %8, align 8
@@ -2603,7 +2603,7 @@ define dso_local void @_ZN4llvm16MCObjectStreamer17emitValueToOffsetEPKNS_6MCExp
   %13 = add i64 %12, 7
   %14 = and i64 %13, -8
   %15 = add i64 %14, 48
-  %16 = getelementptr inbounds i8, ptr %6, i64 296
+  %16 = getelementptr inbounds nuw i8, ptr %6, i64 296
   %17 = load ptr, ptr %16, align 8
   %18 = ptrtoint ptr %17 to i64
   %.not.i.i.i = icmp ugt i64 %15, %18
@@ -3494,7 +3494,7 @@ define dso_local void @_ZN4llvm16MCObjectStreamer8emitFillERKNS_6MCExprEmNS_5SML
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 288
-  %8 = getelementptr inbounds i8, ptr %6, i64 368
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 368
   %9 = load i64, ptr %8, align 8
   %10 = add i64 %9, 56
   store i64 %10, ptr %8, align 8
@@ -3503,7 +3503,7 @@ define dso_local void @_ZN4llvm16MCObjectStreamer8emitFillERKNS_6MCExprEmNS_5SML
   %13 = add i64 %12, 7
   %14 = and i64 %13, -8
   %15 = add i64 %14, 56
-  %16 = getelementptr inbounds i8, ptr %6, i64 296
+  %16 = getelementptr inbounds nuw i8, ptr %6, i64 296
   %17 = load ptr, ptr %16, align 8
   %18 = ptrtoint ptr %17 to i64
   %.not.i.i.i = icmp ugt i64 %15, %18
@@ -3636,7 +3636,7 @@ define dso_local void @_ZN4llvm16MCObjectStreamer8emitFillERKNS_6MCExprEllNS_5SM
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %47 = load ptr, ptr %46, align 8
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 288
-  %49 = getelementptr inbounds i8, ptr %47, i64 368
+  %49 = getelementptr inbounds nuw i8, ptr %47, i64 368
   %50 = load i64, ptr %49, align 8
   %51 = add i64 %50, 56
   store i64 %51, ptr %49, align 8
@@ -3645,7 +3645,7 @@ define dso_local void @_ZN4llvm16MCObjectStreamer8emitFillERKNS_6MCExprEllNS_5SM
   %54 = add i64 %53, 7
   %55 = and i64 %54, -8
   %56 = add i64 %55, 56
-  %57 = getelementptr inbounds i8, ptr %47, i64 296
+  %57 = getelementptr inbounds nuw i8, ptr %47, i64 296
   %58 = load ptr, ptr %57, align 8
   %59 = ptrtoint ptr %58 to i64
   %.not.i.i.i = icmp ugt i64 %56, %59
@@ -3714,7 +3714,7 @@ define dso_local void @_ZN4llvm16MCObjectStreamer8emitNopsEllNS_5SMLocERKNS_15MC
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 288
-  %9 = getelementptr inbounds i8, ptr %7, i64 368
+  %9 = getelementptr inbounds nuw i8, ptr %7, i64 368
   %10 = load i64, ptr %9, align 8
   %11 = add i64 %10, 64
   store i64 %11, ptr %9, align 8
@@ -3723,7 +3723,7 @@ define dso_local void @_ZN4llvm16MCObjectStreamer8emitNopsEllNS_5SMLocERKNS_15MC
   %14 = add i64 %13, 7
   %15 = and i64 %14, -8
   %16 = add i64 %15, 64
-  %17 = getelementptr inbounds i8, ptr %7, i64 296
+  %17 = getelementptr inbounds nuw i8, ptr %7, i64 296
   %18 = load ptr, ptr %17, align 8
   %19 = ptrtoint ptr %18 to i64
   %.not.i.i.i = icmp ugt i64 %16, %19
@@ -3830,9 +3830,9 @@ define dso_local void @_ZN4llvm16MCObjectStreamer14emitAddrsigSymEPKNS_8MCSymbol
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 56
-  %8 = getelementptr inbounds i8, ptr %6, i64 64
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 64
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %6, i64 72
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 72
   %11 = load ptr, ptr %10, align 8
   %.not.i.i = icmp eq ptr %9, %11
   br i1 %.not.i.i, label %15, label %12
@@ -4391,7 +4391,7 @@ declare void @_ZN4llvm11MCAssemblerC1ERNS_9MCContextESt10unique_ptrINS_12MCAsmBa
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvm11MCAssemblerD2Ev(ptr noundef nonnull align 8 dereferenceable(372) %0) unnamed_addr #0 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %3 = getelementptr inbounds i8, ptr %0, i64 88
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %2, align 8
   %6 = icmp eq ptr %4, %5

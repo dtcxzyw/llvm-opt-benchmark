@@ -3068,7 +3068,7 @@ define dso_local void @_ZN4llvm7AArch648ArchInfo13findBySubArchENS_9StringRefE(p
   %.0.ptr = getelementptr inbounds i8, ptr @_ZN4llvm7AArch64L9ArchInfosE, i64 %.0.idx13
   %5 = load ptr, ptr %.0.ptr, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 40
-  %7 = getelementptr inbounds i8, ptr %5, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 48
   %8 = load i64, ptr %7, align 8
   %9 = icmp ne i64 %8, 0
   %.sroa.speculated5.i.i = zext i1 %9 to i64
@@ -3281,7 +3281,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm7AArch6420getExtensionFeaturesERKNS
 
 16:                                               ; preds = %5
   %17 = getelementptr inbounds nuw i8, ptr %.0.ptr11, i64 80
-  %18 = getelementptr inbounds i8, ptr %.0.ptr11, i64 88
+  %18 = getelementptr inbounds nuw i8, ptr %.0.ptr11, i64 88
   %19 = load i64, ptr %18, align 8
   %20 = icmp eq i64 %19, 0
   br i1 %20, label %_ZNSt6vectorIN4llvm9StringRefESaIS1_EE9push_backERKS1_.exit, label %21
@@ -3457,7 +3457,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit.i:              ; preds = %.preheader.i
   br i1 %8, label %15, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread.i
 
 _ZN4llvmeqENS_9StringRefES0_.exit.thread.i:       ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i, %.preheader.i
-  %9 = getelementptr inbounds i8, ptr %.0.ptr14.i, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %.0.ptr14.i, i64 32
   %10 = load i8, ptr %9, align 16, !noalias !14
   %11 = trunc i8 %10 to i1
   br i1 %11, label %12, label %_ZSteqIN4llvm9StringRefES1_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7declvalIRKT0_EEclsr3stdE7declvalIRKT_EEEbEE5valueEbE4typeES5_RKSt8optionalIS6_E.exit.thread.i
@@ -3517,7 +3517,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit:                ; preds = %.preheader
   br i1 %5, label %12, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread
 
 _ZN4llvmeqENS_9StringRefES0_.exit.thread:         ; preds = %.preheader, %_ZN4llvmeqENS_9StringRefES0_.exit
-  %6 = getelementptr inbounds i8, ptr %.0.ptr14, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %.0.ptr14, i64 32
   %7 = load i8, ptr %6, align 16
   %8 = trunc i8 %7 to i1
   br i1 %8, label %9, label %_ZSteqIN4llvm9StringRefES1_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7declvalIRKT0_EEclsr3stdE7declvalIRKT_EEEbEE5valueEbE4typeES5_RKSt8optionalIS6_E.exit.thread
@@ -3714,7 +3714,7 @@ define dso_local noundef ptr @_ZN4llvm7AArch649parseArchENS_9StringRefE(ptr %0, 
   %.020.idx23 = phi i64 [ %.020.add, %_ZNK4llvm9StringRef9ends_withES0_.exit.thread22 ], [ 0, %15 ]
   %.020.ptr = getelementptr inbounds i8, ptr @_ZN4llvm7AArch64L9ArchInfosE, i64 %.020.idx23
   %21 = load ptr, ptr %.020.ptr, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 32
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 32
   %23 = load i64, ptr %22, align 8
   %.not.i = icmp ult i64 %23, %18
   br i1 %.not.i, label %_ZNK4llvm9StringRef9ends_withES0_.exit.thread22, label %_ZNK4llvm9StringRef9ends_withES0_.exit
@@ -3906,7 +3906,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit16:               ; preds = %51, %53
   br i1 %63, label %104, label %64
 
 64:                                               ; preds = %60
-  %65 = getelementptr inbounds i8, ptr %.0.ptr29, i64 88
+  %65 = getelementptr inbounds nuw i8, ptr %.0.ptr29, i64 88
   %66 = load i64, ptr %65, align 8
   %67 = icmp eq i64 %66, 0
   br i1 %67, label %104, label %68
@@ -3937,7 +3937,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit16:               ; preds = %51, %53
 _ZN4llvm11raw_ostreamlsEPKc.exit19:               ; preds = %78, %80
   %.0.i.i18 = phi ptr [ %79, %78 ], [ %69, %80 ]
   %83 = getelementptr inbounds nuw i8, ptr %.0.ptr29, i64 64
-  %84 = getelementptr inbounds i8, ptr %.0.ptr29, i64 72
+  %84 = getelementptr inbounds nuw i8, ptr %.0.ptr29, i64 72
   %85 = load i64, ptr %84, align 8
   %86 = icmp eq i64 %85, 0
   %87 = select i1 %86, ptr @.str.115, ptr @.str.116
@@ -3970,7 +3970,7 @@ _ZNK4llvm9StringRef3strB5cxx11Ev.exit:            ; preds = %89, %90
   br label %_ZNK4llvm9StringRef3strB5cxx11Ev.exit21
 
 95:                                               ; preds = %_ZNK4llvm9StringRef3strB5cxx11Ev.exit
-  %96 = getelementptr inbounds i8, ptr %.0.ptr29, i64 56
+  %96 = getelementptr inbounds nuw i8, ptr %.0.ptr29, i64 56
   %97 = load i64, ptr %96, align 8, !noalias !26
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #26, !noalias !26
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcmRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull %93, i64 noundef %97, ptr noundef nonnull align 1 dereferenceable(1) %2) #26
@@ -4144,7 +4144,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit14:               ; preds = %49, %51
   br label %_ZNK4llvm9StringRef3strB5cxx11Ev.exit
 
 60:                                               ; preds = %.lr.ph
-  %61 = getelementptr inbounds i8, ptr %.sroa.033.056, i64 40
+  %61 = getelementptr inbounds nuw i8, ptr %.sroa.033.056, i64 40
   %62 = load i64, ptr %61, align 8, !noalias !38
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #26, !noalias !38
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcmRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull %58, i64 noundef %62, ptr noundef nonnull align 1 dereferenceable(1) %4) #26
@@ -4394,7 +4394,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit20:               ; preds = %128, %130
   br label %_ZNK4llvm9StringRef3strB5cxx11Ev.exit22
 
 136:                                              ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit20
-  %137 = getelementptr inbounds i8, ptr %.sroa.027.063, i64 56
+  %137 = getelementptr inbounds nuw i8, ptr %.sroa.027.063, i64 56
   %138 = load i64, ptr %137, align 8, !noalias !54
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #26, !noalias !54
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcmRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull %134, i64 noundef %138, ptr noundef nonnull align 1 dereferenceable(1) %3) #26
@@ -4415,7 +4415,7 @@ _ZNK4llvm9StringRef3strB5cxx11Ev.exit22:          ; preds = %135, %136
   br label %_ZNK4llvm9StringRef3strB5cxx11Ev.exit24
 
 143:                                              ; preds = %_ZNK4llvm9StringRef3strB5cxx11Ev.exit22
-  %144 = getelementptr inbounds i8, ptr %.sroa.027.063, i64 72
+  %144 = getelementptr inbounds nuw i8, ptr %.sroa.027.063, i64 72
   %145 = load i64, ptr %144, align 8, !noalias !57
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #26, !noalias !57
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcmRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull %141, i64 noundef %145, ptr noundef nonnull align 1 dereferenceable(1) %2) #26
@@ -4854,7 +4854,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit.i:              ; preds = %.preheader.i
   br i1 %9, label %16, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread.i
 
 _ZN4llvmeqENS_9StringRefES0_.exit.thread.i:       ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i, %.preheader.i
-  %10 = getelementptr inbounds i8, ptr %.0.ptr14.i, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %.0.ptr14.i, i64 32
   %11 = load i8, ptr %10, align 16, !noalias !63
   %12 = trunc i8 %11 to i1
   br i1 %12, label %13, label %_ZSteqIN4llvm9StringRefES1_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7declvalIRKT0_EEclsr3stdE7declvalIRKT_EEEbEE5valueEbE4typeES5_RKSt8optionalIS6_E.exit.thread.i
@@ -5136,7 +5136,7 @@ define linkonce_odr hidden void @_ZNK4llvm7AArch6412ExtensionSet17toLLVMFeatureL
   br i1 %.not, label %_ZNSt6vectorIN4llvm9StringRefESaIS1_EE12emplace_backIJS1_EEERS1_DpOT_.exit, label %6
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %5, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 48
   %8 = load i64, ptr %7, align 8
   %9 = icmp eq i64 %8, 0
   br i1 %9, label %_ZNSt6vectorIN4llvm9StringRefESaIS1_EE12emplace_backIJS1_EEERS1_DpOT_.exit, label %10
@@ -5228,7 +5228,7 @@ _ZNSt6vectorIN4llvm9StringRefESaIS1_EE12emplace_backIJS1_EEERS1_DpOT_.exit: ; pr
   %.0.idx49 = phi i64 [ 0, %_ZNSt6vectorIN4llvm9StringRefESaIS1_EE12emplace_backIJS1_EEERS1_DpOT_.exit ], [ %.0.add, %_ZNSt6vectorIN4llvm9StringRefESaIS1_EE12emplace_backIJS1_EEERS1_DpOT_.exit29 ]
   %.0.ptr50 = getelementptr inbounds i8, ptr @_ZN4llvm7AArch6410ExtensionsE, i64 %.0.idx49
   %45 = getelementptr inbounds nuw i8, ptr %.0.ptr50, i64 80
-  %46 = getelementptr inbounds i8, ptr %.0.ptr50, i64 88
+  %46 = getelementptr inbounds nuw i8, ptr %.0.ptr50, i64 88
   %47 = load i64, ptr %46, align 8
   %48 = icmp eq i64 %47, 0
   br i1 %48, label %_ZNSt6vectorIN4llvm9StringRefESaIS1_EE12emplace_backIJS1_EEERS1_DpOT_.exit29, label %49

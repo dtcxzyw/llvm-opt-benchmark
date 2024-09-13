@@ -189,7 +189,7 @@ _ZN12_GLOBAL__N_124OSLogFormatStringHandlerC2EN4llvm8ArrayRefIPKN5clang4ExprEEE.
 
 .lr.ph.i:                                         ; preds = %_ZN12_GLOBAL__N_124OSLogFormatStringHandlerC2EN4llvm8ArrayRefIPKN5clang4ExprEEE.exit, %142
   %.055.i = phi ptr [ %143, %142 ], [ %.val.i, %_ZN12_GLOBAL__N_124OSLogFormatStringHandlerC2EN4llvm8ArrayRefIPKN5clang4ExprEEE.exit ]
-  %75 = getelementptr inbounds i8, ptr %.055.i, i64 88
+  %75 = getelementptr inbounds nuw i8, ptr %.055.i, i64 88
   %76 = load i64, ptr %75, align 8
   %77 = icmp eq i64 %76, 0
   br i1 %77, label %81, label %78
@@ -204,7 +204,7 @@ _ZN12_GLOBAL__N_124OSLogFormatStringHandlerC2EN4llvm8ArrayRefIPKN5clang4ExprEEE.
   br label %81
 
 81:                                               ; preds = %78, %.lr.ph.i
-  %82 = getelementptr inbounds i8, ptr %.055.i, i64 64
+  %82 = getelementptr inbounds nuw i8, ptr %.055.i, i64 64
   %83 = load i8, ptr %82, align 8
   %84 = trunc i8 %83 to i1
   br i1 %84, label %85, label %91
@@ -222,7 +222,7 @@ _ZN12_GLOBAL__N_124OSLogFormatStringHandlerC2EN4llvm8ArrayRefIPKN5clang4ExprEEE.
   br label %91
 
 91:                                               ; preds = %85, %81
-  %92 = getelementptr inbounds i8, ptr %.055.i, i64 48
+  %92 = getelementptr inbounds nuw i8, ptr %.055.i, i64 48
   %93 = load i8, ptr %92, align 8
   %94 = trunc i8 %93 to i1
   br i1 %94, label %95, label %101
@@ -240,7 +240,7 @@ _ZN12_GLOBAL__N_124OSLogFormatStringHandlerC2EN4llvm8ArrayRefIPKN5clang4ExprEEE.
   br label %101
 
 101:                                              ; preds = %95, %91
-  %102 = getelementptr inbounds i8, ptr %.055.i, i64 32
+  %102 = getelementptr inbounds nuw i8, ptr %.055.i, i64 32
   %103 = load i8, ptr %102, align 8
   %104 = trunc i8 %103 to i1
   br i1 %104, label %105, label %111
@@ -258,7 +258,7 @@ _ZN12_GLOBAL__N_124OSLogFormatStringHandlerC2EN4llvm8ArrayRefIPKN5clang4ExprEEE.
   br label %111
 
 111:                                              ; preds = %105, %101
-  %112 = getelementptr inbounds i8, ptr %.055.i, i64 20
+  %112 = getelementptr inbounds nuw i8, ptr %.055.i, i64 20
   %113 = load i8, ptr %112, align 4
   %114 = trunc i8 %113 to i1
   br i1 %114, label %115, label %121
@@ -274,7 +274,7 @@ _ZN12_GLOBAL__N_124OSLogFormatStringHandlerC2EN4llvm8ArrayRefIPKN5clang4ExprEEE.
 
 121:                                              ; preds = %115, %111
   %122 = getelementptr inbounds nuw i8, ptr %.055.i, i64 8
-  %123 = getelementptr inbounds i8, ptr %.055.i, i64 12
+  %123 = getelementptr inbounds nuw i8, ptr %.055.i, i64 12
   %124 = load i8, ptr %123, align 4
   %125 = trunc i8 %124 to i1
   br i1 %125, label %126, label %136
@@ -445,7 +445,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5clang21analyze_format_string1
 ; Function Attrs: mustprogress nounwind uwtable
 define internal noundef zeroext i1 @_ZN12_GLOBAL__N_124OSLogFormatStringHandler21HandlePrintfSpecifierERKN5clang14analyze_printf15PrintfSpecifierEPKcjRKNS1_10TargetInfoE(ptr noundef nonnull align 8 dereferenceable(424) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(384) %1, ptr nocapture readnone %2, i32 %3, ptr nocapture nonnull readnone align 1 %4) unnamed_addr #0 align 2 {
   %6 = alloca %"struct.(anonymous namespace)::OSLogFormatStringHandler::ArgData", align 8
-  %7 = getelementptr inbounds i8, ptr %1, i64 64
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %8 = load i32, ptr %7, align 8
   switch i32 %8, label %_ZNK5clang14analyze_printf15PrintfSpecifier20consumesDataArgumentEv.exit.thread [
     i32 24, label %169
@@ -523,7 +523,7 @@ _ZN4llvm15SmallVectorImplIN12_GLOBAL__N_124OSLogFormatStringHandler7ArgDataEE12e
   %41 = load i32, ptr %40, align 4
   %42 = zext i32 %41 to i64
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 408
-  %44 = getelementptr inbounds i8, ptr %0, i64 416
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 416
   %45 = load i64, ptr %44, align 8
   %46 = icmp ugt i64 %45, %42
   br i1 %46, label %47, label %54
@@ -607,7 +607,7 @@ _ZN12_GLOBAL__N_124OSLogFormatStringHandler7getKindEN5clang21analyze_format_stri
   ]
 
 81:                                               ; preds = %.critedge, %.critedge
-  %82 = getelementptr inbounds i8, ptr %1, i64 356
+  %82 = getelementptr inbounds nuw i8, ptr %1, i64 356
   %83 = load i32, ptr %82, align 4
   switch i32 %83, label %133 [
     i32 3, label %169
@@ -616,7 +616,7 @@ _ZN12_GLOBAL__N_124OSLogFormatStringHandler7getKindEN5clang21analyze_format_stri
   ]
 
 84:                                               ; preds = %81
-  %85 = getelementptr inbounds i8, ptr %1, i64 360
+  %85 = getelementptr inbounds nuw i8, ptr %1, i64 360
   %86 = load i32, ptr %85, align 8
   %.val.i.i31 = load ptr, ptr %9, align 8
   %87 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %9) #9
@@ -628,7 +628,7 @@ _ZN12_GLOBAL__N_124OSLogFormatStringHandler7getKindEN5clang21analyze_format_stri
   br label %133
 
 90:                                               ; preds = %81
-  %91 = getelementptr inbounds i8, ptr %1, i64 360
+  %91 = getelementptr inbounds nuw i8, ptr %1, i64 360
   %92 = load i32, ptr %91, align 8
   %93 = zext i32 %92 to i64
   %94 = load ptr, ptr %43, align 8
@@ -644,7 +644,7 @@ _ZN12_GLOBAL__N_124OSLogFormatStringHandler7getKindEN5clang21analyze_format_stri
   br label %133
 
 100:                                              ; preds = %.critedge
-  %101 = getelementptr inbounds i8, ptr %1, i64 356
+  %101 = getelementptr inbounds nuw i8, ptr %1, i64 356
   %102 = load i32, ptr %101, align 4
   switch i32 %102, label %133 [
     i32 0, label %169
@@ -654,7 +654,7 @@ _ZN12_GLOBAL__N_124OSLogFormatStringHandler7getKindEN5clang21analyze_format_stri
   ]
 
 103:                                              ; preds = %100
-  %104 = getelementptr inbounds i8, ptr %1, i64 360
+  %104 = getelementptr inbounds nuw i8, ptr %1, i64 360
   %105 = load i32, ptr %104, align 8
   %.val.i.i33 = load ptr, ptr %9, align 8
   %106 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %9) #9
@@ -666,7 +666,7 @@ _ZN12_GLOBAL__N_124OSLogFormatStringHandler7getKindEN5clang21analyze_format_stri
   br label %133
 
 109:                                              ; preds = %100
-  %110 = getelementptr inbounds i8, ptr %1, i64 360
+  %110 = getelementptr inbounds nuw i8, ptr %1, i64 360
   %111 = load i32, ptr %110, align 8
   %112 = zext i32 %111 to i64
   %113 = load ptr, ptr %43, align 8
@@ -682,13 +682,13 @@ _ZN12_GLOBAL__N_124OSLogFormatStringHandler7getKindEN5clang21analyze_format_stri
   br label %133
 
 119:                                              ; preds = %.critedge
-  %120 = getelementptr inbounds i8, ptr %1, i64 356
+  %120 = getelementptr inbounds nuw i8, ptr %1, i64 356
   %121 = load i32, ptr %120, align 4
   %122 = icmp eq i32 %121, 2
   br i1 %122, label %123, label %133
 
 123:                                              ; preds = %119
-  %124 = getelementptr inbounds i8, ptr %1, i64 360
+  %124 = getelementptr inbounds nuw i8, ptr %1, i64 360
   %125 = load i32, ptr %124, align 8
   %126 = zext i32 %125 to i64
   %127 = load ptr, ptr %43, align 8
@@ -704,13 +704,13 @@ _ZN12_GLOBAL__N_124OSLogFormatStringHandler7getKindEN5clang21analyze_format_stri
   br label %133
 
 133:                                              ; preds = %119, %123, %100, %103, %109, %81, %84, %90
-  %134 = getelementptr inbounds i8, ptr %1, i64 28
+  %134 = getelementptr inbounds nuw i8, ptr %1, i64 28
   %135 = load i32, ptr %134, align 4
   %136 = icmp eq i32 %135, 2
   br i1 %136, label %137, label %147
 
 137:                                              ; preds = %133
-  %138 = getelementptr inbounds i8, ptr %1, i64 32
+  %138 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %139 = load i32, ptr %138, align 8
   %140 = zext i32 %139 to i64
   %141 = load ptr, ptr %43, align 8
@@ -726,19 +726,19 @@ _ZN12_GLOBAL__N_124OSLogFormatStringHandler7getKindEN5clang21analyze_format_stri
   br label %147
 
 147:                                              ; preds = %137, %133
-  %148 = getelementptr inbounds i8, ptr %1, i64 336
+  %148 = getelementptr inbounds nuw i8, ptr %1, i64 336
   %149 = load i8, ptr %148, align 8
   %150 = trunc i8 %149 to i1
   br i1 %150, label %.sink.split, label %151
 
 151:                                              ; preds = %147
-  %152 = getelementptr inbounds i8, ptr %1, i64 288
+  %152 = getelementptr inbounds nuw i8, ptr %1, i64 288
   %153 = load i8, ptr %152, align 8
   %154 = trunc i8 %153 to i1
   br i1 %154, label %.sink.split, label %155
 
 155:                                              ; preds = %151
-  %156 = getelementptr inbounds i8, ptr %1, i64 312
+  %156 = getelementptr inbounds nuw i8, ptr %1, i64 312
   %157 = load i8, ptr %156, align 8
   %158 = trunc i8 %157 to i1
   br i1 %158, label %.sink.split, label %164

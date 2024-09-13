@@ -69,8 +69,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit: ; preds = %2, %5, %1
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %17 = load ptr, ptr %16, align 8
   store ptr %17, ptr %15, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 16
-  %19 = getelementptr inbounds i8, ptr %1, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %20 = load ptr, ptr %19, align 8
   store ptr %20, ptr %18, align 8
   %.not.i.i.i.i = icmp eq ptr %20, null
@@ -84,7 +84,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit: ; preds = %2, %5, %1
 _ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_10PlugPluginEEC2ERKS2_.exit: ; preds = %21, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %26 = getelementptr inbounds i8, ptr %1, i64 32
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %27 = load ptr, ptr %26, align 8
   %28 = load ptr, ptr %25, align 8
   %29 = ptrtoint ptr %27 to i64
@@ -113,10 +113,10 @@ _ZNSt16allocator_traitsISaIN32pxrInternal_v0_24__pxrReserved__7TfTokenEEE8alloca
 .noexc15:                                         ; preds = %_ZNSt16allocator_traitsISaIN32pxrInternal_v0_24__pxrReserved__7TfTokenEEE8allocateERS2_m.exit.i.i.i.i, %_ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_10PlugPluginEEC2ERKS2_.exit
   %36 = phi ptr [ null, %_ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_10PlugPluginEEC2ERKS2_.exit ], [ %35, %_ZNSt16allocator_traitsISaIN32pxrInternal_v0_24__pxrReserved__7TfTokenEEE8allocateERS2_m.exit.i.i.i.i ]
   store ptr %36, ptr %24, align 8
-  %37 = getelementptr inbounds i8, ptr %0, i64 32
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %36, ptr %37, align 8
   %38 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::TfToken", ptr %36, i64 %32
-  %39 = getelementptr inbounds i8, ptr %0, i64 40
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %38, ptr %39, align 8
   %40 = load ptr, ptr %25, align 8
   %41 = load ptr, ptr %26, align 8
@@ -165,7 +165,7 @@ _ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__7TfTokenEJRKS1_EEvPT_DpOT0_.
 58:                                               ; preds = %.loopexit33
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %60 = getelementptr inbounds nuw i8, ptr %1, i64 80
-  %61 = getelementptr inbounds i8, ptr %1, i64 88
+  %61 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %62 = load ptr, ptr %61, align 8
   %63 = load ptr, ptr %60, align 8
   %64 = ptrtoint ptr %62 to i64
@@ -194,10 +194,10 @@ _ZNSt16allocator_traitsISaIN32pxrInternal_v0_24__pxrReserved__7TfTokenEEE8alloca
 .noexc29:                                         ; preds = %_ZNSt16allocator_traitsISaIN32pxrInternal_v0_24__pxrReserved__7TfTokenEEE8allocateERS2_m.exit.i.i.i.i17, %58
   %71 = phi ptr [ null, %58 ], [ %70, %_ZNSt16allocator_traitsISaIN32pxrInternal_v0_24__pxrReserved__7TfTokenEEE8allocateERS2_m.exit.i.i.i.i17 ]
   store ptr %71, ptr %59, align 8
-  %72 = getelementptr inbounds i8, ptr %0, i64 88
+  %72 = getelementptr inbounds nuw i8, ptr %0, i64 88
   store ptr %71, ptr %72, align 8
   %73 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::TfToken", ptr %71, i64 %67
-  %74 = getelementptr inbounds i8, ptr %0, i64 96
+  %74 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store ptr %73, ptr %74, align 8
   %75 = load ptr, ptr %60, align 8
   %76 = load ptr, ptr %61, align 8
@@ -306,8 +306,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit: ; preds = %_ZN32pxrInter
 define void @_ZN32pxrInternal_v0_24__pxrReserved__12UsdValidatorC2ERKNS_20UsdValidatorMetadataERKSt8functionIFSt6vectorINS_18UsdValidationErrorESaIS6_EERKNS_9TfWeakPtrINS_8SdfLayerEEEEE(ptr noundef nonnull align 8 dereferenceable(152) %0, ptr noundef nonnull align 8 dereferenceable(105) %1, ptr noundef nonnull align 8 dereferenceable(32) %2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @_ZN32pxrInternal_v0_24__pxrReserved__20UsdValidatorMetadataC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(105) %0, ptr noundef nonnull align 8 dereferenceable(105) %1)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %5 = getelementptr inbounds i8, ptr %0, i64 128
-  %6 = getelementptr inbounds i8, ptr %0, i64 136
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, i8 0, i64 32, i1 false)
   %8 = load ptr, ptr %7, align 8
@@ -345,7 +345,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__12UsdValidatorC2ERKNS_20UsdVal
   unreachable
 
 23:                                               ; preds = %11, %3
-  %24 = getelementptr inbounds i8, ptr %0, i64 144
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 144
   store i8 0, ptr %24, align 8
   ret void
 
@@ -360,7 +360,7 @@ declare i32 @__gxx_personality_v0(...)
 define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__20UsdValidatorMetadataD2Ev(ptr noundef nonnull align 8 dereferenceable(105) %0) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 88
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %5 = load ptr, ptr %4, align 8
   %.not4.i.i.i.i = icmp eq ptr %3, %5
   br i1 %.not4.i.i.i.i, label %_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__7TfTokenES1_EvT_S3_RSaIT0_E.exit.i, label %.lr.ph.i.i.i.i
@@ -394,7 +394,7 @@ _ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__7TfTokenES1_EvT_S3_RSaIT0_E.ex
   br i1 %.not.i.i.i, label %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7TfTokenESaIS1_EED2Ev.exit, label %15
 
 15:                                               ; preds = %_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__7TfTokenES1_EvT_S3_RSaIT0_E.exit.i
-  %16 = getelementptr inbounds i8, ptr %0, i64 96
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %17 = load ptr, ptr %16, align 8
   %18 = ptrtoint ptr %17 to i64
   %19 = ptrtoint ptr %14 to i64
@@ -407,7 +407,7 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7TfTokenESaIS1_EED2Ev.exit: ; pr
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %21) #14
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %0, i64 32
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %25 = load ptr, ptr %24, align 8
   %.not4.i.i.i.i1 = icmp eq ptr %23, %25
   br i1 %.not4.i.i.i.i1, label %_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__7TfTokenES1_EvT_S3_RSaIT0_E.exit.i9, label %.lr.ph.i.i.i.i2
@@ -441,7 +441,7 @@ _ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__7TfTokenES1_EvT_S3_RSaIT0_E.ex
   br i1 %.not.i.i.i10, label %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7TfTokenESaIS1_EED2Ev.exit11, label %35
 
 35:                                               ; preds = %_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__7TfTokenES1_EvT_S3_RSaIT0_E.exit.i9
-  %36 = getelementptr inbounds i8, ptr %0, i64 40
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %37 = load ptr, ptr %36, align 8
   %38 = ptrtoint ptr %37 to i64
   %39 = ptrtoint ptr %34 to i64
@@ -450,7 +450,7 @@ _ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__7TfTokenES1_EvT_S3_RSaIT0_E.ex
   br label %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7TfTokenESaIS1_EED2Ev.exit11
 
 _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7TfTokenESaIS1_EED2Ev.exit11: ; preds = %_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__7TfTokenES1_EvT_S3_RSaIT0_E.exit.i9, %35
-  %41 = getelementptr inbounds i8, ptr %0, i64 16
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %42 = load ptr, ptr %41, align 8
   %.not.i.i.i.i12 = icmp eq ptr %42, null
   br i1 %.not.i.i.i.i12, label %_ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_10PlugPluginEED2Ev.exit, label %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i
@@ -489,8 +489,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit: ; preds = %_ZN32pxrInter
 define void @_ZN32pxrInternal_v0_24__pxrReserved__12UsdValidatorC2ERKNS_20UsdValidatorMetadataERKSt8functionIFSt6vectorINS_18UsdValidationErrorESaIS6_EERKNS_9TfWeakPtrINS_8UsdStageEEEEE(ptr noundef nonnull align 8 dereferenceable(152) %0, ptr noundef nonnull align 8 dereferenceable(105) %1, ptr noundef nonnull align 8 dereferenceable(32) %2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @_ZN32pxrInternal_v0_24__pxrReserved__20UsdValidatorMetadataC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(105) %0, ptr noundef nonnull align 8 dereferenceable(105) %1)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %5 = getelementptr inbounds i8, ptr %0, i64 128
-  %6 = getelementptr inbounds i8, ptr %0, i64 136
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, i8 0, i64 32, i1 false)
   %8 = load ptr, ptr %7, align 8
@@ -528,7 +528,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__12UsdValidatorC2ERKNS_20UsdVal
   unreachable
 
 23:                                               ; preds = %11, %3
-  %24 = getelementptr inbounds i8, ptr %0, i64 144
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 144
   store i8 1, ptr %24, align 8
   ret void
 
@@ -541,8 +541,8 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__12UsdValidatorC2ERKNS_20UsdVal
 define void @_ZN32pxrInternal_v0_24__pxrReserved__12UsdValidatorC2ERKNS_20UsdValidatorMetadataERKSt8functionIFSt6vectorINS_18UsdValidationErrorESaIS6_EERKNS_7UsdPrimEEE(ptr noundef nonnull align 8 dereferenceable(152) %0, ptr noundef nonnull align 8 dereferenceable(105) %1, ptr noundef nonnull align 8 dereferenceable(32) %2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @_ZN32pxrInternal_v0_24__pxrReserved__20UsdValidatorMetadataC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(105) %0, ptr noundef nonnull align 8 dereferenceable(105) %1)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %5 = getelementptr inbounds i8, ptr %0, i64 128
-  %6 = getelementptr inbounds i8, ptr %0, i64 136
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, i8 0, i64 32, i1 false)
   %8 = load ptr, ptr %7, align 8
@@ -580,7 +580,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__12UsdValidatorC2ERKNS_20UsdVal
   unreachable
 
 23:                                               ; preds = %11, %3
-  %24 = getelementptr inbounds i8, ptr %0, i64 144
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 144
   store i8 2, ptr %24, align 8
   ret void
 
@@ -592,7 +592,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__12UsdValidatorC2ERKNS_20UsdVal
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__12UsdValidator21_GetValidateLayerTaskEv(ptr noundef nonnull readonly align 8 dereferenceable(152) %0) local_unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %3 = getelementptr inbounds i8, ptr %0, i64 144
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %4 = load i8, ptr %3, align 8
   %5 = icmp eq i8 %4, 0
   %spec.select.i.i = select i1 %5, ptr %2, ptr null
@@ -602,7 +602,7 @@ define noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__12UsdValidator21_GetVa
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__12UsdValidator21_GetValidateStageTaskEv(ptr noundef nonnull readonly align 8 dereferenceable(152) %0) local_unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %3 = getelementptr inbounds i8, ptr %0, i64 144
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %4 = load i8, ptr %3, align 8
   %5 = icmp eq i8 %4, 1
   %spec.select.i.i = select i1 %5, ptr %2, ptr null
@@ -612,7 +612,7 @@ define noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__12UsdValidator21_GetVa
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__12UsdValidator20_GetValidatePrimTaskEv(ptr noundef nonnull readonly align 8 dereferenceable(152) %0) local_unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %3 = getelementptr inbounds i8, ptr %0, i64 144
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %4 = load i8, ptr %3, align 8
   %5 = icmp eq i8 %4, 2
   %spec.select.i.i = select i1 %5, ptr %2, ptr null
@@ -622,13 +622,13 @@ define noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__12UsdValidator20_GetVa
 ; Function Attrs: mustprogress uwtable
 define void @_ZNK32pxrInternal_v0_24__pxrReserved__12UsdValidator8ValidateERKNS_9TfWeakPtrINS_8SdfLayerEEE(ptr dead_on_unwind noalias writable sret(%"class.std::vector.16") align 8 %0, ptr noundef nonnull align 8 dereferenceable(152) %1, ptr noundef nonnull align 8 dereferenceable(16) %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 112
-  %5 = getelementptr inbounds i8, ptr %1, i64 144
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 144
   %6 = load i8, ptr %5, align 8
   %.not = icmp eq i8 %6, 0
   br i1 %.not, label %7, label %20
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %1, i64 128
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 128
   %9 = load ptr, ptr %8, align 8, !noalias !7
   %.not.i.i = icmp eq ptr %9, null
   br i1 %.not.i.i, label %10, label %_ZNKSt8functionIFSt6vectorIN32pxrInternal_v0_24__pxrReserved__18UsdValidationErrorESaIS2_EERKNS1_9TfWeakPtrINS1_8SdfLayerEEEEEclES9_.exit
@@ -638,7 +638,7 @@ define void @_ZNK32pxrInternal_v0_24__pxrReserved__12UsdValidator8ValidateERKNS_
   unreachable
 
 _ZNKSt8functionIFSt6vectorIN32pxrInternal_v0_24__pxrReserved__18UsdValidationErrorESaIS2_EERKNS1_9TfWeakPtrINS1_8SdfLayerEEEEEclES9_.exit: ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %1, i64 136
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 136
   %12 = load ptr, ptr %11, align 8, !noalias !7
   tail call void %12(ptr dead_on_unwind writable sret(%"class.std::vector.16") align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %2)
   %13 = load ptr, ptr %0, align 8
@@ -719,13 +719,13 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
 ; Function Attrs: mustprogress uwtable
 define void @_ZNK32pxrInternal_v0_24__pxrReserved__12UsdValidator8ValidateERKNS_9TfWeakPtrINS_8UsdStageEEE(ptr dead_on_unwind noalias writable sret(%"class.std::vector.16") align 8 %0, ptr noundef nonnull align 8 dereferenceable(152) %1, ptr noundef nonnull align 8 dereferenceable(16) %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 112
-  %5 = getelementptr inbounds i8, ptr %1, i64 144
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 144
   %6 = load i8, ptr %5, align 8
   %.not = icmp eq i8 %6, 1
   br i1 %.not, label %7, label %20
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %1, i64 128
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 128
   %9 = load ptr, ptr %8, align 8, !noalias !11
   %.not.i.i = icmp eq ptr %9, null
   br i1 %.not.i.i, label %10, label %_ZNKSt8functionIFSt6vectorIN32pxrInternal_v0_24__pxrReserved__18UsdValidationErrorESaIS2_EERKNS1_9TfWeakPtrINS1_8UsdStageEEEEEclES9_.exit
@@ -735,7 +735,7 @@ define void @_ZNK32pxrInternal_v0_24__pxrReserved__12UsdValidator8ValidateERKNS_
   unreachable
 
 _ZNKSt8functionIFSt6vectorIN32pxrInternal_v0_24__pxrReserved__18UsdValidationErrorESaIS2_EERKNS1_9TfWeakPtrINS1_8UsdStageEEEEEclES9_.exit: ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %1, i64 136
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 136
   %12 = load ptr, ptr %11, align 8, !noalias !11
   tail call void %12(ptr dead_on_unwind writable sret(%"class.std::vector.16") align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %2)
   %13 = load ptr, ptr %0, align 8
@@ -771,13 +771,13 @@ _ZNKSt8functionIFSt6vectorIN32pxrInternal_v0_24__pxrReserved__18UsdValidationErr
 ; Function Attrs: mustprogress uwtable
 define void @_ZNK32pxrInternal_v0_24__pxrReserved__12UsdValidator8ValidateERKNS_7UsdPrimE(ptr dead_on_unwind noalias writable sret(%"class.std::vector.16") align 8 %0, ptr noundef nonnull align 8 dereferenceable(152) %1, ptr noundef nonnull align 8 dereferenceable(32) %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 112
-  %5 = getelementptr inbounds i8, ptr %1, i64 144
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 144
   %6 = load i8, ptr %5, align 8
   %.not = icmp eq i8 %6, 2
   br i1 %.not, label %7, label %20
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %1, i64 128
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 128
   %9 = load ptr, ptr %8, align 8, !noalias !14
   %.not.i.i = icmp eq ptr %9, null
   br i1 %.not.i.i, label %10, label %_ZNKSt8functionIFSt6vectorIN32pxrInternal_v0_24__pxrReserved__18UsdValidationErrorESaIS2_EERKNS1_7UsdPrimEEEclES7_.exit
@@ -787,7 +787,7 @@ define void @_ZNK32pxrInternal_v0_24__pxrReserved__12UsdValidator8ValidateERKNS_
   unreachable
 
 _ZNKSt8functionIFSt6vectorIN32pxrInternal_v0_24__pxrReserved__18UsdValidationErrorESaIS2_EERKNS1_7UsdPrimEEEclES7_.exit: ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %1, i64 136
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 136
   %12 = load ptr, ptr %11, align 8, !noalias !14
   tail call void %12(ptr dead_on_unwind writable sret(%"class.std::vector.16") align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(32) %2)
   %13 = load ptr, ptr %0, align 8
@@ -853,10 +853,10 @@ _ZNSt16allocator_traitsISaIPKN32pxrInternal_v0_24__pxrReserved__12UsdValidatorEE
 .noexc4:                                          ; preds = %_ZNSt16allocator_traitsISaIPKN32pxrInternal_v0_24__pxrReserved__12UsdValidatorEEE8allocateERS4_m.exit.i.i.i.i, %3
   %15 = phi ptr [ null, %3 ], [ %14, %_ZNSt16allocator_traitsISaIPKN32pxrInternal_v0_24__pxrReserved__12UsdValidatorEEE8allocateERS4_m.exit.i.i.i.i ]
   store ptr %15, ptr %4, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 120
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 120
   store ptr %15, ptr %16, align 8
   %17 = getelementptr inbounds ptr, ptr %15, i64 %11
-  %18 = getelementptr inbounds i8, ptr %0, i64 128
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store ptr %17, ptr %18, align 8
   %19 = load ptr, ptr %2, align 8
   %20 = load ptr, ptr %5, align 8
@@ -1002,7 +1002,7 @@ define linkonce_odr void @_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__22UsdV
   unreachable
 
 _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit.i.i.i.i.i: ; preds = %20, %7, %.lr.ph.i.i.i
-  %24 = getelementptr inbounds i8, ptr %.05.i.i.i, i64 24
+  %24 = getelementptr inbounds nuw i8, ptr %.05.i.i.i, i64 24
   %25 = load ptr, ptr %24, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %25, null
   br i1 %.not.i.i.i.i.i.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_8SdfLayerEED2Ev.exit.i.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i.i.i.i.i.i

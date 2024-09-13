@@ -62,7 +62,7 @@ define dso_local noundef zeroext i1 @_ZN5clang5arcmt11CheckAction15BeginInvocati
   %9 = load ptr, ptr %8, align 8, !noalias !4
   store ptr %9, ptr %3, align 8, !alias.scope !4
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %11 = getelementptr inbounds i8, ptr %1, i64 184
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 184
   %12 = load ptr, ptr %11, align 8, !noalias !4
   store ptr %12, ptr %10, align 8, !alias.scope !4
   %.not.i.i.i.i = icmp eq ptr %12, null
@@ -168,7 +168,7 @@ _ZNSt10shared_ptrIN5clang22PCHContainerOperationsEED2Ev.exit: ; preds = %_ZNK5cl
 
 61:                                               ; preds = %_ZNSt10shared_ptrIN5clang22PCHContainerOperationsEED2Ev.exit
   %62 = load ptr, ptr %21, align 8
-  %63 = getelementptr inbounds i8, ptr %62, i64 152
+  %63 = getelementptr inbounds nuw i8, ptr %62, i64 152
   %64 = load ptr, ptr %63, align 8
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 24
   %66 = load i8, ptr %65, align 8
@@ -222,7 +222,7 @@ define dso_local noundef zeroext i1 @_ZN5clang5arcmt12ModifyAction15BeginInvocat
   %8 = load ptr, ptr %7, align 8, !noalias !7
   store ptr %8, ptr %3, align 8, !alias.scope !7
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %10 = getelementptr inbounds i8, ptr %1, i64 184
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 184
   %11 = load ptr, ptr %10, align 8, !noalias !7
   store ptr %11, ptr %9, align 8, !alias.scope !7
   %.not.i.i.i.i = icmp eq ptr %11, null
@@ -364,7 +364,7 @@ define dso_local noundef zeroext i1 @_ZN5clang5arcmt13MigrateAction15BeginInvoca
   %9 = load ptr, ptr %8, align 8, !noalias !10
   store ptr %9, ptr %3, align 8, !alias.scope !10
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %11 = getelementptr inbounds i8, ptr %1, i64 184
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 184
   %12 = load ptr, ptr %11, align 8, !noalias !10
   store ptr %12, ptr %10, align 8, !alias.scope !10
   %.not.i.i.i.i = icmp eq ptr %12, null
@@ -481,7 +481,7 @@ _ZNSt10shared_ptrIN5clang22PCHContainerOperationsEED2Ev.exit: ; preds = %_ZNK5cl
 
 71:                                               ; preds = %_ZNSt10shared_ptrIN5clang22PCHContainerOperationsEED2Ev.exit
   %72 = load ptr, ptr %21, align 8
-  %73 = getelementptr inbounds i8, ptr %72, i64 152
+  %73 = getelementptr inbounds nuw i8, ptr %72, i64 152
   %74 = load ptr, ptr %73, align 8
   %75 = getelementptr inbounds nuw i8, ptr %74, i64 24
   %76 = load i8, ptr %75, align 8

@@ -154,9 +154,9 @@ define dso_local noundef zeroext i1 @_ZNK5clang6format17WhitespaceManager6Change
 
 10:                                               ; preds = %8
   %11 = load ptr, ptr %0, align 8
-  %12 = getelementptr inbounds i8, ptr %1, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.sroa.0.0.copyload.i13 = load i32, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %2, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %.sroa.0.0.copyload.i14 = load i32, ptr %13, align 8
   %14 = tail call noundef zeroext i1 @_ZNK5clang13SourceManager25isBeforeInTranslationUnitENS_14SourceLocationES1_(ptr noundef nonnull align 8 dereferenceable(696) %11, i32 %.sroa.0.0.copyload.i13, i32 %.sroa.0.0.copyload.i14) #18
   br label %15
@@ -256,7 +256,7 @@ define dso_local void @_ZN5clang6format17WhitespaceManager17replaceWhitespaceERN
 
 14:                                               ; preds = %7
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 256
-  %16 = getelementptr inbounds i8, ptr %1, i64 296
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 296
   %17 = load i8, ptr %16, align 8
   %18 = trunc i8 %17 to i1
   %19 = load i32, ptr %15, align 8
@@ -324,7 +324,7 @@ define dso_local void @_ZN5clang6format17WhitespaceManager19addUntouchableTokenE
 
 10:                                               ; preds = %3
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 256
-  %12 = getelementptr inbounds i8, ptr %1, i64 296
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 296
   %13 = load i8, ptr %12, align 8
   %14 = trunc i8 %13 to i1
   %15 = load i32, ptr %11, align 8
@@ -441,7 +441,7 @@ define dso_local void @_ZN5clang6format17WhitespaceManager24replaceWhitespaceInT
 
 16:                                               ; preds = %10
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 256
-  %18 = getelementptr inbounds i8, ptr %1, i64 296
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 296
   %19 = load i8, ptr %18, align 8
   %20 = trunc i8 %19 to i1
   %21 = load i32, ptr %17, align 8
@@ -450,7 +450,7 @@ define dso_local void @_ZN5clang6format17WhitespaceManager24replaceWhitespaceInT
   br i1 %or.cond, label %45, label %23
 
 23:                                               ; preds = %16
-  %24 = getelementptr inbounds i8, ptr %1, i64 60
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 60
   %.sroa.0.0.copyload.i.i = load i32, ptr %24, align 4
   %25 = add i32 %.sroa.0.0.copyload.i.i, %2
   %26 = add i32 %25, %3
@@ -1060,7 +1060,7 @@ define dso_local void @_ZN5clang6format17WhitespaceManager22alignConsecutiveMacr
 
 19:                                               ; preds = %15
   %20 = load ptr, ptr %4, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 11
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 11
   %22 = load i8, ptr %21, align 1
   %23 = trunc i8 %22 to i1
   %24 = xor i1 %23, true
@@ -1075,7 +1075,7 @@ define dso_local void @_ZN5clang6format17WhitespaceManager22alignConsecutiveMacr
 
 28:                                               ; preds = %27
   %29 = load ptr, ptr %4, align 8
-  %30 = getelementptr inbounds i8, ptr %29, i64 12
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 12
   %31 = load i8, ptr %30, align 2
   %32 = trunc i8 %31 to i1
   %33 = xor i1 %32, true
@@ -1407,7 +1407,7 @@ define dso_local void @_ZN5clang6format17WhitespaceManager35alignConsecutiveShor
   %15 = select i1 %1, i8 12, i8 13
   store i8 %15, ptr %3, align 1
   %.in34.in.v = select i1 %1, i64 37, i64 38
-  %.in34.in = getelementptr inbounds i8, ptr %8, i64 %.in34.in.v
+  %.in34.in = getelementptr inbounds nuw i8, ptr %8, i64 %.in34.in.v
   %.in34 = load i8, ptr %.in34.in, align 1
   %16 = and i8 %.in34, 1
   store i8 %16, ptr %4, align 1
@@ -1443,7 +1443,7 @@ define dso_local void @_ZN5clang6format17WhitespaceManager35alignConsecutiveShor
 
 26:                                               ; preds = %22
   %27 = load ptr, ptr %7, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 35
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 35
   %29 = load i8, ptr %28, align 1
   %30 = trunc i8 %29 to i1
   %31 = xor i1 %30, true
@@ -1458,7 +1458,7 @@ define dso_local void @_ZN5clang6format17WhitespaceManager35alignConsecutiveShor
 
 35:                                               ; preds = %34
   %36 = load ptr, ptr %7, align 8
-  %37 = getelementptr inbounds i8, ptr %36, i64 36
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 36
   %38 = load i8, ptr %37, align 2
   %39 = trunc i8 %38 to i1
   br i1 %39, label %43, label %40
@@ -1613,7 +1613,7 @@ _ZNK5clang6format11FormatToken17isTrailingCommentEv.exit: ; preds = %101
 
 _ZNK5clang6format11FormatToken17isTrailingCommentEv.exit.thread: ; preds = %97, %101, %90, %_ZNK5clang6format11FormatToken17isTrailingCommentEv.exit
   %106 = load ptr, ptr %7, align 8
-  %107 = getelementptr inbounds i8, ptr %106, i64 38
+  %107 = getelementptr inbounds nuw i8, ptr %106, i64 38
   %108 = load i8, ptr %107, align 2
   %109 = trunc i8 %108 to i1
   %110 = getelementptr inbounds nuw i8, ptr %82, i64 20
@@ -1817,8 +1817,8 @@ define dso_local void @_ZN5clang6format17WhitespaceManager28alignConsecutiveDecl
   br i1 %.not87286.i, label %"_ZN5clang6formatL11AlignTokensIZNS0_17WhitespaceManager28alignConsecutiveDeclarationsEvE3$_0EEjRKNS0_11FormatStyleEOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEjRKNS4_21AlignConsecutiveStyleEb.exit", label %.lr.ph297.i
 
 .lr.ph297.i:                                      ; preds = %19
-  %22 = getelementptr inbounds i8, ptr %4, i64 29
-  %23 = getelementptr inbounds i8, ptr %4, i64 30
+  %22 = getelementptr inbounds nuw i8, ptr %4, i64 29
+  %23 = getelementptr inbounds nuw i8, ptr %4, i64 30
   %24 = getelementptr inbounds nuw i8, ptr %4, i64 156
   br label %25
 
@@ -2244,9 +2244,9 @@ define dso_local void @_ZN5clang6format17WhitespaceManager27alignConsecutiveAssi
   br i1 %.not87280.i, label %"_ZN5clang6formatL11AlignTokensIZNS0_17WhitespaceManager27alignConsecutiveAssignmentsEvE3$_0EEjRKNS0_11FormatStyleEOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEjRKNS4_21AlignConsecutiveStyleEb.exit", label %.lr.ph291.i
 
 .lr.ph291.i:                                      ; preds = %19
-  %22 = getelementptr inbounds i8, ptr %4, i64 17
-  %23 = getelementptr inbounds i8, ptr %4, i64 18
-  %24 = getelementptr inbounds i8, ptr %4, i64 21
+  %22 = getelementptr inbounds nuw i8, ptr %4, i64 17
+  %23 = getelementptr inbounds nuw i8, ptr %4, i64 18
+  %24 = getelementptr inbounds nuw i8, ptr %4, i64 21
   %25 = getelementptr inbounds nuw i8, ptr %4, i64 156
   br label %26
 
@@ -3283,7 +3283,7 @@ define dso_local void @_ZN5clang6format17WhitespaceManager21alignTrailingComment
   br i1 %13, label %14, label %18
 
 14:                                               ; preds = %7
-  %15 = getelementptr inbounds i8, ptr %10, i64 64
+  %15 = getelementptr inbounds nuw i8, ptr %10, i64 64
   %16 = load i32, ptr %15, align 4
   %17 = add i32 %16, 1
   br label %18
@@ -3333,7 +3333,7 @@ define dso_local void @_ZN5clang6format17WhitespaceManager21alignTrailingComment
 
 39:                                               ; preds = %34
   %40 = getelementptr inbounds nuw i8, ptr %24, i64 12
-  %41 = getelementptr inbounds i8, ptr %24, i64 16
+  %41 = getelementptr inbounds nuw i8, ptr %24, i64 16
   %.sroa.0.0.copyload.i = load i32, ptr %41, align 4
   %.sroa.0.0.copyload.i92 = load i32, ptr %40, align 4
   %42 = load ptr, ptr %24, align 8
@@ -3414,7 +3414,7 @@ define dso_local void @_ZN5clang6format17WhitespaceManager21alignTrailingComment
 
 88:                                               ; preds = %87
   %89 = load ptr, ptr %20, align 8
-  %90 = getelementptr inbounds i8, ptr %24, i64 16
+  %90 = getelementptr inbounds nuw i8, ptr %24, i64 16
   %.sroa.0.0.copyload.i93 = load i32, ptr %90, align 4
   %91 = tail call noundef i32 @_ZNK5clang13SourceManager23getSpellingColumnNumberENS_14SourceLocationEPb(ptr noundef nonnull align 8 dereferenceable(696) %89, i32 %.sroa.0.0.copyload.i93, ptr noundef null) #18
   br i1 %80, label %.lr.ph, label %.loopexit
@@ -3439,7 +3439,7 @@ define dso_local void @_ZN5clang6format17WhitespaceManager21alignTrailingComment
 
 100:                                              ; preds = %94
   %101 = load ptr, ptr %20, align 8
-  %102 = getelementptr inbounds i8, ptr %95, i64 16
+  %102 = getelementptr inbounds nuw i8, ptr %95, i64 16
   %.sroa.0.0.copyload.i94 = load i32, ptr %102, align 4
   %103 = tail call noundef i32 @_ZNK5clang13SourceManager23getSpellingColumnNumberENS_14SourceLocationEPb(ptr noundef nonnull align 8 dereferenceable(696) %101, i32 %.sroa.0.0.copyload.i94, ptr noundef null) #18
   %104 = icmp eq i32 %91, %103
@@ -7062,7 +7062,7 @@ define linkonce_odr hidden void @_ZN5clang11LangOptionsD2Ev(ptr noundef nonnull 
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #18
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 744
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 752
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 752
   %7 = load ptr, ptr %6, align 8
   %.not4.i.i.i.i = icmp eq ptr %5, %7
   br i1 %.not4.i.i.i.i, label %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i, label %.lr.ph.i.i.i.i
@@ -7084,7 +7084,7 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSa
   br i1 %.not.i.i.i, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit, label %10
 
 10:                                               ; preds = %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i
-  %11 = getelementptr inbounds i8, ptr %0, i64 760
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 760
   %12 = load ptr, ptr %11, align 8
   %13 = ptrtoint ptr %12 to i64
   %14 = ptrtoint ptr %9 to i64
@@ -7099,7 +7099,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %17) #18
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 632
   %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %0, i64 640
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 640
   %21 = load ptr, ptr %20, align 8
   %.not4.i.i.i.i1 = icmp eq ptr %19, %21
   br i1 %.not4.i.i.i.i1, label %_ZSt8_DestroyIPN4llvm6TripleES1_EvT_S3_RSaIT0_E.exit.i, label %.lr.ph.i.i.i.i2
@@ -7121,7 +7121,7 @@ _ZSt8_DestroyIPN4llvm6TripleES1_EvT_S3_RSaIT0_E.exit.i: ; preds = %_ZSt8_Destroy
   br i1 %.not.i.i.i6, label %_ZNSt6vectorIN4llvm6TripleESaIS1_EED2Ev.exit, label %24
 
 24:                                               ; preds = %_ZSt8_DestroyIPN4llvm6TripleES1_EvT_S3_RSaIT0_E.exit.i
-  %25 = getelementptr inbounds i8, ptr %0, i64 648
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 648
   %26 = load ptr, ptr %25, align 8
   %27 = ptrtoint ptr %26 to i64
   %28 = ptrtoint ptr %23 to i64
@@ -7136,7 +7136,7 @@ _ZNSt6vectorIN4llvm6TripleESaIS1_EED2Ev.exit:     ; preds = %_ZSt8_DestroyIPN4ll
   tail call void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESt10_Select1stIS8_ESt7greaterIS5_ESaIS8_EE8_M_eraseEPSt13_Rb_tree_nodeIS8_E(ptr noundef nonnull align 8 dereferenceable(48) %30, ptr noundef %32)
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 560
   %34 = load ptr, ptr %33, align 8
-  %35 = getelementptr inbounds i8, ptr %0, i64 568
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 568
   %36 = load ptr, ptr %35, align 8
   %.not4.i.i.i.i7 = icmp eq ptr %34, %36
   br i1 %.not4.i.i.i.i7, label %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i13, label %.lr.ph.i.i.i.i8
@@ -7158,7 +7158,7 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSa
   br i1 %.not.i.i.i14, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit15, label %39
 
 39:                                               ; preds = %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i13
-  %40 = getelementptr inbounds i8, ptr %0, i64 576
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 576
   %41 = load ptr, ptr %40, align 8
   %42 = ptrtoint ptr %41 to i64
   %43 = ptrtoint ptr %38 to i64
@@ -7169,7 +7169,7 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSa
 _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit15: ; preds = %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i13, %39
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 528
   %46 = load ptr, ptr %45, align 8
-  %47 = getelementptr inbounds i8, ptr %0, i64 536
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 536
   %48 = load ptr, ptr %47, align 8
   %.not4.i.i.i.i.i = icmp eq ptr %46, %48
   br i1 %.not4.i.i.i.i.i, label %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i.i, label %.lr.ph.i.i.i.i.i
@@ -7191,7 +7191,7 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSa
   br i1 %.not.i.i.i.i16, label %_ZN5clang14CommentOptionsD2Ev.exit, label %51
 
 51:                                               ; preds = %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i.i
-  %52 = getelementptr inbounds i8, ptr %0, i64 544
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 544
   %53 = load ptr, ptr %52, align 8
   %54 = ptrtoint ptr %53 to i64
   %55 = ptrtoint ptr %50 to i64
@@ -7202,7 +7202,7 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSa
 _ZN5clang14CommentOptionsD2Ev.exit:               ; preds = %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i.i, %51
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 504
   %58 = load ptr, ptr %57, align 8
-  %59 = getelementptr inbounds i8, ptr %0, i64 512
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 512
   %60 = load ptr, ptr %59, align 8
   %.not4.i.i.i.i17 = icmp eq ptr %58, %60
   br i1 %.not4.i.i.i.i17, label %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i23, label %.lr.ph.i.i.i.i18
@@ -7224,7 +7224,7 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSa
   br i1 %.not.i.i.i24, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit25, label %63
 
 63:                                               ; preds = %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i23
-  %64 = getelementptr inbounds i8, ptr %0, i64 520
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 520
   %65 = load ptr, ptr %64, align 8
   %66 = ptrtoint ptr %65 to i64
   %67 = ptrtoint ptr %62 to i64
@@ -7243,7 +7243,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %72) #18
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 328
   %74 = load ptr, ptr %73, align 8
-  %75 = getelementptr inbounds i8, ptr %0, i64 336
+  %75 = getelementptr inbounds nuw i8, ptr %0, i64 336
   %76 = load ptr, ptr %75, align 8
   %.not4.i.i.i.i26 = icmp eq ptr %74, %76
   br i1 %.not4.i.i.i.i26, label %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i32, label %.lr.ph.i.i.i.i27
@@ -7265,7 +7265,7 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSa
   br i1 %.not.i.i.i33, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit34, label %79
 
 79:                                               ; preds = %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i32
-  %80 = getelementptr inbounds i8, ptr %0, i64 344
+  %80 = getelementptr inbounds nuw i8, ptr %0, i64 344
   %81 = load ptr, ptr %80, align 8
   %82 = ptrtoint ptr %81 to i64
   %83 = ptrtoint ptr %78 to i64
@@ -7276,7 +7276,7 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSa
 _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit34: ; preds = %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i32, %79
   %85 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %86 = load ptr, ptr %85, align 8
-  %87 = getelementptr inbounds i8, ptr %0, i64 312
+  %87 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %88 = load ptr, ptr %87, align 8
   %.not4.i.i.i.i35 = icmp eq ptr %86, %88
   br i1 %.not4.i.i.i.i35, label %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i41, label %.lr.ph.i.i.i.i36
@@ -7298,7 +7298,7 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSa
   br i1 %.not.i.i.i42, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit43, label %91
 
 91:                                               ; preds = %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i41
-  %92 = getelementptr inbounds i8, ptr %0, i64 320
+  %92 = getelementptr inbounds nuw i8, ptr %0, i64 320
   %93 = load ptr, ptr %92, align 8
   %94 = ptrtoint ptr %93 to i64
   %95 = ptrtoint ptr %90 to i64
@@ -7309,7 +7309,7 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSa
 _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit43: ; preds = %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i41, %91
   %97 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %98 = load ptr, ptr %97, align 8
-  %99 = getelementptr inbounds i8, ptr %0, i64 288
+  %99 = getelementptr inbounds nuw i8, ptr %0, i64 288
   %100 = load ptr, ptr %99, align 8
   %.not4.i.i.i.i44 = icmp eq ptr %98, %100
   br i1 %.not4.i.i.i.i44, label %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i50, label %.lr.ph.i.i.i.i45
@@ -7331,7 +7331,7 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSa
   br i1 %.not.i.i.i51, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit52, label %103
 
 103:                                              ; preds = %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i50
-  %104 = getelementptr inbounds i8, ptr %0, i64 296
+  %104 = getelementptr inbounds nuw i8, ptr %0, i64 296
   %105 = load ptr, ptr %104, align 8
   %106 = ptrtoint ptr %105 to i64
   %107 = ptrtoint ptr %102 to i64
@@ -7342,7 +7342,7 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSa
 _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit52: ; preds = %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i50, %103
   %109 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %110 = load ptr, ptr %109, align 8
-  %111 = getelementptr inbounds i8, ptr %0, i64 264
+  %111 = getelementptr inbounds nuw i8, ptr %0, i64 264
   %112 = load ptr, ptr %111, align 8
   %.not4.i.i.i.i53 = icmp eq ptr %110, %112
   br i1 %.not4.i.i.i.i53, label %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i59, label %.lr.ph.i.i.i.i54
@@ -7364,7 +7364,7 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSa
   br i1 %.not.i.i.i60, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit61, label %115
 
 115:                                              ; preds = %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i59
-  %116 = getelementptr inbounds i8, ptr %0, i64 272
+  %116 = getelementptr inbounds nuw i8, ptr %0, i64 272
   %117 = load ptr, ptr %116, align 8
   %118 = ptrtoint ptr %117 to i64
   %119 = ptrtoint ptr %114 to i64
@@ -7375,7 +7375,7 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSa
 _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit61: ; preds = %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i59, %115
   %121 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %122 = load ptr, ptr %121, align 8
-  %123 = getelementptr inbounds i8, ptr %0, i64 240
+  %123 = getelementptr inbounds nuw i8, ptr %0, i64 240
   %124 = load ptr, ptr %123, align 8
   %.not4.i.i.i.i62 = icmp eq ptr %122, %124
   br i1 %.not4.i.i.i.i62, label %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i68, label %.lr.ph.i.i.i.i63
@@ -7397,7 +7397,7 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSa
   br i1 %.not.i.i.i69, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit70, label %127
 
 127:                                              ; preds = %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i68
-  %128 = getelementptr inbounds i8, ptr %0, i64 248
+  %128 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %129 = load ptr, ptr %128, align 8
   %130 = ptrtoint ptr %129 to i64
   %131 = ptrtoint ptr %126 to i64
@@ -7563,7 +7563,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZN5
   br i1 %.not.i.i, label %54, label %17
 
 17:                                               ; preds = %5
-  %18 = getelementptr inbounds i8, ptr %0, i64 208
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %19 = udiv i32 %6, 42
   %20 = urem i32 %6, 42
   %.zext.i.i = zext nneg i32 %19 to i64
@@ -7574,7 +7574,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZN5
   br i1 %.not.i.i.i, label %24, label %_ZNK4llvm11PagedVectorIN5clang6SrcMgr9SLocEntryELm42EEixEm.exit.i.i
 
 24:                                               ; preds = %17
-  %25 = getelementptr inbounds i8, ptr %0, i64 224
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %.0.copyload.i.i.i.i.i.i = load i64, ptr %25, align 8
   %26 = and i64 %.0.copyload.i.i.i.i.i.i, -8
   %27 = inttoptr i64 %26 to ptr
@@ -7986,7 +7986,7 @@ define linkonce_odr void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_tra
   %5 = getelementptr inbounds nuw i8, ptr %.07, i64 16
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %.07, i64 32
-  %8 = getelementptr inbounds i8, ptr %.07, i64 64
+  %8 = getelementptr inbounds nuw i8, ptr %.07, i64 64
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #18
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #18
   tail call void @_ZdlPvm(ptr noundef nonnull %.07, i64 noundef 96) #20
@@ -8301,9 +8301,9 @@ define linkonce_odr void @_ZSt13__adjust_heapIPN5clang6format17WhitespaceManager
   br i1 %20, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5clang6format17WhitespaceManager6Change14IsBeforeInFileEEclIPS5_S9_EEbT_T0_.exit, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5clang6format17WhitespaceManager6Change14IsBeforeInFileEEclIPS5_S9_EEbT_T0_.exit.thread29
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5clang6format17WhitespaceManager6Change14IsBeforeInFileEEclIPS5_S9_EEbT_T0_.exit: ; preds = %19
-  %21 = getelementptr inbounds i8, ptr %13, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %.sroa.0.0.copyload.i13.i.i = load i32, ptr %21, align 4
-  %22 = getelementptr inbounds i8, ptr %15, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %.sroa.0.0.copyload.i14.i.i = load i32, ptr %22, align 4
   %23 = tail call noundef zeroext i1 @_ZNK5clang13SourceManager25isBeforeInTranslationUnitENS_14SourceLocationES1_(ptr noundef nonnull align 8 dereferenceable(696) %4, i32 %.sroa.0.0.copyload.i13.i.i, i32 %.sroa.0.0.copyload.i14.i.i) #18
   br i1 %23, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5clang6format17WhitespaceManager6Change14IsBeforeInFileEEclIPS5_S9_EEbT_T0_.exit.thread, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5clang6format17WhitespaceManager6Change14IsBeforeInFileEEclIPS5_S9_EEbT_T0_.exit.thread29
@@ -8384,7 +8384,7 @@ define linkonce_odr void @_ZSt11__push_heapIPN5clang6format17WhitespaceManager6C
 
 .lr.ph:                                           ; preds = %5
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 12
-  %8 = getelementptr inbounds i8, ptr %3, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 16
   br label %9
 
 9:                                                ; preds = %.lr.ph, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5clang6format17WhitespaceManager6Change14IsBeforeInFileEEclIPS5_S5_EEbT_RT0_.exit.thread
@@ -8407,7 +8407,7 @@ define linkonce_odr void @_ZSt11__push_heapIPN5clang6format17WhitespaceManager6C
 
 _ZN9__gnu_cxx5__ops14_Iter_comp_valIN5clang6format17WhitespaceManager6Change14IsBeforeInFileEEclIPS5_S5_EEbT_RT0_.exit: ; preds = %14
   %16 = load ptr, ptr %4, align 8
-  %17 = getelementptr inbounds i8, ptr %10, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %.sroa.0.0.copyload.i13.i.i = load i32, ptr %17, align 4
   %.sroa.0.0.copyload.i14.i.i = load i32, ptr %8, align 4
   %18 = tail call noundef zeroext i1 @_ZNK5clang13SourceManager25isBeforeInTranslationUnitENS_14SourceLocationES1_(ptr noundef nonnull align 8 dereferenceable(696) %16, i32 %.sroa.0.0.copyload.i13.i.i, i32 %.sroa.0.0.copyload.i14.i.i) #18
@@ -8469,9 +8469,9 @@ define linkonce_odr void @_ZSt22__move_median_to_firstIPN5clang6format17Whitespa
   br i1 %16, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5clang6format17WhitespaceManager6Change14IsBeforeInFileEEclIPS5_S9_EEbT_T0_.exit, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5clang6format17WhitespaceManager6Change14IsBeforeInFileEEclIPS5_S9_EEbT_T0_.exit.thread59
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5clang6format17WhitespaceManager6Change14IsBeforeInFileEEclIPS5_S9_EEbT_T0_.exit: ; preds = %15
-  %17 = getelementptr inbounds i8, ptr %1, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.sroa.0.0.copyload.i13.i.i = load i32, ptr %17, align 4
-  %18 = getelementptr inbounds i8, ptr %2, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %.sroa.0.0.copyload.i14.i.i = load i32, ptr %18, align 4
   %19 = tail call noundef zeroext i1 @_ZNK5clang13SourceManager25isBeforeInTranslationUnitENS_14SourceLocationES1_(ptr noundef nonnull align 8 dereferenceable(696) %4, i32 %.sroa.0.0.copyload.i13.i.i, i32 %.sroa.0.0.copyload.i14.i.i) #18
   br i1 %19, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5clang6format17WhitespaceManager6Change14IsBeforeInFileEEclIPS5_S9_EEbT_T0_.exit.thread, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5clang6format17WhitespaceManager6Change14IsBeforeInFileEEclIPS5_S9_EEbT_T0_.exit._ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5clang6format17WhitespaceManager6Change14IsBeforeInFileEEclIPS5_S9_EEbT_T0_.exit.thread59_crit_edge
@@ -8494,9 +8494,9 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5clang6format17WhitespaceManager6Change14I
   br i1 %23, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5clang6format17WhitespaceManager6Change14IsBeforeInFileEEclIPS5_S9_EEbT_T0_.exit28, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5clang6format17WhitespaceManager6Change14IsBeforeInFileEEclIPS5_S9_EEbT_T0_.exit28.thread60
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5clang6format17WhitespaceManager6Change14IsBeforeInFileEEclIPS5_S9_EEbT_T0_.exit28: ; preds = %22
-  %24 = getelementptr inbounds i8, ptr %2, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %.sroa.0.0.copyload.i13.i.i26 = load i32, ptr %24, align 4
-  %25 = getelementptr inbounds i8, ptr %3, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %.sroa.0.0.copyload.i14.i.i27 = load i32, ptr %25, align 4
   %26 = tail call noundef zeroext i1 @_ZNK5clang13SourceManager25isBeforeInTranslationUnitENS_14SourceLocationES1_(ptr noundef nonnull align 8 dereferenceable(696) %4, i32 %.sroa.0.0.copyload.i13.i.i26, i32 %.sroa.0.0.copyload.i14.i.i27) #18
   br i1 %26, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5clang6format17WhitespaceManager6Change14IsBeforeInFileEEclIPS5_S9_EEbT_T0_.exit28.thread, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5clang6format17WhitespaceManager6Change14IsBeforeInFileEEclIPS5_S9_EEbT_T0_.exit28._ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5clang6format17WhitespaceManager6Change14IsBeforeInFileEEclIPS5_S9_EEbT_T0_.exit28.thread60_crit_edge
@@ -8546,9 +8546,9 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5clang6format17WhitespaceManager6Change14I
   br i1 %42, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5clang6format17WhitespaceManager6Change14IsBeforeInFileEEclIPS5_S9_EEbT_T0_.exit35, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5clang6format17WhitespaceManager6Change14IsBeforeInFileEEclIPS5_S9_EEbT_T0_.exit35.thread61
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5clang6format17WhitespaceManager6Change14IsBeforeInFileEEclIPS5_S9_EEbT_T0_.exit35: ; preds = %41
-  %43 = getelementptr inbounds i8, ptr %1, i64 16
+  %43 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.sroa.0.0.copyload.i13.i.i33 = load i32, ptr %43, align 4
-  %44 = getelementptr inbounds i8, ptr %3, i64 16
+  %44 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %.sroa.0.0.copyload.i14.i.i34 = load i32, ptr %44, align 4
   %45 = tail call noundef zeroext i1 @_ZNK5clang13SourceManager25isBeforeInTranslationUnitENS_14SourceLocationES1_(ptr noundef nonnull align 8 dereferenceable(696) %4, i32 %.sroa.0.0.copyload.i13.i.i33, i32 %.sroa.0.0.copyload.i14.i.i34) #18
   br i1 %45, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5clang6format17WhitespaceManager6Change14IsBeforeInFileEEclIPS5_S9_EEbT_T0_.exit35.thread, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5clang6format17WhitespaceManager6Change14IsBeforeInFileEEclIPS5_S9_EEbT_T0_.exit35.thread61
@@ -8623,9 +8623,9 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5clang6format17WhitespaceManager6Change14I
   br i1 %75, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5clang6format17WhitespaceManager6Change14IsBeforeInFileEEclIPS5_S9_EEbT_T0_.exit42, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5clang6format17WhitespaceManager6Change14IsBeforeInFileEEclIPS5_S9_EEbT_T0_.exit42.thread62
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5clang6format17WhitespaceManager6Change14IsBeforeInFileEEclIPS5_S9_EEbT_T0_.exit42: ; preds = %74
-  %76 = getelementptr inbounds i8, ptr %1, i64 16
+  %76 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.sroa.0.0.copyload.i13.i.i40 = load i32, ptr %76, align 4
-  %77 = getelementptr inbounds i8, ptr %3, i64 16
+  %77 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %.sroa.0.0.copyload.i14.i.i41 = load i32, ptr %77, align 4
   %78 = tail call noundef zeroext i1 @_ZNK5clang13SourceManager25isBeforeInTranslationUnitENS_14SourceLocationES1_(ptr noundef nonnull align 8 dereferenceable(696) %4, i32 %.sroa.0.0.copyload.i13.i.i40, i32 %.sroa.0.0.copyload.i14.i.i41) #18
   br i1 %78, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5clang6format17WhitespaceManager6Change14IsBeforeInFileEEclIPS5_S9_EEbT_T0_.exit42.thread, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5clang6format17WhitespaceManager6Change14IsBeforeInFileEEclIPS5_S9_EEbT_T0_.exit42._ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5clang6format17WhitespaceManager6Change14IsBeforeInFileEEclIPS5_S9_EEbT_T0_.exit42.thread62_crit_edge
@@ -8675,9 +8675,9 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5clang6format17WhitespaceManager6Change14I
   br i1 %94, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5clang6format17WhitespaceManager6Change14IsBeforeInFileEEclIPS5_S9_EEbT_T0_.exit49, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5clang6format17WhitespaceManager6Change14IsBeforeInFileEEclIPS5_S9_EEbT_T0_.exit49.thread63
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5clang6format17WhitespaceManager6Change14IsBeforeInFileEEclIPS5_S9_EEbT_T0_.exit49: ; preds = %93
-  %95 = getelementptr inbounds i8, ptr %2, i64 16
+  %95 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %.sroa.0.0.copyload.i13.i.i47 = load i32, ptr %95, align 4
-  %96 = getelementptr inbounds i8, ptr %3, i64 16
+  %96 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %.sroa.0.0.copyload.i14.i.i48 = load i32, ptr %96, align 4
   %97 = tail call noundef zeroext i1 @_ZNK5clang13SourceManager25isBeforeInTranslationUnitENS_14SourceLocationES1_(ptr noundef nonnull align 8 dereferenceable(696) %4, i32 %.sroa.0.0.copyload.i13.i.i47, i32 %.sroa.0.0.copyload.i14.i.i48) #18
   br i1 %97, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5clang6format17WhitespaceManager6Change14IsBeforeInFileEEclIPS5_S9_EEbT_T0_.exit49.thread, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5clang6format17WhitespaceManager6Change14IsBeforeInFileEEclIPS5_S9_EEbT_T0_.exit49.thread63
@@ -8746,7 +8746,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5clang6format17WhitespaceManager6Change14I
 define linkonce_odr noundef ptr @_ZSt21__unguarded_partitionIPN5clang6format17WhitespaceManager6ChangeEN9__gnu_cxx5__ops15_Iter_comp_iterINS3_14IsBeforeInFileEEEET_SA_SA_SA_T0_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr %3) local_unnamed_addr #0 comdat {
   %5 = alloca %"struct.clang::format::WhitespaceManager::Change", align 8
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 12
-  %7 = getelementptr inbounds i8, ptr %2, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 64
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 96
@@ -8775,7 +8775,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5clang6format17WhitespaceManager6Change14I
   br label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5clang6format17WhitespaceManager6Change14IsBeforeInFileEEclIPS5_S9_EEbT_T0_.exit
 
 17:                                               ; preds = %15
-  %18 = getelementptr inbounds i8, ptr %.1, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %.1, i64 16
   %.sroa.0.0.copyload.i13.i.i = load i32, ptr %18, align 4
   %.sroa.0.0.copyload.i14.i.i = load i32, ptr %7, align 4
   %19 = call noundef zeroext i1 @_ZNK5clang13SourceManager25isBeforeInTranslationUnitENS_14SourceLocationES1_(ptr noundef nonnull align 8 dereferenceable(696) %3, i32 %.sroa.0.0.copyload.i13.i.i, i32 %.sroa.0.0.copyload.i14.i.i) #18
@@ -8857,7 +8857,7 @@ define linkonce_odr void @_ZSt16__insertion_sortIPN5clang6format17WhitespaceMana
 
 .lr.ph:                                           ; preds = %.preheader
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %7 = getelementptr inbounds i8, ptr %0, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 64
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 96
@@ -8963,7 +8963,7 @@ define linkonce_odr void @_ZSt25__unguarded_linear_insertIPN5clang6format17White
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 96
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %8, ptr noundef nonnull align 8 dereferenceable(40) %9, i64 40, i1 false)
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 12
-  %11 = getelementptr inbounds i8, ptr %3, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 16
   br label %12
 
 12:                                               ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5clang6format17WhitespaceManager6Change14IsBeforeInFileEEclIS5_PS5_EEbRT_T0_.exit.thread, %2
@@ -9513,7 +9513,7 @@ define internal fastcc noundef zeroext i1 @"_ZZN5clang6format17WhitespaceManager
 _ZNK5clang6format11FormatToken21getPreviousNonCommentEv.exit.thread: ; preds = %14, %15
   %18 = getelementptr inbounds nuw i8, ptr %.0.val, i64 2248
   %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 19
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 19
   %21 = load i8, ptr %20, align 1
   %22 = trunc i8 %21 to i1
   br i1 %22, label %23, label %31

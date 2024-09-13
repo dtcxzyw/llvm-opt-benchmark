@@ -187,7 +187,7 @@ define dso_local void @_ZN4llvm19DWARFDebugArangeSet5clearEv(ptr nocapture nound
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2, i8 0, i64 32, i1 false)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 48
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %6 = load ptr, ptr %5, align 8
   %.not.i.i = icmp eq ptr %6, %4
   br i1 %.not.i.i, label %_ZNSt6vectorIN4llvm19DWARFDebugArangeSet10DescriptorESaIS2_EE5clearEv.exit, label %7
@@ -231,7 +231,7 @@ define dso_local void @_ZN4llvm19DWARFDebugArangeSet7extractENS_18DWARFDataExtra
   %30 = alloca %"class.llvm::Error", align 8
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %32 = load ptr, ptr %31, align 8
-  %33 = getelementptr inbounds i8, ptr %1, i64 48
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %34 = load ptr, ptr %33, align 8
   %.not.i.i = icmp eq ptr %34, %32
   br i1 %.not.i.i, label %_ZN4llvm12ErrorSuccessD2Ev.exit, label %35
@@ -248,23 +248,23 @@ _ZN4llvm12ErrorSuccessD2Ev.exit:                  ; preds = %35, %6
   %.fca.0.extract = extractvalue { i64, i8 } %37, 0
   %.fca.1.extract = extractvalue { i64, i8 } %37, 1
   %38 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %39 = getelementptr inbounds i8, ptr %1, i64 16
+  %39 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store i64 %.fca.0.extract, ptr %38, align 8
   store i8 %.fca.1.extract, ptr %39, align 8
   %40 = call noundef zeroext i16 @_ZNK4llvm13DataExtractor6getU16EPmPNS_5ErrorE(ptr noundef nonnull align 8 dereferenceable(18) %2, ptr noundef nonnull %3, ptr noundef nonnull %28) #15
-  %41 = getelementptr inbounds i8, ptr %1, i64 32
+  %41 = getelementptr inbounds nuw i8, ptr %1, i64 32
   store i16 %40, ptr %41, align 8
   %42 = load i8, ptr %39, align 8
   %switch.i = icmp eq i8 %42, 0
   %..i = select i1 %switch.i, i32 4, i32 8
   %43 = call noundef i64 @_ZNK4llvm13DataExtractor11getUnsignedEPmjPNS_5ErrorE(ptr noundef nonnull align 8 dereferenceable(18) %2, ptr noundef nonnull %3, i32 noundef %..i, ptr noundef nonnull %28) #15
-  %44 = getelementptr inbounds i8, ptr %1, i64 24
+  %44 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store i64 %43, ptr %44, align 8
   %45 = call noundef zeroext i8 @_ZNK4llvm13DataExtractor5getU8EPmPNS_5ErrorE(ptr noundef nonnull align 8 dereferenceable(18) %2, ptr noundef nonnull %3, ptr noundef nonnull %28) #15
-  %46 = getelementptr inbounds i8, ptr %1, i64 34
+  %46 = getelementptr inbounds nuw i8, ptr %1, i64 34
   store i8 %45, ptr %46, align 2
   %47 = call noundef zeroext i8 @_ZNK4llvm13DataExtractor5getU8EPmPNS_5ErrorE(ptr noundef nonnull align 8 dereferenceable(18) %2, ptr noundef nonnull %3, ptr noundef nonnull %28) #15
-  %48 = getelementptr inbounds i8, ptr %1, i64 35
+  %48 = getelementptr inbounds nuw i8, ptr %1, i64 35
   store i8 %47, ptr %48, align 1
   %49 = load ptr, ptr %28, align 8
   %.not82 = icmp eq ptr %49, null
@@ -544,7 +544,7 @@ _ZN4llvm5ErrorD2Ev.exit42:                        ; preds = %97
   %158 = getelementptr inbounds i8, ptr %11, i64 24
   %159 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %160 = getelementptr inbounds nuw i8, ptr %8, i64 33
-  %161 = getelementptr inbounds i8, ptr %1, i64 56
+  %161 = getelementptr inbounds nuw i8, ptr %1, i64 56
   br label %162
 
 162:                                              ; preds = %.lr.ph, %_ZNSt6vectorIN4llvm19DWARFDebugArangeSet10DescriptorESaIS2_EE9push_backERKS2_.exit
@@ -972,7 +972,7 @@ define dso_local void @_ZNK4llvm19DWARFDebugArangeSet4dumpERNS_11raw_ostreamE(pt
   %6 = alloca %"class.llvm::format_object.14", align 8
   %7 = alloca %"class.llvm::format_object.14", align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = load i8, ptr %9, align 8
   %switch.i = icmp eq i8 %10, 0
   %..i = select i1 %switch.i, i32 8, i32 16
@@ -1088,7 +1088,7 @@ _ZN4llvm11raw_ostreamlsENS_9StringRefE.exit:      ; preds = %54, %56, %57
 
 _ZN4llvm11raw_ostreamlsEPKc.exit12:               ; preds = %67, %69
   %.0.i.i11 = phi ptr [ %68, %67 ], [ %.0.i, %69 ]
-  %73 = getelementptr inbounds i8, ptr %0, i64 32
+  %73 = getelementptr inbounds nuw i8, ptr %0, i64 32
   call void @llvm.experimental.noalias.scope.decl(metadata !100)
   %74 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr @.str.12, ptr %74, align 8, !alias.scope !100
@@ -1097,7 +1097,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit12:               ; preds = %67, %69
   %76 = load i16, ptr %73, align 8, !noalias !100
   store i16 %76, ptr %75, align 8, !alias.scope !100
   %77 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsERKNS_18format_object_baseE(ptr noundef nonnull align 8 dereferenceable(48) %.0.i.i11, ptr noundef nonnull align 8 dereferenceable(16) %4) #15
-  %78 = getelementptr inbounds i8, ptr %0, i64 24
+  %78 = getelementptr inbounds nuw i8, ptr %0, i64 24
   call void @llvm.experimental.noalias.scope.decl(metadata !103)
   %79 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr @.str.13, ptr %79, align 8, !alias.scope !103
@@ -1108,7 +1108,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit12:               ; preds = %67, %69
   %82 = getelementptr inbounds i8, ptr %5, i64 24
   store i32 %..i, ptr %82, align 8, !alias.scope !103
   %83 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsERKNS_18format_object_baseE(ptr noundef nonnull align 8 dereferenceable(48) %77, ptr noundef nonnull align 8 dereferenceable(16) %5) #15
-  %84 = getelementptr inbounds i8, ptr %0, i64 34
+  %84 = getelementptr inbounds nuw i8, ptr %0, i64 34
   call void @llvm.experimental.noalias.scope.decl(metadata !106)
   %85 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr @.str.14, ptr %85, align 8, !alias.scope !106
@@ -1117,7 +1117,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit12:               ; preds = %67, %69
   %87 = load i8, ptr %84, align 2, !noalias !106
   store i8 %87, ptr %86, align 8, !alias.scope !106
   %88 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsERKNS_18format_object_baseE(ptr noundef nonnull align 8 dereferenceable(48) %83, ptr noundef nonnull align 8 dereferenceable(16) %6) #15
-  %89 = getelementptr inbounds i8, ptr %0, i64 35
+  %89 = getelementptr inbounds nuw i8, ptr %0, i64 35
   call void @llvm.experimental.noalias.scope.decl(metadata !109)
   %90 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr @.str.15, ptr %90, align 8, !alias.scope !109
@@ -1128,7 +1128,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit12:               ; preds = %67, %69
   %93 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsERKNS_18format_object_baseE(ptr noundef nonnull align 8 dereferenceable(48) %88, ptr noundef nonnull align 8 dereferenceable(16) %7) #15
   %94 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %95 = load ptr, ptr %94, align 8
-  %96 = getelementptr inbounds i8, ptr %0, i64 48
+  %96 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %97 = load ptr, ptr %96, align 8
   %.not19 = icmp eq ptr %95, %97
   br i1 %.not19, label %._crit_edge, label %.lr.ph

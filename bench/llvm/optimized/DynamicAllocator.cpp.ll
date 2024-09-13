@@ -442,7 +442,7 @@ define dso_local noundef nonnull ptr @_ZN5clang6interp16DynamicAllocator8allocat
   %6 = alloca %"class.llvm::PointerUnion", align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %8 = getelementptr inbounds i8, ptr %0, i64 104
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %9 = load i64, ptr %8, align 8
   %10 = add i64 %9, 80
   store i64 %10, ptr %8, align 8
@@ -451,7 +451,7 @@ define dso_local noundef nonnull ptr @_ZN5clang6interp16DynamicAllocator8allocat
   %13 = add i64 %12, 15
   %14 = and i64 %13, -16
   %15 = add i64 %14, 80
-  %16 = getelementptr inbounds i8, ptr %0, i64 32
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %17 = load ptr, ptr %16, align 8
   %18 = ptrtoint ptr %17 to i64
   %.not.i.i.i.i = icmp ugt i64 %15, %18
@@ -507,7 +507,7 @@ define dso_local noundef nonnull ptr @_ZN5clang6interp16DynamicAllocator8allocat
   store ptr null, ptr %14, align 8
   %15 = getelementptr inbounds nuw i8, ptr %13, i64 16
   store i32 -1, ptr %15, align 4
-  %16 = getelementptr inbounds i8, ptr %13, i64 20
+  %16 = getelementptr inbounds nuw i8, ptr %13, i64 20
   store i8 1, ptr %16, align 4
   %17 = getelementptr inbounds nuw i8, ptr %13, i64 24
   %18 = getelementptr inbounds nuw i8, ptr %13, i64 27
@@ -636,7 +636,7 @@ _ZN5clang6interp16DynamicAllocator14AllocationSiteC2ESt10unique_ptrIA_St4byteSt1
   br label %_ZNSt4pairIPKN5clang4ExprENS0_6interp16DynamicAllocator14AllocationSiteEEC2IS3_S6_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairISA_SB_EEEbE4typeELb1EEEOSA_OSB_.exit
 
 _ZNSt4pairIPKN5clang4ExprENS0_6interp16DynamicAllocator14AllocationSiteEEC2IS3_S6_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairISA_SB_EEEbE4typeELb1EEEOSA_OSB_.exit: ; preds = %_ZN5clang6interp16DynamicAllocator14AllocationSiteC2ESt10unique_ptrIA_St4byteSt14default_deleteIS5_EEb.exit, %82
-  %84 = getelementptr inbounds i8, ptr %6, i64 72
+  %84 = getelementptr inbounds nuw i8, ptr %6, i64 72
   %85 = load i8, ptr %77, align 8
   %86 = and i8 %85, 1
   store i8 %86, ptr %84, align 8
@@ -731,7 +731,7 @@ define dso_local noundef nonnull ptr @_ZN5clang6interp16DynamicAllocator8allocat
   %.sroa.0.0.copyload.i.i.i.i.i = load i64, ptr %1, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %7 = getelementptr inbounds i8, ptr %0, i64 104
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %8 = load i64, ptr %7, align 8
   %9 = add i64 %8, 80
   store i64 %9, ptr %7, align 8
@@ -740,7 +740,7 @@ define dso_local noundef nonnull ptr @_ZN5clang6interp16DynamicAllocator8allocat
   %12 = add i64 %11, 15
   %13 = and i64 %12, -16
   %14 = add i64 %13, 80
-  %15 = getelementptr inbounds i8, ptr %0, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %16 = load ptr, ptr %15, align 8
   %17 = ptrtoint ptr %16 to i64
   %.not.i.i.i.i = icmp ugt i64 %14, %17
@@ -1876,7 +1876,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4ExprENS2_6interp16DynamicAllocator
   br label %42
 
 42:                                               ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4ExprENS2_6interp16DynamicAllocator14AllocationSiteENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S8_EEEES5_S8_SA_SD_E15LookupBucketForIS5_EEbRKT_RPSD_.exit, %40
-  %43 = getelementptr inbounds i8, ptr %35, i64 72
+  %43 = getelementptr inbounds nuw i8, ptr %35, i64 72
   %44 = getelementptr inbounds nuw i8, ptr %3, i64 64
   %45 = load i8, ptr %44, align 8
   %46 = and i8 %45, 1
@@ -2238,8 +2238,8 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4ExprENS2_6interp16DynamicAllocator
   br label %_ZN5clang6interp16DynamicAllocator14AllocationSiteC2EOS2_.exit
 
 _ZN5clang6interp16DynamicAllocator14AllocationSiteC2EOS2_.exit: ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4ExprENS2_6interp16DynamicAllocator14AllocationSiteENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S8_EEEES5_S8_SA_SD_E15LookupBucketForIS5_EEbRKT_RPSD_.exit, %44
-  %46 = getelementptr inbounds i8, ptr %.sink.i.i, i64 72
-  %47 = getelementptr inbounds i8, ptr %.020, i64 72
+  %46 = getelementptr inbounds nuw i8, ptr %.sink.i.i, i64 72
+  %47 = getelementptr inbounds nuw i8, ptr %.020, i64 72
   %48 = load i8, ptr %47, align 8
   %49 = and i8 %48, 1
   store i8 %49, ptr %46, align 8

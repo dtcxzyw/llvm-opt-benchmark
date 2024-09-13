@@ -494,7 +494,7 @@ define dso_local noalias noundef nonnull ptr @_ZN5clang21CreateMicrosoftCXXABIER
   store ptr %0, ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i32 1, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %2, i64 20
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 20
   store i32 0, ptr %5, align 4
   br label %.lr.ph.i.i.i.i
 
@@ -509,7 +509,7 @@ define dso_local noalias noundef nonnull ptr @_ZN5clang21CreateMicrosoftCXXABIER
 _ZN4llvm13SmallDenseMapIPN5clang13CXXRecordDeclEPNS1_18CXXConstructorDeclELj4ENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S5_EEEC2Ej.exit.i: ; preds = %.lr.ph.i.i.i.i
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 88
   store i32 1, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %2, i64 92
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 92
   store i32 0, ptr %7, align 4
   br label %.lr.ph.i.i.i7.i
 
@@ -524,7 +524,7 @@ _ZN4llvm13SmallDenseMapIPN5clang13CXXRecordDeclEPNS1_18CXXConstructorDeclELj4ENS
 _ZN4llvm13SmallDenseMapIPN5clang7TagDeclEPNS1_14DeclaratorDeclELj4ENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S5_EEEC2Ej.exit.i: ; preds = %.lr.ph.i.i.i7.i
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 160
   store i32 1, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %2, i64 164
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 164
   store i32 0, ptr %9, align 4
   br label %.lr.ph.i.i.i14.i
 
@@ -608,7 +608,7 @@ define linkonce_odr hidden noundef ptr @_ZNK5clang12RedeclarableINS_7TagDeclEE8D
 
 15:                                               ; preds = %10
   %16 = getelementptr inbounds nuw i8, ptr %12, i64 2144
-  %17 = getelementptr inbounds i8, ptr %12, i64 2224
+  %17 = getelementptr inbounds nuw i8, ptr %12, i64 2224
   %18 = load i64, ptr %17, align 8
   %19 = add i64 %18, 24
   store i64 %19, ptr %17, align 8
@@ -617,7 +617,7 @@ define linkonce_odr hidden noundef ptr @_ZNK5clang12RedeclarableINS_7TagDeclEE8D
   %22 = add i64 %21, 7
   %23 = and i64 %22, -8
   %24 = add i64 %23, 24
-  %25 = getelementptr inbounds i8, ptr %12, i64 2152
+  %25 = getelementptr inbounds nuw i8, ptr %12, i64 2152
   %26 = load ptr, ptr %25, align 8
   %27 = ptrtoint ptr %26 to i64
   %.not.i.i.i.i.i.i = icmp ugt i64 %24, %27
@@ -789,9 +789,9 @@ _ZNSt10unique_ptrIN5clang13MangleContextESt14default_deleteIS1_EED2Ev.exit: ; pr
   br i1 %.not.i.i, label %10, label %_ZN4llvm13SmallDenseMapIPN5clang7TagDeclEPNS1_15TypedefNameDeclELj4ENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S5_EEED2Ev.exit
 
 10:                                               ; preds = %_ZNSt10unique_ptrIN5clang13MangleContextESt14default_deleteIS1_EED2Ev.exit
-  %11 = getelementptr inbounds i8, ptr %0, i64 168
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 176
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %14 = load i32, ptr %13, align 8
   %15 = zext i32 %14 to i64
   %16 = shl nuw nsw i64 %15, 4
@@ -806,9 +806,9 @@ _ZN4llvm13SmallDenseMapIPN5clang7TagDeclEPNS1_15TypedefNameDeclELj4ENS_12DenseMa
   br i1 %.not.i.i1, label %20, label %_ZN4llvm13SmallDenseMapIPN5clang7TagDeclEPNS1_14DeclaratorDeclELj4ENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S5_EEED2Ev.exit
 
 20:                                               ; preds = %_ZN4llvm13SmallDenseMapIPN5clang7TagDeclEPNS1_15TypedefNameDeclELj4ENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S5_EEED2Ev.exit
-  %21 = getelementptr inbounds i8, ptr %0, i64 96
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %0, i64 104
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %24 = load i32, ptr %23, align 8
   %25 = zext i32 %24 to i64
   %26 = shl nuw nsw i64 %25, 4
@@ -823,9 +823,9 @@ _ZN4llvm13SmallDenseMapIPN5clang7TagDeclEPNS1_14DeclaratorDeclELj4ENS_12DenseMap
   br i1 %.not.i.i2, label %30, label %_ZN4llvm13SmallDenseMapIPN5clang13CXXRecordDeclEPNS1_18CXXConstructorDeclELj4ENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S5_EEED2Ev.exit
 
 30:                                               ; preds = %_ZN4llvm13SmallDenseMapIPN5clang7TagDeclEPNS1_14DeclaratorDeclELj4ENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S5_EEED2Ev.exit
-  %31 = getelementptr inbounds i8, ptr %0, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %32 = load ptr, ptr %31, align 8
-  %33 = getelementptr inbounds i8, ptr %0, i64 32
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %34 = load i32, ptr %33, align 8
   %35 = zext i32 %34 to i64
   %36 = shl nuw nsw i64 %35, 4
@@ -1070,7 +1070,7 @@ define internal noundef i32 @_ZNK12_GLOBAL__N_115MicrosoftCXXABI24getDefaultMeth
   br i1 %1, label %._crit_edge, label %3
 
 3:                                                ; preds = %2
-  %4 = getelementptr inbounds i8, ptr %.pre3, i64 248
+  %4 = getelementptr inbounds nuw i8, ptr %.pre3, i64 248
   %5 = load i32, ptr %4, align 8
   %6 = icmp eq i32 %5, 37
   br i1 %6, label %11, label %._crit_edge
@@ -1177,10 +1177,10 @@ define internal void @_ZN12_GLOBAL__N_115MicrosoftCXXABI36addCopyConstructorForE
   %6 = load i32, ptr %5, align 8
   %7 = and i32 %6, 1
   %.not.i.i.i.i.i.i = icmp eq i32 %7, 0
-  %8 = getelementptr inbounds i8, ptr %0, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %9 = load ptr, ptr %8, align 8
   %10 = select i1 %.not.i.i.i.i.i.i, ptr %9, ptr %8
-  %11 = getelementptr inbounds i8, ptr %0, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %12 = load i32, ptr %11, align 8
   %13 = select i1 %.not.i.i.i.i.i.i, i32 %12, i32 4
   %14 = icmp eq i32 %13, 0
@@ -1252,10 +1252,10 @@ define internal noundef ptr @_ZN12_GLOBAL__N_115MicrosoftCXXABI36getCopyConstruc
   %5 = load i32, ptr %4, align 8
   %6 = and i32 %5, 1
   %.not.i.i.i.i.i.i = icmp eq i32 %6, 0
-  %7 = getelementptr inbounds i8, ptr %0, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %8 = load ptr, ptr %7, align 8
   %9 = select i1 %.not.i.i.i.i.i.i, ptr %8, ptr %7
-  %10 = getelementptr inbounds i8, ptr %0, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %11 = load i32, ptr %10, align 8
   %12 = select i1 %.not.i.i.i.i.i.i, i32 %11, i32 4
   %13 = icmp eq i32 %12, 0
@@ -1335,10 +1335,10 @@ define internal void @_ZN12_GLOBAL__N_115MicrosoftCXXABI31addTypedefNameForUnnam
   %14 = load i32, ptr %13, align 8
   %15 = and i32 %14, 1
   %.not.i.i.i.i.i.i = icmp eq i32 %15, 0
-  %16 = getelementptr inbounds i8, ptr %0, i64 168
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %17 = load ptr, ptr %16, align 8
   %18 = select i1 %.not.i.i.i.i.i.i, ptr %17, ptr %16
-  %19 = getelementptr inbounds i8, ptr %0, i64 176
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %20 = load i32, ptr %19, align 8
   %21 = select i1 %.not.i.i.i.i.i.i, i32 %20, i32 4
   %22 = icmp eq i32 %21, 0
@@ -1420,10 +1420,10 @@ define internal noundef ptr @_ZN12_GLOBAL__N_115MicrosoftCXXABI31getTypedefNameF
   %8 = load i32, ptr %3, align 8
   %9 = and i32 %8, 1
   %.not.i.i.i.i.i.i = icmp eq i32 %9, 0
-  %10 = getelementptr inbounds i8, ptr %0, i64 168
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %11 = load ptr, ptr %10, align 8
   %12 = select i1 %.not.i.i.i.i.i.i, ptr %11, ptr %10
-  %13 = getelementptr inbounds i8, ptr %0, i64 176
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %14 = load i32, ptr %13, align 8
   %15 = select i1 %.not.i.i.i.i.i.i, i32 %14, i32 4
   %16 = icmp eq i32 %15, 0
@@ -1487,10 +1487,10 @@ define internal void @_ZN12_GLOBAL__N_115MicrosoftCXXABI30addDeclaratorForUnname
   %14 = load i32, ptr %13, align 8
   %15 = and i32 %14, 1
   %.not.i.i.i.i.i.i = icmp eq i32 %15, 0
-  %16 = getelementptr inbounds i8, ptr %0, i64 96
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %17 = load ptr, ptr %16, align 8
   %18 = select i1 %.not.i.i.i.i.i.i, ptr %17, ptr %16
-  %19 = getelementptr inbounds i8, ptr %0, i64 104
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %20 = load i32, ptr %19, align 8
   %21 = select i1 %.not.i.i.i.i.i.i, i32 %20, i32 4
   %22 = icmp eq i32 %21, 0
@@ -1572,10 +1572,10 @@ define internal noundef ptr @_ZN12_GLOBAL__N_115MicrosoftCXXABI30getDeclaratorFo
   %8 = load i32, ptr %3, align 8
   %9 = and i32 %8, 1
   %.not.i.i.i.i.i.i = icmp eq i32 %9, 0
-  %10 = getelementptr inbounds i8, ptr %0, i64 96
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %11 = load ptr, ptr %10, align 8
   %12 = select i1 %.not.i.i.i.i.i.i, ptr %11, ptr %10
-  %13 = getelementptr inbounds i8, ptr %0, i64 104
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %14 = load i32, ptr %13, align 8
   %15 = select i1 %.not.i.i.i.i.i.i, i32 %14, i32 4
   %16 = icmp eq i32 %15, 0
@@ -1661,7 +1661,7 @@ _ZNSt10unique_ptrIN5clang22MangleNumberingContextESt14default_deleteIS1_EED2Ev.e
   store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_125MicrosoftNumberingContextE, i64 16), ptr %0, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %10 = load i32, ptr %9, align 8
   %11 = zext i32 %10 to i64
   %12 = shl nuw nsw i64 %11, 4
@@ -1689,7 +1689,7 @@ _ZN12_GLOBAL__N_121MSHIPNumberingContextD2Ev.exit: ; preds = %1, %_ZNKSt14defaul
   store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_125MicrosoftNumberingContextE, i64 16), ptr %0, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %10 = load i32, ptr %9, align 8
   %11 = zext i32 %10 to i64
   %12 = shl nuw nsw i64 %11, 4
@@ -1713,7 +1713,7 @@ define internal noundef i32 @_ZN12_GLOBAL__N_125MicrosoftNumberingContext17getMa
   store ptr null, ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %7 = load i32, ptr %6, align 8
   %8 = icmp eq i32 %7, 0
   br i1 %8, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4TypeEjNS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_jEEEES5_jS7_SA_E15LookupBucketForIS5_EEbRKT_RPSA_.exit.i.i, label %9
@@ -1828,11 +1828,11 @@ define internal noundef i32 @_ZN12_GLOBAL__N_121MSHIPNumberingContext17getMangli
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %20) #12, !noalias !28
   %21 = getelementptr inbounds nuw i8, ptr %13, i64 376
   store i8 0, ptr %21, align 8, !noalias !28
-  %22 = getelementptr inbounds i8, ptr %13, i64 792
+  %22 = getelementptr inbounds nuw i8, ptr %13, i64 792
   %23 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %22) #12, !noalias !28
-  %24 = getelementptr inbounds i8, ptr %13, i64 800
+  %24 = getelementptr inbounds nuw i8, ptr %13, i64 800
   store i32 0, ptr %24, align 8, !noalias !28
-  %25 = getelementptr inbounds i8, ptr %13, i64 904
+  %25 = getelementptr inbounds nuw i8, ptr %13, i64 904
   %26 = load ptr, ptr %25, align 8, !noalias !28
   %27 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %25) #12, !noalias !28
   %.not4.i.i.i.i = icmp eq i64 %27, 0
@@ -1851,7 +1851,7 @@ define internal noundef i32 @_ZN12_GLOBAL__N_121MSHIPNumberingContext17getMangli
   br i1 %.not.i.i.i.i, label %_ZN5clang17DiagnosticBuilderD2Ev.exit, label %.lr.ph.i.i.i.i, !llvm.loop !31
 
 _ZN5clang17DiagnosticBuilderD2Ev.exit:            ; preds = %.lr.ph.i.i.i.i, %11
-  %31 = getelementptr inbounds i8, ptr %13, i64 912
+  %31 = getelementptr inbounds nuw i8, ptr %13, i64 912
   store i32 0, ptr %31, align 8, !noalias !28
   %32 = tail call noundef zeroext i1 @_ZN5clang17DiagnosticsEngine21EmitCurrentDiagnosticEb(ptr noundef nonnull align 8 dereferenceable(1304) %13, i1 noundef zeroext false) #12
   br label %33
@@ -1878,7 +1878,7 @@ define internal void @_ZN12_GLOBAL__N_125MicrosoftNumberingContextD2Ev(ptr nocap
   store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_125MicrosoftNumberingContextE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 32
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load i32, ptr %4, align 8
   %6 = zext i32 %5 to i64
   %7 = shl nuw nsw i64 %6, 4
@@ -1891,7 +1891,7 @@ define internal void @_ZN12_GLOBAL__N_125MicrosoftNumberingContextD0Ev(ptr nound
   store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_125MicrosoftNumberingContextE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 32
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load i32, ptr %4, align 8
   %6 = zext i32 %5 to i64
   %7 = shl nuw nsw i64 %6, 4
@@ -2236,7 +2236,7 @@ _ZNSt10unique_ptrIN5clang22MangleNumberingContextESt14default_deleteIS1_EED2Ev.e
   store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_125MicrosoftNumberingContextE, i64 16), ptr %0, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %10 = load i32, ptr %9, align 8
   %11 = zext i32 %10 to i64
   %12 = shl nuw nsw i64 %11, 4
@@ -2264,7 +2264,7 @@ _ZN12_GLOBAL__N_122MSSYCLNumberingContextD2Ev.exit: ; preds = %1, %_ZNKSt14defau
   store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_125MicrosoftNumberingContextE, i64 16), ptr %0, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %10 = load i32, ptr %9, align 8
   %11 = zext i32 %10 to i64
   %12 = shl nuw nsw i64 %11, 4
@@ -2290,7 +2290,7 @@ define linkonce_odr hidden noundef ptr @_ZN4llvm12DenseMapBaseINS_13SmallDenseMa
   %6 = lshr i32 %5, 1
   %7 = and i32 %5, 1
   %.not.i.i = icmp eq i32 %7, 0
-  %8 = getelementptr inbounds i8, ptr %0, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = load i32, ptr %8, align 8
   %10 = select i1 %.not.i.i, i32 %9, i32 4
   %11 = shl i32 %6, 2
@@ -2515,7 +2515,7 @@ define linkonce_odr hidden void @_ZN4llvm13SmallDenseMapIPN5clang13CXXRecordDecl
   %37 = shl nuw nsw i64 %36, 4
   %38 = tail call noalias noundef nonnull ptr @_ZN4llvm15allocate_bufferEmm(i64 noundef %37, i64 noundef 8) #12
   store ptr %38, ptr %23, align 8
-  %39 = getelementptr inbounds i8, ptr %0, i64 16
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 %.0, ptr %39, align 8
   br label %40
 
@@ -2566,7 +2566,7 @@ define linkonce_odr hidden void @_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIPN5cl
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8
   %9 = select i1 %.not.i.i.i.i, ptr %8, ptr %7
-  %10 = getelementptr inbounds i8, ptr %0, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %11 = load i32, ptr %10, align 8
   %12 = select i1 %.not.i.i.i.i, i32 %11, i32 4
   %13 = zext i32 %12 to i64
@@ -2674,7 +2674,7 @@ define linkonce_odr hidden noundef ptr @_ZN4llvm12DenseMapBaseINS_13SmallDenseMa
   %6 = lshr i32 %5, 1
   %7 = and i32 %5, 1
   %.not.i.i = icmp eq i32 %7, 0
-  %8 = getelementptr inbounds i8, ptr %0, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = load i32, ptr %8, align 8
   %10 = select i1 %.not.i.i, i32 %9, i32 4
   %11 = shl i32 %6, 2
@@ -2899,7 +2899,7 @@ define linkonce_odr hidden void @_ZN4llvm13SmallDenseMapIPN5clang7TagDeclEPNS1_1
   %37 = shl nuw nsw i64 %36, 4
   %38 = tail call noalias noundef nonnull ptr @_ZN4llvm15allocate_bufferEmm(i64 noundef %37, i64 noundef 8) #12
   store ptr %38, ptr %23, align 8
-  %39 = getelementptr inbounds i8, ptr %0, i64 16
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 %.0, ptr %39, align 8
   br label %40
 
@@ -2950,7 +2950,7 @@ define linkonce_odr hidden void @_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIPN5cl
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8
   %9 = select i1 %.not.i.i.i.i, ptr %8, ptr %7
-  %10 = getelementptr inbounds i8, ptr %0, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %11 = load i32, ptr %10, align 8
   %12 = select i1 %.not.i.i.i.i, i32 %11, i32 4
   %13 = zext i32 %12 to i64
@@ -3058,7 +3058,7 @@ define linkonce_odr hidden noundef ptr @_ZN4llvm12DenseMapBaseINS_13SmallDenseMa
   %6 = lshr i32 %5, 1
   %7 = and i32 %5, 1
   %.not.i.i = icmp eq i32 %7, 0
-  %8 = getelementptr inbounds i8, ptr %0, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = load i32, ptr %8, align 8
   %10 = select i1 %.not.i.i, i32 %9, i32 4
   %11 = shl i32 %6, 2
@@ -3283,7 +3283,7 @@ define linkonce_odr hidden void @_ZN4llvm13SmallDenseMapIPN5clang7TagDeclEPNS1_1
   %37 = shl nuw nsw i64 %36, 4
   %38 = tail call noalias noundef nonnull ptr @_ZN4llvm15allocate_bufferEmm(i64 noundef %37, i64 noundef 8) #12
   store ptr %38, ptr %23, align 8
-  %39 = getelementptr inbounds i8, ptr %0, i64 16
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 %.0, ptr %39, align 8
   br label %40
 
@@ -3334,7 +3334,7 @@ define linkonce_odr hidden void @_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIPN5cl
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8
   %9 = select i1 %.not.i.i.i.i, ptr %8, ptr %7
-  %10 = getelementptr inbounds i8, ptr %0, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %11 = load i32, ptr %10, align 8
   %12 = select i1 %.not.i.i.i.i, i32 %11, i32 4
   %13 = zext i32 %12 to i64

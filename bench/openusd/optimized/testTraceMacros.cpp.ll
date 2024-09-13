@@ -1387,13 +1387,13 @@ _ZNK32pxrInternal_v0_24__pxrReserved__15TfWeakPtrFacadeINS_9TfWeakPtrENS_13Trace
           to label %487 unwind label %758
 
 487:                                              ; preds = %485
-  %488 = getelementptr inbounds i8, ptr %484, i64 112
+  %488 = getelementptr inbounds nuw i8, ptr %484, i64 112
   %489 = load i64, ptr %488, align 8
   %.not.not.i.i159 = icmp eq i64 %489, 0
   br i1 %.not.not.i.i159, label %490, label %504
 
 490:                                              ; preds = %487
-  %491 = getelementptr inbounds i8, ptr %484, i64 104
+  %491 = getelementptr inbounds nuw i8, ptr %484, i64 104
   %492 = load ptr, ptr %48, align 8
   %493 = ptrtoint ptr %492 to i64
   %494 = and i64 %493, -8
@@ -1421,7 +1421,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__15TfWeakPtrFacadeINS_9TfWeakPtrENS_13Trace
   %507 = and i64 %506, -8
   %508 = mul i64 %507, -7046029254386353067
   %509 = call noundef i64 @llvm.bswap.i64(i64 %508)
-  %510 = getelementptr inbounds i8, ptr %484, i64 96
+  %510 = getelementptr inbounds nuw i8, ptr %484, i64 96
   %511 = load i64, ptr %510, align 8
   %512 = urem i64 %509, %511
   %513 = load ptr, ptr %486, align 8
@@ -1493,7 +1493,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit170: ; preds = %_ZNKSt13un
   br i1 %.not.not.i.i173, label %542, label %556
 
 542:                                              ; preds = %540
-  %543 = getelementptr inbounds i8, ptr %484, i64 104
+  %543 = getelementptr inbounds nuw i8, ptr %484, i64 104
   %544 = load ptr, ptr %49, align 8
   %545 = ptrtoint ptr %544 to i64
   %546 = and i64 %545, -8
@@ -1521,7 +1521,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit170: ; preds = %_ZNKSt13un
   %559 = and i64 %558, -8
   %560 = mul i64 %559, -7046029254386353067
   %561 = call noundef i64 @llvm.bswap.i64(i64 %560)
-  %562 = getelementptr inbounds i8, ptr %484, i64 96
+  %562 = getelementptr inbounds nuw i8, ptr %484, i64 96
   %563 = load i64, ptr %562, align 8
   %564 = urem i64 %561, %563
   %565 = load ptr, ptr %486, align 8

@@ -1770,7 +1770,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit47.thread18.i.i.i: ; preds = %_ZN4llvmeqENS_9St
   store ptr @.str.33, ptr %9, align 8, !alias.scope !13
   %823 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store ptr %.sroa.0.0.copyload.i.i48.i.i.i, ptr %823, align 8, !alias.scope !13
-  %824 = getelementptr inbounds i8, ptr %9, i64 24
+  %824 = getelementptr inbounds nuw i8, ptr %9, i64 24
   store i64 %.sroa.2.0.copyload.i.i50.i.i.i, ptr %824, align 8, !alias.scope !13
   call void @_ZN4llvm15PrintFatalErrorENS_8ArrayRefINS_5SMLocEEERKNS_5TwineE(ptr %817, i64 %818, ptr noundef nonnull align 8 dereferenceable(34) %9) #11
   unreachable

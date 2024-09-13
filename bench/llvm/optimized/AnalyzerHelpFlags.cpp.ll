@@ -241,7 +241,7 @@ _ZNSt10unique_ptrIN5clang4ento14CheckerManagerESt14default_deleteIS2_EED2Ev.exit
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 512
   %37 = tail call noalias noundef nonnull dereferenceable(1552) ptr @_Znwm(i64 noundef 1552) #11, !noalias !4
   %38 = load ptr, ptr %36, align 8, !noalias !4
-  %39 = getelementptr inbounds i8, ptr %35, i64 520
+  %39 = getelementptr inbounds nuw i8, ptr %35, i64 520
   %40 = load ptr, ptr %39, align 8, !noalias !4
   %41 = ptrtoint ptr %40 to i64
   %42 = ptrtoint ptr %38 to i64
@@ -297,7 +297,7 @@ _ZNSt10unique_ptrIN5clang4ento14CheckerManagerESt14default_deleteIS2_EED2Ev.exit
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 512
   %26 = tail call noalias noundef nonnull dereferenceable(1552) ptr @_Znwm(i64 noundef 1552) #11, !noalias !7
   %27 = load ptr, ptr %25, align 8, !noalias !7
-  %28 = getelementptr inbounds i8, ptr %24, i64 520
+  %28 = getelementptr inbounds nuw i8, ptr %24, i64 520
   %29 = load ptr, ptr %28, align 8, !noalias !7
   %30 = ptrtoint ptr %29 to i64
   %31 = ptrtoint ptr %27 to i64
@@ -329,7 +329,7 @@ _ZNSt10unique_ptrIN5clang4ento14CheckerManagerESt14default_deleteIS2_EED2Ev.exit
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 512
   %12 = tail call noalias noundef nonnull dereferenceable(1552) ptr @_Znwm(i64 noundef 1552) #11, !noalias !10
   %13 = load ptr, ptr %11, align 8, !noalias !10
-  %14 = getelementptr inbounds i8, ptr %10, i64 520
+  %14 = getelementptr inbounds nuw i8, ptr %10, i64 520
   %15 = load ptr, ptr %14, align 8, !noalias !10
   %16 = ptrtoint ptr %15 to i64
   %17 = ptrtoint ptr %13 to i64
@@ -2235,7 +2235,7 @@ _ZN4llvmplERKNS_5TwineES2_.exit3877:              ; preds = %230, %228
 
 _ZN4llvm4sortIRA72_St4pairINS_9StringRefENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENS_10less_firstEEEvOT_T0_.exit.preheader: ; preds = %.lr.ph.i.i.i.i.i.i
   %881 = getelementptr inbounds nuw i8, ptr %219, i64 16
-  %882 = getelementptr inbounds i8, ptr %219, i64 24
+  %882 = getelementptr inbounds nuw i8, ptr %219, i64 24
   br label %883
 
 883:                                              ; preds = %_ZN4llvm4sortIRA72_St4pairINS_9StringRefENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENS_10less_firstEEEvOT_T0_.exit.preheader, %_ZN4llvm11raw_ostreamlsEPKc.exit3880

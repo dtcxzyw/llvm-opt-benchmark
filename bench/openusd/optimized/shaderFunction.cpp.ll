@@ -89,7 +89,7 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__21HgiShaderFuncti
 7:                                                ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 88
-  %10 = getelementptr inbounds i8, ptr %1, i64 96
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %11 = load ptr, ptr %10, align 8
   %12 = load ptr, ptr %9, align 8
   %13 = ptrtoint ptr %11 to i64
@@ -118,10 +118,10 @@ _ZNSt16allocator_traitsISaIN32pxrInternal_v0_24__pxrReserved__27HgiShaderFunctio
 .noexc34:                                         ; preds = %_ZNSt16allocator_traitsISaIN32pxrInternal_v0_24__pxrReserved__27HgiShaderFunctionBufferDescEEE8allocateERS2_m.exit.i.i.i.i, %7
   %20 = phi ptr [ null, %7 ], [ %19, %_ZNSt16allocator_traitsISaIN32pxrInternal_v0_24__pxrReserved__27HgiShaderFunctionBufferDescEEE8allocateERS2_m.exit.i.i.i.i ]
   store ptr %20, ptr %8, align 8
-  %21 = getelementptr inbounds i8, ptr %0, i64 96
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store ptr %20, ptr %21, align 8
   %22 = getelementptr inbounds %"struct.pxrInternal_v0_24__pxrReserved__::HgiShaderFunctionBufferDesc", ptr %20, i64 %16
-  %23 = getelementptr inbounds i8, ptr %0, i64 104
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store ptr %22, ptr %23, align 8
   %24 = load ptr, ptr %9, align 8
   %25 = load ptr, ptr %10, align 8
@@ -187,14 +187,14 @@ _ZNSt16allocator_traitsISaIN32pxrInternal_v0_24__pxrReserved__27HgiShaderFunctio
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 272
   %57 = getelementptr inbounds nuw i8, ptr %1, i64 272
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %56, ptr noundef nonnull align 8 dereferenceable(12) %57, i64 12, i1 false)
-  %58 = getelementptr inbounds i8, ptr %0, i64 288
-  %59 = getelementptr inbounds i8, ptr %1, i64 288
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 288
+  %59 = getelementptr inbounds nuw i8, ptr %1, i64 288
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %58, ptr noundef nonnull align 8 dereferenceable(32) %59)
           to label %.noexc35 unwind label %88
 
 .noexc35:                                         ; preds = %53
-  %60 = getelementptr inbounds i8, ptr %0, i64 320
-  %61 = getelementptr inbounds i8, ptr %1, i64 320
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 320
+  %61 = getelementptr inbounds nuw i8, ptr %1, i64 320
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %60, ptr noundef nonnull align 8 dereferenceable(32) %61)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__33HgiShaderFunctionTessellationDescC2ERKS0_.exit unwind label %62
 
@@ -209,8 +209,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__33HgiShaderFunctionTessellationDescC2ERKS0_
   %65 = getelementptr inbounds nuw i8, ptr %1, i64 352
   %66 = load i64, ptr %65, align 8
   store i64 %66, ptr %64, align 8
-  %67 = getelementptr inbounds i8, ptr %0, i64 360
-  %68 = getelementptr inbounds i8, ptr %1, i64 360
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 360
+  %68 = getelementptr inbounds nuw i8, ptr %1, i64 360
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %67, ptr noundef nonnull align 8 dereferenceable(32) %68)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__29HgiShaderFunctionGeometryDescC2ERKS0_.exit unwind label %90
 
@@ -329,15 +329,15 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__17HgiShaderFunctionD2Ev(ptr no
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__21HgiShaderFunctionDescD2Ev(ptr noundef nonnull align 8 dereferenceable(393) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 360
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 360
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #17
-  %3 = getelementptr inbounds i8, ptr %0, i64 320
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 320
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #17
-  %4 = getelementptr inbounds i8, ptr %0, i64 288
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 288
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #17
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 240
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 240
   %8 = load ptr, ptr %7, align 8
   invoke void @_ZNSt12_Destroy_auxILb0EE9__destroyIPN32pxrInternal_v0_24__pxrReserved__31HgiShaderFunctionParamBlockDescEEEvT_S5_(ptr noundef %6, ptr noundef %8)
           to label %_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__31HgiShaderFunctionParamBlockDescES1_EvT_S3_RSaIT0_E.exit.i unwind label %16
@@ -348,7 +348,7 @@ _ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__31HgiShaderFunctionParamBlockD
   br i1 %.not.i.i.i, label %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__31HgiShaderFunctionParamBlockDescESaIS1_EED2Ev.exit, label %10
 
 10:                                               ; preds = %_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__31HgiShaderFunctionParamBlockDescES1_EvT_S3_RSaIT0_E.exit.i
-  %11 = getelementptr inbounds i8, ptr %0, i64 248
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %12 = load ptr, ptr %11, align 8
   %13 = ptrtoint ptr %12 to i64
   %14 = ptrtoint ptr %9 to i64
@@ -366,7 +366,7 @@ _ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__31HgiShaderFunctionParamBlockD
 _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__31HgiShaderFunctionParamBlockDescESaIS1_EED2Ev.exit: ; preds = %_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__31HgiShaderFunctionParamBlockDescES1_EvT_S3_RSaIT0_E.exit.i, %10
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %0, i64 216
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %22 = load ptr, ptr %21, align 8
   invoke void @_ZNSt12_Destroy_auxILb0EE9__destroyIPN32pxrInternal_v0_24__pxrReserved__31HgiShaderFunctionParamBlockDescEEEvT_S5_(ptr noundef %20, ptr noundef %22)
           to label %_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__31HgiShaderFunctionParamBlockDescES1_EvT_S3_RSaIT0_E.exit.i1 unwind label %30
@@ -377,7 +377,7 @@ _ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__31HgiShaderFunctionParamBlockD
   br i1 %.not.i.i.i2, label %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__31HgiShaderFunctionParamBlockDescESaIS1_EED2Ev.exit3, label %24
 
 24:                                               ; preds = %_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__31HgiShaderFunctionParamBlockDescES1_EvT_S3_RSaIT0_E.exit.i1
-  %25 = getelementptr inbounds i8, ptr %0, i64 224
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %26 = load ptr, ptr %25, align 8
   %27 = ptrtoint ptr %26 to i64
   %28 = ptrtoint ptr %23 to i64
@@ -395,7 +395,7 @@ _ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__31HgiShaderFunctionParamBlockD
 _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__31HgiShaderFunctionParamBlockDescESaIS1_EED2Ev.exit3: ; preds = %_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__31HgiShaderFunctionParamBlockDescES1_EvT_S3_RSaIT0_E.exit.i1, %24
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %34 = load ptr, ptr %33, align 8
-  %35 = getelementptr inbounds i8, ptr %0, i64 192
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %36 = load ptr, ptr %35, align 8
   %.not4.i.i.i.i = icmp eq ptr %34, %36
   br i1 %.not4.i.i.i.i, label %_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__26HgiShaderFunctionParamDescES1_EvT_S3_RSaIT0_E.exit.i, label %.lr.ph.i.i.i.i
@@ -423,7 +423,7 @@ _ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__26HgiShaderFunctionParamDescES
   br i1 %.not.i.i.i4, label %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__26HgiShaderFunctionParamDescESaIS1_EED2Ev.exit, label %42
 
 42:                                               ; preds = %_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__26HgiShaderFunctionParamDescES1_EvT_S3_RSaIT0_E.exit.i
-  %43 = getelementptr inbounds i8, ptr %0, i64 200
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %44 = load ptr, ptr %43, align 8
   %45 = ptrtoint ptr %44 to i64
   %46 = ptrtoint ptr %41 to i64
@@ -434,7 +434,7 @@ _ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__26HgiShaderFunctionParamDescES
 _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__26HgiShaderFunctionParamDescESaIS1_EED2Ev.exit: ; preds = %_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__26HgiShaderFunctionParamDescES1_EvT_S3_RSaIT0_E.exit.i, %42
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %49 = load ptr, ptr %48, align 8
-  %50 = getelementptr inbounds i8, ptr %0, i64 168
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %51 = load ptr, ptr %50, align 8
   %.not4.i.i.i.i5 = icmp eq ptr %49, %51
   br i1 %.not4.i.i.i.i5, label %_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__26HgiShaderFunctionParamDescES1_EvT_S3_RSaIT0_E.exit.i11, label %.lr.ph.i.i.i.i6
@@ -462,7 +462,7 @@ _ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__26HgiShaderFunctionParamDescES
   br i1 %.not.i.i.i12, label %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__26HgiShaderFunctionParamDescESaIS1_EED2Ev.exit13, label %57
 
 57:                                               ; preds = %_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__26HgiShaderFunctionParamDescES1_EvT_S3_RSaIT0_E.exit.i11
-  %58 = getelementptr inbounds i8, ptr %0, i64 176
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %59 = load ptr, ptr %58, align 8
   %60 = ptrtoint ptr %59 to i64
   %61 = ptrtoint ptr %56 to i64
@@ -473,7 +473,7 @@ _ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__26HgiShaderFunctionParamDescES
 _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__26HgiShaderFunctionParamDescESaIS1_EED2Ev.exit13: ; preds = %_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__26HgiShaderFunctionParamDescES1_EvT_S3_RSaIT0_E.exit.i11, %57
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %64 = load ptr, ptr %63, align 8
-  %65 = getelementptr inbounds i8, ptr %0, i64 144
+  %65 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %66 = load ptr, ptr %65, align 8
   %.not4.i.i.i.i14 = icmp eq ptr %64, %66
   br i1 %.not4.i.i.i.i14, label %_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__26HgiShaderFunctionParamDescES1_EvT_S3_RSaIT0_E.exit.i20, label %.lr.ph.i.i.i.i15
@@ -501,7 +501,7 @@ _ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__26HgiShaderFunctionParamDescES
   br i1 %.not.i.i.i21, label %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__26HgiShaderFunctionParamDescESaIS1_EED2Ev.exit22, label %72
 
 72:                                               ; preds = %_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__26HgiShaderFunctionParamDescES1_EvT_S3_RSaIT0_E.exit.i20
-  %73 = getelementptr inbounds i8, ptr %0, i64 152
+  %73 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %74 = load ptr, ptr %73, align 8
   %75 = ptrtoint ptr %74 to i64
   %76 = ptrtoint ptr %71 to i64
@@ -512,7 +512,7 @@ _ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__26HgiShaderFunctionParamDescES
 _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__26HgiShaderFunctionParamDescESaIS1_EED2Ev.exit22: ; preds = %_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__26HgiShaderFunctionParamDescES1_EvT_S3_RSaIT0_E.exit.i20, %72
   %78 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %79 = load ptr, ptr %78, align 8
-  %80 = getelementptr inbounds i8, ptr %0, i64 120
+  %80 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %81 = load ptr, ptr %80, align 8
   %.not4.i.i.i.i23 = icmp eq ptr %79, %81
   br i1 %.not4.i.i.i.i23, label %_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__26HgiShaderFunctionParamDescES1_EvT_S3_RSaIT0_E.exit.i29, label %.lr.ph.i.i.i.i24
@@ -540,7 +540,7 @@ _ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__26HgiShaderFunctionParamDescES
   br i1 %.not.i.i.i30, label %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__26HgiShaderFunctionParamDescESaIS1_EED2Ev.exit31, label %87
 
 87:                                               ; preds = %_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__26HgiShaderFunctionParamDescES1_EvT_S3_RSaIT0_E.exit.i29
-  %88 = getelementptr inbounds i8, ptr %0, i64 128
+  %88 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %89 = load ptr, ptr %88, align 8
   %90 = ptrtoint ptr %89 to i64
   %91 = ptrtoint ptr %86 to i64
@@ -551,7 +551,7 @@ _ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__26HgiShaderFunctionParamDescES
 _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__26HgiShaderFunctionParamDescESaIS1_EED2Ev.exit31: ; preds = %_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__26HgiShaderFunctionParamDescES1_EvT_S3_RSaIT0_E.exit.i29, %87
   %93 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %94 = load ptr, ptr %93, align 8
-  %95 = getelementptr inbounds i8, ptr %0, i64 96
+  %95 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %96 = load ptr, ptr %95, align 8
   %.not4.i.i.i.i32 = icmp eq ptr %94, %96
   br i1 %.not4.i.i.i.i32, label %_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__27HgiShaderFunctionBufferDescES1_EvT_S3_RSaIT0_E.exit.i, label %.lr.ph.i.i.i.i33
@@ -575,7 +575,7 @@ _ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__27HgiShaderFunctionBufferDescE
   br i1 %.not.i.i.i37, label %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__27HgiShaderFunctionBufferDescESaIS1_EED2Ev.exit, label %100
 
 100:                                              ; preds = %_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__27HgiShaderFunctionBufferDescES1_EvT_S3_RSaIT0_E.exit.i
-  %101 = getelementptr inbounds i8, ptr %0, i64 104
+  %101 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %102 = load ptr, ptr %101, align 8
   %103 = ptrtoint ptr %102 to i64
   %104 = ptrtoint ptr %99 to i64
@@ -586,7 +586,7 @@ _ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__27HgiShaderFunctionBufferDescE
 _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__27HgiShaderFunctionBufferDescESaIS1_EED2Ev.exit: ; preds = %_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__27HgiShaderFunctionBufferDescES1_EvT_S3_RSaIT0_E.exit.i, %100
   %106 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %107 = load ptr, ptr %106, align 8
-  %108 = getelementptr inbounds i8, ptr %0, i64 72
+  %108 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %109 = load ptr, ptr %108, align 8
   %.not4.i.i.i.i38 = icmp eq ptr %107, %109
   br i1 %.not4.i.i.i.i38, label %_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__28HgiShaderFunctionTextureDescES1_EvT_S3_RSaIT0_E.exit.i, label %.lr.ph.i.i.i.i39
@@ -608,7 +608,7 @@ _ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__28HgiShaderFunctionTextureDesc
   br i1 %.not.i.i.i43, label %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__28HgiShaderFunctionTextureDescESaIS1_EED2Ev.exit, label %112
 
 112:                                              ; preds = %_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__28HgiShaderFunctionTextureDescES1_EvT_S3_RSaIT0_E.exit.i
-  %113 = getelementptr inbounds i8, ptr %0, i64 80
+  %113 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %114 = load ptr, ptr %113, align 8
   %115 = ptrtoint ptr %114 to i64
   %116 = ptrtoint ptr %111 to i64
@@ -1305,7 +1305,7 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__31HgiShaderFuncti
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  %8 = getelementptr inbounds i8, ptr %1, i64 72
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %9 = load ptr, ptr %8, align 8
   %10 = load ptr, ptr %7, align 8
   %11 = ptrtoint ptr %9 to i64
@@ -1334,10 +1334,10 @@ _ZNSt16allocator_traitsISaIN32pxrInternal_v0_24__pxrReserved__31HgiShaderFunctio
 .noexc11:                                         ; preds = %_ZNSt16allocator_traitsISaIN32pxrInternal_v0_24__pxrReserved__31HgiShaderFunctionParamBlockDesc6MemberEEE8allocateERS3_m.exit.i.i.i.i, %5
   %18 = phi ptr [ null, %5 ], [ %17, %_ZNSt16allocator_traitsISaIN32pxrInternal_v0_24__pxrReserved__31HgiShaderFunctionParamBlockDesc6MemberEEE8allocateERS3_m.exit.i.i.i.i ]
   store ptr %18, ptr %6, align 8
-  %19 = getelementptr inbounds i8, ptr %0, i64 72
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store ptr %18, ptr %19, align 8
   %20 = getelementptr inbounds %"struct.pxrInternal_v0_24__pxrReserved__::HgiShaderFunctionParamBlockDesc::Member", ptr %18, i64 %14
-  %21 = getelementptr inbounds i8, ptr %0, i64 80
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store ptr %20, ptr %21, align 8
   %22 = load ptr, ptr %7, align 8
   %23 = load ptr, ptr %8, align 8
@@ -1541,7 +1541,7 @@ define linkonce_odr void @_ZNSt12_Destroy_auxILb0EE9__destroyIPN32pxrInternal_v0
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #17
   %4 = getelementptr inbounds nuw i8, ptr %.05, i64 64
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %.05, i64 72
+  %6 = getelementptr inbounds nuw i8, ptr %.05, i64 72
   %7 = load ptr, ptr %6, align 8
   %.not4.i.i.i.i.i.i = icmp eq ptr %5, %7
   br i1 %.not4.i.i.i.i.i.i, label %_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__31HgiShaderFunctionParamBlockDesc6MemberES2_EvT_S4_RSaIT0_E.exit.i.i.i, label %.lr.ph.i.i.i.i.i.i
@@ -1565,7 +1565,7 @@ _ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__31HgiShaderFunctionParamBlockD
   br i1 %.not.i.i.i.i.i, label %_ZSt8_DestroyIN32pxrInternal_v0_24__pxrReserved__31HgiShaderFunctionParamBlockDescEEvPT_.exit, label %11
 
 11:                                               ; preds = %_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__31HgiShaderFunctionParamBlockDesc6MemberES2_EvT_S4_RSaIT0_E.exit.i.i.i
-  %12 = getelementptr inbounds i8, ptr %.05, i64 80
+  %12 = getelementptr inbounds nuw i8, ptr %.05, i64 80
   %13 = load ptr, ptr %12, align 8
   %14 = ptrtoint ptr %13 to i64
   %15 = ptrtoint ptr %10 to i64

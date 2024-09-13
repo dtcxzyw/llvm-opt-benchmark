@@ -196,7 +196,7 @@ define dso_local noalias noundef ptr @_ZN5clang10CFGStmtMap5BuildEPNS_3CFGEPNS_9
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %8, i8 0, i64 20, i1 false)
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 48
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %12 = load ptr, ptr %11, align 8
   %.not40 = icmp eq ptr %10, %12
   br i1 %.not40, label %._crit_edge, label %.lr.ph

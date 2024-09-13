@@ -3856,7 +3856,7 @@ _ZN4llvm5APIntD2Ev.exit:                          ; preds = %610, %615, %618
   %645 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN5clang10extractapi20DeclarationFragments6appendEN4llvm9StringRefENS1_12FragmentKindES3_PKNS_4DeclE(ptr noundef nonnull align 8 dereferenceable(24) %30, ptr %641, i64 %642, i32 noundef 6, ptr %643, i64 %644, ptr noundef null)
   %646 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN5clang10extractapi20DeclarationFragments6appendEN4llvm9StringRefENS1_12FragmentKindES3_PKNS_4DeclE(ptr noundef nonnull align 8 dereferenceable(24) %645, ptr nonnull @.str.32, i64 1, i32 noundef 10, ptr nonnull @.str, i64 0, ptr noundef null)
   %647 = getelementptr inbounds i8, ptr %1, i64 48
-  %648 = getelementptr inbounds i8, ptr %1, i64 20
+  %648 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %649 = load i32, ptr %648, align 4
   %650 = zext i32 %649 to i64
   %651 = getelementptr inbounds nuw i8, ptr %47, i64 16
@@ -23824,7 +23824,7 @@ _ZNK5clang16ObjCProtocolDecl9protocolsEv.exit:    ; preds = %_ZNK5clang16ObjCPro
   %.0.i913.i = phi ptr [ null, %_ZNK5clang16ObjCProtocolDecl13hasDefinitionEv.exit.i3.i._ZNK5clang16ObjCProtocolDecl9protocolsEv.exit_crit_edge ], [ %60, %_ZNK5clang16ObjCProtocolDecl13hasDefinitionEv.exit.i3.thread.i ]
   %66 = getelementptr inbounds nuw i8, ptr %.pre-phi78, i64 8
   %67 = load ptr, ptr %66, align 8
-  %68 = getelementptr inbounds i8, ptr %.pre-phi78, i64 16
+  %68 = getelementptr inbounds nuw i8, ptr %.pre-phi78, i64 16
   %69 = load i32, ptr %68, align 8
   %70 = zext i32 %69 to i64
   %71 = getelementptr inbounds ptr, ptr %67, i64 %70
@@ -23938,7 +23938,7 @@ _ZNK5clang16ObjCProtocolDecl13hasDefinitionEv.exit.i28: ; preds = %110, %109
   %117 = inttoptr i64 %116 to ptr
   %118 = getelementptr inbounds nuw i8, ptr %117, i64 8
   %119 = load ptr, ptr %118, align 8
-  %120 = getelementptr inbounds i8, ptr %117, i64 16
+  %120 = getelementptr inbounds nuw i8, ptr %117, i64 16
   %121 = load i32, ptr %120, align 8
   %122 = zext i32 %121 to i64
   %123 = getelementptr inbounds ptr, ptr %119, i64 %122
@@ -26286,7 +26286,7 @@ define linkonce_odr hidden noundef ptr @_ZNK5clang12RedeclarableINS_16ObjCProtoc
 
 15:                                               ; preds = %10
   %16 = getelementptr inbounds nuw i8, ptr %12, i64 2144
-  %17 = getelementptr inbounds i8, ptr %12, i64 2224
+  %17 = getelementptr inbounds nuw i8, ptr %12, i64 2224
   %18 = load i64, ptr %17, align 8
   %19 = add i64 %18, 24
   store i64 %19, ptr %17, align 8
@@ -26295,7 +26295,7 @@ define linkonce_odr hidden noundef ptr @_ZNK5clang12RedeclarableINS_16ObjCProtoc
   %22 = add i64 %21, 7
   %23 = and i64 %22, -8
   %24 = add i64 %23, 24
-  %25 = getelementptr inbounds i8, ptr %12, i64 2152
+  %25 = getelementptr inbounds nuw i8, ptr %12, i64 2152
   %26 = load ptr, ptr %25, align 8
   %27 = ptrtoint ptr %26 to i64
   %.not.i.i.i.i.i.i = icmp ugt i64 %24, %27
@@ -26718,12 +26718,12 @@ _ZNSt12_Vector_baseIN5clang10extractapi17FunctionSignature9ParameterESaIS3_EE11_
   %27 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 32
   %28 = load ptr, ptr %27, align 8, !alias.scope !53, !noalias !50
   store ptr %28, ptr %26, align 8, !alias.scope !50, !noalias !53
-  %29 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 40
-  %30 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 40
+  %29 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 40
+  %30 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 40
   %31 = load ptr, ptr %30, align 8, !alias.scope !53, !noalias !50
   store ptr %31, ptr %29, align 8, !alias.scope !50, !noalias !53
-  %32 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 48
-  %33 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 48
+  %32 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 48
+  %33 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 48
   %34 = load ptr, ptr %33, align 8, !alias.scope !53, !noalias !50
   store ptr %34, ptr %32, align 8, !alias.scope !50, !noalias !53
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %27, i8 0, i64 24, i1 false), !alias.scope !53, !noalias !50
@@ -26749,12 +26749,12 @@ _ZNSt6vectorIN5clang10extractapi17FunctionSignature9ParameterESaIS3_EE11_S_reloc
   %39 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i20, i64 32
   %40 = load ptr, ptr %39, align 8, !alias.scope !59, !noalias !56
   store ptr %40, ptr %38, align 8, !alias.scope !56, !noalias !59
-  %41 = getelementptr inbounds i8, ptr %.012.i.i.i19, i64 40
-  %42 = getelementptr inbounds i8, ptr %.0911.i.i.i20, i64 40
+  %41 = getelementptr inbounds nuw i8, ptr %.012.i.i.i19, i64 40
+  %42 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i20, i64 40
   %43 = load ptr, ptr %42, align 8, !alias.scope !59, !noalias !56
   store ptr %43, ptr %41, align 8, !alias.scope !56, !noalias !59
-  %44 = getelementptr inbounds i8, ptr %.012.i.i.i19, i64 48
-  %45 = getelementptr inbounds i8, ptr %.0911.i.i.i20, i64 48
+  %44 = getelementptr inbounds nuw i8, ptr %.012.i.i.i19, i64 48
+  %45 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i20, i64 48
   %46 = load ptr, ptr %45, align 8, !alias.scope !59, !noalias !56
   store ptr %46, ptr %44, align 8, !alias.scope !56, !noalias !59
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %39, i8 0, i64 24, i1 false), !alias.scope !59, !noalias !56
@@ -26932,10 +26932,10 @@ _ZNSt16allocator_traitsISaIN5clang10extractapi20DeclarationFragments8FragmentEEE
 _ZNSt12_Vector_baseIN5clang10extractapi20DeclarationFragments8FragmentESaIS3_EEC2EmRKS4_.exit.i.i: ; preds = %_ZNSt16allocator_traitsISaIN5clang10extractapi20DeclarationFragments8FragmentEEE8allocateERS4_m.exit.i.i.i.i.i, %4
   %25 = phi ptr [ %24, %_ZNSt16allocator_traitsISaIN5clang10extractapi20DeclarationFragments8FragmentEEE8allocateERS4_m.exit.i.i.i.i.i ], [ null, %4 ]
   store ptr %25, ptr %13, align 8
-  %26 = getelementptr inbounds i8, ptr %0, i64 40
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %25, ptr %26, align 8
   %27 = getelementptr inbounds %"struct.clang::extractapi::DeclarationFragments::Fragment", ptr %25, i64 %20
-  %28 = getelementptr inbounds i8, ptr %0, i64 48
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr %27, ptr %28, align 8
   %29 = load ptr, ptr %3, align 8
   %30 = load ptr, ptr %14, align 8

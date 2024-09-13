@@ -246,8 +246,8 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_137X86LoadValueInjectionRetH
   br i1 %35, label %.loopexit, label %36
 
 36:                                               ; preds = %34, %31
-  %37 = getelementptr inbounds i8, ptr %23, i64 696
-  %38 = getelementptr inbounds i8, ptr %1, i64 328
+  %37 = getelementptr inbounds nuw i8, ptr %23, i64 696
+  %38 = getelementptr inbounds nuw i8, ptr %1, i64 328
   %39 = getelementptr inbounds nuw i8, ptr %1, i64 320
   %.sroa.090.0100 = load ptr, ptr %38, align 8
   %.not93101 = icmp eq ptr %.sroa.090.0100, %39

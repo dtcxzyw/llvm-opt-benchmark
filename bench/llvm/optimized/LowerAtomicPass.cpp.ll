@@ -54,7 +54,7 @@ $_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIRFPvRN4llvm12PassRegistryE
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN4llvm15LowerAtomicPass3runERNS_8FunctionERNS_15AnalysisManagerIS1_JEEE(ptr dead_on_unwind noalias writable sret(%"class.llvm::PreservedAnalyses") align 8 %0, ptr nocapture nonnull readnone align 1 %1, ptr noundef nonnull readonly align 8 dereferenceable(136) %2, ptr nocapture nonnull readnone align 8 %3) local_unnamed_addr #0 align 2 {
-  %5 = getelementptr inbounds i8, ptr %2, i64 80
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 72
   %.sroa.05.08.i = load ptr, ptr %5, align 8
   %.not9.i = icmp eq ptr %.sroa.05.08.i, %6
@@ -66,7 +66,7 @@ define dso_local void @_ZN4llvm15LowerAtomicPass3runERNS_8FunctionERNS_15Analysi
   %7 = icmp eq ptr %.sroa.05.011.i, null
   %8 = getelementptr inbounds i8, ptr %.sroa.05.011.i, i64 -24
   %9 = select i1 %7, ptr null, ptr %8
-  %10 = getelementptr inbounds i8, ptr %9, i64 56
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 56
   %11 = load ptr, ptr %10, align 8, !noalias !4
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 48
   %.not4651.i.i = icmp eq ptr %11, %12
@@ -155,11 +155,11 @@ _ZL12lowerAtomicsRN4llvm8FunctionE.exit:          ; preds = %_ZL15runOnBasicBloc
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 0, ptr %47, align 4, !alias.scope !7
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %49 = getelementptr inbounds i8, ptr %0, i64 80
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store ptr %49, ptr %48, align 8, !alias.scope !7
-  %50 = getelementptr inbounds i8, ptr %0, i64 56
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store ptr %49, ptr %50, align 8, !alias.scope !7
-  %51 = getelementptr inbounds i8, ptr %0, i64 64
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i32 2, ptr %51, align 8, !alias.scope !7
   br label %63
 
@@ -174,15 +174,15 @@ _ZL12lowerAtomicsRN4llvm8FunctionE.exit.thread:   ; preds = %4, %_ZL12lowerAtomi
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 0, ptr %56, align 8, !alias.scope !10
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %58 = getelementptr inbounds i8, ptr %0, i64 80
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store ptr %58, ptr %57, align 8, !alias.scope !10
-  %59 = getelementptr inbounds i8, ptr %0, i64 56
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store ptr %58, ptr %59, align 8, !alias.scope !10
-  %60 = getelementptr inbounds i8, ptr %0, i64 64
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i32 2, ptr %60, align 8, !alias.scope !10
-  %61 = getelementptr inbounds i8, ptr %0, i64 68
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 68
   store i32 0, ptr %61, align 4, !alias.scope !10
-  %62 = getelementptr inbounds i8, ptr %0, i64 72
+  %62 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store i32 0, ptr %62, align 8, !alias.scope !10
   store i32 1, ptr %55, align 4, !alias.scope !10, !noalias !13
   store ptr @_ZN4llvm17PreservedAnalyses14AllAnalysesKeyE, ptr %52, align 8, !alias.scope !10, !noalias !13
@@ -397,9 +397,9 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_121LowerAtomicLegacyPass13ru
   %4 = alloca %"class.llvm::PreservedAnalyses", align 8
   call void @_ZN4llvm15AnalysisManagerINS_8FunctionEJEEC1Ev(ptr noundef nonnull align 8 dereferenceable(72) %3) #11
   call void @_ZN4llvm15LowerAtomicPass3runERNS_8FunctionERNS_15AnalysisManagerIS1_JEEE(ptr dead_on_unwind nonnull writable sret(%"class.llvm::PreservedAnalyses") align 8 %4, ptr nonnull align 1 poison, ptr noundef nonnull align 8 dereferenceable(136) %1, ptr nonnull align 8 poison)
-  %5 = getelementptr inbounds i8, ptr %4, i64 68
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 68
   %6 = load i32, ptr %5, align 4
-  %7 = getelementptr inbounds i8, ptr %4, i64 72
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %8 = load i32, ptr %7, align 8
   %9 = icmp eq i32 %6, %8
   br i1 %9, label %10, label %_ZNK4llvm17PreservedAnalyses15areAllPreservedEv.exit
@@ -474,7 +474,7 @@ _ZNK4llvm15SmallPtrSetImplIPvE5countEPKv.exit.i:  ; preds = %.lr.ph.i.i.i, %27, 
 _ZNK4llvm17PreservedAnalyses15areAllPreservedEv.exit: ; preds = %2, %_ZNK4llvm15SmallPtrSetImplIPvE5countEPKv.exit.i
   %42 = phi i1 [ true, %2 ], [ %41, %_ZNK4llvm15SmallPtrSetImplIPvE5countEPKv.exit.i ]
   %43 = getelementptr inbounds nuw i8, ptr %4, i64 48
-  %44 = getelementptr inbounds i8, ptr %4, i64 56
+  %44 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %45 = load ptr, ptr %44, align 8
   %46 = load ptr, ptr %43, align 8
   %47 = icmp eq ptr %45, %46
@@ -512,13 +512,13 @@ declare void @_ZN4llvm15AnalysisManagerINS_8FunctionEJEEC1Ev(ptr noundef nonnull
 define linkonce_odr hidden void @_ZN4llvm15AnalysisManagerINS_8FunctionEJEED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #0 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 64
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %5 = load i32, ptr %4, align 8
   %6 = zext i32 %5 to i64
   %7 = mul nuw nsw i64 %6, 24
   tail call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef %3, i64 noundef %7, i64 noundef 8) #11
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %9 = getelementptr inbounds i8, ptr %0, i64 40
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %10 = load i32, ptr %9, align 8
   %11 = icmp eq i32 %10, 0
   %.pre1.i = load ptr, ptr %8, align 8
@@ -547,7 +547,7 @@ define linkonce_odr hidden void @_ZN4llvm15AnalysisManagerINS_8FunctionEJEED2Ev(
 .lr.ph.i.i.i.i.i:                                 ; preds = %15, %_ZNSt16allocator_traitsISaISt10_List_nodeISt4pairIPN4llvm11AnalysisKeyESt10unique_ptrINS2_6detail21AnalysisResultConceptINS2_8FunctionENS2_15AnalysisManagerIS8_JEE11InvalidatorEEESt14default_deleteISC_EEEEEE7destroyISG_EEvRSI_PT_.exit.i.i.i.i.i
   %.09.i.i.i.i.i = phi ptr [ %18, %_ZNSt16allocator_traitsISaISt10_List_nodeISt4pairIPN4llvm11AnalysisKeyESt10unique_ptrINS2_6detail21AnalysisResultConceptINS2_8FunctionENS2_15AnalysisManagerIS8_JEE11InvalidatorEEESt14default_deleteISC_EEEEEE7destroyISG_EEvRSI_PT_.exit.i.i.i.i.i ], [ %17, %15 ]
   %18 = load ptr, ptr %.09.i.i.i.i.i, align 8
-  %19 = getelementptr inbounds i8, ptr %.09.i.i.i.i.i, i64 24
+  %19 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i, i64 24
   %20 = load ptr, ptr %19, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %20, null
   br i1 %.not.i.i.i.i.i.i.i.i.i, label %_ZNSt16allocator_traitsISaISt10_List_nodeISt4pairIPN4llvm11AnalysisKeyESt10unique_ptrINS2_6detail21AnalysisResultConceptINS2_8FunctionENS2_15AnalysisManagerIS8_JEE11InvalidatorEEESt14default_deleteISC_EEEEEE7destroyISG_EEvRSI_PT_.exit.i.i.i.i.i, label %_ZNKSt14default_deleteIN4llvm6detail21AnalysisResultConceptINS0_8FunctionENS0_15AnalysisManagerIS3_JEE11InvalidatorEEEEclEPS7_.exit.i.i.i.i.i.i.i.i.i

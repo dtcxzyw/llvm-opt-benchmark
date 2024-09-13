@@ -3305,18 +3305,18 @@ define void @_ZN10open_spiel5chess10ChessBoard9ApplyMoveERKNS0_4MoveE(ptr nounde
   %31 = load i8, ptr %30, align 2
   %32 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN10open_spiel5chess9kPassMoveE, i64 2), align 2
   %33 = icmp eq i8 %31, %32
-  %34 = getelementptr inbounds i8, ptr %1, i64 3
+  %34 = getelementptr inbounds nuw i8, ptr %1, i64 3
   %35 = load i8, ptr %34, align 1
-  %36 = load i8, ptr getelementptr inbounds (i8, ptr @_ZN10open_spiel5chess9kPassMoveE, i64 3), align 1
+  %36 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN10open_spiel5chess9kPassMoveE, i64 3), align 1
   %37 = icmp eq i8 %35, %36
   %38 = select i1 %33, i1 %37, i1 false
   br i1 %38, label %39, label %_ZNK10open_spiel5chess4MoveeqERKS1_.exit.thread
 
 39:                                               ; preds = %29
   %40 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %41 = getelementptr inbounds i8, ptr %1, i64 5
+  %41 = getelementptr inbounds nuw i8, ptr %1, i64 5
   %42 = load i8, ptr %41, align 1
-  %43 = load i8, ptr getelementptr inbounds (i8, ptr @_ZN10open_spiel5chess9kPassMoveE, i64 5), align 1
+  %43 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN10open_spiel5chess9kPassMoveE, i64 5), align 1
   %44 = icmp eq i8 %42, %43
   %45 = load i8, ptr %40, align 4
   %46 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN10open_spiel5chess9kPassMoveE, i64 4), align 4
@@ -3440,7 +3440,7 @@ _ZNR4absl7debian28optionalIN10open_spiel12chess_common6SquareEEdeEv.exit: ; pred
   %106 = load i8, ptr %105, align 1
   %107 = load i8, ptr %1, align 4
   %108 = icmp eq i8 %106, %107
-  %109 = getelementptr inbounds i8, ptr %102, i64 2
+  %109 = getelementptr inbounds nuw i8, ptr %102, i64 2
   %110 = load i8, ptr %109, align 2
   %111 = load i8, ptr %24, align 1
   %112 = icmp eq i8 %110, %111
@@ -3458,7 +3458,7 @@ _ZNR4absl7debian28optionalIN10open_spiel12chess_common6SquareEEdeEv.exit122: ; p
   %119 = load i8, ptr %118, align 2
   %120 = load i8, ptr %1, align 4
   %121 = icmp eq i8 %119, %120
-  %122 = getelementptr inbounds i8, ptr %115, i64 2
+  %122 = getelementptr inbounds nuw i8, ptr %115, i64 2
   %123 = load i8, ptr %122, align 1
   %124 = load i8, ptr %24, align 1
   %125 = icmp eq i8 %123, %124
@@ -3490,9 +3490,9 @@ _ZNR4absl7debian28optionalIN10open_spiel12chess_common6SquareEEdeEv.exit123: ; p
   %139 = load i8, ptr %138, align 1
   %140 = load i8, ptr %77, align 2
   %141 = icmp eq i8 %139, %140
-  %142 = getelementptr inbounds i8, ptr %135, i64 2
+  %142 = getelementptr inbounds nuw i8, ptr %135, i64 2
   %143 = load i8, ptr %142, align 2
-  %144 = getelementptr inbounds i8, ptr %1, i64 3
+  %144 = getelementptr inbounds nuw i8, ptr %1, i64 3
   %145 = load i8, ptr %144, align 1
   %146 = icmp eq i8 %143, %145
   %147 = select i1 %141, i1 %146, i1 false
@@ -3509,9 +3509,9 @@ _ZNR4absl7debian28optionalIN10open_spiel12chess_common6SquareEEdeEv.exit124: ; p
   %153 = load i8, ptr %152, align 2
   %154 = load i8, ptr %77, align 2
   %155 = icmp eq i8 %153, %154
-  %156 = getelementptr inbounds i8, ptr %149, i64 2
+  %156 = getelementptr inbounds nuw i8, ptr %149, i64 2
   %157 = load i8, ptr %156, align 1
-  %158 = getelementptr inbounds i8, ptr %1, i64 3
+  %158 = getelementptr inbounds nuw i8, ptr %1, i64 3
   %159 = load i8, ptr %158, align 1
   %160 = icmp eq i8 %157, %159
   %161 = select i1 %155, i1 %160, i1 false
@@ -3557,7 +3557,7 @@ _ZNR4absl7debian28optionalIN10open_spiel12chess_common6SquareEEdeEv.exit124: ; p
   %176 = select i1 %175, i8 0, i8 7
   %177 = load i8, ptr %77, align 2
   %178 = icmp eq i8 %177, 2
-  %179 = getelementptr inbounds i8, ptr %1, i64 3
+  %179 = getelementptr inbounds nuw i8, ptr %1, i64 3
   %180 = load i8, ptr %179, align 1
   %181 = icmp eq i8 %180, %176
   %182 = select i1 %178, i1 %181, i1 false
@@ -3807,7 +3807,7 @@ _ZNR4absl7debian28optionalIN10open_spiel12chess_common6SquareEEdeEv.exit124: ; p
   br label %282
 
 282:                                              ; preds = %228, %281
-  %283 = getelementptr inbounds i8, ptr %1, i64 3
+  %283 = getelementptr inbounds nuw i8, ptr %1, i64 3
   %284 = load i8, ptr %283, align 1
   %285 = icmp eq i8 %284, 0
   %286 = sext i8 %284 to i32
@@ -8731,13 +8731,13 @@ define noundef zeroext i1 @_ZNK10open_spiel5chess10ChessBoard15IsBreachingMoveEN
 9:                                                ; preds = %3
   %10 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN10open_spiel5chess9kPassMoveE, i64 2), align 2
   %11 = icmp eq i8 %10, %.sroa.5.0.extract.trunc
-  %12 = load i8, ptr getelementptr inbounds (i8, ptr @_ZN10open_spiel5chess9kPassMoveE, i64 3), align 1
+  %12 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN10open_spiel5chess9kPassMoveE, i64 3), align 1
   %13 = icmp eq i8 %12, %.sroa.22.0.extract.trunc
   %14 = select i1 %11, i1 %13, i1 false
   br i1 %14, label %15, label %_ZNK10open_spiel5chess4MoveeqERKS1_.exit.thread
 
 15:                                               ; preds = %9
-  %16 = load i8, ptr getelementptr inbounds (i8, ptr @_ZN10open_spiel5chess9kPassMoveE, i64 5), align 1
+  %16 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN10open_spiel5chess9kPassMoveE, i64 5), align 1
   %17 = icmp eq i8 %16, %.sroa.42.0.extract.trunc
   %18 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN10open_spiel5chess9kPassMoveE, i64 4), align 4
   %19 = icmp eq i8 %18, %.sroa.39.0.extract.trunc
@@ -9280,7 +9280,7 @@ define void @_ZNK10open_spiel5chess10ChessBoard26BreachingMoveToCaptureMoveEPNS0
   %13 = load i8, ptr %1, align 4
   %14 = sext i8 %13 to i32
   %15 = sub nsw i32 %12, %14
-  %16 = getelementptr inbounds i8, ptr %1, i64 3
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 3
   %17 = load i8, ptr %16, align 1
   %18 = sext i8 %17 to i32
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 1
@@ -9869,7 +9869,7 @@ _ZNSt8functionIFbRKN10open_spiel5chess4MoveEEED2Ev.exit: ; preds = %_ZNK10open_s
   br i1 %.not131135, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %153
-  %165 = getelementptr inbounds i8, ptr %6, i64 2
+  %165 = getelementptr inbounds nuw i8, ptr %6, i64 2
   br label %166
 
 166:                                              ; preds = %.lr.ph, %189
@@ -16324,9 +16324,9 @@ declare void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(p
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN10open_spiel5chess4MoveEEZNKS2_5ToSANB5cxx11ERKNS1_10ChessBoardEE3$_0E9_M_invokeERKSt9_Any_dataS4_"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %1) #25 align 2 {
   %.val = load ptr, ptr %0, align 8
   %3 = load ptr, ptr %.val, align 8
-  %4 = getelementptr inbounds i8, ptr %1, i64 5
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 5
   %5 = load i8, ptr %4, align 1
-  %6 = getelementptr inbounds i8, ptr %3, i64 5
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 5
   %7 = load i8, ptr %6, align 1
   %.not.i.i.i = icmp eq i8 %5, %7
   br i1 %.not.i.i.i, label %8, label %"_ZSt10__invoke_rIbRZNK10open_spiel5chess4Move5ToSANB5cxx11ERKNS1_10ChessBoardEE3$_0JRKS2_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_.exit"
@@ -16337,9 +16337,9 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN10open_spiel5
   %11 = load i8, ptr %9, align 2
   %12 = load i8, ptr %10, align 1
   %13 = icmp ne i8 %11, %12
-  %14 = getelementptr inbounds i8, ptr %1, i64 3
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 3
   %15 = load i8, ptr %14, align 1
-  %16 = getelementptr inbounds i8, ptr %3, i64 3
+  %16 = getelementptr inbounds nuw i8, ptr %3, i64 3
   %17 = load i8, ptr %16, align 1
   %18 = icmp ne i8 %15, %17
   %.not3.i.i.i.i = select i1 %13, i1 true, i1 %18
@@ -18188,9 +18188,9 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN10open_spiel5
   %16 = load i8, ptr %14, align 2
   %17 = load i8, ptr %15, align 1
   %18 = icmp eq i8 %16, %17
-  %19 = getelementptr inbounds i8, ptr %1, i64 3
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 3
   %20 = load i8, ptr %19, align 1
-  %21 = getelementptr inbounds i8, ptr %.val, i64 9
+  %21 = getelementptr inbounds nuw i8, ptr %.val, i64 9
   %22 = load i8, ptr %21, align 1
   %23 = icmp eq i8 %20, %22
   %24 = select i1 %18, i1 %23, i1 false
@@ -18206,7 +18206,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN10open_spiel5
   %31 = getelementptr inbounds nuw i8, ptr %.val, i64 11
   %32 = load i8, ptr %31, align 1
   %33 = trunc i8 %32 to i1
-  %34 = getelementptr inbounds i8, ptr %.val, i64 12
+  %34 = getelementptr inbounds nuw i8, ptr %.val, i64 12
   %35 = load i8, ptr %34, align 1
   %36 = icmp ne i8 %35, %30
   %or.cond12.not.i.i.i = select i1 %33, i1 %36, i1 false
@@ -18216,7 +18216,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN10open_spiel5
   %38 = getelementptr inbounds nuw i8, ptr %.val, i64 13
   %39 = load i8, ptr %38, align 1
   %40 = trunc i8 %39 to i1
-  %41 = getelementptr inbounds i8, ptr %.val, i64 14
+  %41 = getelementptr inbounds nuw i8, ptr %.val, i64 14
   %42 = load i8, ptr %41, align 1
   %43 = icmp ne i8 %42, %28
   %or.cond16.not.i.i.i = select i1 %40, i1 %43, i1 false
@@ -18231,7 +18231,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN10open_spiel5
 _ZNKR4absl7debian28optionalIN10open_spiel5chess9PieceTypeEEdeEv.exit.i.i.i: ; preds = %44
   %48 = getelementptr inbounds nuw i8, ptr %1, i64 6
   %49 = load i8, ptr %48, align 2
-  %50 = getelementptr inbounds i8, ptr %.val, i64 16
+  %50 = getelementptr inbounds nuw i8, ptr %.val, i64 16
   %51 = load i8, ptr %50, align 1
   %52 = icmp eq i8 %49, %51
   br i1 %52, label %53, label %"_ZSt10__invoke_rIbRZNK10open_spiel5chess10ChessBoard12ParseSANMoveERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_2JRKNS1_4MoveEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESH_E4typeEOSI_DpOSJ_.exit"
@@ -18374,7 +18374,7 @@ _ZNR4absl7debian28optionalIN10open_spiel12chess_common6SquareEEdeEv.exit.i.i.i: 
   %10 = icmp eq i8 %8, %9
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %12 = load i8, ptr %11, align 1
-  %13 = getelementptr inbounds i8, ptr %.val, i64 2
+  %13 = getelementptr inbounds nuw i8, ptr %.val, i64 2
   %14 = load i8, ptr %13, align 1
   %15 = icmp eq i8 %12, %14
   %16 = select i1 %10, i1 %15, i1 false
@@ -18507,7 +18507,7 @@ _ZNR4absl7debian28optionalIN10open_spiel12chess_common6SquareEEdeEv.exit.i.i.i: 
   %11 = icmp eq i8 %9, %10
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %13 = load i8, ptr %12, align 1
-  %14 = getelementptr inbounds i8, ptr %4, i64 2
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 2
   %15 = load i8, ptr %14, align 1
   %16 = icmp eq i8 %13, %15
   %17 = select i1 %11, i1 %16, i1 false
@@ -18529,9 +18529,9 @@ _ZNR4absl7debian28optionalIN10open_spiel12chess_common6SquareEEdeEv.exit5.i.i.i:
   %25 = load i8, ptr %23, align 2
   %26 = load i8, ptr %24, align 1
   %27 = icmp eq i8 %25, %26
-  %28 = getelementptr inbounds i8, ptr %1, i64 3
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 3
   %29 = load i8, ptr %28, align 1
-  %30 = getelementptr inbounds i8, ptr %19, i64 2
+  %30 = getelementptr inbounds nuw i8, ptr %19, i64 2
   %31 = load i8, ptr %30, align 1
   %32 = icmp eq i8 %29, %31
   %33 = select i1 %27, i1 %32, i1 false
@@ -20221,7 +20221,7 @@ define linkonce_odr { ptr, i8 } @_ZNSt8_Rb_treeIN10open_spiel12chess_common6Squa
   %10 = load i8, ptr %9, align 1
   %.not.i.i.i = icmp eq i8 %5, %10
   %11 = icmp slt i8 %5, %10
-  %12 = getelementptr inbounds i8, ptr %.02226.i, i64 33
+  %12 = getelementptr inbounds nuw i8, ptr %.02226.i, i64 33
   %13 = load i8, ptr %12, align 1
   %14 = icmp slt i8 %7, %13
   %.0.i.i.i = select i1 %.not.i.i.i, i1 %14, i1 %11
@@ -20246,7 +20246,7 @@ define linkonce_odr { ptr, i8 } @_ZNSt8_Rb_treeIN10open_spiel12chess_common6Squa
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %19, i64 32
   %.pre = load i8, ptr %.phi.trans.insert, align 1
   %.pre19 = load i8, ptr %1, align 1
-  %.phi.trans.insert20 = getelementptr inbounds i8, ptr %19, i64 33
+  %.phi.trans.insert20 = getelementptr inbounds nuw i8, ptr %19, i64 33
   %.pre21 = load i8, ptr %.phi.trans.insert20, align 1
   %.phi.trans.insert22 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %.pre23 = load i8, ptr %.phi.trans.insert22, align 1
@@ -20278,7 +20278,7 @@ select.unfold:                                    ; preds = %20, %._crit_edge.th
   %32 = icmp slt i8 %30, %31
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %34 = load i8, ptr %33, align 1
-  %35 = getelementptr inbounds i8, ptr %.sroa.4.0.i.ph, i64 33
+  %35 = getelementptr inbounds nuw i8, ptr %.sroa.4.0.i.ph, i64 33
   %36 = load i8, ptr %35, align 1
   %37 = icmp slt i8 %34, %36
   %.0.i.i.i7 = select i1 %.not.i.i.i6, i1 %37, i1 %32

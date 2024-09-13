@@ -29,7 +29,7 @@ define dso_local void @_ZN4llvm8InitLLVMC2ERiRPPKcb(ptr noundef nonnull align 8 
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %11 = getelementptr inbounds i8, ptr %0, i64 112
   tail call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull %11, i64 noundef 0) #7
-  %12 = getelementptr inbounds i8, ptr %0, i64 144
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 144
   store i8 0, ptr %12, align 8
   br i1 %3, label %13, label %_ZNSt8optionalIN4llvm23PrettyStackTraceProgramEE7emplaceIJRiRPPKcEEENSt9enable_ifIX18is_constructible_vIS1_DpT_EERS1_E4typeEDpOSA_.exit
 
@@ -49,9 +49,9 @@ _ZNSt8optionalIN4llvm23PrettyStackTraceProgramEE7emplaceIJRiRPPKcEEENSt9enable_i
   %17 = load ptr, ptr %2, align 8
   tail call void @_ZN4llvm21PrettyStackTraceEntryC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %11) #7
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN4llvm23PrettyStackTraceProgramE, i64 16), ptr %11, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 128
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store i32 %16, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %0, i64 136
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 136
   store ptr %17, ptr %19, align 8
   tail call void @_ZN4llvm22EnablePrettyStackTraceEv() #7
   store i8 1, ptr %12, align 8
@@ -82,7 +82,7 @@ declare void @_ZN4llvm33install_out_of_memory_new_handlerEv() local_unnamed_addr
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN4llvm8InitLLVMD2Ev(ptr noundef nonnull align 8 dereferenceable(152) %0) unnamed_addr #0 align 2 {
   tail call void @_ZN4llvm13llvm_shutdownEv() #7
-  %2 = getelementptr inbounds i8, ptr %0, i64 144
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %3 = load i8, ptr %2, align 8
   %4 = trunc i8 %3 to i1
   br i1 %4, label %5, label %_ZNSt8optionalIN4llvm23PrettyStackTraceProgramEED2Ev.exit

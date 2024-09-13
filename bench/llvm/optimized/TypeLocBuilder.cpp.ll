@@ -1595,7 +1595,7 @@ _ZN5clang14TypeLocBuilder4pushINS_30DependentSizedExtVectorTypeLocEEET_NS_8QualT
   br label %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit.thread
 
 678:                                              ; preds = %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit
-  %679 = getelementptr inbounds i8, ptr %.sroa.0804.0.copyload, i64 20
+  %679 = getelementptr inbounds nuw i8, ptr %.sroa.0804.0.copyload, i64 20
   %680 = load i32, ptr %679, align 4
   %681 = shl i32 %680, 3
   %682 = add i32 %681, 32
@@ -1603,7 +1603,7 @@ _ZN5clang14TypeLocBuilder4pushINS_30DependentSizedExtVectorTypeLocEEET_NS_8QualT
   %684 = call { ptr, ptr } @_ZN5clang14TypeLocBuilder8pushImplENS_8QualTypeEmj(ptr noundef nonnull align 8 dereferenceable(61) %0, i64 %50, i64 noundef %683, i32 noundef 8)
   %685 = extractvalue { ptr, ptr } %684, 0
   %686 = extractvalue { ptr, ptr } %684, 1
-  %687 = getelementptr inbounds i8, ptr %685, i64 20
+  %687 = getelementptr inbounds nuw i8, ptr %685, i64 20
   %688 = load i32, ptr %687, align 4
   %689 = shl i32 %688, 3
   %690 = add i32 %689, 32
@@ -3349,7 +3349,7 @@ _ZN5clang14TypeLocBuilder4pushINS_13RecordTypeLocEEET_NS_8QualTypeE.exit: ; pred
   br label %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit.thread
 
 1484:                                             ; preds = %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit
-  %1485 = getelementptr inbounds i8, ptr %.sroa.0804.0.copyload, i64 20
+  %1485 = getelementptr inbounds nuw i8, ptr %.sroa.0804.0.copyload, i64 20
   %1486 = load i32, ptr %1485, align 4
   %1487 = shl i32 %1486, 3
   %1488 = add i32 %1487, 16
@@ -3357,7 +3357,7 @@ _ZN5clang14TypeLocBuilder4pushINS_13RecordTypeLocEEET_NS_8QualTypeE.exit: ; pred
   %1490 = call { ptr, ptr } @_ZN5clang14TypeLocBuilder8pushImplENS_8QualTypeEmj(ptr noundef nonnull align 8 dereferenceable(61) %0, i64 %50, i64 noundef %1489, i32 noundef 8)
   %1491 = extractvalue { ptr, ptr } %1490, 0
   %1492 = extractvalue { ptr, ptr } %1490, 1
-  %1493 = getelementptr inbounds i8, ptr %1491, i64 20
+  %1493 = getelementptr inbounds nuw i8, ptr %1491, i64 20
   %1494 = load i32, ptr %1493, align 4
   %1495 = shl i32 %1494, 3
   %1496 = add i32 %1495, 16
@@ -5914,7 +5914,7 @@ _ZN5clang14TypeLocBuilder4pushINS_30DependentSizedExtVectorTypeLocEEET_NS_8QualT
   br label %_ZN5clang14BuiltinTypeLoc15initializeLocalERNS_10ASTContextENS_14SourceLocationE.exit
 
 707:                                              ; preds = %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit
-  %708 = getelementptr inbounds i8, ptr %65, i64 20
+  %708 = getelementptr inbounds nuw i8, ptr %65, i64 20
   %709 = load i32, ptr %708, align 4
   %710 = shl i32 %709, 3
   %711 = add i32 %710, 32
@@ -7656,7 +7656,7 @@ _ZN5clang14TypeLocBuilder4pushINS_13RecordTypeLocEEET_NS_8QualTypeE.exit: ; pred
   br label %_ZN5clang14BuiltinTypeLoc15initializeLocalERNS_10ASTContextENS_14SourceLocationE.exit
 
 1489:                                             ; preds = %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit
-  %1490 = getelementptr inbounds i8, ptr %65, i64 20
+  %1490 = getelementptr inbounds nuw i8, ptr %65, i64 20
   %1491 = load i32, ptr %1490, align 4
   %1492 = shl i32 %1491, 3
   %1493 = add i32 %1492, 16
@@ -7672,7 +7672,7 @@ _ZN5clang14TypeLocBuilder4pushINS_13RecordTypeLocEEET_NS_8QualTypeE.exit: ; pred
   %1500 = getelementptr inbounds nuw i8, ptr %1497, i64 12
   store i32 %3, ptr %1500, align 4
   %1501 = getelementptr inbounds i8, ptr %1496, i64 48
-  %1502 = getelementptr inbounds i8, ptr %1496, i64 20
+  %1502 = getelementptr inbounds nuw i8, ptr %1496, i64 20
   %1503 = load i32, ptr %1502, align 4
   %1504 = zext i32 %1503 to i64
   %1505 = getelementptr inbounds i8, ptr %1497, i64 16

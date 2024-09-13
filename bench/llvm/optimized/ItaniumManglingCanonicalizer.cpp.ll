@@ -1222,41 +1222,41 @@ define linkonce_odr hidden void @_ZN4llvm28ItaniumManglingCanonicalizer4ImplC2Ev
   %.ptr2.i.i.i = getelementptr inbounds i8, ptr %0, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
   store ptr %.ptr2.i.i.i, ptr %2, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 24
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %.ptr2.i.i.i, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 32
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = getelementptr inbounds i8, ptr %0, i64 296
   store ptr %5, ptr %4, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(256) %.ptr2.i.i.i, i8 0, i64 256, i1 false)
   %.ptr2.i5.i.i = getelementptr inbounds i8, ptr %0, i64 320
   store ptr %.ptr2.i5.i.i, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 304
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 304
   store ptr %.ptr2.i5.i.i, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 312
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %8 = getelementptr inbounds i8, ptr %0, i64 576
   store ptr %8, ptr %7, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(256) %.ptr2.i5.i.i, i8 0, i64 256, i1 false)
   %.ptr2.i6.i.i = getelementptr inbounds i8, ptr %0, i64 600
   store ptr %.ptr2.i6.i.i, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 584
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 584
   store ptr %.ptr2.i6.i.i, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 592
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 592
   %11 = getelementptr inbounds i8, ptr %0, i64 664
   store ptr %11, ptr %10, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %.ptr2.i6.i.i, i8 0, i64 64, i1 false)
   %.ptr2.i7.i.i = getelementptr inbounds i8, ptr %0, i64 688
   store ptr %.ptr2.i7.i.i, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 672
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 672
   store ptr %.ptr2.i7.i.i, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 680
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 680
   %14 = getelementptr inbounds i8, ptr %0, i64 720
   store ptr %14, ptr %13, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.ptr2.i7.i.i, i8 0, i64 32, i1 false)
   %.ptr2.i8.i.i = getelementptr inbounds i8, ptr %0, i64 744
   store ptr %.ptr2.i8.i.i, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 728
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 728
   store ptr %.ptr2.i8.i.i, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 736
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 736
   %17 = getelementptr inbounds i8, ptr %0, i64 776
   store ptr %17, ptr %16, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.ptr2.i8.i.i, i8 0, i64 32, i1 false)
@@ -1270,25 +1270,25 @@ define linkonce_odr hidden void @_ZN4llvm28ItaniumManglingCanonicalizer4ImplC2Ev
   %scevgep.i.i = getelementptr inbounds i8, ptr %0, i64 792
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %scevgep.i.i, i8 0, i64 12, i1 false)
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 808
-  %22 = getelementptr inbounds i8, ptr %0, i64 824
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 824
   %23 = getelementptr inbounds i8, ptr %0, i64 840
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %21, i8 0, i64 16, i1 false)
   tail call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %22, ptr noundef nonnull %23, i64 noundef 4) #20
-  %24 = getelementptr inbounds i8, ptr %0, i64 872
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 872
   %25 = getelementptr inbounds i8, ptr %0, i64 888
   tail call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %24, ptr noundef nonnull %25, i64 noundef 0) #20
   store i64 0, ptr %25, align 8
-  %26 = getelementptr inbounds i8, ptr %0, i64 896
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 896
   store i64 1, ptr %26, align 8
-  %27 = getelementptr inbounds i8, ptr %0, i64 904
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 904
   tail call void @_ZN4llvm14FoldingSetBaseC2Ej(ptr noundef nonnull align 8 dereferenceable(16) %27, i32 noundef 6) #20
-  %28 = getelementptr inbounds i8, ptr %0, i64 920
-  %29 = getelementptr inbounds i8, ptr %0, i64 937
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 920
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 937
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %28, i8 0, i64 17, i1 false)
   store i8 1, ptr %29, align 1
-  %30 = getelementptr inbounds i8, ptr %0, i64 944
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 944
   store i32 1, ptr %30, align 8
-  %31 = getelementptr inbounds i8, ptr %0, i64 948
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 948
   store i32 0, ptr %31, align 4
   br label %.lr.ph.i.i.i.i.i.i
 
@@ -1322,16 +1322,16 @@ define dso_local void @_ZN4llvm28ItaniumManglingCanonicalizerD2Ev(ptr nocapture 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvm28ItaniumManglingCanonicalizer4ImplD2Ev(ptr noundef nonnull align 8 dereferenceable(1464) %0) unnamed_addr #0 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 808
-  %3 = getelementptr inbounds i8, ptr %0, i64 944
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 944
   %4 = load i32, ptr %3, align 8
   %5 = and i32 %4, 1
   %.not.i.i.i.i.i = icmp eq i32 %5, 0
   br i1 %.not.i.i.i.i.i, label %6, label %_ZN12_GLOBAL__N_122CanonicalizerAllocatorD2Ev.exit.i.i
 
 6:                                                ; preds = %1
-  %7 = getelementptr inbounds i8, ptr %0, i64 952
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 952
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 960
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 960
   %10 = load i32, ptr %9, align 8
   %11 = zext i32 %10 to i64
   %12 = shl nuw nsw i64 %11, 4
@@ -1339,12 +1339,12 @@ define linkonce_odr hidden void @_ZN4llvm28ItaniumManglingCanonicalizer4ImplD2Ev
   br label %_ZN12_GLOBAL__N_122CanonicalizerAllocatorD2Ev.exit.i.i
 
 _ZN12_GLOBAL__N_122CanonicalizerAllocatorD2Ev.exit.i.i: ; preds = %6, %1
-  %13 = getelementptr inbounds i8, ptr %0, i64 904
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 904
   tail call void @_ZN4llvm14FoldingSetBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %13) #20
   tail call void @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EED2Ev(ptr noundef nonnull align 8 dereferenceable(96) %2) #20
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 720
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 744
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 744
   %17 = icmp eq ptr %15, %16
   br i1 %17, label %_ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_24ForwardTemplateReferenceELm4EED2Ev.exit.i.i, label %18
 
@@ -1355,7 +1355,7 @@ _ZN12_GLOBAL__N_122CanonicalizerAllocatorD2Ev.exit.i.i: ; preds = %6, %1
 _ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_24ForwardTemplateReferenceELm4EED2Ev.exit.i.i: ; preds = %18, %_ZN12_GLOBAL__N_122CanonicalizerAllocatorD2Ev.exit.i.i
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 664
   %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %0, i64 688
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 688
   %22 = icmp eq ptr %20, %21
   br i1 %22, label %_ZN4llvm16itanium_demangle14PODSmallVectorIPNS1_IPNS0_4NodeELm8EEELm4EED2Ev.exit.i.i, label %23
 
@@ -1366,7 +1366,7 @@ _ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_24ForwardTemplateReferenceELm4EE
 _ZN4llvm16itanium_demangle14PODSmallVectorIPNS1_IPNS0_4NodeELm8EEELm4EED2Ev.exit.i.i: ; preds = %23, %_ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_24ForwardTemplateReferenceELm4EED2Ev.exit.i.i
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 576
   %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %0, i64 600
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 600
   %27 = icmp eq ptr %25, %26
   br i1 %27, label %_ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm8EED2Ev.exit.i.i, label %28
 
@@ -1377,7 +1377,7 @@ _ZN4llvm16itanium_demangle14PODSmallVectorIPNS1_IPNS0_4NodeELm8EEELm4EED2Ev.exit
 _ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm8EED2Ev.exit.i.i: ; preds = %28, %_ZN4llvm16itanium_demangle14PODSmallVectorIPNS1_IPNS0_4NodeELm8EEELm4EED2Ev.exit.i.i
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 296
   %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %0, i64 320
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 320
   %32 = icmp eq ptr %30, %31
   br i1 %32, label %_ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EED2Ev.exit.i.i, label %33
 
@@ -1388,7 +1388,7 @@ _ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm8EED2Ev.exit.i.i: ; pred
 _ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EED2Ev.exit.i.i: ; preds = %33, %_ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm8EED2Ev.exit.i.i
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %35 = load ptr, ptr %34, align 8
-  %36 = getelementptr inbounds i8, ptr %0, i64 40
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %37 = icmp eq ptr %35, %36
   br i1 %37, label %_ZN4llvm16itanium_demangle14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEED2Ev.exit, label %38
 
@@ -1412,7 +1412,7 @@ define dso_local noundef range(i32 0, 4) i32 @_ZN4llvm28ItaniumManglingCanonical
   store i32 %1, ptr %9, align 4
   %11 = load ptr, ptr %0, align 8
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 808
-  %13 = getelementptr inbounds i8, ptr %11, i64 937
+  %13 = getelementptr inbounds nuw i8, ptr %11, i64 937
   store i8 1, ptr %13, align 1
   store ptr %0, ptr %10, align 8
   %14 = getelementptr inbounds nuw i8, ptr %10, i64 8
@@ -1426,9 +1426,9 @@ define dso_local noundef range(i32 0, 4) i32 @_ZN4llvm28ItaniumManglingCanonical
   br i1 %.not, label %113, label %17
 
 17:                                               ; preds = %6
-  %18 = getelementptr inbounds i8, ptr %11, i64 928
+  %18 = getelementptr inbounds nuw i8, ptr %11, i64 928
   store ptr %.fca.0.extract3, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %11, i64 936
+  %19 = getelementptr inbounds nuw i8, ptr %11, i64 936
   store i8 0, ptr %19, align 8
   %20 = call fastcc { ptr, i8 } @"_ZZN4llvm28ItaniumManglingCanonicalizer14addEquivalenceENS0_12FragmentKindENS_9StringRefES2_ENK3$_0clES2_"(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr %4, i64 %5)
   %.fca.0.extract = extractvalue { ptr, i8 } %20, 0
@@ -1451,17 +1451,17 @@ define dso_local noundef range(i32 0, 4) i32 @_ZN4llvm28ItaniumManglingCanonical
 
 27:                                               ; preds = %25
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8)
-  %28 = getelementptr inbounds i8, ptr %11, i64 944
+  %28 = getelementptr inbounds nuw i8, ptr %11, i64 944
   store ptr %.fca.0.extract3, ptr %8, align 8
   %29 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %.fca.0.extract, ptr %29, align 8
   %30 = load i32, ptr %28, align 8, !noalias !6
   %31 = and i32 %30, 1
   %.not.i.i.i.i.i.i.i = icmp eq i32 %31, 0
-  %32 = getelementptr inbounds i8, ptr %11, i64 952
+  %32 = getelementptr inbounds nuw i8, ptr %11, i64 952
   %33 = load ptr, ptr %32, align 8, !noalias !6
   %34 = select i1 %.not.i.i.i.i.i.i.i, ptr %33, ptr %32
-  %35 = getelementptr inbounds i8, ptr %11, i64 960
+  %35 = getelementptr inbounds nuw i8, ptr %11, i64 960
   %36 = load i32, ptr %35, align 8, !noalias !6
   %37 = select i1 %.not.i.i.i.i.i.i.i, i32 %36, i32 32
   %38 = icmp eq i32 %37, 0
@@ -1529,17 +1529,17 @@ _ZN12_GLOBAL__N_122CanonicalizerAllocator12addRemappingEPN4llvm16itanium_demangl
 
 71:                                               ; preds = %69
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
-  %72 = getelementptr inbounds i8, ptr %11, i64 944
+  %72 = getelementptr inbounds nuw i8, ptr %11, i64 944
   store ptr %.fca.0.extract, ptr %7, align 8
   %73 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %.fca.0.extract3, ptr %73, align 8
   %74 = load i32, ptr %72, align 8, !noalias !12
   %75 = and i32 %74, 1
   %.not.i.i.i.i.i.i.i22 = icmp eq i32 %75, 0
-  %76 = getelementptr inbounds i8, ptr %11, i64 952
+  %76 = getelementptr inbounds nuw i8, ptr %11, i64 952
   %77 = load ptr, ptr %76, align 8, !noalias !12
   %78 = select i1 %.not.i.i.i.i.i.i.i22, ptr %77, ptr %76
-  %79 = getelementptr inbounds i8, ptr %11, i64 960
+  %79 = getelementptr inbounds nuw i8, ptr %11, i64 960
   %80 = load i32, ptr %79, align 8, !noalias !12
   %81 = select i1 %.not.i.i.i.i.i.i.i22, i32 %80, i32 32
   %82 = icmp eq i32 %81, 0
@@ -1616,15 +1616,15 @@ define internal fastcc { ptr, i8 } @"_ZZN4llvm28ItaniumManglingCanonicalizer14ad
   store ptr %6, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %5, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store ptr %9, ptr %10, align 8
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 296
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %5, i64 304
+  %13 = getelementptr inbounds nuw i8, ptr %5, i64 304
   store ptr %12, ptr %13, align 8
   %14 = getelementptr inbounds nuw i8, ptr %5, i64 664
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %5, i64 672
+  %16 = getelementptr inbounds nuw i8, ptr %5, i64 672
   store ptr %15, ptr %16, align 8
   %17 = getelementptr inbounds nuw i8, ptr %5, i64 784
   store i64 -1, ptr %17, align 8
@@ -1634,7 +1634,7 @@ define internal fastcc { ptr, i8 } @"_ZZN4llvm28ItaniumManglingCanonicalizer14ad
   store i8 0, ptr %19, align 1
   %20 = getelementptr inbounds nuw i8, ptr %5, i64 792
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %20, i8 0, i64 12, i1 false)
-  %21 = getelementptr inbounds i8, ptr %5, i64 920
+  %21 = getelementptr inbounds nuw i8, ptr %5, i64 920
   store ptr null, ptr %21, align 8
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %23 = load ptr, ptr %22, align 8
@@ -1734,7 +1734,7 @@ define internal fastcc noundef i64 @_ZL21parseMaybeMangledNameRN4llvm16itanium_d
   %8 = alloca %"class.std::basic_string_view", align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 808
   %10 = zext i1 %3 to i8
-  %11 = getelementptr inbounds i8, ptr %0, i64 937
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 937
   store i8 %10, ptr %11, align 1
   %12 = getelementptr inbounds i8, ptr %1, i64 %2
   store ptr %1, ptr %0, align 8
@@ -1742,15 +1742,15 @@ define internal fastcc noundef i64 @_ZL21parseMaybeMangledNameRN4llvm16itanium_d
   store ptr %12, ptr %13, align 8
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %15, ptr %16, align 8
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 296
   %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %0, i64 304
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 304
   store ptr %18, ptr %19, align 8
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 664
   %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %0, i64 672
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 672
   store ptr %21, ptr %22, align 8
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 784
   store i64 -1, ptr %23, align 8
@@ -1760,7 +1760,7 @@ define internal fastcc noundef i64 @_ZL21parseMaybeMangledNameRN4llvm16itanium_d
   store i8 0, ptr %25, align 1
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 792
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %26, i8 0, i64 12, i1 false)
-  %27 = getelementptr inbounds i8, ptr %0, i64 920
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 920
   store ptr null, ptr %27, align 8
   %.not.i = icmp ult i64 %2, 2
   br i1 %.not.i, label %_ZNK4llvm9StringRef11starts_withES0_.exit13.thread36, label %_ZNK4llvm9StringRef11starts_withES0_.exit
@@ -1844,7 +1844,7 @@ _ZN12_GLOBAL__N_111profileCtorIJPN4llvm16itanium_demangle4NodeESt17basic_string_
   %47 = ptrtoint ptr %37 to i64
   call void @_ZN4llvm16FoldingSetNodeID10AddIntegerEy(ptr noundef nonnull align 8 dereferenceable(144) %5, i64 noundef %47)
   call void @_ZN4llvm16FoldingSetNodeID9AddStringENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(144) %5, ptr nonnull %.val8.i, i64 %42) #20
-  %48 = getelementptr inbounds i8, ptr %0, i64 904
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 904
   %49 = call noundef ptr @_ZN4llvm14FoldingSetBase19FindNodeOrInsertPosERKNS_16FoldingSetNodeIDERPvRKNS0_14FoldingSetInfoE(ptr noundef nonnull align 8 dereferenceable(16) %48, ptr noundef nonnull align 8 dereferenceable(144) %5, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4llvm10FoldingSetIN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeaderEE17getFoldingSetInfoEvE4Info) #20
   %.not.i.i.i.i.i.i = icmp eq ptr %49, null
   br i1 %.not.i.i.i.i.i.i, label %52, label %50
@@ -1858,7 +1858,7 @@ _ZN12_GLOBAL__N_111profileCtorIJPN4llvm16itanium_demangle4NodeESt17basic_string_
   br i1 %53, label %54, label %84
 
 54:                                               ; preds = %52
-  %55 = getelementptr inbounds i8, ptr %0, i64 888
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 888
   %56 = load i64, ptr %55, align 8
   %57 = add i64 %56, 48
   store i64 %57, ptr %55, align 8
@@ -1867,7 +1867,7 @@ _ZN12_GLOBAL__N_111profileCtorIJPN4llvm16itanium_demangle4NodeESt17basic_string_
   %60 = add i64 %59, 7
   %61 = and i64 %60, -8
   %62 = add i64 %61, 48
-  %63 = getelementptr inbounds i8, ptr %0, i64 816
+  %63 = getelementptr inbounds nuw i8, ptr %0, i64 816
   %64 = load ptr, ptr %63, align 8
   %65 = ptrtoint ptr %64 to i64
   %.not.i.i.i.i.i.i.i.i = icmp ugt i64 %62, %65
@@ -1939,14 +1939,14 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   br i1 %.not.i.i.i.i.i, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_9DotSuffixEJRPNS0_4NodeESt17basic_string_viewIcSt11char_traitsIcEEEEESA_DpOT0_.exit.i, label %91
 
 91:                                               ; preds = %90
-  %92 = getelementptr inbounds i8, ptr %0, i64 944
+  %92 = getelementptr inbounds nuw i8, ptr %0, i64 944
   %93 = load i32, ptr %92, align 8
   %94 = and i32 %93, 1
   %.not.i.i.i.i.i.i.i.i.i.i.i = icmp eq i32 %94, 0
-  %95 = getelementptr inbounds i8, ptr %0, i64 952
+  %95 = getelementptr inbounds nuw i8, ptr %0, i64 952
   %96 = load ptr, ptr %95, align 8
   %97 = select i1 %.not.i.i.i.i.i.i.i.i.i.i.i, ptr %96, ptr %95
-  %98 = getelementptr inbounds i8, ptr %0, i64 960
+  %98 = getelementptr inbounds nuw i8, ptr %0, i64 960
   %99 = load i32, ptr %98, align 8
   %100 = select i1 %.not.i.i.i.i.i.i.i.i.i.i.i, i32 %99, i32 32
   %101 = icmp eq i32 %100, 0
@@ -1993,13 +1993,13 @@ _ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32EN
   %.0.i.i.i.i.i.i = phi ptr [ %124, %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i.i.i ], [ null, %91 ], [ null, %.lr.ph.i.i.i.i.i.i.i.i ]
   %.not10.i.i.i.i.i = icmp eq ptr %.0.i.i.i.i.i.i, null
   %spec.select.i.i.i.i.i = select i1 %.not10.i.i.i.i.i, ptr %.sroa.0.0.i.i.i.i.i.i, ptr %.0.i.i.i.i.i.i
-  %125 = getelementptr inbounds i8, ptr %0, i64 928
+  %125 = getelementptr inbounds nuw i8, ptr %0, i64 928
   %126 = load ptr, ptr %125, align 8
   %127 = icmp eq ptr %spec.select.i.i.i.i.i, %126
   br i1 %127, label %128, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_9DotSuffixEJRPNS0_4NodeESt17basic_string_viewIcSt11char_traitsIcEEEEESA_DpOT0_.exit.i
 
 128:                                              ; preds = %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i.i.i
-  %129 = getelementptr inbounds i8, ptr %0, i64 936
+  %129 = getelementptr inbounds nuw i8, ptr %0, i64 936
   store i8 1, ptr %129, align 8
   br label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_9DotSuffixEJRPNS0_4NodeESt17basic_string_viewIcSt11char_traitsIcEEEEESA_DpOT0_.exit.i
 
@@ -2255,7 +2255,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   %3 = alloca %"class.llvm::FoldingSetNodeID", align 8
   %4 = alloca ptr, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 808
-  %6 = getelementptr inbounds i8, ptr %0, i64 937
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 937
   %7 = load i8, ptr %6, align 1
   %8 = trunc i8 %7 to i1
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %3)
@@ -2276,7 +2276,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   br label %_ZN12_GLOBAL__N_111profileCtorIJPKcEEEvRN4llvm16FoldingSetNodeIDENS3_16itanium_demangle4Node4KindEDpT_.exit.i.i.i.i
 
 _ZN12_GLOBAL__N_111profileCtorIJPKcEEEvRN4llvm16FoldingSetNodeIDENS3_16itanium_demangle4Node4KindEDpT_.exit.i.i.i.i: ; preds = %13, %12
-  %14 = getelementptr inbounds i8, ptr %0, i64 904
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 904
   %15 = call noundef ptr @_ZN4llvm14FoldingSetBase19FindNodeOrInsertPosERKNS_16FoldingSetNodeIDERPvRKNS0_14FoldingSetInfoE(ptr noundef nonnull align 8 dereferenceable(16) %14, ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4llvm10FoldingSetIN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeaderEE17getFoldingSetInfoEvE4Info) #20
   %.not.i.i.i.i = icmp eq ptr %15, null
   br i1 %.not.i.i.i.i, label %18, label %16
@@ -2289,7 +2289,7 @@ _ZN12_GLOBAL__N_111profileCtorIJPKcEEEvRN4llvm16FoldingSetNodeIDENS3_16itanium_d
   br i1 %8, label %19, label %49
 
 19:                                               ; preds = %18
-  %20 = getelementptr inbounds i8, ptr %0, i64 888
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 888
   %21 = load i64, ptr %20, align 8
   %22 = add i64 %21, 40
   store i64 %22, ptr %20, align 8
@@ -2298,7 +2298,7 @@ _ZN12_GLOBAL__N_111profileCtorIJPKcEEEvRN4llvm16FoldingSetNodeIDENS3_16itanium_d
   %25 = add i64 %24, 7
   %26 = and i64 %25, -8
   %27 = add i64 %26, 40
-  %28 = getelementptr inbounds i8, ptr %0, i64 816
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 816
   %29 = load ptr, ptr %28, align 8
   %30 = ptrtoint ptr %29 to i64
   %.not.i.i.i.i.i.i = icmp ugt i64 %27, %30
@@ -2361,7 +2361,7 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   br i1 %.not.i.i.i.i, label %54, label %56
 
 54:                                               ; preds = %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle8NameTypeEJRA4_KcEEESt4pairIPNS3_4NodeEbEbDpOT0_.exit.i.i.i
-  %55 = getelementptr inbounds i8, ptr %0, i64 920
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 920
   store ptr %.sroa.011.0.i.i.i.i, ptr %55, align 8
   br label %_ZN12_GLOBAL__N_122CanonicalizerAllocator8makeNodeIN4llvm16itanium_demangle8NameTypeEJRA4_KcEEEPNS3_4NodeEDpOT0_.exit
 
@@ -2370,14 +2370,14 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   br i1 %.not.i.i.i, label %_ZN12_GLOBAL__N_122CanonicalizerAllocator8makeNodeIN4llvm16itanium_demangle8NameTypeEJRA4_KcEEEPNS3_4NodeEDpOT0_.exit, label %57
 
 57:                                               ; preds = %56
-  %58 = getelementptr inbounds i8, ptr %0, i64 944
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 944
   %59 = load i32, ptr %58, align 8
   %60 = and i32 %59, 1
   %.not.i.i.i.i.i.i.i.i.i = icmp eq i32 %60, 0
-  %61 = getelementptr inbounds i8, ptr %0, i64 952
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 952
   %62 = load ptr, ptr %61, align 8
   %63 = select i1 %.not.i.i.i.i.i.i.i.i.i, ptr %62, ptr %61
-  %64 = getelementptr inbounds i8, ptr %0, i64 960
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 960
   %65 = load i32, ptr %64, align 8
   %66 = select i1 %.not.i.i.i.i.i.i.i.i.i, i32 %65, i32 32
   %67 = icmp eq i32 %66, 0
@@ -2424,13 +2424,13 @@ _ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32EN
   %.0.i.i.i.i = phi ptr [ %90, %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i ], [ null, %57 ], [ null, %.lr.ph.i.i.i.i.i.i ]
   %.not9.i.i.i = icmp eq ptr %.0.i.i.i.i, null
   %spec.select.i.i.i = select i1 %.not9.i.i.i, ptr %.sroa.011.0.i.i.i.i, ptr %.0.i.i.i.i
-  %91 = getelementptr inbounds i8, ptr %0, i64 928
+  %91 = getelementptr inbounds nuw i8, ptr %0, i64 928
   %92 = load ptr, ptr %91, align 8
   %93 = icmp eq ptr %spec.select.i.i.i, %92
   br i1 %93, label %94, label %_ZN12_GLOBAL__N_122CanonicalizerAllocator8makeNodeIN4llvm16itanium_demangle8NameTypeEJRA4_KcEEEPNS3_4NodeEDpOT0_.exit
 
 94:                                               ; preds = %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i
-  %95 = getelementptr inbounds i8, ptr %0, i64 936
+  %95 = getelementptr inbounds nuw i8, ptr %0, i64 936
   store i8 1, ptr %95, align 8
   br label %_ZN12_GLOBAL__N_122CanonicalizerAllocator8makeNodeIN4llvm16itanium_demangle8NameTypeEJRA4_KcEEEPNS3_4NodeEDpOT0_.exit
 
@@ -2657,7 +2657,7 @@ _ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLO
   %91 = getelementptr inbounds i8, ptr %.val25, i64 1
   store ptr %91, ptr %0, align 8
   %92 = getelementptr inbounds nuw i8, ptr %0, i64 808
-  %93 = getelementptr inbounds i8, ptr %0, i64 937
+  %93 = getelementptr inbounds nuw i8, ptr %0, i64 937
   %94 = load i8, ptr %93, align 1
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %13)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14)
@@ -2665,7 +2665,7 @@ _ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLO
   call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %13, ptr noundef nonnull %95, i64 noundef 32) #20
   call void @_ZN4llvm16FoldingSetNodeID10AddIntegerEy(ptr noundef nonnull align 8 dereferenceable(144) %13, i64 noundef 8)
   call void @_ZN4llvm16FoldingSetNodeID9AddStringENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(144) %13, ptr nonnull @.str.12, i64 12) #20
-  %96 = getelementptr inbounds i8, ptr %0, i64 904
+  %96 = getelementptr inbounds nuw i8, ptr %0, i64 904
   %97 = call noundef ptr @_ZN4llvm14FoldingSetBase19FindNodeOrInsertPosERKNS_16FoldingSetNodeIDERPvRKNS0_14FoldingSetInfoE(ptr noundef nonnull align 8 dereferenceable(16) %96, ptr noundef nonnull align 8 dereferenceable(144) %13, ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4llvm10FoldingSetIN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeaderEE17getFoldingSetInfoEvE4Info) #20
   %.not.i.i.i.i.i = icmp eq ptr %97, null
   br i1 %.not.i.i.i.i.i, label %100, label %98
@@ -2679,7 +2679,7 @@ _ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLO
   br i1 %101, label %102, label %131
 
 102:                                              ; preds = %100
-  %103 = getelementptr inbounds i8, ptr %0, i64 888
+  %103 = getelementptr inbounds nuw i8, ptr %0, i64 888
   %104 = load i64, ptr %103, align 8
   %105 = add i64 %104, 40
   store i64 %105, ptr %103, align 8
@@ -2688,7 +2688,7 @@ _ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLO
   %108 = add i64 %107, 7
   %109 = and i64 %108, -8
   %110 = add i64 %109, 40
-  %111 = getelementptr inbounds i8, ptr %0, i64 816
+  %111 = getelementptr inbounds nuw i8, ptr %0, i64 816
   %112 = load ptr, ptr %111, align 8
   %113 = ptrtoint ptr %112 to i64
   %.not.i.i.i.i.i.i.i = icmp ugt i64 %110, %113
@@ -2750,7 +2750,7 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   br i1 %.not.i.i.i.i.i, label %136, label %138
 
 136:                                              ; preds = %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle8NameTypeEJRA13_KcEEESt4pairIPNS3_4NodeEbEbDpOT0_.exit.i.i.i.i
-  %137 = getelementptr inbounds i8, ptr %0, i64 920
+  %137 = getelementptr inbounds nuw i8, ptr %0, i64 920
   store ptr %.sroa.04.0.i.i.i.i.i, ptr %137, align 8
   br label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_8NameTypeEJRA13_KcEEEPNS0_4NodeEDpOT0_.exit
 
@@ -2759,14 +2759,14 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   br i1 %.not.i.i.i.i, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_8NameTypeEJRA13_KcEEEPNS0_4NodeEDpOT0_.exit, label %139
 
 139:                                              ; preds = %138
-  %140 = getelementptr inbounds i8, ptr %0, i64 944
+  %140 = getelementptr inbounds nuw i8, ptr %0, i64 944
   %141 = load i32, ptr %140, align 8
   %142 = and i32 %141, 1
   %.not.i.i.i.i.i.i.i.i.i.i = icmp eq i32 %142, 0
-  %143 = getelementptr inbounds i8, ptr %0, i64 952
+  %143 = getelementptr inbounds nuw i8, ptr %0, i64 952
   %144 = load ptr, ptr %143, align 8
   %145 = select i1 %.not.i.i.i.i.i.i.i.i.i.i, ptr %144, ptr %143
-  %146 = getelementptr inbounds i8, ptr %0, i64 960
+  %146 = getelementptr inbounds nuw i8, ptr %0, i64 960
   %147 = load i32, ptr %146, align 8
   %148 = select i1 %.not.i.i.i.i.i.i.i.i.i.i, i32 %147, i32 32
   %149 = icmp eq i32 %148, 0
@@ -2813,13 +2813,13 @@ _ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32EN
   %.0.i.i.i.i.i = phi ptr [ %172, %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i.i ], [ null, %139 ], [ null, %.lr.ph.i.i.i.i.i.i.i ]
   %.not9.i.i.i.i = icmp eq ptr %.0.i.i.i.i.i, null
   %spec.select.i.i.i.i = select i1 %.not9.i.i.i.i, ptr %.sroa.04.0.i.i.i.i.i, ptr %.0.i.i.i.i.i
-  %173 = getelementptr inbounds i8, ptr %0, i64 928
+  %173 = getelementptr inbounds nuw i8, ptr %0, i64 928
   %174 = load ptr, ptr %173, align 8
   %175 = icmp eq ptr %spec.select.i.i.i.i, %174
   br i1 %175, label %176, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_8NameTypeEJRA13_KcEEEPNS0_4NodeEDpOT0_.exit
 
 176:                                              ; preds = %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i.i
-  %177 = getelementptr inbounds i8, ptr %0, i64 936
+  %177 = getelementptr inbounds nuw i8, ptr %0, i64 936
   store i8 1, ptr %177, align 8
   br label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_8NameTypeEJRA13_KcEEEPNS0_4NodeEDpOT0_.exit
 
@@ -2845,7 +2845,7 @@ _ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32EN
   %188 = getelementptr inbounds i8, ptr %.val25, i64 1
   store ptr %188, ptr %0, align 8
   %189 = getelementptr inbounds nuw i8, ptr %0, i64 808
-  %190 = getelementptr inbounds i8, ptr %0, i64 937
+  %190 = getelementptr inbounds nuw i8, ptr %0, i64 937
   %191 = load i8, ptr %190, align 1
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %11)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12)
@@ -2853,7 +2853,7 @@ _ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32EN
   call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull %192, i64 noundef 32) #20
   call void @_ZN4llvm16FoldingSetNodeID10AddIntegerEy(ptr noundef nonnull align 8 dereferenceable(144) %11, i64 noundef 8)
   call void @_ZN4llvm16FoldingSetNodeID9AddStringENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(144) %11, ptr nonnull @.str.16, i64 18) #20
-  %193 = getelementptr inbounds i8, ptr %0, i64 904
+  %193 = getelementptr inbounds nuw i8, ptr %0, i64 904
   %194 = call noundef ptr @_ZN4llvm14FoldingSetBase19FindNodeOrInsertPosERKNS_16FoldingSetNodeIDERPvRKNS0_14FoldingSetInfoE(ptr noundef nonnull align 8 dereferenceable(16) %193, ptr noundef nonnull align 8 dereferenceable(144) %11, ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4llvm10FoldingSetIN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeaderEE17getFoldingSetInfoEvE4Info) #20
   %.not.i.i.i.i.i93 = icmp eq ptr %194, null
   br i1 %.not.i.i.i.i.i93, label %197, label %195
@@ -2867,7 +2867,7 @@ _ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32EN
   br i1 %198, label %199, label %228
 
 199:                                              ; preds = %197
-  %200 = getelementptr inbounds i8, ptr %0, i64 888
+  %200 = getelementptr inbounds nuw i8, ptr %0, i64 888
   %201 = load i64, ptr %200, align 8
   %202 = add i64 %201, 40
   store i64 %202, ptr %200, align 8
@@ -2876,7 +2876,7 @@ _ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32EN
   %205 = add i64 %204, 7
   %206 = and i64 %205, -8
   %207 = add i64 %206, 40
-  %208 = getelementptr inbounds i8, ptr %0, i64 816
+  %208 = getelementptr inbounds nuw i8, ptr %0, i64 816
   %209 = load ptr, ptr %208, align 8
   %210 = ptrtoint ptr %209 to i64
   %.not.i.i.i.i.i.i.i108 = icmp ugt i64 %207, %210
@@ -2938,7 +2938,7 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   br i1 %.not.i.i.i.i.i93, label %233, label %235
 
 233:                                              ; preds = %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle8NameTypeEJRA19_KcEEESt4pairIPNS3_4NodeEbEbDpOT0_.exit.i.i.i.i
-  %234 = getelementptr inbounds i8, ptr %0, i64 920
+  %234 = getelementptr inbounds nuw i8, ptr %0, i64 920
   store ptr %.sroa.04.0.i.i.i.i.i94, ptr %234, align 8
   br label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_8NameTypeEJRA13_KcEEEPNS0_4NodeEDpOT0_.exit
 
@@ -2947,14 +2947,14 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   br i1 %.not.i.i.i.i95, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_8NameTypeEJRA13_KcEEEPNS0_4NodeEDpOT0_.exit, label %236
 
 236:                                              ; preds = %235
-  %237 = getelementptr inbounds i8, ptr %0, i64 944
+  %237 = getelementptr inbounds nuw i8, ptr %0, i64 944
   %238 = load i32, ptr %237, align 8
   %239 = and i32 %238, 1
   %.not.i.i.i.i.i.i.i.i.i.i96 = icmp eq i32 %239, 0
-  %240 = getelementptr inbounds i8, ptr %0, i64 952
+  %240 = getelementptr inbounds nuw i8, ptr %0, i64 952
   %241 = load ptr, ptr %240, align 8
   %242 = select i1 %.not.i.i.i.i.i.i.i.i.i.i96, ptr %241, ptr %240
-  %243 = getelementptr inbounds i8, ptr %0, i64 960
+  %243 = getelementptr inbounds nuw i8, ptr %0, i64 960
   %244 = load i32, ptr %243, align 8
   %245 = select i1 %.not.i.i.i.i.i.i.i.i.i.i96, i32 %244, i32 32
   %246 = icmp eq i32 %245, 0
@@ -3001,13 +3001,13 @@ _ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32EN
   %.0.i.i.i.i.i104 = phi ptr [ %269, %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i.i102 ], [ null, %236 ], [ null, %.lr.ph.i.i.i.i.i.i.i98 ]
   %.not9.i.i.i.i105 = icmp eq ptr %.0.i.i.i.i.i104, null
   %spec.select.i.i.i.i106 = select i1 %.not9.i.i.i.i105, ptr %.sroa.04.0.i.i.i.i.i94, ptr %.0.i.i.i.i.i104
-  %270 = getelementptr inbounds i8, ptr %0, i64 928
+  %270 = getelementptr inbounds nuw i8, ptr %0, i64 928
   %271 = load ptr, ptr %270, align 8
   %272 = icmp eq ptr %spec.select.i.i.i.i106, %271
   br i1 %272, label %273, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_8NameTypeEJRA13_KcEEEPNS0_4NodeEDpOT0_.exit
 
 273:                                              ; preds = %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i.i103
-  %274 = getelementptr inbounds i8, ptr %0, i64 936
+  %274 = getelementptr inbounds nuw i8, ptr %0, i64 936
   store i8 1, ptr %274, align 8
   br label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_8NameTypeEJRA13_KcEEEPNS0_4NodeEDpOT0_.exit
 
@@ -3021,7 +3021,7 @@ _ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32EN
   %279 = getelementptr inbounds i8, ptr %.val25, i64 1
   store ptr %279, ptr %0, align 8
   %280 = getelementptr inbounds nuw i8, ptr %0, i64 808
-  %281 = getelementptr inbounds i8, ptr %0, i64 937
+  %281 = getelementptr inbounds nuw i8, ptr %0, i64 937
   %282 = load i8, ptr %281, align 1
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %9)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10)
@@ -3029,7 +3029,7 @@ _ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32EN
   call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull %283, i64 noundef 32) #20
   call void @_ZN4llvm16FoldingSetNodeID10AddIntegerEy(ptr noundef nonnull align 8 dereferenceable(144) %9, i64 noundef 8)
   call void @_ZN4llvm16FoldingSetNodeID9AddStringENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(144) %9, ptr nonnull @.str.18, i64 17) #20
-  %284 = getelementptr inbounds i8, ptr %0, i64 904
+  %284 = getelementptr inbounds nuw i8, ptr %0, i64 904
   %285 = call noundef ptr @_ZN4llvm14FoldingSetBase19FindNodeOrInsertPosERKNS_16FoldingSetNodeIDERPvRKNS0_14FoldingSetInfoE(ptr noundef nonnull align 8 dereferenceable(16) %284, ptr noundef nonnull align 8 dereferenceable(144) %9, ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4llvm10FoldingSetIN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeaderEE17getFoldingSetInfoEvE4Info) #20
   %.not.i.i.i.i.i116 = icmp eq ptr %285, null
   br i1 %.not.i.i.i.i.i116, label %288, label %286
@@ -3043,7 +3043,7 @@ _ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32EN
   br i1 %289, label %290, label %319
 
 290:                                              ; preds = %288
-  %291 = getelementptr inbounds i8, ptr %0, i64 888
+  %291 = getelementptr inbounds nuw i8, ptr %0, i64 888
   %292 = load i64, ptr %291, align 8
   %293 = add i64 %292, 40
   store i64 %293, ptr %291, align 8
@@ -3052,7 +3052,7 @@ _ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32EN
   %296 = add i64 %295, 7
   %297 = and i64 %296, -8
   %298 = add i64 %297, 40
-  %299 = getelementptr inbounds i8, ptr %0, i64 816
+  %299 = getelementptr inbounds nuw i8, ptr %0, i64 816
   %300 = load ptr, ptr %299, align 8
   %301 = ptrtoint ptr %300 to i64
   %.not.i.i.i.i.i.i.i131 = icmp ugt i64 %298, %301
@@ -3114,7 +3114,7 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   br i1 %.not.i.i.i.i.i116, label %324, label %326
 
 324:                                              ; preds = %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle8NameTypeEJRA18_KcEEESt4pairIPNS3_4NodeEbEbDpOT0_.exit.i.i.i.i
-  %325 = getelementptr inbounds i8, ptr %0, i64 920
+  %325 = getelementptr inbounds nuw i8, ptr %0, i64 920
   store ptr %.sroa.04.0.i.i.i.i.i117, ptr %325, align 8
   br label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_8NameTypeEJRA13_KcEEEPNS0_4NodeEDpOT0_.exit
 
@@ -3123,14 +3123,14 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   br i1 %.not.i.i.i.i118, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_8NameTypeEJRA13_KcEEEPNS0_4NodeEDpOT0_.exit, label %327
 
 327:                                              ; preds = %326
-  %328 = getelementptr inbounds i8, ptr %0, i64 944
+  %328 = getelementptr inbounds nuw i8, ptr %0, i64 944
   %329 = load i32, ptr %328, align 8
   %330 = and i32 %329, 1
   %.not.i.i.i.i.i.i.i.i.i.i119 = icmp eq i32 %330, 0
-  %331 = getelementptr inbounds i8, ptr %0, i64 952
+  %331 = getelementptr inbounds nuw i8, ptr %0, i64 952
   %332 = load ptr, ptr %331, align 8
   %333 = select i1 %.not.i.i.i.i.i.i.i.i.i.i119, ptr %332, ptr %331
-  %334 = getelementptr inbounds i8, ptr %0, i64 960
+  %334 = getelementptr inbounds nuw i8, ptr %0, i64 960
   %335 = load i32, ptr %334, align 8
   %336 = select i1 %.not.i.i.i.i.i.i.i.i.i.i119, i32 %335, i32 32
   %337 = icmp eq i32 %336, 0
@@ -3177,13 +3177,13 @@ _ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32EN
   %.0.i.i.i.i.i127 = phi ptr [ %360, %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i.i125 ], [ null, %327 ], [ null, %.lr.ph.i.i.i.i.i.i.i121 ]
   %.not9.i.i.i.i128 = icmp eq ptr %.0.i.i.i.i.i127, null
   %spec.select.i.i.i.i129 = select i1 %.not9.i.i.i.i128, ptr %.sroa.04.0.i.i.i.i.i117, ptr %.0.i.i.i.i.i127
-  %361 = getelementptr inbounds i8, ptr %0, i64 928
+  %361 = getelementptr inbounds nuw i8, ptr %0, i64 928
   %362 = load ptr, ptr %361, align 8
   %363 = icmp eq ptr %spec.select.i.i.i.i129, %362
   br i1 %363, label %364, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_8NameTypeEJRA13_KcEEEPNS0_4NodeEDpOT0_.exit
 
 364:                                              ; preds = %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i.i126
-  %365 = getelementptr inbounds i8, ptr %0, i64 936
+  %365 = getelementptr inbounds nuw i8, ptr %0, i64 936
   store i8 1, ptr %365, align 8
   br label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_8NameTypeEJRA13_KcEEEPNS0_4NodeEDpOT0_.exit
 
@@ -3197,7 +3197,7 @@ _ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32EN
   %370 = getelementptr inbounds i8, ptr %.val25, i64 1
   store ptr %370, ptr %0, align 8
   %371 = getelementptr inbounds nuw i8, ptr %0, i64 808
-  %372 = getelementptr inbounds i8, ptr %0, i64 937
+  %372 = getelementptr inbounds nuw i8, ptr %0, i64 937
   %373 = load i8, ptr %372, align 1
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
@@ -3205,7 +3205,7 @@ _ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32EN
   call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull %374, i64 noundef 32) #20
   call void @_ZN4llvm16FoldingSetNodeID10AddIntegerEy(ptr noundef nonnull align 8 dereferenceable(144) %7, i64 noundef 8)
   call void @_ZN4llvm16FoldingSetNodeID9AddStringENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(144) %7, ptr nonnull @.str.20, i64 6) #20
-  %375 = getelementptr inbounds i8, ptr %0, i64 904
+  %375 = getelementptr inbounds nuw i8, ptr %0, i64 904
   %376 = call noundef ptr @_ZN4llvm14FoldingSetBase19FindNodeOrInsertPosERKNS_16FoldingSetNodeIDERPvRKNS0_14FoldingSetInfoE(ptr noundef nonnull align 8 dereferenceable(16) %375, ptr noundef nonnull align 8 dereferenceable(144) %7, ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4llvm10FoldingSetIN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeaderEE17getFoldingSetInfoEvE4Info) #20
   %.not.i.i.i.i.i139 = icmp eq ptr %376, null
   br i1 %.not.i.i.i.i.i139, label %379, label %377
@@ -3219,7 +3219,7 @@ _ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32EN
   br i1 %380, label %381, label %410
 
 381:                                              ; preds = %379
-  %382 = getelementptr inbounds i8, ptr %0, i64 888
+  %382 = getelementptr inbounds nuw i8, ptr %0, i64 888
   %383 = load i64, ptr %382, align 8
   %384 = add i64 %383, 40
   store i64 %384, ptr %382, align 8
@@ -3228,7 +3228,7 @@ _ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32EN
   %387 = add i64 %386, 7
   %388 = and i64 %387, -8
   %389 = add i64 %388, 40
-  %390 = getelementptr inbounds i8, ptr %0, i64 816
+  %390 = getelementptr inbounds nuw i8, ptr %0, i64 816
   %391 = load ptr, ptr %390, align 8
   %392 = ptrtoint ptr %391 to i64
   %.not.i.i.i.i.i.i.i154 = icmp ugt i64 %389, %392
@@ -3290,7 +3290,7 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   br i1 %.not.i.i.i.i.i139, label %415, label %417
 
 415:                                              ; preds = %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle8NameTypeEJRA7_KcEEESt4pairIPNS3_4NodeEbEbDpOT0_.exit.i.i.i.i
-  %416 = getelementptr inbounds i8, ptr %0, i64 920
+  %416 = getelementptr inbounds nuw i8, ptr %0, i64 920
   store ptr %.sroa.04.0.i.i.i.i.i140, ptr %416, align 8
   br label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_8NameTypeEJRA13_KcEEEPNS0_4NodeEDpOT0_.exit
 
@@ -3299,14 +3299,14 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   br i1 %.not.i.i.i.i141, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_8NameTypeEJRA13_KcEEEPNS0_4NodeEDpOT0_.exit, label %418
 
 418:                                              ; preds = %417
-  %419 = getelementptr inbounds i8, ptr %0, i64 944
+  %419 = getelementptr inbounds nuw i8, ptr %0, i64 944
   %420 = load i32, ptr %419, align 8
   %421 = and i32 %420, 1
   %.not.i.i.i.i.i.i.i.i.i.i142 = icmp eq i32 %421, 0
-  %422 = getelementptr inbounds i8, ptr %0, i64 952
+  %422 = getelementptr inbounds nuw i8, ptr %0, i64 952
   %423 = load ptr, ptr %422, align 8
   %424 = select i1 %.not.i.i.i.i.i.i.i.i.i.i142, ptr %423, ptr %422
-  %425 = getelementptr inbounds i8, ptr %0, i64 960
+  %425 = getelementptr inbounds nuw i8, ptr %0, i64 960
   %426 = load i32, ptr %425, align 8
   %427 = select i1 %.not.i.i.i.i.i.i.i.i.i.i142, i32 %426, i32 32
   %428 = icmp eq i32 %427, 0
@@ -3353,13 +3353,13 @@ _ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32EN
   %.0.i.i.i.i.i150 = phi ptr [ %451, %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i.i148 ], [ null, %418 ], [ null, %.lr.ph.i.i.i.i.i.i.i144 ]
   %.not9.i.i.i.i151 = icmp eq ptr %.0.i.i.i.i.i150, null
   %spec.select.i.i.i.i152 = select i1 %.not9.i.i.i.i151, ptr %.sroa.04.0.i.i.i.i.i140, ptr %.0.i.i.i.i.i150
-  %452 = getelementptr inbounds i8, ptr %0, i64 928
+  %452 = getelementptr inbounds nuw i8, ptr %0, i64 928
   %453 = load ptr, ptr %452, align 8
   %454 = icmp eq ptr %spec.select.i.i.i.i152, %453
   br i1 %454, label %455, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_8NameTypeEJRA13_KcEEEPNS0_4NodeEDpOT0_.exit
 
 455:                                              ; preds = %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i.i149
-  %456 = getelementptr inbounds i8, ptr %0, i64 936
+  %456 = getelementptr inbounds nuw i8, ptr %0, i64 936
   store i8 1, ptr %456, align 8
   br label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_8NameTypeEJRA13_KcEEEPNS0_4NodeEDpOT0_.exit
 
@@ -3996,9 +3996,9 @@ thread-pre-split:                                 ; preds = %705, %656, %582, %5
 thread-pre-split.thread:                          ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit205.thread, %646, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit199, %650, %thread-pre-split
   %710 = phi ptr [ %.sink, %thread-pre-split ], [ %691, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit205.thread ], [ %644, %646 ], [ %644, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit199 ], [ %644, %650 ]
   %711 = getelementptr inbounds nuw i8, ptr %0, i64 296
-  %712 = getelementptr inbounds i8, ptr %0, i64 304
+  %712 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %713 = load ptr, ptr %712, align 8
-  %714 = getelementptr inbounds i8, ptr %0, i64 312
+  %714 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %715 = load ptr, ptr %714, align 8
   %716 = icmp eq ptr %713, %715
   br i1 %716, label %717, label %_ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exit
@@ -4009,7 +4009,7 @@ thread-pre-split.thread:                          ; preds = %_ZNK4llvm16itanium_
   %720 = ptrtoint ptr %718 to i64
   %721 = sub i64 %719, %720
   %722 = ashr exact i64 %721, 2
-  %723 = getelementptr inbounds i8, ptr %0, i64 320
+  %723 = getelementptr inbounds nuw i8, ptr %0, i64 320
   %724 = icmp eq ptr %718, %723
   %725 = shl i64 %721, 1
   br i1 %724, label %726, label %732
@@ -4206,9 +4206,9 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
   %50 = icmp ne ptr %1, null
   %51 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 296
-  %53 = getelementptr inbounds i8, ptr %0, i64 304
-  %54 = getelementptr inbounds i8, ptr %0, i64 312
-  %55 = getelementptr inbounds i8, ptr %0, i64 320
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 304
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 312
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 320
   br label %.backedge
 
 .backedge:                                        ; preds = %.backedge.backedge, %49
@@ -4651,9 +4651,9 @@ _ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLO
 
 223:                                              ; preds = %222
   %224 = getelementptr inbounds nuw i8, ptr %0, i64 296
-  %225 = getelementptr inbounds i8, ptr %0, i64 304
+  %225 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %226 = load ptr, ptr %225, align 8
-  %227 = getelementptr inbounds i8, ptr %0, i64 312
+  %227 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %228 = load ptr, ptr %227, align 8
   %229 = icmp eq ptr %226, %228
   br i1 %229, label %230, label %_ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exit
@@ -4664,7 +4664,7 @@ _ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLO
   %233 = ptrtoint ptr %231 to i64
   %234 = sub i64 %232, %233
   %235 = ashr exact i64 %234, 2
-  %236 = getelementptr inbounds i8, ptr %0, i64 320
+  %236 = getelementptr inbounds nuw i8, ptr %0, i64 320
   %237 = icmp eq ptr %231, %236
   %238 = shl i64 %234, 1
   br i1 %237, label %239, label %245
@@ -5029,7 +5029,7 @@ _ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLO
 
 129:                                              ; preds = %125
   %130 = getelementptr inbounds nuw i8, ptr %0, i64 808
-  %131 = getelementptr inbounds i8, ptr %0, i64 937
+  %131 = getelementptr inbounds nuw i8, ptr %0, i64 937
   %132 = load i8, ptr %131, align 1
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %2)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
@@ -5039,7 +5039,7 @@ _ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLO
   call void @_ZN4llvm16FoldingSetNodeID9AddStringENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(144) %2, ptr nonnull @.str.248, i64 19) #20
   %134 = ptrtoint ptr %127 to i64
   call void @_ZN4llvm16FoldingSetNodeID10AddIntegerEy(ptr noundef nonnull align 8 dereferenceable(144) %2, i64 noundef %134)
-  %135 = getelementptr inbounds i8, ptr %0, i64 904
+  %135 = getelementptr inbounds nuw i8, ptr %0, i64 904
   %136 = call noundef ptr @_ZN4llvm14FoldingSetBase19FindNodeOrInsertPosERKNS_16FoldingSetNodeIDERPvRKNS0_14FoldingSetInfoE(ptr noundef nonnull align 8 dereferenceable(16) %135, ptr noundef nonnull align 8 dereferenceable(144) %2, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4llvm10FoldingSetIN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeaderEE17getFoldingSetInfoEvE4Info) #20
   %.not.i.i.i.i.i66 = icmp eq ptr %136, null
   br i1 %.not.i.i.i.i.i66, label %139, label %137
@@ -5053,7 +5053,7 @@ _ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLO
   br i1 %140, label %141, label %171
 
 141:                                              ; preds = %139
-  %142 = getelementptr inbounds i8, ptr %0, i64 888
+  %142 = getelementptr inbounds nuw i8, ptr %0, i64 888
   %143 = load i64, ptr %142, align 8
   %144 = add i64 %143, 48
   store i64 %144, ptr %142, align 8
@@ -5062,7 +5062,7 @@ _ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLO
   %147 = add i64 %146, 7
   %148 = and i64 %147, -8
   %149 = add i64 %148, 48
-  %150 = getelementptr inbounds i8, ptr %0, i64 816
+  %150 = getelementptr inbounds nuw i8, ptr %0, i64 816
   %151 = load ptr, ptr %150, align 8
   %152 = ptrtoint ptr %151 to i64
   %.not.i.i.i.i.i.i.i81 = icmp ugt i64 %149, %152
@@ -5126,7 +5126,7 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   br i1 %.not.i.i.i.i.i66, label %176, label %178
 
 176:                                              ; preds = %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle11SpecialNameEJRA20_KcRPNS3_4NodeEEEESt4pairIS9_bEbDpOT0_.exit.i.i.i.i
-  %177 = getelementptr inbounds i8, ptr %0, i64 920
+  %177 = getelementptr inbounds nuw i8, ptr %0, i64 920
   store ptr %.sroa.04.0.i.i.i.i.i67, ptr %177, align 8
   br label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E16parseSpecialNameEv.exit
 
@@ -5135,14 +5135,14 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   br i1 %.not.i.i.i.i68, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E16parseSpecialNameEv.exit, label %179
 
 179:                                              ; preds = %178
-  %180 = getelementptr inbounds i8, ptr %0, i64 944
+  %180 = getelementptr inbounds nuw i8, ptr %0, i64 944
   %181 = load i32, ptr %180, align 8
   %182 = and i32 %181, 1
   %.not.i.i.i.i.i.i.i.i.i.i69 = icmp eq i32 %182, 0
-  %183 = getelementptr inbounds i8, ptr %0, i64 952
+  %183 = getelementptr inbounds nuw i8, ptr %0, i64 952
   %184 = load ptr, ptr %183, align 8
   %185 = select i1 %.not.i.i.i.i.i.i.i.i.i.i69, ptr %184, ptr %183
-  %186 = getelementptr inbounds i8, ptr %0, i64 960
+  %186 = getelementptr inbounds nuw i8, ptr %0, i64 960
   %187 = load i32, ptr %186, align 8
   %188 = select i1 %.not.i.i.i.i.i.i.i.i.i.i69, i32 %187, i32 32
   %189 = icmp eq i32 %188, 0
@@ -5189,13 +5189,13 @@ _ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32EN
   %.0.i.i.i.i.i77 = phi ptr [ %212, %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i.i75 ], [ null, %179 ], [ null, %.lr.ph.i.i.i.i.i.i.i71 ]
   %.not10.i.i.i.i78 = icmp eq ptr %.0.i.i.i.i.i77, null
   %spec.select.i.i.i.i79 = select i1 %.not10.i.i.i.i78, ptr %.sroa.04.0.i.i.i.i.i67, ptr %.0.i.i.i.i.i77
-  %213 = getelementptr inbounds i8, ptr %0, i64 928
+  %213 = getelementptr inbounds nuw i8, ptr %0, i64 928
   %214 = load ptr, ptr %213, align 8
   %215 = icmp eq ptr %spec.select.i.i.i.i79, %214
   br i1 %215, label %216, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E16parseSpecialNameEv.exit
 
 216:                                              ; preds = %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i.i76
-  %217 = getelementptr inbounds i8, ptr %0, i64 936
+  %217 = getelementptr inbounds nuw i8, ptr %0, i64 936
   store i8 1, ptr %217, align 8
   br label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E16parseSpecialNameEv.exit
 
@@ -5279,7 +5279,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
 
 244:                                              ; preds = %239
   %245 = getelementptr inbounds nuw i8, ptr %0, i64 808
-  %246 = getelementptr inbounds i8, ptr %0, i64 937
+  %246 = getelementptr inbounds nuw i8, ptr %0, i64 937
   %247 = load i8, ptr %246, align 1
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
@@ -5289,7 +5289,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
   call void @_ZN4llvm16FoldingSetNodeID9AddStringENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(144) %4, ptr nonnull @.str.250, i64 23) #20
   %249 = ptrtoint ptr %242 to i64
   call void @_ZN4llvm16FoldingSetNodeID10AddIntegerEy(ptr noundef nonnull align 8 dereferenceable(144) %4, i64 noundef %249)
-  %250 = getelementptr inbounds i8, ptr %0, i64 904
+  %250 = getelementptr inbounds nuw i8, ptr %0, i64 904
   %251 = call noundef ptr @_ZN4llvm14FoldingSetBase19FindNodeOrInsertPosERKNS_16FoldingSetNodeIDERPvRKNS0_14FoldingSetInfoE(ptr noundef nonnull align 8 dereferenceable(16) %250, ptr noundef nonnull align 8 dereferenceable(144) %4, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4llvm10FoldingSetIN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeaderEE17getFoldingSetInfoEvE4Info) #20
   %.not.i.i.i.i.i41 = icmp eq ptr %251, null
   br i1 %.not.i.i.i.i.i41, label %254, label %252
@@ -5303,7 +5303,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
   br i1 %255, label %256, label %286
 
 256:                                              ; preds = %254
-  %257 = getelementptr inbounds i8, ptr %0, i64 888
+  %257 = getelementptr inbounds nuw i8, ptr %0, i64 888
   %258 = load i64, ptr %257, align 8
   %259 = add i64 %258, 48
   store i64 %259, ptr %257, align 8
@@ -5312,7 +5312,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
   %262 = add i64 %261, 7
   %263 = and i64 %262, -8
   %264 = add i64 %263, 48
-  %265 = getelementptr inbounds i8, ptr %0, i64 816
+  %265 = getelementptr inbounds nuw i8, ptr %0, i64 816
   %266 = load ptr, ptr %265, align 8
   %267 = ptrtoint ptr %266 to i64
   %.not.i.i.i.i.i.i.i54 = icmp ugt i64 %264, %267
@@ -5376,7 +5376,7 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   br i1 %.not.i.i.i.i.i41, label %291, label %293
 
 291:                                              ; preds = %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle11SpecialNameEJRA24_KcRPNS3_10ModuleNameEEEESt4pairIPNS3_4NodeEbEbDpOT0_.exit.i.i.i.i
-  %292 = getelementptr inbounds i8, ptr %0, i64 920
+  %292 = getelementptr inbounds nuw i8, ptr %0, i64 920
   store ptr %.sroa.04.0.i.i.i.i.i, ptr %292, align 8
   br label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E16parseSpecialNameEv.exit
 
@@ -5385,14 +5385,14 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   br i1 %.not.i.i.i.i42, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E16parseSpecialNameEv.exit, label %294
 
 294:                                              ; preds = %293
-  %295 = getelementptr inbounds i8, ptr %0, i64 944
+  %295 = getelementptr inbounds nuw i8, ptr %0, i64 944
   %296 = load i32, ptr %295, align 8
   %297 = and i32 %296, 1
   %.not.i.i.i.i.i.i.i.i.i.i43 = icmp eq i32 %297, 0
-  %298 = getelementptr inbounds i8, ptr %0, i64 952
+  %298 = getelementptr inbounds nuw i8, ptr %0, i64 952
   %299 = load ptr, ptr %298, align 8
   %300 = select i1 %.not.i.i.i.i.i.i.i.i.i.i43, ptr %299, ptr %298
-  %301 = getelementptr inbounds i8, ptr %0, i64 960
+  %301 = getelementptr inbounds nuw i8, ptr %0, i64 960
   %302 = load i32, ptr %301, align 8
   %303 = select i1 %.not.i.i.i.i.i.i.i.i.i.i43, i32 %302, i32 32
   %304 = icmp eq i32 %303, 0
@@ -5439,13 +5439,13 @@ _ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32EN
   %.0.i.i.i.i.i51 = phi ptr [ %327, %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i.i49 ], [ null, %294 ], [ null, %.lr.ph.i.i.i.i.i.i.i45 ]
   %.not10.i.i.i.i = icmp eq ptr %.0.i.i.i.i.i51, null
   %spec.select.i.i.i.i52 = select i1 %.not10.i.i.i.i, ptr %.sroa.04.0.i.i.i.i.i, ptr %.0.i.i.i.i.i51
-  %328 = getelementptr inbounds i8, ptr %0, i64 928
+  %328 = getelementptr inbounds nuw i8, ptr %0, i64 928
   %329 = load ptr, ptr %328, align 8
   %330 = icmp eq ptr %spec.select.i.i.i.i52, %329
   br i1 %330, label %331, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E16parseSpecialNameEv.exit
 
 331:                                              ; preds = %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i.i50
-  %332 = getelementptr inbounds i8, ptr %0, i64 936
+  %332 = getelementptr inbounds nuw i8, ptr %0, i64 936
   store i8 1, ptr %332, align 8
   br label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E16parseSpecialNameEv.exit
 
@@ -5476,7 +5476,7 @@ _ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLO
   store i8 0, ptr %335, align 8
   %336 = getelementptr inbounds nuw i8, ptr %22, i64 16
   %337 = getelementptr inbounds nuw i8, ptr %0, i64 720
-  %338 = getelementptr inbounds i8, ptr %0, i64 728
+  %338 = getelementptr inbounds nuw i8, ptr %0, i64 728
   %339 = load ptr, ptr %338, align 8
   %340 = load ptr, ptr %337, align 8
   %341 = ptrtoint ptr %339 to i64
@@ -5504,7 +5504,7 @@ _ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLO
 
 .lr.ph.i:                                         ; preds = %348
   %357 = getelementptr inbounds nuw i8, ptr %0, i64 664
-  %358 = getelementptr inbounds i8, ptr %0, i64 672
+  %358 = getelementptr inbounds nuw i8, ptr %0, i64 672
   br label %359
 
 359:                                              ; preds = %378, %.lr.ph.i
@@ -5582,15 +5582,15 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i: ; preds = %_ZZN4llvm16itaniu
   %394 = getelementptr inbounds i8, ptr %.val13.val, i64 13
   store ptr %394, ptr %0, align 8
   %395 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %396 = getelementptr inbounds i8, ptr %0, i64 24
+  %396 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %397 = load ptr, ptr %396, align 8
   %398 = load ptr, ptr %395, align 8
   %399 = ptrtoint ptr %397 to i64
   %400 = ptrtoint ptr %398 to i64
   %401 = sub i64 %399, %400
   %402 = ashr exact i64 %401, 3
-  %403 = getelementptr inbounds i8, ptr %0, i64 32
-  %404 = getelementptr inbounds i8, ptr %0, i64 40
+  %403 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %404 = getelementptr inbounds nuw i8, ptr %0, i64 40
   br label %405
 
 405:                                              ; preds = %_ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exit, %393
@@ -5722,7 +5722,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
 
 463:                                              ; preds = %459, %456
   %464 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %465 = getelementptr inbounds i8, ptr %0, i64 24
+  %465 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %466 = load ptr, ptr %465, align 8
   %467 = load ptr, ptr %464, align 8
   %468 = ptrtoint ptr %466 to i64
@@ -5735,19 +5735,19 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
 
 .lr.ph:                                           ; preds = %463
   %474 = getelementptr inbounds nuw i8, ptr %0, i64 808
-  %475 = getelementptr inbounds i8, ptr %0, i64 937
+  %475 = getelementptr inbounds nuw i8, ptr %0, i64 937
   %476 = getelementptr inbounds i8, ptr %6, i64 16
-  %477 = getelementptr inbounds i8, ptr %0, i64 904
-  %478 = getelementptr inbounds i8, ptr %0, i64 888
-  %479 = getelementptr inbounds i8, ptr %0, i64 816
-  %480 = getelementptr inbounds i8, ptr %0, i64 944
-  %481 = getelementptr inbounds i8, ptr %0, i64 952
-  %482 = getelementptr inbounds i8, ptr %0, i64 960
-  %483 = getelementptr inbounds i8, ptr %0, i64 928
-  %484 = getelementptr inbounds i8, ptr %0, i64 936
-  %485 = getelementptr inbounds i8, ptr %0, i64 920
-  %486 = getelementptr inbounds i8, ptr %0, i64 32
-  %487 = getelementptr inbounds i8, ptr %0, i64 40
+  %477 = getelementptr inbounds nuw i8, ptr %0, i64 904
+  %478 = getelementptr inbounds nuw i8, ptr %0, i64 888
+  %479 = getelementptr inbounds nuw i8, ptr %0, i64 816
+  %480 = getelementptr inbounds nuw i8, ptr %0, i64 944
+  %481 = getelementptr inbounds nuw i8, ptr %0, i64 952
+  %482 = getelementptr inbounds nuw i8, ptr %0, i64 960
+  %483 = getelementptr inbounds nuw i8, ptr %0, i64 928
+  %484 = getelementptr inbounds nuw i8, ptr %0, i64 936
+  %485 = getelementptr inbounds nuw i8, ptr %0, i64 920
+  %486 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %487 = getelementptr inbounds nuw i8, ptr %0, i64 40
   br label %488
 
 488:                                              ; preds = %.lr.ph, %.critedge129.backedge
@@ -9174,7 +9174,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i5: ; preds = %_ZNSt11char_trai
   %51 = getelementptr inbounds i8, ptr %45, i64 1
   store ptr %51, ptr %0, align 8
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 808
-  %53 = getelementptr inbounds i8, ptr %0, i64 937
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 937
   %54 = load i8, ptr %53, align 1
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
@@ -9183,7 +9183,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i5: ; preds = %_ZNSt11char_trai
   call void @_ZN4llvm16FoldingSetNodeID10AddIntegerEy(ptr noundef nonnull align 8 dereferenceable(144) %6, i64 noundef 17)
   %56 = ptrtoint ptr %42 to i64
   call void @_ZN4llvm16FoldingSetNodeID10AddIntegerEy(ptr noundef nonnull align 8 dereferenceable(144) %6, i64 noundef %56)
-  %57 = getelementptr inbounds i8, ptr %0, i64 904
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 904
   %58 = call noundef ptr @_ZN4llvm14FoldingSetBase19FindNodeOrInsertPosERKNS_16FoldingSetNodeIDERPvRKNS0_14FoldingSetInfoE(ptr noundef nonnull align 8 dereferenceable(16) %57, ptr noundef nonnull align 8 dereferenceable(144) %6, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4llvm10FoldingSetIN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeaderEE17getFoldingSetInfoEvE4Info) #20
   %.not.i.i.i.i.i = icmp eq ptr %58, null
   br i1 %.not.i.i.i.i.i, label %61, label %59
@@ -9197,7 +9197,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i5: ; preds = %_ZNSt11char_trai
   br i1 %62, label %63, label %92
 
 63:                                               ; preds = %61
-  %64 = getelementptr inbounds i8, ptr %0, i64 888
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 888
   %65 = load i64, ptr %64, align 8
   %66 = add i64 %65, 32
   store i64 %66, ptr %64, align 8
@@ -9206,7 +9206,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i5: ; preds = %_ZNSt11char_trai
   %69 = add i64 %68, 7
   %70 = and i64 %69, -8
   %71 = add i64 %70, 32
-  %72 = getelementptr inbounds i8, ptr %0, i64 816
+  %72 = getelementptr inbounds nuw i8, ptr %0, i64 816
   %73 = load ptr, ptr %72, align 8
   %74 = ptrtoint ptr %73 to i64
   %.not.i.i.i.i.i.i.i = icmp ugt i64 %71, %74
@@ -9266,7 +9266,7 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   br i1 %.not.i.i.i.i.i, label %97, label %99
 
 97:                                               ; preds = %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle12NoexceptSpecEJRPNS3_4NodeEEEESt4pairIS6_bEbDpOT0_.exit.i.i.i.i
-  %98 = getelementptr inbounds i8, ptr %0, i64 920
+  %98 = getelementptr inbounds nuw i8, ptr %0, i64 920
   store ptr %.sroa.0.0.i.i.i.i.i, ptr %98, align 8
   br label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_12NoexceptSpecEJRPNS0_4NodeEEEESA_DpOT0_.exit
 
@@ -9275,14 +9275,14 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   br i1 %.not.i.i.i.i, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_12FunctionTypeEJRPNS0_4NodeERNS0_9NodeArrayERNS0_10QualifiersERNS0_15FunctionRefQualESB_EEESA_DpOT0_.exit, label %100
 
 100:                                              ; preds = %99
-  %101 = getelementptr inbounds i8, ptr %0, i64 944
+  %101 = getelementptr inbounds nuw i8, ptr %0, i64 944
   %102 = load i32, ptr %101, align 8
   %103 = and i32 %102, 1
   %.not.i.i.i.i.i.i.i.i.i.i = icmp eq i32 %103, 0
-  %104 = getelementptr inbounds i8, ptr %0, i64 952
+  %104 = getelementptr inbounds nuw i8, ptr %0, i64 952
   %105 = load ptr, ptr %104, align 8
   %106 = select i1 %.not.i.i.i.i.i.i.i.i.i.i, ptr %105, ptr %104
-  %107 = getelementptr inbounds i8, ptr %0, i64 960
+  %107 = getelementptr inbounds nuw i8, ptr %0, i64 960
   %108 = load i32, ptr %107, align 8
   %109 = select i1 %.not.i.i.i.i.i.i.i.i.i.i, i32 %108, i32 32
   %110 = icmp eq i32 %109, 0
@@ -9329,13 +9329,13 @@ _ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32EN
   %.0.i.i.i.i.i = phi ptr [ %133, %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i.i ], [ null, %100 ], [ null, %.lr.ph.i.i.i.i.i.i.i ]
   %.not9.i.i.i.i = icmp eq ptr %.0.i.i.i.i.i, null
   %spec.select.i.i.i.i = select i1 %.not9.i.i.i.i, ptr %.sroa.0.0.i.i.i.i.i, ptr %.0.i.i.i.i.i
-  %134 = getelementptr inbounds i8, ptr %0, i64 928
+  %134 = getelementptr inbounds nuw i8, ptr %0, i64 928
   %135 = load ptr, ptr %134, align 8
   %136 = icmp eq ptr %spec.select.i.i.i.i, %135
   br i1 %136, label %137, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_12NoexceptSpecEJRPNS0_4NodeEEEESA_DpOT0_.exit
 
 137:                                              ; preds = %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i.i
-  %138 = getelementptr inbounds i8, ptr %0, i64 936
+  %138 = getelementptr inbounds nuw i8, ptr %0, i64 936
   store i8 1, ptr %138, align 8
   br label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_12NoexceptSpecEJRPNS0_4NodeEEEESA_DpOT0_.exit
 
@@ -9353,14 +9353,14 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i11: ; preds = %_ZNSt11char_tra
   %141 = getelementptr inbounds i8, ptr %30, i64 2
   store ptr %141, ptr %0, align 8
   %142 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %143 = getelementptr inbounds i8, ptr %0, i64 24
+  %143 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %144 = load ptr, ptr %143, align 8
   %145 = load ptr, ptr %142, align 8
   %146 = ptrtoint ptr %144 to i64
   %147 = ptrtoint ptr %145 to i64
   %148 = sub i64 %146, %147
-  %149 = getelementptr inbounds i8, ptr %0, i64 32
-  %150 = getelementptr inbounds i8, ptr %0, i64 40
+  %149 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %150 = getelementptr inbounds nuw i8, ptr %0, i64 40
   br label %151
 
 151:                                              ; preds = %_ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exit, %140
@@ -9452,7 +9452,7 @@ _ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exi
   %193 = ptrtoint ptr %190 to i64
   %194 = sub i64 %192, %193
   %195 = getelementptr inbounds nuw i8, ptr %0, i64 808
-  %196 = getelementptr inbounds i8, ptr %0, i64 888
+  %196 = getelementptr inbounds nuw i8, ptr %0, i64 888
   %197 = load i64, ptr %196, align 8
   %198 = add i64 %194, %197
   store i64 %198, ptr %196, align 8
@@ -9461,7 +9461,7 @@ _ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exi
   %201 = add i64 %200, 7
   %202 = and i64 %201, -8
   %203 = add i64 %202, %194
-  %204 = getelementptr inbounds i8, ptr %0, i64 816
+  %204 = getelementptr inbounds nuw i8, ptr %0, i64 816
   %205 = load ptr, ptr %204, align 8
   %206 = ptrtoint ptr %205 to i64
   %.not.i.i.i.i.i20 = icmp ugt i64 %203, %206
@@ -9493,7 +9493,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
   %213 = load ptr, ptr %142, align 8
   %214 = getelementptr inbounds i8, ptr %213, i64 %148
   store ptr %214, ptr %143, align 8
-  %215 = getelementptr inbounds i8, ptr %0, i64 937
+  %215 = getelementptr inbounds nuw i8, ptr %0, i64 937
   %216 = load i8, ptr %215, align 1
   %217 = trunc i8 %216 to i1
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %4)
@@ -9515,7 +9515,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
   br i1 %.not.i.i.i.i.i.i.i24, label %_ZN12_GLOBAL__N_111profileCtorIJN4llvm16itanium_demangle9NodeArrayEEEEvRNS1_16FoldingSetNodeIDENS2_4Node4KindEDpT_.exit.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i23
 
 _ZN12_GLOBAL__N_111profileCtorIJN4llvm16itanium_demangle9NodeArrayEEEEvRNS1_16FoldingSetNodeIDENS2_4Node4KindEDpT_.exit.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i23, %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E20popTrailingNodeArrayEm.exit
-  %223 = getelementptr inbounds i8, ptr %0, i64 904
+  %223 = getelementptr inbounds nuw i8, ptr %0, i64 904
   %224 = call noundef ptr @_ZN4llvm14FoldingSetBase19FindNodeOrInsertPosERKNS_16FoldingSetNodeIDERPvRKNS0_14FoldingSetInfoE(ptr noundef nonnull align 8 dereferenceable(16) %223, ptr noundef nonnull align 8 dereferenceable(144) %4, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4llvm10FoldingSetIN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeaderEE17getFoldingSetInfoEvE4Info) #20
   %.not.i.i.i.i.i25 = icmp eq ptr %224, null
   br i1 %.not.i.i.i.i.i25, label %227, label %225
@@ -9597,7 +9597,7 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   br i1 %.not.i.i.i.i.i25, label %260, label %262
 
 260:                                              ; preds = %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle20DynamicExceptionSpecEJNS3_9NodeArrayEEEESt4pairIPNS3_4NodeEbEbDpOT0_.exit.i.i.i.i
-  %261 = getelementptr inbounds i8, ptr %0, i64 920
+  %261 = getelementptr inbounds nuw i8, ptr %0, i64 920
   store ptr %.sroa.0.0.i.i.i.i.i26, ptr %261, align 8
   br label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_20DynamicExceptionSpecEJNS0_9NodeArrayEEEEPNS0_4NodeEDpOT0_.exit
 
@@ -9606,14 +9606,14 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   br i1 %.not.i.i.i.i27, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_12FunctionTypeEJRPNS0_4NodeERNS0_9NodeArrayERNS0_10QualifiersERNS0_15FunctionRefQualESB_EEESA_DpOT0_.exit, label %263
 
 263:                                              ; preds = %262
-  %264 = getelementptr inbounds i8, ptr %0, i64 944
+  %264 = getelementptr inbounds nuw i8, ptr %0, i64 944
   %265 = load i32, ptr %264, align 8
   %266 = and i32 %265, 1
   %.not.i.i.i.i.i.i.i.i.i.i28 = icmp eq i32 %266, 0
-  %267 = getelementptr inbounds i8, ptr %0, i64 952
+  %267 = getelementptr inbounds nuw i8, ptr %0, i64 952
   %268 = load ptr, ptr %267, align 8
   %269 = select i1 %.not.i.i.i.i.i.i.i.i.i.i28, ptr %268, ptr %267
-  %270 = getelementptr inbounds i8, ptr %0, i64 960
+  %270 = getelementptr inbounds nuw i8, ptr %0, i64 960
   %271 = load i32, ptr %270, align 8
   %272 = select i1 %.not.i.i.i.i.i.i.i.i.i.i28, i32 %271, i32 32
   %273 = icmp eq i32 %272, 0
@@ -9660,13 +9660,13 @@ _ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32EN
   %.0.i.i.i.i.i35 = phi ptr [ %296, %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i.i33 ], [ null, %263 ], [ null, %.lr.ph.i.i.i10.i.i.i.i ]
   %.not9.i.i.i.i36 = icmp eq ptr %.0.i.i.i.i.i35, null
   %spec.select.i.i.i.i37 = select i1 %.not9.i.i.i.i36, ptr %.sroa.0.0.i.i.i.i.i26, ptr %.0.i.i.i.i.i35
-  %297 = getelementptr inbounds i8, ptr %0, i64 928
+  %297 = getelementptr inbounds nuw i8, ptr %0, i64 928
   %298 = load ptr, ptr %297, align 8
   %299 = icmp eq ptr %spec.select.i.i.i.i37, %298
   br i1 %299, label %300, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_20DynamicExceptionSpecEJNS0_9NodeArrayEEEEPNS0_4NodeEDpOT0_.exit
 
 300:                                              ; preds = %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i.i34
-  %301 = getelementptr inbounds i8, ptr %0, i64 936
+  %301 = getelementptr inbounds nuw i8, ptr %0, i64 936
   store i8 1, ptr %301, align 8
   br label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_20DynamicExceptionSpecEJNS0_9NodeArrayEEEEPNS0_4NodeEDpOT0_.exit
 
@@ -9728,14 +9728,14 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
 
 323:                                              ; preds = %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E9consumeIfEc.exit55
   %324 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %325 = getelementptr inbounds i8, ptr %0, i64 24
+  %325 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %326 = load ptr, ptr %325, align 8
   %327 = load ptr, ptr %324, align 8
   %328 = ptrtoint ptr %326 to i64
   %329 = ptrtoint ptr %327 to i64
   %330 = sub i64 %328, %329
-  %331 = getelementptr inbounds i8, ptr %0, i64 32
-  %332 = getelementptr inbounds i8, ptr %0, i64 40
+  %331 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %332 = getelementptr inbounds nuw i8, ptr %0, i64 40
   br label %.backedge
 
 .backedge:                                        ; preds = %.backedge.backedge, %323
@@ -9857,7 +9857,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
   %382 = ptrtoint ptr %379 to i64
   %383 = sub i64 %381, %382
   %384 = getelementptr inbounds nuw i8, ptr %0, i64 808
-  %385 = getelementptr inbounds i8, ptr %0, i64 888
+  %385 = getelementptr inbounds nuw i8, ptr %0, i64 888
   %386 = load i64, ptr %385, align 8
   %387 = add i64 %383, %386
   store i64 %387, ptr %385, align 8
@@ -9866,7 +9866,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
   %390 = add i64 %389, 7
   %391 = and i64 %390, -8
   %392 = add i64 %391, %383
-  %393 = getelementptr inbounds i8, ptr %0, i64 816
+  %393 = getelementptr inbounds nuw i8, ptr %0, i64 816
   %394 = load ptr, ptr %393, align 8
   %395 = ptrtoint ptr %394 to i64
   %.not.i.i.i.i.i76 = icmp ugt i64 %392, %395
@@ -9898,7 +9898,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
   %402 = load ptr, ptr %324, align 8
   %403 = getelementptr inbounds i8, ptr %402, i64 %330
   store ptr %403, ptr %325, align 8
-  %404 = getelementptr inbounds i8, ptr %0, i64 937
+  %404 = getelementptr inbounds nuw i8, ptr %0, i64 937
   %405 = load i8, ptr %404, align 1
   %406 = trunc i8 %405 to i1
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %2)
@@ -9928,7 +9928,7 @@ _ZN12_GLOBAL__N_111profileCtorIJPN4llvm16itanium_demangle4NodeENS2_9NodeArrayENS
   call void @_ZN4llvm16FoldingSetNodeID10AddIntegerEy(ptr noundef nonnull align 8 dereferenceable(144) %2, i64 noundef %414)
   %415 = ptrtoint ptr %.0140 to i64
   call void @_ZN4llvm16FoldingSetNodeID10AddIntegerEy(ptr noundef nonnull align 8 dereferenceable(144) %2, i64 noundef %415)
-  %416 = getelementptr inbounds i8, ptr %0, i64 904
+  %416 = getelementptr inbounds nuw i8, ptr %0, i64 904
   %417 = call noundef ptr @_ZN4llvm14FoldingSetBase19FindNodeOrInsertPosERKNS_16FoldingSetNodeIDERPvRKNS0_14FoldingSetInfoE(ptr noundef nonnull align 8 dereferenceable(16) %416, ptr noundef nonnull align 8 dereferenceable(144) %2, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4llvm10FoldingSetIN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeaderEE17getFoldingSetInfoEvE4Info) #20
   %.not.i.i.i.i.i93 = icmp eq ptr %417, null
   br i1 %.not.i.i.i.i.i93, label %420, label %418
@@ -10018,7 +10018,7 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   br i1 %.not.i.i.i.i.i93, label %457, label %459
 
 457:                                              ; preds = %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle12FunctionTypeEJRPNS3_4NodeERNS3_9NodeArrayERNS3_10QualifiersERNS3_15FunctionRefQualES7_EEESt4pairIS6_bEbDpOT0_.exit.i.i.i.i
-  %458 = getelementptr inbounds i8, ptr %0, i64 920
+  %458 = getelementptr inbounds nuw i8, ptr %0, i64 920
   store ptr %.sroa.0.0.i.i.i.i.i94, ptr %458, align 8
   br label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_12FunctionTypeEJRPNS0_4NodeERNS0_9NodeArrayERNS0_10QualifiersERNS0_15FunctionRefQualESB_EEESA_DpOT0_.exit
 
@@ -10027,14 +10027,14 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   br i1 %.not.i.i.i.i95, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_12FunctionTypeEJRPNS0_4NodeERNS0_9NodeArrayERNS0_10QualifiersERNS0_15FunctionRefQualESB_EEESA_DpOT0_.exit, label %460
 
 460:                                              ; preds = %459
-  %461 = getelementptr inbounds i8, ptr %0, i64 944
+  %461 = getelementptr inbounds nuw i8, ptr %0, i64 944
   %462 = load i32, ptr %461, align 8
   %463 = and i32 %462, 1
   %.not.i.i.i.i.i.i.i.i.i.i96 = icmp eq i32 %463, 0
-  %464 = getelementptr inbounds i8, ptr %0, i64 952
+  %464 = getelementptr inbounds nuw i8, ptr %0, i64 952
   %465 = load ptr, ptr %464, align 8
   %466 = select i1 %.not.i.i.i.i.i.i.i.i.i.i96, ptr %465, ptr %464
-  %467 = getelementptr inbounds i8, ptr %0, i64 960
+  %467 = getelementptr inbounds nuw i8, ptr %0, i64 960
   %468 = load i32, ptr %467, align 8
   %469 = select i1 %.not.i.i.i.i.i.i.i.i.i.i96, i32 %468, i32 32
   %470 = icmp eq i32 %469, 0
@@ -10081,13 +10081,13 @@ _ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32EN
   %.0.i.i.i.i.i103 = phi ptr [ %493, %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i.i101 ], [ null, %460 ], [ null, %.lr.ph.i.i.i14.i.i.i.i ]
   %.not13.i.i.i.i = icmp eq ptr %.0.i.i.i.i.i103, null
   %spec.select.i.i.i.i104 = select i1 %.not13.i.i.i.i, ptr %.sroa.0.0.i.i.i.i.i94, ptr %.0.i.i.i.i.i103
-  %494 = getelementptr inbounds i8, ptr %0, i64 928
+  %494 = getelementptr inbounds nuw i8, ptr %0, i64 928
   %495 = load ptr, ptr %494, align 8
   %496 = icmp eq ptr %spec.select.i.i.i.i104, %495
   br i1 %496, label %497, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_12FunctionTypeEJRPNS0_4NodeERNS0_9NodeArrayERNS0_10QualifiersERNS0_15FunctionRefQualESB_EEESA_DpOT0_.exit
 
 497:                                              ; preds = %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i.i102
-  %498 = getelementptr inbounds i8, ptr %0, i64 936
+  %498 = getelementptr inbounds nuw i8, ptr %0, i64 936
   store i8 1, ptr %498, align 8
   br label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_12FunctionTypeEJRPNS0_4NodeERNS0_9NodeArrayERNS0_10QualifiersERNS0_15FunctionRefQualESB_EEESA_DpOT0_.exit
 
@@ -10228,7 +10228,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
 
 _ZN12_GLOBAL__N_111profileCtorIJPN4llvm16itanium_demangle4NodeESt17basic_string_viewIcSt11char_traitsIcEEEEEvRNS1_16FoldingSetNodeIDENS3_4KindEDpT_.exit.i.i.i.i.i: ; preds = %51
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 808
-  %55 = getelementptr inbounds i8, ptr %0, i64 937
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 937
   %56 = load i8, ptr %55, align 1
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
@@ -10238,7 +10238,7 @@ _ZN12_GLOBAL__N_111profileCtorIJPN4llvm16itanium_demangle4NodeESt17basic_string_
   %58 = ptrtoint ptr %52 to i64
   call void @_ZN4llvm16FoldingSetNodeID10AddIntegerEy(ptr noundef nonnull align 8 dereferenceable(144) %6, i64 noundef %58)
   call void @_ZN4llvm16FoldingSetNodeID9AddStringENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(144) %6, ptr nonnull %.lcssa127, i64 %45) #20
-  %59 = getelementptr inbounds i8, ptr %0, i64 904
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 904
   %60 = call noundef ptr @_ZN4llvm14FoldingSetBase19FindNodeOrInsertPosERKNS_16FoldingSetNodeIDERPvRKNS0_14FoldingSetInfoE(ptr noundef nonnull align 8 dereferenceable(16) %59, ptr noundef nonnull align 8 dereferenceable(144) %6, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4llvm10FoldingSetIN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeaderEE17getFoldingSetInfoEvE4Info) #20
   %.not.i.i.i.i.i = icmp eq ptr %60, null
   br i1 %.not.i.i.i.i.i, label %63, label %61
@@ -10252,7 +10252,7 @@ _ZN12_GLOBAL__N_111profileCtorIJPN4llvm16itanium_demangle4NodeESt17basic_string_
   br i1 %64, label %65, label %95
 
 65:                                               ; preds = %63
-  %66 = getelementptr inbounds i8, ptr %0, i64 888
+  %66 = getelementptr inbounds nuw i8, ptr %0, i64 888
   %67 = load i64, ptr %66, align 8
   %68 = add i64 %67, 48
   store i64 %68, ptr %66, align 8
@@ -10261,7 +10261,7 @@ _ZN12_GLOBAL__N_111profileCtorIJPN4llvm16itanium_demangle4NodeESt17basic_string_
   %71 = add i64 %70, 7
   %72 = and i64 %71, -8
   %73 = add i64 %72, 48
-  %74 = getelementptr inbounds i8, ptr %0, i64 816
+  %74 = getelementptr inbounds nuw i8, ptr %0, i64 816
   %75 = load ptr, ptr %74, align 8
   %76 = ptrtoint ptr %75 to i64
   %.not.i.i.i.i.i.i.i = icmp ugt i64 %73, %76
@@ -10325,7 +10325,7 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   br i1 %.not.i.i.i.i.i, label %100, label %102
 
 100:                                              ; preds = %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle13ObjCProtoNameEJRPNS3_4NodeERSt17basic_string_viewIcSt11char_traitsIcEEEEESt4pairIS6_bEbDpOT0_.exit.i.i.i.i
-  %101 = getelementptr inbounds i8, ptr %0, i64 920
+  %101 = getelementptr inbounds nuw i8, ptr %0, i64 920
   store ptr %.sroa.0.0.i.i.i.i.i, ptr %101, align 8
   br label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_13ObjCProtoNameEJRPNS0_4NodeERSt17basic_string_viewIcSt11char_traitsIcEEEEESA_DpOT0_.exit
 
@@ -10334,14 +10334,14 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   br i1 %.not.i.i.i.i, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_13ObjCProtoNameEJRPNS0_4NodeERSt17basic_string_viewIcSt11char_traitsIcEEEEESA_DpOT0_.exit, label %103
 
 103:                                              ; preds = %102
-  %104 = getelementptr inbounds i8, ptr %0, i64 944
+  %104 = getelementptr inbounds nuw i8, ptr %0, i64 944
   %105 = load i32, ptr %104, align 8
   %106 = and i32 %105, 1
   %.not.i.i.i.i.i.i.i.i.i.i = icmp eq i32 %106, 0
-  %107 = getelementptr inbounds i8, ptr %0, i64 952
+  %107 = getelementptr inbounds nuw i8, ptr %0, i64 952
   %108 = load ptr, ptr %107, align 8
   %109 = select i1 %.not.i.i.i.i.i.i.i.i.i.i, ptr %108, ptr %107
-  %110 = getelementptr inbounds i8, ptr %0, i64 960
+  %110 = getelementptr inbounds nuw i8, ptr %0, i64 960
   %111 = load i32, ptr %110, align 8
   %112 = select i1 %.not.i.i.i.i.i.i.i.i.i.i, i32 %111, i32 32
   %113 = icmp eq i32 %112, 0
@@ -10388,13 +10388,13 @@ _ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32EN
   %.0.i.i.i.i.i = phi ptr [ %136, %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i.i ], [ null, %103 ], [ null, %.lr.ph.i.i.i.i.i.i.i ]
   %.not10.i.i.i.i = icmp eq ptr %.0.i.i.i.i.i, null
   %spec.select.i.i.i.i = select i1 %.not10.i.i.i.i, ptr %.sroa.0.0.i.i.i.i.i, ptr %.0.i.i.i.i.i
-  %137 = getelementptr inbounds i8, ptr %0, i64 928
+  %137 = getelementptr inbounds nuw i8, ptr %0, i64 928
   %138 = load ptr, ptr %137, align 8
   %139 = icmp eq ptr %spec.select.i.i.i.i, %138
   br i1 %139, label %140, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_13ObjCProtoNameEJRPNS0_4NodeERSt17basic_string_viewIcSt11char_traitsIcEEEEESA_DpOT0_.exit
 
 140:                                              ; preds = %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i.i
-  %141 = getelementptr inbounds i8, ptr %0, i64 936
+  %141 = getelementptr inbounds nuw i8, ptr %0, i64 936
   store i8 1, ptr %141, align 8
   br label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_13ObjCProtoNameEJRPNS0_4NodeERSt17basic_string_viewIcSt11char_traitsIcEEEEESA_DpOT0_.exit
 
@@ -10420,7 +10420,7 @@ _ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLO
 
 _ZN12_GLOBAL__N_111profileCtorIJPN4llvm16itanium_demangle4NodeESt17basic_string_viewIcSt11char_traitsIcEES4_EEEvRNS1_16FoldingSetNodeIDENS3_4KindEDpT_.exit.i.i.i.i.i: ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit.thread
   %150 = getelementptr inbounds nuw i8, ptr %0, i64 808
-  %151 = getelementptr inbounds i8, ptr %0, i64 937
+  %151 = getelementptr inbounds nuw i8, ptr %0, i64 937
   %152 = load i8, ptr %151, align 1
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
@@ -10432,7 +10432,7 @@ _ZN12_GLOBAL__N_111profileCtorIJPN4llvm16itanium_demangle4NodeESt17basic_string_
   call void @_ZN4llvm16FoldingSetNodeID9AddStringENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(144) %4, ptr nonnull %20, i64 %24) #20
   %155 = ptrtoint ptr %.0103 to i64
   call void @_ZN4llvm16FoldingSetNodeID10AddIntegerEy(ptr noundef nonnull align 8 dereferenceable(144) %4, i64 noundef %155)
-  %156 = getelementptr inbounds i8, ptr %0, i64 904
+  %156 = getelementptr inbounds nuw i8, ptr %0, i64 904
   %157 = call noundef ptr @_ZN4llvm14FoldingSetBase19FindNodeOrInsertPosERKNS_16FoldingSetNodeIDERPvRKNS0_14FoldingSetInfoE(ptr noundef nonnull align 8 dereferenceable(16) %156, ptr noundef nonnull align 8 dereferenceable(144) %4, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4llvm10FoldingSetIN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeaderEE17getFoldingSetInfoEvE4Info) #20
   %.not.i.i.i.i.i29 = icmp eq ptr %157, null
   br i1 %.not.i.i.i.i.i29, label %160, label %158
@@ -10446,7 +10446,7 @@ _ZN12_GLOBAL__N_111profileCtorIJPN4llvm16itanium_demangle4NodeESt17basic_string_
   br i1 %161, label %162, label %193
 
 162:                                              ; preds = %160
-  %163 = getelementptr inbounds i8, ptr %0, i64 888
+  %163 = getelementptr inbounds nuw i8, ptr %0, i64 888
   %164 = load i64, ptr %163, align 8
   %165 = add i64 %164, 56
   store i64 %165, ptr %163, align 8
@@ -10455,7 +10455,7 @@ _ZN12_GLOBAL__N_111profileCtorIJPN4llvm16itanium_demangle4NodeESt17basic_string_
   %168 = add i64 %167, 7
   %169 = and i64 %168, -8
   %170 = add i64 %169, 56
-  %171 = getelementptr inbounds i8, ptr %0, i64 816
+  %171 = getelementptr inbounds nuw i8, ptr %0, i64 816
   %172 = load ptr, ptr %171, align 8
   %173 = ptrtoint ptr %172 to i64
   %.not.i.i.i.i.i.i.i43 = icmp ugt i64 %170, %173
@@ -10521,7 +10521,7 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   br i1 %.not.i.i.i.i.i29, label %198, label %200
 
 198:                                              ; preds = %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle17VendorExtQualTypeEJRPNS3_4NodeERSt17basic_string_viewIcSt11char_traitsIcEES7_EEESt4pairIS6_bEbDpOT0_.exit.i.i.i.i
-  %199 = getelementptr inbounds i8, ptr %0, i64 920
+  %199 = getelementptr inbounds nuw i8, ptr %0, i64 920
   store ptr %.sroa.0.0.i.i.i.i.i30, ptr %199, align 8
   br label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_13ObjCProtoNameEJRPNS0_4NodeERSt17basic_string_viewIcSt11char_traitsIcEEEEESA_DpOT0_.exit
 
@@ -10530,14 +10530,14 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   br i1 %.not.i.i.i.i31, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_13ObjCProtoNameEJRPNS0_4NodeERSt17basic_string_viewIcSt11char_traitsIcEEEEESA_DpOT0_.exit, label %201
 
 201:                                              ; preds = %200
-  %202 = getelementptr inbounds i8, ptr %0, i64 944
+  %202 = getelementptr inbounds nuw i8, ptr %0, i64 944
   %203 = load i32, ptr %202, align 8
   %204 = and i32 %203, 1
   %.not.i.i.i.i.i.i.i.i.i.i32 = icmp eq i32 %204, 0
-  %205 = getelementptr inbounds i8, ptr %0, i64 952
+  %205 = getelementptr inbounds nuw i8, ptr %0, i64 952
   %206 = load ptr, ptr %205, align 8
   %207 = select i1 %.not.i.i.i.i.i.i.i.i.i.i32, ptr %206, ptr %205
-  %208 = getelementptr inbounds i8, ptr %0, i64 960
+  %208 = getelementptr inbounds nuw i8, ptr %0, i64 960
   %209 = load i32, ptr %208, align 8
   %210 = select i1 %.not.i.i.i.i.i.i.i.i.i.i32, i32 %209, i32 32
   %211 = icmp eq i32 %210, 0
@@ -10584,13 +10584,13 @@ _ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32EN
   %.0.i.i.i.i.i40 = phi ptr [ %234, %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i.i38 ], [ null, %201 ], [ null, %.lr.ph.i.i.i.i.i.i.i34 ]
   %.not11.i.i.i.i = icmp eq ptr %.0.i.i.i.i.i40, null
   %spec.select.i.i.i.i41 = select i1 %.not11.i.i.i.i, ptr %.sroa.0.0.i.i.i.i.i30, ptr %.0.i.i.i.i.i40
-  %235 = getelementptr inbounds i8, ptr %0, i64 928
+  %235 = getelementptr inbounds nuw i8, ptr %0, i64 928
   %236 = load ptr, ptr %235, align 8
   %237 = icmp eq ptr %spec.select.i.i.i.i41, %236
   br i1 %237, label %238, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_13ObjCProtoNameEJRPNS0_4NodeERSt17basic_string_viewIcSt11char_traitsIcEEEEESA_DpOT0_.exit
 
 238:                                              ; preds = %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i.i39
-  %239 = getelementptr inbounds i8, ptr %0, i64 936
+  %239 = getelementptr inbounds nuw i8, ptr %0, i64 936
   store i8 1, ptr %239, align 8
   br label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_13ObjCProtoNameEJRPNS0_4NodeERSt17basic_string_viewIcSt11char_traitsIcEEEEESA_DpOT0_.exit
 
@@ -10650,7 +10650,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
 
 262:                                              ; preds = %261
   %263 = getelementptr inbounds nuw i8, ptr %0, i64 808
-  %264 = getelementptr inbounds i8, ptr %0, i64 937
+  %264 = getelementptr inbounds nuw i8, ptr %0, i64 937
   %265 = load i8, ptr %264, align 1
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %2)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
@@ -10661,7 +10661,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
   call void @_ZN4llvm16FoldingSetNodeID10AddIntegerEy(ptr noundef nonnull align 8 dereferenceable(144) %2, i64 noundef %267)
   %268 = zext nneg i32 %.2.i to i64
   call void @_ZN4llvm16FoldingSetNodeID10AddIntegerEy(ptr noundef nonnull align 8 dereferenceable(144) %2, i64 noundef %268)
-  %269 = getelementptr inbounds i8, ptr %0, i64 904
+  %269 = getelementptr inbounds nuw i8, ptr %0, i64 904
   %270 = call noundef ptr @_ZN4llvm14FoldingSetBase19FindNodeOrInsertPosERKNS_16FoldingSetNodeIDERPvRKNS0_14FoldingSetInfoE(ptr noundef nonnull align 8 dereferenceable(16) %269, ptr noundef nonnull align 8 dereferenceable(144) %2, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4llvm10FoldingSetIN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeaderEE17getFoldingSetInfoEvE4Info) #20
   %.not.i.i.i.i.i54 = icmp eq ptr %270, null
   br i1 %.not.i.i.i.i.i54, label %273, label %271
@@ -10675,7 +10675,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
   br i1 %274, label %275, label %308
 
 275:                                              ; preds = %273
-  %276 = getelementptr inbounds i8, ptr %0, i64 888
+  %276 = getelementptr inbounds nuw i8, ptr %0, i64 888
   %277 = load i64, ptr %276, align 8
   %278 = add i64 %277, 32
   store i64 %278, ptr %276, align 8
@@ -10684,7 +10684,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
   %281 = add i64 %280, 7
   %282 = and i64 %281, -8
   %283 = add i64 %282, 32
-  %284 = getelementptr inbounds i8, ptr %0, i64 816
+  %284 = getelementptr inbounds nuw i8, ptr %0, i64 816
   %285 = load ptr, ptr %284, align 8
   %286 = ptrtoint ptr %285 to i64
   %.not.i.i.i.i.i.i.i69 = icmp ugt i64 %283, %286
@@ -10749,7 +10749,7 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   br i1 %.not.i.i.i.i.i54, label %313, label %315
 
 313:                                              ; preds = %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle8QualTypeEJRPNS3_4NodeERNS3_10QualifiersEEEESt4pairIS6_bEbDpOT0_.exit.i.i.i.i
-  %314 = getelementptr inbounds i8, ptr %0, i64 920
+  %314 = getelementptr inbounds nuw i8, ptr %0, i64 920
   store ptr %.sroa.0.0.i.i.i.i.i55, ptr %314, align 8
   br label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_13ObjCProtoNameEJRPNS0_4NodeERSt17basic_string_viewIcSt11char_traitsIcEEEEESA_DpOT0_.exit
 
@@ -10758,14 +10758,14 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   br i1 %.not.i.i.i.i56, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_13ObjCProtoNameEJRPNS0_4NodeERSt17basic_string_viewIcSt11char_traitsIcEEEEESA_DpOT0_.exit, label %316
 
 316:                                              ; preds = %315
-  %317 = getelementptr inbounds i8, ptr %0, i64 944
+  %317 = getelementptr inbounds nuw i8, ptr %0, i64 944
   %318 = load i32, ptr %317, align 8
   %319 = and i32 %318, 1
   %.not.i.i.i.i.i.i.i.i.i.i57 = icmp eq i32 %319, 0
-  %320 = getelementptr inbounds i8, ptr %0, i64 952
+  %320 = getelementptr inbounds nuw i8, ptr %0, i64 952
   %321 = load ptr, ptr %320, align 8
   %322 = select i1 %.not.i.i.i.i.i.i.i.i.i.i57, ptr %321, ptr %320
-  %323 = getelementptr inbounds i8, ptr %0, i64 960
+  %323 = getelementptr inbounds nuw i8, ptr %0, i64 960
   %324 = load i32, ptr %323, align 8
   %325 = select i1 %.not.i.i.i.i.i.i.i.i.i.i57, i32 %324, i32 32
   %326 = icmp eq i32 %325, 0
@@ -10812,13 +10812,13 @@ _ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32EN
   %.0.i.i.i.i.i65 = phi ptr [ %349, %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i.i63 ], [ null, %316 ], [ null, %.lr.ph.i.i.i.i.i.i.i59 ]
   %.not10.i.i.i.i66 = icmp eq ptr %.0.i.i.i.i.i65, null
   %spec.select.i.i.i.i67 = select i1 %.not10.i.i.i.i66, ptr %.sroa.0.0.i.i.i.i.i55, ptr %.0.i.i.i.i.i65
-  %350 = getelementptr inbounds i8, ptr %0, i64 928
+  %350 = getelementptr inbounds nuw i8, ptr %0, i64 928
   %351 = load ptr, ptr %350, align 8
   %352 = icmp eq ptr %spec.select.i.i.i.i67, %351
   br i1 %352, label %353, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_13ObjCProtoNameEJRPNS0_4NodeERSt17basic_string_viewIcSt11char_traitsIcEEEEESA_DpOT0_.exit
 
 353:                                              ; preds = %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i.i64
-  %354 = getelementptr inbounds i8, ptr %0, i64 936
+  %354 = getelementptr inbounds nuw i8, ptr %0, i64 936
   store i8 1, ptr %354, align 8
   br label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_13ObjCProtoNameEJRPNS0_4NodeERSt17basic_string_viewIcSt11char_traitsIcEEEEESA_DpOT0_.exit
 
@@ -10832,7 +10832,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   %3 = alloca %"class.llvm::FoldingSetNodeID", align 8
   %4 = alloca ptr, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 808
-  %6 = getelementptr inbounds i8, ptr %0, i64 937
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 937
   %7 = load i8, ptr %6, align 1
   %8 = trunc i8 %7 to i1
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %3)
@@ -10853,7 +10853,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   br label %_ZN12_GLOBAL__N_111profileCtorIJPKcEEEvRN4llvm16FoldingSetNodeIDENS3_16itanium_demangle4Node4KindEDpT_.exit.i.i.i.i
 
 _ZN12_GLOBAL__N_111profileCtorIJPKcEEEvRN4llvm16FoldingSetNodeIDENS3_16itanium_demangle4Node4KindEDpT_.exit.i.i.i.i: ; preds = %13, %12
-  %14 = getelementptr inbounds i8, ptr %0, i64 904
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 904
   %15 = call noundef ptr @_ZN4llvm14FoldingSetBase19FindNodeOrInsertPosERKNS_16FoldingSetNodeIDERPvRKNS0_14FoldingSetInfoE(ptr noundef nonnull align 8 dereferenceable(16) %14, ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4llvm10FoldingSetIN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeaderEE17getFoldingSetInfoEvE4Info) #20
   %.not.i.i.i.i = icmp eq ptr %15, null
   br i1 %.not.i.i.i.i, label %18, label %16
@@ -10866,7 +10866,7 @@ _ZN12_GLOBAL__N_111profileCtorIJPKcEEEvRN4llvm16FoldingSetNodeIDENS3_16itanium_d
   br i1 %8, label %19, label %49
 
 19:                                               ; preds = %18
-  %20 = getelementptr inbounds i8, ptr %0, i64 888
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 888
   %21 = load i64, ptr %20, align 8
   %22 = add i64 %21, 40
   store i64 %22, ptr %20, align 8
@@ -10875,7 +10875,7 @@ _ZN12_GLOBAL__N_111profileCtorIJPKcEEEvRN4llvm16FoldingSetNodeIDENS3_16itanium_d
   %25 = add i64 %24, 7
   %26 = and i64 %25, -8
   %27 = add i64 %26, 40
-  %28 = getelementptr inbounds i8, ptr %0, i64 816
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 816
   %29 = load ptr, ptr %28, align 8
   %30 = ptrtoint ptr %29 to i64
   %.not.i.i.i.i.i.i = icmp ugt i64 %27, %30
@@ -10938,7 +10938,7 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   br i1 %.not.i.i.i.i, label %54, label %56
 
 54:                                               ; preds = %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle8NameTypeEJRA5_KcEEESt4pairIPNS3_4NodeEbEbDpOT0_.exit.i.i.i
-  %55 = getelementptr inbounds i8, ptr %0, i64 920
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 920
   store ptr %.sroa.011.0.i.i.i.i, ptr %55, align 8
   br label %_ZN12_GLOBAL__N_122CanonicalizerAllocator8makeNodeIN4llvm16itanium_demangle8NameTypeEJRA5_KcEEEPNS3_4NodeEDpOT0_.exit
 
@@ -10947,14 +10947,14 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   br i1 %.not.i.i.i, label %_ZN12_GLOBAL__N_122CanonicalizerAllocator8makeNodeIN4llvm16itanium_demangle8NameTypeEJRA5_KcEEEPNS3_4NodeEDpOT0_.exit, label %57
 
 57:                                               ; preds = %56
-  %58 = getelementptr inbounds i8, ptr %0, i64 944
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 944
   %59 = load i32, ptr %58, align 8
   %60 = and i32 %59, 1
   %.not.i.i.i.i.i.i.i.i.i = icmp eq i32 %60, 0
-  %61 = getelementptr inbounds i8, ptr %0, i64 952
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 952
   %62 = load ptr, ptr %61, align 8
   %63 = select i1 %.not.i.i.i.i.i.i.i.i.i, ptr %62, ptr %61
-  %64 = getelementptr inbounds i8, ptr %0, i64 960
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 960
   %65 = load i32, ptr %64, align 8
   %66 = select i1 %.not.i.i.i.i.i.i.i.i.i, i32 %65, i32 32
   %67 = icmp eq i32 %66, 0
@@ -11001,13 +11001,13 @@ _ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32EN
   %.0.i.i.i.i = phi ptr [ %90, %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i ], [ null, %57 ], [ null, %.lr.ph.i.i.i.i.i.i ]
   %.not9.i.i.i = icmp eq ptr %.0.i.i.i.i, null
   %spec.select.i.i.i = select i1 %.not9.i.i.i, ptr %.sroa.011.0.i.i.i.i, ptr %.0.i.i.i.i
-  %91 = getelementptr inbounds i8, ptr %0, i64 928
+  %91 = getelementptr inbounds nuw i8, ptr %0, i64 928
   %92 = load ptr, ptr %91, align 8
   %93 = icmp eq ptr %spec.select.i.i.i, %92
   br i1 %93, label %94, label %_ZN12_GLOBAL__N_122CanonicalizerAllocator8makeNodeIN4llvm16itanium_demangle8NameTypeEJRA5_KcEEEPNS3_4NodeEDpOT0_.exit
 
 94:                                               ; preds = %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i
-  %95 = getelementptr inbounds i8, ptr %0, i64 936
+  %95 = getelementptr inbounds nuw i8, ptr %0, i64 936
   store i8 1, ptr %95, align 8
   br label %_ZN12_GLOBAL__N_122CanonicalizerAllocator8makeNodeIN4llvm16itanium_demangle8NameTypeEJRA5_KcEEEPNS3_4NodeEDpOT0_.exit
 
@@ -11021,7 +11021,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   %3 = alloca %"class.llvm::FoldingSetNodeID", align 8
   %4 = alloca ptr, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 808
-  %6 = getelementptr inbounds i8, ptr %0, i64 937
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 937
   %7 = load i8, ptr %6, align 1
   %8 = trunc i8 %7 to i1
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %3)
@@ -11042,7 +11042,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   br label %_ZN12_GLOBAL__N_111profileCtorIJPKcEEEvRN4llvm16FoldingSetNodeIDENS3_16itanium_demangle4Node4KindEDpT_.exit.i.i.i.i
 
 _ZN12_GLOBAL__N_111profileCtorIJPKcEEEvRN4llvm16FoldingSetNodeIDENS3_16itanium_demangle4Node4KindEDpT_.exit.i.i.i.i: ; preds = %13, %12
-  %14 = getelementptr inbounds i8, ptr %0, i64 904
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 904
   %15 = call noundef ptr @_ZN4llvm14FoldingSetBase19FindNodeOrInsertPosERKNS_16FoldingSetNodeIDERPvRKNS0_14FoldingSetInfoE(ptr noundef nonnull align 8 dereferenceable(16) %14, ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4llvm10FoldingSetIN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeaderEE17getFoldingSetInfoEvE4Info) #20
   %.not.i.i.i.i = icmp eq ptr %15, null
   br i1 %.not.i.i.i.i, label %18, label %16
@@ -11055,7 +11055,7 @@ _ZN12_GLOBAL__N_111profileCtorIJPKcEEEvRN4llvm16FoldingSetNodeIDENS3_16itanium_d
   br i1 %8, label %19, label %49
 
 19:                                               ; preds = %18
-  %20 = getelementptr inbounds i8, ptr %0, i64 888
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 888
   %21 = load i64, ptr %20, align 8
   %22 = add i64 %21, 40
   store i64 %22, ptr %20, align 8
@@ -11064,7 +11064,7 @@ _ZN12_GLOBAL__N_111profileCtorIJPKcEEEvRN4llvm16FoldingSetNodeIDENS3_16itanium_d
   %25 = add i64 %24, 7
   %26 = and i64 %25, -8
   %27 = add i64 %26, 40
-  %28 = getelementptr inbounds i8, ptr %0, i64 816
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 816
   %29 = load ptr, ptr %28, align 8
   %30 = ptrtoint ptr %29 to i64
   %.not.i.i.i.i.i.i = icmp ugt i64 %27, %30
@@ -11127,7 +11127,7 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   br i1 %.not.i.i.i.i, label %54, label %56
 
 54:                                               ; preds = %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle8NameTypeEJRA8_KcEEESt4pairIPNS3_4NodeEbEbDpOT0_.exit.i.i.i
-  %55 = getelementptr inbounds i8, ptr %0, i64 920
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 920
   store ptr %.sroa.011.0.i.i.i.i, ptr %55, align 8
   br label %_ZN12_GLOBAL__N_122CanonicalizerAllocator8makeNodeIN4llvm16itanium_demangle8NameTypeEJRA8_KcEEEPNS3_4NodeEDpOT0_.exit
 
@@ -11136,14 +11136,14 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   br i1 %.not.i.i.i, label %_ZN12_GLOBAL__N_122CanonicalizerAllocator8makeNodeIN4llvm16itanium_demangle8NameTypeEJRA8_KcEEEPNS3_4NodeEDpOT0_.exit, label %57
 
 57:                                               ; preds = %56
-  %58 = getelementptr inbounds i8, ptr %0, i64 944
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 944
   %59 = load i32, ptr %58, align 8
   %60 = and i32 %59, 1
   %.not.i.i.i.i.i.i.i.i.i = icmp eq i32 %60, 0
-  %61 = getelementptr inbounds i8, ptr %0, i64 952
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 952
   %62 = load ptr, ptr %61, align 8
   %63 = select i1 %.not.i.i.i.i.i.i.i.i.i, ptr %62, ptr %61
-  %64 = getelementptr inbounds i8, ptr %0, i64 960
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 960
   %65 = load i32, ptr %64, align 8
   %66 = select i1 %.not.i.i.i.i.i.i.i.i.i, i32 %65, i32 32
   %67 = icmp eq i32 %66, 0
@@ -11190,13 +11190,13 @@ _ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32EN
   %.0.i.i.i.i = phi ptr [ %90, %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i ], [ null, %57 ], [ null, %.lr.ph.i.i.i.i.i.i ]
   %.not9.i.i.i = icmp eq ptr %.0.i.i.i.i, null
   %spec.select.i.i.i = select i1 %.not9.i.i.i, ptr %.sroa.011.0.i.i.i.i, ptr %.0.i.i.i.i
-  %91 = getelementptr inbounds i8, ptr %0, i64 928
+  %91 = getelementptr inbounds nuw i8, ptr %0, i64 928
   %92 = load ptr, ptr %91, align 8
   %93 = icmp eq ptr %spec.select.i.i.i, %92
   br i1 %93, label %94, label %_ZN12_GLOBAL__N_122CanonicalizerAllocator8makeNodeIN4llvm16itanium_demangle8NameTypeEJRA8_KcEEEPNS3_4NodeEDpOT0_.exit
 
 94:                                               ; preds = %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i
-  %95 = getelementptr inbounds i8, ptr %0, i64 936
+  %95 = getelementptr inbounds nuw i8, ptr %0, i64 936
   store i8 1, ptr %95, align 8
   br label %_ZN12_GLOBAL__N_122CanonicalizerAllocator8makeNodeIN4llvm16itanium_demangle8NameTypeEJRA8_KcEEEPNS3_4NodeEDpOT0_.exit
 
@@ -11210,7 +11210,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   %3 = alloca %"class.llvm::FoldingSetNodeID", align 8
   %4 = alloca ptr, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 808
-  %6 = getelementptr inbounds i8, ptr %0, i64 937
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 937
   %7 = load i8, ptr %6, align 1
   %8 = trunc i8 %7 to i1
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %3)
@@ -11231,7 +11231,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   br label %_ZN12_GLOBAL__N_111profileCtorIJPKcEEEvRN4llvm16FoldingSetNodeIDENS3_16itanium_demangle4Node4KindEDpT_.exit.i.i.i.i
 
 _ZN12_GLOBAL__N_111profileCtorIJPKcEEEvRN4llvm16FoldingSetNodeIDENS3_16itanium_demangle4Node4KindEDpT_.exit.i.i.i.i: ; preds = %13, %12
-  %14 = getelementptr inbounds i8, ptr %0, i64 904
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 904
   %15 = call noundef ptr @_ZN4llvm14FoldingSetBase19FindNodeOrInsertPosERKNS_16FoldingSetNodeIDERPvRKNS0_14FoldingSetInfoE(ptr noundef nonnull align 8 dereferenceable(16) %14, ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4llvm10FoldingSetIN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeaderEE17getFoldingSetInfoEvE4Info) #20
   %.not.i.i.i.i = icmp eq ptr %15, null
   br i1 %.not.i.i.i.i, label %18, label %16
@@ -11244,7 +11244,7 @@ _ZN12_GLOBAL__N_111profileCtorIJPKcEEEvRN4llvm16FoldingSetNodeIDENS3_16itanium_d
   br i1 %8, label %19, label %49
 
 19:                                               ; preds = %18
-  %20 = getelementptr inbounds i8, ptr %0, i64 888
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 888
   %21 = load i64, ptr %20, align 8
   %22 = add i64 %21, 40
   store i64 %22, ptr %20, align 8
@@ -11253,7 +11253,7 @@ _ZN12_GLOBAL__N_111profileCtorIJPKcEEEvRN4llvm16FoldingSetNodeIDENS3_16itanium_d
   %25 = add i64 %24, 7
   %26 = and i64 %25, -8
   %27 = add i64 %26, 40
-  %28 = getelementptr inbounds i8, ptr %0, i64 816
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 816
   %29 = load ptr, ptr %28, align 8
   %30 = ptrtoint ptr %29 to i64
   %.not.i.i.i.i.i.i = icmp ugt i64 %27, %30
@@ -11316,7 +11316,7 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   br i1 %.not.i.i.i.i, label %54, label %56
 
 54:                                               ; preds = %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle8NameTypeEJRA12_KcEEESt4pairIPNS3_4NodeEbEbDpOT0_.exit.i.i.i
-  %55 = getelementptr inbounds i8, ptr %0, i64 920
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 920
   store ptr %.sroa.011.0.i.i.i.i, ptr %55, align 8
   br label %_ZN12_GLOBAL__N_122CanonicalizerAllocator8makeNodeIN4llvm16itanium_demangle8NameTypeEJRA12_KcEEEPNS3_4NodeEDpOT0_.exit
 
@@ -11325,14 +11325,14 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   br i1 %.not.i.i.i, label %_ZN12_GLOBAL__N_122CanonicalizerAllocator8makeNodeIN4llvm16itanium_demangle8NameTypeEJRA12_KcEEEPNS3_4NodeEDpOT0_.exit, label %57
 
 57:                                               ; preds = %56
-  %58 = getelementptr inbounds i8, ptr %0, i64 944
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 944
   %59 = load i32, ptr %58, align 8
   %60 = and i32 %59, 1
   %.not.i.i.i.i.i.i.i.i.i = icmp eq i32 %60, 0
-  %61 = getelementptr inbounds i8, ptr %0, i64 952
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 952
   %62 = load ptr, ptr %61, align 8
   %63 = select i1 %.not.i.i.i.i.i.i.i.i.i, ptr %62, ptr %61
-  %64 = getelementptr inbounds i8, ptr %0, i64 960
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 960
   %65 = load i32, ptr %64, align 8
   %66 = select i1 %.not.i.i.i.i.i.i.i.i.i, i32 %65, i32 32
   %67 = icmp eq i32 %66, 0
@@ -11379,13 +11379,13 @@ _ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32EN
   %.0.i.i.i.i = phi ptr [ %90, %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i ], [ null, %57 ], [ null, %.lr.ph.i.i.i.i.i.i ]
   %.not9.i.i.i = icmp eq ptr %.0.i.i.i.i, null
   %spec.select.i.i.i = select i1 %.not9.i.i.i, ptr %.sroa.011.0.i.i.i.i, ptr %.0.i.i.i.i
-  %91 = getelementptr inbounds i8, ptr %0, i64 928
+  %91 = getelementptr inbounds nuw i8, ptr %0, i64 928
   %92 = load ptr, ptr %91, align 8
   %93 = icmp eq ptr %spec.select.i.i.i, %92
   br i1 %93, label %94, label %_ZN12_GLOBAL__N_122CanonicalizerAllocator8makeNodeIN4llvm16itanium_demangle8NameTypeEJRA12_KcEEEPNS3_4NodeEDpOT0_.exit
 
 94:                                               ; preds = %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i
-  %95 = getelementptr inbounds i8, ptr %0, i64 936
+  %95 = getelementptr inbounds nuw i8, ptr %0, i64 936
   store i8 1, ptr %95, align 8
   br label %_ZN12_GLOBAL__N_122CanonicalizerAllocator8makeNodeIN4llvm16itanium_demangle8NameTypeEJRA12_KcEEEPNS3_4NodeEDpOT0_.exit
 
@@ -11399,7 +11399,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   %3 = alloca %"class.llvm::FoldingSetNodeID", align 8
   %4 = alloca ptr, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 808
-  %6 = getelementptr inbounds i8, ptr %0, i64 937
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 937
   %7 = load i8, ptr %6, align 1
   %8 = trunc i8 %7 to i1
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %3)
@@ -11420,7 +11420,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   br label %_ZN12_GLOBAL__N_111profileCtorIJPKcEEEvRN4llvm16FoldingSetNodeIDENS3_16itanium_demangle4Node4KindEDpT_.exit.i.i.i.i
 
 _ZN12_GLOBAL__N_111profileCtorIJPKcEEEvRN4llvm16FoldingSetNodeIDENS3_16itanium_demangle4Node4KindEDpT_.exit.i.i.i.i: ; preds = %13, %12
-  %14 = getelementptr inbounds i8, ptr %0, i64 904
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 904
   %15 = call noundef ptr @_ZN4llvm14FoldingSetBase19FindNodeOrInsertPosERKNS_16FoldingSetNodeIDERPvRKNS0_14FoldingSetInfoE(ptr noundef nonnull align 8 dereferenceable(16) %14, ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4llvm10FoldingSetIN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeaderEE17getFoldingSetInfoEvE4Info) #20
   %.not.i.i.i.i = icmp eq ptr %15, null
   br i1 %.not.i.i.i.i, label %18, label %16
@@ -11433,7 +11433,7 @@ _ZN12_GLOBAL__N_111profileCtorIJPKcEEEvRN4llvm16FoldingSetNodeIDENS3_16itanium_d
   br i1 %8, label %19, label %49
 
 19:                                               ; preds = %18
-  %20 = getelementptr inbounds i8, ptr %0, i64 888
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 888
   %21 = load i64, ptr %20, align 8
   %22 = add i64 %21, 40
   store i64 %22, ptr %20, align 8
@@ -11442,7 +11442,7 @@ _ZN12_GLOBAL__N_111profileCtorIJPKcEEEvRN4llvm16FoldingSetNodeIDENS3_16itanium_d
   %25 = add i64 %24, 7
   %26 = and i64 %25, -8
   %27 = add i64 %26, 40
-  %28 = getelementptr inbounds i8, ptr %0, i64 816
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 816
   %29 = load ptr, ptr %28, align 8
   %30 = ptrtoint ptr %29 to i64
   %.not.i.i.i.i.i.i = icmp ugt i64 %27, %30
@@ -11505,7 +11505,7 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   br i1 %.not.i.i.i.i, label %54, label %56
 
 54:                                               ; preds = %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle8NameTypeEJRA14_KcEEESt4pairIPNS3_4NodeEbEbDpOT0_.exit.i.i.i
-  %55 = getelementptr inbounds i8, ptr %0, i64 920
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 920
   store ptr %.sroa.011.0.i.i.i.i, ptr %55, align 8
   br label %_ZN12_GLOBAL__N_122CanonicalizerAllocator8makeNodeIN4llvm16itanium_demangle8NameTypeEJRA14_KcEEEPNS3_4NodeEDpOT0_.exit
 
@@ -11514,14 +11514,14 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   br i1 %.not.i.i.i, label %_ZN12_GLOBAL__N_122CanonicalizerAllocator8makeNodeIN4llvm16itanium_demangle8NameTypeEJRA14_KcEEEPNS3_4NodeEDpOT0_.exit, label %57
 
 57:                                               ; preds = %56
-  %58 = getelementptr inbounds i8, ptr %0, i64 944
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 944
   %59 = load i32, ptr %58, align 8
   %60 = and i32 %59, 1
   %.not.i.i.i.i.i.i.i.i.i = icmp eq i32 %60, 0
-  %61 = getelementptr inbounds i8, ptr %0, i64 952
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 952
   %62 = load ptr, ptr %61, align 8
   %63 = select i1 %.not.i.i.i.i.i.i.i.i.i, ptr %62, ptr %61
-  %64 = getelementptr inbounds i8, ptr %0, i64 960
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 960
   %65 = load i32, ptr %64, align 8
   %66 = select i1 %.not.i.i.i.i.i.i.i.i.i, i32 %65, i32 32
   %67 = icmp eq i32 %66, 0
@@ -11568,13 +11568,13 @@ _ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32EN
   %.0.i.i.i.i = phi ptr [ %90, %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i ], [ null, %57 ], [ null, %.lr.ph.i.i.i.i.i.i ]
   %.not9.i.i.i = icmp eq ptr %.0.i.i.i.i, null
   %spec.select.i.i.i = select i1 %.not9.i.i.i, ptr %.sroa.011.0.i.i.i.i, ptr %.0.i.i.i.i
-  %91 = getelementptr inbounds i8, ptr %0, i64 928
+  %91 = getelementptr inbounds nuw i8, ptr %0, i64 928
   %92 = load ptr, ptr %91, align 8
   %93 = icmp eq ptr %spec.select.i.i.i, %92
   br i1 %93, label %94, label %_ZN12_GLOBAL__N_122CanonicalizerAllocator8makeNodeIN4llvm16itanium_demangle8NameTypeEJRA14_KcEEEPNS3_4NodeEDpOT0_.exit
 
 94:                                               ; preds = %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i
-  %95 = getelementptr inbounds i8, ptr %0, i64 936
+  %95 = getelementptr inbounds nuw i8, ptr %0, i64 936
   store i8 1, ptr %95, align 8
   br label %_ZN12_GLOBAL__N_122CanonicalizerAllocator8makeNodeIN4llvm16itanium_demangle8NameTypeEJRA14_KcEEEPNS3_4NodeEDpOT0_.exit
 
@@ -11588,7 +11588,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   %3 = alloca %"class.llvm::FoldingSetNodeID", align 8
   %4 = alloca ptr, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 808
-  %6 = getelementptr inbounds i8, ptr %0, i64 937
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 937
   %7 = load i8, ptr %6, align 1
   %8 = trunc i8 %7 to i1
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %3)
@@ -11609,7 +11609,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   br label %_ZN12_GLOBAL__N_111profileCtorIJPKcEEEvRN4llvm16FoldingSetNodeIDENS3_16itanium_demangle4Node4KindEDpT_.exit.i.i.i.i
 
 _ZN12_GLOBAL__N_111profileCtorIJPKcEEEvRN4llvm16FoldingSetNodeIDENS3_16itanium_demangle4Node4KindEDpT_.exit.i.i.i.i: ; preds = %13, %12
-  %14 = getelementptr inbounds i8, ptr %0, i64 904
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 904
   %15 = call noundef ptr @_ZN4llvm14FoldingSetBase19FindNodeOrInsertPosERKNS_16FoldingSetNodeIDERPvRKNS0_14FoldingSetInfoE(ptr noundef nonnull align 8 dereferenceable(16) %14, ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4llvm10FoldingSetIN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeaderEE17getFoldingSetInfoEvE4Info) #20
   %.not.i.i.i.i = icmp eq ptr %15, null
   br i1 %.not.i.i.i.i, label %18, label %16
@@ -11622,7 +11622,7 @@ _ZN12_GLOBAL__N_111profileCtorIJPKcEEEvRN4llvm16FoldingSetNodeIDENS3_16itanium_d
   br i1 %8, label %19, label %49
 
 19:                                               ; preds = %18
-  %20 = getelementptr inbounds i8, ptr %0, i64 888
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 888
   %21 = load i64, ptr %20, align 8
   %22 = add i64 %21, 40
   store i64 %22, ptr %20, align 8
@@ -11631,7 +11631,7 @@ _ZN12_GLOBAL__N_111profileCtorIJPKcEEEvRN4llvm16FoldingSetNodeIDENS3_16itanium_d
   %25 = add i64 %24, 7
   %26 = and i64 %25, -8
   %27 = add i64 %26, 40
-  %28 = getelementptr inbounds i8, ptr %0, i64 816
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 816
   %29 = load ptr, ptr %28, align 8
   %30 = ptrtoint ptr %29 to i64
   %.not.i.i.i.i.i.i = icmp ugt i64 %27, %30
@@ -11694,7 +11694,7 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   br i1 %.not.i.i.i.i, label %54, label %56
 
 54:                                               ; preds = %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle8NameTypeEJRA6_KcEEESt4pairIPNS3_4NodeEbEbDpOT0_.exit.i.i.i
-  %55 = getelementptr inbounds i8, ptr %0, i64 920
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 920
   store ptr %.sroa.011.0.i.i.i.i, ptr %55, align 8
   br label %_ZN12_GLOBAL__N_122CanonicalizerAllocator8makeNodeIN4llvm16itanium_demangle8NameTypeEJRA6_KcEEEPNS3_4NodeEDpOT0_.exit
 
@@ -11703,14 +11703,14 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   br i1 %.not.i.i.i, label %_ZN12_GLOBAL__N_122CanonicalizerAllocator8makeNodeIN4llvm16itanium_demangle8NameTypeEJRA6_KcEEEPNS3_4NodeEDpOT0_.exit, label %57
 
 57:                                               ; preds = %56
-  %58 = getelementptr inbounds i8, ptr %0, i64 944
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 944
   %59 = load i32, ptr %58, align 8
   %60 = and i32 %59, 1
   %.not.i.i.i.i.i.i.i.i.i = icmp eq i32 %60, 0
-  %61 = getelementptr inbounds i8, ptr %0, i64 952
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 952
   %62 = load ptr, ptr %61, align 8
   %63 = select i1 %.not.i.i.i.i.i.i.i.i.i, ptr %62, ptr %61
-  %64 = getelementptr inbounds i8, ptr %0, i64 960
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 960
   %65 = load i32, ptr %64, align 8
   %66 = select i1 %.not.i.i.i.i.i.i.i.i.i, i32 %65, i32 32
   %67 = icmp eq i32 %66, 0
@@ -11757,13 +11757,13 @@ _ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32EN
   %.0.i.i.i.i = phi ptr [ %90, %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i ], [ null, %57 ], [ null, %.lr.ph.i.i.i.i.i.i ]
   %.not9.i.i.i = icmp eq ptr %.0.i.i.i.i, null
   %spec.select.i.i.i = select i1 %.not9.i.i.i, ptr %.sroa.011.0.i.i.i.i, ptr %.0.i.i.i.i
-  %91 = getelementptr inbounds i8, ptr %0, i64 928
+  %91 = getelementptr inbounds nuw i8, ptr %0, i64 928
   %92 = load ptr, ptr %91, align 8
   %93 = icmp eq ptr %spec.select.i.i.i, %92
   br i1 %93, label %94, label %_ZN12_GLOBAL__N_122CanonicalizerAllocator8makeNodeIN4llvm16itanium_demangle8NameTypeEJRA6_KcEEEPNS3_4NodeEDpOT0_.exit
 
 94:                                               ; preds = %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i
-  %95 = getelementptr inbounds i8, ptr %0, i64 936
+  %95 = getelementptr inbounds nuw i8, ptr %0, i64 936
   store i8 1, ptr %95, align 8
   br label %_ZN12_GLOBAL__N_122CanonicalizerAllocator8makeNodeIN4llvm16itanium_demangle8NameTypeEJRA6_KcEEEPNS3_4NodeEDpOT0_.exit
 
@@ -11777,7 +11777,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   %3 = alloca %"class.llvm::FoldingSetNodeID", align 8
   %4 = alloca ptr, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 808
-  %6 = getelementptr inbounds i8, ptr %0, i64 937
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 937
   %7 = load i8, ptr %6, align 1
   %8 = trunc i8 %7 to i1
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %3)
@@ -11798,7 +11798,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   br label %_ZN12_GLOBAL__N_111profileCtorIJPKcEEEvRN4llvm16FoldingSetNodeIDENS3_16itanium_demangle4Node4KindEDpT_.exit.i.i.i.i
 
 _ZN12_GLOBAL__N_111profileCtorIJPKcEEEvRN4llvm16FoldingSetNodeIDENS3_16itanium_demangle4Node4KindEDpT_.exit.i.i.i.i: ; preds = %13, %12
-  %14 = getelementptr inbounds i8, ptr %0, i64 904
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 904
   %15 = call noundef ptr @_ZN4llvm14FoldingSetBase19FindNodeOrInsertPosERKNS_16FoldingSetNodeIDERPvRKNS0_14FoldingSetInfoE(ptr noundef nonnull align 8 dereferenceable(16) %14, ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4llvm10FoldingSetIN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeaderEE17getFoldingSetInfoEvE4Info) #20
   %.not.i.i.i.i = icmp eq ptr %15, null
   br i1 %.not.i.i.i.i, label %18, label %16
@@ -11811,7 +11811,7 @@ _ZN12_GLOBAL__N_111profileCtorIJPKcEEEvRN4llvm16FoldingSetNodeIDENS3_16itanium_d
   br i1 %8, label %19, label %49
 
 19:                                               ; preds = %18
-  %20 = getelementptr inbounds i8, ptr %0, i64 888
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 888
   %21 = load i64, ptr %20, align 8
   %22 = add i64 %21, 40
   store i64 %22, ptr %20, align 8
@@ -11820,7 +11820,7 @@ _ZN12_GLOBAL__N_111profileCtorIJPKcEEEvRN4llvm16FoldingSetNodeIDENS3_16itanium_d
   %25 = add i64 %24, 7
   %26 = and i64 %25, -8
   %27 = add i64 %26, 40
-  %28 = getelementptr inbounds i8, ptr %0, i64 816
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 816
   %29 = load ptr, ptr %28, align 8
   %30 = ptrtoint ptr %29 to i64
   %.not.i.i.i.i.i.i = icmp ugt i64 %27, %30
@@ -11883,7 +11883,7 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   br i1 %.not.i.i.i.i, label %54, label %56
 
 54:                                               ; preds = %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle8NameTypeEJRA15_KcEEESt4pairIPNS3_4NodeEbEbDpOT0_.exit.i.i.i
-  %55 = getelementptr inbounds i8, ptr %0, i64 920
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 920
   store ptr %.sroa.011.0.i.i.i.i, ptr %55, align 8
   br label %_ZN12_GLOBAL__N_122CanonicalizerAllocator8makeNodeIN4llvm16itanium_demangle8NameTypeEJRA15_KcEEEPNS3_4NodeEDpOT0_.exit
 
@@ -11892,14 +11892,14 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   br i1 %.not.i.i.i, label %_ZN12_GLOBAL__N_122CanonicalizerAllocator8makeNodeIN4llvm16itanium_demangle8NameTypeEJRA15_KcEEEPNS3_4NodeEDpOT0_.exit, label %57
 
 57:                                               ; preds = %56
-  %58 = getelementptr inbounds i8, ptr %0, i64 944
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 944
   %59 = load i32, ptr %58, align 8
   %60 = and i32 %59, 1
   %.not.i.i.i.i.i.i.i.i.i = icmp eq i32 %60, 0
-  %61 = getelementptr inbounds i8, ptr %0, i64 952
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 952
   %62 = load ptr, ptr %61, align 8
   %63 = select i1 %.not.i.i.i.i.i.i.i.i.i, ptr %62, ptr %61
-  %64 = getelementptr inbounds i8, ptr %0, i64 960
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 960
   %65 = load i32, ptr %64, align 8
   %66 = select i1 %.not.i.i.i.i.i.i.i.i.i, i32 %65, i32 32
   %67 = icmp eq i32 %66, 0
@@ -11946,13 +11946,13 @@ _ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32EN
   %.0.i.i.i.i = phi ptr [ %90, %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i ], [ null, %57 ], [ null, %.lr.ph.i.i.i.i.i.i ]
   %.not9.i.i.i = icmp eq ptr %.0.i.i.i.i, null
   %spec.select.i.i.i = select i1 %.not9.i.i.i, ptr %.sroa.011.0.i.i.i.i, ptr %.0.i.i.i.i
-  %91 = getelementptr inbounds i8, ptr %0, i64 928
+  %91 = getelementptr inbounds nuw i8, ptr %0, i64 928
   %92 = load ptr, ptr %91, align 8
   %93 = icmp eq ptr %spec.select.i.i.i, %92
   br i1 %93, label %94, label %_ZN12_GLOBAL__N_122CanonicalizerAllocator8makeNodeIN4llvm16itanium_demangle8NameTypeEJRA15_KcEEEPNS3_4NodeEDpOT0_.exit
 
 94:                                               ; preds = %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i
-  %95 = getelementptr inbounds i8, ptr %0, i64 936
+  %95 = getelementptr inbounds nuw i8, ptr %0, i64 936
   store i8 1, ptr %95, align 8
   br label %_ZN12_GLOBAL__N_122CanonicalizerAllocator8makeNodeIN4llvm16itanium_demangle8NameTypeEJRA15_KcEEEPNS3_4NodeEDpOT0_.exit
 
@@ -11966,7 +11966,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   %3 = alloca %"class.llvm::FoldingSetNodeID", align 8
   %4 = alloca ptr, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 808
-  %6 = getelementptr inbounds i8, ptr %0, i64 937
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 937
   %7 = load i8, ptr %6, align 1
   %8 = trunc i8 %7 to i1
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %3)
@@ -11987,7 +11987,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   br label %_ZN12_GLOBAL__N_111profileCtorIJPKcEEEvRN4llvm16FoldingSetNodeIDENS3_16itanium_demangle4Node4KindEDpT_.exit.i.i.i.i
 
 _ZN12_GLOBAL__N_111profileCtorIJPKcEEEvRN4llvm16FoldingSetNodeIDENS3_16itanium_demangle4Node4KindEDpT_.exit.i.i.i.i: ; preds = %13, %12
-  %14 = getelementptr inbounds i8, ptr %0, i64 904
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 904
   %15 = call noundef ptr @_ZN4llvm14FoldingSetBase19FindNodeOrInsertPosERKNS_16FoldingSetNodeIDERPvRKNS0_14FoldingSetInfoE(ptr noundef nonnull align 8 dereferenceable(16) %14, ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4llvm10FoldingSetIN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeaderEE17getFoldingSetInfoEvE4Info) #20
   %.not.i.i.i.i = icmp eq ptr %15, null
   br i1 %.not.i.i.i.i, label %18, label %16
@@ -12000,7 +12000,7 @@ _ZN12_GLOBAL__N_111profileCtorIJPKcEEEvRN4llvm16FoldingSetNodeIDENS3_16itanium_d
   br i1 %8, label %19, label %49
 
 19:                                               ; preds = %18
-  %20 = getelementptr inbounds i8, ptr %0, i64 888
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 888
   %21 = load i64, ptr %20, align 8
   %22 = add i64 %21, 40
   store i64 %22, ptr %20, align 8
@@ -12009,7 +12009,7 @@ _ZN12_GLOBAL__N_111profileCtorIJPKcEEEvRN4llvm16FoldingSetNodeIDENS3_16itanium_d
   %25 = add i64 %24, 7
   %26 = and i64 %25, -8
   %27 = add i64 %26, 40
-  %28 = getelementptr inbounds i8, ptr %0, i64 816
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 816
   %29 = load ptr, ptr %28, align 8
   %30 = ptrtoint ptr %29 to i64
   %.not.i.i.i.i.i.i = icmp ugt i64 %27, %30
@@ -12072,7 +12072,7 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   br i1 %.not.i.i.i.i, label %54, label %56
 
 54:                                               ; preds = %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle8NameTypeEJRA10_KcEEESt4pairIPNS3_4NodeEbEbDpOT0_.exit.i.i.i
-  %55 = getelementptr inbounds i8, ptr %0, i64 920
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 920
   store ptr %.sroa.011.0.i.i.i.i, ptr %55, align 8
   br label %_ZN12_GLOBAL__N_122CanonicalizerAllocator8makeNodeIN4llvm16itanium_demangle8NameTypeEJRA10_KcEEEPNS3_4NodeEDpOT0_.exit
 
@@ -12081,14 +12081,14 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   br i1 %.not.i.i.i, label %_ZN12_GLOBAL__N_122CanonicalizerAllocator8makeNodeIN4llvm16itanium_demangle8NameTypeEJRA10_KcEEEPNS3_4NodeEDpOT0_.exit, label %57
 
 57:                                               ; preds = %56
-  %58 = getelementptr inbounds i8, ptr %0, i64 944
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 944
   %59 = load i32, ptr %58, align 8
   %60 = and i32 %59, 1
   %.not.i.i.i.i.i.i.i.i.i = icmp eq i32 %60, 0
-  %61 = getelementptr inbounds i8, ptr %0, i64 952
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 952
   %62 = load ptr, ptr %61, align 8
   %63 = select i1 %.not.i.i.i.i.i.i.i.i.i, ptr %62, ptr %61
-  %64 = getelementptr inbounds i8, ptr %0, i64 960
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 960
   %65 = load i32, ptr %64, align 8
   %66 = select i1 %.not.i.i.i.i.i.i.i.i.i, i32 %65, i32 32
   %67 = icmp eq i32 %66, 0
@@ -12135,13 +12135,13 @@ _ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32EN
   %.0.i.i.i.i = phi ptr [ %90, %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i ], [ null, %57 ], [ null, %.lr.ph.i.i.i.i.i.i ]
   %.not9.i.i.i = icmp eq ptr %.0.i.i.i.i, null
   %spec.select.i.i.i = select i1 %.not9.i.i.i, ptr %.sroa.011.0.i.i.i.i, ptr %.0.i.i.i.i
-  %91 = getelementptr inbounds i8, ptr %0, i64 928
+  %91 = getelementptr inbounds nuw i8, ptr %0, i64 928
   %92 = load ptr, ptr %91, align 8
   %93 = icmp eq ptr %spec.select.i.i.i, %92
   br i1 %93, label %94, label %_ZN12_GLOBAL__N_122CanonicalizerAllocator8makeNodeIN4llvm16itanium_demangle8NameTypeEJRA10_KcEEEPNS3_4NodeEDpOT0_.exit
 
 94:                                               ; preds = %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i
-  %95 = getelementptr inbounds i8, ptr %0, i64 936
+  %95 = getelementptr inbounds nuw i8, ptr %0, i64 936
   store i8 1, ptr %95, align 8
   br label %_ZN12_GLOBAL__N_122CanonicalizerAllocator8makeNodeIN4llvm16itanium_demangle8NameTypeEJRA10_KcEEEPNS3_4NodeEDpOT0_.exit
 
@@ -12155,7 +12155,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   %3 = alloca %"class.llvm::FoldingSetNodeID", align 8
   %4 = alloca ptr, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 808
-  %6 = getelementptr inbounds i8, ptr %0, i64 937
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 937
   %7 = load i8, ptr %6, align 1
   %8 = trunc i8 %7 to i1
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %3)
@@ -12176,7 +12176,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   br label %_ZN12_GLOBAL__N_111profileCtorIJPKcEEEvRN4llvm16FoldingSetNodeIDENS3_16itanium_demangle4Node4KindEDpT_.exit.i.i.i.i
 
 _ZN12_GLOBAL__N_111profileCtorIJPKcEEEvRN4llvm16FoldingSetNodeIDENS3_16itanium_demangle4Node4KindEDpT_.exit.i.i.i.i: ; preds = %13, %12
-  %14 = getelementptr inbounds i8, ptr %0, i64 904
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 904
   %15 = call noundef ptr @_ZN4llvm14FoldingSetBase19FindNodeOrInsertPosERKNS_16FoldingSetNodeIDERPvRKNS0_14FoldingSetInfoE(ptr noundef nonnull align 8 dereferenceable(16) %14, ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4llvm10FoldingSetIN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeaderEE17getFoldingSetInfoEvE4Info) #20
   %.not.i.i.i.i = icmp eq ptr %15, null
   br i1 %.not.i.i.i.i, label %18, label %16
@@ -12189,7 +12189,7 @@ _ZN12_GLOBAL__N_111profileCtorIJPKcEEEvRN4llvm16FoldingSetNodeIDENS3_16itanium_d
   br i1 %8, label %19, label %49
 
 19:                                               ; preds = %18
-  %20 = getelementptr inbounds i8, ptr %0, i64 888
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 888
   %21 = load i64, ptr %20, align 8
   %22 = add i64 %21, 40
   store i64 %22, ptr %20, align 8
@@ -12198,7 +12198,7 @@ _ZN12_GLOBAL__N_111profileCtorIJPKcEEEvRN4llvm16FoldingSetNodeIDENS3_16itanium_d
   %25 = add i64 %24, 7
   %26 = and i64 %25, -8
   %27 = add i64 %26, 40
-  %28 = getelementptr inbounds i8, ptr %0, i64 816
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 816
   %29 = load ptr, ptr %28, align 8
   %30 = ptrtoint ptr %29 to i64
   %.not.i.i.i.i.i.i = icmp ugt i64 %27, %30
@@ -12261,7 +12261,7 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   br i1 %.not.i.i.i.i, label %54, label %56
 
 54:                                               ; preds = %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle8NameTypeEJRA9_KcEEESt4pairIPNS3_4NodeEbEbDpOT0_.exit.i.i.i
-  %55 = getelementptr inbounds i8, ptr %0, i64 920
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 920
   store ptr %.sroa.011.0.i.i.i.i, ptr %55, align 8
   br label %_ZN12_GLOBAL__N_122CanonicalizerAllocator8makeNodeIN4llvm16itanium_demangle8NameTypeEJRA9_KcEEEPNS3_4NodeEDpOT0_.exit
 
@@ -12270,14 +12270,14 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   br i1 %.not.i.i.i, label %_ZN12_GLOBAL__N_122CanonicalizerAllocator8makeNodeIN4llvm16itanium_demangle8NameTypeEJRA9_KcEEEPNS3_4NodeEDpOT0_.exit, label %57
 
 57:                                               ; preds = %56
-  %58 = getelementptr inbounds i8, ptr %0, i64 944
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 944
   %59 = load i32, ptr %58, align 8
   %60 = and i32 %59, 1
   %.not.i.i.i.i.i.i.i.i.i = icmp eq i32 %60, 0
-  %61 = getelementptr inbounds i8, ptr %0, i64 952
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 952
   %62 = load ptr, ptr %61, align 8
   %63 = select i1 %.not.i.i.i.i.i.i.i.i.i, ptr %62, ptr %61
-  %64 = getelementptr inbounds i8, ptr %0, i64 960
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 960
   %65 = load i32, ptr %64, align 8
   %66 = select i1 %.not.i.i.i.i.i.i.i.i.i, i32 %65, i32 32
   %67 = icmp eq i32 %66, 0
@@ -12324,13 +12324,13 @@ _ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32EN
   %.0.i.i.i.i = phi ptr [ %90, %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i ], [ null, %57 ], [ null, %.lr.ph.i.i.i.i.i.i ]
   %.not9.i.i.i = icmp eq ptr %.0.i.i.i.i, null
   %spec.select.i.i.i = select i1 %.not9.i.i.i, ptr %.sroa.011.0.i.i.i.i, ptr %.0.i.i.i.i
-  %91 = getelementptr inbounds i8, ptr %0, i64 928
+  %91 = getelementptr inbounds nuw i8, ptr %0, i64 928
   %92 = load ptr, ptr %91, align 8
   %93 = icmp eq ptr %spec.select.i.i.i, %92
   br i1 %93, label %94, label %_ZN12_GLOBAL__N_122CanonicalizerAllocator8makeNodeIN4llvm16itanium_demangle8NameTypeEJRA9_KcEEEPNS3_4NodeEDpOT0_.exit
 
 94:                                               ; preds = %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i
-  %95 = getelementptr inbounds i8, ptr %0, i64 936
+  %95 = getelementptr inbounds nuw i8, ptr %0, i64 936
   store i8 1, ptr %95, align 8
   br label %_ZN12_GLOBAL__N_122CanonicalizerAllocator8makeNodeIN4llvm16itanium_demangle8NameTypeEJRA9_KcEEEPNS3_4NodeEDpOT0_.exit
 
@@ -12344,7 +12344,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   %3 = alloca %"class.llvm::FoldingSetNodeID", align 8
   %4 = alloca ptr, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 808
-  %6 = getelementptr inbounds i8, ptr %0, i64 937
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 937
   %7 = load i8, ptr %6, align 1
   %8 = trunc i8 %7 to i1
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %3)
@@ -12365,7 +12365,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   br label %_ZN12_GLOBAL__N_111profileCtorIJPKcEEEvRN4llvm16FoldingSetNodeIDENS3_16itanium_demangle4Node4KindEDpT_.exit.i.i.i.i
 
 _ZN12_GLOBAL__N_111profileCtorIJPKcEEEvRN4llvm16FoldingSetNodeIDENS3_16itanium_demangle4Node4KindEDpT_.exit.i.i.i.i: ; preds = %13, %12
-  %14 = getelementptr inbounds i8, ptr %0, i64 904
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 904
   %15 = call noundef ptr @_ZN4llvm14FoldingSetBase19FindNodeOrInsertPosERKNS_16FoldingSetNodeIDERPvRKNS0_14FoldingSetInfoE(ptr noundef nonnull align 8 dereferenceable(16) %14, ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4llvm10FoldingSetIN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeaderEE17getFoldingSetInfoEvE4Info) #20
   %.not.i.i.i.i = icmp eq ptr %15, null
   br i1 %.not.i.i.i.i, label %18, label %16
@@ -12378,7 +12378,7 @@ _ZN12_GLOBAL__N_111profileCtorIJPKcEEEvRN4llvm16FoldingSetNodeIDENS3_16itanium_d
   br i1 %8, label %19, label %49
 
 19:                                               ; preds = %18
-  %20 = getelementptr inbounds i8, ptr %0, i64 888
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 888
   %21 = load i64, ptr %20, align 8
   %22 = add i64 %21, 40
   store i64 %22, ptr %20, align 8
@@ -12387,7 +12387,7 @@ _ZN12_GLOBAL__N_111profileCtorIJPKcEEEvRN4llvm16FoldingSetNodeIDENS3_16itanium_d
   %25 = add i64 %24, 7
   %26 = and i64 %25, -8
   %27 = add i64 %26, 40
-  %28 = getelementptr inbounds i8, ptr %0, i64 816
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 816
   %29 = load ptr, ptr %28, align 8
   %30 = ptrtoint ptr %29 to i64
   %.not.i.i.i.i.i.i = icmp ugt i64 %27, %30
@@ -12450,7 +12450,7 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   br i1 %.not.i.i.i.i, label %54, label %56
 
 54:                                               ; preds = %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle8NameTypeEJRA11_KcEEESt4pairIPNS3_4NodeEbEbDpOT0_.exit.i.i.i
-  %55 = getelementptr inbounds i8, ptr %0, i64 920
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 920
   store ptr %.sroa.011.0.i.i.i.i, ptr %55, align 8
   br label %_ZN12_GLOBAL__N_122CanonicalizerAllocator8makeNodeIN4llvm16itanium_demangle8NameTypeEJRA11_KcEEEPNS3_4NodeEDpOT0_.exit
 
@@ -12459,14 +12459,14 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   br i1 %.not.i.i.i, label %_ZN12_GLOBAL__N_122CanonicalizerAllocator8makeNodeIN4llvm16itanium_demangle8NameTypeEJRA11_KcEEEPNS3_4NodeEDpOT0_.exit, label %57
 
 57:                                               ; preds = %56
-  %58 = getelementptr inbounds i8, ptr %0, i64 944
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 944
   %59 = load i32, ptr %58, align 8
   %60 = and i32 %59, 1
   %.not.i.i.i.i.i.i.i.i.i = icmp eq i32 %60, 0
-  %61 = getelementptr inbounds i8, ptr %0, i64 952
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 952
   %62 = load ptr, ptr %61, align 8
   %63 = select i1 %.not.i.i.i.i.i.i.i.i.i, ptr %62, ptr %61
-  %64 = getelementptr inbounds i8, ptr %0, i64 960
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 960
   %65 = load i32, ptr %64, align 8
   %66 = select i1 %.not.i.i.i.i.i.i.i.i.i, i32 %65, i32 32
   %67 = icmp eq i32 %66, 0
@@ -12513,13 +12513,13 @@ _ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32EN
   %.0.i.i.i.i = phi ptr [ %90, %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i ], [ null, %57 ], [ null, %.lr.ph.i.i.i.i.i.i ]
   %.not9.i.i.i = icmp eq ptr %.0.i.i.i.i, null
   %spec.select.i.i.i = select i1 %.not9.i.i.i, ptr %.sroa.011.0.i.i.i.i, ptr %.0.i.i.i.i
-  %91 = getelementptr inbounds i8, ptr %0, i64 928
+  %91 = getelementptr inbounds nuw i8, ptr %0, i64 928
   %92 = load ptr, ptr %91, align 8
   %93 = icmp eq ptr %spec.select.i.i.i, %92
   br i1 %93, label %94, label %_ZN12_GLOBAL__N_122CanonicalizerAllocator8makeNodeIN4llvm16itanium_demangle8NameTypeEJRA11_KcEEEPNS3_4NodeEDpOT0_.exit
 
 94:                                               ; preds = %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i
-  %95 = getelementptr inbounds i8, ptr %0, i64 936
+  %95 = getelementptr inbounds nuw i8, ptr %0, i64 936
   store i8 1, ptr %95, align 8
   br label %_ZN12_GLOBAL__N_122CanonicalizerAllocator8makeNodeIN4llvm16itanium_demangle8NameTypeEJRA11_KcEEEPNS3_4NodeEDpOT0_.exit
 
@@ -12533,7 +12533,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   %4 = alloca %"class.llvm::FoldingSetNodeID", align 8
   %5 = alloca ptr, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 808
-  %7 = getelementptr inbounds i8, ptr %0, i64 937
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 937
   %8 = load i8, ptr %7, align 1
   %9 = trunc i8 %8 to i1
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %4)
@@ -12559,7 +12559,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
 _ZN12_GLOBAL__N_111profileCtorIJSt17basic_string_viewIcSt11char_traitsIcEEPN4llvm16itanium_demangle4NodeEEEEvRNS5_16FoldingSetNodeIDENS7_4KindEDpT_.exit.i.i.i.i: ; preds = %14, %13
   %15 = ptrtoint ptr %11 to i64
   call void @_ZN4llvm16FoldingSetNodeID10AddIntegerEy(ptr noundef nonnull align 8 dereferenceable(144) %4, i64 noundef %15)
-  %16 = getelementptr inbounds i8, ptr %0, i64 904
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 904
   %17 = call noundef ptr @_ZN4llvm14FoldingSetBase19FindNodeOrInsertPosERKNS_16FoldingSetNodeIDERPvRKNS0_14FoldingSetInfoE(ptr noundef nonnull align 8 dereferenceable(16) %16, ptr noundef nonnull align 8 dereferenceable(144) %4, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4llvm10FoldingSetIN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeaderEE17getFoldingSetInfoEvE4Info) #20
   %.not.i.i.i.i = icmp eq ptr %17, null
   br i1 %.not.i.i.i.i, label %20, label %18
@@ -12572,7 +12572,7 @@ _ZN12_GLOBAL__N_111profileCtorIJSt17basic_string_viewIcSt11char_traitsIcEEPN4llv
   br i1 %9, label %21, label %52
 
 21:                                               ; preds = %20
-  %22 = getelementptr inbounds i8, ptr %0, i64 888
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 888
   %23 = load i64, ptr %22, align 8
   %24 = add i64 %23, 48
   store i64 %24, ptr %22, align 8
@@ -12581,7 +12581,7 @@ _ZN12_GLOBAL__N_111profileCtorIJSt17basic_string_viewIcSt11char_traitsIcEEPN4llv
   %27 = add i64 %26, 7
   %28 = and i64 %27, -8
   %29 = add i64 %28, 48
-  %30 = getelementptr inbounds i8, ptr %0, i64 816
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 816
   %31 = load ptr, ptr %30, align 8
   %32 = ptrtoint ptr %31 to i64
   %.not.i.i.i.i.i.i = icmp ugt i64 %29, %32
@@ -12648,7 +12648,7 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   br i1 %.not.i.i.i.i, label %57, label %59
 
 57:                                               ; preds = %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle15TransformedTypeEJRSt17basic_string_viewIcSt11char_traitsIcEERPNS3_4NodeEEEESt4pairISB_bEbDpOT0_.exit.i.i.i
-  %58 = getelementptr inbounds i8, ptr %0, i64 920
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 920
   store ptr %.sroa.0.0.i.i.i.i, ptr %58, align 8
   br label %_ZN12_GLOBAL__N_122CanonicalizerAllocator8makeNodeIN4llvm16itanium_demangle15TransformedTypeEJRSt17basic_string_viewIcSt11char_traitsIcEERPNS3_4NodeEEEESB_DpOT0_.exit
 
@@ -12657,14 +12657,14 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   br i1 %.not.i.i.i, label %_ZN12_GLOBAL__N_122CanonicalizerAllocator8makeNodeIN4llvm16itanium_demangle15TransformedTypeEJRSt17basic_string_viewIcSt11char_traitsIcEERPNS3_4NodeEEEESB_DpOT0_.exit, label %60
 
 60:                                               ; preds = %59
-  %61 = getelementptr inbounds i8, ptr %0, i64 944
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 944
   %62 = load i32, ptr %61, align 8
   %63 = and i32 %62, 1
   %.not.i.i.i.i.i.i.i.i.i = icmp eq i32 %63, 0
-  %64 = getelementptr inbounds i8, ptr %0, i64 952
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 952
   %65 = load ptr, ptr %64, align 8
   %66 = select i1 %.not.i.i.i.i.i.i.i.i.i, ptr %65, ptr %64
-  %67 = getelementptr inbounds i8, ptr %0, i64 960
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 960
   %68 = load i32, ptr %67, align 8
   %69 = select i1 %.not.i.i.i.i.i.i.i.i.i, i32 %68, i32 32
   %70 = icmp eq i32 %69, 0
@@ -12711,13 +12711,13 @@ _ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32EN
   %.0.i.i.i.i = phi ptr [ %93, %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i ], [ null, %60 ], [ null, %.lr.ph.i.i.i.i.i.i ]
   %.not10.i.i.i = icmp eq ptr %.0.i.i.i.i, null
   %spec.select.i.i.i = select i1 %.not10.i.i.i, ptr %.sroa.0.0.i.i.i.i, ptr %.0.i.i.i.i
-  %94 = getelementptr inbounds i8, ptr %0, i64 928
+  %94 = getelementptr inbounds nuw i8, ptr %0, i64 928
   %95 = load ptr, ptr %94, align 8
   %96 = icmp eq ptr %spec.select.i.i.i, %95
   br i1 %96, label %97, label %_ZN12_GLOBAL__N_122CanonicalizerAllocator8makeNodeIN4llvm16itanium_demangle15TransformedTypeEJRSt17basic_string_viewIcSt11char_traitsIcEERPNS3_4NodeEEEESB_DpOT0_.exit
 
 97:                                               ; preds = %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i
-  %98 = getelementptr inbounds i8, ptr %0, i64 936
+  %98 = getelementptr inbounds nuw i8, ptr %0, i64 936
   store i8 1, ptr %98, align 8
   br label %_ZN12_GLOBAL__N_122CanonicalizerAllocator8makeNodeIN4llvm16itanium_demangle15TransformedTypeEJRSt17basic_string_viewIcSt11char_traitsIcEERPNS3_4NodeEEEESB_DpOT0_.exit
 
@@ -12731,7 +12731,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   %3 = alloca %"class.llvm::FoldingSetNodeID", align 8
   %4 = alloca ptr, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 808
-  %6 = getelementptr inbounds i8, ptr %0, i64 937
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 937
   %7 = load i8, ptr %6, align 1
   %8 = trunc i8 %7 to i1
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %3)
@@ -12754,7 +12754,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   br label %_ZN12_GLOBAL__N_111profileCtorIJSt17basic_string_viewIcSt11char_traitsIcEEEEEvRN4llvm16FoldingSetNodeIDENS5_16itanium_demangle4Node4KindEDpT_.exit.i.i.i.i
 
 _ZN12_GLOBAL__N_111profileCtorIJSt17basic_string_viewIcSt11char_traitsIcEEEEEvRN4llvm16FoldingSetNodeIDENS5_16itanium_demangle4Node4KindEDpT_.exit.i.i.i.i: ; preds = %12, %11
-  %13 = getelementptr inbounds i8, ptr %0, i64 904
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 904
   %14 = call noundef ptr @_ZN4llvm14FoldingSetBase19FindNodeOrInsertPosERKNS_16FoldingSetNodeIDERPvRKNS0_14FoldingSetInfoE(ptr noundef nonnull align 8 dereferenceable(16) %13, ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4llvm10FoldingSetIN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeaderEE17getFoldingSetInfoEvE4Info) #20
   %.not.i.i.i.i = icmp eq ptr %14, null
   br i1 %.not.i.i.i.i, label %17, label %15
@@ -12767,7 +12767,7 @@ _ZN12_GLOBAL__N_111profileCtorIJSt17basic_string_viewIcSt11char_traitsIcEEEEEvRN
   br i1 %8, label %18, label %47
 
 18:                                               ; preds = %17
-  %19 = getelementptr inbounds i8, ptr %0, i64 888
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 888
   %20 = load i64, ptr %19, align 8
   %21 = add i64 %20, 40
   store i64 %21, ptr %19, align 8
@@ -12776,7 +12776,7 @@ _ZN12_GLOBAL__N_111profileCtorIJSt17basic_string_viewIcSt11char_traitsIcEEEEEvRN
   %24 = add i64 %23, 7
   %25 = and i64 %24, -8
   %26 = add i64 %25, 40
-  %27 = getelementptr inbounds i8, ptr %0, i64 816
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 816
   %28 = load ptr, ptr %27, align 8
   %29 = ptrtoint ptr %28 to i64
   %.not.i.i.i.i.i.i = icmp ugt i64 %26, %29
@@ -12840,7 +12840,7 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   br i1 %.not.i.i.i.i, label %52, label %54
 
 52:                                               ; preds = %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle8NameTypeEJRSt17basic_string_viewIcSt11char_traitsIcEEEEESt4pairIPNS3_4NodeEbEbDpOT0_.exit.i.i.i
-  %53 = getelementptr inbounds i8, ptr %0, i64 920
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 920
   store ptr %.sroa.0.0.i.i.i.i, ptr %53, align 8
   br label %_ZN12_GLOBAL__N_122CanonicalizerAllocator8makeNodeIN4llvm16itanium_demangle8NameTypeEJRSt17basic_string_viewIcSt11char_traitsIcEEEEEPNS3_4NodeEDpOT0_.exit
 
@@ -12849,14 +12849,14 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   br i1 %.not.i.i.i, label %_ZN12_GLOBAL__N_122CanonicalizerAllocator8makeNodeIN4llvm16itanium_demangle8NameTypeEJRSt17basic_string_viewIcSt11char_traitsIcEEEEEPNS3_4NodeEDpOT0_.exit, label %55
 
 55:                                               ; preds = %54
-  %56 = getelementptr inbounds i8, ptr %0, i64 944
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 944
   %57 = load i32, ptr %56, align 8
   %58 = and i32 %57, 1
   %.not.i.i.i.i.i.i.i.i.i = icmp eq i32 %58, 0
-  %59 = getelementptr inbounds i8, ptr %0, i64 952
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 952
   %60 = load ptr, ptr %59, align 8
   %61 = select i1 %.not.i.i.i.i.i.i.i.i.i, ptr %60, ptr %59
-  %62 = getelementptr inbounds i8, ptr %0, i64 960
+  %62 = getelementptr inbounds nuw i8, ptr %0, i64 960
   %63 = load i32, ptr %62, align 8
   %64 = select i1 %.not.i.i.i.i.i.i.i.i.i, i32 %63, i32 32
   %65 = icmp eq i32 %64, 0
@@ -12903,13 +12903,13 @@ _ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32EN
   %.0.i.i.i.i = phi ptr [ %88, %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i ], [ null, %55 ], [ null, %.lr.ph.i.i.i.i.i.i ]
   %.not9.i.i.i = icmp eq ptr %.0.i.i.i.i, null
   %spec.select.i.i.i = select i1 %.not9.i.i.i, ptr %.sroa.0.0.i.i.i.i, ptr %.0.i.i.i.i
-  %89 = getelementptr inbounds i8, ptr %0, i64 928
+  %89 = getelementptr inbounds nuw i8, ptr %0, i64 928
   %90 = load ptr, ptr %89, align 8
   %91 = icmp eq ptr %spec.select.i.i.i, %90
   br i1 %91, label %92, label %_ZN12_GLOBAL__N_122CanonicalizerAllocator8makeNodeIN4llvm16itanium_demangle8NameTypeEJRSt17basic_string_viewIcSt11char_traitsIcEEEEEPNS3_4NodeEDpOT0_.exit
 
 92:                                               ; preds = %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i
-  %93 = getelementptr inbounds i8, ptr %0, i64 936
+  %93 = getelementptr inbounds nuw i8, ptr %0, i64 936
   store i8 1, ptr %93, align 8
   br label %_ZN12_GLOBAL__N_122CanonicalizerAllocator8makeNodeIN4llvm16itanium_demangle8NameTypeEJRSt17basic_string_viewIcSt11char_traitsIcEEEEEPNS3_4NodeEDpOT0_.exit
 
@@ -12923,7 +12923,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   %3 = alloca %"class.llvm::FoldingSetNodeID", align 8
   %4 = alloca ptr, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 808
-  %6 = getelementptr inbounds i8, ptr %0, i64 937
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 937
   %7 = load i8, ptr %6, align 1
   %8 = trunc i8 %7 to i1
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %3)
@@ -12946,7 +12946,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   br label %_ZN12_GLOBAL__N_111profileCtorIJSt17basic_string_viewIcSt11char_traitsIcEEEEEvRN4llvm16FoldingSetNodeIDENS5_16itanium_demangle4Node4KindEDpT_.exit.i.i.i.i
 
 _ZN12_GLOBAL__N_111profileCtorIJSt17basic_string_viewIcSt11char_traitsIcEEEEEvRN4llvm16FoldingSetNodeIDENS5_16itanium_demangle4Node4KindEDpT_.exit.i.i.i.i: ; preds = %12, %11
-  %13 = getelementptr inbounds i8, ptr %0, i64 904
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 904
   %14 = call noundef ptr @_ZN4llvm14FoldingSetBase19FindNodeOrInsertPosERKNS_16FoldingSetNodeIDERPvRKNS0_14FoldingSetInfoE(ptr noundef nonnull align 8 dereferenceable(16) %13, ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4llvm10FoldingSetIN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeaderEE17getFoldingSetInfoEvE4Info) #20
   %.not.i.i.i.i = icmp eq ptr %14, null
   br i1 %.not.i.i.i.i, label %17, label %15
@@ -12959,7 +12959,7 @@ _ZN12_GLOBAL__N_111profileCtorIJSt17basic_string_viewIcSt11char_traitsIcEEEEEvRN
   br i1 %8, label %18, label %47
 
 18:                                               ; preds = %17
-  %19 = getelementptr inbounds i8, ptr %0, i64 888
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 888
   %20 = load i64, ptr %19, align 8
   %21 = add i64 %20, 40
   store i64 %21, ptr %19, align 8
@@ -12968,7 +12968,7 @@ _ZN12_GLOBAL__N_111profileCtorIJSt17basic_string_viewIcSt11char_traitsIcEEEEEvRN
   %24 = add i64 %23, 7
   %25 = and i64 %24, -8
   %26 = add i64 %25, 40
-  %27 = getelementptr inbounds i8, ptr %0, i64 816
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 816
   %28 = load ptr, ptr %27, align 8
   %29 = ptrtoint ptr %28 to i64
   %.not.i.i.i.i.i.i = icmp ugt i64 %26, %29
@@ -13032,7 +13032,7 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   br i1 %.not.i.i.i.i, label %52, label %54
 
 52:                                               ; preds = %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle8NameTypeEJSt17basic_string_viewIcSt11char_traitsIcEEEEESt4pairIPNS3_4NodeEbEbDpOT0_.exit.i.i.i
-  %53 = getelementptr inbounds i8, ptr %0, i64 920
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 920
   store ptr %.sroa.0.0.i.i.i.i, ptr %53, align 8
   br label %_ZN12_GLOBAL__N_122CanonicalizerAllocator8makeNodeIN4llvm16itanium_demangle8NameTypeEJSt17basic_string_viewIcSt11char_traitsIcEEEEEPNS3_4NodeEDpOT0_.exit
 
@@ -13041,14 +13041,14 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   br i1 %.not.i.i.i, label %_ZN12_GLOBAL__N_122CanonicalizerAllocator8makeNodeIN4llvm16itanium_demangle8NameTypeEJSt17basic_string_viewIcSt11char_traitsIcEEEEEPNS3_4NodeEDpOT0_.exit, label %55
 
 55:                                               ; preds = %54
-  %56 = getelementptr inbounds i8, ptr %0, i64 944
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 944
   %57 = load i32, ptr %56, align 8
   %58 = and i32 %57, 1
   %.not.i.i.i.i.i.i.i.i.i = icmp eq i32 %58, 0
-  %59 = getelementptr inbounds i8, ptr %0, i64 952
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 952
   %60 = load ptr, ptr %59, align 8
   %61 = select i1 %.not.i.i.i.i.i.i.i.i.i, ptr %60, ptr %59
-  %62 = getelementptr inbounds i8, ptr %0, i64 960
+  %62 = getelementptr inbounds nuw i8, ptr %0, i64 960
   %63 = load i32, ptr %62, align 8
   %64 = select i1 %.not.i.i.i.i.i.i.i.i.i, i32 %63, i32 32
   %65 = icmp eq i32 %64, 0
@@ -13095,13 +13095,13 @@ _ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32EN
   %.0.i.i.i.i = phi ptr [ %88, %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i ], [ null, %55 ], [ null, %.lr.ph.i.i.i.i.i.i ]
   %.not9.i.i.i = icmp eq ptr %.0.i.i.i.i, null
   %spec.select.i.i.i = select i1 %.not9.i.i.i, ptr %.sroa.0.0.i.i.i.i, ptr %.0.i.i.i.i
-  %89 = getelementptr inbounds i8, ptr %0, i64 928
+  %89 = getelementptr inbounds nuw i8, ptr %0, i64 928
   %90 = load ptr, ptr %89, align 8
   %91 = icmp eq ptr %spec.select.i.i.i, %90
   br i1 %91, label %92, label %_ZN12_GLOBAL__N_122CanonicalizerAllocator8makeNodeIN4llvm16itanium_demangle8NameTypeEJSt17basic_string_viewIcSt11char_traitsIcEEEEEPNS3_4NodeEDpOT0_.exit
 
 92:                                               ; preds = %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i
-  %93 = getelementptr inbounds i8, ptr %0, i64 936
+  %93 = getelementptr inbounds nuw i8, ptr %0, i64 936
   store i8 1, ptr %93, align 8
   br label %_ZN12_GLOBAL__N_122CanonicalizerAllocator8makeNodeIN4llvm16itanium_demangle8NameTypeEJSt17basic_string_viewIcSt11char_traitsIcEEEEEPNS3_4NodeEDpOT0_.exit
 
@@ -13175,7 +13175,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   %3 = alloca %"class.llvm::FoldingSetNodeID", align 8
   %4 = alloca ptr, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 808
-  %6 = getelementptr inbounds i8, ptr %0, i64 937
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 937
   %7 = load i8, ptr %6, align 1
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
@@ -13185,7 +13185,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   call void @_ZN4llvm16FoldingSetNodeID10AddIntegerEy(ptr noundef nonnull align 8 dereferenceable(144) %3, i64 noundef 31)
   %10 = ptrtoint ptr %9 to i64
   call void @_ZN4llvm16FoldingSetNodeID10AddIntegerEy(ptr noundef nonnull align 8 dereferenceable(144) %3, i64 noundef %10)
-  %11 = getelementptr inbounds i8, ptr %0, i64 904
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 904
   %12 = call noundef ptr @_ZN4llvm14FoldingSetBase19FindNodeOrInsertPosERKNS_16FoldingSetNodeIDERPvRKNS0_14FoldingSetInfoE(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4llvm10FoldingSetIN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeaderEE17getFoldingSetInfoEvE4Info) #20
   %.not.i.i.i.i = icmp eq ptr %12, null
   br i1 %.not.i.i.i.i, label %15, label %13
@@ -13199,7 +13199,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   br i1 %16, label %17, label %47
 
 17:                                               ; preds = %15
-  %18 = getelementptr inbounds i8, ptr %0, i64 888
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 888
   %19 = load i64, ptr %18, align 8
   %20 = add i64 %19, 32
   store i64 %20, ptr %18, align 8
@@ -13208,7 +13208,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   %23 = add i64 %22, 7
   %24 = and i64 %23, -8
   %25 = add i64 %24, 32
-  %26 = getelementptr inbounds i8, ptr %0, i64 816
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 816
   %27 = load ptr, ptr %26, align 8
   %28 = ptrtoint ptr %27 to i64
   %.not.i.i.i.i.i.i = icmp ugt i64 %25, %28
@@ -13269,7 +13269,7 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   br i1 %.not.i.i.i.i, label %52, label %54
 
 52:                                               ; preds = %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle12BinaryFPTypeEJRPNS3_4NodeEEEESt4pairIS6_bEbDpOT0_.exit.i.i.i
-  %53 = getelementptr inbounds i8, ptr %0, i64 920
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 920
   store ptr %.sroa.0.0.i.i.i.i, ptr %53, align 8
   br label %_ZN12_GLOBAL__N_122CanonicalizerAllocator8makeNodeIN4llvm16itanium_demangle12BinaryFPTypeEJRPNS3_4NodeEEEES6_DpOT0_.exit
 
@@ -13278,14 +13278,14 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   br i1 %.not.i.i.i, label %_ZN12_GLOBAL__N_122CanonicalizerAllocator8makeNodeIN4llvm16itanium_demangle12BinaryFPTypeEJRPNS3_4NodeEEEES6_DpOT0_.exit, label %55
 
 55:                                               ; preds = %54
-  %56 = getelementptr inbounds i8, ptr %0, i64 944
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 944
   %57 = load i32, ptr %56, align 8
   %58 = and i32 %57, 1
   %.not.i.i.i.i.i.i.i.i.i = icmp eq i32 %58, 0
-  %59 = getelementptr inbounds i8, ptr %0, i64 952
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 952
   %60 = load ptr, ptr %59, align 8
   %61 = select i1 %.not.i.i.i.i.i.i.i.i.i, ptr %60, ptr %59
-  %62 = getelementptr inbounds i8, ptr %0, i64 960
+  %62 = getelementptr inbounds nuw i8, ptr %0, i64 960
   %63 = load i32, ptr %62, align 8
   %64 = select i1 %.not.i.i.i.i.i.i.i.i.i, i32 %63, i32 32
   %65 = icmp eq i32 %64, 0
@@ -13332,13 +13332,13 @@ _ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32EN
   %.0.i.i.i.i = phi ptr [ %88, %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i ], [ null, %55 ], [ null, %.lr.ph.i.i.i.i.i.i ]
   %.not9.i.i.i = icmp eq ptr %.0.i.i.i.i, null
   %spec.select.i.i.i = select i1 %.not9.i.i.i, ptr %.sroa.0.0.i.i.i.i, ptr %.0.i.i.i.i
-  %89 = getelementptr inbounds i8, ptr %0, i64 928
+  %89 = getelementptr inbounds nuw i8, ptr %0, i64 928
   %90 = load ptr, ptr %89, align 8
   %91 = icmp eq ptr %spec.select.i.i.i, %90
   br i1 %91, label %92, label %_ZN12_GLOBAL__N_122CanonicalizerAllocator8makeNodeIN4llvm16itanium_demangle12BinaryFPTypeEJRPNS3_4NodeEEEES6_DpOT0_.exit
 
 92:                                               ; preds = %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i
-  %93 = getelementptr inbounds i8, ptr %0, i64 936
+  %93 = getelementptr inbounds nuw i8, ptr %0, i64 936
   store i8 1, ptr %93, align 8
   br label %_ZN12_GLOBAL__N_122CanonicalizerAllocator8makeNodeIN4llvm16itanium_demangle12BinaryFPTypeEJRPNS3_4NodeEEEES6_DpOT0_.exit
 
@@ -13703,14 +13703,14 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
 
 176:                                              ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E12OperatorInfo9getSymbolEv.exit
   %177 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %178 = getelementptr inbounds i8, ptr %0, i64 24
+  %178 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %179 = load ptr, ptr %178, align 8
   %180 = load ptr, ptr %177, align 8
   %181 = ptrtoint ptr %179 to i64
   %182 = ptrtoint ptr %180 to i64
   %183 = sub i64 %181, %182
-  %184 = getelementptr inbounds i8, ptr %0, i64 32
-  %185 = getelementptr inbounds i8, ptr %0, i64 40
+  %184 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %185 = getelementptr inbounds nuw i8, ptr %0, i64 40
   br label %186
 
 186:                                              ; preds = %_ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exit, %176
@@ -13802,7 +13802,7 @@ _ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exi
   %228 = ptrtoint ptr %225 to i64
   %229 = sub i64 %227, %228
   %230 = getelementptr inbounds nuw i8, ptr %0, i64 808
-  %231 = getelementptr inbounds i8, ptr %0, i64 888
+  %231 = getelementptr inbounds nuw i8, ptr %0, i64 888
   %232 = load i64, ptr %231, align 8
   %233 = add i64 %229, %232
   store i64 %233, ptr %231, align 8
@@ -13811,7 +13811,7 @@ _ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exi
   %236 = add i64 %235, 7
   %237 = and i64 %236, -8
   %238 = add i64 %237, %229
-  %239 = getelementptr inbounds i8, ptr %0, i64 816
+  %239 = getelementptr inbounds nuw i8, ptr %0, i64 816
   %240 = load ptr, ptr %239, align 8
   %241 = ptrtoint ptr %240 to i64
   %.not.i.i.i.i.i = icmp ugt i64 %238, %241
@@ -14001,7 +14001,7 @@ _ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exi
   %325 = and i8 %.val86, 1
   %326 = ashr i8 %.val86, 1
   %327 = getelementptr inbounds nuw i8, ptr %0, i64 808
-  %328 = getelementptr inbounds i8, ptr %0, i64 937
+  %328 = getelementptr inbounds nuw i8, ptr %0, i64 937
   %329 = load i8, ptr %328, align 1
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
@@ -14016,7 +14016,7 @@ _ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exi
   call void @_ZN4llvm16FoldingSetNodeID10AddIntegerEy(ptr noundef nonnull align 8 dereferenceable(144) %6, i64 noundef %333)
   %334 = sext i8 %326 to i64
   call void @_ZN4llvm16FoldingSetNodeID10AddIntegerEy(ptr noundef nonnull align 8 dereferenceable(144) %6, i64 noundef %334)
-  %335 = getelementptr inbounds i8, ptr %0, i64 904
+  %335 = getelementptr inbounds nuw i8, ptr %0, i64 904
   %336 = call noundef ptr @_ZN4llvm14FoldingSetBase19FindNodeOrInsertPosERKNS_16FoldingSetNodeIDERPvRKNS0_14FoldingSetInfoE(ptr noundef nonnull align 8 dereferenceable(16) %335, ptr noundef nonnull align 8 dereferenceable(144) %6, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4llvm10FoldingSetIN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeaderEE17getFoldingSetInfoEvE4Info) #20
   %.not.i.i.i.i.i105 = icmp eq ptr %336, null
   br i1 %.not.i.i.i.i.i105, label %339, label %337
@@ -14030,7 +14030,7 @@ _ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exi
   br i1 %340, label %341, label %375
 
 341:                                              ; preds = %339
-  %342 = getelementptr inbounds i8, ptr %0, i64 888
+  %342 = getelementptr inbounds nuw i8, ptr %0, i64 888
   %343 = load i64, ptr %342, align 8
   %344 = add i64 %343, 40
   store i64 %344, ptr %342, align 8
@@ -14039,7 +14039,7 @@ _ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exi
   %347 = add i64 %346, 7
   %348 = and i64 %347, -8
   %349 = add i64 %348, 40
-  %350 = getelementptr inbounds i8, ptr %0, i64 816
+  %350 = getelementptr inbounds nuw i8, ptr %0, i64 816
   %351 = load ptr, ptr %350, align 8
   %352 = ptrtoint ptr %351 to i64
   %.not.i.i.i.i.i.i.i107 = icmp ugt i64 %349, %352
@@ -14106,7 +14106,7 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   br i1 %.not.i.i.i.i.i105, label %380, label %382
 
 380:                                              ; preds = %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle10DeleteExprEJRPNS3_4NodeERbbNS5_4PrecEEEESt4pairIS6_bEbDpOT0_.exit.i.i.i.i
-  %381 = getelementptr inbounds i8, ptr %0, i64 920
+  %381 = getelementptr inbounds nuw i8, ptr %0, i64 920
   store ptr %.sroa.0.0.i.i.i.i.i, ptr %381, align 8
   br label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_10DeleteExprEJRPNS0_4NodeERbbNS9_4PrecEEEESA_DpOT0_.exit
 
@@ -14115,14 +14115,14 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   br i1 %.not.i.i.i.i, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_10DeleteExprEJRPNS0_4NodeERbbNS9_4PrecEEEESA_DpOT0_.exit, label %383
 
 383:                                              ; preds = %382
-  %384 = getelementptr inbounds i8, ptr %0, i64 944
+  %384 = getelementptr inbounds nuw i8, ptr %0, i64 944
   %385 = load i32, ptr %384, align 8
   %386 = and i32 %385, 1
   %.not.i.i.i.i.i.i.i.i.i.i = icmp eq i32 %386, 0
-  %387 = getelementptr inbounds i8, ptr %0, i64 952
+  %387 = getelementptr inbounds nuw i8, ptr %0, i64 952
   %388 = load ptr, ptr %387, align 8
   %389 = select i1 %.not.i.i.i.i.i.i.i.i.i.i, ptr %388, ptr %387
-  %390 = getelementptr inbounds i8, ptr %0, i64 960
+  %390 = getelementptr inbounds nuw i8, ptr %0, i64 960
   %391 = load i32, ptr %390, align 8
   %392 = select i1 %.not.i.i.i.i.i.i.i.i.i.i, i32 %391, i32 32
   %393 = icmp eq i32 %392, 0
@@ -14169,13 +14169,13 @@ _ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32EN
   %.0.i.i.i.i.i106 = phi ptr [ %416, %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i.i ], [ null, %383 ], [ null, %.lr.ph.i.i.i.i.i.i.i ]
   %.not12.i.i.i.i = icmp eq ptr %.0.i.i.i.i.i106, null
   %spec.select.i.i.i.i = select i1 %.not12.i.i.i.i, ptr %.sroa.0.0.i.i.i.i.i, ptr %.0.i.i.i.i.i106
-  %417 = getelementptr inbounds i8, ptr %0, i64 928
+  %417 = getelementptr inbounds nuw i8, ptr %0, i64 928
   %418 = load ptr, ptr %417, align 8
   %419 = icmp eq ptr %spec.select.i.i.i.i, %418
   br i1 %419, label %420, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_10DeleteExprEJRPNS0_4NodeERbbNS9_4PrecEEEESA_DpOT0_.exit
 
 420:                                              ; preds = %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i.i
-  %421 = getelementptr inbounds i8, ptr %0, i64 936
+  %421 = getelementptr inbounds nuw i8, ptr %0, i64 936
   store i8 1, ptr %421, align 8
   br label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_10DeleteExprEJRPNS0_4NodeERbbNS9_4PrecEEEESA_DpOT0_.exit
 
@@ -14187,15 +14187,15 @@ _ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32EN
 
 425:                                              ; preds = %422
   %426 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %427 = getelementptr inbounds i8, ptr %0, i64 24
+  %427 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %428 = load ptr, ptr %427, align 8
   %429 = load ptr, ptr %426, align 8
   %430 = ptrtoint ptr %428 to i64
   %431 = ptrtoint ptr %429 to i64
   %432 = sub i64 %430, %431
   %433 = ashr exact i64 %432, 3
-  %434 = getelementptr inbounds i8, ptr %0, i64 32
-  %435 = getelementptr inbounds i8, ptr %0, i64 40
+  %434 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %435 = getelementptr inbounds nuw i8, ptr %0, i64 40
   br label %436
 
 436:                                              ; preds = %_ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exit114, %425
@@ -14305,7 +14305,7 @@ _ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exi
 
 488:                                              ; preds = %482
   %489 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %490 = getelementptr inbounds i8, ptr %0, i64 24
+  %490 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %491 = load ptr, ptr %490, align 8
   %492 = load ptr, ptr %489, align 8
   %493 = ptrtoint ptr %491 to i64
@@ -14325,8 +14325,8 @@ _ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exi
 _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E9consumeIfEc.exit117.split.us.preheader: ; preds = %499
   %502 = getelementptr inbounds i8, ptr %497, i64 1
   store ptr %502, ptr %0, align 8
-  %503 = getelementptr inbounds i8, ptr %0, i64 32
-  %504 = getelementptr inbounds i8, ptr %0, i64 40
+  %503 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %504 = getelementptr inbounds nuw i8, ptr %0, i64 40
   br label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E9consumeIfEc.exit117.split.us
 
 _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E9consumeIfEc.exit117.split.us: ; preds = %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E9consumeIfEc.exit117.split.us.preheader, %_ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exit124.us
@@ -14405,8 +14405,8 @@ _ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exi
   br i1 %539, label %.split.us, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E9consumeIfEc.exit117.split.thread
 
 _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E9consumeIfEc.exit117.split.thread: ; preds = %488, %538
-  %540 = getelementptr inbounds i8, ptr %0, i64 32
-  %541 = getelementptr inbounds i8, ptr %0, i64 40
+  %540 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %541 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %542 = tail call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E9parseExprEv(ptr noundef nonnull align 8 dereferenceable(1464) %0)
   %543 = icmp eq ptr %542, null
   br i1 %543, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_10DeleteExprEJRPNS0_4NodeERbbNS9_4PrecEEEESA_DpOT0_.exit, label %544
@@ -14572,7 +14572,7 @@ _ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exi
 617:                                              ; preds = %615
   %618 = ashr i8 %.val87, 1
   %619 = getelementptr inbounds nuw i8, ptr %0, i64 808
-  %620 = getelementptr inbounds i8, ptr %0, i64 937
+  %620 = getelementptr inbounds nuw i8, ptr %0, i64 937
   %621 = load i8, ptr %620, align 1
   %622 = trunc i8 %621 to i1
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %4)
@@ -14596,7 +14596,7 @@ _ZN12_GLOBAL__N_111profileCtorIJSt17basic_string_viewIcSt11char_traitsIcEEPN4llv
   call void @_ZN4llvm16FoldingSetNodeID10AddIntegerEy(ptr noundef nonnull align 8 dereferenceable(144) %4, i64 noundef %627)
   %628 = sext i8 %618 to i64
   call void @_ZN4llvm16FoldingSetNodeID10AddIntegerEy(ptr noundef nonnull align 8 dereferenceable(144) %4, i64 noundef %628)
-  %629 = getelementptr inbounds i8, ptr %0, i64 904
+  %629 = getelementptr inbounds nuw i8, ptr %0, i64 904
   %630 = call noundef ptr @_ZN4llvm14FoldingSetBase19FindNodeOrInsertPosERKNS_16FoldingSetNodeIDERPvRKNS0_14FoldingSetInfoE(ptr noundef nonnull align 8 dereferenceable(16) %629, ptr noundef nonnull align 8 dereferenceable(144) %4, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4llvm10FoldingSetIN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeaderEE17getFoldingSetInfoEvE4Info) #20
   %.not.i.i.i.i.i125 = icmp eq ptr %630, null
   br i1 %.not.i.i.i.i.i125, label %633, label %631
@@ -14609,7 +14609,7 @@ _ZN12_GLOBAL__N_111profileCtorIJSt17basic_string_viewIcSt11char_traitsIcEEPN4llv
   br i1 %622, label %634, label %668
 
 634:                                              ; preds = %633
-  %635 = getelementptr inbounds i8, ptr %0, i64 888
+  %635 = getelementptr inbounds nuw i8, ptr %0, i64 888
   %636 = load i64, ptr %635, align 8
   %637 = add i64 %636, 64
   store i64 %637, ptr %635, align 8
@@ -14618,7 +14618,7 @@ _ZN12_GLOBAL__N_111profileCtorIJSt17basic_string_viewIcSt11char_traitsIcEEPN4llv
   %640 = add i64 %639, 7
   %641 = and i64 %640, -8
   %642 = add i64 %641, 64
-  %643 = getelementptr inbounds i8, ptr %0, i64 816
+  %643 = getelementptr inbounds nuw i8, ptr %0, i64 816
   %644 = load ptr, ptr %643, align 8
   %645 = ptrtoint ptr %644 to i64
   %.not.i.i.i.i.i.i.i139 = icmp ugt i64 %642, %645
@@ -14687,7 +14687,7 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   br i1 %.not.i.i.i.i.i125, label %673, label %675
 
 673:                                              ; preds = %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle13EnclosingExprEJRSt17basic_string_viewIcSt11char_traitsIcEERPNS3_4NodeENSA_4PrecEEEESt4pairISB_bEbDpOT0_.exit.i.i.i.i
-  %674 = getelementptr inbounds i8, ptr %0, i64 920
+  %674 = getelementptr inbounds nuw i8, ptr %0, i64 920
   store ptr %.sroa.0.0.i.i.i.i.i126, ptr %674, align 8
   br label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_10DeleteExprEJRPNS0_4NodeERbbNS9_4PrecEEEESA_DpOT0_.exit
 
@@ -14696,14 +14696,14 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   br i1 %.not.i.i.i.i127, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_10DeleteExprEJRPNS0_4NodeERbbNS9_4PrecEEEESA_DpOT0_.exit, label %676
 
 676:                                              ; preds = %675
-  %677 = getelementptr inbounds i8, ptr %0, i64 944
+  %677 = getelementptr inbounds nuw i8, ptr %0, i64 944
   %678 = load i32, ptr %677, align 8
   %679 = and i32 %678, 1
   %.not.i.i.i.i.i.i.i.i.i.i128 = icmp eq i32 %679, 0
-  %680 = getelementptr inbounds i8, ptr %0, i64 952
+  %680 = getelementptr inbounds nuw i8, ptr %0, i64 952
   %681 = load ptr, ptr %680, align 8
   %682 = select i1 %.not.i.i.i.i.i.i.i.i.i.i128, ptr %681, ptr %680
-  %683 = getelementptr inbounds i8, ptr %0, i64 960
+  %683 = getelementptr inbounds nuw i8, ptr %0, i64 960
   %684 = load i32, ptr %683, align 8
   %685 = select i1 %.not.i.i.i.i.i.i.i.i.i.i128, i32 %684, i32 32
   %686 = icmp eq i32 %685, 0
@@ -14750,13 +14750,13 @@ _ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32EN
   %.0.i.i.i.i.i136 = phi ptr [ %709, %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i.i134 ], [ null, %676 ], [ null, %.lr.ph.i.i.i.i.i.i.i130 ]
   %.not11.i.i.i.i = icmp eq ptr %.0.i.i.i.i.i136, null
   %spec.select.i.i.i.i137 = select i1 %.not11.i.i.i.i, ptr %.sroa.0.0.i.i.i.i.i126, ptr %.0.i.i.i.i.i136
-  %710 = getelementptr inbounds i8, ptr %0, i64 928
+  %710 = getelementptr inbounds nuw i8, ptr %0, i64 928
   %711 = load ptr, ptr %710, align 8
   %712 = icmp eq ptr %spec.select.i.i.i.i137, %711
   br i1 %712, label %713, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_10DeleteExprEJRPNS0_4NodeERbbNS9_4PrecEEEESA_DpOT0_.exit
 
 713:                                              ; preds = %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i.i135
-  %714 = getelementptr inbounds i8, ptr %0, i64 936
+  %714 = getelementptr inbounds nuw i8, ptr %0, i64 936
   store i8 1, ptr %714, align 8
   br label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_10DeleteExprEJRPNS0_4NodeERbbNS9_4PrecEEEESA_DpOT0_.exit
 
@@ -14955,7 +14955,7 @@ _ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLO
   %.sroa.7.0.i.i = phi ptr [ %785, %784 ], [ %779, %_ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEEc.exit.i.i ], [ %779, %776 ]
   %.sroa.0.0.i.i = phi i64 [ %786, %784 ], [ %780, %_ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEEc.exit.i.i ], [ 0, %776 ]
   %787 = getelementptr inbounds nuw i8, ptr %0, i64 808
-  %788 = getelementptr inbounds i8, ptr %0, i64 937
+  %788 = getelementptr inbounds nuw i8, ptr %0, i64 937
   %789 = load i8, ptr %788, align 1
   %790 = trunc i8 %789 to i1
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %2)
@@ -14981,7 +14981,7 @@ _ZN12_GLOBAL__N_111profileCtorIJbSt17basic_string_viewIcSt11char_traitsIcEEPN4ll
   call void @_ZN4llvm16FoldingSetNodeID10AddIntegerEy(ptr noundef nonnull align 8 dereferenceable(144) %2, i64 noundef %796)
   %797 = ptrtoint ptr %.1.i to i64
   call void @_ZN4llvm16FoldingSetNodeID10AddIntegerEy(ptr noundef nonnull align 8 dereferenceable(144) %2, i64 noundef %797)
-  %798 = getelementptr inbounds i8, ptr %0, i64 904
+  %798 = getelementptr inbounds nuw i8, ptr %0, i64 904
   %799 = call noundef ptr @_ZN4llvm14FoldingSetBase19FindNodeOrInsertPosERKNS_16FoldingSetNodeIDERPvRKNS0_14FoldingSetInfoE(ptr noundef nonnull align 8 dereferenceable(16) %798, ptr noundef nonnull align 8 dereferenceable(144) %2, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4llvm10FoldingSetIN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeaderEE17getFoldingSetInfoEvE4Info) #20
   %.not.i.i.i.i.i.i = icmp eq ptr %799, null
   br i1 %.not.i.i.i.i.i.i, label %802, label %800
@@ -14994,7 +14994,7 @@ _ZN12_GLOBAL__N_111profileCtorIJbSt17basic_string_viewIcSt11char_traitsIcEEPN4ll
   br i1 %790, label %803, label %835
 
 803:                                              ; preds = %802
-  %804 = getelementptr inbounds i8, ptr %0, i64 888
+  %804 = getelementptr inbounds nuw i8, ptr %0, i64 888
   %805 = load i64, ptr %804, align 8
   %806 = add i64 %805, 64
   store i64 %806, ptr %804, align 8
@@ -15003,7 +15003,7 @@ _ZN12_GLOBAL__N_111profileCtorIJbSt17basic_string_viewIcSt11char_traitsIcEEPN4ll
   %809 = add i64 %808, 7
   %810 = and i64 %809, -8
   %811 = add i64 %810, 64
-  %812 = getelementptr inbounds i8, ptr %0, i64 816
+  %812 = getelementptr inbounds nuw i8, ptr %0, i64 816
   %813 = load ptr, ptr %812, align 8
   %814 = ptrtoint ptr %813 to i64
   %.not.i.i.i.i.i.i.i.i = icmp ugt i64 %811, %814
@@ -15071,7 +15071,7 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   br i1 %.not.i.i.i.i.i.i, label %840, label %842
 
 840:                                              ; preds = %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle8FoldExprEJRbSt17basic_string_viewIcSt11char_traitsIcEERPNS3_4NodeESC_EEESt4pairISB_bEbDpOT0_.exit.i.i.i.i.i
-  %841 = getelementptr inbounds i8, ptr %0, i64 920
+  %841 = getelementptr inbounds nuw i8, ptr %0, i64 920
   store ptr %.sroa.0.0.i.i.i.i.i.i, ptr %841, align 8
   br label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_10DeleteExprEJRPNS0_4NodeERbbNS9_4PrecEEEESA_DpOT0_.exit
 
@@ -15080,14 +15080,14 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   br i1 %.not.i.i.i.i.i597, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_10DeleteExprEJRPNS0_4NodeERbbNS9_4PrecEEEESA_DpOT0_.exit, label %843
 
 843:                                              ; preds = %842
-  %844 = getelementptr inbounds i8, ptr %0, i64 944
+  %844 = getelementptr inbounds nuw i8, ptr %0, i64 944
   %845 = load i32, ptr %844, align 8
   %846 = and i32 %845, 1
   %.not.i.i.i.i.i.i.i.i.i.i.i = icmp eq i32 %846, 0
-  %847 = getelementptr inbounds i8, ptr %0, i64 952
+  %847 = getelementptr inbounds nuw i8, ptr %0, i64 952
   %848 = load ptr, ptr %847, align 8
   %849 = select i1 %.not.i.i.i.i.i.i.i.i.i.i.i, ptr %848, ptr %847
-  %850 = getelementptr inbounds i8, ptr %0, i64 960
+  %850 = getelementptr inbounds nuw i8, ptr %0, i64 960
   %851 = load i32, ptr %850, align 8
   %852 = select i1 %.not.i.i.i.i.i.i.i.i.i.i.i, i32 %851, i32 32
   %853 = icmp eq i32 %852, 0
@@ -15134,13 +15134,13 @@ _ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32EN
   %.0.i.i.i.i.i.i = phi ptr [ %876, %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i.i.i ], [ null, %843 ], [ null, %.lr.ph.i.i.i.i.i.i.i.i ]
   %.not12.i.i.i.i.i = icmp eq ptr %.0.i.i.i.i.i.i, null
   %spec.select.i.i.i.i.i = select i1 %.not12.i.i.i.i.i, ptr %.sroa.0.0.i.i.i.i.i.i, ptr %.0.i.i.i.i.i.i
-  %877 = getelementptr inbounds i8, ptr %0, i64 928
+  %877 = getelementptr inbounds nuw i8, ptr %0, i64 928
   %878 = load ptr, ptr %877, align 8
   %879 = icmp eq ptr %spec.select.i.i.i.i.i, %878
   br i1 %879, label %880, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_10DeleteExprEJRPNS0_4NodeERbbNS9_4PrecEEEESA_DpOT0_.exit
 
 880:                                              ; preds = %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i.i.i
-  %881 = getelementptr inbounds i8, ptr %0, i64 936
+  %881 = getelementptr inbounds nuw i8, ptr %0, i64 936
   store i8 1, ptr %881, align 8
   br label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_10DeleteExprEJRPNS0_4NodeERbbNS9_4PrecEEEESA_DpOT0_.exit
 
@@ -15153,15 +15153,15 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i163: ; preds = %_ZNK4llvm16ita
   %884 = getelementptr inbounds i8, ptr %73, i64 2
   store ptr %884, ptr %0, align 8
   %885 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %886 = getelementptr inbounds i8, ptr %0, i64 24
+  %886 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %887 = load ptr, ptr %886, align 8
   %888 = load ptr, ptr %885, align 8
   %889 = ptrtoint ptr %887 to i64
   %890 = ptrtoint ptr %888 to i64
   %891 = sub i64 %889, %890
   %892 = ashr exact i64 %891, 3
-  %893 = getelementptr inbounds i8, ptr %0, i64 32
-  %894 = getelementptr inbounds i8, ptr %0, i64 40
+  %893 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %894 = getelementptr inbounds nuw i8, ptr %0, i64 40
   br label %895
 
 895:                                              ; preds = %_ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exit174, %883
@@ -15387,15 +15387,15 @@ _ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLO
   %989 = getelementptr inbounds i8, ptr %73, i64 2
   store ptr %989, ptr %0, align 8
   %990 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %991 = getelementptr inbounds i8, ptr %0, i64 24
+  %991 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %992 = load ptr, ptr %991, align 8
   %993 = load ptr, ptr %990, align 8
   %994 = ptrtoint ptr %992 to i64
   %995 = ptrtoint ptr %993 to i64
   %996 = sub i64 %994, %995
   %997 = ashr exact i64 %996, 3
-  %998 = getelementptr inbounds i8, ptr %0, i64 32
-  %999 = getelementptr inbounds i8, ptr %0, i64 40
+  %998 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %999 = getelementptr inbounds nuw i8, ptr %0, i64 40
   br label %1000
 
 1000:                                             ; preds = %_ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exit602, %988
@@ -15510,7 +15510,7 @@ _ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exi
 
 1051:                                             ; preds = %1047
   %1052 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %1053 = getelementptr inbounds i8, ptr %0, i64 24
+  %1053 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %1054 = load ptr, ptr %1053, align 8
   %1055 = load ptr, ptr %1052, align 8
   %1056 = ptrtoint ptr %1054 to i64
@@ -15635,14 +15635,14 @@ _ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_
 
 _ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_E4typeE.exit.thread: ; preds = %1104, %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_E4typeE.exit, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i, %1093
   %1112 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %1113 = getelementptr inbounds i8, ptr %0, i64 24
+  %1113 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %1114 = load ptr, ptr %1113, align 8
   %1115 = load ptr, ptr %1112, align 8
   %1116 = ptrtoint ptr %1114 to i64
   %1117 = ptrtoint ptr %1115 to i64
   %1118 = sub i64 %1116, %1117
-  %1119 = getelementptr inbounds i8, ptr %0, i64 32
-  %1120 = getelementptr inbounds i8, ptr %0, i64 40
+  %1119 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %1120 = getelementptr inbounds nuw i8, ptr %0, i64 40
   br label %1131
 
 1121:                                             ; preds = %1106, %1109
@@ -15652,7 +15652,7 @@ _ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_
   br i1 %1122, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_10DeleteExprEJRPNS0_4NodeERbbNS9_4PrecEEEESA_DpOT0_.exit, label %1123
 
 1123:                                             ; preds = %1121
-  %1124 = getelementptr inbounds i8, ptr %0, i64 24
+  %1124 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %1125 = load ptr, ptr %1124, align 8
   %1126 = ptrtoint ptr %1125 to i64
   %1127 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -15771,7 +15771,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   %4 = alloca %"class.llvm::FoldingSetNodeID", align 8
   %5 = alloca ptr, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 808
-  %7 = getelementptr inbounds i8, ptr %0, i64 937
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 937
   %8 = load i8, ptr %7, align 1
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
@@ -15785,7 +15785,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   %13 = and i8 %11, 1
   %14 = zext nneg i8 %13 to i64
   call void @_ZN4llvm16FoldingSetNodeID10AddIntegerEy(ptr noundef nonnull align 8 dereferenceable(144) %4, i64 noundef %14)
-  %15 = getelementptr inbounds i8, ptr %0, i64 904
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 904
   %16 = call noundef ptr @_ZN4llvm14FoldingSetBase19FindNodeOrInsertPosERKNS_16FoldingSetNodeIDERPvRKNS0_14FoldingSetInfoE(ptr noundef nonnull align 8 dereferenceable(16) %15, ptr noundef nonnull align 8 dereferenceable(144) %4, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4llvm10FoldingSetIN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeaderEE17getFoldingSetInfoEvE4Info) #20
   %.not.i.i.i.i = icmp eq ptr %16, null
   br i1 %.not.i.i.i.i, label %19, label %17
@@ -15799,7 +15799,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   br i1 %20, label %21, label %54
 
 21:                                               ; preds = %19
-  %22 = getelementptr inbounds i8, ptr %0, i64 888
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 888
   %23 = load i64, ptr %22, align 8
   %24 = add i64 %23, 40
   store i64 %24, ptr %22, align 8
@@ -15808,7 +15808,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   %27 = add i64 %26, 7
   %28 = and i64 %27, -8
   %29 = add i64 %28, 40
-  %30 = getelementptr inbounds i8, ptr %0, i64 816
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 816
   %31 = load ptr, ptr %30, align 8
   %32 = ptrtoint ptr %31 to i64
   %.not.i.i.i.i.i.i = icmp ugt i64 %29, %32
@@ -15873,7 +15873,7 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   br i1 %.not.i.i.i.i, label %59, label %61
 
 59:                                               ; preds = %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle10BitIntTypeEJRPNS3_4NodeERbEEESt4pairIS6_bEbDpOT0_.exit.i.i.i
-  %60 = getelementptr inbounds i8, ptr %0, i64 920
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 920
   store ptr %.sroa.0.0.i.i.i.i, ptr %60, align 8
   br label %_ZN12_GLOBAL__N_122CanonicalizerAllocator8makeNodeIN4llvm16itanium_demangle10BitIntTypeEJRPNS3_4NodeERbEEES6_DpOT0_.exit
 
@@ -15882,14 +15882,14 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   br i1 %.not.i.i.i, label %_ZN12_GLOBAL__N_122CanonicalizerAllocator8makeNodeIN4llvm16itanium_demangle10BitIntTypeEJRPNS3_4NodeERbEEES6_DpOT0_.exit, label %62
 
 62:                                               ; preds = %61
-  %63 = getelementptr inbounds i8, ptr %0, i64 944
+  %63 = getelementptr inbounds nuw i8, ptr %0, i64 944
   %64 = load i32, ptr %63, align 8
   %65 = and i32 %64, 1
   %.not.i.i.i.i.i.i.i.i.i = icmp eq i32 %65, 0
-  %66 = getelementptr inbounds i8, ptr %0, i64 952
+  %66 = getelementptr inbounds nuw i8, ptr %0, i64 952
   %67 = load ptr, ptr %66, align 8
   %68 = select i1 %.not.i.i.i.i.i.i.i.i.i, ptr %67, ptr %66
-  %69 = getelementptr inbounds i8, ptr %0, i64 960
+  %69 = getelementptr inbounds nuw i8, ptr %0, i64 960
   %70 = load i32, ptr %69, align 8
   %71 = select i1 %.not.i.i.i.i.i.i.i.i.i, i32 %70, i32 32
   %72 = icmp eq i32 %71, 0
@@ -15936,13 +15936,13 @@ _ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32EN
   %.0.i.i.i.i = phi ptr [ %95, %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i ], [ null, %62 ], [ null, %.lr.ph.i.i.i.i.i.i ]
   %.not10.i.i.i = icmp eq ptr %.0.i.i.i.i, null
   %spec.select.i.i.i = select i1 %.not10.i.i.i, ptr %.sroa.0.0.i.i.i.i, ptr %.0.i.i.i.i
-  %96 = getelementptr inbounds i8, ptr %0, i64 928
+  %96 = getelementptr inbounds nuw i8, ptr %0, i64 928
   %97 = load ptr, ptr %96, align 8
   %98 = icmp eq ptr %spec.select.i.i.i, %97
   br i1 %98, label %99, label %_ZN12_GLOBAL__N_122CanonicalizerAllocator8makeNodeIN4llvm16itanium_demangle10BitIntTypeEJRPNS3_4NodeERbEEES6_DpOT0_.exit
 
 99:                                               ; preds = %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i
-  %100 = getelementptr inbounds i8, ptr %0, i64 936
+  %100 = getelementptr inbounds nuw i8, ptr %0, i64 936
   store i8 1, ptr %100, align 8
   br label %_ZN12_GLOBAL__N_122CanonicalizerAllocator8makeNodeIN4llvm16itanium_demangle10BitIntTypeEJRPNS3_4NodeERbEEES6_DpOT0_.exit
 
@@ -15956,7 +15956,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   %4 = alloca %"class.llvm::FoldingSetNodeID", align 8
   %5 = alloca ptr, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 808
-  %7 = getelementptr inbounds i8, ptr %0, i64 937
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 937
   %8 = load i8, ptr %7, align 1
   %9 = trunc i8 %8 to i1
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %4)
@@ -15982,7 +15982,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   br label %_ZN12_GLOBAL__N_111profileCtorIJPN4llvm16itanium_demangle4NodeESt17basic_string_viewIcSt11char_traitsIcEEEEEvRNS1_16FoldingSetNodeIDENS3_4KindEDpT_.exit.i.i.i.i
 
 _ZN12_GLOBAL__N_111profileCtorIJPN4llvm16itanium_demangle4NodeESt17basic_string_viewIcSt11char_traitsIcEEEEEvRNS1_16FoldingSetNodeIDENS3_4KindEDpT_.exit.i.i.i.i: ; preds = %15, %14
-  %16 = getelementptr inbounds i8, ptr %0, i64 904
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 904
   %17 = call noundef ptr @_ZN4llvm14FoldingSetBase19FindNodeOrInsertPosERKNS_16FoldingSetNodeIDERPvRKNS0_14FoldingSetInfoE(ptr noundef nonnull align 8 dereferenceable(16) %16, ptr noundef nonnull align 8 dereferenceable(144) %4, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4llvm10FoldingSetIN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeaderEE17getFoldingSetInfoEvE4Info) #20
   %.not.i.i.i.i = icmp eq ptr %17, null
   br i1 %.not.i.i.i.i, label %20, label %18
@@ -15995,7 +15995,7 @@ _ZN12_GLOBAL__N_111profileCtorIJPN4llvm16itanium_demangle4NodeESt17basic_string_
   br i1 %9, label %21, label %52
 
 21:                                               ; preds = %20
-  %22 = getelementptr inbounds i8, ptr %0, i64 888
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 888
   %23 = load i64, ptr %22, align 8
   %24 = add i64 %23, 48
   store i64 %24, ptr %22, align 8
@@ -16004,7 +16004,7 @@ _ZN12_GLOBAL__N_111profileCtorIJPN4llvm16itanium_demangle4NodeESt17basic_string_
   %27 = add i64 %26, 7
   %28 = and i64 %27, -8
   %29 = add i64 %28, 48
-  %30 = getelementptr inbounds i8, ptr %0, i64 816
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 816
   %31 = load ptr, ptr %30, align 8
   %32 = ptrtoint ptr %31 to i64
   %.not.i.i.i.i.i.i = icmp ugt i64 %29, %32
@@ -16071,7 +16071,7 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   br i1 %.not.i.i.i.i, label %57, label %59
 
 57:                                               ; preds = %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle20PostfixQualifiedTypeEJRPNS3_4NodeERSt17basic_string_viewIcSt11char_traitsIcEEEEESt4pairIS6_bEbDpOT0_.exit.i.i.i
-  %58 = getelementptr inbounds i8, ptr %0, i64 920
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 920
   store ptr %.sroa.0.0.i.i.i.i, ptr %58, align 8
   br label %_ZN12_GLOBAL__N_122CanonicalizerAllocator8makeNodeIN4llvm16itanium_demangle20PostfixQualifiedTypeEJRPNS3_4NodeERSt17basic_string_viewIcSt11char_traitsIcEEEEES6_DpOT0_.exit
 
@@ -16080,14 +16080,14 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   br i1 %.not.i.i.i, label %_ZN12_GLOBAL__N_122CanonicalizerAllocator8makeNodeIN4llvm16itanium_demangle20PostfixQualifiedTypeEJRPNS3_4NodeERSt17basic_string_viewIcSt11char_traitsIcEEEEES6_DpOT0_.exit, label %60
 
 60:                                               ; preds = %59
-  %61 = getelementptr inbounds i8, ptr %0, i64 944
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 944
   %62 = load i32, ptr %61, align 8
   %63 = and i32 %62, 1
   %.not.i.i.i.i.i.i.i.i.i = icmp eq i32 %63, 0
-  %64 = getelementptr inbounds i8, ptr %0, i64 952
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 952
   %65 = load ptr, ptr %64, align 8
   %66 = select i1 %.not.i.i.i.i.i.i.i.i.i, ptr %65, ptr %64
-  %67 = getelementptr inbounds i8, ptr %0, i64 960
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 960
   %68 = load i32, ptr %67, align 8
   %69 = select i1 %.not.i.i.i.i.i.i.i.i.i, i32 %68, i32 32
   %70 = icmp eq i32 %69, 0
@@ -16134,13 +16134,13 @@ _ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32EN
   %.0.i.i.i.i = phi ptr [ %93, %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i ], [ null, %60 ], [ null, %.lr.ph.i.i.i.i.i.i ]
   %.not10.i.i.i = icmp eq ptr %.0.i.i.i.i, null
   %spec.select.i.i.i = select i1 %.not10.i.i.i, ptr %.sroa.0.0.i.i.i.i, ptr %.0.i.i.i.i
-  %94 = getelementptr inbounds i8, ptr %0, i64 928
+  %94 = getelementptr inbounds nuw i8, ptr %0, i64 928
   %95 = load ptr, ptr %94, align 8
   %96 = icmp eq ptr %spec.select.i.i.i, %95
   br i1 %96, label %97, label %_ZN12_GLOBAL__N_122CanonicalizerAllocator8makeNodeIN4llvm16itanium_demangle20PostfixQualifiedTypeEJRPNS3_4NodeERSt17basic_string_viewIcSt11char_traitsIcEEEEES6_DpOT0_.exit
 
 97:                                               ; preds = %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i
-  %98 = getelementptr inbounds i8, ptr %0, i64 936
+  %98 = getelementptr inbounds nuw i8, ptr %0, i64 936
   store i8 1, ptr %98, align 8
   br label %_ZN12_GLOBAL__N_122CanonicalizerAllocator8makeNodeIN4llvm16itanium_demangle20PostfixQualifiedTypeEJRPNS3_4NodeERSt17basic_string_viewIcSt11char_traitsIcEEEEES6_DpOT0_.exit
 
@@ -16202,7 +16202,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
   %27 = getelementptr inbounds i8, ptr %21, i64 1
   store ptr %27, ptr %0, align 8
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 808
-  %29 = getelementptr inbounds i8, ptr %0, i64 937
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 937
   %30 = load i8, ptr %29, align 1
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %2)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
@@ -16212,7 +16212,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
   call void @_ZN4llvm16FoldingSetNodeID9AddStringENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(144) %2, ptr nonnull @.str.215, i64 8) #20
   %32 = ptrtoint ptr %18 to i64
   call void @_ZN4llvm16FoldingSetNodeID10AddIntegerEy(ptr noundef nonnull align 8 dereferenceable(144) %2, i64 noundef %32)
-  %33 = getelementptr inbounds i8, ptr %0, i64 904
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 904
   %34 = call noundef ptr @_ZN4llvm14FoldingSetBase19FindNodeOrInsertPosERKNS_16FoldingSetNodeIDERPvRKNS0_14FoldingSetInfoE(ptr noundef nonnull align 8 dereferenceable(16) %33, ptr noundef nonnull align 8 dereferenceable(144) %2, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4llvm10FoldingSetIN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeaderEE17getFoldingSetInfoEvE4Info) #20
   %.not.i.i.i.i.i = icmp eq ptr %34, null
   br i1 %.not.i.i.i.i.i, label %37, label %35
@@ -16226,7 +16226,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
   br i1 %38, label %39, label %70
 
 39:                                               ; preds = %37
-  %40 = getelementptr inbounds i8, ptr %0, i64 888
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 888
   %41 = load i64, ptr %40, align 8
   %42 = add i64 %41, 64
   store i64 %42, ptr %40, align 8
@@ -16235,7 +16235,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
   %45 = add i64 %44, 7
   %46 = and i64 %45, -8
   %47 = add i64 %46, 64
-  %48 = getelementptr inbounds i8, ptr %0, i64 816
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 816
   %49 = load ptr, ptr %48, align 8
   %50 = ptrtoint ptr %49 to i64
   %.not.i.i.i.i.i.i.i = icmp ugt i64 %47, %50
@@ -16301,7 +16301,7 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   br i1 %.not.i.i.i.i.i, label %75, label %77
 
 75:                                               ; preds = %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle13EnclosingExprEJRA9_KcRPNS3_4NodeEEEESt4pairIS9_bEbDpOT0_.exit.i.i.i.i
-  %76 = getelementptr inbounds i8, ptr %0, i64 920
+  %76 = getelementptr inbounds nuw i8, ptr %0, i64 920
   store ptr %.sroa.04.0.i.i.i.i.i, ptr %76, align 8
   br label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_13EnclosingExprEJRA9_KcRPNS0_4NodeEEEESD_DpOT0_.exit
 
@@ -16310,14 +16310,14 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   br i1 %.not.i.i.i.i, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_13EnclosingExprEJRA9_KcRPNS0_4NodeEEEESD_DpOT0_.exit, label %78
 
 78:                                               ; preds = %77
-  %79 = getelementptr inbounds i8, ptr %0, i64 944
+  %79 = getelementptr inbounds nuw i8, ptr %0, i64 944
   %80 = load i32, ptr %79, align 8
   %81 = and i32 %80, 1
   %.not.i.i.i.i.i.i.i.i.i.i = icmp eq i32 %81, 0
-  %82 = getelementptr inbounds i8, ptr %0, i64 952
+  %82 = getelementptr inbounds nuw i8, ptr %0, i64 952
   %83 = load ptr, ptr %82, align 8
   %84 = select i1 %.not.i.i.i.i.i.i.i.i.i.i, ptr %83, ptr %82
-  %85 = getelementptr inbounds i8, ptr %0, i64 960
+  %85 = getelementptr inbounds nuw i8, ptr %0, i64 960
   %86 = load i32, ptr %85, align 8
   %87 = select i1 %.not.i.i.i.i.i.i.i.i.i.i, i32 %86, i32 32
   %88 = icmp eq i32 %87, 0
@@ -16364,13 +16364,13 @@ _ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32EN
   %.0.i.i.i.i.i = phi ptr [ %111, %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i.i ], [ null, %78 ], [ null, %.lr.ph.i.i.i.i.i.i.i ]
   %.not10.i.i.i.i = icmp eq ptr %.0.i.i.i.i.i, null
   %spec.select.i.i.i.i = select i1 %.not10.i.i.i.i, ptr %.sroa.04.0.i.i.i.i.i, ptr %.0.i.i.i.i.i
-  %112 = getelementptr inbounds i8, ptr %0, i64 928
+  %112 = getelementptr inbounds nuw i8, ptr %0, i64 928
   %113 = load ptr, ptr %112, align 8
   %114 = icmp eq ptr %spec.select.i.i.i.i, %113
   br i1 %114, label %115, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_13EnclosingExprEJRA9_KcRPNS0_4NodeEEEESD_DpOT0_.exit
 
 115:                                              ; preds = %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i.i
-  %116 = getelementptr inbounds i8, ptr %0, i64 936
+  %116 = getelementptr inbounds nuw i8, ptr %0, i64 936
   store i8 1, ptr %116, align 8
   br label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_13EnclosingExprEJRA9_KcRPNS0_4NodeEEEESD_DpOT0_.exit
 
@@ -16527,7 +16527,7 @@ _ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLO
 
 66:                                               ; preds = %63
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 808
-  %68 = getelementptr inbounds i8, ptr %0, i64 937
+  %68 = getelementptr inbounds nuw i8, ptr %0, i64 937
   %69 = load i8, ptr %68, align 1
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %2)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
@@ -16537,7 +16537,7 @@ _ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLO
   %71 = ptrtoint ptr %65 to i64
   call void @_ZN4llvm16FoldingSetNodeID10AddIntegerEy(ptr noundef nonnull align 8 dereferenceable(144) %2, i64 noundef %71)
   call void @_ZN4llvm16FoldingSetNodeID10AddIntegerEy(ptr noundef nonnull align 8 dereferenceable(144) %2, i64 noundef 0)
-  %72 = getelementptr inbounds i8, ptr %0, i64 904
+  %72 = getelementptr inbounds nuw i8, ptr %0, i64 904
   %73 = call noundef ptr @_ZN4llvm14FoldingSetBase19FindNodeOrInsertPosERKNS_16FoldingSetNodeIDERPvRKNS0_14FoldingSetInfoE(ptr noundef nonnull align 8 dereferenceable(16) %72, ptr noundef nonnull align 8 dereferenceable(144) %2, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4llvm10FoldingSetIN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeaderEE17getFoldingSetInfoEvE4Info) #20
   %.not.i.i.i.i.i = icmp eq ptr %73, null
   br i1 %.not.i.i.i.i.i, label %76, label %74
@@ -16551,7 +16551,7 @@ _ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLO
   br i1 %77, label %78, label %108
 
 78:                                               ; preds = %76
-  %79 = getelementptr inbounds i8, ptr %0, i64 888
+  %79 = getelementptr inbounds nuw i8, ptr %0, i64 888
   %80 = load i64, ptr %79, align 8
   %81 = add i64 %80, 40
   store i64 %81, ptr %79, align 8
@@ -16560,7 +16560,7 @@ _ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLO
   %84 = add i64 %83, 7
   %85 = and i64 %84, -8
   %86 = add i64 %85, 40
-  %87 = getelementptr inbounds i8, ptr %0, i64 816
+  %87 = getelementptr inbounds nuw i8, ptr %0, i64 816
   %88 = load ptr, ptr %87, align 8
   %89 = ptrtoint ptr %88 to i64
   %.not.i.i.i.i.i.i.i = icmp ugt i64 %86, %89
@@ -16622,7 +16622,7 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   br i1 %.not.i.i.i.i.i, label %113, label %115
 
 113:                                              ; preds = %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle10VectorTypeEJRPNS3_4NodeEDnEEESt4pairIS6_bEbDpOT0_.exit.i.i.i.i
-  %114 = getelementptr inbounds i8, ptr %0, i64 920
+  %114 = getelementptr inbounds nuw i8, ptr %0, i64 920
   store ptr %.sroa.0.0.i.i.i.i.i, ptr %114, align 8
   br label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_10VectorTypeEJRPNS0_4NodeEDnEEESA_DpOT0_.exit
 
@@ -16631,14 +16631,14 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   br i1 %.not.i.i.i.i, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_10VectorTypeEJRPNS0_4NodeEDnEEESA_DpOT0_.exit, label %116
 
 116:                                              ; preds = %115
-  %117 = getelementptr inbounds i8, ptr %0, i64 944
+  %117 = getelementptr inbounds nuw i8, ptr %0, i64 944
   %118 = load i32, ptr %117, align 8
   %119 = and i32 %118, 1
   %.not.i.i.i.i.i.i.i.i.i.i = icmp eq i32 %119, 0
-  %120 = getelementptr inbounds i8, ptr %0, i64 952
+  %120 = getelementptr inbounds nuw i8, ptr %0, i64 952
   %121 = load ptr, ptr %120, align 8
   %122 = select i1 %.not.i.i.i.i.i.i.i.i.i.i, ptr %121, ptr %120
-  %123 = getelementptr inbounds i8, ptr %0, i64 960
+  %123 = getelementptr inbounds nuw i8, ptr %0, i64 960
   %124 = load i32, ptr %123, align 8
   %125 = select i1 %.not.i.i.i.i.i.i.i.i.i.i, i32 %124, i32 32
   %126 = icmp eq i32 %125, 0
@@ -16685,13 +16685,13 @@ _ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32EN
   %.0.i.i.i.i.i = phi ptr [ %149, %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i.i ], [ null, %116 ], [ null, %.lr.ph.i.i.i.i.i.i.i ]
   %.not10.i.i.i.i = icmp eq ptr %.0.i.i.i.i.i, null
   %spec.select.i.i.i.i = select i1 %.not10.i.i.i.i, ptr %.sroa.0.0.i.i.i.i.i, ptr %.0.i.i.i.i.i
-  %150 = getelementptr inbounds i8, ptr %0, i64 928
+  %150 = getelementptr inbounds nuw i8, ptr %0, i64 928
   %151 = load ptr, ptr %150, align 8
   %152 = icmp eq ptr %spec.select.i.i.i.i, %151
   br i1 %152, label %153, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_10VectorTypeEJRPNS0_4NodeEDnEEESA_DpOT0_.exit
 
 153:                                              ; preds = %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i.i
-  %154 = getelementptr inbounds i8, ptr %0, i64 936
+  %154 = getelementptr inbounds nuw i8, ptr %0, i64 936
   store i8 1, ptr %154, align 8
   br label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_10VectorTypeEJRPNS0_4NodeEDnEEESA_DpOT0_.exit
 
@@ -16705,7 +16705,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   %3 = alloca %"class.llvm::FoldingSetNodeID", align 8
   %4 = alloca ptr, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 808
-  %6 = getelementptr inbounds i8, ptr %0, i64 937
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 937
   %7 = load i8, ptr %6, align 1
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
@@ -16715,7 +16715,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   call void @_ZN4llvm16FoldingSetNodeID10AddIntegerEy(ptr noundef nonnull align 8 dereferenceable(144) %3, i64 noundef 42)
   %10 = ptrtoint ptr %9 to i64
   call void @_ZN4llvm16FoldingSetNodeID10AddIntegerEy(ptr noundef nonnull align 8 dereferenceable(144) %3, i64 noundef %10)
-  %11 = getelementptr inbounds i8, ptr %0, i64 904
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 904
   %12 = call noundef ptr @_ZN4llvm14FoldingSetBase19FindNodeOrInsertPosERKNS_16FoldingSetNodeIDERPvRKNS0_14FoldingSetInfoE(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4llvm10FoldingSetIN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeaderEE17getFoldingSetInfoEvE4Info) #20
   %.not.i.i.i.i = icmp eq ptr %12, null
   br i1 %.not.i.i.i.i, label %15, label %13
@@ -16729,7 +16729,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   br i1 %16, label %17, label %47
 
 17:                                               ; preds = %15
-  %18 = getelementptr inbounds i8, ptr %0, i64 888
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 888
   %19 = load i64, ptr %18, align 8
   %20 = add i64 %19, 32
   store i64 %20, ptr %18, align 8
@@ -16738,7 +16738,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   %23 = add i64 %22, 7
   %24 = and i64 %23, -8
   %25 = add i64 %24, 32
-  %26 = getelementptr inbounds i8, ptr %0, i64 816
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 816
   %27 = load ptr, ptr %26, align 8
   %28 = ptrtoint ptr %27 to i64
   %.not.i.i.i.i.i.i = icmp ugt i64 %25, %28
@@ -16799,7 +16799,7 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   br i1 %.not.i.i.i.i, label %52, label %54
 
 52:                                               ; preds = %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle22ParameterPackExpansionEJRPNS3_4NodeEEEESt4pairIS6_bEbDpOT0_.exit.i.i.i
-  %53 = getelementptr inbounds i8, ptr %0, i64 920
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 920
   store ptr %.sroa.0.0.i.i.i.i, ptr %53, align 8
   br label %_ZN12_GLOBAL__N_122CanonicalizerAllocator8makeNodeIN4llvm16itanium_demangle22ParameterPackExpansionEJRPNS3_4NodeEEEES6_DpOT0_.exit
 
@@ -16808,14 +16808,14 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   br i1 %.not.i.i.i, label %_ZN12_GLOBAL__N_122CanonicalizerAllocator8makeNodeIN4llvm16itanium_demangle22ParameterPackExpansionEJRPNS3_4NodeEEEES6_DpOT0_.exit, label %55
 
 55:                                               ; preds = %54
-  %56 = getelementptr inbounds i8, ptr %0, i64 944
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 944
   %57 = load i32, ptr %56, align 8
   %58 = and i32 %57, 1
   %.not.i.i.i.i.i.i.i.i.i = icmp eq i32 %58, 0
-  %59 = getelementptr inbounds i8, ptr %0, i64 952
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 952
   %60 = load ptr, ptr %59, align 8
   %61 = select i1 %.not.i.i.i.i.i.i.i.i.i, ptr %60, ptr %59
-  %62 = getelementptr inbounds i8, ptr %0, i64 960
+  %62 = getelementptr inbounds nuw i8, ptr %0, i64 960
   %63 = load i32, ptr %62, align 8
   %64 = select i1 %.not.i.i.i.i.i.i.i.i.i, i32 %63, i32 32
   %65 = icmp eq i32 %64, 0
@@ -16862,13 +16862,13 @@ _ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32EN
   %.0.i.i.i.i = phi ptr [ %88, %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i ], [ null, %55 ], [ null, %.lr.ph.i.i.i.i.i.i ]
   %.not9.i.i.i = icmp eq ptr %.0.i.i.i.i, null
   %spec.select.i.i.i = select i1 %.not9.i.i.i, ptr %.sroa.0.0.i.i.i.i, ptr %.0.i.i.i.i
-  %89 = getelementptr inbounds i8, ptr %0, i64 928
+  %89 = getelementptr inbounds nuw i8, ptr %0, i64 928
   %90 = load ptr, ptr %89, align 8
   %91 = icmp eq ptr %spec.select.i.i.i, %90
   br i1 %91, label %92, label %_ZN12_GLOBAL__N_122CanonicalizerAllocator8makeNodeIN4llvm16itanium_demangle22ParameterPackExpansionEJRPNS3_4NodeEEEES6_DpOT0_.exit
 
 92:                                               ; preds = %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i
-  %93 = getelementptr inbounds i8, ptr %0, i64 936
+  %93 = getelementptr inbounds nuw i8, ptr %0, i64 936
   store i8 1, ptr %93, align 8
   br label %_ZN12_GLOBAL__N_122CanonicalizerAllocator8makeNodeIN4llvm16itanium_demangle22ParameterPackExpansionEJRPNS3_4NodeEEEES6_DpOT0_.exit
 
@@ -16920,7 +16920,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i7: ; preds = %_ZNSt11char_trai
 
 _ZN12_GLOBAL__N_111profileCtorIJSt17basic_string_viewIcSt11char_traitsIcEEPN4llvm16itanium_demangle4NodeEEEEvRNS5_16FoldingSetNodeIDENS7_4KindEDpT_.exit.i.i.i.i.i: ; preds = %14
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 808
-  %20 = getelementptr inbounds i8, ptr %0, i64 937
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 937
   %21 = load i8, ptr %20, align 1
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %2)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
@@ -16930,7 +16930,7 @@ _ZN12_GLOBAL__N_111profileCtorIJSt17basic_string_viewIcSt11char_traitsIcEEPN4llv
   call void @_ZN4llvm16FoldingSetNodeID9AddStringENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(144) %2, ptr nonnull %.sroa.7.0, i64 %.sroa.024.0) #20
   %23 = ptrtoint ptr %16 to i64
   call void @_ZN4llvm16FoldingSetNodeID10AddIntegerEy(ptr noundef nonnull align 8 dereferenceable(144) %2, i64 noundef %23)
-  %24 = getelementptr inbounds i8, ptr %0, i64 904
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 904
   %25 = call noundef ptr @_ZN4llvm14FoldingSetBase19FindNodeOrInsertPosERKNS_16FoldingSetNodeIDERPvRKNS0_14FoldingSetInfoE(ptr noundef nonnull align 8 dereferenceable(16) %24, ptr noundef nonnull align 8 dereferenceable(144) %2, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4llvm10FoldingSetIN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeaderEE17getFoldingSetInfoEvE4Info) #20
   %.not.i.i.i.i.i = icmp eq ptr %25, null
   br i1 %.not.i.i.i.i.i, label %28, label %26
@@ -16944,7 +16944,7 @@ _ZN12_GLOBAL__N_111profileCtorIJSt17basic_string_viewIcSt11char_traitsIcEEPN4llv
   br i1 %29, label %30, label %60
 
 30:                                               ; preds = %28
-  %31 = getelementptr inbounds i8, ptr %0, i64 888
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 888
   %32 = load i64, ptr %31, align 8
   %33 = add i64 %32, 48
   store i64 %33, ptr %31, align 8
@@ -16953,7 +16953,7 @@ _ZN12_GLOBAL__N_111profileCtorIJSt17basic_string_viewIcSt11char_traitsIcEEPN4llv
   %36 = add i64 %35, 7
   %37 = and i64 %36, -8
   %38 = add i64 %37, 48
-  %39 = getelementptr inbounds i8, ptr %0, i64 816
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 816
   %40 = load ptr, ptr %39, align 8
   %41 = ptrtoint ptr %40 to i64
   %.not.i.i.i.i.i.i.i = icmp ugt i64 %38, %41
@@ -17017,7 +17017,7 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   br i1 %.not.i.i.i.i.i, label %65, label %67
 
 65:                                               ; preds = %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle22ElaboratedTypeSpefTypeEJRSt17basic_string_viewIcSt11char_traitsIcEERPNS3_4NodeEEEESt4pairISB_bEbDpOT0_.exit.i.i.i.i
-  %66 = getelementptr inbounds i8, ptr %0, i64 920
+  %66 = getelementptr inbounds nuw i8, ptr %0, i64 920
   store ptr %.sroa.0.0.i.i.i.i.i, ptr %66, align 8
   br label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_22ElaboratedTypeSpefTypeEJRSt17basic_string_viewIcSt11char_traitsIcEERPNS0_4NodeEEEESF_DpOT0_.exit
 
@@ -17026,14 +17026,14 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   br i1 %.not.i.i.i.i, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_22ElaboratedTypeSpefTypeEJRSt17basic_string_viewIcSt11char_traitsIcEERPNS0_4NodeEEEESF_DpOT0_.exit, label %68
 
 68:                                               ; preds = %67
-  %69 = getelementptr inbounds i8, ptr %0, i64 944
+  %69 = getelementptr inbounds nuw i8, ptr %0, i64 944
   %70 = load i32, ptr %69, align 8
   %71 = and i32 %70, 1
   %.not.i.i.i.i.i.i.i.i.i.i = icmp eq i32 %71, 0
-  %72 = getelementptr inbounds i8, ptr %0, i64 952
+  %72 = getelementptr inbounds nuw i8, ptr %0, i64 952
   %73 = load ptr, ptr %72, align 8
   %74 = select i1 %.not.i.i.i.i.i.i.i.i.i.i, ptr %73, ptr %72
-  %75 = getelementptr inbounds i8, ptr %0, i64 960
+  %75 = getelementptr inbounds nuw i8, ptr %0, i64 960
   %76 = load i32, ptr %75, align 8
   %77 = select i1 %.not.i.i.i.i.i.i.i.i.i.i, i32 %76, i32 32
   %78 = icmp eq i32 %77, 0
@@ -17080,13 +17080,13 @@ _ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32EN
   %.0.i.i.i.i.i = phi ptr [ %101, %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i.i ], [ null, %68 ], [ null, %.lr.ph.i.i.i.i.i.i.i ]
   %.not10.i.i.i.i = icmp eq ptr %.0.i.i.i.i.i, null
   %spec.select.i.i.i.i = select i1 %.not10.i.i.i.i, ptr %.sroa.0.0.i.i.i.i.i, ptr %.0.i.i.i.i.i
-  %102 = getelementptr inbounds i8, ptr %0, i64 928
+  %102 = getelementptr inbounds nuw i8, ptr %0, i64 928
   %103 = load ptr, ptr %102, align 8
   %104 = icmp eq ptr %spec.select.i.i.i.i, %103
   br i1 %104, label %105, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_22ElaboratedTypeSpefTypeEJRSt17basic_string_viewIcSt11char_traitsIcEERPNS0_4NodeEEEESF_DpOT0_.exit
 
 105:                                              ; preds = %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i.i
-  %106 = getelementptr inbounds i8, ptr %0, i64 936
+  %106 = getelementptr inbounds nuw i8, ptr %0, i64 936
   store i8 1, ptr %106, align 8
   br label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_22ElaboratedTypeSpefTypeEJRSt17basic_string_viewIcSt11char_traitsIcEERPNS0_4NodeEEEESF_DpOT0_.exit
 
@@ -17252,7 +17252,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
 
 63:                                               ; preds = %58
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 808
-  %65 = getelementptr inbounds i8, ptr %0, i64 888
+  %65 = getelementptr inbounds nuw i8, ptr %0, i64 888
   %66 = load i64, ptr %65, align 8
   %67 = add i64 %66, 40
   store i64 %67, ptr %65, align 8
@@ -17261,7 +17261,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
   %70 = add i64 %69, 7
   %71 = and i64 %70, -8
   %72 = add i64 %71, 40
-  %73 = getelementptr inbounds i8, ptr %0, i64 816
+  %73 = getelementptr inbounds nuw i8, ptr %0, i64 816
   %74 = load ptr, ptr %73, align 8
   %75 = ptrtoint ptr %74 to i64
   %.not.i.i.i.i.i.i.i = icmp ugt i64 %72, %75
@@ -17302,12 +17302,12 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
   store ptr null, ptr %92, align 8
   %93 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i, i64 32
   store i8 0, ptr %93, align 8
-  %94 = getelementptr inbounds i8, ptr %0, i64 920
+  %94 = getelementptr inbounds nuw i8, ptr %0, i64 920
   store ptr %.0.i.i.i.i.i.i.i, ptr %94, align 8
   %95 = getelementptr inbounds nuw i8, ptr %0, i64 720
-  %96 = getelementptr inbounds i8, ptr %0, i64 728
+  %96 = getelementptr inbounds nuw i8, ptr %0, i64 728
   %97 = load ptr, ptr %96, align 8
-  %98 = getelementptr inbounds i8, ptr %0, i64 736
+  %98 = getelementptr inbounds nuw i8, ptr %0, i64 736
   %99 = load ptr, ptr %98, align 8
   %100 = icmp eq ptr %97, %99
   br i1 %100, label %101, label %_ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_24ForwardTemplateReferenceELm4EE9push_backERKS3_.exit
@@ -17318,7 +17318,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
   %104 = ptrtoint ptr %102 to i64
   %105 = sub i64 %103, %104
   %106 = ashr exact i64 %105, 2
-  %107 = getelementptr inbounds i8, ptr %0, i64 744
+  %107 = getelementptr inbounds nuw i8, ptr %0, i64 744
   %108 = icmp eq ptr %102, %107
   %109 = shl i64 %105, 1
   br i1 %108, label %110, label %116
@@ -17370,7 +17370,7 @@ _ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_24ForwardTemplateReferenceELm4EE
 
 125:                                              ; preds = %58
   %126 = getelementptr inbounds nuw i8, ptr %0, i64 664
-  %127 = getelementptr inbounds i8, ptr %0, i64 672
+  %127 = getelementptr inbounds nuw i8, ptr %0, i64 672
   %128 = load ptr, ptr %127, align 8
   %129 = load ptr, ptr %126, align 8
   %130 = ptrtoint ptr %128 to i64
@@ -17453,16 +17453,16 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
 15:                                               ; preds = %13
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 664
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 672
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 672
   store ptr %17, ptr %18, align 8
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 576
-  %20 = getelementptr inbounds i8, ptr %0, i64 680
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 680
   %21 = load ptr, ptr %20, align 8
   %22 = icmp eq ptr %17, %21
   br i1 %22, label %23, label %.split.us.preheader
 
 23:                                               ; preds = %15
-  %24 = getelementptr inbounds i8, ptr %0, i64 688
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 688
   %25 = icmp eq ptr %17, %24
   br i1 %25, label %26, label %30
 
@@ -17496,25 +17496,25 @@ _ZN4llvm16itanium_demangle14PODSmallVectorIPNS1_IPNS0_4NodeELm8EEELm4EE7reserveE
 
 .split.preheader:                                 ; preds = %13
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %36 = getelementptr inbounds i8, ptr %0, i64 24
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %37 = load ptr, ptr %36, align 8
   %38 = load ptr, ptr %35, align 8
   %39 = ptrtoint ptr %37 to i64
   %40 = ptrtoint ptr %38 to i64
   %41 = sub i64 %39, %40
-  %42 = getelementptr inbounds i8, ptr %0, i64 32
-  %43 = getelementptr inbounds i8, ptr %0, i64 40
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 808
-  %45 = getelementptr inbounds i8, ptr %0, i64 937
-  %46 = getelementptr inbounds i8, ptr %0, i64 904
-  %47 = getelementptr inbounds i8, ptr %0, i64 888
-  %48 = getelementptr inbounds i8, ptr %0, i64 816
-  %49 = getelementptr inbounds i8, ptr %0, i64 944
-  %50 = getelementptr inbounds i8, ptr %0, i64 952
-  %51 = getelementptr inbounds i8, ptr %0, i64 960
-  %52 = getelementptr inbounds i8, ptr %0, i64 928
-  %53 = getelementptr inbounds i8, ptr %0, i64 936
-  %54 = getelementptr inbounds i8, ptr %0, i64 920
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 937
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 904
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 888
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 816
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 944
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 952
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 960
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 928
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 936
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 920
   %.pre = load ptr, ptr %0, align 8
   %.pre116 = load ptr, ptr %8, align 8
   br label %.split
@@ -17525,33 +17525,33 @@ _ZN4llvm16itanium_demangle14PODSmallVectorIPNS1_IPNS0_4NodeELm8EEELm4EE7reserveE
   store ptr %56, ptr %18, align 8
   store ptr %19, ptr %55, align 8
   %57 = load ptr, ptr %19, align 8
-  %58 = getelementptr inbounds i8, ptr %0, i64 584
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 584
   store ptr %57, ptr %58, align 8
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %60 = getelementptr inbounds i8, ptr %0, i64 24
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %61 = load ptr, ptr %60, align 8
   %62 = load ptr, ptr %59, align 8
   %63 = ptrtoint ptr %61 to i64
   %64 = ptrtoint ptr %62 to i64
   %65 = sub i64 %63, %64
-  %66 = getelementptr inbounds i8, ptr %0, i64 32
-  %67 = getelementptr inbounds i8, ptr %0, i64 40
+  %66 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 808
-  %69 = getelementptr inbounds i8, ptr %0, i64 937
+  %69 = getelementptr inbounds nuw i8, ptr %0, i64 937
   %70 = getelementptr inbounds i8, ptr %5, i64 16
-  %71 = getelementptr inbounds i8, ptr %0, i64 904
-  %72 = getelementptr inbounds i8, ptr %0, i64 888
-  %73 = getelementptr inbounds i8, ptr %0, i64 816
-  %74 = getelementptr inbounds i8, ptr %0, i64 944
-  %75 = getelementptr inbounds i8, ptr %0, i64 952
-  %76 = getelementptr inbounds i8, ptr %0, i64 960
-  %77 = getelementptr inbounds i8, ptr %0, i64 928
-  %78 = getelementptr inbounds i8, ptr %0, i64 936
-  %79 = getelementptr inbounds i8, ptr %0, i64 920
+  %71 = getelementptr inbounds nuw i8, ptr %0, i64 904
+  %72 = getelementptr inbounds nuw i8, ptr %0, i64 888
+  %73 = getelementptr inbounds nuw i8, ptr %0, i64 816
+  %74 = getelementptr inbounds nuw i8, ptr %0, i64 944
+  %75 = getelementptr inbounds nuw i8, ptr %0, i64 952
+  %76 = getelementptr inbounds nuw i8, ptr %0, i64 960
+  %77 = getelementptr inbounds nuw i8, ptr %0, i64 928
+  %78 = getelementptr inbounds nuw i8, ptr %0, i64 936
+  %79 = getelementptr inbounds nuw i8, ptr %0, i64 920
   %80 = getelementptr inbounds nuw i8, ptr %0, i64 576
-  %81 = getelementptr inbounds i8, ptr %0, i64 584
-  %82 = getelementptr inbounds i8, ptr %0, i64 592
-  %83 = getelementptr inbounds i8, ptr %0, i64 600
+  %81 = getelementptr inbounds nuw i8, ptr %0, i64 584
+  %82 = getelementptr inbounds nuw i8, ptr %0, i64 592
+  %83 = getelementptr inbounds nuw i8, ptr %0, i64 600
   %.pre117 = load ptr, ptr %0, align 8
   %.pre118 = load ptr, ptr %8, align 8
   br label %.split.us
@@ -18257,7 +18257,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   %4 = alloca %"class.llvm::FoldingSetNodeID", align 8
   %5 = alloca ptr, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 808
-  %7 = getelementptr inbounds i8, ptr %0, i64 937
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 937
   %8 = load i8, ptr %7, align 1
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
@@ -18270,7 +18270,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   call void @_ZN4llvm16FoldingSetNodeID10AddIntegerEy(ptr noundef nonnull align 8 dereferenceable(144) %4, i64 noundef %12)
   %13 = ptrtoint ptr %11 to i64
   call void @_ZN4llvm16FoldingSetNodeID10AddIntegerEy(ptr noundef nonnull align 8 dereferenceable(144) %4, i64 noundef %13)
-  %14 = getelementptr inbounds i8, ptr %0, i64 904
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 904
   %15 = call noundef ptr @_ZN4llvm14FoldingSetBase19FindNodeOrInsertPosERKNS_16FoldingSetNodeIDERPvRKNS0_14FoldingSetInfoE(ptr noundef nonnull align 8 dereferenceable(16) %14, ptr noundef nonnull align 8 dereferenceable(144) %4, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4llvm10FoldingSetIN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeaderEE17getFoldingSetInfoEvE4Info) #20
   %.not.i.i.i.i = icmp eq ptr %15, null
   br i1 %.not.i.i.i.i, label %18, label %16
@@ -18284,7 +18284,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   br i1 %19, label %20, label %52
 
 20:                                               ; preds = %18
-  %21 = getelementptr inbounds i8, ptr %0, i64 888
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 888
   %22 = load i64, ptr %21, align 8
   %23 = add i64 %22, 40
   store i64 %23, ptr %21, align 8
@@ -18293,7 +18293,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   %26 = add i64 %25, 7
   %27 = and i64 %26, -8
   %28 = add i64 %27, 40
-  %29 = getelementptr inbounds i8, ptr %0, i64 816
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 816
   %30 = load ptr, ptr %29, align 8
   %31 = ptrtoint ptr %30 to i64
   %.not.i.i.i.i.i.i = icmp ugt i64 %28, %31
@@ -18357,7 +18357,7 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   br i1 %.not.i.i.i.i, label %57, label %59
 
 57:                                               ; preds = %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle20NameWithTemplateArgsEJRPNS3_4NodeES7_EEESt4pairIS6_bEbDpOT0_.exit.i.i.i
-  %58 = getelementptr inbounds i8, ptr %0, i64 920
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 920
   store ptr %.sroa.0.0.i.i.i.i, ptr %58, align 8
   br label %_ZN12_GLOBAL__N_122CanonicalizerAllocator8makeNodeIN4llvm16itanium_demangle20NameWithTemplateArgsEJRPNS3_4NodeES7_EEES6_DpOT0_.exit
 
@@ -18366,14 +18366,14 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   br i1 %.not.i.i.i, label %_ZN12_GLOBAL__N_122CanonicalizerAllocator8makeNodeIN4llvm16itanium_demangle20NameWithTemplateArgsEJRPNS3_4NodeES7_EEES6_DpOT0_.exit, label %60
 
 60:                                               ; preds = %59
-  %61 = getelementptr inbounds i8, ptr %0, i64 944
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 944
   %62 = load i32, ptr %61, align 8
   %63 = and i32 %62, 1
   %.not.i.i.i.i.i.i.i.i.i = icmp eq i32 %63, 0
-  %64 = getelementptr inbounds i8, ptr %0, i64 952
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 952
   %65 = load ptr, ptr %64, align 8
   %66 = select i1 %.not.i.i.i.i.i.i.i.i.i, ptr %65, ptr %64
-  %67 = getelementptr inbounds i8, ptr %0, i64 960
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 960
   %68 = load i32, ptr %67, align 8
   %69 = select i1 %.not.i.i.i.i.i.i.i.i.i, i32 %68, i32 32
   %70 = icmp eq i32 %69, 0
@@ -18420,13 +18420,13 @@ _ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32EN
   %.0.i.i.i.i = phi ptr [ %93, %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i ], [ null, %60 ], [ null, %.lr.ph.i.i.i.i.i.i ]
   %.not10.i.i.i = icmp eq ptr %.0.i.i.i.i, null
   %spec.select.i.i.i = select i1 %.not10.i.i.i, ptr %.sroa.0.0.i.i.i.i, ptr %.0.i.i.i.i
-  %94 = getelementptr inbounds i8, ptr %0, i64 928
+  %94 = getelementptr inbounds nuw i8, ptr %0, i64 928
   %95 = load ptr, ptr %94, align 8
   %96 = icmp eq ptr %spec.select.i.i.i, %95
   br i1 %96, label %97, label %_ZN12_GLOBAL__N_122CanonicalizerAllocator8makeNodeIN4llvm16itanium_demangle20NameWithTemplateArgsEJRPNS3_4NodeES7_EEES6_DpOT0_.exit
 
 97:                                               ; preds = %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i
-  %98 = getelementptr inbounds i8, ptr %0, i64 936
+  %98 = getelementptr inbounds nuw i8, ptr %0, i64 936
   store i8 1, ptr %98, align 8
   br label %_ZN12_GLOBAL__N_122CanonicalizerAllocator8makeNodeIN4llvm16itanium_demangle20NameWithTemplateArgsEJRPNS3_4NodeES7_EEES6_DpOT0_.exit
 
@@ -18440,7 +18440,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   %3 = alloca %"class.llvm::FoldingSetNodeID", align 8
   %4 = alloca ptr, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 808
-  %6 = getelementptr inbounds i8, ptr %0, i64 937
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 937
   %7 = load i8, ptr %6, align 1
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
@@ -18450,7 +18450,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   call void @_ZN4llvm16FoldingSetNodeID10AddIntegerEy(ptr noundef nonnull align 8 dereferenceable(144) %3, i64 noundef 12)
   %10 = ptrtoint ptr %9 to i64
   call void @_ZN4llvm16FoldingSetNodeID10AddIntegerEy(ptr noundef nonnull align 8 dereferenceable(144) %3, i64 noundef %10)
-  %11 = getelementptr inbounds i8, ptr %0, i64 904
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 904
   %12 = call noundef ptr @_ZN4llvm14FoldingSetBase19FindNodeOrInsertPosERKNS_16FoldingSetNodeIDERPvRKNS0_14FoldingSetInfoE(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4llvm10FoldingSetIN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeaderEE17getFoldingSetInfoEvE4Info) #20
   %.not.i.i.i.i = icmp eq ptr %12, null
   br i1 %.not.i.i.i.i, label %15, label %13
@@ -18464,7 +18464,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   br i1 %16, label %17, label %51
 
 17:                                               ; preds = %15
-  %18 = getelementptr inbounds i8, ptr %0, i64 888
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 888
   %19 = load i64, ptr %18, align 8
   %20 = add i64 %19, 32
   store i64 %20, ptr %18, align 8
@@ -18473,7 +18473,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   %23 = add i64 %22, 7
   %24 = and i64 %23, -8
   %25 = add i64 %24, 32
-  %26 = getelementptr inbounds i8, ptr %0, i64 816
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 816
   %27 = load ptr, ptr %26, align 8
   %28 = ptrtoint ptr %27 to i64
   %.not.i.i.i.i.i.i = icmp ugt i64 %25, %28
@@ -18538,7 +18538,7 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   br i1 %.not.i.i.i.i, label %56, label %58
 
 56:                                               ; preds = %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle11PointerTypeEJRPNS3_4NodeEEEESt4pairIS6_bEbDpOT0_.exit.i.i.i
-  %57 = getelementptr inbounds i8, ptr %0, i64 920
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 920
   store ptr %.sroa.0.0.i.i.i.i, ptr %57, align 8
   br label %_ZN12_GLOBAL__N_122CanonicalizerAllocator8makeNodeIN4llvm16itanium_demangle11PointerTypeEJRPNS3_4NodeEEEES6_DpOT0_.exit
 
@@ -18547,14 +18547,14 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   br i1 %.not.i.i.i, label %_ZN12_GLOBAL__N_122CanonicalizerAllocator8makeNodeIN4llvm16itanium_demangle11PointerTypeEJRPNS3_4NodeEEEES6_DpOT0_.exit, label %59
 
 59:                                               ; preds = %58
-  %60 = getelementptr inbounds i8, ptr %0, i64 944
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 944
   %61 = load i32, ptr %60, align 8
   %62 = and i32 %61, 1
   %.not.i.i.i.i.i.i.i.i.i = icmp eq i32 %62, 0
-  %63 = getelementptr inbounds i8, ptr %0, i64 952
+  %63 = getelementptr inbounds nuw i8, ptr %0, i64 952
   %64 = load ptr, ptr %63, align 8
   %65 = select i1 %.not.i.i.i.i.i.i.i.i.i, ptr %64, ptr %63
-  %66 = getelementptr inbounds i8, ptr %0, i64 960
+  %66 = getelementptr inbounds nuw i8, ptr %0, i64 960
   %67 = load i32, ptr %66, align 8
   %68 = select i1 %.not.i.i.i.i.i.i.i.i.i, i32 %67, i32 32
   %69 = icmp eq i32 %68, 0
@@ -18601,13 +18601,13 @@ _ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32EN
   %.0.i.i.i.i = phi ptr [ %92, %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i ], [ null, %59 ], [ null, %.lr.ph.i.i.i.i.i.i ]
   %.not9.i.i.i = icmp eq ptr %.0.i.i.i.i, null
   %spec.select.i.i.i = select i1 %.not9.i.i.i, ptr %.sroa.0.0.i.i.i.i, ptr %.0.i.i.i.i
-  %93 = getelementptr inbounds i8, ptr %0, i64 928
+  %93 = getelementptr inbounds nuw i8, ptr %0, i64 928
   %94 = load ptr, ptr %93, align 8
   %95 = icmp eq ptr %spec.select.i.i.i, %94
   br i1 %95, label %96, label %_ZN12_GLOBAL__N_122CanonicalizerAllocator8makeNodeIN4llvm16itanium_demangle11PointerTypeEJRPNS3_4NodeEEEES6_DpOT0_.exit
 
 96:                                               ; preds = %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i
-  %97 = getelementptr inbounds i8, ptr %0, i64 936
+  %97 = getelementptr inbounds nuw i8, ptr %0, i64 936
   store i8 1, ptr %97, align 8
   br label %_ZN12_GLOBAL__N_122CanonicalizerAllocator8makeNodeIN4llvm16itanium_demangle11PointerTypeEJRPNS3_4NodeEEEES6_DpOT0_.exit
 
@@ -18621,7 +18621,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   %4 = alloca %"class.llvm::FoldingSetNodeID", align 8
   %5 = alloca ptr, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 808
-  %7 = getelementptr inbounds i8, ptr %0, i64 937
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 937
   %8 = load i8, ptr %7, align 1
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
@@ -18634,7 +18634,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   call void @_ZN4llvm16FoldingSetNodeID10AddIntegerEy(ptr noundef nonnull align 8 dereferenceable(144) %4, i64 noundef %12)
   %13 = sext i32 %11 to i64
   call void @_ZN4llvm16FoldingSetNodeID10AddIntegerEy(ptr noundef nonnull align 8 dereferenceable(144) %4, i64 noundef %13)
-  %14 = getelementptr inbounds i8, ptr %0, i64 904
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 904
   %15 = call noundef ptr @_ZN4llvm14FoldingSetBase19FindNodeOrInsertPosERKNS_16FoldingSetNodeIDERPvRKNS0_14FoldingSetInfoE(ptr noundef nonnull align 8 dereferenceable(16) %14, ptr noundef nonnull align 8 dereferenceable(144) %4, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4llvm10FoldingSetIN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeaderEE17getFoldingSetInfoEvE4Info) #20
   %.not.i.i.i.i = icmp eq ptr %15, null
   br i1 %.not.i.i.i.i, label %18, label %16
@@ -18648,7 +18648,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   br i1 %19, label %20, label %57
 
 20:                                               ; preds = %18
-  %21 = getelementptr inbounds i8, ptr %0, i64 888
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 888
   %22 = load i64, ptr %21, align 8
   %23 = add i64 %22, 40
   store i64 %23, ptr %21, align 8
@@ -18657,7 +18657,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   %26 = add i64 %25, 7
   %27 = and i64 %26, -8
   %28 = add i64 %27, 40
-  %29 = getelementptr inbounds i8, ptr %0, i64 816
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 816
   %30 = load ptr, ptr %29, align 8
   %31 = ptrtoint ptr %30 to i64
   %.not.i.i.i.i.i.i = icmp ugt i64 %28, %31
@@ -18727,7 +18727,7 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   br i1 %.not.i.i.i.i, label %62, label %64
 
 62:                                               ; preds = %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle13ReferenceTypeEJRPNS3_4NodeENS3_13ReferenceKindEEEESt4pairIS6_bEbDpOT0_.exit.i.i.i
-  %63 = getelementptr inbounds i8, ptr %0, i64 920
+  %63 = getelementptr inbounds nuw i8, ptr %0, i64 920
   store ptr %.sroa.0.0.i.i.i.i, ptr %63, align 8
   br label %_ZN12_GLOBAL__N_122CanonicalizerAllocator8makeNodeIN4llvm16itanium_demangle13ReferenceTypeEJRPNS3_4NodeENS3_13ReferenceKindEEEES6_DpOT0_.exit
 
@@ -18736,14 +18736,14 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   br i1 %.not.i.i.i, label %_ZN12_GLOBAL__N_122CanonicalizerAllocator8makeNodeIN4llvm16itanium_demangle13ReferenceTypeEJRPNS3_4NodeENS3_13ReferenceKindEEEES6_DpOT0_.exit, label %65
 
 65:                                               ; preds = %64
-  %66 = getelementptr inbounds i8, ptr %0, i64 944
+  %66 = getelementptr inbounds nuw i8, ptr %0, i64 944
   %67 = load i32, ptr %66, align 8
   %68 = and i32 %67, 1
   %.not.i.i.i.i.i.i.i.i.i = icmp eq i32 %68, 0
-  %69 = getelementptr inbounds i8, ptr %0, i64 952
+  %69 = getelementptr inbounds nuw i8, ptr %0, i64 952
   %70 = load ptr, ptr %69, align 8
   %71 = select i1 %.not.i.i.i.i.i.i.i.i.i, ptr %70, ptr %69
-  %72 = getelementptr inbounds i8, ptr %0, i64 960
+  %72 = getelementptr inbounds nuw i8, ptr %0, i64 960
   %73 = load i32, ptr %72, align 8
   %74 = select i1 %.not.i.i.i.i.i.i.i.i.i, i32 %73, i32 32
   %75 = icmp eq i32 %74, 0
@@ -18790,13 +18790,13 @@ _ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32EN
   %.0.i.i.i.i = phi ptr [ %98, %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i ], [ null, %65 ], [ null, %.lr.ph.i.i.i.i.i.i ]
   %.not10.i.i.i = icmp eq ptr %.0.i.i.i.i, null
   %spec.select.i.i.i = select i1 %.not10.i.i.i, ptr %.sroa.0.0.i.i.i.i, ptr %.0.i.i.i.i
-  %99 = getelementptr inbounds i8, ptr %0, i64 928
+  %99 = getelementptr inbounds nuw i8, ptr %0, i64 928
   %100 = load ptr, ptr %99, align 8
   %101 = icmp eq ptr %spec.select.i.i.i, %100
   br i1 %101, label %102, label %_ZN12_GLOBAL__N_122CanonicalizerAllocator8makeNodeIN4llvm16itanium_demangle13ReferenceTypeEJRPNS3_4NodeENS3_13ReferenceKindEEEES6_DpOT0_.exit
 
 102:                                              ; preds = %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i
-  %103 = getelementptr inbounds i8, ptr %0, i64 936
+  %103 = getelementptr inbounds nuw i8, ptr %0, i64 936
   store i8 1, ptr %103, align 8
   br label %_ZN12_GLOBAL__N_122CanonicalizerAllocator8makeNodeIN4llvm16itanium_demangle13ReferenceTypeEJRPNS3_4NodeENS3_13ReferenceKindEEEES6_DpOT0_.exit
 
@@ -18810,7 +18810,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   %3 = alloca %"class.llvm::FoldingSetNodeID", align 8
   %4 = alloca ptr, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 808
-  %6 = getelementptr inbounds i8, ptr %0, i64 937
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 937
   %7 = load i8, ptr %6, align 1
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
@@ -18821,7 +18821,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   %10 = ptrtoint ptr %9 to i64
   call void @_ZN4llvm16FoldingSetNodeID10AddIntegerEy(ptr noundef nonnull align 8 dereferenceable(144) %3, i64 noundef %10)
   call void @_ZN4llvm16FoldingSetNodeID9AddStringENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr nonnull @.str.36, i64 8) #20
-  %11 = getelementptr inbounds i8, ptr %0, i64 904
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 904
   %12 = call noundef ptr @_ZN4llvm14FoldingSetBase19FindNodeOrInsertPosERKNS_16FoldingSetNodeIDERPvRKNS0_14FoldingSetInfoE(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4llvm10FoldingSetIN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeaderEE17getFoldingSetInfoEvE4Info) #20
   %.not.i.i.i.i = icmp eq ptr %12, null
   br i1 %.not.i.i.i.i, label %15, label %13
@@ -18835,7 +18835,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   br i1 %16, label %17, label %48
 
 17:                                               ; preds = %15
-  %18 = getelementptr inbounds i8, ptr %0, i64 888
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 888
   %19 = load i64, ptr %18, align 8
   %20 = add i64 %19, 48
   store i64 %20, ptr %18, align 8
@@ -18844,7 +18844,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   %23 = add i64 %22, 7
   %24 = and i64 %23, -8
   %25 = add i64 %24, 48
-  %26 = getelementptr inbounds i8, ptr %0, i64 816
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 816
   %27 = load ptr, ptr %26, align 8
   %28 = ptrtoint ptr %27 to i64
   %.not.i.i.i.i.i.i = icmp ugt i64 %25, %28
@@ -18909,7 +18909,7 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   br i1 %.not.i.i.i.i, label %53, label %55
 
 53:                                               ; preds = %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle20PostfixQualifiedTypeEJRPNS3_4NodeERA9_KcEEESt4pairIS6_bEbDpOT0_.exit.i.i.i
-  %54 = getelementptr inbounds i8, ptr %0, i64 920
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 920
   store ptr %.sroa.04.0.i.i.i.i, ptr %54, align 8
   br label %_ZN12_GLOBAL__N_122CanonicalizerAllocator8makeNodeIN4llvm16itanium_demangle20PostfixQualifiedTypeEJRPNS3_4NodeERA9_KcEEES6_DpOT0_.exit
 
@@ -18918,14 +18918,14 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   br i1 %.not.i.i.i, label %_ZN12_GLOBAL__N_122CanonicalizerAllocator8makeNodeIN4llvm16itanium_demangle20PostfixQualifiedTypeEJRPNS3_4NodeERA9_KcEEES6_DpOT0_.exit, label %56
 
 56:                                               ; preds = %55
-  %57 = getelementptr inbounds i8, ptr %0, i64 944
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 944
   %58 = load i32, ptr %57, align 8
   %59 = and i32 %58, 1
   %.not.i.i.i.i.i.i.i.i.i = icmp eq i32 %59, 0
-  %60 = getelementptr inbounds i8, ptr %0, i64 952
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 952
   %61 = load ptr, ptr %60, align 8
   %62 = select i1 %.not.i.i.i.i.i.i.i.i.i, ptr %61, ptr %60
-  %63 = getelementptr inbounds i8, ptr %0, i64 960
+  %63 = getelementptr inbounds nuw i8, ptr %0, i64 960
   %64 = load i32, ptr %63, align 8
   %65 = select i1 %.not.i.i.i.i.i.i.i.i.i, i32 %64, i32 32
   %66 = icmp eq i32 %65, 0
@@ -18972,13 +18972,13 @@ _ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32EN
   %.0.i.i.i.i = phi ptr [ %89, %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i ], [ null, %56 ], [ null, %.lr.ph.i.i.i.i.i.i ]
   %.not10.i.i.i = icmp eq ptr %.0.i.i.i.i, null
   %spec.select.i.i.i = select i1 %.not10.i.i.i, ptr %.sroa.04.0.i.i.i.i, ptr %.0.i.i.i.i
-  %90 = getelementptr inbounds i8, ptr %0, i64 928
+  %90 = getelementptr inbounds nuw i8, ptr %0, i64 928
   %91 = load ptr, ptr %90, align 8
   %92 = icmp eq ptr %spec.select.i.i.i, %91
   br i1 %92, label %93, label %_ZN12_GLOBAL__N_122CanonicalizerAllocator8makeNodeIN4llvm16itanium_demangle20PostfixQualifiedTypeEJRPNS3_4NodeERA9_KcEEES6_DpOT0_.exit
 
 93:                                               ; preds = %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i
-  %94 = getelementptr inbounds i8, ptr %0, i64 936
+  %94 = getelementptr inbounds nuw i8, ptr %0, i64 936
   store i8 1, ptr %94, align 8
   br label %_ZN12_GLOBAL__N_122CanonicalizerAllocator8makeNodeIN4llvm16itanium_demangle20PostfixQualifiedTypeEJRPNS3_4NodeERA9_KcEEES6_DpOT0_.exit
 
@@ -18992,7 +18992,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   %3 = alloca %"class.llvm::FoldingSetNodeID", align 8
   %4 = alloca ptr, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 808
-  %6 = getelementptr inbounds i8, ptr %0, i64 937
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 937
   %7 = load i8, ptr %6, align 1
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
@@ -19003,7 +19003,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   %10 = ptrtoint ptr %9 to i64
   call void @_ZN4llvm16FoldingSetNodeID10AddIntegerEy(ptr noundef nonnull align 8 dereferenceable(144) %3, i64 noundef %10)
   call void @_ZN4llvm16FoldingSetNodeID9AddStringENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr nonnull @.str.37, i64 10) #20
-  %11 = getelementptr inbounds i8, ptr %0, i64 904
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 904
   %12 = call noundef ptr @_ZN4llvm14FoldingSetBase19FindNodeOrInsertPosERKNS_16FoldingSetNodeIDERPvRKNS0_14FoldingSetInfoE(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4llvm10FoldingSetIN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeaderEE17getFoldingSetInfoEvE4Info) #20
   %.not.i.i.i.i = icmp eq ptr %12, null
   br i1 %.not.i.i.i.i, label %15, label %13
@@ -19017,7 +19017,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   br i1 %16, label %17, label %48
 
 17:                                               ; preds = %15
-  %18 = getelementptr inbounds i8, ptr %0, i64 888
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 888
   %19 = load i64, ptr %18, align 8
   %20 = add i64 %19, 48
   store i64 %20, ptr %18, align 8
@@ -19026,7 +19026,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   %23 = add i64 %22, 7
   %24 = and i64 %23, -8
   %25 = add i64 %24, 48
-  %26 = getelementptr inbounds i8, ptr %0, i64 816
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 816
   %27 = load ptr, ptr %26, align 8
   %28 = ptrtoint ptr %27 to i64
   %.not.i.i.i.i.i.i = icmp ugt i64 %25, %28
@@ -19091,7 +19091,7 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   br i1 %.not.i.i.i.i, label %53, label %55
 
 53:                                               ; preds = %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle20PostfixQualifiedTypeEJRPNS3_4NodeERA11_KcEEESt4pairIS6_bEbDpOT0_.exit.i.i.i
-  %54 = getelementptr inbounds i8, ptr %0, i64 920
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 920
   store ptr %.sroa.04.0.i.i.i.i, ptr %54, align 8
   br label %_ZN12_GLOBAL__N_122CanonicalizerAllocator8makeNodeIN4llvm16itanium_demangle20PostfixQualifiedTypeEJRPNS3_4NodeERA11_KcEEES6_DpOT0_.exit
 
@@ -19100,14 +19100,14 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   br i1 %.not.i.i.i, label %_ZN12_GLOBAL__N_122CanonicalizerAllocator8makeNodeIN4llvm16itanium_demangle20PostfixQualifiedTypeEJRPNS3_4NodeERA11_KcEEES6_DpOT0_.exit, label %56
 
 56:                                               ; preds = %55
-  %57 = getelementptr inbounds i8, ptr %0, i64 944
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 944
   %58 = load i32, ptr %57, align 8
   %59 = and i32 %58, 1
   %.not.i.i.i.i.i.i.i.i.i = icmp eq i32 %59, 0
-  %60 = getelementptr inbounds i8, ptr %0, i64 952
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 952
   %61 = load ptr, ptr %60, align 8
   %62 = select i1 %.not.i.i.i.i.i.i.i.i.i, ptr %61, ptr %60
-  %63 = getelementptr inbounds i8, ptr %0, i64 960
+  %63 = getelementptr inbounds nuw i8, ptr %0, i64 960
   %64 = load i32, ptr %63, align 8
   %65 = select i1 %.not.i.i.i.i.i.i.i.i.i, i32 %64, i32 32
   %66 = icmp eq i32 %65, 0
@@ -19154,13 +19154,13 @@ _ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32EN
   %.0.i.i.i.i = phi ptr [ %89, %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i ], [ null, %56 ], [ null, %.lr.ph.i.i.i.i.i.i ]
   %.not10.i.i.i = icmp eq ptr %.0.i.i.i.i, null
   %spec.select.i.i.i = select i1 %.not10.i.i.i, ptr %.sroa.04.0.i.i.i.i, ptr %.0.i.i.i.i
-  %90 = getelementptr inbounds i8, ptr %0, i64 928
+  %90 = getelementptr inbounds nuw i8, ptr %0, i64 928
   %91 = load ptr, ptr %90, align 8
   %92 = icmp eq ptr %spec.select.i.i.i, %91
   br i1 %92, label %93, label %_ZN12_GLOBAL__N_122CanonicalizerAllocator8makeNodeIN4llvm16itanium_demangle20PostfixQualifiedTypeEJRPNS3_4NodeERA11_KcEEES6_DpOT0_.exit
 
 93:                                               ; preds = %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i
-  %94 = getelementptr inbounds i8, ptr %0, i64 936
+  %94 = getelementptr inbounds nuw i8, ptr %0, i64 936
   store i8 1, ptr %94, align 8
   br label %_ZN12_GLOBAL__N_122CanonicalizerAllocator8makeNodeIN4llvm16itanium_demangle20PostfixQualifiedTypeEJRPNS3_4NodeERA11_KcEEES6_DpOT0_.exit
 
@@ -19311,13 +19311,13 @@ define internal fastcc { ptr, i64 } @_ZN4llvm16itanium_demangle22AbstractManglin
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds ptr, ptr %4, i64 %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = load ptr, ptr %6, align 8
   %8 = ptrtoint ptr %7 to i64
   %9 = ptrtoint ptr %5 to i64
   %10 = sub i64 %8, %9
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 808
-  %12 = getelementptr inbounds i8, ptr %0, i64 888
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 888
   %13 = load i64, ptr %12, align 8
   %14 = add i64 %10, %13
   store i64 %14, ptr %12, align 8
@@ -19326,7 +19326,7 @@ define internal fastcc { ptr, i64 } @_ZN4llvm16itanium_demangle22AbstractManglin
   %17 = add i64 %16, 7
   %18 = and i64 %17, -8
   %19 = add i64 %18, %10
-  %20 = getelementptr inbounds i8, ptr %0, i64 816
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 816
   %21 = load ptr, ptr %20, align 8
   %22 = ptrtoint ptr %21 to i64
   %.not.i.i.i.i = icmp ugt i64 %19, %22
@@ -19691,7 +19691,7 @@ _ZN4llvm16itanium_demangle12OutputBuffer9printOpenEc.exit: ; preds = %_ZN4llvm16
   %34 = getelementptr inbounds i8, ptr %33, i64 %32
   store i8 40, ptr %34, align 1
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %36 = getelementptr inbounds i8, ptr %0, i64 24
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %37 = load i64, ptr %36, align 8
   %.not13.i = icmp eq i64 %37, 0
   %.pre = load i64, ptr %3, align 8
@@ -19912,7 +19912,7 @@ _ZN4llvm16itanium_demangle12OutputBuffer9printOpenEc.exit: ; preds = %2, %._ZN4l
   %20 = getelementptr inbounds i8, ptr %19, i64 %18
   store i8 40, ptr %20, align 1
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %22 = getelementptr inbounds i8, ptr %0, i64 32
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %23 = load i64, ptr %22, align 8
   %.not13.i = icmp eq i64 %23, 0
   %.pre = load i64, ptr %6, align 8
@@ -21073,7 +21073,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   %5 = alloca %"class.llvm::FoldingSetNodeID", align 8
   %6 = alloca ptr, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 808
-  %8 = getelementptr inbounds i8, ptr %0, i64 937
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 937
   %9 = load i8, ptr %8, align 1
   %10 = trunc i8 %9 to i1
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %5)
@@ -21102,7 +21102,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
 _ZN12_GLOBAL__N_111profileCtorIJPN4llvm16itanium_demangle4NodeESt17basic_string_viewIcSt11char_traitsIcEENS3_4PrecEEEEvRNS1_16FoldingSetNodeIDENS3_4KindEDpT_.exit.i.i.i.i: ; preds = %17, %16
   %18 = sext i32 %13 to i64
   call void @_ZN4llvm16FoldingSetNodeID10AddIntegerEy(ptr noundef nonnull align 8 dereferenceable(144) %5, i64 noundef %18)
-  %19 = getelementptr inbounds i8, ptr %0, i64 904
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 904
   %20 = call noundef ptr @_ZN4llvm14FoldingSetBase19FindNodeOrInsertPosERKNS_16FoldingSetNodeIDERPvRKNS0_14FoldingSetInfoE(ptr noundef nonnull align 8 dereferenceable(16) %19, ptr noundef nonnull align 8 dereferenceable(144) %5, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4llvm10FoldingSetIN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeaderEE17getFoldingSetInfoEvE4Info) #20
   %.not.i.i.i.i = icmp eq ptr %20, null
   br i1 %.not.i.i.i.i, label %23, label %21
@@ -21115,7 +21115,7 @@ _ZN12_GLOBAL__N_111profileCtorIJPN4llvm16itanium_demangle4NodeESt17basic_string_
   br i1 %10, label %24, label %59
 
 24:                                               ; preds = %23
-  %25 = getelementptr inbounds i8, ptr %0, i64 888
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 888
   %26 = load i64, ptr %25, align 8
   %27 = add i64 %26, 48
   store i64 %27, ptr %25, align 8
@@ -21124,7 +21124,7 @@ _ZN12_GLOBAL__N_111profileCtorIJPN4llvm16itanium_demangle4NodeESt17basic_string_
   %30 = add i64 %29, 7
   %31 = and i64 %30, -8
   %32 = add i64 %31, 48
-  %33 = getelementptr inbounds i8, ptr %0, i64 816
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 816
   %34 = load ptr, ptr %33, align 8
   %35 = ptrtoint ptr %34 to i64
   %.not.i.i.i.i.i.i = icmp ugt i64 %32, %35
@@ -21195,7 +21195,7 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   br i1 %.not.i.i.i.i, label %64, label %66
 
 64:                                               ; preds = %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle11PostfixExprEJRPNS3_4NodeERSt17basic_string_viewIcSt11char_traitsIcEENS5_4PrecEEEESt4pairIS6_bEbDpOT0_.exit.i.i.i
-  %65 = getelementptr inbounds i8, ptr %0, i64 920
+  %65 = getelementptr inbounds nuw i8, ptr %0, i64 920
   store ptr %.sroa.0.0.i.i.i.i, ptr %65, align 8
   br label %_ZN12_GLOBAL__N_122CanonicalizerAllocator8makeNodeIN4llvm16itanium_demangle11PostfixExprEJRPNS3_4NodeERSt17basic_string_viewIcSt11char_traitsIcEENS5_4PrecEEEES6_DpOT0_.exit
 
@@ -21204,14 +21204,14 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   br i1 %.not.i.i.i, label %_ZN12_GLOBAL__N_122CanonicalizerAllocator8makeNodeIN4llvm16itanium_demangle11PostfixExprEJRPNS3_4NodeERSt17basic_string_viewIcSt11char_traitsIcEENS5_4PrecEEEES6_DpOT0_.exit, label %67
 
 67:                                               ; preds = %66
-  %68 = getelementptr inbounds i8, ptr %0, i64 944
+  %68 = getelementptr inbounds nuw i8, ptr %0, i64 944
   %69 = load i32, ptr %68, align 8
   %70 = and i32 %69, 1
   %.not.i.i.i.i.i.i.i.i.i = icmp eq i32 %70, 0
-  %71 = getelementptr inbounds i8, ptr %0, i64 952
+  %71 = getelementptr inbounds nuw i8, ptr %0, i64 952
   %72 = load ptr, ptr %71, align 8
   %73 = select i1 %.not.i.i.i.i.i.i.i.i.i, ptr %72, ptr %71
-  %74 = getelementptr inbounds i8, ptr %0, i64 960
+  %74 = getelementptr inbounds nuw i8, ptr %0, i64 960
   %75 = load i32, ptr %74, align 8
   %76 = select i1 %.not.i.i.i.i.i.i.i.i.i, i32 %75, i32 32
   %77 = icmp eq i32 %76, 0
@@ -21258,13 +21258,13 @@ _ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32EN
   %.0.i.i.i.i = phi ptr [ %100, %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i ], [ null, %67 ], [ null, %.lr.ph.i.i.i.i.i.i ]
   %.not11.i.i.i = icmp eq ptr %.0.i.i.i.i, null
   %spec.select.i.i.i = select i1 %.not11.i.i.i, ptr %.sroa.0.0.i.i.i.i, ptr %.0.i.i.i.i
-  %101 = getelementptr inbounds i8, ptr %0, i64 928
+  %101 = getelementptr inbounds nuw i8, ptr %0, i64 928
   %102 = load ptr, ptr %101, align 8
   %103 = icmp eq ptr %spec.select.i.i.i, %102
   br i1 %103, label %104, label %_ZN12_GLOBAL__N_122CanonicalizerAllocator8makeNodeIN4llvm16itanium_demangle11PostfixExprEJRPNS3_4NodeERSt17basic_string_viewIcSt11char_traitsIcEENS5_4PrecEEEES6_DpOT0_.exit
 
 104:                                              ; preds = %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i
-  %105 = getelementptr inbounds i8, ptr %0, i64 936
+  %105 = getelementptr inbounds nuw i8, ptr %0, i64 936
   store i8 1, ptr %105, align 8
   br label %_ZN12_GLOBAL__N_122CanonicalizerAllocator8makeNodeIN4llvm16itanium_demangle11PostfixExprEJRPNS3_4NodeERSt17basic_string_viewIcSt11char_traitsIcEENS5_4PrecEEEES6_DpOT0_.exit
 
@@ -21278,7 +21278,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   %5 = alloca %"class.llvm::FoldingSetNodeID", align 8
   %6 = alloca ptr, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 808
-  %8 = getelementptr inbounds i8, ptr %0, i64 937
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 937
   %9 = load i8, ptr %8, align 1
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
@@ -21294,7 +21294,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   call void @_ZN4llvm16FoldingSetNodeID10AddIntegerEy(ptr noundef nonnull align 8 dereferenceable(144) %5, i64 noundef %15)
   %16 = sext i32 %13 to i64
   call void @_ZN4llvm16FoldingSetNodeID10AddIntegerEy(ptr noundef nonnull align 8 dereferenceable(144) %5, i64 noundef %16)
-  %17 = getelementptr inbounds i8, ptr %0, i64 904
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 904
   %18 = call noundef ptr @_ZN4llvm14FoldingSetBase19FindNodeOrInsertPosERKNS_16FoldingSetNodeIDERPvRKNS0_14FoldingSetInfoE(ptr noundef nonnull align 8 dereferenceable(16) %17, ptr noundef nonnull align 8 dereferenceable(144) %5, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4llvm10FoldingSetIN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeaderEE17getFoldingSetInfoEvE4Info) #20
   %.not.i.i.i.i = icmp eq ptr %18, null
   br i1 %.not.i.i.i.i, label %21, label %19
@@ -21308,7 +21308,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   br i1 %22, label %23, label %59
 
 23:                                               ; preds = %21
-  %24 = getelementptr inbounds i8, ptr %0, i64 888
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 888
   %25 = load i64, ptr %24, align 8
   %26 = add i64 %25, 40
   store i64 %26, ptr %24, align 8
@@ -21317,7 +21317,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   %29 = add i64 %28, 7
   %30 = and i64 %29, -8
   %31 = add i64 %30, 40
-  %32 = getelementptr inbounds i8, ptr %0, i64 816
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 816
   %33 = load ptr, ptr %32, align 8
   %34 = ptrtoint ptr %33 to i64
   %.not.i.i.i.i.i.i = icmp ugt i64 %31, %34
@@ -21385,7 +21385,7 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   br i1 %.not.i.i.i.i, label %64, label %66
 
 64:                                               ; preds = %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle18ArraySubscriptExprEJRPNS3_4NodeES7_NS5_4PrecEEEESt4pairIS6_bEbDpOT0_.exit.i.i.i
-  %65 = getelementptr inbounds i8, ptr %0, i64 920
+  %65 = getelementptr inbounds nuw i8, ptr %0, i64 920
   store ptr %.sroa.0.0.i.i.i.i, ptr %65, align 8
   br label %_ZN12_GLOBAL__N_122CanonicalizerAllocator8makeNodeIN4llvm16itanium_demangle18ArraySubscriptExprEJRPNS3_4NodeES7_NS5_4PrecEEEES6_DpOT0_.exit
 
@@ -21394,14 +21394,14 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   br i1 %.not.i.i.i, label %_ZN12_GLOBAL__N_122CanonicalizerAllocator8makeNodeIN4llvm16itanium_demangle18ArraySubscriptExprEJRPNS3_4NodeES7_NS5_4PrecEEEES6_DpOT0_.exit, label %67
 
 67:                                               ; preds = %66
-  %68 = getelementptr inbounds i8, ptr %0, i64 944
+  %68 = getelementptr inbounds nuw i8, ptr %0, i64 944
   %69 = load i32, ptr %68, align 8
   %70 = and i32 %69, 1
   %.not.i.i.i.i.i.i.i.i.i = icmp eq i32 %70, 0
-  %71 = getelementptr inbounds i8, ptr %0, i64 952
+  %71 = getelementptr inbounds nuw i8, ptr %0, i64 952
   %72 = load ptr, ptr %71, align 8
   %73 = select i1 %.not.i.i.i.i.i.i.i.i.i, ptr %72, ptr %71
-  %74 = getelementptr inbounds i8, ptr %0, i64 960
+  %74 = getelementptr inbounds nuw i8, ptr %0, i64 960
   %75 = load i32, ptr %74, align 8
   %76 = select i1 %.not.i.i.i.i.i.i.i.i.i, i32 %75, i32 32
   %77 = icmp eq i32 %76, 0
@@ -21448,13 +21448,13 @@ _ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32EN
   %.0.i.i.i.i = phi ptr [ %100, %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i ], [ null, %67 ], [ null, %.lr.ph.i.i.i.i.i.i ]
   %.not11.i.i.i = icmp eq ptr %.0.i.i.i.i, null
   %spec.select.i.i.i = select i1 %.not11.i.i.i, ptr %.sroa.0.0.i.i.i.i, ptr %.0.i.i.i.i
-  %101 = getelementptr inbounds i8, ptr %0, i64 928
+  %101 = getelementptr inbounds nuw i8, ptr %0, i64 928
   %102 = load ptr, ptr %101, align 8
   %103 = icmp eq ptr %spec.select.i.i.i, %102
   br i1 %103, label %104, label %_ZN12_GLOBAL__N_122CanonicalizerAllocator8makeNodeIN4llvm16itanium_demangle18ArraySubscriptExprEJRPNS3_4NodeES7_NS5_4PrecEEEES6_DpOT0_.exit
 
 104:                                              ; preds = %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i
-  %105 = getelementptr inbounds i8, ptr %0, i64 936
+  %105 = getelementptr inbounds nuw i8, ptr %0, i64 936
   store i8 1, ptr %105, align 8
   br label %_ZN12_GLOBAL__N_122CanonicalizerAllocator8makeNodeIN4llvm16itanium_demangle18ArraySubscriptExprEJRPNS3_4NodeES7_NS5_4PrecEEEES6_DpOT0_.exit
 
@@ -21468,7 +21468,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   %6 = alloca %"class.llvm::FoldingSetNodeID", align 8
   %7 = alloca ptr, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 808
-  %9 = getelementptr inbounds i8, ptr %0, i64 937
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 937
   %10 = load i8, ptr %9, align 1
   %11 = trunc i8 %10 to i1
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %6)
@@ -21500,7 +21500,7 @@ _ZN12_GLOBAL__N_111profileCtorIJPN4llvm16itanium_demangle4NodeESt17basic_string_
   call void @_ZN4llvm16FoldingSetNodeID10AddIntegerEy(ptr noundef nonnull align 8 dereferenceable(144) %6, i64 noundef %20)
   %21 = sext i32 %15 to i64
   call void @_ZN4llvm16FoldingSetNodeID10AddIntegerEy(ptr noundef nonnull align 8 dereferenceable(144) %6, i64 noundef %21)
-  %22 = getelementptr inbounds i8, ptr %0, i64 904
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 904
   %23 = call noundef ptr @_ZN4llvm14FoldingSetBase19FindNodeOrInsertPosERKNS_16FoldingSetNodeIDERPvRKNS0_14FoldingSetInfoE(ptr noundef nonnull align 8 dereferenceable(16) %22, ptr noundef nonnull align 8 dereferenceable(144) %6, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4llvm10FoldingSetIN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeaderEE17getFoldingSetInfoEvE4Info) #20
   %.not.i.i.i.i = icmp eq ptr %23, null
   br i1 %.not.i.i.i.i, label %26, label %24
@@ -21513,7 +21513,7 @@ _ZN12_GLOBAL__N_111profileCtorIJPN4llvm16itanium_demangle4NodeESt17basic_string_
   br i1 %11, label %27, label %64
 
 27:                                               ; preds = %26
-  %28 = getelementptr inbounds i8, ptr %0, i64 888
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 888
   %29 = load i64, ptr %28, align 8
   %30 = add i64 %29, 56
   store i64 %30, ptr %28, align 8
@@ -21522,7 +21522,7 @@ _ZN12_GLOBAL__N_111profileCtorIJPN4llvm16itanium_demangle4NodeESt17basic_string_
   %33 = add i64 %32, 7
   %34 = and i64 %33, -8
   %35 = add i64 %34, 56
-  %36 = getelementptr inbounds i8, ptr %0, i64 816
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 816
   %37 = load ptr, ptr %36, align 8
   %38 = ptrtoint ptr %37 to i64
   %.not.i.i.i.i.i.i = icmp ugt i64 %35, %38
@@ -21596,7 +21596,7 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   br i1 %.not.i.i.i.i, label %69, label %71
 
 69:                                               ; preds = %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle10MemberExprEJRPNS3_4NodeERSt17basic_string_viewIcSt11char_traitsIcEES7_NS5_4PrecEEEESt4pairIS6_bEbDpOT0_.exit.i.i.i
-  %70 = getelementptr inbounds i8, ptr %0, i64 920
+  %70 = getelementptr inbounds nuw i8, ptr %0, i64 920
   store ptr %.sroa.0.0.i.i.i.i, ptr %70, align 8
   br label %_ZN12_GLOBAL__N_122CanonicalizerAllocator8makeNodeIN4llvm16itanium_demangle10MemberExprEJRPNS3_4NodeERSt17basic_string_viewIcSt11char_traitsIcEES7_NS5_4PrecEEEES6_DpOT0_.exit
 
@@ -21605,14 +21605,14 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   br i1 %.not.i.i.i, label %_ZN12_GLOBAL__N_122CanonicalizerAllocator8makeNodeIN4llvm16itanium_demangle10MemberExprEJRPNS3_4NodeERSt17basic_string_viewIcSt11char_traitsIcEES7_NS5_4PrecEEEES6_DpOT0_.exit, label %72
 
 72:                                               ; preds = %71
-  %73 = getelementptr inbounds i8, ptr %0, i64 944
+  %73 = getelementptr inbounds nuw i8, ptr %0, i64 944
   %74 = load i32, ptr %73, align 8
   %75 = and i32 %74, 1
   %.not.i.i.i.i.i.i.i.i.i = icmp eq i32 %75, 0
-  %76 = getelementptr inbounds i8, ptr %0, i64 952
+  %76 = getelementptr inbounds nuw i8, ptr %0, i64 952
   %77 = load ptr, ptr %76, align 8
   %78 = select i1 %.not.i.i.i.i.i.i.i.i.i, ptr %77, ptr %76
-  %79 = getelementptr inbounds i8, ptr %0, i64 960
+  %79 = getelementptr inbounds nuw i8, ptr %0, i64 960
   %80 = load i32, ptr %79, align 8
   %81 = select i1 %.not.i.i.i.i.i.i.i.i.i, i32 %80, i32 32
   %82 = icmp eq i32 %81, 0
@@ -21659,13 +21659,13 @@ _ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32EN
   %.0.i.i.i.i = phi ptr [ %105, %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i ], [ null, %72 ], [ null, %.lr.ph.i.i.i.i.i.i ]
   %.not12.i.i.i = icmp eq ptr %.0.i.i.i.i, null
   %spec.select.i.i.i = select i1 %.not12.i.i.i, ptr %.sroa.0.0.i.i.i.i, ptr %.0.i.i.i.i
-  %106 = getelementptr inbounds i8, ptr %0, i64 928
+  %106 = getelementptr inbounds nuw i8, ptr %0, i64 928
   %107 = load ptr, ptr %106, align 8
   %108 = icmp eq ptr %spec.select.i.i.i, %107
   br i1 %108, label %109, label %_ZN12_GLOBAL__N_122CanonicalizerAllocator8makeNodeIN4llvm16itanium_demangle10MemberExprEJRPNS3_4NodeERSt17basic_string_viewIcSt11char_traitsIcEES7_NS5_4PrecEEEES6_DpOT0_.exit
 
 109:                                              ; preds = %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i
-  %110 = getelementptr inbounds i8, ptr %0, i64 936
+  %110 = getelementptr inbounds nuw i8, ptr %0, i64 936
   store i8 1, ptr %110, align 8
   br label %_ZN12_GLOBAL__N_122CanonicalizerAllocator8makeNodeIN4llvm16itanium_demangle10MemberExprEJRPNS3_4NodeERSt17basic_string_viewIcSt11char_traitsIcEES7_NS5_4PrecEEEES6_DpOT0_.exit
 
@@ -21679,7 +21679,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   %8 = alloca %"class.llvm::FoldingSetNodeID", align 8
   %9 = alloca ptr, align 8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 808
-  %11 = getelementptr inbounds i8, ptr %0, i64 937
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 937
   %12 = load i8, ptr %11, align 1
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %8)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
@@ -21698,7 +21698,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   %18 = trunc i8 %17 to i1
   %19 = load i32, ptr %6, align 4
   call fastcc void @_ZN12_GLOBAL__N_111profileCtorIJN4llvm16itanium_demangle9NodeArrayEPNS2_4NodeES3_bbNS4_4PrecEEEEvRNS1_16FoldingSetNodeIDENS4_4KindEDpT_(ptr noundef nonnull align 8 dereferenceable(144) %8, ptr %.sroa.07.0.copyload.i.i.i.i, i64 %.sroa.28.0.copyload.i.i.i.i, ptr noundef %14, ptr %.sroa.0.0.copyload26.i.i.i.i, i64 %.sroa.2.0.copyload28.i.i.i.i, i1 noundef zeroext %16, i1 noundef zeroext %18, i32 noundef %19)
-  %20 = getelementptr inbounds i8, ptr %0, i64 904
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 904
   %21 = call noundef ptr @_ZN4llvm14FoldingSetBase19FindNodeOrInsertPosERKNS_16FoldingSetNodeIDERPvRKNS0_14FoldingSetInfoE(ptr noundef nonnull align 8 dereferenceable(16) %20, ptr noundef nonnull align 8 dereferenceable(144) %8, ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4llvm10FoldingSetIN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeaderEE17getFoldingSetInfoEvE4Info) #20
   %.not.i.i.i.i = icmp eq ptr %21, null
   br i1 %.not.i.i.i.i, label %24, label %22
@@ -21712,7 +21712,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   br i1 %25, label %26, label %68
 
 26:                                               ; preds = %24
-  %27 = getelementptr inbounds i8, ptr %0, i64 888
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 888
   %28 = load i64, ptr %27, align 8
   %29 = add i64 %28, 72
   store i64 %29, ptr %27, align 8
@@ -21721,7 +21721,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   %32 = add i64 %31, 7
   %33 = and i64 %32, -8
   %34 = add i64 %33, 72
-  %35 = getelementptr inbounds i8, ptr %0, i64 816
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 816
   %36 = load ptr, ptr %35, align 8
   %37 = ptrtoint ptr %36 to i64
   %.not.i.i.i.i.i.i = icmp ugt i64 %34, %37
@@ -21806,7 +21806,7 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   br i1 %.not.i.i.i.i, label %73, label %75
 
 73:                                               ; preds = %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle7NewExprEJRNS3_9NodeArrayERPNS3_4NodeES6_RbbNS7_4PrecEEEESt4pairIS8_bEbDpOT0_.exit.i.i.i
-  %74 = getelementptr inbounds i8, ptr %0, i64 920
+  %74 = getelementptr inbounds nuw i8, ptr %0, i64 920
   store ptr %.sroa.029.0.i.i.i.i, ptr %74, align 8
   br label %_ZN12_GLOBAL__N_122CanonicalizerAllocator8makeNodeIN4llvm16itanium_demangle7NewExprEJRNS3_9NodeArrayERPNS3_4NodeES6_RbbNS7_4PrecEEEES8_DpOT0_.exit
 
@@ -21815,14 +21815,14 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   br i1 %.not.i.i.i, label %_ZN12_GLOBAL__N_122CanonicalizerAllocator8makeNodeIN4llvm16itanium_demangle7NewExprEJRNS3_9NodeArrayERPNS3_4NodeES6_RbbNS7_4PrecEEEES8_DpOT0_.exit, label %76
 
 76:                                               ; preds = %75
-  %77 = getelementptr inbounds i8, ptr %0, i64 944
+  %77 = getelementptr inbounds nuw i8, ptr %0, i64 944
   %78 = load i32, ptr %77, align 8
   %79 = and i32 %78, 1
   %.not.i.i.i.i.i.i.i.i.i = icmp eq i32 %79, 0
-  %80 = getelementptr inbounds i8, ptr %0, i64 952
+  %80 = getelementptr inbounds nuw i8, ptr %0, i64 952
   %81 = load ptr, ptr %80, align 8
   %82 = select i1 %.not.i.i.i.i.i.i.i.i.i, ptr %81, ptr %80
-  %83 = getelementptr inbounds i8, ptr %0, i64 960
+  %83 = getelementptr inbounds nuw i8, ptr %0, i64 960
   %84 = load i32, ptr %83, align 8
   %85 = select i1 %.not.i.i.i.i.i.i.i.i.i, i32 %84, i32 32
   %86 = icmp eq i32 %85, 0
@@ -21869,13 +21869,13 @@ _ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32EN
   %.0.i.i.i.i = phi ptr [ %109, %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i ], [ null, %76 ], [ null, %.lr.ph.i.i.i.i.i.i ]
   %.not14.i.i.i = icmp eq ptr %.0.i.i.i.i, null
   %spec.select.i.i.i = select i1 %.not14.i.i.i, ptr %.sroa.029.0.i.i.i.i, ptr %.0.i.i.i.i
-  %110 = getelementptr inbounds i8, ptr %0, i64 928
+  %110 = getelementptr inbounds nuw i8, ptr %0, i64 928
   %111 = load ptr, ptr %110, align 8
   %112 = icmp eq ptr %spec.select.i.i.i, %111
   br i1 %112, label %113, label %_ZN12_GLOBAL__N_122CanonicalizerAllocator8makeNodeIN4llvm16itanium_demangle7NewExprEJRNS3_9NodeArrayERPNS3_4NodeES6_RbbNS7_4PrecEEEES8_DpOT0_.exit
 
 113:                                              ; preds = %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i
-  %114 = getelementptr inbounds i8, ptr %0, i64 936
+  %114 = getelementptr inbounds nuw i8, ptr %0, i64 936
   store i8 1, ptr %114, align 8
   br label %_ZN12_GLOBAL__N_122CanonicalizerAllocator8makeNodeIN4llvm16itanium_demangle7NewExprEJRNS3_9NodeArrayERPNS3_4NodeES6_RbbNS7_4PrecEEEES8_DpOT0_.exit
 
@@ -21889,7 +21889,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   %5 = alloca %"class.llvm::FoldingSetNodeID", align 8
   %6 = alloca ptr, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 808
-  %8 = getelementptr inbounds i8, ptr %0, i64 937
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 937
   %9 = load i8, ptr %8, align 1
   %10 = trunc i8 %9 to i1
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %5)
@@ -21921,7 +21921,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
 _ZN12_GLOBAL__N_111profileCtorIJPN4llvm16itanium_demangle4NodeENS2_9NodeArrayENS3_4PrecEEEEvRNS1_16FoldingSetNodeIDENS3_4KindEDpT_.exit.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i, %4
   %19 = sext i32 %13 to i64
   call void @_ZN4llvm16FoldingSetNodeID10AddIntegerEy(ptr noundef nonnull align 8 dereferenceable(144) %5, i64 noundef %19)
-  %20 = getelementptr inbounds i8, ptr %0, i64 904
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 904
   %21 = call noundef ptr @_ZN4llvm14FoldingSetBase19FindNodeOrInsertPosERKNS_16FoldingSetNodeIDERPvRKNS0_14FoldingSetInfoE(ptr noundef nonnull align 8 dereferenceable(16) %20, ptr noundef nonnull align 8 dereferenceable(144) %5, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4llvm10FoldingSetIN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeaderEE17getFoldingSetInfoEvE4Info) #20
   %.not.i.i.i.i = icmp eq ptr %21, null
   br i1 %.not.i.i.i.i, label %24, label %22
@@ -21934,7 +21934,7 @@ _ZN12_GLOBAL__N_111profileCtorIJPN4llvm16itanium_demangle4NodeENS2_9NodeArrayENS
   br i1 %10, label %25, label %60
 
 25:                                               ; preds = %24
-  %26 = getelementptr inbounds i8, ptr %0, i64 888
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 888
   %27 = load i64, ptr %26, align 8
   %28 = add i64 %27, 48
   store i64 %28, ptr %26, align 8
@@ -21943,7 +21943,7 @@ _ZN12_GLOBAL__N_111profileCtorIJPN4llvm16itanium_demangle4NodeENS2_9NodeArrayENS
   %31 = add i64 %30, 7
   %32 = and i64 %31, -8
   %33 = add i64 %32, 48
-  %34 = getelementptr inbounds i8, ptr %0, i64 816
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 816
   %35 = load ptr, ptr %34, align 8
   %36 = ptrtoint ptr %35 to i64
   %.not.i.i14.i.i.i.i = icmp ugt i64 %33, %36
@@ -22014,7 +22014,7 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   br i1 %.not.i.i.i.i, label %65, label %67
 
 65:                                               ; preds = %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle8CallExprEJRPNS3_4NodeENS3_9NodeArrayENS5_4PrecEEEESt4pairIS6_bEbDpOT0_.exit.i.i.i
-  %66 = getelementptr inbounds i8, ptr %0, i64 920
+  %66 = getelementptr inbounds nuw i8, ptr %0, i64 920
   store ptr %.sroa.0.0.i.i.i.i, ptr %66, align 8
   br label %_ZN12_GLOBAL__N_122CanonicalizerAllocator8makeNodeIN4llvm16itanium_demangle8CallExprEJRPNS3_4NodeENS3_9NodeArrayENS5_4PrecEEEES6_DpOT0_.exit
 
@@ -22023,14 +22023,14 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   br i1 %.not.i.i.i, label %_ZN12_GLOBAL__N_122CanonicalizerAllocator8makeNodeIN4llvm16itanium_demangle8CallExprEJRPNS3_4NodeENS3_9NodeArrayENS5_4PrecEEEES6_DpOT0_.exit, label %68
 
 68:                                               ; preds = %67
-  %69 = getelementptr inbounds i8, ptr %0, i64 944
+  %69 = getelementptr inbounds nuw i8, ptr %0, i64 944
   %70 = load i32, ptr %69, align 8
   %71 = and i32 %70, 1
   %.not.i.i.i.i.i.i.i.i.i = icmp eq i32 %71, 0
-  %72 = getelementptr inbounds i8, ptr %0, i64 952
+  %72 = getelementptr inbounds nuw i8, ptr %0, i64 952
   %73 = load ptr, ptr %72, align 8
   %74 = select i1 %.not.i.i.i.i.i.i.i.i.i, ptr %73, ptr %72
-  %75 = getelementptr inbounds i8, ptr %0, i64 960
+  %75 = getelementptr inbounds nuw i8, ptr %0, i64 960
   %76 = load i32, ptr %75, align 8
   %77 = select i1 %.not.i.i.i.i.i.i.i.i.i, i32 %76, i32 32
   %78 = icmp eq i32 %77, 0
@@ -22077,13 +22077,13 @@ _ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32EN
   %.0.i.i.i.i = phi ptr [ %101, %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i ], [ null, %68 ], [ null, %.lr.ph.i.i.i12.i.i.i ]
   %.not11.i.i.i = icmp eq ptr %.0.i.i.i.i, null
   %spec.select.i.i.i = select i1 %.not11.i.i.i, ptr %.sroa.0.0.i.i.i.i, ptr %.0.i.i.i.i
-  %102 = getelementptr inbounds i8, ptr %0, i64 928
+  %102 = getelementptr inbounds nuw i8, ptr %0, i64 928
   %103 = load ptr, ptr %102, align 8
   %104 = icmp eq ptr %spec.select.i.i.i, %103
   br i1 %104, label %105, label %_ZN12_GLOBAL__N_122CanonicalizerAllocator8makeNodeIN4llvm16itanium_demangle8CallExprEJRPNS3_4NodeENS3_9NodeArrayENS5_4PrecEEEES6_DpOT0_.exit
 
 105:                                              ; preds = %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i
-  %106 = getelementptr inbounds i8, ptr %0, i64 936
+  %106 = getelementptr inbounds nuw i8, ptr %0, i64 936
   store i8 1, ptr %106, align 8
   br label %_ZN12_GLOBAL__N_122CanonicalizerAllocator8makeNodeIN4llvm16itanium_demangle8CallExprEJRPNS3_4NodeENS3_9NodeArrayENS5_4PrecEEEES6_DpOT0_.exit
 
@@ -22097,7 +22097,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   %5 = alloca %"class.llvm::FoldingSetNodeID", align 8
   %6 = alloca ptr, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 808
-  %8 = getelementptr inbounds i8, ptr %0, i64 937
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 937
   %9 = load i8, ptr %8, align 1
   %10 = trunc i8 %9 to i1
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %5)
@@ -22129,7 +22129,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
 _ZN12_GLOBAL__N_111profileCtorIJPN4llvm16itanium_demangle4NodeENS2_9NodeArrayENS3_4PrecEEEEvRNS1_16FoldingSetNodeIDENS3_4KindEDpT_.exit.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i, %4
   %19 = sext i32 %13 to i64
   call void @_ZN4llvm16FoldingSetNodeID10AddIntegerEy(ptr noundef nonnull align 8 dereferenceable(144) %5, i64 noundef %19)
-  %20 = getelementptr inbounds i8, ptr %0, i64 904
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 904
   %21 = call noundef ptr @_ZN4llvm14FoldingSetBase19FindNodeOrInsertPosERKNS_16FoldingSetNodeIDERPvRKNS0_14FoldingSetInfoE(ptr noundef nonnull align 8 dereferenceable(16) %20, ptr noundef nonnull align 8 dereferenceable(144) %5, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4llvm10FoldingSetIN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeaderEE17getFoldingSetInfoEvE4Info) #20
   %.not.i.i.i.i = icmp eq ptr %21, null
   br i1 %.not.i.i.i.i, label %24, label %22
@@ -22142,7 +22142,7 @@ _ZN12_GLOBAL__N_111profileCtorIJPN4llvm16itanium_demangle4NodeENS2_9NodeArrayENS
   br i1 %10, label %25, label %60
 
 25:                                               ; preds = %24
-  %26 = getelementptr inbounds i8, ptr %0, i64 888
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 888
   %27 = load i64, ptr %26, align 8
   %28 = add i64 %27, 48
   store i64 %28, ptr %26, align 8
@@ -22151,7 +22151,7 @@ _ZN12_GLOBAL__N_111profileCtorIJPN4llvm16itanium_demangle4NodeENS2_9NodeArrayENS
   %31 = add i64 %30, 7
   %32 = and i64 %31, -8
   %33 = add i64 %32, 48
-  %34 = getelementptr inbounds i8, ptr %0, i64 816
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 816
   %35 = load ptr, ptr %34, align 8
   %36 = ptrtoint ptr %35 to i64
   %.not.i.i14.i.i.i.i = icmp ugt i64 %33, %36
@@ -22222,7 +22222,7 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   br i1 %.not.i.i.i.i, label %65, label %67
 
 65:                                               ; preds = %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle14ConversionExprEJRPNS3_4NodeERNS3_9NodeArrayENS5_4PrecEEEESt4pairIS6_bEbDpOT0_.exit.i.i.i
-  %66 = getelementptr inbounds i8, ptr %0, i64 920
+  %66 = getelementptr inbounds nuw i8, ptr %0, i64 920
   store ptr %.sroa.0.0.i.i.i.i, ptr %66, align 8
   br label %_ZN12_GLOBAL__N_122CanonicalizerAllocator8makeNodeIN4llvm16itanium_demangle14ConversionExprEJRPNS3_4NodeERNS3_9NodeArrayENS5_4PrecEEEES6_DpOT0_.exit
 
@@ -22231,14 +22231,14 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   br i1 %.not.i.i.i, label %_ZN12_GLOBAL__N_122CanonicalizerAllocator8makeNodeIN4llvm16itanium_demangle14ConversionExprEJRPNS3_4NodeERNS3_9NodeArrayENS5_4PrecEEEES6_DpOT0_.exit, label %68
 
 68:                                               ; preds = %67
-  %69 = getelementptr inbounds i8, ptr %0, i64 944
+  %69 = getelementptr inbounds nuw i8, ptr %0, i64 944
   %70 = load i32, ptr %69, align 8
   %71 = and i32 %70, 1
   %.not.i.i.i.i.i.i.i.i.i = icmp eq i32 %71, 0
-  %72 = getelementptr inbounds i8, ptr %0, i64 952
+  %72 = getelementptr inbounds nuw i8, ptr %0, i64 952
   %73 = load ptr, ptr %72, align 8
   %74 = select i1 %.not.i.i.i.i.i.i.i.i.i, ptr %73, ptr %72
-  %75 = getelementptr inbounds i8, ptr %0, i64 960
+  %75 = getelementptr inbounds nuw i8, ptr %0, i64 960
   %76 = load i32, ptr %75, align 8
   %77 = select i1 %.not.i.i.i.i.i.i.i.i.i, i32 %76, i32 32
   %78 = icmp eq i32 %77, 0
@@ -22285,13 +22285,13 @@ _ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32EN
   %.0.i.i.i.i = phi ptr [ %101, %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i ], [ null, %68 ], [ null, %.lr.ph.i.i.i12.i.i.i ]
   %.not11.i.i.i = icmp eq ptr %.0.i.i.i.i, null
   %spec.select.i.i.i = select i1 %.not11.i.i.i, ptr %.sroa.0.0.i.i.i.i, ptr %.0.i.i.i.i
-  %102 = getelementptr inbounds i8, ptr %0, i64 928
+  %102 = getelementptr inbounds nuw i8, ptr %0, i64 928
   %103 = load ptr, ptr %102, align 8
   %104 = icmp eq ptr %spec.select.i.i.i, %103
   br i1 %104, label %105, label %_ZN12_GLOBAL__N_122CanonicalizerAllocator8makeNodeIN4llvm16itanium_demangle14ConversionExprEJRPNS3_4NodeERNS3_9NodeArrayENS5_4PrecEEEES6_DpOT0_.exit
 
 105:                                              ; preds = %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i
-  %106 = getelementptr inbounds i8, ptr %0, i64 936
+  %106 = getelementptr inbounds nuw i8, ptr %0, i64 936
   store i8 1, ptr %106, align 8
   br label %_ZN12_GLOBAL__N_122CanonicalizerAllocator8makeNodeIN4llvm16itanium_demangle14ConversionExprEJRPNS3_4NodeERNS3_9NodeArrayENS5_4PrecEEEES6_DpOT0_.exit
 
@@ -22305,7 +22305,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   %6 = alloca %"class.llvm::FoldingSetNodeID", align 8
   %7 = alloca ptr, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 808
-  %9 = getelementptr inbounds i8, ptr %0, i64 937
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 937
   %10 = load i8, ptr %9, align 1
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
@@ -22324,7 +22324,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   call void @_ZN4llvm16FoldingSetNodeID10AddIntegerEy(ptr noundef nonnull align 8 dereferenceable(144) %6, i64 noundef %18)
   %19 = sext i32 %15 to i64
   call void @_ZN4llvm16FoldingSetNodeID10AddIntegerEy(ptr noundef nonnull align 8 dereferenceable(144) %6, i64 noundef %19)
-  %20 = getelementptr inbounds i8, ptr %0, i64 904
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 904
   %21 = call noundef ptr @_ZN4llvm14FoldingSetBase19FindNodeOrInsertPosERKNS_16FoldingSetNodeIDERPvRKNS0_14FoldingSetInfoE(ptr noundef nonnull align 8 dereferenceable(16) %20, ptr noundef nonnull align 8 dereferenceable(144) %6, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4llvm10FoldingSetIN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeaderEE17getFoldingSetInfoEvE4Info) #20
   %.not.i.i.i.i = icmp eq ptr %21, null
   br i1 %.not.i.i.i.i, label %24, label %22
@@ -22338,7 +22338,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   br i1 %25, label %26, label %64
 
 26:                                               ; preds = %24
-  %27 = getelementptr inbounds i8, ptr %0, i64 888
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 888
   %28 = load i64, ptr %27, align 8
   %29 = add i64 %28, 48
   store i64 %29, ptr %27, align 8
@@ -22347,7 +22347,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   %32 = add i64 %31, 7
   %33 = and i64 %32, -8
   %34 = add i64 %33, 48
-  %35 = getelementptr inbounds i8, ptr %0, i64 816
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 816
   %36 = load ptr, ptr %35, align 8
   %37 = ptrtoint ptr %36 to i64
   %.not.i.i.i.i.i.i = icmp ugt i64 %34, %37
@@ -22418,7 +22418,7 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   br i1 %.not.i.i.i.i, label %69, label %71
 
 69:                                               ; preds = %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle15ConditionalExprEJRPNS3_4NodeES7_S7_NS5_4PrecEEEESt4pairIS6_bEbDpOT0_.exit.i.i.i
-  %70 = getelementptr inbounds i8, ptr %0, i64 920
+  %70 = getelementptr inbounds nuw i8, ptr %0, i64 920
   store ptr %.sroa.0.0.i.i.i.i, ptr %70, align 8
   br label %_ZN12_GLOBAL__N_122CanonicalizerAllocator8makeNodeIN4llvm16itanium_demangle15ConditionalExprEJRPNS3_4NodeES7_S7_NS5_4PrecEEEES6_DpOT0_.exit
 
@@ -22427,14 +22427,14 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   br i1 %.not.i.i.i, label %_ZN12_GLOBAL__N_122CanonicalizerAllocator8makeNodeIN4llvm16itanium_demangle15ConditionalExprEJRPNS3_4NodeES7_S7_NS5_4PrecEEEES6_DpOT0_.exit, label %72
 
 72:                                               ; preds = %71
-  %73 = getelementptr inbounds i8, ptr %0, i64 944
+  %73 = getelementptr inbounds nuw i8, ptr %0, i64 944
   %74 = load i32, ptr %73, align 8
   %75 = and i32 %74, 1
   %.not.i.i.i.i.i.i.i.i.i = icmp eq i32 %75, 0
-  %76 = getelementptr inbounds i8, ptr %0, i64 952
+  %76 = getelementptr inbounds nuw i8, ptr %0, i64 952
   %77 = load ptr, ptr %76, align 8
   %78 = select i1 %.not.i.i.i.i.i.i.i.i.i, ptr %77, ptr %76
-  %79 = getelementptr inbounds i8, ptr %0, i64 960
+  %79 = getelementptr inbounds nuw i8, ptr %0, i64 960
   %80 = load i32, ptr %79, align 8
   %81 = select i1 %.not.i.i.i.i.i.i.i.i.i, i32 %80, i32 32
   %82 = icmp eq i32 %81, 0
@@ -22481,13 +22481,13 @@ _ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32EN
   %.0.i.i.i.i = phi ptr [ %105, %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i ], [ null, %72 ], [ null, %.lr.ph.i.i.i.i.i.i ]
   %.not12.i.i.i = icmp eq ptr %.0.i.i.i.i, null
   %spec.select.i.i.i = select i1 %.not12.i.i.i, ptr %.sroa.0.0.i.i.i.i, ptr %.0.i.i.i.i
-  %106 = getelementptr inbounds i8, ptr %0, i64 928
+  %106 = getelementptr inbounds nuw i8, ptr %0, i64 928
   %107 = load ptr, ptr %106, align 8
   %108 = icmp eq ptr %spec.select.i.i.i, %107
   br i1 %108, label %109, label %_ZN12_GLOBAL__N_122CanonicalizerAllocator8makeNodeIN4llvm16itanium_demangle15ConditionalExprEJRPNS3_4NodeES7_S7_NS5_4PrecEEEES6_DpOT0_.exit
 
 109:                                              ; preds = %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i
-  %110 = getelementptr inbounds i8, ptr %0, i64 936
+  %110 = getelementptr inbounds nuw i8, ptr %0, i64 936
   store i8 1, ptr %110, align 8
   br label %_ZN12_GLOBAL__N_122CanonicalizerAllocator8makeNodeIN4llvm16itanium_demangle15ConditionalExprEJRPNS3_4NodeES7_S7_NS5_4PrecEEEES6_DpOT0_.exit
 
@@ -22501,7 +22501,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   %6 = alloca %"class.llvm::FoldingSetNodeID", align 8
   %7 = alloca ptr, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 808
-  %9 = getelementptr inbounds i8, ptr %0, i64 937
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 937
   %10 = load i8, ptr %9, align 1
   %11 = trunc i8 %10 to i1
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %6)
@@ -22533,7 +22533,7 @@ _ZN12_GLOBAL__N_111profileCtorIJSt17basic_string_viewIcSt11char_traitsIcEEPN4llv
   call void @_ZN4llvm16FoldingSetNodeID10AddIntegerEy(ptr noundef nonnull align 8 dereferenceable(144) %6, i64 noundef %20)
   %21 = sext i32 %15 to i64
   call void @_ZN4llvm16FoldingSetNodeID10AddIntegerEy(ptr noundef nonnull align 8 dereferenceable(144) %6, i64 noundef %21)
-  %22 = getelementptr inbounds i8, ptr %0, i64 904
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 904
   %23 = call noundef ptr @_ZN4llvm14FoldingSetBase19FindNodeOrInsertPosERKNS_16FoldingSetNodeIDERPvRKNS0_14FoldingSetInfoE(ptr noundef nonnull align 8 dereferenceable(16) %22, ptr noundef nonnull align 8 dereferenceable(144) %6, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4llvm10FoldingSetIN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeaderEE17getFoldingSetInfoEvE4Info) #20
   %.not.i.i.i.i = icmp eq ptr %23, null
   br i1 %.not.i.i.i.i, label %26, label %24
@@ -22546,7 +22546,7 @@ _ZN12_GLOBAL__N_111profileCtorIJSt17basic_string_viewIcSt11char_traitsIcEEPN4llv
   br i1 %11, label %27, label %64
 
 27:                                               ; preds = %26
-  %28 = getelementptr inbounds i8, ptr %0, i64 888
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 888
   %29 = load i64, ptr %28, align 8
   %30 = add i64 %29, 56
   store i64 %30, ptr %28, align 8
@@ -22555,7 +22555,7 @@ _ZN12_GLOBAL__N_111profileCtorIJSt17basic_string_viewIcSt11char_traitsIcEEPN4llv
   %33 = add i64 %32, 7
   %34 = and i64 %33, -8
   %35 = add i64 %34, 56
-  %36 = getelementptr inbounds i8, ptr %0, i64 816
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 816
   %37 = load ptr, ptr %36, align 8
   %38 = ptrtoint ptr %37 to i64
   %.not.i.i.i.i.i.i = icmp ugt i64 %35, %38
@@ -22629,7 +22629,7 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   br i1 %.not.i.i.i.i, label %69, label %71
 
 69:                                               ; preds = %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle8CastExprEJRSt17basic_string_viewIcSt11char_traitsIcEERPNS3_4NodeESC_NSA_4PrecEEEESt4pairISB_bEbDpOT0_.exit.i.i.i
-  %70 = getelementptr inbounds i8, ptr %0, i64 920
+  %70 = getelementptr inbounds nuw i8, ptr %0, i64 920
   store ptr %.sroa.0.0.i.i.i.i, ptr %70, align 8
   br label %_ZN12_GLOBAL__N_122CanonicalizerAllocator8makeNodeIN4llvm16itanium_demangle8CastExprEJRSt17basic_string_viewIcSt11char_traitsIcEERPNS3_4NodeESC_NSA_4PrecEEEESB_DpOT0_.exit
 
@@ -22638,14 +22638,14 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   br i1 %.not.i.i.i, label %_ZN12_GLOBAL__N_122CanonicalizerAllocator8makeNodeIN4llvm16itanium_demangle8CastExprEJRSt17basic_string_viewIcSt11char_traitsIcEERPNS3_4NodeESC_NSA_4PrecEEEESB_DpOT0_.exit, label %72
 
 72:                                               ; preds = %71
-  %73 = getelementptr inbounds i8, ptr %0, i64 944
+  %73 = getelementptr inbounds nuw i8, ptr %0, i64 944
   %74 = load i32, ptr %73, align 8
   %75 = and i32 %74, 1
   %.not.i.i.i.i.i.i.i.i.i = icmp eq i32 %75, 0
-  %76 = getelementptr inbounds i8, ptr %0, i64 952
+  %76 = getelementptr inbounds nuw i8, ptr %0, i64 952
   %77 = load ptr, ptr %76, align 8
   %78 = select i1 %.not.i.i.i.i.i.i.i.i.i, ptr %77, ptr %76
-  %79 = getelementptr inbounds i8, ptr %0, i64 960
+  %79 = getelementptr inbounds nuw i8, ptr %0, i64 960
   %80 = load i32, ptr %79, align 8
   %81 = select i1 %.not.i.i.i.i.i.i.i.i.i, i32 %80, i32 32
   %82 = icmp eq i32 %81, 0
@@ -22692,13 +22692,13 @@ _ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32EN
   %.0.i.i.i.i = phi ptr [ %105, %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i ], [ null, %72 ], [ null, %.lr.ph.i.i.i.i.i.i ]
   %.not12.i.i.i = icmp eq ptr %.0.i.i.i.i, null
   %spec.select.i.i.i = select i1 %.not12.i.i.i, ptr %.sroa.0.0.i.i.i.i, ptr %.0.i.i.i.i
-  %106 = getelementptr inbounds i8, ptr %0, i64 928
+  %106 = getelementptr inbounds nuw i8, ptr %0, i64 928
   %107 = load ptr, ptr %106, align 8
   %108 = icmp eq ptr %spec.select.i.i.i, %107
   br i1 %108, label %109, label %_ZN12_GLOBAL__N_122CanonicalizerAllocator8makeNodeIN4llvm16itanium_demangle8CastExprEJRSt17basic_string_viewIcSt11char_traitsIcEERPNS3_4NodeESC_NSA_4PrecEEEESB_DpOT0_.exit
 
 109:                                              ; preds = %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i
-  %110 = getelementptr inbounds i8, ptr %0, i64 936
+  %110 = getelementptr inbounds nuw i8, ptr %0, i64 936
   store i8 1, ptr %110, align 8
   br label %_ZN12_GLOBAL__N_122CanonicalizerAllocator8makeNodeIN4llvm16itanium_demangle8CastExprEJRSt17basic_string_viewIcSt11char_traitsIcEERPNS3_4NodeESC_NSA_4PrecEEEESB_DpOT0_.exit
 
@@ -22923,7 +22923,7 @@ _ZN12_GLOBAL__N_111profileCtorIJSt17basic_string_viewIcSt11char_traitsIcEEEEEvRN
   %95 = getelementptr inbounds i8, ptr %14, i64 11
   store ptr %95, ptr %0, align 8
   %96 = getelementptr inbounds nuw i8, ptr %0, i64 808
-  %97 = getelementptr inbounds i8, ptr %0, i64 937
+  %97 = getelementptr inbounds nuw i8, ptr %0, i64 937
   %98 = load i8, ptr %97, align 1
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
@@ -22931,7 +22931,7 @@ _ZN12_GLOBAL__N_111profileCtorIJSt17basic_string_viewIcSt11char_traitsIcEEEEEvRN
   call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull %99, i64 noundef 32) #20
   call void @_ZN4llvm16FoldingSetNodeID10AddIntegerEy(ptr noundef nonnull align 8 dereferenceable(144) %6, i64 noundef 78)
   call void @_ZN4llvm16FoldingSetNodeID9AddStringENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(144) %6, ptr nonnull %80, i64 8) #20
-  %100 = getelementptr inbounds i8, ptr %0, i64 904
+  %100 = getelementptr inbounds nuw i8, ptr %0, i64 904
   %101 = call noundef ptr @_ZN4llvm14FoldingSetBase19FindNodeOrInsertPosERKNS_16FoldingSetNodeIDERPvRKNS0_14FoldingSetInfoE(ptr noundef nonnull align 8 dereferenceable(16) %100, ptr noundef nonnull align 8 dereferenceable(144) %6, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4llvm10FoldingSetIN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeaderEE17getFoldingSetInfoEvE4Info) #20
   %.not.i.i.i.i.i.i = icmp eq ptr %101, null
   br i1 %.not.i.i.i.i.i.i, label %104, label %102
@@ -22945,7 +22945,7 @@ _ZN12_GLOBAL__N_111profileCtorIJSt17basic_string_viewIcSt11char_traitsIcEEEEEvRN
   br i1 %105, label %106, label %135
 
 106:                                              ; preds = %104
-  %107 = getelementptr inbounds i8, ptr %0, i64 888
+  %107 = getelementptr inbounds nuw i8, ptr %0, i64 888
   %108 = load i64, ptr %107, align 8
   %109 = add i64 %108, 40
   store i64 %109, ptr %107, align 8
@@ -22954,7 +22954,7 @@ _ZN12_GLOBAL__N_111profileCtorIJSt17basic_string_viewIcSt11char_traitsIcEEEEEvRN
   %112 = add i64 %111, 7
   %113 = and i64 %112, -8
   %114 = add i64 %113, 40
-  %115 = getelementptr inbounds i8, ptr %0, i64 816
+  %115 = getelementptr inbounds nuw i8, ptr %0, i64 816
   %116 = load ptr, ptr %115, align 8
   %117 = ptrtoint ptr %116 to i64
   %.not.i.i.i.i.i.i.i.i = icmp ugt i64 %114, %117
@@ -23016,7 +23016,7 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   br i1 %.not.i.i.i.i.i.i, label %140, label %142
 
 140:                                              ; preds = %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle16FloatLiteralImplIfEEJRSt17basic_string_viewIcSt11char_traitsIcEEEEESt4pairIPNS3_4NodeEbEbDpOT0_.exit.i.i.i.i.i
-  %141 = getelementptr inbounds i8, ptr %0, i64 920
+  %141 = getelementptr inbounds nuw i8, ptr %0, i64 920
   store ptr %.sroa.0.0.i.i.i.i.i.i, ptr %141, align 8
   br label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E20parseFloatingLiteralIfEEPNS0_4NodeEv.exit
 
@@ -23025,14 +23025,14 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   br i1 %.not.i.i.i.i.i, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E20parseFloatingLiteralIfEEPNS0_4NodeEv.exit, label %143
 
 143:                                              ; preds = %142
-  %144 = getelementptr inbounds i8, ptr %0, i64 944
+  %144 = getelementptr inbounds nuw i8, ptr %0, i64 944
   %145 = load i32, ptr %144, align 8
   %146 = and i32 %145, 1
   %.not.i.i.i.i.i.i.i.i.i.i.i = icmp eq i32 %146, 0
-  %147 = getelementptr inbounds i8, ptr %0, i64 952
+  %147 = getelementptr inbounds nuw i8, ptr %0, i64 952
   %148 = load ptr, ptr %147, align 8
   %149 = select i1 %.not.i.i.i.i.i.i.i.i.i.i.i, ptr %148, ptr %147
-  %150 = getelementptr inbounds i8, ptr %0, i64 960
+  %150 = getelementptr inbounds nuw i8, ptr %0, i64 960
   %151 = load i32, ptr %150, align 8
   %152 = select i1 %.not.i.i.i.i.i.i.i.i.i.i.i, i32 %151, i32 32
   %153 = icmp eq i32 %152, 0
@@ -23079,13 +23079,13 @@ _ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32EN
   %.0.i.i.i.i.i.i = phi ptr [ %176, %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i.i.i ], [ null, %143 ], [ null, %.lr.ph.i.i.i.i.i.i.i.i ]
   %.not9.i.i.i.i.i = icmp eq ptr %.0.i.i.i.i.i.i, null
   %spec.select.i.i.i.i.i = select i1 %.not9.i.i.i.i.i, ptr %.sroa.0.0.i.i.i.i.i.i, ptr %.0.i.i.i.i.i.i
-  %177 = getelementptr inbounds i8, ptr %0, i64 928
+  %177 = getelementptr inbounds nuw i8, ptr %0, i64 928
   %178 = load ptr, ptr %177, align 8
   %179 = icmp eq ptr %spec.select.i.i.i.i.i, %178
   br i1 %179, label %180, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E20parseFloatingLiteralIfEEPNS0_4NodeEv.exit
 
 180:                                              ; preds = %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i.i.i
-  %181 = getelementptr inbounds i8, ptr %0, i64 936
+  %181 = getelementptr inbounds nuw i8, ptr %0, i64 936
   store i8 1, ptr %181, align 8
   br label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E20parseFloatingLiteralIfEEPNS0_4NodeEv.exit
 
@@ -23131,7 +23131,7 @@ _ZN12_GLOBAL__N_111profileCtorIJSt17basic_string_viewIcSt11char_traitsIcEEEEEvRN
   %198 = getelementptr inbounds i8, ptr %14, i64 19
   store ptr %198, ptr %0, align 8
   %199 = getelementptr inbounds nuw i8, ptr %0, i64 808
-  %200 = getelementptr inbounds i8, ptr %0, i64 937
+  %200 = getelementptr inbounds nuw i8, ptr %0, i64 937
   %201 = load i8, ptr %200, align 1
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
@@ -23139,7 +23139,7 @@ _ZN12_GLOBAL__N_111profileCtorIJSt17basic_string_viewIcSt11char_traitsIcEEEEEvRN
   call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull %202, i64 noundef 32) #20
   call void @_ZN4llvm16FoldingSetNodeID10AddIntegerEy(ptr noundef nonnull align 8 dereferenceable(144) %4, i64 noundef 79)
   call void @_ZN4llvm16FoldingSetNodeID9AddStringENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(144) %4, ptr nonnull %183, i64 16) #20
-  %203 = getelementptr inbounds i8, ptr %0, i64 904
+  %203 = getelementptr inbounds nuw i8, ptr %0, i64 904
   %204 = call noundef ptr @_ZN4llvm14FoldingSetBase19FindNodeOrInsertPosERKNS_16FoldingSetNodeIDERPvRKNS0_14FoldingSetInfoE(ptr noundef nonnull align 8 dereferenceable(16) %203, ptr noundef nonnull align 8 dereferenceable(144) %4, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4llvm10FoldingSetIN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeaderEE17getFoldingSetInfoEvE4Info) #20
   %.not.i.i.i.i.i.i26 = icmp eq ptr %204, null
   br i1 %.not.i.i.i.i.i.i26, label %207, label %205
@@ -23153,7 +23153,7 @@ _ZN12_GLOBAL__N_111profileCtorIJSt17basic_string_viewIcSt11char_traitsIcEEEEEvRN
   br i1 %208, label %209, label %238
 
 209:                                              ; preds = %207
-  %210 = getelementptr inbounds i8, ptr %0, i64 888
+  %210 = getelementptr inbounds nuw i8, ptr %0, i64 888
   %211 = load i64, ptr %210, align 8
   %212 = add i64 %211, 40
   store i64 %212, ptr %210, align 8
@@ -23162,7 +23162,7 @@ _ZN12_GLOBAL__N_111profileCtorIJSt17basic_string_viewIcSt11char_traitsIcEEEEEvRN
   %215 = add i64 %214, 7
   %216 = and i64 %215, -8
   %217 = add i64 %216, 40
-  %218 = getelementptr inbounds i8, ptr %0, i64 816
+  %218 = getelementptr inbounds nuw i8, ptr %0, i64 816
   %219 = load ptr, ptr %218, align 8
   %220 = ptrtoint ptr %219 to i64
   %.not.i.i.i.i.i.i.i.i40 = icmp ugt i64 %217, %220
@@ -23224,7 +23224,7 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   br i1 %.not.i.i.i.i.i.i26, label %243, label %245
 
 243:                                              ; preds = %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle16FloatLiteralImplIdEEJRSt17basic_string_viewIcSt11char_traitsIcEEEEESt4pairIPNS3_4NodeEbEbDpOT0_.exit.i.i.i.i.i
-  %244 = getelementptr inbounds i8, ptr %0, i64 920
+  %244 = getelementptr inbounds nuw i8, ptr %0, i64 920
   store ptr %.sroa.0.0.i.i.i.i.i.i27, ptr %244, align 8
   br label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E20parseFloatingLiteralIfEEPNS0_4NodeEv.exit
 
@@ -23233,14 +23233,14 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   br i1 %.not.i.i.i.i.i28, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E20parseFloatingLiteralIfEEPNS0_4NodeEv.exit, label %246
 
 246:                                              ; preds = %245
-  %247 = getelementptr inbounds i8, ptr %0, i64 944
+  %247 = getelementptr inbounds nuw i8, ptr %0, i64 944
   %248 = load i32, ptr %247, align 8
   %249 = and i32 %248, 1
   %.not.i.i.i.i.i.i.i.i.i.i.i29 = icmp eq i32 %249, 0
-  %250 = getelementptr inbounds i8, ptr %0, i64 952
+  %250 = getelementptr inbounds nuw i8, ptr %0, i64 952
   %251 = load ptr, ptr %250, align 8
   %252 = select i1 %.not.i.i.i.i.i.i.i.i.i.i.i29, ptr %251, ptr %250
-  %253 = getelementptr inbounds i8, ptr %0, i64 960
+  %253 = getelementptr inbounds nuw i8, ptr %0, i64 960
   %254 = load i32, ptr %253, align 8
   %255 = select i1 %.not.i.i.i.i.i.i.i.i.i.i.i29, i32 %254, i32 32
   %256 = icmp eq i32 %255, 0
@@ -23287,13 +23287,13 @@ _ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32EN
   %.0.i.i.i.i.i.i37 = phi ptr [ %279, %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i.i.i35 ], [ null, %246 ], [ null, %.lr.ph.i.i.i.i.i.i.i.i31 ]
   %.not9.i.i.i.i.i38 = icmp eq ptr %.0.i.i.i.i.i.i37, null
   %spec.select.i.i.i.i.i39 = select i1 %.not9.i.i.i.i.i38, ptr %.sroa.0.0.i.i.i.i.i.i27, ptr %.0.i.i.i.i.i.i37
-  %280 = getelementptr inbounds i8, ptr %0, i64 928
+  %280 = getelementptr inbounds nuw i8, ptr %0, i64 928
   %281 = load ptr, ptr %280, align 8
   %282 = icmp eq ptr %spec.select.i.i.i.i.i39, %281
   br i1 %282, label %283, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E20parseFloatingLiteralIfEEPNS0_4NodeEv.exit
 
 283:                                              ; preds = %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i.i.i36
-  %284 = getelementptr inbounds i8, ptr %0, i64 936
+  %284 = getelementptr inbounds nuw i8, ptr %0, i64 936
   store i8 1, ptr %284, align 8
   br label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E20parseFloatingLiteralIfEEPNS0_4NodeEv.exit
 
@@ -23339,7 +23339,7 @@ _ZN12_GLOBAL__N_111profileCtorIJSt17basic_string_viewIcSt11char_traitsIcEEEEEvRN
   %301 = getelementptr inbounds i8, ptr %14, i64 23
   store ptr %301, ptr %0, align 8
   %302 = getelementptr inbounds nuw i8, ptr %0, i64 808
-  %303 = getelementptr inbounds i8, ptr %0, i64 937
+  %303 = getelementptr inbounds nuw i8, ptr %0, i64 937
   %304 = load i8, ptr %303, align 1
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %2)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
@@ -23347,7 +23347,7 @@ _ZN12_GLOBAL__N_111profileCtorIJSt17basic_string_viewIcSt11char_traitsIcEEEEEvRN
   call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull %305, i64 noundef 32) #20
   call void @_ZN4llvm16FoldingSetNodeID10AddIntegerEy(ptr noundef nonnull align 8 dereferenceable(144) %2, i64 noundef 80)
   call void @_ZN4llvm16FoldingSetNodeID9AddStringENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(144) %2, ptr nonnull %286, i64 20) #20
-  %306 = getelementptr inbounds i8, ptr %0, i64 904
+  %306 = getelementptr inbounds nuw i8, ptr %0, i64 904
   %307 = call noundef ptr @_ZN4llvm14FoldingSetBase19FindNodeOrInsertPosERKNS_16FoldingSetNodeIDERPvRKNS0_14FoldingSetInfoE(ptr noundef nonnull align 8 dereferenceable(16) %306, ptr noundef nonnull align 8 dereferenceable(144) %2, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4llvm10FoldingSetIN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeaderEE17getFoldingSetInfoEvE4Info) #20
   %.not.i.i.i.i.i.i60 = icmp eq ptr %307, null
   br i1 %.not.i.i.i.i.i.i60, label %310, label %308
@@ -23361,7 +23361,7 @@ _ZN12_GLOBAL__N_111profileCtorIJSt17basic_string_viewIcSt11char_traitsIcEEEEEvRN
   br i1 %311, label %312, label %341
 
 312:                                              ; preds = %310
-  %313 = getelementptr inbounds i8, ptr %0, i64 888
+  %313 = getelementptr inbounds nuw i8, ptr %0, i64 888
   %314 = load i64, ptr %313, align 8
   %315 = add i64 %314, 40
   store i64 %315, ptr %313, align 8
@@ -23370,7 +23370,7 @@ _ZN12_GLOBAL__N_111profileCtorIJSt17basic_string_viewIcSt11char_traitsIcEEEEEvRN
   %318 = add i64 %317, 7
   %319 = and i64 %318, -8
   %320 = add i64 %319, 40
-  %321 = getelementptr inbounds i8, ptr %0, i64 816
+  %321 = getelementptr inbounds nuw i8, ptr %0, i64 816
   %322 = load ptr, ptr %321, align 8
   %323 = ptrtoint ptr %322 to i64
   %.not.i.i.i.i.i.i.i.i74 = icmp ugt i64 %320, %323
@@ -23432,7 +23432,7 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   br i1 %.not.i.i.i.i.i.i60, label %346, label %348
 
 346:                                              ; preds = %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle16FloatLiteralImplIeEEJRSt17basic_string_viewIcSt11char_traitsIcEEEEESt4pairIPNS3_4NodeEbEbDpOT0_.exit.i.i.i.i.i
-  %347 = getelementptr inbounds i8, ptr %0, i64 920
+  %347 = getelementptr inbounds nuw i8, ptr %0, i64 920
   store ptr %.sroa.0.0.i.i.i.i.i.i61, ptr %347, align 8
   br label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E20parseFloatingLiteralIfEEPNS0_4NodeEv.exit
 
@@ -23441,14 +23441,14 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   br i1 %.not.i.i.i.i.i62, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E20parseFloatingLiteralIfEEPNS0_4NodeEv.exit, label %349
 
 349:                                              ; preds = %348
-  %350 = getelementptr inbounds i8, ptr %0, i64 944
+  %350 = getelementptr inbounds nuw i8, ptr %0, i64 944
   %351 = load i32, ptr %350, align 8
   %352 = and i32 %351, 1
   %.not.i.i.i.i.i.i.i.i.i.i.i63 = icmp eq i32 %352, 0
-  %353 = getelementptr inbounds i8, ptr %0, i64 952
+  %353 = getelementptr inbounds nuw i8, ptr %0, i64 952
   %354 = load ptr, ptr %353, align 8
   %355 = select i1 %.not.i.i.i.i.i.i.i.i.i.i.i63, ptr %354, ptr %353
-  %356 = getelementptr inbounds i8, ptr %0, i64 960
+  %356 = getelementptr inbounds nuw i8, ptr %0, i64 960
   %357 = load i32, ptr %356, align 8
   %358 = select i1 %.not.i.i.i.i.i.i.i.i.i.i.i63, i32 %357, i32 32
   %359 = icmp eq i32 %358, 0
@@ -23495,13 +23495,13 @@ _ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32EN
   %.0.i.i.i.i.i.i71 = phi ptr [ %382, %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i.i.i69 ], [ null, %349 ], [ null, %.lr.ph.i.i.i.i.i.i.i.i65 ]
   %.not9.i.i.i.i.i72 = icmp eq ptr %.0.i.i.i.i.i.i71, null
   %spec.select.i.i.i.i.i73 = select i1 %.not9.i.i.i.i.i72, ptr %.sroa.0.0.i.i.i.i.i.i61, ptr %.0.i.i.i.i.i.i71
-  %383 = getelementptr inbounds i8, ptr %0, i64 928
+  %383 = getelementptr inbounds nuw i8, ptr %0, i64 928
   %384 = load ptr, ptr %383, align 8
   %385 = icmp eq ptr %spec.select.i.i.i.i.i73, %384
   br i1 %385, label %386, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E20parseFloatingLiteralIfEEPNS0_4NodeEv.exit
 
 386:                                              ; preds = %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i.i.i70
-  %387 = getelementptr inbounds i8, ptr %0, i64 936
+  %387 = getelementptr inbounds nuw i8, ptr %0, i64 936
   store i8 1, ptr %387, align 8
   br label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E20parseFloatingLiteralIfEEPNS0_4NodeEv.exit
 
@@ -24095,7 +24095,7 @@ _ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLO
 
 46:                                               ; preds = %43
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 808
-  %48 = getelementptr inbounds i8, ptr %0, i64 937
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 937
   %49 = load i8, ptr %48, align 1
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %2)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
@@ -24108,7 +24108,7 @@ _ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLO
   call void @_ZN4llvm16FoldingSetNodeID10AddIntegerEy(ptr noundef nonnull align 8 dereferenceable(144) %2, i64 noundef %52)
   %53 = ptrtoint ptr %44 to i64
   call void @_ZN4llvm16FoldingSetNodeID10AddIntegerEy(ptr noundef nonnull align 8 dereferenceable(144) %2, i64 noundef %53)
-  %54 = getelementptr inbounds i8, ptr %0, i64 904
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 904
   %55 = call noundef ptr @_ZN4llvm14FoldingSetBase19FindNodeOrInsertPosERKNS_16FoldingSetNodeIDERPvRKNS0_14FoldingSetInfoE(ptr noundef nonnull align 8 dereferenceable(16) %54, ptr noundef nonnull align 8 dereferenceable(144) %2, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4llvm10FoldingSetIN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeaderEE17getFoldingSetInfoEvE4Info) #20
   %.not.i.i.i.i.i = icmp eq ptr %55, null
   br i1 %.not.i.i.i.i.i, label %58, label %56
@@ -24122,7 +24122,7 @@ _ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLO
   br i1 %59, label %60, label %91
 
 60:                                               ; preds = %58
-  %61 = getelementptr inbounds i8, ptr %0, i64 888
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 888
   %62 = load i64, ptr %61, align 8
   %63 = add i64 %62, 48
   store i64 %63, ptr %61, align 8
@@ -24131,7 +24131,7 @@ _ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLO
   %66 = add i64 %65, 7
   %67 = and i64 %66, -8
   %68 = add i64 %67, 48
-  %69 = getelementptr inbounds i8, ptr %0, i64 816
+  %69 = getelementptr inbounds nuw i8, ptr %0, i64 816
   %70 = load ptr, ptr %69, align 8
   %71 = ptrtoint ptr %70 to i64
   %.not.i.i.i.i.i.i.i = icmp ugt i64 %68, %71
@@ -24195,7 +24195,7 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   br i1 %.not.i.i.i.i.i, label %96, label %98
 
 96:                                               ; preds = %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle15BracedRangeExprEJRPNS3_4NodeES7_S7_EEESt4pairIS6_bEbDpOT0_.exit.i.i.i.i
-  %97 = getelementptr inbounds i8, ptr %0, i64 920
+  %97 = getelementptr inbounds nuw i8, ptr %0, i64 920
   store ptr %.sroa.0.0.i.i.i.i.i, ptr %97, align 8
   br label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_15BracedRangeExprEJRPNS0_4NodeESB_SB_EEESA_DpOT0_.exit
 
@@ -24204,14 +24204,14 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   br i1 %.not.i.i.i.i, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_15BracedRangeExprEJRPNS0_4NodeESB_SB_EEESA_DpOT0_.exit, label %99
 
 99:                                               ; preds = %98
-  %100 = getelementptr inbounds i8, ptr %0, i64 944
+  %100 = getelementptr inbounds nuw i8, ptr %0, i64 944
   %101 = load i32, ptr %100, align 8
   %102 = and i32 %101, 1
   %.not.i.i.i.i.i.i.i.i.i.i = icmp eq i32 %102, 0
-  %103 = getelementptr inbounds i8, ptr %0, i64 952
+  %103 = getelementptr inbounds nuw i8, ptr %0, i64 952
   %104 = load ptr, ptr %103, align 8
   %105 = select i1 %.not.i.i.i.i.i.i.i.i.i.i, ptr %104, ptr %103
-  %106 = getelementptr inbounds i8, ptr %0, i64 960
+  %106 = getelementptr inbounds nuw i8, ptr %0, i64 960
   %107 = load i32, ptr %106, align 8
   %108 = select i1 %.not.i.i.i.i.i.i.i.i.i.i, i32 %107, i32 32
   %109 = icmp eq i32 %108, 0
@@ -24258,13 +24258,13 @@ _ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32EN
   %.0.i.i.i.i.i = phi ptr [ %132, %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i.i ], [ null, %99 ], [ null, %.lr.ph.i.i.i.i.i.i.i ]
   %.not11.i.i.i.i = icmp eq ptr %.0.i.i.i.i.i, null
   %spec.select.i.i.i.i = select i1 %.not11.i.i.i.i, ptr %.sroa.0.0.i.i.i.i.i, ptr %.0.i.i.i.i.i
-  %133 = getelementptr inbounds i8, ptr %0, i64 928
+  %133 = getelementptr inbounds nuw i8, ptr %0, i64 928
   %134 = load ptr, ptr %133, align 8
   %135 = icmp eq ptr %spec.select.i.i.i.i, %134
   br i1 %135, label %136, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_15BracedRangeExprEJRPNS0_4NodeESB_SB_EEESA_DpOT0_.exit
 
 136:                                              ; preds = %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i.i
-  %137 = getelementptr inbounds i8, ptr %0, i64 936
+  %137 = getelementptr inbounds nuw i8, ptr %0, i64 936
   store i8 1, ptr %137, align 8
   br label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_15BracedRangeExprEJRPNS0_4NodeESB_SB_EEESA_DpOT0_.exit
 
@@ -24282,7 +24282,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   %3 = alloca %"class.llvm::FoldingSetNodeID", align 8
   %4 = alloca ptr, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 808
-  %6 = getelementptr inbounds i8, ptr %0, i64 937
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 937
   %7 = load i8, ptr %6, align 1
   %8 = trunc i8 %7 to i1
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %3)
@@ -24309,7 +24309,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   br i1 %.not.i.i.i.i.i.i, label %_ZN12_GLOBAL__N_111profileCtorIJDnN4llvm16itanium_demangle9NodeArrayEEEEvRNS1_16FoldingSetNodeIDENS2_4Node4KindEDpT_.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i
 
 _ZN12_GLOBAL__N_111profileCtorIJDnN4llvm16itanium_demangle9NodeArrayEEEEvRNS1_16FoldingSetNodeIDENS2_4Node4KindEDpT_.exit.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i, %2
-  %14 = getelementptr inbounds i8, ptr %0, i64 904
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 904
   %15 = call noundef ptr @_ZN4llvm14FoldingSetBase19FindNodeOrInsertPosERKNS_16FoldingSetNodeIDERPvRKNS0_14FoldingSetInfoE(ptr noundef nonnull align 8 dereferenceable(16) %14, ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4llvm10FoldingSetIN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeaderEE17getFoldingSetInfoEvE4Info) #20
   %.not.i.i.i.i = icmp eq ptr %15, null
   br i1 %.not.i.i.i.i, label %18, label %16
@@ -24322,7 +24322,7 @@ _ZN12_GLOBAL__N_111profileCtorIJDnN4llvm16itanium_demangle9NodeArrayEEEEvRNS1_16
   br i1 %8, label %19, label %49
 
 19:                                               ; preds = %18
-  %20 = getelementptr inbounds i8, ptr %0, i64 888
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 888
   %21 = load i64, ptr %20, align 8
   %22 = add i64 %21, 48
   store i64 %22, ptr %20, align 8
@@ -24331,7 +24331,7 @@ _ZN12_GLOBAL__N_111profileCtorIJDnN4llvm16itanium_demangle9NodeArrayEEEEvRNS1_16
   %25 = add i64 %24, 7
   %26 = and i64 %25, -8
   %27 = add i64 %26, 48
-  %28 = getelementptr inbounds i8, ptr %0, i64 816
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 816
   %29 = load ptr, ptr %28, align 8
   %30 = ptrtoint ptr %29 to i64
   %.not.i.i10.i.i.i.i = icmp ugt i64 %27, %30
@@ -24397,7 +24397,7 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   br i1 %.not.i.i.i.i, label %54, label %56
 
 54:                                               ; preds = %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle12InitListExprEJDnNS3_9NodeArrayEEEESt4pairIPNS3_4NodeEbEbDpOT0_.exit.i.i.i
-  %55 = getelementptr inbounds i8, ptr %0, i64 920
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 920
   store ptr %.sroa.0.0.i.i.i.i, ptr %55, align 8
   br label %_ZN12_GLOBAL__N_122CanonicalizerAllocator8makeNodeIN4llvm16itanium_demangle12InitListExprEJDnNS3_9NodeArrayEEEEPNS3_4NodeEDpOT0_.exit
 
@@ -24406,14 +24406,14 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   br i1 %.not.i.i.i, label %_ZN12_GLOBAL__N_122CanonicalizerAllocator8makeNodeIN4llvm16itanium_demangle12InitListExprEJDnNS3_9NodeArrayEEEEPNS3_4NodeEDpOT0_.exit, label %57
 
 57:                                               ; preds = %56
-  %58 = getelementptr inbounds i8, ptr %0, i64 944
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 944
   %59 = load i32, ptr %58, align 8
   %60 = and i32 %59, 1
   %.not.i.i.i.i.i.i.i.i.i = icmp eq i32 %60, 0
-  %61 = getelementptr inbounds i8, ptr %0, i64 952
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 952
   %62 = load ptr, ptr %61, align 8
   %63 = select i1 %.not.i.i.i.i.i.i.i.i.i, ptr %62, ptr %61
-  %64 = getelementptr inbounds i8, ptr %0, i64 960
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 960
   %65 = load i32, ptr %64, align 8
   %66 = select i1 %.not.i.i.i.i.i.i.i.i.i, i32 %65, i32 32
   %67 = icmp eq i32 %66, 0
@@ -24460,13 +24460,13 @@ _ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32EN
   %.0.i.i.i.i = phi ptr [ %90, %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i ], [ null, %57 ], [ null, %.lr.ph.i.i.i11.i.i.i ]
   %.not10.i.i.i = icmp eq ptr %.0.i.i.i.i, null
   %spec.select.i.i.i = select i1 %.not10.i.i.i, ptr %.sroa.0.0.i.i.i.i, ptr %.0.i.i.i.i
-  %91 = getelementptr inbounds i8, ptr %0, i64 928
+  %91 = getelementptr inbounds nuw i8, ptr %0, i64 928
   %92 = load ptr, ptr %91, align 8
   %93 = icmp eq ptr %spec.select.i.i.i, %92
   br i1 %93, label %94, label %_ZN12_GLOBAL__N_122CanonicalizerAllocator8makeNodeIN4llvm16itanium_demangle12InitListExprEJDnNS3_9NodeArrayEEEEPNS3_4NodeEDpOT0_.exit
 
 94:                                               ; preds = %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i
-  %95 = getelementptr inbounds i8, ptr %0, i64 936
+  %95 = getelementptr inbounds nuw i8, ptr %0, i64 936
   store i8 1, ptr %95, align 8
   br label %_ZN12_GLOBAL__N_122CanonicalizerAllocator8makeNodeIN4llvm16itanium_demangle12InitListExprEJDnNS3_9NodeArrayEEEEPNS3_4NodeEDpOT0_.exit
 
@@ -24555,7 +24555,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
   %33 = getelementptr inbounds i8, ptr %28, i64 1
   store ptr %33, ptr %0, align 8
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 808
-  %35 = getelementptr inbounds i8, ptr %0, i64 937
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 937
   %36 = load i8, ptr %35, align 1
   %37 = trunc i8 %36 to i1
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %2)
@@ -24580,7 +24580,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
 
 _ZN12_GLOBAL__N_111profileCtorIJPN4llvm16itanium_demangle4NodeES4_St17basic_string_viewIcSt11char_traitsIcEENS3_4PrecEEEEvRNS1_16FoldingSetNodeIDENS3_4KindEDpT_.exit.i.i.i.i.i: ; preds = %43, %42
   call void @_ZN4llvm16FoldingSetNodeID10AddIntegerEy(ptr noundef nonnull align 8 dereferenceable(144) %2, i64 noundef 2)
-  %44 = getelementptr inbounds i8, ptr %0, i64 904
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 904
   %45 = call noundef ptr @_ZN4llvm14FoldingSetBase19FindNodeOrInsertPosERKNS_16FoldingSetNodeIDERPvRKNS0_14FoldingSetInfoE(ptr noundef nonnull align 8 dereferenceable(16) %44, ptr noundef nonnull align 8 dereferenceable(144) %2, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4llvm10FoldingSetIN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeaderEE17getFoldingSetInfoEvE4Info) #20
   %.not.i.i.i.i.i = icmp eq ptr %45, null
   br i1 %.not.i.i.i.i.i, label %48, label %46
@@ -24593,7 +24593,7 @@ _ZN12_GLOBAL__N_111profileCtorIJPN4llvm16itanium_demangle4NodeES4_St17basic_stri
   br i1 %37, label %49, label %80
 
 49:                                               ; preds = %48
-  %50 = getelementptr inbounds i8, ptr %0, i64 888
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 888
   %51 = load i64, ptr %50, align 8
   %52 = add i64 %51, 56
   store i64 %52, ptr %50, align 8
@@ -24602,7 +24602,7 @@ _ZN12_GLOBAL__N_111profileCtorIJPN4llvm16itanium_demangle4NodeES4_St17basic_stri
   %55 = add i64 %54, 7
   %56 = and i64 %55, -8
   %57 = add i64 %56, 56
-  %58 = getelementptr inbounds i8, ptr %0, i64 816
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 816
   %59 = load ptr, ptr %58, align 8
   %60 = ptrtoint ptr %59 to i64
   %.not.i.i.i.i.i.i.i = icmp ugt i64 %57, %60
@@ -24668,7 +24668,7 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   br i1 %.not.i.i.i.i.i, label %85, label %87
 
 85:                                               ; preds = %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle29PointerToMemberConversionExprEJRPNS3_4NodeES7_RSt17basic_string_viewIcSt11char_traitsIcEERNS5_4PrecEEEESt4pairIS6_bEbDpOT0_.exit.i.i.i.i
-  %86 = getelementptr inbounds i8, ptr %0, i64 920
+  %86 = getelementptr inbounds nuw i8, ptr %0, i64 920
   store ptr %.sroa.0.0.i.i.i.i.i, ptr %86, align 8
   br label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_29PointerToMemberConversionExprEJRPNS0_4NodeESB_RSt17basic_string_viewIcSt11char_traitsIcEERNS9_4PrecEEEESA_DpOT0_.exit
 
@@ -24677,14 +24677,14 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   br i1 %.not.i.i.i.i, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_29PointerToMemberConversionExprEJRPNS0_4NodeESB_RSt17basic_string_viewIcSt11char_traitsIcEERNS9_4PrecEEEESA_DpOT0_.exit, label %88
 
 88:                                               ; preds = %87
-  %89 = getelementptr inbounds i8, ptr %0, i64 944
+  %89 = getelementptr inbounds nuw i8, ptr %0, i64 944
   %90 = load i32, ptr %89, align 8
   %91 = and i32 %90, 1
   %.not.i.i.i.i.i.i.i.i.i.i = icmp eq i32 %91, 0
-  %92 = getelementptr inbounds i8, ptr %0, i64 952
+  %92 = getelementptr inbounds nuw i8, ptr %0, i64 952
   %93 = load ptr, ptr %92, align 8
   %94 = select i1 %.not.i.i.i.i.i.i.i.i.i.i, ptr %93, ptr %92
-  %95 = getelementptr inbounds i8, ptr %0, i64 960
+  %95 = getelementptr inbounds nuw i8, ptr %0, i64 960
   %96 = load i32, ptr %95, align 8
   %97 = select i1 %.not.i.i.i.i.i.i.i.i.i.i, i32 %96, i32 32
   %98 = icmp eq i32 %97, 0
@@ -24731,13 +24731,13 @@ _ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32EN
   %.0.i.i.i.i.i = phi ptr [ %121, %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i.i ], [ null, %88 ], [ null, %.lr.ph.i.i.i.i.i.i.i ]
   %.not12.i.i.i.i = icmp eq ptr %.0.i.i.i.i.i, null
   %spec.select.i.i.i.i = select i1 %.not12.i.i.i.i, ptr %.sroa.0.0.i.i.i.i.i, ptr %.0.i.i.i.i.i
-  %122 = getelementptr inbounds i8, ptr %0, i64 928
+  %122 = getelementptr inbounds nuw i8, ptr %0, i64 928
   %123 = load ptr, ptr %122, align 8
   %124 = icmp eq ptr %spec.select.i.i.i.i, %123
   br i1 %124, label %125, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_29PointerToMemberConversionExprEJRPNS0_4NodeESB_RSt17basic_string_viewIcSt11char_traitsIcEERNS9_4PrecEEEESA_DpOT0_.exit
 
 125:                                              ; preds = %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i.i
-  %126 = getelementptr inbounds i8, ptr %0, i64 936
+  %126 = getelementptr inbounds nuw i8, ptr %0, i64 936
   store i8 1, ptr %126, align 8
   br label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_29PointerToMemberConversionExprEJRPNS0_4NodeESB_RSt17basic_string_viewIcSt11char_traitsIcEERNS9_4PrecEEEESA_DpOT0_.exit
 
@@ -24751,7 +24751,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   %4 = alloca %"class.llvm::FoldingSetNodeID", align 8
   %5 = alloca ptr, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 808
-  %7 = getelementptr inbounds i8, ptr %0, i64 937
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 937
   %8 = load i8, ptr %7, align 1
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
@@ -24765,7 +24765,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   call void @_ZN4llvm16FoldingSetNodeID10AddIntegerEy(ptr noundef nonnull align 8 dereferenceable(144) %4, i64 noundef %12)
   %13 = sext i32 %11 to i64
   call void @_ZN4llvm16FoldingSetNodeID10AddIntegerEy(ptr noundef nonnull align 8 dereferenceable(144) %4, i64 noundef %13)
-  %14 = getelementptr inbounds i8, ptr %0, i64 904
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 904
   %15 = call noundef ptr @_ZN4llvm14FoldingSetBase19FindNodeOrInsertPosERKNS_16FoldingSetNodeIDERPvRKNS0_14FoldingSetInfoE(ptr noundef nonnull align 8 dereferenceable(16) %14, ptr noundef nonnull align 8 dereferenceable(144) %4, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4llvm10FoldingSetIN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeaderEE17getFoldingSetInfoEvE4Info) #20
   %.not.i.i.i.i = icmp eq ptr %15, null
   br i1 %.not.i.i.i.i, label %18, label %16
@@ -24779,7 +24779,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   br i1 %19, label %20, label %56
 
 20:                                               ; preds = %18
-  %21 = getelementptr inbounds i8, ptr %0, i64 888
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 888
   %22 = load i64, ptr %21, align 8
   %23 = add i64 %22, 64
   store i64 %23, ptr %21, align 8
@@ -24788,7 +24788,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   %26 = add i64 %25, 7
   %27 = and i64 %26, -8
   %28 = add i64 %27, 64
-  %29 = getelementptr inbounds i8, ptr %0, i64 816
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 816
   %30 = load ptr, ptr %29, align 8
   %31 = ptrtoint ptr %30 to i64
   %.not.i.i.i.i.i.i = icmp ugt i64 %28, %31
@@ -24859,7 +24859,7 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   br i1 %.not.i.i.i.i, label %61, label %63
 
 61:                                               ; preds = %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle13EnclosingExprEJRA10_KcRPNS3_4NodeENS8_4PrecEEEESt4pairIS9_bEbDpOT0_.exit.i.i.i
-  %62 = getelementptr inbounds i8, ptr %0, i64 920
+  %62 = getelementptr inbounds nuw i8, ptr %0, i64 920
   store ptr %.sroa.04.0.i.i.i.i, ptr %62, align 8
   br label %_ZN12_GLOBAL__N_122CanonicalizerAllocator8makeNodeIN4llvm16itanium_demangle13EnclosingExprEJRA10_KcRPNS3_4NodeENS8_4PrecEEEES9_DpOT0_.exit
 
@@ -24868,14 +24868,14 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   br i1 %.not.i.i.i, label %_ZN12_GLOBAL__N_122CanonicalizerAllocator8makeNodeIN4llvm16itanium_demangle13EnclosingExprEJRA10_KcRPNS3_4NodeENS8_4PrecEEEES9_DpOT0_.exit, label %64
 
 64:                                               ; preds = %63
-  %65 = getelementptr inbounds i8, ptr %0, i64 944
+  %65 = getelementptr inbounds nuw i8, ptr %0, i64 944
   %66 = load i32, ptr %65, align 8
   %67 = and i32 %66, 1
   %.not.i.i.i.i.i.i.i.i.i = icmp eq i32 %67, 0
-  %68 = getelementptr inbounds i8, ptr %0, i64 952
+  %68 = getelementptr inbounds nuw i8, ptr %0, i64 952
   %69 = load ptr, ptr %68, align 8
   %70 = select i1 %.not.i.i.i.i.i.i.i.i.i, ptr %69, ptr %68
-  %71 = getelementptr inbounds i8, ptr %0, i64 960
+  %71 = getelementptr inbounds nuw i8, ptr %0, i64 960
   %72 = load i32, ptr %71, align 8
   %73 = select i1 %.not.i.i.i.i.i.i.i.i.i, i32 %72, i32 32
   %74 = icmp eq i32 %73, 0
@@ -24922,13 +24922,13 @@ _ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32EN
   %.0.i.i.i.i = phi ptr [ %97, %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i ], [ null, %64 ], [ null, %.lr.ph.i.i.i.i.i.i ]
   %.not11.i.i.i = icmp eq ptr %.0.i.i.i.i, null
   %spec.select.i.i.i = select i1 %.not11.i.i.i, ptr %.sroa.04.0.i.i.i.i, ptr %.0.i.i.i.i
-  %98 = getelementptr inbounds i8, ptr %0, i64 928
+  %98 = getelementptr inbounds nuw i8, ptr %0, i64 928
   %99 = load ptr, ptr %98, align 8
   %100 = icmp eq ptr %spec.select.i.i.i, %99
   br i1 %100, label %101, label %_ZN12_GLOBAL__N_122CanonicalizerAllocator8makeNodeIN4llvm16itanium_demangle13EnclosingExprEJRA10_KcRPNS3_4NodeENS8_4PrecEEEES9_DpOT0_.exit
 
 101:                                              ; preds = %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i
-  %102 = getelementptr inbounds i8, ptr %0, i64 936
+  %102 = getelementptr inbounds nuw i8, ptr %0, i64 936
   store i8 1, ptr %102, align 8
   br label %_ZN12_GLOBAL__N_122CanonicalizerAllocator8makeNodeIN4llvm16itanium_demangle13EnclosingExprEJRA10_KcRPNS3_4NodeENS8_4PrecEEEES9_DpOT0_.exit
 
@@ -24965,14 +24965,14 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i: ; preds = %1
   %19 = getelementptr inbounds i8, ptr %10, i64 2
   store ptr %19, ptr %0, align 8
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %21 = getelementptr inbounds i8, ptr %0, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %22 = load ptr, ptr %21, align 8
   %23 = load ptr, ptr %20, align 8
   %24 = ptrtoint ptr %22 to i64
   %25 = ptrtoint ptr %23 to i64
   %26 = sub i64 %24, %25
-  %27 = getelementptr inbounds i8, ptr %0, i64 32
-  %28 = getelementptr inbounds i8, ptr %0, i64 40
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 40
   br label %29
 
 29:                                               ; preds = %_ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exit, %18
@@ -25064,7 +25064,7 @@ _ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exi
   %71 = ptrtoint ptr %68 to i64
   %72 = sub i64 %70, %71
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 808
-  %74 = getelementptr inbounds i8, ptr %0, i64 888
+  %74 = getelementptr inbounds nuw i8, ptr %0, i64 888
   %75 = load i64, ptr %74, align 8
   %76 = add i64 %72, %75
   store i64 %76, ptr %74, align 8
@@ -25073,7 +25073,7 @@ _ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exi
   %79 = add i64 %78, 7
   %80 = and i64 %79, -8
   %81 = add i64 %80, %72
-  %82 = getelementptr inbounds i8, ptr %0, i64 816
+  %82 = getelementptr inbounds nuw i8, ptr %0, i64 816
   %83 = load ptr, ptr %82, align 8
   %84 = ptrtoint ptr %83 to i64
   %.not.i.i.i.i.i = icmp ugt i64 %81, %84
@@ -25117,7 +25117,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i4: ; preds = %_ZNSt11char_trai
 _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E9consumeIfESt17basic_string_viewIcSt11char_traitsIcEE.exit8: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i4
   %94 = getelementptr inbounds i8, ptr %10, i64 2
   store ptr %94, ptr %0, align 8
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 24
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.pre155 = load ptr, ptr %.phi.trans.insert, align 8
   %.phi.trans.insert156 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.pre157 = load ptr, ptr %.phi.trans.insert156, align 8
@@ -25131,26 +25131,26 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
   %.sroa.4.0 = phi i64 [ %90, %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E20popTrailingNodeArrayEm.exit ], [ 0, %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E9consumeIfESt17basic_string_viewIcSt11char_traitsIcEE.exit8 ]
   %.sroa.0123.0 = phi ptr [ %.0.i.i.i.i.i, %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E20popTrailingNodeArrayEm.exit ], [ null, %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E9consumeIfESt17basic_string_viewIcSt11char_traitsIcEE.exit8 ]
   %98 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %99 = getelementptr inbounds i8, ptr %0, i64 24
+  %99 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %100 = ptrtoint ptr %97 to i64
   %101 = ptrtoint ptr %96 to i64
   %102 = sub i64 %100, %101
   %103 = getelementptr inbounds nuw i8, ptr %0, i64 808
-  %104 = getelementptr inbounds i8, ptr %0, i64 937
+  %104 = getelementptr inbounds nuw i8, ptr %0, i64 937
   %105 = getelementptr inbounds i8, ptr %8, i64 16
-  %106 = getelementptr inbounds i8, ptr %0, i64 904
-  %107 = getelementptr inbounds i8, ptr %0, i64 888
-  %108 = getelementptr inbounds i8, ptr %0, i64 816
-  %109 = getelementptr inbounds i8, ptr %0, i64 944
-  %110 = getelementptr inbounds i8, ptr %0, i64 952
-  %111 = getelementptr inbounds i8, ptr %0, i64 960
-  %112 = getelementptr inbounds i8, ptr %0, i64 928
-  %113 = getelementptr inbounds i8, ptr %0, i64 936
-  %114 = getelementptr inbounds i8, ptr %0, i64 920
+  %106 = getelementptr inbounds nuw i8, ptr %0, i64 904
+  %107 = getelementptr inbounds nuw i8, ptr %0, i64 888
+  %108 = getelementptr inbounds nuw i8, ptr %0, i64 816
+  %109 = getelementptr inbounds nuw i8, ptr %0, i64 944
+  %110 = getelementptr inbounds nuw i8, ptr %0, i64 952
+  %111 = getelementptr inbounds nuw i8, ptr %0, i64 960
+  %112 = getelementptr inbounds nuw i8, ptr %0, i64 928
+  %113 = getelementptr inbounds nuw i8, ptr %0, i64 936
+  %114 = getelementptr inbounds nuw i8, ptr %0, i64 920
   %115 = getelementptr inbounds i8, ptr %6, i64 16
   %116 = getelementptr inbounds i8, ptr %4, i64 16
-  %117 = getelementptr inbounds i8, ptr %0, i64 32
-  %118 = getelementptr inbounds i8, ptr %0, i64 40
+  %117 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %118 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %.not.i9182 = icmp eq ptr %.pre158, %.pre159
   br i1 %.not.i9182, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_12RequiresExprEJRNS0_9NodeArrayES9_EEEPNS0_4NodeEDpOT0_.exit, label %.lr.ph
 
@@ -26088,7 +26088,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
   %.sroa.0.0.i = phi i64 [ %28, %.critedge.i ], [ 0, %18 ], [ 0, %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E9consumeIfEc.exit.i ]
   %.sroa.3.0.i = phi ptr [ %9, %.critedge.i ], [ null, %18 ], [ null, %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E9consumeIfEc.exit.i ]
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %31 = getelementptr inbounds i8, ptr %0, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %32 = load ptr, ptr %31, align 8
   %33 = load ptr, ptr %30, align 8
   %34 = ptrtoint ptr %32 to i64
@@ -26099,8 +26099,8 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
 
 .lr.ph:                                           ; preds = %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E11parseNumberEb.exit
   %37 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %38 = getelementptr inbounds i8, ptr %0, i64 32
-  %39 = getelementptr inbounds i8, ptr %0, i64 40
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 40
   br label %40
 
 40:                                               ; preds = %.lr.ph, %_ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exit
@@ -26254,7 +26254,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
   %104 = ptrtoint ptr %101 to i64
   %105 = sub i64 %103, %104
   %106 = getelementptr inbounds nuw i8, ptr %0, i64 808
-  %107 = getelementptr inbounds i8, ptr %0, i64 888
+  %107 = getelementptr inbounds nuw i8, ptr %0, i64 888
   %108 = load i64, ptr %107, align 8
   %109 = add i64 %105, %108
   store i64 %109, ptr %107, align 8
@@ -26263,7 +26263,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
   %112 = add i64 %111, 7
   %113 = and i64 %112, -8
   %114 = add i64 %113, %105
-  %115 = getelementptr inbounds i8, ptr %0, i64 816
+  %115 = getelementptr inbounds nuw i8, ptr %0, i64 816
   %116 = load ptr, ptr %115, align 8
   %117 = ptrtoint ptr %116 to i64
   %.not.i.i.i.i.i = icmp ugt i64 %114, %117
@@ -26295,7 +26295,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
   %124 = load ptr, ptr %30, align 8
   %125 = getelementptr inbounds i8, ptr %124, i64 %36
   store ptr %125, ptr %31, align 8
-  %126 = getelementptr inbounds i8, ptr %0, i64 937
+  %126 = getelementptr inbounds nuw i8, ptr %0, i64 937
   %127 = load i8, ptr %126, align 1
   %128 = trunc i8 %127 to i1
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %2)
@@ -26335,7 +26335,7 @@ _ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclESt17basic_string_viewIcSt11char_tra
 _ZN12_GLOBAL__N_111profileCtorIJPN4llvm16itanium_demangle4NodeES4_St17basic_string_viewIcSt11char_traitsIcEENS2_9NodeArrayEbEEEvRNS1_16FoldingSetNodeIDENS3_4KindEDpT_.exit.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i, %_ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclESt17basic_string_viewIcSt11char_traitsIcEE.exit.i.i.i.i.i.i
   %139 = zext nneg i8 %.0.i23 to i64
   call void @_ZN4llvm16FoldingSetNodeID10AddIntegerEy(ptr noundef nonnull align 8 dereferenceable(144) %2, i64 noundef %139)
-  %140 = getelementptr inbounds i8, ptr %0, i64 904
+  %140 = getelementptr inbounds nuw i8, ptr %0, i64 904
   %141 = call noundef ptr @_ZN4llvm14FoldingSetBase19FindNodeOrInsertPosERKNS_16FoldingSetNodeIDERPvRKNS0_14FoldingSetInfoE(ptr noundef nonnull align 8 dereferenceable(16) %140, ptr noundef nonnull align 8 dereferenceable(144) %2, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4llvm10FoldingSetIN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeaderEE17getFoldingSetInfoEvE4Info) #20
   %.not.i.i.i.i.i30 = icmp eq ptr %141, null
   br i1 %.not.i.i.i.i.i30, label %144, label %142
@@ -26427,7 +26427,7 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   br i1 %.not.i.i.i.i.i30, label %181, label %183
 
 181:                                              ; preds = %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle13SubobjectExprEJRPNS3_4NodeES7_RSt17basic_string_viewIcSt11char_traitsIcEENS3_9NodeArrayERbEEESt4pairIS6_bEbDpOT0_.exit.i.i.i.i
-  %182 = getelementptr inbounds i8, ptr %0, i64 920
+  %182 = getelementptr inbounds nuw i8, ptr %0, i64 920
   store ptr %.sroa.025.0.i.i.i.i.i, ptr %182, align 8
   br label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_13SubobjectExprEJRPNS0_4NodeESB_RSt17basic_string_viewIcSt11char_traitsIcEENS0_9NodeArrayERbEEESA_DpOT0_.exit
 
@@ -26436,14 +26436,14 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   br i1 %.not.i.i.i.i, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_13SubobjectExprEJRPNS0_4NodeESB_RSt17basic_string_viewIcSt11char_traitsIcEENS0_9NodeArrayERbEEESA_DpOT0_.exit, label %184
 
 184:                                              ; preds = %183
-  %185 = getelementptr inbounds i8, ptr %0, i64 944
+  %185 = getelementptr inbounds nuw i8, ptr %0, i64 944
   %186 = load i32, ptr %185, align 8
   %187 = and i32 %186, 1
   %.not.i.i.i.i.i.i.i.i.i.i = icmp eq i32 %187, 0
-  %188 = getelementptr inbounds i8, ptr %0, i64 952
+  %188 = getelementptr inbounds nuw i8, ptr %0, i64 952
   %189 = load ptr, ptr %188, align 8
   %190 = select i1 %.not.i.i.i.i.i.i.i.i.i.i, ptr %189, ptr %188
-  %191 = getelementptr inbounds i8, ptr %0, i64 960
+  %191 = getelementptr inbounds nuw i8, ptr %0, i64 960
   %192 = load i32, ptr %191, align 8
   %193 = select i1 %.not.i.i.i.i.i.i.i.i.i.i, i32 %192, i32 32
   %194 = icmp eq i32 %193, 0
@@ -26490,13 +26490,13 @@ _ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32EN
   %.0.i.i.i.i.i31 = phi ptr [ %217, %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i.i ], [ null, %184 ], [ null, %.lr.ph.i.i.i14.i.i.i.i ]
   %.not13.i.i.i.i = icmp eq ptr %.0.i.i.i.i.i31, null
   %spec.select.i.i.i.i = select i1 %.not13.i.i.i.i, ptr %.sroa.025.0.i.i.i.i.i, ptr %.0.i.i.i.i.i31
-  %218 = getelementptr inbounds i8, ptr %0, i64 928
+  %218 = getelementptr inbounds nuw i8, ptr %0, i64 928
   %219 = load ptr, ptr %218, align 8
   %220 = icmp eq ptr %spec.select.i.i.i.i, %219
   br i1 %220, label %221, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_13SubobjectExprEJRPNS0_4NodeESB_RSt17basic_string_viewIcSt11char_traitsIcEENS0_9NodeArrayERbEEESA_DpOT0_.exit
 
 221:                                              ; preds = %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i.i
-  %222 = getelementptr inbounds i8, ptr %0, i64 936
+  %222 = getelementptr inbounds nuw i8, ptr %0, i64 936
   store i8 1, ptr %222, align 8
   br label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_13SubobjectExprEJRPNS0_4NodeESB_RSt17basic_string_viewIcSt11char_traitsIcEENS0_9NodeArrayERbEEESA_DpOT0_.exit
 
@@ -26510,7 +26510,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   %3 = alloca %"class.llvm::FoldingSetNodeID", align 8
   %4 = alloca ptr, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 808
-  %6 = getelementptr inbounds i8, ptr %0, i64 937
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 937
   %7 = load i8, ptr %6, align 1
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
@@ -26520,7 +26520,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   call void @_ZN4llvm16FoldingSetNodeID10AddIntegerEy(ptr noundef nonnull align 8 dereferenceable(144) %3, i64 noundef 62)
   %10 = ptrtoint ptr %9 to i64
   call void @_ZN4llvm16FoldingSetNodeID10AddIntegerEy(ptr noundef nonnull align 8 dereferenceable(144) %3, i64 noundef %10)
-  %11 = getelementptr inbounds i8, ptr %0, i64 904
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 904
   %12 = call noundef ptr @_ZN4llvm14FoldingSetBase19FindNodeOrInsertPosERKNS_16FoldingSetNodeIDERPvRKNS0_14FoldingSetInfoE(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4llvm10FoldingSetIN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeaderEE17getFoldingSetInfoEvE4Info) #20
   %.not.i.i.i.i = icmp eq ptr %12, null
   br i1 %.not.i.i.i.i, label %15, label %13
@@ -26534,7 +26534,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   br i1 %16, label %17, label %47
 
 17:                                               ; preds = %15
-  %18 = getelementptr inbounds i8, ptr %0, i64 888
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 888
   %19 = load i64, ptr %18, align 8
   %20 = add i64 %19, 32
   store i64 %20, ptr %18, align 8
@@ -26543,7 +26543,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   %23 = add i64 %22, 7
   %24 = and i64 %23, -8
   %25 = add i64 %24, 32
-  %26 = getelementptr inbounds i8, ptr %0, i64 816
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 816
   %27 = load ptr, ptr %26, align 8
   %28 = ptrtoint ptr %27 to i64
   %.not.i.i.i.i.i.i = icmp ugt i64 %25, %28
@@ -26604,7 +26604,7 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   br i1 %.not.i.i.i.i, label %52, label %54
 
 52:                                               ; preds = %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle19SizeofParamPackExprEJRPNS3_4NodeEEEESt4pairIS6_bEbDpOT0_.exit.i.i.i
-  %53 = getelementptr inbounds i8, ptr %0, i64 920
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 920
   store ptr %.sroa.0.0.i.i.i.i, ptr %53, align 8
   br label %_ZN12_GLOBAL__N_122CanonicalizerAllocator8makeNodeIN4llvm16itanium_demangle19SizeofParamPackExprEJRPNS3_4NodeEEEES6_DpOT0_.exit
 
@@ -26613,14 +26613,14 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   br i1 %.not.i.i.i, label %_ZN12_GLOBAL__N_122CanonicalizerAllocator8makeNodeIN4llvm16itanium_demangle19SizeofParamPackExprEJRPNS3_4NodeEEEES6_DpOT0_.exit, label %55
 
 55:                                               ; preds = %54
-  %56 = getelementptr inbounds i8, ptr %0, i64 944
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 944
   %57 = load i32, ptr %56, align 8
   %58 = and i32 %57, 1
   %.not.i.i.i.i.i.i.i.i.i = icmp eq i32 %58, 0
-  %59 = getelementptr inbounds i8, ptr %0, i64 952
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 952
   %60 = load ptr, ptr %59, align 8
   %61 = select i1 %.not.i.i.i.i.i.i.i.i.i, ptr %60, ptr %59
-  %62 = getelementptr inbounds i8, ptr %0, i64 960
+  %62 = getelementptr inbounds nuw i8, ptr %0, i64 960
   %63 = load i32, ptr %62, align 8
   %64 = select i1 %.not.i.i.i.i.i.i.i.i.i, i32 %63, i32 32
   %65 = icmp eq i32 %64, 0
@@ -26667,13 +26667,13 @@ _ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32EN
   %.0.i.i.i.i = phi ptr [ %88, %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i ], [ null, %55 ], [ null, %.lr.ph.i.i.i.i.i.i ]
   %.not9.i.i.i = icmp eq ptr %.0.i.i.i.i, null
   %spec.select.i.i.i = select i1 %.not9.i.i.i, ptr %.sroa.0.0.i.i.i.i, ptr %.0.i.i.i.i
-  %89 = getelementptr inbounds i8, ptr %0, i64 928
+  %89 = getelementptr inbounds nuw i8, ptr %0, i64 928
   %90 = load ptr, ptr %89, align 8
   %91 = icmp eq ptr %spec.select.i.i.i, %90
   br i1 %91, label %92, label %_ZN12_GLOBAL__N_122CanonicalizerAllocator8makeNodeIN4llvm16itanium_demangle19SizeofParamPackExprEJRPNS3_4NodeEEEES6_DpOT0_.exit
 
 92:                                               ; preds = %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i
-  %93 = getelementptr inbounds i8, ptr %0, i64 936
+  %93 = getelementptr inbounds nuw i8, ptr %0, i64 936
   store i8 1, ptr %93, align 8
   br label %_ZN12_GLOBAL__N_122CanonicalizerAllocator8makeNodeIN4llvm16itanium_demangle19SizeofParamPackExprEJRPNS3_4NodeEEEES6_DpOT0_.exit
 
@@ -26687,7 +26687,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   %3 = alloca %"class.llvm::FoldingSetNodeID", align 8
   %4 = alloca ptr, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 808
-  %6 = getelementptr inbounds i8, ptr %0, i64 937
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 937
   %7 = load i8, ptr %6, align 1
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
@@ -26698,7 +26698,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   call void @_ZN4llvm16FoldingSetNodeID9AddStringENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr nonnull @.str.66, i64 10) #20
   %10 = ptrtoint ptr %9 to i64
   call void @_ZN4llvm16FoldingSetNodeID10AddIntegerEy(ptr noundef nonnull align 8 dereferenceable(144) %3, i64 noundef %10)
-  %11 = getelementptr inbounds i8, ptr %0, i64 904
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 904
   %12 = call noundef ptr @_ZN4llvm14FoldingSetBase19FindNodeOrInsertPosERKNS_16FoldingSetNodeIDERPvRKNS0_14FoldingSetInfoE(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4llvm10FoldingSetIN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeaderEE17getFoldingSetInfoEvE4Info) #20
   %.not.i.i.i.i = icmp eq ptr %12, null
   br i1 %.not.i.i.i.i, label %15, label %13
@@ -26712,7 +26712,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   br i1 %16, label %17, label %49
 
 17:                                               ; preds = %15
-  %18 = getelementptr inbounds i8, ptr %0, i64 888
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 888
   %19 = load i64, ptr %18, align 8
   %20 = add i64 %19, 64
   store i64 %20, ptr %18, align 8
@@ -26721,7 +26721,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   %23 = add i64 %22, 7
   %24 = and i64 %23, -8
   %25 = add i64 %24, 64
-  %26 = getelementptr inbounds i8, ptr %0, i64 816
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 816
   %27 = load ptr, ptr %26, align 8
   %28 = ptrtoint ptr %27 to i64
   %.not.i.i.i.i.i.i = icmp ugt i64 %25, %28
@@ -26788,7 +26788,7 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   br i1 %.not.i.i.i.i, label %54, label %56
 
 54:                                               ; preds = %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle13EnclosingExprEJRA11_KcRPNS3_4NodeEEEESt4pairIS9_bEbDpOT0_.exit.i.i.i
-  %55 = getelementptr inbounds i8, ptr %0, i64 920
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 920
   store ptr %.sroa.04.0.i.i.i.i, ptr %55, align 8
   br label %_ZN12_GLOBAL__N_122CanonicalizerAllocator8makeNodeIN4llvm16itanium_demangle13EnclosingExprEJRA11_KcRPNS3_4NodeEEEES9_DpOT0_.exit
 
@@ -26797,14 +26797,14 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   br i1 %.not.i.i.i, label %_ZN12_GLOBAL__N_122CanonicalizerAllocator8makeNodeIN4llvm16itanium_demangle13EnclosingExprEJRA11_KcRPNS3_4NodeEEEES9_DpOT0_.exit, label %57
 
 57:                                               ; preds = %56
-  %58 = getelementptr inbounds i8, ptr %0, i64 944
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 944
   %59 = load i32, ptr %58, align 8
   %60 = and i32 %59, 1
   %.not.i.i.i.i.i.i.i.i.i = icmp eq i32 %60, 0
-  %61 = getelementptr inbounds i8, ptr %0, i64 952
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 952
   %62 = load ptr, ptr %61, align 8
   %63 = select i1 %.not.i.i.i.i.i.i.i.i.i, ptr %62, ptr %61
-  %64 = getelementptr inbounds i8, ptr %0, i64 960
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 960
   %65 = load i32, ptr %64, align 8
   %66 = select i1 %.not.i.i.i.i.i.i.i.i.i, i32 %65, i32 32
   %67 = icmp eq i32 %66, 0
@@ -26851,13 +26851,13 @@ _ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32EN
   %.0.i.i.i.i = phi ptr [ %90, %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i ], [ null, %57 ], [ null, %.lr.ph.i.i.i.i.i.i ]
   %.not10.i.i.i = icmp eq ptr %.0.i.i.i.i, null
   %spec.select.i.i.i = select i1 %.not10.i.i.i, ptr %.sroa.04.0.i.i.i.i, ptr %.0.i.i.i.i
-  %91 = getelementptr inbounds i8, ptr %0, i64 928
+  %91 = getelementptr inbounds nuw i8, ptr %0, i64 928
   %92 = load ptr, ptr %91, align 8
   %93 = icmp eq ptr %spec.select.i.i.i, %92
   br i1 %93, label %94, label %_ZN12_GLOBAL__N_122CanonicalizerAllocator8makeNodeIN4llvm16itanium_demangle13EnclosingExprEJRA11_KcRPNS3_4NodeEEEES9_DpOT0_.exit
 
 94:                                               ; preds = %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i
-  %95 = getelementptr inbounds i8, ptr %0, i64 936
+  %95 = getelementptr inbounds nuw i8, ptr %0, i64 936
   store i8 1, ptr %95, align 8
   br label %_ZN12_GLOBAL__N_122CanonicalizerAllocator8makeNodeIN4llvm16itanium_demangle13EnclosingExprEJRA11_KcRPNS3_4NodeEEEES9_DpOT0_.exit
 
@@ -26924,14 +26924,14 @@ _ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLO
   %28 = getelementptr inbounds i8, ptr %.val11, i64 1
   store ptr %28, ptr %0, align 8
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %30 = getelementptr inbounds i8, ptr %0, i64 24
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %31 = load ptr, ptr %30, align 8
   %32 = load ptr, ptr %29, align 8
   %33 = ptrtoint ptr %31 to i64
   %34 = ptrtoint ptr %32 to i64
   %35 = sub i64 %33, %34
-  %36 = getelementptr inbounds i8, ptr %0, i64 32
-  %37 = getelementptr inbounds i8, ptr %0, i64 40
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 40
   br label %38
 
 38:                                               ; preds = %_ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exit, %27
@@ -27023,7 +27023,7 @@ _ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exi
   %80 = ptrtoint ptr %77 to i64
   %81 = sub i64 %79, %80
   %82 = getelementptr inbounds nuw i8, ptr %0, i64 808
-  %83 = getelementptr inbounds i8, ptr %0, i64 888
+  %83 = getelementptr inbounds nuw i8, ptr %0, i64 888
   %84 = load i64, ptr %83, align 8
   %85 = add i64 %81, %84
   store i64 %85, ptr %83, align 8
@@ -27032,7 +27032,7 @@ _ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exi
   %88 = add i64 %87, 7
   %89 = and i64 %88, -8
   %90 = add i64 %89, %81
-  %91 = getelementptr inbounds i8, ptr %0, i64 816
+  %91 = getelementptr inbounds nuw i8, ptr %0, i64 816
   %92 = load ptr, ptr %91, align 8
   %93 = ptrtoint ptr %92 to i64
   %.not.i.i.i.i.i = icmp ugt i64 %90, %93
@@ -27064,7 +27064,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
   %100 = load ptr, ptr %29, align 8
   %101 = getelementptr inbounds i8, ptr %100, i64 %35
   store ptr %101, ptr %30, align 8
-  %102 = getelementptr inbounds i8, ptr %0, i64 937
+  %102 = getelementptr inbounds nuw i8, ptr %0, i64 937
   %103 = load i8, ptr %102, align 1
   %104 = trunc i8 %103 to i1
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %4)
@@ -27086,7 +27086,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
   br i1 %.not.i.i.i.i.i.i.i21, label %_ZN12_GLOBAL__N_111profileCtorIJN4llvm16itanium_demangle9NodeArrayEEEEvRNS1_16FoldingSetNodeIDENS2_4Node4KindEDpT_.exit.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i
 
 _ZN12_GLOBAL__N_111profileCtorIJN4llvm16itanium_demangle9NodeArrayEEEEvRNS1_16FoldingSetNodeIDENS2_4Node4KindEDpT_.exit.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i, %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E20popTrailingNodeArrayEm.exit
-  %110 = getelementptr inbounds i8, ptr %0, i64 904
+  %110 = getelementptr inbounds nuw i8, ptr %0, i64 904
   %111 = call noundef ptr @_ZN4llvm14FoldingSetBase19FindNodeOrInsertPosERKNS_16FoldingSetNodeIDERPvRKNS0_14FoldingSetInfoE(ptr noundef nonnull align 8 dereferenceable(16) %110, ptr noundef nonnull align 8 dereferenceable(144) %4, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4llvm10FoldingSetIN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeaderEE17getFoldingSetInfoEvE4Info) #20
   %.not.i.i.i.i.i22 = icmp eq ptr %111, null
   br i1 %.not.i.i.i.i.i22, label %114, label %112
@@ -27168,7 +27168,7 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   br i1 %.not.i.i.i.i.i22, label %147, label %149
 
 147:                                              ; preds = %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle20TemplateArgumentPackEJRNS3_9NodeArrayEEEESt4pairIPNS3_4NodeEbEbDpOT0_.exit.i.i.i.i
-  %148 = getelementptr inbounds i8, ptr %0, i64 920
+  %148 = getelementptr inbounds nuw i8, ptr %0, i64 920
   store ptr %.sroa.0.0.i.i.i.i.i, ptr %148, align 8
   br label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_20TemplateArgumentPackEJRNS0_9NodeArrayEEEEPNS0_4NodeEDpOT0_.exit
 
@@ -27177,14 +27177,14 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   br i1 %.not.i.i.i.i, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_20TemplateArgumentPackEJRNS0_9NodeArrayEEEEPNS0_4NodeEDpOT0_.exit, label %150
 
 150:                                              ; preds = %149
-  %151 = getelementptr inbounds i8, ptr %0, i64 944
+  %151 = getelementptr inbounds nuw i8, ptr %0, i64 944
   %152 = load i32, ptr %151, align 8
   %153 = and i32 %152, 1
   %.not.i.i.i.i.i.i.i.i.i.i = icmp eq i32 %153, 0
-  %154 = getelementptr inbounds i8, ptr %0, i64 952
+  %154 = getelementptr inbounds nuw i8, ptr %0, i64 952
   %155 = load ptr, ptr %154, align 8
   %156 = select i1 %.not.i.i.i.i.i.i.i.i.i.i, ptr %155, ptr %154
-  %157 = getelementptr inbounds i8, ptr %0, i64 960
+  %157 = getelementptr inbounds nuw i8, ptr %0, i64 960
   %158 = load i32, ptr %157, align 8
   %159 = select i1 %.not.i.i.i.i.i.i.i.i.i.i, i32 %158, i32 32
   %160 = icmp eq i32 %159, 0
@@ -27231,13 +27231,13 @@ _ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32EN
   %.0.i.i.i.i.i23 = phi ptr [ %183, %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i.i ], [ null, %150 ], [ null, %.lr.ph.i.i.i10.i.i.i.i ]
   %.not9.i.i.i.i = icmp eq ptr %.0.i.i.i.i.i23, null
   %spec.select.i.i.i.i = select i1 %.not9.i.i.i.i, ptr %.sroa.0.0.i.i.i.i.i, ptr %.0.i.i.i.i.i23
-  %184 = getelementptr inbounds i8, ptr %0, i64 928
+  %184 = getelementptr inbounds nuw i8, ptr %0, i64 928
   %185 = load ptr, ptr %184, align 8
   %186 = icmp eq ptr %spec.select.i.i.i.i, %185
   br i1 %186, label %187, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_20TemplateArgumentPackEJRNS0_9NodeArrayEEEEPNS0_4NodeEDpOT0_.exit
 
 187:                                              ; preds = %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i.i
-  %188 = getelementptr inbounds i8, ptr %0, i64 936
+  %188 = getelementptr inbounds nuw i8, ptr %0, i64 936
   store i8 1, ptr %188, align 8
   br label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_20TemplateArgumentPackEJRNS0_9NodeArrayEEEEPNS0_4NodeEDpOT0_.exit
 
@@ -27322,7 +27322,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
 
 223:                                              ; preds = %221
   %224 = getelementptr inbounds nuw i8, ptr %0, i64 808
-  %225 = getelementptr inbounds i8, ptr %0, i64 937
+  %225 = getelementptr inbounds nuw i8, ptr %0, i64 937
   %226 = load i8, ptr %225, align 1
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %2)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
@@ -27333,7 +27333,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
   call void @_ZN4llvm16FoldingSetNodeID10AddIntegerEy(ptr noundef nonnull align 8 dereferenceable(144) %2, i64 noundef %228)
   %229 = ptrtoint ptr %222 to i64
   call void @_ZN4llvm16FoldingSetNodeID10AddIntegerEy(ptr noundef nonnull align 8 dereferenceable(144) %2, i64 noundef %229)
-  %230 = getelementptr inbounds i8, ptr %0, i64 904
+  %230 = getelementptr inbounds nuw i8, ptr %0, i64 904
   %231 = call noundef ptr @_ZN4llvm14FoldingSetBase19FindNodeOrInsertPosERKNS_16FoldingSetNodeIDERPvRKNS0_14FoldingSetInfoE(ptr noundef nonnull align 8 dereferenceable(16) %230, ptr noundef nonnull align 8 dereferenceable(144) %2, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4llvm10FoldingSetIN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeaderEE17getFoldingSetInfoEvE4Info) #20
   %.not.i.i.i.i.i30 = icmp eq ptr %231, null
   br i1 %.not.i.i.i.i.i30, label %234, label %232
@@ -27347,7 +27347,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
   br i1 %235, label %236, label %266
 
 236:                                              ; preds = %234
-  %237 = getelementptr inbounds i8, ptr %0, i64 888
+  %237 = getelementptr inbounds nuw i8, ptr %0, i64 888
   %238 = load i64, ptr %237, align 8
   %239 = add i64 %238, 40
   store i64 %239, ptr %237, align 8
@@ -27356,7 +27356,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
   %242 = add i64 %241, 7
   %243 = and i64 %242, -8
   %244 = add i64 %243, 40
-  %245 = getelementptr inbounds i8, ptr %0, i64 816
+  %245 = getelementptr inbounds nuw i8, ptr %0, i64 816
   %246 = load ptr, ptr %245, align 8
   %247 = ptrtoint ptr %246 to i64
   %.not.i.i.i.i.i.i.i44 = icmp ugt i64 %244, %247
@@ -27418,7 +27418,7 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   br i1 %.not.i.i.i.i.i30, label %271, label %273
 
 271:                                              ; preds = %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle25TemplateParamQualifiedArgEJRPNS3_4NodeES7_EEESt4pairIS6_bEbDpOT0_.exit.i.i.i.i
-  %272 = getelementptr inbounds i8, ptr %0, i64 920
+  %272 = getelementptr inbounds nuw i8, ptr %0, i64 920
   store ptr %.sroa.0.0.i.i.i.i.i31, ptr %272, align 8
   br label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_20TemplateArgumentPackEJRNS0_9NodeArrayEEEEPNS0_4NodeEDpOT0_.exit
 
@@ -27427,14 +27427,14 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   br i1 %.not.i.i.i.i32, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_20TemplateArgumentPackEJRNS0_9NodeArrayEEEEPNS0_4NodeEDpOT0_.exit, label %274
 
 274:                                              ; preds = %273
-  %275 = getelementptr inbounds i8, ptr %0, i64 944
+  %275 = getelementptr inbounds nuw i8, ptr %0, i64 944
   %276 = load i32, ptr %275, align 8
   %277 = and i32 %276, 1
   %.not.i.i.i.i.i.i.i.i.i.i33 = icmp eq i32 %277, 0
-  %278 = getelementptr inbounds i8, ptr %0, i64 952
+  %278 = getelementptr inbounds nuw i8, ptr %0, i64 952
   %279 = load ptr, ptr %278, align 8
   %280 = select i1 %.not.i.i.i.i.i.i.i.i.i.i33, ptr %279, ptr %278
-  %281 = getelementptr inbounds i8, ptr %0, i64 960
+  %281 = getelementptr inbounds nuw i8, ptr %0, i64 960
   %282 = load i32, ptr %281, align 8
   %283 = select i1 %.not.i.i.i.i.i.i.i.i.i.i33, i32 %282, i32 32
   %284 = icmp eq i32 %283, 0
@@ -27481,13 +27481,13 @@ _ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32EN
   %.0.i.i.i.i.i41 = phi ptr [ %307, %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i.i39 ], [ null, %274 ], [ null, %.lr.ph.i.i.i.i.i.i.i35 ]
   %.not10.i.i.i.i = icmp eq ptr %.0.i.i.i.i.i41, null
   %spec.select.i.i.i.i42 = select i1 %.not10.i.i.i.i, ptr %.sroa.0.0.i.i.i.i.i31, ptr %.0.i.i.i.i.i41
-  %308 = getelementptr inbounds i8, ptr %0, i64 928
+  %308 = getelementptr inbounds nuw i8, ptr %0, i64 928
   %309 = load ptr, ptr %308, align 8
   %310 = icmp eq ptr %spec.select.i.i.i.i42, %309
   br i1 %310, label %311, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_20TemplateArgumentPackEJRNS0_9NodeArrayEEEEPNS0_4NodeEDpOT0_.exit
 
 311:                                              ; preds = %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i.i40
-  %312 = getelementptr inbounds i8, ptr %0, i64 936
+  %312 = getelementptr inbounds nuw i8, ptr %0, i64 936
   store i8 1, ptr %312, align 8
   br label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_20TemplateArgumentPackEJRNS0_9NodeArrayEEEEPNS0_4NodeEDpOT0_.exit
 
@@ -27505,7 +27505,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   %3 = alloca %"class.llvm::FoldingSetNodeID", align 8
   %4 = alloca ptr, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 808
-  %6 = getelementptr inbounds i8, ptr %0, i64 937
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 937
   %7 = load i8, ptr %6, align 1
   %8 = trunc i8 %7 to i1
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %3)
@@ -27531,7 +27531,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   br i1 %.not.i.i.i.i.i.i, label %_ZN12_GLOBAL__N_111profileCtorIJN4llvm16itanium_demangle9NodeArrayEEEEvRNS1_16FoldingSetNodeIDENS2_4Node4KindEDpT_.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i
 
 _ZN12_GLOBAL__N_111profileCtorIJN4llvm16itanium_demangle9NodeArrayEEEEvRNS1_16FoldingSetNodeIDENS2_4Node4KindEDpT_.exit.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i, %2
-  %14 = getelementptr inbounds i8, ptr %0, i64 904
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 904
   %15 = call noundef ptr @_ZN4llvm14FoldingSetBase19FindNodeOrInsertPosERKNS_16FoldingSetNodeIDERPvRKNS0_14FoldingSetInfoE(ptr noundef nonnull align 8 dereferenceable(16) %14, ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4llvm10FoldingSetIN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeaderEE17getFoldingSetInfoEvE4Info) #20
   %.not.i.i.i.i = icmp eq ptr %15, null
   br i1 %.not.i.i.i.i, label %18, label %16
@@ -27544,7 +27544,7 @@ _ZN12_GLOBAL__N_111profileCtorIJN4llvm16itanium_demangle9NodeArrayEEEEvRNS1_16Fo
   br i1 %8, label %19, label %48
 
 19:                                               ; preds = %18
-  %20 = getelementptr inbounds i8, ptr %0, i64 888
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 888
   %21 = load i64, ptr %20, align 8
   %22 = add i64 %21, 40
   store i64 %22, ptr %20, align 8
@@ -27553,7 +27553,7 @@ _ZN12_GLOBAL__N_111profileCtorIJN4llvm16itanium_demangle9NodeArrayEEEEvRNS1_16Fo
   %25 = add i64 %24, 7
   %26 = and i64 %25, -8
   %27 = add i64 %26, 40
-  %28 = getelementptr inbounds i8, ptr %0, i64 816
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 816
   %29 = load ptr, ptr %28, align 8
   %30 = ptrtoint ptr %29 to i64
   %.not.i.i10.i.i.i.i = icmp ugt i64 %27, %30
@@ -27617,7 +27617,7 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   br i1 %.not.i.i.i.i, label %53, label %55
 
 53:                                               ; preds = %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle13NodeArrayNodeEJNS3_9NodeArrayEEEESt4pairIPNS3_4NodeEbEbDpOT0_.exit.i.i.i
-  %54 = getelementptr inbounds i8, ptr %0, i64 920
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 920
   store ptr %.sroa.0.0.i.i.i.i, ptr %54, align 8
   br label %_ZN12_GLOBAL__N_122CanonicalizerAllocator8makeNodeIN4llvm16itanium_demangle13NodeArrayNodeEJNS3_9NodeArrayEEEEPNS3_4NodeEDpOT0_.exit
 
@@ -27626,14 +27626,14 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   br i1 %.not.i.i.i, label %_ZN12_GLOBAL__N_122CanonicalizerAllocator8makeNodeIN4llvm16itanium_demangle13NodeArrayNodeEJNS3_9NodeArrayEEEEPNS3_4NodeEDpOT0_.exit, label %56
 
 56:                                               ; preds = %55
-  %57 = getelementptr inbounds i8, ptr %0, i64 944
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 944
   %58 = load i32, ptr %57, align 8
   %59 = and i32 %58, 1
   %.not.i.i.i.i.i.i.i.i.i = icmp eq i32 %59, 0
-  %60 = getelementptr inbounds i8, ptr %0, i64 952
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 952
   %61 = load ptr, ptr %60, align 8
   %62 = select i1 %.not.i.i.i.i.i.i.i.i.i, ptr %61, ptr %60
-  %63 = getelementptr inbounds i8, ptr %0, i64 960
+  %63 = getelementptr inbounds nuw i8, ptr %0, i64 960
   %64 = load i32, ptr %63, align 8
   %65 = select i1 %.not.i.i.i.i.i.i.i.i.i, i32 %64, i32 32
   %66 = icmp eq i32 %65, 0
@@ -27680,13 +27680,13 @@ _ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32EN
   %.0.i.i.i.i = phi ptr [ %89, %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i ], [ null, %56 ], [ null, %.lr.ph.i.i.i10.i.i.i ]
   %.not9.i.i.i = icmp eq ptr %.0.i.i.i.i, null
   %spec.select.i.i.i = select i1 %.not9.i.i.i, ptr %.sroa.0.0.i.i.i.i, ptr %.0.i.i.i.i
-  %90 = getelementptr inbounds i8, ptr %0, i64 928
+  %90 = getelementptr inbounds nuw i8, ptr %0, i64 928
   %91 = load ptr, ptr %90, align 8
   %92 = icmp eq ptr %spec.select.i.i.i, %91
   br i1 %92, label %93, label %_ZN12_GLOBAL__N_122CanonicalizerAllocator8makeNodeIN4llvm16itanium_demangle13NodeArrayNodeEJNS3_9NodeArrayEEEEPNS3_4NodeEDpOT0_.exit
 
 93:                                               ; preds = %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i
-  %94 = getelementptr inbounds i8, ptr %0, i64 936
+  %94 = getelementptr inbounds nuw i8, ptr %0, i64 936
   store i8 1, ptr %94, align 8
   br label %_ZN12_GLOBAL__N_122CanonicalizerAllocator8makeNodeIN4llvm16itanium_demangle13NodeArrayNodeEJNS3_9NodeArrayEEEEPNS3_4NodeEDpOT0_.exit
 
@@ -27700,7 +27700,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   %4 = alloca %"class.llvm::FoldingSetNodeID", align 8
   %5 = alloca ptr, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 808
-  %7 = getelementptr inbounds i8, ptr %0, i64 937
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 937
   %8 = load i8, ptr %7, align 1
   %9 = trunc i8 %8 to i1
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %4)
@@ -27729,7 +27729,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   br i1 %.not.i.i.i.i.i.i, label %_ZN12_GLOBAL__N_111profileCtorIJPN4llvm16itanium_demangle4NodeENS2_9NodeArrayEEEEvRNS1_16FoldingSetNodeIDENS3_4KindEDpT_.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i
 
 _ZN12_GLOBAL__N_111profileCtorIJPN4llvm16itanium_demangle4NodeENS2_9NodeArrayEEEEvRNS1_16FoldingSetNodeIDENS3_4KindEDpT_.exit.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i, %3
-  %17 = getelementptr inbounds i8, ptr %0, i64 904
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 904
   %18 = call noundef ptr @_ZN4llvm14FoldingSetBase19FindNodeOrInsertPosERKNS_16FoldingSetNodeIDERPvRKNS0_14FoldingSetInfoE(ptr noundef nonnull align 8 dereferenceable(16) %17, ptr noundef nonnull align 8 dereferenceable(144) %4, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4llvm10FoldingSetIN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeaderEE17getFoldingSetInfoEvE4Info) #20
   %.not.i.i.i.i = icmp eq ptr %18, null
   br i1 %.not.i.i.i.i, label %21, label %19
@@ -27742,7 +27742,7 @@ _ZN12_GLOBAL__N_111profileCtorIJPN4llvm16itanium_demangle4NodeENS2_9NodeArrayEEE
   br i1 %9, label %22, label %53
 
 22:                                               ; preds = %21
-  %23 = getelementptr inbounds i8, ptr %0, i64 888
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 888
   %24 = load i64, ptr %23, align 8
   %25 = add i64 %24, 48
   store i64 %25, ptr %23, align 8
@@ -27751,7 +27751,7 @@ _ZN12_GLOBAL__N_111profileCtorIJPN4llvm16itanium_demangle4NodeENS2_9NodeArrayEEE
   %28 = add i64 %27, 7
   %29 = and i64 %28, -8
   %30 = add i64 %29, 48
-  %31 = getelementptr inbounds i8, ptr %0, i64 816
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 816
   %32 = load ptr, ptr %31, align 8
   %33 = ptrtoint ptr %32 to i64
   %.not.i.i12.i.i.i.i = icmp ugt i64 %30, %33
@@ -27818,7 +27818,7 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   br i1 %.not.i.i.i.i, label %58, label %60
 
 58:                                               ; preds = %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle12InitListExprEJRPNS3_4NodeENS3_9NodeArrayEEEESt4pairIS6_bEbDpOT0_.exit.i.i.i
-  %59 = getelementptr inbounds i8, ptr %0, i64 920
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 920
   store ptr %.sroa.0.0.i.i.i.i, ptr %59, align 8
   br label %_ZN12_GLOBAL__N_122CanonicalizerAllocator8makeNodeIN4llvm16itanium_demangle12InitListExprEJRPNS3_4NodeENS3_9NodeArrayEEEES6_DpOT0_.exit
 
@@ -27827,14 +27827,14 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   br i1 %.not.i.i.i, label %_ZN12_GLOBAL__N_122CanonicalizerAllocator8makeNodeIN4llvm16itanium_demangle12InitListExprEJRPNS3_4NodeENS3_9NodeArrayEEEES6_DpOT0_.exit, label %61
 
 61:                                               ; preds = %60
-  %62 = getelementptr inbounds i8, ptr %0, i64 944
+  %62 = getelementptr inbounds nuw i8, ptr %0, i64 944
   %63 = load i32, ptr %62, align 8
   %64 = and i32 %63, 1
   %.not.i.i.i.i.i.i.i.i.i = icmp eq i32 %64, 0
-  %65 = getelementptr inbounds i8, ptr %0, i64 952
+  %65 = getelementptr inbounds nuw i8, ptr %0, i64 952
   %66 = load ptr, ptr %65, align 8
   %67 = select i1 %.not.i.i.i.i.i.i.i.i.i, ptr %66, ptr %65
-  %68 = getelementptr inbounds i8, ptr %0, i64 960
+  %68 = getelementptr inbounds nuw i8, ptr %0, i64 960
   %69 = load i32, ptr %68, align 8
   %70 = select i1 %.not.i.i.i.i.i.i.i.i.i, i32 %69, i32 32
   %71 = icmp eq i32 %70, 0
@@ -27881,13 +27881,13 @@ _ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32EN
   %.0.i.i.i.i = phi ptr [ %94, %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i ], [ null, %61 ], [ null, %.lr.ph.i.i.i11.i.i.i ]
   %.not10.i.i.i = icmp eq ptr %.0.i.i.i.i, null
   %spec.select.i.i.i = select i1 %.not10.i.i.i, ptr %.sroa.0.0.i.i.i.i, ptr %.0.i.i.i.i
-  %95 = getelementptr inbounds i8, ptr %0, i64 928
+  %95 = getelementptr inbounds nuw i8, ptr %0, i64 928
   %96 = load ptr, ptr %95, align 8
   %97 = icmp eq ptr %spec.select.i.i.i, %96
   br i1 %97, label %98, label %_ZN12_GLOBAL__N_122CanonicalizerAllocator8makeNodeIN4llvm16itanium_demangle12InitListExprEJRPNS3_4NodeENS3_9NodeArrayEEEES6_DpOT0_.exit
 
 98:                                               ; preds = %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i
-  %99 = getelementptr inbounds i8, ptr %0, i64 936
+  %99 = getelementptr inbounds nuw i8, ptr %0, i64 936
   store i8 1, ptr %99, align 8
   br label %_ZN12_GLOBAL__N_122CanonicalizerAllocator8makeNodeIN4llvm16itanium_demangle12InitListExprEJRPNS3_4NodeENS3_9NodeArrayEEEES6_DpOT0_.exit
 
@@ -27901,7 +27901,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   %3 = alloca %"class.llvm::FoldingSetNodeID", align 8
   %4 = alloca ptr, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 808
-  %6 = getelementptr inbounds i8, ptr %0, i64 937
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 937
   %7 = load i8, ptr %6, align 1
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
@@ -27911,7 +27911,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   call void @_ZN4llvm16FoldingSetNodeID10AddIntegerEy(ptr noundef nonnull align 8 dereferenceable(144) %3, i64 noundef 72)
   %10 = ptrtoint ptr %9 to i64
   call void @_ZN4llvm16FoldingSetNodeID10AddIntegerEy(ptr noundef nonnull align 8 dereferenceable(144) %3, i64 noundef %10)
-  %11 = getelementptr inbounds i8, ptr %0, i64 904
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 904
   %12 = call noundef ptr @_ZN4llvm14FoldingSetBase19FindNodeOrInsertPosERKNS_16FoldingSetNodeIDERPvRKNS0_14FoldingSetInfoE(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4llvm10FoldingSetIN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeaderEE17getFoldingSetInfoEvE4Info) #20
   %.not.i.i.i.i = icmp eq ptr %12, null
   br i1 %.not.i.i.i.i, label %15, label %13
@@ -27925,7 +27925,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   br i1 %16, label %17, label %47
 
 17:                                               ; preds = %15
-  %18 = getelementptr inbounds i8, ptr %0, i64 888
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 888
   %19 = load i64, ptr %18, align 8
   %20 = add i64 %19, 32
   store i64 %20, ptr %18, align 8
@@ -27934,7 +27934,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   %23 = add i64 %22, 7
   %24 = and i64 %23, -8
   %25 = add i64 %24, 32
-  %26 = getelementptr inbounds i8, ptr %0, i64 816
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 816
   %27 = load ptr, ptr %26, align 8
   %28 = ptrtoint ptr %27 to i64
   %.not.i.i.i.i.i.i = icmp ugt i64 %25, %28
@@ -27995,7 +27995,7 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   br i1 %.not.i.i.i.i, label %52, label %54
 
 52:                                               ; preds = %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle9ThrowExprEJRPNS3_4NodeEEEESt4pairIS6_bEbDpOT0_.exit.i.i.i
-  %53 = getelementptr inbounds i8, ptr %0, i64 920
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 920
   store ptr %.sroa.0.0.i.i.i.i, ptr %53, align 8
   br label %_ZN12_GLOBAL__N_122CanonicalizerAllocator8makeNodeIN4llvm16itanium_demangle9ThrowExprEJRPNS3_4NodeEEEES6_DpOT0_.exit
 
@@ -28004,14 +28004,14 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   br i1 %.not.i.i.i, label %_ZN12_GLOBAL__N_122CanonicalizerAllocator8makeNodeIN4llvm16itanium_demangle9ThrowExprEJRPNS3_4NodeEEEES6_DpOT0_.exit, label %55
 
 55:                                               ; preds = %54
-  %56 = getelementptr inbounds i8, ptr %0, i64 944
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 944
   %57 = load i32, ptr %56, align 8
   %58 = and i32 %57, 1
   %.not.i.i.i.i.i.i.i.i.i = icmp eq i32 %58, 0
-  %59 = getelementptr inbounds i8, ptr %0, i64 952
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 952
   %60 = load ptr, ptr %59, align 8
   %61 = select i1 %.not.i.i.i.i.i.i.i.i.i, ptr %60, ptr %59
-  %62 = getelementptr inbounds i8, ptr %0, i64 960
+  %62 = getelementptr inbounds nuw i8, ptr %0, i64 960
   %63 = load i32, ptr %62, align 8
   %64 = select i1 %.not.i.i.i.i.i.i.i.i.i, i32 %63, i32 32
   %65 = icmp eq i32 %64, 0
@@ -28058,13 +28058,13 @@ _ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32EN
   %.0.i.i.i.i = phi ptr [ %88, %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i ], [ null, %55 ], [ null, %.lr.ph.i.i.i.i.i.i ]
   %.not9.i.i.i = icmp eq ptr %.0.i.i.i.i, null
   %spec.select.i.i.i = select i1 %.not9.i.i.i, ptr %.sroa.0.0.i.i.i.i, ptr %.0.i.i.i.i
-  %89 = getelementptr inbounds i8, ptr %0, i64 928
+  %89 = getelementptr inbounds nuw i8, ptr %0, i64 928
   %90 = load ptr, ptr %89, align 8
   %91 = icmp eq ptr %spec.select.i.i.i, %90
   br i1 %91, label %92, label %_ZN12_GLOBAL__N_122CanonicalizerAllocator8makeNodeIN4llvm16itanium_demangle9ThrowExprEJRPNS3_4NodeEEEES6_DpOT0_.exit
 
 92:                                               ; preds = %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i
-  %93 = getelementptr inbounds i8, ptr %0, i64 936
+  %93 = getelementptr inbounds nuw i8, ptr %0, i64 936
   store i8 1, ptr %93, align 8
   br label %_ZN12_GLOBAL__N_122CanonicalizerAllocator8makeNodeIN4llvm16itanium_demangle9ThrowExprEJRPNS3_4NodeEEEES6_DpOT0_.exit
 
@@ -28133,7 +28133,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i: ; preds = %20
 
 _ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEES4_.exit: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 808
-  %26 = getelementptr inbounds i8, ptr %0, i64 937
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 937
   %27 = load i8, ptr %26, align 1
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %2)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
@@ -28141,7 +28141,7 @@ _ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIc
   call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull %28, i64 noundef 32) #20
   call void @_ZN4llvm16FoldingSetNodeID10AddIntegerEy(ptr noundef nonnull align 8 dereferenceable(144) %2, i64 noundef 8)
   call void @_ZN4llvm16FoldingSetNodeID9AddStringENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(144) %2, ptr nonnull @.str.194, i64 21) #20
-  %29 = getelementptr inbounds i8, ptr %0, i64 904
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 904
   %30 = call noundef ptr @_ZN4llvm14FoldingSetBase19FindNodeOrInsertPosERKNS_16FoldingSetNodeIDERPvRKNS0_14FoldingSetInfoE(ptr noundef nonnull align 8 dereferenceable(16) %29, ptr noundef nonnull align 8 dereferenceable(144) %2, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4llvm10FoldingSetIN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeaderEE17getFoldingSetInfoEvE4Info) #20
   %.not.i.i.i.i.i = icmp eq ptr %30, null
   br i1 %.not.i.i.i.i.i, label %33, label %31
@@ -28155,7 +28155,7 @@ _ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIc
   br i1 %34, label %35, label %64
 
 35:                                               ; preds = %33
-  %36 = getelementptr inbounds i8, ptr %0, i64 888
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 888
   %37 = load i64, ptr %36, align 8
   %38 = add i64 %37, 40
   store i64 %38, ptr %36, align 8
@@ -28164,7 +28164,7 @@ _ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIc
   %41 = add i64 %40, 7
   %42 = and i64 %41, -8
   %43 = add i64 %42, 40
-  %44 = getelementptr inbounds i8, ptr %0, i64 816
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 816
   %45 = load ptr, ptr %44, align 8
   %46 = ptrtoint ptr %45 to i64
   %.not.i.i.i.i.i.i.i = icmp ugt i64 %43, %46
@@ -28226,7 +28226,7 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   br i1 %.not.i.i.i.i.i, label %69, label %71
 
 69:                                               ; preds = %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle8NameTypeEJRA22_KcEEESt4pairIPNS3_4NodeEbEbDpOT0_.exit.i.i.i.i
-  %70 = getelementptr inbounds i8, ptr %0, i64 920
+  %70 = getelementptr inbounds nuw i8, ptr %0, i64 920
   store ptr %.sroa.04.0.i.i.i.i.i, ptr %70, align 8
   br label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_8NameTypeEJRA22_KcEEEPNS0_4NodeEDpOT0_.exit
 
@@ -28235,14 +28235,14 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   br i1 %.not.i.i.i.i, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_8NameTypeEJRA22_KcEEEPNS0_4NodeEDpOT0_.exit, label %72
 
 72:                                               ; preds = %71
-  %73 = getelementptr inbounds i8, ptr %0, i64 944
+  %73 = getelementptr inbounds nuw i8, ptr %0, i64 944
   %74 = load i32, ptr %73, align 8
   %75 = and i32 %74, 1
   %.not.i.i.i.i.i.i.i.i.i.i = icmp eq i32 %75, 0
-  %76 = getelementptr inbounds i8, ptr %0, i64 952
+  %76 = getelementptr inbounds nuw i8, ptr %0, i64 952
   %77 = load ptr, ptr %76, align 8
   %78 = select i1 %.not.i.i.i.i.i.i.i.i.i.i, ptr %77, ptr %76
-  %79 = getelementptr inbounds i8, ptr %0, i64 960
+  %79 = getelementptr inbounds nuw i8, ptr %0, i64 960
   %80 = load i32, ptr %79, align 8
   %81 = select i1 %.not.i.i.i.i.i.i.i.i.i.i, i32 %80, i32 32
   %82 = icmp eq i32 %81, 0
@@ -28289,13 +28289,13 @@ _ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32EN
   %.0.i.i.i.i.i = phi ptr [ %105, %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i.i ], [ null, %72 ], [ null, %.lr.ph.i.i.i.i.i.i.i ]
   %.not9.i.i.i.i = icmp eq ptr %.0.i.i.i.i.i, null
   %spec.select.i.i.i.i = select i1 %.not9.i.i.i.i, ptr %.sroa.04.0.i.i.i.i.i, ptr %.0.i.i.i.i.i
-  %106 = getelementptr inbounds i8, ptr %0, i64 928
+  %106 = getelementptr inbounds nuw i8, ptr %0, i64 928
   %107 = load ptr, ptr %106, align 8
   %108 = icmp eq ptr %spec.select.i.i.i.i, %107
   br i1 %108, label %109, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_8NameTypeEJRA22_KcEEEPNS0_4NodeEDpOT0_.exit
 
 109:                                              ; preds = %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i.i
-  %110 = getelementptr inbounds i8, ptr %0, i64 936
+  %110 = getelementptr inbounds nuw i8, ptr %0, i64 936
   store i8 1, ptr %110, align 8
   br label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_8NameTypeEJRA22_KcEEEPNS0_4NodeEDpOT0_.exit
 
@@ -28720,7 +28720,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   %6 = alloca %"class.llvm::FoldingSetNodeID", align 8
   %7 = alloca ptr, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 808
-  %9 = getelementptr inbounds i8, ptr %0, i64 937
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 937
   %10 = load i8, ptr %9, align 1
   %11 = trunc i8 %10 to i1
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %6)
@@ -28752,7 +28752,7 @@ _ZN12_GLOBAL__N_111profileCtorIJPN4llvm16itanium_demangle4NodeESt17basic_string_
   call void @_ZN4llvm16FoldingSetNodeID10AddIntegerEy(ptr noundef nonnull align 8 dereferenceable(144) %6, i64 noundef %20)
   %21 = sext i32 %15 to i64
   call void @_ZN4llvm16FoldingSetNodeID10AddIntegerEy(ptr noundef nonnull align 8 dereferenceable(144) %6, i64 noundef %21)
-  %22 = getelementptr inbounds i8, ptr %0, i64 904
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 904
   %23 = call noundef ptr @_ZN4llvm14FoldingSetBase19FindNodeOrInsertPosERKNS_16FoldingSetNodeIDERPvRKNS0_14FoldingSetInfoE(ptr noundef nonnull align 8 dereferenceable(16) %22, ptr noundef nonnull align 8 dereferenceable(144) %6, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4llvm10FoldingSetIN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeaderEE17getFoldingSetInfoEvE4Info) #20
   %.not.i.i.i.i = icmp eq ptr %23, null
   br i1 %.not.i.i.i.i, label %26, label %24
@@ -28765,7 +28765,7 @@ _ZN12_GLOBAL__N_111profileCtorIJPN4llvm16itanium_demangle4NodeESt17basic_string_
   br i1 %11, label %27, label %64
 
 27:                                               ; preds = %26
-  %28 = getelementptr inbounds i8, ptr %0, i64 888
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 888
   %29 = load i64, ptr %28, align 8
   %30 = add i64 %29, 56
   store i64 %30, ptr %28, align 8
@@ -28774,7 +28774,7 @@ _ZN12_GLOBAL__N_111profileCtorIJPN4llvm16itanium_demangle4NodeESt17basic_string_
   %33 = add i64 %32, 7
   %34 = and i64 %33, -8
   %35 = add i64 %34, 56
-  %36 = getelementptr inbounds i8, ptr %0, i64 816
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 816
   %37 = load ptr, ptr %36, align 8
   %38 = ptrtoint ptr %37 to i64
   %.not.i.i.i.i.i.i = icmp ugt i64 %35, %38
@@ -28848,7 +28848,7 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   br i1 %.not.i.i.i.i, label %69, label %71
 
 69:                                               ; preds = %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle10BinaryExprEJRPNS3_4NodeERSt17basic_string_viewIcSt11char_traitsIcEES7_RNS5_4PrecEEEESt4pairIS6_bEbDpOT0_.exit.i.i.i
-  %70 = getelementptr inbounds i8, ptr %0, i64 920
+  %70 = getelementptr inbounds nuw i8, ptr %0, i64 920
   store ptr %.sroa.0.0.i.i.i.i, ptr %70, align 8
   br label %_ZN12_GLOBAL__N_122CanonicalizerAllocator8makeNodeIN4llvm16itanium_demangle10BinaryExprEJRPNS3_4NodeERSt17basic_string_viewIcSt11char_traitsIcEES7_RNS5_4PrecEEEES6_DpOT0_.exit
 
@@ -28857,14 +28857,14 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   br i1 %.not.i.i.i, label %_ZN12_GLOBAL__N_122CanonicalizerAllocator8makeNodeIN4llvm16itanium_demangle10BinaryExprEJRPNS3_4NodeERSt17basic_string_viewIcSt11char_traitsIcEES7_RNS5_4PrecEEEES6_DpOT0_.exit, label %72
 
 72:                                               ; preds = %71
-  %73 = getelementptr inbounds i8, ptr %0, i64 944
+  %73 = getelementptr inbounds nuw i8, ptr %0, i64 944
   %74 = load i32, ptr %73, align 8
   %75 = and i32 %74, 1
   %.not.i.i.i.i.i.i.i.i.i = icmp eq i32 %75, 0
-  %76 = getelementptr inbounds i8, ptr %0, i64 952
+  %76 = getelementptr inbounds nuw i8, ptr %0, i64 952
   %77 = load ptr, ptr %76, align 8
   %78 = select i1 %.not.i.i.i.i.i.i.i.i.i, ptr %77, ptr %76
-  %79 = getelementptr inbounds i8, ptr %0, i64 960
+  %79 = getelementptr inbounds nuw i8, ptr %0, i64 960
   %80 = load i32, ptr %79, align 8
   %81 = select i1 %.not.i.i.i.i.i.i.i.i.i, i32 %80, i32 32
   %82 = icmp eq i32 %81, 0
@@ -28911,13 +28911,13 @@ _ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32EN
   %.0.i.i.i.i = phi ptr [ %105, %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i ], [ null, %72 ], [ null, %.lr.ph.i.i.i.i.i.i ]
   %.not12.i.i.i = icmp eq ptr %.0.i.i.i.i, null
   %spec.select.i.i.i = select i1 %.not12.i.i.i, ptr %.sroa.0.0.i.i.i.i, ptr %.0.i.i.i.i
-  %106 = getelementptr inbounds i8, ptr %0, i64 928
+  %106 = getelementptr inbounds nuw i8, ptr %0, i64 928
   %107 = load ptr, ptr %106, align 8
   %108 = icmp eq ptr %spec.select.i.i.i, %107
   br i1 %108, label %109, label %_ZN12_GLOBAL__N_122CanonicalizerAllocator8makeNodeIN4llvm16itanium_demangle10BinaryExprEJRPNS3_4NodeERSt17basic_string_viewIcSt11char_traitsIcEES7_RNS5_4PrecEEEES6_DpOT0_.exit
 
 109:                                              ; preds = %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i
-  %110 = getelementptr inbounds i8, ptr %0, i64 936
+  %110 = getelementptr inbounds nuw i8, ptr %0, i64 936
   store i8 1, ptr %110, align 8
   br label %_ZN12_GLOBAL__N_122CanonicalizerAllocator8makeNodeIN4llvm16itanium_demangle10BinaryExprEJRPNS3_4NodeERSt17basic_string_viewIcSt11char_traitsIcEES7_RNS5_4PrecEEEES6_DpOT0_.exit
 
@@ -29207,7 +29207,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   %5 = alloca %"class.llvm::FoldingSetNodeID", align 8
   %6 = alloca ptr, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 808
-  %8 = getelementptr inbounds i8, ptr %0, i64 937
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 937
   %9 = load i8, ptr %8, align 1
   %10 = trunc i8 %9 to i1
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %5)
@@ -29236,7 +29236,7 @@ _ZN12_GLOBAL__N_111profileCtorIJSt17basic_string_viewIcSt11char_traitsIcEEPN4llv
   call void @_ZN4llvm16FoldingSetNodeID10AddIntegerEy(ptr noundef nonnull align 8 dereferenceable(144) %5, i64 noundef %17)
   %18 = sext i32 %13 to i64
   call void @_ZN4llvm16FoldingSetNodeID10AddIntegerEy(ptr noundef nonnull align 8 dereferenceable(144) %5, i64 noundef %18)
-  %19 = getelementptr inbounds i8, ptr %0, i64 904
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 904
   %20 = call noundef ptr @_ZN4llvm14FoldingSetBase19FindNodeOrInsertPosERKNS_16FoldingSetNodeIDERPvRKNS0_14FoldingSetInfoE(ptr noundef nonnull align 8 dereferenceable(16) %19, ptr noundef nonnull align 8 dereferenceable(144) %5, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4llvm10FoldingSetIN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeaderEE17getFoldingSetInfoEvE4Info) #20
   %.not.i.i.i.i = icmp eq ptr %20, null
   br i1 %.not.i.i.i.i, label %23, label %21
@@ -29249,7 +29249,7 @@ _ZN12_GLOBAL__N_111profileCtorIJSt17basic_string_viewIcSt11char_traitsIcEEPN4llv
   br i1 %10, label %24, label %59
 
 24:                                               ; preds = %23
-  %25 = getelementptr inbounds i8, ptr %0, i64 888
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 888
   %26 = load i64, ptr %25, align 8
   %27 = add i64 %26, 48
   store i64 %27, ptr %25, align 8
@@ -29258,7 +29258,7 @@ _ZN12_GLOBAL__N_111profileCtorIJSt17basic_string_viewIcSt11char_traitsIcEEPN4llv
   %30 = add i64 %29, 7
   %31 = and i64 %30, -8
   %32 = add i64 %31, 48
-  %33 = getelementptr inbounds i8, ptr %0, i64 816
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 816
   %34 = load ptr, ptr %33, align 8
   %35 = ptrtoint ptr %34 to i64
   %.not.i.i.i.i.i.i = icmp ugt i64 %32, %35
@@ -29329,7 +29329,7 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   br i1 %.not.i.i.i.i, label %64, label %66
 
 64:                                               ; preds = %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle10PrefixExprEJRSt17basic_string_viewIcSt11char_traitsIcEERPNS3_4NodeERNSA_4PrecEEEESt4pairISB_bEbDpOT0_.exit.i.i.i
-  %65 = getelementptr inbounds i8, ptr %0, i64 920
+  %65 = getelementptr inbounds nuw i8, ptr %0, i64 920
   store ptr %.sroa.0.0.i.i.i.i, ptr %65, align 8
   br label %_ZN12_GLOBAL__N_122CanonicalizerAllocator8makeNodeIN4llvm16itanium_demangle10PrefixExprEJRSt17basic_string_viewIcSt11char_traitsIcEERPNS3_4NodeERNSA_4PrecEEEESB_DpOT0_.exit
 
@@ -29338,14 +29338,14 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   br i1 %.not.i.i.i, label %_ZN12_GLOBAL__N_122CanonicalizerAllocator8makeNodeIN4llvm16itanium_demangle10PrefixExprEJRSt17basic_string_viewIcSt11char_traitsIcEERPNS3_4NodeERNSA_4PrecEEEESB_DpOT0_.exit, label %67
 
 67:                                               ; preds = %66
-  %68 = getelementptr inbounds i8, ptr %0, i64 944
+  %68 = getelementptr inbounds nuw i8, ptr %0, i64 944
   %69 = load i32, ptr %68, align 8
   %70 = and i32 %69, 1
   %.not.i.i.i.i.i.i.i.i.i = icmp eq i32 %70, 0
-  %71 = getelementptr inbounds i8, ptr %0, i64 952
+  %71 = getelementptr inbounds nuw i8, ptr %0, i64 952
   %72 = load ptr, ptr %71, align 8
   %73 = select i1 %.not.i.i.i.i.i.i.i.i.i, ptr %72, ptr %71
-  %74 = getelementptr inbounds i8, ptr %0, i64 960
+  %74 = getelementptr inbounds nuw i8, ptr %0, i64 960
   %75 = load i32, ptr %74, align 8
   %76 = select i1 %.not.i.i.i.i.i.i.i.i.i, i32 %75, i32 32
   %77 = icmp eq i32 %76, 0
@@ -29392,13 +29392,13 @@ _ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32EN
   %.0.i.i.i.i = phi ptr [ %100, %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i ], [ null, %67 ], [ null, %.lr.ph.i.i.i.i.i.i ]
   %.not11.i.i.i = icmp eq ptr %.0.i.i.i.i, null
   %spec.select.i.i.i = select i1 %.not11.i.i.i, ptr %.sroa.0.0.i.i.i.i, ptr %.0.i.i.i.i
-  %101 = getelementptr inbounds i8, ptr %0, i64 928
+  %101 = getelementptr inbounds nuw i8, ptr %0, i64 928
   %102 = load ptr, ptr %101, align 8
   %103 = icmp eq ptr %spec.select.i.i.i, %102
   br i1 %103, label %104, label %_ZN12_GLOBAL__N_122CanonicalizerAllocator8makeNodeIN4llvm16itanium_demangle10PrefixExprEJRSt17basic_string_viewIcSt11char_traitsIcEERPNS3_4NodeERNSA_4PrecEEEESB_DpOT0_.exit
 
 104:                                              ; preds = %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i
-  %105 = getelementptr inbounds i8, ptr %0, i64 936
+  %105 = getelementptr inbounds nuw i8, ptr %0, i64 936
   store i8 1, ptr %105, align 8
   br label %_ZN12_GLOBAL__N_122CanonicalizerAllocator8makeNodeIN4llvm16itanium_demangle10PrefixExprEJRSt17basic_string_viewIcSt11char_traitsIcEERPNS3_4NodeERNSA_4PrecEEEESB_DpOT0_.exit
 
@@ -29850,7 +29850,7 @@ _ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i21: ; preds = %._ZN4llvm16
 _ZN4llvm16itanium_demangle12OutputBufferpLESt17basic_string_viewIcSt11char_traitsIcEE.exit25: ; preds = %_ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i21, %_ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i14
   %59 = phi i64 [ %58, %_ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i21 ], [ %40, %_ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i14 ]
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %61 = getelementptr inbounds i8, ptr %0, i64 24
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %62 = load i64, ptr %61, align 8
   %63 = icmp eq i64 %62, 0
   br i1 %63, label %123, label %64
@@ -30055,7 +30055,7 @@ _ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i39: ; preds = %._ZN4llvm16
 
 _ZNK4llvm16itanium_demangle4Node5printERNS0_12OutputBufferE.exit: ; preds = %_ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i39, %146
   %150 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %151 = getelementptr inbounds i8, ptr %0, i64 48
+  %151 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %152 = load i64, ptr %151, align 8
   %153 = icmp eq i64 %152, 0
   br i1 %153, label %214, label %154
@@ -30471,7 +30471,7 @@ _ZN4llvm16itanium_demangle12OutputBuffer9printOpenEc.exit: ; preds = %_ZNK4llvm1
   %31 = getelementptr inbounds i8, ptr %30, i64 %29
   store i8 40, ptr %31, align 1
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %33 = getelementptr inbounds i8, ptr %0, i64 32
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %34 = load i64, ptr %33, align 8
   %.not13.i = icmp eq i64 %34, 0
   %.pre = load i64, ptr %17, align 8
@@ -30725,7 +30725,7 @@ _ZN4llvm16itanium_demangle12OutputBuffer9printOpenEc.exit19: ; preds = %_ZN4llvm
   %61 = getelementptr inbounds i8, ptr %60, i64 %59
   store i8 40, ptr %61, align 1
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %63 = getelementptr inbounds i8, ptr %0, i64 32
+  %63 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %64 = load i64, ptr %63, align 8
   %.not13.i = icmp eq i64 %64, 0
   %.pre = load i64, ptr %6, align 8
@@ -31422,7 +31422,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
   %31 = getelementptr inbounds i8, ptr %22, i64 1
   store ptr %31, ptr %0, align 8
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 808
-  %33 = getelementptr inbounds i8, ptr %0, i64 937
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 937
   %34 = load i8, ptr %33, align 1
   %35 = trunc i8 %34 to i1
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %4)
@@ -31443,7 +31443,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
 
 _ZN12_GLOBAL__N_111profileCtorIJSt17basic_string_viewIcSt11char_traitsIcEES4_EEEvRN4llvm16FoldingSetNodeIDENS5_16itanium_demangle4Node4KindEDpT_.exit.i.i.i.i.i: ; preds = %39, %38
   call void @_ZN4llvm16FoldingSetNodeID9AddStringENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(144) %4, ptr %6, i64 %25) #20
-  %40 = getelementptr inbounds i8, ptr %0, i64 904
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 904
   %41 = call noundef ptr @_ZN4llvm14FoldingSetBase19FindNodeOrInsertPosERKNS_16FoldingSetNodeIDERPvRKNS0_14FoldingSetInfoE(ptr noundef nonnull align 8 dereferenceable(16) %40, ptr noundef nonnull align 8 dereferenceable(144) %4, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4llvm10FoldingSetIN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeaderEE17getFoldingSetInfoEvE4Info) #20
   %.not.i.i.i.i.i = icmp eq ptr %41, null
   br i1 %.not.i.i.i.i.i, label %44, label %42
@@ -31456,7 +31456,7 @@ _ZN12_GLOBAL__N_111profileCtorIJSt17basic_string_viewIcSt11char_traitsIcEES4_EEE
   br i1 %35, label %45, label %75
 
 45:                                               ; preds = %44
-  %46 = getelementptr inbounds i8, ptr %0, i64 888
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 888
   %47 = load i64, ptr %46, align 8
   %48 = add i64 %47, 56
   store i64 %48, ptr %46, align 8
@@ -31465,7 +31465,7 @@ _ZN12_GLOBAL__N_111profileCtorIJSt17basic_string_viewIcSt11char_traitsIcEES4_EEE
   %51 = add i64 %50, 7
   %52 = and i64 %51, -8
   %53 = add i64 %52, 56
-  %54 = getelementptr inbounds i8, ptr %0, i64 816
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 816
   %55 = load ptr, ptr %54, align 8
   %56 = ptrtoint ptr %55 to i64
   %.not.i.i.i.i.i.i.i = icmp ugt i64 %53, %56
@@ -31531,7 +31531,7 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   br i1 %.not.i.i.i.i.i, label %80, label %82
 
 80:                                               ; preds = %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle14IntegerLiteralEJRSt17basic_string_viewIcSt11char_traitsIcEES9_EEESt4pairIPNS3_4NodeEbEbDpOT0_.exit.i.i.i.i
-  %81 = getelementptr inbounds i8, ptr %0, i64 920
+  %81 = getelementptr inbounds nuw i8, ptr %0, i64 920
   store ptr %.sroa.0.0.i.i.i.i.i, ptr %81, align 8
   br label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_14IntegerLiteralEJRSt17basic_string_viewIcSt11char_traitsIcEESD_EEEPNS0_4NodeEDpOT0_.exit
 
@@ -31540,14 +31540,14 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   br i1 %.not.i.i.i.i, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_14IntegerLiteralEJRSt17basic_string_viewIcSt11char_traitsIcEESD_EEEPNS0_4NodeEDpOT0_.exit, label %83
 
 83:                                               ; preds = %82
-  %84 = getelementptr inbounds i8, ptr %0, i64 944
+  %84 = getelementptr inbounds nuw i8, ptr %0, i64 944
   %85 = load i32, ptr %84, align 8
   %86 = and i32 %85, 1
   %.not.i.i.i.i.i.i.i.i.i.i = icmp eq i32 %86, 0
-  %87 = getelementptr inbounds i8, ptr %0, i64 952
+  %87 = getelementptr inbounds nuw i8, ptr %0, i64 952
   %88 = load ptr, ptr %87, align 8
   %89 = select i1 %.not.i.i.i.i.i.i.i.i.i.i, ptr %88, ptr %87
-  %90 = getelementptr inbounds i8, ptr %0, i64 960
+  %90 = getelementptr inbounds nuw i8, ptr %0, i64 960
   %91 = load i32, ptr %90, align 8
   %92 = select i1 %.not.i.i.i.i.i.i.i.i.i.i, i32 %91, i32 32
   %93 = icmp eq i32 %92, 0
@@ -31594,13 +31594,13 @@ _ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32EN
   %.0.i.i.i.i.i = phi ptr [ %116, %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i.i ], [ null, %83 ], [ null, %.lr.ph.i.i.i.i.i.i.i ]
   %.not10.i.i.i.i = icmp eq ptr %.0.i.i.i.i.i, null
   %spec.select.i.i.i.i = select i1 %.not10.i.i.i.i, ptr %.sroa.0.0.i.i.i.i.i, ptr %.0.i.i.i.i.i
-  %117 = getelementptr inbounds i8, ptr %0, i64 928
+  %117 = getelementptr inbounds nuw i8, ptr %0, i64 928
   %118 = load ptr, ptr %117, align 8
   %119 = icmp eq ptr %spec.select.i.i.i.i, %118
   br i1 %119, label %120, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_14IntegerLiteralEJRSt17basic_string_viewIcSt11char_traitsIcEESD_EEEPNS0_4NodeEDpOT0_.exit
 
 120:                                              ; preds = %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i.i
-  %121 = getelementptr inbounds i8, ptr %0, i64 936
+  %121 = getelementptr inbounds nuw i8, ptr %0, i64 936
   store i8 1, ptr %121, align 8
   br label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_14IntegerLiteralEJRSt17basic_string_viewIcSt11char_traitsIcEESD_EEEPNS0_4NodeEDpOT0_.exit
 
@@ -31614,7 +31614,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   %3 = alloca %"class.llvm::FoldingSetNodeID", align 8
   %4 = alloca ptr, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 808
-  %6 = getelementptr inbounds i8, ptr %0, i64 937
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 937
   %7 = load i8, ptr %6, align 1
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
@@ -31624,7 +31624,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   call void @_ZN4llvm16FoldingSetNodeID10AddIntegerEy(ptr noundef nonnull align 8 dereferenceable(144) %3, i64 noundef 73)
   %10 = sext i32 %9 to i64
   call void @_ZN4llvm16FoldingSetNodeID10AddIntegerEy(ptr noundef nonnull align 8 dereferenceable(144) %3, i64 noundef %10)
-  %11 = getelementptr inbounds i8, ptr %0, i64 904
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 904
   %12 = call noundef ptr @_ZN4llvm14FoldingSetBase19FindNodeOrInsertPosERKNS_16FoldingSetNodeIDERPvRKNS0_14FoldingSetInfoE(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4llvm10FoldingSetIN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeaderEE17getFoldingSetInfoEvE4Info) #20
   %.not.i.i.i.i = icmp eq ptr %12, null
   br i1 %.not.i.i.i.i, label %15, label %13
@@ -31638,7 +31638,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   br i1 %16, label %17, label %49
 
 17:                                               ; preds = %15
-  %18 = getelementptr inbounds i8, ptr %0, i64 888
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 888
   %19 = load i64, ptr %18, align 8
   %20 = add i64 %19, 24
   store i64 %20, ptr %18, align 8
@@ -31647,7 +31647,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   %23 = add i64 %22, 7
   %24 = and i64 %23, -8
   %25 = add i64 %24, 24
-  %26 = getelementptr inbounds i8, ptr %0, i64 816
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 816
   %27 = load ptr, ptr %26, align 8
   %28 = ptrtoint ptr %27 to i64
   %.not.i.i.i.i.i.i = icmp ugt i64 %25, %28
@@ -31710,7 +31710,7 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   br i1 %.not.i.i.i.i, label %54, label %56
 
 54:                                               ; preds = %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle8BoolExprEJiEEESt4pairIPNS3_4NodeEbEbDpOT0_.exit.i.i.i
-  %55 = getelementptr inbounds i8, ptr %0, i64 920
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 920
   store ptr %.sroa.0.0.i.i.i.i, ptr %55, align 8
   br label %_ZN12_GLOBAL__N_122CanonicalizerAllocator8makeNodeIN4llvm16itanium_demangle8BoolExprEJiEEEPNS3_4NodeEDpOT0_.exit
 
@@ -31719,14 +31719,14 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   br i1 %.not.i.i.i, label %_ZN12_GLOBAL__N_122CanonicalizerAllocator8makeNodeIN4llvm16itanium_demangle8BoolExprEJiEEEPNS3_4NodeEDpOT0_.exit, label %57
 
 57:                                               ; preds = %56
-  %58 = getelementptr inbounds i8, ptr %0, i64 944
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 944
   %59 = load i32, ptr %58, align 8
   %60 = and i32 %59, 1
   %.not.i.i.i.i.i.i.i.i.i = icmp eq i32 %60, 0
-  %61 = getelementptr inbounds i8, ptr %0, i64 952
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 952
   %62 = load ptr, ptr %61, align 8
   %63 = select i1 %.not.i.i.i.i.i.i.i.i.i, ptr %62, ptr %61
-  %64 = getelementptr inbounds i8, ptr %0, i64 960
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 960
   %65 = load i32, ptr %64, align 8
   %66 = select i1 %.not.i.i.i.i.i.i.i.i.i, i32 %65, i32 32
   %67 = icmp eq i32 %66, 0
@@ -31773,13 +31773,13 @@ _ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32EN
   %.0.i.i.i.i = phi ptr [ %90, %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i ], [ null, %57 ], [ null, %.lr.ph.i.i.i.i.i.i ]
   %.not9.i.i.i = icmp eq ptr %.0.i.i.i.i, null
   %spec.select.i.i.i = select i1 %.not9.i.i.i, ptr %.sroa.0.0.i.i.i.i, ptr %.0.i.i.i.i
-  %91 = getelementptr inbounds i8, ptr %0, i64 928
+  %91 = getelementptr inbounds nuw i8, ptr %0, i64 928
   %92 = load ptr, ptr %91, align 8
   %93 = icmp eq ptr %spec.select.i.i.i, %92
   br i1 %93, label %94, label %_ZN12_GLOBAL__N_122CanonicalizerAllocator8makeNodeIN4llvm16itanium_demangle8BoolExprEJiEEEPNS3_4NodeEDpOT0_.exit
 
 94:                                               ; preds = %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i
-  %95 = getelementptr inbounds i8, ptr %0, i64 936
+  %95 = getelementptr inbounds nuw i8, ptr %0, i64 936
   store i8 1, ptr %95, align 8
   br label %_ZN12_GLOBAL__N_122CanonicalizerAllocator8makeNodeIN4llvm16itanium_demangle8BoolExprEJiEEEPNS3_4NodeEDpOT0_.exit
 
@@ -31793,7 +31793,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   %3 = alloca %"class.llvm::FoldingSetNodeID", align 8
   %4 = alloca ptr, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 808
-  %6 = getelementptr inbounds i8, ptr %0, i64 937
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 937
   %7 = load i8, ptr %6, align 1
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
@@ -31803,7 +31803,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   call void @_ZN4llvm16FoldingSetNodeID10AddIntegerEy(ptr noundef nonnull align 8 dereferenceable(144) %3, i64 noundef 74)
   %10 = ptrtoint ptr %9 to i64
   call void @_ZN4llvm16FoldingSetNodeID10AddIntegerEy(ptr noundef nonnull align 8 dereferenceable(144) %3, i64 noundef %10)
-  %11 = getelementptr inbounds i8, ptr %0, i64 904
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 904
   %12 = call noundef ptr @_ZN4llvm14FoldingSetBase19FindNodeOrInsertPosERKNS_16FoldingSetNodeIDERPvRKNS0_14FoldingSetInfoE(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4llvm10FoldingSetIN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeaderEE17getFoldingSetInfoEvE4Info) #20
   %.not.i.i.i.i = icmp eq ptr %12, null
   br i1 %.not.i.i.i.i, label %15, label %13
@@ -31817,7 +31817,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   br i1 %16, label %17, label %47
 
 17:                                               ; preds = %15
-  %18 = getelementptr inbounds i8, ptr %0, i64 888
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 888
   %19 = load i64, ptr %18, align 8
   %20 = add i64 %19, 32
   store i64 %20, ptr %18, align 8
@@ -31826,7 +31826,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   %23 = add i64 %22, 7
   %24 = and i64 %23, -8
   %25 = add i64 %24, 32
-  %26 = getelementptr inbounds i8, ptr %0, i64 816
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 816
   %27 = load ptr, ptr %26, align 8
   %28 = ptrtoint ptr %27 to i64
   %.not.i.i.i.i.i.i = icmp ugt i64 %25, %28
@@ -31887,7 +31887,7 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   br i1 %.not.i.i.i.i, label %52, label %54
 
 52:                                               ; preds = %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle13StringLiteralEJRPNS3_4NodeEEEESt4pairIS6_bEbDpOT0_.exit.i.i.i
-  %53 = getelementptr inbounds i8, ptr %0, i64 920
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 920
   store ptr %.sroa.0.0.i.i.i.i, ptr %53, align 8
   br label %_ZN12_GLOBAL__N_122CanonicalizerAllocator8makeNodeIN4llvm16itanium_demangle13StringLiteralEJRPNS3_4NodeEEEES6_DpOT0_.exit
 
@@ -31896,14 +31896,14 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   br i1 %.not.i.i.i, label %_ZN12_GLOBAL__N_122CanonicalizerAllocator8makeNodeIN4llvm16itanium_demangle13StringLiteralEJRPNS3_4NodeEEEES6_DpOT0_.exit, label %55
 
 55:                                               ; preds = %54
-  %56 = getelementptr inbounds i8, ptr %0, i64 944
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 944
   %57 = load i32, ptr %56, align 8
   %58 = and i32 %57, 1
   %.not.i.i.i.i.i.i.i.i.i = icmp eq i32 %58, 0
-  %59 = getelementptr inbounds i8, ptr %0, i64 952
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 952
   %60 = load ptr, ptr %59, align 8
   %61 = select i1 %.not.i.i.i.i.i.i.i.i.i, ptr %60, ptr %59
-  %62 = getelementptr inbounds i8, ptr %0, i64 960
+  %62 = getelementptr inbounds nuw i8, ptr %0, i64 960
   %63 = load i32, ptr %62, align 8
   %64 = select i1 %.not.i.i.i.i.i.i.i.i.i, i32 %63, i32 32
   %65 = icmp eq i32 %64, 0
@@ -31950,13 +31950,13 @@ _ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32EN
   %.0.i.i.i.i = phi ptr [ %88, %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i ], [ null, %55 ], [ null, %.lr.ph.i.i.i.i.i.i ]
   %.not9.i.i.i = icmp eq ptr %.0.i.i.i.i, null
   %spec.select.i.i.i = select i1 %.not9.i.i.i, ptr %.sroa.0.0.i.i.i.i, ptr %.0.i.i.i.i
-  %89 = getelementptr inbounds i8, ptr %0, i64 928
+  %89 = getelementptr inbounds nuw i8, ptr %0, i64 928
   %90 = load ptr, ptr %89, align 8
   %91 = icmp eq ptr %spec.select.i.i.i, %90
   br i1 %91, label %92, label %_ZN12_GLOBAL__N_122CanonicalizerAllocator8makeNodeIN4llvm16itanium_demangle13StringLiteralEJRPNS3_4NodeEEEES6_DpOT0_.exit
 
 92:                                               ; preds = %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i
-  %93 = getelementptr inbounds i8, ptr %0, i64 936
+  %93 = getelementptr inbounds nuw i8, ptr %0, i64 936
   store i8 1, ptr %93, align 8
   br label %_ZN12_GLOBAL__N_122CanonicalizerAllocator8makeNodeIN4llvm16itanium_demangle13StringLiteralEJRPNS3_4NodeEEEES6_DpOT0_.exit
 
@@ -31983,7 +31983,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
 13:                                               ; preds = %2
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 664
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 672
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 672
   store ptr %15, ptr %16, align 8
   br label %17
 
@@ -32056,7 +32056,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
   %44 = getelementptr inbounds i8, ptr %39, i64 1
   store ptr %44, ptr %0, align 8
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 808
-  %46 = getelementptr inbounds i8, ptr %0, i64 937
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 937
   %47 = load i8, ptr %46, align 1
   %48 = trunc i8 %47 to i1
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %5)
@@ -32076,7 +32076,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
   br label %_ZN12_GLOBAL__N_111profileCtorIJSt17basic_string_viewIcSt11char_traitsIcEEEEEvRN4llvm16FoldingSetNodeIDENS5_16itanium_demangle4Node4KindEDpT_.exit.i.i.i.i.i
 
 _ZN12_GLOBAL__N_111profileCtorIJSt17basic_string_viewIcSt11char_traitsIcEEEEEvRN4llvm16FoldingSetNodeIDENS5_16itanium_demangle4Node4KindEDpT_.exit.i.i.i.i.i: ; preds = %52, %51
-  %53 = getelementptr inbounds i8, ptr %0, i64 904
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 904
   %54 = call noundef ptr @_ZN4llvm14FoldingSetBase19FindNodeOrInsertPosERKNS_16FoldingSetNodeIDERPvRKNS0_14FoldingSetInfoE(ptr noundef nonnull align 8 dereferenceable(16) %53, ptr noundef nonnull align 8 dereferenceable(144) %5, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4llvm10FoldingSetIN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeaderEE17getFoldingSetInfoEvE4Info) #20
   %.not.i.i.i.i.i = icmp eq ptr %54, null
   br i1 %.not.i.i.i.i.i, label %57, label %55
@@ -32089,7 +32089,7 @@ _ZN12_GLOBAL__N_111profileCtorIJSt17basic_string_viewIcSt11char_traitsIcEEEEEvRN
   br i1 %48, label %58, label %87
 
 58:                                               ; preds = %57
-  %59 = getelementptr inbounds i8, ptr %0, i64 888
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 888
   %60 = load i64, ptr %59, align 8
   %61 = add i64 %60, 40
   store i64 %61, ptr %59, align 8
@@ -32098,7 +32098,7 @@ _ZN12_GLOBAL__N_111profileCtorIJSt17basic_string_viewIcSt11char_traitsIcEEEEEvRN
   %64 = add i64 %63, 7
   %65 = and i64 %64, -8
   %66 = add i64 %65, 40
-  %67 = getelementptr inbounds i8, ptr %0, i64 816
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 816
   %68 = load ptr, ptr %67, align 8
   %69 = ptrtoint ptr %68 to i64
   %.not.i.i.i.i.i.i.i = icmp ugt i64 %66, %69
@@ -32160,7 +32160,7 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   br i1 %.not.i.i.i.i.i, label %92, label %94
 
 92:                                               ; preds = %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle15UnnamedTypeNameEJRSt17basic_string_viewIcSt11char_traitsIcEEEEESt4pairIPNS3_4NodeEbEbDpOT0_.exit.i.i.i.i
-  %93 = getelementptr inbounds i8, ptr %0, i64 920
+  %93 = getelementptr inbounds nuw i8, ptr %0, i64 920
   store ptr %.sroa.0.0.i.i.i.i.i, ptr %93, align 8
   br label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_15UnnamedTypeNameEJRSt17basic_string_viewIcSt11char_traitsIcEEEEEPNS0_4NodeEDpOT0_.exit
 
@@ -32169,14 +32169,14 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   br i1 %.not.i.i.i.i, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_15UnnamedTypeNameEJRSt17basic_string_viewIcSt11char_traitsIcEEEEEPNS0_4NodeEDpOT0_.exit, label %95
 
 95:                                               ; preds = %94
-  %96 = getelementptr inbounds i8, ptr %0, i64 944
+  %96 = getelementptr inbounds nuw i8, ptr %0, i64 944
   %97 = load i32, ptr %96, align 8
   %98 = and i32 %97, 1
   %.not.i.i.i.i.i.i.i.i.i.i = icmp eq i32 %98, 0
-  %99 = getelementptr inbounds i8, ptr %0, i64 952
+  %99 = getelementptr inbounds nuw i8, ptr %0, i64 952
   %100 = load ptr, ptr %99, align 8
   %101 = select i1 %.not.i.i.i.i.i.i.i.i.i.i, ptr %100, ptr %99
-  %102 = getelementptr inbounds i8, ptr %0, i64 960
+  %102 = getelementptr inbounds nuw i8, ptr %0, i64 960
   %103 = load i32, ptr %102, align 8
   %104 = select i1 %.not.i.i.i.i.i.i.i.i.i.i, i32 %103, i32 32
   %105 = icmp eq i32 %104, 0
@@ -32223,13 +32223,13 @@ _ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32EN
   %.0.i.i.i.i.i = phi ptr [ %128, %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i.i ], [ null, %95 ], [ null, %.lr.ph.i.i.i.i.i.i.i ]
   %.not9.i.i.i.i = icmp eq ptr %.0.i.i.i.i.i, null
   %spec.select.i.i.i.i = select i1 %.not9.i.i.i.i, ptr %.sroa.0.0.i.i.i.i.i, ptr %.0.i.i.i.i.i
-  %129 = getelementptr inbounds i8, ptr %0, i64 928
+  %129 = getelementptr inbounds nuw i8, ptr %0, i64 928
   %130 = load ptr, ptr %129, align 8
   %131 = icmp eq ptr %spec.select.i.i.i.i, %130
   br i1 %131, label %132, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_15UnnamedTypeNameEJRSt17basic_string_viewIcSt11char_traitsIcEEEEEPNS0_4NodeEDpOT0_.exit
 
 132:                                              ; preds = %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i.i
-  %133 = getelementptr inbounds i8, ptr %0, i64 936
+  %133 = getelementptr inbounds nuw i8, ptr %0, i64 936
   store i8 1, ptr %133, align 8
   br label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_15UnnamedTypeNameEJRSt17basic_string_viewIcSt11char_traitsIcEEEEEPNS0_4NodeEDpOT0_.exit
 
@@ -32243,7 +32243,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i12: ; preds = %_ZNSt11char_tra
   store ptr %136, ptr %0, align 8
   %137 = getelementptr inbounds nuw i8, ptr %0, i64 784
   %138 = getelementptr inbounds nuw i8, ptr %0, i64 664
-  %139 = getelementptr inbounds i8, ptr %0, i64 672
+  %139 = getelementptr inbounds nuw i8, ptr %0, i64 672
   %140 = load ptr, ptr %139, align 8
   %141 = load ptr, ptr %138, align 8
   %142 = ptrtoint ptr %140 to i64
@@ -32258,20 +32258,20 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i12: ; preds = %_ZNSt11char_tra
   %148 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %.ptr2.i.i = getelementptr inbounds i8, ptr %7, i64 40
   store ptr %.ptr2.i.i, ptr %148, align 8
-  %149 = getelementptr inbounds i8, ptr %7, i64 24
+  %149 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store ptr %.ptr2.i.i, ptr %149, align 8
-  %150 = getelementptr inbounds i8, ptr %7, i64 32
+  %150 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %151 = getelementptr inbounds i8, ptr %7, i64 104
   store ptr %151, ptr %150, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %.ptr2.i.i, i8 0, i64 64, i1 false)
-  %152 = getelementptr inbounds i8, ptr %0, i64 680
+  %152 = getelementptr inbounds nuw i8, ptr %0, i64 680
   %153 = load ptr, ptr %152, align 8
   %154 = icmp eq ptr %140, %153
   br i1 %154, label %155, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E23ScopedTemplateParamListC2EPS6_.exit
 
 155:                                              ; preds = %135
   %156 = ashr exact i64 %144, 2
-  %157 = getelementptr inbounds i8, ptr %0, i64 688
+  %157 = getelementptr inbounds nuw i8, ptr %0, i64 688
   %158 = icmp eq ptr %141, %157
   %159 = shl i64 %144, 1
   br i1 %158, label %160, label %166
@@ -32320,7 +32320,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
   store ptr %174, ptr %139, align 8
   store ptr %148, ptr %173, align 8
   %175 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %176 = getelementptr inbounds i8, ptr %0, i64 24
+  %176 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %177 = load ptr, ptr %176, align 8
   %178 = load ptr, ptr %175, align 8
   %179 = ptrtoint ptr %177 to i64
@@ -32335,8 +32335,8 @@ _ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLO
   %182 = ptrtoint ptr %.val10149 to i64
   %183 = ptrtoint ptr %.val9148 to i64
   %184 = sub i64 %182, %183
-  %185 = getelementptr inbounds i8, ptr %0, i64 32
-  %186 = getelementptr inbounds i8, ptr %0, i64 40
+  %185 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %186 = getelementptr inbounds nuw i8, ptr %0, i64 40
   br label %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit.i
 
 _ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit.i: ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit.i.lr.ph, %_ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exit
@@ -32452,7 +32452,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
   %235 = ptrtoint ptr %234 to i64
   %236 = sub i64 %.pre-phi, %235
   %237 = getelementptr inbounds nuw i8, ptr %0, i64 808
-  %238 = getelementptr inbounds i8, ptr %0, i64 888
+  %238 = getelementptr inbounds nuw i8, ptr %0, i64 888
   %239 = load i64, ptr %238, align 8
   %240 = add i64 %236, %239
   store i64 %240, ptr %238, align 8
@@ -32461,7 +32461,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
   %243 = add i64 %242, 7
   %244 = and i64 %243, -8
   %245 = add i64 %244, %236
-  %246 = getelementptr inbounds i8, ptr %0, i64 816
+  %246 = getelementptr inbounds nuw i8, ptr %0, i64 816
   %247 = load ptr, ptr %246, align 8
   %248 = ptrtoint ptr %247 to i64
   %.not.i.i.i.i.i19 = icmp ugt i64 %245, %248
@@ -32560,8 +32560,8 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
   br i1 %283, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E9consumeIfEc.exit54.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E9consumeIfESt17basic_string_viewIcSt11char_traitsIcEE.exit29
-  %284 = getelementptr inbounds i8, ptr %0, i64 32
-  %285 = getelementptr inbounds i8, ptr %0, i64 40
+  %284 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %285 = getelementptr inbounds nuw i8, ptr %0, i64 40
   br label %286
 
 286:                                              ; preds = %.lr.ph, %.critedge145.backedge
@@ -32793,7 +32793,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
   %382 = load i64, ptr %147, align 8
   %383 = load ptr, ptr %381, align 8
   %384 = getelementptr inbounds ptr, ptr %383, i64 %382
-  %385 = getelementptr inbounds i8, ptr %380, i64 672
+  %385 = getelementptr inbounds nuw i8, ptr %380, i64 672
   store ptr %384, ptr %385, align 8
   %386 = load ptr, ptr %148, align 8
   %387 = icmp eq ptr %386, %.ptr2.i.i
@@ -32853,7 +32853,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
   %405 = getelementptr inbounds i8, ptr %400, i64 1
   store ptr %405, ptr %0, align 8
   %406 = getelementptr inbounds nuw i8, ptr %0, i64 808
-  %407 = getelementptr inbounds i8, ptr %0, i64 937
+  %407 = getelementptr inbounds nuw i8, ptr %0, i64 937
   %408 = load i8, ptr %407, align 1
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
@@ -32861,7 +32861,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
   call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull %409, i64 noundef 32) #20
   call void @_ZN4llvm16FoldingSetNodeID10AddIntegerEy(ptr noundef nonnull align 8 dereferenceable(144) %3, i64 noundef 8)
   call void @_ZN4llvm16FoldingSetNodeID9AddStringENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr nonnull @.str.157, i64 15) #20
-  %410 = getelementptr inbounds i8, ptr %0, i64 904
+  %410 = getelementptr inbounds nuw i8, ptr %0, i64 904
   %411 = call noundef ptr @_ZN4llvm14FoldingSetBase19FindNodeOrInsertPosERKNS_16FoldingSetNodeIDERPvRKNS0_14FoldingSetInfoE(ptr noundef nonnull align 8 dereferenceable(16) %410, ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4llvm10FoldingSetIN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeaderEE17getFoldingSetInfoEvE4Info) #20
   %.not.i.i.i.i.i96 = icmp eq ptr %411, null
   br i1 %.not.i.i.i.i.i96, label %414, label %412
@@ -32875,7 +32875,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
   br i1 %415, label %416, label %445
 
 416:                                              ; preds = %414
-  %417 = getelementptr inbounds i8, ptr %0, i64 888
+  %417 = getelementptr inbounds nuw i8, ptr %0, i64 888
   %418 = load i64, ptr %417, align 8
   %419 = add i64 %418, 40
   store i64 %419, ptr %417, align 8
@@ -32884,7 +32884,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
   %422 = add i64 %421, 7
   %423 = and i64 %422, -8
   %424 = add i64 %423, 40
-  %425 = getelementptr inbounds i8, ptr %0, i64 816
+  %425 = getelementptr inbounds nuw i8, ptr %0, i64 816
   %426 = load ptr, ptr %425, align 8
   %427 = ptrtoint ptr %426 to i64
   %.not.i.i.i.i.i.i.i110 = icmp ugt i64 %424, %427
@@ -32946,7 +32946,7 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   br i1 %.not.i.i.i.i.i96, label %450, label %452
 
 450:                                              ; preds = %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle8NameTypeEJRA16_KcEEESt4pairIPNS3_4NodeEbEbDpOT0_.exit.i.i.i.i
-  %451 = getelementptr inbounds i8, ptr %0, i64 920
+  %451 = getelementptr inbounds nuw i8, ptr %0, i64 920
   store ptr %.sroa.04.0.i.i.i.i.i, ptr %451, align 8
   br label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_15UnnamedTypeNameEJRSt17basic_string_viewIcSt11char_traitsIcEEEEEPNS0_4NodeEDpOT0_.exit
 
@@ -32955,14 +32955,14 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   br i1 %.not.i.i.i.i97, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_15UnnamedTypeNameEJRSt17basic_string_viewIcSt11char_traitsIcEEEEEPNS0_4NodeEDpOT0_.exit, label %453
 
 453:                                              ; preds = %452
-  %454 = getelementptr inbounds i8, ptr %0, i64 944
+  %454 = getelementptr inbounds nuw i8, ptr %0, i64 944
   %455 = load i32, ptr %454, align 8
   %456 = and i32 %455, 1
   %.not.i.i.i.i.i.i.i.i.i.i98 = icmp eq i32 %456, 0
-  %457 = getelementptr inbounds i8, ptr %0, i64 952
+  %457 = getelementptr inbounds nuw i8, ptr %0, i64 952
   %458 = load ptr, ptr %457, align 8
   %459 = select i1 %.not.i.i.i.i.i.i.i.i.i.i98, ptr %458, ptr %457
-  %460 = getelementptr inbounds i8, ptr %0, i64 960
+  %460 = getelementptr inbounds nuw i8, ptr %0, i64 960
   %461 = load i32, ptr %460, align 8
   %462 = select i1 %.not.i.i.i.i.i.i.i.i.i.i98, i32 %461, i32 32
   %463 = icmp eq i32 %462, 0
@@ -33009,13 +33009,13 @@ _ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32EN
   %.0.i.i.i.i.i106 = phi ptr [ %486, %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i.i104 ], [ null, %453 ], [ null, %.lr.ph.i.i.i.i.i.i.i100 ]
   %.not9.i.i.i.i107 = icmp eq ptr %.0.i.i.i.i.i106, null
   %spec.select.i.i.i.i108 = select i1 %.not9.i.i.i.i107, ptr %.sroa.04.0.i.i.i.i.i, ptr %.0.i.i.i.i.i106
-  %487 = getelementptr inbounds i8, ptr %0, i64 928
+  %487 = getelementptr inbounds nuw i8, ptr %0, i64 928
   %488 = load ptr, ptr %487, align 8
   %489 = icmp eq ptr %spec.select.i.i.i.i108, %488
   br i1 %489, label %490, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_15UnnamedTypeNameEJRSt17basic_string_viewIcSt11char_traitsIcEEEEEPNS0_4NodeEDpOT0_.exit
 
 490:                                              ; preds = %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i.i105
-  %491 = getelementptr inbounds i8, ptr %0, i64 936
+  %491 = getelementptr inbounds nuw i8, ptr %0, i64 936
   store i8 1, ptr %491, align 8
   br label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_15UnnamedTypeNameEJRSt17basic_string_viewIcSt11char_traitsIcEEEEEPNS0_4NodeEDpOT0_.exit
 
@@ -33029,7 +33029,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   %3 = alloca %"class.llvm::FoldingSetNodeID", align 8
   %4 = alloca ptr, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 808
-  %6 = getelementptr inbounds i8, ptr %0, i64 937
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 937
   %7 = load i8, ptr %6, align 1
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
@@ -33039,7 +33039,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   call void @_ZN4llvm16FoldingSetNodeID10AddIntegerEy(ptr noundef nonnull align 8 dereferenceable(144) %3, i64 noundef 75)
   %10 = ptrtoint ptr %9 to i64
   call void @_ZN4llvm16FoldingSetNodeID10AddIntegerEy(ptr noundef nonnull align 8 dereferenceable(144) %3, i64 noundef %10)
-  %11 = getelementptr inbounds i8, ptr %0, i64 904
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 904
   %12 = call noundef ptr @_ZN4llvm14FoldingSetBase19FindNodeOrInsertPosERKNS_16FoldingSetNodeIDERPvRKNS0_14FoldingSetInfoE(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4llvm10FoldingSetIN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeaderEE17getFoldingSetInfoEvE4Info) #20
   %.not.i.i.i.i = icmp eq ptr %12, null
   br i1 %.not.i.i.i.i, label %15, label %13
@@ -33053,7 +33053,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   br i1 %16, label %17, label %47
 
 17:                                               ; preds = %15
-  %18 = getelementptr inbounds i8, ptr %0, i64 888
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 888
   %19 = load i64, ptr %18, align 8
   %20 = add i64 %19, 32
   store i64 %20, ptr %18, align 8
@@ -33062,7 +33062,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   %23 = add i64 %22, 7
   %24 = and i64 %23, -8
   %25 = add i64 %24, 32
-  %26 = getelementptr inbounds i8, ptr %0, i64 816
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 816
   %27 = load ptr, ptr %26, align 8
   %28 = ptrtoint ptr %27 to i64
   %.not.i.i.i.i.i.i = icmp ugt i64 %25, %28
@@ -33123,7 +33123,7 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   br i1 %.not.i.i.i.i, label %52, label %54
 
 52:                                               ; preds = %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle10LambdaExprEJRPNS3_4NodeEEEESt4pairIS6_bEbDpOT0_.exit.i.i.i
-  %53 = getelementptr inbounds i8, ptr %0, i64 920
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 920
   store ptr %.sroa.0.0.i.i.i.i, ptr %53, align 8
   br label %_ZN12_GLOBAL__N_122CanonicalizerAllocator8makeNodeIN4llvm16itanium_demangle10LambdaExprEJRPNS3_4NodeEEEES6_DpOT0_.exit
 
@@ -33132,14 +33132,14 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   br i1 %.not.i.i.i, label %_ZN12_GLOBAL__N_122CanonicalizerAllocator8makeNodeIN4llvm16itanium_demangle10LambdaExprEJRPNS3_4NodeEEEES6_DpOT0_.exit, label %55
 
 55:                                               ; preds = %54
-  %56 = getelementptr inbounds i8, ptr %0, i64 944
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 944
   %57 = load i32, ptr %56, align 8
   %58 = and i32 %57, 1
   %.not.i.i.i.i.i.i.i.i.i = icmp eq i32 %58, 0
-  %59 = getelementptr inbounds i8, ptr %0, i64 952
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 952
   %60 = load ptr, ptr %59, align 8
   %61 = select i1 %.not.i.i.i.i.i.i.i.i.i, ptr %60, ptr %59
-  %62 = getelementptr inbounds i8, ptr %0, i64 960
+  %62 = getelementptr inbounds nuw i8, ptr %0, i64 960
   %63 = load i32, ptr %62, align 8
   %64 = select i1 %.not.i.i.i.i.i.i.i.i.i, i32 %63, i32 32
   %65 = icmp eq i32 %64, 0
@@ -33186,13 +33186,13 @@ _ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32EN
   %.0.i.i.i.i = phi ptr [ %88, %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i ], [ null, %55 ], [ null, %.lr.ph.i.i.i.i.i.i ]
   %.not9.i.i.i = icmp eq ptr %.0.i.i.i.i, null
   %spec.select.i.i.i = select i1 %.not9.i.i.i, ptr %.sroa.0.0.i.i.i.i, ptr %.0.i.i.i.i
-  %89 = getelementptr inbounds i8, ptr %0, i64 928
+  %89 = getelementptr inbounds nuw i8, ptr %0, i64 928
   %90 = load ptr, ptr %89, align 8
   %91 = icmp eq ptr %spec.select.i.i.i, %90
   br i1 %91, label %92, label %_ZN12_GLOBAL__N_122CanonicalizerAllocator8makeNodeIN4llvm16itanium_demangle10LambdaExprEJRPNS3_4NodeEEEES6_DpOT0_.exit
 
 92:                                               ; preds = %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i
-  %93 = getelementptr inbounds i8, ptr %0, i64 936
+  %93 = getelementptr inbounds nuw i8, ptr %0, i64 936
   store i8 1, ptr %93, align 8
   br label %_ZN12_GLOBAL__N_122CanonicalizerAllocator8makeNodeIN4llvm16itanium_demangle10LambdaExprEJRPNS3_4NodeEEEES6_DpOT0_.exit
 
@@ -33206,7 +33206,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   %4 = alloca %"class.llvm::FoldingSetNodeID", align 8
   %5 = alloca ptr, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 808
-  %7 = getelementptr inbounds i8, ptr %0, i64 937
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 937
   %8 = load i8, ptr %7, align 1
   %9 = trunc i8 %8 to i1
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %4)
@@ -33232,7 +33232,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   br label %_ZN12_GLOBAL__N_111profileCtorIJPN4llvm16itanium_demangle4NodeESt17basic_string_viewIcSt11char_traitsIcEEEEEvRNS1_16FoldingSetNodeIDENS3_4KindEDpT_.exit.i.i.i.i
 
 _ZN12_GLOBAL__N_111profileCtorIJPN4llvm16itanium_demangle4NodeESt17basic_string_viewIcSt11char_traitsIcEEEEEvRNS1_16FoldingSetNodeIDENS3_4KindEDpT_.exit.i.i.i.i: ; preds = %15, %14
-  %16 = getelementptr inbounds i8, ptr %0, i64 904
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 904
   %17 = call noundef ptr @_ZN4llvm14FoldingSetBase19FindNodeOrInsertPosERKNS_16FoldingSetNodeIDERPvRKNS0_14FoldingSetInfoE(ptr noundef nonnull align 8 dereferenceable(16) %16, ptr noundef nonnull align 8 dereferenceable(144) %4, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4llvm10FoldingSetIN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeaderEE17getFoldingSetInfoEvE4Info) #20
   %.not.i.i.i.i = icmp eq ptr %17, null
   br i1 %.not.i.i.i.i, label %20, label %18
@@ -33245,7 +33245,7 @@ _ZN12_GLOBAL__N_111profileCtorIJPN4llvm16itanium_demangle4NodeESt17basic_string_
   br i1 %9, label %21, label %52
 
 21:                                               ; preds = %20
-  %22 = getelementptr inbounds i8, ptr %0, i64 888
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 888
   %23 = load i64, ptr %22, align 8
   %24 = add i64 %23, 48
   store i64 %24, ptr %22, align 8
@@ -33254,7 +33254,7 @@ _ZN12_GLOBAL__N_111profileCtorIJPN4llvm16itanium_demangle4NodeESt17basic_string_
   %27 = add i64 %26, 7
   %28 = and i64 %27, -8
   %29 = add i64 %28, 48
-  %30 = getelementptr inbounds i8, ptr %0, i64 816
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 816
   %31 = load ptr, ptr %30, align 8
   %32 = ptrtoint ptr %31 to i64
   %.not.i.i.i.i.i.i = icmp ugt i64 %29, %32
@@ -33321,7 +33321,7 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   br i1 %.not.i.i.i.i, label %57, label %59
 
 57:                                               ; preds = %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle11EnumLiteralEJRPNS3_4NodeERSt17basic_string_viewIcSt11char_traitsIcEEEEESt4pairIS6_bEbDpOT0_.exit.i.i.i
-  %58 = getelementptr inbounds i8, ptr %0, i64 920
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 920
   store ptr %.sroa.0.0.i.i.i.i, ptr %58, align 8
   br label %_ZN12_GLOBAL__N_122CanonicalizerAllocator8makeNodeIN4llvm16itanium_demangle11EnumLiteralEJRPNS3_4NodeERSt17basic_string_viewIcSt11char_traitsIcEEEEES6_DpOT0_.exit
 
@@ -33330,14 +33330,14 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   br i1 %.not.i.i.i, label %_ZN12_GLOBAL__N_122CanonicalizerAllocator8makeNodeIN4llvm16itanium_demangle11EnumLiteralEJRPNS3_4NodeERSt17basic_string_viewIcSt11char_traitsIcEEEEES6_DpOT0_.exit, label %60
 
 60:                                               ; preds = %59
-  %61 = getelementptr inbounds i8, ptr %0, i64 944
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 944
   %62 = load i32, ptr %61, align 8
   %63 = and i32 %62, 1
   %.not.i.i.i.i.i.i.i.i.i = icmp eq i32 %63, 0
-  %64 = getelementptr inbounds i8, ptr %0, i64 952
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 952
   %65 = load ptr, ptr %64, align 8
   %66 = select i1 %.not.i.i.i.i.i.i.i.i.i, ptr %65, ptr %64
-  %67 = getelementptr inbounds i8, ptr %0, i64 960
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 960
   %68 = load i32, ptr %67, align 8
   %69 = select i1 %.not.i.i.i.i.i.i.i.i.i, i32 %68, i32 32
   %70 = icmp eq i32 %69, 0
@@ -33384,13 +33384,13 @@ _ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32EN
   %.0.i.i.i.i = phi ptr [ %93, %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i ], [ null, %60 ], [ null, %.lr.ph.i.i.i.i.i.i ]
   %.not10.i.i.i = icmp eq ptr %.0.i.i.i.i, null
   %spec.select.i.i.i = select i1 %.not10.i.i.i, ptr %.sroa.0.0.i.i.i.i, ptr %.0.i.i.i.i
-  %94 = getelementptr inbounds i8, ptr %0, i64 928
+  %94 = getelementptr inbounds nuw i8, ptr %0, i64 928
   %95 = load ptr, ptr %94, align 8
   %96 = icmp eq ptr %spec.select.i.i.i, %95
   br i1 %96, label %97, label %_ZN12_GLOBAL__N_122CanonicalizerAllocator8makeNodeIN4llvm16itanium_demangle11EnumLiteralEJRPNS3_4NodeERSt17basic_string_viewIcSt11char_traitsIcEEEEES6_DpOT0_.exit
 
 97:                                               ; preds = %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i
-  %98 = getelementptr inbounds i8, ptr %0, i64 936
+  %98 = getelementptr inbounds nuw i8, ptr %0, i64 936
   store i8 1, ptr %98, align 8
   br label %_ZN12_GLOBAL__N_122CanonicalizerAllocator8makeNodeIN4llvm16itanium_demangle11EnumLiteralEJRPNS3_4NodeERSt17basic_string_viewIcSt11char_traitsIcEEEEES6_DpOT0_.exit
 
@@ -33789,7 +33789,7 @@ define linkonce_odr hidden void @_ZNK4llvm16itanium_demangle16FloatLiteralImplIf
   br i1 %7, label %8, label %_ZN4llvm16itanium_demangle12OutputBufferpLESt17basic_string_viewIcSt11char_traitsIcEE.exit
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %0, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %10 = load ptr, ptr %9, align 8
   br label %11
 
@@ -33911,7 +33911,7 @@ define linkonce_odr hidden void @_ZNK4llvm16itanium_demangle16FloatLiteralImplId
   br i1 %7, label %8, label %_ZN4llvm16itanium_demangle12OutputBufferpLESt17basic_string_viewIcSt11char_traitsIcEE.exit
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %0, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %10 = load ptr, ptr %9, align 8
   br label %11
 
@@ -34029,7 +34029,7 @@ define linkonce_odr hidden void @_ZNK4llvm16itanium_demangle16FloatLiteralImplIe
   br i1 %7, label %8, label %_ZN4llvm16itanium_demangle12OutputBufferpLESt17basic_string_viewIcSt11char_traitsIcEE.exit
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %0, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %10 = load ptr, ptr %9, align 8
   br label %11
 
@@ -34283,7 +34283,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i: ; preds = %2
 
 28:                                               ; preds = %25
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 808
-  %30 = getelementptr inbounds i8, ptr %0, i64 937
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 937
   %31 = load i8, ptr %30, align 1
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
@@ -34292,7 +34292,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i: ; preds = %2
   call void @_ZN4llvm16FoldingSetNodeID10AddIntegerEy(ptr noundef nonnull align 8 dereferenceable(144) %7, i64 noundef 35)
   %33 = ptrtoint ptr %27 to i64
   call void @_ZN4llvm16FoldingSetNodeID10AddIntegerEy(ptr noundef nonnull align 8 dereferenceable(144) %7, i64 noundef %33)
-  %34 = getelementptr inbounds i8, ptr %0, i64 904
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 904
   %35 = call noundef ptr @_ZN4llvm14FoldingSetBase19FindNodeOrInsertPosERKNS_16FoldingSetNodeIDERPvRKNS0_14FoldingSetInfoE(ptr noundef nonnull align 8 dereferenceable(16) %34, ptr noundef nonnull align 8 dereferenceable(144) %7, ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4llvm10FoldingSetIN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeaderEE17getFoldingSetInfoEvE4Info) #20
   %.not.i.i.i.i.i = icmp eq ptr %35, null
   br i1 %.not.i.i.i.i.i, label %38, label %36
@@ -34306,7 +34306,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i: ; preds = %2
   br i1 %39, label %40, label %69
 
 40:                                               ; preds = %38
-  %41 = getelementptr inbounds i8, ptr %0, i64 888
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 888
   %42 = load i64, ptr %41, align 8
   %43 = add i64 %42, 32
   store i64 %43, ptr %41, align 8
@@ -34315,7 +34315,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i: ; preds = %2
   %46 = add i64 %45, 7
   %47 = and i64 %46, -8
   %48 = add i64 %47, 32
-  %49 = getelementptr inbounds i8, ptr %0, i64 816
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 816
   %50 = load ptr, ptr %49, align 8
   %51 = ptrtoint ptr %50 to i64
   %.not.i.i.i.i.i.i.i = icmp ugt i64 %48, %51
@@ -34375,7 +34375,7 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   br i1 %.not.i.i.i.i.i, label %74, label %76
 
 74:                                               ; preds = %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle21TypeTemplateParamDeclEJRPNS3_4NodeEEEESt4pairIS6_bEbDpOT0_.exit.i.i.i.i
-  %75 = getelementptr inbounds i8, ptr %0, i64 920
+  %75 = getelementptr inbounds nuw i8, ptr %0, i64 920
   store ptr %.sroa.0.0.i.i.i.i.i, ptr %75, align 8
   br label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_21TypeTemplateParamDeclEJRPNS0_4NodeEEEESA_DpOT0_.exit
 
@@ -34384,14 +34384,14 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   br i1 %.not.i.i.i.i, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_21TypeTemplateParamDeclEJRPNS0_4NodeEEEESA_DpOT0_.exit, label %77
 
 77:                                               ; preds = %76
-  %78 = getelementptr inbounds i8, ptr %0, i64 944
+  %78 = getelementptr inbounds nuw i8, ptr %0, i64 944
   %79 = load i32, ptr %78, align 8
   %80 = and i32 %79, 1
   %.not.i.i.i.i.i.i.i.i.i.i = icmp eq i32 %80, 0
-  %81 = getelementptr inbounds i8, ptr %0, i64 952
+  %81 = getelementptr inbounds nuw i8, ptr %0, i64 952
   %82 = load ptr, ptr %81, align 8
   %83 = select i1 %.not.i.i.i.i.i.i.i.i.i.i, ptr %82, ptr %81
-  %84 = getelementptr inbounds i8, ptr %0, i64 960
+  %84 = getelementptr inbounds nuw i8, ptr %0, i64 960
   %85 = load i32, ptr %84, align 8
   %86 = select i1 %.not.i.i.i.i.i.i.i.i.i.i, i32 %85, i32 32
   %87 = icmp eq i32 %86, 0
@@ -34438,13 +34438,13 @@ _ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32EN
   %.0.i.i.i.i.i = phi ptr [ %110, %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i.i ], [ null, %77 ], [ null, %.lr.ph.i.i.i.i.i.i.i ]
   %.not9.i.i.i.i = icmp eq ptr %.0.i.i.i.i.i, null
   %spec.select.i.i.i.i = select i1 %.not9.i.i.i.i, ptr %.sroa.0.0.i.i.i.i.i, ptr %.0.i.i.i.i.i
-  %111 = getelementptr inbounds i8, ptr %0, i64 928
+  %111 = getelementptr inbounds nuw i8, ptr %0, i64 928
   %112 = load ptr, ptr %111, align 8
   %113 = icmp eq ptr %spec.select.i.i.i.i, %112
   br i1 %113, label %114, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_21TypeTemplateParamDeclEJRPNS0_4NodeEEEESA_DpOT0_.exit
 
 114:                                              ; preds = %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i.i
-  %115 = getelementptr inbounds i8, ptr %0, i64 936
+  %115 = getelementptr inbounds nuw i8, ptr %0, i64 936
   store i8 1, ptr %115, align 8
   br label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_21TypeTemplateParamDeclEJRPNS0_4NodeEEEESA_DpOT0_.exit
 
@@ -34467,7 +34467,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i9: ; preds = %_ZNSt11char_trai
 
 122:                                              ; preds = %120
   %123 = getelementptr inbounds nuw i8, ptr %0, i64 808
-  %124 = getelementptr inbounds i8, ptr %0, i64 937
+  %124 = getelementptr inbounds nuw i8, ptr %0, i64 937
   %125 = load i8, ptr %124, align 1
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
@@ -34478,7 +34478,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i9: ; preds = %_ZNSt11char_trai
   call void @_ZN4llvm16FoldingSetNodeID10AddIntegerEy(ptr noundef nonnull align 8 dereferenceable(144) %5, i64 noundef %127)
   %128 = ptrtoint ptr %121 to i64
   call void @_ZN4llvm16FoldingSetNodeID10AddIntegerEy(ptr noundef nonnull align 8 dereferenceable(144) %5, i64 noundef %128)
-  %129 = getelementptr inbounds i8, ptr %0, i64 904
+  %129 = getelementptr inbounds nuw i8, ptr %0, i64 904
   %130 = call noundef ptr @_ZN4llvm14FoldingSetBase19FindNodeOrInsertPosERKNS_16FoldingSetNodeIDERPvRKNS0_14FoldingSetInfoE(ptr noundef nonnull align 8 dereferenceable(16) %129, ptr noundef nonnull align 8 dereferenceable(144) %5, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4llvm10FoldingSetIN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeaderEE17getFoldingSetInfoEvE4Info) #20
   %.not.i.i.i.i.i14 = icmp eq ptr %130, null
   br i1 %.not.i.i.i.i.i14, label %133, label %131
@@ -34492,7 +34492,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i9: ; preds = %_ZNSt11char_trai
   br i1 %134, label %135, label %165
 
 135:                                              ; preds = %133
-  %136 = getelementptr inbounds i8, ptr %0, i64 888
+  %136 = getelementptr inbounds nuw i8, ptr %0, i64 888
   %137 = load i64, ptr %136, align 8
   %138 = add i64 %137, 40
   store i64 %138, ptr %136, align 8
@@ -34501,7 +34501,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i9: ; preds = %_ZNSt11char_trai
   %141 = add i64 %140, 7
   %142 = and i64 %141, -8
   %143 = add i64 %142, 40
-  %144 = getelementptr inbounds i8, ptr %0, i64 816
+  %144 = getelementptr inbounds nuw i8, ptr %0, i64 816
   %145 = load ptr, ptr %144, align 8
   %146 = ptrtoint ptr %145 to i64
   %.not.i.i.i.i.i.i.i28 = icmp ugt i64 %143, %146
@@ -34563,7 +34563,7 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   br i1 %.not.i.i.i.i.i14, label %170, label %172
 
 170:                                              ; preds = %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle32ConstrainedTypeTemplateParamDeclEJRPNS3_4NodeES7_EEESt4pairIS6_bEbDpOT0_.exit.i.i.i.i
-  %171 = getelementptr inbounds i8, ptr %0, i64 920
+  %171 = getelementptr inbounds nuw i8, ptr %0, i64 920
   store ptr %.sroa.0.0.i.i.i.i.i15, ptr %171, align 8
   br label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_21TypeTemplateParamDeclEJRPNS0_4NodeEEEESA_DpOT0_.exit
 
@@ -34572,14 +34572,14 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   br i1 %.not.i.i.i.i16, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_21TypeTemplateParamDeclEJRPNS0_4NodeEEEESA_DpOT0_.exit, label %173
 
 173:                                              ; preds = %172
-  %174 = getelementptr inbounds i8, ptr %0, i64 944
+  %174 = getelementptr inbounds nuw i8, ptr %0, i64 944
   %175 = load i32, ptr %174, align 8
   %176 = and i32 %175, 1
   %.not.i.i.i.i.i.i.i.i.i.i17 = icmp eq i32 %176, 0
-  %177 = getelementptr inbounds i8, ptr %0, i64 952
+  %177 = getelementptr inbounds nuw i8, ptr %0, i64 952
   %178 = load ptr, ptr %177, align 8
   %179 = select i1 %.not.i.i.i.i.i.i.i.i.i.i17, ptr %178, ptr %177
-  %180 = getelementptr inbounds i8, ptr %0, i64 960
+  %180 = getelementptr inbounds nuw i8, ptr %0, i64 960
   %181 = load i32, ptr %180, align 8
   %182 = select i1 %.not.i.i.i.i.i.i.i.i.i.i17, i32 %181, i32 32
   %183 = icmp eq i32 %182, 0
@@ -34626,13 +34626,13 @@ _ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32EN
   %.0.i.i.i.i.i25 = phi ptr [ %206, %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i.i23 ], [ null, %173 ], [ null, %.lr.ph.i.i.i.i.i.i.i19 ]
   %.not10.i.i.i.i = icmp eq ptr %.0.i.i.i.i.i25, null
   %spec.select.i.i.i.i26 = select i1 %.not10.i.i.i.i, ptr %.sroa.0.0.i.i.i.i.i15, ptr %.0.i.i.i.i.i25
-  %207 = getelementptr inbounds i8, ptr %0, i64 928
+  %207 = getelementptr inbounds nuw i8, ptr %0, i64 928
   %208 = load ptr, ptr %207, align 8
   %209 = icmp eq ptr %spec.select.i.i.i.i26, %208
   br i1 %209, label %210, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_21TypeTemplateParamDeclEJRPNS0_4NodeEEEESA_DpOT0_.exit
 
 210:                                              ; preds = %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i.i24
-  %211 = getelementptr inbounds i8, ptr %0, i64 936
+  %211 = getelementptr inbounds nuw i8, ptr %0, i64 936
   store i8 1, ptr %211, align 8
   br label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_21TypeTemplateParamDeclEJRPNS0_4NodeEEEESA_DpOT0_.exit
 
@@ -34655,7 +34655,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i35: ; preds = %_ZNSt11char_tra
 
 218:                                              ; preds = %216
   %219 = getelementptr inbounds nuw i8, ptr %0, i64 808
-  %220 = getelementptr inbounds i8, ptr %0, i64 937
+  %220 = getelementptr inbounds nuw i8, ptr %0, i64 937
   %221 = load i8, ptr %220, align 1
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
@@ -34666,7 +34666,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i35: ; preds = %_ZNSt11char_tra
   call void @_ZN4llvm16FoldingSetNodeID10AddIntegerEy(ptr noundef nonnull align 8 dereferenceable(144) %3, i64 noundef %223)
   %224 = ptrtoint ptr %217 to i64
   call void @_ZN4llvm16FoldingSetNodeID10AddIntegerEy(ptr noundef nonnull align 8 dereferenceable(144) %3, i64 noundef %224)
-  %225 = getelementptr inbounds i8, ptr %0, i64 904
+  %225 = getelementptr inbounds nuw i8, ptr %0, i64 904
   %226 = call noundef ptr @_ZN4llvm14FoldingSetBase19FindNodeOrInsertPosERKNS_16FoldingSetNodeIDERPvRKNS0_14FoldingSetInfoE(ptr noundef nonnull align 8 dereferenceable(16) %225, ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4llvm10FoldingSetIN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeaderEE17getFoldingSetInfoEvE4Info) #20
   %.not.i.i.i.i.i40 = icmp eq ptr %226, null
   br i1 %.not.i.i.i.i.i40, label %229, label %227
@@ -34680,7 +34680,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i35: ; preds = %_ZNSt11char_tra
   br i1 %230, label %231, label %261
 
 231:                                              ; preds = %229
-  %232 = getelementptr inbounds i8, ptr %0, i64 888
+  %232 = getelementptr inbounds nuw i8, ptr %0, i64 888
   %233 = load i64, ptr %232, align 8
   %234 = add i64 %233, 40
   store i64 %234, ptr %232, align 8
@@ -34689,7 +34689,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i35: ; preds = %_ZNSt11char_tra
   %237 = add i64 %236, 7
   %238 = and i64 %237, -8
   %239 = add i64 %238, 40
-  %240 = getelementptr inbounds i8, ptr %0, i64 816
+  %240 = getelementptr inbounds nuw i8, ptr %0, i64 816
   %241 = load ptr, ptr %240, align 8
   %242 = ptrtoint ptr %241 to i64
   %.not.i.i.i.i.i.i.i55 = icmp ugt i64 %239, %242
@@ -34751,7 +34751,7 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   br i1 %.not.i.i.i.i.i40, label %266, label %268
 
 266:                                              ; preds = %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle24NonTypeTemplateParamDeclEJRPNS3_4NodeES7_EEESt4pairIS6_bEbDpOT0_.exit.i.i.i.i
-  %267 = getelementptr inbounds i8, ptr %0, i64 920
+  %267 = getelementptr inbounds nuw i8, ptr %0, i64 920
   store ptr %.sroa.0.0.i.i.i.i.i41, ptr %267, align 8
   br label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_21TypeTemplateParamDeclEJRPNS0_4NodeEEEESA_DpOT0_.exit
 
@@ -34760,14 +34760,14 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   br i1 %.not.i.i.i.i42, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_21TypeTemplateParamDeclEJRPNS0_4NodeEEEESA_DpOT0_.exit, label %269
 
 269:                                              ; preds = %268
-  %270 = getelementptr inbounds i8, ptr %0, i64 944
+  %270 = getelementptr inbounds nuw i8, ptr %0, i64 944
   %271 = load i32, ptr %270, align 8
   %272 = and i32 %271, 1
   %.not.i.i.i.i.i.i.i.i.i.i43 = icmp eq i32 %272, 0
-  %273 = getelementptr inbounds i8, ptr %0, i64 952
+  %273 = getelementptr inbounds nuw i8, ptr %0, i64 952
   %274 = load ptr, ptr %273, align 8
   %275 = select i1 %.not.i.i.i.i.i.i.i.i.i.i43, ptr %274, ptr %273
-  %276 = getelementptr inbounds i8, ptr %0, i64 960
+  %276 = getelementptr inbounds nuw i8, ptr %0, i64 960
   %277 = load i32, ptr %276, align 8
   %278 = select i1 %.not.i.i.i.i.i.i.i.i.i.i43, i32 %277, i32 32
   %279 = icmp eq i32 %278, 0
@@ -34814,13 +34814,13 @@ _ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32EN
   %.0.i.i.i.i.i51 = phi ptr [ %302, %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i.i49 ], [ null, %269 ], [ null, %.lr.ph.i.i.i.i.i.i.i45 ]
   %.not10.i.i.i.i52 = icmp eq ptr %.0.i.i.i.i.i51, null
   %spec.select.i.i.i.i53 = select i1 %.not10.i.i.i.i52, ptr %.sroa.0.0.i.i.i.i.i41, ptr %.0.i.i.i.i.i51
-  %303 = getelementptr inbounds i8, ptr %0, i64 928
+  %303 = getelementptr inbounds nuw i8, ptr %0, i64 928
   %304 = load ptr, ptr %303, align 8
   %305 = icmp eq ptr %spec.select.i.i.i.i53, %304
   br i1 %305, label %306, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_21TypeTemplateParamDeclEJRPNS0_4NodeEEEESA_DpOT0_.exit
 
 306:                                              ; preds = %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i.i50
-  %307 = getelementptr inbounds i8, ptr %0, i64 936
+  %307 = getelementptr inbounds nuw i8, ptr %0, i64 936
   store i8 1, ptr %307, align 8
   br label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_21TypeTemplateParamDeclEJRPNS0_4NodeEEEESA_DpOT0_.exit
 
@@ -34839,7 +34839,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i62: ; preds = %_ZNSt11char_tra
 
 312:                                              ; preds = %309
   %313 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %314 = getelementptr inbounds i8, ptr %0, i64 24
+  %314 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %315 = load ptr, ptr %314, align 8
   %316 = load ptr, ptr %313, align 8
   %317 = ptrtoint ptr %315 to i64
@@ -34849,7 +34849,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i62: ; preds = %_ZNSt11char_tra
   store ptr %0, ptr %12, align 8
   %321 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %322 = getelementptr inbounds nuw i8, ptr %0, i64 664
-  %323 = getelementptr inbounds i8, ptr %0, i64 672
+  %323 = getelementptr inbounds nuw i8, ptr %0, i64 672
   %324 = load ptr, ptr %323, align 8
   %325 = load ptr, ptr %322, align 8
   %326 = ptrtoint ptr %324 to i64
@@ -34860,20 +34860,20 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i62: ; preds = %_ZNSt11char_tra
   %330 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %.ptr2.i.i = getelementptr inbounds i8, ptr %12, i64 40
   store ptr %.ptr2.i.i, ptr %330, align 8
-  %331 = getelementptr inbounds i8, ptr %12, i64 24
+  %331 = getelementptr inbounds nuw i8, ptr %12, i64 24
   store ptr %.ptr2.i.i, ptr %331, align 8
-  %332 = getelementptr inbounds i8, ptr %12, i64 32
+  %332 = getelementptr inbounds nuw i8, ptr %12, i64 32
   %333 = getelementptr inbounds i8, ptr %12, i64 104
   store ptr %333, ptr %332, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %.ptr2.i.i, i8 0, i64 64, i1 false)
-  %334 = getelementptr inbounds i8, ptr %0, i64 680
+  %334 = getelementptr inbounds nuw i8, ptr %0, i64 680
   %335 = load ptr, ptr %334, align 8
   %336 = icmp eq ptr %324, %335
   br i1 %336, label %337, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E23ScopedTemplateParamListC2EPS6_.exit
 
 337:                                              ; preds = %312
   %338 = ashr exact i64 %328, 2
-  %339 = getelementptr inbounds i8, ptr %0, i64 688
+  %339 = getelementptr inbounds nuw i8, ptr %0, i64 688
   %340 = icmp eq ptr %325, %339
   %341 = shl i64 %328, 1
   br i1 %340, label %342, label %348
@@ -34922,8 +34922,8 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
   store ptr %356, ptr %323, align 8
   store ptr %330, ptr %355, align 8
   store ptr null, ptr %13, align 8
-  %357 = getelementptr inbounds i8, ptr %0, i64 32
-  %358 = getelementptr inbounds i8, ptr %0, i64 40
+  %357 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %358 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %.pre = load ptr, ptr %0, align 8
   %.pre121 = load ptr, ptr %18, align 8
   br label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E9consumeIfEc.exit70
@@ -35060,7 +35060,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
   %418 = load i64, ptr %321, align 8
   %419 = load ptr, ptr %417, align 8
   %420 = getelementptr inbounds ptr, ptr %419, i64 %418
-  %421 = getelementptr inbounds i8, ptr %416, i64 672
+  %421 = getelementptr inbounds nuw i8, ptr %416, i64 672
   store ptr %420, ptr %421, align 8
   %422 = load ptr, ptr %330, align 8
   %423 = icmp eq ptr %422, %.ptr2.i.i
@@ -35098,7 +35098,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   %8 = alloca %"class.llvm::FoldingSetNodeID", align 8
   %9 = alloca ptr, align 8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 808
-  %11 = getelementptr inbounds i8, ptr %0, i64 937
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 937
   %12 = load i8, ptr %11, align 1
   %13 = trunc i8 %12 to i1
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %8)
@@ -35163,7 +35163,7 @@ _ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclEN4llvm16itanium_demangle9NodeArrayE
   br label %_ZN12_GLOBAL__N_111profileCtorIJN4llvm16itanium_demangle9NodeArrayEPNS2_4NodeES3_S5_St17basic_string_viewIcSt11char_traitsIcEEEEEvRNS1_16FoldingSetNodeIDENS4_4KindEDpT_.exit.i.i.i.i
 
 _ZN12_GLOBAL__N_111profileCtorIJN4llvm16itanium_demangle9NodeArrayEPNS2_4NodeES3_S5_St17basic_string_viewIcSt11char_traitsIcEEEEEvRNS1_16FoldingSetNodeIDENS4_4KindEDpT_.exit.i.i.i.i: ; preds = %29, %28
-  %30 = getelementptr inbounds i8, ptr %0, i64 904
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 904
   %31 = call noundef ptr @_ZN4llvm14FoldingSetBase19FindNodeOrInsertPosERKNS_16FoldingSetNodeIDERPvRKNS0_14FoldingSetInfoE(ptr noundef nonnull align 8 dereferenceable(16) %30, ptr noundef nonnull align 8 dereferenceable(144) %8, ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4llvm10FoldingSetIN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeaderEE17getFoldingSetInfoEvE4Info) #20
   %.not.i.i.i.i = icmp eq ptr %31, null
   br i1 %.not.i.i.i.i, label %34, label %32
@@ -35176,7 +35176,7 @@ _ZN12_GLOBAL__N_111profileCtorIJN4llvm16itanium_demangle9NodeArrayEPNS2_4NodeES3
   br i1 %13, label %35, label %70
 
 35:                                               ; preds = %34
-  %36 = getelementptr inbounds i8, ptr %0, i64 888
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 888
   %37 = load i64, ptr %36, align 8
   %38 = add i64 %37, 88
   store i64 %38, ptr %36, align 8
@@ -35185,7 +35185,7 @@ _ZN12_GLOBAL__N_111profileCtorIJN4llvm16itanium_demangle9NodeArrayEPNS2_4NodeES3
   %41 = add i64 %40, 7
   %42 = and i64 %41, -8
   %43 = add i64 %42, 88
-  %44 = getelementptr inbounds i8, ptr %0, i64 816
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 816
   %45 = load ptr, ptr %44, align 8
   %46 = ptrtoint ptr %45 to i64
   %.not.i.i23.i.i.i.i = icmp ugt i64 %43, %46
@@ -35266,7 +35266,7 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   br i1 %.not.i.i.i.i, label %75, label %77
 
 75:                                               ; preds = %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle15ClosureTypeNameEJRNS3_9NodeArrayERPNS3_4NodeES6_S9_RSt17basic_string_viewIcSt11char_traitsIcEEEEESt4pairIS8_bEbDpOT0_.exit.i.i.i
-  %76 = getelementptr inbounds i8, ptr %0, i64 920
+  %76 = getelementptr inbounds nuw i8, ptr %0, i64 920
   store ptr %.sroa.032.0.i.i.i.i, ptr %76, align 8
   br label %_ZN12_GLOBAL__N_122CanonicalizerAllocator8makeNodeIN4llvm16itanium_demangle15ClosureTypeNameEJRNS3_9NodeArrayERPNS3_4NodeES6_S9_RSt17basic_string_viewIcSt11char_traitsIcEEEEES8_DpOT0_.exit
 
@@ -35275,14 +35275,14 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   br i1 %.not.i.i.i, label %_ZN12_GLOBAL__N_122CanonicalizerAllocator8makeNodeIN4llvm16itanium_demangle15ClosureTypeNameEJRNS3_9NodeArrayERPNS3_4NodeES6_S9_RSt17basic_string_viewIcSt11char_traitsIcEEEEES8_DpOT0_.exit, label %78
 
 78:                                               ; preds = %77
-  %79 = getelementptr inbounds i8, ptr %0, i64 944
+  %79 = getelementptr inbounds nuw i8, ptr %0, i64 944
   %80 = load i32, ptr %79, align 8
   %81 = and i32 %80, 1
   %.not.i.i.i.i.i.i.i.i.i = icmp eq i32 %81, 0
-  %82 = getelementptr inbounds i8, ptr %0, i64 952
+  %82 = getelementptr inbounds nuw i8, ptr %0, i64 952
   %83 = load ptr, ptr %82, align 8
   %84 = select i1 %.not.i.i.i.i.i.i.i.i.i, ptr %83, ptr %82
-  %85 = getelementptr inbounds i8, ptr %0, i64 960
+  %85 = getelementptr inbounds nuw i8, ptr %0, i64 960
   %86 = load i32, ptr %85, align 8
   %87 = select i1 %.not.i.i.i.i.i.i.i.i.i, i32 %86, i32 32
   %88 = icmp eq i32 %87, 0
@@ -35329,13 +35329,13 @@ _ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32EN
   %.0.i.i.i.i = phi ptr [ %111, %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i ], [ null, %78 ], [ null, %.lr.ph.i.i.i14.i.i.i ]
   %.not13.i.i.i = icmp eq ptr %.0.i.i.i.i, null
   %spec.select.i.i.i = select i1 %.not13.i.i.i, ptr %.sroa.032.0.i.i.i.i, ptr %.0.i.i.i.i
-  %112 = getelementptr inbounds i8, ptr %0, i64 928
+  %112 = getelementptr inbounds nuw i8, ptr %0, i64 928
   %113 = load ptr, ptr %112, align 8
   %114 = icmp eq ptr %spec.select.i.i.i, %113
   br i1 %114, label %115, label %_ZN12_GLOBAL__N_122CanonicalizerAllocator8makeNodeIN4llvm16itanium_demangle15ClosureTypeNameEJRNS3_9NodeArrayERPNS3_4NodeES6_S9_RSt17basic_string_viewIcSt11char_traitsIcEEEEES8_DpOT0_.exit
 
 115:                                              ; preds = %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i
-  %116 = getelementptr inbounds i8, ptr %0, i64 936
+  %116 = getelementptr inbounds nuw i8, ptr %0, i64 936
   store i8 1, ptr %116, align 8
   br label %_ZN12_GLOBAL__N_122CanonicalizerAllocator8makeNodeIN4llvm16itanium_demangle15ClosureTypeNameEJRNS3_9NodeArrayERPNS3_4NodeES6_S9_RSt17basic_string_viewIcSt11char_traitsIcEEEEES8_DpOT0_.exit
 
@@ -35557,7 +35557,7 @@ define internal fastcc noundef ptr @_ZZN4llvm16itanium_demangle22AbstractManglin
   %10 = add i32 %9, 1
   store i32 %10, ptr %8, align 4
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 808
-  %12 = getelementptr inbounds i8, ptr %5, i64 937
+  %12 = getelementptr inbounds nuw i8, ptr %5, i64 937
   %13 = load i8, ptr %12, align 1
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
@@ -35568,7 +35568,7 @@ define internal fastcc noundef ptr @_ZZN4llvm16itanium_demangle22AbstractManglin
   call void @_ZN4llvm16FoldingSetNodeID10AddIntegerEy(ptr noundef nonnull align 8 dereferenceable(144) %3, i64 noundef %15)
   %16 = zext i32 %9 to i64
   call void @_ZN4llvm16FoldingSetNodeID10AddIntegerEy(ptr noundef nonnull align 8 dereferenceable(144) %3, i64 noundef %16)
-  %17 = getelementptr inbounds i8, ptr %5, i64 904
+  %17 = getelementptr inbounds nuw i8, ptr %5, i64 904
   %18 = call noundef ptr @_ZN4llvm14FoldingSetBase19FindNodeOrInsertPosERKNS_16FoldingSetNodeIDERPvRKNS0_14FoldingSetInfoE(ptr noundef nonnull align 8 dereferenceable(16) %17, ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4llvm10FoldingSetIN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeaderEE17getFoldingSetInfoEvE4Info) #20
   %.not.i.i.i.i.i = icmp eq ptr %18, null
   br i1 %.not.i.i.i.i.i, label %21, label %19
@@ -35582,7 +35582,7 @@ define internal fastcc noundef ptr @_ZZN4llvm16itanium_demangle22AbstractManglin
   br i1 %22, label %23, label %53
 
 23:                                               ; preds = %21
-  %24 = getelementptr inbounds i8, ptr %5, i64 888
+  %24 = getelementptr inbounds nuw i8, ptr %5, i64 888
   %25 = load i64, ptr %24, align 8
   %26 = add i64 %25, 32
   store i64 %26, ptr %24, align 8
@@ -35591,7 +35591,7 @@ define internal fastcc noundef ptr @_ZZN4llvm16itanium_demangle22AbstractManglin
   %29 = add i64 %28, 7
   %30 = and i64 %29, -8
   %31 = add i64 %30, 32
-  %32 = getelementptr inbounds i8, ptr %5, i64 816
+  %32 = getelementptr inbounds nuw i8, ptr %5, i64 816
   %33 = load ptr, ptr %32, align 8
   %34 = ptrtoint ptr %33 to i64
   %.not.i.i.i.i.i.i.i = icmp ugt i64 %31, %34
@@ -35653,7 +35653,7 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   br i1 %.not.i.i.i.i.i, label %58, label %60
 
 58:                                               ; preds = %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle26SyntheticTemplateParamNameEJRNS3_17TemplateParamKindERjEEESt4pairIPNS3_4NodeEbEbDpOT0_.exit.i.i.i.i
-  %59 = getelementptr inbounds i8, ptr %5, i64 920
+  %59 = getelementptr inbounds nuw i8, ptr %5, i64 920
   store ptr %.sroa.0.0.i.i.i.i.i, ptr %59, align 8
   br label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_26SyntheticTemplateParamNameEJRNS0_17TemplateParamKindERjEEEPNS0_4NodeEDpOT0_.exit
 
@@ -35662,14 +35662,14 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   br i1 %.not.i.i.i.i, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_26SyntheticTemplateParamNameEJRNS0_17TemplateParamKindERjEEEPNS0_4NodeEDpOT0_.exit.thread, label %61
 
 61:                                               ; preds = %60
-  %62 = getelementptr inbounds i8, ptr %5, i64 944
+  %62 = getelementptr inbounds nuw i8, ptr %5, i64 944
   %63 = load i32, ptr %62, align 8
   %64 = and i32 %63, 1
   %.not.i.i.i.i.i.i.i.i.i.i = icmp eq i32 %64, 0
-  %65 = getelementptr inbounds i8, ptr %5, i64 952
+  %65 = getelementptr inbounds nuw i8, ptr %5, i64 952
   %66 = load ptr, ptr %65, align 8
   %67 = select i1 %.not.i.i.i.i.i.i.i.i.i.i, ptr %66, ptr %65
-  %68 = getelementptr inbounds i8, ptr %5, i64 960
+  %68 = getelementptr inbounds nuw i8, ptr %5, i64 960
   %69 = load i32, ptr %68, align 8
   %70 = select i1 %.not.i.i.i.i.i.i.i.i.i.i, i32 %69, i32 32
   %71 = icmp eq i32 %70, 0
@@ -35716,13 +35716,13 @@ _ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32EN
   %.0.i.i.i.i.i = phi ptr [ %94, %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i.i ], [ null, %61 ], [ null, %.lr.ph.i.i.i.i.i.i.i ]
   %.not10.i.i.i.i = icmp eq ptr %.0.i.i.i.i.i, null
   %spec.select.i.i.i.i = select i1 %.not10.i.i.i.i, ptr %.sroa.0.0.i.i.i.i.i, ptr %.0.i.i.i.i.i
-  %95 = getelementptr inbounds i8, ptr %5, i64 928
+  %95 = getelementptr inbounds nuw i8, ptr %5, i64 928
   %96 = load ptr, ptr %95, align 8
   %97 = icmp eq ptr %spec.select.i.i.i.i, %96
   br i1 %97, label %98, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_26SyntheticTemplateParamNameEJRNS0_17TemplateParamKindERjEEEPNS0_4NodeEDpOT0_.exit
 
 98:                                               ; preds = %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i.i
-  %99 = getelementptr inbounds i8, ptr %5, i64 936
+  %99 = getelementptr inbounds nuw i8, ptr %5, i64 936
   store i8 1, ptr %99, align 8
   br label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_26SyntheticTemplateParamNameEJRNS0_17TemplateParamKindERjEEEPNS0_4NodeEDpOT0_.exit
 
@@ -35812,7 +35812,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   %5 = alloca %"class.llvm::FoldingSetNodeID", align 8
   %6 = alloca ptr, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 808
-  %8 = getelementptr inbounds i8, ptr %0, i64 937
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 937
   %9 = load i8, ptr %8, align 1
   %10 = trunc i8 %9 to i1
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %5)
@@ -35844,7 +35844,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
 _ZN12_GLOBAL__N_111profileCtorIJPN4llvm16itanium_demangle4NodeENS2_9NodeArrayES4_EEEvRNS1_16FoldingSetNodeIDENS3_4KindEDpT_.exit.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i, %4
   %19 = ptrtoint ptr %13 to i64
   call void @_ZN4llvm16FoldingSetNodeID10AddIntegerEy(ptr noundef nonnull align 8 dereferenceable(144) %5, i64 noundef %19)
-  %20 = getelementptr inbounds i8, ptr %0, i64 904
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 904
   %21 = call noundef ptr @_ZN4llvm14FoldingSetBase19FindNodeOrInsertPosERKNS_16FoldingSetNodeIDERPvRKNS0_14FoldingSetInfoE(ptr noundef nonnull align 8 dereferenceable(16) %20, ptr noundef nonnull align 8 dereferenceable(144) %5, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4llvm10FoldingSetIN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeaderEE17getFoldingSetInfoEvE4Info) #20
   %.not.i.i.i.i = icmp eq ptr %21, null
   br i1 %.not.i.i.i.i, label %24, label %22
@@ -35857,7 +35857,7 @@ _ZN12_GLOBAL__N_111profileCtorIJPN4llvm16itanium_demangle4NodeENS2_9NodeArrayES4
   br i1 %10, label %25, label %58
 
 25:                                               ; preds = %24
-  %26 = getelementptr inbounds i8, ptr %0, i64 888
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 888
   %27 = load i64, ptr %26, align 8
   %28 = add i64 %27, 56
   store i64 %28, ptr %26, align 8
@@ -35866,7 +35866,7 @@ _ZN12_GLOBAL__N_111profileCtorIJPN4llvm16itanium_demangle4NodeENS2_9NodeArrayES4
   %31 = add i64 %30, 7
   %32 = and i64 %31, -8
   %33 = add i64 %32, 56
-  %34 = getelementptr inbounds i8, ptr %0, i64 816
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 816
   %35 = load ptr, ptr %34, align 8
   %36 = ptrtoint ptr %35 to i64
   %.not.i.i14.i.i.i.i = icmp ugt i64 %33, %36
@@ -35936,7 +35936,7 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   br i1 %.not.i.i.i.i, label %63, label %65
 
 63:                                               ; preds = %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle25TemplateTemplateParamDeclEJRPNS3_4NodeERNS3_9NodeArrayES7_EEESt4pairIS6_bEbDpOT0_.exit.i.i.i
-  %64 = getelementptr inbounds i8, ptr %0, i64 920
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 920
   store ptr %.sroa.0.0.i.i.i.i, ptr %64, align 8
   br label %_ZN12_GLOBAL__N_122CanonicalizerAllocator8makeNodeIN4llvm16itanium_demangle25TemplateTemplateParamDeclEJRPNS3_4NodeERNS3_9NodeArrayES7_EEES6_DpOT0_.exit
 
@@ -35945,14 +35945,14 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   br i1 %.not.i.i.i, label %_ZN12_GLOBAL__N_122CanonicalizerAllocator8makeNodeIN4llvm16itanium_demangle25TemplateTemplateParamDeclEJRPNS3_4NodeERNS3_9NodeArrayES7_EEES6_DpOT0_.exit, label %66
 
 66:                                               ; preds = %65
-  %67 = getelementptr inbounds i8, ptr %0, i64 944
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 944
   %68 = load i32, ptr %67, align 8
   %69 = and i32 %68, 1
   %.not.i.i.i.i.i.i.i.i.i = icmp eq i32 %69, 0
-  %70 = getelementptr inbounds i8, ptr %0, i64 952
+  %70 = getelementptr inbounds nuw i8, ptr %0, i64 952
   %71 = load ptr, ptr %70, align 8
   %72 = select i1 %.not.i.i.i.i.i.i.i.i.i, ptr %71, ptr %70
-  %73 = getelementptr inbounds i8, ptr %0, i64 960
+  %73 = getelementptr inbounds nuw i8, ptr %0, i64 960
   %74 = load i32, ptr %73, align 8
   %75 = select i1 %.not.i.i.i.i.i.i.i.i.i, i32 %74, i32 32
   %76 = icmp eq i32 %75, 0
@@ -35999,13 +35999,13 @@ _ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32EN
   %.0.i.i.i.i = phi ptr [ %99, %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i ], [ null, %66 ], [ null, %.lr.ph.i.i.i12.i.i.i ]
   %.not11.i.i.i = icmp eq ptr %.0.i.i.i.i, null
   %spec.select.i.i.i = select i1 %.not11.i.i.i, ptr %.sroa.0.0.i.i.i.i, ptr %.0.i.i.i.i
-  %100 = getelementptr inbounds i8, ptr %0, i64 928
+  %100 = getelementptr inbounds nuw i8, ptr %0, i64 928
   %101 = load ptr, ptr %100, align 8
   %102 = icmp eq ptr %spec.select.i.i.i, %101
   br i1 %102, label %103, label %_ZN12_GLOBAL__N_122CanonicalizerAllocator8makeNodeIN4llvm16itanium_demangle25TemplateTemplateParamDeclEJRPNS3_4NodeERNS3_9NodeArrayES7_EEES6_DpOT0_.exit
 
 103:                                              ; preds = %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i
-  %104 = getelementptr inbounds i8, ptr %0, i64 936
+  %104 = getelementptr inbounds nuw i8, ptr %0, i64 936
   store i8 1, ptr %104, align 8
   br label %_ZN12_GLOBAL__N_122CanonicalizerAllocator8makeNodeIN4llvm16itanium_demangle25TemplateTemplateParamDeclEJRPNS3_4NodeERNS3_9NodeArrayES7_EEES6_DpOT0_.exit
 
@@ -36019,7 +36019,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   %3 = alloca %"class.llvm::FoldingSetNodeID", align 8
   %4 = alloca ptr, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 808
-  %6 = getelementptr inbounds i8, ptr %0, i64 937
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 937
   %7 = load i8, ptr %6, align 1
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
@@ -36029,7 +36029,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   call void @_ZN4llvm16FoldingSetNodeID10AddIntegerEy(ptr noundef nonnull align 8 dereferenceable(144) %3, i64 noundef 39)
   %10 = ptrtoint ptr %9 to i64
   call void @_ZN4llvm16FoldingSetNodeID10AddIntegerEy(ptr noundef nonnull align 8 dereferenceable(144) %3, i64 noundef %10)
-  %11 = getelementptr inbounds i8, ptr %0, i64 904
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 904
   %12 = call noundef ptr @_ZN4llvm14FoldingSetBase19FindNodeOrInsertPosERKNS_16FoldingSetNodeIDERPvRKNS0_14FoldingSetInfoE(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4llvm10FoldingSetIN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeaderEE17getFoldingSetInfoEvE4Info) #20
   %.not.i.i.i.i = icmp eq ptr %12, null
   br i1 %.not.i.i.i.i, label %15, label %13
@@ -36043,7 +36043,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   br i1 %16, label %17, label %47
 
 17:                                               ; preds = %15
-  %18 = getelementptr inbounds i8, ptr %0, i64 888
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 888
   %19 = load i64, ptr %18, align 8
   %20 = add i64 %19, 32
   store i64 %20, ptr %18, align 8
@@ -36052,7 +36052,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   %23 = add i64 %22, 7
   %24 = and i64 %23, -8
   %25 = add i64 %24, 32
-  %26 = getelementptr inbounds i8, ptr %0, i64 816
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 816
   %27 = load ptr, ptr %26, align 8
   %28 = ptrtoint ptr %27 to i64
   %.not.i.i.i.i.i.i = icmp ugt i64 %25, %28
@@ -36113,7 +36113,7 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   br i1 %.not.i.i.i.i, label %52, label %54
 
 52:                                               ; preds = %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle21TemplateParamPackDeclEJRPNS3_4NodeEEEESt4pairIS6_bEbDpOT0_.exit.i.i.i
-  %53 = getelementptr inbounds i8, ptr %0, i64 920
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 920
   store ptr %.sroa.0.0.i.i.i.i, ptr %53, align 8
   br label %_ZN12_GLOBAL__N_122CanonicalizerAllocator8makeNodeIN4llvm16itanium_demangle21TemplateParamPackDeclEJRPNS3_4NodeEEEES6_DpOT0_.exit
 
@@ -36122,14 +36122,14 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   br i1 %.not.i.i.i, label %_ZN12_GLOBAL__N_122CanonicalizerAllocator8makeNodeIN4llvm16itanium_demangle21TemplateParamPackDeclEJRPNS3_4NodeEEEES6_DpOT0_.exit, label %55
 
 55:                                               ; preds = %54
-  %56 = getelementptr inbounds i8, ptr %0, i64 944
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 944
   %57 = load i32, ptr %56, align 8
   %58 = and i32 %57, 1
   %.not.i.i.i.i.i.i.i.i.i = icmp eq i32 %58, 0
-  %59 = getelementptr inbounds i8, ptr %0, i64 952
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 952
   %60 = load ptr, ptr %59, align 8
   %61 = select i1 %.not.i.i.i.i.i.i.i.i.i, ptr %60, ptr %59
-  %62 = getelementptr inbounds i8, ptr %0, i64 960
+  %62 = getelementptr inbounds nuw i8, ptr %0, i64 960
   %63 = load i32, ptr %62, align 8
   %64 = select i1 %.not.i.i.i.i.i.i.i.i.i, i32 %63, i32 32
   %65 = icmp eq i32 %64, 0
@@ -36176,13 +36176,13 @@ _ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32EN
   %.0.i.i.i.i = phi ptr [ %88, %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i ], [ null, %55 ], [ null, %.lr.ph.i.i.i.i.i.i ]
   %.not9.i.i.i = icmp eq ptr %.0.i.i.i.i, null
   %spec.select.i.i.i = select i1 %.not9.i.i.i, ptr %.sroa.0.0.i.i.i.i, ptr %.0.i.i.i.i
-  %89 = getelementptr inbounds i8, ptr %0, i64 928
+  %89 = getelementptr inbounds nuw i8, ptr %0, i64 928
   %90 = load ptr, ptr %89, align 8
   %91 = icmp eq ptr %spec.select.i.i.i, %90
   br i1 %91, label %92, label %_ZN12_GLOBAL__N_122CanonicalizerAllocator8makeNodeIN4llvm16itanium_demangle21TemplateParamPackDeclEJRPNS3_4NodeEEEES6_DpOT0_.exit
 
 92:                                               ; preds = %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i
-  %93 = getelementptr inbounds i8, ptr %0, i64 936
+  %93 = getelementptr inbounds nuw i8, ptr %0, i64 936
   store i8 1, ptr %93, align 8
   br label %_ZN12_GLOBAL__N_122CanonicalizerAllocator8makeNodeIN4llvm16itanium_demangle21TemplateParamPackDeclEJRPNS3_4NodeEEEES6_DpOT0_.exit
 
@@ -36726,7 +36726,7 @@ _ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i: ; preds = %._ZN4llvm16it
   %21 = add i64 %20, 9
   store i64 %21, ptr %5, align 8
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %23 = getelementptr inbounds i8, ptr %0, i64 32
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %24 = load i64, ptr %23, align 8
   %.not13.i = icmp eq i64 %24, 0
   br i1 %.not13.i, label %_ZNK4llvm16itanium_demangle9NodeArray14printWithCommaERNS0_12OutputBufferE.exit, label %.lr.ph.i
@@ -37127,7 +37127,7 @@ define linkonce_odr hidden void @_ZN4llvm16itanium_demangle15ClosureTypeNameD0Ev
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNK4llvm16itanium_demangle15ClosureTypeName15printDeclaratorERNS0_12OutputBufferE(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull align 8 dereferenceable(36) %1) local_unnamed_addr #0 comdat align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %4 = getelementptr inbounds i8, ptr %0, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load i64, ptr %4, align 8
   %6 = icmp eq i64 %5, 0
   br i1 %6, label %70, label %7
@@ -37412,7 +37412,7 @@ _ZN4llvm16itanium_demangle12OutputBuffer9printOpenEc.exit: ; preds = %_ZN4llvm16
   %131 = getelementptr inbounds i8, ptr %130, i64 %129
   store i8 40, ptr %131, align 1
   %132 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %133 = getelementptr inbounds i8, ptr %0, i64 48
+  %133 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %134 = load i64, ptr %133, align 8
   %.not13.i41 = icmp eq i64 %134, 0
   %.pre81 = load i64, ptr %118, align 8
@@ -37919,7 +37919,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   %3 = alloca %"class.llvm::FoldingSetNodeID", align 8
   %4 = alloca ptr, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 808
-  %6 = getelementptr inbounds i8, ptr %0, i64 937
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 937
   %7 = load i8, ptr %6, align 1
   %8 = trunc i8 %7 to i1
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %3)
@@ -37942,7 +37942,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   br label %_ZN12_GLOBAL__N_111profileCtorIJSt17basic_string_viewIcSt11char_traitsIcEEEEEvRN4llvm16FoldingSetNodeIDENS5_16itanium_demangle4Node4KindEDpT_.exit.i.i.i.i
 
 _ZN12_GLOBAL__N_111profileCtorIJSt17basic_string_viewIcSt11char_traitsIcEEEEEvRN4llvm16FoldingSetNodeIDENS5_16itanium_demangle4Node4KindEDpT_.exit.i.i.i.i: ; preds = %12, %11
-  %13 = getelementptr inbounds i8, ptr %0, i64 904
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 904
   %14 = call noundef ptr @_ZN4llvm14FoldingSetBase19FindNodeOrInsertPosERKNS_16FoldingSetNodeIDERPvRKNS0_14FoldingSetInfoE(ptr noundef nonnull align 8 dereferenceable(16) %13, ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4llvm10FoldingSetIN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeaderEE17getFoldingSetInfoEvE4Info) #20
   %.not.i.i.i.i = icmp eq ptr %14, null
   br i1 %.not.i.i.i.i, label %17, label %15
@@ -37955,7 +37955,7 @@ _ZN12_GLOBAL__N_111profileCtorIJSt17basic_string_viewIcSt11char_traitsIcEEEEEvRN
   br i1 %8, label %18, label %47
 
 18:                                               ; preds = %17
-  %19 = getelementptr inbounds i8, ptr %0, i64 888
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 888
   %20 = load i64, ptr %19, align 8
   %21 = add i64 %20, 40
   store i64 %21, ptr %19, align 8
@@ -37964,7 +37964,7 @@ _ZN12_GLOBAL__N_111profileCtorIJSt17basic_string_viewIcSt11char_traitsIcEEEEEvRN
   %24 = add i64 %23, 7
   %25 = and i64 %24, -8
   %26 = add i64 %25, 40
-  %27 = getelementptr inbounds i8, ptr %0, i64 816
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 816
   %28 = load ptr, ptr %27, align 8
   %29 = ptrtoint ptr %28 to i64
   %.not.i.i.i.i.i.i = icmp ugt i64 %26, %29
@@ -38028,7 +38028,7 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   br i1 %.not.i.i.i.i, label %52, label %54
 
 52:                                               ; preds = %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle13FunctionParamEJRSt17basic_string_viewIcSt11char_traitsIcEEEEESt4pairIPNS3_4NodeEbEbDpOT0_.exit.i.i.i
-  %53 = getelementptr inbounds i8, ptr %0, i64 920
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 920
   store ptr %.sroa.0.0.i.i.i.i, ptr %53, align 8
   br label %_ZN12_GLOBAL__N_122CanonicalizerAllocator8makeNodeIN4llvm16itanium_demangle13FunctionParamEJRSt17basic_string_viewIcSt11char_traitsIcEEEEEPNS3_4NodeEDpOT0_.exit
 
@@ -38037,14 +38037,14 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   br i1 %.not.i.i.i, label %_ZN12_GLOBAL__N_122CanonicalizerAllocator8makeNodeIN4llvm16itanium_demangle13FunctionParamEJRSt17basic_string_viewIcSt11char_traitsIcEEEEEPNS3_4NodeEDpOT0_.exit, label %55
 
 55:                                               ; preds = %54
-  %56 = getelementptr inbounds i8, ptr %0, i64 944
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 944
   %57 = load i32, ptr %56, align 8
   %58 = and i32 %57, 1
   %.not.i.i.i.i.i.i.i.i.i = icmp eq i32 %58, 0
-  %59 = getelementptr inbounds i8, ptr %0, i64 952
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 952
   %60 = load ptr, ptr %59, align 8
   %61 = select i1 %.not.i.i.i.i.i.i.i.i.i, ptr %60, ptr %59
-  %62 = getelementptr inbounds i8, ptr %0, i64 960
+  %62 = getelementptr inbounds nuw i8, ptr %0, i64 960
   %63 = load i32, ptr %62, align 8
   %64 = select i1 %.not.i.i.i.i.i.i.i.i.i, i32 %63, i32 32
   %65 = icmp eq i32 %64, 0
@@ -38091,13 +38091,13 @@ _ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32EN
   %.0.i.i.i.i = phi ptr [ %88, %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i ], [ null, %55 ], [ null, %.lr.ph.i.i.i.i.i.i ]
   %.not9.i.i.i = icmp eq ptr %.0.i.i.i.i, null
   %spec.select.i.i.i = select i1 %.not9.i.i.i, ptr %.sroa.0.0.i.i.i.i, ptr %.0.i.i.i.i
-  %89 = getelementptr inbounds i8, ptr %0, i64 928
+  %89 = getelementptr inbounds nuw i8, ptr %0, i64 928
   %90 = load ptr, ptr %89, align 8
   %91 = icmp eq ptr %spec.select.i.i.i, %90
   br i1 %91, label %92, label %_ZN12_GLOBAL__N_122CanonicalizerAllocator8makeNodeIN4llvm16itanium_demangle13FunctionParamEJRSt17basic_string_viewIcSt11char_traitsIcEEEEEPNS3_4NodeEDpOT0_.exit
 
 92:                                               ; preds = %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i
-  %93 = getelementptr inbounds i8, ptr %0, i64 936
+  %93 = getelementptr inbounds nuw i8, ptr %0, i64 936
   store i8 1, ptr %93, align 8
   br label %_ZN12_GLOBAL__N_122CanonicalizerAllocator8makeNodeIN4llvm16itanium_demangle13FunctionParamEJRSt17basic_string_viewIcSt11char_traitsIcEEEEEPNS3_4NodeEDpOT0_.exit
 
@@ -38873,7 +38873,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   %5 = alloca %"class.llvm::FoldingSetNodeID", align 8
   %6 = alloca ptr, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 808
-  %8 = getelementptr inbounds i8, ptr %0, i64 937
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 937
   %9 = load i8, ptr %8, align 1
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
@@ -38890,7 +38890,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   %16 = and i8 %13, 1
   %17 = zext nneg i8 %16 to i64
   call void @_ZN4llvm16FoldingSetNodeID10AddIntegerEy(ptr noundef nonnull align 8 dereferenceable(144) %5, i64 noundef %17)
-  %18 = getelementptr inbounds i8, ptr %0, i64 904
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 904
   %19 = call noundef ptr @_ZN4llvm14FoldingSetBase19FindNodeOrInsertPosERKNS_16FoldingSetNodeIDERPvRKNS0_14FoldingSetInfoE(ptr noundef nonnull align 8 dereferenceable(16) %18, ptr noundef nonnull align 8 dereferenceable(144) %5, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4llvm10FoldingSetIN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeaderEE17getFoldingSetInfoEvE4Info) #20
   %.not.i.i.i.i = icmp eq ptr %19, null
   br i1 %.not.i.i.i.i, label %22, label %20
@@ -38904,7 +38904,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   br i1 %23, label %24, label %59
 
 24:                                               ; preds = %22
-  %25 = getelementptr inbounds i8, ptr %0, i64 888
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 888
   %26 = load i64, ptr %25, align 8
   %27 = add i64 %26, 48
   store i64 %27, ptr %25, align 8
@@ -38913,7 +38913,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   %30 = add i64 %29, 7
   %31 = and i64 %30, -8
   %32 = add i64 %31, 48
-  %33 = getelementptr inbounds i8, ptr %0, i64 816
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 816
   %34 = load ptr, ptr %33, align 8
   %35 = ptrtoint ptr %34 to i64
   %.not.i.i.i.i.i.i = icmp ugt i64 %32, %35
@@ -38981,7 +38981,7 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   br i1 %.not.i.i.i.i, label %64, label %66
 
 64:                                               ; preds = %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle10BracedExprEJRPNS3_4NodeES7_bEEESt4pairIS6_bEbDpOT0_.exit.i.i.i
-  %65 = getelementptr inbounds i8, ptr %0, i64 920
+  %65 = getelementptr inbounds nuw i8, ptr %0, i64 920
   store ptr %.sroa.0.0.i.i.i.i, ptr %65, align 8
   br label %_ZN12_GLOBAL__N_122CanonicalizerAllocator8makeNodeIN4llvm16itanium_demangle10BracedExprEJRPNS3_4NodeES7_bEEES6_DpOT0_.exit
 
@@ -38990,14 +38990,14 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   br i1 %.not.i.i.i, label %_ZN12_GLOBAL__N_122CanonicalizerAllocator8makeNodeIN4llvm16itanium_demangle10BracedExprEJRPNS3_4NodeES7_bEEES6_DpOT0_.exit, label %67
 
 67:                                               ; preds = %66
-  %68 = getelementptr inbounds i8, ptr %0, i64 944
+  %68 = getelementptr inbounds nuw i8, ptr %0, i64 944
   %69 = load i32, ptr %68, align 8
   %70 = and i32 %69, 1
   %.not.i.i.i.i.i.i.i.i.i = icmp eq i32 %70, 0
-  %71 = getelementptr inbounds i8, ptr %0, i64 952
+  %71 = getelementptr inbounds nuw i8, ptr %0, i64 952
   %72 = load ptr, ptr %71, align 8
   %73 = select i1 %.not.i.i.i.i.i.i.i.i.i, ptr %72, ptr %71
-  %74 = getelementptr inbounds i8, ptr %0, i64 960
+  %74 = getelementptr inbounds nuw i8, ptr %0, i64 960
   %75 = load i32, ptr %74, align 8
   %76 = select i1 %.not.i.i.i.i.i.i.i.i.i, i32 %75, i32 32
   %77 = icmp eq i32 %76, 0
@@ -39044,13 +39044,13 @@ _ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32EN
   %.0.i.i.i.i = phi ptr [ %100, %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i ], [ null, %67 ], [ null, %.lr.ph.i.i.i.i.i.i ]
   %.not11.i.i.i = icmp eq ptr %.0.i.i.i.i, null
   %spec.select.i.i.i = select i1 %.not11.i.i.i, ptr %.sroa.0.0.i.i.i.i, ptr %.0.i.i.i.i
-  %101 = getelementptr inbounds i8, ptr %0, i64 928
+  %101 = getelementptr inbounds nuw i8, ptr %0, i64 928
   %102 = load ptr, ptr %101, align 8
   %103 = icmp eq ptr %spec.select.i.i.i, %102
   br i1 %103, label %104, label %_ZN12_GLOBAL__N_122CanonicalizerAllocator8makeNodeIN4llvm16itanium_demangle10BracedExprEJRPNS3_4NodeES7_bEEES6_DpOT0_.exit
 
 104:                                              ; preds = %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i
-  %105 = getelementptr inbounds i8, ptr %0, i64 936
+  %105 = getelementptr inbounds nuw i8, ptr %0, i64 936
   store i8 1, ptr %105, align 8
   br label %_ZN12_GLOBAL__N_122CanonicalizerAllocator8makeNodeIN4llvm16itanium_demangle10BracedExprEJRPNS3_4NodeES7_bEEES6_DpOT0_.exit
 
@@ -39571,7 +39571,7 @@ _ZN4llvm16itanium_demangle12OutputBufferpLEc.exit: ; preds = %_ZNK4llvm16itanium
   %29 = getelementptr inbounds i8, ptr %28, i64 %27
   store i8 123, ptr %29, align 1
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %31 = getelementptr inbounds i8, ptr %0, i64 32
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %32 = load i64, ptr %31, align 8
   %.not13.i = icmp eq i64 %32, 0
   %.pre = load i64, ptr %15, align 8
@@ -40437,7 +40437,7 @@ _ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i: ; preds = %._ZN4llvm16it
   %19 = add i64 %18, 8
   store i64 %19, ptr %3, align 8
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %21 = getelementptr inbounds i8, ptr %0, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %22 = load i64, ptr %21, align 8
   %23 = icmp eq i64 %22, 0
   br i1 %23, label %96, label %24
@@ -40693,7 +40693,7 @@ _ZN4llvm16itanium_demangle12OutputBuffer9printOpenEc.exit47: ; preds = %_ZN4llvm
   store i8 123, ptr %125, align 1
   %126 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %127 = load ptr, ptr %126, align 8
-  %128 = getelementptr inbounds i8, ptr %0, i64 40
+  %128 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %129 = load i64, ptr %128, align 8
   %130 = getelementptr inbounds ptr, ptr %127, i64 %129
   %.not64 = icmp eq i64 %129, 0
@@ -41256,7 +41256,7 @@ define linkonce_odr hidden void @_ZN4llvm16itanium_demangle19SizeofParamPackExpr
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNK4llvm16itanium_demangle20TemplateArgumentPack9printLeftERNS0_12OutputBufferE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(36) %1) unnamed_addr #0 comdat align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %4 = getelementptr inbounds i8, ptr %0, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load i64, ptr %4, align 8
   %.not13.i = icmp eq i64 %5, 0
   br i1 %.not13.i, label %_ZNK4llvm16itanium_demangle9NodeArray14printWithCommaERNS0_12OutputBufferE.exit, label %.lr.ph.i
@@ -41384,7 +41384,7 @@ define linkonce_odr hidden void @_ZN4llvm16itanium_demangle25TemplateParamQualif
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNK4llvm16itanium_demangle13NodeArrayNode9printLeftERNS0_12OutputBufferE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(36) %1) unnamed_addr #0 comdat align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %4 = getelementptr inbounds i8, ptr %0, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load i64, ptr %4, align 8
   %.not13.i = icmp eq i64 %5, 0
   br i1 %.not13.i, label %_ZNK4llvm16itanium_demangle9NodeArray14printWithCommaERNS0_12OutputBufferE.exit, label %.lr.ph.i
@@ -41566,9 +41566,9 @@ _ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLO
 
 7:                                                ; preds = %4
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 296
-  %9 = getelementptr inbounds i8, ptr %0, i64 304
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 312
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %12 = load ptr, ptr %11, align 8
   %13 = icmp eq ptr %10, %12
   br i1 %13, label %14, label %_ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exit
@@ -41579,7 +41579,7 @@ _ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLO
   %17 = ptrtoint ptr %15 to i64
   %18 = sub i64 %16, %17
   %19 = ashr exact i64 %18, 2
-  %20 = getelementptr inbounds i8, ptr %0, i64 320
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 320
   %21 = icmp eq ptr %15, %20
   %22 = shl i64 %18, 1
   br i1 %21, label %23, label %29
@@ -41636,9 +41636,9 @@ _ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exi
 
 41:                                               ; preds = %38
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 296
-  %43 = getelementptr inbounds i8, ptr %0, i64 304
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %44 = load ptr, ptr %43, align 8
-  %45 = getelementptr inbounds i8, ptr %0, i64 312
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %46 = load ptr, ptr %45, align 8
   %47 = icmp eq ptr %44, %46
   br i1 %47, label %48, label %_ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exit11
@@ -41649,7 +41649,7 @@ _ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exi
   %51 = ptrtoint ptr %49 to i64
   %52 = sub i64 %50, %51
   %53 = ashr exact i64 %52, 2
-  %54 = getelementptr inbounds i8, ptr %0, i64 320
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 320
   %55 = icmp eq ptr %49, %54
   %56 = shl i64 %52, 1
   br i1 %55, label %57, label %63
@@ -41713,7 +41713,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   %4 = alloca %"class.llvm::FoldingSetNodeID", align 8
   %5 = alloca ptr, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 808
-  %7 = getelementptr inbounds i8, ptr %0, i64 937
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 937
   %8 = load i8, ptr %7, align 1
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
@@ -41726,7 +41726,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   call void @_ZN4llvm16FoldingSetNodeID10AddIntegerEy(ptr noundef nonnull align 8 dereferenceable(144) %4, i64 noundef %12)
   %13 = ptrtoint ptr %11 to i64
   call void @_ZN4llvm16FoldingSetNodeID10AddIntegerEy(ptr noundef nonnull align 8 dereferenceable(144) %4, i64 noundef %13)
-  %14 = getelementptr inbounds i8, ptr %0, i64 904
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 904
   %15 = call noundef ptr @_ZN4llvm14FoldingSetBase19FindNodeOrInsertPosERKNS_16FoldingSetNodeIDERPvRKNS0_14FoldingSetInfoE(ptr noundef nonnull align 8 dereferenceable(16) %14, ptr noundef nonnull align 8 dereferenceable(144) %4, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4llvm10FoldingSetIN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeaderEE17getFoldingSetInfoEvE4Info) #20
   %.not.i.i.i.i = icmp eq ptr %15, null
   br i1 %.not.i.i.i.i, label %18, label %16
@@ -41740,7 +41740,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   br i1 %19, label %20, label %52
 
 20:                                               ; preds = %18
-  %21 = getelementptr inbounds i8, ptr %0, i64 888
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 888
   %22 = load i64, ptr %21, align 8
   %23 = add i64 %22, 40
   store i64 %23, ptr %21, align 8
@@ -41749,7 +41749,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   %26 = add i64 %25, 7
   %27 = and i64 %26, -8
   %28 = add i64 %27, 40
-  %29 = getelementptr inbounds i8, ptr %0, i64 816
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 816
   %30 = load ptr, ptr %29, align 8
   %31 = ptrtoint ptr %30 to i64
   %.not.i.i.i.i.i.i = icmp ugt i64 %28, %31
@@ -41813,7 +41813,7 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   br i1 %.not.i.i.i.i, label %57, label %59
 
 57:                                               ; preds = %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle13QualifiedNameEJRPNS3_4NodeES7_EEESt4pairIS6_bEbDpOT0_.exit.i.i.i
-  %58 = getelementptr inbounds i8, ptr %0, i64 920
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 920
   store ptr %.sroa.0.0.i.i.i.i, ptr %58, align 8
   br label %_ZN12_GLOBAL__N_122CanonicalizerAllocator8makeNodeIN4llvm16itanium_demangle13QualifiedNameEJRPNS3_4NodeES7_EEES6_DpOT0_.exit
 
@@ -41822,14 +41822,14 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   br i1 %.not.i.i.i, label %_ZN12_GLOBAL__N_122CanonicalizerAllocator8makeNodeIN4llvm16itanium_demangle13QualifiedNameEJRPNS3_4NodeES7_EEES6_DpOT0_.exit, label %60
 
 60:                                               ; preds = %59
-  %61 = getelementptr inbounds i8, ptr %0, i64 944
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 944
   %62 = load i32, ptr %61, align 8
   %63 = and i32 %62, 1
   %.not.i.i.i.i.i.i.i.i.i = icmp eq i32 %63, 0
-  %64 = getelementptr inbounds i8, ptr %0, i64 952
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 952
   %65 = load ptr, ptr %64, align 8
   %66 = select i1 %.not.i.i.i.i.i.i.i.i.i, ptr %65, ptr %64
-  %67 = getelementptr inbounds i8, ptr %0, i64 960
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 960
   %68 = load i32, ptr %67, align 8
   %69 = select i1 %.not.i.i.i.i.i.i.i.i.i, i32 %68, i32 32
   %70 = icmp eq i32 %69, 0
@@ -41876,13 +41876,13 @@ _ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32EN
   %.0.i.i.i.i = phi ptr [ %93, %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i ], [ null, %60 ], [ null, %.lr.ph.i.i.i.i.i.i ]
   %.not10.i.i.i = icmp eq ptr %.0.i.i.i.i, null
   %spec.select.i.i.i = select i1 %.not10.i.i.i, ptr %.sroa.0.0.i.i.i.i, ptr %.0.i.i.i.i
-  %94 = getelementptr inbounds i8, ptr %0, i64 928
+  %94 = getelementptr inbounds nuw i8, ptr %0, i64 928
   %95 = load ptr, ptr %94, align 8
   %96 = icmp eq ptr %spec.select.i.i.i, %95
   br i1 %96, label %97, label %_ZN12_GLOBAL__N_122CanonicalizerAllocator8makeNodeIN4llvm16itanium_demangle13QualifiedNameEJRPNS3_4NodeES7_EEES6_DpOT0_.exit
 
 97:                                               ; preds = %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i
-  %98 = getelementptr inbounds i8, ptr %0, i64 936
+  %98 = getelementptr inbounds nuw i8, ptr %0, i64 936
   store i8 1, ptr %98, align 8
   br label %_ZN12_GLOBAL__N_122CanonicalizerAllocator8makeNodeIN4llvm16itanium_demangle13QualifiedNameEJRPNS3_4NodeES7_EEES6_DpOT0_.exit
 
@@ -42020,7 +42020,7 @@ _ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLO
 
 47:                                               ; preds = %45
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 808
-  %49 = getelementptr inbounds i8, ptr %0, i64 937
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 937
   %50 = load i8, ptr %49, align 1
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
@@ -42029,7 +42029,7 @@ _ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLO
   call void @_ZN4llvm16FoldingSetNodeID10AddIntegerEy(ptr noundef nonnull align 8 dereferenceable(144) %6, i64 noundef 50)
   %52 = ptrtoint ptr %storemerge.i to i64
   call void @_ZN4llvm16FoldingSetNodeID10AddIntegerEy(ptr noundef nonnull align 8 dereferenceable(144) %6, i64 noundef %52)
-  %53 = getelementptr inbounds i8, ptr %0, i64 904
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 904
   %54 = call noundef ptr @_ZN4llvm14FoldingSetBase19FindNodeOrInsertPosERKNS_16FoldingSetNodeIDERPvRKNS0_14FoldingSetInfoE(ptr noundef nonnull align 8 dereferenceable(16) %53, ptr noundef nonnull align 8 dereferenceable(144) %6, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4llvm10FoldingSetIN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeaderEE17getFoldingSetInfoEvE4Info) #20
   %.not.i.i.i.i.i = icmp eq ptr %54, null
   br i1 %.not.i.i.i.i.i, label %57, label %55
@@ -42043,7 +42043,7 @@ _ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLO
   br i1 %58, label %59, label %88
 
 59:                                               ; preds = %57
-  %60 = getelementptr inbounds i8, ptr %0, i64 888
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 888
   %61 = load i64, ptr %60, align 8
   %62 = add i64 %61, 32
   store i64 %62, ptr %60, align 8
@@ -42052,7 +42052,7 @@ _ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLO
   %65 = add i64 %64, 7
   %66 = and i64 %65, -8
   %67 = add i64 %66, 32
-  %68 = getelementptr inbounds i8, ptr %0, i64 816
+  %68 = getelementptr inbounds nuw i8, ptr %0, i64 816
   %69 = load ptr, ptr %68, align 8
   %70 = ptrtoint ptr %69 to i64
   %.not.i.i.i.i.i.i.i = icmp ugt i64 %67, %70
@@ -42112,7 +42112,7 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   br i1 %.not.i.i.i.i.i, label %93, label %95
 
 93:                                               ; preds = %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle8DtorNameEJRPNS3_4NodeEEEESt4pairIS6_bEbDpOT0_.exit.i.i.i.i
-  %94 = getelementptr inbounds i8, ptr %0, i64 920
+  %94 = getelementptr inbounds nuw i8, ptr %0, i64 920
   store ptr %.sroa.0.0.i.i.i.i.i, ptr %94, align 8
   br label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E19parseDestructorNameEv.exit
 
@@ -42121,14 +42121,14 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   br i1 %.not.i.i.i.i, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E19parseDestructorNameEv.exit, label %96
 
 96:                                               ; preds = %95
-  %97 = getelementptr inbounds i8, ptr %0, i64 944
+  %97 = getelementptr inbounds nuw i8, ptr %0, i64 944
   %98 = load i32, ptr %97, align 8
   %99 = and i32 %98, 1
   %.not.i.i.i.i.i.i.i.i.i.i = icmp eq i32 %99, 0
-  %100 = getelementptr inbounds i8, ptr %0, i64 952
+  %100 = getelementptr inbounds nuw i8, ptr %0, i64 952
   %101 = load ptr, ptr %100, align 8
   %102 = select i1 %.not.i.i.i.i.i.i.i.i.i.i, ptr %101, ptr %100
-  %103 = getelementptr inbounds i8, ptr %0, i64 960
+  %103 = getelementptr inbounds nuw i8, ptr %0, i64 960
   %104 = load i32, ptr %103, align 8
   %105 = select i1 %.not.i.i.i.i.i.i.i.i.i.i, i32 %104, i32 32
   %106 = icmp eq i32 %105, 0
@@ -42175,13 +42175,13 @@ _ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32EN
   %.0.i.i.i.i.i = phi ptr [ %129, %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i.i ], [ null, %96 ], [ null, %.lr.ph.i.i.i.i.i.i.i ]
   %.not9.i.i.i.i = icmp eq ptr %.0.i.i.i.i.i, null
   %spec.select.i.i.i.i = select i1 %.not9.i.i.i.i, ptr %.sroa.0.0.i.i.i.i.i, ptr %.0.i.i.i.i.i
-  %130 = getelementptr inbounds i8, ptr %0, i64 928
+  %130 = getelementptr inbounds nuw i8, ptr %0, i64 928
   %131 = load ptr, ptr %130, align 8
   %132 = icmp eq ptr %spec.select.i.i.i.i, %131
   br i1 %132, label %133, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E19parseDestructorNameEv.exit
 
 133:                                              ; preds = %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i.i
-  %134 = getelementptr inbounds i8, ptr %0, i64 936
+  %134 = getelementptr inbounds nuw i8, ptr %0, i64 936
   store i8 1, ptr %134, align 8
   br label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E19parseDestructorNameEv.exit
 
@@ -42232,7 +42232,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   %3 = alloca %"class.llvm::FoldingSetNodeID", align 8
   %4 = alloca ptr, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 808
-  %6 = getelementptr inbounds i8, ptr %0, i64 937
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 937
   %7 = load i8, ptr %6, align 1
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
@@ -42242,7 +42242,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   call void @_ZN4llvm16FoldingSetNodeID10AddIntegerEy(ptr noundef nonnull align 8 dereferenceable(144) %3, i64 noundef 46)
   %10 = ptrtoint ptr %9 to i64
   call void @_ZN4llvm16FoldingSetNodeID10AddIntegerEy(ptr noundef nonnull align 8 dereferenceable(144) %3, i64 noundef %10)
-  %11 = getelementptr inbounds i8, ptr %0, i64 904
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 904
   %12 = call noundef ptr @_ZN4llvm14FoldingSetBase19FindNodeOrInsertPosERKNS_16FoldingSetNodeIDERPvRKNS0_14FoldingSetInfoE(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4llvm10FoldingSetIN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeaderEE17getFoldingSetInfoEvE4Info) #20
   %.not.i.i.i.i = icmp eq ptr %12, null
   br i1 %.not.i.i.i.i, label %15, label %13
@@ -42256,7 +42256,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   br i1 %16, label %17, label %47
 
 17:                                               ; preds = %15
-  %18 = getelementptr inbounds i8, ptr %0, i64 888
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 888
   %19 = load i64, ptr %18, align 8
   %20 = add i64 %19, 32
   store i64 %20, ptr %18, align 8
@@ -42265,7 +42265,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   %23 = add i64 %22, 7
   %24 = and i64 %23, -8
   %25 = add i64 %24, 32
-  %26 = getelementptr inbounds i8, ptr %0, i64 816
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 816
   %27 = load ptr, ptr %26, align 8
   %28 = ptrtoint ptr %27 to i64
   %.not.i.i.i.i.i.i = icmp ugt i64 %25, %28
@@ -42326,7 +42326,7 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   br i1 %.not.i.i.i.i, label %52, label %54
 
 52:                                               ; preds = %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle19GlobalQualifiedNameEJRPNS3_4NodeEEEESt4pairIS6_bEbDpOT0_.exit.i.i.i
-  %53 = getelementptr inbounds i8, ptr %0, i64 920
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 920
   store ptr %.sroa.0.0.i.i.i.i, ptr %53, align 8
   br label %_ZN12_GLOBAL__N_122CanonicalizerAllocator8makeNodeIN4llvm16itanium_demangle19GlobalQualifiedNameEJRPNS3_4NodeEEEES6_DpOT0_.exit
 
@@ -42335,14 +42335,14 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   br i1 %.not.i.i.i, label %_ZN12_GLOBAL__N_122CanonicalizerAllocator8makeNodeIN4llvm16itanium_demangle19GlobalQualifiedNameEJRPNS3_4NodeEEEES6_DpOT0_.exit, label %55
 
 55:                                               ; preds = %54
-  %56 = getelementptr inbounds i8, ptr %0, i64 944
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 944
   %57 = load i32, ptr %56, align 8
   %58 = and i32 %57, 1
   %.not.i.i.i.i.i.i.i.i.i = icmp eq i32 %58, 0
-  %59 = getelementptr inbounds i8, ptr %0, i64 952
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 952
   %60 = load ptr, ptr %59, align 8
   %61 = select i1 %.not.i.i.i.i.i.i.i.i.i, ptr %60, ptr %59
-  %62 = getelementptr inbounds i8, ptr %0, i64 960
+  %62 = getelementptr inbounds nuw i8, ptr %0, i64 960
   %63 = load i32, ptr %62, align 8
   %64 = select i1 %.not.i.i.i.i.i.i.i.i.i, i32 %63, i32 32
   %65 = icmp eq i32 %64, 0
@@ -42389,13 +42389,13 @@ _ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32EN
   %.0.i.i.i.i = phi ptr [ %88, %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i ], [ null, %55 ], [ null, %.lr.ph.i.i.i.i.i.i ]
   %.not9.i.i.i = icmp eq ptr %.0.i.i.i.i, null
   %spec.select.i.i.i = select i1 %.not9.i.i.i, ptr %.sroa.0.0.i.i.i.i, ptr %.0.i.i.i.i
-  %89 = getelementptr inbounds i8, ptr %0, i64 928
+  %89 = getelementptr inbounds nuw i8, ptr %0, i64 928
   %90 = load ptr, ptr %89, align 8
   %91 = icmp eq ptr %spec.select.i.i.i, %90
   br i1 %91, label %92, label %_ZN12_GLOBAL__N_122CanonicalizerAllocator8makeNodeIN4llvm16itanium_demangle19GlobalQualifiedNameEJRPNS3_4NodeEEEES6_DpOT0_.exit
 
 92:                                               ; preds = %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i
-  %93 = getelementptr inbounds i8, ptr %0, i64 936
+  %93 = getelementptr inbounds nuw i8, ptr %0, i64 936
   store i8 1, ptr %93, align 8
   br label %_ZN12_GLOBAL__N_122CanonicalizerAllocator8makeNodeIN4llvm16itanium_demangle19GlobalQualifiedNameEJRPNS3_4NodeEEEES6_DpOT0_.exit
 
@@ -42464,7 +42464,7 @@ _ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLO
   %21 = getelementptr inbounds i8, ptr %4, i64 2
   store ptr %21, ptr %0, align 8
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 808
-  %23 = getelementptr inbounds i8, ptr %0, i64 937
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 937
   %24 = load i8, ptr %23, align 1
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %2)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
@@ -42473,7 +42473,7 @@ _ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLO
   call void @_ZN4llvm16FoldingSetNodeID10AddIntegerEy(ptr noundef nonnull align 8 dereferenceable(144) %2, i64 noundef 48)
   %26 = zext nneg i32 %.035 to i64
   call void @_ZN4llvm16FoldingSetNodeID10AddIntegerEy(ptr noundef nonnull align 8 dereferenceable(144) %2, i64 noundef %26)
-  %27 = getelementptr inbounds i8, ptr %0, i64 904
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 904
   %28 = call noundef ptr @_ZN4llvm14FoldingSetBase19FindNodeOrInsertPosERKNS_16FoldingSetNodeIDERPvRKNS0_14FoldingSetInfoE(ptr noundef nonnull align 8 dereferenceable(16) %27, ptr noundef nonnull align 8 dereferenceable(144) %2, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4llvm10FoldingSetIN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeaderEE17getFoldingSetInfoEvE4Info) #20
   %.not.i.i.i.i.i = icmp eq ptr %28, null
   br i1 %.not.i.i.i.i.i, label %31, label %29
@@ -42487,7 +42487,7 @@ _ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLO
   br i1 %32, label %33, label %62
 
 33:                                               ; preds = %31
-  %34 = getelementptr inbounds i8, ptr %0, i64 888
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 888
   %35 = load i64, ptr %34, align 8
   %36 = add i64 %35, 24
   store i64 %36, ptr %34, align 8
@@ -42496,7 +42496,7 @@ _ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLO
   %39 = add i64 %38, 7
   %40 = and i64 %39, -8
   %41 = add i64 %40, 24
-  %42 = getelementptr inbounds i8, ptr %0, i64 816
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 816
   %43 = load ptr, ptr %42, align 8
   %44 = ptrtoint ptr %43 to i64
   %.not.i.i.i.i.i.i.i = icmp ugt i64 %41, %44
@@ -42556,7 +42556,7 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   br i1 %.not.i.i.i.i.i, label %67, label %69
 
 67:                                               ; preds = %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle19SpecialSubstitutionEJRNS3_14SpecialSubKindEEEESt4pairIPNS3_4NodeEbEbDpOT0_.exit.i.i.i.i
-  %68 = getelementptr inbounds i8, ptr %0, i64 920
+  %68 = getelementptr inbounds nuw i8, ptr %0, i64 920
   store ptr %.sroa.0.0.i.i.i.i.i, ptr %68, align 8
   br label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_19SpecialSubstitutionEJRNS0_14SpecialSubKindEEEEPNS0_4NodeEDpOT0_.exit
 
@@ -42565,14 +42565,14 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   br i1 %.not.i.i.i.i, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E9consumeIfEc.exit.thread, label %70
 
 70:                                               ; preds = %69
-  %71 = getelementptr inbounds i8, ptr %0, i64 944
+  %71 = getelementptr inbounds nuw i8, ptr %0, i64 944
   %72 = load i32, ptr %71, align 8
   %73 = and i32 %72, 1
   %.not.i.i.i.i.i.i.i.i.i.i = icmp eq i32 %73, 0
-  %74 = getelementptr inbounds i8, ptr %0, i64 952
+  %74 = getelementptr inbounds nuw i8, ptr %0, i64 952
   %75 = load ptr, ptr %74, align 8
   %76 = select i1 %.not.i.i.i.i.i.i.i.i.i.i, ptr %75, ptr %74
-  %77 = getelementptr inbounds i8, ptr %0, i64 960
+  %77 = getelementptr inbounds nuw i8, ptr %0, i64 960
   %78 = load i32, ptr %77, align 8
   %79 = select i1 %.not.i.i.i.i.i.i.i.i.i.i, i32 %78, i32 32
   %80 = icmp eq i32 %79, 0
@@ -42619,13 +42619,13 @@ _ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32EN
   %.0.i.i.i.i.i = phi ptr [ %103, %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i.i ], [ null, %70 ], [ null, %.lr.ph.i.i.i.i.i.i.i ]
   %.not9.i.i.i.i = icmp eq ptr %.0.i.i.i.i.i, null
   %spec.select.i.i.i.i = select i1 %.not9.i.i.i.i, ptr %.sroa.0.0.i.i.i.i.i, ptr %.0.i.i.i.i.i
-  %104 = getelementptr inbounds i8, ptr %0, i64 928
+  %104 = getelementptr inbounds nuw i8, ptr %0, i64 928
   %105 = load ptr, ptr %104, align 8
   %106 = icmp eq ptr %spec.select.i.i.i.i, %105
   br i1 %106, label %107, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_19SpecialSubstitutionEJRNS0_14SpecialSubKindEEEEPNS0_4NodeEDpOT0_.exit
 
 107:                                              ; preds = %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i.i
-  %108 = getelementptr inbounds i8, ptr %0, i64 936
+  %108 = getelementptr inbounds nuw i8, ptr %0, i64 936
   store i8 1, ptr %108, align 8
   br label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_19SpecialSubstitutionEJRNS0_14SpecialSubKindEEEEPNS0_4NodeEDpOT0_.exit
 
@@ -42641,9 +42641,9 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
 
 111:                                              ; preds = %109
   %112 = getelementptr inbounds nuw i8, ptr %0, i64 296
-  %113 = getelementptr inbounds i8, ptr %0, i64 304
+  %113 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %114 = load ptr, ptr %113, align 8
-  %115 = getelementptr inbounds i8, ptr %0, i64 312
+  %115 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %116 = load ptr, ptr %115, align 8
   %117 = icmp eq ptr %114, %116
   br i1 %117, label %118, label %_ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exit
@@ -42654,7 +42654,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
   %121 = ptrtoint ptr %119 to i64
   %122 = sub i64 %120, %121
   %123 = ashr exact i64 %122, 2
-  %124 = getelementptr inbounds i8, ptr %0, i64 320
+  %124 = getelementptr inbounds nuw i8, ptr %0, i64 320
   %125 = icmp eq ptr %119, %124
   %126 = shl i64 %122, 1
   br i1 %125, label %127, label %133
@@ -42713,7 +42713,7 @@ _ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exi
   store ptr %145, ptr %0, align 8
   %146 = getelementptr inbounds nuw i8, ptr %0, i64 296
   %147 = load ptr, ptr %146, align 8
-  %148 = getelementptr inbounds i8, ptr %0, i64 304
+  %148 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %149 = load ptr, ptr %148, align 8
   %150 = icmp eq ptr %147, %149
   br i1 %150, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E9consumeIfEc.exit.thread, label %151
@@ -42776,7 +42776,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
   %171 = getelementptr inbounds i8, ptr %165, i64 1
   store ptr %171, ptr %0, align 8
   %172 = getelementptr inbounds nuw i8, ptr %0, i64 296
-  %173 = getelementptr inbounds i8, ptr %0, i64 304
+  %173 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %174 = load ptr, ptr %173, align 8
   %175 = load ptr, ptr %172, align 8
   %176 = ptrtoint ptr %174 to i64
@@ -42802,17 +42802,17 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   %4 = alloca ptr, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 808
-  %7 = getelementptr inbounds i8, ptr %0, i64 937
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 937
   %8 = getelementptr inbounds i8, ptr %3, i64 16
-  %9 = getelementptr inbounds i8, ptr %0, i64 904
-  %10 = getelementptr inbounds i8, ptr %0, i64 888
-  %11 = getelementptr inbounds i8, ptr %0, i64 816
-  %12 = getelementptr inbounds i8, ptr %0, i64 944
-  %13 = getelementptr inbounds i8, ptr %0, i64 952
-  %14 = getelementptr inbounds i8, ptr %0, i64 960
-  %15 = getelementptr inbounds i8, ptr %0, i64 928
-  %16 = getelementptr inbounds i8, ptr %0, i64 936
-  %17 = getelementptr inbounds i8, ptr %0, i64 920
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 904
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 888
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 816
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 944
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 952
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 960
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 928
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 936
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 920
   br label %18
 
 18:                                               ; preds = %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_10AbiTagAttrEJRPNS0_4NodeERSt17basic_string_viewIcSt11char_traitsIcEEEEESA_DpOT0_.exit, %2
@@ -43828,7 +43828,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i: ; preds = %29, %_ZNK4llvm16i
 
 73:                                               ; preds = %69
   %74 = getelementptr inbounds nuw i8, ptr %0, i64 808
-  %75 = getelementptr inbounds i8, ptr %0, i64 937
+  %75 = getelementptr inbounds nuw i8, ptr %0, i64 937
   %76 = load i8, ptr %75, align 1
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
@@ -43837,7 +43837,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i: ; preds = %29, %_ZNK4llvm16i
   call void @_ZN4llvm16FoldingSetNodeID10AddIntegerEy(ptr noundef nonnull align 8 dereferenceable(144) %3, i64 noundef 20)
   %78 = ptrtoint ptr %71 to i64
   call void @_ZN4llvm16FoldingSetNodeID10AddIntegerEy(ptr noundef nonnull align 8 dereferenceable(144) %3, i64 noundef %78)
-  %79 = getelementptr inbounds i8, ptr %0, i64 904
+  %79 = getelementptr inbounds nuw i8, ptr %0, i64 904
   %80 = call noundef ptr @_ZN4llvm14FoldingSetBase19FindNodeOrInsertPosERKNS_16FoldingSetNodeIDERPvRKNS0_14FoldingSetInfoE(ptr noundef nonnull align 8 dereferenceable(16) %79, ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4llvm10FoldingSetIN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeaderEE17getFoldingSetInfoEvE4Info) #20
   %.not.i.i.i.i.i = icmp eq ptr %80, null
   br i1 %.not.i.i.i.i.i, label %83, label %81
@@ -43851,7 +43851,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i: ; preds = %29, %_ZNK4llvm16i
   br i1 %84, label %85, label %114
 
 85:                                               ; preds = %83
-  %86 = getelementptr inbounds i8, ptr %0, i64 888
+  %86 = getelementptr inbounds nuw i8, ptr %0, i64 888
   %87 = load i64, ptr %86, align 8
   %88 = add i64 %87, 32
   store i64 %88, ptr %86, align 8
@@ -43860,7 +43860,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i: ; preds = %29, %_ZNK4llvm16i
   %91 = add i64 %90, 7
   %92 = and i64 %91, -8
   %93 = add i64 %92, 32
-  %94 = getelementptr inbounds i8, ptr %0, i64 816
+  %94 = getelementptr inbounds nuw i8, ptr %0, i64 816
   %95 = load ptr, ptr %94, align 8
   %96 = ptrtoint ptr %95 to i64
   %.not.i.i.i.i.i.i.i = icmp ugt i64 %93, %96
@@ -43920,7 +43920,7 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   br i1 %.not.i.i.i.i.i, label %119, label %121
 
 119:                                              ; preds = %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle15LiteralOperatorEJRPNS3_4NodeEEEESt4pairIS6_bEbDpOT0_.exit.i.i.i.i
-  %120 = getelementptr inbounds i8, ptr %0, i64 920
+  %120 = getelementptr inbounds nuw i8, ptr %0, i64 920
   store ptr %.sroa.0.0.i.i.i.i.i, ptr %120, align 8
   br label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_15LiteralOperatorEJRPNS0_4NodeEEEESA_DpOT0_.exit
 
@@ -43929,14 +43929,14 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   br i1 %.not.i.i.i.i, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_15LiteralOperatorEJRPNS0_4NodeEEEESA_DpOT0_.exit, label %122
 
 122:                                              ; preds = %121
-  %123 = getelementptr inbounds i8, ptr %0, i64 944
+  %123 = getelementptr inbounds nuw i8, ptr %0, i64 944
   %124 = load i32, ptr %123, align 8
   %125 = and i32 %124, 1
   %.not.i.i.i.i.i.i.i.i.i.i = icmp eq i32 %125, 0
-  %126 = getelementptr inbounds i8, ptr %0, i64 952
+  %126 = getelementptr inbounds nuw i8, ptr %0, i64 952
   %127 = load ptr, ptr %126, align 8
   %128 = select i1 %.not.i.i.i.i.i.i.i.i.i.i, ptr %127, ptr %126
-  %129 = getelementptr inbounds i8, ptr %0, i64 960
+  %129 = getelementptr inbounds nuw i8, ptr %0, i64 960
   %130 = load i32, ptr %129, align 8
   %131 = select i1 %.not.i.i.i.i.i.i.i.i.i.i, i32 %130, i32 32
   %132 = icmp eq i32 %131, 0
@@ -43983,13 +43983,13 @@ _ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32EN
   %.0.i.i.i.i.i = phi ptr [ %155, %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i.i ], [ null, %122 ], [ null, %.lr.ph.i.i.i.i.i.i.i ]
   %.not9.i.i.i.i = icmp eq ptr %.0.i.i.i.i.i, null
   %spec.select.i.i.i.i = select i1 %.not9.i.i.i.i, ptr %.sroa.0.0.i.i.i.i.i, ptr %.0.i.i.i.i.i
-  %156 = getelementptr inbounds i8, ptr %0, i64 928
+  %156 = getelementptr inbounds nuw i8, ptr %0, i64 928
   %157 = load ptr, ptr %156, align 8
   %158 = icmp eq ptr %spec.select.i.i.i.i, %157
   br i1 %158, label %159, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_15LiteralOperatorEJRPNS0_4NodeEEEESA_DpOT0_.exit
 
 159:                                              ; preds = %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i.i
-  %160 = getelementptr inbounds i8, ptr %0, i64 936
+  %160 = getelementptr inbounds nuw i8, ptr %0, i64 936
   store i8 1, ptr %160, align 8
   br label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_15LiteralOperatorEJRPNS0_4NodeEEEESA_DpOT0_.exit
 
@@ -44093,7 +44093,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   %3 = alloca %"class.llvm::FoldingSetNodeID", align 8
   %4 = alloca ptr, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 808
-  %6 = getelementptr inbounds i8, ptr %0, i64 937
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 937
   %7 = load i8, ptr %6, align 1
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
@@ -44103,7 +44103,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   call void @_ZN4llvm16FoldingSetNodeID10AddIntegerEy(ptr noundef nonnull align 8 dereferenceable(144) %3, i64 noundef 4)
   %10 = ptrtoint ptr %9 to i64
   call void @_ZN4llvm16FoldingSetNodeID10AddIntegerEy(ptr noundef nonnull align 8 dereferenceable(144) %3, i64 noundef %10)
-  %11 = getelementptr inbounds i8, ptr %0, i64 904
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 904
   %12 = call noundef ptr @_ZN4llvm14FoldingSetBase19FindNodeOrInsertPosERKNS_16FoldingSetNodeIDERPvRKNS0_14FoldingSetInfoE(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4llvm10FoldingSetIN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeaderEE17getFoldingSetInfoEvE4Info) #20
   %.not.i.i.i.i = icmp eq ptr %12, null
   br i1 %.not.i.i.i.i, label %15, label %13
@@ -44117,7 +44117,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   br i1 %16, label %17, label %47
 
 17:                                               ; preds = %15
-  %18 = getelementptr inbounds i8, ptr %0, i64 888
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 888
   %19 = load i64, ptr %18, align 8
   %20 = add i64 %19, 32
   store i64 %20, ptr %18, align 8
@@ -44126,7 +44126,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   %23 = add i64 %22, 7
   %24 = and i64 %23, -8
   %25 = add i64 %24, 32
-  %26 = getelementptr inbounds i8, ptr %0, i64 816
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 816
   %27 = load ptr, ptr %26, align 8
   %28 = ptrtoint ptr %27 to i64
   %.not.i.i.i.i.i.i = icmp ugt i64 %25, %28
@@ -44187,7 +44187,7 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   br i1 %.not.i.i.i.i, label %52, label %54
 
 52:                                               ; preds = %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle22ConversionOperatorTypeEJRPNS3_4NodeEEEESt4pairIS6_bEbDpOT0_.exit.i.i.i
-  %53 = getelementptr inbounds i8, ptr %0, i64 920
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 920
   store ptr %.sroa.0.0.i.i.i.i, ptr %53, align 8
   br label %_ZN12_GLOBAL__N_122CanonicalizerAllocator8makeNodeIN4llvm16itanium_demangle22ConversionOperatorTypeEJRPNS3_4NodeEEEES6_DpOT0_.exit
 
@@ -44196,14 +44196,14 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   br i1 %.not.i.i.i, label %_ZN12_GLOBAL__N_122CanonicalizerAllocator8makeNodeIN4llvm16itanium_demangle22ConversionOperatorTypeEJRPNS3_4NodeEEEES6_DpOT0_.exit, label %55
 
 55:                                               ; preds = %54
-  %56 = getelementptr inbounds i8, ptr %0, i64 944
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 944
   %57 = load i32, ptr %56, align 8
   %58 = and i32 %57, 1
   %.not.i.i.i.i.i.i.i.i.i = icmp eq i32 %58, 0
-  %59 = getelementptr inbounds i8, ptr %0, i64 952
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 952
   %60 = load ptr, ptr %59, align 8
   %61 = select i1 %.not.i.i.i.i.i.i.i.i.i, ptr %60, ptr %59
-  %62 = getelementptr inbounds i8, ptr %0, i64 960
+  %62 = getelementptr inbounds nuw i8, ptr %0, i64 960
   %63 = load i32, ptr %62, align 8
   %64 = select i1 %.not.i.i.i.i.i.i.i.i.i, i32 %63, i32 32
   %65 = icmp eq i32 %64, 0
@@ -44250,13 +44250,13 @@ _ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32EN
   %.0.i.i.i.i = phi ptr [ %88, %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i ], [ null, %55 ], [ null, %.lr.ph.i.i.i.i.i.i ]
   %.not9.i.i.i = icmp eq ptr %.0.i.i.i.i, null
   %spec.select.i.i.i = select i1 %.not9.i.i.i, ptr %.sroa.0.0.i.i.i.i, ptr %.0.i.i.i.i
-  %89 = getelementptr inbounds i8, ptr %0, i64 928
+  %89 = getelementptr inbounds nuw i8, ptr %0, i64 928
   %90 = load ptr, ptr %89, align 8
   %91 = icmp eq ptr %spec.select.i.i.i, %90
   br i1 %91, label %92, label %_ZN12_GLOBAL__N_122CanonicalizerAllocator8makeNodeIN4llvm16itanium_demangle22ConversionOperatorTypeEJRPNS3_4NodeEEEES6_DpOT0_.exit
 
 92:                                               ; preds = %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i
-  %93 = getelementptr inbounds i8, ptr %0, i64 936
+  %93 = getelementptr inbounds nuw i8, ptr %0, i64 936
   store i8 1, ptr %93, align 8
   br label %_ZN12_GLOBAL__N_122CanonicalizerAllocator8makeNodeIN4llvm16itanium_demangle22ConversionOperatorTypeEJRPNS3_4NodeEEEES6_DpOT0_.exit
 
@@ -44732,7 +44732,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   %3 = alloca %"class.llvm::FoldingSetNodeID", align 8
   %4 = alloca ptr, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 808
-  %6 = getelementptr inbounds i8, ptr %0, i64 937
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 937
   %7 = load i8, ptr %6, align 1
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
@@ -44742,7 +44742,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   call void @_ZN4llvm16FoldingSetNodeID10AddIntegerEy(ptr noundef nonnull align 8 dereferenceable(144) %3, i64 noundef 30)
   %10 = ptrtoint ptr %9 to i64
   call void @_ZN4llvm16FoldingSetNodeID10AddIntegerEy(ptr noundef nonnull align 8 dereferenceable(144) %3, i64 noundef %10)
-  %11 = getelementptr inbounds i8, ptr %0, i64 904
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 904
   %12 = call noundef ptr @_ZN4llvm14FoldingSetBase19FindNodeOrInsertPosERKNS_16FoldingSetNodeIDERPvRKNS0_14FoldingSetInfoE(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4llvm10FoldingSetIN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeaderEE17getFoldingSetInfoEvE4Info) #20
   %.not.i.i.i.i = icmp eq ptr %12, null
   br i1 %.not.i.i.i.i, label %15, label %13
@@ -44756,7 +44756,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   br i1 %16, label %17, label %47
 
 17:                                               ; preds = %15
-  %18 = getelementptr inbounds i8, ptr %0, i64 888
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 888
   %19 = load i64, ptr %18, align 8
   %20 = add i64 %19, 32
   store i64 %20, ptr %18, align 8
@@ -44765,7 +44765,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   %23 = add i64 %22, 7
   %24 = and i64 %23, -8
   %25 = add i64 %24, 32
-  %26 = getelementptr inbounds i8, ptr %0, i64 816
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 816
   %27 = load ptr, ptr %26, align 8
   %28 = ptrtoint ptr %27 to i64
   %.not.i.i.i.i.i.i = icmp ugt i64 %25, %28
@@ -44826,7 +44826,7 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   br i1 %.not.i.i.i.i, label %52, label %54
 
 52:                                               ; preds = %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle15PixelVectorTypeEJRPNS3_4NodeEEEESt4pairIS6_bEbDpOT0_.exit.i.i.i
-  %53 = getelementptr inbounds i8, ptr %0, i64 920
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 920
   store ptr %.sroa.0.0.i.i.i.i, ptr %53, align 8
   br label %_ZN12_GLOBAL__N_122CanonicalizerAllocator8makeNodeIN4llvm16itanium_demangle15PixelVectorTypeEJRPNS3_4NodeEEEES6_DpOT0_.exit
 
@@ -44835,14 +44835,14 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   br i1 %.not.i.i.i, label %_ZN12_GLOBAL__N_122CanonicalizerAllocator8makeNodeIN4llvm16itanium_demangle15PixelVectorTypeEJRPNS3_4NodeEEEES6_DpOT0_.exit, label %55
 
 55:                                               ; preds = %54
-  %56 = getelementptr inbounds i8, ptr %0, i64 944
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 944
   %57 = load i32, ptr %56, align 8
   %58 = and i32 %57, 1
   %.not.i.i.i.i.i.i.i.i.i = icmp eq i32 %58, 0
-  %59 = getelementptr inbounds i8, ptr %0, i64 952
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 952
   %60 = load ptr, ptr %59, align 8
   %61 = select i1 %.not.i.i.i.i.i.i.i.i.i, ptr %60, ptr %59
-  %62 = getelementptr inbounds i8, ptr %0, i64 960
+  %62 = getelementptr inbounds nuw i8, ptr %0, i64 960
   %63 = load i32, ptr %62, align 8
   %64 = select i1 %.not.i.i.i.i.i.i.i.i.i, i32 %63, i32 32
   %65 = icmp eq i32 %64, 0
@@ -44889,13 +44889,13 @@ _ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32EN
   %.0.i.i.i.i = phi ptr [ %88, %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i ], [ null, %55 ], [ null, %.lr.ph.i.i.i.i.i.i ]
   %.not9.i.i.i = icmp eq ptr %.0.i.i.i.i, null
   %spec.select.i.i.i = select i1 %.not9.i.i.i, ptr %.sroa.0.0.i.i.i.i, ptr %.0.i.i.i.i
-  %89 = getelementptr inbounds i8, ptr %0, i64 928
+  %89 = getelementptr inbounds nuw i8, ptr %0, i64 928
   %90 = load ptr, ptr %89, align 8
   %91 = icmp eq ptr %spec.select.i.i.i, %90
   br i1 %91, label %92, label %_ZN12_GLOBAL__N_122CanonicalizerAllocator8makeNodeIN4llvm16itanium_demangle15PixelVectorTypeEJRPNS3_4NodeEEEES6_DpOT0_.exit
 
 92:                                               ; preds = %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i
-  %93 = getelementptr inbounds i8, ptr %0, i64 936
+  %93 = getelementptr inbounds nuw i8, ptr %0, i64 936
   store i8 1, ptr %93, align 8
   br label %_ZN12_GLOBAL__N_122CanonicalizerAllocator8makeNodeIN4llvm16itanium_demangle15PixelVectorTypeEJRPNS3_4NodeEEEES6_DpOT0_.exit
 
@@ -44909,7 +44909,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   %4 = alloca %"class.llvm::FoldingSetNodeID", align 8
   %5 = alloca ptr, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 808
-  %7 = getelementptr inbounds i8, ptr %0, i64 937
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 937
   %8 = load i8, ptr %7, align 1
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
@@ -44922,7 +44922,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   call void @_ZN4llvm16FoldingSetNodeID10AddIntegerEy(ptr noundef nonnull align 8 dereferenceable(144) %4, i64 noundef %12)
   %13 = ptrtoint ptr %11 to i64
   call void @_ZN4llvm16FoldingSetNodeID10AddIntegerEy(ptr noundef nonnull align 8 dereferenceable(144) %4, i64 noundef %13)
-  %14 = getelementptr inbounds i8, ptr %0, i64 904
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 904
   %15 = call noundef ptr @_ZN4llvm14FoldingSetBase19FindNodeOrInsertPosERKNS_16FoldingSetNodeIDERPvRKNS0_14FoldingSetInfoE(ptr noundef nonnull align 8 dereferenceable(16) %14, ptr noundef nonnull align 8 dereferenceable(144) %4, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4llvm10FoldingSetIN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeaderEE17getFoldingSetInfoEvE4Info) #20
   %.not.i.i.i.i = icmp eq ptr %15, null
   br i1 %.not.i.i.i.i, label %18, label %16
@@ -44936,7 +44936,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   br i1 %19, label %20, label %52
 
 20:                                               ; preds = %18
-  %21 = getelementptr inbounds i8, ptr %0, i64 888
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 888
   %22 = load i64, ptr %21, align 8
   %23 = add i64 %22, 40
   store i64 %23, ptr %21, align 8
@@ -44945,7 +44945,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   %26 = add i64 %25, 7
   %27 = and i64 %26, -8
   %28 = add i64 %27, 40
-  %29 = getelementptr inbounds i8, ptr %0, i64 816
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 816
   %30 = load ptr, ptr %29, align 8
   %31 = ptrtoint ptr %30 to i64
   %.not.i.i.i.i.i.i = icmp ugt i64 %28, %31
@@ -45009,7 +45009,7 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   br i1 %.not.i.i.i.i, label %57, label %59
 
 57:                                               ; preds = %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle10VectorTypeEJRPNS3_4NodeES7_EEESt4pairIS6_bEbDpOT0_.exit.i.i.i
-  %58 = getelementptr inbounds i8, ptr %0, i64 920
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 920
   store ptr %.sroa.0.0.i.i.i.i, ptr %58, align 8
   br label %_ZN12_GLOBAL__N_122CanonicalizerAllocator8makeNodeIN4llvm16itanium_demangle10VectorTypeEJRPNS3_4NodeES7_EEES6_DpOT0_.exit
 
@@ -45018,14 +45018,14 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   br i1 %.not.i.i.i, label %_ZN12_GLOBAL__N_122CanonicalizerAllocator8makeNodeIN4llvm16itanium_demangle10VectorTypeEJRPNS3_4NodeES7_EEES6_DpOT0_.exit, label %60
 
 60:                                               ; preds = %59
-  %61 = getelementptr inbounds i8, ptr %0, i64 944
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 944
   %62 = load i32, ptr %61, align 8
   %63 = and i32 %62, 1
   %.not.i.i.i.i.i.i.i.i.i = icmp eq i32 %63, 0
-  %64 = getelementptr inbounds i8, ptr %0, i64 952
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 952
   %65 = load ptr, ptr %64, align 8
   %66 = select i1 %.not.i.i.i.i.i.i.i.i.i, ptr %65, ptr %64
-  %67 = getelementptr inbounds i8, ptr %0, i64 960
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 960
   %68 = load i32, ptr %67, align 8
   %69 = select i1 %.not.i.i.i.i.i.i.i.i.i, i32 %68, i32 32
   %70 = icmp eq i32 %69, 0
@@ -45072,13 +45072,13 @@ _ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32EN
   %.0.i.i.i.i = phi ptr [ %93, %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i ], [ null, %60 ], [ null, %.lr.ph.i.i.i.i.i.i ]
   %.not10.i.i.i = icmp eq ptr %.0.i.i.i.i, null
   %spec.select.i.i.i = select i1 %.not10.i.i.i, ptr %.sroa.0.0.i.i.i.i, ptr %.0.i.i.i.i
-  %94 = getelementptr inbounds i8, ptr %0, i64 928
+  %94 = getelementptr inbounds nuw i8, ptr %0, i64 928
   %95 = load ptr, ptr %94, align 8
   %96 = icmp eq ptr %spec.select.i.i.i, %95
   br i1 %96, label %97, label %_ZN12_GLOBAL__N_122CanonicalizerAllocator8makeNodeIN4llvm16itanium_demangle10VectorTypeEJRPNS3_4NodeES7_EEES6_DpOT0_.exit
 
 97:                                               ; preds = %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i
-  %98 = getelementptr inbounds i8, ptr %0, i64 936
+  %98 = getelementptr inbounds nuw i8, ptr %0, i64 936
   store i8 1, ptr %98, align 8
   br label %_ZN12_GLOBAL__N_122CanonicalizerAllocator8makeNodeIN4llvm16itanium_demangle10VectorTypeEJRPNS3_4NodeES7_EEES6_DpOT0_.exit
 
@@ -45324,7 +45324,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   %4 = alloca %"class.llvm::FoldingSetNodeID", align 8
   %5 = alloca ptr, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 808
-  %7 = getelementptr inbounds i8, ptr %0, i64 937
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 937
   %8 = load i8, ptr %7, align 1
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
@@ -45337,7 +45337,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   call void @_ZN4llvm16FoldingSetNodeID10AddIntegerEy(ptr noundef nonnull align 8 dereferenceable(144) %4, i64 noundef %12)
   %13 = ptrtoint ptr %11 to i64
   call void @_ZN4llvm16FoldingSetNodeID10AddIntegerEy(ptr noundef nonnull align 8 dereferenceable(144) %4, i64 noundef %13)
-  %14 = getelementptr inbounds i8, ptr %0, i64 904
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 904
   %15 = call noundef ptr @_ZN4llvm14FoldingSetBase19FindNodeOrInsertPosERKNS_16FoldingSetNodeIDERPvRKNS0_14FoldingSetInfoE(ptr noundef nonnull align 8 dereferenceable(16) %14, ptr noundef nonnull align 8 dereferenceable(144) %4, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4llvm10FoldingSetIN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeaderEE17getFoldingSetInfoEvE4Info) #20
   %.not.i.i.i.i = icmp eq ptr %15, null
   br i1 %.not.i.i.i.i, label %18, label %16
@@ -45351,7 +45351,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   br i1 %19, label %20, label %52
 
 20:                                               ; preds = %18
-  %21 = getelementptr inbounds i8, ptr %0, i64 888
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 888
   %22 = load i64, ptr %21, align 8
   %23 = add i64 %22, 40
   store i64 %23, ptr %21, align 8
@@ -45360,7 +45360,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   %26 = add i64 %25, 7
   %27 = and i64 %26, -8
   %28 = add i64 %27, 40
-  %29 = getelementptr inbounds i8, ptr %0, i64 816
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 816
   %30 = load ptr, ptr %29, align 8
   %31 = ptrtoint ptr %30 to i64
   %.not.i.i.i.i.i.i = icmp ugt i64 %28, %31
@@ -45424,7 +45424,7 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   br i1 %.not.i.i.i.i, label %57, label %59
 
 57:                                               ; preds = %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle9ArrayTypeEJRPNS3_4NodeES7_EEESt4pairIS6_bEbDpOT0_.exit.i.i.i
-  %58 = getelementptr inbounds i8, ptr %0, i64 920
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 920
   store ptr %.sroa.0.0.i.i.i.i, ptr %58, align 8
   br label %_ZN12_GLOBAL__N_122CanonicalizerAllocator8makeNodeIN4llvm16itanium_demangle9ArrayTypeEJRPNS3_4NodeES7_EEES6_DpOT0_.exit
 
@@ -45433,14 +45433,14 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   br i1 %.not.i.i.i, label %_ZN12_GLOBAL__N_122CanonicalizerAllocator8makeNodeIN4llvm16itanium_demangle9ArrayTypeEJRPNS3_4NodeES7_EEES6_DpOT0_.exit, label %60
 
 60:                                               ; preds = %59
-  %61 = getelementptr inbounds i8, ptr %0, i64 944
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 944
   %62 = load i32, ptr %61, align 8
   %63 = and i32 %62, 1
   %.not.i.i.i.i.i.i.i.i.i = icmp eq i32 %63, 0
-  %64 = getelementptr inbounds i8, ptr %0, i64 952
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 952
   %65 = load ptr, ptr %64, align 8
   %66 = select i1 %.not.i.i.i.i.i.i.i.i.i, ptr %65, ptr %64
-  %67 = getelementptr inbounds i8, ptr %0, i64 960
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 960
   %68 = load i32, ptr %67, align 8
   %69 = select i1 %.not.i.i.i.i.i.i.i.i.i, i32 %68, i32 32
   %70 = icmp eq i32 %69, 0
@@ -45487,13 +45487,13 @@ _ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32EN
   %.0.i.i.i.i = phi ptr [ %93, %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i ], [ null, %60 ], [ null, %.lr.ph.i.i.i.i.i.i ]
   %.not10.i.i.i = icmp eq ptr %.0.i.i.i.i, null
   %spec.select.i.i.i = select i1 %.not10.i.i.i, ptr %.sroa.0.0.i.i.i.i, ptr %.0.i.i.i.i
-  %94 = getelementptr inbounds i8, ptr %0, i64 928
+  %94 = getelementptr inbounds nuw i8, ptr %0, i64 928
   %95 = load ptr, ptr %94, align 8
   %96 = icmp eq ptr %spec.select.i.i.i, %95
   br i1 %96, label %97, label %_ZN12_GLOBAL__N_122CanonicalizerAllocator8makeNodeIN4llvm16itanium_demangle9ArrayTypeEJRPNS3_4NodeES7_EEES6_DpOT0_.exit
 
 97:                                               ; preds = %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i
-  %98 = getelementptr inbounds i8, ptr %0, i64 936
+  %98 = getelementptr inbounds nuw i8, ptr %0, i64 936
   store i8 1, ptr %98, align 8
   br label %_ZN12_GLOBAL__N_122CanonicalizerAllocator8makeNodeIN4llvm16itanium_demangle9ArrayTypeEJRPNS3_4NodeES7_EEES6_DpOT0_.exit
 
@@ -45687,7 +45687,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   %4 = alloca %"class.llvm::FoldingSetNodeID", align 8
   %5 = alloca ptr, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 808
-  %7 = getelementptr inbounds i8, ptr %0, i64 937
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 937
   %8 = load i8, ptr %7, align 1
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
@@ -45700,7 +45700,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   call void @_ZN4llvm16FoldingSetNodeID10AddIntegerEy(ptr noundef nonnull align 8 dereferenceable(144) %4, i64 noundef %12)
   %13 = ptrtoint ptr %11 to i64
   call void @_ZN4llvm16FoldingSetNodeID10AddIntegerEy(ptr noundef nonnull align 8 dereferenceable(144) %4, i64 noundef %13)
-  %14 = getelementptr inbounds i8, ptr %0, i64 904
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 904
   %15 = call noundef ptr @_ZN4llvm14FoldingSetBase19FindNodeOrInsertPosERKNS_16FoldingSetNodeIDERPvRKNS0_14FoldingSetInfoE(ptr noundef nonnull align 8 dereferenceable(16) %14, ptr noundef nonnull align 8 dereferenceable(144) %4, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4llvm10FoldingSetIN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeaderEE17getFoldingSetInfoEvE4Info) #20
   %.not.i.i.i.i = icmp eq ptr %15, null
   br i1 %.not.i.i.i.i, label %18, label %16
@@ -45714,7 +45714,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   br i1 %19, label %20, label %56
 
 20:                                               ; preds = %18
-  %21 = getelementptr inbounds i8, ptr %0, i64 888
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 888
   %22 = load i64, ptr %21, align 8
   %23 = add i64 %22, 40
   store i64 %23, ptr %21, align 8
@@ -45723,7 +45723,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   %26 = add i64 %25, 7
   %27 = and i64 %26, -8
   %28 = add i64 %27, 40
-  %29 = getelementptr inbounds i8, ptr %0, i64 816
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 816
   %30 = load ptr, ptr %29, align 8
   %31 = ptrtoint ptr %30 to i64
   %.not.i.i.i.i.i.i = icmp ugt i64 %28, %31
@@ -45791,7 +45791,7 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   br i1 %.not.i.i.i.i, label %61, label %63
 
 61:                                               ; preds = %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle19PointerToMemberTypeEJRPNS3_4NodeES7_EEESt4pairIS6_bEbDpOT0_.exit.i.i.i
-  %62 = getelementptr inbounds i8, ptr %0, i64 920
+  %62 = getelementptr inbounds nuw i8, ptr %0, i64 920
   store ptr %.sroa.0.0.i.i.i.i, ptr %62, align 8
   br label %_ZN12_GLOBAL__N_122CanonicalizerAllocator8makeNodeIN4llvm16itanium_demangle19PointerToMemberTypeEJRPNS3_4NodeES7_EEES6_DpOT0_.exit
 
@@ -45800,14 +45800,14 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   br i1 %.not.i.i.i, label %_ZN12_GLOBAL__N_122CanonicalizerAllocator8makeNodeIN4llvm16itanium_demangle19PointerToMemberTypeEJRPNS3_4NodeES7_EEES6_DpOT0_.exit, label %64
 
 64:                                               ; preds = %63
-  %65 = getelementptr inbounds i8, ptr %0, i64 944
+  %65 = getelementptr inbounds nuw i8, ptr %0, i64 944
   %66 = load i32, ptr %65, align 8
   %67 = and i32 %66, 1
   %.not.i.i.i.i.i.i.i.i.i = icmp eq i32 %67, 0
-  %68 = getelementptr inbounds i8, ptr %0, i64 952
+  %68 = getelementptr inbounds nuw i8, ptr %0, i64 952
   %69 = load ptr, ptr %68, align 8
   %70 = select i1 %.not.i.i.i.i.i.i.i.i.i, ptr %69, ptr %68
-  %71 = getelementptr inbounds i8, ptr %0, i64 960
+  %71 = getelementptr inbounds nuw i8, ptr %0, i64 960
   %72 = load i32, ptr %71, align 8
   %73 = select i1 %.not.i.i.i.i.i.i.i.i.i, i32 %72, i32 32
   %74 = icmp eq i32 %73, 0
@@ -45854,13 +45854,13 @@ _ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32EN
   %.0.i.i.i.i = phi ptr [ %97, %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i ], [ null, %64 ], [ null, %.lr.ph.i.i.i.i.i.i ]
   %.not10.i.i.i = icmp eq ptr %.0.i.i.i.i, null
   %spec.select.i.i.i = select i1 %.not10.i.i.i, ptr %.sroa.0.0.i.i.i.i, ptr %.0.i.i.i.i
-  %98 = getelementptr inbounds i8, ptr %0, i64 928
+  %98 = getelementptr inbounds nuw i8, ptr %0, i64 928
   %99 = load ptr, ptr %98, align 8
   %100 = icmp eq ptr %spec.select.i.i.i, %99
   br i1 %100, label %101, label %_ZN12_GLOBAL__N_122CanonicalizerAllocator8makeNodeIN4llvm16itanium_demangle19PointerToMemberTypeEJRPNS3_4NodeES7_EEES6_DpOT0_.exit
 
 101:                                              ; preds = %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i
-  %102 = getelementptr inbounds i8, ptr %0, i64 936
+  %102 = getelementptr inbounds nuw i8, ptr %0, i64 936
   store i8 1, ptr %102, align 8
   br label %_ZN12_GLOBAL__N_122CanonicalizerAllocator8makeNodeIN4llvm16itanium_demangle19PointerToMemberTypeEJRPNS3_4NodeES7_EEES6_DpOT0_.exit
 
@@ -46899,7 +46899,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK4llvm16itanium_demangle13Para
   br label %_ZNK4llvm16itanium_demangle13ParameterPack23initializePackExpansionERNS0_12OutputBufferE.exit
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %0, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %9 = load i64, ptr %8, align 8
   %10 = trunc i64 %9 to i32
   store i32 %10, ptr %3, align 4
@@ -46909,7 +46909,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK4llvm16itanium_demangle13Para
 
 _ZNK4llvm16itanium_demangle13ParameterPack23initializePackExpansionERNS0_12OutputBufferE.exit: ; preds = %._ZNK4llvm16itanium_demangle13ParameterPack23initializePackExpansionERNS0_12OutputBufferE.exit_crit_edge, %7
   %12 = phi i64 [ %6, %._ZNK4llvm16itanium_demangle13ParameterPack23initializePackExpansionERNS0_12OutputBufferE.exit_crit_edge ], [ 0, %7 ]
-  %13 = getelementptr inbounds i8, ptr %0, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %14 = load i64, ptr %13, align 8
   %15 = icmp ugt i64 %14, %12
   br i1 %15, label %16, label %_ZNK4llvm16itanium_demangle4Node15hasRHSComponentERNS0_12OutputBufferE.exit
@@ -46955,7 +46955,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK4llvm16itanium_demangle13Para
   br label %_ZNK4llvm16itanium_demangle13ParameterPack23initializePackExpansionERNS0_12OutputBufferE.exit
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %0, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %9 = load i64, ptr %8, align 8
   %10 = trunc i64 %9 to i32
   store i32 %10, ptr %3, align 4
@@ -46965,7 +46965,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK4llvm16itanium_demangle13Para
 
 _ZNK4llvm16itanium_demangle13ParameterPack23initializePackExpansionERNS0_12OutputBufferE.exit: ; preds = %._ZNK4llvm16itanium_demangle13ParameterPack23initializePackExpansionERNS0_12OutputBufferE.exit_crit_edge, %7
   %12 = phi i64 [ %6, %._ZNK4llvm16itanium_demangle13ParameterPack23initializePackExpansionERNS0_12OutputBufferE.exit_crit_edge ], [ 0, %7 ]
-  %13 = getelementptr inbounds i8, ptr %0, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %14 = load i64, ptr %13, align 8
   %15 = icmp ugt i64 %14, %12
   br i1 %15, label %16, label %_ZNK4llvm16itanium_demangle4Node8hasArrayERNS0_12OutputBufferE.exit
@@ -47013,7 +47013,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK4llvm16itanium_demangle13Para
   br label %_ZNK4llvm16itanium_demangle13ParameterPack23initializePackExpansionERNS0_12OutputBufferE.exit
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %0, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %9 = load i64, ptr %8, align 8
   %10 = trunc i64 %9 to i32
   store i32 %10, ptr %3, align 4
@@ -47023,7 +47023,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK4llvm16itanium_demangle13Para
 
 _ZNK4llvm16itanium_demangle13ParameterPack23initializePackExpansionERNS0_12OutputBufferE.exit: ; preds = %._ZNK4llvm16itanium_demangle13ParameterPack23initializePackExpansionERNS0_12OutputBufferE.exit_crit_edge, %7
   %12 = phi i64 [ %6, %._ZNK4llvm16itanium_demangle13ParameterPack23initializePackExpansionERNS0_12OutputBufferE.exit_crit_edge ], [ 0, %7 ]
-  %13 = getelementptr inbounds i8, ptr %0, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %14 = load i64, ptr %13, align 8
   %15 = icmp ugt i64 %14, %12
   br i1 %15, label %16, label %_ZNK4llvm16itanium_demangle4Node11hasFunctionERNS0_12OutputBufferE.exit
@@ -47071,7 +47071,7 @@ define linkonce_odr hidden noundef ptr @_ZNK4llvm16itanium_demangle13ParameterPa
   br label %_ZNK4llvm16itanium_demangle13ParameterPack23initializePackExpansionERNS0_12OutputBufferE.exit
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %0, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %9 = load i64, ptr %8, align 8
   %10 = trunc i64 %9 to i32
   store i32 %10, ptr %3, align 4
@@ -47081,7 +47081,7 @@ define linkonce_odr hidden noundef ptr @_ZNK4llvm16itanium_demangle13ParameterPa
 
 _ZNK4llvm16itanium_demangle13ParameterPack23initializePackExpansionERNS0_12OutputBufferE.exit: ; preds = %._ZNK4llvm16itanium_demangle13ParameterPack23initializePackExpansionERNS0_12OutputBufferE.exit_crit_edge, %7
   %12 = phi i64 [ %6, %._ZNK4llvm16itanium_demangle13ParameterPack23initializePackExpansionERNS0_12OutputBufferE.exit_crit_edge ], [ 0, %7 ]
-  %13 = getelementptr inbounds i8, ptr %0, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %14 = load i64, ptr %13, align 8
   %15 = icmp ugt i64 %14, %12
   br i1 %15, label %16, label %25
@@ -47116,7 +47116,7 @@ define linkonce_odr hidden void @_ZNK4llvm16itanium_demangle13ParameterPack9prin
   br label %_ZNK4llvm16itanium_demangle13ParameterPack23initializePackExpansionERNS0_12OutputBufferE.exit
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %0, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %9 = load i64, ptr %8, align 8
   %10 = trunc i64 %9 to i32
   store i32 %10, ptr %3, align 4
@@ -47126,7 +47126,7 @@ define linkonce_odr hidden void @_ZNK4llvm16itanium_demangle13ParameterPack9prin
 
 _ZNK4llvm16itanium_demangle13ParameterPack23initializePackExpansionERNS0_12OutputBufferE.exit: ; preds = %._ZNK4llvm16itanium_demangle13ParameterPack23initializePackExpansionERNS0_12OutputBufferE.exit_crit_edge, %7
   %12 = phi i64 [ %6, %._ZNK4llvm16itanium_demangle13ParameterPack23initializePackExpansionERNS0_12OutputBufferE.exit_crit_edge ], [ 0, %7 ]
-  %13 = getelementptr inbounds i8, ptr %0, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %14 = load i64, ptr %13, align 8
   %15 = icmp ugt i64 %14, %12
   br i1 %15, label %16, label %24
@@ -47160,7 +47160,7 @@ define linkonce_odr hidden void @_ZNK4llvm16itanium_demangle13ParameterPack10pri
   br label %_ZNK4llvm16itanium_demangle13ParameterPack23initializePackExpansionERNS0_12OutputBufferE.exit
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %0, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %9 = load i64, ptr %8, align 8
   %10 = trunc i64 %9 to i32
   store i32 %10, ptr %3, align 4
@@ -47170,7 +47170,7 @@ define linkonce_odr hidden void @_ZNK4llvm16itanium_demangle13ParameterPack10pri
 
 _ZNK4llvm16itanium_demangle13ParameterPack23initializePackExpansionERNS0_12OutputBufferE.exit: ; preds = %._ZNK4llvm16itanium_demangle13ParameterPack23initializePackExpansionERNS0_12OutputBufferE.exit_crit_edge, %7
   %12 = phi i64 [ %6, %._ZNK4llvm16itanium_demangle13ParameterPack23initializePackExpansionERNS0_12OutputBufferE.exit_crit_edge ], [ 0, %7 ]
-  %13 = getelementptr inbounds i8, ptr %0, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %14 = load i64, ptr %13, align 8
   %15 = icmp ugt i64 %14, %12
   br i1 %15, label %16, label %24
@@ -47242,7 +47242,7 @@ _ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i: ; preds = %._ZN4llvm16it
   %21 = add i64 %20, 1
   store i64 %21, ptr %5, align 8
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %23 = getelementptr inbounds i8, ptr %0, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %24 = load i64, ptr %23, align 8
   %.not13.i = icmp eq i64 %24, 0
   br i1 %.not13.i, label %_ZNK4llvm16itanium_demangle9NodeArray14printWithCommaERNS0_12OutputBufferE.exit, label %.lr.ph.i
@@ -48492,7 +48492,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i: ; preds = %_ZNK4llvm16itaniu
   %49 = getelementptr inbounds i8, ptr %.val17, i64 2
   store ptr %49, ptr %0, align 8
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %51 = getelementptr inbounds i8, ptr %0, i64 24
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %52 = load ptr, ptr %51, align 8
   %53 = load ptr, ptr %50, align 8
   %54 = ptrtoint ptr %52 to i64
@@ -48503,8 +48503,8 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i: ; preds = %_ZNK4llvm16itaniu
   br i1 %58, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_20MemberLikeFriendNameEJRPNS0_4NodeESB_EEESA_DpOT0_.exit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %48
-  %59 = getelementptr inbounds i8, ptr %0, i64 32
-  %60 = getelementptr inbounds i8, ptr %0, i64 40
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 40
   br label %61
 
 61:                                               ; preds = %.lr.ph, %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E9consumeIfEc.exit38
@@ -48592,7 +48592,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
   %102 = ptrtoint ptr %99 to i64
   %103 = sub i64 %101, %102
   %104 = getelementptr inbounds nuw i8, ptr %0, i64 808
-  %105 = getelementptr inbounds i8, ptr %0, i64 888
+  %105 = getelementptr inbounds nuw i8, ptr %0, i64 888
   %106 = load i64, ptr %105, align 8
   %107 = add i64 %103, %106
   store i64 %107, ptr %105, align 8
@@ -48601,7 +48601,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
   %110 = add i64 %109, 7
   %111 = and i64 %110, -8
   %112 = add i64 %111, %103
-  %113 = getelementptr inbounds i8, ptr %0, i64 816
+  %113 = getelementptr inbounds nuw i8, ptr %0, i64 816
   %114 = load ptr, ptr %113, align 8
   %115 = ptrtoint ptr %114 to i64
   %.not.i.i.i.i.i = icmp ugt i64 %112, %115
@@ -48633,7 +48633,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
   %122 = load ptr, ptr %50, align 8
   %123 = getelementptr inbounds i8, ptr %122, i64 %56
   store ptr %123, ptr %51, align 8
-  %124 = getelementptr inbounds i8, ptr %0, i64 937
+  %124 = getelementptr inbounds nuw i8, ptr %0, i64 937
   %125 = load i8, ptr %124, align 1
   %126 = trunc i8 %125 to i1
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %16)
@@ -48655,7 +48655,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
   br i1 %.not.i.i.i.i.i.i.i40, label %_ZN12_GLOBAL__N_111profileCtorIJN4llvm16itanium_demangle9NodeArrayEEEEvRNS1_16FoldingSetNodeIDENS2_4Node4KindEDpT_.exit.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i
 
 _ZN12_GLOBAL__N_111profileCtorIJN4llvm16itanium_demangle9NodeArrayEEEEvRNS1_16FoldingSetNodeIDENS2_4Node4KindEDpT_.exit.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i, %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E20popTrailingNodeArrayEm.exit
-  %132 = getelementptr inbounds i8, ptr %0, i64 904
+  %132 = getelementptr inbounds nuw i8, ptr %0, i64 904
   %133 = call noundef ptr @_ZN4llvm14FoldingSetBase19FindNodeOrInsertPosERKNS_16FoldingSetNodeIDERPvRKNS0_14FoldingSetInfoE(ptr noundef nonnull align 8 dereferenceable(16) %132, ptr noundef nonnull align 8 dereferenceable(144) %16, ptr noundef nonnull align 8 dereferenceable(8) %17, ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4llvm10FoldingSetIN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeaderEE17getFoldingSetInfoEvE4Info) #20
   %.not.i.i.i.i.i41 = icmp eq ptr %133, null
   br i1 %.not.i.i.i.i.i41, label %136, label %134
@@ -48737,7 +48737,7 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   br i1 %.not.i.i.i.i.i41, label %169, label %171
 
 169:                                              ; preds = %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle21StructuredBindingNameEJNS3_9NodeArrayEEEESt4pairIPNS3_4NodeEbEbDpOT0_.exit.i.i.i.i
-  %170 = getelementptr inbounds i8, ptr %0, i64 920
+  %170 = getelementptr inbounds nuw i8, ptr %0, i64 920
   store ptr %.sroa.0.0.i.i.i.i.i, ptr %170, align 8
   br label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_21StructuredBindingNameEJNS0_9NodeArrayEEEEPNS0_4NodeEDpOT0_.exit
 
@@ -48746,14 +48746,14 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   br i1 %.not.i.i.i.i, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_20MemberLikeFriendNameEJRPNS0_4NodeESB_EEESA_DpOT0_.exit, label %172
 
 172:                                              ; preds = %171
-  %173 = getelementptr inbounds i8, ptr %0, i64 944
+  %173 = getelementptr inbounds nuw i8, ptr %0, i64 944
   %174 = load i32, ptr %173, align 8
   %175 = and i32 %174, 1
   %.not.i.i.i.i.i.i.i.i.i.i = icmp eq i32 %175, 0
-  %176 = getelementptr inbounds i8, ptr %0, i64 952
+  %176 = getelementptr inbounds nuw i8, ptr %0, i64 952
   %177 = load ptr, ptr %176, align 8
   %178 = select i1 %.not.i.i.i.i.i.i.i.i.i.i, ptr %177, ptr %176
-  %179 = getelementptr inbounds i8, ptr %0, i64 960
+  %179 = getelementptr inbounds nuw i8, ptr %0, i64 960
   %180 = load i32, ptr %179, align 8
   %181 = select i1 %.not.i.i.i.i.i.i.i.i.i.i, i32 %180, i32 32
   %182 = icmp eq i32 %181, 0
@@ -48800,13 +48800,13 @@ _ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32EN
   %.0.i.i.i.i.i42 = phi ptr [ %205, %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i.i ], [ null, %172 ], [ null, %.lr.ph.i.i.i10.i.i.i.i ]
   %.not9.i.i.i.i = icmp eq ptr %.0.i.i.i.i.i42, null
   %spec.select.i.i.i.i = select i1 %.not9.i.i.i.i, ptr %.sroa.0.0.i.i.i.i.i, ptr %.0.i.i.i.i.i42
-  %206 = getelementptr inbounds i8, ptr %0, i64 928
+  %206 = getelementptr inbounds nuw i8, ptr %0, i64 928
   %207 = load ptr, ptr %206, align 8
   %208 = icmp eq ptr %spec.select.i.i.i.i, %207
   br i1 %208, label %209, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_21StructuredBindingNameEJNS0_9NodeArrayEEEEPNS0_4NodeEDpOT0_.exit
 
 209:                                              ; preds = %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i.i
-  %210 = getelementptr inbounds i8, ptr %0, i64 936
+  %210 = getelementptr inbounds nuw i8, ptr %0, i64 936
   store i8 1, ptr %210, align 8
   br label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_21StructuredBindingNameEJNS0_9NodeArrayEEEEPNS0_4NodeEDpOT0_.exit
 
@@ -48977,7 +48977,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
 
 262:                                              ; preds = %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_21StructuredBindingNameEJNS0_9NodeArrayEEEEPNS0_4NodeEDpOT0_.exit
   %263 = getelementptr inbounds nuw i8, ptr %0, i64 808
-  %264 = getelementptr inbounds i8, ptr %0, i64 937
+  %264 = getelementptr inbounds nuw i8, ptr %0, i64 937
   %265 = load i8, ptr %264, align 1
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %9)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10)
@@ -48988,7 +48988,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
   call void @_ZN4llvm16FoldingSetNodeID10AddIntegerEy(ptr noundef nonnull align 8 dereferenceable(144) %9, i64 noundef %267)
   %268 = ptrtoint ptr %.0175 to i64
   call void @_ZN4llvm16FoldingSetNodeID10AddIntegerEy(ptr noundef nonnull align 8 dereferenceable(144) %9, i64 noundef %268)
-  %269 = getelementptr inbounds i8, ptr %0, i64 904
+  %269 = getelementptr inbounds nuw i8, ptr %0, i64 904
   %270 = call noundef ptr @_ZN4llvm14FoldingSetBase19FindNodeOrInsertPosERKNS_16FoldingSetNodeIDERPvRKNS0_14FoldingSetInfoE(ptr noundef nonnull align 8 dereferenceable(16) %269, ptr noundef nonnull align 8 dereferenceable(144) %9, ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4llvm10FoldingSetIN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeaderEE17getFoldingSetInfoEvE4Info) #20
   %.not.i.i.i.i.i51 = icmp eq ptr %270, null
   br i1 %.not.i.i.i.i.i51, label %273, label %271
@@ -49002,7 +49002,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
   br i1 %274, label %275, label %305
 
 275:                                              ; preds = %273
-  %276 = getelementptr inbounds i8, ptr %0, i64 888
+  %276 = getelementptr inbounds nuw i8, ptr %0, i64 888
   %277 = load i64, ptr %276, align 8
   %278 = add i64 %277, 40
   store i64 %278, ptr %276, align 8
@@ -49011,7 +49011,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
   %281 = add i64 %280, 7
   %282 = and i64 %281, -8
   %283 = add i64 %282, 40
-  %284 = getelementptr inbounds i8, ptr %0, i64 816
+  %284 = getelementptr inbounds nuw i8, ptr %0, i64 816
   %285 = load ptr, ptr %284, align 8
   %286 = ptrtoint ptr %285 to i64
   %.not.i.i.i.i.i.i.i65 = icmp ugt i64 %283, %286
@@ -49073,7 +49073,7 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   br i1 %.not.i.i.i.i.i51, label %310, label %312
 
 310:                                              ; preds = %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle12ModuleEntityEJRPNS3_10ModuleNameERPNS3_4NodeEEEESt4pairIS9_bEbDpOT0_.exit.i.i.i.i
-  %311 = getelementptr inbounds i8, ptr %0, i64 920
+  %311 = getelementptr inbounds nuw i8, ptr %0, i64 920
   store ptr %.sroa.0.0.i.i.i.i.i52, ptr %311, align 8
   br label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_12ModuleEntityEJRPNS0_10ModuleNameERPNS0_4NodeEEEESD_DpOT0_.exit
 
@@ -49082,14 +49082,14 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   br i1 %.not.i.i.i.i53, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_20MemberLikeFriendNameEJRPNS0_4NodeESB_EEESA_DpOT0_.exit, label %313
 
 313:                                              ; preds = %312
-  %314 = getelementptr inbounds i8, ptr %0, i64 944
+  %314 = getelementptr inbounds nuw i8, ptr %0, i64 944
   %315 = load i32, ptr %314, align 8
   %316 = and i32 %315, 1
   %.not.i.i.i.i.i.i.i.i.i.i54 = icmp eq i32 %316, 0
-  %317 = getelementptr inbounds i8, ptr %0, i64 952
+  %317 = getelementptr inbounds nuw i8, ptr %0, i64 952
   %318 = load ptr, ptr %317, align 8
   %319 = select i1 %.not.i.i.i.i.i.i.i.i.i.i54, ptr %318, ptr %317
-  %320 = getelementptr inbounds i8, ptr %0, i64 960
+  %320 = getelementptr inbounds nuw i8, ptr %0, i64 960
   %321 = load i32, ptr %320, align 8
   %322 = select i1 %.not.i.i.i.i.i.i.i.i.i.i54, i32 %321, i32 32
   %323 = icmp eq i32 %322, 0
@@ -49136,13 +49136,13 @@ _ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32EN
   %.0.i.i.i.i.i62 = phi ptr [ %346, %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i.i60 ], [ null, %313 ], [ null, %.lr.ph.i.i.i.i.i.i.i56 ]
   %.not10.i.i.i.i = icmp eq ptr %.0.i.i.i.i.i62, null
   %spec.select.i.i.i.i63 = select i1 %.not10.i.i.i.i, ptr %.sroa.0.0.i.i.i.i.i52, ptr %.0.i.i.i.i.i62
-  %347 = getelementptr inbounds i8, ptr %0, i64 928
+  %347 = getelementptr inbounds nuw i8, ptr %0, i64 928
   %348 = load ptr, ptr %347, align 8
   %349 = icmp eq ptr %spec.select.i.i.i.i63, %348
   br i1 %349, label %350, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_12ModuleEntityEJRPNS0_10ModuleNameERPNS0_4NodeEEEESD_DpOT0_.exit
 
 350:                                              ; preds = %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i.i61
-  %351 = getelementptr inbounds i8, ptr %0, i64 936
+  %351 = getelementptr inbounds nuw i8, ptr %0, i64 936
   store i8 1, ptr %351, align 8
   br label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_12ModuleEntityEJRPNS0_10ModuleNameERPNS0_4NodeEEEESD_DpOT0_.exit
 
@@ -49159,7 +49159,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
 
 354:                                              ; preds = %352
   %355 = getelementptr inbounds nuw i8, ptr %0, i64 808
-  %356 = getelementptr inbounds i8, ptr %0, i64 937
+  %356 = getelementptr inbounds nuw i8, ptr %0, i64 937
   %357 = load i8, ptr %356, align 1
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
@@ -49171,7 +49171,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
   call void @_ZN4llvm16FoldingSetNodeID10AddIntegerEy(ptr noundef nonnull align 8 dereferenceable(144) %7, i64 noundef %360)
   %361 = ptrtoint ptr %353 to i64
   call void @_ZN4llvm16FoldingSetNodeID10AddIntegerEy(ptr noundef nonnull align 8 dereferenceable(144) %7, i64 noundef %361)
-  %362 = getelementptr inbounds i8, ptr %0, i64 904
+  %362 = getelementptr inbounds nuw i8, ptr %0, i64 904
   %363 = call noundef ptr @_ZN4llvm14FoldingSetBase19FindNodeOrInsertPosERKNS_16FoldingSetNodeIDERPvRKNS0_14FoldingSetInfoE(ptr noundef nonnull align 8 dereferenceable(16) %362, ptr noundef nonnull align 8 dereferenceable(144) %7, ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4llvm10FoldingSetIN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeaderEE17getFoldingSetInfoEvE4Info) #20
   %.not.i.i.i.i.i72 = icmp eq ptr %363, null
   br i1 %.not.i.i.i.i.i72, label %366, label %364
@@ -49185,7 +49185,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
   br i1 %367, label %368, label %398
 
 368:                                              ; preds = %366
-  %369 = getelementptr inbounds i8, ptr %0, i64 888
+  %369 = getelementptr inbounds nuw i8, ptr %0, i64 888
   %370 = load i64, ptr %369, align 8
   %371 = add i64 %370, 40
   store i64 %371, ptr %369, align 8
@@ -49194,7 +49194,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
   %374 = add i64 %373, 7
   %375 = and i64 %374, -8
   %376 = add i64 %375, 40
-  %377 = getelementptr inbounds i8, ptr %0, i64 816
+  %377 = getelementptr inbounds nuw i8, ptr %0, i64 816
   %378 = load ptr, ptr %377, align 8
   %379 = ptrtoint ptr %378 to i64
   %.not.i.i.i.i.i.i.i87 = icmp ugt i64 %376, %379
@@ -49256,7 +49256,7 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   br i1 %.not.i.i.i.i.i72, label %403, label %405
 
 403:                                              ; preds = %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle20MemberLikeFriendNameEJRPNS3_4NodeES7_EEESt4pairIS6_bEbDpOT0_.exit.i.i.i.i
-  %404 = getelementptr inbounds i8, ptr %0, i64 920
+  %404 = getelementptr inbounds nuw i8, ptr %0, i64 920
   store ptr %.sroa.0.0.i.i.i.i.i73, ptr %404, align 8
   br label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_20MemberLikeFriendNameEJRPNS0_4NodeESB_EEESA_DpOT0_.exit
 
@@ -49265,14 +49265,14 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   br i1 %.not.i.i.i.i74, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_20MemberLikeFriendNameEJRPNS0_4NodeESB_EEESA_DpOT0_.exit, label %406
 
 406:                                              ; preds = %405
-  %407 = getelementptr inbounds i8, ptr %0, i64 944
+  %407 = getelementptr inbounds nuw i8, ptr %0, i64 944
   %408 = load i32, ptr %407, align 8
   %409 = and i32 %408, 1
   %.not.i.i.i.i.i.i.i.i.i.i75 = icmp eq i32 %409, 0
-  %410 = getelementptr inbounds i8, ptr %0, i64 952
+  %410 = getelementptr inbounds nuw i8, ptr %0, i64 952
   %411 = load ptr, ptr %410, align 8
   %412 = select i1 %.not.i.i.i.i.i.i.i.i.i.i75, ptr %411, ptr %410
-  %413 = getelementptr inbounds i8, ptr %0, i64 960
+  %413 = getelementptr inbounds nuw i8, ptr %0, i64 960
   %414 = load i32, ptr %413, align 8
   %415 = select i1 %.not.i.i.i.i.i.i.i.i.i.i75, i32 %414, i32 32
   %416 = icmp eq i32 %415, 0
@@ -49319,13 +49319,13 @@ _ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32EN
   %.0.i.i.i.i.i83 = phi ptr [ %439, %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i.i81 ], [ null, %406 ], [ null, %.lr.ph.i.i.i.i.i.i.i77 ]
   %.not10.i.i.i.i84 = icmp eq ptr %.0.i.i.i.i.i83, null
   %spec.select.i.i.i.i85 = select i1 %.not10.i.i.i.i84, ptr %.sroa.0.0.i.i.i.i.i73, ptr %.0.i.i.i.i.i83
-  %440 = getelementptr inbounds i8, ptr %0, i64 928
+  %440 = getelementptr inbounds nuw i8, ptr %0, i64 928
   %441 = load ptr, ptr %440, align 8
   %442 = icmp eq ptr %spec.select.i.i.i.i85, %441
   br i1 %442, label %443, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_20MemberLikeFriendNameEJRPNS0_4NodeESB_EEESA_DpOT0_.exit
 
 443:                                              ; preds = %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i.i82
-  %444 = getelementptr inbounds i8, ptr %0, i64 936
+  %444 = getelementptr inbounds nuw i8, ptr %0, i64 936
   store i8 1, ptr %444, align 8
   br label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_20MemberLikeFriendNameEJRPNS0_4NodeESB_EEESA_DpOT0_.exit
 
@@ -49338,7 +49338,7 @@ _ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32EN
 
 449:                                              ; preds = %445
   %450 = getelementptr inbounds nuw i8, ptr %0, i64 808
-  %451 = getelementptr inbounds i8, ptr %0, i64 937
+  %451 = getelementptr inbounds nuw i8, ptr %0, i64 937
   %452 = load i8, ptr %451, align 1
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
@@ -49349,7 +49349,7 @@ _ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32EN
   call void @_ZN4llvm16FoldingSetNodeID10AddIntegerEy(ptr noundef nonnull align 8 dereferenceable(144) %5, i64 noundef %454)
   %455 = ptrtoint ptr %353 to i64
   call void @_ZN4llvm16FoldingSetNodeID10AddIntegerEy(ptr noundef nonnull align 8 dereferenceable(144) %5, i64 noundef %455)
-  %456 = getelementptr inbounds i8, ptr %0, i64 904
+  %456 = getelementptr inbounds nuw i8, ptr %0, i64 904
   %457 = call noundef ptr @_ZN4llvm14FoldingSetBase19FindNodeOrInsertPosERKNS_16FoldingSetNodeIDERPvRKNS0_14FoldingSetInfoE(ptr noundef nonnull align 8 dereferenceable(16) %456, ptr noundef nonnull align 8 dereferenceable(144) %5, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4llvm10FoldingSetIN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeaderEE17getFoldingSetInfoEvE4Info) #20
   %.not.i.i.i.i.i94 = icmp eq ptr %457, null
   br i1 %.not.i.i.i.i.i94, label %460, label %458
@@ -49363,7 +49363,7 @@ _ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32EN
   br i1 %461, label %462, label %492
 
 462:                                              ; preds = %460
-  %463 = getelementptr inbounds i8, ptr %0, i64 888
+  %463 = getelementptr inbounds nuw i8, ptr %0, i64 888
   %464 = load i64, ptr %463, align 8
   %465 = add i64 %464, 40
   store i64 %465, ptr %463, align 8
@@ -49372,7 +49372,7 @@ _ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32EN
   %468 = add i64 %467, 7
   %469 = and i64 %468, -8
   %470 = add i64 %469, 40
-  %471 = getelementptr inbounds i8, ptr %0, i64 816
+  %471 = getelementptr inbounds nuw i8, ptr %0, i64 816
   %472 = load ptr, ptr %471, align 8
   %473 = ptrtoint ptr %472 to i64
   %.not.i.i.i.i.i.i.i109 = icmp ugt i64 %470, %473
@@ -49434,7 +49434,7 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   br i1 %.not.i.i.i.i.i94, label %497, label %499
 
 497:                                              ; preds = %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle10NestedNameEJRPNS3_4NodeES7_EEESt4pairIS6_bEbDpOT0_.exit.i.i.i.i
-  %498 = getelementptr inbounds i8, ptr %0, i64 920
+  %498 = getelementptr inbounds nuw i8, ptr %0, i64 920
   store ptr %.sroa.0.0.i.i.i.i.i95, ptr %498, align 8
   br label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_20MemberLikeFriendNameEJRPNS0_4NodeESB_EEESA_DpOT0_.exit
 
@@ -49443,14 +49443,14 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   br i1 %.not.i.i.i.i96, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_20MemberLikeFriendNameEJRPNS0_4NodeESB_EEESA_DpOT0_.exit, label %500
 
 500:                                              ; preds = %499
-  %501 = getelementptr inbounds i8, ptr %0, i64 944
+  %501 = getelementptr inbounds nuw i8, ptr %0, i64 944
   %502 = load i32, ptr %501, align 8
   %503 = and i32 %502, 1
   %.not.i.i.i.i.i.i.i.i.i.i97 = icmp eq i32 %503, 0
-  %504 = getelementptr inbounds i8, ptr %0, i64 952
+  %504 = getelementptr inbounds nuw i8, ptr %0, i64 952
   %505 = load ptr, ptr %504, align 8
   %506 = select i1 %.not.i.i.i.i.i.i.i.i.i.i97, ptr %505, ptr %504
-  %507 = getelementptr inbounds i8, ptr %0, i64 960
+  %507 = getelementptr inbounds nuw i8, ptr %0, i64 960
   %508 = load i32, ptr %507, align 8
   %509 = select i1 %.not.i.i.i.i.i.i.i.i.i.i97, i32 %508, i32 32
   %510 = icmp eq i32 %509, 0
@@ -49497,13 +49497,13 @@ _ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32EN
   %.0.i.i.i.i.i105 = phi ptr [ %533, %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i.i103 ], [ null, %500 ], [ null, %.lr.ph.i.i.i.i.i.i.i99 ]
   %.not10.i.i.i.i106 = icmp eq ptr %.0.i.i.i.i.i105, null
   %spec.select.i.i.i.i107 = select i1 %.not10.i.i.i.i106, ptr %.sroa.0.0.i.i.i.i.i95, ptr %.0.i.i.i.i.i105
-  %534 = getelementptr inbounds i8, ptr %0, i64 928
+  %534 = getelementptr inbounds nuw i8, ptr %0, i64 928
   %535 = load ptr, ptr %534, align 8
   %536 = icmp eq ptr %spec.select.i.i.i.i107, %535
   br i1 %536, label %537, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_20MemberLikeFriendNameEJRPNS0_4NodeESB_EEESA_DpOT0_.exit
 
 537:                                              ; preds = %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i.i104
-  %538 = getelementptr inbounds i8, ptr %0, i64 936
+  %538 = getelementptr inbounds nuw i8, ptr %0, i64 936
   store i8 1, ptr %538, align 8
   br label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_20MemberLikeFriendNameEJRPNS0_4NodeESB_EEESA_DpOT0_.exit
 
@@ -49524,21 +49524,21 @@ define internal fastcc noundef zeroext i1 @_ZN4llvm16itanium_demangle22AbstractM
 
 .lr.ph:                                           ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 808
-  %9 = getelementptr inbounds i8, ptr %0, i64 937
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 937
   %10 = getelementptr inbounds i8, ptr %3, i64 16
-  %11 = getelementptr inbounds i8, ptr %0, i64 904
-  %12 = getelementptr inbounds i8, ptr %0, i64 888
-  %13 = getelementptr inbounds i8, ptr %0, i64 816
-  %14 = getelementptr inbounds i8, ptr %0, i64 944
-  %15 = getelementptr inbounds i8, ptr %0, i64 952
-  %16 = getelementptr inbounds i8, ptr %0, i64 960
-  %17 = getelementptr inbounds i8, ptr %0, i64 928
-  %18 = getelementptr inbounds i8, ptr %0, i64 936
-  %19 = getelementptr inbounds i8, ptr %0, i64 920
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 904
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 888
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 816
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 944
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 952
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 960
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 928
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 936
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 920
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 296
-  %21 = getelementptr inbounds i8, ptr %0, i64 304
-  %22 = getelementptr inbounds i8, ptr %0, i64 312
-  %23 = getelementptr inbounds i8, ptr %0, i64 320
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 304
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 312
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 320
   br label %24
 
 24:                                               ; preds = %.lr.ph, %_ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exit
@@ -49965,7 +49965,7 @@ _ZN4llvm16itanium_demangle12OutputBuffer9printOpenEc.exit: ; preds = %2, %._ZN4l
   %20 = getelementptr inbounds i8, ptr %19, i64 %18
   store i8 91, ptr %20, align 1
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %22 = getelementptr inbounds i8, ptr %0, i64 24
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %23 = load i64, ptr %22, align 8
   %.not13.i = icmp eq i64 %23, 0
   %.pre = load i64, ptr %6, align 8
@@ -50090,7 +50090,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   %3 = alloca %"class.llvm::FoldingSetNodeID", align 8
   %4 = alloca ptr, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 808
-  %6 = getelementptr inbounds i8, ptr %0, i64 937
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 937
   %7 = load i8, ptr %6, align 1
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
@@ -50100,7 +50100,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   call void @_ZN4llvm16FoldingSetNodeID10AddIntegerEy(ptr noundef nonnull align 8 dereferenceable(144) %3, i64 noundef 47)
   %10 = ptrtoint ptr %9 to i64
   call void @_ZN4llvm16FoldingSetNodeID10AddIntegerEy(ptr noundef nonnull align 8 dereferenceable(144) %3, i64 noundef %10)
-  %11 = getelementptr inbounds i8, ptr %0, i64 904
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 904
   %12 = call noundef ptr @_ZN4llvm14FoldingSetBase19FindNodeOrInsertPosERKNS_16FoldingSetNodeIDERPvRKNS0_14FoldingSetInfoE(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4llvm10FoldingSetIN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeaderEE17getFoldingSetInfoEvE4Info) #20
   %.not.i.i.i.i = icmp eq ptr %12, null
   br i1 %.not.i.i.i.i, label %15, label %13
@@ -50114,7 +50114,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   br i1 %16, label %17, label %49
 
 17:                                               ; preds = %15
-  %18 = getelementptr inbounds i8, ptr %0, i64 888
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 888
   %19 = load i64, ptr %18, align 8
   %20 = add i64 %19, 24
   store i64 %20, ptr %18, align 8
@@ -50123,7 +50123,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   %23 = add i64 %22, 7
   %24 = and i64 %23, -8
   %25 = add i64 %24, 24
-  %26 = getelementptr inbounds i8, ptr %0, i64 816
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 816
   %27 = load ptr, ptr %26, align 8
   %28 = ptrtoint ptr %27 to i64
   %.not.i.i.i.i.i.i = icmp ugt i64 %25, %28
@@ -50186,7 +50186,7 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   br i1 %.not.i.i.i.i, label %54, label %56
 
 54:                                               ; preds = %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle27ExpandedSpecialSubstitutionEJPNS3_19SpecialSubstitutionEEEESt4pairIPNS3_4NodeEbEbDpOT0_.exit.i.i.i
-  %55 = getelementptr inbounds i8, ptr %0, i64 920
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 920
   store ptr %.sroa.0.0.i.i.i.i, ptr %55, align 8
   br label %_ZN12_GLOBAL__N_122CanonicalizerAllocator8makeNodeIN4llvm16itanium_demangle27ExpandedSpecialSubstitutionEJPNS3_19SpecialSubstitutionEEEEPNS3_4NodeEDpOT0_.exit
 
@@ -50195,14 +50195,14 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   br i1 %.not.i.i.i, label %_ZN12_GLOBAL__N_122CanonicalizerAllocator8makeNodeIN4llvm16itanium_demangle27ExpandedSpecialSubstitutionEJPNS3_19SpecialSubstitutionEEEEPNS3_4NodeEDpOT0_.exit, label %57
 
 57:                                               ; preds = %56
-  %58 = getelementptr inbounds i8, ptr %0, i64 944
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 944
   %59 = load i32, ptr %58, align 8
   %60 = and i32 %59, 1
   %.not.i.i.i.i.i.i.i.i.i = icmp eq i32 %60, 0
-  %61 = getelementptr inbounds i8, ptr %0, i64 952
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 952
   %62 = load ptr, ptr %61, align 8
   %63 = select i1 %.not.i.i.i.i.i.i.i.i.i, ptr %62, ptr %61
-  %64 = getelementptr inbounds i8, ptr %0, i64 960
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 960
   %65 = load i32, ptr %64, align 8
   %66 = select i1 %.not.i.i.i.i.i.i.i.i.i, i32 %65, i32 32
   %67 = icmp eq i32 %66, 0
@@ -50249,13 +50249,13 @@ _ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32EN
   %.0.i.i.i.i = phi ptr [ %90, %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i ], [ null, %57 ], [ null, %.lr.ph.i.i.i.i.i.i ]
   %.not9.i.i.i = icmp eq ptr %.0.i.i.i.i, null
   %spec.select.i.i.i = select i1 %.not9.i.i.i, ptr %.sroa.0.0.i.i.i.i, ptr %.0.i.i.i.i
-  %91 = getelementptr inbounds i8, ptr %0, i64 928
+  %91 = getelementptr inbounds nuw i8, ptr %0, i64 928
   %92 = load ptr, ptr %91, align 8
   %93 = icmp eq ptr %spec.select.i.i.i, %92
   br i1 %93, label %94, label %_ZN12_GLOBAL__N_122CanonicalizerAllocator8makeNodeIN4llvm16itanium_demangle27ExpandedSpecialSubstitutionEJPNS3_19SpecialSubstitutionEEEEPNS3_4NodeEDpOT0_.exit
 
 94:                                               ; preds = %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i
-  %95 = getelementptr inbounds i8, ptr %0, i64 936
+  %95 = getelementptr inbounds nuw i8, ptr %0, i64 936
   store i8 1, ptr %95, align 8
   br label %_ZN12_GLOBAL__N_122CanonicalizerAllocator8makeNodeIN4llvm16itanium_demangle27ExpandedSpecialSubstitutionEJPNS3_19SpecialSubstitutionEEEEPNS3_4NodeEDpOT0_.exit
 
@@ -50269,7 +50269,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   %5 = alloca %"class.llvm::FoldingSetNodeID", align 8
   %6 = alloca ptr, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 808
-  %8 = getelementptr inbounds i8, ptr %0, i64 937
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 937
   %9 = load i8, ptr %8, align 1
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
@@ -50286,7 +50286,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   call void @_ZN4llvm16FoldingSetNodeID10AddIntegerEy(ptr noundef nonnull align 8 dereferenceable(144) %5, i64 noundef %16)
   %17 = sext i32 %13 to i64
   call void @_ZN4llvm16FoldingSetNodeID10AddIntegerEy(ptr noundef nonnull align 8 dereferenceable(144) %5, i64 noundef %17)
-  %18 = getelementptr inbounds i8, ptr %0, i64 904
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 904
   %19 = call noundef ptr @_ZN4llvm14FoldingSetBase19FindNodeOrInsertPosERKNS_16FoldingSetNodeIDERPvRKNS0_14FoldingSetInfoE(ptr noundef nonnull align 8 dereferenceable(16) %18, ptr noundef nonnull align 8 dereferenceable(144) %5, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4llvm10FoldingSetIN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeaderEE17getFoldingSetInfoEvE4Info) #20
   %.not.i.i.i.i = icmp eq ptr %19, null
   br i1 %.not.i.i.i.i, label %22, label %20
@@ -50300,7 +50300,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   br i1 %23, label %24, label %59
 
 24:                                               ; preds = %22
-  %25 = getelementptr inbounds i8, ptr %0, i64 888
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 888
   %26 = load i64, ptr %25, align 8
   %27 = add i64 %26, 40
   store i64 %27, ptr %25, align 8
@@ -50309,7 +50309,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   %30 = add i64 %29, 7
   %31 = and i64 %30, -8
   %32 = add i64 %31, 40
-  %33 = getelementptr inbounds i8, ptr %0, i64 816
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 816
   %34 = load ptr, ptr %33, align 8
   %35 = ptrtoint ptr %34 to i64
   %.not.i.i.i.i.i.i = icmp ugt i64 %32, %35
@@ -50377,7 +50377,7 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   br i1 %.not.i.i.i.i, label %64, label %66
 
 64:                                               ; preds = %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle12CtorDtorNameEJRPNS3_4NodeEbRiEEESt4pairIS6_bEbDpOT0_.exit.i.i.i
-  %65 = getelementptr inbounds i8, ptr %0, i64 920
+  %65 = getelementptr inbounds nuw i8, ptr %0, i64 920
   store ptr %.sroa.0.0.i.i.i.i, ptr %65, align 8
   br label %_ZN12_GLOBAL__N_122CanonicalizerAllocator8makeNodeIN4llvm16itanium_demangle12CtorDtorNameEJRPNS3_4NodeEbRiEEES6_DpOT0_.exit
 
@@ -50386,14 +50386,14 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   br i1 %.not.i.i.i, label %_ZN12_GLOBAL__N_122CanonicalizerAllocator8makeNodeIN4llvm16itanium_demangle12CtorDtorNameEJRPNS3_4NodeEbRiEEES6_DpOT0_.exit, label %67
 
 67:                                               ; preds = %66
-  %68 = getelementptr inbounds i8, ptr %0, i64 944
+  %68 = getelementptr inbounds nuw i8, ptr %0, i64 944
   %69 = load i32, ptr %68, align 8
   %70 = and i32 %69, 1
   %.not.i.i.i.i.i.i.i.i.i = icmp eq i32 %70, 0
-  %71 = getelementptr inbounds i8, ptr %0, i64 952
+  %71 = getelementptr inbounds nuw i8, ptr %0, i64 952
   %72 = load ptr, ptr %71, align 8
   %73 = select i1 %.not.i.i.i.i.i.i.i.i.i, ptr %72, ptr %71
-  %74 = getelementptr inbounds i8, ptr %0, i64 960
+  %74 = getelementptr inbounds nuw i8, ptr %0, i64 960
   %75 = load i32, ptr %74, align 8
   %76 = select i1 %.not.i.i.i.i.i.i.i.i.i, i32 %75, i32 32
   %77 = icmp eq i32 %76, 0
@@ -50440,13 +50440,13 @@ _ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32EN
   %.0.i.i.i.i = phi ptr [ %100, %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i ], [ null, %67 ], [ null, %.lr.ph.i.i.i.i.i.i ]
   %.not11.i.i.i = icmp eq ptr %.0.i.i.i.i, null
   %spec.select.i.i.i = select i1 %.not11.i.i.i, ptr %.sroa.0.0.i.i.i.i, ptr %.0.i.i.i.i
-  %101 = getelementptr inbounds i8, ptr %0, i64 928
+  %101 = getelementptr inbounds nuw i8, ptr %0, i64 928
   %102 = load ptr, ptr %101, align 8
   %103 = icmp eq ptr %spec.select.i.i.i, %102
   br i1 %103, label %104, label %_ZN12_GLOBAL__N_122CanonicalizerAllocator8makeNodeIN4llvm16itanium_demangle12CtorDtorNameEJRPNS3_4NodeEbRiEEES6_DpOT0_.exit
 
 104:                                              ; preds = %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i
-  %105 = getelementptr inbounds i8, ptr %0, i64 936
+  %105 = getelementptr inbounds nuw i8, ptr %0, i64 936
   store i8 1, ptr %105, align 8
   br label %_ZN12_GLOBAL__N_122CanonicalizerAllocator8makeNodeIN4llvm16itanium_demangle12CtorDtorNameEJRPNS3_4NodeEbRiEEES6_DpOT0_.exit
 
@@ -50878,7 +50878,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   %4 = alloca %"class.llvm::FoldingSetNodeID", align 8
   %5 = alloca ptr, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 808
-  %7 = getelementptr inbounds i8, ptr %0, i64 937
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 937
   %8 = load i8, ptr %7, align 1
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
@@ -50891,7 +50891,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   call void @_ZN4llvm16FoldingSetNodeID10AddIntegerEy(ptr noundef nonnull align 8 dereferenceable(144) %4, i64 noundef %12)
   %13 = ptrtoint ptr %11 to i64
   call void @_ZN4llvm16FoldingSetNodeID10AddIntegerEy(ptr noundef nonnull align 8 dereferenceable(144) %4, i64 noundef %13)
-  %14 = getelementptr inbounds i8, ptr %0, i64 904
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 904
   %15 = call noundef ptr @_ZN4llvm14FoldingSetBase19FindNodeOrInsertPosERKNS_16FoldingSetNodeIDERPvRKNS0_14FoldingSetInfoE(ptr noundef nonnull align 8 dereferenceable(16) %14, ptr noundef nonnull align 8 dereferenceable(144) %4, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4llvm10FoldingSetIN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeaderEE17getFoldingSetInfoEvE4Info) #20
   %.not.i.i.i.i = icmp eq ptr %15, null
   br i1 %.not.i.i.i.i, label %18, label %16
@@ -50905,7 +50905,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   br i1 %19, label %20, label %52
 
 20:                                               ; preds = %18
-  %21 = getelementptr inbounds i8, ptr %0, i64 888
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 888
   %22 = load i64, ptr %21, align 8
   %23 = add i64 %22, 40
   store i64 %23, ptr %21, align 8
@@ -50914,7 +50914,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   %26 = add i64 %25, 7
   %27 = and i64 %26, -8
   %28 = add i64 %27, 40
-  %29 = getelementptr inbounds i8, ptr %0, i64 816
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 816
   %30 = load ptr, ptr %29, align 8
   %31 = ptrtoint ptr %30 to i64
   %.not.i.i.i.i.i.i = icmp ugt i64 %28, %31
@@ -50978,7 +50978,7 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   br i1 %.not.i.i.i.i, label %57, label %59
 
 57:                                               ; preds = %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle9LocalNameEJRPNS3_4NodeES7_EEESt4pairIS6_bEbDpOT0_.exit.i.i.i
-  %58 = getelementptr inbounds i8, ptr %0, i64 920
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 920
   store ptr %.sroa.0.0.i.i.i.i, ptr %58, align 8
   br label %_ZN12_GLOBAL__N_122CanonicalizerAllocator8makeNodeIN4llvm16itanium_demangle9LocalNameEJRPNS3_4NodeES7_EEES6_DpOT0_.exit
 
@@ -50987,14 +50987,14 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   br i1 %.not.i.i.i, label %_ZN12_GLOBAL__N_122CanonicalizerAllocator8makeNodeIN4llvm16itanium_demangle9LocalNameEJRPNS3_4NodeES7_EEES6_DpOT0_.exit, label %60
 
 60:                                               ; preds = %59
-  %61 = getelementptr inbounds i8, ptr %0, i64 944
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 944
   %62 = load i32, ptr %61, align 8
   %63 = and i32 %62, 1
   %.not.i.i.i.i.i.i.i.i.i = icmp eq i32 %63, 0
-  %64 = getelementptr inbounds i8, ptr %0, i64 952
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 952
   %65 = load ptr, ptr %64, align 8
   %66 = select i1 %.not.i.i.i.i.i.i.i.i.i, ptr %65, ptr %64
-  %67 = getelementptr inbounds i8, ptr %0, i64 960
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 960
   %68 = load i32, ptr %67, align 8
   %69 = select i1 %.not.i.i.i.i.i.i.i.i.i, i32 %68, i32 32
   %70 = icmp eq i32 %69, 0
@@ -51041,13 +51041,13 @@ _ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32EN
   %.0.i.i.i.i = phi ptr [ %93, %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i ], [ null, %60 ], [ null, %.lr.ph.i.i.i.i.i.i ]
   %.not10.i.i.i = icmp eq ptr %.0.i.i.i.i, null
   %spec.select.i.i.i = select i1 %.not10.i.i.i, ptr %.sroa.0.0.i.i.i.i, ptr %.0.i.i.i.i
-  %94 = getelementptr inbounds i8, ptr %0, i64 928
+  %94 = getelementptr inbounds nuw i8, ptr %0, i64 928
   %95 = load ptr, ptr %94, align 8
   %96 = icmp eq ptr %spec.select.i.i.i, %95
   br i1 %96, label %97, label %_ZN12_GLOBAL__N_122CanonicalizerAllocator8makeNodeIN4llvm16itanium_demangle9LocalNameEJRPNS3_4NodeES7_EEES6_DpOT0_.exit
 
 97:                                               ; preds = %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i
-  %98 = getelementptr inbounds i8, ptr %0, i64 936
+  %98 = getelementptr inbounds nuw i8, ptr %0, i64 936
   store i8 1, ptr %98, align 8
   br label %_ZN12_GLOBAL__N_122CanonicalizerAllocator8makeNodeIN4llvm16itanium_demangle9LocalNameEJRPNS3_4NodeES7_EEES6_DpOT0_.exit
 
@@ -51062,28 +51062,28 @@ define internal fastcc void @_ZN4llvm16itanium_demangle22AbstractManglingParserI
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.ptr2.i = getelementptr inbounds i8, ptr %0, i64 32
   store ptr %.ptr2.i, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %.ptr2.i, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = getelementptr inbounds i8, ptr %0, i64 64
   store ptr %6, ptr %5, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.ptr2.i, i8 0, i64 32, i1 false)
   %.ptr2.i2 = getelementptr inbounds i8, ptr %0, i64 88
   store ptr %.ptr2.i2, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 72
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store ptr %.ptr2.i2, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %9 = getelementptr inbounds i8, ptr %0, i64 152
   store ptr %9, ptr %8, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %.ptr2.i2, i8 0, i64 64, i1 false)
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 664
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %1, i64 688
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 688
   %13 = icmp eq ptr %11, %12
   br i1 %13, label %14, label %28
 
 14:                                               ; preds = %2
-  %15 = getelementptr inbounds i8, ptr %1, i64 672
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 672
   %16 = load ptr, ptr %15, align 8
   %.not.i.i.i.i.i.i = icmp eq ptr %16, %11
   br i1 %.not.i.i.i.i.i.i, label %_ZSt4copyIPPN4llvm16itanium_demangle14PODSmallVectorIPNS1_4NodeELm8EEES7_ET0_T_S9_S8_.exit.i, label %17
@@ -51111,10 +51111,10 @@ _ZSt4copyIPPN4llvm16itanium_demangle14PODSmallVectorIPNS1_4NodeELm8EEES7_ET0_T_S
 
 28:                                               ; preds = %2
   store ptr %11, ptr %3, align 8
-  %29 = getelementptr inbounds i8, ptr %1, i64 672
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 672
   %30 = load ptr, ptr %29, align 8
   store ptr %30, ptr %4, align 8
-  %31 = getelementptr inbounds i8, ptr %1, i64 680
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 680
   %32 = load ptr, ptr %31, align 8
   store ptr %32, ptr %5, align 8
   store ptr %12, ptr %10, align 8
@@ -51127,7 +51127,7 @@ _ZN4llvm16itanium_demangle14PODSmallVectorIPNS1_IPNS0_4NodeELm8EEELm4EEaSEOS6_.e
   %34 = load ptr, ptr %0, align 8
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 576
   %36 = load ptr, ptr %35, align 8
-  %37 = getelementptr inbounds i8, ptr %34, i64 600
+  %37 = getelementptr inbounds nuw i8, ptr %34, i64 600
   %38 = icmp eq ptr %36, %37
   %39 = load ptr, ptr %6, align 8
   %40 = icmp eq ptr %39, %.ptr2.i2
@@ -51147,7 +51147,7 @@ _ZN4llvm16itanium_demangle14PODSmallVectorIPNS1_IPNS0_4NodeELm8EEELm4EEaSEOS6_.e
 43:                                               ; preds = %42, %41
   %44 = phi ptr [ %.ptr2.i2, %42 ], [ %39, %41 ]
   %45 = phi ptr [ %.pre.i3, %42 ], [ %36, %41 ]
-  %46 = getelementptr inbounds i8, ptr %34, i64 584
+  %46 = getelementptr inbounds nuw i8, ptr %34, i64 584
   %47 = load ptr, ptr %46, align 8
   %.not.i.i.i.i.i.i4 = icmp eq ptr %47, %45
   br i1 %.not.i.i.i.i.i.i4, label %_ZSt4copyIPPN4llvm16itanium_demangle4NodeES4_ET0_T_S6_S5_.exit.i, label %48
@@ -51180,10 +51180,10 @@ _ZSt4copyIPPN4llvm16itanium_demangle4NodeES4_ET0_T_S6_S5_.exit.i: ; preds = %48,
   br i1 %40, label %61, label %67
 
 61:                                               ; preds = %60
-  %62 = getelementptr inbounds i8, ptr %34, i64 584
+  %62 = getelementptr inbounds nuw i8, ptr %34, i64 584
   %63 = load ptr, ptr %62, align 8
   store ptr %63, ptr %7, align 8
-  %64 = getelementptr inbounds i8, ptr %34, i64 592
+  %64 = getelementptr inbounds nuw i8, ptr %34, i64 592
   %65 = load ptr, ptr %64, align 8
   store ptr %65, ptr %8, align 8
   store ptr %37, ptr %35, align 8
@@ -51194,12 +51194,12 @@ _ZSt4copyIPPN4llvm16itanium_demangle4NodeES4_ET0_T_S6_S5_.exit.i: ; preds = %48,
 
 67:                                               ; preds = %60
   store ptr %39, ptr %35, align 8
-  %68 = getelementptr inbounds i8, ptr %34, i64 584
+  %68 = getelementptr inbounds nuw i8, ptr %34, i64 584
   %69 = load ptr, ptr %7, align 8
   %70 = load ptr, ptr %68, align 8
   store ptr %70, ptr %7, align 8
   store ptr %69, ptr %68, align 8
-  %71 = getelementptr inbounds i8, ptr %34, i64 592
+  %71 = getelementptr inbounds nuw i8, ptr %34, i64 592
   %72 = load ptr, ptr %8, align 8
   %73 = load ptr, ptr %71, align 8
   store ptr %73, ptr %8, align 8
@@ -51212,12 +51212,12 @@ _ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm8EEaSEOS4_.exit: ; preds
   %75 = load ptr, ptr %0, align 8
   %76 = getelementptr inbounds nuw i8, ptr %75, i64 664
   %77 = load ptr, ptr %76, align 8
-  %78 = getelementptr inbounds i8, ptr %75, i64 672
+  %78 = getelementptr inbounds nuw i8, ptr %75, i64 672
   store ptr %77, ptr %78, align 8
   %79 = load ptr, ptr %0, align 8
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 576
   %81 = load ptr, ptr %80, align 8
-  %82 = getelementptr inbounds i8, ptr %79, i64 584
+  %82 = getelementptr inbounds nuw i8, ptr %79, i64 584
   store ptr %81, ptr %82, align 8
   ret void
 }
@@ -51228,10 +51228,10 @@ define internal fastcc void @_ZN4llvm16itanium_demangle22AbstractManglingParserI
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 664
   %5 = load ptr, ptr %2, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %7 = icmp eq ptr %5, %6
   %8 = load ptr, ptr %4, align 8
-  %9 = getelementptr inbounds i8, ptr %3, i64 688
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 688
   %10 = icmp eq ptr %8, %9
   br i1 %7, label %11, label %34
 
@@ -51241,10 +51241,10 @@ define internal fastcc void @_ZN4llvm16itanium_demangle22AbstractManglingParserI
 12:                                               ; preds = %11
   tail call void @free(ptr noundef %8) #20
   store ptr %9, ptr %4, align 8
-  %13 = getelementptr inbounds i8, ptr %3, i64 672
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 672
   store ptr %9, ptr %13, align 8
   %14 = getelementptr inbounds i8, ptr %3, i64 720
-  %15 = getelementptr inbounds i8, ptr %3, i64 680
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 680
   store ptr %14, ptr %15, align 8
   %.pre.i = load ptr, ptr %2, align 8
   br label %16
@@ -51252,7 +51252,7 @@ define internal fastcc void @_ZN4llvm16itanium_demangle22AbstractManglingParserI
 16:                                               ; preds = %12, %11
   %17 = phi ptr [ %9, %12 ], [ %8, %11 ]
   %18 = phi ptr [ %.pre.i, %12 ], [ %5, %11 ]
-  %19 = getelementptr inbounds i8, ptr %0, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %20 = load ptr, ptr %19, align 8
   %.not.i.i.i.i.i.i = icmp eq ptr %20, %18
   br i1 %.not.i.i.i.i.i.i, label %_ZSt4copyIPPN4llvm16itanium_demangle14PODSmallVectorIPNS1_4NodeELm8EEES7_ET0_T_S9_S8_.exit.i, label %21
@@ -51275,7 +51275,7 @@ _ZSt4copyIPPN4llvm16itanium_demangle14PODSmallVectorIPNS1_4NodeELm8EEES7_ET0_T_S
   %29 = ptrtoint ptr %25 to i64
   %30 = sub i64 %28, %29
   %31 = getelementptr inbounds i8, ptr %27, i64 %30
-  %32 = getelementptr inbounds i8, ptr %3, i64 672
+  %32 = getelementptr inbounds nuw i8, ptr %3, i64 672
   store ptr %31, ptr %32, align 8
   %33 = load ptr, ptr %2, align 8
   store ptr %33, ptr %19, align 8
@@ -51286,13 +51286,13 @@ _ZSt4copyIPPN4llvm16itanium_demangle14PODSmallVectorIPNS1_4NodeELm8EEES7_ET0_T_S
   br i1 %10, label %35, label %43
 
 35:                                               ; preds = %34
-  %36 = getelementptr inbounds i8, ptr %0, i64 16
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %37 = load ptr, ptr %36, align 8
-  %38 = getelementptr inbounds i8, ptr %3, i64 672
+  %38 = getelementptr inbounds nuw i8, ptr %3, i64 672
   store ptr %37, ptr %38, align 8
-  %39 = getelementptr inbounds i8, ptr %0, i64 24
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %40 = load ptr, ptr %39, align 8
-  %41 = getelementptr inbounds i8, ptr %3, i64 680
+  %41 = getelementptr inbounds nuw i8, ptr %3, i64 680
   store ptr %40, ptr %41, align 8
   store ptr %6, ptr %2, align 8
   store ptr %6, ptr %36, align 8
@@ -51302,14 +51302,14 @@ _ZSt4copyIPPN4llvm16itanium_demangle14PODSmallVectorIPNS1_4NodeELm8EEES7_ET0_T_S
 
 43:                                               ; preds = %34
   store ptr %8, ptr %2, align 8
-  %44 = getelementptr inbounds i8, ptr %3, i64 672
-  %45 = getelementptr inbounds i8, ptr %0, i64 16
+  %44 = getelementptr inbounds nuw i8, ptr %3, i64 672
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %46 = load ptr, ptr %44, align 8
   %47 = load ptr, ptr %45, align 8
   store ptr %47, ptr %44, align 8
   store ptr %46, ptr %45, align 8
-  %48 = getelementptr inbounds i8, ptr %3, i64 680
-  %49 = getelementptr inbounds i8, ptr %0, i64 24
+  %48 = getelementptr inbounds nuw i8, ptr %3, i64 680
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %50 = load ptr, ptr %48, align 8
   %51 = load ptr, ptr %49, align 8
   store ptr %51, ptr %48, align 8
@@ -51323,10 +51323,10 @@ _ZN4llvm16itanium_demangle14PODSmallVectorIPNS1_IPNS0_4NodeELm8EEELm4EEaSEOS6_.e
   %54 = load ptr, ptr %0, align 8
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 576
   %56 = load ptr, ptr %53, align 8
-  %57 = getelementptr inbounds i8, ptr %0, i64 88
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %58 = icmp eq ptr %56, %57
   %59 = load ptr, ptr %55, align 8
-  %60 = getelementptr inbounds i8, ptr %54, i64 600
+  %60 = getelementptr inbounds nuw i8, ptr %54, i64 600
   %61 = icmp eq ptr %59, %60
   br i1 %58, label %62, label %84
 
@@ -51336,10 +51336,10 @@ _ZN4llvm16itanium_demangle14PODSmallVectorIPNS1_IPNS0_4NodeELm8EEELm4EEaSEOS6_.e
 63:                                               ; preds = %62
   tail call void @free(ptr noundef %59) #20
   store ptr %60, ptr %55, align 8
-  %64 = getelementptr inbounds i8, ptr %54, i64 584
+  %64 = getelementptr inbounds nuw i8, ptr %54, i64 584
   store ptr %60, ptr %64, align 8
   %65 = getelementptr inbounds i8, ptr %54, i64 664
-  %66 = getelementptr inbounds i8, ptr %54, i64 592
+  %66 = getelementptr inbounds nuw i8, ptr %54, i64 592
   store ptr %65, ptr %66, align 8
   %.pre.i1 = load ptr, ptr %53, align 8
   br label %67
@@ -51347,7 +51347,7 @@ _ZN4llvm16itanium_demangle14PODSmallVectorIPNS1_IPNS0_4NodeELm8EEELm4EEaSEOS6_.e
 67:                                               ; preds = %63, %62
   %68 = phi ptr [ %60, %63 ], [ %59, %62 ]
   %69 = phi ptr [ %.pre.i1, %63 ], [ %56, %62 ]
-  %70 = getelementptr inbounds i8, ptr %0, i64 72
+  %70 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %71 = load ptr, ptr %70, align 8
   %.not.i.i.i.i.i.i2 = icmp eq ptr %71, %69
   br i1 %.not.i.i.i.i.i.i2, label %_ZSt4copyIPPN4llvm16itanium_demangle4NodeES4_ET0_T_S6_S5_.exit.i, label %72
@@ -51370,7 +51370,7 @@ _ZSt4copyIPPN4llvm16itanium_demangle4NodeES4_ET0_T_S6_S5_.exit.i: ; preds = %72,
   %80 = ptrtoint ptr %76 to i64
   %81 = sub i64 %79, %80
   %82 = getelementptr inbounds i8, ptr %78, i64 %81
-  %83 = getelementptr inbounds i8, ptr %54, i64 584
+  %83 = getelementptr inbounds nuw i8, ptr %54, i64 584
   store ptr %82, ptr %83, align 8
   br label %_ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm8EEaSEOS4_.exit
 
@@ -51379,13 +51379,13 @@ _ZSt4copyIPPN4llvm16itanium_demangle4NodeES4_ET0_T_S6_S5_.exit.i: ; preds = %72,
   br i1 %61, label %_ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm8EEaSEOS4_.exit.thread, label %92
 
 _ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm8EEaSEOS4_.exit.thread: ; preds = %84
-  %85 = getelementptr inbounds i8, ptr %0, i64 72
+  %85 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %86 = load ptr, ptr %85, align 8
-  %87 = getelementptr inbounds i8, ptr %54, i64 584
+  %87 = getelementptr inbounds nuw i8, ptr %54, i64 584
   store ptr %86, ptr %87, align 8
-  %88 = getelementptr inbounds i8, ptr %0, i64 80
+  %88 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %89 = load ptr, ptr %88, align 8
-  %90 = getelementptr inbounds i8, ptr %54, i64 592
+  %90 = getelementptr inbounds nuw i8, ptr %54, i64 592
   store ptr %89, ptr %90, align 8
   store ptr %57, ptr %53, align 8
   store ptr %57, ptr %85, align 8
@@ -51395,14 +51395,14 @@ _ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm8EEaSEOS4_.exit.thread: 
 
 92:                                               ; preds = %84
   store ptr %59, ptr %53, align 8
-  %93 = getelementptr inbounds i8, ptr %54, i64 584
-  %94 = getelementptr inbounds i8, ptr %0, i64 72
+  %93 = getelementptr inbounds nuw i8, ptr %54, i64 584
+  %94 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %95 = load ptr, ptr %93, align 8
   %96 = load ptr, ptr %94, align 8
   store ptr %96, ptr %93, align 8
   store ptr %95, ptr %94, align 8
-  %97 = getelementptr inbounds i8, ptr %54, i64 592
-  %98 = getelementptr inbounds i8, ptr %0, i64 80
+  %97 = getelementptr inbounds nuw i8, ptr %54, i64 592
+  %98 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %99 = load ptr, ptr %97, align 8
   %100 = load ptr, ptr %98, align 8
   store ptr %100, ptr %97, align 8
@@ -51529,7 +51529,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   %3 = alloca %"class.llvm::FoldingSetNodeID", align 8
   %4 = alloca ptr, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 808
-  %6 = getelementptr inbounds i8, ptr %0, i64 937
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 937
   %7 = load i8, ptr %6, align 1
   %8 = trunc i8 %7 to i1
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %3)
@@ -51555,7 +51555,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   br i1 %.not.i.i.i.i.i.i, label %_ZN12_GLOBAL__N_111profileCtorIJN4llvm16itanium_demangle9NodeArrayEEEEvRNS1_16FoldingSetNodeIDENS2_4Node4KindEDpT_.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i
 
 _ZN12_GLOBAL__N_111profileCtorIJN4llvm16itanium_demangle9NodeArrayEEEEvRNS1_16FoldingSetNodeIDENS2_4Node4KindEDpT_.exit.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i, %2
-  %14 = getelementptr inbounds i8, ptr %0, i64 904
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 904
   %15 = call noundef ptr @_ZN4llvm14FoldingSetBase19FindNodeOrInsertPosERKNS_16FoldingSetNodeIDERPvRKNS0_14FoldingSetInfoE(ptr noundef nonnull align 8 dereferenceable(16) %14, ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4llvm10FoldingSetIN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeaderEE17getFoldingSetInfoEvE4Info) #20
   %.not.i.i.i.i = icmp eq ptr %15, null
   br i1 %.not.i.i.i.i, label %18, label %16
@@ -51568,7 +51568,7 @@ _ZN12_GLOBAL__N_111profileCtorIJN4llvm16itanium_demangle9NodeArrayEEEEvRNS1_16Fo
   br i1 %8, label %19, label %48
 
 19:                                               ; preds = %18
-  %20 = getelementptr inbounds i8, ptr %0, i64 888
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 888
   %21 = load i64, ptr %20, align 8
   %22 = add i64 %21, 40
   store i64 %22, ptr %20, align 8
@@ -51577,7 +51577,7 @@ _ZN12_GLOBAL__N_111profileCtorIJN4llvm16itanium_demangle9NodeArrayEEEEvRNS1_16Fo
   %25 = add i64 %24, 7
   %26 = and i64 %25, -8
   %27 = add i64 %26, 40
-  %28 = getelementptr inbounds i8, ptr %0, i64 816
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 816
   %29 = load ptr, ptr %28, align 8
   %30 = ptrtoint ptr %29 to i64
   %.not.i.i10.i.i.i.i = icmp ugt i64 %27, %30
@@ -51641,7 +51641,7 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   br i1 %.not.i.i.i.i, label %53, label %55
 
 53:                                               ; preds = %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle12EnableIfAttrEJNS3_9NodeArrayEEEESt4pairIPNS3_4NodeEbEbDpOT0_.exit.i.i.i
-  %54 = getelementptr inbounds i8, ptr %0, i64 920
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 920
   store ptr %.sroa.0.0.i.i.i.i, ptr %54, align 8
   br label %_ZN12_GLOBAL__N_122CanonicalizerAllocator8makeNodeIN4llvm16itanium_demangle12EnableIfAttrEJNS3_9NodeArrayEEEEPNS3_4NodeEDpOT0_.exit
 
@@ -51650,14 +51650,14 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   br i1 %.not.i.i.i, label %_ZN12_GLOBAL__N_122CanonicalizerAllocator8makeNodeIN4llvm16itanium_demangle12EnableIfAttrEJNS3_9NodeArrayEEEEPNS3_4NodeEDpOT0_.exit, label %56
 
 56:                                               ; preds = %55
-  %57 = getelementptr inbounds i8, ptr %0, i64 944
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 944
   %58 = load i32, ptr %57, align 8
   %59 = and i32 %58, 1
   %.not.i.i.i.i.i.i.i.i.i = icmp eq i32 %59, 0
-  %60 = getelementptr inbounds i8, ptr %0, i64 952
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 952
   %61 = load ptr, ptr %60, align 8
   %62 = select i1 %.not.i.i.i.i.i.i.i.i.i, ptr %61, ptr %60
-  %63 = getelementptr inbounds i8, ptr %0, i64 960
+  %63 = getelementptr inbounds nuw i8, ptr %0, i64 960
   %64 = load i32, ptr %63, align 8
   %65 = select i1 %.not.i.i.i.i.i.i.i.i.i, i32 %64, i32 32
   %66 = icmp eq i32 %65, 0
@@ -51704,13 +51704,13 @@ _ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32EN
   %.0.i.i.i.i = phi ptr [ %89, %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i ], [ null, %56 ], [ null, %.lr.ph.i.i.i10.i.i.i ]
   %.not9.i.i.i = icmp eq ptr %.0.i.i.i.i, null
   %spec.select.i.i.i = select i1 %.not9.i.i.i, ptr %.sroa.0.0.i.i.i.i, ptr %.0.i.i.i.i
-  %90 = getelementptr inbounds i8, ptr %0, i64 928
+  %90 = getelementptr inbounds nuw i8, ptr %0, i64 928
   %91 = load ptr, ptr %90, align 8
   %92 = icmp eq ptr %spec.select.i.i.i, %91
   br i1 %92, label %93, label %_ZN12_GLOBAL__N_122CanonicalizerAllocator8makeNodeIN4llvm16itanium_demangle12EnableIfAttrEJNS3_9NodeArrayEEEEPNS3_4NodeEDpOT0_.exit
 
 93:                                               ; preds = %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i
-  %94 = getelementptr inbounds i8, ptr %0, i64 936
+  %94 = getelementptr inbounds nuw i8, ptr %0, i64 936
   store i8 1, ptr %94, align 8
   br label %_ZN12_GLOBAL__N_122CanonicalizerAllocator8makeNodeIN4llvm16itanium_demangle12EnableIfAttrEJNS3_9NodeArrayEEEEPNS3_4NodeEDpOT0_.exit
 
@@ -51724,7 +51724,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   %9 = alloca %"class.llvm::FoldingSetNodeID", align 8
   %10 = alloca ptr, align 8
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 808
-  %12 = getelementptr inbounds i8, ptr %0, i64 937
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 937
   %13 = load i8, ptr %12, align 1
   %14 = trunc i8 %13 to i1
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %9)
@@ -51768,7 +51768,7 @@ _ZN12_GLOBAL__N_111profileCtorIJPN4llvm16itanium_demangle4NodeES4_NS2_9NodeArray
   call void @_ZN4llvm16FoldingSetNodeID10AddIntegerEy(ptr noundef nonnull align 8 dereferenceable(144) %9, i64 noundef %30)
   %31 = zext i8 %21 to i64
   call void @_ZN4llvm16FoldingSetNodeID10AddIntegerEy(ptr noundef nonnull align 8 dereferenceable(144) %9, i64 noundef %31)
-  %32 = getelementptr inbounds i8, ptr %0, i64 904
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 904
   %33 = call noundef ptr @_ZN4llvm14FoldingSetBase19FindNodeOrInsertPosERKNS_16FoldingSetNodeIDERPvRKNS0_14FoldingSetInfoE(ptr noundef nonnull align 8 dereferenceable(16) %32, ptr noundef nonnull align 8 dereferenceable(144) %9, ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4llvm10FoldingSetIN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeaderEE17getFoldingSetInfoEvE4Info) #20
   %.not.i.i.i.i = icmp eq ptr %33, null
   br i1 %.not.i.i.i.i, label %36, label %34
@@ -51781,7 +51781,7 @@ _ZN12_GLOBAL__N_111profileCtorIJPN4llvm16itanium_demangle4NodeES4_NS2_9NodeArray
   br i1 %14, label %37, label %78
 
 37:                                               ; preds = %36
-  %38 = getelementptr inbounds i8, ptr %0, i64 888
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 888
   %39 = load i64, ptr %38, align 8
   %40 = add i64 %39, 80
   store i64 %40, ptr %38, align 8
@@ -51790,7 +51790,7 @@ _ZN12_GLOBAL__N_111profileCtorIJPN4llvm16itanium_demangle4NodeES4_NS2_9NodeArray
   %43 = add i64 %42, 7
   %44 = and i64 %43, -8
   %45 = add i64 %44, 80
-  %46 = getelementptr inbounds i8, ptr %0, i64 816
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 816
   %47 = load ptr, ptr %46, align 8
   %48 = ptrtoint ptr %47 to i64
   %.not.i.i22.i.i.i.i = icmp ugt i64 %45, %48
@@ -51872,7 +51872,7 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   br i1 %.not.i.i.i.i, label %83, label %85
 
 83:                                               ; preds = %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle16FunctionEncodingEJRPNS3_4NodeES7_RNS3_9NodeArrayES7_S7_RNS3_10QualifiersERNS3_15FunctionRefQualEEEESt4pairIS6_bEbDpOT0_.exit.i.i.i
-  %84 = getelementptr inbounds i8, ptr %0, i64 920
+  %84 = getelementptr inbounds nuw i8, ptr %0, i64 920
   store ptr %.sroa.0.0.i.i.i.i, ptr %84, align 8
   br label %_ZN12_GLOBAL__N_122CanonicalizerAllocator8makeNodeIN4llvm16itanium_demangle16FunctionEncodingEJRPNS3_4NodeES7_RNS3_9NodeArrayES7_S7_RNS3_10QualifiersERNS3_15FunctionRefQualEEEES6_DpOT0_.exit
 
@@ -51881,14 +51881,14 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   br i1 %.not.i.i.i, label %_ZN12_GLOBAL__N_122CanonicalizerAllocator8makeNodeIN4llvm16itanium_demangle16FunctionEncodingEJRPNS3_4NodeES7_RNS3_9NodeArrayES7_S7_RNS3_10QualifiersERNS3_15FunctionRefQualEEEES6_DpOT0_.exit, label %86
 
 86:                                               ; preds = %85
-  %87 = getelementptr inbounds i8, ptr %0, i64 944
+  %87 = getelementptr inbounds nuw i8, ptr %0, i64 944
   %88 = load i32, ptr %87, align 8
   %89 = and i32 %88, 1
   %.not.i.i.i.i.i.i.i.i.i = icmp eq i32 %89, 0
-  %90 = getelementptr inbounds i8, ptr %0, i64 952
+  %90 = getelementptr inbounds nuw i8, ptr %0, i64 952
   %91 = load ptr, ptr %90, align 8
   %92 = select i1 %.not.i.i.i.i.i.i.i.i.i, ptr %91, ptr %90
-  %93 = getelementptr inbounds i8, ptr %0, i64 960
+  %93 = getelementptr inbounds nuw i8, ptr %0, i64 960
   %94 = load i32, ptr %93, align 8
   %95 = select i1 %.not.i.i.i.i.i.i.i.i.i, i32 %94, i32 32
   %96 = icmp eq i32 %95, 0
@@ -51935,13 +51935,13 @@ _ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32EN
   %.0.i.i.i.i = phi ptr [ %119, %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i ], [ null, %86 ], [ null, %.lr.ph.i.i.i16.i.i.i ]
   %.not15.i.i.i = icmp eq ptr %.0.i.i.i.i, null
   %spec.select.i.i.i = select i1 %.not15.i.i.i, ptr %.sroa.0.0.i.i.i.i, ptr %.0.i.i.i.i
-  %120 = getelementptr inbounds i8, ptr %0, i64 928
+  %120 = getelementptr inbounds nuw i8, ptr %0, i64 928
   %121 = load ptr, ptr %120, align 8
   %122 = icmp eq ptr %spec.select.i.i.i, %121
   br i1 %122, label %123, label %_ZN12_GLOBAL__N_122CanonicalizerAllocator8makeNodeIN4llvm16itanium_demangle16FunctionEncodingEJRPNS3_4NodeES7_RNS3_9NodeArrayES7_S7_RNS3_10QualifiersERNS3_15FunctionRefQualEEEES6_DpOT0_.exit
 
 123:                                              ; preds = %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i
-  %124 = getelementptr inbounds i8, ptr %0, i64 936
+  %124 = getelementptr inbounds nuw i8, ptr %0, i64 936
   store i8 1, ptr %124, align 8
   br label %_ZN12_GLOBAL__N_122CanonicalizerAllocator8makeNodeIN4llvm16itanium_demangle16FunctionEncodingEJRPNS3_4NodeES7_RNS3_9NodeArrayES7_S7_RNS3_10QualifiersERNS3_15FunctionRefQualEEEES6_DpOT0_.exit
 
@@ -51955,7 +51955,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   %3 = alloca %"class.llvm::FoldingSetNodeID", align 8
   %4 = alloca ptr, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 808
-  %6 = getelementptr inbounds i8, ptr %0, i64 937
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 937
   %7 = load i8, ptr %6, align 1
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
@@ -51966,7 +51966,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   call void @_ZN4llvm16FoldingSetNodeID9AddStringENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr nonnull @.str.238, i64 30) #20
   %10 = ptrtoint ptr %9 to i64
   call void @_ZN4llvm16FoldingSetNodeID10AddIntegerEy(ptr noundef nonnull align 8 dereferenceable(144) %3, i64 noundef %10)
-  %11 = getelementptr inbounds i8, ptr %0, i64 904
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 904
   %12 = call noundef ptr @_ZN4llvm14FoldingSetBase19FindNodeOrInsertPosERKNS_16FoldingSetNodeIDERPvRKNS0_14FoldingSetInfoE(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4llvm10FoldingSetIN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeaderEE17getFoldingSetInfoEvE4Info) #20
   %.not.i.i.i.i = icmp eq ptr %12, null
   br i1 %.not.i.i.i.i, label %15, label %13
@@ -51980,7 +51980,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   br i1 %16, label %17, label %48
 
 17:                                               ; preds = %15
-  %18 = getelementptr inbounds i8, ptr %0, i64 888
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 888
   %19 = load i64, ptr %18, align 8
   %20 = add i64 %19, 48
   store i64 %20, ptr %18, align 8
@@ -51989,7 +51989,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   %23 = add i64 %22, 7
   %24 = and i64 %23, -8
   %25 = add i64 %24, 48
-  %26 = getelementptr inbounds i8, ptr %0, i64 816
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 816
   %27 = load ptr, ptr %26, align 8
   %28 = ptrtoint ptr %27 to i64
   %.not.i.i.i.i.i.i = icmp ugt i64 %25, %28
@@ -52054,7 +52054,7 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   br i1 %.not.i.i.i.i, label %53, label %55
 
 53:                                               ; preds = %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle11SpecialNameEJRA31_KcRPNS3_4NodeEEEESt4pairIS9_bEbDpOT0_.exit.i.i.i
-  %54 = getelementptr inbounds i8, ptr %0, i64 920
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 920
   store ptr %.sroa.04.0.i.i.i.i, ptr %54, align 8
   br label %_ZN12_GLOBAL__N_122CanonicalizerAllocator8makeNodeIN4llvm16itanium_demangle11SpecialNameEJRA31_KcRPNS3_4NodeEEEES9_DpOT0_.exit
 
@@ -52063,14 +52063,14 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   br i1 %.not.i.i.i, label %_ZN12_GLOBAL__N_122CanonicalizerAllocator8makeNodeIN4llvm16itanium_demangle11SpecialNameEJRA31_KcRPNS3_4NodeEEEES9_DpOT0_.exit, label %56
 
 56:                                               ; preds = %55
-  %57 = getelementptr inbounds i8, ptr %0, i64 944
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 944
   %58 = load i32, ptr %57, align 8
   %59 = and i32 %58, 1
   %.not.i.i.i.i.i.i.i.i.i = icmp eq i32 %59, 0
-  %60 = getelementptr inbounds i8, ptr %0, i64 952
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 952
   %61 = load ptr, ptr %60, align 8
   %62 = select i1 %.not.i.i.i.i.i.i.i.i.i, ptr %61, ptr %60
-  %63 = getelementptr inbounds i8, ptr %0, i64 960
+  %63 = getelementptr inbounds nuw i8, ptr %0, i64 960
   %64 = load i32, ptr %63, align 8
   %65 = select i1 %.not.i.i.i.i.i.i.i.i.i, i32 %64, i32 32
   %66 = icmp eq i32 %65, 0
@@ -52117,13 +52117,13 @@ _ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32EN
   %.0.i.i.i.i = phi ptr [ %89, %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i ], [ null, %56 ], [ null, %.lr.ph.i.i.i.i.i.i ]
   %.not10.i.i.i = icmp eq ptr %.0.i.i.i.i, null
   %spec.select.i.i.i = select i1 %.not10.i.i.i, ptr %.sroa.04.0.i.i.i.i, ptr %.0.i.i.i.i
-  %90 = getelementptr inbounds i8, ptr %0, i64 928
+  %90 = getelementptr inbounds nuw i8, ptr %0, i64 928
   %91 = load ptr, ptr %90, align 8
   %92 = icmp eq ptr %spec.select.i.i.i, %91
   br i1 %92, label %93, label %_ZN12_GLOBAL__N_122CanonicalizerAllocator8makeNodeIN4llvm16itanium_demangle11SpecialNameEJRA31_KcRPNS3_4NodeEEEES9_DpOT0_.exit
 
 93:                                               ; preds = %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i
-  %94 = getelementptr inbounds i8, ptr %0, i64 936
+  %94 = getelementptr inbounds nuw i8, ptr %0, i64 936
   store i8 1, ptr %94, align 8
   br label %_ZN12_GLOBAL__N_122CanonicalizerAllocator8makeNodeIN4llvm16itanium_demangle11SpecialNameEJRA31_KcRPNS3_4NodeEEEES9_DpOT0_.exit
 
@@ -52137,7 +52137,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   %3 = alloca %"class.llvm::FoldingSetNodeID", align 8
   %4 = alloca ptr, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 808
-  %6 = getelementptr inbounds i8, ptr %0, i64 937
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 937
   %7 = load i8, ptr %6, align 1
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
@@ -52148,7 +52148,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   call void @_ZN4llvm16FoldingSetNodeID9AddStringENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr nonnull @.str.239, i64 11) #20
   %10 = ptrtoint ptr %9 to i64
   call void @_ZN4llvm16FoldingSetNodeID10AddIntegerEy(ptr noundef nonnull align 8 dereferenceable(144) %3, i64 noundef %10)
-  %11 = getelementptr inbounds i8, ptr %0, i64 904
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 904
   %12 = call noundef ptr @_ZN4llvm14FoldingSetBase19FindNodeOrInsertPosERKNS_16FoldingSetNodeIDERPvRKNS0_14FoldingSetInfoE(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4llvm10FoldingSetIN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeaderEE17getFoldingSetInfoEvE4Info) #20
   %.not.i.i.i.i = icmp eq ptr %12, null
   br i1 %.not.i.i.i.i, label %15, label %13
@@ -52162,7 +52162,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   br i1 %16, label %17, label %48
 
 17:                                               ; preds = %15
-  %18 = getelementptr inbounds i8, ptr %0, i64 888
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 888
   %19 = load i64, ptr %18, align 8
   %20 = add i64 %19, 48
   store i64 %20, ptr %18, align 8
@@ -52171,7 +52171,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   %23 = add i64 %22, 7
   %24 = and i64 %23, -8
   %25 = add i64 %24, 48
-  %26 = getelementptr inbounds i8, ptr %0, i64 816
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 816
   %27 = load ptr, ptr %26, align 8
   %28 = ptrtoint ptr %27 to i64
   %.not.i.i.i.i.i.i = icmp ugt i64 %25, %28
@@ -52236,7 +52236,7 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   br i1 %.not.i.i.i.i, label %53, label %55
 
 53:                                               ; preds = %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle11SpecialNameEJRA12_KcRPNS3_4NodeEEEESt4pairIS9_bEbDpOT0_.exit.i.i.i
-  %54 = getelementptr inbounds i8, ptr %0, i64 920
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 920
   store ptr %.sroa.04.0.i.i.i.i, ptr %54, align 8
   br label %_ZN12_GLOBAL__N_122CanonicalizerAllocator8makeNodeIN4llvm16itanium_demangle11SpecialNameEJRA12_KcRPNS3_4NodeEEEES9_DpOT0_.exit
 
@@ -52245,14 +52245,14 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   br i1 %.not.i.i.i, label %_ZN12_GLOBAL__N_122CanonicalizerAllocator8makeNodeIN4llvm16itanium_demangle11SpecialNameEJRA12_KcRPNS3_4NodeEEEES9_DpOT0_.exit, label %56
 
 56:                                               ; preds = %55
-  %57 = getelementptr inbounds i8, ptr %0, i64 944
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 944
   %58 = load i32, ptr %57, align 8
   %59 = and i32 %58, 1
   %.not.i.i.i.i.i.i.i.i.i = icmp eq i32 %59, 0
-  %60 = getelementptr inbounds i8, ptr %0, i64 952
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 952
   %61 = load ptr, ptr %60, align 8
   %62 = select i1 %.not.i.i.i.i.i.i.i.i.i, ptr %61, ptr %60
-  %63 = getelementptr inbounds i8, ptr %0, i64 960
+  %63 = getelementptr inbounds nuw i8, ptr %0, i64 960
   %64 = load i32, ptr %63, align 8
   %65 = select i1 %.not.i.i.i.i.i.i.i.i.i, i32 %64, i32 32
   %66 = icmp eq i32 %65, 0
@@ -52299,13 +52299,13 @@ _ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32EN
   %.0.i.i.i.i = phi ptr [ %89, %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i ], [ null, %56 ], [ null, %.lr.ph.i.i.i.i.i.i ]
   %.not10.i.i.i = icmp eq ptr %.0.i.i.i.i, null
   %spec.select.i.i.i = select i1 %.not10.i.i.i, ptr %.sroa.04.0.i.i.i.i, ptr %.0.i.i.i.i
-  %90 = getelementptr inbounds i8, ptr %0, i64 928
+  %90 = getelementptr inbounds nuw i8, ptr %0, i64 928
   %91 = load ptr, ptr %90, align 8
   %92 = icmp eq ptr %spec.select.i.i.i, %91
   br i1 %92, label %93, label %_ZN12_GLOBAL__N_122CanonicalizerAllocator8makeNodeIN4llvm16itanium_demangle11SpecialNameEJRA12_KcRPNS3_4NodeEEEES9_DpOT0_.exit
 
 93:                                               ; preds = %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i
-  %94 = getelementptr inbounds i8, ptr %0, i64 936
+  %94 = getelementptr inbounds nuw i8, ptr %0, i64 936
   store i8 1, ptr %94, align 8
   br label %_ZN12_GLOBAL__N_122CanonicalizerAllocator8makeNodeIN4llvm16itanium_demangle11SpecialNameEJRA12_KcRPNS3_4NodeEEEES9_DpOT0_.exit
 
@@ -52319,7 +52319,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   %3 = alloca %"class.llvm::FoldingSetNodeID", align 8
   %4 = alloca ptr, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 808
-  %6 = getelementptr inbounds i8, ptr %0, i64 937
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 937
   %7 = load i8, ptr %6, align 1
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
@@ -52330,7 +52330,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   call void @_ZN4llvm16FoldingSetNodeID9AddStringENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr nonnull @.str.240, i64 8) #20
   %10 = ptrtoint ptr %9 to i64
   call void @_ZN4llvm16FoldingSetNodeID10AddIntegerEy(ptr noundef nonnull align 8 dereferenceable(144) %3, i64 noundef %10)
-  %11 = getelementptr inbounds i8, ptr %0, i64 904
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 904
   %12 = call noundef ptr @_ZN4llvm14FoldingSetBase19FindNodeOrInsertPosERKNS_16FoldingSetNodeIDERPvRKNS0_14FoldingSetInfoE(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4llvm10FoldingSetIN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeaderEE17getFoldingSetInfoEvE4Info) #20
   %.not.i.i.i.i = icmp eq ptr %12, null
   br i1 %.not.i.i.i.i, label %15, label %13
@@ -52344,7 +52344,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   br i1 %16, label %17, label %48
 
 17:                                               ; preds = %15
-  %18 = getelementptr inbounds i8, ptr %0, i64 888
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 888
   %19 = load i64, ptr %18, align 8
   %20 = add i64 %19, 48
   store i64 %20, ptr %18, align 8
@@ -52353,7 +52353,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   %23 = add i64 %22, 7
   %24 = and i64 %23, -8
   %25 = add i64 %24, 48
-  %26 = getelementptr inbounds i8, ptr %0, i64 816
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 816
   %27 = load ptr, ptr %26, align 8
   %28 = ptrtoint ptr %27 to i64
   %.not.i.i.i.i.i.i = icmp ugt i64 %25, %28
@@ -52418,7 +52418,7 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   br i1 %.not.i.i.i.i, label %53, label %55
 
 53:                                               ; preds = %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle11SpecialNameEJRA9_KcRPNS3_4NodeEEEESt4pairIS9_bEbDpOT0_.exit.i.i.i
-  %54 = getelementptr inbounds i8, ptr %0, i64 920
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 920
   store ptr %.sroa.04.0.i.i.i.i, ptr %54, align 8
   br label %_ZN12_GLOBAL__N_122CanonicalizerAllocator8makeNodeIN4llvm16itanium_demangle11SpecialNameEJRA9_KcRPNS3_4NodeEEEES9_DpOT0_.exit
 
@@ -52427,14 +52427,14 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   br i1 %.not.i.i.i, label %_ZN12_GLOBAL__N_122CanonicalizerAllocator8makeNodeIN4llvm16itanium_demangle11SpecialNameEJRA9_KcRPNS3_4NodeEEEES9_DpOT0_.exit, label %56
 
 56:                                               ; preds = %55
-  %57 = getelementptr inbounds i8, ptr %0, i64 944
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 944
   %58 = load i32, ptr %57, align 8
   %59 = and i32 %58, 1
   %.not.i.i.i.i.i.i.i.i.i = icmp eq i32 %59, 0
-  %60 = getelementptr inbounds i8, ptr %0, i64 952
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 952
   %61 = load ptr, ptr %60, align 8
   %62 = select i1 %.not.i.i.i.i.i.i.i.i.i, ptr %61, ptr %60
-  %63 = getelementptr inbounds i8, ptr %0, i64 960
+  %63 = getelementptr inbounds nuw i8, ptr %0, i64 960
   %64 = load i32, ptr %63, align 8
   %65 = select i1 %.not.i.i.i.i.i.i.i.i.i, i32 %64, i32 32
   %66 = icmp eq i32 %65, 0
@@ -52481,13 +52481,13 @@ _ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32EN
   %.0.i.i.i.i = phi ptr [ %89, %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i ], [ null, %56 ], [ null, %.lr.ph.i.i.i.i.i.i ]
   %.not10.i.i.i = icmp eq ptr %.0.i.i.i.i, null
   %spec.select.i.i.i = select i1 %.not10.i.i.i, ptr %.sroa.04.0.i.i.i.i, ptr %.0.i.i.i.i
-  %90 = getelementptr inbounds i8, ptr %0, i64 928
+  %90 = getelementptr inbounds nuw i8, ptr %0, i64 928
   %91 = load ptr, ptr %90, align 8
   %92 = icmp eq ptr %spec.select.i.i.i, %91
   br i1 %92, label %93, label %_ZN12_GLOBAL__N_122CanonicalizerAllocator8makeNodeIN4llvm16itanium_demangle11SpecialNameEJRA9_KcRPNS3_4NodeEEEES9_DpOT0_.exit
 
 93:                                               ; preds = %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i
-  %94 = getelementptr inbounds i8, ptr %0, i64 936
+  %94 = getelementptr inbounds nuw i8, ptr %0, i64 936
   store i8 1, ptr %94, align 8
   br label %_ZN12_GLOBAL__N_122CanonicalizerAllocator8makeNodeIN4llvm16itanium_demangle11SpecialNameEJRA9_KcRPNS3_4NodeEEEES9_DpOT0_.exit
 
@@ -52501,7 +52501,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   %3 = alloca %"class.llvm::FoldingSetNodeID", align 8
   %4 = alloca ptr, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 808
-  %6 = getelementptr inbounds i8, ptr %0, i64 937
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 937
   %7 = load i8, ptr %6, align 1
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
@@ -52512,7 +52512,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   call void @_ZN4llvm16FoldingSetNodeID9AddStringENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr nonnull @.str.241, i64 13) #20
   %10 = ptrtoint ptr %9 to i64
   call void @_ZN4llvm16FoldingSetNodeID10AddIntegerEy(ptr noundef nonnull align 8 dereferenceable(144) %3, i64 noundef %10)
-  %11 = getelementptr inbounds i8, ptr %0, i64 904
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 904
   %12 = call noundef ptr @_ZN4llvm14FoldingSetBase19FindNodeOrInsertPosERKNS_16FoldingSetNodeIDERPvRKNS0_14FoldingSetInfoE(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4llvm10FoldingSetIN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeaderEE17getFoldingSetInfoEvE4Info) #20
   %.not.i.i.i.i = icmp eq ptr %12, null
   br i1 %.not.i.i.i.i, label %15, label %13
@@ -52526,7 +52526,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   br i1 %16, label %17, label %48
 
 17:                                               ; preds = %15
-  %18 = getelementptr inbounds i8, ptr %0, i64 888
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 888
   %19 = load i64, ptr %18, align 8
   %20 = add i64 %19, 48
   store i64 %20, ptr %18, align 8
@@ -52535,7 +52535,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   %23 = add i64 %22, 7
   %24 = and i64 %23, -8
   %25 = add i64 %24, 48
-  %26 = getelementptr inbounds i8, ptr %0, i64 816
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 816
   %27 = load ptr, ptr %26, align 8
   %28 = ptrtoint ptr %27 to i64
   %.not.i.i.i.i.i.i = icmp ugt i64 %25, %28
@@ -52600,7 +52600,7 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   br i1 %.not.i.i.i.i, label %53, label %55
 
 53:                                               ; preds = %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle11SpecialNameEJRA14_KcRPNS3_4NodeEEEESt4pairIS9_bEbDpOT0_.exit.i.i.i
-  %54 = getelementptr inbounds i8, ptr %0, i64 920
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 920
   store ptr %.sroa.04.0.i.i.i.i, ptr %54, align 8
   br label %_ZN12_GLOBAL__N_122CanonicalizerAllocator8makeNodeIN4llvm16itanium_demangle11SpecialNameEJRA14_KcRPNS3_4NodeEEEES9_DpOT0_.exit
 
@@ -52609,14 +52609,14 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   br i1 %.not.i.i.i, label %_ZN12_GLOBAL__N_122CanonicalizerAllocator8makeNodeIN4llvm16itanium_demangle11SpecialNameEJRA14_KcRPNS3_4NodeEEEES9_DpOT0_.exit, label %56
 
 56:                                               ; preds = %55
-  %57 = getelementptr inbounds i8, ptr %0, i64 944
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 944
   %58 = load i32, ptr %57, align 8
   %59 = and i32 %58, 1
   %.not.i.i.i.i.i.i.i.i.i = icmp eq i32 %59, 0
-  %60 = getelementptr inbounds i8, ptr %0, i64 952
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 952
   %61 = load ptr, ptr %60, align 8
   %62 = select i1 %.not.i.i.i.i.i.i.i.i.i, ptr %61, ptr %60
-  %63 = getelementptr inbounds i8, ptr %0, i64 960
+  %63 = getelementptr inbounds nuw i8, ptr %0, i64 960
   %64 = load i32, ptr %63, align 8
   %65 = select i1 %.not.i.i.i.i.i.i.i.i.i, i32 %64, i32 32
   %66 = icmp eq i32 %65, 0
@@ -52663,13 +52663,13 @@ _ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32EN
   %.0.i.i.i.i = phi ptr [ %89, %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i ], [ null, %56 ], [ null, %.lr.ph.i.i.i.i.i.i ]
   %.not10.i.i.i = icmp eq ptr %.0.i.i.i.i, null
   %spec.select.i.i.i = select i1 %.not10.i.i.i, ptr %.sroa.04.0.i.i.i.i, ptr %.0.i.i.i.i
-  %90 = getelementptr inbounds i8, ptr %0, i64 928
+  %90 = getelementptr inbounds nuw i8, ptr %0, i64 928
   %91 = load ptr, ptr %90, align 8
   %92 = icmp eq ptr %spec.select.i.i.i, %91
   br i1 %92, label %93, label %_ZN12_GLOBAL__N_122CanonicalizerAllocator8makeNodeIN4llvm16itanium_demangle11SpecialNameEJRA14_KcRPNS3_4NodeEEEES9_DpOT0_.exit
 
 93:                                               ; preds = %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i
-  %94 = getelementptr inbounds i8, ptr %0, i64 936
+  %94 = getelementptr inbounds nuw i8, ptr %0, i64 936
   store i8 1, ptr %94, align 8
   br label %_ZN12_GLOBAL__N_122CanonicalizerAllocator8makeNodeIN4llvm16itanium_demangle11SpecialNameEJRA14_KcRPNS3_4NodeEEEES9_DpOT0_.exit
 
@@ -52683,7 +52683,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   %3 = alloca %"class.llvm::FoldingSetNodeID", align 8
   %4 = alloca ptr, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 808
-  %6 = getelementptr inbounds i8, ptr %0, i64 937
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 937
   %7 = load i8, ptr %6, align 1
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
@@ -52694,7 +52694,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   call void @_ZN4llvm16FoldingSetNodeID9AddStringENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr nonnull @.str.242, i64 18) #20
   %10 = ptrtoint ptr %9 to i64
   call void @_ZN4llvm16FoldingSetNodeID10AddIntegerEy(ptr noundef nonnull align 8 dereferenceable(144) %3, i64 noundef %10)
-  %11 = getelementptr inbounds i8, ptr %0, i64 904
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 904
   %12 = call noundef ptr @_ZN4llvm14FoldingSetBase19FindNodeOrInsertPosERKNS_16FoldingSetNodeIDERPvRKNS0_14FoldingSetInfoE(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4llvm10FoldingSetIN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeaderEE17getFoldingSetInfoEvE4Info) #20
   %.not.i.i.i.i = icmp eq ptr %12, null
   br i1 %.not.i.i.i.i, label %15, label %13
@@ -52708,7 +52708,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   br i1 %16, label %17, label %48
 
 17:                                               ; preds = %15
-  %18 = getelementptr inbounds i8, ptr %0, i64 888
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 888
   %19 = load i64, ptr %18, align 8
   %20 = add i64 %19, 48
   store i64 %20, ptr %18, align 8
@@ -52717,7 +52717,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   %23 = add i64 %22, 7
   %24 = and i64 %23, -8
   %25 = add i64 %24, 48
-  %26 = getelementptr inbounds i8, ptr %0, i64 816
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 816
   %27 = load ptr, ptr %26, align 8
   %28 = ptrtoint ptr %27 to i64
   %.not.i.i.i.i.i.i = icmp ugt i64 %25, %28
@@ -52782,7 +52782,7 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   br i1 %.not.i.i.i.i, label %53, label %55
 
 53:                                               ; preds = %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle11SpecialNameEJRA19_KcRPNS3_4NodeEEEESt4pairIS9_bEbDpOT0_.exit.i.i.i
-  %54 = getelementptr inbounds i8, ptr %0, i64 920
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 920
   store ptr %.sroa.04.0.i.i.i.i, ptr %54, align 8
   br label %_ZN12_GLOBAL__N_122CanonicalizerAllocator8makeNodeIN4llvm16itanium_demangle11SpecialNameEJRA19_KcRPNS3_4NodeEEEES9_DpOT0_.exit
 
@@ -52791,14 +52791,14 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   br i1 %.not.i.i.i, label %_ZN12_GLOBAL__N_122CanonicalizerAllocator8makeNodeIN4llvm16itanium_demangle11SpecialNameEJRA19_KcRPNS3_4NodeEEEES9_DpOT0_.exit, label %56
 
 56:                                               ; preds = %55
-  %57 = getelementptr inbounds i8, ptr %0, i64 944
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 944
   %58 = load i32, ptr %57, align 8
   %59 = and i32 %58, 1
   %.not.i.i.i.i.i.i.i.i.i = icmp eq i32 %59, 0
-  %60 = getelementptr inbounds i8, ptr %0, i64 952
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 952
   %61 = load ptr, ptr %60, align 8
   %62 = select i1 %.not.i.i.i.i.i.i.i.i.i, ptr %61, ptr %60
-  %63 = getelementptr inbounds i8, ptr %0, i64 960
+  %63 = getelementptr inbounds nuw i8, ptr %0, i64 960
   %64 = load i32, ptr %63, align 8
   %65 = select i1 %.not.i.i.i.i.i.i.i.i.i, i32 %64, i32 32
   %66 = icmp eq i32 %65, 0
@@ -52845,13 +52845,13 @@ _ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32EN
   %.0.i.i.i.i = phi ptr [ %89, %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i ], [ null, %56 ], [ null, %.lr.ph.i.i.i.i.i.i ]
   %.not10.i.i.i = icmp eq ptr %.0.i.i.i.i, null
   %spec.select.i.i.i = select i1 %.not10.i.i.i, ptr %.sroa.04.0.i.i.i.i, ptr %.0.i.i.i.i
-  %90 = getelementptr inbounds i8, ptr %0, i64 928
+  %90 = getelementptr inbounds nuw i8, ptr %0, i64 928
   %91 = load ptr, ptr %90, align 8
   %92 = icmp eq ptr %spec.select.i.i.i, %91
   br i1 %92, label %93, label %_ZN12_GLOBAL__N_122CanonicalizerAllocator8makeNodeIN4llvm16itanium_demangle11SpecialNameEJRA19_KcRPNS3_4NodeEEEES9_DpOT0_.exit
 
 93:                                               ; preds = %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i
-  %94 = getelementptr inbounds i8, ptr %0, i64 936
+  %94 = getelementptr inbounds nuw i8, ptr %0, i64 936
   store i8 1, ptr %94, align 8
   br label %_ZN12_GLOBAL__N_122CanonicalizerAllocator8makeNodeIN4llvm16itanium_demangle11SpecialNameEJRA19_KcRPNS3_4NodeEEEES9_DpOT0_.exit
 
@@ -53059,7 +53059,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   %3 = alloca %"class.llvm::FoldingSetNodeID", align 8
   %4 = alloca ptr, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 808
-  %6 = getelementptr inbounds i8, ptr %0, i64 937
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 937
   %7 = load i8, ptr %6, align 1
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
@@ -53070,7 +53070,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   call void @_ZN4llvm16FoldingSetNodeID9AddStringENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr nonnull @.str.243, i64 26) #20
   %10 = ptrtoint ptr %9 to i64
   call void @_ZN4llvm16FoldingSetNodeID10AddIntegerEy(ptr noundef nonnull align 8 dereferenceable(144) %3, i64 noundef %10)
-  %11 = getelementptr inbounds i8, ptr %0, i64 904
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 904
   %12 = call noundef ptr @_ZN4llvm14FoldingSetBase19FindNodeOrInsertPosERKNS_16FoldingSetNodeIDERPvRKNS0_14FoldingSetInfoE(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4llvm10FoldingSetIN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeaderEE17getFoldingSetInfoEvE4Info) #20
   %.not.i.i.i.i = icmp eq ptr %12, null
   br i1 %.not.i.i.i.i, label %15, label %13
@@ -53084,7 +53084,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   br i1 %16, label %17, label %48
 
 17:                                               ; preds = %15
-  %18 = getelementptr inbounds i8, ptr %0, i64 888
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 888
   %19 = load i64, ptr %18, align 8
   %20 = add i64 %19, 48
   store i64 %20, ptr %18, align 8
@@ -53093,7 +53093,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   %23 = add i64 %22, 7
   %24 = and i64 %23, -8
   %25 = add i64 %24, 48
-  %26 = getelementptr inbounds i8, ptr %0, i64 816
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 816
   %27 = load ptr, ptr %26, align 8
   %28 = ptrtoint ptr %27 to i64
   %.not.i.i.i.i.i.i = icmp ugt i64 %25, %28
@@ -53158,7 +53158,7 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   br i1 %.not.i.i.i.i, label %53, label %55
 
 53:                                               ; preds = %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle11SpecialNameEJRA27_KcRPNS3_4NodeEEEESt4pairIS9_bEbDpOT0_.exit.i.i.i
-  %54 = getelementptr inbounds i8, ptr %0, i64 920
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 920
   store ptr %.sroa.04.0.i.i.i.i, ptr %54, align 8
   br label %_ZN12_GLOBAL__N_122CanonicalizerAllocator8makeNodeIN4llvm16itanium_demangle11SpecialNameEJRA27_KcRPNS3_4NodeEEEES9_DpOT0_.exit
 
@@ -53167,14 +53167,14 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   br i1 %.not.i.i.i, label %_ZN12_GLOBAL__N_122CanonicalizerAllocator8makeNodeIN4llvm16itanium_demangle11SpecialNameEJRA27_KcRPNS3_4NodeEEEES9_DpOT0_.exit, label %56
 
 56:                                               ; preds = %55
-  %57 = getelementptr inbounds i8, ptr %0, i64 944
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 944
   %58 = load i32, ptr %57, align 8
   %59 = and i32 %58, 1
   %.not.i.i.i.i.i.i.i.i.i = icmp eq i32 %59, 0
-  %60 = getelementptr inbounds i8, ptr %0, i64 952
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 952
   %61 = load ptr, ptr %60, align 8
   %62 = select i1 %.not.i.i.i.i.i.i.i.i.i, ptr %61, ptr %60
-  %63 = getelementptr inbounds i8, ptr %0, i64 960
+  %63 = getelementptr inbounds nuw i8, ptr %0, i64 960
   %64 = load i32, ptr %63, align 8
   %65 = select i1 %.not.i.i.i.i.i.i.i.i.i, i32 %64, i32 32
   %66 = icmp eq i32 %65, 0
@@ -53221,13 +53221,13 @@ _ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32EN
   %.0.i.i.i.i = phi ptr [ %89, %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i ], [ null, %56 ], [ null, %.lr.ph.i.i.i.i.i.i ]
   %.not10.i.i.i = icmp eq ptr %.0.i.i.i.i, null
   %spec.select.i.i.i = select i1 %.not10.i.i.i, ptr %.sroa.04.0.i.i.i.i, ptr %.0.i.i.i.i
-  %90 = getelementptr inbounds i8, ptr %0, i64 928
+  %90 = getelementptr inbounds nuw i8, ptr %0, i64 928
   %91 = load ptr, ptr %90, align 8
   %92 = icmp eq ptr %spec.select.i.i.i, %91
   br i1 %92, label %93, label %_ZN12_GLOBAL__N_122CanonicalizerAllocator8makeNodeIN4llvm16itanium_demangle11SpecialNameEJRA27_KcRPNS3_4NodeEEEES9_DpOT0_.exit
 
 93:                                               ; preds = %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i
-  %94 = getelementptr inbounds i8, ptr %0, i64 936
+  %94 = getelementptr inbounds nuw i8, ptr %0, i64 936
   store i8 1, ptr %94, align 8
   br label %_ZN12_GLOBAL__N_122CanonicalizerAllocator8makeNodeIN4llvm16itanium_demangle11SpecialNameEJRA27_KcRPNS3_4NodeEEEES9_DpOT0_.exit
 
@@ -53241,7 +53241,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   %4 = alloca %"class.llvm::FoldingSetNodeID", align 8
   %5 = alloca ptr, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 808
-  %7 = getelementptr inbounds i8, ptr %0, i64 937
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 937
   %8 = load i8, ptr %7, align 1
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
@@ -53254,7 +53254,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   call void @_ZN4llvm16FoldingSetNodeID10AddIntegerEy(ptr noundef nonnull align 8 dereferenceable(144) %4, i64 noundef %12)
   %13 = ptrtoint ptr %11 to i64
   call void @_ZN4llvm16FoldingSetNodeID10AddIntegerEy(ptr noundef nonnull align 8 dereferenceable(144) %4, i64 noundef %13)
-  %14 = getelementptr inbounds i8, ptr %0, i64 904
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 904
   %15 = call noundef ptr @_ZN4llvm14FoldingSetBase19FindNodeOrInsertPosERKNS_16FoldingSetNodeIDERPvRKNS0_14FoldingSetInfoE(ptr noundef nonnull align 8 dereferenceable(16) %14, ptr noundef nonnull align 8 dereferenceable(144) %4, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4llvm10FoldingSetIN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeaderEE17getFoldingSetInfoEvE4Info) #20
   %.not.i.i.i.i = icmp eq ptr %15, null
   br i1 %.not.i.i.i.i, label %18, label %16
@@ -53268,7 +53268,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   br i1 %19, label %20, label %52
 
 20:                                               ; preds = %18
-  %21 = getelementptr inbounds i8, ptr %0, i64 888
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 888
   %22 = load i64, ptr %21, align 8
   %23 = add i64 %22, 40
   store i64 %23, ptr %21, align 8
@@ -53277,7 +53277,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   %26 = add i64 %25, 7
   %27 = and i64 %26, -8
   %28 = add i64 %27, 40
-  %29 = getelementptr inbounds i8, ptr %0, i64 816
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 816
   %30 = load ptr, ptr %29, align 8
   %31 = ptrtoint ptr %30 to i64
   %.not.i.i.i.i.i.i = icmp ugt i64 %28, %31
@@ -53341,7 +53341,7 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   br i1 %.not.i.i.i.i, label %57, label %59
 
 57:                                               ; preds = %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle21CtorVtableSpecialNameEJRPNS3_4NodeES7_EEESt4pairIS6_bEbDpOT0_.exit.i.i.i
-  %58 = getelementptr inbounds i8, ptr %0, i64 920
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 920
   store ptr %.sroa.0.0.i.i.i.i, ptr %58, align 8
   br label %_ZN12_GLOBAL__N_122CanonicalizerAllocator8makeNodeIN4llvm16itanium_demangle21CtorVtableSpecialNameEJRPNS3_4NodeES7_EEES6_DpOT0_.exit
 
@@ -53350,14 +53350,14 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   br i1 %.not.i.i.i, label %_ZN12_GLOBAL__N_122CanonicalizerAllocator8makeNodeIN4llvm16itanium_demangle21CtorVtableSpecialNameEJRPNS3_4NodeES7_EEES6_DpOT0_.exit, label %60
 
 60:                                               ; preds = %59
-  %61 = getelementptr inbounds i8, ptr %0, i64 944
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 944
   %62 = load i32, ptr %61, align 8
   %63 = and i32 %62, 1
   %.not.i.i.i.i.i.i.i.i.i = icmp eq i32 %63, 0
-  %64 = getelementptr inbounds i8, ptr %0, i64 952
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 952
   %65 = load ptr, ptr %64, align 8
   %66 = select i1 %.not.i.i.i.i.i.i.i.i.i, ptr %65, ptr %64
-  %67 = getelementptr inbounds i8, ptr %0, i64 960
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 960
   %68 = load i32, ptr %67, align 8
   %69 = select i1 %.not.i.i.i.i.i.i.i.i.i, i32 %68, i32 32
   %70 = icmp eq i32 %69, 0
@@ -53404,13 +53404,13 @@ _ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32EN
   %.0.i.i.i.i = phi ptr [ %93, %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i ], [ null, %60 ], [ null, %.lr.ph.i.i.i.i.i.i ]
   %.not10.i.i.i = icmp eq ptr %.0.i.i.i.i, null
   %spec.select.i.i.i = select i1 %.not10.i.i.i, ptr %.sroa.0.0.i.i.i.i, ptr %.0.i.i.i.i
-  %94 = getelementptr inbounds i8, ptr %0, i64 928
+  %94 = getelementptr inbounds nuw i8, ptr %0, i64 928
   %95 = load ptr, ptr %94, align 8
   %96 = icmp eq ptr %spec.select.i.i.i, %95
   br i1 %96, label %97, label %_ZN12_GLOBAL__N_122CanonicalizerAllocator8makeNodeIN4llvm16itanium_demangle21CtorVtableSpecialNameEJRPNS3_4NodeES7_EEES6_DpOT0_.exit
 
 97:                                               ; preds = %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i
-  %98 = getelementptr inbounds i8, ptr %0, i64 936
+  %98 = getelementptr inbounds nuw i8, ptr %0, i64 936
   store i8 1, ptr %98, align 8
   br label %_ZN12_GLOBAL__N_122CanonicalizerAllocator8makeNodeIN4llvm16itanium_demangle21CtorVtableSpecialNameEJRPNS3_4NodeES7_EEES6_DpOT0_.exit
 
@@ -53424,7 +53424,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   %4 = alloca %"class.llvm::FoldingSetNodeID", align 8
   %5 = alloca ptr, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 808
-  %7 = getelementptr inbounds i8, ptr %0, i64 937
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 937
   %8 = load i8, ptr %7, align 1
   %9 = trunc i8 %8 to i1
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %4)
@@ -53448,7 +53448,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
 _ZN12_GLOBAL__N_111profileCtorIJPKcPN4llvm16itanium_demangle4NodeEEEEvRNS3_16FoldingSetNodeIDENS5_4KindEDpT_.exit.i.i.i.i: ; preds = %15, %14
   %16 = ptrtoint ptr %11 to i64
   call void @_ZN4llvm16FoldingSetNodeID10AddIntegerEy(ptr noundef nonnull align 8 dereferenceable(144) %4, i64 noundef %16)
-  %17 = getelementptr inbounds i8, ptr %0, i64 904
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 904
   %18 = call noundef ptr @_ZN4llvm14FoldingSetBase19FindNodeOrInsertPosERKNS_16FoldingSetNodeIDERPvRKNS0_14FoldingSetInfoE(ptr noundef nonnull align 8 dereferenceable(16) %17, ptr noundef nonnull align 8 dereferenceable(144) %4, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4llvm10FoldingSetIN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeaderEE17getFoldingSetInfoEvE4Info) #20
   %.not.i.i.i.i = icmp eq ptr %18, null
   br i1 %.not.i.i.i.i, label %21, label %19
@@ -53461,7 +53461,7 @@ _ZN12_GLOBAL__N_111profileCtorIJPKcPN4llvm16itanium_demangle4NodeEEEEvRNS3_16Fol
   br i1 %9, label %22, label %54
 
 22:                                               ; preds = %21
-  %23 = getelementptr inbounds i8, ptr %0, i64 888
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 888
   %24 = load i64, ptr %23, align 8
   %25 = add i64 %24, 48
   store i64 %25, ptr %23, align 8
@@ -53470,7 +53470,7 @@ _ZN12_GLOBAL__N_111profileCtorIJPKcPN4llvm16itanium_demangle4NodeEEEEvRNS3_16Fol
   %28 = add i64 %27, 7
   %29 = and i64 %28, -8
   %30 = add i64 %29, 48
-  %31 = getelementptr inbounds i8, ptr %0, i64 816
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 816
   %32 = load ptr, ptr %31, align 8
   %33 = ptrtoint ptr %32 to i64
   %.not.i.i.i.i.i.i = icmp ugt i64 %30, %33
@@ -53536,7 +53536,7 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   br i1 %.not.i.i.i.i, label %59, label %61
 
 59:                                               ; preds = %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle11SpecialNameEJRA34_KcRPNS3_4NodeEEEESt4pairIS9_bEbDpOT0_.exit.i.i.i
-  %60 = getelementptr inbounds i8, ptr %0, i64 920
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 920
   store ptr %.sroa.013.0.i.i.i.i, ptr %60, align 8
   br label %_ZN12_GLOBAL__N_122CanonicalizerAllocator8makeNodeIN4llvm16itanium_demangle11SpecialNameEJRA34_KcRPNS3_4NodeEEEES9_DpOT0_.exit
 
@@ -53545,14 +53545,14 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   br i1 %.not.i.i.i, label %_ZN12_GLOBAL__N_122CanonicalizerAllocator8makeNodeIN4llvm16itanium_demangle11SpecialNameEJRA34_KcRPNS3_4NodeEEEES9_DpOT0_.exit, label %62
 
 62:                                               ; preds = %61
-  %63 = getelementptr inbounds i8, ptr %0, i64 944
+  %63 = getelementptr inbounds nuw i8, ptr %0, i64 944
   %64 = load i32, ptr %63, align 8
   %65 = and i32 %64, 1
   %.not.i.i.i.i.i.i.i.i.i = icmp eq i32 %65, 0
-  %66 = getelementptr inbounds i8, ptr %0, i64 952
+  %66 = getelementptr inbounds nuw i8, ptr %0, i64 952
   %67 = load ptr, ptr %66, align 8
   %68 = select i1 %.not.i.i.i.i.i.i.i.i.i, ptr %67, ptr %66
-  %69 = getelementptr inbounds i8, ptr %0, i64 960
+  %69 = getelementptr inbounds nuw i8, ptr %0, i64 960
   %70 = load i32, ptr %69, align 8
   %71 = select i1 %.not.i.i.i.i.i.i.i.i.i, i32 %70, i32 32
   %72 = icmp eq i32 %71, 0
@@ -53599,13 +53599,13 @@ _ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32EN
   %.0.i.i.i.i = phi ptr [ %95, %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i ], [ null, %62 ], [ null, %.lr.ph.i.i.i.i.i.i ]
   %.not10.i.i.i = icmp eq ptr %.0.i.i.i.i, null
   %spec.select.i.i.i = select i1 %.not10.i.i.i, ptr %.sroa.013.0.i.i.i.i, ptr %.0.i.i.i.i
-  %96 = getelementptr inbounds i8, ptr %0, i64 928
+  %96 = getelementptr inbounds nuw i8, ptr %0, i64 928
   %97 = load ptr, ptr %96, align 8
   %98 = icmp eq ptr %spec.select.i.i.i, %97
   br i1 %98, label %99, label %_ZN12_GLOBAL__N_122CanonicalizerAllocator8makeNodeIN4llvm16itanium_demangle11SpecialNameEJRA34_KcRPNS3_4NodeEEEES9_DpOT0_.exit
 
 99:                                               ; preds = %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i
-  %100 = getelementptr inbounds i8, ptr %0, i64 936
+  %100 = getelementptr inbounds nuw i8, ptr %0, i64 936
   store i8 1, ptr %100, align 8
   br label %_ZN12_GLOBAL__N_122CanonicalizerAllocator8makeNodeIN4llvm16itanium_demangle11SpecialNameEJRA34_KcRPNS3_4NodeEEEES9_DpOT0_.exit
 
@@ -53619,7 +53619,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   %3 = alloca %"class.llvm::FoldingSetNodeID", align 8
   %4 = alloca ptr, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 808
-  %6 = getelementptr inbounds i8, ptr %0, i64 937
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 937
   %7 = load i8, ptr %6, align 1
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
@@ -53630,7 +53630,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   call void @_ZN4llvm16FoldingSetNodeID9AddStringENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr nonnull @.str.245, i64 40) #20
   %10 = ptrtoint ptr %9 to i64
   call void @_ZN4llvm16FoldingSetNodeID10AddIntegerEy(ptr noundef nonnull align 8 dereferenceable(144) %3, i64 noundef %10)
-  %11 = getelementptr inbounds i8, ptr %0, i64 904
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 904
   %12 = call noundef ptr @_ZN4llvm14FoldingSetBase19FindNodeOrInsertPosERKNS_16FoldingSetNodeIDERPvRKNS0_14FoldingSetInfoE(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4llvm10FoldingSetIN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeaderEE17getFoldingSetInfoEvE4Info) #20
   %.not.i.i.i.i = icmp eq ptr %12, null
   br i1 %.not.i.i.i.i, label %15, label %13
@@ -53644,7 +53644,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   br i1 %16, label %17, label %48
 
 17:                                               ; preds = %15
-  %18 = getelementptr inbounds i8, ptr %0, i64 888
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 888
   %19 = load i64, ptr %18, align 8
   %20 = add i64 %19, 48
   store i64 %20, ptr %18, align 8
@@ -53653,7 +53653,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   %23 = add i64 %22, 7
   %24 = and i64 %23, -8
   %25 = add i64 %24, 48
-  %26 = getelementptr inbounds i8, ptr %0, i64 816
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 816
   %27 = load ptr, ptr %26, align 8
   %28 = ptrtoint ptr %27 to i64
   %.not.i.i.i.i.i.i = icmp ugt i64 %25, %28
@@ -53718,7 +53718,7 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   br i1 %.not.i.i.i.i, label %53, label %55
 
 53:                                               ; preds = %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle11SpecialNameEJRA41_KcRPNS3_4NodeEEEESt4pairIS9_bEbDpOT0_.exit.i.i.i
-  %54 = getelementptr inbounds i8, ptr %0, i64 920
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 920
   store ptr %.sroa.04.0.i.i.i.i, ptr %54, align 8
   br label %_ZN12_GLOBAL__N_122CanonicalizerAllocator8makeNodeIN4llvm16itanium_demangle11SpecialNameEJRA41_KcRPNS3_4NodeEEEES9_DpOT0_.exit
 
@@ -53727,14 +53727,14 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   br i1 %.not.i.i.i, label %_ZN12_GLOBAL__N_122CanonicalizerAllocator8makeNodeIN4llvm16itanium_demangle11SpecialNameEJRA41_KcRPNS3_4NodeEEEES9_DpOT0_.exit, label %56
 
 56:                                               ; preds = %55
-  %57 = getelementptr inbounds i8, ptr %0, i64 944
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 944
   %58 = load i32, ptr %57, align 8
   %59 = and i32 %58, 1
   %.not.i.i.i.i.i.i.i.i.i = icmp eq i32 %59, 0
-  %60 = getelementptr inbounds i8, ptr %0, i64 952
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 952
   %61 = load ptr, ptr %60, align 8
   %62 = select i1 %.not.i.i.i.i.i.i.i.i.i, ptr %61, ptr %60
-  %63 = getelementptr inbounds i8, ptr %0, i64 960
+  %63 = getelementptr inbounds nuw i8, ptr %0, i64 960
   %64 = load i32, ptr %63, align 8
   %65 = select i1 %.not.i.i.i.i.i.i.i.i.i, i32 %64, i32 32
   %66 = icmp eq i32 %65, 0
@@ -53781,13 +53781,13 @@ _ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32EN
   %.0.i.i.i.i = phi ptr [ %89, %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i ], [ null, %56 ], [ null, %.lr.ph.i.i.i.i.i.i ]
   %.not10.i.i.i = icmp eq ptr %.0.i.i.i.i, null
   %spec.select.i.i.i = select i1 %.not10.i.i.i, ptr %.sroa.04.0.i.i.i.i, ptr %.0.i.i.i.i
-  %90 = getelementptr inbounds i8, ptr %0, i64 928
+  %90 = getelementptr inbounds nuw i8, ptr %0, i64 928
   %91 = load ptr, ptr %90, align 8
   %92 = icmp eq ptr %spec.select.i.i.i, %91
   br i1 %92, label %93, label %_ZN12_GLOBAL__N_122CanonicalizerAllocator8makeNodeIN4llvm16itanium_demangle11SpecialNameEJRA41_KcRPNS3_4NodeEEEES9_DpOT0_.exit
 
 93:                                               ; preds = %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i
-  %94 = getelementptr inbounds i8, ptr %0, i64 936
+  %94 = getelementptr inbounds nuw i8, ptr %0, i64 936
   store i8 1, ptr %94, align 8
   br label %_ZN12_GLOBAL__N_122CanonicalizerAllocator8makeNodeIN4llvm16itanium_demangle11SpecialNameEJRA41_KcRPNS3_4NodeEEEES9_DpOT0_.exit
 
@@ -53801,7 +53801,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   %3 = alloca %"class.llvm::FoldingSetNodeID", align 8
   %4 = alloca ptr, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 808
-  %6 = getelementptr inbounds i8, ptr %0, i64 937
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 937
   %7 = load i8, ptr %6, align 1
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
@@ -53812,7 +53812,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   call void @_ZN4llvm16FoldingSetNodeID9AddStringENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr nonnull @.str.246, i64 17) #20
   %10 = ptrtoint ptr %9 to i64
   call void @_ZN4llvm16FoldingSetNodeID10AddIntegerEy(ptr noundef nonnull align 8 dereferenceable(144) %3, i64 noundef %10)
-  %11 = getelementptr inbounds i8, ptr %0, i64 904
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 904
   %12 = call noundef ptr @_ZN4llvm14FoldingSetBase19FindNodeOrInsertPosERKNS_16FoldingSetNodeIDERPvRKNS0_14FoldingSetInfoE(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4llvm10FoldingSetIN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeaderEE17getFoldingSetInfoEvE4Info) #20
   %.not.i.i.i.i = icmp eq ptr %12, null
   br i1 %.not.i.i.i.i, label %15, label %13
@@ -53826,7 +53826,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   br i1 %16, label %17, label %48
 
 17:                                               ; preds = %15
-  %18 = getelementptr inbounds i8, ptr %0, i64 888
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 888
   %19 = load i64, ptr %18, align 8
   %20 = add i64 %19, 48
   store i64 %20, ptr %18, align 8
@@ -53835,7 +53835,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   %23 = add i64 %22, 7
   %24 = and i64 %23, -8
   %25 = add i64 %24, 48
-  %26 = getelementptr inbounds i8, ptr %0, i64 816
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 816
   %27 = load ptr, ptr %26, align 8
   %28 = ptrtoint ptr %27 to i64
   %.not.i.i.i.i.i.i = icmp ugt i64 %25, %28
@@ -53900,7 +53900,7 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   br i1 %.not.i.i.i.i, label %53, label %55
 
 53:                                               ; preds = %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle11SpecialNameEJRA18_KcRPNS3_4NodeEEEESt4pairIS9_bEbDpOT0_.exit.i.i.i
-  %54 = getelementptr inbounds i8, ptr %0, i64 920
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 920
   store ptr %.sroa.04.0.i.i.i.i, ptr %54, align 8
   br label %_ZN12_GLOBAL__N_122CanonicalizerAllocator8makeNodeIN4llvm16itanium_demangle11SpecialNameEJRA18_KcRPNS3_4NodeEEEES9_DpOT0_.exit
 
@@ -53909,14 +53909,14 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   br i1 %.not.i.i.i, label %_ZN12_GLOBAL__N_122CanonicalizerAllocator8makeNodeIN4llvm16itanium_demangle11SpecialNameEJRA18_KcRPNS3_4NodeEEEES9_DpOT0_.exit, label %56
 
 56:                                               ; preds = %55
-  %57 = getelementptr inbounds i8, ptr %0, i64 944
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 944
   %58 = load i32, ptr %57, align 8
   %59 = and i32 %58, 1
   %.not.i.i.i.i.i.i.i.i.i = icmp eq i32 %59, 0
-  %60 = getelementptr inbounds i8, ptr %0, i64 952
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 952
   %61 = load ptr, ptr %60, align 8
   %62 = select i1 %.not.i.i.i.i.i.i.i.i.i, ptr %61, ptr %60
-  %63 = getelementptr inbounds i8, ptr %0, i64 960
+  %63 = getelementptr inbounds nuw i8, ptr %0, i64 960
   %64 = load i32, ptr %63, align 8
   %65 = select i1 %.not.i.i.i.i.i.i.i.i.i, i32 %64, i32 32
   %66 = icmp eq i32 %65, 0
@@ -53963,13 +53963,13 @@ _ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32EN
   %.0.i.i.i.i = phi ptr [ %89, %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i ], [ null, %56 ], [ null, %.lr.ph.i.i.i.i.i.i ]
   %.not10.i.i.i = icmp eq ptr %.0.i.i.i.i, null
   %spec.select.i.i.i = select i1 %.not10.i.i.i, ptr %.sroa.04.0.i.i.i.i, ptr %.0.i.i.i.i
-  %90 = getelementptr inbounds i8, ptr %0, i64 928
+  %90 = getelementptr inbounds nuw i8, ptr %0, i64 928
   %91 = load ptr, ptr %90, align 8
   %92 = icmp eq ptr %spec.select.i.i.i, %91
   br i1 %92, label %93, label %_ZN12_GLOBAL__N_122CanonicalizerAllocator8makeNodeIN4llvm16itanium_demangle11SpecialNameEJRA18_KcRPNS3_4NodeEEEES9_DpOT0_.exit
 
 93:                                               ; preds = %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i
-  %94 = getelementptr inbounds i8, ptr %0, i64 936
+  %94 = getelementptr inbounds nuw i8, ptr %0, i64 936
   store i8 1, ptr %94, align 8
   br label %_ZN12_GLOBAL__N_122CanonicalizerAllocator8makeNodeIN4llvm16itanium_demangle11SpecialNameEJRA18_KcRPNS3_4NodeEEEES9_DpOT0_.exit
 
@@ -53983,7 +53983,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   %3 = alloca %"class.llvm::FoldingSetNodeID", align 8
   %4 = alloca ptr, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 808
-  %6 = getelementptr inbounds i8, ptr %0, i64 937
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 937
   %7 = load i8, ptr %6, align 1
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
@@ -53994,7 +53994,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   call void @_ZN4llvm16FoldingSetNodeID9AddStringENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr nonnull @.str.247, i64 21) #20
   %10 = ptrtoint ptr %9 to i64
   call void @_ZN4llvm16FoldingSetNodeID10AddIntegerEy(ptr noundef nonnull align 8 dereferenceable(144) %3, i64 noundef %10)
-  %11 = getelementptr inbounds i8, ptr %0, i64 904
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 904
   %12 = call noundef ptr @_ZN4llvm14FoldingSetBase19FindNodeOrInsertPosERKNS_16FoldingSetNodeIDERPvRKNS0_14FoldingSetInfoE(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4llvm10FoldingSetIN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeaderEE17getFoldingSetInfoEvE4Info) #20
   %.not.i.i.i.i = icmp eq ptr %12, null
   br i1 %.not.i.i.i.i, label %15, label %13
@@ -54008,7 +54008,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   br i1 %16, label %17, label %48
 
 17:                                               ; preds = %15
-  %18 = getelementptr inbounds i8, ptr %0, i64 888
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 888
   %19 = load i64, ptr %18, align 8
   %20 = add i64 %19, 48
   store i64 %20, ptr %18, align 8
@@ -54017,7 +54017,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   %23 = add i64 %22, 7
   %24 = and i64 %23, -8
   %25 = add i64 %24, 48
-  %26 = getelementptr inbounds i8, ptr %0, i64 816
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 816
   %27 = load ptr, ptr %26, align 8
   %28 = ptrtoint ptr %27 to i64
   %.not.i.i.i.i.i.i = icmp ugt i64 %25, %28
@@ -54082,7 +54082,7 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   br i1 %.not.i.i.i.i, label %53, label %55
 
 53:                                               ; preds = %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle11SpecialNameEJRA22_KcRPNS3_4NodeEEEESt4pairIS9_bEbDpOT0_.exit.i.i.i
-  %54 = getelementptr inbounds i8, ptr %0, i64 920
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 920
   store ptr %.sroa.04.0.i.i.i.i, ptr %54, align 8
   br label %_ZN12_GLOBAL__N_122CanonicalizerAllocator8makeNodeIN4llvm16itanium_demangle11SpecialNameEJRA22_KcRPNS3_4NodeEEEES9_DpOT0_.exit
 
@@ -54091,14 +54091,14 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   br i1 %.not.i.i.i, label %_ZN12_GLOBAL__N_122CanonicalizerAllocator8makeNodeIN4llvm16itanium_demangle11SpecialNameEJRA22_KcRPNS3_4NodeEEEES9_DpOT0_.exit, label %56
 
 56:                                               ; preds = %55
-  %57 = getelementptr inbounds i8, ptr %0, i64 944
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 944
   %58 = load i32, ptr %57, align 8
   %59 = and i32 %58, 1
   %.not.i.i.i.i.i.i.i.i.i = icmp eq i32 %59, 0
-  %60 = getelementptr inbounds i8, ptr %0, i64 952
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 952
   %61 = load ptr, ptr %60, align 8
   %62 = select i1 %.not.i.i.i.i.i.i.i.i.i, ptr %61, ptr %60
-  %63 = getelementptr inbounds i8, ptr %0, i64 960
+  %63 = getelementptr inbounds nuw i8, ptr %0, i64 960
   %64 = load i32, ptr %63, align 8
   %65 = select i1 %.not.i.i.i.i.i.i.i.i.i, i32 %64, i32 32
   %66 = icmp eq i32 %65, 0
@@ -54145,13 +54145,13 @@ _ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32EN
   %.0.i.i.i.i = phi ptr [ %89, %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i ], [ null, %56 ], [ null, %.lr.ph.i.i.i.i.i.i ]
   %.not10.i.i.i = icmp eq ptr %.0.i.i.i.i, null
   %spec.select.i.i.i = select i1 %.not10.i.i.i, ptr %.sroa.04.0.i.i.i.i, ptr %.0.i.i.i.i
-  %90 = getelementptr inbounds i8, ptr %0, i64 928
+  %90 = getelementptr inbounds nuw i8, ptr %0, i64 928
   %91 = load ptr, ptr %90, align 8
   %92 = icmp eq ptr %spec.select.i.i.i, %91
   br i1 %92, label %93, label %_ZN12_GLOBAL__N_122CanonicalizerAllocator8makeNodeIN4llvm16itanium_demangle11SpecialNameEJRA22_KcRPNS3_4NodeEEEES9_DpOT0_.exit
 
 93:                                               ; preds = %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i
-  %94 = getelementptr inbounds i8, ptr %0, i64 936
+  %94 = getelementptr inbounds nuw i8, ptr %0, i64 936
   store i8 1, ptr %94, align 8
   br label %_ZN12_GLOBAL__N_122CanonicalizerAllocator8makeNodeIN4llvm16itanium_demangle11SpecialNameEJRA22_KcRPNS3_4NodeEEEES9_DpOT0_.exit
 
@@ -54165,7 +54165,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   %3 = alloca %"class.llvm::FoldingSetNodeID", align 8
   %4 = alloca ptr, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 808
-  %6 = getelementptr inbounds i8, ptr %0, i64 937
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 937
   %7 = load i8, ptr %6, align 1
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
@@ -54176,7 +54176,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   call void @_ZN4llvm16FoldingSetNodeID9AddStringENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr nonnull @.str.249, i64 24) #20
   %10 = ptrtoint ptr %9 to i64
   call void @_ZN4llvm16FoldingSetNodeID10AddIntegerEy(ptr noundef nonnull align 8 dereferenceable(144) %3, i64 noundef %10)
-  %11 = getelementptr inbounds i8, ptr %0, i64 904
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 904
   %12 = call noundef ptr @_ZN4llvm14FoldingSetBase19FindNodeOrInsertPosERKNS_16FoldingSetNodeIDERPvRKNS0_14FoldingSetInfoE(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4llvm10FoldingSetIN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeaderEE17getFoldingSetInfoEvE4Info) #20
   %.not.i.i.i.i = icmp eq ptr %12, null
   br i1 %.not.i.i.i.i, label %15, label %13
@@ -54190,7 +54190,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   br i1 %16, label %17, label %48
 
 17:                                               ; preds = %15
-  %18 = getelementptr inbounds i8, ptr %0, i64 888
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 888
   %19 = load i64, ptr %18, align 8
   %20 = add i64 %19, 48
   store i64 %20, ptr %18, align 8
@@ -54199,7 +54199,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   %23 = add i64 %22, 7
   %24 = and i64 %23, -8
   %25 = add i64 %24, 48
-  %26 = getelementptr inbounds i8, ptr %0, i64 816
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 816
   %27 = load ptr, ptr %26, align 8
   %28 = ptrtoint ptr %27 to i64
   %.not.i.i.i.i.i.i = icmp ugt i64 %25, %28
@@ -54264,7 +54264,7 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   br i1 %.not.i.i.i.i, label %53, label %55
 
 53:                                               ; preds = %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle11SpecialNameEJRA25_KcRPNS3_4NodeEEEESt4pairIS9_bEbDpOT0_.exit.i.i.i
-  %54 = getelementptr inbounds i8, ptr %0, i64 920
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 920
   store ptr %.sroa.04.0.i.i.i.i, ptr %54, align 8
   br label %_ZN12_GLOBAL__N_122CanonicalizerAllocator8makeNodeIN4llvm16itanium_demangle11SpecialNameEJRA25_KcRPNS3_4NodeEEEES9_DpOT0_.exit
 
@@ -54273,14 +54273,14 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   br i1 %.not.i.i.i, label %_ZN12_GLOBAL__N_122CanonicalizerAllocator8makeNodeIN4llvm16itanium_demangle11SpecialNameEJRA25_KcRPNS3_4NodeEEEES9_DpOT0_.exit, label %56
 
 56:                                               ; preds = %55
-  %57 = getelementptr inbounds i8, ptr %0, i64 944
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 944
   %58 = load i32, ptr %57, align 8
   %59 = and i32 %58, 1
   %.not.i.i.i.i.i.i.i.i.i = icmp eq i32 %59, 0
-  %60 = getelementptr inbounds i8, ptr %0, i64 952
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 952
   %61 = load ptr, ptr %60, align 8
   %62 = select i1 %.not.i.i.i.i.i.i.i.i.i, ptr %61, ptr %60
-  %63 = getelementptr inbounds i8, ptr %0, i64 960
+  %63 = getelementptr inbounds nuw i8, ptr %0, i64 960
   %64 = load i32, ptr %63, align 8
   %65 = select i1 %.not.i.i.i.i.i.i.i.i.i, i32 %64, i32 32
   %66 = icmp eq i32 %65, 0
@@ -54327,13 +54327,13 @@ _ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32EN
   %.0.i.i.i.i = phi ptr [ %89, %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i ], [ null, %56 ], [ null, %.lr.ph.i.i.i.i.i.i ]
   %.not10.i.i.i = icmp eq ptr %.0.i.i.i.i, null
   %spec.select.i.i.i = select i1 %.not10.i.i.i, ptr %.sroa.04.0.i.i.i.i, ptr %.0.i.i.i.i
-  %90 = getelementptr inbounds i8, ptr %0, i64 928
+  %90 = getelementptr inbounds nuw i8, ptr %0, i64 928
   %91 = load ptr, ptr %90, align 8
   %92 = icmp eq ptr %spec.select.i.i.i, %91
   br i1 %92, label %93, label %_ZN12_GLOBAL__N_122CanonicalizerAllocator8makeNodeIN4llvm16itanium_demangle11SpecialNameEJRA25_KcRPNS3_4NodeEEEES9_DpOT0_.exit
 
 93:                                               ; preds = %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i
-  %94 = getelementptr inbounds i8, ptr %0, i64 936
+  %94 = getelementptr inbounds nuw i8, ptr %0, i64 936
   store i8 1, ptr %94, align 8
   br label %_ZN12_GLOBAL__N_122CanonicalizerAllocator8makeNodeIN4llvm16itanium_demangle11SpecialNameEJRA25_KcRPNS3_4NodeEEEES9_DpOT0_.exit
 
@@ -54586,7 +54586,7 @@ _ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i: ; preds = %._ZN4llvm16it
   %19 = add i64 %18, 12
   store i64 %19, ptr %3, align 8
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %21 = getelementptr inbounds i8, ptr %0, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %22 = load i64, ptr %21, align 8
   %.not13.i = icmp eq i64 %22, 0
   br i1 %.not13.i, label %_ZNK4llvm16itanium_demangle9NodeArray14printWithCommaERNS0_12OutputBufferE.exit, label %.lr.ph.i
@@ -54917,7 +54917,7 @@ _ZN4llvm16itanium_demangle12OutputBuffer9printOpenEc.exit: ; preds = %2, %._ZN4l
   %20 = getelementptr inbounds i8, ptr %19, i64 %18
   store i8 40, ptr %20, align 1
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %22 = getelementptr inbounds i8, ptr %0, i64 40
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %23 = load i64, ptr %22, align 8
   %.not13.i = icmp eq i64 %23, 0
   %.pre = load i64, ptr %6, align 8
@@ -55348,7 +55348,7 @@ define linkonce_odr hidden noundef ptr @_ZN4llvm12DenseMapBaseINS_13SmallDenseMa
   %6 = lshr i32 %5, 1
   %7 = and i32 %5, 1
   %.not.i.i = icmp eq i32 %7, 0
-  %8 = getelementptr inbounds i8, ptr %0, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = load i32, ptr %8, align 8
   %10 = select i1 %.not.i.i, i32 %9, i32 32
   %11 = shl i32 %6, 2
@@ -55573,7 +55573,7 @@ define linkonce_odr hidden void @_ZN4llvm13SmallDenseMapIPNS_16itanium_demangle4
   %37 = shl nuw nsw i64 %36, 4
   %38 = tail call noalias noundef nonnull ptr @_ZN4llvm15allocate_bufferEmm(i64 noundef %37, i64 noundef 8) #20
   store ptr %38, ptr %23, align 8
-  %39 = getelementptr inbounds i8, ptr %0, i64 16
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 %.0, ptr %39, align 8
   br label %40
 
@@ -55624,7 +55624,7 @@ define linkonce_odr hidden void @_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_1
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8
   %9 = select i1 %.not.i.i.i.i, ptr %8, ptr %7
-  %10 = getelementptr inbounds i8, ptr %0, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %11 = load i32, ptr %10, align 8
   %12 = select i1 %.not.i.i.i.i, i32 %11, i32 32
   %13 = zext i32 %12 to i64

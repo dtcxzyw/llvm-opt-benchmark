@@ -7142,13 +7142,13 @@ define noundef nonnull align 8 dereferenceable(56) ptr @_ZNK32pxrInternal_v0_24_
 
 11:                                               ; preds = %4
   %12 = zext i32 %9 to i64
-  %13 = getelementptr inbounds i8, ptr %0, i64 72
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %14 = load i32, ptr %13, align 8
   %15 = icmp ugt i32 %9, %14
   br i1 %15, label %_ZNK32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocator9HasPrefixERKS0_.exit.thread, label %.preheader.i
 
 .preheader.i:                                     ; preds = %11
-  %16 = getelementptr inbounds i8, ptr %0, i64 76
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 76
   %17 = load i32, ptr %16, align 4
   %18 = icmp ult i32 %17, 7
   %19 = load ptr, ptr %5, align 8
@@ -7199,7 +7199,7 @@ define noundef nonnull align 8 dereferenceable(80) ptr @_ZN32pxrInternal_v0_24__
 
 7:                                                ; preds = %1
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %9 = getelementptr inbounds i8, ptr %0, i64 72
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %10 = load i32, ptr %9, align 8
   %11 = icmp eq i32 %10, 0
   br i1 %11, label %_ZNK32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocator9HasPrefixERKS0_.exit.thread, label %12
@@ -7217,7 +7217,7 @@ define noundef nonnull align 8 dereferenceable(80) ptr @_ZN32pxrInternal_v0_24__
   %19 = icmp ult i32 %18, 7
   %20 = load ptr, ptr %4, align 8
   %spec.select.i.i.i.i = select i1 %19, ptr %4, ptr %20
-  %21 = getelementptr inbounds i8, ptr %0, i64 76
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 76
   %22 = load i32, ptr %21, align 4
   %23 = icmp ult i32 %22, 7
   %24 = load ptr, ptr %8, align 8
@@ -7257,9 +7257,9 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__22HdDataSourceLocatorSet20Inte
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %6 = getelementptr inbounds i8, ptr %0, i64 76
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 76
   store i32 6, ptr %6, align 4
-  %7 = getelementptr inbounds i8, ptr %1, i64 72
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %8 = load i32, ptr %7, align 8
   %9 = icmp ult i32 %8, 7
   %.pre = zext i32 %8 to i64
@@ -7270,9 +7270,9 @@ _ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE12_InitSto
   %11 = tail call noalias noundef ptr @malloc(i64 noundef %10) #20
   store ptr %11, ptr %4, align 8
   store i32 %8, ptr %6, align 4
-  %12 = getelementptr inbounds i8, ptr %0, i64 72
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store i32 %8, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %1, i64 76
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 76
   %14 = load i32, ptr %13, align 4
   %15 = icmp ult i32 %14, 7
   %16 = load ptr, ptr %5, align 8
@@ -7280,9 +7280,9 @@ _ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE12_InitSto
   br label %.lr.ph.i.i.i.i.i.i.preheader
 
 _ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE12_InitStorageEm.exit.i.i.i: ; preds = %3
-  %17 = getelementptr inbounds i8, ptr %0, i64 72
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store i32 %8, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %1, i64 76
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 76
   %19 = load i32, ptr %18, align 4
   %20 = icmp ult i32 %19, 7
   %21 = load ptr, ptr %5, align 8
@@ -7395,12 +7395,12 @@ _ZN32pxrInternal_v0_24__pxrReserved__22HdDataSourceLocatorSet20IntersectionItera
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__22HdDataSourceLocatorSet20IntersectionIteratorD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %3 = getelementptr inbounds i8, ptr %0, i64 76
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 76
   %4 = load i32, ptr %3, align 4
   %5 = icmp ult i32 %4, 7
   %6 = load ptr, ptr %2, align 8
   %spec.select.i.i.i.i.i = select i1 %5, ptr %2, ptr %6
-  %7 = getelementptr inbounds i8, ptr %0, i64 72
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %8 = load i32, ptr %7, align 8
   %9 = zext i32 %8 to i64
   %10 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::TfToken", ptr %spec.select.i.i.i.i.i, i64 %9
@@ -7464,7 +7464,7 @@ define void @_ZNK32pxrInternal_v0_24__pxrReserved__22HdDataSourceLocatorSet12Int
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %14, ptr %16, align 8
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  %18 = getelementptr inbounds i8, ptr %4, i64 76
+  %18 = getelementptr inbounds nuw i8, ptr %4, i64 76
   store i32 6, ptr %18, align 4
   %19 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %20 = load i32, ptr %19, align 8
@@ -7477,7 +7477,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE12_InitSto
   %23 = tail call noalias noundef ptr @malloc(i64 noundef %22) #20
   store ptr %23, ptr %17, align 8
   store i32 %20, ptr %18, align 4
-  %24 = getelementptr inbounds i8, ptr %4, i64 72
+  %24 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store i32 %20, ptr %24, align 8
   %25 = getelementptr inbounds nuw i8, ptr %2, i64 52
   %26 = load i32, ptr %25, align 4
@@ -7487,7 +7487,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE12_InitSto
   br label %.lr.ph.i.i.i.i.i.i.preheader
 
 _ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE12_InitStorageEm.exit.i.i.i: ; preds = %3
-  %29 = getelementptr inbounds i8, ptr %4, i64 72
+  %29 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store i32 %20, ptr %29, align 8
   %30 = getelementptr inbounds nuw i8, ptr %2, i64 52
   %31 = load i32, ptr %30, align 4
@@ -7560,7 +7560,7 @@ _ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__7TfTokenEJRKS1_EEvPT_DpOT0_.
   %59 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %57, ptr %59, align 8
   %60 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  %61 = getelementptr inbounds i8, ptr %5, i64 76
+  %61 = getelementptr inbounds nuw i8, ptr %5, i64 76
   store i32 6, ptr %61, align 4
   %62 = icmp ult i32 %53, 7
   %.pre42 = zext i32 %53 to i64
@@ -7571,7 +7571,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE12_InitSto
   %64 = tail call noalias noundef ptr @malloc(i64 noundef %63) #20
   store ptr %64, ptr %60, align 8
   store i32 %53, ptr %61, align 4
-  %65 = getelementptr inbounds i8, ptr %5, i64 72
+  %65 = getelementptr inbounds nuw i8, ptr %5, i64 72
   store i32 %53, ptr %65, align 8
   %66 = load i32, ptr %51, align 4
   %67 = icmp ult i32 %66, 7
@@ -7580,7 +7580,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE12_InitSto
   br label %.lr.ph.i.i.i.i.i.i13.preheader
 
 _ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE12_InitStorageEm.exit.i.i.i9: ; preds = %.loopexit
-  %69 = getelementptr inbounds i8, ptr %5, i64 72
+  %69 = getelementptr inbounds nuw i8, ptr %5, i64 72
   store i32 %53, ptr %69, align 8
   %70 = load i32, ptr %51, align 4
   %71 = icmp ult i32 %70, 7
@@ -7736,9 +7736,9 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__22HdDataSourceLoc
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %6 = getelementptr inbounds i8, ptr %0, i64 76
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 76
   store i32 6, ptr %6, align 4
-  %7 = getelementptr inbounds i8, ptr %1, i64 72
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %8 = load i32, ptr %7, align 8
   %9 = icmp ult i32 %8, 7
   br i1 %9, label %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE12_InitStorageEm.exit.i.i.i, label %10
@@ -7753,9 +7753,9 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__22HdDataSourceLoc
 
 _ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE12_InitStorageEm.exit.i.i.i: ; preds = %10, %3
   %spec.select.i.i5.i.i.i = phi ptr [ %13, %10 ], [ %4, %3 ]
-  %14 = getelementptr inbounds i8, ptr %0, i64 72
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store i32 %8, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %1, i64 76
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 76
   %16 = load i32, ptr %15, align 4
   %17 = icmp ult i32 %16, 7
   %18 = load ptr, ptr %5, align 8
@@ -7800,11 +7800,11 @@ _ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__7TfTokenEJRKS1_EEvPT_DpOT0_.
 _ZN32pxrInternal_v0_24__pxrReserved__22HdDataSourceLocatorSet20IntersectionIteratorC2ERKS1_.exit: ; preds = %_ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__7TfTokenEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i.i, %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE12_InitStorageEm.exit.i.i.i
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 80
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %36, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false)
-  %37 = getelementptr inbounds i8, ptr %0, i64 104
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %38 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %39 = getelementptr inbounds i8, ptr %0, i64 156
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 156
   store i32 6, ptr %39, align 4
-  %40 = getelementptr inbounds i8, ptr %2, i64 72
+  %40 = getelementptr inbounds nuw i8, ptr %2, i64 72
   %41 = load i32, ptr %40, align 8
   %42 = icmp ult i32 %41, 7
   br i1 %42, label %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE12_InitStorageEm.exit.i.i.i4, label %43
@@ -7819,9 +7819,9 @@ _ZN32pxrInternal_v0_24__pxrReserved__22HdDataSourceLocatorSet20IntersectionItera
 
 _ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE12_InitStorageEm.exit.i.i.i4: ; preds = %43, %_ZN32pxrInternal_v0_24__pxrReserved__22HdDataSourceLocatorSet20IntersectionIteratorC2ERKS1_.exit
   %spec.select.i.i5.i.i.i5 = phi ptr [ %46, %43 ], [ %37, %_ZN32pxrInternal_v0_24__pxrReserved__22HdDataSourceLocatorSet20IntersectionIteratorC2ERKS1_.exit ]
-  %47 = getelementptr inbounds i8, ptr %0, i64 152
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 152
   store i32 %41, ptr %47, align 8
-  %48 = getelementptr inbounds i8, ptr %2, i64 76
+  %48 = getelementptr inbounds nuw i8, ptr %2, i64 76
   %49 = load i32, ptr %48, align 4
   %50 = icmp ult i32 %49, 7
   %51 = load ptr, ptr %38, align 8

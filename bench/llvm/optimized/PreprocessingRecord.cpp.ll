@@ -164,14 +164,14 @@ define dso_local void @_ZN5clang18InclusionDirectiveC2ERNS_19PreprocessingRecord
   %25 = add i64 %4, 1
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %27 = and i64 %25, 4294967295
-  %28 = getelementptr inbounds i8, ptr %1, i64 96
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %29 = load i64, ptr %28, align 8
   %30 = add i64 %29, %27
   store i64 %30, ptr %28, align 8
   %31 = load ptr, ptr %26, align 8
   %32 = ptrtoint ptr %31 to i64
   %33 = add i64 %27, %32
-  %34 = getelementptr inbounds i8, ptr %1, i64 24
+  %34 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %35 = load ptr, ptr %34, align 8
   %36 = ptrtoint ptr %35 to i64
   %.not.i.i.i = icmp ugt i64 %33, %36
@@ -208,15 +208,15 @@ define dso_local void @_ZN5clang19PreprocessingRecordC2ERNS_13SourceManagerE(ptr
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %1, ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %5 = getelementptr inbounds i8, ptr %0, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %6 = getelementptr inbounds i8, ptr %0, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false)
   tail call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull %6, i64 noundef 4) #18
-  %7 = getelementptr inbounds i8, ptr %0, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %8 = getelementptr inbounds i8, ptr %0, i64 96
   tail call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull %8, i64 noundef 0) #18
   store i64 0, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 104
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store i64 1, ptr %9, align 8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 184
@@ -243,16 +243,16 @@ define dso_local void @_ZN5clang19PreprocessingRecord30getPreprocessedEntitiesIn
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 224
   %8 = load i32, ptr %7, align 8
   %9 = icmp eq i32 %8, %.sroa.018.0.extract.trunc
-  %10 = getelementptr inbounds i8, ptr %1, i64 228
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 228
   %11 = load i32, ptr %10, align 4
   %12 = icmp eq i32 %11, %.sroa.5.0.extract.trunc
   %13 = select i1 %9, i1 %12, i1 false
   br i1 %13, label %14, label %19
 
 14:                                               ; preds = %6
-  %15 = getelementptr inbounds i8, ptr %1, i64 232
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 232
   %16 = load i32, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %1, i64 236
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 236
   %18 = load i32, ptr %17, align 4
   br label %51
 
@@ -288,7 +288,7 @@ define dso_local void @_ZN5clang19PreprocessingRecord30getPreprocessedEntitiesIn
 
 36:                                               ; preds = %30
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 136
-  %38 = getelementptr inbounds i8, ptr %1, i64 144
+  %38 = getelementptr inbounds nuw i8, ptr %1, i64 144
   %39 = load ptr, ptr %38, align 8
   %40 = load ptr, ptr %37, align 8
   %41 = ptrtoint ptr %39 to i64
@@ -309,9 +309,9 @@ _ZN5clang19PreprocessingRecord34getPreprocessedEntitiesInRangeSlowENS_11SourceRa
   %.sroa.038.0.in.i = phi i64 [ %20, %19 ], [ %20, %23 ], [ %20, %30 ], [ %46, %36 ], [ %46, %47 ]
   %.sroa.07.0.extract.trunc = trunc i64 %.sroa.038.0.in.i to i32
   store i64 %2, ptr %7, align 8
-  %49 = getelementptr inbounds i8, ptr %1, i64 232
+  %49 = getelementptr inbounds nuw i8, ptr %1, i64 232
   store i32 %.sroa.07.0.extract.trunc, ptr %49, align 8
-  %50 = getelementptr inbounds i8, ptr %1, i64 236
+  %50 = getelementptr inbounds nuw i8, ptr %1, i64 236
   store i32 %.sroa.3.0.extract.trunc.pre-phi, ptr %50, align 4
   br label %51
 
@@ -363,7 +363,7 @@ define dso_local i64 @_ZN5clang19PreprocessingRecord34getPreprocessedEntitiesInR
 
 19:                                               ; preds = %13
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  %21 = getelementptr inbounds i8, ptr %0, i64 144
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %22 = load ptr, ptr %21, align 8
   %23 = load ptr, ptr %20, align 8
   %24 = ptrtoint ptr %22 to i64
@@ -401,7 +401,7 @@ define dso_local noundef zeroext i1 @_ZN5clang19PreprocessingRecord16isEntityInF
   %9 = xor i32 %1, -1
   %10 = zext nneg i32 %9 to i64
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  %12 = getelementptr inbounds i8, ptr %0, i64 144
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %13 = load ptr, ptr %12, align 8
   %14 = load ptr, ptr %11, align 8
   %15 = ptrtoint ptr %13 to i64
@@ -508,7 +508,7 @@ _ZNK5clang13SourceManager12getSLocEntryENS_6FileIDEPb.exit.i.i.i.thread: ; preds
 75:                                               ; preds = %6
   %76 = zext nneg i32 %1 to i64
   %77 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %78 = getelementptr inbounds i8, ptr %0, i64 120
+  %78 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %79 = load ptr, ptr %78, align 8
   %80 = load ptr, ptr %77, align 8
   %81 = ptrtoint ptr %79 to i64
@@ -687,7 +687,7 @@ define dso_local noundef ptr @_ZN5clang19PreprocessingRecord27getLoadedPreproces
 
 15:                                               ; preds = %8
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %17 = getelementptr inbounds i8, ptr %0, i64 96
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %18 = load i64, ptr %17, align 8
   %19 = add i64 %18, 12
   store i64 %19, ptr %17, align 8
@@ -696,7 +696,7 @@ define dso_local noundef ptr @_ZN5clang19PreprocessingRecord27getLoadedPreproces
   %22 = add i64 %21, 7
   %23 = and i64 %22, -8
   %24 = add i64 %23, 12
-  %25 = getelementptr inbounds i8, ptr %0, i64 24
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %26 = load ptr, ptr %25, align 8
   %27 = ptrtoint ptr %26 to i64
   %.not.i.i.i.i.i = icmp ugt i64 %24, %27
@@ -762,7 +762,7 @@ define dso_local i64 @_ZNK5clang19PreprocessingRecord36findLocalPreprocessedEnti
 
 11:                                               ; preds = %5
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %13 = getelementptr inbounds i8, ptr %0, i64 120
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %14 = load ptr, ptr %13, align 8
   %15 = load ptr, ptr %12, align 8
   %16 = ptrtoint ptr %14 to i64
@@ -888,7 +888,7 @@ define dso_local noundef i32 @_ZNK5clang19PreprocessingRecord32findBeginLocalPre
 
 8:                                                ; preds = %2
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %10 = getelementptr inbounds i8, ptr %0, i64 120
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %11 = load ptr, ptr %10, align 8
   %12 = load ptr, ptr %9, align 8
   %13 = ptrtoint ptr %11 to i64
@@ -1014,9 +1014,9 @@ define dso_local i32 @_ZN5clang19PreprocessingRecord21addPreprocessedEntityEPNS_
   br i1 %6, label %8, label %46
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %0, i64 120
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 128
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %12 = load ptr, ptr %11, align 8
   %.not.i = icmp eq ptr %10, %12
   br i1 %.not.i, label %16, label %13
@@ -1096,7 +1096,7 @@ _ZNSt6vectorIPN5clang18PreprocessedEntityESaIS2_EE9push_backERKS2_.exit: ; preds
 
 46:                                               ; preds = %2
   %47 = load ptr, ptr %7, align 8
-  %48 = getelementptr inbounds i8, ptr %0, i64 120
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %49 = load ptr, ptr %48, align 8
   %50 = icmp eq ptr %47, %49
   br i1 %50, label %.critedge, label %51
@@ -1115,7 +1115,7 @@ _ZNSt6vectorIPN5clang18PreprocessedEntityESaIS2_EE9push_backERKS2_.exit: ; preds
 
 .critedge:                                        ; preds = %46, %51
   %58 = phi ptr [ %49, %46 ], [ %.pre, %51 ]
-  %59 = getelementptr inbounds i8, ptr %0, i64 128
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %60 = load ptr, ptr %59, align 8
   %.not.i10 = icmp eq ptr %58, %60
   br i1 %.not.i10, label %64, label %61
@@ -1412,7 +1412,7 @@ define dso_local void @_ZN5clang19PreprocessingRecord17SetExternalSourceERNS_33E
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local noundef i32 @_ZN5clang19PreprocessingRecord22allocateLoadedEntitiesEj(ptr noundef nonnull align 8 dereferenceable(240) %0, i32 noundef %1) local_unnamed_addr #3 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  %4 = getelementptr inbounds i8, ptr %0, i64 144
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %3, align 8
   %7 = ptrtoint ptr %5 to i64
@@ -1449,7 +1449,7 @@ _ZNSt6vectorIPN5clang18PreprocessedEntityESaIS2_EE6resizeEm.exit: ; preds = %14,
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local noundef i32 @_ZN5clang19PreprocessingRecord21allocateSkippedRangesEj(ptr noundef nonnull align 8 dereferenceable(240) %0, i32 noundef %1) local_unnamed_addr #3 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 160
-  %4 = getelementptr inbounds i8, ptr %0, i64 168
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %3, align 8
   %7 = ptrtoint ptr %5 to i64
@@ -1580,7 +1580,7 @@ define dso_local void @_ZN5clang19PreprocessingRecord25ensureSkippedRangesLoaded
 
 .preheader:                                       ; preds = %5
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 160
-  %9 = getelementptr inbounds i8, ptr %0, i64 168
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %10 = load ptr, ptr %9, align 8
   %11 = load ptr, ptr %8, align 8
   %.not67 = icmp eq ptr %10, %11
@@ -1639,7 +1639,7 @@ define dso_local void @_ZN5clang19PreprocessingRecord23RegisterMacroDefinitionEP
   store ptr %1, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 208
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %8 = load i32, ptr %7, align 8
   %9 = icmp eq i32 %8, 0
   br i1 %9, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang9MacroInfoEPNS2_21MacroDefinitionRecordENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S7_EEEES5_S7_S9_SC_E15LookupBucketForIS5_EEbRKT_RPSC_.exit.i.i, label %10
@@ -1730,7 +1730,7 @@ define dso_local noundef ptr @_ZN5clang19PreprocessingRecord21getPreprocessedEnt
 
 18:                                               ; preds = %11
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %20 = getelementptr inbounds i8, ptr %0, i64 96
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %21 = load i64, ptr %20, align 8
   %22 = add i64 %21, 12
   store i64 %22, ptr %20, align 8
@@ -1739,7 +1739,7 @@ define dso_local noundef ptr @_ZN5clang19PreprocessingRecord21getPreprocessedEnt
   %25 = add i64 %24, 7
   %26 = and i64 %25, -8
   %27 = add i64 %26, 12
-  %28 = getelementptr inbounds i8, ptr %0, i64 24
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %29 = load ptr, ptr %28, align 8
   %30 = ptrtoint ptr %29 to i64
   %.not.i.i.i.i.i.i = icmp ugt i64 %27, %30
@@ -1804,7 +1804,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
 define dso_local noundef ptr @_ZN5clang19PreprocessingRecord19findMacroDefinitionEPKNS_9MacroInfoE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(240) %0, ptr noundef %1) local_unnamed_addr #8 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 208
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %6 = load i32, ptr %5, align 8
   %7 = icmp eq i32 %6, 0
   br i1 %7, label %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang9MacroInfoEPNS2_21MacroDefinitionRecordENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S7_EEEES5_S7_S9_SC_E6lookupES5_.exit, label %8
@@ -1866,7 +1866,7 @@ define dso_local void @_ZN5clang19PreprocessingRecord17addMacroExpansionERKNS_5T
 
 11:                                               ; preds = %7
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %13 = getelementptr inbounds i8, ptr %0, i64 96
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %14 = load i64, ptr %13, align 8
   %15 = add i64 %14, 24
   store i64 %15, ptr %13, align 8
@@ -1875,7 +1875,7 @@ define dso_local void @_ZN5clang19PreprocessingRecord17addMacroExpansionERKNS_5T
   %18 = add i64 %17, 7
   %19 = and i64 %18, -8
   %20 = add i64 %19, 24
-  %21 = getelementptr inbounds i8, ptr %0, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %22 = load ptr, ptr %21, align 8
   %23 = ptrtoint ptr %22 to i64
   %.not.i.i.i.i.i = icmp ugt i64 %20, %23
@@ -1937,7 +1937,7 @@ _ZNK5clang5Token17getIdentifierInfoEv.exit:       ; preds = %switch.hole_check, 
 45:                                               ; preds = %7
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %47 = load ptr, ptr %46, align 8
-  %48 = getelementptr inbounds i8, ptr %0, i64 208
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %49 = load i32, ptr %48, align 8
   %50 = icmp eq i32 %49, 0
   br i1 %50, label %_ZN5clang19PreprocessingRecord19findMacroDefinitionEPKNS_9MacroInfoE.exit.thread, label %51
@@ -1982,7 +1982,7 @@ _ZN5clang19PreprocessingRecord19findMacroDefinitionEPKNS_9MacroInfoE.exit: ; pre
 
 74:                                               ; preds = %_ZN5clang19PreprocessingRecord19findMacroDefinitionEPKNS_9MacroInfoE.exit
   %75 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %76 = getelementptr inbounds i8, ptr %0, i64 96
+  %76 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %77 = load i64, ptr %76, align 8
   %78 = add i64 %77, 24
   store i64 %78, ptr %76, align 8
@@ -1991,7 +1991,7 @@ _ZN5clang19PreprocessingRecord19findMacroDefinitionEPKNS_9MacroInfoE.exit: ; pre
   %81 = add i64 %80, 7
   %82 = and i64 %81, -8
   %83 = add i64 %82, 24
-  %84 = getelementptr inbounds i8, ptr %0, i64 24
+  %84 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %85 = load ptr, ptr %84, align 8
   %86 = ptrtoint ptr %85 to i64
   %.not.i.i.i.i.i14 = icmp ugt i64 %83, %86
@@ -2044,7 +2044,7 @@ _ZN5clang19PreprocessingRecord19findMacroDefinitionEPKNS_9MacroInfoE.exit.thread
 define dso_local void @_ZN5clang19PreprocessingRecord5IfdefENS_14SourceLocationERKNS_5TokenERKNS_15MacroDefinitionE(ptr noundef nonnull align 8 dereferenceable(240) %0, i32 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %3) unnamed_addr #3 align 2 {
   %.0.copyload.i.i.i.i.i = load i64, ptr %3, align 8
   %.not.i = icmp ugt i64 %.0.copyload.i.i.i.i.i, 7
-  %5 = getelementptr inbounds i8, ptr %3, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %6 = load i64, ptr %5, align 8
   %7 = icmp ne i64 %6, 0
   %8 = select i1 %.not.i, i1 true, i1 %7
@@ -2097,7 +2097,7 @@ _ZNK5clang15MacroDefinition12getMacroInfoEv.exit: ; preds = %17, %19, %_ZN5clang
 define dso_local void @_ZN5clang19PreprocessingRecord7ElifdefENS_14SourceLocationERKNS_5TokenERKNS_15MacroDefinitionE(ptr noundef nonnull align 8 dereferenceable(240) %0, i32 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %3) unnamed_addr #3 align 2 {
   %.0.copyload.i.i.i.i.i = load i64, ptr %3, align 8
   %.not.i = icmp ugt i64 %.0.copyload.i.i.i.i.i, 7
-  %5 = getelementptr inbounds i8, ptr %3, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %6 = load i64, ptr %5, align 8
   %7 = icmp ne i64 %6, 0
   %8 = select i1 %.not.i, i1 true, i1 %7
@@ -2150,7 +2150,7 @@ _ZNK5clang15MacroDefinition12getMacroInfoEv.exit: ; preds = %17, %19, %_ZN5clang
 define dso_local void @_ZN5clang19PreprocessingRecord6IfndefENS_14SourceLocationERKNS_5TokenERKNS_15MacroDefinitionE(ptr noundef nonnull align 8 dereferenceable(240) %0, i32 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %3) unnamed_addr #3 align 2 {
   %.0.copyload.i.i.i.i.i = load i64, ptr %3, align 8
   %.not.i = icmp ugt i64 %.0.copyload.i.i.i.i.i, 7
-  %5 = getelementptr inbounds i8, ptr %3, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %6 = load i64, ptr %5, align 8
   %7 = icmp ne i64 %6, 0
   %8 = select i1 %.not.i, i1 true, i1 %7
@@ -2203,7 +2203,7 @@ _ZNK5clang15MacroDefinition12getMacroInfoEv.exit: ; preds = %17, %19, %_ZN5clang
 define dso_local void @_ZN5clang19PreprocessingRecord8ElifndefENS_14SourceLocationERKNS_5TokenERKNS_15MacroDefinitionE(ptr noundef nonnull align 8 dereferenceable(240) %0, i32 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %3) unnamed_addr #3 align 2 {
   %.0.copyload.i.i.i.i.i = load i64, ptr %3, align 8
   %.not.i = icmp ugt i64 %.0.copyload.i.i.i.i.i, 7
-  %5 = getelementptr inbounds i8, ptr %3, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %6 = load i64, ptr %5, align 8
   %7 = icmp ne i64 %6, 0
   %8 = select i1 %.not.i, i1 true, i1 %7
@@ -2256,7 +2256,7 @@ _ZNK5clang15MacroDefinition12getMacroInfoEv.exit: ; preds = %17, %19, %_ZN5clang
 define dso_local void @_ZN5clang19PreprocessingRecord7DefinedERKNS_5TokenERKNS_15MacroDefinitionENS_11SourceRangeE(ptr noundef nonnull align 8 dereferenceable(240) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %2, i64 %3) unnamed_addr #3 align 2 {
   %.0.copyload.i.i.i.i.i = load i64, ptr %2, align 8
   %.not.i = icmp ugt i64 %.0.copyload.i.i.i.i.i, 7
-  %5 = getelementptr inbounds i8, ptr %2, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %6 = load i64, ptr %5, align 8
   %7 = icmp ne i64 %6, 0
   %8 = select i1 %.not.i, i1 true, i1 %7
@@ -2309,9 +2309,9 @@ _ZNK5clang15MacroDefinition12getMacroInfoEv.exit: ; preds = %17, %19, %_ZN5clang
 define dso_local void @_ZN5clang19PreprocessingRecord18SourceRangeSkippedENS_11SourceRangeENS_14SourceLocationE(ptr nocapture noundef nonnull align 8 dereferenceable(240) %0, i64 %1, i32 %2) unnamed_addr #3 align 2 {
   %.sroa.06.0.extract.trunc = trunc i64 %1 to i32
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 160
-  %5 = getelementptr inbounds i8, ptr %0, i64 168
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 176
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %8 = load ptr, ptr %7, align 8
   %.not.i = icmp eq ptr %6, %8
   br i1 %.not.i, label %13, label %9
@@ -2396,7 +2396,7 @@ _ZNSt6vectorIN5clang11SourceRangeESaIS1_EE12emplace_backIJNS0_14SourceLocationER
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN5clang19PreprocessingRecord12MacroExpandsERKNS_5TokenERKNS_15MacroDefinitionENS_11SourceRangeEPKNS_9MacroArgsE(ptr noundef nonnull align 8 dereferenceable(240) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %2, i64 %3, ptr nocapture readnone %4) unnamed_addr #3 align 2 {
-  %6 = getelementptr inbounds i8, ptr %2, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %7 = load i64, ptr %6, align 8
   %8 = icmp eq i64 %7, 0
   br i1 %8, label %15, label %9
@@ -2447,7 +2447,7 @@ _ZNK5clang14MacroDirective12getMacroInfoEv.exit:
   store ptr %6, ptr %3, align 8
   %.sroa.0.0.copyload.i = load i64, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %8 = getelementptr inbounds i8, ptr %0, i64 96
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %9 = load i64, ptr %8, align 8
   %10 = add i64 %9, 24
   store i64 %10, ptr %8, align 8
@@ -2456,7 +2456,7 @@ _ZNK5clang14MacroDirective12getMacroInfoEv.exit:
   %13 = add i64 %12, 7
   %14 = and i64 %13, -8
   %15 = add i64 %14, 24
-  %16 = getelementptr inbounds i8, ptr %0, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %17 = load ptr, ptr %16, align 8
   %18 = ptrtoint ptr %17 to i64
   %.not.i.i.i.i.i = icmp ugt i64 %15, %18
@@ -2517,7 +2517,7 @@ _ZNK5clang5Token17getIdentifierInfoEv.exit:       ; preds = %switch.hole_check, 
   %39 = tail call i32 @_ZN5clang19PreprocessingRecord21addPreprocessedEntityEPNS_18PreprocessedEntityE(ptr noundef nonnull align 8 dereferenceable(240) %0, ptr noundef %.0.i.i.i.i.i)
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %41 = load ptr, ptr %40, align 8
-  %42 = getelementptr inbounds i8, ptr %0, i64 208
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %43 = load i32, ptr %42, align 8
   %44 = icmp eq i32 %43, 0
   br i1 %44, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang9MacroInfoEPNS2_21MacroDefinitionRecordENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S7_EEEES5_S7_S9_SC_E15LookupBucketForIS5_EEbRKT_RPSC_.exit.i.i, label %45
@@ -2603,7 +2603,7 @@ _ZN5clang14MacroDirective12getMacroInfoEv.exit.i: ; preds = %9, %6
   %.0.i.i.i = phi ptr [ %11, %9 ], [ null, %6 ]
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 208
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %15 = load i32, ptr %14, align 8
   %16 = icmp eq i32 %15, 0
   br i1 %16, label %"_ZZN5clang19PreprocessingRecord14MacroUndefinedERKNS_5TokenERKNS_15MacroDefinitionEPKNS_14MacroDirectiveEENK3$_0clEPNS_9MacroInfoE.exit.i", label %17
@@ -2642,11 +2642,11 @@ _ZN5clang14MacroDirective12getMacroInfoEv.exit.i: ; preds = %9, %6
 .loopexit.i.i.i:                                  ; preds = %30, %17
   %.0.i.ph.i.i.i = phi ptr [ %25, %17 ], [ %34, %30 ]
   store ptr inttoptr (i64 -8192 to ptr), ptr %.0.i.ph.i.i.i, align 8
-  %37 = getelementptr inbounds i8, ptr %0, i64 200
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %38 = load i32, ptr %37, align 8
   %39 = add i32 %38, -1
   store i32 %39, ptr %37, align 8
-  %40 = getelementptr inbounds i8, ptr %0, i64 204
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 204
   %41 = load i32, ptr %40, align 4
   %42 = add i32 %41, 1
   store i32 %42, ptr %40, align 4
@@ -2663,9 +2663,9 @@ _ZN5clang14MacroDirective12getMacroInfoEv.exit.i: ; preds = %9, %6
 
 .lr.ph.i:                                         ; preds = %"_ZZN5clang19PreprocessingRecord14MacroUndefinedERKNS_5TokenERKNS_15MacroDefinitionEPKNS_14MacroDirectiveEENK3$_0clEPNS_9MacroInfoE.exit.i"
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 192
-  %46 = getelementptr inbounds i8, ptr %0, i64 208
-  %47 = getelementptr inbounds i8, ptr %0, i64 200
-  %48 = getelementptr inbounds i8, ptr %0, i64 204
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 208
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 200
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 204
   %49 = load i32, ptr %46, align 8
   %50 = icmp eq i32 %49, 0
   br i1 %50, label %"_ZNK5clang15MacroDefinition17forAllDefinitionsIZNS_19PreprocessingRecord14MacroUndefinedERKNS_5TokenERKS0_PKNS_14MacroDirectiveEE3$_0EEvT_.exit", label %.lr.ph.split.i
@@ -2765,7 +2765,7 @@ _ZNK5clang5Token17getIdentifierInfoEv.exit:
 25:                                               ; preds = %18, %17
   %.sroa.020.0 = phi i32 [ %.sroa.0.0.copyload.i.i, %17 ], [ %spec.select, %18 ]
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %27 = getelementptr inbounds i8, ptr %0, i64 96
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %28 = load i64, ptr %27, align 8
   %29 = add i64 %28, 48
   store i64 %29, ptr %27, align 8
@@ -2774,7 +2774,7 @@ _ZNK5clang5Token17getIdentifierInfoEv.exit:
   %32 = add i64 %31, 7
   %33 = and i64 %32, -8
   %34 = add i64 %33, 48
-  %35 = getelementptr inbounds i8, ptr %0, i64 24
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %36 = load ptr, ptr %35, align 8
   %37 = ptrtoint ptr %36 to i64
   %.not.i.i.i.i.i = icmp ugt i64 %34, %37
@@ -2822,7 +2822,7 @@ declare noundef i32 @_ZNK5clang14IdentifierInfo14getPPKeywordIDEv(ptr noundef no
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local noundef i64 @_ZNK5clang19PreprocessingRecord14getTotalMemoryEv(ptr noundef nonnull align 8 dereferenceable(240) %0) local_unnamed_addr #3 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %4 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %2) #18
   %5 = getelementptr inbounds ptr, ptr %3, i64 %4
@@ -2852,7 +2852,7 @@ define dso_local noundef i64 @_ZNK5clang19PreprocessingRecord14getTotalMemoryEv(
 
 ._crit_edge.i:                                    ; preds = %8, %1
   %.0.lcssa.i = phi i64 [ 0, %1 ], [ %15, %8 ]
-  %17 = getelementptr inbounds i8, ptr %0, i64 80
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %18 = load ptr, ptr %17, align 8
   %19 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %17) #18
   %20 = getelementptr inbounds %"struct.std::pair.98", ptr %18, i64 %19
@@ -2871,7 +2871,7 @@ define dso_local noundef i64 @_ZNK5clang19PreprocessingRecord14getTotalMemoryEv(
 
 _ZNK4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE14getTotalMemoryEv.exit: ; preds = %.lr.ph24.i, %._crit_edge.i
   %.1.lcssa.i = phi i64 [ %.0.lcssa.i, %._crit_edge.i ], [ %23, %.lr.ph24.i ]
-  %25 = getelementptr inbounds i8, ptr %0, i64 208
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %26 = load i32, ptr %25, align 8
   %27 = zext i32 %26 to i64
   %28 = shl nuw nsw i64 %27, 4
@@ -2915,7 +2915,7 @@ define linkonce_odr hidden void @_ZN5clang19PreprocessingRecordD2Ev(ptr noundef 
   store ptr getelementptr inbounds inrange(-16, 384) (i8, ptr @_ZTVN5clang19PreprocessingRecordE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 208
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %5 = load i32, ptr %4, align 8
   %6 = zext i32 %5 to i64
   %7 = shl nuw nsw i64 %6, 4
@@ -2926,7 +2926,7 @@ define linkonce_odr hidden void @_ZN5clang19PreprocessingRecordD2Ev(ptr noundef 
   br i1 %.not.i.i.i, label %_ZNSt6vectorIN5clang11SourceRangeESaIS1_EED2Ev.exit, label %10
 
 10:                                               ; preds = %1
-  %11 = getelementptr inbounds i8, ptr %0, i64 176
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %12 = load ptr, ptr %11, align 8
   %13 = ptrtoint ptr %12 to i64
   %14 = ptrtoint ptr %9 to i64
@@ -2941,7 +2941,7 @@ _ZNSt6vectorIN5clang11SourceRangeESaIS1_EED2Ev.exit: ; preds = %1, %10
   br i1 %.not.i.i.i1, label %_ZNSt6vectorIPN5clang18PreprocessedEntityESaIS2_EED2Ev.exit, label %18
 
 18:                                               ; preds = %_ZNSt6vectorIN5clang11SourceRangeESaIS1_EED2Ev.exit
-  %19 = getelementptr inbounds i8, ptr %0, i64 152
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %20 = load ptr, ptr %19, align 8
   %21 = ptrtoint ptr %20 to i64
   %22 = ptrtoint ptr %17 to i64
@@ -2956,7 +2956,7 @@ _ZNSt6vectorIPN5clang18PreprocessedEntityESaIS2_EED2Ev.exit: ; preds = %_ZNSt6ve
   br i1 %.not.i.i.i2, label %_ZNSt6vectorIPN5clang18PreprocessedEntityESaIS2_EED2Ev.exit3, label %26
 
 26:                                               ; preds = %_ZNSt6vectorIPN5clang18PreprocessedEntityESaIS2_EED2Ev.exit
-  %27 = getelementptr inbounds i8, ptr %0, i64 128
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %28 = load ptr, ptr %27, align 8
   %29 = ptrtoint ptr %28 to i64
   %30 = ptrtoint ptr %25 to i64
@@ -3282,7 +3282,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZN5
   br i1 %.not.i.i, label %54, label %17
 
 17:                                               ; preds = %5
-  %18 = getelementptr inbounds i8, ptr %0, i64 208
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %19 = udiv i32 %6, 42
   %20 = urem i32 %6, 42
   %.zext.i.i = zext nneg i32 %19 to i64
@@ -3293,7 +3293,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZN5
   br i1 %.not.i.i.i, label %24, label %_ZNK4llvm11PagedVectorIN5clang6SrcMgr9SLocEntryELm42EEixEm.exit.i.i
 
 24:                                               ; preds = %17
-  %25 = getelementptr inbounds i8, ptr %0, i64 224
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %.0.copyload.i.i.i.i.i.i = load i64, ptr %25, align 8
   %26 = and i64 %.0.copyload.i.i.i.i.i.i, -8
   %27 = inttoptr i64 %26 to ptr

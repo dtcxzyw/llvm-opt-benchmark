@@ -126,7 +126,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit32:               ; preds = %45, %47
   store i32 0, ptr %56, align 8
   %57 = call noundef nonnull align 8 dereferenceable(512) ptr @_ZNK4llvm8Function13getDataLayoutEv(ptr noundef nonnull align 8 dereferenceable(136) %2) #4
   %58 = getelementptr inbounds nuw i8, ptr %2, i64 72
-  %59 = getelementptr inbounds i8, ptr %2, i64 80
+  %59 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %60 = load ptr, ptr %59, align 8, !noalias !4
   %.not.i.i.i = icmp eq ptr %60, %58
   br i1 %.not.i.i.i, label %_ZN4llvm12instructionsERNS_8FunctionE.exit, label %61
@@ -135,7 +135,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit32:               ; preds = %45, %47
   %62 = icmp eq ptr %60, null
   %63 = getelementptr inbounds i8, ptr %60, i64 -24
   %64 = select i1 %62, ptr null, ptr %63
-  %65 = getelementptr inbounds i8, ptr %64, i64 56
+  %65 = getelementptr inbounds nuw i8, ptr %64, i64 56
   %66 = load ptr, ptr %65, align 8, !noalias !4
   %67 = getelementptr inbounds nuw i8, ptr %64, i64 48
   %68 = icmp eq ptr %66, %67
@@ -158,7 +158,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit32:               ; preds = %45, %47
   %76 = icmp eq ptr %75, null
   %77 = getelementptr inbounds i8, ptr %75, i64 -24
   %78 = select i1 %76, ptr null, ptr %77
-  %79 = getelementptr inbounds i8, ptr %78, i64 56
+  %79 = getelementptr inbounds nuw i8, ptr %78, i64 56
   %80 = load ptr, ptr %79, align 8, !noalias !4
   %81 = getelementptr inbounds nuw i8, ptr %78, i64 48
   %82 = icmp eq ptr %80, %81
@@ -287,7 +287,7 @@ _ZN4llvm15SmallPtrSetImplIPNS_5ValueEE6insertES2_.exit: ; preds = %.lr.ph.i.i34,
   %146 = icmp eq ptr %145, null
   %147 = getelementptr inbounds i8, ptr %145, i64 -24
   %148 = select i1 %146, ptr null, ptr %147
-  %149 = getelementptr inbounds i8, ptr %148, i64 56
+  %149 = getelementptr inbounds nuw i8, ptr %148, i64 56
   %150 = load ptr, ptr %149, align 8
   %151 = getelementptr inbounds nuw i8, ptr %148, i64 48
   %152 = icmp eq ptr %150, %151
@@ -491,15 +491,15 @@ _ZN4llvm11raw_ostreamlsEPKc.exit56:               ; preds = %240, %242
   %250 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 0, ptr %250, align 8, !alias.scope !16
   %251 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %252 = getelementptr inbounds i8, ptr %0, i64 80
+  %252 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store ptr %252, ptr %251, align 8, !alias.scope !16
-  %253 = getelementptr inbounds i8, ptr %0, i64 56
+  %253 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store ptr %252, ptr %253, align 8, !alias.scope !16
-  %254 = getelementptr inbounds i8, ptr %0, i64 64
+  %254 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i32 2, ptr %254, align 8, !alias.scope !16
-  %255 = getelementptr inbounds i8, ptr %0, i64 68
+  %255 = getelementptr inbounds nuw i8, ptr %0, i64 68
   store i32 0, ptr %255, align 4, !alias.scope !16
-  %256 = getelementptr inbounds i8, ptr %0, i64 72
+  %256 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store i32 0, ptr %256, align 8, !alias.scope !16
   store i32 1, ptr %249, align 4, !alias.scope !16, !noalias !19
   store ptr @_ZN4llvm17PreservedAnalyses14AllAnalysesKeyE, ptr %246, align 8, !alias.scope !16, !noalias !19

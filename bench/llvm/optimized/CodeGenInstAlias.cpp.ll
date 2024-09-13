@@ -375,7 +375,7 @@ _ZNK4llvm7DagInit13getArgNameStrEj.exit110:       ; preds = %114, %121
   store ptr @.str.8, ptr %25, align 8, !alias.scope !4
   %159 = getelementptr inbounds nuw i8, ptr %25, i64 16
   store ptr %.sroa.0.0.copyload.i.i111, ptr %159, align 8, !alias.scope !4
-  %160 = getelementptr inbounds i8, ptr %25, i64 24
+  %160 = getelementptr inbounds nuw i8, ptr %25, i64 24
   store i64 %.sroa.2.0.copyload.i.i113, ptr %160, align 8, !alias.scope !4
   %161 = getelementptr inbounds nuw i8, ptr %26, i64 32
   %162 = getelementptr inbounds nuw i8, ptr %26, i64 33
@@ -1022,7 +1022,7 @@ define dso_local void @_ZN4llvm16CodeGenInstAliasC2EPNS_6RecordERNS_13CodeGenTar
 77:                                               ; preds = %67
   %78 = load ptr, ptr %68, align 8
   %79 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %80 = getelementptr inbounds i8, ptr %2, i64 24
+  %80 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %81 = load i32, ptr %80, align 8
   %82 = icmp eq i32 %81, 0
   br i1 %82, label %83, label %84
@@ -1033,7 +1033,7 @@ define dso_local void @_ZN4llvm16CodeGenInstAliasC2EPNS_6RecordERNS_13CodeGenTar
 
 84:                                               ; preds = %83, %77
   %85 = load ptr, ptr %79, align 8
-  %86 = getelementptr inbounds i8, ptr %2, i64 32
+  %86 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %87 = load i32, ptr %86, align 8
   %88 = icmp eq i32 %87, 0
   br i1 %88, label %.loopexit.i.i, label %89
@@ -1151,7 +1151,7 @@ _ZNK4llvm7DagInit13getArgNameStrEj.exit:          ; preds = %126
   store ptr @.str.20, ptr %15, align 8, !alias.scope !16
   %151 = getelementptr inbounds nuw i8, ptr %15, i64 16
   store ptr %147, ptr %151, align 8, !alias.scope !16
-  %152 = getelementptr inbounds i8, ptr %15, i64 24
+  %152 = getelementptr inbounds nuw i8, ptr %15, i64 24
   store i64 %148, ptr %152, align 8, !alias.scope !16
   %153 = getelementptr inbounds nuw i8, ptr %16, i64 32
   %154 = getelementptr inbounds nuw i8, ptr %16, i64 33
@@ -1217,8 +1217,8 @@ _ZNK4llvm7DagInit13getArgNameStrEj.exit._crit_edge: ; preds = %_ZNK4llvm7DagInit
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %_ZNK4llvm13CodeGenTarget14getInstructionEPKNS_6RecordE.exit
   %172 = phi ptr [ %.pre431, %._crit_edge.loopexit ], [ %112, %_ZNK4llvm13CodeGenTarget14getInstructionEPKNS_6RecordE.exit ]
-  %173 = getelementptr inbounds i8, ptr %172, i64 72
-  %174 = getelementptr inbounds i8, ptr %172, i64 80
+  %173 = getelementptr inbounds nuw i8, ptr %172, i64 72
+  %174 = getelementptr inbounds nuw i8, ptr %172, i64 80
   %175 = load ptr, ptr %174, align 8
   %176 = load ptr, ptr %173, align 8
   %177 = ptrtoint ptr %175 to i64
@@ -1235,10 +1235,10 @@ _ZNK4llvm7DagInit13getArgNameStrEj.exit._crit_edge: ; preds = %_ZNK4llvm7DagInit
   %184 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %185 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %186 = getelementptr inbounds nuw i8, ptr %30, i64 8
-  %187 = getelementptr inbounds i8, ptr %0, i64 64
-  %188 = getelementptr inbounds i8, ptr %0, i64 72
-  %189 = getelementptr inbounds i8, ptr %0, i64 88
-  %190 = getelementptr inbounds i8, ptr %0, i64 96
+  %187 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %188 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %189 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %190 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %191 = and i64 %180, 4294967295
   br label %192
 
@@ -1246,7 +1246,7 @@ _ZNK4llvm7DagInit13getArgNameStrEj.exit._crit_edge: ; preds = %_ZNK4llvm7DagInit
   %indvars.iv428 = phi i64 [ 0, %.lr.ph373 ], [ %indvars.iv.next429, %_ZN4llvmeqENS_9StringRefES0_.exit.thread ]
   %.081370 = phi i32 [ 0, %.lr.ph373 ], [ %.1, %_ZN4llvmeqENS_9StringRefES0_.exit.thread ]
   %193 = load ptr, ptr %113, align 8
-  %194 = getelementptr inbounds i8, ptr %193, i64 72
+  %194 = getelementptr inbounds nuw i8, ptr %193, i64 72
   %195 = load ptr, ptr %194, align 8
   %196 = getelementptr inbounds %"struct.llvm::CGIOperandList::OperandInfo", ptr %195, i64 %indvars.iv428
   %197 = getelementptr inbounds nuw i8, ptr %196, i64 156
@@ -1256,7 +1256,7 @@ _ZNK4llvm7DagInit13getArgNameStrEj.exit._crit_edge: ; preds = %_ZNK4llvm7DagInit
 
 200:                                              ; preds = %192
   %201 = getelementptr inbounds nuw i8, ptr %196, i64 240
-  %202 = getelementptr inbounds i8, ptr %196, i64 248
+  %202 = getelementptr inbounds nuw i8, ptr %196, i64 248
   %203 = load ptr, ptr %202, align 8
   %204 = load ptr, ptr %201, align 8
   %205 = ptrtoint ptr %203 to i64
@@ -1508,7 +1508,7 @@ _ZN4llvm6Record8getValueENS_9StringRefE.exit.thread: ; preds = %262, %252, %_ZN4
 
 .lr.ph367:                                        ; preds = %_ZN4llvm6Record8getValueENS_9StringRefE.exit.thread
   %303 = load ptr, ptr %113, align 8
-  %304 = getelementptr inbounds i8, ptr %303, i64 72
+  %304 = getelementptr inbounds nuw i8, ptr %303, i64 72
   %305 = load ptr, ptr %304, align 8
   %306 = getelementptr inbounds %"struct.llvm::CGIOperandList::OperandInfo", ptr %305, i64 %indvars.iv428, i32 9
   %307 = load ptr, ptr %306, align 8
@@ -1696,7 +1696,7 @@ _ZNSt6vectorISt4pairIjiESaIS1_EE9push_backEOS1_.exit: ; preds = %_ZNSt6vectorISt
 
 387:                                              ; preds = %386
   %388 = load ptr, ptr %113, align 8
-  %389 = getelementptr inbounds i8, ptr %388, i64 72
+  %389 = getelementptr inbounds nuw i8, ptr %388, i64 72
   %390 = load ptr, ptr %389, align 8
   %391 = getelementptr inbounds %"struct.llvm::CGIOperandList::OperandInfo", ptr %390, i64 %indvars.iv428, i32 9
   %392 = load ptr, ptr %391, align 8

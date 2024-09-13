@@ -273,7 +273,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__6TfType10GetFactoryINS_14Hf_PluginEntry8_F
   br i1 %.not, label %_ZNK32pxrInternal_v0_24__pxrReserved__6TfType10GetFactoryINS_14Hf_PluginEntry8_FactoryEEEPT_v.exit.thread, label %11
 
 11:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__6TfType10GetFactoryINS_14Hf_PluginEntry8_FactoryEEEPT_v.exit
-  %12 = getelementptr inbounds i8, ptr %10, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %10, i64 24
   %13 = load ptr, ptr %12, align 8
   %.not.i.i.i = icmp eq ptr %13, null
   br i1 %.not.i.i.i, label %14, label %_ZNK32pxrInternal_v0_24__pxrReserved__14Hf_PluginEntry8_Factory3NewEv.exit
@@ -284,7 +284,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__6TfType10GetFactoryINS_14Hf_PluginEntry8_F
 
 _ZNK32pxrInternal_v0_24__pxrReserved__14Hf_PluginEntry8_Factory3NewEv.exit: ; preds = %11
   %15 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %16 = getelementptr inbounds i8, ptr %10, i64 32
+  %16 = getelementptr inbounds nuw i8, ptr %10, i64 32
   %17 = load ptr, ptr %16, align 8
   %18 = tail call noundef ptr %17(ptr noundef nonnull align 8 dereferenceable(16) %15)
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -459,8 +459,8 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__14Hf_PluginEntry10SetFactoryER
   %5 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #14
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__14Hf_PluginEntry8_FactoryE, i64 16), ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %7 = getelementptr inbounds i8, ptr %5, i64 24
-  %8 = getelementptr inbounds i8, ptr %5, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, i8 0, i64 32, i1 false)
   %10 = load ptr, ptr %9, align 8
@@ -562,7 +562,7 @@ define linkonce_odr void @_ZNSt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__1
   br i1 %.not, label %12, label %3
 
 3:                                                ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %2, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %5 = load ptr, ptr %4, align 8
   %.not.i.i.i.i = icmp eq ptr %5, null
   br i1 %.not.i.i.i.i, label %_ZNKSt14default_deleteIN32pxrInternal_v0_24__pxrReserved__14Hf_PluginEntry8_FactoryEEclEPS2_.exit, label %6
@@ -600,7 +600,7 @@ declare void @_ZN32pxrInternal_v0_24__pxrReserved__6TfType11FactoryBaseD2Ev(ptr 
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__14Hf_PluginEntry8_FactoryD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %.not.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i, label %_ZNSt8functionIFPN32pxrInternal_v0_24__pxrReserved__12HfPluginBaseEvEED2Ev.exit, label %4
@@ -624,7 +624,7 @@ _ZNSt8functionIFPN32pxrInternal_v0_24__pxrReserved__12HfPluginBaseEvEED2Ev.exit:
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__14Hf_PluginEntry8_FactoryD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__14Hf_PluginEntry8_FactoryD2Ev.exit, label %4

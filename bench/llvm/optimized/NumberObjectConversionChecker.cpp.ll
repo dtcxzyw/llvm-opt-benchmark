@@ -1231,7 +1231,7 @@ define dso_local void @_ZN5clang4ento37registerNumberObjectConversionCheckerERNS
   store ptr @_ZZN5clang4ento14CheckerManager6getTagIN12_GLOBAL__N_129NumberObjectConversionCheckerEEEPvvE3tag, ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 904
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 920
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 920
   %6 = load i32, ptr %5, align 8
   %7 = icmp eq i32 %6, 0
   br i1 %7, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKvPN5clang4ento11CheckerBaseENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S7_EEEES3_S7_S9_SC_E15LookupBucketForIS3_EEbRKT_RPSC_.exit.i.i.i, label %8
@@ -1294,9 +1294,9 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKvPN5clang4ento11CheckerBaseENS_12DenseMapI
   %36 = getelementptr inbounds nuw i8, ptr %34, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %36, ptr noundef nonnull align 8 dereferenceable(16) %35, i64 16, i1 false)
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 928
-  %38 = getelementptr inbounds i8, ptr %0, i64 936
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 936
   %39 = load ptr, ptr %38, align 8
-  %40 = getelementptr inbounds i8, ptr %0, i64 944
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 944
   %41 = load ptr, ptr %40, align 8
   %.not.i.i.i = icmp eq ptr %39, %41
   br i1 %.not.i.i.i, label %45, label %42
@@ -1412,7 +1412,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK5clang12ast_matchers8internal
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5clang12ast_matchers8internal37matcher_ignoringParenImpCasts0MatcherD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #0 comdat align 2 {
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN5clang12ast_matchers8internal37matcher_ignoringParenImpCasts0MatcherE, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i.i.i, label %_ZN5clang12ast_matchers8internal7MatcherINS_4ExprEED2Ev.exit, label %4
@@ -1437,7 +1437,7 @@ _ZN5clang12ast_matchers8internal7MatcherINS_4ExprEED2Ev.exit: ; preds = %1, %4, 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5clang12ast_matchers8internal37matcher_ignoringParenImpCasts0MatcherD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #0 comdat align 2 {
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN5clang12ast_matchers8internal37matcher_ignoringParenImpCasts0MatcherE, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i.i.i.i, label %_ZN5clang12ast_matchers8internal37matcher_ignoringParenImpCasts0MatcherD2Ev.exit, label %4
@@ -1484,7 +1484,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK5clang12ast_matchers8internal
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5clang12ast_matchers8internal27matcher_matchesName0MatcherD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #0 comdat align 2 {
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN5clang12ast_matchers8internal27matcher_matchesName0MatcherE, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i.i, label %_ZNSt10shared_ptrIN4llvm5RegexEED2Ev.exit, label %4
@@ -1564,7 +1564,7 @@ _ZNSt10shared_ptrIN4llvm5RegexEED2Ev.exit:        ; preds = %1, %20, %33, %_ZNSt
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5clang12ast_matchers8internal27matcher_matchesName0MatcherD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #0 comdat align 2 {
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN5clang12ast_matchers8internal27matcher_matchesName0MatcherE, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i.i.i, label %_ZN5clang12ast_matchers8internal27matcher_matchesName0MatcherD2Ev.exit, label %4
@@ -1667,7 +1667,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK5clang12ast_matchers8internal
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5clang12ast_matchers8internal32matcher_hasCanonicalType0MatcherD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #0 comdat align 2 {
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN5clang12ast_matchers8internal32matcher_hasCanonicalType0MatcherE, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i.i.i, label %_ZN5clang12ast_matchers8internal7MatcherINS_8QualTypeEED2Ev.exit, label %4
@@ -1692,7 +1692,7 @@ _ZN5clang12ast_matchers8internal7MatcherINS_8QualTypeEED2Ev.exit: ; preds = %1, 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5clang12ast_matchers8internal32matcher_hasCanonicalType0MatcherD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #0 comdat align 2 {
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN5clang12ast_matchers8internal32matcher_hasCanonicalType0MatcherE, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i.i.i.i, label %_ZN5clang12ast_matchers8internal32matcher_hasCanonicalType0MatcherD2Ev.exit, label %4
@@ -1718,7 +1718,7 @@ _ZN5clang12ast_matchers8internal32matcher_hasCanonicalType0MatcherD2Ev.exit: ; p
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5clang12ast_matchers8internal29matcher_hasSingleDecl0MatcherD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #0 comdat align 2 {
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN5clang12ast_matchers8internal29matcher_hasSingleDecl0MatcherE, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i.i.i, label %_ZN5clang12ast_matchers8internal7MatcherINS_4DeclEED2Ev.exit, label %4
@@ -1743,7 +1743,7 @@ _ZN5clang12ast_matchers8internal7MatcherINS_4DeclEED2Ev.exit: ; preds = %1, %4, 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5clang12ast_matchers8internal29matcher_hasSingleDecl0MatcherD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #0 comdat align 2 {
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN5clang12ast_matchers8internal29matcher_hasSingleDecl0MatcherE, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i.i.i.i, label %_ZN5clang12ast_matchers8internal29matcher_hasSingleDecl0MatcherD2Ev.exit, label %4
@@ -1780,7 +1780,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK5clang12ast_matchers8internal
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5clang12ast_matchers8internal30matcher_hasInitializer0MatcherD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #0 comdat align 2 {
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN5clang12ast_matchers8internal30matcher_hasInitializer0MatcherE, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i.i.i, label %_ZN5clang12ast_matchers8internal7MatcherINS_4ExprEED2Ev.exit, label %4
@@ -1805,7 +1805,7 @@ _ZN5clang12ast_matchers8internal7MatcherINS_4ExprEED2Ev.exit: ; preds = %1, %4, 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5clang12ast_matchers8internal30matcher_hasInitializer0MatcherD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #0 comdat align 2 {
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN5clang12ast_matchers8internal30matcher_hasInitializer0MatcherE, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i.i.i.i, label %_ZN5clang12ast_matchers8internal30matcher_hasInitializer0MatcherD2Ev.exit, label %4
@@ -1853,7 +1853,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK5clang12ast_matchers8internal
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5clang12ast_matchers8internal45matcher_hasConditionVariableStatement0MatcherD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #0 comdat align 2 {
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN5clang12ast_matchers8internal45matcher_hasConditionVariableStatement0MatcherE, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i.i.i, label %_ZN5clang12ast_matchers8internal7MatcherINS_8DeclStmtEED2Ev.exit, label %4
@@ -1878,7 +1878,7 @@ _ZN5clang12ast_matchers8internal7MatcherINS_8DeclStmtEED2Ev.exit: ; preds = %1, 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5clang12ast_matchers8internal45matcher_hasConditionVariableStatement0MatcherD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #0 comdat align 2 {
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN5clang12ast_matchers8internal45matcher_hasConditionVariableStatement0MatcherE, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i.i.i.i, label %_ZN5clang12ast_matchers8internal45matcher_hasConditionVariableStatement0MatcherD2Ev.exit, label %4
@@ -1915,7 +1915,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK5clang12ast_matchers8internal
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5clang12ast_matchers8internal33matcher_hasTrueExpression0MatcherD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #0 comdat align 2 {
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN5clang12ast_matchers8internal33matcher_hasTrueExpression0MatcherE, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i.i.i, label %_ZN5clang12ast_matchers8internal7MatcherINS_4ExprEED2Ev.exit, label %4
@@ -1940,7 +1940,7 @@ _ZN5clang12ast_matchers8internal7MatcherINS_4ExprEED2Ev.exit: ; preds = %1, %4, 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5clang12ast_matchers8internal33matcher_hasTrueExpression0MatcherD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #0 comdat align 2 {
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN5clang12ast_matchers8internal33matcher_hasTrueExpression0MatcherE, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i.i.i.i, label %_ZN5clang12ast_matchers8internal33matcher_hasTrueExpression0MatcherD2Ev.exit, label %4
@@ -1977,7 +1977,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK5clang12ast_matchers8internal
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5clang12ast_matchers8internal34matcher_hasFalseExpression0MatcherD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #0 comdat align 2 {
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN5clang12ast_matchers8internal34matcher_hasFalseExpression0MatcherE, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i.i.i, label %_ZN5clang12ast_matchers8internal7MatcherINS_4ExprEED2Ev.exit, label %4
@@ -2002,7 +2002,7 @@ _ZN5clang12ast_matchers8internal7MatcherINS_4ExprEED2Ev.exit: ; preds = %1, %4, 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5clang12ast_matchers8internal34matcher_hasFalseExpression0MatcherD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #0 comdat align 2 {
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN5clang12ast_matchers8internal34matcher_hasFalseExpression0MatcherE, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i.i.i.i, label %_ZN5clang12ast_matchers8internal34matcher_hasFalseExpression0MatcherD2Ev.exit, label %4
@@ -2061,7 +2061,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK5clang12ast_matchers8internal
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5clang12ast_matchers8internal25matcher_namesType0MatcherD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #0 comdat align 2 {
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN5clang12ast_matchers8internal25matcher_namesType0MatcherE, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i.i.i, label %_ZN5clang12ast_matchers8internal7MatcherINS_8QualTypeEED2Ev.exit, label %4
@@ -2086,7 +2086,7 @@ _ZN5clang12ast_matchers8internal7MatcherINS_8QualTypeEED2Ev.exit: ; preds = %1, 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5clang12ast_matchers8internal25matcher_namesType0MatcherD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #0 comdat align 2 {
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN5clang12ast_matchers8internal25matcher_namesType0MatcherE, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i.i.i.i, label %_ZN5clang12ast_matchers8internal25matcher_namesType0MatcherD2Ev.exit, label %4
@@ -2610,8 +2610,8 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N
   %.sink11.i.i = phi ptr [ %28, %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N5clang12DynTypedNodeEESt10_Select1stISA_ESt4lessIvESaISA_EE20_Reuse_or_alloc_node10_M_extractEv.exit.thread9.i.i ], [ %6, %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N5clang12DynTypedNodeEESt10_Select1stISA_ESt4lessIvESaISA_EE20_Reuse_or_alloc_node10_M_extractEv.exit.thread.i.i ]
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %.sink.i.i, ptr noundef nonnull align 8 dereferenceable(32) %30) #18
-  %31 = getelementptr inbounds i8, ptr %.sink11.i.i, i64 64
-  %32 = getelementptr inbounds i8, ptr %1, i64 64
+  %31 = getelementptr inbounds nuw i8, ptr %.sink11.i.i, i64 64
+  %32 = getelementptr inbounds nuw i8, ptr %1, i64 64
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %31, ptr noundef nonnull align 8 dereferenceable(40) %32, i64 40, i1 false)
   %33 = load i32, ptr %1, align 8
   store i32 %33, ptr %.sink11.i.i, align 8
@@ -2706,8 +2706,8 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N
   %.sink11.i.i34 = phi ptr [ %64, %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N5clang12DynTypedNodeEESt10_Select1stISA_ESt4lessIvESaISA_EE20_Reuse_or_alloc_node10_M_extractEv.exit.thread9.i.i40 ], [ %42, %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N5clang12DynTypedNodeEESt10_Select1stISA_ESt4lessIvESaISA_EE20_Reuse_or_alloc_node10_M_extractEv.exit.thread.i.i32 ]
   %66 = getelementptr inbounds nuw i8, ptr %.046, i64 32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %.sink.i.i33, ptr noundef nonnull align 8 dereferenceable(32) %66) #18
-  %67 = getelementptr inbounds i8, ptr %.sink11.i.i34, i64 64
-  %68 = getelementptr inbounds i8, ptr %.046, i64 64
+  %67 = getelementptr inbounds nuw i8, ptr %.sink11.i.i34, i64 64
+  %68 = getelementptr inbounds nuw i8, ptr %.046, i64 64
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %67, ptr noundef nonnull align 8 dereferenceable(40) %68, i64 40, i1 false)
   %69 = load i32, ptr %.046, align 8
   store i32 %69, ptr %.sink11.i.i34, align 8
@@ -2776,8 +2776,8 @@ define linkonce_odr noundef ptr @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11c
   %6 = tail call noalias noundef nonnull dereferenceable(104) ptr @_Znwm(i64 noundef 104) #19
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %5) #18
-  %8 = getelementptr inbounds i8, ptr %6, i64 64
-  %9 = getelementptr inbounds i8, ptr %1, i64 64
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 64
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 64
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %8, ptr noundef nonnull align 8 dereferenceable(40) %9, i64 40, i1 false)
   %10 = load i32, ptr %1, align 8
   store i32 %10, ptr %6, align 8
@@ -2809,8 +2809,8 @@ define linkonce_odr noundef ptr @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11c
   %20 = tail call noalias noundef nonnull dereferenceable(104) ptr @_Znwm(i64 noundef 104) #19
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %21, ptr noundef nonnull align 8 dereferenceable(32) %19) #18
-  %22 = getelementptr inbounds i8, ptr %20, i64 64
-  %23 = getelementptr inbounds i8, ptr %.034, i64 64
+  %22 = getelementptr inbounds nuw i8, ptr %20, i64 64
+  %23 = getelementptr inbounds nuw i8, ptr %.034, i64 64
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %22, ptr noundef nonnull align 8 dereferenceable(40) %23, i64 40, i1 false)
   %24 = load i32, ptr %.034, align 8
   store i32 %24, ptr %20, align 8
@@ -3632,7 +3632,7 @@ declare void @_ZNK5clang12ast_matchers8internal15DynTypedMatcher9dynCastToENS_11
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5clang12ast_matchers8internal21HasDeclarationMatcherINS_8QualTypeENS1_7MatcherINS_4DeclEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #0 comdat align 2 {
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN5clang12ast_matchers8internal21HasDeclarationMatcherINS_8QualTypeENS1_7MatcherINS_4DeclEEEEE, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i.i, label %_ZN5clang12ast_matchers8internal15DynTypedMatcherD2Ev.exit, label %4
@@ -3657,7 +3657,7 @@ _ZN5clang12ast_matchers8internal15DynTypedMatcherD2Ev.exit: ; preds = %1, %4, %8
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5clang12ast_matchers8internal21HasDeclarationMatcherINS_8QualTypeENS1_7MatcherINS_4DeclEEEED0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #0 comdat align 2 {
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN5clang12ast_matchers8internal21HasDeclarationMatcherINS_8QualTypeENS1_7MatcherINS_4DeclEEEEE, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i.i.i, label %_ZN5clang12ast_matchers8internal21HasDeclarationMatcherINS_8QualTypeENS1_7MatcherINS_4DeclEEEED2Ev.exit, label %4
@@ -4150,7 +4150,7 @@ declare i32 @_ZN5clang11ASTNodeKind11getFromNodeERKNS_4TypeE(ptr noundef nonnull
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5clang12ast_matchers8internal23matcher_hasType0MatcherINS_4ExprENS1_7MatcherINS_8QualTypeEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #0 comdat align 2 {
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN5clang12ast_matchers8internal23matcher_hasType0MatcherINS_4ExprENS1_7MatcherINS_8QualTypeEEEEE, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i.i.i, label %_ZN5clang12ast_matchers8internal7MatcherINS_8QualTypeEED2Ev.exit, label %4
@@ -4175,7 +4175,7 @@ _ZN5clang12ast_matchers8internal7MatcherINS_8QualTypeEED2Ev.exit: ; preds = %1, 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5clang12ast_matchers8internal23matcher_hasType0MatcherINS_4ExprENS1_7MatcherINS_8QualTypeEEEED0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #0 comdat align 2 {
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN5clang12ast_matchers8internal23matcher_hasType0MatcherINS_4ExprENS1_7MatcherINS_8QualTypeEEEEE, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i.i.i.i, label %_ZN5clang12ast_matchers8internal23matcher_hasType0MatcherINS_4ExprENS1_7MatcherINS_8QualTypeEEEED2Ev.exit, label %4
@@ -5009,7 +5009,7 @@ _ZNK5clang12ast_matchers8internal16VariadicFunctionINS1_15BindableMatcherINS_4De
   store i32 %307, ptr %124, align 8, !alias.scope !167
   %308 = getelementptr inbounds nuw i8, ptr %124, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %308, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.01352, i64 12, i1 false)
-  %309 = getelementptr inbounds i8, ptr %124, i64 24
+  %309 = getelementptr inbounds nuw i8, ptr %124, i64 24
   store ptr %287, ptr %309, align 8, !alias.scope !167
   %310 = getelementptr inbounds i8, ptr %124, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %310, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.01357, i64 12, i1 false)
@@ -5035,7 +5035,7 @@ _ZN5clang12ast_matchers14hasDeclarationERKNS0_8internal7MatcherINS_4DeclEEE.exit
   %319 = getelementptr inbounds nuw i8, ptr %317, i64 16
   call void @llvm.experimental.noalias.scope.decl(metadata !176)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %319, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.01360, i64 12, i1 false), !noalias !173
-  %320 = getelementptr inbounds i8, ptr %317, i64 32
+  %320 = getelementptr inbounds nuw i8, ptr %317, i64 32
   store ptr %313, ptr %320, align 8, !alias.scope !176, !noalias !173
   br i1 %.not.i.i.i.i.i.i.i.i.i, label %_ZN5clang12ast_matchers8internal18makeAllOfCompositeINS_11TypedefTypeEEENS1_15BindableMatcherIT_EEN4llvm8ArrayRefIPKNS1_7MatcherIS5_EEEE.exit.i, label %321
 
@@ -5112,7 +5112,7 @@ _ZNK5clang12ast_matchers8internal16VariadicFunctionINS1_15BindableMatcherINS_4Ty
   %350 = getelementptr inbounds nuw i8, ptr %348, i64 16
   call void @llvm.experimental.noalias.scope.decl(metadata !192)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %350, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.01369, i64 12, i1 false)
-  %351 = getelementptr inbounds i8, ptr %348, i64 32
+  %351 = getelementptr inbounds nuw i8, ptr %348, i64 32
   store ptr %328, ptr %351, align 8, !alias.scope !192
   br i1 %.not.i.i.i.i.i.i.i.i17, label %_ZN5clang12ast_matchers8internal18makeAllOfCompositeINS_14ElaboratedTypeEEENS1_15BindableMatcherIT_EEN4llvm8ArrayRefIPKNS1_7MatcherIS5_EEEE.exit.i, label %352
 
@@ -5133,7 +5133,7 @@ _ZN5clang12ast_matchers8internal18makeAllOfCompositeINS_14ElaboratedTypeEEENS1_1
   store i32 6, ptr %.sroa.21374.0..sroa_idx, align 4, !noalias !195
   %.sroa.31375.0..sroa_idx = getelementptr inbounds i8, ptr %356, i64 24
   store i32 6, ptr %.sroa.31375.0..sroa_idx, align 8, !noalias !195
-  %359 = getelementptr inbounds i8, ptr %356, i64 32
+  %359 = getelementptr inbounds nuw i8, ptr %356, i64 32
   store ptr %348, ptr %359, align 8, !noalias !195
   %360 = atomicrmw add ptr %349, i32 1 monotonic, align 4, !noalias !195
   %361 = atomicrmw add ptr %357, i32 1 monotonic, align 4, !noalias !198
@@ -5203,7 +5203,7 @@ _ZNK5clang12ast_matchers8internal16VariadicFunctionINS1_15BindableMatcherINS_4Ty
   %387 = getelementptr inbounds nuw i8, ptr %385, i64 16
   call void @llvm.experimental.noalias.scope.decl(metadata !213)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %387, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.01384, i64 12, i1 false)
-  %388 = getelementptr inbounds i8, ptr %385, i64 32
+  %388 = getelementptr inbounds nuw i8, ptr %385, i64 32
   store ptr %365, ptr %388, align 8, !alias.scope !213
   br i1 %.not.i.i.i.i.i.i.i.i23, label %_ZN5clang12ast_matchers8internal18makeAllOfCompositeINS_4ExprEEENS1_15BindableMatcherIT_EEN4llvm8ArrayRefIPKNS1_7MatcherIS5_EEEE.exit.i, label %389
 
@@ -5225,7 +5225,7 @@ _ZN5clang12ast_matchers8internal18makeAllOfCompositeINS_4ExprEEENS1_15BindableMa
   store i32 6, ptr %.sroa.31395.0..sroa_idx, align 4, !noalias !219
   %.sroa.41396.0..sroa_idx = getelementptr inbounds i8, ptr %394, i64 24
   store i32 6, ptr %.sroa.41396.0..sroa_idx, align 8, !noalias !219
-  %397 = getelementptr inbounds i8, ptr %394, i64 32
+  %397 = getelementptr inbounds nuw i8, ptr %394, i64 32
   store ptr %385, ptr %397, align 8, !noalias !219
   %398 = atomicrmw add ptr %386, i32 1 monotonic, align 4, !noalias !219
   %399 = atomicrmw add ptr %395, i32 1 monotonic, align 4, !noalias !219
@@ -5359,7 +5359,7 @@ _ZNK5clang12ast_matchers8internal15BindableMatcherINS_4StmtEE4bindEN4llvm9String
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN5clang12ast_matchers8internal37matcher_ignoringParenImpCasts0MatcherE, i64 16), ptr %450, align 8, !noalias !245
   %452 = getelementptr inbounds nuw i8, ptr %450, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %452, ptr noundef nonnull align 8 dereferenceable(12) %121, i64 12, i1 false), !noalias !245
-  %453 = getelementptr inbounds i8, ptr %450, i64 32
+  %453 = getelementptr inbounds nuw i8, ptr %450, i64 32
   %454 = getelementptr inbounds nuw i8, ptr %121, i64 16
   %455 = load ptr, ptr %454, align 8, !noalias !245
   store ptr %455, ptr %453, align 8, !noalias !245
@@ -5953,7 +5953,7 @@ _ZNK5clang12ast_matchers8internal15BindableMatcherINS_4DeclEE4bindEN4llvm9String
   store i32 %724, ptr %133, align 8, !alias.scope !301
   %725 = getelementptr inbounds nuw i8, ptr %133, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %725, ptr noundef nonnull align 8 dereferenceable(12) %136, i64 12, i1 false)
-  %726 = getelementptr inbounds i8, ptr %133, i64 24
+  %726 = getelementptr inbounds nuw i8, ptr %133, i64 24
   %727 = getelementptr inbounds nuw i8, ptr %136, i64 16
   %728 = load ptr, ptr %727, align 8, !noalias !301
   store ptr %728, ptr %726, align 8, !alias.scope !301
@@ -5982,7 +5982,7 @@ _ZN5clang12ast_matchers14hasDeclarationERKNS0_8internal7MatcherINS_4DeclEEE.exit
   %738 = getelementptr inbounds nuw i8, ptr %736, i64 16
   call void @llvm.experimental.noalias.scope.decl(metadata !310)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %738, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.01279, i64 12, i1 false), !noalias !307
-  %739 = getelementptr inbounds i8, ptr %736, i64 32
+  %739 = getelementptr inbounds nuw i8, ptr %736, i64 32
   store ptr %732, ptr %739, align 8, !alias.scope !310, !noalias !307
   br i1 %.not.i.i.i.i.i.i.i.i.i97, label %_ZN5clang12ast_matchers8internal18makeAllOfCompositeINS_10RecordTypeEEENS1_15BindableMatcherIT_EEN4llvm8ArrayRefIPKNS1_7MatcherIS5_EEEE.exit.i, label %740
 
@@ -6059,7 +6059,7 @@ _ZNK5clang12ast_matchers8internal16VariadicFunctionINS1_15BindableMatcherINS_4Ty
   %769 = getelementptr inbounds nuw i8, ptr %767, i64 16
   call void @llvm.experimental.noalias.scope.decl(metadata !326)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %769, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.01288, i64 12, i1 false)
-  %770 = getelementptr inbounds i8, ptr %767, i64 32
+  %770 = getelementptr inbounds nuw i8, ptr %767, i64 32
   store ptr %747, ptr %770, align 8, !alias.scope !326
   br i1 %.not.i.i.i.i.i.i.i.i101, label %_ZN5clang12ast_matchers8internal18makeAllOfCompositeINS_11PointerTypeEEENS1_15BindableMatcherIT_EEN4llvm8ArrayRefIPKNS1_7MatcherIS5_EEEE.exit.i, label %771
 
@@ -6080,7 +6080,7 @@ _ZN5clang12ast_matchers8internal18makeAllOfCompositeINS_11PointerTypeEEENS1_15Bi
   store i32 6, ptr %.sroa.21293.0..sroa_idx, align 4, !noalias !329
   %.sroa.31294.0..sroa_idx = getelementptr inbounds i8, ptr %775, i64 24
   store i32 6, ptr %.sroa.31294.0..sroa_idx, align 8, !noalias !329
-  %778 = getelementptr inbounds i8, ptr %775, i64 32
+  %778 = getelementptr inbounds nuw i8, ptr %775, i64 32
   store ptr %767, ptr %778, align 8, !noalias !329
   %779 = atomicrmw add ptr %768, i32 1 monotonic, align 4, !noalias !329
   %780 = atomicrmw add ptr %776, i32 1 monotonic, align 4, !noalias !332
@@ -6096,7 +6096,7 @@ _ZN5clang12ast_matchers8internal18makeAllOfCompositeINS_11PointerTypeEEENS1_15Bi
   store i32 6, ptr %.sroa.01303.sroa.3.0..sroa_idx, align 4, !noalias !344
   %.sroa.01303.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %782, i64 24
   store i32 6, ptr %.sroa.01303.sroa.4.0..sroa_idx, align 8, !noalias !344
-  %785 = getelementptr inbounds i8, ptr %782, i64 32
+  %785 = getelementptr inbounds nuw i8, ptr %782, i64 32
   store ptr %775, ptr %785, align 8, !alias.scope !347, !noalias !344
   %786 = atomicrmw add ptr %776, i32 1 monotonic, align 4, !noalias !350
   %787 = getelementptr inbounds nuw i8, ptr %782, i64 40
@@ -6170,7 +6170,7 @@ _ZNK5clang12ast_matchers8internal16VariadicFunctionINS1_15BindableMatcherINS_4Ty
   %814 = getelementptr inbounds nuw i8, ptr %812, i64 16
   call void @llvm.experimental.noalias.scope.decl(metadata !363)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %814, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.01312, i64 12, i1 false)
-  %815 = getelementptr inbounds i8, ptr %812, i64 32
+  %815 = getelementptr inbounds nuw i8, ptr %812, i64 32
   store ptr %792, ptr %815, align 8, !alias.scope !363
   br i1 %.not.i.i.i.i.i.i.i.i113, label %_ZN5clang12ast_matchers8internal18makeAllOfCompositeINS_4ExprEEENS1_15BindableMatcherIT_EEN4llvm8ArrayRefIPKNS1_7MatcherIS5_EEEE.exit.i128, label %816
 
@@ -6191,7 +6191,7 @@ _ZN5clang12ast_matchers8internal18makeAllOfCompositeINS_4ExprEEENS1_15BindableMa
   store i32 6, ptr %.sroa.21317.0..sroa_idx, align 4, !noalias !366
   %.sroa.31318.0..sroa_idx = getelementptr inbounds i8, ptr %820, i64 24
   store i32 6, ptr %.sroa.31318.0..sroa_idx, align 8, !noalias !366
-  %823 = getelementptr inbounds i8, ptr %820, i64 32
+  %823 = getelementptr inbounds nuw i8, ptr %820, i64 32
   store ptr %812, ptr %823, align 8, !noalias !366
   %824 = atomicrmw add ptr %813, i32 1 monotonic, align 4, !noalias !366
   %825 = atomicrmw add ptr %821, i32 1 monotonic, align 4, !noalias !369
@@ -6206,7 +6206,7 @@ _ZN5clang12ast_matchers8internal18makeAllOfCompositeINS_4ExprEEENS1_15BindableMa
   store i32 6, ptr %.sroa.31329.0..sroa_idx, align 4, !noalias !375
   %.sroa.41330.0..sroa_idx = getelementptr inbounds i8, ptr %827, i64 24
   store i32 6, ptr %.sroa.41330.0..sroa_idx, align 8, !noalias !375
-  %830 = getelementptr inbounds i8, ptr %827, i64 32
+  %830 = getelementptr inbounds nuw i8, ptr %827, i64 32
   store ptr %820, ptr %830, align 8, !noalias !375
   %831 = atomicrmw add ptr %821, i32 1 monotonic, align 4, !noalias !375
   %832 = atomicrmw add ptr %828, i32 1 monotonic, align 4, !noalias !375
@@ -6340,7 +6340,7 @@ _ZNK5clang12ast_matchers8internal15BindableMatcherINS_4StmtEE4bindEN4llvm9String
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN5clang12ast_matchers8internal37matcher_ignoringParenImpCasts0MatcherE, i64 16), ptr %883, align 8, !noalias !401
   %885 = getelementptr inbounds nuw i8, ptr %883, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %885, ptr noundef nonnull align 8 dereferenceable(12) %130, i64 12, i1 false), !noalias !401
-  %886 = getelementptr inbounds i8, ptr %883, i64 32
+  %886 = getelementptr inbounds nuw i8, ptr %883, i64 32
   %887 = getelementptr inbounds nuw i8, ptr %130, i64 16
   %888 = load ptr, ptr %887, align 8, !noalias !401
   store ptr %888, ptr %886, align 8, !noalias !401
@@ -6883,7 +6883,7 @@ _ZN5clang12ast_matchers14hasDeclarationERKNS0_8internal7MatcherINS_4DeclEEE.exit
   %1143 = getelementptr inbounds nuw i8, ptr %1141, i64 16
   call void @llvm.experimental.noalias.scope.decl(metadata !440)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %1143, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.01190, i64 12, i1 false)
-  %1144 = getelementptr inbounds i8, ptr %1141, i64 32
+  %1144 = getelementptr inbounds nuw i8, ptr %1141, i64 32
   store ptr %1118, ptr %1144, align 8, !alias.scope !440, !noalias !437
   br i1 %.not.i.i.i.i.i.i.i.i200, label %_ZN5clang12ast_matchers8internal18makeAllOfCompositeINS_21ObjCObjectPointerTypeEEENS1_15BindableMatcherIT_EEN4llvm8ArrayRefIPKNS1_7MatcherIS5_EEEE.exit.i, label %1145
 
@@ -6905,7 +6905,7 @@ _ZN5clang12ast_matchers8internal18makeAllOfCompositeINS_21ObjCObjectPointerTypeE
   store i32 6, ptr %.sroa.31204.0..sroa_idx, align 4, !noalias !449
   %.sroa.41205.0..sroa_idx = getelementptr inbounds i8, ptr %1150, i64 24
   store i32 6, ptr %.sroa.41205.0..sroa_idx, align 8, !noalias !449
-  %1153 = getelementptr inbounds i8, ptr %1150, i64 32
+  %1153 = getelementptr inbounds nuw i8, ptr %1150, i64 32
   store ptr %1141, ptr %1153, align 8, !noalias !449
   %1154 = atomicrmw add ptr %1142, i32 1 monotonic, align 4, !noalias !449
   %1155 = atomicrmw add ptr %1151, i32 1 monotonic, align 4, !noalias !452
@@ -6922,7 +6922,7 @@ _ZN5clang12ast_matchers8internal18makeAllOfCompositeINS_21ObjCObjectPointerTypeE
   store i32 6, ptr %.sroa.01220.sroa.3.0..sroa_idx, align 4, !noalias !469
   %.sroa.01220.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %1158, i64 24
   store i32 6, ptr %.sroa.01220.sroa.4.0..sroa_idx, align 8, !noalias !469
-  %1161 = getelementptr inbounds i8, ptr %1158, i64 32
+  %1161 = getelementptr inbounds nuw i8, ptr %1158, i64 32
   store ptr %1150, ptr %1161, align 8, !alias.scope !472, !noalias !469
   %1162 = atomicrmw add ptr %1151, i32 1 monotonic, align 4, !noalias !475
   %1163 = getelementptr inbounds nuw i8, ptr %1158, i64 40
@@ -6996,7 +6996,7 @@ _ZNK5clang12ast_matchers8internal16VariadicFunctionINS1_15BindableMatcherINS_4Ty
   %1190 = getelementptr inbounds nuw i8, ptr %1188, i64 16
   call void @llvm.experimental.noalias.scope.decl(metadata !488)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %1190, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.01229, i64 12, i1 false)
-  %1191 = getelementptr inbounds i8, ptr %1188, i64 32
+  %1191 = getelementptr inbounds nuw i8, ptr %1188, i64 32
   store ptr %1168, ptr %1191, align 8, !alias.scope !488
   br i1 %.not.i.i.i.i.i.i.i.i220, label %_ZN5clang12ast_matchers8internal18makeAllOfCompositeINS_4ExprEEENS1_15BindableMatcherIT_EEN4llvm8ArrayRefIPKNS1_7MatcherIS5_EEEE.exit.i235, label %1192
 
@@ -7017,7 +7017,7 @@ _ZN5clang12ast_matchers8internal18makeAllOfCompositeINS_4ExprEEENS1_15BindableMa
   store i32 6, ptr %.sroa.21234.0..sroa_idx, align 4, !noalias !491
   %.sroa.31235.0..sroa_idx = getelementptr inbounds i8, ptr %1196, i64 24
   store i32 6, ptr %.sroa.31235.0..sroa_idx, align 8, !noalias !491
-  %1199 = getelementptr inbounds i8, ptr %1196, i64 32
+  %1199 = getelementptr inbounds nuw i8, ptr %1196, i64 32
   store ptr %1188, ptr %1199, align 8, !noalias !491
   %1200 = atomicrmw add ptr %1189, i32 1 monotonic, align 4, !noalias !491
   %1201 = atomicrmw add ptr %1197, i32 1 monotonic, align 4, !noalias !494
@@ -7032,7 +7032,7 @@ _ZN5clang12ast_matchers8internal18makeAllOfCompositeINS_4ExprEEENS1_15BindableMa
   store i32 6, ptr %.sroa.31246.0..sroa_idx, align 4, !noalias !500
   %.sroa.41247.0..sroa_idx = getelementptr inbounds i8, ptr %1203, i64 24
   store i32 6, ptr %.sroa.41247.0..sroa_idx, align 8, !noalias !500
-  %1206 = getelementptr inbounds i8, ptr %1203, i64 32
+  %1206 = getelementptr inbounds nuw i8, ptr %1203, i64 32
   store ptr %1196, ptr %1206, align 8, !noalias !500
   %1207 = atomicrmw add ptr %1197, i32 1 monotonic, align 4, !noalias !500
   %1208 = atomicrmw add ptr %1204, i32 1 monotonic, align 4, !noalias !500
@@ -7166,7 +7166,7 @@ _ZNK5clang12ast_matchers8internal15BindableMatcherINS_4StmtEE4bindEN4llvm9String
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN5clang12ast_matchers8internal37matcher_ignoringParenImpCasts0MatcherE, i64 16), ptr %1259, align 8, !noalias !526
   %1261 = getelementptr inbounds nuw i8, ptr %1259, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %1261, ptr noundef nonnull align 8 dereferenceable(12) %140, i64 12, i1 false), !noalias !526
-  %1262 = getelementptr inbounds i8, ptr %1259, i64 32
+  %1262 = getelementptr inbounds nuw i8, ptr %1259, i64 32
   %1263 = getelementptr inbounds nuw i8, ptr %140, i64 16
   %1264 = load ptr, ptr %1263, align 8, !noalias !526
   store ptr %1264, ptr %1262, align 8, !noalias !526
@@ -7721,7 +7721,7 @@ _ZN5clang12ast_matchers14hasDeclarationERKNS0_8internal7MatcherINS_4DeclEEE.exit
   %1508 = getelementptr inbounds nuw i8, ptr %1506, i64 16
   call void @llvm.experimental.noalias.scope.decl(metadata !583)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %1508, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.01140, i64 12, i1 false)
-  %1509 = getelementptr inbounds i8, ptr %1506, i64 32
+  %1509 = getelementptr inbounds nuw i8, ptr %1506, i64 32
   store ptr %1483, ptr %1509, align 8, !alias.scope !583, !noalias !580
   br i1 %.not.i.i.i.i.i.i.i.i308, label %_ZN5clang12ast_matchers8internal18makeAllOfCompositeINS_11TypedefTypeEEENS1_15BindableMatcherIT_EEN4llvm8ArrayRefIPKNS1_7MatcherIS5_EEEE.exit.i320, label %1510
 
@@ -7798,7 +7798,7 @@ _ZNK5clang12ast_matchers8internal16VariadicFunctionINS1_15BindableMatcherINS_4Ty
   %1539 = getelementptr inbounds nuw i8, ptr %1537, i64 16
   call void @llvm.experimental.noalias.scope.decl(metadata !599)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %1539, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.01152, i64 12, i1 false)
-  %1540 = getelementptr inbounds i8, ptr %1537, i64 32
+  %1540 = getelementptr inbounds nuw i8, ptr %1537, i64 32
   store ptr %1517, ptr %1540, align 8, !alias.scope !599
   br i1 %.not.i.i.i.i.i.i.i.i321, label %_ZN5clang12ast_matchers8internal18makeAllOfCompositeINS_14ElaboratedTypeEEENS1_15BindableMatcherIT_EEN4llvm8ArrayRefIPKNS1_7MatcherIS5_EEEE.exit.i333, label %1541
 
@@ -7819,7 +7819,7 @@ _ZN5clang12ast_matchers8internal18makeAllOfCompositeINS_14ElaboratedTypeEEENS1_1
   store i32 6, ptr %.sroa.21157.0..sroa_idx, align 4, !noalias !602
   %.sroa.31158.0..sroa_idx = getelementptr inbounds i8, ptr %1545, i64 24
   store i32 6, ptr %.sroa.31158.0..sroa_idx, align 8, !noalias !602
-  %1548 = getelementptr inbounds i8, ptr %1545, i64 32
+  %1548 = getelementptr inbounds nuw i8, ptr %1545, i64 32
   store ptr %1537, ptr %1548, align 8, !noalias !602
   %1549 = atomicrmw add ptr %1538, i32 1 monotonic, align 4, !noalias !602
   %1550 = atomicrmw add ptr %1546, i32 1 monotonic, align 4, !noalias !605
@@ -7889,7 +7889,7 @@ _ZNK5clang12ast_matchers8internal16VariadicFunctionINS1_15BindableMatcherINS_4Ty
   %1576 = getelementptr inbounds nuw i8, ptr %1574, i64 16
   call void @llvm.experimental.noalias.scope.decl(metadata !620)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %1576, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.01167, i64 12, i1 false)
-  %1577 = getelementptr inbounds i8, ptr %1574, i64 32
+  %1577 = getelementptr inbounds nuw i8, ptr %1574, i64 32
   store ptr %1554, ptr %1577, align 8, !alias.scope !620
   br i1 %.not.i.i.i.i.i.i.i.i334, label %_ZNK5clang12ast_matchers8internal15BindableMatcherINS_8QualTypeEEcvNS1_15DynTypedMatcherEEv.exit.i, label %1578
 
@@ -8134,7 +8134,7 @@ _ZNK5clang12ast_matchers8internal15BindableMatcherINS_8QualTypeEEcvNS1_15DynType
   store i32 435, ptr %.sroa.21120.0..sroa_idx, align 4
   %.sroa.31121.0..sroa_idx = getelementptr inbounds i8, ptr %1692, i64 24
   store i32 435, ptr %.sroa.31121.0..sroa_idx, align 8
-  %1695 = getelementptr inbounds i8, ptr %1692, i64 32
+  %1695 = getelementptr inbounds nuw i8, ptr %1692, i64 32
   store ptr %1689, ptr %1695, align 8, !alias.scope !645
   %1696 = atomicrmw add ptr %1690, i32 1 monotonic, align 4, !noalias !645
   %1697 = atomicrmw add ptr %1693, i32 1 monotonic, align 4
@@ -8331,7 +8331,7 @@ _ZN5clang12ast_matchers16hasCanonicalTypeERKNS0_8internal7MatcherINS_8QualTypeEE
   store i32 6, ptr %.sroa.21112.0..sroa_idx, align 4, !noalias !680
   %.sroa.31113.0..sroa_idx = getelementptr inbounds i8, ptr %1782, i64 24
   store i32 6, ptr %.sroa.31113.0..sroa_idx, align 8, !noalias !680
-  %1785 = getelementptr inbounds i8, ptr %1782, i64 32
+  %1785 = getelementptr inbounds nuw i8, ptr %1782, i64 32
   store ptr %1779, ptr %1785, align 8, !noalias !680
   %1786 = atomicrmw add ptr %1780, i32 1 monotonic, align 4, !noalias !680
   call void @llvm.experimental.noalias.scope.decl(metadata !683)
@@ -8354,7 +8354,7 @@ _ZN5clang12ast_matchers16hasCanonicalTypeERKNS0_8internal7MatcherINS_8QualTypeEE
   %1793 = getelementptr inbounds nuw i8, ptr %1791, i64 16
   %1794 = load ptr, ptr %67, align 8, !noalias !693
   store ptr %1794, ptr %1793, align 8, !noalias !693
-  %1795 = getelementptr inbounds i8, ptr %1791, i64 24
+  %1795 = getelementptr inbounds nuw i8, ptr %1791, i64 24
   %1796 = getelementptr inbounds nuw i8, ptr %67, i64 8
   %1797 = load ptr, ptr %1796, align 8, !noalias !693
   store ptr %1797, ptr %1795, align 8, !noalias !693
@@ -8449,7 +8449,7 @@ _ZN5clang12ast_matchers14hasDeclarationERKNS0_8internal7MatcherINS_4DeclEEE.exit
   %1834 = getelementptr inbounds nuw i8, ptr %1832, i64 16
   call void @llvm.experimental.noalias.scope.decl(metadata !716)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %1834, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.01080, i64 12, i1 false)
-  %1835 = getelementptr inbounds i8, ptr %1832, i64 32
+  %1835 = getelementptr inbounds nuw i8, ptr %1832, i64 32
   store ptr %1809, ptr %1835, align 8, !alias.scope !716, !noalias !713
   br i1 %.not.i.i.i.i.i.i.i.i397, label %_ZN5clang12ast_matchers8internal18makeAllOfCompositeINS_11TypedefTypeEEENS1_15BindableMatcherIT_EEN4llvm8ArrayRefIPKNS1_7MatcherIS5_EEEE.exit.i409, label %1836
 
@@ -8526,7 +8526,7 @@ _ZNK5clang12ast_matchers8internal16VariadicFunctionINS1_15BindableMatcherINS_4Ty
   %1865 = getelementptr inbounds nuw i8, ptr %1863, i64 16
   call void @llvm.experimental.noalias.scope.decl(metadata !732)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %1865, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.01092, i64 12, i1 false)
-  %1866 = getelementptr inbounds i8, ptr %1863, i64 32
+  %1866 = getelementptr inbounds nuw i8, ptr %1863, i64 32
   store ptr %1843, ptr %1866, align 8, !alias.scope !732
   br i1 %.not.i.i.i.i.i.i.i.i410, label %_ZN5clang12ast_matchers8internal18makeAllOfCompositeINS_14ElaboratedTypeEEENS1_15BindableMatcherIT_EEN4llvm8ArrayRefIPKNS1_7MatcherIS5_EEEE.exit.i422, label %1867
 
@@ -8547,7 +8547,7 @@ _ZN5clang12ast_matchers8internal18makeAllOfCompositeINS_14ElaboratedTypeEEENS1_1
   store i32 6, ptr %.sroa.21097.0..sroa_idx, align 4, !noalias !735
   %.sroa.31098.0..sroa_idx = getelementptr inbounds i8, ptr %1871, i64 24
   store i32 6, ptr %.sroa.31098.0..sroa_idx, align 8, !noalias !735
-  %1874 = getelementptr inbounds i8, ptr %1871, i64 32
+  %1874 = getelementptr inbounds nuw i8, ptr %1871, i64 32
   store ptr %1863, ptr %1874, align 8, !noalias !735
   %1875 = atomicrmw add ptr %1864, i32 1 monotonic, align 4, !noalias !735
   %1876 = atomicrmw add ptr %1872, i32 1 monotonic, align 4, !noalias !738
@@ -8615,7 +8615,7 @@ _ZNK5clang12ast_matchers8internal16VariadicFunctionINS1_15BindableMatcherINS_4Ty
   store i32 %1900, ptr %166, align 8, !alias.scope !753
   %1901 = getelementptr inbounds nuw i8, ptr %166, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %1901, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.01107, i64 12, i1 false)
-  %1902 = getelementptr inbounds i8, ptr %166, i64 24
+  %1902 = getelementptr inbounds nuw i8, ptr %166, i64 24
   store ptr %1880, ptr %1902, align 8, !alias.scope !753
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %60)
   call void @_ZNKR5clang12ast_matchers8internal23VariadicOperatorMatcherIJNS1_15BindableMatcherINS_4TypeEEEEEcvNS1_7MatcherIT_EEINS_8QualTypeEEEv(ptr dead_on_unwind nonnull writable sret(%"class.clang::ast_matchers::internal::Matcher.395") align 8 %60, ptr noundef nonnull align 8 dereferenceable(32) %166), !noalias !756
@@ -8944,7 +8944,7 @@ _ZN5clang12ast_matchers7hasTypeERKNS0_8internal7MatcherINS_8QualTypeEEE.exit467:
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN5clang12ast_matchers8internal23matcher_hasType0MatcherINS_4ExprENS1_7MatcherINS_8QualTypeEEEEE, i64 16), ptr %2052, align 8, !noalias !784
   %2054 = getelementptr inbounds nuw i8, ptr %2052, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %2054, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.01056, i64 12, i1 false), !noalias !784
-  %2055 = getelementptr inbounds i8, ptr %2052, i64 32
+  %2055 = getelementptr inbounds nuw i8, ptr %2052, i64 32
   store ptr %2039, ptr %2055, align 8, !noalias !784
   br i1 %.not.i.i.i.i.i2.i.i462, label %_ZN5clang12ast_matchers8internal18makeAllOfCompositeINS_4ExprEEENS1_15BindableMatcherIT_EEN4llvm8ArrayRefIPKNS1_7MatcherIS5_EEEE.exit.i471, label %2056
 
@@ -9026,7 +9026,7 @@ _ZNK5clang12ast_matchers8internal16VariadicFunctionINS1_15BindableMatcherINS_4St
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN5clang12ast_matchers8internal37matcher_ignoringParenImpCasts0MatcherE, i64 16), ptr %2084, align 8, !noalias !802
   %2086 = getelementptr inbounds nuw i8, ptr %2084, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %2086, ptr noundef nonnull align 8 dereferenceable(12) %172, i64 12, i1 false), !noalias !802
-  %2087 = getelementptr inbounds i8, ptr %2084, i64 32
+  %2087 = getelementptr inbounds nuw i8, ptr %2084, i64 32
   %2088 = getelementptr inbounds nuw i8, ptr %172, i64 16
   %2089 = load ptr, ptr %2088, align 8, !noalias !802
   store ptr %2089, ptr %2087, align 8, !noalias !802
@@ -9216,7 +9216,7 @@ _ZN5clang12ast_matchers6hasRHSERKNS0_8internal7MatcherINS_4ExprEEE.exit: ; preds
   store i32 %2168, ptr %176, align 8, !alias.scope !829
   %2169 = getelementptr inbounds nuw i8, ptr %176, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %2169, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.01050, i64 12, i1 false)
-  %2170 = getelementptr inbounds i8, ptr %176, i64 24
+  %2170 = getelementptr inbounds nuw i8, ptr %176, i64 24
   store ptr %2164, ptr %2170, align 8, !alias.scope !829
   %2171 = getelementptr inbounds i8, ptr %176, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %2171, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.01053, i64 12, i1 false)
@@ -9518,7 +9518,7 @@ _ZNK5clang12ast_matchers8internal16VariadicFunctionINS1_15BindableMatcherINS_4St
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN5clang12ast_matchers8internal45matcher_hasConditionVariableStatement0MatcherE, i64 16), ptr %2297, align 8, !noalias !864
   %2299 = getelementptr inbounds nuw i8, ptr %2297, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %2299, ptr noundef nonnull align 8 dereferenceable(12) %186, i64 12, i1 false), !noalias !864
-  %2300 = getelementptr inbounds i8, ptr %2297, i64 32
+  %2300 = getelementptr inbounds nuw i8, ptr %2297, i64 32
   %2301 = getelementptr inbounds nuw i8, ptr %186, i64 16
   %2302 = load ptr, ptr %2301, align 8, !noalias !864
   store ptr %2302, ptr %2300, align 8, !noalias !864
@@ -9538,13 +9538,13 @@ _ZN5clang12ast_matchers29hasConditionVariableStatementERKNS0_8internal7MatcherIN
   store i32 %2308, ptr %184, align 8, !alias.scope !873
   %2309 = getelementptr inbounds nuw i8, ptr %184, i64 8
   store i32 %2307, ptr %2309, align 8, !alias.scope !873
-  %2310 = getelementptr inbounds i8, ptr %184, i64 16
+  %2310 = getelementptr inbounds nuw i8, ptr %184, i64 16
   store i8 0, ptr %2310, align 8
   %.sroa.51040.8..sroa_idx = getelementptr inbounds i8, ptr %184, i64 20
   store i32 418, ptr %.sroa.51040.8..sroa_idx, align 4
   %.sroa.61041.8..sroa_idx = getelementptr inbounds i8, ptr %184, i64 24
   store i32 418, ptr %.sroa.61041.8..sroa_idx, align 8
-  %2311 = getelementptr inbounds i8, ptr %184, i64 32
+  %2311 = getelementptr inbounds nuw i8, ptr %184, i64 32
   store ptr %2297, ptr %2311, align 8, !alias.scope !873
   %2312 = getelementptr inbounds i8, ptr %184, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %2312, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.01044, i64 12, i1 false)
@@ -9819,7 +9819,7 @@ _ZN5clang12ast_matchers7hasTypeERKNS0_8internal7MatcherINS_8QualTypeEEE.exit547:
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN5clang12ast_matchers8internal37matcher_ignoringParenImpCasts0MatcherE, i64 16), ptr %2433, align 8, !noalias !902
   %2435 = getelementptr inbounds nuw i8, ptr %2433, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %2435, ptr noundef nonnull align 8 dereferenceable(12) %191, i64 12, i1 false), !noalias !902
-  %2436 = getelementptr inbounds i8, ptr %2433, i64 32
+  %2436 = getelementptr inbounds nuw i8, ptr %2433, i64 32
   %2437 = getelementptr inbounds nuw i8, ptr %191, i64 16
   %2438 = load ptr, ptr %2437, align 8, !noalias !902
   store ptr %2438, ptr %2436, align 8, !noalias !902
@@ -9842,7 +9842,7 @@ _ZN5clang12ast_matchers21ignoringParenImpCastsERKNS0_8internal7MatcherINS_4ExprE
   store i32 179, ptr %.sroa.21013.0..sroa_idx, align 4
   %.sroa.31014.0..sroa_idx = getelementptr inbounds i8, ptr %190, i64 16
   store i32 179, ptr %.sroa.31014.0..sroa_idx, align 8
-  %2445 = getelementptr inbounds i8, ptr %190, i64 24
+  %2445 = getelementptr inbounds nuw i8, ptr %190, i64 24
   store ptr %2433, ptr %2445, align 8, !alias.scope !908
   %2446 = getelementptr inbounds i8, ptr %190, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %2446, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.01071, i64 12, i1 false)
@@ -9867,7 +9867,7 @@ _ZN5clang12ast_matchers14hasAnyArgumentERKNS0_8internal7MatcherINS_4ExprEEE.exit
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN5clang12ast_matchers8internal30matcher_hasAnyArgument0MatcherINS_8CallExprENS1_7MatcherINS_4ExprEEEEE, i64 16), ptr %2453, align 8, !noalias !914
   %2455 = getelementptr inbounds nuw i8, ptr %2453, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %2455, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.01020, i64 12, i1 false), !noalias !914
-  %2456 = getelementptr inbounds i8, ptr %2453, i64 32
+  %2456 = getelementptr inbounds nuw i8, ptr %2453, i64 32
   store ptr %2449, ptr %2456, align 8, !noalias !914
   br i1 %.not.i.i.i.i.i.i.i.i.i550, label %_ZN5clang12ast_matchers8internal18makeAllOfCompositeINS_8CallExprEEENS1_15BindableMatcherIT_EEN4llvm8ArrayRefIPKNS1_7MatcherIS5_EEEE.exit.i, label %2457
 
@@ -10156,7 +10156,7 @@ _ZN5clang12ast_matchers16hasEitherOperandERKNS0_8internal7MatcherINS_4ExprEEE.ex
   store i32 %2579, ptr %194, align 8, !alias.scope !952
   %2580 = getelementptr inbounds nuw i8, ptr %194, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %2580, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.01002, i64 12, i1 false)
-  %2581 = getelementptr inbounds i8, ptr %194, i64 24
+  %2581 = getelementptr inbounds nuw i8, ptr %194, i64 24
   store ptr %2575, ptr %2581, align 8, !alias.scope !952
   %2582 = getelementptr inbounds i8, ptr %194, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %2582, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.01005, i64 12, i1 false)
@@ -10496,7 +10496,7 @@ _ZN5clang12ast_matchers16hasEitherOperandERKNS0_8internal7MatcherINS_4ExprEEE.ex
   store i32 %2724, ptr %207, align 8, !alias.scope !987
   %2725 = getelementptr inbounds nuw i8, ptr %207, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %2725, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0989, i64 12, i1 false)
-  %2726 = getelementptr inbounds i8, ptr %207, i64 24
+  %2726 = getelementptr inbounds nuw i8, ptr %207, i64 24
   store ptr %2720, ptr %2726, align 8, !alias.scope !987
   %2727 = getelementptr inbounds i8, ptr %207, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %2727, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0992, i64 12, i1 false)
@@ -10797,7 +10797,7 @@ _ZNK5clang12ast_matchers8internal27ArgumentAdaptingMatcherFuncINS1_20HasDescenda
   %2852 = getelementptr inbounds nuw i8, ptr %2850, i64 16
   call void @llvm.experimental.noalias.scope.decl(metadata !1024)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %2852, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.01182, i64 12, i1 false)
-  %2853 = getelementptr inbounds i8, ptr %2850, i64 32
+  %2853 = getelementptr inbounds nuw i8, ptr %2850, i64 32
   store ptr %1447, ptr %2853, align 8, !alias.scope !1024, !noalias !1021
   br i1 %.not.i.i.i.i.i.i.i.i297, label %_ZN5clang12ast_matchers17hasTrueExpressionERKNS0_8internal7MatcherINS_4ExprEEE.exit, label %2854
 
@@ -10818,7 +10818,7 @@ _ZN5clang12ast_matchers17hasTrueExpressionERKNS0_8internal7MatcherINS_4ExprEEE.e
   store i32 179, ptr %.sroa.2964.0..sroa_idx, align 4, !noalias !1028
   %.sroa.3965.0..sroa_idx = getelementptr inbounds i8, ptr %2858, i64 24
   store i32 179, ptr %.sroa.3965.0..sroa_idx, align 8, !noalias !1028
-  %2861 = getelementptr inbounds i8, ptr %2858, i64 32
+  %2861 = getelementptr inbounds nuw i8, ptr %2858, i64 32
   store ptr %2850, ptr %2861, align 8, !noalias !1028
   %2862 = atomicrmw add ptr %2851, i32 1 monotonic, align 4, !noalias !1028
   %2863 = atomicrmw add ptr %2859, i32 1 monotonic, align 4, !noalias !1031
@@ -10838,7 +10838,7 @@ _ZNK5clang12ast_matchers8internal27ArgumentAdaptingMatcherFuncINS1_20HasDescenda
   %2870 = getelementptr inbounds nuw i8, ptr %2868, i64 16
   call void @llvm.experimental.noalias.scope.decl(metadata !1043)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %2870, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.01182, i64 12, i1 false)
-  %2871 = getelementptr inbounds i8, ptr %2868, i64 32
+  %2871 = getelementptr inbounds nuw i8, ptr %2868, i64 32
   store ptr %1447, ptr %2871, align 8, !alias.scope !1043, !noalias !1040
   br i1 %.not.i.i.i.i.i.i.i.i297, label %_ZN5clang12ast_matchers18hasFalseExpressionERKNS0_8internal7MatcherINS_4ExprEEE.exit, label %2872
 
@@ -10859,7 +10859,7 @@ _ZN5clang12ast_matchers18hasFalseExpressionERKNS0_8internal7MatcherINS_4ExprEEE.
   store i32 179, ptr %.sroa.2945.0..sroa_idx, align 4, !noalias !1047
   %.sroa.3946.0..sroa_idx = getelementptr inbounds i8, ptr %2876, i64 24
   store i32 179, ptr %.sroa.3946.0..sroa_idx, align 8, !noalias !1047
-  %2879 = getelementptr inbounds i8, ptr %2876, i64 32
+  %2879 = getelementptr inbounds nuw i8, ptr %2876, i64 32
   store ptr %2868, ptr %2879, align 8, !noalias !1047
   %2880 = atomicrmw add ptr %2869, i32 1 monotonic, align 4, !noalias !1047
   %2881 = atomicrmw add ptr %2877, i32 1 monotonic, align 4, !noalias !1050
@@ -10868,13 +10868,13 @@ _ZN5clang12ast_matchers18hasFalseExpressionERKNS0_8internal7MatcherINS_4ExprEEE.
   store i32 %2882, ptr %225, align 8, !alias.scope !1053
   %2883 = getelementptr inbounds nuw i8, ptr %225, i64 8
   store i32 %2864, ptr %2883, align 8, !alias.scope !1053
-  %2884 = getelementptr inbounds i8, ptr %225, i64 16
+  %2884 = getelementptr inbounds nuw i8, ptr %225, i64 16
   store i8 0, ptr %2884, align 8
   %.sroa.5.8..sroa_idx = getelementptr inbounds i8, ptr %225, i64 20
   store i32 311, ptr %.sroa.5.8..sroa_idx, align 4
   %.sroa.6.8..sroa_idx = getelementptr inbounds i8, ptr %225, i64 24
   store i32 311, ptr %.sroa.6.8..sroa_idx, align 8
-  %2885 = getelementptr inbounds i8, ptr %225, i64 32
+  %2885 = getelementptr inbounds nuw i8, ptr %225, i64 32
   store ptr %2876, ptr %2885, align 8, !alias.scope !1053
   %2886 = getelementptr inbounds i8, ptr %225, i64 40
   store i32 %2864, ptr %2886, align 8, !alias.scope !1053
@@ -11266,7 +11266,7 @@ _ZNK5clang12ast_matchers8internal27ArgumentAdaptingMatcherFuncINS1_10HasMatcherE
   store i32 %3057, ptr %229, align 8, !alias.scope !1096
   %3058 = getelementptr inbounds nuw i8, ptr %229, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %3058, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0929, i64 12, i1 false)
-  %3059 = getelementptr inbounds i8, ptr %229, i64 24
+  %3059 = getelementptr inbounds nuw i8, ptr %229, i64 24
   store ptr %3034, ptr %3059, align 8, !alias.scope !1096
   %3060 = getelementptr inbounds i8, ptr %229, i64 32
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %3060, ptr noundef nonnull align 8 dereferenceable(32) %230) #18
@@ -11580,7 +11580,7 @@ _ZNK5clang12ast_matchers8internal27ArgumentAdaptingMatcherFuncINS1_10HasMatcherE
   store i32 %3192, ptr %236, align 8, !alias.scope !1142
   %3193 = getelementptr inbounds nuw i8, ptr %236, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %3193, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0918, i64 12, i1 false)
-  %3194 = getelementptr inbounds i8, ptr %236, i64 24
+  %3194 = getelementptr inbounds nuw i8, ptr %236, i64 24
   store ptr %3169, ptr %3194, align 8, !alias.scope !1142
   %3195 = getelementptr inbounds i8, ptr %236, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %3195, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0924, i64 12, i1 false)
@@ -11836,7 +11836,7 @@ _ZNK5clang12ast_matchers8internal27ArgumentAdaptingMatcherFuncINS1_10HasMatcherE
   store i32 %3304, ptr %240, align 8, !alias.scope !1180
   %3305 = getelementptr inbounds nuw i8, ptr %240, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %3305, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0909, i64 12, i1 false)
-  %3306 = getelementptr inbounds i8, ptr %240, i64 24
+  %3306 = getelementptr inbounds nuw i8, ptr %240, i64 24
   store ptr %3281, ptr %3306, align 8, !alias.scope !1180
   %3307 = getelementptr inbounds i8, ptr %240, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %3307, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0915, i64 12, i1 false)
@@ -12016,7 +12016,7 @@ _ZN5clang12ast_matchers7hasTypeERKNS0_8internal7MatcherINS_8QualTypeEEE.exit792:
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN5clang12ast_matchers8internal23matcher_hasType0MatcherINS_7VarDeclENS1_7MatcherINS_8QualTypeEEEEE, i64 16), ptr %3384, align 8, !noalias !1201
   %3386 = getelementptr inbounds nuw i8, ptr %3384, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %3386, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.01071, i64 12, i1 false)
-  %3387 = getelementptr inbounds i8, ptr %3384, i64 32
+  %3387 = getelementptr inbounds nuw i8, ptr %3384, i64 32
   store ptr %2039, ptr %3387, align 8, !noalias !1201
   br i1 %.not.i.i.i.i.i2.i.i462, label %_ZNO5clang12ast_matchers8internal18PolymorphicMatcherINS1_23matcher_hasType0MatcherEFvNS1_8TypeListIJNS_4ExprENS_10FriendDeclENS_15TypedefNameDeclENS_9ValueDeclENS_16CXXBaseSpecifierEEEEEJNS1_7MatcherINS_8QualTypeEEEEEcvNSC_IT_EEINS_7VarDeclEEEv.exit, label %3388
 
@@ -12042,7 +12042,7 @@ _ZNO5clang12ast_matchers8internal18PolymorphicMatcherINS1_23matcher_hasType0Matc
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN5clang12ast_matchers8internal30matcher_hasInitializer0MatcherE, i64 16), ptr %3395, align 8, !noalias !1204
   %3397 = getelementptr inbounds nuw i8, ptr %3395, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %3397, ptr noundef nonnull align 8 dereferenceable(12) %245, i64 12, i1 false), !noalias !1204
-  %3398 = getelementptr inbounds i8, ptr %3395, i64 32
+  %3398 = getelementptr inbounds nuw i8, ptr %3395, i64 32
   %3399 = getelementptr inbounds nuw i8, ptr %245, i64 16
   %3400 = load ptr, ptr %3399, align 8, !noalias !1204
   store ptr %3400, ptr %3398, align 8, !noalias !1204
@@ -12127,7 +12127,7 @@ _ZNK5clang12ast_matchers8internal16VariadicFunctionINS1_15BindableMatcherINS_4De
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN5clang12ast_matchers8internal29matcher_hasSingleDecl0MatcherE, i64 16), ptr %3431, align 8, !noalias !1220
   %3433 = getelementptr inbounds nuw i8, ptr %3431, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %3433, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0900, i64 12, i1 false), !noalias !1220
-  %3434 = getelementptr inbounds i8, ptr %3431, i64 32
+  %3434 = getelementptr inbounds nuw i8, ptr %3431, i64 32
   store ptr %3410, ptr %3434, align 8, !noalias !1220
   br i1 %.not.i.i.i.i.i.i.i.i795, label %_ZN5clang12ast_matchers8internal18makeAllOfCompositeINS_8DeclStmtEEENS1_15BindableMatcherIT_EEN4llvm8ArrayRefIPKNS1_7MatcherIS5_EEEE.exit.i, label %3435
 
@@ -12466,7 +12466,7 @@ _ZNK5clang12ast_matchers8internal27ArgumentAdaptingMatcherFuncINS1_24ForEachDesc
   %3586 = getelementptr inbounds nuw i8, ptr %3584, i64 16
   call void @llvm.experimental.noalias.scope.decl(metadata !1271)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %3586, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, i64 12, i1 false), !noalias !1268
-  %3587 = getelementptr inbounds i8, ptr %3584, i64 32
+  %3587 = getelementptr inbounds nuw i8, ptr %3584, i64 32
   store ptr %3580, ptr %3587, align 8, !alias.scope !1271, !noalias !1268
   br i1 %.not.i.i.i.i.i.i.i831, label %_ZNK5clang12ast_matchers8internal16VariadicFunctionINS1_15BindableMatcherINS_4StmtEEENS1_7MatcherIS4_EEXadL_ZNS1_18makeAllOfCompositeIS4_EENS3_IT_EEN4llvm8ArrayRefIPKNS6_IS9_EEEEEEEclIJEEES5_RKS7_DpRKT_.exit834, label %3588
 
@@ -13041,7 +13041,7 @@ _ZN5clang12ast_matchers8internal7MatcherINS_4DeclEEC2ERKS4_.exit.i: ; preds = %1
   store ptr %10, ptr %14, align 8, !alias.scope !1293, !noalias !1290
   %15 = getelementptr inbounds i8, ptr %3, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0.i, ptr noundef nonnull align 8 dereferenceable(12) %7, i64 12, i1 false), !noalias !1290
-  %16 = getelementptr inbounds i8, ptr %1, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %17 = load ptr, ptr %16, align 8, !noalias !1290
   %.not.i.i.i.i1.i = icmp eq ptr %17, null
   br i1 %.not.i.i.i.i1.i, label %_ZN5clang12ast_matchers8internal7MatcherINS_4DeclEEC2ERKS4_.exit2.i, label %18
@@ -13223,7 +13223,7 @@ _ZN5clang12ast_matchers8internal7MatcherINS_4DeclEEC2ERKS4_.exit.i: ; preds = %1
   store ptr %10, ptr %14, align 8, !alias.scope !1303, !noalias !1300
   %15 = getelementptr inbounds i8, ptr %3, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0.i, ptr noundef nonnull align 8 dereferenceable(12) %7, i64 12, i1 false), !noalias !1300
-  %16 = getelementptr inbounds i8, ptr %1, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %17 = load ptr, ptr %16, align 8, !noalias !1300
   %.not.i.i.i.i1.i = icmp eq ptr %17, null
   br i1 %.not.i.i.i.i1.i, label %_ZN5clang12ast_matchers8internal7MatcherINS_4DeclEEC2ERKS4_.exit2.i, label %18
@@ -14079,7 +14079,7 @@ define linkonce_odr hidden void @_ZNO5clang12ast_matchers8internal23VariadicOper
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN5clang12ast_matchers8internal23matcher_hasType0MatcherINS_4ExprENS1_7MatcherINS_8QualTypeEEEEE, i64 16), ptr %9, align 8, !noalias !1330
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %11, ptr noundef nonnull align 8 dereferenceable(12) %8, i64 12, i1 false), !noalias !1330
-  %12 = getelementptr inbounds i8, ptr %9, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %9, i64 32
   %13 = getelementptr inbounds i8, ptr %1, i64 48
   %14 = load ptr, ptr %13, align 8, !noalias !1330
   store ptr %14, ptr %12, align 8, !noalias !1330
@@ -14102,7 +14102,7 @@ _ZNKR5clang12ast_matchers8internal18PolymorphicMatcherINS1_23matcher_hasType0Mat
   store ptr %9, ptr %19, align 8, !alias.scope !1333, !noalias !1327
   %20 = getelementptr inbounds i8, ptr %3, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0.i, ptr noundef nonnull align 8 dereferenceable(12) %7, i64 12, i1 false), !noalias !1327
-  %21 = getelementptr inbounds i8, ptr %1, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %22 = load ptr, ptr %21, align 8, !noalias !1327
   %.not.i.i.i.i.i = icmp eq ptr %22, null
   br i1 %.not.i.i.i.i.i, label %_ZN5clang12ast_matchers8internal7MatcherINS_4ExprEEC2ERKS4_.exit.i, label %23
@@ -14748,7 +14748,7 @@ define linkonce_odr void @_ZN5clang12ast_matchers8traverseINS_4StmtEEENS0_8inter
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1339)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %9, ptr noundef nonnull align 8 dereferenceable(12) %2, i64 12, i1 false)
-  %10 = getelementptr inbounds i8, ptr %7, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %12 = load ptr, ptr %11, align 8, !noalias !1339
   store ptr %12, ptr %10, align 8, !alias.scope !1339
@@ -14866,7 +14866,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ENS4_12__sv
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5clang12ast_matchers8internal21HasDeclarationMatcherINS_11TypedefTypeENS1_7MatcherINS_4DeclEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #0 comdat align 2 {
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN5clang12ast_matchers8internal21HasDeclarationMatcherINS_11TypedefTypeENS1_7MatcherINS_4DeclEEEEE, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i.i, label %_ZN5clang12ast_matchers8internal15DynTypedMatcherD2Ev.exit, label %4
@@ -14891,7 +14891,7 @@ _ZN5clang12ast_matchers8internal15DynTypedMatcherD2Ev.exit: ; preds = %1, %4, %8
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5clang12ast_matchers8internal21HasDeclarationMatcherINS_11TypedefTypeENS1_7MatcherINS_4DeclEEEED0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #0 comdat align 2 {
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN5clang12ast_matchers8internal21HasDeclarationMatcherINS_11TypedefTypeENS1_7MatcherINS_4DeclEEEEE, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i.i.i, label %_ZN5clang12ast_matchers8internal21HasDeclarationMatcherINS_11TypedefTypeENS1_7MatcherINS_4DeclEEEED2Ev.exit, label %4
@@ -15217,7 +15217,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK5clang12ast_matchers8internal
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5clang12ast_matchers8internal7MatcherINS_8QualTypeEE14TypeToQualTypeINS_4TypeEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #0 comdat align 2 {
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN5clang12ast_matchers8internal7MatcherINS_8QualTypeEE14TypeToQualTypeINS_4TypeEEE, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i.i, label %_ZN5clang12ast_matchers8internal15DynTypedMatcherD2Ev.exit, label %4
@@ -15242,7 +15242,7 @@ _ZN5clang12ast_matchers8internal15DynTypedMatcherD2Ev.exit: ; preds = %1, %4, %8
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5clang12ast_matchers8internal7MatcherINS_8QualTypeEE14TypeToQualTypeINS_4TypeEED0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #0 comdat align 2 {
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN5clang12ast_matchers8internal7MatcherINS_8QualTypeEE14TypeToQualTypeINS_4TypeEEE, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i.i.i, label %_ZN5clang12ast_matchers8internal7MatcherINS_8QualTypeEE14TypeToQualTypeINS_4TypeEED2Ev.exit, label %4
@@ -15267,7 +15267,7 @@ _ZN5clang12ast_matchers8internal7MatcherINS_8QualTypeEE14TypeToQualTypeINS_4Type
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden i64 @_ZNK5clang12ast_matchers8internal7MatcherINS_8QualTypeEE14TypeToQualTypeINS_4TypeEE13TraversalKindEv(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #0 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 24
@@ -15307,7 +15307,7 @@ declare void @_ZNK5clang12ast_matchers8internal15DynTypedMatcher7tryBindEN4llvm9
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5clang12ast_matchers8internal21HasDeclarationMatcherINS_10RecordTypeENS1_7MatcherINS_4DeclEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #0 comdat align 2 {
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN5clang12ast_matchers8internal21HasDeclarationMatcherINS_10RecordTypeENS1_7MatcherINS_4DeclEEEEE, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i.i, label %_ZN5clang12ast_matchers8internal15DynTypedMatcherD2Ev.exit, label %4
@@ -15332,7 +15332,7 @@ _ZN5clang12ast_matchers8internal15DynTypedMatcherD2Ev.exit: ; preds = %1, %4, %8
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5clang12ast_matchers8internal21HasDeclarationMatcherINS_10RecordTypeENS1_7MatcherINS_4DeclEEEED0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #0 comdat align 2 {
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN5clang12ast_matchers8internal21HasDeclarationMatcherINS_10RecordTypeENS1_7MatcherINS_4DeclEEEEE, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i.i.i, label %_ZN5clang12ast_matchers8internal21HasDeclarationMatcherINS_10RecordTypeENS1_7MatcherINS_4DeclEEEED2Ev.exit, label %4
@@ -15658,7 +15658,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK5clang12ast_matchers8internal
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5clang12ast_matchers8internal19TypeTraverseMatcherINS_11PointerTypeEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #0 comdat align 2 {
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN5clang12ast_matchers8internal19TypeTraverseMatcherINS_11PointerTypeEEE, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i.i, label %_ZN5clang12ast_matchers8internal15DynTypedMatcherD2Ev.exit, label %4
@@ -15683,7 +15683,7 @@ _ZN5clang12ast_matchers8internal15DynTypedMatcherD2Ev.exit: ; preds = %1, %4, %8
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5clang12ast_matchers8internal19TypeTraverseMatcherINS_11PointerTypeEED0Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #0 comdat align 2 {
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN5clang12ast_matchers8internal19TypeTraverseMatcherINS_11PointerTypeEEE, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i.i.i, label %_ZN5clang12ast_matchers8internal19TypeTraverseMatcherINS_11PointerTypeEED2Ev.exit, label %4
@@ -15769,7 +15769,7 @@ define linkonce_odr hidden i64 @_ZNK5clang21ObjCObjectPointerType14getPointeeTyp
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5clang12ast_matchers8internal19TypeTraverseMatcherINS_21ObjCObjectPointerTypeEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #0 comdat align 2 {
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN5clang12ast_matchers8internal19TypeTraverseMatcherINS_21ObjCObjectPointerTypeEEE, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i.i, label %_ZN5clang12ast_matchers8internal15DynTypedMatcherD2Ev.exit, label %4
@@ -15794,7 +15794,7 @@ _ZN5clang12ast_matchers8internal15DynTypedMatcherD2Ev.exit: ; preds = %1, %4, %8
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5clang12ast_matchers8internal19TypeTraverseMatcherINS_21ObjCObjectPointerTypeEED0Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #0 comdat align 2 {
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN5clang12ast_matchers8internal19TypeTraverseMatcherINS_21ObjCObjectPointerTypeEEE, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i.i.i, label %_ZN5clang12ast_matchers8internal19TypeTraverseMatcherINS_21ObjCObjectPointerTypeEED2Ev.exit, label %4
@@ -16313,7 +16313,7 @@ _ZNK5clang12ast_matchers8internal13BoundNodesMap7getNodeEN4llvm9StringRefE.exit.
   br label %_ZNK5clang12DynTypedNodeneERKS0_.exit
 
 _ZNK5clang12ast_matchers8internal13BoundNodesMap7getNodeEN4llvm9StringRefE.exit: ; preds = %2
-  %11 = getelementptr inbounds i8, ptr %8, i64 64
+  %11 = getelementptr inbounds nuw i8, ptr %8, i64 64
   %.sroa.02.0.copyload = load i32, ptr %11, align 8
   %.sroa.43.0..sroa_idx = getelementptr inbounds i8, ptr %8, i64 72
   %.sroa.43.0.copyload = load i64, ptr %.sroa.43.0..sroa_idx, align 8
@@ -16333,7 +16333,7 @@ _ZNK5clang12ast_matchers8internal13BoundNodesMap7getNodeEN4llvm9StringRefE.exit:
   br i1 %15, label %16, label %19
 
 16:                                               ; preds = %14
-  %17 = getelementptr inbounds i8, ptr %0, i64 40
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %.0.copyload.i.i2.i.i.i.i = load i64, ptr %17, align 8
   %18 = icmp eq i64 %.sroa.43.0.copyload, %.0.copyload.i.i2.i.i.i.i
   br label %_ZNK5clang12DynTypedNodeneERKS0_.exit
@@ -16344,11 +16344,11 @@ _ZNK5clang12ast_matchers8internal13BoundNodesMap7getNodeEN4llvm9StringRefE.exit:
   br i1 %20, label %21, label %30
 
 21:                                               ; preds = %19
-  %22 = getelementptr inbounds i8, ptr %0, i64 40
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %23 = inttoptr i64 %.sroa.43.0.copyload to ptr
   %24 = load ptr, ptr %22, align 8
   %25 = icmp eq ptr %24, %23
-  %26 = getelementptr inbounds i8, ptr %0, i64 48
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %27 = load ptr, ptr %26, align 8
   %28 = icmp eq ptr %.sroa.8.0.copyload, %27
   %29 = select i1 %25, i1 %28, i1 false
@@ -16360,7 +16360,7 @@ _ZNK5clang12ast_matchers8internal13BoundNodesMap7getNodeEN4llvm9StringRefE.exit:
 
 32:                                               ; preds = %30
   %33 = inttoptr i64 %.sroa.43.0.copyload to ptr
-  %34 = getelementptr inbounds i8, ptr %0, i64 40
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %.sroa.0.0.copyload.i.i = load ptr, ptr %34, align 8
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %0, i64 48
   %.sroa.2.0.copyload.i.i = load ptr, ptr %.sroa.2.0..sroa_idx.i.i, align 8
@@ -16375,7 +16375,7 @@ _ZNK5clang12ast_matchers8internal13BoundNodesMap7getNodeEN4llvm9StringRefE.exit:
   %41 = select i1 %39, ptr %40, ptr null
   %42 = load i32, ptr %12, align 8
   %43 = icmp sgt i32 %42, 73
-  %44 = getelementptr inbounds i8, ptr %0, i64 40
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %45 = load ptr, ptr %44, align 8
   %46 = select i1 %43, ptr %45, ptr null
   %47 = icmp eq ptr %41, %46
@@ -16402,8 +16402,8 @@ define linkonce_odr hidden void @_ZNKR5clang12ast_matchers8internal23VariadicOpe
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1449)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %9, ptr noundef nonnull align 8 dereferenceable(12) %6, i64 12, i1 false), !noalias !1446
-  %10 = getelementptr inbounds i8, ptr %7, i64 32
-  %11 = getelementptr inbounds i8, ptr %1, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %12 = load ptr, ptr %11, align 8, !noalias !1452
   store ptr %12, ptr %10, align 8, !alias.scope !1449, !noalias !1446
   %.not.i.i.i.i.i.i.i = icmp eq ptr %12, null
@@ -16701,7 +16701,7 @@ define linkonce_odr hidden void @_ZNKR5clang12ast_matchers8internal23VariadicOpe
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN5clang12ast_matchers8internal22matcher_hasLHS0MatcherINS_14BinaryOperatorENS1_7MatcherINS_4ExprEEEEE, i64 16), ptr %13, align 8, !noalias !1468
   %15 = getelementptr inbounds nuw i8, ptr %13, i64 16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %15, ptr noundef nonnull align 8 dereferenceable(12) %12, i64 12, i1 false), !noalias !1468
-  %16 = getelementptr inbounds i8, ptr %13, i64 32
+  %16 = getelementptr inbounds nuw i8, ptr %13, i64 32
   %17 = getelementptr inbounds i8, ptr %1, i64 48
   %18 = load ptr, ptr %17, align 8, !noalias !1468
   store ptr %18, ptr %16, align 8, !noalias !1468
@@ -16729,8 +16729,8 @@ _ZNKR5clang12ast_matchers8internal18PolymorphicMatcherINS1_22matcher_hasLHS0Matc
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN5clang12ast_matchers8internal22matcher_hasRHS0MatcherINS_14BinaryOperatorENS1_7MatcherINS_4ExprEEEEE, i64 16), ptr %25, align 8, !noalias !1474
   %27 = getelementptr inbounds nuw i8, ptr %25, i64 16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %27, ptr noundef nonnull align 8 dereferenceable(12) %4, i64 12, i1 false), !noalias !1474
-  %28 = getelementptr inbounds i8, ptr %25, i64 32
-  %29 = getelementptr inbounds i8, ptr %1, i64 24
+  %28 = getelementptr inbounds nuw i8, ptr %25, i64 32
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %30 = load ptr, ptr %29, align 8, !noalias !1474
   store ptr %30, ptr %28, align 8, !noalias !1474
   %.not.i.i.i.i.i.i.i.i1 = icmp eq ptr %30, null
@@ -16876,7 +16876,7 @@ declare { ptr, i64 } @_ZN5clang14BinaryOperator12getOpcodeStrENS_18BinaryOperato
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5clang12ast_matchers8internal22matcher_hasLHS0MatcherINS_14BinaryOperatorENS1_7MatcherINS_4ExprEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #0 comdat align 2 {
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN5clang12ast_matchers8internal22matcher_hasLHS0MatcherINS_14BinaryOperatorENS1_7MatcherINS_4ExprEEEEE, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i.i.i, label %_ZN5clang12ast_matchers8internal7MatcherINS_4ExprEED2Ev.exit, label %4
@@ -16901,7 +16901,7 @@ _ZN5clang12ast_matchers8internal7MatcherINS_4ExprEED2Ev.exit: ; preds = %1, %4, 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5clang12ast_matchers8internal22matcher_hasLHS0MatcherINS_14BinaryOperatorENS1_7MatcherINS_4ExprEEEED0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #0 comdat align 2 {
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN5clang12ast_matchers8internal22matcher_hasLHS0MatcherINS_14BinaryOperatorENS1_7MatcherINS_4ExprEEEEE, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i.i.i.i, label %_ZN5clang12ast_matchers8internal22matcher_hasLHS0MatcherINS_14BinaryOperatorENS1_7MatcherINS_4ExprEEEED2Ev.exit, label %4
@@ -16953,7 +16953,7 @@ define linkonce_odr noundef zeroext i1 @_ZNK5clang12ast_matchers8internal22match
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5clang12ast_matchers8internal22matcher_hasRHS0MatcherINS_14BinaryOperatorENS1_7MatcherINS_4ExprEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #0 comdat align 2 {
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN5clang12ast_matchers8internal22matcher_hasRHS0MatcherINS_14BinaryOperatorENS1_7MatcherINS_4ExprEEEEE, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i.i.i, label %_ZN5clang12ast_matchers8internal7MatcherINS_4ExprEED2Ev.exit, label %4
@@ -16978,7 +16978,7 @@ _ZN5clang12ast_matchers8internal7MatcherINS_4ExprEED2Ev.exit: ; preds = %1, %4, 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5clang12ast_matchers8internal22matcher_hasRHS0MatcherINS_14BinaryOperatorENS1_7MatcherINS_4ExprEEEED0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #0 comdat align 2 {
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN5clang12ast_matchers8internal22matcher_hasRHS0MatcherINS_14BinaryOperatorENS1_7MatcherINS_4ExprEEEEE, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i.i.i.i, label %_ZN5clang12ast_matchers8internal22matcher_hasRHS0MatcherINS_14BinaryOperatorENS1_7MatcherINS_4ExprEEEED2Ev.exit, label %4
@@ -17039,7 +17039,7 @@ define linkonce_odr hidden void @_ZNKR5clang12ast_matchers8internal23VariadicOpe
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN5clang12ast_matchers8internal28matcher_hasCondition0MatcherINS_6IfStmtENS1_7MatcherINS_4ExprEEEEE, i64 16), ptr %7, align 8, !noalias !1497
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %9, ptr noundef nonnull align 8 dereferenceable(12) %6, i64 12, i1 false), !noalias !1497
-  %10 = getelementptr inbounds i8, ptr %7, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %11 = getelementptr inbounds i8, ptr %1, i64 56
   %12 = load ptr, ptr %11, align 8, !noalias !1497
   store ptr %12, ptr %10, align 8, !noalias !1497
@@ -17162,7 +17162,7 @@ define linkonce_odr hidden void @_ZNKR5clang12ast_matchers8internal23VariadicOpe
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %.sroa.0.i)
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0.i, ptr noundef nonnull align 8 dereferenceable(12) %6, i64 12, i1 false), !noalias !1506
-  %7 = getelementptr inbounds i8, ptr %1, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %8 = load ptr, ptr %7, align 8, !noalias !1506
   %.not.i.i.i.i.i = icmp eq ptr %8, null
   br i1 %.not.i.i.i.i.i, label %_ZN5clang12ast_matchers8internal7MatcherINS_6IfStmtEEC2ERKS4_.exit.i, label %9
@@ -17280,7 +17280,7 @@ _ZNSt6vectorIN5clang12ast_matchers8internal15DynTypedMatcherESaIS3_EED2Ev.exit: 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5clang12ast_matchers8internal28matcher_hasCondition0MatcherINS_6IfStmtENS1_7MatcherINS_4ExprEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #0 comdat align 2 {
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN5clang12ast_matchers8internal28matcher_hasCondition0MatcherINS_6IfStmtENS1_7MatcherINS_4ExprEEEEE, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i.i.i, label %_ZN5clang12ast_matchers8internal7MatcherINS_4ExprEED2Ev.exit, label %4
@@ -17305,7 +17305,7 @@ _ZN5clang12ast_matchers8internal7MatcherINS_4ExprEED2Ev.exit: ; preds = %1, %4, 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5clang12ast_matchers8internal28matcher_hasCondition0MatcherINS_6IfStmtENS1_7MatcherINS_4ExprEEEED0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #0 comdat align 2 {
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN5clang12ast_matchers8internal28matcher_hasCondition0MatcherINS_6IfStmtENS1_7MatcherINS_4ExprEEEEE, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i.i.i.i, label %_ZN5clang12ast_matchers8internal28matcher_hasCondition0MatcherINS_6IfStmtENS1_7MatcherINS_4ExprEEEED2Ev.exit, label %4
@@ -17365,7 +17365,7 @@ define linkonce_odr noundef zeroext i1 @_ZNK5clang12ast_matchers8internal28match
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5clang12ast_matchers8internal30matcher_hasAnyArgument0MatcherINS_8CallExprENS1_7MatcherINS_4ExprEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #0 comdat align 2 {
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN5clang12ast_matchers8internal30matcher_hasAnyArgument0MatcherINS_8CallExprENS1_7MatcherINS_4ExprEEEEE, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i.i.i, label %_ZN5clang12ast_matchers8internal7MatcherINS_4ExprEED2Ev.exit, label %4
@@ -17390,7 +17390,7 @@ _ZN5clang12ast_matchers8internal7MatcherINS_4ExprEED2Ev.exit: ; preds = %1, %4, 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5clang12ast_matchers8internal30matcher_hasAnyArgument0MatcherINS_8CallExprENS1_7MatcherINS_4ExprEEEED0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #0 comdat align 2 {
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN5clang12ast_matchers8internal30matcher_hasAnyArgument0MatcherINS_8CallExprENS1_7MatcherINS_4ExprEEEEE, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i.i.i.i, label %_ZN5clang12ast_matchers8internal30matcher_hasAnyArgument0MatcherINS_8CallExprENS1_7MatcherINS_4ExprEEEED2Ev.exit, label %4
@@ -17537,7 +17537,7 @@ define linkonce_odr hidden void @_ZNKR5clang12ast_matchers8internal23VariadicOpe
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN5clang12ast_matchers8internal32matcher_hasEitherOperand0MatcherINS_14BinaryOperatorENS1_7MatcherINS_4ExprEEEEE, i64 16), ptr %12, align 8, !noalias !1526
   %14 = getelementptr inbounds nuw i8, ptr %12, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %14, ptr noundef nonnull align 8 dereferenceable(12) %11, i64 12, i1 false), !noalias !1526
-  %15 = getelementptr inbounds i8, ptr %12, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %12, i64 32
   %16 = getelementptr inbounds i8, ptr %1, i64 48
   %17 = load ptr, ptr %16, align 8, !noalias !1526
   store ptr %17, ptr %15, align 8, !noalias !1526
@@ -17565,8 +17565,8 @@ _ZNKR5clang12ast_matchers8internal18PolymorphicMatcherINS1_32matcher_hasEitherOp
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN5clang12ast_matchers8internal32matcher_hasEitherOperand0MatcherINS_14BinaryOperatorENS1_7MatcherINS_4ExprEEEEE, i64 16), ptr %24, align 8, !noalias !1532
   %26 = getelementptr inbounds nuw i8, ptr %24, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %26, ptr noundef nonnull align 8 dereferenceable(12) %5, i64 12, i1 false), !noalias !1532
-  %27 = getelementptr inbounds i8, ptr %24, i64 32
-  %28 = getelementptr inbounds i8, ptr %1, i64 24
+  %27 = getelementptr inbounds nuw i8, ptr %24, i64 32
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %29 = load ptr, ptr %28, align 8, !noalias !1532
   store ptr %29, ptr %27, align 8, !noalias !1532
   %.not.i.i.i.i.i.i.i.i1 = icmp eq ptr %29, null
@@ -17851,7 +17851,7 @@ _ZN5clang12ast_matchers8internal7MatcherINS_14BinaryOperatorEED2Ev.exit2: ; pred
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5clang12ast_matchers8internal32matcher_hasEitherOperand0MatcherINS_14BinaryOperatorENS1_7MatcherINS_4ExprEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #0 comdat align 2 {
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN5clang12ast_matchers8internal32matcher_hasEitherOperand0MatcherINS_14BinaryOperatorENS1_7MatcherINS_4ExprEEEEE, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i.i.i, label %_ZN5clang12ast_matchers8internal7MatcherINS_4ExprEED2Ev.exit, label %4
@@ -17876,7 +17876,7 @@ _ZN5clang12ast_matchers8internal7MatcherINS_4ExprEED2Ev.exit: ; preds = %1, %4, 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5clang12ast_matchers8internal32matcher_hasEitherOperand0MatcherINS_14BinaryOperatorENS1_7MatcherINS_4ExprEEEED0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #0 comdat align 2 {
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN5clang12ast_matchers8internal32matcher_hasEitherOperand0MatcherINS_14BinaryOperatorENS1_7MatcherINS_4ExprEEEEE, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i.i.i.i, label %_ZN5clang12ast_matchers8internal32matcher_hasEitherOperand0MatcherINS_14BinaryOperatorENS1_7MatcherINS_4ExprEEEED2Ev.exit, label %4
@@ -17911,7 +17911,7 @@ define linkonce_odr noundef zeroext i1 @_ZNK5clang12ast_matchers8internal32match
   %.sroa.0 = alloca [12 x i8], align 8
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.08, ptr noundef nonnull align 8 dereferenceable(12) %11, i64 12, i1 false)
-  %12 = getelementptr inbounds i8, ptr %0, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %13 = load ptr, ptr %12, align 8, !noalias !1034
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %13, null
   br i1 %.not.i.i.i.i.i.i.i.i.i, label %_ZN5clang12ast_matchers6hasLHSERKNS0_8internal7MatcherINS_4ExprEEE.exit.thread, label %_ZN5clang12ast_matchers6hasLHSERKNS0_8internal7MatcherINS_4ExprEEE.exit
@@ -17940,7 +17940,7 @@ _ZN5clang12ast_matchers6hasRHSERKNS0_8internal7MatcherINS_4ExprEEE.exit: ; preds
   store i32 %20, ptr %10, align 8, !alias.scope !1556
   %21 = getelementptr inbounds nuw i8, ptr %10, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %21, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, i64 12, i1 false)
-  %22 = getelementptr inbounds i8, ptr %10, i64 24
+  %22 = getelementptr inbounds nuw i8, ptr %10, i64 24
   store ptr %19, ptr %22, align 8, !alias.scope !1556
   %23 = getelementptr inbounds i8, ptr %10, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %23, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.08, i64 12, i1 false)
@@ -18192,7 +18192,7 @@ define linkonce_odr hidden void @_ZNKR5clang12ast_matchers8internal23VariadicOpe
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN5clang12ast_matchers8internal22matcher_hasLHS0MatcherINS_14BinaryOperatorENS1_7MatcherINS_4ExprEEEEE, i64 16), ptr %6, align 8, !noalias !1581
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %8, ptr noundef nonnull align 8 dereferenceable(12) %5, i64 12, i1 false), !noalias !1581
-  %9 = getelementptr inbounds i8, ptr %6, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %10 = getelementptr inbounds i8, ptr %1, i64 48
   %11 = load ptr, ptr %10, align 8, !noalias !1581
   store ptr %11, ptr %9, align 8, !noalias !1581
@@ -18220,8 +18220,8 @@ _ZNKR5clang12ast_matchers8internal18PolymorphicMatcherINS1_22matcher_hasLHS0Matc
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN5clang12ast_matchers8internal22matcher_hasRHS0MatcherINS_14BinaryOperatorENS1_7MatcherINS_4ExprEEEEE, i64 16), ptr %18, align 8, !noalias !1587
   %20 = getelementptr inbounds nuw i8, ptr %18, i64 16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %20, ptr noundef nonnull align 8 dereferenceable(12) %4, i64 12, i1 false), !noalias !1587
-  %21 = getelementptr inbounds i8, ptr %18, i64 32
-  %22 = getelementptr inbounds i8, ptr %1, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %18, i64 32
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %23 = load ptr, ptr %22, align 8, !noalias !1587
   store ptr %23, ptr %21, align 8, !noalias !1587
   %.not.i.i.i.i.i.i.i.i1 = icmp eq ptr %23, null
@@ -18328,7 +18328,7 @@ define linkonce_odr hidden void @_ZNKR5clang12ast_matchers8internal23VariadicOpe
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN5clang12ast_matchers8internal32matcher_hasEitherOperand0MatcherINS_14BinaryOperatorENS1_7MatcherINS_4ExprEEEEE, i64 16), ptr %12, align 8, !noalias !1596
   %14 = getelementptr inbounds nuw i8, ptr %12, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %14, ptr noundef nonnull align 8 dereferenceable(12) %11, i64 12, i1 false), !noalias !1596
-  %15 = getelementptr inbounds i8, ptr %12, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %12, i64 32
   %16 = getelementptr inbounds i8, ptr %1, i64 48
   %17 = load ptr, ptr %16, align 8, !noalias !1596
   store ptr %17, ptr %15, align 8, !noalias !1596
@@ -18356,8 +18356,8 @@ _ZNKR5clang12ast_matchers8internal18PolymorphicMatcherINS1_32matcher_hasEitherOp
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN5clang12ast_matchers8internal32matcher_hasEitherOperand0MatcherINS_14BinaryOperatorENS1_7MatcherINS_4ExprEEEEE, i64 16), ptr %24, align 8, !noalias !1602
   %26 = getelementptr inbounds nuw i8, ptr %24, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %26, ptr noundef nonnull align 8 dereferenceable(12) %5, i64 12, i1 false), !noalias !1602
-  %27 = getelementptr inbounds i8, ptr %24, i64 32
-  %28 = getelementptr inbounds i8, ptr %1, i64 24
+  %27 = getelementptr inbounds nuw i8, ptr %24, i64 32
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %29 = load ptr, ptr %28, align 8, !noalias !1602
   store ptr %29, ptr %27, align 8, !noalias !1602
   %.not.i.i.i.i.i.i.i.i1 = icmp eq ptr %29, null
@@ -18674,7 +18674,7 @@ _ZN5clang12ast_matchers8internal7MatcherINS_14BinaryOperatorEED2Ev.exit6: ; pred
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5clang12ast_matchers8internal20HasDescendantMatcherINS_4ExprENS_4StmtEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #0 comdat align 2 {
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN5clang12ast_matchers8internal20HasDescendantMatcherINS_4ExprENS_4StmtEEE, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i.i, label %_ZN5clang12ast_matchers8internal15DynTypedMatcherD2Ev.exit, label %4
@@ -18699,7 +18699,7 @@ _ZN5clang12ast_matchers8internal15DynTypedMatcherD2Ev.exit: ; preds = %1, %4, %8
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5clang12ast_matchers8internal20HasDescendantMatcherINS_4ExprENS_4StmtEED0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #0 comdat align 2 {
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN5clang12ast_matchers8internal20HasDescendantMatcherINS_4ExprENS_4StmtEEE, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i.i.i, label %_ZN5clang12ast_matchers8internal20HasDescendantMatcherINS_4ExprENS_4StmtEED2Ev.exit, label %4
@@ -18758,7 +18758,7 @@ define linkonce_odr hidden void @_ZNKR5clang12ast_matchers8internal23VariadicOpe
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN5clang12ast_matchers8internal28matcher_hasCondition0MatcherINS_19ConditionalOperatorENS1_7MatcherINS_4ExprEEEEE, i64 16), ptr %8, align 8, !noalias !1639
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %10, ptr noundef nonnull align 8 dereferenceable(12) %7, i64 12, i1 false), !noalias !1639
-  %11 = getelementptr inbounds i8, ptr %8, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %12 = getelementptr inbounds i8, ptr %1, i64 88
   %13 = load ptr, ptr %12, align 8, !noalias !1639
   store ptr %13, ptr %11, align 8, !noalias !1639
@@ -19038,7 +19038,7 @@ _ZNSt6vectorIN5clang12ast_matchers8internal15DynTypedMatcherESaIS3_EED2Ev.exit: 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5clang12ast_matchers8internal28matcher_hasCondition0MatcherINS_19ConditionalOperatorENS1_7MatcherINS_4ExprEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #0 comdat align 2 {
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN5clang12ast_matchers8internal28matcher_hasCondition0MatcherINS_19ConditionalOperatorENS1_7MatcherINS_4ExprEEEEE, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i.i.i, label %_ZN5clang12ast_matchers8internal7MatcherINS_4ExprEED2Ev.exit, label %4
@@ -19063,7 +19063,7 @@ _ZN5clang12ast_matchers8internal7MatcherINS_4ExprEED2Ev.exit: ; preds = %1, %4, 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5clang12ast_matchers8internal28matcher_hasCondition0MatcherINS_19ConditionalOperatorENS1_7MatcherINS_4ExprEEEED0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #0 comdat align 2 {
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN5clang12ast_matchers8internal28matcher_hasCondition0MatcherINS_19ConditionalOperatorENS1_7MatcherINS_4ExprEEEEE, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i.i.i.i, label %_ZN5clang12ast_matchers8internal28matcher_hasCondition0MatcherINS_19ConditionalOperatorENS1_7MatcherINS_4ExprEEEED2Ev.exit, label %4
@@ -19150,8 +19150,8 @@ define linkonce_odr hidden void @_ZNKR5clang12ast_matchers8internal23VariadicOpe
   %14 = getelementptr inbounds nuw i8, ptr %12, i64 16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1673)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %14, ptr noundef nonnull align 8 dereferenceable(12) %4, i64 12, i1 false), !noalias !1670
-  %15 = getelementptr inbounds i8, ptr %12, i64 32
-  %16 = getelementptr inbounds i8, ptr %1, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %12, i64 32
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %17 = load ptr, ptr %16, align 8, !noalias !1676
   store ptr %17, ptr %15, align 8, !alias.scope !1673, !noalias !1670
   %.not.i.i.i.i.i.i = icmp eq ptr %17, null
@@ -19297,7 +19297,7 @@ declare { ptr, i64 } @_ZN5clang13UnaryOperator12getOpcodeStrENS_17UnaryOperatorK
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5clang12ast_matchers8internal10HasMatcherINS_13UnaryOperatorENS_4StmtEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #0 comdat align 2 {
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN5clang12ast_matchers8internal10HasMatcherINS_13UnaryOperatorENS_4StmtEEE, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i.i, label %_ZN5clang12ast_matchers8internal15DynTypedMatcherD2Ev.exit, label %4
@@ -19322,7 +19322,7 @@ _ZN5clang12ast_matchers8internal15DynTypedMatcherD2Ev.exit: ; preds = %1, %4, %8
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5clang12ast_matchers8internal10HasMatcherINS_13UnaryOperatorENS_4StmtEED0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #0 comdat align 2 {
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN5clang12ast_matchers8internal10HasMatcherINS_13UnaryOperatorENS_4StmtEEE, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i.i.i, label %_ZN5clang12ast_matchers8internal10HasMatcherINS_13UnaryOperatorENS_4StmtEED2Ev.exit, label %4
@@ -19379,7 +19379,7 @@ define linkonce_odr hidden void @_ZNKR5clang12ast_matchers8internal23VariadicOpe
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN5clang12ast_matchers8internal23matcher_hasType0MatcherINS_16ExplicitCastExprENS1_7MatcherINS_8QualTypeEEEEE, i64 16), ptr %6, align 8, !noalias !1690
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %8, ptr noundef nonnull align 8 dereferenceable(12) %5, i64 12, i1 false), !noalias !1690
-  %9 = getelementptr inbounds i8, ptr %6, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %10 = getelementptr inbounds i8, ptr %1, i64 48
   %11 = load ptr, ptr %10, align 8, !noalias !1690
   store ptr %11, ptr %9, align 8, !noalias !1690
@@ -19408,8 +19408,8 @@ _ZNKR5clang12ast_matchers8internal18PolymorphicMatcherINS1_23matcher_hasType0Mat
   %20 = getelementptr inbounds nuw i8, ptr %18, i64 16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1699)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %20, ptr noundef nonnull align 8 dereferenceable(12) %4, i64 12, i1 false), !noalias !1696
-  %21 = getelementptr inbounds i8, ptr %18, i64 32
-  %22 = getelementptr inbounds i8, ptr %1, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %18, i64 32
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %23 = load ptr, ptr %22, align 8, !noalias !1702
   store ptr %23, ptr %21, align 8, !alias.scope !1699, !noalias !1696
   %.not.i.i.i.i.i.i = icmp eq ptr %23, null
@@ -19497,7 +19497,7 @@ _ZN5clang12ast_matchers8internal7MatcherINS_16ExplicitCastExprEED2Ev.exit3: ; pr
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5clang12ast_matchers8internal23matcher_hasType0MatcherINS_16ExplicitCastExprENS1_7MatcherINS_8QualTypeEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #0 comdat align 2 {
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN5clang12ast_matchers8internal23matcher_hasType0MatcherINS_16ExplicitCastExprENS1_7MatcherINS_8QualTypeEEEEE, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i.i.i, label %_ZN5clang12ast_matchers8internal7MatcherINS_8QualTypeEED2Ev.exit, label %4
@@ -19522,7 +19522,7 @@ _ZN5clang12ast_matchers8internal7MatcherINS_8QualTypeEED2Ev.exit: ; preds = %1, 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5clang12ast_matchers8internal23matcher_hasType0MatcherINS_16ExplicitCastExprENS1_7MatcherINS_8QualTypeEEEED0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #0 comdat align 2 {
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN5clang12ast_matchers8internal23matcher_hasType0MatcherINS_16ExplicitCastExprENS1_7MatcherINS_8QualTypeEEEEE, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i.i.i.i, label %_ZN5clang12ast_matchers8internal23matcher_hasType0MatcherINS_16ExplicitCastExprENS1_7MatcherINS_8QualTypeEEEED2Ev.exit, label %4
@@ -19571,7 +19571,7 @@ define linkonce_odr noundef zeroext i1 @_ZNK5clang12ast_matchers8internal23match
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5clang12ast_matchers8internal10HasMatcherINS_16ExplicitCastExprENS_4StmtEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #0 comdat align 2 {
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN5clang12ast_matchers8internal10HasMatcherINS_16ExplicitCastExprENS_4StmtEEE, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i.i, label %_ZN5clang12ast_matchers8internal15DynTypedMatcherD2Ev.exit, label %4
@@ -19596,7 +19596,7 @@ _ZN5clang12ast_matchers8internal15DynTypedMatcherD2Ev.exit: ; preds = %1, %4, %8
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5clang12ast_matchers8internal10HasMatcherINS_16ExplicitCastExprENS_4StmtEED0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #0 comdat align 2 {
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN5clang12ast_matchers8internal10HasMatcherINS_16ExplicitCastExprENS_4StmtEEE, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i.i.i, label %_ZN5clang12ast_matchers8internal10HasMatcherINS_16ExplicitCastExprENS_4StmtEED2Ev.exit, label %4
@@ -19870,7 +19870,7 @@ _ZN5clang12ast_matchers8internal7MatcherINS_7VarDeclEED2Ev.exit: ; preds = %_ZNK
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5clang12ast_matchers8internal23matcher_hasType0MatcherINS_7VarDeclENS1_7MatcherINS_8QualTypeEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #0 comdat align 2 {
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN5clang12ast_matchers8internal23matcher_hasType0MatcherINS_7VarDeclENS1_7MatcherINS_8QualTypeEEEEE, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i.i.i, label %_ZN5clang12ast_matchers8internal7MatcherINS_8QualTypeEED2Ev.exit, label %4
@@ -19895,7 +19895,7 @@ _ZN5clang12ast_matchers8internal7MatcherINS_8QualTypeEED2Ev.exit: ; preds = %1, 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5clang12ast_matchers8internal23matcher_hasType0MatcherINS_7VarDeclENS1_7MatcherINS_8QualTypeEEEED0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #0 comdat align 2 {
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN5clang12ast_matchers8internal23matcher_hasType0MatcherINS_7VarDeclENS1_7MatcherINS_8QualTypeEEEEE, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i.i.i.i, label %_ZN5clang12ast_matchers8internal23matcher_hasType0MatcherINS_7VarDeclENS1_7MatcherINS_8QualTypeEEEED2Ev.exit, label %4
@@ -20257,9 +20257,9 @@ define internal void @_ZN12_GLOBAL__N_18Callback3runERKN5clang12ast_matchers11Ma
   br i1 %44, label %_ZNK5clang12ast_matchers10BoundNodes9getNodeAsINS_4StmtEEEPKT_N4llvm9StringRefE.exit.thread, label %45
 
 45:                                               ; preds = %2
-  %46 = getelementptr inbounds i8, ptr %42, i64 64
+  %46 = getelementptr inbounds nuw i8, ptr %42, i64 64
   %.sroa.0.0.copyload.i.i.i = load i32, ptr %46, align 8
-  %47 = getelementptr inbounds i8, ptr %42, i64 72
+  %47 = getelementptr inbounds nuw i8, ptr %42, i64 72
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %21)
   store i32 175, ptr %21, align 4
   %48 = call noundef zeroext i1 @_ZNK5clang11ASTNodeKind8isBaseOfES0_(ptr noundef nonnull align 4 dereferenceable(4) %21, i32 %.sroa.0.0.copyload.i.i.i) #18
@@ -20300,9 +20300,9 @@ _ZNK5clang12ast_matchers10BoundNodes9getNodeAsINS_4StmtEEEPKT_N4llvm9StringRefE.
   br i1 %65, label %_ZNK5clang12ast_matchers10BoundNodes9getNodeAsINS_4ExprEEEPKT_N4llvm9StringRefE.exit.thread, label %66
 
 66:                                               ; preds = %56
-  %67 = getelementptr inbounds i8, ptr %64, i64 64
+  %67 = getelementptr inbounds nuw i8, ptr %64, i64 64
   %.sroa.0.0.copyload.i.i.i74 = load i32, ptr %67, align 8
-  %68 = getelementptr inbounds i8, ptr %64, i64 72
+  %68 = getelementptr inbounds nuw i8, ptr %64, i64 72
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %19)
   store i32 179, ptr %19, align 4
   %69 = call noundef zeroext i1 @_ZNK5clang11ASTNodeKind8isBaseOfES0_(ptr noundef nonnull align 4 dereferenceable(4) %19, i32 %.sroa.0.0.copyload.i.i.i74) #18
@@ -20371,9 +20371,9 @@ _ZN4llvmeqENS_9StringRefES0_.exit88.thread224:    ; preds = %_ZN4llvmeqENS_9Stri
   br i1 %90, label %91, label %_ZN4llvm6APSIntD2Ev.exit
 
 91:                                               ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit88.thread224
-  %92 = getelementptr inbounds i8, ptr %23, i64 24
+  %92 = getelementptr inbounds nuw i8, ptr %23, i64 24
   %93 = getelementptr inbounds nuw i8, ptr %24, i64 8
-  %94 = getelementptr inbounds i8, ptr %23, i64 32
+  %94 = getelementptr inbounds nuw i8, ptr %23, i64 32
   %95 = load i32, ptr %94, align 8
   store i32 %95, ptr %93, align 8
   %96 = icmp ult i32 %95, 65
@@ -20390,7 +20390,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit88.thread224:    ; preds = %_ZN4llvmeqENS_9Stri
 
 _ZN4llvm6APSIntC2ERKS0_.exit:                     ; preds = %97, %99
   %100 = getelementptr inbounds nuw i8, ptr %24, i64 12
-  %101 = getelementptr inbounds i8, ptr %23, i64 36
+  %101 = getelementptr inbounds nuw i8, ptr %23, i64 36
   %102 = load i8, ptr %101, align 4
   %103 = and i8 %102, 1
   store i8 %103, ptr %100, align 4
@@ -20469,9 +20469,9 @@ _ZN5clang4Expr10EvalResultD2Ev.exit:              ; preds = %_ZN4llvm6APSIntD2Ev
   br i1 %132, label %_ZNK5clang12ast_matchers10BoundNodes9getNodeAsINS_4StmtEEEPKT_N4llvm9StringRefE.exit92, label %133
 
 133:                                              ; preds = %.critedge
-  %134 = getelementptr inbounds i8, ptr %131, i64 64
+  %134 = getelementptr inbounds nuw i8, ptr %131, i64 64
   %.sroa.0.0.copyload.i.i.i89 = load i32, ptr %134, align 8
-  %135 = getelementptr inbounds i8, ptr %131, i64 72
+  %135 = getelementptr inbounds nuw i8, ptr %131, i64 72
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %16)
   store i32 175, ptr %16, align 4
   %136 = call noundef zeroext i1 @_ZNK5clang11ASTNodeKind8isBaseOfES0_(ptr noundef nonnull align 4 dereferenceable(4) %16, i32 %.sroa.0.0.copyload.i.i.i89) #18
@@ -20492,9 +20492,9 @@ _ZNK5clang12ast_matchers10BoundNodes9getNodeAsINS_4StmtEEEPKT_N4llvm9StringRefE.
   br i1 %140, label %_ZNK5clang12ast_matchers10BoundNodes9getNodeAsINS_4ExprEEEPKT_N4llvm9StringRefE.exit96, label %141
 
 141:                                              ; preds = %_ZNK5clang12ast_matchers10BoundNodes9getNodeAsINS_4StmtEEEPKT_N4llvm9StringRefE.exit92
-  %142 = getelementptr inbounds i8, ptr %139, i64 64
+  %142 = getelementptr inbounds nuw i8, ptr %139, i64 64
   %.sroa.0.0.copyload.i.i.i93 = load i32, ptr %142, align 8
-  %143 = getelementptr inbounds i8, ptr %139, i64 72
+  %143 = getelementptr inbounds nuw i8, ptr %139, i64 72
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %14)
   store i32 179, ptr %14, align 4
   %144 = call noundef zeroext i1 @_ZNK5clang11ASTNodeKind8isBaseOfES0_(ptr noundef nonnull align 4 dereferenceable(4) %14, i32 %.sroa.0.0.copyload.i.i.i93) #18
@@ -20515,9 +20515,9 @@ _ZNK5clang12ast_matchers10BoundNodes9getNodeAsINS_4ExprEEEPKT_N4llvm9StringRefE.
   br i1 %148, label %_ZNK5clang12ast_matchers10BoundNodes9getNodeAsINS_4ExprEEEPKT_N4llvm9StringRefE.exit100, label %149
 
 149:                                              ; preds = %_ZNK5clang12ast_matchers10BoundNodes9getNodeAsINS_4ExprEEEPKT_N4llvm9StringRefE.exit96
-  %150 = getelementptr inbounds i8, ptr %147, i64 64
+  %150 = getelementptr inbounds nuw i8, ptr %147, i64 64
   %.sroa.0.0.copyload.i.i.i97 = load i32, ptr %150, align 8
-  %151 = getelementptr inbounds i8, ptr %147, i64 72
+  %151 = getelementptr inbounds nuw i8, ptr %147, i64 72
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12)
   store i32 179, ptr %12, align 4
   %152 = call noundef zeroext i1 @_ZNK5clang11ASTNodeKind8isBaseOfES0_(ptr noundef nonnull align 4 dereferenceable(4) %12, i32 %.sroa.0.0.copyload.i.i.i97) #18
@@ -20538,9 +20538,9 @@ _ZNK5clang12ast_matchers10BoundNodes9getNodeAsINS_4ExprEEEPKT_N4llvm9StringRefE.
   br i1 %156, label %_ZNK5clang12ast_matchers10BoundNodes9getNodeAsINS_4ExprEEEPKT_N4llvm9StringRefE.exit104, label %157
 
 157:                                              ; preds = %_ZNK5clang12ast_matchers10BoundNodes9getNodeAsINS_4ExprEEEPKT_N4llvm9StringRefE.exit100
-  %158 = getelementptr inbounds i8, ptr %155, i64 64
+  %158 = getelementptr inbounds nuw i8, ptr %155, i64 64
   %.sroa.0.0.copyload.i.i.i101 = load i32, ptr %158, align 8
-  %159 = getelementptr inbounds i8, ptr %155, i64 72
+  %159 = getelementptr inbounds nuw i8, ptr %155, i64 72
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10)
   store i32 179, ptr %10, align 4
   %160 = call noundef zeroext i1 @_ZNK5clang11ASTNodeKind8isBaseOfES0_(ptr noundef nonnull align 4 dereferenceable(4) %10, i32 %.sroa.0.0.copyload.i.i.i101) #18
@@ -20565,9 +20565,9 @@ _ZNK5clang12ast_matchers10BoundNodes9getNodeAsINS_4ExprEEEPKT_N4llvm9StringRefE.
   br i1 %166, label %_ZNK5clang12ast_matchers10BoundNodes9getNodeAsINS_4StmtEEEPKT_N4llvm9StringRefE.exit108, label %167
 
 167:                                              ; preds = %_ZNK5clang12ast_matchers10BoundNodes9getNodeAsINS_4ExprEEEPKT_N4llvm9StringRefE.exit104
-  %168 = getelementptr inbounds i8, ptr %165, i64 64
+  %168 = getelementptr inbounds nuw i8, ptr %165, i64 64
   %.sroa.0.0.copyload.i.i.i105 = load i32, ptr %168, align 8
-  %169 = getelementptr inbounds i8, ptr %165, i64 72
+  %169 = getelementptr inbounds nuw i8, ptr %165, i64 72
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8)
   store i32 175, ptr %8, align 4
   %170 = call noundef zeroext i1 @_ZNK5clang11ASTNodeKind8isBaseOfES0_(ptr noundef nonnull align 4 dereferenceable(4) %8, i32 %.sroa.0.0.copyload.i.i.i105) #18
@@ -20590,9 +20590,9 @@ _ZNK5clang12ast_matchers10BoundNodes9getNodeAsINS_4StmtEEEPKT_N4llvm9StringRefE.
   br i1 %176, label %_ZNK5clang12ast_matchers10BoundNodes9getNodeAsINS_4DeclEEEPKT_N4llvm9StringRefE.exit, label %177
 
 177:                                              ; preds = %_ZNK5clang12ast_matchers10BoundNodes9getNodeAsINS_4StmtEEEPKT_N4llvm9StringRefE.exit108
-  %178 = getelementptr inbounds i8, ptr %175, i64 64
+  %178 = getelementptr inbounds nuw i8, ptr %175, i64 64
   %.sroa.0.0.copyload.i.i.i109 = load i32, ptr %178, align 8
-  %179 = getelementptr inbounds i8, ptr %175, i64 72
+  %179 = getelementptr inbounds nuw i8, ptr %175, i64 72
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
   store i32 77, ptr %6, align 4
   %180 = call noundef zeroext i1 @_ZNK5clang11ASTNodeKind8isBaseOfES0_(ptr noundef nonnull align 4 dereferenceable(4) %6, i32 %.sroa.0.0.copyload.i.i.i109) #18
@@ -20615,7 +20615,7 @@ _ZNK5clang12ast_matchers10BoundNodes9getNodeAsINS_4DeclEEEPKT_N4llvm9StringRefE.
   br i1 %186, label %_ZNK5clang12ast_matchers10BoundNodes9getNodeAsINS_8QualTypeEEEPKT_N4llvm9StringRefE.exit, label %187
 
 187:                                              ; preds = %_ZNK5clang12ast_matchers10BoundNodes9getNodeAsINS_4DeclEEEPKT_N4llvm9StringRefE.exit
-  %188 = getelementptr inbounds i8, ptr %185, i64 64
+  %188 = getelementptr inbounds nuw i8, ptr %185, i64 64
   %.sroa.0.0.copyload.i.i.i112 = load i32, ptr %188, align 8
   %189 = icmp ne i32 %.sroa.0.0.copyload.i.i.i112, 6
   br label %_ZNK5clang12ast_matchers10BoundNodes9getNodeAsINS_8QualTypeEEEPKT_N4llvm9StringRefE.exit
@@ -20632,7 +20632,7 @@ _ZNK5clang12ast_matchers10BoundNodes9getNodeAsINS_8QualTypeEEEPKT_N4llvm9StringR
   br i1 %192, label %_ZNK5clang12ast_matchers10BoundNodes9getNodeAsINS_8QualTypeEEEPKT_N4llvm9StringRefE.exit117, label %193
 
 193:                                              ; preds = %_ZNK5clang12ast_matchers10BoundNodes9getNodeAsINS_8QualTypeEEEPKT_N4llvm9StringRefE.exit
-  %194 = getelementptr inbounds i8, ptr %191, i64 64
+  %194 = getelementptr inbounds nuw i8, ptr %191, i64 64
   %.sroa.0.0.copyload.i.i.i114 = load i32, ptr %194, align 8
   %195 = icmp ne i32 %.sroa.0.0.copyload.i.i.i114, 6
   br label %_ZNK5clang12ast_matchers10BoundNodes9getNodeAsINS_8QualTypeEEEPKT_N4llvm9StringRefE.exit117
@@ -20649,7 +20649,7 @@ _ZNK5clang12ast_matchers10BoundNodes9getNodeAsINS_8QualTypeEEEPKT_N4llvm9StringR
   br i1 %198, label %_ZNK5clang12ast_matchers10BoundNodes9getNodeAsINS_8QualTypeEEEPKT_N4llvm9StringRefE.exit121, label %199
 
 199:                                              ; preds = %_ZNK5clang12ast_matchers10BoundNodes9getNodeAsINS_8QualTypeEEEPKT_N4llvm9StringRefE.exit117
-  %200 = getelementptr inbounds i8, ptr %197, i64 64
+  %200 = getelementptr inbounds nuw i8, ptr %197, i64 64
   %.sroa.0.0.copyload.i.i.i118 = load i32, ptr %200, align 8
   %201 = icmp ne i32 %.sroa.0.0.copyload.i.i.i118, 6
   br label %_ZNK5clang12ast_matchers10BoundNodes9getNodeAsINS_8QualTypeEEEPKT_N4llvm9StringRefE.exit121
@@ -21396,7 +21396,7 @@ declare void @_ZN5clang12ast_matchers8internal15DynTypedMatcher26constructRestri
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5clang12ast_matchers8internal16TraversalMatcherINS_4StmtEED2Ev(ptr noundef nonnull align 8 dereferenceable(44) %0) unnamed_addr #0 comdat align 2 {
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN5clang12ast_matchers8internal16TraversalMatcherINS_4StmtEEE, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i.i, label %_ZN5clang12ast_matchers8internal15DynTypedMatcherD2Ev.exit, label %4
@@ -21421,7 +21421,7 @@ _ZN5clang12ast_matchers8internal15DynTypedMatcherD2Ev.exit: ; preds = %1, %4, %8
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5clang12ast_matchers8internal16TraversalMatcherINS_4StmtEED0Ev(ptr noundef nonnull align 8 dereferenceable(44) %0) unnamed_addr #0 comdat align 2 {
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN5clang12ast_matchers8internal16TraversalMatcherINS_4StmtEEE, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i.i.i, label %_ZN5clang12ast_matchers8internal16TraversalMatcherINS_4StmtEED2Ev.exit, label %4
@@ -21446,7 +21446,7 @@ _ZN5clang12ast_matchers8internal16TraversalMatcherINS_4StmtEED2Ev.exit: ; preds 
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden i64 @_ZNK5clang12ast_matchers8internal16TraversalMatcherINS_4StmtEE13TraversalKindEv(ptr noundef nonnull align 8 dereferenceable(44) %0) unnamed_addr #0 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 24
@@ -21484,7 +21484,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK5clang12ast_matchers8internal
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5clang12ast_matchers8internal24ForEachDescendantMatcherINS_4StmtES3_ED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #0 comdat align 2 {
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN5clang12ast_matchers8internal24ForEachDescendantMatcherINS_4StmtES3_EE, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i.i, label %_ZN5clang12ast_matchers8internal15DynTypedMatcherD2Ev.exit, label %4
@@ -21509,7 +21509,7 @@ _ZN5clang12ast_matchers8internal15DynTypedMatcherD2Ev.exit: ; preds = %1, %4, %8
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5clang12ast_matchers8internal24ForEachDescendantMatcherINS_4StmtES3_ED0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #0 comdat align 2 {
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN5clang12ast_matchers8internal24ForEachDescendantMatcherINS_4StmtES3_EE, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i.i.i, label %_ZN5clang12ast_matchers8internal24ForEachDescendantMatcherINS_4StmtES3_ED2Ev.exit, label %4

@@ -112,15 +112,15 @@ define dso_local void @_ZN4llvm29CanonicalizeFreezeInLoopsPass3runERNS_4LoopERNS
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 0, ptr %20, align 8, !alias.scope !4
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %22 = getelementptr inbounds i8, ptr %0, i64 80
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store ptr %22, ptr %21, align 8, !alias.scope !4
-  %23 = getelementptr inbounds i8, ptr %0, i64 56
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store ptr %22, ptr %23, align 8, !alias.scope !4
-  %24 = getelementptr inbounds i8, ptr %0, i64 64
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i32 2, ptr %24, align 8, !alias.scope !4
-  %25 = getelementptr inbounds i8, ptr %0, i64 68
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 68
   store i32 0, ptr %25, align 4, !alias.scope !4
-  %26 = getelementptr inbounds i8, ptr %0, i64 72
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store i32 0, ptr %26, align 8, !alias.scope !4
   store i32 1, ptr %19, align 4, !alias.scope !4, !noalias !7
   store ptr @_ZN4llvm17PreservedAnalyses14AllAnalysesKeyE, ptr %16, align 8, !alias.scope !4, !noalias !7

@@ -561,7 +561,7 @@ define noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__12HdBufferSpec4HashEv(
   %9 = add i64 %8, 1
   %10 = mul i64 %9, %8
   %11 = lshr i64 %10, 1
-  %12 = getelementptr inbounds i8, ptr %0, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %13 = load i64, ptr %12, align 8
   %14 = add i64 %13, %7
   %15 = add i64 %14, %11
@@ -692,7 +692,7 @@ define linkonce_odr ptr @_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPKN32pxrI
   %12 = and i64 %11, -8
   %13 = inttoptr i64 %12 to ptr
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %15 = getelementptr inbounds i8, ptr %2, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %16 = mul nuw nsw i64 %8, 96
   %scevgep = getelementptr i8, ptr %0, i64 %16
   br label %17
@@ -712,7 +712,7 @@ _ZN9__gnu_cxx5__ops16_Iter_equals_valIKN32pxrInternal_v0_24__pxrReserved__12HdBu
   %24 = load i32, ptr %23, align 8
   %25 = load i32, ptr %14, align 8
   %26 = icmp eq i32 %24, %25
-  %27 = getelementptr inbounds i8, ptr %.sroa.031.050, i64 16
+  %27 = getelementptr inbounds nuw i8, ptr %.sroa.031.050, i64 16
   %28 = load i64, ptr %27, align 8
   %29 = load i64, ptr %15, align 8
   %30 = icmp eq i64 %28, %29
@@ -835,9 +835,9 @@ _ZN9__gnu_cxx5__ops16_Iter_equals_valIKN32pxrInternal_v0_24__pxrReserved__12HdBu
   %93 = load i32, ptr %91, align 8
   %94 = load i32, ptr %92, align 8
   %95 = icmp eq i32 %93, %94
-  %96 = getelementptr inbounds i8, ptr %.sroa.031.0.lcssa, i64 16
+  %96 = getelementptr inbounds nuw i8, ptr %.sroa.031.0.lcssa, i64 16
   %97 = load i64, ptr %96, align 8
-  %98 = getelementptr inbounds i8, ptr %2, i64 16
+  %98 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %99 = load i64, ptr %98, align 8
   %100 = icmp eq i64 %97, %99
   %101 = select i1 %95, i1 %100, i1 false
@@ -863,9 +863,9 @@ _ZN9__gnu_cxx5__ops16_Iter_equals_valIKN32pxrInternal_v0_24__pxrReserved__12HdBu
   %111 = load i32, ptr %109, align 8
   %112 = load i32, ptr %110, align 8
   %113 = icmp eq i32 %111, %112
-  %114 = getelementptr inbounds i8, ptr %.sroa.031.1, i64 16
+  %114 = getelementptr inbounds nuw i8, ptr %.sroa.031.1, i64 16
   %115 = load i64, ptr %114, align 8
-  %116 = getelementptr inbounds i8, ptr %2, i64 16
+  %116 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %117 = load i64, ptr %116, align 8
   %118 = icmp eq i64 %115, %117
   %119 = select i1 %113, i1 %118, i1 false
@@ -891,9 +891,9 @@ _ZN9__gnu_cxx5__ops16_Iter_equals_valIKN32pxrInternal_v0_24__pxrReserved__12HdBu
   %129 = load i32, ptr %127, align 8
   %130 = load i32, ptr %128, align 8
   %131 = icmp eq i32 %129, %130
-  %132 = getelementptr inbounds i8, ptr %.sroa.031.2, i64 16
+  %132 = getelementptr inbounds nuw i8, ptr %.sroa.031.2, i64 16
   %133 = load i64, ptr %132, align 8
-  %134 = getelementptr inbounds i8, ptr %2, i64 16
+  %134 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %135 = load i64, ptr %134, align 8
   %136 = icmp eq i64 %133, %135
   %137 = select i1 %131, i1 %136, i1 false
@@ -938,7 +938,7 @@ define linkonce_odr ptr @_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPN32pxrIn
   %12 = and i64 %11, -8
   %13 = inttoptr i64 %12 to ptr
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %15 = getelementptr inbounds i8, ptr %2, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %16 = mul nuw nsw i64 %8, 96
   %scevgep = getelementptr i8, ptr %0, i64 %16
   br label %17
@@ -958,7 +958,7 @@ _ZN9__gnu_cxx5__ops16_Iter_equals_valIKN32pxrInternal_v0_24__pxrReserved__12HdBu
   %24 = load i32, ptr %23, align 8
   %25 = load i32, ptr %14, align 8
   %26 = icmp eq i32 %24, %25
-  %27 = getelementptr inbounds i8, ptr %.sroa.031.050, i64 16
+  %27 = getelementptr inbounds nuw i8, ptr %.sroa.031.050, i64 16
   %28 = load i64, ptr %27, align 8
   %29 = load i64, ptr %15, align 8
   %30 = icmp eq i64 %28, %29
@@ -1081,9 +1081,9 @@ _ZN9__gnu_cxx5__ops16_Iter_equals_valIKN32pxrInternal_v0_24__pxrReserved__12HdBu
   %93 = load i32, ptr %91, align 8
   %94 = load i32, ptr %92, align 8
   %95 = icmp eq i32 %93, %94
-  %96 = getelementptr inbounds i8, ptr %.sroa.031.0.lcssa, i64 16
+  %96 = getelementptr inbounds nuw i8, ptr %.sroa.031.0.lcssa, i64 16
   %97 = load i64, ptr %96, align 8
-  %98 = getelementptr inbounds i8, ptr %2, i64 16
+  %98 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %99 = load i64, ptr %98, align 8
   %100 = icmp eq i64 %97, %99
   %101 = select i1 %95, i1 %100, i1 false
@@ -1109,9 +1109,9 @@ _ZN9__gnu_cxx5__ops16_Iter_equals_valIKN32pxrInternal_v0_24__pxrReserved__12HdBu
   %111 = load i32, ptr %109, align 8
   %112 = load i32, ptr %110, align 8
   %113 = icmp eq i32 %111, %112
-  %114 = getelementptr inbounds i8, ptr %.sroa.031.1, i64 16
+  %114 = getelementptr inbounds nuw i8, ptr %.sroa.031.1, i64 16
   %115 = load i64, ptr %114, align 8
-  %116 = getelementptr inbounds i8, ptr %2, i64 16
+  %116 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %117 = load i64, ptr %116, align 8
   %118 = icmp eq i64 %115, %117
   %119 = select i1 %113, i1 %118, i1 false
@@ -1137,9 +1137,9 @@ _ZN9__gnu_cxx5__ops16_Iter_equals_valIKN32pxrInternal_v0_24__pxrReserved__12HdBu
   %129 = load i32, ptr %127, align 8
   %130 = load i32, ptr %128, align 8
   %131 = icmp eq i32 %129, %130
-  %132 = getelementptr inbounds i8, ptr %.sroa.031.2, i64 16
+  %132 = getelementptr inbounds nuw i8, ptr %.sroa.031.2, i64 16
   %133 = load i64, ptr %132, align 8
-  %134 = getelementptr inbounds i8, ptr %2, i64 16
+  %134 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %135 = load i64, ptr %134, align 8
   %136 = icmp eq i64 %133, %135
   %137 = select i1 %131, i1 %136, i1 false

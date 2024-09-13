@@ -20,7 +20,7 @@ define dso_local void @llvm_blake3_hasher_init(ptr nocapture noundef writeonly %
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 16 dereferenceable(32) @IV, i64 32, i1 false)
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 16 dereferenceable(32) @IV, i64 32, i1 false)
-  %3 = getelementptr inbounds i8, ptr %0, i64 64
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 144
   store i8 0, ptr %4, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(75) %3, i8 0, i64 75, i1 false)
@@ -163,8 +163,8 @@ define dso_local void @llvm_blake3_hasher_init_keyed(ptr nocapture noundef write
   store i32 %92, ptr %.sroa.8.0..sroa_idx, align 8
   %.sroa.9.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 60
   store i32 %105, ptr %.sroa.9.0..sroa_idx, align 4
-  %107 = getelementptr inbounds i8, ptr %0, i64 64
-  %108 = getelementptr inbounds i8, ptr %0, i64 138
+  %107 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %108 = getelementptr inbounds nuw i8, ptr %0, i64 138
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(74) %107, i8 0, i64 74, i1 false)
   store i8 16, ptr %108, align 2
   %109 = getelementptr inbounds nuw i8, ptr %0, i64 144
@@ -179,8 +179,8 @@ define dso_local void @llvm_blake3_hasher_init_derive_key_raw(ptr nocapture noun
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 16 dereferenceable(32) @IV, i64 32, i1 false)
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 16 dereferenceable(32) @IV, i64 32, i1 false)
-  %7 = getelementptr inbounds i8, ptr %4, i64 64
-  %8 = getelementptr inbounds i8, ptr %4, i64 138
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 64
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 138
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(74) %7, i8 0, i64 74, i1 false)
   store i8 32, ptr %8, align 2
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 144
@@ -321,8 +321,8 @@ define dso_local void @llvm_blake3_hasher_init_derive_key_raw(ptr nocapture noun
   store i32 %99, ptr %.sroa.8.0..sroa_idx, align 8
   %.sroa.9.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 60
   store i32 %112, ptr %.sroa.9.0..sroa_idx, align 4
-  %114 = getelementptr inbounds i8, ptr %0, i64 64
-  %115 = getelementptr inbounds i8, ptr %0, i64 138
+  %114 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %115 = getelementptr inbounds nuw i8, ptr %0, i64 138
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(74) %114, i8 0, i64 74, i1 false)
   store i8 64, ptr %115, align 2
   %116 = getelementptr inbounds nuw i8, ptr %0, i64 144
@@ -356,11 +356,11 @@ define dso_local void @llvm_blake3_hasher_update(ptr noundef %0, ptr noundef %1,
 
 24:                                               ; preds = %3
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %26 = getelementptr inbounds i8, ptr %0, i64 137
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 137
   %27 = load i8, ptr %26, align 1
   %28 = zext i8 %27 to i64
   %29 = shl nuw nsw i64 %28, 6
-  %30 = getelementptr inbounds i8, ptr %0, i64 136
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %31 = load i8, ptr %30, align 8
   %32 = zext i8 %31 to i64
   %33 = add nuw nsw i64 %29, %32
@@ -376,7 +376,7 @@ define dso_local void @llvm_blake3_hasher_update(ptr noundef %0, ptr noundef %1,
 36:                                               ; preds = %34
   %37 = sub nsw i64 64, %32
   %spec.select1171 = tail call i64 @llvm.umin.i64(i64 %37, i64 %spec.select)
-  %38 = getelementptr inbounds i8, ptr %0, i64 72
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %39 = getelementptr inbounds i8, ptr %38, i64 %32
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %39, ptr align 1 %1, i64 %spec.select1171, i1 false)
   %40 = trunc i64 %spec.select1171 to i8
@@ -389,9 +389,9 @@ define dso_local void @llvm_blake3_hasher_update(ptr noundef %0, ptr noundef %1,
   br i1 %.not1163, label %._crit_edge, label %45
 
 45:                                               ; preds = %36
-  %46 = getelementptr inbounds i8, ptr %0, i64 64
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %47 = load i64, ptr %46, align 8
-  %48 = getelementptr inbounds i8, ptr %0, i64 138
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 138
   %49 = load i8, ptr %48, align 2
   %50 = load i8, ptr %26, align 1
   %51 = icmp eq i8 %50, 0
@@ -411,8 +411,8 @@ define dso_local void @llvm_blake3_hasher_update(ptr noundef %0, ptr noundef %1,
   br i1 %56, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %55
-  %57 = getelementptr inbounds i8, ptr %0, i64 64
-  %58 = getelementptr inbounds i8, ptr %0, i64 138
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 138
   %.pre = load i8, ptr %26, align 1
   br label %59
 
@@ -445,7 +445,7 @@ define dso_local void @llvm_blake3_hasher_update(ptr noundef %0, ptr noundef %1,
   %71 = zext i8 %70 to i64
   %72 = sub nsw i64 64, %71
   %spec.select1173 = tail call i64 @llvm.umin.i64(i64 %72, i64 %.11104.lcssa)
-  %73 = getelementptr inbounds i8, ptr %0, i64 72
+  %73 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %74 = getelementptr inbounds i8, ptr %73, i64 %71
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %74, ptr align 1 %.11106.lcssa, i64 %spec.select1173, i1 false)
   %75 = trunc nuw nsw i64 %spec.select1173 to i8
@@ -458,14 +458,14 @@ define dso_local void @llvm_blake3_hasher_update(ptr noundef %0, ptr noundef %1,
   br i1 %.not1164, label %.loopexit, label %80
 
 80:                                               ; preds = %._crit_edge
-  %81 = getelementptr inbounds i8, ptr %0, i64 138
+  %81 = getelementptr inbounds nuw i8, ptr %0, i64 138
   %82 = load i8, ptr %81, align 2, !noalias !6
   %83 = load i8, ptr %26, align 1, !noalias !6
   %84 = icmp eq i8 %83, 0
   %.1174 = zext i1 %84 to i8
   %85 = or i8 %82, %.1174
   %86 = or i8 %85, 2
-  %87 = getelementptr inbounds i8, ptr %0, i64 64
+  %87 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %88 = load i64, ptr %87, align 8, !noalias !6
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %19, ptr noundef nonnull align 4 dereferenceable(32) %25, i64 32, i1 false)
   %89 = getelementptr inbounds nuw i8, ptr %19, i64 40
@@ -811,8 +811,8 @@ define dso_local void @llvm_blake3_hasher_update(ptr noundef %0, ptr noundef %1,
   br i1 %297, label %.lr.ph1238, label %._crit_edge1239
 
 .lr.ph1238:                                       ; preds = %296
-  %298 = getelementptr inbounds i8, ptr %0, i64 64
-  %299 = getelementptr inbounds i8, ptr %0, i64 138
+  %298 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %299 = getelementptr inbounds nuw i8, ptr %0, i64 138
   %300 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %301 = getelementptr inbounds nuw i8, ptr %0, i64 145
   %302 = getelementptr inbounds nuw i8, ptr %10, i64 40
@@ -1656,7 +1656,7 @@ define dso_local void @llvm_blake3_hasher_update(ptr noundef %0, ptr noundef %1,
   %834 = zext i8 %832 to i64
   %835 = sub nsw i64 64, %834
   %spec.select1179 = call i64 @llvm.umin.i64(i64 %835, i64 %.11085.lcssa)
-  %836 = getelementptr inbounds i8, ptr %0, i64 72
+  %836 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %837 = getelementptr inbounds i8, ptr %836, i64 %834
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %837, ptr align 1 %.1.lcssa, i64 %spec.select1179, i1 false)
   %838 = trunc i64 %spec.select1179 to i8
@@ -1669,9 +1669,9 @@ define dso_local void @llvm_blake3_hasher_update(ptr noundef %0, ptr noundef %1,
   br i1 %.not1167, label %._crit_edge1246, label %843
 
 843:                                              ; preds = %833
-  %844 = getelementptr inbounds i8, ptr %0, i64 64
+  %844 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %845 = load i64, ptr %844, align 8
-  %846 = getelementptr inbounds i8, ptr %0, i64 138
+  %846 = getelementptr inbounds nuw i8, ptr %0, i64 138
   %847 = load i8, ptr %846, align 2
   %848 = load i8, ptr %26, align 1
   %849 = icmp eq i8 %848, 0
@@ -1691,8 +1691,8 @@ define dso_local void @llvm_blake3_hasher_update(ptr noundef %0, ptr noundef %1,
   br i1 %854, label %.lr.ph1245, label %._crit_edge1246
 
 .lr.ph1245:                                       ; preds = %853
-  %855 = getelementptr inbounds i8, ptr %0, i64 64
-  %856 = getelementptr inbounds i8, ptr %0, i64 138
+  %855 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %856 = getelementptr inbounds nuw i8, ptr %0, i64 138
   %.pre1274 = load i8, ptr %26, align 1
   br label %857
 
@@ -1725,14 +1725,14 @@ define dso_local void @llvm_blake3_hasher_update(ptr noundef %0, ptr noundef %1,
   %869 = zext i8 %868 to i64
   %870 = sub nsw i64 64, %869
   %spec.select1182 = call i64 @llvm.umin.i64(i64 %870, i64 %.11092.lcssa)
-  %871 = getelementptr inbounds i8, ptr %0, i64 72
+  %871 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %872 = getelementptr inbounds i8, ptr %871, i64 %869
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %872, ptr align 1 %.11094.lcssa, i64 %spec.select1182, i1 false)
   %873 = trunc nuw nsw i64 %spec.select1182 to i8
   %874 = load i8, ptr %30, align 8
   %875 = add i8 %874, %873
   store i8 %875, ptr %30, align 8
-  %876 = getelementptr inbounds i8, ptr %0, i64 64
+  %876 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %877 = load i64, ptr %876, align 8
   %878 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %877)
   %879 = getelementptr inbounds nuw i8, ptr %0, i64 144
@@ -1743,7 +1743,7 @@ define dso_local void @llvm_blake3_hasher_update(ptr noundef %0, ptr noundef %1,
 
 .lr.ph1250:                                       ; preds = %._crit_edge1246
   %883 = getelementptr inbounds nuw i8, ptr %0, i64 145
-  %884 = getelementptr inbounds i8, ptr %0, i64 138
+  %884 = getelementptr inbounds nuw i8, ptr %0, i64 138
   %885 = getelementptr inbounds nuw i8, ptr %6, i64 40
   %886 = getelementptr inbounds nuw i8, ptr %6, i64 104
   %887 = getelementptr inbounds nuw i8, ptr %6, i64 32
@@ -1947,18 +1947,18 @@ define dso_local void @llvm_blake3_hasher_finalize_seek(ptr nocapture noundef re
 
 16:                                               ; preds = %11
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %18 = getelementptr inbounds i8, ptr %0, i64 138
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 138
   %19 = load i8, ptr %18, align 2, !noalias !38
-  %20 = getelementptr inbounds i8, ptr %0, i64 137
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 137
   %21 = load i8, ptr %20, align 1, !noalias !38
   %22 = icmp eq i8 %21, 0
   %. = zext i1 %22 to i8
   %23 = or i8 %19, %.
   %24 = or i8 %23, 2
-  %25 = getelementptr inbounds i8, ptr %0, i64 72
-  %26 = getelementptr inbounds i8, ptr %0, i64 136
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %27 = load i8, ptr %26, align 8, !noalias !38
-  %28 = getelementptr inbounds i8, ptr %0, i64 64
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %29 = load i64, ptr %28, align 8, !noalias !38
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 4 dereferenceable(32) %17, i64 32, i1 false)
   %30 = getelementptr inbounds nuw i8, ptr %8, i64 40
@@ -1993,11 +1993,11 @@ define dso_local void @llvm_blake3_hasher_finalize_seek(ptr nocapture noundef re
   br i1 %.not238, label %.loopexit, label %36, !llvm.loop !44
 
 45:                                               ; preds = %11
-  %46 = getelementptr inbounds i8, ptr %0, i64 137
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 137
   %47 = load i8, ptr %46, align 1
   %48 = zext i8 %47 to i64
   %49 = shl nuw nsw i64 %48, 6
-  %50 = getelementptr inbounds i8, ptr %0, i64 136
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %51 = load i8, ptr %50, align 8
   %52 = zext i8 %51 to i64
   %53 = or i64 %49, %52
@@ -2006,14 +2006,14 @@ define dso_local void @llvm_blake3_hasher_finalize_seek(ptr nocapture noundef re
 
 54:                                               ; preds = %45
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %56 = getelementptr inbounds i8, ptr %0, i64 138
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 138
   %57 = load i8, ptr %56, align 2, !noalias !45
   %58 = icmp eq i8 %47, 0
   %.239 = zext i1 %58 to i8
   %59 = or i8 %57, %.239
   %60 = or i8 %59, 2
-  %61 = getelementptr inbounds i8, ptr %0, i64 72
-  %62 = getelementptr inbounds i8, ptr %0, i64 64
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %62 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %63 = load i64, ptr %62, align 8, !noalias !45
   br label %72
 
@@ -2022,7 +2022,7 @@ define dso_local void @llvm_blake3_hasher_finalize_seek(ptr nocapture noundef re
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 145
   %67 = shl nsw i64 %65, 5
   %68 = getelementptr inbounds [1760 x i8], ptr %66, i64 0, i64 %67
-  %69 = getelementptr inbounds i8, ptr %0, i64 138
+  %69 = getelementptr inbounds nuw i8, ptr %0, i64 138
   %70 = load i8, ptr %69, align 2
   %71 = or i8 %70, 4
   br label %72
@@ -2056,7 +2056,7 @@ define dso_local void @llvm_blake3_hasher_finalize_seek(ptr nocapture noundef re
   %82 = getelementptr inbounds i8, ptr %7, i64 20
   %83 = getelementptr inbounds i8, ptr %7, i64 24
   %84 = getelementptr inbounds i8, ptr %7, i64 28
-  %85 = getelementptr inbounds i8, ptr %0, i64 138
+  %85 = getelementptr inbounds nuw i8, ptr %0, i64 138
   %.sroa.3.sroa.2.0..sroa.3.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %9, i64 72
   %.sroa.3.sroa.3.0..sroa.3.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %9, i64 73
   %.sroa.3.sroa.4.0..sroa.3.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %9, i64 74
@@ -2244,7 +2244,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 define dso_local void @llvm_blake3_hasher_reset(ptr nocapture noundef %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 4 dereferenceable(32) %0, i64 32, i1 false)
-  %3 = getelementptr inbounds i8, ptr %0, i64 64
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 144
   store i8 0, ptr %4, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(74) %3, i8 0, i64 74, i1 false)

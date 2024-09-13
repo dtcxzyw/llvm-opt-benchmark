@@ -331,7 +331,7 @@ define dso_local noundef ptr @_ZN4llvm7vputils29getOrCreateVPValueForSCEVExprERN
   %5 = alloca %"class.llvm::DebugLoc", align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 488
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 504
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 504
   %9 = load i32, ptr %8, align 8
   %10 = icmp eq i32 %9, 0
   br i1 %10, label %_ZNK4llvm5VPlan16getSCEVExpansionEPKNS_4SCEVE.exit.thread, label %11
@@ -516,7 +516,7 @@ define linkonce_odr hidden noundef ptr @_ZN4llvm5VPlan14getOrAddLiveInEPNS_5Valu
   store ptr %1, ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 296
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 296
   %7 = load i32, ptr %6, align 8
   %8 = icmp eq i32 %7, 0
   br i1 %8, label %.loopexit, label %9
@@ -766,7 +766,7 @@ _ZN4llvm17VPlanPatternMatch6detail20MatchRecipeAndOpcodeILj73EJNS_13VPInstructio
 
 _ZN4llvm17VPlanPatternMatch15m_ScalarIVStepsINS0_22VPCanonicalIVPHI_matchENS0_15specific_intvalILj0EEEEENS0_21VPScalarIVSteps_matchIT_T0_EERKS6_RKS7_.exit: ; preds = %22
   %26 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %27 = getelementptr inbounds i8, ptr %3, i64 16
+  %27 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 64, ptr %27, align 8, !alias.scope !11
   store i64 1, ptr %26, align 8, !alias.scope !11
   %28 = tail call noundef ptr @_ZNK4llvm7VPValue17getDefiningRecipeEv(ptr noundef nonnull align 8 dereferenceable(56) %18) #14

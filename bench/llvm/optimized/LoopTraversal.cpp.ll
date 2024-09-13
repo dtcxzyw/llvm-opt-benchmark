@@ -107,7 +107,7 @@ define dso_local void @_ZN4llvm13LoopTraversal8traverseERNS_15MachineFunctionE(p
   %5 = alloca %"class.llvm::ReversePostOrderTraversal", align 8
   %6 = alloca %"class.llvm::SmallVector", align 8
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 96
-  %8 = getelementptr inbounds i8, ptr %2, i64 104
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 104
   %9 = load ptr, ptr %8, align 8
   %10 = load ptr, ptr %7, align 8
   %11 = ptrtoint ptr %9 to i64
@@ -116,7 +116,7 @@ define dso_local void @_ZN4llvm13LoopTraversal8traverseERNS_15MachineFunctionE(p
   %14 = lshr exact i64 %13, 3
   %15 = and i64 %14, 4294967295
   tail call void @_ZN4llvm15SmallVectorImplINS_13LoopTraversal7MBBInfoEE6assignEmS2_(ptr noundef nonnull align 8 dereferenceable(16) %1, i64 noundef %15, i64 0, i64 0)
-  %16 = getelementptr inbounds i8, ptr %2, i64 328
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 328
   %17 = load ptr, ptr %16, align 8
   store ptr %17, ptr %4, align 8
   %18 = getelementptr inbounds i8, ptr %5, i64 16

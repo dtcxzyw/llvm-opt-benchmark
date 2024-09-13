@@ -718,13 +718,13 @@ define weak_odr void @_ZNK32pxrInternal_v0_24__pxrReserved__12Ts_TypedDataIfE12E
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__12Ts_EvalCacheIfLb1EE4EvalEd.exit
 
 12:                                               ; preds = %4
-  %13 = getelementptr inbounds i8, ptr %5, i64 48
+  %13 = getelementptr inbounds nuw i8, ptr %5, i64 48
   %14 = call noundef double @_ZN32pxrInternal_v0_24__pxrReserved__13Ts_SolveCubicEPKdd(ptr noundef nonnull %13, double noundef %3), !noalias !7
   %15 = fcmp olt double %14, 0.000000e+00
   %16 = fcmp ogt double %14, 1.000000e+00
   %..i.i.i = select i1 %16, double 1.000000e+00, double %14
   %.0.i.i.i = select i1 %15, double 0.000000e+00, double %..i.i.i
-  %17 = getelementptr inbounds i8, ptr %5, i64 96
+  %17 = getelementptr inbounds nuw i8, ptr %5, i64 96
   %18 = getelementptr inbounds i8, ptr %5, i64 108
   %19 = load float, ptr %18, align 4, !noalias !7
   %20 = fpext float %19 to double
@@ -765,13 +765,13 @@ define linkonce_odr void @_ZNK32pxrInternal_v0_24__pxrReserved__12Ts_EvalCacheIf
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__12Ts_EvalCacheIfLb1EE9TypedEvalEd.exit
 
 10:                                               ; preds = %3
-  %11 = getelementptr inbounds i8, ptr %1, i64 48
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %12 = tail call noundef double @_ZN32pxrInternal_v0_24__pxrReserved__13Ts_SolveCubicEPKdd(ptr noundef nonnull %11, double noundef %2)
   %13 = fcmp olt double %12, 0.000000e+00
   %14 = fcmp ogt double %12, 1.000000e+00
   %..i.i = select i1 %14, double 1.000000e+00, double %12
   %.0.i.i = select i1 %13, double 0.000000e+00, double %..i.i
-  %15 = getelementptr inbounds i8, ptr %1, i64 96
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %16 = getelementptr inbounds i8, ptr %1, i64 108
   %17 = load float, ptr %16, align 4
   %18 = fpext float %17 to double
@@ -815,7 +815,7 @@ define weak_odr void @_ZNK32pxrInternal_v0_24__pxrReserved__12Ts_TypedDataIfE22E
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__12Ts_EvalCacheIfLb1EE14EvalDerivativeEd.exit
 
 11:                                               ; preds = %4
-  %12 = getelementptr inbounds i8, ptr %5, i64 48
+  %12 = getelementptr inbounds nuw i8, ptr %5, i64 48
   %13 = call noundef double @_ZN32pxrInternal_v0_24__pxrReserved__13Ts_SolveCubicEPKdd(ptr noundef nonnull %12, double noundef %3), !noalias !10
   %14 = fcmp olt double %13, 0.000000e+00
   %15 = fcmp ogt double %13, 1.000000e+00
@@ -872,7 +872,7 @@ define linkonce_odr void @_ZNK32pxrInternal_v0_24__pxrReserved__12Ts_EvalCacheIf
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__12Ts_EvalCacheIfLb1EE19TypedEvalDerivativeEd.exit
 
 9:                                                ; preds = %3
-  %10 = getelementptr inbounds i8, ptr %1, i64 48
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %11 = tail call noundef double @_ZN32pxrInternal_v0_24__pxrReserved__13Ts_SolveCubicEPKdd(ptr noundef nonnull %10, double noundef %2)
   %12 = fcmp olt double %11, 0.000000e+00
   %13 = fcmp ogt double %11, 1.000000e+00
@@ -1723,7 +1723,7 @@ declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_st
 
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZNK32pxrInternal_v0_24__pxrReserved__12Ts_TypedDataIfE8GetValueEv(ptr dead_on_unwind noalias writable sret(%"class.pxrInternal_v0_24__pxrReserved__::VtValue") align 8 %0, ptr noundef nonnull align 8 dereferenceable(70) %1) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 20
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = or disjoint i64 3, ptrtoint (ptr @_ZZN32pxrInternal_v0_24__pxrReserved__7VtValue11GetTypeInfoIfEENS_16TfPointerAndBitsIKNS0_9_TypeInfoEEEvE2ti to i64)
   %6 = inttoptr i64 %5 to ptr
@@ -1735,7 +1735,7 @@ define weak_odr void @_ZNK32pxrInternal_v0_24__pxrReserved__12Ts_TypedDataIfE8Ge
 
 ; Function Attrs: mustprogress uwtable
 define weak_odr noundef nonnull align 4 dereferenceable(4) ptr @_ZNK32pxrInternal_v0_24__pxrReserved__12Ts_TypedDataIfE14_GetRightValueEv(ptr noundef nonnull align 8 dereferenceable(70) %0) local_unnamed_addr #0 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 20
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 20
   ret ptr %2
 }
 
@@ -1800,7 +1800,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingIfEEbv.exit.thread3.i: ;
 29:                                               ; preds = %23, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingIfEEbv.exit.thread.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingIfEEbv.exit.thread3.i
   %.0.i = phi ptr [ %3, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingIfEEbv.exit.thread3.i ], [ %21, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingIfEEbv.exit.thread.i ], [ %28, %23 ]
   %30 = load float, ptr %.0.i, align 4
-  %31 = getelementptr inbounds i8, ptr %0, i64 20
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store float %30, ptr %31, align 4
   %32 = load ptr, ptr %0, align 8
   %33 = getelementptr inbounds i8, ptr %32, i64 152
@@ -1972,7 +1972,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingIfEEbv.exit.thread4: ; p
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__12Ts_TypedDataIfE14_SetRightValueERKf(ptr noundef nonnull align 8 dereferenceable(70) %0, ptr noundef nonnull align 4 dereferenceable(4) %1) local_unnamed_addr #0 comdat align 2 {
   %3 = load float, ptr %1, align 4
-  %4 = getelementptr inbounds i8, ptr %0, i64 20
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store float %3, ptr %4, align 4
   ret void
 }
@@ -2061,7 +2061,7 @@ define weak_odr void @_ZNK32pxrInternal_v0_24__pxrReserved__12Ts_TypedDataIfE12G
   %4 = load i8, ptr %3, align 4
   %5 = trunc i8 %4 to i1
   %.v = select i1 %5, i64 16, i64 20
-  %6 = getelementptr inbounds i8, ptr %1, i64 %.v
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 %.v
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = or disjoint i64 3, ptrtoint (ptr @_ZZN32pxrInternal_v0_24__pxrReserved__7VtValue11GetTypeInfoIfEENS_16TfPointerAndBitsIKNS0_9_TypeInfoEEEvE2ti to i64)
   %9 = inttoptr i64 %8 to ptr
@@ -2312,7 +2312,7 @@ define weak_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__12Ts_T
 
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZNK32pxrInternal_v0_24__pxrReserved__12Ts_TypedDataIfE19GetLeftTangentSlopeEv(ptr dead_on_unwind noalias writable sret(%"class.pxrInternal_v0_24__pxrReserved__::VtValue") align 8 %0, ptr noundef nonnull align 8 dereferenceable(70) %1) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 24
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = or disjoint i64 3, ptrtoint (ptr @_ZZN32pxrInternal_v0_24__pxrReserved__7VtValue11GetTypeInfoIfEENS_16TfPointerAndBitsIKNS0_9_TypeInfoEEEvE2ti to i64)
   %6 = inttoptr i64 %5 to ptr
@@ -2324,13 +2324,13 @@ define weak_odr void @_ZNK32pxrInternal_v0_24__pxrReserved__12Ts_TypedDataIfE19G
 
 ; Function Attrs: mustprogress uwtable
 define weak_odr noundef nonnull align 4 dereferenceable(4) ptr @_ZNK32pxrInternal_v0_24__pxrReserved__12Ts_TypedDataIfE20_GetLeftTangentSlopeEv(ptr noundef nonnull align 8 dereferenceable(70) %0) local_unnamed_addr #0 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   ret ptr %2
 }
 
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZNK32pxrInternal_v0_24__pxrReserved__12Ts_TypedDataIfE20GetRightTangentSlopeEv(ptr dead_on_unwind noalias writable sret(%"class.pxrInternal_v0_24__pxrReserved__::VtValue") align 8 %0, ptr noundef nonnull align 8 dereferenceable(70) %1) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 28
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 28
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = or disjoint i64 3, ptrtoint (ptr @_ZZN32pxrInternal_v0_24__pxrReserved__7VtValue11GetTypeInfoIfEENS_16TfPointerAndBitsIKNS0_9_TypeInfoEEEvE2ti to i64)
   %6 = inttoptr i64 %5 to ptr
@@ -2342,7 +2342,7 @@ define weak_odr void @_ZNK32pxrInternal_v0_24__pxrReserved__12Ts_TypedDataIfE20G
 
 ; Function Attrs: mustprogress uwtable
 define weak_odr noundef nonnull align 4 dereferenceable(4) ptr @_ZNK32pxrInternal_v0_24__pxrReserved__12Ts_TypedDataIfE21_GetRightTangentSlopeEv(ptr noundef nonnull align 8 dereferenceable(70) %0) local_unnamed_addr #0 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 28
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 28
   ret ptr %2
 }
 
@@ -2427,7 +2427,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingIfEEbv.exit.thread3.i: ;
 _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue3GetIfEERKT_v.exit: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingIfEEbv.exit.thread3.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingIfEEbv.exit.thread.i, %26
   %.0.i = phi ptr [ %1, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingIfEEbv.exit.thread3.i ], [ %24, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingIfEEbv.exit.thread.i ], [ %31, %26 ]
   %32 = load float, ptr %.0.i, align 4
-  %33 = getelementptr inbounds i8, ptr %0, i64 24
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store float %32, ptr %33, align 8
   br label %54
 
@@ -2521,7 +2521,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit: ; preds = %54, %59
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__12Ts_TypedDataIfE20_SetLeftTangentSlopeERKf(ptr noundef nonnull align 8 dereferenceable(70) %0, ptr noundef nonnull align 4 dereferenceable(4) %1) local_unnamed_addr #0 comdat align 2 {
   %3 = load float, ptr %1, align 4
-  %4 = getelementptr inbounds i8, ptr %0, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store float %3, ptr %4, align 8
   ret void
 }
@@ -2593,7 +2593,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingIfEEbv.exit.thread3.i: ;
 _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue3GetIfEERKT_v.exit: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingIfEEbv.exit.thread3.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingIfEEbv.exit.thread.i, %26
   %.0.i = phi ptr [ %1, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingIfEEbv.exit.thread3.i ], [ %24, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingIfEEbv.exit.thread.i ], [ %31, %26 ]
   %32 = load float, ptr %.0.i, align 4
-  %33 = getelementptr inbounds i8, ptr %0, i64 28
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store float %32, ptr %33, align 4
   br label %54
 
@@ -2687,7 +2687,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit: ; preds = %54, %59
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__12Ts_TypedDataIfE21_SetRightTangentSlopeERKf(ptr noundef nonnull align 8 dereferenceable(70) %0, ptr noundef nonnull align 4 dereferenceable(4) %1) local_unnamed_addr #0 comdat align 2 {
   %3 = load float, ptr %1, align 4
-  %4 = getelementptr inbounds i8, ptr %0, i64 28
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store float %3, ptr %4, align 4
   ret void
 }
@@ -2854,9 +2854,9 @@ define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__12Ts_TypedDataIfE24Se
   br i1 %1, label %13, label %9
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %0, i64 28
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %11 = load float, ptr %10, align 4
-  %12 = getelementptr inbounds i8, ptr %0, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store float %11, ptr %12, align 8
   br label %13
 
@@ -3381,13 +3381,13 @@ define weak_odr void @_ZNK32pxrInternal_v0_24__pxrReserved__12Ts_TypedDataIdE12E
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__12Ts_EvalCacheIdLb1EE4EvalEd.exit
 
 12:                                               ; preds = %4
-  %13 = getelementptr inbounds i8, ptr %5, i64 56
+  %13 = getelementptr inbounds nuw i8, ptr %5, i64 56
   %14 = call noundef double @_ZN32pxrInternal_v0_24__pxrReserved__13Ts_SolveCubicEPKdd(ptr noundef nonnull %13, double noundef %3), !noalias !31
   %15 = fcmp olt double %14, 0.000000e+00
   %16 = fcmp ogt double %14, 1.000000e+00
   %..i.i.i = select i1 %16, double 1.000000e+00, double %14
   %.0.i.i.i = select i1 %15, double 0.000000e+00, double %..i.i.i
-  %17 = getelementptr inbounds i8, ptr %5, i64 120
+  %17 = getelementptr inbounds nuw i8, ptr %5, i64 120
   %18 = getelementptr inbounds i8, ptr %5, i64 144
   %19 = load double, ptr %18, align 8, !noalias !31
   %20 = getelementptr inbounds i8, ptr %5, i64 136
@@ -3423,13 +3423,13 @@ define linkonce_odr void @_ZNK32pxrInternal_v0_24__pxrReserved__12Ts_EvalCacheId
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__12Ts_EvalCacheIdLb1EE9TypedEvalEd.exit
 
 10:                                               ; preds = %3
-  %11 = getelementptr inbounds i8, ptr %1, i64 56
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %12 = tail call noundef double @_ZN32pxrInternal_v0_24__pxrReserved__13Ts_SolveCubicEPKdd(ptr noundef nonnull %11, double noundef %2)
   %13 = fcmp olt double %12, 0.000000e+00
   %14 = fcmp ogt double %12, 1.000000e+00
   %..i.i = select i1 %14, double 1.000000e+00, double %12
   %.0.i.i = select i1 %13, double 0.000000e+00, double %..i.i
-  %15 = getelementptr inbounds i8, ptr %1, i64 120
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 120
   %16 = getelementptr inbounds i8, ptr %1, i64 144
   %17 = load double, ptr %16, align 8
   %18 = getelementptr inbounds i8, ptr %1, i64 136
@@ -3468,7 +3468,7 @@ define weak_odr void @_ZNK32pxrInternal_v0_24__pxrReserved__12Ts_TypedDataIdE22E
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__12Ts_EvalCacheIdLb1EE14EvalDerivativeEd.exit
 
 11:                                               ; preds = %4
-  %12 = getelementptr inbounds i8, ptr %5, i64 56
+  %12 = getelementptr inbounds nuw i8, ptr %5, i64 56
   %13 = call noundef double @_ZN32pxrInternal_v0_24__pxrReserved__13Ts_SolveCubicEPKdd(ptr noundef nonnull %12, double noundef %3), !noalias !34
   %14 = fcmp olt double %13, 0.000000e+00
   %15 = fcmp ogt double %13, 1.000000e+00
@@ -3519,7 +3519,7 @@ define linkonce_odr void @_ZNK32pxrInternal_v0_24__pxrReserved__12Ts_EvalCacheId
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__12Ts_EvalCacheIdLb1EE19TypedEvalDerivativeEd.exit
 
 9:                                                ; preds = %3
-  %10 = getelementptr inbounds i8, ptr %1, i64 56
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %11 = tail call noundef double @_ZN32pxrInternal_v0_24__pxrReserved__13Ts_SolveCubicEPKdd(ptr noundef nonnull %10, double noundef %2)
   %12 = fcmp olt double %11, 0.000000e+00
   %13 = fcmp ogt double %11, 1.000000e+00
@@ -4279,7 +4279,7 @@ define weak_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__12Ts_T
 
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZNK32pxrInternal_v0_24__pxrReserved__12Ts_TypedDataIdE8GetValueEv(ptr dead_on_unwind noalias writable sret(%"class.pxrInternal_v0_24__pxrReserved__::VtValue") align 8 %0, ptr noundef nonnull align 8 dereferenceable(70) %1) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 24
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = or disjoint i64 3, ptrtoint (ptr @_ZZN32pxrInternal_v0_24__pxrReserved__7VtValue11GetTypeInfoIdEENS_16TfPointerAndBitsIKNS0_9_TypeInfoEEEvE2ti to i64)
   %6 = inttoptr i64 %5 to ptr
@@ -4291,7 +4291,7 @@ define weak_odr void @_ZNK32pxrInternal_v0_24__pxrReserved__12Ts_TypedDataIdE8Ge
 
 ; Function Attrs: mustprogress uwtable
 define weak_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZNK32pxrInternal_v0_24__pxrReserved__12Ts_TypedDataIdE14_GetRightValueEv(ptr noundef nonnull align 8 dereferenceable(70) %0) local_unnamed_addr #0 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   ret ptr %2
 }
 
@@ -4356,7 +4356,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingIdEEbv.exit.thread3.i: ;
 29:                                               ; preds = %23, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingIdEEbv.exit.thread.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingIdEEbv.exit.thread3.i
   %.0.i = phi ptr [ %3, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingIdEEbv.exit.thread3.i ], [ %21, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingIdEEbv.exit.thread.i ], [ %28, %23 ]
   %30 = load double, ptr %.0.i, align 8
-  %31 = getelementptr inbounds i8, ptr %0, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store double %30, ptr %31, align 8
   %32 = load ptr, ptr %0, align 8
   %33 = getelementptr inbounds i8, ptr %32, i64 152
@@ -4528,7 +4528,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingIdEEbv.exit.thread4: ; p
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__12Ts_TypedDataIdE14_SetRightValueERKd(ptr noundef nonnull align 8 dereferenceable(70) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) local_unnamed_addr #0 comdat align 2 {
   %3 = load double, ptr %1, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store double %3, ptr %4, align 8
   ret void
 }
@@ -4610,7 +4610,7 @@ define weak_odr void @_ZNK32pxrInternal_v0_24__pxrReserved__12Ts_TypedDataIdE12G
   %4 = load i8, ptr %3, align 4
   %5 = trunc i8 %4 to i1
   %.v = select i1 %5, i64 16, i64 24
-  %6 = getelementptr inbounds i8, ptr %1, i64 %.v
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 %.v
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = or disjoint i64 3, ptrtoint (ptr @_ZZN32pxrInternal_v0_24__pxrReserved__7VtValue11GetTypeInfoIdEENS_16TfPointerAndBitsIKNS0_9_TypeInfoEEEvE2ti to i64)
   %9 = inttoptr i64 %8 to ptr
@@ -4861,7 +4861,7 @@ define weak_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__12Ts_T
 
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZNK32pxrInternal_v0_24__pxrReserved__12Ts_TypedDataIdE19GetLeftTangentSlopeEv(ptr dead_on_unwind noalias writable sret(%"class.pxrInternal_v0_24__pxrReserved__::VtValue") align 8 %0, ptr noundef nonnull align 8 dereferenceable(70) %1) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 32
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = or disjoint i64 3, ptrtoint (ptr @_ZZN32pxrInternal_v0_24__pxrReserved__7VtValue11GetTypeInfoIdEENS_16TfPointerAndBitsIKNS0_9_TypeInfoEEEvE2ti to i64)
   %6 = inttoptr i64 %5 to ptr
@@ -4873,13 +4873,13 @@ define weak_odr void @_ZNK32pxrInternal_v0_24__pxrReserved__12Ts_TypedDataIdE19G
 
 ; Function Attrs: mustprogress uwtable
 define weak_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZNK32pxrInternal_v0_24__pxrReserved__12Ts_TypedDataIdE20_GetLeftTangentSlopeEv(ptr noundef nonnull align 8 dereferenceable(70) %0) local_unnamed_addr #0 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   ret ptr %2
 }
 
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZNK32pxrInternal_v0_24__pxrReserved__12Ts_TypedDataIdE20GetRightTangentSlopeEv(ptr dead_on_unwind noalias writable sret(%"class.pxrInternal_v0_24__pxrReserved__::VtValue") align 8 %0, ptr noundef nonnull align 8 dereferenceable(70) %1) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 40
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = or disjoint i64 3, ptrtoint (ptr @_ZZN32pxrInternal_v0_24__pxrReserved__7VtValue11GetTypeInfoIdEENS_16TfPointerAndBitsIKNS0_9_TypeInfoEEEvE2ti to i64)
   %6 = inttoptr i64 %5 to ptr
@@ -4891,7 +4891,7 @@ define weak_odr void @_ZNK32pxrInternal_v0_24__pxrReserved__12Ts_TypedDataIdE20G
 
 ; Function Attrs: mustprogress uwtable
 define weak_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZNK32pxrInternal_v0_24__pxrReserved__12Ts_TypedDataIdE21_GetRightTangentSlopeEv(ptr noundef nonnull align 8 dereferenceable(70) %0) local_unnamed_addr #0 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 40
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   ret ptr %2
 }
 
@@ -4976,7 +4976,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingIdEEbv.exit.thread3.i: ;
 _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue3GetIdEERKT_v.exit: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingIdEEbv.exit.thread3.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingIdEEbv.exit.thread.i, %26
   %.0.i = phi ptr [ %1, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingIdEEbv.exit.thread3.i ], [ %24, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingIdEEbv.exit.thread.i ], [ %31, %26 ]
   %32 = load double, ptr %.0.i, align 8
-  %33 = getelementptr inbounds i8, ptr %0, i64 32
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store double %32, ptr %33, align 8
   br label %54
 
@@ -5070,7 +5070,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit: ; preds = %54, %59
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__12Ts_TypedDataIdE20_SetLeftTangentSlopeERKd(ptr noundef nonnull align 8 dereferenceable(70) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) local_unnamed_addr #0 comdat align 2 {
   %3 = load double, ptr %1, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 32
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store double %3, ptr %4, align 8
   ret void
 }
@@ -5142,7 +5142,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingIdEEbv.exit.thread3.i: ;
 _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue3GetIdEERKT_v.exit: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingIdEEbv.exit.thread3.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingIdEEbv.exit.thread.i, %26
   %.0.i = phi ptr [ %1, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingIdEEbv.exit.thread3.i ], [ %24, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingIdEEbv.exit.thread.i ], [ %31, %26 ]
   %32 = load double, ptr %.0.i, align 8
-  %33 = getelementptr inbounds i8, ptr %0, i64 40
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store double %32, ptr %33, align 8
   br label %54
 
@@ -5236,7 +5236,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit: ; preds = %54, %59
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__12Ts_TypedDataIdE21_SetRightTangentSlopeERKd(ptr noundef nonnull align 8 dereferenceable(70) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) local_unnamed_addr #0 comdat align 2 {
   %3 = load double, ptr %1, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 40
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store double %3, ptr %4, align 8
   ret void
 }
@@ -5403,9 +5403,9 @@ define weak_odr void @_ZN32pxrInternal_v0_24__pxrReserved__12Ts_TypedDataIdE24Se
   br i1 %1, label %13, label %9
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %0, i64 40
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %11 = load double, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store double %11, ptr %12, align 8
   br label %13
 
@@ -5814,9 +5814,9 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__12Ts_TypedDataIfE26ResetTangen
   br i1 %4, label %5, label %18
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = load float, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 28
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %9 = load float, ptr %8, align 4
   %10 = fsub float %7, %9
   %11 = tail call noundef float @llvm.fabs.f32(float %10)
@@ -5843,9 +5843,9 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__12Ts_TypedDataIdE26ResetTangen
   br i1 %4, label %5, label %17
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %7 = load double, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 40
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %9 = load double, ptr %8, align 8
   %10 = fsub double %7, %9
   %11 = tail call double @llvm.fabs.f64(double %10)
@@ -5868,7 +5868,7 @@ declare double @llvm.fabs.f64(double) #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__12Ts_TypedDataIfE22ValueCanBeInterpolatedEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(70) %0) unnamed_addr #8 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 20
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %3 = load float, ptr %2, align 4
   %4 = tail call float @llvm.fabs.f32(float %3)
   %5 = fcmp ueq float %4, 0x7FF0000000000000
@@ -5894,7 +5894,7 @@ define noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__12Ts_TypedDataI
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__12Ts_TypedDataIdE22ValueCanBeInterpolatedEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(70) %0) unnamed_addr #8 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load double, ptr %2, align 8
   %4 = tail call double @llvm.fabs.f64(double %3)
   %5 = fcmp ueq double %4, 0x7FF0000000000000
@@ -6206,10 +6206,10 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__12Ts_EvalCacheIfL
 
 12:                                               ; preds = %3
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %14 = getelementptr inbounds i8, ptr %0, i64 80
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 80
   tail call void @_ZN32pxrInternal_v0_24__pxrReserved__19Ts_UntypedEvalCache20_SetupBezierGeometryIfEEvPdPT_PKNS_12Ts_TypedDataIS3_EES8_(ptr noundef nonnull %13, ptr noundef nonnull %14, ptr noundef nonnull %1, ptr noundef nonnull %2)
   %15 = load double, ptr %13, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 48
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store double %15, ptr %16, align 8
   %17 = getelementptr inbounds i8, ptr %0, i64 24
   %18 = load double, ptr %17, align 8
@@ -6232,7 +6232,7 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__12Ts_EvalCacheIfL
   %33 = getelementptr inbounds i8, ptr %0, i64 72
   store double %32, ptr %33, align 8
   %34 = load float, ptr %14, align 8
-  %35 = getelementptr inbounds i8, ptr %0, i64 96
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store float %34, ptr %35, align 8
   %36 = fpext float %34 to double
   %37 = getelementptr inbounds i8, ptr %0, i64 84
@@ -6282,7 +6282,7 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__12Ts_EvalCacheIfL
 71:                                               ; preds = %64, %12
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 0, ptr %72, align 8
-  %73 = getelementptr inbounds i8, ptr %1, i64 20
+  %73 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %74 = load float, ptr %73, align 4
   %75 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store float %74, ptr %75, align 4
@@ -6353,7 +6353,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__19Ts_UntypedEvalCache20_GetBezierPoint3Time
   %38 = load double, ptr %37, align 8
   %39 = getelementptr inbounds i8, ptr %0, i64 24
   store double %38, ptr %39, align 8
-  %40 = getelementptr inbounds i8, ptr %2, i64 20
+  %40 = getelementptr inbounds nuw i8, ptr %2, i64 20
   %41 = load float, ptr %40, align 4
   store float %41, ptr %1, align 4
   %42 = load i32, ptr %7, align 8
@@ -6368,7 +6368,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__19Ts_UntypedEvalCache20_GetBezierPoint3Time
   %46 = load i8, ptr %45, align 4
   %47 = trunc i8 %46 to i1
   %.in.v.i = select i1 %47, i64 16, i64 20
-  %.in.i = getelementptr inbounds i8, ptr %3, i64 %.in.v.i
+  %.in.i = getelementptr inbounds nuw i8, ptr %3, i64 %.in.v.i
   %48 = load float, ptr %.in.i, align 4
   %49 = fpext float %48 to double
   %50 = tail call double @llvm.fmuladd.f64(double %44, double 2.000000e+00, double %49)
@@ -6380,7 +6380,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__19Ts_UntypedEvalCache20_GetBezierPoint3Time
   %54 = fpext float %41 to double
   %55 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %56 = load double, ptr %55, align 8
-  %57 = getelementptr inbounds i8, ptr %2, i64 28
+  %57 = getelementptr inbounds nuw i8, ptr %2, i64 28
   %58 = load float, ptr %57, align 4
   %59 = fpext float %58 to double
   %60 = tail call double @llvm.fmuladd.f64(double %56, double %59, double %54)
@@ -6416,7 +6416,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__19Ts_UntypedEvalCache21_GetBezierPoint2Valu
   %73 = load i8, ptr %72, align 4
   %74 = trunc i8 %73 to i1
   %.in19.v.i = select i1 %74, i64 16, i64 20
-  %.in19.i = getelementptr inbounds i8, ptr %3, i64 %.in19.v.i
+  %.in19.i = getelementptr inbounds nuw i8, ptr %3, i64 %.in19.v.i
   %75 = load float, ptr %.in19.i, align 4
   br label %_ZN32pxrInternal_v0_24__pxrReserved__19Ts_UntypedEvalCache21_GetBezierPoint3ValueIfEET_PKNS_12Ts_TypedDataIS2_EES6_.exit
 
@@ -6427,7 +6427,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__19Ts_UntypedEvalCache21_GetBezierPoint2Valu
   %80 = load i8, ptr %79, align 4
   %81 = trunc i8 %80 to i1
   %.in18.v.i = select i1 %81, i64 16, i64 20
-  %.in18.i = getelementptr inbounds i8, ptr %3, i64 %.in18.v.i
+  %.in18.i = getelementptr inbounds nuw i8, ptr %3, i64 %.in18.v.i
   %82 = load float, ptr %.in18.i, align 4
   %83 = fpext float %82 to double
   %84 = tail call double @llvm.fmuladd.f64(double %83, double 2.000000e+00, double %78)
@@ -6440,12 +6440,12 @@ _ZN32pxrInternal_v0_24__pxrReserved__19Ts_UntypedEvalCache21_GetBezierPoint2Valu
   %89 = load i8, ptr %88, align 4
   %90 = trunc i8 %89 to i1
   %.in.v.i24 = select i1 %90, i64 16, i64 20
-  %.in.i25 = getelementptr inbounds i8, ptr %3, i64 %.in.v.i24
+  %.in.i25 = getelementptr inbounds nuw i8, ptr %3, i64 %.in.v.i24
   %91 = load float, ptr %.in.i25, align 4
   %92 = fpext float %91 to double
   %93 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %94 = load double, ptr %93, align 8
-  %95 = getelementptr inbounds i8, ptr %3, i64 24
+  %95 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %96 = load float, ptr %95, align 4
   %97 = fpext float %96 to double
   %98 = fneg double %94
@@ -6472,7 +6472,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__19Ts_UntypedEvalCache21_GetBezierPoint3Valu
   br label %_ZN32pxrInternal_v0_24__pxrReserved__19Ts_UntypedEvalCache21_GetBezierPoint4ValueIfEET_PKNS_12Ts_TypedDataIS2_EES6_.exit
 
 110:                                              ; preds = %104
-  %111 = getelementptr inbounds i8, ptr %3, i64 20
+  %111 = getelementptr inbounds nuw i8, ptr %3, i64 20
   br label %_ZN32pxrInternal_v0_24__pxrReserved__19Ts_UntypedEvalCache21_GetBezierPoint4ValueIfEET_PKNS_12Ts_TypedDataIS2_EES6_.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__19Ts_UntypedEvalCache21_GetBezierPoint4ValueIfEET_PKNS_12Ts_TypedDataIS2_EES6_.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__19Ts_UntypedEvalCache21_GetBezierPoint3ValueIfEET_PKNS_12Ts_TypedDataIS2_EES6_.exit, %108, %110
@@ -6919,10 +6919,10 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__12Ts_EvalCacheIdL
 
 12:                                               ; preds = %3
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %14 = getelementptr inbounds i8, ptr %0, i64 88
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 88
   tail call void @_ZN32pxrInternal_v0_24__pxrReserved__19Ts_UntypedEvalCache20_SetupBezierGeometryIdEEvPdPT_PKNS_12Ts_TypedDataIS3_EES8_(ptr noundef nonnull %13, ptr noundef nonnull %14, ptr noundef nonnull %1, ptr noundef nonnull %2)
   %15 = load double, ptr %13, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 56
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store double %15, ptr %16, align 8
   %17 = getelementptr inbounds i8, ptr %0, i64 32
   %18 = load double, ptr %17, align 8
@@ -6945,7 +6945,7 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__12Ts_EvalCacheIdL
   %33 = getelementptr inbounds i8, ptr %0, i64 80
   store double %32, ptr %33, align 8
   %34 = load double, ptr %14, align 8
-  %35 = getelementptr inbounds i8, ptr %0, i64 120
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 120
   store double %34, ptr %35, align 8
   %36 = getelementptr inbounds i8, ptr %0, i64 96
   %37 = load double, ptr %36, align 8
@@ -6988,7 +6988,7 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__12Ts_EvalCacheIdL
 64:                                               ; preds = %57, %12
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 0, ptr %65, align 8
-  %66 = getelementptr inbounds i8, ptr %1, i64 24
+  %66 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %67 = load double, ptr %66, align 8
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store double %67, ptr %68, align 8
@@ -7059,7 +7059,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__19Ts_UntypedEvalCache20_GetBezierPoint3Time
   %38 = load double, ptr %37, align 8
   %39 = getelementptr inbounds i8, ptr %0, i64 24
   store double %38, ptr %39, align 8
-  %40 = getelementptr inbounds i8, ptr %2, i64 24
+  %40 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %41 = load double, ptr %40, align 8
   store double %41, ptr %1, align 8
   %42 = load i32, ptr %7, align 8
@@ -7073,7 +7073,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__19Ts_UntypedEvalCache20_GetBezierPoint3Time
   %45 = load i8, ptr %44, align 4
   %46 = trunc i8 %45 to i1
   %.in.v.i = select i1 %46, i64 16, i64 24
-  %.in.i = getelementptr inbounds i8, ptr %3, i64 %.in.v.i
+  %.in.i = getelementptr inbounds nuw i8, ptr %3, i64 %.in.v.i
   %47 = load double, ptr %.in.i, align 8
   %48 = tail call double @llvm.fmuladd.f64(double %41, double 2.000000e+00, double %47)
   %49 = fmul double %48, 0x3FD5555555555555
@@ -7082,7 +7082,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__19Ts_UntypedEvalCache20_GetBezierPoint3Time
 50:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__19Ts_UntypedEvalCache20_GetBezierPoint3TimeIdEEdPKNS_12Ts_TypedDataIT_EES6_.exit
   %51 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %52 = load double, ptr %51, align 8
-  %53 = getelementptr inbounds i8, ptr %2, i64 40
+  %53 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %54 = load double, ptr %53, align 8
   %55 = tail call double @llvm.fmuladd.f64(double %52, double %54, double %41)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__19Ts_UntypedEvalCache21_GetBezierPoint2ValueIdEET_PKNS_12Ts_TypedDataIS2_EES6_.exit
@@ -7116,7 +7116,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__19Ts_UntypedEvalCache21_GetBezierPoint2Valu
   %67 = load i8, ptr %66, align 4
   %68 = trunc i8 %67 to i1
   %.in19.v.i = select i1 %68, i64 16, i64 24
-  %.in19.i = getelementptr inbounds i8, ptr %3, i64 %.in19.v.i
+  %.in19.i = getelementptr inbounds nuw i8, ptr %3, i64 %.in19.v.i
   %69 = load double, ptr %.in19.i, align 8
   br label %_ZN32pxrInternal_v0_24__pxrReserved__19Ts_UntypedEvalCache21_GetBezierPoint3ValueIdEET_PKNS_12Ts_TypedDataIS2_EES6_.exit
 
@@ -7126,7 +7126,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__19Ts_UntypedEvalCache21_GetBezierPoint2Valu
   %73 = load i8, ptr %72, align 4
   %74 = trunc i8 %73 to i1
   %.in18.v.i = select i1 %74, i64 16, i64 24
-  %.in18.i = getelementptr inbounds i8, ptr %3, i64 %.in18.v.i
+  %.in18.i = getelementptr inbounds nuw i8, ptr %3, i64 %.in18.v.i
   %75 = load double, ptr %.in18.i, align 8
   %76 = tail call double @llvm.fmuladd.f64(double %75, double 2.000000e+00, double %71)
   %77 = fmul double %76, 0x3FD5555555555555
@@ -7137,11 +7137,11 @@ _ZN32pxrInternal_v0_24__pxrReserved__19Ts_UntypedEvalCache21_GetBezierPoint2Valu
   %80 = load i8, ptr %79, align 4
   %81 = trunc i8 %80 to i1
   %.in.v.i24 = select i1 %81, i64 16, i64 24
-  %.in.i25 = getelementptr inbounds i8, ptr %3, i64 %.in.v.i24
+  %.in.i25 = getelementptr inbounds nuw i8, ptr %3, i64 %.in.v.i24
   %82 = load double, ptr %.in.i25, align 8
   %83 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %84 = load double, ptr %83, align 8
-  %85 = getelementptr inbounds i8, ptr %3, i64 32
+  %85 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %86 = load double, ptr %85, align 8
   %87 = fneg double %84
   %88 = tail call double @llvm.fmuladd.f64(double %87, double %86, double %82)
@@ -7166,7 +7166,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__19Ts_UntypedEvalCache21_GetBezierPoint3Valu
   br label %_ZN32pxrInternal_v0_24__pxrReserved__19Ts_UntypedEvalCache21_GetBezierPoint4ValueIdEET_PKNS_12Ts_TypedDataIS2_EES6_.exit
 
 98:                                               ; preds = %92
-  %99 = getelementptr inbounds i8, ptr %3, i64 24
+  %99 = getelementptr inbounds nuw i8, ptr %3, i64 24
   br label %_ZN32pxrInternal_v0_24__pxrReserved__19Ts_UntypedEvalCache21_GetBezierPoint4ValueIdEET_PKNS_12Ts_TypedDataIS2_EES6_.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__19Ts_UntypedEvalCache21_GetBezierPoint4ValueIdEET_PKNS_12Ts_TypedDataIS2_EES6_.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__19Ts_UntypedEvalCache21_GetBezierPoint3ValueIdEET_PKNS_12Ts_TypedDataIS2_EES6_.exit, %96, %98

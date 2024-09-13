@@ -65,7 +65,7 @@ define dso_local void @_ZN5clang7CodeGen13CGCUDARuntime22EmitCUDAKernelCallExprE
   %21 = load ptr, ptr %20, align 8
   %22 = call noalias noundef nonnull dereferenceable(80) ptr @_Znwm(i64 noundef 80) #7
   call void @_ZN4llvm10BasicBlockC1ERNS_11LLVMContextERKNS_5TwineEPNS_8FunctionEPS0_(ptr noundef nonnull align 8 dereferenceable(80) %22, ptr noundef nonnull align 8 dereferenceable(8) %21, ptr noundef nonnull align 8 dereferenceable(34) %7, ptr noundef null, ptr noundef null) #8
-  %23 = getelementptr inbounds i8, ptr %2, i64 328
+  %23 = getelementptr inbounds nuw i8, ptr %2, i64 328
   %24 = load ptr, ptr %23, align 8
   store ptr %24, ptr %8, align 8
   %25 = load i32, ptr %3, align 8

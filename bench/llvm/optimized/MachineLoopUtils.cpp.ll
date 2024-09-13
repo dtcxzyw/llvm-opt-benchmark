@@ -629,7 +629,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapINS_8RegisterES2_NS_12DenseMapInfoIS2_vEENS_6
 
 .preheader.i.i.i156:                              ; preds = %301, %304
   %.pn.i.i.i.i = phi ptr [ %storemerge.i.i.i.i, %304 ], [ %.0.i.i.i, %301 ]
-  %storemerge.in.i.i.i.i = getelementptr inbounds i8, ptr %.pn.i.i.i.i, i64 24
+  %storemerge.in.i.i.i.i = getelementptr inbounds nuw i8, ptr %.pn.i.i.i.i, i64 24
   %storemerge.i.i.i.i = load ptr, ptr %storemerge.in.i.i.i.i, align 8
   %.not.i.i.i.i157 = icmp eq ptr %storemerge.i.i.i.i, null
   br i1 %.not.i.i.i.i157, label %._crit_edge, label %304
@@ -683,7 +683,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_14MachineOperandELb1EE9push_backES2_.exit:
 
 322:                                              ; preds = %.preheader, %323
   %.pn.i.i = phi ptr [ %storemerge.i.i, %323 ], [ %.sroa.0355.0439, %.preheader ]
-  %storemerge.in.i.i = getelementptr inbounds i8, ptr %.pn.i.i, i64 24
+  %storemerge.in.i.i = getelementptr inbounds nuw i8, ptr %.pn.i.i, i64 24
   %storemerge.i.i = load ptr, ptr %storemerge.in.i.i, align 8
   %.not.i.i = icmp eq ptr %storemerge.i.i, null
   br i1 %.not.i.i, label %._crit_edge, label %323

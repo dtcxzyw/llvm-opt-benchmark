@@ -260,7 +260,7 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_119EHContGuardCatchret20runO
   br i1 %10, label %11, label %.loopexit
 
 11:                                               ; preds = %7
-  %12 = getelementptr inbounds i8, ptr %1, i64 328
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 328
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 320
   %.sroa.010.016 = load ptr, ptr %12, align 8
   %.not1417 = icmp eq ptr %.sroa.010.016, %13
@@ -268,8 +268,8 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_119EHContGuardCatchret20runO
 
 .lr.ph:                                           ; preds = %11
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 408
-  %15 = getelementptr inbounds i8, ptr %1, i64 416
-  %16 = getelementptr inbounds i8, ptr %1, i64 424
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 416
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 424
   br label %17
 
 17:                                               ; preds = %.lr.ph, %_ZN4llvm15MachineFunction17addCatchretTargetEPNS_8MCSymbolE.exit

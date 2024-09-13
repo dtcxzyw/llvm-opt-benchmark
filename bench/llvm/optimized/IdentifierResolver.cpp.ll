@@ -227,14 +227,14 @@ _ZNK5clang11DeclContext18isFunctionOrMethodEv.exit.thread: ; preds = %16, %16, %
   %.023.lcssa = phi ptr [ %3, %_ZNK5clang11DeclContext18isFunctionOrMethodEv.exit.thread ], [ %50, %.critedge2 ], [ %.02386, %35 ], [ %.02386, %39 ]
   %.lcssa = phi ptr [ %26, %_ZNK5clang11DeclContext18isFunctionOrMethodEv.exit.thread ], [ %51, %.critedge2 ], [ %33, %35 ], [ %33, %39 ]
   %56 = getelementptr inbounds nuw i8, ptr %.023.lcssa, i64 80
-  %57 = getelementptr inbounds i8, ptr %.023.lcssa, i64 88
+  %57 = getelementptr inbounds nuw i8, ptr %.023.lcssa, i64 88
   %58 = load ptr, ptr %57, align 8
   %59 = load ptr, ptr %56, align 8
   %60 = icmp eq ptr %58, %59
   br i1 %60, label %61, label %71
 
 61:                                               ; preds = %.critedge
-  %62 = getelementptr inbounds i8, ptr %.023.lcssa, i64 100
+  %62 = getelementptr inbounds nuw i8, ptr %.023.lcssa, i64 100
   %63 = load i32, ptr %62, align 4
   %64 = zext i32 %63 to i64
   %65 = getelementptr inbounds ptr, ptr %59, i64 %64
@@ -264,15 +264,15 @@ _ZNK5clang11DeclContext18isFunctionOrMethodEv.exit.thread: ; preds = %16, %16, %
   br i1 %.not.i.i.i, label %73, label %._ZNK4llvm19SmallPtrSetImplBase8find_impEPKv.exit_crit_edge.i.i
 
 ._ZNK4llvm19SmallPtrSetImplBase8find_impEPKv.exit_crit_edge.i.i: ; preds = %71
-  %.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %.023.lcssa, i64 100
+  %.phi.trans.insert.i.i = getelementptr inbounds nuw i8, ptr %.023.lcssa, i64 100
   %.pre5.i.i = load i32, ptr %.phi.trans.insert.i.i, align 4
   br label %_ZNK5clang5Scope11isDeclScopeEPKNS_4DeclE.exit
 
 73:                                               ; preds = %71
   %74 = icmp eq ptr %.pre.i.i, %.pre4.i.i
-  %75 = getelementptr inbounds i8, ptr %.023.lcssa, i64 100
+  %75 = getelementptr inbounds nuw i8, ptr %.023.lcssa, i64 100
   %76 = load i32, ptr %75, align 4
-  %77 = getelementptr inbounds i8, ptr %.023.lcssa, i64 96
+  %77 = getelementptr inbounds nuw i8, ptr %.023.lcssa, i64 96
   %78 = load i32, ptr %77, align 8
   %.v.v.i14.i.i.i = select i1 %74, i32 %76, i32 %78
   %.v.i15.i.i.i = zext i32 %.v.v.i14.i.i.i to i64
@@ -285,7 +285,7 @@ _ZNK5clang5Scope11isDeclScopeEPKNS_4DeclE.exit:   ; preds = %.lr.ph.i.i.i, %._cr
   %82 = phi ptr [ %58, %._crit_edge.i.i.i ], [ %.pre.i.i, %73 ], [ %.pre.i.i, %._ZNK4llvm19SmallPtrSetImplBase8find_impEPKv.exit_crit_edge.i.i ], [ %58, %.lr.ph.i.i.i ]
   %.0.i.i.i = phi ptr [ %70, %._crit_edge.i.i.i ], [ %79, %73 ], [ %72, %._ZNK4llvm19SmallPtrSetImplBase8find_impEPKv.exit_crit_edge.i.i ], [ %.01118.i.i.i, %.lr.ph.i.i.i ]
   %83 = icmp eq ptr %82, %81
-  %84 = getelementptr inbounds i8, ptr %.023.lcssa, i64 96
+  %84 = getelementptr inbounds nuw i8, ptr %.023.lcssa, i64 96
   %85 = load i32, ptr %84, align 8
   %.v.v.i.i.i = select i1 %83, i32 %80, i32 %85
   %.v.i.i.i = zext i32 %.v.v.i.i.i to i64
@@ -316,14 +316,14 @@ _ZNK5clang5Scope11isDeclScopeEPKNS_4DeclE.exit:   ; preds = %.lr.ph.i.i.i, %._cr
 
 99:                                               ; preds = %96
   %100 = getelementptr inbounds nuw i8, ptr %92, i64 80
-  %101 = getelementptr inbounds i8, ptr %92, i64 88
+  %101 = getelementptr inbounds nuw i8, ptr %92, i64 88
   %102 = load ptr, ptr %101, align 8
   %103 = load ptr, ptr %100, align 8
   %104 = icmp eq ptr %102, %103
   br i1 %104, label %105, label %115
 
 105:                                              ; preds = %99
-  %106 = getelementptr inbounds i8, ptr %92, i64 100
+  %106 = getelementptr inbounds nuw i8, ptr %92, i64 100
   %107 = load i32, ptr %106, align 4
   %108 = zext i32 %107 to i64
   %109 = getelementptr inbounds ptr, ptr %103, i64 %108
@@ -353,15 +353,15 @@ _ZNK5clang5Scope11isDeclScopeEPKNS_4DeclE.exit:   ; preds = %.lr.ph.i.i.i, %._cr
   br i1 %.not.i.i.i31, label %117, label %._ZNK4llvm19SmallPtrSetImplBase8find_impEPKv.exit_crit_edge.i.i34
 
 ._ZNK4llvm19SmallPtrSetImplBase8find_impEPKv.exit_crit_edge.i.i34: ; preds = %115
-  %.phi.trans.insert.i.i35 = getelementptr inbounds i8, ptr %92, i64 100
+  %.phi.trans.insert.i.i35 = getelementptr inbounds nuw i8, ptr %92, i64 100
   %.pre5.i.i36 = load i32, ptr %.phi.trans.insert.i.i35, align 4
   br label %_ZNK5clang5Scope11isDeclScopeEPKNS_4DeclE.exit47
 
 117:                                              ; preds = %115
   %118 = icmp eq ptr %.pre.i.i32, %.pre4.i.i33
-  %119 = getelementptr inbounds i8, ptr %92, i64 100
+  %119 = getelementptr inbounds nuw i8, ptr %92, i64 100
   %120 = load i32, ptr %119, align 4
-  %121 = getelementptr inbounds i8, ptr %92, i64 96
+  %121 = getelementptr inbounds nuw i8, ptr %92, i64 96
   %122 = load i32, ptr %121, align 8
   %.v.v.i14.i.i.i40 = select i1 %118, i32 %120, i32 %122
   %.v.i15.i.i.i41 = zext i32 %.v.v.i14.i.i.i40 to i64
@@ -374,7 +374,7 @@ _ZNK5clang5Scope11isDeclScopeEPKNS_4DeclE.exit47: ; preds = %.lr.ph.i.i.i43, %._
   %126 = phi ptr [ %102, %._crit_edge.i.i.i46 ], [ %.pre.i.i32, %117 ], [ %.pre.i.i32, %._ZNK4llvm19SmallPtrSetImplBase8find_impEPKv.exit_crit_edge.i.i34 ], [ %102, %.lr.ph.i.i.i43 ]
   %.0.i.i.i37 = phi ptr [ %114, %._crit_edge.i.i.i46 ], [ %123, %117 ], [ %116, %._ZNK4llvm19SmallPtrSetImplBase8find_impEPKv.exit_crit_edge.i.i34 ], [ %.01118.i.i.i44, %.lr.ph.i.i.i43 ]
   %127 = icmp eq ptr %126, %125
-  %128 = getelementptr inbounds i8, ptr %92, i64 96
+  %128 = getelementptr inbounds nuw i8, ptr %92, i64 96
   %129 = load i32, ptr %128, align 8
   %.v.v.i.i.i38 = select i1 %127, i32 %124, i32 %129
   %.v.i.i.i39 = zext i32 %.v.v.i.i.i38 to i64
@@ -393,14 +393,14 @@ _ZNK5clang5Scope11isDeclScopeEPKNS_4DeclE.exit47: ; preds = %.lr.ph.i.i.i43, %._
 135:                                              ; preds = %131
   %136 = load ptr, ptr %.1, align 8
   %137 = getelementptr inbounds nuw i8, ptr %136, i64 80
-  %138 = getelementptr inbounds i8, ptr %136, i64 88
+  %138 = getelementptr inbounds nuw i8, ptr %136, i64 88
   %139 = load ptr, ptr %138, align 8
   %140 = load ptr, ptr %137, align 8
   %141 = icmp eq ptr %139, %140
   br i1 %141, label %142, label %152
 
 142:                                              ; preds = %135
-  %143 = getelementptr inbounds i8, ptr %136, i64 100
+  %143 = getelementptr inbounds nuw i8, ptr %136, i64 100
   %144 = load i32, ptr %143, align 4
   %145 = zext i32 %144 to i64
   %146 = getelementptr inbounds ptr, ptr %140, i64 %145
@@ -430,15 +430,15 @@ _ZNK5clang5Scope11isDeclScopeEPKNS_4DeclE.exit47: ; preds = %.lr.ph.i.i.i43, %._
   br i1 %.not.i.i.i48, label %154, label %._ZNK4llvm19SmallPtrSetImplBase8find_impEPKv.exit_crit_edge.i.i51
 
 ._ZNK4llvm19SmallPtrSetImplBase8find_impEPKv.exit_crit_edge.i.i51: ; preds = %152
-  %.phi.trans.insert.i.i52 = getelementptr inbounds i8, ptr %136, i64 100
+  %.phi.trans.insert.i.i52 = getelementptr inbounds nuw i8, ptr %136, i64 100
   %.pre5.i.i53 = load i32, ptr %.phi.trans.insert.i.i52, align 4
   br label %_ZNK5clang5Scope11isDeclScopeEPKNS_4DeclE.exit64
 
 154:                                              ; preds = %152
   %155 = icmp eq ptr %.pre.i.i49, %.pre4.i.i50
-  %156 = getelementptr inbounds i8, ptr %136, i64 100
+  %156 = getelementptr inbounds nuw i8, ptr %136, i64 100
   %157 = load i32, ptr %156, align 4
-  %158 = getelementptr inbounds i8, ptr %136, i64 96
+  %158 = getelementptr inbounds nuw i8, ptr %136, i64 96
   %159 = load i32, ptr %158, align 8
   %.v.v.i14.i.i.i57 = select i1 %155, i32 %157, i32 %159
   %.v.i15.i.i.i58 = zext i32 %.v.v.i14.i.i.i57 to i64
@@ -451,7 +451,7 @@ _ZNK5clang5Scope11isDeclScopeEPKNS_4DeclE.exit64: ; preds = %.lr.ph.i.i.i60, %._
   %163 = phi ptr [ %139, %._crit_edge.i.i.i63 ], [ %.pre.i.i49, %154 ], [ %.pre.i.i49, %._ZNK4llvm19SmallPtrSetImplBase8find_impEPKv.exit_crit_edge.i.i51 ], [ %139, %.lr.ph.i.i.i60 ]
   %.0.i.i.i54 = phi ptr [ %151, %._crit_edge.i.i.i63 ], [ %160, %154 ], [ %153, %._ZNK4llvm19SmallPtrSetImplBase8find_impEPKv.exit_crit_edge.i.i51 ], [ %.01118.i.i.i61, %.lr.ph.i.i.i60 ]
   %164 = icmp eq ptr %163, %162
-  %165 = getelementptr inbounds i8, ptr %136, i64 96
+  %165 = getelementptr inbounds nuw i8, ptr %136, i64 96
   %166 = load i32, ptr %165, align 8
   %.v.v.i.i.i55 = select i1 %164, i32 %161, i32 %166
   %.v.i.i.i56 = zext i32 %.v.v.i.i.i55 to i64

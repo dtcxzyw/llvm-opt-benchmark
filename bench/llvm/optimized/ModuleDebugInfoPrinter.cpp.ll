@@ -51,15 +51,15 @@ define dso_local void @_ZN4llvm26ModuleDebugInfoPrinterPassC2ERNS_11raw_ostreamE
   %11 = getelementptr inbounds i8, ptr %0, i64 336
   tail call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull %11, i64 noundef 8) #3
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 400
-  %13 = getelementptr inbounds i8, ptr %0, i64 432
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 432
   store ptr %13, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 408
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 408
   store ptr %13, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 416
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 416
   store i32 32, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 420
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 420
   store i32 0, ptr %16, align 4
-  %17 = getelementptr inbounds i8, ptr %0, i64 424
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 424
   store i32 0, ptr %17, align 8
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 688
   store ptr %1, ptr %18, align 8
@@ -1677,15 +1677,15 @@ _ZL20printModuleDebugInfoRN4llvm11raw_ostreamEPKNS_6ModuleERKNS_15DebugInfoFinde
   %843 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 0, ptr %843, align 8, !alias.scope !4
   %844 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %845 = getelementptr inbounds i8, ptr %0, i64 80
+  %845 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store ptr %845, ptr %844, align 8, !alias.scope !4
-  %846 = getelementptr inbounds i8, ptr %0, i64 56
+  %846 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store ptr %845, ptr %846, align 8, !alias.scope !4
-  %847 = getelementptr inbounds i8, ptr %0, i64 64
+  %847 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i32 2, ptr %847, align 8, !alias.scope !4
-  %848 = getelementptr inbounds i8, ptr %0, i64 68
+  %848 = getelementptr inbounds nuw i8, ptr %0, i64 68
   store i32 0, ptr %848, align 4, !alias.scope !4
-  %849 = getelementptr inbounds i8, ptr %0, i64 72
+  %849 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store i32 0, ptr %849, align 8, !alias.scope !4
   store i32 1, ptr %842, align 4, !alias.scope !4, !noalias !7
   store ptr @_ZN4llvm17PreservedAnalyses14AllAnalysesKeyE, ptr %839, align 8, !alias.scope !4, !noalias !7

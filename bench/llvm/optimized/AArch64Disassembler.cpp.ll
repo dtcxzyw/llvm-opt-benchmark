@@ -78,7 +78,7 @@ define dso_local noundef i32 @_ZNK4llvm19AArch64Disassembler14getInstructionERNS
   %34 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %35 = getelementptr inbounds i8, ptr %13, i64 32
   %36 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %37 = getelementptr inbounds i8, ptr %1, i64 24
+  %37 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %39 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %40 = getelementptr inbounds nuw i8, ptr %9, i64 8

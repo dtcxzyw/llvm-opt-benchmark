@@ -59,7 +59,7 @@ _ZN5clang13SourceManager18getSLocEntryOrNullENS_6FileIDE.exit.thread.i.i.i: ; pr
 
 _ZNK5clang13SourceManager20getLocForStartOfFileENS_6FileIDE.exit: ; preds = %_ZN5clang13SourceManager18getSLocEntryOrNullENS_6FileIDE.exit.thread.i.i.i, %9
   %.sroa.0.0.i = phi i32 [ 0, %_ZN5clang13SourceManager18getSLocEntryOrNullENS_6FileIDE.exit.thread.i.i.i ], [ %spec.select.i, %9 ]
-  %11 = getelementptr inbounds i8, ptr %0, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %12 = load i32, ptr %11, align 8
   %13 = add i32 %12, %.sroa.0.0.i
   ret i32 %13
@@ -97,7 +97,7 @@ _ZN5clang13SourceManager18getSLocEntryOrNullENS_6FileIDE.exit.thread.i.i.i.i: ; 
 
 _ZNK5clang4edit6Commit4Edit15getFileLocationERNS_13SourceManagerE.exit: ; preds = %_ZN5clang13SourceManager18getSLocEntryOrNullENS_6FileIDE.exit.thread.i.i.i.i, %9
   %.sroa.0.0.i.i = phi i32 [ 0, %_ZN5clang13SourceManager18getSLocEntryOrNullENS_6FileIDE.exit.thread.i.i.i.i ], [ %spec.select.i.i, %9 ]
-  %11 = getelementptr inbounds i8, ptr %0, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %12 = load i32, ptr %11, align 8
   %13 = add i32 %12, %.sroa.0.0.i.i
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 44
@@ -141,7 +141,7 @@ _ZN5clang13SourceManager18getSLocEntryOrNullENS_6FileIDE.exit.thread.i.i.i: ; pr
 
 _ZNK5clang13SourceManager20getLocForStartOfFileENS_6FileIDE.exit: ; preds = %_ZN5clang13SourceManager18getSLocEntryOrNullENS_6FileIDE.exit.thread.i.i.i, %9
   %.sroa.0.0.i = phi i32 [ 0, %_ZN5clang13SourceManager18getSLocEntryOrNullENS_6FileIDE.exit.thread.i.i.i ], [ %spec.select.i, %9 ]
-  %11 = getelementptr inbounds i8, ptr %0, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %12 = load i32, ptr %11, align 8
   %13 = add i32 %12, %.sroa.0.0.i
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 44
@@ -176,15 +176,15 @@ define dso_local void @_ZN5clang4edit6CommitC2ERNS0_12EditedSourceE(ptr noundef 
   %13 = getelementptr inbounds i8, ptr %0, i64 56
   tail call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull %13, i64 noundef 8) #7
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 504
-  %15 = getelementptr inbounds i8, ptr %0, i64 520
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 520
   %16 = getelementptr inbounds i8, ptr %0, i64 536
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %14, i8 0, i64 16, i1 false)
   tail call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %15, ptr noundef nonnull %16, i64 noundef 4) #7
-  %17 = getelementptr inbounds i8, ptr %0, i64 568
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 568
   %18 = getelementptr inbounds i8, ptr %0, i64 584
   tail call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %17, ptr noundef nonnull %18, i64 noundef 0) #7
   store i64 0, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %0, i64 592
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 592
   store i64 1, ptr %19, align 8
   ret void
 }
@@ -235,14 +235,14 @@ define dso_local noundef zeroext i1 @_ZN5clang4edit6Commit6insertENS_14SourceLoc
   %23 = getelementptr inbounds nuw i8, ptr %7, i64 28
   store i64 %.sroa.01.0.copyload, ptr %23, align 4
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 504
-  %25 = getelementptr inbounds i8, ptr %0, i64 584
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 584
   %26 = load i64, ptr %25, align 8
   %27 = add i64 %26, %3
   store i64 %27, ptr %25, align 8
   %28 = load ptr, ptr %24, align 8
   %29 = ptrtoint ptr %28 to i64
   %30 = add i64 %3, %29
-  %31 = getelementptr inbounds i8, ptr %0, i64 512
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 512
   %32 = load ptr, ptr %31, align 8
   %33 = ptrtoint ptr %32 to i64
   %.not.i.i.i.i.i.i = icmp ugt i64 %30, %33
@@ -580,14 +580,14 @@ define dso_local void @_ZN5clang4edit6Commit9addInsertENS_14SourceLocationENS0_1
   %14 = getelementptr inbounds nuw i8, ptr %7, i64 28
   store i64 %2, ptr %14, align 4
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 504
-  %16 = getelementptr inbounds i8, ptr %0, i64 584
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 584
   %17 = load i64, ptr %16, align 8
   %18 = add i64 %17, %4
   store i64 %18, ptr %16, align 8
   %19 = load ptr, ptr %15, align 8
   %20 = ptrtoint ptr %19 to i64
   %21 = add i64 %4, %20
-  %22 = getelementptr inbounds i8, ptr %0, i64 512
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 512
   %23 = load ptr, ptr %22, align 8
   %24 = ptrtoint ptr %23 to i64
   %.not.i.i.i.i.i = icmp ugt i64 %21, %24
@@ -920,14 +920,14 @@ define dso_local noundef zeroext i1 @_ZN5clang4edit6Commit10insertWrapEN4llvm9St
   %24 = getelementptr inbounds nuw i8, ptr %12, i64 28
   store i64 %.sroa.01.0.copyload.i, ptr %24, align 4
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 504
-  %26 = getelementptr inbounds i8, ptr %0, i64 584
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 584
   %27 = load i64, ptr %26, align 8
   %28 = add i64 %27, %2
   store i64 %28, ptr %26, align 8
   %29 = load ptr, ptr %25, align 8
   %30 = ptrtoint ptr %29 to i64
   %31 = add i64 %2, %30
-  %32 = getelementptr inbounds i8, ptr %0, i64 512
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 512
   %33 = load ptr, ptr %32, align 8
   %34 = ptrtoint ptr %33 to i64
   %.not.i.i.i.i.i.i.i = icmp ugt i64 %31, %34
@@ -993,14 +993,14 @@ _ZN5clang4edit6Commit6insertENS_14SourceLocationEN4llvm9StringRefEbb.exit: ; pre
   %49 = getelementptr inbounds nuw i8, ptr %9, i64 28
   store i64 %.sroa.01.0.copyload.i.i, ptr %49, align 4
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 504
-  %51 = getelementptr inbounds i8, ptr %0, i64 584
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 584
   %52 = load i64, ptr %51, align 8
   %53 = add i64 %52, %.sroa.23.0.copyload
   store i64 %53, ptr %51, align 8
   %54 = load ptr, ptr %50, align 8
   %55 = ptrtoint ptr %54 to i64
   %56 = add i64 %.sroa.23.0.copyload, %55
-  %57 = getelementptr inbounds i8, ptr %0, i64 512
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 512
   %58 = load ptr, ptr %57, align 8
   %59 = ptrtoint ptr %58 to i64
   %.not.i.i.i.i.i.i.i.i = icmp ugt i64 %56, %59
@@ -1070,14 +1070,14 @@ _ZN5clang4edit6Commit16insertAfterTokenENS_14SourceLocationEN4llvm9StringRefEb.e
   %78 = getelementptr inbounds nuw i8, ptr %7, i64 28
   store i64 %.sroa.01.0.copyload.i16, ptr %78, align 4
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 504
-  %80 = getelementptr inbounds i8, ptr %0, i64 584
+  %80 = getelementptr inbounds nuw i8, ptr %0, i64 584
   %81 = load i64, ptr %80, align 8
   %82 = add i64 %81, %.sroa.23.0.copyload
   store i64 %82, ptr %80, align 8
   %83 = load ptr, ptr %79, align 8
   %84 = ptrtoint ptr %83 to i64
   %85 = add i64 %.sroa.23.0.copyload, %84
-  %86 = getelementptr inbounds i8, ptr %0, i64 512
+  %86 = getelementptr inbounds nuw i8, ptr %0, i64 512
   %87 = load ptr, ptr %86, align 8
   %88 = ptrtoint ptr %87 to i64
   %.not.i.i.i.i.i.i.i17 = icmp ugt i64 %85, %88
@@ -1224,14 +1224,14 @@ _ZN5clang4edit6Commit6removeENS_15CharSourceRangeE.exit: ; preds = %17, %_ZN5cla
   %48 = getelementptr inbounds nuw i8, ptr %6, i64 28
   store i64 %.sroa.03.0.copyload, ptr %48, align 4
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 504
-  %50 = getelementptr inbounds i8, ptr %0, i64 584
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 584
   %51 = load i64, ptr %50, align 8
   %52 = add i64 %51, %4
   store i64 %52, ptr %50, align 8
   %53 = load ptr, ptr %49, align 8
   %54 = ptrtoint ptr %53 to i64
   %55 = add i64 %4, %54
-  %56 = getelementptr inbounds i8, ptr %0, i64 512
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 512
   %57 = load ptr, ptr %56, align 8
   %58 = ptrtoint ptr %57 to i64
   %.not.i.i.i.i.i.i = icmp ugt i64 %55, %58
@@ -1487,14 +1487,14 @@ _ZN5clang4edit6Commit14canReplaceTextENS_14SourceLocationEN4llvm9StringRefERNS0_
   %44 = getelementptr inbounds nuw i8, ptr %7, i64 28
   store i64 %.sroa.03.0.copyload, ptr %44, align 4
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 504
-  %46 = getelementptr inbounds i8, ptr %0, i64 584
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 584
   %47 = load i64, ptr %46, align 8
   %48 = add i64 %47, %3
   store i64 %48, ptr %46, align 8
   %49 = load ptr, ptr %45, align 8
   %50 = ptrtoint ptr %49 to i64
   %51 = add i64 %3, %50
-  %52 = getelementptr inbounds i8, ptr %0, i64 512
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 512
   %53 = load ptr, ptr %52, align 8
   %54 = ptrtoint ptr %53 to i64
   %.not.i.i.i.i.i.i = icmp ugt i64 %51, %54
@@ -1844,7 +1844,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZN5
   br i1 %.not.i.i, label %54, label %17
 
 17:                                               ; preds = %5
-  %18 = getelementptr inbounds i8, ptr %0, i64 208
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %19 = udiv i32 %6, 42
   %20 = urem i32 %6, 42
   %.zext.i.i = zext nneg i32 %19 to i64
@@ -1855,7 +1855,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZN5
   br i1 %.not.i.i.i, label %24, label %_ZNK4llvm11PagedVectorIN5clang6SrcMgr9SLocEntryELm42EEixEm.exit.i.i
 
 24:                                               ; preds = %17
-  %25 = getelementptr inbounds i8, ptr %0, i64 224
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %.0.copyload.i.i.i.i.i.i = load i64, ptr %25, align 8
   %26 = and i64 %.0.copyload.i.i.i.i.i.i, -8
   %27 = inttoptr i64 %26 to ptr

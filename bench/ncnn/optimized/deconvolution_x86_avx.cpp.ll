@@ -31,8 +31,8 @@ define hidden void @_ZN4ncnn21Deconvolution_x86_avxC2Ev(ptr noundef nonnull alig
   tail call void @_ZN4ncnn13DeconvolutionC2Ev(ptr noundef nonnull align 8 dereferenceable(504) %0)
   store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTVN4ncnn21Deconvolution_x86_avxE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 520
-  %3 = getelementptr inbounds i8, ptr %0, i64 552
-  %4 = getelementptr inbounds i8, ptr %0, i64 584
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 552
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 584
   store i64 0, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 11
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %2, i8 0, i64 28, i1 false)
@@ -51,7 +51,7 @@ declare i32 @__gxx_personality_v0(...)
 define linkonce_odr hidden void @_ZN4ncnn13DeconvolutionD2Ev(ptr noundef nonnull align 8 dereferenceable(504) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTVN4ncnn13DeconvolutionE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 432
-  %3 = getelementptr inbounds i8, ptr %0, i64 440
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 440
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %18, label %5
@@ -62,7 +62,7 @@ define linkonce_odr hidden void @_ZN4ncnn13DeconvolutionD2Ev(ptr noundef nonnull
   br i1 %7, label %8, label %18
 
 8:                                                ; preds = %5
-  %9 = getelementptr inbounds i8, ptr %0, i64 464
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 464
   %10 = load ptr, ptr %9, align 8
   %.not26 = icmp eq ptr %10, null
   %11 = load ptr, ptr %2, align 8
@@ -84,11 +84,11 @@ define linkonce_odr hidden void @_ZN4ncnn13DeconvolutionD2Ev(ptr noundef nonnull
   br label %18
 
 18:                                               ; preds = %12, %17, %16, %5, %1
-  %19 = getelementptr inbounds i8, ptr %0, i64 472
-  %20 = getelementptr inbounds i8, ptr %0, i64 496
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 472
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 496
   store i64 0, ptr %20, align 8
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 360
-  %22 = getelementptr inbounds i8, ptr %0, i64 368
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 368
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %2, i8 0, i64 28, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %19, i8 0, i64 20, i1 false)
   %23 = load ptr, ptr %22, align 8
@@ -108,7 +108,7 @@ define linkonce_odr hidden void @_ZN4ncnn13DeconvolutionD2Ev(ptr noundef nonnull
   br i1 %29, label %30, label %40
 
 30:                                               ; preds = %27
-  %31 = getelementptr inbounds i8, ptr %0, i64 392
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 392
   %32 = load ptr, ptr %31, align 8
   %.not29 = icmp eq ptr %32, null
   %33 = load ptr, ptr %21, align 8
@@ -130,11 +130,11 @@ define linkonce_odr hidden void @_ZN4ncnn13DeconvolutionD2Ev(ptr noundef nonnull
   br label %40
 
 40:                                               ; preds = %34, %39, %38, %27, %18
-  %41 = getelementptr inbounds i8, ptr %0, i64 400
-  %42 = getelementptr inbounds i8, ptr %0, i64 424
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 400
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 424
   store i64 0, ptr %42, align 8
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 280
-  %44 = getelementptr inbounds i8, ptr %0, i64 288
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 288
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %21, i8 0, i64 28, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %41, i8 0, i64 20, i1 false)
   %45 = load ptr, ptr %44, align 8
@@ -154,7 +154,7 @@ define linkonce_odr hidden void @_ZN4ncnn13DeconvolutionD2Ev(ptr noundef nonnull
   br i1 %51, label %52, label %62
 
 52:                                               ; preds = %49
-  %53 = getelementptr inbounds i8, ptr %0, i64 312
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %54 = load ptr, ptr %53, align 8
   %.not32 = icmp eq ptr %54, null
   %55 = load ptr, ptr %43, align 8
@@ -176,8 +176,8 @@ define linkonce_odr hidden void @_ZN4ncnn13DeconvolutionD2Ev(ptr noundef nonnull
   br label %62
 
 62:                                               ; preds = %56, %61, %60, %49, %40
-  %63 = getelementptr inbounds i8, ptr %0, i64 320
-  %64 = getelementptr inbounds i8, ptr %0, i64 344
+  %63 = getelementptr inbounds nuw i8, ptr %0, i64 320
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 344
   store i64 0, ptr %64, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %43, i8 0, i64 28, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %63, i8 0, i64 20, i1 false)
@@ -991,7 +991,7 @@ _ZL23create_activation_layeriRKN4ncnn3MatERKNS_6OptionE.exit: ; preds = %18, %87
   br label %common.resume
 
 376:                                              ; preds = %121
-  %377 = getelementptr inbounds i8, ptr %0, i64 404
+  %377 = getelementptr inbounds nuw i8, ptr %0, i64 404
   %378 = load i32, ptr %377, align 4
   %379 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %380 = getelementptr inbounds nuw i8, ptr %14, i64 32
@@ -1074,8 +1074,8 @@ _ZL23create_activation_layeriRKN4ncnn3MatERKNS_6OptionE.exit: ; preds = %18, %87
   br i1 %.not486, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader450
-  %416 = getelementptr inbounds i8, ptr %0, i64 584
-  %417 = getelementptr inbounds i8, ptr %0, i64 536
+  %416 = getelementptr inbounds nuw i8, ptr %0, i64 584
+  %417 = getelementptr inbounds nuw i8, ptr %0, i64 536
   %.not487 = icmp sgt i32 %.0297, %104
   %418 = icmp slt i32 %98, 1
   %419 = getelementptr inbounds nuw i8, ptr %15, i64 44
@@ -1358,7 +1358,7 @@ _ZL23create_activation_layeriRKN4ncnn3MatERKNS_6OptionE.exit: ; preds = %18, %87
 
 534:                                              ; preds = %531
   %535 = getelementptr inbounds nuw i8, ptr %0, i64 360
-  %536 = getelementptr inbounds i8, ptr %0, i64 368
+  %536 = getelementptr inbounds nuw i8, ptr %0, i64 368
   %537 = load ptr, ptr %536, align 8
   %.not441 = icmp eq ptr %537, null
   br i1 %.not441, label %551, label %538
@@ -1369,7 +1369,7 @@ _ZL23create_activation_layeriRKN4ncnn3MatERKNS_6OptionE.exit: ; preds = %18, %87
   br i1 %540, label %541, label %551
 
 541:                                              ; preds = %538
-  %542 = getelementptr inbounds i8, ptr %0, i64 392
+  %542 = getelementptr inbounds nuw i8, ptr %0, i64 392
   %543 = load ptr, ptr %542, align 8
   %.not442 = icmp eq ptr %543, null
   %544 = load ptr, ptr %535, align 8
@@ -1391,8 +1391,8 @@ _ZL23create_activation_layeriRKN4ncnn3MatERKNS_6OptionE.exit: ; preds = %18, %87
   br label %551
 
 551:                                              ; preds = %545, %550, %549, %538, %534
-  %552 = getelementptr inbounds i8, ptr %0, i64 400
-  %553 = getelementptr inbounds i8, ptr %0, i64 424
+  %552 = getelementptr inbounds nuw i8, ptr %0, i64 400
+  %553 = getelementptr inbounds nuw i8, ptr %0, i64 424
   store i64 0, ptr %553, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %535, i8 0, i64 28, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %552, i8 0, i64 20, i1 false)
@@ -1802,8 +1802,8 @@ define hidden noundef i32 @_ZNK4ncnn21Deconvolution_x86_avx7forwardERKNS_3MatERS
 
 .lr.ph1285:                                       ; preds = %.preheader1204
   %213 = getelementptr inbounds nuw i8, ptr %0, i64 432
-  %214 = getelementptr inbounds i8, ptr %0, i64 496
-  %215 = getelementptr inbounds i8, ptr %0, i64 488
+  %214 = getelementptr inbounds nuw i8, ptr %0, i64 496
+  %215 = getelementptr inbounds nuw i8, ptr %0, i64 488
   %216 = icmp slt i32 %12, 1
   %217 = icmp slt i32 %10, 1
   %218 = sext i32 %211 to i64
@@ -1976,8 +1976,8 @@ define hidden noundef i32 @_ZNK4ncnn21Deconvolution_x86_avx7forwardERKNS_3MatERS
 
 .lr.ph1329:                                       ; preds = %305
   %307 = getelementptr inbounds nuw i8, ptr %0, i64 432
-  %308 = getelementptr inbounds i8, ptr %0, i64 496
-  %309 = getelementptr inbounds i8, ptr %0, i64 488
+  %308 = getelementptr inbounds nuw i8, ptr %0, i64 496
+  %309 = getelementptr inbounds nuw i8, ptr %0, i64 488
   %310 = icmp slt i32 %12, 1
   %311 = icmp slt i32 %10, 1
   %312 = sext i32 %211 to i64
@@ -2154,8 +2154,8 @@ define hidden noundef i32 @_ZNK4ncnn21Deconvolution_x86_avx7forwardERKNS_3MatERS
 
 .lr.ph1366:                                       ; preds = %._crit_edge1330, %400
   %401 = getelementptr inbounds nuw i8, ptr %0, i64 432
-  %402 = getelementptr inbounds i8, ptr %0, i64 496
-  %403 = getelementptr inbounds i8, ptr %0, i64 488
+  %402 = getelementptr inbounds nuw i8, ptr %0, i64 496
+  %403 = getelementptr inbounds nuw i8, ptr %0, i64 488
   %404 = icmp slt i32 %12, 1
   %405 = icmp slt i32 %10, 1
   %406 = sext i32 %211 to i64
@@ -2514,8 +2514,8 @@ define hidden noundef i32 @_ZNK4ncnn21Deconvolution_x86_avx7forwardERKNS_3MatERS
   %576 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %factor.op.mul.reass.i = mul i32 %factor.op.mul92.i, %148
   %.not.i = icmp eq ptr %.val, null
-  %577 = getelementptr inbounds i8, ptr %0, i64 584
-  %578 = getelementptr inbounds i8, ptr %0, i64 536
+  %577 = getelementptr inbounds nuw i8, ptr %0, i64 584
+  %578 = getelementptr inbounds nuw i8, ptr %0, i64 536
   %579 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %580 = sext i32 %factor.op.mul.reass.i to i64
   %581 = load i32, ptr %71, align 8
@@ -2990,8 +2990,8 @@ _ZN4ncnnL23deconvolution_pack8_avxERKNS_3MatERS0_S2_S2_iiiiiiiS2_RKNS_6OptionE.e
   %902 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %factor.op.mul.reass.i880 = mul i32 %factor.op.mul92.i879, %892
   %.not.i881 = icmp eq ptr %.val871, null
-  %903 = getelementptr inbounds i8, ptr %0, i64 584
-  %904 = getelementptr inbounds i8, ptr %0, i64 536
+  %903 = getelementptr inbounds nuw i8, ptr %0, i64 584
+  %904 = getelementptr inbounds nuw i8, ptr %0, i64 536
   %905 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %906 = sext i32 %factor.op.mul.reass.i880 to i64
   %907 = load i32, ptr %71, align 8
@@ -3434,8 +3434,8 @@ _ZN4ncnnL26deconvolution_pack4to8_avxERKNS_3MatERS0_S2_S2_iiiiiiiS2_RKNS_6Option
   %1196 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %factor.op.mul.reass.i932 = mul i32 %factor.op.mul52.i, %1186
   %.not.i933 = icmp eq ptr %.val872, null
-  %1197 = getelementptr inbounds i8, ptr %0, i64 584
-  %1198 = getelementptr inbounds i8, ptr %0, i64 536
+  %1197 = getelementptr inbounds nuw i8, ptr %0, i64 584
+  %1198 = getelementptr inbounds nuw i8, ptr %0, i64 536
   %1199 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %1200 = sext i32 %factor.op.mul.reass.i932 to i64
   %1201 = load i32, ptr %71, align 8
@@ -3906,8 +3906,8 @@ _ZN4ncnnL26deconvolution_pack8to4_avxERKNS_3MatERS0_S2_S2_iiiiiiiS2_RKNS_6Option
   %1519 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %factor.op.mul.reass.i968 = mul i32 %factor.op.mul90.i, %1509
   %.not.i969 = icmp eq ptr %.val873, null
-  %1520 = getelementptr inbounds i8, ptr %0, i64 584
-  %1521 = getelementptr inbounds i8, ptr %0, i64 536
+  %1520 = getelementptr inbounds nuw i8, ptr %0, i64 584
+  %1521 = getelementptr inbounds nuw i8, ptr %0, i64 536
   %1522 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %1523 = sext i32 %factor.op.mul.reass.i968 to i64
   %1524 = load i32, ptr %71, align 8
@@ -4325,8 +4325,8 @@ _ZN4ncnnL26deconvolution_pack1to8_avxERKNS_3MatERS0_S2_S2_iiiiiiiS2_RKNS_6Option
   %1788 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %factor.op.mul.reass.i995 = mul i32 %factor.op.mul56.i, %1778
   %.not.i996 = icmp eq ptr %.val874, null
-  %1789 = getelementptr inbounds i8, ptr %0, i64 584
-  %1790 = getelementptr inbounds i8, ptr %0, i64 536
+  %1789 = getelementptr inbounds nuw i8, ptr %0, i64 584
+  %1790 = getelementptr inbounds nuw i8, ptr %0, i64 536
   %1791 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %1792 = sext i32 %factor.op.mul.reass.i995 to i64
   %1793 = load i32, ptr %71, align 8
@@ -4624,8 +4624,8 @@ _ZN4ncnnL26deconvolution_pack8to1_avxERKNS_3MatERS0_S2_S2_iiiiiiiS2_RKNS_6Option
   %1934 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %factor.op.mul.reass.i1013 = mul i32 %factor.op.mul52.i1012, %1924
   %.not.i1014 = icmp eq ptr %.val875, null
-  %1935 = getelementptr inbounds i8, ptr %0, i64 584
-  %1936 = getelementptr inbounds i8, ptr %0, i64 536
+  %1935 = getelementptr inbounds nuw i8, ptr %0, i64 584
+  %1936 = getelementptr inbounds nuw i8, ptr %0, i64 536
   %1937 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %1938 = sext i32 %factor.op.mul.reass.i1013 to i64
   %1939 = load i32, ptr %71, align 8
@@ -5063,8 +5063,8 @@ _ZN4ncnnL23deconvolution_pack4_sseERKNS_3MatERS0_S2_S2_iiiiiiiS2_RKNS_6OptionE.e
   %2224 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %factor.op.mul.reass.i1066 = mul i32 %factor.op.mul50.i, %2214
   %.not.i1067 = icmp eq ptr %.val876, null
-  %2225 = getelementptr inbounds i8, ptr %0, i64 584
-  %2226 = getelementptr inbounds i8, ptr %0, i64 536
+  %2225 = getelementptr inbounds nuw i8, ptr %0, i64 584
+  %2226 = getelementptr inbounds nuw i8, ptr %0, i64 536
   %2227 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %2228 = sext i32 %factor.op.mul.reass.i1066 to i64
   %2229 = load i32, ptr %71, align 8
@@ -5477,8 +5477,8 @@ _ZN4ncnnL26deconvolution_pack1to4_sseERKNS_3MatERS0_S2_S2_iiiiiiiS2_RKNS_6Option
   %2489 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %factor.op.mul.reass.i1109 = mul i32 %factor.op.mul56.i1108, %2479
   %.not.i1110 = icmp eq ptr %.val877, null
-  %2490 = getelementptr inbounds i8, ptr %0, i64 584
-  %2491 = getelementptr inbounds i8, ptr %0, i64 536
+  %2490 = getelementptr inbounds nuw i8, ptr %0, i64 584
+  %2491 = getelementptr inbounds nuw i8, ptr %0, i64 536
   %2492 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %2493 = sext i32 %factor.op.mul.reass.i1109 to i64
   %2494 = load i32, ptr %71, align 8
@@ -5759,8 +5759,8 @@ _ZN4ncnnL26deconvolution_pack4to1_sseERKNS_3MatERS0_S2_S2_iiiiiiiS2_RKNS_6Option
   %2621 = getelementptr inbounds nuw i8, ptr %0, i64 268
   %2622 = getelementptr inbounds nuw i8, ptr %0, i64 432
   %2623 = getelementptr inbounds nuw i8, ptr %0, i64 520
-  %2624 = getelementptr inbounds i8, ptr %0, i64 584
-  %2625 = getelementptr inbounds i8, ptr %0, i64 536
+  %2624 = getelementptr inbounds nuw i8, ptr %0, i64 584
+  %2625 = getelementptr inbounds nuw i8, ptr %0, i64 536
   %2626 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %2627 = sext i32 %149 to i64
   %2628 = getelementptr inbounds nuw i8, ptr %0, i64 276
@@ -7075,7 +7075,7 @@ declare void @_ZN4ncnn9ParamDict3setEiRKNS_3MatE(ptr noundef nonnull align 8 der
 define linkonce_odr hidden void @_ZN4ncnn21Deconvolution_x86_avxD2Ev(ptr noundef nonnull align 8 dereferenceable(592) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTVN4ncnn21Deconvolution_x86_avxE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 520
-  %3 = getelementptr inbounds i8, ptr %0, i64 528
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 528
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %18, label %5
@@ -7086,7 +7086,7 @@ define linkonce_odr hidden void @_ZN4ncnn21Deconvolution_x86_avxD2Ev(ptr noundef
   br i1 %7, label %8, label %18
 
 8:                                                ; preds = %5
-  %9 = getelementptr inbounds i8, ptr %0, i64 552
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 552
   %10 = load ptr, ptr %9, align 8
   %.not8 = icmp eq ptr %10, null
   %11 = load ptr, ptr %2, align 8
@@ -7108,8 +7108,8 @@ define linkonce_odr hidden void @_ZN4ncnn21Deconvolution_x86_avxD2Ev(ptr noundef
   br label %18
 
 18:                                               ; preds = %12, %17, %16, %5, %1
-  %19 = getelementptr inbounds i8, ptr %0, i64 560
-  %20 = getelementptr inbounds i8, ptr %0, i64 584
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 560
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 584
   store i64 0, ptr %20, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %2, i8 0, i64 28, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %19, i8 0, i64 20, i1 false)
@@ -7128,7 +7128,7 @@ define linkonce_odr hidden void @_ZN4ncnn21Deconvolution_x86_avxD2Ev(ptr noundef
 define linkonce_odr hidden void @_ZN4ncnn21Deconvolution_x86_avxD0Ev(ptr noundef nonnull align 8 dereferenceable(592) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTVN4ncnn21Deconvolution_x86_avxE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 520
-  %3 = getelementptr inbounds i8, ptr %0, i64 528
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 528
   %4 = load ptr, ptr %3, align 8
   %.not.i = icmp eq ptr %4, null
   br i1 %.not.i, label %_ZN4ncnn21Deconvolution_x86_avxD2Ev.exit, label %5
@@ -7139,7 +7139,7 @@ define linkonce_odr hidden void @_ZN4ncnn21Deconvolution_x86_avxD0Ev(ptr noundef
   br i1 %7, label %8, label %_ZN4ncnn21Deconvolution_x86_avxD2Ev.exit
 
 8:                                                ; preds = %5
-  %9 = getelementptr inbounds i8, ptr %0, i64 552
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 552
   %10 = load ptr, ptr %9, align 8
   %.not8.i = icmp eq ptr %10, null
   %11 = load ptr, ptr %2, align 8
@@ -7168,8 +7168,8 @@ define linkonce_odr hidden void @_ZN4ncnn21Deconvolution_x86_avxD0Ev(ptr noundef
   unreachable
 
 _ZN4ncnn21Deconvolution_x86_avxD2Ev.exit:         ; preds = %1, %5, %12, %16, %17
-  %21 = getelementptr inbounds i8, ptr %0, i64 560
-  %22 = getelementptr inbounds i8, ptr %0, i64 584
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 560
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 584
   store i64 0, ptr %22, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %2, i8 0, i64 28, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %21, i8 0, i64 20, i1 false)

@@ -96,7 +96,7 @@ define dso_local noundef ptr @_ZN5clang12threadSafety3til6Future5forceEv(ptr nou
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local noundef i32 @_ZN5clang12threadSafety3til10BasicBlock14addPredecessorEPS2_(ptr noundef nonnull align 8 dereferenceable(152) %0, ptr noundef %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %4 = getelementptr inbounds i8, ptr %0, i64 48
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %5 = load i64, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.sroa.010.0.copyload = load ptr, ptr %6, align 8
@@ -109,7 +109,7 @@ define dso_local noundef i32 @_ZN5clang12threadSafety3til10BasicBlock14addPredec
   store ptr %1, ptr %10, align 8
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 72
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %14 = load i64, ptr %13, align 8
   %15 = getelementptr inbounds ptr, ptr %12, i64 %14
   %.not17 = icmp eq i64 %14, 0
@@ -127,7 +127,7 @@ define dso_local noundef i32 @_ZN5clang12threadSafety3til10BasicBlock14addPredec
   %.sroa.0.0.copyload = load ptr, ptr %6, align 8
   tail call void @_ZN5clang12threadSafety3til11SimpleArrayIPNS1_5SExprEE12reserveCheckEmNS1_12MemRegionRefE(ptr noundef nonnull align 8 dereferenceable(24) %19, i64 noundef 1, ptr %.sroa.0.0.copyload)
   %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %16, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %16, i64 24
   %22 = load i64, ptr %21, align 8
   %23 = add i64 %22, 1
   store i64 %23, ptr %21, align 8
@@ -362,7 +362,7 @@ define dso_local void @_ZN5clang12threadSafety3til10BasicBlock19reservePredecess
   %4 = zext i32 %1 to i64
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.sroa.09.0.copyload = load ptr, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 56
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %7 = load i64, ptr %6, align 8
   %.not.i = icmp ult i64 %7, %4
   br i1 %.not.i, label %8, label %_ZN5clang12threadSafety3til11SimpleArrayIPNS1_10BasicBlockEE7reserveEmNS1_12MemRegionRefE.exit
@@ -401,7 +401,7 @@ _ZN5clang12threadSafety3til12MemRegionRef9allocateTIPNS1_10BasicBlockEEEPT_m.exi
   %.0.i.i.i.i.i.i = phi ptr [ %24, %22 ], [ %25, %.critedge.i.i.i.i.i.i ]
   store ptr %.0.i.i.i.i.i.i, ptr %3, align 8
   store i64 %4, ptr %6, align 8
-  %26 = getelementptr inbounds i8, ptr %0, i64 48
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %27 = load i64, ptr %26, align 8
   %28 = shl i64 %27, 3
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %.0.i.i.i.i.i.i, ptr align 8 %9, i64 %28, i1 false)
@@ -410,7 +410,7 @@ _ZN5clang12threadSafety3til12MemRegionRef9allocateTIPNS1_10BasicBlockEEEPT_m.exi
 _ZN5clang12threadSafety3til11SimpleArrayIPNS1_10BasicBlockEE7reserveEmNS1_12MemRegionRefE.exit: ; preds = %2, %_ZN5clang12threadSafety3til12MemRegionRef9allocateTIPNS1_10BasicBlockEEEPT_m.exit.i
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %0, i64 72
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %32 = load i64, ptr %31, align 8
   %33 = getelementptr inbounds ptr, ptr %30, i64 %32
   %.not22 = icmp eq i64 %32, 0
@@ -430,7 +430,7 @@ _ZN5clang12threadSafety3til11SimpleArrayIPNS1_10BasicBlockEE7reserveEmNS1_12MemR
 38:                                               ; preds = %35
   %39 = getelementptr inbounds nuw i8, ptr %36, i64 16
   %.sroa.0.0.copyload = load ptr, ptr %5, align 8
-  %40 = getelementptr inbounds i8, ptr %36, i64 32
+  %40 = getelementptr inbounds nuw i8, ptr %36, i64 32
   %41 = load i64, ptr %40, align 8
   %.not.i14 = icmp ult i64 %41, %4
   br i1 %.not.i14, label %42, label %_ZN5clang12threadSafety3til11SimpleArrayIPNS1_5SExprEE7reserveEmNS1_12MemRegionRefE.exit
@@ -468,7 +468,7 @@ _ZN5clang12threadSafety3til12MemRegionRef9allocateTIPNS1_5SExprEEEPT_m.exit.i: ;
   %.0.i.i.i.i.i.i18 = phi ptr [ %57, %55 ], [ %58, %.critedge.i.i.i.i.i.i19 ]
   store ptr %.0.i.i.i.i.i.i18, ptr %39, align 8
   store i64 %4, ptr %40, align 8
-  %59 = getelementptr inbounds i8, ptr %36, i64 24
+  %59 = getelementptr inbounds nuw i8, ptr %36, i64 24
   %60 = load i64, ptr %59, align 8
   %61 = shl i64 %60, 3
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %.0.i.i.i.i.i.i18, ptr align 8 %43, i64 %61, i1 false)
@@ -637,7 +637,7 @@ define dso_local void @_ZN5clang12threadSafety3til21simplifyIncompleteArgEPNS1_3
   br label %.backedge31.sink.split, !llvm.loop !6
 
 _ZN5clang12threadSafety3til22simplifyToCanonicalValEPNS1_5SExprE.exit: ; preds = %19, %.backedge31, %7, %10
-  %24 = getelementptr inbounds i8, ptr %0, i64 24
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %25 = load i64, ptr %24, align 8
   %26 = and i64 %25, 4294967294
   %.not35 = icmp eq i64 %26, 0
@@ -724,7 +724,7 @@ _ZN5clang12threadSafety3til22simplifyToCanonicalValEPNS1_5SExprE.exit22: ; preds
 define dso_local noundef i32 @_ZN5clang12threadSafety3til10BasicBlock14renumberInstrsEj(ptr noundef nonnull align 8 dereferenceable(152) %0, i32 noundef %1) local_unnamed_addr #5 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 72
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %6 = load i64, ptr %5, align 8
   %7 = getelementptr inbounds ptr, ptr %4, i64 %6
   %.not21 = icmp eq i64 %6, 0
@@ -747,7 +747,7 @@ define dso_local noundef i32 @_ZN5clang12threadSafety3til10BasicBlock14renumberI
   %.0.lcssa = phi i32 [ %1, %2 ], [ %9, %.lr.ph ]
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 96
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %16 = load i64, ptr %15, align 8
   %17 = getelementptr inbounds ptr, ptr %14, i64 %16
   %.not2024 = icmp eq i64 %16, 0
@@ -848,7 +848,7 @@ define dso_local noundef i32 @_ZN5clang12threadSafety3til10BasicBlock20topologic
 6:                                                ; preds = %3
   %7 = and i32 %5, 2147483647
   store i32 %7, ptr %4, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 128
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %9 = load ptr, ptr %8, align 8
   %.not19 = icmp eq ptr %9, null
   br i1 %.not19, label %12, label %10
@@ -861,7 +861,7 @@ define dso_local noundef i32 @_ZN5clang12threadSafety3til10BasicBlock20topologic
   %.016 = phi i32 [ %11, %10 ], [ %2, %6 ]
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 48
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %16 = load i64, ptr %15, align 8
   %17 = getelementptr inbounds ptr, ptr %14, i64 %16
   %.not2021 = icmp eq i64 %16, 0
@@ -899,7 +899,7 @@ define dso_local noundef i32 @_ZN5clang12threadSafety3til10BasicBlock20topologic
 define dso_local void @_ZN5clang12threadSafety3til10BasicBlock16computeDominatorEv(ptr nocapture noundef nonnull align 8 dereferenceable(152) %0) local_unnamed_addr #6 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 48
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %5 = load i64, ptr %4, align 8
   %6 = getelementptr inbounds ptr, ptr %3, i64 %5
   %.not26 = icmp eq i64 %5, 0
@@ -942,12 +942,12 @@ define dso_local void @_ZN5clang12threadSafety3til10BasicBlock16computeDominator
   br i1 %23, label %24, label %27
 
 24:                                               ; preds = %.lr.ph
-  %25 = getelementptr inbounds i8, ptr %.224, i64 128
+  %25 = getelementptr inbounds nuw i8, ptr %.224, i64 128
   %26 = load ptr, ptr %25, align 8
   br label %30
 
 27:                                               ; preds = %.lr.ph
-  %28 = getelementptr inbounds i8, ptr %.025, i64 128
+  %28 = getelementptr inbounds nuw i8, ptr %.025, i64 128
   %29 = load ptr, ptr %28, align 8
   br label %30
 
@@ -965,9 +965,9 @@ define dso_local void @_ZN5clang12threadSafety3til10BasicBlock16computeDominator
 
 ._crit_edge:                                      ; preds = %.loopexit, %1
   %.018.lcssa = phi ptr [ null, %1 ], [ %.119, %.loopexit ]
-  %32 = getelementptr inbounds i8, ptr %0, i64 128
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store ptr %.018.lcssa, ptr %32, align 8
-  %33 = getelementptr inbounds i8, ptr %0, i64 124
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 124
   store i32 1, ptr %33, align 4
   ret void
 }
@@ -1026,12 +1026,12 @@ define dso_local void @_ZN5clang12threadSafety3til10BasicBlock20computePostDomin
   br i1 %24, label %25, label %28
 
 25:                                               ; preds = %.lr.ph
-  %26 = getelementptr inbounds i8, ptr %.225, i64 144
+  %26 = getelementptr inbounds nuw i8, ptr %.225, i64 144
   %27 = load ptr, ptr %26, align 8
   br label %31
 
 28:                                               ; preds = %.lr.ph
-  %29 = getelementptr inbounds i8, ptr %.026, i64 144
+  %29 = getelementptr inbounds nuw i8, ptr %.026, i64 144
   %30 = load ptr, ptr %29, align 8
   br label %31
 
@@ -1049,9 +1049,9 @@ define dso_local void @_ZN5clang12threadSafety3til10BasicBlock20computePostDomin
 
 ._crit_edge:                                      ; preds = %.loopexit, %1
   %.018.lcssa = phi ptr [ null, %1 ], [ %.119, %.loopexit ]
-  %33 = getelementptr inbounds i8, ptr %0, i64 144
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 144
   store ptr %.018.lcssa, ptr %33, align 8
-  %34 = getelementptr inbounds i8, ptr %0, i64 140
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 140
   store i32 1, ptr %34, align 4
   ret void
 }
@@ -1060,7 +1060,7 @@ define dso_local void @_ZN5clang12threadSafety3til10BasicBlock20computePostDomin
 define dso_local void @_ZN5clang12threadSafety3til4SCFG14renumberInstrsEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(69) %0) local_unnamed_addr #5 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 32
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load i64, ptr %4, align 8
   %6 = getelementptr inbounds ptr, ptr %3, i64 %5
   %.not10 = icmp eq i64 %5, 0
@@ -1072,7 +1072,7 @@ define dso_local void @_ZN5clang12threadSafety3til4SCFG14renumberInstrsEv(ptr no
   %7 = load ptr, ptr %.0811, align 8
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 64
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %7, i64 72
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 72
   %11 = load i64, ptr %10, align 8
   %12 = getelementptr inbounds ptr, ptr %9, i64 %11
   %.not21.i = icmp eq i64 %11, 0
@@ -1095,7 +1095,7 @@ define dso_local void @_ZN5clang12threadSafety3til4SCFG14renumberInstrsEv(ptr no
   %.0.lcssa.i = phi i32 [ %.012, %.lr.ph ], [ %14, %.lr.ph.i ]
   %18 = getelementptr inbounds nuw i8, ptr %7, i64 88
   %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %7, i64 96
+  %20 = getelementptr inbounds nuw i8, ptr %7, i64 96
   %21 = load i64, ptr %20, align 8
   %22 = getelementptr inbounds ptr, ptr %19, i64 %21
   %.not2024.i = icmp eq i64 %21, 0
@@ -1136,7 +1136,7 @@ define dso_local void @_ZN5clang12threadSafety3til4SCFG17computeNormalFormEv(ptr
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %5 = getelementptr inbounds i8, ptr %0, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %6 = load i64, ptr %5, align 8
   %7 = trunc i64 %6 to i32
   %8 = tail call noundef i32 @_ZN5clang12threadSafety3til10BasicBlock15topologicalSortERNS1_11SimpleArrayIPS2_EEj(ptr noundef nonnull align 8 dereferenceable(152) %3, ptr noundef nonnull align 8 dereferenceable(24) %4, i32 noundef %7)
@@ -1198,7 +1198,7 @@ define dso_local void @_ZN5clang12threadSafety3til4SCFG17computeNormalFormEv(ptr
   %33 = load ptr, ptr %.03472, align 8
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 40
   %35 = load ptr, ptr %34, align 8
-  %36 = getelementptr inbounds i8, ptr %33, i64 48
+  %36 = getelementptr inbounds nuw i8, ptr %33, i64 48
   %37 = load i64, ptr %36, align 8
   %38 = getelementptr inbounds ptr, ptr %35, i64 %37
   %.not26.i = icmp eq i64 %37, 0
@@ -1241,12 +1241,12 @@ define dso_local void @_ZN5clang12threadSafety3til4SCFG17computeNormalFormEv(ptr
   br i1 %55, label %56, label %59
 
 56:                                               ; preds = %.lr.ph.i
-  %57 = getelementptr inbounds i8, ptr %.224.i, i64 128
+  %57 = getelementptr inbounds nuw i8, ptr %.224.i, i64 128
   %58 = load ptr, ptr %57, align 8
   br label %62
 
 59:                                               ; preds = %.lr.ph.i
-  %60 = getelementptr inbounds i8, ptr %.025.i, i64 128
+  %60 = getelementptr inbounds nuw i8, ptr %.025.i, i64 128
   %61 = load ptr, ptr %60, align 8
   br label %62
 
@@ -1264,9 +1264,9 @@ define dso_local void @_ZN5clang12threadSafety3til4SCFG17computeNormalFormEv(ptr
 
 _ZN5clang12threadSafety3til10BasicBlock16computeDominatorEv.exit: ; preds = %.loopexit.i, %.lr.ph74
   %.018.lcssa.i = phi ptr [ null, %.lr.ph74 ], [ %.119.i, %.loopexit.i ]
-  %64 = getelementptr inbounds i8, ptr %33, i64 128
+  %64 = getelementptr inbounds nuw i8, ptr %33, i64 128
   store ptr %.018.lcssa.i, ptr %64, align 8
-  %65 = getelementptr inbounds i8, ptr %33, i64 124
+  %65 = getelementptr inbounds nuw i8, ptr %33, i64 124
   store i32 1, ptr %65, align 4
   %66 = getelementptr inbounds i8, ptr %.03472, i64 8
   %.not37 = icmp eq ptr %66, %32
@@ -1288,7 +1288,7 @@ _ZN5clang12threadSafety3til10BasicBlock16computeDominatorEv.exit: ; preds = %.lo
   %73 = load ptr, ptr %.0811.i, align 8
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 64
   %75 = load ptr, ptr %74, align 8
-  %76 = getelementptr inbounds i8, ptr %73, i64 72
+  %76 = getelementptr inbounds nuw i8, ptr %73, i64 72
   %77 = load i64, ptr %76, align 8
   %78 = getelementptr inbounds ptr, ptr %75, i64 %77
   %.not21.i.i = icmp eq i64 %77, 0
@@ -1311,7 +1311,7 @@ _ZN5clang12threadSafety3til10BasicBlock16computeDominatorEv.exit: ; preds = %.lo
   %.0.lcssa.i.i = phi i32 [ %.012.i, %.lr.ph.i39 ], [ %80, %.lr.ph.i.i ]
   %84 = getelementptr inbounds nuw i8, ptr %73, i64 88
   %85 = load ptr, ptr %84, align 8
-  %86 = getelementptr inbounds i8, ptr %73, i64 96
+  %86 = getelementptr inbounds nuw i8, ptr %73, i64 96
   %87 = load i64, ptr %86, align 8
   %88 = getelementptr inbounds ptr, ptr %85, i64 %87
   %.not2024.i.i = icmp eq i64 %87, 0
@@ -1409,12 +1409,12 @@ _ZN5clang12threadSafety3til4SCFG14renumberInstrsEv.exit: ; preds = %_ZN5clang12t
   br i1 %125, label %126, label %129
 
 126:                                              ; preds = %.lr.ph.i47
-  %127 = getelementptr inbounds i8, ptr %.225.i, i64 144
+  %127 = getelementptr inbounds nuw i8, ptr %.225.i, i64 144
   %128 = load ptr, ptr %127, align 8
   br label %132
 
 129:                                              ; preds = %.lr.ph.i47
-  %130 = getelementptr inbounds i8, ptr %.026.i, i64 144
+  %130 = getelementptr inbounds nuw i8, ptr %.026.i, i64 144
   %131 = load ptr, ptr %130, align 8
   br label %132
 
@@ -1432,9 +1432,9 @@ _ZN5clang12threadSafety3til4SCFG14renumberInstrsEv.exit: ; preds = %_ZN5clang12t
 
 _ZN5clang12threadSafety3til10BasicBlock20computePostDominatorEv.exit: ; preds = %.loopexit.i42, %.lr.ph78
   %.018.lcssa.i45 = phi ptr [ null, %.lr.ph78 ], [ %.119.i43, %.loopexit.i42 ]
-  %134 = getelementptr inbounds i8, ptr %102, i64 144
+  %134 = getelementptr inbounds nuw i8, ptr %102, i64 144
   store ptr %.018.lcssa.i45, ptr %134, align 8
-  %135 = getelementptr inbounds i8, ptr %102, i64 140
+  %135 = getelementptr inbounds nuw i8, ptr %102, i64 140
   store i32 1, ptr %135, align 4
   %136 = getelementptr inbounds i8, ptr %102, i64 128
   %137 = load ptr, ptr %136, align 8

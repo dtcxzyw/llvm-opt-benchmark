@@ -89,7 +89,7 @@ define void @_ZN3g2o18ParameterContainer5clearEv(ptr noundef nonnull align 8 der
 
 .lr.ph:                                           ; preds = %5, %17
   %.sroa.01.05 = phi ptr [ %18, %17 ], [ %8, %5 ]
-  %10 = getelementptr inbounds i8, ptr %.sroa.01.05, i64 40
+  %10 = getelementptr inbounds nuw i8, ptr %.sroa.01.05, i64 40
   %11 = load ptr, ptr %10, align 8
   %12 = icmp eq ptr %11, null
   br i1 %12, label %17, label %13
@@ -155,7 +155,7 @@ define void @_ZN3g2o18ParameterContainerD2Ev(ptr noundef nonnull align 8 derefer
 
 .lr.ph.i:                                         ; preds = %5, %17
   %.sroa.01.05.i = phi ptr [ %18, %17 ], [ %8, %5 ]
-  %10 = getelementptr inbounds i8, ptr %.sroa.01.05.i, i64 40
+  %10 = getelementptr inbounds nuw i8, ptr %.sroa.01.05.i, i64 40
   %11 = load ptr, ptr %10, align 8
   %12 = icmp eq ptr %11, null
   br i1 %12, label %17, label %13
@@ -290,7 +290,7 @@ _ZNSt3mapIiPN3g2o9ParameterESt4lessIiESaISt4pairIKiS2_EEE11lower_boundERS6_.exit
   %26 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #17
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 32
   store i32 %4, ptr %27, align 8
-  %28 = getelementptr inbounds i8, ptr %26, i64 40
+  %28 = getelementptr inbounds nuw i8, ptr %26, i64 40
   store ptr %1, ptr %28, align 8
   %29 = invoke { ptr, ptr } @_ZNSt8_Rb_treeIiSt4pairIKiPN3g2o9ParameterEESt10_Select1stIS5_ESt4lessIiESaIS5_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS5_ERS1_(ptr noundef nonnull align 8 dereferenceable(48) %7, ptr %.08.lcssa.i.i.i13.i, ptr noundef nonnull align 4 dereferenceable(4) %27)
           to label %30 unwind label %_ZNSt8_Rb_treeIiSt4pairIKiPN3g2o9ParameterEESt10_Select1stIS5_ESt4lessIiESaIS5_EE10_Auto_nodeD2Ev.exit.i
@@ -370,7 +370,7 @@ _ZNSt3mapIiPN3g2o9ParameterESt4lessIiESaISt4pairIKiS2_EEE4findERS6_.exit: ; pred
   br i1 %12, label %_ZNSt3mapIiPN3g2o9ParameterESt4lessIiESaISt4pairIKiS2_EEE4findERS6_.exit.thread, label %13
 
 13:                                               ; preds = %_ZNSt3mapIiPN3g2o9ParameterESt4lessIiESaISt4pairIKiS2_EEE4findERS6_.exit
-  %14 = getelementptr inbounds i8, ptr %.19.i.i.i, i64 40
+  %14 = getelementptr inbounds nuw i8, ptr %.19.i.i.i, i64 40
   %15 = load ptr, ptr %14, align 8
   br label %_ZNSt3mapIiPN3g2o9ParameterESt4lessIiESaISt4pairIKiS2_EEE4findERS6_.exit.thread
 
@@ -411,7 +411,7 @@ _ZNKSt3mapIiPN3g2o9ParameterESt4lessIiESaISt4pairIKiS2_EEE4findERS6_.exit: ; pre
   br i1 %12, label %_ZNKSt3mapIiPN3g2o9ParameterESt4lessIiESaISt4pairIKiS2_EEE4findERS6_.exit.thread, label %13
 
 13:                                               ; preds = %_ZNKSt3mapIiPN3g2o9ParameterESt4lessIiESaISt4pairIKiS2_EEE4findERS6_.exit
-  %14 = getelementptr inbounds i8, ptr %.19.i.i.i, i64 40
+  %14 = getelementptr inbounds nuw i8, ptr %.19.i.i.i, i64 40
   %15 = load ptr, ptr %14, align 8
   br label %_ZNKSt3mapIiPN3g2o9ParameterESt4lessIiESaISt4pairIKiS2_EEE4findERS6_.exit.thread
 
@@ -452,7 +452,7 @@ _ZNSt3mapIiPN3g2o9ParameterESt4lessIiESaISt4pairIKiS2_EEE4findERS6_.exit: ; pred
   br i1 %12, label %_ZNSt3mapIiPN3g2o9ParameterESt4lessIiESaISt4pairIKiS2_EEE4findERS6_.exit.thread, label %13
 
 13:                                               ; preds = %_ZNSt3mapIiPN3g2o9ParameterESt4lessIiESaISt4pairIKiS2_EEE4findERS6_.exit
-  %14 = getelementptr inbounds i8, ptr %.19.i.i.i, i64 40
+  %14 = getelementptr inbounds nuw i8, ptr %.19.i.i.i, i64 40
   %15 = load ptr, ptr %14, align 8
   %16 = tail call noundef nonnull ptr @_ZSt28_Rb_tree_rebalance_for_erasePSt18_Rb_tree_node_baseRS_(ptr noundef nonnull %.19.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %5) #13
   tail call void @_ZdlPvm(ptr noundef nonnull %16, i64 noundef 48) #16
@@ -478,7 +478,7 @@ define noundef zeroext i1 @_ZNK3g2o18ParameterContainer5writeERSo(ptr noundef no
 
 .lr.ph:                                           ; preds = %2, %.lr.ph
   %.sroa.06.012 = phi ptr [ %23, %.lr.ph ], [ %5, %2 ]
-  %7 = getelementptr inbounds i8, ptr %.sroa.06.012, i64 40
+  %7 = getelementptr inbounds nuw i8, ptr %.sroa.06.012, i64 40
   %8 = load ptr, ptr %7, align 8
   %9 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNK3g2o7Factory3tagB5cxx11EPKNS_10HyperGraph17HyperGraphElementE(ptr noundef nonnull align 8 dereferenceable(96) %3, ptr noundef %8)
   %10 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %9)
@@ -638,7 +638,7 @@ _ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESa
   br i1 %47, label %_ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEE4findERS9_.exit.thread, label %48
 
 48:                                               ; preds = %_ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEE4findERS9_.exit
-  %49 = getelementptr inbounds i8, ptr %.19.i.i.i, i64 64
+  %49 = getelementptr inbounds nuw i8, ptr %.19.i.i.i, i64 64
   %50 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %49)
           to label %_ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEE4findERS9_.exit.thread unwind label %.loopexit
 

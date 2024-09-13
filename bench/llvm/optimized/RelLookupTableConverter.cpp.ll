@@ -93,7 +93,7 @@ define dso_local void @_ZN4llvm27RelLookupTableConverterPass3runERNS_6ModuleERNS
   %15 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm15AnalysisManagerINS_6ModuleEJEE13getResultImplEPNS_11AnalysisKeyERS1_(ptr noundef nonnull align 8 dereferenceable(72) %3, ptr noundef nonnull @_ZN4llvm25InnerAnalysisManagerProxyINS_15AnalysisManagerINS_8FunctionEJEEENS_6ModuleEJEE3KeyE, ptr noundef nonnull align 8 dereferenceable(857) %2) #7
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %17 = tail call noundef nonnull align 8 dereferenceable(72) ptr @_ZN4llvm25InnerAnalysisManagerProxyINS_15AnalysisManagerINS_8FunctionEJEEENS_6ModuleEJEE6Result10getManagerEv(ptr noundef nonnull align 8 dereferenceable(8) %16) #7
-  %18 = getelementptr inbounds i8, ptr %2, i64 32
+  %18 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %19 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %.sroa.023.032.i = load ptr, ptr %18, align 8
   %.not33.i = icmp eq ptr %.sroa.023.032.i, %19
@@ -120,7 +120,7 @@ define dso_local void @_ZN4llvm27RelLookupTableConverterPass3runERNS_6ModuleERNS
   br i1 %29, label %.loopexit31.i, label %_ZL29convertToRelativeLookupTablesRN4llvm6ModuleENS_12function_refIFRNS_19TargetTransformInfoERNS_8FunctionEEEE.exit.thread
 
 .loopexit31.i:                                    ; preds = %20, %26, %4
-  %30 = getelementptr inbounds i8, ptr %2, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %31 = load ptr, ptr %30, align 8
   %32 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.not2935.i = icmp eq ptr %31, %32
@@ -640,15 +640,15 @@ _ZL29convertToRelativeLookupTablesRN4llvm6ModuleENS_12function_refIFRNS_19Target
   %298 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 0, ptr %298, align 8, !alias.scope !7
   %299 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %300 = getelementptr inbounds i8, ptr %0, i64 80
+  %300 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store ptr %300, ptr %299, align 8, !alias.scope !7
-  %301 = getelementptr inbounds i8, ptr %0, i64 56
+  %301 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store ptr %300, ptr %301, align 8, !alias.scope !7
-  %302 = getelementptr inbounds i8, ptr %0, i64 64
+  %302 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i32 2, ptr %302, align 8, !alias.scope !7
-  %303 = getelementptr inbounds i8, ptr %0, i64 68
+  %303 = getelementptr inbounds nuw i8, ptr %0, i64 68
   store i32 0, ptr %303, align 4, !alias.scope !7
-  %304 = getelementptr inbounds i8, ptr %0, i64 72
+  %304 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store i32 0, ptr %304, align 8, !alias.scope !7
   store i32 1, ptr %297, align 4, !alias.scope !7, !noalias !10
   store ptr @_ZN4llvm17PreservedAnalyses14AllAnalysesKeyE, ptr %294, align 8, !alias.scope !7, !noalias !10
@@ -666,15 +666,15 @@ _ZL29convertToRelativeLookupTablesRN4llvm6ModuleENS_12function_refIFRNS_19Target
   %309 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 0, ptr %309, align 8
   %310 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %311 = getelementptr inbounds i8, ptr %0, i64 80
+  %311 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store ptr %311, ptr %310, align 8
-  %312 = getelementptr inbounds i8, ptr %0, i64 56
+  %312 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store ptr %311, ptr %312, align 8
-  %313 = getelementptr inbounds i8, ptr %0, i64 64
+  %313 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i32 2, ptr %313, align 8
-  %314 = getelementptr inbounds i8, ptr %0, i64 68
+  %314 = getelementptr inbounds nuw i8, ptr %0, i64 68
   store i32 0, ptr %314, align 4
-  %315 = getelementptr inbounds i8, ptr %0, i64 72
+  %315 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store i32 0, ptr %315, align 8
   call void @_ZN4llvm17PreservedAnalyses11preserveSetEPNS_14AnalysisSetKeyE(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull @_ZN4llvm11CFGAnalyses6SetKeyE)
   br label %316
@@ -1280,7 +1280,7 @@ define linkonce_odr hidden noundef ptr @_ZN4llvm8CallInst6CreateEPNS_12FunctionT
   %.012.i = phi i32 [ %21, %.lr.ph.i ], [ 0, %8 ]
   %.0811.i = phi ptr [ %22, %.lr.ph.i ], [ %4, %8 ]
   %12 = getelementptr inbounds nuw i8, ptr %.0811.i, i64 32
-  %13 = getelementptr inbounds i8, ptr %.0811.i, i64 40
+  %13 = getelementptr inbounds nuw i8, ptr %.0811.i, i64 40
   %14 = load ptr, ptr %13, align 8
   %15 = load ptr, ptr %12, align 8
   %16 = ptrtoint ptr %14 to i64
@@ -1313,7 +1313,7 @@ _ZN4llvm8CallBase17CountBundleInputsENS_8ArrayRefINS_17OperandBundleDefTIPNS_5Va
   %.012.i.i = phi i32 [ %39, %.lr.ph.i.i ], [ 0, %_ZN4llvm8CallBase17CountBundleInputsENS_8ArrayRefINS_17OperandBundleDefTIPNS_5ValueEEEEE.exit ]
   %.0811.i.i = phi ptr [ %40, %.lr.ph.i.i ], [ %4, %_ZN4llvm8CallBase17CountBundleInputsENS_8ArrayRefINS_17OperandBundleDefTIPNS_5ValueEEEEE.exit ]
   %30 = getelementptr inbounds nuw i8, ptr %.0811.i.i, i64 32
-  %31 = getelementptr inbounds i8, ptr %.0811.i.i, i64 40
+  %31 = getelementptr inbounds nuw i8, ptr %.0811.i.i, i64 40
   %32 = load ptr, ptr %31, align 8
   %33 = load ptr, ptr %30, align 8
   %34 = ptrtoint ptr %32 to i64
@@ -1330,7 +1330,7 @@ _ZN4llvm8CallBase17CountBundleInputsENS_8ArrayRefINS_17OperandBundleDefTIPNS_5Va
   %.012.i11.i = phi i32 [ %50, %.lr.ph.i10.i ], [ 0, %.lr.ph.i.i ]
   %.0811.i12.i = phi ptr [ %51, %.lr.ph.i10.i ], [ %4, %.lr.ph.i.i ]
   %41 = getelementptr inbounds nuw i8, ptr %.0811.i12.i, i64 32
-  %42 = getelementptr inbounds i8, ptr %.0811.i12.i, i64 40
+  %42 = getelementptr inbounds nuw i8, ptr %.0811.i12.i, i64 40
   %43 = load ptr, ptr %42, align 8
   %44 = load ptr, ptr %41, align 8
   %45 = ptrtoint ptr %43 to i64
@@ -1388,9 +1388,9 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm15AnalysisManage
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvm17PreservedAnalyses11preserveSetEPNS_14AnalysisSetKeyE(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef %1) local_unnamed_addr #0 comdat align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 68
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 68
   %4 = load i32, ptr %3, align 4
-  %5 = getelementptr inbounds i8, ptr %0, i64 72
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %6 = load i32, ptr %5, align 8
   %7 = icmp eq i32 %4, %6
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8

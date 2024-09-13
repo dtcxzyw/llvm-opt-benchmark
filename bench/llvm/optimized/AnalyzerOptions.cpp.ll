@@ -455,7 +455,7 @@ define dso_local { ptr, i64 } @_ZNK5clang15AnalyzerOptions22getCheckerStringOpti
   %9 = alloca %"class.llvm::Twine", align 8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 64
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %13 = load i32, ptr %12, align 8
   %14 = zext i32 %13 to i64
   %15 = getelementptr inbounds ptr, ptr %11, i64 %14

@@ -51,7 +51,7 @@ $_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIRFPvRN4llvm12PassRegistryE
 define dso_local noundef zeroext i1 @_ZN18GCEmptyBasicBlocks20runOnMachineFunctionERN4llvm15MachineFunctionE(ptr nocapture nonnull readnone align 8 %0, ptr noundef nonnull readonly align 8 dereferenceable(1041) %1) unnamed_addr #0 align 2 {
   %3 = alloca %"class.llvm::SmallVector.102", align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 320
-  %5 = getelementptr inbounds i8, ptr %1, i64 328
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 328
   %6 = load ptr, ptr %5, align 8
   %.not4.i.i.i.i = icmp eq ptr %6, %4
   br i1 %.not4.i.i.i.i, label %_ZNK4llvm15MachineFunction4sizeEv.exit.thread, label %.lr.ph.i.i.i.i

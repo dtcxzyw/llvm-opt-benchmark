@@ -50,26 +50,26 @@ define void @_ZN10OpenSubdiv6v3_6_03Bfr11FaceSurface13preInitializeERKNS1_12Face
   br i1 %11, label %12, label %17
 
 12:                                               ; preds = %3
-  %13 = getelementptr inbounds i8, ptr %0, i64 128
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %14 = load ptr, ptr %13, align 8
   tail call void @_ZdlPv(ptr noundef %14) #11
-  %15 = getelementptr inbounds i8, ptr %0, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %15, ptr %8, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 28
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i32 8, ptr %16, align 4
   br label %_ZN10OpenSubdiv6v3_6_03Vtr8internal11StackBufferINS0_3Bfr16FaceVertexSubsetELj8ELb1EE7SetSizeEj.exit
 
 17:                                               ; preds = %3
-  %18 = getelementptr inbounds i8, ptr %0, i64 28
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %19 = load i32, ptr %18, align 4
   %20 = icmp ugt i32 %10, %19
   br i1 %20, label %21, label %_ZN10OpenSubdiv6v3_6_03Vtr8internal11StackBufferINS0_3Bfr16FaceVertexSubsetELj8ELb1EE7SetSizeEj.exit
 
 21:                                               ; preds = %17
-  %22 = getelementptr inbounds i8, ptr %0, i64 128
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %23 = load ptr, ptr %22, align 8
   tail call void @_ZdlPv(ptr noundef %23) #11
-  %24 = getelementptr inbounds i8, ptr %0, i64 32
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %24, ptr %8, align 8
   store i32 8, ptr %18, align 4
   %25 = zext i32 %10 to i64
@@ -81,7 +81,7 @@ define void @_ZN10OpenSubdiv6v3_6_03Bfr11FaceSurface13preInitializeERKNS1_12Face
   br label %_ZN10OpenSubdiv6v3_6_03Vtr8internal11StackBufferINS0_3Bfr16FaceVertexSubsetELj8ELb1EE7SetSizeEj.exit
 
 _ZN10OpenSubdiv6v3_6_03Vtr8internal11StackBufferINS0_3Bfr16FaceVertexSubsetELj8ELb1EE7SetSizeEj.exit: ; preds = %12, %17, %21
-  %28 = getelementptr inbounds i8, ptr %0, i64 24
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 %10, ptr %28, align 8
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 136
   store i16 0, ptr %29, align 8
@@ -113,9 +113,9 @@ define void @_ZN10OpenSubdiv6v3_6_03Bfr11FaceSurface14postInitializeEv(ptr nocap
 11:                                               ; preds = %1
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 136
   store i8 1, ptr %10, align 2
-  %13 = getelementptr inbounds i8, ptr %0, i64 139
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 139
   store i8 5, ptr %13, align 1
-  %14 = getelementptr inbounds i8, ptr %0, i64 140
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 140
   %15 = and i32 %.sroa.0.0.copyload.i, 16711680
   %.not.i = icmp eq i32 %15, 0
   br i1 %.not.i, label %20, label %16
@@ -131,7 +131,7 @@ define void @_ZN10OpenSubdiv6v3_6_03Bfr11FaceSurface14postInitializeEv(ptr nocap
   br label %20
 
 20:                                               ; preds = %19, %16, %11
-  %21 = getelementptr inbounds i8, ptr %0, i64 141
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 141
   %.not10.i = icmp ult i32 %.sroa.0.0.copyload.i, 16777216
   br i1 %.not10.i, label %_ZN10OpenSubdiv6v3_6_03Bfr11FaceSurface24reviseSdcOptionsInEffectEv.exit, label %22
 
@@ -275,9 +275,9 @@ define void @_ZN10OpenSubdiv6v3_6_03Bfr11FaceSurface24reviseSdcOptionsInEffectEv
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 138
   store i8 1, ptr %3, align 2
-  %4 = getelementptr inbounds i8, ptr %0, i64 139
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 139
   store i8 5, ptr %4, align 1
-  %5 = getelementptr inbounds i8, ptr %0, i64 140
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 140
   %6 = load i8, ptr %5, align 4
   %.not = icmp eq i8 %6, 0
   br i1 %.not, label %11, label %7
@@ -293,7 +293,7 @@ define void @_ZN10OpenSubdiv6v3_6_03Bfr11FaceSurface24reviseSdcOptionsInEffectEv
   br label %11
 
 11:                                               ; preds = %7, %10, %1
-  %12 = getelementptr inbounds i8, ptr %0, i64 141
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 141
   %13 = load i8, ptr %12, align 1
   %.not10 = icmp eq i8 %13, 0
   br i1 %.not10, label %21, label %14
@@ -334,26 +334,26 @@ define void @_ZN10OpenSubdiv6v3_6_03Bfr11FaceSurface10InitializeERKNS1_12FaceTop
   br i1 %11, label %12, label %17
 
 12:                                               ; preds = %3
-  %13 = getelementptr inbounds i8, ptr %0, i64 128
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %14 = load ptr, ptr %13, align 8
   tail call void @_ZdlPv(ptr noundef %14) #11
-  %15 = getelementptr inbounds i8, ptr %0, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %15, ptr %8, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 28
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i32 8, ptr %16, align 4
   br label %_ZN10OpenSubdiv6v3_6_03Bfr11FaceSurface13preInitializeERKNS1_12FaceTopologyEPKi.exit
 
 17:                                               ; preds = %3
-  %18 = getelementptr inbounds i8, ptr %0, i64 28
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %19 = load i32, ptr %18, align 4
   %20 = icmp ugt i32 %10, %19
   br i1 %20, label %21, label %_ZN10OpenSubdiv6v3_6_03Bfr11FaceSurface13preInitializeERKNS1_12FaceTopologyEPKi.exit
 
 21:                                               ; preds = %17
-  %22 = getelementptr inbounds i8, ptr %0, i64 128
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %23 = load ptr, ptr %22, align 8
   tail call void @_ZdlPv(ptr noundef %23) #11
-  %24 = getelementptr inbounds i8, ptr %0, i64 32
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %24, ptr %8, align 8
   store i32 8, ptr %18, align 4
   %25 = zext i32 %10 to i64
@@ -365,7 +365,7 @@ define void @_ZN10OpenSubdiv6v3_6_03Bfr11FaceSurface10InitializeERKNS1_12FaceTop
   br label %_ZN10OpenSubdiv6v3_6_03Bfr11FaceSurface13preInitializeERKNS1_12FaceTopologyEPKi.exit
 
 _ZN10OpenSubdiv6v3_6_03Bfr11FaceSurface13preInitializeERKNS1_12FaceTopologyEPKi.exit: ; preds = %12, %17, %21
-  %28 = getelementptr inbounds i8, ptr %0, i64 24
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 %10, ptr %28, align 8
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 136
   store i16 0, ptr %29, align 8
@@ -443,7 +443,7 @@ _ZNK10OpenSubdiv6v3_6_03Bfr11FaceSurface36sharpenBySdcVtxBoundaryInterpolationEP
 
 67:                                               ; preds = %._crit_edge
   store i8 1, ptr %66, align 2
-  %68 = getelementptr inbounds i8, ptr %0, i64 139
+  %68 = getelementptr inbounds nuw i8, ptr %0, i64 139
   store i8 5, ptr %68, align 1
   %69 = and i32 %.sroa.0.0.copyload.i.i, 16711680
   %.not.i.i = icmp ne i32 %69, 0
@@ -453,12 +453,12 @@ _ZNK10OpenSubdiv6v3_6_03Bfr11FaceSurface36sharpenBySdcVtxBoundaryInterpolationEP
   br i1 %or.cond, label %71, label %73
 
 71:                                               ; preds = %67
-  %72 = getelementptr inbounds i8, ptr %0, i64 140
+  %72 = getelementptr inbounds nuw i8, ptr %0, i64 140
   store i8 0, ptr %72, align 4
   br label %73
 
 73:                                               ; preds = %71, %67
-  %74 = getelementptr inbounds i8, ptr %0, i64 141
+  %74 = getelementptr inbounds nuw i8, ptr %0, i64 141
   %.not10.i.i = icmp ult i32 %.sroa.0.0.copyload.i.i, 16777216
   br i1 %.not10.i.i, label %_ZN10OpenSubdiv6v3_6_03Bfr11FaceSurface14postInitializeEv.exit, label %75
 
@@ -519,26 +519,26 @@ define void @_ZN10OpenSubdiv6v3_6_03Bfr11FaceSurface10InitializeERKS2_PKi(ptr no
   br i1 %12, label %13, label %18
 
 13:                                               ; preds = %3
-  %14 = getelementptr inbounds i8, ptr %0, i64 128
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %15 = load ptr, ptr %14, align 8
   tail call void @_ZdlPv(ptr noundef %15) #11
-  %16 = getelementptr inbounds i8, ptr %0, i64 32
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %16, ptr %9, align 8
-  %17 = getelementptr inbounds i8, ptr %0, i64 28
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i32 8, ptr %17, align 4
   br label %_ZN10OpenSubdiv6v3_6_03Bfr11FaceSurface13preInitializeERKNS1_12FaceTopologyEPKi.exit
 
 18:                                               ; preds = %3
-  %19 = getelementptr inbounds i8, ptr %0, i64 28
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %20 = load i32, ptr %19, align 4
   %21 = icmp ugt i32 %11, %20
   br i1 %21, label %22, label %_ZN10OpenSubdiv6v3_6_03Bfr11FaceSurface13preInitializeERKNS1_12FaceTopologyEPKi.exit
 
 22:                                               ; preds = %18
-  %23 = getelementptr inbounds i8, ptr %0, i64 128
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %24 = load ptr, ptr %23, align 8
   tail call void @_ZdlPv(ptr noundef %24) #11
-  %25 = getelementptr inbounds i8, ptr %0, i64 32
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %25, ptr %9, align 8
   store i32 8, ptr %19, align 4
   %26 = zext i32 %11 to i64
@@ -550,7 +550,7 @@ define void @_ZN10OpenSubdiv6v3_6_03Bfr11FaceSurface10InitializeERKS2_PKi(ptr no
   br label %_ZN10OpenSubdiv6v3_6_03Bfr11FaceSurface13preInitializeERKNS1_12FaceTopologyEPKi.exit
 
 _ZN10OpenSubdiv6v3_6_03Bfr11FaceSurface13preInitializeERKNS1_12FaceTopologyEPKi.exit: ; preds = %13, %18, %22
-  %29 = getelementptr inbounds i8, ptr %0, i64 24
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 %11, ptr %29, align 8
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 136
   store i16 0, ptr %30, align 8
@@ -661,7 +661,7 @@ _ZNK10OpenSubdiv6v3_6_03Bfr16FaceVertexSubset20ShapeMatchesSupersetERKS2_.exit.t
 
 94:                                               ; preds = %._crit_edge
   store i8 1, ptr %93, align 2
-  %95 = getelementptr inbounds i8, ptr %0, i64 139
+  %95 = getelementptr inbounds nuw i8, ptr %0, i64 139
   store i8 5, ptr %95, align 1
   %96 = and i32 %.sroa.0.0.copyload.i.i, 16711680
   %.not.i.i = icmp ne i32 %96, 0
@@ -671,12 +671,12 @@ _ZNK10OpenSubdiv6v3_6_03Bfr16FaceVertexSubset20ShapeMatchesSupersetERKS2_.exit.t
   br i1 %or.cond, label %98, label %100
 
 98:                                               ; preds = %94
-  %99 = getelementptr inbounds i8, ptr %0, i64 140
+  %99 = getelementptr inbounds nuw i8, ptr %0, i64 140
   store i8 0, ptr %99, align 4
   br label %100
 
 100:                                              ; preds = %98, %94
-  %101 = getelementptr inbounds i8, ptr %0, i64 141
+  %101 = getelementptr inbounds nuw i8, ptr %0, i64 141
   %.not10.i.i = icmp ult i32 %.sroa.0.0.copyload.i.i, 16777216
   br i1 %.not10.i.i, label %_ZN10OpenSubdiv6v3_6_03Bfr11FaceSurface14postInitializeEv.exit, label %102
 
@@ -701,7 +701,7 @@ declare noundef i32 @_ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex21FindFaceVaryingSub
 ; Function Attrs: mustprogress uwtable
 define void @_ZNK10OpenSubdiv6v3_6_03Bfr11FaceSurface35sharpenBySdcFVarLinearInterpolationEPNS1_16FaceVertexSubsetEPKiRKS3_RKNS1_10FaceVertexE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(143) %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %3, ptr noundef nonnull align 8 dereferenceable(224) %4) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %6 = load ptr, ptr %0, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 5
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 5
   %8 = load i8, ptr %7, align 1
   switch i8 %8, label %.critedge [
     i8 4, label %.critedge31

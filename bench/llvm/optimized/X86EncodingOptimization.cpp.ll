@@ -1625,7 +1625,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm3X8613optimizeMOVSXERNS_6MCInstE(pt
   %.0 = phi i32 [ 1115, %8 ], [ 1451, %16 ], [ 1147, %24 ]
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %29 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %28) #6
-  %30 = getelementptr inbounds i8, ptr %0, i64 24
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 0, ptr %30, align 8
   store i32 %.0, ptr %0, align 8
   br label %.critedge
@@ -1788,7 +1788,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm3X8611optimizeMOVERNS_6MCInstEb(ptr
   %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %50, i64 8
   %.sroa.3.0.copyload = load i64, ptr %.sroa.3.0..sroa_idx, align 8
   %51 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %12) #6
-  %52 = getelementptr inbounds i8, ptr %0, i64 24
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 0, ptr %52, align 8
   store i32 %.044, ptr %0, align 8
   %53 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %12) #6
@@ -4710,7 +4710,7 @@ _ZL28optimizeToShortImmediateFormRN4llvm6MCInstE.exit: ; preds = %_ZL28optimizeT
   %.sroa.3.0..sroa_idx.i = getelementptr inbounds i8, ptr %291, i64 8
   %.sroa.3.0.copyload.i = load i64, ptr %.sroa.3.0..sroa_idx.i, align 8
   %292 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %282) #6
-  %293 = getelementptr inbounds i8, ptr %0, i64 24
+  %293 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 0, ptr %293, align 8
   store i32 %.012.i, ptr %0, align 8
   %294 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %282) #6

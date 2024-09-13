@@ -468,7 +468,7 @@ define noundef zeroext i1 @_ZNK10OpenSubdiv6v3_6_03Far12PatchBuilder14IsPatchReg
   br label %.loopexit
 
 26:                                               ; preds = %12
-  %27 = getelementptr inbounds i8, ptr %0, i64 25
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 25
   %28 = load i8, ptr %27, align 1
   %29 = trunc i8 %28 to i1
   %30 = select i1 %29, i16 3, i16 -32765
@@ -493,7 +493,7 @@ define noundef zeroext i1 @_ZNK10OpenSubdiv6v3_6_03Far12PatchBuilder14IsPatchReg
   br i1 %or.cond83, label %45, label %.critedge
 
 45:                                               ; preds = %33
-  %46 = getelementptr inbounds i8, ptr %0, i64 26
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 26
   %47 = load i8, ptr %46, align 2
   %48 = trunc i8 %47 to i1
   %49 = and i16 %22, 6
@@ -530,7 +530,7 @@ define noundef zeroext i1 @_ZNK10OpenSubdiv6v3_6_03Far12PatchBuilder14IsPatchReg
 
 .lr.ph:                                           ; preds = %.critedge
   %60 = select i1 %29, i8 3, i8 7
-  %61 = getelementptr inbounds i8, ptr %0, i64 26
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 26
   br label %62
 
 62:                                               ; preds = %.lr.ph, %108
@@ -1312,7 +1312,7 @@ define noundef range(i32 0, 32) i32 @_ZNK10OpenSubdiv6v3_6_03Far12PatchBuilder27
 
 21:                                               ; preds = %.preheader.preheader
   call void @_ZNK10OpenSubdiv6v3_6_03Vtr8internal5Level12getFaceETagsEiPNS3_4ETagEi(ptr noundef nonnull align 8 dereferenceable(480) %16, i32 noundef %2, ptr noundef nonnull %6, i32 noundef %3)
-  %22 = getelementptr inbounds i8, ptr %0, i64 25
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 25
   %23 = load i8, ptr %22, align 1
   %24 = trunc i8 %23 to i1
   %25 = select i1 %24, i8 3, i8 7
@@ -1426,7 +1426,7 @@ define void @_ZNK10OpenSubdiv6v3_6_03Far12PatchBuilder28GetIrregularPatchCornerS
   br label %22
 
 22:                                               ; preds = %16, %5
-  %23 = getelementptr inbounds i8, ptr %0, i64 25
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 25
   %24 = load i8, ptr %23, align 1
   %25 = trunc i8 %24 to i1
   %26 = select i1 %25, i8 3, i8 7
@@ -1436,7 +1436,7 @@ define void @_ZNK10OpenSubdiv6v3_6_03Far12PatchBuilder28GetIrregularPatchCornerS
   br i1 %29, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %22
-  %30 = getelementptr inbounds i8, ptr %0, i64 26
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 26
   %31 = getelementptr inbounds nuw i8, ptr %14, i64 48
   %32 = getelementptr inbounds nuw i8, ptr %14, i64 24
   %33 = shl nsw i32 %2, 1
@@ -1731,7 +1731,7 @@ _ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_113getFacePointsERKNS0_3Vtr8internal5Leve
   br i1 %11, label %40, label %34
 
 34:                                               ; preds = %_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_113getFacePointsERKNS0_3Vtr8internal5LevelEii.exit
-  %35 = getelementptr inbounds i8, ptr %0, i64 24
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %36 = load i8, ptr %35, align 8
   %37 = trunc i8 %36 to i1
   br i1 %37, label %38, label %40
@@ -2254,7 +2254,7 @@ _ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_113getFacePointsERKNS0_3Vtr8internal5Leve
   br i1 %11, label %49, label %43
 
 43:                                               ; preds = %_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_113getFacePointsERKNS0_3Vtr8internal5LevelEii.exit
-  %44 = getelementptr inbounds i8, ptr %0, i64 24
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %45 = load i8, ptr %44, align 8
   %46 = trunc i8 %45 to i1
   br i1 %46, label %47, label %49

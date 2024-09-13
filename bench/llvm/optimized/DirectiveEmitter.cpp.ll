@@ -685,7 +685,7 @@ _ZNSt6vectorIPN4llvm6RecordESaIS2_EED2Ev.exit28.i: ; preds = %96, %_ZNSt6vectorI
   store ptr @.str.12, ptr %9, align 8, !alias.scope !12
   %107 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store ptr %.sroa.0.0.copyload.i.i.i.i, ptr %107, align 8, !alias.scope !12
-  %108 = getelementptr inbounds i8, ptr %9, i64 24
+  %108 = getelementptr inbounds nuw i8, ptr %9, i64 24
   store i64 %.sroa.2.0.copyload.i.i.i.i, ptr %108, align 8, !alias.scope !12
   call void @_ZN4llvm15PrintFatalErrorERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(34) %9) #23
   unreachable
@@ -6850,7 +6850,7 @@ _ZN4llvmplERKNS_5TwineES2_.exit:                  ; preds = %"_ZN4llvm7find_ifIR
   store ptr @.str.24, ptr %8, align 8, !alias.scope !287
   %59 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store ptr %2, ptr %59, align 8, !alias.scope !287
-  %60 = getelementptr inbounds i8, ptr %8, i64 24
+  %60 = getelementptr inbounds nuw i8, ptr %8, i64 24
   store i64 %3, ptr %60, align 8, !alias.scope !287
   store ptr %8, ptr %7, align 8, !alias.scope !290
   %61 = getelementptr inbounds nuw i8, ptr %7, i64 16
@@ -12088,7 +12088,7 @@ define internal fastcc noundef zeroext i1 @_ZL19HasDuplicateClausesRKSt6vectorIP
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 33
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %9 = getelementptr inbounds i8, ptr %5, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 33
@@ -20667,7 +20667,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit63.i:             ; preds = %2438, %2436
   %2448 = getelementptr inbounds nuw i8, ptr %12, i64 32
   %2449 = getelementptr inbounds nuw i8, ptr %12, i64 33
   %2450 = getelementptr inbounds nuw i8, ptr %12, i64 16
-  %2451 = getelementptr inbounds i8, ptr %12, i64 24
+  %2451 = getelementptr inbounds nuw i8, ptr %12, i64 24
   %2452 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %2453 = getelementptr inbounds nuw i8, ptr %11, i64 32
   %2454 = getelementptr inbounds nuw i8, ptr %11, i64 33

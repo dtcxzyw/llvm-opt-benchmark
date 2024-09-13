@@ -426,7 +426,7 @@ define dso_local void @_ZN5clang13ASTStmtReader25ReadTemplateKWAndArgsInfoERNS_2
   %17 = load ptr, ptr %12, align 8
   %18 = getelementptr inbounds i64, ptr %17, i64 %16
   %19 = load i64, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %11, i64 856
+  %20 = getelementptr inbounds nuw i8, ptr %11, i64 856
   %21 = load i64, ptr %20, align 8
   %22 = icmp eq i64 %21, 0
   br i1 %22, label %24, label %23
@@ -479,7 +479,7 @@ _ZN5clang13ASTStmtReader18readSourceLocationEv.exit: ; preds = %24, %25
   %53 = load ptr, ptr %48, align 8
   %54 = getelementptr inbounds i64, ptr %53, i64 %52
   %55 = load i64, ptr %54, align 8
-  %56 = getelementptr inbounds i8, ptr %47, i64 856
+  %56 = getelementptr inbounds nuw i8, ptr %47, i64 856
   %57 = load i64, ptr %56, align 8
   %58 = icmp eq i64 %57, 0
   br i1 %58, label %60, label %59
@@ -527,7 +527,7 @@ _ZN5clang13ASTStmtReader18readSourceLocationEv.exit11: ; preds = %60, %61
   %86 = load ptr, ptr %81, align 8
   %87 = getelementptr inbounds i64, ptr %86, i64 %85
   %88 = load i64, ptr %87, align 8
-  %89 = getelementptr inbounds i8, ptr %80, i64 856
+  %89 = getelementptr inbounds nuw i8, ptr %80, i64 856
   %90 = load i64, ptr %89, align 8
   %91 = icmp eq i64 %90, 0
   br i1 %91, label %93, label %92
@@ -616,7 +616,7 @@ define dso_local void @_ZN5clang13ASTStmtReader13VisitNullStmtEPNS_8NullStmtE(pt
   %13 = load ptr, ptr %8, align 8
   %14 = getelementptr inbounds i64, ptr %13, i64 %12
   %15 = load i64, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %7, i64 856
+  %16 = getelementptr inbounds nuw i8, ptr %7, i64 856
   %17 = load i64, ptr %16, align 8
   %18 = icmp eq i64 %17, 0
   br i1 %18, label %20, label %19
@@ -780,7 +780,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang4StmtELb1EE9push_backES3_.exit: ; pred
   %75 = load ptr, ptr %70, align 8
   %76 = getelementptr inbounds i64, ptr %75, i64 %74
   %77 = load i64, ptr %76, align 8
-  %78 = getelementptr inbounds i8, ptr %69, i64 856
+  %78 = getelementptr inbounds nuw i8, ptr %69, i64 856
   %79 = load i64, ptr %78, align 8
   %80 = icmp eq i64 %79, 0
   br i1 %80, label %82, label %81
@@ -829,7 +829,7 @@ _ZN5clang13ASTStmtReader18readSourceLocationEv.exit: ; preds = %82, %83
   %109 = load ptr, ptr %104, align 8
   %110 = getelementptr inbounds i64, ptr %109, i64 %108
   %111 = load i64, ptr %110, align 8
-  %112 = getelementptr inbounds i8, ptr %103, i64 856
+  %112 = getelementptr inbounds nuw i8, ptr %103, i64 856
   %113 = load i64, ptr %112, align 8
   %114 = icmp eq i64 %113, 0
   br i1 %114, label %116, label %115
@@ -909,7 +909,7 @@ define dso_local void @_ZN5clang13ASTStmtReader15VisitSwitchCaseEPNS_10SwitchCas
   %25 = load ptr, ptr %20, align 8
   %26 = getelementptr inbounds i64, ptr %25, i64 %24
   %27 = load i64, ptr %26, align 8
-  %28 = getelementptr inbounds i8, ptr %19, i64 856
+  %28 = getelementptr inbounds nuw i8, ptr %19, i64 856
   %29 = load i64, ptr %28, align 8
   %30 = icmp eq i64 %29, 0
   br i1 %30, label %32, label %31
@@ -958,7 +958,7 @@ _ZN5clang13ASTStmtReader18readSourceLocationEv.exit: ; preds = %32, %33
   %59 = load ptr, ptr %54, align 8
   %60 = getelementptr inbounds i64, ptr %59, i64 %58
   %61 = load i64, ptr %60, align 8
-  %62 = getelementptr inbounds i8, ptr %53, i64 856
+  %62 = getelementptr inbounds nuw i8, ptr %53, i64 856
   %63 = load i64, ptr %62, align 8
   %64 = icmp eq i64 %63, 0
   br i1 %64, label %66, label %65
@@ -1078,7 +1078,7 @@ define dso_local void @_ZN5clang13ASTStmtReader13VisitCaseStmtEPNS_8CaseStmtE(pt
   %66 = load ptr, ptr %61, align 8
   %67 = getelementptr inbounds i64, ptr %66, i64 %65
   %68 = load i64, ptr %67, align 8
-  %69 = getelementptr inbounds i8, ptr %60, i64 856
+  %69 = getelementptr inbounds nuw i8, ptr %60, i64 856
   %70 = load i64, ptr %69, align 8
   %71 = icmp eq i64 %70, 0
   br i1 %71, label %73, label %72
@@ -1196,7 +1196,7 @@ define dso_local void @_ZN5clang13ASTStmtReader14VisitLabelStmtEPNS_9LabelStmtE(
   %45 = load ptr, ptr %40, align 8
   %46 = getelementptr inbounds i64, ptr %45, i64 %44
   %47 = load i64, ptr %46, align 8
-  %48 = getelementptr inbounds i8, ptr %39, i64 856
+  %48 = getelementptr inbounds nuw i8, ptr %39, i64 856
   %49 = load i64, ptr %48, align 8
   %50 = icmp eq i64 %49, 0
   br i1 %50, label %52, label %51
@@ -1300,7 +1300,7 @@ _ZSt4copyIPPN5clang4AttrEPPKS1_ET0_T_S8_S7_.exit: ; preds = %.lr.ph.i.i.i.i.i, %
   %41 = load ptr, ptr %36, align 8
   %42 = getelementptr inbounds i64, ptr %41, i64 %40
   %43 = load i64, ptr %42, align 8
-  %44 = getelementptr inbounds i8, ptr %35, i64 856
+  %44 = getelementptr inbounds nuw i8, ptr %35, i64 856
   %45 = load i64, ptr %44, align 8
   %46 = icmp eq i64 %45, 0
   br i1 %46, label %48, label %47
@@ -1364,9 +1364,9 @@ _ZNSt8optionalIN5clang12BitsUnpackerEE7emplaceIJmEEENSt9enable_ifIX18is_construc
   %9 = load ptr, ptr %4, align 8
   %10 = getelementptr inbounds i64, ptr %9, i64 %8
   %11 = load i64, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %13 = trunc i64 %11 to i32
-  %14 = getelementptr inbounds i8, ptr %0, i64 20
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 %13, ptr %2, align 8
   store i8 1, ptr %12, align 8
   %15 = and i32 %13, 1
@@ -1522,7 +1522,7 @@ _ZNSt8optionalIN5clang12BitsUnpackerEE7emplaceIJmEEENSt9enable_ifIX18is_construc
   %124 = load ptr, ptr %119, align 8
   %125 = getelementptr inbounds i64, ptr %124, i64 %123
   %126 = load i64, ptr %125, align 8
-  %127 = getelementptr inbounds i8, ptr %118, i64 856
+  %127 = getelementptr inbounds nuw i8, ptr %118, i64 856
   %128 = load i64, ptr %127, align 8
   %129 = icmp eq i64 %128, 0
   br i1 %129, label %131, label %130
@@ -1571,7 +1571,7 @@ _ZN5clang13ASTStmtReader18readSourceLocationEv.exit: ; preds = %131, %132
   %158 = load ptr, ptr %153, align 8
   %159 = getelementptr inbounds i64, ptr %158, i64 %157
   %160 = load i64, ptr %159, align 8
-  %161 = getelementptr inbounds i8, ptr %152, i64 856
+  %161 = getelementptr inbounds nuw i8, ptr %152, i64 856
   %162 = load i64, ptr %161, align 8
   %163 = icmp eq i64 %162, 0
   br i1 %163, label %165, label %164
@@ -1620,7 +1620,7 @@ _ZN5clang13ASTStmtReader18readSourceLocationEv.exit27: ; preds = %165, %166
   %192 = load ptr, ptr %187, align 8
   %193 = getelementptr inbounds i64, ptr %192, i64 %191
   %194 = load i64, ptr %193, align 8
-  %195 = getelementptr inbounds i8, ptr %186, i64 856
+  %195 = getelementptr inbounds nuw i8, ptr %186, i64 856
   %196 = load i64, ptr %195, align 8
   %197 = icmp eq i64 %196, 0
   br i1 %197, label %199, label %198
@@ -1672,7 +1672,7 @@ _ZN5clang13ASTStmtReader18readSourceLocationEv.exit31: ; preds = %199, %200
   %227 = load ptr, ptr %222, align 8
   %228 = getelementptr inbounds i64, ptr %227, i64 %226
   %229 = load i64, ptr %228, align 8
-  %230 = getelementptr inbounds i8, ptr %221, i64 856
+  %230 = getelementptr inbounds nuw i8, ptr %221, i64 856
   %231 = load i64, ptr %230, align 8
   %232 = icmp eq i64 %231, 0
   br i1 %232, label %234, label %233
@@ -1870,7 +1870,7 @@ define dso_local void @_ZN5clang13ASTStmtReader15VisitSwitchStmtEPNS_10SwitchStm
   %107 = load ptr, ptr %102, align 8
   %108 = getelementptr inbounds i64, ptr %107, i64 %106
   %109 = load i64, ptr %108, align 8
-  %110 = getelementptr inbounds i8, ptr %101, i64 856
+  %110 = getelementptr inbounds nuw i8, ptr %101, i64 856
   %111 = load i64, ptr %110, align 8
   %112 = icmp eq i64 %111, 0
   br i1 %112, label %114, label %113
@@ -1919,7 +1919,7 @@ _ZN5clang13ASTStmtReader18readSourceLocationEv.exit: ; preds = %114, %115
   %141 = load ptr, ptr %136, align 8
   %142 = getelementptr inbounds i64, ptr %141, i64 %140
   %143 = load i64, ptr %142, align 8
-  %144 = getelementptr inbounds i8, ptr %135, i64 856
+  %144 = getelementptr inbounds nuw i8, ptr %135, i64 856
   %145 = load i64, ptr %144, align 8
   %146 = icmp eq i64 %145, 0
   br i1 %146, label %148, label %147
@@ -1968,7 +1968,7 @@ _ZN5clang13ASTStmtReader18readSourceLocationEv.exit30: ; preds = %148, %149
   %175 = load ptr, ptr %170, align 8
   %176 = getelementptr inbounds i64, ptr %175, i64 %174
   %177 = load i64, ptr %176, align 8
-  %178 = getelementptr inbounds i8, ptr %169, i64 856
+  %178 = getelementptr inbounds nuw i8, ptr %169, i64 856
   %179 = load i64, ptr %178, align 8
   %180 = icmp eq i64 %179, 0
   br i1 %180, label %182, label %181
@@ -2132,7 +2132,7 @@ define dso_local void @_ZN5clang13ASTStmtReader14VisitWhileStmtEPNS_9WhileStmtE(
   %67 = load ptr, ptr %62, align 8
   %68 = getelementptr inbounds i64, ptr %67, i64 %66
   %69 = load i64, ptr %68, align 8
-  %70 = getelementptr inbounds i8, ptr %61, i64 856
+  %70 = getelementptr inbounds nuw i8, ptr %61, i64 856
   %71 = load i64, ptr %70, align 8
   %72 = icmp eq i64 %71, 0
   br i1 %72, label %74, label %73
@@ -2181,7 +2181,7 @@ _ZN5clang13ASTStmtReader18readSourceLocationEv.exit: ; preds = %74, %75
   %101 = load ptr, ptr %96, align 8
   %102 = getelementptr inbounds i64, ptr %101, i64 %100
   %103 = load i64, ptr %102, align 8
-  %104 = getelementptr inbounds i8, ptr %95, i64 856
+  %104 = getelementptr inbounds nuw i8, ptr %95, i64 856
   %105 = load i64, ptr %104, align 8
   %106 = icmp eq i64 %105, 0
   br i1 %106, label %108, label %107
@@ -2230,7 +2230,7 @@ _ZN5clang13ASTStmtReader18readSourceLocationEv.exit13: ; preds = %108, %109
   %135 = load ptr, ptr %130, align 8
   %136 = getelementptr inbounds i64, ptr %135, i64 %134
   %137 = load i64, ptr %136, align 8
-  %138 = getelementptr inbounds i8, ptr %129, i64 856
+  %138 = getelementptr inbounds nuw i8, ptr %129, i64 856
   %139 = load i64, ptr %138, align 8
   %140 = icmp eq i64 %139, 0
   br i1 %140, label %142, label %141
@@ -2312,7 +2312,7 @@ define dso_local void @_ZN5clang13ASTStmtReader11VisitDoStmtEPNS_6DoStmtE(ptr no
   %37 = load ptr, ptr %32, align 8
   %38 = getelementptr inbounds i64, ptr %37, i64 %36
   %39 = load i64, ptr %38, align 8
-  %40 = getelementptr inbounds i8, ptr %31, i64 856
+  %40 = getelementptr inbounds nuw i8, ptr %31, i64 856
   %41 = load i64, ptr %40, align 8
   %42 = icmp eq i64 %41, 0
   br i1 %42, label %44, label %43
@@ -2361,7 +2361,7 @@ _ZN5clang13ASTStmtReader18readSourceLocationEv.exit: ; preds = %44, %45
   %71 = load ptr, ptr %66, align 8
   %72 = getelementptr inbounds i64, ptr %71, i64 %70
   %73 = load i64, ptr %72, align 8
-  %74 = getelementptr inbounds i8, ptr %65, i64 856
+  %74 = getelementptr inbounds nuw i8, ptr %65, i64 856
   %75 = load i64, ptr %74, align 8
   %76 = icmp eq i64 %75, 0
   br i1 %76, label %78, label %77
@@ -2410,7 +2410,7 @@ _ZN5clang13ASTStmtReader18readSourceLocationEv.exit12: ; preds = %78, %79
   %105 = load ptr, ptr %100, align 8
   %106 = getelementptr inbounds i64, ptr %105, i64 %104
   %107 = load i64, ptr %106, align 8
-  %108 = getelementptr inbounds i8, ptr %99, i64 856
+  %108 = getelementptr inbounds nuw i8, ptr %99, i64 856
   %109 = load i64, ptr %108, align 8
   %110 = icmp eq i64 %109, 0
   br i1 %110, label %112, label %111
@@ -2534,7 +2534,7 @@ define dso_local void @_ZN5clang13ASTStmtReader12VisitForStmtEPNS_7ForStmtE(ptr 
   %73 = load ptr, ptr %68, align 8
   %74 = getelementptr inbounds i64, ptr %73, i64 %72
   %75 = load i64, ptr %74, align 8
-  %76 = getelementptr inbounds i8, ptr %67, i64 856
+  %76 = getelementptr inbounds nuw i8, ptr %67, i64 856
   %77 = load i64, ptr %76, align 8
   %78 = icmp eq i64 %77, 0
   br i1 %78, label %80, label %79
@@ -2583,7 +2583,7 @@ _ZN5clang13ASTStmtReader18readSourceLocationEv.exit: ; preds = %80, %81
   %107 = load ptr, ptr %102, align 8
   %108 = getelementptr inbounds i64, ptr %107, i64 %106
   %109 = load i64, ptr %108, align 8
-  %110 = getelementptr inbounds i8, ptr %101, i64 856
+  %110 = getelementptr inbounds nuw i8, ptr %101, i64 856
   %111 = load i64, ptr %110, align 8
   %112 = icmp eq i64 %111, 0
   br i1 %112, label %114, label %113
@@ -2632,7 +2632,7 @@ _ZN5clang13ASTStmtReader18readSourceLocationEv.exit15: ; preds = %114, %115
   %141 = load ptr, ptr %136, align 8
   %142 = getelementptr inbounds i64, ptr %141, i64 %140
   %143 = load i64, ptr %142, align 8
-  %144 = getelementptr inbounds i8, ptr %135, i64 856
+  %144 = getelementptr inbounds nuw i8, ptr %135, i64 856
   %145 = load i64, ptr %144, align 8
   %146 = icmp eq i64 %145, 0
   br i1 %146, label %148, label %147
@@ -2697,7 +2697,7 @@ define dso_local void @_ZN5clang13ASTStmtReader13VisitGotoStmtEPNS_8GotoStmtE(pt
   %23 = load ptr, ptr %18, align 8
   %24 = getelementptr inbounds i64, ptr %23, i64 %22
   %25 = load i64, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %17, i64 856
+  %26 = getelementptr inbounds nuw i8, ptr %17, i64 856
   %27 = load i64, ptr %26, align 8
   %28 = icmp eq i64 %27, 0
   br i1 %28, label %30, label %29
@@ -2746,7 +2746,7 @@ _ZN5clang13ASTStmtReader18readSourceLocationEv.exit: ; preds = %30, %31
   %57 = load ptr, ptr %52, align 8
   %58 = getelementptr inbounds i64, ptr %57, i64 %56
   %59 = load i64, ptr %58, align 8
-  %60 = getelementptr inbounds i8, ptr %51, i64 856
+  %60 = getelementptr inbounds nuw i8, ptr %51, i64 856
   %61 = load i64, ptr %60, align 8
   %62 = icmp eq i64 %61, 0
   br i1 %62, label %64, label %63
@@ -2800,7 +2800,7 @@ define dso_local void @_ZN5clang13ASTStmtReader21VisitIndirectGotoStmtEPNS_16Ind
   %13 = load ptr, ptr %8, align 8
   %14 = getelementptr inbounds i64, ptr %13, i64 %12
   %15 = load i64, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %7, i64 856
+  %16 = getelementptr inbounds nuw i8, ptr %7, i64 856
   %17 = load i64, ptr %16, align 8
   %18 = icmp eq i64 %17, 0
   br i1 %18, label %20, label %19
@@ -2849,7 +2849,7 @@ _ZN5clang13ASTStmtReader18readSourceLocationEv.exit: ; preds = %20, %21
   %47 = load ptr, ptr %42, align 8
   %48 = getelementptr inbounds i64, ptr %47, i64 %46
   %49 = load i64, ptr %48, align 8
-  %50 = getelementptr inbounds i8, ptr %41, i64 856
+  %50 = getelementptr inbounds nuw i8, ptr %41, i64 856
   %51 = load i64, ptr %50, align 8
   %52 = icmp eq i64 %51, 0
   br i1 %52, label %54, label %53
@@ -2917,7 +2917,7 @@ define dso_local void @_ZN5clang13ASTStmtReader17VisitContinueStmtEPNS_12Continu
   %13 = load ptr, ptr %8, align 8
   %14 = getelementptr inbounds i64, ptr %13, i64 %12
   %15 = load i64, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %7, i64 856
+  %16 = getelementptr inbounds nuw i8, ptr %7, i64 856
   %17 = load i64, ptr %16, align 8
   %18 = icmp eq i64 %17, 0
   br i1 %18, label %20, label %19
@@ -2971,7 +2971,7 @@ define dso_local void @_ZN5clang13ASTStmtReader14VisitBreakStmtEPNS_9BreakStmtE(
   %13 = load ptr, ptr %8, align 8
   %14 = getelementptr inbounds i64, ptr %13, i64 %12
   %15 = load i64, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %7, i64 856
+  %16 = getelementptr inbounds nuw i8, ptr %7, i64 856
   %17 = load i64, ptr %16, align 8
   %18 = icmp eq i64 %17, 0
   br i1 %18, label %20, label %19
@@ -3067,7 +3067,7 @@ define dso_local void @_ZN5clang13ASTStmtReader15VisitReturnStmtEPNS_10ReturnStm
   %46 = load ptr, ptr %41, align 8
   %47 = getelementptr inbounds i64, ptr %46, i64 %45
   %48 = load i64, ptr %47, align 8
-  %49 = getelementptr inbounds i8, ptr %40, i64 856
+  %49 = getelementptr inbounds nuw i8, ptr %40, i64 856
   %50 = load i64, ptr %49, align 8
   %51 = icmp eq i64 %50, 0
   br i1 %51, label %53, label %52
@@ -3122,7 +3122,7 @@ define dso_local void @_ZN5clang13ASTStmtReader13VisitDeclStmtEPNS_8DeclStmtE(pt
   %14 = load ptr, ptr %9, align 8
   %15 = getelementptr inbounds i64, ptr %14, i64 %13
   %16 = load i64, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %8, i64 856
+  %17 = getelementptr inbounds nuw i8, ptr %8, i64 856
   %18 = load i64, ptr %17, align 8
   %19 = icmp eq i64 %18, 0
   br i1 %19, label %21, label %20
@@ -3171,7 +3171,7 @@ _ZN5clang13ASTStmtReader18readSourceLocationEv.exit: ; preds = %21, %22
   %48 = load ptr, ptr %43, align 8
   %49 = getelementptr inbounds i64, ptr %48, i64 %47
   %50 = load i64, ptr %49, align 8
-  %51 = getelementptr inbounds i8, ptr %42, i64 856
+  %51 = getelementptr inbounds nuw i8, ptr %42, i64 856
   %52 = load i64, ptr %51, align 8
   %53 = icmp eq i64 %52, 0
   br i1 %53, label %55, label %54
@@ -3374,7 +3374,7 @@ define dso_local void @_ZN5clang13ASTStmtReader12VisitAsmStmtEPNS_7AsmStmtE(ptr 
   %46 = load ptr, ptr %41, align 8
   %47 = getelementptr inbounds i64, ptr %46, i64 %45
   %48 = load i64, ptr %47, align 8
-  %49 = getelementptr inbounds i8, ptr %40, i64 856
+  %49 = getelementptr inbounds nuw i8, ptr %40, i64 856
   %50 = load i64, ptr %49, align 8
   %51 = icmp eq i64 %50, 0
   br i1 %51, label %53, label %52
@@ -3474,7 +3474,7 @@ define dso_local void @_ZN5clang13ASTStmtReader15VisitGCCAsmStmtEPNS_10GCCAsmStm
   %28 = load ptr, ptr %23, align 8
   %29 = getelementptr inbounds i64, ptr %28, i64 %27
   %30 = load i64, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %22, i64 856
+  %31 = getelementptr inbounds nuw i8, ptr %22, i64 856
   %32 = load i64, ptr %31, align 8
   %33 = icmp eq i64 %32, 0
   br i1 %33, label %35, label %34
@@ -3848,7 +3848,7 @@ define dso_local void @_ZN5clang13ASTStmtReader14VisitMSAsmStmtEPNS_9MSAsmStmtE(
   %26 = load ptr, ptr %21, align 8
   %27 = getelementptr inbounds i64, ptr %26, i64 %25
   %28 = load i64, ptr %27, align 8
-  %29 = getelementptr inbounds i8, ptr %20, i64 856
+  %29 = getelementptr inbounds nuw i8, ptr %20, i64 856
   %30 = load i64, ptr %29, align 8
   %31 = icmp eq i64 %30, 0
   br i1 %31, label %33, label %32
@@ -3897,7 +3897,7 @@ _ZN5clang13ASTStmtReader18readSourceLocationEv.exit: ; preds = %33, %34
   %60 = load ptr, ptr %55, align 8
   %61 = getelementptr inbounds i64, ptr %60, i64 %59
   %62 = load i64, ptr %61, align 8
-  %63 = getelementptr inbounds i8, ptr %54, i64 856
+  %63 = getelementptr inbounds nuw i8, ptr %54, i64 856
   %64 = load i64, ptr %63, align 8
   %65 = icmp eq i64 %64, 0
   br i1 %65, label %67, label %66
@@ -4436,7 +4436,7 @@ define dso_local void @_ZN5clang13ASTStmtReader17VisitCoreturnStmtEPNS_12Coretur
   %13 = load ptr, ptr %8, align 8
   %14 = getelementptr inbounds i64, ptr %13, i64 %12
   %15 = load i64, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %7, i64 856
+  %16 = getelementptr inbounds nuw i8, ptr %7, i64 856
   %17 = load i64, ptr %16, align 8
   %18 = icmp eq i64 %17, 0
   br i1 %18, label %20, label %19
@@ -4531,7 +4531,7 @@ define dso_local void @_ZN5clang13ASTStmtReader16VisitCoawaitExprEPNS_11CoawaitE
   %13 = load ptr, ptr %8, align 8
   %14 = getelementptr inbounds i64, ptr %13, i64 %12
   %15 = load i64, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %7, i64 856
+  %16 = getelementptr inbounds nuw i8, ptr %7, i64 856
   %17 = load i64, ptr %16, align 8
   %18 = icmp eq i64 %17, 0
   br i1 %18, label %20, label %19
@@ -4636,9 +4636,9 @@ _ZNSt8optionalIN5clang12BitsUnpackerEE7emplaceIJmEEENSt9enable_ifIX18is_construc
   %9 = load ptr, ptr %4, align 8
   %10 = getelementptr inbounds i64, ptr %9, i64 %8
   %11 = load i64, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %13 = trunc i64 %11 to i32
-  %14 = getelementptr inbounds i8, ptr %0, i64 20
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 %13, ptr %2, align 8
   store i8 1, ptr %12, align 8
   store i32 5, ptr %14, align 4
@@ -4721,7 +4721,7 @@ define dso_local void @_ZN5clang13ASTStmtReader16VisitCoyieldExprEPNS_11CoyieldE
   %13 = load ptr, ptr %8, align 8
   %14 = getelementptr inbounds i64, ptr %13, i64 %12
   %15 = load i64, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %7, i64 856
+  %16 = getelementptr inbounds nuw i8, ptr %7, i64 856
   %17 = load i64, ptr %16, align 8
   %18 = icmp eq i64 %17, 0
   br i1 %18, label %20, label %19
@@ -4813,7 +4813,7 @@ define dso_local void @_ZN5clang13ASTStmtReader25VisitDependentCoawaitExprEPNS_2
   %13 = load ptr, ptr %8, align 8
   %14 = getelementptr inbounds i64, ptr %13, i64 %12
   %15 = load i64, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %7, i64 856
+  %16 = getelementptr inbounds nuw i8, ptr %7, i64 856
   %17 = load i64, ptr %16, align 8
   %18 = icmp eq i64 %17, 0
   br i1 %18, label %20, label %19
@@ -5020,7 +5020,7 @@ define dso_local void @_ZN5clang13ASTStmtReader17VisitCapturedStmtEPNS_12Capture
   %111 = load ptr, ptr %106, align 8
   %112 = getelementptr inbounds i64, ptr %111, i64 %110
   %113 = load i64, ptr %112, align 8
-  %114 = getelementptr inbounds i8, ptr %105, i64 856
+  %114 = getelementptr inbounds nuw i8, ptr %105, i64 856
   %115 = load i64, ptr %114, align 8
   %116 = icmp eq i64 %115, 0
   br i1 %116, label %118, label %117
@@ -5343,8 +5343,8 @@ _ZN4llvm6APSIntD2Ev.exit:                         ; preds = %58, %59
   %66 = and i8 %64, 1
   store i8 %66, ptr %65, align 4
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %68 = getelementptr inbounds i8, ptr %0, i64 16
-  %69 = getelementptr inbounds i8, ptr %0, i64 20
+  %68 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %69 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 2, ptr %0, align 8
   store i32 0, ptr %56, align 8
   store i64 %62, ptr %67, align 8
@@ -5394,7 +5394,7 @@ _ZN4llvm7APFloatC2ERKNS_12fltSemanticsERKNS_5APIntE.exit: ; preds = %83, %84
   br label %_ZN4llvm7APFloatD2Ev.exit
 
 87:                                               ; preds = %_ZN4llvm7APFloatC2ERKNS_12fltSemanticsERKNS_5APIntE.exit
-  %88 = getelementptr inbounds i8, ptr %11, i64 16
+  %88 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %89 = load ptr, ptr %88, align 8
   %.not.i.i.i.i = icmp eq ptr %89, null
   br i1 %.not.i.i.i.i, label %_ZN4llvm6detail13DoubleAPFloatD2Ev.exit.i.i, label %90
@@ -5489,12 +5489,12 @@ _ZN4llvm12APFixedPointD2Ev.exit:                  ; preds = %132, %98
   %138 = xor i8 %137, 1
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
   %139 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %140 = getelementptr inbounds i8, ptr %0, i64 16
+  %140 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 %135, ptr %140, align 8
   store i64 %.pre4.i, ptr %139, align 8
-  %141 = getelementptr inbounds i8, ptr %0, i64 20
+  %141 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i8 %138, ptr %141, align 4
-  %142 = getelementptr inbounds i8, ptr %0, i64 24
+  %142 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 %118, ptr %142, align 8
   store i32 4, ptr %0, align 8
   br i1 %134, label %143, label %_ZN4llvm6APSIntD2Ev.exit149
@@ -5598,11 +5598,11 @@ _ZN4llvm6APSIntD2Ev.exit155:                      ; preds = %181, %182
   %191 = and i8 %189, 1
   store i8 %191, ptr %190, align 4
   %192 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %193 = getelementptr inbounds i8, ptr %0, i64 16
-  %194 = getelementptr inbounds i8, ptr %0, i64 20
-  %195 = getelementptr inbounds i8, ptr %0, i64 24
-  %196 = getelementptr inbounds i8, ptr %0, i64 32
-  %197 = getelementptr inbounds i8, ptr %0, i64 36
+  %193 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %194 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  %195 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %196 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %197 = getelementptr inbounds nuw i8, ptr %0, i64 36
   store i32 5, ptr %0, align 8
   %198 = load i32, ptr %172, align 8
   %199 = load i64, ptr %15, align 8
@@ -5676,7 +5676,7 @@ _ZN4llvm7APFloatC2ERKNS_12fltSemanticsERKNS_5APIntE.exit161: ; preds = %220, %22
   br label %_ZN4llvm7APFloatD2Ev.exit165
 
 224:                                              ; preds = %_ZN4llvm7APFloatC2ERKNS_12fltSemanticsERKNS_5APIntE.exit161
-  %225 = getelementptr inbounds i8, ptr %20, i64 16
+  %225 = getelementptr inbounds nuw i8, ptr %20, i64 16
   %226 = load ptr, ptr %225, align 8
   %.not.i.i.i.i163 = icmp eq ptr %226, null
   br i1 %.not.i.i.i.i163, label %_ZN4llvm6detail13DoubleAPFloatD2Ev.exit.i.i164, label %227
@@ -5699,7 +5699,7 @@ _ZN4llvm7APFloatD2Ev.exit165:                     ; preds = %223, %_ZN4llvm6deta
   br label %_ZN4llvm7APFloatD2Ev.exit169
 
 230:                                              ; preds = %_ZN4llvm7APFloatD2Ev.exit165
-  %231 = getelementptr inbounds i8, ptr %19, i64 16
+  %231 = getelementptr inbounds nuw i8, ptr %19, i64 16
   %232 = load ptr, ptr %231, align 8
   %.not.i.i.i.i167 = icmp eq ptr %232, null
   br i1 %.not.i.i.i.i167, label %_ZN4llvm6detail13DoubleAPFloatD2Ev.exit.i.i168, label %233
@@ -5763,7 +5763,7 @@ _ZN4llvm5APIntD2Ev.exit170:                       ; preds = %_ZN4llvm7APFloatD2E
 
 _ZN5clang7APValue15setVectorUninitEj.exit.thread: ; preds = %248
   store ptr %259, ptr %253, align 8
-  %261 = getelementptr inbounds i8, ptr %0, i64 16
+  %261 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 0, ptr %261, align 8
   br label %._crit_edge327
 
@@ -5780,7 +5780,7 @@ _ZN5clang7APValue15setVectorUninitEj.exit.thread: ; preds = %248
 
 .lr.ph326.preheader:                              ; preds = %264
   store ptr %259, ptr %253, align 8
-  %268 = getelementptr inbounds i8, ptr %0, i64 16
+  %268 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 %254, ptr %268, align 8
   br label %.lr.ph326
 
@@ -5877,7 +5877,7 @@ _ZN4llvm23SmallVectorTemplateBaseIN5clang7APValueELb0EE13destroy_rangeEPS2_S4_.e
   %307 = getelementptr i8, ptr %306, i64 -72
   %308 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %309 = load ptr, ptr %308, align 8
-  %310 = getelementptr inbounds i8, ptr %0, i64 16
+  %310 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %311 = load i32, ptr %310, align 8
   %312 = zext i32 %311 to i64
   %313 = getelementptr inbounds %"class.clang::APValue", ptr %309, i64 %312
@@ -5943,7 +5943,7 @@ _ZN4llvm23SmallVectorTemplateBaseIN5clang7APValueELb0EE13destroy_rangeEPS2_S4_.e
   br i1 %.not330, label %._crit_edge320, label %.lr.ph319
 
 .lr.ph319:                                        ; preds = %.preheader
-  %337 = getelementptr inbounds i8, ptr %0, i64 16
+  %337 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br label %346
 
 .lr.ph317:                                        ; preds = %325, %.lr.ph317
@@ -6118,7 +6118,7 @@ _ZN5clang15ASTRecordReader8readStmtEv.exit207:    ; preds = %407, %410
   %419 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 13, ptr %0, align 8
   store ptr %.0.i.i, ptr %419, align 8
-  %420 = getelementptr inbounds i8, ptr %0, i64 16
+  %420 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %.0.i.i206, ptr %420, align 8
   br label %_ZN4llvm6APSIntD2Ev.exit149
 
@@ -6504,7 +6504,7 @@ define dso_local void @_ZN5clang13ASTStmtReader29VisitSYCLUniqueStableNameExprEP
   %13 = load ptr, ptr %8, align 8
   %14 = getelementptr inbounds i64, ptr %13, i64 %12
   %15 = load i64, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %7, i64 856
+  %16 = getelementptr inbounds nuw i8, ptr %7, i64 856
   %17 = load i64, ptr %16, align 8
   %18 = icmp eq i64 %17, 0
   br i1 %18, label %20, label %19
@@ -6553,7 +6553,7 @@ _ZN5clang13ASTStmtReader18readSourceLocationEv.exit: ; preds = %20, %21
   %47 = load ptr, ptr %42, align 8
   %48 = getelementptr inbounds i64, ptr %47, i64 %46
   %49 = load i64, ptr %48, align 8
-  %50 = getelementptr inbounds i8, ptr %41, i64 856
+  %50 = getelementptr inbounds nuw i8, ptr %41, i64 856
   %51 = load i64, ptr %50, align 8
   %52 = icmp eq i64 %51, 0
   br i1 %52, label %54, label %53
@@ -6602,7 +6602,7 @@ _ZN5clang13ASTStmtReader18readSourceLocationEv.exit11: ; preds = %54, %55
   %81 = load ptr, ptr %76, align 8
   %82 = getelementptr inbounds i64, ptr %81, i64 %80
   %83 = load i64, ptr %82, align 8
-  %84 = getelementptr inbounds i8, ptr %75, i64 856
+  %84 = getelementptr inbounds nuw i8, ptr %75, i64 856
   %85 = load i64, ptr %84, align 8
   %86 = icmp eq i64 %85, 0
   br i1 %86, label %88, label %87
@@ -6713,7 +6713,7 @@ define dso_local void @_ZN5clang13ASTStmtReader19VisitPredefinedExprEPNS_14Prede
   %56 = load ptr, ptr %51, align 8
   %57 = getelementptr inbounds i64, ptr %56, i64 %55
   %58 = load i64, ptr %57, align 8
-  %59 = getelementptr inbounds i8, ptr %50, i64 856
+  %59 = getelementptr inbounds nuw i8, ptr %50, i64 856
   %60 = load i64, ptr %59, align 8
   %61 = icmp eq i64 %60, 0
   br i1 %61, label %63, label %62
@@ -6786,9 +6786,9 @@ _ZNSt8optionalIN5clang12BitsUnpackerEE7emplaceIJmEEENSt9enable_ifIX18is_construc
   %9 = load ptr, ptr %4, align 8
   %10 = getelementptr inbounds i64, ptr %9, i64 %8
   %11 = load i64, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %13 = trunc i64 %11 to i32
-  %14 = getelementptr inbounds i8, ptr %0, i64 20
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 %13, ptr %2, align 8
   store i8 1, ptr %12, align 8
   store i32 1, ptr %14, align 4
@@ -6976,7 +6976,7 @@ _ZNSt8optionalIN5clang12BitsUnpackerEE7emplaceIJmEEENSt9enable_ifIX18is_construc
   %146 = load ptr, ptr %141, align 8
   %147 = getelementptr inbounds i64, ptr %146, i64 %145
   %148 = load i64, ptr %147, align 8
-  %149 = getelementptr inbounds i8, ptr %140, i64 856
+  %149 = getelementptr inbounds nuw i8, ptr %140, i64 856
   %150 = load i64, ptr %149, align 8
   %151 = icmp eq i64 %150, 0
   br i1 %151, label %153, label %152
@@ -7043,7 +7043,7 @@ define dso_local void @_ZN5clang13ASTStmtReader19VisitIntegerLiteralEPNS_14Integ
   %14 = load ptr, ptr %9, align 8
   %15 = getelementptr inbounds i64, ptr %14, i64 %13
   %16 = load i64, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %8, i64 856
+  %17 = getelementptr inbounds nuw i8, ptr %8, i64 856
   %18 = load i64, ptr %17, align 8
   %19 = icmp eq i64 %18, 0
   br i1 %19, label %21, label %20
@@ -7191,7 +7191,7 @@ define dso_local void @_ZN5clang13ASTStmtReader22VisitFixedPointLiteralEPNS_17Fi
   %14 = load ptr, ptr %9, align 8
   %15 = getelementptr inbounds i64, ptr %14, i64 %13
   %16 = load i64, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %8, i64 856
+  %17 = getelementptr inbounds nuw i8, ptr %8, i64 856
   %18 = load i64, ptr %17, align 8
   %19 = icmp eq i64 %18, 0
   br i1 %19, label %21, label %20
@@ -7356,7 +7356,7 @@ _ZN5clang15FloatingLiteral8setValueERKNS_10ASTContextERKN4llvm7APFloatE.exit: ; 
   br label %_ZN4llvm7APFloatD2Ev.exit
 
 57:                                               ; preds = %_ZN5clang15FloatingLiteral8setValueERKNS_10ASTContextERKN4llvm7APFloatE.exit
-  %58 = getelementptr inbounds i8, ptr %4, i64 16
+  %58 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %59 = load ptr, ptr %58, align 8
   %.not.i.i.i.i = icmp eq ptr %59, null
   br i1 %.not.i.i.i.i, label %_ZN4llvm6detail13DoubleAPFloatD2Ev.exit.i.i, label %60
@@ -7384,7 +7384,7 @@ _ZN4llvm7APFloatD2Ev.exit:                        ; preds = %56, %_ZN4llvm6detai
   %71 = load ptr, ptr %66, align 8
   %72 = getelementptr inbounds i64, ptr %71, i64 %70
   %73 = load i64, ptr %72, align 8
-  %74 = getelementptr inbounds i8, ptr %65, i64 856
+  %74 = getelementptr inbounds nuw i8, ptr %65, i64 856
   %75 = load i64, ptr %74, align 8
   %76 = icmp eq i64 %75, 0
   br i1 %76, label %78, label %77
@@ -7538,7 +7538,7 @@ define dso_local void @_ZN5clang13ASTStmtReader18VisitStringLiteralEPNS_13String
   %75 = load ptr, ptr %70, align 8
   %76 = getelementptr inbounds i64, ptr %75, i64 %74
   %77 = load i64, ptr %76, align 8
-  %78 = getelementptr inbounds i8, ptr %69, i64 856
+  %78 = getelementptr inbounds nuw i8, ptr %69, i64 856
   %79 = load i64, ptr %78, align 8
   %80 = icmp eq i64 %79, 0
   br i1 %80, label %82, label %81
@@ -7644,7 +7644,7 @@ define dso_local void @_ZN5clang13ASTStmtReader21VisitCharacterLiteralEPNS_16Cha
   %24 = load ptr, ptr %19, align 8
   %25 = getelementptr inbounds i64, ptr %24, i64 %23
   %26 = load i64, ptr %25, align 8
-  %27 = getelementptr inbounds i8, ptr %18, i64 856
+  %27 = getelementptr inbounds nuw i8, ptr %18, i64 856
   %28 = load i64, ptr %27, align 8
   %29 = icmp eq i64 %28, 0
   br i1 %29, label %31, label %30
@@ -7716,7 +7716,7 @@ define dso_local void @_ZN5clang13ASTStmtReader14VisitParenExprEPNS_9ParenExprE(
   %13 = load ptr, ptr %8, align 8
   %14 = getelementptr inbounds i64, ptr %13, i64 %12
   %15 = load i64, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %7, i64 856
+  %16 = getelementptr inbounds nuw i8, ptr %7, i64 856
   %17 = load i64, ptr %16, align 8
   %18 = icmp eq i64 %17, 0
   br i1 %18, label %20, label %19
@@ -7765,7 +7765,7 @@ _ZN5clang13ASTStmtReader18readSourceLocationEv.exit: ; preds = %20, %21
   %47 = load ptr, ptr %42, align 8
   %48 = getelementptr inbounds i64, ptr %47, i64 %46
   %49 = load i64, ptr %48, align 8
-  %50 = getelementptr inbounds i8, ptr %41, i64 856
+  %50 = getelementptr inbounds nuw i8, ptr %41, i64 856
   %51 = load i64, ptr %50, align 8
   %52 = icmp eq i64 %51, 0
   br i1 %52, label %54, label %53
@@ -7874,7 +7874,7 @@ define dso_local void @_ZN5clang13ASTStmtReader18VisitParenListExprEPNS_13ParenL
   %38 = load ptr, ptr %33, align 8
   %39 = getelementptr inbounds i64, ptr %38, i64 %37
   %40 = load i64, ptr %39, align 8
-  %41 = getelementptr inbounds i8, ptr %32, i64 856
+  %41 = getelementptr inbounds nuw i8, ptr %32, i64 856
   %42 = load i64, ptr %41, align 8
   %43 = icmp eq i64 %42, 0
   br i1 %43, label %45, label %44
@@ -7923,7 +7923,7 @@ _ZN5clang13ASTStmtReader18readSourceLocationEv.exit: ; preds = %45, %46
   %72 = load ptr, ptr %67, align 8
   %73 = getelementptr inbounds i64, ptr %72, i64 %71
   %74 = load i64, ptr %73, align 8
-  %75 = getelementptr inbounds i8, ptr %66, i64 856
+  %75 = getelementptr inbounds nuw i8, ptr %66, i64 856
   %76 = load i64, ptr %75, align 8
   %77 = icmp eq i64 %76, 0
   br i1 %77, label %79, label %78
@@ -7966,7 +7966,7 @@ define dso_local void @_ZN5clang13ASTStmtReader18VisitUnaryOperatorEPNS_13UnaryO
   tail call void @_ZN5clang13ASTStmtReader9VisitExprEPNS_4ExprE(ptr noundef nonnull align 8 dereferenceable(28) %0, ptr noundef %1)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i32, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 20
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %6 = load i32, ptr %5, align 4
   %7 = add i32 %6, 1
   store i32 %7, ptr %5, align 4
@@ -8012,7 +8012,7 @@ define dso_local void @_ZN5clang13ASTStmtReader18VisitUnaryOperatorEPNS_13UnaryO
   %41 = load ptr, ptr %36, align 8
   %42 = getelementptr inbounds i64, ptr %41, i64 %40
   %43 = load i64, ptr %42, align 8
-  %44 = getelementptr inbounds i8, ptr %35, i64 856
+  %44 = getelementptr inbounds nuw i8, ptr %35, i64 856
   %45 = load i64, ptr %44, align 8
   %46 = icmp eq i64 %45, 0
   br i1 %46, label %48, label %47
@@ -8109,7 +8109,7 @@ define dso_local void @_ZN5clang13ASTStmtReader17VisitOffsetOfExprEPNS_12OffsetO
   %22 = load ptr, ptr %17, align 8
   %23 = getelementptr inbounds i64, ptr %22, i64 %21
   %24 = load i64, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %16, i64 856
+  %25 = getelementptr inbounds nuw i8, ptr %16, i64 856
   %26 = load i64, ptr %25, align 8
   %27 = icmp eq i64 %26, 0
   br i1 %27, label %29, label %28
@@ -8158,7 +8158,7 @@ _ZN5clang13ASTStmtReader18readSourceLocationEv.exit: ; preds = %29, %30
   %56 = load ptr, ptr %51, align 8
   %57 = getelementptr inbounds i64, ptr %56, i64 %55
   %58 = load i64, ptr %57, align 8
-  %59 = getelementptr inbounds i8, ptr %50, i64 856
+  %59 = getelementptr inbounds nuw i8, ptr %50, i64 856
   %60 = load i64, ptr %59, align 8
   %61 = icmp eq i64 %60, 0
   br i1 %61, label %63, label %62
@@ -8234,7 +8234,7 @@ _ZN5clang13ASTStmtReader18readSourceLocationEv.exit43: ; preds = %63, %64
   %108 = load ptr, ptr %103, align 8
   %109 = getelementptr inbounds i64, ptr %108, i64 %107
   %110 = load i64, ptr %109, align 8
-  %111 = getelementptr inbounds i8, ptr %102, i64 856
+  %111 = getelementptr inbounds nuw i8, ptr %102, i64 856
   %112 = load i64, ptr %111, align 8
   %113 = icmp eq i64 %112, 0
   br i1 %113, label %115, label %114
@@ -8281,7 +8281,7 @@ _ZN5clang13ASTStmtReader18readSourceLocationEv.exit47: ; preds = %115, %116
   %141 = load ptr, ptr %136, align 8
   %142 = getelementptr inbounds i64, ptr %141, i64 %140
   %143 = load i64, ptr %142, align 8
-  %144 = getelementptr inbounds i8, ptr %135, i64 856
+  %144 = getelementptr inbounds nuw i8, ptr %135, i64 856
   %145 = load i64, ptr %144, align 8
   %146 = icmp eq i64 %145, 0
   br i1 %146, label %148, label %147
@@ -8394,7 +8394,7 @@ _ZN5clang13ASTStmtReader18readSourceLocationEv.exit51: ; preds = %148, %149
   %210 = getelementptr inbounds nuw i8, ptr %209, i64 136
   %211 = load ptr, ptr %210, align 8
   %212 = getelementptr inbounds nuw i8, ptr %211, i64 2144
-  %213 = getelementptr inbounds i8, ptr %211, i64 2224
+  %213 = getelementptr inbounds nuw i8, ptr %211, i64 2224
   %214 = load i64, ptr %213, align 8
   %215 = add i64 %214, 24
   store i64 %215, ptr %213, align 8
@@ -8403,7 +8403,7 @@ _ZN5clang13ASTStmtReader18readSourceLocationEv.exit51: ; preds = %148, %149
   %218 = add i64 %217, 7
   %219 = and i64 %218, -8
   %220 = add i64 %219, 24
-  %221 = getelementptr inbounds i8, ptr %211, i64 2152
+  %221 = getelementptr inbounds nuw i8, ptr %211, i64 2152
   %222 = load ptr, ptr %221, align 8
   %223 = ptrtoint ptr %222 to i64
   %.not.i.i.i.i = icmp ugt i64 %220, %223
@@ -8574,7 +8574,7 @@ define dso_local void @_ZN5clang13ASTStmtReader29VisitUnaryExprOrTypeTraitExprEP
   %61 = load ptr, ptr %56, align 8
   %62 = getelementptr inbounds i64, ptr %61, i64 %60
   %63 = load i64, ptr %62, align 8
-  %64 = getelementptr inbounds i8, ptr %55, i64 856
+  %64 = getelementptr inbounds nuw i8, ptr %55, i64 856
   %65 = load i64, ptr %64, align 8
   %66 = icmp eq i64 %65, 0
   br i1 %66, label %68, label %67
@@ -8623,7 +8623,7 @@ _ZN5clang13ASTStmtReader18readSourceLocationEv.exit: ; preds = %68, %69
   %95 = load ptr, ptr %90, align 8
   %96 = getelementptr inbounds i64, ptr %95, i64 %94
   %97 = load i64, ptr %96, align 8
-  %98 = getelementptr inbounds i8, ptr %89, i64 856
+  %98 = getelementptr inbounds nuw i8, ptr %89, i64 856
   %99 = load i64, ptr %98, align 8
   %100 = icmp eq i64 %99, 0
   br i1 %100, label %102, label %101
@@ -8804,8 +8804,8 @@ define internal fastcc void @_ZL26readConstraintSatisfactionRN5clang15ASTRecordR
 .lr.ph:                                           ; preds = %32
   %38 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %39 = getelementptr inbounds nuw i8, ptr %31, i64 2144
-  %40 = getelementptr inbounds i8, ptr %31, i64 2224
-  %41 = getelementptr inbounds i8, ptr %31, i64 2152
+  %40 = getelementptr inbounds nuw i8, ptr %31, i64 2224
+  %41 = getelementptr inbounds nuw i8, ptr %31, i64 2152
   br label %42
 
 42:                                               ; preds = %.lr.ph, %128
@@ -8828,7 +8828,7 @@ define internal fastcc void @_ZL26readConstraintSatisfactionRN5clang15ASTRecordR
   %53 = zext i32 %44 to i64
   %54 = getelementptr inbounds i64, ptr %46, i64 %53
   %55 = load i64, ptr %54, align 8
-  %56 = getelementptr inbounds i8, ptr %51, i64 856
+  %56 = getelementptr inbounds nuw i8, ptr %51, i64 856
   %57 = load i64, ptr %56, align 8
   %58 = icmp eq i64 %57, 0
   br i1 %58, label %60, label %59
@@ -9026,7 +9026,7 @@ define dso_local void @_ZN5clang13ASTStmtReader17VisitRequiresExprEPNS_12Require
   %39 = load ptr, ptr %34, align 8
   %40 = getelementptr inbounds i64, ptr %39, i64 %38
   %41 = load i64, ptr %40, align 8
-  %42 = getelementptr inbounds i8, ptr %33, i64 856
+  %42 = getelementptr inbounds nuw i8, ptr %33, i64 856
   %43 = load i64, ptr %42, align 8
   %44 = icmp eq i64 %43, 0
   br i1 %44, label %46, label %45
@@ -9198,7 +9198,7 @@ _ZSt4copyIPPN5clang11ParmVarDeclES3_ET0_T_S5_S4_.exit: ; preds = %._crit_edge, %
   %150 = getelementptr inbounds nuw i8, ptr %149, i64 136
   %151 = load ptr, ptr %150, align 8
   %152 = getelementptr inbounds nuw i8, ptr %151, i64 2144
-  %153 = getelementptr inbounds i8, ptr %151, i64 2224
+  %153 = getelementptr inbounds nuw i8, ptr %151, i64 2224
   %154 = load i64, ptr %153, align 8
   %155 = add i64 %154, 24
   store i64 %155, ptr %153, align 8
@@ -9207,7 +9207,7 @@ _ZSt4copyIPPN5clang11ParmVarDeclES3_ET0_T_S5_S4_.exit: ; preds = %._crit_edge, %
   %158 = add i64 %157, 7
   %159 = and i64 %158, -8
   %160 = add i64 %159, 24
-  %161 = getelementptr inbounds i8, ptr %151, i64 2152
+  %161 = getelementptr inbounds nuw i8, ptr %151, i64 2152
   %162 = load ptr, ptr %161, align 8
   %163 = ptrtoint ptr %162 to i64
   %.not.i.i.i.i = icmp ugt i64 %160, %163
@@ -9358,7 +9358,7 @@ _ZN5clang9ASTReader8ReadExprERNS_13serialization10ModuleFileE.exit: ; preds = %2
   %246 = load ptr, ptr %241, align 8
   %247 = getelementptr inbounds i64, ptr %246, i64 %245
   %248 = load i64, ptr %247, align 8
-  %249 = getelementptr inbounds i8, ptr %240, i64 856
+  %249 = getelementptr inbounds nuw i8, ptr %240, i64 856
   %250 = load i64, ptr %249, align 8
   %251 = icmp eq i64 %250, 0
   br i1 %251, label %253, label %252
@@ -9488,7 +9488,7 @@ _ZNSt8optionalIN5clang8concepts15ExprRequirement21ReturnTypeRequirementEE7emplac
   %317 = getelementptr inbounds nuw i8, ptr %316, i64 136
   %318 = load ptr, ptr %317, align 8
   %319 = getelementptr inbounds nuw i8, ptr %318, i64 2144
-  %320 = getelementptr inbounds i8, ptr %318, i64 2224
+  %320 = getelementptr inbounds nuw i8, ptr %318, i64 2224
   %321 = load i64, ptr %320, align 8
   %322 = add i64 %321, 48
   store i64 %322, ptr %320, align 8
@@ -9497,7 +9497,7 @@ _ZNSt8optionalIN5clang8concepts15ExprRequirement21ReturnTypeRequirementEE7emplac
   %325 = add i64 %324, 7
   %326 = and i64 %325, -8
   %327 = add i64 %326, 48
-  %328 = getelementptr inbounds i8, ptr %318, i64 2152
+  %328 = getelementptr inbounds nuw i8, ptr %318, i64 2152
   %329 = load ptr, ptr %328, align 8
   %330 = ptrtoint ptr %329 to i64
   %.not.i.i.i.i75 = icmp ugt i64 %327, %330
@@ -9583,7 +9583,7 @@ _ZnwmRKN5clang10ASTContextEm.exit80:              ; preds = %342, %.critedge.i.i
   %369 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %6) #18
   %370 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %6) #18
   %371 = getelementptr inbounds nuw i8, ptr %356, i64 2144
-  %372 = getelementptr inbounds i8, ptr %356, i64 2224
+  %372 = getelementptr inbounds nuw i8, ptr %356, i64 2224
   %373 = load i64, ptr %372, align 8
   %374 = add i64 %373, %370
   store i64 %374, ptr %372, align 8
@@ -9592,7 +9592,7 @@ _ZnwmRKN5clang10ASTContextEm.exit80:              ; preds = %342, %.critedge.i.i
   %377 = add i64 %376, 7
   %378 = and i64 %377, -8
   %379 = add i64 %378, %370
-  %380 = getelementptr inbounds i8, ptr %356, i64 2152
+  %380 = getelementptr inbounds nuw i8, ptr %356, i64 2152
   %381 = load ptr, ptr %380, align 8
   %382 = ptrtoint ptr %381 to i64
   %.not.i.i.i.i.i81 = icmp ugt i64 %379, %382
@@ -9734,7 +9734,7 @@ _ZN5clang9ASTReader8ReadExprERNS_13serialization10ModuleFileE.exit129: ; preds =
   %452 = and i16 %451, 64
   %.not148 = icmp eq i16 %452, 0
   %453 = getelementptr inbounds nuw i8, ptr %356, i64 2144
-  %454 = getelementptr inbounds i8, ptr %356, i64 2224
+  %454 = getelementptr inbounds nuw i8, ptr %356, i64 2224
   %455 = load i64, ptr %454, align 8
   %456 = add i64 %455, 48
   store i64 %456, ptr %454, align 8
@@ -9743,7 +9743,7 @@ _ZN5clang9ASTReader8ReadExprERNS_13serialization10ModuleFileE.exit129: ; preds =
   %459 = add i64 %458, 7
   %460 = and i64 %459, -8
   %461 = add i64 %460, 48
-  %462 = getelementptr inbounds i8, ptr %356, i64 2152
+  %462 = getelementptr inbounds nuw i8, ptr %356, i64 2152
   %463 = load ptr, ptr %462, align 8
   %464 = ptrtoint ptr %463 to i64
   %.not.i.i.i.i94 = icmp ugt i64 %461, %464
@@ -9921,7 +9921,7 @@ _ZSt4copyIPPN5clang8concepts11RequirementES4_ET0_T_S6_S5_.exit: ; preds = %._cri
   %555 = load ptr, ptr %550, align 8
   %556 = getelementptr inbounds i64, ptr %555, i64 %554
   %557 = load i64, ptr %556, align 8
-  %558 = getelementptr inbounds i8, ptr %549, i64 856
+  %558 = getelementptr inbounds nuw i8, ptr %549, i64 856
   %559 = load i64, ptr %558, align 8
   %560 = icmp eq i64 %559, 0
   br i1 %560, label %562, label %561
@@ -9970,7 +9970,7 @@ _ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequen
   %589 = load ptr, ptr %584, align 8
   %590 = getelementptr inbounds i64, ptr %589, i64 %588
   %591 = load i64, ptr %590, align 8
-  %592 = getelementptr inbounds i8, ptr %583, i64 856
+  %592 = getelementptr inbounds nuw i8, ptr %583, i64 856
   %593 = load i64, ptr %592, align 8
   %594 = icmp eq i64 %593, 0
   br i1 %594, label %596, label %595
@@ -10019,7 +10019,7 @@ _ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequen
   %623 = load ptr, ptr %618, align 8
   %624 = getelementptr inbounds i64, ptr %623, i64 %622
   %625 = load i64, ptr %624, align 8
-  %626 = getelementptr inbounds i8, ptr %617, i64 856
+  %626 = getelementptr inbounds nuw i8, ptr %617, i64 856
   %627 = load i64, ptr %626, align 8
   %628 = icmp eq i64 %627, 0
   br i1 %628, label %630, label %629
@@ -10091,7 +10091,7 @@ define internal fastcc noundef ptr @_ZL26readSubstitutionDiagnosticRN5clang15AST
   %10 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %2) #18
   %11 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %2) #18
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 2144
-  %13 = getelementptr inbounds i8, ptr %7, i64 2224
+  %13 = getelementptr inbounds nuw i8, ptr %7, i64 2224
   %14 = load i64, ptr %13, align 8
   %15 = add i64 %14, %11
   store i64 %15, ptr %13, align 8
@@ -10100,7 +10100,7 @@ define internal fastcc noundef ptr @_ZL26readSubstitutionDiagnosticRN5clang15AST
   %18 = add i64 %17, 7
   %19 = and i64 %18, -8
   %20 = add i64 %19, %11
-  %21 = getelementptr inbounds i8, ptr %7, i64 2152
+  %21 = getelementptr inbounds nuw i8, ptr %7, i64 2152
   %22 = load ptr, ptr %21, align 8
   %23 = ptrtoint ptr %22 to i64
   %.not.i.i.i.i.i = icmp ugt i64 %20, %23
@@ -10139,7 +10139,7 @@ _ZNK5clang10ASTContext9backupStrEN4llvm9StringRefE.exit: ; preds = %_ZnamRKN5cla
   %35 = load ptr, ptr %8, align 8
   %36 = getelementptr inbounds i64, ptr %35, i64 %34
   %37 = load i64, ptr %36, align 8
-  %38 = getelementptr inbounds i8, ptr %31, i64 856
+  %38 = getelementptr inbounds nuw i8, ptr %31, i64 856
   %39 = load i64, ptr %38, align 8
   %40 = icmp eq i64 %39, 0
   br i1 %40, label %42, label %41
@@ -10209,7 +10209,7 @@ _ZNK5clang10ASTContext9backupStrEN4llvm9StringRefE.exit20: ; preds = %_ZnamRKN5c
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 136
   %71 = load ptr, ptr %70, align 8
   %72 = getelementptr inbounds nuw i8, ptr %71, i64 2144
-  %73 = getelementptr inbounds i8, ptr %71, i64 2224
+  %73 = getelementptr inbounds nuw i8, ptr %71, i64 2224
   %74 = load i64, ptr %73, align 8
   %75 = add i64 %74, 40
   store i64 %75, ptr %73, align 8
@@ -10218,7 +10218,7 @@ _ZNK5clang10ASTContext9backupStrEN4llvm9StringRefE.exit20: ; preds = %_ZnamRKN5c
   %78 = add i64 %77, 7
   %79 = and i64 %78, -8
   %80 = add i64 %79, 40
-  %81 = getelementptr inbounds i8, ptr %71, i64 2152
+  %81 = getelementptr inbounds nuw i8, ptr %71, i64 2152
   %82 = load ptr, ptr %81, align 8
   %83 = ptrtoint ptr %82 to i64
   %.not.i.i.i.i = icmp ugt i64 %80, %83
@@ -10316,7 +10316,7 @@ define dso_local void @_ZN5clang13ASTStmtReader23VisitArraySubscriptExprEPNS_18A
   %37 = load ptr, ptr %32, align 8
   %38 = getelementptr inbounds i64, ptr %37, i64 %36
   %39 = load i64, ptr %38, align 8
-  %40 = getelementptr inbounds i8, ptr %31, i64 856
+  %40 = getelementptr inbounds nuw i8, ptr %31, i64 856
   %41 = load i64, ptr %40, align 8
   %42 = icmp eq i64 %41, 0
   br i1 %42, label %44, label %43
@@ -10413,7 +10413,7 @@ define dso_local void @_ZN5clang13ASTStmtReader24VisitMatrixSubscriptExprEPNS_19
   %49 = load ptr, ptr %44, align 8
   %50 = getelementptr inbounds i64, ptr %49, i64 %48
   %51 = load i64, ptr %50, align 8
-  %52 = getelementptr inbounds i8, ptr %43, i64 856
+  %52 = getelementptr inbounds nuw i8, ptr %43, i64 856
   %53 = load i64, ptr %52, align 8
   %54 = icmp eq i64 %53, 0
   br i1 %54, label %56, label %55
@@ -10545,7 +10545,7 @@ define dso_local void @_ZN5clang13ASTStmtReader21VisitArraySectionExprEPNS_16Arr
   %76 = load ptr, ptr %71, align 8
   %77 = getelementptr inbounds i64, ptr %76, i64 %75
   %78 = load i64, ptr %77, align 8
-  %79 = getelementptr inbounds i8, ptr %70, i64 856
+  %79 = getelementptr inbounds nuw i8, ptr %70, i64 856
   %80 = load i64, ptr %79, align 8
   %81 = icmp eq i64 %80, 0
   br i1 %81, label %83, label %82
@@ -10599,7 +10599,7 @@ _ZN5clang13ASTStmtReader18readSourceLocationEv.exit: ; preds = %83, %84
   %113 = load ptr, ptr %108, align 8
   %114 = getelementptr inbounds i64, ptr %113, i64 %112
   %115 = load i64, ptr %114, align 8
-  %116 = getelementptr inbounds i8, ptr %107, i64 856
+  %116 = getelementptr inbounds nuw i8, ptr %107, i64 856
   %117 = load i64, ptr %116, align 8
   %118 = icmp eq i64 %117, 0
   br i1 %118, label %120, label %119
@@ -10651,7 +10651,7 @@ _ZN5clang13ASTStmtReader18readSourceLocationEv.exit17: ; preds = %120, %121
   %148 = load ptr, ptr %143, align 8
   %149 = getelementptr inbounds i64, ptr %148, i64 %147
   %150 = load i64, ptr %149, align 8
-  %151 = getelementptr inbounds i8, ptr %142, i64 856
+  %151 = getelementptr inbounds nuw i8, ptr %142, i64 856
   %152 = load i64, ptr %151, align 8
   %153 = icmp eq i64 %152, 0
   br i1 %153, label %155, label %154
@@ -10803,7 +10803,7 @@ define dso_local void @_ZN5clang13ASTStmtReader24VisitOMPArrayShapingExprEPNS_19
   %71 = load ptr, ptr %66, align 8
   %72 = getelementptr inbounds i64, ptr %71, i64 %70
   %73 = load i64, ptr %72, align 8
-  %74 = getelementptr inbounds i8, ptr %65, i64 856
+  %74 = getelementptr inbounds nuw i8, ptr %65, i64 856
   %75 = load i64, ptr %74, align 8
   %76 = icmp eq i64 %75, 0
   br i1 %76, label %78, label %77
@@ -10852,7 +10852,7 @@ _ZN5clang13ASTStmtReader18readSourceLocationEv.exit: ; preds = %78, %79
   %105 = load ptr, ptr %100, align 8
   %106 = getelementptr inbounds i64, ptr %105, i64 %104
   %107 = load i64, ptr %106, align 8
-  %108 = getelementptr inbounds i8, ptr %99, i64 856
+  %108 = getelementptr inbounds nuw i8, ptr %99, i64 856
   %109 = load i64, ptr %108, align 8
   %110 = icmp eq i64 %109, 0
   br i1 %110, label %112, label %111
@@ -10943,7 +10943,7 @@ define dso_local void @_ZN5clang13ASTStmtReader20VisitOMPIteratorExprEPNS_15OMPI
   %24 = load ptr, ptr %19, align 8
   %25 = getelementptr inbounds i64, ptr %24, i64 %23
   %26 = load i64, ptr %25, align 8
-  %27 = getelementptr inbounds i8, ptr %18, i64 856
+  %27 = getelementptr inbounds nuw i8, ptr %18, i64 856
   %28 = load i64, ptr %27, align 8
   %29 = icmp eq i64 %28, 0
   br i1 %29, label %31, label %30
@@ -10992,7 +10992,7 @@ _ZN5clang13ASTStmtReader18readSourceLocationEv.exit: ; preds = %31, %32
   %58 = load ptr, ptr %53, align 8
   %59 = getelementptr inbounds i64, ptr %58, i64 %57
   %60 = load i64, ptr %59, align 8
-  %61 = getelementptr inbounds i8, ptr %52, i64 856
+  %61 = getelementptr inbounds nuw i8, ptr %52, i64 856
   %62 = load i64, ptr %61, align 8
   %63 = icmp eq i64 %62, 0
   br i1 %63, label %65, label %64
@@ -11041,7 +11041,7 @@ _ZN5clang13ASTStmtReader18readSourceLocationEv.exit29: ; preds = %65, %66
   %92 = load ptr, ptr %87, align 8
   %93 = getelementptr inbounds i64, ptr %92, i64 %91
   %94 = load i64, ptr %93, align 8
-  %95 = getelementptr inbounds i8, ptr %86, i64 856
+  %95 = getelementptr inbounds nuw i8, ptr %86, i64 856
   %96 = load i64, ptr %95, align 8
   %97 = icmp eq i64 %96, 0
   br i1 %97, label %99, label %98
@@ -11111,7 +11111,7 @@ _ZN5clang13ASTStmtReader18readSourceLocationEv.exit33: ; preds = %99, %100
   %139 = load ptr, ptr %134, align 8
   %140 = getelementptr inbounds i64, ptr %139, i64 %138
   %141 = load i64, ptr %140, align 8
-  %142 = getelementptr inbounds i8, ptr %133, i64 856
+  %142 = getelementptr inbounds nuw i8, ptr %133, i64 856
   %143 = load i64, ptr %142, align 8
   %144 = icmp eq i64 %143, 0
   br i1 %144, label %146, label %145
@@ -11195,7 +11195,7 @@ _ZN5clang13ASTStmtReader18readSourceLocationEv.exit37: ; preds = %146, %147
   %205 = load ptr, ptr %200, align 8
   %206 = getelementptr inbounds i64, ptr %205, i64 %204
   %207 = load i64, ptr %206, align 8
-  %208 = getelementptr inbounds i8, ptr %199, i64 856
+  %208 = getelementptr inbounds nuw i8, ptr %199, i64 856
   %209 = load i64, ptr %208, align 8
   %210 = icmp eq i64 %209, 0
   br i1 %210, label %212, label %211
@@ -11246,7 +11246,7 @@ _ZN5clang13ASTStmtReader18readSourceLocationEv.exit41: ; preds = %212, %213
   %239 = load ptr, ptr %234, align 8
   %240 = getelementptr inbounds i64, ptr %239, i64 %238
   %241 = load i64, ptr %240, align 8
-  %242 = getelementptr inbounds i8, ptr %233, i64 856
+  %242 = getelementptr inbounds nuw i8, ptr %233, i64 856
   %243 = load i64, ptr %242, align 8
   %244 = icmp eq i64 %243, 0
   br i1 %244, label %246, label %245
@@ -11376,9 +11376,9 @@ _ZNSt8optionalIN5clang12BitsUnpackerEE7emplaceIJmEEENSt9enable_ifIX18is_construc
   %18 = load ptr, ptr %13, align 8
   %19 = getelementptr inbounds i64, ptr %18, i64 %17
   %20 = load i64, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %0, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %22 = trunc i64 %20 to i32
-  %23 = getelementptr inbounds i8, ptr %0, i64 20
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 %22, ptr %11, align 8
   store i8 1, ptr %21, align 8
   store i32 1, ptr %23, align 4
@@ -11409,7 +11409,7 @@ _ZNSt8optionalIN5clang12BitsUnpackerEE7emplaceIJmEEENSt9enable_ifIX18is_construc
   %44 = load ptr, ptr %39, align 8
   %45 = getelementptr inbounds i64, ptr %44, i64 %43
   %46 = load i64, ptr %45, align 8
-  %47 = getelementptr inbounds i8, ptr %38, i64 856
+  %47 = getelementptr inbounds nuw i8, ptr %38, i64 856
   %48 = load i64, ptr %47, align 8
   %49 = icmp eq i64 %48, 0
   br i1 %49, label %51, label %50
@@ -11554,9 +11554,9 @@ _ZNSt8optionalIN5clang12BitsUnpackerEE7emplaceIJmEEENSt9enable_ifIX18is_construc
   %9 = load ptr, ptr %4, align 8
   %10 = getelementptr inbounds i64, ptr %9, i64 %8
   %11 = load i64, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %13 = trunc i64 %11 to i32
-  %14 = getelementptr inbounds i8, ptr %0, i64 20
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 %13, ptr %2, align 8
   store i8 1, ptr %12, align 8
   %15 = and i32 %13, 1
@@ -11622,7 +11622,7 @@ _ZNSt8optionalIN5clang12BitsUnpackerEE7emplaceIJmEEENSt9enable_ifIX18is_construc
   %64 = load ptr, ptr %59, align 8
   %65 = getelementptr inbounds i64, ptr %64, i64 %63
   %66 = load i64, ptr %65, align 8
-  %67 = getelementptr inbounds i8, ptr %58, i64 856
+  %67 = getelementptr inbounds nuw i8, ptr %58, i64 856
   %68 = load i64, ptr %67, align 8
   %69 = icmp eq i64 %68, 0
   br i1 %69, label %71, label %70
@@ -11712,7 +11712,7 @@ _ZNK5clang9ASTReader30ReadUntranslatedSourceLocationEmPNS_22SourceLocationSequen
   %131 = load ptr, ptr %126, align 8
   %132 = getelementptr inbounds i64, ptr %131, i64 %130
   %133 = load i64, ptr %132, align 8
-  %134 = getelementptr inbounds i8, ptr %125, i64 856
+  %134 = getelementptr inbounds nuw i8, ptr %125, i64 856
   %135 = load i64, ptr %134, align 8
   %136 = icmp eq i64 %135, 0
   br i1 %136, label %138, label %137
@@ -11847,7 +11847,7 @@ define dso_local void @_ZN5clang13ASTStmtReader16VisitObjCIsaExprEPNS_11ObjCIsaE
   %25 = load ptr, ptr %20, align 8
   %26 = getelementptr inbounds i64, ptr %25, i64 %24
   %27 = load i64, ptr %26, align 8
-  %28 = getelementptr inbounds i8, ptr %19, i64 856
+  %28 = getelementptr inbounds nuw i8, ptr %19, i64 856
   %29 = load i64, ptr %28, align 8
   %30 = icmp eq i64 %29, 0
   br i1 %30, label %32, label %31
@@ -11896,7 +11896,7 @@ _ZN5clang13ASTStmtReader18readSourceLocationEv.exit: ; preds = %32, %33
   %59 = load ptr, ptr %54, align 8
   %60 = getelementptr inbounds i64, ptr %59, i64 %58
   %61 = load i64, ptr %60, align 8
-  %62 = getelementptr inbounds i8, ptr %53, i64 856
+  %62 = getelementptr inbounds nuw i8, ptr %53, i64 856
   %63 = load i64, ptr %62, align 8
   %64 = icmp eq i64 %63, 0
   br i1 %64, label %66, label %65
@@ -12005,7 +12005,7 @@ define dso_local void @_ZN5clang13ASTStmtReader24VisitObjCBridgedCastExprEPNS_19
   %16 = load ptr, ptr %11, align 8
   %17 = getelementptr inbounds i64, ptr %16, i64 %15
   %18 = load i64, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %10, i64 856
+  %19 = getelementptr inbounds nuw i8, ptr %10, i64 856
   %20 = load i64, ptr %19, align 8
   %21 = icmp eq i64 %20, 0
   br i1 %21, label %23, label %22
@@ -12054,7 +12054,7 @@ _ZN5clang13ASTStmtReader18readSourceLocationEv.exit: ; preds = %23, %24
   %50 = load ptr, ptr %45, align 8
   %51 = getelementptr inbounds i64, ptr %50, i64 %49
   %52 = load i64, ptr %51, align 8
-  %53 = getelementptr inbounds i8, ptr %44, i64 856
+  %53 = getelementptr inbounds nuw i8, ptr %44, i64 856
   %54 = load i64, ptr %53, align 8
   %55 = icmp eq i64 %54, 0
   br i1 %55, label %57, label %56
@@ -12146,9 +12146,9 @@ _ZNSt8optionalIN5clang12BitsUnpackerEE7emplaceIJmEEENSt9enable_ifIX18is_construc
   %20 = load ptr, ptr %15, align 8
   %21 = getelementptr inbounds i64, ptr %20, i64 %19
   %22 = load i64, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %0, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %24 = trunc i64 %22 to i32
-  %25 = getelementptr inbounds i8, ptr %0, i64 20
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 %24, ptr %13, align 8
   store i8 1, ptr %23, align 8
   store i32 7, ptr %25, align 4
@@ -12193,7 +12193,7 @@ _ZNSt8optionalIN5clang12BitsUnpackerEE7emplaceIJmEEENSt9enable_ifIX18is_construc
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 136
   %54 = load ptr, ptr %53, align 8
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 2144
-  %56 = getelementptr inbounds i8, ptr %54, i64 2224
+  %56 = getelementptr inbounds nuw i8, ptr %54, i64 2224
   %57 = load i64, ptr %56, align 8
   %58 = add i64 %57, 24
   store i64 %58, ptr %56, align 8
@@ -12202,7 +12202,7 @@ _ZNSt8optionalIN5clang12BitsUnpackerEE7emplaceIJmEEENSt9enable_ifIX18is_construc
   %61 = add i64 %60, 7
   %62 = and i64 %61, -8
   %63 = add i64 %62, 24
-  %64 = getelementptr inbounds i8, ptr %54, i64 2152
+  %64 = getelementptr inbounds nuw i8, ptr %54, i64 2152
   %65 = load ptr, ptr %64, align 8
   %66 = ptrtoint ptr %65 to i64
   %.not.i.i.i.i = icmp ugt i64 %63, %66
@@ -12282,9 +12282,9 @@ _ZNSt8optionalIN5clang12BitsUnpackerEE7emplaceIJmEEENSt9enable_ifIX18is_construc
   %9 = load ptr, ptr %4, align 8
   %10 = getelementptr inbounds i64, ptr %9, i64 %8
   %11 = load i64, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %13 = trunc i64 %11 to i32
-  %14 = getelementptr inbounds i8, ptr %0, i64 20
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 %13, ptr %2, align 8
   store i8 1, ptr %12, align 8
   store i32 6, ptr %14, align 4
@@ -12360,7 +12360,7 @@ _ZNSt8optionalIN5clang12BitsUnpackerEE7emplaceIJmEEENSt9enable_ifIX18is_construc
   %72 = load ptr, ptr %67, align 8
   %73 = getelementptr inbounds i64, ptr %72, i64 %71
   %74 = load i64, ptr %73, align 8
-  %75 = getelementptr inbounds i8, ptr %66, i64 856
+  %75 = getelementptr inbounds nuw i8, ptr %66, i64 856
   %76 = load i64, ptr %75, align 8
   %77 = icmp eq i64 %76, 0
   br i1 %77, label %79, label %78
@@ -12541,7 +12541,7 @@ define dso_local void @_ZN5clang13ASTStmtReader24VisitConditionalOperatorEPNS_19
   %49 = load ptr, ptr %44, align 8
   %50 = getelementptr inbounds i64, ptr %49, i64 %48
   %51 = load i64, ptr %50, align 8
-  %52 = getelementptr inbounds i8, ptr %43, i64 856
+  %52 = getelementptr inbounds nuw i8, ptr %43, i64 856
   %53 = load i64, ptr %52, align 8
   %54 = icmp eq i64 %53, 0
   br i1 %54, label %56, label %55
@@ -12590,7 +12590,7 @@ _ZN5clang13ASTStmtReader18readSourceLocationEv.exit: ; preds = %56, %57
   %83 = load ptr, ptr %78, align 8
   %84 = getelementptr inbounds i64, ptr %83, i64 %82
   %85 = load i64, ptr %84, align 8
-  %86 = getelementptr inbounds i8, ptr %77, i64 856
+  %86 = getelementptr inbounds nuw i8, ptr %77, i64 856
   %87 = load i64, ptr %86, align 8
   %88 = icmp eq i64 %87, 0
   br i1 %88, label %90, label %89
@@ -12715,7 +12715,7 @@ define dso_local void @_ZN5clang13ASTStmtReader30VisitBinaryConditionalOperatorE
   %73 = load ptr, ptr %68, align 8
   %74 = getelementptr inbounds i64, ptr %73, i64 %72
   %75 = load i64, ptr %74, align 8
-  %76 = getelementptr inbounds i8, ptr %67, i64 856
+  %76 = getelementptr inbounds nuw i8, ptr %67, i64 856
   %77 = load i64, ptr %76, align 8
   %78 = icmp eq i64 %77, 0
   br i1 %78, label %80, label %79
@@ -12764,7 +12764,7 @@ _ZN5clang13ASTStmtReader18readSourceLocationEv.exit: ; preds = %80, %81
   %107 = load ptr, ptr %102, align 8
   %108 = getelementptr inbounds i64, ptr %107, i64 %106
   %109 = load i64, ptr %108, align 8
-  %110 = getelementptr inbounds i8, ptr %101, i64 856
+  %110 = getelementptr inbounds nuw i8, ptr %101, i64 856
   %111 = load i64, ptr %110, align 8
   %112 = icmp eq i64 %111, 0
   br i1 %112, label %114, label %113
@@ -12807,7 +12807,7 @@ define dso_local void @_ZN5clang13ASTStmtReader21VisitImplicitCastExprEPNS_16Imp
   tail call void @_ZN5clang13ASTStmtReader13VisitCastExprEPNS_8CastExprE(ptr noundef nonnull align 8 dereferenceable(28) %0, ptr noundef %1)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i32, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 20
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %6 = load i32, ptr %5, align 4
   %7 = add i32 %6, 1
   store i32 %7, ptr %5, align 4
@@ -12843,7 +12843,7 @@ define dso_local void @_ZN5clang13ASTStmtReader19VisitCStyleCastExprEPNS_14CStyl
   %16 = load ptr, ptr %11, align 8
   %17 = getelementptr inbounds i64, ptr %16, i64 %15
   %18 = load i64, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %10, i64 856
+  %19 = getelementptr inbounds nuw i8, ptr %10, i64 856
   %20 = load i64, ptr %19, align 8
   %21 = icmp eq i64 %20, 0
   br i1 %21, label %23, label %22
@@ -12892,7 +12892,7 @@ _ZN5clang13ASTStmtReader18readSourceLocationEv.exit: ; preds = %23, %24
   %50 = load ptr, ptr %45, align 8
   %51 = getelementptr inbounds i64, ptr %50, i64 %49
   %52 = load i64, ptr %51, align 8
-  %53 = getelementptr inbounds i8, ptr %44, i64 856
+  %53 = getelementptr inbounds nuw i8, ptr %44, i64 856
   %54 = load i64, ptr %53, align 8
   %55 = icmp eq i64 %54, 0
   br i1 %55, label %57, label %56
@@ -12947,7 +12947,7 @@ define dso_local void @_ZN5clang13ASTStmtReader24VisitCompoundLiteralExprEPNS_19
   %13 = load ptr, ptr %8, align 8
   %14 = getelementptr inbounds i64, ptr %13, i64 %12
   %15 = load i64, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %7, i64 856
+  %16 = getelementptr inbounds nuw i8, ptr %7, i64 856
   %17 = load i64, ptr %16, align 8
   %18 = icmp eq i64 %17, 0
   br i1 %18, label %20, label %19
@@ -13072,7 +13072,7 @@ define dso_local void @_ZN5clang13ASTStmtReader25VisitExtVectorElementExprEPNS_2
   %41 = load ptr, ptr %36, align 8
   %42 = getelementptr inbounds i64, ptr %41, i64 %40
   %43 = load i64, ptr %42, align 8
-  %44 = getelementptr inbounds i8, ptr %35, i64 856
+  %44 = getelementptr inbounds nuw i8, ptr %35, i64 856
   %45 = load i64, ptr %44, align 8
   %46 = icmp eq i64 %45, 0
   br i1 %46, label %48, label %47
@@ -13159,7 +13159,7 @@ define dso_local void @_ZN5clang13ASTStmtReader17VisitInitListExprEPNS_12InitLis
   %35 = load ptr, ptr %30, align 8
   %36 = getelementptr inbounds i64, ptr %35, i64 %34
   %37 = load i64, ptr %36, align 8
-  %38 = getelementptr inbounds i8, ptr %29, i64 856
+  %38 = getelementptr inbounds nuw i8, ptr %29, i64 856
   %39 = load i64, ptr %38, align 8
   %40 = icmp eq i64 %39, 0
   br i1 %40, label %42, label %41
@@ -13208,7 +13208,7 @@ _ZN5clang13ASTStmtReader18readSourceLocationEv.exit: ; preds = %42, %43
   %69 = load ptr, ptr %64, align 8
   %70 = getelementptr inbounds i64, ptr %69, i64 %68
   %71 = load i64, ptr %70, align 8
-  %72 = getelementptr inbounds i8, ptr %63, i64 856
+  %72 = getelementptr inbounds nuw i8, ptr %63, i64 856
   %73 = load i64, ptr %72, align 8
   %74 = icmp eq i64 %73, 0
   br i1 %74, label %76, label %75
@@ -13448,7 +13448,7 @@ define dso_local void @_ZN5clang13ASTStmtReader23VisitDesignatedInitExprEPNS_18D
   %43 = load ptr, ptr %38, align 8
   %44 = getelementptr inbounds i64, ptr %43, i64 %42
   %45 = load i64, ptr %44, align 8
-  %46 = getelementptr inbounds i8, ptr %37, i64 856
+  %46 = getelementptr inbounds nuw i8, ptr %37, i64 856
   %47 = load i64, ptr %46, align 8
   %48 = icmp eq i64 %47, 0
   br i1 %48, label %50, label %49
@@ -13513,19 +13513,19 @@ _ZN5clang13ASTStmtReader18readSourceLocationEv.exit: ; preds = %50, %51
 
 .lr.ph70:                                         ; preds = %_ZN5clang13ASTStmtReader18readSourceLocationEv.exit
   %90 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %91 = getelementptr inbounds i8, ptr %7, i64 12
-  %92 = getelementptr inbounds i8, ptr %7, i64 16
-  %93 = getelementptr inbounds i8, ptr %7, i64 20
+  %91 = getelementptr inbounds nuw i8, ptr %7, i64 12
+  %92 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %93 = getelementptr inbounds nuw i8, ptr %7, i64 20
   %94 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %95 = getelementptr inbounds i8, ptr %6, i64 12
-  %96 = getelementptr inbounds i8, ptr %6, i64 16
-  %97 = getelementptr inbounds i8, ptr %6, i64 20
+  %95 = getelementptr inbounds nuw i8, ptr %6, i64 12
+  %96 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %97 = getelementptr inbounds nuw i8, ptr %6, i64 20
   %98 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %99 = getelementptr inbounds i8, ptr %5, i64 16
-  %100 = getelementptr inbounds i8, ptr %5, i64 20
+  %99 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %100 = getelementptr inbounds nuw i8, ptr %5, i64 20
   %101 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %102 = getelementptr inbounds i8, ptr %4, i64 16
-  %103 = getelementptr inbounds i8, ptr %4, i64 20
+  %102 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %103 = getelementptr inbounds nuw i8, ptr %4, i64 20
   br label %104
 
 104:                                              ; preds = %.lr.ph70, %474
@@ -13571,7 +13571,7 @@ _ZN5clang13ASTStmtReader18readSourceLocationEv.exit: ; preds = %50, %51
   %135 = load ptr, ptr %130, align 8
   %136 = getelementptr inbounds i64, ptr %135, i64 %134
   %137 = load i64, ptr %136, align 8
-  %138 = getelementptr inbounds i8, ptr %129, i64 856
+  %138 = getelementptr inbounds nuw i8, ptr %129, i64 856
   %139 = load i64, ptr %138, align 8
   %140 = icmp eq i64 %139, 0
   br i1 %140, label %142, label %141
@@ -13618,7 +13618,7 @@ _ZN5clang13ASTStmtReader18readSourceLocationEv.exit35: ; preds = %142, %143
   %168 = load ptr, ptr %163, align 8
   %169 = getelementptr inbounds i64, ptr %168, i64 %167
   %170 = load i64, ptr %169, align 8
-  %171 = getelementptr inbounds i8, ptr %162, i64 856
+  %171 = getelementptr inbounds nuw i8, ptr %162, i64 856
   %172 = load i64, ptr %171, align 8
   %173 = icmp eq i64 %172, 0
   br i1 %173, label %175, label %174
@@ -13702,7 +13702,7 @@ _ZN5clang13ASTStmtReader18readSourceLocationEv.exit39: ; preds = %175, %176
   %229 = load ptr, ptr %224, align 8
   %230 = getelementptr inbounds i64, ptr %229, i64 %228
   %231 = load i64, ptr %230, align 8
-  %232 = getelementptr inbounds i8, ptr %223, i64 856
+  %232 = getelementptr inbounds nuw i8, ptr %223, i64 856
   %233 = load i64, ptr %232, align 8
   %234 = icmp eq i64 %233, 0
   br i1 %234, label %236, label %235
@@ -13749,7 +13749,7 @@ _ZN5clang13ASTStmtReader18readSourceLocationEv.exit43: ; preds = %236, %237
   %262 = load ptr, ptr %257, align 8
   %263 = getelementptr inbounds i64, ptr %262, i64 %261
   %264 = load i64, ptr %263, align 8
-  %265 = getelementptr inbounds i8, ptr %256, i64 856
+  %265 = getelementptr inbounds nuw i8, ptr %256, i64 856
   %266 = load i64, ptr %265, align 8
   %267 = icmp eq i64 %266, 0
   br i1 %267, label %269, label %268
@@ -13817,7 +13817,7 @@ _ZN5clang13ASTStmtReader18readSourceLocationEv.exit47: ; preds = %269, %270
   %308 = load ptr, ptr %303, align 8
   %309 = getelementptr inbounds i64, ptr %308, i64 %307
   %310 = load i64, ptr %309, align 8
-  %311 = getelementptr inbounds i8, ptr %302, i64 856
+  %311 = getelementptr inbounds nuw i8, ptr %302, i64 856
   %312 = load i64, ptr %311, align 8
   %313 = icmp eq i64 %312, 0
   br i1 %313, label %315, label %314
@@ -13864,7 +13864,7 @@ _ZN5clang13ASTStmtReader18readSourceLocationEv.exit51: ; preds = %315, %316
   %341 = load ptr, ptr %336, align 8
   %342 = getelementptr inbounds i64, ptr %341, i64 %340
   %343 = load i64, ptr %342, align 8
-  %344 = getelementptr inbounds i8, ptr %335, i64 856
+  %344 = getelementptr inbounds nuw i8, ptr %335, i64 856
   %345 = load i64, ptr %344, align 8
   %346 = icmp eq i64 %345, 0
   br i1 %346, label %348, label %347
@@ -13931,7 +13931,7 @@ _ZN5clang13ASTStmtReader18readSourceLocationEv.exit55: ; preds = %348, %349
   %385 = load ptr, ptr %380, align 8
   %386 = getelementptr inbounds i64, ptr %385, i64 %384
   %387 = load i64, ptr %386, align 8
-  %388 = getelementptr inbounds i8, ptr %379, i64 856
+  %388 = getelementptr inbounds nuw i8, ptr %379, i64 856
   %389 = load i64, ptr %388, align 8
   %390 = icmp eq i64 %389, 0
   br i1 %390, label %392, label %391
@@ -13978,7 +13978,7 @@ _ZN5clang13ASTStmtReader18readSourceLocationEv.exit59: ; preds = %392, %393
   %418 = load ptr, ptr %413, align 8
   %419 = getelementptr inbounds i64, ptr %418, i64 %417
   %420 = load i64, ptr %419, align 8
-  %421 = getelementptr inbounds i8, ptr %412, i64 856
+  %421 = getelementptr inbounds nuw i8, ptr %412, i64 856
   %422 = load i64, ptr %421, align 8
   %423 = icmp eq i64 %422, 0
   br i1 %423, label %425, label %424
@@ -14025,7 +14025,7 @@ _ZN5clang13ASTStmtReader18readSourceLocationEv.exit63: ; preds = %425, %426
   %451 = load ptr, ptr %446, align 8
   %452 = getelementptr inbounds i64, ptr %451, i64 %450
   %453 = load i64, ptr %452, align 8
-  %454 = getelementptr inbounds i8, ptr %445, i64 856
+  %454 = getelementptr inbounds nuw i8, ptr %445, i64 856
   %455 = load i64, ptr %454, align 8
   %456 = icmp eq i64 %455, 0
   br i1 %456, label %458, label %457
@@ -14272,7 +14272,7 @@ define dso_local void @_ZN5clang13ASTStmtReader14VisitVAArgExprEPNS_9VAArgExprE(
   %31 = load ptr, ptr %26, align 8
   %32 = getelementptr inbounds i64, ptr %31, i64 %30
   %33 = load i64, ptr %32, align 8
-  %34 = getelementptr inbounds i8, ptr %25, i64 856
+  %34 = getelementptr inbounds nuw i8, ptr %25, i64 856
   %35 = load i64, ptr %34, align 8
   %36 = icmp eq i64 %35, 0
   br i1 %36, label %38, label %37
@@ -14321,7 +14321,7 @@ _ZN5clang13ASTStmtReader18readSourceLocationEv.exit: ; preds = %38, %39
   %65 = load ptr, ptr %60, align 8
   %66 = getelementptr inbounds i64, ptr %65, i64 %64
   %67 = load i64, ptr %66, align 8
-  %68 = getelementptr inbounds i8, ptr %59, i64 856
+  %68 = getelementptr inbounds nuw i8, ptr %59, i64 856
   %69 = load i64, ptr %68, align 8
   %70 = icmp eq i64 %69, 0
   br i1 %70, label %72, label %71
@@ -14412,7 +14412,7 @@ _ZN5clang13ASTStmtReader10readDeclAsINS_11DeclContextEEEPT_v.exit: ; preds = %2,
   %25 = load ptr, ptr %20, align 8
   %26 = getelementptr inbounds i64, ptr %25, i64 %24
   %27 = load i64, ptr %26, align 8
-  %28 = getelementptr inbounds i8, ptr %19, i64 856
+  %28 = getelementptr inbounds nuw i8, ptr %19, i64 856
   %29 = load i64, ptr %28, align 8
   %30 = icmp eq i64 %29, 0
   br i1 %30, label %32, label %31
@@ -14461,7 +14461,7 @@ _ZN5clang13ASTStmtReader18readSourceLocationEv.exit: ; preds = %32, %33
   %59 = load ptr, ptr %54, align 8
   %60 = getelementptr inbounds i64, ptr %59, i64 %58
   %61 = load i64, ptr %60, align 8
-  %62 = getelementptr inbounds i8, ptr %53, i64 856
+  %62 = getelementptr inbounds nuw i8, ptr %53, i64 856
   %63 = load i64, ptr %62, align 8
   %64 = icmp eq i64 %63, 0
   br i1 %64, label %66, label %65
@@ -14533,7 +14533,7 @@ define dso_local void @_ZN5clang13ASTStmtReader14VisitEmbedExprEPNS_9EmbedExprE(
   %13 = load ptr, ptr %8, align 8
   %14 = getelementptr inbounds i64, ptr %13, i64 %12
   %15 = load i64, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %7, i64 856
+  %16 = getelementptr inbounds nuw i8, ptr %7, i64 856
   %17 = load i64, ptr %16, align 8
   %18 = icmp eq i64 %17, 0
   br i1 %18, label %20, label %19
@@ -14574,7 +14574,7 @@ _ZN5clang13ASTStmtReader18readSourceLocationEv.exit: ; preds = %20, %21
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 136
   %41 = load ptr, ptr %40, align 8
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 2144
-  %43 = getelementptr inbounds i8, ptr %41, i64 2224
+  %43 = getelementptr inbounds nuw i8, ptr %41, i64 2224
   %44 = load i64, ptr %43, align 8
   %45 = add i64 %44, 8
   store i64 %45, ptr %43, align 8
@@ -14583,7 +14583,7 @@ _ZN5clang13ASTStmtReader18readSourceLocationEv.exit: ; preds = %20, %21
   %48 = add i64 %47, 7
   %49 = and i64 %48, -8
   %50 = add i64 %49, 8
-  %51 = getelementptr inbounds i8, ptr %41, i64 2152
+  %51 = getelementptr inbounds nuw i8, ptr %41, i64 2152
   %52 = load ptr, ptr %51, align 8
   %53 = ptrtoint ptr %52 to i64
   %.not.i.i.i.i = icmp ugt i64 %50, %53
@@ -14671,7 +14671,7 @@ define dso_local void @_ZN5clang13ASTStmtReader18VisitAddrLabelExprEPNS_13AddrLa
   %13 = load ptr, ptr %8, align 8
   %14 = getelementptr inbounds i64, ptr %13, i64 %12
   %15 = load i64, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %7, i64 856
+  %16 = getelementptr inbounds nuw i8, ptr %7, i64 856
   %17 = load i64, ptr %16, align 8
   %18 = icmp eq i64 %17, 0
   br i1 %18, label %20, label %19
@@ -14720,7 +14720,7 @@ _ZN5clang13ASTStmtReader18readSourceLocationEv.exit: ; preds = %20, %21
   %47 = load ptr, ptr %42, align 8
   %48 = getelementptr inbounds i64, ptr %47, i64 %46
   %49 = load i64, ptr %48, align 8
-  %50 = getelementptr inbounds i8, ptr %41, i64 856
+  %50 = getelementptr inbounds nuw i8, ptr %41, i64 856
   %51 = load i64, ptr %50, align 8
   %52 = icmp eq i64 %51, 0
   br i1 %52, label %54, label %53
@@ -14786,7 +14786,7 @@ define dso_local void @_ZN5clang13ASTStmtReader13VisitStmtExprEPNS_8StmtExprE(pt
   %13 = load ptr, ptr %8, align 8
   %14 = getelementptr inbounds i64, ptr %13, i64 %12
   %15 = load i64, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %7, i64 856
+  %16 = getelementptr inbounds nuw i8, ptr %7, i64 856
   %17 = load i64, ptr %16, align 8
   %18 = icmp eq i64 %17, 0
   br i1 %18, label %20, label %19
@@ -14835,7 +14835,7 @@ _ZN5clang13ASTStmtReader18readSourceLocationEv.exit: ; preds = %20, %21
   %47 = load ptr, ptr %42, align 8
   %48 = getelementptr inbounds i64, ptr %47, i64 %46
   %49 = load i64, ptr %48, align 8
-  %50 = getelementptr inbounds i8, ptr %41, i64 856
+  %50 = getelementptr inbounds nuw i8, ptr %41, i64 856
   %51 = load i64, ptr %50, align 8
   %52 = icmp eq i64 %51, 0
   br i1 %52, label %54, label %53
@@ -14959,7 +14959,7 @@ define dso_local void @_ZN5clang13ASTStmtReader15VisitChooseExprEPNS_10ChooseExp
   %49 = load ptr, ptr %44, align 8
   %50 = getelementptr inbounds i64, ptr %49, i64 %48
   %51 = load i64, ptr %50, align 8
-  %52 = getelementptr inbounds i8, ptr %43, i64 856
+  %52 = getelementptr inbounds nuw i8, ptr %43, i64 856
   %53 = load i64, ptr %52, align 8
   %54 = icmp eq i64 %53, 0
   br i1 %54, label %56, label %55
@@ -15008,7 +15008,7 @@ _ZN5clang13ASTStmtReader18readSourceLocationEv.exit: ; preds = %56, %57
   %83 = load ptr, ptr %78, align 8
   %84 = getelementptr inbounds i64, ptr %83, i64 %82
   %85 = load i64, ptr %84, align 8
-  %86 = getelementptr inbounds i8, ptr %77, i64 856
+  %86 = getelementptr inbounds nuw i8, ptr %77, i64 856
   %87 = load i64, ptr %86, align 8
   %88 = icmp eq i64 %87, 0
   br i1 %88, label %90, label %89
@@ -15077,7 +15077,7 @@ define dso_local void @_ZN5clang13ASTStmtReader16VisitGNUNullExprEPNS_11GNUNullE
   %13 = load ptr, ptr %8, align 8
   %14 = getelementptr inbounds i64, ptr %13, i64 %12
   %15 = load i64, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %7, i64 856
+  %16 = getelementptr inbounds nuw i8, ptr %7, i64 856
   %17 = load i64, ptr %16, align 8
   %18 = icmp eq i64 %17, 0
   br i1 %18, label %20, label %19
@@ -15195,7 +15195,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE9push_backES3_.exit: ; pred
   %54 = load ptr, ptr %49, align 8
   %55 = getelementptr inbounds i64, ptr %54, i64 %53
   %56 = load i64, ptr %55, align 8
-  %57 = getelementptr inbounds i8, ptr %48, i64 856
+  %57 = getelementptr inbounds nuw i8, ptr %48, i64 856
   %58 = load i64, ptr %57, align 8
   %59 = icmp eq i64 %58, 0
   br i1 %59, label %61, label %60
@@ -15244,7 +15244,7 @@ _ZN5clang13ASTStmtReader18readSourceLocationEv.exit: ; preds = %61, %62
   %88 = load ptr, ptr %83, align 8
   %89 = getelementptr inbounds i64, ptr %88, i64 %87
   %90 = load i64, ptr %89, align 8
-  %91 = getelementptr inbounds i8, ptr %82, i64 856
+  %91 = getelementptr inbounds nuw i8, ptr %82, i64 856
   %92 = load i64, ptr %91, align 8
   %93 = icmp eq i64 %92, 0
   br i1 %93, label %95, label %94
@@ -15311,7 +15311,7 @@ define dso_local void @_ZN5clang13ASTStmtReader22VisitConvertVectorExprEPNS_17Co
   %13 = load ptr, ptr %8, align 8
   %14 = getelementptr inbounds i64, ptr %13, i64 %12
   %15 = load i64, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %7, i64 856
+  %16 = getelementptr inbounds nuw i8, ptr %7, i64 856
   %17 = load i64, ptr %16, align 8
   %18 = icmp eq i64 %17, 0
   br i1 %18, label %20, label %19
@@ -15360,7 +15360,7 @@ _ZN5clang13ASTStmtReader18readSourceLocationEv.exit: ; preds = %20, %21
   %47 = load ptr, ptr %42, align 8
   %48 = getelementptr inbounds i64, ptr %47, i64 %46
   %49 = load i64, ptr %48, align 8
-  %50 = getelementptr inbounds i8, ptr %41, i64 856
+  %50 = getelementptr inbounds nuw i8, ptr %41, i64 856
   %51 = load i64, ptr %50, align 8
   %52 = icmp eq i64 %51, 0
   br i1 %52, label %54, label %53
@@ -15496,7 +15496,7 @@ define dso_local void @_ZN5clang13ASTStmtReader25VisitGenericSelectionExprEPNS_2
   %54 = load ptr, ptr %49, align 8
   %55 = getelementptr inbounds i64, ptr %54, i64 %53
   %56 = load i64, ptr %55, align 8
-  %57 = getelementptr inbounds i8, ptr %48, i64 856
+  %57 = getelementptr inbounds nuw i8, ptr %48, i64 856
   %58 = load i64, ptr %57, align 8
   %59 = icmp eq i64 %58, 0
   br i1 %59, label %61, label %60
@@ -15545,7 +15545,7 @@ _ZN5clang13ASTStmtReader18readSourceLocationEv.exit: ; preds = %61, %62
   %88 = load ptr, ptr %83, align 8
   %89 = getelementptr inbounds i64, ptr %88, i64 %87
   %90 = load i64, ptr %89, align 8
-  %91 = getelementptr inbounds i8, ptr %82, i64 856
+  %91 = getelementptr inbounds nuw i8, ptr %82, i64 856
   %92 = load i64, ptr %91, align 8
   %93 = icmp eq i64 %92, 0
   br i1 %93, label %95, label %94
@@ -15594,7 +15594,7 @@ _ZN5clang13ASTStmtReader18readSourceLocationEv.exit26: ; preds = %95, %96
   %122 = load ptr, ptr %117, align 8
   %123 = getelementptr inbounds i64, ptr %122, i64 %121
   %124 = load i64, ptr %123, align 8
-  %125 = getelementptr inbounds i8, ptr %116, i64 856
+  %125 = getelementptr inbounds nuw i8, ptr %116, i64 856
   %126 = load i64, ptr %125, align 8
   %127 = icmp eq i64 %126, 0
   br i1 %127, label %129, label %128
@@ -15833,7 +15833,7 @@ define dso_local void @_ZN5clang13ASTStmtReader15VisitAtomicExprEPNS_10AtomicExp
   %43 = load ptr, ptr %38, align 8
   %44 = getelementptr inbounds i64, ptr %43, i64 %42
   %45 = load i64, ptr %44, align 8
-  %46 = getelementptr inbounds i8, ptr %37, i64 856
+  %46 = getelementptr inbounds nuw i8, ptr %37, i64 856
   %47 = load i64, ptr %46, align 8
   %48 = icmp eq i64 %47, 0
   br i1 %48, label %50, label %49
@@ -15882,7 +15882,7 @@ _ZN5clang13ASTStmtReader18readSourceLocationEv.exit: ; preds = %50, %51
   %77 = load ptr, ptr %72, align 8
   %78 = getelementptr inbounds i64, ptr %77, i64 %76
   %79 = load i64, ptr %78, align 8
-  %80 = getelementptr inbounds i8, ptr %71, i64 856
+  %80 = getelementptr inbounds nuw i8, ptr %71, i64 856
   %81 = load i64, ptr %80, align 8
   %82 = icmp eq i64 %81, 0
   br i1 %82, label %84, label %83
@@ -15953,7 +15953,7 @@ define dso_local void @_ZN5clang13ASTStmtReader22VisitObjCStringLiteralEPNS_17Ob
   %25 = load ptr, ptr %20, align 8
   %26 = getelementptr inbounds i64, ptr %25, i64 %24
   %27 = load i64, ptr %26, align 8
-  %28 = getelementptr inbounds i8, ptr %19, i64 856
+  %28 = getelementptr inbounds nuw i8, ptr %19, i64 856
   %29 = load i64, ptr %28, align 8
   %30 = icmp eq i64 %29, 0
   br i1 %30, label %32, label %31
@@ -16216,7 +16216,7 @@ define dso_local void @_ZN5clang13ASTStmtReader26VisitObjCDictionaryLiteralEPNS_
   %87 = load ptr, ptr %82, align 8
   %88 = getelementptr inbounds i64, ptr %87, i64 %86
   %89 = load i64, ptr %88, align 8
-  %90 = getelementptr inbounds i8, ptr %81, i64 856
+  %90 = getelementptr inbounds nuw i8, ptr %81, i64 856
   %91 = load i64, ptr %90, align 8
   %92 = icmp eq i64 %91, 0
   br i1 %92, label %94, label %93
@@ -16314,7 +16314,7 @@ define dso_local void @_ZN5clang13ASTStmtReader19VisitObjCEncodeExprEPNS_14ObjCE
   %16 = load ptr, ptr %11, align 8
   %17 = getelementptr inbounds i64, ptr %16, i64 %15
   %18 = load i64, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %10, i64 856
+  %19 = getelementptr inbounds nuw i8, ptr %10, i64 856
   %20 = load i64, ptr %19, align 8
   %21 = icmp eq i64 %20, 0
   br i1 %21, label %23, label %22
@@ -16363,7 +16363,7 @@ _ZN5clang13ASTStmtReader18readSourceLocationEv.exit: ; preds = %23, %24
   %50 = load ptr, ptr %45, align 8
   %51 = getelementptr inbounds i64, ptr %50, i64 %49
   %52 = load i64, ptr %51, align 8
-  %53 = getelementptr inbounds i8, ptr %44, i64 856
+  %53 = getelementptr inbounds nuw i8, ptr %44, i64 856
   %54 = load i64, ptr %53, align 8
   %55 = icmp eq i64 %54, 0
   br i1 %55, label %57, label %56
@@ -16436,7 +16436,7 @@ define dso_local void @_ZN5clang13ASTStmtReader21VisitObjCSelectorExprEPNS_16Obj
   %29 = load ptr, ptr %24, align 8
   %30 = getelementptr inbounds i64, ptr %29, i64 %28
   %31 = load i64, ptr %30, align 8
-  %32 = getelementptr inbounds i8, ptr %23, i64 856
+  %32 = getelementptr inbounds nuw i8, ptr %23, i64 856
   %33 = load i64, ptr %32, align 8
   %34 = icmp eq i64 %33, 0
   br i1 %34, label %36, label %35
@@ -16485,7 +16485,7 @@ _ZN5clang13ASTStmtReader18readSourceLocationEv.exit: ; preds = %36, %37
   %63 = load ptr, ptr %58, align 8
   %64 = getelementptr inbounds i64, ptr %63, i64 %62
   %65 = load i64, ptr %64, align 8
-  %66 = getelementptr inbounds i8, ptr %57, i64 856
+  %66 = getelementptr inbounds nuw i8, ptr %57, i64 856
   %67 = load i64, ptr %66, align 8
   %68 = icmp eq i64 %67, 0
   br i1 %68, label %70, label %69
@@ -16551,7 +16551,7 @@ define dso_local void @_ZN5clang13ASTStmtReader21VisitObjCProtocolExprEPNS_16Obj
   %23 = load ptr, ptr %18, align 8
   %24 = getelementptr inbounds i64, ptr %23, i64 %22
   %25 = load i64, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %17, i64 856
+  %26 = getelementptr inbounds nuw i8, ptr %17, i64 856
   %27 = load i64, ptr %26, align 8
   %28 = icmp eq i64 %27, 0
   br i1 %28, label %30, label %29
@@ -16600,7 +16600,7 @@ _ZN5clang13ASTStmtReader18readSourceLocationEv.exit: ; preds = %30, %31
   %57 = load ptr, ptr %52, align 8
   %58 = getelementptr inbounds i64, ptr %57, i64 %56
   %59 = load i64, ptr %58, align 8
-  %60 = getelementptr inbounds i8, ptr %51, i64 856
+  %60 = getelementptr inbounds nuw i8, ptr %51, i64 856
   %61 = load i64, ptr %60, align 8
   %62 = icmp eq i64 %61, 0
   br i1 %62, label %64, label %63
@@ -16649,7 +16649,7 @@ _ZN5clang13ASTStmtReader18readSourceLocationEv.exit11: ; preds = %64, %65
   %91 = load ptr, ptr %86, align 8
   %92 = getelementptr inbounds i64, ptr %91, i64 %90
   %93 = load i64, ptr %92, align 8
-  %94 = getelementptr inbounds i8, ptr %85, i64 856
+  %94 = getelementptr inbounds nuw i8, ptr %85, i64 856
   %95 = load i64, ptr %94, align 8
   %96 = icmp eq i64 %95, 0
   br i1 %96, label %98, label %97
@@ -16715,7 +16715,7 @@ define dso_local void @_ZN5clang13ASTStmtReader20VisitObjCIvarRefExprEPNS_15ObjC
   %23 = load ptr, ptr %18, align 8
   %24 = getelementptr inbounds i64, ptr %23, i64 %22
   %25 = load i64, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %17, i64 856
+  %26 = getelementptr inbounds nuw i8, ptr %17, i64 856
   %27 = load i64, ptr %26, align 8
   %28 = icmp eq i64 %27, 0
   br i1 %28, label %30, label %29
@@ -16764,7 +16764,7 @@ _ZN5clang13ASTStmtReader18readSourceLocationEv.exit: ; preds = %30, %31
   %57 = load ptr, ptr %52, align 8
   %58 = getelementptr inbounds i64, ptr %57, i64 %56
   %59 = load i64, ptr %58, align 8
-  %60 = getelementptr inbounds i8, ptr %51, i64 856
+  %60 = getelementptr inbounds nuw i8, ptr %51, i64 856
   %61 = load i64, ptr %60, align 8
   %62 = icmp eq i64 %61, 0
   br i1 %62, label %64, label %63
@@ -16945,7 +16945,7 @@ define dso_local void @_ZN5clang13ASTStmtReader24VisitObjCPropertyRefExprEPNS_19
   %73 = load ptr, ptr %68, align 8
   %74 = getelementptr inbounds i64, ptr %73, i64 %72
   %75 = load i64, ptr %74, align 8
-  %76 = getelementptr inbounds i8, ptr %67, i64 856
+  %76 = getelementptr inbounds nuw i8, ptr %67, i64 856
   %77 = load i64, ptr %76, align 8
   %78 = icmp eq i64 %77, 0
   br i1 %78, label %80, label %79
@@ -16994,7 +16994,7 @@ _ZN5clang13ASTStmtReader18readSourceLocationEv.exit: ; preds = %80, %81
   %107 = load ptr, ptr %102, align 8
   %108 = getelementptr inbounds i64, ptr %107, i64 %106
   %109 = load i64, ptr %108, align 8
-  %110 = getelementptr inbounds i8, ptr %101, i64 856
+  %110 = getelementptr inbounds nuw i8, ptr %101, i64 856
   %111 = load i64, ptr %110, align 8
   %112 = icmp eq i64 %111, 0
   br i1 %112, label %114, label %113
@@ -17133,7 +17133,7 @@ define dso_local void @_ZN5clang13ASTStmtReader25VisitObjCSubscriptRefExprEPNS_2
   %13 = load ptr, ptr %8, align 8
   %14 = getelementptr inbounds i64, ptr %13, i64 %12
   %15 = load i64, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %7, i64 856
+  %16 = getelementptr inbounds nuw i8, ptr %7, i64 856
   %17 = load i64, ptr %16, align 8
   %18 = icmp eq i64 %17, 0
   br i1 %18, label %20, label %19
@@ -17377,7 +17377,7 @@ _ZN5clang15ASTRecordReader8readTypeEv.exit:       ; preds = %90, %101
   %120 = load ptr, ptr %115, align 8
   %121 = getelementptr inbounds i64, ptr %120, i64 %119
   %122 = load i64, ptr %121, align 8
-  %123 = getelementptr inbounds i8, ptr %114, i64 856
+  %123 = getelementptr inbounds nuw i8, ptr %114, i64 856
   %124 = load i64, ptr %123, align 8
   %125 = icmp eq i64 %124, 0
   br i1 %125, label %127, label %126
@@ -17489,7 +17489,7 @@ _ZN5clang13ASTStmtReader18readSourceLocationEv.exit: ; preds = %127, %128
   %196 = load ptr, ptr %191, align 8
   %197 = getelementptr inbounds i64, ptr %196, i64 %195
   %198 = load i64, ptr %197, align 8
-  %199 = getelementptr inbounds i8, ptr %190, i64 856
+  %199 = getelementptr inbounds nuw i8, ptr %190, i64 856
   %200 = load i64, ptr %199, align 8
   %201 = icmp eq i64 %200, 0
   br i1 %201, label %203, label %202
@@ -17538,7 +17538,7 @@ _ZN5clang13ASTStmtReader18readSourceLocationEv.exit38: ; preds = %203, %204
   %230 = load ptr, ptr %225, align 8
   %231 = getelementptr inbounds i64, ptr %230, i64 %229
   %232 = load i64, ptr %231, align 8
-  %233 = getelementptr inbounds i8, ptr %224, i64 856
+  %233 = getelementptr inbounds nuw i8, ptr %224, i64 856
   %234 = load i64, ptr %233, align 8
   %235 = icmp eq i64 %234, 0
   br i1 %235, label %237, label %236
@@ -17638,7 +17638,7 @@ _ZN5clang13ASTStmtReader18readSourceLocationEv.exit42: ; preds = %237, %238
   %287 = load ptr, ptr %282, align 8
   %288 = getelementptr inbounds i64, ptr %287, i64 %286
   %289 = load i64, ptr %288, align 8
-  %290 = getelementptr inbounds i8, ptr %281, i64 856
+  %290 = getelementptr inbounds nuw i8, ptr %281, i64 856
   %291 = load i64, ptr %290, align 8
   %292 = icmp eq i64 %291, 0
   br i1 %292, label %294, label %293
@@ -17739,7 +17739,7 @@ define dso_local void @_ZN5clang13ASTStmtReader26VisitObjCForCollectionStmtEPNS_
   %49 = load ptr, ptr %44, align 8
   %50 = getelementptr inbounds i64, ptr %49, i64 %48
   %51 = load i64, ptr %50, align 8
-  %52 = getelementptr inbounds i8, ptr %43, i64 856
+  %52 = getelementptr inbounds nuw i8, ptr %43, i64 856
   %53 = load i64, ptr %52, align 8
   %54 = icmp eq i64 %53, 0
   br i1 %54, label %56, label %55
@@ -17788,7 +17788,7 @@ _ZN5clang13ASTStmtReader18readSourceLocationEv.exit: ; preds = %56, %57
   %83 = load ptr, ptr %78, align 8
   %84 = getelementptr inbounds i64, ptr %83, i64 %82
   %85 = load i64, ptr %84, align 8
-  %86 = getelementptr inbounds i8, ptr %77, i64 856
+  %86 = getelementptr inbounds nuw i8, ptr %77, i64 856
   %87 = load i64, ptr %86, align 8
   %88 = icmp eq i64 %87, 0
   br i1 %88, label %90, label %89
@@ -17867,7 +17867,7 @@ define dso_local void @_ZN5clang13ASTStmtReader20VisitObjCAtCatchStmtEPNS_15ObjC
   %35 = load ptr, ptr %30, align 8
   %36 = getelementptr inbounds i64, ptr %35, i64 %34
   %37 = load i64, ptr %36, align 8
-  %38 = getelementptr inbounds i8, ptr %29, i64 856
+  %38 = getelementptr inbounds nuw i8, ptr %29, i64 856
   %39 = load i64, ptr %38, align 8
   %40 = icmp eq i64 %39, 0
   br i1 %40, label %42, label %41
@@ -17916,7 +17916,7 @@ _ZN5clang13ASTStmtReader18readSourceLocationEv.exit: ; preds = %42, %43
   %69 = load ptr, ptr %64, align 8
   %70 = getelementptr inbounds i64, ptr %69, i64 %68
   %71 = load i64, ptr %70, align 8
-  %72 = getelementptr inbounds i8, ptr %63, i64 856
+  %72 = getelementptr inbounds nuw i8, ptr %63, i64 856
   %73 = load i64, ptr %72, align 8
   %74 = icmp eq i64 %73, 0
   br i1 %74, label %76, label %75
@@ -17984,7 +17984,7 @@ define dso_local void @_ZN5clang13ASTStmtReader22VisitObjCAtFinallyStmtEPNS_17Ob
   %25 = load ptr, ptr %20, align 8
   %26 = getelementptr inbounds i64, ptr %25, i64 %24
   %27 = load i64, ptr %26, align 8
-  %28 = getelementptr inbounds i8, ptr %19, i64 856
+  %28 = getelementptr inbounds nuw i8, ptr %19, i64 856
   %29 = load i64, ptr %28, align 8
   %30 = icmp eq i64 %29, 0
   br i1 %30, label %32, label %31
@@ -18052,7 +18052,7 @@ define dso_local void @_ZN5clang13ASTStmtReader28VisitObjCAutoreleasePoolStmtEPN
   %25 = load ptr, ptr %20, align 8
   %26 = getelementptr inbounds i64, ptr %25, i64 %24
   %27 = load i64, ptr %26, align 8
-  %28 = getelementptr inbounds i8, ptr %19, i64 856
+  %28 = getelementptr inbounds nuw i8, ptr %19, i64 856
   %29 = load i64, ptr %28, align 8
   %30 = icmp eq i64 %29, 0
   br i1 %30, label %32, label %31
@@ -18189,7 +18189,7 @@ define dso_local void @_ZN5clang13ASTStmtReader18VisitObjCAtTryStmtEPNS_13ObjCAt
   %70 = load ptr, ptr %65, align 8
   %71 = getelementptr inbounds i64, ptr %70, i64 %69
   %72 = load i64, ptr %71, align 8
-  %73 = getelementptr inbounds i8, ptr %64, i64 856
+  %73 = getelementptr inbounds nuw i8, ptr %64, i64 856
   %74 = load i64, ptr %73, align 8
   %75 = icmp eq i64 %74, 0
   br i1 %75, label %77, label %76
@@ -18271,7 +18271,7 @@ define dso_local void @_ZN5clang13ASTStmtReader27VisitObjCAtSynchronizedStmtEPNS
   %37 = load ptr, ptr %32, align 8
   %38 = getelementptr inbounds i64, ptr %37, i64 %36
   %39 = load i64, ptr %38, align 8
-  %40 = getelementptr inbounds i8, ptr %31, i64 856
+  %40 = getelementptr inbounds nuw i8, ptr %31, i64 856
   %41 = load i64, ptr %40, align 8
   %42 = icmp eq i64 %41, 0
   br i1 %42, label %44, label %43
@@ -18339,7 +18339,7 @@ define dso_local void @_ZN5clang13ASTStmtReader20VisitObjCAtThrowStmtEPNS_15ObjC
   %25 = load ptr, ptr %20, align 8
   %26 = getelementptr inbounds i64, ptr %25, i64 %24
   %27 = load i64, ptr %26, align 8
-  %28 = getelementptr inbounds i8, ptr %19, i64 856
+  %28 = getelementptr inbounds nuw i8, ptr %19, i64 856
   %29 = load i64, ptr %28, align 8
   %30 = icmp eq i64 %29, 0
   br i1 %30, label %32, label %31
@@ -18408,7 +18408,7 @@ define dso_local void @_ZN5clang13ASTStmtReader24VisitObjCBoolLiteralExprEPNS_19
   %25 = load ptr, ptr %20, align 8
   %26 = getelementptr inbounds i64, ptr %25, i64 %24
   %27 = load i64, ptr %26, align 8
-  %28 = getelementptr inbounds i8, ptr %19, i64 856
+  %28 = getelementptr inbounds nuw i8, ptr %19, i64 856
   %29 = load i64, ptr %28, align 8
   %30 = icmp eq i64 %29, 0
   br i1 %30, label %32, label %31
@@ -18493,7 +18493,7 @@ define dso_local void @_ZN5clang13ASTStmtReader17VisitCXXCatchStmtEPNS_12CXXCatc
   %13 = load ptr, ptr %8, align 8
   %14 = getelementptr inbounds i64, ptr %13, i64 %12
   %15 = load i64, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %7, i64 856
+  %16 = getelementptr inbounds nuw i8, ptr %7, i64 856
   %17 = load i64, ptr %16, align 8
   %18 = icmp eq i64 %17, 0
   br i1 %18, label %20, label %19
@@ -18577,7 +18577,7 @@ define dso_local void @_ZN5clang13ASTStmtReader15VisitCXXTryStmtEPNS_10CXXTryStm
   %17 = load ptr, ptr %12, align 8
   %18 = getelementptr inbounds i64, ptr %17, i64 %16
   %19 = load i64, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %11, i64 856
+  %20 = getelementptr inbounds nuw i8, ptr %11, i64 856
   %21 = load i64, ptr %20, align 8
   %22 = icmp eq i64 %21, 0
   br i1 %22, label %24, label %23
@@ -18675,7 +18675,7 @@ define dso_local void @_ZN5clang13ASTStmtReader20VisitCXXForRangeStmtEPNS_15CXXF
   %13 = load ptr, ptr %8, align 8
   %14 = getelementptr inbounds i64, ptr %13, i64 %12
   %15 = load i64, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %7, i64 856
+  %16 = getelementptr inbounds nuw i8, ptr %7, i64 856
   %17 = load i64, ptr %16, align 8
   %18 = icmp eq i64 %17, 0
   br i1 %18, label %20, label %19
@@ -18724,7 +18724,7 @@ _ZN5clang13ASTStmtReader18readSourceLocationEv.exit: ; preds = %20, %21
   %47 = load ptr, ptr %42, align 8
   %48 = getelementptr inbounds i64, ptr %47, i64 %46
   %49 = load i64, ptr %48, align 8
-  %50 = getelementptr inbounds i8, ptr %41, i64 856
+  %50 = getelementptr inbounds nuw i8, ptr %41, i64 856
   %51 = load i64, ptr %50, align 8
   %52 = icmp eq i64 %51, 0
   br i1 %52, label %54, label %53
@@ -18773,7 +18773,7 @@ _ZN5clang13ASTStmtReader18readSourceLocationEv.exit20: ; preds = %54, %55
   %81 = load ptr, ptr %76, align 8
   %82 = getelementptr inbounds i64, ptr %81, i64 %80
   %83 = load i64, ptr %82, align 8
-  %84 = getelementptr inbounds i8, ptr %75, i64 856
+  %84 = getelementptr inbounds nuw i8, ptr %75, i64 856
   %85 = load i64, ptr %84, align 8
   %86 = icmp eq i64 %85, 0
   br i1 %86, label %88, label %87
@@ -18822,7 +18822,7 @@ _ZN5clang13ASTStmtReader18readSourceLocationEv.exit24: ; preds = %88, %89
   %115 = load ptr, ptr %110, align 8
   %116 = getelementptr inbounds i64, ptr %115, i64 %114
   %117 = load i64, ptr %116, align 8
-  %118 = getelementptr inbounds i8, ptr %109, i64 856
+  %118 = getelementptr inbounds nuw i8, ptr %109, i64 856
   %119 = load i64, ptr %118, align 8
   %120 = icmp eq i64 %119, 0
   br i1 %120, label %122, label %121
@@ -18989,7 +18989,7 @@ define dso_local void @_ZN5clang13ASTStmtReader26VisitMSDependentExistsStmtEPNS_
   %14 = load ptr, ptr %9, align 8
   %15 = getelementptr inbounds i64, ptr %14, i64 %13
   %16 = load i64, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %8, i64 856
+  %17 = getelementptr inbounds nuw i8, ptr %8, i64 856
   %18 = load i64, ptr %17, align 8
   %19 = icmp eq i64 %18, 0
   br i1 %19, label %21, label %20
@@ -19285,7 +19285,7 @@ define dso_local void @_ZN5clang13ASTStmtReader21VisitCXXConstructExprEPNS_16CXX
   %127 = load ptr, ptr %122, align 8
   %128 = getelementptr inbounds i64, ptr %127, i64 %126
   %129 = load i64, ptr %128, align 8
-  %130 = getelementptr inbounds i8, ptr %121, i64 856
+  %130 = getelementptr inbounds nuw i8, ptr %121, i64 856
   %131 = load i64, ptr %130, align 8
   %132 = icmp eq i64 %131, 0
   br i1 %132, label %134, label %133
@@ -19407,7 +19407,7 @@ define dso_local void @_ZN5clang13ASTStmtReader29VisitCXXInheritedCtorInitExprEP
   %23 = load ptr, ptr %18, align 8
   %24 = getelementptr inbounds i64, ptr %23, i64 %22
   %25 = load i64, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %17, i64 856
+  %26 = getelementptr inbounds nuw i8, ptr %17, i64 856
   %27 = load i64, ptr %26, align 8
   %28 = icmp eq i64 %27, 0
   br i1 %28, label %30, label %29
@@ -19538,7 +19538,7 @@ define dso_local void @_ZN5clang13ASTStmtReader15VisitLambdaExprEPNS_10LambdaExp
   %41 = load ptr, ptr %36, align 8
   %42 = getelementptr inbounds i64, ptr %41, i64 %40
   %43 = load i64, ptr %42, align 8
-  %44 = getelementptr inbounds i8, ptr %35, i64 856
+  %44 = getelementptr inbounds nuw i8, ptr %35, i64 856
   %45 = load i64, ptr %44, align 8
   %46 = icmp eq i64 %45, 0
   br i1 %46, label %48, label %47
@@ -19621,7 +19621,7 @@ _ZN5clang13ASTStmtReader18readSourceLocationEv.exit: ; preds = %48, %49
   %105 = load ptr, ptr %100, align 8
   %106 = getelementptr inbounds i64, ptr %105, i64 %104
   %107 = load i64, ptr %106, align 8
-  %108 = getelementptr inbounds i8, ptr %99, i64 856
+  %108 = getelementptr inbounds nuw i8, ptr %99, i64 856
   %109 = load i64, ptr %108, align 8
   %110 = icmp eq i64 %109, 0
   br i1 %110, label %112, label %111
@@ -19736,7 +19736,7 @@ define dso_local void @_ZN5clang13ASTStmtReader21VisitCXXNamedCastExprEPNS_16CXX
   store i32 %.sroa.2.0.extract.trunc, ptr %15, align 4
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %17 = load i32, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 20
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %19 = load i32, ptr %18, align 4
   %20 = add i32 %19, 1
   store i32 %20, ptr %18, align 4
@@ -19786,7 +19786,7 @@ define dso_local void @_ZN5clang13ASTStmtReader22VisitCXXStaticCastExprEPNS_17CX
   store i32 %.sroa.2.0.extract.trunc.i, ptr %15, align 4
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %17 = load i32, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 20
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %19 = load i32, ptr %18, align 4
   %20 = add i32 %19, 1
   store i32 %20, ptr %18, align 4
@@ -19836,7 +19836,7 @@ define dso_local void @_ZN5clang13ASTStmtReader23VisitCXXDynamicCastExprEPNS_18C
   store i32 %.sroa.2.0.extract.trunc.i, ptr %15, align 4
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %17 = load i32, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 20
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %19 = load i32, ptr %18, align 4
   %20 = add i32 %19, 1
   store i32 %20, ptr %18, align 4
@@ -19886,7 +19886,7 @@ define dso_local void @_ZN5clang13ASTStmtReader27VisitCXXReinterpretCastExprEPNS
   store i32 %.sroa.2.0.extract.trunc.i, ptr %15, align 4
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %17 = load i32, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 20
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %19 = load i32, ptr %18, align 4
   %20 = add i32 %19, 1
   store i32 %20, ptr %18, align 4
@@ -19936,7 +19936,7 @@ define dso_local void @_ZN5clang13ASTStmtReader25VisitCXXAddrspaceCastExprEPNS_2
   store i32 %.sroa.2.0.extract.trunc.i, ptr %15, align 4
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %17 = load i32, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 20
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %19 = load i32, ptr %18, align 4
   %20 = add i32 %19, 1
   store i32 %20, ptr %18, align 4
@@ -19986,7 +19986,7 @@ define dso_local void @_ZN5clang13ASTStmtReader21VisitCXXConstCastExprEPNS_16CXX
   store i32 %.sroa.2.0.extract.trunc.i, ptr %15, align 4
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %17 = load i32, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 20
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %19 = load i32, ptr %18, align 4
   %20 = add i32 %19, 1
   store i32 %20, ptr %18, align 4
@@ -20033,7 +20033,7 @@ define dso_local void @_ZN5clang13ASTStmtReader26VisitCXXFunctionalCastExprEPNS_
   %16 = load ptr, ptr %11, align 8
   %17 = getelementptr inbounds i64, ptr %16, i64 %15
   %18 = load i64, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %10, i64 856
+  %19 = getelementptr inbounds nuw i8, ptr %10, i64 856
   %20 = load i64, ptr %19, align 8
   %21 = icmp eq i64 %20, 0
   br i1 %21, label %23, label %22
@@ -20082,7 +20082,7 @@ _ZN5clang13ASTStmtReader18readSourceLocationEv.exit: ; preds = %23, %24
   %50 = load ptr, ptr %45, align 8
   %51 = getelementptr inbounds i64, ptr %50, i64 %49
   %52 = load i64, ptr %51, align 8
-  %53 = getelementptr inbounds i8, ptr %44, i64 856
+  %53 = getelementptr inbounds nuw i8, ptr %44, i64 856
   %54 = load i64, ptr %53, align 8
   %55 = icmp eq i64 %54, 0
   br i1 %55, label %57, label %56
@@ -20141,7 +20141,7 @@ define dso_local void @_ZN5clang13ASTStmtReader23VisitBuiltinBitCastExprEPNS_18B
   %16 = load ptr, ptr %11, align 8
   %17 = getelementptr inbounds i64, ptr %16, i64 %15
   %18 = load i64, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %10, i64 856
+  %19 = getelementptr inbounds nuw i8, ptr %10, i64 856
   %20 = load i64, ptr %19, align 8
   %21 = icmp eq i64 %20, 0
   br i1 %21, label %23, label %22
@@ -20190,7 +20190,7 @@ _ZN5clang13ASTStmtReader18readSourceLocationEv.exit: ; preds = %23, %24
   %50 = load ptr, ptr %45, align 8
   %51 = getelementptr inbounds i64, ptr %50, i64 %49
   %52 = load i64, ptr %51, align 8
-  %53 = getelementptr inbounds i8, ptr %44, i64 856
+  %53 = getelementptr inbounds nuw i8, ptr %44, i64 856
   %54 = load i64, ptr %53, align 8
   %55 = icmp eq i64 %54, 0
   br i1 %55, label %57, label %56
@@ -20245,7 +20245,7 @@ define dso_local void @_ZN5clang13ASTStmtReader23VisitUserDefinedLiteralEPNS_18U
   %13 = load ptr, ptr %8, align 8
   %14 = getelementptr inbounds i64, ptr %13, i64 %12
   %15 = load i64, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %7, i64 856
+  %16 = getelementptr inbounds nuw i8, ptr %7, i64 856
   %17 = load i64, ptr %16, align 8
   %18 = icmp eq i64 %17, 0
   br i1 %18, label %20, label %19
@@ -20316,7 +20316,7 @@ define dso_local void @_ZN5clang13ASTStmtReader23VisitCXXBoolLiteralExprEPNS_18C
   %26 = load ptr, ptr %21, align 8
   %27 = getelementptr inbounds i64, ptr %26, i64 %25
   %28 = load i64, ptr %27, align 8
-  %29 = getelementptr inbounds i8, ptr %20, i64 856
+  %29 = getelementptr inbounds nuw i8, ptr %20, i64 856
   %30 = load i64, ptr %29, align 8
   %31 = icmp eq i64 %30, 0
   br i1 %31, label %33, label %32
@@ -20371,7 +20371,7 @@ define dso_local void @_ZN5clang13ASTStmtReader26VisitCXXNullPtrLiteralExprEPNS_
   %13 = load ptr, ptr %8, align 8
   %14 = getelementptr inbounds i64, ptr %13, i64 %12
   %15 = load i64, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %7, i64 856
+  %16 = getelementptr inbounds nuw i8, ptr %7, i64 856
   %17 = load i64, ptr %16, align 8
   %18 = icmp eq i64 %17, 0
   br i1 %18, label %20, label %19
@@ -20474,7 +20474,7 @@ define dso_local void @_ZN5clang13ASTStmtReader16VisitCXXThisExprEPNS_11CXXThisE
   %13 = load ptr, ptr %8, align 8
   %14 = getelementptr inbounds i64, ptr %13, i64 %12
   %15 = load i64, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %7, i64 856
+  %16 = getelementptr inbounds nuw i8, ptr %7, i64 856
   %17 = load i64, ptr %16, align 8
   %18 = icmp eq i64 %17, 0
   br i1 %18, label %20, label %19
@@ -20570,7 +20570,7 @@ define dso_local void @_ZN5clang13ASTStmtReader17VisitCXXThrowExprEPNS_12CXXThro
   %13 = load ptr, ptr %8, align 8
   %14 = getelementptr inbounds i64, ptr %13, i64 %12
   %15 = load i64, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %7, i64 856
+  %16 = getelementptr inbounds nuw i8, ptr %7, i64 856
   %17 = load i64, ptr %16, align 8
   %18 = icmp eq i64 %17, 0
   br i1 %18, label %20, label %19
@@ -20687,7 +20687,7 @@ _ZN5clang13ASTStmtReader10readDeclAsINS_11DeclContextEEEPT_v.exit: ; preds = %2,
   %35 = load ptr, ptr %30, align 8
   %36 = getelementptr inbounds i64, ptr %35, i64 %34
   %37 = load i64, ptr %36, align 8
-  %38 = getelementptr inbounds i8, ptr %29, i64 856
+  %38 = getelementptr inbounds nuw i8, ptr %29, i64 856
   %39 = load i64, ptr %38, align 8
   %40 = icmp eq i64 %39, 0
   br i1 %40, label %42, label %41
@@ -20829,7 +20829,7 @@ _ZN5clang13ASTStmtReader10readDeclAsINS_11DeclContextEEEPT_v.exit: ; preds = %2,
   %50 = load ptr, ptr %45, align 8
   %51 = getelementptr inbounds i64, ptr %50, i64 %49
   %52 = load i64, ptr %51, align 8
-  %53 = getelementptr inbounds i8, ptr %44, i64 856
+  %53 = getelementptr inbounds nuw i8, ptr %44, i64 856
   %54 = load i64, ptr %53, align 8
   %55 = icmp eq i64 %54, 0
   br i1 %55, label %57, label %56
@@ -20941,7 +20941,7 @@ define dso_local void @_ZN5clang13ASTStmtReader27VisitCXXScalarValueInitExprEPNS
   %16 = load ptr, ptr %11, align 8
   %17 = getelementptr inbounds i64, ptr %16, i64 %15
   %18 = load i64, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %10, i64 856
+  %19 = getelementptr inbounds nuw i8, ptr %10, i64 856
   %20 = load i64, ptr %19, align 8
   %21 = icmp eq i64 %20, 0
   br i1 %21, label %23, label %22
@@ -21319,7 +21319,7 @@ define dso_local void @_ZN5clang13ASTStmtReader18VisitCXXDeleteExprEPNS_13CXXDel
   %95 = load ptr, ptr %90, align 8
   %96 = getelementptr inbounds i64, ptr %95, i64 %94
   %97 = load i64, ptr %96, align 8
-  %98 = getelementptr inbounds i8, ptr %89, i64 856
+  %98 = getelementptr inbounds nuw i8, ptr %89, i64 856
   %99 = load i64, ptr %98, align 8
   %100 = icmp eq i64 %99, 0
   br i1 %100, label %102, label %101
@@ -21406,7 +21406,7 @@ define dso_local void @_ZN5clang13ASTStmtReader28VisitCXXPseudoDestructorExprEPN
   %41 = load ptr, ptr %36, align 8
   %42 = getelementptr inbounds i64, ptr %41, i64 %40
   %43 = load i64, ptr %42, align 8
-  %44 = getelementptr inbounds i8, ptr %35, i64 856
+  %44 = getelementptr inbounds nuw i8, ptr %35, i64 856
   %45 = load i64, ptr %44, align 8
   %46 = icmp eq i64 %45, 0
   br i1 %46, label %48, label %47
@@ -21467,7 +21467,7 @@ _ZN5clang13ASTStmtReader18readSourceLocationEv.exit: ; preds = %48, %49
   %83 = load ptr, ptr %78, align 8
   %84 = getelementptr inbounds i64, ptr %83, i64 %82
   %85 = load i64, ptr %84, align 8
-  %86 = getelementptr inbounds i8, ptr %77, i64 856
+  %86 = getelementptr inbounds nuw i8, ptr %77, i64 856
   %87 = load i64, ptr %86, align 8
   %88 = icmp eq i64 %87, 0
   br i1 %88, label %90, label %89
@@ -21516,7 +21516,7 @@ _ZN5clang13ASTStmtReader18readSourceLocationEv.exit20: ; preds = %90, %91
   %117 = load ptr, ptr %112, align 8
   %118 = getelementptr inbounds i64, ptr %117, i64 %116
   %119 = load i64, ptr %118, align 8
-  %120 = getelementptr inbounds i8, ptr %111, i64 856
+  %120 = getelementptr inbounds nuw i8, ptr %111, i64 856
   %121 = load i64, ptr %120, align 8
   %122 = icmp eq i64 %121, 0
   br i1 %122, label %124, label %123
@@ -21585,7 +21585,7 @@ _ZN5clang13ASTStmtReader18readSourceLocationEv.exit24: ; preds = %124, %125
   %167 = load ptr, ptr %162, align 8
   %168 = getelementptr inbounds i64, ptr %167, i64 %166
   %169 = load i64, ptr %168, align 8
-  %170 = getelementptr inbounds i8, ptr %161, i64 856
+  %170 = getelementptr inbounds nuw i8, ptr %161, i64 856
   %171 = load i64, ptr %170, align 8
   %172 = icmp eq i64 %171, 0
   br i1 %172, label %174, label %173
@@ -21779,9 +21779,9 @@ _ZNSt8optionalIN5clang12BitsUnpackerEE7emplaceIJmEEENSt9enable_ifIX18is_construc
   %19 = load ptr, ptr %14, align 8
   %20 = getelementptr inbounds i64, ptr %19, i64 %18
   %21 = load i64, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %0, i64 24
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %23 = trunc i64 %21 to i32
-  %24 = getelementptr inbounds i8, ptr %0, i64 20
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 %23, ptr %12, align 8
   store i8 1, ptr %22, align 8
   %25 = and i32 %23, 1
@@ -21895,7 +21895,7 @@ _ZN5clang15ASTRecordReader8readTypeEv.exit:       ; preds = %34, %54
   %97 = load ptr, ptr %92, align 8
   %98 = getelementptr inbounds i64, ptr %97, i64 %96
   %99 = load i64, ptr %98, align 8
-  %100 = getelementptr inbounds i8, ptr %91, i64 856
+  %100 = getelementptr inbounds nuw i8, ptr %91, i64 856
   %101 = load i64, ptr %100, align 8
   %102 = icmp eq i64 %101, 0
   br i1 %102, label %104, label %103
@@ -21983,7 +21983,7 @@ define dso_local void @_ZN5clang13ASTStmtReader30VisitDependentScopeDeclRefExprE
   tail call void @_ZN5clang13ASTStmtReader9VisitExprEPNS_4ExprE(ptr noundef nonnull align 8 dereferenceable(28) %0, ptr noundef %1)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i32, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 20
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %7 = load i32, ptr %6, align 4
   %8 = add i32 %7, 1
   store i32 %8, ptr %6, align 4
@@ -22083,7 +22083,7 @@ define dso_local void @_ZN5clang13ASTStmtReader31VisitCXXUnresolvedConstructExpr
   %40 = load ptr, ptr %35, align 8
   %41 = getelementptr inbounds i64, ptr %40, i64 %39
   %42 = load i64, ptr %41, align 8
-  %43 = getelementptr inbounds i8, ptr %34, i64 856
+  %43 = getelementptr inbounds nuw i8, ptr %34, i64 856
   %44 = load i64, ptr %43, align 8
   %45 = icmp eq i64 %44, 0
   br i1 %45, label %47, label %46
@@ -22132,7 +22132,7 @@ _ZN5clang13ASTStmtReader18readSourceLocationEv.exit: ; preds = %47, %48
   %74 = load ptr, ptr %69, align 8
   %75 = getelementptr inbounds i64, ptr %74, i64 %73
   %76 = load i64, ptr %75, align 8
-  %77 = getelementptr inbounds i8, ptr %68, i64 856
+  %77 = getelementptr inbounds nuw i8, ptr %68, i64 856
   %78 = load i64, ptr %77, align 8
   %79 = icmp eq i64 %78, 0
   br i1 %79, label %81, label %80
@@ -22214,9 +22214,9 @@ _ZNSt8optionalIN5clang12BitsUnpackerEE7emplaceIJmEEENSt9enable_ifIX18is_construc
   %21 = load ptr, ptr %16, align 8
   %22 = getelementptr inbounds i64, ptr %21, i64 %20
   %23 = load i64, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %0, i64 24
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %25 = trunc i64 %23 to i32
-  %26 = getelementptr inbounds i8, ptr %0, i64 20
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 %25, ptr %14, align 8
   store i8 1, ptr %24, align 8
   store i32 1, ptr %26, align 4
@@ -22361,7 +22361,7 @@ define dso_local void @_ZN5clang13ASTStmtReader25VisitUnresolvedMemberExprEPNS_2
   tail call void @_ZN5clang13ASTStmtReader17VisitOverloadExprEPNS_12OverloadExprE(ptr noundef nonnull align 8 dereferenceable(28) %0, ptr noundef %1)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i32, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 20
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %6 = load i32, ptr %5, align 4
   %7 = add i32 %6, 1
   store i32 %7, ptr %5, align 4
@@ -22427,7 +22427,7 @@ define dso_local void @_ZN5clang13ASTStmtReader25VisitUnresolvedMemberExprEPNS_2
   %52 = load ptr, ptr %47, align 8
   %53 = getelementptr inbounds i64, ptr %52, i64 %51
   %54 = load i64, ptr %53, align 8
-  %55 = getelementptr inbounds i8, ptr %46, i64 856
+  %55 = getelementptr inbounds nuw i8, ptr %46, i64 856
   %56 = load i64, ptr %55, align 8
   %57 = icmp eq i64 %56, 0
   br i1 %57, label %59, label %58
@@ -22498,7 +22498,7 @@ define dso_local void @_ZN5clang13ASTStmtReader25VisitUnresolvedLookupExprEPNS_2
   tail call void @_ZN5clang13ASTStmtReader17VisitOverloadExprEPNS_12OverloadExprE(ptr noundef nonnull align 8 dereferenceable(28) %0, ptr noundef %1)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i32, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 20
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %6 = load i32, ptr %5, align 4
   %7 = add i32 %6, 1
   store i32 %7, ptr %5, align 4
@@ -22813,7 +22813,7 @@ define dso_local void @_ZN5clang13ASTStmtReader22VisitPackExpansionExprEPNS_17Pa
   %13 = load ptr, ptr %8, align 8
   %14 = getelementptr inbounds i64, ptr %13, i64 %12
   %15 = load i64, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %7, i64 856
+  %16 = getelementptr inbounds nuw i8, ptr %7, i64 856
   %17 = load i64, ptr %16, align 8
   %18 = icmp eq i64 %17, 0
   br i1 %18, label %20, label %19
@@ -22905,7 +22905,7 @@ define dso_local void @_ZN5clang13ASTStmtReader19VisitSizeOfPackExprEPNS_14SizeO
   %22 = load ptr, ptr %17, align 8
   %23 = getelementptr inbounds i64, ptr %22, i64 %21
   %24 = load i64, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %16, i64 856
+  %25 = getelementptr inbounds nuw i8, ptr %16, i64 856
   %26 = load i64, ptr %25, align 8
   %27 = icmp eq i64 %26, 0
   br i1 %27, label %29, label %28
@@ -22954,7 +22954,7 @@ _ZN5clang13ASTStmtReader18readSourceLocationEv.exit: ; preds = %29, %30
   %56 = load ptr, ptr %51, align 8
   %57 = getelementptr inbounds i64, ptr %56, i64 %55
   %58 = load i64, ptr %57, align 8
-  %59 = getelementptr inbounds i8, ptr %50, i64 856
+  %59 = getelementptr inbounds nuw i8, ptr %50, i64 856
   %60 = load i64, ptr %59, align 8
   %61 = icmp eq i64 %60, 0
   br i1 %61, label %63, label %62
@@ -23003,7 +23003,7 @@ _ZN5clang13ASTStmtReader18readSourceLocationEv.exit20: ; preds = %63, %64
   %90 = load ptr, ptr %85, align 8
   %91 = getelementptr inbounds i64, ptr %90, i64 %89
   %92 = load i64, ptr %91, align 8
-  %93 = getelementptr inbounds i8, ptr %84, i64 856
+  %93 = getelementptr inbounds nuw i8, ptr %84, i64 856
   %94 = load i64, ptr %93, align 8
   %95 = icmp eq i64 %94, 0
   br i1 %95, label %97, label %96
@@ -23484,7 +23484,7 @@ _ZN5clang13serialization21DataStreamBasicReaderINS_15ASTRecordReaderEE9readArray
   %231 = extractvalue { i64, i1 } %229, 0
   %232 = select i1 %230, i64 -1, i64 %231
   %233 = getelementptr inbounds nuw i8, ptr %8, i64 2144
-  %234 = getelementptr inbounds i8, ptr %8, i64 2224
+  %234 = getelementptr inbounds nuw i8, ptr %8, i64 2224
   %235 = load i64, ptr %234, align 8
   %236 = add i64 %232, %235
   store i64 %236, ptr %234, align 8
@@ -23493,7 +23493,7 @@ _ZN5clang13serialization21DataStreamBasicReaderINS_15ASTRecordReaderEE9readArray
   %239 = add i64 %238, 7
   %240 = and i64 %239, -8
   %241 = add i64 %240, %232
-  %242 = getelementptr inbounds i8, ptr %8, i64 2152
+  %242 = getelementptr inbounds nuw i8, ptr %8, i64 2152
   %243 = load ptr, ptr %242, align 8
   %244 = ptrtoint ptr %243 to i64
   %.not.i.i.i.i = icmp ugt i64 %241, %244
@@ -23611,7 +23611,7 @@ define dso_local void @_ZN5clang13ASTStmtReader21VisitPackIndexingExprEPNS_16Pac
   %42 = load ptr, ptr %37, align 8
   %43 = getelementptr inbounds i64, ptr %42, i64 %41
   %44 = load i64, ptr %43, align 8
-  %45 = getelementptr inbounds i8, ptr %36, i64 856
+  %45 = getelementptr inbounds nuw i8, ptr %36, i64 856
   %46 = load i64, ptr %45, align 8
   %47 = icmp eq i64 %46, 0
   br i1 %47, label %49, label %48
@@ -23660,7 +23660,7 @@ _ZN5clang13ASTStmtReader18readSourceLocationEv.exit: ; preds = %49, %50
   %76 = load ptr, ptr %71, align 8
   %77 = getelementptr inbounds i64, ptr %76, i64 %75
   %78 = load i64, ptr %77, align 8
-  %79 = getelementptr inbounds i8, ptr %70, i64 856
+  %79 = getelementptr inbounds nuw i8, ptr %70, i64 856
   %80 = load i64, ptr %79, align 8
   %81 = icmp eq i64 %80, 0
   br i1 %81, label %83, label %82
@@ -23824,7 +23824,7 @@ define dso_local void @_ZN5clang13ASTStmtReader33VisitSubstNonTypeTemplateParmEx
   store i64 %15, ptr %3, align 8
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %17 = load i32, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 20
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %19 = load i32, ptr %18, align 4
   %20 = add i32 %19, 1
   store i32 %20, ptr %18, align 4
@@ -23897,7 +23897,7 @@ define dso_local void @_ZN5clang13ASTStmtReader33VisitSubstNonTypeTemplateParmEx
   %70 = load ptr, ptr %65, align 8
   %71 = getelementptr inbounds i64, ptr %70, i64 %69
   %72 = load i64, ptr %71, align 8
-  %73 = getelementptr inbounds i8, ptr %64, i64 856
+  %73 = getelementptr inbounds nuw i8, ptr %64, i64 856
   %74 = load i64, ptr %73, align 8
   %75 = icmp eq i64 %74, 0
   br i1 %75, label %77, label %76
@@ -24014,7 +24014,7 @@ define dso_local void @_ZN5clang13ASTStmtReader37VisitSubstNonTypeTemplateParmPa
   %52 = load ptr, ptr %47, align 8
   %53 = getelementptr inbounds i64, ptr %52, i64 %51
   %54 = load i64, ptr %53, align 8
-  %55 = getelementptr inbounds i8, ptr %46, i64 856
+  %55 = getelementptr inbounds nuw i8, ptr %46, i64 856
   %56 = load i64, ptr %55, align 8
   %57 = icmp eq i64 %56, 0
   br i1 %57, label %59, label %58
@@ -24096,7 +24096,7 @@ define dso_local void @_ZN5clang13ASTStmtReader25VisitFunctionParmPackExprEPNS_2
   %34 = load ptr, ptr %29, align 8
   %35 = getelementptr inbounds i64, ptr %34, i64 %33
   %36 = load i64, ptr %35, align 8
-  %37 = getelementptr inbounds i8, ptr %28, i64 856
+  %37 = getelementptr inbounds nuw i8, ptr %28, i64 856
   %38 = load i64, ptr %37, align 8
   %39 = icmp eq i64 %38, 0
   br i1 %39, label %41, label %40
@@ -24229,7 +24229,7 @@ define dso_local void @_ZN5clang13ASTStmtReader16VisitCXXFoldExprEPNS_11CXXFoldE
   %13 = load ptr, ptr %8, align 8
   %14 = getelementptr inbounds i64, ptr %13, i64 %12
   %15 = load i64, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %7, i64 856
+  %16 = getelementptr inbounds nuw i8, ptr %7, i64 856
   %17 = load i64, ptr %16, align 8
   %18 = icmp eq i64 %17, 0
   br i1 %18, label %20, label %19
@@ -24278,7 +24278,7 @@ _ZN5clang13ASTStmtReader18readSourceLocationEv.exit: ; preds = %20, %21
   %47 = load ptr, ptr %42, align 8
   %48 = getelementptr inbounds i64, ptr %47, i64 %46
   %49 = load i64, ptr %48, align 8
-  %50 = getelementptr inbounds i8, ptr %41, i64 856
+  %50 = getelementptr inbounds nuw i8, ptr %41, i64 856
   %51 = load i64, ptr %50, align 8
   %52 = icmp eq i64 %51, 0
   br i1 %52, label %54, label %53
@@ -24327,7 +24327,7 @@ _ZN5clang13ASTStmtReader18readSourceLocationEv.exit15: ; preds = %54, %55
   %81 = load ptr, ptr %76, align 8
   %82 = getelementptr inbounds i64, ptr %81, i64 %80
   %83 = load i64, ptr %82, align 8
-  %84 = getelementptr inbounds i8, ptr %75, i64 856
+  %84 = getelementptr inbounds nuw i8, ptr %75, i64 856
   %85 = load i64, ptr %84, align 8
   %86 = icmp eq i64 %85, 0
   br i1 %86, label %88, label %87
@@ -24473,7 +24473,7 @@ define dso_local void @_ZN5clang13ASTStmtReader25VisitCXXParenListInitExprEPNS_2
   %33 = load ptr, ptr %28, align 8
   %34 = getelementptr inbounds i64, ptr %33, i64 %32
   %35 = load i64, ptr %34, align 8
-  %36 = getelementptr inbounds i8, ptr %27, i64 856
+  %36 = getelementptr inbounds nuw i8, ptr %27, i64 856
   %37 = load i64, ptr %36, align 8
   %38 = icmp eq i64 %37, 0
   br i1 %38, label %40, label %39
@@ -24522,7 +24522,7 @@ _ZN5clang13ASTStmtReader18readSourceLocationEv.exit: ; preds = %40, %41
   %67 = load ptr, ptr %62, align 8
   %68 = getelementptr inbounds i64, ptr %67, i64 %66
   %69 = load i64, ptr %68, align 8
-  %70 = getelementptr inbounds i8, ptr %61, i64 856
+  %70 = getelementptr inbounds nuw i8, ptr %61, i64 856
   %71 = load i64, ptr %70, align 8
   %72 = icmp eq i64 %71, 0
   br i1 %72, label %74, label %73
@@ -24571,7 +24571,7 @@ _ZN5clang13ASTStmtReader18readSourceLocationEv.exit20: ; preds = %74, %75
   %101 = load ptr, ptr %96, align 8
   %102 = getelementptr inbounds i64, ptr %101, i64 %100
   %103 = load i64, ptr %102, align 8
-  %104 = getelementptr inbounds i8, ptr %95, i64 856
+  %104 = getelementptr inbounds nuw i8, ptr %95, i64 856
   %105 = load i64, ptr %104, align 8
   %106 = icmp eq i64 %105, 0
   br i1 %106, label %108, label %107
@@ -24739,7 +24739,7 @@ define dso_local void @_ZN5clang13ASTStmtReader20VisitOpaqueValueExprEPNS_15Opaq
   %25 = load ptr, ptr %20, align 8
   %26 = getelementptr inbounds i64, ptr %25, i64 %24
   %27 = load i64, ptr %26, align 8
-  %28 = getelementptr inbounds i8, ptr %19, i64 856
+  %28 = getelementptr inbounds nuw i8, ptr %19, i64 856
   %29 = load i64, ptr %28, align 8
   %30 = icmp eq i64 %29, 0
   br i1 %30, label %32, label %31
@@ -24821,7 +24821,7 @@ define dso_local void @_ZN5clang13ASTStmtReader17VisitRecoveryExprEPNS_12Recover
   %18 = load ptr, ptr %13, align 8
   %19 = getelementptr inbounds i64, ptr %18, i64 %17
   %20 = load i64, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %12, i64 856
+  %21 = getelementptr inbounds nuw i8, ptr %12, i64 856
   %22 = load i64, ptr %21, align 8
   %23 = icmp eq i64 %22, 0
   br i1 %23, label %25, label %24
@@ -24870,7 +24870,7 @@ _ZN5clang13ASTStmtReader18readSourceLocationEv.exit: ; preds = %25, %26
   %52 = load ptr, ptr %47, align 8
   %53 = getelementptr inbounds i64, ptr %52, i64 %51
   %54 = load i64, ptr %53, align 8
-  %55 = getelementptr inbounds i8, ptr %46, i64 856
+  %55 = getelementptr inbounds nuw i8, ptr %46, i64 856
   %56 = load i64, ptr %55, align 8
   %57 = icmp eq i64 %56, 0
   br i1 %57, label %59, label %58
@@ -25032,7 +25032,7 @@ define dso_local void @_ZN5clang13ASTStmtReader22VisitMSPropertyRefExprEPNS_17MS
   %42 = load ptr, ptr %37, align 8
   %43 = getelementptr inbounds i64, ptr %42, i64 %41
   %44 = load i64, ptr %43, align 8
-  %45 = getelementptr inbounds i8, ptr %36, i64 856
+  %45 = getelementptr inbounds nuw i8, ptr %36, i64 856
   %46 = load i64, ptr %45, align 8
   %47 = icmp eq i64 %46, 0
   br i1 %47, label %49, label %48
@@ -25126,7 +25126,7 @@ define dso_local void @_ZN5clang13ASTStmtReader28VisitMSPropertySubscriptExprEPN
   %37 = load ptr, ptr %32, align 8
   %38 = getelementptr inbounds i64, ptr %37, i64 %36
   %39 = load i64, ptr %38, align 8
-  %40 = getelementptr inbounds i8, ptr %31, i64 856
+  %40 = getelementptr inbounds nuw i8, ptr %31, i64 856
   %41 = load i64, ptr %40, align 8
   %42 = icmp eq i64 %41, 0
   br i1 %42, label %44, label %43
@@ -25239,7 +25239,7 @@ define dso_local void @_ZN5clang13ASTStmtReader17VisitSEHLeaveStmtEPNS_12SEHLeav
   %13 = load ptr, ptr %8, align 8
   %14 = getelementptr inbounds i64, ptr %13, i64 %12
   %15 = load i64, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %7, i64 856
+  %16 = getelementptr inbounds nuw i8, ptr %7, i64 856
   %17 = load i64, ptr %16, align 8
   %18 = icmp eq i64 %17, 0
   br i1 %18, label %20, label %19
@@ -25293,7 +25293,7 @@ define dso_local void @_ZN5clang13ASTStmtReader18VisitSEHExceptStmtEPNS_13SEHExc
   %13 = load ptr, ptr %8, align 8
   %14 = getelementptr inbounds i64, ptr %13, i64 %12
   %15 = load i64, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %7, i64 856
+  %16 = getelementptr inbounds nuw i8, ptr %7, i64 856
   %17 = load i64, ptr %16, align 8
   %18 = icmp eq i64 %17, 0
   br i1 %18, label %20, label %19
@@ -25375,7 +25375,7 @@ define dso_local void @_ZN5clang13ASTStmtReader19VisitSEHFinallyStmtEPNS_14SEHFi
   %13 = load ptr, ptr %8, align 8
   %14 = getelementptr inbounds i64, ptr %13, i64 %12
   %15 = load i64, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %7, i64 856
+  %16 = getelementptr inbounds nuw i8, ptr %7, i64 856
   %17 = load i64, ptr %16, align 8
   %18 = icmp eq i64 %17, 0
   br i1 %18, label %20, label %19
@@ -25457,7 +25457,7 @@ define dso_local void @_ZN5clang13ASTStmtReader15VisitSEHTryStmtEPNS_10SEHTryStm
   %25 = load ptr, ptr %20, align 8
   %26 = getelementptr inbounds i64, ptr %25, i64 %24
   %27 = load i64, ptr %26, align 8
-  %28 = getelementptr inbounds i8, ptr %19, i64 856
+  %28 = getelementptr inbounds nuw i8, ptr %19, i64 856
   %29 = load i64, ptr %28, align 8
   %30 = icmp eq i64 %29, 0
   br i1 %30, label %32, label %31
@@ -25564,7 +25564,7 @@ define dso_local void @_ZN5clang13ASTStmtReader15VisitAsTypeExprEPNS_10AsTypeExp
   %13 = load ptr, ptr %8, align 8
   %14 = getelementptr inbounds i64, ptr %13, i64 %12
   %15 = load i64, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %7, i64 856
+  %16 = getelementptr inbounds nuw i8, ptr %7, i64 856
   %17 = load i64, ptr %16, align 8
   %18 = icmp eq i64 %17, 0
   br i1 %18, label %20, label %19
@@ -25613,7 +25613,7 @@ _ZN5clang13ASTStmtReader18readSourceLocationEv.exit: ; preds = %20, %21
   %47 = load ptr, ptr %42, align 8
   %48 = getelementptr inbounds i64, ptr %47, i64 %46
   %49 = load i64, ptr %48, align 8
-  %50 = getelementptr inbounds i8, ptr %41, i64 856
+  %50 = getelementptr inbounds nuw i8, ptr %41, i64 856
   %51 = load i64, ptr %50, align 8
   %52 = icmp eq i64 %51, 0
   br i1 %52, label %54, label %53
@@ -25713,7 +25713,7 @@ define dso_local void @_ZN5clang13ASTStmtReader27VisitOMPExecutableDirectiveEPNS
   %16 = load ptr, ptr %11, align 8
   %17 = getelementptr inbounds i64, ptr %16, i64 %15
   %18 = load i64, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %10, i64 856
+  %19 = getelementptr inbounds nuw i8, ptr %10, i64 856
   %20 = load i64, ptr %19, align 8
   %21 = icmp eq i64 %20, 0
   br i1 %21, label %23, label %22
@@ -25762,7 +25762,7 @@ _ZN5clang13ASTStmtReader18readSourceLocationEv.exit: ; preds = %23, %24
   %50 = load ptr, ptr %45, align 8
   %51 = getelementptr inbounds i64, ptr %50, i64 %49
   %52 = load i64, ptr %51, align 8
-  %53 = getelementptr inbounds i8, ptr %44, i64 856
+  %53 = getelementptr inbounds nuw i8, ptr %44, i64 856
   %54 = load i64, ptr %53, align 8
   %55 = icmp eq i64 %54, 0
   br i1 %55, label %57, label %56
@@ -26828,7 +26828,7 @@ define dso_local void @_ZN5clang13ASTStmtReader25VisitOMPDispatchDirectiveEPNS_2
   %13 = load ptr, ptr %8, align 8
   %14 = getelementptr inbounds i64, ptr %13, i64 %12
   %15 = load i64, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %7, i64 856
+  %16 = getelementptr inbounds nuw i8, ptr %7, i64 856
   %17 = load i64, ptr %16, align 8
   %18 = icmp eq i64 %17, 0
   br i1 %18, label %20, label %19
@@ -26985,7 +26985,7 @@ define dso_local void @_ZN5clang13ASTStmtReader25VisitOpenACCConstructStmtEPNS_2
   %37 = load ptr, ptr %32, align 8
   %38 = getelementptr inbounds i64, ptr %37, i64 %36
   %39 = load i64, ptr %38, align 8
-  %40 = getelementptr inbounds i8, ptr %31, i64 856
+  %40 = getelementptr inbounds nuw i8, ptr %31, i64 856
   %41 = load i64, ptr %40, align 8
   %42 = icmp eq i64 %41, 0
   br i1 %42, label %44, label %43
@@ -27218,13 +27218,13 @@ define dso_local noundef ptr @_ZN5clang9ASTReader18ReadStmtFromStreamERNS_13seri
   store ptr %6, ptr %7, align 8
   %25 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %17, ptr %25, align 8
-  %26 = getelementptr inbounds i8, ptr %7, i64 24
+  %26 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store i8 0, ptr %26, align 8
   %27 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %28 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 9032
-  %30 = getelementptr inbounds i8, ptr %1, i64 2720
-  %31 = getelementptr inbounds i8, ptr %1, i64 2736
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 2720
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 2736
   %32 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 12784
   %34 = getelementptr inbounds i8, ptr %0, i64 12800
@@ -28603,7 +28603,7 @@ _ZN5clang13ObjCBoxedExprC2ENS_4Stmt10EmptyShellE.exit: ; preds = %571, %575
   store i64 0, ptr %576, align 8
   %577 = getelementptr inbounds nuw i8, ptr %572, i64 32
   store i32 0, ptr %577, align 4
-  %578 = getelementptr inbounds i8, ptr %572, i64 36
+  %578 = getelementptr inbounds nuw i8, ptr %572, i64 36
   store i32 0, ptr %578, align 4
   br label %.thread537
 
@@ -29929,7 +29929,7 @@ _ZN5clang13CXXUuidofExprC2ENS_4Stmt10EmptyShellEb.exit: ; preds = %1374, %1378
   %1379 = getelementptr inbounds nuw i8, ptr %1375, i64 8
   %1380 = getelementptr inbounds nuw i8, ptr %1375, i64 32
   store i32 0, ptr %1380, align 4
-  %1381 = getelementptr inbounds i8, ptr %1375, i64 36
+  %1381 = getelementptr inbounds nuw i8, ptr %1375, i64 36
   store i32 0, ptr %1381, align 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1379, i8 0, i64 16, i1 false)
   br label %.thread537
@@ -29988,7 +29988,7 @@ _ZN5clang13CXXUuidofExprC2ENS_4Stmt10EmptyShellEb.exit403: ; preds = %1397, %140
   %1403 = getelementptr inbounds nuw i8, ptr %1398, i64 16
   %1404 = getelementptr inbounds nuw i8, ptr %1398, i64 32
   store i32 0, ptr %1404, align 4
-  %1405 = getelementptr inbounds i8, ptr %1398, i64 36
+  %1405 = getelementptr inbounds nuw i8, ptr %1398, i64 36
   store i32 0, ptr %1405, align 4
   store i64 0, ptr %1402, align 8
   store i64 4, ptr %1403, align 8
@@ -30251,7 +30251,7 @@ _ZN5clang15CXXNoexceptExprC2ENS_4Stmt10EmptyShellE.exit: ; preds = %1551, %1555
   store i64 0, ptr %1556, align 8
   %1557 = getelementptr inbounds nuw i8, ptr %1552, i64 24
   store i32 0, ptr %1557, align 4
-  %1558 = getelementptr inbounds i8, ptr %1552, i64 28
+  %1558 = getelementptr inbounds nuw i8, ptr %1552, i64 28
   store i32 0, ptr %1558, align 4
   br label %.thread537
 
@@ -33961,7 +33961,7 @@ define linkonce_odr hidden void @_ZN4llvm23SmallVectorTemplateBaseINS_15Bitstrea
   %6 = getelementptr inbounds %"struct.llvm::BitstreamCursor::Block", ptr %4, i64 %5
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %6, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %10 = load ptr, ptr %9, align 8
   %.not4.i.i.i.i.i = icmp eq ptr %8, %10
   br i1 %.not4.i.i.i.i.i, label %_ZSt8_DestroyIPSt10shared_ptrIN4llvm13BitCodeAbbrevEES3_EvT_S5_RSaIT0_E.exit.i.i, label %.lr.ph.i.i.i.i.i
@@ -34056,7 +34056,7 @@ _ZSt8_DestroyIPSt10shared_ptrIN4llvm13BitCodeAbbrevEES3_EvT_S5_RSaIT0_E.exit.i.i
   br i1 %.not.i.i.i.i, label %_ZN4llvm15BitstreamCursor5BlockD2Ev.exit, label %49
 
 49:                                               ; preds = %_ZSt8_DestroyIPSt10shared_ptrIN4llvm13BitCodeAbbrevEES3_EvT_S5_RSaIT0_E.exit.i.i
-  %50 = getelementptr inbounds i8, ptr %6, i64 24
+  %50 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %51 = load ptr, ptr %50, align 8
   %52 = ptrtoint ptr %51 to i64
   %53 = ptrtoint ptr %48 to i64
@@ -34960,7 +34960,7 @@ _ZN5clang15ASTRecordReader12readQualTypeEv.exit44: ; preds = %103, %110
   %137 = zext i32 %6 to i64
   %138 = getelementptr inbounds i64, ptr %8, i64 %137
   %139 = load i64, ptr %138, align 8
-  %140 = getelementptr inbounds i8, ptr %2, i64 17384
+  %140 = getelementptr inbounds nuw i8, ptr %2, i64 17384
   %sext = shl i64 %139, 32
   %141 = ashr exact i64 %sext, 32
   %142 = getelementptr inbounds [46 x %"class.clang::detail::CXXOperatorIdName"], ptr %140, i64 0, i64 %141
@@ -35281,7 +35281,7 @@ define linkonce_odr hidden void @_ZN5clang7APValueC2EN4llvm7APFloatE(ptr noundef
   %4 = alloca %"class.llvm::APFloat", align 8
   store i32 0, ptr %0, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   call void @_ZN4llvm6detail9IEEEFloatC1Ed(ptr noundef nonnull align 8 dereferenceable(24) %3, double noundef 0.000000e+00) #18
   %6 = tail call noundef nonnull align 1 ptr @_ZN4llvm11APFloatBase10IEEEdoubleEv() #20
   call void @_ZN4llvm7APFloat7StorageC1ENS_6detail9IEEEFloatERKNS_12fltSemanticsE(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull %3, ptr noundef nonnull align 1 %6) #18
@@ -35314,7 +35314,7 @@ _ZN4llvm7APFloatC2EOS0_.exit:                     ; preds = %11, %12
   br label %_ZN4llvm7APFloatD2Ev.exit
 
 16:                                               ; preds = %_ZN4llvm7APFloatC2EOS0_.exit
-  %17 = getelementptr inbounds i8, ptr %4, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %18 = load ptr, ptr %17, align 8
   %.not.i.i.i.i = icmp eq ptr %18, null
   br i1 %.not.i.i.i.i, label %_ZN4llvm7APFloatD2Ev.exit, label %19
@@ -35335,14 +35335,14 @@ define linkonce_odr hidden void @_ZN5clang7APValueC2EN4llvm7APFloatES2_(ptr noun
   %7 = alloca %"class.llvm::APFloat", align 8
   store i32 0, ptr %0, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
-  %8 = getelementptr inbounds i8, ptr %0, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   call void @_ZN4llvm6detail9IEEEFloatC1Ed(ptr noundef nonnull align 8 dereferenceable(24) %5, double noundef 0.000000e+00) #18
   %9 = tail call noundef nonnull align 1 ptr @_ZN4llvm11APFloatBase10IEEEdoubleEv() #20
   call void @_ZN4llvm7APFloat7StorageC1ENS_6detail9IEEEFloatERKNS_12fltSemanticsE(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull %5, ptr noundef nonnull align 1 %9) #18
   call void @_ZN4llvm6detail9IEEEFloatD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #18
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
-  %10 = getelementptr inbounds i8, ptr %0, i64 48
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 48
   call void @_ZN4llvm6detail9IEEEFloatC1Ed(ptr noundef nonnull align 8 dereferenceable(24) %4, double noundef 0.000000e+00) #18
   call void @_ZN4llvm7APFloat7StorageC1ENS_6detail9IEEEFloatERKNS_12fltSemanticsE(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull %4, ptr noundef nonnull align 1 %9) #18
   call void @_ZN4llvm6detail9IEEEFloatD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #18
@@ -35390,7 +35390,7 @@ _ZN4llvm7APFloatC2EOS0_.exit2:                    ; preds = %20, %21
   br label %_ZN4llvm7APFloatD2Ev.exit
 
 26:                                               ; preds = %_ZN4llvm7APFloatC2EOS0_.exit2
-  %27 = getelementptr inbounds i8, ptr %7, i64 16
+  %27 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %28 = load ptr, ptr %27, align 8
   %.not.i.i.i.i = icmp eq ptr %28, null
   br i1 %.not.i.i.i.i, label %_ZN4llvm6detail13DoubleAPFloatD2Ev.exit.i.i, label %29
@@ -35413,7 +35413,7 @@ _ZN4llvm7APFloatD2Ev.exit:                        ; preds = %25, %_ZN4llvm6detai
   br label %_ZN4llvm7APFloatD2Ev.exit7
 
 32:                                               ; preds = %_ZN4llvm7APFloatD2Ev.exit
-  %33 = getelementptr inbounds i8, ptr %6, i64 16
+  %33 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %34 = load ptr, ptr %33, align 8
   %.not.i.i.i.i5 = icmp eq ptr %34, null
   br i1 %.not.i.i.i.i5, label %_ZN4llvm7APFloatD2Ev.exit7, label %35

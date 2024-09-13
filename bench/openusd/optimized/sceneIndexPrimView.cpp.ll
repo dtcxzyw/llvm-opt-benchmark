@@ -86,7 +86,7 @@ define noundef nonnull align 8 dereferenceable(33) ptr @_ZN32pxrInternal_v0_24__
 
 _ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_16HdSceneIndexBaseEEptEv.exit: ; preds = %9
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %2)
-  %16 = getelementptr inbounds i8, ptr %0, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %17 = load ptr, ptr %16, align 8
   %18 = getelementptr inbounds i8, ptr %17, i64 -32
   %19 = getelementptr inbounds i8, ptr %17, i64 -8
@@ -115,7 +115,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_16HdSceneIndexBaseEEptEv.exit
   %35 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store i64 0, ptr %35, align 8
   %36 = load ptr, ptr %16, align 8
-  %37 = getelementptr inbounds i8, ptr %0, i64 24
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %38 = load ptr, ptr %37, align 8
   %.not.i.i = icmp eq ptr %36, %38
   br i1 %.not.i.i, label %47, label %_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__7SdfPathES1_EvT_S3_RSaIT0_E.exit.i.i.thread
@@ -275,7 +275,7 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7SdfPathESaIS1_EED2Ev.exit: ; pr
 
 104:                                              ; preds = %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7SdfPathESaIS1_EED2Ev.exit, %8
   %105 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %106 = getelementptr inbounds i8, ptr %0, i64 16
+  %106 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %107 = load ptr, ptr %105, align 8
   %108 = load ptr, ptr %106, align 8
   %109 = icmp eq ptr %107, %108
@@ -614,7 +614,7 @@ _ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexPrimView14c
   %56 = getelementptr inbounds i8, ptr %4, i64 32
   store ptr %53, ptr %51, align 8
   %57 = getelementptr inbounds i8, ptr %53, i64 32
-  %58 = getelementptr inbounds i8, ptr %0, i64 24
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %57, ptr %58, align 8
   %59 = invoke noundef ptr @_ZSt16__do_uninit_copyIPKN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexPrimView14const_iterator11_StackFrameEPS3_ET0_T_S8_S7_(ptr noundef nonnull %4, ptr noundef nonnull %56, ptr noundef nonnull %53)
           to label %69 unwind label %60
@@ -627,7 +627,7 @@ _ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexPrimView14c
   br i1 %.not.i.i5.i, label %.body12, label %63
 
 63:                                               ; preds = %60
-  %64 = getelementptr inbounds i8, ptr %0, i64 24
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %65 = load ptr, ptr %64, align 8
   %66 = ptrtoint ptr %65 to i64
   %67 = ptrtoint ptr %62 to i64
@@ -636,7 +636,7 @@ _ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexPrimView14c
   br label %.body12
 
 69:                                               ; preds = %_ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexPrimView14const_iterator11_StackFrameESaIS3_EE11_M_allocateEm.exit.i.i
-  %70 = getelementptr inbounds i8, ptr %0, i64 16
+  %70 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %59, ptr %70, align 8
   %71 = load ptr, ptr %4, align 8
   %72 = getelementptr inbounds i8, ptr %4, i64 8

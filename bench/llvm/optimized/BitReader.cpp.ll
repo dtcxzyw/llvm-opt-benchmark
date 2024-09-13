@@ -81,8 +81,8 @@ define dso_local range(i32 0, 2) i32 @LLVMParseBitcodeInContext(ptr noundef %0, 
   %13 = alloca %"class.std::__cxx11::basic_string", align 8
   call void @_ZNK4llvm12MemoryBuffer15getMemBufferRefEv(ptr dead_on_unwind nonnull writable sret(%"class.llvm::MemoryBufferRef") align 8 %10, ptr noundef nonnull align 8 dereferenceable(24) %1) #12
   %14 = getelementptr inbounds nuw i8, ptr %12, i64 32
-  %15 = getelementptr inbounds i8, ptr %12, i64 72
-  %16 = getelementptr inbounds i8, ptr %12, i64 112
+  %15 = getelementptr inbounds nuw i8, ptr %12, i64 72
+  %16 = getelementptr inbounds nuw i8, ptr %12, i64 112
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %12, i8 0, i64 120, i1 false)
   call void @_ZN4llvm16parseBitcodeFileENS_15MemoryBufferRefERNS_11LLVMContextENS_15ParserCallbacksE(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Expected") align 8 %11, ptr noundef nonnull byval(%"class.llvm::MemoryBufferRef") align 8 %10, ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %12) #12
   %17 = getelementptr inbounds nuw i8, ptr %12, i64 80
@@ -92,7 +92,7 @@ define dso_local range(i32 0, 2) i32 @LLVMParseBitcodeInContext(ptr noundef %0, 
 
 20:                                               ; preds = %4
   store i8 0, ptr %16, align 8
-  %21 = getelementptr inbounds i8, ptr %12, i64 96
+  %21 = getelementptr inbounds nuw i8, ptr %12, i64 96
   %22 = load ptr, ptr %21, align 8
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %22, null
   br i1 %.not.i.i.i.i.i.i.i.i, label %_ZNSt8optionalISt8functionIFvPPN4llvm8MetadataEjS0_IFPNS1_4TypeEjEES0_IFjjjEEEEED2Ev.exit.i, label %23
@@ -109,7 +109,7 @@ _ZNSt8optionalISt8functionIFvPPN4llvm8MetadataEjS0_IFPNS1_4TypeEjEES0_IFjjjEEEEE
 
 28:                                               ; preds = %_ZNSt8optionalISt8functionIFvPPN4llvm8MetadataEjS0_IFPNS1_4TypeEjEES0_IFjjjEEEEED2Ev.exit.i
   store i8 0, ptr %15, align 8
-  %29 = getelementptr inbounds i8, ptr %12, i64 56
+  %29 = getelementptr inbounds nuw i8, ptr %12, i64 56
   %30 = load ptr, ptr %29, align 8
   %.not.i.i.i.i.i.i.i1.i = icmp eq ptr %30, null
   br i1 %.not.i.i.i.i.i.i.i1.i, label %_ZNSt8optionalISt8functionIFvPN4llvm5ValueEjS0_IFPNS1_4TypeEjEES0_IFjjjEEEEED2Ev.exit.i, label %31
@@ -165,7 +165,7 @@ _ZN4llvm8ExpectedISt10unique_ptrINS_6ModuleESt14default_deleteIS2_EEE9takeErrorE
 50:                                               ; preds = %45
   %51 = getelementptr inbounds nuw i8, ptr %44, i64 8
   %52 = load ptr, ptr %51, align 8, !noalias !7
-  %53 = getelementptr inbounds i8, ptr %44, i64 16
+  %53 = getelementptr inbounds nuw i8, ptr %44, i64 16
   %54 = load ptr, ptr %53, align 8, !noalias !7
   %.not3233.i.i = icmp eq ptr %52, %54
   br i1 %.not3233.i.i, label %_ZN4llvm5ErrorD2Ev.exit, label %.lr.ph.i.i
@@ -332,8 +332,8 @@ define dso_local range(i32 0, 2) i32 @LLVMParseBitcodeInContext2(ptr noundef %0,
   %7 = alloca %"struct.llvm::ParserCallbacks", align 8
   call void @_ZNK4llvm12MemoryBuffer15getMemBufferRefEv(ptr dead_on_unwind nonnull writable sret(%"class.llvm::MemoryBufferRef") align 8 %5, ptr noundef nonnull align 8 dereferenceable(24) %1) #12
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 32
-  %9 = getelementptr inbounds i8, ptr %7, i64 72
-  %10 = getelementptr inbounds i8, ptr %7, i64 112
+  %9 = getelementptr inbounds nuw i8, ptr %7, i64 72
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 112
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %7, i8 0, i64 120, i1 false)
   call void @_ZN4llvm16parseBitcodeFileENS_15MemoryBufferRefERNS_11LLVMContextENS_15ParserCallbacksE(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Expected") align 8 %6, ptr noundef nonnull byval(%"class.llvm::MemoryBufferRef") align 8 %5, ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %7) #12
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
@@ -408,7 +408,7 @@ _ZN4llvm8ExpectedISt10unique_ptrINS_6ModuleESt14default_deleteIS2_EEED2Ev.exit: 
 
 37:                                               ; preds = %_ZN4llvm8ExpectedISt10unique_ptrINS_6ModuleESt14default_deleteIS2_EEED2Ev.exit
   store i8 0, ptr %10, align 8
-  %38 = getelementptr inbounds i8, ptr %7, i64 96
+  %38 = getelementptr inbounds nuw i8, ptr %7, i64 96
   %39 = load ptr, ptr %38, align 8
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %39, null
   br i1 %.not.i.i.i.i.i.i.i.i, label %_ZNSt8optionalISt8functionIFvPPN4llvm8MetadataEjS0_IFPNS1_4TypeEjEES0_IFjjjEEEEED2Ev.exit.i, label %40
@@ -425,7 +425,7 @@ _ZNSt8optionalISt8functionIFvPPN4llvm8MetadataEjS0_IFPNS1_4TypeEjEES0_IFjjjEEEEE
 
 45:                                               ; preds = %_ZNSt8optionalISt8functionIFvPPN4llvm8MetadataEjS0_IFPNS1_4TypeEjEES0_IFjjjEEEEED2Ev.exit.i
   store i8 0, ptr %9, align 8
-  %46 = getelementptr inbounds i8, ptr %7, i64 56
+  %46 = getelementptr inbounds nuw i8, ptr %7, i64 56
   %47 = load ptr, ptr %46, align 8
   %.not.i.i.i.i.i.i.i1.i = icmp eq ptr %47, null
   br i1 %.not.i.i.i.i.i.i.i1.i, label %_ZNSt8optionalISt8functionIFvPN4llvm5ValueEjS0_IFPNS1_4TypeEjEES0_IFjjjEEEEED2Ev.exit.i, label %48
@@ -495,8 +495,8 @@ define dso_local range(i32 0, 2) i32 @LLVMGetBitcodeModuleInContext(ptr noundef 
   %13 = alloca %"class.std::__cxx11::basic_string", align 8
   store ptr %1, ptr %10, align 8
   %14 = getelementptr inbounds nuw i8, ptr %12, i64 32
-  %15 = getelementptr inbounds i8, ptr %12, i64 72
-  %16 = getelementptr inbounds i8, ptr %12, i64 112
+  %15 = getelementptr inbounds nuw i8, ptr %12, i64 72
+  %16 = getelementptr inbounds nuw i8, ptr %12, i64 112
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %12, i8 0, i64 120, i1 false)
   call void @_ZN4llvm26getOwningLazyBitcodeModuleEOSt10unique_ptrINS_12MemoryBufferESt14default_deleteIS1_EERNS_11LLVMContextEbbNS_15ParserCallbacksE(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Expected") align 8 %11, ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(8) %0, i1 noundef zeroext false, i1 noundef zeroext false, ptr noundef nonnull %12) #12
   %17 = getelementptr inbounds nuw i8, ptr %12, i64 80
@@ -506,7 +506,7 @@ define dso_local range(i32 0, 2) i32 @LLVMGetBitcodeModuleInContext(ptr noundef 
 
 20:                                               ; preds = %4
   store i8 0, ptr %16, align 8
-  %21 = getelementptr inbounds i8, ptr %12, i64 96
+  %21 = getelementptr inbounds nuw i8, ptr %12, i64 96
   %22 = load ptr, ptr %21, align 8
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %22, null
   br i1 %.not.i.i.i.i.i.i.i.i, label %_ZNSt8optionalISt8functionIFvPPN4llvm8MetadataEjS0_IFPNS1_4TypeEjEES0_IFjjjEEEEED2Ev.exit.i, label %23
@@ -523,7 +523,7 @@ _ZNSt8optionalISt8functionIFvPPN4llvm8MetadataEjS0_IFPNS1_4TypeEjEES0_IFjjjEEEEE
 
 28:                                               ; preds = %_ZNSt8optionalISt8functionIFvPPN4llvm8MetadataEjS0_IFPNS1_4TypeEjEES0_IFjjjEEEEED2Ev.exit.i
   store i8 0, ptr %15, align 8
-  %29 = getelementptr inbounds i8, ptr %12, i64 56
+  %29 = getelementptr inbounds nuw i8, ptr %12, i64 56
   %30 = load ptr, ptr %29, align 8
   %.not.i.i.i.i.i.i.i1.i = icmp eq ptr %30, null
   br i1 %.not.i.i.i.i.i.i.i1.i, label %_ZNSt8optionalISt8functionIFvPN4llvm5ValueEjS0_IFPNS1_4TypeEjEES0_IFjjjEEEEED2Ev.exit.i, label %31
@@ -580,7 +580,7 @@ _ZN4llvm8ExpectedISt10unique_ptrINS_6ModuleESt14default_deleteIS2_EEE9takeErrorE
 50:                                               ; preds = %45
   %51 = getelementptr inbounds nuw i8, ptr %44, i64 8
   %52 = load ptr, ptr %51, align 8, !noalias !33
-  %53 = getelementptr inbounds i8, ptr %44, i64 16
+  %53 = getelementptr inbounds nuw i8, ptr %44, i64 16
   %54 = load ptr, ptr %53, align 8, !noalias !33
   %.not3233.i.i = icmp eq ptr %52, %54
   br i1 %.not3233.i.i, label %_ZN4llvm5ErrorD2Ev.exit, label %.lr.ph.i.i
@@ -753,8 +753,8 @@ define dso_local range(i32 0, 2) i32 @LLVMGetBitcodeModuleInContext2(ptr noundef
   %7 = alloca %"struct.llvm::ParserCallbacks", align 8
   store ptr %1, ptr %5, align 8
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 32
-  %9 = getelementptr inbounds i8, ptr %7, i64 72
-  %10 = getelementptr inbounds i8, ptr %7, i64 112
+  %9 = getelementptr inbounds nuw i8, ptr %7, i64 72
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 112
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %7, i8 0, i64 120, i1 false)
   call void @_ZN4llvm26getOwningLazyBitcodeModuleEOSt10unique_ptrINS_12MemoryBufferESt14default_deleteIS1_EERNS_11LLVMContextEbbNS_15ParserCallbacksE(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Expected") align 8 %6, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %0, i1 noundef zeroext false, i1 noundef zeroext false, ptr noundef nonnull %7) #12
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
@@ -829,7 +829,7 @@ _ZN4llvm8ExpectedISt10unique_ptrINS_6ModuleESt14default_deleteIS2_EEED2Ev.exit: 
 
 37:                                               ; preds = %_ZN4llvm8ExpectedISt10unique_ptrINS_6ModuleESt14default_deleteIS2_EEED2Ev.exit
   store i8 0, ptr %10, align 8
-  %38 = getelementptr inbounds i8, ptr %7, i64 96
+  %38 = getelementptr inbounds nuw i8, ptr %7, i64 96
   %39 = load ptr, ptr %38, align 8
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %39, null
   br i1 %.not.i.i.i.i.i.i.i.i, label %_ZNSt8optionalISt8functionIFvPPN4llvm8MetadataEjS0_IFPNS1_4TypeEjEES0_IFjjjEEEEED2Ev.exit.i, label %40
@@ -846,7 +846,7 @@ _ZNSt8optionalISt8functionIFvPPN4llvm8MetadataEjS0_IFPNS1_4TypeEjEES0_IFjjjEEEEE
 
 45:                                               ; preds = %_ZNSt8optionalISt8functionIFvPPN4llvm8MetadataEjS0_IFPNS1_4TypeEjEES0_IFjjjEEEEED2Ev.exit.i
   store i8 0, ptr %9, align 8
-  %46 = getelementptr inbounds i8, ptr %7, i64 56
+  %46 = getelementptr inbounds nuw i8, ptr %7, i64 56
   %47 = load ptr, ptr %46, align 8
   %.not.i.i.i.i.i.i.i1.i = icmp eq ptr %47, null
   br i1 %.not.i.i.i.i.i.i.i1.i, label %_ZNSt8optionalISt8functionIFvPN4llvm5ValueEjS0_IFPNS1_4TypeEjEES0_IFjjjEEEEED2Ev.exit.i, label %48
@@ -954,14 +954,14 @@ _ZNK4llvm5Error3isAINS_9ErrorListEEEbv.exit9:     ; preds = %17
   store ptr null, ptr %2, align 8, !noalias !57
   %25 = getelementptr inbounds nuw i8, ptr %.pre52, i64 8
   %26 = load ptr, ptr %25, align 8
-  %27 = getelementptr inbounds i8, ptr %.pre52, i64 16
+  %27 = getelementptr inbounds nuw i8, ptr %.pre52, i64 16
   %28 = load ptr, ptr %27, align 8
   %.not4849 = icmp eq ptr %26, %28
   br i1 %.not4849, label %_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i, label %.lr.ph
 
 .lr.ph:                                           ; preds = %24
-  %29 = getelementptr inbounds i8, ptr %18, i64 16
-  %30 = getelementptr inbounds i8, ptr %18, i64 24
+  %29 = getelementptr inbounds nuw i8, ptr %18, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %18, i64 24
   %31 = getelementptr inbounds nuw i8, ptr %18, i64 8
   br label %32
 
@@ -1006,9 +1006,9 @@ _ZNK4llvm5Error3isAINS_9ErrorListEEEbv.exit9.thread: ; preds = %17, %_ZNK4llvm5E
   tail call void @llvm.experimental.noalias.scope.decl(metadata !60)
   store ptr %44, ptr %4, align 8, !alias.scope !60
   store ptr null, ptr %2, align 8, !noalias !60
-  %45 = getelementptr inbounds i8, ptr %18, i64 16
+  %45 = getelementptr inbounds nuw i8, ptr %18, i64 16
   %46 = load ptr, ptr %45, align 8
-  %47 = getelementptr inbounds i8, ptr %18, i64 24
+  %47 = getelementptr inbounds nuw i8, ptr %18, i64 24
   %48 = load ptr, ptr %47, align 8
   %.not.i.i11 = icmp eq ptr %46, %48
   br i1 %.not.i.i11, label %_ZNSt6vectorISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_EE9push_backEOS5_.exit12, label %_ZNSt6vectorISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_EE9push_backEOS5_.exit12.thread
@@ -1065,9 +1065,9 @@ _ZNK4llvm5Error3isAINS_9ErrorListEEEbv.exit17:    ; preds = %57
   %69 = ptrtoint ptr %66 to i64
   %70 = ptrtoint ptr %68 to i64
   %71 = sub i64 %69, %70
-  %72 = getelementptr inbounds i8, ptr %64, i64 16
+  %72 = getelementptr inbounds nuw i8, ptr %64, i64 16
   %73 = load ptr, ptr %72, align 8
-  %74 = getelementptr inbounds i8, ptr %64, i64 24
+  %74 = getelementptr inbounds nuw i8, ptr %64, i64 24
   %75 = load ptr, ptr %74, align 8
   %.not.i.i18 = icmp eq ptr %73, %75
   %76 = ptrtoint ptr %67 to i64
@@ -1171,10 +1171,10 @@ _ZNK4llvm5Error3isAINS_9ErrorListEEEbv.exit17.thread: ; preds = %57, %_ZNK4llvm5
   store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN4llvm9ErrorListE, i64 16), ptr %110, align 8
   %113 = getelementptr inbounds nuw i8, ptr %110, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %113, i8 0, i64 24, i1 false)
-  %114 = getelementptr inbounds i8, ptr %110, i64 16
+  %114 = getelementptr inbounds nuw i8, ptr %110, i64 16
   call void @_ZNSt6vectorISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %113, ptr null, ptr noundef nonnull align 8 dereferenceable(8) %6)
   %.pre.i = load ptr, ptr %114, align 8
-  %115 = getelementptr inbounds i8, ptr %110, i64 24
+  %115 = getelementptr inbounds nuw i8, ptr %110, i64 24
   %.pre3.i = load ptr, ptr %115, align 8
   %.not.i.i1.i = icmp eq ptr %.pre.i, %.pre3.i
   br i1 %.not.i.i1.i, label %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit24, label %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit24.thread

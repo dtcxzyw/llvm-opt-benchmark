@@ -174,7 +174,7 @@ define void @_ZN3g2o18EdgeSE2SensorCalibC2Ev(ptr noundef nonnull align 16 derefe
   %3 = getelementptr inbounds i8, ptr %0, i64 40
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 176
   store double 0.000000e+00, ptr %4, align 16
-  %5 = getelementptr inbounds i8, ptr %0, i64 192
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 192
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %5, i8 0, i64 16, i1 false)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i32 3, ptr %6, align 8
@@ -202,7 +202,7 @@ define void @_ZN3g2o18EdgeSE2SensorCalibC2Ev(ptr noundef nonnull align 16 derefe
   store ptr null, ptr %16, align 8
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr null, ptr %2, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %19 = load ptr, ptr %18, align 16
   %20 = load ptr, ptr %17, align 8
   %21 = ptrtoint ptr %19 to i64
@@ -242,7 +242,7 @@ define void @_ZN3g2o18EdgeSE2SensorCalibC2Ev(ptr noundef nonnull align 16 derefe
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN3g2o18EdgeSE2SensorCalibE, i64 264), ptr %3, align 8
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 464
   store double 0.000000e+00, ptr %35, align 16
-  %36 = getelementptr inbounds i8, ptr %0, i64 480
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 480
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %36, i8 0, i64 16, i1 false)
   ret void
 }
@@ -321,9 +321,9 @@ _ZNKSt3setIPN3g2o10HyperGraph6VertexESt4lessIS3_ESaIS3_EE5countERKS3_.exit.threa
   %27 = getelementptr inbounds nuw i8, ptr %.sink189, i64 176
   %28 = getelementptr inbounds nuw i8, ptr %10, i64 176
   %29 = load double, ptr %27, align 16, !noalias !12
-  %30 = getelementptr inbounds i8, ptr %.sink189, i64 192
+  %30 = getelementptr inbounds nuw i8, ptr %.sink189, i64 192
   %.sroa.263.16.copyload = load <2 x double>, ptr %30, align 16
-  %31 = getelementptr inbounds i8, ptr %10, i64 192
+  %31 = getelementptr inbounds nuw i8, ptr %10, i64 192
   %32 = tail call double @sin(double noundef %29) #18, !noalias !12
   %33 = tail call double @cos(double noundef %29) #18, !noalias !12
   %34 = fneg double %32
@@ -346,7 +346,7 @@ _ZNKSt3setIPN3g2o10HyperGraph6VertexESt4lessIS3_ESaIS3_EE5countERKS3_.exit.threa
   %.0.v.i.i.i42 = select i1 %46, double 0xC00921FB54442D18, double 0x400921FB54442D18
   %.0.i.i.i43 = fadd double %45, %.0.v.i.i.i42
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink162
-  %48 = getelementptr inbounds i8, ptr %0, i64 %.sink161
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink161
   %49 = tail call double @sin(double noundef %.0.i.i.i43) #18, !noalias !12
   %50 = tail call double @cos(double noundef %.0.i.i.i43) #18, !noalias !12
   %51 = fneg double %49
@@ -414,7 +414,7 @@ _ZNKSt3setIPN3g2o10HyperGraph6VertexESt4lessIS3_ESaIS3_EE5countERKS3_.exit.threa
   %.0.i.i.i61 = fadd double %94, %.0.v.i.i.i60
   %96 = getelementptr inbounds nuw i8, ptr %.sink92, i64 176
   store double %.0.i.i.i61, ptr %96, align 16
-  %97 = getelementptr inbounds i8, ptr %.sink92, i64 192
+  %97 = getelementptr inbounds nuw i8, ptr %.sink92, i64 192
   store <2 x double> %91, ptr %97, align 16
   %98 = load ptr, ptr %.sink92, align 16
   %99 = getelementptr inbounds i8, ptr %98, i64 216
@@ -471,7 +471,7 @@ _ZN3g2o8internal10readVectorIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEEEEbRSiRNS2_9D
   %28 = getelementptr inbounds i8, ptr %3, i64 16
   %29 = load i64, ptr %28, align 8
   store i64 %29, ptr %24, align 16
-  %30 = getelementptr inbounds i8, ptr %0, i64 192
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 192
   store double %25, ptr %30, align 16
   %.sroa.4.16..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 200
   store double %27, ptr %.sroa.4.16..sroa_idx.i, align 8
@@ -501,7 +501,7 @@ _ZN3g2o8internal10readVectorIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEEEEbRSiRNS2_9D
   %47 = fadd <2 x double> %41, %46
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 464
   store double %.0.i.i, ptr %48, align 16
-  %49 = getelementptr inbounds i8, ptr %0, i64 480
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 480
   store <2 x double> %47, ptr %49, align 16
   %50 = call noundef zeroext i1 @_ZN3g2o8BaseEdgeILi3ENS_3SE2EE21readInformationMatrixERSi(ptr noundef nonnull align 16 dereferenceable(304) %0, ptr noundef nonnull align 8 dereferenceable(16) %1)
   ret i1 %50
@@ -585,7 +585,7 @@ define noundef zeroext i1 @_ZNK3g2o18EdgeSE2SensorCalib5writeERSo(ptr nocapture 
   %3 = alloca %"class.Eigen::Matrix.28", align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 176
   tail call void @llvm.experimental.noalias.scope.decl(metadata !31)
-  %5 = getelementptr inbounds i8, ptr %0, i64 192
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %6 = getelementptr inbounds i8, ptr %0, i64 200
   %7 = load double, ptr %4, align 16, !noalias !31
   %8 = load double, ptr %5, align 16, !noalias !31
@@ -715,9 +715,9 @@ define linkonce_odr void @_ZN3g2o18EdgeSE2SensorCalib12computeErrorEv(ptr nounde
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 464
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 176
   %13 = load double, ptr %9, align 16, !noalias !37
-  %14 = getelementptr inbounds i8, ptr %4, i64 192
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 192
   %.sroa.226.16.copyload = load <2 x double>, ptr %14, align 16
-  %15 = getelementptr inbounds i8, ptr %8, i64 192
+  %15 = getelementptr inbounds nuw i8, ptr %8, i64 192
   %16 = tail call double @sin(double noundef %13) #18, !noalias !40
   %17 = tail call double @cos(double noundef %13) #18, !noalias !40
   %18 = fneg double %16
@@ -762,7 +762,7 @@ define linkonce_odr void @_ZN3g2o18EdgeSE2SensorCalib12computeErrorEv(ptr nounde
   %43 = shufflevector <2 x double> %42, <2 x double> poison, <2 x i32> zeroinitializer
   %44 = fmul <2 x double> %.sroa.3.24.vec.insert.i.i.i.i, %43
   %45 = fadd <2 x double> %40, %44
-  %46 = getelementptr inbounds i8, ptr %6, i64 192
+  %46 = getelementptr inbounds nuw i8, ptr %6, i64 192
   %47 = tail call double @sin(double noundef %.0.i.i) #18, !noalias !60
   %48 = tail call double @cos(double noundef %.0.i.i) #18, !noalias !60
   %49 = fneg double %47
@@ -806,7 +806,7 @@ define linkonce_odr void @_ZN3g2o18EdgeSE2SensorCalib12computeErrorEv(ptr nounde
   %.0.v.i.i.i17 = select i1 %76, double 0xC00921FB54442D18, double 0x400921FB54442D18
   %.0.i.i.i18 = fadd double %75, %.0.v.i.i.i17
   %77 = load double, ptr %11, align 16, !noalias !78
-  %78 = getelementptr inbounds i8, ptr %0, i64 480
+  %78 = getelementptr inbounds nuw i8, ptr %0, i64 480
   %.sroa.236.16.copyload = load <2 x double>, ptr %78, align 16
   %79 = tail call double @sin(double noundef %77) #18, !noalias !81
   %80 = tail call double @cos(double noundef %77) #18, !noalias !81
@@ -1264,7 +1264,7 @@ define linkonce_odr void @_ZN3g2o18EdgeSE2SensorCalib14setMeasurementERKNS_3SE2E
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %4 = load i64, ptr %1, align 16
   store i64 %4, ptr %3, align 16
-  %5 = getelementptr inbounds i8, ptr %0, i64 192
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %7 = load <2 x double>, ptr %6, align 16
   store <2 x double> %7, ptr %5, align 16
@@ -1295,7 +1295,7 @@ define linkonce_odr void @_ZN3g2o18EdgeSE2SensorCalib14setMeasurementERKNS_3SE2E
   %26 = fadd <2 x double> %19, %25
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 464
   store double %.0.i.i, ptr %27, align 16
-  %28 = getelementptr inbounds i8, ptr %0, i64 480
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 480
   store <2 x double> %26, ptr %28, align 16
   ret void
 }
@@ -1393,7 +1393,7 @@ define linkonce_odr void @_ZN3g2o8BaseEdgeILi3ENS_3SE2EE14setMeasurementERKS1_(p
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %4 = load i64, ptr %1, align 16
   store i64 %4, ptr %3, align 16
-  %5 = getelementptr inbounds i8, ptr %0, i64 192
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %7 = load <2 x double>, ptr %6, align 16
   store <2 x double> %7, ptr %5, align 16
@@ -1806,7 +1806,7 @@ _ZN5Eigen7NoAliasINS_3MapINS_6MatrixIdLi3ELi3ELi0ELi3ELi3EEELi0ENS_6StrideILi0EL
   %134 = getelementptr inbounds nuw i8, ptr %8, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(10) %134, ptr noundef nonnull align 8 dereferenceable(10) %.sroa.020.i, i64 10, i1 false)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %9)
-  %135 = getelementptr inbounds i8, ptr %8, i64 32
+  %135 = getelementptr inbounds nuw i8, ptr %8, i64 32
   store ptr %1, ptr %135, align 8, !alias.scope !114
   call void @_ZN5Eigen8internal26call_dense_assignment_loopINS_3MapINS_6MatrixIdLi3ELi3ELi0ELi3ELi3EEELi0ENS_6StrideILi0ELi0EEEEENS_7ProductINS_9TransposeIKNS2_IS4_Li16ES6_EEEENS9_IKNS8_ISC_S4_Li0EEEEELi1EEENS0_13add_assign_opIddEEEEvRT_RKT0_RKT1_(ptr noundef nonnull align 8 dereferenceable(12) %133, ptr noundef nonnull align 8 dereferenceable(40) %8, ptr noundef nonnull align 1 dereferenceable(1) %9)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %8)
@@ -1942,7 +1942,7 @@ _ZN5Eigen7NoAliasINS_3MapINS_6MatrixIdLi3ELi3ELi0ELi3ELi3EEELi0ENS_6StrideILi0EL
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %26 = load ptr, ptr %25, align 8, !noalias !123
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %10)
-  %27 = getelementptr inbounds i8, ptr %9, i64 32
+  %27 = getelementptr inbounds nuw i8, ptr %9, i64 32
   store ptr %26, ptr %27, align 8, !alias.scope !126
   call void @_ZN5Eigen8internal26call_dense_assignment_loopINS_3MapINS_6MatrixIdLi3ELi3ELi0ELi3ELi3EEELi0ENS_6StrideILi0ELi0EEEEENS_7ProductINS_9TransposeIKNS2_IS4_Li16ES6_EEEENS9_IKNS8_ISC_S4_Li0EEEEELi1EEENS0_13add_assign_opIddEEEEvRT_RKT0_RKT1_(ptr noundef nonnull align 8 dereferenceable(12) %23, ptr noundef nonnull align 8 dereferenceable(40) %9, ptr noundef nonnull align 1 dereferenceable(1) %10)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %9)
@@ -1990,7 +1990,7 @@ _ZN5Eigen7NoAliasINS_3MapINS_6MatrixIdLi3ELi3ELi0ELi3ELi3EEELi0ENS_6StrideILi0EL
   %46 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %47 = load ptr, ptr %46, align 8, !noalias !135
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6)
-  %48 = getelementptr inbounds i8, ptr %5, i64 32
+  %48 = getelementptr inbounds nuw i8, ptr %5, i64 32
   store ptr %47, ptr %48, align 8, !alias.scope !138
   call void @_ZN5Eigen8internal26call_dense_assignment_loopINS_3MapINS_6MatrixIdLi3ELi3ELi0ELi3ELi3EEELi0ENS_6StrideILi0ELi0EEEEENS_7ProductINS_9TransposeIKNS2_IS4_Li16ES6_EEEENS9_IKNS8_ISC_S4_Li0EEEEELi1EEENS0_13add_assign_opIddEEEEvRT_RKT0_RKT1_(ptr noundef nonnull align 8 dereferenceable(12) %44, ptr noundef nonnull align 8 dereferenceable(40) %5, ptr noundef nonnull align 1 dereferenceable(1) %6)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5)
@@ -2197,7 +2197,7 @@ define linkonce_odr void @_ZN5Eigen8internal26call_dense_assignment_loopINS_3Map
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %4)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %8, ptr %4, align 8
-  %9 = getelementptr inbounds i8, ptr %1, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %10 = load ptr, ptr %9, align 8
   %.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i.i.i = load ptr, ptr %7, align 8
   %11 = load <2 x double>, ptr %.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 1

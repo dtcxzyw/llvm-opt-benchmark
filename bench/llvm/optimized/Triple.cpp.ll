@@ -1157,7 +1157,7 @@ define internal fastcc noundef i32 @_ZL9parseArchN4llvm9StringRefE(ptr %0, i64 %
   store ptr %0, ptr %12, align 8
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %12, i64 8
   store i64 %1, ptr %.sroa.2.0..sroa_idx.i, align 8
-  %27 = getelementptr inbounds i8, ptr %12, i64 20
+  %27 = getelementptr inbounds nuw i8, ptr %12, i64 20
   store i8 0, ptr %27, align 4
   %28 = getelementptr inbounds nuw i8, ptr %12, i64 16
   switch i64 %1, label %_ZN4llvm12StringSwitchINS_6Triple8ArchTypeES2_E4CaseENS_13StringLiteralES2_.exit [
@@ -1533,7 +1533,7 @@ _ZN4llvm12StringSwitchINS_6Triple8ArchTypeES2_E4CaseENS_13StringLiteralES2_.exit
   store i64 6, ptr %89, align 8
   %90 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN4llvm12StringSwitchINS_6Triple8ArchTypeES2_E5CasesENS_13StringLiteralES4_S4_S4_S4_S2_(ptr noundef nonnull align 8 dereferenceable(24) %12, ptr nonnull @.str.25, i64 4, ptr nonnull @.str.223, i64 6, ptr noundef nonnull byval(%"class.llvm::StringLiteral") align 8 %13, ptr noundef nonnull byval(%"class.llvm::StringLiteral") align 8 %14, ptr noundef nonnull byval(%"class.llvm::StringLiteral") align 8 %15, i32 noundef 16)
   %91 = getelementptr inbounds nuw i8, ptr %90, i64 16
-  %92 = getelementptr inbounds i8, ptr %90, i64 20
+  %92 = getelementptr inbounds nuw i8, ptr %90, i64 20
   %93 = load i8, ptr %92, align 4
   %94 = trunc i8 %93 to i1
   %.sroa.22.0..sroa_idx.i.i277.phi.trans.insert = getelementptr inbounds i8, ptr %90, i64 8
@@ -1619,7 +1619,7 @@ _ZN4llvm12StringSwitchINS_6Triple8ArchTypeES2_E5CasesENS_13StringLiteralES4_S4_S
   store i64 11, ptr %106, align 8
   %107 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN4llvm12StringSwitchINS_6Triple8ArchTypeES2_E5CasesENS_13StringLiteralES4_S4_S4_S4_S2_(ptr noundef nonnull align 8 dereferenceable(24) %103, ptr nonnull @.str.24, i64 8, ptr nonnull @.str.229, i64 9, ptr noundef nonnull byval(%"class.llvm::StringLiteral") align 8 %16, ptr noundef nonnull byval(%"class.llvm::StringLiteral") align 8 %17, ptr noundef nonnull byval(%"class.llvm::StringLiteral") align 8 %18, i32 noundef 19)
   %108 = getelementptr inbounds nuw i8, ptr %107, i64 16
-  %109 = getelementptr inbounds i8, ptr %107, i64 20
+  %109 = getelementptr inbounds nuw i8, ptr %107, i64 20
   %110 = load i8, ptr %109, align 4
   %111 = trunc i8 %110 to i1
   %.sroa.22.0..sroa_idx.i287 = getelementptr inbounds i8, ptr %107, i64 8
@@ -1989,7 +1989,7 @@ _ZN4llvm12StringSwitchINS_6Triple8ArchTypeES2_E5CasesENS_13StringLiteralES4_S4_S
   %.sroa.2674.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 8
   store i64 11, ptr %.sroa.2674.0..sroa_idx, align 8
   %168 = getelementptr inbounds nuw i8, ptr %167, i64 16
-  %169 = getelementptr inbounds i8, ptr %167, i64 20
+  %169 = getelementptr inbounds nuw i8, ptr %167, i64 20
   %170 = load i8, ptr %169, align 4
   %171 = trunc i8 %170 to i1
   %.sroa.22.0..sroa_idx.i.i502 = getelementptr inbounds i8, ptr %167, i64 8
@@ -2032,7 +2032,7 @@ _ZN4llvm12StringSwitchINS_6Triple8ArchTypeES2_E5CasesENS_13StringLiteralES4_S4_S
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   %177 = getelementptr inbounds nuw i8, ptr %176, i64 16
-  %178 = getelementptr inbounds i8, ptr %176, i64 20
+  %178 = getelementptr inbounds nuw i8, ptr %176, i64 20
   %179 = load i8, ptr %178, align 4
   %180 = trunc i8 %179 to i1
   %181 = getelementptr inbounds nuw i8, ptr %176, i64 8
@@ -2232,7 +2232,7 @@ _ZN4llvm12StringSwitchINS_6Triple8ArchTypeES2_E4CaseENS_13StringLiteralES2_.exit
   store i64 8, ptr %216, align 8
   %217 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN4llvm12StringSwitchINS_6Triple8ArchTypeES2_E5CasesENS_13StringLiteralES4_S4_S4_S4_S4_S4_S4_S4_S4_S2_(ptr noundef nonnull align 8 dereferenceable(24) %176, ptr nonnull @.str.14, i64 4, ptr nonnull @.str.66, i64 8, ptr noundef nonnull byval(%"class.llvm::StringLiteral") align 8 %19, ptr noundef nonnull byval(%"class.llvm::StringLiteral") align 8 %20, ptr noundef nonnull byval(%"class.llvm::StringLiteral") align 8 %21, ptr noundef nonnull byval(%"class.llvm::StringLiteral") align 8 %22, ptr noundef nonnull byval(%"class.llvm::StringLiteral") align 8 %23, ptr noundef nonnull byval(%"class.llvm::StringLiteral") align 8 %24, ptr noundef nonnull byval(%"class.llvm::StringLiteral") align 8 %25, ptr noundef nonnull byval(%"class.llvm::StringLiteral") align 8 %26, i32 noundef 11)
   %218 = getelementptr inbounds nuw i8, ptr %217, i64 16
-  %219 = getelementptr inbounds i8, ptr %217, i64 20
+  %219 = getelementptr inbounds nuw i8, ptr %217, i64 20
   %220 = load i8, ptr %219, align 4
   %221 = trunc i8 %220 to i1
   %.sroa.22.0..sroa_idx.i615 = getelementptr inbounds i8, ptr %217, i64 8
@@ -4711,7 +4711,7 @@ _ZNK4llvm9StringRef11starts_withES0_.exit181.thread: ; preds = %_ZNK4llvm9String
   store ptr @.str.138, ptr %10, align 8
   %208 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store ptr %205, ptr %208, align 8
-  %209 = getelementptr inbounds i8, ptr %10, i64 24
+  %209 = getelementptr inbounds nuw i8, ptr %10, i64 24
   store i64 %204, ptr %209, align 8
   call void @_ZNK4llvm5Twine3strB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %9, ptr noundef nonnull align 8 dereferenceable(34) %10) #15
   %210 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %9) #15
@@ -7969,7 +7969,7 @@ declare noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6leng
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZN4llvm12StringSwitchINS_6Triple8ArchTypeES2_E5CasesENS_13StringLiteralES4_S4_S4_S4_S2_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %1, i64 %2, ptr %3, i64 %4, ptr noundef byval(%"class.llvm::StringLiteral") align 8 %5, ptr noundef byval(%"class.llvm::StringLiteral") align 8 %6, ptr noundef byval(%"class.llvm::StringLiteral") align 8 %7, i32 noundef %8) local_unnamed_addr #4 comdat align 2 {
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %11 = getelementptr inbounds i8, ptr %0, i64 20
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %12 = load i8, ptr %11, align 4
   %13 = trunc i8 %12 to i1
   br i1 %13, label %_ZN4llvm12StringSwitchINS_6Triple8ArchTypeES2_E4CaseENS_13StringLiteralES2_.exit, label %14
@@ -8071,7 +8071,7 @@ _ZN4llvm12StringSwitchINS_6Triple8ArchTypeES2_E5CasesENS_13StringLiteralES4_S4_S
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZN4llvm12StringSwitchINS_6Triple8ArchTypeES2_E5CasesENS_13StringLiteralES4_S4_S4_S4_S4_S4_S4_S4_S4_S2_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %1, i64 %2, ptr %3, i64 %4, ptr noundef byval(%"class.llvm::StringLiteral") align 8 %5, ptr noundef byval(%"class.llvm::StringLiteral") align 8 %6, ptr noundef byval(%"class.llvm::StringLiteral") align 8 %7, ptr noundef byval(%"class.llvm::StringLiteral") align 8 %8, ptr noundef byval(%"class.llvm::StringLiteral") align 8 %9, ptr noundef byval(%"class.llvm::StringLiteral") align 8 %10, ptr noundef byval(%"class.llvm::StringLiteral") align 8 %11, ptr noundef byval(%"class.llvm::StringLiteral") align 8 %12, i32 noundef %13) local_unnamed_addr #4 comdat align 2 {
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %16 = getelementptr inbounds i8, ptr %0, i64 20
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %17 = load i8, ptr %16, align 4
   %18 = trunc i8 %17 to i1
   br i1 %18, label %_ZN4llvm12StringSwitchINS_6Triple8ArchTypeES2_E4CaseENS_13StringLiteralES2_.exit, label %19

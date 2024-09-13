@@ -55,18 +55,18 @@ define dso_local void @_ZN4llvm10SuffixTreeC2ERKNS_8ArrayRefIjEEb(ptr noundef no
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i8 %4, ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %7 = getelementptr inbounds i8, ptr %0, i64 40
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %8 = getelementptr inbounds i8, ptr %0, i64 56
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, i8 0, i64 16, i1 false)
   tail call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull %8, i64 noundef 4) #10
-  %9 = getelementptr inbounds i8, ptr %0, i64 88
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %10 = getelementptr inbounds i8, ptr %0, i64 104
   tail call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull %10, i64 noundef 0) #10
-  %11 = getelementptr inbounds i8, ptr %0, i64 136
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %12 = getelementptr inbounds i8, ptr %0, i64 152
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %10, i8 0, i64 32, i1 false)
   tail call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull %12, i64 noundef 4) #10
-  %13 = getelementptr inbounds i8, ptr %0, i64 184
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %14 = getelementptr inbounds i8, ptr %0, i64 200
   tail call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %13, ptr noundef nonnull %14, i64 noundef 0) #10
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 216
@@ -75,9 +75,9 @@ define dso_local void @_ZN4llvm10SuffixTreeC2ERKNS_8ArrayRefIjEEb(ptr noundef no
   store i32 -1, ptr %16, align 8
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 232
   store ptr null, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 240
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 240
   store i32 -1, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %0, i64 244
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 244
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %19, i8 0, i64 28, i1 false)
   %20 = load i64, ptr %10, align 8
   %21 = add i64 %20, 64
@@ -87,7 +87,7 @@ define dso_local void @_ZN4llvm10SuffixTreeC2ERKNS_8ArrayRefIjEEb(ptr noundef no
   %24 = add i64 %23, 7
   %25 = and i64 %24, -8
   %26 = add i64 %25, 64
-  %27 = getelementptr inbounds i8, ptr %0, i64 32
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %28 = load ptr, ptr %27, align 8
   %29 = ptrtoint ptr %28 to i64
   %.not.i.i.i.i.i.i.i = icmp ugt i64 %26, %29
@@ -169,7 +169,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local noundef ptr @_ZN4llvm10SuffixTree10insertRootEv(ptr noundef nonnull align 8 dereferenceable(272) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %3 = getelementptr inbounds i8, ptr %0, i64 104
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %4 = load i64, ptr %3, align 8
   %5 = add i64 %4, 64
   store i64 %5, ptr %3, align 8
@@ -178,7 +178,7 @@ define dso_local noundef ptr @_ZN4llvm10SuffixTree10insertRootEv(ptr noundef non
   %8 = add i64 %7, 7
   %9 = and i64 %8, -8
   %10 = add i64 %9, 64
-  %11 = getelementptr inbounds i8, ptr %0, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %12 = load ptr, ptr %11, align 8
   %13 = ptrtoint ptr %12 to i64
   %.not.i.i.i.i.i.i = icmp ugt i64 %10, %13
@@ -235,8 +235,8 @@ define dso_local noundef i32 @_ZN4llvm10SuffixTree6extendEjj(ptr noundef nonnull
 
 .lr.ph.lr.ph:                                     ; preds = %3
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 232
-  %6 = getelementptr inbounds i8, ptr %0, i64 244
-  %7 = getelementptr inbounds i8, ptr %0, i64 240
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 244
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 240
   %8 = zext i32 %1 to i64
   br label %.lr.ph
 
@@ -269,7 +269,7 @@ define dso_local noundef i32 @_ZN4llvm10SuffixTree6extendEjj(ptr noundef nonnull
   %17 = load ptr, ptr %5, align 8
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 40
   %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %17, i64 56
+  %20 = getelementptr inbounds nuw i8, ptr %17, i64 56
   %21 = load i32, ptr %20, align 8
   %22 = icmp eq i32 %21, 0
   br i1 %22, label %.loopexit, label %23
@@ -437,7 +437,7 @@ _ZL22numElementsInSubstringPKN4llvm14SuffixTreeNodeE.exit: ; preds = %_ZN4llvm12
   %112 = load ptr, ptr %0, align 8
   %113 = getelementptr inbounds i32, ptr %112, i64 %111
   %114 = load ptr, ptr %109, align 8
-  %115 = getelementptr inbounds i8, ptr %106, i64 56
+  %115 = getelementptr inbounds nuw i8, ptr %106, i64 56
   %116 = load i32, ptr %115, align 8
   %117 = icmp eq i32 %116, 0
   br i1 %117, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIjPNS_14SuffixTreeNodeENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjS3_EEEEjS3_S5_S8_E15LookupBucketForIjEEbRKT_RPS8_.exit.i.i52, label %118
@@ -589,11 +589,11 @@ _ZN4llvm23SmallVectorTemplateBaseISt4pairIPNS_14SuffixTreeNodeEjELb1EE9push_back
 
 29:                                               ; preds = %17
   %30 = getelementptr inbounds nuw i8, ptr %22, i64 40
-  %31 = getelementptr inbounds i8, ptr %22, i64 48
+  %31 = getelementptr inbounds nuw i8, ptr %22, i64 48
   %32 = load i32, ptr %31, align 8
   %33 = icmp eq i32 %32, 0
   %34 = load ptr, ptr %30, align 8
-  %35 = getelementptr inbounds i8, ptr %22, i64 56
+  %35 = getelementptr inbounds nuw i8, ptr %22, i64 56
   %36 = load i32, ptr %35, align 8
   %37 = zext i32 %36 to i64
   %38 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair", ptr %34, i64 %37
@@ -756,8 +756,8 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_14SuffixTreeNodeELb1EE9push_backES2_.exit:
 .lr.ph60:                                         ; preds = %_ZN4llvm23SmallVectorTemplateBaseIPNS_14SuffixTreeNodeELb1EE9push_backES2_.exit
   %19 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 248
-  %21 = getelementptr inbounds i8, ptr %0, i64 256
-  %22 = getelementptr inbounds i8, ptr %0, i64 264
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 256
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 264
   br label %23
 
 23:                                               ; preds = %.lr.ph60, %_ZNSt6vectorIPN4llvm18SuffixTreeLeafNodeESaIS2_EE9push_backERKS2_.exit
@@ -829,11 +829,11 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_22SuffixTreeInternalNodeESt4pairIPNS_14S
 
 63:                                               ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_22SuffixTreeInternalNodeESt4pairIPNS_14SuffixTreeNodeES6_ENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S7_EEEES3_S7_S9_SC_E4findEPKS2_.exit
   %64 = getelementptr inbounds nuw i8, ptr %spec.select.i.i, i64 40
-  %65 = getelementptr inbounds i8, ptr %spec.select.i.i, i64 48
+  %65 = getelementptr inbounds nuw i8, ptr %spec.select.i.i, i64 48
   %66 = load i32, ptr %65, align 8
   %67 = icmp eq i32 %66, 0
   %68 = load ptr, ptr %64, align 8
-  %69 = getelementptr inbounds i8, ptr %spec.select.i.i, i64 56
+  %69 = getelementptr inbounds nuw i8, ptr %spec.select.i.i, i64 56
   %70 = load i32, ptr %69, align 8
   %71 = zext i32 %70 to i64
   %72 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair", ptr %68, i64 %71
@@ -884,7 +884,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_14SuffixTreeNodeELb1EE9push_backES2_.exit1
   %89 = load ptr, ptr %4, align 8
   %90 = getelementptr inbounds nuw i8, ptr %89, i64 40
   %91 = load ptr, ptr %90, align 8
-  %92 = getelementptr inbounds i8, ptr %89, i64 56
+  %92 = getelementptr inbounds nuw i8, ptr %89, i64 56
   %93 = load i32, ptr %92, align 8
   %94 = zext i32 %93 to i64
   %95 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair", ptr %91, i64 %94
@@ -934,7 +934,7 @@ _ZN4llvm16DenseMapIteratorIjPNS_14SuffixTreeNodeENS_12DenseMapInfoIjvEENS_6detai
   %111 = load ptr, ptr %4, align 8
   %112 = getelementptr inbounds nuw i8, ptr %111, i64 40
   %113 = load ptr, ptr %112, align 8
-  %114 = getelementptr inbounds i8, ptr %111, i64 56
+  %114 = getelementptr inbounds nuw i8, ptr %111, i64 56
   %115 = load i32, ptr %114, align 8
   %116 = zext i32 %115 to i64
   %117 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair", ptr %113, i64 %116
@@ -1004,7 +1004,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_22SuffixTreeInternalNodeESt4pairIPNS_14S
   %.0.i.i22 = phi ptr [ %146, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_22SuffixTreeInternalNodeESt4pairIPNS_14SuffixTreeNodeES6_ENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S7_EEEES3_S7_S9_SC_E15LookupBucketForIS3_EEbRKT_RPSC_.exit.i.i ], [ %129, %121 ], [ %143, %137 ]
   %149 = getelementptr inbounds nuw i8, ptr %.0.i.i22, i64 8
   store ptr %88, ptr %149, align 8
-  %150 = getelementptr inbounds i8, ptr %.0.i.i22, i64 16
+  %150 = getelementptr inbounds nuw i8, ptr %.0.i.i22, i64 16
   store ptr %.042.lcssa, ptr %150, align 8
   br label %_ZNSt6vectorIPN4llvm18SuffixTreeLeafNodeESaIS2_EE9push_backERKS2_.exit
 
@@ -1120,7 +1120,7 @@ define dso_local noundef ptr @_ZN4llvm10SuffixTree10insertLeafERNS_22SuffixTreeI
   %5 = alloca i32, align 4
   store i32 %3, ptr %5, align 4
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  %7 = getelementptr inbounds i8, ptr %0, i64 200
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %8 = load i64, ptr %7, align 8
   %9 = add i64 %8, 40
   store i64 %9, ptr %7, align 8
@@ -1129,7 +1129,7 @@ define dso_local noundef ptr @_ZN4llvm10SuffixTree10insertLeafERNS_22SuffixTreeI
   %12 = add i64 %11, 7
   %13 = and i64 %12, -8
   %14 = add i64 %13, 40
-  %15 = getelementptr inbounds i8, ptr %0, i64 128
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %16 = load ptr, ptr %15, align 8
   %17 = ptrtoint ptr %16 to i64
   %.not.i.i.i.i.i = icmp ugt i64 %14, %17
@@ -1174,7 +1174,7 @@ _ZN4llvm24SpecificBumpPtrAllocatorINS_18SuffixTreeLeafNodeEE8AllocateEm.exit: ; 
   store ptr %27, ptr %34, align 8
   %35 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %36 = load ptr, ptr %35, align 8
-  %37 = getelementptr inbounds i8, ptr %1, i64 56
+  %37 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %38 = load i32, ptr %37, align 8
   %39 = icmp eq i32 %38, 0
   br i1 %39, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIjPNS_14SuffixTreeNodeENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjS3_EEEEjS3_S5_S8_E15LookupBucketForIjEEbRKT_RPS8_.exit.i.i, label %40
@@ -1238,7 +1238,7 @@ define dso_local noundef ptr @_ZN4llvm10SuffixTree18insertInternalNodeEPNS_22Suf
   %6 = alloca i32, align 4
   store i32 %4, ptr %6, align 4
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %8 = getelementptr inbounds i8, ptr %0, i64 104
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %9 = load i64, ptr %8, align 8
   %10 = add i64 %9, 64
   store i64 %10, ptr %8, align 8
@@ -1247,7 +1247,7 @@ define dso_local noundef ptr @_ZN4llvm10SuffixTree18insertInternalNodeEPNS_22Suf
   %13 = add i64 %12, 7
   %14 = and i64 %13, -8
   %15 = add i64 %14, 64
-  %16 = getelementptr inbounds i8, ptr %0, i64 32
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %17 = load ptr, ptr %16, align 8
   %18 = ptrtoint ptr %17 to i64
   %.not.i.i.i.i.i = icmp ugt i64 %15, %18
@@ -1299,7 +1299,7 @@ _ZN4llvm24SpecificBumpPtrAllocatorINS_22SuffixTreeInternalNodeEE8AllocateEm.exit
 38:                                               ; preds = %_ZN4llvm24SpecificBumpPtrAllocatorINS_22SuffixTreeInternalNodeEE8AllocateEm.exit
   %39 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %40 = load ptr, ptr %39, align 8
-  %41 = getelementptr inbounds i8, ptr %1, i64 56
+  %41 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %42 = load i32, ptr %41, align 8
   %43 = icmp eq i32 %42, 0
   br i1 %43, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIjPNS_14SuffixTreeNodeENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjS3_EEEEjS3_S5_S8_E15LookupBucketForIjEEbRKT_RPS8_.exit.i.i, label %44
@@ -1396,7 +1396,7 @@ define dso_local void @_ZN4llvm10SuffixTree25RepeatedSubstringIterator7advanceEv
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load i32, ptr %2, align 8
   store i32 %7, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15SmallVectorImplIjEaSEOS1_(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %4)
   %10 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %4) #10
   %11 = load ptr, ptr %4, align 8
@@ -1436,11 +1436,11 @@ _ZN4llvm10SuffixTree17RepeatedSubstringD2Ev.exit: ; preds = %1, %13
   call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %15, i64 noundef %30) #10
   %31 = call noundef i32 @_ZNK4llvm14SuffixTreeNode12getConcatLenEv(ptr noundef nonnull align 8 dereferenceable(28) %28) #10
   %32 = getelementptr inbounds nuw i8, ptr %28, i64 40
-  %33 = getelementptr inbounds i8, ptr %28, i64 48
+  %33 = getelementptr inbounds nuw i8, ptr %28, i64 48
   %34 = load i32, ptr %33, align 8
   %35 = icmp eq i32 %34, 0
   %36 = load ptr, ptr %32, align 8
-  %37 = getelementptr inbounds i8, ptr %28, i64 56
+  %37 = getelementptr inbounds nuw i8, ptr %28, i64 56
   %38 = load i32, ptr %37, align 8
   %39 = zext i32 %38 to i64
   %40 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair", ptr %36, i64 %39

@@ -299,10 +299,10 @@ define dso_local noundef zeroext i1 @_ZN5clang7CodeGen13CodeGenModule28TryEmitBa
 15:                                               ; preds = %10
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 248
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 248
   %19 = load i32, ptr %18, align 8
   %20 = icmp eq i32 %19, 3
-  %21 = getelementptr inbounds i8, ptr %17, i64 252
+  %21 = getelementptr inbounds nuw i8, ptr %17, i64 252
   %22 = load i32, ptr %21, align 4
   %23 = icmp eq i32 %22, 35
   %24 = select i1 %20, i1 %23, i1 false
@@ -591,7 +591,7 @@ _ZN4llvm11GlobalAlias14isValidLinkageENS_11GlobalValue12LinkageTypesE.exit.threa
   %174 = call noundef ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6doFindIS2_EEPS7_RKT_(ptr noundef nonnull align 1 dereferenceable(1) %173, ptr noundef nonnull align 8 dereferenceable(16) %3)
   %.not.i.i.i = icmp eq ptr %174, null
   %175 = load ptr, ptr %173, align 8
-  %176 = getelementptr inbounds i8, ptr %0, i64 904
+  %176 = getelementptr inbounds nuw i8, ptr %0, i64 904
   %177 = load i32, ptr %176, align 8
   %178 = zext i32 %177 to i64
   %179 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.1200", ptr %175, i64 %178
@@ -638,7 +638,7 @@ _ZN4llvm11GlobalValue21isDiscardableIfUnusedENS0_12LinkageTypesE.exit: ; preds =
 
 192:                                              ; preds = %_ZN4llvm11GlobalValue21isDiscardableIfUnusedENS0_12LinkageTypesE.exit, %181, %181, %181, %181
   %193 = load ptr, ptr %16, align 8
-  %194 = getelementptr inbounds i8, ptr %193, i64 268
+  %194 = getelementptr inbounds nuw i8, ptr %193, i64 268
   %195 = load i32, ptr %194, align 4
   %196 = icmp eq i32 %195, 1
   br i1 %196, label %_ZNK4llvm11GlobalValue22isDeclarationForLinkerEv.exit.thread, label %_ZN4llvm11GlobalValue15isWeakForLinkerENS0_12LinkageTypesE.exit
@@ -799,7 +799,7 @@ _ZNK5clang13CXXRecordDecl13getDefinitionEv.exit:  ; preds = %6, %.thread.i
   %17 = load ptr, ptr %16, align 8
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 64
   %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %17, i64 80
+  %20 = getelementptr inbounds nuw i8, ptr %17, i64 80
   %21 = load i32, ptr %20, align 8
   %22 = icmp eq i32 %21, 0
   br i1 %22, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang13CXXRecordDeclENS2_9CharUnitsENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S6_EEEES5_S6_S8_SB_E15LookupBucketForIS5_EEbRKT_RPSB_.exit.i.i, label %23
@@ -1253,7 +1253,7 @@ define internal fastcc void @_ZL25BuildAppleKextVirtualCallRN5clang7CodeGen15Cod
   %17 = getelementptr inbounds nuw i8, ptr %10, i64 232
   %18 = load ptr, ptr %17, align 8
   %19 = tail call noundef ptr @_ZN4llvm11PointerType3getERNS_11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %18, i32 noundef 0) #10
-  %20 = getelementptr inbounds i8, ptr %10, i64 312
+  %20 = getelementptr inbounds nuw i8, ptr %10, i64 312
   %21 = load ptr, ptr %20, align 8
   %22 = tail call noundef i64 @_ZN5clang20ItaniumVTableContext20getMethodVTableIndexENS_10GlobalDeclE(ptr noundef nonnull align 8 dereferenceable(140) %21, i64 %2, i32 %3) #10
   %23 = load ptr, ptr %20, align 8
@@ -1265,7 +1265,7 @@ define internal fastcc void @_ZL25BuildAppleKextVirtualCallRN5clang7CodeGen15Cod
   tail call void %26(ptr noundef nonnull align 8 dereferenceable(140) %23, ptr noundef %4) #10
   %27 = getelementptr inbounds nuw i8, ptr %23, i64 64
   %28 = load ptr, ptr %27, align 8
-  %29 = getelementptr inbounds i8, ptr %23, i64 80
+  %29 = getelementptr inbounds nuw i8, ptr %23, i64 80
   %30 = load i32, ptr %29, align 8
   %31 = icmp eq i32 %30, 0
   br i1 %31, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang13CXXRecordDeclESt10unique_ptrIKNS2_12VTableLayoutESt14default_deleteIS8_EENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_SB_EEEES5_SB_SD_SG_E15LookupBucketForIS5_EEbRKT_RPSG_.exit.i.i.i, label %32
@@ -1328,7 +1328,7 @@ _ZN5clang20ItaniumVTableContext15getVTableLayoutEPKNS_13CXXRecordDeclE.exit: ; p
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 48
   %63 = load ptr, ptr %62, align 8
-  %64 = getelementptr inbounds i8, ptr %61, i64 64
+  %64 = getelementptr inbounds nuw i8, ptr %61, i64 64
   %65 = load i32, ptr %64, align 8
   %66 = icmp eq i32 %65, 0
   br i1 %66, label %_ZNK5clang12VTableLayout15getAddressPointENS_13BaseSubobjectE.exit, label %67
@@ -1422,7 +1422,7 @@ _ZNK5clang12VTableLayout15getVTableOffsetEm.exit: ; preds = %_ZNK5clang12VTableL
   %123 = call noundef ptr @_ZN4llvm13IRBuilderBase17CreateAlignedLoadEPNS_4TypeEPNS_5ValueENS_10MaybeAlignEbRKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(128) %114, ptr noundef %19, ptr noundef %117, i16 %.sroa.07.0.insert.insert, i1 noundef zeroext false, ptr noundef nonnull align 8 dereferenceable(34) %8)
   %124 = getelementptr inbounds nuw i8, ptr %10, i64 184
   %125 = load ptr, ptr %124, align 8
-  %126 = getelementptr inbounds i8, ptr %125, i64 1668
+  %126 = getelementptr inbounds nuw i8, ptr %125, i64 1668
   %127 = load i32, ptr %126, align 4
   %128 = and i32 %127, 3
   %.not = icmp eq i32 %128, 0
@@ -1459,7 +1459,7 @@ _ZNK5clang12VTableLayout15getVTableOffsetEm.exit: ; preds = %_ZNK5clang12VTableL
   store i64 %2, ptr %.sroa.2.0..sroa_idx, align 8
   %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
   store i32 %3, ptr %.sroa.3.0..sroa_idx, align 8
-  %148 = getelementptr inbounds i8, ptr %0, i64 32
+  %148 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i64 %.sroa.04.sroa.0.0.insert.insert, ptr %148, align 8
   %.sroa.45.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 40
   store ptr %.sroa.45.0, ptr %.sroa.45.0..sroa_idx, align 8
@@ -1496,7 +1496,7 @@ define linkonce_odr hidden noundef ptr @_ZNK5clang12RedeclarableINS_7TagDeclEE8D
 
 15:                                               ; preds = %10
   %16 = getelementptr inbounds nuw i8, ptr %12, i64 2144
-  %17 = getelementptr inbounds i8, ptr %12, i64 2224
+  %17 = getelementptr inbounds nuw i8, ptr %12, i64 2224
   %18 = load i64, ptr %17, align 8
   %19 = add i64 %18, 24
   store i64 %19, ptr %17, align 8
@@ -1505,7 +1505,7 @@ define linkonce_odr hidden noundef ptr @_ZNK5clang12RedeclarableINS_7TagDeclEE8D
   %22 = add i64 %21, 7
   %23 = and i64 %22, -8
   %24 = add i64 %23, 24
-  %25 = getelementptr inbounds i8, ptr %12, i64 2152
+  %25 = getelementptr inbounds nuw i8, ptr %12, i64 2152
   %26 = load ptr, ptr %25, align 8
   %27 = ptrtoint ptr %26 to i64
   %.not.i.i.i.i.i.i = icmp ugt i64 %24, %27

@@ -197,7 +197,7 @@ define dso_local void @_ZN4llvm3omp10OMPContextC2EbNS_6TripleE(ptr noundef nonnu
   %5 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull %5, i64 noundef 6) #15
   tail call void @_ZN4llvm15SmallVectorImplImE6assignEmm(ptr noundef nonnull align 8 dereferenceable(16) %4, i64 noundef 1, i64 noundef 0)
-  %6 = getelementptr inbounds i8, ptr %0, i64 72
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store i32 56, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %8 = getelementptr inbounds i8, ptr %0, i64 96
@@ -1052,8 +1052,8 @@ _ZNK4llvm9BitVector8set_bitsEv.exit.i:            ; preds = %33
 
 .lr.ph.i:                                         ; preds = %_ZNK4llvm9BitVector8set_bitsEv.exit.i
   %44 = getelementptr inbounds nuw i8, ptr %15, i64 264
-  %45 = getelementptr inbounds i8, ptr %15, i64 272
-  %46 = getelementptr inbounds i8, ptr %15, i64 280
+  %45 = getelementptr inbounds nuw i8, ptr %15, i64 272
+  %46 = getelementptr inbounds nuw i8, ptr %15, i64 280
   %47 = add i64 %19, 2
   %48 = and i64 %47, 4294967295
   %49 = shl nuw i64 1, %48

@@ -245,7 +245,7 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_18MIRNamer20runOnMachineFunc
   store ptr %11, ptr %3, align 8
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 0, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %1, i64 328
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 328
   %14 = load ptr, ptr %13, align 8
   store ptr %14, ptr %5, align 8
   %15 = getelementptr inbounds i8, ptr %4, i64 16

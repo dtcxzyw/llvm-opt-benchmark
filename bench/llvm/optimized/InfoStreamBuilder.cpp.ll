@@ -51,7 +51,7 @@ define dso_local void @_ZN4llvm3pdb17InfoStreamBuilderC2ERNS_3msf10MSFBuilderERN
   store i32 20000404, ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 36
   store i32 0, ptr %6, align 4
-  %7 = getelementptr inbounds i8, ptr %0, i64 44
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 44
   store i8 0, ptr %7, align 4
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i8 0, ptr %8, align 8
@@ -75,9 +75,9 @@ define dso_local void @_ZN4llvm3pdb17InfoStreamBuilder10setVersionENS0_14PdbRaw_
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN4llvm3pdb17InfoStreamBuilder10addFeatureENS0_17PdbRaw_FeatureSigE(ptr nocapture noundef nonnull align 8 dereferenceable(80) %0, i32 noundef %1) local_unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = load ptr, ptr %6, align 8
   %.not.i = icmp eq ptr %5, %7
   br i1 %.not.i, label %11, label %8
@@ -191,7 +191,7 @@ _ZN4llvm5ErrorD2Ev.exit:
   %3 = load ptr, ptr %2, align 8
   %4 = tail call noundef i32 @_ZNK4llvm3pdb14NamedStreamMap25calculateSerializedLengthEv(ptr noundef nonnull align 8 dereferenceable(120) %3) #15
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %7 = load ptr, ptr %6, align 8
   %8 = load ptr, ptr %5, align 8
   %9 = ptrtoint ptr %7 to i64
@@ -356,7 +356,7 @@ _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %_ZN4llvm23WritableB
 
 _ZN4llvm5ErrorD2Ev.exit27:                        ; preds = %_ZN4llvm5ErrorD2Ev.exit
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
-  %73 = getelementptr inbounds i8, ptr %9, i64 24
+  %73 = getelementptr inbounds nuw i8, ptr %9, i64 24
   %74 = load ptr, ptr %73, align 8, !noalias !4
   %75 = load ptr, ptr %74, align 8, !noalias !4
   %76 = getelementptr inbounds i8, ptr %75, i64 16
@@ -373,7 +373,7 @@ _ZN4llvm5ErrorD2Ev.exit27:                        ; preds = %_ZN4llvm5ErrorD2Ev.
 _ZN4llvm5ErrorD2Ev.exit28:                        ; preds = %_ZN4llvm5ErrorD2Ev.exit27
   %80 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %81 = load ptr, ptr %80, align 8
-  %82 = getelementptr inbounds i8, ptr %1, i64 16
+  %82 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %83 = load ptr, ptr %82, align 8
   %.not4244 = icmp eq ptr %81, %83
   br i1 %.not4244, label %_ZN4llvm12ErrorSuccessD2Ev.exit, label %_ZN4llvm5ErrorD2Ev.exit29
@@ -409,7 +409,7 @@ _ZN4llvm12ErrorSuccessD2Ev.exit:                  ; preds = %84, %_ZN4llvm5Error
 
 .critedge:                                        ; preds = %_ZN4llvm5ErrorD2Ev.exit29, %_ZN4llvm5ErrorD2Ev.exit27, %_ZN4llvm5ErrorD2Ev.exit, %_ZN4llvm23WritableBinaryStreamRefD2Ev.exit, %_ZN4llvm12ErrorSuccessD2Ev.exit
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN4llvm18BinaryStreamWriterE, i64 16), ptr %9, align 8
-  %94 = getelementptr inbounds i8, ptr %9, i64 16
+  %94 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %95 = load ptr, ptr %94, align 8
   %.not.i.i.i.i.i.i30 = icmp eq ptr %95, null
   br i1 %.not.i.i.i.i.i.i30, label %_ZN4llvm18BinaryStreamWriterD2Ev.exit, label %96
@@ -517,7 +517,7 @@ declare void @_ZNK4llvm3pdb14NamedStreamMap6commitERNS_18BinaryStreamWriterE(ptr
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvm18BinaryStreamWriterD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #2 comdat align 2 {
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN4llvm18BinaryStreamWriterE, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i.i.i.i, label %_ZN4llvm23WritableBinaryStreamRefD2Ev.exit, label %4
@@ -601,7 +601,7 @@ declare noundef ptr @_ZN4llvm22timeTraceProfilerBeginENS_9StringRefES0_(ptr, i64
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvm18BinaryStreamWriterD0Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #2 comdat align 2 {
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN4llvm18BinaryStreamWriterE, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i.i.i.i.i, label %_ZN4llvm18BinaryStreamWriterD2Ev.exit, label %4

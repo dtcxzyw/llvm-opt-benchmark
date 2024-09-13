@@ -77,7 +77,7 @@ _ZN4llvm16ImutKeyValueInfoIN12_GLOBAL__N_18CountKeyEjE6isLessERKS2_S5_.exit.thre
   br i1 %.not.i.i, label %_ZNK4llvm12ImmutableMapIN12_GLOBAL__N_18CountKeyEjNS_16ImutKeyValueInfoIS2_jEEE6lookupERKS2_.exit.thread, label %.preheader.i, !llvm.loop !7
 
 18:                                               ; preds = %.preheader.i
-  %19 = getelementptr inbounds i8, ptr %.0111.i.i, i64 64
+  %19 = getelementptr inbounds nuw i8, ptr %.0111.i.i, i64 64
   %20 = load i32, ptr %19, align 4
   br label %_ZNK4llvm12ImmutableMapIN12_GLOBAL__N_18CountKeyEjNS_16ImutKeyValueInfoIS2_jEEE6lookupERKS2_.exit.thread
 
@@ -225,7 +225,7 @@ _ZN4llvm16ImutKeyValueInfoIN12_GLOBAL__N_18CountKeyEjE6isLessERKS2_S5_.exit.thre
   br i1 %.not.i.i.i, label %_ZNK4llvm12ImmutableMapIN12_GLOBAL__N_18CountKeyEjNS_16ImutKeyValueInfoIS2_jEEE6lookupERKS2_.exit.thread.i, label %.preheader.i.i, !llvm.loop !7
 
 26:                                               ; preds = %.preheader.i.i
-  %27 = getelementptr inbounds i8, ptr %.0111.i.i.i, i64 64
+  %27 = getelementptr inbounds nuw i8, ptr %.0111.i.i.i, i64 64
   %28 = load i32, ptr %27, align 4
   br label %_ZNK4llvm12ImmutableMapIN12_GLOBAL__N_18CountKeyEjNS_16ImutKeyValueInfoIS2_jEEE6lookupERKS2_.exit.thread.i
 
@@ -424,8 +424,8 @@ _ZNK4llvm26ImutAVLTreeInOrderIteratorINS_16ImutKeyValueInfoIN12_GLOBAL__N_18Coun
   br i1 %108, label %_ZNK4llvm11ImutAVLTreeINS_16ImutKeyValueInfoIN12_GLOBAL__N_18CountKeyEjEEE14isElementEqualEPKS5_.exit.i.i.i, label %_ZNK4llvm26ImutAVLTreeInOrderIteratorINS_16ImutKeyValueInfoIN12_GLOBAL__N_18CountKeyEjEEEneERKS5_.exit.thread11.i.i.i
 
 _ZNK4llvm11ImutAVLTreeINS_16ImutKeyValueInfoIN12_GLOBAL__N_18CountKeyEjEEE14isElementEqualEPKS5_.exit.i.i.i: ; preds = %_ZNK4llvm26ImutAVLTreeInOrderIteratorINS_16ImutKeyValueInfoIN12_GLOBAL__N_18CountKeyEjEEEeqERKS5_.exit.thread14.i.i.i
-  %109 = getelementptr inbounds i8, ptr %94, i64 64
-  %110 = getelementptr inbounds i8, ptr %101, i64 64
+  %109 = getelementptr inbounds nuw i8, ptr %94, i64 64
+  %110 = getelementptr inbounds nuw i8, ptr %101, i64 64
   %.val7.i.i.i.i.i = load i32, ptr %109, align 4, !noalias !15
   %.val8.i.i.i.i.i = load i32, ptr %110, align 4, !noalias !15
   %111 = icmp eq i32 %.val7.i.i.i.i.i, %.val8.i.i.i.i.i
@@ -677,9 +677,9 @@ _ZN4llvm11ImutAVLTreeINS_16ImutKeyValueInfoIN12_GLOBAL__N_18CountKeyEjEEE7releas
   store i32 %37, ptr %19, align 8
   %38 = load ptr, ptr %0, align 8
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 56
-  %40 = getelementptr inbounds i8, ptr %38, i64 64
+  %40 = getelementptr inbounds nuw i8, ptr %38, i64 64
   %41 = load ptr, ptr %40, align 8
-  %42 = getelementptr inbounds i8, ptr %38, i64 72
+  %42 = getelementptr inbounds nuw i8, ptr %38, i64 72
   %43 = load ptr, ptr %42, align 8
   %.not.i.i = icmp eq ptr %41, %43
   br i1 %.not.i.i, label %47, label %44
@@ -975,7 +975,7 @@ define internal fastcc noundef i32 @_ZN4llvm11ImutAVLTreeINS_16ImutKeyValueInfoI
   %16 = load ptr, ptr %11, align 8
   %17 = ptrtoint ptr %16 to i64
   call void @_ZN4llvm16FoldingSetNodeID10AddIntegerEy(ptr noundef nonnull align 8 dereferenceable(144) %2, i64 noundef %17)
-  %18 = getelementptr inbounds i8, ptr %0, i64 56
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %19 = load i32, ptr %18, align 8
   %20 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %2) #15
   %21 = add i64 %20, 1
@@ -995,7 +995,7 @@ _ZN4llvm15ImutProfileInfoIN12_GLOBAL__N_18CountKeyEE7ProfileERNS_16FoldingSetNod
   %27 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %2) #15
   %28 = add i64 %27, 1
   call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %2, i64 noundef %28) #15
-  %29 = getelementptr inbounds i8, ptr %0, i64 64
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %30 = load i32, ptr %29, align 8
   %31 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %2) #15
   %32 = add i64 %31, 1
@@ -2008,9 +2008,9 @@ _ZNK4llvm14ImutAVLFactoryINS_16ImutKeyValueInfoIN12_GLOBAL__N_18CountKeyEjEEE15i
 
 _ZN4llvm11ImutAVLTreeINS_16ImutKeyValueInfoIN12_GLOBAL__N_18CountKeyEjEEEC2EPNS_14ImutAVLFactoryIS4_EEPS5_S9_RKSt4pairIS3_jEj.exit: ; preds = %61, %63
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %68 = getelementptr inbounds i8, ptr %0, i64 40
+  %68 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %69 = load ptr, ptr %68, align 8
-  %70 = getelementptr inbounds i8, ptr %0, i64 48
+  %70 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %71 = load ptr, ptr %70, align 8
   %.not.i11 = icmp eq ptr %69, %71
   br i1 %.not.i11, label %75, label %72

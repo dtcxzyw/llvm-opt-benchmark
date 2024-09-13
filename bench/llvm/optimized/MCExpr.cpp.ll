@@ -1116,7 +1116,7 @@ switch.lookup:
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local noundef ptr @_ZN4llvm12MCBinaryExpr6createENS0_6OpcodeEPKNS_6MCExprES4_RNS_9MCContextENS_5SMLocE(i32 noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(2432) %3, ptr %4) local_unnamed_addr #0 align 2 {
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 192
-  %7 = getelementptr inbounds i8, ptr %3, i64 272
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 272
   %8 = load i64, ptr %7, align 8
   %9 = add i64 %8, 32
   store i64 %9, ptr %7, align 8
@@ -1125,7 +1125,7 @@ define dso_local noundef ptr @_ZN4llvm12MCBinaryExpr6createENS0_6OpcodeEPKNS_6MC
   %12 = add i64 %11, 7
   %13 = and i64 %12, -8
   %14 = add i64 %13, 32
-  %15 = getelementptr inbounds i8, ptr %3, i64 200
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 200
   %16 = load ptr, ptr %15, align 8
   %17 = ptrtoint ptr %16 to i64
   %.not.i.i.i.i = icmp ugt i64 %14, %17
@@ -1181,7 +1181,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local noundef ptr @_ZN4llvm11MCUnaryExpr6createENS0_6OpcodeEPKNS_6MCExprERNS_9MCContextENS_5SMLocE(i32 noundef %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(2432) %2, ptr %3) local_unnamed_addr #0 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 192
-  %6 = getelementptr inbounds i8, ptr %2, i64 272
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 272
   %7 = load i64, ptr %6, align 8
   %8 = add i64 %7, 24
   store i64 %8, ptr %6, align 8
@@ -1190,7 +1190,7 @@ define dso_local noundef ptr @_ZN4llvm11MCUnaryExpr6createENS0_6OpcodeEPKNS_6MCE
   %11 = add i64 %10, 7
   %12 = and i64 %11, -8
   %13 = add i64 %12, 24
-  %14 = getelementptr inbounds i8, ptr %2, i64 200
+  %14 = getelementptr inbounds nuw i8, ptr %2, i64 200
   %15 = load ptr, ptr %14, align 8
   %16 = ptrtoint ptr %15 to i64
   %.not.i.i.i.i = icmp ugt i64 %13, %16
@@ -1241,7 +1241,7 @@ _ZnwmRN4llvm9MCContextEm.exit:                    ; preds = %17, %.critedge.i.i.
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local noundef ptr @_ZN4llvm14MCConstantExpr6createElRNS_9MCContextEbj(i64 noundef %0, ptr noundef nonnull align 8 dereferenceable(2432) %1, i1 noundef zeroext %2, i32 noundef %3) local_unnamed_addr #0 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 192
-  %6 = getelementptr inbounds i8, ptr %1, i64 272
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 272
   %7 = load i64, ptr %6, align 8
   %8 = add i64 %7, 24
   store i64 %8, ptr %6, align 8
@@ -1250,7 +1250,7 @@ define dso_local noundef ptr @_ZN4llvm14MCConstantExpr6createElRNS_9MCContextEbj
   %11 = add i64 %10, 7
   %12 = and i64 %11, -8
   %13 = add i64 %12, 24
-  %14 = getelementptr inbounds i8, ptr %1, i64 200
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 200
   %15 = load ptr, ptr %14, align 8
   %16 = ptrtoint ptr %15 to i64
   %.not.i.i.i.i = icmp ugt i64 %13, %16
@@ -1324,7 +1324,7 @@ define dso_local void @_ZN4llvm15MCSymbolRefExprC2EPKNS_8MCSymbolENS0_11VariantK
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local noundef ptr @_ZN4llvm15MCSymbolRefExpr6createEPKNS_8MCSymbolENS0_11VariantKindERNS_9MCContextENS_5SMLocE(ptr noundef %0, i16 noundef zeroext %1, ptr noundef nonnull align 8 dereferenceable(2432) %2, ptr %3) local_unnamed_addr #0 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 192
-  %6 = getelementptr inbounds i8, ptr %2, i64 272
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 272
   %7 = load i64, ptr %6, align 8
   %8 = add i64 %7, 24
   store i64 %8, ptr %6, align 8
@@ -1333,7 +1333,7 @@ define dso_local noundef ptr @_ZN4llvm15MCSymbolRefExpr6createEPKNS_8MCSymbolENS
   %11 = add i64 %10, 7
   %12 = and i64 %11, -8
   %13 = add i64 %12, 24
-  %14 = getelementptr inbounds i8, ptr %2, i64 200
+  %14 = getelementptr inbounds nuw i8, ptr %2, i64 200
   %15 = load ptr, ptr %14, align 8
   %16 = ptrtoint ptr %15 to i64
   %.not.i.i.i.i = icmp ugt i64 %13, %16
@@ -1385,7 +1385,7 @@ define dso_local noundef ptr @_ZN4llvm15MCSymbolRefExpr6createENS_9StringRefENS0
   store i64 %1, ptr %8, align 8
   %9 = call noundef ptr @_ZN4llvm9MCContext17getOrCreateSymbolERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(2432) %3, ptr noundef nonnull align 8 dereferenceable(34) %5) #13
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 192
-  %11 = getelementptr inbounds i8, ptr %3, i64 272
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 272
   %12 = load i64, ptr %11, align 8
   %13 = add i64 %12, 24
   store i64 %13, ptr %11, align 8
@@ -1394,7 +1394,7 @@ define dso_local noundef ptr @_ZN4llvm15MCSymbolRefExpr6createENS_9StringRefENS0
   %16 = add i64 %15, 7
   %17 = and i64 %16, -8
   %18 = add i64 %17, 24
-  %19 = getelementptr inbounds i8, ptr %3, i64 200
+  %19 = getelementptr inbounds nuw i8, ptr %3, i64 200
   %20 = load ptr, ptr %19, align 8
   %21 = ptrtoint ptr %20 to i64
   %.not.i.i.i.i.i = icmp ugt i64 %18, %21

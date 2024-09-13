@@ -238,7 +238,7 @@ common.resume:                                    ; preds = %34, %5
   store ptr null, ptr %18, align 8
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr null, ptr %2, align 8
-  %20 = getelementptr inbounds i8, ptr %0, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %21 = load ptr, ptr %20, align 16
   %22 = load ptr, ptr %19, align 8
   %23 = ptrtoint ptr %21 to i64
@@ -384,7 +384,7 @@ define noundef zeroext i1 @_ZNK3g2o28EdgeSE2OdomDifferentialCalib5writeERSo(ptr 
   %8 = load double, ptr %7, align 8
   %9 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEd(ptr noundef nonnull align 8 dereferenceable(8) %6, double noundef %8)
   %10 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull @.str)
-  %11 = getelementptr inbounds i8, ptr %0, i64 192
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %12 = load double, ptr %11, align 16
   %13 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEd(ptr noundef nonnull align 8 dereferenceable(8) %10, double noundef %12)
   %14 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull @.str)
@@ -503,7 +503,7 @@ define linkonce_odr void @_ZN3g2o28EdgeSE2OdomDifferentialCalib12computeErrorEv(
   %20 = getelementptr inbounds i8, ptr %10, i64 176
   %21 = load double, ptr %20, align 8
   %22 = fmul double %19, %21
-  %23 = getelementptr inbounds i8, ptr %0, i64 192
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %24 = load double, ptr %23, align 16
   call void @_ZN3g2o19VelocityMeasurementC1Eddd(ptr noundef nonnull align 16 dereferenceable(24) %2, double noundef %17, double noundef %22, double noundef %24)
   %25 = getelementptr inbounds i8, ptr %10, i64 184
@@ -541,7 +541,7 @@ define linkonce_odr void @_ZN3g2o28EdgeSE2OdomDifferentialCalib12computeErrorEv(
   %50 = fcmp ugt double %49, 0.000000e+00
   %.0.v.i.i8 = select i1 %50, double 0xC00921FB54442D18, double 0x400921FB54442D18
   %.0.i.i9 = fadd double %49, %.0.v.i.i8
-  %51 = getelementptr inbounds i8, ptr %6, i64 192
+  %51 = getelementptr inbounds nuw i8, ptr %6, i64 192
   %52 = call double @sin(double noundef %.0.i.i9) #18, !noalias !32
   %53 = call double @cos(double noundef %.0.i.i9) #18, !noalias !32
   %54 = fneg double %52
@@ -580,7 +580,7 @@ define linkonce_odr void @_ZN3g2o28EdgeSE2OdomDifferentialCalib12computeErrorEv(
   %79 = fcmp ugt double %78, 0.000000e+00
   %.0.v.i.i.i = select i1 %79, double 0xC00921FB54442D18, double 0x400921FB54442D18
   %.0.i.i.i = fadd double %78, %.0.v.i.i.i
-  %80 = getelementptr inbounds i8, ptr %8, i64 192
+  %80 = getelementptr inbounds nuw i8, ptr %8, i64 192
   %81 = call double @sin(double noundef %.0.i.i.i) #18, !noalias !52
   %82 = call double @cos(double noundef %.0.i.i.i) #18, !noalias !52
   %83 = fneg double %81
@@ -942,7 +942,7 @@ define linkonce_odr void @_ZN3g2o8BaseEdgeILi3ENS_19VelocityMeasurementEE14setMe
   store <2 x double> %4, ptr %3, align 16
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load double, ptr %5, align 16
-  %7 = getelementptr inbounds i8, ptr %0, i64 192
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 192
   store double %6, ptr %7, align 16
   ret void
 }
@@ -1456,7 +1456,7 @@ _ZN5Eigen7NoAliasINS_3MapINS_6MatrixIdLi3ELi3ELi0ELi3ELi3EEELi0ENS_6StrideILi0EL
   %134 = getelementptr inbounds nuw i8, ptr %8, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(10) %134, ptr noundef nonnull align 8 dereferenceable(10) %.sroa.020.i, i64 10, i1 false)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %9)
-  %135 = getelementptr inbounds i8, ptr %8, i64 32
+  %135 = getelementptr inbounds nuw i8, ptr %8, i64 32
   store ptr %1, ptr %135, align 8, !alias.scope !75
   call void @_ZN5Eigen8internal26call_dense_assignment_loopINS_3MapINS_6MatrixIdLi3ELi3ELi0ELi3ELi3EEELi0ENS_6StrideILi0ELi0EEEEENS_7ProductINS_9TransposeIKNS2_IS4_Li16ES6_EEEENS9_IKNS8_ISC_S4_Li0EEEEELi1EEENS0_13add_assign_opIddEEEEvRT_RKT0_RKT1_(ptr noundef nonnull align 8 dereferenceable(12) %133, ptr noundef nonnull align 8 dereferenceable(40) %8, ptr noundef nonnull align 1 dereferenceable(1) %9)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %8)
@@ -1592,7 +1592,7 @@ _ZN5Eigen7NoAliasINS_3MapINS_6MatrixIdLi3ELi3ELi0ELi3ELi3EEELi0ENS_6StrideILi0EL
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %26 = load ptr, ptr %25, align 8, !noalias !84
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %10)
-  %27 = getelementptr inbounds i8, ptr %9, i64 32
+  %27 = getelementptr inbounds nuw i8, ptr %9, i64 32
   store ptr %26, ptr %27, align 8, !alias.scope !87
   call void @_ZN5Eigen8internal26call_dense_assignment_loopINS_3MapINS_6MatrixIdLi3ELi3ELi0ELi3ELi3EEELi0ENS_6StrideILi0ELi0EEEEENS_7ProductINS_9TransposeIKNS2_IS4_Li16ES6_EEEENS9_IKNS8_ISC_S4_Li0EEEEELi1EEENS0_13add_assign_opIddEEEEvRT_RKT0_RKT1_(ptr noundef nonnull align 8 dereferenceable(12) %23, ptr noundef nonnull align 8 dereferenceable(40) %9, ptr noundef nonnull align 1 dereferenceable(1) %10)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %9)
@@ -1640,7 +1640,7 @@ _ZN5Eigen7NoAliasINS_3MapINS_6MatrixIdLi3ELi3ELi0ELi3ELi3EEELi0ENS_6StrideILi0EL
   %46 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %47 = load ptr, ptr %46, align 8, !noalias !96
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6)
-  %48 = getelementptr inbounds i8, ptr %5, i64 32
+  %48 = getelementptr inbounds nuw i8, ptr %5, i64 32
   store ptr %47, ptr %48, align 8, !alias.scope !99
   call void @_ZN5Eigen8internal26call_dense_assignment_loopINS_3MapINS_6MatrixIdLi3ELi3ELi0ELi3ELi3EEELi0ENS_6StrideILi0ELi0EEEEENS_7ProductINS_9TransposeIKNS2_IS4_Li16ES6_EEEENS9_IKNS8_ISC_S4_Li0EEEEELi1EEENS0_13add_assign_opIddEEEEvRT_RKT0_RKT1_(ptr noundef nonnull align 8 dereferenceable(12) %44, ptr noundef nonnull align 8 dereferenceable(40) %5, ptr noundef nonnull align 1 dereferenceable(1) %6)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5)
@@ -1847,7 +1847,7 @@ define linkonce_odr void @_ZN5Eigen8internal26call_dense_assignment_loopINS_3Map
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %4)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %8, ptr %4, align 8
-  %9 = getelementptr inbounds i8, ptr %1, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %10 = load ptr, ptr %9, align 8
   %.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i.i.i = load ptr, ptr %7, align 8
   %11 = load <2 x double>, ptr %.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 1

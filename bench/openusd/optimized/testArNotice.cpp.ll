@@ -654,8 +654,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__17ArResolverContextD2Ev.exit69.i: ; preds =
   br label %.body71.i
 
 175:                                              ; preds = %.noexc70.i
-  %176 = getelementptr inbounds i8, ptr %26, i64 32
-  %177 = getelementptr inbounds i8, ptr %26, i64 24
+  %176 = getelementptr inbounds nuw i8, ptr %26, i64 32
+  %177 = getelementptr inbounds nuw i8, ptr %26, i64 24
   store ptr @_ZN32pxrInternal_v0_24__pxrReserved__19Ar_ContextIsHoldingI19TestResolverContextIiEEEbRKT_RKNS_17ArResolverContextE, ptr %172, align 8
   %178 = getelementptr inbounds nuw i8, ptr %172, i64 8
   store i32 0, ptr %178, align 4

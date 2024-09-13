@@ -53,7 +53,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__15TfBaseExceptionC2ERKNSt7__cx
   br i1 %.not.i.i.i, label %_ZNSt6vectorImSaImEED2Ev.exit, label %10
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %0, i64 64
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %12 = load ptr, ptr %11, align 8
   %13 = ptrtoint ptr %12 to i64
   %14 = ptrtoint ptr %9 to i64
@@ -84,7 +84,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__15TfBaseExceptionD2Ev(ptr noun
   br i1 %.not.i.i.i, label %_ZNSt6vectorImSaImEED2Ev.exit, label %5
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 64
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %7 = load ptr, ptr %6, align 8
   %8 = ptrtoint ptr %7 to i64
   %9 = ptrtoint ptr %4 to i64

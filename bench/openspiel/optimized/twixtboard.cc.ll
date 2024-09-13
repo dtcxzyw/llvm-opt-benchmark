@@ -166,7 +166,7 @@ define linkonce_odr void @_ZNSt6vectorIN10open_spiel5twixt14LinkDescriptorESaIS2
   br i1 %.not.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyIN10open_spiel5twixt14LinkDescriptorEEvPT_.exit.i.i.i, label %7
 
 7:                                                ; preds = %.lr.ph.i.i.i
-  %8 = getelementptr inbounds i8, ptr %.05.i.i.i, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %.05.i.i.i, i64 24
   %9 = load ptr, ptr %8, align 8
   %10 = ptrtoint ptr %9 to i64
   %11 = ptrtoint ptr %6 to i64
@@ -429,7 +429,7 @@ _ZNSt12_Vector_baseIN10open_spiel5twixt4CellESaIS2_EEC2EmRKS3_.exit.thread.i: ; 
   store ptr %.sink.i, ptr %16, align 8
   store ptr %.0.lcssa.i.i.i.i.i, ptr %15, align 8
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %18 = getelementptr inbounds i8, ptr %0, i64 32
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %19 = load ptr, ptr %18, align 8
   %20 = load ptr, ptr %17, align 8
   %21 = ptrtoint ptr %19 to i64
@@ -652,7 +652,7 @@ _ZNK10open_spiel5twixt5Board18PositionIsOffBoardE8Position.exit.thread13.us.i.us
   %110 = trunc nuw nsw i64 %indvars.iv19.i.us to i32
   %111 = getelementptr inbounds nuw i8, ptr %93, i64 8
   %112 = load ptr, ptr %111, align 8
-  %113 = getelementptr inbounds i8, ptr %93, i64 16
+  %113 = getelementptr inbounds nuw i8, ptr %93, i64 16
   %114 = load ptr, ptr %113, align 8
   %.not59.i.us = icmp eq ptr %112, %114
   br i1 %.not59.i.us, label %_ZN10open_spiel5twixt5Board20InitializeBlockerMapE8PositioniRKNS0_14LinkDescriptorE.exit.us, label %.lr.ph.i.preheader.us
@@ -795,7 +795,7 @@ _ZNKSt8__detail15_Hashtable_baseI4LinkSt4pairIKS1_St3setIS1_St4lessIS1_ESaIS1_EE
   %185 = getelementptr inbounds i8, ptr %179, i64 64
   store i64 0, ptr %185, align 8
   store ptr %179, ptr %59, align 8
-  %186 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN10open_spiel5twixt10BlockerMap4map_E, i64 40), align 8
+  %186 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN10open_spiel5twixt10BlockerMap4map_E, i64 40), align 8
   %187 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN10open_spiel5twixt10BlockerMap4map_E, i64 24), align 8
   %188 = invoke { i8, i64 } @_ZNKSt8__detail20_Prime_rehash_policy14_M_need_rehashEmmm(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN10open_spiel5twixt10BlockerMap4map_E, i64 32), i64 noundef %150, i64 noundef %187, i64 noundef 1)
           to label %.noexc115.us unwind label %.split.us
@@ -964,7 +964,7 @@ _ZNSt8__detail9_Map_baseI4LinkSt4pairIKS1_St3setIS1_St4lessIS1_ESaIS1_EEESaIS9_E
   br i1 %248, label %_ZNK8PositionltERKS_.exit.i.i.i.i85.us, label %_ZNKSt4lessI4LinkEclERKS0_S3_.exit.thread.i.thread.i66.us
 
 _ZNK8PositionltERKS_.exit.i.i.i.i85.us:           ; preds = %247
-  %249 = getelementptr inbounds i8, ptr %.02330.i.i65.us, i64 36
+  %249 = getelementptr inbounds nuw i8, ptr %.02330.i.i65.us, i64 36
   %250 = load i32, ptr %249, align 4
   %251 = icmp slt i32 %119, %250
   br i1 %251, label %_ZNKSt4lessI4LinkEclERKS0_S3_.exit.thread.i.i88.us, label %_ZNK8PositionltERKS_.exit.thread4.i.i.i.i86.us
@@ -974,7 +974,7 @@ _ZNK8PositionltERKS_.exit.thread4.i.i.i.i86.us:   ; preds = %_ZNK8PositionltERKS
   br i1 %252, label %_ZNKSt4lessI4LinkEclERKS0_S3_.exit.i.i87.us, label %_ZNKSt4lessI4LinkEclERKS0_S3_.exit.thread.i.thread.i66.us
 
 _ZNKSt4lessI4LinkEclERKS0_S3_.exit.i.i87.us:      ; preds = %_ZNK8PositionltERKS_.exit.thread4.i.i.i.i86.us
-  %253 = getelementptr inbounds i8, ptr %.02330.i.i65.us, i64 40
+  %253 = getelementptr inbounds nuw i8, ptr %.02330.i.i65.us, i64 40
   %254 = load i32, ptr %253, align 4
   %255 = icmp slt i32 %132, %254
   br i1 %255, label %_ZNKSt4lessI4LinkEclERKS0_S3_.exit.thread.i.i88.us, label %_ZNKSt4lessI4LinkEclERKS0_S3_.exit.thread.i.thread.i66.us
@@ -1020,7 +1020,7 @@ _ZNKSt4lessI4LinkEclERKS0_S3_.exit.thread.i.i88.us: ; preds = %_ZNKSt4lessI4Link
   br i1 %266, label %_ZNK8PositionltERKS_.exit.i.i5.i.i78.us, label %_ZNSt8_Rb_treeI4LinkS0_St9_IdentityIS0_ESt4lessIS0_ESaIS0_EE16_M_insert_uniqueIRKS0_EESt4pairISt17_Rb_tree_iteratorIS0_EbEOT_.exit96.us
 
 _ZNK8PositionltERKS_.exit.i.i5.i.i78.us:          ; preds = %265
-  %267 = getelementptr inbounds i8, ptr %.sroa.08.0.i.i73.us, i64 36
+  %267 = getelementptr inbounds nuw i8, ptr %.sroa.08.0.i.i73.us, i64 36
   %268 = load i32, ptr %267, align 4
   %269 = icmp slt i32 %268, %119
   br i1 %269, label %274, label %_ZNK8PositionltERKS_.exit.thread4.i.i6.i.i79.us
@@ -1030,7 +1030,7 @@ _ZNK8PositionltERKS_.exit.thread4.i.i6.i.i79.us:  ; preds = %_ZNK8PositionltERKS
   br i1 %270, label %_ZNKSt4lessI4LinkEclERKS0_S3_.exit7.i.i80.us, label %_ZNSt8_Rb_treeI4LinkS0_St9_IdentityIS0_ESt4lessIS0_ESaIS0_EE16_M_insert_uniqueIRKS0_EESt4pairISt17_Rb_tree_iteratorIS0_EbEOT_.exit96.us
 
 _ZNKSt4lessI4LinkEclERKS0_S3_.exit7.i.i80.us:     ; preds = %_ZNK8PositionltERKS_.exit.thread4.i.i6.i.i79.us
-  %271 = getelementptr inbounds i8, ptr %.sroa.08.0.i.i73.us, i64 40
+  %271 = getelementptr inbounds nuw i8, ptr %.sroa.08.0.i.i73.us, i64 40
   %272 = load i32, ptr %271, align 4
   %273 = icmp slt i32 %272, %132
   br i1 %273, label %274, label %_ZNSt8_Rb_treeI4LinkS0_St9_IdentityIS0_ESt4lessIS0_ESaIS0_EE16_M_insert_uniqueIRKS0_EESt4pairISt17_Rb_tree_iteratorIS0_EbEOT_.exit96.us
@@ -1051,7 +1051,7 @@ _ZNKSt4lessI4LinkEclERKS0_S3_.exit7.i.i80.us:     ; preds = %_ZNK8PositionltERKS
   br i1 %281, label %_ZNK8PositionltERKS_.exit.i.i.i7.i83.us, label %_ZNSt8_Rb_treeI4LinkS0_St9_IdentityIS0_ESt4lessIS0_ESaIS0_EE10_M_insert_IRKS0_NS6_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS0_EPSt18_Rb_tree_node_baseSE_OT_RT0_.exit.i82.us
 
 _ZNK8PositionltERKS_.exit.i.i.i7.i83.us:          ; preds = %280
-  %282 = getelementptr inbounds i8, ptr %.sroa.4.0.i.ph.i81.us, i64 36
+  %282 = getelementptr inbounds nuw i8, ptr %.sroa.4.0.i.ph.i81.us, i64 36
   %283 = load i32, ptr %282, align 4
   %284 = icmp slt i32 %119, %283
   br i1 %284, label %_ZNSt8_Rb_treeI4LinkS0_St9_IdentityIS0_ESt4lessIS0_ESaIS0_EE10_M_insert_IRKS0_NS6_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS0_EPSt18_Rb_tree_node_baseSE_OT_RT0_.exit.i82.us, label %_ZNK8PositionltERKS_.exit.thread4.i.i.i8.i84.us
@@ -1061,7 +1061,7 @@ _ZNK8PositionltERKS_.exit.thread4.i.i.i8.i84.us:  ; preds = %_ZNK8PositionltERKS
   br i1 %285, label %286, label %_ZNSt8_Rb_treeI4LinkS0_St9_IdentityIS0_ESt4lessIS0_ESaIS0_EE10_M_insert_IRKS0_NS6_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS0_EPSt18_Rb_tree_node_baseSE_OT_RT0_.exit.i82.us
 
 286:                                              ; preds = %_ZNK8PositionltERKS_.exit.thread4.i.i.i8.i84.us
-  %287 = getelementptr inbounds i8, ptr %.sroa.4.0.i.ph.i81.us, i64 40
+  %287 = getelementptr inbounds nuw i8, ptr %.sroa.4.0.i.ph.i81.us, i64 40
   %288 = load i32, ptr %287, align 4
   %289 = icmp slt i32 %132, %288
   br label %_ZNSt8_Rb_treeI4LinkS0_St9_IdentityIS0_ESt4lessIS0_ESaIS0_EE10_M_insert_IRKS0_NS6_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS0_EPSt18_Rb_tree_node_baseSE_OT_RT0_.exit.i82.us
@@ -1153,7 +1153,7 @@ _ZNKSt8__detail15_Hashtable_baseI4LinkSt4pairIKS1_St3setIS1_St4lessIS1_ESaIS1_EE
   %334 = getelementptr inbounds i8, ptr %328, i64 64
   store i64 0, ptr %334, align 8
   store ptr %328, ptr %60, align 8
-  %335 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN10open_spiel5twixt10BlockerMap4map_E, i64 40), align 8
+  %335 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN10open_spiel5twixt10BlockerMap4map_E, i64 40), align 8
   %336 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN10open_spiel5twixt10BlockerMap4map_E, i64 24), align 8
   %337 = invoke { i8, i64 } @_ZNKSt8__detail20_Prime_rehash_policy14_M_need_rehashEmmm(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN10open_spiel5twixt10BlockerMap4map_E, i64 32), i64 noundef %299, i64 noundef %336, i64 noundef 1)
           to label %.noexc110.us unwind label %.split202.us
@@ -1322,7 +1322,7 @@ _ZNSt8__detail9_Map_baseI4LinkSt4pairIKS1_St3setIS1_St4lessIS1_ESaIS1_EEESaIS9_E
   br i1 %397, label %_ZNK8PositionltERKS_.exit.i.i.i.i.us, label %_ZNKSt4lessI4LinkEclERKS0_S3_.exit.thread.i.thread.i.us
 
 _ZNK8PositionltERKS_.exit.i.i.i.i.us:             ; preds = %396
-  %398 = getelementptr inbounds i8, ptr %.02330.i.i.us, i64 36
+  %398 = getelementptr inbounds nuw i8, ptr %.02330.i.i.us, i64 36
   %399 = load i32, ptr %398, align 4
   %400 = icmp slt i32 %140, %399
   br i1 %400, label %_ZNKSt4lessI4LinkEclERKS0_S3_.exit.thread.i.i.us, label %_ZNK8PositionltERKS_.exit.thread4.i.i.i.i.us
@@ -1332,7 +1332,7 @@ _ZNK8PositionltERKS_.exit.thread4.i.i.i.i.us:     ; preds = %_ZNK8PositionltERKS
   br i1 %401, label %_ZNKSt4lessI4LinkEclERKS0_S3_.exit.i.i.us, label %_ZNKSt4lessI4LinkEclERKS0_S3_.exit.thread.i.thread.i.us
 
 _ZNKSt4lessI4LinkEclERKS0_S3_.exit.i.i.us:        ; preds = %_ZNK8PositionltERKS_.exit.thread4.i.i.i.i.us
-  %402 = getelementptr inbounds i8, ptr %.02330.i.i.us, i64 40
+  %402 = getelementptr inbounds nuw i8, ptr %.02330.i.i.us, i64 40
   %403 = load i32, ptr %402, align 4
   %404 = icmp slt i32 %298, %403
   br i1 %404, label %_ZNKSt4lessI4LinkEclERKS0_S3_.exit.thread.i.i.us, label %_ZNKSt4lessI4LinkEclERKS0_S3_.exit.thread.i.thread.i.us
@@ -1378,7 +1378,7 @@ _ZNKSt4lessI4LinkEclERKS0_S3_.exit.thread.i.i.us: ; preds = %_ZNKSt4lessI4LinkEc
   br i1 %415, label %_ZNK8PositionltERKS_.exit.i.i5.i.i.us, label %_ZNK10open_spiel5twixt5Board18PositionIsOffBoardE8Position.exit.thread.i55.us
 
 _ZNK8PositionltERKS_.exit.i.i5.i.i.us:            ; preds = %414
-  %416 = getelementptr inbounds i8, ptr %.sroa.08.0.i.i.us, i64 36
+  %416 = getelementptr inbounds nuw i8, ptr %.sroa.08.0.i.i.us, i64 36
   %417 = load i32, ptr %416, align 4
   %418 = icmp slt i32 %417, %140
   br i1 %418, label %423, label %_ZNK8PositionltERKS_.exit.thread4.i.i6.i.i.us
@@ -1388,7 +1388,7 @@ _ZNK8PositionltERKS_.exit.thread4.i.i6.i.i.us:    ; preds = %_ZNK8PositionltERKS
   br i1 %419, label %_ZNKSt4lessI4LinkEclERKS0_S3_.exit7.i.i.us, label %_ZNK10open_spiel5twixt5Board18PositionIsOffBoardE8Position.exit.thread.i55.us
 
 _ZNKSt4lessI4LinkEclERKS0_S3_.exit7.i.i.us:       ; preds = %_ZNK8PositionltERKS_.exit.thread4.i.i6.i.i.us
-  %420 = getelementptr inbounds i8, ptr %.sroa.08.0.i.i.us, i64 40
+  %420 = getelementptr inbounds nuw i8, ptr %.sroa.08.0.i.i.us, i64 40
   %421 = load i32, ptr %420, align 4
   %422 = icmp slt i32 %421, %298
   br i1 %422, label %423, label %_ZNK10open_spiel5twixt5Board18PositionIsOffBoardE8Position.exit.thread.i55.us
@@ -1409,7 +1409,7 @@ _ZNKSt4lessI4LinkEclERKS0_S3_.exit7.i.i.us:       ; preds = %_ZNK8PositionltERKS
   br i1 %430, label %_ZNK8PositionltERKS_.exit.i.i.i7.i.us, label %_ZNSt8_Rb_treeI4LinkS0_St9_IdentityIS0_ESt4lessIS0_ESaIS0_EE10_M_insert_IRKS0_NS6_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS0_EPSt18_Rb_tree_node_baseSE_OT_RT0_.exit.i.us
 
 _ZNK8PositionltERKS_.exit.i.i.i7.i.us:            ; preds = %429
-  %431 = getelementptr inbounds i8, ptr %.sroa.4.0.i.ph.i.us, i64 36
+  %431 = getelementptr inbounds nuw i8, ptr %.sroa.4.0.i.ph.i.us, i64 36
   %432 = load i32, ptr %431, align 4
   %433 = icmp slt i32 %140, %432
   br i1 %433, label %_ZNSt8_Rb_treeI4LinkS0_St9_IdentityIS0_ESt4lessIS0_ESaIS0_EE10_M_insert_IRKS0_NS6_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS0_EPSt18_Rb_tree_node_baseSE_OT_RT0_.exit.i.us, label %_ZNK8PositionltERKS_.exit.thread4.i.i.i8.i.us
@@ -1419,7 +1419,7 @@ _ZNK8PositionltERKS_.exit.thread4.i.i.i8.i.us:    ; preds = %_ZNK8PositionltERKS
   br i1 %434, label %435, label %_ZNSt8_Rb_treeI4LinkS0_St9_IdentityIS0_ESt4lessIS0_ESaIS0_EE10_M_insert_IRKS0_NS6_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS0_EPSt18_Rb_tree_node_baseSE_OT_RT0_.exit.i.us
 
 435:                                              ; preds = %_ZNK8PositionltERKS_.exit.thread4.i.i.i8.i.us
-  %436 = getelementptr inbounds i8, ptr %.sroa.4.0.i.ph.i.us, i64 40
+  %436 = getelementptr inbounds nuw i8, ptr %.sroa.4.0.i.ph.i.us, i64 40
   %437 = load i32, ptr %436, align 4
   %438 = icmp slt i32 %298, %437
   br label %_ZNSt8_Rb_treeI4LinkS0_St9_IdentityIS0_ESt4lessIS0_ESaIS0_EE10_M_insert_IRKS0_NS6_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS0_EPSt18_Rb_tree_node_baseSE_OT_RT0_.exit.i.us
@@ -1599,7 +1599,7 @@ _ZNK10open_spiel5twixt5Board18PositionIsOffBoardE8Position.exit.thread167: ; pre
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit.us, %.loopexit.split.us ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   %489 = extractvalue { ptr, i32 } %lpad.phi, 0
   %490 = call ptr @__cxa_begin_catch(ptr %489) #22
-  store i64 %186, ptr getelementptr inbounds (i8, ptr @_ZN10open_spiel5twixt10BlockerMap4map_E, i64 40), align 8
+  store i64 %186, ptr getelementptr inbounds nuw (i8, ptr @_ZN10open_spiel5twixt10BlockerMap4map_E, i64 40), align 8
   invoke void @__cxa_rethrow() #23
           to label %496 unwind label %491
 
@@ -1651,7 +1651,7 @@ _ZNK10open_spiel5twixt5Board18PositionIsOffBoardE8Position.exit.thread167: ; pre
   %lpad.phi172 = phi { ptr, i32 } [ %lpad.loopexit170.us, %.loopexit168.split.us ], [ %lpad.loopexit.split-lp171, %.loopexit.split-lp169 ]
   %499 = extractvalue { ptr, i32 } %lpad.phi172, 0
   %500 = call ptr @__cxa_begin_catch(ptr %499) #22
-  store i64 %335, ptr getelementptr inbounds (i8, ptr @_ZN10open_spiel5twixt10BlockerMap4map_E, i64 40), align 8
+  store i64 %335, ptr getelementptr inbounds nuw (i8, ptr @_ZN10open_spiel5twixt10BlockerMap4map_E, i64 40), align 8
   invoke void @__cxa_rethrow() #23
           to label %506 unwind label %501
 
@@ -1757,8 +1757,8 @@ define void @_ZN10open_spiel5twixt5Board22InitializeLegalActionsEv(ptr noundef n
   br i1 %9, label %.preheader.preheader, label %._crit_edge81
 
 .preheader.preheader:                             ; preds = %.preheader76
-  %10 = getelementptr inbounds i8, ptr %0, i64 64
-  %11 = getelementptr inbounds i8, ptr %0, i64 72
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %12 = getelementptr inbounds i8, ptr %0, i64 80
   %13 = getelementptr inbounds i8, ptr %0, i64 88
   %14 = getelementptr inbounds i8, ptr %0, i64 96
@@ -2222,7 +2222,7 @@ define void @_ZN10open_spiel5twixt5Board20InitializeBlockerMapE8PositioniRKNS0_1
   %.sroa.3.0.extract.trunc = trunc nuw i64 %.sroa.3.0.extract.shift to i32
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %3, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %12 = load ptr, ptr %11, align 8
   %.not59 = icmp eq ptr %10, %12
   br i1 %.not59, label %._crit_edge, label %.lr.ph
@@ -4911,7 +4911,7 @@ _ZN10open_spiel5twixt5Board13UndoFirstMoveEv.exit: ; preds = %_ZNK10open_spiel5t
   %50 = sext i32 %49 to i64
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %52 = load ptr, ptr %51, align 8
-  %53 = getelementptr inbounds i8, ptr %0, i64 64
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %54 = load ptr, ptr %53, align 8
   %55 = ptrtoint ptr %54 to i64
   %56 = ptrtoint ptr %52 to i64
@@ -5196,7 +5196,7 @@ _ZN10open_spiel5twixt5Board17RemoveLegalActionEi8Position.exit44: ; preds = %_ZN
   %165 = sext i32 %164 to i64
   %166 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %167 = load ptr, ptr %166, align 8
-  %168 = getelementptr inbounds i8, ptr %0, i64 64
+  %168 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %169 = load ptr, ptr %168, align 8
   %170 = ptrtoint ptr %169 to i64
   %171 = ptrtoint ptr %167 to i64
@@ -5757,7 +5757,7 @@ _ZNK10open_spiel5twixt5Board18PositionIsOffBoardE8Position.exit.thread75: ; pred
   %58 = getelementptr inbounds %"class.std::vector.24", ptr %54, i64 %57
   %59 = ashr i64 %.sroa.0.0.copyload, 32
   %60 = load ptr, ptr %58, align 8
-  %61 = getelementptr inbounds i8, ptr %.sroa.071.079, i64 40
+  %61 = getelementptr inbounds nuw i8, ptr %.sroa.071.079, i64 40
   %62 = load i32, ptr %61, align 4
   %63 = getelementptr inbounds %"class.open_spiel::twixt::Cell", ptr %60, i64 %59, i32 1
   %64 = load i32, ptr %63, align 4
@@ -6600,7 +6600,7 @@ define linkonce_odr noundef ptr @_ZSt16__do_uninit_copyIPKN10open_spiel5twixt14L
   store i64 %4, ptr %.019, align 8
   %5 = getelementptr inbounds nuw i8, ptr %.019, i64 8
   %6 = getelementptr inbounds nuw i8, ptr %.01218, i64 8
-  %7 = getelementptr inbounds i8, ptr %.01218, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %.01218, i64 16
   %8 = load ptr, ptr %7, align 8
   %9 = load ptr, ptr %6, align 8
   %10 = ptrtoint ptr %8 to i64
@@ -6629,10 +6629,10 @@ _ZNSt16allocator_traitsISaI4LinkEE8allocateERS1_m.exit.i.i.i.i.i.i: ; preds = %1
 .noexc13:                                         ; preds = %_ZNSt16allocator_traitsISaI4LinkEE8allocateERS1_m.exit.i.i.i.i.i.i, %.lr.ph
   %17 = phi ptr [ null, %.lr.ph ], [ %16, %_ZNSt16allocator_traitsISaI4LinkEE8allocateERS1_m.exit.i.i.i.i.i.i ]
   store ptr %17, ptr %5, align 8
-  %18 = getelementptr inbounds i8, ptr %.019, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %.019, i64 16
   store ptr %17, ptr %18, align 8
   %19 = getelementptr inbounds %struct.Link, ptr %17, i64 %13
-  %20 = getelementptr inbounds i8, ptr %.019, i64 24
+  %20 = getelementptr inbounds nuw i8, ptr %.019, i64 24
   store ptr %19, ptr %20, align 8
   %21 = load ptr, ptr %6, align 8
   %22 = load ptr, ptr %7, align 8
@@ -6712,7 +6712,7 @@ define linkonce_odr void @_ZSt8_DestroyIPN10open_spiel5twixt14LinkDescriptorEEvT
   br i1 %.not.i.i.i.i.i.i, label %_ZSt8_DestroyIN10open_spiel5twixt14LinkDescriptorEEvPT_.exit.i, label %5
 
 5:                                                ; preds = %.lr.ph.i
-  %6 = getelementptr inbounds i8, ptr %.05.i, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %.05.i, i64 24
   %7 = load ptr, ptr %6, align 8
   %8 = ptrtoint ptr %7 to i64
   %9 = ptrtoint ptr %4 to i64
@@ -6824,7 +6824,7 @@ _ZNKSt10_HashtableI4LinkSt4pairIKS0_St3setIS0_St4lessIS0_ESaIS0_EEESaIS8_ENSt8__
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr ptr @_ZNSt10_HashtableI4LinkSt4pairIKS0_St3setIS0_St4lessIS0_ESaIS0_EEESaIS8_ENSt8__detail10_Select1stESt8equal_toIS0_EN10open_spiel5twixt16LinkHashFunctionENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb1ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNSA_10_Hash_nodeIS8_Lb1EEEm(ptr noundef nonnull align 8 dereferenceable(56) %0, i64 noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4) local_unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %7 = getelementptr inbounds i8, ptr %0, i64 40
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %8 = load i64, ptr %7, align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load i64, ptr %9, align 8
@@ -7085,7 +7085,7 @@ define linkonce_odr { ptr, i8 } @_ZNSt8_Rb_treeI4LinkS0_St9_IdentityIS0_ESt4less
   br i1 %14, label %_ZNK8PositionltERKS_.exit.i.i.i, label %_ZNKSt4lessI4LinkEclERKS0_S3_.exit.thread.i.thread
 
 _ZNK8PositionltERKS_.exit.i.i.i:                  ; preds = %13
-  %15 = getelementptr inbounds i8, ptr %.02330.i, i64 36
+  %15 = getelementptr inbounds nuw i8, ptr %.02330.i, i64 36
   %16 = load i32, ptr %15, align 4
   %17 = icmp slt i32 %7, %16
   br i1 %17, label %_ZNKSt4lessI4LinkEclERKS0_S3_.exit.thread.i, label %_ZNK8PositionltERKS_.exit.thread4.i.i.i
@@ -7095,7 +7095,7 @@ _ZNK8PositionltERKS_.exit.thread4.i.i.i:          ; preds = %_ZNK8PositionltERKS
   br i1 %18, label %_ZNKSt4lessI4LinkEclERKS0_S3_.exit.i, label %_ZNKSt4lessI4LinkEclERKS0_S3_.exit.thread.i.thread
 
 _ZNKSt4lessI4LinkEclERKS0_S3_.exit.i:             ; preds = %_ZNK8PositionltERKS_.exit.thread4.i.i.i
-  %19 = getelementptr inbounds i8, ptr %.02330.i, i64 40
+  %19 = getelementptr inbounds nuw i8, ptr %.02330.i, i64 40
   %20 = load i32, ptr %19, align 4
   %21 = icmp slt i32 %9, %20
   br i1 %21, label %_ZNKSt4lessI4LinkEclERKS0_S3_.exit.thread.i, label %_ZNKSt4lessI4LinkEclERKS0_S3_.exit.thread.i.thread
@@ -7143,7 +7143,7 @@ _ZNKSt4lessI4LinkEclERKS0_S3_.exit.thread.i.thread: ; preds = %13, %_ZNK8Positio
   br i1 %33, label %_ZNK8PositionltERKS_.exit.i.i5.i, label %72
 
 _ZNK8PositionltERKS_.exit.i.i5.i:                 ; preds = %32
-  %34 = getelementptr inbounds i8, ptr %.sroa.08.0.i, i64 36
+  %34 = getelementptr inbounds nuw i8, ptr %.sroa.08.0.i, i64 36
   %35 = load i32, ptr %34, align 4
   %36 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %37 = load i32, ptr %36, align 4
@@ -7155,7 +7155,7 @@ _ZNK8PositionltERKS_.exit.thread4.i.i6.i:         ; preds = %_ZNK8PositionltERKS
   br i1 %39, label %_ZNKSt4lessI4LinkEclERKS0_S3_.exit7.i, label %72
 
 _ZNKSt4lessI4LinkEclERKS0_S3_.exit7.i:            ; preds = %_ZNK8PositionltERKS_.exit.thread4.i.i6.i
-  %40 = getelementptr inbounds i8, ptr %.sroa.08.0.i, i64 40
+  %40 = getelementptr inbounds nuw i8, ptr %.sroa.08.0.i, i64 40
   %41 = load i32, ptr %40, align 4
   %42 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %43 = load i32, ptr %42, align 4
@@ -7181,7 +7181,7 @@ _ZNKSt4lessI4LinkEclERKS0_S3_.exit7.i:            ; preds = %_ZNK8PositionltERKS
 _ZNK8PositionltERKS_.exit.i.i.i7:                 ; preds = %52
   %54 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %55 = load i32, ptr %54, align 4
-  %56 = getelementptr inbounds i8, ptr %.sroa.4.0.i.ph, i64 36
+  %56 = getelementptr inbounds nuw i8, ptr %.sroa.4.0.i.ph, i64 36
   %57 = load i32, ptr %56, align 4
   %58 = icmp slt i32 %55, %57
   br i1 %58, label %_ZNSt8_Rb_treeI4LinkS0_St9_IdentityIS0_ESt4lessIS0_ESaIS0_EE10_M_insert_IRKS0_NS6_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS0_EPSt18_Rb_tree_node_baseSE_OT_RT0_.exit, label %_ZNK8PositionltERKS_.exit.thread4.i.i.i8
@@ -7193,7 +7193,7 @@ _ZNK8PositionltERKS_.exit.thread4.i.i.i8:         ; preds = %_ZNK8PositionltERKS
 60:                                               ; preds = %_ZNK8PositionltERKS_.exit.thread4.i.i.i8
   %61 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %62 = load i32, ptr %61, align 4
-  %63 = getelementptr inbounds i8, ptr %.sroa.4.0.i.ph, i64 40
+  %63 = getelementptr inbounds nuw i8, ptr %.sroa.4.0.i.ph, i64 40
   %64 = load i32, ptr %63, align 4
   %65 = icmp slt i32 %62, %64
   br label %_ZNSt8_Rb_treeI4LinkS0_St9_IdentityIS0_ESt4lessIS0_ESaIS0_EE10_M_insert_IRKS0_NS6_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS0_EPSt18_Rb_tree_node_baseSE_OT_RT0_.exit
@@ -7316,7 +7316,7 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeI4LinkS0_St9_IdentityIS0_ESt4les
   br i1 %15, label %_ZNK8PositionltERKS_.exit.i.i, label %_ZNKSt4lessI4LinkEclERKS0_S3_.exit.thread46.thread
 
 _ZNK8PositionltERKS_.exit.i.i:                    ; preds = %14
-  %16 = getelementptr inbounds i8, ptr %.055, i64 36
+  %16 = getelementptr inbounds nuw i8, ptr %.055, i64 36
   %17 = load i32, ptr %16, align 4
   %18 = icmp slt i32 %17, %7
   br i1 %18, label %_ZNKSt4lessI4LinkEclERKS0_S3_.exit.thread, label %_ZNK8PositionltERKS_.exit.thread4.i.i
@@ -7326,7 +7326,7 @@ _ZNK8PositionltERKS_.exit.thread4.i.i:            ; preds = %_ZNK8PositionltERKS
   br i1 %19, label %_ZNKSt4lessI4LinkEclERKS0_S3_.exit, label %_ZNKSt4lessI4LinkEclERKS0_S3_.exit.thread46
 
 _ZNKSt4lessI4LinkEclERKS0_S3_.exit:               ; preds = %_ZNK8PositionltERKS_.exit.thread4.i.i
-  %20 = getelementptr inbounds i8, ptr %.055, i64 40
+  %20 = getelementptr inbounds nuw i8, ptr %.055, i64 40
   %21 = load i32, ptr %20, align 4
   %22 = icmp slt i32 %21, %9
   br i1 %22, label %_ZNKSt4lessI4LinkEclERKS0_S3_.exit.thread, label %_ZNKSt4lessI4LinkEclERKS0_S3_.exit.thread46
@@ -7340,7 +7340,7 @@ _ZNKSt4lessI4LinkEclERKS0_S3_.exit.thread46.thread: ; preds = %14
   br i1 %24, label %_ZNKSt4lessI4LinkEclERKS0_S3_.exit.thread, label %_ZNKSt4lessI4LinkEclERKS0_S3_.exit26.thread48
 
 _ZNK8PositionltERKS_.exit.i.i24:                  ; preds = %_ZNKSt4lessI4LinkEclERKS0_S3_.exit.thread46
-  %25 = getelementptr inbounds i8, ptr %.055, i64 36
+  %25 = getelementptr inbounds nuw i8, ptr %.055, i64 36
   %26 = load i32, ptr %25, align 4
   %27 = icmp slt i32 %7, %26
   br i1 %27, label %_ZNKSt4lessI4LinkEclERKS0_S3_.exit.thread, label %_ZNK8PositionltERKS_.exit.thread4.i.i25
@@ -7350,7 +7350,7 @@ _ZNK8PositionltERKS_.exit.thread4.i.i25:          ; preds = %_ZNK8PositionltERKS
   br i1 %28, label %_ZNKSt4lessI4LinkEclERKS0_S3_.exit26, label %_ZNKSt4lessI4LinkEclERKS0_S3_.exit26.thread48
 
 _ZNKSt4lessI4LinkEclERKS0_S3_.exit26:             ; preds = %_ZNK8PositionltERKS_.exit.thread4.i.i25
-  %29 = getelementptr inbounds i8, ptr %.055, i64 40
+  %29 = getelementptr inbounds nuw i8, ptr %.055, i64 40
   %30 = load i32, ptr %29, align 4
   %31 = icmp slt i32 %9, %30
   br i1 %31, label %_ZNKSt4lessI4LinkEclERKS0_S3_.exit.thread, label %_ZNKSt4lessI4LinkEclERKS0_S3_.exit26.thread48
@@ -7376,7 +7376,7 @@ _ZNKSt4lessI4LinkEclERKS0_S3_.exit26.thread48:    ; preds = %_ZNKSt4lessI4LinkEc
   br i1 %40, label %_ZNK8PositionltERKS_.exit.i.i.i, label %_ZNKSt4lessI4LinkEclERKS0_S3_.exit.thread11.i
 
 _ZNK8PositionltERKS_.exit.i.i.i:                  ; preds = %39
-  %41 = getelementptr inbounds i8, ptr %.014.i, i64 36
+  %41 = getelementptr inbounds nuw i8, ptr %.014.i, i64 36
   %42 = load i32, ptr %41, align 4
   %43 = icmp slt i32 %42, %7
   br i1 %43, label %_ZNKSt4lessI4LinkEclERKS0_S3_.exit.thread.i, label %_ZNK8PositionltERKS_.exit.thread4.i.i.i
@@ -7386,7 +7386,7 @@ _ZNK8PositionltERKS_.exit.thread4.i.i.i:          ; preds = %_ZNK8PositionltERKS
   br i1 %44, label %_ZNKSt4lessI4LinkEclERKS0_S3_.exit.i, label %_ZNKSt4lessI4LinkEclERKS0_S3_.exit.thread11.i
 
 _ZNKSt4lessI4LinkEclERKS0_S3_.exit.i:             ; preds = %_ZNK8PositionltERKS_.exit.thread4.i.i.i
-  %45 = getelementptr inbounds i8, ptr %.014.i, i64 40
+  %45 = getelementptr inbounds nuw i8, ptr %.014.i, i64 40
   %46 = load i32, ptr %45, align 4
   %47 = icmp slt i32 %46, %9
   br i1 %47, label %_ZNKSt4lessI4LinkEclERKS0_S3_.exit.thread.i, label %_ZNKSt4lessI4LinkEclERKS0_S3_.exit.thread11.i
@@ -7420,7 +7420,7 @@ _ZNSt8_Rb_treeI4LinkS0_St9_IdentityIS0_ESt4lessIS0_ESaIS0_EE14_M_lower_boundEPSt
   br i1 %53, label %_ZNK8PositionltERKS_.exit.i.i.i38, label %_ZNKSt4lessI4LinkEclERKS0_S3_.exit.thread11.i31
 
 _ZNK8PositionltERKS_.exit.i.i.i38:                ; preds = %52
-  %54 = getelementptr inbounds i8, ptr %.014.i29, i64 36
+  %54 = getelementptr inbounds nuw i8, ptr %.014.i29, i64 36
   %55 = load i32, ptr %54, align 4
   %56 = icmp slt i32 %7, %55
   br i1 %56, label %_ZNKSt4lessI4LinkEclERKS0_S3_.exit.thread.i32, label %_ZNK8PositionltERKS_.exit.thread4.i.i.i39
@@ -7430,7 +7430,7 @@ _ZNK8PositionltERKS_.exit.thread4.i.i.i39:        ; preds = %_ZNK8PositionltERKS
   br i1 %57, label %_ZNKSt4lessI4LinkEclERKS0_S3_.exit.i40, label %_ZNKSt4lessI4LinkEclERKS0_S3_.exit.thread11.i31
 
 _ZNKSt4lessI4LinkEclERKS0_S3_.exit.i40:           ; preds = %_ZNK8PositionltERKS_.exit.thread4.i.i.i39
-  %58 = getelementptr inbounds i8, ptr %.014.i29, i64 40
+  %58 = getelementptr inbounds nuw i8, ptr %.014.i29, i64 40
   %59 = load i32, ptr %58, align 4
   %60 = icmp slt i32 %9, %59
   br i1 %60, label %_ZNKSt4lessI4LinkEclERKS0_S3_.exit.thread.i32, label %_ZNKSt4lessI4LinkEclERKS0_S3_.exit.thread11.i31
@@ -7500,9 +7500,9 @@ define linkonce_odr void @_ZNSt6vectorIS_IN10open_spiel5twixt4CellESaIS2_EESaIS4
   br i1 %.not.i.i.i.i.i.i.i, label %.noexc4.i.thread, label %26
 
 .noexc4.i.thread:                                 ; preds = %15
-  %23 = getelementptr inbounds i8, ptr %5, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %24 = getelementptr inbounds i8, ptr null, i64 %22
-  %25 = getelementptr inbounds i8, ptr %5, i64 24
+  %25 = getelementptr inbounds nuw i8, ptr %5, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %16, i8 0, i64 16, i1 false)
   store ptr %24, ptr %25, align 8
   br label %_ZNSt6vectorIS_IN10open_spiel5twixt4CellESaIS2_EESaIS4_EE16_Temporary_valueC2IJRKS4_EEEPS6_DpOT_.exit
@@ -7519,10 +7519,10 @@ define linkonce_odr void @_ZNSt6vectorIS_IN10open_spiel5twixt4CellESaIS2_EESaIS4
 .noexc4.i:                                        ; preds = %26
   %29 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %22) #24
   store ptr %29, ptr %16, align 8
-  %30 = getelementptr inbounds i8, ptr %5, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %29, ptr %30, align 8
   %31 = getelementptr inbounds i8, ptr %29, i64 %22
-  %32 = getelementptr inbounds i8, ptr %5, i64 24
+  %32 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store ptr %31, ptr %32, align 8
   br label %.lr.ph.i.i.i.i.i.i.i.i
 
@@ -8263,10 +8263,10 @@ define internal void @_GLOBAL__sub_I_twixtboard.cc() #16 section ".text.startup"
   %5 = tail call noalias noundef nonnull dereferenceable(108) ptr @_Znwm(i64 noundef 108) #24
   store ptr %5, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 108
-  %7 = getelementptr inbounds i8, ptr %1, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store ptr %6, ptr %7, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(108) %5, ptr noundef nonnull align 4 dereferenceable(108) @constinit, i64 108, i1 false)
-  %8 = getelementptr inbounds i8, ptr %1, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store ptr %6, ptr %8, align 8
   %9 = getelementptr inbounds i8, ptr %1, i64 32
   store i32 2, ptr %9, align 8
@@ -8536,7 +8536,7 @@ __cxx_global_var_init.1.exit:                     ; preds = %_ZN10open_spiel5twi
   store i64 1, ptr getelementptr inbounds nuw (i8, ptr @_ZN10open_spiel5twixt10BlockerMap4map_E, i64 8), align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN10open_spiel5twixt10BlockerMap4map_E, i64 16), i8 0, i64 16, i1 false)
   store float 1.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @_ZN10open_spiel5twixt10BlockerMap4map_E, i64 32), align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZN10open_spiel5twixt10BlockerMap4map_E, i64 40), i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN10open_spiel5twixt10BlockerMap4map_E, i64 40), i8 0, i64 16, i1 false)
   %128 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt13unordered_mapI4LinkSt3setIS0_St4lessIS0_ESaIS0_EEN10open_spiel5twixt16LinkHashFunctionESt8equal_toIS0_ESaISt4pairIKS0_S5_EEED2Ev, ptr nonnull @_ZN10open_spiel5twixt10BlockerMap4map_E, ptr nonnull @__dso_handle) #22
   ret void
 }

@@ -346,9 +346,9 @@ _ZZNK32pxrInternal_v0_24__pxrReserved__17ArFilesystemAsset9GetBufferEvEN8_Delete
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt19_Sp_counted_deleterIPKcZNK32pxrInternal_v0_24__pxrReserved__17ArFilesystemAsset9GetBufferEvE8_DeleterSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %20, align 8
   %35 = getelementptr inbounds nuw i8, ptr %20, i64 16
   store ptr %16, ptr %35, align 8
-  %36 = getelementptr inbounds i8, ptr %20, i64 24
+  %36 = getelementptr inbounds nuw i8, ptr %20, i64 24
   store ptr %17, ptr %36, align 8
-  %37 = getelementptr inbounds i8, ptr %20, i64 32
+  %37 = getelementptr inbounds nuw i8, ptr %20, i64 32
   store ptr %9, ptr %37, align 8
   store ptr %20, ptr %18, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
@@ -958,7 +958,7 @@ _ZNSt19_Sp_counted_deleterIPKcZNK32pxrInternal_v0_24__pxrReserved__17ArFilesyste
 define internal void @_ZNSt19_Sp_counted_deleterIPKcZNK32pxrInternal_v0_24__pxrReserved__17ArFilesystemAsset9GetBufferEvE8_DeleterSaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv(ptr nocapture noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr null, ptr %2, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 24
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
   store ptr null, ptr %3, align 8
   %.not.i.i.i.i = icmp eq ptr %4, null

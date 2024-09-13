@@ -421,7 +421,7 @@ define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L18_ConvertToT
 41:                                               ; preds = %33
   %42 = getelementptr inbounds i8, ptr %34, i64 24
   %43 = load ptr, ptr %42, align 8
-  %44 = getelementptr inbounds i8, ptr %43, i64 40
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 40
   %45 = load i32, ptr %44, align 8
   %.not69 = icmp eq i32 %45, 2
   br i1 %.not69, label %.critedge, label %46
@@ -451,7 +451,7 @@ define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L18_ConvertToT
 56:                                               ; preds = %.critedge
   %57 = getelementptr inbounds i8, ptr %34, i64 8
   %58 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %57) #18
-  %59 = getelementptr inbounds i8, ptr %58, i64 40
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 40
   %60 = load i32, ptr %59, align 8
   %.not70 = icmp eq i32 %60, 2
   br i1 %.not70, label %.critedge2, label %61
@@ -518,7 +518,7 @@ define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L18_ConvertToT
   %93 = getelementptr inbounds nuw i8, ptr %.sroa.0111.0135, i64 32
   %94 = load double, ptr %93, align 8
   store double %94, ptr %80, align 8
-  %95 = getelementptr inbounds i8, ptr %.sroa.0111.0135, i64 48
+  %95 = getelementptr inbounds nuw i8, ptr %.sroa.0111.0135, i64 48
   store ptr %83, ptr %81, align 8
   %96 = load double, ptr %95, align 8
   store double %96, ptr %7, align 8
@@ -551,7 +551,7 @@ define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L18_ConvertToT
 
 110:                                              ; preds = %102, %97
   store ptr null, ptr %81, align 8
-  %111 = getelementptr inbounds i8, ptr %.sroa.0111.0135, i64 72
+  %111 = getelementptr inbounds nuw i8, ptr %.sroa.0111.0135, i64 72
   store ptr %83, ptr %84, align 8
   %112 = load double, ptr %111, align 8
   store double %112, ptr %8, align 8
@@ -584,7 +584,7 @@ define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L18_ConvertToT
 
 126:                                              ; preds = %118, %113
   store ptr null, ptr %84, align 8
-  %127 = getelementptr inbounds i8, ptr %.sroa.0111.0135, i64 80
+  %127 = getelementptr inbounds nuw i8, ptr %.sroa.0111.0135, i64 80
   store ptr %83, ptr %85, align 8
   %128 = load double, ptr %127, align 8
   store double %128, ptr %9, align 8
@@ -617,19 +617,19 @@ define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L18_ConvertToT
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit87: ; preds = %129, %134
   store ptr null, ptr %85, align 8
-  %142 = getelementptr inbounds i8, ptr %.sroa.0111.0135, i64 88
+  %142 = getelementptr inbounds nuw i8, ptr %.sroa.0111.0135, i64 88
   %143 = load double, ptr %142, align 8
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__10TsKeyFrame20SetLeftTangentLengthEd(ptr noundef nonnull align 8 dereferenceable(72) %6, double noundef %143)
           to label %144 unwind label %150
 
 144:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit87
-  %145 = getelementptr inbounds i8, ptr %.sroa.0111.0135, i64 96
+  %145 = getelementptr inbounds nuw i8, ptr %.sroa.0111.0135, i64 96
   %146 = load double, ptr %145, align 8
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__10TsKeyFrame21SetRightTangentLengthEd(ptr noundef nonnull align 8 dereferenceable(72) %6, double noundef %146)
           to label %147 unwind label %150
 
 147:                                              ; preds = %144
-  %148 = getelementptr inbounds i8, ptr %.sroa.0111.0135, i64 40
+  %148 = getelementptr inbounds nuw i8, ptr %.sroa.0111.0135, i64 40
   %149 = load i32, ptr %148, align 8
   %switch = icmp ult i32 %149, 3
   br i1 %switch, label %.invoke, label %158
@@ -681,7 +681,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit87: ; preds = %129, %134
           to label %159 unwind label %150
 
 159:                                              ; preds = %.invoke, %158
-  %160 = getelementptr inbounds i8, ptr %.sroa.0111.0135, i64 56
+  %160 = getelementptr inbounds nuw i8, ptr %.sroa.0111.0135, i64 56
   %161 = load i8, ptr %160, align 8
   %162 = trunc i8 %161 to i1
   br i1 %162, label %163, label %182
@@ -691,7 +691,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit87: ; preds = %129, %134
           to label %164 unwind label %150
 
 164:                                              ; preds = %163
-  %165 = getelementptr inbounds i8, ptr %.sroa.0111.0135, i64 64
+  %165 = getelementptr inbounds nuw i8, ptr %.sroa.0111.0135, i64 64
   store ptr %83, ptr %90, align 8
   %166 = load double, ptr %165, align 8
   store double %166, ptr %11, align 8
@@ -772,7 +772,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit90: ; preds = %167, %172
 
 195:                                              ; preds = %190
   %196 = load ptr, ptr %77, align 8
-  %197 = getelementptr inbounds i8, ptr %196, i64 40
+  %197 = getelementptr inbounds nuw i8, ptr %196, i64 40
   %198 = load i32, ptr %197, align 8
   %199 = icmp eq i32 %198, 2
   br i1 %199, label %200, label %.critedge4
@@ -970,7 +970,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit97: ; preds = %247, %252
 
 276:                                              ; preds = %271
   %277 = call noundef ptr @_ZSt18_Rb_tree_decrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %79) #18
-  %278 = getelementptr inbounds i8, ptr %277, i64 40
+  %278 = getelementptr inbounds nuw i8, ptr %277, i64 40
   %279 = load i32, ptr %278, align 8
   %280 = icmp eq i32 %279, 2
   br i1 %280, label %281, label %.critedge6
@@ -1521,7 +1521,7 @@ define void @_ZNK32pxrInternal_v0_24__pxrReserved__18TsTest_TsEvaluator6SampleER
   %48 = getelementptr inbounds nuw i8, ptr %.sroa.017.023, i64 8
   %49 = load double, ptr %48, align 8
   %50 = getelementptr inbounds nuw i8, ptr %.sroa.017.023, i64 24
-  %51 = getelementptr inbounds i8, ptr %.sroa.017.023, i64 32
+  %51 = getelementptr inbounds nuw i8, ptr %.sroa.017.023, i64 32
   %52 = load ptr, ptr %51, align 8
   %53 = ptrtoint ptr %52 to i64
   %.not.i.i = icmp eq ptr %52, null
@@ -1628,7 +1628,7 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__13TsTest_SampleESaIS1_EED2Ev.exi
 
 .lr.ph.i.i.i.i:                                   ; preds = %._crit_edge, %_ZSt8_DestroyIN32pxrInternal_v0_24__pxrReserved__13TsValueSampleEEvPT_.exit.i.i.i.i
   %.05.i.i.i.i = phi ptr [ %116, %_ZSt8_DestroyIN32pxrInternal_v0_24__pxrReserved__13TsValueSampleEEvPT_.exit.i.i.i.i ], [ %.pre, %._crit_edge ]
-  %88 = getelementptr inbounds i8, ptr %.05.i.i.i.i, i64 48
+  %88 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i, i64 48
   %89 = load ptr, ptr %88, align 8
   %90 = ptrtoint ptr %89 to i64
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %89, null
@@ -1655,7 +1655,7 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__13TsTest_SampleESaIS1_EED2Ev.exi
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit.i.i.i.i.i.i: ; preds = %93, %.lr.ph.i.i.i.i
   store ptr null, ptr %88, align 8
-  %102 = getelementptr inbounds i8, ptr %.05.i.i.i.i, i64 32
+  %102 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i, i64 32
   %103 = load ptr, ptr %102, align 8
   %104 = ptrtoint ptr %103 to i64
   %.not.i.i1.i.i.i.i.i.i = icmp eq ptr %103, null
@@ -1799,7 +1799,7 @@ define linkonce_odr void @_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__13TsVa
 
 .lr.ph.i.i.i:                                     ; preds = %1, %_ZSt8_DestroyIN32pxrInternal_v0_24__pxrReserved__13TsValueSampleEEvPT_.exit.i.i.i
   %.05.i.i.i = phi ptr [ %33, %_ZSt8_DestroyIN32pxrInternal_v0_24__pxrReserved__13TsValueSampleEEvPT_.exit.i.i.i ], [ %2, %1 ]
-  %5 = getelementptr inbounds i8, ptr %.05.i.i.i, i64 48
+  %5 = getelementptr inbounds nuw i8, ptr %.05.i.i.i, i64 48
   %6 = load ptr, ptr %5, align 8
   %7 = ptrtoint ptr %6 to i64
   %.not.i.i.i.i.i.i.i = icmp eq ptr %6, null
@@ -1826,7 +1826,7 @@ define linkonce_odr void @_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__13TsVa
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit.i.i.i.i.i: ; preds = %10, %.lr.ph.i.i.i
   store ptr null, ptr %5, align 8
-  %19 = getelementptr inbounds i8, ptr %.05.i.i.i, i64 32
+  %19 = getelementptr inbounds nuw i8, ptr %.05.i.i.i, i64 32
   %20 = load ptr, ptr %19, align 8
   %21 = ptrtoint ptr %20 to i64
   %.not.i.i1.i.i.i.i.i = icmp eq ptr %20, null

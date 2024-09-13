@@ -229,7 +229,7 @@ define void @_ZN3g2o25EdgeSE2Segment2DPointLineC2Ev(ptr noundef nonnull align 8 
   store ptr null, ptr %9, align 8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr null, ptr %2, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %12 = load ptr, ptr %11, align 8
   %13 = load ptr, ptr %10, align 8
   %14 = ptrtoint ptr %12 to i64
@@ -519,7 +519,7 @@ _ZN5Eigen10MatrixBaseINS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEE9normalizeEv.exit:
   %10 = fcmp ugt double %9, 0.000000e+00
   %.0.v.i.i = select i1 %10, double 0xC00921FB54442D18, double 0x400921FB54442D18
   %.0.i.i = fadd double %9, %.0.v.i.i
-  %11 = getelementptr inbounds i8, ptr %3, i64 192
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 192
   %12 = tail call double @sin(double noundef %.0.i.i) #19, !noalias !20
   %13 = tail call double @cos(double noundef %.0.i.i) #19, !noalias !20
   %14 = fneg double %12
@@ -655,7 +655,7 @@ _ZN5Eigen10MatrixBaseINS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEE9normalizeEv.exit:
   %11 = fcmp ugt double %10, 0.000000e+00
   %.0.v.i.i = select i1 %11, double 0xC00921FB54442D18, double 0x400921FB54442D18
   %.0.i.i = fadd double %10, %.0.v.i.i
-  %12 = getelementptr inbounds i8, ptr %4, i64 192
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 192
   %13 = tail call double @sin(double noundef %.0.i.i) #19, !noalias !55
   %14 = tail call double @cos(double noundef %.0.i.i) #19, !noalias !55
   %15 = fneg double %13

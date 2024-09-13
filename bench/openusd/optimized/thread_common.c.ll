@@ -168,7 +168,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
 
 ; Function Attrs: nounwind uwtable
 define hidden void @av1_loop_filter_frame_mt(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef %6, i32 noundef %7, ptr noundef %8) local_unnamed_addr #0 {
-  %10 = getelementptr inbounds i8, ptr %1, i64 1076
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 1076
   %11 = load i32, ptr %10, align 4
   %.not = icmp ne i32 %5, 0
   %12 = icmp sgt i32 %11, 8
@@ -424,8 +424,8 @@ loop_filter_alloc.exit.i:                         ; preds = %92, %90, %88
   store i32 0, ptr %103, align 4
   %104 = getelementptr inbounds i8, ptr %1, i64 23572
   %105 = icmp slt i32 %3, %4
-  %106 = getelementptr inbounds i8, ptr %1, i64 23580
-  %107 = getelementptr inbounds i8, ptr %1, i64 23576
+  %106 = getelementptr inbounds nuw i8, ptr %1, i64 23580
+  %107 = getelementptr inbounds nuw i8, ptr %1, i64 23576
   %108 = getelementptr inbounds nuw i8, ptr %1, i64 23568
   %109 = icmp sgt i32 %.0, 0
   %or.cond.i.i = and i1 %105, %109
@@ -1096,7 +1096,7 @@ loop_restoration_alloc.exit.i:                    ; preds = %126, %._crit_edge11
   store i32 0, ptr %8, align 4
   %151 = getelementptr inbounds i8, ptr %8, i64 4
   store i32 %.1.i.i, ptr %151, align 4
-  %152 = getelementptr inbounds i8, ptr %1, i64 25284
+  %152 = getelementptr inbounds nuw i8, ptr %1, i64 25284
   br label %153
 
 153:                                              ; preds = %.loopexit.i.i, %150
@@ -1300,7 +1300,7 @@ define internal noundef i32 @loop_filter_row_worker(ptr nocapture noundef %0, pt
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 7840
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %5, i64 1080
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 1080
   %10 = load i32, ptr %9, align 8
   %11 = add nsw i32 %10, 31
   %12 = ashr i32 %11, 5
@@ -1319,7 +1319,7 @@ get_lf_job_info.exit.lr.ph.i:                     ; preds = %2
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %25 = getelementptr inbounds i8, ptr %5, i64 25212
+  %25 = getelementptr inbounds nuw i8, ptr %5, i64 25212
   %26 = add nsw i32 %12, -1
   br label %get_lf_job_info.exit.i
 
@@ -1635,7 +1635,7 @@ get_lr_job_info.exit:                             ; preds = %get_lr_job_info.exi
   %59 = load ptr, ptr %19, align 8
   %60 = load ptr, ptr %20, align 8
   %61 = load i32, ptr %47, align 8
-  %62 = getelementptr inbounds i8, ptr %39, i64 64
+  %62 = getelementptr inbounds nuw i8, ptr %39, i64 64
   %63 = load i32, ptr %62, align 8
   %64 = getelementptr inbounds nuw i8, ptr %30, i64 20
   %65 = load i32, ptr %64, align 4

@@ -214,7 +214,7 @@ define void @_ZN3g2o13EdgeSE2Line2DC2Ev(ptr noundef nonnull align 16 dereference
   store ptr null, ptr %10, align 8
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr null, ptr %2, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %13 = load ptr, ptr %12, align 16
   %14 = load ptr, ptr %11, align 8
   %15 = ptrtoint ptr %13 to i64
@@ -453,7 +453,7 @@ _ZNKSt3setIPN3g2o10HyperGraph6VertexESt4lessIS3_ESaIS3_EE5countERKS3_.exit: ; pr
 21:                                               ; preds = %_ZNKSt3setIPN3g2o10HyperGraph6VertexESt4lessIS3_ESaIS3_EE5countERKS3_.exit
   %22 = getelementptr inbounds nuw i8, ptr %6, i64 176
   %23 = load double, ptr %22, align 16
-  %24 = getelementptr inbounds i8, ptr %6, i64 192
+  %24 = getelementptr inbounds nuw i8, ptr %6, i64 192
   %.sroa.2.16.copyload = load <2 x double>, ptr %24, align 16
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %.sroa.011.0.copyload = load double, ptr %25, align 16
@@ -557,7 +557,7 @@ define linkonce_odr void @_ZN3g2o13EdgeSE2Line2D12computeErrorEv(ptr noundef non
   %12 = fcmp ugt double %11, 0.000000e+00
   %.0.v.i.i = select i1 %12, double 0xC00921FB54442D18, double 0x400921FB54442D18
   %.0.i.i = fadd double %11, %.0.v.i.i
-  %13 = getelementptr inbounds i8, ptr %4, i64 192
+  %13 = getelementptr inbounds nuw i8, ptr %4, i64 192
   %14 = tail call double @sin(double noundef %.0.i.i) #18, !noalias !20
   %15 = tail call double @cos(double noundef %.0.i.i) #18, !noalias !20
   %16 = fneg double %14
@@ -657,7 +657,7 @@ define linkonce_odr noundef zeroext i1 @_ZN3g2o13EdgeSE2Line2D23setMeasurementFr
   %12 = fcmp ugt double %11, 0.000000e+00
   %.0.v.i.i = select i1 %12, double 0xC00921FB54442D18, double 0x400921FB54442D18
   %.0.i.i = fadd double %11, %.0.v.i.i
-  %13 = getelementptr inbounds i8, ptr %4, i64 192
+  %13 = getelementptr inbounds nuw i8, ptr %4, i64 192
   %14 = tail call double @sin(double noundef %.0.i.i) #18, !noalias !35
   %15 = tail call double @cos(double noundef %.0.i.i) #18, !noalias !35
   %16 = fneg double %14

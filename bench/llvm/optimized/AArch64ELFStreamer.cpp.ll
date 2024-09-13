@@ -716,7 +716,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_9MCSectionESt4pairImPNS_8MCSymbolEENS_12
   br i1 %212, label %213, label %.critedge
 
 213:                                              ; preds = %209
-  %214 = getelementptr inbounds i8, ptr %.0.i.pn.i90, i64 16
+  %214 = getelementptr inbounds nuw i8, ptr %.0.i.pn.i90, i64 16
   %215 = load ptr, ptr %214, align 8
   %216 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %5) #12
   %217 = add i64 %216, 1
@@ -4149,7 +4149,7 @@ define internal void @_ZN12_GLOBAL__N_118AArch64ELFStreamer5resetEv(ptr noundef 
 
 24:                                               ; preds = %21
   store i32 0, ptr %4, align 8
-  %25 = getelementptr inbounds i8, ptr %0, i64 6620
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 6620
   store i32 0, ptr %25, align 4
   %.val.i.i.i.i = load ptr, ptr %3, align 8
   %26 = zext nneg i32 %.val71924.i to i64
@@ -4194,7 +4194,7 @@ define internal void @_ZN12_GLOBAL__N_118AArch64ELFStreamer5resetEv(ptr noundef 
   %53 = tail call noalias noundef nonnull ptr @_ZN4llvm15allocate_bufferEmm(i64 noundef %52, i64 noundef 8) #12
   store ptr %53, ptr %3, align 8
   store i32 0, ptr %4, align 8
-  %54 = getelementptr inbounds i8, ptr %0, i64 6620
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 6620
   store i32 0, ptr %54, align 4
   %.val7.i.i.i.i.i = load i32, ptr %22, align 8
   %55 = zext i32 %.val7.i.i.i.i.i to i64
@@ -4230,7 +4230,7 @@ define internal void @_ZN12_GLOBAL__N_118AArch64ELFStreamer5resetEv(ptr noundef 
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %59
   store i32 0, ptr %4, align 8
-  %63 = getelementptr inbounds i8, ptr %0, i64 6620
+  %63 = getelementptr inbounds nuw i8, ptr %0, i64 6620
   store i32 0, ptr %63, align 4
   br label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_9MCSectionEN12_GLOBAL__N_118AArch64ELFStreamer16ElfMappingSymbolENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S7_EEEES4_S7_S9_SC_E5clearEv.exit
 

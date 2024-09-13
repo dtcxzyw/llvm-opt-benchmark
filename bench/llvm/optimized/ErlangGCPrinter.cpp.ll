@@ -113,7 +113,7 @@ define internal void @_ZN12_GLOBAL__N_115ErlangGCPrinter14finishAssemblyERN4llvm
   call void %26(ptr noundef nonnull align 8 dereferenceable(288) %14, ptr noundef %23, i32 noundef 0) #11
   %27 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %28 = load ptr, ptr %27, align 8
-  %29 = getelementptr inbounds i8, ptr %2, i64 88
+  %29 = getelementptr inbounds nuw i8, ptr %2, i64 88
   %30 = load ptr, ptr %29, align 8
   %.not63 = icmp eq ptr %28, %30
   br i1 %.not63, label %._crit_edge67, label %.lr.ph66
@@ -173,7 +173,7 @@ _ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.
   %64 = load ptr, ptr %63, align 8
   call void %64(ptr noundef nonnull align 8 dereferenceable(288) %14, ptr noundef nonnull align 8 dereferenceable(34) %7, i1 noundef zeroext true) #11
   %65 = getelementptr inbounds nuw i8, ptr %48, i64 48
-  %66 = getelementptr inbounds i8, ptr %48, i64 56
+  %66 = getelementptr inbounds nuw i8, ptr %48, i64 56
   %67 = load ptr, ptr %66, align 8
   %68 = load ptr, ptr %65, align 8
   %69 = ptrtoint ptr %67 to i64
@@ -238,7 +238,7 @@ _ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.
   %100 = load ptr, ptr %99, align 8
   call void %100(ptr noundef nonnull align 8 dereferenceable(288) %14, ptr noundef nonnull align 8 dereferenceable(34) %11, i1 noundef zeroext true) #11
   %101 = getelementptr inbounds nuw i8, ptr %48, i64 24
-  %102 = getelementptr inbounds i8, ptr %48, i64 32
+  %102 = getelementptr inbounds nuw i8, ptr %48, i64 32
   %103 = load ptr, ptr %102, align 8
   %104 = load ptr, ptr %101, align 8
   %105 = ptrtoint ptr %103 to i64

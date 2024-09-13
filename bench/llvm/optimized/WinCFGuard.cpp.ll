@@ -58,7 +58,7 @@ define hidden void @_ZN4llvm10WinCFGuardD2Ev(ptr noundef nonnull align 8 derefer
   br i1 %.not.i.i.i, label %_ZNSt6vectorIPKN4llvm8MCSymbolESaIS3_EED2Ev.exit, label %4
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %6 = load ptr, ptr %5, align 8
   %7 = ptrtoint ptr %6 to i64
   %8 = ptrtoint ptr %3 to i64
@@ -83,7 +83,7 @@ define hidden void @_ZN4llvm10WinCFGuardD0Ev(ptr noundef nonnull align 8 derefer
   br i1 %.not.i.i.i.i, label %_ZN4llvm10WinCFGuardD2Ev.exit, label %4
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %6 = load ptr, ptr %5, align 8
   %7 = ptrtoint ptr %6 to i64
   %8 = ptrtoint ptr %3 to i64
@@ -104,14 +104,14 @@ declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #3
 define hidden void @_ZN4llvm10WinCFGuard11endFunctionEPKNS_15MachineFunctionE(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr nocapture noundef readonly %1) unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 384
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 392
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 392
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %4, %6
   br i1 %7, label %17, label %8
 
 8:                                                ; preds = %2
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %10 = getelementptr inbounds i8, ptr %0, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %11 = load ptr, ptr %10, align 8
   %12 = load ptr, ptr %9, align 8
   %13 = ptrtoint ptr %11 to i64
@@ -191,7 +191,7 @@ define hidden void @_ZN4llvm10WinCFGuard9endModuleEv(ptr nocapture noundef nonnu
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 2448
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 32
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 24
   %.sroa.045.085 = load ptr, ptr %11, align 8
   %.not6886 = icmp eq ptr %.sroa.045.085, %12
@@ -531,7 +531,7 @@ _ZNSt6vectorIPKN4llvm8MCSymbolESaIS3_EE9push_backEOS3_.exit: ; preds = %_ZNSt6ve
 140:                                              ; preds = %._crit_edge
   %141 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %142 = load ptr, ptr %141, align 8
-  %143 = getelementptr inbounds i8, ptr %0, i64 24
+  %143 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %144 = load ptr, ptr %143, align 8
   %145 = icmp eq ptr %142, %144
   br i1 %145, label %.loopexit, label %146
@@ -602,7 +602,7 @@ _ZNSt6vectorIPKN4llvm8MCSymbolESaIS3_EE9push_backEOS3_.exit: ; preds = %_ZNSt6ve
   call void %188(ptr noundef nonnull align 8 dereferenceable(288) %149, ptr noundef %185, i32 noundef 0) #14
   %189 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %190 = load ptr, ptr %189, align 8
-  %191 = getelementptr inbounds i8, ptr %0, i64 24
+  %191 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %192 = load ptr, ptr %191, align 8
   %.not71110 = icmp eq ptr %190, %192
   br i1 %.not71110, label %.loopexit, label %.lr.ph113

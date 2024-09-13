@@ -51,7 +51,7 @@ define dso_local noundef ptr @_ZN4llvm22normalizeForPostIncUseEPKNS_4SCEVERKNS_1
   store ptr %2, ptr %8, align 8
   %15 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i32 1, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %8, i64 12
+  %16 = getelementptr inbounds nuw i8, ptr %8, i64 12
   store i32 0, ptr %16, align 4
   br label %.lr.ph.i.i.i.i.i
 
@@ -78,9 +78,9 @@ _ZN12_GLOBAL__N_128NormalizeDenormalizeRewriterC2E13TransformKindN4llvm12functio
   br i1 %.not.i.i.i.i, label %23, label %_ZN12_GLOBAL__N_128NormalizeDenormalizeRewriterD2Ev.exit
 
 23:                                               ; preds = %_ZN12_GLOBAL__N_128NormalizeDenormalizeRewriterC2E13TransformKindN4llvm12function_refIFbPKNS2_14SCEVAddRecExprEEEERNS2_15ScalarEvolutionE.exit
-  %24 = getelementptr inbounds i8, ptr %8, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %8, i64 24
+  %26 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %27 = load i32, ptr %26, align 8
   %28 = zext i32 %27 to i64
   %29 = shl nuw nsw i64 %28, 4
@@ -100,7 +100,7 @@ _ZN12_GLOBAL__N_128NormalizeDenormalizeRewriterD2Ev.exit: ; preds = %_ZN12_GLOBA
   store ptr %2, ptr %6, align 8
   %34 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i32 1, ptr %34, align 8
-  %35 = getelementptr inbounds i8, ptr %6, i64 12
+  %35 = getelementptr inbounds nuw i8, ptr %6, i64 12
   store i32 0, ptr %35, align 4
   br label %.lr.ph.i.i.i.i.i.i
 
@@ -127,9 +127,9 @@ _ZN12_GLOBAL__N_128NormalizeDenormalizeRewriterC2E13TransformKindN4llvm12functio
   br i1 %.not.i.i.i.i.i13, label %42, label %_ZN4llvm24denormalizeForPostIncUseEPKNS_4SCEVERKNS_11SmallPtrSetIPKNS_4LoopELj2EEERNS_15ScalarEvolutionE.exit
 
 42:                                               ; preds = %_ZN12_GLOBAL__N_128NormalizeDenormalizeRewriterC2E13TransformKindN4llvm12function_refIFbPKNS2_14SCEVAddRecExprEEEERNS2_15ScalarEvolutionE.exit.i
-  %43 = getelementptr inbounds i8, ptr %6, i64 16
+  %43 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %44 = load ptr, ptr %43, align 8
-  %45 = getelementptr inbounds i8, ptr %6, i64 24
+  %45 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %46 = load i32, ptr %45, align 8
   %47 = zext i32 %46 to i64
   %48 = shl nuw nsw i64 %47, 4
@@ -168,10 +168,10 @@ define internal fastcc noundef ptr @_ZN4llvm18SCEVRewriteVisitorIN12_GLOBAL__N_1
   %15 = load i32, ptr %14, align 8
   %16 = and i32 %15, 1
   %.not.i.i.i.i.i = icmp eq i32 %16, 0
-  %17 = getelementptr inbounds i8, ptr %0, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %18 = load ptr, ptr %17, align 8
   %19 = select i1 %.not.i.i.i.i.i, ptr %18, ptr %17
-  %20 = getelementptr inbounds i8, ptr %0, i64 24
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %21 = load i32, ptr %20, align 8
   %22 = select i1 %.not.i.i.i.i.i, i32 %21, i32 4
   %23 = icmp eq i32 %22, 0
@@ -506,7 +506,7 @@ _ZNSt20back_insert_iteratorIN4llvm11SmallVectorIPKNS0_4SCEVELj8EEEEaSEOS4_.exit.
 "_ZSt9transformIPKPKN4llvm4SCEVESt20back_insert_iteratorINS0_11SmallVectorIS3_Lj8EEEEZN12_GLOBAL__N_128NormalizeDenormalizeRewriter15visitAddRecExprEPKNS0_14SCEVAddRecExprEE3$_0ET0_T_SH_SG_T1_.exit": ; preds = %_ZNSt20back_insert_iteratorIN4llvm11SmallVectorIPKNS0_4SCEVELj8EEEEaSEOS4_.exit.i, %177
   %197 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %198 = load ptr, ptr %197, align 8
-  %199 = getelementptr inbounds i8, ptr %0, i64 96
+  %199 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %200 = load i64, ptr %199, align 8
   %201 = call noundef zeroext i1 %198(i64 noundef %200, ptr noundef %1) #7
   br i1 %201, label %202, label %.loopexit
@@ -1047,7 +1047,7 @@ define dso_local noundef ptr @_ZN4llvm24denormalizeForPostIncUseEPKNS_4SCEVERKNS
   store ptr %2, ptr %5, align 8
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 1, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %5, i64 12
+  %13 = getelementptr inbounds nuw i8, ptr %5, i64 12
   store i32 0, ptr %13, align 4
   br label %.lr.ph.i.i.i.i.i
 
@@ -1074,9 +1074,9 @@ _ZN12_GLOBAL__N_128NormalizeDenormalizeRewriterC2E13TransformKindN4llvm12functio
   br i1 %.not.i.i.i.i, label %20, label %_ZN12_GLOBAL__N_128NormalizeDenormalizeRewriterD2Ev.exit
 
 20:                                               ; preds = %_ZN12_GLOBAL__N_128NormalizeDenormalizeRewriterC2E13TransformKindN4llvm12function_refIFbPKNS2_14SCEVAddRecExprEEEERNS2_15ScalarEvolutionE.exit
-  %21 = getelementptr inbounds i8, ptr %5, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %5, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %24 = load i32, ptr %23, align 8
   %25 = zext i32 %24 to i64
   %26 = shl nuw nsw i64 %25, 4
@@ -1094,7 +1094,7 @@ define dso_local noundef ptr @_ZN4llvm24normalizeForPostIncUseIfEPKNS_4SCEVENS_1
   store ptr %3, ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 1, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %5, i64 12
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 12
   store i32 0, ptr %7, align 4
   br label %.lr.ph.i.i.i.i.i
 
@@ -1120,9 +1120,9 @@ _ZN12_GLOBAL__N_128NormalizeDenormalizeRewriterC2E13TransformKindN4llvm12functio
   br i1 %.not.i.i.i.i, label %13, label %_ZN12_GLOBAL__N_128NormalizeDenormalizeRewriterD2Ev.exit
 
 13:                                               ; preds = %_ZN12_GLOBAL__N_128NormalizeDenormalizeRewriterC2E13TransformKindN4llvm12function_refIFbPKNS2_14SCEVAddRecExprEEEERNS2_15ScalarEvolutionE.exit
-  %14 = getelementptr inbounds i8, ptr %5, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %5, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %17 = load i32, ptr %16, align 8
   %18 = zext i32 %17 to i64
   %19 = shl nuw nsw i64 %18, 4
@@ -1228,7 +1228,7 @@ define linkonce_odr hidden noundef ptr @_ZN4llvm12DenseMapBaseINS_13SmallDenseMa
   %6 = lshr i32 %5, 1
   %7 = and i32 %5, 1
   %.not.i.i = icmp eq i32 %7, 0
-  %8 = getelementptr inbounds i8, ptr %0, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = load i32, ptr %8, align 8
   %10 = select i1 %.not.i.i, i32 %9, i32 4
   %11 = shl i32 %6, 2
@@ -1453,7 +1453,7 @@ define linkonce_odr hidden void @_ZN4llvm13SmallDenseMapIPKNS_4SCEVES3_Lj4ENS_12
   %37 = shl nuw nsw i64 %36, 4
   %38 = tail call noalias noundef nonnull ptr @_ZN4llvm15allocate_bufferEmm(i64 noundef %37, i64 noundef 8) #7
   store ptr %38, ptr %23, align 8
-  %39 = getelementptr inbounds i8, ptr %0, i64 16
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 %.0, ptr %39, align 8
   br label %40
 
@@ -1504,7 +1504,7 @@ define linkonce_odr hidden void @_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIPKNS_
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8
   %9 = select i1 %.not.i.i.i.i, ptr %8, ptr %7
-  %10 = getelementptr inbounds i8, ptr %0, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %11 = load i32, ptr %10, align 8
   %12 = select i1 %.not.i.i.i.i, i32 %11, i32 4
   %13 = zext i32 %12 to i64

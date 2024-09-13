@@ -139,9 +139,9 @@ define dso_local void @_ZN4llvm28DWARFAbbreviationDeclaration5clearEv(ptr nounde
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %0, align 8
   %3 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %2) #10
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 0, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 158
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 158
   %6 = load i8, ptr %5, align 2
   %7 = trunc i8 %6 to i1
   br i1 %7, label %8, label %_ZNSt8optionalIN4llvm28DWARFAbbreviationDeclaration13FixedSizeInfoEE5resetEv.exit
@@ -159,11 +159,11 @@ define dso_local void @_ZN4llvm28DWARFAbbreviationDeclarationC2Ev(ptr noundef no
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull %3, i64 noundef 8) #10
-  %4 = getelementptr inbounds i8, ptr %0, i64 158
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 158
   store i8 0, ptr %4, align 2
   store i64 0, ptr %0, align 8
   %5 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %2) #10
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 0, ptr %6, align 8
   %7 = load i8, ptr %4, align 2
   %8 = trunc i8 %7 to i1
@@ -186,9 +186,9 @@ define dso_local void @_ZN4llvm28DWARFAbbreviationDeclaration7extractENS_13DataE
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i64 0, ptr %1, align 8
   %10 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %9) #10
-  %11 = getelementptr inbounds i8, ptr %1, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store i32 0, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %1, i64 158
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 158
   %13 = load i8, ptr %12, align 2
   %14 = trunc i8 %13 to i1
   br i1 %14, label %15, label %_ZN4llvm12ErrorSuccessD2Ev.exit
@@ -324,9 +324,9 @@ _ZNSt8optionalIN4llvm28DWARFAbbreviationDeclaration13FixedSizeInfoEEaSIS2_EENSt9
 
 .lr.ph.lr.ph:                                     ; preds = %_ZNSt8optionalIN4llvm28DWARFAbbreviationDeclaration13FixedSizeInfoEEaSIS2_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS3_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIS2_ES7_IS2_NSt5decayISA_E4typeEEEEESt16is_constructibleIS2_JSA_EESt13is_assignableIRS2_SA_EEERS3_E4typeEOSA_.exit
   %76 = getelementptr inbounds i8, ptr %1, i64 24
-  %77 = getelementptr inbounds i8, ptr %1, i64 156
-  %78 = getelementptr inbounds i8, ptr %1, i64 155
-  %79 = getelementptr inbounds i8, ptr %1, i64 154
+  %77 = getelementptr inbounds nuw i8, ptr %1, i64 156
+  %78 = getelementptr inbounds nuw i8, ptr %1, i64 155
+  %79 = getelementptr inbounds nuw i8, ptr %1, i64 154
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.lr.ph, %_ZN4llvm23SmallVectorTemplateBaseINS_28DWARFAbbreviationDeclaration13AttributeSpecELb1EE9push_backES2_.exit36
@@ -707,7 +707,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %24, %26
   store i8 1, ptr %33, align 8, !alias.scope !42
   %34 = getelementptr inbounds nuw i8, ptr %3, i64 40
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4llvm7support6detail23provider_format_adapterINS_5dwarf3TagEEE, i64 16), ptr %34, align 8, !alias.scope !42
-  %35 = getelementptr inbounds i8, ptr %3, i64 48
+  %35 = getelementptr inbounds nuw i8, ptr %3, i64 48
   store i16 %30, ptr %35, align 8, !alias.scope !42
   store ptr %34, ptr %31, align 8, !alias.scope !42
   %36 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsERKNS_19formatv_object_baseE(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull align 8 dereferenceable(33) %3) #10
@@ -796,7 +796,7 @@ _ZN4llvm11raw_ostreamlsEc.exit26:                 ; preds = %69, %71
   %.sroa.2.0..sroa_idx.i.i.i.i28 = getelementptr inbounds i8, ptr %4, i64 24
   %80 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %81 = getelementptr inbounds nuw i8, ptr %4, i64 40
-  %82 = getelementptr inbounds i8, ptr %4, i64 48
+  %82 = getelementptr inbounds nuw i8, ptr %4, i64 48
   %83 = getelementptr inbounds i8, ptr %4, i64 56
   %84 = getelementptr inbounds i8, ptr %4, i64 64
   %.sroa.2.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %4, i64 80
@@ -943,7 +943,7 @@ define dso_local noundef i64 @_ZNK4llvm28DWARFAbbreviationDeclaration27getAttrib
 
 .lr.ph:                                           ; preds = %4
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %12 = getelementptr inbounds i8, ptr %3, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %13 = zext i32 %1 to i64
   br label %14
 
@@ -963,7 +963,7 @@ define dso_local noundef i64 @_ZNK4llvm28DWARFAbbreviationDeclaration27getAttrib
   br i1 %23, label %24, label %28
 
 24:                                               ; preds = %20
-  %25 = getelementptr inbounds i8, ptr %16, i64 9
+  %25 = getelementptr inbounds nuw i8, ptr %16, i64 9
   %26 = load i8, ptr %25, align 1
   %27 = zext i8 %26 to i64
   br label %32
@@ -1025,13 +1025,13 @@ define dso_local { i64, i8 } @_ZNK4llvm28DWARFAbbreviationDeclaration13Attribute
   br i1 %9, label %10, label %14
 
 10:                                               ; preds = %6
-  %11 = getelementptr inbounds i8, ptr %0, i64 9
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 9
   %12 = load i8, ptr %11, align 1
   %13 = zext i8 %12 to i64
   br label %19
 
 14:                                               ; preds = %6
-  %15 = getelementptr inbounds i8, ptr %1, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %.sroa.0.0.copyload = load i48, ptr %15, align 8
   %16 = tail call i16 @_ZN4llvm5dwarf20getFixedFormByteSizeENS0_4FormENS0_10FormParamsE(i16 noundef zeroext %4, i48 %.sroa.0.0.copyload) #10
   %17 = and i16 %16, 256
@@ -1084,7 +1084,7 @@ define dso_local void @_ZNK4llvm28DWARFAbbreviationDeclaration27getAttributeValu
   %23 = getelementptr inbounds nuw i8, ptr %8, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %23, i8 0, i64 16, i1 false)
   call void @_ZNK4llvm9DWARFUnit21getDebugInfoExtractorEv(ptr dead_on_unwind nonnull writable sret(%"class.llvm::DWARFDataExtractor") align 8 %9, ptr noundef nonnull align 8 dereferenceable(448) %4) #10
-  %24 = getelementptr inbounds i8, ptr %4, i64 32
+  %24 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %.sroa.0.0.copyload = load i48, ptr %24, align 8
   %25 = call noundef zeroext i1 @_ZN4llvm14DWARFFormValue12extractValueERKNS_18DWARFDataExtractorEPmNS_5dwarf10FormParamsEPKNS_12DWARFContextEPKNS_9DWARFUnitE(ptr noundef nonnull align 8 dereferenceable(48) %8, ptr noundef nonnull align 8 dereferenceable(40) %9, ptr noundef nonnull %6, i48 %.sroa.0.0.copyload, ptr noundef null, ptr noundef nonnull %4) #10
   br i1 %25, label %.sink.split, label %26
@@ -1152,7 +1152,7 @@ _ZNK4llvm28DWARFAbbreviationDeclaration18findAttributeIndexENS_5dwarf9AttributeE
   br i1 %.not15.i, label %_ZNK4llvm28DWARFAbbreviationDeclaration27getAttributeOffsetFromIndexEjmRKNS_9DWARFUnitE.exit, label %.lr.ph.i5
 
 .lr.ph.i5:                                        ; preds = %23
-  %28 = getelementptr inbounds i8, ptr %4, i64 32
+  %28 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %29 = and i64 %indvars.iv, 4294967295
   br label %30
 
@@ -1172,7 +1172,7 @@ _ZNK4llvm28DWARFAbbreviationDeclaration18findAttributeIndexENS_5dwarf9AttributeE
   br i1 %39, label %40, label %44
 
 40:                                               ; preds = %36
-  %41 = getelementptr inbounds i8, ptr %32, i64 9
+  %41 = getelementptr inbounds nuw i8, ptr %32, i64 9
   %42 = load i8, ptr %41, align 1
   %43 = zext i8 %42 to i64
   br label %48
@@ -1246,7 +1246,7 @@ _ZNK4llvm28DWARFAbbreviationDeclaration27getAttributeOffsetFromIndexEjmRKNS_9DWA
   %69 = getelementptr inbounds nuw i8, ptr %8, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %69, i8 0, i64 16, i1 false), !noalias !54
   call void @_ZNK4llvm9DWARFUnit21getDebugInfoExtractorEv(ptr dead_on_unwind nonnull writable sret(%"class.llvm::DWARFDataExtractor") align 8 %9, ptr noundef nonnull align 8 dereferenceable(448) %4) #10, !noalias !54
-  %70 = getelementptr inbounds i8, ptr %4, i64 32
+  %70 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %.sroa.0.0.copyload.i8 = load i48, ptr %70, align 8, !noalias !54
   %71 = call noundef zeroext i1 @_ZN4llvm14DWARFFormValue12extractValueERKNS_18DWARFDataExtractorEPmNS_5dwarf10FormParamsEPKNS_12DWARFContextEPKNS_9DWARFUnitE(ptr noundef nonnull align 8 dereferenceable(48) %8, ptr noundef nonnull align 8 dereferenceable(40) %9, ptr noundef nonnull %6, i48 %.sroa.0.0.copyload.i8, ptr noundef null, ptr noundef nonnull %4) #10, !noalias !54
   br i1 %71, label %.sink.split.i, label %_ZNK4llvm28DWARFAbbreviationDeclaration27getAttributeValueFromOffsetEjmRKNS_9DWARFUnitE.exit
@@ -1278,7 +1278,7 @@ define dso_local noundef range(i64 0, 197626) i64 @_ZNK4llvm28DWARFAbbreviationD
   %6 = load i8, ptr %5, align 2
   %.not = icmp eq i8 %6, 0
   %7 = zext i8 %6 to i64
-  %8 = getelementptr inbounds i8, ptr %1, i64 34
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 34
   %9 = load i8, ptr %8, align 2
   %10 = zext i8 %9 to i64
   %11 = mul nuw nsw i64 %10, %7
@@ -1291,10 +1291,10 @@ define dso_local noundef range(i64 0, 197626) i64 @_ZNK4llvm28DWARFAbbreviationD
 
 15:                                               ; preds = %2
   %16 = zext i8 %14 to i64
-  %17 = getelementptr inbounds i8, ptr %1, i64 32
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %18 = load i16, ptr %17, align 8
   %19 = icmp eq i16 %18, 2
-  %20 = getelementptr inbounds i8, ptr %1, i64 35
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 35
   %21 = load i8, ptr %20, align 1
   %switch.i.i.i.i.i = icmp eq i8 %21, 0
   %..i.i.i.i.i = select i1 %switch.i.i.i.i.i, i8 4, i8 8
@@ -1313,7 +1313,7 @@ define dso_local noundef range(i64 0, 197626) i64 @_ZNK4llvm28DWARFAbbreviationD
 
 28:                                               ; preds = %25
   %29 = zext i8 %27 to i64
-  %30 = getelementptr inbounds i8, ptr %1, i64 35
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 35
   %31 = load i8, ptr %30, align 1
   %switch.i.i.i.i = icmp eq i8 %31, 0
   %32 = select i1 %switch.i.i.i.i, i64 2, i64 3
@@ -1328,7 +1328,7 @@ define dso_local noundef range(i64 0, 197626) i64 @_ZNK4llvm28DWARFAbbreviationD
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local { i64, i8 } @_ZNK4llvm28DWARFAbbreviationDeclaration26getFixedAttributesByteSizeERKNS_9DWARFUnitE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(160) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(448) %1) local_unnamed_addr #4 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 158
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 158
   %4 = load i8, ptr %3, align 2
   %5 = trunc i8 %4 to i1
   br i1 %5, label %6, label %_ZNK4llvm28DWARFAbbreviationDeclaration13FixedSizeInfo11getByteSizeERKNS_9DWARFUnitE.exit
@@ -1337,27 +1337,27 @@ define dso_local { i64, i8 } @_ZNK4llvm28DWARFAbbreviationDeclaration26getFixedA
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %8 = load i16, ptr %7, align 8
   %9 = zext i16 %8 to i64
-  %10 = getelementptr inbounds i8, ptr %0, i64 154
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 154
   %11 = load i8, ptr %10, align 2
   %.not.i = icmp eq i8 %11, 0
   %12 = zext i8 %11 to i64
-  %13 = getelementptr inbounds i8, ptr %1, i64 34
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 34
   %14 = load i8, ptr %13, align 2
   %15 = zext i8 %14 to i64
   %16 = mul nuw nsw i64 %15, %12
   %17 = select i1 %.not.i, i64 0, i64 %16
   %.0.i = add nuw nsw i64 %17, %9
-  %18 = getelementptr inbounds i8, ptr %0, i64 155
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 155
   %19 = load i8, ptr %18, align 1
   %.not10.i = icmp eq i8 %19, 0
   br i1 %.not10.i, label %30, label %20
 
 20:                                               ; preds = %6
   %21 = zext i8 %19 to i64
-  %22 = getelementptr inbounds i8, ptr %1, i64 32
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %23 = load i16, ptr %22, align 8
   %24 = icmp eq i16 %23, 2
-  %25 = getelementptr inbounds i8, ptr %1, i64 35
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 35
   %26 = load i8, ptr %25, align 1
   %switch.i.i.i.i.i.i = icmp eq i8 %26, 0
   %..i.i.i.i.i.i = select i1 %switch.i.i.i.i.i.i, i8 4, i8 8
@@ -1369,14 +1369,14 @@ define dso_local { i64, i8 } @_ZNK4llvm28DWARFAbbreviationDeclaration26getFixedA
 
 30:                                               ; preds = %20, %6
   %.1.i = phi i64 [ %29, %20 ], [ %.0.i, %6 ]
-  %31 = getelementptr inbounds i8, ptr %0, i64 156
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 156
   %32 = load i8, ptr %31, align 4
   %.not11.i = icmp eq i8 %32, 0
   br i1 %.not11.i, label %_ZNK4llvm28DWARFAbbreviationDeclaration13FixedSizeInfo11getByteSizeERKNS_9DWARFUnitE.exit, label %33
 
 33:                                               ; preds = %30
   %34 = zext i8 %32 to i64
-  %35 = getelementptr inbounds i8, ptr %1, i64 35
+  %35 = getelementptr inbounds nuw i8, ptr %1, i64 35
   %36 = load i8, ptr %35, align 1
   %switch.i.i.i.i.i = icmp eq i8 %36, 0
   %37 = select i1 %switch.i.i.i.i.i, i64 2, i64 3

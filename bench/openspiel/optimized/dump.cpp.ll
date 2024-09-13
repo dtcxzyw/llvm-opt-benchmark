@@ -2689,7 +2689,7 @@ define void @_Z12DumpTopLevelRSt14basic_ofstreamIcSt11char_traitsIcEERK10ThreadD
 
 16:                                               ; preds = %14
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #12
-  %17 = getelementptr inbounds i8, ptr %1, i64 132
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 132
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %19 = load i32, ptr %18, align 8
   %20 = sext i32 %19 to i64

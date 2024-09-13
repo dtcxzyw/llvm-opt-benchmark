@@ -708,10 +708,10 @@ _ZN32pxrInternal_v0_24__pxrReserved__16ArchGetDemangledB5cxx11ERKSt9type_info.ex
   %157 = load ptr, ptr %156, align 8
   %158 = load ptr, ptr %153, align 8
   store ptr %158, ptr %5, align 8
-  %159 = getelementptr inbounds i8, ptr %106, i64 56
+  %159 = getelementptr inbounds nuw i8, ptr %106, i64 56
   %160 = load ptr, ptr %159, align 8
   store ptr %160, ptr %155, align 8
-  %161 = getelementptr inbounds i8, ptr %106, i64 64
+  %161 = getelementptr inbounds nuw i8, ptr %106, i64 64
   %162 = load ptr, ptr %161, align 8
   store ptr %162, ptr %156, align 8
   %.not.i.i.i.i.i.i48 = icmp eq ptr %154, null

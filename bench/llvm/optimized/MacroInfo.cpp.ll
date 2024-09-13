@@ -1598,7 +1598,7 @@ define dso_local noundef nonnull ptr @_ZN5clang11ModuleMacro6createERNS_12Prepro
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %8 = shl i64 %5, 3
   %9 = add i64 %8, 40
-  %10 = getelementptr inbounds i8, ptr %0, i64 208
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %11 = load i64, ptr %10, align 8
   %12 = add i64 %11, %9
   store i64 %12, ptr %10, align 8
@@ -1607,7 +1607,7 @@ define dso_local noundef nonnull ptr @_ZN5clang11ModuleMacro6createERNS_12Prepro
   %15 = add i64 %14, 7
   %16 = and i64 %15, -8
   %17 = add i64 %16, %9
-  %18 = getelementptr inbounds i8, ptr %0, i64 136
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %19 = load ptr, ptr %18, align 8
   %20 = ptrtoint ptr %19 to i64
   %.not.i.i = icmp ugt i64 %17, %20
@@ -1678,7 +1678,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZN5
   br i1 %.not.i.i, label %54, label %17
 
 17:                                               ; preds = %5
-  %18 = getelementptr inbounds i8, ptr %0, i64 208
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %19 = udiv i32 %6, 42
   %20 = urem i32 %6, 42
   %.zext.i.i = zext nneg i32 %19 to i64
@@ -1689,7 +1689,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZN5
   br i1 %.not.i.i.i, label %24, label %_ZNK4llvm11PagedVectorIN5clang6SrcMgr9SLocEntryELm42EEixEm.exit.i.i
 
 24:                                               ; preds = %17
-  %25 = getelementptr inbounds i8, ptr %0, i64 224
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %.0.copyload.i.i.i.i.i.i = load i64, ptr %25, align 8
   %26 = and i64 %.0.copyload.i.i.i.i.i.i, -8
   %27 = inttoptr i64 %26 to ptr

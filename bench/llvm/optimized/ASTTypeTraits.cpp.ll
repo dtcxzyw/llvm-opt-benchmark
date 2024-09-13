@@ -2016,7 +2016,7 @@ _ZNK5clang12DynTypedNode3getINS_4AttrEEEPKT_v.exit.thread: ; preds = %.lr.ph.i.i
   br i1 %.not124, label %43, label %45
 
 43:                                               ; preds = %_ZNK5clang12DynTypedNode3getINS_4AttrEEEPKT_v.exit.thread
-  %44 = getelementptr inbounds i8, ptr %0, i64 16
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.sroa.01.0.copyload.i = load i32, ptr %44, align 8
   br label %.thread
 
@@ -2069,7 +2069,7 @@ define linkonce_odr hidden i64 @_ZNK5clang16ConceptReference14getSourceRangeEv(p
   br label %_ZNK5clang16ConceptReference11getBeginLocEv.exit
 
 6:                                                ; preds = %1
-  %7 = getelementptr inbounds i8, ptr %0, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %.sroa.0.0.copyload.i.i = load i32, ptr %7, align 8
   br label %_ZNK5clang16ConceptReference11getBeginLocEv.exit
 
@@ -2091,7 +2091,7 @@ _ZNK5clang16ConceptReference11getBeginLocEv.exit: ; preds = %4, %6
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %14 = call i32 @_ZNK5clang19DeclarationNameInfo16getEndLocPrivateEv(ptr noundef nonnull align 8 dereferenceable(24) %13) #13
   %.not.i.i = icmp eq i32 %14, 0
-  %15 = getelementptr inbounds i8, ptr %0, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %.sroa.0.0.copyload.i.i.i = load i32, ptr %15, align 8
   %.sroa.0.0.i.i = select i1 %.not.i.i, i32 %.sroa.0.0.copyload.i.i.i, i32 %14
   br label %_ZNK5clang16ConceptReference9getEndLocEv.exit

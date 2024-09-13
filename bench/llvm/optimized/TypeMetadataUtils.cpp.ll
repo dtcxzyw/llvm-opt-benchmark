@@ -239,7 +239,7 @@ _ZN4llvm4User8operandsEv.exit:                    ; preds = %31, %34
 
 65:                                               ; preds = %55
   %66 = getelementptr inbounds nuw i8, ptr %63, i64 24
-  %67 = getelementptr inbounds i8, ptr %63, i64 32
+  %67 = getelementptr inbounds nuw i8, ptr %63, i64 32
   %68 = load i32, ptr %67, align 8
   %69 = icmp ult i32 %68, 65
   br i1 %69, label %70, label %77
@@ -402,7 +402,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_11InstructionELb1EE9push_backES2_.exit42: 
 
 .lr.ph61:                                         ; preds = %._crit_edge
   %70 = getelementptr inbounds nuw i8, ptr %14, i64 24
-  %71 = getelementptr inbounds i8, ptr %14, i64 32
+  %71 = getelementptr inbounds nuw i8, ptr %14, i64 32
   br label %72
 
 72:                                               ; preds = %.lr.ph61, %72
@@ -674,7 +674,7 @@ _ZNK4llvm4User10getOperandEj.exit91:              ; preds = %72, %75
 
 86:                                               ; preds = %84
   %87 = getelementptr inbounds nuw i8, ptr %.068, i64 24
-  %88 = getelementptr inbounds i8, ptr %.068, i64 32
+  %88 = getelementptr inbounds nuw i8, ptr %.068, i64 32
   %89 = load i32, ptr %88, align 8
   %90 = icmp ult i32 %89, 65
   br i1 %90, label %91, label %_ZNK4llvm11ConstantInt6isZeroEv.exit

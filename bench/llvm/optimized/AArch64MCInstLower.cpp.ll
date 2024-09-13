@@ -100,7 +100,7 @@ define hidden void @_ZN4llvm18AArch64MCInstLowerC2ERNS_9MCContextERNS_10AsmPrint
   store ptr %2, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #11
-  %6 = getelementptr inbounds i8, ptr %0, i64 48
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false)
   ret void
 }
@@ -133,7 +133,7 @@ define hidden noundef ptr @_ZNK4llvm18AArch64MCInstLower20GetGlobalValueSymbolEP
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 56
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 580
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 580
   %17 = load i32, ptr %16, align 4
   %18 = icmp eq i32 %17, 1
   br i1 %18, label %21, label %19
@@ -148,10 +148,10 @@ define hidden noundef ptr @_ZNK4llvm18AArch64MCInstLower20GetGlobalValueSymbolEP
   br i1 %.not, label %23, label %111
 
 23:                                               ; preds = %21
-  %24 = getelementptr inbounds i8, ptr %15, i64 560
+  %24 = getelementptr inbounds nuw i8, ptr %15, i64 560
   %25 = load i32, ptr %24, align 8
   %26 = icmp eq i32 %25, 3
-  %27 = getelementptr inbounds i8, ptr %15, i64 564
+  %27 = getelementptr inbounds nuw i8, ptr %15, i64 564
   %28 = load i32, ptr %27, align 4
   %29 = icmp eq i32 %28, 35
   %30 = select i1 %26, i1 %29, i1 false
@@ -300,10 +300,10 @@ _ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit: ;
   br i1 %.not25, label %.critedge, label %114
 
 114:                                              ; preds = %111
-  %115 = getelementptr inbounds i8, ptr %15, i64 560
+  %115 = getelementptr inbounds nuw i8, ptr %15, i64 560
   %116 = load i32, ptr %115, align 8
   %117 = icmp eq i32 %116, 3
-  %118 = getelementptr inbounds i8, ptr %15, i64 564
+  %118 = getelementptr inbounds nuw i8, ptr %15, i64 564
   %119 = load i32, ptr %118, align 4
   %120 = icmp eq i32 %119, 35
   %121 = select i1 %117, i1 %120, i1 false
@@ -422,7 +422,7 @@ _ZN4llvm17MachineModuleInfo14getObjFileInfoINS_21MachineModuleInfoCOFFEEERT_v.ex
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   store ptr %170, ptr %4, align 8
   %184 = getelementptr inbounds nuw i8, ptr %183, i64 8
-  %185 = getelementptr inbounds i8, ptr %183, i64 24
+  %185 = getelementptr inbounds nuw i8, ptr %183, i64 24
   %186 = load i32, ptr %185, align 8
   %187 = icmp eq i32 %186, 0
   br i1 %187, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_8MCSymbolENS_14PointerIntPairIS3_Lj1EbNS_21PointerLikeTypeTraitsIS3_EENS_18PointerIntPairInfoIS3_Lj1ES6_EEEENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S9_EEEES3_S9_SB_SE_E15LookupBucketForIS3_EEbRKT_RPSE_.exit.i.i.i, label %188
@@ -628,7 +628,7 @@ define hidden { i8, i64 } @_ZNK4llvm18AArch64MCInstLower23lowerSymbolOperandMach
   br i1 %26, label %41, label %27
 
 27:                                               ; preds = %21
-  %28 = getelementptr inbounds i8, ptr %1, i64 24
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %29 = load i32, ptr %28, align 8
   %30 = sext i32 %29 to i64
   %31 = shl nsw i64 %30, 32
@@ -763,7 +763,7 @@ switch.lookup:                                    ; preds = %25
   br i1 %57, label %72, label %58
 
 58:                                               ; preds = %52
-  %59 = getelementptr inbounds i8, ptr %1, i64 24
+  %59 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %60 = load i32, ptr %59, align 8
   %61 = sext i32 %60 to i64
   %62 = shl nsw i64 %61, 32
@@ -878,7 +878,7 @@ define hidden { i8, i64 } @_ZNK4llvm18AArch64MCInstLower22lowerSymbolOperandCOFF
   br i1 %37, label %52, label %38
 
 38:                                               ; preds = %32
-  %39 = getelementptr inbounds i8, ptr %1, i64 24
+  %39 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %40 = load i32, ptr %39, align 8
   %41 = sext i32 %40 to i64
   %42 = shl nsw i64 %41, 32
@@ -919,7 +919,7 @@ define hidden { i8, i64 } @_ZNK4llvm18AArch64MCInstLower18LowerSymbolOperandERKN
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 56
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 580
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 580
   %9 = load i32, ptr %8, align 4
   switch i32 %9, label %14 [
     i32 5, label %10
@@ -1002,7 +1002,7 @@ define hidden noundef zeroext i1 @_ZNK4llvm18AArch64MCInstLower12lowerOperandERK
   %32 = load ptr, ptr %31, align 8
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 56
   %34 = load ptr, ptr %33, align 8
-  %35 = getelementptr inbounds i8, ptr %34, i64 580
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 580
   %36 = load i32, ptr %35, align 4
   switch i32 %36, label %41 [
     i32 5, label %37
@@ -1052,7 +1052,7 @@ _ZNK4llvm18AArch64MCInstLower23GetExternalSymbolSymbolERKNS_14MachineOperandE.ex
   %55 = load ptr, ptr %46, align 8
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 56
   %57 = load ptr, ptr %56, align 8
-  %58 = getelementptr inbounds i8, ptr %57, i64 580
+  %58 = getelementptr inbounds nuw i8, ptr %57, i64 580
   %59 = load i32, ptr %58, align 4
   switch i32 %59, label %64 [
     i32 5, label %60
@@ -1084,7 +1084,7 @@ _ZNK4llvm18AArch64MCInstLower18LowerSymbolOperandERKNS_14MachineOperandEPNS_8MCS
   %72 = load ptr, ptr %71, align 8
   %73 = getelementptr inbounds nuw i8, ptr %72, i64 56
   %74 = load ptr, ptr %73, align 8
-  %75 = getelementptr inbounds i8, ptr %74, i64 580
+  %75 = getelementptr inbounds nuw i8, ptr %74, i64 580
   %76 = load i32, ptr %75, align 4
   switch i32 %76, label %81 [
     i32 5, label %77
@@ -1118,7 +1118,7 @@ _ZNK4llvm18AArch64MCInstLower18LowerSymbolOperandERKNS_14MachineOperandEPNS_8MCS
   %91 = load ptr, ptr %86, align 8
   %92 = getelementptr inbounds nuw i8, ptr %91, i64 56
   %93 = load ptr, ptr %92, align 8
-  %94 = getelementptr inbounds i8, ptr %93, i64 580
+  %94 = getelementptr inbounds nuw i8, ptr %93, i64 580
   %95 = load i32, ptr %94, align 4
   switch i32 %95, label %100 [
     i32 5, label %96
@@ -1155,7 +1155,7 @@ _ZNK4llvm18AArch64MCInstLower18LowerSymbolOperandERKNS_14MachineOperandEPNS_8MCS
   %113 = load ptr, ptr %105, align 8
   %114 = getelementptr inbounds nuw i8, ptr %113, i64 56
   %115 = load ptr, ptr %114, align 8
-  %116 = getelementptr inbounds i8, ptr %115, i64 580
+  %116 = getelementptr inbounds nuw i8, ptr %115, i64 580
   %117 = load i32, ptr %116, align 4
   switch i32 %117, label %122 [
     i32 5, label %118
@@ -1189,7 +1189,7 @@ _ZNK4llvm18AArch64MCInstLower18LowerSymbolOperandERKNS_14MachineOperandEPNS_8MCS
   %132 = load ptr, ptr %127, align 8
   %133 = getelementptr inbounds nuw i8, ptr %132, i64 56
   %134 = load ptr, ptr %133, align 8
-  %135 = getelementptr inbounds i8, ptr %134, i64 580
+  %135 = getelementptr inbounds nuw i8, ptr %134, i64 580
   %136 = load i32, ptr %135, align 4
   switch i32 %136, label %141 [
     i32 5, label %137

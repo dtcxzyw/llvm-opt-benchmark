@@ -113,9 +113,9 @@ _ZN5clang6format20AffectedRangeManager24affectsLeadingEmptyLinesERKNS0_11FormatT
   %42 = getelementptr inbounds nuw i8, ptr %40, i64 80
   %43 = load i32, ptr %42, align 8
   %.sroa.010.0.i = add i32 %43, %.sroa.0.0.copyload.i.i33
-  %44 = getelementptr inbounds i8, ptr %.026.le, i64 60
+  %44 = getelementptr inbounds nuw i8, ptr %.026.le, i64 60
   %.sroa.0.0.copyload.i.i.i = load i32, ptr %44, align 4
-  %45 = getelementptr inbounds i8, ptr %.026.le, i64 32
+  %45 = getelementptr inbounds nuw i8, ptr %.026.le, i64 32
   %46 = load i64, ptr %45, align 8
   %47 = trunc i64 %46 to i32
   %48 = add i32 %.sroa.0.0.copyload.i.i.i, %47
@@ -211,9 +211,9 @@ define dso_local noundef zeroext i1 @_ZN5clang6format20AffectedRangeManager17aff
   %7 = load i32, ptr %6, align 8
   %8 = select i1 %3, i32 0, i32 %7
   %.sroa.010.0 = add i32 %8, %.sroa.0.0.copyload.i
-  %9 = getelementptr inbounds i8, ptr %2, i64 60
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 60
   %.sroa.0.0.copyload.i.i = load i32, ptr %9, align 4
-  %10 = getelementptr inbounds i8, ptr %2, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %11 = load i64, ptr %10, align 8
   %12 = trunc i64 %11 to i32
   %13 = add i32 %.sroa.0.0.copyload.i.i, %12
@@ -298,9 +298,9 @@ define dso_local noundef zeroext i1 @_ZN5clang6format20AffectedRangeManager17non
   %13 = load i32, ptr %12, align 8
   %14 = select i1 %.03551, i32 0, i32 %13
   %.sroa.010.0.i = add i32 %14, %.sroa.0.0.copyload.i.i
-  %15 = getelementptr inbounds i8, ptr %.03653, i64 60
+  %15 = getelementptr inbounds nuw i8, ptr %.03653, i64 60
   %.sroa.0.0.copyload.i.i.i = load i32, ptr %15, align 4
-  %16 = getelementptr inbounds i8, ptr %.03653, i64 32
+  %16 = getelementptr inbounds nuw i8, ptr %.03653, i64 32
   %17 = load i64, ptr %16, align 8
   %18 = trunc i64 %17 to i32
   %19 = add i32 %.sroa.0.0.copyload.i.i.i, %18

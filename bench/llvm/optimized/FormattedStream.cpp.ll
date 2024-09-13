@@ -54,7 +54,7 @@ $_ZN4llvm15SmallVectorImplIcE6appendIPKcvEEvT_S5_ = comdat any
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN4llvm21formatted_raw_ostream14UpdatePositionEPKcm(ptr noundef nonnull align 8 dereferenceable(105) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %5 = getelementptr inbounds i8, ptr %0, i64 60
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %7 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %6) #10
   %.not = icmp eq i64 %7, 0
@@ -122,7 +122,7 @@ define dso_local void @_ZN4llvm21formatted_raw_ostream14UpdatePositionEPKcm(ptr 
 
 "_ZZN4llvm21formatted_raw_ostream14UpdatePositionEPKcmENK3$_0clENS_9StringRefE.exit": ; preds = %"_ZZN4llvm21formatted_raw_ostream14UpdatePositionEPKcmENK3$_0clENS_9StringRefE.exit.sink.split", %26, %28
   %38 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %6) #10
-  %39 = getelementptr inbounds i8, ptr %0, i64 80
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store i64 0, ptr %39, align 8
   %40 = sub nuw i64 %2, %14
   br label %41
@@ -151,7 +151,7 @@ define dso_local void @_ZN4llvm21formatted_raw_ostream14UpdatePositionEPKcm(ptr 
 52:                                               ; preds = %45
   %53 = getelementptr inbounds i8, ptr %.149, i64 %49
   %54 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %6) #10
-  %55 = getelementptr inbounds i8, ptr %0, i64 80
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store i64 0, ptr %55, align 8
   tail call void @_ZN4llvm15SmallVectorImplIcE6appendIPKcvEEvT_S5_(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull %.149, ptr noundef nonnull %53)
   br label %.loopexit

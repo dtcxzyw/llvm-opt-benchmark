@@ -223,7 +223,7 @@ _ZNK4llvm8codeview16CodeViewRecordIO9isReadingEv.exit.thread.sink.split.i: ; pre
 _ZNK4llvm8codeview16CodeViewRecordIO16getCurrentOffsetEv.exit: ; preds = %_ZNK4llvm8codeview16CodeViewRecordIO11isStreamingEv.exit, %_ZNK4llvm8codeview16CodeViewRecordIO9isWritingEv.exit.thread.i, %_ZNK4llvm8codeview16CodeViewRecordIO9isReadingEv.exit.thread.sink.split.i
   %.0.i = phi i32 [ 0, %_ZNK4llvm8codeview16CodeViewRecordIO9isWritingEv.exit.thread.i ], [ %16, %_ZNK4llvm8codeview16CodeViewRecordIO9isReadingEv.exit.thread.sink.split.i ], [ 0, %_ZNK4llvm8codeview16CodeViewRecordIO11isStreamingEv.exit ]
   %17 = load ptr, ptr %0, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %19 = load i8, ptr %18, align 4
   %20 = trunc i8 %19 to i1
   br i1 %20, label %21, label %_ZNK4llvm8codeview16CodeViewRecordIO11RecordLimit14bytesRemainingEj.exit
@@ -320,18 +320,18 @@ declare void @_ZN4llvm18BinaryStreamWriter14padToAlignmentEj(ptr dead_on_unwind 
 define dso_local void @_ZN4llvm8codeview16CodeViewRecordIO11skipPaddingEv(ptr dead_on_unwind noalias writable sret(%"class.llvm::Error") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 48
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 48
   %6 = load i8, ptr %5, align 8
   %7 = trunc i8 %6 to i1
   br i1 %7, label %8, label %11
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %4, i64 40
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %10 = load i64, ptr %9, align 8
   br label %_ZNK4llvm18BinaryStreamReader14bytesRemainingEv.exit
 
 11:                                               ; preds = %2
-  %12 = getelementptr inbounds i8, ptr %4, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %13 = load ptr, ptr %12, align 8
   %.not.i.i.i = icmp eq ptr %13, null
   br i1 %.not.i.i.i, label %_ZNK4llvm18BinaryStreamReader14bytesRemainingEv.exit, label %14
@@ -341,7 +341,7 @@ define dso_local void @_ZN4llvm8codeview16CodeViewRecordIO11skipPaddingEv(ptr de
   %16 = getelementptr inbounds i8, ptr %15, i64 40
   %17 = load ptr, ptr %16, align 8
   %18 = tail call noundef i64 %17(ptr noundef nonnull align 8 dereferenceable(8) %13) #14
-  %19 = getelementptr inbounds i8, ptr %4, i64 32
+  %19 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %20 = load i64, ptr %19, align 8
   %21 = sub i64 %18, %20
   br label %_ZNK4llvm18BinaryStreamReader14bytesRemainingEv.exit
@@ -468,18 +468,18 @@ _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %41
   br i1 %.not, label %_ZN4llvm12ErrorSuccessD2Ev.exit, label %66
 
 _ZNK4llvm8codeview16CodeViewRecordIO9isWritingEv.exit.thread: ; preds = %41, %_ZNK4llvm8codeview16CodeViewRecordIO11isStreamingEv.exit
-  %44 = getelementptr inbounds i8, ptr %9, i64 48
+  %44 = getelementptr inbounds nuw i8, ptr %9, i64 48
   %45 = load i8, ptr %44, align 8
   %46 = trunc i8 %45 to i1
   br i1 %46, label %47, label %50
 
 47:                                               ; preds = %_ZNK4llvm8codeview16CodeViewRecordIO9isWritingEv.exit.thread
-  %48 = getelementptr inbounds i8, ptr %9, i64 40
+  %48 = getelementptr inbounds nuw i8, ptr %9, i64 40
   %49 = load i64, ptr %48, align 8
   br label %_ZNK4llvm18BinaryStreamReader14bytesRemainingEv.exit
 
 50:                                               ; preds = %_ZNK4llvm8codeview16CodeViewRecordIO9isWritingEv.exit.thread
-  %51 = getelementptr inbounds i8, ptr %9, i64 24
+  %51 = getelementptr inbounds nuw i8, ptr %9, i64 24
   %52 = load ptr, ptr %51, align 8
   %.not.i.i.i = icmp eq ptr %52, null
   br i1 %.not.i.i.i, label %_ZNK4llvm18BinaryStreamReader14bytesRemainingEv.exit, label %53
@@ -489,7 +489,7 @@ _ZNK4llvm8codeview16CodeViewRecordIO9isWritingEv.exit.thread: ; preds = %41, %_Z
   %55 = getelementptr inbounds i8, ptr %54, i64 40
   %56 = load ptr, ptr %55, align 8
   %57 = tail call noundef i64 %56(ptr noundef nonnull align 8 dereferenceable(8) %52) #14
-  %58 = getelementptr inbounds i8, ptr %9, i64 32
+  %58 = getelementptr inbounds nuw i8, ptr %9, i64 32
   %59 = load i64, ptr %58, align 8
   %60 = sub i64 %57, %59
   br label %_ZNK4llvm18BinaryStreamReader14bytesRemainingEv.exit
@@ -761,7 +761,7 @@ _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %81
   call void @llvm.assume(i1 true) [ "align"(ptr %2, i64 1) ]
   %.0.copyload.i.i.i.i40 = load i32, ptr %2, align 1
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
-  %83 = getelementptr inbounds i8, ptr %17, i64 24
+  %83 = getelementptr inbounds nuw i8, ptr %17, i64 24
   %84 = load ptr, ptr %83, align 8, !noalias !13
   %85 = load ptr, ptr %84, align 8, !noalias !13
   %86 = getelementptr inbounds i8, ptr %85, i64 16
@@ -792,7 +792,7 @@ _ZNK4llvm8codeview16CodeViewRecordIO9isWritingEv.exit.thread: ; preds = %81, %_Z
 
 93:                                               ; preds = %_ZNK4llvm8codeview16CodeViewRecordIO9isWritingEv.exit.thread
   %94 = load ptr, ptr %5, align 8, !noalias !16
-  %95 = getelementptr inbounds i8, ptr %14, i64 24
+  %95 = getelementptr inbounds nuw i8, ptr %14, i64 24
   %96 = load ptr, ptr %95, align 8, !noalias !16
   %97 = load ptr, ptr %96, align 8
   %98 = getelementptr inbounds i8, ptr %97, i64 16
@@ -1566,7 +1566,7 @@ _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %3
   %14 = load ptr, ptr %13, align 8
   %15 = trunc nuw nsw i64 %11 to i16
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %10)
-  %16 = getelementptr inbounds i8, ptr %14, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %14, i64 24
   %17 = load ptr, ptr %16, align 8, !noalias !19
   %18 = load ptr, ptr %17, align 8, !noalias !19
   %19 = getelementptr inbounds i8, ptr %18, i64 16
@@ -1591,7 +1591,7 @@ _ZN4llvm5ErrorD2Ev.exit45:                        ; preds = %23
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %25 = load ptr, ptr %24, align 8
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %9)
-  %26 = getelementptr inbounds i8, ptr %25, i64 24
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 24
   %27 = load ptr, ptr %26, align 8, !noalias !22
   %28 = load ptr, ptr %27, align 8, !noalias !22
   %29 = getelementptr inbounds i8, ptr %28, i64 16
@@ -1612,7 +1612,7 @@ _ZN4llvm5ErrorD2Ev.exit49:                        ; preds = %_ZN4llvm5ErrorD2Ev.
   %34 = load i64, ptr %2, align 8
   %35 = trunc i64 %34 to i16
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %8)
-  %36 = getelementptr inbounds i8, ptr %33, i64 24
+  %36 = getelementptr inbounds nuw i8, ptr %33, i64 24
   %37 = load ptr, ptr %36, align 8, !noalias !25
   %38 = load ptr, ptr %37, align 8, !noalias !25
   %39 = getelementptr inbounds i8, ptr %38, i64 16
@@ -1633,7 +1633,7 @@ _ZN4llvm5ErrorD2Ev.exit49:                        ; preds = %_ZN4llvm5ErrorD2Ev.
   %.not30 = icmp ugt i64 %11, 4294967295
   %44 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %45 = load ptr, ptr %44, align 8
-  %46 = getelementptr inbounds i8, ptr %45, i64 24
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 24
   br i1 %.not30, label %_ZN4llvm5ErrorD2Ev.exit58, label %_ZN4llvm5ErrorD2Ev.exit52
 
 _ZN4llvm5ErrorD2Ev.exit52:                        ; preds = %43
@@ -1658,7 +1658,7 @@ _ZN4llvm5ErrorD2Ev.exit55:                        ; preds = %_ZN4llvm5ErrorD2Ev.
   %54 = load i64, ptr %2, align 8
   %55 = trunc i64 %54 to i32
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
-  %56 = getelementptr inbounds i8, ptr %53, i64 24
+  %56 = getelementptr inbounds nuw i8, ptr %53, i64 24
   %57 = load ptr, ptr %56, align 8, !noalias !31
   %58 = load ptr, ptr %57, align 8, !noalias !31
   %59 = getelementptr inbounds i8, ptr %58, i64 16
@@ -1696,7 +1696,7 @@ _ZN4llvm5ErrorD2Ev.exit61:                        ; preds = %_ZN4llvm5ErrorD2Ev.
   %70 = load ptr, ptr %44, align 8
   %71 = load i64, ptr %2, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
-  %72 = getelementptr inbounds i8, ptr %70, i64 24
+  %72 = getelementptr inbounds nuw i8, ptr %70, i64 24
   %73 = load ptr, ptr %72, align 8, !noalias !37
   %74 = load ptr, ptr %73, align 8, !noalias !37
   %75 = getelementptr inbounds i8, ptr %74, i64 16
@@ -1741,7 +1741,7 @@ _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %3
   %15 = load ptr, ptr %14, align 8
   %16 = trunc nuw nsw i64 %13 to i16
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %12)
-  %17 = getelementptr inbounds i8, ptr %15, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %15, i64 24
   %18 = load ptr, ptr %17, align 8, !noalias !40
   %19 = load ptr, ptr %18, align 8, !noalias !40
   %20 = getelementptr inbounds i8, ptr %19, i64 16
@@ -1770,7 +1770,7 @@ _ZN4llvm5ErrorD2Ev.exit64:                        ; preds = %25
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %27 = load ptr, ptr %26, align 8
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %11)
-  %28 = getelementptr inbounds i8, ptr %27, i64 24
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 24
   %29 = load ptr, ptr %28, align 8, !noalias !43
   %30 = load ptr, ptr %29, align 8, !noalias !43
   %31 = getelementptr inbounds i8, ptr %30, i64 16
@@ -1791,7 +1791,7 @@ _ZN4llvm5ErrorD2Ev.exit65:                        ; preds = %_ZN4llvm5ErrorD2Ev.
   %36 = load i64, ptr %2, align 8
   %37 = trunc i64 %36 to i8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %10)
-  %38 = getelementptr inbounds i8, ptr %35, i64 24
+  %38 = getelementptr inbounds nuw i8, ptr %35, i64 24
   %39 = load ptr, ptr %38, align 8, !noalias !46
   %40 = load ptr, ptr %39, align 8, !noalias !46
   %41 = getelementptr inbounds i8, ptr %40, i64 16
@@ -1813,7 +1813,7 @@ _ZN4llvm5ErrorD2Ev.exit65:                        ; preds = %_ZN4llvm5ErrorD2Ev.
   %46 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %47 = load ptr, ptr %46, align 8
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %9)
-  %48 = getelementptr inbounds i8, ptr %47, i64 24
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 24
   %49 = load ptr, ptr %48, align 8, !noalias !49
   %50 = load ptr, ptr %49, align 8, !noalias !49
   %51 = getelementptr inbounds i8, ptr %50, i64 16
@@ -1834,7 +1834,7 @@ _ZN4llvm5ErrorD2Ev.exit72:                        ; preds = %.thread87
   %56 = load i64, ptr %2, align 8
   %57 = trunc i64 %56 to i16
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %8)
-  %58 = getelementptr inbounds i8, ptr %55, i64 24
+  %58 = getelementptr inbounds nuw i8, ptr %55, i64 24
   %59 = load ptr, ptr %58, align 8, !noalias !52
   %60 = load ptr, ptr %59, align 8, !noalias !52
   %61 = getelementptr inbounds i8, ptr %60, i64 16
@@ -1863,7 +1863,7 @@ _ZN4llvm5ErrorD2Ev.exit72:                        ; preds = %.thread87
   %67 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %68 = load ptr, ptr %67, align 8
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %7)
-  %69 = getelementptr inbounds i8, ptr %68, i64 24
+  %69 = getelementptr inbounds nuw i8, ptr %68, i64 24
   %70 = load ptr, ptr %69, align 8, !noalias !55
   %71 = load ptr, ptr %70, align 8, !noalias !55
   %72 = getelementptr inbounds i8, ptr %71, i64 16
@@ -1884,7 +1884,7 @@ _ZN4llvm5ErrorD2Ev.exit78:                        ; preds = %.thread91
   %77 = load i64, ptr %2, align 8
   %78 = trunc i64 %77 to i32
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
-  %79 = getelementptr inbounds i8, ptr %76, i64 24
+  %79 = getelementptr inbounds nuw i8, ptr %76, i64 24
   %80 = load ptr, ptr %79, align 8, !noalias !58
   %81 = load ptr, ptr %80, align 8, !noalias !58
   %82 = getelementptr inbounds i8, ptr %81, i64 16
@@ -1905,7 +1905,7 @@ _ZN4llvm5ErrorD2Ev.exit81:                        ; preds = %66, %65
   %87 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %88 = load ptr, ptr %87, align 8
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %5)
-  %89 = getelementptr inbounds i8, ptr %88, i64 24
+  %89 = getelementptr inbounds nuw i8, ptr %88, i64 24
   %90 = load ptr, ptr %89, align 8, !noalias !61
   %91 = load ptr, ptr %90, align 8, !noalias !61
   %92 = getelementptr inbounds i8, ptr %91, i64 16
@@ -1925,7 +1925,7 @@ _ZN4llvm5ErrorD2Ev.exit84:                        ; preds = %_ZN4llvm5ErrorD2Ev.
   %96 = load ptr, ptr %87, align 8
   %97 = load i64, ptr %2, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
-  %98 = getelementptr inbounds i8, ptr %96, i64 24
+  %98 = getelementptr inbounds nuw i8, ptr %96, i64 24
   %99 = load ptr, ptr %98, align 8, !noalias !64
   %100 = load ptr, ptr %99, align 8, !noalias !64
   %101 = getelementptr inbounds i8, ptr %100, i64 16
@@ -2241,7 +2241,7 @@ _ZNK4llvm8codeview16CodeViewRecordIO9isReadingEv.exit.thread.sink.split.i.i: ; p
   %47 = load i64, ptr %46, align 8
   %48 = trunc i64 %47 to i32
   %49 = load ptr, ptr %1, align 8
-  %50 = getelementptr inbounds i8, ptr %49, i64 8
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 8
   %51 = load i8, ptr %50, align 4
   %52 = trunc i8 %51 to i1
   br i1 %52, label %53, label %_ZNK4llvm8codeview16CodeViewRecordIO11RecordLimit14bytesRemainingEj.exit.i
@@ -2420,7 +2420,7 @@ _ZNK4llvm8codeview16CodeViewRecordIO9isReadingEv.exit.thread.sink.split.i.i: ; p
 _ZNK4llvm8codeview16CodeViewRecordIO16getCurrentOffsetEv.exit.i: ; preds = %_ZNK4llvm8codeview16CodeViewRecordIO11isStreamingEv.exit, %_ZNK4llvm8codeview16CodeViewRecordIO9isReadingEv.exit.thread.sink.split.i.i, %_ZNK4llvm8codeview16CodeViewRecordIO9isWritingEv.exit.thread.i.i
   %.0.i.i = phi i32 [ 0, %_ZNK4llvm8codeview16CodeViewRecordIO9isWritingEv.exit.thread.i.i ], [ %47, %_ZNK4llvm8codeview16CodeViewRecordIO9isReadingEv.exit.thread.sink.split.i.i ], [ 0, %_ZNK4llvm8codeview16CodeViewRecordIO11isStreamingEv.exit ]
   %48 = load ptr, ptr %1, align 8
-  %49 = getelementptr inbounds i8, ptr %48, i64 8
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 8
   %50 = load i8, ptr %49, align 4
   %51 = trunc i8 %50 to i1
   br i1 %51, label %52, label %_ZNK4llvm8codeview16CodeViewRecordIO11RecordLimit14bytesRemainingEj.exit.i
@@ -2822,7 +2822,7 @@ _ZN4llvm12ErrorSuccessD2Ev.exit:                  ; preds = %40, %_ZN4llvm8codev
 46:                                               ; preds = %44
   %47 = load i8, ptr %2, align 1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6)
-  %48 = getelementptr inbounds i8, ptr %14, i64 24
+  %48 = getelementptr inbounds nuw i8, ptr %14, i64 24
   %49 = load ptr, ptr %48, align 8, !noalias !78
   %50 = load ptr, ptr %49, align 8, !noalias !78
   %51 = getelementptr inbounds i8, ptr %50, i64 16
@@ -2845,7 +2845,7 @@ _ZNK4llvm8codeview16CodeViewRecordIO9isWritingEv.exit.thread: ; preds = %44, %_Z
 
 _ZN4llvm12ErrorSuccessD2Ev.exit.i:                ; preds = %_ZNK4llvm8codeview16CodeViewRecordIO9isWritingEv.exit.thread
   %55 = load ptr, ptr %5, align 8, !noalias !81
-  %56 = getelementptr inbounds i8, ptr %11, i64 24
+  %56 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %57 = load ptr, ptr %56, align 8, !noalias !81
   %58 = load ptr, ptr %57, align 8
   %59 = getelementptr inbounds i8, ptr %58, i64 16

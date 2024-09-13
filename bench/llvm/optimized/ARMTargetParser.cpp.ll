@@ -2588,7 +2588,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm3ARM20getExtensionFeaturesEmRSt6vec
 
 11:                                               ; preds = %6
   %12 = getelementptr inbounds nuw i8, ptr %.016.ptr35, i64 24
-  %13 = getelementptr inbounds i8, ptr %.016.ptr35, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %.016.ptr35, i64 32
   %14 = load i64, ptr %13, align 8
   %15 = icmp eq i64 %14, 0
   br i1 %15, label %44, label %16
@@ -2668,7 +2668,7 @@ _ZNSt6vectorIN4llvm9StringRefESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx1
 
 44:                                               ; preds = %11, %6
   %45 = getelementptr inbounds nuw i8, ptr %.016.ptr35, i64 40
-  %46 = getelementptr inbounds i8, ptr %.016.ptr35, i64 48
+  %46 = getelementptr inbounds nuw i8, ptr %.016.ptr35, i64 48
   %47 = load i64, ptr %46, align 8
   %48 = icmp eq i64 %47, 0
   br i1 %48, label %_ZNSt6vectorIN4llvm9StringRefESaIS1_EE9push_backERKS1_.exit, label %49
@@ -2789,7 +2789,7 @@ define dso_local { ptr, i64 } @_ZN4llvm3ARM10getSubArchENS0_8ArchKindE(i32 nound
   %2 = zext i32 %0 to i64
   %3 = getelementptr inbounds [41 x %"struct.llvm::ARM::ArchNames"], ptr @_ZN4llvm3ARML12ARMArchNamesE, i64 0, i64 %2
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  %5 = getelementptr inbounds i8, ptr %3, i64 40
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %6 = load i64, ptr %5, align 8
   %7 = icmp ne i64 %6, 0
   %.sroa.speculated5.i.i = zext i1 %7 to i64
@@ -2866,7 +2866,7 @@ _ZL19stripNegationPrefixRN4llvm9StringRefE.exit:  ; preds = %2, %_ZNK4llvm9Strin
 _ZL19stripNegationPrefixRN4llvm9StringRefE.exit.split.us: ; preds = %_ZL19stripNegationPrefixRN4llvm9StringRefE.exit, %_ZN4llvmeqENS_9StringRefES0_.exit.thread16.us
   %.0.idx19.us = phi i64 [ %.0.add.us, %_ZN4llvmeqENS_9StringRefES0_.exit.thread16.us ], [ 0, %_ZL19stripNegationPrefixRN4llvm9StringRefE.exit ]
   %.0.ptr20.us = getelementptr inbounds i8, ptr @_ZN4llvm3ARML12ARCHExtNamesE, i64 %.0.idx19.us
-  %7 = getelementptr inbounds i8, ptr %.0.ptr20.us, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %.0.ptr20.us, i64 32
   %8 = load i64, ptr %7, align 8
   %9 = icmp eq i64 %8, 0
   br i1 %9, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread16.us, label %10
@@ -2885,7 +2885,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit.thread16.us:    ; preds = %10, %_ZL19stripNega
 _ZL19stripNegationPrefixRN4llvm9StringRefE.exit.split: ; preds = %_ZL19stripNegationPrefixRN4llvm9StringRefE.exit, %_ZN4llvmeqENS_9StringRefES0_.exit.thread16
   %.0.idx19 = phi i64 [ %.0.add, %_ZN4llvmeqENS_9StringRefES0_.exit.thread16 ], [ 0, %_ZL19stripNegationPrefixRN4llvm9StringRefE.exit ]
   %.0.ptr20 = getelementptr inbounds i8, ptr @_ZN4llvm3ARML12ARCHExtNamesE, i64 %.0.idx19
-  %11 = getelementptr inbounds i8, ptr %.0.ptr20, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %.0.ptr20, i64 32
   %12 = load i64, ptr %11, align 8
   %13 = icmp eq i64 %12, 0
   br i1 %13, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread16, label %14
@@ -3008,7 +3008,7 @@ _ZN4llvm3ARM12parseArchExtENS_9StringRefE.exit:   ; preds = %_ZN4llvmeqENS_9Stri
 
 31:                                               ; preds = %.preheader.split.us
   %32 = getelementptr inbounds nuw i8, ptr %.050.ptr135.us, i64 40
-  %33 = getelementptr inbounds i8, ptr %.050.ptr135.us, i64 48
+  %33 = getelementptr inbounds nuw i8, ptr %.050.ptr135.us, i64 48
   %34 = load i64, ptr %33, align 8
   %35 = icmp eq i64 %34, 0
   br i1 %35, label %_ZNSt6vectorIN4llvm9StringRefESaIS1_EE9push_backERKS1_.exit.us, label %36
@@ -3103,7 +3103,7 @@ _ZNSt6vectorIN4llvm9StringRefESaIS1_EE9push_backERKS1_.exit.us: ; preds = %_ZNSt
 
 68:                                               ; preds = %.preheader.split
   %69 = getelementptr inbounds nuw i8, ptr %.050.ptr135, i64 24
-  %70 = getelementptr inbounds i8, ptr %.050.ptr135, i64 32
+  %70 = getelementptr inbounds nuw i8, ptr %.050.ptr135, i64 32
   %71 = load i64, ptr %70, align 8
   %72 = icmp eq i64 %71, 0
   br i1 %72, label %_ZNSt6vectorIN4llvm9StringRefESaIS1_EE9push_backERKS1_.exit, label %73
@@ -4091,7 +4091,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit12:               ; preds = %51, %53
 59:                                               ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit12, %94
   %.0.idx19 = phi i64 [ 0, %_ZN4llvm11raw_ostreamlsEPKc.exit12 ], [ %.0.add, %94 ]
   %.0.ptr20 = getelementptr inbounds i8, ptr @_ZN4llvm3ARML12ARCHExtNamesE, i64 %.0.idx19
-  %60 = getelementptr inbounds i8, ptr %.0.ptr20, i64 32
+  %60 = getelementptr inbounds nuw i8, ptr %.0.ptr20, i64 32
   %61 = load i64, ptr %60, align 8
   %62 = icmp eq i64 %61, 0
   br i1 %62, label %94, label %63
@@ -4115,7 +4115,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit12:               ; preds = %51, %53
   br label %_ZNK4llvm9StringRef3strB5cxx11Ev.exit
 
 70:                                               ; preds = %63
-  %71 = getelementptr inbounds i8, ptr %66, i64 16
+  %71 = getelementptr inbounds nuw i8, ptr %66, i64 16
   %72 = load i64, ptr %71, align 8, !noalias !57
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #16, !noalias !57
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcmRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull %68, i64 noundef %72, ptr noundef nonnull align 1 dereferenceable(1) %3) #16

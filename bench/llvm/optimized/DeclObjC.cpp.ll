@@ -284,7 +284,7 @@ define dso_local void @_ZN5clang12ObjCListBase3setEPKPvjRNS_10ASTContextE(ptr no
   %7 = zext i32 %2 to i64
   %8 = shl nuw nsw i64 %7, 3
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 2144
-  %10 = getelementptr inbounds i8, ptr %3, i64 2224
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 2224
   %11 = load i64, ptr %10, align 8
   %12 = add i64 %11, %8
   store i64 %12, ptr %10, align 8
@@ -293,7 +293,7 @@ define dso_local void @_ZN5clang12ObjCListBase3setEPKPvjRNS_10ASTContextE(ptr no
   %15 = add i64 %14, 7
   %16 = and i64 %15, -8
   %17 = add i64 %16, %8
-  %18 = getelementptr inbounds i8, ptr %3, i64 2152
+  %18 = getelementptr inbounds nuw i8, ptr %3, i64 2152
   %19 = load ptr, ptr %18, align 8
   %20 = ptrtoint ptr %19 to i64
   %.not.i.i.i.i = icmp ugt i64 %17, %20
@@ -335,7 +335,7 @@ define dso_local void @_ZN5clang16ObjCProtocolList3setEPKPNS_16ObjCProtocolDeclE
   %8 = zext i32 %2 to i64
   %9 = shl nuw nsw i64 %8, 2
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 2144
-  %11 = getelementptr inbounds i8, ptr %4, i64 2224
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 2224
   %12 = load i64, ptr %11, align 8
   %13 = add i64 %12, %9
   store i64 %13, ptr %11, align 8
@@ -344,7 +344,7 @@ define dso_local void @_ZN5clang16ObjCProtocolList3setEPKPNS_16ObjCProtocolDeclE
   %16 = add i64 %15, 7
   %17 = and i64 %16, -8
   %18 = add i64 %17, %9
-  %19 = getelementptr inbounds i8, ptr %4, i64 2152
+  %19 = getelementptr inbounds nuw i8, ptr %4, i64 2152
   %20 = load ptr, ptr %19, align 8
   %21 = ptrtoint ptr %20 to i64
   %.not.i.i.i.i = icmp ugt i64 %18, %21
@@ -419,7 +419,7 @@ define dso_local void @_ZN5clang17ObjCContainerDeclC2ENS_4Decl4KindEPNS_11DeclCo
   store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVN5clang17ObjCContainerDeclE, i64 16), ptr %0, align 8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store i32 0, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 84
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 84
   store i32 0, ptr %11, align 4
   %12 = getelementptr inbounds i8, ptr %0, i64 60
   store i32 %5, ptr %12, align 4
@@ -931,7 +931,7 @@ _ZNK5clang16ObjCProtocolDecl9protocolsEv.exit:    ; preds = %_ZNK5clang16ObjCPro
   %.0.i913.i = phi ptr [ null, %_ZNK5clang16ObjCProtocolDecl13hasDefinitionEv.exit.i3.i._crit_edge ], [ %144, %_ZNK5clang16ObjCProtocolDecl13hasDefinitionEv.exit.i3.thread.i ]
   %150 = getelementptr inbounds nuw i8, ptr %.pre-phi157, i64 8
   %151 = load ptr, ptr %150, align 8
-  %152 = getelementptr inbounds i8, ptr %.pre-phi157, i64 16
+  %152 = getelementptr inbounds nuw i8, ptr %.pre-phi157, i64 16
   %153 = load i32, ptr %152, align 8
   %154 = zext i32 %153 to i64
   %155 = getelementptr inbounds ptr, ptr %151, i64 %154
@@ -1723,7 +1723,7 @@ _ZNK5clang16ObjCProtocolDecl9protocolsEv.exit:    ; preds = %_ZNK5clang16ObjCPro
   %.0.i913.i = phi ptr [ null, %_ZNK5clang16ObjCProtocolDecl13hasDefinitionEv.exit.i3.i._crit_edge ], [ %61, %_ZNK5clang16ObjCProtocolDecl13hasDefinitionEv.exit.i3.thread.i ]
   %67 = getelementptr inbounds nuw i8, ptr %.pre-phi192, i64 8
   %68 = load ptr, ptr %67, align 8
-  %69 = getelementptr inbounds i8, ptr %.pre-phi192, i64 16
+  %69 = getelementptr inbounds nuw i8, ptr %.pre-phi192, i64 16
   %70 = load i32, ptr %69, align 8
   %71 = zext i32 %70 to i64
   %72 = getelementptr inbounds ptr, ptr %68, i64 %71
@@ -1890,7 +1890,7 @@ _ZN5clang17ObjCInterfaceDecl17isVisibleCategoryEPNS_16ObjCCategoryDeclE.exit.thr
 142:                                              ; preds = %135
   %143 = getelementptr inbounds nuw i8, ptr %.tr, i64 104
   %144 = load ptr, ptr %143, align 8
-  %145 = getelementptr inbounds i8, ptr %.tr, i64 112
+  %145 = getelementptr inbounds nuw i8, ptr %.tr, i64 112
   %146 = load i32, ptr %145, align 8
   %147 = zext i32 %146 to i64
   %148 = getelementptr inbounds ptr, ptr %144, i64 %147
@@ -2811,13 +2811,13 @@ define dso_local void @_ZN5clang17ObjCInterfaceDecl31mergeClassExtensionProtocol
 20:                                               ; preds = %12, %4
   %.pre-phi42 = phi ptr [ %.pre41, %12 ], [ %8, %4 ]
   %21 = getelementptr inbounds nuw i8, ptr %.pre-phi42, i64 40
-  %22 = getelementptr inbounds i8, ptr %.pre-phi42, i64 48
+  %22 = getelementptr inbounds nuw i8, ptr %.pre-phi42, i64 48
   %23 = load i32, ptr %22, align 8
   %24 = icmp eq i32 %23, 0
   br i1 %24, label %25, label %50
 
 25:                                               ; preds = %20
-  %26 = getelementptr inbounds i8, ptr %.pre-phi42, i64 24
+  %26 = getelementptr inbounds nuw i8, ptr %.pre-phi42, i64 24
   %27 = load i32, ptr %26, align 8
   %28 = icmp eq i32 %27, 0
   br i1 %28, label %29, label %50
@@ -2831,7 +2831,7 @@ define dso_local void @_ZN5clang17ObjCInterfaceDecl31mergeClassExtensionProtocol
   %32 = zext i32 %2 to i64
   %33 = shl nuw nsw i64 %32, 3
   %34 = getelementptr inbounds nuw i8, ptr %3, i64 2144
-  %35 = getelementptr inbounds i8, ptr %3, i64 2224
+  %35 = getelementptr inbounds nuw i8, ptr %3, i64 2224
   %36 = load i64, ptr %35, align 8
   %37 = add i64 %36, %33
   store i64 %37, ptr %35, align 8
@@ -2840,7 +2840,7 @@ define dso_local void @_ZN5clang17ObjCInterfaceDecl31mergeClassExtensionProtocol
   %40 = add i64 %39, 7
   %41 = and i64 %40, -8
   %42 = add i64 %41, %33
-  %43 = getelementptr inbounds i8, ptr %3, i64 2152
+  %43 = getelementptr inbounds nuw i8, ptr %3, i64 2152
   %44 = load ptr, ptr %43, align 8
   %45 = ptrtoint ptr %44 to i64
   %.not.i.i.i.i.i.i = icmp ugt i64 %42, %45
@@ -2945,7 +2945,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang16ObjCProtocolDeclELb1EE9push_backES3_
   %82 = shl i64 %78, 3
   %83 = and i64 %82, 34359738360
   %84 = getelementptr inbounds nuw i8, ptr %3, i64 2144
-  %85 = getelementptr inbounds i8, ptr %3, i64 2224
+  %85 = getelementptr inbounds nuw i8, ptr %3, i64 2224
   %86 = load i64, ptr %85, align 8
   %87 = add i64 %86, %83
   store i64 %87, ptr %85, align 8
@@ -2954,7 +2954,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang16ObjCProtocolDeclELb1EE9push_backES3_
   %90 = add i64 %89, 7
   %91 = and i64 %90, -8
   %92 = add i64 %91, %83
-  %93 = getelementptr inbounds i8, ptr %3, i64 2152
+  %93 = getelementptr inbounds nuw i8, ptr %3, i64 2152
   %94 = load ptr, ptr %93, align 8
   %95 = ptrtoint ptr %94 to i64
   %.not.i.i.i.i.i.i27 = icmp ugt i64 %92, %95
@@ -2975,7 +2975,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang16ObjCProtocolDeclELb1EE9push_backES3_
 _ZnamRKN5clang10ASTContextEm.exit.i.i30:          ; preds = %.critedge.i.i.i.i.i.i32, %96
   %.0.i.i.i.i.i.i31 = phi ptr [ %98, %96 ], [ %99, %.critedge.i.i.i.i.i.i32 ]
   store ptr %.0.i.i.i.i.i.i31, ptr %76, align 8
-  %100 = getelementptr inbounds i8, ptr %75, i64 48
+  %100 = getelementptr inbounds nuw i8, ptr %75, i64 48
   store i32 %79, ptr %100, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %.0.i.i.i.i.i.i31, ptr readonly align 8 %77, i64 %83, i1 false)
   br label %_ZN5clang8ObjCListINS_16ObjCProtocolDeclEE3setEPKPS1_jRNS_10ASTContextE.exit33
@@ -3088,7 +3088,7 @@ _ZNK5clang17ObjCInterfaceDecl13hasDefinitionEv.exit: ; preds = %1, %3
 23:                                               ; preds = %15, %9
   %.pre-phi9 = phi ptr [ %.pre8, %15 ], [ %11, %9 ]
   %.0.copyload.i.i.i.i3 = phi i64 [ %.0.copyload.i.i.i.i3.pre, %15 ], [ %.0.copyload.i.i.i.i2, %9 ]
-  %24 = getelementptr inbounds i8, ptr %.pre-phi9, i64 48
+  %24 = getelementptr inbounds nuw i8, ptr %.pre-phi9, i64 48
   %25 = load i32, ptr %24, align 8
   %26 = icmp eq i32 %25, 0
   br i1 %26, label %27, label %50
@@ -3200,7 +3200,7 @@ _ZNK5clang17ObjCInterfaceDecl13hasDefinitionEv.exit: ; preds = %1, %3
 23:                                               ; preds = %15, %9
   %.pre-phi9 = phi ptr [ %.pre8, %15 ], [ %11, %9 ]
   %.0.copyload.i.i.i.i3 = phi i64 [ %.0.copyload.i.i.i.i3.pre, %15 ], [ %.0.copyload.i.i.i.i2, %9 ]
-  %24 = getelementptr inbounds i8, ptr %.pre-phi9, i64 48
+  %24 = getelementptr inbounds nuw i8, ptr %.pre-phi9, i64 48
   %25 = load i32, ptr %24, align 8
   %26 = icmp eq i32 %25, 0
   br i1 %26, label %27, label %55
@@ -3250,7 +3250,7 @@ _ZNK5clang17ObjCInterfaceDecl13hasDefinitionEv.exit.i: ; preds = %28, %27
   %.pre-phi6.i = phi ptr [ %.pre5.i, %40 ], [ %36, %34 ]
   %49 = getelementptr inbounds nuw i8, ptr %.pre-phi6.i, i64 16
   %50 = load ptr, ptr %49, align 8
-  %51 = getelementptr inbounds i8, ptr %.pre-phi6.i, i64 24
+  %51 = getelementptr inbounds nuw i8, ptr %.pre-phi6.i, i64 24
   %52 = load i32, ptr %51, align 8
   %53 = zext i32 %52 to i64
   %54 = getelementptr inbounds ptr, ptr %50, i64 %53
@@ -4619,7 +4619,7 @@ _ZN5clang17ObjCInterfaceDecl18isVisibleExtensionEPNS_16ObjCCategoryDeclE.exit.th
 define dso_local void @_ZN5clang17ObjCInterfaceDecl22allocateDefinitionDataEv(ptr noundef nonnull align 8 dereferenceable(128) %0) local_unnamed_addr #0 align 2 {
   %2 = tail call noundef nonnull align 8 dereferenceable(23096) ptr @_ZNK5clang4Decl13getASTContextEv(ptr noundef nonnull align 8 dereferenceable(33) %0) #24
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 2144
-  %4 = getelementptr inbounds i8, ptr %2, i64 2224
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 2224
   %5 = load i64, ptr %4, align 8
   %6 = add i64 %5, 88
   store i64 %6, ptr %4, align 8
@@ -4628,7 +4628,7 @@ define dso_local void @_ZN5clang17ObjCInterfaceDecl22allocateDefinitionDataEv(pt
   %9 = add i64 %8, 7
   %10 = and i64 %9, -8
   %11 = add i64 %10, 88
-  %12 = getelementptr inbounds i8, ptr %2, i64 2152
+  %12 = getelementptr inbounds nuw i8, ptr %2, i64 2152
   %13 = load ptr, ptr %12, align 8
   %14 = ptrtoint ptr %13 to i64
   %.not.i.i.i.i = icmp ugt i64 %11, %14
@@ -4656,7 +4656,7 @@ _ZnwmRKN5clang10ASTContextEm.exit:                ; preds = %15, %.critedge.i.i.
   %.0.i.i.i.i = phi ptr [ %22, %.critedge.i.i.i.i ], [ %17, %15 ]
   store ptr %.sink, ptr %3, align 8
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  %25 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 32
+  %25 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 32
   %26 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 56
   %27 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 72
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %.0.i.i.i.i, i8 0, i64 28, i1 false)
@@ -4688,7 +4688,7 @@ declare noundef nonnull align 8 dereferenceable(23096) ptr @_ZNK5clang4Decl13get
 define dso_local void @_ZN5clang17ObjCInterfaceDecl15startDefinitionEv(ptr noundef nonnull align 8 dereferenceable(128) %0) local_unnamed_addr #0 align 2 {
   %2 = tail call noundef nonnull align 8 dereferenceable(23096) ptr @_ZNK5clang4Decl13getASTContextEv(ptr noundef nonnull align 8 dereferenceable(33) %0) #24
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 2144
-  %4 = getelementptr inbounds i8, ptr %2, i64 2224
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 2224
   %5 = load i64, ptr %4, align 8
   %6 = add i64 %5, 88
   store i64 %6, ptr %4, align 8
@@ -4697,7 +4697,7 @@ define dso_local void @_ZN5clang17ObjCInterfaceDecl15startDefinitionEv(ptr nound
   %9 = add i64 %8, 7
   %10 = and i64 %9, -8
   %11 = add i64 %10, 88
-  %12 = getelementptr inbounds i8, ptr %2, i64 2152
+  %12 = getelementptr inbounds nuw i8, ptr %2, i64 2152
   %13 = load ptr, ptr %12, align 8
   %14 = ptrtoint ptr %13 to i64
   %.not.i.i.i.i.i = icmp ugt i64 %11, %14
@@ -4725,7 +4725,7 @@ _ZN5clang17ObjCInterfaceDecl22allocateDefinitionDataEv.exit: ; preds = %15, %.cr
   %.0.i.i.i.i.i = phi ptr [ %22, %.critedge.i.i.i.i.i ], [ %17, %15 ]
   store ptr %.sink.i, ptr %3, align 8
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  %25 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i, i64 32
+  %25 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i, i64 32
   %26 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i, i64 56
   %27 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i, i64 72
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %.0.i.i.i.i.i, i8 0, i64 28, i1 false)
@@ -4789,7 +4789,7 @@ define dso_local void @_ZN5clang17ObjCInterfaceDecl37startDuplicateDefinitionFor
   store i64 %3, ptr %2, align 8
   %4 = tail call noundef nonnull align 8 dereferenceable(23096) ptr @_ZNK5clang4Decl13getASTContextEv(ptr noundef nonnull align 8 dereferenceable(33) %0) #24
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 2144
-  %6 = getelementptr inbounds i8, ptr %4, i64 2224
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 2224
   %7 = load i64, ptr %6, align 8
   %8 = add i64 %7, 88
   store i64 %8, ptr %6, align 8
@@ -4798,7 +4798,7 @@ define dso_local void @_ZN5clang17ObjCInterfaceDecl37startDuplicateDefinitionFor
   %11 = add i64 %10, 7
   %12 = and i64 %11, -8
   %13 = add i64 %12, 88
-  %14 = getelementptr inbounds i8, ptr %4, i64 2152
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 2152
   %15 = load ptr, ptr %14, align 8
   %16 = ptrtoint ptr %15 to i64
   %.not.i.i.i.i.i = icmp ugt i64 %13, %16
@@ -4825,7 +4825,7 @@ _ZN5clang17ObjCInterfaceDecl22allocateDefinitionDataEv.exit: ; preds = %17, %.cr
   %.sink.i = phi ptr [ %25, %.critedge.i.i.i.i.i ], [ %18, %17 ]
   %.0.i.i.i.i.i = phi ptr [ %24, %.critedge.i.i.i.i.i ], [ %19, %17 ]
   store ptr %.sink.i, ptr %5, align 8
-  %26 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i, i64 32
+  %26 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i, i64 32
   %27 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i, i64 56
   %28 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i, i64 72
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %.0.i.i.i.i.i, i8 0, i64 28, i1 false)
@@ -5200,7 +5200,7 @@ _ZNK5clang16ObjCProtocolDecl9protocolsEv.exit:    ; preds = %_ZNK5clang16ObjCPro
   %.0.i913.i = phi ptr [ null, %_ZNK5clang16ObjCProtocolDecl13hasDefinitionEv.exit.i3.i._crit_edge ], [ %21, %_ZNK5clang16ObjCProtocolDecl13hasDefinitionEv.exit.i3.thread.i ]
   %27 = getelementptr inbounds nuw i8, ptr %.pre-phi22, i64 8
   %28 = load ptr, ptr %27, align 8
-  %29 = getelementptr inbounds i8, ptr %.pre-phi22, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %.pre-phi22, i64 16
   %30 = load i32, ptr %29, align 8
   %31 = zext i32 %30 to i64
   %32 = getelementptr inbounds ptr, ptr %28, i64 %31
@@ -5486,7 +5486,7 @@ _ZN5clang17ObjCInterfaceDecl17isVisibleCategoryEPNS_16ObjCCategoryDeclE.exit.thr
   %.sroa.0.0142.fr = freeze ptr %.sroa.0.0142
   %117 = getelementptr inbounds nuw i8, ptr %.sroa.0.0142.fr, i64 104
   %118 = load ptr, ptr %117, align 8
-  %119 = getelementptr inbounds i8, ptr %.sroa.0.0142.fr, i64 112
+  %119 = getelementptr inbounds nuw i8, ptr %.sroa.0.0142.fr, i64 112
   %120 = load i32, ptr %119, align 8
   %121 = zext i32 %120 to i64
   %122 = getelementptr inbounds ptr, ptr %118, i64 %121
@@ -5666,7 +5666,7 @@ _ZNK5clang17ObjCInterfaceDecl13hasDefinitionEv.exit.i3: ; preds = %26, %_ZNK5cla
   %.pre-phi6.i10 = phi ptr [ %.pre5.i9, %38 ], [ %34, %32 ]
   %47 = getelementptr inbounds nuw i8, ptr %.pre-phi6.i10, i64 16
   %48 = load ptr, ptr %47, align 8
-  %49 = getelementptr inbounds i8, ptr %.pre-phi6.i10, i64 24
+  %49 = getelementptr inbounds nuw i8, ptr %.pre-phi6.i10, i64 24
   %50 = load i32, ptr %49, align 8
   %51 = zext i32 %50 to i64
   %52 = getelementptr inbounds ptr, ptr %48, i64 %51
@@ -5766,7 +5766,7 @@ _ZNK5clang16ObjCProtocolDecl9protocolsEv.exit:    ; preds = %_ZNK5clang16ObjCPro
   %.0.i913.i = phi ptr [ null, %_ZNK5clang16ObjCProtocolDecl13hasDefinitionEv.exit.i3.i._crit_edge ], [ %30, %_ZNK5clang16ObjCProtocolDecl13hasDefinitionEv.exit.i3.thread.i ]
   %36 = getelementptr inbounds nuw i8, ptr %.pre-phi31, i64 8
   %37 = load ptr, ptr %36, align 8
-  %38 = getelementptr inbounds i8, ptr %.pre-phi31, i64 16
+  %38 = getelementptr inbounds nuw i8, ptr %.pre-phi31, i64 16
   %39 = load i32, ptr %38, align 8
   %40 = zext i32 %39 to i64
   %41 = getelementptr inbounds ptr, ptr %37, i64 %40
@@ -6825,7 +6825,7 @@ define dso_local void @_ZN5clang14ObjCMethodDecl19setParamsAndSelLocsERNS_10ASTC
   %15 = add i64 %14, %13
   %16 = and i64 %15, 4294967292
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 2144
-  %18 = getelementptr inbounds i8, ptr %1, i64 2224
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 2224
   %19 = load i64, ptr %18, align 8
   %20 = add i64 %19, %16
   store i64 %20, ptr %18, align 8
@@ -6834,7 +6834,7 @@ define dso_local void @_ZN5clang14ObjCMethodDecl19setParamsAndSelLocsERNS_10ASTC
   %23 = add i64 %22, 7
   %24 = and i64 %23, -8
   %25 = add i64 %24, %16
-  %26 = getelementptr inbounds i8, ptr %1, i64 2152
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 2152
   %27 = load ptr, ptr %26, align 8
   %28 = ptrtoint ptr %27 to i64
   %.not.i.i.i = icmp ugt i64 %25, %28
@@ -7006,7 +7006,7 @@ define dso_local void @_ZN5clang14ObjCMethodDecl15setMethodParamsERNS_10ASTConte
   %16 = shl i64 %3, 3
   %17 = and i64 %16, 4294967288
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 2144
-  %19 = getelementptr inbounds i8, ptr %1, i64 2224
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 2224
   %20 = load i64, ptr %19, align 8
   %21 = add i64 %20, %17
   store i64 %21, ptr %19, align 8
@@ -7015,7 +7015,7 @@ define dso_local void @_ZN5clang14ObjCMethodDecl15setMethodParamsERNS_10ASTConte
   %24 = add i64 %23, 7
   %25 = and i64 %24, -8
   %26 = add i64 %25, %17
-  %27 = getelementptr inbounds i8, ptr %1, i64 2152
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 2152
   %28 = load ptr, ptr %27, align 8
   %29 = ptrtoint ptr %28 to i64
   %.not.i.i.i.i = icmp ugt i64 %26, %29
@@ -7070,7 +7070,7 @@ _ZSt18uninitialized_copyIPKPN5clang11ParmVarDeclEPS2_ET0_T_S7_S6_.exit.i: ; pred
   %52 = shl i64 %3, 3
   %53 = and i64 %52, 4294967288
   %54 = getelementptr inbounds nuw i8, ptr %1, i64 2144
-  %55 = getelementptr inbounds i8, ptr %1, i64 2224
+  %55 = getelementptr inbounds nuw i8, ptr %1, i64 2224
   %56 = load i64, ptr %55, align 8
   %57 = add i64 %56, %53
   store i64 %57, ptr %55, align 8
@@ -7079,7 +7079,7 @@ _ZSt18uninitialized_copyIPKPN5clang11ParmVarDeclEPS2_ET0_T_S7_S6_.exit.i: ; pred
   %60 = add i64 %59, 7
   %61 = and i64 %60, -8
   %62 = add i64 %61, %53
-  %63 = getelementptr inbounds i8, ptr %1, i64 2152
+  %63 = getelementptr inbounds nuw i8, ptr %1, i64 2152
   %64 = load ptr, ptr %63, align 8
   %65 = ptrtoint ptr %64 to i64
   %.not.i.i.i.i23 = icmp ugt i64 %62, %65
@@ -7114,7 +7114,7 @@ _ZSt18uninitialized_copyIPKPN5clang11ParmVarDeclEPS2_ET0_T_S7_S6_.exit.i29: ; pr
   %75 = add i64 %74, %73
   %76 = and i64 %75, 4294967292
   %77 = getelementptr inbounds nuw i8, ptr %1, i64 2144
-  %78 = getelementptr inbounds i8, ptr %1, i64 2224
+  %78 = getelementptr inbounds nuw i8, ptr %1, i64 2224
   %79 = load i64, ptr %78, align 8
   %80 = add i64 %79, %76
   store i64 %80, ptr %78, align 8
@@ -7123,7 +7123,7 @@ _ZSt18uninitialized_copyIPKPN5clang11ParmVarDeclEPS2_ET0_T_S7_S6_.exit.i29: ; pr
   %83 = add i64 %82, 7
   %84 = and i64 %83, -8
   %85 = add i64 %84, %76
-  %86 = getelementptr inbounds i8, ptr %1, i64 2152
+  %86 = getelementptr inbounds nuw i8, ptr %1, i64 2152
   %87 = load ptr, ptr %86, align 8
   %88 = ptrtoint ptr %87 to i64
   %.not.i.i.i.i38 = icmp ugt i64 %85, %88
@@ -8987,7 +8987,7 @@ define dso_local noundef ptr @_ZN5clang17ObjCTypeParamList6createERNS_10ASTConte
   %6 = shl i64 %3, 3
   %7 = add i64 %6, 16
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 2144
-  %9 = getelementptr inbounds i8, ptr %0, i64 2224
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 2224
   %10 = load i64, ptr %9, align 8
   %11 = add i64 %10, %7
   store i64 %11, ptr %9, align 8
@@ -8996,7 +8996,7 @@ define dso_local noundef ptr @_ZN5clang17ObjCTypeParamList6createERNS_10ASTConte
   %14 = add i64 %13, 7
   %15 = and i64 %14, -8
   %16 = add i64 %15, %7
-  %17 = getelementptr inbounds i8, ptr %0, i64 2152
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 2152
   %18 = load ptr, ptr %17, align 8
   %19 = ptrtoint ptr %18 to i64
   %.not.i.i.i = icmp ugt i64 %16, %19
@@ -9135,7 +9135,7 @@ define dso_local void @_ZN5clang17ObjCInterfaceDeclC2ERKNS_10ASTContextEPNS_11De
   tail call void @_ZN5clang11DeclContextC2ENS_4Decl4KindE(ptr noundef nonnull align 8 dereferenceable(32) %12, i32 noundef 17) #23
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store i32 0, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 84
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 84
   store i32 0, ptr %14, align 4
   %15 = getelementptr inbounds i8, ptr %0, i64 60
   store i32 %3, ptr %15, align 4
@@ -9247,7 +9247,7 @@ define linkonce_odr void @_ZN5clang12RedeclarableINS_17ObjCInterfaceDeclEE15setP
 
 31:                                               ; preds = %26
   %32 = getelementptr inbounds nuw i8, ptr %28, i64 2144
-  %33 = getelementptr inbounds i8, ptr %28, i64 2224
+  %33 = getelementptr inbounds nuw i8, ptr %28, i64 2224
   %34 = load i64, ptr %33, align 8
   %35 = add i64 %34, 24
   store i64 %35, ptr %33, align 8
@@ -9256,7 +9256,7 @@ define linkonce_odr void @_ZN5clang12RedeclarableINS_17ObjCInterfaceDeclEE15setP
   %38 = add i64 %37, 7
   %39 = and i64 %38, -8
   %40 = add i64 %39, 24
-  %41 = getelementptr inbounds i8, ptr %28, i64 2152
+  %41 = getelementptr inbounds nuw i8, ptr %28, i64 2152
   %42 = load ptr, ptr %41, align 8
   %43 = ptrtoint ptr %42 to i64
   %.not.i.i.i.i.i.i.i = icmp ugt i64 %40, %43
@@ -11067,7 +11067,7 @@ _ZN5clang17ObjCInterfaceDecl17isVisibleCategoryEPNS_16ObjCCategoryDeclE.exit.thr
   %.sroa.040.061 = phi ptr [ %.sroa.0.0.i.i, %_ZN5clang17ObjCInterfaceDecl17isVisibleCategoryEPNS_16ObjCCategoryDeclE.exit.i.i.i.i ], [ %.sroa.040.1, %_ZN5clang17ObjCInterfaceDecl17isVisibleCategoryEPNS_16ObjCCategoryDeclE.exit.i.i ]
   %60 = getelementptr inbounds nuw i8, ptr %.sroa.040.061, i64 104
   %61 = load ptr, ptr %60, align 8
-  %62 = getelementptr inbounds i8, ptr %.sroa.040.061, i64 112
+  %62 = getelementptr inbounds nuw i8, ptr %.sroa.040.061, i64 112
   %63 = load i32, ptr %62, align 8
   %64 = zext i32 %63 to i64
   %65 = getelementptr inbounds ptr, ptr %61, i64 %64
@@ -11393,7 +11393,7 @@ define dso_local void @_ZN5clang16ObjCProtocolDeclC2ERNS_10ASTContextEPNS_11Decl
   tail call void @_ZN5clang11DeclContextC2ENS_4Decl4KindE(ptr noundef nonnull align 8 dereferenceable(32) %10, i32 noundef 16) #23
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store i32 0, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 84
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 84
   store i32 0, ptr %12, align 4
   %13 = getelementptr inbounds i8, ptr %0, i64 60
   store i32 %5, ptr %13, align 4
@@ -11470,7 +11470,7 @@ define linkonce_odr void @_ZN5clang12RedeclarableINS_16ObjCProtocolDeclEE15setPr
 
 31:                                               ; preds = %26
   %32 = getelementptr inbounds nuw i8, ptr %28, i64 2144
-  %33 = getelementptr inbounds i8, ptr %28, i64 2224
+  %33 = getelementptr inbounds nuw i8, ptr %28, i64 2224
   %34 = load i64, ptr %33, align 8
   %35 = add i64 %34, 24
   store i64 %35, ptr %33, align 8
@@ -11479,7 +11479,7 @@ define linkonce_odr void @_ZN5clang12RedeclarableINS_16ObjCProtocolDeclEE15setPr
   %38 = add i64 %37, 7
   %39 = and i64 %38, -8
   %40 = add i64 %39, 24
-  %41 = getelementptr inbounds i8, ptr %28, i64 2152
+  %41 = getelementptr inbounds nuw i8, ptr %28, i64 2152
   %42 = load ptr, ptr %41, align 8
   %43 = ptrtoint ptr %42 to i64
   %.not.i.i.i.i.i.i.i = icmp ugt i64 %40, %43
@@ -11747,7 +11747,7 @@ _ZNK5clang16ObjCProtocolDecl9protocolsEv.exit:    ; preds = %_ZNK5clang16ObjCPro
   %.0.i913.i = phi ptr [ null, %_ZNK5clang16ObjCProtocolDecl13hasDefinitionEv.exit.i3.i._crit_edge ], [ %30, %_ZNK5clang16ObjCProtocolDecl13hasDefinitionEv.exit.i3.thread.i ]
   %36 = getelementptr inbounds nuw i8, ptr %.pre-phi129, i64 8
   %37 = load ptr, ptr %36, align 8
-  %38 = getelementptr inbounds i8, ptr %.pre-phi129, i64 16
+  %38 = getelementptr inbounds nuw i8, ptr %.pre-phi129, i64 16
   %39 = load i32, ptr %38, align 8
   %40 = zext i32 %39 to i64
   %41 = getelementptr inbounds ptr, ptr %37, i64 %40
@@ -12402,7 +12402,7 @@ _ZNSt5queueIPKN5clang16ObjCProtocolDeclESt5dequeIS3_SaIS3_EEED2Ev.exit: ; preds 
 define dso_local void @_ZN5clang16ObjCProtocolDecl22allocateDefinitionDataEv(ptr noundef nonnull align 8 dereferenceable(112) %0) local_unnamed_addr #0 align 2 {
   %2 = tail call noundef nonnull align 8 dereferenceable(23096) ptr @_ZNK5clang4Decl13getASTContextEv(ptr noundef nonnull align 8 dereferenceable(33) %0) #24
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 2144
-  %4 = getelementptr inbounds i8, ptr %2, i64 2224
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 2224
   %5 = load i64, ptr %4, align 8
   %6 = add i64 %5, 40
   store i64 %6, ptr %4, align 8
@@ -12411,7 +12411,7 @@ define dso_local void @_ZN5clang16ObjCProtocolDecl22allocateDefinitionDataEv(ptr
   %9 = add i64 %8, 7
   %10 = and i64 %9, -8
   %11 = add i64 %10, 40
-  %12 = getelementptr inbounds i8, ptr %2, i64 2152
+  %12 = getelementptr inbounds nuw i8, ptr %2, i64 2152
   %13 = load ptr, ptr %12, align 8
   %14 = ptrtoint ptr %13 to i64
   %.not.i.i.i.i = icmp ugt i64 %11, %14
@@ -12441,9 +12441,9 @@ _ZnwmRKN5clang10ASTContextEm.exit:                ; preds = %15, %.critedge.i.i.
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %25 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 8
   store ptr null, ptr %25, align 8
-  %26 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 16
   store i32 0, ptr %26, align 8
-  %27 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 24
+  %27 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 24
   store ptr null, ptr %27, align 8
   %28 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 36
   store i32 0, ptr %28, align 4
@@ -12469,7 +12469,7 @@ _ZnwmRKN5clang10ASTContextEm.exit:                ; preds = %15, %.critedge.i.i.
 define dso_local void @_ZN5clang16ObjCProtocolDecl15startDefinitionEv(ptr noundef nonnull align 8 dereferenceable(112) %0) local_unnamed_addr #0 align 2 {
   %2 = tail call noundef nonnull align 8 dereferenceable(23096) ptr @_ZNK5clang4Decl13getASTContextEv(ptr noundef nonnull align 8 dereferenceable(33) %0) #24
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 2144
-  %4 = getelementptr inbounds i8, ptr %2, i64 2224
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 2224
   %5 = load i64, ptr %4, align 8
   %6 = add i64 %5, 40
   store i64 %6, ptr %4, align 8
@@ -12478,7 +12478,7 @@ define dso_local void @_ZN5clang16ObjCProtocolDecl15startDefinitionEv(ptr nounde
   %9 = add i64 %8, 7
   %10 = and i64 %9, -8
   %11 = add i64 %10, 40
-  %12 = getelementptr inbounds i8, ptr %2, i64 2152
+  %12 = getelementptr inbounds nuw i8, ptr %2, i64 2152
   %13 = load ptr, ptr %12, align 8
   %14 = ptrtoint ptr %13 to i64
   %.not.i.i.i.i.i = icmp ugt i64 %11, %14
@@ -12508,9 +12508,9 @@ _ZN5clang16ObjCProtocolDecl22allocateDefinitionDataEv.exit: ; preds = %15, %.cri
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %25 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i, i64 8
   store ptr null, ptr %25, align 8
-  %26 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i, i64 16
   store i32 0, ptr %26, align 8
-  %27 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i, i64 24
+  %27 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i, i64 24
   store ptr null, ptr %27, align 8
   %28 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i, i64 36
   store i32 0, ptr %28, align 4
@@ -12564,7 +12564,7 @@ define dso_local void @_ZN5clang16ObjCProtocolDecl37startDuplicateDefinitionForC
   store i64 %3, ptr %2, align 8
   %4 = tail call noundef nonnull align 8 dereferenceable(23096) ptr @_ZNK5clang4Decl13getASTContextEv(ptr noundef nonnull align 8 dereferenceable(33) %0) #24
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 2144
-  %6 = getelementptr inbounds i8, ptr %4, i64 2224
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 2224
   %7 = load i64, ptr %6, align 8
   %8 = add i64 %7, 40
   store i64 %8, ptr %6, align 8
@@ -12573,7 +12573,7 @@ define dso_local void @_ZN5clang16ObjCProtocolDecl37startDuplicateDefinitionForC
   %11 = add i64 %10, 7
   %12 = and i64 %11, -8
   %13 = add i64 %12, 40
-  %14 = getelementptr inbounds i8, ptr %4, i64 2152
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 2152
   %15 = load ptr, ptr %14, align 8
   %16 = ptrtoint ptr %15 to i64
   %.not.i.i.i.i.i = icmp ugt i64 %13, %16
@@ -12602,9 +12602,9 @@ _ZN5clang16ObjCProtocolDecl22allocateDefinitionDataEv.exit: ; preds = %17, %.cri
   store ptr %.sink.i, ptr %5, align 8
   %26 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i, i64 8
   store ptr null, ptr %26, align 8
-  %27 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i, i64 16
+  %27 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i, i64 16
   store i32 0, ptr %27, align 8
-  %28 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i, i64 24
+  %28 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i, i64 24
   store ptr null, ptr %28, align 8
   %29 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i, i64 36
   store i32 0, ptr %29, align 4
@@ -12819,7 +12819,7 @@ _ZNK5clang16ObjCProtocolDecl9protocolsEv.exit:    ; preds = %_ZNK5clang16ObjCPro
   %.0.i913.i = phi ptr [ null, %_ZNK5clang16ObjCProtocolDecl13hasDefinitionEv.exit.i3.i._crit_edge ], [ %76, %_ZNK5clang16ObjCProtocolDecl13hasDefinitionEv.exit.i3.thread.i ]
   %82 = getelementptr inbounds nuw i8, ptr %.pre-phi44, i64 8
   %83 = load ptr, ptr %82, align 8
-  %84 = getelementptr inbounds i8, ptr %.pre-phi44, i64 16
+  %84 = getelementptr inbounds nuw i8, ptr %.pre-phi44, i64 16
   %85 = load i32, ptr %84, align 8
   %86 = zext i32 %85 to i64
   %87 = getelementptr inbounds ptr, ptr %83, i64 %86
@@ -12877,7 +12877,7 @@ _ZNK5clang16ObjCProtocolDecl13getDefinitionEv.exit: ; preds = %_ZNK5clang16ObjCP
   %19 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %20 = load ptr, ptr %19, align 8, !noalias !72
   %21 = select i1 %.not.i.i.i.i.i.i, ptr %20, ptr %19
-  %22 = getelementptr inbounds i8, ptr %2, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %23 = load i32, ptr %22, align 8, !noalias !72
   %24 = select i1 %.not.i.i.i.i.i.i, i32 %23, i32 8
   %25 = icmp eq i32 %24, 0
@@ -13079,7 +13079,7 @@ _ZNK5clang16ObjCProtocolDecl9protocolsEv.exit:    ; preds = %_ZNK5clang16ObjCPro
   %.0.i913.i = phi ptr [ null, %_ZNK5clang16ObjCProtocolDecl13hasDefinitionEv.exit.i3.i._crit_edge ], [ %115, %_ZNK5clang16ObjCProtocolDecl13hasDefinitionEv.exit.i3.thread.i ]
   %121 = getelementptr inbounds nuw i8, ptr %.pre-phi58, i64 8
   %122 = load ptr, ptr %121, align 8
-  %123 = getelementptr inbounds i8, ptr %.pre-phi58, i64 16
+  %123 = getelementptr inbounds nuw i8, ptr %.pre-phi58, i64 16
   %124 = load i32, ptr %123, align 8
   %125 = zext i32 %124 to i64
   %126 = getelementptr inbounds ptr, ptr %122, i64 %125
@@ -13389,7 +13389,7 @@ define dso_local void @_ZN5clang16ObjCCategoryDeclC2EPNS_11DeclContextENS_14Sour
   tail call void @_ZN5clang11DeclContextC2ENS_4Decl4KindE(ptr noundef nonnull align 8 dereferenceable(32) %13, i32 noundef 20) #23
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store i32 0, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 84
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 84
   store i32 0, ptr %15, align 4
   %16 = getelementptr inbounds i8, ptr %0, i64 60
   store i32 %2, ptr %16, align 4
@@ -13397,7 +13397,7 @@ define dso_local void @_ZN5clang16ObjCCategoryDeclC2EPNS_11DeclContextENS_14Sour
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 88
   store ptr %6, ptr %17, align 8
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %19 = getelementptr inbounds i8, ptr %0, i64 120
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %21 = getelementptr inbounds i8, ptr %0, i64 104
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %21, i8 0, i64 12, i1 false)
@@ -13632,7 +13632,7 @@ _ZN5clang17ObjCInterfaceDecl13getDefinitionEv.exit: ; preds = %_ZNK5clang17ObjCI
   tail call void @_ZN5clang11DeclContextC2ENS_4Decl4KindE(ptr noundef nonnull align 8 dereferenceable(32) %22, i32 noundef 19) #23
   %23 = getelementptr inbounds nuw i8, ptr %19, i64 80
   store i32 0, ptr %23, align 4
-  %24 = getelementptr inbounds i8, ptr %19, i64 84
+  %24 = getelementptr inbounds nuw i8, ptr %19, i64 84
   store i32 0, ptr %24, align 4
   %25 = getelementptr inbounds i8, ptr %19, i64 60
   store i32 %5, ptr %25, align 4
@@ -14041,7 +14041,7 @@ _ZN5clang22ObjCImplementationDeclC2EPNS_11DeclContextEPNS_17ObjCInterfaceDeclES4
   tail call void @_ZN5clang11DeclContextC2ENS_4Decl4KindE(ptr noundef nonnull align 8 dereferenceable(32) %33, i32 noundef 18) #23
   %34 = getelementptr inbounds nuw i8, ptr %31, i64 80
   store i32 0, ptr %34, align 4
-  %35 = getelementptr inbounds i8, ptr %31, i64 84
+  %35 = getelementptr inbounds nuw i8, ptr %31, i64 84
   store i32 0, ptr %35, align 4
   %36 = getelementptr inbounds i8, ptr %31, i64 60
   store i32 %5, ptr %36, align 4
@@ -14132,7 +14132,7 @@ define dso_local void @_ZN5clang22ObjCImplementationDecl19setIvarInitializersERN
   %7 = zext i32 %3 to i64
   %8 = shl nuw nsw i64 %7, 3
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 2144
-  %10 = getelementptr inbounds i8, ptr %1, i64 2224
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 2224
   %11 = load i64, ptr %10, align 8
   %12 = add i64 %11, %8
   store i64 %12, ptr %10, align 8
@@ -14141,7 +14141,7 @@ define dso_local void @_ZN5clang22ObjCImplementationDecl19setIvarInitializersERN
   %15 = add i64 %14, 7
   %16 = and i64 %15, -8
   %17 = add i64 %16, %8
-  %18 = getelementptr inbounds i8, ptr %1, i64 2152
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 2152
   %19 = load ptr, ptr %18, align 8
   %20 = ptrtoint ptr %19 to i64
   %.not.i.i.i.i = icmp ugt i64 %17, %20
@@ -15559,7 +15559,7 @@ tailrecurse:                                      ; preds = %._crit_edge137, %4
 21:                                               ; preds = %12, %11
   %22 = getelementptr inbounds nuw i8, ptr %.tr, i64 104
   %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %.tr, i64 112
+  %24 = getelementptr inbounds nuw i8, ptr %.tr, i64 112
   %25 = load i32, ptr %24, align 8
   %26 = zext i32 %25 to i64
   %27 = getelementptr inbounds ptr, ptr %23, i64 %26
@@ -15647,7 +15647,7 @@ _ZNK5clang16ObjCProtocolDecl9protocolsEv.exit:    ; preds = %_ZNK5clang16ObjCPro
   %.0.i913.i = phi ptr [ null, %_ZNK5clang16ObjCProtocolDecl13hasDefinitionEv.exit.i3.i._crit_edge ], [ %53, %_ZNK5clang16ObjCProtocolDecl13hasDefinitionEv.exit.i3.thread.i ]
   %59 = getelementptr inbounds nuw i8, ptr %.pre-phi148, i64 8
   %60 = load ptr, ptr %59, align 8
-  %61 = getelementptr inbounds i8, ptr %.pre-phi148, i64 16
+  %61 = getelementptr inbounds nuw i8, ptr %.pre-phi148, i64 16
   %62 = load i32, ptr %61, align 8
   %63 = zext i32 %62 to i64
   %64 = getelementptr inbounds ptr, ptr %60, i64 %63
@@ -15800,7 +15800,7 @@ define linkonce_odr hidden noundef ptr @_ZNK5clang12RedeclarableINS_16ObjCProtoc
 
 15:                                               ; preds = %10
   %16 = getelementptr inbounds nuw i8, ptr %12, i64 2144
-  %17 = getelementptr inbounds i8, ptr %12, i64 2224
+  %17 = getelementptr inbounds nuw i8, ptr %12, i64 2224
   %18 = load i64, ptr %17, align 8
   %19 = add i64 %18, 24
   store i64 %19, ptr %17, align 8
@@ -15809,7 +15809,7 @@ define linkonce_odr hidden noundef ptr @_ZNK5clang12RedeclarableINS_16ObjCProtoc
   %22 = add i64 %21, 7
   %23 = and i64 %22, -8
   %24 = add i64 %23, 24
-  %25 = getelementptr inbounds i8, ptr %12, i64 2152
+  %25 = getelementptr inbounds nuw i8, ptr %12, i64 2152
   %26 = load ptr, ptr %25, align 8
   %27 = ptrtoint ptr %26 to i64
   %.not.i.i.i.i.i.i = icmp ugt i64 %24, %27
@@ -15922,7 +15922,7 @@ define linkonce_odr hidden noundef ptr @_ZNK5clang12RedeclarableINS_15TypedefNam
 
 15:                                               ; preds = %10
   %16 = getelementptr inbounds nuw i8, ptr %12, i64 2144
-  %17 = getelementptr inbounds i8, ptr %12, i64 2224
+  %17 = getelementptr inbounds nuw i8, ptr %12, i64 2224
   %18 = load i64, ptr %17, align 8
   %19 = add i64 %18, 24
   store i64 %19, ptr %17, align 8
@@ -15931,7 +15931,7 @@ define linkonce_odr hidden noundef ptr @_ZNK5clang12RedeclarableINS_15TypedefNam
   %22 = add i64 %21, 7
   %23 = and i64 %22, -8
   %24 = add i64 %23, 24
-  %25 = getelementptr inbounds i8, ptr %12, i64 2152
+  %25 = getelementptr inbounds nuw i8, ptr %12, i64 2152
   %26 = load ptr, ptr %25, align 8
   %27 = ptrtoint ptr %26 to i64
   %.not.i.i.i.i.i.i = icmp ugt i64 %24, %27
@@ -16046,7 +16046,7 @@ define linkonce_odr hidden noundef ptr @_ZNK5clang12RedeclarableINS_17ObjCInterf
 
 15:                                               ; preds = %10
   %16 = getelementptr inbounds nuw i8, ptr %12, i64 2144
-  %17 = getelementptr inbounds i8, ptr %12, i64 2224
+  %17 = getelementptr inbounds nuw i8, ptr %12, i64 2224
   %18 = load i64, ptr %17, align 8
   %19 = add i64 %18, 24
   store i64 %19, ptr %17, align 8
@@ -16055,7 +16055,7 @@ define linkonce_odr hidden noundef ptr @_ZNK5clang12RedeclarableINS_17ObjCInterf
   %22 = add i64 %21, 7
   %23 = and i64 %22, -8
   %24 = add i64 %23, 24
-  %25 = getelementptr inbounds i8, ptr %12, i64 2152
+  %25 = getelementptr inbounds nuw i8, ptr %12, i64 2152
   %26 = load ptr, ptr %25, align 8
   %27 = ptrtoint ptr %26 to i64
   %.not.i.i.i.i.i.i = icmp ugt i64 %24, %27
@@ -18089,7 +18089,7 @@ define linkonce_odr hidden noundef ptr @_ZN4llvm12DenseMapBaseINS_13SmallDenseMa
   %6 = lshr i32 %5, 1
   %7 = and i32 %5, 1
   %.not.i.i = icmp eq i32 %7, 0
-  %8 = getelementptr inbounds i8, ptr %0, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = load i32, ptr %8, align 8
   %10 = select i1 %.not.i.i, i32 %9, i32 8
   %11 = shl i32 %6, 2
@@ -18310,7 +18310,7 @@ define linkonce_odr hidden void @_ZN4llvm13SmallDenseMapIPKN5clang16ObjCProtocol
   %34 = shl nuw nsw i64 %33, 3
   %35 = tail call noalias noundef nonnull ptr @_ZN4llvm15allocate_bufferEmm(i64 noundef %34, i64 noundef 8) #23
   store ptr %35, ptr %23, align 8
-  %36 = getelementptr inbounds i8, ptr %0, i64 16
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 %.0, ptr %36, align 8
   br label %37
 
@@ -18361,7 +18361,7 @@ define linkonce_odr hidden void @_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIPKN5c
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8
   %9 = select i1 %.not.i.i.i.i, ptr %8, ptr %7
-  %10 = getelementptr inbounds i8, ptr %0, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %11 = load i32, ptr %10, align 8
   %12 = select i1 %.not.i.i.i.i, i32 %11, i32 8
   %13 = zext i32 %12 to i64

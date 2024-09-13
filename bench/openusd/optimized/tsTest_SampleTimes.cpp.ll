@@ -202,7 +202,7 @@ define void @_ZNK32pxrInternal_v0_24__pxrReserved__18TsTest_SampleTimes13_GetKno
   br i1 %.020, label %21, label %17
 
 17:                                               ; preds = %.lr.ph
-  %18 = getelementptr inbounds i8, ptr %.sroa.015.019, i64 56
+  %18 = getelementptr inbounds nuw i8, ptr %.sroa.015.019, i64 56
   %19 = load i8, ptr %18, align 8
   %20 = trunc i8 %19 to i1
   br i1 %20, label %21, label %_ZNSt3setIN32pxrInternal_v0_24__pxrReserved__18TsTest_SampleTimes10SampleTimeESt4lessIS2_ESaIS2_EE6insertEOS2_.exit
@@ -241,7 +241,7 @@ _ZNSt3setIN32pxrInternal_v0_24__pxrReserved__18TsTest_SampleTimes10SampleTimeESt
           to label %29 unwind label %.loopexit
 
 29:                                               ; preds = %27
-  %30 = getelementptr inbounds i8, ptr %.sroa.015.019, i64 40
+  %30 = getelementptr inbounds nuw i8, ptr %.sroa.015.019, i64 40
   %31 = load i32, ptr %30, align 8
   %32 = icmp eq i32 %31, 0
   %33 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.015.019) #17
@@ -832,7 +832,7 @@ define linkonce_odr { ptr, i8 } @_ZNSt8_Rb_treeIN32pxrInternal_v0_24__pxrReserve
   br i1 %14, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__18TsTest_SampleTimes10SampleTimeEEclERKS2_S5_.exit.us.i, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__18TsTest_SampleTimes10SampleTimeEEclERKS2_S5_.exit.thread.us.i
 
 _ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__18TsTest_SampleTimes10SampleTimeEEclERKS2_S5_.exit.us.i: ; preds = %13
-  %15 = getelementptr inbounds i8, ptr %.02129.us.i, i64 40
+  %15 = getelementptr inbounds nuw i8, ptr %.02129.us.i, i64 40
   %16 = load i8, ptr %15, align 8
   %17 = trunc i8 %16 to i1
   br i1 %17, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__18TsTest_SampleTimes10SampleTimeEEclERKS2_S5_.exit.thread.us.i, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__18TsTest_SampleTimes10SampleTimeEEclERKS2_S5_.exit.thread22.us.i
@@ -890,7 +890,7 @@ _ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__18TsTest_SampleTimes10SampleTimeE
   br i1 %35, label %36, label %46
 
 36:                                               ; preds = %34
-  %37 = getelementptr inbounds i8, ptr %.sroa.06.0.i, i64 40
+  %37 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.i, i64 40
   %38 = load i8, ptr %37, align 8
   %39 = trunc i8 %38 to i1
   %40 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -940,7 +940,7 @@ define linkonce_odr ptr @_ZNSt8_Rb_treeIN32pxrInternal_v0_24__pxrReserved__18TsT
   br i1 %18, label %19, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__18TsTest_SampleTimes10SampleTimeEEclERKS2_S5_.exit
 
 19:                                               ; preds = %15
-  %20 = getelementptr inbounds i8, ptr %2, i64 40
+  %20 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %21 = load i8, ptr %20, align 8
   %22 = trunc i8 %21 to i1
   %23 = xor i1 %22, true
@@ -1029,7 +1029,7 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeIN32pxrInternal_v0_24__pxrReserv
   br i1 %17, label %18, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__18TsTest_SampleTimes10SampleTimeEEclERKS2_S5_.exit.thread
 
 18:                                               ; preds = %16
-  %19 = getelementptr inbounds i8, ptr %11, i64 40
+  %19 = getelementptr inbounds nuw i8, ptr %11, i64 40
   %20 = load i8, ptr %19, align 8
   %21 = trunc i8 %20 to i1
   %22 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -1065,7 +1065,7 @@ _ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__18TsTest_SampleTimes10SampleTimeE
   br i1 %35, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__18TsTest_SampleTimes10SampleTimeEEclERKS2_S5_.exit.us.i, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__18TsTest_SampleTimes10SampleTimeEEclERKS2_S5_.exit.thread.us.i
 
 _ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__18TsTest_SampleTimes10SampleTimeEEclERKS2_S5_.exit.us.i: ; preds = %34
-  %36 = getelementptr inbounds i8, ptr %.02129.us.i, i64 40
+  %36 = getelementptr inbounds nuw i8, ptr %.02129.us.i, i64 40
   %37 = load i8, ptr %36, align 8
   %38 = trunc i8 %37 to i1
   br i1 %38, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__18TsTest_SampleTimes10SampleTimeEEclERKS2_S5_.exit.thread.us.i, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__18TsTest_SampleTimes10SampleTimeEEclERKS2_S5_.exit.thread22.us.i
@@ -1123,7 +1123,7 @@ _ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__18TsTest_SampleTimes10SampleTimeE
   br i1 %56, label %57, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__18TsTest_SampleTimes10SampleTimeEEclERKS2_S5_.exit5.thread.i
 
 57:                                               ; preds = %55
-  %58 = getelementptr inbounds i8, ptr %.sroa.06.0.i, i64 40
+  %58 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.i, i64 40
   %59 = load i8, ptr %58, align 8
   %60 = trunc i8 %59 to i1
   %61 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -1154,7 +1154,7 @@ _ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__18TsTest_SampleTimes10SampleTimeE
   br i1 %75, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__18TsTest_SampleTimes10SampleTimeEEclERKS2_S5_.exit10, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__18TsTest_SampleTimes10SampleTimeEEclERKS2_S5_.exit10.thread
 
 _ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__18TsTest_SampleTimes10SampleTimeEEclERKS2_S5_.exit10: ; preds = %72
-  %76 = getelementptr inbounds i8, ptr %1, i64 40
+  %76 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %77 = load i8, ptr %76, align 8
   %78 = trunc i8 %77 to i1
   br i1 %78, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__18TsTest_SampleTimes10SampleTimeEEclERKS2_S5_.exit10.thread, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__18TsTest_SampleTimes10SampleTimeEEclERKS2_S5_.exit10.thread98
@@ -1177,7 +1177,7 @@ _ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__18TsTest_SampleTimes10SampleTimeE
   br i1 %88, label %89, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__18TsTest_SampleTimes10SampleTimeEEclERKS2_S5_.exit11.thread
 
 89:                                               ; preds = %87
-  %90 = getelementptr inbounds i8, ptr %83, i64 40
+  %90 = getelementptr inbounds nuw i8, ptr %83, i64 40
   %91 = load i8, ptr %90, align 8
   %92 = trunc i8 %91 to i1
   %93 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -1220,7 +1220,7 @@ _ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__18TsTest_SampleTimes10SampleTimeE
   br i1 %108, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__18TsTest_SampleTimes10SampleTimeEEclERKS2_S5_.exit.us.i40, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__18TsTest_SampleTimes10SampleTimeEEclERKS2_S5_.exit.thread.us.i36
 
 _ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__18TsTest_SampleTimes10SampleTimeEEclERKS2_S5_.exit.us.i40: ; preds = %107
-  %109 = getelementptr inbounds i8, ptr %.02129.us.i35, i64 40
+  %109 = getelementptr inbounds nuw i8, ptr %.02129.us.i35, i64 40
   %110 = load i8, ptr %109, align 8
   %111 = trunc i8 %110 to i1
   br i1 %111, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__18TsTest_SampleTimes10SampleTimeEEclERKS2_S5_.exit.thread.us.i36, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__18TsTest_SampleTimes10SampleTimeEEclERKS2_S5_.exit.thread22.us.i41
@@ -1274,7 +1274,7 @@ _ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__18TsTest_SampleTimes10SampleTimeE
   br i1 %126, label %127, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__18TsTest_SampleTimes10SampleTimeEEclERKS2_S5_.exit5.thread.i26
 
 127:                                              ; preds = %125
-  %128 = getelementptr inbounds i8, ptr %.sroa.06.0.i25, i64 40
+  %128 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.i25, i64 40
   %129 = load i8, ptr %128, align 8
   %130 = trunc i8 %129 to i1
   %131 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -1296,7 +1296,7 @@ _ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__18TsTest_SampleTimes10SampleTimeE
   br i1 %136, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__18TsTest_SampleTimes10SampleTimeEEclERKS2_S5_.exit43.thread100, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__18TsTest_SampleTimes10SampleTimeEEclERKS2_S5_.exit.thread97
 
 137:                                              ; preds = %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__18TsTest_SampleTimes10SampleTimeEEclERKS2_S5_.exit10.thread
-  %138 = getelementptr inbounds i8, ptr %1, i64 40
+  %138 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %139 = load i8, ptr %138, align 8
   %140 = trunc i8 %139 to i1
   %141 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -1330,7 +1330,7 @@ _ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__18TsTest_SampleTimes10SampleTimeE
   br i1 %158, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__18TsTest_SampleTimes10SampleTimeEEclERKS2_S5_.exit44, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__18TsTest_SampleTimes10SampleTimeEEclERKS2_S5_.exit44.thread
 
 _ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__18TsTest_SampleTimes10SampleTimeEEclERKS2_S5_.exit44: ; preds = %155
-  %159 = getelementptr inbounds i8, ptr %149, i64 40
+  %159 = getelementptr inbounds nuw i8, ptr %149, i64 40
   %160 = load i8, ptr %159, align 8
   %161 = trunc i8 %160 to i1
   br i1 %161, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__18TsTest_SampleTimes10SampleTimeEEclERKS2_S5_.exit44.thread, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__18TsTest_SampleTimes10SampleTimeEEclERKS2_S5_.exit44.thread101
@@ -1368,7 +1368,7 @@ _ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__18TsTest_SampleTimes10SampleTimeE
   br i1 %173, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__18TsTest_SampleTimes10SampleTimeEEclERKS2_S5_.exit.us.i73, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__18TsTest_SampleTimes10SampleTimeEEclERKS2_S5_.exit.thread.us.i69
 
 _ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__18TsTest_SampleTimes10SampleTimeEEclERKS2_S5_.exit.us.i73: ; preds = %172
-  %174 = getelementptr inbounds i8, ptr %.02129.us.i68, i64 40
+  %174 = getelementptr inbounds nuw i8, ptr %.02129.us.i68, i64 40
   %175 = load i8, ptr %174, align 8
   %176 = trunc i8 %175 to i1
   br i1 %176, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__18TsTest_SampleTimes10SampleTimeEEclERKS2_S5_.exit.thread.us.i69, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__18TsTest_SampleTimes10SampleTimeEEclERKS2_S5_.exit.thread22.us.i74
@@ -1424,7 +1424,7 @@ _ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__18TsTest_SampleTimes10SampleTimeE
   br i1 %193, label %194, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__18TsTest_SampleTimes10SampleTimeEEclERKS2_S5_.exit5.thread.i59
 
 194:                                              ; preds = %192
-  %195 = getelementptr inbounds i8, ptr %.sroa.06.0.i58, i64 40
+  %195 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.i58, i64 40
   %196 = load i8, ptr %195, align 8
   %197 = trunc i8 %196 to i1
   %198 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -1471,7 +1471,7 @@ define linkonce_odr ptr @_ZNSt8_Rb_treeIN32pxrInternal_v0_24__pxrReserved__18TsT
   br i1 %18, label %19, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__18TsTest_SampleTimes10SampleTimeEEclERKS2_S5_.exit
 
 19:                                               ; preds = %15
-  %20 = getelementptr inbounds i8, ptr %2, i64 40
+  %20 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %21 = load i8, ptr %20, align 8
   %22 = trunc i8 %21 to i1
   %23 = xor i1 %22, true

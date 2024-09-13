@@ -247,7 +247,7 @@ define internal void @_ZN12_GLOBAL__N_115MCMachOStreamer13changeSectionEPN4llvm9
 9:                                                ; preds = %3
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 432
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 448
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 448
   %13 = load i32, ptr %12, align 8
   %14 = icmp eq i32 %13, 0
   br i1 %14, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_9MCSectionEbNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_bEEEES4_bS6_S9_E15LookupBucketForIS4_EEbRKT_RPS9_.exit.i.i, label %15
@@ -405,7 +405,7 @@ define internal void @_ZN12_GLOBAL__N_115MCMachOStreamerD2Ev(ptr noundef nonnull
   store ptr getelementptr inbounds inrange(-16, 1336) (i8, ptr @_ZTVN12_GLOBAL__N_115MCMachOStreamerE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 432
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 448
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 448
   %5 = load i32, ptr %4, align 8
   %6 = zext i32 %5 to i64
   %7 = shl nuw nsw i64 %6, 4
@@ -419,7 +419,7 @@ define internal void @_ZN12_GLOBAL__N_115MCMachOStreamerD0Ev(ptr noundef nonnull
   store ptr getelementptr inbounds inrange(-16, 1336) (i8, ptr @_ZTVN12_GLOBAL__N_115MCMachOStreamerE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 432
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 448
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 448
   %5 = load i32, ptr %4, align 8
   %6 = zext i32 %5 to i64
   %7 = shl nuw nsw i64 %6, 4
@@ -434,10 +434,10 @@ declare void @_ZN4llvm16MCObjectStreamer15visitUsedSymbolERKNS_8MCSymbolE(ptr no
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN12_GLOBAL__N_115MCMachOStreamer5resetEv(ptr noundef nonnull align 8 dereferenceable(456) %0) unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 432
-  %3 = getelementptr inbounds i8, ptr %0, i64 440
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 440
   %4 = load i32, ptr %3, align 8
   %5 = icmp eq i32 %4, 0
-  %6 = getelementptr inbounds i8, ptr %0, i64 444
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 444
   %7 = load i32, ptr %6, align 4
   %8 = icmp eq i32 %7, 0
   %or.cond = select i1 %5, i1 %8, i1 false
@@ -445,7 +445,7 @@ define internal void @_ZN12_GLOBAL__N_115MCMachOStreamer5resetEv(ptr noundef non
 
 9:                                                ; preds = %1
   %10 = shl i32 %4, 2
-  %11 = getelementptr inbounds i8, ptr %0, i64 448
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 448
   %12 = load i32, ptr %11, align 8
   %13 = icmp ult i32 %10, %12
   %14 = icmp ugt i32 %12, 64
@@ -540,7 +540,7 @@ define internal void @_ZN12_GLOBAL__N_115MCMachOStreamer9emitLabelEPN4llvm8MCSym
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 288
-  %11 = getelementptr inbounds i8, ptr %9, i64 368
+  %11 = getelementptr inbounds nuw i8, ptr %9, i64 368
   %12 = load i64, ptr %11, align 8
   %13 = add i64 %12, 208
   store i64 %13, ptr %11, align 8
@@ -549,7 +549,7 @@ define internal void @_ZN12_GLOBAL__N_115MCMachOStreamer9emitLabelEPN4llvm8MCSym
   %16 = add i64 %15, 7
   %17 = and i64 %16, -8
   %18 = add i64 %17, 208
-  %19 = getelementptr inbounds i8, ptr %9, i64 296
+  %19 = getelementptr inbounds nuw i8, ptr %9, i64 296
   %20 = load ptr, ptr %19, align 8
   %21 = ptrtoint ptr %20 to i64
   %.not.i.i.i = icmp ugt i64 %18, %21
@@ -743,9 +743,9 @@ _ZNK4llvm8ArrayRefINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEcvSt6vec
   %20 = phi ptr [ null, %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_M_allocateEm.exit.thread.i.i.i ], [ %17, %.lr.ph.i.i.i.i.i.i.i ]
   %21 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %20, ptr %21, align 8, !alias.scope !7
-  %22 = getelementptr inbounds i8, ptr %.val.val, i64 2000
+  %22 = getelementptr inbounds nuw i8, ptr %.val.val, i64 2000
   %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %.val.val, i64 2008
+  %24 = getelementptr inbounds nuw i8, ptr %.val.val, i64 2008
   %25 = load ptr, ptr %24, align 8
   %.not.i.i = icmp eq ptr %23, %25
   br i1 %.not.i.i, label %_ZNSt6vectorIS_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EESaIS7_EE9push_backEOS7_.exit, label %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i.thread
@@ -828,7 +828,7 @@ define internal void @_ZN12_GLOBAL__N_115MCMachOStreamer14emitDataRegionEN4llvm1
   %.val.i = load ptr, ptr %8, align 8
   %9 = getelementptr i8, ptr %.val.i, i64 24
   %.val.val.i = load ptr, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %.val.val.i, i64 192
+  %10 = getelementptr inbounds nuw i8, ptr %.val.val.i, i64 192
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %13 = load ptr, ptr %12, align 8
@@ -853,15 +853,15 @@ define internal void @_ZN12_GLOBAL__N_115MCMachOStreamer14emitVersionMinEN4llvm1
   %.val.val = load ptr, ptr %8, align 8
   %9 = getelementptr inbounds nuw i8, ptr %.val.val, i64 1920
   store i8 0, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %.val.val, i64 1924
+  %10 = getelementptr inbounds nuw i8, ptr %.val.val, i64 1924
   store i32 %1, ptr %10, align 4
-  %11 = getelementptr inbounds i8, ptr %.val.val, i64 1928
+  %11 = getelementptr inbounds nuw i8, ptr %.val.val, i64 1928
   store i32 %2, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %.val.val, i64 1932
+  %12 = getelementptr inbounds nuw i8, ptr %.val.val, i64 1932
   store i32 %3, ptr %12, align 4
-  %13 = getelementptr inbounds i8, ptr %.val.val, i64 1936
+  %13 = getelementptr inbounds nuw i8, ptr %.val.val, i64 1936
   store i32 %4, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %.val.val, i64 1940
+  %14 = getelementptr inbounds nuw i8, ptr %.val.val, i64 1940
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %14, ptr noundef nonnull align 8 dereferenceable(16) %5, i64 16, i1 false)
   ret void
 }
@@ -874,15 +874,15 @@ define internal void @_ZN12_GLOBAL__N_115MCMachOStreamer16emitBuildVersionEjjjjN
   %.val.val = load ptr, ptr %8, align 8
   %9 = getelementptr inbounds nuw i8, ptr %.val.val, i64 1920
   store i8 1, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %.val.val, i64 1924
+  %10 = getelementptr inbounds nuw i8, ptr %.val.val, i64 1924
   store i32 %1, ptr %10, align 4
-  %11 = getelementptr inbounds i8, ptr %.val.val, i64 1928
+  %11 = getelementptr inbounds nuw i8, ptr %.val.val, i64 1928
   store i32 %2, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %.val.val, i64 1932
+  %12 = getelementptr inbounds nuw i8, ptr %.val.val, i64 1932
   store i32 %3, ptr %12, align 4
-  %13 = getelementptr inbounds i8, ptr %.val.val, i64 1936
+  %13 = getelementptr inbounds nuw i8, ptr %.val.val, i64 1936
   store i32 %4, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %.val.val, i64 1940
+  %14 = getelementptr inbounds nuw i8, ptr %.val.val, i64 1940
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %14, ptr noundef nonnull align 8 dereferenceable(16) %5, i64 16, i1 false)
   ret void
 }
@@ -895,15 +895,15 @@ define internal void @_ZN12_GLOBAL__N_115MCMachOStreamer35emitDarwinTargetVarian
   %.val.val = load ptr, ptr %8, align 8
   %9 = getelementptr inbounds nuw i8, ptr %.val.val, i64 1956
   store i8 1, ptr %9, align 4
-  %10 = getelementptr inbounds i8, ptr %.val.val, i64 1960
+  %10 = getelementptr inbounds nuw i8, ptr %.val.val, i64 1960
   store i32 %1, ptr %10, align 4
-  %11 = getelementptr inbounds i8, ptr %.val.val, i64 1964
+  %11 = getelementptr inbounds nuw i8, ptr %.val.val, i64 1964
   store i32 %2, ptr %11, align 4
-  %12 = getelementptr inbounds i8, ptr %.val.val, i64 1968
+  %12 = getelementptr inbounds nuw i8, ptr %.val.val, i64 1968
   store i32 %3, ptr %12, align 4
-  %13 = getelementptr inbounds i8, ptr %.val.val, i64 1972
+  %13 = getelementptr inbounds nuw i8, ptr %.val.val, i64 1972
   store i32 %4, ptr %13, align 4
-  %14 = getelementptr inbounds i8, ptr %.val.val, i64 1976
+  %14 = getelementptr inbounds nuw i8, ptr %.val.val, i64 1976
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %14, ptr noundef nonnull align 8 dereferenceable(16) %5, i64 16, i1 false)
   ret void
 }
@@ -913,14 +913,14 @@ define internal void @_ZN12_GLOBAL__N_115MCMachOStreamer13emitThumbFuncEPN4llvm8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 288
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 80
-  %6 = getelementptr inbounds i8, ptr %4, i64 88
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 88
   %7 = load ptr, ptr %6, align 8, !noalias !12
   %8 = load ptr, ptr %5, align 8, !noalias !12
   %9 = icmp eq ptr %7, %8
   br i1 %9, label %10, label %24
 
 10:                                               ; preds = %2
-  %11 = getelementptr inbounds i8, ptr %4, i64 100
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 100
   %12 = load i32, ptr %11, align 4, !noalias !12
   %13 = zext i32 %12 to i64
   %14 = getelementptr inbounds ptr, ptr %8, i64 %13
@@ -939,7 +939,7 @@ define internal void @_ZN12_GLOBAL__N_115MCMachOStreamer13emitThumbFuncEPN4llvm8
   br i1 %.not.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i, !llvm.loop !15
 
 ._crit_edge.i.i.i:                                ; preds = %17, %10
-  %19 = getelementptr inbounds i8, ptr %4, i64 96
+  %19 = getelementptr inbounds nuw i8, ptr %4, i64 96
   %20 = load i32, ptr %19, align 8, !noalias !12
   %21 = icmp ult i32 %12, %20
   br i1 %21, label %22, label %24
@@ -1031,9 +1031,9 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_115MCMachOStreamer19emitSymb
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %.val.val, i64 144
+  %13 = getelementptr inbounds nuw i8, ptr %.val.val, i64 144
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %.val.val, i64 152
+  %15 = getelementptr inbounds nuw i8, ptr %.val.val, i64 152
   %16 = load ptr, ptr %15, align 8
   %.not.i.i = icmp eq ptr %14, %16
   br i1 %.not.i.i, label %20, label %17
@@ -1286,7 +1286,7 @@ define internal void @_ZN12_GLOBAL__N_115MCMachOStreamer16emitLOHDirectiveEN4llv
   %6 = getelementptr i8, ptr %.val, i64 24
   %.val.val = load ptr, ptr %6, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4)
-  %7 = getelementptr inbounds i8, ptr %.val.val, i64 368
+  %7 = getelementptr inbounds nuw i8, ptr %.val.val, i64 368
   store i32 %1, ptr %4, align 8
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %9 = load ptr, ptr %2, align 8
@@ -2718,9 +2718,9 @@ define internal fastcc void @_ZN12_GLOBAL__N_115MCMachOStreamer14emitDataRegionE
   %10 = getelementptr i8, ptr %.val, i64 24
   %.val.val = load ptr, ptr %10, align 8
   %11 = getelementptr inbounds nuw i8, ptr %.val.val, i64 184
-  %12 = getelementptr inbounds i8, ptr %.val.val, i64 192
+  %12 = getelementptr inbounds nuw i8, ptr %.val.val, i64 192
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %.val.val, i64 200
+  %14 = getelementptr inbounds nuw i8, ptr %.val.val, i64 200
   %15 = load ptr, ptr %14, align 8
   %.not.i.i = icmp eq ptr %13, %15
   br i1 %.not.i.i, label %19, label %16

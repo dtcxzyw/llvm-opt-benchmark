@@ -1099,7 +1099,7 @@ _ZN4absl7debian28optionalIN10open_spiel5chess10ChessBoardEEptEv.exit: ; preds = 
   store ptr %23, ptr %6, align 8
   store ptr @"_ZNSt17_Function_handlerIFbRKN10open_spiel5chess4MoveEEZNS0_10dark_chess12_GLOBAL__N_129ChessBoardFlagPropagationTestEbE3$_0E9_M_invokeERKSt9_Any_dataS4_", ptr %21, align 8
   store ptr @"_ZNSt17_Function_handlerIFbRKN10open_spiel5chess4MoveEEZNS0_10dark_chess12_GLOBAL__N_129ChessBoardFlagPropagationTestEbE3$_0E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation", ptr %20, align 8
-  %24 = getelementptr inbounds i8, ptr %2, i64 142
+  %24 = getelementptr inbounds nuw i8, ptr %2, i64 142
   %25 = load i8, ptr %24, align 2
   invoke void @_ZNK10open_spiel5chess10ChessBoard18GenerateLegalMovesERKSt8functionIFbRKNS0_4MoveEEENS0_5ColorE(ptr noundef nonnull align 8 dereferenceable(168) %19, ptr noundef nonnull align 8 dereferenceable(32) %6, i8 noundef signext %25)
           to label %_ZNK10open_spiel5chess10ChessBoard18GenerateLegalMovesERKSt8functionIFbRKNS0_4MoveEEE.exit unwind label %42
@@ -1306,7 +1306,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
 
 23:                                               ; preds = %.critedge, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit
   %.sroa.05.0 = phi ptr [ %22, %.critedge ], [ %.19.i.i.i, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit ]
-  %24 = getelementptr inbounds i8, ptr %.sroa.05.0, i64 64
+  %24 = getelementptr inbounds nuw i8, ptr %.sroa.05.0, i64 64
   ret ptr %24
 }
 
@@ -1591,7 +1591,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
   resume { ptr, i32 } %29
 
 30:                                               ; preds = %11
-  %31 = getelementptr inbounds i8, ptr %8, i64 120
+  %31 = getelementptr inbounds nuw i8, ptr %8, i64 120
   %32 = getelementptr inbounds i8, ptr %8, i64 136
   %33 = load ptr, ptr %32, align 8
   invoke void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N10open_spiel13GameParameterEESt10_Select1stISA_ESt4lessIS5_ESaISA_EE8_M_eraseEPSt13_Rb_tree_nodeISA_E(ptr noundef nonnull align 8 dereferenceable(48) %31, ptr noundef %33)
@@ -1605,7 +1605,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
   unreachable
 
 _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N10open_spiel13GameParameterEESt10_Select1stISA_ESt4lessIS5_ESaISA_EE12_M_drop_nodeEPSt13_Rb_tree_nodeISA_E.exit.i: ; preds = %30
-  %37 = getelementptr inbounds i8, ptr %8, i64 80
+  %37 = getelementptr inbounds nuw i8, ptr %8, i64 80
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %37) #18
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #18
   tail call void @_ZdlPvm(ptr noundef nonnull %8, i64 noundef 176) #22
@@ -1943,7 +1943,7 @@ define linkonce_odr dso_local void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt
   br i1 %.not, label %13, label %4
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %3, i64 120
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 120
   %6 = getelementptr inbounds i8, ptr %3, i64 136
   %7 = load ptr, ptr %6, align 8
   invoke void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N10open_spiel13GameParameterEESt10_Select1stISA_ESt4lessIS5_ESaISA_EE8_M_eraseEPSt13_Rb_tree_nodeISA_E(ptr noundef nonnull align 8 dereferenceable(48) %5, ptr noundef %7)
@@ -1958,7 +1958,7 @@ define linkonce_odr dso_local void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt
 
 _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N10open_spiel13GameParameterEESt10_Select1stISA_ESt4lessIS5_ESaISA_EE12_M_drop_nodeEPSt13_Rb_tree_nodeISA_E.exit: ; preds = %4
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  %12 = getelementptr inbounds i8, ptr %3, i64 80
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 80
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %12) #18
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %11) #18
   tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef 176) #22
@@ -1974,7 +1974,7 @@ define linkonce_odr dso_local void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt
   %7 = load i64, ptr %3, align 8
   %8 = inttoptr i64 %7 to ptr
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %8) #18
-  %9 = getelementptr inbounds i8, ptr %1, i64 64
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 64
   invoke void @_ZN10open_spiel13GameParameterC2ENS0_4TypeEb(ptr noundef nonnull align 8 dereferenceable(108) %9, i32 noundef -1, i1 noundef zeroext false)
           to label %_ZNSt16allocator_traitsISaISt13_Rb_tree_nodeISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN10open_spiel13GameParameterEEEEE9constructISB_JRKSt21piecewise_construct_tSt5tupleIJOS7_EESJ_IJEEEEEvRSD_PT_DpOT0_.exit unwind label %.body
 
@@ -2104,7 +2104,7 @@ define linkonce_odr dso_local void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt
   tail call void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N10open_spiel13GameParameterEESt10_Select1stISA_ESt4lessIS5_ESaISA_EE8_M_eraseEPSt13_Rb_tree_nodeISA_E(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %4)
   %5 = getelementptr inbounds nuw i8, ptr %.07, i64 16
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %.07, i64 120
+  %7 = getelementptr inbounds nuw i8, ptr %.07, i64 120
   %8 = getelementptr inbounds i8, ptr %.07, i64 136
   %9 = load ptr, ptr %8, align 8
   invoke void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N10open_spiel13GameParameterEESt10_Select1stISA_ESt4lessIS5_ESaISA_EE8_M_eraseEPSt13_Rb_tree_nodeISA_E(ptr noundef nonnull align 8 dereferenceable(48) %7, ptr noundef %9)
@@ -2119,7 +2119,7 @@ define linkonce_odr dso_local void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt
 
 _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN10open_spiel13GameParameterESt4lessIS5_ESaISt4pairIKS5_S7_EEED2Ev.exit: ; preds = %.lr.ph
   %13 = getelementptr inbounds nuw i8, ptr %.07, i64 32
-  %14 = getelementptr inbounds i8, ptr %.07, i64 80
+  %14 = getelementptr inbounds nuw i8, ptr %.07, i64 80
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %14) #18
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %13) #18
   tail call void @_ZdlPvm(ptr noundef nonnull %.07, i64 noundef 176) #22
@@ -2243,7 +2243,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN10open_spiel5
   %6 = icmp eq i8 %4, %5
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %8 = load i8, ptr %7, align 1
-  %9 = getelementptr inbounds i8, ptr %.val, i64 9
+  %9 = getelementptr inbounds nuw i8, ptr %.val, i64 9
   %10 = load i8, ptr %9, align 1
   %11 = icmp eq i8 %8, %10
   %12 = select i1 %6, i1 %11, i1 false
@@ -2251,13 +2251,13 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN10open_spiel5
 
 13:                                               ; preds = %2
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 2
-  %15 = getelementptr inbounds i8, ptr %.val, i64 10
+  %15 = getelementptr inbounds nuw i8, ptr %.val, i64 10
   %16 = load i8, ptr %14, align 2
   %17 = load i8, ptr %15, align 1
   %18 = icmp eq i8 %16, %17
-  %19 = getelementptr inbounds i8, ptr %1, i64 3
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 3
   %20 = load i8, ptr %19, align 1
-  %21 = getelementptr inbounds i8, ptr %.val, i64 11
+  %21 = getelementptr inbounds nuw i8, ptr %.val, i64 11
   %22 = load i8, ptr %21, align 1
   %23 = icmp eq i8 %20, %22
   %24 = select i1 %18, i1 %23, i1 false
@@ -2265,10 +2265,10 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN10open_spiel5
 
 25:                                               ; preds = %13
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %27 = getelementptr inbounds i8, ptr %.val, i64 12
-  %28 = getelementptr inbounds i8, ptr %1, i64 5
+  %27 = getelementptr inbounds nuw i8, ptr %.val, i64 12
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 5
   %29 = load i8, ptr %28, align 1
-  %30 = getelementptr inbounds i8, ptr %.val, i64 13
+  %30 = getelementptr inbounds nuw i8, ptr %.val, i64 13
   %31 = load i8, ptr %30, align 1
   %32 = icmp eq i8 %29, %31
   %33 = load i8, ptr %26, align 4
@@ -2280,7 +2280,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN10open_spiel5
 37:                                               ; preds = %25
   %38 = getelementptr inbounds nuw i8, ptr %1, i64 6
   %39 = load i8, ptr %38, align 2
-  %40 = getelementptr inbounds i8, ptr %.val, i64 14
+  %40 = getelementptr inbounds nuw i8, ptr %.val, i64 14
   %41 = load i8, ptr %40, align 2
   %42 = icmp eq i8 %39, %41
   br i1 %42, label %_ZNK10open_spiel5chess4MoveeqERKS1_.exit.i.i.i, label %"_ZSt10__invoke_rIbRZN10open_spiel10dark_chess12_GLOBAL__N_129ChessBoardFlagPropagationTestEbE3$_0JRKNS0_5chess4MoveEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.exit"
@@ -2288,7 +2288,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN10open_spiel5
 _ZNK10open_spiel5chess4MoveeqERKS1_.exit.i.i.i:   ; preds = %37
   %43 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %44 = load i32, ptr %43, align 4
-  %45 = getelementptr inbounds i8, ptr %.val, i64 16
+  %45 = getelementptr inbounds nuw i8, ptr %.val, i64 16
   %46 = load i32, ptr %45, align 4
   %47 = icmp eq i32 %44, %46
   br i1 %47, label %48, label %"_ZSt10__invoke_rIbRZN10open_spiel10dark_chess12_GLOBAL__N_129ChessBoardFlagPropagationTestEbE3$_0JRKNS0_5chess4MoveEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.exit"

@@ -162,7 +162,7 @@ define void @_ZN11TransTableSD2Ev(ptr nocapture noundef nonnull align 8 derefere
   tail call void @_ZN11TransTableS15ReturnAllMemoryEv(ptr noundef nonnull align 8 dereferenceable(2396) %0)
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 2256
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 2264
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 2264
   %5 = load ptr, ptr %4, align 8
   %.not4.i.i.i.i = icmp eq ptr %3, %5
   br i1 %.not4.i.i.i.i, label %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i, label %.lr.ph.i.i.i.i
@@ -184,7 +184,7 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSa
   br i1 %.not.i.i.i, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit, label %8
 
 8:                                                ; preds = %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i
-  %9 = getelementptr inbounds i8, ptr %0, i64 2272
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 2272
   %10 = load ptr, ptr %9, align 8
   %11 = ptrtoint ptr %10 to i64
   %12 = ptrtoint ptr %7 to i64
@@ -381,7 +381,7 @@ define void @_ZN11TransTableS4InitEPA15_Ki(ptr noundef nonnull align 8 dereferen
 
 36:                                               ; preds = %35
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 2256
-  %38 = getelementptr inbounds i8, ptr %0, i64 2264
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 2264
   %39 = load ptr, ptr %38, align 8
   %40 = load ptr, ptr %37, align 8
   %41 = ptrtoint ptr %39 to i64
@@ -2455,7 +2455,7 @@ define void @_ZNK11TransTableS15PrintResetStatsERSt14basic_ofstreamIcSt11char_tr
   %14 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull @.str.13)
   %15 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef nonnull @.str.8)
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 2256
-  %17 = getelementptr inbounds i8, ptr %0, i64 124
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 124
   br label %18
 
 18:                                               ; preds = %2, %18

@@ -566,7 +566,7 @@ _ZN4llvm9StringRefC2EPKc.exit:                    ; preds = %2, %29
   br i1 %or.cond.i, label %40, label %_ZNK4llvm12VersionTuple5emptyEv.exit.thread
 
 40:                                               ; preds = %_ZN4llvm9StringRefC2EPKc.exit
-  %41 = getelementptr inbounds i8, ptr %36, i64 416
+  %41 = getelementptr inbounds nuw i8, ptr %36, i64 416
   %42 = load i64, ptr %41, align 4
   %43 = and i64 %42, 9223372034707292159
   %or.cond = icmp eq i64 %43, 0
@@ -582,7 +582,7 @@ _ZNK4llvm12VersionTuple5emptyEv.exit.thread:      ; preds = %_ZN4llvm9StringRefC
 
 45:                                               ; preds = %40, %_ZNK4llvm12VersionTuple5emptyEv.exit.thread
   %46 = phi ptr [ %34, %40 ], [ %.pre48, %_ZNK4llvm12VersionTuple5emptyEv.exit.thread ]
-  %47 = getelementptr inbounds i8, ptr %46, i64 456
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 456
   %48 = load i8, ptr %47, align 8
   %49 = trunc i8 %48 to i1
   br i1 %49, label %50, label %55
@@ -677,7 +677,7 @@ _ZN4llvm18IntrusiveRefCntPtrINS_3vfs10FileSystemEED2Ev.exit: ; preds = %_ZNSt10u
   %94 = load ptr, ptr %77, align 8
   %95 = getelementptr inbounds nuw i8, ptr %94, i64 856
   %96 = load ptr, ptr %95, align 8
-  %97 = getelementptr inbounds i8, ptr %94, i64 864
+  %97 = getelementptr inbounds nuw i8, ptr %94, i64 864
   %98 = load ptr, ptr %97, align 8
   %.not41 = icmp eq ptr %96, %98
   br i1 %.not41, label %._crit_edge, label %.lr.ph
@@ -700,7 +700,7 @@ _ZN4llvm18IntrusiveRefCntPtrINS_3vfs10FileSystemEED2Ev.exit: ; preds = %_ZNSt10u
   %103 = phi ptr [ %.pre54, %._crit_edge.loopexit ], [ %94, %_ZN4llvm18IntrusiveRefCntPtrINS_3vfs10FileSystemEED2Ev.exit ]
   %104 = getelementptr inbounds nuw i8, ptr %103, i64 880
   %105 = load ptr, ptr %104, align 8
-  %106 = getelementptr inbounds i8, ptr %103, i64 888
+  %106 = getelementptr inbounds nuw i8, ptr %103, i64 888
   %107 = load ptr, ptr %106, align 8
   %.not4043 = icmp eq ptr %105, %107
   br i1 %.not4043, label %._crit_edge47, label %.lr.ph46
@@ -1291,7 +1291,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_117CodeGeneratorImpl24HandlingTopLe
 
 ._crit_edge:                                      ; preds = %23, %16
   %32 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %14) #12
-  %33 = getelementptr inbounds i8, ptr %13, i64 104
+  %33 = getelementptr inbounds nuw i8, ptr %13, i64 104
   store i32 0, ptr %33, align 8
   call fastcc void @_ZN12_GLOBAL__N_117CodeGeneratorImpl24HandlingTopLevelDeclRAIID2Ev(ptr noundef nonnull align 8 dereferenceable(9) %2) #12
   br label %_ZN12_GLOBAL__N_117CodeGeneratorImpl17EmitDeferredDeclsEv.exit

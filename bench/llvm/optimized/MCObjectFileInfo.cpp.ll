@@ -616,7 +616,7 @@ _ZL16useCompactUnwindRKN4llvm6TripleE.exit.thread698: ; preds = %_ZL16useCompact
   %240 = getelementptr inbounds nuw i8, ptr %0, i64 448
   store ptr %239, ptr %240, align 8
   %241 = load ptr, ptr %4, align 8
-  %242 = getelementptr inbounds i8, ptr %241, i64 16
+  %242 = getelementptr inbounds nuw i8, ptr %241, i64 16
   %243 = load i64, ptr %242, align 8
   %244 = icmp eq i64 %243, 0
   br i1 %244, label %333, label %245
@@ -2803,7 +2803,7 @@ define dso_local noundef ptr @_ZNK4llvm16MCObjectFileInfo21getDwarfComdatSection
   %13 = alloca %"class.std::__cxx11::basic_string", align 8
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 904
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 76
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 76
   %17 = load i32, ptr %16, align 4
   switch i32 %17, label %55 [
     i32 3, label %18
@@ -2966,17 +2966,17 @@ define dso_local noundef ptr @_ZNK4llvm16MCObjectFileInfo20getStackSizesSectionE
   br i1 %.not, label %8, label %18
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %6, i64 56
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 56
   %10 = load i32, ptr %9, align 8
   %11 = icmp eq i32 %10, 38
-  %12 = getelementptr inbounds i8, ptr %6, i64 64
+  %12 = getelementptr inbounds nuw i8, ptr %6, i64 64
   %13 = load i32, ptr %12, align 8
   %14 = icmp eq i32 %13, 3
   %or.cond.i = select i1 %11, i1 %14, i1 false
   br i1 %or.cond.i, label %_ZNK4llvm6Triple5isPS4Ev.exit, label %_ZNK4llvm6Triple5isPS4Ev.exit.thread
 
 _ZNK4llvm6Triple5isPS4Ev.exit:                    ; preds = %8
-  %15 = getelementptr inbounds i8, ptr %6, i64 68
+  %15 = getelementptr inbounds nuw i8, ptr %6, i64 68
   %16 = load i32, ptr %15, align 4
   %17 = icmp eq i32 %16, 23
   br i1 %17, label %18, label %_ZNK4llvm6Triple5isPS4Ev.exit.thread
@@ -3243,7 +3243,7 @@ define dso_local noundef ptr @_ZNK4llvm16MCObjectFileInfo25getPseudoProbeDescSec
   br i1 %10, label %11, label %_ZNK4llvm6Triple14supportsCOMDATEv.exit
 
 11:                                               ; preds = %3
-  %12 = getelementptr inbounds i8, ptr %8, i64 76
+  %12 = getelementptr inbounds nuw i8, ptr %8, i64 76
   %13 = load i32, ptr %12, align 4
   switch i32 %13, label %14 [
     i32 5, label %_ZNK4llvm6Triple14supportsCOMDATEv.exit

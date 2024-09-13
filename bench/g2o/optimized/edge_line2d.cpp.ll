@@ -198,7 +198,7 @@ define void @_ZN3g2o10EdgeLine2DC2Ev(ptr noundef nonnull align 16 dereferenceabl
   store ptr null, ptr %10, align 8
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr null, ptr %2, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %13 = load ptr, ptr %12, align 16
   %14 = load ptr, ptr %11, align 8
   %15 = ptrtoint ptr %13 to i64

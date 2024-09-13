@@ -1374,7 +1374,7 @@ _ZN4llvmplERKNS_5TwineES2_.exit:                  ; preds = %2
   store ptr @.str, ptr %4, align 8, !alias.scope !4
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %9, ptr %13, align 8, !alias.scope !4
-  %14 = getelementptr inbounds i8, ptr %4, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store i64 %10, ptr %14, align 8, !alias.scope !4
   store ptr %4, ptr %3, align 8, !alias.scope !7
   %15 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -1413,7 +1413,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %27, %29
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 228
   %33 = load i32, ptr %32, align 4
   %34 = icmp eq i32 %33, 0
-  %35 = getelementptr inbounds i8, ptr %0, i64 232
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %36 = load i32, ptr %35, align 4
   %37 = icmp eq i32 %36, 1
   %38 = select i1 %34, i1 %37, i1 false
@@ -1831,7 +1831,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit91:               ; preds = %192, %190, %_ZN4llv
 _ZN4llvm11raw_ostreamlsEPKc.exit108:              ; preds = %264, %266
   %269 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %270 = load ptr, ptr %269, align 8
-  %271 = getelementptr inbounds i8, ptr %0, i64 208
+  %271 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %272 = load ptr, ptr %271, align 8
   %.not198199 = icmp eq ptr %270, %272
   br i1 %.not198199, label %._crit_edge, label %.lr.ph
@@ -9690,15 +9690,15 @@ define dso_local void @_ZN5clang13EmitRVVHeaderERN4llvm12RecordKeeperERNS0_11raw
   %7 = alloca %"class.(anonymous namespace)::RVVEmitter", align 8
   store ptr %0, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %9 = getelementptr inbounds i8, ptr %7, i64 56
+  %9 = getelementptr inbounds nuw i8, ptr %7, i64 56
   store ptr %9, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %7, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store i64 1, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %7, i64 24
-  %12 = getelementptr inbounds i8, ptr %7, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %7, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %7, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %11, i8 0, i64 16, i1 false)
   store float 1.000000e+00, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %7, i64 48
+  %13 = getelementptr inbounds nuw i8, ptr %7, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %13, i8 0, i64 16, i1 false)
   %14 = getelementptr inbounds i8, ptr %7, i64 72
   store i32 0, ptr %14, align 8
@@ -10741,7 +10741,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit161.i:            ; preds = %541, %539
 
 _ZN12_GLOBAL__N_110RVVEmitter12createHeaderERN4llvm11raw_ostreamE.exit: ; preds = %550, %552
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
-  %555 = getelementptr inbounds i8, ptr %7, i64 64
+  %555 = getelementptr inbounds nuw i8, ptr %7, i64 64
   %556 = load ptr, ptr %15, align 8
   call void @_ZNSt8_Rb_treeImmSt9_IdentityImESt4lessImESaImEE8_M_eraseEPSt13_Rb_tree_nodeImE(ptr noundef nonnull align 8 dereferenceable(48) %555, ptr noundef %556)
   %557 = load ptr, ptr %11, align 8
@@ -10796,15 +10796,15 @@ define dso_local void @_ZN5clang15EmitRVVBuiltinsERN4llvm12RecordKeeperERNS0_11r
   %11 = alloca %"class.(anonymous namespace)::RVVEmitter", align 8
   store ptr %0, ptr %11, align 8
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  %13 = getelementptr inbounds i8, ptr %11, i64 56
+  %13 = getelementptr inbounds nuw i8, ptr %11, i64 56
   store ptr %13, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %11, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %11, i64 16
   store i64 1, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %11, i64 24
-  %16 = getelementptr inbounds i8, ptr %11, i64 40
+  %15 = getelementptr inbounds nuw i8, ptr %11, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %11, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %15, i8 0, i64 16, i1 false)
   store float 1.000000e+00, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %11, i64 48
+  %17 = getelementptr inbounds nuw i8, ptr %11, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %17, i8 0, i64 16, i1 false)
   %18 = getelementptr inbounds i8, ptr %11, i64 72
   store i32 0, ptr %18, align 8
@@ -11208,7 +11208,7 @@ _ZN12_GLOBAL__N_110RVVEmitter14createBuiltinsERN4llvm11raw_ostreamE.exit: ; pred
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10)
-  %197 = getelementptr inbounds i8, ptr %11, i64 64
+  %197 = getelementptr inbounds nuw i8, ptr %11, i64 64
   %198 = load ptr, ptr %19, align 8
   call void @_ZNSt8_Rb_treeImmSt9_IdentityImESt4lessImESaImEE8_M_eraseEPSt13_Rb_tree_nodeImE(ptr noundef nonnull align 8 dereferenceable(48) %197, ptr noundef %198)
   %199 = load ptr, ptr %15, align 8
@@ -11264,15 +11264,15 @@ define dso_local void @_ZN5clang16EmitRVVBuiltinCGERN4llvm12RecordKeeperERNS0_11
   %12 = alloca %"class.(anonymous namespace)::RVVEmitter", align 8
   store ptr %0, ptr %12, align 8
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  %14 = getelementptr inbounds i8, ptr %12, i64 56
+  %14 = getelementptr inbounds nuw i8, ptr %12, i64 56
   store ptr %14, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %12, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %12, i64 16
   store i64 1, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %12, i64 24
-  %17 = getelementptr inbounds i8, ptr %12, i64 40
+  %16 = getelementptr inbounds nuw i8, ptr %12, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %12, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %16, i8 0, i64 16, i1 false)
   store float 1.000000e+00, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %12, i64 48
+  %18 = getelementptr inbounds nuw i8, ptr %12, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %18, i8 0, i64 16, i1 false)
   %19 = getelementptr inbounds i8, ptr %12, i64 72
   store i32 0, ptr %19, align 8
@@ -11687,13 +11687,13 @@ _ZN4llvmneENS_9StringRefES0_.exit92.thread132.i:  ; preds = %_ZN4llvmneENS_9Stri
 192:                                              ; preds = %184
   %193 = getelementptr inbounds nuw i8, ptr %163, i64 200
   %194 = getelementptr inbounds nuw i8, ptr %166, i64 200
-  %195 = getelementptr inbounds i8, ptr %163, i64 208
+  %195 = getelementptr inbounds nuw i8, ptr %163, i64 208
   %196 = load ptr, ptr %195, align 8
   %197 = load ptr, ptr %193, align 8
   %198 = ptrtoint ptr %196 to i64
   %199 = ptrtoint ptr %197 to i64
   %200 = sub i64 %198, %199
-  %201 = getelementptr inbounds i8, ptr %166, i64 208
+  %201 = getelementptr inbounds nuw i8, ptr %166, i64 208
   %202 = load ptr, ptr %201, align 8
   %203 = load ptr, ptr %194, align 8
   %204 = ptrtoint ptr %202 to i64
@@ -11836,7 +11836,7 @@ _ZN12_GLOBAL__N_110RVVEmitter13createCodeGenERN4llvm11raw_ostreamE.exit: ; preds
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %10)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %11)
-  %249 = getelementptr inbounds i8, ptr %12, i64 64
+  %249 = getelementptr inbounds nuw i8, ptr %12, i64 64
   %250 = load ptr, ptr %20, align 8
   call void @_ZNSt8_Rb_treeImmSt9_IdentityImESt4lessImESaImEE8_M_eraseEPSt13_Rb_tree_nodeImE(ptr noundef nonnull align 8 dereferenceable(48) %249, ptr noundef %250)
   %251 = load ptr, ptr %16, align 8
@@ -11888,15 +11888,15 @@ define dso_local void @_ZN5clang18EmitRVVBuiltinSemaERN4llvm12RecordKeeperERNS0_
   %8 = alloca %"class.(anonymous namespace)::RVVEmitter", align 8
   store ptr %0, ptr %8, align 8
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %10 = getelementptr inbounds i8, ptr %8, i64 56
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 56
   store ptr %10, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %8, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store i64 1, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %8, i64 24
-  %13 = getelementptr inbounds i8, ptr %8, i64 40
+  %12 = getelementptr inbounds nuw i8, ptr %8, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %8, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %12, i8 0, i64 16, i1 false)
   store float 1.000000e+00, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %8, i64 48
+  %14 = getelementptr inbounds nuw i8, ptr %8, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %14, i8 0, i64 16, i1 false)
   %15 = getelementptr inbounds i8, ptr %8, i64 72
   store i32 0, ptr %15, align 8
@@ -12719,7 +12719,7 @@ _ZN12_GLOBAL__N_110RVVEmitter10createSemaERN4llvm11raw_ostreamE.exit: ; preds = 
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
-  %390 = getelementptr inbounds i8, ptr %8, i64 64
+  %390 = getelementptr inbounds nuw i8, ptr %8, i64 64
   %391 = load ptr, ptr %16, align 8
   call void @_ZNSt8_Rb_treeImmSt9_IdentityImESt4lessImESaImEE8_M_eraseEPSt13_Rb_tree_nodeImE(ptr noundef nonnull align 8 dereferenceable(48) %390, ptr noundef %391)
   %392 = load ptr, ptr %12, align 8
@@ -14615,7 +14615,7 @@ define linkonce_odr hidden void @_ZN5clang5RISCV12RVVIntrinsicD2Ev(ptr noundef n
   br i1 %.not.i.i.i, label %_ZNSt6vectorIlSaIlEED2Ev.exit, label %4
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 216
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %6 = load ptr, ptr %5, align 8
   %7 = ptrtoint ptr %6 to i64
   %8 = ptrtoint ptr %3 to i64
@@ -14630,7 +14630,7 @@ _ZNSt6vectorIlSaIlEED2Ev.exit:                    ; preds = %1, %4
   br i1 %.not.i.i.i1, label %_ZNSt6vectorIPN5clang5RISCV7RVVTypeESaIS3_EED2Ev.exit, label %12
 
 12:                                               ; preds = %_ZNSt6vectorIlSaIlEED2Ev.exit
-  %13 = getelementptr inbounds i8, ptr %0, i64 192
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %14 = load ptr, ptr %13, align 8
   %15 = ptrtoint ptr %14 to i64
   %16 = ptrtoint ptr %11 to i64
@@ -14989,7 +14989,7 @@ _ZNKSt14default_deleteIN5clang5RISCV12RVVIntrinsicEEclEPS2_.exit.i.i.i.i.i.i.i.i
   br i1 %.not.i.i.i.i8, label %_ZNSt6vectorIlSaIlEED2Ev.exit.i, label %22
 
 22:                                               ; preds = %_ZNKSt14default_deleteIN5clang5RISCV12RVVIntrinsicEEclEPS2_.exit.i.i.i.i.i.i.i.i.i
-  %23 = getelementptr inbounds i8, ptr %19, i64 216
+  %23 = getelementptr inbounds nuw i8, ptr %19, i64 216
   %24 = load ptr, ptr %23, align 8
   %25 = ptrtoint ptr %24 to i64
   %26 = ptrtoint ptr %21 to i64
@@ -15004,7 +15004,7 @@ _ZNSt6vectorIlSaIlEED2Ev.exit.i:                  ; preds = %22, %_ZNKSt14defaul
   br i1 %.not.i.i.i1.i, label %_ZN5clang5RISCV12RVVIntrinsicD2Ev.exit, label %30
 
 30:                                               ; preds = %_ZNSt6vectorIlSaIlEED2Ev.exit.i
-  %31 = getelementptr inbounds i8, ptr %19, i64 192
+  %31 = getelementptr inbounds nuw i8, ptr %19, i64 192
   %32 = load ptr, ptr %31, align 8
   %33 = ptrtoint ptr %32 to i64
   %34 = ptrtoint ptr %29 to i64
@@ -15067,7 +15067,7 @@ _ZNKSt14default_deleteIN5clang5RISCV12RVVIntrinsicEEclEPS2_.exit.i.i.i.i.i: ; pr
   br i1 %.not.i.i.i.i10, label %_ZNSt6vectorIlSaIlEED2Ev.exit.i11, label %51
 
 51:                                               ; preds = %_ZNKSt14default_deleteIN5clang5RISCV12RVVIntrinsicEEclEPS2_.exit.i.i.i.i.i
-  %52 = getelementptr inbounds i8, ptr %48, i64 216
+  %52 = getelementptr inbounds nuw i8, ptr %48, i64 216
   %53 = load ptr, ptr %52, align 8
   %54 = ptrtoint ptr %53 to i64
   %55 = ptrtoint ptr %50 to i64
@@ -15082,7 +15082,7 @@ _ZNSt6vectorIlSaIlEED2Ev.exit.i11:                ; preds = %51, %_ZNKSt14defaul
   br i1 %.not.i.i.i1.i12, label %_ZN5clang5RISCV12RVVIntrinsicD2Ev.exit13, label %59
 
 59:                                               ; preds = %_ZNSt6vectorIlSaIlEED2Ev.exit.i11
-  %60 = getelementptr inbounds i8, ptr %48, i64 192
+  %60 = getelementptr inbounds nuw i8, ptr %48, i64 192
   %61 = load ptr, ptr %60, align 8
   %62 = ptrtoint ptr %61 to i64
   %63 = ptrtoint ptr %58 to i64
@@ -15636,7 +15636,7 @@ _ZNKSt14default_deleteIN5clang5RISCV12RVVIntrinsicEEclEPS2_.exit.i.i.i.i.i: ; pr
   br i1 %.not.i.i.i.i37, label %_ZNSt6vectorIlSaIlEED2Ev.exit.i38, label %54
 
 54:                                               ; preds = %_ZNKSt14default_deleteIN5clang5RISCV12RVVIntrinsicEEclEPS2_.exit.i.i.i.i.i
-  %55 = getelementptr inbounds i8, ptr %51, i64 216
+  %55 = getelementptr inbounds nuw i8, ptr %51, i64 216
   %56 = load ptr, ptr %55, align 8
   %57 = ptrtoint ptr %56 to i64
   %58 = ptrtoint ptr %53 to i64
@@ -15651,7 +15651,7 @@ _ZNSt6vectorIlSaIlEED2Ev.exit.i38:                ; preds = %54, %_ZNKSt14defaul
   br i1 %.not.i.i.i1.i39, label %_ZN5clang5RISCV12RVVIntrinsicD2Ev.exit40, label %62
 
 62:                                               ; preds = %_ZNSt6vectorIlSaIlEED2Ev.exit.i38
-  %63 = getelementptr inbounds i8, ptr %51, i64 192
+  %63 = getelementptr inbounds nuw i8, ptr %51, i64 192
   %64 = load ptr, ptr %63, align 8
   %65 = ptrtoint ptr %64 to i64
   %66 = ptrtoint ptr %61 to i64
@@ -15691,7 +15691,7 @@ _ZNKSt14default_deleteIN5clang5RISCV12RVVIntrinsicEEclEPS2_.exit.i.i.i.i10.i: ; 
   br i1 %.not.i.i.i.i33, label %_ZNSt6vectorIlSaIlEED2Ev.exit.i34, label %78
 
 78:                                               ; preds = %_ZNKSt14default_deleteIN5clang5RISCV12RVVIntrinsicEEclEPS2_.exit.i.i.i.i10.i
-  %79 = getelementptr inbounds i8, ptr %75, i64 216
+  %79 = getelementptr inbounds nuw i8, ptr %75, i64 216
   %80 = load ptr, ptr %79, align 8
   %81 = ptrtoint ptr %80 to i64
   %82 = ptrtoint ptr %77 to i64
@@ -15706,7 +15706,7 @@ _ZNSt6vectorIlSaIlEED2Ev.exit.i34:                ; preds = %78, %_ZNKSt14defaul
   br i1 %.not.i.i.i1.i35, label %_ZN5clang5RISCV12RVVIntrinsicD2Ev.exit36, label %86
 
 86:                                               ; preds = %_ZNSt6vectorIlSaIlEED2Ev.exit.i34
-  %87 = getelementptr inbounds i8, ptr %75, i64 192
+  %87 = getelementptr inbounds nuw i8, ptr %75, i64 192
   %88 = load ptr, ptr %87, align 8
   %89 = ptrtoint ptr %88 to i64
   %90 = ptrtoint ptr %85 to i64
@@ -15766,7 +15766,7 @@ _ZNKSt14default_deleteIN5clang5RISCV12RVVIntrinsicEEclEPS2_.exit.i.i.i.i.i.i.i.i
   br i1 %.not.i.i.i.i29, label %_ZNSt6vectorIlSaIlEED2Ev.exit.i30, label %110
 
 110:                                              ; preds = %_ZNKSt14default_deleteIN5clang5RISCV12RVVIntrinsicEEclEPS2_.exit.i.i.i.i.i.i.i.i.i.i
-  %111 = getelementptr inbounds i8, ptr %107, i64 216
+  %111 = getelementptr inbounds nuw i8, ptr %107, i64 216
   %112 = load ptr, ptr %111, align 8
   %113 = ptrtoint ptr %112 to i64
   %114 = ptrtoint ptr %109 to i64
@@ -15781,7 +15781,7 @@ _ZNSt6vectorIlSaIlEED2Ev.exit.i30:                ; preds = %110, %_ZNKSt14defau
   br i1 %.not.i.i.i1.i31, label %_ZN5clang5RISCV12RVVIntrinsicD2Ev.exit32, label %118
 
 118:                                              ; preds = %_ZNSt6vectorIlSaIlEED2Ev.exit.i30
-  %119 = getelementptr inbounds i8, ptr %107, i64 192
+  %119 = getelementptr inbounds nuw i8, ptr %107, i64 192
   %120 = load ptr, ptr %119, align 8
   %121 = ptrtoint ptr %120 to i64
   %122 = ptrtoint ptr %117 to i64
@@ -15836,7 +15836,7 @@ _ZNKSt14default_deleteIN5clang5RISCV12RVVIntrinsicEEclEPS2_.exit.i.i.i.i.i.i.i.i
   br i1 %.not.i.i.i.i, label %_ZNSt6vectorIlSaIlEED2Ev.exit.i, label %141
 
 141:                                              ; preds = %_ZNKSt14default_deleteIN5clang5RISCV12RVVIntrinsicEEclEPS2_.exit.i.i.i.i.i.i.i.i.i18.i
-  %142 = getelementptr inbounds i8, ptr %138, i64 216
+  %142 = getelementptr inbounds nuw i8, ptr %138, i64 216
   %143 = load ptr, ptr %142, align 8
   %144 = ptrtoint ptr %143 to i64
   %145 = ptrtoint ptr %140 to i64
@@ -15851,7 +15851,7 @@ _ZNSt6vectorIlSaIlEED2Ev.exit.i:                  ; preds = %141, %_ZNKSt14defau
   br i1 %.not.i.i.i1.i, label %_ZN5clang5RISCV12RVVIntrinsicD2Ev.exit, label %149
 
 149:                                              ; preds = %_ZNSt6vectorIlSaIlEED2Ev.exit.i
-  %150 = getelementptr inbounds i8, ptr %138, i64 192
+  %150 = getelementptr inbounds nuw i8, ptr %138, i64 192
   %151 = load ptr, ptr %150, align 8
   %152 = ptrtoint ptr %151 to i64
   %153 = ptrtoint ptr %148 to i64

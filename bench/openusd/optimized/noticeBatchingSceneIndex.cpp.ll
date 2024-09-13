@@ -190,7 +190,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__26HdNoticeBatchingSceneIndexD2
   store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__26HdNoticeBatchingSceneIndexE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 168
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %5 = load ptr, ptr %4, align 8
   %.not4.i.i.i.i = icmp eq ptr %3, %5
   br i1 %.not4.i.i.i.i, label %_ZSt8_DestroyIPSt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__26HdNoticeBatchingSceneIndex11_BatchEntryESt14default_deleteIS3_EES6_EvT_S8_RSaIT0_E.exit.i, label %.lr.ph.i.i.i.i
@@ -224,7 +224,7 @@ _ZSt8_DestroyIPSt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__26HdNoticeBatch
   br i1 %.not.i.i.i, label %_ZNSt6vectorISt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__26HdNoticeBatchingSceneIndex11_BatchEntryESt14default_deleteIS3_EESaIS6_EED2Ev.exit, label %12
 
 12:                                               ; preds = %_ZSt8_DestroyIPSt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__26HdNoticeBatchingSceneIndex11_BatchEntryESt14default_deleteIS3_EES6_EvT_S8_RSaIT0_E.exit.i
-  %13 = getelementptr inbounds i8, ptr %0, i64 176
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %14 = load ptr, ptr %13, align 8
   %15 = ptrtoint ptr %14 to i64
   %16 = ptrtoint ptr %11 to i64
@@ -393,7 +393,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoC2ERKNS_18TraceStaticKeyDat
   %.sroa.11.0 = phi i64 [ %18, %13 ], [ 0, %10 ]
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %0, i64 168
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %23 = load ptr, ptr %22, align 8
   %24 = icmp eq ptr %21, %23
   br i1 %24, label %.thread, label %25
@@ -411,12 +411,12 @@ _ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoC2ERKNS_18TraceStaticKeyDat
 
 31:                                               ; preds = %29
   %32 = getelementptr inbounds nuw i8, ptr %30, i64 8
-  %33 = getelementptr inbounds i8, ptr %30, i64 268
+  %33 = getelementptr inbounds nuw i8, ptr %30, i64 268
   %34 = load i32, ptr %33, align 4
   %35 = icmp ult i32 %34, 17
   %36 = load ptr, ptr %32, align 8
   %spec.select.i.i = select i1 %35, ptr %32, ptr %36
-  %37 = getelementptr inbounds i8, ptr %30, i64 264
+  %37 = getelementptr inbounds nuw i8, ptr %30, i64 264
   %38 = load i32, ptr %37, align 8
   %39 = zext i32 %38 to i64
   %40 = getelementptr inbounds %"struct.pxrInternal_v0_24__pxrReserved__::HdSceneIndexObserver::AddedPrimEntry", ptr %spec.select.i.i, i64 %39
@@ -444,12 +444,12 @@ _ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoC2ERKNS_18TraceStaticKeyDat
 
 52:                                               ; preds = %.thread
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__26HdNoticeBatchingSceneIndex21_PrimsAddedBatchEntryE, i64 16), ptr %51, align 8
-  %53 = getelementptr inbounds i8, ptr %51, i64 264
+  %53 = getelementptr inbounds nuw i8, ptr %51, i64 264
   store i32 0, ptr %53, align 8
-  %54 = getelementptr inbounds i8, ptr %51, i64 268
+  %54 = getelementptr inbounds nuw i8, ptr %51, i64 268
   store i32 16, ptr %54, align 4
   store ptr %51, ptr %6, align 8
-  %55 = getelementptr inbounds i8, ptr %0, i64 176
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %56 = load ptr, ptr %55, align 8
   %.not.i = icmp eq ptr %23, %56
   br i1 %.not.i, label %60, label %57
@@ -1033,7 +1033,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoC2ERKNS_18TraceStaticKeyDat
   %.sroa.11.0 = phi i64 [ %18, %13 ], [ 0, %10 ]
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %0, i64 168
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %23 = load ptr, ptr %22, align 8
   %24 = icmp eq ptr %21, %23
   br i1 %24, label %.thread, label %25
@@ -1051,12 +1051,12 @@ _ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoC2ERKNS_18TraceStaticKeyDat
 
 31:                                               ; preds = %29
   %32 = getelementptr inbounds nuw i8, ptr %30, i64 8
-  %33 = getelementptr inbounds i8, ptr %30, i64 140
+  %33 = getelementptr inbounds nuw i8, ptr %30, i64 140
   %34 = load i32, ptr %33, align 4
   %35 = icmp ult i32 %34, 17
   %36 = load ptr, ptr %32, align 8
   %spec.select.i.i = select i1 %35, ptr %32, ptr %36
-  %37 = getelementptr inbounds i8, ptr %30, i64 136
+  %37 = getelementptr inbounds nuw i8, ptr %30, i64 136
   %38 = load i32, ptr %37, align 8
   %39 = zext i32 %38 to i64
   %40 = getelementptr inbounds %"struct.pxrInternal_v0_24__pxrReserved__::HdSceneIndexObserver::RemovedPrimEntry", ptr %spec.select.i.i, i64 %39
@@ -1084,12 +1084,12 @@ _ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoC2ERKNS_18TraceStaticKeyDat
 
 52:                                               ; preds = %.thread
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__26HdNoticeBatchingSceneIndex23_PrimsRemovedBatchEntryE, i64 16), ptr %51, align 8
-  %53 = getelementptr inbounds i8, ptr %51, i64 136
+  %53 = getelementptr inbounds nuw i8, ptr %51, i64 136
   store i32 0, ptr %53, align 8
-  %54 = getelementptr inbounds i8, ptr %51, i64 140
+  %54 = getelementptr inbounds nuw i8, ptr %51, i64 140
   store i32 16, ptr %54, align 4
   store ptr %51, ptr %6, align 8
-  %55 = getelementptr inbounds i8, ptr %0, i64 176
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %56 = load ptr, ptr %55, align 8
   %.not.i = icmp eq ptr %23, %56
   br i1 %.not.i, label %60, label %57
@@ -1683,7 +1683,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoC2ERKNS_18TraceStaticKeyDat
   %.sroa.11.0 = phi i64 [ %18, %13 ], [ 0, %10 ]
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %0, i64 168
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %23 = load ptr, ptr %22, align 8
   %24 = icmp eq ptr %21, %23
   br i1 %24, label %.thread, label %25
@@ -1701,12 +1701,12 @@ _ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoC2ERKNS_18TraceStaticKeyDat
 
 31:                                               ; preds = %29
   %32 = getelementptr inbounds nuw i8, ptr %30, i64 8
-  %33 = getelementptr inbounds i8, ptr %30, i64 7436
+  %33 = getelementptr inbounds nuw i8, ptr %30, i64 7436
   %34 = load i32, ptr %33, align 4
   %35 = icmp ult i32 %34, 17
   %36 = load ptr, ptr %32, align 8
   %spec.select.i.i = select i1 %35, ptr %32, ptr %36
-  %37 = getelementptr inbounds i8, ptr %30, i64 7432
+  %37 = getelementptr inbounds nuw i8, ptr %30, i64 7432
   %38 = load i32, ptr %37, align 8
   %39 = zext i32 %38 to i64
   %40 = getelementptr inbounds %"struct.pxrInternal_v0_24__pxrReserved__::HdSceneIndexObserver::DirtiedPrimEntry", ptr %spec.select.i.i, i64 %39
@@ -1734,12 +1734,12 @@ _ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoC2ERKNS_18TraceStaticKeyDat
 
 52:                                               ; preds = %.thread
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__26HdNoticeBatchingSceneIndex23_PrimsDirtiedBatchEntryE, i64 16), ptr %51, align 8
-  %53 = getelementptr inbounds i8, ptr %51, i64 7432
+  %53 = getelementptr inbounds nuw i8, ptr %51, i64 7432
   store i32 0, ptr %53, align 8
-  %54 = getelementptr inbounds i8, ptr %51, i64 7436
+  %54 = getelementptr inbounds nuw i8, ptr %51, i64 7436
   store i32 16, ptr %54, align 4
   store ptr %51, ptr %6, align 8
-  %55 = getelementptr inbounds i8, ptr %0, i64 176
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %56 = load ptr, ptr %55, align 8
   %.not.i = icmp eq ptr %23, %56
   br i1 %.not.i, label %60, label %57
@@ -2039,7 +2039,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__26HdNoticeBatchingSceneIndex18
 9:                                                ; preds = %7
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 168
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %13 = load ptr, ptr %12, align 8
   %14 = icmp eq ptr %11, %13
   br i1 %14, label %16, label %15
@@ -2056,7 +2056,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__26HdNoticeBatchingSceneIndex18
 define void @_ZN32pxrInternal_v0_24__pxrReserved__26HdNoticeBatchingSceneIndex5FlushEv(ptr noundef nonnull align 8 dereferenceable(184) %0) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 168
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %5 = load ptr, ptr %4, align 8
   %.not2930 = icmp eq ptr %3, %5
   br i1 %.not2930, label %_ZNSt6vectorISt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__26HdNoticeBatchingSceneIndex11_BatchEntryESt14default_deleteIS3_EESaIS6_EE5clearEv.exit, label %.lr.ph
@@ -2165,12 +2165,12 @@ declare void @_ZN32pxrInternal_v0_24__pxrReserved__16HdSceneIndexBaseD2Ev(ptr no
 define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__26HdNoticeBatchingSceneIndex21_PrimsAddedBatchEntryD2Ev(ptr noundef nonnull align 8 dereferenceable(272) %0) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__26HdNoticeBatchingSceneIndex21_PrimsAddedBatchEntryE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 268
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 268
   %4 = load i32, ptr %3, align 4
   %5 = icmp ult i32 %4, 17
   %6 = load ptr, ptr %2, align 8
   %spec.select.i.i.i.i = select i1 %5, ptr %2, ptr %6
-  %7 = getelementptr inbounds i8, ptr %0, i64 264
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 264
   %8 = load i32, ptr %7, align 8
   %9 = zext i32 %8 to i64
   %10 = getelementptr inbounds %"struct.pxrInternal_v0_24__pxrReserved__::HdSceneIndexObserver::AddedPrimEntry", ptr %spec.select.i.i.i.i, i64 %9
@@ -2250,12 +2250,12 @@ _ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_20HdSceneIndexObserver14
 define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__26HdNoticeBatchingSceneIndex21_PrimsAddedBatchEntryD0Ev(ptr noundef nonnull align 8 dereferenceable(272) %0) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__26HdNoticeBatchingSceneIndex21_PrimsAddedBatchEntryE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 268
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 268
   %4 = load i32, ptr %3, align 4
   %5 = icmp ult i32 %4, 17
   %6 = load ptr, ptr %2, align 8
   %spec.select.i.i.i.i.i = select i1 %5, ptr %2, ptr %6
-  %7 = getelementptr inbounds i8, ptr %0, i64 264
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 264
   %8 = load i32, ptr %7, align 8
   %9 = zext i32 %8 to i64
   %10 = getelementptr inbounds %"struct.pxrInternal_v0_24__pxrReserved__::HdSceneIndexObserver::AddedPrimEntry", ptr %spec.select.i.i.i.i.i, i64 %9
@@ -2514,12 +2514,12 @@ declare void @_ZN32pxrInternal_v0_24__pxrReserved__14TraceCollector5ScopeERKNS_8
 define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__26HdNoticeBatchingSceneIndex23_PrimsRemovedBatchEntryD2Ev(ptr noundef nonnull align 8 dereferenceable(144) %0) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__26HdNoticeBatchingSceneIndex23_PrimsRemovedBatchEntryE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 140
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 140
   %4 = load i32, ptr %3, align 4
   %5 = icmp ult i32 %4, 17
   %6 = load ptr, ptr %2, align 8
   %spec.select.i.i.i.i = select i1 %5, ptr %2, ptr %6
-  %7 = getelementptr inbounds i8, ptr %0, i64 136
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %8 = load i32, ptr %7, align 8
   %9 = zext i32 %8 to i64
   %10 = getelementptr inbounds %"struct.pxrInternal_v0_24__pxrReserved__::HdSceneIndexObserver::RemovedPrimEntry", ptr %spec.select.i.i.i.i, i64 %9
@@ -2585,12 +2585,12 @@ _ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_20HdSceneIndexObserver16
 define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__26HdNoticeBatchingSceneIndex23_PrimsRemovedBatchEntryD0Ev(ptr noundef nonnull align 8 dereferenceable(144) %0) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__26HdNoticeBatchingSceneIndex23_PrimsRemovedBatchEntryE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 140
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 140
   %4 = load i32, ptr %3, align 4
   %5 = icmp ult i32 %4, 17
   %6 = load ptr, ptr %2, align 8
   %spec.select.i.i.i.i.i = select i1 %5, ptr %2, ptr %6
-  %7 = getelementptr inbounds i8, ptr %0, i64 136
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %8 = load i32, ptr %7, align 8
   %9 = zext i32 %8 to i64
   %10 = getelementptr inbounds %"struct.pxrInternal_v0_24__pxrReserved__::HdSceneIndexObserver::RemovedPrimEntry", ptr %spec.select.i.i.i.i.i, i64 %9
@@ -2657,12 +2657,12 @@ _ZN32pxrInternal_v0_24__pxrReserved__26HdNoticeBatchingSceneIndex23_PrimsRemoved
 define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__26HdNoticeBatchingSceneIndex23_PrimsDirtiedBatchEntryD2Ev(ptr noundef nonnull align 8 dereferenceable(7440) %0) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__26HdNoticeBatchingSceneIndex23_PrimsDirtiedBatchEntryE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 7436
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 7436
   %4 = load i32, ptr %3, align 4
   %5 = icmp ult i32 %4, 17
   %6 = load ptr, ptr %2, align 8
   %spec.select.i.i.i.i = select i1 %5, ptr %2, ptr %6
-  %7 = getelementptr inbounds i8, ptr %0, i64 7432
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 7432
   %8 = load i32, ptr %7, align 8
   %9 = zext i32 %8 to i64
   %10 = getelementptr inbounds %"struct.pxrInternal_v0_24__pxrReserved__::HdSceneIndexObserver::DirtiedPrimEntry", ptr %spec.select.i.i.i.i, i64 %9
@@ -2698,12 +2698,12 @@ _ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_20HdSceneIndexObserver16
 define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__26HdNoticeBatchingSceneIndex23_PrimsDirtiedBatchEntryD0Ev(ptr noundef nonnull align 8 dereferenceable(7440) %0) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__26HdNoticeBatchingSceneIndex23_PrimsDirtiedBatchEntryE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 7436
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 7436
   %4 = load i32, ptr %3, align 4
   %5 = icmp ult i32 %4, 17
   %6 = load ptr, ptr %2, align 8
   %spec.select.i.i.i.i.i = select i1 %5, ptr %2, ptr %6
-  %7 = getelementptr inbounds i8, ptr %0, i64 7432
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 7432
   %8 = load i32, ptr %7, align 8
   %9 = zext i32 %8 to i64
   %10 = getelementptr inbounds %"struct.pxrInternal_v0_24__pxrReserved__::HdSceneIndexObserver::DirtiedPrimEntry", ptr %spec.select.i.i.i.i.i, i64 %9
@@ -2739,12 +2739,12 @@ _ZN32pxrInternal_v0_24__pxrReserved__26HdNoticeBatchingSceneIndex23_PrimsDirtied
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver16DirtiedPrimEntryD2Ev(ptr noundef nonnull align 8 dereferenceable(464) %0) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 460
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 460
   %4 = load i32, ptr %3, align 4
   %5 = icmp ult i32 %4, 9
   %6 = load ptr, ptr %2, align 8
   %spec.select.i.i.i.i.i = select i1 %5, ptr %2, ptr %6
-  %7 = getelementptr inbounds i8, ptr %0, i64 456
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 456
   %8 = load i32, ptr %7, align 8
   %9 = zext i32 %8 to i64
   %10 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::HdDataSourceLocator", ptr %spec.select.i.i.i.i.i, i64 %9
@@ -3734,12 +3734,12 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathaSERKS0_.exit: ; preds = %2, %_ZN32
 39:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathaSERKS0_.exit
   %40 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %42 = getelementptr inbounds i8, ptr %1, i64 460
+  %42 = getelementptr inbounds nuw i8, ptr %1, i64 460
   %43 = load i32, ptr %42, align 4
   %44 = icmp ult i32 %43, 9
   %45 = load ptr, ptr %40, align 8
   %spec.select.i.i.i.i = select i1 %44, ptr %40, ptr %45
-  %46 = getelementptr inbounds i8, ptr %1, i64 456
+  %46 = getelementptr inbounds nuw i8, ptr %1, i64 456
   %47 = load i32, ptr %46, align 8
   %48 = zext i32 %47 to i64
   %49 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::HdDataSourceLocator", ptr %spec.select.i.i.i.i, i64 %48

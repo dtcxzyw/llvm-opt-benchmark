@@ -99,7 +99,7 @@ define dso_local void @_ZN4llvm15PrintModulePass3runERNS_6ModuleERNS_15AnalysisM
   br i1 %10, label %_ZN4llvm25ScopedDbgInfoFormatSetterINS_6ModuleEEC2ERS1_b.exit, label %12
 
 12:                                               ; preds = %11
-  %13 = getelementptr inbounds i8, ptr %2, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %.sroa.04.07.i.i.i = load ptr, ptr %13, align 8
   %.not8.i.i.i = icmp eq ptr %.sroa.04.07.i.i.i, %14
@@ -120,7 +120,7 @@ define dso_local void @_ZN4llvm15PrintModulePass3runERNS_6ModuleERNS_15AnalysisM
   br i1 %10, label %19, label %_ZN4llvm25ScopedDbgInfoFormatSetterINS_6ModuleEEC2ERS1_b.exit
 
 19:                                               ; preds = %.critedge.i.i
-  %20 = getelementptr inbounds i8, ptr %2, i64 32
+  %20 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %21 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %.sroa.04.07.i2.i.i = load ptr, ptr %20, align 8
   %.not8.i3.i.i = icmp eq ptr %.sroa.04.07.i2.i.i, %21
@@ -193,7 +193,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %46, %44, %31
   br label %.loopexit
 
 53:                                               ; preds = %29
-  %54 = getelementptr inbounds i8, ptr %2, i64 32
+  %54 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %55 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %.sroa.037.050 = load ptr, ptr %54, align 8
   %.not51 = icmp eq ptr %.sroa.037.050, %55
@@ -267,13 +267,13 @@ _ZN4llvm11raw_ostreamlsEPKc.exit19:               ; preds = %80, %78, %66, %65
 89:                                               ; preds = %.loopexit
   %90 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm15AnalysisManagerINS_6ModuleEJEE13getResultImplEPNS_11AnalysisKeyERS1_(ptr noundef nonnull align 8 dereferenceable(72) %3, ptr noundef nonnull @_ZN4llvm26ModuleSummaryIndexAnalysis3KeyE, ptr noundef nonnull align 8 dereferenceable(857) %2) #6
   %91 = getelementptr inbounds nuw i8, ptr %90, i64 8
-  %92 = getelementptr inbounds i8, ptr %90, i64 68
+  %92 = getelementptr inbounds nuw i8, ptr %90, i64 68
   %93 = load i32, ptr %92, align 4
   %94 = icmp eq i32 %93, 0
   br i1 %94, label %95, label %99
 
 95:                                               ; preds = %89
-  %96 = getelementptr inbounds i8, ptr %90, i64 56
+  %96 = getelementptr inbounds nuw i8, ptr %90, i64 56
   %.sroa.3.0..sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 16
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %.sroa.3.0..sroa_idx.i, i8 0, i64 20, i1 false)
@@ -301,15 +301,15 @@ _ZN4llvm11raw_ostreamlsEPKc.exit19:               ; preds = %80, %78, %66, %65
   %105 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 0, ptr %105, align 8, !alias.scope !4
   %106 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %107 = getelementptr inbounds i8, ptr %0, i64 80
+  %107 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store ptr %107, ptr %106, align 8, !alias.scope !4
-  %108 = getelementptr inbounds i8, ptr %0, i64 56
+  %108 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store ptr %107, ptr %108, align 8, !alias.scope !4
-  %109 = getelementptr inbounds i8, ptr %0, i64 64
+  %109 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i32 2, ptr %109, align 8, !alias.scope !4
-  %110 = getelementptr inbounds i8, ptr %0, i64 68
+  %110 = getelementptr inbounds nuw i8, ptr %0, i64 68
   store i32 0, ptr %110, align 4, !alias.scope !4
-  %111 = getelementptr inbounds i8, ptr %0, i64 72
+  %111 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store i32 0, ptr %111, align 8, !alias.scope !4
   store i32 1, ptr %104, align 4, !alias.scope !4, !noalias !7
   store ptr @_ZN4llvm17PreservedAnalyses14AllAnalysesKeyE, ptr %101, align 8, !alias.scope !4, !noalias !7
@@ -321,7 +321,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit19:               ; preds = %80, %78, %66, %65
   br i1 %113, label %_ZN4llvm25ScopedDbgInfoFormatSetterINS_6ModuleEED2Ev.exit, label %115
 
 115:                                              ; preds = %114
-  %116 = getelementptr inbounds i8, ptr %2, i64 32
+  %116 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %117 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %.sroa.04.07.i.i.i29 = load ptr, ptr %116, align 8
   %.not8.i.i.i30 = icmp eq ptr %.sroa.04.07.i.i.i29, %117
@@ -342,7 +342,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit19:               ; preds = %80, %78, %66, %65
   br i1 %113, label %122, label %_ZN4llvm25ScopedDbgInfoFormatSetterINS_6ModuleEED2Ev.exit
 
 122:                                              ; preds = %.critedge.i.i20
-  %123 = getelementptr inbounds i8, ptr %2, i64 32
+  %123 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %124 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %.sroa.04.07.i2.i.i21 = load ptr, ptr %123, align 8
   %.not8.i3.i.i22 = icmp eq ptr %.sroa.04.07.i2.i.i21, %124
@@ -543,15 +543,15 @@ _ZN4llvm11raw_ostreamlsEc.exit:                   ; preds = %71, %73
   %80 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 0, ptr %80, align 8, !alias.scope !10
   %81 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %82 = getelementptr inbounds i8, ptr %0, i64 80
+  %82 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store ptr %82, ptr %81, align 8, !alias.scope !10
-  %83 = getelementptr inbounds i8, ptr %0, i64 56
+  %83 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store ptr %82, ptr %83, align 8, !alias.scope !10
-  %84 = getelementptr inbounds i8, ptr %0, i64 64
+  %84 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i32 2, ptr %84, align 8, !alias.scope !10
-  %85 = getelementptr inbounds i8, ptr %0, i64 68
+  %85 = getelementptr inbounds nuw i8, ptr %0, i64 68
   store i32 0, ptr %85, align 4, !alias.scope !10
-  %86 = getelementptr inbounds i8, ptr %0, i64 72
+  %86 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store i32 0, ptr %86, align 8, !alias.scope !10
   store i32 1, ptr %79, align 4, !alias.scope !10, !noalias !13
   store ptr @_ZN4llvm17PreservedAnalyses14AllAnalysesKeyE, ptr %76, align 8, !alias.scope !10, !noalias !13

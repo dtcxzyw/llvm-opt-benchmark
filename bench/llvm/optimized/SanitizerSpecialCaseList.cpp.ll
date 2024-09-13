@@ -124,7 +124,7 @@ define dso_local void @_ZN5clang24SanitizerSpecialCaseList6createERKSt6vectorINS
   br i1 %.not.i.i.i.i.i.i, label %_ZNKSt14default_deleteIN5clang24SanitizerSpecialCaseListEEclEPS1_.exit.i, label %12
 
 12:                                               ; preds = %10
-  %13 = getelementptr inbounds i8, ptr %5, i64 40
+  %13 = getelementptr inbounds nuw i8, ptr %5, i64 40
   %14 = load ptr, ptr %13, align 8
   %15 = ptrtoint ptr %14 to i64
   %16 = ptrtoint ptr %11 to i64
@@ -180,8 +180,8 @@ _ZN4llvm9StringMapINS_15SpecialCaseList7SectionENS_15MallocAllocatorEE5beginEv.e
   br i1 %.not522523, label %_ZN4llvm17StringMapIterBaseINS_17StringMapIteratorINS_15SpecialCaseList7SectionEEENS_14StringMapEntryIS3_EEEppEv.exit._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZN4llvm9StringMapINS_15SpecialCaseList7SectionENS_15MallocAllocatorEE5beginEv.exit
-  %11 = getelementptr inbounds i8, ptr %0, i64 32
-  %12 = getelementptr inbounds i8, ptr %0, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.pre = load ptr, ptr %.sroa.0.1.i, align 8
   br label %14
@@ -1087,7 +1087,7 @@ _ZN5clang13SanitizerMaskoRERKS0_.exit297.critedge: ; preds = %_ZN5clang13Sanitiz
   br label %_ZN5clang13SanitizerMaskoRERKS0_.exit297
 
 _ZN5clang13SanitizerMaskoRERKS0_.exit297:         ; preds = %_ZN5clang13SanitizerMaskoRERKS0_.exit297.critedge, %_ZN5clang13SanitizerMaskoRERKS0_.exit295
-  %315 = getelementptr inbounds i8, ptr %15, i64 16
+  %315 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %316 = load ptr, ptr %11, align 8
   %317 = load ptr, ptr %12, align 8
   %.not.i = icmp eq ptr %316, %317
@@ -1143,7 +1143,7 @@ define linkonce_odr hidden void @_ZNSt10unique_ptrIN5clang24SanitizerSpecialCase
   br i1 %.not.i.i.i.i.i, label %_ZNKSt14default_deleteIN5clang24SanitizerSpecialCaseListEEclEPS1_.exit, label %6
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %2, i64 40
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %8 = load ptr, ptr %7, align 8
   %9 = ptrtoint ptr %8 to i64
   %10 = ptrtoint ptr %5 to i64
@@ -1183,7 +1183,7 @@ define dso_local void @_ZN5clang24SanitizerSpecialCaseList11createOrDieERKSt6vec
   br i1 %.not.i.i.i.i.i.i.i, label %18, label %12
 
 12:                                               ; preds = %10
-  %13 = getelementptr inbounds i8, ptr %6, i64 40
+  %13 = getelementptr inbounds nuw i8, ptr %6, i64 40
   %14 = load ptr, ptr %13, align 8, !noalias !6
   %15 = ptrtoint ptr %14 to i64
   %16 = ptrtoint ptr %11 to i64
@@ -1235,7 +1235,7 @@ declare noundef i32 @_ZNK4llvm15SpecialCaseList7Matcher5matchENS_9StringRefE(ptr
 define dso_local noundef zeroext i1 @_ZNK5clang24SanitizerSpecialCaseList9inSectionENS_13SanitizerMaskEN4llvm9StringRefES3_S3_(ptr noundef nonnull align 8 dereferenceable(48) %0, i64 %1, i64 %2, ptr %3, i64 %4, ptr nocapture noundef readonly byval(%"class.llvm::StringRef") align 8 %5, ptr nocapture noundef readonly byval(%"class.llvm::StringRef") align 8 %6) local_unnamed_addr #0 align 2 {
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %11 = load ptr, ptr %10, align 8
   %.not21 = icmp eq ptr %9, %11
   br i1 %.not21, label %._crit_edge, label %.lr.ph

@@ -1756,7 +1756,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit16.i.i.i.i: ; preds = 
 .noexc3.i.i.i.i.i:                                ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit16.i.i.i.i
   store ptr %49, ptr %12, align 8
   %50 = getelementptr inbounds i8, ptr %49, i64 32
-  %51 = getelementptr inbounds i8, ptr %5, i64 48
+  %51 = getelementptr inbounds nuw i8, ptr %5, i64 48
   store ptr %50, ptr %51, align 8
   br label %.lr.ph.i.i.i.i.i.i.i.i.i.i
 
@@ -1793,7 +1793,7 @@ _ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__7TfTokenEJRKS1_EEvPT_DpOT0_.
   br i1 %.not.i.i.i.i.i.i.i.i.i.i, label %65, label %.lr.ph.i.i.i.i.i.i.i.i.i.i, !llvm.loop !17
 
 65:                                               ; preds = %_ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__7TfTokenEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i.i.i.i.i.i
-  %66 = getelementptr inbounds i8, ptr %5, i64 40
+  %66 = getelementptr inbounds nuw i8, ptr %5, i64 40
   store ptr %64, ptr %66, align 8
   br label %67
 
@@ -2374,7 +2374,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_31SdrPrope
 
 _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_31SdrPropertyRole_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit14: ; preds = %88, %_ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_31SdrPropertyRole_StaticTokenTypeEE3NewEv.exit.i.i.i10, %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_31SdrPropertyRole_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit
   %91 = phi ptr [ %80, %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_31SdrPropertyRole_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit ], [ %90, %88 ], [ %82, %_ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_31SdrPropertyRole_StaticTokenTypeEE3NewEv.exit.i.i.i10 ]
-  %92 = getelementptr inbounds i8, ptr %91, i64 16
+  %92 = getelementptr inbounds nuw i8, ptr %91, i64 16
   %93 = load ptr, ptr %92, align 8
   %94 = ptrtoint ptr %93 to i64
   %95 = ptrtoint ptr %78 to i64
@@ -2553,7 +2553,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_31SdrPrope
 
 _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_31SdrPropertyRole_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit20: ; preds = %174, %_ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_31SdrPropertyRole_StaticTokenTypeEE3NewEv.exit.i.i.i16, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__7TfTokenESt6vectorIS3_SaIS3_EEEES3_ET_S9_S9_RKT0_.exit
   %177 = phi ptr [ %166, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__7TfTokenESt6vectorIS3_SaIS3_EEEES3_ET_S9_S9_RKT0_.exit ], [ %176, %174 ], [ %168, %_ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_31SdrPropertyRole_StaticTokenTypeEE3NewEv.exit.i.i.i16 ]
-  %178 = getelementptr inbounds i8, ptr %177, i64 16
+  %178 = getelementptr inbounds nuw i8, ptr %177, i64 16
   %179 = load ptr, ptr %178, align 8
   %.not = icmp eq ptr %.sroa.08.0.in.sroa.speculated.i.i.i, %179
   br i1 %.not, label %189, label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit23

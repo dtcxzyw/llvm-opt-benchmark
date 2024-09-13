@@ -131,7 +131,7 @@ define hidden i32 @aom_codec_get_stream_info(ptr noundef %0, ptr noundef %1) loc
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 4
   store i32 0, ptr %12, align 4
   %13 = load ptr, ptr %6, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 56
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 56
   %15 = load ptr, ptr %14, align 8
   %.val = load ptr, ptr %9, align 8
   %16 = tail call i32 %15(ptr noundef %.val, ptr noundef nonnull %1) #3
@@ -169,7 +169,7 @@ define hidden i32 @aom_codec_decode(ptr noundef %0, ptr noundef %1, i64 noundef 
   br i1 %.not14, label %15, label %11
 
 11:                                               ; preds = %8
-  %12 = getelementptr inbounds i8, ptr %7, i64 64
+  %12 = getelementptr inbounds nuw i8, ptr %7, i64 64
   %13 = load ptr, ptr %12, align 8
   %14 = tail call i32 %13(ptr noundef nonnull %10, ptr noundef %1, i64 noundef %2, ptr noundef %3) #3
   br label %15
@@ -205,7 +205,7 @@ define hidden ptr @aom_codec_get_frame(ptr noundef readonly %0, ptr noundef %1) 
   br i1 %.not12, label %15, label %11
 
 11:                                               ; preds = %8
-  %12 = getelementptr inbounds i8, ptr %7, i64 72
+  %12 = getelementptr inbounds nuw i8, ptr %7, i64 72
   %13 = load ptr, ptr %12, align 8
   %14 = tail call ptr %13(ptr noundef nonnull %10, ptr noundef nonnull %1) #3
   br label %15
@@ -244,7 +244,7 @@ define hidden i32 @aom_codec_set_frame_buffer_functions(ptr noundef %0, ptr noun
   br i1 %.not22, label %.thread, label %19
 
 19:                                               ; preds = %15
-  %20 = getelementptr inbounds i8, ptr %11, i64 80
+  %20 = getelementptr inbounds nuw i8, ptr %11, i64 80
   %21 = load ptr, ptr %20, align 8
   %22 = tail call i32 %21(ptr noundef nonnull %14, ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef %3) #3
   br label %.thread

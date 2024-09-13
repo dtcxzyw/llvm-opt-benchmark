@@ -157,7 +157,7 @@ define void @_ZN10OpenSubdiv6v3_6_03Bfr16PatchTreeBuilderC2ERNS0_3Far15TopologyR
   br i1 %.not.i.i.i, label %_ZNSt6vectorIN10OpenSubdiv6v3_6_03Bfr16PatchTreeBuilder9PatchFaceESaIS4_EED2Ev.exit, label %27
 
 27:                                               ; preds = %24
-  %28 = getelementptr inbounds i8, ptr %0, i64 64
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %29 = load ptr, ptr %28, align 8
   %30 = ptrtoint ptr %29 to i64
   %31 = ptrtoint ptr %26 to i64
@@ -171,7 +171,7 @@ _ZNSt6vectorIN10OpenSubdiv6v3_6_03Bfr16PatchTreeBuilder9PatchFaceESaIS4_EED2Ev.e
   br i1 %.not.i.i.i39, label %_ZNSt6vectorIiSaIiEED2Ev.exit, label %34
 
 34:                                               ; preds = %_ZNSt6vectorIN10OpenSubdiv6v3_6_03Bfr16PatchTreeBuilder9PatchFaceESaIS4_EED2Ev.exit
-  %35 = getelementptr inbounds i8, ptr %0, i64 40
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %36 = load ptr, ptr %35, align 8
   %37 = ptrtoint ptr %36 to i64
   %38 = ptrtoint ptr %33 to i64
@@ -194,7 +194,7 @@ _ZNSt6vectorIN10OpenSubdiv6v3_6_03Bfr16PatchTreeBuilder9PatchFaceESaIS4_EED2Ev.e
 46:                                               ; preds = %40
   %47 = load ptr, ptr %7, align 8
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 96
-  %49 = getelementptr inbounds i8, ptr %47, i64 104
+  %49 = getelementptr inbounds nuw i8, ptr %47, i64 104
   %50 = load ptr, ptr %49, align 8
   %51 = load ptr, ptr %48, align 8
   %52 = ptrtoint ptr %50 to i64
@@ -205,7 +205,7 @@ _ZNSt6vectorIN10OpenSubdiv6v3_6_03Bfr16PatchTreeBuilder9PatchFaceESaIS4_EED2Ev.e
   %57 = shl i64 %55, 32
   %sext = add i64 %57, 4294967296
   %58 = ashr exact i64 %sext, 32
-  %59 = getelementptr inbounds i8, ptr %0, i64 32
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %60 = load ptr, ptr %59, align 8
   %61 = load ptr, ptr %9, align 8
   %62 = ptrtoint ptr %60 to i64
@@ -685,7 +685,7 @@ define void @_ZN10OpenSubdiv6v3_6_03Bfr16PatchTreeBuilderD2Ev(ptr nocapture noun
   br i1 %.not.i.i.i, label %_ZNSt6vectorIN10OpenSubdiv6v3_6_03Bfr16PatchTreeBuilder9PatchFaceESaIS4_EED2Ev.exit, label %12
 
 12:                                               ; preds = %9
-  %13 = getelementptr inbounds i8, ptr %0, i64 64
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %14 = load ptr, ptr %13, align 8
   %15 = ptrtoint ptr %14 to i64
   %16 = ptrtoint ptr %11 to i64
@@ -700,7 +700,7 @@ _ZNSt6vectorIN10OpenSubdiv6v3_6_03Bfr16PatchTreeBuilder9PatchFaceESaIS4_EED2Ev.e
   br i1 %.not.i.i.i1, label %_ZNSt6vectorIiSaIiEED2Ev.exit, label %20
 
 20:                                               ; preds = %_ZNSt6vectorIN10OpenSubdiv6v3_6_03Bfr16PatchTreeBuilder9PatchFaceESaIS4_EED2Ev.exit
-  %21 = getelementptr inbounds i8, ptr %0, i64 40
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %22 = load ptr, ptr %21, align 8
   %23 = ptrtoint ptr %22 to i64
   %24 = ptrtoint ptr %19 to i64
@@ -745,7 +745,7 @@ define void @_ZN10OpenSubdiv6v3_6_03Bfr16PatchTreeBuilder15identifyPatchesEv(ptr
   %.not = icmp eq i8 %4, 0
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 56
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %8 = load ptr, ptr %7, align 8
   %.not.i.i = icmp eq ptr %8, %6
   br i1 %.not.i.i, label %_ZNSt6vectorIN10OpenSubdiv6v3_6_03Bfr16PatchTreeBuilder9PatchFaceESaIS4_EE5clearEv.exit, label %9
@@ -777,7 +777,7 @@ _ZNSt6vectorIN10OpenSubdiv6v3_6_03Bfr16PatchTreeBuilder9PatchFaceESaIS4_EE5clear
   %23 = tail call noundef zeroext i1 @_ZNK10OpenSubdiv6v3_6_03Far12PatchBuilder14IsPatchRegularEiii(ptr noundef nonnull align 8 dereferenceable(56) %21, i32 noundef 0, i32 noundef %22, i32 noundef -1)
   %24 = load i32, ptr %12, align 8
   %25 = load ptr, ptr %7, align 8
-  %26 = getelementptr inbounds i8, ptr %0, i64 64
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %27 = load ptr, ptr %26, align 8
   %.not.i.i32 = icmp eq ptr %25, %27
   br i1 %.not.i.i32, label %31, label %28
@@ -891,7 +891,7 @@ _ZNK10OpenSubdiv6v3_6_03Bfr16PatchTreeBuilder17testFaceAncestorsEv.exit: ; preds
   %73 = phi i1 [ false, %63 ], [ %72, %70 ], [ false, %56 ]
   %74 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %75 = getelementptr inbounds nuw i8, ptr %62, i64 96
-  %76 = getelementptr inbounds i8, ptr %62, i64 104
+  %76 = getelementptr inbounds nuw i8, ptr %62, i64 104
   %77 = load ptr, ptr %76, align 8
   %78 = load ptr, ptr %75, align 8
   %79 = ptrtoint ptr %77 to i64
@@ -903,7 +903,7 @@ _ZNK10OpenSubdiv6v3_6_03Bfr16PatchTreeBuilder17testFaceAncestorsEv.exit: ; preds
   br i1 %84, label %.lr.ph98, label %._crit_edge99
 
 .lr.ph98:                                         ; preds = %_ZNK10OpenSubdiv6v3_6_03Bfr16PatchTreeBuilder17testFaceAncestorsEv.exit
-  %85 = getelementptr inbounds i8, ptr %0, i64 64
+  %85 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %wide.trip.count107 = and i64 %82, 2147483647
   br label %86
 
@@ -1092,7 +1092,7 @@ _ZNSt6vectorIN10OpenSubdiv6v3_6_03Bfr16PatchTreeBuilder9PatchFaceESaIS4_EE9push_
   %164 = load i32, ptr %163, align 4
   %165 = mul nsw i32 %164, %160
   %166 = sext i32 %165 to i64
-  %167 = getelementptr inbounds i8, ptr %161, i64 56
+  %167 = getelementptr inbounds nuw i8, ptr %161, i64 56
   %168 = load ptr, ptr %167, align 8
   %169 = load ptr, ptr %162, align 8
   %170 = ptrtoint ptr %168 to i64
@@ -1125,7 +1125,7 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit:               ; preds = %175, %177, %179, %1
   %183 = getelementptr inbounds nuw i8, ptr %182, i64 72
   %sext = shl i64 %158, 29
   %184 = ashr exact i64 %sext, 32
-  %185 = getelementptr inbounds i8, ptr %182, i64 80
+  %185 = getelementptr inbounds nuw i8, ptr %182, i64 80
   %186 = load ptr, ptr %185, align 8
   %187 = load ptr, ptr %183, align 8
   %188 = ptrtoint ptr %186 to i64
@@ -1180,7 +1180,7 @@ define void @_ZN10OpenSubdiv6v3_6_03Bfr16PatchTreeBuilder17initializePatchesEv(p
   %9 = load ptr, ptr %8, align 8
   call void @_ZN10OpenSubdiv6v3_6_03Far11PtexIndicesC1ERKNS1_15TopologyRefinerE(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(120) %9)
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %11 = getelementptr inbounds i8, ptr %0, i64 56
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %12 = load ptr, ptr %11, align 8
   %13 = load ptr, ptr %10, align 8
   %.not43 = icmp eq ptr %12, %13
@@ -1390,7 +1390,7 @@ define linkonce_odr void @_ZN10OpenSubdiv6v3_6_03Bfr16PatchTreeBuilder23initiali
   %69 = getelementptr inbounds nuw i8, ptr %54, i64 152
   %70 = mul nsw i32 %66, %68
   %71 = sext i32 %70 to i64
-  %72 = getelementptr inbounds i8, ptr %54, i64 160
+  %72 = getelementptr inbounds nuw i8, ptr %54, i64 160
   %73 = load ptr, ptr %72, align 8
   %74 = load ptr, ptr %69, align 8
   %75 = ptrtoint ptr %73 to i64
@@ -1422,7 +1422,7 @@ _ZNSt6vectorIdSaIdEE6resizeEm.exit:               ; preds = %80, %82, %84, %86
   %87 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %88 = load ptr, ptr %87, align 8
   %89 = getelementptr inbounds nuw i8, ptr %88, i64 96
-  %90 = getelementptr inbounds i8, ptr %88, i64 104
+  %90 = getelementptr inbounds nuw i8, ptr %88, i64 104
   %91 = load ptr, ptr %90, align 8
   %92 = load ptr, ptr %89, align 8
   %93 = ptrtoint ptr %91 to i64
@@ -5127,7 +5127,7 @@ _ZNK10OpenSubdiv6v3_6_03Far18PrimvarRefinerRealIdE11InterpolateINS0_3Bfr12_GLOBA
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %2041, i8 0, i64 72, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %53, i8 0, i64 24, i1 false)
   %2042 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %2043 = getelementptr inbounds i8, ptr %0, i64 56
+  %2043 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %2044 = load ptr, ptr %2043, align 8
   %2045 = load ptr, ptr %2042, align 8
   %.not218 = icmp eq ptr %2044, %2045
@@ -5219,7 +5219,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit117:                 ; preds = %2038, %._crit_edge,
   br i1 %.not.i.i.i.i, label %_ZNSt6vectorIdSaIdEED2Ev.exit.i, label %2086
 
 2086:                                             ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit117
-  %2087 = getelementptr inbounds i8, ptr %52, i64 80
+  %2087 = getelementptr inbounds nuw i8, ptr %52, i64 80
   %2088 = load ptr, ptr %2087, align 8
   %2089 = ptrtoint ptr %2088 to i64
   %2090 = ptrtoint ptr %2085 to i64
@@ -5234,7 +5234,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit.i:                  ; preds = %2086, %_ZNSt6vector
   br i1 %.not.i.i.i1.i, label %_ZNSt6vectorIiSaIiEED2Ev.exit.i, label %2094
 
 2094:                                             ; preds = %_ZNSt6vectorIdSaIdEED2Ev.exit.i
-  %2095 = getelementptr inbounds i8, ptr %52, i64 56
+  %2095 = getelementptr inbounds nuw i8, ptr %52, i64 56
   %2096 = load ptr, ptr %2095, align 8
   %2097 = ptrtoint ptr %2096 to i64
   %2098 = ptrtoint ptr %2093 to i64
@@ -5248,7 +5248,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit.i:                  ; preds = %2094, %_ZNSt6vector
   br i1 %.not.i.i.i2.i, label %_ZN10OpenSubdiv6v3_6_03Far12SparseMatrixIdED2Ev.exit, label %2101
 
 2101:                                             ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit.i
-  %2102 = getelementptr inbounds i8, ptr %52, i64 32
+  %2102 = getelementptr inbounds nuw i8, ptr %52, i64 32
   %2103 = load ptr, ptr %2102, align 8
   %2104 = ptrtoint ptr %2103 to i64
   %2105 = ptrtoint ptr %2100 to i64
@@ -5338,7 +5338,7 @@ define linkonce_odr void @_ZN10OpenSubdiv6v3_6_03Bfr16PatchTreeBuilder23initiali
   %69 = getelementptr inbounds nuw i8, ptr %54, i64 128
   %70 = mul nsw i32 %66, %68
   %71 = sext i32 %70 to i64
-  %72 = getelementptr inbounds i8, ptr %54, i64 136
+  %72 = getelementptr inbounds nuw i8, ptr %54, i64 136
   %73 = load ptr, ptr %72, align 8
   %74 = load ptr, ptr %69, align 8
   %75 = ptrtoint ptr %73 to i64
@@ -5370,7 +5370,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit:               ; preds = %80, %82, %84, %86
   %87 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %88 = load ptr, ptr %87, align 8
   %89 = getelementptr inbounds nuw i8, ptr %88, i64 96
-  %90 = getelementptr inbounds i8, ptr %88, i64 104
+  %90 = getelementptr inbounds nuw i8, ptr %88, i64 104
   %91 = load ptr, ptr %90, align 8
   %92 = load ptr, ptr %89, align 8
   %93 = ptrtoint ptr %91 to i64
@@ -9075,7 +9075,7 @@ _ZNK10OpenSubdiv6v3_6_03Far18PrimvarRefinerRealIfE11InterpolateINS0_3Bfr12_GLOBA
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %2041, i8 0, i64 72, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %53, i8 0, i64 24, i1 false)
   %2042 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %2043 = getelementptr inbounds i8, ptr %0, i64 56
+  %2043 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %2044 = load ptr, ptr %2043, align 8
   %2045 = load ptr, ptr %2042, align 8
   %.not218 = icmp eq ptr %2044, %2045
@@ -9167,7 +9167,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit117:                 ; preds = %2038, %._crit_edge,
   br i1 %.not.i.i.i.i, label %_ZNSt6vectorIfSaIfEED2Ev.exit.i, label %2086
 
 2086:                                             ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit117
-  %2087 = getelementptr inbounds i8, ptr %52, i64 80
+  %2087 = getelementptr inbounds nuw i8, ptr %52, i64 80
   %2088 = load ptr, ptr %2087, align 8
   %2089 = ptrtoint ptr %2088 to i64
   %2090 = ptrtoint ptr %2085 to i64
@@ -9182,7 +9182,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit.i:                  ; preds = %2086, %_ZNSt6vector
   br i1 %.not.i.i.i1.i, label %_ZNSt6vectorIiSaIiEED2Ev.exit.i, label %2094
 
 2094:                                             ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit.i
-  %2095 = getelementptr inbounds i8, ptr %52, i64 56
+  %2095 = getelementptr inbounds nuw i8, ptr %52, i64 56
   %2096 = load ptr, ptr %2095, align 8
   %2097 = ptrtoint ptr %2096 to i64
   %2098 = ptrtoint ptr %2093 to i64
@@ -9196,7 +9196,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit.i:                  ; preds = %2094, %_ZNSt6vector
   br i1 %.not.i.i.i2.i, label %_ZN10OpenSubdiv6v3_6_03Far12SparseMatrixIfED2Ev.exit, label %2101
 
 2101:                                             ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit.i
-  %2102 = getelementptr inbounds i8, ptr %52, i64 32
+  %2102 = getelementptr inbounds nuw i8, ptr %52, i64 32
   %2103 = load ptr, ptr %2102, align 8
   %2104 = ptrtoint ptr %2103 to i64
   %2105 = ptrtoint ptr %2100 to i64
@@ -9477,7 +9477,7 @@ define linkonce_odr void @_ZN10OpenSubdiv6v3_6_03Far12SparseMatrixIdED2Ev(ptr no
   br i1 %.not.i.i.i, label %_ZNSt6vectorIdSaIdEED2Ev.exit, label %4
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 80
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %6 = load ptr, ptr %5, align 8
   %7 = ptrtoint ptr %6 to i64
   %8 = ptrtoint ptr %3 to i64
@@ -9492,7 +9492,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit:                    ; preds = %1, %4
   br i1 %.not.i.i.i1, label %_ZNSt6vectorIiSaIiEED2Ev.exit, label %12
 
 12:                                               ; preds = %_ZNSt6vectorIdSaIdEED2Ev.exit
-  %13 = getelementptr inbounds i8, ptr %0, i64 56
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %14 = load ptr, ptr %13, align 8
   %15 = ptrtoint ptr %14 to i64
   %16 = ptrtoint ptr %11 to i64
@@ -9507,7 +9507,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %_ZNSt6vectorIdSaIdE
   br i1 %.not.i.i.i2, label %_ZNSt6vectorIiSaIiEED2Ev.exit3, label %20
 
 20:                                               ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit
-  %21 = getelementptr inbounds i8, ptr %0, i64 32
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %22 = load ptr, ptr %21, align 8
   %23 = ptrtoint ptr %22 to i64
   %24 = ptrtoint ptr %19 to i64
@@ -11615,7 +11615,7 @@ define linkonce_odr void @_ZN10OpenSubdiv6v3_6_03Far12SparseMatrixIfED2Ev(ptr no
   br i1 %.not.i.i.i, label %_ZNSt6vectorIfSaIfEED2Ev.exit, label %4
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 80
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %6 = load ptr, ptr %5, align 8
   %7 = ptrtoint ptr %6 to i64
   %8 = ptrtoint ptr %3 to i64
@@ -11630,7 +11630,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %1, %4
   br i1 %.not.i.i.i1, label %_ZNSt6vectorIiSaIiEED2Ev.exit, label %12
 
 12:                                               ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit
-  %13 = getelementptr inbounds i8, ptr %0, i64 56
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %14 = load ptr, ptr %13, align 8
   %15 = ptrtoint ptr %14 to i64
   %16 = ptrtoint ptr %11 to i64
@@ -11645,7 +11645,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %_ZNSt6vectorIfSaIfE
   br i1 %.not.i.i.i2, label %_ZNSt6vectorIiSaIiEED2Ev.exit3, label %20
 
 20:                                               ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit
-  %21 = getelementptr inbounds i8, ptr %0, i64 32
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %22 = load ptr, ptr %21, align 8
   %23 = ptrtoint ptr %22 to i64
   %24 = ptrtoint ptr %19 to i64

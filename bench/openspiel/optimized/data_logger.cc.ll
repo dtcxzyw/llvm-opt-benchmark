@@ -441,7 +441,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #17
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 32
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull align 8 dereferenceable(32) %2) #17
-  %11 = getelementptr inbounds i8, ptr %0, i64 80
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store i8 4, ptr %11, align 8
   ret void
 
@@ -486,7 +486,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %11 = load double, ptr %2, align 8
   store double %11, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 80
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store i8 3, ptr %12, align 8
   ret void
 
@@ -508,7 +508,7 @@ declare noundef double @_ZN4absl7debian215ToDoubleSecondsENS0_8DurationE(i64, i3
 define linkonce_odr void @_ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN10open_spiel4json5ValueEED2Ev(ptr noundef nonnull align 8 dereferenceable(88) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %class.anon.24, align 1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2)
-  %3 = getelementptr inbounds i8, ptr %0, i64 80
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %4 = load i8, ptr %3, align 8
   %.not.i.i = icmp eq i8 %4, -1
   br i1 %.not.i.i, label %_ZN10open_spiel4json5ValueD2Ev.exit, label %5
@@ -1065,13 +1065,13 @@ define linkonce_odr void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_tra
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %.08, i64 32
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3)
-  %9 = getelementptr inbounds i8, ptr %.08, i64 112
+  %9 = getelementptr inbounds nuw i8, ptr %.08, i64 112
   %10 = load i8, ptr %9, align 8
   %.not6 = icmp eq i8 %10, -1
   br i1 %.not6, label %_ZNSt8__detail9__variant17_Copy_assign_baseILb0EJN10open_spiel4json4NullEbldNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorINS3_5ValueESaISC_EESt3mapISA_SC_St4lessISA_ESaISt4pairIKSA_SC_EEEEED2Ev.exit, label %11
 
 11:                                               ; preds = %.lr.ph
-  %12 = getelementptr inbounds i8, ptr %.08, i64 64
+  %12 = getelementptr inbounds nuw i8, ptr %.08, i64 64
   invoke void @_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJN10open_spiel4json4NullEbldNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorINS4_5ValueESaISD_EESt3mapISB_SD_St4lessISB_ESaISt4pairIKSB_SD_EEEEE8_M_resetEvEUlOT_E_JRSt7variantIJS5_bldSB_SF_SN_EEEEDcOT0_DpOT1_(ptr noundef nonnull align 1 dereferenceable(1) %3, ptr noundef nonnull align 8 dereferenceable(49) %12)
           to label %.noexc.i unwind label %13
 
@@ -1437,10 +1437,10 @@ define linkonce_odr noundef ptr @_ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11
           to label %.noexc unwind label %10
 
 .noexc:                                           ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %4, i64 64
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 64
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 32
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
-  %8 = getelementptr inbounds i8, ptr %4, i64 112
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 112
   store i8 -1, ptr %8, align 8
   store ptr %6, ptr %3, align 8
   invoke void @_ZSt10__do_visitINSt8__detail9__variant20__variant_idx_cookieEZNS1_15_Copy_ctor_baseILb0EJN10open_spiel4json4NullEbldNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorINS5_5ValueESaISE_EESt3mapISC_SE_St4lessISC_ESaISt4pairIKSC_SE_EEEEEC1ERKSP_EUlOT_T0_E_JRKSt7variantIJS6_bldSC_SG_SO_EEEEDcOSU_DpOT1_(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(49) %7)
@@ -1486,7 +1486,7 @@ define linkonce_odr noundef ptr @_ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11
   unreachable
 
 _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N10open_spiel4json5ValueEESt10_Select1stISB_ESt4lessIS5_ESaISB_EE17_M_construct_nodeIJRKSB_EEEvPSt13_Rb_tree_nodeISB_EDpOT_.exit: ; preds = %.noexc
-  %21 = getelementptr inbounds i8, ptr %1, i64 80
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %22 = load i8, ptr %21, align 8
   store i8 %22, ptr %8, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
@@ -1836,10 +1836,10 @@ define linkonce_odr noundef ptr @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11c
           to label %.noexc34 unwind label %14
 
 .noexc34:                                         ; preds = %4
-  %10 = getelementptr inbounds i8, ptr %8, i64 64
-  %11 = getelementptr inbounds i8, ptr %1, i64 64
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 64
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 64
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
-  %12 = getelementptr inbounds i8, ptr %8, i64 112
+  %12 = getelementptr inbounds nuw i8, ptr %8, i64 112
   store i8 -1, ptr %12, align 8
   store ptr %10, ptr %6, align 8
   invoke void @_ZSt10__do_visitINSt8__detail9__variant20__variant_idx_cookieEZNS1_15_Copy_ctor_baseILb0EJN10open_spiel4json4NullEbldNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorINS5_5ValueESaISE_EESt3mapISC_SE_St4lessISC_ESaISt4pairIKSC_SE_EEEEEC1ERKSP_EUlOT_T0_E_JRKSt7variantIJS6_bldSC_SG_SO_EEEEDcOSU_DpOT1_(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(49) %11)
@@ -1886,7 +1886,7 @@ common.resume:                                    ; preds = %71, %18
   unreachable
 
 _ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N10open_spiel4json5ValueEESt10_Select1stISB_ESt4lessIS5_ESaISB_EE11_Alloc_nodeclIRKSB_EEPSt13_Rb_tree_nodeISB_EOT_.exit: ; preds = %.noexc34
-  %24 = getelementptr inbounds i8, ptr %1, i64 112
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %25 = load i8, ptr %24, align 8
   store i8 %25, ptr %12, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
@@ -1950,10 +1950,10 @@ _ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_
           to label %.noexc37 unwind label %47
 
 .noexc37:                                         ; preds = %.noexc
-  %42 = getelementptr inbounds i8, ptr %39, i64 64
-  %43 = getelementptr inbounds i8, ptr %.054, i64 64
+  %42 = getelementptr inbounds nuw i8, ptr %39, i64 64
+  %43 = getelementptr inbounds nuw i8, ptr %.054, i64 64
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
-  %44 = getelementptr inbounds i8, ptr %39, i64 112
+  %44 = getelementptr inbounds nuw i8, ptr %39, i64 112
   store i8 -1, ptr %44, align 8
   store ptr %42, ptr %5, align 8
   invoke void @_ZSt10__do_visitINSt8__detail9__variant20__variant_idx_cookieEZNS1_15_Copy_ctor_baseILb0EJN10open_spiel4json4NullEbldNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorINS5_5ValueESaISE_EESt3mapISC_SE_St4lessISC_ESaISt4pairIKSC_SE_EEEEEC1ERKSP_EUlOT_T0_E_JRKSt7variantIJS6_bldSC_SG_SO_EEEEDcOSU_DpOT1_(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(49) %43)
@@ -1962,7 +1962,7 @@ _ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_
 .body43:                                          ; preds = %.noexc37
   %45 = landingpad { ptr, i32 }
           catch ptr null
-  %46 = getelementptr inbounds i8, ptr %39, i64 64
+  %46 = getelementptr inbounds nuw i8, ptr %39, i64 64
   call void @_ZNSt8__detail9__variant16_Variant_storageILb0EJN10open_spiel4json4NullEbldNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorINS3_5ValueESaISC_EESt3mapISA_SC_St4lessISA_ESaISt4pairIKSA_SC_EEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(49) %46) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %41) #17
   br label %.body38
@@ -1997,7 +1997,7 @@ _ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_
   unreachable
 
 57:                                               ; preds = %.noexc37
-  %58 = getelementptr inbounds i8, ptr %.054, i64 112
+  %58 = getelementptr inbounds nuw i8, ptr %.054, i64 112
   %59 = load i8, ptr %58, align 8
   store i8 %59, ptr %44, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)

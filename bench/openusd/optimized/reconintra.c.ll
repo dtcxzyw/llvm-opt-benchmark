@@ -1347,7 +1347,7 @@ define hidden void @av1_predict_intra_block(ptr nocapture noundef readonly %0, p
   %127 = add nsw i32 %90, %13
   %128 = shl i32 %127, %94
   %129 = add nsw i32 %112, %128
-  %130 = getelementptr inbounds i8, ptr %1, i64 7852
+  %130 = getelementptr inbounds nuw i8, ptr %1, i64 7852
   %131 = load i32, ptr %130, align 4
   %132 = icmp slt i32 %129, %131
   %133 = icmp sgt i32 %126, 0
@@ -1357,7 +1357,7 @@ define hidden void @av1_predict_intra_block(ptr nocapture noundef readonly %0, p
   %135 = add nsw i32 %92, %14
   %136 = shl i32 %135, %96
   %137 = add nsw i32 %108, %136
-  %138 = getelementptr inbounds i8, ptr %1, i64 7844
+  %138 = getelementptr inbounds nuw i8, ptr %1, i64 7844
   %139 = load i32, ptr %138, align 4
   %140 = icmp slt i32 %137, %139
   br label %141
@@ -1469,7 +1469,7 @@ scale_chroma_bsize.exit:                          ; preds = %159, %157, %154, %1
   %191 = getelementptr inbounds [22 x i8], ptr @mi_size_high_log2, i64 0, i64 %163
   %192 = load i8, ptr %191, align 1
   %193 = zext nneg i8 %192 to i32
-  %194 = getelementptr inbounds i8, ptr %0, i64 25212
+  %194 = getelementptr inbounds nuw i8, ptr %0, i64 25212
   %195 = load i8, ptr %194, align 4
   %196 = zext i8 %195 to i64
   %197 = getelementptr inbounds [22 x i8], ptr @mi_size_high, i64 0, i64 %196
@@ -1562,7 +1562,7 @@ has_top_right.exit:                               ; preds = %173, %scale_chroma_
   %257 = getelementptr inbounds [22 x i8], ptr @mi_size_high_log2, i64 0, i64 %225
   %258 = load i8, ptr %257, align 1
   %259 = zext i8 %258 to i32
-  %260 = getelementptr inbounds i8, ptr %0, i64 25212
+  %260 = getelementptr inbounds nuw i8, ptr %0, i64 25212
   %261 = load i8, ptr %260, align 4
   %262 = zext i8 %261 to i64
   %263 = getelementptr inbounds [22 x i8], ptr @mi_size_high, i64 0, i64 %262
@@ -1613,7 +1613,7 @@ has_top_right.exit:                               ; preds = %173, %scale_chroma_
 
 has_bottom_left.exit:                             ; preds = %has_top_right.exit, %229, %234, %244, %245, %272, %279, %282
   %.0.i207 = phi i32 [ %243, %234 ], [ %278, %272 ], [ %296, %282 ], [ 0, %has_top_right.exit ], [ 0, %244 ], [ 1, %245 ], [ 0, %279 ], [ 0, %229 ]
-  %297 = getelementptr inbounds i8, ptr %0, i64 25245
+  %297 = getelementptr inbounds nuw i8, ptr %0, i64 25245
   %298 = load i8, ptr %297, align 1
   %.not196.not = icmp eq i8 %298, 0
   %299 = getelementptr i8, ptr %1, i64 7960
@@ -3564,7 +3564,7 @@ define hidden void @av1_predict_intra_block_facade(ptr nocapture noundef readonl
   %11 = sext i32 %2 to i64
   %12 = getelementptr inbounds [3 x %struct.macroblockd_plane], ptr %10, i64 0, i64 %11
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
-  %14 = getelementptr inbounds i8, ptr %12, i64 40
+  %14 = getelementptr inbounds nuw i8, ptr %12, i64 40
   %15 = load i32, ptr %14, align 8
   %16 = load ptr, ptr %13, align 8
   %17 = mul nsw i32 %15, %4
@@ -3595,11 +3595,11 @@ define hidden void @av1_predict_intra_block_facade(ptr nocapture noundef readonl
 38:                                               ; preds = %6
   %39 = getelementptr inbounds nuw i8, ptr %9, i64 2
   %40 = load i8, ptr %39, align 2
-  %41 = getelementptr inbounds i8, ptr %9, i64 150
+  %41 = getelementptr inbounds nuw i8, ptr %9, i64 150
   %42 = load i8, ptr %41, align 1
   %43 = icmp ne i8 %42, 0
   %44 = zext i1 %43 to i32
-  %45 = getelementptr inbounds i8, ptr %9, i64 99
+  %45 = getelementptr inbounds nuw i8, ptr %9, i64 99
   %46 = load i8, ptr %45, align 1
   %.not = icmp eq i8 %46, 0
   br i1 %.not, label %.split, label %47
@@ -3637,7 +3637,7 @@ define hidden void @av1_predict_intra_block_facade(ptr nocapture noundef readonl
 64:                                               ; preds = %23
   %65 = trunc i32 %2 to i8
   %66 = add i8 %65, -1
-  %67 = getelementptr inbounds i8, ptr %1, i64 47632
+  %67 = getelementptr inbounds nuw i8, ptr %1, i64 47632
   %68 = zext i8 %66 to i64
   %69 = getelementptr inbounds [2 x i32], ptr %67, i64 0, i64 %68
   %70 = load i32, ptr %69, align 4
@@ -3652,7 +3652,7 @@ define hidden void @av1_predict_intra_block_facade(ptr nocapture noundef readonl
   %77 = load i8, ptr %76, align 1
   %78 = zext i8 %77 to i32
   tail call void @av1_predict_intra_block(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %75, i32 noundef %78, i8 noundef zeroext %5, i8 noundef zeroext %28, i32 noundef %36, i32 noundef %32, i8 noundef zeroext 5, ptr noundef %21, i32 noundef %15, ptr noundef %21, i32 noundef %15, i32 noundef %3, i32 noundef %4, i32 noundef %2)
-  %79 = getelementptr inbounds i8, ptr %1, i64 47640
+  %79 = getelementptr inbounds nuw i8, ptr %1, i64 47640
   %80 = load i32, ptr %79, align 4
   %.not73 = icmp eq i32 %80, 0
   br i1 %.not73, label %86, label %81

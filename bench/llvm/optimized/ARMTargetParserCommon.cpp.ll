@@ -128,7 +128,7 @@ define dso_local { ptr, i64 } @_ZN4llvm3ARM14getArchSynonymENS_9StringRefE(ptr %
   store ptr %0, ptr %3, align 8
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %3, i64 8
   store i64 %1, ptr %.sroa.2.0..sroa_idx.i, align 8
-  %8 = getelementptr inbounds i8, ptr %3, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store i8 0, ptr %8, align 8
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 16
   switch i64 %1, label %_ZN4llvm12StringSwitchINS_9StringRefES1_E4CaseENS_13StringLiteralES1_.exit16 [
@@ -288,7 +288,7 @@ _ZN4llvm12StringSwitchINS_9StringRefES1_E4CaseENS_13StringLiteralES1_.exit93: ; 
   store i64 4, ptr %31, align 8
   %32 = call noundef nonnull align 8 dereferenceable(40) ptr @_ZN4llvm12StringSwitchINS_9StringRefES1_E5CasesENS_13StringLiteralES3_S3_S3_S3_S1_(ptr noundef nonnull align 8 dereferenceable(40) %3, ptr nonnull @.str.26, i64 2, ptr nonnull @.str.27, i64 3, ptr noundef nonnull byval(%"class.llvm::StringLiteral") align 8 %4, ptr noundef nonnull byval(%"class.llvm::StringLiteral") align 8 %5, ptr noundef nonnull byval(%"class.llvm::StringLiteral") align 8 %6, ptr noundef nonnull byval(%"class.llvm::StringRef") align 8 %7)
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 16
-  %34 = getelementptr inbounds i8, ptr %32, i64 32
+  %34 = getelementptr inbounds nuw i8, ptr %32, i64 32
   %35 = load i8, ptr %34, align 8
   %36 = trunc i8 %35 to i1
   %.sroa.22.0..sroa_idx.i95 = getelementptr inbounds i8, ptr %32, i64 8
@@ -554,7 +554,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(40) ptr @_ZN4
   %.sroa.24.0..sroa_idx = getelementptr inbounds i8, ptr %8, i64 8
   %.sroa.24.0.copyload = load i64, ptr %.sroa.24.0..sroa_idx, align 8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %11 = getelementptr inbounds i8, ptr %0, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %12 = load i8, ptr %11, align 8
   %13 = trunc i8 %12 to i1
   br i1 %13, label %_ZN4llvm12StringSwitchINS_9StringRefES1_E4CaseENS_13StringLiteralES1_.exit, label %14

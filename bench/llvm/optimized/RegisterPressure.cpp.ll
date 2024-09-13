@@ -244,11 +244,11 @@ define dso_local void @_ZN4llvm16IntervalPressure5resetEv(ptr noundef nonnull al
 _ZNSt6vectorIjSaIjEE5clearEv.exit:                ; preds = %1, %6
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %8 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %7) #14
-  %9 = getelementptr inbounds i8, ptr %0, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i32 0, ptr %9, align 8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %11 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %10) #14
-  %12 = getelementptr inbounds i8, ptr %0, i64 176
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 176
   store i32 0, ptr %12, align 8
   ret void
 }
@@ -273,11 +273,11 @@ define dso_local void @_ZN4llvm14RegionPressure5resetEv(ptr noundef nonnull alig
 _ZNSt6vectorIjSaIjEE5clearEv.exit:                ; preds = %1, %6
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %8 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %7) #14
-  %9 = getelementptr inbounds i8, ptr %0, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i32 0, ptr %9, align 8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %11 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %10) #14
-  %12 = getelementptr inbounds i8, ptr %0, i64 176
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 176
   store i32 0, ptr %12, align 8
   ret void
 }
@@ -309,7 +309,7 @@ define dso_local void @_ZN4llvm16IntervalPressure7openTopENS_9SlotIndexE(ptr nou
   store i64 0, ptr %3, align 8
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %22 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %21) #14
-  %23 = getelementptr inbounds i8, ptr %0, i64 32
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i32 0, ptr %23, align 8
   br label %24
 
@@ -328,7 +328,7 @@ define dso_local void @_ZN4llvm14RegionPressure7openTopENS_26MachineInstrBundleI
   store i64 0, ptr %3, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %6) #14
-  %8 = getelementptr inbounds i8, ptr %0, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i32 0, ptr %8, align 8
   br label %9
 
@@ -363,7 +363,7 @@ define dso_local void @_ZN4llvm16IntervalPressure10openBottomENS_9SlotIndexE(ptr
   store i64 0, ptr %3, align 8
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %23 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %22) #14
-  %24 = getelementptr inbounds i8, ptr %0, i64 32
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i32 0, ptr %24, align 8
   br label %25
 
@@ -382,7 +382,7 @@ define dso_local void @_ZN4llvm14RegionPressure10openBottomENS_26MachineInstrBun
   store i64 0, ptr %3, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %6) #14
-  %8 = getelementptr inbounds i8, ptr %0, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i32 0, ptr %8, align 8
   br label %9
 
@@ -465,7 +465,7 @@ define dso_local void @_ZN4llvm18RegPressureTracker5resetEv(ptr noundef nonnull 
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 72
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false)
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 80
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %6 = load ptr, ptr %5, align 8
   %.not.i.i = icmp eq ptr %6, %4
   br i1 %.not.i.i, label %_ZNSt6vectorIjSaIjEE5clearEv.exit, label %7
@@ -477,7 +477,7 @@ define dso_local void @_ZN4llvm18RegPressureTracker5resetEv(ptr noundef nonnull 
 _ZNSt6vectorIjSaIjEE5clearEv.exit:                ; preds = %1, %7
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 328
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 336
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 336
   %11 = load ptr, ptr %10, align 8
   %.not.i.i1 = icmp eq ptr %11, %9
   br i1 %.not.i.i1, label %_ZNSt6vectorIjSaIjEE5clearEv.exit2, label %12
@@ -516,19 +516,19 @@ _ZN4llvm16IntervalPressure5resetEv.exit.sink.split: ; preds = %_ZNSt6vectorIjSaI
 _ZN4llvm16IntervalPressure5resetEv.exit:          ; preds = %_ZNSt6vectorIjSaIjEE5clearEv.exit4, %_ZN4llvm16IntervalPressure5resetEv.exit.sink.split
   %24 = getelementptr inbounds nuw i8, ptr %19, i64 24
   %25 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %24) #14
-  %26 = getelementptr inbounds i8, ptr %19, i64 32
+  %26 = getelementptr inbounds nuw i8, ptr %19, i64 32
   store i32 0, ptr %26, align 8
   %27 = getelementptr inbounds nuw i8, ptr %19, i64 168
   %28 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %27) #14
-  %29 = getelementptr inbounds i8, ptr %19, i64 176
+  %29 = getelementptr inbounds nuw i8, ptr %19, i64 176
   store i32 0, ptr %29, align 8
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %31 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %30) #14
-  %32 = getelementptr inbounds i8, ptr %0, i64 104
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store i32 0, ptr %32, align 8
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 264
   %34 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %33) #14
-  %35 = getelementptr inbounds i8, ptr %0, i64 272
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 272
   store i32 0, ptr %35, align 8
   ret void
 }
@@ -542,7 +542,7 @@ define dso_local void @_ZN4llvm18RegPressureTracker4initEPKNS_15MachineFunctionE
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 72
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %12, i8 0, i64 16, i1 false)
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 80
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %16 = load ptr, ptr %15, align 8
   %.not.i.i.i = icmp eq ptr %16, %14
   br i1 %.not.i.i.i, label %_ZNSt6vectorIjSaIjEE5clearEv.exit.i, label %17
@@ -554,7 +554,7 @@ define dso_local void @_ZN4llvm18RegPressureTracker4initEPKNS_15MachineFunctionE
 _ZNSt6vectorIjSaIjEE5clearEv.exit.i:              ; preds = %17, %8
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 328
   %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %0, i64 336
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 336
   %21 = load ptr, ptr %20, align 8
   %.not.i.i1.i = icmp eq ptr %21, %19
   br i1 %.not.i.i1.i, label %_ZNSt6vectorIjSaIjEE5clearEv.exit2.i, label %22
@@ -597,19 +597,19 @@ _ZN4llvm18RegPressureTracker5resetEv.exit:        ; preds = %_ZNSt6vectorIjSaIjE
   %31 = phi ptr [ %24, %_ZNSt6vectorIjSaIjEE5clearEv.exit4.i.thread ], [ %.pre, %_ZNSt6vectorIjSaIjEE5clearEv.exit4.i ], [ %.pre, %_ZN4llvm16IntervalPressure5resetEv.exit.sink.split.i ]
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 24
   %33 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %32) #14
-  %34 = getelementptr inbounds i8, ptr %31, i64 32
+  %34 = getelementptr inbounds nuw i8, ptr %31, i64 32
   store i32 0, ptr %34, align 8
   %35 = getelementptr inbounds nuw i8, ptr %31, i64 168
   %36 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %35) #14
-  %37 = getelementptr inbounds i8, ptr %31, i64 176
+  %37 = getelementptr inbounds nuw i8, ptr %31, i64 176
   store i32 0, ptr %37, align 8
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %39 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %38) #14
-  %40 = getelementptr inbounds i8, ptr %0, i64 104
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store i32 0, ptr %40, align 8
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 264
   %42 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %41) #14
-  %43 = getelementptr inbounds i8, ptr %0, i64 272
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 272
   store i32 0, ptr %43, align 8
   store ptr %1, ptr %0, align 8
   %44 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -663,7 +663,7 @@ _ZN4llvm18RegPressureTracker5resetEv.exit:        ; preds = %_ZNSt6vectorIjSaIjE
   %75 = getelementptr inbounds nuw i8, ptr %74, i64 56
   %76 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %75) #14
   %77 = trunc i64 %76 to i32
-  %78 = getelementptr inbounds i8, ptr %0, i64 320
+  %78 = getelementptr inbounds nuw i8, ptr %0, i64 320
   %79 = load i32, ptr %78, align 8
   %80 = lshr i32 %79, 2
   %.not.i = icmp ugt i32 %80, %77
@@ -672,7 +672,7 @@ _ZN4llvm18RegPressureTracker5resetEv.exit:        ; preds = %_ZNSt6vectorIjSaIjE
   br i1 %or.cond.i, label %81, label %_ZN4llvm9SparseSetINS_8RegisterENS_20VirtReg2IndexFunctorEhE11setUniverseEj.exit
 
 81:                                               ; preds = %73
-  %82 = getelementptr inbounds i8, ptr %0, i64 312
+  %82 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %83 = load ptr, ptr %82, align 8
   call void @free(ptr noundef %83) #14
   %84 = and i64 %76, 4294967295
@@ -1003,7 +1003,7 @@ _ZN4llvm28skipDebugInstructionsForwardINS_14ilist_iteratorINS_12ilist_detail12no
   %52 = phi ptr [ %.sroa.0.0.lcssa.i.i.i, %_ZN4llvm12getBundleEndENS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_12MachineInstrELb1ELb1EvLb0EvEELb0ELb1EEE.exit.i.i ], [ %47, %.critedge2.i.i.i ], [ %.sroa.03.09.i.i.i, %.lr.ph.i14.i.i ]
   %53 = getelementptr inbounds nuw i8, ptr %23, i64 120
   %54 = load ptr, ptr %53, align 8
-  %55 = getelementptr inbounds i8, ptr %23, i64 136
+  %55 = getelementptr inbounds nuw i8, ptr %23, i64 136
   %56 = load i32, ptr %55, align 8
   %57 = icmp eq i32 %56, 0
   br i1 %57, label %.loopexit.i.i.i, label %58
@@ -1329,7 +1329,7 @@ define dso_local void @_ZN4llvm18RegPressureTracker12initLiveThruERKS0_(ptr noun
 
 .lr.ph:                                           ; preds = %2
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 264
-  %19 = getelementptr inbounds i8, ptr %1, i64 312
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 312
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 24
   br label %21
 
@@ -2181,7 +2181,7 @@ _ZN4llvm28skipDebugInstructionsForwardINS_14ilist_iteratorINS_12ilist_detail12no
   %26 = phi ptr [ %.sroa.0.0.lcssa.i.i.i, %_ZN4llvm12getBundleEndENS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_12MachineInstrELb1ELb1EvLb0EvEELb0ELb1EEE.exit.i.i ], [ %21, %.critedge2.i.i.i ], [ %.sroa.03.09.i.i.i, %.lr.ph.i14.i.i ]
   %27 = getelementptr inbounds nuw i8, ptr %5, i64 120
   %28 = load ptr, ptr %27, align 8
-  %29 = getelementptr inbounds i8, ptr %5, i64 136
+  %29 = getelementptr inbounds nuw i8, ptr %5, i64 136
   %30 = load i32, ptr %29, align 8
   %31 = icmp eq i32 %30, 0
   br i1 %31, label %.loopexit.i.i.i, label %32
@@ -2235,7 +2235,7 @@ _ZNK4llvm13LiveIntervals19getInstructionIndexERKNS_12MachineInstrE.exit: ; preds
 .lr.ph.lr.ph:                                     ; preds = %_ZNK4llvm13LiveIntervals19getInstructionIndexERKNS_12MachineInstrE.exit
   %58 = getelementptr inbounds nuw i8, ptr %2, i64 424
   %59 = getelementptr inbounds nuw i8, ptr %2, i64 152
-  %60 = getelementptr inbounds i8, ptr %2, i64 168
+  %60 = getelementptr inbounds nuw i8, ptr %2, i64 168
   %61 = and i64 %.sroa.010.0.copyload.i.i, -8
   %62 = inttoptr i64 %61 to ptr
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 24
@@ -2855,7 +2855,7 @@ define dso_local void @_ZN4llvm18RegPressureTracker11addLiveRegsENS_8ArrayRefINS
 
 .lr.ph:                                           ; preds = %3
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %7 = getelementptr inbounds i8, ptr %0, i64 256
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -3225,8 +3225,8 @@ define dso_local void @_ZN4llvm18RegPressureTracker12bumpDeadDefsENS_8ArrayRefIN
 
 .lr.ph:                                           ; preds = %3
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %6 = getelementptr inbounds i8, ptr %0, i64 256
-  %7 = getelementptr inbounds i8, ptr %0, i64 240
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 256
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 240
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -3234,8 +3234,8 @@ define dso_local void @_ZN4llvm18RegPressureTracker12bumpDeadDefsENS_8ArrayRefIN
 
 .lr.ph60:                                         ; preds = %_ZN4llvm18RegPressureTracker19increaseRegPressureENS_8RegisterENS_11LaneBitmaskES2_.exit
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %12 = getelementptr inbounds i8, ptr %0, i64 256
-  %13 = getelementptr inbounds i8, ptr %0, i64 240
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 256
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 240
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 24
   br label %103
@@ -3526,8 +3526,8 @@ define dso_local void @_ZN4llvm18RegPressureTracker6recedeERKNS_16RegisterOperan
 
 .lr.ph:                                           ; preds = %3
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %14 = getelementptr inbounds i8, ptr %0, i64 256
-  %15 = getelementptr inbounds i8, ptr %0, i64 240
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 256
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 240
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -3959,7 +3959,7 @@ _ZN4llvm28skipDebugInstructionsForwardINS_14ilist_iteratorINS_12ilist_detail12no
   %238 = phi ptr [ %.sroa.0.0.lcssa.i.i.i, %_ZN4llvm12getBundleEndENS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_12MachineInstrELb1ELb1EvLb0EvEELb0ELb1EEE.exit.i.i ], [ %233, %.critedge2.i.i.i ], [ %.sroa.03.09.i.i.i, %.lr.ph.i14.i.i ]
   %239 = getelementptr inbounds nuw i8, ptr %217, i64 120
   %240 = load ptr, ptr %239, align 8
-  %241 = getelementptr inbounds i8, ptr %217, i64 136
+  %241 = getelementptr inbounds nuw i8, ptr %217, i64 136
   %242 = load i32, ptr %241, align 8
   %243 = icmp eq i32 %242, 0
   br i1 %243, label %.loopexit.i.i.i, label %244
@@ -4018,7 +4018,7 @@ _ZNK4llvm13LiveIntervals19getInstructionIndexERKNS_12MachineInstrE.exit: ; preds
 
 .lr.ph183:                                        ; preds = %269
   %273 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %274 = getelementptr inbounds i8, ptr %0, i64 256
+  %274 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %275 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %.not88 = icmp eq ptr %2, null
   %276 = getelementptr inbounds nuw i8, ptr %0, i64 58
@@ -4310,8 +4310,8 @@ _ZN4llvm18RegPressureTracker19increaseRegPressureENS_8RegisterENS_11LaneBitmaskE
 
 .lr.ph188:                                        ; preds = %413
   %417 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %418 = getelementptr inbounds i8, ptr %0, i64 256
-  %419 = getelementptr inbounds i8, ptr %0, i64 240
+  %418 = getelementptr inbounds nuw i8, ptr %0, i64 256
+  %419 = getelementptr inbounds nuw i8, ptr %0, i64 240
   %420 = getelementptr inbounds nuw i8, ptr %0, i64 264
   br label %421
 
@@ -4843,7 +4843,7 @@ _ZNK4llvm18RegPressureTracker11isTopClosedEv.exit: ; preds = %29
   store i64 0, ptr %33, align 8
   %38 = getelementptr inbounds nuw i8, ptr %32, i64 24
   %39 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %38) #14
-  %40 = getelementptr inbounds i8, ptr %32, i64 32
+  %40 = getelementptr inbounds nuw i8, ptr %32, i64 32
   store i32 0, ptr %40, align 8
   br label %_ZN4llvm14RegionPressure7openTopENS_26MachineInstrBundleIteratorIKNS_12MachineInstrELb0EEE.exit
 
@@ -5016,7 +5016,7 @@ _ZN4llvm28skipDebugInstructionsForwardINS_14ilist_iteratorINS_12ilist_detail12no
   %101 = phi ptr [ %.sroa.0.0.lcssa.i.i.i, %_ZN4llvm12getBundleEndENS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_12MachineInstrELb1ELb1EvLb0EvEELb0ELb1EEE.exit.i.i ], [ %96, %.critedge2.i.i.i ], [ %.sroa.03.09.i.i.i, %.lr.ph.i14.i.i ]
   %102 = getelementptr inbounds nuw i8, ptr %80, i64 120
   %103 = load ptr, ptr %102, align 8
-  %104 = getelementptr inbounds i8, ptr %80, i64 136
+  %104 = getelementptr inbounds nuw i8, ptr %80, i64 136
   %105 = load i32, ptr %104, align 8
   %106 = icmp eq i32 %105, 0
   br i1 %106, label %.loopexit.i.i.i, label %107
@@ -5102,7 +5102,7 @@ _ZNK4llvm18RegPressureTracker11isTopClosedEv.exit11: ; preds = %switch.hole_chec
   store i64 0, ptr %133, align 8
   %153 = getelementptr inbounds nuw i8, ptr %132, i64 24
   %154 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %153) #14
-  %155 = getelementptr inbounds i8, ptr %132, i64 32
+  %155 = getelementptr inbounds nuw i8, ptr %132, i64 32
   store i32 0, ptr %155, align 8
   br label %_ZN4llvm16IntervalPressure7openTopENS_9SlotIndexE.exit
 
@@ -5217,7 +5217,7 @@ _ZN4llvm28skipDebugInstructionsForwardINS_14ilist_iteratorINS_12ilist_detail12no
   %49 = phi ptr [ %.sroa.0.0.lcssa.i.i.i, %_ZN4llvm12getBundleEndENS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_12MachineInstrELb1ELb1EvLb0EvEELb0ELb1EEE.exit.i.i ], [ %44, %.critedge2.i.i.i ], [ %.sroa.03.09.i.i.i, %.lr.ph.i14.i.i ]
   %50 = getelementptr inbounds nuw i8, ptr %28, i64 120
   %51 = load ptr, ptr %50, align 8
-  %52 = getelementptr inbounds i8, ptr %28, i64 136
+  %52 = getelementptr inbounds nuw i8, ptr %28, i64 136
   %53 = load i32, ptr %52, align 8
   %54 = icmp eq i32 %53, 0
   br i1 %54, label %.loopexit.i.i.i, label %55
@@ -5421,7 +5421,7 @@ _ZN4llvm16IntervalPressure10openBottomENS_9SlotIndexE.exit.sink.split: ; preds =
   store i64 0, ptr %.sink, align 8
   %63 = getelementptr inbounds nuw i8, ptr %.sink147, i64 24
   %64 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %63) #14
-  %65 = getelementptr inbounds i8, ptr %.sink147, i64 32
+  %65 = getelementptr inbounds nuw i8, ptr %.sink147, i64 32
   store i32 0, ptr %65, align 8
   br label %_ZN4llvm16IntervalPressure10openBottomENS_9SlotIndexE.exit
 
@@ -5435,8 +5435,8 @@ _ZN4llvm16IntervalPressure10openBottomENS_9SlotIndexE.exit: ; preds = %_ZN4llvm1
 
 .lr.ph:                                           ; preds = %_ZN4llvm16IntervalPressure10openBottomENS_9SlotIndexE.exit
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %70 = getelementptr inbounds i8, ptr %0, i64 256
-  %71 = getelementptr inbounds i8, ptr %0, i64 240
+  %70 = getelementptr inbounds nuw i8, ptr %0, i64 256
+  %71 = getelementptr inbounds nuw i8, ptr %0, i64 240
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %74 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -5762,7 +5762,7 @@ _ZN4llvm18RegPressureTracker19decreaseRegPressureENS_8RegisterENS_11LaneBitmaskE
 
 .lr.ph133:                                        ; preds = %._crit_edge
   %265 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %266 = getelementptr inbounds i8, ptr %0, i64 256
+  %266 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %267 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %268 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %269 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -6130,7 +6130,7 @@ _ZN4llvm28skipDebugInstructionsForwardINS_14ilist_iteratorINS_12ilist_detail12no
   %32 = phi ptr [ %.sroa.0.0.lcssa.i.i.i, %_ZN4llvm12getBundleEndENS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_12MachineInstrELb1ELb1EvLb0EvEELb0ELb1EEE.exit.i.i ], [ %27, %.critedge2.i.i.i ], [ %.sroa.03.09.i.i.i, %.lr.ph.i14.i.i ]
   %33 = getelementptr inbounds nuw i8, ptr %11, i64 120
   %34 = load ptr, ptr %33, align 8
-  %35 = getelementptr inbounds i8, ptr %11, i64 136
+  %35 = getelementptr inbounds nuw i8, ptr %11, i64 136
   %36 = load i32, ptr %35, align 8
   %37 = icmp eq i32 %36, 0
   br i1 %37, label %.loopexit.i.i.i, label %38
@@ -6231,8 +6231,8 @@ _ZNK4llvm13LiveIntervals19getInstructionIndexERKNS_12MachineInstrE.exit: ; preds
 
 .lr.ph:                                           ; preds = %88
   %94 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %95 = getelementptr inbounds i8, ptr %0, i64 256
-  %96 = getelementptr inbounds i8, ptr %0, i64 240
+  %95 = getelementptr inbounds nuw i8, ptr %0, i64 256
+  %96 = getelementptr inbounds nuw i8, ptr %0, i64 240
   %97 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %98 = getelementptr inbounds nuw i8, ptr %0, i64 48
   br label %99
@@ -6567,8 +6567,8 @@ _ZN4llvm18RegPressureTracker19increaseRegPressureENS_8RegisterENS_11LaneBitmaskE
 
 .lr.ph148:                                        ; preds = %._crit_edge
   %281 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %282 = getelementptr inbounds i8, ptr %0, i64 256
-  %283 = getelementptr inbounds i8, ptr %0, i64 240
+  %282 = getelementptr inbounds nuw i8, ptr %0, i64 256
+  %283 = getelementptr inbounds nuw i8, ptr %0, i64 240
   %284 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %285 = getelementptr inbounds nuw i8, ptr %0, i64 48
   br label %286
@@ -6858,7 +6858,7 @@ _ZN4llvm16RegisterOperandsD2Ev.exit:              ; preds = %_ZN4llvm11SmallVect
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN4llvm18RegPressureTracker25getMaxUpwardPressureDeltaEPKNS_12MachineInstrEPNS_12PressureDiffERNS_16RegPressureDeltaENS_8ArrayRefINS_14PressureChangeEEENS8_IjEE(ptr noundef nonnull align 8 dereferenceable(352) %0, ptr noundef %1, ptr nocapture noundef readnone %2, ptr nocapture noundef nonnull writeonly align 2 dereferenceable(12) %3, ptr nocapture readonly %4, i64 %5, ptr nocapture noundef readonly byval(%"class.llvm::ArrayRef.251") align 8 %6) local_unnamed_addr #0 align 2 {
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %9 = getelementptr inbounds i8, ptr %0, i64 80
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %10 = load ptr, ptr %9, align 8
   %11 = load ptr, ptr %8, align 8
   %12 = ptrtoint ptr %10 to i64
@@ -6918,7 +6918,7 @@ _ZNSt6vectorIjSaIjEEC2ERKS1_.exit12:              ; preds = %_ZNSt6vectorIjSaIjE
   %41 = load ptr, ptr %40, align 8
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 328
   %43 = load ptr, ptr %42, align 8
-  %44 = getelementptr inbounds i8, ptr %0, i64 336
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 336
   %45 = load ptr, ptr %44, align 8
   %46 = ptrtoint ptr %45 to i64
   %47 = ptrtoint ptr %43 to i64
@@ -6940,8 +6940,8 @@ _ZNSt6vectorIjSaIjEEC2ERKS1_.exit12:              ; preds = %_ZNSt6vectorIjSaIjE
   br i1 %.not26.i, label %_ZL23computeMaxPressureDeltaN4llvm8ArrayRefIjEES1_NS0_INS_14PressureChangeEEES1_RNS_16RegPressureDeltaE.exit, label %.lr.ph23.i
 
 .lr.ph23.i:                                       ; preds = %_ZNSt6vectorIjSaIjEEC2ERKS1_.exit12
-  %57 = getelementptr inbounds i8, ptr %3, i64 6
-  %58 = getelementptr inbounds i8, ptr %3, i64 10
+  %57 = getelementptr inbounds nuw i8, ptr %3, i64 6
+  %58 = getelementptr inbounds nuw i8, ptr %3, i64 10
   br label %59
 
 59:                                               ; preds = %103, %.lr.ph23.i
@@ -7047,7 +7047,7 @@ _ZL23computeMaxPressureDeltaN4llvm8ArrayRefIjEES1_NS0_INS_14PressureChangeEEES1_
   store ptr %37, ptr %109, align 8
   store ptr %36, ptr %110, align 8
   %112 = load ptr, ptr %8, align 8
-  %113 = getelementptr inbounds i8, ptr %0, i64 88
+  %113 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %114 = load ptr, ptr %113, align 8
   store ptr %20, ptr %8, align 8
   store ptr %21, ptr %9, align 8
@@ -7219,15 +7219,15 @@ define dso_local void @_ZNK4llvm18RegPressureTracker22getUpwardPressureDeltaEPKN
   %invariant.gep = getelementptr inbounds i8, ptr %4, i64 2
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 328
-  %11 = getelementptr inbounds i8, ptr %0, i64 336
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 336
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 2
   %15 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  %16 = getelementptr inbounds i8, ptr %3, i64 6
+  %16 = getelementptr inbounds nuw i8, ptr %3, i64 6
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %18 = load ptr, ptr %6, align 8
-  %19 = getelementptr inbounds i8, ptr %3, i64 10
+  %19 = getelementptr inbounds nuw i8, ptr %3, i64 10
   br label %20
 
 20:                                               ; preds = %7, %92
@@ -7431,7 +7431,7 @@ _ZNK4llvm13LiveIntervals11hasIntervalENS_8RegisterE.exit.thread.i.i: ; preds = %
   br i1 %21, label %22, label %_ZN4llvm13LiveIntervals31createAndComputeVirtRegIntervalENS_8RegisterE.exit.i.i
 
 22:                                               ; preds = %_ZNK4llvm13LiveIntervals11hasIntervalENS_8RegisterE.exit.thread.i.i
-  %23 = getelementptr inbounds i8, ptr %0, i64 168
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %24 = load ptr, ptr %23, align 8
   tail call void @_ZN4llvm15SmallVectorImplIPNS_12LiveIntervalEE6resizeEmS2_(ptr noundef nonnull align 8 dereferenceable(16) %10, i64 noundef %19, ptr noundef %24)
   br label %_ZN4llvm13LiveIntervals31createAndComputeVirtRegIntervalENS_8RegisterE.exit.i.i
@@ -7584,7 +7584,7 @@ _ZN4llvm28skipDebugInstructionsForwardINS_14ilist_iteratorINS_12ilist_detail12no
   %32 = phi ptr [ %.sroa.0.0.lcssa.i.i.i, %_ZN4llvm12getBundleEndENS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_12MachineInstrELb1ELb1EvLb0EvEELb0ELb1EEE.exit.i.i ], [ %27, %.critedge2.i.i.i ], [ %.sroa.03.09.i.i.i, %.lr.ph.i14.i.i ]
   %33 = getelementptr inbounds nuw i8, ptr %11, i64 120
   %34 = load ptr, ptr %33, align 8
-  %35 = getelementptr inbounds i8, ptr %11, i64 136
+  %35 = getelementptr inbounds nuw i8, ptr %11, i64 136
   %36 = load i32, ptr %35, align 8
   %37 = icmp eq i32 %36, 0
   br i1 %37, label %.loopexit.i.i.i, label %38
@@ -7683,8 +7683,8 @@ _ZNK4llvm13LiveIntervals19getInstructionIndexERKNS_12MachineInstrE.exit: ; preds
   %94 = lshr i32 %93, 1
   %95 = and i32 %94, 3
   %96 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %97 = getelementptr inbounds i8, ptr %0, i64 256
-  %98 = getelementptr inbounds i8, ptr %0, i64 240
+  %97 = getelementptr inbounds nuw i8, ptr %0, i64 256
+  %98 = getelementptr inbounds nuw i8, ptr %0, i64 240
   %99 = getelementptr inbounds nuw i8, ptr %0, i64 72
   br label %100
 
@@ -7733,7 +7733,7 @@ _ZNK4llvm13LiveIntervals19getInstructionIndexERKNS_12MachineInstrE.exit: ; preds
 
 .critedge2.i.i.i.i.i:                             ; preds = %129, %132
   %.pn.i.i.i.i.i = phi ptr [ %storemerge.i.i.i.i.i, %132 ], [ %.0.i.i.i.i, %129 ]
-  %storemerge.in.i.i.i.i.i = getelementptr inbounds i8, ptr %.pn.i.i.i.i.i, i64 24
+  %storemerge.in.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.pn.i.i.i.i.i, i64 24
   %storemerge.i.i.i.i.i = load ptr, ptr %storemerge.in.i.i.i.i.i, align 8
   %.not.i.i.i.i.i = icmp eq ptr %storemerge.i.i.i.i.i, null
   br i1 %.not.i.i.i.i.i, label %_ZL14findUseBetweenjN4llvm11LaneBitmaskENS_9SlotIndexES1_RKNS_19MachineRegisterInfoEPKNS_13LiveIntervalsE.exit, label %132
@@ -7835,7 +7835,7 @@ _ZN4llvm28skipDebugInstructionsForwardINS_14ilist_iteratorINS_12ilist_detail12no
   %170 = phi ptr [ %.sroa.0.0.lcssa.i.i.i.i, %_ZN4llvm12getBundleEndENS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_12MachineInstrELb1ELb1EvLb0EvEELb0ELb1EEE.exit.i.i.i ], [ %.sroa.03.09.i.i.i.i, %.lr.ph.i14.i.i.i ], [ %165, %.critedge2.i.i.i.i ]
   %171 = getelementptr inbounds nuw i8, ptr %149, i64 120
   %172 = load ptr, ptr %171, align 8
-  %173 = getelementptr inbounds i8, ptr %149, i64 136
+  %173 = getelementptr inbounds nuw i8, ptr %149, i64 136
   %174 = load i32, ptr %173, align 8
   %175 = icmp eq i32 %174, 0
   br i1 %175, label %.loopexit.i.i.i.i, label %176
@@ -7914,7 +7914,7 @@ _ZNK4llvm13LiveIntervals19getInstructionIndexERKNS_12MachineInstrE.exit.i: ; pre
 
 .critedge2.i.i.i42:                               ; preds = %220, %219
   %.pn.i.i.i = phi ptr [ %.sroa.024.037.i, %219 ], [ %storemerge.i.i.i, %220 ]
-  %storemerge.in.i.i.i = getelementptr inbounds i8, ptr %.pn.i.i.i, i64 24
+  %storemerge.in.i.i.i = getelementptr inbounds nuw i8, ptr %.pn.i.i.i, i64 24
   %storemerge.i.i.i = load ptr, ptr %storemerge.in.i.i.i, align 8
   %.not.i.i.i43 = icmp eq ptr %storemerge.i.i.i, null
   br i1 %.not.i.i.i43, label %_ZL14findUseBetweenjN4llvm11LaneBitmaskENS_9SlotIndexES1_RKNS_19MachineRegisterInfoEPKNS_13LiveIntervalsE.exit, label %220
@@ -8058,8 +8058,8 @@ _ZN4llvm18RegPressureTracker19decreaseRegPressureENS_8RegisterENS_11LaneBitmaskE
 
 .lr.ph98:                                         ; preds = %.loopexit
   %300 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %301 = getelementptr inbounds i8, ptr %0, i64 256
-  %302 = getelementptr inbounds i8, ptr %0, i64 240
+  %301 = getelementptr inbounds nuw i8, ptr %0, i64 256
+  %302 = getelementptr inbounds nuw i8, ptr %0, i64 240
   %303 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %304 = getelementptr inbounds nuw i8, ptr %0, i64 48
   br label %305
@@ -8242,7 +8242,7 @@ _ZN4llvm16RegisterOperandsD2Ev.exit:              ; preds = %_ZN4llvm11SmallVect
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN4llvm18RegPressureTracker27getMaxDownwardPressureDeltaEPKNS_12MachineInstrERNS_16RegPressureDeltaENS_8ArrayRefINS_14PressureChangeEEENS6_IjEE(ptr noundef nonnull align 8 dereferenceable(352) %0, ptr noundef %1, ptr nocapture noundef nonnull writeonly align 2 dereferenceable(12) %2, ptr nocapture readonly %3, i64 %4, ptr nocapture noundef readonly byval(%"class.llvm::ArrayRef.251") align 8 %5) local_unnamed_addr #0 align 2 {
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %8 = getelementptr inbounds i8, ptr %0, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %9 = load ptr, ptr %8, align 8
   %10 = load ptr, ptr %7, align 8
   %11 = ptrtoint ptr %9 to i64
@@ -8302,7 +8302,7 @@ _ZNSt6vectorIjSaIjEEC2ERKS1_.exit12:              ; preds = %_ZNSt6vectorIjSaIjE
   %40 = load ptr, ptr %39, align 8
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 328
   %42 = load ptr, ptr %41, align 8
-  %43 = getelementptr inbounds i8, ptr %0, i64 336
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 336
   %44 = load ptr, ptr %43, align 8
   %45 = ptrtoint ptr %44 to i64
   %46 = ptrtoint ptr %42 to i64
@@ -8324,8 +8324,8 @@ _ZNSt6vectorIjSaIjEEC2ERKS1_.exit12:              ; preds = %_ZNSt6vectorIjSaIjE
   br i1 %.not26.i, label %_ZL23computeMaxPressureDeltaN4llvm8ArrayRefIjEES1_NS0_INS_14PressureChangeEEES1_RNS_16RegPressureDeltaE.exit, label %.lr.ph23.i
 
 .lr.ph23.i:                                       ; preds = %_ZNSt6vectorIjSaIjEEC2ERKS1_.exit12
-  %56 = getelementptr inbounds i8, ptr %2, i64 6
-  %57 = getelementptr inbounds i8, ptr %2, i64 10
+  %56 = getelementptr inbounds nuw i8, ptr %2, i64 6
+  %57 = getelementptr inbounds nuw i8, ptr %2, i64 10
   br label %58
 
 58:                                               ; preds = %102, %.lr.ph23.i
@@ -8431,7 +8431,7 @@ _ZL23computeMaxPressureDeltaN4llvm8ArrayRefIjEES1_NS0_INS_14PressureChangeEEES1_
   store ptr %36, ptr %108, align 8
   store ptr %35, ptr %109, align 8
   %111 = load ptr, ptr %7, align 8
-  %112 = getelementptr inbounds i8, ptr %0, i64 88
+  %112 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %113 = load ptr, ptr %112, align 8
   store ptr %19, ptr %7, align 8
   store ptr %20, ptr %8, align 8
@@ -8487,9 +8487,9 @@ define dso_local void @_ZN4llvm18RegPressureTracker17getUpwardPressureEPKNS_12Ma
   store ptr %13, ptr %17, align 8
   store ptr %15, ptr %19, align 8
   %21 = load ptr, ptr %5, align 8
-  %22 = getelementptr inbounds i8, ptr %0, i64 80
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %0, i64 88
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %25 = load ptr, ptr %24, align 8
   %26 = load ptr, ptr %2, align 8
   store ptr %26, ptr %5, align 8
@@ -8531,9 +8531,9 @@ define dso_local void @_ZN4llvm18RegPressureTracker19getDownwardPressureEPKNS_12
   store ptr %13, ptr %17, align 8
   store ptr %15, ptr %19, align 8
   %21 = load ptr, ptr %5, align 8
-  %22 = getelementptr inbounds i8, ptr %0, i64 80
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %0, i64 88
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %25 = load ptr, ptr %24, align 8
   %26 = load ptr, ptr %2, align 8
   store ptr %26, ptr %5, align 8

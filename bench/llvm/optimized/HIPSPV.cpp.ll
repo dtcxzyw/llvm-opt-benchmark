@@ -503,11 +503,11 @@ _ZNK4llvm9StringRef3strB5cxx11Ev.exit.i:          ; preds = %124, %123
   %134 = getelementptr inbounds nuw i8, ptr %16, i64 25
   store i8 0, ptr %134, align 1, !alias.scope !24, !noalias !7
   store i8 0, ptr %130, align 8, !noalias !23
-  %135 = getelementptr inbounds i8, ptr %126, i64 792
+  %135 = getelementptr inbounds nuw i8, ptr %126, i64 792
   %136 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %135) #12, !noalias !23
-  %137 = getelementptr inbounds i8, ptr %126, i64 800
+  %137 = getelementptr inbounds nuw i8, ptr %126, i64 800
   store i32 0, ptr %137, align 8, !noalias !23
-  %138 = getelementptr inbounds i8, ptr %126, i64 904
+  %138 = getelementptr inbounds nuw i8, ptr %126, i64 904
   %139 = load ptr, ptr %138, align 8, !noalias !23
   %140 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %138) #12, !noalias !23
   %.not4.i.i.i.i.i.i.i = icmp eq i64 %140, 0
@@ -526,7 +526,7 @@ _ZNK4llvm9StringRef3strB5cxx11Ev.exit.i:          ; preds = %124, %123
   br i1 %.not.i.i.i.i.i.i.i, label %_ZNK5clang6driver6Driver4DiagEj.exit.i, label %.lr.ph.i.i.i.i.i.i.i, !llvm.loop !25
 
 _ZNK5clang6driver6Driver4DiagEj.exit.i:           ; preds = %.lr.ph.i.i.i.i.i.i.i, %125
-  %144 = getelementptr inbounds i8, ptr %126, i64 912
+  %144 = getelementptr inbounds nuw i8, ptr %126, i64 912
   store i32 0, ptr %144, align 8, !noalias !23
   call void @_ZNK5clang19StreamingDiagnostic9AddStringEN4llvm9StringRefE(ptr noundef nonnull align 8 dereferenceable(16) %16, ptr %113, i64 %114)
   %145 = load i8, ptr %133, align 8, !noalias !7
@@ -1674,11 +1674,11 @@ _ZN4llvm11SmallStringILj128EED2Ev.exit.i.i.i:     ; preds = %197, %193
   store i8 1, ptr %143, align 8, !alias.scope !65, !noalias !46
   store i8 0, ptr %144, align 1, !alias.scope !65, !noalias !46
   store i8 0, ptr %203, align 8, !noalias !64
-  %204 = getelementptr inbounds i8, ptr %199, i64 792
+  %204 = getelementptr inbounds nuw i8, ptr %199, i64 792
   %205 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %204) #12, !noalias !64
-  %206 = getelementptr inbounds i8, ptr %199, i64 800
+  %206 = getelementptr inbounds nuw i8, ptr %199, i64 800
   store i32 0, ptr %206, align 8, !noalias !64
-  %207 = getelementptr inbounds i8, ptr %199, i64 904
+  %207 = getelementptr inbounds nuw i8, ptr %199, i64 904
   %208 = load ptr, ptr %207, align 8, !noalias !64
   %209 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %207) #12, !noalias !64
   %.not4.i.i.i.i.i.i.i.i.i = icmp eq i64 %209, 0
@@ -1697,7 +1697,7 @@ _ZN4llvm11SmallStringILj128EED2Ev.exit.i.i.i:     ; preds = %197, %193
   br i1 %.not.i.i.i.i.i.i.i.i.i, label %_ZNK5clang6driver6Driver4DiagEj.exit.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i.i, !llvm.loop !25
 
 _ZNK5clang6driver6Driver4DiagEj.exit.i.i.i:       ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i, %._crit_edge.i.i.i
-  %213 = getelementptr inbounds i8, ptr %199, i64 912
+  %213 = getelementptr inbounds nuw i8, ptr %199, i64 912
   store i32 0, ptr %213, align 8, !noalias !64
   call void @_ZNK5clang19StreamingDiagnostic9AddStringEN4llvm9StringRefE(ptr noundef nonnull align 8 dereferenceable(16) %20, ptr %147, i64 %148), !noalias !46
   %214 = load i8, ptr %143, align 8, !noalias !46
@@ -1923,18 +1923,18 @@ _ZN4llvm11SmallStringILj128EED2Ev.exit27:         ; preds = %.critedge, %288
   %300 = getelementptr inbounds nuw i8, ptr %45, i64 25
   store i8 0, ptr %300, align 1, !alias.scope !88
   store i8 0, ptr %296, align 8, !noalias !88
-  %301 = getelementptr inbounds i8, ptr %292, i64 792
+  %301 = getelementptr inbounds nuw i8, ptr %292, i64 792
   %302 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %301) #12, !noalias !88
-  %303 = getelementptr inbounds i8, ptr %292, i64 800
+  %303 = getelementptr inbounds nuw i8, ptr %292, i64 800
   store i32 0, ptr %303, align 8, !noalias !88
-  %304 = getelementptr inbounds i8, ptr %292, i64 904
+  %304 = getelementptr inbounds nuw i8, ptr %292, i64 904
   %305 = load ptr, ptr %304, align 8, !noalias !88
   %306 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %304) #12, !noalias !88
   %.not4.i.i.i.i.i.i = icmp eq i64 %306, 0
   br i1 %.not4.i.i.i.i.i.i, label %_ZNK5clang6driver6Driver4DiagEj.exit.thread, label %.lr.ph.i.preheader.i.i.i.i.i
 
 _ZNK5clang6driver6Driver4DiagEj.exit.thread:      ; preds = %._crit_edge71
-  %307 = getelementptr inbounds i8, ptr %292, i64 912
+  %307 = getelementptr inbounds nuw i8, ptr %292, i64 912
   store i32 0, ptr %307, align 8, !noalias !88
   br label %_ZNK5clang17DiagnosticBuilderlsIivEERKS0_OT_.exit
 
@@ -1952,7 +1952,7 @@ _ZNK5clang6driver6Driver4DiagEj.exit.thread:      ; preds = %._crit_edge71
 
 _ZNK5clang6driver6Driver4DiagEj.exit:             ; preds = %.lr.ph.i.i.i.i.i.i
   %.pre = load ptr, ptr %45, align 8
-  %311 = getelementptr inbounds i8, ptr %292, i64 912
+  %311 = getelementptr inbounds nuw i8, ptr %292, i64 912
   store i32 0, ptr %311, align 8, !noalias !88
   %.not.i.i.i29 = icmp eq ptr %.pre, null
   br i1 %.not.i.i.i29, label %_ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i.i.i, label %_ZNK5clang17DiagnosticBuilderlsIivEERKS0_OT_.exit
@@ -2259,11 +2259,11 @@ define hidden void @_ZNK5clang6driver10toolchains15HIPSPVToolChain17AddHIPInclud
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %23) #12, !noalias !99
   %24 = getelementptr inbounds nuw i8, ptr %20, i64 376
   store i8 0, ptr %24, align 8, !noalias !99
-  %25 = getelementptr inbounds i8, ptr %20, i64 792
+  %25 = getelementptr inbounds nuw i8, ptr %20, i64 792
   %26 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %25) #12, !noalias !99
-  %27 = getelementptr inbounds i8, ptr %20, i64 800
+  %27 = getelementptr inbounds nuw i8, ptr %20, i64 800
   store i32 0, ptr %27, align 8, !noalias !99
-  %28 = getelementptr inbounds i8, ptr %20, i64 904
+  %28 = getelementptr inbounds nuw i8, ptr %20, i64 904
   %29 = load ptr, ptr %28, align 8, !noalias !99
   %30 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %28) #12, !noalias !99
   %.not4.i.i.i.i.i.i = icmp eq i64 %30, 0
@@ -2282,7 +2282,7 @@ define hidden void @_ZNK5clang6driver10toolchains15HIPSPVToolChain17AddHIPInclud
   br i1 %.not.i.i.i.i.i.i, label %_ZN5clang17DiagnosticBuilderD2Ev.exit, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !25
 
 _ZN5clang17DiagnosticBuilderD2Ev.exit:            ; preds = %.lr.ph.i.i.i.i.i.i, %17
-  %34 = getelementptr inbounds i8, ptr %20, i64 912
+  %34 = getelementptr inbounds nuw i8, ptr %20, i64 912
   store i32 0, ptr %34, align 8, !noalias !99
   %35 = tail call noundef zeroext i1 @_ZN5clang17DiagnosticsEngine21EmitCurrentDiagnosticEb(ptr noundef nonnull align 8 dereferenceable(1304) %20, i1 noundef zeroext false) #12
   br label %_ZN4llvm11SmallStringILj128EED2Ev.exit
@@ -3087,7 +3087,7 @@ _ZN5clang17DiagnosticStorageC2Ev.exit:            ; preds = %7
   store i8 0, ptr %18, align 8
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 416
   %20 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %19) #12
-  %21 = getelementptr inbounds i8, ptr %18, i64 424
+  %21 = getelementptr inbounds nuw i8, ptr %18, i64 424
   store i32 0, ptr %21, align 8
   %22 = getelementptr inbounds nuw i8, ptr %18, i64 528
   %23 = load ptr, ptr %22, align 8
@@ -3108,7 +3108,7 @@ _ZN5clang17DiagnosticStorageC2Ev.exit:            ; preds = %7
   br i1 %.not.i.i, label %_ZN4llvm15SmallVectorImplIN5clang9FixItHintEE5clearEv.exit, label %.lr.ph.i.i, !llvm.loop !25
 
 _ZN4llvm15SmallVectorImplIN5clang9FixItHintEE5clearEv.exit: ; preds = %.lr.ph.i.i, %13
-  %28 = getelementptr inbounds i8, ptr %18, i64 536
+  %28 = getelementptr inbounds nuw i8, ptr %18, i64 536
   store i32 0, ptr %28, align 8
   br label %29
 

@@ -355,7 +355,7 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_117RISCVExpandPseudo20runOnM
   %51 = tail call noundef ptr %50(ptr noundef nonnull align 8 dereferenceable(409192) %46) #12
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr %51, ptr %52, align 8
-  %53 = getelementptr inbounds i8, ptr %1, i64 328
+  %53 = getelementptr inbounds nuw i8, ptr %1, i64 328
   %54 = getelementptr inbounds nuw i8, ptr %1, i64 320
   %.sroa.07.016 = load ptr, ptr %53, align 8
   %.not17 = icmp eq ptr %.sroa.07.016, %54
@@ -376,8 +376,8 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_117RISCVExpandPseudo20runOnM
   %66 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %67 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %68 = getelementptr inbounds i8, ptr %14, i64 32
-  %69 = getelementptr inbounds i8, ptr %14, i64 48
-  %70 = getelementptr inbounds i8, ptr %14, i64 56
+  %69 = getelementptr inbounds nuw i8, ptr %14, i64 48
+  %70 = getelementptr inbounds nuw i8, ptr %14, i64 56
   %71 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %72 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %73 = getelementptr inbounds nuw i8, ptr %19, i64 4
@@ -2092,7 +2092,7 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_122RISCVPreRAExpandPseudo20r
   %40 = tail call noundef ptr %39(ptr noundef nonnull align 8 dereferenceable(409192) %35) #12
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr %40, ptr %41, align 8
-  %42 = getelementptr inbounds i8, ptr %1, i64 328
+  %42 = getelementptr inbounds nuw i8, ptr %1, i64 328
   %43 = getelementptr inbounds nuw i8, ptr %1, i64 320
   %.sroa.059.063 = load ptr, ptr %42, align 8
   %.not64 = icmp eq ptr %.sroa.059.063, %43
@@ -2109,7 +2109,7 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_122RISCVPreRAExpandPseudo20r
   %51 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %52 = getelementptr inbounds nuw i8, ptr %20, i64 16
   %53 = getelementptr inbounds nuw i8, ptr %20, i64 4
-  %54 = getelementptr inbounds i8, ptr %20, i64 24
+  %54 = getelementptr inbounds nuw i8, ptr %20, i64 24
   %55 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %56 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %57 = getelementptr inbounds nuw i8, ptr %19, i64 4
@@ -2117,7 +2117,7 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_122RISCVPreRAExpandPseudo20r
   %59 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %60 = getelementptr inbounds nuw i8, ptr %18, i64 16
   %61 = getelementptr inbounds nuw i8, ptr %18, i64 4
-  %62 = getelementptr inbounds i8, ptr %18, i64 24
+  %62 = getelementptr inbounds nuw i8, ptr %18, i64 24
   %63 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %64 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %65 = getelementptr inbounds nuw i8, ptr %17, i64 4
@@ -2126,7 +2126,7 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_122RISCVPreRAExpandPseudo20r
   %68 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %69 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %70 = getelementptr inbounds nuw i8, ptr %15, i64 4
-  %71 = getelementptr inbounds i8, ptr %15, i64 24
+  %71 = getelementptr inbounds nuw i8, ptr %15, i64 24
   %72 = getelementptr inbounds nuw i8, ptr %32, i64 8
   %73 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %74 = getelementptr inbounds nuw i8, ptr %14, i64 4
@@ -3101,7 +3101,7 @@ _ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit35: ; preds = %_ZN4llvm1
   store ptr %38, ptr %74, align 8, !alias.scope !104
   %75 = getelementptr inbounds nuw i8, ptr %6, i64 4
   store i32 0, ptr %75, align 4, !alias.scope !104
-  %76 = getelementptr inbounds i8, ptr %6, i64 24
+  %76 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store i32 0, ptr %76, align 8, !alias.scope !104
   store i32 1295, ptr %6, align 8, !alias.scope !104
   call void @_ZN4llvm12MachineInstr10addOperandERNS_15MachineFunctionERKNS_14MachineOperandE(ptr noundef nonnull align 8 dereferenceable(70) %69, ptr noundef nonnull align 8 dereferenceable(1041) %68, ptr noundef nonnull align 8 dereferenceable(32) %6) #12

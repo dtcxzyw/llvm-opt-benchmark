@@ -92,7 +92,7 @@ define dso_local void @_ZN5clang18EmitClangTypeNodesERN4llvm12RecordKeeperERNS0_
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %12, i8 0, i64 24, i1 false)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %8)
   %13 = load ptr, ptr %11, align 8
-  %14 = getelementptr inbounds i8, ptr %9, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %9, i64 24
   %15 = load ptr, ptr %14, align 8
   %16 = icmp eq ptr %13, %15
   br i1 %16, label %17, label %20
@@ -110,9 +110,9 @@ define dso_local void @_ZN5clang18EmitClangTypeNodesERN4llvm12RecordKeeperERNS0_
   %21 = load ptr, ptr %10, align 8
   %22 = load ptr, ptr %9, align 8
   call void @_ZN4llvm20emitSourceFileHeaderENS_9StringRefERNS_11raw_ostreamERKNS_12RecordKeeperE(ptr nonnull @.str.2, i64 39, ptr noundef nonnull align 8 dereferenceable(48) %21, ptr noundef nonnull align 8 dereferenceable(232) %22) #12
-  %23 = getelementptr inbounds i8, ptr %9, i64 48
+  %23 = getelementptr inbounds nuw i8, ptr %9, i64 48
   %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %9, i64 56
+  %25 = getelementptr inbounds nuw i8, ptr %9, i64 56
   %26 = load ptr, ptr %25, align 8
   %.not.i.i.i = icmp eq ptr %24, %26
   br i1 %.not.i.i.i, label %30, label %27
@@ -626,7 +626,7 @@ _ZNSt6vectorIN4llvm9StringRefESaIS1_EED2Ev.exit.i: ; preds = %246, %_ZN12_GLOBAL
   br i1 %.not.i.i.i1.i, label %_ZN12_GLOBAL__N_115TypeNodeEmitterD2Ev.exit, label %252
 
 252:                                              ; preds = %_ZNSt6vectorIN4llvm9StringRefESaIS1_EED2Ev.exit.i
-  %253 = getelementptr inbounds i8, ptr %9, i64 32
+  %253 = getelementptr inbounds nuw i8, ptr %9, i64 32
   %254 = load ptr, ptr %253, align 8
   %255 = ptrtoint ptr %254 to i64
   %256 = ptrtoint ptr %251 to i64
@@ -929,9 +929,9 @@ _ZN4llvm11raw_ostreamlsEPKc.exit39:               ; preds = %129, %131
 
 _ZN4llvm11raw_ostreamlsEPKc.exit42:               ; preds = %144, %146
   %149 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %150 = getelementptr inbounds i8, ptr %0, i64 48
+  %150 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %151 = load ptr, ptr %150, align 8
-  %152 = getelementptr inbounds i8, ptr %0, i64 56
+  %152 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %153 = load ptr, ptr %152, align 8
   %.not.i.i = icmp eq ptr %151, %153
   br i1 %.not.i.i, label %157, label %154

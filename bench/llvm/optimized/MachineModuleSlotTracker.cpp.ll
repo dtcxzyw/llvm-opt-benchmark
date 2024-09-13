@@ -18,7 +18,7 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN4llvm24MachineModuleSlotTracker30processMachineFunctionMetadataEPNS_26AbstractSlotTrackerStorageERKNS_15MachineFunctionE(ptr nocapture nonnull readnone align 8 %0, ptr noundef %1, ptr noundef nonnull readonly align 8 dereferenceable(1041) %2) local_unnamed_addr #0 align 2 {
-  %4 = getelementptr inbounds i8, ptr %2, i64 328
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 328
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 320
   %.sroa.039.052 = load ptr, ptr %4, align 8
   %.not4253 = icmp eq ptr %.sroa.039.052, %5
@@ -151,7 +151,7 @@ define dso_local void @_ZN4llvm24MachineModuleSlotTracker20processMachineModuleE
   br i1 %3, label %5, label %.loopexit
 
 5:                                                ; preds = %4
-  %6 = getelementptr inbounds i8, ptr %2, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %.sroa.013.017 = load ptr, ptr %6, align 8
   %.not1618 = icmp eq ptr %.sroa.013.017, %7
@@ -349,7 +349,7 @@ define internal void @"_ZNSt17_Function_handlerIFvPN4llvm26AbstractSlotTrackerSt
 
 6:                                                ; preds = %4
   %.val5 = load ptr, ptr %2, align 8
-  %7 = getelementptr inbounds i8, ptr %.val5, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %.val5, i64 32
   %8 = getelementptr inbounds nuw i8, ptr %.val5, i64 24
   %.sroa.013.017.i.i.i.i = load ptr, ptr %7, align 8
   %.not1618.i.i.i.i = icmp eq ptr %.sroa.013.017.i.i.i.i, %8

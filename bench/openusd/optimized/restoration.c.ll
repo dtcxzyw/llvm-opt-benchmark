@@ -30,11 +30,11 @@ define hidden { i64, i64 } @av1_whole_frame_rect(ptr nocapture noundef readonly 
   br i1 %.not, label %.thread, label %3
 
 3:                                                ; preds = %2
-  %4 = getelementptr inbounds i8, ptr %0, i64 25280
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 25280
   %5 = load i32, ptr %4, align 16
   %6 = icmp ne i32 %5, 0
   %7 = zext i1 %6 to i32
-  %8 = getelementptr inbounds i8, ptr %0, i64 25284
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 25284
   %9 = load i32, ptr %8, align 4
   %10 = icmp ne i32 %9, 0
   %11 = zext i1 %10 to i32
@@ -78,11 +78,11 @@ define hidden void @av1_alloc_restoration_struct(ptr noundef %0, ptr nocapture n
   br i1 %.not.i, label %av1_whole_frame_rect.exit, label %4
 
 4:                                                ; preds = %3
-  %5 = getelementptr inbounds i8, ptr %0, i64 25280
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 25280
   %6 = load i32, ptr %5, align 16
   %7 = icmp ne i32 %6, 0
   %8 = zext i1 %7 to i32
-  %9 = getelementptr inbounds i8, ptr %0, i64 25284
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 25284
   %10 = load i32, ptr %9, align 4
   %11 = icmp ne i32 %10, 0
   %12 = zext i1 %11 to i32
@@ -1583,9 +1583,9 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 
 ; Function Attrs: nounwind uwtable
 define hidden void @av1_loop_restoration_filter_frame_init(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #2 {
-  %6 = getelementptr inbounds i8, ptr %2, i64 25256
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 25256
   %7 = load i32, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %2, i64 25260
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 25260
   %9 = load i8, ptr %8, align 4
   %10 = zext i8 %9 to i32
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 23816
@@ -1595,11 +1595,11 @@ define hidden void @av1_loop_restoration_filter_frame_init(ptr nocapture noundef
   %14 = load i32, ptr %13, align 8
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %16 = load i32, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %2, i64 25280
+  %17 = getelementptr inbounds nuw i8, ptr %2, i64 25280
   %18 = load i32, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %2, i64 25284
+  %19 = getelementptr inbounds nuw i8, ptr %2, i64 25284
   %20 = load i32, ptr %19, align 4
-  %21 = getelementptr inbounds i8, ptr %2, i64 1056
+  %21 = getelementptr inbounds nuw i8, ptr %2, i64 1056
   %22 = load i32, ptr %21, align 4
   %23 = tail call i32 @aom_realloc_frame_buffer(ptr noundef nonnull %11, i32 noundef %14, i32 noundef %16, i32 noundef %18, i32 noundef %20, i32 noundef %10, i32 noundef 32, i32 noundef %22, ptr noundef null, ptr noundef null, ptr noundef null) #12
   %24 = icmp slt i32 %23, 0
@@ -1980,7 +1980,7 @@ define hidden void @av1_foreach_rest_unit_in_plane(ptr nocapture noundef readonl
   br i1 %9, label %10, label %15
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %0, i64 25284
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 25284
   %12 = load i32, ptr %11, align 4
   %13 = icmp ne i32 %12, 0
   %14 = zext i1 %13 to i32
@@ -2104,7 +2104,7 @@ foreach_rest_unit_in_tile.exit:                   ; preds = %av1_foreach_rest_un
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define hidden range(i32 0, 2) i32 @av1_loop_restoration_corners_in_sb(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i8 noundef zeroext %4, ptr nocapture noundef %5, ptr nocapture noundef %6, ptr nocapture noundef %7, ptr nocapture noundef writeonly %8) local_unnamed_addr #5 {
-  %10 = getelementptr inbounds i8, ptr %0, i64 25212
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 25212
   %11 = load i8, ptr %10, align 4
   %.not = icmp eq i8 %4, %11
   br i1 %.not, label %12, label %105
@@ -2122,11 +2122,11 @@ define hidden range(i32 0, 2) i32 @av1_loop_restoration_corners_in_sb(ptr nocapt
   br i1 %19, label %av1_whole_frame_rect.exit, label %20
 
 20:                                               ; preds = %18
-  %21 = getelementptr inbounds i8, ptr %0, i64 25280
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 25280
   %22 = load i32, ptr %21, align 16
   %23 = icmp ne i32 %22, 0
   %24 = zext i1 %23 to i32
-  %25 = getelementptr inbounds i8, ptr %0, i64 25284
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 25284
   %26 = load i32, ptr %25, align 4
   %27 = icmp ne i32 %26, 0
   %28 = zext i1 %27 to i32
@@ -2168,11 +2168,11 @@ av1_whole_frame_rect.exit:                        ; preds = %18, %20
   br i1 %19, label %68, label %59
 
 59:                                               ; preds = %av1_whole_frame_rect.exit
-  %60 = getelementptr inbounds i8, ptr %0, i64 25280
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 25280
   %61 = load i32, ptr %60, align 16
   %62 = icmp ne i32 %61, 0
   %63 = zext i1 %62 to i32
-  %64 = getelementptr inbounds i8, ptr %0, i64 25284
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 25284
   %65 = load i32, ptr %64, align 4
   %66 = icmp ne i32 %65, 0
   %67 = zext i1 %66 to i32
@@ -2240,12 +2240,12 @@ define hidden void @av1_loop_restoration_save_boundary_lines(ptr nocapture nound
   %4 = getelementptr i8, ptr %1, i64 25261
   %.val = load i8, ptr %4, align 1
   %.not.i = icmp eq i8 %.val, 0
-  %5 = getelementptr inbounds i8, ptr %1, i64 25260
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 25260
   %6 = load i8, ptr %5, align 4
   %7 = zext i8 %6 to i32
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 460
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 23608
-  %10 = getelementptr inbounds i8, ptr %1, i64 25284
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 25284
   %.not70.i = icmp eq i32 %2, 0
   %.not.i11 = icmp eq i8 %6, 0
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -2253,7 +2253,7 @@ define hidden void @av1_loop_restoration_save_boundary_lines(ptr nocapture nound
   %13 = shl i32 4, %7
   %14 = sext i32 %13 to i64
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %16 = getelementptr inbounds i8, ptr %1, i64 25280
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 25280
   %17 = getelementptr i8, ptr %1, i64 456
   %18 = getelementptr i8, ptr %1, i64 472
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -3581,7 +3581,7 @@ define internal void @wiener_filter_stripe(ptr noundef %0, i32 noundef %1, i32 n
   %20 = sext i32 %5 to i64
   %21 = sext i32 %7 to i64
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %23 = getelementptr inbounds i8, ptr %0, i64 32
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %24 = sext i32 %3 to i64
   %25 = zext nneg i32 %1 to i64
   br label %26
@@ -3610,7 +3610,7 @@ define internal void @sgrproj_filter_stripe(ptr nocapture noundef readonly %0, i
 
 .lr.ph:                                           ; preds = %10
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %13 = getelementptr inbounds i8, ptr %0, i64 52
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %14 = sext i32 %3 to i64
   %15 = zext nneg i32 %1 to i64
   br label %16
@@ -3667,7 +3667,7 @@ get_conv_params_wiener.exit:                      ; preds = %10, %16
   %24 = sext i32 %5 to i64
   %25 = sext i32 %7 to i64
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %27 = getelementptr inbounds i8, ptr %0, i64 32
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %28 = sext i32 %3 to i64
   %29 = zext nneg i32 %1 to i64
   br label %30
@@ -3696,7 +3696,7 @@ define internal void @sgrproj_filter_stripe_highbd(ptr nocapture noundef readonl
 
 .lr.ph:                                           ; preds = %10
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %13 = getelementptr inbounds i8, ptr %0, i64 52
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %14 = sext i32 %3 to i64
   %15 = zext nneg i32 %1 to i64
   br label %16

@@ -1195,14 +1195,14 @@ define internal fastcc noundef zeroext i1 @_ZL23CC_AArch64_Custom_BlockRjRN4llvm
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 768
   %14 = tail call noundef zeroext i1 @_ZNK4llvm6Triple11isArch32BitEv(ptr noundef nonnull align 8 dereferenceable(56) %13) #6
-  %15 = getelementptr inbounds i8, ptr %12, i64 816
+  %15 = getelementptr inbounds nuw i8, ptr %12, i64 816
   %16 = load i32, ptr %15, align 8
   %17 = icmp eq i32 %16, 10
   %18 = select i1 %14, i1 true, i1 %17
   br i1 %18, label %19, label %23
 
 19:                                               ; preds = %6
-  %20 = getelementptr inbounds i8, ptr %12, i64 820
+  %20 = getelementptr inbounds nuw i8, ptr %12, i64 820
   %21 = load i32, ptr %20, align 4
   %22 = icmp eq i32 %21, 5
   br label %23
@@ -1402,7 +1402,7 @@ _ZN4llvm11CCValAssign12convertToRegENS_10MCRegisterE.exit: ; preds = %101, %105
 
 ._crit_edge:                                      ; preds = %_ZN4llvm11CCValAssign12convertToRegENS_10MCRegisterE.exit, %96
   %109 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %39) #6
-  %110 = getelementptr inbounds i8, ptr %5, i64 152
+  %110 = getelementptr inbounds nuw i8, ptr %5, i64 152
   store i32 0, ptr %110, align 8
   br label %.thread148
 
@@ -1452,7 +1452,7 @@ _ZN4llvm11CCValAssign12convertToRegENS_10MCRegisterE.exit: ; preds = %101, %105
 
 ._crit_edge168:                                   ; preds = %122, %112
   %133 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %39) #6
-  %134 = getelementptr inbounds i8, ptr %5, i64 152
+  %134 = getelementptr inbounds nuw i8, ptr %5, i64 152
   store i32 0, ptr %134, align 8
   br label %.thread148
 
@@ -1506,7 +1506,7 @@ _ZN4llvm7CCState11AllocateRegEt.exit:             ; preds = %139, %150
   %160 = add nsw i8 %159, -1
   %.sroa.0.0.i.i.i = select i1 %.not.i.i, i8 0, i8 %160
   %.sroa.speculated114 = call i8 @llvm.umin.i8(i8 %.sroa.0.0.i.i.i, i8 %.sroa.0116.0.extract.trunc)
-  %161 = getelementptr inbounds i8, ptr %12, i64 812
+  %161 = getelementptr inbounds nuw i8, ptr %12, i64 812
   %162 = load i32, ptr %161, align 4
   %163 = and i32 %162, -9
   %spec.select.i.i.i = icmp eq i32 %163, 1
@@ -4725,7 +4725,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm24CC_AArch64_Preserve_NoneEjNS_3MVT
   %17 = load ptr, ptr %16, align 8
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 812
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 812
   %21 = load i32, ptr %20, align 4
   %22 = and i32 %21, -9
   %spec.select.i.i.i = icmp eq i32 %22, 1
@@ -4758,7 +4758,7 @@ _ZNK4llvm16AArch64Subtarget14isTargetDarwinEv.exit: ; preds = %._ZNK4llvm16AArch
   %30 = load ptr, ptr %29, align 8
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 16
   %32 = load ptr, ptr %31, align 8
-  %33 = getelementptr inbounds i8, ptr %32, i64 812
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 812
   %34 = load i32, ptr %33, align 4
   %35 = icmp eq i32 %34, 14
   br i1 %35, label %36, label %38
@@ -4913,7 +4913,7 @@ _ZN4llvm7CCState11AllocateRegENS_8ArrayRefItEE.exit87.thread: ; preds = %93, %_Z
   %113 = load ptr, ptr %112, align 8
   %114 = getelementptr inbounds nuw i8, ptr %113, i64 16
   %115 = load ptr, ptr %114, align 8
-  %116 = getelementptr inbounds i8, ptr %115, i64 812
+  %116 = getelementptr inbounds nuw i8, ptr %115, i64 812
   %117 = load i32, ptr %116, align 4
   %118 = icmp eq i32 %117, 14
   %brmerge = or i1 %44, %118

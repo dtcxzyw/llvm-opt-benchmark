@@ -119,7 +119,7 @@ define dso_local void @_ZN5clang8ParseASTERNS_4SemaEbb(ptr noundef nonnull align
   store i8 %8, ptr %11, align 8
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 12800
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 12808
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 12808
   %17 = load ptr, ptr %16, align 8
   %.not10.i = icmp eq ptr %15, %17
   br i1 %.not10.i, label %_ZN5clang10initializeISt6vectorISt10unique_ptrINS_29TemplateInstantiationCallbackESt14default_deleteIS3_EESaIS6_EEEEvRT_RKNS_4SemaE.exit, label %.lr.ph.i
@@ -460,7 +460,7 @@ define internal void @_ZNK12_GLOBAL__N_127PrettyStackTraceParserEntry5printERN4l
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %8 = getelementptr inbounds i8, ptr %6, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %9 = load i16, ptr %8, align 8
   %10 = icmp eq i16 %9, 1
   br i1 %10, label %11, label %25
@@ -554,7 +554,7 @@ define internal void @_ZNK12_GLOBAL__N_127PrettyStackTraceParserEntry5printERN4l
   %66 = load ptr, ptr %65, align 8
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 88
   %68 = load ptr, ptr %67, align 8
-  %69 = getelementptr inbounds i8, ptr %6, i64 20
+  %69 = getelementptr inbounds nuw i8, ptr %6, i64 20
   %70 = load i32, ptr %69, align 4
   %71 = load i32, ptr %7, align 8
   %72 = call noundef ptr @_ZNK5clang13SourceManager16getCharacterDataENS_14SourceLocationEPb(ptr noundef nonnull align 8 dereferenceable(696) %68, i32 %71, ptr noundef nonnull %4) #11
@@ -822,7 +822,7 @@ _ZN5clang13SourceManager18getSLocEntryOrNullENS_6FileIDE.exit.thread.i.i.i.i.i: 
   br i1 %19, label %_ZNK5clang13SourceManager20getFileEntryRefForIDENS_6FileIDE.exit.i.i, label %"_ZZN5clang8ParseASTERNS_4SemaEbbENK3$_0clEv.exit"
 
 _ZNK5clang13SourceManager20getFileEntryRefForIDENS_6FileIDE.exit.i.i: ; preds = %17
-  %20 = getelementptr inbounds i8, ptr %15, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %.0.copyload.i.i.i.i.i.i.i = load i64, ptr %20, align 8
   %21 = and i64 %.0.copyload.i.i.i.i.i.i.i, -8
   %22 = inttoptr i64 %21 to ptr
@@ -886,7 +886,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZN5
   br i1 %.not.i.i, label %54, label %17
 
 17:                                               ; preds = %5
-  %18 = getelementptr inbounds i8, ptr %0, i64 208
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %19 = udiv i32 %6, 42
   %20 = urem i32 %6, 42
   %.zext.i.i = zext nneg i32 %19 to i64
@@ -897,7 +897,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZN5
   br i1 %.not.i.i.i, label %24, label %_ZNK4llvm11PagedVectorIN5clang6SrcMgr9SLocEntryELm42EEixEm.exit.i.i
 
 24:                                               ; preds = %17
-  %25 = getelementptr inbounds i8, ptr %0, i64 224
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %.0.copyload.i.i.i.i.i.i = load i64, ptr %25, align 8
   %26 = and i64 %.0.copyload.i.i.i.i.i.i, -8
   %27 = inttoptr i64 %26 to ptr

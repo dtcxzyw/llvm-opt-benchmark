@@ -78,7 +78,7 @@ define dso_local void @_ZN4llvm13ExtractGVPass3runERNS_6ModuleERNS_15AnalysisMan
   br label %12
 
 12:                                               ; preds = %11, %4
-  %13 = getelementptr inbounds i8, ptr %2, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.sroa.0206.0230 = load ptr, ptr %13, align 8
   %.not223231 = icmp eq ptr %.sroa.0206.0230, %14
@@ -244,7 +244,7 @@ _ZL11makeVisibleRN4llvm11GlobalValueEb.exit:      ; preds = %_ZN4llvm11GlobalVal
   br i1 %.not223, label %._crit_edge, label %17
 
 ._crit_edge:                                      ; preds = %_ZL11makeVisibleRN4llvm11GlobalValueEb.exit, %12
-  %91 = getelementptr inbounds i8, ptr %2, i64 32
+  %91 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %92 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %.sroa.0199.0233 = load ptr, ptr %91, align 8
   %.not224234 = icmp eq ptr %.sroa.0199.0233, %92
@@ -393,7 +393,7 @@ _ZL11makeVisibleRN4llvm11GlobalValueEb.exit102:   ; preds = %_ZN4llvm11GlobalVal
   br i1 %.not224, label %._crit_edge238, label %94
 
 ._crit_edge238:                                   ; preds = %_ZL11makeVisibleRN4llvm11GlobalValueEb.exit102, %._crit_edge
-  %159 = getelementptr inbounds i8, ptr %2, i64 48
+  %159 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %160 = load ptr, ptr %159, align 8
   %161 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %.not225239 = icmp eq ptr %160, %161
@@ -569,7 +569,7 @@ _ZL11makeVisibleRN4llvm11GlobalValueEb.exit146:   ; preds = %_ZN4llvm11GlobalVal
   br i1 %.not225, label %._crit_edge243, label %169
 
 ._crit_edge243:                                   ; preds = %243, %._crit_edge238
-  %244 = getelementptr inbounds i8, ptr %2, i64 64
+  %244 = getelementptr inbounds nuw i8, ptr %2, i64 64
   %245 = load ptr, ptr %244, align 8
   %246 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %.not226244 = icmp eq ptr %245, %246
@@ -732,11 +732,11 @@ _ZL11makeVisibleRN4llvm11GlobalValueEb.exit176:   ; preds = %_ZN4llvm11GlobalVal
   %323 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 0, ptr %323, align 4, !alias.scope !7
   %324 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %325 = getelementptr inbounds i8, ptr %0, i64 80
+  %325 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store ptr %325, ptr %324, align 8, !alias.scope !7
-  %326 = getelementptr inbounds i8, ptr %0, i64 56
+  %326 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store ptr %325, ptr %326, align 8, !alias.scope !7
-  %327 = getelementptr inbounds i8, ptr %0, i64 64
+  %327 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i32 2, ptr %327, align 8, !alias.scope !7
   ret void
 }

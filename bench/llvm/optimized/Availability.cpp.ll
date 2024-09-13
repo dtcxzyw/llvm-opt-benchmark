@@ -198,7 +198,7 @@ _ZNK5clang16AvailabilityInfo9isDefaultEv.exit1:   ; preds = %37, %65
   %89 = lshr i64 %87, 32
   %90 = trunc nuw i64 %89 to i32
   %91 = and i32 %90, 2147483647
-  %92 = getelementptr inbounds i8, ptr %0, i64 64
+  %92 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %93 = load i64, ptr %92, align 8
   %94 = trunc i64 %93 to i32
   %95 = and i32 %94, 2147483647
@@ -210,7 +210,7 @@ _ZNK5clang16AvailabilityInfo9isDefaultEv.exit1:   ; preds = %37, %65
   %101 = lshr i64 %99, 32
   %102 = trunc nuw i64 %101 to i32
   %103 = and i32 %102, 2147483647
-  %104 = getelementptr inbounds i8, ptr %1, i64 64
+  %104 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %105 = load i64, ptr %104, align 4
   %106 = trunc i64 %105 to i32
   %107 = and i32 %106, 2147483647
@@ -255,7 +255,7 @@ _ZSt3maxIN4llvm12VersionTupleEERKT_S4_S4_.exit:   ; preds = %112, %116, %_ZN4llv
   br i1 %or.cond.i, label %125, label %_ZNK4llvm12VersionTuple5emptyEv.exit.thread
 
 125:                                              ; preds = %_ZSt3maxIN4llvm12VersionTupleEERKT_S4_S4_.exit
-  %126 = getelementptr inbounds i8, ptr %0, i64 80
+  %126 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %127 = load i64, ptr %126, align 8
   %128 = and i64 %127, 9223372034707292159
   %or.cond = icmp eq i64 %128, 0
@@ -264,7 +264,7 @@ _ZSt3maxIN4llvm12VersionTupleEERKT_S4_S4_.exit:   ; preds = %112, %116, %_ZN4llv
 ._crit_edge36:                                    ; preds = %125
   %.phi.trans.insert37 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %.pre38 = load i64, ptr %.phi.trans.insert37, align 4
-  %.phi.trans.insert39 = getelementptr inbounds i8, ptr %1, i64 80
+  %.phi.trans.insert39 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %.pre40 = load i64, ptr %.phi.trans.insert39, align 4
   br label %166
 
@@ -273,7 +273,7 @@ _ZNK4llvm12VersionTuple5emptyEv.exit.thread:      ; preds = %_ZSt3maxIN4llvm12Ve
   %130 = load i64, ptr %129, align 4
   %131 = and i64 %130, 9223372036854775807
   %or.cond.i2 = icmp eq i64 %131, 0
-  %132 = getelementptr inbounds i8, ptr %1, i64 80
+  %132 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %133 = load i64, ptr %132, align 4
   %134 = and i64 %133, 9223372034707292159
   %or.cond29 = icmp eq i64 %134, 0
@@ -281,7 +281,7 @@ _ZNK4llvm12VersionTuple5emptyEv.exit.thread:      ; preds = %_ZSt3maxIN4llvm12Ve
   br i1 %or.cond51, label %._crit_edge, label %_ZNK4llvm12VersionTuple5emptyEv.exit3.thread
 
 ._crit_edge:                                      ; preds = %_ZNK4llvm12VersionTuple5emptyEv.exit.thread
-  %.phi.trans.insert34 = getelementptr inbounds i8, ptr %0, i64 80
+  %.phi.trans.insert34 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %.pre35 = load i64, ptr %.phi.trans.insert34, align 8
   br label %166
 
@@ -299,7 +299,7 @@ _ZNK4llvm12VersionTuple5emptyEv.exit3.thread:     ; preds = %_ZNK4llvm12VersionT
   %145 = lshr i64 %123, 32
   %146 = trunc nuw i64 %145 to i32
   %147 = and i32 %146, 2147483647
-  %148 = getelementptr inbounds i8, ptr %0, i64 80
+  %148 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %149 = load i64, ptr %148, align 8
   %150 = trunc i64 %149 to i32
   %151 = and i32 %150, 2147483647
@@ -396,7 +396,7 @@ _ZSt3minIN4llvm12VersionTupleEERKT_S4_S4_.exit:   ; preds = %_ZN4llvmltERKNS_12V
   br i1 %or.cond.i13, label %202, label %_ZNK4llvm12VersionTuple5emptyEv.exit14.thread
 
 202:                                              ; preds = %_ZSt3minIN4llvm12VersionTupleEERKT_S4_S4_.exit
-  %203 = getelementptr inbounds i8, ptr %0, i64 96
+  %203 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %204 = load i64, ptr %203, align 8
   %205 = and i64 %204, 9223372034707292159
   %or.cond31 = icmp eq i64 %205, 0
@@ -405,7 +405,7 @@ _ZSt3minIN4llvm12VersionTupleEERKT_S4_S4_.exit:   ; preds = %_ZN4llvmltERKNS_12V
 ._crit_edge46:                                    ; preds = %202
   %.phi.trans.insert47 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %.pre48 = load i64, ptr %.phi.trans.insert47, align 4
-  %.phi.trans.insert49 = getelementptr inbounds i8, ptr %1, i64 96
+  %.phi.trans.insert49 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %.pre50 = load i64, ptr %.phi.trans.insert49, align 4
   br label %243
 
@@ -414,7 +414,7 @@ _ZNK4llvm12VersionTuple5emptyEv.exit14.thread:    ; preds = %_ZSt3minIN4llvm12Ve
   %207 = load i64, ptr %206, align 4
   %208 = and i64 %207, 9223372036854775807
   %or.cond.i15 = icmp eq i64 %208, 0
-  %209 = getelementptr inbounds i8, ptr %1, i64 96
+  %209 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %210 = load i64, ptr %209, align 4
   %211 = and i64 %210, 9223372034707292159
   %or.cond33 = icmp eq i64 %211, 0
@@ -422,7 +422,7 @@ _ZNK4llvm12VersionTuple5emptyEv.exit14.thread:    ; preds = %_ZSt3minIN4llvm12Ve
   br i1 %or.cond52, label %._crit_edge43, label %_ZNK4llvm12VersionTuple5emptyEv.exit16.thread
 
 ._crit_edge43:                                    ; preds = %_ZNK4llvm12VersionTuple5emptyEv.exit14.thread
-  %.phi.trans.insert44 = getelementptr inbounds i8, ptr %0, i64 96
+  %.phi.trans.insert44 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %.pre45 = load i64, ptr %.phi.trans.insert44, align 8
   br label %243
 
@@ -440,7 +440,7 @@ _ZNK4llvm12VersionTuple5emptyEv.exit16.thread:    ; preds = %_ZNK4llvm12VersionT
   %222 = lshr i64 %200, 32
   %223 = trunc nuw i64 %222 to i32
   %224 = and i32 %223, 2147483647
-  %225 = getelementptr inbounds i8, ptr %0, i64 96
+  %225 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %226 = load i64, ptr %225, align 8
   %227 = trunc i64 %226 to i32
   %228 = and i32 %227, 2147483647

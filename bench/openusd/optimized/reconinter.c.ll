@@ -101,7 +101,7 @@ av1_is_scaled.exit.thread:                        ; preds = %10, %6, %av1_is_val
   br i1 %.not17, label %21, label %16
 
 16:                                               ; preds = %13
-  %17 = getelementptr inbounds i8, ptr %0, i64 69
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 69
   %18 = load i8, ptr %17, align 1
   %.not18 = icmp eq i8 %18, 0
   br i1 %.not18, label %19, label %21
@@ -260,7 +260,7 @@ av1_is_scaled.exit.thread.i:                      ; preds = %31, %av1_is_valid_s
   br i1 %.not17.i, label %39, label %34
 
 34:                                               ; preds = %av1_is_scaled.exit.thread.i
-  %35 = getelementptr inbounds i8, ptr %4, i64 69
+  %35 = getelementptr inbounds nuw i8, ptr %4, i64 69
   %36 = load i8, ptr %35, align 1
   %.not18.i = icmp eq i8 %36, 0
   br i1 %.not18.i, label %37, label %39
@@ -364,13 +364,13 @@ define hidden void @av1_make_inter_predictor(ptr noundef %0, i32 noundef %1, ptr
   %42 = load i32, ptr %41, align 4
   %43 = getelementptr inbounds nuw i8, ptr %4, i64 184
   %44 = load i32, ptr %43, align 8
-  %45 = getelementptr inbounds i8, ptr %4, i64 144
+  %45 = getelementptr inbounds nuw i8, ptr %4, i64 144
   %46 = load ptr, ptr %45, align 8
-  %47 = getelementptr inbounds i8, ptr %4, i64 152
+  %47 = getelementptr inbounds nuw i8, ptr %4, i64 152
   %48 = load i32, ptr %47, align 8
-  %49 = getelementptr inbounds i8, ptr %4, i64 156
+  %49 = getelementptr inbounds nuw i8, ptr %4, i64 156
   %50 = load i32, ptr %49, align 4
-  %51 = getelementptr inbounds i8, ptr %4, i64 160
+  %51 = getelementptr inbounds nuw i8, ptr %4, i64 160
   %52 = load i32, ptr %51, align 8
   %53 = getelementptr inbounds nuw i8, ptr %4, i64 132
   %54 = load i32, ptr %53, align 4
@@ -1331,27 +1331,27 @@ define hidden void @av1_build_one_inter_predictor(ptr noundef %0, i32 noundef %1
   %28 = inttoptr i64 %27 to ptr
   %29 = select i1 %.not.i, ptr %11, ptr %28
   %30 = getelementptr inbounds nuw i8, ptr %3, i64 56
-  %31 = getelementptr inbounds i8, ptr %3, i64 64
+  %31 = getelementptr inbounds nuw i8, ptr %3, i64 64
   %32 = load ptr, ptr %31, align 8
-  %33 = getelementptr inbounds i8, ptr %3, i64 72
+  %33 = getelementptr inbounds nuw i8, ptr %3, i64 72
   %34 = load i32, ptr %33, align 8
   store ptr %11, ptr %31, align 8
   store i32 128, ptr %33, align 8
   call void @av1_make_inter_predictor(ptr noundef %17, i32 noundef %18, ptr noundef nonnull %29, i32 noundef 128, ptr noundef nonnull %3, ptr noundef nonnull readonly %12)
-  %35 = getelementptr inbounds i8, ptr %3, i64 84
+  %35 = getelementptr inbounds nuw i8, ptr %3, i64 84
   %36 = load i32, ptr %35, align 4
   %.not33.i = icmp eq i32 %36, 0
   br i1 %.not33.i, label %37, label %51
 
 37:                                               ; preds = %20
-  %38 = getelementptr inbounds i8, ptr %3, i64 203
+  %38 = getelementptr inbounds nuw i8, ptr %3, i64 203
   %39 = load i8, ptr %38, align 1
   %40 = icmp eq i8 %39, 3
   br i1 %40, label %41, label %51
 
 41:                                               ; preds = %37
   %42 = load ptr, ptr %21, align 8
-  %43 = getelementptr inbounds i8, ptr %3, i64 202
+  %43 = getelementptr inbounds nuw i8, ptr %3, i64 202
   %44 = load i8, ptr %43, align 2
   %45 = getelementptr inbounds nuw i8, ptr %3, i64 124
   %46 = load i32, ptr %45, align 4
@@ -1371,7 +1371,7 @@ define hidden void @av1_build_one_inter_predictor(ptr noundef %0, i32 noundef %1
   %57 = load i32, ptr %56, align 4
   %58 = getelementptr inbounds nuw i8, ptr %3, i64 168
   %59 = load i32, ptr %58, align 8
-  %60 = getelementptr inbounds i8, ptr %3, i64 203
+  %60 = getelementptr inbounds nuw i8, ptr %3, i64 203
   %61 = load i8, ptr %60, align 1
   %cond.i.i.i = icmp eq i8 %61, 2
   br i1 %cond.i.i.i, label %62, label %.av1_get_compound_type_mask.exit_crit_edge.i.i
@@ -1381,9 +1381,9 @@ define hidden void @av1_build_one_inter_predictor(ptr noundef %0, i32 noundef %1
   br label %av1_get_compound_type_mask.exit.i.i
 
 62:                                               ; preds = %51
-  %63 = getelementptr inbounds i8, ptr %3, i64 200
+  %63 = getelementptr inbounds nuw i8, ptr %3, i64 200
   %64 = load i8, ptr %63, align 8
-  %65 = getelementptr inbounds i8, ptr %3, i64 201
+  %65 = getelementptr inbounds nuw i8, ptr %3, i64 201
   %66 = load i8, ptr %65, align 1
   %67 = zext i8 %23 to i64
   %68 = getelementptr inbounds [22 x %struct.wedge_params_type], ptr @av1_wedge_params_lookup, i64 0, i64 %67, i32 3
@@ -1516,13 +1516,13 @@ get_ref_frame_buf.exit73:                         ; preds = %get_ref_frame_buf.e
 
 55:                                               ; preds = %52, %51
   %.057 = phi i32 [ %54, %52 ], [ 0, %51 ]
-  %56 = getelementptr inbounds i8, ptr %0, i64 25224
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 25224
   %57 = load i32, ptr %56, align 4
   %.not.i74 = icmp eq i32 %57, 0
   br i1 %.not.i74, label %get_relative_dist.exit77, label %58
 
 58:                                               ; preds = %55
-  %59 = getelementptr inbounds i8, ptr %0, i64 25228
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 25228
   %60 = load i32, ptr %59, align 4
   %61 = sub nsw i32 %.057, %47
   %62 = shl nuw i32 1, %60
@@ -1733,7 +1733,7 @@ is_sub8x8_inter.exit:                             ; preds = %60
   %93 = add nsw i32 %92, %8
   %94 = ashr i32 %93, %70
   %95 = getelementptr inbounds nuw i8, ptr %26, i64 16
-  %96 = getelementptr inbounds i8, ptr %26, i64 40
+  %96 = getelementptr inbounds nuw i8, ptr %26, i64 40
   %97 = getelementptr inbounds nuw i8, ptr %0, i64 640
   %98 = getelementptr inbounds nuw i8, ptr %0, i64 960
   %99 = getelementptr inbounds nuw i8, ptr %0, i64 704
@@ -1814,13 +1814,13 @@ get_ref_frame_map_idx.exit.i.us.i:                ; preds = %av1_init_inter_para
   %147 = getelementptr inbounds [8 x ptr], ptr %98, i64 0, i64 %146
   %148 = load ptr, ptr %147, align 8
   %149 = getelementptr inbounds [8 x %struct.scale_factors], ptr %99, i64 0, i64 %146
-  %.in.us.i = getelementptr inbounds i8, ptr %148, i64 %.in.v.i
+  %.in.us.i = getelementptr inbounds nuw i8, ptr %148, i64 %.in.v.i
   %150 = load ptr, ptr %.in.us.i, align 8
-  %151 = getelementptr inbounds i8, ptr %148, i64 1332
+  %151 = getelementptr inbounds nuw i8, ptr %148, i64 1332
   %152 = load i32, ptr %151, align 4
-  %153 = getelementptr inbounds i8, ptr %148, i64 1340
+  %153 = getelementptr inbounds nuw i8, ptr %148, i64 1340
   %154 = load i32, ptr %153, align 4
-  %155 = getelementptr inbounds i8, ptr %148, i64 1348
+  %155 = getelementptr inbounds nuw i8, ptr %148, i64 1348
   %156 = load i32, ptr %155, align 4
   %157 = getelementptr inbounds nuw i8, ptr %131, i64 8
   %158 = load i32, ptr %157, align 4
@@ -2026,18 +2026,18 @@ build_inter_predictors_sub8x8.exit:               ; preds = %._crit_edge.us.i
   %.sroa.17.0..sroa_idx116.i = getelementptr inbounds i8, ptr %14, i64 88
   %.sroa.19.0..sroa_idx118.i = getelementptr inbounds i8, ptr %14, i64 92
   %.sroa.21.0..sroa_idx120.i = getelementptr inbounds i8, ptr %14, i64 96
-  %267 = getelementptr inbounds i8, ptr %14, i64 100
+  %267 = getelementptr inbounds nuw i8, ptr %14, i64 100
   %.not90.not.i = xor i1 %.not90.i, true
   %268 = getelementptr inbounds nuw i8, ptr %1, i64 10728
   %269 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %270 = getelementptr inbounds i8, ptr %3, i64 69
+  %270 = getelementptr inbounds nuw i8, ptr %3, i64 69
   %271 = getelementptr inbounds nuw i8, ptr %3, i64 28
-  %272 = getelementptr inbounds i8, ptr %3, i64 91
+  %272 = getelementptr inbounds nuw i8, ptr %3, i64 91
   %273 = getelementptr inbounds nuw i8, ptr %3, i64 80
   %274 = getelementptr inbounds nuw i8, ptr %14, i64 208
   %275 = getelementptr inbounds nuw i8, ptr %14, i64 192
   %276 = getelementptr inbounds nuw i8, ptr %1, i64 10768
-  %277 = getelementptr inbounds i8, ptr %195, i64 40
+  %277 = getelementptr inbounds nuw i8, ptr %195, i64 40
   br label %278
 
 278:                                              ; preds = %352, %218
@@ -2326,13 +2326,13 @@ setup_pred_plane.exit.us.us:                      ; preds = %setup_pred_plane.ex
   %48 = getelementptr i8, ptr %30, i64 %46
   %49 = getelementptr i8, ptr %48, i64 %47
   store ptr %49, ptr %28, align 8
-  %50 = getelementptr inbounds i8, ptr %26, i64 24
+  %50 = getelementptr inbounds nuw i8, ptr %26, i64 24
   store ptr %30, ptr %50, align 8
-  %51 = getelementptr inbounds i8, ptr %26, i64 32
+  %51 = getelementptr inbounds nuw i8, ptr %26, i64 32
   store i32 %33, ptr %51, align 8
-  %52 = getelementptr inbounds i8, ptr %26, i64 36
+  %52 = getelementptr inbounds nuw i8, ptr %26, i64 36
   store i32 %35, ptr %52, align 4
-  %53 = getelementptr inbounds i8, ptr %26, i64 40
+  %53 = getelementptr inbounds nuw i8, ptr %26, i64 40
   store i32 %37, ptr %53, align 8
   %indvars.iv.next45 = add nsw i64 %indvars.iv44, 1
   %exitcond48.not = icmp eq i64 %indvars.iv.next45, %wide.trip.count47
@@ -2368,13 +2368,13 @@ setup_pred_plane.exit.us.us:                      ; preds = %setup_pred_plane.ex
   %77 = getelementptr i8, ptr %58, i64 %75
   %78 = getelementptr i8, ptr %77, i64 %76
   store ptr %78, ptr %56, align 8
-  %79 = getelementptr inbounds i8, ptr %54, i64 24
+  %79 = getelementptr inbounds nuw i8, ptr %54, i64 24
   store ptr %58, ptr %79, align 8
-  %80 = getelementptr inbounds i8, ptr %54, i64 32
+  %80 = getelementptr inbounds nuw i8, ptr %54, i64 32
   store i32 %61, ptr %80, align 8
-  %81 = getelementptr inbounds i8, ptr %54, i64 36
+  %81 = getelementptr inbounds nuw i8, ptr %54, i64 36
   store i32 %63, ptr %81, align 4
-  %82 = getelementptr inbounds i8, ptr %54, i64 40
+  %82 = getelementptr inbounds nuw i8, ptr %54, i64 40
   store i32 %65, ptr %82, align 8
   %indvars.iv.next40 = add nsw i64 %indvars.iv39, 1
   %exitcond43.not = icmp eq i64 %indvars.iv.next40, %wide.trip.count42
@@ -2424,13 +2424,13 @@ setup_pred_plane.exit.us26:                       ; preds = %setup_pred_plane.ex
   %109 = getelementptr i8, ptr %90, i64 %107
   %110 = getelementptr i8, ptr %109, i64 %108
   store ptr %110, ptr %88, align 8
-  %111 = getelementptr inbounds i8, ptr %86, i64 24
+  %111 = getelementptr inbounds nuw i8, ptr %86, i64 24
   store ptr %90, ptr %111, align 8
-  %112 = getelementptr inbounds i8, ptr %86, i64 32
+  %112 = getelementptr inbounds nuw i8, ptr %86, i64 32
   store i32 %93, ptr %112, align 8
-  %113 = getelementptr inbounds i8, ptr %86, i64 36
+  %113 = getelementptr inbounds nuw i8, ptr %86, i64 36
   store i32 %95, ptr %113, align 4
-  %114 = getelementptr inbounds i8, ptr %86, i64 40
+  %114 = getelementptr inbounds nuw i8, ptr %86, i64 40
   store i32 %97, ptr %114, align 8
   %indvars.iv.next35 = add nsw i64 %indvars.iv34, 1
   %exitcond38.not = icmp eq i64 %indvars.iv.next35, %wide.trip.count37
@@ -2469,13 +2469,13 @@ setup_pred_plane.exit.us26:                       ; preds = %setup_pred_plane.ex
   %139 = getelementptr i8, ptr %119, i64 %137
   %140 = getelementptr i8, ptr %139, i64 %138
   store ptr %140, ptr %117, align 8
-  %141 = getelementptr inbounds i8, ptr %115, i64 24
+  %141 = getelementptr inbounds nuw i8, ptr %115, i64 24
   store ptr %119, ptr %141, align 8
-  %142 = getelementptr inbounds i8, ptr %115, i64 32
+  %142 = getelementptr inbounds nuw i8, ptr %115, i64 32
   store i32 %122, ptr %142, align 8
-  %143 = getelementptr inbounds i8, ptr %115, i64 36
+  %143 = getelementptr inbounds nuw i8, ptr %115, i64 36
   store i32 %124, ptr %143, align 4
-  %144 = getelementptr inbounds i8, ptr %115, i64 40
+  %144 = getelementptr inbounds nuw i8, ptr %115, i64 40
   store i32 %126, ptr %144, align 8
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -2888,7 +2888,7 @@ define hidden void @av1_count_overlappable_neighbors(ptr nocapture noundef reado
   %31 = load i8, ptr %30, align 4
   %32 = zext i8 %31 to i32
   %33 = add nsw i32 %20, %32
-  %34 = getelementptr inbounds i8, ptr %0, i64 1080
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 1080
   %35 = load i32, ptr %34, align 8
   %..i11 = tail call i32 @llvm.smin.i32(i32 %33, i32 %35)
   %invariant.gep.i = getelementptr i8, ptr %29, i64 8
@@ -2978,7 +2978,7 @@ foreach_overlappable_nb_above.exit.thread:        ; preds = %18, %14, %foreach_o
   %85 = load i8, ptr %84, align 1
   %86 = zext i8 %85 to i32
   %87 = add nsw i32 %75, %86
-  %88 = getelementptr inbounds i8, ptr %0, i64 1076
+  %88 = getelementptr inbounds nuw i8, ptr %0, i64 1076
   %89 = load i32, ptr %88, align 4
   %..i14 = tail call i32 @llvm.smin.i32(i32 %87, i32 %89)
   %90 = icmp slt i32 %75, %..i14
@@ -3073,7 +3073,7 @@ define hidden range(i32 0, 2) i32 @av1_skip_u4x4_pred_in_obmc(i8 noundef zeroext
 define hidden void @av1_modify_neighbor_predictor_for_obmc(ptr nocapture noundef writeonly %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds i8, ptr %0, i64 17
   store i8 -1, ptr %2, align 1
-  %3 = getelementptr inbounds i8, ptr %0, i64 91
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 91
   store i8 0, ptr %3, align 1
   ret void
 }
@@ -3110,7 +3110,7 @@ define hidden void @av1_build_obmc_inter_prediction(ptr nocapture noundef readon
   %32 = load i8, ptr %31, align 4
   %33 = zext i8 %32 to i32
   %34 = add nsw i32 %22, %33
-  %35 = getelementptr inbounds i8, ptr %0, i64 1080
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 1080
   %36 = load i32, ptr %35, align 8
   %..i = tail call i32 @llvm.smin.i32(i32 %34, i32 %36)
   %invariant.gep.i = getelementptr i8, ptr %30, i64 8
@@ -3218,7 +3218,7 @@ is_neighbor_overlappable.exit.thread.i:           ; preds = %is_neighbor_overlap
 98:                                               ; preds = %86
   %99 = ashr i32 %85, %89
   %100 = getelementptr inbounds nuw i8, ptr %87, i64 16
-  %101 = getelementptr inbounds i8, ptr %87, i64 40
+  %101 = getelementptr inbounds nuw i8, ptr %87, i64 40
   %102 = load i32, ptr %101, align 8
   %103 = load ptr, ptr %100, align 8
   %104 = sext i32 %99 to i64
@@ -3316,7 +3316,7 @@ foreach_overlappable_nb_above.exit:               ; preds = %build_obmc_inter_pr
   %148 = load i8, ptr %147, align 1
   %149 = zext i8 %148 to i32
   %150 = add nsw i32 %138, %149
-  %151 = getelementptr inbounds i8, ptr %0, i64 1076
+  %151 = getelementptr inbounds nuw i8, ptr %0, i64 1076
   %152 = load i32, ptr %151, align 4
   %..i12 = tail call i32 @llvm.smin.i32(i32 %150, i32 %152)
   %153 = icmp slt i32 %138, %..i12
@@ -3422,7 +3422,7 @@ is_neighbor_overlappable.exit.thread.i18:         ; preds = %is_neighbor_overlap
   %213 = lshr i32 %204, %212
   %214 = ashr i32 %205, %212
   %215 = getelementptr inbounds nuw i8, ptr %207, i64 16
-  %216 = getelementptr inbounds i8, ptr %207, i64 40
+  %216 = getelementptr inbounds nuw i8, ptr %207, i64 40
   %217 = load i32, ptr %216, align 8
   %218 = load ptr, ptr %215, align 8
   %219 = mul nsw i32 %214, %217
@@ -3587,7 +3587,7 @@ define hidden void @av1_setup_build_prediction_by_above_pred(ptr nocapture nound
   %10 = add nsw i32 %9, %1
   %11 = getelementptr inbounds i8, ptr %3, i64 17
   store i8 -1, ptr %11, align 1
-  %12 = getelementptr inbounds i8, ptr %3, i64 91
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 91
   store i8 0, ptr %12, align 1
   %13 = icmp sgt i32 %5, 0
   br i1 %13, label %.lr.ph, label %._crit_edge
@@ -3638,13 +3638,13 @@ setup_pred_plane.exit.us:                         ; preds = %setup_pred_plane.ex
   %41 = sext i32 %40 to i64
   %42 = getelementptr i8, ptr %28, i64 %41
   store ptr %42, ptr %25, align 8
-  %43 = getelementptr inbounds i8, ptr %24, i64 24
+  %43 = getelementptr inbounds nuw i8, ptr %24, i64 24
   store ptr %28, ptr %43, align 8
-  %44 = getelementptr inbounds i8, ptr %24, i64 32
+  %44 = getelementptr inbounds nuw i8, ptr %24, i64 32
   store i32 %31, ptr %44, align 8
-  %45 = getelementptr inbounds i8, ptr %24, i64 36
+  %45 = getelementptr inbounds nuw i8, ptr %24, i64 36
   store i32 %34, ptr %45, align 4
-  %46 = getelementptr inbounds i8, ptr %24, i64 40
+  %46 = getelementptr inbounds nuw i8, ptr %24, i64 40
   store i32 %37, ptr %46, align 8
   %indvars.iv.next72 = add nuw nsw i64 %indvars.iv71, 1
   %exitcond75.not = icmp eq i64 %indvars.iv.next72, %wide.trip.count74
@@ -3677,13 +3677,13 @@ setup_pred_plane.exit.us:                         ; preds = %setup_pred_plane.ex
   %65 = sext i32 %64 to i64
   %66 = getelementptr i8, ptr %51, i64 %65
   store ptr %66, ptr %48, align 8
-  %67 = getelementptr inbounds i8, ptr %47, i64 24
+  %67 = getelementptr inbounds nuw i8, ptr %47, i64 24
   store ptr %51, ptr %67, align 8
-  %68 = getelementptr inbounds i8, ptr %47, i64 32
+  %68 = getelementptr inbounds nuw i8, ptr %47, i64 32
   store i32 %54, ptr %68, align 8
-  %69 = getelementptr inbounds i8, ptr %47, i64 36
+  %69 = getelementptr inbounds nuw i8, ptr %47, i64 36
   store i32 %57, ptr %69, align 4
-  %70 = getelementptr inbounds i8, ptr %47, i64 40
+  %70 = getelementptr inbounds nuw i8, ptr %47, i64 40
   store i32 %60, ptr %70, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -3790,7 +3790,7 @@ define hidden void @av1_setup_build_prediction_by_left_pred(ptr nocapture nounde
   %9 = add nsw i32 %8, %1
   %10 = getelementptr inbounds i8, ptr %3, i64 17
   store i8 -1, ptr %10, align 1
-  %11 = getelementptr inbounds i8, ptr %3, i64 91
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 91
   store i8 0, ptr %11, align 1
   %12 = icmp sgt i32 %5, 0
   br i1 %12, label %.lr.ph, label %._crit_edge
@@ -3843,13 +3843,13 @@ setup_pred_plane.exit.us:                         ; preds = %setup_pred_plane.ex
   %42 = mul nsw i64 %40, %41
   %43 = getelementptr i8, ptr %27, i64 %42
   store ptr %43, ptr %24, align 8
-  %44 = getelementptr inbounds i8, ptr %23, i64 24
+  %44 = getelementptr inbounds nuw i8, ptr %23, i64 24
   store ptr %27, ptr %44, align 8
-  %45 = getelementptr inbounds i8, ptr %23, i64 32
+  %45 = getelementptr inbounds nuw i8, ptr %23, i64 32
   store i32 %30, ptr %45, align 8
-  %46 = getelementptr inbounds i8, ptr %23, i64 36
+  %46 = getelementptr inbounds nuw i8, ptr %23, i64 36
   store i32 %33, ptr %46, align 4
-  %47 = getelementptr inbounds i8, ptr %23, i64 40
+  %47 = getelementptr inbounds nuw i8, ptr %23, i64 40
   store i32 %36, ptr %47, align 8
   %indvars.iv.next71 = add nuw nsw i64 %indvars.iv70, 1
   %exitcond74.not = icmp eq i64 %indvars.iv.next71, %wide.trip.count73
@@ -3884,13 +3884,13 @@ setup_pred_plane.exit.us:                         ; preds = %setup_pred_plane.ex
   %68 = mul nsw i64 %66, %67
   %69 = getelementptr i8, ptr %52, i64 %68
   store ptr %69, ptr %49, align 8
-  %70 = getelementptr inbounds i8, ptr %48, i64 24
+  %70 = getelementptr inbounds nuw i8, ptr %48, i64 24
   store ptr %52, ptr %70, align 8
-  %71 = getelementptr inbounds i8, ptr %48, i64 32
+  %71 = getelementptr inbounds nuw i8, ptr %48, i64 32
   store i32 %55, ptr %71, align 8
-  %72 = getelementptr inbounds i8, ptr %48, i64 36
+  %72 = getelementptr inbounds nuw i8, ptr %48, i64 36
   store i32 %58, ptr %72, align 4
-  %73 = getelementptr inbounds i8, ptr %48, i64 40
+  %73 = getelementptr inbounds nuw i8, ptr %48, i64 40
   store i32 %61, ptr %73, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -4066,7 +4066,7 @@ define hidden void @av1_combine_interintra(ptr nocapture noundef readonly %0, i8
   %33 = load i8, ptr %32, align 1
   %34 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %35 = load ptr, ptr %34, align 16
-  %36 = getelementptr inbounds i8, ptr %11, i64 40
+  %36 = getelementptr inbounds nuw i8, ptr %11, i64 40
   %37 = load i32, ptr %36, align 8
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 10656
   %39 = load i32, ptr %38, align 16
@@ -4223,7 +4223,7 @@ combine_interintra_highbd.exit:                   ; preds = %48, %52, %build_smo
   %108 = load i8, ptr %107, align 1
   %109 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %110 = load ptr, ptr %109, align 16
-  %111 = getelementptr inbounds i8, ptr %11, i64 40
+  %111 = getelementptr inbounds nuw i8, ptr %11, i64 40
   %112 = load i32, ptr %111, align 8
   %113 = zext i8 %20 to i64
   %114 = getelementptr inbounds [22 x i8], ptr @block_size_wide, i64 0, i64 %113

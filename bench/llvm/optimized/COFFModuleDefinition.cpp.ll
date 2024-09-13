@@ -101,7 +101,7 @@ define dso_local void @_ZN4llvm6object25parseCOFFModuleDefinitionENS_15MemoryBuf
   store i64 %.sroa.2.0.copyload.i, ptr %.sroa.2.0..sroa_idx.i.i, align 8
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store i32 0, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %7, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store ptr @.str, ptr %10, align 8
   %.sroa.2.0..sroa_idx.i5.i = getelementptr inbounds i8, ptr %7, i64 32
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 64
@@ -109,11 +109,11 @@ define dso_local void @_ZN4llvm6object25parseCOFFModuleDefinitionENS_15MemoryBuf
   store i32 %2, ptr %11, align 8
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 72
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %12, i8 0, i64 24, i1 false)
-  %13 = getelementptr inbounds i8, ptr %7, i64 96
+  %13 = getelementptr inbounds nuw i8, ptr %7, i64 96
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %13) #13
-  %14 = getelementptr inbounds i8, ptr %7, i64 128
+  %14 = getelementptr inbounds nuw i8, ptr %7, i64 128
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %14) #13
-  %15 = getelementptr inbounds i8, ptr %7, i64 160
+  %15 = getelementptr inbounds nuw i8, ptr %7, i64 160
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %15, i8 0, i64 56, i1 false)
   %16 = getelementptr inbounds nuw i8, ptr %7, i64 216
   store i8 %8, ptr %16, align 8
@@ -169,7 +169,7 @@ _ZN4llvm6object6Parser5parseEv.exit:              ; preds = %_ZN4llvm5ErrorD2Ev.
   br i1 %.not.i.i.i.i, label %_ZN4llvm6object6ParserD2Ev.exit, label %35
 
 35:                                               ; preds = %_ZN4llvm6object6Parser5parseEv.exit
-  %36 = getelementptr inbounds i8, ptr %7, i64 56
+  %36 = getelementptr inbounds nuw i8, ptr %7, i64 56
   %37 = load ptr, ptr %36, align 8
   %38 = ptrtoint ptr %37 to i64
   %39 = ptrtoint ptr %34 to i64
@@ -197,7 +197,7 @@ define linkonce_odr hidden void @_ZN4llvm6object6Parser8parseOneEv(ptr dead_on_u
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %1, i64 48
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %11 = load ptr, ptr %10, align 8
   %12 = icmp eq ptr %9, %11
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -257,7 +257,7 @@ _ZN4llvm6object6Parser4readEv.exit7:              ; preds = %21, %22
 
 25:                                               ; preds = %_ZN4llvm6object6Parser4readEv.exit7
   %26 = load ptr, ptr %10, align 8
-  %27 = getelementptr inbounds i8, ptr %1, i64 56
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %28 = load ptr, ptr %27, align 8
   %.not.i.i = icmp eq ptr %26, %28
   br i1 %.not.i.i, label %32, label %29
@@ -340,30 +340,30 @@ _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %_ZN4llvm6object6Par
   br i1 %.not17, label %.preheader, label %.loopexit
 
 55:                                               ; preds = %_ZN4llvm6object6Parser4readEv.exit
-  %56 = getelementptr inbounds i8, ptr %1, i64 184
-  %57 = getelementptr inbounds i8, ptr %1, i64 192
+  %56 = getelementptr inbounds nuw i8, ptr %1, i64 184
+  %57 = getelementptr inbounds nuw i8, ptr %1, i64 192
   call void @_ZN4llvm6object6Parser12parseNumbersEPmS2_(ptr dead_on_unwind writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(218) %1, ptr noundef nonnull %56, ptr noundef nonnull %57)
   br label %.loopexit
 
 58:                                               ; preds = %_ZN4llvm6object6Parser4readEv.exit
-  %59 = getelementptr inbounds i8, ptr %1, i64 168
-  %60 = getelementptr inbounds i8, ptr %1, i64 176
+  %59 = getelementptr inbounds nuw i8, ptr %1, i64 168
+  %60 = getelementptr inbounds nuw i8, ptr %1, i64 176
   call void @_ZN4llvm6object6Parser12parseNumbersEPmS2_(ptr dead_on_unwind writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(218) %1, ptr noundef nonnull %59, ptr noundef nonnull %60)
   br label %.loopexit
 
 61:                                               ; preds = %_ZN4llvm6object6Parser4readEv.exit, %_ZN4llvm6object6Parser4readEv.exit
   %62 = icmp eq i32 %17, 12
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #13
-  %63 = getelementptr inbounds i8, ptr %1, i64 160
+  %63 = getelementptr inbounds nuw i8, ptr %1, i64 160
   call void @_ZN4llvm6object6Parser9parseNameEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPm(ptr dead_on_unwind writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(218) %1, ptr noundef nonnull %5, ptr noundef nonnull %63)
   %64 = load ptr, ptr %0, align 8
   %.not16 = icmp eq ptr %64, null
   br i1 %.not16, label %_ZN4llvm5ErrorD2Ev.exit9, label %.critedge
 
 _ZN4llvm5ErrorD2Ev.exit9:                         ; preds = %61
-  %65 = getelementptr inbounds i8, ptr %1, i64 128
+  %65 = getelementptr inbounds nuw i8, ptr %1, i64 128
   %66 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %65, ptr noundef nonnull align 8 dereferenceable(32) %5) #13
-  %67 = getelementptr inbounds i8, ptr %1, i64 96
+  %67 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %68 = call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %67) #13
   br i1 %68, label %69, label %_ZN4llvm12ErrorSuccessD2Ev.exit10
 
@@ -391,13 +391,13 @@ _ZN4llvm12ErrorSuccessD2Ev.exit10:                ; preds = %_ZN4llvm5ErrorD2Ev.
   br label %.loopexit
 
 76:                                               ; preds = %_ZN4llvm6object6Parser4readEv.exit
-  %77 = getelementptr inbounds i8, ptr %1, i64 200
-  %78 = getelementptr inbounds i8, ptr %1, i64 204
+  %77 = getelementptr inbounds nuw i8, ptr %1, i64 200
+  %78 = getelementptr inbounds nuw i8, ptr %1, i64 204
   call void @_ZN4llvm6object6Parser12parseVersionEPjS2_(ptr dead_on_unwind writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(218) %1, ptr noundef nonnull %77, ptr noundef nonnull %78)
   br label %.loopexit
 
 79:                                               ; preds = %_ZN4llvm6object6Parser4readEv.exit
-  %80 = getelementptr inbounds i8, ptr %1, i64 24
+  %80 = getelementptr inbounds nuw i8, ptr %1, i64 24
   call void @llvm.experimental.noalias.scope.decl(metadata !17)
   %81 = getelementptr inbounds nuw i8, ptr %7, i64 32
   store i8 3, ptr %81, align 8, !alias.scope !17
@@ -407,9 +407,9 @@ _ZN4llvm12ErrorSuccessD2Ev.exit10:                ; preds = %_ZN4llvm5ErrorD2Ev.
   %83 = load ptr, ptr %80, align 8, !noalias !17
   %84 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr %83, ptr %84, align 8, !alias.scope !17
-  %85 = getelementptr inbounds i8, ptr %1, i64 32
+  %85 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %86 = load i64, ptr %85, align 8, !noalias !17
-  %87 = getelementptr inbounds i8, ptr %7, i64 24
+  %87 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store i64 %86, ptr %87, align 8, !alias.scope !17
   call void @llvm.experimental.noalias.scope.decl(metadata !20)
   call void @llvm.experimental.noalias.scope.decl(metadata !23)
@@ -467,7 +467,7 @@ define linkonce_odr hidden void @_ZN4llvm6object6Parser11parseExportEv(ptr dead_
   %37 = getelementptr inbounds nuw i8, ptr %18, i64 160
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %37, i8 0, i64 6, i1 false)
   %38 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %39 = getelementptr inbounds i8, ptr %1, i64 24
+  %39 = getelementptr inbounds nuw i8, ptr %1, i64 24
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %20) #13
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %17)
   %40 = load ptr, ptr %39, align 8
@@ -488,7 +488,7 @@ define linkonce_odr hidden void @_ZN4llvm6object6Parser11parseExportEv(ptr dead_
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %16)
   %50 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %51 = load ptr, ptr %50, align 8
-  %52 = getelementptr inbounds i8, ptr %1, i64 48
+  %52 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %53 = load ptr, ptr %52, align 8
   %54 = icmp eq ptr %51, %53
   br i1 %54, label %55, label %56
@@ -545,7 +545,7 @@ _ZN4llvm6object6Parser4readEv.exit1:              ; preds = %64, %65
   %72 = getelementptr inbounds nuw i8, ptr %21, i64 16
   store ptr %71, ptr %72, align 8, !alias.scope !30
   %73 = load i64, ptr %41, align 8, !noalias !30
-  %74 = getelementptr inbounds i8, ptr %21, i64 24
+  %74 = getelementptr inbounds nuw i8, ptr %21, i64 24
   store i64 %73, ptr %74, align 8, !alias.scope !30
   %75 = call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #16, !noalias !33
   %76 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm6object15object_categoryEv() #13, !noalias !33
@@ -574,7 +574,7 @@ _ZN4llvm6object6Parser4readEv.exit1:              ; preds = %64, %65
 
 88:                                               ; preds = %_ZN4llvm6object6Parser4readEv.exit
   %89 = load ptr, ptr %52, align 8
-  %90 = getelementptr inbounds i8, ptr %1, i64 56
+  %90 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %91 = load ptr, ptr %90, align 8
   %.not.i.i = icmp eq ptr %89, %91
   br i1 %.not.i.i, label %95, label %92
@@ -802,7 +802,7 @@ _ZN4llvm6objectL11isDecoratedENS_9StringRefEb.exit14: ; preds = %_ZNK4llvm9Strin
   %167 = getelementptr inbounds nuw i8, ptr %18, i64 164
   %168 = getelementptr inbounds nuw i8, ptr %18, i64 165
   %169 = getelementptr inbounds nuw i8, ptr %18, i64 163
-  %170 = getelementptr inbounds i8, ptr %1, i64 56
+  %170 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %171 = getelementptr inbounds nuw i8, ptr %18, i64 162
   br label %.backedge
 
@@ -987,9 +987,9 @@ _ZNSt6vectorIN4llvm6object5TokenESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_c
   br label %_ZN4llvm6object6Parser5ungetEv.exit40
 
 _ZN4llvm6object6Parser5ungetEv.exit40:            ; preds = %206, %_ZNSt6vectorIN4llvm6object5TokenESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i39
-  %231 = getelementptr inbounds i8, ptr %1, i64 80
+  %231 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %232 = load ptr, ptr %231, align 8
-  %233 = getelementptr inbounds i8, ptr %1, i64 88
+  %233 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %234 = load ptr, ptr %233, align 8
   %.not.i41 = icmp eq ptr %232, %234
   br i1 %.not.i41, label %243, label %235
@@ -1297,9 +1297,9 @@ _ZNSt6vectorIN4llvm6object5TokenESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_c
   br label %_ZN4llvm6object6Parser5ungetEv.exit74
 
 _ZN4llvm6object6Parser5ungetEv.exit74:            ; preds = %_ZNSt6vectorIN4llvm6object5TokenESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i73, %327, %315
-  %352 = getelementptr inbounds i8, ptr %1, i64 80
+  %352 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %353 = load ptr, ptr %352, align 8
-  %354 = getelementptr inbounds i8, ptr %1, i64 88
+  %354 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %355 = load ptr, ptr %354, align 8
   %.not.i75 = icmp eq ptr %353, %355
   br i1 %.not.i75, label %364, label %356
@@ -1350,7 +1350,7 @@ _ZN4llvm5ErrorD2Ev.exit:
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %1, i64 48
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %10 = load ptr, ptr %9, align 8
   %11 = icmp eq ptr %8, %10
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -1375,7 +1375,7 @@ _ZN4llvm6object6Parser4readEv.exit:               ; preds = %13, %14
 
 17:                                               ; preds = %_ZN4llvm6object6Parser4readEv.exit
   %18 = load ptr, ptr %9, align 8
-  %19 = getelementptr inbounds i8, ptr %1, i64 56
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %20 = load ptr, ptr %19, align 8
   %.not.i.i = icmp eq ptr %18, %20
   br i1 %.not.i.i, label %24, label %21
@@ -1471,7 +1471,7 @@ define linkonce_odr hidden void @_ZN4llvm6object6Parser9parseNameEPNSt7__cxx1112
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9)
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %1, i64 48
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %15 = load ptr, ptr %14, align 8
   %16 = icmp eq ptr %13, %15
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -1495,11 +1495,11 @@ _ZN4llvm6object6Parser4readEv.exit:               ; preds = %18, %19
   br i1 %22, label %23, label %43
 
 23:                                               ; preds = %_ZN4llvm6object6Parser4readEv.exit
-  %24 = getelementptr inbounds i8, ptr %1, i64 24
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 24
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %11) #13
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8)
   %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %1, i64 32
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %27 = load i64, ptr %26, align 8
   %28 = call { i64, ptr } @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE17_S_to_string_viewESt17basic_string_viewIcS2_E(i64 %27, ptr %25) #13
   %29 = extractvalue { i64, ptr } %28, 0
@@ -1539,7 +1539,7 @@ _ZN4llvm6object6Parser4readEv.exit12:             ; preds = %38, %39
 43:                                               ; preds = %_ZN4llvm6object6Parser4readEv.exit
   %44 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull @.str) #13
   %45 = load ptr, ptr %14, align 8
-  %46 = getelementptr inbounds i8, ptr %1, i64 56
+  %46 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %47 = load ptr, ptr %46, align 8
   %.not.i.i = icmp eq ptr %45, %47
   br i1 %.not.i.i, label %51, label %48
@@ -1666,7 +1666,7 @@ _ZN4llvm5ErrorD2Ev.exit13:                        ; preds = %_ZN4llvm6object6Par
 
 88:                                               ; preds = %_ZN4llvm6object6Parser4readEv.exit12
   %89 = load ptr, ptr %14, align 8
-  %90 = getelementptr inbounds i8, ptr %1, i64 56
+  %90 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %91 = load ptr, ptr %90, align 8
   %.not.i.i14 = icmp eq ptr %89, %91
   br i1 %.not.i.i14, label %95, label %92
@@ -1774,7 +1774,7 @@ define linkonce_odr hidden void @_ZN4llvm6object6Parser12parseVersionEPjS2_(ptr 
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8)
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %1, i64 48
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %15 = load ptr, ptr %14, align 8
   %16 = icmp eq ptr %13, %15
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -1795,7 +1795,7 @@ _ZN4llvm6object6Parser4readEv.exit:               ; preds = %18, %19
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8)
   %21 = load i32, ptr %17, align 8
   %.not = icmp eq i32 %21, 2
-  %22 = getelementptr inbounds i8, ptr %1, i64 24
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 24
   br i1 %.not, label %33, label %23
 
 23:                                               ; preds = %_ZN4llvm6object6Parser4readEv.exit
@@ -1808,9 +1808,9 @@ _ZN4llvm6object6Parser4readEv.exit:               ; preds = %18, %19
   %26 = load ptr, ptr %22, align 8, !noalias !86
   %27 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store ptr %26, ptr %27, align 8, !alias.scope !86
-  %28 = getelementptr inbounds i8, ptr %1, i64 32
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %29 = load i64, ptr %28, align 8, !noalias !86
-  %30 = getelementptr inbounds i8, ptr %9, i64 24
+  %30 = getelementptr inbounds nuw i8, ptr %9, i64 24
   store i64 %29, ptr %30, align 8, !alias.scope !86
   %31 = call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #16, !noalias !89
   %32 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm6object15object_categoryEv() #13, !noalias !89
@@ -1831,7 +1831,7 @@ _ZN4llvm6object6Parser4readEv.exit:               ; preds = %18, %19
   br label %_ZNK4llvm9StringRef5splitEc.exit
 
 37:                                               ; preds = %33
-  %38 = getelementptr inbounds i8, ptr %1, i64 32
+  %38 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %39 = load i64, ptr %38, align 8, !noalias !99
   %40 = call i64 @llvm.umin.i64(i64 %34, i64 %39)
   %41 = load ptr, ptr %22, align 8, !noalias !99
@@ -1867,9 +1867,9 @@ _ZNK4llvm9StringRef5splitEc.exit:                 ; preds = %36, %37
   %51 = load ptr, ptr %22, align 8, !noalias !102
   %52 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store ptr %51, ptr %52, align 8, !alias.scope !102
-  %53 = getelementptr inbounds i8, ptr %1, i64 32
+  %53 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %54 = load i64, ptr %53, align 8, !noalias !102
-  %55 = getelementptr inbounds i8, ptr %10, i64 24
+  %55 = getelementptr inbounds nuw i8, ptr %10, i64 24
   store i64 %54, ptr %55, align 8, !alias.scope !102
   %56 = call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #16, !noalias !105
   %57 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm6object15object_categoryEv() #13, !noalias !105
@@ -1914,9 +1914,9 @@ _ZNK4llvm9StringRef12getAsIntegerIjEEbjRT_.exit9: ; preds = %64
   %70 = load ptr, ptr %22, align 8, !noalias !112
   %71 = getelementptr inbounds nuw i8, ptr %11, i64 16
   store ptr %70, ptr %71, align 8, !alias.scope !112
-  %72 = getelementptr inbounds i8, ptr %1, i64 32
+  %72 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %73 = load i64, ptr %72, align 8, !noalias !112
-  %74 = getelementptr inbounds i8, ptr %11, i64 24
+  %74 = getelementptr inbounds nuw i8, ptr %11, i64 24
   store i64 %73, ptr %74, align 8, !alias.scope !112
   %75 = call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #16, !noalias !115
   %76 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm6object15object_categoryEv() #13, !noalias !115
@@ -2423,7 +2423,7 @@ define linkonce_odr hidden void @_ZN4llvm6object6Parser9readAsIntEPm(ptr dead_on
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %1, i64 48
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %10 = load ptr, ptr %9, align 8
   %11 = icmp eq ptr %8, %10
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -2447,7 +2447,7 @@ _ZN4llvm6object6Parser4readEv.exit:               ; preds = %13, %14
   br i1 %.not, label %17, label %20
 
 17:                                               ; preds = %_ZN4llvm6object6Parser4readEv.exit
-  %18 = getelementptr inbounds i8, ptr %1, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 24
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   %.sroa.0.0.copyload.i = load ptr, ptr %18, align 8
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %1, i64 32

@@ -196,7 +196,7 @@ $_ZTVN4llvm2cl11OptionValueIjEE = comdat any
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvm2cl3optIjLb0ENS0_6parserIjEEED2Ev(ptr noundef nonnull align 8 dereferenceable(192) %0) unnamed_addr #0 comdat align 2 {
   store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTVN4llvm2cl3optIjLb0ENS0_6parserIjEEEE, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 176
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %3 = load ptr, ptr %2, align 8
   %.not.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i, label %_ZNSt8functionIFvRKjEED2Ev.exit, label %4
@@ -209,7 +209,7 @@ define linkonce_odr hidden void @_ZN4llvm2cl3optIjLb0ENS0_6parserIjEEED2Ev(ptr n
 _ZNSt8functionIFvRKjEED2Ev.exit:                  ; preds = %1, %4
   store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTVN4llvm2cl6OptionE, i64 16), ptr %0, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %8 = getelementptr inbounds i8, ptr %0, i64 96
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %9 = load ptr, ptr %8, align 8
   %10 = load ptr, ptr %7, align 8
   %11 = icmp eq ptr %9, %10
@@ -267,7 +267,7 @@ define dso_local void @_ZN4llvm12CallGraphSCC11ReplaceNodeEPNS_13CallGraphNodeES
 
 .split:                                           ; preds = %11
   %15 = getelementptr inbounds i8, ptr %12, i64 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %17 = load ptr, ptr %16, align 8
   %.not.i.i = icmp eq ptr %15, %17
   br i1 %.not.i.i, label %_ZNSt6vectorIPN4llvm13CallGraphNodeESaIS2_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS2_S4_EE.exit, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPPN4llvm13CallGraphNodeESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit.i.i
@@ -301,7 +301,7 @@ define linkonce_odr hidden void @_ZN4llvm12scc_iteratorIPNS_9CallGraphENS_11Grap
   store ptr %2, ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %9 = load i32, ptr %8, align 8
   %10 = icmp eq i32 %9, 0
   br i1 %10, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_13CallGraphNodeEjNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E15LookupBucketForIS3_EEbRKT_RPS8_.exit.i.i, label %11
@@ -473,11 +473,11 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_13CallGraphNodeEjNS_12DenseMapInfoIS3_vE
 .loopexit.i:                                      ; preds = %97, %83
   %.0.i.ph.i = phi ptr [ %92, %83 ], [ %101, %97 ]
   store ptr inttoptr (i64 -8192 to ptr), ptr %.0.i.ph.i, align 8
-  %104 = getelementptr inbounds i8, ptr %0, i64 16
+  %104 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %105 = load i32, ptr %104, align 8
   %106 = add i32 %105, -1
   store i32 %106, ptr %104, align 8
-  %107 = getelementptr inbounds i8, ptr %0, i64 20
+  %107 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %108 = load i32, ptr %107, align 4
   %109 = add i32 %108, 1
   store i32 %109, ptr %107, align 4
@@ -505,7 +505,7 @@ define dso_local void @_ZN4llvm12CallGraphSCC10DeleteNodeEPNS_13CallGraphNodeE(p
 10:                                               ; preds = %5
   %11 = getelementptr inbounds ptr, ptr %4, i64 %6
   %12 = getelementptr inbounds i8, ptr %11, i64 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %14 = load ptr, ptr %13, align 8
   %.not.i.i.i = icmp eq ptr %12, %14
   br i1 %.not.i.i.i, label %_ZN4llvm12CallGraphSCC11ReplaceNodeEPNS_13CallGraphNodeES2_.exit, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPPN4llvm13CallGraphNodeESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit.i.i.i
@@ -749,7 +749,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm16CallGraphSCCPass7skipSCCERNS_12C
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #19
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %24 = load ptr, ptr %23, align 8, !noalias !10
-  %25 = getelementptr inbounds i8, ptr %1, i64 24
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %26 = load ptr, ptr %25, align 8, !noalias !10
   %.not1415.i = icmp eq ptr %24, %26
   br i1 %.not1415.i, label %.loopexit, label %_ZN4llvm13ListSeparatorcvNS_9StringRefEEv.exit.i
@@ -1117,14 +1117,14 @@ _ZN12_GLOBAL__N_113CGPassManager16doInitializationERN4llvm9CallGraphE.exit: ; pr
   %54 = getelementptr inbounds nuw i8, ptr %6, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %54, i8 0, i64 24, i1 false)
   %55 = getelementptr inbounds nuw i8, ptr %5, i64 56
-  %56 = getelementptr inbounds i8, ptr %5, i64 64
+  %56 = getelementptr inbounds nuw i8, ptr %5, i64 64
   %57 = load ptr, ptr %55, align 8
   %58 = load ptr, ptr %56, align 8
   %59 = icmp eq ptr %57, %58
   br i1 %59, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZN12_GLOBAL__N_113CGPassManager16doInitializationERN4llvm9CallGraphE.exit
-  %60 = getelementptr inbounds i8, ptr %6, i64 32
+  %60 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %61 = getelementptr inbounds i8, ptr %6, i64 24
   %62 = getelementptr inbounds i8, ptr %0, i64 32
   %63 = getelementptr inbounds nuw i8, ptr %3, i64 20
@@ -1553,7 +1553,7 @@ _ZN12_GLOBAL__N_113CGPassManager14doFinalizationERN4llvm9CallGraphE.exit: ; pred
   br i1 %.not.i.i.i.i, label %_ZN4llvm12CallGraphSCCD2Ev.exit, label %222
 
 222:                                              ; preds = %_ZN12_GLOBAL__N_113CGPassManager14doFinalizationERN4llvm9CallGraphE.exit
-  %223 = getelementptr inbounds i8, ptr %6, i64 32
+  %223 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %224 = load ptr, ptr %223, align 8
   %225 = ptrtoint ptr %224 to i64
   %226 = ptrtoint ptr %221 to i64
@@ -1568,7 +1568,7 @@ _ZN4llvm12CallGraphSCCD2Ev.exit:                  ; preds = %_ZN12_GLOBAL__N_113
   br i1 %.not.i.i.i.i33, label %_ZNSt6vectorIN4llvm12scc_iteratorIPNS0_9CallGraphENS0_11GraphTraitsIS3_EEE12StackElementESaIS7_EED2Ev.exit.i, label %230
 
 230:                                              ; preds = %_ZN4llvm12CallGraphSCCD2Ev.exit
-  %231 = getelementptr inbounds i8, ptr %5, i64 96
+  %231 = getelementptr inbounds nuw i8, ptr %5, i64 96
   %232 = load ptr, ptr %231, align 8
   %233 = ptrtoint ptr %232 to i64
   %234 = ptrtoint ptr %229 to i64
@@ -1582,7 +1582,7 @@ _ZNSt6vectorIN4llvm12scc_iteratorIPNS0_9CallGraphENS0_11GraphTraitsIS3_EEE12Stac
   br i1 %.not.i.i.i1.i, label %_ZNSt6vectorIPN4llvm13CallGraphNodeESaIS2_EED2Ev.exit.i, label %237
 
 237:                                              ; preds = %_ZNSt6vectorIN4llvm12scc_iteratorIPNS0_9CallGraphENS0_11GraphTraitsIS3_EEE12StackElementESaIS7_EED2Ev.exit.i
-  %238 = getelementptr inbounds i8, ptr %5, i64 72
+  %238 = getelementptr inbounds nuw i8, ptr %5, i64 72
   %239 = load ptr, ptr %238, align 8
   %240 = ptrtoint ptr %239 to i64
   %241 = ptrtoint ptr %236 to i64
@@ -1596,7 +1596,7 @@ _ZNSt6vectorIPN4llvm13CallGraphNodeESaIS2_EED2Ev.exit.i: ; preds = %237, %_ZNSt6
   br i1 %.not.i.i.i2.i, label %_ZN4llvm12scc_iteratorIPNS_9CallGraphENS_11GraphTraitsIS2_EEED2Ev.exit, label %244
 
 244:                                              ; preds = %_ZNSt6vectorIPN4llvm13CallGraphNodeESaIS2_EED2Ev.exit.i
-  %245 = getelementptr inbounds i8, ptr %5, i64 48
+  %245 = getelementptr inbounds nuw i8, ptr %5, i64 48
   %246 = load ptr, ptr %245, align 8
   %247 = ptrtoint ptr %246 to i64
   %248 = ptrtoint ptr %243 to i64
@@ -1607,7 +1607,7 @@ _ZNSt6vectorIPN4llvm13CallGraphNodeESaIS2_EED2Ev.exit.i: ; preds = %237, %_ZNSt6
 _ZN4llvm12scc_iteratorIPNS_9CallGraphENS_11GraphTraitsIS2_EEED2Ev.exit: ; preds = %_ZNSt6vectorIPN4llvm13CallGraphNodeESaIS2_EED2Ev.exit.i, %244
   %250 = or i1 %.011.in.lcssa, %.0.lcssa.i31
   %251 = load ptr, ptr %51, align 8
-  %252 = getelementptr inbounds i8, ptr %5, i64 24
+  %252 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %253 = load i32, ptr %252, align 8
   %254 = zext i32 %253 to i64
   %255 = shl nuw nsw i64 %254, 4
@@ -1788,7 +1788,7 @@ define linkonce_odr void @_ZN4llvm12scc_iteratorIPNS_9CallGraphENS_11GraphTraits
   store i32 %5, ptr %0, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %9 = load i32, ptr %8, align 8
   %10 = icmp eq i32 %9, 0
   br i1 %10, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_13CallGraphNodeEjNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E15LookupBucketForIS3_EEbRKT_RPS8_.exit.i.i, label %11
@@ -1850,9 +1850,9 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_13CallGraphNodeEjNS_12DenseMapInfoIS3_vE
   %40 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 8
   store i32 %5, ptr %40, align 4
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %42 = getelementptr inbounds i8, ptr %0, i64 40
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %43 = load ptr, ptr %42, align 8
-  %44 = getelementptr inbounds i8, ptr %0, i64 48
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %45 = load ptr, ptr %44, align 8
   %.not.i = icmp eq ptr %43, %45
   br i1 %.not.i, label %49, label %46
@@ -1925,9 +1925,9 @@ _ZNSt6vectorIPN4llvm13CallGraphNodeESaIS2_EE9push_backERKS2_.exit: ; preds = %46
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 16
   %75 = load ptr, ptr %74, align 8
   %76 = load i32, ptr %0, align 8
-  %77 = getelementptr inbounds i8, ptr %0, i64 88
+  %77 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %78 = load ptr, ptr %77, align 8
-  %79 = getelementptr inbounds i8, ptr %0, i64 96
+  %79 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %80 = load ptr, ptr %79, align 8
   %.not.i.i = icmp eq ptr %78, %80
   br i1 %.not.i.i, label %84, label %81
@@ -2020,7 +2020,7 @@ define linkonce_odr void @_ZN4llvm12scc_iteratorIPNS_9CallGraphENS_11GraphTraits
   %2 = alloca ptr, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 64
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %6 = load ptr, ptr %5, align 8
   %.not.i.i = icmp eq ptr %6, %4
   br i1 %.not.i.i, label %_ZNSt6vectorIPN4llvm13CallGraphNodeESaIS2_EE5clearEv.exit, label %7
@@ -2031,9 +2031,9 @@ define linkonce_odr void @_ZN4llvm12scc_iteratorIPNS_9CallGraphENS_11GraphTraits
 
 _ZNSt6vectorIPN4llvm13CallGraphNodeESaIS2_EE5clearEv.exit: ; preds = %1, %7
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %9 = getelementptr inbounds i8, ptr %0, i64 88
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
   br label %12
 
 12:                                               ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_13CallGraphNodeEjNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_EixERKS3_.exit, %_ZNSt6vectorIPN4llvm13CallGraphNodeESaIS2_EE5clearEv.exit
@@ -2131,8 +2131,8 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_13CallGraphNodeEjNS_12DenseMapInfoIS3_vE
   br i1 %.not, label %.preheader, label %12, !llvm.loop !33
 
 .preheader:                                       ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_13CallGraphNodeEjNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_EixERKS3_.exit
-  %64 = getelementptr inbounds i8, ptr %0, i64 40
-  %65 = getelementptr inbounds i8, ptr %0, i64 72
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %65 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %.pre = load ptr, ptr %5, align 8
   br label %66
 
@@ -2595,12 +2595,12 @@ define linkonce_odr hidden noundef ptr @_ZN4llvm11GraphTraitsIPNS_13CallGraphNod
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN4llvm12scc_iteratorIPNS_9CallGraphENS_11GraphTraitsIS2_EEE16DFSVisitChildrenEv(ptr noundef nonnull align 8 dereferenceable(104) %0) local_unnamed_addr #0 comdat align 2 {
   %2 = alloca %"struct.std::pair.206", align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 88
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 -32
   %6 = getelementptr inbounds i8, ptr %4, i64 -24
   %7 = load ptr, ptr %5, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %9 = load ptr, ptr %8, align 8
   %10 = load ptr, ptr %6, align 8
   %.not12 = icmp eq ptr %10, %9
@@ -2612,7 +2612,7 @@ define linkonce_odr void @_ZN4llvm12scc_iteratorIPNS_9CallGraphENS_11GraphTraits
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 24
   br label %17
 
 17:                                               ; preds = %.lr.ph, %.backedge
@@ -2736,7 +2736,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_13CallGraphNodeEjNS_12DenseMapInfoIS3_vE
   %69 = getelementptr inbounds i8, ptr %68, i64 -32
   %70 = getelementptr inbounds i8, ptr %68, i64 -24
   %71 = load ptr, ptr %69, align 8
-  %72 = getelementptr inbounds i8, ptr %71, i64 24
+  %72 = getelementptr inbounds nuw i8, ptr %71, i64 24
   %73 = load ptr, ptr %72, align 8
   %74 = load ptr, ptr %70, align 8
   %.not = icmp eq ptr %74, %73
@@ -2829,7 +2829,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_113CGPassManager16Ref
   br i1 %28, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_5ValueEPNS_13CallGraphNodeENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S5_EEEES3_S5_S7_SA_E5clearEv.exit, label %29
 
 29:                                               ; preds = %27
-  %30 = getelementptr inbounds i8, ptr %24, i64 24
+  %30 = getelementptr inbounds nuw i8, ptr %24, i64 24
   %31 = load ptr, ptr %30, align 8
   %32 = getelementptr inbounds nuw i8, ptr %24, i64 16
   %33 = load ptr, ptr %32, align 8
@@ -3287,14 +3287,14 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_5ValueEPNS_13CallGraphNodeENS_12DenseMap
 "_ZZN12_GLOBAL__N_113CGPassManager16RefreshCallGraphERKN4llvm12CallGraphSCCERNS1_9CallGraphEbENK3$_1clEN9__gnu_cxx17__normal_iteratorIPSt4pairISt8optionalINS1_14WeakTrackingVHEEPNS1_13CallGraphNodeEESt6vectorISG_SaISG_EEEE.exit.thread": ; preds = %_ZN4llvm13CallGraphNode14removeCallEdgeEN9__gnu_cxx17__normal_iteratorIPSt4pairISt8optionalINS_14WeakTrackingVHEEPS0_ESt6vectorIS8_SaIS8_EEEE.exit.i99, %"_ZZN12_GLOBAL__N_113CGPassManager16RefreshCallGraphERKN4llvm12CallGraphSCCERNS1_9CallGraphEbENK3$_1clEN9__gnu_cxx17__normal_iteratorIPSt4pairISt8optionalINS1_14WeakTrackingVHEEPNS1_13CallGraphNodeEESt6vectorISG_SaISG_EEEE.exit101", %_ZN4llvm13CallGraphNode14removeCallEdgeEN9__gnu_cxx17__normal_iteratorIPSt4pairISt8optionalINS_14WeakTrackingVHEEPS0_ESt6vectorIS8_SaIS8_EEEE.exit.i, %"_ZZN12_GLOBAL__N_113CGPassManager16RefreshCallGraphERKN4llvm12CallGraphSCCERNS1_9CallGraphEbENK3$_1clEN9__gnu_cxx17__normal_iteratorIPSt4pairISt8optionalINS1_14WeakTrackingVHEEPNS1_13CallGraphNodeEESt6vectorISG_SaISG_EEEE.exit", %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_5ValueEPNS_13CallGraphNodeENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S5_EEEES3_S5_S7_SA_E6insertEOSt4pairIS3_S5_E.exit, %29
   %.170 = phi i32 [ 0, %29 ], [ %.069.ph.ph115, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_5ValueEPNS_13CallGraphNodeENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S5_EEEES3_S5_S7_SA_E6insertEOSt4pairIS3_S5_E.exit ], [ %.069.ph.ph115, %"_ZZN12_GLOBAL__N_113CGPassManager16RefreshCallGraphERKN4llvm12CallGraphSCCERNS1_9CallGraphEbENK3$_1clEN9__gnu_cxx17__normal_iteratorIPSt4pairISt8optionalINS1_14WeakTrackingVHEEPNS1_13CallGraphNodeEESt6vectorISG_SaISG_EEEE.exit" ], [ %.069.ph.ph115, %_ZN4llvm13CallGraphNode14removeCallEdgeEN9__gnu_cxx17__normal_iteratorIPSt4pairISt8optionalINS_14WeakTrackingVHEEPS0_ESt6vectorIS8_SaIS8_EEEE.exit.i ], [ %.271, %"_ZZN12_GLOBAL__N_113CGPassManager16RefreshCallGraphERKN4llvm12CallGraphSCCERNS1_9CallGraphEbENK3$_1clEN9__gnu_cxx17__normal_iteratorIPSt4pairISt8optionalINS1_14WeakTrackingVHEEPNS1_13CallGraphNodeEESt6vectorISG_SaISG_EEEE.exit101" ], [ %.271, %_ZN4llvm13CallGraphNode14removeCallEdgeEN9__gnu_cxx17__normal_iteratorIPSt4pairISt8optionalINS_14WeakTrackingVHEEPS0_ESt6vectorIS8_SaIS8_EEEE.exit.i99 ]
   %.167 = phi i32 [ 0, %29 ], [ %.066.ph.ph117, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_5ValueEPNS_13CallGraphNodeENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S5_EEEES3_S5_S7_SA_E6insertEOSt4pairIS3_S5_E.exit ], [ %.066.ph.ph117, %"_ZZN12_GLOBAL__N_113CGPassManager16RefreshCallGraphERKN4llvm12CallGraphSCCERNS1_9CallGraphEbENK3$_1clEN9__gnu_cxx17__normal_iteratorIPSt4pairISt8optionalINS1_14WeakTrackingVHEEPNS1_13CallGraphNodeEESt6vectorISG_SaISG_EEEE.exit" ], [ %.066.ph.ph117, %_ZN4llvm13CallGraphNode14removeCallEdgeEN9__gnu_cxx17__normal_iteratorIPSt4pairISt8optionalINS_14WeakTrackingVHEEPS0_ESt6vectorIS8_SaIS8_EEEE.exit.i ], [ %.268, %"_ZZN12_GLOBAL__N_113CGPassManager16RefreshCallGraphERKN4llvm12CallGraphSCCERNS1_9CallGraphEbENK3$_1clEN9__gnu_cxx17__normal_iteratorIPSt4pairISt8optionalINS1_14WeakTrackingVHEEPNS1_13CallGraphNodeEESt6vectorISG_SaISG_EEEE.exit101" ], [ %.268, %_ZN4llvm13CallGraphNode14removeCallEdgeEN9__gnu_cxx17__normal_iteratorIPSt4pairISt8optionalINS_14WeakTrackingVHEEPS0_ESt6vectorIS8_SaIS8_EEEE.exit.i99 ]
-  %220 = getelementptr inbounds i8, ptr %26, i64 80
+  %220 = getelementptr inbounds nuw i8, ptr %26, i64 80
   %221 = getelementptr inbounds nuw i8, ptr %26, i64 72
   %.sroa.09.0138 = load ptr, ptr %220, align 8
   %.not69139 = icmp eq ptr %.sroa.09.0138, %221
   br i1 %.not69139, label %._crit_edge145, label %.lr.ph144
 
 .lr.ph144:                                        ; preds = %"_ZZN12_GLOBAL__N_113CGPassManager16RefreshCallGraphERKN4llvm12CallGraphSCCERNS1_9CallGraphEbENK3$_1clEN9__gnu_cxx17__normal_iteratorIPSt4pairISt8optionalINS1_14WeakTrackingVHEEPNS1_13CallGraphNodeEESt6vectorISG_SaISG_EEEE.exit.thread"
-  %222 = getelementptr inbounds i8, ptr %24, i64 32
+  %222 = getelementptr inbounds nuw i8, ptr %24, i64 32
   br label %223
 
 223:                                              ; preds = %.lr.ph144, %._crit_edge
@@ -3305,7 +3305,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_5ValueEPNS_13CallGraphNodeENS_12DenseMap
   %224 = icmp eq ptr %.sroa.09.0143, null
   %225 = getelementptr inbounds i8, ptr %.sroa.09.0143, i64 -24
   %226 = select i1 %224, ptr null, ptr %225
-  %227 = getelementptr inbounds i8, ptr %226, i64 56
+  %227 = getelementptr inbounds nuw i8, ptr %226, i64 56
   %228 = getelementptr inbounds nuw i8, ptr %226, i64 48
   %.sroa.05.0121 = load ptr, ptr %227, align 8
   %.not70122 = icmp eq ptr %.sroa.05.0121, %228
@@ -4583,7 +4583,7 @@ _ZZN12_GLOBAL__N_118PrintCallGraphPass8runOnSCCERN4llvm12CallGraphSCCEENKUlvE_cl
 22:                                               ; preds = %2
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %1, i64 24
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %26 = load ptr, ptr %25, align 8
   %.not5052 = icmp eq ptr %24, %26
   br i1 %.not5052, label %._crit_edge.thread, label %.lr.ph
@@ -4864,15 +4864,15 @@ define linkonce_odr hidden void @_ZN4llvm2cl6OptionC2ENS0_18NumOccurrencesFlagEN
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(52) %15, i8 0, i64 52, i1 false)
   tail call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %16, ptr noundef nonnull %17, i64 noundef 1) #19
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %19 = getelementptr inbounds i8, ptr %0, i64 120
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 120
   store ptr %19, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %0, i64 96
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store ptr %19, ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %0, i64 104
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store i32 1, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %0, i64 108
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 108
   store i32 0, ptr %22, align 4
-  %23 = getelementptr inbounds i8, ptr %0, i64 112
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store i32 0, ptr %23, align 8
   %24 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZN4llvm2cl18getGeneralCategoryEv() #19
   %25 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %16) #19
@@ -5126,8 +5126,8 @@ define internal void @_GLOBAL__sub_I_CallGraphSCCPass.cpp() #7 section ".text.st
   tail call void @_ZN4llvm2cl12basic_parserIjEC2ERNS0_6OptionE(ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds nuw (i8, ptr @_ZN4llvm19MaxDevirtIterationsE, i64 152), ptr noundef nonnull align 8 dereferenceable(128) @_ZN4llvm19MaxDevirtIterationsE) #19
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4llvm2cl6parserIjEE, i64 16), ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm19MaxDevirtIterationsE, i64 152), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN4llvm19MaxDevirtIterationsE, i64 160), i8 0, i64 16, i1 false)
-  store ptr @_ZNSt17_Function_handlerIFvRKjEN4llvm2cl3optIjLb0ENS4_6parserIjEEEUlS1_E_EE9_M_invokeERKSt9_Any_dataS1_, ptr getelementptr inbounds (i8, ptr @_ZN4llvm19MaxDevirtIterationsE, i64 184), align 8
-  store ptr @_ZNSt17_Function_handlerIFvRKjEN4llvm2cl3optIjLb0ENS4_6parserIjEEEUlS1_E_EE10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation, ptr getelementptr inbounds (i8, ptr @_ZN4llvm19MaxDevirtIterationsE, i64 176), align 8
+  store ptr @_ZNSt17_Function_handlerIFvRKjEN4llvm2cl3optIjLb0ENS4_6parserIjEEEUlS1_E_EE9_M_invokeERKSt9_Any_dataS1_, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm19MaxDevirtIterationsE, i64 184), align 8
+  store ptr @_ZNSt17_Function_handlerIFvRKjEN4llvm2cl3optIjLb0ENS4_6parserIjEEEUlS1_E_EE10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm19MaxDevirtIterationsE, i64 176), align 8
   tail call void @_ZN4llvm2cl6Option9setArgStrENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(128) @_ZN4llvm19MaxDevirtIterationsE, ptr nonnull @.str, i64 21) #19
   %2 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm19MaxDevirtIterationsE, i64 10), align 2
   %3 = and i16 %2, -97

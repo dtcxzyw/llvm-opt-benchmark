@@ -55,7 +55,7 @@ define dso_local void @_ZN5clang13DoRewriteTestERNS_12PreprocessorEPN4llvm11raw_
 
 .lr.ph:                                           ; preds = %2, %16
   %.sroa.015.022 = phi ptr [ %.sroa.015.0, %16 ], [ %.sroa.015.020, %2 ]
-  %10 = getelementptr inbounds i8, ptr %.sroa.015.022, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %.sroa.015.022, i64 32
   %11 = load i16, ptr %10, align 8
   %.not19 = icmp eq i16 %11, 4
   br i1 %.not19, label %12, label %16

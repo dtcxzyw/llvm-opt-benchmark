@@ -4763,7 +4763,7 @@ _ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i16: ; preds = %._ZN4llvm
   %90 = load i64, ptr %74, align 8
   %91 = add i64 %90, 12
   store i64 %91, ptr %74, align 8
-  %92 = getelementptr inbounds i8, ptr %0, i64 64
+  %92 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %93 = load i32, ptr %92, align 8
   %94 = tail call i32 @llvm.abs.i32(i32 %93, i1 false)
   %95 = zext i32 %94 to i64
@@ -4871,7 +4871,7 @@ _ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i35: ; preds = %._ZN4llvm
   %134 = load i64, ptr %74, align 8
   %135 = add i64 %134, 2
   store i64 %135, ptr %74, align 8
-  %136 = getelementptr inbounds i8, ptr %0, i64 68
+  %136 = getelementptr inbounds nuw i8, ptr %0, i64 68
   %137 = load i32, ptr %136, align 4
   %138 = tail call i32 @llvm.abs.i32(i32 %137, i1 false)
   %139 = zext i32 %138 to i64
@@ -4978,7 +4978,7 @@ _ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i59: ; preds = %._ZN4llvm
   %177 = load i64, ptr %74, align 8
   %178 = add i64 %177, 2
   store i64 %178, ptr %74, align 8
-  %179 = getelementptr inbounds i8, ptr %0, i64 72
+  %179 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %180 = load i32, ptr %179, align 8
   %181 = tail call i32 @llvm.abs.i32(i32 %180, i1 false)
   %182 = zext i32 %181 to i64
@@ -5208,7 +5208,7 @@ _ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i111: ; preds = %._ZN4llv
   %270 = load i64, ptr %74, align 8
   %271 = add i64 %270, 10
   store i64 %271, ptr %74, align 8
-  %272 = getelementptr inbounds i8, ptr %0, i64 72
+  %272 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %273 = load i32, ptr %272, align 8
   %274 = tail call i32 @llvm.abs.i32(i32 %273, i1 false)
   %275 = zext i32 %274 to i64

@@ -397,7 +397,7 @@ _ZNK4llvm4Pass11getAnalysisINS_26MachineLoopInfoWrapperPassEEERT_v.exit: ; preds
   %74 = load ptr, ptr %73, align 8
   %75 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store ptr %74, ptr %75, align 8
-  %76 = getelementptr inbounds i8, ptr %1, i64 328
+  %76 = getelementptr inbounds nuw i8, ptr %1, i64 328
   %77 = getelementptr inbounds nuw i8, ptr %1, i64 320
   %.sroa.0220.0244 = load ptr, ptr %76, align 8
   %.not245 = icmp eq ptr %.sroa.0220.0244, %77
@@ -2748,7 +2748,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_120AArch64MIPeepholeO
 
 .preheader.i.i.i.i:                               ; preds = %53, %56
   %.pn.i.i.i.i.i = phi ptr [ %storemerge.i.i.i.i.i, %56 ], [ %.0.i.i.i.i, %53 ]
-  %storemerge.in.i.i.i.i.i = getelementptr inbounds i8, ptr %.pn.i.i.i.i.i, i64 24
+  %storemerge.in.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.pn.i.i.i.i.i, i64 24
   %storemerge.i.i.i.i.i = load ptr, ptr %storemerge.in.i.i.i.i.i, align 8
   %.not.i.i.i.i.i = icmp eq ptr %storemerge.i.i.i.i.i, null
   br i1 %.not.i.i.i.i.i, label %_ZNK4llvm19MachineRegisterInfo9hasOneUseENS_8RegisterE.exit50, label %56
@@ -2765,7 +2765,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_120AArch64MIPeepholeO
 
 .lr.ph.i.i.i.preheader.i.i:                       ; preds = %.lr.ph.i.i.i.preheader.i.i.preheader, %59
   %.pn.i.i.i.i.i.i.i = phi ptr [ %storemerge.i.i.i.i.i.i.i, %59 ], [ %.pn.i.i.i.i.i.i.i.ph, %.lr.ph.i.i.i.preheader.i.i.preheader ]
-  %storemerge.in.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %.pn.i.i.i.i.i.i.i, i64 24
+  %storemerge.in.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.pn.i.i.i.i.i.i.i, i64 24
   %storemerge.i.i.i.i.i.i.i = load ptr, ptr %storemerge.in.i.i.i.i.i.i.i, align 8
   %.not.i.i.i.i.i.i.i = icmp eq ptr %storemerge.i.i.i.i.i.i.i, null
   br i1 %.not.i.i.i.i.i.i.i, label %_ZNK4llvm19MachineRegisterInfo9hasOneUseENS_8RegisterE.exit, label %59
@@ -2805,7 +2805,7 @@ _ZNK4llvm19MachineRegisterInfo9hasOneUseENS_8RegisterE.exit: ; preds = %.lr.ph.i
 
 .preheader.i.i.i.i36:                             ; preds = %74, %77
   %.pn.i.i.i.i.i37 = phi ptr [ %storemerge.i.i.i.i.i39, %77 ], [ %.0.i.i.i.i33, %74 ]
-  %storemerge.in.i.i.i.i.i38 = getelementptr inbounds i8, ptr %.pn.i.i.i.i.i37, i64 24
+  %storemerge.in.i.i.i.i.i38 = getelementptr inbounds nuw i8, ptr %.pn.i.i.i.i.i37, i64 24
   %storemerge.i.i.i.i.i39 = load ptr, ptr %storemerge.in.i.i.i.i.i38, align 8
   %.not.i.i.i.i.i40 = icmp eq ptr %storemerge.i.i.i.i.i39, null
   br i1 %.not.i.i.i.i.i40, label %_ZNK4llvm19MachineRegisterInfo9hasOneUseENS_8RegisterE.exit50, label %77
@@ -2822,7 +2822,7 @@ _ZNK4llvm19MachineRegisterInfo9hasOneUseENS_8RegisterE.exit: ; preds = %.lr.ph.i
 
 .lr.ph.i.i.i.preheader.i.i44:                     ; preds = %.lr.ph.i.i.i.preheader.i.i44.preheader, %80
   %.pn.i.i.i.i.i.i.i45 = phi ptr [ %storemerge.i.i.i.i.i.i.i47, %80 ], [ %.pn.i.i.i.i.i.i.i45.ph, %.lr.ph.i.i.i.preheader.i.i44.preheader ]
-  %storemerge.in.i.i.i.i.i.i.i46 = getelementptr inbounds i8, ptr %.pn.i.i.i.i.i.i.i45, i64 24
+  %storemerge.in.i.i.i.i.i.i.i46 = getelementptr inbounds nuw i8, ptr %.pn.i.i.i.i.i.i.i45, i64 24
   %storemerge.i.i.i.i.i.i.i47 = load ptr, ptr %storemerge.in.i.i.i.i.i.i.i46, align 8
   %.not.i.i.i.i.i.i.i48 = icmp eq ptr %storemerge.i.i.i.i.i.i.i47, null
   br i1 %.not.i.i.i.i.i.i.i48, label %_ZNK4llvm19MachineRegisterInfo9hasOneUseENS_8RegisterE.exit50, label %80
@@ -4914,7 +4914,7 @@ _ZL14splitAddSubImmIjEbT_jRS0_S1_.exit13.thread25.i.i.i: ; preds = %.thread27.i.
 46:                                               ; preds = %_ZL14splitAddSubImmIjEbT_jRS0_S1_.exit13.thread25.i.i.i, %_ZL14splitAddSubImmIjEbT_jRS0_S1_.exit.thread23.i.i.i
   %.sink.i.i.i = phi i64 [ 12, %_ZL14splitAddSubImmIjEbT_jRS0_S1_.exit13.thread25.i.i.i ], [ 4, %_ZL14splitAddSubImmIjEbT_jRS0_S1_.exit.thread23.i.i.i ]
   %.sroa.0.0.in.i.i.i = phi ptr [ %45, %_ZL14splitAddSubImmIjEbT_jRS0_S1_.exit13.thread25.i.i.i ], [ %.val, %_ZL14splitAddSubImmIjEbT_jRS0_S1_.exit.thread23.i.i.i ]
-  %47 = getelementptr inbounds i8, ptr %.val, i64 %.sink.i.i.i
+  %47 = getelementptr inbounds nuw i8, ptr %.val, i64 %.sink.i.i.i
   %.sroa.4.0.i.i.i = load i32, ptr %47, align 4
   %.sroa.0.0.i.i.i = load i32, ptr %.sroa.0.0.in.i.i.i, align 4
   %48 = getelementptr inbounds nuw i8, ptr %.val, i64 32
@@ -5377,7 +5377,7 @@ _ZL14splitAddSubImmImEbT_jRS0_S1_.exit13.thread25.i.i.i: ; preds = %.thread27.i.
 44:                                               ; preds = %_ZL14splitAddSubImmImEbT_jRS0_S1_.exit13.thread25.i.i.i, %_ZL14splitAddSubImmImEbT_jRS0_S1_.exit.thread23.i.i.i
   %.sink.i.i.i = phi i64 [ 12, %_ZL14splitAddSubImmImEbT_jRS0_S1_.exit13.thread25.i.i.i ], [ 4, %_ZL14splitAddSubImmImEbT_jRS0_S1_.exit.thread23.i.i.i ]
   %.sroa.0.0.in.i.i.i = phi ptr [ %43, %_ZL14splitAddSubImmImEbT_jRS0_S1_.exit13.thread25.i.i.i ], [ %.val, %_ZL14splitAddSubImmImEbT_jRS0_S1_.exit.thread23.i.i.i ]
-  %45 = getelementptr inbounds i8, ptr %.val, i64 %.sink.i.i.i
+  %45 = getelementptr inbounds nuw i8, ptr %.val, i64 %.sink.i.i.i
   %.sroa.4.0.i.i.i = load i32, ptr %45, align 4
   %.sroa.0.0.i.i.i = load i32, ptr %.sroa.0.0.in.i.i.i, align 4
   %46 = getelementptr inbounds nuw i8, ptr %.val, i64 32

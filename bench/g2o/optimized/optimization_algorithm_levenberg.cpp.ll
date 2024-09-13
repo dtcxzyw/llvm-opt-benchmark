@@ -302,7 +302,7 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN3g2o12BaseProper
   resume { ptr, i32 } %27
 
 28:                                               ; preds = %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN3g2o12BasePropertyESt4lessIS5_ESaISt4pairIKS5_S8_EEE4findERSC_.exit
-  %29 = getelementptr inbounds i8, ptr %.19.i.i.i, i64 64
+  %29 = getelementptr inbounds nuw i8, ptr %.19.i.i.i, i64 64
   %30 = load ptr, ptr %29, align 8
   %31 = icmp eq ptr %30, null
   br i1 %31, label %34, label %32
@@ -398,7 +398,7 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN3g2o12BaseProper
   resume { ptr, i32 } %27
 
 28:                                               ; preds = %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN3g2o12BasePropertyESt4lessIS5_ESaISt4pairIKS5_S8_EEE4findERSC_.exit
-  %29 = getelementptr inbounds i8, ptr %.19.i.i.i, i64 64
+  %29 = getelementptr inbounds nuw i8, ptr %.19.i.i.i, i64 64
   %30 = load ptr, ptr %29, align 8
   %31 = icmp eq ptr %30, null
   br i1 %31, label %34, label %32
@@ -511,7 +511,7 @@ define noundef range(i32 -1, 3) i32 @_ZN3g2o30OptimizationAlgorithmLevenberg5sol
 .preheader.i:                                     ; preds = %36
   %42 = load ptr, ptr %14, align 8
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 304
-  %44 = getelementptr inbounds i8, ptr %42, i64 312
+  %44 = getelementptr inbounds nuw i8, ptr %42, i64 312
   %45 = load ptr, ptr %44, align 8
   %46 = load ptr, ptr %43, align 8
   %.not.i = icmp eq ptr %45, %46
@@ -553,7 +553,7 @@ define noundef range(i32 -1, 3) i32 @_ZN3g2o30OptimizationAlgorithmLevenberg5sol
   %.1.lcssa.i = phi double [ %.01417.i, %.lr.ph19.i ], [ %.sroa.speculated.i, %._crit_edge.loopexit.i ]
   %63 = add nuw i64 %.01218.i, 1
   %64 = getelementptr inbounds nuw i8, ptr %62, i64 304
-  %65 = getelementptr inbounds i8, ptr %62, i64 312
+  %65 = getelementptr inbounds nuw i8, ptr %62, i64 312
   %66 = load ptr, ptr %65, align 8
   %67 = load ptr, ptr %64, align 8
   %68 = ptrtoint ptr %66 to i64
@@ -824,7 +824,7 @@ define noundef double @_ZNK3g2o30OptimizationAlgorithmLevenberg17computeLambdaIn
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 304
-  %10 = getelementptr inbounds i8, ptr %8, i64 312
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 312
   %11 = load ptr, ptr %10, align 8
   %12 = load ptr, ptr %9, align 8
   %.not = icmp eq ptr %11, %12
@@ -866,7 +866,7 @@ define noundef double @_ZNK3g2o30OptimizationAlgorithmLevenberg17computeLambdaIn
   %.1.lcssa = phi double [ %.01417, %.lr.ph19 ], [ %.sroa.speculated, %._crit_edge.loopexit ]
   %29 = add nuw i64 %.01218, 1
   %30 = getelementptr inbounds nuw i8, ptr %28, i64 304
-  %31 = getelementptr inbounds i8, ptr %28, i64 312
+  %31 = getelementptr inbounds nuw i8, ptr %28, i64 312
   %32 = load ptr, ptr %31, align 8
   %33 = load ptr, ptr %30, align 8
   %34 = ptrtoint ptr %32 to i64

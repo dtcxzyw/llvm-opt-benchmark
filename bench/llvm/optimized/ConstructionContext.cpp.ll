@@ -171,13 +171,13 @@ define dso_local noundef zeroext i1 @_ZNK5clang24ConstructionContextLayer26isStr
   br i1 %9, label %_ZNK5clang23ConstructionContextItemeqERKS0_.exit, label %_ZNK5clang23ConstructionContextItemeqERKS0_.exit.thread
 
 _ZNK5clang23ConstructionContextItemeqERKS0_.exit: ; preds = %4
-  %10 = getelementptr inbounds i8, ptr %.0914, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %.0914, i64 16
   %11 = load i32, ptr %10, align 4, !noalias !7
-  %12 = getelementptr inbounds i8, ptr %.0914, i64 20
+  %12 = getelementptr inbounds nuw i8, ptr %.0914, i64 20
   %13 = load i32, ptr %12, align 4, !noalias !7
-  %14 = getelementptr inbounds i8, ptr %.015, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %.015, i64 16
   %15 = load i32, ptr %14, align 4, !noalias !4
-  %16 = getelementptr inbounds i8, ptr %.015, i64 20
+  %16 = getelementptr inbounds nuw i8, ptr %.015, i64 20
   %17 = load i32, ptr %16, align 4, !noalias !4
   %18 = icmp eq i32 %15, %11
   %19 = icmp eq i32 %17, %13
@@ -421,7 +421,7 @@ declare noundef ptr @_ZNK5clang4Type18getAsCXXRecordDeclEv(ptr noundef nonnull a
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local noundef ptr @_ZN5clang19ConstructionContext16createFromLayersERNS_17BumpVectorContextEPKNS_24ConstructionContextLayerE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %4 = getelementptr inbounds i8, ptr %1, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = load i32, ptr %4, align 8
   %6 = load ptr, ptr %3, align 8
   switch i32 %5, label %170 [
@@ -587,7 +587,7 @@ _ZN5clang19ConstructionContext6createINS_38SimpleReturnedValueConstructionContex
   br label %171
 
 88:                                               ; preds = %2
-  %89 = getelementptr inbounds i8, ptr %1, i64 20
+  %89 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %90 = load i32, ptr %89, align 4
   %.0.copyload.i.i.i.i.i45 = load i64, ptr %0, align 8
   %91 = and i64 %.0.copyload.i.i.i.i.i45, -8
@@ -685,7 +685,7 @@ _ZN5clang19ConstructionContext6createINS_47SimpleConstructorInitializerConstruct
   br label %171
 
 141:                                              ; preds = %2
-  %142 = getelementptr inbounds i8, ptr %1, i64 20
+  %142 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %143 = load i32, ptr %142, align 4
   %.0.copyload.i.i.i.i.i59 = load i64, ptr %0, align 8
   %144 = and i64 %.0.copyload.i.i.i.i.i59, -8
@@ -801,7 +801,7 @@ _ZN5clang19ConstructionContext6createINS_40SimpleTemporaryObjectConstructionCont
 
 30:                                               ; preds = %3
   %31 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %32 = getelementptr inbounds i8, ptr %2, i64 16
+  %32 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %33 = load i32, ptr %32, align 8
   %34 = load ptr, ptr %31, align 8
   switch i32 %33, label %173 [
@@ -917,7 +917,7 @@ _ZN5clang19ConstructionContext6createINS_47CXX17ElidedCopyReturnedValueConstruct
   br label %174
 
 90:                                               ; preds = %30
-  %91 = getelementptr inbounds i8, ptr %2, i64 20
+  %91 = getelementptr inbounds nuw i8, ptr %2, i64 20
   %92 = load i32, ptr %91, align 4
   %.0.copyload.i.i.i.i.i47 = load i64, ptr %0, align 8
   %93 = and i64 %.0.copyload.i.i.i.i.i47, -8
@@ -1019,7 +1019,7 @@ _ZN5clang19ConstructionContext6createINS_56CXX17ElidedCopyConstructorInitializer
   br label %174
 
 145:                                              ; preds = %30
-  %146 = getelementptr inbounds i8, ptr %2, i64 20
+  %146 = getelementptr inbounds nuw i8, ptr %2, i64 20
   %147 = load i32, ptr %146, align 4
   %.0.copyload.i.i.i.i.i61 = load i64, ptr %0, align 8
   %148 = and i64 %.0.copyload.i.i.i.i.i61, -8
@@ -1103,7 +1103,7 @@ define linkonce_odr hidden noundef ptr @_ZNK5clang12RedeclarableINS_7TagDeclEE8D
 
 15:                                               ; preds = %10
   %16 = getelementptr inbounds nuw i8, ptr %12, i64 2144
-  %17 = getelementptr inbounds i8, ptr %12, i64 2224
+  %17 = getelementptr inbounds nuw i8, ptr %12, i64 2224
   %18 = load i64, ptr %17, align 8
   %19 = add i64 %18, 24
   store i64 %19, ptr %17, align 8
@@ -1112,7 +1112,7 @@ define linkonce_odr hidden noundef ptr @_ZNK5clang12RedeclarableINS_7TagDeclEE8D
   %22 = add i64 %21, 7
   %23 = and i64 %22, -8
   %24 = add i64 %23, 24
-  %25 = getelementptr inbounds i8, ptr %12, i64 2152
+  %25 = getelementptr inbounds nuw i8, ptr %12, i64 2152
   %26 = load ptr, ptr %25, align 8
   %27 = ptrtoint ptr %26 to i64
   %.not.i.i.i.i.i.i = icmp ugt i64 %24, %27

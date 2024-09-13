@@ -245,7 +245,7 @@ declare noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIc
 define dso_local void @_ZNK5clang9api_notes14CommonTypeInfo4dumpERN4llvm11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(152) %0, ptr noundef nonnull align 8 dereferenceable(48) %1) local_unnamed_addr #0 align 2 {
   tail call void @_ZNK5clang9api_notes16CommonEntityInfo4dumpERN4llvm11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(48) %1)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %4 = getelementptr inbounds i8, ptr %0, i64 104
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %5 = load i8, ptr %4, align 8
   %6 = trunc i8 %5 to i1
   br i1 %6, label %7, label %_ZN4llvm11raw_ostreamlsEc.exit
@@ -296,7 +296,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %16, %18
 
 _ZN4llvm11raw_ostreamlsEc.exit:                   ; preds = %30, %28, %2
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %33 = getelementptr inbounds i8, ptr %0, i64 144
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %34 = load i8, ptr %33, align 8
   %35 = trunc i8 %34 to i1
   br i1 %35, label %36, label %_ZN4llvm11raw_ostreamlsEc.exit10
@@ -967,7 +967,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit14:               ; preds = %57, %59
 _ZN4llvm11raw_ostreamlsEc.exit17:                 ; preds = %71, %69, %_ZN4llvm11raw_ostreamlsEc.exit
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %74 = load ptr, ptr %73, align 8
-  %75 = getelementptr inbounds i8, ptr %0, i64 128
+  %75 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %76 = load ptr, ptr %75, align 8
   %77 = icmp eq ptr %74, %76
   br i1 %77, label %_ZN4llvm11raw_ostreamlsEc.exit20, label %78
@@ -1136,7 +1136,7 @@ define dso_local void @_ZN5clang9api_notes7TagInfo4dumpERN4llvm11raw_ostreamE(pt
 
 _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %21, %20, %17, %2
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 320
-  %25 = getelementptr inbounds i8, ptr %0, i64 324
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 324
   %26 = load i8, ptr %25, align 4
   %27 = trunc i8 %26 to i1
   br i1 %27, label %28, label %_ZN4llvm11raw_ostreamlsEc.exit
@@ -1213,7 +1213,7 @@ declare noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamls
 define dso_local void @_ZNK5clang9api_notes11TypedefInfo4dumpERN4llvm11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(160) %0, ptr noundef nonnull align 8 dereferenceable(48) %1) local_unnamed_addr #0 align 2 {
   tail call void @_ZNK5clang9api_notes14CommonTypeInfo4dumpERN4llvm11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(152) %0, ptr noundef nonnull align 8 dereferenceable(48) %1)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  %4 = getelementptr inbounds i8, ptr %0, i64 156
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 156
   %5 = load i8, ptr %4, align 4
   %6 = trunc i8 %5 to i1
   br i1 %6, label %7, label %_ZN4llvm11raw_ostreamlsEc.exit

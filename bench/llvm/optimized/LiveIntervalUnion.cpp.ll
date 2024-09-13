@@ -521,7 +521,7 @@ define dso_local void @_ZNK4llvm17LiveIntervalUnion5printERNS_11raw_ostreamEPKNS
   %5 = alloca %"class.llvm::SlotIndex", align 8
   %6 = alloca %"class.llvm::IntervalMap<llvm::SlotIndex, const llvm::LiveInterval *>::const_iterator", align 8
   %7 = alloca %"class.llvm::Printable", align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 204
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 204
   %9 = load i32, ptr %8, align 4
   %10 = icmp eq i32 %9, 0
   br i1 %10, label %11, label %25
@@ -795,7 +795,7 @@ declare void @_ZN4llvm8printRegENS_8RegisterEPKNS_18TargetRegisterInfoEjPKNS_19M
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local noundef ptr @_ZNK4llvm17LiveIntervalUnion10getOneVRegEv(ptr noundef nonnull align 8 dereferenceable(216) %0) local_unnamed_addr #0 align 2 {
   %2 = alloca %"class.llvm::IntervalMap<llvm::SlotIndex, const llvm::LiveInterval *>::const_iterator", align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 204
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 204
   %4 = load i32, ptr %3, align 4
   %5 = icmp eq i32 %4, 0
   br i1 %5, label %_ZN4llvm11IntervalMapINS_9SlotIndexEPKNS_12LiveIntervalELj8ENS_15IntervalMapInfoIS1_EEE14const_iteratorD2Ev.exit, label %6
@@ -1014,7 +1014,7 @@ define dso_local noundef i32 @_ZN4llvm17LiveIntervalUnion5Query23collectInterfer
 
 22:                                               ; preds = %18
   %23 = load ptr, ptr %0, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 204
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 204
   %25 = load i32, ptr %24, align 4
   %26 = icmp eq i32 %25, 0
   br i1 %26, label %27, label %28
@@ -1042,7 +1042,7 @@ define dso_local noundef i32 @_ZN4llvm17LiveIntervalUnion5Query23collectInterfer
   %38 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %36) #9
   %39 = getelementptr inbounds %"struct.llvm::LiveRange::Segment", ptr %37, i64 %38
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %41 = getelementptr inbounds i8, ptr %0, i64 32
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %42 = tail call noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseIjE5emptyEv(ptr noundef nonnull align 8 dereferenceable(16) %41) #9
   br i1 %42, label %_ZNK4llvm11IntervalMapINS_9SlotIndexEPKNS_12LiveIntervalELj8ENS_15IntervalMapInfoIS1_EEE14const_iterator5validEv.exit.thread, label %_ZNK4llvm11IntervalMapINS_9SlotIndexEPKNS_12LiveIntervalELj8ENS_15IntervalMapInfoIS1_EEE14const_iterator5validEv.exit.lr.ph
 
@@ -1469,7 +1469,7 @@ define linkonce_odr hidden void @_ZN4llvm11IntervalMapINS_9SlotIndexEPKNS_12Live
   br i1 %.not, label %40, label %8
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %3, i64 96
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 96
   %.not6.i.i = icmp eq i32 %7, 0
   br i1 %.not6.i.i, label %_ZNK4llvm15IntervalMapImpl10BranchNodeINS_9SlotIndexEPKNS_12LiveIntervalELj11ENS_15IntervalMapInfoIS2_EEE8findFromEjjS2_.exit.i, label %.lr.ph.i.i
 
@@ -1597,7 +1597,7 @@ define dso_local void @_ZN4llvm17LiveIntervalUnion5Array4initERNS_18RecyclingAll
   %9 = load ptr, ptr %7, align 8
   %10 = zext i32 %.05.i to i64
   %11 = getelementptr inbounds %"class.llvm::LiveIntervalUnion", ptr %9, i64 %10
-  %12 = getelementptr inbounds i8, ptr %11, i64 200
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 200
   %13 = load i32, ptr %12, align 8
   %.not.i.i.i.i = icmp eq i32 %13, 0
   br i1 %.not.i.i.i.i, label %_ZN4llvm17LiveIntervalUnionD2Ev.exit.i, label %14
@@ -1609,7 +1609,7 @@ define dso_local void @_ZN4llvm17LiveIntervalUnion5Array4initERNS_18RecyclingAll
   br label %_ZN4llvm17LiveIntervalUnionD2Ev.exit.i
 
 _ZN4llvm17LiveIntervalUnionD2Ev.exit.i:           ; preds = %14, %.lr.ph.i
-  %16 = getelementptr inbounds i8, ptr %11, i64 204
+  %16 = getelementptr inbounds nuw i8, ptr %11, i64 204
   store i32 0, ptr %16, align 4
   %17 = add i32 %.05.i, 1
   %18 = load i32, ptr %0, align 8
@@ -1667,11 +1667,11 @@ _ZN4llvm11safe_mallocEm.exit:                     ; preds = %_ZN4llvm17LiveInter
   %33 = getelementptr inbounds %"class.llvm::LiveIntervalUnion", ptr %31, i64 %32
   store i32 0, ptr %33, align 8
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 8
-  %35 = getelementptr inbounds i8, ptr %33, i64 200
+  %35 = getelementptr inbounds nuw i8, ptr %33, i64 200
   store i32 0, ptr %35, align 8
-  %36 = getelementptr inbounds i8, ptr %33, i64 204
+  %36 = getelementptr inbounds nuw i8, ptr %33, i64 204
   store i32 0, ptr %36, align 4
-  %37 = getelementptr inbounds i8, ptr %33, i64 208
+  %37 = getelementptr inbounds nuw i8, ptr %33, i64 208
   store ptr %1, ptr %37, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(192) %34, i8 0, i64 192, i1 false)
   %38 = add i32 %.09, 1
@@ -1700,7 +1700,7 @@ define dso_local void @_ZN4llvm17LiveIntervalUnion5Array5clearEv(ptr nocapture n
   %5 = load ptr, ptr %2, align 8
   %6 = zext i32 %.05 to i64
   %7 = getelementptr inbounds %"class.llvm::LiveIntervalUnion", ptr %5, i64 %6
-  %8 = getelementptr inbounds i8, ptr %7, i64 200
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 200
   %9 = load i32, ptr %8, align 8
   %.not.i.i.i = icmp eq i32 %9, 0
   br i1 %.not.i.i.i, label %_ZN4llvm17LiveIntervalUnionD2Ev.exit, label %10
@@ -1712,7 +1712,7 @@ define dso_local void @_ZN4llvm17LiveIntervalUnion5Array5clearEv(ptr nocapture n
   br label %_ZN4llvm17LiveIntervalUnionD2Ev.exit
 
 _ZN4llvm17LiveIntervalUnionD2Ev.exit:             ; preds = %.lr.ph, %10
-  %12 = getelementptr inbounds i8, ptr %7, i64 204
+  %12 = getelementptr inbounds nuw i8, ptr %7, i64 204
   store i32 0, ptr %12, align 4
   %13 = add i32 %.05, 1
   %14 = load i32, ptr %0, align 8
@@ -2816,7 +2816,7 @@ define linkonce_odr i64 @_ZN4llvm11IntervalMapINS_9SlotIndexEPKNS_12LiveInterval
   br label %_ZN4llvm11IntervalMapINS_9SlotIndexEPKNS_12LiveIntervalELj8ENS_15IntervalMapInfoIS1_EEE7newNodeINS_15IntervalMapImpl8LeafNodeIS1_S4_Lj8ES6_EEEEPT_v.exit
 
 15:                                               ; preds = %9
-  %16 = getelementptr inbounds i8, ptr %10, i64 88
+  %16 = getelementptr inbounds nuw i8, ptr %10, i64 88
   %17 = load i64, ptr %16, align 8
   %18 = add i64 %17, 192
   store i64 %18, ptr %16, align 8
@@ -2825,7 +2825,7 @@ define linkonce_odr i64 @_ZN4llvm11IntervalMapINS_9SlotIndexEPKNS_12LiveInterval
   %21 = add i64 %20, 63
   %22 = and i64 %21, -64
   %23 = add i64 %22, 192
-  %24 = getelementptr inbounds i8, ptr %10, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %25 = load ptr, ptr %24, align 8
   %26 = ptrtoint ptr %25 to i64
   %.not.i.i.i.i.i = icmp ugt i64 %23, %26
@@ -2907,7 +2907,7 @@ _ZN4llvm15IntervalMapImpl8NodeBaseISt4pairINS_9SlotIndexES3_EPKNS_12LiveInterval
   store i32 1, ptr %62, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(184) %0, i8 0, i64 184, i1 false)
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %64 = getelementptr inbounds i8, ptr %0, i64 96
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 96
   br label %65
 
 65:                                               ; preds = %61, %65
@@ -3349,7 +3349,7 @@ define linkonce_odr noundef zeroext i1 @_ZN4llvm11IntervalMapINS_9SlotIndexEPKNS
   br label %_ZN4llvm11IntervalMapINS_9SlotIndexEPKNS_12LiveIntervalELj8ENS_15IntervalMapInfoIS1_EEE7newNodeINS_15IntervalMapImpl8LeafNodeIS1_S4_Lj8ES6_EEEEPT_v.exit
 
 65:                                               ; preds = %46
-  %66 = getelementptr inbounds i8, ptr %60, i64 88
+  %66 = getelementptr inbounds nuw i8, ptr %60, i64 88
   %67 = load i64, ptr %66, align 8
   %68 = add i64 %67, 192
   store i64 %68, ptr %66, align 8
@@ -3358,7 +3358,7 @@ define linkonce_odr noundef zeroext i1 @_ZN4llvm11IntervalMapINS_9SlotIndexEPKNS
   %71 = add i64 %70, 63
   %72 = and i64 %71, -64
   %73 = add i64 %72, 192
-  %74 = getelementptr inbounds i8, ptr %60, i64 16
+  %74 = getelementptr inbounds nuw i8, ptr %60, i64 16
   %75 = load ptr, ptr %74, align 8
   %76 = ptrtoint ptr %75 to i64
   %.not.i.i.i.i.i = icmp ugt i64 %73, %76
@@ -3547,7 +3547,7 @@ define linkonce_odr void @_ZN4llvm11IntervalMapINS_9SlotIndexEPKNS_12LiveInterva
   br i1 %.not13.i.i.i.i, label %_ZN4llvm15IntervalMapImpl8NodeBaseINS0_7NodeRefENS_9SlotIndexELj11EE5eraseEjj.exit, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %8
-  %15 = getelementptr inbounds i8, ptr %3, i64 96
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 96
   br label %16
 
 16:                                               ; preds = %16, %.lr.ph.i.i.i.i
@@ -4182,7 +4182,7 @@ define linkonce_odr noundef zeroext i1 @_ZN4llvm11IntervalMapINS_9SlotIndexEPKNS
 
 .lr.ph.i.i.i:                                     ; preds = %12
   %17 = sub i32 %10, %16
-  %18 = getelementptr inbounds i8, ptr %5, i64 96
+  %18 = getelementptr inbounds nuw i8, ptr %5, i64 96
   %19 = zext i32 %17 to i64
   br label %20
 
@@ -4210,7 +4210,7 @@ _ZN4llvm15IntervalMapImpl10BranchNodeINS_9SlotIndexEPKNS_12LiveIntervalELj11ENS_
   %32 = zext i32 %16 to i64
   %33 = getelementptr inbounds [11 x %"class.llvm::IntervalMapImpl::NodeRef"], ptr %13, i64 0, i64 %32
   store i64 %2, ptr %33, align 8
-  %34 = getelementptr inbounds i8, ptr %5, i64 96
+  %34 = getelementptr inbounds nuw i8, ptr %5, i64 96
   %35 = getelementptr inbounds [11 x %"class.llvm::SlotIndex"], ptr %34, i64 0, i64 %32
   store i64 %3, ptr %35, align 8
   %36 = load i32, ptr %9, align 4
@@ -4490,7 +4490,7 @@ define linkonce_odr i64 @_ZN4llvm11IntervalMapINS_9SlotIndexEPKNS_12LiveInterval
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.not13.i = icmp eq i32 %.fr, 0
-  %6 = getelementptr inbounds i8, ptr %0, i64 96
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %7 = load ptr, ptr %4, align 8
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %9 = load ptr, ptr %7, align 8
@@ -4506,7 +4506,7 @@ define linkonce_odr i64 @_ZN4llvm11IntervalMapINS_9SlotIndexEPKNS_12LiveInterval
   br label %_ZN4llvm11IntervalMapINS_9SlotIndexEPKNS_12LiveIntervalELj8ENS_15IntervalMapInfoIS1_EEE7newNodeINS_15IntervalMapImpl10BranchNodeIS1_S4_Lj12ES6_EEEEPT_v.exit.us
 
 12:                                               ; preds = %.preheader.split.us
-  %13 = getelementptr inbounds i8, ptr %7, i64 88
+  %13 = getelementptr inbounds nuw i8, ptr %7, i64 88
   %14 = load i64, ptr %13, align 8
   %15 = add i64 %14, 192
   store i64 %15, ptr %13, align 8
@@ -4515,7 +4515,7 @@ define linkonce_odr i64 @_ZN4llvm11IntervalMapINS_9SlotIndexEPKNS_12LiveInterval
   %18 = add i64 %17, 63
   %19 = and i64 %18, -64
   %20 = add i64 %19, 192
-  %21 = getelementptr inbounds i8, ptr %7, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %22 = load ptr, ptr %21, align 8
   %23 = ptrtoint ptr %22 to i64
   %.not.i.i.i.i.i.us = icmp ugt i64 %20, %23
@@ -4554,7 +4554,7 @@ _ZN4llvm11IntervalMapINS_9SlotIndexEPKNS_12LiveIntervalELj8ENS_15IntervalMapInfo
   br label %_ZN4llvm11IntervalMapINS_9SlotIndexEPKNS_12LiveIntervalELj8ENS_15IntervalMapInfoIS1_EEE7newNodeINS_15IntervalMapImpl10BranchNodeIS1_S4_Lj12ES6_EEEEPT_v.exit
 
 36:                                               ; preds = %.preheader.split
-  %37 = getelementptr inbounds i8, ptr %7, i64 88
+  %37 = getelementptr inbounds nuw i8, ptr %7, i64 88
   %38 = load i64, ptr %37, align 8
   %39 = add i64 %38, 192
   store i64 %39, ptr %37, align 8
@@ -4563,7 +4563,7 @@ _ZN4llvm11IntervalMapINS_9SlotIndexEPKNS_12LiveIntervalELj8ENS_15IntervalMapInfo
   %42 = add i64 %41, 63
   %43 = and i64 %42, -64
   %44 = add i64 %43, 192
-  %45 = getelementptr inbounds i8, ptr %7, i64 16
+  %45 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %46 = load ptr, ptr %45, align 8
   %47 = ptrtoint ptr %46 to i64
   %.not.i.i.i.i.i = icmp ugt i64 %44, %47
@@ -4730,7 +4730,7 @@ define linkonce_odr noundef zeroext i1 @_ZN4llvm11IntervalMapINS_9SlotIndexEPKNS
   br label %_ZN4llvm11IntervalMapINS_9SlotIndexEPKNS_12LiveIntervalELj8ENS_15IntervalMapInfoIS1_EEE7newNodeINS_15IntervalMapImpl10BranchNodeIS1_S4_Lj12ES6_EEEEPT_v.exit
 
 65:                                               ; preds = %46
-  %66 = getelementptr inbounds i8, ptr %60, i64 88
+  %66 = getelementptr inbounds nuw i8, ptr %60, i64 88
   %67 = load i64, ptr %66, align 8
   %68 = add i64 %67, 192
   store i64 %68, ptr %66, align 8
@@ -4739,7 +4739,7 @@ define linkonce_odr noundef zeroext i1 @_ZN4llvm11IntervalMapINS_9SlotIndexEPKNS
   %71 = add i64 %70, 63
   %72 = and i64 %71, -64
   %73 = add i64 %72, 192
-  %74 = getelementptr inbounds i8, ptr %60, i64 16
+  %74 = getelementptr inbounds nuw i8, ptr %60, i64 16
   %75 = load ptr, ptr %74, align 8
   %76 = ptrtoint ptr %75 to i64
   %.not.i.i.i.i.i = icmp ugt i64 %73, %76
@@ -5459,7 +5459,7 @@ _ZNK4llvm15IntervalMapImpl10BranchNodeINS_9SlotIndexEPKNS_12LiveIntervalELj12ENS
   %130 = load ptr, ptr %3, align 8
   %131 = getelementptr inbounds i8, ptr %130, i64 12
   %132 = load i32, ptr %131, align 4
-  %133 = getelementptr inbounds i8, ptr %129, i64 96
+  %133 = getelementptr inbounds nuw i8, ptr %129, i64 96
   %134 = zext i32 %132 to i64
   %135 = getelementptr inbounds [11 x %"class.llvm::SlotIndex"], ptr %133, i64 0, i64 %134
   %.0.copyload.i.i.i.i.i.i.i20 = load i64, ptr %135, align 8
@@ -5511,7 +5511,7 @@ _ZNK4llvm15IntervalMapImpl10BranchNodeINS_9SlotIndexEPKNS_12LiveIntervalELj12ENS
   %166 = phi ptr [ %.pre, %._crit_edge50 ], [ %129, %._crit_edge ]
   %167 = getelementptr inbounds nuw i8, ptr %166, i64 196
   %168 = load i32, ptr %167, align 4
-  %169 = getelementptr inbounds i8, ptr %166, i64 96
+  %169 = getelementptr inbounds nuw i8, ptr %166, i64 96
   %.not6.i = icmp eq i32 %165, %168
   br i1 %.not6.i, label %_ZNK4llvm15IntervalMapImpl10BranchNodeINS_9SlotIndexEPKNS_12LiveIntervalELj11ENS_15IntervalMapInfoIS2_EEE8findFromEjjS2_.exit, label %.lr.ph.i
 

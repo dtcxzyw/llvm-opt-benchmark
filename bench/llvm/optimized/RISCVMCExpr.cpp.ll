@@ -45,7 +45,7 @@ $_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12Star
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local noundef ptr @_ZN4llvm11RISCVMCExpr6createEPKNS_6MCExprENS0_11VariantKindERNS_9MCContextE(ptr noundef %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(2432) %2) local_unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 192
-  %5 = getelementptr inbounds i8, ptr %2, i64 272
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 272
   %6 = load i64, ptr %5, align 8
   %7 = add i64 %6, 40
   store i64 %7, ptr %5, align 8
@@ -54,7 +54,7 @@ define dso_local noundef ptr @_ZN4llvm11RISCVMCExpr6createEPKNS_6MCExprENS0_11Va
   %10 = add i64 %9, 7
   %11 = and i64 %10, -8
   %12 = add i64 %11, 40
-  %13 = getelementptr inbounds i8, ptr %2, i64 200
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 200
   %14 = load ptr, ptr %13, align 8
   %15 = ptrtoint ptr %14 to i64
   %.not.i.i.i.i = icmp ugt i64 %12, %15

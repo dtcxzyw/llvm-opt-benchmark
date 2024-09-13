@@ -100,13 +100,13 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__9GfFrustumC2Ev(ptr nocapture n
   store double -1.000000e+00, ptr %3, align 8
   %.sroa.22.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 64
   store double -1.000000e+00, ptr %.sroa.22.0..sroa_idx, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 72
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store double 1.000000e+00, ptr %4, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 80
   store double 1.000000e+00, ptr %.sroa.2.0..sroa_idx, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 88
   store double 1.000000e+00, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 96
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store double 1.000000e+01, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store double 5.000000e+00, ptr %7, align 8
@@ -280,13 +280,13 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__9GfFrustum14SetPerspectiveEddd
   store double %13, ptr %12, align 8
   %.sroa.218.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 64
   store double %14, ptr %.sroa.218.0..sroa_idx.i, align 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 72
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store double %11, ptr %15, align 8
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 80
   store double %10, ptr %.sroa.2.0..sroa_idx.i, align 8
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 88
   store double %3, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %0, i64 96
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store double %4, ptr %17, align 8
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %19 = atomicrmw xchg ptr %18, i64 0 monotonic, align 8
@@ -321,13 +321,13 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__9GfFrustum14SetPerspectiveEdbd
   store double %15, ptr %14, align 8
   %.sroa.218.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 64
   store double %16, ptr %.sroa.218.0..sroa_idx, align 8
-  %17 = getelementptr inbounds i8, ptr %0, i64 72
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store double %.0, ptr %17, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 80
   store double %.014, ptr %.sroa.2.0..sroa_idx, align 8
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 88
   store double %4, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %0, i64 96
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store double %5, ptr %19, align 8
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %21 = atomicrmw xchg ptr %20, i64 0 monotonic, align 8
@@ -371,7 +371,7 @@ define noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__9GfFrustum14Get
 
 8:                                                ; preds = %5
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %10 = getelementptr inbounds i8, ptr %0, i64 72
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %.sroa.0.0.copyload2.i.i.i = load double, ptr %10, align 8
   %.sroa.4.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %0, i64 80
   %.sroa.4.0.copyload.i.i.i = load double, ptr %.sroa.4.0..sroa_idx.i.i.i, align 8
@@ -390,7 +390,7 @@ define noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__9GfFrustum14Get
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %20 = load double, ptr %19, align 8
   store double %20, ptr %3, align 8
-  %21 = getelementptr inbounds i8, ptr %0, i64 96
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %22 = load double, ptr %21, align 8
   store double %22, ptr %4, align 8
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__9GfFrustum14GetPerspectiveEbPdS1_S1_S1_.exit
@@ -408,7 +408,7 @@ define noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__9GfFrustum14Get
 
 9:                                                ; preds = %6
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %11 = getelementptr inbounds i8, ptr %0, i64 72
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %.sroa.0.0.copyload2.i.i = load double, ptr %11, align 8
   %.sroa.4.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %0, i64 80
   %.sroa.4.0.copyload.i.i = load double, ptr %.sroa.4.0..sroa_idx.i.i, align 8
@@ -428,7 +428,7 @@ define noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__9GfFrustum14Get
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %21 = load double, ptr %20, align 8
   store double %21, ptr %4, align 8
-  %22 = getelementptr inbounds i8, ptr %0, i64 96
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %23 = load double, ptr %22, align 8
   store double %23, ptr %5, align 8
   br label %24
@@ -449,7 +449,7 @@ define noundef double @_ZN32pxrInternal_v0_24__pxrReserved__9GfFrustum6GetFOVEb(
 
 _ZNK32pxrInternal_v0_24__pxrReserved__9GfFrustum14GetPerspectiveEbPdS1_S1_S1_.exit: ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %7 = getelementptr inbounds i8, ptr %0, i64 72
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %.sroa.0.0.copyload2.i.i.i = load double, ptr %7, align 8
   %.sroa.4.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %0, i64 80
   %.sroa.4.0.copyload.i.i.i = load double, ptr %.sroa.4.0..sroa_idx.i.i.i, align 8
@@ -478,13 +478,13 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__9GfFrustum15SetOrthographicEdd
   store double %1, ptr %9, align 8
   %.sroa.28.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 64
   store double %3, ptr %.sroa.28.0..sroa_idx, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 72
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store double %2, ptr %10, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 80
   store double %4, ptr %.sroa.2.0..sroa_idx, align 8
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 88
   store double %5, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 96
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store double %6, ptr %12, align 8
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %14 = atomicrmw xchg ptr %13, i64 0 monotonic, align 8
@@ -511,7 +511,7 @@ define noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__9GfFrustum15Get
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %12 = load double, ptr %11, align 8
   store double %12, ptr %1, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 72
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %14 = load double, ptr %13, align 8
   store double %14, ptr %2, align 8
   %15 = getelementptr inbounds i8, ptr %0, i64 64
@@ -523,7 +523,7 @@ define noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__9GfFrustum15Get
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %20 = load double, ptr %19, align 8
   store double %20, ptr %5, align 8
-  %21 = getelementptr inbounds i8, ptr %0, i64 96
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %22 = load double, ptr %21, align 8
   store double %22, ptr %6, align 8
   br label %23
@@ -558,7 +558,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__9GfFrustum11FitToSphereERKNS_7
 
 15:                                               ; preds = %4
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %17 = getelementptr inbounds i8, ptr %0, i64 72
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %.sroa.0.0.copyload2.i.i.i = load double, ptr %17, align 8
   %.sroa.4.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %0, i64 80
   %.sroa.4.0.copyload.i.i.i = load double, ptr %.sroa.4.0..sroa_idx.i.i.i, align 8
@@ -629,7 +629,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__9GfFrustum11FitToSphereERKNS_7
   %59 = fsub double %57, %.pre-phi
   store double %59, ptr %58, align 8
   %60 = tail call double @llvm.fmuladd.f64(double %.pre-phi, double 2.000000e+00, double %59)
-  %61 = getelementptr inbounds i8, ptr %0, i64 96
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store double %60, ptr %61, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -667,7 +667,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__9GfFrustum11FitToSphereERKNS_7
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef double @_ZNK32pxrInternal_v0_24__pxrReserved__9GfFrustum18ComputeAspectRatioEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(128) %0) local_unnamed_addr #8 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %3 = getelementptr inbounds i8, ptr %0, i64 72
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %.sroa.0.0.copyload2.i.i = load double, ptr %3, align 8
   %.sroa.4.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %0, i64 80
   %.sroa.4.0.copyload.i.i = load double, ptr %.sroa.4.0..sroa_idx.i.i, align 8
@@ -945,7 +945,7 @@ define noundef nonnull align 8 dereferenceable(128) ptr @_ZN32pxrInternal_v0_24_
           to label %188 unwind label %338
 
 188:                                              ; preds = %173
-  %189 = getelementptr inbounds i8, ptr %0, i64 72
+  %189 = getelementptr inbounds nuw i8, ptr %0, i64 72
   call void @llvm.experimental.noalias.scope.decl(metadata !47)
   %.sroa.0.0.copyload.i = load double, ptr %0, align 8, !noalias !47
   %.sroa.4.0.copyload.i = load double, ptr %25, align 8, !noalias !47
@@ -1064,7 +1064,7 @@ define noundef nonnull align 8 dereferenceable(128) ptr @_ZN32pxrInternal_v0_24_
   %280 = fsub double %271, %276
   store double %280, ptr %.sroa.6.0..sroa_idx5.i23, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !53)
-  %281 = getelementptr inbounds i8, ptr %5, i64 48
+  %281 = getelementptr inbounds nuw i8, ptr %5, i64 48
   %282 = load double, ptr %281, align 8, !noalias !53
   %283 = fneg double %282
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %17, ptr noundef nonnull align 8 dereferenceable(24) %174, i64 24, i1 false)
@@ -1179,7 +1179,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__10GfRotation10GetInverseEv.exit25: ; preds
   %344 = phi double [ %330, %328 ], [ %.pre, %325 ]
   %345 = getelementptr inbounds nuw i8, ptr %5, i64 56
   %.sroa.241.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 64
-  %346 = getelementptr inbounds i8, ptr %5, i64 72
+  %346 = getelementptr inbounds nuw i8, ptr %5, i64 72
   %.sroa.2.0..sroa_idx39 = getelementptr inbounds i8, ptr %5, i64 80
   %347 = fcmp ogt double %344, %342
   %.sroa.031.0 = select i1 %347, double %342, double %344
@@ -1378,7 +1378,7 @@ define void @_ZNK32pxrInternal_v0_24__pxrReserved__9GfFrustum23ComputeProjection
   %3 = tail call noundef nonnull align 8 dereferenceable(128) ptr @_ZN32pxrInternal_v0_24__pxrReserved__10GfMatrix4d11SetDiagonalEd(ptr noundef nonnull align 8 dereferenceable(128) %0, double noundef 1.000000e+00)
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %5 = load double, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 72
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %7 = load double, ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %1, i64 64
   %9 = load double, ptr %8, align 8
@@ -1386,7 +1386,7 @@ define void @_ZNK32pxrInternal_v0_24__pxrReserved__9GfFrustum23ComputeProjection
   %11 = load double, ptr %10, align 8
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %13 = load double, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %1, i64 96
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %15 = load double, ptr %14, align 8
   %16 = fsub double %7, %5
   %17 = fsub double %11, %9
@@ -1456,10 +1456,10 @@ _ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__7GfVec3dESaIS1_EE11_M_all
   %2 = alloca %"class.pxrInternal_v0_24__pxrReserved__::GfMatrix4d", align 8
   %3 = alloca %"class.pxrInternal_v0_24__pxrReserved__::GfMatrix4d", align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %5 = getelementptr inbounds i8, ptr %1, i64 72
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %7 = load double, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %1, i64 96
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %9 = load double, ptr %8, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -2548,7 +2548,7 @@ _ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__7GfVec3dESaIS1_EE11_M_all
   %3 = alloca %"class.pxrInternal_v0_24__pxrReserved__::GfMatrix4d", align 8
   %4 = alloca %"class.pxrInternal_v0_24__pxrReserved__::GfMatrix4d", align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %6 = getelementptr inbounds i8, ptr %1, i64 72
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 72
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = invoke noalias noundef nonnull dereferenceable(96) ptr @_Znwm(i64 noundef 96) #26
@@ -3025,7 +3025,7 @@ define void @_ZNK32pxrInternal_v0_24__pxrReserved__9GfFrustum22ComputeNarrowedFr
   %8 = fadd double %.val5, 1.000000e+00
   %9 = fmul double %7, 5.000000e-01
   %10 = fmul double %8, 5.000000e-01
-  %11 = getelementptr inbounds i8, ptr %1, i64 72
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %.sroa.0.0.copyload2.i.i3.i = load double, ptr %11, align 8
   %.sroa.4.0..sroa_idx.i.i4.i = getelementptr inbounds i8, ptr %1, i64 80
   %.sroa.4.0.copyload.i.i5.i = load double, ptr %.sroa.4.0..sroa_idx.i.i4.i, align 8
@@ -3153,7 +3153,7 @@ define void @_ZNK32pxrInternal_v0_24__pxrReserved__9GfFrustum26_ComputeNarrowedF
   br label %24
 
 24:                                               ; preds = %21, %5
-  %25 = getelementptr inbounds i8, ptr %1, i64 72
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %.sroa.0.0.copyload2.i.i = load double, ptr %25, align 8
   %.sroa.4.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %1, i64 80
   %.sroa.4.0.copyload.i.i = load double, ptr %.sroa.4.0..sroa_idx.i.i, align 8
@@ -3352,7 +3352,7 @@ define void @_ZNK32pxrInternal_v0_24__pxrReserved__9GfFrustum22ComputeNarrowedFr
   br label %112
 
 112:                                              ; preds = %109, %65
-  %113 = getelementptr inbounds i8, ptr %1, i64 72
+  %113 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %.sroa.0.0.copyload2.i.i.i = load double, ptr %113, align 8, !noalias !106
   %.sroa.4.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %1, i64 80
   %.sroa.4.0.copyload.i.i.i = load double, ptr %.sroa.4.0..sroa_idx.i.i.i, align 8, !noalias !106
@@ -3425,7 +3425,7 @@ define void @_ZNK32pxrInternal_v0_24__pxrReserved__9GfFrustum10ComputeRayERKNS_7
   %18 = fadd double %.val4, 1.000000e+00
   %19 = fmul double %17, 5.000000e-01
   %20 = fmul double %18, 5.000000e-01
-  %21 = getelementptr inbounds i8, ptr %1, i64 72
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %.sroa.0.0.copyload2.i.i3.i.i = load double, ptr %21, align 8, !noalias !109
   %.sroa.4.0..sroa_idx.i.i4.i.i = getelementptr inbounds i8, ptr %1, i64 80
   %.sroa.4.0.copyload.i.i5.i.i = load double, ptr %.sroa.4.0..sroa_idx.i.i4.i.i, align 8, !noalias !109
@@ -3591,7 +3591,7 @@ define void @_ZNK32pxrInternal_v0_24__pxrReserved__9GfFrustum14ComputePickRayERK
   %14 = fadd double %.val2, 1.000000e+00
   %15 = fmul double %13, 5.000000e-01
   %16 = fmul double %14, 5.000000e-01
-  %17 = getelementptr inbounds i8, ptr %1, i64 72
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %.sroa.0.0.copyload2.i.i3.i.i = load double, ptr %17, align 8, !noalias !124
   %.sroa.4.0..sroa_idx.i.i4.i.i = getelementptr inbounds i8, ptr %1, i64 80
   %.sroa.4.0.copyload.i.i5.i.i = load double, ptr %.sroa.4.0..sroa_idx.i.i4.i.i, align 8, !noalias !124
@@ -4117,10 +4117,10 @@ define void @_ZNK32pxrInternal_v0_24__pxrReserved__9GfFrustum23_CalculateFrustum
 29:                                               ; preds = %1
   %30 = tail call noalias noundef nonnull dereferenceable(192) ptr @_Znwm(i64 noundef 192) #26
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %32 = getelementptr inbounds i8, ptr %0, i64 72
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %34 = load double, ptr %33, align 8
-  %35 = getelementptr inbounds i8, ptr %0, i64 96
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %36 = load double, ptr %35, align 8
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %2)
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -5425,7 +5425,7 @@ define noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__9GfFrustum10Int
   %342 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %343 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %344 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %345 = getelementptr inbounds i8, ptr %0, i64 72
+  %345 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %.sroa.4.0..sroa_idx.i.i4.i.i.i = getelementptr inbounds i8, ptr %0, i64 80
   %346 = getelementptr inbounds i8, ptr %0, i64 64
   %347 = getelementptr inbounds i8, ptr %5, i64 8

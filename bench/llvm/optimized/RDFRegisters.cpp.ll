@@ -100,8 +100,8 @@ define dso_local void @_ZN4llvm3rdf20PhysicalRegisterInfoC2ERKNS_18TargetRegiste
   %6 = alloca %"class.llvm::BitVector", align 8
   store ptr %1, ptr %0, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 24
-  %9 = getelementptr inbounds i8, ptr %0, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = tail call noalias noundef nonnull dereferenceable(256) ptr @_Znwm(i64 noundef 256) #18
   store ptr %10, ptr %7, align 8
   store ptr %10, ptr %9, align 8
@@ -211,7 +211,7 @@ define dso_local void @_ZN4llvm3rdf20PhysicalRegisterInfoC2ERKNS_18TargetRegiste
   %66 = getelementptr inbounds i8, ptr %65, i64 44
   %67 = load i32, ptr %66, align 4
   %68 = zext i32 %67 to i64
-  %69 = getelementptr inbounds i8, ptr %0, i64 64
+  %69 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %70 = load ptr, ptr %69, align 8
   %71 = load ptr, ptr %13, align 8
   %72 = ptrtoint ptr %70 to i64
@@ -354,7 +354,7 @@ _ZN4llvm21MCRegUnitMaskIteratorppEv.exit:         ; preds = %_ZN4llvm21MCRegUnit
   br i1 %.not95, label %._crit_edge209, label %.lr.ph208
 
 ._crit_edge209:                                   ; preds = %.lr.ph208, %._crit_edge204
-  %144 = getelementptr inbounds i8, ptr %2, i64 328
+  %144 = getelementptr inbounds nuw i8, ptr %2, i64 328
   %145 = getelementptr inbounds nuw i8, ptr %2, i64 320
   %.sroa.0158.0229 = load ptr, ptr %144, align 8
   %.not183230 = icmp eq ptr %.sroa.0158.0229, %145
@@ -607,7 +607,7 @@ _ZN4llvm26MachineInstrBundleIteratorIKNS_12MachineInstrELb0EEppEv.exit: ; preds 
   %243 = lshr exact i64 %242, 3
   %244 = add nuw nsw i64 %243, 1
   %245 = and i64 %244, 4294967295
-  %246 = getelementptr inbounds i8, ptr %0, i64 88
+  %246 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %247 = load ptr, ptr %246, align 8
   %248 = load ptr, ptr %14, align 8
   %249 = ptrtoint ptr %247 to i64
@@ -809,7 +809,7 @@ _ZN4llvm9BitVectorD2Ev.exit:                      ; preds = %_ZN4llvm9BitVector4
   %353 = getelementptr inbounds i8, ptr %352, i64 44
   %354 = load i32, ptr %353, align 4
   %355 = zext i32 %354 to i64
-  %356 = getelementptr inbounds i8, ptr %0, i64 112
+  %356 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %357 = load ptr, ptr %356, align 8
   %358 = load ptr, ptr %15, align 8
   %359 = ptrtoint ptr %357 to i64
@@ -4402,7 +4402,7 @@ _ZNSt3mapIjN4llvm11LaneBitmaskESt4lessIjESaISt4pairIKjS1_EEE11lower_boundERS5_.e
   %14 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #18
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 32
   store i32 %.pre, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %14, i64 40
+  %16 = getelementptr inbounds nuw i8, ptr %14, i64 40
   store i64 0, ptr %16, align 8
   %17 = tail call { ptr, ptr } @_ZNSt8_Rb_treeIjSt4pairIKjN4llvm11LaneBitmaskEESt10_Select1stIS4_ESt4lessIjESaIS4_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS4_ERS1_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %.08.lcssa.i.i.i12, ptr noundef nonnull align 4 dereferenceable(4) %15)
   %18 = extractvalue { ptr, ptr } %17, 0
@@ -4438,7 +4438,7 @@ _ZNSt3mapIjN4llvm11LaneBitmaskESt4lessIjESaISt4pairIKjS1_EEE11lower_boundERS5_.e
 
 _ZNSt8_Rb_treeIjSt4pairIKjN4llvm11LaneBitmaskEESt10_Select1stIS4_ESt4lessIjESaIS4_EE22_M_emplace_hint_uniqueIJRKSt21piecewise_construct_tSt5tupleIJRS1_EESF_IJEEEEESt17_Rb_tree_iteratorIS4_ESt23_Rb_tree_const_iteratorIS4_EDpOT_.exit: ; preds = %31, %.thread.i, %10
   %.sroa.07.0 = phi ptr [ %.19.i.i.i, %10 ], [ %14, %.thread.i ], [ %18, %31 ]
-  %32 = getelementptr inbounds i8, ptr %.sroa.07.0, i64 40
+  %32 = getelementptr inbounds nuw i8, ptr %.sroa.07.0, i64 40
   ret ptr %32
 }
 

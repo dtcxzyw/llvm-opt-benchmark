@@ -989,7 +989,7 @@ define internal fastcc void @"_ZZN4llvm3sys7unicode30nearestMatchesForCodepointN
   %8 = alloca %"struct.llvm::sys::unicode::MatchForCodepointName", align 8
   %9 = alloca %"struct.llvm::sys::unicode::Node", align 8
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %11 = getelementptr inbounds i8, ptr %1, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %12 = load i64, ptr %11, align 8
   %.not68 = icmp eq i64 %12, 0
   br i1 %.not68, label %._crit_edge67, label %.lr.ph66
@@ -2321,7 +2321,7 @@ define internal fastcc void @"_ZZZN4llvm3sys7unicode30nearestMatchesForCodepoint
   %.09.i = phi ptr [ %8, %6 ], [ %18, %_ZSt12reverse_copyIPKcSt20back_insert_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEET0_T_SB_SA_.exit.i ]
   %10 = getelementptr inbounds nuw i8, ptr %.09.i, i64 24
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %.09.i, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %.09.i, i64 32
   %13 = load i64, ptr %12, align 8
   %.not4.i.i = icmp eq i64 %13, 0
   br i1 %.not4.i.i, label %_ZSt12reverse_copyIPKcSt20back_insert_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEET0_T_SB_SA_.exit.i, label %.lr.ph.i.preheader.i

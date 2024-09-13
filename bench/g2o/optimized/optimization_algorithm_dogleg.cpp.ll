@@ -409,7 +409,7 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN3g2o12BaseProper
   resume { ptr, i32 } %27
 
 28:                                               ; preds = %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN3g2o12BasePropertyESt4lessIS5_ESaISt4pairIKS5_S8_EEE4findERSC_.exit
-  %29 = getelementptr inbounds i8, ptr %.19.i.i.i, i64 64
+  %29 = getelementptr inbounds nuw i8, ptr %.19.i.i.i, i64 64
   %30 = load ptr, ptr %29, align 8
   %31 = icmp eq ptr %30, null
   br i1 %31, label %34, label %32
@@ -503,7 +503,7 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN3g2o12BaseProper
   resume { ptr, i32 } %27
 
 28:                                               ; preds = %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN3g2o12BasePropertyESt4lessIS5_ESaISt4pairIKS5_S8_EEE4findERSC_.exit
-  %29 = getelementptr inbounds i8, ptr %.19.i.i.i, i64 64
+  %29 = getelementptr inbounds nuw i8, ptr %.19.i.i.i, i64 64
   %30 = load ptr, ptr %29, align 8
   %31 = icmp eq ptr %30, null
   br i1 %31, label %34, label %32
@@ -649,7 +649,7 @@ define noundef range(i32 -1, 3) i32 @_ZN3g2o27OptimizationAlgorithmDogleg5solveE
   %62 = getelementptr inbounds nuw i8, ptr %59, i64 32
   %63 = load i64, ptr %62, align 8
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  %65 = getelementptr inbounds i8, ptr %0, i64 152
+  %65 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %66 = load i64, ptr %65, align 8
   %67 = icmp slt i64 %66, 1
   br i1 %67, label %_ZN5Eigen9DenseBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE7setZeroEv.exit, label %_ZN5Eigen9DenseBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE11setConstantERKd.exit.loopexit.i
@@ -837,7 +837,7 @@ _ZNK5Eigen10MatrixBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE3dotINS_3MapIKS2_Li0
   %165 = fdiv double %.0.i.i308, %.0.i.i.i
   %166 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %.sroa.0.8.vec.insert.i.i.i.i.i.i.i = insertelement <2 x double> poison, double %165, i64 0
-  %167 = getelementptr inbounds i8, ptr %0, i64 120
+  %167 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %168 = load i64, ptr %167, align 8
   %.not.i.i.i.i.i.i.i.i = icmp eq i64 %168, %63
   br i1 %.not.i.i.i.i.i.i.i.i, label %169, label %_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE6resizeEll.exit.i.i.i.i.i.i.i.i
@@ -980,7 +980,7 @@ _ZNK5Eigen10MatrixBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE4normEv.exit: ; pred
   %238 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %239 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %240 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %241 = getelementptr inbounds i8, ptr %0, i64 136
+  %241 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %242 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %243 = getelementptr inbounds i8, ptr %61, i64 16
   %244 = getelementptr inbounds nuw i8, ptr %0, i64 80

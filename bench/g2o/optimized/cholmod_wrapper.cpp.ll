@@ -22,20 +22,20 @@ define void @_ZN3g2o7cholmod7CholmodC2Ev(ptr nocapture noundef nonnull writeonly
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4)
   %2 = tail call noalias noundef nonnull dereferenceable(2768) ptr @_Znwm(i64 noundef 2768) #13, !noalias !4
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 2664
-  %4 = getelementptr inbounds i8, ptr %2, i64 2752
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 2752
   store i64 0, ptr %4, align 8, !noalias !4
-  %5 = getelementptr inbounds i8, ptr %2, i64 2728
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 2728
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %3, i8 0, i64 64, i1 false), !noalias !4
   store i32 1, ptr %5, align 8, !noalias !4
-  %6 = getelementptr inbounds i8, ptr %2, i64 2732
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 2732
   store i32 0, ptr %6, align 4, !noalias !4
-  %7 = getelementptr inbounds i8, ptr %2, i64 2736
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 2736
   store i32 1, ptr %7, align 8, !noalias !4
-  %8 = getelementptr inbounds i8, ptr %2, i64 2740
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 2740
   store i32 0, ptr %8, align 4, !noalias !4
-  %9 = getelementptr inbounds i8, ptr %2, i64 2744
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 2744
   store i32 1, ptr %9, align 8, !noalias !4
-  %10 = getelementptr inbounds i8, ptr %2, i64 2748
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 2748
   store i32 1, ptr %10, align 4, !noalias !4
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 2760
   store ptr null, ptr %11, align 8, !noalias !4
@@ -52,7 +52,7 @@ define void @_ZN3g2o7cholmod7CholmodC2Ev(ptr nocapture noundef nonnull writeonly
 _ZSt11make_uniqueIN3g2o7cholmod7Cholmod4ImplEJEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit: ; preds = %1
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 168
   store i32 1, ptr %14, align 8, !noalias !4
-  %15 = getelementptr inbounds i8, ptr %2, i64 316
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 316
   store i32 2, ptr %15, align 4, !noalias !4
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 48
   store i32 1, ptr %16, align 8, !noalias !4
@@ -154,12 +154,12 @@ declare i32 @cholmod_amd(ptr noundef, ptr noundef, i64 noundef, ptr noundef, ptr
 define void @_ZN3g2o7cholmod7Cholmod10sparseViewEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.g2o::cholmod::Cholmod::SparseView") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1) local_unnamed_addr #4 align 2 {
   %3 = load ptr, ptr %1, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 2664
-  %5 = getelementptr inbounds i8, ptr %3, i64 2672
-  %6 = getelementptr inbounds i8, ptr %3, i64 2680
-  %7 = getelementptr inbounds i8, ptr %3, i64 2688
-  %8 = getelementptr inbounds i8, ptr %3, i64 2696
-  %9 = getelementptr inbounds i8, ptr %3, i64 2712
-  %10 = getelementptr inbounds i8, ptr %3, i64 2752
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 2672
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 2680
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 2688
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 2696
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 2712
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 2752
   store ptr %4, ptr %0, align 8
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %5, ptr %11, align 8
@@ -242,7 +242,7 @@ define noundef zeroext i1 @_ZN3g2o7cholmod7Cholmod7analyzeEv(ptr nocapture nound
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 168
   store i32 1, ptr %3, align 8
   %4 = load ptr, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 316
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 316
   store i32 2, ptr %5, align 4
   %6 = load ptr, ptr %0, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 2664
@@ -261,7 +261,7 @@ define noundef zeroext i1 @_ZN3g2o7cholmod7Cholmod9analyze_pEPi(ptr nocapture no
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 168
   store i32 1, ptr %4, align 8
   %5 = load ptr, ptr %0, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 316
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 316
   store i32 1, ptr %6, align 4
   %7 = load ptr, ptr %0, align 8
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 2664
@@ -396,7 +396,7 @@ _ZN3g2o7cholmod7Cholmod4Impl10freeFactorEv.exit:  ; preds = %.noexc, %1
           to label %7 unwind label %22
 
 7:                                                ; preds = %_ZN3g2o7cholmod7Cholmod4Impl10freeFactorEv.exit
-  %8 = getelementptr inbounds i8, ptr %0, i64 2688
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 2688
   %9 = load ptr, ptr %8, align 8
   %10 = icmp eq ptr %9, null
   br i1 %10, label %12, label %11
@@ -407,7 +407,7 @@ _ZN3g2o7cholmod7Cholmod4Impl10freeFactorEv.exit:  ; preds = %.noexc, %1
 
 12:                                               ; preds = %11, %7
   store ptr null, ptr %8, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 2712
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 2712
   %14 = load ptr, ptr %13, align 8
   %15 = icmp eq ptr %14, null
   br i1 %15, label %17, label %16
@@ -418,7 +418,7 @@ _ZN3g2o7cholmod7Cholmod4Impl10freeFactorEv.exit:  ; preds = %.noexc, %1
 
 17:                                               ; preds = %16, %12
   store ptr null, ptr %13, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 2696
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 2696
   %19 = load ptr, ptr %18, align 8
   %20 = icmp eq ptr %19, null
   br i1 %20, label %_ZN3g2o7cholmod10CholmodExtD2Ev.exit, label %21

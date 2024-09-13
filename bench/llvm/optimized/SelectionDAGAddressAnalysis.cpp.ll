@@ -27,13 +27,13 @@ define dso_local noundef zeroext i1 @_ZNK4llvm15BaseIndexOffset14equalBaseIndexE
   br i1 %or.cond, label %_ZN4llvm8dyn_castINS_19GlobalAddressSDNodeENS_7SDValueEEEDcRKT0_.exit61.thread, label %7
 
 7:                                                ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %0, i64 40
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %9 = load i8, ptr %8, align 8
   %10 = trunc i8 %9 to i1
   br i1 %10, label %11, label %_ZN4llvm8dyn_castINS_19GlobalAddressSDNodeENS_7SDValueEEEDcRKT0_.exit61.thread
 
 11:                                               ; preds = %7
-  %12 = getelementptr inbounds i8, ptr %1, i64 40
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %13 = load i8, ptr %12, align 8
   %14 = trunc i8 %13 to i1
   br i1 %14, label %15, label %_ZN4llvm8dyn_castINS_19GlobalAddressSDNodeENS_7SDValueEEEDcRKT0_.exit61.thread
@@ -50,9 +50,9 @@ define dso_local noundef zeroext i1 @_ZNK4llvm15BaseIndexOffset14equalBaseIndexE
   %23 = load ptr, ptr %21, align 8
   %24 = load ptr, ptr %22, align 8
   %25 = icmp eq ptr %23, %24
-  %26 = getelementptr inbounds i8, ptr %1, i64 24
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %27 = load i32, ptr %26, align 8
-  %28 = getelementptr inbounds i8, ptr %0, i64 24
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %29 = load i32, ptr %28, align 8
   %30 = icmp eq i32 %27, %29
   %31 = select i1 %25, i1 %30, i1 false
@@ -445,7 +445,7 @@ _ZN4llvm8dyn_castINS_14ConstantSDNodeENS_7SDValueEEEDcRKT0_.exit.i: ; preds = %2
   %29 = getelementptr inbounds nuw i8, ptr %26, i64 88
   %30 = load ptr, ptr %29, align 8, !noalias !4
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 24
-  %32 = getelementptr inbounds i8, ptr %30, i64 32
+  %32 = getelementptr inbounds nuw i8, ptr %30, i64 32
   %33 = load i32, ptr %32, align 8, !noalias !4
   %34 = icmp ult i32 %33, 65
   br i1 %34, label %35, label %42
@@ -483,7 +483,7 @@ _ZN4llvm8dyn_castINS_14ConstantSDNodeENS_7SDValueEEEDcRKT0_.exit114.i: ; preds =
   %54 = getelementptr inbounds nuw i8, ptr %51, i64 88
   %55 = load ptr, ptr %54, align 8, !noalias !4
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 24
-  %57 = getelementptr inbounds i8, ptr %55, i64 32
+  %57 = getelementptr inbounds nuw i8, ptr %55, i64 32
   %58 = load i32, ptr %57, align 8, !noalias !4
   %59 = icmp ult i32 %58, 65
   br i1 %59, label %60, label %67
@@ -556,7 +556,7 @@ _ZN4llvm8dyn_castINS_14ConstantSDNodeENS_7SDValueEEEDcRKT0_.exit121.thread-pre-s
 85:                                               ; preds = %_ZN4llvm8dyn_castINS_14ConstantSDNodeENS_7SDValueEEEDcRKT0_.exit121.i
   %86 = load ptr, ptr %80, align 8, !noalias !4
   %87 = getelementptr inbounds nuw i8, ptr %86, i64 24
-  %88 = getelementptr inbounds i8, ptr %86, i64 32
+  %88 = getelementptr inbounds nuw i8, ptr %86, i64 32
   %89 = load i32, ptr %88, align 8, !noalias !4
   %90 = icmp ult i32 %89, 65
   br i1 %90, label %91, label %98
@@ -611,7 +611,7 @@ _ZN4llvm8dyn_castINS_14ConstantSDNodeENS_7SDValueEEEDcRKT0_.exit126.i: ; preds =
   %114 = getelementptr inbounds nuw i8, ptr %111, i64 88
   %115 = load ptr, ptr %114, align 8, !noalias !4
   %116 = getelementptr inbounds nuw i8, ptr %115, i64 24
-  %117 = getelementptr inbounds i8, ptr %115, i64 32
+  %117 = getelementptr inbounds nuw i8, ptr %115, i64 32
   %118 = load i32, ptr %117, align 8, !noalias !4
   %119 = icmp ult i32 %118, 65
   br i1 %119, label %120, label %127
@@ -666,7 +666,7 @@ _ZN4llvm8dyn_castINS_14ConstantSDNodeENS_7SDValueEEEDcRKT0_.exit131.i: ; preds =
   %147 = getelementptr inbounds nuw i8, ptr %144, i64 88
   %148 = load ptr, ptr %147, align 8, !noalias !4
   %149 = getelementptr inbounds nuw i8, ptr %148, i64 24
-  %150 = getelementptr inbounds i8, ptr %148, i64 32
+  %150 = getelementptr inbounds nuw i8, ptr %148, i64 32
   %151 = load i32, ptr %150, align 8, !noalias !4
   %152 = icmp ult i32 %151, 65
   br i1 %152, label %153, label %160
@@ -776,7 +776,7 @@ _ZNK4llvm9MemSDNode10getBasePtrEv.exit136.i:      ; preds = %167, %165
   %193 = getelementptr inbounds nuw i8, ptr %187, i64 88
   %194 = load ptr, ptr %193, align 8, !noalias !4
   %195 = getelementptr inbounds nuw i8, ptr %194, i64 24
-  %196 = getelementptr inbounds i8, ptr %194, i64 32
+  %196 = getelementptr inbounds nuw i8, ptr %194, i64 32
   %197 = load i32, ptr %196, align 8, !noalias !4
   %198 = icmp ult i32 %197, 65
   br i1 %198, label %199, label %206
@@ -831,7 +831,7 @@ _ZL11matchLSNodePKN4llvm12LSBaseSDNodeERKNS_12SelectionDAGE.exit: ; preds = %73,
   store i32 %.sroa.17.0.sink.i, ptr %.sroa.2.0..sroa_idx.i145.i, align 8, !alias.scope !4
   %217 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i64 %.3.sink.i, ptr %217, align 8, !alias.scope !4
-  %218 = getelementptr inbounds i8, ptr %0, i64 40
+  %218 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i8 1, ptr %218, align 8, !alias.scope !4
   %219 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i8 %.099.sink.i, ptr %219, align 8, !alias.scope !4
@@ -864,14 +864,14 @@ _ZL11matchLSNodePKN4llvm12LSBaseSDNodeERKNS_12SelectionDAGE.exit: ; preds = %73,
 229:                                              ; preds = %221
   %230 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i64 %223, ptr %230, align 8
-  %231 = getelementptr inbounds i8, ptr %0, i64 40
+  %231 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i8 1, ptr %231, align 8
   %232 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i8 0, ptr %232, align 8
   br label %237
 
 233:                                              ; preds = %221
-  %234 = getelementptr inbounds i8, ptr %0, i64 40
+  %234 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i8 0, ptr %234, align 8
   %235 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i8 0, ptr %235, align 8

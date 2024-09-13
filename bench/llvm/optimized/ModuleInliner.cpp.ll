@@ -171,7 +171,7 @@ _ZNKSt14default_deleteIN4llvm13InlineAdvisorEEclEPS1_.exit.i.i.i: ; preds = %9
   br label %_ZNSt10unique_ptrIN4llvm20DefaultInlineAdvisorESt14default_deleteIS1_EED2Ev.exit
 
 19:                                               ; preds = %7
-  %20 = getelementptr inbounds i8, ptr %8, i64 24
+  %20 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %21 = load ptr, ptr %20, align 8
   br label %_ZNSt10unique_ptrIN4llvm20DefaultInlineAdvisorESt14default_deleteIS1_EED2Ev.exit
 
@@ -233,15 +233,15 @@ define dso_local void @_ZN4llvm17ModuleInlinerPass3runERNS_6ModuleERNS_15Analysi
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 0, ptr %41, align 8, !alias.scope !7
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %43 = getelementptr inbounds i8, ptr %0, i64 80
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store ptr %43, ptr %42, align 8, !alias.scope !7
-  %44 = getelementptr inbounds i8, ptr %0, i64 56
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store ptr %43, ptr %44, align 8, !alias.scope !7
-  %45 = getelementptr inbounds i8, ptr %0, i64 64
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i32 2, ptr %45, align 8, !alias.scope !7
-  %46 = getelementptr inbounds i8, ptr %0, i64 68
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 68
   store i32 0, ptr %46, align 4, !alias.scope !7
-  %47 = getelementptr inbounds i8, ptr %0, i64 72
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store i32 0, ptr %47, align 8, !alias.scope !7
   store i32 1, ptr %40, align 4, !alias.scope !7, !noalias !10
   store ptr @_ZN4llvm17PreservedAnalyses14AllAnalysesKeyE, ptr %37, align 8, !alias.scope !7, !noalias !10
@@ -292,7 +292,7 @@ _ZNKSt14default_deleteIN4llvm13InlineAdvisorEEclEPS1_.exit.i.i.i.i: ; preds = %5
   br label %_ZN4llvm17ModuleInlinerPass10getAdvisorERKNS_15AnalysisManagerINS_6ModuleEJEEERNS1_INS_8FunctionEJEEERS2_.exit
 
 67:                                               ; preds = %57
-  %68 = getelementptr inbounds i8, ptr %58, i64 24
+  %68 = getelementptr inbounds nuw i8, ptr %58, i64 24
   %69 = load ptr, ptr %68, align 8
   br label %_ZN4llvm17ModuleInlinerPass10getAdvisorERKNS_15AnalysisManagerINS_6ModuleEJEEERNS1_INS_8FunctionEJEEERS2_.exit
 
@@ -303,7 +303,7 @@ _ZN4llvm17ModuleInlinerPass10getAdvisorERKNS_15AnalysisManagerINS_6ModuleEJEEERN
   %72 = load ptr, ptr %71, align 8
   call void %72(ptr noundef nonnull align 8 dereferenceable(80) %.0.i99, ptr noundef null) #9
   call void @_ZN4llvm14getInlineOrderERNS_15AnalysisManagerINS_8FunctionEJEEERKNS_12InlineParamsERNS0_INS_6ModuleEJEEERS7_(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr.157") align 8 %15, ptr noundef nonnull align 8 dereferenceable(72) %55, ptr noundef nonnull align 4 dereferenceable(66) %27, ptr noundef nonnull align 8 dereferenceable(72) %3, ptr noundef nonnull align 8 dereferenceable(857) %2) #9
-  %73 = getelementptr inbounds i8, ptr %2, i64 32
+  %73 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %74 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %.sroa.0160.0200 = load ptr, ptr %73, align 8
   %.not183201 = icmp eq ptr %.sroa.0160.0200, %74
@@ -343,7 +343,7 @@ _ZN4llvm17ModuleInlinerPass10getAdvisorERKNS_15AnalysisManagerINS_6ModuleEJEEERN
   %102 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm15AnalysisManagerINS_8FunctionEJEE13getResultImplEPNS_11AnalysisKeyERS1_(ptr noundef nonnull align 8 dereferenceable(72) %55, ptr noundef nonnull @_ZN4llvm33OptimizationRemarkEmitterAnalysis3KeyE, ptr noundef nonnull align 8 dereferenceable(136) %101) #9
   %103 = getelementptr inbounds nuw i8, ptr %102, i64 8
   %104 = getelementptr inbounds nuw i8, ptr %101, i64 72
-  %105 = getelementptr inbounds i8, ptr %101, i64 80
+  %105 = getelementptr inbounds nuw i8, ptr %101, i64 80
   %106 = load ptr, ptr %105, align 8, !noalias !16
   %.not.i.i.i = icmp eq ptr %106, %104
   br i1 %.not.i.i.i, label %_ZN4llvm12instructionsERNS_8FunctionE.exit, label %107
@@ -352,7 +352,7 @@ _ZN4llvm17ModuleInlinerPass10getAdvisorERKNS_15AnalysisManagerINS_6ModuleEJEEERN
   %108 = icmp eq ptr %106, null
   %109 = getelementptr inbounds i8, ptr %106, i64 -24
   %110 = select i1 %108, ptr null, ptr %109
-  %111 = getelementptr inbounds i8, ptr %110, i64 56
+  %111 = getelementptr inbounds nuw i8, ptr %110, i64 56
   %112 = load ptr, ptr %111, align 8, !noalias !16
   %113 = getelementptr inbounds nuw i8, ptr %110, i64 48
   %114 = icmp eq ptr %112, %113
@@ -375,7 +375,7 @@ _ZN4llvm17ModuleInlinerPass10getAdvisorERKNS_15AnalysisManagerINS_6ModuleEJEEERN
   %122 = icmp eq ptr %121, null
   %123 = getelementptr inbounds i8, ptr %121, i64 -24
   %124 = select i1 %122, ptr null, ptr %123
-  %125 = getelementptr inbounds i8, ptr %124, i64 56
+  %125 = getelementptr inbounds nuw i8, ptr %124, i64 56
   %126 = load ptr, ptr %125, align 8, !noalias !16
   %127 = getelementptr inbounds nuw i8, ptr %124, i64 48
   %128 = icmp eq ptr %126, %127
@@ -623,7 +623,7 @@ _ZN4llvm8dyn_castINS_8CallBaseENS_11InstructionEEEDcPT0_.exit.thread: ; preds = 
   %211 = icmp eq ptr %210, null
   %212 = getelementptr inbounds i8, ptr %210, i64 -24
   %213 = select i1 %211, ptr null, ptr %212
-  %214 = getelementptr inbounds i8, ptr %213, i64 56
+  %214 = getelementptr inbounds nuw i8, ptr %213, i64 56
   %215 = load ptr, ptr %214, align 8
   %216 = getelementptr inbounds nuw i8, ptr %213, i64 48
   %217 = icmp eq ptr %215, %216
@@ -661,15 +661,15 @@ _ZNK4llvm12InstIteratorINS_15SymbolTableListINS_10BasicBlockEJEEENS_14ilist_iter
   %230 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 0, ptr %230, align 8, !alias.scope !27
   %231 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %232 = getelementptr inbounds i8, ptr %0, i64 80
+  %232 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store ptr %232, ptr %231, align 8, !alias.scope !27
-  %233 = getelementptr inbounds i8, ptr %0, i64 56
+  %233 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store ptr %232, ptr %233, align 8, !alias.scope !27
-  %234 = getelementptr inbounds i8, ptr %0, i64 64
+  %234 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i32 2, ptr %234, align 8, !alias.scope !27
-  %235 = getelementptr inbounds i8, ptr %0, i64 68
+  %235 = getelementptr inbounds nuw i8, ptr %0, i64 68
   store i32 0, ptr %235, align 4, !alias.scope !27
-  %236 = getelementptr inbounds i8, ptr %0, i64 72
+  %236 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store i32 0, ptr %236, align 8, !alias.scope !27
   store i32 1, ptr %229, align 4, !alias.scope !27, !noalias !30
   store ptr @_ZN4llvm17PreservedAnalyses14AllAnalysesKeyE, ptr %226, align 8, !alias.scope !27, !noalias !30
@@ -1057,7 +1057,7 @@ _ZNSt10unique_ptrIN4llvm12InlineAdviceESt14default_deleteIS1_EED2Ev.exit: ; pred
   %423 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %424 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 0, ptr %424, align 8, !alias.scope !55
-  %425 = getelementptr inbounds i8, ptr %0, i64 68
+  %425 = getelementptr inbounds nuw i8, ptr %0, i64 68
   store i32 0, ptr %425, align 4, !alias.scope !55
   store ptr @_ZN4llvm17PreservedAnalyses14AllAnalysesKeyE, ptr %423, align 8, !alias.scope !55, !noalias !58
   br label %429
@@ -1071,7 +1071,7 @@ _ZNSt10unique_ptrIN4llvm12InlineAdviceESt14default_deleteIS1_EED2Ev.exit: ; pred
 429:                                              ; preds = %426, %422
   %.sink236 = phi ptr [ %428, %426 ], [ %423, %422 ]
   %.sink234 = phi i32 [ 0, %426 ], [ 1, %422 ]
-  %.sink233 = getelementptr inbounds i8, ptr %0, i64 80
+  %.sink233 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store ptr %.sink236, ptr %0, align 8
   %430 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sink236, ptr %430, align 8
@@ -1081,11 +1081,11 @@ _ZNSt10unique_ptrIN4llvm12InlineAdviceESt14default_deleteIS1_EED2Ev.exit: ; pred
   store i32 %.sink234, ptr %432, align 4
   %433 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr %.sink233, ptr %433, align 8
-  %434 = getelementptr inbounds i8, ptr %0, i64 56
+  %434 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store ptr %.sink233, ptr %434, align 8
-  %435 = getelementptr inbounds i8, ptr %0, i64 64
+  %435 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i32 2, ptr %435, align 8
-  %436 = getelementptr inbounds i8, ptr %0, i64 72
+  %436 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store i32 0, ptr %436, align 8
   %437 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %18) #9
   %438 = load ptr, ptr %18, align 8

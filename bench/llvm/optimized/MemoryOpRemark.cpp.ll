@@ -568,7 +568,7 @@ _ZN4llvm14MemoryOpRemark10makeRemarkIJPKcNS_9StringRefEPKNS_13IntrinsicInstEEEES
 
 73:                                               ; preds = %_ZN4llvm14MemoryOpRemark10makeRemarkIJPKcNS_9StringRefEPKNS_13IntrinsicInstEEEESt10unique_ptrINS_28DiagnosticInfoIROptimizationESt14default_deleteIS9_EEDpT_.exit
   %74 = getelementptr inbounds nuw i8, ptr %spec.select.i.i, i64 24
-  %75 = getelementptr inbounds i8, ptr %spec.select.i.i, i64 32
+  %75 = getelementptr inbounds nuw i8, ptr %spec.select.i.i, i64 32
   %76 = load i32, ptr %75, align 8
   %77 = icmp ult i32 %76, 65
   %78 = load ptr, ptr %74, align 8
@@ -883,7 +883,7 @@ define dso_local void @_ZN4llvm14MemoryOpRemark8visitPtrEPNS_5ValueEbRNS_28Diagn
   store i8 0, ptr %30, align 8
   %31 = getelementptr inbounds nuw i8, ptr %12, i64 24
   store i64 %28, ptr %31, align 8
-  %32 = getelementptr inbounds i8, ptr %12, i64 32
+  %32 = getelementptr inbounds nuw i8, ptr %12, i64 32
   store i8 1, ptr %32, align 8
   call void @_ZN4llvm23SmallVectorTemplateBaseINS_14MemoryOpRemark12VariableInfoELb1EE9push_backERKS2_(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(40) %12)
   br label %33
@@ -963,7 +963,7 @@ define dso_local void @_ZN4llvm14MemoryOpRemark8visitPtrEPNS_5ValueEbRNS_28Diagn
   %.sink = phi ptr [ %14, %59 ], [ %13, %58 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink53) #14
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink) #14
-  %61 = getelementptr inbounds i8, ptr %52, i64 32
+  %61 = getelementptr inbounds nuw i8, ptr %52, i64 32
   %62 = load i8, ptr %61, align 8
   %63 = trunc i8 %62 to i1
   br i1 %63, label %64, label %67
@@ -1275,7 +1275,7 @@ define dso_local void @_ZN4llvm14MemoryOpRemark16visitSizeOperandEPNS_5ValueERNS
 
 7:                                                ; preds = %3
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %9 = getelementptr inbounds i8, ptr %1, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %10 = load i32, ptr %9, align 8
   %11 = icmp ult i32 %10, 65
   %12 = load ptr, ptr %8, align 8

@@ -459,7 +459,7 @@ define dso_local void @_ZN5clang5index25createIndexingASTConsumerESt10shared_ptr
   %9 = alloca %"class.std::function", align 8
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false)
-  %11 = getelementptr inbounds i8, ptr %2, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %12 = load ptr, ptr %11, align 8
   %.not.i.i.not = icmp eq ptr %12, null
   br i1 %.not.i.i.not, label %_ZNSt8functionIFbPKN5clang4DeclEEEC2EOS5_.exit, label %_ZNSt8functionIFbPKN5clang4DeclEEEC2ERKS5_.exit
@@ -470,7 +470,7 @@ _ZNSt8functionIFbPKN5clang4DeclEEEC2ERKS5_.exit:  ; preds = %4
   %14 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %15 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %16 = call noundef zeroext i1 %12(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %13, i32 noundef 2) #14
-  %17 = getelementptr inbounds i8, ptr %2, i64 40
+  %17 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %18 = load ptr, ptr %17, align 8
   store ptr %18, ptr %14, align 8
   %19 = load ptr, ptr %11, align 8
@@ -699,12 +699,12 @@ define dso_local void @_ZN5clang5index20createIndexingActionESt10shared_ptrINS0_
   store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN12_GLOBAL__N_111IndexActionE, i64 16), ptr %4, align 8, !noalias !7
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 104
   store ptr %5, ptr %8, align 8, !noalias !7
-  %9 = getelementptr inbounds i8, ptr %4, i64 112
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 112
   store ptr %7, ptr %9, align 8, !noalias !7
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 120
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(10) %10, ptr noundef nonnull align 8 dereferenceable(10) %2, i64 10, i1 false), !noalias !7
-  %11 = getelementptr inbounds i8, ptr %4, i64 136
-  %12 = getelementptr inbounds i8, ptr %2, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 136
+  %12 = getelementptr inbounds nuw i8, ptr %2, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %11, i8 0, i64 32, i1 false), !noalias !7
   %13 = load ptr, ptr %12, align 8, !noalias !7
   %.not.i.i.not.i.i.i.i = icmp eq ptr %13, null
@@ -712,10 +712,10 @@ define dso_local void @_ZN5clang5index20createIndexingActionESt10shared_ptrINS0_
 
 14:                                               ; preds = %3
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %16 = getelementptr inbounds i8, ptr %4, i64 160
-  %17 = getelementptr inbounds i8, ptr %4, i64 152
+  %16 = getelementptr inbounds nuw i8, ptr %4, i64 160
+  %17 = getelementptr inbounds nuw i8, ptr %4, i64 152
   %18 = tail call noundef zeroext i1 %13(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull align 8 dereferenceable(16) %15, i32 noundef 2) #14, !noalias !7
-  %19 = getelementptr inbounds i8, ptr %2, i64 40
+  %19 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %20 = load ptr, ptr %19, align 8, !noalias !7
   store ptr %20, ptr %16, align 8, !noalias !7
   %21 = load ptr, ptr %12, align 8, !noalias !7
@@ -734,7 +734,7 @@ define dso_local void @_ZN5clang5index12indexASTUnitERNS_7ASTUnitERNS0_17IndexDa
   %6 = alloca %"class.std::shared_ptr.2", align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(10) %5, ptr noundef nonnull align 8 dereferenceable(10) %2, i64 10, i1 false)
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %8 = getelementptr inbounds i8, ptr %2, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, i8 0, i64 32, i1 false)
   %9 = load ptr, ptr %8, align 8
   %.not.i.i.not.i.i = icmp eq ptr %9, null
@@ -748,10 +748,10 @@ _ZN5clang5index15IndexingOptionsC2ERKS1_.exit.thread: ; preds = %3
 
 _ZN5clang5index15IndexingOptionsC2ERKS1_.exit:    ; preds = %3
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %12 = getelementptr inbounds i8, ptr %5, i64 40
-  %13 = getelementptr inbounds i8, ptr %5, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %5, i64 40
+  %13 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %14 = call noundef zeroext i1 %9(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %11, i32 noundef 2) #14
-  %15 = getelementptr inbounds i8, ptr %2, i64 40
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %16 = load ptr, ptr %15, align 8
   store ptr %16, ptr %12, align 8
   %17 = load ptr, ptr %8, align 8
@@ -770,11 +770,11 @@ _ZN5clang5index15IndexingContextC2ENS0_15IndexingOptionsERNS0_17IndexDataConsume
   br label %_ZN5clang5index15IndexingOptionsD2Ev.exit
 
 _ZN5clang5index15IndexingContextC2ENS0_15IndexingOptionsERNS0_17IndexDataConsumerE.exit: ; preds = %_ZN5clang5index15IndexingOptionsC2ERKS1_.exit
-  %22 = getelementptr inbounds i8, ptr %5, i64 32
-  %23 = getelementptr inbounds i8, ptr %4, i64 40
-  %24 = getelementptr inbounds i8, ptr %4, i64 32
+  %22 = getelementptr inbounds nuw i8, ptr %5, i64 32
+  %23 = getelementptr inbounds nuw i8, ptr %4, i64 40
+  %24 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %25 = call noundef zeroext i1 %17(ptr noundef nonnull align 8 dereferenceable(16) %18, ptr noundef nonnull align 8 dereferenceable(16) %7, i32 noundef 2) #14
-  %26 = getelementptr inbounds i8, ptr %5, i64 40
+  %26 = getelementptr inbounds nuw i8, ptr %5, i64 40
   %27 = load ptr, ptr %26, align 8
   store ptr %27, ptr %23, align 8
   %28 = load ptr, ptr %22, align 8
@@ -805,7 +805,7 @@ _ZN5clang5index15IndexingOptionsD2Ev.exit:        ; preds = %_ZN5clang5index15In
   %41 = load ptr, ptr %40, align 8, !noalias !10
   store ptr %41, ptr %6, align 8, !alias.scope !10
   %42 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %43 = getelementptr inbounds i8, ptr %0, i64 72
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %44 = load ptr, ptr %43, align 8, !noalias !10
   store ptr %44, ptr %42, align 8, !alias.scope !10
   %.not.i.i.i.i = icmp eq ptr %44, null
@@ -921,7 +921,7 @@ _ZNSt10shared_ptrIN5clang12PreprocessorEED2Ev.exit: ; preds = %_ZNK5clang7ASTUni
   %99 = getelementptr inbounds i8, ptr %98, i64 56
   %100 = load ptr, ptr %99, align 8
   call void %100(ptr noundef nonnull align 8 dereferenceable(8) %1) #14
-  %101 = getelementptr inbounds i8, ptr %4, i64 32
+  %101 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %102 = load ptr, ptr %101, align 8
   %.not.i.i.i.i12 = icmp eq ptr %102, null
   br i1 %.not.i.i.i.i12, label %_ZN5clang5index15IndexingContextD2Ev.exit, label %103
@@ -1034,7 +1034,7 @@ define dso_local void @_ZN5clang5index18indexTopLevelDeclsERNS_10ASTContextERNS_
   %8 = alloca %"struct.clang::index::IndexingOptions", align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(10) %8, ptr noundef nonnull align 8 dereferenceable(10) %5, i64 10, i1 false)
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  %10 = getelementptr inbounds i8, ptr %5, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %9, i8 0, i64 32, i1 false)
   %11 = load ptr, ptr %10, align 8
   %.not.i.i.not.i.i = icmp eq ptr %11, null
@@ -1048,10 +1048,10 @@ _ZN5clang5index15IndexingOptionsC2ERKS1_.exit.thread: ; preds = %6
 
 _ZN5clang5index15IndexingOptionsC2ERKS1_.exit:    ; preds = %6
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %14 = getelementptr inbounds i8, ptr %8, i64 40
-  %15 = getelementptr inbounds i8, ptr %8, i64 32
+  %14 = getelementptr inbounds nuw i8, ptr %8, i64 40
+  %15 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %16 = call noundef zeroext i1 %11(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %13, i32 noundef 2) #14
-  %17 = getelementptr inbounds i8, ptr %5, i64 40
+  %17 = getelementptr inbounds nuw i8, ptr %5, i64 40
   %18 = load ptr, ptr %17, align 8
   store ptr %18, ptr %14, align 8
   %19 = load ptr, ptr %10, align 8
@@ -1070,11 +1070,11 @@ _ZN5clang5index15IndexingContextC2ENS0_15IndexingOptionsERNS0_17IndexDataConsume
   br label %_ZN5clang5index15IndexingOptionsD2Ev.exit
 
 _ZN5clang5index15IndexingContextC2ENS0_15IndexingOptionsERNS0_17IndexDataConsumerE.exit: ; preds = %_ZN5clang5index15IndexingOptionsC2ERKS1_.exit
-  %24 = getelementptr inbounds i8, ptr %8, i64 32
-  %25 = getelementptr inbounds i8, ptr %7, i64 40
-  %26 = getelementptr inbounds i8, ptr %7, i64 32
+  %24 = getelementptr inbounds nuw i8, ptr %8, i64 32
+  %25 = getelementptr inbounds nuw i8, ptr %7, i64 40
+  %26 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %27 = call noundef zeroext i1 %19(ptr noundef nonnull align 8 dereferenceable(16) %20, ptr noundef nonnull align 8 dereferenceable(16) %9, i32 noundef 2) #14
-  %28 = getelementptr inbounds i8, ptr %8, i64 40
+  %28 = getelementptr inbounds nuw i8, ptr %8, i64 40
   %29 = load ptr, ptr %28, align 8
   store ptr %29, ptr %25, align 8
   %30 = load ptr, ptr %24, align 8
@@ -1125,7 +1125,7 @@ _ZN5clang5index15IndexingOptionsD2Ev.exit:        ; preds = %_ZN5clang5index15In
   %50 = getelementptr inbounds i8, ptr %49, i64 56
   %51 = load ptr, ptr %50, align 8
   call void %51(ptr noundef nonnull align 8 dereferenceable(8) %4) #14
-  %52 = getelementptr inbounds i8, ptr %7, i64 32
+  %52 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %53 = load ptr, ptr %52, align 8
   %.not.i.i.i.i = icmp eq ptr %53, null
   br i1 %.not.i.i.i.i, label %_ZN5clang5index15IndexingContextD2Ev.exit, label %54
@@ -1153,7 +1153,7 @@ define dso_local void @_ZN5clang5index19indexMacrosCallbackERNS0_17IndexDataCons
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4), !noalias !24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(10) %4, ptr noundef nonnull align 8 dereferenceable(10) %2, i64 10, i1 false), !noalias !24
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %10 = getelementptr inbounds i8, ptr %2, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %9, i8 0, i64 32, i1 false), !noalias !24
   %11 = load ptr, ptr %10, align 8, !noalias !24
   %.not.i.i.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %11, null
@@ -1161,44 +1161,44 @@ define dso_local void @_ZN5clang5index19indexMacrosCallbackERNS0_17IndexDataCons
 
 _ZN5clang5index15IndexingOptionsC2ERKS1_.exit.thread.i.i.i.i.i.i.i: ; preds = %3
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(10) %8, ptr noundef nonnull align 8 dereferenceable(10) %2, i64 10, i1 false), !noalias !24
-  %12 = getelementptr inbounds i8, ptr %5, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %5, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %12, i8 0, i64 32, i1 false), !noalias !24
   br label %_ZN5clang5index15IndexingContextC2ENS0_15IndexingOptionsERNS0_17IndexDataConsumerE.exit.thread.i.i.i.i.i.i.i
 
 _ZN5clang5index15IndexingOptionsC2ERKS1_.exit.i.i.i.i.i.i.i: ; preds = %3
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %14 = getelementptr inbounds i8, ptr %4, i64 40
-  %15 = getelementptr inbounds i8, ptr %4, i64 32
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 40
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %16 = call noundef zeroext i1 %11(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %13, i32 noundef 2) #14, !noalias !24
-  %17 = getelementptr inbounds i8, ptr %2, i64 40
+  %17 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %18 = load ptr, ptr %17, align 8, !noalias !24
   store ptr %18, ptr %14, align 8, !noalias !24
   %19 = load ptr, ptr %10, align 8, !noalias !24
   store ptr %19, ptr %15, align 8, !noalias !24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(10) %8, ptr noundef nonnull align 8 dereferenceable(10) %4, i64 10, i1 false), !noalias !24
-  %20 = getelementptr inbounds i8, ptr %5, i64 32
+  %20 = getelementptr inbounds nuw i8, ptr %5, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %20, i8 0, i64 32, i1 false), !noalias !24
   %.not.i.i.not.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %19, null
   br i1 %.not.i.i.not.i.i.i.i.i.i.i.i.i.i, label %_ZN5clang5index15IndexingContextC2ENS0_15IndexingOptionsERNS0_17IndexDataConsumerE.exit.thread.i.i.i.i.i.i.i, label %_ZN5clang5index15IndexingContextC2ENS0_15IndexingOptionsERNS0_17IndexDataConsumerE.exit.i.i.i.i.i.i.i
 
 _ZN5clang5index15IndexingContextC2ENS0_15IndexingOptionsERNS0_17IndexDataConsumerE.exit.thread.i.i.i.i.i.i.i: ; preds = %_ZN5clang5index15IndexingOptionsC2ERKS1_.exit.i.i.i.i.i.i.i, %_ZN5clang5index15IndexingOptionsC2ERKS1_.exit.thread.i.i.i.i.i.i.i
-  %21 = getelementptr inbounds i8, ptr %5, i64 64
+  %21 = getelementptr inbounds nuw i8, ptr %5, i64 64
   store ptr %1, ptr %21, align 8, !noalias !24
-  %22 = getelementptr inbounds i8, ptr %5, i64 72
+  %22 = getelementptr inbounds nuw i8, ptr %5, i64 72
   store ptr null, ptr %22, align 8, !noalias !24
   br label %_ZNSt10shared_ptrIN5clang5index15IndexingContextEED2Ev.exit
 
 _ZN5clang5index15IndexingContextC2ENS0_15IndexingOptionsERNS0_17IndexDataConsumerE.exit.i.i.i.i.i.i.i: ; preds = %_ZN5clang5index15IndexingOptionsC2ERKS1_.exit.i.i.i.i.i.i.i
-  %23 = getelementptr inbounds i8, ptr %5, i64 56
-  %24 = getelementptr inbounds i8, ptr %5, i64 48
+  %23 = getelementptr inbounds nuw i8, ptr %5, i64 56
+  %24 = getelementptr inbounds nuw i8, ptr %5, i64 48
   %25 = call noundef zeroext i1 %19(ptr noundef nonnull align 8 dereferenceable(16) %20, ptr noundef nonnull align 8 dereferenceable(16) %9, i32 noundef 2) #14, !noalias !24
   %26 = load ptr, ptr %14, align 8, !noalias !24
   store ptr %26, ptr %23, align 8, !noalias !24
   %27 = load ptr, ptr %15, align 8, !noalias !24
   store ptr %27, ptr %24, align 8, !noalias !24
-  %28 = getelementptr inbounds i8, ptr %5, i64 64
+  %28 = getelementptr inbounds nuw i8, ptr %5, i64 64
   store ptr %1, ptr %28, align 8, !noalias !24
-  %29 = getelementptr inbounds i8, ptr %5, i64 72
+  %29 = getelementptr inbounds nuw i8, ptr %5, i64 72
   store ptr null, ptr %29, align 8, !noalias !24
   %.not.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %27, null
   br i1 %.not.i.i.i.i.i.i.i.i.i.i, label %_ZNSt10shared_ptrIN5clang5index15IndexingContextEED2Ev.exit, label %30
@@ -1213,7 +1213,7 @@ _ZNSt10shared_ptrIN5clang5index15IndexingContextEED2Ev.exit: ; preds = %_ZN5clan
   store ptr getelementptr inbounds inrange(-16, 384) (i8, ptr @_ZTVN12_GLOBAL__N_116IndexPPCallbacksE, i64 16), ptr %32, align 8, !noalias !25
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 8
   store ptr %8, ptr %33, align 8, !noalias !25
-  %34 = getelementptr inbounds i8, ptr %32, i64 16
+  %34 = getelementptr inbounds nuw i8, ptr %32, i64 16
   store ptr %5, ptr %34, align 8, !noalias !25
   store ptr %32, ptr %0, align 8
   ret void
@@ -1228,7 +1228,7 @@ define dso_local void @_ZN5clang5index15indexModuleFileERNS_13serialization10Mod
   %9 = load ptr, ptr %8, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(10) %6, ptr noundef nonnull align 8 dereferenceable(10) %3, i64 10, i1 false)
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %11 = getelementptr inbounds i8, ptr %3, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %10, i8 0, i64 32, i1 false)
   %12 = load ptr, ptr %11, align 8
   %.not.i.i.not.i.i = icmp eq ptr %12, null
@@ -1242,10 +1242,10 @@ _ZN5clang5index15IndexingOptionsC2ERKS1_.exit.thread: ; preds = %4
 
 _ZN5clang5index15IndexingOptionsC2ERKS1_.exit:    ; preds = %4
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %15 = getelementptr inbounds i8, ptr %6, i64 40
-  %16 = getelementptr inbounds i8, ptr %6, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %6, i64 40
+  %16 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %17 = call noundef zeroext i1 %12(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull align 8 dereferenceable(16) %14, i32 noundef 2) #14
-  %18 = getelementptr inbounds i8, ptr %3, i64 40
+  %18 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %19 = load ptr, ptr %18, align 8
   store ptr %19, ptr %15, align 8
   %20 = load ptr, ptr %11, align 8
@@ -1264,11 +1264,11 @@ _ZN5clang5index15IndexingContextC2ENS0_15IndexingOptionsERNS0_17IndexDataConsume
   br label %_ZN5clang5index15IndexingOptionsD2Ev.exit
 
 _ZN5clang5index15IndexingContextC2ENS0_15IndexingOptionsERNS0_17IndexDataConsumerE.exit: ; preds = %_ZN5clang5index15IndexingOptionsC2ERKS1_.exit
-  %25 = getelementptr inbounds i8, ptr %6, i64 32
-  %26 = getelementptr inbounds i8, ptr %5, i64 40
-  %27 = getelementptr inbounds i8, ptr %5, i64 32
+  %25 = getelementptr inbounds nuw i8, ptr %6, i64 32
+  %26 = getelementptr inbounds nuw i8, ptr %5, i64 40
+  %27 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %28 = call noundef zeroext i1 %20(ptr noundef nonnull align 8 dereferenceable(16) %21, ptr noundef nonnull align 8 dereferenceable(16) %10, i32 noundef 2) #14
-  %29 = getelementptr inbounds i8, ptr %6, i64 40
+  %29 = getelementptr inbounds nuw i8, ptr %6, i64 40
   %30 = load ptr, ptr %29, align 8
   store ptr %30, ptr %26, align 8
   %31 = load ptr, ptr %25, align 8
@@ -1310,7 +1310,7 @@ _ZN5clang5index15IndexingOptionsD2Ev.exit:        ; preds = %_ZN5clang5index15In
 
 .lr.ph53.i:                                       ; preds = %44
   %52 = getelementptr inbounds nuw i8, ptr %46, i64 2064
-  %53 = getelementptr inbounds i8, ptr %46, i64 2080
+  %53 = getelementptr inbounds nuw i8, ptr %46, i64 2080
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 216
   br label %55
 
@@ -1544,7 +1544,7 @@ _ZL29indexPreprocessorModuleMacrosRN5clang12PreprocessorERNS_13serialization10Mo
   %144 = getelementptr inbounds i8, ptr %143, i64 56
   %145 = load ptr, ptr %144, align 8
   call void %145(ptr noundef nonnull align 8 dereferenceable(8) %2) #14
-  %146 = getelementptr inbounds i8, ptr %5, i64 32
+  %146 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %147 = load ptr, ptr %146, align 8
   %.not.i.i.i.i14 = icmp eq ptr %147, null
   br i1 %.not.i.i.i.i14, label %_ZN5clang5index15IndexingContextD2Ev.exit, label %148
@@ -1596,7 +1596,7 @@ declare void @llvm.assume(i1 noundef) #4
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN12_GLOBAL__N_116IndexPPCallbacksD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #0 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i.i, label %_ZNSt10shared_ptrIN5clang5index15IndexingContextEED2Ev.exit, label %4
@@ -1682,7 +1682,7 @@ declare void @_ZN5clang11PPCallbacksD2Ev(ptr noundef nonnull align 8 dereference
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN12_GLOBAL__N_116IndexASTConsumerD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %0) unnamed_addr #0 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 80
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %3 = load ptr, ptr %2, align 8
   %.not.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i, label %_ZNSt8functionIFbPKN5clang4DeclEEED2Ev.exit, label %4
@@ -1693,7 +1693,7 @@ define internal void @_ZN12_GLOBAL__N_116IndexASTConsumerD2Ev(ptr noundef nonnul
   br label %_ZNSt8functionIFbPKN5clang4DeclEEED2Ev.exit
 
 _ZNSt8functionIFbPKN5clang4DeclEEED2Ev.exit:      ; preds = %1, %4
-  %7 = getelementptr inbounds i8, ptr %0, i64 56
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %8 = load ptr, ptr %7, align 8
   %.not.i.i.i = icmp eq ptr %8, null
   br i1 %.not.i.i.i, label %_ZNSt10shared_ptrIN5clang12PreprocessorEED2Ev.exit, label %9
@@ -1767,7 +1767,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   br label %_ZNSt10shared_ptrIN5clang12PreprocessorEED2Ev.exit
 
 _ZNSt10shared_ptrIN5clang12PreprocessorEED2Ev.exit: ; preds = %_ZNSt8functionIFbPKN5clang4DeclEEED2Ev.exit, %25, %38, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i
-  %43 = getelementptr inbounds i8, ptr %0, i64 40
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %44 = load ptr, ptr %43, align 8
   %.not.i.i.i1 = icmp eq ptr %44, null
   br i1 %.not.i.i.i1, label %_ZNSt10shared_ptrIN5clang5index15IndexingContextEED2Ev.exit, label %45
@@ -1841,7 +1841,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   br label %_ZNSt10shared_ptrIN5clang5index15IndexingContextEED2Ev.exit
 
 _ZNSt10shared_ptrIN5clang5index15IndexingContextEED2Ev.exit: ; preds = %_ZNSt10shared_ptrIN5clang12PreprocessorEED2Ev.exit, %61, %74, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i6
-  %79 = getelementptr inbounds i8, ptr %0, i64 24
+  %79 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %80 = load ptr, ptr %79, align 8
   %.not.i.i.i7 = icmp eq ptr %80, null
   br i1 %.not.i.i.i7, label %_ZNSt10shared_ptrIN5clang5index17IndexDataConsumerEED2Ev.exit, label %81
@@ -1930,7 +1930,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_116IndexASTConsumerC2ESt10shared_pt
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = load ptr, ptr %1, align 8
   store ptr %9, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr null, ptr %10, align 8
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %12 = load ptr, ptr %11, align 8
@@ -1941,7 +1941,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_116IndexASTConsumerC2ESt10shared_pt
   %14 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #13
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(10) %6, ptr noundef nonnull align 8 dereferenceable(10) %2, i64 10, i1 false)
   %15 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %16 = getelementptr inbounds i8, ptr %2, i64 32
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %15, i8 0, i64 32, i1 false)
   %17 = load ptr, ptr %16, align 8
   %.not.i.i.not.i.i = icmp eq ptr %17, null
@@ -1956,10 +1956,10 @@ _ZN5clang5index15IndexingOptionsC2ERKS1_.exit.thread: ; preds = %5
 
 _ZN5clang5index15IndexingOptionsC2ERKS1_.exit:    ; preds = %5
   %20 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %21 = getelementptr inbounds i8, ptr %6, i64 40
-  %22 = getelementptr inbounds i8, ptr %6, i64 32
+  %21 = getelementptr inbounds nuw i8, ptr %6, i64 40
+  %22 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %23 = call noundef zeroext i1 %17(ptr noundef nonnull align 8 dereferenceable(16) %15, ptr noundef nonnull align 8 dereferenceable(16) %20, i32 noundef 2) #14
-  %24 = getelementptr inbounds i8, ptr %2, i64 40
+  %24 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %25 = load ptr, ptr %24, align 8
   store ptr %25, ptr %21, align 8
   %26 = load ptr, ptr %16, align 8
@@ -1972,11 +1972,11 @@ _ZN5clang5index15IndexingOptionsC2ERKS1_.exit:    ; preds = %5
   br i1 %.not.i.i.not.i.i.i, label %_ZN5clang5index15IndexingContextC2ENS0_15IndexingOptionsERNS0_17IndexDataConsumerE.exit, label %29
 
 29:                                               ; preds = %_ZN5clang5index15IndexingOptionsC2ERKS1_.exit
-  %30 = getelementptr inbounds i8, ptr %6, i64 32
-  %31 = getelementptr inbounds i8, ptr %14, i64 40
-  %32 = getelementptr inbounds i8, ptr %14, i64 32
+  %30 = getelementptr inbounds nuw i8, ptr %6, i64 32
+  %31 = getelementptr inbounds nuw i8, ptr %14, i64 40
+  %32 = getelementptr inbounds nuw i8, ptr %14, i64 32
   %33 = call noundef zeroext i1 %26(ptr noundef nonnull align 8 dereferenceable(16) %28, ptr noundef nonnull align 8 dereferenceable(16) %15, i32 noundef 2) #14
-  %34 = getelementptr inbounds i8, ptr %6, i64 40
+  %34 = getelementptr inbounds nuw i8, ptr %6, i64 40
   %35 = load ptr, ptr %34, align 8
   store ptr %35, ptr %31, align 8
   %36 = load ptr, ptr %30, align 8
@@ -1991,7 +1991,7 @@ _ZN5clang5index15IndexingContextC2ENS0_15IndexingOptionsERNS0_17IndexDataConsume
   %40 = getelementptr inbounds nuw i8, ptr %14, i64 56
   store ptr null, ptr %40, align 8
   store ptr %14, ptr %13, align 8
-  %41 = getelementptr inbounds i8, ptr %0, i64 40
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %42 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #13
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 8
   store i32 1, ptr %43, align 8
@@ -2012,7 +2012,7 @@ _ZN5clang5index15IndexingOptionsD2Ev.exit:        ; preds = %_ZN5clang5index15In
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %49 = load ptr, ptr %3, align 8
   store ptr %49, ptr %48, align 8
-  %50 = getelementptr inbounds i8, ptr %0, i64 56
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store ptr null, ptr %50, align 8
   %51 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %52 = load ptr, ptr %51, align 8
@@ -2020,7 +2020,7 @@ _ZN5clang5index15IndexingOptionsD2Ev.exit:        ; preds = %_ZN5clang5index15In
   store ptr %52, ptr %50, align 8
   store ptr null, ptr %3, align 8
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %54 = getelementptr inbounds i8, ptr %0, i64 88
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %55 = getelementptr inbounds nuw i8, ptr %4, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %53, i8 0, i64 24, i1 false)
   %56 = load ptr, ptr %55, align 8
@@ -2031,7 +2031,7 @@ _ZN5clang5index15IndexingOptionsD2Ev.exit:        ; preds = %_ZN5clang5index15In
   br i1 %.not.i.i.not.i, label %_ZNSt8functionIFbPKN5clang4DeclEEEC2EOS5_.exit, label %59
 
 59:                                               ; preds = %_ZN5clang5index15IndexingOptionsD2Ev.exit
-  %60 = getelementptr inbounds i8, ptr %0, i64 80
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 80
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %53, ptr noundef nonnull align 8 dereferenceable(16) %4, i64 16, i1 false)
   %61 = load ptr, ptr %57, align 8
   store ptr %61, ptr %60, align 8
@@ -2070,7 +2070,7 @@ define internal void @_ZN12_GLOBAL__N_116IndexASTConsumer10InitializeERN5clang10
   %17 = load ptr, ptr %16, align 8
   store ptr %17, ptr %3, align 8
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %19 = getelementptr inbounds i8, ptr %0, i64 56
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %20 = load ptr, ptr %19, align 8
   store ptr %20, ptr %18, align 8
   %.not.i.i.i = icmp eq ptr %20, null
@@ -2198,7 +2198,7 @@ _ZSt11make_uniqueIN12_GLOBAL__N_116IndexPPCallbacksEJRSt10shared_ptrIN5clang5ind
   store ptr getelementptr inbounds inrange(-16, 384) (i8, ptr @_ZTVN12_GLOBAL__N_116IndexPPCallbacksE, i64 16), ptr %69, align 8, !noalias !33
   %78 = getelementptr inbounds nuw i8, ptr %69, i64 8
   store ptr %.val, ptr %78, align 8, !noalias !33
-  %79 = getelementptr inbounds i8, ptr %69, i64 16
+  %79 = getelementptr inbounds nuw i8, ptr %69, i64 16
   store ptr %.val3, ptr %79, align 8, !noalias !33
   %80 = getelementptr inbounds nuw i8, ptr %67, i64 1176
   %81 = load ptr, ptr %80, align 8
@@ -2321,7 +2321,7 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_116IndexASTConsumer22shouldS
   %3 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   store ptr %1, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 80
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %5 = load ptr, ptr %4, align 8
   %.not.i.i = icmp eq ptr %5, null
   br i1 %.not.i.i, label %6, label %_ZNKSt8functionIFbPKN5clang4DeclEEEclES3_.exit
@@ -2332,7 +2332,7 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_116IndexASTConsumer22shouldS
 
 _ZNKSt8functionIFbPKN5clang4DeclEEEclES3_.exit:   ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %8 = getelementptr inbounds i8, ptr %0, i64 88
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %9 = load ptr, ptr %8, align 8
   %10 = call noundef zeroext i1 %9(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(8) %3) #14
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
@@ -2358,7 +2358,7 @@ define linkonce_odr hidden void @_ZNSt15_Sp_counted_ptrIPN5clang5index15Indexing
   br i1 %4, label %11, label %5
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %3, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %7 = load ptr, ptr %6, align 8
   %.not.i.i.i.i = icmp eq ptr %7, null
   br i1 %.not.i.i.i.i, label %_ZN5clang5index15IndexingContextD2Ev.exit, label %8
@@ -2389,7 +2389,7 @@ define linkonce_odr hidden noundef ptr @_ZNSt15_Sp_counted_ptrIPN5clang5index15I
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN12_GLOBAL__N_116IndexPPCallbacksD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #0 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i.i.i, label %_ZN12_GLOBAL__N_116IndexPPCallbacksD2Ev.exit, label %4
@@ -2636,7 +2636,7 @@ switch.hole_check:                                ; preds = %5
 
 _ZNK5clang5Token17getIdentifierInfoEv.exit:       ; preds = %switch.hole_check, %11
   %.0.i = phi ptr [ %13, %11 ], [ null, %switch.hole_check ]
-  %14 = getelementptr inbounds i8, ptr %2, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %15 = load i64, ptr %14, align 8
   %16 = icmp eq i64 %15, 0
   br i1 %16, label %23, label %17
@@ -2706,7 +2706,7 @@ _ZNK5clang5Token17getIdentifierInfoEv.exit:       ; preds = %switch.hole_check, 
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN12_GLOBAL__N_116IndexPPCallbacks14MacroUndefinedERKN5clang5TokenERKNS1_15MacroDefinitionEPKNS1_14MacroDirectiveE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %2, ptr nocapture readnone %3) unnamed_addr #0 align 2 {
-  %5 = getelementptr inbounds i8, ptr %2, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %6 = load i64, ptr %5, align 8
   %7 = icmp eq i64 %6, 0
   br i1 %7, label %14, label %8
@@ -2799,7 +2799,7 @@ _ZNK5clang15MacroDefinition12getMacroInfoEv.exit.thread: ; preds = %16, %14, %_Z
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN12_GLOBAL__N_116IndexPPCallbacks7DefinedERKN5clang5TokenERKNS1_15MacroDefinitionENS1_11SourceRangeE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %2, i64 %3) unnamed_addr #0 align 2 {
-  %5 = getelementptr inbounds i8, ptr %2, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %6 = load i64, ptr %5, align 8
   %7 = icmp eq i64 %6, 0
   br i1 %7, label %14, label %8
@@ -2914,7 +2914,7 @@ define linkonce_odr hidden void @_ZN5clang11PPCallbacks4ElifENS_14SourceLocation
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN12_GLOBAL__N_116IndexPPCallbacks5IfdefEN5clang14SourceLocationERKNS1_5TokenERKNS1_15MacroDefinitionE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, i32 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %3) unnamed_addr #0 align 2 {
-  %5 = getelementptr inbounds i8, ptr %3, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %6 = load i64, ptr %5, align 8
   %7 = icmp eq i64 %6, 0
   br i1 %7, label %14, label %8
@@ -3007,7 +3007,7 @@ _ZNK5clang15MacroDefinition12getMacroInfoEv.exit.thread: ; preds = %16, %14, %_Z
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN12_GLOBAL__N_116IndexPPCallbacks7ElifdefEN5clang14SourceLocationERKNS1_5TokenERKNS1_15MacroDefinitionE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, i32 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %3) unnamed_addr #0 align 2 {
-  %5 = getelementptr inbounds i8, ptr %3, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %6 = load i64, ptr %5, align 8
   %7 = icmp eq i64 %6, 0
   br i1 %7, label %14, label %8
@@ -3105,7 +3105,7 @@ define linkonce_odr hidden void @_ZN5clang11PPCallbacks7ElifdefENS_14SourceLocat
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN12_GLOBAL__N_116IndexPPCallbacks6IfndefEN5clang14SourceLocationERKNS1_5TokenERKNS1_15MacroDefinitionE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, i32 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %3) unnamed_addr #0 align 2 {
-  %5 = getelementptr inbounds i8, ptr %3, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %6 = load i64, ptr %5, align 8
   %7 = icmp eq i64 %6, 0
   br i1 %7, label %14, label %8
@@ -3198,7 +3198,7 @@ _ZNK5clang15MacroDefinition12getMacroInfoEv.exit.thread: ; preds = %16, %14, %_Z
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN12_GLOBAL__N_116IndexPPCallbacks8ElifndefEN5clang14SourceLocationERKNS1_5TokenERKNS1_15MacroDefinitionE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, i32 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %3) unnamed_addr #0 align 2 {
-  %5 = getelementptr inbounds i8, ptr %3, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %6 = load i64, ptr %5, align 8
   %7 = icmp eq i64 %6, 0
   br i1 %7, label %14, label %8
@@ -3442,7 +3442,7 @@ define internal void @_ZN12_GLOBAL__N_111IndexAction17CreateASTConsumerERN5clang
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 120
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %12 = load ptr, ptr %11, align 8, !noalias !39
-  %13 = getelementptr inbounds i8, ptr %2, i64 88
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 88
   %14 = load ptr, ptr %13, align 8, !noalias !39
   %.not.i.i.i.i = icmp eq ptr %14, null
   br i1 %.not.i.i.i.i, label %_ZN5clang16CompilerInstance18getPreprocessorPtrEv.exit, label %15
@@ -3686,18 +3686,18 @@ declare noundef zeroext i1 @_ZN5clang14FrontendAction22shouldEraseOutputFilesEv(
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN12_GLOBAL__N_111IndexActionD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %0) unnamed_addr #0 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 152
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i.i, label %_ZN5clang5index15IndexingOptionsD2Ev.exit, label %4
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 136
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %6 = tail call noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %5, i32 noundef 3) #14
   br label %_ZN5clang5index15IndexingOptionsD2Ev.exit
 
 _ZN5clang5index15IndexingOptionsD2Ev.exit:        ; preds = %1, %4
-  %7 = getelementptr inbounds i8, ptr %0, i64 112
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %8 = load ptr, ptr %7, align 8
   %.not.i.i.i1 = icmp eq ptr %8, null
   br i1 %.not.i.i.i1, label %_ZNSt10shared_ptrIN5clang5index17IndexDataConsumerEED2Ev.exit, label %9
@@ -3777,18 +3777,18 @@ _ZNSt10shared_ptrIN5clang5index17IndexDataConsumerEED2Ev.exit: ; preds = %_ZN5cl
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN12_GLOBAL__N_111IndexActionD0Ev(ptr noundef nonnull align 8 dereferenceable(168) %0) unnamed_addr #0 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 152
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i.i.i, label %_ZN5clang5index15IndexingOptionsD2Ev.exit.i, label %4
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 136
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %6 = tail call noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %5, i32 noundef 3) #14
   br label %_ZN5clang5index15IndexingOptionsD2Ev.exit.i
 
 _ZN5clang5index15IndexingOptionsD2Ev.exit.i:      ; preds = %4, %1
-  %7 = getelementptr inbounds i8, ptr %0, i64 112
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %8 = load ptr, ptr %7, align 8
   %.not.i.i.i1.i = icmp eq ptr %8, null
   br i1 %.not.i.i.i1.i, label %_ZN12_GLOBAL__N_111IndexActionD2Ev.exit, label %9
@@ -3946,13 +3946,13 @@ define linkonce_odr hidden void @_ZNSt23_Sp_counted_ptr_inplaceIN5clang5index15I
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt23_Sp_counted_ptr_inplaceIN5clang5index15IndexingContextESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv(ptr noundef nonnull align 8 dereferenceable(80) %0) unnamed_addr #0 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 48
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i.i.i.i.i, label %_ZNSt16allocator_traitsISaIvEE7destroyIN5clang5index15IndexingContextEEEvRS0_PT_.exit, label %4
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %6 = tail call noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %5, i32 noundef 3) #14
   br label %_ZNSt16allocator_traitsISaIvEE7destroyIN5clang5index15IndexingContextEEEvRS0_PT_.exit
 

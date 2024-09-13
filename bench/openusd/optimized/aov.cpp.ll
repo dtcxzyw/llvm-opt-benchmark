@@ -38,7 +38,7 @@ define noundef nonnull align 8 dereferenceable(8) ptr @_ZN32pxrInternal_v0_24__p
   %14 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN32pxrInternal_v0_24__pxrReserved__lsERSoRKNS_7VtValueE(ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull align 8 dereferenceable(16) %13)
   %15 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef nonnull @.str.1)
   %16 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %15, ptr noundef nonnull @.str.2)
-  %17 = getelementptr inbounds i8, ptr %1, i64 56
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %.sroa.013.016 = load ptr, ptr %17, align 8
   %.not17 = icmp eq ptr %.sroa.013.016, null
   br i1 %.not17, label %._crit_edge, label %.lr.ph
@@ -102,10 +102,10 @@ define noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__eqERKNS_22HdRend
 22:                                               ; preds = %18
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %25 = getelementptr inbounds i8, ptr %0, i64 32
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %26 = load ptr, ptr %25, align 8
   %27 = icmp eq ptr %26, null
-  %28 = getelementptr inbounds i8, ptr %1, i64 32
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %29 = load ptr, ptr %28, align 8
   %30 = icmp eq ptr %29, null
   %brmerge.i = or i1 %27, %30
@@ -134,21 +134,21 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValueeqERKS0_.exit: ; preds = %33
 
 43:                                               ; preds = %35, %31, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValueeqERKS0_.exit
   %44 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %45 = getelementptr inbounds i8, ptr %0, i64 64
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %46 = load i64, ptr %45, align 8
-  %47 = getelementptr inbounds i8, ptr %1, i64 64
+  %47 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %48 = load i64, ptr %47, align 8
   %.not.i.i.i = icmp eq i64 %46, %48
   br i1 %.not.i.i.i, label %49, label %_ZN32pxrInternal_v0_24__pxrReserved__eqINS_7TfTokenENS_7VtValueENS1_11HashFunctorESt8equal_toIS1_ESaISt4pairIKS1_S2_EEEEbRKNS_9TfHashMapIT_T0_T1_T2_T3_EESI_.exit
 
 49:                                               ; preds = %43
-  %50 = getelementptr inbounds i8, ptr %0, i64 56
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %.sroa.021.027.i.i.i = load ptr, ptr %50, align 8
   %.not2528.i.i.i = icmp eq ptr %.sroa.021.027.i.i.i, null
   br i1 %.not2528.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__eqINS_7TfTokenENS_7VtValueENS1_11HashFunctorESt8equal_toIS1_ESaISt4pairIKS1_S2_EEEEbRKNS_9TfHashMapIT_T0_T1_T2_T3_EESI_.exit, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %49
-  %51 = getelementptr inbounds i8, ptr %1, i64 48
+  %51 = getelementptr inbounds nuw i8, ptr %1, i64 48
   br label %52
 
 52:                                               ; preds = %101, %.lr.ph.i.i.i
@@ -249,7 +249,7 @@ define noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__neERKNS_22HdRend
 define noundef i64 @_ZN32pxrInternal_v0_24__pxrReserved__10hash_valueERKNS_22HdRenderPassAovBindingE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i32, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 20
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %5 = load i32, ptr %4, align 4
   %6 = zext i32 %3 to i64
   %7 = zext i32 %5 to i64

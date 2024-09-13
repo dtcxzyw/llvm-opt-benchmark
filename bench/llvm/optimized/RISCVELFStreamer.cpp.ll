@@ -133,7 +133,7 @@ define dso_local void @_ZN4llvm22RISCVTargetELFStreamerC2ERNS_10MCStreamerERKNS_
   store ptr getelementptr inbounds inrange(-16, 208) (i8, ptr @_ZTVN4llvm22RISCVTargetELFStreamerE, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr @.str, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i64 5, ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr null, ptr %6, align 8
@@ -371,10 +371,10 @@ define dso_local void @_ZN4llvm16RISCVELFStreamer5resetEv(ptr noundef nonnull al
   store i8 0, ptr %7, align 8
   tail call void @_ZN4llvm16MCObjectStreamer5resetEv(ptr noundef nonnull align 8 dereferenceable(424) %0) #15
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 6608
-  %9 = getelementptr inbounds i8, ptr %0, i64 6616
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 6616
   %10 = load i32, ptr %9, align 8
   %11 = icmp eq i32 %10, 0
-  %12 = getelementptr inbounds i8, ptr %0, i64 6620
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 6620
   %13 = load i32, ptr %12, align 4
   %14 = icmp eq i32 %13, 0
   %or.cond = select i1 %11, i1 %14, i1 false
@@ -382,7 +382,7 @@ define dso_local void @_ZN4llvm16RISCVELFStreamer5resetEv(ptr noundef nonnull al
 
 15:                                               ; preds = %1
   %16 = shl i32 %10, 2
-  %17 = getelementptr inbounds i8, ptr %0, i64 6624
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 6624
   %18 = load i32, ptr %17, align 8
   %19 = icmp ult i32 %16, %18
   %20 = icmp ugt i32 %18, 64
@@ -511,7 +511,7 @@ _ZNK4llvm10MCStreamer18getPreviousSectionEv.exit: ; preds = %3, %10
   %.sroa.0.0.i = phi ptr [ %.sroa.0.0.copyload.i, %10 ], [ null, %3 ]
   store ptr %.sroa.0.0.i, ptr %4, align 8
   %15 = load ptr, ptr %7, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 6624
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 6624
   %17 = load i32, ptr %16, align 8
   %18 = icmp eq i32 %17, 0
   br i1 %18, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_9MCSectionENS_16RISCVELFStreamer16ElfMappingSymbolENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E15LookupBucketForIS4_EEbRKT_RPSB_.exit.i.i, label %19
@@ -816,7 +816,7 @@ define linkonce_odr hidden void @_ZN4llvm16RISCVELFStreamerD2Ev(ptr noundef nonn
   store ptr getelementptr inbounds inrange(-16, 1336) (i8, ptr @_ZTVN4llvm16RISCVELFStreamerE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 6608
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 6624
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 6624
   %5 = load i32, ptr %4, align 8
   %6 = zext i32 %5 to i64
   %7 = shl nuw nsw i64 %6, 4
@@ -830,7 +830,7 @@ define linkonce_odr hidden void @_ZN4llvm16RISCVELFStreamerD0Ev(ptr noundef nonn
   store ptr getelementptr inbounds inrange(-16, 1336) (i8, ptr @_ZTVN4llvm16RISCVELFStreamerE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 6608
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 6624
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 6624
   %5 = load i32, ptr %4, align 8
   %6 = zext i32 %5 to i64
   %7 = shl nuw nsw i64 %6, 4

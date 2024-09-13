@@ -200,7 +200,7 @@ _ZNSt3mapIjS_IjSt4pairIjPKN4llvm18CodeGenInstructionEESt4lessIjESaIS0_IKjS5_EEES
 
 _ZNSt3mapIjS_IjSt4pairIjPKN4llvm18CodeGenInstructionEESt4lessIjESaIS0_IKjS5_EEES7_SaIS0_IS8_SB_EEEixERS8_.exit: ; preds = %52, %.critedge.i
   %.sroa.05.0.i = phi ptr [ %55, %.critedge.i ], [ %.19.i.i.i.i, %52 ]
-  %56 = getelementptr inbounds i8, ptr %.sroa.05.0.i, i64 40
+  %56 = getelementptr inbounds nuw i8, ptr %.sroa.05.0.i, i64 40
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
   %57 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt3mapIjSt4pairIjPKN4llvm18CodeGenInstructionEESt4lessIjESaIS0_IKjS5_EEEixERS8_(ptr noundef nonnull align 8 dereferenceable(48) %56, ptr noundef nonnull align 4 dereferenceable(4) %6)
@@ -620,7 +620,7 @@ _ZNSt3mapIjSt4pairIjPKN4llvm18CodeGenInstructionEESt4lessIjESaIS0_IKjS5_EEE4find
   br i1 %267, label %_ZNSt3mapIjSt4pairIjPKN4llvm18CodeGenInstructionEESt4lessIjESaIS0_IKjS5_EEE4findERS8_.exit.thread, label %268
 
 268:                                              ; preds = %_ZNSt3mapIjSt4pairIjPKN4llvm18CodeGenInstructionEESt4lessIjESaIS0_IKjS5_EEE4findERS8_.exit
-  %269 = getelementptr inbounds i8, ptr %.19.i.i.i, i64 48
+  %269 = getelementptr inbounds nuw i8, ptr %.19.i.i.i, i64 48
   %270 = load ptr, ptr %269, align 8
   %271 = load ptr, ptr %77, align 8
   %272 = load ptr, ptr %79, align 8
@@ -708,7 +708,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit153:              ; preds = %303, %305
 
 _ZN4llvm11raw_ostreamlsEPKc.exit156:              ; preds = %314, %316
   %.0.i.i155 = phi ptr [ %315, %314 ], [ %0, %316 ]
-  %319 = getelementptr inbounds i8, ptr %.19.i.i.i, i64 40
+  %319 = getelementptr inbounds nuw i8, ptr %.19.i.i.i, i64 40
   %320 = load i32, ptr %319, align 8
   %321 = zext i32 %320 to i64
   %322 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %.0.i.i155, i64 noundef %321) #12
@@ -734,8 +734,8 @@ _ZN4llvm11raw_ostreamlsEPKc.exit156:              ; preds = %314, %316
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit159
 
 _ZN4llvm11raw_ostreamlsEPKc.exit159:              ; preds = %331, %333
-  %336 = getelementptr inbounds i8, ptr %270, i64 72
-  %337 = getelementptr inbounds i8, ptr %270, i64 80
+  %336 = getelementptr inbounds nuw i8, ptr %270, i64 72
+  %337 = getelementptr inbounds nuw i8, ptr %270, i64 80
   %338 = load ptr, ptr %337, align 8
   %339 = load ptr, ptr %336, align 8
   %340 = ptrtoint ptr %338 to i64
@@ -1479,9 +1479,9 @@ _ZNSt3mapIjSt4pairIjPKN4llvm18CodeGenInstructionEESt4lessIjESaIS0_IKjS5_EEE11low
   %14 = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #14
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 32
   store i32 %.pre, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %14, i64 40
+  %16 = getelementptr inbounds nuw i8, ptr %14, i64 40
   store i32 0, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %14, i64 48
+  %17 = getelementptr inbounds nuw i8, ptr %14, i64 48
   store ptr null, ptr %17, align 8
   %18 = tail call { ptr, ptr } @_ZNSt8_Rb_treeIjSt4pairIKjS0_IjPKN4llvm18CodeGenInstructionEEESt10_Select1stIS7_ESt4lessIjESaIS7_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS7_ERS1_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %.08.lcssa.i.i.i12, ptr noundef nonnull align 4 dereferenceable(4) %15)
   %19 = extractvalue { ptr, ptr } %18, 0
@@ -1517,7 +1517,7 @@ _ZNSt3mapIjSt4pairIjPKN4llvm18CodeGenInstructionEESt4lessIjESaIS0_IKjS5_EEE11low
 
 _ZNSt8_Rb_treeIjSt4pairIKjS0_IjPKN4llvm18CodeGenInstructionEEESt10_Select1stIS7_ESt4lessIjESaIS7_EE22_M_emplace_hint_uniqueIJRKSt21piecewise_construct_tSt5tupleIJRS1_EESI_IJEEEEESt17_Rb_tree_iteratorIS7_ESt23_Rb_tree_const_iteratorIS7_EDpOT_.exit: ; preds = %32, %.thread.i, %10
   %.sroa.07.0 = phi ptr [ %.19.i.i.i, %10 ], [ %14, %.thread.i ], [ %19, %32 ]
-  %33 = getelementptr inbounds i8, ptr %.sroa.07.0, i64 40
+  %33 = getelementptr inbounds nuw i8, ptr %.sroa.07.0, i64 40
   ret ptr %33
 }
 
@@ -1559,7 +1559,7 @@ define linkonce_odr void @_ZNSt8_Rb_treeIjSt4pairIKjSt3mapIjS0_IjPKN4llvm18CodeG
   tail call void @_ZNSt8_Rb_treeIjSt4pairIKjSt3mapIjS0_IjPKN4llvm18CodeGenInstructionEESt4lessIjESaIS0_IS1_S7_EEEESt10_Select1stISD_ES9_SaISD_EE8_M_eraseEPSt13_Rb_tree_nodeISD_E(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %4)
   %5 = getelementptr inbounds nuw i8, ptr %.07, i64 16
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %.07, i64 40
+  %7 = getelementptr inbounds nuw i8, ptr %.07, i64 40
   %8 = getelementptr inbounds i8, ptr %.07, i64 56
   %9 = load ptr, ptr %8, align 8
   tail call void @_ZNSt8_Rb_treeIjSt4pairIKjS0_IjPKN4llvm18CodeGenInstructionEEESt10_Select1stIS7_ESt4lessIjESaIS7_EE8_M_eraseEPSt13_Rb_tree_nodeIS7_E(ptr noundef nonnull align 8 dereferenceable(48) %7, ptr noundef %9)
@@ -1605,7 +1605,7 @@ define linkonce_odr ptr @_ZNSt8_Rb_treeIjSt4pairIKjSt3mapIjS0_IjPKN4llvm18CodeGe
   %9 = inttoptr i64 %8 to ptr
   %10 = load i32, ptr %9, align 4
   store i32 %10, ptr %7, align 8
-  %11 = getelementptr inbounds i8, ptr %6, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %6, i64 40
   %12 = getelementptr inbounds i8, ptr %6, i64 48
   %13 = getelementptr inbounds i8, ptr %6, i64 64
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %11, i8 0, i64 24, i1 false)

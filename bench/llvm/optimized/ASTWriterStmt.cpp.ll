@@ -257,9 +257,9 @@ define dso_local void @_ZN5clang13ASTStmtWriter24AddTemplateKWAndArgsInfoERKNS_2
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.04.0.copyload = load i32, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %9 = load ptr, ptr %8, align 8
   tail call void @_ZN5clang9ASTWriter17AddSourceLocationENS_14SourceLocationERN4llvm15SmallVectorImplImEEPNS_22SourceLocationSequenceE(ptr noundef nonnull align 8 dereferenceable(3340) %7, i32 %.sroa.04.0.copyload, ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef null) #16
   %.sroa.03.0.copyload = load i32, ptr %1, align 8
@@ -304,9 +304,9 @@ define dso_local void @_ZN5clang13ASTStmtWriter9VisitStmtEPNS_4StmtE(ptr nocaptu
 define dso_local void @_ZN5clang13ASTStmtWriter13VisitNullStmtEPNS_8NullStmtE(ptr nocapture noundef nonnull align 8 dereferenceable(256) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %.sroa.0.0.copyload.i = load i32, ptr %3, align 4
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = load ptr, ptr %6, align 8
   tail call void @_ZN5clang9ASTWriter17AddSourceLocationENS_14SourceLocationERN4llvm15SmallVectorImplImEEPNS_22SourceLocationSequenceE(ptr noundef nonnull align 8 dereferenceable(3340) %5, i32 %.sroa.0.0.copyload.i, ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef null) #16
   %8 = load i16, ptr %1, align 8
@@ -343,7 +343,7 @@ define dso_local void @_ZN5clang13ASTStmtWriter17VisitCompoundStmtEPNS_12Compoun
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = zext i32 %4 to i64
-  %6 = getelementptr inbounds i8, ptr %0, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = load ptr, ptr %6, align 8
   %8 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %7) #16
   %9 = add i64 %8, 1
@@ -398,7 +398,7 @@ _ZN5clang15ASTRecordWriter9push_backEm.exit19:    ; preds = %_ZN5clang15ASTRecor
   br i1 %.not29, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZN5clang15ASTRecordWriter9push_backEm.exit19
-  %35 = getelementptr inbounds i8, ptr %0, i64 32
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %36 = getelementptr inbounds i8, ptr %0, i64 48
   br label %37
 
@@ -465,7 +465,7 @@ _ZN5clang15ASTRecordWriter9push_backEm.exit22:    ; preds = %52, %61
 68:                                               ; preds = %_ZN5clang15ASTRecordWriter9push_backEm.exit22, %._crit_edge
   %69 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.0.0.copyload.i23 = load i32, ptr %69, align 8
-  %70 = getelementptr inbounds i8, ptr %0, i64 16
+  %70 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %71 = load ptr, ptr %70, align 8
   %72 = load ptr, ptr %6, align 8
   tail call void @_ZN5clang9ASTWriter17AddSourceLocationENS_14SourceLocationERN4llvm15SmallVectorImplImEEPNS_22SourceLocationSequenceE(ptr noundef nonnull align 8 dereferenceable(3340) %71, i32 %.sroa.0.0.copyload.i23, ptr noundef nonnull align 8 dereferenceable(16) %72, ptr noundef null) #16
@@ -501,7 +501,7 @@ define dso_local void @_ZN5clang13ASTStmtWriter15VisitSwitchCaseEPNS_10SwitchCas
   store ptr %1, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 2904
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %4, i64 2920
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 2920
   %8 = load i32, ptr %7, align 8
   %9 = icmp eq i32 %8, 0
   br i1 %9, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPN5clang10SwitchCaseEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E15LookupBucketForIS4_EEbRKT_RPS9_.exit.i.i.i, label %10
@@ -562,7 +562,7 @@ _ZN5clang9ASTWriter15getSwitchCaseIDEPNS_10SwitchCaseE.exit: ; preds = %26, %10,
   %38 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 8
   %39 = load i32, ptr %38, align 4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
-  %40 = getelementptr inbounds i8, ptr %0, i64 24
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %41 = load ptr, ptr %40, align 8
   %42 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %41) #16
   %43 = add i64 %42, 1
@@ -586,7 +586,7 @@ _ZN5clang15ASTRecordWriter9push_backEm.exit:      ; preds = %_ZN5clang9ASTWriter
   call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %41, i64 noundef %52) #16
   %53 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %.sroa.0.0.copyload.i = load i32, ptr %53, align 4
-  %54 = getelementptr inbounds i8, ptr %0, i64 16
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %55 = load ptr, ptr %54, align 8
   %56 = load ptr, ptr %40, align 8
   call void @_ZN5clang9ASTWriter17AddSourceLocationENS_14SourceLocationERN4llvm15SmallVectorImplImEEPNS_22SourceLocationSequenceE(ptr noundef nonnull align 8 dereferenceable(3340) %55, i32 %.sroa.0.0.copyload.i, ptr noundef nonnull align 8 dereferenceable(16) %56, ptr noundef null) #16
@@ -604,7 +604,7 @@ define dso_local noundef i32 @_ZN5clang9ASTWriter15getSwitchCaseIDEPNS_10SwitchC
   store ptr %1, ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 2904
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 2920
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 2920
   %7 = load i32, ptr %6, align 8
   %8 = icmp eq i32 %7, 0
   br i1 %8, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPN5clang10SwitchCaseEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E15LookupBucketForIS4_EEbRKT_RPS9_.exit.i.i, label %9
@@ -674,7 +674,7 @@ define dso_local void @_ZN5clang13ASTStmtWriter13VisitCaseStmtEPNS_8CaseStmtE(pt
   %4 = lshr i16 %3, 8
   %.lobit = and i16 %4, 1
   %5 = zext nneg i16 %.lobit to i64
-  %6 = getelementptr inbounds i8, ptr %0, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = load ptr, ptr %6, align 8
   %8 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %7) #16
   %9 = add i64 %8, 1
@@ -697,7 +697,7 @@ _ZN5clang15ASTRecordWriter9push_backEm.exit:      ; preds = %2, %11
   tail call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %7, i64 noundef %17) #16
   %18 = getelementptr inbounds i8, ptr %1, i64 24
   %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %0, i64 32
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %21 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %20) #16
   %22 = add i64 %21, 1
   %23 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE8capacityEv(ptr noundef nonnull align 8 dereferenceable(16) %20) #16
@@ -785,7 +785,7 @@ _ZN5clang15ASTRecordWriter7AddStmtEPNS_4StmtE.exit12: ; preds = %_ZN5clang8CaseS
 
 _ZNK5clang8CaseStmt14getEllipsisLocEv.exit:       ; preds = %_ZN5clang15ASTRecordWriter7AddStmtEPNS_4StmtE.exit12, %66
   %.sroa.0.0.i = phi i32 [ %68, %66 ], [ 0, %_ZN5clang15ASTRecordWriter7AddStmtEPNS_4StmtE.exit12 ]
-  %69 = getelementptr inbounds i8, ptr %0, i64 16
+  %69 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %70 = load ptr, ptr %69, align 8
   %71 = load ptr, ptr %6, align 8
   tail call void @_ZN5clang9ASTWriter17AddSourceLocationENS_14SourceLocationERN4llvm15SmallVectorImplImEEPNS_22SourceLocationSequenceE(ptr noundef nonnull align 8 dereferenceable(3340) %70, i32 %.sroa.0.0.i, ptr noundef nonnull align 8 dereferenceable(16) %71, ptr noundef null) #16
@@ -802,7 +802,7 @@ define dso_local void @_ZN5clang13ASTStmtWriter16VisitDefaultStmtEPNS_11DefaultS
   tail call void @_ZN5clang13ASTStmtWriter15VisitSwitchCaseEPNS_10SwitchCaseE(ptr noundef nonnull align 8 dereferenceable(256) %0, ptr noundef %1)
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %6 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %5) #16
   %7 = add i64 %6, 1
   %8 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE8capacityEv(ptr noundef nonnull align 8 dereferenceable(16) %5) #16
@@ -834,7 +834,7 @@ define dso_local void @_ZN5clang13ASTStmtWriter14VisitLabelStmtEPNS_9LabelStmtE(
   %4 = load i8, ptr %3, align 8
   %5 = and i8 %4, 1
   %6 = zext nneg i8 %5 to i64
-  %7 = getelementptr inbounds i8, ptr %0, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %8 = load ptr, ptr %7, align 8
   %9 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %8) #16
   %10 = add i64 %9, 1
@@ -857,13 +857,13 @@ _ZN5clang15ASTRecordWriter9push_backEm.exit:      ; preds = %2, %12
   tail call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %8, i64 noundef %18) #16
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %0, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %22 = load ptr, ptr %21, align 8
   %23 = load ptr, ptr %7, align 8
   tail call void @_ZN5clang9ASTWriter10AddDeclRefEPKNS_4DeclERN4llvm15SmallVectorImplImEE(ptr noundef nonnull align 8 dereferenceable(3340) %22, ptr noundef %20, ptr noundef nonnull align 8 dereferenceable(16) %23) #16
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %0, i64 32
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %27 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %26) #16
   %28 = add i64 %27, 1
   %29 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE8capacityEv(ptr noundef nonnull align 8 dereferenceable(16) %26) #16
@@ -901,7 +901,7 @@ define dso_local void @_ZN5clang13ASTStmtWriter19VisitAttributedStmtEPNS_14Attri
   %5 = load i32, ptr %1, align 8
   %6 = lshr i32 %5, 8
   %7 = zext nneg i32 %6 to i64
-  %8 = getelementptr inbounds i8, ptr %0, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %9 = load ptr, ptr %8, align 8
   %10 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %9) #16
   %11 = add i64 %10, 1
@@ -928,7 +928,7 @@ _ZN5clang15ASTRecordWriter9push_backEm.exit:      ; preds = %2, %13
   tail call void @_ZN5clang15ASTRecordWriter13AddAttributesEN4llvm8ArrayRefIPKNS_4AttrEEE(ptr noundef nonnull align 8 dereferenceable(216) %3, ptr nonnull %4, i64 %22) #16
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %0, i64 32
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %26 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %25) #16
   %27 = add i64 %26, 1
   %28 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE8capacityEv(ptr noundef nonnull align 8 dereferenceable(16) %25) #16
@@ -951,7 +951,7 @@ _ZN5clang15ASTRecordWriter7AddStmtEPNS_4StmtE.exit: ; preds = %_ZN5clang15ASTRec
   tail call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %25, i64 noundef %36) #16
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %.sroa.0.0.copyload.i = load i32, ptr %37, align 4
-  %38 = getelementptr inbounds i8, ptr %0, i64 16
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %39 = load ptr, ptr %38, align 8
   %40 = load ptr, ptr %8, align 8
   tail call void @_ZN5clang9ASTWriter17AddSourceLocationENS_14SourceLocationERN4llvm15SmallVectorImplImEEPNS_22SourceLocationSequenceE(ptr noundef nonnull align 8 dereferenceable(3340) %39, i32 %.sroa.0.0.copyload.i, ptr noundef nonnull align 8 dereferenceable(16) %40, ptr noundef null) #16
@@ -1016,7 +1016,7 @@ _ZN5clang6IfStmt7getInitEv.exit:                  ; preds = %_ZN5clang6IfStmt28g
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 232
   tail call void @_ZN5clang13ASTStmtWriter15PakedBitsWriter10updateBitsEv(ptr noundef nonnull align 8 dereferenceable(24) %29)
   %30 = zext i1 %13 to i32
-  %31 = getelementptr inbounds i8, ptr %0, i64 236
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 236
   %32 = load i32, ptr %31, align 4
   %33 = shl nuw i32 %30, %32
   %34 = load i32, ptr %29, align 8
@@ -1036,7 +1036,7 @@ _ZN5clang6IfStmt7getInitEv.exit:                  ; preds = %_ZN5clang6IfStmt28g
   %46 = lshr i16 %45, 8
   %47 = and i16 %46, 7
   %48 = zext nneg i16 %47 to i64
-  %49 = getelementptr inbounds i8, ptr %0, i64 24
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %50 = load ptr, ptr %49, align 8
   %51 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %50) #16
   %52 = add i64 %51, 1
@@ -1067,7 +1067,7 @@ _ZN5clang15ASTRecordWriter9push_backEm.exit:      ; preds = %_ZN5clang6IfStmt7ge
   %65 = zext nneg i16 %narrow.i.i27 to i64
   %66 = getelementptr inbounds ptr, ptr %61, i64 %65
   %67 = load ptr, ptr %66, align 8
-  %68 = getelementptr inbounds i8, ptr %0, i64 32
+  %68 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %69 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %68) #16
   %70 = add i64 %69, 1
   %71 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE8capacityEv(ptr noundef nonnull align 8 dereferenceable(16) %68) #16
@@ -1243,7 +1243,7 @@ _ZN5clang15ASTRecordWriter7AddStmtEPNS_4StmtE.exit51: ; preds = %_ZN5clang6IfStm
 157:                                              ; preds = %_ZN5clang15ASTRecordWriter7AddStmtEPNS_4StmtE.exit51, %139
   %158 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %.sroa.0.0.copyload.i = load i32, ptr %158, align 4
-  %159 = getelementptr inbounds i8, ptr %0, i64 16
+  %159 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %160 = load ptr, ptr %159, align 8
   %161 = load ptr, ptr %49, align 8
   tail call void @_ZN5clang9ASTWriter17AddSourceLocationENS_14SourceLocationERN4llvm15SmallVectorImplImEEPNS_22SourceLocationSequenceE(ptr noundef nonnull align 8 dereferenceable(3340) %160, i32 %.sroa.0.0.copyload.i, ptr noundef nonnull align 8 dereferenceable(16) %161, ptr noundef null) #16
@@ -1293,7 +1293,7 @@ _ZNK5clang6IfStmt10getElseLocEv.exit:             ; preds = %168, %171
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5clang13ASTStmtWriter15PakedBitsWriter10updateBitsEv(ptr noundef nonnull align 8 dereferenceable(24) %0) local_unnamed_addr #0 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 20
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %3 = load i8, ptr %2, align 4
   %4 = trunc i8 %3 to i1
   br i1 %4, label %5, label %_ZN5clang13ASTStmtWriter15PakedBitsWriter9writeBitsEv.exit
@@ -1401,7 +1401,7 @@ _ZN5clang10SwitchStmt7getInitEv.exit:             ; preds = %2, %6
 _ZN5clang10SwitchStmt28getConditionVariableDeclStmtEv.exit: ; preds = %_ZN5clang10SwitchStmt7getInitEv.exit, %12
   %19 = phi i1 [ %18, %12 ], [ false, %_ZN5clang10SwitchStmt7getInitEv.exit ]
   %20 = zext i1 %10 to i64
-  %21 = getelementptr inbounds i8, ptr %0, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %22 = load ptr, ptr %21, align 8
   %23 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %22) #16
   %24 = add i64 %23, 1
@@ -1477,7 +1477,7 @@ _ZN5clang15ASTRecordWriter9push_backEm.exit25:    ; preds = %_ZN5clang15ASTRecor
   %63 = zext nneg i16 %narrow.i.i to i64
   %64 = getelementptr inbounds ptr, ptr %59, i64 %63
   %65 = load ptr, ptr %64, align 8
-  %66 = getelementptr inbounds i8, ptr %0, i64 32
+  %66 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %67 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %66) #16
   %68 = add i64 %67, 1
   %69 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE8capacityEv(ptr noundef nonnull align 8 dereferenceable(16) %66) #16
@@ -1608,7 +1608,7 @@ _ZN5clang15ASTRecordWriter7AddStmtEPNS_4StmtE.exit39: ; preds = %_ZN5clang10Swit
 133:                                              ; preds = %_ZN5clang15ASTRecordWriter7AddStmtEPNS_4StmtE.exit39, %112
   %134 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %.sroa.0.0.copyload.i = load i32, ptr %134, align 4
-  %135 = getelementptr inbounds i8, ptr %0, i64 16
+  %135 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %136 = load ptr, ptr %135, align 8
   %137 = load ptr, ptr %21, align 8
   tail call void @_ZN5clang9ASTWriter17AddSourceLocationENS_14SourceLocationERN4llvm15SmallVectorImplImEEPNS_22SourceLocationSequenceE(ptr noundef nonnull align 8 dereferenceable(3340) %136, i32 %.sroa.0.0.copyload.i, ptr noundef nonnull align 8 dereferenceable(16) %137, ptr noundef null) #16
@@ -1633,10 +1633,10 @@ _ZN5clang15ASTRecordWriter7AddStmtEPNS_4StmtE.exit39: ; preds = %_ZN5clang10Swit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   store ptr %.049, ptr %3, align 8
   %146 = getelementptr inbounds nuw i8, ptr %145, i64 2904
-  %147 = getelementptr inbounds i8, ptr %145, i64 2912
+  %147 = getelementptr inbounds nuw i8, ptr %145, i64 2912
   %148 = load i32, ptr %147, align 8
   %149 = load ptr, ptr %146, align 8
-  %150 = getelementptr inbounds i8, ptr %145, i64 2920
+  %150 = getelementptr inbounds nuw i8, ptr %145, i64 2920
   %151 = load i32, ptr %150, align 8
   %152 = icmp eq i32 %151, 0
   br i1 %152, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPN5clang10SwitchCaseEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E15LookupBucketForIS4_EEbRKT_RPS9_.exit.i.i.i, label %153
@@ -1734,10 +1734,10 @@ define dso_local noundef i32 @_ZN5clang9ASTWriter18RecordSwitchCaseIDEPNS_10Swit
   %3 = alloca ptr, align 8
   store ptr %1, ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 2904
-  %5 = getelementptr inbounds i8, ptr %0, i64 2912
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 2912
   %6 = load i32, ptr %5, align 8
   %7 = load ptr, ptr %4, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 2920
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 2920
   %9 = load i32, ptr %8, align 8
   %10 = icmp eq i32 %9, 0
   br i1 %10, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPN5clang10SwitchCaseEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E15LookupBucketForIS4_EEbRKT_RPS9_.exit.i.i, label %11
@@ -1816,7 +1816,7 @@ define dso_local void @_ZN5clang13ASTStmtWriter14VisitWhileStmtEPNS_9WhileStmtE(
 _ZN5clang9WhileStmt28getConditionVariableDeclStmtEv.exit: ; preds = %2, %5
   %9 = phi i1 [ %8, %5 ], [ false, %2 ]
   %10 = zext i1 %9 to i64
-  %11 = getelementptr inbounds i8, ptr %0, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %12 = load ptr, ptr %11, align 8
   %13 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %12) #16
   %14 = add i64 %13, 1
@@ -1844,7 +1844,7 @@ _ZN5clang15ASTRecordWriter9push_backEm.exit:      ; preds = %_ZN5clang9WhileStmt
   %26 = zext nneg i16 %.lobit.i.i to i64
   %27 = getelementptr inbounds ptr, ptr %23, i64 %26
   %28 = load ptr, ptr %27, align 8
-  %29 = getelementptr inbounds i8, ptr %0, i64 32
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %30 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %29) #16
   %31 = add i64 %30, 1
   %32 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE8capacityEv(ptr noundef nonnull align 8 dereferenceable(16) %29) #16
@@ -1931,7 +1931,7 @@ _ZN5clang15ASTRecordWriter7AddStmtEPNS_4StmtE.exit18: ; preds = %_ZN5clang9While
 75:                                               ; preds = %_ZN5clang15ASTRecordWriter7AddStmtEPNS_4StmtE.exit18, %_ZN5clang15ASTRecordWriter7AddStmtEPNS_4StmtE.exit14
   %76 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %.sroa.0.0.copyload.i = load i32, ptr %76, align 4
-  %77 = getelementptr inbounds i8, ptr %0, i64 16
+  %77 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %78 = load ptr, ptr %77, align 8
   %79 = load ptr, ptr %11, align 8
   tail call void @_ZN5clang9ASTWriter17AddSourceLocationENS_14SourceLocationERN4llvm15SmallVectorImplImEEPNS_22SourceLocationSequenceE(ptr noundef nonnull align 8 dereferenceable(3340) %78, i32 %.sroa.0.0.copyload.i, ptr noundef nonnull align 8 dereferenceable(16) %79, ptr noundef null) #16
@@ -1954,7 +1954,7 @@ _ZN5clang15ASTRecordWriter7AddStmtEPNS_4StmtE.exit18: ; preds = %_ZN5clang9While
 define dso_local void @_ZN5clang13ASTStmtWriter11VisitDoStmtEPNS_6DoStmtE(ptr noundef nonnull align 8 dereferenceable(256) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds i8, ptr %1, i64 16
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %6 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %5) #16
   %7 = add i64 %6, 1
   %8 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE8capacityEv(ptr noundef nonnull align 8 dereferenceable(16) %5) #16
@@ -1999,9 +1999,9 @@ _ZN5clang15ASTRecordWriter7AddStmtEPNS_4StmtE.exit10: ; preds = %_ZN5clang15ASTR
   tail call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %5, i64 noundef %29) #16
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %.sroa.0.0.copyload.i = load i32, ptr %30, align 4
-  %31 = getelementptr inbounds i8, ptr %0, i64 16
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %32 = load ptr, ptr %31, align 8
-  %33 = getelementptr inbounds i8, ptr %0, i64 24
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %34 = load ptr, ptr %33, align 8
   tail call void @_ZN5clang9ASTWriter17AddSourceLocationENS_14SourceLocationERN4llvm15SmallVectorImplImEEPNS_22SourceLocationSequenceE(ptr noundef nonnull align 8 dereferenceable(3340) %32, i32 %.sroa.0.0.copyload.i, ptr noundef nonnull align 8 dereferenceable(16) %34, ptr noundef null) #16
   %35 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -2023,7 +2023,7 @@ _ZN5clang15ASTRecordWriter7AddStmtEPNS_4StmtE.exit10: ; preds = %_ZN5clang15ASTR
 define dso_local void @_ZN5clang13ASTStmtWriter12VisitForStmtEPNS_7ForStmtE(ptr noundef nonnull align 8 dereferenceable(256) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %6 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %5) #16
   %7 = add i64 %6, 1
   %8 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE8capacityEv(ptr noundef nonnull align 8 dereferenceable(16) %5) #16
@@ -2134,9 +2134,9 @@ _ZN5clang15ASTRecordWriter7AddStmtEPNS_4StmtE.exit19: ; preds = %_ZN5clang15ASTR
   tail call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %5, i64 noundef %68) #16
   %69 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %.sroa.0.0.copyload.i = load i32, ptr %69, align 4
-  %70 = getelementptr inbounds i8, ptr %0, i64 16
+  %70 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %71 = load ptr, ptr %70, align 8
-  %72 = getelementptr inbounds i8, ptr %0, i64 24
+  %72 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %73 = load ptr, ptr %72, align 8
   tail call void @_ZN5clang9ASTWriter17AddSourceLocationENS_14SourceLocationERN4llvm15SmallVectorImplImEEPNS_22SourceLocationSequenceE(ptr noundef nonnull align 8 dereferenceable(3340) %71, i32 %.sroa.0.0.copyload.i, ptr noundef nonnull align 8 dereferenceable(16) %73, ptr noundef null) #16
   %74 = getelementptr inbounds nuw i8, ptr %1, i64 48
@@ -2158,9 +2158,9 @@ _ZN5clang15ASTRecordWriter7AddStmtEPNS_4StmtE.exit19: ; preds = %_ZN5clang15ASTR
 define dso_local void @_ZN5clang13ASTStmtWriter13VisitGotoStmtEPNS_8GotoStmtE(ptr nocapture noundef nonnull align 8 dereferenceable(256) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %8 = load ptr, ptr %7, align 8
   tail call void @_ZN5clang9ASTWriter10AddDeclRefEPKNS_4DeclERN4llvm15SmallVectorImplImEE(ptr noundef nonnull align 8 dereferenceable(3340) %6, ptr noundef %4, ptr noundef nonnull align 8 dereferenceable(16) %8) #16
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 4
@@ -2182,9 +2182,9 @@ define dso_local void @_ZN5clang13ASTStmtWriter13VisitGotoStmtEPNS_8GotoStmtE(pt
 define dso_local void @_ZN5clang13ASTStmtWriter21VisitIndirectGotoStmtEPNS_16IndirectGotoStmtE(ptr noundef nonnull align 8 dereferenceable(256) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %.sroa.0.0.copyload.i = load i32, ptr %3, align 4
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = load ptr, ptr %6, align 8
   tail call void @_ZN5clang9ASTWriter17AddSourceLocationENS_14SourceLocationERN4llvm15SmallVectorImplImEEPNS_22SourceLocationSequenceE(ptr noundef nonnull align 8 dereferenceable(3340) %5, i32 %.sroa.0.0.copyload.i, ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef null) #16
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -2194,7 +2194,7 @@ define dso_local void @_ZN5clang13ASTStmtWriter21VisitIndirectGotoStmtEPNS_16Ind
   tail call void @_ZN5clang9ASTWriter17AddSourceLocationENS_14SourceLocationERN4llvm15SmallVectorImplImEEPNS_22SourceLocationSequenceE(ptr noundef nonnull align 8 dereferenceable(3340) %9, i32 %.sroa.0.0.copyload.i6, ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef null) #16
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %14 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %13) #16
   %15 = add i64 %14, 1
   %16 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE8capacityEv(ptr noundef nonnull align 8 dereferenceable(16) %13) #16
@@ -2224,9 +2224,9 @@ _ZN5clang15ASTRecordWriter7AddStmtEPNS_4StmtE.exit: ; preds = %2, %17
 define dso_local void @_ZN5clang13ASTStmtWriter17VisitContinueStmtEPNS_12ContinueStmtE(ptr nocapture noundef nonnull align 8 dereferenceable(256) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %.sroa.0.0.copyload.i = load i32, ptr %3, align 4
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = load ptr, ptr %6, align 8
   tail call void @_ZN5clang9ASTWriter17AddSourceLocationENS_14SourceLocationERN4llvm15SmallVectorImplImEEPNS_22SourceLocationSequenceE(ptr noundef nonnull align 8 dereferenceable(3340) %5, i32 %.sroa.0.0.copyload.i, ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef null) #16
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 224
@@ -2238,9 +2238,9 @@ define dso_local void @_ZN5clang13ASTStmtWriter17VisitContinueStmtEPNS_12Continu
 define dso_local void @_ZN5clang13ASTStmtWriter14VisitBreakStmtEPNS_9BreakStmtE(ptr nocapture noundef nonnull align 8 dereferenceable(256) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %.sroa.0.0.copyload.i = load i32, ptr %3, align 4
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = load ptr, ptr %6, align 8
   tail call void @_ZN5clang9ASTWriter17AddSourceLocationENS_14SourceLocationERN4llvm15SmallVectorImplImEEPNS_22SourceLocationSequenceE(ptr noundef nonnull align 8 dereferenceable(3340) %5, i32 %.sroa.0.0.copyload.i, ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef null) #16
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 224
@@ -2264,7 +2264,7 @@ define dso_local void @_ZN5clang13ASTStmtWriter15VisitReturnStmtEPNS_10ReturnStm
 _ZNK5clang10ReturnStmt16getNRVOCandidateEv.exit:  ; preds = %2, %5
   %9 = phi i1 [ %8, %5 ], [ false, %2 ]
   %10 = zext i1 %9 to i64
-  %11 = getelementptr inbounds i8, ptr %0, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %12 = load ptr, ptr %11, align 8
   %13 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %12) #16
   %14 = add i64 %13, 1
@@ -2287,7 +2287,7 @@ _ZN5clang15ASTRecordWriter9push_backEm.exit:      ; preds = %_ZNK5clang10ReturnS
   tail call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %12, i64 noundef %22) #16
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %0, i64 32
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %26 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %25) #16
   %27 = add i64 %26, 1
   %28 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE8capacityEv(ptr noundef nonnull align 8 dereferenceable(16) %25) #16
@@ -2323,7 +2323,7 @@ _ZN5clang15ASTRecordWriter7AddStmtEPNS_4StmtE.exit: ; preds = %_ZN5clang15ASTRec
 
 _ZNK5clang10ReturnStmt16getNRVOCandidateEv.exit9: ; preds = %37, %40
   %43 = phi ptr [ %42, %40 ], [ null, %37 ]
-  %44 = getelementptr inbounds i8, ptr %0, i64 16
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %45 = load ptr, ptr %44, align 8
   %46 = load ptr, ptr %11, align 8
   tail call void @_ZN5clang9ASTWriter10AddDeclRefEPKNS_4DeclERN4llvm15SmallVectorImplImEE(ptr noundef nonnull align 8 dereferenceable(3340) %45, ptr noundef %43, ptr noundef nonnull align 8 dereferenceable(16) %46) #16
@@ -2332,7 +2332,7 @@ _ZNK5clang10ReturnStmt16getNRVOCandidateEv.exit9: ; preds = %37, %40
 47:                                               ; preds = %_ZNK5clang10ReturnStmt16getNRVOCandidateEv.exit9, %_ZN5clang15ASTRecordWriter7AddStmtEPNS_4StmtE.exit
   %48 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %.sroa.0.0.copyload.i = load i32, ptr %48, align 4
-  %49 = getelementptr inbounds i8, ptr %0, i64 16
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %50 = load ptr, ptr %49, align 8
   %51 = load ptr, ptr %11, align 8
   tail call void @_ZN5clang9ASTWriter17AddSourceLocationENS_14SourceLocationERN4llvm15SmallVectorImplImEEPNS_22SourceLocationSequenceE(ptr noundef nonnull align 8 dereferenceable(3340) %50, i32 %.sroa.0.0.copyload.i, ptr noundef nonnull align 8 dereferenceable(16) %51, ptr noundef null) #16
@@ -2346,9 +2346,9 @@ define dso_local void @_ZN5clang13ASTStmtWriter13VisitDeclStmtEPNS_8DeclStmtE(pt
   %3 = alloca %"class.clang::DeclGroupRef", align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.sroa.0.0.copyload.i = load i32, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %8 = load ptr, ptr %7, align 8
   tail call void @_ZN5clang9ASTWriter17AddSourceLocationENS_14SourceLocationERN4llvm15SmallVectorImplImEEPNS_22SourceLocationSequenceE(ptr noundef nonnull align 8 dereferenceable(3340) %6, i32 %.sroa.0.0.copyload.i, ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef null) #16
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 20
@@ -2407,7 +2407,7 @@ define dso_local void @_ZN5clang13ASTStmtWriter12VisitAsmStmtEPNS_7AsmStmtE(ptr 
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load i32, ptr %3, align 8
   %5 = zext i32 %4 to i64
-  %6 = getelementptr inbounds i8, ptr %0, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = load ptr, ptr %6, align 8
   %8 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %7) #16
   %9 = add i64 %8, 1
@@ -2476,7 +2476,7 @@ _ZN5clang15ASTRecordWriter9push_backEm.exit11:    ; preds = %_ZN5clang15ASTRecor
   tail call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %35, i64 noundef %45) #16
   %46 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.0.0.copyload.i = load i32, ptr %46, align 8
-  %47 = getelementptr inbounds i8, ptr %0, i64 16
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %48 = load ptr, ptr %47, align 8
   %49 = load ptr, ptr %6, align 8
   tail call void @_ZN5clang9ASTWriter17AddSourceLocationENS_14SourceLocationERN4llvm15SmallVectorImplImEEPNS_22SourceLocationSequenceE(ptr noundef nonnull align 8 dereferenceable(3340) %48, i32 %.sroa.0.0.copyload.i, ptr noundef nonnull align 8 dereferenceable(16) %49, ptr noundef null) #16
@@ -2537,7 +2537,7 @@ define dso_local void @_ZN5clang13ASTStmtWriter15VisitGCCAsmStmtEPNS_10GCCAsmStm
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %4 = load i32, ptr %3, align 8
   %5 = zext i32 %4 to i64
-  %6 = getelementptr inbounds i8, ptr %0, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = load ptr, ptr %6, align 8
   %8 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %7) #16
   %9 = add i64 %8, 1
@@ -2560,13 +2560,13 @@ _ZN5clang15ASTRecordWriter9push_backEm.exit:      ; preds = %2, %11
   tail call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %7, i64 noundef %17) #16
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %.sroa.0.0.copyload.i = load i32, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %0, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %20 = load ptr, ptr %19, align 8
   %21 = load ptr, ptr %6, align 8
   tail call void @_ZN5clang9ASTWriter17AddSourceLocationENS_14SourceLocationERN4llvm15SmallVectorImplImEEPNS_22SourceLocationSequenceE(ptr noundef nonnull align 8 dereferenceable(3340) %20, i32 %.sroa.0.0.copyload.i, ptr noundef nonnull align 8 dereferenceable(16) %21, ptr noundef null) #16
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %0, i64 32
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %25 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %24) #16
   %26 = add i64 %25, 1
   %27 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE8capacityEv(ptr noundef nonnull align 8 dereferenceable(16) %24) #16
@@ -2830,9 +2830,9 @@ define dso_local void @_ZN5clang13ASTStmtWriter14VisitMSAsmStmtEPNS_9MSAsmStmtE(
   tail call void @_ZN5clang13ASTStmtWriter12VisitAsmStmtEPNS_7AsmStmtE(ptr noundef nonnull align 8 dereferenceable(256) %0, ptr noundef %1)
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %.sroa.0.0.copyload.i = load i32, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = load ptr, ptr %6, align 8
   tail call void @_ZN5clang9ASTWriter17AddSourceLocationENS_14SourceLocationERN4llvm15SmallVectorImplImEEPNS_22SourceLocationSequenceE(ptr noundef nonnull align 8 dereferenceable(3340) %5, i32 %.sroa.0.0.copyload.i, ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef null) #16
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 44
@@ -2922,7 +2922,7 @@ _ZN5clang15ASTRecordWriter9push_backEm.exit:      ; preds = %2, %18
   br i1 %.not4574, label %._crit_edge78, label %.lr.ph77
 
 .lr.ph77:                                         ; preds = %._crit_edge73
-  %47 = getelementptr inbounds i8, ptr %0, i64 32
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %48 = getelementptr inbounds i8, ptr %0, i64 48
   %49 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %50 = zext i32 %46 to i64
@@ -2970,7 +2970,7 @@ _ZN5clang15ASTRecordWriter7AddStmtEPNS_4StmtE.exit: ; preds = %51, %57
   br i1 %.not4679, label %._crit_edge83, label %.lr.ph82
 
 .lr.ph82:                                         ; preds = %._crit_edge78
-  %70 = getelementptr inbounds i8, ptr %0, i64 32
+  %70 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %71 = getelementptr inbounds i8, ptr %0, i64 48
   %72 = getelementptr inbounds nuw i8, ptr %1, i64 80
   br label %73
@@ -3030,7 +3030,7 @@ define dso_local void @_ZN5clang13ASTStmtWriter22VisitCoroutineBodyStmtEPNS_17Co
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load i32, ptr %4, align 8
   %6 = zext i32 %5 to i64
-  %7 = getelementptr inbounds i8, ptr %0, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %8 = load ptr, ptr %7, align 8
   %9 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %8) #16
   %10 = add i64 %9, 1
@@ -3060,7 +3060,7 @@ define dso_local void @_ZN5clang13ASTStmtWriter22VisitCoroutineBodyStmtEPNS_17Co
   store ptr %19, ptr %3, align 8
   %.sroa.29.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 8
   store i64 0, ptr %.sroa.29.0..sroa_idx, align 8
-  %23 = getelementptr inbounds i8, ptr %0, i64 32
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %24 = getelementptr inbounds i8, ptr %0, i64 48
   br label %25
 
@@ -3138,14 +3138,14 @@ _ZN5clang16StmtIteratorImplINS_12StmtIteratorERPNS_4StmtEEppEv.exit: ; preds = %
 define dso_local void @_ZN5clang13ASTStmtWriter17VisitCoreturnStmtEPNS_12CoreturnStmtE(ptr noundef nonnull align 8 dereferenceable(256) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.0.0.copyload.i = load i32, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = load ptr, ptr %6, align 8
   tail call void @_ZN5clang9ASTWriter17AddSourceLocationENS_14SourceLocationERN4llvm15SmallVectorImplImEEPNS_22SourceLocationSequenceE(ptr noundef nonnull align 8 dereferenceable(3340) %5, i32 %.sroa.0.0.copyload.i, ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef null) #16
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %11 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %10) #16
   %12 = add i64 %11, 1
   %13 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE8capacityEv(ptr noundef nonnull align 8 dereferenceable(16) %10) #16
@@ -3228,7 +3228,7 @@ define dso_local void @_ZN5clang13ASTStmtWriter25VisitCoroutineSuspendExprEPNS_2
   %6 = lshr i16 %5, 5
   %7 = and i16 %6, 31
   %8 = zext nneg i16 %7 to i32
-  %9 = getelementptr inbounds i8, ptr %0, i64 236
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 236
   %10 = load i32, ptr %9, align 4
   %11 = shl i32 %8, %10
   %12 = load i32, ptr %3, align 8
@@ -3255,9 +3255,9 @@ define dso_local void @_ZN5clang13ASTStmtWriter25VisitCoroutineSuspendExprEPNS_2
   store i32 %27, ptr %9, align 4
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.0.0.copyload.i.i = load i64, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %0, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %0, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %32 = load ptr, ptr %31, align 8
   tail call void @_ZN5clang9ASTWriter10AddTypeRefENS_8QualTypeERN4llvm15SmallVectorImplImEE(ptr noundef nonnull align 8 dereferenceable(3340) %30, i64 %.sroa.0.0.copyload.i.i, ptr noundef nonnull align 8 dereferenceable(16) %32) #16
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -3270,7 +3270,7 @@ define dso_local void @_ZN5clang13ASTStmtWriter25VisitCoroutineSuspendExprEPNS_2
   store ptr %36, ptr %2, align 8
   %.sroa.211.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 8
   store i64 0, ptr %.sroa.211.0..sroa_idx, align 8
-  %38 = getelementptr inbounds i8, ptr %0, i64 32
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %39 = getelementptr inbounds i8, ptr %0, i64 48
   br label %40
 
@@ -3340,7 +3340,7 @@ _ZN5clang16StmtIteratorImplINS_12StmtIteratorERPNS_4StmtEEppEv.exit: ; preds = %
 
 ._crit_edge:                                      ; preds = %_ZN5clang16StmtIteratorImplINS_12StmtIteratorERPNS_4StmtEEppEv.exit
   %72 = load ptr, ptr %37, align 8
-  %73 = getelementptr inbounds i8, ptr %0, i64 32
+  %73 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %74 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %73) #16
   %75 = add i64 %74, 1
   %76 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE8capacityEv(ptr noundef nonnull align 8 dereferenceable(16) %73) #16
@@ -3373,7 +3373,7 @@ define dso_local void @_ZN5clang13ASTStmtWriter9VisitExprEPNS_4ExprE(ptr noundef
   %6 = lshr i16 %5, 5
   %7 = and i16 %6, 31
   %8 = zext nneg i16 %7 to i32
-  %9 = getelementptr inbounds i8, ptr %0, i64 236
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 236
   %10 = load i32, ptr %9, align 4
   %11 = shl i32 %8, %10
   %12 = load i32, ptr %3, align 8
@@ -3400,9 +3400,9 @@ define dso_local void @_ZN5clang13ASTStmtWriter9VisitExprEPNS_4ExprE(ptr noundef
   store i32 %27, ptr %9, align 4
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.0.0.copyload.i = load i64, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %0, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %0, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %32 = load ptr, ptr %31, align 8
   tail call void @_ZN5clang9ASTWriter10AddTypeRefENS_8QualTypeERN4llvm15SmallVectorImplImEE(ptr noundef nonnull align 8 dereferenceable(3340) %30, i64 %.sroa.0.0.copyload.i, ptr noundef nonnull align 8 dereferenceable(16) %32) #16
   ret void
@@ -3412,7 +3412,7 @@ define dso_local void @_ZN5clang13ASTStmtWriter9VisitExprEPNS_4ExprE(ptr noundef
 define dso_local void @_ZN5clang13ASTStmtWriter16VisitCoawaitExprEPNS_11CoawaitExprE(ptr noundef nonnull align 8 dereferenceable(256) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   tail call void @_ZN5clang13ASTStmtWriter25VisitCoroutineSuspendExprEPNS_20CoroutineSuspendExprE(ptr noundef nonnull align 8 dereferenceable(256) %0, ptr noundef %1)
   %3 = load i24, ptr %1, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8
   %6 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %5) #16
   %7 = add i64 %6, 1
@@ -3460,7 +3460,7 @@ define dso_local void @_ZN5clang13ASTStmtWriter25VisitDependentCoawaitExprEPNS_2
   %6 = lshr i16 %5, 5
   %7 = and i16 %6, 31
   %8 = zext nneg i16 %7 to i32
-  %9 = getelementptr inbounds i8, ptr %0, i64 236
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 236
   %10 = load i32, ptr %9, align 4
   %11 = shl i32 %8, %10
   %12 = load i32, ptr %3, align 8
@@ -3487,9 +3487,9 @@ define dso_local void @_ZN5clang13ASTStmtWriter25VisitDependentCoawaitExprEPNS_2
   store i32 %27, ptr %9, align 4
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.0.0.copyload.i.i = load i64, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %0, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %0, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %32 = load ptr, ptr %31, align 8
   tail call void @_ZN5clang9ASTWriter10AddTypeRefENS_8QualTypeERN4llvm15SmallVectorImplImEE(ptr noundef nonnull align 8 dereferenceable(3340) %30, i64 %.sroa.0.0.copyload.i.i, ptr noundef nonnull align 8 dereferenceable(16) %32) #16
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -3502,7 +3502,7 @@ define dso_local void @_ZN5clang13ASTStmtWriter25VisitDependentCoawaitExprEPNS_2
   store ptr %36, ptr %2, align 8
   %.sroa.28.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 8
   store i64 0, ptr %.sroa.28.0..sroa_idx, align 8
-  %38 = getelementptr inbounds i8, ptr %0, i64 32
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %39 = getelementptr inbounds i8, ptr %0, i64 48
   br label %40
 
@@ -3585,7 +3585,7 @@ define dso_local void @_ZN5clang13ASTStmtWriter30VisitConceptSpecializationExprE
   %6 = lshr i16 %5, 5
   %7 = and i16 %6, 31
   %8 = zext nneg i16 %7 to i32
-  %9 = getelementptr inbounds i8, ptr %0, i64 236
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 236
   %10 = load i32, ptr %9, align 4
   %11 = shl i32 %8, %10
   %12 = load i32, ptr %3, align 8
@@ -3612,9 +3612,9 @@ define dso_local void @_ZN5clang13ASTStmtWriter30VisitConceptSpecializationExprE
   store i32 %27, ptr %9, align 4
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.0.0.copyload.i.i = load i64, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %0, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %0, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %32 = load ptr, ptr %31, align 8
   tail call void @_ZN5clang9ASTWriter10AddTypeRefENS_8QualTypeERN4llvm15SmallVectorImplImEE(ptr noundef nonnull align 8 dereferenceable(3340) %30, i64 %.sroa.0.0.copyload.i.i, ptr noundef nonnull align 8 dereferenceable(16) %32) #16
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -3853,7 +3853,7 @@ define dso_local void @_ZN5clang13ASTStmtWriter17VisitRequiresExprEPNS_12Require
   %6 = lshr i16 %5, 5
   %7 = and i16 %6, 31
   %8 = zext nneg i16 %7 to i32
-  %9 = getelementptr inbounds i8, ptr %0, i64 236
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 236
   %10 = load i32, ptr %9, align 4
   %11 = shl i32 %8, %10
   %12 = load i32, ptr %3, align 8
@@ -3880,9 +3880,9 @@ define dso_local void @_ZN5clang13ASTStmtWriter17VisitRequiresExprEPNS_12Require
   store i32 %27, ptr %9, align 4
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.0.0.copyload.i.i = load i64, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %0, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %0, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %32 = load ptr, ptr %31, align 8
   tail call void @_ZN5clang9ASTWriter10AddTypeRefENS_8QualTypeERN4llvm15SmallVectorImplImEE(ptr noundef nonnull align 8 dereferenceable(3340) %30, i64 %.sroa.0.0.copyload.i.i, ptr noundef nonnull align 8 dereferenceable(16) %32) #16
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -4000,7 +4000,7 @@ _ZN5clang15ASTRecordWriter9push_backEm.exit71:    ; preds = %_ZN5clang15ASTRecor
   br i1 %.not63139, label %._crit_edge143, label %.lr.ph142
 
 .lr.ph142:                                        ; preds = %._crit_edge
-  %97 = getelementptr inbounds i8, ptr %0, i64 32
+  %97 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %98 = getelementptr inbounds i8, ptr %0, i64 48
   br label %99
 
@@ -4463,7 +4463,7 @@ define dso_local void @_ZN5clang13ASTStmtWriter17VisitCapturedStmtEPNS_12Capture
   %10 = ptrtoint ptr %3 to i64
   %11 = sub i64 %9, %10
   %12 = ashr exact i64 %11, 4
-  %13 = getelementptr inbounds i8, ptr %0, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %14 = load ptr, ptr %13, align 8
   %15 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %14) #16
   %16 = add i64 %15, 1
@@ -4485,7 +4485,7 @@ _ZN5clang15ASTRecordWriter9push_backEm.exit:      ; preds = %2, %18
   %24 = add i64 %23, 1
   tail call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %14, i64 noundef %24) #16
   %25 = tail call noundef ptr @_ZN5clang12CapturedStmt15getCapturedDeclEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #16
-  %26 = getelementptr inbounds i8, ptr %0, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %27 = load ptr, ptr %26, align 8
   %28 = load ptr, ptr %13, align 8
   tail call void @_ZN5clang9ASTWriter10AddDeclRefEPKNS_4DeclERN4llvm15SmallVectorImplImEE(ptr noundef nonnull align 8 dereferenceable(3340) %27, ptr noundef %25, ptr noundef nonnull align 8 dereferenceable(16) %28) #16
@@ -4526,7 +4526,7 @@ _ZN5clang15ASTRecordWriter9push_backEm.exit31:    ; preds = %_ZN5clang15ASTRecor
   br i1 %.not41, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZN5clang15ASTRecordWriter9push_backEm.exit31
-  %49 = getelementptr inbounds i8, ptr %0, i64 32
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %50 = getelementptr inbounds i8, ptr %0, i64 48
   br label %51
 
@@ -4565,7 +4565,7 @@ _ZN5clang15ASTRecordWriter7AddStmtEPNS_4StmtE.exit: ; preds = %51, %56
   %65 = phi i64 [ %64, %._crit_edge.loopexit ], [ 0, %_ZN5clang15ASTRecordWriter9push_backEm.exit31 ]
   %66 = getelementptr inbounds ptr, ptr %.ptr, i64 %65
   %67 = load ptr, ptr %66, align 8
-  %68 = getelementptr inbounds i8, ptr %0, i64 32
+  %68 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %69 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %68) #16
   %70 = add i64 %69, 1
   %71 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE8capacityEv(ptr noundef nonnull align 8 dereferenceable(16) %68) #16
@@ -4668,7 +4668,7 @@ define dso_local void @_ZN5clang13ASTStmtWriter17VisitConstantExprEPNS_12Constan
   %6 = lshr i16 %5, 5
   %7 = and i16 %6, 31
   %8 = zext nneg i16 %7 to i32
-  %9 = getelementptr inbounds i8, ptr %0, i64 236
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 236
   %10 = load i32, ptr %9, align 4
   %11 = shl i32 %8, %10
   %12 = load i32, ptr %3, align 8
@@ -4695,9 +4695,9 @@ define dso_local void @_ZN5clang13ASTStmtWriter17VisitConstantExprEPNS_12Constan
   store i32 %27, ptr %9, align 4
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.0.0.copyload.i.i = load i64, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %0, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %0, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %32 = load ptr, ptr %31, align 8
   tail call void @_ZN5clang9ASTWriter10AddTypeRefENS_8QualTypeERN4llvm15SmallVectorImplImEE(ptr noundef nonnull align 8 dereferenceable(3340) %30, i64 %.sroa.0.0.copyload.i.i, ptr noundef nonnull align 8 dereferenceable(16) %32) #16
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -4866,7 +4866,7 @@ _ZN5clang15ASTRecordWriter9push_backEm.exit20:    ; preds = %112, %123
 132:                                              ; preds = %130, %_ZN5clang15ASTRecordWriter9push_backEm.exit20, %_ZN5clang15ASTRecordWriter9push_backEm.exit18
   %133 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %134 = load ptr, ptr %133, align 8
-  %135 = getelementptr inbounds i8, ptr %0, i64 32
+  %135 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %136 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %135) #16
   %137 = add i64 %136, 1
   %138 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE8capacityEv(ptr noundef nonnull align 8 dereferenceable(16) %135) #16
@@ -4901,7 +4901,7 @@ define dso_local void @_ZN5clang13ASTStmtWriter29VisitSYCLUniqueStableNameExprEP
   %6 = lshr i16 %5, 5
   %7 = and i16 %6, 31
   %8 = zext nneg i16 %7 to i32
-  %9 = getelementptr inbounds i8, ptr %0, i64 236
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 236
   %10 = load i32, ptr %9, align 4
   %11 = shl i32 %8, %10
   %12 = load i32, ptr %3, align 8
@@ -4928,9 +4928,9 @@ define dso_local void @_ZN5clang13ASTStmtWriter29VisitSYCLUniqueStableNameExprEP
   store i32 %27, ptr %9, align 4
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.0.0.copyload.i.i = load i64, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %0, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %0, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %32 = load ptr, ptr %31, align 8
   tail call void @_ZN5clang9ASTWriter10AddTypeRefENS_8QualTypeERN4llvm15SmallVectorImplImEE(ptr noundef nonnull align 8 dereferenceable(3340) %30, i64 %.sroa.0.0.copyload.i.i, ptr noundef nonnull align 8 dereferenceable(16) %32) #16
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -4966,7 +4966,7 @@ define dso_local void @_ZN5clang13ASTStmtWriter19VisitPredefinedExprEPNS_14Prede
   %6 = lshr i16 %5, 5
   %7 = and i16 %6, 31
   %8 = zext nneg i16 %7 to i32
-  %9 = getelementptr inbounds i8, ptr %0, i64 236
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 236
   %10 = load i32, ptr %9, align 4
   %11 = shl i32 %8, %10
   %12 = load i32, ptr %3, align 8
@@ -4993,9 +4993,9 @@ define dso_local void @_ZN5clang13ASTStmtWriter19VisitPredefinedExprEPNS_14Prede
   store i32 %27, ptr %9, align 4
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.0.0.copyload.i.i = load i64, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %0, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %0, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %32 = load ptr, ptr %31, align 8
   tail call void @_ZN5clang9ASTWriter10AddTypeRefENS_8QualTypeERN4llvm15SmallVectorImplImEE(ptr noundef nonnull align 8 dereferenceable(3340) %30, i64 %.sroa.0.0.copyload.i.i, ptr noundef nonnull align 8 dereferenceable(16) %32) #16
   %33 = load i32, ptr %1, align 8
@@ -5101,7 +5101,7 @@ _ZN5clang15ASTRecordWriter9push_backEm.exit11:    ; preds = %_ZN5clang15ASTRecor
 
 _ZN5clang14PredefinedExpr15getFunctionNameEv.exit13: ; preds = %84, %87
   %91 = phi i64 [ %90, %87 ], [ 0, %84 ]
-  %92 = getelementptr inbounds i8, ptr %0, i64 32
+  %92 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %93 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %92) #16
   %94 = add i64 %93, 1
   %95 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE8capacityEv(ptr noundef nonnull align 8 dereferenceable(16) %92) #16
@@ -5138,7 +5138,7 @@ define dso_local void @_ZN5clang13ASTStmtWriter16VisitDeclRefExprEPNS_11DeclRefE
   %6 = lshr i16 %5, 5
   %7 = and i16 %6, 31
   %8 = zext nneg i16 %7 to i32
-  %9 = getelementptr inbounds i8, ptr %0, i64 236
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 236
   %10 = load i32, ptr %9, align 4
   %11 = shl i32 %8, %10
   %12 = load i32, ptr %3, align 8
@@ -5165,9 +5165,9 @@ define dso_local void @_ZN5clang13ASTStmtWriter16VisitDeclRefExprEPNS_11DeclRefE
   store i32 %27, ptr %9, align 4
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.0.0.copyload.i.i = load i64, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %0, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %0, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %32 = load ptr, ptr %31, align 8
   tail call void @_ZN5clang9ASTWriter10AddTypeRefENS_8QualTypeERN4llvm15SmallVectorImplImEE(ptr noundef nonnull align 8 dereferenceable(3340) %30, i64 %.sroa.0.0.copyload.i.i, ptr noundef nonnull align 8 dereferenceable(16) %32) #16
   tail call void @_ZN5clang13ASTStmtWriter15PakedBitsWriter10updateBitsEv(ptr noundef nonnull align 8 dereferenceable(24) %3)
@@ -5439,7 +5439,7 @@ define dso_local void @_ZN5clang13ASTStmtWriter19VisitIntegerLiteralEPNS_14Integ
   %8 = lshr i16 %7, 5
   %9 = and i16 %8, 31
   %10 = zext nneg i16 %9 to i32
-  %11 = getelementptr inbounds i8, ptr %0, i64 236
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 236
   %12 = load i32, ptr %11, align 4
   %13 = shl i32 %10, %12
   %14 = load i32, ptr %5, align 8
@@ -5466,9 +5466,9 @@ define dso_local void @_ZN5clang13ASTStmtWriter19VisitIntegerLiteralEPNS_14Integ
   store i32 %29, ptr %11, align 4
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.0.0.copyload.i.i = load i64, ptr %30, align 8
-  %31 = getelementptr inbounds i8, ptr %0, i64 16
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %32 = load ptr, ptr %31, align 8
-  %33 = getelementptr inbounds i8, ptr %0, i64 24
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %34 = load ptr, ptr %33, align 8
   tail call void @_ZN5clang9ASTWriter10AddTypeRefENS_8QualTypeERN4llvm15SmallVectorImplImEE(ptr noundef nonnull align 8 dereferenceable(3340) %32, i64 %.sroa.0.0.copyload.i.i, ptr noundef nonnull align 8 dereferenceable(16) %34) #16
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -5580,7 +5580,7 @@ define dso_local void @_ZN5clang13ASTStmtWriter22VisitFixedPointLiteralEPNS_17Fi
   %7 = lshr i16 %6, 5
   %8 = and i16 %7, 31
   %9 = zext nneg i16 %8 to i32
-  %10 = getelementptr inbounds i8, ptr %0, i64 236
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 236
   %11 = load i32, ptr %10, align 4
   %12 = shl i32 %9, %11
   %13 = load i32, ptr %4, align 8
@@ -5607,9 +5607,9 @@ define dso_local void @_ZN5clang13ASTStmtWriter22VisitFixedPointLiteralEPNS_17Fi
   store i32 %28, ptr %10, align 4
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.0.0.copyload.i.i = load i64, ptr %29, align 8
-  %30 = getelementptr inbounds i8, ptr %0, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %31 = load ptr, ptr %30, align 8
-  %32 = getelementptr inbounds i8, ptr %0, i64 24
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %33 = load ptr, ptr %32, align 8
   tail call void @_ZN5clang9ASTWriter10AddTypeRefENS_8QualTypeERN4llvm15SmallVectorImplImEE(ptr noundef nonnull align 8 dereferenceable(3340) %31, i64 %.sroa.0.0.copyload.i.i, ptr noundef nonnull align 8 dereferenceable(16) %33) #16
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -5705,7 +5705,7 @@ define dso_local void @_ZN5clang13ASTStmtWriter20VisitFloatingLiteralEPNS_15Floa
   %7 = lshr i16 %6, 5
   %8 = and i16 %7, 31
   %9 = zext nneg i16 %8 to i32
-  %10 = getelementptr inbounds i8, ptr %0, i64 236
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 236
   %11 = load i32, ptr %10, align 4
   %12 = shl i32 %9, %11
   %13 = load i32, ptr %4, align 8
@@ -5732,9 +5732,9 @@ define dso_local void @_ZN5clang13ASTStmtWriter20VisitFloatingLiteralEPNS_15Floa
   store i32 %28, ptr %10, align 4
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.0.0.copyload.i.i = load i64, ptr %29, align 8
-  %30 = getelementptr inbounds i8, ptr %0, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %31 = load ptr, ptr %30, align 8
-  %32 = getelementptr inbounds i8, ptr %0, i64 24
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %33 = load ptr, ptr %32, align 8
   tail call void @_ZN5clang9ASTWriter10AddTypeRefENS_8QualTypeERN4llvm15SmallVectorImplImEE(ptr noundef nonnull align 8 dereferenceable(3340) %31, i64 %.sroa.0.0.copyload.i.i, ptr noundef nonnull align 8 dereferenceable(16) %33) #16
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -5829,7 +5829,7 @@ define dso_local void @_ZN5clang13ASTStmtWriter21VisitImaginaryLiteralEPNS_16Ima
   %6 = lshr i16 %5, 5
   %7 = and i16 %6, 31
   %8 = zext nneg i16 %7 to i32
-  %9 = getelementptr inbounds i8, ptr %0, i64 236
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 236
   %10 = load i32, ptr %9, align 4
   %11 = shl i32 %8, %10
   %12 = load i32, ptr %3, align 8
@@ -5856,14 +5856,14 @@ define dso_local void @_ZN5clang13ASTStmtWriter21VisitImaginaryLiteralEPNS_16Ima
   store i32 %27, ptr %9, align 4
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.0.0.copyload.i.i = load i64, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %0, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %0, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %32 = load ptr, ptr %31, align 8
   tail call void @_ZN5clang9ASTWriter10AddTypeRefENS_8QualTypeERN4llvm15SmallVectorImplImEE(ptr noundef nonnull align 8 dereferenceable(3340) %30, i64 %.sroa.0.0.copyload.i.i, ptr noundef nonnull align 8 dereferenceable(16) %32) #16
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %34 = load ptr, ptr %33, align 8
-  %35 = getelementptr inbounds i8, ptr %0, i64 32
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %36 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %35) #16
   %37 = add i64 %36, 1
   %38 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE8capacityEv(ptr noundef nonnull align 8 dereferenceable(16) %35) #16
@@ -5898,7 +5898,7 @@ define dso_local void @_ZN5clang13ASTStmtWriter18VisitStringLiteralEPNS_13String
   %6 = lshr i16 %5, 5
   %7 = and i16 %6, 31
   %8 = zext nneg i16 %7 to i32
-  %9 = getelementptr inbounds i8, ptr %0, i64 236
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 236
   %10 = load i32, ptr %9, align 4
   %11 = shl i32 %8, %10
   %12 = load i32, ptr %3, align 8
@@ -5925,9 +5925,9 @@ define dso_local void @_ZN5clang13ASTStmtWriter18VisitStringLiteralEPNS_13String
   store i32 %27, ptr %9, align 4
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.0.0.copyload.i.i = load i64, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %0, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %0, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %32 = load ptr, ptr %31, align 8
   tail call void @_ZN5clang9ASTWriter10AddTypeRefENS_8QualTypeERN4llvm15SmallVectorImplImEE(ptr noundef nonnull align 8 dereferenceable(3340) %30, i64 %.sroa.0.0.copyload.i.i, ptr noundef nonnull align 8 dereferenceable(16) %32) #16
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 4
@@ -6133,7 +6133,7 @@ define dso_local void @_ZN5clang13ASTStmtWriter21VisitCharacterLiteralEPNS_16Cha
   %6 = lshr i16 %5, 5
   %7 = and i16 %6, 31
   %8 = zext nneg i16 %7 to i32
-  %9 = getelementptr inbounds i8, ptr %0, i64 236
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 236
   %10 = load i32, ptr %9, align 4
   %11 = shl i32 %8, %10
   %12 = load i32, ptr %3, align 8
@@ -6160,9 +6160,9 @@ define dso_local void @_ZN5clang13ASTStmtWriter21VisitCharacterLiteralEPNS_16Cha
   store i32 %27, ptr %9, align 4
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.0.0.copyload.i.i = load i64, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %0, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %0, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %32 = load ptr, ptr %31, align 8
   tail call void @_ZN5clang9ASTWriter10AddTypeRefENS_8QualTypeERN4llvm15SmallVectorImplImEE(ptr noundef nonnull align 8 dereferenceable(3340) %30, i64 %.sroa.0.0.copyload.i.i, ptr noundef nonnull align 8 dereferenceable(16) %32) #16
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -6236,7 +6236,7 @@ define dso_local void @_ZN5clang13ASTStmtWriter14VisitParenExprEPNS_9ParenExprE(
   %6 = lshr i16 %5, 5
   %7 = and i16 %6, 31
   %8 = zext nneg i16 %7 to i32
-  %9 = getelementptr inbounds i8, ptr %0, i64 236
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 236
   %10 = load i32, ptr %9, align 4
   %11 = shl i32 %8, %10
   %12 = load i32, ptr %3, align 8
@@ -6263,9 +6263,9 @@ define dso_local void @_ZN5clang13ASTStmtWriter14VisitParenExprEPNS_9ParenExprE(
   store i32 %27, ptr %9, align 4
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.0.0.copyload.i.i = load i64, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %0, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %0, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %32 = load ptr, ptr %31, align 8
   tail call void @_ZN5clang9ASTWriter10AddTypeRefENS_8QualTypeERN4llvm15SmallVectorImplImEE(ptr noundef nonnull align 8 dereferenceable(3340) %30, i64 %.sroa.0.0.copyload.i.i, ptr noundef nonnull align 8 dereferenceable(16) %32) #16
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -6280,7 +6280,7 @@ define dso_local void @_ZN5clang13ASTStmtWriter14VisitParenExprEPNS_9ParenExprE(
   tail call void @_ZN5clang9ASTWriter17AddSourceLocationENS_14SourceLocationERN4llvm15SmallVectorImplImEEPNS_22SourceLocationSequenceE(ptr noundef nonnull align 8 dereferenceable(3340) %37, i32 %.sroa.0.0.copyload.i6, ptr noundef nonnull align 8 dereferenceable(16) %38, ptr noundef null) #16
   %39 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %40 = load ptr, ptr %39, align 8
-  %41 = getelementptr inbounds i8, ptr %0, i64 32
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %42 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %41) #16
   %43 = add i64 %42, 1
   %44 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE8capacityEv(ptr noundef nonnull align 8 dereferenceable(16) %41) #16
@@ -6315,7 +6315,7 @@ define dso_local void @_ZN5clang13ASTStmtWriter18VisitParenListExprEPNS_13ParenL
   %6 = lshr i16 %5, 5
   %7 = and i16 %6, 31
   %8 = zext nneg i16 %7 to i32
-  %9 = getelementptr inbounds i8, ptr %0, i64 236
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 236
   %10 = load i32, ptr %9, align 4
   %11 = shl i32 %8, %10
   %12 = load i32, ptr %3, align 8
@@ -6342,9 +6342,9 @@ define dso_local void @_ZN5clang13ASTStmtWriter18VisitParenListExprEPNS_13ParenL
   store i32 %27, ptr %9, align 4
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.0.0.copyload.i.i = load i64, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %0, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %0, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %32 = load ptr, ptr %31, align 8
   tail call void @_ZN5clang9ASTWriter10AddTypeRefENS_8QualTypeERN4llvm15SmallVectorImplImEE(ptr noundef nonnull align 8 dereferenceable(3340) %30, i64 %.sroa.0.0.copyload.i.i, ptr noundef nonnull align 8 dereferenceable(16) %32) #16
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 4
@@ -6380,7 +6380,7 @@ _ZN5clang15ASTRecordWriter9push_backEm.exit:      ; preds = %2, %40
 
 .lr.ph:                                           ; preds = %_ZN5clang15ASTRecordWriter9push_backEm.exit
   %.ptr = getelementptr inbounds i8, ptr %1, i64 24
-  %50 = getelementptr inbounds i8, ptr %0, i64 32
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %51 = getelementptr inbounds i8, ptr %0, i64 48
   br label %52
 
@@ -6435,7 +6435,7 @@ define dso_local void @_ZN5clang13ASTStmtWriter18VisitUnaryOperatorEPNS_13UnaryO
   %6 = lshr i16 %5, 5
   %7 = and i16 %6, 31
   %8 = zext nneg i16 %7 to i32
-  %9 = getelementptr inbounds i8, ptr %0, i64 236
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 236
   %10 = load i32, ptr %9, align 4
   %11 = shl i32 %8, %10
   %12 = load i32, ptr %3, align 8
@@ -6462,9 +6462,9 @@ define dso_local void @_ZN5clang13ASTStmtWriter18VisitUnaryOperatorEPNS_13UnaryO
   store i32 %27, ptr %9, align 4
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.0.0.copyload.i.i = load i64, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %0, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %0, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %32 = load ptr, ptr %31, align 8
   tail call void @_ZN5clang9ASTWriter10AddTypeRefENS_8QualTypeERN4llvm15SmallVectorImplImEE(ptr noundef nonnull align 8 dereferenceable(3340) %30, i64 %.sroa.0.0.copyload.i.i, ptr noundef nonnull align 8 dereferenceable(16) %32) #16
   %33 = load i32, ptr %1, align 8
@@ -6480,7 +6480,7 @@ define dso_local void @_ZN5clang13ASTStmtWriter18VisitUnaryOperatorEPNS_13UnaryO
   store i32 %39, ptr %9, align 4
   %40 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %41 = load ptr, ptr %40, align 8
-  %42 = getelementptr inbounds i8, ptr %0, i64 32
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %43 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %42) #16
   %44 = add i64 %43, 1
   %45 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE8capacityEv(ptr noundef nonnull align 8 dereferenceable(16) %42) #16
@@ -6569,7 +6569,7 @@ define dso_local void @_ZN5clang13ASTStmtWriter17VisitOffsetOfExprEPNS_12OffsetO
   %6 = lshr i16 %5, 5
   %7 = and i16 %6, 31
   %8 = zext nneg i16 %7 to i32
-  %9 = getelementptr inbounds i8, ptr %0, i64 236
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 236
   %10 = load i32, ptr %9, align 4
   %11 = shl i32 %8, %10
   %12 = load i32, ptr %3, align 8
@@ -6596,9 +6596,9 @@ define dso_local void @_ZN5clang13ASTStmtWriter17VisitOffsetOfExprEPNS_12OffsetO
   store i32 %27, ptr %9, align 4
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.0.0.copyload.i.i = load i64, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %0, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %0, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %32 = load ptr, ptr %31, align 8
   tail call void @_ZN5clang9ASTWriter10AddTypeRefENS_8QualTypeERN4llvm15SmallVectorImplImEE(ptr noundef nonnull align 8 dereferenceable(3340) %30, i64 %.sroa.0.0.copyload.i.i, ptr noundef nonnull align 8 dereferenceable(16) %32) #16
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -6778,7 +6778,7 @@ default.unreachable55:                            ; preds = %_ZN5clang15ASTRecor
 
 .lr.ph49:                                         ; preds = %._crit_edge
   %124 = getelementptr inbounds i8, ptr %1, i64 40
-  %125 = getelementptr inbounds i8, ptr %0, i64 32
+  %125 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %126 = getelementptr inbounds i8, ptr %0, i64 48
   %127 = zext i32 %123 to i64
   br label %128
@@ -6832,7 +6832,7 @@ define dso_local void @_ZN5clang13ASTStmtWriter29VisitUnaryExprOrTypeTraitExprEP
   %6 = lshr i16 %5, 5
   %7 = and i16 %6, 31
   %8 = zext nneg i16 %7 to i32
-  %9 = getelementptr inbounds i8, ptr %0, i64 236
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 236
   %10 = load i32, ptr %9, align 4
   %11 = shl i32 %8, %10
   %12 = load i32, ptr %3, align 8
@@ -6859,9 +6859,9 @@ define dso_local void @_ZN5clang13ASTStmtWriter29VisitUnaryExprOrTypeTraitExprEP
   store i32 %27, ptr %9, align 4
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.0.0.copyload.i.i = load i64, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %0, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %0, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %32 = load ptr, ptr %31, align 8
   tail call void @_ZN5clang9ASTWriter10AddTypeRefENS_8QualTypeERN4llvm15SmallVectorImplImEE(ptr noundef nonnull align 8 dereferenceable(3340) %30, i64 %.sroa.0.0.copyload.i.i, ptr noundef nonnull align 8 dereferenceable(16) %32) #16
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -6923,7 +6923,7 @@ _ZN5clang15ASTRecordWriter9push_backEm.exit10:    ; preds = %54, %59
   tail call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %55, i64 noundef %65) #16
   %66 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %67 = load ptr, ptr %66, align 8
-  %68 = getelementptr inbounds i8, ptr %0, i64 32
+  %68 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %69 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %68) #16
   %70 = add i64 %69, 1
   %71 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE8capacityEv(ptr noundef nonnull align 8 dereferenceable(16) %68) #16
@@ -6971,7 +6971,7 @@ define dso_local void @_ZN5clang13ASTStmtWriter23VisitArraySubscriptExprEPNS_18A
   %6 = lshr i16 %5, 5
   %7 = and i16 %6, 31
   %8 = zext nneg i16 %7 to i32
-  %9 = getelementptr inbounds i8, ptr %0, i64 236
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 236
   %10 = load i32, ptr %9, align 4
   %11 = shl i32 %8, %10
   %12 = load i32, ptr %3, align 8
@@ -6998,14 +6998,14 @@ define dso_local void @_ZN5clang13ASTStmtWriter23VisitArraySubscriptExprEPNS_18A
   store i32 %27, ptr %9, align 4
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.0.0.copyload.i.i = load i64, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %0, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %0, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %32 = load ptr, ptr %31, align 8
   tail call void @_ZN5clang9ASTWriter10AddTypeRefENS_8QualTypeERN4llvm15SmallVectorImplImEE(ptr noundef nonnull align 8 dereferenceable(3340) %30, i64 %.sroa.0.0.copyload.i.i, ptr noundef nonnull align 8 dereferenceable(16) %32) #16
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %34 = load ptr, ptr %33, align 8
-  %35 = getelementptr inbounds i8, ptr %0, i64 32
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %36 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %35) #16
   %37 = add i64 %36, 1
   %38 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE8capacityEv(ptr noundef nonnull align 8 dereferenceable(16) %35) #16
@@ -7067,7 +7067,7 @@ define dso_local void @_ZN5clang13ASTStmtWriter24VisitMatrixSubscriptExprEPNS_19
   %6 = lshr i16 %5, 5
   %7 = and i16 %6, 31
   %8 = zext nneg i16 %7 to i32
-  %9 = getelementptr inbounds i8, ptr %0, i64 236
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 236
   %10 = load i32, ptr %9, align 4
   %11 = shl i32 %8, %10
   %12 = load i32, ptr %3, align 8
@@ -7094,14 +7094,14 @@ define dso_local void @_ZN5clang13ASTStmtWriter24VisitMatrixSubscriptExprEPNS_19
   store i32 %27, ptr %9, align 4
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.0.0.copyload.i.i = load i64, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %0, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %0, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %32 = load ptr, ptr %31, align 8
   tail call void @_ZN5clang9ASTWriter10AddTypeRefENS_8QualTypeERN4llvm15SmallVectorImplImEE(ptr noundef nonnull align 8 dereferenceable(3340) %30, i64 %.sroa.0.0.copyload.i.i, ptr noundef nonnull align 8 dereferenceable(16) %32) #16
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %34 = load ptr, ptr %33, align 8
-  %35 = getelementptr inbounds i8, ptr %0, i64 32
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %36 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %35) #16
   %37 = add i64 %36, 1
   %38 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE8capacityEv(ptr noundef nonnull align 8 dereferenceable(16) %35) #16
@@ -7185,7 +7185,7 @@ define dso_local void @_ZN5clang13ASTStmtWriter21VisitArraySectionExprEPNS_16Arr
   %6 = lshr i16 %5, 5
   %7 = and i16 %6, 31
   %8 = zext nneg i16 %7 to i32
-  %9 = getelementptr inbounds i8, ptr %0, i64 236
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 236
   %10 = load i32, ptr %9, align 4
   %11 = shl i32 %8, %10
   %12 = load i32, ptr %3, align 8
@@ -7212,9 +7212,9 @@ define dso_local void @_ZN5clang13ASTStmtWriter21VisitArraySectionExprEPNS_16Arr
   store i32 %27, ptr %9, align 4
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.0.0.copyload.i.i = load i64, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %0, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %0, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %32 = load ptr, ptr %31, align 8
   tail call void @_ZN5clang9ASTWriter10AddTypeRefENS_8QualTypeERN4llvm15SmallVectorImplImEE(ptr noundef nonnull align 8 dereferenceable(3340) %30, i64 %.sroa.0.0.copyload.i.i, ptr noundef nonnull align 8 dereferenceable(16) %32) #16
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -7242,7 +7242,7 @@ _ZN5clang13serialization21DataStreamBasicWriterINS_15ASTRecordWriterEE9writeEnum
   tail call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %35, i64 noundef %46) #16
   %47 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %48 = load ptr, ptr %47, align 8
-  %49 = getelementptr inbounds i8, ptr %0, i64 32
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %50 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %49) #16
   %51 = add i64 %50, 1
   %52 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE8capacityEv(ptr noundef nonnull align 8 dereferenceable(16) %49) #16
@@ -7374,7 +7374,7 @@ define dso_local void @_ZN5clang13ASTStmtWriter24VisitOMPArrayShapingExprEPNS_19
   %6 = lshr i16 %5, 5
   %7 = and i16 %6, 31
   %8 = zext nneg i16 %7 to i32
-  %9 = getelementptr inbounds i8, ptr %0, i64 236
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 236
   %10 = load i32, ptr %9, align 4
   %11 = shl i32 %8, %10
   %12 = load i32, ptr %3, align 8
@@ -7401,9 +7401,9 @@ define dso_local void @_ZN5clang13ASTStmtWriter24VisitOMPArrayShapingExprEPNS_19
   store i32 %27, ptr %9, align 4
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.0.0.copyload.i.i = load i64, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %0, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %0, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %32 = load ptr, ptr %31, align 8
   tail call void @_ZN5clang9ASTWriter10AddTypeRefENS_8QualTypeERN4llvm15SmallVectorImplImEE(ptr noundef nonnull align 8 dereferenceable(3340) %30, i64 %.sroa.0.0.copyload.i.i, ptr noundef nonnull align 8 dereferenceable(16) %32) #16
   %.ptr = getelementptr inbounds i8, ptr %1, i64 32
@@ -7434,7 +7434,7 @@ _ZN5clang15ASTRecordWriter9push_backEm.exit:      ; preds = %2, %40
   %48 = zext i32 %47 to i64
   %49 = getelementptr inbounds ptr, ptr %.ptr, i64 %48
   %50 = load ptr, ptr %49, align 8
-  %51 = getelementptr inbounds i8, ptr %0, i64 32
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %52 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %51) #16
   %53 = add i64 %52, 1
   %54 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE8capacityEv(ptr noundef nonnull align 8 dereferenceable(16) %51) #16
@@ -7539,7 +7539,7 @@ define dso_local void @_ZN5clang13ASTStmtWriter20VisitOMPIteratorExprEPNS_15OMPI
   %7 = lshr i16 %6, 5
   %8 = and i16 %7, 31
   %9 = zext nneg i16 %8 to i32
-  %10 = getelementptr inbounds i8, ptr %0, i64 236
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 236
   %11 = load i32, ptr %10, align 4
   %12 = shl i32 %9, %11
   %13 = load i32, ptr %4, align 8
@@ -7566,9 +7566,9 @@ define dso_local void @_ZN5clang13ASTStmtWriter20VisitOMPIteratorExprEPNS_15OMPI
   store i32 %28, ptr %10, align 4
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.0.0.copyload.i.i = load i64, ptr %29, align 8
-  %30 = getelementptr inbounds i8, ptr %0, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %31 = load ptr, ptr %30, align 8
-  %32 = getelementptr inbounds i8, ptr %0, i64 24
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %33 = load ptr, ptr %32, align 8
   tail call void @_ZN5clang9ASTWriter10AddTypeRefENS_8QualTypeERN4llvm15SmallVectorImplImEE(ptr noundef nonnull align 8 dereferenceable(3340) %31, i64 %.sroa.0.0.copyload.i.i, ptr noundef nonnull align 8 dereferenceable(16) %33) #16
   %34 = getelementptr inbounds nuw i8, ptr %1, i64 28
@@ -7614,7 +7614,7 @@ _ZN5clang15ASTRecordWriter9push_backEm.exit:      ; preds = %2, %41
   br i1 %.not44, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZN5clang15ASTRecordWriter9push_backEm.exit
-  %58 = getelementptr inbounds i8, ptr %0, i64 32
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %59 = getelementptr inbounds i8, ptr %0, i64 48
   %60 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %61 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -7806,7 +7806,7 @@ define dso_local void @_ZN5clang13ASTStmtWriter13VisitCallExprEPNS_8CallExprE(pt
   %6 = lshr i16 %5, 5
   %7 = and i16 %6, 31
   %8 = zext nneg i16 %7 to i32
-  %9 = getelementptr inbounds i8, ptr %0, i64 236
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 236
   %10 = load i32, ptr %9, align 4
   %11 = shl i32 %8, %10
   %12 = load i32, ptr %3, align 8
@@ -7833,9 +7833,9 @@ define dso_local void @_ZN5clang13ASTStmtWriter13VisitCallExprEPNS_8CallExprE(pt
   store i32 %27, ptr %9, align 4
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.0.0.copyload.i.i = load i64, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %0, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %0, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %32 = load ptr, ptr %31, align 8
   tail call void @_ZN5clang9ASTWriter10AddTypeRefENS_8QualTypeERN4llvm15SmallVectorImplImEE(ptr noundef nonnull align 8 dereferenceable(3340) %30, i64 %.sroa.0.0.copyload.i.i, ptr noundef nonnull align 8 dereferenceable(16) %32) #16
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -7890,7 +7890,7 @@ _ZN5clang15ASTRecordWriter9push_backEm.exit:      ; preds = %2, %40
   %64 = zext nneg i32 %63 to i64
   %65 = getelementptr inbounds i8, ptr %1, i64 %64
   %66 = load ptr, ptr %65, align 8
-  %67 = getelementptr inbounds i8, ptr %0, i64 32
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %68 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %67) #16
   %69 = add i64 %68, 1
   %70 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE8capacityEv(ptr noundef nonnull align 8 dereferenceable(16) %67) #16
@@ -8034,7 +8034,7 @@ define dso_local void @_ZN5clang13ASTStmtWriter17VisitRecoveryExprEPNS_12Recover
   %8 = lshr i16 %7, 5
   %9 = and i16 %8, 31
   %10 = zext nneg i16 %9 to i32
-  %11 = getelementptr inbounds i8, ptr %0, i64 236
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 236
   %12 = load i32, ptr %11, align 4
   %13 = shl i32 %10, %12
   %14 = load i32, ptr %5, align 8
@@ -8061,9 +8061,9 @@ define dso_local void @_ZN5clang13ASTStmtWriter17VisitRecoveryExprEPNS_12Recover
   store i32 %29, ptr %11, align 4
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.0.0.copyload.i.i = load i64, ptr %30, align 8
-  %31 = getelementptr inbounds i8, ptr %0, i64 16
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %32 = load ptr, ptr %31, align 8
-  %33 = getelementptr inbounds i8, ptr %0, i64 24
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %34 = load ptr, ptr %33, align 8
   tail call void @_ZN5clang9ASTWriter10AddTypeRefENS_8QualTypeERN4llvm15SmallVectorImplImEE(ptr noundef nonnull align 8 dereferenceable(3340) %32, i64 %.sroa.0.0.copyload.i.i, ptr noundef nonnull align 8 dereferenceable(16) %34) #16
   %.ptr.ptr = getelementptr inbounds i8, ptr %1, i64 32
@@ -8159,7 +8159,7 @@ _ZN5clang15ASTRecordWriter9push_backEm.exit:      ; preds = %_ZSt8distanceIN5cla
   br i1 %.not44, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZN5clang15ASTRecordWriter9push_backEm.exit
-  %73 = getelementptr inbounds i8, ptr %0, i64 32
+  %73 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %74 = getelementptr inbounds i8, ptr %0, i64 48
   br label %75
 
@@ -8242,7 +8242,7 @@ define dso_local void @_ZN5clang13ASTStmtWriter15VisitMemberExprEPNS_10MemberExp
   %6 = lshr i16 %5, 5
   %7 = and i16 %6, 31
   %8 = zext nneg i16 %7 to i32
-  %9 = getelementptr inbounds i8, ptr %0, i64 236
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 236
   %10 = load i32, ptr %9, align 4
   %11 = shl i32 %8, %10
   %12 = load i32, ptr %3, align 8
@@ -8269,9 +8269,9 @@ define dso_local void @_ZN5clang13ASTStmtWriter15VisitMemberExprEPNS_10MemberExp
   store i32 %27, ptr %9, align 4
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.0.0.copyload.i.i = load i64, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %0, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %0, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %32 = load ptr, ptr %31, align 8
   tail call void @_ZN5clang9ASTWriter10AddTypeRefENS_8QualTypeERN4llvm15SmallVectorImplImEE(ptr noundef nonnull align 8 dereferenceable(3340) %30, i64 %.sroa.0.0.copyload.i.i, ptr noundef nonnull align 8 dereferenceable(16) %32) #16
   %33 = load i32, ptr %1, align 8
@@ -8345,7 +8345,7 @@ _ZN5clang15ASTRecordWriter9push_backEm.exit:      ; preds = %_ZNK5clang10MemberE
   tail call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %61, i64 noundef %71) #16
   %72 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %73 = load ptr, ptr %72, align 8
-  %74 = getelementptr inbounds i8, ptr %0, i64 32
+  %74 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %75 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %74) #16
   %76 = add i64 %75, 1
   %77 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE8capacityEv(ptr noundef nonnull align 8 dereferenceable(16) %74) #16
@@ -8542,7 +8542,7 @@ define dso_local void @_ZN5clang13ASTStmtWriter16VisitObjCIsaExprEPNS_11ObjCIsaE
   %6 = lshr i16 %5, 5
   %7 = and i16 %6, 31
   %8 = zext nneg i16 %7 to i32
-  %9 = getelementptr inbounds i8, ptr %0, i64 236
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 236
   %10 = load i32, ptr %9, align 4
   %11 = shl i32 %8, %10
   %12 = load i32, ptr %3, align 8
@@ -8569,14 +8569,14 @@ define dso_local void @_ZN5clang13ASTStmtWriter16VisitObjCIsaExprEPNS_11ObjCIsaE
   store i32 %27, ptr %9, align 4
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.0.0.copyload.i.i = load i64, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %0, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %0, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %32 = load ptr, ptr %31, align 8
   tail call void @_ZN5clang9ASTWriter10AddTypeRefENS_8QualTypeERN4llvm15SmallVectorImplImEE(ptr noundef nonnull align 8 dereferenceable(3340) %30, i64 %.sroa.0.0.copyload.i.i, ptr noundef nonnull align 8 dereferenceable(16) %32) #16
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %34 = load ptr, ptr %33, align 8
-  %35 = getelementptr inbounds i8, ptr %0, i64 32
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %36 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %35) #16
   %37 = add i64 %36, 1
   %38 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE8capacityEv(ptr noundef nonnull align 8 dereferenceable(16) %35) #16
@@ -8645,7 +8645,7 @@ define dso_local void @_ZN5clang13ASTStmtWriter32VisitObjCIndirectCopyRestoreExp
   %6 = lshr i16 %5, 5
   %7 = and i16 %6, 31
   %8 = zext nneg i16 %7 to i32
-  %9 = getelementptr inbounds i8, ptr %0, i64 236
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 236
   %10 = load i32, ptr %9, align 4
   %11 = shl i32 %8, %10
   %12 = load i32, ptr %3, align 8
@@ -8672,14 +8672,14 @@ define dso_local void @_ZN5clang13ASTStmtWriter32VisitObjCIndirectCopyRestoreExp
   store i32 %27, ptr %9, align 4
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.0.0.copyload.i.i = load i64, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %0, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %0, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %32 = load ptr, ptr %31, align 8
   tail call void @_ZN5clang9ASTWriter10AddTypeRefENS_8QualTypeERN4llvm15SmallVectorImplImEE(ptr noundef nonnull align 8 dereferenceable(3340) %30, i64 %.sroa.0.0.copyload.i.i, ptr noundef nonnull align 8 dereferenceable(16) %32) #16
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %34 = load ptr, ptr %33, align 8
-  %35 = getelementptr inbounds i8, ptr %0, i64 32
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %36 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %35) #16
   %37 = add i64 %36, 1
   %38 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE8capacityEv(ptr noundef nonnull align 8 dereferenceable(16) %35) #16
@@ -8738,9 +8738,9 @@ define dso_local void @_ZN5clang13ASTStmtWriter24VisitObjCBridgedCastExprEPNS_19
   tail call void @_ZN5clang15ASTRecordWriter17AddTypeSourceInfoEPNS_14TypeSourceInfoE(ptr noundef nonnull align 8 dereferenceable(216) %3, ptr noundef %5) #16
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %.sroa.0.0.copyload.i = load i32, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %10 = load ptr, ptr %9, align 8
   tail call void @_ZN5clang9ASTWriter17AddSourceLocationENS_14SourceLocationERN4llvm15SmallVectorImplImEEPNS_22SourceLocationSequenceE(ptr noundef nonnull align 8 dereferenceable(3340) %8, i32 %.sroa.0.0.copyload.i, ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef null) #16
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 36
@@ -8796,7 +8796,7 @@ define dso_local void @_ZN5clang13ASTStmtWriter13VisitCastExprEPNS_8CastExprE(pt
   %6 = lshr i16 %5, 5
   %7 = and i16 %6, 31
   %8 = zext nneg i16 %7 to i32
-  %9 = getelementptr inbounds i8, ptr %0, i64 236
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 236
   %10 = load i32, ptr %9, align 4
   %11 = shl i32 %8, %10
   %12 = load i32, ptr %3, align 8
@@ -8823,9 +8823,9 @@ define dso_local void @_ZN5clang13ASTStmtWriter13VisitCastExprEPNS_8CastExprE(pt
   store i32 %27, ptr %9, align 4
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.0.0.copyload.i.i = load i64, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %0, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %0, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %32 = load ptr, ptr %31, align 8
   tail call void @_ZN5clang9ASTWriter10AddTypeRefENS_8QualTypeERN4llvm15SmallVectorImplImEE(ptr noundef nonnull align 8 dereferenceable(3340) %30, i64 %.sroa.0.0.copyload.i.i, ptr noundef nonnull align 8 dereferenceable(16) %32) #16
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -8873,7 +8873,7 @@ _ZN5clang15ASTRecordWriter9push_backEm.exit:      ; preds = %2, %41
   store i32 %60, ptr %9, align 4
   %61 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %62 = load ptr, ptr %61, align 8
-  %63 = getelementptr inbounds i8, ptr %0, i64 32
+  %63 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %64 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %63) #16
   %65 = add i64 %64, 1
   %66 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE8capacityEv(ptr noundef nonnull align 8 dereferenceable(16) %63) #16
@@ -8955,7 +8955,7 @@ define dso_local void @_ZN5clang13ASTStmtWriter19VisitBinaryOperatorEPNS_14Binar
   %6 = lshr i16 %5, 5
   %7 = and i16 %6, 31
   %8 = zext nneg i16 %7 to i32
-  %9 = getelementptr inbounds i8, ptr %0, i64 236
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 236
   %10 = load i32, ptr %9, align 4
   %11 = shl i32 %8, %10
   %12 = load i32, ptr %3, align 8
@@ -8982,9 +8982,9 @@ define dso_local void @_ZN5clang13ASTStmtWriter19VisitBinaryOperatorEPNS_14Binar
   store i32 %27, ptr %9, align 4
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.0.0.copyload.i.i = load i64, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %0, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %0, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %32 = load ptr, ptr %31, align 8
   tail call void @_ZN5clang9ASTWriter10AddTypeRefENS_8QualTypeERN4llvm15SmallVectorImplImEE(ptr noundef nonnull align 8 dereferenceable(3340) %30, i64 %.sroa.0.0.copyload.i.i, ptr noundef nonnull align 8 dereferenceable(16) %32) #16
   tail call void @_ZN5clang13ASTStmtWriter15PakedBitsWriter10updateBitsEv(ptr noundef nonnull align 8 dereferenceable(24) %3)
@@ -9017,7 +9017,7 @@ define dso_local void @_ZN5clang13ASTStmtWriter19VisitBinaryOperatorEPNS_14Binar
   store i32 %50, ptr %9, align 4
   %51 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %52 = load ptr, ptr %51, align 8
-  %53 = getelementptr inbounds i8, ptr %0, i64 32
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %54 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %53) #16
   %55 = add i64 %54, 1
   %56 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE8capacityEv(ptr noundef nonnull align 8 dereferenceable(16) %53) #16
@@ -9121,9 +9121,9 @@ define dso_local void @_ZN5clang13ASTStmtWriter27VisitCompoundAssignOperatorEPNS
   tail call void @_ZN5clang13ASTStmtWriter19VisitBinaryOperatorEPNS_14BinaryOperatorE(ptr noundef nonnull align 8 dereferenceable(256) %0, ptr noundef %1)
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %.sroa.0.0.copyload.i = load i64, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = load ptr, ptr %6, align 8
   tail call void @_ZN5clang9ASTWriter10AddTypeRefENS_8QualTypeERN4llvm15SmallVectorImplImEE(ptr noundef nonnull align 8 dereferenceable(3340) %5, i64 %.sroa.0.0.copyload.i, ptr noundef nonnull align 8 dereferenceable(16) %7) #16
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 40
@@ -9159,7 +9159,7 @@ define dso_local void @_ZN5clang13ASTStmtWriter24VisitConditionalOperatorEPNS_19
   %6 = lshr i16 %5, 5
   %7 = and i16 %6, 31
   %8 = zext nneg i16 %7 to i32
-  %9 = getelementptr inbounds i8, ptr %0, i64 236
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 236
   %10 = load i32, ptr %9, align 4
   %11 = shl i32 %8, %10
   %12 = load i32, ptr %3, align 8
@@ -9186,14 +9186,14 @@ define dso_local void @_ZN5clang13ASTStmtWriter24VisitConditionalOperatorEPNS_19
   store i32 %27, ptr %9, align 4
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.0.0.copyload.i.i = load i64, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %0, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %0, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %32 = load ptr, ptr %31, align 8
   tail call void @_ZN5clang9ASTWriter10AddTypeRefENS_8QualTypeERN4llvm15SmallVectorImplImEE(ptr noundef nonnull align 8 dereferenceable(3340) %30, i64 %.sroa.0.0.copyload.i.i, ptr noundef nonnull align 8 dereferenceable(16) %32) #16
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %34 = load ptr, ptr %33, align 8
-  %35 = getelementptr inbounds i8, ptr %0, i64 32
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %36 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %35) #16
   %37 = add i64 %36, 1
   %38 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE8capacityEv(ptr noundef nonnull align 8 dereferenceable(16) %35) #16
@@ -9282,7 +9282,7 @@ define dso_local void @_ZN5clang13ASTStmtWriter30VisitBinaryConditionalOperatorE
   %6 = lshr i16 %5, 5
   %7 = and i16 %6, 31
   %8 = zext nneg i16 %7 to i32
-  %9 = getelementptr inbounds i8, ptr %0, i64 236
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 236
   %10 = load i32, ptr %9, align 4
   %11 = shl i32 %8, %10
   %12 = load i32, ptr %3, align 8
@@ -9309,14 +9309,14 @@ define dso_local void @_ZN5clang13ASTStmtWriter30VisitBinaryConditionalOperatorE
   store i32 %27, ptr %9, align 4
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.0.0.copyload.i.i = load i64, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %0, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %0, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %32 = load ptr, ptr %31, align 8
   tail call void @_ZN5clang9ASTWriter10AddTypeRefENS_8QualTypeERN4llvm15SmallVectorImplImEE(ptr noundef nonnull align 8 dereferenceable(3340) %30, i64 %.sroa.0.0.copyload.i.i, ptr noundef nonnull align 8 dereferenceable(16) %32) #16
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %34 = load ptr, ptr %33, align 8
-  %35 = getelementptr inbounds i8, ptr %0, i64 32
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %36 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %35) #16
   %37 = add i64 %36, 1
   %38 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE8capacityEv(ptr noundef nonnull align 8 dereferenceable(16) %35) #16
@@ -9447,7 +9447,7 @@ define dso_local void @_ZN5clang13ASTStmtWriter21VisitImplicitCastExprEPNS_16Imp
   %4 = load i32, ptr %1, align 8
   %5 = lshr i32 %4, 25
   %.lobit = and i32 %5, 1
-  %6 = getelementptr inbounds i8, ptr %0, i64 236
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 236
   %7 = load i32, ptr %6, align 4
   %8 = shl nuw i32 %.lobit, %7
   %9 = load i32, ptr %3, align 8
@@ -9489,9 +9489,9 @@ define dso_local void @_ZN5clang13ASTStmtWriter19VisitCStyleCastExprEPNS_14CStyl
   tail call void @_ZN5clang15ASTRecordWriter17AddTypeSourceInfoEPNS_14TypeSourceInfoE(ptr noundef nonnull align 8 dereferenceable(216) %3, ptr noundef %5) #16
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %.sroa.0.0.copyload.i = load i32, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %10 = load ptr, ptr %9, align 8
   tail call void @_ZN5clang9ASTWriter17AddSourceLocationENS_14SourceLocationERN4llvm15SmallVectorImplImEEPNS_22SourceLocationSequenceE(ptr noundef nonnull align 8 dereferenceable(3340) %8, i32 %.sroa.0.0.copyload.i, ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef null) #16
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 36
@@ -9513,7 +9513,7 @@ define dso_local void @_ZN5clang13ASTStmtWriter24VisitCompoundLiteralExprEPNS_19
   %6 = lshr i16 %5, 5
   %7 = and i16 %6, 31
   %8 = zext nneg i16 %7 to i32
-  %9 = getelementptr inbounds i8, ptr %0, i64 236
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 236
   %10 = load i32, ptr %9, align 4
   %11 = shl i32 %8, %10
   %12 = load i32, ptr %3, align 8
@@ -9540,9 +9540,9 @@ define dso_local void @_ZN5clang13ASTStmtWriter24VisitCompoundLiteralExprEPNS_19
   store i32 %27, ptr %9, align 4
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.0.0.copyload.i.i = load i64, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %0, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %0, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %32 = load ptr, ptr %31, align 8
   tail call void @_ZN5clang9ASTWriter10AddTypeRefENS_8QualTypeERN4llvm15SmallVectorImplImEE(ptr noundef nonnull align 8 dereferenceable(3340) %30, i64 %.sroa.0.0.copyload.i.i, ptr noundef nonnull align 8 dereferenceable(16) %32) #16
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -9558,7 +9558,7 @@ define dso_local void @_ZN5clang13ASTStmtWriter24VisitCompoundLiteralExprEPNS_19
   tail call void @_ZN5clang15ASTRecordWriter17AddTypeSourceInfoEPNS_14TypeSourceInfoE(ptr noundef nonnull align 8 dereferenceable(216) %33, ptr noundef %39) #16
   %40 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %41 = load ptr, ptr %40, align 8
-  %42 = getelementptr inbounds i8, ptr %0, i64 32
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %43 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %42) #16
   %44 = add i64 %43, 1
   %45 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE8capacityEv(ptr noundef nonnull align 8 dereferenceable(16) %42) #16
@@ -9616,7 +9616,7 @@ define dso_local void @_ZN5clang13ASTStmtWriter25VisitExtVectorElementExprEPNS_2
   %6 = lshr i16 %5, 5
   %7 = and i16 %6, 31
   %8 = zext nneg i16 %7 to i32
-  %9 = getelementptr inbounds i8, ptr %0, i64 236
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 236
   %10 = load i32, ptr %9, align 4
   %11 = shl i32 %8, %10
   %12 = load i32, ptr %3, align 8
@@ -9643,14 +9643,14 @@ define dso_local void @_ZN5clang13ASTStmtWriter25VisitExtVectorElementExprEPNS_2
   store i32 %27, ptr %9, align 4
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.0.0.copyload.i.i = load i64, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %0, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %0, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %32 = load ptr, ptr %31, align 8
   tail call void @_ZN5clang9ASTWriter10AddTypeRefENS_8QualTypeERN4llvm15SmallVectorImplImEE(ptr noundef nonnull align 8 dereferenceable(3340) %30, i64 %.sroa.0.0.copyload.i.i, ptr noundef nonnull align 8 dereferenceable(16) %32) #16
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %34 = load ptr, ptr %33, align 8
-  %35 = getelementptr inbounds i8, ptr %0, i64 32
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %36 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %35) #16
   %37 = add i64 %36, 1
   %38 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE8capacityEv(ptr noundef nonnull align 8 dereferenceable(16) %35) #16
@@ -9695,7 +9695,7 @@ define dso_local void @_ZN5clang13ASTStmtWriter17VisitInitListExprEPNS_12InitLis
   %6 = lshr i16 %5, 5
   %7 = and i16 %6, 31
   %8 = zext nneg i16 %7 to i32
-  %9 = getelementptr inbounds i8, ptr %0, i64 236
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 236
   %10 = load i32, ptr %9, align 4
   %11 = shl i32 %8, %10
   %12 = load i32, ptr %3, align 8
@@ -9722,9 +9722,9 @@ define dso_local void @_ZN5clang13ASTStmtWriter17VisitInitListExprEPNS_12InitLis
   store i32 %27, ptr %9, align 4
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.0.0.copyload.i.i = load i64, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %0, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %0, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %32 = load ptr, ptr %31, align 8
   tail call void @_ZN5clang9ASTWriter10AddTypeRefENS_8QualTypeERN4llvm15SmallVectorImplImEE(ptr noundef nonnull align 8 dereferenceable(3340) %30, i64 %.sroa.0.0.copyload.i.i, ptr noundef nonnull align 8 dereferenceable(16) %32) #16
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 48
@@ -9732,7 +9732,7 @@ define dso_local void @_ZN5clang13ASTStmtWriter17VisitInitListExprEPNS_12InitLis
   %34 = and i64 %.0.copyload.i.i.i.i.i, 4
   %.not.i = icmp eq i64 %34, 0
   %35 = and i64 %.0.copyload.i.i.i.i.i, -8
-  %36 = getelementptr inbounds i8, ptr %0, i64 32
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %37 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %36) #16
   %38 = add i64 %37, 1
   %39 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE8capacityEv(ptr noundef nonnull align 8 dereferenceable(16) %36) #16
@@ -9852,7 +9852,7 @@ _ZN5clang15ASTRecordWriter9push_backEm.exit39:    ; preds = %88, %96
   %102 = add i64 %101, 1
   tail call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %92, i64 noundef %102) #16
   %103 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %104 = getelementptr inbounds i8, ptr %1, i64 24
+  %104 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %105 = load ptr, ptr %104, align 8
   %106 = load ptr, ptr %103, align 8
   %107 = ptrtoint ptr %105 to i64
@@ -9993,7 +9993,7 @@ define dso_local void @_ZN5clang13ASTStmtWriter23VisitDesignatedInitExprEPNS_18D
   %6 = lshr i16 %5, 5
   %7 = and i16 %6, 31
   %8 = zext nneg i16 %7 to i32
-  %9 = getelementptr inbounds i8, ptr %0, i64 236
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 236
   %10 = load i32, ptr %9, align 4
   %11 = shl i32 %8, %10
   %12 = load i32, ptr %3, align 8
@@ -10020,9 +10020,9 @@ define dso_local void @_ZN5clang13ASTStmtWriter23VisitDesignatedInitExprEPNS_18D
   store i32 %27, ptr %9, align 4
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.0.0.copyload.i.i = load i64, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %0, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %0, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %32 = load ptr, ptr %31, align 8
   tail call void @_ZN5clang9ASTWriter10AddTypeRefENS_8QualTypeERN4llvm15SmallVectorImplImEE(ptr noundef nonnull align 8 dereferenceable(3340) %30, i64 %.sroa.0.0.copyload.i.i, ptr noundef nonnull align 8 dereferenceable(16) %32) #16
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 20
@@ -10056,7 +10056,7 @@ _ZN5clang15ASTRecordWriter9push_backEm.exit:      ; preds = %2, %41
 .lr.ph:                                           ; preds = %_ZN5clang15ASTRecordWriter9push_backEm.exit
   %49 = lshr i32 %48, 16
   %50 = getelementptr inbounds i8, ptr %1, i64 32
-  %51 = getelementptr inbounds i8, ptr %0, i64 32
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %52 = getelementptr inbounds i8, ptr %0, i64 48
   %53 = zext nneg i32 %49 to i64
   br label %54
@@ -10283,7 +10283,7 @@ _ZN5clang15ASTRecordWriter9push_backEm.exit61:    ; preds = %_ZN5clang15ASTRecor
   %172 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %163) #16
   %173 = add i64 %172, 1
   tail call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %163, i64 noundef %173) #16
-  %174 = getelementptr inbounds i8, ptr %.03970, i64 12
+  %174 = getelementptr inbounds nuw i8, ptr %.03970, i64 12
   %.sroa.0.0.copyload.i62 = load i32, ptr %174, align 4
   %175 = load ptr, ptr %29, align 8
   %176 = load ptr, ptr %31, align 8
@@ -10292,12 +10292,12 @@ _ZN5clang15ASTRecordWriter9push_backEm.exit61:    ; preds = %_ZN5clang15ASTRecor
 
 177:                                              ; preds = %_ZN5clang15ASTRecordWriter9push_backEm.exit47, %_ZN5clang15ASTRecordWriter9push_backEm.exit49, %_ZN5clang15ASTRecordWriter9push_backEm.exit61, %_ZN5clang15ASTRecordWriter9push_backEm.exit55
   %.sink = phi i64 [ 16, %_ZN5clang15ASTRecordWriter9push_backEm.exit61 ], [ 12, %_ZN5clang15ASTRecordWriter9push_backEm.exit55 ], [ 16, %_ZN5clang15ASTRecordWriter9push_backEm.exit49 ], [ 16, %_ZN5clang15ASTRecordWriter9push_backEm.exit47 ]
-  %178 = getelementptr inbounds i8, ptr %.03970, i64 %.sink
+  %178 = getelementptr inbounds nuw i8, ptr %.03970, i64 %.sink
   %.sroa.0.0.copyload.i50.sink = load i32, ptr %178, align 4
   %179 = load ptr, ptr %29, align 8
   %180 = load ptr, ptr %31, align 8
   tail call void @_ZN5clang9ASTWriter17AddSourceLocationENS_14SourceLocationERN4llvm15SmallVectorImplImEEPNS_22SourceLocationSequenceE(ptr noundef nonnull align 8 dereferenceable(3340) %179, i32 %.sroa.0.0.copyload.i50.sink, ptr noundef nonnull align 8 dereferenceable(16) %180, ptr noundef null) #16
-  %181 = getelementptr inbounds i8, ptr %.03970, i64 20
+  %181 = getelementptr inbounds nuw i8, ptr %.03970, i64 20
   %.sroa.0.0.copyload.i51 = load i32, ptr %181, align 4
   %182 = load ptr, ptr %29, align 8
   %183 = load ptr, ptr %31, align 8
@@ -10323,7 +10323,7 @@ define dso_local void @_ZN5clang13ASTStmtWriter29VisitDesignatedInitUpdateExprEP
   %6 = lshr i16 %5, 5
   %7 = and i16 %6, 31
   %8 = zext nneg i16 %7 to i32
-  %9 = getelementptr inbounds i8, ptr %0, i64 236
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 236
   %10 = load i32, ptr %9, align 4
   %11 = shl i32 %8, %10
   %12 = load i32, ptr %3, align 8
@@ -10350,14 +10350,14 @@ define dso_local void @_ZN5clang13ASTStmtWriter29VisitDesignatedInitUpdateExprEP
   store i32 %27, ptr %9, align 4
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.0.0.copyload.i.i = load i64, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %0, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %0, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %32 = load ptr, ptr %31, align 8
   tail call void @_ZN5clang9ASTWriter10AddTypeRefENS_8QualTypeERN4llvm15SmallVectorImplImEE(ptr noundef nonnull align 8 dereferenceable(3340) %30, i64 %.sroa.0.0.copyload.i.i, ptr noundef nonnull align 8 dereferenceable(16) %32) #16
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %34 = load ptr, ptr %33, align 8
-  %35 = getelementptr inbounds i8, ptr %0, i64 32
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %36 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %35) #16
   %37 = add i64 %36, 1
   %38 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE8capacityEv(ptr noundef nonnull align 8 dereferenceable(16) %35) #16
@@ -10414,7 +10414,7 @@ define dso_local void @_ZN5clang13ASTStmtWriter15VisitNoInitExprEPNS_10NoInitExp
   %6 = lshr i16 %5, 5
   %7 = and i16 %6, 31
   %8 = zext nneg i16 %7 to i32
-  %9 = getelementptr inbounds i8, ptr %0, i64 236
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 236
   %10 = load i32, ptr %9, align 4
   %11 = shl i32 %8, %10
   %12 = load i32, ptr %3, align 8
@@ -10441,9 +10441,9 @@ define dso_local void @_ZN5clang13ASTStmtWriter15VisitNoInitExprEPNS_10NoInitExp
   store i32 %27, ptr %9, align 4
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.0.0.copyload.i.i = load i64, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %0, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %0, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %32 = load ptr, ptr %31, align 8
   tail call void @_ZN5clang9ASTWriter10AddTypeRefENS_8QualTypeERN4llvm15SmallVectorImplImEE(ptr noundef nonnull align 8 dereferenceable(3340) %30, i64 %.sroa.0.0.copyload.i.i, ptr noundef nonnull align 8 dereferenceable(16) %32) #16
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 224
@@ -10460,7 +10460,7 @@ define dso_local void @_ZN5clang13ASTStmtWriter22VisitArrayInitLoopExprEPNS_17Ar
   %6 = lshr i16 %5, 5
   %7 = and i16 %6, 31
   %8 = zext nneg i16 %7 to i32
-  %9 = getelementptr inbounds i8, ptr %0, i64 236
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 236
   %10 = load i32, ptr %9, align 4
   %11 = shl i32 %8, %10
   %12 = load i32, ptr %3, align 8
@@ -10487,14 +10487,14 @@ define dso_local void @_ZN5clang13ASTStmtWriter22VisitArrayInitLoopExprEPNS_17Ar
   store i32 %27, ptr %9, align 4
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.0.0.copyload.i.i = load i64, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %0, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %0, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %32 = load ptr, ptr %31, align 8
   tail call void @_ZN5clang9ASTWriter10AddTypeRefENS_8QualTypeERN4llvm15SmallVectorImplImEE(ptr noundef nonnull align 8 dereferenceable(3340) %30, i64 %.sroa.0.0.copyload.i.i, ptr noundef nonnull align 8 dereferenceable(16) %32) #16
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %34 = load ptr, ptr %33, align 8
-  %35 = getelementptr inbounds i8, ptr %0, i64 32
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %36 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %35) #16
   %37 = add i64 %36, 1
   %38 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE8capacityEv(ptr noundef nonnull align 8 dereferenceable(16) %35) #16
@@ -10551,7 +10551,7 @@ define dso_local void @_ZN5clang13ASTStmtWriter23VisitArrayInitIndexExprEPNS_18A
   %6 = lshr i16 %5, 5
   %7 = and i16 %6, 31
   %8 = zext nneg i16 %7 to i32
-  %9 = getelementptr inbounds i8, ptr %0, i64 236
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 236
   %10 = load i32, ptr %9, align 4
   %11 = shl i32 %8, %10
   %12 = load i32, ptr %3, align 8
@@ -10578,9 +10578,9 @@ define dso_local void @_ZN5clang13ASTStmtWriter23VisitArrayInitIndexExprEPNS_18A
   store i32 %27, ptr %9, align 4
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.0.0.copyload.i.i = load i64, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %0, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %0, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %32 = load ptr, ptr %31, align 8
   tail call void @_ZN5clang9ASTWriter10AddTypeRefENS_8QualTypeERN4llvm15SmallVectorImplImEE(ptr noundef nonnull align 8 dereferenceable(3340) %30, i64 %.sroa.0.0.copyload.i.i, ptr noundef nonnull align 8 dereferenceable(16) %32) #16
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 224
@@ -10597,7 +10597,7 @@ define dso_local void @_ZN5clang13ASTStmtWriter26VisitImplicitValueInitExprEPNS_
   %6 = lshr i16 %5, 5
   %7 = and i16 %6, 31
   %8 = zext nneg i16 %7 to i32
-  %9 = getelementptr inbounds i8, ptr %0, i64 236
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 236
   %10 = load i32, ptr %9, align 4
   %11 = shl i32 %8, %10
   %12 = load i32, ptr %3, align 8
@@ -10624,9 +10624,9 @@ define dso_local void @_ZN5clang13ASTStmtWriter26VisitImplicitValueInitExprEPNS_
   store i32 %27, ptr %9, align 4
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.0.0.copyload.i.i = load i64, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %0, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %0, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %32 = load ptr, ptr %31, align 8
   tail call void @_ZN5clang9ASTWriter10AddTypeRefENS_8QualTypeERN4llvm15SmallVectorImplImEE(ptr noundef nonnull align 8 dereferenceable(3340) %30, i64 %.sroa.0.0.copyload.i.i, ptr noundef nonnull align 8 dereferenceable(16) %32) #16
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 224
@@ -10643,7 +10643,7 @@ define dso_local void @_ZN5clang13ASTStmtWriter14VisitVAArgExprEPNS_9VAArgExprE(
   %6 = lshr i16 %5, 5
   %7 = and i16 %6, 31
   %8 = zext nneg i16 %7 to i32
-  %9 = getelementptr inbounds i8, ptr %0, i64 236
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 236
   %10 = load i32, ptr %9, align 4
   %11 = shl i32 %8, %10
   %12 = load i32, ptr %3, align 8
@@ -10670,15 +10670,15 @@ define dso_local void @_ZN5clang13ASTStmtWriter14VisitVAArgExprEPNS_9VAArgExprE(
   store i32 %27, ptr %9, align 4
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.0.0.copyload.i.i = load i64, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %0, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %0, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %32 = load ptr, ptr %31, align 8
   tail call void @_ZN5clang9ASTWriter10AddTypeRefENS_8QualTypeERN4llvm15SmallVectorImplImEE(ptr noundef nonnull align 8 dereferenceable(3340) %30, i64 %.sroa.0.0.copyload.i.i, ptr noundef nonnull align 8 dereferenceable(16) %32) #16
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %34 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %35 = load ptr, ptr %34, align 8
-  %36 = getelementptr inbounds i8, ptr %0, i64 32
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %37 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %36) #16
   %38 = add i64 %37, 1
   %39 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE8capacityEv(ptr noundef nonnull align 8 dereferenceable(16) %36) #16
@@ -10751,7 +10751,7 @@ define dso_local void @_ZN5clang13ASTStmtWriter18VisitSourceLocExprEPNS_13Source
   %6 = lshr i16 %5, 5
   %7 = and i16 %6, 31
   %8 = zext nneg i16 %7 to i32
-  %9 = getelementptr inbounds i8, ptr %0, i64 236
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 236
   %10 = load i32, ptr %9, align 4
   %11 = shl i32 %8, %10
   %12 = load i32, ptr %3, align 8
@@ -10778,9 +10778,9 @@ define dso_local void @_ZN5clang13ASTStmtWriter18VisitSourceLocExprEPNS_13Source
   store i32 %27, ptr %9, align 4
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.0.0.copyload.i.i = load i64, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %0, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %0, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %32 = load ptr, ptr %31, align 8
   tail call void @_ZN5clang9ASTWriter10AddTypeRefENS_8QualTypeERN4llvm15SmallVectorImplImEE(ptr noundef nonnull align 8 dereferenceable(3340) %30, i64 %.sroa.0.0.copyload.i.i, ptr noundef nonnull align 8 dereferenceable(16) %32) #16
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -10845,7 +10845,7 @@ define dso_local void @_ZN5clang13ASTStmtWriter14VisitEmbedExprEPNS_9EmbedExprE(
   %6 = lshr i16 %5, 5
   %7 = and i16 %6, 31
   %8 = zext nneg i16 %7 to i32
-  %9 = getelementptr inbounds i8, ptr %0, i64 236
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 236
   %10 = load i32, ptr %9, align 4
   %11 = shl i32 %8, %10
   %12 = load i32, ptr %3, align 8
@@ -10872,9 +10872,9 @@ define dso_local void @_ZN5clang13ASTStmtWriter14VisitEmbedExprEPNS_9EmbedExprE(
   store i32 %27, ptr %9, align 4
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.0.0.copyload.i.i = load i64, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %0, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %0, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %32 = load ptr, ptr %31, align 8
   tail call void @_ZN5clang9ASTWriter10AddTypeRefENS_8QualTypeERN4llvm15SmallVectorImplImEE(ptr noundef nonnull align 8 dereferenceable(3340) %30, i64 %.sroa.0.0.copyload.i.i, ptr noundef nonnull align 8 dereferenceable(16) %32) #16
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -10889,7 +10889,7 @@ define dso_local void @_ZN5clang13ASTStmtWriter14VisitEmbedExprEPNS_9EmbedExprE(
   %38 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %39 = load ptr, ptr %38, align 8
   %40 = load ptr, ptr %39, align 8
-  %41 = getelementptr inbounds i8, ptr %0, i64 32
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %42 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %41) #16
   %43 = add i64 %42, 1
   %44 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE8capacityEv(ptr noundef nonnull align 8 dereferenceable(16) %41) #16
@@ -10997,7 +10997,7 @@ define dso_local void @_ZN5clang13ASTStmtWriter18VisitAddrLabelExprEPNS_13AddrLa
   %6 = lshr i16 %5, 5
   %7 = and i16 %6, 31
   %8 = zext nneg i16 %7 to i32
-  %9 = getelementptr inbounds i8, ptr %0, i64 236
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 236
   %10 = load i32, ptr %9, align 4
   %11 = shl i32 %8, %10
   %12 = load i32, ptr %3, align 8
@@ -11024,9 +11024,9 @@ define dso_local void @_ZN5clang13ASTStmtWriter18VisitAddrLabelExprEPNS_13AddrLa
   store i32 %27, ptr %9, align 4
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.0.0.copyload.i.i = load i64, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %0, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %0, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %32 = load ptr, ptr %31, align 8
   tail call void @_ZN5clang9ASTWriter10AddTypeRefENS_8QualTypeERN4llvm15SmallVectorImplImEE(ptr noundef nonnull align 8 dereferenceable(3340) %30, i64 %.sroa.0.0.copyload.i.i, ptr noundef nonnull align 8 dereferenceable(16) %32) #16
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -11058,7 +11058,7 @@ define dso_local void @_ZN5clang13ASTStmtWriter13VisitStmtExprEPNS_8StmtExprE(pt
   %6 = lshr i16 %5, 5
   %7 = and i16 %6, 31
   %8 = zext nneg i16 %7 to i32
-  %9 = getelementptr inbounds i8, ptr %0, i64 236
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 236
   %10 = load i32, ptr %9, align 4
   %11 = shl i32 %8, %10
   %12 = load i32, ptr %3, align 8
@@ -11085,14 +11085,14 @@ define dso_local void @_ZN5clang13ASTStmtWriter13VisitStmtExprEPNS_8StmtExprE(pt
   store i32 %27, ptr %9, align 4
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.0.0.copyload.i.i = load i64, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %0, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %0, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %32 = load ptr, ptr %31, align 8
   tail call void @_ZN5clang9ASTWriter10AddTypeRefENS_8QualTypeERN4llvm15SmallVectorImplImEE(ptr noundef nonnull align 8 dereferenceable(3340) %30, i64 %.sroa.0.0.copyload.i.i, ptr noundef nonnull align 8 dereferenceable(16) %32) #16
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %34 = load ptr, ptr %33, align 8
-  %35 = getelementptr inbounds i8, ptr %0, i64 32
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %36 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %35) #16
   %37 = add i64 %36, 1
   %38 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE8capacityEv(ptr noundef nonnull align 8 dereferenceable(16) %35) #16
@@ -11160,7 +11160,7 @@ define dso_local void @_ZN5clang13ASTStmtWriter15VisitChooseExprEPNS_10ChooseExp
   %6 = lshr i16 %5, 5
   %7 = and i16 %6, 31
   %8 = zext nneg i16 %7 to i32
-  %9 = getelementptr inbounds i8, ptr %0, i64 236
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 236
   %10 = load i32, ptr %9, align 4
   %11 = shl i32 %8, %10
   %12 = load i32, ptr %3, align 8
@@ -11187,14 +11187,14 @@ define dso_local void @_ZN5clang13ASTStmtWriter15VisitChooseExprEPNS_10ChooseExp
   store i32 %27, ptr %9, align 4
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.0.0.copyload.i.i = load i64, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %0, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %0, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %32 = load ptr, ptr %31, align 8
   tail call void @_ZN5clang9ASTWriter10AddTypeRefENS_8QualTypeERN4llvm15SmallVectorImplImEE(ptr noundef nonnull align 8 dereferenceable(3340) %30, i64 %.sroa.0.0.copyload.i.i, ptr noundef nonnull align 8 dereferenceable(16) %32) #16
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %34 = load ptr, ptr %33, align 8
-  %35 = getelementptr inbounds i8, ptr %0, i64 32
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %36 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %35) #16
   %37 = add i64 %36, 1
   %38 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE8capacityEv(ptr noundef nonnull align 8 dereferenceable(16) %35) #16
@@ -11319,7 +11319,7 @@ define dso_local void @_ZN5clang13ASTStmtWriter16VisitGNUNullExprEPNS_11GNUNullE
   %6 = lshr i16 %5, 5
   %7 = and i16 %6, 31
   %8 = zext nneg i16 %7 to i32
-  %9 = getelementptr inbounds i8, ptr %0, i64 236
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 236
   %10 = load i32, ptr %9, align 4
   %11 = shl i32 %8, %10
   %12 = load i32, ptr %3, align 8
@@ -11346,9 +11346,9 @@ define dso_local void @_ZN5clang13ASTStmtWriter16VisitGNUNullExprEPNS_11GNUNullE
   store i32 %27, ptr %9, align 4
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.0.0.copyload.i.i = load i64, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %0, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %0, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %32 = load ptr, ptr %31, align 8
   tail call void @_ZN5clang9ASTWriter10AddTypeRefENS_8QualTypeERN4llvm15SmallVectorImplImEE(ptr noundef nonnull align 8 dereferenceable(3340) %30, i64 %.sroa.0.0.copyload.i.i, ptr noundef nonnull align 8 dereferenceable(16) %32) #16
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -11370,7 +11370,7 @@ define dso_local void @_ZN5clang13ASTStmtWriter22VisitShuffleVectorExprEPNS_17Sh
   %6 = lshr i16 %5, 5
   %7 = and i16 %6, 31
   %8 = zext nneg i16 %7 to i32
-  %9 = getelementptr inbounds i8, ptr %0, i64 236
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 236
   %10 = load i32, ptr %9, align 4
   %11 = shl i32 %8, %10
   %12 = load i32, ptr %3, align 8
@@ -11397,9 +11397,9 @@ define dso_local void @_ZN5clang13ASTStmtWriter22VisitShuffleVectorExprEPNS_17Sh
   store i32 %27, ptr %9, align 4
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.0.0.copyload.i.i = load i64, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %0, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %0, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %32 = load ptr, ptr %31, align 8
   tail call void @_ZN5clang9ASTWriter10AddTypeRefENS_8QualTypeERN4llvm15SmallVectorImplImEE(ptr noundef nonnull align 8 dereferenceable(3340) %30, i64 %.sroa.0.0.copyload.i.i, ptr noundef nonnull align 8 dereferenceable(16) %32) #16
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -11431,7 +11431,7 @@ _ZN5clang15ASTRecordWriter9push_backEm.exit:      ; preds = %2, %40
 
 .lr.ph:                                           ; preds = %_ZN5clang15ASTRecordWriter9push_backEm.exit
   %48 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %49 = getelementptr inbounds i8, ptr %0, i64 32
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %50 = getelementptr inbounds i8, ptr %0, i64 48
   %51 = zext i32 %47 to i64
   br label %52
@@ -11489,7 +11489,7 @@ define dso_local void @_ZN5clang13ASTStmtWriter22VisitConvertVectorExprEPNS_17Co
   %6 = lshr i16 %5, 5
   %7 = and i16 %6, 31
   %8 = zext nneg i16 %7 to i32
-  %9 = getelementptr inbounds i8, ptr %0, i64 236
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 236
   %10 = load i32, ptr %9, align 4
   %11 = shl i32 %8, %10
   %12 = load i32, ptr %3, align 8
@@ -11516,9 +11516,9 @@ define dso_local void @_ZN5clang13ASTStmtWriter22VisitConvertVectorExprEPNS_17Co
   store i32 %27, ptr %9, align 4
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.0.0.copyload.i.i = load i64, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %0, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %0, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %32 = load ptr, ptr %31, align 8
   tail call void @_ZN5clang9ASTWriter10AddTypeRefENS_8QualTypeERN4llvm15SmallVectorImplImEE(ptr noundef nonnull align 8 dereferenceable(3340) %30, i64 %.sroa.0.0.copyload.i.i, ptr noundef nonnull align 8 dereferenceable(16) %32) #16
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -11537,7 +11537,7 @@ define dso_local void @_ZN5clang13ASTStmtWriter22VisitConvertVectorExprEPNS_17Co
   tail call void @_ZN5clang15ASTRecordWriter17AddTypeSourceInfoEPNS_14TypeSourceInfoE(ptr noundef nonnull align 8 dereferenceable(216) %33, ptr noundef %41) #16
   %42 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %43 = load ptr, ptr %42, align 8
-  %44 = getelementptr inbounds i8, ptr %0, i64 32
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %45 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %44) #16
   %46 = add i64 %45, 1
   %47 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE8capacityEv(ptr noundef nonnull align 8 dereferenceable(16) %44) #16
@@ -11572,7 +11572,7 @@ define dso_local void @_ZN5clang13ASTStmtWriter14VisitBlockExprEPNS_9BlockExprE(
   %6 = lshr i16 %5, 5
   %7 = and i16 %6, 31
   %8 = zext nneg i16 %7 to i32
-  %9 = getelementptr inbounds i8, ptr %0, i64 236
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 236
   %10 = load i32, ptr %9, align 4
   %11 = shl i32 %8, %10
   %12 = load i32, ptr %3, align 8
@@ -11599,9 +11599,9 @@ define dso_local void @_ZN5clang13ASTStmtWriter14VisitBlockExprEPNS_9BlockExprE(
   store i32 %27, ptr %9, align 4
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.0.0.copyload.i.i = load i64, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %0, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %0, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %32 = load ptr, ptr %31, align 8
   tail call void @_ZN5clang9ASTWriter10AddTypeRefENS_8QualTypeERN4llvm15SmallVectorImplImEE(ptr noundef nonnull align 8 dereferenceable(3340) %30, i64 %.sroa.0.0.copyload.i.i, ptr noundef nonnull align 8 dereferenceable(16) %32) #16
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -11623,7 +11623,7 @@ define dso_local void @_ZN5clang13ASTStmtWriter25VisitGenericSelectionExprEPNS_2
   %6 = lshr i16 %5, 5
   %7 = and i16 %6, 31
   %8 = zext nneg i16 %7 to i32
-  %9 = getelementptr inbounds i8, ptr %0, i64 236
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 236
   %10 = load i32, ptr %9, align 4
   %11 = shl i32 %8, %10
   %12 = load i32, ptr %3, align 8
@@ -11650,9 +11650,9 @@ define dso_local void @_ZN5clang13ASTStmtWriter25VisitGenericSelectionExprEPNS_2
   store i32 %27, ptr %9, align 4
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.0.0.copyload.i.i = load i64, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %0, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %0, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %32 = load ptr, ptr %31, align 8
   tail call void @_ZN5clang9ASTWriter10AddTypeRefENS_8QualTypeERN4llvm15SmallVectorImplImEE(ptr noundef nonnull align 8 dereferenceable(3340) %30, i64 %.sroa.0.0.copyload.i.i, ptr noundef nonnull align 8 dereferenceable(16) %32) #16
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -11746,7 +11746,7 @@ _ZN5clang15ASTRecordWriter9push_backEm.exit27:    ; preds = %_ZN5clang15ASTRecor
   %87 = getelementptr inbounds i8, ptr %1, i64 32
   %88 = load i32, ptr %34, align 8
   %89 = and i32 %88, 32767
-  %90 = getelementptr inbounds i8, ptr %0, i64 32
+  %90 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %91 = getelementptr inbounds i8, ptr %0, i64 48
   %92 = add nuw nsw i32 %89, 1
   %wide.trip.count = zext nneg i32 %92 to i64
@@ -11818,7 +11818,7 @@ define dso_local void @_ZN5clang13ASTStmtWriter21VisitPseudoObjectExprEPNS_16Pse
   %6 = lshr i16 %5, 5
   %7 = and i16 %6, 31
   %8 = zext nneg i16 %7 to i32
-  %9 = getelementptr inbounds i8, ptr %0, i64 236
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 236
   %10 = load i32, ptr %9, align 4
   %11 = shl i32 %8, %10
   %12 = load i32, ptr %3, align 8
@@ -11845,9 +11845,9 @@ define dso_local void @_ZN5clang13ASTStmtWriter21VisitPseudoObjectExprEPNS_16Pse
   store i32 %27, ptr %9, align 4
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.0.0.copyload.i.i = load i64, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %0, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %0, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %32 = load ptr, ptr %31, align 8
   tail call void @_ZN5clang9ASTWriter10AddTypeRefENS_8QualTypeERN4llvm15SmallVectorImplImEE(ptr noundef nonnull align 8 dereferenceable(3340) %30, i64 %.sroa.0.0.copyload.i.i, ptr noundef nonnull align 8 dereferenceable(16) %32) #16
   %33 = load i64, ptr %1, align 8
@@ -11899,7 +11899,7 @@ _ZN5clang15ASTRecordWriter9push_backEm.exit14:    ; preds = %_ZN5clang15ASTRecor
   tail call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %51, i64 noundef %61) #16
   %.ptr = getelementptr inbounds i8, ptr %1, i64 16
   %62 = load ptr, ptr %.ptr, align 8
-  %63 = getelementptr inbounds i8, ptr %0, i64 32
+  %63 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %64 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %63) #16
   %65 = add i64 %64, 1
   %66 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE8capacityEv(ptr noundef nonnull align 8 dereferenceable(16) %63) #16
@@ -11974,7 +11974,7 @@ define dso_local void @_ZN5clang13ASTStmtWriter15VisitAtomicExprEPNS_10AtomicExp
   %6 = lshr i16 %5, 5
   %7 = and i16 %6, 31
   %8 = zext nneg i16 %7 to i32
-  %9 = getelementptr inbounds i8, ptr %0, i64 236
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 236
   %10 = load i32, ptr %9, align 4
   %11 = shl i32 %8, %10
   %12 = load i32, ptr %3, align 8
@@ -12001,9 +12001,9 @@ define dso_local void @_ZN5clang13ASTStmtWriter15VisitAtomicExprEPNS_10AtomicExp
   store i32 %27, ptr %9, align 4
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.0.0.copyload.i.i = load i64, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %0, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %0, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %32 = load ptr, ptr %31, align 8
   tail call void @_ZN5clang9ASTWriter10AddTypeRefENS_8QualTypeERN4llvm15SmallVectorImplImEE(ptr noundef nonnull align 8 dereferenceable(3340) %30, i64 %.sroa.0.0.copyload.i.i, ptr noundef nonnull align 8 dereferenceable(16) %32) #16
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 84
@@ -12036,7 +12036,7 @@ _ZN5clang15ASTRecordWriter9push_backEm.exit:      ; preds = %2, %40
 
 .lr.ph:                                           ; preds = %_ZN5clang15ASTRecordWriter9push_backEm.exit
   %49 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %50 = getelementptr inbounds i8, ptr %0, i64 32
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %51 = getelementptr inbounds i8, ptr %0, i64 48
   %52 = zext i32 %48 to i64
   br label %53
@@ -12093,7 +12093,7 @@ define dso_local void @_ZN5clang13ASTStmtWriter22VisitObjCStringLiteralEPNS_17Ob
   %6 = lshr i16 %5, 5
   %7 = and i16 %6, 31
   %8 = zext nneg i16 %7 to i32
-  %9 = getelementptr inbounds i8, ptr %0, i64 236
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 236
   %10 = load i32, ptr %9, align 4
   %11 = shl i32 %8, %10
   %12 = load i32, ptr %3, align 8
@@ -12120,14 +12120,14 @@ define dso_local void @_ZN5clang13ASTStmtWriter22VisitObjCStringLiteralEPNS_17Ob
   store i32 %27, ptr %9, align 4
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.0.0.copyload.i.i = load i64, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %0, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %0, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %32 = load ptr, ptr %31, align 8
   tail call void @_ZN5clang9ASTWriter10AddTypeRefENS_8QualTypeERN4llvm15SmallVectorImplImEE(ptr noundef nonnull align 8 dereferenceable(3340) %30, i64 %.sroa.0.0.copyload.i.i, ptr noundef nonnull align 8 dereferenceable(16) %32) #16
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %34 = load ptr, ptr %33, align 8
-  %35 = getelementptr inbounds i8, ptr %0, i64 32
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %36 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %35) #16
   %37 = add i64 %36, 1
   %38 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE8capacityEv(ptr noundef nonnull align 8 dereferenceable(16) %35) #16
@@ -12167,7 +12167,7 @@ define dso_local void @_ZN5clang13ASTStmtWriter18VisitObjCBoxedExprEPNS_13ObjCBo
   %6 = lshr i16 %5, 5
   %7 = and i16 %6, 31
   %8 = zext nneg i16 %7 to i32
-  %9 = getelementptr inbounds i8, ptr %0, i64 236
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 236
   %10 = load i32, ptr %9, align 4
   %11 = shl i32 %8, %10
   %12 = load i32, ptr %3, align 8
@@ -12194,14 +12194,14 @@ define dso_local void @_ZN5clang13ASTStmtWriter18VisitObjCBoxedExprEPNS_13ObjCBo
   store i32 %27, ptr %9, align 4
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.0.0.copyload.i.i = load i64, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %0, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %0, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %32 = load ptr, ptr %31, align 8
   tail call void @_ZN5clang9ASTWriter10AddTypeRefENS_8QualTypeERN4llvm15SmallVectorImplImEE(ptr noundef nonnull align 8 dereferenceable(3340) %30, i64 %.sroa.0.0.copyload.i.i, ptr noundef nonnull align 8 dereferenceable(16) %32) #16
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %34 = load ptr, ptr %33, align 8
-  %35 = getelementptr inbounds i8, ptr %0, i64 32
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %36 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %35) #16
   %37 = add i64 %36, 1
   %38 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE8capacityEv(ptr noundef nonnull align 8 dereferenceable(16) %35) #16
@@ -12246,7 +12246,7 @@ define dso_local void @_ZN5clang13ASTStmtWriter21VisitObjCArrayLiteralEPNS_16Obj
   %6 = lshr i16 %5, 5
   %7 = and i16 %6, 31
   %8 = zext nneg i16 %7 to i32
-  %9 = getelementptr inbounds i8, ptr %0, i64 236
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 236
   %10 = load i32, ptr %9, align 4
   %11 = shl i32 %8, %10
   %12 = load i32, ptr %3, align 8
@@ -12273,9 +12273,9 @@ define dso_local void @_ZN5clang13ASTStmtWriter21VisitObjCArrayLiteralEPNS_16Obj
   store i32 %27, ptr %9, align 4
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.0.0.copyload.i.i = load i64, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %0, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %0, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %32 = load ptr, ptr %31, align 8
   tail call void @_ZN5clang9ASTWriter10AddTypeRefENS_8QualTypeERN4llvm15SmallVectorImplImEE(ptr noundef nonnull align 8 dereferenceable(3340) %30, i64 %.sroa.0.0.copyload.i.i, ptr noundef nonnull align 8 dereferenceable(16) %32) #16
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -12307,7 +12307,7 @@ _ZN5clang15ASTRecordWriter9push_backEm.exit:      ; preds = %2, %40
 
 .lr.ph:                                           ; preds = %_ZN5clang15ASTRecordWriter9push_backEm.exit
   %48 = getelementptr inbounds i8, ptr %1, i64 40
-  %49 = getelementptr inbounds i8, ptr %0, i64 32
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %50 = getelementptr inbounds i8, ptr %0, i64 48
   br label %51
 
@@ -12365,7 +12365,7 @@ define dso_local void @_ZN5clang13ASTStmtWriter26VisitObjCDictionaryLiteralEPNS_
   %6 = lshr i16 %5, 5
   %7 = and i16 %6, 31
   %8 = zext nneg i16 %7 to i32
-  %9 = getelementptr inbounds i8, ptr %0, i64 236
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 236
   %10 = load i32, ptr %9, align 4
   %11 = shl i32 %8, %10
   %12 = load i32, ptr %3, align 8
@@ -12392,9 +12392,9 @@ define dso_local void @_ZN5clang13ASTStmtWriter26VisitObjCDictionaryLiteralEPNS_
   store i32 %27, ptr %9, align 4
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.0.0.copyload.i.i = load i64, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %0, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %0, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %32 = load ptr, ptr %31, align 8
   tail call void @_ZN5clang9ASTWriter10AddTypeRefENS_8QualTypeERN4llvm15SmallVectorImplImEE(ptr noundef nonnull align 8 dereferenceable(3340) %30, i64 %.sroa.0.0.copyload.i.i, ptr noundef nonnull align 8 dereferenceable(16) %32) #16
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -12451,7 +12451,7 @@ _ZN5clang15ASTRecordWriter9push_backEm.exit15:    ; preds = %_ZN5clang15ASTRecor
 
 .lr.ph:                                           ; preds = %_ZN5clang15ASTRecordWriter9push_backEm.exit15
   %64 = getelementptr inbounds i8, ptr %1, i64 40
-  %65 = getelementptr inbounds i8, ptr %0, i64 32
+  %65 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %66 = getelementptr inbounds i8, ptr %0, i64 48
   br label %67
 
@@ -12588,7 +12588,7 @@ define dso_local void @_ZN5clang13ASTStmtWriter19VisitObjCEncodeExprEPNS_14ObjCE
   %6 = lshr i16 %5, 5
   %7 = and i16 %6, 31
   %8 = zext nneg i16 %7 to i32
-  %9 = getelementptr inbounds i8, ptr %0, i64 236
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 236
   %10 = load i32, ptr %9, align 4
   %11 = shl i32 %8, %10
   %12 = load i32, ptr %3, align 8
@@ -12615,9 +12615,9 @@ define dso_local void @_ZN5clang13ASTStmtWriter19VisitObjCEncodeExprEPNS_14ObjCE
   store i32 %27, ptr %9, align 4
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.0.0.copyload.i.i = load i64, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %0, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %0, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %32 = load ptr, ptr %31, align 8
   tail call void @_ZN5clang9ASTWriter10AddTypeRefENS_8QualTypeERN4llvm15SmallVectorImplImEE(ptr noundef nonnull align 8 dereferenceable(3340) %30, i64 %.sroa.0.0.copyload.i.i, ptr noundef nonnull align 8 dereferenceable(16) %32) #16
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -12648,7 +12648,7 @@ define dso_local void @_ZN5clang13ASTStmtWriter21VisitObjCSelectorExprEPNS_16Obj
   %6 = lshr i16 %5, 5
   %7 = and i16 %6, 31
   %8 = zext nneg i16 %7 to i32
-  %9 = getelementptr inbounds i8, ptr %0, i64 236
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 236
   %10 = load i32, ptr %9, align 4
   %11 = shl i32 %8, %10
   %12 = load i32, ptr %3, align 8
@@ -12675,9 +12675,9 @@ define dso_local void @_ZN5clang13ASTStmtWriter21VisitObjCSelectorExprEPNS_16Obj
   store i32 %27, ptr %9, align 4
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.0.0.copyload.i.i = load i64, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %0, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %0, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %32 = load ptr, ptr %31, align 8
   tail call void @_ZN5clang9ASTWriter10AddTypeRefENS_8QualTypeERN4llvm15SmallVectorImplImEE(ptr noundef nonnull align 8 dereferenceable(3340) %30, i64 %.sroa.0.0.copyload.i.i, ptr noundef nonnull align 8 dereferenceable(16) %32) #16
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -12710,7 +12710,7 @@ define dso_local void @_ZN5clang13ASTStmtWriter21VisitObjCProtocolExprEPNS_16Obj
   %6 = lshr i16 %5, 5
   %7 = and i16 %6, 31
   %8 = zext nneg i16 %7 to i32
-  %9 = getelementptr inbounds i8, ptr %0, i64 236
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 236
   %10 = load i32, ptr %9, align 4
   %11 = shl i32 %8, %10
   %12 = load i32, ptr %3, align 8
@@ -12737,9 +12737,9 @@ define dso_local void @_ZN5clang13ASTStmtWriter21VisitObjCProtocolExprEPNS_16Obj
   store i32 %27, ptr %9, align 4
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.0.0.copyload.i.i = load i64, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %0, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %0, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %32 = load ptr, ptr %31, align 8
   tail call void @_ZN5clang9ASTWriter10AddTypeRefENS_8QualTypeERN4llvm15SmallVectorImplImEE(ptr noundef nonnull align 8 dereferenceable(3340) %30, i64 %.sroa.0.0.copyload.i.i, ptr noundef nonnull align 8 dereferenceable(16) %32) #16
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -12776,7 +12776,7 @@ define dso_local void @_ZN5clang13ASTStmtWriter20VisitObjCIvarRefExprEPNS_15ObjC
   %6 = lshr i16 %5, 5
   %7 = and i16 %6, 31
   %8 = zext nneg i16 %7 to i32
-  %9 = getelementptr inbounds i8, ptr %0, i64 236
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 236
   %10 = load i32, ptr %9, align 4
   %11 = shl i32 %8, %10
   %12 = load i32, ptr %3, align 8
@@ -12803,9 +12803,9 @@ define dso_local void @_ZN5clang13ASTStmtWriter20VisitObjCIvarRefExprEPNS_15ObjC
   store i32 %27, ptr %9, align 4
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.0.0.copyload.i.i = load i64, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %0, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %0, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %32 = load ptr, ptr %31, align 8
   tail call void @_ZN5clang9ASTWriter10AddTypeRefENS_8QualTypeERN4llvm15SmallVectorImplImEE(ptr noundef nonnull align 8 dereferenceable(3340) %30, i64 %.sroa.0.0.copyload.i.i, ptr noundef nonnull align 8 dereferenceable(16) %32) #16
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -12825,7 +12825,7 @@ define dso_local void @_ZN5clang13ASTStmtWriter20VisitObjCIvarRefExprEPNS_15ObjC
   tail call void @_ZN5clang9ASTWriter17AddSourceLocationENS_14SourceLocationERN4llvm15SmallVectorImplImEEPNS_22SourceLocationSequenceE(ptr noundef nonnull align 8 dereferenceable(3340) %41, i32 %.sroa.0.0.copyload.i9, ptr noundef nonnull align 8 dereferenceable(16) %42, ptr noundef null) #16
   %43 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %44 = load ptr, ptr %43, align 8
-  %45 = getelementptr inbounds i8, ptr %0, i64 32
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %46 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %45) #16
   %47 = add i64 %46, 1
   %48 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE8capacityEv(ptr noundef nonnull align 8 dereferenceable(16) %45) #16
@@ -12908,7 +12908,7 @@ define dso_local void @_ZN5clang13ASTStmtWriter24VisitObjCPropertyRefExprEPNS_19
   %6 = lshr i16 %5, 5
   %7 = and i16 %6, 31
   %8 = zext nneg i16 %7 to i32
-  %9 = getelementptr inbounds i8, ptr %0, i64 236
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 236
   %10 = load i32, ptr %9, align 4
   %11 = shl i32 %8, %10
   %12 = load i32, ptr %3, align 8
@@ -12935,9 +12935,9 @@ define dso_local void @_ZN5clang13ASTStmtWriter24VisitObjCPropertyRefExprEPNS_19
   store i32 %27, ptr %9, align 4
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.0.0.copyload.i.i = load i64, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %0, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %0, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %32 = load ptr, ptr %31, align 8
   tail call void @_ZN5clang9ASTWriter10AddTypeRefENS_8QualTypeERN4llvm15SmallVectorImplImEE(ptr noundef nonnull align 8 dereferenceable(3340) %30, i64 %.sroa.0.0.copyload.i.i, ptr noundef nonnull align 8 dereferenceable(16) %32) #16
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -13049,7 +13049,7 @@ _ZN5clang15ASTRecordWriter9push_backEm.exit25:    ; preds = %83, %84
   tail call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %79, i64 noundef %90) #16
   %.0.copyload.i.i.i.i.i.i.i.i.i26 = load i64, ptr %77, align 8
   %91 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i26, -8
-  %92 = getelementptr inbounds i8, ptr %0, i64 32
+  %92 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %93 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %92) #16
   %94 = add i64 %93, 1
   %95 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE8capacityEv(ptr noundef nonnull align 8 dereferenceable(16) %92) #16
@@ -13133,7 +13133,7 @@ define dso_local void @_ZN5clang13ASTStmtWriter25VisitObjCSubscriptRefExprEPNS_2
   %6 = lshr i16 %5, 5
   %7 = and i16 %6, 31
   %8 = zext nneg i16 %7 to i32
-  %9 = getelementptr inbounds i8, ptr %0, i64 236
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 236
   %10 = load i32, ptr %9, align 4
   %11 = shl i32 %8, %10
   %12 = load i32, ptr %3, align 8
@@ -13160,9 +13160,9 @@ define dso_local void @_ZN5clang13ASTStmtWriter25VisitObjCSubscriptRefExprEPNS_2
   store i32 %27, ptr %9, align 4
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.0.0.copyload.i.i = load i64, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %0, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %0, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %32 = load ptr, ptr %31, align 8
   tail call void @_ZN5clang9ASTWriter10AddTypeRefENS_8QualTypeERN4llvm15SmallVectorImplImEE(ptr noundef nonnull align 8 dereferenceable(3340) %30, i64 %.sroa.0.0.copyload.i.i, ptr noundef nonnull align 8 dereferenceable(16) %32) #16
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -13172,7 +13172,7 @@ define dso_local void @_ZN5clang13ASTStmtWriter25VisitObjCSubscriptRefExprEPNS_2
   tail call void @_ZN5clang9ASTWriter17AddSourceLocationENS_14SourceLocationERN4llvm15SmallVectorImplImEEPNS_22SourceLocationSequenceE(ptr noundef nonnull align 8 dereferenceable(3340) %34, i32 %.sroa.0.0.copyload.i, ptr noundef nonnull align 8 dereferenceable(16) %35, ptr noundef null) #16
   %36 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %37 = load ptr, ptr %36, align 8
-  %38 = getelementptr inbounds i8, ptr %0, i64 32
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %39 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %38) #16
   %40 = add i64 %39, 1
   %41 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE8capacityEv(ptr noundef nonnull align 8 dereferenceable(16) %38) #16
@@ -13241,7 +13241,7 @@ define dso_local void @_ZN5clang13ASTStmtWriter20VisitObjCMessageExprEPNS_15ObjC
   %8 = lshr i16 %7, 5
   %9 = and i16 %8, 31
   %10 = zext nneg i16 %9 to i32
-  %11 = getelementptr inbounds i8, ptr %0, i64 236
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 236
   %12 = load i32, ptr %11, align 4
   %13 = shl i32 %10, %12
   %14 = load i32, ptr %5, align 8
@@ -13268,9 +13268,9 @@ define dso_local void @_ZN5clang13ASTStmtWriter20VisitObjCMessageExprEPNS_15ObjC
   store i32 %29, ptr %11, align 4
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.0.0.copyload.i.i = load i64, ptr %30, align 8
-  %31 = getelementptr inbounds i8, ptr %0, i64 16
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %32 = load ptr, ptr %31, align 8
-  %33 = getelementptr inbounds i8, ptr %0, i64 24
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %34 = load ptr, ptr %33, align 8
   tail call void @_ZN5clang9ASTWriter10AddTypeRefENS_8QualTypeERN4llvm15SmallVectorImplImEE(ptr noundef nonnull align 8 dereferenceable(3340) %32, i64 %.sroa.0.0.copyload.i.i, ptr noundef nonnull align 8 dereferenceable(16) %34) #16
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -13467,7 +13467,7 @@ _ZN5clang15ASTRecordWriter9push_backEm.exit41:    ; preds = %_ZN5clang15ASTRecor
 
 _ZN5clang15ObjCMessageExpr19getInstanceReceiverEv.exit: ; preds = %134, %137
   %.0.i42 = phi i64 [ %140, %137 ], [ 0, %134 ]
-  %141 = getelementptr inbounds i8, ptr %0, i64 32
+  %141 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %142 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %141) #16
   %143 = add i64 %142, 1
   %144 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE8capacityEv(ptr noundef nonnull align 8 dereferenceable(16) %141) #16
@@ -13615,7 +13615,7 @@ _ZN5clang15ASTRecordWriter9push_backEm.exit54:    ; preds = %195, %196
 
 .lr.ph:                                           ; preds = %204
   %.ptr = getelementptr inbounds i8, ptr %1, i64 48
-  %215 = getelementptr inbounds i8, ptr %0, i64 32
+  %215 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %216 = getelementptr inbounds i8, ptr %0, i64 48
   br label %217
 
@@ -13716,7 +13716,7 @@ declare i64 @_ZNK5clang15ObjCMessageExpr11getSelectorEv(ptr noundef nonnull alig
 define dso_local void @_ZN5clang13ASTStmtWriter26VisitObjCForCollectionStmtEPNS_21ObjCForCollectionStmtE(ptr noundef nonnull align 8 dereferenceable(256) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %6 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %5) #16
   %7 = add i64 %6, 1
   %8 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE8capacityEv(ptr noundef nonnull align 8 dereferenceable(16) %5) #16
@@ -13783,9 +13783,9 @@ _ZN5clang15ASTRecordWriter7AddStmtEPNS_4StmtE.exit11: ; preds = %_ZN5clang15ASTR
   tail call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %5, i64 noundef %42) #16
   %43 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %.sroa.0.0.copyload.i = load i32, ptr %43, align 8
-  %44 = getelementptr inbounds i8, ptr %0, i64 16
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %45 = load ptr, ptr %44, align 8
-  %46 = getelementptr inbounds i8, ptr %0, i64 24
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %47 = load ptr, ptr %46, align 8
   tail call void @_ZN5clang9ASTWriter17AddSourceLocationENS_14SourceLocationERN4llvm15SmallVectorImplImEEPNS_22SourceLocationSequenceE(ptr noundef nonnull align 8 dereferenceable(3340) %45, i32 %.sroa.0.0.copyload.i, ptr noundef nonnull align 8 dereferenceable(16) %47, ptr noundef null) #16
   %48 = getelementptr inbounds nuw i8, ptr %1, i64 36
@@ -13802,7 +13802,7 @@ _ZN5clang15ASTRecordWriter7AddStmtEPNS_4StmtE.exit11: ; preds = %_ZN5clang15ASTR
 define dso_local void @_ZN5clang13ASTStmtWriter20VisitObjCAtCatchStmtEPNS_15ObjCAtCatchStmtE(ptr noundef nonnull align 8 dereferenceable(256) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %6 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %5) #16
   %7 = add i64 %6, 1
   %8 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE8capacityEv(ptr noundef nonnull align 8 dereferenceable(16) %5) #16
@@ -13825,9 +13825,9 @@ _ZN5clang15ASTRecordWriter7AddStmtEPNS_4StmtE.exit: ; preds = %2, %9
   tail call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %5, i64 noundef %16) #16
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %0, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %0, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %22 = load ptr, ptr %21, align 8
   tail call void @_ZN5clang9ASTWriter10AddDeclRefEPKNS_4DeclERN4llvm15SmallVectorImplImEE(ptr noundef nonnull align 8 dereferenceable(3340) %20, ptr noundef %18, ptr noundef nonnull align 8 dereferenceable(16) %22) #16
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -13849,7 +13849,7 @@ _ZN5clang15ASTRecordWriter7AddStmtEPNS_4StmtE.exit: ; preds = %2, %9
 define dso_local void @_ZN5clang13ASTStmtWriter22VisitObjCAtFinallyStmtEPNS_17ObjCAtFinallyStmtE(ptr noundef nonnull align 8 dereferenceable(256) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %6 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %5) #16
   %7 = add i64 %6, 1
   %8 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE8capacityEv(ptr noundef nonnull align 8 dereferenceable(16) %5) #16
@@ -13872,9 +13872,9 @@ _ZN5clang15ASTRecordWriter7AddStmtEPNS_4StmtE.exit: ; preds = %2, %9
   tail call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %5, i64 noundef %16) #16
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.0.0.copyload.i = load i32, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %0, i64 24
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %21 = load ptr, ptr %20, align 8
   tail call void @_ZN5clang9ASTWriter17AddSourceLocationENS_14SourceLocationERN4llvm15SmallVectorImplImEEPNS_22SourceLocationSequenceE(ptr noundef nonnull align 8 dereferenceable(3340) %19, i32 %.sroa.0.0.copyload.i, ptr noundef nonnull align 8 dereferenceable(16) %21, ptr noundef null) #16
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 224
@@ -13886,7 +13886,7 @@ _ZN5clang15ASTRecordWriter7AddStmtEPNS_4StmtE.exit: ; preds = %2, %9
 define dso_local void @_ZN5clang13ASTStmtWriter28VisitObjCAutoreleasePoolStmtEPNS_23ObjCAutoreleasePoolStmtE(ptr noundef nonnull align 8 dereferenceable(256) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %6 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %5) #16
   %7 = add i64 %6, 1
   %8 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE8capacityEv(ptr noundef nonnull align 8 dereferenceable(16) %5) #16
@@ -13909,9 +13909,9 @@ _ZN5clang15ASTRecordWriter7AddStmtEPNS_4StmtE.exit: ; preds = %2, %9
   tail call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %5, i64 noundef %16) #16
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.0.0.copyload.i = load i32, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %0, i64 24
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %21 = load ptr, ptr %20, align 8
   tail call void @_ZN5clang9ASTWriter17AddSourceLocationENS_14SourceLocationERN4llvm15SmallVectorImplImEEPNS_22SourceLocationSequenceE(ptr noundef nonnull align 8 dereferenceable(3340) %19, i32 %.sroa.0.0.copyload.i, ptr noundef nonnull align 8 dereferenceable(16) %21, ptr noundef null) #16
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 224
@@ -13924,7 +13924,7 @@ define dso_local void @_ZN5clang13ASTStmtWriter18VisitObjCAtTryStmtEPNS_13ObjCAt
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %4 = load i16, ptr %3, align 4
   %5 = zext i16 %4 to i64
-  %6 = getelementptr inbounds i8, ptr %0, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = load ptr, ptr %6, align 8
   %8 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %7) #16
   %9 = add i64 %8, 1
@@ -13986,7 +13986,7 @@ _ZN5clang15ASTRecordWriter9push_backEm.exit13:    ; preds = %_ZN5clang13ObjCAtTr
   tail call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %30, i64 noundef %40) #16
   %41 = getelementptr inbounds i8, ptr %1, i64 16
   %42 = load ptr, ptr %41, align 8
-  %43 = getelementptr inbounds i8, ptr %0, i64 32
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %44 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %43) #16
   %45 = add i64 %44, 1
   %46 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE8capacityEv(ptr noundef nonnull align 8 dereferenceable(16) %43) #16
@@ -14087,7 +14087,7 @@ _ZN5clang15ASTRecordWriter7AddStmtEPNS_4StmtE.exit25: ; preds = %_ZN5clang13ObjC
 _ZN5clang13ObjCAtTryStmt14getFinallyStmtEv.exit20.thread: ; preds = %._crit_edge, %_ZN5clang15ASTRecordWriter7AddStmtEPNS_4StmtE.exit25, %_ZN5clang13ObjCAtTryStmt14getFinallyStmtEv.exit20
   %90 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.0.0.copyload.i26 = load i32, ptr %90, align 8
-  %91 = getelementptr inbounds i8, ptr %0, i64 16
+  %91 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %92 = load ptr, ptr %91, align 8
   %93 = load ptr, ptr %6, align 8
   tail call void @_ZN5clang9ASTWriter17AddSourceLocationENS_14SourceLocationERN4llvm15SmallVectorImplImEEPNS_22SourceLocationSequenceE(ptr noundef nonnull align 8 dereferenceable(3340) %92, i32 %.sroa.0.0.copyload.i26, ptr noundef nonnull align 8 dereferenceable(16) %93, ptr noundef null) #16
@@ -14100,7 +14100,7 @@ _ZN5clang13ObjCAtTryStmt14getFinallyStmtEv.exit20.thread: ; preds = %._crit_edge
 define dso_local void @_ZN5clang13ASTStmtWriter27VisitObjCAtSynchronizedStmtEPNS_22ObjCAtSynchronizedStmtE(ptr noundef nonnull align 8 dereferenceable(256) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %6 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %5) #16
   %7 = add i64 %6, 1
   %8 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE8capacityEv(ptr noundef nonnull align 8 dereferenceable(16) %5) #16
@@ -14145,9 +14145,9 @@ _ZN5clang15ASTRecordWriter7AddStmtEPNS_4StmtE.exit6: ; preds = %_ZN5clang15ASTRe
   tail call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %5, i64 noundef %29) #16
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.0.0.copyload.i = load i32, ptr %30, align 8
-  %31 = getelementptr inbounds i8, ptr %0, i64 16
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %32 = load ptr, ptr %31, align 8
-  %33 = getelementptr inbounds i8, ptr %0, i64 24
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %34 = load ptr, ptr %33, align 8
   tail call void @_ZN5clang9ASTWriter17AddSourceLocationENS_14SourceLocationERN4llvm15SmallVectorImplImEEPNS_22SourceLocationSequenceE(ptr noundef nonnull align 8 dereferenceable(3340) %32, i32 %.sroa.0.0.copyload.i, ptr noundef nonnull align 8 dereferenceable(16) %34, ptr noundef null) #16
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 224
@@ -14159,7 +14159,7 @@ _ZN5clang15ASTRecordWriter7AddStmtEPNS_4StmtE.exit6: ; preds = %_ZN5clang15ASTRe
 define dso_local void @_ZN5clang13ASTStmtWriter20VisitObjCAtThrowStmtEPNS_15ObjCAtThrowStmtE(ptr noundef nonnull align 8 dereferenceable(256) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %6 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %5) #16
   %7 = add i64 %6, 1
   %8 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE8capacityEv(ptr noundef nonnull align 8 dereferenceable(16) %5) #16
@@ -14182,9 +14182,9 @@ _ZN5clang15ASTRecordWriter7AddStmtEPNS_4StmtE.exit: ; preds = %2, %9
   tail call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %5, i64 noundef %16) #16
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.0.0.copyload.i = load i32, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %0, i64 24
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %21 = load ptr, ptr %20, align 8
   tail call void @_ZN5clang9ASTWriter17AddSourceLocationENS_14SourceLocationERN4llvm15SmallVectorImplImEEPNS_22SourceLocationSequenceE(ptr noundef nonnull align 8 dereferenceable(3340) %19, i32 %.sroa.0.0.copyload.i, ptr noundef nonnull align 8 dereferenceable(16) %21, ptr noundef null) #16
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 224
@@ -14201,7 +14201,7 @@ define dso_local void @_ZN5clang13ASTStmtWriter24VisitObjCBoolLiteralExprEPNS_19
   %6 = lshr i16 %5, 5
   %7 = and i16 %6, 31
   %8 = zext nneg i16 %7 to i32
-  %9 = getelementptr inbounds i8, ptr %0, i64 236
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 236
   %10 = load i32, ptr %9, align 4
   %11 = shl i32 %8, %10
   %12 = load i32, ptr %3, align 8
@@ -14228,9 +14228,9 @@ define dso_local void @_ZN5clang13ASTStmtWriter24VisitObjCBoolLiteralExprEPNS_19
   store i32 %27, ptr %9, align 4
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.0.0.copyload.i.i = load i64, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %0, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %0, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %32 = load ptr, ptr %31, align 8
   tail call void @_ZN5clang9ASTWriter10AddTypeRefENS_8QualTypeERN4llvm15SmallVectorImplImEE(ptr noundef nonnull align 8 dereferenceable(3340) %30, i64 %.sroa.0.0.copyload.i.i, ptr noundef nonnull align 8 dereferenceable(16) %32) #16
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -14277,7 +14277,7 @@ define dso_local void @_ZN5clang13ASTStmtWriter30VisitObjCAvailabilityCheckExprE
   %7 = lshr i16 %6, 5
   %8 = and i16 %7, 31
   %9 = zext nneg i16 %8 to i32
-  %10 = getelementptr inbounds i8, ptr %0, i64 236
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 236
   %11 = load i32, ptr %10, align 4
   %12 = shl i32 %9, %11
   %13 = load i32, ptr %4, align 8
@@ -14304,9 +14304,9 @@ define dso_local void @_ZN5clang13ASTStmtWriter30VisitObjCAvailabilityCheckExprE
   store i32 %28, ptr %10, align 4
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.0.0.copyload.i.i = load i64, ptr %29, align 8
-  %30 = getelementptr inbounds i8, ptr %0, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %31 = load ptr, ptr %30, align 8
-  %32 = getelementptr inbounds i8, ptr %0, i64 24
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %33 = load ptr, ptr %32, align 8
   tail call void @_ZN5clang9ASTWriter10AddTypeRefENS_8QualTypeERN4llvm15SmallVectorImplImEE(ptr noundef nonnull align 8 dereferenceable(3340) %31, i64 %.sroa.0.0.copyload.i.i, ptr noundef nonnull align 8 dereferenceable(16) %33) #16
   %34 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -14333,9 +14333,9 @@ define dso_local void @_ZN5clang13ASTStmtWriter30VisitObjCAvailabilityCheckExprE
 define dso_local void @_ZN5clang13ASTStmtWriter17VisitCXXCatchStmtEPNS_12CXXCatchStmtE(ptr noundef nonnull align 8 dereferenceable(256) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.0.0.copyload.i = load i32, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = load ptr, ptr %6, align 8
   tail call void @_ZN5clang9ASTWriter17AddSourceLocationENS_14SourceLocationERN4llvm15SmallVectorImplImEEPNS_22SourceLocationSequenceE(ptr noundef nonnull align 8 dereferenceable(3340) %5, i32 %.sroa.0.0.copyload.i, ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef null) #16
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -14345,7 +14345,7 @@ define dso_local void @_ZN5clang13ASTStmtWriter17VisitCXXCatchStmtEPNS_12CXXCatc
   tail call void @_ZN5clang9ASTWriter10AddDeclRefEPKNS_4DeclERN4llvm15SmallVectorImplImEE(ptr noundef nonnull align 8 dereferenceable(3340) %10, ptr noundef %9, ptr noundef nonnull align 8 dereferenceable(16) %11) #16
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 32
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %15 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %14) #16
   %16 = add i64 %15, 1
   %17 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE8capacityEv(ptr noundef nonnull align 8 dereferenceable(16) %14) #16
@@ -14376,7 +14376,7 @@ define dso_local void @_ZN5clang13ASTStmtWriter15VisitCXXTryStmtEPNS_10CXXTryStm
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %4 = load i32, ptr %3, align 4
   %5 = zext i32 %4 to i64
-  %6 = getelementptr inbounds i8, ptr %0, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = load ptr, ptr %6, align 8
   %8 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %7) #16
   %9 = add i64 %8, 1
@@ -14399,13 +14399,13 @@ _ZN5clang15ASTRecordWriter9push_backEm.exit:      ; preds = %2, %11
   tail call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %7, i64 noundef %17) #16
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.0.0.copyload.i = load i32, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %0, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %20 = load ptr, ptr %19, align 8
   %21 = load ptr, ptr %6, align 8
   tail call void @_ZN5clang9ASTWriter17AddSourceLocationENS_14SourceLocationERN4llvm15SmallVectorImplImEEPNS_22SourceLocationSequenceE(ptr noundef nonnull align 8 dereferenceable(3340) %20, i32 %.sroa.0.0.copyload.i, ptr noundef nonnull align 8 dereferenceable(16) %21, ptr noundef null) #16
   %22 = getelementptr inbounds i8, ptr %1, i64 16
   %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %0, i64 32
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %25 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %24) #16
   %26 = add i64 %25, 1
   %27 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE8capacityEv(ptr noundef nonnull align 8 dereferenceable(16) %24) #16
@@ -14472,9 +14472,9 @@ _ZN5clang15ASTRecordWriter7AddStmtEPNS_4StmtE.exit12: ; preds = %39, %45
 define dso_local void @_ZN5clang13ASTStmtWriter20VisitCXXForRangeStmtEPNS_15CXXForRangeStmtE(ptr noundef nonnull align 8 dereferenceable(256) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.0.0.copyload.i = load i32, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = load ptr, ptr %6, align 8
   tail call void @_ZN5clang9ASTWriter17AddSourceLocationENS_14SourceLocationERN4llvm15SmallVectorImplImEEPNS_22SourceLocationSequenceE(ptr noundef nonnull align 8 dereferenceable(3340) %5, i32 %.sroa.0.0.copyload.i, ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef null) #16
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 80
@@ -14494,7 +14494,7 @@ define dso_local void @_ZN5clang13ASTStmtWriter20VisitCXXForRangeStmtEPNS_15CXXF
   tail call void @_ZN5clang9ASTWriter17AddSourceLocationENS_14SourceLocationERN4llvm15SmallVectorImplImEEPNS_22SourceLocationSequenceE(ptr noundef nonnull align 8 dereferenceable(3340) %15, i32 %.sroa.0.0.copyload.i19, ptr noundef nonnull align 8 dereferenceable(16) %16, ptr noundef null) #16
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %0, i64 32
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %20 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %19) #16
   %21 = add i64 %20, 1
   %22 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE8capacityEv(ptr noundef nonnull align 8 dereferenceable(16) %19) #16
@@ -14680,9 +14680,9 @@ define dso_local void @_ZN5clang13ASTStmtWriter26VisitMSDependentExistsStmtEPNS_
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.0.0.copyload.i = load i32, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %9 = load ptr, ptr %8, align 8
   tail call void @_ZN5clang9ASTWriter17AddSourceLocationENS_14SourceLocationERN4llvm15SmallVectorImplImEEPNS_22SourceLocationSequenceE(ptr noundef nonnull align 8 dereferenceable(3340) %7, i32 %.sroa.0.0.copyload.i, ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef null) #16
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 12
@@ -14719,7 +14719,7 @@ _ZN5clang15ASTRecordWriter9push_backEm.exit:      ; preds = %2, %18
   call void @_ZN5clang15ASTRecordWriter22AddDeclarationNameInfoERKNS_19DeclarationNameInfoE(ptr noundef nonnull align 8 dereferenceable(216) %4, ptr noundef nonnull align 8 dereferenceable(24) %3) #16
   %27 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %28 = load ptr, ptr %27, align 8
-  %29 = getelementptr inbounds i8, ptr %0, i64 32
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %30 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %29) #16
   %31 = add i64 %30, 1
   %32 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE8capacityEv(ptr noundef nonnull align 8 dereferenceable(16) %29) #16
@@ -14754,7 +14754,7 @@ define dso_local void @_ZN5clang13ASTStmtWriter24VisitCXXOperatorCallExprEPNS_19
   %4 = load i8, ptr %3, align 4
   %5 = and i8 %4, 63
   %6 = zext nneg i8 %5 to i64
-  %7 = getelementptr inbounds i8, ptr %0, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %8 = load ptr, ptr %7, align 8
   %9 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %8) #16
   %10 = add i64 %9, 1
@@ -14777,7 +14777,7 @@ _ZN5clang15ASTRecordWriter9push_backEm.exit:      ; preds = %2, %12
   tail call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %8, i64 noundef %18) #16
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %.sroa.0.0.copyload = load i64, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %0, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %21 = load ptr, ptr %20, align 8
   %22 = load ptr, ptr %7, align 8
   tail call void @_ZN5clang9ASTWriter14AddSourceRangeENS_11SourceRangeERN4llvm15SmallVectorImplImEEPNS_22SourceLocationSequenceE(ptr noundef nonnull align 8 dereferenceable(3340) %21, i64 %.sroa.0.0.copyload, ptr noundef nonnull align 8 dereferenceable(16) %22, ptr noundef null) #16
@@ -14831,7 +14831,7 @@ define dso_local void @_ZN5clang13ASTStmtWriter31VisitCXXRewrittenBinaryOperator
   %6 = lshr i16 %5, 5
   %7 = and i16 %6, 31
   %8 = zext nneg i16 %7 to i32
-  %9 = getelementptr inbounds i8, ptr %0, i64 236
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 236
   %10 = load i32, ptr %9, align 4
   %11 = shl i32 %8, %10
   %12 = load i32, ptr %3, align 8
@@ -14858,9 +14858,9 @@ define dso_local void @_ZN5clang13ASTStmtWriter31VisitCXXRewrittenBinaryOperator
   store i32 %27, ptr %9, align 4
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.0.0.copyload.i.i = load i64, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %0, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %0, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %32 = load ptr, ptr %31, align 8
   tail call void @_ZN5clang9ASTWriter10AddTypeRefENS_8QualTypeERN4llvm15SmallVectorImplImEE(ptr noundef nonnull align 8 dereferenceable(3340) %30, i64 %.sroa.0.0.copyload.i.i, ptr noundef nonnull align 8 dereferenceable(16) %32) #16
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 4
@@ -14889,7 +14889,7 @@ _ZN5clang15ASTRecordWriter9push_backEm.exit:      ; preds = %2, %41
   tail call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %37, i64 noundef %47) #16
   %48 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %49 = load ptr, ptr %48, align 8
-  %50 = getelementptr inbounds i8, ptr %0, i64 32
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %51 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %50) #16
   %52 = add i64 %51, 1
   %53 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE8capacityEv(ptr noundef nonnull align 8 dereferenceable(16) %50) #16
@@ -14924,7 +14924,7 @@ define dso_local void @_ZN5clang13ASTStmtWriter21VisitCXXConstructExprEPNS_16CXX
   %6 = lshr i16 %5, 5
   %7 = and i16 %6, 31
   %8 = zext nneg i16 %7 to i32
-  %9 = getelementptr inbounds i8, ptr %0, i64 236
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 236
   %10 = load i32, ptr %9, align 4
   %11 = shl i32 %8, %10
   %12 = load i32, ptr %3, align 8
@@ -14951,9 +14951,9 @@ define dso_local void @_ZN5clang13ASTStmtWriter21VisitCXXConstructExprEPNS_16CXX
   store i32 %27, ptr %9, align 4
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.0.0.copyload.i.i = load i64, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %0, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %0, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %32 = load ptr, ptr %31, align 8
   tail call void @_ZN5clang9ASTWriter10AddTypeRefENS_8QualTypeERN4llvm15SmallVectorImplImEE(ptr noundef nonnull align 8 dereferenceable(3340) %30, i64 %.sroa.0.0.copyload.i.i, ptr noundef nonnull align 8 dereferenceable(16) %32) #16
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -15168,7 +15168,7 @@ _ZN5clang15ASTRecordWriter9push_backEm.exit32:    ; preds = %_ZN5clang15ASTRecor
 
 .lr.ph:                                           ; preds = %_ZN5clang15ASTRecordWriter9push_backEm.exit32
   %157 = getelementptr inbounds i8, ptr %1, i64 40
-  %158 = getelementptr inbounds i8, ptr %0, i64 32
+  %158 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %159 = getelementptr inbounds i8, ptr %0, i64 48
   %160 = zext i32 %156 to i64
   br label %161
@@ -15220,7 +15220,7 @@ define dso_local void @_ZN5clang13ASTStmtWriter29VisitCXXInheritedCtorInitExprEP
   %6 = lshr i16 %5, 5
   %7 = and i16 %6, 31
   %8 = zext nneg i16 %7 to i32
-  %9 = getelementptr inbounds i8, ptr %0, i64 236
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 236
   %10 = load i32, ptr %9, align 4
   %11 = shl i32 %8, %10
   %12 = load i32, ptr %3, align 8
@@ -15247,9 +15247,9 @@ define dso_local void @_ZN5clang13ASTStmtWriter29VisitCXXInheritedCtorInitExprEP
   store i32 %27, ptr %9, align 4
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.0.0.copyload.i.i = load i64, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %0, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %0, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %32 = load ptr, ptr %31, align 8
   tail call void @_ZN5clang9ASTWriter10AddTypeRefENS_8QualTypeERN4llvm15SmallVectorImplImEE(ptr noundef nonnull align 8 dereferenceable(3340) %30, i64 %.sroa.0.0.copyload.i.i, ptr noundef nonnull align 8 dereferenceable(16) %32) #16
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -15336,7 +15336,7 @@ define dso_local void @_ZN5clang13ASTStmtWriter15VisitLambdaExprEPNS_10LambdaExp
   %6 = lshr i16 %5, 5
   %7 = and i16 %6, 31
   %8 = zext nneg i16 %7 to i32
-  %9 = getelementptr inbounds i8, ptr %0, i64 236
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 236
   %10 = load i32, ptr %9, align 4
   %11 = shl i32 %8, %10
   %12 = load i32, ptr %3, align 8
@@ -15363,9 +15363,9 @@ define dso_local void @_ZN5clang13ASTStmtWriter15VisitLambdaExprEPNS_10LambdaExp
   store i32 %27, ptr %9, align 4
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.0.0.copyload.i.i = load i64, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %0, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %0, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %32 = load ptr, ptr %31, align 8
   tail call void @_ZN5clang9ASTWriter10AddTypeRefENS_8QualTypeERN4llvm15SmallVectorImplImEE(ptr noundef nonnull align 8 dereferenceable(3340) %30, i64 %.sroa.0.0.copyload.i.i, ptr noundef nonnull align 8 dereferenceable(16) %32) #16
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 4
@@ -15488,7 +15488,7 @@ _ZN5clang15ASTRecordWriter9push_backEm.exit22:    ; preds = %_ZN5clang15ASTRecor
 
 .lr.ph:                                           ; preds = %_ZN5clang15ASTRecordWriter9push_backEm.exit22
   %.ptr = getelementptr inbounds i8, ptr %1, i64 32
-  %104 = getelementptr inbounds i8, ptr %0, i64 32
+  %104 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %105 = getelementptr inbounds i8, ptr %0, i64 48
   br label %106
 
@@ -15533,7 +15533,7 @@ define dso_local void @_ZN5clang13ASTStmtWriter30VisitCXXStdInitializerListExprE
   %6 = lshr i16 %5, 5
   %7 = and i16 %6, 31
   %8 = zext nneg i16 %7 to i32
-  %9 = getelementptr inbounds i8, ptr %0, i64 236
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 236
   %10 = load i32, ptr %9, align 4
   %11 = shl i32 %8, %10
   %12 = load i32, ptr %3, align 8
@@ -15560,14 +15560,14 @@ define dso_local void @_ZN5clang13ASTStmtWriter30VisitCXXStdInitializerListExprE
   store i32 %27, ptr %9, align 4
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.0.0.copyload.i.i = load i64, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %0, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %0, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %32 = load ptr, ptr %31, align 8
   tail call void @_ZN5clang9ASTWriter10AddTypeRefENS_8QualTypeERN4llvm15SmallVectorImplImEE(ptr noundef nonnull align 8 dereferenceable(3340) %30, i64 %.sroa.0.0.copyload.i.i, ptr noundef nonnull align 8 dereferenceable(16) %32) #16
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %34 = load ptr, ptr %33, align 8
-  %35 = getelementptr inbounds i8, ptr %0, i64 32
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %36 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %35) #16
   %37 = add i64 %36, 1
   %38 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE8capacityEv(ptr noundef nonnull align 8 dereferenceable(16) %35) #16
@@ -15602,9 +15602,9 @@ define dso_local void @_ZN5clang13ASTStmtWriter21VisitCXXNamedCastExprEPNS_16CXX
   tail call void @_ZN5clang15ASTRecordWriter17AddTypeSourceInfoEPNS_14TypeSourceInfoE(ptr noundef nonnull align 8 dereferenceable(216) %3, ptr noundef %5) #16
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %.sroa.0.0.copyload.i = load i64, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %10 = load ptr, ptr %9, align 8
   tail call void @_ZN5clang9ASTWriter14AddSourceRangeENS_11SourceRangeERN4llvm15SmallVectorImplImEEPNS_22SourceLocationSequenceE(ptr noundef nonnull align 8 dereferenceable(3340) %8, i64 %.sroa.0.0.copyload.i, ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef null) #16
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 232
@@ -15615,7 +15615,7 @@ define dso_local void @_ZN5clang13ASTStmtWriter21VisitCXXNamedCastExprEPNS_16CXX
   %15 = icmp ugt i64 %.sroa.0.0.copyload.i10, 4294967295
   %16 = and i1 %15, %14
   %17 = zext i1 %16 to i32
-  %18 = getelementptr inbounds i8, ptr %0, i64 236
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 236
   %19 = load i32, ptr %18, align 4
   %20 = shl nuw i32 %17, %19
   %21 = load i32, ptr %11, align 8
@@ -15689,9 +15689,9 @@ define dso_local void @_ZN5clang13ASTStmtWriter26VisitCXXFunctionalCastExprEPNS_
   tail call void @_ZN5clang15ASTRecordWriter17AddTypeSourceInfoEPNS_14TypeSourceInfoE(ptr noundef nonnull align 8 dereferenceable(216) %3, ptr noundef %5) #16
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %.sroa.0.0.copyload.i = load i32, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %10 = load ptr, ptr %9, align 8
   tail call void @_ZN5clang9ASTWriter17AddSourceLocationENS_14SourceLocationERN4llvm15SmallVectorImplImEEPNS_22SourceLocationSequenceE(ptr noundef nonnull align 8 dereferenceable(3340) %8, i32 %.sroa.0.0.copyload.i, ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef null) #16
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 36
@@ -15713,9 +15713,9 @@ define dso_local void @_ZN5clang13ASTStmtWriter23VisitBuiltinBitCastExprEPNS_18B
   tail call void @_ZN5clang15ASTRecordWriter17AddTypeSourceInfoEPNS_14TypeSourceInfoE(ptr noundef nonnull align 8 dereferenceable(216) %3, ptr noundef %5) #16
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %.sroa.0.0.copyload.i = load i32, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %10 = load ptr, ptr %9, align 8
   tail call void @_ZN5clang9ASTWriter17AddSourceLocationENS_14SourceLocationERN4llvm15SmallVectorImplImEEPNS_22SourceLocationSequenceE(ptr noundef nonnull align 8 dereferenceable(3340) %8, i32 %.sroa.0.0.copyload.i, ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef null) #16
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 36
@@ -15733,9 +15733,9 @@ define dso_local void @_ZN5clang13ASTStmtWriter23VisitUserDefinedLiteralEPNS_18U
   tail call void @_ZN5clang13ASTStmtWriter13VisitCallExprEPNS_8CallExprE(ptr noundef nonnull align 8 dereferenceable(256) %0, ptr noundef %1)
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %.sroa.0.0.copyload = load i32, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = load ptr, ptr %6, align 8
   tail call void @_ZN5clang9ASTWriter17AddSourceLocationENS_14SourceLocationERN4llvm15SmallVectorImplImEEPNS_22SourceLocationSequenceE(ptr noundef nonnull align 8 dereferenceable(3340) %5, i32 %.sroa.0.0.copyload, ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef null) #16
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 224
@@ -15752,7 +15752,7 @@ define dso_local void @_ZN5clang13ASTStmtWriter23VisitCXXBoolLiteralExprEPNS_18C
   %6 = lshr i16 %5, 5
   %7 = and i16 %6, 31
   %8 = zext nneg i16 %7 to i32
-  %9 = getelementptr inbounds i8, ptr %0, i64 236
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 236
   %10 = load i32, ptr %9, align 4
   %11 = shl i32 %8, %10
   %12 = load i32, ptr %3, align 8
@@ -15779,9 +15779,9 @@ define dso_local void @_ZN5clang13ASTStmtWriter23VisitCXXBoolLiteralExprEPNS_18C
   store i32 %27, ptr %9, align 4
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.0.0.copyload.i.i = load i64, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %0, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %0, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %32 = load ptr, ptr %31, align 8
   tail call void @_ZN5clang9ASTWriter10AddTypeRefENS_8QualTypeERN4llvm15SmallVectorImplImEE(ptr noundef nonnull align 8 dereferenceable(3340) %30, i64 %.sroa.0.0.copyload.i.i, ptr noundef nonnull align 8 dereferenceable(16) %32) #16
   %33 = load i32, ptr %1, align 8
@@ -15827,7 +15827,7 @@ define dso_local void @_ZN5clang13ASTStmtWriter26VisitCXXNullPtrLiteralExprEPNS_
   %6 = lshr i16 %5, 5
   %7 = and i16 %6, 31
   %8 = zext nneg i16 %7 to i32
-  %9 = getelementptr inbounds i8, ptr %0, i64 236
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 236
   %10 = load i32, ptr %9, align 4
   %11 = shl i32 %8, %10
   %12 = load i32, ptr %3, align 8
@@ -15854,9 +15854,9 @@ define dso_local void @_ZN5clang13ASTStmtWriter26VisitCXXNullPtrLiteralExprEPNS_
   store i32 %27, ptr %9, align 4
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.0.0.copyload.i.i = load i64, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %0, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %0, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %32 = load ptr, ptr %31, align 8
   tail call void @_ZN5clang9ASTWriter10AddTypeRefENS_8QualTypeERN4llvm15SmallVectorImplImEE(ptr noundef nonnull align 8 dereferenceable(3340) %30, i64 %.sroa.0.0.copyload.i.i, ptr noundef nonnull align 8 dereferenceable(16) %32) #16
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 4
@@ -15878,7 +15878,7 @@ define dso_local void @_ZN5clang13ASTStmtWriter18VisitCXXTypeidExprEPNS_13CXXTyp
   %6 = lshr i16 %5, 5
   %7 = and i16 %6, 31
   %8 = zext nneg i16 %7 to i32
-  %9 = getelementptr inbounds i8, ptr %0, i64 236
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 236
   %10 = load i32, ptr %9, align 4
   %11 = shl i32 %8, %10
   %12 = load i32, ptr %3, align 8
@@ -15905,9 +15905,9 @@ define dso_local void @_ZN5clang13ASTStmtWriter18VisitCXXTypeidExprEPNS_13CXXTyp
   store i32 %27, ptr %9, align 4
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.0.0.copyload.i.i = load i64, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %0, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %0, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %32 = load ptr, ptr %31, align 8
   tail call void @_ZN5clang9ASTWriter10AddTypeRefENS_8QualTypeERN4llvm15SmallVectorImplImEE(ptr noundef nonnull align 8 dereferenceable(3340) %30, i64 %.sroa.0.0.copyload.i.i, ptr noundef nonnull align 8 dereferenceable(16) %32) #16
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -15930,7 +15930,7 @@ define dso_local void @_ZN5clang13ASTStmtWriter18VisitCXXTypeidExprEPNS_13CXXTyp
 
 42:                                               ; preds = %2
   %43 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i, -8
-  %44 = getelementptr inbounds i8, ptr %0, i64 32
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %45 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %44) #16
   %46 = add i64 %45, 1
   %47 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE8capacityEv(ptr noundef nonnull align 8 dereferenceable(16) %44) #16
@@ -15968,7 +15968,7 @@ define dso_local void @_ZN5clang13ASTStmtWriter16VisitCXXThisExprEPNS_11CXXThisE
   %6 = lshr i16 %5, 5
   %7 = and i16 %6, 31
   %8 = zext nneg i16 %7 to i32
-  %9 = getelementptr inbounds i8, ptr %0, i64 236
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 236
   %10 = load i32, ptr %9, align 4
   %11 = shl i32 %8, %10
   %12 = load i32, ptr %3, align 8
@@ -15995,9 +15995,9 @@ define dso_local void @_ZN5clang13ASTStmtWriter16VisitCXXThisExprEPNS_11CXXThisE
   store i32 %27, ptr %9, align 4
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.0.0.copyload.i.i = load i64, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %0, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %0, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %32 = load ptr, ptr %31, align 8
   tail call void @_ZN5clang9ASTWriter10AddTypeRefENS_8QualTypeERN4llvm15SmallVectorImplImEE(ptr noundef nonnull align 8 dereferenceable(3340) %30, i64 %.sroa.0.0.copyload.i.i, ptr noundef nonnull align 8 dereferenceable(16) %32) #16
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 4
@@ -16067,7 +16067,7 @@ define dso_local void @_ZN5clang13ASTStmtWriter17VisitCXXThrowExprEPNS_12CXXThro
   %6 = lshr i16 %5, 5
   %7 = and i16 %6, 31
   %8 = zext nneg i16 %7 to i32
-  %9 = getelementptr inbounds i8, ptr %0, i64 236
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 236
   %10 = load i32, ptr %9, align 4
   %11 = shl i32 %8, %10
   %12 = load i32, ptr %3, align 8
@@ -16094,9 +16094,9 @@ define dso_local void @_ZN5clang13ASTStmtWriter17VisitCXXThrowExprEPNS_12CXXThro
   store i32 %27, ptr %9, align 4
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.0.0.copyload.i.i = load i64, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %0, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %0, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %32 = load ptr, ptr %31, align 8
   tail call void @_ZN5clang9ASTWriter10AddTypeRefENS_8QualTypeERN4llvm15SmallVectorImplImEE(ptr noundef nonnull align 8 dereferenceable(3340) %30, i64 %.sroa.0.0.copyload.i.i, ptr noundef nonnull align 8 dereferenceable(16) %32) #16
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 4
@@ -16106,7 +16106,7 @@ define dso_local void @_ZN5clang13ASTStmtWriter17VisitCXXThrowExprEPNS_12CXXThro
   tail call void @_ZN5clang9ASTWriter17AddSourceLocationENS_14SourceLocationERN4llvm15SmallVectorImplImEEPNS_22SourceLocationSequenceE(ptr noundef nonnull align 8 dereferenceable(3340) %34, i32 %.sroa.0.0.copyload.i, ptr noundef nonnull align 8 dereferenceable(16) %35, ptr noundef null) #16
   %36 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %37 = load ptr, ptr %36, align 8
-  %38 = getelementptr inbounds i8, ptr %0, i64 32
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %39 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %38) #16
   %40 = add i64 %39, 1
   %41 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE8capacityEv(ptr noundef nonnull align 8 dereferenceable(16) %38) #16
@@ -16165,7 +16165,7 @@ define dso_local void @_ZN5clang13ASTStmtWriter22VisitCXXDefaultArgExprEPNS_17CX
   %6 = lshr i16 %5, 5
   %7 = and i16 %6, 31
   %8 = zext nneg i16 %7 to i32
-  %9 = getelementptr inbounds i8, ptr %0, i64 236
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 236
   %10 = load i32, ptr %9, align 4
   %11 = shl i32 %8, %10
   %12 = load i32, ptr %3, align 8
@@ -16192,9 +16192,9 @@ define dso_local void @_ZN5clang13ASTStmtWriter22VisitCXXDefaultArgExprEPNS_17CX
   store i32 %27, ptr %9, align 4
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.0.0.copyload.i.i = load i64, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %0, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %0, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %32 = load ptr, ptr %31, align 8
   tail call void @_ZN5clang9ASTWriter10AddTypeRefENS_8QualTypeERN4llvm15SmallVectorImplImEE(ptr noundef nonnull align 8 dereferenceable(3340) %30, i64 %.sroa.0.0.copyload.i.i, ptr noundef nonnull align 8 dereferenceable(16) %32) #16
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -16253,7 +16253,7 @@ _ZN5clang15ASTRecordWriter9push_backEm.exit:      ; preds = %_ZN4llvm12cast_or_n
 _ZN5clang17CXXDefaultArgExpr16getRewrittenExprEv.exit: ; preds = %_ZN5clang15ASTRecordWriter9push_backEm.exit
   %62 = getelementptr inbounds i8, ptr %1, i64 32
   %63 = load ptr, ptr %62, align 8
-  %64 = getelementptr inbounds i8, ptr %0, i64 32
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %65 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %64) #16
   %66 = add i64 %65, 1
   %67 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE8capacityEv(ptr noundef nonnull align 8 dereferenceable(16) %64) #16
@@ -16291,7 +16291,7 @@ define dso_local void @_ZN5clang13ASTStmtWriter23VisitCXXDefaultInitExprEPNS_18C
   %6 = lshr i16 %5, 5
   %7 = and i16 %6, 31
   %8 = zext nneg i16 %7 to i32
-  %9 = getelementptr inbounds i8, ptr %0, i64 236
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 236
   %10 = load i32, ptr %9, align 4
   %11 = shl i32 %8, %10
   %12 = load i32, ptr %3, align 8
@@ -16318,9 +16318,9 @@ define dso_local void @_ZN5clang13ASTStmtWriter23VisitCXXDefaultInitExprEPNS_18C
   store i32 %27, ptr %9, align 4
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.0.0.copyload.i.i = load i64, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %0, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %0, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %32 = load ptr, ptr %31, align 8
   tail call void @_ZN5clang9ASTWriter10AddTypeRefENS_8QualTypeERN4llvm15SmallVectorImplImEE(ptr noundef nonnull align 8 dereferenceable(3340) %30, i64 %.sroa.0.0.copyload.i.i, ptr noundef nonnull align 8 dereferenceable(16) %32) #16
   %33 = load i32, ptr %1, align 8
@@ -16378,7 +16378,7 @@ _ZN4llvm12cast_or_nullIN5clang4DeclENS1_11DeclContextEEEDaPT0_.exit: ; preds = %
 62:                                               ; preds = %_ZN4llvm12cast_or_nullIN5clang4DeclENS1_11DeclContextEEEDaPT0_.exit
   %63 = getelementptr inbounds i8, ptr %1, i64 32
   %64 = load ptr, ptr %63, align 8
-  %65 = getelementptr inbounds i8, ptr %0, i64 32
+  %65 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %66 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %65) #16
   %67 = add i64 %66, 1
   %68 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE8capacityEv(ptr noundef nonnull align 8 dereferenceable(16) %65) #16
@@ -16419,7 +16419,7 @@ define dso_local void @_ZN5clang13ASTStmtWriter25VisitCXXBindTemporaryExprEPNS_2
   %6 = lshr i16 %5, 5
   %7 = and i16 %6, 31
   %8 = zext nneg i16 %7 to i32
-  %9 = getelementptr inbounds i8, ptr %0, i64 236
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 236
   %10 = load i32, ptr %9, align 4
   %11 = shl i32 %8, %10
   %12 = load i32, ptr %3, align 8
@@ -16446,9 +16446,9 @@ define dso_local void @_ZN5clang13ASTStmtWriter25VisitCXXBindTemporaryExprEPNS_2
   store i32 %27, ptr %9, align 4
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.0.0.copyload.i.i = load i64, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %0, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %0, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %32 = load ptr, ptr %31, align 8
   tail call void @_ZN5clang9ASTWriter10AddTypeRefENS_8QualTypeERN4llvm15SmallVectorImplImEE(ptr noundef nonnull align 8 dereferenceable(3340) %30, i64 %.sroa.0.0.copyload.i.i, ptr noundef nonnull align 8 dereferenceable(16) %32) #16
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -16457,7 +16457,7 @@ define dso_local void @_ZN5clang13ASTStmtWriter25VisitCXXBindTemporaryExprEPNS_2
   tail call void @_ZN5clang15ASTRecordWriter15AddCXXTemporaryEPKNS_12CXXTemporaryE(ptr noundef nonnull align 8 dereferenceable(216) %33, ptr noundef %35) #16
   %36 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %37 = load ptr, ptr %36, align 8
-  %38 = getelementptr inbounds i8, ptr %0, i64 32
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %39 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %38) #16
   %40 = add i64 %39, 1
   %41 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE8capacityEv(ptr noundef nonnull align 8 dereferenceable(16) %38) #16
@@ -16494,7 +16494,7 @@ define dso_local void @_ZN5clang13ASTStmtWriter27VisitCXXScalarValueInitExprEPNS
   %6 = lshr i16 %5, 5
   %7 = and i16 %6, 31
   %8 = zext nneg i16 %7 to i32
-  %9 = getelementptr inbounds i8, ptr %0, i64 236
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 236
   %10 = load i32, ptr %9, align 4
   %11 = shl i32 %8, %10
   %12 = load i32, ptr %3, align 8
@@ -16521,9 +16521,9 @@ define dso_local void @_ZN5clang13ASTStmtWriter27VisitCXXScalarValueInitExprEPNS
   store i32 %27, ptr %9, align 4
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.0.0.copyload.i.i = load i64, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %0, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %0, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %32 = load ptr, ptr %31, align 8
   tail call void @_ZN5clang9ASTWriter10AddTypeRefENS_8QualTypeERN4llvm15SmallVectorImplImEE(ptr noundef nonnull align 8 dereferenceable(3340) %30, i64 %.sroa.0.0.copyload.i.i, ptr noundef nonnull align 8 dereferenceable(16) %32) #16
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -16549,7 +16549,7 @@ define dso_local void @_ZN5clang13ASTStmtWriter15VisitCXXNewExprEPNS_10CXXNewExp
   %6 = lshr i16 %5, 5
   %7 = and i16 %6, 31
   %8 = zext nneg i16 %7 to i32
-  %9 = getelementptr inbounds i8, ptr %0, i64 236
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 236
   %10 = load i32, ptr %9, align 4
   %11 = shl i32 %8, %10
   %12 = load i32, ptr %3, align 8
@@ -16576,9 +16576,9 @@ define dso_local void @_ZN5clang13ASTStmtWriter15VisitCXXNewExprEPNS_10CXXNewExp
   store i32 %27, ptr %9, align 4
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.0.0.copyload.i.i = load i64, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %0, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %0, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %32 = load ptr, ptr %31, align 8
   tail call void @_ZN5clang9ASTWriter10AddTypeRefENS_8QualTypeERN4llvm15SmallVectorImplImEE(ptr noundef nonnull align 8 dereferenceable(3340) %30, i64 %.sroa.0.0.copyload.i.i, ptr noundef nonnull align 8 dereferenceable(16) %32) #16
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -16860,7 +16860,7 @@ _ZNK5clang10CXXNewExpr15getTypeIdParensEv.exit:   ; preds = %_ZN5clang15ASTRecor
 
 .lr.ph:                                           ; preds = %185
   %.ptr = getelementptr inbounds i8, ptr %1, i64 56
-  %200 = getelementptr inbounds i8, ptr %0, i64 32
+  %200 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %201 = getelementptr inbounds i8, ptr %0, i64 48
   br label %202
 
@@ -16905,7 +16905,7 @@ define dso_local void @_ZN5clang13ASTStmtWriter18VisitCXXDeleteExprEPNS_13CXXDel
   %6 = lshr i16 %5, 5
   %7 = and i16 %6, 31
   %8 = zext nneg i16 %7 to i32
-  %9 = getelementptr inbounds i8, ptr %0, i64 236
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 236
   %10 = load i32, ptr %9, align 4
   %11 = shl i32 %8, %10
   %12 = load i32, ptr %3, align 8
@@ -16932,9 +16932,9 @@ define dso_local void @_ZN5clang13ASTStmtWriter18VisitCXXDeleteExprEPNS_13CXXDel
   store i32 %27, ptr %9, align 4
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.0.0.copyload.i.i = load i64, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %0, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %0, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %32 = load ptr, ptr %31, align 8
   tail call void @_ZN5clang9ASTWriter10AddTypeRefENS_8QualTypeERN4llvm15SmallVectorImplImEE(ptr noundef nonnull align 8 dereferenceable(3340) %30, i64 %.sroa.0.0.copyload.i.i, ptr noundef nonnull align 8 dereferenceable(16) %32) #16
   %33 = load i32, ptr %1, align 8
@@ -17040,7 +17040,7 @@ _ZN5clang15ASTRecordWriter9push_backEm.exit14:    ; preds = %_ZN5clang15ASTRecor
   tail call void @_ZN5clang9ASTWriter10AddDeclRefEPKNS_4DeclERN4llvm15SmallVectorImplImEE(ptr noundef nonnull align 8 dereferenceable(3340) %91, ptr noundef %90, ptr noundef nonnull align 8 dereferenceable(16) %92) #16
   %93 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %94 = load ptr, ptr %93, align 8
-  %95 = getelementptr inbounds i8, ptr %0, i64 32
+  %95 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %96 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %95) #16
   %97 = add i64 %96, 1
   %98 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE8capacityEv(ptr noundef nonnull align 8 dereferenceable(16) %95) #16
@@ -17080,7 +17080,7 @@ define dso_local void @_ZN5clang13ASTStmtWriter28VisitCXXPseudoDestructorExprEPN
   %6 = lshr i16 %5, 5
   %7 = and i16 %6, 31
   %8 = zext nneg i16 %7 to i32
-  %9 = getelementptr inbounds i8, ptr %0, i64 236
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 236
   %10 = load i32, ptr %9, align 4
   %11 = shl i32 %8, %10
   %12 = load i32, ptr %3, align 8
@@ -17107,15 +17107,15 @@ define dso_local void @_ZN5clang13ASTStmtWriter28VisitCXXPseudoDestructorExprEPN
   store i32 %27, ptr %9, align 4
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.0.0.copyload.i.i = load i64, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %0, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %0, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %32 = load ptr, ptr %31, align 8
   tail call void @_ZN5clang9ASTWriter10AddTypeRefENS_8QualTypeERN4llvm15SmallVectorImplImEE(ptr noundef nonnull align 8 dereferenceable(3340) %30, i64 %.sroa.0.0.copyload.i.i, ptr noundef nonnull align 8 dereferenceable(16) %32) #16
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %34 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %35 = load ptr, ptr %34, align 8
-  %36 = getelementptr inbounds i8, ptr %0, i64 32
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %37 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %36) #16
   %38 = add i64 %37, 1
   %39 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE8capacityEv(ptr noundef nonnull align 8 dereferenceable(16) %36) #16
@@ -17202,7 +17202,7 @@ _ZN5clang15ASTRecordWriter9push_backEm.exit:      ; preds = %_ZN5clang15ASTRecor
   br i1 %.not, label %87, label %83
 
 83:                                               ; preds = %_ZN5clang15ASTRecordWriter9push_backEm.exit
-  %84 = getelementptr inbounds i8, ptr %1, i64 72
+  %84 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %.sroa.0.0.copyload.i.i24 = load i32, ptr %84, align 8
   %85 = load ptr, ptr %29, align 8
   %86 = load ptr, ptr %31, align 8
@@ -17230,7 +17230,7 @@ define dso_local void @_ZN5clang13ASTStmtWriter21VisitExprWithCleanupsEPNS_16Exp
   %6 = lshr i16 %5, 5
   %7 = and i16 %6, 31
   %8 = zext nneg i16 %7 to i32
-  %9 = getelementptr inbounds i8, ptr %0, i64 236
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 236
   %10 = load i32, ptr %9, align 4
   %11 = shl i32 %8, %10
   %12 = load i32, ptr %3, align 8
@@ -17257,9 +17257,9 @@ define dso_local void @_ZN5clang13ASTStmtWriter21VisitExprWithCleanupsEPNS_16Exp
   store i32 %27, ptr %9, align 4
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.0.0.copyload.i.i = load i64, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %0, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %0, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %32 = load ptr, ptr %31, align 8
   tail call void @_ZN5clang9ASTWriter10AddTypeRefENS_8QualTypeERN4llvm15SmallVectorImplImEE(ptr noundef nonnull align 8 dereferenceable(3340) %30, i64 %.sroa.0.0.copyload.i.i, ptr noundef nonnull align 8 dereferenceable(16) %32) #16
   %33 = load i32, ptr %1, align 8
@@ -17296,7 +17296,7 @@ _ZN5clang15ASTRecordWriter9push_backEm.exit:      ; preds = %2, %40
 
 .lr.ph:                                           ; preds = %_ZN5clang15ASTRecordWriter9push_backEm.exit
   %.ptr = getelementptr inbounds i8, ptr %1, i64 24
-  %51 = getelementptr inbounds i8, ptr %0, i64 32
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %52 = getelementptr inbounds i8, ptr %0, i64 48
   br label %53
 
@@ -17419,7 +17419,7 @@ _ZN5clang15ASTRecordWriter9push_backEm.exit31:    ; preds = %._crit_edge, %103
   tail call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %99, i64 noundef %109) #16
   %110 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %111 = load ptr, ptr %110, align 8
-  %112 = getelementptr inbounds i8, ptr %0, i64 32
+  %112 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %113 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %112) #16
   %114 = add i64 %113, 1
   %115 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE8capacityEv(ptr noundef nonnull align 8 dereferenceable(16) %112) #16
@@ -17454,7 +17454,7 @@ define dso_local void @_ZN5clang13ASTStmtWriter32VisitCXXDependentScopeMemberExp
   %6 = lshr i16 %5, 5
   %7 = and i16 %6, 31
   %8 = zext nneg i16 %7 to i32
-  %9 = getelementptr inbounds i8, ptr %0, i64 236
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 236
   %10 = load i32, ptr %9, align 4
   %11 = shl i32 %8, %10
   %12 = load i32, ptr %3, align 8
@@ -17481,9 +17481,9 @@ define dso_local void @_ZN5clang13ASTStmtWriter32VisitCXXDependentScopeMemberExp
   store i32 %27, ptr %9, align 4
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.0.0.copyload.i.i = load i64, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %0, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %0, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %32 = load ptr, ptr %31, align 8
   tail call void @_ZN5clang9ASTWriter10AddTypeRefENS_8QualTypeERN4llvm15SmallVectorImplImEE(ptr noundef nonnull align 8 dereferenceable(3340) %30, i64 %.sroa.0.0.copyload.i.i, ptr noundef nonnull align 8 dereferenceable(16) %32) #16
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -17633,7 +17633,7 @@ _ZNK5clang27CXXDependentScopeMemberExpr16isImplicitAccessEv.exit28: ; preds = %_
 
 108:                                              ; preds = %_ZNK5clang27CXXDependentScopeMemberExpr16isImplicitAccessEv.exit28
   %109 = load ptr, ptr %95, align 8
-  %110 = getelementptr inbounds i8, ptr %0, i64 32
+  %110 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %111 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %110) #16
   %112 = add i64 %111, 1
   %113 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE8capacityEv(ptr noundef nonnull align 8 dereferenceable(16) %110) #16
@@ -17714,7 +17714,7 @@ define dso_local void @_ZN5clang13ASTStmtWriter30VisitDependentScopeDeclRefExprE
   %6 = lshr i16 %5, 5
   %7 = and i16 %6, 31
   %8 = zext nneg i16 %7 to i32
-  %9 = getelementptr inbounds i8, ptr %0, i64 236
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 236
   %10 = load i32, ptr %9, align 4
   %11 = shl i32 %8, %10
   %12 = load i32, ptr %3, align 8
@@ -17741,9 +17741,9 @@ define dso_local void @_ZN5clang13ASTStmtWriter30VisitDependentScopeDeclRefExprE
   store i32 %27, ptr %9, align 4
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.0.0.copyload.i.i = load i64, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %0, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %0, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %32 = load ptr, ptr %31, align 8
   tail call void @_ZN5clang9ASTWriter10AddTypeRefENS_8QualTypeERN4llvm15SmallVectorImplImEE(ptr noundef nonnull align 8 dereferenceable(3340) %30, i64 %.sroa.0.0.copyload.i.i, ptr noundef nonnull align 8 dereferenceable(16) %32) #16
   %33 = load i24, ptr %1, align 8
@@ -17828,7 +17828,7 @@ define dso_local void @_ZN5clang13ASTStmtWriter31VisitCXXUnresolvedConstructExpr
   %6 = lshr i16 %5, 5
   %7 = and i16 %6, 31
   %8 = zext nneg i16 %7 to i32
-  %9 = getelementptr inbounds i8, ptr %0, i64 236
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 236
   %10 = load i32, ptr %9, align 4
   %11 = shl i32 %8, %10
   %12 = load i32, ptr %3, align 8
@@ -17855,9 +17855,9 @@ define dso_local void @_ZN5clang13ASTStmtWriter31VisitCXXUnresolvedConstructExpr
   store i32 %27, ptr %9, align 4
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.0.0.copyload.i.i = load i64, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %0, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %0, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %32 = load ptr, ptr %31, align 8
   tail call void @_ZN5clang9ASTWriter10AddTypeRefENS_8QualTypeERN4llvm15SmallVectorImplImEE(ptr noundef nonnull align 8 dereferenceable(3340) %30, i64 %.sroa.0.0.copyload.i.i, ptr noundef nonnull align 8 dereferenceable(16) %32) #16
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -17894,7 +17894,7 @@ _ZN5clang15ASTRecordWriter9push_backEm.exit:      ; preds = %2, %41
 
 .lr.ph:                                           ; preds = %_ZN5clang15ASTRecordWriter9push_backEm.exit
   %.ptr = getelementptr inbounds i8, ptr %1, i64 32
-  %51 = getelementptr inbounds i8, ptr %0, i64 32
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %52 = getelementptr inbounds i8, ptr %0, i64 48
   br label %53
 
@@ -17977,7 +17977,7 @@ define dso_local void @_ZN5clang13ASTStmtWriter17VisitOverloadExprEPNS_12Overloa
   %6 = lshr i16 %5, 5
   %7 = and i16 %6, 31
   %8 = zext nneg i16 %7 to i32
-  %9 = getelementptr inbounds i8, ptr %0, i64 236
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 236
   %10 = load i32, ptr %9, align 4
   %11 = shl i32 %8, %10
   %12 = load i32, ptr %3, align 8
@@ -18004,9 +18004,9 @@ define dso_local void @_ZN5clang13ASTStmtWriter17VisitOverloadExprEPNS_12Overloa
   store i32 %27, ptr %9, align 4
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.0.0.copyload.i.i = load i64, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %0, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %0, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %32 = load ptr, ptr %31, align 8
   tail call void @_ZN5clang9ASTWriter10AddTypeRefENS_8QualTypeERN4llvm15SmallVectorImplImEE(ptr noundef nonnull align 8 dereferenceable(3340) %30, i64 %.sroa.0.0.copyload.i.i, ptr noundef nonnull align 8 dereferenceable(16) %32) #16
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -18188,7 +18188,7 @@ define dso_local void @_ZN5clang13ASTStmtWriter25VisitUnresolvedMemberExprEPNS_2
   %5 = lshr i24 %4, 19
   %.lobit = and i24 %5, 1
   %6 = zext nneg i24 %.lobit to i32
-  %7 = getelementptr inbounds i8, ptr %0, i64 236
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 236
   %8 = load i32, ptr %7, align 4
   %9 = shl nuw i32 %6, %8
   %10 = load i32, ptr %3, align 8
@@ -18221,7 +18221,7 @@ define dso_local void @_ZN5clang13ASTStmtWriter25VisitUnresolvedMemberExprEPNS_2
 28:                                               ; preds = %2
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %0, i64 32
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %32 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %31) #16
   %33 = add i64 %32, 1
   %34 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE8capacityEv(ptr noundef nonnull align 8 dereferenceable(16) %31) #16
@@ -18247,9 +18247,9 @@ _ZN5clang15ASTRecordWriter7AddStmtEPNS_4StmtE.exit: ; preds = %28, %35
 43:                                               ; preds = %_ZN5clang15ASTRecordWriter7AddStmtEPNS_4StmtE.exit, %2
   %44 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %.sroa.0.0.copyload.i = load i32, ptr %44, align 8
-  %45 = getelementptr inbounds i8, ptr %0, i64 16
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %46 = load ptr, ptr %45, align 8
-  %47 = getelementptr inbounds i8, ptr %0, i64 24
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %48 = load ptr, ptr %47, align 8
   tail call void @_ZN5clang9ASTWriter17AddSourceLocationENS_14SourceLocationERN4llvm15SmallVectorImplImEEPNS_22SourceLocationSequenceE(ptr noundef nonnull align 8 dereferenceable(3340) %46, i32 %.sroa.0.0.copyload.i, ptr noundef nonnull align 8 dereferenceable(16) %48, ptr noundef null) #16
   %49 = getelementptr inbounds nuw i8, ptr %1, i64 64
@@ -18273,7 +18273,7 @@ define dso_local void @_ZN5clang13ASTStmtWriter25VisitUnresolvedLookupExprEPNS_2
   %6 = lshr i24 %5, 19
   %.lobit = and i24 %6, 1
   %7 = zext nneg i24 %.lobit to i32
-  %8 = getelementptr inbounds i8, ptr %0, i64 236
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 236
   %9 = load i32, ptr %8, align 4
   %10 = shl nuw i32 %7, %9
   %11 = load i32, ptr %4, align 8
@@ -18283,9 +18283,9 @@ define dso_local void @_ZN5clang13ASTStmtWriter25VisitUnresolvedLookupExprEPNS_2
   store i32 %13, ptr %8, align 4
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %19 = load ptr, ptr %18, align 8
   tail call void @_ZN5clang9ASTWriter10AddDeclRefEPKNS_4DeclERN4llvm15SmallVectorImplImEE(ptr noundef nonnull align 8 dereferenceable(3340) %17, ptr noundef %15, ptr noundef nonnull align 8 dereferenceable(16) %19) #16
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 224
@@ -18445,7 +18445,7 @@ define dso_local void @_ZN5clang13ASTStmtWriter18VisitTypeTraitExprEPNS_13TypeTr
   %6 = lshr i16 %5, 5
   %7 = and i16 %6, 31
   %8 = zext nneg i16 %7 to i32
-  %9 = getelementptr inbounds i8, ptr %0, i64 236
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 236
   %10 = load i32, ptr %9, align 4
   %11 = shl i32 %8, %10
   %12 = load i32, ptr %3, align 8
@@ -18472,9 +18472,9 @@ define dso_local void @_ZN5clang13ASTStmtWriter18VisitTypeTraitExprEPNS_13TypeTr
   store i32 %27, ptr %9, align 4
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.0.0.copyload.i.i = load i64, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %0, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %0, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %32 = load ptr, ptr %31, align 8
   tail call void @_ZN5clang9ASTWriter10AddTypeRefENS_8QualTypeERN4llvm15SmallVectorImplImEE(ptr noundef nonnull align 8 dereferenceable(3340) %30, i64 %.sroa.0.0.copyload.i.i, ptr noundef nonnull align 8 dereferenceable(16) %32) #16
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -18589,7 +18589,7 @@ define dso_local void @_ZN5clang13ASTStmtWriter23VisitArrayTypeTraitExprEPNS_18A
   %6 = lshr i16 %5, 5
   %7 = and i16 %6, 31
   %8 = zext nneg i16 %7 to i32
-  %9 = getelementptr inbounds i8, ptr %0, i64 236
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 236
   %10 = load i32, ptr %9, align 4
   %11 = shl i32 %8, %10
   %12 = load i32, ptr %3, align 8
@@ -18616,9 +18616,9 @@ define dso_local void @_ZN5clang13ASTStmtWriter23VisitArrayTypeTraitExprEPNS_18A
   store i32 %27, ptr %9, align 4
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.0.0.copyload.i.i = load i64, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %0, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %0, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %32 = load ptr, ptr %31, align 8
   tail call void @_ZN5clang9ASTWriter10AddTypeRefENS_8QualTypeERN4llvm15SmallVectorImplImEE(ptr noundef nonnull align 8 dereferenceable(3340) %30, i64 %.sroa.0.0.copyload.i.i, ptr noundef nonnull align 8 dereferenceable(16) %32) #16
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -18677,7 +18677,7 @@ _ZN5clang15ASTRecordWriter9push_backEm.exit8:     ; preds = %_ZN5clang15ASTRecor
   tail call void @_ZN5clang15ASTRecordWriter17AddTypeSourceInfoEPNS_14TypeSourceInfoE(ptr noundef nonnull align 8 dereferenceable(216) %33, ptr noundef %66) #16
   %67 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %68 = load ptr, ptr %67, align 8
-  %69 = getelementptr inbounds i8, ptr %0, i64 32
+  %69 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %70 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %69) #16
   %71 = add i64 %70, 1
   %72 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE8capacityEv(ptr noundef nonnull align 8 dereferenceable(16) %69) #16
@@ -18712,7 +18712,7 @@ define dso_local void @_ZN5clang13ASTStmtWriter24VisitExpressionTraitExprEPNS_19
   %6 = lshr i16 %5, 5
   %7 = and i16 %6, 31
   %8 = zext nneg i16 %7 to i32
-  %9 = getelementptr inbounds i8, ptr %0, i64 236
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 236
   %10 = load i32, ptr %9, align 4
   %11 = shl i32 %8, %10
   %12 = load i32, ptr %3, align 8
@@ -18739,9 +18739,9 @@ define dso_local void @_ZN5clang13ASTStmtWriter24VisitExpressionTraitExprEPNS_19
   store i32 %27, ptr %9, align 4
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.0.0.copyload.i.i = load i64, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %0, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %0, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %32 = load ptr, ptr %31, align 8
   tail call void @_ZN5clang9ASTWriter10AddTypeRefENS_8QualTypeERN4llvm15SmallVectorImplImEE(ptr noundef nonnull align 8 dereferenceable(3340) %30, i64 %.sroa.0.0.copyload.i.i, ptr noundef nonnull align 8 dereferenceable(16) %32) #16
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -18797,7 +18797,7 @@ _ZN5clang15ASTRecordWriter9push_backEm.exit7:     ; preds = %_ZN5clang15ASTRecor
   tail call void @_ZN5clang9ASTWriter14AddSourceRangeENS_11SourceRangeERN4llvm15SmallVectorImplImEEPNS_22SourceLocationSequenceE(ptr noundef nonnull align 8 dereferenceable(3340) %62, i64 %61, ptr noundef nonnull align 8 dereferenceable(16) %63, ptr noundef null) #16
   %64 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %65 = load ptr, ptr %64, align 8
-  %66 = getelementptr inbounds i8, ptr %0, i64 32
+  %66 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %67 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %66) #16
   %68 = add i64 %67, 1
   %69 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE8capacityEv(ptr noundef nonnull align 8 dereferenceable(16) %66) #16
@@ -18832,7 +18832,7 @@ define dso_local void @_ZN5clang13ASTStmtWriter20VisitCXXNoexceptExprEPNS_15CXXN
   %6 = lshr i16 %5, 5
   %7 = and i16 %6, 31
   %8 = zext nneg i16 %7 to i32
-  %9 = getelementptr inbounds i8, ptr %0, i64 236
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 236
   %10 = load i32, ptr %9, align 4
   %11 = shl i32 %8, %10
   %12 = load i32, ptr %3, align 8
@@ -18859,9 +18859,9 @@ define dso_local void @_ZN5clang13ASTStmtWriter20VisitCXXNoexceptExprEPNS_15CXXN
   store i32 %27, ptr %9, align 4
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.0.0.copyload.i.i = load i64, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %0, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %0, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %32 = load ptr, ptr %31, align 8
   tail call void @_ZN5clang9ASTWriter10AddTypeRefENS_8QualTypeERN4llvm15SmallVectorImplImEE(ptr noundef nonnull align 8 dereferenceable(3340) %30, i64 %.sroa.0.0.copyload.i.i, ptr noundef nonnull align 8 dereferenceable(16) %32) #16
   %33 = load i24, ptr %1, align 8
@@ -18895,7 +18895,7 @@ _ZN5clang15ASTRecordWriter9push_backEm.exit:      ; preds = %2, %40
   tail call void @_ZN5clang9ASTWriter14AddSourceRangeENS_11SourceRangeERN4llvm15SmallVectorImplImEEPNS_22SourceLocationSequenceE(ptr noundef nonnull align 8 dereferenceable(3340) %48, i64 %.sroa.0.0.copyload.i, ptr noundef nonnull align 8 dereferenceable(16) %49, ptr noundef null) #16
   %50 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %51 = load ptr, ptr %50, align 8
-  %52 = getelementptr inbounds i8, ptr %0, i64 32
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %53 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %52) #16
   %54 = add i64 %53, 1
   %55 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE8capacityEv(ptr noundef nonnull align 8 dereferenceable(16) %52) #16
@@ -18930,7 +18930,7 @@ define dso_local void @_ZN5clang13ASTStmtWriter22VisitPackExpansionExprEPNS_17Pa
   %6 = lshr i16 %5, 5
   %7 = and i16 %6, 31
   %8 = zext nneg i16 %7 to i32
-  %9 = getelementptr inbounds i8, ptr %0, i64 236
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 236
   %10 = load i32, ptr %9, align 4
   %11 = shl i32 %8, %10
   %12 = load i32, ptr %3, align 8
@@ -18957,9 +18957,9 @@ define dso_local void @_ZN5clang13ASTStmtWriter22VisitPackExpansionExprEPNS_17Pa
   store i32 %27, ptr %9, align 4
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.0.0.copyload.i.i = load i64, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %0, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %0, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %32 = load ptr, ptr %31, align 8
   tail call void @_ZN5clang9ASTWriter10AddTypeRefENS_8QualTypeERN4llvm15SmallVectorImplImEE(ptr noundef nonnull align 8 dereferenceable(3340) %30, i64 %.sroa.0.0.copyload.i.i, ptr noundef nonnull align 8 dereferenceable(16) %32) #16
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -18992,7 +18992,7 @@ _ZN5clang15ASTRecordWriter9push_backEm.exit:      ; preds = %2, %43
   tail call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %39, i64 noundef %49) #16
   %50 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %51 = load ptr, ptr %50, align 8
-  %52 = getelementptr inbounds i8, ptr %0, i64 32
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %53 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %52) #16
   %54 = add i64 %53, 1
   %55 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE8capacityEv(ptr noundef nonnull align 8 dereferenceable(16) %52) #16
@@ -19027,7 +19027,7 @@ define dso_local void @_ZN5clang13ASTStmtWriter19VisitSizeOfPackExprEPNS_14SizeO
   %6 = lshr i16 %5, 5
   %7 = and i16 %6, 31
   %8 = zext nneg i16 %7 to i32
-  %9 = getelementptr inbounds i8, ptr %0, i64 236
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 236
   %10 = load i32, ptr %9, align 4
   %11 = shl i32 %8, %10
   %12 = load i32, ptr %3, align 8
@@ -19054,9 +19054,9 @@ define dso_local void @_ZN5clang13ASTStmtWriter19VisitSizeOfPackExprEPNS_14SizeO
   store i32 %27, ptr %9, align 4
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.0.0.copyload.i.i = load i64, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %0, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %0, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %32 = load ptr, ptr %31, align 8
   tail call void @_ZN5clang9ASTWriter10AddTypeRefENS_8QualTypeERN4llvm15SmallVectorImplImEE(ptr noundef nonnull align 8 dereferenceable(3340) %30, i64 %.sroa.0.0.copyload.i.i, ptr noundef nonnull align 8 dereferenceable(16) %32) #16
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -19172,7 +19172,7 @@ define dso_local void @_ZN5clang13ASTStmtWriter21VisitPackIndexingExprEPNS_16Pac
   %6 = lshr i16 %5, 5
   %7 = and i16 %6, 31
   %8 = zext nneg i16 %7 to i32
-  %9 = getelementptr inbounds i8, ptr %0, i64 236
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 236
   %10 = load i32, ptr %9, align 4
   %11 = shl i32 %8, %10
   %12 = load i32, ptr %3, align 8
@@ -19199,9 +19199,9 @@ define dso_local void @_ZN5clang13ASTStmtWriter21VisitPackIndexingExprEPNS_16Pac
   store i32 %27, ptr %9, align 4
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.0.0.copyload.i.i = load i64, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %0, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %0, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %32 = load ptr, ptr %31, align 8
   tail call void @_ZN5clang9ASTWriter10AddTypeRefENS_8QualTypeERN4llvm15SmallVectorImplImEE(ptr noundef nonnull align 8 dereferenceable(3340) %30, i64 %.sroa.0.0.copyload.i.i, ptr noundef nonnull align 8 dereferenceable(16) %32) #16
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 40
@@ -19263,7 +19263,7 @@ _ZN5clang15ASTRecordWriter9push_backEm.exit18:    ; preds = %_ZN5clang15ASTRecor
   tail call void @_ZN5clang9ASTWriter17AddSourceLocationENS_14SourceLocationERN4llvm15SmallVectorImplImEEPNS_22SourceLocationSequenceE(ptr noundef nonnull align 8 dereferenceable(3340) %66, i32 %.sroa.0.0.copyload.i19, ptr noundef nonnull align 8 dereferenceable(16) %67, ptr noundef null) #16
   %68 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %69 = load ptr, ptr %68, align 8
-  %70 = getelementptr inbounds i8, ptr %0, i64 32
+  %70 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %71 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %70) #16
   %72 = add i64 %71, 1
   %73 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE8capacityEv(ptr noundef nonnull align 8 dereferenceable(16) %70) #16
@@ -19361,7 +19361,7 @@ define dso_local void @_ZN5clang13ASTStmtWriter33VisitSubstNonTypeTemplateParmEx
   %6 = lshr i16 %5, 5
   %7 = and i16 %6, 31
   %8 = zext nneg i16 %7 to i32
-  %9 = getelementptr inbounds i8, ptr %0, i64 236
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 236
   %10 = load i32, ptr %9, align 4
   %11 = shl i32 %8, %10
   %12 = load i32, ptr %3, align 8
@@ -19388,9 +19388,9 @@ define dso_local void @_ZN5clang13ASTStmtWriter33VisitSubstNonTypeTemplateParmEx
   store i32 %27, ptr %9, align 4
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.0.0.copyload.i.i = load i64, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %0, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %0, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %32 = load ptr, ptr %31, align 8
   tail call void @_ZN5clang9ASTWriter10AddTypeRefENS_8QualTypeERN4llvm15SmallVectorImplImEE(ptr noundef nonnull align 8 dereferenceable(3340) %30, i64 %.sroa.0.0.copyload.i.i, ptr noundef nonnull align 8 dereferenceable(16) %32) #16
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -19466,7 +19466,7 @@ _ZN5clang15ASTRecordWriter9push_backEm.exit:      ; preds = %61, %67
   tail call void @_ZN5clang9ASTWriter17AddSourceLocationENS_14SourceLocationERN4llvm15SmallVectorImplImEEPNS_22SourceLocationSequenceE(ptr noundef nonnull align 8 dereferenceable(3340) %76, i32 %.sroa.0.0.copyload.i, ptr noundef nonnull align 8 dereferenceable(16) %77, ptr noundef null) #16
   %78 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %79 = load ptr, ptr %78, align 8
-  %80 = getelementptr inbounds i8, ptr %0, i64 32
+  %80 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %81 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %80) #16
   %82 = add i64 %81, 1
   %83 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE8capacityEv(ptr noundef nonnull align 8 dereferenceable(16) %80) #16
@@ -19502,7 +19502,7 @@ define dso_local void @_ZN5clang13ASTStmtWriter37VisitSubstNonTypeTemplateParmPa
   %7 = lshr i16 %6, 5
   %8 = and i16 %7, 31
   %9 = zext nneg i16 %8 to i32
-  %10 = getelementptr inbounds i8, ptr %0, i64 236
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 236
   %11 = load i32, ptr %10, align 4
   %12 = shl i32 %9, %11
   %13 = load i32, ptr %4, align 8
@@ -19529,9 +19529,9 @@ define dso_local void @_ZN5clang13ASTStmtWriter37VisitSubstNonTypeTemplateParmPa
   store i32 %28, ptr %10, align 4
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.0.0.copyload.i.i = load i64, ptr %29, align 8
-  %30 = getelementptr inbounds i8, ptr %0, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %31 = load ptr, ptr %30, align 8
-  %32 = getelementptr inbounds i8, ptr %0, i64 24
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %33 = load ptr, ptr %32, align 8
   tail call void @_ZN5clang9ASTWriter10AddTypeRefENS_8QualTypeERN4llvm15SmallVectorImplImEE(ptr noundef nonnull align 8 dereferenceable(3340) %31, i64 %.sroa.0.0.copyload.i.i, ptr noundef nonnull align 8 dereferenceable(16) %33) #16
   %34 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -19587,7 +19587,7 @@ define dso_local void @_ZN5clang13ASTStmtWriter25VisitFunctionParmPackExprEPNS_2
   %6 = lshr i16 %5, 5
   %7 = and i16 %6, 31
   %8 = zext nneg i16 %7 to i32
-  %9 = getelementptr inbounds i8, ptr %0, i64 236
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 236
   %10 = load i32, ptr %9, align 4
   %11 = shl i32 %8, %10
   %12 = load i32, ptr %3, align 8
@@ -19614,9 +19614,9 @@ define dso_local void @_ZN5clang13ASTStmtWriter25VisitFunctionParmPackExprEPNS_2
   store i32 %27, ptr %9, align 4
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.0.0.copyload.i.i = load i64, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %0, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %0, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %32 = load ptr, ptr %31, align 8
   tail call void @_ZN5clang9ASTWriter10AddTypeRefENS_8QualTypeERN4llvm15SmallVectorImplImEE(ptr noundef nonnull align 8 dereferenceable(3340) %30, i64 %.sroa.0.0.copyload.i.i, ptr noundef nonnull align 8 dereferenceable(16) %32) #16
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 28
@@ -19689,7 +19689,7 @@ define dso_local void @_ZN5clang13ASTStmtWriter29VisitMaterializeTemporaryExprEP
   %6 = lshr i16 %5, 5
   %7 = and i16 %6, 31
   %8 = zext nneg i16 %7 to i32
-  %9 = getelementptr inbounds i8, ptr %0, i64 236
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 236
   %10 = load i32, ptr %9, align 4
   %11 = shl i32 %8, %10
   %12 = load i32, ptr %3, align 8
@@ -19716,9 +19716,9 @@ define dso_local void @_ZN5clang13ASTStmtWriter29VisitMaterializeTemporaryExprEP
   store i32 %27, ptr %9, align 4
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.0.0.copyload.i.i = load i64, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %0, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %0, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %32 = load ptr, ptr %31, align 8
   tail call void @_ZN5clang9ASTWriter10AddTypeRefENS_8QualTypeERN4llvm15SmallVectorImplImEE(ptr noundef nonnull align 8 dereferenceable(3340) %30, i64 %.sroa.0.0.copyload.i.i, ptr noundef nonnull align 8 dereferenceable(16) %32) #16
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -19774,7 +19774,7 @@ _ZN5clang15ASTRecordWriter9push_backEm.exit:      ; preds = %2, %42
 
 _ZNK5clang24MaterializeTemporaryExpr10getSubExprEv.exit: ; preds = %55, %56
   %60 = phi i64 [ %59, %56 ], [ %50, %55 ]
-  %61 = getelementptr inbounds i8, ptr %0, i64 32
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %62 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %61) #16
   %63 = add i64 %62, 1
   %64 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE8capacityEv(ptr noundef nonnull align 8 dereferenceable(16) %61) #16
@@ -19811,7 +19811,7 @@ define dso_local void @_ZN5clang13ASTStmtWriter16VisitCXXFoldExprEPNS_11CXXFoldE
   %6 = lshr i16 %5, 5
   %7 = and i16 %6, 31
   %8 = zext nneg i16 %7 to i32
-  %9 = getelementptr inbounds i8, ptr %0, i64 236
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 236
   %10 = load i32, ptr %9, align 4
   %11 = shl i32 %8, %10
   %12 = load i32, ptr %3, align 8
@@ -19838,9 +19838,9 @@ define dso_local void @_ZN5clang13ASTStmtWriter16VisitCXXFoldExprEPNS_11CXXFoldE
   store i32 %27, ptr %9, align 4
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.0.0.copyload.i.i = load i64, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %0, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %0, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %32 = load ptr, ptr %31, align 8
   tail call void @_ZN5clang9ASTWriter10AddTypeRefENS_8QualTypeERN4llvm15SmallVectorImplImEE(ptr noundef nonnull align 8 dereferenceable(3340) %30, i64 %.sroa.0.0.copyload.i.i, ptr noundef nonnull align 8 dereferenceable(16) %32) #16
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -19883,7 +19883,7 @@ _ZN5clang15ASTRecordWriter9push_backEm.exit:      ; preds = %2, %49
   tail call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %45, i64 noundef %55) #16
   %56 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %57 = load ptr, ptr %56, align 8
-  %58 = getelementptr inbounds i8, ptr %0, i64 32
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %59 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %58) #16
   %60 = add i64 %59, 1
   %61 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE8capacityEv(ptr noundef nonnull align 8 dereferenceable(16) %58) #16
@@ -19985,7 +19985,7 @@ define dso_local void @_ZN5clang13ASTStmtWriter25VisitCXXParenListInitExprEPNS_2
   %6 = lshr i16 %5, 5
   %7 = and i16 %6, 31
   %8 = zext nneg i16 %7 to i32
-  %9 = getelementptr inbounds i8, ptr %0, i64 236
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 236
   %10 = load i32, ptr %9, align 4
   %11 = shl i32 %8, %10
   %12 = load i32, ptr %3, align 8
@@ -20012,9 +20012,9 @@ define dso_local void @_ZN5clang13ASTStmtWriter25VisitCXXParenListInitExprEPNS_2
   store i32 %27, ptr %9, align 4
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.0.0.copyload.i.i = load i64, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %0, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %0, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %32 = load ptr, ptr %31, align 8
   tail call void @_ZN5clang9ASTWriter10AddTypeRefENS_8QualTypeERN4llvm15SmallVectorImplImEE(ptr noundef nonnull align 8 dereferenceable(3340) %30, i64 %.sroa.0.0.copyload.i.i, ptr noundef nonnull align 8 dereferenceable(16) %32) #16
   %.ptr = getelementptr inbounds i8, ptr %1, i64 48
@@ -20088,7 +20088,7 @@ _ZN5clang15ASTRecordWriter9push_backEm.exit30:    ; preds = %_ZN5clang15ASTRecor
   br i1 %.not48, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZN5clang15ASTRecordWriter9push_backEm.exit30
-  %73 = getelementptr inbounds i8, ptr %0, i64 32
+  %73 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %74 = getelementptr inbounds i8, ptr %0, i64 48
   br label %75
 
@@ -20178,7 +20178,7 @@ _ZN5clang15ASTRecordWriter9push_backEm.exit41:    ; preds = %108, %114
   br i1 %93, label %121, label %134
 
 121:                                              ; preds = %_ZN5clang15ASTRecordWriter9push_backEm.exit41
-  %122 = getelementptr inbounds i8, ptr %0, i64 32
+  %122 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %123 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %122) #16
   %124 = add i64 %123, 1
   %125 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE8capacityEv(ptr noundef nonnull align 8 dereferenceable(16) %122) #16
@@ -20222,7 +20222,7 @@ define dso_local void @_ZN5clang13ASTStmtWriter20VisitOpaqueValueExprEPNS_15Opaq
   %6 = lshr i16 %5, 5
   %7 = and i16 %6, 31
   %8 = zext nneg i16 %7 to i32
-  %9 = getelementptr inbounds i8, ptr %0, i64 236
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 236
   %10 = load i32, ptr %9, align 4
   %11 = shl i32 %8, %10
   %12 = load i32, ptr %3, align 8
@@ -20249,14 +20249,14 @@ define dso_local void @_ZN5clang13ASTStmtWriter20VisitOpaqueValueExprEPNS_15Opaq
   store i32 %27, ptr %9, align 4
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.0.0.copyload.i.i = load i64, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %0, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %0, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %32 = load ptr, ptr %31, align 8
   tail call void @_ZN5clang9ASTWriter10AddTypeRefENS_8QualTypeERN4llvm15SmallVectorImplImEE(ptr noundef nonnull align 8 dereferenceable(3340) %30, i64 %.sroa.0.0.copyload.i.i, ptr noundef nonnull align 8 dereferenceable(16) %32) #16
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %34 = load ptr, ptr %33, align 8
-  %35 = getelementptr inbounds i8, ptr %0, i64 32
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %36 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %35) #16
   %37 = add i64 %36, 1
   %38 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE8capacityEv(ptr noundef nonnull align 8 dereferenceable(16) %35) #16
@@ -20326,7 +20326,7 @@ define dso_local void @_ZN5clang13ASTStmtWriter23VisitCUDAKernelCallExprEPNS_18C
   %6 = getelementptr inbounds i8, ptr %1, i64 %5
   %7 = getelementptr inbounds i8, ptr %6, i64 8
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %10 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %9) #16
   %11 = add i64 %10, 1
   %12 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE8capacityEv(ptr noundef nonnull align 8 dereferenceable(16) %9) #16
@@ -20361,7 +20361,7 @@ define dso_local void @_ZN5clang13ASTStmtWriter15VisitAsTypeExprEPNS_10AsTypeExp
   %6 = lshr i16 %5, 5
   %7 = and i16 %6, 31
   %8 = zext nneg i16 %7 to i32
-  %9 = getelementptr inbounds i8, ptr %0, i64 236
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 236
   %10 = load i32, ptr %9, align 4
   %11 = shl i32 %8, %10
   %12 = load i32, ptr %3, align 8
@@ -20388,9 +20388,9 @@ define dso_local void @_ZN5clang13ASTStmtWriter15VisitAsTypeExprEPNS_10AsTypeExp
   store i32 %27, ptr %9, align 4
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.0.0.copyload.i.i = load i64, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %0, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %0, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %32 = load ptr, ptr %31, align 8
   tail call void @_ZN5clang9ASTWriter10AddTypeRefENS_8QualTypeERN4llvm15SmallVectorImplImEE(ptr noundef nonnull align 8 dereferenceable(3340) %30, i64 %.sroa.0.0.copyload.i.i, ptr noundef nonnull align 8 dereferenceable(16) %32) #16
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -20405,7 +20405,7 @@ define dso_local void @_ZN5clang13ASTStmtWriter15VisitAsTypeExprEPNS_10AsTypeExp
   tail call void @_ZN5clang9ASTWriter17AddSourceLocationENS_14SourceLocationERN4llvm15SmallVectorImplImEEPNS_22SourceLocationSequenceE(ptr noundef nonnull align 8 dereferenceable(3340) %37, i32 %.sroa.0.0.copyload.i6, ptr noundef nonnull align 8 dereferenceable(16) %38, ptr noundef null) #16
   %39 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %40 = load ptr, ptr %39, align 8
-  %41 = getelementptr inbounds i8, ptr %0, i64 32
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %42 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %41) #16
   %43 = add i64 %42, 1
   %44 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE8capacityEv(ptr noundef nonnull align 8 dereferenceable(16) %41) #16
@@ -20440,7 +20440,7 @@ define dso_local void @_ZN5clang13ASTStmtWriter22VisitMSPropertyRefExprEPNS_17MS
   %6 = lshr i16 %5, 5
   %7 = and i16 %6, 31
   %8 = zext nneg i16 %7 to i32
-  %9 = getelementptr inbounds i8, ptr %0, i64 236
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 236
   %10 = load i32, ptr %9, align 4
   %11 = shl i32 %8, %10
   %12 = load i32, ptr %3, align 8
@@ -20467,9 +20467,9 @@ define dso_local void @_ZN5clang13ASTStmtWriter22VisitMSPropertyRefExprEPNS_17MS
   store i32 %27, ptr %9, align 4
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.0.0.copyload.i.i = load i64, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %0, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %0, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %32 = load ptr, ptr %31, align 8
   tail call void @_ZN5clang9ASTWriter10AddTypeRefENS_8QualTypeERN4llvm15SmallVectorImplImEE(ptr noundef nonnull align 8 dereferenceable(3340) %30, i64 %.sroa.0.0.copyload.i.i, ptr noundef nonnull align 8 dereferenceable(16) %32) #16
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 36
@@ -20498,7 +20498,7 @@ _ZN5clang15ASTRecordWriter9push_backEm.exit:      ; preds = %2, %41
   tail call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %37, i64 noundef %47) #16
   %48 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %49 = load ptr, ptr %48, align 8
-  %50 = getelementptr inbounds i8, ptr %0, i64 32
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %51 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %50) #16
   %52 = add i64 %51, 1
   %53 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE8capacityEv(ptr noundef nonnull align 8 dereferenceable(16) %50) #16
@@ -20549,7 +20549,7 @@ define dso_local void @_ZN5clang13ASTStmtWriter28VisitMSPropertySubscriptExprEPN
   %6 = lshr i16 %5, 5
   %7 = and i16 %6, 31
   %8 = zext nneg i16 %7 to i32
-  %9 = getelementptr inbounds i8, ptr %0, i64 236
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 236
   %10 = load i32, ptr %9, align 4
   %11 = shl i32 %8, %10
   %12 = load i32, ptr %3, align 8
@@ -20576,14 +20576,14 @@ define dso_local void @_ZN5clang13ASTStmtWriter28VisitMSPropertySubscriptExprEPN
   store i32 %27, ptr %9, align 4
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.0.0.copyload.i.i = load i64, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %0, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %0, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %32 = load ptr, ptr %31, align 8
   tail call void @_ZN5clang9ASTWriter10AddTypeRefENS_8QualTypeERN4llvm15SmallVectorImplImEE(ptr noundef nonnull align 8 dereferenceable(3340) %30, i64 %.sroa.0.0.copyload.i.i, ptr noundef nonnull align 8 dereferenceable(16) %32) #16
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %34 = load ptr, ptr %33, align 8
-  %35 = getelementptr inbounds i8, ptr %0, i64 32
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %36 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %35) #16
   %37 = add i64 %36, 1
   %38 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE8capacityEv(ptr noundef nonnull align 8 dereferenceable(16) %35) #16
@@ -20645,7 +20645,7 @@ define dso_local void @_ZN5clang13ASTStmtWriter18VisitCXXUuidofExprEPNS_13CXXUui
   %6 = lshr i16 %5, 5
   %7 = and i16 %6, 31
   %8 = zext nneg i16 %7 to i32
-  %9 = getelementptr inbounds i8, ptr %0, i64 236
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 236
   %10 = load i32, ptr %9, align 4
   %11 = shl i32 %8, %10
   %12 = load i32, ptr %3, align 8
@@ -20672,9 +20672,9 @@ define dso_local void @_ZN5clang13ASTStmtWriter18VisitCXXUuidofExprEPNS_13CXXUui
   store i32 %27, ptr %9, align 4
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.0.0.copyload.i.i = load i64, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %0, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %0, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %32 = load ptr, ptr %31, align 8
   tail call void @_ZN5clang9ASTWriter10AddTypeRefENS_8QualTypeERN4llvm15SmallVectorImplImEE(ptr noundef nonnull align 8 dereferenceable(3340) %30, i64 %.sroa.0.0.copyload.i.i, ptr noundef nonnull align 8 dereferenceable(16) %32) #16
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -20702,7 +20702,7 @@ define dso_local void @_ZN5clang13ASTStmtWriter18VisitCXXUuidofExprEPNS_13CXXUui
 
 46:                                               ; preds = %2
   %47 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i, -8
-  %48 = getelementptr inbounds i8, ptr %0, i64 32
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %49 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %48) #16
   %50 = add i64 %49, 1
   %51 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE8capacityEv(ptr noundef nonnull align 8 dereferenceable(16) %48) #16
@@ -20735,14 +20735,14 @@ _ZN5clang15ASTRecordWriter7AddStmtEPNS_4StmtE.exit: ; preds = %46, %52
 define dso_local void @_ZN5clang13ASTStmtWriter18VisitSEHExceptStmtEPNS_13SEHExceptStmtE(ptr noundef nonnull align 8 dereferenceable(256) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.0.0.copyload.i = load i32, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = load ptr, ptr %6, align 8
   tail call void @_ZN5clang9ASTWriter17AddSourceLocationENS_14SourceLocationERN4llvm15SmallVectorImplImEEPNS_22SourceLocationSequenceE(ptr noundef nonnull align 8 dereferenceable(3340) %5, i32 %.sroa.0.0.copyload.i, ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef null) #16
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %11 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %10) #16
   %12 = add i64 %11, 1
   %13 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE8capacityEv(ptr noundef nonnull align 8 dereferenceable(16) %10) #16
@@ -20794,14 +20794,14 @@ _ZN5clang15ASTRecordWriter7AddStmtEPNS_4StmtE.exit6: ; preds = %_ZN5clang15ASTRe
 define dso_local void @_ZN5clang13ASTStmtWriter19VisitSEHFinallyStmtEPNS_14SEHFinallyStmtE(ptr noundef nonnull align 8 dereferenceable(256) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.0.0.copyload.i = load i32, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = load ptr, ptr %6, align 8
   tail call void @_ZN5clang9ASTWriter17AddSourceLocationENS_14SourceLocationERN4llvm15SmallVectorImplImEEPNS_22SourceLocationSequenceE(ptr noundef nonnull align 8 dereferenceable(3340) %5, i32 %.sroa.0.0.copyload.i, ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef null) #16
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %11 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %10) #16
   %12 = add i64 %11, 1
   %13 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE8capacityEv(ptr noundef nonnull align 8 dereferenceable(16) %10) #16
@@ -20833,7 +20833,7 @@ define dso_local void @_ZN5clang13ASTStmtWriter15VisitSEHTryStmtEPNS_10SEHTryStm
   %4 = load i8, ptr %3, align 8
   %5 = and i8 %4, 1
   %6 = zext nneg i8 %5 to i64
-  %7 = getelementptr inbounds i8, ptr %0, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %8 = load ptr, ptr %7, align 8
   %9 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %8) #16
   %10 = add i64 %9, 1
@@ -20856,13 +20856,13 @@ _ZN5clang15ASTRecordWriter9push_backEm.exit:      ; preds = %2, %12
   tail call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %8, i64 noundef %18) #16
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %.sroa.0.0.copyload.i = load i32, ptr %19, align 4
-  %20 = getelementptr inbounds i8, ptr %0, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %21 = load ptr, ptr %20, align 8
   %22 = load ptr, ptr %7, align 8
   tail call void @_ZN5clang9ASTWriter17AddSourceLocationENS_14SourceLocationERN4llvm15SmallVectorImplImEEPNS_22SourceLocationSequenceE(ptr noundef nonnull align 8 dereferenceable(3340) %21, i32 %.sroa.0.0.copyload.i, ptr noundef nonnull align 8 dereferenceable(16) %22, ptr noundef null) #16
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %0, i64 32
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %26 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %25) #16
   %27 = add i64 %26, 1
   %28 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE8capacityEv(ptr noundef nonnull align 8 dereferenceable(16) %25) #16
@@ -20914,9 +20914,9 @@ _ZN5clang15ASTRecordWriter7AddStmtEPNS_4StmtE.exit8: ; preds = %_ZN5clang15ASTRe
 define dso_local void @_ZN5clang13ASTStmtWriter17VisitSEHLeaveStmtEPNS_12SEHLeaveStmtE(ptr nocapture noundef nonnull align 8 dereferenceable(256) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.0.0.copyload.i = load i32, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = load ptr, ptr %6, align 8
   tail call void @_ZN5clang9ASTWriter17AddSourceLocationENS_14SourceLocationERN4llvm15SmallVectorImplImEEPNS_22SourceLocationSequenceE(ptr noundef nonnull align 8 dereferenceable(3340) %5, i32 %.sroa.0.0.copyload.i, ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef null) #16
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 224
@@ -20926,7 +20926,7 @@ define dso_local void @_ZN5clang13ASTStmtWriter17VisitSEHLeaveStmtEPNS_12SEHLeav
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN5clang13ASTStmtWriter21VisitOMPCanonicalLoopEPNS_16OMPCanonicalLoopE(ptr noundef nonnull align 8 dereferenceable(256) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 32
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = getelementptr inbounds i8, ptr %0, i64 48
   br label %5
 
@@ -20971,9 +20971,9 @@ define dso_local void @_ZN5clang13ASTStmtWriter27VisitOMPExecutableDirectiveEPNS
   tail call void @_ZN5clang15ASTRecordWriter16writeOMPChildrenEPNS_11OMPChildrenE(ptr noundef nonnull align 8 dereferenceable(216) %3, ptr noundef %5) #16
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %.sroa.0.0.copyload.i = load i32, ptr %6, align 4
-  %7 = getelementptr inbounds i8, ptr %0, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %10 = load ptr, ptr %9, align 8
   tail call void @_ZN5clang9ASTWriter17AddSourceLocationENS_14SourceLocationERN4llvm15SmallVectorImplImEEPNS_22SourceLocationSequenceE(ptr noundef nonnull align 8 dereferenceable(3340) %8, i32 %.sroa.0.0.copyload.i, ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef null) #16
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -20990,7 +20990,7 @@ declare void @_ZN5clang15ASTRecordWriter16writeOMPChildrenEPNS_11OMPChildrenE(pt
 define dso_local void @_ZN5clang13ASTStmtWriter26VisitOMPLoopBasedDirectiveEPNS_21OMPLoopBasedDirectiveE(ptr noundef nonnull align 8 dereferenceable(256) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %4 = load i32, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load ptr, ptr %5, align 8
   %7 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %6) #16
   %8 = add i64 %7, 1
@@ -21018,7 +21018,7 @@ _ZN5clang15ASTRecordWriter11writeUInt32Ej.exit:   ; preds = %2, %10
   tail call void @_ZN5clang15ASTRecordWriter16writeOMPChildrenEPNS_11OMPChildrenE(ptr noundef nonnull align 8 dereferenceable(216) %12, ptr noundef %20) #16
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %.sroa.0.0.copyload.i.i = load i32, ptr %21, align 4
-  %22 = getelementptr inbounds i8, ptr %0, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %23 = load ptr, ptr %22, align 8
   %24 = load ptr, ptr %5, align 8
   tail call void @_ZN5clang9ASTWriter17AddSourceLocationENS_14SourceLocationERN4llvm15SmallVectorImplImEEPNS_22SourceLocationSequenceE(ptr noundef nonnull align 8 dereferenceable(3340) %23, i32 %.sroa.0.0.copyload.i.i, ptr noundef nonnull align 8 dereferenceable(16) %24, ptr noundef null) #16
@@ -21050,7 +21050,7 @@ define dso_local void @_ZN5clang13ASTStmtWriter21VisitOMPMetaDirectiveEPNS_16OMP
 
 _ZNK5clang22OMPExecutableDirective13getNumClausesEv.exit: ; preds = %2, %5
   %.0.i = phi i64 [ %7, %5 ], [ 0, %2 ]
-  %8 = getelementptr inbounds i8, ptr %0, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %9 = load ptr, ptr %8, align 8
   %10 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %9) #16
   %11 = add i64 %10, 1
@@ -21076,7 +21076,7 @@ _ZN5clang15ASTRecordWriter9push_backEm.exit:      ; preds = %_ZNK5clang22OMPExec
   tail call void @_ZN5clang15ASTRecordWriter16writeOMPChildrenEPNS_11OMPChildrenE(ptr noundef nonnull align 8 dereferenceable(216) %15, ptr noundef %21) #16
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %.sroa.0.0.copyload.i.i = load i32, ptr %22, align 4
-  %23 = getelementptr inbounds i8, ptr %0, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %24 = load ptr, ptr %23, align 8
   %25 = load ptr, ptr %8, align 8
   tail call void @_ZN5clang9ASTWriter17AddSourceLocationENS_14SourceLocationERN4llvm15SmallVectorImplImEEPNS_22SourceLocationSequenceE(ptr noundef nonnull align 8 dereferenceable(3340) %24, i32 %.sroa.0.0.copyload.i.i, ptr noundef nonnull align 8 dereferenceable(16) %25, ptr noundef null) #16
@@ -21098,9 +21098,9 @@ define dso_local void @_ZN5clang13ASTStmtWriter25VisitOMPParallelDirectiveEPNS_2
   tail call void @_ZN5clang15ASTRecordWriter16writeOMPChildrenEPNS_11OMPChildrenE(ptr noundef nonnull align 8 dereferenceable(216) %3, ptr noundef %5) #16
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %.sroa.0.0.copyload.i.i = load i32, ptr %6, align 4
-  %7 = getelementptr inbounds i8, ptr %0, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %10 = load ptr, ptr %9, align 8
   tail call void @_ZN5clang9ASTWriter17AddSourceLocationENS_14SourceLocationERN4llvm15SmallVectorImplImEEPNS_22SourceLocationSequenceE(ptr noundef nonnull align 8 dereferenceable(3340) %8, i32 %.sroa.0.0.copyload.i.i, ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef null) #16
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -21150,7 +21150,7 @@ define dso_local void @_ZN5clang13ASTStmtWriter35VisitOMPLoopTransformationDirec
   tail call void @_ZN5clang13ASTStmtWriter26VisitOMPLoopBasedDirectiveEPNS_21OMPLoopBasedDirectiveE(ptr noundef nonnull align 8 dereferenceable(256) %0, ptr noundef %1)
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %4 = load i32, ptr %3, align 4
-  %5 = getelementptr inbounds i8, ptr %0, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load ptr, ptr %5, align 8
   %7 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %6) #16
   %8 = add i64 %7, 1
@@ -21212,7 +21212,7 @@ define dso_local void @_ZN5clang13ASTStmtWriter20VisitOMPForDirectiveEPNS_15OMPF
   tail call void @_ZN5clang13ASTStmtWriter26VisitOMPLoopBasedDirectiveEPNS_21OMPLoopBasedDirectiveE(ptr noundef nonnull align 8 dereferenceable(256) %0, ptr noundef readonly %1)
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %4 = load i8, ptr %3, align 4
-  %5 = getelementptr inbounds i8, ptr %0, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load ptr, ptr %5, align 8
   %7 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %6) #16
   %8 = add i64 %7, 1
@@ -21256,9 +21256,9 @@ define dso_local void @_ZN5clang13ASTStmtWriter25VisitOMPSectionsDirectiveEPNS_2
   tail call void @_ZN5clang15ASTRecordWriter16writeOMPChildrenEPNS_11OMPChildrenE(ptr noundef nonnull align 8 dereferenceable(216) %3, ptr noundef %5) #16
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %.sroa.0.0.copyload.i.i = load i32, ptr %6, align 4
-  %7 = getelementptr inbounds i8, ptr %0, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %10 = load ptr, ptr %9, align 8
   tail call void @_ZN5clang9ASTWriter17AddSourceLocationENS_14SourceLocationERN4llvm15SmallVectorImplImEEPNS_22SourceLocationSequenceE(ptr noundef nonnull align 8 dereferenceable(3340) %8, i32 %.sroa.0.0.copyload.i.i, ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef null) #16
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -21303,9 +21303,9 @@ define dso_local void @_ZN5clang13ASTStmtWriter24VisitOMPSectionDirectiveEPNS_19
   tail call void @_ZN5clang15ASTRecordWriter16writeOMPChildrenEPNS_11OMPChildrenE(ptr noundef nonnull align 8 dereferenceable(216) %3, ptr noundef %5) #16
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %.sroa.0.0.copyload.i.i = load i32, ptr %6, align 4
-  %7 = getelementptr inbounds i8, ptr %0, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %10 = load ptr, ptr %9, align 8
   tail call void @_ZN5clang9ASTWriter17AddSourceLocationENS_14SourceLocationERN4llvm15SmallVectorImplImEEPNS_22SourceLocationSequenceE(ptr noundef nonnull align 8 dereferenceable(3340) %8, i32 %.sroa.0.0.copyload.i.i, ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef null) #16
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -21350,9 +21350,9 @@ define dso_local void @_ZN5clang13ASTStmtWriter22VisitOMPScopeDirectiveEPNS_17OM
   tail call void @_ZN5clang15ASTRecordWriter16writeOMPChildrenEPNS_11OMPChildrenE(ptr noundef nonnull align 8 dereferenceable(216) %3, ptr noundef %5) #16
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %.sroa.0.0.copyload.i.i = load i32, ptr %6, align 4
-  %7 = getelementptr inbounds i8, ptr %0, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %10 = load ptr, ptr %9, align 8
   tail call void @_ZN5clang9ASTWriter17AddSourceLocationENS_14SourceLocationERN4llvm15SmallVectorImplImEEPNS_22SourceLocationSequenceE(ptr noundef nonnull align 8 dereferenceable(3340) %8, i32 %.sroa.0.0.copyload.i.i, ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef null) #16
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -21373,9 +21373,9 @@ define dso_local void @_ZN5clang13ASTStmtWriter23VisitOMPSingleDirectiveEPNS_18O
   tail call void @_ZN5clang15ASTRecordWriter16writeOMPChildrenEPNS_11OMPChildrenE(ptr noundef nonnull align 8 dereferenceable(216) %3, ptr noundef %5) #16
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %.sroa.0.0.copyload.i.i = load i32, ptr %6, align 4
-  %7 = getelementptr inbounds i8, ptr %0, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %10 = load ptr, ptr %9, align 8
   tail call void @_ZN5clang9ASTWriter17AddSourceLocationENS_14SourceLocationERN4llvm15SmallVectorImplImEEPNS_22SourceLocationSequenceE(ptr noundef nonnull align 8 dereferenceable(3340) %8, i32 %.sroa.0.0.copyload.i.i, ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef null) #16
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -21396,9 +21396,9 @@ define dso_local void @_ZN5clang13ASTStmtWriter23VisitOMPMasterDirectiveEPNS_18O
   tail call void @_ZN5clang15ASTRecordWriter16writeOMPChildrenEPNS_11OMPChildrenE(ptr noundef nonnull align 8 dereferenceable(216) %3, ptr noundef %5) #16
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %.sroa.0.0.copyload.i.i = load i32, ptr %6, align 4
-  %7 = getelementptr inbounds i8, ptr %0, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %10 = load ptr, ptr %9, align 8
   tail call void @_ZN5clang9ASTWriter17AddSourceLocationENS_14SourceLocationERN4llvm15SmallVectorImplImEEPNS_22SourceLocationSequenceE(ptr noundef nonnull align 8 dereferenceable(3340) %8, i32 %.sroa.0.0.copyload.i.i, ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef null) #16
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -21420,9 +21420,9 @@ define dso_local void @_ZN5clang13ASTStmtWriter25VisitOMPCriticalDirectiveEPNS_2
   tail call void @_ZN5clang15ASTRecordWriter16writeOMPChildrenEPNS_11OMPChildrenE(ptr noundef nonnull align 8 dereferenceable(216) %4, ptr noundef %6) #16
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %.sroa.0.0.copyload.i.i = load i32, ptr %7, align 4
-  %8 = getelementptr inbounds i8, ptr %0, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %11 = load ptr, ptr %10, align 8
   tail call void @_ZN5clang9ASTWriter17AddSourceLocationENS_14SourceLocationERN4llvm15SmallVectorImplImEEPNS_22SourceLocationSequenceE(ptr noundef nonnull align 8 dereferenceable(3340) %9, i32 %.sroa.0.0.copyload.i.i, ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef null) #16
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -21443,7 +21443,7 @@ define dso_local void @_ZN5clang13ASTStmtWriter28VisitOMPParallelForDirectiveEPN
   tail call void @_ZN5clang13ASTStmtWriter26VisitOMPLoopBasedDirectiveEPNS_21OMPLoopBasedDirectiveE(ptr noundef nonnull align 8 dereferenceable(256) %0, ptr noundef readonly %1)
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %4 = load i8, ptr %3, align 4
-  %5 = getelementptr inbounds i8, ptr %0, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load ptr, ptr %5, align 8
   %7 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %6) #16
   %8 = add i64 %7, 1
@@ -21487,9 +21487,9 @@ define dso_local void @_ZN5clang13ASTStmtWriter31VisitOMPParallelMasterDirective
   tail call void @_ZN5clang15ASTRecordWriter16writeOMPChildrenEPNS_11OMPChildrenE(ptr noundef nonnull align 8 dereferenceable(216) %3, ptr noundef %5) #16
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %.sroa.0.0.copyload.i.i = load i32, ptr %6, align 4
-  %7 = getelementptr inbounds i8, ptr %0, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %10 = load ptr, ptr %9, align 8
   tail call void @_ZN5clang9ASTWriter17AddSourceLocationENS_14SourceLocationERN4llvm15SmallVectorImplImEEPNS_22SourceLocationSequenceE(ptr noundef nonnull align 8 dereferenceable(3340) %8, i32 %.sroa.0.0.copyload.i.i, ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef null) #16
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -21510,9 +21510,9 @@ define dso_local void @_ZN5clang13ASTStmtWriter31VisitOMPParallelMaskedDirective
   tail call void @_ZN5clang15ASTRecordWriter16writeOMPChildrenEPNS_11OMPChildrenE(ptr noundef nonnull align 8 dereferenceable(216) %3, ptr noundef %5) #16
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %.sroa.0.0.copyload.i.i = load i32, ptr %6, align 4
-  %7 = getelementptr inbounds i8, ptr %0, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %10 = load ptr, ptr %9, align 8
   tail call void @_ZN5clang9ASTWriter17AddSourceLocationENS_14SourceLocationERN4llvm15SmallVectorImplImEEPNS_22SourceLocationSequenceE(ptr noundef nonnull align 8 dereferenceable(3340) %8, i32 %.sroa.0.0.copyload.i.i, ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef null) #16
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -21533,9 +21533,9 @@ define dso_local void @_ZN5clang13ASTStmtWriter33VisitOMPParallelSectionsDirecti
   tail call void @_ZN5clang15ASTRecordWriter16writeOMPChildrenEPNS_11OMPChildrenE(ptr noundef nonnull align 8 dereferenceable(216) %3, ptr noundef %5) #16
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %.sroa.0.0.copyload.i.i = load i32, ptr %6, align 4
-  %7 = getelementptr inbounds i8, ptr %0, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %10 = load ptr, ptr %9, align 8
   tail call void @_ZN5clang9ASTWriter17AddSourceLocationENS_14SourceLocationERN4llvm15SmallVectorImplImEEPNS_22SourceLocationSequenceE(ptr noundef nonnull align 8 dereferenceable(3340) %8, i32 %.sroa.0.0.copyload.i.i, ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef null) #16
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -21580,9 +21580,9 @@ define dso_local void @_ZN5clang13ASTStmtWriter21VisitOMPTaskDirectiveEPNS_16OMP
   tail call void @_ZN5clang15ASTRecordWriter16writeOMPChildrenEPNS_11OMPChildrenE(ptr noundef nonnull align 8 dereferenceable(216) %3, ptr noundef %5) #16
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %.sroa.0.0.copyload.i.i = load i32, ptr %6, align 4
-  %7 = getelementptr inbounds i8, ptr %0, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %10 = load ptr, ptr %9, align 8
   tail call void @_ZN5clang9ASTWriter17AddSourceLocationENS_14SourceLocationERN4llvm15SmallVectorImplImEEPNS_22SourceLocationSequenceE(ptr noundef nonnull align 8 dereferenceable(3340) %8, i32 %.sroa.0.0.copyload.i.i, ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef null) #16
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -21627,9 +21627,9 @@ define dso_local void @_ZN5clang13ASTStmtWriter23VisitOMPAtomicDirectiveEPNS_18O
   tail call void @_ZN5clang15ASTRecordWriter16writeOMPChildrenEPNS_11OMPChildrenE(ptr noundef nonnull align 8 dereferenceable(216) %3, ptr noundef %5) #16
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %.sroa.0.0.copyload.i.i = load i32, ptr %6, align 4
-  %7 = getelementptr inbounds i8, ptr %0, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %10 = load ptr, ptr %9, align 8
   tail call void @_ZN5clang9ASTWriter17AddSourceLocationENS_14SourceLocationERN4llvm15SmallVectorImplImEEPNS_22SourceLocationSequenceE(ptr noundef nonnull align 8 dereferenceable(3340) %8, i32 %.sroa.0.0.copyload.i.i, ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef null) #16
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -21722,9 +21722,9 @@ define dso_local void @_ZN5clang13ASTStmtWriter23VisitOMPTargetDirectiveEPNS_18O
   tail call void @_ZN5clang15ASTRecordWriter16writeOMPChildrenEPNS_11OMPChildrenE(ptr noundef nonnull align 8 dereferenceable(216) %3, ptr noundef %5) #16
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %.sroa.0.0.copyload.i.i = load i32, ptr %6, align 4
-  %7 = getelementptr inbounds i8, ptr %0, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %10 = load ptr, ptr %9, align 8
   tail call void @_ZN5clang9ASTWriter17AddSourceLocationENS_14SourceLocationERN4llvm15SmallVectorImplImEEPNS_22SourceLocationSequenceE(ptr noundef nonnull align 8 dereferenceable(3340) %8, i32 %.sroa.0.0.copyload.i.i, ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef null) #16
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -21745,9 +21745,9 @@ define dso_local void @_ZN5clang13ASTStmtWriter27VisitOMPTargetDataDirectiveEPNS
   tail call void @_ZN5clang15ASTRecordWriter16writeOMPChildrenEPNS_11OMPChildrenE(ptr noundef nonnull align 8 dereferenceable(216) %3, ptr noundef %5) #16
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %.sroa.0.0.copyload.i.i = load i32, ptr %6, align 4
-  %7 = getelementptr inbounds i8, ptr %0, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %10 = load ptr, ptr %9, align 8
   tail call void @_ZN5clang9ASTWriter17AddSourceLocationENS_14SourceLocationERN4llvm15SmallVectorImplImEEPNS_22SourceLocationSequenceE(ptr noundef nonnull align 8 dereferenceable(3340) %8, i32 %.sroa.0.0.copyload.i.i, ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef null) #16
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -21768,9 +21768,9 @@ define dso_local void @_ZN5clang13ASTStmtWriter32VisitOMPTargetEnterDataDirectiv
   tail call void @_ZN5clang15ASTRecordWriter16writeOMPChildrenEPNS_11OMPChildrenE(ptr noundef nonnull align 8 dereferenceable(216) %3, ptr noundef %5) #16
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %.sroa.0.0.copyload.i.i = load i32, ptr %6, align 4
-  %7 = getelementptr inbounds i8, ptr %0, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %10 = load ptr, ptr %9, align 8
   tail call void @_ZN5clang9ASTWriter17AddSourceLocationENS_14SourceLocationERN4llvm15SmallVectorImplImEEPNS_22SourceLocationSequenceE(ptr noundef nonnull align 8 dereferenceable(3340) %8, i32 %.sroa.0.0.copyload.i.i, ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef null) #16
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -21791,9 +21791,9 @@ define dso_local void @_ZN5clang13ASTStmtWriter31VisitOMPTargetExitDataDirective
   tail call void @_ZN5clang15ASTRecordWriter16writeOMPChildrenEPNS_11OMPChildrenE(ptr noundef nonnull align 8 dereferenceable(216) %3, ptr noundef %5) #16
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %.sroa.0.0.copyload.i.i = load i32, ptr %6, align 4
-  %7 = getelementptr inbounds i8, ptr %0, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %10 = load ptr, ptr %9, align 8
   tail call void @_ZN5clang9ASTWriter17AddSourceLocationENS_14SourceLocationERN4llvm15SmallVectorImplImEEPNS_22SourceLocationSequenceE(ptr noundef nonnull align 8 dereferenceable(3340) %8, i32 %.sroa.0.0.copyload.i.i, ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef null) #16
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -21814,9 +21814,9 @@ define dso_local void @_ZN5clang13ASTStmtWriter31VisitOMPTargetParallelDirective
   tail call void @_ZN5clang15ASTRecordWriter16writeOMPChildrenEPNS_11OMPChildrenE(ptr noundef nonnull align 8 dereferenceable(216) %3, ptr noundef %5) #16
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %.sroa.0.0.copyload.i.i = load i32, ptr %6, align 4
-  %7 = getelementptr inbounds i8, ptr %0, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %10 = load ptr, ptr %9, align 8
   tail call void @_ZN5clang9ASTWriter17AddSourceLocationENS_14SourceLocationERN4llvm15SmallVectorImplImEEPNS_22SourceLocationSequenceE(ptr noundef nonnull align 8 dereferenceable(3340) %8, i32 %.sroa.0.0.copyload.i.i, ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef null) #16
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -21858,7 +21858,7 @@ define dso_local void @_ZN5clang13ASTStmtWriter34VisitOMPTargetParallelForDirect
   tail call void @_ZN5clang13ASTStmtWriter26VisitOMPLoopBasedDirectiveEPNS_21OMPLoopBasedDirectiveE(ptr noundef nonnull align 8 dereferenceable(256) %0, ptr noundef readonly %1)
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %4 = load i8, ptr %3, align 4
-  %5 = getelementptr inbounds i8, ptr %0, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load ptr, ptr %5, align 8
   %7 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %6) #16
   %8 = add i64 %7, 1
@@ -21894,9 +21894,9 @@ define dso_local void @_ZN5clang13ASTStmtWriter26VisitOMPTaskyieldDirectiveEPNS_
   tail call void @_ZN5clang15ASTRecordWriter16writeOMPChildrenEPNS_11OMPChildrenE(ptr noundef nonnull align 8 dereferenceable(216) %3, ptr noundef %5) #16
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %.sroa.0.0.copyload.i.i = load i32, ptr %6, align 4
-  %7 = getelementptr inbounds i8, ptr %0, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %10 = load ptr, ptr %9, align 8
   tail call void @_ZN5clang9ASTWriter17AddSourceLocationENS_14SourceLocationERN4llvm15SmallVectorImplImEEPNS_22SourceLocationSequenceE(ptr noundef nonnull align 8 dereferenceable(3340) %8, i32 %.sroa.0.0.copyload.i.i, ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef null) #16
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -21917,9 +21917,9 @@ define dso_local void @_ZN5clang13ASTStmtWriter24VisitOMPBarrierDirectiveEPNS_19
   tail call void @_ZN5clang15ASTRecordWriter16writeOMPChildrenEPNS_11OMPChildrenE(ptr noundef nonnull align 8 dereferenceable(216) %3, ptr noundef %5) #16
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %.sroa.0.0.copyload.i.i = load i32, ptr %6, align 4
-  %7 = getelementptr inbounds i8, ptr %0, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %10 = load ptr, ptr %9, align 8
   tail call void @_ZN5clang9ASTWriter17AddSourceLocationENS_14SourceLocationERN4llvm15SmallVectorImplImEEPNS_22SourceLocationSequenceE(ptr noundef nonnull align 8 dereferenceable(3340) %8, i32 %.sroa.0.0.copyload.i.i, ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef null) #16
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -21946,7 +21946,7 @@ define dso_local void @_ZN5clang13ASTStmtWriter25VisitOMPTaskwaitDirectiveEPNS_2
 
 _ZNK5clang22OMPExecutableDirective13getNumClausesEv.exit: ; preds = %2, %5
   %.0.i = phi i64 [ %7, %5 ], [ 0, %2 ]
-  %8 = getelementptr inbounds i8, ptr %0, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %9 = load ptr, ptr %8, align 8
   %10 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %9) #16
   %11 = add i64 %10, 1
@@ -21972,7 +21972,7 @@ _ZN5clang15ASTRecordWriter9push_backEm.exit:      ; preds = %_ZNK5clang22OMPExec
   tail call void @_ZN5clang15ASTRecordWriter16writeOMPChildrenEPNS_11OMPChildrenE(ptr noundef nonnull align 8 dereferenceable(216) %15, ptr noundef %21) #16
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %.sroa.0.0.copyload.i.i = load i32, ptr %22, align 4
-  %23 = getelementptr inbounds i8, ptr %0, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %24 = load ptr, ptr %23, align 8
   %25 = load ptr, ptr %8, align 8
   tail call void @_ZN5clang9ASTWriter17AddSourceLocationENS_14SourceLocationERN4llvm15SmallVectorImplImEEPNS_22SourceLocationSequenceE(ptr noundef nonnull align 8 dereferenceable(3340) %24, i32 %.sroa.0.0.copyload.i.i, ptr noundef nonnull align 8 dereferenceable(16) %25, ptr noundef null) #16
@@ -21994,9 +21994,9 @@ define dso_local void @_ZN5clang13ASTStmtWriter23VisitOMPAssumeDirectiveEPNS_18O
   tail call void @_ZN5clang15ASTRecordWriter16writeOMPChildrenEPNS_11OMPChildrenE(ptr noundef nonnull align 8 dereferenceable(216) %3, ptr noundef %5) #16
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %.sroa.0.0.copyload.i.i = load i32, ptr %6, align 4
-  %7 = getelementptr inbounds i8, ptr %0, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %10 = load ptr, ptr %9, align 8
   tail call void @_ZN5clang9ASTWriter17AddSourceLocationENS_14SourceLocationERN4llvm15SmallVectorImplImEEPNS_22SourceLocationSequenceE(ptr noundef nonnull align 8 dereferenceable(3340) %8, i32 %.sroa.0.0.copyload.i.i, ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef null) #16
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -22023,7 +22023,7 @@ define dso_local void @_ZN5clang13ASTStmtWriter22VisitOMPErrorDirectiveEPNS_17OM
 
 _ZNK5clang22OMPExecutableDirective13getNumClausesEv.exit: ; preds = %2, %5
   %.0.i = phi i64 [ %7, %5 ], [ 0, %2 ]
-  %8 = getelementptr inbounds i8, ptr %0, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %9 = load ptr, ptr %8, align 8
   %10 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %9) #16
   %11 = add i64 %10, 1
@@ -22049,7 +22049,7 @@ _ZN5clang15ASTRecordWriter9push_backEm.exit:      ; preds = %_ZNK5clang22OMPExec
   tail call void @_ZN5clang15ASTRecordWriter16writeOMPChildrenEPNS_11OMPChildrenE(ptr noundef nonnull align 8 dereferenceable(216) %15, ptr noundef %21) #16
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %.sroa.0.0.copyload.i.i = load i32, ptr %22, align 4
-  %23 = getelementptr inbounds i8, ptr %0, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %24 = load ptr, ptr %23, align 8
   %25 = load ptr, ptr %8, align 8
   tail call void @_ZN5clang9ASTWriter17AddSourceLocationENS_14SourceLocationERN4llvm15SmallVectorImplImEEPNS_22SourceLocationSequenceE(ptr noundef nonnull align 8 dereferenceable(3340) %24, i32 %.sroa.0.0.copyload.i.i, ptr noundef nonnull align 8 dereferenceable(16) %25, ptr noundef null) #16
@@ -22071,9 +22071,9 @@ define dso_local void @_ZN5clang13ASTStmtWriter26VisitOMPTaskgroupDirectiveEPNS_
   tail call void @_ZN5clang15ASTRecordWriter16writeOMPChildrenEPNS_11OMPChildrenE(ptr noundef nonnull align 8 dereferenceable(216) %3, ptr noundef %5) #16
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %.sroa.0.0.copyload.i.i = load i32, ptr %6, align 4
-  %7 = getelementptr inbounds i8, ptr %0, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %10 = load ptr, ptr %9, align 8
   tail call void @_ZN5clang9ASTWriter17AddSourceLocationENS_14SourceLocationERN4llvm15SmallVectorImplImEEPNS_22SourceLocationSequenceE(ptr noundef nonnull align 8 dereferenceable(3340) %8, i32 %.sroa.0.0.copyload.i.i, ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef null) #16
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -22094,9 +22094,9 @@ define dso_local void @_ZN5clang13ASTStmtWriter22VisitOMPFlushDirectiveEPNS_17OM
   tail call void @_ZN5clang15ASTRecordWriter16writeOMPChildrenEPNS_11OMPChildrenE(ptr noundef nonnull align 8 dereferenceable(216) %3, ptr noundef %5) #16
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %.sroa.0.0.copyload.i.i = load i32, ptr %6, align 4
-  %7 = getelementptr inbounds i8, ptr %0, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %10 = load ptr, ptr %9, align 8
   tail call void @_ZN5clang9ASTWriter17AddSourceLocationENS_14SourceLocationERN4llvm15SmallVectorImplImEEPNS_22SourceLocationSequenceE(ptr noundef nonnull align 8 dereferenceable(3340) %8, i32 %.sroa.0.0.copyload.i.i, ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef null) #16
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -22117,9 +22117,9 @@ define dso_local void @_ZN5clang13ASTStmtWriter23VisitOMPDepobjDirectiveEPNS_18O
   tail call void @_ZN5clang15ASTRecordWriter16writeOMPChildrenEPNS_11OMPChildrenE(ptr noundef nonnull align 8 dereferenceable(216) %3, ptr noundef %5) #16
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %.sroa.0.0.copyload.i.i = load i32, ptr %6, align 4
-  %7 = getelementptr inbounds i8, ptr %0, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %10 = load ptr, ptr %9, align 8
   tail call void @_ZN5clang9ASTWriter17AddSourceLocationENS_14SourceLocationERN4llvm15SmallVectorImplImEEPNS_22SourceLocationSequenceE(ptr noundef nonnull align 8 dereferenceable(3340) %8, i32 %.sroa.0.0.copyload.i.i, ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef null) #16
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -22140,9 +22140,9 @@ define dso_local void @_ZN5clang13ASTStmtWriter21VisitOMPScanDirectiveEPNS_16OMP
   tail call void @_ZN5clang15ASTRecordWriter16writeOMPChildrenEPNS_11OMPChildrenE(ptr noundef nonnull align 8 dereferenceable(216) %3, ptr noundef %5) #16
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %.sroa.0.0.copyload.i.i = load i32, ptr %6, align 4
-  %7 = getelementptr inbounds i8, ptr %0, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %10 = load ptr, ptr %9, align 8
   tail call void @_ZN5clang9ASTWriter17AddSourceLocationENS_14SourceLocationERN4llvm15SmallVectorImplImEEPNS_22SourceLocationSequenceE(ptr noundef nonnull align 8 dereferenceable(3340) %8, i32 %.sroa.0.0.copyload.i.i, ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef null) #16
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -22163,9 +22163,9 @@ define dso_local void @_ZN5clang13ASTStmtWriter24VisitOMPOrderedDirectiveEPNS_19
   tail call void @_ZN5clang15ASTRecordWriter16writeOMPChildrenEPNS_11OMPChildrenE(ptr noundef nonnull align 8 dereferenceable(216) %3, ptr noundef %5) #16
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %.sroa.0.0.copyload.i.i = load i32, ptr %6, align 4
-  %7 = getelementptr inbounds i8, ptr %0, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %10 = load ptr, ptr %9, align 8
   tail call void @_ZN5clang9ASTWriter17AddSourceLocationENS_14SourceLocationERN4llvm15SmallVectorImplImEEPNS_22SourceLocationSequenceE(ptr noundef nonnull align 8 dereferenceable(3340) %8, i32 %.sroa.0.0.copyload.i.i, ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef null) #16
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -22186,9 +22186,9 @@ define dso_local void @_ZN5clang13ASTStmtWriter22VisitOMPTeamsDirectiveEPNS_17OM
   tail call void @_ZN5clang15ASTRecordWriter16writeOMPChildrenEPNS_11OMPChildrenE(ptr noundef nonnull align 8 dereferenceable(216) %3, ptr noundef %5) #16
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %.sroa.0.0.copyload.i.i = load i32, ptr %6, align 4
-  %7 = getelementptr inbounds i8, ptr %0, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %10 = load ptr, ptr %9, align 8
   tail call void @_ZN5clang9ASTWriter17AddSourceLocationENS_14SourceLocationERN4llvm15SmallVectorImplImEEPNS_22SourceLocationSequenceE(ptr noundef nonnull align 8 dereferenceable(3340) %8, i32 %.sroa.0.0.copyload.i.i, ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef null) #16
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -22209,9 +22209,9 @@ define dso_local void @_ZN5clang13ASTStmtWriter34VisitOMPCancellationPointDirect
   tail call void @_ZN5clang15ASTRecordWriter16writeOMPChildrenEPNS_11OMPChildrenE(ptr noundef nonnull align 8 dereferenceable(216) %3, ptr noundef %5) #16
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %.sroa.0.0.copyload.i.i = load i32, ptr %6, align 4
-  %7 = getelementptr inbounds i8, ptr %0, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %10 = load ptr, ptr %9, align 8
   tail call void @_ZN5clang9ASTWriter17AddSourceLocationENS_14SourceLocationERN4llvm15SmallVectorImplImEEPNS_22SourceLocationSequenceE(ptr noundef nonnull align 8 dereferenceable(3340) %8, i32 %.sroa.0.0.copyload.i.i, ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef null) #16
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -22255,9 +22255,9 @@ define dso_local void @_ZN5clang13ASTStmtWriter23VisitOMPCancelDirectiveEPNS_18O
   tail call void @_ZN5clang15ASTRecordWriter16writeOMPChildrenEPNS_11OMPChildrenE(ptr noundef nonnull align 8 dereferenceable(216) %3, ptr noundef %5) #16
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %.sroa.0.0.copyload.i.i = load i32, ptr %6, align 4
-  %7 = getelementptr inbounds i8, ptr %0, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %10 = load ptr, ptr %9, align 8
   tail call void @_ZN5clang9ASTWriter17AddSourceLocationENS_14SourceLocationERN4llvm15SmallVectorImplImEEPNS_22SourceLocationSequenceE(ptr noundef nonnull align 8 dereferenceable(3340) %8, i32 %.sroa.0.0.copyload.i.i, ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef null) #16
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -22298,7 +22298,7 @@ define dso_local void @_ZN5clang13ASTStmtWriter25VisitOMPTaskLoopDirectiveEPNS_2
   tail call void @_ZN5clang13ASTStmtWriter26VisitOMPLoopBasedDirectiveEPNS_21OMPLoopBasedDirectiveE(ptr noundef nonnull align 8 dereferenceable(256) %0, ptr noundef readonly %1)
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %4 = load i8, ptr %3, align 4
-  %5 = getelementptr inbounds i8, ptr %0, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load ptr, ptr %5, align 8
   %7 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %6) #16
   %8 = add i64 %7, 1
@@ -22339,7 +22339,7 @@ define dso_local void @_ZN5clang13ASTStmtWriter31VisitOMPMasterTaskLoopDirective
   tail call void @_ZN5clang13ASTStmtWriter26VisitOMPLoopBasedDirectiveEPNS_21OMPLoopBasedDirectiveE(ptr noundef nonnull align 8 dereferenceable(256) %0, ptr noundef readonly %1)
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %4 = load i8, ptr %3, align 4
-  %5 = getelementptr inbounds i8, ptr %0, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load ptr, ptr %5, align 8
   %7 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %6) #16
   %8 = add i64 %7, 1
@@ -22372,7 +22372,7 @@ define dso_local void @_ZN5clang13ASTStmtWriter31VisitOMPMaskedTaskLoopDirective
   tail call void @_ZN5clang13ASTStmtWriter26VisitOMPLoopBasedDirectiveEPNS_21OMPLoopBasedDirectiveE(ptr noundef nonnull align 8 dereferenceable(256) %0, ptr noundef readonly %1)
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %4 = load i8, ptr %3, align 4
-  %5 = getelementptr inbounds i8, ptr %0, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load ptr, ptr %5, align 8
   %7 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %6) #16
   %8 = add i64 %7, 1
@@ -22421,7 +22421,7 @@ define dso_local void @_ZN5clang13ASTStmtWriter39VisitOMPParallelMasterTaskLoopD
   tail call void @_ZN5clang13ASTStmtWriter26VisitOMPLoopBasedDirectiveEPNS_21OMPLoopBasedDirectiveE(ptr noundef nonnull align 8 dereferenceable(256) %0, ptr noundef readonly %1)
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %4 = load i8, ptr %3, align 4
-  %5 = getelementptr inbounds i8, ptr %0, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load ptr, ptr %5, align 8
   %7 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %6) #16
   %8 = add i64 %7, 1
@@ -22454,7 +22454,7 @@ define dso_local void @_ZN5clang13ASTStmtWriter39VisitOMPParallelMaskedTaskLoopD
   tail call void @_ZN5clang13ASTStmtWriter26VisitOMPLoopBasedDirectiveEPNS_21OMPLoopBasedDirectiveE(ptr noundef nonnull align 8 dereferenceable(256) %0, ptr noundef readonly %1)
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %4 = load i8, ptr %3, align 4
-  %5 = getelementptr inbounds i8, ptr %0, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load ptr, ptr %5, align 8
   %7 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %6) #16
   %8 = add i64 %7, 1
@@ -22514,9 +22514,9 @@ define dso_local void @_ZN5clang13ASTStmtWriter29VisitOMPTargetUpdateDirectiveEP
   tail call void @_ZN5clang15ASTRecordWriter16writeOMPChildrenEPNS_11OMPChildrenE(ptr noundef nonnull align 8 dereferenceable(216) %3, ptr noundef %5) #16
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %.sroa.0.0.copyload.i.i = load i32, ptr %6, align 4
-  %7 = getelementptr inbounds i8, ptr %0, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %10 = load ptr, ptr %9, align 8
   tail call void @_ZN5clang9ASTWriter17AddSourceLocationENS_14SourceLocationERN4llvm15SmallVectorImplImEEPNS_22SourceLocationSequenceE(ptr noundef nonnull align 8 dereferenceable(3340) %8, i32 %.sroa.0.0.copyload.i.i, ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef null) #16
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -22534,7 +22534,7 @@ define dso_local void @_ZN5clang13ASTStmtWriter38VisitOMPDistributeParallelForDi
   tail call void @_ZN5clang13ASTStmtWriter26VisitOMPLoopBasedDirectiveEPNS_21OMPLoopBasedDirectiveE(ptr noundef nonnull align 8 dereferenceable(256) %0, ptr noundef readonly %1)
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %4 = load i8, ptr %3, align 4
-  %5 = getelementptr inbounds i8, ptr %0, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load ptr, ptr %5, align 8
   %7 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %6) #16
   %8 = add i64 %7, 1
@@ -22623,7 +22623,7 @@ define dso_local void @_ZN5clang13ASTStmtWriter43VisitOMPTeamsDistributeParallel
   tail call void @_ZN5clang13ASTStmtWriter26VisitOMPLoopBasedDirectiveEPNS_21OMPLoopBasedDirectiveE(ptr noundef nonnull align 8 dereferenceable(256) %0, ptr noundef readonly %1)
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %4 = load i8, ptr %3, align 4
-  %5 = getelementptr inbounds i8, ptr %0, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load ptr, ptr %5, align 8
   %7 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %6) #16
   %8 = add i64 %7, 1
@@ -22659,9 +22659,9 @@ define dso_local void @_ZN5clang13ASTStmtWriter28VisitOMPTargetTeamsDirectiveEPN
   tail call void @_ZN5clang15ASTRecordWriter16writeOMPChildrenEPNS_11OMPChildrenE(ptr noundef nonnull align 8 dereferenceable(216) %3, ptr noundef %5) #16
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %.sroa.0.0.copyload.i.i = load i32, ptr %6, align 4
-  %7 = getelementptr inbounds i8, ptr %0, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %10 = load ptr, ptr %9, align 8
   tail call void @_ZN5clang9ASTWriter17AddSourceLocationENS_14SourceLocationERN4llvm15SmallVectorImplImEEPNS_22SourceLocationSequenceE(ptr noundef nonnull align 8 dereferenceable(3340) %8, i32 %.sroa.0.0.copyload.i.i, ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef null) #16
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -22687,7 +22687,7 @@ define dso_local void @_ZN5clang13ASTStmtWriter49VisitOMPTargetTeamsDistributePa
   tail call void @_ZN5clang13ASTStmtWriter26VisitOMPLoopBasedDirectiveEPNS_21OMPLoopBasedDirectiveE(ptr noundef nonnull align 8 dereferenceable(256) %0, ptr noundef readonly %1)
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %4 = load i8, ptr %3, align 4
-  %5 = getelementptr inbounds i8, ptr %0, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load ptr, ptr %5, align 8
   %7 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %6) #16
   %8 = add i64 %7, 1
@@ -22739,9 +22739,9 @@ define dso_local void @_ZN5clang13ASTStmtWriter24VisitOMPInteropDirectiveEPNS_19
   tail call void @_ZN5clang15ASTRecordWriter16writeOMPChildrenEPNS_11OMPChildrenE(ptr noundef nonnull align 8 dereferenceable(216) %3, ptr noundef %5) #16
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %.sroa.0.0.copyload.i.i = load i32, ptr %6, align 4
-  %7 = getelementptr inbounds i8, ptr %0, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %10 = load ptr, ptr %9, align 8
   tail call void @_ZN5clang9ASTWriter17AddSourceLocationENS_14SourceLocationERN4llvm15SmallVectorImplImEEPNS_22SourceLocationSequenceE(ptr noundef nonnull align 8 dereferenceable(3340) %8, i32 %.sroa.0.0.copyload.i.i, ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef null) #16
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -22762,9 +22762,9 @@ define dso_local void @_ZN5clang13ASTStmtWriter25VisitOMPDispatchDirectiveEPNS_2
   tail call void @_ZN5clang15ASTRecordWriter16writeOMPChildrenEPNS_11OMPChildrenE(ptr noundef nonnull align 8 dereferenceable(216) %3, ptr noundef %5) #16
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %.sroa.0.0.copyload.i.i = load i32, ptr %6, align 4
-  %7 = getelementptr inbounds i8, ptr %0, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %10 = load ptr, ptr %9, align 8
   tail call void @_ZN5clang9ASTWriter17AddSourceLocationENS_14SourceLocationERN4llvm15SmallVectorImplImEEPNS_22SourceLocationSequenceE(ptr noundef nonnull align 8 dereferenceable(3340) %8, i32 %.sroa.0.0.copyload.i.i, ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef null) #16
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -22790,9 +22790,9 @@ define dso_local void @_ZN5clang13ASTStmtWriter23VisitOMPMaskedDirectiveEPNS_18O
   tail call void @_ZN5clang15ASTRecordWriter16writeOMPChildrenEPNS_11OMPChildrenE(ptr noundef nonnull align 8 dereferenceable(216) %3, ptr noundef %5) #16
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %.sroa.0.0.copyload.i.i = load i32, ptr %6, align 4
-  %7 = getelementptr inbounds i8, ptr %0, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %10 = load ptr, ptr %9, align 8
   tail call void @_ZN5clang9ASTWriter17AddSourceLocationENS_14SourceLocationERN4llvm15SmallVectorImplImEEPNS_22SourceLocationSequenceE(ptr noundef nonnull align 8 dereferenceable(3340) %8, i32 %.sroa.0.0.copyload.i.i, ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef null) #16
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -22826,7 +22826,7 @@ define dso_local void @_ZN5clang13ASTStmtWriter39VisitOMPTargetTeamsGenericLoopD
   tail call void @_ZN5clang13ASTStmtWriter26VisitOMPLoopBasedDirectiveEPNS_21OMPLoopBasedDirectiveE(ptr noundef nonnull align 8 dereferenceable(256) %0, ptr noundef readonly %1)
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %4 = load i8, ptr %3, align 4
-  %5 = getelementptr inbounds i8, ptr %0, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load ptr, ptr %5, align 8
   %7 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %6) #16
   %8 = add i64 %7, 1
@@ -22874,7 +22874,7 @@ define dso_local void @_ZN5clang13ASTStmtWriter42VisitOMPTargetParallelGenericLo
 define dso_local void @_ZN5clang13ASTStmtWriter25VisitOpenACCConstructStmtEPNS_20OpenACCConstructStmtE(ptr noundef nonnull align 8 dereferenceable(256) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 2 {
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %1, i64 32
   %.sroa.2.0.copyload.i = load i64, ptr %.sroa.2.0..sroa_idx.i, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 24
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
   %5 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %4) #16
   %6 = add i64 %5, 1
@@ -22922,7 +22922,7 @@ _ZN5clang13serialization21DataStreamBasicWriterINS_15ASTRecordWriterEE9writeEnum
   tail call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %17, i64 noundef %30) #16
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %.sroa.02.0.copyload = load i64, ptr %31, align 4
-  %32 = getelementptr inbounds i8, ptr %0, i64 16
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %33 = load ptr, ptr %32, align 8
   %34 = load ptr, ptr %3, align 8
   tail call void @_ZN5clang9ASTWriter14AddSourceRangeENS_11SourceRangeERN4llvm15SmallVectorImplImEEPNS_22SourceLocationSequenceE(ptr noundef nonnull align 8 dereferenceable(3340) %33, i64 %.sroa.02.0.copyload, ptr noundef nonnull align 8 dereferenceable(16) %34, ptr noundef null) #16
@@ -22944,7 +22944,7 @@ define dso_local void @_ZN5clang13ASTStmtWriter35VisitOpenACCAssociatedStmtConst
   tail call void @_ZN5clang13ASTStmtWriter25VisitOpenACCConstructStmtEPNS_20OpenACCConstructStmtE(ptr noundef nonnull align 8 dereferenceable(256) %0, ptr noundef %1)
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %6 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %5) #16
   %7 = add i64 %6, 1
   %8 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE8capacityEv(ptr noundef nonnull align 8 dereferenceable(16) %5) #16
@@ -22993,7 +22993,7 @@ define dso_local void @_ZN5clang13ASTStmtWriter19VisitHLSLOutArgExprEPNS_14HLSLO
   %6 = lshr i16 %5, 5
   %7 = and i16 %6, 31
   %8 = zext nneg i16 %7 to i32
-  %9 = getelementptr inbounds i8, ptr %0, i64 236
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 236
   %10 = load i32, ptr %9, align 4
   %11 = shl i32 %8, %10
   %12 = load i32, ptr %3, align 8
@@ -23020,14 +23020,14 @@ define dso_local void @_ZN5clang13ASTStmtWriter19VisitHLSLOutArgExprEPNS_14HLSLO
   store i32 %27, ptr %9, align 4
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.0.0.copyload.i.i = load i64, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %0, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %0, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %32 = load ptr, ptr %31, align 8
   tail call void @_ZN5clang9ASTWriter10AddTypeRefENS_8QualTypeERN4llvm15SmallVectorImplImEE(ptr noundef nonnull align 8 dereferenceable(3340) %30, i64 %.sroa.0.0.copyload.i.i, ptr noundef nonnull align 8 dereferenceable(16) %32) #16
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %34 = load ptr, ptr %33, align 8
-  %35 = getelementptr inbounds i8, ptr %0, i64 32
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %36 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %35) #16
   %37 = add i64 %36, 1
   %38 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE8capacityEv(ptr noundef nonnull align 8 dereferenceable(16) %35) #16
@@ -23124,10 +23124,10 @@ _ZN5clang15ASTRecordWriter9writeBoolEb.exit:      ; preds = %_ZN5clang15ASTRecor
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN5clang9ASTWriter18ClearSwitchCaseIDsEv(ptr noundef nonnull align 8 dereferenceable(3340) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 2904
-  %3 = getelementptr inbounds i8, ptr %0, i64 2912
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 2912
   %4 = load i32, ptr %3, align 8
   %5 = icmp eq i32 %4, 0
-  %6 = getelementptr inbounds i8, ptr %0, i64 2916
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 2916
   %7 = load i32, ptr %6, align 4
   %8 = icmp eq i32 %7, 0
   %or.cond = select i1 %5, i1 %8, i1 false
@@ -23135,7 +23135,7 @@ define dso_local void @_ZN5clang9ASTWriter18ClearSwitchCaseIDsEv(ptr noundef non
 
 9:                                                ; preds = %1
   %10 = shl i32 %4, 2
-  %11 = getelementptr inbounds i8, ptr %0, i64 2920
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 2920
   %12 = load i32, ptr %11, align 8
   %13 = icmp ult i32 %10, %12
   %14 = icmp ugt i32 %12, 64
@@ -23182,14 +23182,14 @@ define dso_local void @_ZN5clang9ASTWriter12WriteSubStmtEPNS_4StmtE(ptr noundef 
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %9 = load ptr, ptr %8, align 8
   store ptr %9, ptr %7, align 8
-  %10 = getelementptr inbounds i8, ptr %5, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %0, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %5, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store ptr %4, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %5, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %13 = getelementptr inbounds i8, ptr %5, i64 48
   call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull %13, i64 noundef 16) #16
-  %14 = getelementptr inbounds i8, ptr %5, i64 176
+  %14 = getelementptr inbounds nuw i8, ptr %5, i64 176
   %15 = getelementptr inbounds i8, ptr %5, i64 192
   call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %14, ptr noundef nonnull %15, i64 noundef 8) #16
   %16 = getelementptr inbounds nuw i8, ptr %5, i64 224
@@ -23198,11 +23198,11 @@ define dso_local void @_ZN5clang9ASTWriter12WriteSubStmtEPNS_4StmtE(ptr noundef 
   store i32 0, ptr %17, align 4
   %18 = getelementptr inbounds nuw i8, ptr %5, i64 232
   store i32 0, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %5, i64 236
+  %19 = getelementptr inbounds nuw i8, ptr %5, i64 236
   store i32 0, ptr %19, align 4
-  %20 = getelementptr inbounds i8, ptr %5, i64 240
+  %20 = getelementptr inbounds nuw i8, ptr %5, i64 240
   store ptr %7, ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %5, i64 252
+  %21 = getelementptr inbounds nuw i8, ptr %5, i64 252
   store i8 0, ptr %21, align 4
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 2928
   %23 = load i32, ptr %22, align 8
@@ -23220,7 +23220,7 @@ define dso_local void @_ZN5clang9ASTWriter12WriteSubStmtEPNS_4StmtE(ptr noundef 
 28:                                               ; preds = %2
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 1024
   %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %0, i64 1040
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 1040
   %32 = load i32, ptr %31, align 8
   %33 = icmp eq i32 %32, 0
   br i1 %33, label %.loopexit.i, label %34
@@ -23301,7 +23301,7 @@ _ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit: ; preds = %58, %64
   br i1 %74, label %75, label %_ZN5clang13ASTStmtWriter15PakedBitsWriter9writeBitsEv.exit
 
 75:                                               ; preds = %72
-  %76 = getelementptr inbounds i8, ptr %5, i64 248
+  %76 = getelementptr inbounds nuw i8, ptr %5, i64 248
   %77 = load i32, ptr %18, align 8
   %78 = zext i32 %77 to i64
   %79 = load ptr, ptr %20, align 8
@@ -24578,9 +24578,9 @@ _ZN5clang13ASTStmtWriter22VisitCXXMemberCallExprEPNS_17CXXMemberCallExprE.exit: 
 211:                                              ; preds = %62
   %212 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.0.0.copyload.i.i = load i32, ptr %212, align 8
-  %213 = getelementptr inbounds i8, ptr %0, i64 16
+  %213 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %214 = load ptr, ptr %213, align 8
-  %215 = getelementptr inbounds i8, ptr %0, i64 24
+  %215 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %216 = load ptr, ptr %215, align 8
   tail call void @_ZN5clang9ASTWriter17AddSourceLocationENS_14SourceLocationERN4llvm15SmallVectorImplImEEPNS_22SourceLocationSequenceE(ptr noundef nonnull align 8 dereferenceable(3340) %214, i32 %.sroa.0.0.copyload.i.i, ptr noundef nonnull align 8 dereferenceable(16) %216, ptr noundef null) #16
   %217 = getelementptr inbounds nuw i8, ptr %0, i64 224
@@ -25040,9 +25040,9 @@ _ZN5clang13ASTStmtWriter22VisitCXXMemberCallExprEPNS_17CXXMemberCallExprE.exit: 
 345:                                              ; preds = %62
   %346 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %.sroa.0.0.copyload.i.i300 = load i32, ptr %346, align 4
-  %347 = getelementptr inbounds i8, ptr %0, i64 16
+  %347 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %348 = load ptr, ptr %347, align 8
-  %349 = getelementptr inbounds i8, ptr %0, i64 24
+  %349 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %350 = load ptr, ptr %349, align 8
   tail call void @_ZN5clang9ASTWriter17AddSourceLocationENS_14SourceLocationERN4llvm15SmallVectorImplImEEPNS_22SourceLocationSequenceE(ptr noundef nonnull align 8 dereferenceable(3340) %348, i32 %.sroa.0.0.copyload.i.i300, ptr noundef nonnull align 8 dereferenceable(16) %350, ptr noundef null) #16
   %351 = getelementptr inbounds nuw i8, ptr %0, i64 224
@@ -25072,9 +25072,9 @@ _ZN5clang13ASTStmtWriter22VisitCXXMemberCallExprEPNS_17CXXMemberCallExprE.exit: 
 357:                                              ; preds = %62
   %358 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %.sroa.0.0.copyload.i.i301 = load i32, ptr %358, align 4
-  %359 = getelementptr inbounds i8, ptr %0, i64 16
+  %359 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %360 = load ptr, ptr %359, align 8
-  %361 = getelementptr inbounds i8, ptr %0, i64 24
+  %361 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %362 = load ptr, ptr %361, align 8
   tail call void @_ZN5clang9ASTWriter17AddSourceLocationENS_14SourceLocationERN4llvm15SmallVectorImplImEEPNS_22SourceLocationSequenceE(ptr noundef nonnull align 8 dereferenceable(3340) %360, i32 %.sroa.0.0.copyload.i.i301, ptr noundef nonnull align 8 dereferenceable(16) %362, ptr noundef null) #16
   %363 = getelementptr inbounds nuw i8, ptr %0, i64 224
@@ -25121,20 +25121,20 @@ define dso_local void @_ZN5clang15ASTRecordWriter10FlushStmtsEv(ptr noundef nonn
   call void @_ZN4llvm15BitstreamWriter10EmitRecordINS_8ArrayRefIjEEEEvjRKT_j(ptr noundef nonnull align 8 dereferenceable(152) %15, i32 noundef 140, ptr noundef nonnull align 8 dereferenceable(16) %2, i32 noundef 0)
   %16 = load ptr, ptr %6, align 8
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 1024
-  %18 = getelementptr inbounds i8, ptr %16, i64 1032
+  %18 = getelementptr inbounds nuw i8, ptr %16, i64 1032
   %19 = load i32, ptr %18, align 8
   %20 = icmp eq i32 %19, 0
   br i1 %20, label %21, label %25
 
 21:                                               ; preds = %8
-  %22 = getelementptr inbounds i8, ptr %16, i64 1036
+  %22 = getelementptr inbounds nuw i8, ptr %16, i64 1036
   %23 = load i32, ptr %22, align 4
   %24 = icmp eq i32 %23, 0
   br i1 %24, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPN5clang4StmtEmNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_mEEEES4_mS6_S9_E5clearEv.exit, label %25
 
 25:                                               ; preds = %21, %8
   %26 = shl i32 %19, 2
-  %27 = getelementptr inbounds i8, ptr %16, i64 1040
+  %27 = getelementptr inbounds nuw i8, ptr %16, i64 1040
   %28 = load i32, ptr %27, align 8
   %29 = icmp ult i32 %26, %28
   %30 = icmp ugt i32 %28, 64
@@ -25161,17 +25161,17 @@ define dso_local void @_ZN5clang15ASTRecordWriter10FlushStmtsEv(ptr noundef nonn
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %32
   store i32 0, ptr %18, align 8
-  %37 = getelementptr inbounds i8, ptr %16, i64 1036
+  %37 = getelementptr inbounds nuw i8, ptr %16, i64 1036
   store i32 0, ptr %37, align 4
   br label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPN5clang4StmtEmNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_mEEEES4_mS6_S9_E5clearEv.exit
 
 _ZN4llvm12DenseMapBaseINS_8DenseMapIPN5clang4StmtEmNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_mEEEES4_mS6_S9_E5clearEv.exit: ; preds = %21, %31, %._crit_edge.i
   %38 = load ptr, ptr %6, align 8
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 1000
-  %40 = getelementptr inbounds i8, ptr %38, i64 1008
+  %40 = getelementptr inbounds nuw i8, ptr %38, i64 1008
   %41 = load i32, ptr %40, align 8
   %42 = icmp eq i32 %41, 0
-  %43 = getelementptr inbounds i8, ptr %38, i64 1012
+  %43 = getelementptr inbounds nuw i8, ptr %38, i64 1012
   %44 = load i32, ptr %43, align 4
   %45 = icmp eq i32 %44, 0
   %or.cond.i4 = select i1 %42, i1 %45, i1 false
@@ -25179,7 +25179,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPN5clang4StmtEmNS_12DenseMapInfoIS4_vEENS_6d
 
 46:                                               ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPN5clang4StmtEmNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_mEEEES4_mS6_S9_E5clearEv.exit
   %47 = shl i32 %41, 2
-  %48 = getelementptr inbounds i8, ptr %38, i64 1016
+  %48 = getelementptr inbounds nuw i8, ptr %38, i64 1016
   %49 = load i32, ptr %48, align 8
   %50 = icmp ult i32 %47, %49
   %51 = icmp ugt i32 %49, 64
@@ -25216,7 +25216,7 @@ _ZN4llvm6detail12DenseSetImplIPN5clang4StmtENS_8DenseMapIS4_NS0_13DenseSetEmptyE
 
 ._crit_edge:                                      ; preds = %_ZN4llvm6detail12DenseSetImplIPN5clang4StmtENS_8DenseMapIS4_NS0_13DenseSetEmptyENS_12DenseMapInfoIS4_vEENS0_12DenseSetPairIS4_EEEES8_E5clearEv.exit, %1
   %58 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #16
-  %59 = getelementptr inbounds i8, ptr %0, i64 32
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i32 0, ptr %59, align 8
   ret void
 }
@@ -25332,7 +25332,7 @@ define dso_local void @_ZN5clang15ASTRecordWriter13FlushSubStmtsEv(ptr noundef n
 
 ._crit_edge:                                      ; preds = %7, %1
   %15 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %2) #16
-  %16 = getelementptr inbounds i8, ptr %0, i64 32
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i32 0, ptr %16, align 8
   ret void
 }
@@ -25420,7 +25420,7 @@ _ZN5clang13serialization15BasicWriterBaseINS_15ASTRecordWriterEE16writeAPValueKi
 37:                                               ; preds = %_ZN5clang13serialization15BasicWriterBaseINS_15ASTRecordWriterEE16writeAPValueKindENS_7APValue9ValueKindE.exit
   %38 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %39 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %40 = getelementptr inbounds i8, ptr %1, i64 16
+  %40 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %41 = load i32, ptr %40, align 8
   store i32 %41, ptr %39, align 8
   %42 = icmp ult i32 %41, 65
@@ -25437,7 +25437,7 @@ _ZN5clang13serialization15BasicWriterBaseINS_15ASTRecordWriterEE16writeAPValueKi
 
 _ZN4llvm6APSIntC2ERKS0_.exit:                     ; preds = %43, %45
   %46 = getelementptr inbounds nuw i8, ptr %4, i64 12
-  %47 = getelementptr inbounds i8, ptr %1, i64 20
+  %47 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %48 = load i8, ptr %47, align 4
   %49 = and i8 %48, 1
   store i8 %49, ptr %46, align 4
@@ -25456,7 +25456,7 @@ _ZN4llvm6APSIntC2ERKS0_.exit:                     ; preds = %43, %45
   br label %_ZN4llvm6APSIntD2Ev.exit
 
 56:                                               ; preds = %_ZN5clang13serialization15BasicWriterBaseINS_15ASTRecordWriterEE16writeAPValueKindENS_7APValue9ValueKindE.exit
-  %57 = getelementptr inbounds i8, ptr %1, i64 16
+  %57 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %58 = load ptr, ptr %57, align 8
   %59 = tail call noundef i32 @_ZN4llvm11APFloatBase15SemanticsToEnumERKNS_12fltSemanticsE(ptr noundef nonnull align 1 %58) #16
   %60 = load ptr, ptr %24, align 8
@@ -25511,14 +25511,14 @@ _ZNK4llvm7APFloat14bitcastToAPIntEv.exit:         ; preds = %74, %75
 
 83:                                               ; preds = %_ZN5clang13serialization15BasicWriterBaseINS_15ASTRecordWriterEE16writeAPValueKindENS_7APValue9ValueKindE.exit
   %84 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %85 = getelementptr inbounds i8, ptr %1, i64 24
+  %85 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %.sroa.0.0.copyload.i = load i32, ptr %85, align 8
   store i32 %.sroa.0.0.copyload.i, ptr %6, align 4
   call void @_ZN5clang13serialization21DataStreamBasicWriterINS_15ASTRecordWriterEE24writeFixedPointSemanticsERKN4llvm19FixedPointSemanticsE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 4 dereferenceable(4) %6)
   call void @llvm.experimental.noalias.scope.decl(metadata !89)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
   %86 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %87 = getelementptr inbounds i8, ptr %1, i64 16
+  %87 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %88 = load i32, ptr %87, align 8, !noalias !89
   store i32 %88, ptr %86, align 8, !noalias !89
   %89 = icmp ult i32 %88, 65
@@ -25560,7 +25560,7 @@ _ZNK4llvm12APFixedPoint8getValueEv.exit:          ; preds = %83, %90
 103:                                              ; preds = %_ZN5clang13serialization15BasicWriterBaseINS_15ASTRecordWriterEE16writeAPValueKindENS_7APValue9ValueKindE.exit
   %104 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %105 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %106 = getelementptr inbounds i8, ptr %1, i64 16
+  %106 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %107 = load i32, ptr %106, align 8
   store i32 %107, ptr %105, align 8
   %108 = icmp ult i32 %107, 65
@@ -25577,14 +25577,14 @@ _ZNK4llvm12APFixedPoint8getValueEv.exit:          ; preds = %83, %90
 
 _ZN4llvm6APSIntC2ERKS0_.exit198:                  ; preds = %109, %111
   %112 = getelementptr inbounds nuw i8, ptr %8, i64 12
-  %113 = getelementptr inbounds i8, ptr %1, i64 20
+  %113 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %114 = load i8, ptr %113, align 4
   %115 = and i8 %114, 1
   store i8 %115, ptr %112, align 4
   call void @_ZN5clang13serialization21DataStreamBasicWriterINS_15ASTRecordWriterEE11writeAPSIntERKN4llvm6APSIntE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(13) %8)
-  %116 = getelementptr inbounds i8, ptr %1, i64 24
+  %116 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %117 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %118 = getelementptr inbounds i8, ptr %1, i64 32
+  %118 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %119 = load i32, ptr %118, align 8
   store i32 %119, ptr %117, align 8
   %120 = icmp ult i32 %119, 65
@@ -25601,7 +25601,7 @@ _ZN4llvm6APSIntC2ERKS0_.exit198:                  ; preds = %109, %111
 
 _ZN4llvm6APSIntC2ERKS0_.exit199:                  ; preds = %121, %123
   %124 = getelementptr inbounds nuw i8, ptr %9, i64 12
-  %125 = getelementptr inbounds i8, ptr %1, i64 36
+  %125 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %126 = load i8, ptr %125, align 4
   %127 = and i8 %126, 1
   store i8 %127, ptr %124, align 4
@@ -25634,7 +25634,7 @@ _ZN4llvm6APSIntD2Ev.exit200:                      ; preds = %_ZN4llvm6APSIntC2ER
   br label %_ZN4llvm6APSIntD2Ev.exit
 
 140:                                              ; preds = %_ZN5clang13serialization15BasicWriterBaseINS_15ASTRecordWriterEE16writeAPValueKindENS_7APValue9ValueKindE.exit
-  %141 = getelementptr inbounds i8, ptr %1, i64 16
+  %141 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %142 = load ptr, ptr %141, align 8
   %143 = tail call noundef i32 @_ZN4llvm11APFloatBase15SemanticsToEnumERKNS_12fltSemanticsE(ptr noundef nonnull align 1 %142) #16
   %144 = load ptr, ptr %24, align 8
@@ -25673,7 +25673,7 @@ _ZN5clang15ASTRecordWriter11writeUInt32Ej.exit203: ; preds = %140, %148
 
 _ZNK4llvm7APFloat14bitcastToAPIntEv.exit205:      ; preds = %158, %159
   call void @_ZN5clang13serialization21DataStreamBasicWriterINS_15ASTRecordWriterEE10writeAPIntERKN4llvm5APIntE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(12) %10)
-  %160 = getelementptr inbounds i8, ptr %1, i64 48
+  %160 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %161 = load ptr, ptr %160, align 8, !noalias !95
   %.not.i206 = icmp eq ptr %161, %157
   br i1 %.not.i206, label %163, label %162
@@ -25720,7 +25720,7 @@ _ZN4llvm5APIntD2Ev.exit208:                       ; preds = %_ZNK4llvm7APFloat14
 178:                                              ; preds = %_ZN5clang13serialization15BasicWriterBaseINS_15ASTRecordWriterEE16writeAPValueKindENS_7APValue9ValueKindE.exit
   %179 = getelementptr inbounds i8, ptr %12, i64 16
   call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull %179, i64 noundef 4) #16
-  %180 = getelementptr inbounds i8, ptr %1, i64 16
+  %180 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %181 = load i32, ptr %180, align 8
   %.not351 = icmp eq i32 %181, 0
   br i1 %.not351, label %._crit_edge344, label %.lr.ph343
@@ -25811,7 +25811,7 @@ _ZN4llvm23SmallVectorTemplateBaseIN5clang7APValueELb0EE13destroy_rangeEPS2_S4_.e
 211:                                              ; preds = %_ZN5clang13serialization15BasicWriterBaseINS_15ASTRecordWriterEE16writeAPValueKindENS_7APValue9ValueKindE.exit
   %212 = getelementptr inbounds i8, ptr %13, i64 16
   call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %13, ptr noundef nonnull %212, i64 noundef 4) #16
-  %213 = getelementptr inbounds i8, ptr %1, i64 16
+  %213 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %214 = load i32, ptr %213, align 8
   %.not350 = icmp eq i32 %214, 0
   br i1 %.not350, label %._crit_edge337, label %.lr.ph336
@@ -25836,7 +25836,7 @@ _ZN4llvm23SmallVectorTemplateBaseIN5clang7APValueELb0EE13destroy_rangeEPS2_S4_.e
 
 ._crit_edge337:                                   ; preds = %._crit_edge337.loopexit, %211
   %219 = phi i32 [ %.pre, %._crit_edge337.loopexit ], [ 0, %211 ]
-  %220 = getelementptr inbounds i8, ptr %1, i64 20
+  %220 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %221 = load i32, ptr %220, align 4
   %.not322 = icmp eq i32 %219, %221
   br i1 %.not322, label %227, label %222
@@ -25968,7 +25968,7 @@ _ZN4llvm23SmallVectorTemplateBaseIN5clang7APValueELb0EE13destroy_rangeEPS2_S4_.e
 281:                                              ; preds = %_ZN5clang13serialization15BasicWriterBaseINS_15ASTRecordWriterEE16writeAPValueKindENS_7APValue9ValueKindE.exit
   %282 = getelementptr inbounds i8, ptr %14, i64 16
   call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %14, ptr noundef nonnull %282, i64 noundef 4) #16
-  %283 = getelementptr inbounds i8, ptr %1, i64 16
+  %283 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %284 = load i32, ptr %283, align 8
   %.not348 = icmp eq i32 %284, 0
   br i1 %.not348, label %._crit_edge, label %.lr.ph
@@ -25990,7 +25990,7 @@ _ZN4llvm23SmallVectorTemplateBaseIN5clang7APValueELb0EE13destroy_rangeEPS2_S4_.e
 ._crit_edge:                                      ; preds = %286, %281
   %289 = getelementptr inbounds i8, ptr %15, i64 16
   call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %15, ptr noundef nonnull %289, i64 noundef 4) #16
-  %290 = getelementptr inbounds i8, ptr %1, i64 20
+  %290 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %291 = load i32, ptr %290, align 4
   %.not349 = icmp eq i32 %291, 0
   br i1 %.not349, label %._crit_edge327, label %.lr.ph326
@@ -26156,7 +26156,7 @@ _ZN4llvm23SmallVectorTemplateBaseIN5clang7APValueELb0EE13destroy_rangeEPS2_S4_.e
   %354 = load ptr, ptr %353, align 8
   %355 = load ptr, ptr %24, align 8
   tail call void @_ZN5clang9ASTWriter10AddDeclRefEPKNS_4DeclERN4llvm15SmallVectorImplImEE(ptr noundef nonnull align 8 dereferenceable(3340) %354, ptr noundef %352, ptr noundef nonnull align 8 dereferenceable(16) %355) #16
-  %356 = getelementptr inbounds i8, ptr %1, i64 16
+  %356 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %357 = load ptr, ptr %356, align 8
   call void @_ZN5clang7APValueC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %16, ptr noundef nonnull align 8 dereferenceable(72) %357) #16
   call void @_ZN5clang13serialization15BasicWriterBaseINS_15ASTRecordWriterEE12writeAPValueERKNS_7APValueE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(72) %16)
@@ -26192,7 +26192,7 @@ _ZN5clang15ASTRecordWriter12writeStmtRefEPKNS_4StmtE.exit: ; preds = %360, %367
   %373 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %363) #16
   %374 = add i64 %373, 1
   tail call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %363, i64 noundef %374) #16
-  %375 = getelementptr inbounds i8, ptr %1, i64 16
+  %375 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %376 = load ptr, ptr %375, align 8
   %377 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %363) #16
   %378 = add i64 %377, 1
@@ -27346,7 +27346,7 @@ define linkonce_odr hidden noundef ptr @_ZNK5clang12RedeclarableINS_19Translatio
 
 15:                                               ; preds = %10
   %16 = getelementptr inbounds nuw i8, ptr %12, i64 2144
-  %17 = getelementptr inbounds i8, ptr %12, i64 2224
+  %17 = getelementptr inbounds nuw i8, ptr %12, i64 2224
   %18 = load i64, ptr %17, align 8
   %19 = add i64 %18, 24
   store i64 %19, ptr %17, align 8
@@ -27355,7 +27355,7 @@ define linkonce_odr hidden noundef ptr @_ZNK5clang12RedeclarableINS_19Translatio
   %22 = add i64 %21, 7
   %23 = and i64 %22, -8
   %24 = add i64 %23, 24
-  %25 = getelementptr inbounds i8, ptr %12, i64 2152
+  %25 = getelementptr inbounds nuw i8, ptr %12, i64 2152
   %26 = load ptr, ptr %25, align 8
   %27 = ptrtoint ptr %26 to i64
   %.not.i.i.i.i.i.i = icmp ugt i64 %24, %27
@@ -28736,7 +28736,7 @@ define linkonce_odr hidden noundef i64 @_ZN5clang15ASTRecordWriter8EmitStmtEjj(p
 
 _ZN5clang15ASTRecordWriter13FlushSubStmtsEv.exit: ; preds = %9, %3
   %17 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %4) #16
-  %18 = getelementptr inbounds i8, ptr %0, i64 32
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i32 0, ptr %18, align 8
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %20 = load ptr, ptr %19, align 8
@@ -28822,7 +28822,7 @@ _ZNK4llvm15BitstreamWriter15GetCurrentBitNoEv.exit: ; preds = %_ZN5clang15ASTRec
 
 _ZN5clang15ASTRecordWriter13PrepareToEmitEm.exit: ; preds = %66, %_ZNK4llvm15BitstreamWriter15GetCurrentBitNoEv.exit
   %68 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %52) #16
-  %69 = getelementptr inbounds i8, ptr %0, i64 176
+  %69 = getelementptr inbounds nuw i8, ptr %0, i64 176
   store i32 0, ptr %69, align 8
   %70 = load ptr, ptr %19, align 8
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 16
@@ -30646,9 +30646,9 @@ define linkonce_odr hidden void @_ZN5clang15StmtVisitorBaseISt11add_pointerNS_13
   tail call void @_ZN5clang13ASTStmtWriter19VisitBinaryOperatorEPNS_14BinaryOperatorE(ptr noundef nonnull align 8 dereferenceable(256) %0, ptr noundef readonly %1)
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %.sroa.0.0.copyload.i.i = load i64, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = load ptr, ptr %6, align 8
   tail call void @_ZN5clang9ASTWriter10AddTypeRefENS_8QualTypeERN4llvm15SmallVectorImplImEE(ptr noundef nonnull align 8 dereferenceable(3340) %5, i64 %.sroa.0.0.copyload.i.i, ptr noundef nonnull align 8 dereferenceable(16) %7) #16
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 40
@@ -30680,9 +30680,9 @@ define linkonce_odr hidden void @_ZN5clang15StmtVisitorBaseISt11add_pointerNS_13
   tail call void @_ZN5clang13ASTStmtWriter19VisitBinaryOperatorEPNS_14BinaryOperatorE(ptr noundef nonnull align 8 dereferenceable(256) %0, ptr noundef readonly %1)
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %.sroa.0.0.copyload.i.i = load i64, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = load ptr, ptr %6, align 8
   tail call void @_ZN5clang9ASTWriter10AddTypeRefENS_8QualTypeERN4llvm15SmallVectorImplImEE(ptr noundef nonnull align 8 dereferenceable(3340) %5, i64 %.sroa.0.0.copyload.i.i, ptr noundef nonnull align 8 dereferenceable(16) %7) #16
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 40
@@ -30714,9 +30714,9 @@ define linkonce_odr hidden void @_ZN5clang15StmtVisitorBaseISt11add_pointerNS_13
   tail call void @_ZN5clang13ASTStmtWriter19VisitBinaryOperatorEPNS_14BinaryOperatorE(ptr noundef nonnull align 8 dereferenceable(256) %0, ptr noundef readonly %1)
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %.sroa.0.0.copyload.i.i = load i64, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = load ptr, ptr %6, align 8
   tail call void @_ZN5clang9ASTWriter10AddTypeRefENS_8QualTypeERN4llvm15SmallVectorImplImEE(ptr noundef nonnull align 8 dereferenceable(3340) %5, i64 %.sroa.0.0.copyload.i.i, ptr noundef nonnull align 8 dereferenceable(16) %7) #16
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 40
@@ -30748,9 +30748,9 @@ define linkonce_odr hidden void @_ZN5clang15StmtVisitorBaseISt11add_pointerNS_13
   tail call void @_ZN5clang13ASTStmtWriter19VisitBinaryOperatorEPNS_14BinaryOperatorE(ptr noundef nonnull align 8 dereferenceable(256) %0, ptr noundef readonly %1)
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %.sroa.0.0.copyload.i.i = load i64, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = load ptr, ptr %6, align 8
   tail call void @_ZN5clang9ASTWriter10AddTypeRefENS_8QualTypeERN4llvm15SmallVectorImplImEE(ptr noundef nonnull align 8 dereferenceable(3340) %5, i64 %.sroa.0.0.copyload.i.i, ptr noundef nonnull align 8 dereferenceable(16) %7) #16
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 40
@@ -30782,9 +30782,9 @@ define linkonce_odr hidden void @_ZN5clang15StmtVisitorBaseISt11add_pointerNS_13
   tail call void @_ZN5clang13ASTStmtWriter19VisitBinaryOperatorEPNS_14BinaryOperatorE(ptr noundef nonnull align 8 dereferenceable(256) %0, ptr noundef readonly %1)
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %.sroa.0.0.copyload.i.i = load i64, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = load ptr, ptr %6, align 8
   tail call void @_ZN5clang9ASTWriter10AddTypeRefENS_8QualTypeERN4llvm15SmallVectorImplImEE(ptr noundef nonnull align 8 dereferenceable(3340) %5, i64 %.sroa.0.0.copyload.i.i, ptr noundef nonnull align 8 dereferenceable(16) %7) #16
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 40
@@ -30816,9 +30816,9 @@ define linkonce_odr hidden void @_ZN5clang15StmtVisitorBaseISt11add_pointerNS_13
   tail call void @_ZN5clang13ASTStmtWriter19VisitBinaryOperatorEPNS_14BinaryOperatorE(ptr noundef nonnull align 8 dereferenceable(256) %0, ptr noundef readonly %1)
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %.sroa.0.0.copyload.i.i = load i64, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = load ptr, ptr %6, align 8
   tail call void @_ZN5clang9ASTWriter10AddTypeRefENS_8QualTypeERN4llvm15SmallVectorImplImEE(ptr noundef nonnull align 8 dereferenceable(3340) %5, i64 %.sroa.0.0.copyload.i.i, ptr noundef nonnull align 8 dereferenceable(16) %7) #16
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 40
@@ -30850,9 +30850,9 @@ define linkonce_odr hidden void @_ZN5clang15StmtVisitorBaseISt11add_pointerNS_13
   tail call void @_ZN5clang13ASTStmtWriter19VisitBinaryOperatorEPNS_14BinaryOperatorE(ptr noundef nonnull align 8 dereferenceable(256) %0, ptr noundef readonly %1)
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %.sroa.0.0.copyload.i.i = load i64, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = load ptr, ptr %6, align 8
   tail call void @_ZN5clang9ASTWriter10AddTypeRefENS_8QualTypeERN4llvm15SmallVectorImplImEE(ptr noundef nonnull align 8 dereferenceable(3340) %5, i64 %.sroa.0.0.copyload.i.i, ptr noundef nonnull align 8 dereferenceable(16) %7) #16
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 40
@@ -30884,9 +30884,9 @@ define linkonce_odr hidden void @_ZN5clang15StmtVisitorBaseISt11add_pointerNS_13
   tail call void @_ZN5clang13ASTStmtWriter19VisitBinaryOperatorEPNS_14BinaryOperatorE(ptr noundef nonnull align 8 dereferenceable(256) %0, ptr noundef readonly %1)
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %.sroa.0.0.copyload.i.i = load i64, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = load ptr, ptr %6, align 8
   tail call void @_ZN5clang9ASTWriter10AddTypeRefENS_8QualTypeERN4llvm15SmallVectorImplImEE(ptr noundef nonnull align 8 dereferenceable(3340) %5, i64 %.sroa.0.0.copyload.i.i, ptr noundef nonnull align 8 dereferenceable(16) %7) #16
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 40
@@ -30918,9 +30918,9 @@ define linkonce_odr hidden void @_ZN5clang15StmtVisitorBaseISt11add_pointerNS_13
   tail call void @_ZN5clang13ASTStmtWriter19VisitBinaryOperatorEPNS_14BinaryOperatorE(ptr noundef nonnull align 8 dereferenceable(256) %0, ptr noundef readonly %1)
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %.sroa.0.0.copyload.i.i = load i64, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = load ptr, ptr %6, align 8
   tail call void @_ZN5clang9ASTWriter10AddTypeRefENS_8QualTypeERN4llvm15SmallVectorImplImEE(ptr noundef nonnull align 8 dereferenceable(3340) %5, i64 %.sroa.0.0.copyload.i.i, ptr noundef nonnull align 8 dereferenceable(16) %7) #16
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 40
@@ -30952,9 +30952,9 @@ define linkonce_odr hidden void @_ZN5clang15StmtVisitorBaseISt11add_pointerNS_13
   tail call void @_ZN5clang13ASTStmtWriter19VisitBinaryOperatorEPNS_14BinaryOperatorE(ptr noundef nonnull align 8 dereferenceable(256) %0, ptr noundef readonly %1)
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %.sroa.0.0.copyload.i.i = load i64, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = load ptr, ptr %6, align 8
   tail call void @_ZN5clang9ASTWriter10AddTypeRefENS_8QualTypeERN4llvm15SmallVectorImplImEE(ptr noundef nonnull align 8 dereferenceable(3340) %5, i64 %.sroa.0.0.copyload.i.i, ptr noundef nonnull align 8 dereferenceable(16) %7) #16
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 40

@@ -118,14 +118,14 @@ define dso_local noundef nonnull ptr @_ZN4llvm18createX86FixupLEAsEv() local_unn
   store ptr getelementptr inbounds inrange(-16, 176) (i8, ptr @_ZTVN12_GLOBAL__N_112FixupLEAPassE, i64 16), ptr %1, align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 56
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %6, ptr noundef nonnull align 8 dereferenceable(72) @_ZN4llvm12MCSchedModel7DefaultE, i64 72, i1 false)
-  %7 = getelementptr inbounds i8, ptr %1, i64 128
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 128
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %7, ptr noundef nonnull align 8 dereferenceable(72) @_ZN4llvm12MCSchedModel7DefaultE, i64 72, i1 false)
-  %8 = getelementptr inbounds i8, ptr %1, i64 200
-  %9 = getelementptr inbounds i8, ptr %1, i64 248
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 200
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 248
   %10 = getelementptr inbounds i8, ptr %1, i64 264
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %8, i8 0, i64 48, i1 false)
   tail call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull %10, i64 noundef 16) #13
-  %11 = getelementptr inbounds i8, ptr %1, i64 328
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 328
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %11, i8 0, i64 24, i1 false)
   ret ptr %1
 }
@@ -147,14 +147,14 @@ define internal noundef nonnull ptr @_ZN4llvm15callDefaultCtorIN12_GLOBAL__N_112
   store ptr getelementptr inbounds inrange(-16, 176) (i8, ptr @_ZTVN12_GLOBAL__N_112FixupLEAPassE, i64 16), ptr %1, align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 56
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %6, ptr noundef nonnull align 8 dereferenceable(72) @_ZN4llvm12MCSchedModel7DefaultE, i64 72, i1 false)
-  %7 = getelementptr inbounds i8, ptr %1, i64 128
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 128
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %7, ptr noundef nonnull align 8 dereferenceable(72) @_ZN4llvm12MCSchedModel7DefaultE, i64 72, i1 false)
-  %8 = getelementptr inbounds i8, ptr %1, i64 200
-  %9 = getelementptr inbounds i8, ptr %1, i64 248
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 200
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 248
   %10 = getelementptr inbounds i8, ptr %1, i64 264
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %8, i8 0, i64 48, i1 false)
   tail call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull %10, i64 noundef 16) #13
-  %11 = getelementptr inbounds i8, ptr %1, i64 328
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 328
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %11, i8 0, i64 24, i1 false)
   ret ptr %1
 }
@@ -167,7 +167,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN12_GLOBAL__N_112FixupLEAPassD2Ev(ptr noundef nonnull align 8 dereferenceable(352) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 176) (i8, ptr @_ZTVN12_GLOBAL__N_112FixupLEAPassE, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 248
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %3 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %2) #13
   %4 = load ptr, ptr %2, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 264
@@ -186,7 +186,7 @@ _ZN4llvm16TargetSchedModelD2Ev.exit:              ; preds = %1, %7
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN12_GLOBAL__N_112FixupLEAPassD0Ev(ptr noundef nonnull align 8 dereferenceable(352) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 176) (i8, ptr @_ZTVN12_GLOBAL__N_112FixupLEAPassE, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 248
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %3 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %2) #13
   %4 = load ptr, ptr %2, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 264
@@ -383,7 +383,7 @@ _ZNK4llvm8Function10hasOptSizeEv.exit:            ; preds = %96, %93, %78
   %103 = getelementptr inbounds nuw i8, ptr %80, i64 608
   %104 = getelementptr inbounds nuw i8, ptr %0, i64 336
   store ptr %103, ptr %104, align 8
-  %105 = getelementptr inbounds i8, ptr %80, i64 696
+  %105 = getelementptr inbounds nuw i8, ptr %80, i64 696
   %106 = getelementptr inbounds nuw i8, ptr %0, i64 344
   store ptr %105, ptr %106, align 8
   %107 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -454,7 +454,7 @@ _ZNK4llvm4Pass11getAnalysisINS_33LazyMachineBlockFrequencyInfoPassEEERT_v.exit: 
 
 144:                                              ; preds = %_ZNK4llvm4Pass11getAnalysisINS_29ProfileSummaryInfoWrapperPassEEERT_v.exit, %_ZNK4llvm4Pass11getAnalysisINS_33LazyMachineBlockFrequencyInfoPassEEERT_v.exit
   %145 = phi ptr [ %143, %_ZNK4llvm4Pass11getAnalysisINS_33LazyMachineBlockFrequencyInfoPassEEERT_v.exit ], [ null, %_ZNK4llvm4Pass11getAnalysisINS_29ProfileSummaryInfoWrapperPassEEERT_v.exit ]
-  %146 = getelementptr inbounds i8, ptr %1, i64 328
+  %146 = getelementptr inbounds nuw i8, ptr %1, i64 328
   %147 = getelementptr inbounds nuw i8, ptr %1, i64 320
   %.sroa.0175.0240 = load ptr, ptr %146, align 8
   %.not190241 = icmp eq ptr %.sroa.0175.0240, %147

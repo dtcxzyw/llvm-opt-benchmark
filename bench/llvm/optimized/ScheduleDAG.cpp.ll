@@ -149,28 +149,28 @@ define dso_local void @_ZN4llvm11ScheduleDAGC2ERNS_15MachineFunctionE(ptr nounde
   %22 = load ptr, ptr %21, align 8
   store ptr %22, ptr %20, align 8
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %24 = getelementptr inbounds i8, ptr %0, i64 112
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %25 = getelementptr inbounds i8, ptr %0, i64 128
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %23, i8 0, i64 64, i1 false)
   tail call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %24, ptr noundef nonnull %25, i64 noundef 4) #16
-  %26 = getelementptr inbounds i8, ptr %0, i64 192
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %27 = getelementptr inbounds i8, ptr %0, i64 208
   tail call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %26, ptr noundef nonnull %27, i64 noundef 4) #16
-  %28 = getelementptr inbounds i8, ptr %0, i64 272
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 272
   store i32 -1, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %0, i64 276
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 276
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(51) %29, i8 0, i64 51, i1 false)
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 328
-  %31 = getelementptr inbounds i8, ptr %0, i64 368
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 368
   %32 = getelementptr inbounds i8, ptr %0, i64 384
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %30, i8 0, i64 40, i1 false)
   tail call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %31, ptr noundef nonnull %32, i64 noundef 4) #16
-  %33 = getelementptr inbounds i8, ptr %0, i64 448
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 448
   %34 = getelementptr inbounds i8, ptr %0, i64 464
   tail call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %33, ptr noundef nonnull %34, i64 noundef 4) #16
-  %35 = getelementptr inbounds i8, ptr %0, i64 528
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 528
   store i32 -1, ptr %35, align 8
-  %36 = getelementptr inbounds i8, ptr %0, i64 532
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 532
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(51) %36, i8 0, i64 51, i1 false)
   ret void
 }
@@ -178,7 +178,7 @@ define dso_local void @_ZN4llvm11ScheduleDAGC2ERNS_15MachineFunctionE(ptr nounde
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN4llvm11ScheduleDAGD2Ev(ptr noundef nonnull align 8 dereferenceable(584) %0) unnamed_addr #1 align 2 {
   store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN4llvm11ScheduleDAGE, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 448
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 448
   %3 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %2) #16
   %4 = load ptr, ptr %2, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 464
@@ -190,7 +190,7 @@ define dso_local void @_ZN4llvm11ScheduleDAGD2Ev(ptr noundef nonnull align 8 der
   br label %_ZN4llvm11SmallVectorINS_4SDepELj4EED2Ev.exit.i
 
 _ZN4llvm11SmallVectorINS_4SDepELj4EED2Ev.exit.i:  ; preds = %7, %1
-  %8 = getelementptr inbounds i8, ptr %0, i64 368
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 368
   %9 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %8) #16
   %10 = load ptr, ptr %8, align 8
   %11 = getelementptr inbounds i8, ptr %0, i64 384
@@ -202,7 +202,7 @@ _ZN4llvm11SmallVectorINS_4SDepELj4EED2Ev.exit.i:  ; preds = %7, %1
   br label %_ZN4llvm5SUnitD2Ev.exit
 
 _ZN4llvm5SUnitD2Ev.exit:                          ; preds = %_ZN4llvm11SmallVectorINS_4SDepELj4EED2Ev.exit.i, %13
-  %14 = getelementptr inbounds i8, ptr %0, i64 192
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %15 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %14) #16
   %16 = load ptr, ptr %14, align 8
   %17 = getelementptr inbounds i8, ptr %0, i64 208
@@ -214,7 +214,7 @@ _ZN4llvm5SUnitD2Ev.exit:                          ; preds = %_ZN4llvm11SmallVect
   br label %_ZN4llvm11SmallVectorINS_4SDepELj4EED2Ev.exit.i1
 
 _ZN4llvm11SmallVectorINS_4SDepELj4EED2Ev.exit.i1: ; preds = %19, %_ZN4llvm5SUnitD2Ev.exit
-  %20 = getelementptr inbounds i8, ptr %0, i64 112
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %21 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %20) #16
   %22 = load ptr, ptr %20, align 8
   %23 = getelementptr inbounds i8, ptr %0, i64 128
@@ -228,7 +228,7 @@ _ZN4llvm11SmallVectorINS_4SDepELj4EED2Ev.exit.i1: ; preds = %19, %_ZN4llvm5SUnit
 _ZN4llvm5SUnitD2Ev.exit2:                         ; preds = %_ZN4llvm11SmallVectorINS_4SDepELj4EED2Ev.exit.i1, %25
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %27 = load ptr, ptr %26, align 8
-  %28 = getelementptr inbounds i8, ptr %0, i64 56
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %29 = load ptr, ptr %28, align 8
   %.not4.i.i.i.i = icmp eq ptr %27, %29
   br i1 %.not4.i.i.i.i, label %_ZSt8_DestroyIPN4llvm5SUnitES1_EvT_S3_RSaIT0_E.exit.i, label %.lr.ph.i.i.i.i
@@ -273,7 +273,7 @@ _ZSt8_DestroyIPN4llvm5SUnitES1_EvT_S3_RSaIT0_E.exit.i: ; preds = %_ZSt8_DestroyI
   br i1 %.not.i.i.i, label %_ZNSt6vectorIN4llvm5SUnitESaIS1_EED2Ev.exit, label %44
 
 44:                                               ; preds = %_ZSt8_DestroyIPN4llvm5SUnitES1_EvT_S3_RSaIT0_E.exit.i
-  %45 = getelementptr inbounds i8, ptr %0, i64 64
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %46 = load ptr, ptr %45, align 8
   %47 = ptrtoint ptr %46 to i64
   %48 = ptrtoint ptr %43 to i64
@@ -300,7 +300,7 @@ define dso_local void @_ZN4llvm11ScheduleDAG8clearDAGEv(ptr noundef nonnull alig
   %3 = alloca %"class.llvm::SUnit", align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 56
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %7 = load ptr, ptr %6, align 8
   %.not.i.i = icmp eq ptr %7, %5
   br i1 %.not.i.i, label %_ZNSt6vectorIN4llvm5SUnitESaIS1_EE5clearEv.exit, label %.lr.ph.i.i.i.i.i
@@ -353,11 +353,11 @@ _ZNSt6vectorIN4llvm5SUnitESaIS1_EE5clearEv.exit:  ; preds = %1, %_ZSt8_DestroyIP
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(51) %26, i8 0, i64 51, i1 false)
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 72
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %27, ptr noundef nonnull align 8 dereferenceable(40) %2, i64 40, i1 false)
-  %28 = getelementptr inbounds i8, ptr %0, i64 112
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %29 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15SmallVectorImplINS_4SDepEEaSEOS2_(ptr noundef nonnull align 8 dereferenceable(16) %28, ptr noundef nonnull align 8 dereferenceable(16) %21)
-  %30 = getelementptr inbounds i8, ptr %0, i64 192
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %31 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15SmallVectorImplINS_4SDepEEaSEOS2_(ptr noundef nonnull align 8 dereferenceable(16) %30, ptr noundef nonnull align 8 dereferenceable(16) %23)
-  %32 = getelementptr inbounds i8, ptr %0, i64 272
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 272
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(55) %32, ptr noundef nonnull align 8 dereferenceable(55) %25, i64 55, i1 false)
   %33 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %23) #16
   %34 = load ptr, ptr %23, align 8
@@ -392,11 +392,11 @@ _ZN4llvm5SUnitD2Ev.exit:                          ; preds = %_ZN4llvm11SmallVect
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(51) %46, i8 0, i64 51, i1 false)
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 328
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %47, ptr noundef nonnull align 8 dereferenceable(40) %3, i64 40, i1 false)
-  %48 = getelementptr inbounds i8, ptr %0, i64 368
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 368
   %49 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15SmallVectorImplINS_4SDepEEaSEOS2_(ptr noundef nonnull align 8 dereferenceable(16) %48, ptr noundef nonnull align 8 dereferenceable(16) %41)
-  %50 = getelementptr inbounds i8, ptr %0, i64 448
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 448
   %51 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15SmallVectorImplINS_4SDepEEaSEOS2_(ptr noundef nonnull align 8 dereferenceable(16) %50, ptr noundef nonnull align 8 dereferenceable(16) %43)
-  %52 = getelementptr inbounds i8, ptr %0, i64 528
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 528
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(55) %52, ptr noundef nonnull align 8 dereferenceable(55) %45, i64 55, i1 false)
   %53 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %43) #16
   %54 = load ptr, ptr %43, align 8
@@ -1877,7 +1877,7 @@ define dso_local void @_ZN4llvm26ScheduleDAGTopologicalSort25InitDAGTopologicalS
   store i8 0, ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #16
-  %5 = getelementptr inbounds i8, ptr %0, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i32 0, ptr %5, align 8
   %6 = load ptr, ptr %0, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -1902,7 +1902,7 @@ _ZNSt6vectorIPN4llvm5SUnitESaIS2_EE7reserveEm.exit: ; preds = %1, %_ZNSt12_Vecto
   %.sroa.29.6 = phi ptr [ %18, %_ZNSt12_Vector_baseIPN4llvm5SUnitESaIS2_EE13_M_deallocateEPS2_m.exit.i ], [ null, %1 ]
   %.sroa.11.6 = phi ptr [ %17, %_ZNSt12_Vector_baseIPN4llvm5SUnitESaIS2_EE13_M_deallocateEPS2_m.exit.i ], [ null, %1 ]
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 296
-  %20 = getelementptr inbounds i8, ptr %0, i64 304
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %21 = load ptr, ptr %20, align 8
   %22 = load ptr, ptr %19, align 8
   %23 = ptrtoint ptr %21 to i64
@@ -1932,7 +1932,7 @@ _ZNSt6vectorIPN4llvm5SUnitESaIS2_EE7reserveEm.exit: ; preds = %1, %_ZNSt12_Vecto
 
 _ZNSt6vectorIiSaIiEE6resizeEm.exit:               ; preds = %28, %30, %32, %34
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 320
-  %36 = getelementptr inbounds i8, ptr %0, i64 328
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 328
   %37 = load ptr, ptr %36, align 8
   %38 = load ptr, ptr %35, align 8
   %39 = ptrtoint ptr %37 to i64
@@ -2224,7 +2224,7 @@ _ZNSt6vectorIPN4llvm5SUnitESaIS2_EE9push_backERKS2_.exit42: ; preds = %_ZNSt6vec
   %.sroa.29.3.lcssa = phi ptr [ %.sroa.29.1.lcssa, %.preheader ], [ %.sroa.29.4.lcssa, %.loopexit ]
   %.sroa.052.3.lcssa = phi ptr [ %.sroa.052.1.lcssa, %.preheader ], [ %.sroa.052.4.lcssa, %.loopexit ]
   %155 = getelementptr inbounds nuw i8, ptr %0, i64 344
-  %156 = getelementptr inbounds i8, ptr %0, i64 408
+  %156 = getelementptr inbounds nuw i8, ptr %0, i64 408
   %157 = load i32, ptr %156, align 8
   %158 = and i32 %157, 63
   %.not.i.i43 = icmp eq i32 %158, 0
@@ -2368,7 +2368,7 @@ _ZN4llvm26ScheduleDAGTopologicalSort7AddPredEPNS_5SUnitES2_.exit: ; preds = %14,
 
 ._crit_edge:                                      ; preds = %_ZN4llvm26ScheduleDAGTopologicalSort7AddPredEPNS_5SUnitES2_.exit, %7
   %35 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %8) #16
-  %36 = getelementptr inbounds i8, ptr %0, i64 32
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i32 0, ptr %36, align 8
   br label %37
 
@@ -2520,7 +2520,7 @@ _ZNSt6vectorIPKN4llvm5SUnitESaIS3_EE9push_backERKS3_.exit: ; preds = %_ZNSt6vect
   %.sroa.9.4 = getelementptr inbounds i8, ptr %.sroa.019.4, i64 8
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 344
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 320
-  %23 = getelementptr inbounds i8, ptr %0, i64 328
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 328
   br label %24
 
 24:                                               ; preds = %._crit_edge, %_ZNSt6vectorIPKN4llvm5SUnitESaIS3_EE9push_backERKS3_.exit
@@ -3566,7 +3566,7 @@ _ZN4llvm9BitVector5resetEv.exit:                  ; preds = %18, %.lr.ph.i.i.i.i
 define dso_local void @_ZN4llvm26ScheduleDAGTopologicalSort27AddSUnitWithoutPredecessorsEPKNS_5SUnitE(ptr noundef nonnull align 8 dereferenceable(416) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 320
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 296
-  %5 = getelementptr inbounds i8, ptr %0, i64 304
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %6 = load ptr, ptr %5, align 8
   %7 = load ptr, ptr %4, align 8
   %8 = ptrtoint ptr %6 to i64
@@ -3574,9 +3574,9 @@ define dso_local void @_ZN4llvm26ScheduleDAGTopologicalSort27AddSUnitWithoutPred
   %10 = sub i64 %8, %9
   %11 = lshr exact i64 %10, 2
   %12 = trunc i64 %11 to i32
-  %13 = getelementptr inbounds i8, ptr %0, i64 328
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 328
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 336
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 336
   %16 = load ptr, ptr %15, align 8
   %.not.i.i = icmp eq ptr %14, %16
   br i1 %.not.i.i, label %20, label %17
@@ -3647,7 +3647,7 @@ _ZNSt6vectorIiSaIiEE9push_backEOi.exit:           ; preds = %17, %_ZNSt6vectorIi
   %43 = getelementptr inbounds nuw i8, ptr %1, i64 200
   %44 = load i32, ptr %43, align 8
   %45 = load ptr, ptr %5, align 8
-  %46 = getelementptr inbounds i8, ptr %0, i64 312
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %47 = load ptr, ptr %46, align 8
   %.not.i.i2 = icmp eq ptr %45, %47
   br i1 %.not.i.i2, label %51, label %48
@@ -3723,7 +3723,7 @@ _ZNSt6vectorIiSaIiEE9push_backEOi.exit10:         ; preds = %48, %_ZNSt6vectorIi
   %79 = sub i64 %77, %78
   %80 = lshr exact i64 %79, 2
   %81 = trunc i64 %80 to i32
-  %82 = getelementptr inbounds i8, ptr %0, i64 408
+  %82 = getelementptr inbounds nuw i8, ptr %0, i64 408
   %83 = load i32, ptr %82, align 8
   %84 = and i32 %83, 63
   %.not.i.i11 = icmp eq i32 %84, 0
@@ -3785,7 +3785,7 @@ define dso_local void @_ZN4llvm26ScheduleDAGTopologicalSortC2ERSt6vectorINS_5SUn
   %10 = getelementptr inbounds i8, ptr %0, i64 360
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %8, i8 0, i64 48, i1 false)
   tail call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull %10, i64 noundef 6) #16
-  %11 = getelementptr inbounds i8, ptr %0, i64 408
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 408
   store i32 0, ptr %11, align 8
   ret void
 }

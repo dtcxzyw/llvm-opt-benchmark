@@ -37,7 +37,7 @@ define dso_local void @_ZN4llvm12MCAsmInfoELF6anchorEv(ptr nocapture nonnull rea
 define dso_local noundef ptr @_ZNK4llvm12MCAsmInfoELF28getNonexecutableStackSectionERNS_9MCContextE(ptr nocapture nonnull readnone align 8 %0, ptr noundef nonnull align 8 dereferenceable(2432) %1) unnamed_addr #1 align 2 {
   %3 = alloca %"class.llvm::Twine", align 8
   %4 = alloca %"class.llvm::Twine", align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 68
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 68
   %6 = load i32, ptr %5, align 4
   %7 = icmp eq i32 %6, 12
   br i1 %7, label %13, label %8

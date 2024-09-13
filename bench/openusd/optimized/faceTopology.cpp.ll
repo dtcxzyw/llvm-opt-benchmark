@@ -46,13 +46,13 @@ define void @_ZN10OpenSubdiv6v3_6_03Bfr12FaceTopologyC2ENS0_3Sdc10SchemeTypeENS3
   %9 = and i8 %8, -2
   store i8 %9, ptr %7, align 2
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %11 = getelementptr inbounds i8, ptr %0, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %11, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i32 0, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 36
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 36
   store i32 4, ptr %13, align 4
-  %14 = getelementptr inbounds i8, ptr %0, i64 936
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 936
   store ptr null, ptr %14, align 8
   ret void
 }
@@ -91,28 +91,28 @@ define linkonce_odr void @_ZN10OpenSubdiv6v3_6_03Vtr8internal11StackBufferINS0_3
   %5 = load ptr, ptr %0, align 8
   %6 = getelementptr inbounds %"class.OpenSubdiv::v3_6_0::Bfr::FaceVertex", ptr %5, i64 %indvars.iv.i
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 168
-  %8 = getelementptr inbounds i8, ptr %6, i64 216
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 216
   %9 = load ptr, ptr %8, align 8
   tail call void @_ZdlPv(ptr noundef %9) #8
-  %10 = getelementptr inbounds i8, ptr %6, i64 184
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 184
   store ptr %10, ptr %7, align 8
-  %11 = getelementptr inbounds i8, ptr %6, i64 180
+  %11 = getelementptr inbounds nuw i8, ptr %6, i64 180
   store i32 16, ptr %11, align 4
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 96
-  %13 = getelementptr inbounds i8, ptr %6, i64 144
+  %13 = getelementptr inbounds nuw i8, ptr %6, i64 144
   %14 = load ptr, ptr %13, align 8
   tail call void @_ZdlPv(ptr noundef %14) #8
-  %15 = getelementptr inbounds i8, ptr %6, i64 112
+  %15 = getelementptr inbounds nuw i8, ptr %6, i64 112
   store ptr %15, ptr %12, align 8
-  %16 = getelementptr inbounds i8, ptr %6, i64 108
+  %16 = getelementptr inbounds nuw i8, ptr %6, i64 108
   store i32 8, ptr %16, align 4
   %17 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %18 = getelementptr inbounds i8, ptr %6, i64 88
+  %18 = getelementptr inbounds nuw i8, ptr %6, i64 88
   %19 = load ptr, ptr %18, align 8
   tail call void @_ZdlPv(ptr noundef %19) #8
-  %20 = getelementptr inbounds i8, ptr %6, i64 24
+  %20 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store ptr %20, ptr %17, align 8
-  %21 = getelementptr inbounds i8, ptr %6, i64 20
+  %21 = getelementptr inbounds nuw i8, ptr %6, i64 20
   store i32 16, ptr %21, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %22 = load i32, ptr %3, align 8
@@ -165,31 +165,31 @@ _ZN10OpenSubdiv6v3_6_03Vtr8internal11StackBufferINS0_3Bfr10FaceVertexELj4ELb0EE8
   %42 = load ptr, ptr %0, align 8
   %43 = getelementptr inbounds %"class.OpenSubdiv::v3_6_0::Bfr::FaceVertex", ptr %42, i64 %indvars.iv.i6
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 8
-  %45 = getelementptr inbounds i8, ptr %43, i64 24
+  %45 = getelementptr inbounds nuw i8, ptr %43, i64 24
   store ptr %45, ptr %44, align 8
-  %46 = getelementptr inbounds i8, ptr %43, i64 16
+  %46 = getelementptr inbounds nuw i8, ptr %43, i64 16
   store i32 0, ptr %46, align 8
-  %47 = getelementptr inbounds i8, ptr %43, i64 20
+  %47 = getelementptr inbounds nuw i8, ptr %43, i64 20
   store i32 16, ptr %47, align 4
-  %48 = getelementptr inbounds i8, ptr %43, i64 88
+  %48 = getelementptr inbounds nuw i8, ptr %43, i64 88
   store ptr null, ptr %48, align 8
   %49 = getelementptr inbounds nuw i8, ptr %43, i64 96
-  %50 = getelementptr inbounds i8, ptr %43, i64 112
+  %50 = getelementptr inbounds nuw i8, ptr %43, i64 112
   store ptr %50, ptr %49, align 8
-  %51 = getelementptr inbounds i8, ptr %43, i64 104
+  %51 = getelementptr inbounds nuw i8, ptr %43, i64 104
   store i32 0, ptr %51, align 8
-  %52 = getelementptr inbounds i8, ptr %43, i64 108
+  %52 = getelementptr inbounds nuw i8, ptr %43, i64 108
   store i32 8, ptr %52, align 4
-  %53 = getelementptr inbounds i8, ptr %43, i64 144
+  %53 = getelementptr inbounds nuw i8, ptr %43, i64 144
   store ptr null, ptr %53, align 8
   %54 = getelementptr inbounds nuw i8, ptr %43, i64 168
-  %55 = getelementptr inbounds i8, ptr %43, i64 184
+  %55 = getelementptr inbounds nuw i8, ptr %43, i64 184
   store ptr %55, ptr %54, align 8
-  %56 = getelementptr inbounds i8, ptr %43, i64 176
+  %56 = getelementptr inbounds nuw i8, ptr %43, i64 176
   store i32 0, ptr %56, align 8
-  %57 = getelementptr inbounds i8, ptr %43, i64 180
+  %57 = getelementptr inbounds nuw i8, ptr %43, i64 180
   store i32 16, ptr %57, align 4
-  %58 = getelementptr inbounds i8, ptr %43, i64 216
+  %58 = getelementptr inbounds nuw i8, ptr %43, i64 216
   store ptr null, ptr %58, align 8
   %indvars.iv.next.i7 = add nuw nsw i64 %indvars.iv.i6, 1
   %59 = load i32, ptr %3, align 8

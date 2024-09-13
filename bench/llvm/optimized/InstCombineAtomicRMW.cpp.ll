@@ -49,11 +49,11 @@ define hidden noundef ptr @_ZN4llvm16InstCombinerImpl18visitAtomicRMWInstERNS_13
   ]
 
 16:                                               ; preds = %13
-  %17 = getelementptr inbounds i8, ptr %.val, i64 32
+  %17 = getelementptr inbounds nuw i8, ptr %.val, i64 32
   %18 = load ptr, ptr %17, align 8
   %19 = tail call noundef nonnull align 1 ptr @_ZN4llvm11APFloatBase15PPCDoubleDoubleEv() #7
   %.not.i.i.i.i = icmp eq ptr %18, %19
-  %20 = getelementptr inbounds i8, ptr %.val, i64 40
+  %20 = getelementptr inbounds nuw i8, ptr %.val, i64 40
   %21 = load ptr, ptr %20, align 8
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %.0.i.i.i.i = select i1 %.not.i.i.i.i, ptr %22, ptr %17
@@ -64,11 +64,11 @@ define hidden noundef ptr @_ZN4llvm16InstCombinerImpl18visitAtomicRMWInstERNS_13
   br i1 %or.cond, label %_ZN12_GLOBAL__N_112isSaturatingERN4llvm13AtomicRMWInstE.exit.thread44, label %_ZN12_GLOBAL__N_112isSaturatingERN4llvm13AtomicRMWInstE.exit.thread
 
 26:                                               ; preds = %13
-  %27 = getelementptr inbounds i8, ptr %.val, i64 32
+  %27 = getelementptr inbounds nuw i8, ptr %.val, i64 32
   %28 = load ptr, ptr %27, align 8
   %29 = tail call noundef nonnull align 1 ptr @_ZN4llvm11APFloatBase15PPCDoubleDoubleEv() #7
   %.not.i.i.i21.i = icmp eq ptr %28, %29
-  %30 = getelementptr inbounds i8, ptr %.val, i64 40
+  %30 = getelementptr inbounds nuw i8, ptr %.val, i64 40
   %31 = load ptr, ptr %30, align 8
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 8
   %.0.i.i.i22.i = select i1 %.not.i.i.i21.i, ptr %32, ptr %27
@@ -79,11 +79,11 @@ define hidden noundef ptr @_ZN4llvm16InstCombinerImpl18visitAtomicRMWInstERNS_13
   br i1 %or.cond52, label %_ZN12_GLOBAL__N_112isSaturatingERN4llvm13AtomicRMWInstE.exit.thread44, label %_ZN12_GLOBAL__N_112isSaturatingERN4llvm13AtomicRMWInstE.exit.thread
 
 36:                                               ; preds = %13, %13
-  %37 = getelementptr inbounds i8, ptr %.val, i64 32
+  %37 = getelementptr inbounds nuw i8, ptr %.val, i64 32
   %38 = load ptr, ptr %37, align 8
   %39 = tail call noundef nonnull align 1 ptr @_ZN4llvm11APFloatBase15PPCDoubleDoubleEv() #7
   %.not.i.i.i.i25.i = icmp eq ptr %38, %39
-  %40 = getelementptr inbounds i8, ptr %.val, i64 40
+  %40 = getelementptr inbounds nuw i8, ptr %.val, i64 40
   %41 = load ptr, ptr %40, align 8
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 8
   %.0.i.i.i.i26.i = select i1 %.not.i.i.i.i25.i, ptr %42, ptr %37
@@ -113,7 +113,7 @@ define hidden noundef ptr @_ZN4llvm16InstCombinerImpl18visitAtomicRMWInstERNS_13
 
 52:                                               ; preds = %47
   %53 = getelementptr inbounds nuw i8, ptr %.val, i64 24
-  %54 = getelementptr inbounds i8, ptr %.val, i64 32
+  %54 = getelementptr inbounds nuw i8, ptr %.val, i64 32
   %55 = load i32, ptr %54, align 8
   %56 = icmp ult i32 %55, 65
   br i1 %56, label %57, label %60
@@ -130,7 +130,7 @@ define hidden noundef ptr @_ZN4llvm16InstCombinerImpl18visitAtomicRMWInstERNS_13
 
 63:                                               ; preds = %47
   %64 = getelementptr inbounds nuw i8, ptr %.val, i64 24
-  %65 = getelementptr inbounds i8, ptr %.val, i64 32
+  %65 = getelementptr inbounds nuw i8, ptr %.val, i64 32
   %66 = load i32, ptr %65, align 8
   %67 = icmp ult i32 %66, 65
   br i1 %67, label %68, label %74
@@ -164,7 +164,7 @@ define hidden noundef ptr @_ZN4llvm16InstCombinerImpl18visitAtomicRMWInstERNS_13
 
 88:                                               ; preds = %47
   %89 = getelementptr inbounds nuw i8, ptr %.val, i64 24
-  %90 = getelementptr inbounds i8, ptr %.val, i64 32
+  %90 = getelementptr inbounds nuw i8, ptr %.val, i64 32
   %91 = load i32, ptr %90, align 8
   %92 = icmp ult i32 %91, 65
   br i1 %92, label %93, label %99
@@ -199,7 +199,7 @@ define hidden noundef ptr @_ZN4llvm16InstCombinerImpl18visitAtomicRMWInstERNS_13
 
 113:                                              ; preds = %47
   %114 = getelementptr inbounds nuw i8, ptr %.val, i64 24
-  %115 = getelementptr inbounds i8, ptr %.val, i64 32
+  %115 = getelementptr inbounds nuw i8, ptr %.val, i64 32
   %116 = load i32, ptr %115, align 8
   %117 = icmp ult i32 %116, 65
   br i1 %117, label %118, label %121
@@ -216,7 +216,7 @@ define hidden noundef ptr @_ZN4llvm16InstCombinerImpl18visitAtomicRMWInstERNS_13
 
 124:                                              ; preds = %47
   %125 = getelementptr inbounds nuw i8, ptr %.val, i64 24
-  %126 = getelementptr inbounds i8, ptr %.val, i64 32
+  %126 = getelementptr inbounds nuw i8, ptr %.val, i64 32
   %127 = load i32, ptr %126, align 8
   %128 = icmp eq i32 %127, 0
   br i1 %128, label %_ZN12_GLOBAL__N_112isSaturatingERN4llvm13AtomicRMWInstE.exit.thread44, label %129
@@ -267,11 +267,11 @@ _ZN12_GLOBAL__N_112isSaturatingERN4llvm13AtomicRMWInstE.exit.thread: ; preds = %
   ]
 
 147:                                              ; preds = %144
-  %148 = getelementptr inbounds i8, ptr %.val21, i64 32
+  %148 = getelementptr inbounds nuw i8, ptr %.val21, i64 32
   %149 = load ptr, ptr %148, align 8
   %150 = tail call noundef nonnull align 1 ptr @_ZN4llvm11APFloatBase15PPCDoubleDoubleEv() #7
   %.not.i.i.i.i.i = icmp eq ptr %149, %150
-  %151 = getelementptr inbounds i8, ptr %.val21, i64 40
+  %151 = getelementptr inbounds nuw i8, ptr %.val21, i64 40
   %152 = load ptr, ptr %151, align 8
   %153 = getelementptr inbounds nuw i8, ptr %152, i64 8
   %.0.i.i.i.i.i = select i1 %.not.i.i.i.i.i, ptr %153, ptr %148
@@ -282,11 +282,11 @@ _ZN12_GLOBAL__N_112isSaturatingERN4llvm13AtomicRMWInstE.exit.thread: ; preds = %
   br i1 %or.cond54, label %_ZN12_GLOBAL__N_115isIdempotentRMWERN4llvm13AtomicRMWInstE.exit.thread48, label %_ZN4llvm12InstCombiner14replaceOperandERNS_11InstructionEjPNS_5ValueE.exit
 
 157:                                              ; preds = %144
-  %158 = getelementptr inbounds i8, ptr %.val21, i64 32
+  %158 = getelementptr inbounds nuw i8, ptr %.val21, i64 32
   %159 = load ptr, ptr %158, align 8
   %160 = tail call noundef nonnull align 1 ptr @_ZN4llvm11APFloatBase15PPCDoubleDoubleEv() #7
   %.not.i.i.i.i20.i = icmp eq ptr %159, %160
-  %161 = getelementptr inbounds i8, ptr %.val21, i64 40
+  %161 = getelementptr inbounds nuw i8, ptr %.val21, i64 40
   %162 = load ptr, ptr %161, align 8
   %163 = getelementptr inbounds nuw i8, ptr %162, i64 8
   %.0.i.i.i.i21.i = select i1 %.not.i.i.i.i20.i, ptr %163, ptr %158
@@ -313,7 +313,7 @@ _ZN12_GLOBAL__N_112isSaturatingERN4llvm13AtomicRMWInstE.exit.thread: ; preds = %
 
 170:                                              ; preds = %167, %167, %167, %167
   %171 = getelementptr inbounds nuw i8, ptr %.val21, i64 24
-  %172 = getelementptr inbounds i8, ptr %.val21, i64 32
+  %172 = getelementptr inbounds nuw i8, ptr %.val21, i64 32
   %173 = load i32, ptr %172, align 8
   %174 = icmp ult i32 %173, 65
   br i1 %174, label %175, label %178
@@ -330,7 +330,7 @@ _ZN12_GLOBAL__N_112isSaturatingERN4llvm13AtomicRMWInstE.exit.thread: ; preds = %
 
 181:                                              ; preds = %167
   %182 = getelementptr inbounds nuw i8, ptr %.val21, i64 24
-  %183 = getelementptr inbounds i8, ptr %.val21, i64 32
+  %183 = getelementptr inbounds nuw i8, ptr %.val21, i64 32
   %184 = load i32, ptr %183, align 8
   %185 = icmp eq i32 %184, 0
   br i1 %185, label %_ZN12_GLOBAL__N_115isIdempotentRMWERN4llvm13AtomicRMWInstE.exit.thread48, label %186
@@ -354,7 +354,7 @@ _ZN12_GLOBAL__N_112isSaturatingERN4llvm13AtomicRMWInstE.exit.thread: ; preds = %
 
 197:                                              ; preds = %167
   %198 = getelementptr inbounds nuw i8, ptr %.val21, i64 24
-  %199 = getelementptr inbounds i8, ptr %.val21, i64 32
+  %199 = getelementptr inbounds nuw i8, ptr %.val21, i64 32
   %200 = load i32, ptr %199, align 8
   %201 = icmp ult i32 %200, 65
   br i1 %201, label %202, label %208
@@ -389,7 +389,7 @@ _ZN12_GLOBAL__N_112isSaturatingERN4llvm13AtomicRMWInstE.exit.thread: ; preds = %
 
 222:                                              ; preds = %167
   %223 = getelementptr inbounds nuw i8, ptr %.val21, i64 24
-  %224 = getelementptr inbounds i8, ptr %.val21, i64 32
+  %224 = getelementptr inbounds nuw i8, ptr %.val21, i64 32
   %225 = load i32, ptr %224, align 8
   %226 = icmp ult i32 %225, 65
   br i1 %226, label %227, label %233
@@ -423,7 +423,7 @@ _ZN12_GLOBAL__N_112isSaturatingERN4llvm13AtomicRMWInstE.exit.thread: ; preds = %
 
 247:                                              ; preds = %167
   %248 = getelementptr inbounds nuw i8, ptr %.val21, i64 24
-  %249 = getelementptr inbounds i8, ptr %.val21, i64 32
+  %249 = getelementptr inbounds nuw i8, ptr %.val21, i64 32
   %250 = load i32, ptr %249, align 8
   %251 = icmp eq i32 %250, 0
   br i1 %251, label %_ZN12_GLOBAL__N_115isIdempotentRMWERN4llvm13AtomicRMWInstE.exit.thread48, label %252
@@ -447,7 +447,7 @@ _ZN12_GLOBAL__N_112isSaturatingERN4llvm13AtomicRMWInstE.exit.thread: ; preds = %
 
 263:                                              ; preds = %167
   %264 = getelementptr inbounds nuw i8, ptr %.val21, i64 24
-  %265 = getelementptr inbounds i8, ptr %.val21, i64 32
+  %265 = getelementptr inbounds nuw i8, ptr %.val21, i64 32
   %266 = load i32, ptr %265, align 8
   %267 = icmp ult i32 %266, 65
   br i1 %267, label %268, label %_ZN12_GLOBAL__N_115isIdempotentRMWERN4llvm13AtomicRMWInstE.exit

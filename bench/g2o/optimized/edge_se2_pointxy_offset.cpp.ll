@@ -248,7 +248,7 @@ define void @_ZN3g2o20EdgeSE2PointXYOffsetC2Ev(ptr noundef nonnull align 16 dere
   store ptr null, ptr %9, align 8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr null, ptr %2, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %12 = load ptr, ptr %11, align 16
   %13 = load ptr, ptr %10, align 8
   %14 = ptrtoint ptr %12 to i64
@@ -307,7 +307,7 @@ common.resume:                                    ; preds = %50, %25
 
 34:                                               ; preds = %27
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %36 = getelementptr inbounds i8, ptr %0, i64 136
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %37 = load ptr, ptr %36, align 8
   %38 = load ptr, ptr %35, align 16
   %.not.i.not = icmp eq ptr %37, %38
@@ -348,7 +348,7 @@ define linkonce_odr void @_ZN3g2o16OptimizableGraph4Edge16resizeParametersEm(ptr
   %6 = alloca %"class.std::allocator.98", align 1
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store ptr null, ptr %3, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 136
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %9 = load ptr, ptr %8, align 8
   %10 = load ptr, ptr %7, align 8
   %11 = ptrtoint ptr %9 to i64
@@ -379,7 +379,7 @@ define linkonce_odr void @_ZN3g2o16OptimizableGraph4Edge16resizeParametersEm(ptr
 _ZNSt6vectorIPPN3g2o9ParameterESaIS3_EE6resizeEmRKS3_.exit: ; preds = %16, %18, %20, %22
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 152
   store i32 -1, ptr %4, align 4
-  %24 = getelementptr inbounds i8, ptr %0, i64 160
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %25 = load ptr, ptr %24, align 8
   %26 = load ptr, ptr %23, align 8
   %27 = ptrtoint ptr %25 to i64
@@ -435,7 +435,7 @@ _ZNSt6vectorIiSaIiEE6resizeEmRKi.exit:            ; preds = %32, %34, %36, %38
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; preds = %.noexc8
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %49 = getelementptr inbounds i8, ptr %0, i64 112
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %50 = load ptr, ptr %49, align 8
   %51 = load ptr, ptr %48, align 8
   %52 = ptrtoint ptr %50 to i64
@@ -623,7 +623,7 @@ define linkonce_odr void @_ZN3g2o16OptimizableGraph4Edge12resolveCacheINS_14Cach
   br i1 %.not.i.i.i.i, label %_ZN3g2o5Cache8CacheKeyD2Ev.exit, label %19
 
 19:                                               ; preds = %16
-  %20 = getelementptr inbounds i8, ptr %6, i64 48
+  %20 = getelementptr inbounds nuw i8, ptr %6, i64 48
   %21 = load ptr, ptr %20, align 8
   %22 = ptrtoint ptr %21 to i64
   %23 = ptrtoint ptr %18 to i64
@@ -909,7 +909,7 @@ define void @_ZN3g2o20EdgeSE2PointXYOffset14linearizeOplusEv(ptr nocapture nound
   %.sroa.220.0..sroa_idx = getelementptr inbounds i8, ptr %16, i64 416
   %.sroa.220.0.copyload = load <2 x double>, ptr %.sroa.220.0..sroa_idx, align 16
   %18 = getelementptr inbounds nuw i8, ptr %6, i64 160
-  %19 = getelementptr inbounds i8, ptr %4, i64 192
+  %19 = getelementptr inbounds nuw i8, ptr %4, i64 192
   %20 = load ptr, ptr %10, align 8
   %21 = load ptr, ptr %20, align 8, !noalias !25
   %22 = getelementptr inbounds i8, ptr %21, i64 32
@@ -1016,7 +1016,7 @@ define void @_ZN3g2o20EdgeSE2PointXYOffset15initialEstimateERKSt3setIPNS_10Hyper
   %27 = fmul <2 x double> %25, %26
   %28 = fadd <2 x double> %27, %23
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.0.i.i)
-  %29 = getelementptr inbounds i8, ptr %7, i64 192
+  %29 = getelementptr inbounds nuw i8, ptr %7, i64 192
   %30 = load double, ptr %12, align 8, !noalias !39
   %31 = tail call double @sin(double noundef %30) #24, !noalias !39
   %32 = load double, ptr %12, align 8, !noalias !39
@@ -3071,7 +3071,7 @@ define linkonce_odr void @_ZN3g2o5Cache8CacheKeyD2Ev(ptr noundef nonnull align 8
   br i1 %.not.i.i.i, label %_ZNSt6vectorIPN3g2o9ParameterESaIS2_EED2Ev.exit, label %4
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 48
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %6 = load ptr, ptr %5, align 8
   %7 = ptrtoint ptr %6 to i64
   %8 = ptrtoint ptr %3 to i64

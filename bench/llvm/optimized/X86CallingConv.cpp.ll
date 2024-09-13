@@ -179,7 +179,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm6CC_X86EjNS_3MVTES0_NS_11CCValAssig
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 455
   %47 = load i8, ptr %46, align 1
   %48 = trunc i8 %47 to i1
-  %49 = getelementptr inbounds i8, ptr %45, i64 540
+  %49 = getelementptr inbounds nuw i8, ptr %45, i64 540
   %50 = load i32, ptr %49, align 4
   %51 = icmp eq i32 %50, 14
   %52 = select i1 %48, i1 %51, i1 false
@@ -252,7 +252,7 @@ _ZN4llvm7CCState11AllocateRegENS_8ArrayRefItEE.exit.thread.i: ; preds = %66, %_Z
   %87 = getelementptr inbounds nuw i8, ptr %86, i64 455
   %88 = load i8, ptr %87, align 1
   %89 = trunc i8 %88 to i1
-  %90 = getelementptr inbounds i8, ptr %86, i64 540
+  %90 = getelementptr inbounds nuw i8, ptr %86, i64 540
   %91 = load i32, ptr %90, align 4
   %92 = icmp eq i32 %91, 14
   %93 = select i1 %89, i1 %92, i1 false
@@ -754,7 +754,7 @@ _ZN4llvm7CCState11AllocateRegEt.exit.thread.i:    ; preds = %.critedge6.i, %_ZN4
   %307 = getelementptr inbounds nuw i8, ptr %306, i64 455
   %308 = load i8, ptr %307, align 1
   %309 = trunc i8 %308 to i1
-  %310 = getelementptr inbounds i8, ptr %306, i64 540
+  %310 = getelementptr inbounds nuw i8, ptr %306, i64 540
   %311 = load i32, ptr %310, align 4
   %312 = icmp eq i32 %311, 14
   %313 = select i1 %309, i1 %312, i1 false
@@ -848,7 +848,7 @@ _ZL15CC_Intel_OCL_BIjN4llvm3MVTES0_NS_11CCValAssign7LocInfoENS_3ISD10ArgFlagsTyE
   %339 = load ptr, ptr %325, align 8
   %340 = getelementptr inbounds nuw i8, ptr %339, i64 16
   %341 = load ptr, ptr %340, align 8
-  %342 = getelementptr inbounds i8, ptr %341, i64 540
+  %342 = getelementptr inbounds nuw i8, ptr %341, i64 540
   %343 = load i32, ptr %342, align 4
   %344 = icmp eq i32 %343, 25
   br i1 %344, label %345, label %465
@@ -1118,7 +1118,7 @@ _ZN4llvm11CCValAssign12convertToRegENS_10MCRegisterE.exit.i.i.i: ; preds = %459,
 
 ._crit_edge.i.i.i:                                ; preds = %_ZN4llvm11CCValAssign12convertToRegENS_10MCRegisterE.exit.i.i.i, %_ZN4llvm11CCValAssign12convertToMemEl.exit.us.i.i.i, %_ZNK4llvm7CCState19getFirstUnallocatedENS_8ArrayRefItEE.exit.i.i.i
   %462 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %358) #8
-  %463 = getelementptr inbounds i8, ptr %6, i64 152
+  %463 = getelementptr inbounds nuw i8, ptr %6, i64 152
   store i32 0, ptr %463, align 8
   br label %_ZL18CC_X86_32_MCUInRegRjRN4llvm3MVTES2_RNS0_11CCValAssign7LocInfoERNS0_3ISD10ArgFlagsTyERNS0_7CCStateE.exit.thread.i.i
 
@@ -1339,10 +1339,10 @@ _ZL23CC_X86_Win32_VectorCalljN4llvm3MVTES0_NS_11CCValAssign7LocInfoENS_3ISD10Arg
   %534 = load ptr, ptr %325, align 8
   %535 = getelementptr inbounds nuw i8, ptr %534, i64 16
   %536 = load ptr, ptr %535, align 8
-  %537 = getelementptr inbounds i8, ptr %536, i64 540
+  %537 = getelementptr inbounds nuw i8, ptr %536, i64 540
   %538 = load i32, ptr %537, align 4
   %539 = icmp eq i32 %538, 14
-  %540 = getelementptr inbounds i8, ptr %536, i64 544
+  %540 = getelementptr inbounds nuw i8, ptr %536, i64 544
   %541 = load i32, ptr %540, align 8
   %542 = icmp eq i32 %541, 21
   %543 = icmp eq i32 %541, 1
@@ -1845,7 +1845,7 @@ _ZL14CC_X86_32_HiPEjN4llvm3MVTES0_NS_11CCValAssign7LocInfoENS_3ISD10ArgFlagsTyER
   %738 = getelementptr inbounds nuw i8, ptr %737, i64 455
   %739 = load i8, ptr %738, align 1
   %740 = trunc i8 %739 to i1
-  %741 = getelementptr inbounds i8, ptr %737, i64 540
+  %741 = getelementptr inbounds nuw i8, ptr %737, i64 540
   %742 = load i32, ptr %741, align 4
   %743 = icmp ne i32 %742, 14
   %.not149.i = select i1 %740, i1 true, i1 %743
@@ -2817,7 +2817,7 @@ _ZL23CC_X86_Win64_VectorCalljN4llvm3MVTES0_NS_11CCValAssign7LocInfoENS_3ISD10Arg
   %408 = getelementptr inbounds nuw i8, ptr %407, i64 455
   %409 = load i8, ptr %408, align 1
   %410 = trunc i8 %409 to i1
-  %411 = getelementptr inbounds i8, ptr %407, i64 540
+  %411 = getelementptr inbounds nuw i8, ptr %407, i64 540
   %412 = load i32, ptr %411, align 4
   %413 = icmp eq i32 %412, 14
   %414 = select i1 %410, i1 %413, i1 false
@@ -3860,7 +3860,7 @@ _ZL22CC_X86_Win64_RegCallv4jN4llvm3MVTES0_NS_11CCValAssign7LocInfoENS_3ISD10ArgF
   %832 = getelementptr inbounds nuw i8, ptr %831, i64 455
   %833 = load i8, ptr %832, align 1
   %834 = trunc i8 %833 to i1
-  %835 = getelementptr inbounds i8, ptr %831, i64 540
+  %835 = getelementptr inbounds nuw i8, ptr %831, i64 540
   %836 = load i32, ptr %835, align 4
   %837 = icmp eq i32 %836, 14
   %838 = select i1 %834, i1 %837, i1 false
@@ -6026,7 +6026,7 @@ _ZL23CC_X86_64_Preserve_NonejN4llvm3MVTES0_NS_11CCValAssign7LocInfoENS_3ISD10Arg
   %1702 = getelementptr inbounds nuw i8, ptr %1701, i64 455
   %1703 = load i8, ptr %1702, align 1
   %1704 = trunc i8 %1703 to i1
-  %1705 = getelementptr inbounds i8, ptr %1701, i64 540
+  %1705 = getelementptr inbounds nuw i8, ptr %1701, i64 540
   %1706 = load i32, ptr %1705, align 4
   %1707 = icmp eq i32 %1706, 14
   %1708 = select i1 %1704, i1 %1707, i1 false
@@ -6651,7 +6651,7 @@ _ZL23RetCC_X86_64_VectorcalljN4llvm3MVTES0_NS_11CCValAssign7LocInfoENS_3ISD10Arg
   %286 = getelementptr inbounds nuw i8, ptr %285, i64 455
   %287 = load i8, ptr %286, align 1
   %288 = trunc i8 %287 to i1
-  %289 = getelementptr inbounds i8, ptr %285, i64 540
+  %289 = getelementptr inbounds nuw i8, ptr %285, i64 540
   %290 = load i32, ptr %289, align 4
   %291 = icmp eq i32 %290, 14
   %292 = select i1 %288, i1 %291, i1 false
@@ -7443,7 +7443,7 @@ _ZL25RetCC_X86_Win64_RegCallv4jN4llvm3MVTES0_NS_11CCValAssign7LocInfoENS_3ISD10A
   %615 = getelementptr inbounds nuw i8, ptr %614, i64 455
   %616 = load i8, ptr %615, align 1
   %617 = trunc i8 %616 to i1
-  %618 = getelementptr inbounds i8, ptr %614, i64 540
+  %618 = getelementptr inbounds nuw i8, ptr %614, i64 540
   %619 = load i32, ptr %618, align 4
   %620 = icmp eq i32 %619, 14
   %621 = select i1 %617, i1 %620, i1 false
@@ -8989,7 +8989,7 @@ _ZL24RetCC_X86_SysV64_RegCalljN4llvm3MVTES0_NS_11CCValAssign7LocInfoENS_3ISD10Ar
   %1244 = getelementptr inbounds nuw i8, ptr %1243, i64 455
   %1245 = load i8, ptr %1244, align 1
   %1246 = trunc i8 %1245 to i1
-  %1247 = getelementptr inbounds i8, ptr %1243, i64 540
+  %1247 = getelementptr inbounds nuw i8, ptr %1243, i64 540
   %1248 = load i32, ptr %1247, align 4
   %1249 = icmp eq i32 %1248, 14
   %1250 = select i1 %1246, i1 %1249, i1 false
@@ -9243,7 +9243,7 @@ _ZL23RetCC_X86_32_VectorCalljN4llvm3MVTES0_NS_11CCValAssign7LocInfoENS_3ISD10Arg
   %1349 = getelementptr inbounds nuw i8, ptr %1348, i64 455
   %1350 = load i8, ptr %1349, align 1
   %1351 = trunc i8 %1350 to i1
-  %1352 = getelementptr inbounds i8, ptr %1348, i64 540
+  %1352 = getelementptr inbounds nuw i8, ptr %1348, i64 540
   %1353 = load i32, ptr %1352, align 4
   %1354 = icmp ne i32 %1353, 14
   %.not216.i = select i1 %1351, i1 true, i1 %1354
@@ -11826,7 +11826,7 @@ define internal fastcc noundef zeroext i1 @_ZL11CC_X86_64_CjN4llvm3MVTES0_NS_11C
   br i1 %46, label %47, label %_ZNK4llvm12X86Subtarget18isTarget64BitILP32Ev.exit.thread492
 
 47:                                               ; preds = %39
-  %48 = getelementptr inbounds i8, ptr %43, i64 544
+  %48 = getelementptr inbounds nuw i8, ptr %43, i64 544
   %49 = load i32, ptr %48, align 8
   switch i32 %49, label %_ZNK4llvm12X86Subtarget18isTarget64BitILP32Ev.exit [
     i32 18, label %_ZNK4llvm12X86Subtarget18isTarget64BitILP32Ev.exit.thread
@@ -11834,7 +11834,7 @@ define internal fastcc noundef zeroext i1 @_ZL11CC_X86_64_CjN4llvm3MVTES0_NS_11C
   ]
 
 _ZNK4llvm12X86Subtarget18isTarget64BitILP32Ev.exit: ; preds = %47
-  %50 = getelementptr inbounds i8, ptr %43, i64 540
+  %50 = getelementptr inbounds nuw i8, ptr %43, i64 540
   %51 = load i32, ptr %50, align 4
   %52 = icmp eq i32 %51, 18
   br i1 %52, label %_ZNK4llvm12X86Subtarget18isTarget64BitILP32Ev.exit.thread, label %_ZNK4llvm12X86Subtarget18isTarget64BitILP32Ev.exit.thread492
@@ -13740,7 +13740,7 @@ _ZN4llvm7CCState13AllocateStackEjNS_5AlignE.exit109: ; preds = %138, %142
   %222 = load ptr, ptr %221, align 8
   %223 = getelementptr inbounds nuw i8, ptr %222, i64 16
   %224 = load ptr, ptr %223, align 8
-  %225 = getelementptr inbounds i8, ptr %224, i64 540
+  %225 = getelementptr inbounds nuw i8, ptr %224, i64 540
   %226 = load i32, ptr %225, align 4
   %227 = and i32 %226, -9
   %spec.select.i.i.i = icmp eq i32 %227, 1
@@ -14296,10 +14296,10 @@ _ZN4llvm7CCState11AllocateRegENS_8ArrayRefItEE.exit70.thread: ; preds = %109, %_
   %132 = load ptr, ptr %131, align 8
   %133 = getelementptr inbounds nuw i8, ptr %132, i64 16
   %134 = load ptr, ptr %133, align 8
-  %135 = getelementptr inbounds i8, ptr %134, i64 52
+  %135 = getelementptr inbounds nuw i8, ptr %134, i64 52
   %136 = load i32, ptr %135, align 4
   %137 = icmp eq i32 %136, 14
-  %138 = getelementptr inbounds i8, ptr %134, i64 56
+  %138 = getelementptr inbounds nuw i8, ptr %134, i64 56
   %139 = load i32, ptr %138, align 8
   %140 = icmp eq i32 %139, 19
   %141 = icmp eq i32 %139, 0
@@ -17998,7 +17998,7 @@ _ZN4llvm7CCState11AllocateRegENS_8ArrayRefItEE.exit136.thread: ; preds = %68, %3
   %268 = getelementptr inbounds nuw i8, ptr %267, i64 455
   %269 = load i8, ptr %268, align 1
   %270 = trunc i8 %269 to i1
-  %271 = getelementptr inbounds i8, ptr %267, i64 540
+  %271 = getelementptr inbounds nuw i8, ptr %267, i64 540
   %272 = load i32, ptr %271, align 4
   %273 = icmp ne i32 %272, 14
   %not. = xor i1 %270, true

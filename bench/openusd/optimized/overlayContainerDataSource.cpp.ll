@@ -132,7 +132,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__28HdOverlayContainerDataSource
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__28HdOverlayContainerDataSourceE, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = getelementptr inbounds %"class.std::shared_ptr", ptr %1, i64 %2
-  %6 = getelementptr inbounds i8, ptr %0, i64 140
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 140
   store i32 8, ptr %6, align 4
   %7 = icmp ugt i64 %2, 8
   br i1 %7, label %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorISt10shared_ptrINS_21HdContainerDataSourceEELj8EE12_InitStorageEm.exit.i.thread, label %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorISt10shared_ptrINS_21HdContainerDataSourceEELj8EE12_InitStorageEm.exit.i
@@ -145,13 +145,13 @@ _ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorISt10shared_ptrINS_21HdConta
   store i32 %9, ptr %6, align 4
   %10 = icmp ult i32 %9, 9
   %11 = select i1 %10, ptr %4, ptr %8
-  %12 = getelementptr inbounds i8, ptr %0, i64 136
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 136
   store i32 %9, ptr %12, align 8
   br label %.lr.ph.i.i.i.i.preheader
 
 _ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorISt10shared_ptrINS_21HdContainerDataSourceEELj8EE12_InitStorageEm.exit.i: ; preds = %3
   %.pre.i.i = trunc nuw i64 %2 to i32
-  %13 = getelementptr inbounds i8, ptr %0, i64 136
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 136
   store i32 %.pre.i.i, ptr %13, align 8
   %.not9.i.i.i.i = icmp eq i64 %2, 0
   br i1 %.not9.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorISt10shared_ptrINS_21HdContainerDataSourceEELj8EEC2IPKS3_vEET_S8_.exit, label %.lr.ph.i.i.i.i.preheader
@@ -204,9 +204,9 @@ declare i32 @__gxx_personality_v0(...)
 define void @_ZN32pxrInternal_v0_24__pxrReserved__28HdOverlayContainerDataSourceC2EmPSt10shared_ptrINS_21HdContainerDataSourceEE(ptr noundef nonnull align 8 dereferenceable(144) %0, i64 noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__28HdOverlayContainerDataSourceE, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 136
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 136
   store i32 0, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 140
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 140
   store i32 8, ptr %6, align 4
   %7 = icmp ugt i64 %1, 8
   br i1 %7, label %8, label %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorISt10shared_ptrINS_21HdContainerDataSourceEELj8EE7reserveEm.exit
@@ -422,9 +422,9 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__28HdOverlayContainerDataSource
   %4 = alloca [2 x %"class.std::shared_ptr"], align 8
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__28HdOverlayContainerDataSourceE, i64 16), ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 136
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 136
   store i32 0, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 140
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 140
   store i32 8, ptr %7, align 4
   %8 = load ptr, ptr %1, align 8
   store ptr %8, ptr %4, align 8
@@ -668,9 +668,9 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__28HdOverlayContainerDataSource
   %5 = alloca [3 x %"class.std::shared_ptr"], align 8
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__28HdOverlayContainerDataSourceE, i64 16), ptr %0, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 136
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 136
   store i32 0, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 140
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 140
   store i32 8, ptr %8, align 4
   %9 = load ptr, ptr %1, align 8
   store ptr %9, ptr %5, align 8
@@ -1003,12 +1003,12 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__28HdOverlayContainerDataSource
   %5 = alloca %"class.std::vector", align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, i8 0, i64 32, i1 false)
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %7 = getelementptr inbounds i8, ptr %1, i64 140
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 140
   %8 = load i32, ptr %7, align 4
   %9 = icmp ult i32 %8, 9
   %10 = load ptr, ptr %6, align 8
   %spec.select.i.i = select i1 %9, ptr %6, ptr %10
-  %11 = getelementptr inbounds i8, ptr %1, i64 136
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 136
   %12 = load i32, ptr %11, align 8
   %13 = zext i32 %12 to i64
   %14 = getelementptr inbounds %"class.std::shared_ptr", ptr %spec.select.i.i, i64 %13
@@ -1235,7 +1235,7 @@ _ZNSt8__detail12_NodeBuilderINS_10_Select1stEE8_S_buildIRKN32pxrInternal_v0_24__
   store ptr %46, ptr %3, align 8
   store ptr %110, ptr %18, align 8
   %119 = getelementptr inbounds nuw i8, ptr %46, i64 32
-  %120 = getelementptr inbounds i8, ptr %46, i64 40
+  %120 = getelementptr inbounds nuw i8, ptr %46, i64 40
   %121 = load i64, ptr %120, align 8
   %122 = getelementptr inbounds nuw i8, ptr %46, i64 8
   %123 = load i64, ptr %122, align 8
@@ -1363,7 +1363,7 @@ _ZNSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__7TfTokenESt4pairIKS1_mESaIS
 
 162:                                              ; preds = %.loopexit.split-lp, %.loopexit59
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit59 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
-  %163 = getelementptr inbounds i8, ptr %46, i64 40
+  %163 = getelementptr inbounds nuw i8, ptr %46, i64 40
   %164 = extractvalue { ptr, i32 } %lpad.phi, 0
   %165 = call ptr @__cxa_begin_catch(ptr %164) #18
   store i64 %121, ptr %163, align 8
@@ -1940,12 +1940,12 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__28HdOverlayContainerDataSource
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 132
   store i32 8, ptr %11, align 4
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %13 = getelementptr inbounds i8, ptr %1, i64 140
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 140
   %14 = load i32, ptr %13, align 4
   %15 = icmp ult i32 %14, 9
   %16 = load ptr, ptr %12, align 8
   %spec.select.i.i = select i1 %15, ptr %12, ptr %16
-  %17 = getelementptr inbounds i8, ptr %1, i64 136
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 136
   %18 = load i32, ptr %17, align 8
   %19 = zext i32 %18 to i64
   %20 = getelementptr inbounds %"class.std::shared_ptr", ptr %spec.select.i.i, i64 %19
@@ -3040,7 +3040,7 @@ define linkonce_odr noundef ptr @_ZNSt15_Sp_counted_ptrIPN32pxrInternal_v0_24__p
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr ptr @_ZNSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__7TfTokenESt4pairIKS1_mESaIS4_ENSt8__detail10_Select1stESt8equal_toIS1_ENS1_11HashFunctorENS6_18_Mod_range_hashingENS6_20_Default_ranged_hashENS6_20_Prime_rehash_policyENS6_17_Hashtable_traitsILb1ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS6_10_Hash_nodeIS4_Lb1EEEm(ptr noundef nonnull align 8 dereferenceable(56) %0, i64 noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4) local_unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %7 = getelementptr inbounds i8, ptr %0, i64 40
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %8 = load i64, ptr %7, align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load i64, ptr %9, align 8
@@ -3299,7 +3299,7 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__14TfDenseHashSetI
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, i8 0, i64 16, i1 false)
   store float 1.000000e+00, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %5, i64 40
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %10, i8 0, i64 16, i1 false)
   %11 = invoke noundef i64 @_ZNKSt8__detail20_Prime_rehash_policy11_M_next_bktEm(ptr noundef nonnull align 8 dereferenceable(16) %9, i64 noundef 128)
           to label %12 unwind label %.body

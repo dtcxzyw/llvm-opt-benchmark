@@ -798,7 +798,7 @@ _ZNK5clang14BuiltinTypeLoc19needsExtraLocalDataEv.exit.i.i.i.i: ; preds = %25
   br label %_ZN5clang14TypeLocVisitorIN12_GLOBAL__N_19TypeSizerEjE5VisitENS_7TypeLocE.exit
 
 43:                                               ; preds = %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit.i
-  %44 = getelementptr inbounds i8, ptr %.sroa.0.020, i64 20
+  %44 = getelementptr inbounds nuw i8, ptr %.sroa.0.020, i64 20
   %45 = load i32, ptr %44, align 4
   %46 = shl i32 %45, 3
   %47 = add i32 %46, 32
@@ -959,7 +959,7 @@ _ZNK5clang15FunctionTypeLoc16hasExceptionSpecEv.exit._crit_edge.i.i.i261.i: ; pr
   br label %_ZN5clang14TypeLocVisitorIN12_GLOBAL__N_19TypeSizerEjE5VisitENS_7TypeLocE.exit
 
 112:                                              ; preds = %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit.i
-  %113 = getelementptr inbounds i8, ptr %.sroa.0.020, i64 20
+  %113 = getelementptr inbounds nuw i8, ptr %.sroa.0.020, i64 20
   %114 = load i32, ptr %113, align 4
   %115 = shl i32 %114, 3
   %116 = add i32 %115, 16
@@ -1831,7 +1831,7 @@ _ZN5clang38DependentTemplateSpecializationTypeLoc15initializeLocalERNS_10ASTCont
   %296 = getelementptr inbounds nuw i8, ptr %.sroa.179.0, i64 28
   store i32 %3, ptr %296, align 4
   %297 = getelementptr inbounds i8, ptr %.sroa.0952.0, i64 48
-  %298 = getelementptr inbounds i8, ptr %.sroa.0952.0, i64 20
+  %298 = getelementptr inbounds nuw i8, ptr %.sroa.0952.0, i64 20
   %299 = load i32, ptr %298, align 4
   %300 = zext i32 %299 to i64
   %301 = getelementptr inbounds i8, ptr %.sroa.179.0, i64 32
@@ -2526,7 +2526,7 @@ _ZN5clang20ObjCTypeParamTypeLoc15initializeLocalERNS_10ASTContextENS_14SourceLoc
   %666 = getelementptr inbounds nuw i8, ptr %.sroa.179.0, i64 12
   store i32 %3, ptr %666, align 4
   %667 = getelementptr inbounds i8, ptr %.sroa.0952.0, i64 48
-  %668 = getelementptr inbounds i8, ptr %.sroa.0952.0, i64 20
+  %668 = getelementptr inbounds nuw i8, ptr %.sroa.0952.0, i64 20
   %669 = load i32, ptr %668, align 4
   %670 = zext i32 %669 to i64
   %671 = getelementptr inbounds i8, ptr %.sroa.179.0, i64 16
@@ -2656,7 +2656,7 @@ define dso_local void @_ZN5clang11AutoTypeLoc15initializeLocalERNS_10ASTContextE
   call void @_ZN5clang18DeclarationNameLocC1ENS_15DeclarationNameE(ptr noundef nonnull align 8 dereferenceable(8) %4, i64 %.sroa.0.0.copyload.i.i) #15
   %19 = load ptr, ptr %4, align 8
   %20 = getelementptr inbounds i8, ptr %14, i64 48
-  %21 = getelementptr inbounds i8, ptr %14, i64 20
+  %21 = getelementptr inbounds nuw i8, ptr %14, i64 20
   %22 = load i32, ptr %21, align 4
   %23 = zext i32 %22 to i64
   %24 = shl nuw nsw i64 %23, 3
@@ -2820,7 +2820,7 @@ _ZN5clang29NestedNameSpecifierLocBuilderD2Ev.exit: ; preds = %18, %10, %21
   store i32 %2, ptr %31, align 4
   %32 = load ptr, ptr %0, align 8
   %33 = getelementptr inbounds i8, ptr %32, i64 48
-  %34 = getelementptr inbounds i8, ptr %32, i64 20
+  %34 = getelementptr inbounds nuw i8, ptr %32, i64 20
   %35 = load i32, ptr %34, align 4
   %36 = zext i32 %35 to i64
   %37 = load ptr, ptr %5, align 8
@@ -3335,7 +3335,7 @@ _ZN12_GLOBAL__N_113TypeLocCopier19VisitBuiltinTypeLocEN5clang14BuiltinTypeLocE.e
   br label %_ZN5clang14TypeLocVisitorIN12_GLOBAL__N_113TypeLocCopierEvE5VisitENS_7TypeLocE.exit
 
 95:                                               ; preds = %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit.i
-  %96 = getelementptr inbounds i8, ptr %.sroa.013.0, i64 20
+  %96 = getelementptr inbounds nuw i8, ptr %.sroa.013.0, i64 20
   %97 = load i32, ptr %96, align 4
   %.mask.i.i.i = and i32 %97, 536870911
   %98 = icmp eq i32 %.mask.i.i.i, 536870908
@@ -3567,7 +3567,7 @@ _ZN12_GLOBAL__N_113TypeLocCopier25VisitFunctionProtoTypeLocEN5clang20FunctionPro
   br label %_ZN5clang14TypeLocVisitorIN12_GLOBAL__N_113TypeLocCopierEvE5VisitENS_7TypeLocE.exit
 
 197:                                              ; preds = %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit.i
-  %198 = getelementptr inbounds i8, ptr %.sroa.013.0, i64 20
+  %198 = getelementptr inbounds nuw i8, ptr %.sroa.013.0, i64 20
   %199 = load i32, ptr %198, align 4
   %.mask.i.i489.i = and i32 %199, 536870911
   %200 = icmp eq i32 %.mask.i.i489.i, 536870910
@@ -5206,7 +5206,7 @@ _ZNK5clang11AutoTypeLoc16getTemplateKWLocEv.exit.i: ; preds = %_ZNK5clang11AutoT
   br i1 %.not32.i, label %12, label %_ZNK5clang11AutoTypeLoc19getLocalSourceRangeEv.exit
 
 12:                                               ; preds = %_ZNK5clang11AutoTypeLoc16getTemplateKWLocEv.exit.i
-  %13 = getelementptr inbounds i8, ptr %8, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %.sroa.0.0.copyload.i.i.i.i = load i32, ptr %13, align 8
   br label %_ZNK5clang11AutoTypeLoc19getLocalSourceRangeEv.exit
 

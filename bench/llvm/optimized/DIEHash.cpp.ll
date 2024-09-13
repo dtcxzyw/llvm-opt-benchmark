@@ -206,13 +206,13 @@ _ZNK4llvm12DIEValueList6valuesEv.exit.i:          ; preds = %_ZN4llvm7DIEHash10a
 .lr.ph.i:                                         ; preds = %_ZNK4llvm12DIEValueList6valuesEv.exit.i, %select.unfold.i
   %.sroa.01.08.in.i = phi i64 [ %50, %select.unfold.i ], [ %35, %_ZNK4llvm12DIEValueList6valuesEv.exit.i ]
   %.sroa.01.08.i = inttoptr i64 %.sroa.01.08.in.i to ptr
-  %36 = getelementptr inbounds i8, ptr %.sroa.01.08.i, i64 12
+  %36 = getelementptr inbounds nuw i8, ptr %.sroa.01.08.i, i64 12
   %37 = load i16, ptr %36, align 4
   %38 = icmp eq i16 %37, 3
   br i1 %38, label %39, label %select.unfold.i
 
 39:                                               ; preds = %.lr.ph.i
-  %40 = getelementptr inbounds i8, ptr %.sroa.01.08.i, i64 16
+  %40 = getelementptr inbounds nuw i8, ptr %.sroa.01.08.i, i64 16
   %.0.copyload.i.i.i.i.i.i.i.i.i.i = load i64, ptr %40, align 8
   %41 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i, 4
   %42 = icmp eq i64 %41, 0
@@ -289,201 +289,201 @@ _ZNK4llvm12DIEValueList6valuesEv.exit:            ; preds = %3
 
 .lr.ph:                                           ; preds = %_ZNK4llvm12DIEValueList6valuesEv.exit
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 784
-  %8 = getelementptr inbounds i8, ptr %2, i64 788
-  %9 = getelementptr inbounds i8, ptr %2, i64 790
-  %10 = getelementptr inbounds i8, ptr %2, i64 792
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 788
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 790
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 792
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 768
-  %12 = getelementptr inbounds i8, ptr %2, i64 772
-  %13 = getelementptr inbounds i8, ptr %2, i64 774
-  %14 = getelementptr inbounds i8, ptr %2, i64 776
+  %12 = getelementptr inbounds nuw i8, ptr %2, i64 772
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 774
+  %14 = getelementptr inbounds nuw i8, ptr %2, i64 776
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 752
-  %16 = getelementptr inbounds i8, ptr %2, i64 756
-  %17 = getelementptr inbounds i8, ptr %2, i64 758
-  %18 = getelementptr inbounds i8, ptr %2, i64 760
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 756
+  %17 = getelementptr inbounds nuw i8, ptr %2, i64 758
+  %18 = getelementptr inbounds nuw i8, ptr %2, i64 760
   %19 = getelementptr inbounds nuw i8, ptr %2, i64 736
-  %20 = getelementptr inbounds i8, ptr %2, i64 740
-  %21 = getelementptr inbounds i8, ptr %2, i64 742
-  %22 = getelementptr inbounds i8, ptr %2, i64 744
+  %20 = getelementptr inbounds nuw i8, ptr %2, i64 740
+  %21 = getelementptr inbounds nuw i8, ptr %2, i64 742
+  %22 = getelementptr inbounds nuw i8, ptr %2, i64 744
   %23 = getelementptr inbounds nuw i8, ptr %2, i64 720
-  %24 = getelementptr inbounds i8, ptr %2, i64 724
-  %25 = getelementptr inbounds i8, ptr %2, i64 726
-  %26 = getelementptr inbounds i8, ptr %2, i64 728
+  %24 = getelementptr inbounds nuw i8, ptr %2, i64 724
+  %25 = getelementptr inbounds nuw i8, ptr %2, i64 726
+  %26 = getelementptr inbounds nuw i8, ptr %2, i64 728
   %27 = getelementptr inbounds nuw i8, ptr %2, i64 704
-  %28 = getelementptr inbounds i8, ptr %2, i64 708
-  %29 = getelementptr inbounds i8, ptr %2, i64 710
-  %30 = getelementptr inbounds i8, ptr %2, i64 712
+  %28 = getelementptr inbounds nuw i8, ptr %2, i64 708
+  %29 = getelementptr inbounds nuw i8, ptr %2, i64 710
+  %30 = getelementptr inbounds nuw i8, ptr %2, i64 712
   %31 = getelementptr inbounds nuw i8, ptr %2, i64 688
-  %32 = getelementptr inbounds i8, ptr %2, i64 692
-  %33 = getelementptr inbounds i8, ptr %2, i64 694
-  %34 = getelementptr inbounds i8, ptr %2, i64 696
+  %32 = getelementptr inbounds nuw i8, ptr %2, i64 692
+  %33 = getelementptr inbounds nuw i8, ptr %2, i64 694
+  %34 = getelementptr inbounds nuw i8, ptr %2, i64 696
   %35 = getelementptr inbounds nuw i8, ptr %2, i64 672
-  %36 = getelementptr inbounds i8, ptr %2, i64 676
-  %37 = getelementptr inbounds i8, ptr %2, i64 678
-  %38 = getelementptr inbounds i8, ptr %2, i64 680
+  %36 = getelementptr inbounds nuw i8, ptr %2, i64 676
+  %37 = getelementptr inbounds nuw i8, ptr %2, i64 678
+  %38 = getelementptr inbounds nuw i8, ptr %2, i64 680
   %39 = getelementptr inbounds nuw i8, ptr %2, i64 656
-  %40 = getelementptr inbounds i8, ptr %2, i64 660
-  %41 = getelementptr inbounds i8, ptr %2, i64 662
-  %42 = getelementptr inbounds i8, ptr %2, i64 664
+  %40 = getelementptr inbounds nuw i8, ptr %2, i64 660
+  %41 = getelementptr inbounds nuw i8, ptr %2, i64 662
+  %42 = getelementptr inbounds nuw i8, ptr %2, i64 664
   %43 = getelementptr inbounds nuw i8, ptr %2, i64 640
-  %44 = getelementptr inbounds i8, ptr %2, i64 644
-  %45 = getelementptr inbounds i8, ptr %2, i64 646
-  %46 = getelementptr inbounds i8, ptr %2, i64 648
+  %44 = getelementptr inbounds nuw i8, ptr %2, i64 644
+  %45 = getelementptr inbounds nuw i8, ptr %2, i64 646
+  %46 = getelementptr inbounds nuw i8, ptr %2, i64 648
   %47 = getelementptr inbounds nuw i8, ptr %2, i64 624
-  %48 = getelementptr inbounds i8, ptr %2, i64 628
-  %49 = getelementptr inbounds i8, ptr %2, i64 630
-  %50 = getelementptr inbounds i8, ptr %2, i64 632
+  %48 = getelementptr inbounds nuw i8, ptr %2, i64 628
+  %49 = getelementptr inbounds nuw i8, ptr %2, i64 630
+  %50 = getelementptr inbounds nuw i8, ptr %2, i64 632
   %51 = getelementptr inbounds nuw i8, ptr %2, i64 608
-  %52 = getelementptr inbounds i8, ptr %2, i64 612
-  %53 = getelementptr inbounds i8, ptr %2, i64 614
-  %54 = getelementptr inbounds i8, ptr %2, i64 616
+  %52 = getelementptr inbounds nuw i8, ptr %2, i64 612
+  %53 = getelementptr inbounds nuw i8, ptr %2, i64 614
+  %54 = getelementptr inbounds nuw i8, ptr %2, i64 616
   %55 = getelementptr inbounds nuw i8, ptr %2, i64 592
-  %56 = getelementptr inbounds i8, ptr %2, i64 596
-  %57 = getelementptr inbounds i8, ptr %2, i64 598
-  %58 = getelementptr inbounds i8, ptr %2, i64 600
+  %56 = getelementptr inbounds nuw i8, ptr %2, i64 596
+  %57 = getelementptr inbounds nuw i8, ptr %2, i64 598
+  %58 = getelementptr inbounds nuw i8, ptr %2, i64 600
   %59 = getelementptr inbounds nuw i8, ptr %2, i64 576
-  %60 = getelementptr inbounds i8, ptr %2, i64 580
-  %61 = getelementptr inbounds i8, ptr %2, i64 582
-  %62 = getelementptr inbounds i8, ptr %2, i64 584
+  %60 = getelementptr inbounds nuw i8, ptr %2, i64 580
+  %61 = getelementptr inbounds nuw i8, ptr %2, i64 582
+  %62 = getelementptr inbounds nuw i8, ptr %2, i64 584
   %63 = getelementptr inbounds nuw i8, ptr %2, i64 560
-  %64 = getelementptr inbounds i8, ptr %2, i64 564
-  %65 = getelementptr inbounds i8, ptr %2, i64 566
-  %66 = getelementptr inbounds i8, ptr %2, i64 568
+  %64 = getelementptr inbounds nuw i8, ptr %2, i64 564
+  %65 = getelementptr inbounds nuw i8, ptr %2, i64 566
+  %66 = getelementptr inbounds nuw i8, ptr %2, i64 568
   %67 = getelementptr inbounds nuw i8, ptr %2, i64 544
-  %68 = getelementptr inbounds i8, ptr %2, i64 548
-  %69 = getelementptr inbounds i8, ptr %2, i64 550
-  %70 = getelementptr inbounds i8, ptr %2, i64 552
+  %68 = getelementptr inbounds nuw i8, ptr %2, i64 548
+  %69 = getelementptr inbounds nuw i8, ptr %2, i64 550
+  %70 = getelementptr inbounds nuw i8, ptr %2, i64 552
   %71 = getelementptr inbounds nuw i8, ptr %2, i64 528
-  %72 = getelementptr inbounds i8, ptr %2, i64 532
-  %73 = getelementptr inbounds i8, ptr %2, i64 534
-  %74 = getelementptr inbounds i8, ptr %2, i64 536
+  %72 = getelementptr inbounds nuw i8, ptr %2, i64 532
+  %73 = getelementptr inbounds nuw i8, ptr %2, i64 534
+  %74 = getelementptr inbounds nuw i8, ptr %2, i64 536
   %75 = getelementptr inbounds nuw i8, ptr %2, i64 512
-  %76 = getelementptr inbounds i8, ptr %2, i64 516
-  %77 = getelementptr inbounds i8, ptr %2, i64 518
-  %78 = getelementptr inbounds i8, ptr %2, i64 520
+  %76 = getelementptr inbounds nuw i8, ptr %2, i64 516
+  %77 = getelementptr inbounds nuw i8, ptr %2, i64 518
+  %78 = getelementptr inbounds nuw i8, ptr %2, i64 520
   %79 = getelementptr inbounds nuw i8, ptr %2, i64 496
-  %80 = getelementptr inbounds i8, ptr %2, i64 500
-  %81 = getelementptr inbounds i8, ptr %2, i64 502
-  %82 = getelementptr inbounds i8, ptr %2, i64 504
+  %80 = getelementptr inbounds nuw i8, ptr %2, i64 500
+  %81 = getelementptr inbounds nuw i8, ptr %2, i64 502
+  %82 = getelementptr inbounds nuw i8, ptr %2, i64 504
   %83 = getelementptr inbounds nuw i8, ptr %2, i64 480
-  %84 = getelementptr inbounds i8, ptr %2, i64 484
-  %85 = getelementptr inbounds i8, ptr %2, i64 486
-  %86 = getelementptr inbounds i8, ptr %2, i64 488
+  %84 = getelementptr inbounds nuw i8, ptr %2, i64 484
+  %85 = getelementptr inbounds nuw i8, ptr %2, i64 486
+  %86 = getelementptr inbounds nuw i8, ptr %2, i64 488
   %87 = getelementptr inbounds nuw i8, ptr %2, i64 464
-  %88 = getelementptr inbounds i8, ptr %2, i64 468
-  %89 = getelementptr inbounds i8, ptr %2, i64 470
-  %90 = getelementptr inbounds i8, ptr %2, i64 472
+  %88 = getelementptr inbounds nuw i8, ptr %2, i64 468
+  %89 = getelementptr inbounds nuw i8, ptr %2, i64 470
+  %90 = getelementptr inbounds nuw i8, ptr %2, i64 472
   %91 = getelementptr inbounds nuw i8, ptr %2, i64 448
-  %92 = getelementptr inbounds i8, ptr %2, i64 452
-  %93 = getelementptr inbounds i8, ptr %2, i64 454
-  %94 = getelementptr inbounds i8, ptr %2, i64 456
+  %92 = getelementptr inbounds nuw i8, ptr %2, i64 452
+  %93 = getelementptr inbounds nuw i8, ptr %2, i64 454
+  %94 = getelementptr inbounds nuw i8, ptr %2, i64 456
   %95 = getelementptr inbounds nuw i8, ptr %2, i64 432
-  %96 = getelementptr inbounds i8, ptr %2, i64 436
-  %97 = getelementptr inbounds i8, ptr %2, i64 438
-  %98 = getelementptr inbounds i8, ptr %2, i64 440
+  %96 = getelementptr inbounds nuw i8, ptr %2, i64 436
+  %97 = getelementptr inbounds nuw i8, ptr %2, i64 438
+  %98 = getelementptr inbounds nuw i8, ptr %2, i64 440
   %99 = getelementptr inbounds nuw i8, ptr %2, i64 416
-  %100 = getelementptr inbounds i8, ptr %2, i64 420
-  %101 = getelementptr inbounds i8, ptr %2, i64 422
-  %102 = getelementptr inbounds i8, ptr %2, i64 424
+  %100 = getelementptr inbounds nuw i8, ptr %2, i64 420
+  %101 = getelementptr inbounds nuw i8, ptr %2, i64 422
+  %102 = getelementptr inbounds nuw i8, ptr %2, i64 424
   %103 = getelementptr inbounds nuw i8, ptr %2, i64 400
-  %104 = getelementptr inbounds i8, ptr %2, i64 404
-  %105 = getelementptr inbounds i8, ptr %2, i64 406
-  %106 = getelementptr inbounds i8, ptr %2, i64 408
+  %104 = getelementptr inbounds nuw i8, ptr %2, i64 404
+  %105 = getelementptr inbounds nuw i8, ptr %2, i64 406
+  %106 = getelementptr inbounds nuw i8, ptr %2, i64 408
   %107 = getelementptr inbounds nuw i8, ptr %2, i64 384
-  %108 = getelementptr inbounds i8, ptr %2, i64 388
-  %109 = getelementptr inbounds i8, ptr %2, i64 390
-  %110 = getelementptr inbounds i8, ptr %2, i64 392
+  %108 = getelementptr inbounds nuw i8, ptr %2, i64 388
+  %109 = getelementptr inbounds nuw i8, ptr %2, i64 390
+  %110 = getelementptr inbounds nuw i8, ptr %2, i64 392
   %111 = getelementptr inbounds nuw i8, ptr %2, i64 368
-  %112 = getelementptr inbounds i8, ptr %2, i64 372
-  %113 = getelementptr inbounds i8, ptr %2, i64 374
-  %114 = getelementptr inbounds i8, ptr %2, i64 376
+  %112 = getelementptr inbounds nuw i8, ptr %2, i64 372
+  %113 = getelementptr inbounds nuw i8, ptr %2, i64 374
+  %114 = getelementptr inbounds nuw i8, ptr %2, i64 376
   %115 = getelementptr inbounds nuw i8, ptr %2, i64 352
-  %116 = getelementptr inbounds i8, ptr %2, i64 356
-  %117 = getelementptr inbounds i8, ptr %2, i64 358
-  %118 = getelementptr inbounds i8, ptr %2, i64 360
+  %116 = getelementptr inbounds nuw i8, ptr %2, i64 356
+  %117 = getelementptr inbounds nuw i8, ptr %2, i64 358
+  %118 = getelementptr inbounds nuw i8, ptr %2, i64 360
   %119 = getelementptr inbounds nuw i8, ptr %2, i64 336
-  %120 = getelementptr inbounds i8, ptr %2, i64 340
-  %121 = getelementptr inbounds i8, ptr %2, i64 342
-  %122 = getelementptr inbounds i8, ptr %2, i64 344
+  %120 = getelementptr inbounds nuw i8, ptr %2, i64 340
+  %121 = getelementptr inbounds nuw i8, ptr %2, i64 342
+  %122 = getelementptr inbounds nuw i8, ptr %2, i64 344
   %123 = getelementptr inbounds nuw i8, ptr %2, i64 320
-  %124 = getelementptr inbounds i8, ptr %2, i64 324
-  %125 = getelementptr inbounds i8, ptr %2, i64 326
-  %126 = getelementptr inbounds i8, ptr %2, i64 328
+  %124 = getelementptr inbounds nuw i8, ptr %2, i64 324
+  %125 = getelementptr inbounds nuw i8, ptr %2, i64 326
+  %126 = getelementptr inbounds nuw i8, ptr %2, i64 328
   %127 = getelementptr inbounds nuw i8, ptr %2, i64 304
-  %128 = getelementptr inbounds i8, ptr %2, i64 308
-  %129 = getelementptr inbounds i8, ptr %2, i64 310
-  %130 = getelementptr inbounds i8, ptr %2, i64 312
+  %128 = getelementptr inbounds nuw i8, ptr %2, i64 308
+  %129 = getelementptr inbounds nuw i8, ptr %2, i64 310
+  %130 = getelementptr inbounds nuw i8, ptr %2, i64 312
   %131 = getelementptr inbounds nuw i8, ptr %2, i64 288
-  %132 = getelementptr inbounds i8, ptr %2, i64 292
-  %133 = getelementptr inbounds i8, ptr %2, i64 294
-  %134 = getelementptr inbounds i8, ptr %2, i64 296
+  %132 = getelementptr inbounds nuw i8, ptr %2, i64 292
+  %133 = getelementptr inbounds nuw i8, ptr %2, i64 294
+  %134 = getelementptr inbounds nuw i8, ptr %2, i64 296
   %135 = getelementptr inbounds nuw i8, ptr %2, i64 272
-  %136 = getelementptr inbounds i8, ptr %2, i64 276
-  %137 = getelementptr inbounds i8, ptr %2, i64 278
-  %138 = getelementptr inbounds i8, ptr %2, i64 280
+  %136 = getelementptr inbounds nuw i8, ptr %2, i64 276
+  %137 = getelementptr inbounds nuw i8, ptr %2, i64 278
+  %138 = getelementptr inbounds nuw i8, ptr %2, i64 280
   %139 = getelementptr inbounds nuw i8, ptr %2, i64 256
-  %140 = getelementptr inbounds i8, ptr %2, i64 260
-  %141 = getelementptr inbounds i8, ptr %2, i64 262
-  %142 = getelementptr inbounds i8, ptr %2, i64 264
+  %140 = getelementptr inbounds nuw i8, ptr %2, i64 260
+  %141 = getelementptr inbounds nuw i8, ptr %2, i64 262
+  %142 = getelementptr inbounds nuw i8, ptr %2, i64 264
   %143 = getelementptr inbounds nuw i8, ptr %2, i64 240
-  %144 = getelementptr inbounds i8, ptr %2, i64 244
-  %145 = getelementptr inbounds i8, ptr %2, i64 246
-  %146 = getelementptr inbounds i8, ptr %2, i64 248
+  %144 = getelementptr inbounds nuw i8, ptr %2, i64 244
+  %145 = getelementptr inbounds nuw i8, ptr %2, i64 246
+  %146 = getelementptr inbounds nuw i8, ptr %2, i64 248
   %147 = getelementptr inbounds nuw i8, ptr %2, i64 224
-  %148 = getelementptr inbounds i8, ptr %2, i64 228
-  %149 = getelementptr inbounds i8, ptr %2, i64 230
-  %150 = getelementptr inbounds i8, ptr %2, i64 232
+  %148 = getelementptr inbounds nuw i8, ptr %2, i64 228
+  %149 = getelementptr inbounds nuw i8, ptr %2, i64 230
+  %150 = getelementptr inbounds nuw i8, ptr %2, i64 232
   %151 = getelementptr inbounds nuw i8, ptr %2, i64 208
-  %152 = getelementptr inbounds i8, ptr %2, i64 212
-  %153 = getelementptr inbounds i8, ptr %2, i64 214
-  %154 = getelementptr inbounds i8, ptr %2, i64 216
+  %152 = getelementptr inbounds nuw i8, ptr %2, i64 212
+  %153 = getelementptr inbounds nuw i8, ptr %2, i64 214
+  %154 = getelementptr inbounds nuw i8, ptr %2, i64 216
   %155 = getelementptr inbounds nuw i8, ptr %2, i64 192
-  %156 = getelementptr inbounds i8, ptr %2, i64 196
-  %157 = getelementptr inbounds i8, ptr %2, i64 198
-  %158 = getelementptr inbounds i8, ptr %2, i64 200
+  %156 = getelementptr inbounds nuw i8, ptr %2, i64 196
+  %157 = getelementptr inbounds nuw i8, ptr %2, i64 198
+  %158 = getelementptr inbounds nuw i8, ptr %2, i64 200
   %159 = getelementptr inbounds nuw i8, ptr %2, i64 176
-  %160 = getelementptr inbounds i8, ptr %2, i64 180
-  %161 = getelementptr inbounds i8, ptr %2, i64 182
-  %162 = getelementptr inbounds i8, ptr %2, i64 184
+  %160 = getelementptr inbounds nuw i8, ptr %2, i64 180
+  %161 = getelementptr inbounds nuw i8, ptr %2, i64 182
+  %162 = getelementptr inbounds nuw i8, ptr %2, i64 184
   %163 = getelementptr inbounds nuw i8, ptr %2, i64 160
-  %164 = getelementptr inbounds i8, ptr %2, i64 164
-  %165 = getelementptr inbounds i8, ptr %2, i64 166
-  %166 = getelementptr inbounds i8, ptr %2, i64 168
+  %164 = getelementptr inbounds nuw i8, ptr %2, i64 164
+  %165 = getelementptr inbounds nuw i8, ptr %2, i64 166
+  %166 = getelementptr inbounds nuw i8, ptr %2, i64 168
   %167 = getelementptr inbounds nuw i8, ptr %2, i64 144
-  %168 = getelementptr inbounds i8, ptr %2, i64 148
-  %169 = getelementptr inbounds i8, ptr %2, i64 150
-  %170 = getelementptr inbounds i8, ptr %2, i64 152
+  %168 = getelementptr inbounds nuw i8, ptr %2, i64 148
+  %169 = getelementptr inbounds nuw i8, ptr %2, i64 150
+  %170 = getelementptr inbounds nuw i8, ptr %2, i64 152
   %171 = getelementptr inbounds nuw i8, ptr %2, i64 128
-  %172 = getelementptr inbounds i8, ptr %2, i64 132
-  %173 = getelementptr inbounds i8, ptr %2, i64 134
-  %174 = getelementptr inbounds i8, ptr %2, i64 136
+  %172 = getelementptr inbounds nuw i8, ptr %2, i64 132
+  %173 = getelementptr inbounds nuw i8, ptr %2, i64 134
+  %174 = getelementptr inbounds nuw i8, ptr %2, i64 136
   %175 = getelementptr inbounds nuw i8, ptr %2, i64 112
-  %176 = getelementptr inbounds i8, ptr %2, i64 116
-  %177 = getelementptr inbounds i8, ptr %2, i64 118
-  %178 = getelementptr inbounds i8, ptr %2, i64 120
+  %176 = getelementptr inbounds nuw i8, ptr %2, i64 116
+  %177 = getelementptr inbounds nuw i8, ptr %2, i64 118
+  %178 = getelementptr inbounds nuw i8, ptr %2, i64 120
   %179 = getelementptr inbounds nuw i8, ptr %2, i64 96
-  %180 = getelementptr inbounds i8, ptr %2, i64 100
-  %181 = getelementptr inbounds i8, ptr %2, i64 102
-  %182 = getelementptr inbounds i8, ptr %2, i64 104
+  %180 = getelementptr inbounds nuw i8, ptr %2, i64 100
+  %181 = getelementptr inbounds nuw i8, ptr %2, i64 102
+  %182 = getelementptr inbounds nuw i8, ptr %2, i64 104
   %183 = getelementptr inbounds nuw i8, ptr %2, i64 80
-  %184 = getelementptr inbounds i8, ptr %2, i64 84
-  %185 = getelementptr inbounds i8, ptr %2, i64 86
-  %186 = getelementptr inbounds i8, ptr %2, i64 88
+  %184 = getelementptr inbounds nuw i8, ptr %2, i64 84
+  %185 = getelementptr inbounds nuw i8, ptr %2, i64 86
+  %186 = getelementptr inbounds nuw i8, ptr %2, i64 88
   %187 = getelementptr inbounds nuw i8, ptr %2, i64 64
-  %188 = getelementptr inbounds i8, ptr %2, i64 68
-  %189 = getelementptr inbounds i8, ptr %2, i64 70
-  %190 = getelementptr inbounds i8, ptr %2, i64 72
+  %188 = getelementptr inbounds nuw i8, ptr %2, i64 68
+  %189 = getelementptr inbounds nuw i8, ptr %2, i64 70
+  %190 = getelementptr inbounds nuw i8, ptr %2, i64 72
   %191 = getelementptr inbounds nuw i8, ptr %2, i64 48
-  %192 = getelementptr inbounds i8, ptr %2, i64 52
-  %193 = getelementptr inbounds i8, ptr %2, i64 54
-  %194 = getelementptr inbounds i8, ptr %2, i64 56
+  %192 = getelementptr inbounds nuw i8, ptr %2, i64 52
+  %193 = getelementptr inbounds nuw i8, ptr %2, i64 54
+  %194 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %195 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %196 = getelementptr inbounds i8, ptr %2, i64 36
-  %197 = getelementptr inbounds i8, ptr %2, i64 38
-  %198 = getelementptr inbounds i8, ptr %2, i64 40
+  %196 = getelementptr inbounds nuw i8, ptr %2, i64 36
+  %197 = getelementptr inbounds nuw i8, ptr %2, i64 38
+  %198 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %199 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %200 = getelementptr inbounds i8, ptr %2, i64 20
-  %201 = getelementptr inbounds i8, ptr %2, i64 22
-  %202 = getelementptr inbounds i8, ptr %2, i64 24
+  %200 = getelementptr inbounds nuw i8, ptr %2, i64 20
+  %201 = getelementptr inbounds nuw i8, ptr %2, i64 22
+  %202 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %203 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %204 = getelementptr inbounds nuw i8, ptr %2, i64 6
   %205 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -493,7 +493,7 @@ _ZNK4llvm12DIEValueList6valuesEv.exit:            ; preds = %3
   %.sroa.0450.0455.in = phi i64 [ %6, %.lr.ph ], [ %2061, %_ZN4llvm8DIEValueaSERKS0_.exit ]
   %.sroa.0450.0455 = inttoptr i64 %.sroa.0450.0455.in to ptr
   %207 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 8
-  %208 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 12
+  %208 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 12
   %209 = load i16, ptr %208, align 4
   switch i16 %209, label %_ZN4llvm8DIEValueaSERKS0_.exit [
     i16 3, label %210
@@ -557,7 +557,7 @@ _ZNK4llvm12DIEValueList6valuesEv.exit:            ; preds = %3
   store i32 %213, ptr %2, align 8
   %214 = load i16, ptr %208, align 4
   store i16 %214, ptr %203, align 4
-  %215 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 14
+  %215 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 14
   %216 = load i16, ptr %215, align 2
   store i16 %216, ptr %204, align 2
   switch i32 %213, label %_ZN4llvm8DIEValueaSERKS0_.exit [
@@ -576,73 +576,73 @@ _ZNK4llvm12DIEValueList6valuesEv.exit:            ; preds = %3
   ]
 
 217:                                              ; preds = %212
-  %218 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %218 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %.sroa.05.0.copyload.i.i = load i64, ptr %218, align 8
   store i64 %.sroa.05.0.copyload.i.i, ptr %205, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 219:                                              ; preds = %212
-  %220 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %220 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %.sroa.04.0.copyload.i.i = load i64, ptr %220, align 8
   store i64 %.sroa.04.0.copyload.i.i, ptr %205, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 221:                                              ; preds = %212
-  %222 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %222 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %.sroa.03.0.copyload.i.i = load ptr, ptr %222, align 8
   store ptr %.sroa.03.0.copyload.i.i, ptr %205, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 223:                                              ; preds = %212
-  %224 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %224 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %.sroa.02.0.copyload.i.i = load ptr, ptr %224, align 8
   store ptr %.sroa.02.0.copyload.i.i, ptr %205, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 225:                                              ; preds = %212
-  %226 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %226 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %227 = load ptr, ptr %226, align 8
   store ptr %227, ptr %205, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 228:                                              ; preds = %212
-  %229 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %229 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %230 = load ptr, ptr %229, align 8
   store ptr %230, ptr %205, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 231:                                              ; preds = %212
-  %232 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %232 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %.sroa.01.0.copyload.i.i = load ptr, ptr %232, align 8
   store ptr %.sroa.01.0.copyload.i.i, ptr %205, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 233:                                              ; preds = %212
-  %234 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %234 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %235 = load ptr, ptr %234, align 8
   store ptr %235, ptr %205, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 236:                                              ; preds = %212
-  %237 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %237 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %238 = load ptr, ptr %237, align 8
   store ptr %238, ptr %205, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 239:                                              ; preds = %212
-  %240 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %240 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %.sroa.0.0.copyload.i.i = load i64, ptr %240, align 8
   store i64 %.sroa.0.0.copyload.i.i, ptr %205, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 241:                                              ; preds = %212
-  %242 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %242 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %243 = load ptr, ptr %242, align 8
   store ptr %243, ptr %205, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 244:                                              ; preds = %212
-  %245 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %245 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %246 = load ptr, ptr %245, align 8
   store ptr %246, ptr %205, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
@@ -656,7 +656,7 @@ _ZNK4llvm12DIEValueList6valuesEv.exit:            ; preds = %3
   store i32 %250, ptr %199, align 8
   %251 = load i16, ptr %208, align 4
   store i16 %251, ptr %200, align 4
-  %252 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 14
+  %252 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 14
   %253 = load i16, ptr %252, align 2
   store i16 %253, ptr %201, align 2
   switch i32 %250, label %_ZN4llvm8DIEValueaSERKS0_.exit [
@@ -675,73 +675,73 @@ _ZNK4llvm12DIEValueList6valuesEv.exit:            ; preds = %3
   ]
 
 254:                                              ; preds = %249
-  %255 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %255 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %.sroa.05.0.copyload.i.i110 = load i64, ptr %255, align 8
   store i64 %.sroa.05.0.copyload.i.i110, ptr %202, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 256:                                              ; preds = %249
-  %257 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %257 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %.sroa.04.0.copyload.i.i109 = load i64, ptr %257, align 8
   store i64 %.sroa.04.0.copyload.i.i109, ptr %202, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 258:                                              ; preds = %249
-  %259 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %259 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %.sroa.03.0.copyload.i.i108 = load ptr, ptr %259, align 8
   store ptr %.sroa.03.0.copyload.i.i108, ptr %202, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 260:                                              ; preds = %249
-  %261 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %261 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %.sroa.02.0.copyload.i.i107 = load ptr, ptr %261, align 8
   store ptr %.sroa.02.0.copyload.i.i107, ptr %202, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 262:                                              ; preds = %249
-  %263 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %263 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %264 = load ptr, ptr %263, align 8
   store ptr %264, ptr %202, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 265:                                              ; preds = %249
-  %266 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %266 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %267 = load ptr, ptr %266, align 8
   store ptr %267, ptr %202, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 268:                                              ; preds = %249
-  %269 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %269 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %.sroa.01.0.copyload.i.i106 = load ptr, ptr %269, align 8
   store ptr %.sroa.01.0.copyload.i.i106, ptr %202, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 270:                                              ; preds = %249
-  %271 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %271 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %272 = load ptr, ptr %271, align 8
   store ptr %272, ptr %202, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 273:                                              ; preds = %249
-  %274 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %274 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %275 = load ptr, ptr %274, align 8
   store ptr %275, ptr %202, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 276:                                              ; preds = %249
-  %277 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %277 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %.sroa.0.0.copyload.i.i105 = load i64, ptr %277, align 8
   store i64 %.sroa.0.0.copyload.i.i105, ptr %202, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 278:                                              ; preds = %249
-  %279 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %279 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %280 = load ptr, ptr %279, align 8
   store ptr %280, ptr %202, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 281:                                              ; preds = %249
-  %282 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %282 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %283 = load ptr, ptr %282, align 8
   store ptr %283, ptr %202, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
@@ -755,7 +755,7 @@ _ZNK4llvm12DIEValueList6valuesEv.exit:            ; preds = %3
   store i32 %287, ptr %195, align 8
   %288 = load i16, ptr %208, align 4
   store i16 %288, ptr %196, align 4
-  %289 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 14
+  %289 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 14
   %290 = load i16, ptr %289, align 2
   store i16 %290, ptr %197, align 2
   switch i32 %287, label %_ZN4llvm8DIEValueaSERKS0_.exit [
@@ -774,73 +774,73 @@ _ZNK4llvm12DIEValueList6valuesEv.exit:            ; preds = %3
   ]
 
 291:                                              ; preds = %286
-  %292 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %292 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %.sroa.05.0.copyload.i.i117 = load i64, ptr %292, align 8
   store i64 %.sroa.05.0.copyload.i.i117, ptr %198, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 293:                                              ; preds = %286
-  %294 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %294 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %.sroa.04.0.copyload.i.i116 = load i64, ptr %294, align 8
   store i64 %.sroa.04.0.copyload.i.i116, ptr %198, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 295:                                              ; preds = %286
-  %296 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %296 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %.sroa.03.0.copyload.i.i115 = load ptr, ptr %296, align 8
   store ptr %.sroa.03.0.copyload.i.i115, ptr %198, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 297:                                              ; preds = %286
-  %298 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %298 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %.sroa.02.0.copyload.i.i114 = load ptr, ptr %298, align 8
   store ptr %.sroa.02.0.copyload.i.i114, ptr %198, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 299:                                              ; preds = %286
-  %300 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %300 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %301 = load ptr, ptr %300, align 8
   store ptr %301, ptr %198, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 302:                                              ; preds = %286
-  %303 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %303 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %304 = load ptr, ptr %303, align 8
   store ptr %304, ptr %198, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 305:                                              ; preds = %286
-  %306 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %306 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %.sroa.01.0.copyload.i.i113 = load ptr, ptr %306, align 8
   store ptr %.sroa.01.0.copyload.i.i113, ptr %198, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 307:                                              ; preds = %286
-  %308 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %308 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %309 = load ptr, ptr %308, align 8
   store ptr %309, ptr %198, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 310:                                              ; preds = %286
-  %311 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %311 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %312 = load ptr, ptr %311, align 8
   store ptr %312, ptr %198, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 313:                                              ; preds = %286
-  %314 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %314 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %.sroa.0.0.copyload.i.i112 = load i64, ptr %314, align 8
   store i64 %.sroa.0.0.copyload.i.i112, ptr %198, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 315:                                              ; preds = %286
-  %316 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %316 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %317 = load ptr, ptr %316, align 8
   store ptr %317, ptr %198, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 318:                                              ; preds = %286
-  %319 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %319 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %320 = load ptr, ptr %319, align 8
   store ptr %320, ptr %198, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
@@ -854,7 +854,7 @@ _ZNK4llvm12DIEValueList6valuesEv.exit:            ; preds = %3
   store i32 %324, ptr %191, align 8
   %325 = load i16, ptr %208, align 4
   store i16 %325, ptr %192, align 4
-  %326 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 14
+  %326 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 14
   %327 = load i16, ptr %326, align 2
   store i16 %327, ptr %193, align 2
   switch i32 %324, label %_ZN4llvm8DIEValueaSERKS0_.exit [
@@ -873,73 +873,73 @@ _ZNK4llvm12DIEValueList6valuesEv.exit:            ; preds = %3
   ]
 
 328:                                              ; preds = %323
-  %329 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %329 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %.sroa.05.0.copyload.i.i124 = load i64, ptr %329, align 8
   store i64 %.sroa.05.0.copyload.i.i124, ptr %194, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 330:                                              ; preds = %323
-  %331 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %331 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %.sroa.04.0.copyload.i.i123 = load i64, ptr %331, align 8
   store i64 %.sroa.04.0.copyload.i.i123, ptr %194, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 332:                                              ; preds = %323
-  %333 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %333 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %.sroa.03.0.copyload.i.i122 = load ptr, ptr %333, align 8
   store ptr %.sroa.03.0.copyload.i.i122, ptr %194, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 334:                                              ; preds = %323
-  %335 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %335 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %.sroa.02.0.copyload.i.i121 = load ptr, ptr %335, align 8
   store ptr %.sroa.02.0.copyload.i.i121, ptr %194, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 336:                                              ; preds = %323
-  %337 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %337 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %338 = load ptr, ptr %337, align 8
   store ptr %338, ptr %194, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 339:                                              ; preds = %323
-  %340 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %340 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %341 = load ptr, ptr %340, align 8
   store ptr %341, ptr %194, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 342:                                              ; preds = %323
-  %343 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %343 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %.sroa.01.0.copyload.i.i120 = load ptr, ptr %343, align 8
   store ptr %.sroa.01.0.copyload.i.i120, ptr %194, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 344:                                              ; preds = %323
-  %345 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %345 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %346 = load ptr, ptr %345, align 8
   store ptr %346, ptr %194, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 347:                                              ; preds = %323
-  %348 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %348 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %349 = load ptr, ptr %348, align 8
   store ptr %349, ptr %194, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 350:                                              ; preds = %323
-  %351 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %351 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %.sroa.0.0.copyload.i.i119 = load i64, ptr %351, align 8
   store i64 %.sroa.0.0.copyload.i.i119, ptr %194, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 352:                                              ; preds = %323
-  %353 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %353 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %354 = load ptr, ptr %353, align 8
   store ptr %354, ptr %194, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 355:                                              ; preds = %323
-  %356 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %356 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %357 = load ptr, ptr %356, align 8
   store ptr %357, ptr %194, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
@@ -953,7 +953,7 @@ _ZNK4llvm12DIEValueList6valuesEv.exit:            ; preds = %3
   store i32 %361, ptr %187, align 8
   %362 = load i16, ptr %208, align 4
   store i16 %362, ptr %188, align 4
-  %363 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 14
+  %363 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 14
   %364 = load i16, ptr %363, align 2
   store i16 %364, ptr %189, align 2
   switch i32 %361, label %_ZN4llvm8DIEValueaSERKS0_.exit [
@@ -972,73 +972,73 @@ _ZNK4llvm12DIEValueList6valuesEv.exit:            ; preds = %3
   ]
 
 365:                                              ; preds = %360
-  %366 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %366 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %.sroa.05.0.copyload.i.i131 = load i64, ptr %366, align 8
   store i64 %.sroa.05.0.copyload.i.i131, ptr %190, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 367:                                              ; preds = %360
-  %368 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %368 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %.sroa.04.0.copyload.i.i130 = load i64, ptr %368, align 8
   store i64 %.sroa.04.0.copyload.i.i130, ptr %190, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 369:                                              ; preds = %360
-  %370 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %370 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %.sroa.03.0.copyload.i.i129 = load ptr, ptr %370, align 8
   store ptr %.sroa.03.0.copyload.i.i129, ptr %190, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 371:                                              ; preds = %360
-  %372 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %372 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %.sroa.02.0.copyload.i.i128 = load ptr, ptr %372, align 8
   store ptr %.sroa.02.0.copyload.i.i128, ptr %190, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 373:                                              ; preds = %360
-  %374 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %374 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %375 = load ptr, ptr %374, align 8
   store ptr %375, ptr %190, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 376:                                              ; preds = %360
-  %377 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %377 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %378 = load ptr, ptr %377, align 8
   store ptr %378, ptr %190, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 379:                                              ; preds = %360
-  %380 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %380 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %.sroa.01.0.copyload.i.i127 = load ptr, ptr %380, align 8
   store ptr %.sroa.01.0.copyload.i.i127, ptr %190, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 381:                                              ; preds = %360
-  %382 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %382 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %383 = load ptr, ptr %382, align 8
   store ptr %383, ptr %190, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 384:                                              ; preds = %360
-  %385 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %385 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %386 = load ptr, ptr %385, align 8
   store ptr %386, ptr %190, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 387:                                              ; preds = %360
-  %388 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %388 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %.sroa.0.0.copyload.i.i126 = load i64, ptr %388, align 8
   store i64 %.sroa.0.0.copyload.i.i126, ptr %190, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 389:                                              ; preds = %360
-  %390 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %390 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %391 = load ptr, ptr %390, align 8
   store ptr %391, ptr %190, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 392:                                              ; preds = %360
-  %393 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %393 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %394 = load ptr, ptr %393, align 8
   store ptr %394, ptr %190, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
@@ -1052,7 +1052,7 @@ _ZNK4llvm12DIEValueList6valuesEv.exit:            ; preds = %3
   store i32 %398, ptr %183, align 8
   %399 = load i16, ptr %208, align 4
   store i16 %399, ptr %184, align 4
-  %400 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 14
+  %400 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 14
   %401 = load i16, ptr %400, align 2
   store i16 %401, ptr %185, align 2
   switch i32 %398, label %_ZN4llvm8DIEValueaSERKS0_.exit [
@@ -1071,73 +1071,73 @@ _ZNK4llvm12DIEValueList6valuesEv.exit:            ; preds = %3
   ]
 
 402:                                              ; preds = %397
-  %403 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %403 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %.sroa.05.0.copyload.i.i138 = load i64, ptr %403, align 8
   store i64 %.sroa.05.0.copyload.i.i138, ptr %186, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 404:                                              ; preds = %397
-  %405 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %405 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %.sroa.04.0.copyload.i.i137 = load i64, ptr %405, align 8
   store i64 %.sroa.04.0.copyload.i.i137, ptr %186, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 406:                                              ; preds = %397
-  %407 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %407 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %.sroa.03.0.copyload.i.i136 = load ptr, ptr %407, align 8
   store ptr %.sroa.03.0.copyload.i.i136, ptr %186, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 408:                                              ; preds = %397
-  %409 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %409 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %.sroa.02.0.copyload.i.i135 = load ptr, ptr %409, align 8
   store ptr %.sroa.02.0.copyload.i.i135, ptr %186, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 410:                                              ; preds = %397
-  %411 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %411 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %412 = load ptr, ptr %411, align 8
   store ptr %412, ptr %186, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 413:                                              ; preds = %397
-  %414 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %414 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %415 = load ptr, ptr %414, align 8
   store ptr %415, ptr %186, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 416:                                              ; preds = %397
-  %417 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %417 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %.sroa.01.0.copyload.i.i134 = load ptr, ptr %417, align 8
   store ptr %.sroa.01.0.copyload.i.i134, ptr %186, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 418:                                              ; preds = %397
-  %419 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %419 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %420 = load ptr, ptr %419, align 8
   store ptr %420, ptr %186, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 421:                                              ; preds = %397
-  %422 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %422 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %423 = load ptr, ptr %422, align 8
   store ptr %423, ptr %186, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 424:                                              ; preds = %397
-  %425 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %425 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %.sroa.0.0.copyload.i.i133 = load i64, ptr %425, align 8
   store i64 %.sroa.0.0.copyload.i.i133, ptr %186, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 426:                                              ; preds = %397
-  %427 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %427 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %428 = load ptr, ptr %427, align 8
   store ptr %428, ptr %186, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 429:                                              ; preds = %397
-  %430 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %430 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %431 = load ptr, ptr %430, align 8
   store ptr %431, ptr %186, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
@@ -1151,7 +1151,7 @@ _ZNK4llvm12DIEValueList6valuesEv.exit:            ; preds = %3
   store i32 %435, ptr %179, align 8
   %436 = load i16, ptr %208, align 4
   store i16 %436, ptr %180, align 4
-  %437 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 14
+  %437 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 14
   %438 = load i16, ptr %437, align 2
   store i16 %438, ptr %181, align 2
   switch i32 %435, label %_ZN4llvm8DIEValueaSERKS0_.exit [
@@ -1170,73 +1170,73 @@ _ZNK4llvm12DIEValueList6valuesEv.exit:            ; preds = %3
   ]
 
 439:                                              ; preds = %434
-  %440 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %440 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %.sroa.05.0.copyload.i.i145 = load i64, ptr %440, align 8
   store i64 %.sroa.05.0.copyload.i.i145, ptr %182, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 441:                                              ; preds = %434
-  %442 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %442 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %.sroa.04.0.copyload.i.i144 = load i64, ptr %442, align 8
   store i64 %.sroa.04.0.copyload.i.i144, ptr %182, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 443:                                              ; preds = %434
-  %444 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %444 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %.sroa.03.0.copyload.i.i143 = load ptr, ptr %444, align 8
   store ptr %.sroa.03.0.copyload.i.i143, ptr %182, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 445:                                              ; preds = %434
-  %446 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %446 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %.sroa.02.0.copyload.i.i142 = load ptr, ptr %446, align 8
   store ptr %.sroa.02.0.copyload.i.i142, ptr %182, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 447:                                              ; preds = %434
-  %448 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %448 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %449 = load ptr, ptr %448, align 8
   store ptr %449, ptr %182, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 450:                                              ; preds = %434
-  %451 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %451 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %452 = load ptr, ptr %451, align 8
   store ptr %452, ptr %182, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 453:                                              ; preds = %434
-  %454 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %454 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %.sroa.01.0.copyload.i.i141 = load ptr, ptr %454, align 8
   store ptr %.sroa.01.0.copyload.i.i141, ptr %182, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 455:                                              ; preds = %434
-  %456 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %456 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %457 = load ptr, ptr %456, align 8
   store ptr %457, ptr %182, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 458:                                              ; preds = %434
-  %459 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %459 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %460 = load ptr, ptr %459, align 8
   store ptr %460, ptr %182, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 461:                                              ; preds = %434
-  %462 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %462 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %.sroa.0.0.copyload.i.i140 = load i64, ptr %462, align 8
   store i64 %.sroa.0.0.copyload.i.i140, ptr %182, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 463:                                              ; preds = %434
-  %464 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %464 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %465 = load ptr, ptr %464, align 8
   store ptr %465, ptr %182, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 466:                                              ; preds = %434
-  %467 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %467 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %468 = load ptr, ptr %467, align 8
   store ptr %468, ptr %182, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
@@ -1250,7 +1250,7 @@ _ZNK4llvm12DIEValueList6valuesEv.exit:            ; preds = %3
   store i32 %472, ptr %175, align 8
   %473 = load i16, ptr %208, align 4
   store i16 %473, ptr %176, align 4
-  %474 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 14
+  %474 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 14
   %475 = load i16, ptr %474, align 2
   store i16 %475, ptr %177, align 2
   switch i32 %472, label %_ZN4llvm8DIEValueaSERKS0_.exit [
@@ -1269,73 +1269,73 @@ _ZNK4llvm12DIEValueList6valuesEv.exit:            ; preds = %3
   ]
 
 476:                                              ; preds = %471
-  %477 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %477 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %.sroa.05.0.copyload.i.i152 = load i64, ptr %477, align 8
   store i64 %.sroa.05.0.copyload.i.i152, ptr %178, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 478:                                              ; preds = %471
-  %479 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %479 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %.sroa.04.0.copyload.i.i151 = load i64, ptr %479, align 8
   store i64 %.sroa.04.0.copyload.i.i151, ptr %178, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 480:                                              ; preds = %471
-  %481 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %481 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %.sroa.03.0.copyload.i.i150 = load ptr, ptr %481, align 8
   store ptr %.sroa.03.0.copyload.i.i150, ptr %178, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 482:                                              ; preds = %471
-  %483 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %483 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %.sroa.02.0.copyload.i.i149 = load ptr, ptr %483, align 8
   store ptr %.sroa.02.0.copyload.i.i149, ptr %178, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 484:                                              ; preds = %471
-  %485 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %485 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %486 = load ptr, ptr %485, align 8
   store ptr %486, ptr %178, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 487:                                              ; preds = %471
-  %488 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %488 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %489 = load ptr, ptr %488, align 8
   store ptr %489, ptr %178, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 490:                                              ; preds = %471
-  %491 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %491 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %.sroa.01.0.copyload.i.i148 = load ptr, ptr %491, align 8
   store ptr %.sroa.01.0.copyload.i.i148, ptr %178, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 492:                                              ; preds = %471
-  %493 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %493 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %494 = load ptr, ptr %493, align 8
   store ptr %494, ptr %178, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 495:                                              ; preds = %471
-  %496 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %496 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %497 = load ptr, ptr %496, align 8
   store ptr %497, ptr %178, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 498:                                              ; preds = %471
-  %499 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %499 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %.sroa.0.0.copyload.i.i147 = load i64, ptr %499, align 8
   store i64 %.sroa.0.0.copyload.i.i147, ptr %178, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 500:                                              ; preds = %471
-  %501 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %501 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %502 = load ptr, ptr %501, align 8
   store ptr %502, ptr %178, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 503:                                              ; preds = %471
-  %504 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %504 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %505 = load ptr, ptr %504, align 8
   store ptr %505, ptr %178, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
@@ -1349,7 +1349,7 @@ _ZNK4llvm12DIEValueList6valuesEv.exit:            ; preds = %3
   store i32 %509, ptr %171, align 8
   %510 = load i16, ptr %208, align 4
   store i16 %510, ptr %172, align 4
-  %511 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 14
+  %511 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 14
   %512 = load i16, ptr %511, align 2
   store i16 %512, ptr %173, align 2
   switch i32 %509, label %_ZN4llvm8DIEValueaSERKS0_.exit [
@@ -1368,73 +1368,73 @@ _ZNK4llvm12DIEValueList6valuesEv.exit:            ; preds = %3
   ]
 
 513:                                              ; preds = %508
-  %514 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %514 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %.sroa.05.0.copyload.i.i159 = load i64, ptr %514, align 8
   store i64 %.sroa.05.0.copyload.i.i159, ptr %174, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 515:                                              ; preds = %508
-  %516 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %516 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %.sroa.04.0.copyload.i.i158 = load i64, ptr %516, align 8
   store i64 %.sroa.04.0.copyload.i.i158, ptr %174, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 517:                                              ; preds = %508
-  %518 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %518 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %.sroa.03.0.copyload.i.i157 = load ptr, ptr %518, align 8
   store ptr %.sroa.03.0.copyload.i.i157, ptr %174, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 519:                                              ; preds = %508
-  %520 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %520 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %.sroa.02.0.copyload.i.i156 = load ptr, ptr %520, align 8
   store ptr %.sroa.02.0.copyload.i.i156, ptr %174, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 521:                                              ; preds = %508
-  %522 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %522 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %523 = load ptr, ptr %522, align 8
   store ptr %523, ptr %174, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 524:                                              ; preds = %508
-  %525 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %525 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %526 = load ptr, ptr %525, align 8
   store ptr %526, ptr %174, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 527:                                              ; preds = %508
-  %528 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %528 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %.sroa.01.0.copyload.i.i155 = load ptr, ptr %528, align 8
   store ptr %.sroa.01.0.copyload.i.i155, ptr %174, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 529:                                              ; preds = %508
-  %530 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %530 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %531 = load ptr, ptr %530, align 8
   store ptr %531, ptr %174, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 532:                                              ; preds = %508
-  %533 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %533 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %534 = load ptr, ptr %533, align 8
   store ptr %534, ptr %174, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 535:                                              ; preds = %508
-  %536 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %536 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %.sroa.0.0.copyload.i.i154 = load i64, ptr %536, align 8
   store i64 %.sroa.0.0.copyload.i.i154, ptr %174, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 537:                                              ; preds = %508
-  %538 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %538 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %539 = load ptr, ptr %538, align 8
   store ptr %539, ptr %174, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 540:                                              ; preds = %508
-  %541 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %541 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %542 = load ptr, ptr %541, align 8
   store ptr %542, ptr %174, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
@@ -1448,7 +1448,7 @@ _ZNK4llvm12DIEValueList6valuesEv.exit:            ; preds = %3
   store i32 %546, ptr %167, align 8
   %547 = load i16, ptr %208, align 4
   store i16 %547, ptr %168, align 4
-  %548 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 14
+  %548 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 14
   %549 = load i16, ptr %548, align 2
   store i16 %549, ptr %169, align 2
   switch i32 %546, label %_ZN4llvm8DIEValueaSERKS0_.exit [
@@ -1467,73 +1467,73 @@ _ZNK4llvm12DIEValueList6valuesEv.exit:            ; preds = %3
   ]
 
 550:                                              ; preds = %545
-  %551 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %551 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %.sroa.05.0.copyload.i.i166 = load i64, ptr %551, align 8
   store i64 %.sroa.05.0.copyload.i.i166, ptr %170, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 552:                                              ; preds = %545
-  %553 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %553 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %.sroa.04.0.copyload.i.i165 = load i64, ptr %553, align 8
   store i64 %.sroa.04.0.copyload.i.i165, ptr %170, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 554:                                              ; preds = %545
-  %555 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %555 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %.sroa.03.0.copyload.i.i164 = load ptr, ptr %555, align 8
   store ptr %.sroa.03.0.copyload.i.i164, ptr %170, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 556:                                              ; preds = %545
-  %557 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %557 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %.sroa.02.0.copyload.i.i163 = load ptr, ptr %557, align 8
   store ptr %.sroa.02.0.copyload.i.i163, ptr %170, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 558:                                              ; preds = %545
-  %559 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %559 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %560 = load ptr, ptr %559, align 8
   store ptr %560, ptr %170, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 561:                                              ; preds = %545
-  %562 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %562 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %563 = load ptr, ptr %562, align 8
   store ptr %563, ptr %170, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 564:                                              ; preds = %545
-  %565 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %565 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %.sroa.01.0.copyload.i.i162 = load ptr, ptr %565, align 8
   store ptr %.sroa.01.0.copyload.i.i162, ptr %170, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 566:                                              ; preds = %545
-  %567 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %567 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %568 = load ptr, ptr %567, align 8
   store ptr %568, ptr %170, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 569:                                              ; preds = %545
-  %570 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %570 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %571 = load ptr, ptr %570, align 8
   store ptr %571, ptr %170, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 572:                                              ; preds = %545
-  %573 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %573 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %.sroa.0.0.copyload.i.i161 = load i64, ptr %573, align 8
   store i64 %.sroa.0.0.copyload.i.i161, ptr %170, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 574:                                              ; preds = %545
-  %575 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %575 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %576 = load ptr, ptr %575, align 8
   store ptr %576, ptr %170, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 577:                                              ; preds = %545
-  %578 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %578 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %579 = load ptr, ptr %578, align 8
   store ptr %579, ptr %170, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
@@ -1547,7 +1547,7 @@ _ZNK4llvm12DIEValueList6valuesEv.exit:            ; preds = %3
   store i32 %583, ptr %163, align 8
   %584 = load i16, ptr %208, align 4
   store i16 %584, ptr %164, align 4
-  %585 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 14
+  %585 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 14
   %586 = load i16, ptr %585, align 2
   store i16 %586, ptr %165, align 2
   switch i32 %583, label %_ZN4llvm8DIEValueaSERKS0_.exit [
@@ -1566,73 +1566,73 @@ _ZNK4llvm12DIEValueList6valuesEv.exit:            ; preds = %3
   ]
 
 587:                                              ; preds = %582
-  %588 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %588 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %.sroa.05.0.copyload.i.i173 = load i64, ptr %588, align 8
   store i64 %.sroa.05.0.copyload.i.i173, ptr %166, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 589:                                              ; preds = %582
-  %590 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %590 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %.sroa.04.0.copyload.i.i172 = load i64, ptr %590, align 8
   store i64 %.sroa.04.0.copyload.i.i172, ptr %166, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 591:                                              ; preds = %582
-  %592 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %592 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %.sroa.03.0.copyload.i.i171 = load ptr, ptr %592, align 8
   store ptr %.sroa.03.0.copyload.i.i171, ptr %166, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 593:                                              ; preds = %582
-  %594 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %594 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %.sroa.02.0.copyload.i.i170 = load ptr, ptr %594, align 8
   store ptr %.sroa.02.0.copyload.i.i170, ptr %166, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 595:                                              ; preds = %582
-  %596 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %596 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %597 = load ptr, ptr %596, align 8
   store ptr %597, ptr %166, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 598:                                              ; preds = %582
-  %599 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %599 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %600 = load ptr, ptr %599, align 8
   store ptr %600, ptr %166, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 601:                                              ; preds = %582
-  %602 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %602 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %.sroa.01.0.copyload.i.i169 = load ptr, ptr %602, align 8
   store ptr %.sroa.01.0.copyload.i.i169, ptr %166, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 603:                                              ; preds = %582
-  %604 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %604 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %605 = load ptr, ptr %604, align 8
   store ptr %605, ptr %166, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 606:                                              ; preds = %582
-  %607 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %607 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %608 = load ptr, ptr %607, align 8
   store ptr %608, ptr %166, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 609:                                              ; preds = %582
-  %610 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %610 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %.sroa.0.0.copyload.i.i168 = load i64, ptr %610, align 8
   store i64 %.sroa.0.0.copyload.i.i168, ptr %166, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 611:                                              ; preds = %582
-  %612 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %612 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %613 = load ptr, ptr %612, align 8
   store ptr %613, ptr %166, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 614:                                              ; preds = %582
-  %615 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %615 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %616 = load ptr, ptr %615, align 8
   store ptr %616, ptr %166, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
@@ -1646,7 +1646,7 @@ _ZNK4llvm12DIEValueList6valuesEv.exit:            ; preds = %3
   store i32 %620, ptr %159, align 8
   %621 = load i16, ptr %208, align 4
   store i16 %621, ptr %160, align 4
-  %622 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 14
+  %622 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 14
   %623 = load i16, ptr %622, align 2
   store i16 %623, ptr %161, align 2
   switch i32 %620, label %_ZN4llvm8DIEValueaSERKS0_.exit [
@@ -1665,73 +1665,73 @@ _ZNK4llvm12DIEValueList6valuesEv.exit:            ; preds = %3
   ]
 
 624:                                              ; preds = %619
-  %625 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %625 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %.sroa.05.0.copyload.i.i180 = load i64, ptr %625, align 8
   store i64 %.sroa.05.0.copyload.i.i180, ptr %162, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 626:                                              ; preds = %619
-  %627 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %627 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %.sroa.04.0.copyload.i.i179 = load i64, ptr %627, align 8
   store i64 %.sroa.04.0.copyload.i.i179, ptr %162, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 628:                                              ; preds = %619
-  %629 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %629 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %.sroa.03.0.copyload.i.i178 = load ptr, ptr %629, align 8
   store ptr %.sroa.03.0.copyload.i.i178, ptr %162, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 630:                                              ; preds = %619
-  %631 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %631 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %.sroa.02.0.copyload.i.i177 = load ptr, ptr %631, align 8
   store ptr %.sroa.02.0.copyload.i.i177, ptr %162, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 632:                                              ; preds = %619
-  %633 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %633 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %634 = load ptr, ptr %633, align 8
   store ptr %634, ptr %162, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 635:                                              ; preds = %619
-  %636 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %636 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %637 = load ptr, ptr %636, align 8
   store ptr %637, ptr %162, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 638:                                              ; preds = %619
-  %639 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %639 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %.sroa.01.0.copyload.i.i176 = load ptr, ptr %639, align 8
   store ptr %.sroa.01.0.copyload.i.i176, ptr %162, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 640:                                              ; preds = %619
-  %641 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %641 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %642 = load ptr, ptr %641, align 8
   store ptr %642, ptr %162, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 643:                                              ; preds = %619
-  %644 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %644 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %645 = load ptr, ptr %644, align 8
   store ptr %645, ptr %162, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 646:                                              ; preds = %619
-  %647 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %647 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %.sroa.0.0.copyload.i.i175 = load i64, ptr %647, align 8
   store i64 %.sroa.0.0.copyload.i.i175, ptr %162, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 648:                                              ; preds = %619
-  %649 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %649 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %650 = load ptr, ptr %649, align 8
   store ptr %650, ptr %162, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 651:                                              ; preds = %619
-  %652 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %652 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %653 = load ptr, ptr %652, align 8
   store ptr %653, ptr %162, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
@@ -1745,7 +1745,7 @@ _ZNK4llvm12DIEValueList6valuesEv.exit:            ; preds = %3
   store i32 %657, ptr %155, align 8
   %658 = load i16, ptr %208, align 4
   store i16 %658, ptr %156, align 4
-  %659 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 14
+  %659 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 14
   %660 = load i16, ptr %659, align 2
   store i16 %660, ptr %157, align 2
   switch i32 %657, label %_ZN4llvm8DIEValueaSERKS0_.exit [
@@ -1764,73 +1764,73 @@ _ZNK4llvm12DIEValueList6valuesEv.exit:            ; preds = %3
   ]
 
 661:                                              ; preds = %656
-  %662 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %662 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %.sroa.05.0.copyload.i.i187 = load i64, ptr %662, align 8
   store i64 %.sroa.05.0.copyload.i.i187, ptr %158, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 663:                                              ; preds = %656
-  %664 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %664 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %.sroa.04.0.copyload.i.i186 = load i64, ptr %664, align 8
   store i64 %.sroa.04.0.copyload.i.i186, ptr %158, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 665:                                              ; preds = %656
-  %666 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %666 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %.sroa.03.0.copyload.i.i185 = load ptr, ptr %666, align 8
   store ptr %.sroa.03.0.copyload.i.i185, ptr %158, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 667:                                              ; preds = %656
-  %668 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %668 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %.sroa.02.0.copyload.i.i184 = load ptr, ptr %668, align 8
   store ptr %.sroa.02.0.copyload.i.i184, ptr %158, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 669:                                              ; preds = %656
-  %670 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %670 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %671 = load ptr, ptr %670, align 8
   store ptr %671, ptr %158, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 672:                                              ; preds = %656
-  %673 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %673 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %674 = load ptr, ptr %673, align 8
   store ptr %674, ptr %158, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 675:                                              ; preds = %656
-  %676 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %676 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %.sroa.01.0.copyload.i.i183 = load ptr, ptr %676, align 8
   store ptr %.sroa.01.0.copyload.i.i183, ptr %158, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 677:                                              ; preds = %656
-  %678 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %678 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %679 = load ptr, ptr %678, align 8
   store ptr %679, ptr %158, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 680:                                              ; preds = %656
-  %681 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %681 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %682 = load ptr, ptr %681, align 8
   store ptr %682, ptr %158, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 683:                                              ; preds = %656
-  %684 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %684 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %.sroa.0.0.copyload.i.i182 = load i64, ptr %684, align 8
   store i64 %.sroa.0.0.copyload.i.i182, ptr %158, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 685:                                              ; preds = %656
-  %686 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %686 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %687 = load ptr, ptr %686, align 8
   store ptr %687, ptr %158, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 688:                                              ; preds = %656
-  %689 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %689 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %690 = load ptr, ptr %689, align 8
   store ptr %690, ptr %158, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
@@ -1844,7 +1844,7 @@ _ZNK4llvm12DIEValueList6valuesEv.exit:            ; preds = %3
   store i32 %694, ptr %151, align 8
   %695 = load i16, ptr %208, align 4
   store i16 %695, ptr %152, align 4
-  %696 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 14
+  %696 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 14
   %697 = load i16, ptr %696, align 2
   store i16 %697, ptr %153, align 2
   switch i32 %694, label %_ZN4llvm8DIEValueaSERKS0_.exit [
@@ -1863,73 +1863,73 @@ _ZNK4llvm12DIEValueList6valuesEv.exit:            ; preds = %3
   ]
 
 698:                                              ; preds = %693
-  %699 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %699 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %.sroa.05.0.copyload.i.i194 = load i64, ptr %699, align 8
   store i64 %.sroa.05.0.copyload.i.i194, ptr %154, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 700:                                              ; preds = %693
-  %701 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %701 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %.sroa.04.0.copyload.i.i193 = load i64, ptr %701, align 8
   store i64 %.sroa.04.0.copyload.i.i193, ptr %154, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 702:                                              ; preds = %693
-  %703 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %703 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %.sroa.03.0.copyload.i.i192 = load ptr, ptr %703, align 8
   store ptr %.sroa.03.0.copyload.i.i192, ptr %154, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 704:                                              ; preds = %693
-  %705 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %705 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %.sroa.02.0.copyload.i.i191 = load ptr, ptr %705, align 8
   store ptr %.sroa.02.0.copyload.i.i191, ptr %154, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 706:                                              ; preds = %693
-  %707 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %707 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %708 = load ptr, ptr %707, align 8
   store ptr %708, ptr %154, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 709:                                              ; preds = %693
-  %710 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %710 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %711 = load ptr, ptr %710, align 8
   store ptr %711, ptr %154, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 712:                                              ; preds = %693
-  %713 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %713 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %.sroa.01.0.copyload.i.i190 = load ptr, ptr %713, align 8
   store ptr %.sroa.01.0.copyload.i.i190, ptr %154, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 714:                                              ; preds = %693
-  %715 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %715 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %716 = load ptr, ptr %715, align 8
   store ptr %716, ptr %154, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 717:                                              ; preds = %693
-  %718 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %718 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %719 = load ptr, ptr %718, align 8
   store ptr %719, ptr %154, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 720:                                              ; preds = %693
-  %721 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %721 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %.sroa.0.0.copyload.i.i189 = load i64, ptr %721, align 8
   store i64 %.sroa.0.0.copyload.i.i189, ptr %154, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 722:                                              ; preds = %693
-  %723 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %723 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %724 = load ptr, ptr %723, align 8
   store ptr %724, ptr %154, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 725:                                              ; preds = %693
-  %726 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %726 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %727 = load ptr, ptr %726, align 8
   store ptr %727, ptr %154, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
@@ -1943,7 +1943,7 @@ _ZNK4llvm12DIEValueList6valuesEv.exit:            ; preds = %3
   store i32 %731, ptr %147, align 8
   %732 = load i16, ptr %208, align 4
   store i16 %732, ptr %148, align 4
-  %733 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 14
+  %733 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 14
   %734 = load i16, ptr %733, align 2
   store i16 %734, ptr %149, align 2
   switch i32 %731, label %_ZN4llvm8DIEValueaSERKS0_.exit [
@@ -1962,73 +1962,73 @@ _ZNK4llvm12DIEValueList6valuesEv.exit:            ; preds = %3
   ]
 
 735:                                              ; preds = %730
-  %736 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %736 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %.sroa.05.0.copyload.i.i201 = load i64, ptr %736, align 8
   store i64 %.sroa.05.0.copyload.i.i201, ptr %150, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 737:                                              ; preds = %730
-  %738 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %738 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %.sroa.04.0.copyload.i.i200 = load i64, ptr %738, align 8
   store i64 %.sroa.04.0.copyload.i.i200, ptr %150, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 739:                                              ; preds = %730
-  %740 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %740 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %.sroa.03.0.copyload.i.i199 = load ptr, ptr %740, align 8
   store ptr %.sroa.03.0.copyload.i.i199, ptr %150, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 741:                                              ; preds = %730
-  %742 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %742 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %.sroa.02.0.copyload.i.i198 = load ptr, ptr %742, align 8
   store ptr %.sroa.02.0.copyload.i.i198, ptr %150, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 743:                                              ; preds = %730
-  %744 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %744 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %745 = load ptr, ptr %744, align 8
   store ptr %745, ptr %150, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 746:                                              ; preds = %730
-  %747 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %747 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %748 = load ptr, ptr %747, align 8
   store ptr %748, ptr %150, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 749:                                              ; preds = %730
-  %750 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %750 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %.sroa.01.0.copyload.i.i197 = load ptr, ptr %750, align 8
   store ptr %.sroa.01.0.copyload.i.i197, ptr %150, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 751:                                              ; preds = %730
-  %752 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %752 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %753 = load ptr, ptr %752, align 8
   store ptr %753, ptr %150, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 754:                                              ; preds = %730
-  %755 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %755 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %756 = load ptr, ptr %755, align 8
   store ptr %756, ptr %150, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 757:                                              ; preds = %730
-  %758 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %758 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %.sroa.0.0.copyload.i.i196 = load i64, ptr %758, align 8
   store i64 %.sroa.0.0.copyload.i.i196, ptr %150, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 759:                                              ; preds = %730
-  %760 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %760 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %761 = load ptr, ptr %760, align 8
   store ptr %761, ptr %150, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 762:                                              ; preds = %730
-  %763 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %763 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %764 = load ptr, ptr %763, align 8
   store ptr %764, ptr %150, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
@@ -2042,7 +2042,7 @@ _ZNK4llvm12DIEValueList6valuesEv.exit:            ; preds = %3
   store i32 %768, ptr %143, align 8
   %769 = load i16, ptr %208, align 4
   store i16 %769, ptr %144, align 4
-  %770 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 14
+  %770 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 14
   %771 = load i16, ptr %770, align 2
   store i16 %771, ptr %145, align 2
   switch i32 %768, label %_ZN4llvm8DIEValueaSERKS0_.exit [
@@ -2061,73 +2061,73 @@ _ZNK4llvm12DIEValueList6valuesEv.exit:            ; preds = %3
   ]
 
 772:                                              ; preds = %767
-  %773 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %773 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %.sroa.05.0.copyload.i.i208 = load i64, ptr %773, align 8
   store i64 %.sroa.05.0.copyload.i.i208, ptr %146, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 774:                                              ; preds = %767
-  %775 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %775 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %.sroa.04.0.copyload.i.i207 = load i64, ptr %775, align 8
   store i64 %.sroa.04.0.copyload.i.i207, ptr %146, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 776:                                              ; preds = %767
-  %777 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %777 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %.sroa.03.0.copyload.i.i206 = load ptr, ptr %777, align 8
   store ptr %.sroa.03.0.copyload.i.i206, ptr %146, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 778:                                              ; preds = %767
-  %779 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %779 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %.sroa.02.0.copyload.i.i205 = load ptr, ptr %779, align 8
   store ptr %.sroa.02.0.copyload.i.i205, ptr %146, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 780:                                              ; preds = %767
-  %781 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %781 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %782 = load ptr, ptr %781, align 8
   store ptr %782, ptr %146, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 783:                                              ; preds = %767
-  %784 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %784 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %785 = load ptr, ptr %784, align 8
   store ptr %785, ptr %146, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 786:                                              ; preds = %767
-  %787 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %787 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %.sroa.01.0.copyload.i.i204 = load ptr, ptr %787, align 8
   store ptr %.sroa.01.0.copyload.i.i204, ptr %146, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 788:                                              ; preds = %767
-  %789 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %789 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %790 = load ptr, ptr %789, align 8
   store ptr %790, ptr %146, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 791:                                              ; preds = %767
-  %792 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %792 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %793 = load ptr, ptr %792, align 8
   store ptr %793, ptr %146, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 794:                                              ; preds = %767
-  %795 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %795 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %.sroa.0.0.copyload.i.i203 = load i64, ptr %795, align 8
   store i64 %.sroa.0.0.copyload.i.i203, ptr %146, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 796:                                              ; preds = %767
-  %797 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %797 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %798 = load ptr, ptr %797, align 8
   store ptr %798, ptr %146, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 799:                                              ; preds = %767
-  %800 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %800 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %801 = load ptr, ptr %800, align 8
   store ptr %801, ptr %146, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
@@ -2141,7 +2141,7 @@ _ZNK4llvm12DIEValueList6valuesEv.exit:            ; preds = %3
   store i32 %805, ptr %139, align 8
   %806 = load i16, ptr %208, align 4
   store i16 %806, ptr %140, align 4
-  %807 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 14
+  %807 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 14
   %808 = load i16, ptr %807, align 2
   store i16 %808, ptr %141, align 2
   switch i32 %805, label %_ZN4llvm8DIEValueaSERKS0_.exit [
@@ -2160,73 +2160,73 @@ _ZNK4llvm12DIEValueList6valuesEv.exit:            ; preds = %3
   ]
 
 809:                                              ; preds = %804
-  %810 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %810 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %.sroa.05.0.copyload.i.i215 = load i64, ptr %810, align 8
   store i64 %.sroa.05.0.copyload.i.i215, ptr %142, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 811:                                              ; preds = %804
-  %812 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %812 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %.sroa.04.0.copyload.i.i214 = load i64, ptr %812, align 8
   store i64 %.sroa.04.0.copyload.i.i214, ptr %142, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 813:                                              ; preds = %804
-  %814 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %814 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %.sroa.03.0.copyload.i.i213 = load ptr, ptr %814, align 8
   store ptr %.sroa.03.0.copyload.i.i213, ptr %142, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 815:                                              ; preds = %804
-  %816 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %816 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %.sroa.02.0.copyload.i.i212 = load ptr, ptr %816, align 8
   store ptr %.sroa.02.0.copyload.i.i212, ptr %142, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 817:                                              ; preds = %804
-  %818 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %818 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %819 = load ptr, ptr %818, align 8
   store ptr %819, ptr %142, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 820:                                              ; preds = %804
-  %821 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %821 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %822 = load ptr, ptr %821, align 8
   store ptr %822, ptr %142, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 823:                                              ; preds = %804
-  %824 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %824 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %.sroa.01.0.copyload.i.i211 = load ptr, ptr %824, align 8
   store ptr %.sroa.01.0.copyload.i.i211, ptr %142, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 825:                                              ; preds = %804
-  %826 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %826 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %827 = load ptr, ptr %826, align 8
   store ptr %827, ptr %142, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 828:                                              ; preds = %804
-  %829 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %829 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %830 = load ptr, ptr %829, align 8
   store ptr %830, ptr %142, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 831:                                              ; preds = %804
-  %832 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %832 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %.sroa.0.0.copyload.i.i210 = load i64, ptr %832, align 8
   store i64 %.sroa.0.0.copyload.i.i210, ptr %142, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 833:                                              ; preds = %804
-  %834 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %834 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %835 = load ptr, ptr %834, align 8
   store ptr %835, ptr %142, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 836:                                              ; preds = %804
-  %837 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %837 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %838 = load ptr, ptr %837, align 8
   store ptr %838, ptr %142, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
@@ -2240,7 +2240,7 @@ _ZNK4llvm12DIEValueList6valuesEv.exit:            ; preds = %3
   store i32 %842, ptr %135, align 8
   %843 = load i16, ptr %208, align 4
   store i16 %843, ptr %136, align 4
-  %844 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 14
+  %844 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 14
   %845 = load i16, ptr %844, align 2
   store i16 %845, ptr %137, align 2
   switch i32 %842, label %_ZN4llvm8DIEValueaSERKS0_.exit [
@@ -2259,73 +2259,73 @@ _ZNK4llvm12DIEValueList6valuesEv.exit:            ; preds = %3
   ]
 
 846:                                              ; preds = %841
-  %847 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %847 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %.sroa.05.0.copyload.i.i222 = load i64, ptr %847, align 8
   store i64 %.sroa.05.0.copyload.i.i222, ptr %138, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 848:                                              ; preds = %841
-  %849 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %849 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %.sroa.04.0.copyload.i.i221 = load i64, ptr %849, align 8
   store i64 %.sroa.04.0.copyload.i.i221, ptr %138, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 850:                                              ; preds = %841
-  %851 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %851 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %.sroa.03.0.copyload.i.i220 = load ptr, ptr %851, align 8
   store ptr %.sroa.03.0.copyload.i.i220, ptr %138, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 852:                                              ; preds = %841
-  %853 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %853 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %.sroa.02.0.copyload.i.i219 = load ptr, ptr %853, align 8
   store ptr %.sroa.02.0.copyload.i.i219, ptr %138, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 854:                                              ; preds = %841
-  %855 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %855 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %856 = load ptr, ptr %855, align 8
   store ptr %856, ptr %138, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 857:                                              ; preds = %841
-  %858 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %858 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %859 = load ptr, ptr %858, align 8
   store ptr %859, ptr %138, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 860:                                              ; preds = %841
-  %861 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %861 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %.sroa.01.0.copyload.i.i218 = load ptr, ptr %861, align 8
   store ptr %.sroa.01.0.copyload.i.i218, ptr %138, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 862:                                              ; preds = %841
-  %863 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %863 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %864 = load ptr, ptr %863, align 8
   store ptr %864, ptr %138, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 865:                                              ; preds = %841
-  %866 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %866 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %867 = load ptr, ptr %866, align 8
   store ptr %867, ptr %138, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 868:                                              ; preds = %841
-  %869 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %869 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %.sroa.0.0.copyload.i.i217 = load i64, ptr %869, align 8
   store i64 %.sroa.0.0.copyload.i.i217, ptr %138, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 870:                                              ; preds = %841
-  %871 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %871 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %872 = load ptr, ptr %871, align 8
   store ptr %872, ptr %138, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 873:                                              ; preds = %841
-  %874 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %874 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %875 = load ptr, ptr %874, align 8
   store ptr %875, ptr %138, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
@@ -2339,7 +2339,7 @@ _ZNK4llvm12DIEValueList6valuesEv.exit:            ; preds = %3
   store i32 %879, ptr %131, align 8
   %880 = load i16, ptr %208, align 4
   store i16 %880, ptr %132, align 4
-  %881 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 14
+  %881 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 14
   %882 = load i16, ptr %881, align 2
   store i16 %882, ptr %133, align 2
   switch i32 %879, label %_ZN4llvm8DIEValueaSERKS0_.exit [
@@ -2358,73 +2358,73 @@ _ZNK4llvm12DIEValueList6valuesEv.exit:            ; preds = %3
   ]
 
 883:                                              ; preds = %878
-  %884 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %884 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %.sroa.05.0.copyload.i.i229 = load i64, ptr %884, align 8
   store i64 %.sroa.05.0.copyload.i.i229, ptr %134, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 885:                                              ; preds = %878
-  %886 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %886 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %.sroa.04.0.copyload.i.i228 = load i64, ptr %886, align 8
   store i64 %.sroa.04.0.copyload.i.i228, ptr %134, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 887:                                              ; preds = %878
-  %888 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %888 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %.sroa.03.0.copyload.i.i227 = load ptr, ptr %888, align 8
   store ptr %.sroa.03.0.copyload.i.i227, ptr %134, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 889:                                              ; preds = %878
-  %890 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %890 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %.sroa.02.0.copyload.i.i226 = load ptr, ptr %890, align 8
   store ptr %.sroa.02.0.copyload.i.i226, ptr %134, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 891:                                              ; preds = %878
-  %892 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %892 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %893 = load ptr, ptr %892, align 8
   store ptr %893, ptr %134, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 894:                                              ; preds = %878
-  %895 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %895 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %896 = load ptr, ptr %895, align 8
   store ptr %896, ptr %134, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 897:                                              ; preds = %878
-  %898 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %898 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %.sroa.01.0.copyload.i.i225 = load ptr, ptr %898, align 8
   store ptr %.sroa.01.0.copyload.i.i225, ptr %134, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 899:                                              ; preds = %878
-  %900 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %900 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %901 = load ptr, ptr %900, align 8
   store ptr %901, ptr %134, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 902:                                              ; preds = %878
-  %903 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %903 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %904 = load ptr, ptr %903, align 8
   store ptr %904, ptr %134, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 905:                                              ; preds = %878
-  %906 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %906 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %.sroa.0.0.copyload.i.i224 = load i64, ptr %906, align 8
   store i64 %.sroa.0.0.copyload.i.i224, ptr %134, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 907:                                              ; preds = %878
-  %908 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %908 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %909 = load ptr, ptr %908, align 8
   store ptr %909, ptr %134, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 910:                                              ; preds = %878
-  %911 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %911 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %912 = load ptr, ptr %911, align 8
   store ptr %912, ptr %134, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
@@ -2438,7 +2438,7 @@ _ZNK4llvm12DIEValueList6valuesEv.exit:            ; preds = %3
   store i32 %916, ptr %127, align 8
   %917 = load i16, ptr %208, align 4
   store i16 %917, ptr %128, align 4
-  %918 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 14
+  %918 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 14
   %919 = load i16, ptr %918, align 2
   store i16 %919, ptr %129, align 2
   switch i32 %916, label %_ZN4llvm8DIEValueaSERKS0_.exit [
@@ -2457,73 +2457,73 @@ _ZNK4llvm12DIEValueList6valuesEv.exit:            ; preds = %3
   ]
 
 920:                                              ; preds = %915
-  %921 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %921 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %.sroa.05.0.copyload.i.i236 = load i64, ptr %921, align 8
   store i64 %.sroa.05.0.copyload.i.i236, ptr %130, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 922:                                              ; preds = %915
-  %923 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %923 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %.sroa.04.0.copyload.i.i235 = load i64, ptr %923, align 8
   store i64 %.sroa.04.0.copyload.i.i235, ptr %130, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 924:                                              ; preds = %915
-  %925 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %925 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %.sroa.03.0.copyload.i.i234 = load ptr, ptr %925, align 8
   store ptr %.sroa.03.0.copyload.i.i234, ptr %130, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 926:                                              ; preds = %915
-  %927 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %927 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %.sroa.02.0.copyload.i.i233 = load ptr, ptr %927, align 8
   store ptr %.sroa.02.0.copyload.i.i233, ptr %130, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 928:                                              ; preds = %915
-  %929 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %929 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %930 = load ptr, ptr %929, align 8
   store ptr %930, ptr %130, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 931:                                              ; preds = %915
-  %932 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %932 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %933 = load ptr, ptr %932, align 8
   store ptr %933, ptr %130, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 934:                                              ; preds = %915
-  %935 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %935 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %.sroa.01.0.copyload.i.i232 = load ptr, ptr %935, align 8
   store ptr %.sroa.01.0.copyload.i.i232, ptr %130, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 936:                                              ; preds = %915
-  %937 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %937 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %938 = load ptr, ptr %937, align 8
   store ptr %938, ptr %130, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 939:                                              ; preds = %915
-  %940 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %940 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %941 = load ptr, ptr %940, align 8
   store ptr %941, ptr %130, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 942:                                              ; preds = %915
-  %943 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %943 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %.sroa.0.0.copyload.i.i231 = load i64, ptr %943, align 8
   store i64 %.sroa.0.0.copyload.i.i231, ptr %130, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 944:                                              ; preds = %915
-  %945 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %945 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %946 = load ptr, ptr %945, align 8
   store ptr %946, ptr %130, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 947:                                              ; preds = %915
-  %948 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %948 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %949 = load ptr, ptr %948, align 8
   store ptr %949, ptr %130, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
@@ -2537,7 +2537,7 @@ _ZNK4llvm12DIEValueList6valuesEv.exit:            ; preds = %3
   store i32 %953, ptr %123, align 8
   %954 = load i16, ptr %208, align 4
   store i16 %954, ptr %124, align 4
-  %955 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 14
+  %955 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 14
   %956 = load i16, ptr %955, align 2
   store i16 %956, ptr %125, align 2
   switch i32 %953, label %_ZN4llvm8DIEValueaSERKS0_.exit [
@@ -2556,73 +2556,73 @@ _ZNK4llvm12DIEValueList6valuesEv.exit:            ; preds = %3
   ]
 
 957:                                              ; preds = %952
-  %958 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %958 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %.sroa.05.0.copyload.i.i243 = load i64, ptr %958, align 8
   store i64 %.sroa.05.0.copyload.i.i243, ptr %126, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 959:                                              ; preds = %952
-  %960 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %960 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %.sroa.04.0.copyload.i.i242 = load i64, ptr %960, align 8
   store i64 %.sroa.04.0.copyload.i.i242, ptr %126, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 961:                                              ; preds = %952
-  %962 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %962 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %.sroa.03.0.copyload.i.i241 = load ptr, ptr %962, align 8
   store ptr %.sroa.03.0.copyload.i.i241, ptr %126, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 963:                                              ; preds = %952
-  %964 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %964 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %.sroa.02.0.copyload.i.i240 = load ptr, ptr %964, align 8
   store ptr %.sroa.02.0.copyload.i.i240, ptr %126, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 965:                                              ; preds = %952
-  %966 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %966 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %967 = load ptr, ptr %966, align 8
   store ptr %967, ptr %126, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 968:                                              ; preds = %952
-  %969 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %969 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %970 = load ptr, ptr %969, align 8
   store ptr %970, ptr %126, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 971:                                              ; preds = %952
-  %972 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %972 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %.sroa.01.0.copyload.i.i239 = load ptr, ptr %972, align 8
   store ptr %.sroa.01.0.copyload.i.i239, ptr %126, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 973:                                              ; preds = %952
-  %974 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %974 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %975 = load ptr, ptr %974, align 8
   store ptr %975, ptr %126, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 976:                                              ; preds = %952
-  %977 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %977 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %978 = load ptr, ptr %977, align 8
   store ptr %978, ptr %126, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 979:                                              ; preds = %952
-  %980 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %980 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %.sroa.0.0.copyload.i.i238 = load i64, ptr %980, align 8
   store i64 %.sroa.0.0.copyload.i.i238, ptr %126, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 981:                                              ; preds = %952
-  %982 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %982 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %983 = load ptr, ptr %982, align 8
   store ptr %983, ptr %126, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 984:                                              ; preds = %952
-  %985 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %985 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %986 = load ptr, ptr %985, align 8
   store ptr %986, ptr %126, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
@@ -2636,7 +2636,7 @@ _ZNK4llvm12DIEValueList6valuesEv.exit:            ; preds = %3
   store i32 %990, ptr %119, align 8
   %991 = load i16, ptr %208, align 4
   store i16 %991, ptr %120, align 4
-  %992 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 14
+  %992 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 14
   %993 = load i16, ptr %992, align 2
   store i16 %993, ptr %121, align 2
   switch i32 %990, label %_ZN4llvm8DIEValueaSERKS0_.exit [
@@ -2655,73 +2655,73 @@ _ZNK4llvm12DIEValueList6valuesEv.exit:            ; preds = %3
   ]
 
 994:                                              ; preds = %989
-  %995 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %995 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %.sroa.05.0.copyload.i.i250 = load i64, ptr %995, align 8
   store i64 %.sroa.05.0.copyload.i.i250, ptr %122, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 996:                                              ; preds = %989
-  %997 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %997 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %.sroa.04.0.copyload.i.i249 = load i64, ptr %997, align 8
   store i64 %.sroa.04.0.copyload.i.i249, ptr %122, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 998:                                              ; preds = %989
-  %999 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %999 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %.sroa.03.0.copyload.i.i248 = load ptr, ptr %999, align 8
   store ptr %.sroa.03.0.copyload.i.i248, ptr %122, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 1000:                                             ; preds = %989
-  %1001 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %1001 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %.sroa.02.0.copyload.i.i247 = load ptr, ptr %1001, align 8
   store ptr %.sroa.02.0.copyload.i.i247, ptr %122, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 1002:                                             ; preds = %989
-  %1003 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %1003 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %1004 = load ptr, ptr %1003, align 8
   store ptr %1004, ptr %122, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 1005:                                             ; preds = %989
-  %1006 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %1006 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %1007 = load ptr, ptr %1006, align 8
   store ptr %1007, ptr %122, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 1008:                                             ; preds = %989
-  %1009 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %1009 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %.sroa.01.0.copyload.i.i246 = load ptr, ptr %1009, align 8
   store ptr %.sroa.01.0.copyload.i.i246, ptr %122, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 1010:                                             ; preds = %989
-  %1011 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %1011 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %1012 = load ptr, ptr %1011, align 8
   store ptr %1012, ptr %122, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 1013:                                             ; preds = %989
-  %1014 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %1014 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %1015 = load ptr, ptr %1014, align 8
   store ptr %1015, ptr %122, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 1016:                                             ; preds = %989
-  %1017 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %1017 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %.sroa.0.0.copyload.i.i245 = load i64, ptr %1017, align 8
   store i64 %.sroa.0.0.copyload.i.i245, ptr %122, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 1018:                                             ; preds = %989
-  %1019 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %1019 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %1020 = load ptr, ptr %1019, align 8
   store ptr %1020, ptr %122, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 1021:                                             ; preds = %989
-  %1022 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %1022 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %1023 = load ptr, ptr %1022, align 8
   store ptr %1023, ptr %122, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
@@ -2735,7 +2735,7 @@ _ZNK4llvm12DIEValueList6valuesEv.exit:            ; preds = %3
   store i32 %1027, ptr %115, align 8
   %1028 = load i16, ptr %208, align 4
   store i16 %1028, ptr %116, align 4
-  %1029 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 14
+  %1029 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 14
   %1030 = load i16, ptr %1029, align 2
   store i16 %1030, ptr %117, align 2
   switch i32 %1027, label %_ZN4llvm8DIEValueaSERKS0_.exit [
@@ -2754,73 +2754,73 @@ _ZNK4llvm12DIEValueList6valuesEv.exit:            ; preds = %3
   ]
 
 1031:                                             ; preds = %1026
-  %1032 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %1032 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %.sroa.05.0.copyload.i.i257 = load i64, ptr %1032, align 8
   store i64 %.sroa.05.0.copyload.i.i257, ptr %118, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 1033:                                             ; preds = %1026
-  %1034 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %1034 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %.sroa.04.0.copyload.i.i256 = load i64, ptr %1034, align 8
   store i64 %.sroa.04.0.copyload.i.i256, ptr %118, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 1035:                                             ; preds = %1026
-  %1036 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %1036 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %.sroa.03.0.copyload.i.i255 = load ptr, ptr %1036, align 8
   store ptr %.sroa.03.0.copyload.i.i255, ptr %118, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 1037:                                             ; preds = %1026
-  %1038 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %1038 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %.sroa.02.0.copyload.i.i254 = load ptr, ptr %1038, align 8
   store ptr %.sroa.02.0.copyload.i.i254, ptr %118, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 1039:                                             ; preds = %1026
-  %1040 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %1040 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %1041 = load ptr, ptr %1040, align 8
   store ptr %1041, ptr %118, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 1042:                                             ; preds = %1026
-  %1043 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %1043 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %1044 = load ptr, ptr %1043, align 8
   store ptr %1044, ptr %118, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 1045:                                             ; preds = %1026
-  %1046 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %1046 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %.sroa.01.0.copyload.i.i253 = load ptr, ptr %1046, align 8
   store ptr %.sroa.01.0.copyload.i.i253, ptr %118, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 1047:                                             ; preds = %1026
-  %1048 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %1048 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %1049 = load ptr, ptr %1048, align 8
   store ptr %1049, ptr %118, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 1050:                                             ; preds = %1026
-  %1051 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %1051 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %1052 = load ptr, ptr %1051, align 8
   store ptr %1052, ptr %118, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 1053:                                             ; preds = %1026
-  %1054 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %1054 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %.sroa.0.0.copyload.i.i252 = load i64, ptr %1054, align 8
   store i64 %.sroa.0.0.copyload.i.i252, ptr %118, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 1055:                                             ; preds = %1026
-  %1056 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %1056 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %1057 = load ptr, ptr %1056, align 8
   store ptr %1057, ptr %118, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 1058:                                             ; preds = %1026
-  %1059 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %1059 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %1060 = load ptr, ptr %1059, align 8
   store ptr %1060, ptr %118, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
@@ -2834,7 +2834,7 @@ _ZNK4llvm12DIEValueList6valuesEv.exit:            ; preds = %3
   store i32 %1064, ptr %111, align 8
   %1065 = load i16, ptr %208, align 4
   store i16 %1065, ptr %112, align 4
-  %1066 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 14
+  %1066 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 14
   %1067 = load i16, ptr %1066, align 2
   store i16 %1067, ptr %113, align 2
   switch i32 %1064, label %_ZN4llvm8DIEValueaSERKS0_.exit [
@@ -2853,73 +2853,73 @@ _ZNK4llvm12DIEValueList6valuesEv.exit:            ; preds = %3
   ]
 
 1068:                                             ; preds = %1063
-  %1069 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %1069 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %.sroa.05.0.copyload.i.i264 = load i64, ptr %1069, align 8
   store i64 %.sroa.05.0.copyload.i.i264, ptr %114, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 1070:                                             ; preds = %1063
-  %1071 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %1071 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %.sroa.04.0.copyload.i.i263 = load i64, ptr %1071, align 8
   store i64 %.sroa.04.0.copyload.i.i263, ptr %114, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 1072:                                             ; preds = %1063
-  %1073 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %1073 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %.sroa.03.0.copyload.i.i262 = load ptr, ptr %1073, align 8
   store ptr %.sroa.03.0.copyload.i.i262, ptr %114, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 1074:                                             ; preds = %1063
-  %1075 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %1075 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %.sroa.02.0.copyload.i.i261 = load ptr, ptr %1075, align 8
   store ptr %.sroa.02.0.copyload.i.i261, ptr %114, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 1076:                                             ; preds = %1063
-  %1077 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %1077 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %1078 = load ptr, ptr %1077, align 8
   store ptr %1078, ptr %114, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 1079:                                             ; preds = %1063
-  %1080 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %1080 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %1081 = load ptr, ptr %1080, align 8
   store ptr %1081, ptr %114, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 1082:                                             ; preds = %1063
-  %1083 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %1083 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %.sroa.01.0.copyload.i.i260 = load ptr, ptr %1083, align 8
   store ptr %.sroa.01.0.copyload.i.i260, ptr %114, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 1084:                                             ; preds = %1063
-  %1085 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %1085 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %1086 = load ptr, ptr %1085, align 8
   store ptr %1086, ptr %114, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 1087:                                             ; preds = %1063
-  %1088 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %1088 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %1089 = load ptr, ptr %1088, align 8
   store ptr %1089, ptr %114, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 1090:                                             ; preds = %1063
-  %1091 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %1091 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %.sroa.0.0.copyload.i.i259 = load i64, ptr %1091, align 8
   store i64 %.sroa.0.0.copyload.i.i259, ptr %114, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 1092:                                             ; preds = %1063
-  %1093 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %1093 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %1094 = load ptr, ptr %1093, align 8
   store ptr %1094, ptr %114, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 1095:                                             ; preds = %1063
-  %1096 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %1096 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %1097 = load ptr, ptr %1096, align 8
   store ptr %1097, ptr %114, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
@@ -2933,7 +2933,7 @@ _ZNK4llvm12DIEValueList6valuesEv.exit:            ; preds = %3
   store i32 %1101, ptr %107, align 8
   %1102 = load i16, ptr %208, align 4
   store i16 %1102, ptr %108, align 4
-  %1103 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 14
+  %1103 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 14
   %1104 = load i16, ptr %1103, align 2
   store i16 %1104, ptr %109, align 2
   switch i32 %1101, label %_ZN4llvm8DIEValueaSERKS0_.exit [
@@ -2952,73 +2952,73 @@ _ZNK4llvm12DIEValueList6valuesEv.exit:            ; preds = %3
   ]
 
 1105:                                             ; preds = %1100
-  %1106 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %1106 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %.sroa.05.0.copyload.i.i271 = load i64, ptr %1106, align 8
   store i64 %.sroa.05.0.copyload.i.i271, ptr %110, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 1107:                                             ; preds = %1100
-  %1108 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %1108 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %.sroa.04.0.copyload.i.i270 = load i64, ptr %1108, align 8
   store i64 %.sroa.04.0.copyload.i.i270, ptr %110, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 1109:                                             ; preds = %1100
-  %1110 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %1110 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %.sroa.03.0.copyload.i.i269 = load ptr, ptr %1110, align 8
   store ptr %.sroa.03.0.copyload.i.i269, ptr %110, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 1111:                                             ; preds = %1100
-  %1112 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %1112 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %.sroa.02.0.copyload.i.i268 = load ptr, ptr %1112, align 8
   store ptr %.sroa.02.0.copyload.i.i268, ptr %110, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 1113:                                             ; preds = %1100
-  %1114 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %1114 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %1115 = load ptr, ptr %1114, align 8
   store ptr %1115, ptr %110, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 1116:                                             ; preds = %1100
-  %1117 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %1117 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %1118 = load ptr, ptr %1117, align 8
   store ptr %1118, ptr %110, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 1119:                                             ; preds = %1100
-  %1120 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %1120 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %.sroa.01.0.copyload.i.i267 = load ptr, ptr %1120, align 8
   store ptr %.sroa.01.0.copyload.i.i267, ptr %110, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 1121:                                             ; preds = %1100
-  %1122 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %1122 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %1123 = load ptr, ptr %1122, align 8
   store ptr %1123, ptr %110, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 1124:                                             ; preds = %1100
-  %1125 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %1125 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %1126 = load ptr, ptr %1125, align 8
   store ptr %1126, ptr %110, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 1127:                                             ; preds = %1100
-  %1128 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %1128 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %.sroa.0.0.copyload.i.i266 = load i64, ptr %1128, align 8
   store i64 %.sroa.0.0.copyload.i.i266, ptr %110, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 1129:                                             ; preds = %1100
-  %1130 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %1130 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %1131 = load ptr, ptr %1130, align 8
   store ptr %1131, ptr %110, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 1132:                                             ; preds = %1100
-  %1133 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %1133 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %1134 = load ptr, ptr %1133, align 8
   store ptr %1134, ptr %110, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
@@ -3032,7 +3032,7 @@ _ZNK4llvm12DIEValueList6valuesEv.exit:            ; preds = %3
   store i32 %1138, ptr %103, align 8
   %1139 = load i16, ptr %208, align 4
   store i16 %1139, ptr %104, align 4
-  %1140 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 14
+  %1140 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 14
   %1141 = load i16, ptr %1140, align 2
   store i16 %1141, ptr %105, align 2
   switch i32 %1138, label %_ZN4llvm8DIEValueaSERKS0_.exit [
@@ -3051,73 +3051,73 @@ _ZNK4llvm12DIEValueList6valuesEv.exit:            ; preds = %3
   ]
 
 1142:                                             ; preds = %1137
-  %1143 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %1143 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %.sroa.05.0.copyload.i.i278 = load i64, ptr %1143, align 8
   store i64 %.sroa.05.0.copyload.i.i278, ptr %106, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 1144:                                             ; preds = %1137
-  %1145 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %1145 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %.sroa.04.0.copyload.i.i277 = load i64, ptr %1145, align 8
   store i64 %.sroa.04.0.copyload.i.i277, ptr %106, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 1146:                                             ; preds = %1137
-  %1147 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %1147 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %.sroa.03.0.copyload.i.i276 = load ptr, ptr %1147, align 8
   store ptr %.sroa.03.0.copyload.i.i276, ptr %106, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 1148:                                             ; preds = %1137
-  %1149 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %1149 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %.sroa.02.0.copyload.i.i275 = load ptr, ptr %1149, align 8
   store ptr %.sroa.02.0.copyload.i.i275, ptr %106, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 1150:                                             ; preds = %1137
-  %1151 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %1151 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %1152 = load ptr, ptr %1151, align 8
   store ptr %1152, ptr %106, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 1153:                                             ; preds = %1137
-  %1154 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %1154 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %1155 = load ptr, ptr %1154, align 8
   store ptr %1155, ptr %106, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 1156:                                             ; preds = %1137
-  %1157 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %1157 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %.sroa.01.0.copyload.i.i274 = load ptr, ptr %1157, align 8
   store ptr %.sroa.01.0.copyload.i.i274, ptr %106, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 1158:                                             ; preds = %1137
-  %1159 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %1159 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %1160 = load ptr, ptr %1159, align 8
   store ptr %1160, ptr %106, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 1161:                                             ; preds = %1137
-  %1162 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %1162 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %1163 = load ptr, ptr %1162, align 8
   store ptr %1163, ptr %106, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 1164:                                             ; preds = %1137
-  %1165 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %1165 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %.sroa.0.0.copyload.i.i273 = load i64, ptr %1165, align 8
   store i64 %.sroa.0.0.copyload.i.i273, ptr %106, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 1166:                                             ; preds = %1137
-  %1167 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %1167 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %1168 = load ptr, ptr %1167, align 8
   store ptr %1168, ptr %106, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 1169:                                             ; preds = %1137
-  %1170 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %1170 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %1171 = load ptr, ptr %1170, align 8
   store ptr %1171, ptr %106, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
@@ -3131,7 +3131,7 @@ _ZNK4llvm12DIEValueList6valuesEv.exit:            ; preds = %3
   store i32 %1175, ptr %99, align 8
   %1176 = load i16, ptr %208, align 4
   store i16 %1176, ptr %100, align 4
-  %1177 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 14
+  %1177 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 14
   %1178 = load i16, ptr %1177, align 2
   store i16 %1178, ptr %101, align 2
   switch i32 %1175, label %_ZN4llvm8DIEValueaSERKS0_.exit [
@@ -3150,73 +3150,73 @@ _ZNK4llvm12DIEValueList6valuesEv.exit:            ; preds = %3
   ]
 
 1179:                                             ; preds = %1174
-  %1180 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %1180 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %.sroa.05.0.copyload.i.i285 = load i64, ptr %1180, align 8
   store i64 %.sroa.05.0.copyload.i.i285, ptr %102, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 1181:                                             ; preds = %1174
-  %1182 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %1182 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %.sroa.04.0.copyload.i.i284 = load i64, ptr %1182, align 8
   store i64 %.sroa.04.0.copyload.i.i284, ptr %102, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 1183:                                             ; preds = %1174
-  %1184 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %1184 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %.sroa.03.0.copyload.i.i283 = load ptr, ptr %1184, align 8
   store ptr %.sroa.03.0.copyload.i.i283, ptr %102, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 1185:                                             ; preds = %1174
-  %1186 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %1186 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %.sroa.02.0.copyload.i.i282 = load ptr, ptr %1186, align 8
   store ptr %.sroa.02.0.copyload.i.i282, ptr %102, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 1187:                                             ; preds = %1174
-  %1188 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %1188 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %1189 = load ptr, ptr %1188, align 8
   store ptr %1189, ptr %102, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 1190:                                             ; preds = %1174
-  %1191 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %1191 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %1192 = load ptr, ptr %1191, align 8
   store ptr %1192, ptr %102, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 1193:                                             ; preds = %1174
-  %1194 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %1194 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %.sroa.01.0.copyload.i.i281 = load ptr, ptr %1194, align 8
   store ptr %.sroa.01.0.copyload.i.i281, ptr %102, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 1195:                                             ; preds = %1174
-  %1196 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %1196 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %1197 = load ptr, ptr %1196, align 8
   store ptr %1197, ptr %102, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 1198:                                             ; preds = %1174
-  %1199 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %1199 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %1200 = load ptr, ptr %1199, align 8
   store ptr %1200, ptr %102, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 1201:                                             ; preds = %1174
-  %1202 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %1202 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %.sroa.0.0.copyload.i.i280 = load i64, ptr %1202, align 8
   store i64 %.sroa.0.0.copyload.i.i280, ptr %102, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 1203:                                             ; preds = %1174
-  %1204 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %1204 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %1205 = load ptr, ptr %1204, align 8
   store ptr %1205, ptr %102, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 1206:                                             ; preds = %1174
-  %1207 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %1207 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %1208 = load ptr, ptr %1207, align 8
   store ptr %1208, ptr %102, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
@@ -3230,7 +3230,7 @@ _ZNK4llvm12DIEValueList6valuesEv.exit:            ; preds = %3
   store i32 %1212, ptr %95, align 8
   %1213 = load i16, ptr %208, align 4
   store i16 %1213, ptr %96, align 4
-  %1214 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 14
+  %1214 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 14
   %1215 = load i16, ptr %1214, align 2
   store i16 %1215, ptr %97, align 2
   switch i32 %1212, label %_ZN4llvm8DIEValueaSERKS0_.exit [
@@ -3249,73 +3249,73 @@ _ZNK4llvm12DIEValueList6valuesEv.exit:            ; preds = %3
   ]
 
 1216:                                             ; preds = %1211
-  %1217 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %1217 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %.sroa.05.0.copyload.i.i292 = load i64, ptr %1217, align 8
   store i64 %.sroa.05.0.copyload.i.i292, ptr %98, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 1218:                                             ; preds = %1211
-  %1219 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %1219 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %.sroa.04.0.copyload.i.i291 = load i64, ptr %1219, align 8
   store i64 %.sroa.04.0.copyload.i.i291, ptr %98, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 1220:                                             ; preds = %1211
-  %1221 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %1221 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %.sroa.03.0.copyload.i.i290 = load ptr, ptr %1221, align 8
   store ptr %.sroa.03.0.copyload.i.i290, ptr %98, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 1222:                                             ; preds = %1211
-  %1223 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %1223 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %.sroa.02.0.copyload.i.i289 = load ptr, ptr %1223, align 8
   store ptr %.sroa.02.0.copyload.i.i289, ptr %98, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 1224:                                             ; preds = %1211
-  %1225 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %1225 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %1226 = load ptr, ptr %1225, align 8
   store ptr %1226, ptr %98, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 1227:                                             ; preds = %1211
-  %1228 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %1228 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %1229 = load ptr, ptr %1228, align 8
   store ptr %1229, ptr %98, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 1230:                                             ; preds = %1211
-  %1231 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %1231 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %.sroa.01.0.copyload.i.i288 = load ptr, ptr %1231, align 8
   store ptr %.sroa.01.0.copyload.i.i288, ptr %98, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 1232:                                             ; preds = %1211
-  %1233 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %1233 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %1234 = load ptr, ptr %1233, align 8
   store ptr %1234, ptr %98, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 1235:                                             ; preds = %1211
-  %1236 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %1236 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %1237 = load ptr, ptr %1236, align 8
   store ptr %1237, ptr %98, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 1238:                                             ; preds = %1211
-  %1239 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %1239 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %.sroa.0.0.copyload.i.i287 = load i64, ptr %1239, align 8
   store i64 %.sroa.0.0.copyload.i.i287, ptr %98, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 1240:                                             ; preds = %1211
-  %1241 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %1241 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %1242 = load ptr, ptr %1241, align 8
   store ptr %1242, ptr %98, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 1243:                                             ; preds = %1211
-  %1244 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %1244 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %1245 = load ptr, ptr %1244, align 8
   store ptr %1245, ptr %98, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
@@ -3329,7 +3329,7 @@ _ZNK4llvm12DIEValueList6valuesEv.exit:            ; preds = %3
   store i32 %1249, ptr %91, align 8
   %1250 = load i16, ptr %208, align 4
   store i16 %1250, ptr %92, align 4
-  %1251 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 14
+  %1251 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 14
   %1252 = load i16, ptr %1251, align 2
   store i16 %1252, ptr %93, align 2
   switch i32 %1249, label %_ZN4llvm8DIEValueaSERKS0_.exit [
@@ -3348,73 +3348,73 @@ _ZNK4llvm12DIEValueList6valuesEv.exit:            ; preds = %3
   ]
 
 1253:                                             ; preds = %1248
-  %1254 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %1254 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %.sroa.05.0.copyload.i.i299 = load i64, ptr %1254, align 8
   store i64 %.sroa.05.0.copyload.i.i299, ptr %94, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 1255:                                             ; preds = %1248
-  %1256 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %1256 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %.sroa.04.0.copyload.i.i298 = load i64, ptr %1256, align 8
   store i64 %.sroa.04.0.copyload.i.i298, ptr %94, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 1257:                                             ; preds = %1248
-  %1258 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %1258 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %.sroa.03.0.copyload.i.i297 = load ptr, ptr %1258, align 8
   store ptr %.sroa.03.0.copyload.i.i297, ptr %94, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 1259:                                             ; preds = %1248
-  %1260 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %1260 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %.sroa.02.0.copyload.i.i296 = load ptr, ptr %1260, align 8
   store ptr %.sroa.02.0.copyload.i.i296, ptr %94, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 1261:                                             ; preds = %1248
-  %1262 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %1262 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %1263 = load ptr, ptr %1262, align 8
   store ptr %1263, ptr %94, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 1264:                                             ; preds = %1248
-  %1265 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %1265 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %1266 = load ptr, ptr %1265, align 8
   store ptr %1266, ptr %94, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 1267:                                             ; preds = %1248
-  %1268 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %1268 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %.sroa.01.0.copyload.i.i295 = load ptr, ptr %1268, align 8
   store ptr %.sroa.01.0.copyload.i.i295, ptr %94, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 1269:                                             ; preds = %1248
-  %1270 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %1270 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %1271 = load ptr, ptr %1270, align 8
   store ptr %1271, ptr %94, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 1272:                                             ; preds = %1248
-  %1273 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %1273 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %1274 = load ptr, ptr %1273, align 8
   store ptr %1274, ptr %94, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 1275:                                             ; preds = %1248
-  %1276 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %1276 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %.sroa.0.0.copyload.i.i294 = load i64, ptr %1276, align 8
   store i64 %.sroa.0.0.copyload.i.i294, ptr %94, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 1277:                                             ; preds = %1248
-  %1278 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %1278 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %1279 = load ptr, ptr %1278, align 8
   store ptr %1279, ptr %94, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 1280:                                             ; preds = %1248
-  %1281 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %1281 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %1282 = load ptr, ptr %1281, align 8
   store ptr %1282, ptr %94, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
@@ -3428,7 +3428,7 @@ _ZNK4llvm12DIEValueList6valuesEv.exit:            ; preds = %3
   store i32 %1286, ptr %87, align 8
   %1287 = load i16, ptr %208, align 4
   store i16 %1287, ptr %88, align 4
-  %1288 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 14
+  %1288 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 14
   %1289 = load i16, ptr %1288, align 2
   store i16 %1289, ptr %89, align 2
   switch i32 %1286, label %_ZN4llvm8DIEValueaSERKS0_.exit [
@@ -3447,73 +3447,73 @@ _ZNK4llvm12DIEValueList6valuesEv.exit:            ; preds = %3
   ]
 
 1290:                                             ; preds = %1285
-  %1291 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %1291 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %.sroa.05.0.copyload.i.i306 = load i64, ptr %1291, align 8
   store i64 %.sroa.05.0.copyload.i.i306, ptr %90, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 1292:                                             ; preds = %1285
-  %1293 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %1293 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %.sroa.04.0.copyload.i.i305 = load i64, ptr %1293, align 8
   store i64 %.sroa.04.0.copyload.i.i305, ptr %90, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 1294:                                             ; preds = %1285
-  %1295 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %1295 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %.sroa.03.0.copyload.i.i304 = load ptr, ptr %1295, align 8
   store ptr %.sroa.03.0.copyload.i.i304, ptr %90, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 1296:                                             ; preds = %1285
-  %1297 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %1297 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %.sroa.02.0.copyload.i.i303 = load ptr, ptr %1297, align 8
   store ptr %.sroa.02.0.copyload.i.i303, ptr %90, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 1298:                                             ; preds = %1285
-  %1299 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %1299 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %1300 = load ptr, ptr %1299, align 8
   store ptr %1300, ptr %90, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 1301:                                             ; preds = %1285
-  %1302 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %1302 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %1303 = load ptr, ptr %1302, align 8
   store ptr %1303, ptr %90, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 1304:                                             ; preds = %1285
-  %1305 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %1305 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %.sroa.01.0.copyload.i.i302 = load ptr, ptr %1305, align 8
   store ptr %.sroa.01.0.copyload.i.i302, ptr %90, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 1306:                                             ; preds = %1285
-  %1307 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %1307 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %1308 = load ptr, ptr %1307, align 8
   store ptr %1308, ptr %90, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 1309:                                             ; preds = %1285
-  %1310 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %1310 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %1311 = load ptr, ptr %1310, align 8
   store ptr %1311, ptr %90, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 1312:                                             ; preds = %1285
-  %1313 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %1313 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %.sroa.0.0.copyload.i.i301 = load i64, ptr %1313, align 8
   store i64 %.sroa.0.0.copyload.i.i301, ptr %90, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 1314:                                             ; preds = %1285
-  %1315 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %1315 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %1316 = load ptr, ptr %1315, align 8
   store ptr %1316, ptr %90, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 1317:                                             ; preds = %1285
-  %1318 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %1318 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %1319 = load ptr, ptr %1318, align 8
   store ptr %1319, ptr %90, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
@@ -3527,7 +3527,7 @@ _ZNK4llvm12DIEValueList6valuesEv.exit:            ; preds = %3
   store i32 %1323, ptr %83, align 8
   %1324 = load i16, ptr %208, align 4
   store i16 %1324, ptr %84, align 4
-  %1325 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 14
+  %1325 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 14
   %1326 = load i16, ptr %1325, align 2
   store i16 %1326, ptr %85, align 2
   switch i32 %1323, label %_ZN4llvm8DIEValueaSERKS0_.exit [
@@ -3546,73 +3546,73 @@ _ZNK4llvm12DIEValueList6valuesEv.exit:            ; preds = %3
   ]
 
 1327:                                             ; preds = %1322
-  %1328 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %1328 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %.sroa.05.0.copyload.i.i313 = load i64, ptr %1328, align 8
   store i64 %.sroa.05.0.copyload.i.i313, ptr %86, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 1329:                                             ; preds = %1322
-  %1330 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %1330 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %.sroa.04.0.copyload.i.i312 = load i64, ptr %1330, align 8
   store i64 %.sroa.04.0.copyload.i.i312, ptr %86, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 1331:                                             ; preds = %1322
-  %1332 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %1332 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %.sroa.03.0.copyload.i.i311 = load ptr, ptr %1332, align 8
   store ptr %.sroa.03.0.copyload.i.i311, ptr %86, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 1333:                                             ; preds = %1322
-  %1334 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %1334 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %.sroa.02.0.copyload.i.i310 = load ptr, ptr %1334, align 8
   store ptr %.sroa.02.0.copyload.i.i310, ptr %86, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 1335:                                             ; preds = %1322
-  %1336 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %1336 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %1337 = load ptr, ptr %1336, align 8
   store ptr %1337, ptr %86, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 1338:                                             ; preds = %1322
-  %1339 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %1339 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %1340 = load ptr, ptr %1339, align 8
   store ptr %1340, ptr %86, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 1341:                                             ; preds = %1322
-  %1342 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %1342 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %.sroa.01.0.copyload.i.i309 = load ptr, ptr %1342, align 8
   store ptr %.sroa.01.0.copyload.i.i309, ptr %86, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 1343:                                             ; preds = %1322
-  %1344 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %1344 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %1345 = load ptr, ptr %1344, align 8
   store ptr %1345, ptr %86, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 1346:                                             ; preds = %1322
-  %1347 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %1347 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %1348 = load ptr, ptr %1347, align 8
   store ptr %1348, ptr %86, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 1349:                                             ; preds = %1322
-  %1350 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %1350 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %.sroa.0.0.copyload.i.i308 = load i64, ptr %1350, align 8
   store i64 %.sroa.0.0.copyload.i.i308, ptr %86, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 1351:                                             ; preds = %1322
-  %1352 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %1352 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %1353 = load ptr, ptr %1352, align 8
   store ptr %1353, ptr %86, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 1354:                                             ; preds = %1322
-  %1355 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %1355 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %1356 = load ptr, ptr %1355, align 8
   store ptr %1356, ptr %86, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
@@ -3626,7 +3626,7 @@ _ZNK4llvm12DIEValueList6valuesEv.exit:            ; preds = %3
   store i32 %1360, ptr %79, align 8
   %1361 = load i16, ptr %208, align 4
   store i16 %1361, ptr %80, align 4
-  %1362 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 14
+  %1362 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 14
   %1363 = load i16, ptr %1362, align 2
   store i16 %1363, ptr %81, align 2
   switch i32 %1360, label %_ZN4llvm8DIEValueaSERKS0_.exit [
@@ -3645,73 +3645,73 @@ _ZNK4llvm12DIEValueList6valuesEv.exit:            ; preds = %3
   ]
 
 1364:                                             ; preds = %1359
-  %1365 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %1365 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %.sroa.05.0.copyload.i.i320 = load i64, ptr %1365, align 8
   store i64 %.sroa.05.0.copyload.i.i320, ptr %82, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 1366:                                             ; preds = %1359
-  %1367 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %1367 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %.sroa.04.0.copyload.i.i319 = load i64, ptr %1367, align 8
   store i64 %.sroa.04.0.copyload.i.i319, ptr %82, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 1368:                                             ; preds = %1359
-  %1369 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %1369 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %.sroa.03.0.copyload.i.i318 = load ptr, ptr %1369, align 8
   store ptr %.sroa.03.0.copyload.i.i318, ptr %82, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 1370:                                             ; preds = %1359
-  %1371 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %1371 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %.sroa.02.0.copyload.i.i317 = load ptr, ptr %1371, align 8
   store ptr %.sroa.02.0.copyload.i.i317, ptr %82, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 1372:                                             ; preds = %1359
-  %1373 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %1373 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %1374 = load ptr, ptr %1373, align 8
   store ptr %1374, ptr %82, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 1375:                                             ; preds = %1359
-  %1376 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %1376 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %1377 = load ptr, ptr %1376, align 8
   store ptr %1377, ptr %82, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 1378:                                             ; preds = %1359
-  %1379 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %1379 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %.sroa.01.0.copyload.i.i316 = load ptr, ptr %1379, align 8
   store ptr %.sroa.01.0.copyload.i.i316, ptr %82, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 1380:                                             ; preds = %1359
-  %1381 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %1381 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %1382 = load ptr, ptr %1381, align 8
   store ptr %1382, ptr %82, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 1383:                                             ; preds = %1359
-  %1384 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %1384 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %1385 = load ptr, ptr %1384, align 8
   store ptr %1385, ptr %82, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 1386:                                             ; preds = %1359
-  %1387 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %1387 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %.sroa.0.0.copyload.i.i315 = load i64, ptr %1387, align 8
   store i64 %.sroa.0.0.copyload.i.i315, ptr %82, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 1388:                                             ; preds = %1359
-  %1389 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %1389 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %1390 = load ptr, ptr %1389, align 8
   store ptr %1390, ptr %82, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 1391:                                             ; preds = %1359
-  %1392 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %1392 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %1393 = load ptr, ptr %1392, align 8
   store ptr %1393, ptr %82, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
@@ -3725,7 +3725,7 @@ _ZNK4llvm12DIEValueList6valuesEv.exit:            ; preds = %3
   store i32 %1397, ptr %75, align 8
   %1398 = load i16, ptr %208, align 4
   store i16 %1398, ptr %76, align 4
-  %1399 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 14
+  %1399 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 14
   %1400 = load i16, ptr %1399, align 2
   store i16 %1400, ptr %77, align 2
   switch i32 %1397, label %_ZN4llvm8DIEValueaSERKS0_.exit [
@@ -3744,73 +3744,73 @@ _ZNK4llvm12DIEValueList6valuesEv.exit:            ; preds = %3
   ]
 
 1401:                                             ; preds = %1396
-  %1402 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %1402 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %.sroa.05.0.copyload.i.i327 = load i64, ptr %1402, align 8
   store i64 %.sroa.05.0.copyload.i.i327, ptr %78, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 1403:                                             ; preds = %1396
-  %1404 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %1404 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %.sroa.04.0.copyload.i.i326 = load i64, ptr %1404, align 8
   store i64 %.sroa.04.0.copyload.i.i326, ptr %78, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 1405:                                             ; preds = %1396
-  %1406 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %1406 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %.sroa.03.0.copyload.i.i325 = load ptr, ptr %1406, align 8
   store ptr %.sroa.03.0.copyload.i.i325, ptr %78, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 1407:                                             ; preds = %1396
-  %1408 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %1408 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %.sroa.02.0.copyload.i.i324 = load ptr, ptr %1408, align 8
   store ptr %.sroa.02.0.copyload.i.i324, ptr %78, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 1409:                                             ; preds = %1396
-  %1410 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %1410 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %1411 = load ptr, ptr %1410, align 8
   store ptr %1411, ptr %78, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 1412:                                             ; preds = %1396
-  %1413 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %1413 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %1414 = load ptr, ptr %1413, align 8
   store ptr %1414, ptr %78, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 1415:                                             ; preds = %1396
-  %1416 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %1416 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %.sroa.01.0.copyload.i.i323 = load ptr, ptr %1416, align 8
   store ptr %.sroa.01.0.copyload.i.i323, ptr %78, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 1417:                                             ; preds = %1396
-  %1418 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %1418 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %1419 = load ptr, ptr %1418, align 8
   store ptr %1419, ptr %78, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 1420:                                             ; preds = %1396
-  %1421 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %1421 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %1422 = load ptr, ptr %1421, align 8
   store ptr %1422, ptr %78, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 1423:                                             ; preds = %1396
-  %1424 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %1424 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %.sroa.0.0.copyload.i.i322 = load i64, ptr %1424, align 8
   store i64 %.sroa.0.0.copyload.i.i322, ptr %78, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 1425:                                             ; preds = %1396
-  %1426 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %1426 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %1427 = load ptr, ptr %1426, align 8
   store ptr %1427, ptr %78, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 1428:                                             ; preds = %1396
-  %1429 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %1429 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %1430 = load ptr, ptr %1429, align 8
   store ptr %1430, ptr %78, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
@@ -3824,7 +3824,7 @@ _ZNK4llvm12DIEValueList6valuesEv.exit:            ; preds = %3
   store i32 %1434, ptr %71, align 8
   %1435 = load i16, ptr %208, align 4
   store i16 %1435, ptr %72, align 4
-  %1436 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 14
+  %1436 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 14
   %1437 = load i16, ptr %1436, align 2
   store i16 %1437, ptr %73, align 2
   switch i32 %1434, label %_ZN4llvm8DIEValueaSERKS0_.exit [
@@ -3843,73 +3843,73 @@ _ZNK4llvm12DIEValueList6valuesEv.exit:            ; preds = %3
   ]
 
 1438:                                             ; preds = %1433
-  %1439 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %1439 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %.sroa.05.0.copyload.i.i334 = load i64, ptr %1439, align 8
   store i64 %.sroa.05.0.copyload.i.i334, ptr %74, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 1440:                                             ; preds = %1433
-  %1441 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %1441 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %.sroa.04.0.copyload.i.i333 = load i64, ptr %1441, align 8
   store i64 %.sroa.04.0.copyload.i.i333, ptr %74, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 1442:                                             ; preds = %1433
-  %1443 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %1443 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %.sroa.03.0.copyload.i.i332 = load ptr, ptr %1443, align 8
   store ptr %.sroa.03.0.copyload.i.i332, ptr %74, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 1444:                                             ; preds = %1433
-  %1445 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %1445 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %.sroa.02.0.copyload.i.i331 = load ptr, ptr %1445, align 8
   store ptr %.sroa.02.0.copyload.i.i331, ptr %74, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 1446:                                             ; preds = %1433
-  %1447 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %1447 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %1448 = load ptr, ptr %1447, align 8
   store ptr %1448, ptr %74, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 1449:                                             ; preds = %1433
-  %1450 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %1450 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %1451 = load ptr, ptr %1450, align 8
   store ptr %1451, ptr %74, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 1452:                                             ; preds = %1433
-  %1453 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %1453 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %.sroa.01.0.copyload.i.i330 = load ptr, ptr %1453, align 8
   store ptr %.sroa.01.0.copyload.i.i330, ptr %74, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 1454:                                             ; preds = %1433
-  %1455 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %1455 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %1456 = load ptr, ptr %1455, align 8
   store ptr %1456, ptr %74, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 1457:                                             ; preds = %1433
-  %1458 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %1458 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %1459 = load ptr, ptr %1458, align 8
   store ptr %1459, ptr %74, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 1460:                                             ; preds = %1433
-  %1461 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %1461 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %.sroa.0.0.copyload.i.i329 = load i64, ptr %1461, align 8
   store i64 %.sroa.0.0.copyload.i.i329, ptr %74, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 1462:                                             ; preds = %1433
-  %1463 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %1463 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %1464 = load ptr, ptr %1463, align 8
   store ptr %1464, ptr %74, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 1465:                                             ; preds = %1433
-  %1466 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %1466 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %1467 = load ptr, ptr %1466, align 8
   store ptr %1467, ptr %74, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
@@ -3923,7 +3923,7 @@ _ZNK4llvm12DIEValueList6valuesEv.exit:            ; preds = %3
   store i32 %1471, ptr %67, align 8
   %1472 = load i16, ptr %208, align 4
   store i16 %1472, ptr %68, align 4
-  %1473 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 14
+  %1473 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 14
   %1474 = load i16, ptr %1473, align 2
   store i16 %1474, ptr %69, align 2
   switch i32 %1471, label %_ZN4llvm8DIEValueaSERKS0_.exit [
@@ -3942,73 +3942,73 @@ _ZNK4llvm12DIEValueList6valuesEv.exit:            ; preds = %3
   ]
 
 1475:                                             ; preds = %1470
-  %1476 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %1476 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %.sroa.05.0.copyload.i.i341 = load i64, ptr %1476, align 8
   store i64 %.sroa.05.0.copyload.i.i341, ptr %70, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 1477:                                             ; preds = %1470
-  %1478 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %1478 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %.sroa.04.0.copyload.i.i340 = load i64, ptr %1478, align 8
   store i64 %.sroa.04.0.copyload.i.i340, ptr %70, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 1479:                                             ; preds = %1470
-  %1480 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %1480 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %.sroa.03.0.copyload.i.i339 = load ptr, ptr %1480, align 8
   store ptr %.sroa.03.0.copyload.i.i339, ptr %70, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 1481:                                             ; preds = %1470
-  %1482 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %1482 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %.sroa.02.0.copyload.i.i338 = load ptr, ptr %1482, align 8
   store ptr %.sroa.02.0.copyload.i.i338, ptr %70, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 1483:                                             ; preds = %1470
-  %1484 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %1484 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %1485 = load ptr, ptr %1484, align 8
   store ptr %1485, ptr %70, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 1486:                                             ; preds = %1470
-  %1487 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %1487 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %1488 = load ptr, ptr %1487, align 8
   store ptr %1488, ptr %70, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 1489:                                             ; preds = %1470
-  %1490 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %1490 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %.sroa.01.0.copyload.i.i337 = load ptr, ptr %1490, align 8
   store ptr %.sroa.01.0.copyload.i.i337, ptr %70, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 1491:                                             ; preds = %1470
-  %1492 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %1492 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %1493 = load ptr, ptr %1492, align 8
   store ptr %1493, ptr %70, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 1494:                                             ; preds = %1470
-  %1495 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %1495 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %1496 = load ptr, ptr %1495, align 8
   store ptr %1496, ptr %70, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 1497:                                             ; preds = %1470
-  %1498 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %1498 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %.sroa.0.0.copyload.i.i336 = load i64, ptr %1498, align 8
   store i64 %.sroa.0.0.copyload.i.i336, ptr %70, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 1499:                                             ; preds = %1470
-  %1500 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %1500 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %1501 = load ptr, ptr %1500, align 8
   store ptr %1501, ptr %70, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 1502:                                             ; preds = %1470
-  %1503 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %1503 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %1504 = load ptr, ptr %1503, align 8
   store ptr %1504, ptr %70, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
@@ -4022,7 +4022,7 @@ _ZNK4llvm12DIEValueList6valuesEv.exit:            ; preds = %3
   store i32 %1508, ptr %63, align 8
   %1509 = load i16, ptr %208, align 4
   store i16 %1509, ptr %64, align 4
-  %1510 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 14
+  %1510 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 14
   %1511 = load i16, ptr %1510, align 2
   store i16 %1511, ptr %65, align 2
   switch i32 %1508, label %_ZN4llvm8DIEValueaSERKS0_.exit [
@@ -4041,73 +4041,73 @@ _ZNK4llvm12DIEValueList6valuesEv.exit:            ; preds = %3
   ]
 
 1512:                                             ; preds = %1507
-  %1513 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %1513 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %.sroa.05.0.copyload.i.i348 = load i64, ptr %1513, align 8
   store i64 %.sroa.05.0.copyload.i.i348, ptr %66, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 1514:                                             ; preds = %1507
-  %1515 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %1515 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %.sroa.04.0.copyload.i.i347 = load i64, ptr %1515, align 8
   store i64 %.sroa.04.0.copyload.i.i347, ptr %66, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 1516:                                             ; preds = %1507
-  %1517 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %1517 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %.sroa.03.0.copyload.i.i346 = load ptr, ptr %1517, align 8
   store ptr %.sroa.03.0.copyload.i.i346, ptr %66, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 1518:                                             ; preds = %1507
-  %1519 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %1519 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %.sroa.02.0.copyload.i.i345 = load ptr, ptr %1519, align 8
   store ptr %.sroa.02.0.copyload.i.i345, ptr %66, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 1520:                                             ; preds = %1507
-  %1521 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %1521 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %1522 = load ptr, ptr %1521, align 8
   store ptr %1522, ptr %66, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 1523:                                             ; preds = %1507
-  %1524 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %1524 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %1525 = load ptr, ptr %1524, align 8
   store ptr %1525, ptr %66, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 1526:                                             ; preds = %1507
-  %1527 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %1527 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %.sroa.01.0.copyload.i.i344 = load ptr, ptr %1527, align 8
   store ptr %.sroa.01.0.copyload.i.i344, ptr %66, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 1528:                                             ; preds = %1507
-  %1529 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %1529 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %1530 = load ptr, ptr %1529, align 8
   store ptr %1530, ptr %66, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 1531:                                             ; preds = %1507
-  %1532 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %1532 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %1533 = load ptr, ptr %1532, align 8
   store ptr %1533, ptr %66, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 1534:                                             ; preds = %1507
-  %1535 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %1535 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %.sroa.0.0.copyload.i.i343 = load i64, ptr %1535, align 8
   store i64 %.sroa.0.0.copyload.i.i343, ptr %66, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 1536:                                             ; preds = %1507
-  %1537 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %1537 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %1538 = load ptr, ptr %1537, align 8
   store ptr %1538, ptr %66, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 1539:                                             ; preds = %1507
-  %1540 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %1540 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %1541 = load ptr, ptr %1540, align 8
   store ptr %1541, ptr %66, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
@@ -4121,7 +4121,7 @@ _ZNK4llvm12DIEValueList6valuesEv.exit:            ; preds = %3
   store i32 %1545, ptr %59, align 8
   %1546 = load i16, ptr %208, align 4
   store i16 %1546, ptr %60, align 4
-  %1547 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 14
+  %1547 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 14
   %1548 = load i16, ptr %1547, align 2
   store i16 %1548, ptr %61, align 2
   switch i32 %1545, label %_ZN4llvm8DIEValueaSERKS0_.exit [
@@ -4140,73 +4140,73 @@ _ZNK4llvm12DIEValueList6valuesEv.exit:            ; preds = %3
   ]
 
 1549:                                             ; preds = %1544
-  %1550 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %1550 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %.sroa.05.0.copyload.i.i355 = load i64, ptr %1550, align 8
   store i64 %.sroa.05.0.copyload.i.i355, ptr %62, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 1551:                                             ; preds = %1544
-  %1552 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %1552 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %.sroa.04.0.copyload.i.i354 = load i64, ptr %1552, align 8
   store i64 %.sroa.04.0.copyload.i.i354, ptr %62, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 1553:                                             ; preds = %1544
-  %1554 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %1554 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %.sroa.03.0.copyload.i.i353 = load ptr, ptr %1554, align 8
   store ptr %.sroa.03.0.copyload.i.i353, ptr %62, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 1555:                                             ; preds = %1544
-  %1556 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %1556 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %.sroa.02.0.copyload.i.i352 = load ptr, ptr %1556, align 8
   store ptr %.sroa.02.0.copyload.i.i352, ptr %62, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 1557:                                             ; preds = %1544
-  %1558 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %1558 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %1559 = load ptr, ptr %1558, align 8
   store ptr %1559, ptr %62, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 1560:                                             ; preds = %1544
-  %1561 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %1561 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %1562 = load ptr, ptr %1561, align 8
   store ptr %1562, ptr %62, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 1563:                                             ; preds = %1544
-  %1564 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %1564 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %.sroa.01.0.copyload.i.i351 = load ptr, ptr %1564, align 8
   store ptr %.sroa.01.0.copyload.i.i351, ptr %62, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 1565:                                             ; preds = %1544
-  %1566 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %1566 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %1567 = load ptr, ptr %1566, align 8
   store ptr %1567, ptr %62, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 1568:                                             ; preds = %1544
-  %1569 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %1569 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %1570 = load ptr, ptr %1569, align 8
   store ptr %1570, ptr %62, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 1571:                                             ; preds = %1544
-  %1572 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %1572 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %.sroa.0.0.copyload.i.i350 = load i64, ptr %1572, align 8
   store i64 %.sroa.0.0.copyload.i.i350, ptr %62, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 1573:                                             ; preds = %1544
-  %1574 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %1574 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %1575 = load ptr, ptr %1574, align 8
   store ptr %1575, ptr %62, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 1576:                                             ; preds = %1544
-  %1577 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %1577 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %1578 = load ptr, ptr %1577, align 8
   store ptr %1578, ptr %62, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
@@ -4220,7 +4220,7 @@ _ZNK4llvm12DIEValueList6valuesEv.exit:            ; preds = %3
   store i32 %1582, ptr %55, align 8
   %1583 = load i16, ptr %208, align 4
   store i16 %1583, ptr %56, align 4
-  %1584 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 14
+  %1584 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 14
   %1585 = load i16, ptr %1584, align 2
   store i16 %1585, ptr %57, align 2
   switch i32 %1582, label %_ZN4llvm8DIEValueaSERKS0_.exit [
@@ -4239,73 +4239,73 @@ _ZNK4llvm12DIEValueList6valuesEv.exit:            ; preds = %3
   ]
 
 1586:                                             ; preds = %1581
-  %1587 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %1587 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %.sroa.05.0.copyload.i.i362 = load i64, ptr %1587, align 8
   store i64 %.sroa.05.0.copyload.i.i362, ptr %58, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 1588:                                             ; preds = %1581
-  %1589 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %1589 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %.sroa.04.0.copyload.i.i361 = load i64, ptr %1589, align 8
   store i64 %.sroa.04.0.copyload.i.i361, ptr %58, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 1590:                                             ; preds = %1581
-  %1591 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %1591 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %.sroa.03.0.copyload.i.i360 = load ptr, ptr %1591, align 8
   store ptr %.sroa.03.0.copyload.i.i360, ptr %58, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 1592:                                             ; preds = %1581
-  %1593 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %1593 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %.sroa.02.0.copyload.i.i359 = load ptr, ptr %1593, align 8
   store ptr %.sroa.02.0.copyload.i.i359, ptr %58, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 1594:                                             ; preds = %1581
-  %1595 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %1595 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %1596 = load ptr, ptr %1595, align 8
   store ptr %1596, ptr %58, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 1597:                                             ; preds = %1581
-  %1598 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %1598 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %1599 = load ptr, ptr %1598, align 8
   store ptr %1599, ptr %58, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 1600:                                             ; preds = %1581
-  %1601 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %1601 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %.sroa.01.0.copyload.i.i358 = load ptr, ptr %1601, align 8
   store ptr %.sroa.01.0.copyload.i.i358, ptr %58, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 1602:                                             ; preds = %1581
-  %1603 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %1603 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %1604 = load ptr, ptr %1603, align 8
   store ptr %1604, ptr %58, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 1605:                                             ; preds = %1581
-  %1606 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %1606 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %1607 = load ptr, ptr %1606, align 8
   store ptr %1607, ptr %58, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 1608:                                             ; preds = %1581
-  %1609 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %1609 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %.sroa.0.0.copyload.i.i357 = load i64, ptr %1609, align 8
   store i64 %.sroa.0.0.copyload.i.i357, ptr %58, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 1610:                                             ; preds = %1581
-  %1611 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %1611 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %1612 = load ptr, ptr %1611, align 8
   store ptr %1612, ptr %58, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 1613:                                             ; preds = %1581
-  %1614 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %1614 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %1615 = load ptr, ptr %1614, align 8
   store ptr %1615, ptr %58, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
@@ -4319,7 +4319,7 @@ _ZNK4llvm12DIEValueList6valuesEv.exit:            ; preds = %3
   store i32 %1619, ptr %51, align 8
   %1620 = load i16, ptr %208, align 4
   store i16 %1620, ptr %52, align 4
-  %1621 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 14
+  %1621 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 14
   %1622 = load i16, ptr %1621, align 2
   store i16 %1622, ptr %53, align 2
   switch i32 %1619, label %_ZN4llvm8DIEValueaSERKS0_.exit [
@@ -4338,73 +4338,73 @@ _ZNK4llvm12DIEValueList6valuesEv.exit:            ; preds = %3
   ]
 
 1623:                                             ; preds = %1618
-  %1624 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %1624 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %.sroa.05.0.copyload.i.i369 = load i64, ptr %1624, align 8
   store i64 %.sroa.05.0.copyload.i.i369, ptr %54, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 1625:                                             ; preds = %1618
-  %1626 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %1626 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %.sroa.04.0.copyload.i.i368 = load i64, ptr %1626, align 8
   store i64 %.sroa.04.0.copyload.i.i368, ptr %54, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 1627:                                             ; preds = %1618
-  %1628 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %1628 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %.sroa.03.0.copyload.i.i367 = load ptr, ptr %1628, align 8
   store ptr %.sroa.03.0.copyload.i.i367, ptr %54, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 1629:                                             ; preds = %1618
-  %1630 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %1630 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %.sroa.02.0.copyload.i.i366 = load ptr, ptr %1630, align 8
   store ptr %.sroa.02.0.copyload.i.i366, ptr %54, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 1631:                                             ; preds = %1618
-  %1632 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %1632 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %1633 = load ptr, ptr %1632, align 8
   store ptr %1633, ptr %54, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 1634:                                             ; preds = %1618
-  %1635 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %1635 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %1636 = load ptr, ptr %1635, align 8
   store ptr %1636, ptr %54, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 1637:                                             ; preds = %1618
-  %1638 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %1638 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %.sroa.01.0.copyload.i.i365 = load ptr, ptr %1638, align 8
   store ptr %.sroa.01.0.copyload.i.i365, ptr %54, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 1639:                                             ; preds = %1618
-  %1640 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %1640 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %1641 = load ptr, ptr %1640, align 8
   store ptr %1641, ptr %54, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 1642:                                             ; preds = %1618
-  %1643 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %1643 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %1644 = load ptr, ptr %1643, align 8
   store ptr %1644, ptr %54, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 1645:                                             ; preds = %1618
-  %1646 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %1646 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %.sroa.0.0.copyload.i.i364 = load i64, ptr %1646, align 8
   store i64 %.sroa.0.0.copyload.i.i364, ptr %54, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 1647:                                             ; preds = %1618
-  %1648 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %1648 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %1649 = load ptr, ptr %1648, align 8
   store ptr %1649, ptr %54, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 1650:                                             ; preds = %1618
-  %1651 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %1651 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %1652 = load ptr, ptr %1651, align 8
   store ptr %1652, ptr %54, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
@@ -4418,7 +4418,7 @@ _ZNK4llvm12DIEValueList6valuesEv.exit:            ; preds = %3
   store i32 %1656, ptr %47, align 8
   %1657 = load i16, ptr %208, align 4
   store i16 %1657, ptr %48, align 4
-  %1658 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 14
+  %1658 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 14
   %1659 = load i16, ptr %1658, align 2
   store i16 %1659, ptr %49, align 2
   switch i32 %1656, label %_ZN4llvm8DIEValueaSERKS0_.exit [
@@ -4437,73 +4437,73 @@ _ZNK4llvm12DIEValueList6valuesEv.exit:            ; preds = %3
   ]
 
 1660:                                             ; preds = %1655
-  %1661 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %1661 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %.sroa.05.0.copyload.i.i376 = load i64, ptr %1661, align 8
   store i64 %.sroa.05.0.copyload.i.i376, ptr %50, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 1662:                                             ; preds = %1655
-  %1663 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %1663 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %.sroa.04.0.copyload.i.i375 = load i64, ptr %1663, align 8
   store i64 %.sroa.04.0.copyload.i.i375, ptr %50, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 1664:                                             ; preds = %1655
-  %1665 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %1665 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %.sroa.03.0.copyload.i.i374 = load ptr, ptr %1665, align 8
   store ptr %.sroa.03.0.copyload.i.i374, ptr %50, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 1666:                                             ; preds = %1655
-  %1667 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %1667 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %.sroa.02.0.copyload.i.i373 = load ptr, ptr %1667, align 8
   store ptr %.sroa.02.0.copyload.i.i373, ptr %50, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 1668:                                             ; preds = %1655
-  %1669 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %1669 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %1670 = load ptr, ptr %1669, align 8
   store ptr %1670, ptr %50, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 1671:                                             ; preds = %1655
-  %1672 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %1672 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %1673 = load ptr, ptr %1672, align 8
   store ptr %1673, ptr %50, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 1674:                                             ; preds = %1655
-  %1675 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %1675 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %.sroa.01.0.copyload.i.i372 = load ptr, ptr %1675, align 8
   store ptr %.sroa.01.0.copyload.i.i372, ptr %50, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 1676:                                             ; preds = %1655
-  %1677 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %1677 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %1678 = load ptr, ptr %1677, align 8
   store ptr %1678, ptr %50, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 1679:                                             ; preds = %1655
-  %1680 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %1680 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %1681 = load ptr, ptr %1680, align 8
   store ptr %1681, ptr %50, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 1682:                                             ; preds = %1655
-  %1683 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %1683 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %.sroa.0.0.copyload.i.i371 = load i64, ptr %1683, align 8
   store i64 %.sroa.0.0.copyload.i.i371, ptr %50, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 1684:                                             ; preds = %1655
-  %1685 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %1685 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %1686 = load ptr, ptr %1685, align 8
   store ptr %1686, ptr %50, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 1687:                                             ; preds = %1655
-  %1688 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %1688 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %1689 = load ptr, ptr %1688, align 8
   store ptr %1689, ptr %50, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
@@ -4517,7 +4517,7 @@ _ZNK4llvm12DIEValueList6valuesEv.exit:            ; preds = %3
   store i32 %1693, ptr %43, align 8
   %1694 = load i16, ptr %208, align 4
   store i16 %1694, ptr %44, align 4
-  %1695 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 14
+  %1695 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 14
   %1696 = load i16, ptr %1695, align 2
   store i16 %1696, ptr %45, align 2
   switch i32 %1693, label %_ZN4llvm8DIEValueaSERKS0_.exit [
@@ -4536,73 +4536,73 @@ _ZNK4llvm12DIEValueList6valuesEv.exit:            ; preds = %3
   ]
 
 1697:                                             ; preds = %1692
-  %1698 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %1698 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %.sroa.05.0.copyload.i.i383 = load i64, ptr %1698, align 8
   store i64 %.sroa.05.0.copyload.i.i383, ptr %46, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 1699:                                             ; preds = %1692
-  %1700 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %1700 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %.sroa.04.0.copyload.i.i382 = load i64, ptr %1700, align 8
   store i64 %.sroa.04.0.copyload.i.i382, ptr %46, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 1701:                                             ; preds = %1692
-  %1702 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %1702 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %.sroa.03.0.copyload.i.i381 = load ptr, ptr %1702, align 8
   store ptr %.sroa.03.0.copyload.i.i381, ptr %46, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 1703:                                             ; preds = %1692
-  %1704 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %1704 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %.sroa.02.0.copyload.i.i380 = load ptr, ptr %1704, align 8
   store ptr %.sroa.02.0.copyload.i.i380, ptr %46, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 1705:                                             ; preds = %1692
-  %1706 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %1706 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %1707 = load ptr, ptr %1706, align 8
   store ptr %1707, ptr %46, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 1708:                                             ; preds = %1692
-  %1709 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %1709 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %1710 = load ptr, ptr %1709, align 8
   store ptr %1710, ptr %46, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 1711:                                             ; preds = %1692
-  %1712 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %1712 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %.sroa.01.0.copyload.i.i379 = load ptr, ptr %1712, align 8
   store ptr %.sroa.01.0.copyload.i.i379, ptr %46, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 1713:                                             ; preds = %1692
-  %1714 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %1714 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %1715 = load ptr, ptr %1714, align 8
   store ptr %1715, ptr %46, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 1716:                                             ; preds = %1692
-  %1717 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %1717 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %1718 = load ptr, ptr %1717, align 8
   store ptr %1718, ptr %46, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 1719:                                             ; preds = %1692
-  %1720 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %1720 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %.sroa.0.0.copyload.i.i378 = load i64, ptr %1720, align 8
   store i64 %.sroa.0.0.copyload.i.i378, ptr %46, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 1721:                                             ; preds = %1692
-  %1722 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %1722 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %1723 = load ptr, ptr %1722, align 8
   store ptr %1723, ptr %46, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 1724:                                             ; preds = %1692
-  %1725 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %1725 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %1726 = load ptr, ptr %1725, align 8
   store ptr %1726, ptr %46, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
@@ -4616,7 +4616,7 @@ _ZNK4llvm12DIEValueList6valuesEv.exit:            ; preds = %3
   store i32 %1730, ptr %39, align 8
   %1731 = load i16, ptr %208, align 4
   store i16 %1731, ptr %40, align 4
-  %1732 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 14
+  %1732 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 14
   %1733 = load i16, ptr %1732, align 2
   store i16 %1733, ptr %41, align 2
   switch i32 %1730, label %_ZN4llvm8DIEValueaSERKS0_.exit [
@@ -4635,73 +4635,73 @@ _ZNK4llvm12DIEValueList6valuesEv.exit:            ; preds = %3
   ]
 
 1734:                                             ; preds = %1729
-  %1735 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %1735 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %.sroa.05.0.copyload.i.i390 = load i64, ptr %1735, align 8
   store i64 %.sroa.05.0.copyload.i.i390, ptr %42, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 1736:                                             ; preds = %1729
-  %1737 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %1737 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %.sroa.04.0.copyload.i.i389 = load i64, ptr %1737, align 8
   store i64 %.sroa.04.0.copyload.i.i389, ptr %42, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 1738:                                             ; preds = %1729
-  %1739 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %1739 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %.sroa.03.0.copyload.i.i388 = load ptr, ptr %1739, align 8
   store ptr %.sroa.03.0.copyload.i.i388, ptr %42, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 1740:                                             ; preds = %1729
-  %1741 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %1741 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %.sroa.02.0.copyload.i.i387 = load ptr, ptr %1741, align 8
   store ptr %.sroa.02.0.copyload.i.i387, ptr %42, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 1742:                                             ; preds = %1729
-  %1743 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %1743 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %1744 = load ptr, ptr %1743, align 8
   store ptr %1744, ptr %42, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 1745:                                             ; preds = %1729
-  %1746 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %1746 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %1747 = load ptr, ptr %1746, align 8
   store ptr %1747, ptr %42, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 1748:                                             ; preds = %1729
-  %1749 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %1749 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %.sroa.01.0.copyload.i.i386 = load ptr, ptr %1749, align 8
   store ptr %.sroa.01.0.copyload.i.i386, ptr %42, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 1750:                                             ; preds = %1729
-  %1751 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %1751 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %1752 = load ptr, ptr %1751, align 8
   store ptr %1752, ptr %42, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 1753:                                             ; preds = %1729
-  %1754 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %1754 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %1755 = load ptr, ptr %1754, align 8
   store ptr %1755, ptr %42, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 1756:                                             ; preds = %1729
-  %1757 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %1757 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %.sroa.0.0.copyload.i.i385 = load i64, ptr %1757, align 8
   store i64 %.sroa.0.0.copyload.i.i385, ptr %42, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 1758:                                             ; preds = %1729
-  %1759 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %1759 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %1760 = load ptr, ptr %1759, align 8
   store ptr %1760, ptr %42, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 1761:                                             ; preds = %1729
-  %1762 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %1762 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %1763 = load ptr, ptr %1762, align 8
   store ptr %1763, ptr %42, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
@@ -4715,7 +4715,7 @@ _ZNK4llvm12DIEValueList6valuesEv.exit:            ; preds = %3
   store i32 %1767, ptr %35, align 8
   %1768 = load i16, ptr %208, align 4
   store i16 %1768, ptr %36, align 4
-  %1769 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 14
+  %1769 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 14
   %1770 = load i16, ptr %1769, align 2
   store i16 %1770, ptr %37, align 2
   switch i32 %1767, label %_ZN4llvm8DIEValueaSERKS0_.exit [
@@ -4734,73 +4734,73 @@ _ZNK4llvm12DIEValueList6valuesEv.exit:            ; preds = %3
   ]
 
 1771:                                             ; preds = %1766
-  %1772 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %1772 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %.sroa.05.0.copyload.i.i397 = load i64, ptr %1772, align 8
   store i64 %.sroa.05.0.copyload.i.i397, ptr %38, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 1773:                                             ; preds = %1766
-  %1774 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %1774 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %.sroa.04.0.copyload.i.i396 = load i64, ptr %1774, align 8
   store i64 %.sroa.04.0.copyload.i.i396, ptr %38, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 1775:                                             ; preds = %1766
-  %1776 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %1776 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %.sroa.03.0.copyload.i.i395 = load ptr, ptr %1776, align 8
   store ptr %.sroa.03.0.copyload.i.i395, ptr %38, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 1777:                                             ; preds = %1766
-  %1778 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %1778 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %.sroa.02.0.copyload.i.i394 = load ptr, ptr %1778, align 8
   store ptr %.sroa.02.0.copyload.i.i394, ptr %38, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 1779:                                             ; preds = %1766
-  %1780 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %1780 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %1781 = load ptr, ptr %1780, align 8
   store ptr %1781, ptr %38, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 1782:                                             ; preds = %1766
-  %1783 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %1783 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %1784 = load ptr, ptr %1783, align 8
   store ptr %1784, ptr %38, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 1785:                                             ; preds = %1766
-  %1786 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %1786 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %.sroa.01.0.copyload.i.i393 = load ptr, ptr %1786, align 8
   store ptr %.sroa.01.0.copyload.i.i393, ptr %38, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 1787:                                             ; preds = %1766
-  %1788 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %1788 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %1789 = load ptr, ptr %1788, align 8
   store ptr %1789, ptr %38, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 1790:                                             ; preds = %1766
-  %1791 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %1791 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %1792 = load ptr, ptr %1791, align 8
   store ptr %1792, ptr %38, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 1793:                                             ; preds = %1766
-  %1794 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %1794 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %.sroa.0.0.copyload.i.i392 = load i64, ptr %1794, align 8
   store i64 %.sroa.0.0.copyload.i.i392, ptr %38, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 1795:                                             ; preds = %1766
-  %1796 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %1796 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %1797 = load ptr, ptr %1796, align 8
   store ptr %1797, ptr %38, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 1798:                                             ; preds = %1766
-  %1799 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %1799 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %1800 = load ptr, ptr %1799, align 8
   store ptr %1800, ptr %38, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
@@ -4814,7 +4814,7 @@ _ZNK4llvm12DIEValueList6valuesEv.exit:            ; preds = %3
   store i32 %1804, ptr %31, align 8
   %1805 = load i16, ptr %208, align 4
   store i16 %1805, ptr %32, align 4
-  %1806 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 14
+  %1806 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 14
   %1807 = load i16, ptr %1806, align 2
   store i16 %1807, ptr %33, align 2
   switch i32 %1804, label %_ZN4llvm8DIEValueaSERKS0_.exit [
@@ -4833,73 +4833,73 @@ _ZNK4llvm12DIEValueList6valuesEv.exit:            ; preds = %3
   ]
 
 1808:                                             ; preds = %1803
-  %1809 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %1809 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %.sroa.05.0.copyload.i.i404 = load i64, ptr %1809, align 8
   store i64 %.sroa.05.0.copyload.i.i404, ptr %34, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 1810:                                             ; preds = %1803
-  %1811 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %1811 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %.sroa.04.0.copyload.i.i403 = load i64, ptr %1811, align 8
   store i64 %.sroa.04.0.copyload.i.i403, ptr %34, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 1812:                                             ; preds = %1803
-  %1813 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %1813 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %.sroa.03.0.copyload.i.i402 = load ptr, ptr %1813, align 8
   store ptr %.sroa.03.0.copyload.i.i402, ptr %34, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 1814:                                             ; preds = %1803
-  %1815 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %1815 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %.sroa.02.0.copyload.i.i401 = load ptr, ptr %1815, align 8
   store ptr %.sroa.02.0.copyload.i.i401, ptr %34, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 1816:                                             ; preds = %1803
-  %1817 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %1817 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %1818 = load ptr, ptr %1817, align 8
   store ptr %1818, ptr %34, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 1819:                                             ; preds = %1803
-  %1820 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %1820 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %1821 = load ptr, ptr %1820, align 8
   store ptr %1821, ptr %34, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 1822:                                             ; preds = %1803
-  %1823 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %1823 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %.sroa.01.0.copyload.i.i400 = load ptr, ptr %1823, align 8
   store ptr %.sroa.01.0.copyload.i.i400, ptr %34, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 1824:                                             ; preds = %1803
-  %1825 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %1825 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %1826 = load ptr, ptr %1825, align 8
   store ptr %1826, ptr %34, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 1827:                                             ; preds = %1803
-  %1828 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %1828 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %1829 = load ptr, ptr %1828, align 8
   store ptr %1829, ptr %34, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 1830:                                             ; preds = %1803
-  %1831 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %1831 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %.sroa.0.0.copyload.i.i399 = load i64, ptr %1831, align 8
   store i64 %.sroa.0.0.copyload.i.i399, ptr %34, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 1832:                                             ; preds = %1803
-  %1833 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %1833 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %1834 = load ptr, ptr %1833, align 8
   store ptr %1834, ptr %34, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 1835:                                             ; preds = %1803
-  %1836 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %1836 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %1837 = load ptr, ptr %1836, align 8
   store ptr %1837, ptr %34, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
@@ -4913,7 +4913,7 @@ _ZNK4llvm12DIEValueList6valuesEv.exit:            ; preds = %3
   store i32 %1841, ptr %27, align 8
   %1842 = load i16, ptr %208, align 4
   store i16 %1842, ptr %28, align 4
-  %1843 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 14
+  %1843 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 14
   %1844 = load i16, ptr %1843, align 2
   store i16 %1844, ptr %29, align 2
   switch i32 %1841, label %_ZN4llvm8DIEValueaSERKS0_.exit [
@@ -4932,73 +4932,73 @@ _ZNK4llvm12DIEValueList6valuesEv.exit:            ; preds = %3
   ]
 
 1845:                                             ; preds = %1840
-  %1846 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %1846 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %.sroa.05.0.copyload.i.i411 = load i64, ptr %1846, align 8
   store i64 %.sroa.05.0.copyload.i.i411, ptr %30, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 1847:                                             ; preds = %1840
-  %1848 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %1848 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %.sroa.04.0.copyload.i.i410 = load i64, ptr %1848, align 8
   store i64 %.sroa.04.0.copyload.i.i410, ptr %30, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 1849:                                             ; preds = %1840
-  %1850 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %1850 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %.sroa.03.0.copyload.i.i409 = load ptr, ptr %1850, align 8
   store ptr %.sroa.03.0.copyload.i.i409, ptr %30, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 1851:                                             ; preds = %1840
-  %1852 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %1852 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %.sroa.02.0.copyload.i.i408 = load ptr, ptr %1852, align 8
   store ptr %.sroa.02.0.copyload.i.i408, ptr %30, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 1853:                                             ; preds = %1840
-  %1854 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %1854 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %1855 = load ptr, ptr %1854, align 8
   store ptr %1855, ptr %30, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 1856:                                             ; preds = %1840
-  %1857 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %1857 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %1858 = load ptr, ptr %1857, align 8
   store ptr %1858, ptr %30, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 1859:                                             ; preds = %1840
-  %1860 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %1860 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %.sroa.01.0.copyload.i.i407 = load ptr, ptr %1860, align 8
   store ptr %.sroa.01.0.copyload.i.i407, ptr %30, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 1861:                                             ; preds = %1840
-  %1862 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %1862 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %1863 = load ptr, ptr %1862, align 8
   store ptr %1863, ptr %30, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 1864:                                             ; preds = %1840
-  %1865 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %1865 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %1866 = load ptr, ptr %1865, align 8
   store ptr %1866, ptr %30, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 1867:                                             ; preds = %1840
-  %1868 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %1868 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %.sroa.0.0.copyload.i.i406 = load i64, ptr %1868, align 8
   store i64 %.sroa.0.0.copyload.i.i406, ptr %30, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 1869:                                             ; preds = %1840
-  %1870 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %1870 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %1871 = load ptr, ptr %1870, align 8
   store ptr %1871, ptr %30, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 1872:                                             ; preds = %1840
-  %1873 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %1873 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %1874 = load ptr, ptr %1873, align 8
   store ptr %1874, ptr %30, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
@@ -5012,7 +5012,7 @@ _ZNK4llvm12DIEValueList6valuesEv.exit:            ; preds = %3
   store i32 %1878, ptr %23, align 8
   %1879 = load i16, ptr %208, align 4
   store i16 %1879, ptr %24, align 4
-  %1880 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 14
+  %1880 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 14
   %1881 = load i16, ptr %1880, align 2
   store i16 %1881, ptr %25, align 2
   switch i32 %1878, label %_ZN4llvm8DIEValueaSERKS0_.exit [
@@ -5031,73 +5031,73 @@ _ZNK4llvm12DIEValueList6valuesEv.exit:            ; preds = %3
   ]
 
 1882:                                             ; preds = %1877
-  %1883 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %1883 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %.sroa.05.0.copyload.i.i418 = load i64, ptr %1883, align 8
   store i64 %.sroa.05.0.copyload.i.i418, ptr %26, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 1884:                                             ; preds = %1877
-  %1885 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %1885 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %.sroa.04.0.copyload.i.i417 = load i64, ptr %1885, align 8
   store i64 %.sroa.04.0.copyload.i.i417, ptr %26, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 1886:                                             ; preds = %1877
-  %1887 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %1887 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %.sroa.03.0.copyload.i.i416 = load ptr, ptr %1887, align 8
   store ptr %.sroa.03.0.copyload.i.i416, ptr %26, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 1888:                                             ; preds = %1877
-  %1889 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %1889 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %.sroa.02.0.copyload.i.i415 = load ptr, ptr %1889, align 8
   store ptr %.sroa.02.0.copyload.i.i415, ptr %26, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 1890:                                             ; preds = %1877
-  %1891 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %1891 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %1892 = load ptr, ptr %1891, align 8
   store ptr %1892, ptr %26, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 1893:                                             ; preds = %1877
-  %1894 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %1894 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %1895 = load ptr, ptr %1894, align 8
   store ptr %1895, ptr %26, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 1896:                                             ; preds = %1877
-  %1897 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %1897 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %.sroa.01.0.copyload.i.i414 = load ptr, ptr %1897, align 8
   store ptr %.sroa.01.0.copyload.i.i414, ptr %26, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 1898:                                             ; preds = %1877
-  %1899 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %1899 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %1900 = load ptr, ptr %1899, align 8
   store ptr %1900, ptr %26, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 1901:                                             ; preds = %1877
-  %1902 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %1902 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %1903 = load ptr, ptr %1902, align 8
   store ptr %1903, ptr %26, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 1904:                                             ; preds = %1877
-  %1905 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %1905 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %.sroa.0.0.copyload.i.i413 = load i64, ptr %1905, align 8
   store i64 %.sroa.0.0.copyload.i.i413, ptr %26, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 1906:                                             ; preds = %1877
-  %1907 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %1907 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %1908 = load ptr, ptr %1907, align 8
   store ptr %1908, ptr %26, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 1909:                                             ; preds = %1877
-  %1910 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %1910 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %1911 = load ptr, ptr %1910, align 8
   store ptr %1911, ptr %26, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
@@ -5111,7 +5111,7 @@ _ZNK4llvm12DIEValueList6valuesEv.exit:            ; preds = %3
   store i32 %1915, ptr %19, align 8
   %1916 = load i16, ptr %208, align 4
   store i16 %1916, ptr %20, align 4
-  %1917 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 14
+  %1917 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 14
   %1918 = load i16, ptr %1917, align 2
   store i16 %1918, ptr %21, align 2
   switch i32 %1915, label %_ZN4llvm8DIEValueaSERKS0_.exit [
@@ -5130,73 +5130,73 @@ _ZNK4llvm12DIEValueList6valuesEv.exit:            ; preds = %3
   ]
 
 1919:                                             ; preds = %1914
-  %1920 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %1920 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %.sroa.05.0.copyload.i.i425 = load i64, ptr %1920, align 8
   store i64 %.sroa.05.0.copyload.i.i425, ptr %22, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 1921:                                             ; preds = %1914
-  %1922 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %1922 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %.sroa.04.0.copyload.i.i424 = load i64, ptr %1922, align 8
   store i64 %.sroa.04.0.copyload.i.i424, ptr %22, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 1923:                                             ; preds = %1914
-  %1924 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %1924 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %.sroa.03.0.copyload.i.i423 = load ptr, ptr %1924, align 8
   store ptr %.sroa.03.0.copyload.i.i423, ptr %22, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 1925:                                             ; preds = %1914
-  %1926 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %1926 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %.sroa.02.0.copyload.i.i422 = load ptr, ptr %1926, align 8
   store ptr %.sroa.02.0.copyload.i.i422, ptr %22, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 1927:                                             ; preds = %1914
-  %1928 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %1928 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %1929 = load ptr, ptr %1928, align 8
   store ptr %1929, ptr %22, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 1930:                                             ; preds = %1914
-  %1931 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %1931 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %1932 = load ptr, ptr %1931, align 8
   store ptr %1932, ptr %22, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 1933:                                             ; preds = %1914
-  %1934 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %1934 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %.sroa.01.0.copyload.i.i421 = load ptr, ptr %1934, align 8
   store ptr %.sroa.01.0.copyload.i.i421, ptr %22, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 1935:                                             ; preds = %1914
-  %1936 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %1936 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %1937 = load ptr, ptr %1936, align 8
   store ptr %1937, ptr %22, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 1938:                                             ; preds = %1914
-  %1939 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %1939 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %1940 = load ptr, ptr %1939, align 8
   store ptr %1940, ptr %22, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 1941:                                             ; preds = %1914
-  %1942 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %1942 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %.sroa.0.0.copyload.i.i420 = load i64, ptr %1942, align 8
   store i64 %.sroa.0.0.copyload.i.i420, ptr %22, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 1943:                                             ; preds = %1914
-  %1944 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %1944 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %1945 = load ptr, ptr %1944, align 8
   store ptr %1945, ptr %22, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 1946:                                             ; preds = %1914
-  %1947 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %1947 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %1948 = load ptr, ptr %1947, align 8
   store ptr %1948, ptr %22, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
@@ -5210,7 +5210,7 @@ _ZNK4llvm12DIEValueList6valuesEv.exit:            ; preds = %3
   store i32 %1952, ptr %15, align 8
   %1953 = load i16, ptr %208, align 4
   store i16 %1953, ptr %16, align 4
-  %1954 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 14
+  %1954 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 14
   %1955 = load i16, ptr %1954, align 2
   store i16 %1955, ptr %17, align 2
   switch i32 %1952, label %_ZN4llvm8DIEValueaSERKS0_.exit [
@@ -5229,73 +5229,73 @@ _ZNK4llvm12DIEValueList6valuesEv.exit:            ; preds = %3
   ]
 
 1956:                                             ; preds = %1951
-  %1957 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %1957 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %.sroa.05.0.copyload.i.i432 = load i64, ptr %1957, align 8
   store i64 %.sroa.05.0.copyload.i.i432, ptr %18, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 1958:                                             ; preds = %1951
-  %1959 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %1959 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %.sroa.04.0.copyload.i.i431 = load i64, ptr %1959, align 8
   store i64 %.sroa.04.0.copyload.i.i431, ptr %18, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 1960:                                             ; preds = %1951
-  %1961 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %1961 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %.sroa.03.0.copyload.i.i430 = load ptr, ptr %1961, align 8
   store ptr %.sroa.03.0.copyload.i.i430, ptr %18, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 1962:                                             ; preds = %1951
-  %1963 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %1963 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %.sroa.02.0.copyload.i.i429 = load ptr, ptr %1963, align 8
   store ptr %.sroa.02.0.copyload.i.i429, ptr %18, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 1964:                                             ; preds = %1951
-  %1965 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %1965 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %1966 = load ptr, ptr %1965, align 8
   store ptr %1966, ptr %18, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 1967:                                             ; preds = %1951
-  %1968 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %1968 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %1969 = load ptr, ptr %1968, align 8
   store ptr %1969, ptr %18, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 1970:                                             ; preds = %1951
-  %1971 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %1971 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %.sroa.01.0.copyload.i.i428 = load ptr, ptr %1971, align 8
   store ptr %.sroa.01.0.copyload.i.i428, ptr %18, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 1972:                                             ; preds = %1951
-  %1973 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %1973 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %1974 = load ptr, ptr %1973, align 8
   store ptr %1974, ptr %18, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 1975:                                             ; preds = %1951
-  %1976 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %1976 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %1977 = load ptr, ptr %1976, align 8
   store ptr %1977, ptr %18, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 1978:                                             ; preds = %1951
-  %1979 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %1979 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %.sroa.0.0.copyload.i.i427 = load i64, ptr %1979, align 8
   store i64 %.sroa.0.0.copyload.i.i427, ptr %18, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 1980:                                             ; preds = %1951
-  %1981 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %1981 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %1982 = load ptr, ptr %1981, align 8
   store ptr %1982, ptr %18, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 1983:                                             ; preds = %1951
-  %1984 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %1984 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %1985 = load ptr, ptr %1984, align 8
   store ptr %1985, ptr %18, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
@@ -5309,7 +5309,7 @@ _ZNK4llvm12DIEValueList6valuesEv.exit:            ; preds = %3
   store i32 %1989, ptr %11, align 8
   %1990 = load i16, ptr %208, align 4
   store i16 %1990, ptr %12, align 4
-  %1991 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 14
+  %1991 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 14
   %1992 = load i16, ptr %1991, align 2
   store i16 %1992, ptr %13, align 2
   switch i32 %1989, label %_ZN4llvm8DIEValueaSERKS0_.exit [
@@ -5328,73 +5328,73 @@ _ZNK4llvm12DIEValueList6valuesEv.exit:            ; preds = %3
   ]
 
 1993:                                             ; preds = %1988
-  %1994 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %1994 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %.sroa.05.0.copyload.i.i439 = load i64, ptr %1994, align 8
   store i64 %.sroa.05.0.copyload.i.i439, ptr %14, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 1995:                                             ; preds = %1988
-  %1996 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %1996 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %.sroa.04.0.copyload.i.i438 = load i64, ptr %1996, align 8
   store i64 %.sroa.04.0.copyload.i.i438, ptr %14, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 1997:                                             ; preds = %1988
-  %1998 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %1998 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %.sroa.03.0.copyload.i.i437 = load ptr, ptr %1998, align 8
   store ptr %.sroa.03.0.copyload.i.i437, ptr %14, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 1999:                                             ; preds = %1988
-  %2000 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %2000 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %.sroa.02.0.copyload.i.i436 = load ptr, ptr %2000, align 8
   store ptr %.sroa.02.0.copyload.i.i436, ptr %14, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 2001:                                             ; preds = %1988
-  %2002 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %2002 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %2003 = load ptr, ptr %2002, align 8
   store ptr %2003, ptr %14, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 2004:                                             ; preds = %1988
-  %2005 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %2005 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %2006 = load ptr, ptr %2005, align 8
   store ptr %2006, ptr %14, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 2007:                                             ; preds = %1988
-  %2008 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %2008 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %.sroa.01.0.copyload.i.i435 = load ptr, ptr %2008, align 8
   store ptr %.sroa.01.0.copyload.i.i435, ptr %14, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 2009:                                             ; preds = %1988
-  %2010 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %2010 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %2011 = load ptr, ptr %2010, align 8
   store ptr %2011, ptr %14, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 2012:                                             ; preds = %1988
-  %2013 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %2013 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %2014 = load ptr, ptr %2013, align 8
   store ptr %2014, ptr %14, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 2015:                                             ; preds = %1988
-  %2016 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %2016 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %.sroa.0.0.copyload.i.i434 = load i64, ptr %2016, align 8
   store i64 %.sroa.0.0.copyload.i.i434, ptr %14, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 2017:                                             ; preds = %1988
-  %2018 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %2018 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %2019 = load ptr, ptr %2018, align 8
   store ptr %2019, ptr %14, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 2020:                                             ; preds = %1988
-  %2021 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %2021 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %2022 = load ptr, ptr %2021, align 8
   store ptr %2022, ptr %14, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
@@ -5408,7 +5408,7 @@ _ZNK4llvm12DIEValueList6valuesEv.exit:            ; preds = %3
   store i32 %2026, ptr %7, align 8
   %2027 = load i16, ptr %208, align 4
   store i16 %2027, ptr %8, align 4
-  %2028 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 14
+  %2028 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 14
   %2029 = load i16, ptr %2028, align 2
   store i16 %2029, ptr %9, align 2
   switch i32 %2026, label %_ZN4llvm8DIEValueaSERKS0_.exit [
@@ -5427,73 +5427,73 @@ _ZNK4llvm12DIEValueList6valuesEv.exit:            ; preds = %3
   ]
 
 2030:                                             ; preds = %2025
-  %2031 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %2031 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %.sroa.05.0.copyload.i.i446 = load i64, ptr %2031, align 8
   store i64 %.sroa.05.0.copyload.i.i446, ptr %10, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 2032:                                             ; preds = %2025
-  %2033 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %2033 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %.sroa.04.0.copyload.i.i445 = load i64, ptr %2033, align 8
   store i64 %.sroa.04.0.copyload.i.i445, ptr %10, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 2034:                                             ; preds = %2025
-  %2035 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %2035 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %.sroa.03.0.copyload.i.i444 = load ptr, ptr %2035, align 8
   store ptr %.sroa.03.0.copyload.i.i444, ptr %10, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 2036:                                             ; preds = %2025
-  %2037 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %2037 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %.sroa.02.0.copyload.i.i443 = load ptr, ptr %2037, align 8
   store ptr %.sroa.02.0.copyload.i.i443, ptr %10, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 2038:                                             ; preds = %2025
-  %2039 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %2039 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %2040 = load ptr, ptr %2039, align 8
   store ptr %2040, ptr %10, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 2041:                                             ; preds = %2025
-  %2042 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %2042 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %2043 = load ptr, ptr %2042, align 8
   store ptr %2043, ptr %10, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 2044:                                             ; preds = %2025
-  %2045 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %2045 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %.sroa.01.0.copyload.i.i442 = load ptr, ptr %2045, align 8
   store ptr %.sroa.01.0.copyload.i.i442, ptr %10, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 2046:                                             ; preds = %2025
-  %2047 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %2047 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %2048 = load ptr, ptr %2047, align 8
   store ptr %2048, ptr %10, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 2049:                                             ; preds = %2025
-  %2050 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %2050 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %2051 = load ptr, ptr %2050, align 8
   store ptr %2051, ptr %10, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 2052:                                             ; preds = %2025
-  %2053 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %2053 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %.sroa.0.0.copyload.i.i441 = load i64, ptr %2053, align 8
   store i64 %.sroa.0.0.copyload.i.i441, ptr %10, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 2054:                                             ; preds = %2025
-  %2055 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %2055 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %2056 = load ptr, ptr %2055, align 8
   store ptr %2056, ptr %10, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
 
 2057:                                             ; preds = %2025
-  %2058 = getelementptr inbounds i8, ptr %.sroa.0450.0455, i64 16
+  %2058 = getelementptr inbounds nuw i8, ptr %.sroa.0450.0455, i64 16
   %2059 = load ptr, ptr %2058, align 8
   store ptr %2059, ptr %10, align 8
   br label %_ZN4llvm8DIEValueaSERKS0_.exit
@@ -5643,13 +5643,13 @@ _ZNK4llvm12DIEValueList6valuesEv.exit.i:          ; preds = %15
 .lr.ph.i:                                         ; preds = %_ZNK4llvm12DIEValueList6valuesEv.exit.i, %select.unfold.i
   %.sroa.01.08.in.i = phi i64 [ %32, %select.unfold.i ], [ %17, %_ZNK4llvm12DIEValueList6valuesEv.exit.i ]
   %.sroa.01.08.i = inttoptr i64 %.sroa.01.08.in.i to ptr
-  %18 = getelementptr inbounds i8, ptr %.sroa.01.08.i, i64 12
+  %18 = getelementptr inbounds nuw i8, ptr %.sroa.01.08.i, i64 12
   %19 = load i16, ptr %18, align 4
   %20 = icmp eq i16 %19, 3
   br i1 %20, label %21, label %select.unfold.i
 
 21:                                               ; preds = %.lr.ph.i
-  %22 = getelementptr inbounds i8, ptr %.sroa.01.08.i, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %.sroa.01.08.i, i64 16
   %.0.copyload.i.i.i.i.i.i.i.i.i.i = load i64, ptr %22, align 8
   %23 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i, 4
   %24 = icmp eq i64 %23, 0
@@ -5691,7 +5691,7 @@ _ZL16getDIEStringAttrRKN4llvm3DIEEt.exit.thread:  ; preds = %select.unfold.i, %1
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 168
   store ptr %3, ptr %10, align 8
   %36 = load ptr, ptr %35, align 8
-  %37 = getelementptr inbounds i8, ptr %0, i64 184
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %38 = load i32, ptr %37, align 8
   %39 = icmp eq i32 %38, 0
   br i1 %39, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_3DIEEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E15LookupBucketForIS4_EEbRKT_RPS9_.exit.i.i, label %40
@@ -5819,7 +5819,7 @@ _ZN4llvm7DIEHash10addULEB128Em.exit:              ; preds = %_ZN4llvm12DenseMapB
 
 _ZN4llvm7DIEHash10addULEB128Em.exit32:            ; preds = %81
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5)
-  %85 = getelementptr inbounds i8, ptr %0, i64 176
+  %85 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %86 = load i32, ptr %85, align 8
   store i32 %86, ptr %68, align 4
   call void @_ZN4llvm7DIEHash11computeHashERKNS_3DIEE(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr noundef nonnull align 8 dereferenceable(48) %3)
@@ -5909,13 +5909,13 @@ _ZNK4llvm12DIEValueList6valuesEv.exit.i:          ; preds = %29
 .lr.ph.i:                                         ; preds = %_ZNK4llvm12DIEValueList6valuesEv.exit.i, %select.unfold.i
   %.sroa.01.08.in.i = phi i64 [ %46, %select.unfold.i ], [ %31, %_ZNK4llvm12DIEValueList6valuesEv.exit.i ]
   %.sroa.01.08.i = inttoptr i64 %.sroa.01.08.in.i to ptr
-  %32 = getelementptr inbounds i8, ptr %.sroa.01.08.i, i64 12
+  %32 = getelementptr inbounds nuw i8, ptr %.sroa.01.08.i, i64 12
   %33 = load i16, ptr %32, align 4
   %34 = icmp eq i16 %33, 3
   br i1 %34, label %35, label %select.unfold.i
 
 35:                                               ; preds = %.lr.ph.i
-  %36 = getelementptr inbounds i8, ptr %.sroa.01.08.i, i64 16
+  %36 = getelementptr inbounds nuw i8, ptr %.sroa.01.08.i, i64 16
   %.0.copyload.i.i.i.i.i.i.i.i.i.i = load i64, ptr %36, align 8
   %37 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i, 4
   %38 = icmp eq i64 %37, 0
@@ -6008,7 +6008,7 @@ define dso_local void @_ZN4llvm7DIEHash20hashRawTypeReferenceERKNS_3DIEE(ptr nou
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 168
   store ptr %1, ptr %6, align 8
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 184
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %10 = load i32, ptr %9, align 8
   %11 = icmp eq i32 %10, 0
   br i1 %11, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_3DIEEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E15LookupBucketForIS4_EEbRKT_RPS9_.exit.i.i, label %12
@@ -6098,7 +6098,7 @@ _ZN4llvm7DIEHash10addULEB128Em.exit10:            ; preds = %44
   br label %50
 
 _ZN4llvm7DIEHash10addULEB128Em.exit15:            ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_3DIEEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_EixEOS4_.exit
-  %48 = getelementptr inbounds i8, ptr %0, i64 176
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %49 = load i32, ptr %48, align 8
   store i32 %49, ptr %40, align 4
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3)
@@ -6138,7 +6138,7 @@ define dso_local void @_ZN4llvm7DIEHash13hashBlockDataERKNS_14iterator_rangeINS_
 13:                                               ; preds = %9
   %14 = load ptr, ptr %8, align 8
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 672
-  %16 = getelementptr inbounds i8, ptr %.sroa.013.018, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %.sroa.013.018, i64 16
   %17 = load ptr, ptr %16, align 8
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %19 = load i64, ptr %18, align 8
@@ -6159,13 +6159,13 @@ _ZNK4llvm12DIEValueList6valuesEv.exit.i:          ; preds = %13
 .lr.ph.i:                                         ; preds = %_ZNK4llvm12DIEValueList6valuesEv.exit.i, %select.unfold.i
   %.sroa.01.08.in.i = phi i64 [ %39, %select.unfold.i ], [ %24, %_ZNK4llvm12DIEValueList6valuesEv.exit.i ]
   %.sroa.01.08.i = inttoptr i64 %.sroa.01.08.in.i to ptr
-  %25 = getelementptr inbounds i8, ptr %.sroa.01.08.i, i64 12
+  %25 = getelementptr inbounds nuw i8, ptr %.sroa.01.08.i, i64 12
   %26 = load i16, ptr %25, align 4
   %27 = icmp eq i16 %26, 3
   br i1 %27, label %28, label %select.unfold.i
 
 28:                                               ; preds = %.lr.ph.i
-  %29 = getelementptr inbounds i8, ptr %.sroa.01.08.i, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %.sroa.01.08.i, i64 16
   %.0.copyload.i.i.i.i.i.i.i.i.i.i = load i64, ptr %29, align 8
   %30 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i, 4
   %31 = icmp eq i64 %30, 0
@@ -6233,7 +6233,7 @@ _ZN4llvm7DIEHash14hashNestedTypeERKNS_3DIEENS_9StringRefE.exit: ; preds = %43
   br label %51
 
 47:                                               ; preds = %9
-  %48 = getelementptr inbounds i8, ptr %.sroa.013.018, i64 16
+  %48 = getelementptr inbounds nuw i8, ptr %.sroa.013.018, i64 16
   %49 = load i64, ptr %48, align 8
   %50 = trunc i64 %49 to i8
   store i8 %50, ptr %6, align 1
@@ -6307,7 +6307,7 @@ define dso_local void @_ZN4llvm7DIEHash11hashLocListERKNS_10DIELocListE(ptr noun
   %11 = load ptr, ptr %9, align 8
   %12 = getelementptr inbounds %"struct.llvm::DebugLocStream::List", ptr %11, i64 %10
   %.idx = mul nsw i64 %10, 24
-  %13 = getelementptr inbounds i8, ptr %8, i64 1328
+  %13 = getelementptr inbounds nuw i8, ptr %8, i64 1328
   %14 = load ptr, ptr %13, align 8
   %15 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %13) #9
   %16 = load ptr, ptr %9, align 8
@@ -7405,10 +7405,10 @@ define dso_local noundef i64 @_ZN4llvm7DIEHash18computeCUSignatureENS_9StringRef
   %5 = alloca ptr, align 8
   %6 = alloca %"struct.llvm::MD5::MD5Result", align 1
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 168
-  %8 = getelementptr inbounds i8, ptr %0, i64 176
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %9 = load i32, ptr %8, align 8
   %10 = icmp eq i32 %9, 0
-  %11 = getelementptr inbounds i8, ptr %0, i64 180
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 180
   %12 = load i32, ptr %11, align 4
   %13 = icmp eq i32 %12, 0
   %or.cond = select i1 %10, i1 %13, i1 false
@@ -7416,7 +7416,7 @@ define dso_local noundef i64 @_ZN4llvm7DIEHash18computeCUSignatureENS_9StringRef
 
 14:                                               ; preds = %4
   %15 = shl i32 %9, 2
-  %16 = getelementptr inbounds i8, ptr %0, i64 184
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %17 = load i32, ptr %16, align 8
   %18 = icmp ult i32 %15, %17
   %19 = icmp ugt i32 %17, 64
@@ -7449,7 +7449,7 @@ define dso_local noundef i64 @_ZN4llvm7DIEHash18computeCUSignatureENS_9StringRef
 _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_3DIEEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E5clearEv.exit: ; preds = %4, %20, %._crit_edge.i
   store ptr %3, ptr %5, align 8
   %26 = load ptr, ptr %7, align 8
-  %27 = getelementptr inbounds i8, ptr %0, i64 184
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %28 = load i32, ptr %27, align 8
   %29 = icmp eq i32 %28, 0
   br i1 %29, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_3DIEEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E15LookupBucketForIS4_EEbRKT_RPS9_.exit.i.i, label %30
@@ -7532,10 +7532,10 @@ define dso_local noundef i64 @_ZN4llvm7DIEHash20computeTypeSignatureERKNS_3DIEE(
   %3 = alloca ptr, align 8
   %4 = alloca %"struct.llvm::MD5::MD5Result", align 1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 168
-  %6 = getelementptr inbounds i8, ptr %0, i64 176
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %7 = load i32, ptr %6, align 8
   %8 = icmp eq i32 %7, 0
-  %9 = getelementptr inbounds i8, ptr %0, i64 180
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 180
   %10 = load i32, ptr %9, align 4
   %11 = icmp eq i32 %10, 0
   %or.cond = select i1 %8, i1 %11, i1 false
@@ -7543,7 +7543,7 @@ define dso_local noundef i64 @_ZN4llvm7DIEHash20computeTypeSignatureERKNS_3DIEE(
 
 12:                                               ; preds = %2
   %13 = shl i32 %7, 2
-  %14 = getelementptr inbounds i8, ptr %0, i64 184
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %15 = load i32, ptr %14, align 8
   %16 = icmp ult i32 %13, %15
   %17 = icmp ugt i32 %15, 64
@@ -7576,7 +7576,7 @@ define dso_local noundef i64 @_ZN4llvm7DIEHash20computeTypeSignatureERKNS_3DIEE(
 _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_3DIEEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E5clearEv.exit: ; preds = %2, %18, %._crit_edge.i
   store ptr %1, ptr %3, align 8
   %24 = load ptr, ptr %5, align 8
-  %25 = getelementptr inbounds i8, ptr %0, i64 184
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %26 = load i32, ptr %25, align 8
   %27 = icmp eq i32 %26, 0
   br i1 %27, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_3DIEEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E15LookupBucketForIS4_EEbRKT_RPS9_.exit.i.i, label %28

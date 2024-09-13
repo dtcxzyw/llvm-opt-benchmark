@@ -1408,7 +1408,7 @@ _ZNK5clang4ento12ProgramState9getLValueENS_8QualTypeENS0_4SValES3_.exit: ; preds
   %376 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %377 = load i32, ptr %376, align 8
   store i32 %377, ptr %20, align 4
-  %378 = getelementptr inbounds i8, ptr %0, i64 544
+  %378 = getelementptr inbounds nuw i8, ptr %0, i64 544
   %379 = load ptr, ptr %378, align 8
   store ptr %10, ptr %21, align 8
   %380 = getelementptr inbounds nuw i8, ptr %21, i64 8
@@ -1870,7 +1870,7 @@ _ZN5clang4ento14ObjCMethodCallC2EPKNS_15ObjCMessageExprEN4llvm18IntrusiveRefCntP
   store ptr %.sroa.0.0.copyload9, ptr %17, align 8
   %.sroa.2.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %11, i64 40
   store i64 %.sroa.2.0.copyload10, ptr %.sroa.2.0..sroa_idx.i.i.i, align 8
-  %18 = getelementptr inbounds i8, ptr %11, i64 49
+  %18 = getelementptr inbounds nuw i8, ptr %11, i64 49
   store i8 0, ptr %18, align 1
   %19 = getelementptr inbounds nuw i8, ptr %11, i64 64
   store i32 0, ptr %19, align 4
@@ -3219,7 +3219,7 @@ _ZN4llvm15isa_and_nonnullIJN5clang12InitListExprEEPKNS1_4StmtEEEbRKT0_.exit.thre
 
 331:                                              ; preds = %_ZN4llvm15isa_and_nonnullIJN5clang12InitListExprEEPKNS1_4StmtEEEbRKT0_.exit.thread
   %332 = icmp eq i32 %319, 2
-  %333 = getelementptr inbounds i8, ptr %0, i64 392
+  %333 = getelementptr inbounds nuw i8, ptr %0, i64 392
   %334 = load ptr, ptr %333, align 8
   %335 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.0.0.copyload.i252 = load i64, ptr %335, align 8
@@ -3368,7 +3368,7 @@ _ZN5clang4ento15ExplodedNodeSetD2Ev.exit:         ; preds = %381, %385
 391:                                              ; preds = %_ZN5clang4ento15ExplodedNodeSetD2Ev.exit, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit248
   %.0 = phi ptr [ %.1, %_ZN5clang4ento15ExplodedNodeSetD2Ev.exit ], [ %2, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit248 ]
   %392 = call noundef ptr @_ZNK5clang4ento4SVal11getAsRegionEv(ptr noundef nonnull align 8 dereferenceable(9) %24) #14
-  %393 = getelementptr inbounds i8, ptr %0, i64 544
+  %393 = getelementptr inbounds nuw i8, ptr %0, i64 544
   %394 = load ptr, ptr %393, align 8
   %.not168.not = icmp eq ptr %spec.select.i.i180, null
   %.not.i.i274 = icmp eq ptr %.sroa.0.2, null
@@ -3840,7 +3840,7 @@ _ZN5clang4ento15ExplodedNodeSetD2Ev.exit308:      ; preds = %551, %560
   store ptr null, ptr %573, align 8
   %574 = getelementptr inbounds nuw i8, ptr %64, i64 24
   %575 = load ptr, ptr %574, align 8
-  %576 = getelementptr inbounds i8, ptr %575, i64 94
+  %576 = getelementptr inbounds nuw i8, ptr %575, i64 94
   %577 = load i8, ptr %576, align 2
   %578 = trunc i8 %577 to i1
   %.not.i.i309 = icmp eq ptr %392, null
@@ -4527,7 +4527,7 @@ _ZN5clang4ento11NodeBuilder12generateSinkERKNS_12ProgramPointEN4llvm18IntrusiveR
 
 123:                                              ; preds = %_ZN4llvm16dyn_cast_or_nullIN5clang4ExprEKNS1_4StmtEEEDaPT0_.exit, %80
   %.0 = phi ptr [ %2, %80 ], [ %89, %_ZN4llvm16dyn_cast_or_nullIN5clang4ExprEKNS1_4StmtEEEDaPT0_.exit ]
-  %124 = getelementptr inbounds i8, ptr %0, i64 544
+  %124 = getelementptr inbounds nuw i8, ptr %0, i64 544
   %125 = load ptr, ptr %124, align 8
   br i1 %.not.i.i, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit65, label %126
 
@@ -4794,7 +4794,7 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit: ; preds
   store i32 %.sroa.0.0.copyload.i.i, ptr %42, align 8
   %43 = getelementptr inbounds nuw i8, ptr %10, i64 32
   store ptr @.str.5, ptr %43, align 8
-  %44 = getelementptr inbounds i8, ptr %0, i64 544
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 544
   %45 = load ptr, ptr %44, align 8
   store ptr %28, ptr %12, align 8
   br i1 %.not.i.i, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit66, label %46
@@ -5270,7 +5270,7 @@ _ZN5clang4ento15AnyFunctionCallC2EPKNS_4ExprEN4llvm18IntrusiveRefCntPtrIKNS0_12P
   store ptr %.sroa.0.0.copyload9, ptr %17, align 8
   %.sroa.2.0..sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %11, i64 40
   store i64 %.sroa.2.0.copyload10, ptr %.sroa.2.0..sroa_idx.i.i.i.i, align 8
-  %18 = getelementptr inbounds i8, ptr %11, i64 49
+  %18 = getelementptr inbounds nuw i8, ptr %11, i64 49
   store i8 0, ptr %18, align 1
   %19 = getelementptr inbounds nuw i8, ptr %11, i64 64
   store i32 0, ptr %19, align 4
@@ -5475,7 +5475,7 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit139: ; preds 
 
 93:                                               ; preds = %.sink.split, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit139
   %.sroa.7.0.copyload = phi i8 [ %83, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit139 ], [ %.fca.1.extract68, %.sink.split ]
-  %94 = getelementptr inbounds i8, ptr %0, i64 544
+  %94 = getelementptr inbounds nuw i8, ptr %0, i64 544
   %95 = load ptr, ptr %94, align 8
   store ptr %.sroa.0224.0, ptr %28, align 8
   %.not.i.i140 = icmp eq ptr %.sroa.0224.0, null
@@ -6071,7 +6071,7 @@ define dso_local void @_ZN5clang4ento10ExprEngine18VisitCXXDeleteExprEPKNS_13CXX
   %11 = alloca %"class.clang::ento::ExplodedNodeSet", align 8
   %12 = alloca %"class.clang::ento::StmtNodeBuilder", align 8
   %13 = alloca %"struct.clang::ento::EvalCallOptions", align 1
-  %14 = getelementptr inbounds i8, ptr %0, i64 544
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 544
   %15 = load ptr, ptr %14, align 8
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %17 = load ptr, ptr %16, align 8
@@ -6329,7 +6329,7 @@ _ZN5clang4ento15AnyFunctionCallC2EPKNS_4ExprEN4llvm18IntrusiveRefCntPtrIKNS0_12P
   store ptr %.sroa.0.0.copyload9, ptr %17, align 8
   %.sroa.2.0..sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %11, i64 40
   store i64 %.sroa.2.0.copyload10, ptr %.sroa.2.0..sroa_idx.i.i.i.i, align 8
-  %18 = getelementptr inbounds i8, ptr %11, i64 49
+  %18 = getelementptr inbounds nuw i8, ptr %11, i64 49
   store i8 0, ptr %18, align 1
   %19 = getelementptr inbounds nuw i8, ptr %11, i64 64
   store i32 0, ptr %19, align 4
@@ -7409,7 +7409,7 @@ define linkonce_odr hidden noundef ptr @_ZNK5clang12RedeclarableINS_7TagDeclEE8D
 
 15:                                               ; preds = %10
   %16 = getelementptr inbounds nuw i8, ptr %12, i64 2144
-  %17 = getelementptr inbounds i8, ptr %12, i64 2224
+  %17 = getelementptr inbounds nuw i8, ptr %12, i64 2224
   %18 = load i64, ptr %17, align 8
   %19 = add i64 %18, 24
   store i64 %19, ptr %17, align 8
@@ -7418,7 +7418,7 @@ define linkonce_odr hidden noundef ptr @_ZNK5clang12RedeclarableINS_7TagDeclEE8D
   %22 = add i64 %21, 7
   %23 = and i64 %22, -8
   %24 = add i64 %23, 24
-  %25 = getelementptr inbounds i8, ptr %12, i64 2152
+  %25 = getelementptr inbounds nuw i8, ptr %12, i64 2152
   %26 = load ptr, ptr %25, align 8
   %27 = ptrtoint ptr %26 to i64
   %.not.i.i.i.i.i.i = icmp ugt i64 %24, %27
@@ -8251,7 +8251,7 @@ _ZN5clang4ento15AnyFunctionCallC2EPKNS_4ExprEN4llvm18IntrusiveRefCntPtrIKNS0_12P
   store ptr %.sroa.08.0.copyload12, ptr %15, align 8
   %.sroa.2.0..sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 40
   store i64 %.sroa.2.0.copyload14, ptr %.sroa.2.0..sroa_idx.i.i.i.i, align 8
-  %16 = getelementptr inbounds i8, ptr %7, i64 49
+  %16 = getelementptr inbounds nuw i8, ptr %7, i64 49
   store i8 0, ptr %16, align 1
   %17 = getelementptr inbounds nuw i8, ptr %7, i64 64
   store i32 0, ptr %17, align 4
@@ -8366,7 +8366,7 @@ _ZN5clang4ento18CXXConstructorCallC2ERKS1_.exit:  ; preds = %2, %6
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %13, ptr noundef nonnull align 8 dereferenceable(16) %14, i64 16, i1 false)
-  %15 = getelementptr inbounds i8, ptr %1, i64 49
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 49
   store i8 0, ptr %15, align 1
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -8569,7 +8569,7 @@ _ZN5clang4ento15AnyFunctionCallC2EPKNS_4ExprEN4llvm18IntrusiveRefCntPtrIKNS0_12P
   store ptr %.sroa.08.0.copyload12, ptr %15, align 8
   %.sroa.2.0..sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 40
   store i64 %.sroa.2.0.copyload14, ptr %.sroa.2.0..sroa_idx.i.i.i.i, align 8
-  %16 = getelementptr inbounds i8, ptr %7, i64 49
+  %16 = getelementptr inbounds nuw i8, ptr %7, i64 49
   store i8 0, ptr %16, align 1
   %17 = getelementptr inbounds nuw i8, ptr %7, i64 64
   store i32 0, ptr %17, align 4
@@ -8624,7 +8624,7 @@ _ZN5clang4ento27CXXInheritedConstructorCallC2ERKS1_.exit: ; preds = %2, %6
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %13, ptr noundef nonnull align 8 dereferenceable(16) %14, i64 16, i1 false)
-  %15 = getelementptr inbounds i8, ptr %1, i64 49
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 49
   store i8 0, ptr %15, align 1
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -8950,7 +8950,7 @@ _ZN5clang4ento15AnyFunctionCallC2EPKNS_4DeclEN4llvm18IntrusiveRefCntPtrIKNS0_12P
   store ptr %.sroa.09.0.copyload13, ptr %17, align 8
   %.sroa.2.0..sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %9, i64 40
   store i64 %.sroa.2.0.copyload15, ptr %.sroa.2.0..sroa_idx.i.i.i.i, align 8
-  %18 = getelementptr inbounds i8, ptr %9, i64 49
+  %18 = getelementptr inbounds nuw i8, ptr %9, i64 49
   store i8 0, ptr %18, align 1
   %19 = getelementptr inbounds nuw i8, ptr %9, i64 64
   store i32 0, ptr %19, align 4
@@ -9024,7 +9024,7 @@ _ZN5clang4ento16CXXAllocatorCallC2ERKS1_.exit:    ; preds = %2, %6
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %13, ptr noundef nonnull align 8 dereferenceable(16) %14, i64 16, i1 false)
-  %15 = getelementptr inbounds i8, ptr %1, i64 49
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 49
   store i8 0, ptr %15, align 1
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -9213,7 +9213,7 @@ _ZN5clang4ento18CXXDeallocatorCallC2ERKS1_.exit:  ; preds = %2, %6
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %13, ptr noundef nonnull align 8 dereferenceable(16) %14, i64 16, i1 false)
-  %15 = getelementptr inbounds i8, ptr %1, i64 49
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 49
   store i8 0, ptr %15, align 1
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 56

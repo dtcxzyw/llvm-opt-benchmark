@@ -161,7 +161,7 @@ _ZN4llvm15unique_functionIFvvEED2Ev.exit.i.i:     ; preds = %34, %33, %.lr.ph.i.
   br i1 %.not.i.i8, label %_ZN4llvm15SmallVectorImplINS_15unique_functionIFvvEEEE5clearEv.exit, label %.lr.ph.i.i, !llvm.loop !10
 
 _ZN4llvm15SmallVectorImplINS_15unique_functionIFvvEEEE5clearEv.exit: ; preds = %_ZN4llvm15unique_functionIFvvEED2Ev.exit.i.i, %._crit_edge
-  %40 = getelementptr inbounds i8, ptr %0, i64 1304
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 1304
   store i32 0, ptr %40, align 8
   br label %41
 

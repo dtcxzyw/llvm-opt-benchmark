@@ -236,7 +236,7 @@ _ZNK4llvm4Pass11getAnalysisINS_28MachineModuleInfoWrapperPassEEERT_v.exit: ; pre
   %18 = load ptr, ptr %17, align 8
   %19 = tail call noundef nonnull align 8 dereferenceable(2544) ptr %18(ptr noundef nonnull align 8 dereferenceable(28) %15, ptr noundef nonnull @_ZN4llvm28MachineModuleInfoWrapperPass2IDE) #14
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 32
-  %21 = getelementptr inbounds i8, ptr %1, i64 32
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %22 = load ptr, ptr %21, align 8
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %24 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -465,7 +465,7 @@ define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFbRN4llvm9DIBuilder
   %31 = load ptr, ptr %30, align 8
   %32 = getelementptr inbounds nuw i8, ptr %28, i64 16
   %33 = load i32, ptr %32, align 8
-  %34 = getelementptr inbounds i8, ptr %20, i64 328
+  %34 = getelementptr inbounds nuw i8, ptr %20, i64 328
   %35 = getelementptr inbounds nuw i8, ptr %20, i64 320
   %.sroa.075.0144.i.i.i.i = load ptr, ptr %34, align 8
   %.not94145.i.i.i.i = icmp eq ptr %.sroa.075.0144.i.i.i.i, %35
@@ -731,7 +731,7 @@ _ZN4llvm8dyn_castINS_12DbgValueInstENS_4UserEEEDcPT0_.exit.thread.i.i.i.i: ; pre
 .loopexit106.i.i.i.i:                             ; preds = %_ZN4llvm8dyn_castINS_12DbgValueInstENS_4UserEEEDcPT0_.exit.thread.i.i.i.i, %62, %._crit_edge150.i.i.i.i
   %.0119.i.i.i.i = phi ptr [ null, %._crit_edge150.i.i.i.i ], [ null, %62 ], [ %.2121.i.i.i.i, %_ZN4llvm8dyn_castINS_12DbgValueInstENS_4UserEEEDcPT0_.exit.thread.i.i.i.i ]
   %.0113.i.i.i.i = phi ptr [ null, %._crit_edge150.i.i.i.i ], [ null, %62 ], [ %.2.i.i.i.i, %_ZN4llvm8dyn_castINS_12DbgValueInstENS_4UserEEEDcPT0_.exit.thread.i.i.i.i ]
-  %145 = getelementptr inbounds i8, ptr %2, i64 80
+  %145 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %146 = getelementptr inbounds nuw i8, ptr %2, i64 72
   %.sroa.060.0180.i.i.i.i = load ptr, ptr %145, align 8
   %.not96181.i.i.i.i = icmp eq ptr %.sroa.060.0180.i.i.i.i, %146
@@ -750,7 +750,7 @@ _ZN4llvm8dyn_castINS_12DbgValueInstENS_4UserEEEDcPT0_.exit.thread.i.i.i.i: ; pre
   %151 = icmp eq ptr %.sroa.060.0184.i.i.i.i, null
   %152 = getelementptr inbounds i8, ptr %.sroa.060.0184.i.i.i.i, i64 -24
   %153 = select i1 %151, ptr null, ptr %152
-  %154 = getelementptr inbounds i8, ptr %153, i64 56
+  %154 = getelementptr inbounds nuw i8, ptr %153, i64 56
   %155 = getelementptr inbounds nuw i8, ptr %153, i64 48
   %.sroa.054.0170.i.i.i.i = load ptr, ptr %154, align 8
   %.not101171.i.i.i.i = icmp eq ptr %.sroa.054.0170.i.i.i.i, %155
@@ -1840,7 +1840,7 @@ _ZN4llvm11SmallVectorIPNS_14MachineOperandELj4EED2Ev.exit.i.i.i.i: ; preds = %60
   %642 = getelementptr inbounds nuw i8, ptr %641, i64 128
   %643 = load ptr, ptr %642, align 8
   %644 = getelementptr inbounds nuw i8, ptr %643, i64 24
-  %645 = getelementptr inbounds i8, ptr %643, i64 32
+  %645 = getelementptr inbounds nuw i8, ptr %643, i64 32
   %646 = load i32, ptr %645, align 8
   %647 = icmp ult i32 %646, 65
   %648 = load ptr, ptr %644, align 8

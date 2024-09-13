@@ -303,23 +303,23 @@ define dso_local void @_ZN5clang19EmitClangTypeReaderERN4llvm12RecordKeeperERNS0
   store i8 1, ptr %3, align 8, !alias.scope !4
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr @.str.18, ptr %5, align 8, !alias.scope !4
-  %6 = getelementptr inbounds i8, ptr %3, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i64 4, ptr %6, align 8, !alias.scope !4
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store ptr @.str.176, ptr %7, align 8, !alias.scope !4
-  %8 = getelementptr inbounds i8, ptr %3, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store i64 6, ptr %8, align 8, !alias.scope !4
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 40
   store ptr @.str.126, ptr %9, align 8, !alias.scope !4
-  %10 = getelementptr inbounds i8, ptr %3, i64 48
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 48
   store i64 4, ptr %10, align 8, !alias.scope !4
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 56
   store ptr @.str.177, ptr %11, align 8, !alias.scope !4
-  %12 = getelementptr inbounds i8, ptr %3, i64 64
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 64
   store i64 1, ptr %12, align 8, !alias.scope !4
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 72
   store ptr @.str.178, ptr %13, align 8, !alias.scope !4
-  %14 = getelementptr inbounds i8, ptr %3, i64 80
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 80
   store i64 8, ptr %14, align 8, !alias.scope !4
   call fastcc void @_ZN12_GLOBAL__N_115ASTPropsEmitter25emitNodeReaderWriterClassIN5clang6tblgen8TypeNodeEEEvRKNS_16ReaderWriterInfoE(ptr noundef nonnull align 8 dereferenceable(136) %4, ptr noundef nonnull align 8 dereferenceable(88) %3)
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %3)
@@ -332,7 +332,7 @@ define dso_local void @_ZN5clang19EmitClangTypeReaderERN4llvm12RecordKeeperERNS0
   br i1 %.not.i.i.i.i.i, label %_ZL13emitASTReaderIN5clang6tblgen8TypeNodeEEvRN4llvm12RecordKeeperERNS3_11raw_ostreamENS3_9StringRefE.exit, label %18
 
 18:                                               ; preds = %2
-  %19 = getelementptr inbounds i8, ptr %4, i64 80
+  %19 = getelementptr inbounds nuw i8, ptr %4, i64 80
   %20 = load ptr, ptr %19, align 8
   %21 = ptrtoint ptr %20 to i64
   %22 = ptrtoint ptr %17 to i64
@@ -359,23 +359,23 @@ define dso_local void @_ZN5clang19EmitClangTypeWriterERN4llvm12RecordKeeperERNS0
   store i8 0, ptr %3, align 8, !alias.scope !7
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr @.str.18, ptr %5, align 8, !alias.scope !7
-  %6 = getelementptr inbounds i8, ptr %3, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i64 4, ptr %6, align 8, !alias.scope !7
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store ptr @.str.179, ptr %7, align 8, !alias.scope !7
-  %8 = getelementptr inbounds i8, ptr %3, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store i64 6, ptr %8, align 8, !alias.scope !7
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 40
   store ptr @.str.180, ptr %9, align 8, !alias.scope !7
-  %10 = getelementptr inbounds i8, ptr %3, i64 48
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 48
   store i64 5, ptr %10, align 8, !alias.scope !7
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 56
   store ptr @.str.181, ptr %11, align 8, !alias.scope !7
-  %12 = getelementptr inbounds i8, ptr %3, i64 64
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 64
   store i64 1, ptr %12, align 8, !alias.scope !7
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 72
   store ptr @.str.54, ptr %13, align 8, !alias.scope !7
-  %14 = getelementptr inbounds i8, ptr %3, i64 80
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 80
   store i64 4, ptr %14, align 8, !alias.scope !7
   call fastcc void @_ZN12_GLOBAL__N_115ASTPropsEmitter25emitNodeReaderWriterClassIN5clang6tblgen8TypeNodeEEEvRKNS_16ReaderWriterInfoE(ptr noundef nonnull align 8 dereferenceable(136) %4, ptr noundef nonnull align 8 dereferenceable(88) %3)
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %3)
@@ -388,7 +388,7 @@ define dso_local void @_ZN5clang19EmitClangTypeWriterERN4llvm12RecordKeeperERNS0
   br i1 %.not.i.i.i.i.i, label %_ZL13emitASTWriterIN5clang6tblgen8TypeNodeEEvRN4llvm12RecordKeeperERNS3_11raw_ostreamENS3_9StringRefE.exit, label %18
 
 18:                                               ; preds = %2
-  %19 = getelementptr inbounds i8, ptr %4, i64 80
+  %19 = getelementptr inbounds nuw i8, ptr %4, i64 80
   %20 = load ptr, ptr %19, align 8
   %21 = ptrtoint ptr %20 to i64
   %22 = ptrtoint ptr %17 to i64
@@ -412,23 +412,23 @@ define dso_local void @_ZN5clang20EmitClangBasicReaderERN4llvm12RecordKeeperERNS
   store i8 1, ptr %3, align 8, !alias.scope !10
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr @.str.18, ptr %5, align 8, !alias.scope !10
-  %6 = getelementptr inbounds i8, ptr %3, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i64 4, ptr %6, align 8, !alias.scope !10
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store ptr @.str.176, ptr %7, align 8, !alias.scope !10
-  %8 = getelementptr inbounds i8, ptr %3, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store i64 6, ptr %8, align 8, !alias.scope !10
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 40
   store ptr @.str.126, ptr %9, align 8, !alias.scope !10
-  %10 = getelementptr inbounds i8, ptr %3, i64 48
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 48
   store i64 4, ptr %10, align 8, !alias.scope !10
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 56
   store ptr @.str.177, ptr %11, align 8, !alias.scope !10
-  %12 = getelementptr inbounds i8, ptr %3, i64 64
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 64
   store i64 1, ptr %12, align 8, !alias.scope !10
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 72
   store ptr @.str.178, ptr %13, align 8, !alias.scope !10
-  %14 = getelementptr inbounds i8, ptr %3, i64 80
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 80
   store i64 8, ptr %14, align 8, !alias.scope !10
   call fastcc void @_ZN12_GLOBAL__N_115ASTPropsEmitterC2ERN4llvm12RecordKeeperERNS1_11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(136) %4, ptr noundef nonnull align 8 dereferenceable(232) %0, ptr noundef nonnull align 8 dereferenceable(48) %1)
   call fastcc void @_ZN12_GLOBAL__N_115ASTPropsEmitter25emitBasicReaderWriterFileERKNS_16ReaderWriterInfoE(ptr noundef nonnull align 8 dereferenceable(136) %4, ptr noundef nonnull align 8 dereferenceable(88) %3)
@@ -441,7 +441,7 @@ define dso_local void @_ZN5clang20EmitClangBasicReaderERN4llvm12RecordKeeperERNS
   br i1 %.not.i.i.i.i, label %_ZN12_GLOBAL__N_115ASTPropsEmitterD2Ev.exit, label %18
 
 18:                                               ; preds = %2
-  %19 = getelementptr inbounds i8, ptr %4, i64 80
+  %19 = getelementptr inbounds nuw i8, ptr %4, i64 80
   %20 = load ptr, ptr %19, align 8
   %21 = ptrtoint ptr %20 to i64
   %22 = ptrtoint ptr %17 to i64
@@ -697,7 +697,7 @@ _ZNSt6vectorIPN4llvm6RecordESaIS2_EED2Ev.exit39:  ; preds = %._crit_edge212, %10
   store ptr @.str.6, ptr %14, align 8, !alias.scope !20
   %127 = getelementptr inbounds nuw i8, ptr %14, i64 16
   store ptr %123, ptr %127, align 8, !alias.scope !20
-  %128 = getelementptr inbounds i8, ptr %14, i64 24
+  %128 = getelementptr inbounds nuw i8, ptr %14, i64 24
   store i64 %124, ptr %128, align 8, !alias.scope !20
   %129 = getelementptr inbounds nuw i8, ptr %15, i64 32
   %130 = getelementptr inbounds nuw i8, ptr %15, i64 33
@@ -767,7 +767,7 @@ _ZNSt6vectorIPN4llvm6RecordESaIS2_EED2Ev.exit41:  ; preds = %._crit_edge216, %13
   store ptr @.str.9, ptr %20, align 8, !alias.scope !23
   %158 = getelementptr inbounds nuw i8, ptr %20, i64 16
   store ptr %154, ptr %158, align 8, !alias.scope !23
-  %159 = getelementptr inbounds i8, ptr %20, i64 24
+  %159 = getelementptr inbounds nuw i8, ptr %20, i64 24
   store i64 %155, ptr %159, align 8, !alias.scope !23
   %160 = getelementptr inbounds nuw i8, ptr %21, i64 32
   %161 = getelementptr inbounds nuw i8, ptr %21, i64 33
@@ -812,8 +812,8 @@ _ZNSt6vectorIPN4llvm6RecordESaIS2_EED2Ev.exit43:  ; preds = %._crit_edge220, %16
   br i1 %.not198221, label %._crit_edge224, label %.lr.ph223
 
 .lr.ph223:                                        ; preds = %_ZNSt6vectorIPN4llvm6RecordESaIS2_EED2Ev.exit43
-  %175 = getelementptr inbounds i8, ptr %0, i64 72
-  %176 = getelementptr inbounds i8, ptr %0, i64 80
+  %175 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %176 = getelementptr inbounds nuw i8, ptr %0, i64 80
   br label %208
 
 .lr.ph219:                                        ; preds = %_ZNSt6vectorIPN4llvm6RecordESaIS2_EED2Ev.exit41, %195
@@ -842,7 +842,7 @@ _ZNSt6vectorIPN4llvm6RecordESaIS2_EED2Ev.exit43:  ; preds = %._crit_edge220, %16
   store ptr @.str.11, ptr %26, align 8, !alias.scope !26
   %191 = getelementptr inbounds nuw i8, ptr %26, i64 16
   store ptr %187, ptr %191, align 8, !alias.scope !26
-  %192 = getelementptr inbounds i8, ptr %26, i64 24
+  %192 = getelementptr inbounds nuw i8, ptr %26, i64 24
   store i64 %188, ptr %192, align 8, !alias.scope !26
   %193 = getelementptr inbounds nuw i8, ptr %27, i64 32
   %194 = getelementptr inbounds nuw i8, ptr %27, i64 33
@@ -1095,7 +1095,7 @@ _ZNKSt4lessIN5clang6tblgen12PropertyTypeEEclERKS2_S5_.exit.i: ; preds = %_ZN4llv
   %280 = call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #18
   %281 = getelementptr inbounds nuw i8, ptr %280, i64 32
   store i64 %257, ptr %281, align 8
-  %282 = getelementptr inbounds i8, ptr %280, i64 40
+  %282 = getelementptr inbounds nuw i8, ptr %280, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %282, i8 0, i64 32, i1 false)
   %283 = call fastcc { ptr, ptr } @_ZNSt8_Rb_treeIN5clang6tblgen12PropertyTypeESt4pairIKS2_N12_GLOBAL__N_113CasedTypeInfoEESt10_Select1stIS7_ESt4lessIS2_ESaIS7_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS7_ERS4_(ptr noundef nonnull align 8 dereferenceable(48) %45, ptr %.08.lcssa.i.i.i26.i, ptr %256)
   %284 = extractvalue { ptr, ptr } %283, 0
@@ -1153,7 +1153,7 @@ _ZNSt8_Rb_treeIN5clang6tblgen12PropertyTypeESt4pairIKS2_N12_GLOBAL__N_113CasedTy
 
 _ZNSt3mapIN5clang6tblgen12PropertyTypeEN12_GLOBAL__N_113CasedTypeInfoESt4lessIS2_ESaISt4pairIKS2_S4_EEEixERS8_.exit: ; preds = %278, %_ZNKSt4lessIN5clang6tblgen12PropertyTypeEEclERKS2_S5_.exit.i, %.thread.i.i, %_ZNSt8_Rb_treeIN5clang6tblgen12PropertyTypeESt4pairIKS2_N12_GLOBAL__N_113CasedTypeInfoEESt10_Select1stIS7_ESt4lessIS2_ESaIS7_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS7_E.exit.i.i.i
   %.sroa.024.0.i = phi ptr [ %.19.i.i.i.i, %_ZNKSt4lessIN5clang6tblgen12PropertyTypeEEclERKS2_S5_.exit.i ], [ %.19.i.i.i.i, %278 ], [ %280, %.thread.i.i ], [ %284, %_ZNSt8_Rb_treeIN5clang6tblgen12PropertyTypeESt4pairIKS2_N12_GLOBAL__N_113CasedTypeInfoEESt10_Select1stIS7_ESt4lessIS2_ESaIS7_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS7_E.exit.i.i.i ]
-  %301 = getelementptr inbounds i8, ptr %.sroa.024.0.i, i64 40
+  %301 = getelementptr inbounds nuw i8, ptr %.sroa.024.0.i, i64 40
   %302 = load ptr, ptr %301, align 8
   %.not201 = icmp eq ptr %302, null
   br i1 %.not201, label %316, label %303
@@ -1172,7 +1172,7 @@ _ZNSt3mapIN5clang6tblgen12PropertyTypeEN12_GLOBAL__N_113CasedTypeInfoESt4lessIS2
   store ptr @.str.14, ptr %33, align 8, !alias.scope !36
   %312 = getelementptr inbounds nuw i8, ptr %33, i64 16
   store ptr %308, ptr %312, align 8, !alias.scope !36
-  %313 = getelementptr inbounds i8, ptr %33, i64 24
+  %313 = getelementptr inbounds nuw i8, ptr %33, i64 24
   store i64 %309, ptr %313, align 8, !alias.scope !36
   %314 = getelementptr inbounds nuw i8, ptr %34, i64 32
   %315 = getelementptr inbounds nuw i8, ptr %34, i64 33
@@ -1251,7 +1251,7 @@ _ZNSt6vectorIPN4llvm6RecordESaIS2_EED2Ev.exit50:  ; preds = %._crit_edge232, %32
   br i1 %343, label %344, label %_ZN12_GLOBAL__N_115ASTPropsEmitter9Validator12validateNodeEN5clang6tblgen13HasPropertiesERKNS_8NodeInfoE.exit.i
 
 344:                                              ; preds = %340
-  %345 = getelementptr inbounds i8, ptr %.sroa.08.011.i, i64 40
+  %345 = getelementptr inbounds nuw i8, ptr %.sroa.08.011.i, i64 40
   store i32 0, ptr %332, align 8
   store ptr null, ptr %333, align 8
   store ptr %332, ptr %334, align 8
@@ -1386,7 +1386,7 @@ _ZNKSt4lessIN5clang6tblgen12PropertyTypeEEclERKS2_S5_.exit.i104: ; preds = %_ZN4
   %380 = call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #18
   %381 = getelementptr inbounds nuw i8, ptr %380, i64 32
   store i64 %357, ptr %381, align 8
-  %382 = getelementptr inbounds i8, ptr %380, i64 40
+  %382 = getelementptr inbounds nuw i8, ptr %380, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %382, i8 0, i64 32, i1 false)
   %383 = call fastcc { ptr, ptr } @_ZNSt8_Rb_treeIN5clang6tblgen12PropertyTypeESt4pairIKS2_N12_GLOBAL__N_113CasedTypeInfoEESt10_Select1stIS7_ESt4lessIS2_ESaIS7_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS7_ERS4_(ptr noundef nonnull align 8 dereferenceable(48) %45, ptr %.08.lcssa.i.i.i26.i86, ptr %356)
   %384 = extractvalue { ptr, ptr } %383, 0
@@ -1444,10 +1444,10 @@ _ZNSt8_Rb_treeIN5clang6tblgen12PropertyTypeESt4pairIKS2_N12_GLOBAL__N_113CasedTy
 
 _ZNSt3mapIN5clang6tblgen12PropertyTypeEN12_GLOBAL__N_113CasedTypeInfoESt4lessIS2_ESaISt4pairIKS2_S4_EEEixEOS2_.exit: ; preds = %378, %_ZNKSt4lessIN5clang6tblgen12PropertyTypeEEclERKS2_S5_.exit.i104, %.thread.i.i101, %_ZNSt8_Rb_treeIN5clang6tblgen12PropertyTypeESt4pairIKS2_N12_GLOBAL__N_113CasedTypeInfoEESt10_Select1stIS7_ESt4lessIS2_ESaIS7_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS7_E.exit.i.i.i103
   %.sroa.024.0.i84 = phi ptr [ %.19.i.i.i.i71, %_ZNKSt4lessIN5clang6tblgen12PropertyTypeEEclERKS2_S5_.exit.i104 ], [ %.19.i.i.i.i71, %378 ], [ %380, %.thread.i.i101 ], [ %384, %_ZNSt8_Rb_treeIN5clang6tblgen12PropertyTypeESt4pairIKS2_N12_GLOBAL__N_113CasedTypeInfoEESt10_Select1stIS7_ESt4lessIS2_ESaIS7_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS7_E.exit.i.i.i103 ]
-  %401 = getelementptr inbounds i8, ptr %.sroa.024.0.i84, i64 48
-  %402 = getelementptr inbounds i8, ptr %.sroa.024.0.i84, i64 56
+  %401 = getelementptr inbounds nuw i8, ptr %.sroa.024.0.i84, i64 48
+  %402 = getelementptr inbounds nuw i8, ptr %.sroa.024.0.i84, i64 56
   %403 = load ptr, ptr %402, align 8
-  %404 = getelementptr inbounds i8, ptr %.sroa.024.0.i84, i64 64
+  %404 = getelementptr inbounds nuw i8, ptr %.sroa.024.0.i84, i64 64
   %405 = load ptr, ptr %404, align 8
   %.not.i106 = icmp eq ptr %403, %405
   br i1 %.not.i106, label %410, label %406
@@ -1652,7 +1652,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit12.i:             ; preds = %68, %66
   store ptr %21, ptr %73, align 8
   %74 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %75 = load ptr, ptr %74, align 8
-  %76 = getelementptr inbounds i8, ptr %0, i64 72
+  %76 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %77 = load ptr, ptr %76, align 8
   %.not44.i = icmp eq ptr %75, %77
   br i1 %.not44.i, label %._crit_edge.i, label %.lr.ph.i
@@ -1664,7 +1664,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit12.i:             ; preds = %68, %66
   %81 = getelementptr inbounds nuw i8, ptr %24, i64 32
   %82 = getelementptr inbounds nuw i8, ptr %24, i64 33
   %83 = getelementptr inbounds nuw i8, ptr %24, i64 16
-  %84 = getelementptr inbounds i8, ptr %24, i64 24
+  %84 = getelementptr inbounds nuw i8, ptr %24, i64 24
   br label %85
 
 85:                                               ; preds = %103, %.lr.ph.i
@@ -1861,7 +1861,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit14.i:             ; preds = %163, %161
   %175 = getelementptr inbounds nuw i8, ptr %20, i64 32
   %176 = getelementptr inbounds nuw i8, ptr %20, i64 33
   %177 = getelementptr inbounds nuw i8, ptr %20, i64 16
-  %178 = getelementptr inbounds i8, ptr %20, i64 24
+  %178 = getelementptr inbounds nuw i8, ptr %20, i64 24
   br label %179
 
 179:                                              ; preds = %199, %.lr.ph.i8
@@ -2243,7 +2243,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit52.i:             ; preds = %360, %358
   %370 = getelementptr inbounds nuw i8, ptr %11, i64 32
   %371 = getelementptr inbounds nuw i8, ptr %11, i64 33
   %372 = getelementptr inbounds nuw i8, ptr %11, i64 16
-  %373 = getelementptr inbounds i8, ptr %11, i64 24
+  %373 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %374 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %.sroa.219.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %1, i64 48
   %375 = getelementptr inbounds nuw i8, ptr %12, i64 56
@@ -2340,7 +2340,7 @@ _ZNKSt4lessIN5clang6tblgen12PropertyTypeEEclERKS2_S5_.exit.i.i.i: ; preds = %_ZN
 399:                                              ; preds = %_ZNKSt4lessIN5clang6tblgen12PropertyTypeEEclERKS2_S5_.exit.i.i.i, %398
   call fastcc void @"_ZZN12_GLOBAL__N_115ASTPropsEmitter29emitBasicReaderWriterTemplateERKNS_16ReaderWriterInfoEENK3$_0clEN4llvm9StringRefE"(ptr noundef nonnull align 8 dereferenceable(16) %15, ptr nonnull @.str.84, i64 4)
   %.sroa.07.0.copyload.i = load ptr, ptr %14, align 8
-  %400 = getelementptr inbounds i8, ptr %.19.i.i.i.i, i64 40
+  %400 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i, i64 40
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5)
@@ -2352,9 +2352,9 @@ _ZNKSt4lessIN5clang6tblgen12PropertyTypeEEclERKS2_S5_.exit.i.i.i: ; preds = %_ZN
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %11)
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %12)
   store ptr %.sroa.07.0.copyload.i, ptr %3, align 8
-  %401 = getelementptr inbounds i8, ptr %.19.i.i.i.i, i64 48
+  %401 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i, i64 48
   %402 = load ptr, ptr %401, align 8
-  %403 = getelementptr inbounds i8, ptr %.19.i.i.i.i, i64 56
+  %403 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i, i64 56
   %404 = load ptr, ptr %403, align 8
   %405 = icmp eq ptr %402, %404
   br i1 %405, label %406, label %419
@@ -2373,7 +2373,7 @@ _ZNKSt4lessIN5clang6tblgen12PropertyTypeEEclERKS2_S5_.exit.i.i.i: ; preds = %_ZN
   store ptr @.str.98, ptr %5, align 8, !alias.scope !51
   %415 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %411, ptr %415, align 8, !alias.scope !51
-  %416 = getelementptr inbounds i8, ptr %5, i64 24
+  %416 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store i64 %412, ptr %416, align 8, !alias.scope !51
   %417 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %418 = getelementptr inbounds nuw i8, ptr %6, i64 33
@@ -2403,7 +2403,7 @@ _ZNKSt4lessIN5clang6tblgen12PropertyTypeEEclERKS2_S5_.exit.i.i.i: ; preds = %_ZN
   store ptr @.str.99, ptr %8, align 8, !alias.scope !54
   %430 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store ptr %426, ptr %430, align 8, !alias.scope !54
-  %431 = getelementptr inbounds i8, ptr %8, i64 24
+  %431 = getelementptr inbounds nuw i8, ptr %8, i64 24
   store i64 %427, ptr %431, align 8, !alias.scope !54
   %432 = getelementptr inbounds nuw i8, ptr %9, i64 32
   %433 = getelementptr inbounds nuw i8, ptr %9, i64 33
@@ -3395,23 +3395,23 @@ define dso_local void @_ZN5clang20EmitClangBasicWriterERN4llvm12RecordKeeperERNS
   store i8 0, ptr %3, align 8, !alias.scope !60
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr @.str.18, ptr %5, align 8, !alias.scope !60
-  %6 = getelementptr inbounds i8, ptr %3, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i64 4, ptr %6, align 8, !alias.scope !60
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store ptr @.str.179, ptr %7, align 8, !alias.scope !60
-  %8 = getelementptr inbounds i8, ptr %3, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store i64 6, ptr %8, align 8, !alias.scope !60
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 40
   store ptr @.str.180, ptr %9, align 8, !alias.scope !60
-  %10 = getelementptr inbounds i8, ptr %3, i64 48
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 48
   store i64 5, ptr %10, align 8, !alias.scope !60
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 56
   store ptr @.str.181, ptr %11, align 8, !alias.scope !60
-  %12 = getelementptr inbounds i8, ptr %3, i64 64
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 64
   store i64 1, ptr %12, align 8, !alias.scope !60
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 72
   store ptr @.str.54, ptr %13, align 8, !alias.scope !60
-  %14 = getelementptr inbounds i8, ptr %3, i64 80
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 80
   store i64 4, ptr %14, align 8, !alias.scope !60
   call fastcc void @_ZN12_GLOBAL__N_115ASTPropsEmitterC2ERN4llvm12RecordKeeperERNS1_11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(136) %4, ptr noundef nonnull align 8 dereferenceable(232) %0, ptr noundef nonnull align 8 dereferenceable(48) %1)
   call fastcc void @_ZN12_GLOBAL__N_115ASTPropsEmitter25emitBasicReaderWriterFileERKNS_16ReaderWriterInfoE(ptr noundef nonnull align 8 dereferenceable(136) %4, ptr noundef nonnull align 8 dereferenceable(88) %3)
@@ -3424,7 +3424,7 @@ define dso_local void @_ZN5clang20EmitClangBasicWriterERN4llvm12RecordKeeperERNS
   br i1 %.not.i.i.i.i, label %_ZN12_GLOBAL__N_115ASTPropsEmitterD2Ev.exit, label %18
 
 18:                                               ; preds = %2
-  %19 = getelementptr inbounds i8, ptr %4, i64 80
+  %19 = getelementptr inbounds nuw i8, ptr %4, i64 80
   %20 = load ptr, ptr %19, align 8
   %21 = ptrtoint ptr %20 to i64
   %22 = ptrtoint ptr %17 to i64
@@ -3784,7 +3784,7 @@ _ZNSt8_Rb_treeIN5clang6tblgen13HasPropertiesESt4pairIKS2_N12_GLOBAL__N_18NodeInf
 
 _ZNSt8_Rb_treeIN5clang6tblgen13HasPropertiesESt4pairIKS2_N12_GLOBAL__N_18NodeInfoEESt10_Select1stIS7_ESt4lessIS2_ESaIS7_EE22_M_emplace_hint_uniqueIJRKSt21piecewise_construct_tSt5tupleIJRS4_EESI_IJEEEEESt17_Rb_tree_iteratorIS7_ESt23_Rb_tree_const_iteratorIS7_EDpOT_.exit: ; preds = %_ZNSt8_Rb_treeIN5clang6tblgen13HasPropertiesESt4pairIKS2_N12_GLOBAL__N_18NodeInfoEESt10_Select1stIS7_ESt4lessIS2_ESaIS7_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS7_E.exit.i.i, %117, %26, %_ZNKSt4lessIN5clang6tblgen13HasPropertiesEEclERKS2_S5_.exit
   %.sroa.024.0 = phi ptr [ %.19.i.i.i, %_ZNKSt4lessIN5clang6tblgen13HasPropertiesEEclERKS2_S5_.exit ], [ %.19.i.i.i, %26 ], [ %29, %117 ], [ %.sroa.01.0.ph.i, %_ZNSt8_Rb_treeIN5clang6tblgen13HasPropertiesESt4pairIKS2_N12_GLOBAL__N_18NodeInfoEESt10_Select1stIS7_ESt4lessIS2_ESaIS7_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS7_E.exit.i.i ]
-  %122 = getelementptr inbounds i8, ptr %.sroa.024.0, i64 40
+  %122 = getelementptr inbounds nuw i8, ptr %.sroa.024.0, i64 40
   ret ptr %122
 }
 
@@ -4440,7 +4440,7 @@ _ZNKSt4lessIN5clang6tblgen13HasPropertiesEEclERKS2_S5_.exit.i.i: ; preds = %_ZN4
   br i1 %33, label %_ZNSt3mapIN5clang6tblgen13HasPropertiesEN12_GLOBAL__N_18NodeInfoESt4lessIS2_ESaISt4pairIKS2_S4_EEE4findERS8_.exit.thread, label %34
 
 34:                                               ; preds = %_ZNKSt4lessIN5clang6tblgen13HasPropertiesEEclERKS2_S5_.exit.i.i, %32
-  %35 = getelementptr inbounds i8, ptr %.19.i.i.i, i64 40
+  %35 = getelementptr inbounds nuw i8, ptr %.19.i.i.i, i64 40
   tail call void %3(i64 noundef %4, ptr nonnull %storemerge25, ptr noundef nonnull align 8 dereferenceable(48) %35) #15
   br label %_ZNSt3mapIN5clang6tblgen13HasPropertiesEN12_GLOBAL__N_18NodeInfoESt4lessIS2_ESaISt4pairIKS2_S4_EEE4findERS8_.exit.thread
 
@@ -4753,7 +4753,7 @@ define internal void @"_ZN4llvm12function_refIFvN5clang6tblgen13HasPropertiesERK
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %14 = getelementptr inbounds nuw i8, ptr %7, i64 33
   %15 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %16 = getelementptr inbounds i8, ptr %7, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %17 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %18 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %19 = getelementptr inbounds nuw i8, ptr %6, i64 33
@@ -4788,7 +4788,7 @@ define internal void @"_ZN4llvm12function_refIFvN5clang6tblgen13HasPropertiesERK
 
 _ZN4llvmplERKNS_5TwineES2_.exit.i:                ; preds = %26
   %.fca.0.extract.i = extractvalue { ptr, i8 } %34, 0
-  %36 = getelementptr inbounds i8, ptr %.fca.0.extract.i, i64 48
+  %36 = getelementptr inbounds nuw i8, ptr %.fca.0.extract.i, i64 48
   %37 = load i64, ptr %36, align 8
   %38 = inttoptr i64 %37 to ptr
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 8
@@ -5105,7 +5105,7 @@ define linkonce_odr ptr @_ZNSt8_Rb_treeIN4llvm9StringRefESt4pairIKS1_N5clang6tbl
   %4 = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #18
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %2, i64 16, i1 false)
-  %6 = getelementptr inbounds i8, ptr %4, i64 48
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 48
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %8 = load i64, ptr %7, align 8
   store i64 %8, ptr %6, align 8
@@ -8191,7 +8191,7 @@ _ZNSt3mapIN5clang6tblgen13HasPropertiesEN12_GLOBAL__N_18NodeInfoESt4lessIS2_ESaI
   store ptr @.str.139, ptr %10, align 8, !alias.scope !98
   %49 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store ptr %45, ptr %49, align 8, !alias.scope !98
-  %50 = getelementptr inbounds i8, ptr %10, i64 24
+  %50 = getelementptr inbounds nuw i8, ptr %10, i64 24
   store i64 %46, ptr %50, align 8, !alias.scope !98
   %51 = getelementptr inbounds nuw i8, ptr %11, i64 32
   %52 = getelementptr inbounds nuw i8, ptr %11, i64 33
@@ -8203,14 +8203,14 @@ _ZNSt3mapIN5clang6tblgen13HasPropertiesEN12_GLOBAL__N_18NodeInfoESt4lessIS2_ESaI
   unreachable
 
 53:                                               ; preds = %_ZNKSt4lessIN5clang6tblgen13HasPropertiesEEclERKS2_S5_.exit.i.i, %39
-  %54 = getelementptr inbounds i8, ptr %.19.i.i.i, i64 40
+  %54 = getelementptr inbounds nuw i8, ptr %.19.i.i.i, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %12, i8 0, i64 16, i1 false)
   %55 = load i8, ptr %2, align 8
   %56 = trunc i8 %55 to i1
   br i1 %56, label %57, label %77
 
 57:                                               ; preds = %53
-  %58 = getelementptr inbounds i8, ptr %.19.i.i.i, i64 64
+  %58 = getelementptr inbounds nuw i8, ptr %.19.i.i.i, i64 64
   %59 = load ptr, ptr %58, align 8
   %.not = icmp eq ptr %59, null
   br i1 %.not, label %60, label %73
@@ -8229,7 +8229,7 @@ _ZNSt3mapIN5clang6tblgen13HasPropertiesEN12_GLOBAL__N_18NodeInfoESt4lessIS2_ESaI
   store ptr @.str.140, ptr %14, align 8, !alias.scope !101
   %69 = getelementptr inbounds nuw i8, ptr %14, i64 16
   store ptr %65, ptr %69, align 8, !alias.scope !101
-  %70 = getelementptr inbounds i8, ptr %14, i64 24
+  %70 = getelementptr inbounds nuw i8, ptr %14, i64 24
   store i64 %66, ptr %70, align 8, !alias.scope !101
   %71 = getelementptr inbounds nuw i8, ptr %15, i64 32
   %72 = getelementptr inbounds nuw i8, ptr %15, i64 33
@@ -8256,7 +8256,7 @@ _ZNSt3mapIN5clang6tblgen13HasPropertiesEN12_GLOBAL__N_18NodeInfoESt4lessIS2_ESaI
   br i1 %79, label %_ZN4llvm11raw_ostreamlsEPKc.exit25, label %80
 
 80:                                               ; preds = %77
-  %81 = getelementptr inbounds i8, ptr %.19.i.i.i, i64 80
+  %81 = getelementptr inbounds nuw i8, ptr %.19.i.i.i, i64 80
   %82 = load ptr, ptr %81, align 8
   %.not44 = icmp eq ptr %82, null
   br i1 %.not44, label %_ZN4llvm11raw_ostreamlsEPKc.exit25, label %83
@@ -8366,7 +8366,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit25:               ; preds = %122, %120, %80, %77
   store ptr %132, ptr %135, align 8
   %136 = getelementptr inbounds i8, ptr %5, i64 40
   store i64 0, ptr %136, align 8
-  %137 = getelementptr inbounds i8, ptr %.19.i.i.i, i64 72
+  %137 = getelementptr inbounds nuw i8, ptr %.19.i.i.i, i64 72
   %138 = load i64, ptr %137, align 8
   %.not.i26 = icmp eq i64 %138, 0
   br i1 %.not.i26, label %_ZN12_GLOBAL__N_115ASTPropsEmitter18visitAllPropertiesEN5clang6tblgen13HasPropertiesERKNS_8NodeInfoEN4llvm12function_refIFvNS2_8PropertyEEEE.exit, label %139
@@ -9241,7 +9241,7 @@ define internal void @"_ZN4llvm12function_refIFvN5clang6tblgen8PropertyEEE11call
   store ptr @.str.144, ptr %7, align 8, !alias.scope !108
   %38 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr %34, ptr %38, align 8, !alias.scope !108
-  %39 = getelementptr inbounds i8, ptr %7, i64 24
+  %39 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store i64 %35, ptr %39, align 8, !alias.scope !108
   %40 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %41 = getelementptr inbounds nuw i8, ptr %8, i64 33

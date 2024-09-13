@@ -198,7 +198,7 @@ define hidden range(i32 0, 18) i32 @avifImageExtractExifOrientationToIrotImir(pt
   %5 = and i32 %4, -13
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 176
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %9 = load i64, ptr %8, align 8
   %10 = call i32 @avifGetExifOrientationOffset(ptr noundef %7, i64 noundef %9, ptr noundef nonnull %2)
   %.not = icmp eq i32 %10, 0
@@ -281,7 +281,7 @@ define hidden i32 @avifImageSetMetadataExif(ptr noundef %0, ptr noundef %1, i64 
   %9 = load i32, ptr %8, align 4
   %10 = and i32 %9, -13
   %11 = load ptr, ptr %5, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 176
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %13 = load i64, ptr %12, align 8
   %14 = call i32 @avifGetExifOrientationOffset(ptr noundef %11, i64 noundef %13, ptr noundef nonnull %4)
   %.not.i = icmp eq i32 %14, 0

@@ -25,23 +25,23 @@ define noundef i32 @PaSndio_Initialize(ptr nocapture noundef %0, i32 noundef %1)
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 264
   store i32 2, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %4, i64 272
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 272
   store ptr @.str, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %4, i64 280
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 280
   store i32 %1, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %4, i64 284
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 284
   store i32 128, ptr %10, align 4
-  %11 = getelementptr inbounds i8, ptr %4, i64 288
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 288
   store i32 128, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %4, i64 296
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 296
   store double 1.000000e-02, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %4, i64 304
+  %13 = getelementptr inbounds nuw i8, ptr %4, i64 304
   store double 1.000000e-02, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %4, i64 312
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 312
   store double 5.000000e-01, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %4, i64 320
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 320
   store double 5.000000e-01, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %4, i64 328
+  %16 = getelementptr inbounds nuw i8, ptr %4, i64 328
   store double 4.800000e+04, ptr %16, align 8
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 1416
   store ptr %7, ptr %17, align 8
@@ -117,19 +117,19 @@ define noundef i32 @PaSndio_Initialize(ptr nocapture noundef %0, i32 noundef %1)
   %43 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 1, ptr %43, align 8
   %44 = load ptr, ptr %0, align 8
-  %45 = getelementptr inbounds i8, ptr %44, i64 12
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 12
   store i32 17, ptr %45, align 4
   %46 = load ptr, ptr %0, align 8
-  %47 = getelementptr inbounds i8, ptr %46, i64 16
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 16
   store ptr @.str.3, ptr %47, align 8
   %48 = load ptr, ptr %0, align 8
-  %49 = getelementptr inbounds i8, ptr %48, i64 24
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 24
   store i32 %.0, ptr %49, align 8
   %50 = load ptr, ptr %0, align 8
-  %51 = getelementptr inbounds i8, ptr %50, i64 28
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 28
   store i32 0, ptr %51, align 4
   %52 = load ptr, ptr %0, align 8
-  %53 = getelementptr inbounds i8, ptr %52, i64 32
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 32
   store i32 0, ptr %53, align 8
   %54 = load ptr, ptr %0, align 8
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 40
@@ -188,7 +188,7 @@ define internal i32 @OpenStream(ptr noundef %0, ptr nocapture noundef writeonly 
 
 15:                                               ; preds = %11
   %16 = load i32, ptr %3, align 8
-  %17 = getelementptr inbounds i8, ptr %0, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %18 = load i32, ptr %17, align 8
   %.not107 = icmp slt i32 %16, %18
   br i1 %.not107, label %19, label %sndioSetFmt.exit.thread
@@ -266,7 +266,7 @@ define internal i32 @OpenStream(ptr noundef %0, ptr nocapture noundef writeonly 
 
 45:                                               ; preds = %41
   %46 = load i32, ptr %2, align 8
-  %47 = getelementptr inbounds i8, ptr %0, i64 24
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %48 = load i32, ptr %47, align 8
   %.not111 = icmp slt i32 %46, %48
   br i1 %.not111, label %49, label %sndioSetFmt.exit.thread
@@ -567,7 +567,7 @@ sndioGetFmt.exit:                                 ; preds = %117, %114, %111, %1
   br label %sndioSetFmt.exit.thread
 
 185:                                              ; preds = %171
-  %186 = getelementptr inbounds i8, ptr %146, i64 56
+  %186 = getelementptr inbounds nuw i8, ptr %146, i64 56
   store double 0.000000e+00, ptr %186, align 8
   %187 = getelementptr inbounds nuw i8, ptr %10, i64 32
   %188 = load i32, ptr %187, align 4
@@ -581,7 +581,7 @@ sndioGetFmt.exit:                                 ; preds = %117, %114, %111, %1
   br label %197
 
 .critedge:                                        ; preds = %170
-  %196 = getelementptr inbounds i8, ptr %146, i64 56
+  %196 = getelementptr inbounds nuw i8, ptr %146, i64 56
   store double 0.000000e+00, ptr %196, align 8
   %.pre = load i32, ptr %73, align 4
   %.pre140 = uitofp i32 %.pre to double
@@ -590,9 +590,9 @@ sndioGetFmt.exit:                                 ; preds = %117, %114, %111, %1
 197:                                              ; preds = %.critedge, %185
   %.pre-phi = phi double [ %.pre140, %.critedge ], [ %194, %185 ]
   %198 = phi double [ 0.000000e+00, %.critedge ], [ %195, %185 ]
-  %199 = getelementptr inbounds i8, ptr %146, i64 64
+  %199 = getelementptr inbounds nuw i8, ptr %146, i64 64
   store double %198, ptr %199, align 8
-  %200 = getelementptr inbounds i8, ptr %146, i64 72
+  %200 = getelementptr inbounds nuw i8, ptr %146, i64 72
   store double %.pre-phi, ptr %200, align 8
   %201 = getelementptr inbounds nuw i8, ptr %146, i64 464
   store i32 0, ptr %201, align 8
@@ -721,19 +721,19 @@ define internal range(i32 -9999, 1) i32 @StartStream(ptr noundef %0) #0 {
   br i1 %.not29, label %.loopexit, label %17
 
 17:                                               ; preds = %13
-  %18 = getelementptr inbounds i8, ptr %0, i64 432
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 432
   %19 = load i32, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %0, i64 416
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 416
   %21 = load i32, ptr %20, align 8
   %22 = mul i32 %21, %19
-  %23 = getelementptr inbounds i8, ptr %0, i64 396
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 396
   %24 = load i32, ptr %23, align 4
   %25 = mul i32 %22, %24
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 488
   %27 = load ptr, ptr %26, align 8
   %28 = zext i32 %25 to i64
   tail call void @llvm.memset.p0.i64(ptr align 1 %27, i8 0, i64 %28, i1 false)
-  %29 = getelementptr inbounds i8, ptr %0, i64 424
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 424
   %30 = load i32, ptr %29, align 8
   %31 = load i32, ptr %18, align 8
   %.not3033 = icmp ugt i32 %31, %30
@@ -866,7 +866,7 @@ define internal double @GetStreamTime(ptr nocapture noundef readonly %0) #6 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 472
   %3 = load i64, ptr %2, align 8
   %4 = uitofp i64 %3 to double
-  %5 = getelementptr inbounds i8, ptr %0, i64 72
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %6 = load double, ptr %5, align 8
   %7 = fdiv double %4, %6
   ret double %7
@@ -882,10 +882,10 @@ define internal range(i32 -9999, 1) i32 @BlockingReadStream(ptr noundef %0, ptr 
   br i1 %.not43, label %.loopexit, label %.lr.ph46
 
 .lr.ph46:                                         ; preds = %3
-  %5 = getelementptr inbounds i8, ptr %0, i64 432
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 432
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 480
-  %7 = getelementptr inbounds i8, ptr %0, i64 412
-  %8 = getelementptr inbounds i8, ptr %0, i64 396
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 412
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 396
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 384
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 496
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -954,7 +954,7 @@ define internal range(i32 -9999, 1) i32 @BlockingReadStream(ptr noundef %0, ptr 
 define internal range(i32 -9999, 1) i32 @BlockingWriteStream(ptr noundef %0, ptr noundef %1, i64 noundef %2) #0 {
   %4 = alloca ptr, align 8
   store ptr %1, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 432
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 432
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 384
   %.not28 = icmp eq i64 %2, 0
   br i1 %.not28, label %._crit_edge, label %.lr.ph
@@ -962,8 +962,8 @@ define internal range(i32 -9999, 1) i32 @BlockingWriteStream(ptr noundef %0, ptr
 .lr.ph:                                           ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 488
-  %9 = getelementptr inbounds i8, ptr %0, i64 416
-  %10 = getelementptr inbounds i8, ptr %0, i64 396
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 416
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 396
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 504
   br label %12
 
@@ -1088,7 +1088,7 @@ define internal i64 @BlockingGetStreamWriteAvailable(ptr nocapture noundef reado
   br i1 %.not, label %28, label %19
 
 19:                                               ; preds = %15
-  %20 = getelementptr inbounds i8, ptr %0, i64 424
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 424
   %21 = load i32, ptr %20, align 8
   %22 = zext i32 %21 to i64
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 504
@@ -1159,15 +1159,15 @@ declare i32 @pthread_create(ptr noundef, ptr noundef, ptr noundef, ptr noundef) 
 define internal noalias noundef ptr @sndioThread(ptr noundef %0) #0 {
   %2 = alloca %struct.PaStreamCallbackTimeInfo, align 8
   %3 = alloca i32, align 4
-  %4 = getelementptr inbounds i8, ptr %0, i64 432
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 432
   %5 = load i32, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 412
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 412
   %7 = load i32, ptr %6, align 4
-  %8 = getelementptr inbounds i8, ptr %0, i64 396
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 396
   %9 = load i32, ptr %8, align 4
   %10 = mul i32 %9, %5
   %11 = mul i32 %10, %7
-  %12 = getelementptr inbounds i8, ptr %0, i64 416
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 416
   %13 = load i32, ptr %12, align 8
   %14 = mul i32 %10, %13
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 460
@@ -1182,8 +1182,8 @@ define internal noalias noundef ptr @sndioThread(ptr noundef %0) #0 {
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 384
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 496
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 472
-  %22 = getelementptr inbounds i8, ptr %0, i64 420
-  %23 = getelementptr inbounds i8, ptr %0, i64 424
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 420
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 424
   %24 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %25 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 80

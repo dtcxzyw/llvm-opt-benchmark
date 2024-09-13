@@ -434,15 +434,15 @@ _ZL32warnAboutLeftoverTransformationsPN4llvm8FunctionEPNS_8LoopInfoEPNS_25Optimi
   %131 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 0, ptr %131, align 8
   %132 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %133 = getelementptr inbounds i8, ptr %0, i64 80
+  %133 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store ptr %133, ptr %132, align 8
-  %134 = getelementptr inbounds i8, ptr %0, i64 56
+  %134 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store ptr %133, ptr %134, align 8
-  %135 = getelementptr inbounds i8, ptr %0, i64 64
+  %135 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i32 2, ptr %135, align 8
-  %136 = getelementptr inbounds i8, ptr %0, i64 68
+  %136 = getelementptr inbounds nuw i8, ptr %0, i64 68
   store i32 0, ptr %136, align 4
-  %137 = getelementptr inbounds i8, ptr %0, i64 72
+  %137 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store i32 0, ptr %137, align 8
   store i32 1, ptr %130, align 4, !noalias !6
   store ptr @_ZN4llvm17PreservedAnalyses14AllAnalysesKeyE, ptr %127, align 8, !noalias !6

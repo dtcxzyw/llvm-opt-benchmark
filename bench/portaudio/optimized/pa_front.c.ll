@@ -155,7 +155,7 @@ CountHostApiInitializers.exit.i:                  ; preds = %6
 25:                                               ; preds = %19
   %26 = load i32, ptr @defaultHostApiIndex_, align 4
   %27 = icmp eq i32 %26, -1
-  %28 = getelementptr inbounds i8, ptr %24, i64 28
+  %28 = getelementptr inbounds nuw i8, ptr %24, i64 28
   %29 = load i32, ptr %28, align 4
   br i1 %27, label %30, label %._crit_edge44.i
 
@@ -164,7 +164,7 @@ CountHostApiInitializers.exit.i:                  ; preds = %6
   br i1 %.not32.i, label %31, label %35
 
 31:                                               ; preds = %30
-  %32 = getelementptr inbounds i8, ptr %24, i64 32
+  %32 = getelementptr inbounds nuw i8, ptr %24, i64 32
   %33 = load i32, ptr %32, align 8
   %.not33.i = icmp eq i32 %33, -1
   br i1 %.not33.i, label %.thread.i, label %35
@@ -190,7 +190,7 @@ CountHostApiInitializers.exit.i:                  ; preds = %6
   br label %39
 
 39:                                               ; preds = %37, %._crit_edge44.i, %.thread.i
-  %40 = getelementptr inbounds i8, ptr %24, i64 32
+  %40 = getelementptr inbounds nuw i8, ptr %24, i64 32
   %41 = load i32, ptr %40, align 8
   %.not35.i = icmp eq i32 %41, -1
   br i1 %.not35.i, label %44, label %42
@@ -201,7 +201,7 @@ CountHostApiInitializers.exit.i:                  ; preds = %6
   br label %44
 
 44:                                               ; preds = %42, %39
-  %45 = getelementptr inbounds i8, ptr %24, i64 24
+  %45 = getelementptr inbounds nuw i8, ptr %24, i64 24
   %46 = load i32, ptr %45, align 8
   %47 = add nsw i32 %46, %.02138.i
   %48 = load i32, ptr @deviceCount_, align 4
@@ -560,7 +560,7 @@ define i32 @Pa_HostApiTypeIdToHostApiIndex(i32 noundef %0) local_unnamed_addr #5
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %12 ]
   %7 = getelementptr inbounds ptr, ptr %5, i64 %indvars.iv
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 12
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 12
   %10 = load i32, ptr %9, align 4
   %11 = icmp eq i32 %10, %0
   br i1 %11, label %.loopexit.loopexit.split.loop.exit, label %12
@@ -604,7 +604,7 @@ define range(i32 -10000, 1) i32 @PaUtil_GetHostApiRepresentation(ptr nocapture n
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %7 ]
   %9 = getelementptr inbounds ptr, ptr %6, i64 %indvars.iv
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 12
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 12
   %12 = load i32, ptr %11, align 4
   %13 = icmp eq i32 %12, %1
   br i1 %13, label %14, label %7
@@ -627,7 +627,7 @@ define range(i32 -9996, 1) i32 @PaUtil_DeviceIndexToHostApiDeviceIndex(ptr nocap
   br i1 %7, label %12, label %8
 
 8:                                                ; preds = %3
-  %9 = getelementptr inbounds i8, ptr %2, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %10 = load i32, ptr %9, align 8
   %.not = icmp slt i32 %6, %10
   br i1 %.not, label %11, label %12
@@ -718,7 +718,7 @@ define i32 @Pa_HostApiDeviceIndexToDeviceIndex(i32 noundef %0, i32 noundef %1) l
   %11 = zext nneg i32 %0 to i64
   %12 = getelementptr inbounds ptr, ptr %10, i64 %11
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 24
   %15 = load i32, ptr %14, align 8
   %.not11 = icmp slt i32 %1, %15
   br i1 %.not11, label %16, label %20
@@ -762,7 +762,7 @@ Pa_GetDefaultHostApi.exit:                        ; preds = %2
   %7 = zext nneg i32 %3 to i64
   %8 = getelementptr inbounds ptr, ptr %6, i64 %7
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 28
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 28
   %11 = load i32, ptr %10, align 4
   br label %Pa_GetDefaultHostApi.exit.thread
 
@@ -790,7 +790,7 @@ Pa_GetDefaultHostApi.exit:                        ; preds = %2
   %7 = zext nneg i32 %3 to i64
   %8 = getelementptr inbounds ptr, ptr %6, i64 %7
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 32
   %11 = load i32, ptr %10, align 8
   br label %Pa_GetDefaultHostApi.exit.thread
 
@@ -822,7 +822,7 @@ define ptr @Pa_GetDeviceInfo(i32 noundef %0) local_unnamed_addr #5 {
   %.01321.i = phi i32 [ %0, %.lr.ph.i ], [ %13, %12 ]
   %8 = getelementptr inbounds ptr, ptr %6, i64 %indvars.iv.i
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 24
   %11 = load i32, ptr %10, align 8
   %.not17.i = icmp slt i32 %.01321.i, %11
   br i1 %.not17.i, label %FindHostApi.exit, label %12
@@ -982,7 +982,7 @@ define internal fastcc range(i32 -9998, 1) i32 @ValidateOpenStreamParameters(ptr
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %32 ]
   %27 = getelementptr inbounds ptr, ptr %.pre157, i64 %indvars.iv.i
   %28 = load ptr, ptr %27, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 12
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 12
   %30 = load i32, ptr %29, align 4
   %31 = icmp eq i32 %30, %22
   br i1 %31, label %Pa_HostApiTypeIdToHostApiIndex.exit, label %32
@@ -1033,7 +1033,7 @@ Pa_HostApiTypeIdToHostApiIndex.exit.thread:       ; preds = %32, %.Pa_HostApiTyp
   %.01321.i = phi i32 [ %15, %.lr.ph.i100 ], [ %52, %51 ]
   %47 = getelementptr inbounds ptr, ptr %45, i64 %indvars.iv.i102
   %48 = load ptr, ptr %47, align 8
-  %49 = getelementptr inbounds i8, ptr %48, i64 24
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 24
   %50 = load i32, ptr %49, align 8
   %.not17.i = icmp slt i32 %.01321.i, %50
   br i1 %.not17.i, label %FindHostApi.exit, label %51
@@ -1079,7 +1079,7 @@ SampleFormatIsValid.exit:                         ; preds = %60, %60, %60, %60, 
 66:                                               ; preds = %SampleFormatIsValid.exit
   %67 = getelementptr inbounds nuw i8, ptr %65, i64 8
   %68 = load i32, ptr %67, align 8
-  %69 = getelementptr inbounds i8, ptr %56, i64 12
+  %69 = getelementptr inbounds nuw i8, ptr %56, i64 12
   %70 = load i32, ptr %69, align 4
   %.not79 = icmp eq i32 %68, %70
   br i1 %.not79, label %71, label %FindHostApi.exit.thread
@@ -1128,7 +1128,7 @@ SampleFormatIsValid.exit:                         ; preds = %60, %60, %60, %60, 
   %indvars.iv.i110 = phi i64 [ 0, %.lr.ph.i108 ], [ %indvars.iv.next.i111, %90 ]
   %85 = getelementptr inbounds ptr, ptr %.pre159, i64 %indvars.iv.i110
   %86 = load ptr, ptr %85, align 8
-  %87 = getelementptr inbounds i8, ptr %86, i64 12
+  %87 = getelementptr inbounds nuw i8, ptr %86, i64 12
   %88 = load i32, ptr %87, align 4
   %89 = icmp eq i32 %88, %80
   br i1 %89, label %Pa_HostApiTypeIdToHostApiIndex.exit114, label %90
@@ -1179,7 +1179,7 @@ Pa_HostApiTypeIdToHostApiIndex.exit114.thread:    ; preds = %90, %.Pa_HostApiTyp
   %.01321.i122 = phi i32 [ %73, %.lr.ph.i119 ], [ %110, %109 ]
   %105 = getelementptr inbounds ptr, ptr %103, i64 %indvars.iv.i121
   %106 = load ptr, ptr %105, align 8
-  %107 = getelementptr inbounds i8, ptr %106, i64 24
+  %107 = getelementptr inbounds nuw i8, ptr %106, i64 24
   %108 = load i32, ptr %107, align 8
   %.not17.i123 = icmp slt i32 %.01321.i122, %108
   br i1 %.not17.i123, label %FindHostApi.exit126, label %109
@@ -1218,7 +1218,7 @@ FindHostApi.exit126:                              ; preds = %104
 125:                                              ; preds = %122
   %126 = getelementptr inbounds nuw i8, ptr %124, i64 8
   %127 = load i32, ptr %126, align 8
-  %128 = getelementptr inbounds i8, ptr %114, i64 12
+  %128 = getelementptr inbounds nuw i8, ptr %114, i64 12
   %129 = load i32, ptr %128, align 4
   %.not85 = icmp eq i32 %127, %129
   br i1 %.not85, label %130, label %FindHostApi.exit.thread
@@ -1382,7 +1382,7 @@ Pa_GetDefaultInputDevice.exit:                    ; preds = %14
   %19 = zext nneg i32 %15 to i64
   %20 = getelementptr inbounds ptr, ptr %18, i64 %19
   %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 28
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 28
   %23 = load i32, ptr %22, align 4
   store i32 %23, ptr %9, align 8
   %24 = icmp eq i32 %23, -1
@@ -1399,7 +1399,7 @@ Pa_GetDefaultInputDevice.exit:                    ; preds = %14
   tail call void @llvm.assume(i1 %28)
   %wide.trip.count.i.i = zext nneg i32 %17 to i64
   %29 = load ptr, ptr %18, align 8
-  %30 = getelementptr inbounds i8, ptr %29, i64 24
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 24
   %31 = load i32, ptr %30, align 8
   %.not17.i.i41 = icmp slt i32 %23, %31
   br i1 %.not17.i.i41, label %FindHostApi.exit.i, label %.lr.ph
@@ -1414,7 +1414,7 @@ Pa_GetDefaultInputDevice.exit:                    ; preds = %14
   tail call void @llvm.assume(i1 %exitcond.not.i.i)
   %34 = getelementptr inbounds ptr, ptr %18, i64 %indvars.iv.next.i.i
   %35 = load ptr, ptr %34, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 24
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 24
   %37 = load i32, ptr %36, align 8
   %.not17.i.i = icmp slt i32 %33, %37
   br i1 %.not17.i.i, label %FindHostApi.exit.i.loopexit, label %.lr.ph
@@ -1464,7 +1464,7 @@ Pa_GetDefaultOutputDevice.exit:                   ; preds = %54
   %59 = zext nneg i32 %55 to i64
   %60 = getelementptr inbounds ptr, ptr %58, i64 %59
   %61 = load ptr, ptr %60, align 8
-  %62 = getelementptr inbounds i8, ptr %61, i64 32
+  %62 = getelementptr inbounds nuw i8, ptr %61, i64 32
   %63 = load i32, ptr %62, align 8
   store i32 %63, ptr %10, align 8
   %64 = icmp eq i32 %63, -1
@@ -1481,7 +1481,7 @@ Pa_GetDefaultOutputDevice.exit:                   ; preds = %54
   tail call void @llvm.assume(i1 %68)
   %wide.trip.count.i.i31 = zext nneg i32 %57 to i64
   %69 = load ptr, ptr %58, align 8
-  %70 = getelementptr inbounds i8, ptr %69, i64 24
+  %70 = getelementptr inbounds nuw i8, ptr %69, i64 24
   %71 = load i32, ptr %70, align 8
   %.not17.i.i3445 = icmp slt i32 %63, %71
   br i1 %.not17.i.i3445, label %FindHostApi.exit.i37, label %.lr.ph48
@@ -1496,7 +1496,7 @@ Pa_GetDefaultOutputDevice.exit:                   ; preds = %54
   tail call void @llvm.assume(i1 %exitcond.not.i.i36)
   %74 = getelementptr inbounds ptr, ptr %58, i64 %indvars.iv.next.i.i35
   %75 = load ptr, ptr %74, align 8
-  %76 = getelementptr inbounds i8, ptr %75, i64 24
+  %76 = getelementptr inbounds nuw i8, ptr %75, i64 24
   %77 = load i32, ptr %76, align 8
   %.not17.i.i34 = icmp slt i32 %73, %77
   br i1 %.not17.i.i34, label %FindHostApi.exit.i37.loopexit, label %.lr.ph48

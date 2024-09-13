@@ -705,7 +705,7 @@ define dso_local void @_ZN5clang4ento10ExprEngine16VisitObjCMessageEPKNS_15ObjCM
   %31 = alloca %"struct.clang::ento::EvalCallOptions", align 1
   %32 = alloca %"class.clang::ento::ExplodedNodeSet", align 8
   %33 = alloca %"class.clang::ento::ExplodedNodeSet", align 8
-  %34 = getelementptr inbounds i8, ptr %0, i64 544
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 544
   %35 = load ptr, ptr %34, align 8
   %36 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %37 = load ptr, ptr %36, align 8
@@ -1478,7 +1478,7 @@ _ZN5clang4ento14ObjCMethodCallC2EPKNS_15ObjCMessageExprEN4llvm18IntrusiveRefCntP
   store ptr %.sroa.0.0.copyload9, ptr %17, align 8
   %.sroa.2.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %11, i64 40
   store i64 %.sroa.2.0.copyload10, ptr %.sroa.2.0..sroa_idx.i.i.i, align 8
-  %18 = getelementptr inbounds i8, ptr %11, i64 49
+  %18 = getelementptr inbounds nuw i8, ptr %11, i64 49
   store i8 0, ptr %18, align 1
   %19 = getelementptr inbounds nuw i8, ptr %11, i64 64
   store i32 0, ptr %19, align 4

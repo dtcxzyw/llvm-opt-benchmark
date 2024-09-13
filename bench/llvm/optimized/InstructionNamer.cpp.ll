@@ -91,7 +91,7 @@ _ZN4llvm8Function4argsEv.exit.i:                  ; preds = %16, %_ZN4llvm8Funct
   br i1 %.not.i, label %._crit_edge.i, label %24
 
 ._crit_edge.i:                                    ; preds = %29, %_ZN4llvm8Function4argsEv.exit.i
-  %31 = getelementptr inbounds i8, ptr %2, i64 80
+  %31 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %32 = getelementptr inbounds nuw i8, ptr %2, i64 72
   %.sroa.031.049.i = load ptr, ptr %31, align 8
   %.not3750.i = icmp eq ptr %.sroa.031.049.i, %32
@@ -123,7 +123,7 @@ _ZN4llvm8Function4argsEv.exit.i:                  ; preds = %16, %_ZN4llvm8Funct
   br label %45
 
 45:                                               ; preds = %44, %37
-  %46 = getelementptr inbounds i8, ptr %40, i64 56
+  %46 = getelementptr inbounds nuw i8, ptr %40, i64 56
   %47 = getelementptr inbounds nuw i8, ptr %40, i64 48
   %.sroa.027.043.i = load ptr, ptr %46, align 8
   %.not3944.i = icmp eq ptr %.sroa.027.043.i, %47
@@ -182,15 +182,15 @@ _ZN12_GLOBAL__N_116nameInstructionsERN4llvm8FunctionE.exit: ; preds = %._crit_ed
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 0, ptr %69, align 8, !alias.scope !4
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %71 = getelementptr inbounds i8, ptr %0, i64 80
+  %71 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store ptr %71, ptr %70, align 8, !alias.scope !4
-  %72 = getelementptr inbounds i8, ptr %0, i64 56
+  %72 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store ptr %71, ptr %72, align 8, !alias.scope !4
-  %73 = getelementptr inbounds i8, ptr %0, i64 64
+  %73 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i32 2, ptr %73, align 8, !alias.scope !4
-  %74 = getelementptr inbounds i8, ptr %0, i64 68
+  %74 = getelementptr inbounds nuw i8, ptr %0, i64 68
   store i32 0, ptr %74, align 4, !alias.scope !4
-  %75 = getelementptr inbounds i8, ptr %0, i64 72
+  %75 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store i32 0, ptr %75, align 8, !alias.scope !4
   store i32 1, ptr %68, align 4, !alias.scope !4, !noalias !7
   store ptr @_ZN4llvm17PreservedAnalyses14AllAnalysesKeyE, ptr %65, align 8, !alias.scope !4, !noalias !7

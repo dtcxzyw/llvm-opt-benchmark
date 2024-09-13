@@ -310,7 +310,7 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64ExpandPseudo20runO
   %9 = tail call noundef ptr %8(ptr noundef nonnull align 8 dereferenceable(288) %5) #14
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store ptr %9, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %1, i64 328
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 328
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 320
   %.sroa.07.011 = load ptr, ptr %11, align 8
   %.not12 = icmp eq ptr %.sroa.07.011, %12
@@ -1999,7 +1999,7 @@ _ZN4llvm8DebugLocD2Ev.exit563:                    ; preds = %_ZN4llvm10MIMetadat
   store ptr %715, ptr %717, align 8, !alias.scope !49
   %718 = getelementptr inbounds nuw i8, ptr %52, i64 4
   store i32 0, ptr %718, align 4, !alias.scope !49
-  %719 = getelementptr inbounds i8, ptr %52, i64 24
+  %719 = getelementptr inbounds nuw i8, ptr %52, i64 24
   store i32 0, ptr %719, align 8, !alias.scope !49
   %720 = shl nuw nsw i32 %686, 8
   %721 = or disjoint i32 %720, 10
@@ -2095,7 +2095,7 @@ _ZN4llvm8DebugLocD2Ev.exit574:                    ; preds = %_ZN4llvm10MIMetadat
   %756 = load ptr, ptr %755, align 8
   %757 = getelementptr inbounds nuw i8, ptr %756, i64 768
   %758 = call noundef zeroext i1 @_ZNK4llvm6Triple11isArch32BitEv(ptr noundef nonnull align 8 dereferenceable(56) %757) #14
-  %759 = getelementptr inbounds i8, ptr %756, i64 816
+  %759 = getelementptr inbounds nuw i8, ptr %756, i64 816
   %760 = load i32, ptr %759, align 8
   %761 = icmp eq i32 %760, 10
   %762 = select i1 %758, i1 true, i1 %761
@@ -2281,7 +2281,7 @@ _ZN4llvm8DebugLocD2Ev.exit583:                    ; preds = %830, %_ZN4llvm10MIM
   store ptr %834, ptr %838, align 8, !alias.scope !61
   %839 = getelementptr inbounds nuw i8, ptr %48, i64 4
   store i32 0, ptr %839, align 4, !alias.scope !61
-  %840 = getelementptr inbounds i8, ptr %48, i64 24
+  %840 = getelementptr inbounds nuw i8, ptr %48, i64 24
   store i32 0, ptr %840, align 8, !alias.scope !61
   %841 = shl nuw nsw i32 %686, 8
   %842 = or i32 %841, 266
@@ -2299,7 +2299,7 @@ _ZN4llvm8DebugLocD2Ev.exit583:                    ; preds = %830, %_ZN4llvm10MIM
   store ptr %843, ptr %848, align 8, !alias.scope !64
   %849 = getelementptr inbounds nuw i8, ptr %47, i64 4
   store i32 0, ptr %849, align 4, !alias.scope !64
-  %850 = getelementptr inbounds i8, ptr %47, i64 24
+  %850 = getelementptr inbounds nuw i8, ptr %47, i64 24
   store i32 0, ptr %850, align 8, !alias.scope !64
   %851 = or i32 %841, 8714
   store i32 %851, ptr %47, align 8, !alias.scope !64
@@ -2349,7 +2349,7 @@ _ZN4llvm8DebugLocD2Ev.exit594:                    ; preds = %871, %869, %714, %7
   %876 = load ptr, ptr %875, align 8
   %877 = getelementptr inbounds nuw i8, ptr %876, i64 16
   %878 = load ptr, ptr %877, align 8
-  %879 = getelementptr inbounds i8, ptr %878, i64 820
+  %879 = getelementptr inbounds nuw i8, ptr %878, i64 820
   %880 = load i32, ptr %879, align 4
   %881 = icmp eq i32 %880, 5
   br i1 %881, label %882, label %938
@@ -2405,7 +2405,7 @@ _ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit598: ; preds = %_ZN4llvm
   store i32 %889, ptr %908, align 8, !alias.scope !67
   %909 = getelementptr inbounds nuw i8, ptr %46, i64 4
   store i32 0, ptr %909, align 4, !alias.scope !67
-  %910 = getelementptr inbounds i8, ptr %46, i64 24
+  %910 = getelementptr inbounds nuw i8, ptr %46, i64 24
   store i32 0, ptr %910, align 8, !alias.scope !67
   store i32 262, ptr %46, align 8, !alias.scope !67
   call void @_ZN4llvm12MachineInstr10addOperandERNS_15MachineFunctionERKNS_14MachineOperandE(ptr noundef nonnull align 8 dereferenceable(70) %906, ptr noundef nonnull align 8 dereferenceable(1041) %905, ptr noundef nonnull align 8 dereferenceable(32) %46) #14
@@ -2479,7 +2479,7 @@ _ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit607: ; preds = %_ZN4llvm
   store i32 %889, ptr %931, align 8, !alias.scope !73
   %932 = getelementptr inbounds nuw i8, ptr %44, i64 4
   store i32 0, ptr %932, align 4, !alias.scope !73
-  %933 = getelementptr inbounds i8, ptr %44, i64 24
+  %933 = getelementptr inbounds nuw i8, ptr %44, i64 24
   store i32 0, ptr %933, align 8, !alias.scope !73
   store i32 8710, ptr %44, align 8, !alias.scope !73
   call void @_ZN4llvm12MachineInstr10addOperandERNS_15MachineFunctionERKNS_14MachineOperandE(ptr noundef nonnull align 8 dereferenceable(70) %926, ptr noundef nonnull align 8 dereferenceable(1041) %925, ptr noundef nonnull align 8 dereferenceable(32) %44) #14
@@ -2586,7 +2586,7 @@ _ZN4llvm8DebugLocD2Ev.exit621:                    ; preds = %_ZN4llvm10MIMetadat
   store i32 %972, ptr %109, align 8
   %973 = getelementptr inbounds nuw i8, ptr %109, i64 4
   store i32 0, ptr %973, align 4
-  %974 = getelementptr inbounds i8, ptr %109, i64 24
+  %974 = getelementptr inbounds nuw i8, ptr %109, i64 24
   store i32 1, ptr %974, align 8
   %975 = load ptr, ptr %943, align 8
   store ptr %975, ptr %111, align 8
@@ -3568,9 +3568,9 @@ _ZN4llvm17MachineBasicBlock6spliceENS_26MachineInstrBundleIteratorINS_12MachineI
   %1412 = getelementptr inbounds nuw i8, ptr %36, i64 8
   %1413 = getelementptr inbounds i8, ptr %36, i64 32
   call void @_ZN4llvm15SmallVectorBaseImEC2EPvm(ptr noundef nonnull align 8 dereferenceable(24) %1412, ptr noundef nonnull %1413, i64 noundef 8) #14
-  %1414 = getelementptr inbounds i8, ptr %36, i64 48
+  %1414 = getelementptr inbounds nuw i8, ptr %36, i64 48
   store ptr null, ptr %1414, align 8
-  %1415 = getelementptr inbounds i8, ptr %36, i64 56
+  %1415 = getelementptr inbounds nuw i8, ptr %36, i64 56
   store i32 0, ptr %1415, align 8
   call void @_ZN4llvm20computeAndAddLiveInsERNS_12LivePhysRegsERNS_17MachineBasicBlockE(ptr noundef nonnull align 8 dereferenceable(64) %36, ptr noundef nonnull align 8 dereferenceable(288) %1202) #14
   call void @_ZN4llvm20computeAndAddLiveInsERNS_12LivePhysRegsERNS_17MachineBasicBlockE(ptr noundef nonnull align 8 dereferenceable(64) %36, ptr noundef nonnull align 8 dereferenceable(288) %1200) #14
@@ -4571,7 +4571,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZNK
   store ptr %1, ptr %9, align 8, !alias.scope !193
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i32 0, ptr %10, align 4, !alias.scope !193
-  %11 = getelementptr inbounds i8, ptr %4, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store i32 0, ptr %11, align 8, !alias.scope !193
   %12 = shl i32 %2, 8
   %13 = and i32 %12, 1048320
@@ -4594,7 +4594,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZNK
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i32 %2, ptr %11, align 4, !alias.scope !196
   %12 = ashr i32 %2, 31
-  %13 = getelementptr inbounds i8, ptr %5, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store i32 %12, ptr %13, align 8, !alias.scope !196
   %14 = shl i32 %3, 8
   %15 = and i32 %14, 1048320
@@ -5908,9 +5908,9 @@ _ZN4llvm17MachineBasicBlock6spliceENS_26MachineInstrBundleIteratorINS_12MachineI
   %215 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %216 = getelementptr inbounds i8, ptr %24, i64 32
   call void @_ZN4llvm15SmallVectorBaseImEC2EPvm(ptr noundef nonnull align 8 dereferenceable(24) %215, ptr noundef nonnull %216, i64 noundef 8) #14
-  %217 = getelementptr inbounds i8, ptr %24, i64 48
+  %217 = getelementptr inbounds nuw i8, ptr %24, i64 48
   store ptr null, ptr %217, align 8
-  %218 = getelementptr inbounds i8, ptr %24, i64 56
+  %218 = getelementptr inbounds nuw i8, ptr %24, i64 56
   store i32 0, ptr %218, align 8
   call void @_ZN4llvm20computeAndAddLiveInsERNS_12LivePhysRegsERNS_17MachineBasicBlockE(ptr noundef nonnull align 8 dereferenceable(64) %24, ptr noundef nonnull align 8 dereferenceable(288) %83) #14
   call void @_ZN4llvm20computeAndAddLiveInsERNS_12LivePhysRegsERNS_17MachineBasicBlockE(ptr noundef nonnull align 8 dereferenceable(64) %24, ptr noundef nonnull align 8 dereferenceable(288) %81) #14
@@ -6488,9 +6488,9 @@ _ZN4llvm17MachineBasicBlock6spliceENS_26MachineInstrBundleIteratorINS_12MachineI
   %218 = getelementptr inbounds nuw i8, ptr %31, i64 8
   %219 = getelementptr inbounds i8, ptr %31, i64 32
   call void @_ZN4llvm15SmallVectorBaseImEC2EPvm(ptr noundef nonnull align 8 dereferenceable(24) %218, ptr noundef nonnull %219, i64 noundef 8) #14
-  %220 = getelementptr inbounds i8, ptr %31, i64 48
+  %220 = getelementptr inbounds nuw i8, ptr %31, i64 48
   store ptr null, ptr %220, align 8
-  %221 = getelementptr inbounds i8, ptr %31, i64 56
+  %221 = getelementptr inbounds nuw i8, ptr %31, i64 56
   store i32 0, ptr %221, align 8
   call void @_ZN4llvm20computeAndAddLiveInsERNS_12LivePhysRegsERNS_17MachineBasicBlockE(ptr noundef nonnull align 8 dereferenceable(64) %31, ptr noundef nonnull align 8 dereferenceable(288) %101) #14
   call void @_ZN4llvm20computeAndAddLiveInsERNS_12LivePhysRegsERNS_17MachineBasicBlockE(ptr noundef nonnull align 8 dereferenceable(64) %31, ptr noundef nonnull align 8 dereferenceable(288) %99) #14

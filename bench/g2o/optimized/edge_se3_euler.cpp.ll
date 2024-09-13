@@ -2010,9 +2010,9 @@ define linkonce_odr noundef i64 @_ZN5Eigen8internal15partial_lu_implIdLi0EiLi6EE
   %.sroa.24.96..sroa_idx = getelementptr inbounds i8, ptr %4, i64 176
   %.sroa.25.96..sroa_idx = getelementptr inbounds i8, ptr %4, i64 184
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 192
-  %18 = getelementptr inbounds i8, ptr %4, i64 208
+  %18 = getelementptr inbounds nuw i8, ptr %4, i64 208
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 216
-  %20 = getelementptr inbounds i8, ptr %4, i64 224
+  %20 = getelementptr inbounds nuw i8, ptr %4, i64 224
   %21 = getelementptr inbounds nuw i8, ptr %4, i64 240
   %22 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %23 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -2315,7 +2315,7 @@ define linkonce_odr void @_ZN5Eigen8internal21dense_assignment_loopINS0_31generi
   %28 = getelementptr inbounds double, ptr %27, i64 %.09.i
   %29 = getelementptr inbounds nuw i8, ptr %26, i64 96
   %30 = load ptr, ptr %29, align 8, !noalias !46
-  %31 = getelementptr inbounds i8, ptr %26, i64 136
+  %31 = getelementptr inbounds nuw i8, ptr %26, i64 136
   %32 = load ptr, ptr %31, align 8, !noalias !46
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 16
   %34 = load i64, ptr %33, align 8, !noalias !46
@@ -2382,7 +2382,7 @@ _ZN5Eigen8internal13first_alignedILi16EdlEET1_PKT0_S2_.exit: ; preds = %1
   %78 = load ptr, ptr %77, align 8, !noalias !52
   %79 = getelementptr inbounds nuw i8, ptr %77, i64 96
   %80 = load ptr, ptr %79, align 8, !noalias !55
-  %81 = getelementptr inbounds i8, ptr %77, i64 136
+  %81 = getelementptr inbounds nuw i8, ptr %77, i64 136
   %82 = load ptr, ptr %81, align 8, !noalias !55
   %83 = getelementptr inbounds nuw i8, ptr %82, i64 16
   %84 = load i64, ptr %83, align 8, !noalias !55
@@ -2420,7 +2420,7 @@ _ZN5Eigen8internal13first_alignedILi16EdlEET1_PKT0_S2_.exit: ; preds = %1
   %105 = getelementptr inbounds double, ptr %104, i64 %.03448
   %106 = load <2 x double>, ptr %105, align 1
   %107 = load ptr, ptr %103, align 8
-  %108 = getelementptr inbounds i8, ptr %101, i64 224
+  %108 = getelementptr inbounds nuw i8, ptr %101, i64 224
   %109 = load i64, ptr %108, align 8
   %110 = mul nsw i64 %109, %.03752
   %111 = getelementptr double, ptr %107, i64 %110
@@ -2449,7 +2449,7 @@ _ZN5Eigen8internal13first_alignedILi16EdlEET1_PKT0_S2_.exit: ; preds = %1
   %129 = getelementptr inbounds double, ptr %128, i64 %.050
   %130 = getelementptr inbounds nuw i8, ptr %127, i64 96
   %131 = load ptr, ptr %130, align 8, !noalias !62
-  %132 = getelementptr inbounds i8, ptr %127, i64 136
+  %132 = getelementptr inbounds nuw i8, ptr %127, i64 136
   %133 = load ptr, ptr %132, align 8, !noalias !62
   %134 = getelementptr inbounds nuw i8, ptr %133, i64 16
   %135 = load i64, ptr %134, align 8, !noalias !62
@@ -6222,7 +6222,7 @@ _ZN5Eigen7NoAliasINS_3MapINS_6MatrixIdLi6ELi6ELi0ELi6ELi6EEELi0ENS_6StrideILi0EL
   %60 = getelementptr inbounds nuw i8, ptr %8, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(10) %60, ptr noundef nonnull align 8 dereferenceable(10) %.sroa.020.i, i64 10, i1 false)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %9)
-  %61 = getelementptr inbounds i8, ptr %8, i64 32
+  %61 = getelementptr inbounds nuw i8, ptr %8, i64 32
   store ptr %1, ptr %61, align 8, !alias.scope !212
   call void @_ZN5Eigen8internal26call_dense_assignment_loopINS_3MapINS_6MatrixIdLi6ELi6ELi0ELi6ELi6EEELi0ENS_6StrideILi0ELi0EEEEENS_7ProductINS_9TransposeIKNS2_IS4_Li16ES6_EEEENS9_IKNS8_ISC_S4_Li0EEEEELi1EEENS0_13add_assign_opIddEEEEvRT_RKT0_RKT1_(ptr noundef nonnull align 8 dereferenceable(12) %59, ptr noundef nonnull align 8 dereferenceable(40) %8, ptr noundef nonnull align 1 dereferenceable(1) %9)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %8)
@@ -6549,7 +6549,7 @@ define linkonce_odr void @_ZN5Eigen8internal26call_dense_assignment_loopINS_3Map
   call void @llvm.lifetime.start.p0(i64 304, ptr nonnull %4)
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %7, ptr %4, align 16
-  %8 = getelementptr inbounds i8, ptr %1, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %9 = load ptr, ptr %8, align 8
   %.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i.i.i = load ptr, ptr %6, align 8
   br label %.preheader.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i

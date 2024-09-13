@@ -154,7 +154,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__16HfPluginRegistryD2Ev(ptr nou
 _ZNSt3mapIN32pxrInternal_v0_24__pxrReserved__7TfTokenEmSt4lessIS1_ESaISt4pairIKS1_mEEED2Ev.exit: ; preds = %1
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %11 = load ptr, ptr %10, align 8
   %.not4.i.i.i.i = icmp eq ptr %9, %11
   br i1 %.not4.i.i.i.i, label %_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__14Hf_PluginEntryES1_EvT_S3_RSaIT0_E.exit.i, label %.lr.ph.i.i.i.i
@@ -176,7 +176,7 @@ _ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__14Hf_PluginEntryES1_EvT_S3_RSa
   br i1 %.not.i.i.i, label %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__14Hf_PluginEntryESaIS1_EED2Ev.exit, label %14
 
 14:                                               ; preds = %_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__14Hf_PluginEntryES1_EvT_S3_RSaIT0_E.exit.i
-  %15 = getelementptr inbounds i8, ptr %0, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %16 = load ptr, ptr %15, align 8
   %17 = ptrtoint ptr %16 to i64
   %18 = ptrtoint ptr %13 to i64
@@ -264,7 +264,7 @@ _ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__12HfPluginDescES1_EvT_S3_RSaIT
   %28 = phi ptr [ %.pre18, %_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__12HfPluginDescES1_EvT_S3_RSaIT0_E.exit.i.i ], [ %9, %8 ], [ %.pre19, %13 ]
   %29 = phi ptr [ %.pre19, %_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__12HfPluginDescES1_EvT_S3_RSaIT0_E.exit.i.i ], [ %9, %8 ], [ %.pre, %13 ]
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %31 = getelementptr inbounds i8, ptr %0, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %32 = load ptr, ptr %31, align 8
   %33 = load ptr, ptr %30, align 8
   %34 = ptrtoint ptr %32 to i64
@@ -360,7 +360,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__16HfPluginRegistry16_DiscoverP
   %13 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfToken", align 8
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %17 = load ptr, ptr %16, align 8
   %18 = icmp eq ptr %15, %17
   br i1 %18, label %25, label %19
@@ -408,7 +408,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__16HfPluginRegistry16_DiscoverP
   unreachable
 
 37:                                               ; preds = %33
-  %38 = getelementptr inbounds i8, ptr %0, i64 32
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %39 = load ptr, ptr %38, align 8
   %40 = load ptr, ptr %14, align 8
   %41 = ptrtoint ptr %39 to i64
@@ -859,7 +859,7 @@ define noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__16HfPluginRegist
 
 13:                                               ; preds = %8
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %15 = getelementptr inbounds i8, ptr %10, i64 40
+  %15 = getelementptr inbounds nuw i8, ptr %10, i64 40
   %16 = load i64, ptr %15, align 8
   %17 = load ptr, ptr %14, align 8
   %18 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::Hf_PluginEntry", ptr %17, i64 %16
@@ -976,7 +976,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit: ; preds = %34, %39
 
 .critedge8:                                       ; preds = %_ZNSt3mapIN32pxrInternal_v0_24__pxrReserved__7TfTokenEmSt4lessIS1_ESaISt4pairIKS1_mEEE4findERS5_.exit, %33
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %44 = getelementptr inbounds i8, ptr %25, i64 40
+  %44 = getelementptr inbounds nuw i8, ptr %25, i64 40
   %45 = load i64, ptr %44, align 8
   %46 = load ptr, ptr %43, align 8
   %47 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::Hf_PluginEntry", ptr %46, i64 %45
@@ -1087,7 +1087,7 @@ define noundef ptr @_ZN32pxrInternal_v0_24__pxrReserved__16HfPluginRegistry9GetP
 
 15:                                               ; preds = %10
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %17 = getelementptr inbounds i8, ptr %12, i64 40
+  %17 = getelementptr inbounds nuw i8, ptr %12, i64 40
   %18 = load i64, ptr %17, align 8
   %19 = load ptr, ptr %16, align 8
   %20 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::Hf_PluginEntry", ptr %19, i64 %18
@@ -1525,7 +1525,7 @@ declare void @_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC1ERKNSt7__cxx1112bas
 define void @_ZNK32pxrInternal_v0_24__pxrReserved__16HfPluginRegistry11GetPluginIdEPKNS_12HfPluginBaseE(ptr dead_on_unwind noalias writable sret(%"class.pxrInternal_v0_24__pxrReserved__::TfToken") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(89) %1, ptr noundef readnone %2) local_unnamed_addr #4 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %7 = load ptr, ptr %6, align 8
   %.not10 = icmp eq ptr %5, %7
   br i1 %.not10, label %._crit_edge, label %.lr.ph
@@ -3063,7 +3063,7 @@ define linkonce_odr ptr @_ZNSt8_Rb_treeIN32pxrInternal_v0_24__pxrReserved__7TfTo
 
 16:                                               ; preds = %15, %10, %4
   %17 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %18 = getelementptr inbounds i8, ptr %6, i64 40
+  %18 = getelementptr inbounds nuw i8, ptr %6, i64 40
   %19 = load i64, ptr %3, align 8
   store i64 %19, ptr %18, align 8
   store ptr %6, ptr %17, align 8

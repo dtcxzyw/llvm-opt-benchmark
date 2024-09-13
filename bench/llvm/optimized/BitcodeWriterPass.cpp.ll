@@ -48,7 +48,7 @@ define dso_local void @_ZN4llvm17BitcodeWriterPass3runERNS_6ModuleERNS_15Analysi
   br i1 %brmerge, label %_ZN4llvm25ScopedDbgInfoFormatSetterINS_6ModuleEEC2ERS1_b.exit, label %11
 
 11:                                               ; preds = %4
-  %12 = getelementptr inbounds i8, ptr %2, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %.sroa.04.07.i2.i.i = load ptr, ptr %12, align 8
   %.not8.i3.i.i = icmp eq ptr %.sroa.04.07.i2.i.i, %13
@@ -108,15 +108,15 @@ _ZN4llvm25ScopedDbgInfoFormatSetterINS_6ModuleEEC2ERS1_b.exit: ; preds = %4
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 0, ptr %40, align 8, !alias.scope !4
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %42 = getelementptr inbounds i8, ptr %0, i64 80
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store ptr %42, ptr %41, align 8, !alias.scope !4
-  %43 = getelementptr inbounds i8, ptr %0, i64 56
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store ptr %42, ptr %43, align 8, !alias.scope !4
-  %44 = getelementptr inbounds i8, ptr %0, i64 64
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i32 2, ptr %44, align 8, !alias.scope !4
-  %45 = getelementptr inbounds i8, ptr %0, i64 68
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 68
   store i32 0, ptr %45, align 4, !alias.scope !4
-  %46 = getelementptr inbounds i8, ptr %0, i64 72
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store i32 0, ptr %46, align 8, !alias.scope !4
   store i32 1, ptr %39, align 4, !alias.scope !4, !noalias !7
   store ptr @_ZN4llvm17PreservedAnalyses14AllAnalysesKeyE, ptr %36, align 8, !alias.scope !4, !noalias !7
@@ -128,7 +128,7 @@ _ZN4llvm25ScopedDbgInfoFormatSetterINS_6ModuleEEC2ERS1_b.exit: ; preds = %4
   br i1 %48, label %_ZN4llvm25ScopedDbgInfoFormatSetterINS_6ModuleEED2Ev.exit, label %50
 
 50:                                               ; preds = %49
-  %51 = getelementptr inbounds i8, ptr %2, i64 32
+  %51 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %52 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %.sroa.04.07.i.i.i18 = load ptr, ptr %51, align 8
   %.not8.i.i.i19 = icmp eq ptr %.sroa.04.07.i.i.i18, %52
@@ -149,7 +149,7 @@ _ZN4llvm25ScopedDbgInfoFormatSetterINS_6ModuleEEC2ERS1_b.exit: ; preds = %4
   br i1 %48, label %57, label %_ZN4llvm25ScopedDbgInfoFormatSetterINS_6ModuleEED2Ev.exit
 
 57:                                               ; preds = %.critedge.i.i9
-  %58 = getelementptr inbounds i8, ptr %2, i64 32
+  %58 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %59 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %.sroa.04.07.i2.i.i10 = load ptr, ptr %58, align 8
   %.not8.i3.i.i11 = icmp eq ptr %.sroa.04.07.i2.i.i10, %59
@@ -405,7 +405,7 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_116WriteBitcodePass11runOnMo
   br i1 %brmerge, label %_ZN4llvm25ScopedDbgInfoFormatSetterINS_6ModuleEEC2ERS1_b.exit, label %9
 
 9:                                                ; preds = %2
-  %10 = getelementptr inbounds i8, ptr %1, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %.sroa.04.07.i2.i.i = load ptr, ptr %10, align 8
   %.not8.i3.i.i = icmp eq ptr %.sroa.04.07.i2.i.i, %11
@@ -449,7 +449,7 @@ _ZN4llvm25ScopedDbgInfoFormatSetterINS_6ModuleEEC2ERS1_b.exit: ; preds = %2
   br i1 %25, label %_ZN4llvm25ScopedDbgInfoFormatSetterINS_6ModuleEED2Ev.exit, label %27
 
 27:                                               ; preds = %26
-  %28 = getelementptr inbounds i8, ptr %1, i64 32
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %.sroa.04.07.i.i.i15 = load ptr, ptr %28, align 8
   %.not8.i.i.i16 = icmp eq ptr %.sroa.04.07.i.i.i15, %29
@@ -470,7 +470,7 @@ _ZN4llvm25ScopedDbgInfoFormatSetterINS_6ModuleEEC2ERS1_b.exit: ; preds = %2
   br i1 %25, label %34, label %_ZN4llvm25ScopedDbgInfoFormatSetterINS_6ModuleEED2Ev.exit
 
 34:                                               ; preds = %.critedge.i.i6
-  %35 = getelementptr inbounds i8, ptr %1, i64 32
+  %35 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %36 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %.sroa.04.07.i2.i.i7 = load ptr, ptr %35, align 8
   %.not8.i3.i.i8 = icmp eq ptr %.sroa.04.07.i2.i.i7, %36

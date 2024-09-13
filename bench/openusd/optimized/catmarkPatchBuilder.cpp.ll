@@ -224,13 +224,13 @@ define linkonce_odr noundef i32 @_ZNK10OpenSubdiv6v3_6_03Far19CatmarkPatchBuilde
   %.idx.i = phi i64 [ %.add.i, %.preheader ], [ 24, %4 ]
   %.ptr.ptr.i = getelementptr inbounds i8, ptr %5, i64 %.idx.i
   %8 = getelementptr inbounds nuw i8, ptr %.ptr.ptr.i, i64 32
-  %9 = getelementptr inbounds i8, ptr %.ptr.ptr.i, i64 48
+  %9 = getelementptr inbounds nuw i8, ptr %.ptr.ptr.i, i64 48
   store ptr %9, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %.ptr.ptr.i, i64 40
+  %10 = getelementptr inbounds nuw i8, ptr %.ptr.ptr.i, i64 40
   store i32 0, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %.ptr.ptr.i, i64 44
+  %11 = getelementptr inbounds nuw i8, ptr %.ptr.ptr.i, i64 44
   store i32 40, ptr %11, align 4
-  %12 = getelementptr inbounds i8, ptr %.ptr.ptr.i, i64 208
+  %12 = getelementptr inbounds nuw i8, ptr %.ptr.ptr.i, i64 208
   store ptr null, ptr %12, align 8
   %.add.i = add nuw nsw i64 %.idx.i, 216
   %13 = icmp eq i64 %.add.i, 888
@@ -254,12 +254,12 @@ define linkonce_odr noundef i32 @_ZNK10OpenSubdiv6v3_6_03Far19CatmarkPatchBuilde
   %.add15.i = add nsw i64 %.idx14.i, -216
   %.ptr16.i = getelementptr inbounds i8, ptr %5, i64 %.add15.i
   %19 = getelementptr inbounds nuw i8, ptr %.ptr16.i, i64 32
-  %20 = getelementptr inbounds i8, ptr %.ptr16.i, i64 208
+  %20 = getelementptr inbounds nuw i8, ptr %.ptr16.i, i64 208
   %21 = load ptr, ptr %20, align 8
   call void @_ZdlPv(ptr noundef %21) #16
-  %22 = getelementptr inbounds i8, ptr %.ptr16.i, i64 48
+  %22 = getelementptr inbounds nuw i8, ptr %.ptr16.i, i64 48
   store ptr %22, ptr %19, align 8
-  %23 = getelementptr inbounds i8, ptr %.ptr16.i, i64 44
+  %23 = getelementptr inbounds nuw i8, ptr %.ptr16.i, i64 44
   store i32 40, ptr %23, align 4
   %24 = icmp eq i64 %.add15.i, 24
   br i1 %24, label %common.resume, label %18
@@ -273,12 +273,12 @@ _ZN10OpenSubdiv6v3_6_03Far16GregoryConverterIfEC2ERKNS1_11SourcePatchERNS1_12Spa
   %.add.i10 = add nsw i64 %.idx.i9, -216
   %.ptr1.i = getelementptr inbounds i8, ptr %5, i64 %.add.i10
   %25 = getelementptr inbounds nuw i8, ptr %.ptr1.i, i64 32
-  %26 = getelementptr inbounds i8, ptr %.ptr1.i, i64 208
+  %26 = getelementptr inbounds nuw i8, ptr %.ptr1.i, i64 208
   %27 = load ptr, ptr %26, align 8
   call void @_ZdlPv(ptr noundef %27) #16
-  %28 = getelementptr inbounds i8, ptr %.ptr1.i, i64 48
+  %28 = getelementptr inbounds nuw i8, ptr %.ptr1.i, i64 48
   store ptr %28, ptr %25, align 8
-  %29 = getelementptr inbounds i8, ptr %.ptr1.i, i64 44
+  %29 = getelementptr inbounds nuw i8, ptr %.ptr1.i, i64 44
   store i32 40, ptr %29, align 4
   %30 = icmp eq i64 %.add.i10, 24
   br i1 %30, label %_ZN10OpenSubdiv6v3_6_03Far16GregoryConverterIfED2Ev.exit, label %_ZN10OpenSubdiv6v3_6_03Far16GregoryConverterIfEC2ERKNS1_11SourcePatchERNS1_12SparseMatrixIfEE.exit
@@ -292,13 +292,13 @@ _ZN10OpenSubdiv6v3_6_03Far16GregoryConverterIfEC2ERKNS1_11SourcePatchERNS1_12Spa
   %.idx.i.i = phi i64 [ 24, %31 ], [ %.add.i.i, %33 ]
   %.ptr.ptr.i.i = getelementptr inbounds i8, ptr %32, i64 %.idx.i.i
   %34 = getelementptr inbounds nuw i8, ptr %.ptr.ptr.i.i, i64 32
-  %35 = getelementptr inbounds i8, ptr %.ptr.ptr.i.i, i64 48
+  %35 = getelementptr inbounds nuw i8, ptr %.ptr.ptr.i.i, i64 48
   store ptr %35, ptr %34, align 8
-  %36 = getelementptr inbounds i8, ptr %.ptr.ptr.i.i, i64 40
+  %36 = getelementptr inbounds nuw i8, ptr %.ptr.ptr.i.i, i64 40
   store i32 0, ptr %36, align 8
-  %37 = getelementptr inbounds i8, ptr %.ptr.ptr.i.i, i64 44
+  %37 = getelementptr inbounds nuw i8, ptr %.ptr.ptr.i.i, i64 44
   store i32 40, ptr %37, align 4
-  %38 = getelementptr inbounds i8, ptr %.ptr.ptr.i.i, i64 208
+  %38 = getelementptr inbounds nuw i8, ptr %.ptr.ptr.i.i, i64 208
   store ptr null, ptr %38, align 8
   %.add.i.i = add nuw nsw i64 %.idx.i.i, 216
   %39 = icmp eq i64 %.add.i.i, 888
@@ -323,12 +323,12 @@ _ZN10OpenSubdiv6v3_6_03Far16BSplineConverterIfE10InitializeERKNS1_11SourcePatchE
   %.add.i5.i = add nsw i64 %.idx.i4.i, -216
   %.ptr1.i.i = getelementptr inbounds i8, ptr %32, i64 %.add.i5.i
   %43 = getelementptr inbounds nuw i8, ptr %.ptr1.i.i, i64 32
-  %44 = getelementptr inbounds i8, ptr %.ptr1.i.i, i64 208
+  %44 = getelementptr inbounds nuw i8, ptr %.ptr1.i.i, i64 208
   %45 = load ptr, ptr %44, align 8
   call void @_ZdlPv(ptr noundef %45) #16
-  %46 = getelementptr inbounds i8, ptr %.ptr1.i.i, i64 48
+  %46 = getelementptr inbounds nuw i8, ptr %.ptr1.i.i, i64 48
   store ptr %46, ptr %43, align 8
-  %47 = getelementptr inbounds i8, ptr %.ptr1.i.i, i64 44
+  %47 = getelementptr inbounds nuw i8, ptr %.ptr1.i.i, i64 44
   store i32 40, ptr %47, align 4
   %48 = icmp eq i64 %.add.i5.i, 24
   br i1 %48, label %common.resume, label %42
@@ -338,12 +338,12 @@ _ZN10OpenSubdiv6v3_6_03Far16BSplineConverterIfEC2ERKNS1_11SourcePatchERNS1_12Spa
   %.add.i.i12 = add nsw i64 %.idx.i.i11, -216
   %.ptr1.i.i13 = getelementptr inbounds i8, ptr %32, i64 %.add.i.i12
   %49 = getelementptr inbounds nuw i8, ptr %.ptr1.i.i13, i64 32
-  %50 = getelementptr inbounds i8, ptr %.ptr1.i.i13, i64 208
+  %50 = getelementptr inbounds nuw i8, ptr %.ptr1.i.i13, i64 208
   %51 = load ptr, ptr %50, align 8
   call void @_ZdlPv(ptr noundef %51) #16
-  %52 = getelementptr inbounds i8, ptr %.ptr1.i.i13, i64 48
+  %52 = getelementptr inbounds nuw i8, ptr %.ptr1.i.i13, i64 48
   store ptr %52, ptr %49, align 8
-  %53 = getelementptr inbounds i8, ptr %.ptr1.i.i13, i64 44
+  %53 = getelementptr inbounds nuw i8, ptr %.ptr1.i.i13, i64 44
   store i32 40, ptr %53, align 4
   %54 = icmp eq i64 %.add.i.i12, 24
   br i1 %54, label %_ZN10OpenSubdiv6v3_6_03Far16GregoryConverterIfED2Ev.exit, label %_ZN10OpenSubdiv6v3_6_03Far16BSplineConverterIfEC2ERKNS1_11SourcePatchERNS1_12SparseMatrixIfEE.exit
@@ -453,17 +453,17 @@ define linkonce_odr void @_ZN10OpenSubdiv6v3_6_03Far16GregoryConverterIfE10Initi
   br i1 %56, label %57, label %62
 
 57:                                               ; preds = %51
-  %58 = getelementptr inbounds i8, ptr %12, i64 208
+  %58 = getelementptr inbounds nuw i8, ptr %12, i64 208
   %59 = load ptr, ptr %58, align 8
   tail call void @_ZdlPv(ptr noundef %59) #16
-  %60 = getelementptr inbounds i8, ptr %12, i64 48
+  %60 = getelementptr inbounds nuw i8, ptr %12, i64 48
   store ptr %60, ptr %53, align 8
-  %61 = getelementptr inbounds i8, ptr %12, i64 44
+  %61 = getelementptr inbounds nuw i8, ptr %12, i64 44
   store i32 40, ptr %61, align 4
   br label %_ZN10OpenSubdiv6v3_6_03Vtr8internal11StackBufferIiLj40ELb1EE7SetSizeEj.exit
 
 62:                                               ; preds = %51
-  %63 = getelementptr inbounds i8, ptr %12, i64 44
+  %63 = getelementptr inbounds nuw i8, ptr %12, i64 44
   %64 = load i32, ptr %63, align 4
   %65 = icmp ugt i32 %55, %64
   br i1 %65, label %66, label %._ZN10OpenSubdiv6v3_6_03Vtr8internal11StackBufferIiLj40ELb1EE7SetSizeEj.exit_crit_edge
@@ -473,10 +473,10 @@ define linkonce_odr void @_ZN10OpenSubdiv6v3_6_03Far16GregoryConverterIfE10Initi
   br label %_ZN10OpenSubdiv6v3_6_03Vtr8internal11StackBufferIiLj40ELb1EE7SetSizeEj.exit
 
 66:                                               ; preds = %62
-  %67 = getelementptr inbounds i8, ptr %12, i64 208
+  %67 = getelementptr inbounds nuw i8, ptr %12, i64 208
   %68 = load ptr, ptr %67, align 8
   tail call void @_ZdlPv(ptr noundef %68) #16
-  %69 = getelementptr inbounds i8, ptr %12, i64 48
+  %69 = getelementptr inbounds nuw i8, ptr %12, i64 48
   store ptr %69, ptr %53, align 8
   store i32 40, ptr %63, align 4
   %70 = zext i32 %55 to i64
@@ -489,7 +489,7 @@ define linkonce_odr void @_ZN10OpenSubdiv6v3_6_03Far16GregoryConverterIfE10Initi
 
 _ZN10OpenSubdiv6v3_6_03Vtr8internal11StackBufferIiLj40ELb1EE7SetSizeEj.exit: ; preds = %._ZN10OpenSubdiv6v3_6_03Vtr8internal11StackBufferIiLj40ELb1EE7SetSizeEj.exit_crit_edge, %57, %66
   %73 = phi ptr [ %.pre, %._ZN10OpenSubdiv6v3_6_03Vtr8internal11StackBufferIiLj40ELb1EE7SetSizeEj.exit_crit_edge ], [ %60, %57 ], [ %72, %66 ]
-  %74 = getelementptr inbounds i8, ptr %12, i64 40
+  %74 = getelementptr inbounds nuw i8, ptr %12, i64 40
   store i32 %55, ptr %74, align 8
   %75 = trunc nuw nsw i64 %indvars.iv to i32
   %76 = tail call noundef i32 @_ZNK10OpenSubdiv6v3_6_03Far11SourcePatch19GetCornerRingPointsEiPi(ptr noundef nonnull align 4 dereferenceable(88) %1, i32 noundef %75, ptr noundef %73)
@@ -1135,7 +1135,7 @@ define linkonce_odr void @_ZNK10OpenSubdiv6v3_6_03Far16GregoryConverterIfE22resi
   br i1 %.not12.i, label %77, label %_ZNK10OpenSubdiv6v3_6_03Far16GregoryConverterIfE25getIrregularFacePointSizeEii.exit
 
 73:                                               ; preds = %64
-  %74 = getelementptr inbounds i8, ptr %7, i64 40
+  %74 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %75 = load i32, ptr %74, align 8
   %76 = add i32 %75, 1
   %.pre.i = load i16, ptr %68, align 8
@@ -1149,7 +1149,7 @@ define linkonce_odr void @_ZNK10OpenSubdiv6v3_6_03Far16GregoryConverterIfE22resi
   br i1 %or.cond.i, label %81, label %85
 
 81:                                               ; preds = %77
-  %82 = getelementptr inbounds i8, ptr %68, i64 40
+  %82 = getelementptr inbounds nuw i8, ptr %68, i64 40
   %83 = load i32, ptr %82, align 8
   %84 = add i32 %83, -5
   br label %85
@@ -1185,7 +1185,7 @@ _ZNK10OpenSubdiv6v3_6_03Far16GregoryConverterIfE25getIrregularFacePointSizeEii.e
   br i1 %.not12.i82, label %103, label %_ZNK10OpenSubdiv6v3_6_03Far16GregoryConverterIfE25getIrregularFacePointSizeEii.exit86
 
 99:                                               ; preds = %90
-  %100 = getelementptr inbounds i8, ptr %7, i64 40
+  %100 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %101 = load i32, ptr %100, align 8
   %102 = add i32 %101, 1
   %.pre.i85 = load i16, ptr %94, align 8
@@ -1199,7 +1199,7 @@ _ZNK10OpenSubdiv6v3_6_03Far16GregoryConverterIfE25getIrregularFacePointSizeEii.e
   br i1 %or.cond.i84, label %107, label %111
 
 107:                                              ; preds = %103
-  %108 = getelementptr inbounds i8, ptr %94, i64 40
+  %108 = getelementptr inbounds nuw i8, ptr %94, i64 40
   %109 = load i32, ptr %108, align 8
   %110 = add i32 %109, -5
   br label %111
@@ -1941,11 +1941,11 @@ define internal fastcc void @_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_125_removeVa
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %19 = getelementptr inbounds nuw i8, ptr %2, i64 64
-  %20 = getelementptr inbounds i8, ptr %2, i64 72
+  %20 = getelementptr inbounds nuw i8, ptr %2, i64 72
   %21 = getelementptr inbounds nuw i8, ptr %2, i64 40
-  %22 = getelementptr inbounds i8, ptr %2, i64 48
-  %23 = getelementptr inbounds i8, ptr %2, i64 56
-  %24 = getelementptr inbounds i8, ptr %2, i64 80
+  %22 = getelementptr inbounds nuw i8, ptr %2, i64 48
+  %23 = getelementptr inbounds nuw i8, ptr %2, i64 56
+  %24 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %wide.trip.count120 = zext nneg i32 %14 to i64
   br label %25
 
@@ -2352,16 +2352,16 @@ _ZNSt12_Vector_baseIfSaIfEE13_M_deallocateEPfm.exit35.i: ; preds = %149, %_ZNSt6
   store i32 %193, ptr %6, align 8
   %195 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %196 = load ptr, ptr %195, align 8
-  %197 = getelementptr inbounds i8, ptr %0, i64 24
+  %197 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %198 = load ptr, ptr %197, align 8
-  %199 = getelementptr inbounds i8, ptr %0, i64 32
+  %199 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %200 = load ptr, ptr %199, align 8
   %201 = load ptr, ptr %7, align 8
   store ptr %201, ptr %195, align 8
-  %202 = getelementptr inbounds i8, ptr %2, i64 24
+  %202 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %203 = load ptr, ptr %202, align 8
   store ptr %203, ptr %197, align 8
-  %204 = getelementptr inbounds i8, ptr %2, i64 32
+  %204 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %205 = load ptr, ptr %204, align 8
   store ptr %205, ptr %199, align 8
   store ptr %196, ptr %7, align 8
@@ -2370,16 +2370,16 @@ _ZNSt12_Vector_baseIfSaIfEE13_M_deallocateEPfm.exit35.i: ; preds = %149, %_ZNSt6
   %206 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %207 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %208 = load ptr, ptr %206, align 8
-  %209 = getelementptr inbounds i8, ptr %0, i64 48
+  %209 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %210 = load ptr, ptr %209, align 8
-  %211 = getelementptr inbounds i8, ptr %0, i64 56
+  %211 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %212 = load ptr, ptr %211, align 8
   %213 = load ptr, ptr %207, align 8
   store ptr %213, ptr %206, align 8
-  %214 = getelementptr inbounds i8, ptr %2, i64 48
+  %214 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %215 = load ptr, ptr %214, align 8
   store ptr %215, ptr %209, align 8
-  %216 = getelementptr inbounds i8, ptr %2, i64 56
+  %216 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %217 = load ptr, ptr %216, align 8
   store ptr %217, ptr %211, align 8
   store ptr %208, ptr %207, align 8
@@ -2388,16 +2388,16 @@ _ZNSt12_Vector_baseIfSaIfEE13_M_deallocateEPfm.exit35.i: ; preds = %149, %_ZNSt6
   %218 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %219 = getelementptr inbounds nuw i8, ptr %2, i64 64
   %220 = load ptr, ptr %218, align 8
-  %221 = getelementptr inbounds i8, ptr %0, i64 72
+  %221 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %222 = load ptr, ptr %221, align 8
-  %223 = getelementptr inbounds i8, ptr %0, i64 80
+  %223 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %224 = load ptr, ptr %223, align 8
   %225 = load ptr, ptr %219, align 8
   store ptr %225, ptr %218, align 8
-  %226 = getelementptr inbounds i8, ptr %2, i64 72
+  %226 = getelementptr inbounds nuw i8, ptr %2, i64 72
   %227 = load ptr, ptr %226, align 8
   store ptr %227, ptr %221, align 8
-  %228 = getelementptr inbounds i8, ptr %2, i64 80
+  %228 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %229 = load ptr, ptr %228, align 8
   store ptr %229, ptr %223, align 8
   store ptr %220, ptr %219, align 8
@@ -2450,9 +2450,9 @@ define internal fastcc void @_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_113_resizeMa
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %8 = getelementptr inbounds i8, ptr %0, i64 72
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %10 = getelementptr inbounds i8, ptr %0, i64 48
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 48
   br label %11
 
 11:                                               ; preds = %4, %_ZN10OpenSubdiv6v3_6_03Far12SparseMatrixIfE10SetRowSizeEii.exit
@@ -2557,7 +2557,7 @@ define linkonce_odr void @_ZN10OpenSubdiv6v3_6_03Far12SparseMatrixIfE6ResizeEiii
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 0, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %9 = getelementptr inbounds i8, ptr %0, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %10 = load ptr, ptr %9, align 8
   %11 = load ptr, ptr %8, align 8
   %12 = ptrtoint ptr %11 to i64
@@ -2606,7 +2606,7 @@ _ZNSt6vectorIiSaIiEE6resizeEmRKi.exit:            ; preds = %20, %22, %24, %26
   %27 = phi ptr [ %.pre, %20 ], [ %11, %22 ], [ %11, %24 ], [ %11, %26 ]
   store i32 0, ptr %27, align 4
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %29 = getelementptr inbounds i8, ptr %0, i64 72
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %30 = load ptr, ptr %29, align 8
   %31 = load ptr, ptr %28, align 8
   %32 = ptrtoint ptr %30 to i64
@@ -2620,7 +2620,7 @@ _ZNSt6vectorIiSaIiEE6resizeEmRKi.exit:            ; preds = %20, %22, %24, %26
 38:                                               ; preds = %_ZNSt6vectorIiSaIiEE6resizeEmRKi.exit
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %40 = sext i32 %3 to i64
-  %41 = getelementptr inbounds i8, ptr %0, i64 48
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %42 = load ptr, ptr %41, align 8
   %43 = load ptr, ptr %39, align 8
   %44 = ptrtoint ptr %42 to i64
@@ -3790,7 +3790,7 @@ define linkonce_odr void @_ZN10OpenSubdiv6v3_6_03Far12SparseMatrixIfED2Ev(ptr no
   br i1 %.not.i.i.i, label %_ZNSt6vectorIfSaIfEED2Ev.exit, label %4
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 80
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %6 = load ptr, ptr %5, align 8
   %7 = ptrtoint ptr %6 to i64
   %8 = ptrtoint ptr %3 to i64
@@ -3805,7 +3805,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %1, %4
   br i1 %.not.i.i.i1, label %_ZNSt6vectorIiSaIiEED2Ev.exit, label %12
 
 12:                                               ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit
-  %13 = getelementptr inbounds i8, ptr %0, i64 56
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %14 = load ptr, ptr %13, align 8
   %15 = ptrtoint ptr %14 to i64
   %16 = ptrtoint ptr %11 to i64
@@ -3820,7 +3820,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %_ZNSt6vectorIfSaIfE
   br i1 %.not.i.i.i2, label %_ZNSt6vectorIiSaIiEED2Ev.exit3, label %20
 
 20:                                               ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit
-  %21 = getelementptr inbounds i8, ptr %0, i64 32
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %22 = load ptr, ptr %21, align 8
   %23 = ptrtoint ptr %22 to i64
   %24 = ptrtoint ptr %19 to i64
@@ -3835,13 +3835,13 @@ _ZNSt6vectorIiSaIiEED2Ev.exit3:                   ; preds = %_ZNSt6vectorIiSaIiE
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNK10OpenSubdiv6v3_6_03Far16BSplineConverterIfE7ConvertERNS1_12SparseMatrixIfEE(ptr noundef nonnull align 8 dereferenceable(896) %0, ptr noundef nonnull align 8 dereferenceable(88) %1) local_unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.OpenSubdiv::v3_6_0::Far::SparseMatrix", align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i8, ptr %4, align 8
   %6 = trunc i8 %5 to i1
   br i1 %6, label %7, label %10
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %0, i64 20
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %9 = load i32, ptr %8, align 4
   tail call void @_ZNK10OpenSubdiv6v3_6_03Far16BSplineConverterIfE22convertIrregularCornerEiRNS1_12SparseMatrixIfEE(ptr noundef nonnull align 8 dereferenceable(896) %0, i32 noundef %9, ptr noundef nonnull align 8 dereferenceable(88) %1)
   br label %_ZN10OpenSubdiv6v3_6_03Far12SparseMatrixIfED2Ev.exit
@@ -3869,7 +3869,7 @@ define linkonce_odr void @_ZNK10OpenSubdiv6v3_6_03Far16BSplineConverterIfE7Conve
   br i1 %.not.i.i.i.i, label %_ZNSt6vectorIfSaIfEED2Ev.exit.i, label %19
 
 19:                                               ; preds = %16
-  %20 = getelementptr inbounds i8, ptr %3, i64 80
+  %20 = getelementptr inbounds nuw i8, ptr %3, i64 80
   %21 = load ptr, ptr %20, align 8
   %22 = ptrtoint ptr %21 to i64
   %23 = ptrtoint ptr %18 to i64
@@ -3884,7 +3884,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit.i:                  ; preds = %19, %16
   br i1 %.not.i.i.i1.i, label %_ZNSt6vectorIiSaIiEED2Ev.exit.i, label %27
 
 27:                                               ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit.i
-  %28 = getelementptr inbounds i8, ptr %3, i64 56
+  %28 = getelementptr inbounds nuw i8, ptr %3, i64 56
   %29 = load ptr, ptr %28, align 8
   %30 = ptrtoint ptr %29 to i64
   %31 = ptrtoint ptr %26 to i64
@@ -3898,7 +3898,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit.i:                  ; preds = %27, %_ZNSt6vectorIf
   br i1 %.not.i.i.i2.i, label %_ZN10OpenSubdiv6v3_6_03Far12SparseMatrixIfED2Ev.exit, label %34
 
 34:                                               ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit.i
-  %35 = getelementptr inbounds i8, ptr %3, i64 32
+  %35 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %36 = load ptr, ptr %35, align 8
   %37 = ptrtoint ptr %36 to i64
   %38 = ptrtoint ptr %33 to i64
@@ -4392,7 +4392,7 @@ define linkonce_odr void @_ZNK10OpenSubdiv6v3_6_03Far16BSplineConverterIfE18conv
   store i32 %11, ptr %12, align 8
   %13 = load i32, ptr %9, align 4
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 64
-  %15 = getelementptr inbounds i8, ptr %2, i64 72
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 72
   %16 = load ptr, ptr %15, align 8
   %17 = load ptr, ptr %14, align 8
   %18 = ptrtoint ptr %16 to i64
@@ -4406,7 +4406,7 @@ define linkonce_odr void @_ZNK10OpenSubdiv6v3_6_03Far16BSplineConverterIfE18conv
 24:                                               ; preds = %3
   %25 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %26 = sext i32 %13 to i64
-  %27 = getelementptr inbounds i8, ptr %2, i64 48
+  %27 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %28 = load ptr, ptr %27, align 8
   %29 = load ptr, ptr %25, align 8
   %30 = ptrtoint ptr %28 to i64
@@ -4482,7 +4482,7 @@ _ZN10OpenSubdiv6v3_6_03Far12SparseMatrixIfE10SetRowSizeEii.exit.i: ; preds = %54
   br label %.lr.ph.i
 
 .preheader.i:                                     ; preds = %.lr.ph.i, %_ZN10OpenSubdiv6v3_6_03Far12SparseMatrixIfE10SetRowSizeEii.exit.i
-  %62 = getelementptr inbounds i8, ptr %2, i64 48
+  %62 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %63 = sext i32 %5 to i64
   %64 = shl nsw i64 %63, 2
   br label %67
@@ -5582,9 +5582,9 @@ define linkonce_odr void @_ZNK10OpenSubdiv6v3_6_03Far16BSplineConverterIfE26buil
   %42 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %43 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %44 = getelementptr inbounds nuw i8, ptr %4, i64 64
-  %45 = getelementptr inbounds i8, ptr %4, i64 72
+  %45 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %46 = getelementptr inbounds nuw i8, ptr %4, i64 40
-  %47 = getelementptr inbounds i8, ptr %4, i64 48
+  %47 = getelementptr inbounds nuw i8, ptr %4, i64 48
   br label %48
 
 48:                                               ; preds = %12, %105
@@ -5784,9 +5784,9 @@ _ZN10OpenSubdiv6v3_6_03Vtr8internal11StackBufferIfLj64ELb1EEC2Ej.exit: ; preds =
   %40 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %41 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %42 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  %43 = getelementptr inbounds i8, ptr %1, i64 72
+  %43 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %44 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %45 = getelementptr inbounds i8, ptr %1, i64 48
+  %45 = getelementptr inbounds nuw i8, ptr %1, i64 48
   br label %46
 
 46:                                               ; preds = %.preheader, %271
@@ -6236,13 +6236,13 @@ define linkonce_odr noundef i32 @_ZNK10OpenSubdiv6v3_6_03Far19CatmarkPatchBuilde
   %.idx.i = phi i64 [ %.add.i, %.preheader ], [ 24, %4 ]
   %.ptr.ptr.i = getelementptr inbounds i8, ptr %5, i64 %.idx.i
   %8 = getelementptr inbounds nuw i8, ptr %.ptr.ptr.i, i64 40
-  %9 = getelementptr inbounds i8, ptr %.ptr.ptr.i, i64 56
+  %9 = getelementptr inbounds nuw i8, ptr %.ptr.ptr.i, i64 56
   store ptr %9, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %.ptr.ptr.i, i64 48
+  %10 = getelementptr inbounds nuw i8, ptr %.ptr.ptr.i, i64 48
   store i32 0, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %.ptr.ptr.i, i64 52
+  %11 = getelementptr inbounds nuw i8, ptr %.ptr.ptr.i, i64 52
   store i32 40, ptr %11, align 4
-  %12 = getelementptr inbounds i8, ptr %.ptr.ptr.i, i64 216
+  %12 = getelementptr inbounds nuw i8, ptr %.ptr.ptr.i, i64 216
   store ptr null, ptr %12, align 8
   %.add.i = add nuw nsw i64 %.idx.i, 224
   %13 = icmp eq i64 %.add.i, 920
@@ -6266,12 +6266,12 @@ define linkonce_odr noundef i32 @_ZNK10OpenSubdiv6v3_6_03Far19CatmarkPatchBuilde
   %.add15.i = add nsw i64 %.idx14.i, -224
   %.ptr16.i = getelementptr inbounds i8, ptr %5, i64 %.add15.i
   %19 = getelementptr inbounds nuw i8, ptr %.ptr16.i, i64 40
-  %20 = getelementptr inbounds i8, ptr %.ptr16.i, i64 216
+  %20 = getelementptr inbounds nuw i8, ptr %.ptr16.i, i64 216
   %21 = load ptr, ptr %20, align 8
   call void @_ZdlPv(ptr noundef %21) #16
-  %22 = getelementptr inbounds i8, ptr %.ptr16.i, i64 56
+  %22 = getelementptr inbounds nuw i8, ptr %.ptr16.i, i64 56
   store ptr %22, ptr %19, align 8
-  %23 = getelementptr inbounds i8, ptr %.ptr16.i, i64 52
+  %23 = getelementptr inbounds nuw i8, ptr %.ptr16.i, i64 52
   store i32 40, ptr %23, align 4
   %24 = icmp eq i64 %.add15.i, 24
   br i1 %24, label %common.resume, label %18
@@ -6285,12 +6285,12 @@ _ZN10OpenSubdiv6v3_6_03Far16GregoryConverterIdEC2ERKNS1_11SourcePatchERNS1_12Spa
   %.add.i10 = add nsw i64 %.idx.i9, -224
   %.ptr1.i = getelementptr inbounds i8, ptr %5, i64 %.add.i10
   %25 = getelementptr inbounds nuw i8, ptr %.ptr1.i, i64 40
-  %26 = getelementptr inbounds i8, ptr %.ptr1.i, i64 216
+  %26 = getelementptr inbounds nuw i8, ptr %.ptr1.i, i64 216
   %27 = load ptr, ptr %26, align 8
   call void @_ZdlPv(ptr noundef %27) #16
-  %28 = getelementptr inbounds i8, ptr %.ptr1.i, i64 56
+  %28 = getelementptr inbounds nuw i8, ptr %.ptr1.i, i64 56
   store ptr %28, ptr %25, align 8
-  %29 = getelementptr inbounds i8, ptr %.ptr1.i, i64 52
+  %29 = getelementptr inbounds nuw i8, ptr %.ptr1.i, i64 52
   store i32 40, ptr %29, align 4
   %30 = icmp eq i64 %.add.i10, 24
   br i1 %30, label %_ZN10OpenSubdiv6v3_6_03Far16GregoryConverterIdED2Ev.exit, label %_ZN10OpenSubdiv6v3_6_03Far16GregoryConverterIdEC2ERKNS1_11SourcePatchERNS1_12SparseMatrixIdEE.exit
@@ -6304,13 +6304,13 @@ _ZN10OpenSubdiv6v3_6_03Far16GregoryConverterIdEC2ERKNS1_11SourcePatchERNS1_12Spa
   %.idx.i.i = phi i64 [ 24, %31 ], [ %.add.i.i, %33 ]
   %.ptr.ptr.i.i = getelementptr inbounds i8, ptr %32, i64 %.idx.i.i
   %34 = getelementptr inbounds nuw i8, ptr %.ptr.ptr.i.i, i64 40
-  %35 = getelementptr inbounds i8, ptr %.ptr.ptr.i.i, i64 56
+  %35 = getelementptr inbounds nuw i8, ptr %.ptr.ptr.i.i, i64 56
   store ptr %35, ptr %34, align 8
-  %36 = getelementptr inbounds i8, ptr %.ptr.ptr.i.i, i64 48
+  %36 = getelementptr inbounds nuw i8, ptr %.ptr.ptr.i.i, i64 48
   store i32 0, ptr %36, align 8
-  %37 = getelementptr inbounds i8, ptr %.ptr.ptr.i.i, i64 52
+  %37 = getelementptr inbounds nuw i8, ptr %.ptr.ptr.i.i, i64 52
   store i32 40, ptr %37, align 4
-  %38 = getelementptr inbounds i8, ptr %.ptr.ptr.i.i, i64 216
+  %38 = getelementptr inbounds nuw i8, ptr %.ptr.ptr.i.i, i64 216
   store ptr null, ptr %38, align 8
   %.add.i.i = add nuw nsw i64 %.idx.i.i, 224
   %39 = icmp eq i64 %.add.i.i, 920
@@ -6335,12 +6335,12 @@ _ZN10OpenSubdiv6v3_6_03Far16BSplineConverterIdE10InitializeERKNS1_11SourcePatchE
   %.add.i5.i = add nsw i64 %.idx.i4.i, -224
   %.ptr1.i.i = getelementptr inbounds i8, ptr %32, i64 %.add.i5.i
   %43 = getelementptr inbounds nuw i8, ptr %.ptr1.i.i, i64 40
-  %44 = getelementptr inbounds i8, ptr %.ptr1.i.i, i64 216
+  %44 = getelementptr inbounds nuw i8, ptr %.ptr1.i.i, i64 216
   %45 = load ptr, ptr %44, align 8
   call void @_ZdlPv(ptr noundef %45) #16
-  %46 = getelementptr inbounds i8, ptr %.ptr1.i.i, i64 56
+  %46 = getelementptr inbounds nuw i8, ptr %.ptr1.i.i, i64 56
   store ptr %46, ptr %43, align 8
-  %47 = getelementptr inbounds i8, ptr %.ptr1.i.i, i64 52
+  %47 = getelementptr inbounds nuw i8, ptr %.ptr1.i.i, i64 52
   store i32 40, ptr %47, align 4
   %48 = icmp eq i64 %.add.i5.i, 24
   br i1 %48, label %common.resume, label %42
@@ -6350,12 +6350,12 @@ _ZN10OpenSubdiv6v3_6_03Far16BSplineConverterIdEC2ERKNS1_11SourcePatchERNS1_12Spa
   %.add.i.i12 = add nsw i64 %.idx.i.i11, -224
   %.ptr1.i.i13 = getelementptr inbounds i8, ptr %32, i64 %.add.i.i12
   %49 = getelementptr inbounds nuw i8, ptr %.ptr1.i.i13, i64 40
-  %50 = getelementptr inbounds i8, ptr %.ptr1.i.i13, i64 216
+  %50 = getelementptr inbounds nuw i8, ptr %.ptr1.i.i13, i64 216
   %51 = load ptr, ptr %50, align 8
   call void @_ZdlPv(ptr noundef %51) #16
-  %52 = getelementptr inbounds i8, ptr %.ptr1.i.i13, i64 56
+  %52 = getelementptr inbounds nuw i8, ptr %.ptr1.i.i13, i64 56
   store ptr %52, ptr %49, align 8
-  %53 = getelementptr inbounds i8, ptr %.ptr1.i.i13, i64 52
+  %53 = getelementptr inbounds nuw i8, ptr %.ptr1.i.i13, i64 52
   store i32 40, ptr %53, align 4
   %54 = icmp eq i64 %.add.i.i12, 24
   br i1 %54, label %_ZN10OpenSubdiv6v3_6_03Far16GregoryConverterIdED2Ev.exit, label %_ZN10OpenSubdiv6v3_6_03Far16BSplineConverterIdEC2ERKNS1_11SourcePatchERNS1_12SparseMatrixIdEE.exit
@@ -6463,17 +6463,17 @@ define linkonce_odr void @_ZN10OpenSubdiv6v3_6_03Far16GregoryConverterIdE10Initi
   br i1 %56, label %57, label %62
 
 57:                                               ; preds = %51
-  %58 = getelementptr inbounds i8, ptr %12, i64 216
+  %58 = getelementptr inbounds nuw i8, ptr %12, i64 216
   %59 = load ptr, ptr %58, align 8
   tail call void @_ZdlPv(ptr noundef %59) #16
-  %60 = getelementptr inbounds i8, ptr %12, i64 56
+  %60 = getelementptr inbounds nuw i8, ptr %12, i64 56
   store ptr %60, ptr %53, align 8
-  %61 = getelementptr inbounds i8, ptr %12, i64 52
+  %61 = getelementptr inbounds nuw i8, ptr %12, i64 52
   store i32 40, ptr %61, align 4
   br label %_ZN10OpenSubdiv6v3_6_03Vtr8internal11StackBufferIiLj40ELb1EE7SetSizeEj.exit
 
 62:                                               ; preds = %51
-  %63 = getelementptr inbounds i8, ptr %12, i64 52
+  %63 = getelementptr inbounds nuw i8, ptr %12, i64 52
   %64 = load i32, ptr %63, align 4
   %65 = icmp ugt i32 %55, %64
   br i1 %65, label %66, label %._ZN10OpenSubdiv6v3_6_03Vtr8internal11StackBufferIiLj40ELb1EE7SetSizeEj.exit_crit_edge
@@ -6483,10 +6483,10 @@ define linkonce_odr void @_ZN10OpenSubdiv6v3_6_03Far16GregoryConverterIdE10Initi
   br label %_ZN10OpenSubdiv6v3_6_03Vtr8internal11StackBufferIiLj40ELb1EE7SetSizeEj.exit
 
 66:                                               ; preds = %62
-  %67 = getelementptr inbounds i8, ptr %12, i64 216
+  %67 = getelementptr inbounds nuw i8, ptr %12, i64 216
   %68 = load ptr, ptr %67, align 8
   tail call void @_ZdlPv(ptr noundef %68) #16
-  %69 = getelementptr inbounds i8, ptr %12, i64 56
+  %69 = getelementptr inbounds nuw i8, ptr %12, i64 56
   store ptr %69, ptr %53, align 8
   store i32 40, ptr %63, align 4
   %70 = zext i32 %55 to i64
@@ -6499,7 +6499,7 @@ define linkonce_odr void @_ZN10OpenSubdiv6v3_6_03Far16GregoryConverterIdE10Initi
 
 _ZN10OpenSubdiv6v3_6_03Vtr8internal11StackBufferIiLj40ELb1EE7SetSizeEj.exit: ; preds = %._ZN10OpenSubdiv6v3_6_03Vtr8internal11StackBufferIiLj40ELb1EE7SetSizeEj.exit_crit_edge, %57, %66
   %73 = phi ptr [ %.pre, %._ZN10OpenSubdiv6v3_6_03Vtr8internal11StackBufferIiLj40ELb1EE7SetSizeEj.exit_crit_edge ], [ %60, %57 ], [ %72, %66 ]
-  %74 = getelementptr inbounds i8, ptr %12, i64 48
+  %74 = getelementptr inbounds nuw i8, ptr %12, i64 48
   store i32 %55, ptr %74, align 8
   %75 = trunc nuw nsw i64 %indvars.iv to i32
   %76 = tail call noundef i32 @_ZNK10OpenSubdiv6v3_6_03Far11SourcePatch19GetCornerRingPointsEiPi(ptr noundef nonnull align 4 dereferenceable(88) %1, i32 noundef %75, ptr noundef %73)
@@ -7129,7 +7129,7 @@ define linkonce_odr void @_ZNK10OpenSubdiv6v3_6_03Far16GregoryConverterIdE22resi
   br i1 %.not12.i, label %77, label %_ZNK10OpenSubdiv6v3_6_03Far16GregoryConverterIdE25getIrregularFacePointSizeEii.exit
 
 73:                                               ; preds = %64
-  %74 = getelementptr inbounds i8, ptr %7, i64 48
+  %74 = getelementptr inbounds nuw i8, ptr %7, i64 48
   %75 = load i32, ptr %74, align 8
   %76 = add i32 %75, 1
   %.pre.i = load i16, ptr %68, align 8
@@ -7143,7 +7143,7 @@ define linkonce_odr void @_ZNK10OpenSubdiv6v3_6_03Far16GregoryConverterIdE22resi
   br i1 %or.cond.i, label %81, label %85
 
 81:                                               ; preds = %77
-  %82 = getelementptr inbounds i8, ptr %68, i64 48
+  %82 = getelementptr inbounds nuw i8, ptr %68, i64 48
   %83 = load i32, ptr %82, align 8
   %84 = add i32 %83, -5
   br label %85
@@ -7179,7 +7179,7 @@ _ZNK10OpenSubdiv6v3_6_03Far16GregoryConverterIdE25getIrregularFacePointSizeEii.e
   br i1 %.not12.i82, label %103, label %_ZNK10OpenSubdiv6v3_6_03Far16GregoryConverterIdE25getIrregularFacePointSizeEii.exit86
 
 99:                                               ; preds = %90
-  %100 = getelementptr inbounds i8, ptr %7, i64 48
+  %100 = getelementptr inbounds nuw i8, ptr %7, i64 48
   %101 = load i32, ptr %100, align 8
   %102 = add i32 %101, 1
   %.pre.i85 = load i16, ptr %94, align 8
@@ -7193,7 +7193,7 @@ _ZNK10OpenSubdiv6v3_6_03Far16GregoryConverterIdE25getIrregularFacePointSizeEii.e
   br i1 %or.cond.i84, label %107, label %111
 
 107:                                              ; preds = %103
-  %108 = getelementptr inbounds i8, ptr %94, i64 48
+  %108 = getelementptr inbounds nuw i8, ptr %94, i64 48
   %109 = load i32, ptr %108, align 8
   %110 = add i32 %109, -5
   br label %111
@@ -7937,11 +7937,11 @@ define internal fastcc void @_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_125_removeVa
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %19 = getelementptr inbounds nuw i8, ptr %2, i64 64
-  %20 = getelementptr inbounds i8, ptr %2, i64 72
+  %20 = getelementptr inbounds nuw i8, ptr %2, i64 72
   %21 = getelementptr inbounds nuw i8, ptr %2, i64 40
-  %22 = getelementptr inbounds i8, ptr %2, i64 48
-  %23 = getelementptr inbounds i8, ptr %2, i64 56
-  %24 = getelementptr inbounds i8, ptr %2, i64 80
+  %22 = getelementptr inbounds nuw i8, ptr %2, i64 48
+  %23 = getelementptr inbounds nuw i8, ptr %2, i64 56
+  %24 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %wide.trip.count120 = zext nneg i32 %14 to i64
   br label %25
 
@@ -8349,16 +8349,16 @@ _ZNSt12_Vector_baseIdSaIdEE13_M_deallocateEPdm.exit35.i: ; preds = %149, %_ZNSt6
   store i32 %194, ptr %6, align 8
   %196 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %197 = load ptr, ptr %196, align 8
-  %198 = getelementptr inbounds i8, ptr %0, i64 24
+  %198 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %199 = load ptr, ptr %198, align 8
-  %200 = getelementptr inbounds i8, ptr %0, i64 32
+  %200 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %201 = load ptr, ptr %200, align 8
   %202 = load ptr, ptr %7, align 8
   store ptr %202, ptr %196, align 8
-  %203 = getelementptr inbounds i8, ptr %2, i64 24
+  %203 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %204 = load ptr, ptr %203, align 8
   store ptr %204, ptr %198, align 8
-  %205 = getelementptr inbounds i8, ptr %2, i64 32
+  %205 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %206 = load ptr, ptr %205, align 8
   store ptr %206, ptr %200, align 8
   store ptr %197, ptr %7, align 8
@@ -8367,16 +8367,16 @@ _ZNSt12_Vector_baseIdSaIdEE13_M_deallocateEPdm.exit35.i: ; preds = %149, %_ZNSt6
   %207 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %208 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %209 = load ptr, ptr %207, align 8
-  %210 = getelementptr inbounds i8, ptr %0, i64 48
+  %210 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %211 = load ptr, ptr %210, align 8
-  %212 = getelementptr inbounds i8, ptr %0, i64 56
+  %212 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %213 = load ptr, ptr %212, align 8
   %214 = load ptr, ptr %208, align 8
   store ptr %214, ptr %207, align 8
-  %215 = getelementptr inbounds i8, ptr %2, i64 48
+  %215 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %216 = load ptr, ptr %215, align 8
   store ptr %216, ptr %210, align 8
-  %217 = getelementptr inbounds i8, ptr %2, i64 56
+  %217 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %218 = load ptr, ptr %217, align 8
   store ptr %218, ptr %212, align 8
   store ptr %209, ptr %208, align 8
@@ -8385,16 +8385,16 @@ _ZNSt12_Vector_baseIdSaIdEE13_M_deallocateEPdm.exit35.i: ; preds = %149, %_ZNSt6
   %219 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %220 = getelementptr inbounds nuw i8, ptr %2, i64 64
   %221 = load ptr, ptr %219, align 8
-  %222 = getelementptr inbounds i8, ptr %0, i64 72
+  %222 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %223 = load ptr, ptr %222, align 8
-  %224 = getelementptr inbounds i8, ptr %0, i64 80
+  %224 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %225 = load ptr, ptr %224, align 8
   %226 = load ptr, ptr %220, align 8
   store ptr %226, ptr %219, align 8
-  %227 = getelementptr inbounds i8, ptr %2, i64 72
+  %227 = getelementptr inbounds nuw i8, ptr %2, i64 72
   %228 = load ptr, ptr %227, align 8
   store ptr %228, ptr %222, align 8
-  %229 = getelementptr inbounds i8, ptr %2, i64 80
+  %229 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %230 = load ptr, ptr %229, align 8
   store ptr %230, ptr %224, align 8
   store ptr %221, ptr %220, align 8
@@ -8447,9 +8447,9 @@ define internal fastcc void @_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_113_resizeMa
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %8 = getelementptr inbounds i8, ptr %0, i64 72
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %10 = getelementptr inbounds i8, ptr %0, i64 48
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 48
   br label %11
 
 11:                                               ; preds = %4, %_ZN10OpenSubdiv6v3_6_03Far12SparseMatrixIdE10SetRowSizeEii.exit
@@ -8554,7 +8554,7 @@ define linkonce_odr void @_ZN10OpenSubdiv6v3_6_03Far12SparseMatrixIdE6ResizeEiii
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 0, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %9 = getelementptr inbounds i8, ptr %0, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %10 = load ptr, ptr %9, align 8
   %11 = load ptr, ptr %8, align 8
   %12 = ptrtoint ptr %11 to i64
@@ -8603,7 +8603,7 @@ _ZNSt6vectorIiSaIiEE6resizeEmRKi.exit:            ; preds = %20, %22, %24, %26
   %27 = phi ptr [ %.pre, %20 ], [ %11, %22 ], [ %11, %24 ], [ %11, %26 ]
   store i32 0, ptr %27, align 4
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %29 = getelementptr inbounds i8, ptr %0, i64 72
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %30 = load ptr, ptr %29, align 8
   %31 = load ptr, ptr %28, align 8
   %32 = ptrtoint ptr %30 to i64
@@ -8617,7 +8617,7 @@ _ZNSt6vectorIiSaIiEE6resizeEmRKi.exit:            ; preds = %20, %22, %24, %26
 38:                                               ; preds = %_ZNSt6vectorIiSaIiEE6resizeEmRKi.exit
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %40 = sext i32 %3 to i64
-  %41 = getelementptr inbounds i8, ptr %0, i64 48
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %42 = load ptr, ptr %41, align 8
   %43 = load ptr, ptr %39, align 8
   %44 = ptrtoint ptr %42 to i64
@@ -9458,7 +9458,7 @@ define linkonce_odr void @_ZN10OpenSubdiv6v3_6_03Far12SparseMatrixIdED2Ev(ptr no
   br i1 %.not.i.i.i, label %_ZNSt6vectorIdSaIdEED2Ev.exit, label %4
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 80
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %6 = load ptr, ptr %5, align 8
   %7 = ptrtoint ptr %6 to i64
   %8 = ptrtoint ptr %3 to i64
@@ -9473,7 +9473,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit:                    ; preds = %1, %4
   br i1 %.not.i.i.i1, label %_ZNSt6vectorIiSaIiEED2Ev.exit, label %12
 
 12:                                               ; preds = %_ZNSt6vectorIdSaIdEED2Ev.exit
-  %13 = getelementptr inbounds i8, ptr %0, i64 56
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %14 = load ptr, ptr %13, align 8
   %15 = ptrtoint ptr %14 to i64
   %16 = ptrtoint ptr %11 to i64
@@ -9488,7 +9488,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %_ZNSt6vectorIdSaIdE
   br i1 %.not.i.i.i2, label %_ZNSt6vectorIiSaIiEED2Ev.exit3, label %20
 
 20:                                               ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit
-  %21 = getelementptr inbounds i8, ptr %0, i64 32
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %22 = load ptr, ptr %21, align 8
   %23 = ptrtoint ptr %22 to i64
   %24 = ptrtoint ptr %19 to i64
@@ -9503,13 +9503,13 @@ _ZNSt6vectorIiSaIiEED2Ev.exit3:                   ; preds = %_ZNSt6vectorIiSaIiE
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNK10OpenSubdiv6v3_6_03Far16BSplineConverterIdE7ConvertERNS1_12SparseMatrixIdEE(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr noundef nonnull align 8 dereferenceable(88) %1) local_unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.OpenSubdiv::v3_6_0::Far::SparseMatrix.15", align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i8, ptr %4, align 8
   %6 = trunc i8 %5 to i1
   br i1 %6, label %7, label %10
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %0, i64 20
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %9 = load i32, ptr %8, align 4
   tail call void @_ZNK10OpenSubdiv6v3_6_03Far16BSplineConverterIdE22convertIrregularCornerEiRNS1_12SparseMatrixIdEE(ptr noundef nonnull align 8 dereferenceable(928) %0, i32 noundef %9, ptr noundef nonnull align 8 dereferenceable(88) %1)
   br label %_ZN10OpenSubdiv6v3_6_03Far12SparseMatrixIdED2Ev.exit
@@ -9537,7 +9537,7 @@ define linkonce_odr void @_ZNK10OpenSubdiv6v3_6_03Far16BSplineConverterIdE7Conve
   br i1 %.not.i.i.i.i, label %_ZNSt6vectorIdSaIdEED2Ev.exit.i, label %19
 
 19:                                               ; preds = %16
-  %20 = getelementptr inbounds i8, ptr %3, i64 80
+  %20 = getelementptr inbounds nuw i8, ptr %3, i64 80
   %21 = load ptr, ptr %20, align 8
   %22 = ptrtoint ptr %21 to i64
   %23 = ptrtoint ptr %18 to i64
@@ -9552,7 +9552,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit.i:                  ; preds = %19, %16
   br i1 %.not.i.i.i1.i, label %_ZNSt6vectorIiSaIiEED2Ev.exit.i, label %27
 
 27:                                               ; preds = %_ZNSt6vectorIdSaIdEED2Ev.exit.i
-  %28 = getelementptr inbounds i8, ptr %3, i64 56
+  %28 = getelementptr inbounds nuw i8, ptr %3, i64 56
   %29 = load ptr, ptr %28, align 8
   %30 = ptrtoint ptr %29 to i64
   %31 = ptrtoint ptr %26 to i64
@@ -9566,7 +9566,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit.i:                  ; preds = %27, %_ZNSt6vectorId
   br i1 %.not.i.i.i2.i, label %_ZN10OpenSubdiv6v3_6_03Far12SparseMatrixIdED2Ev.exit, label %34
 
 34:                                               ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit.i
-  %35 = getelementptr inbounds i8, ptr %3, i64 32
+  %35 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %36 = load ptr, ptr %35, align 8
   %37 = ptrtoint ptr %36 to i64
   %38 = ptrtoint ptr %33 to i64
@@ -10060,7 +10060,7 @@ define linkonce_odr void @_ZNK10OpenSubdiv6v3_6_03Far16BSplineConverterIdE18conv
   store i32 %11, ptr %12, align 8
   %13 = load i32, ptr %9, align 4
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 64
-  %15 = getelementptr inbounds i8, ptr %2, i64 72
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 72
   %16 = load ptr, ptr %15, align 8
   %17 = load ptr, ptr %14, align 8
   %18 = ptrtoint ptr %16 to i64
@@ -10074,7 +10074,7 @@ define linkonce_odr void @_ZNK10OpenSubdiv6v3_6_03Far16BSplineConverterIdE18conv
 24:                                               ; preds = %3
   %25 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %26 = sext i32 %13 to i64
-  %27 = getelementptr inbounds i8, ptr %2, i64 48
+  %27 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %28 = load ptr, ptr %27, align 8
   %29 = load ptr, ptr %25, align 8
   %30 = ptrtoint ptr %28 to i64
@@ -10150,7 +10150,7 @@ _ZN10OpenSubdiv6v3_6_03Far12SparseMatrixIdE10SetRowSizeEii.exit.i: ; preds = %54
   br label %.lr.ph.i
 
 .preheader.i:                                     ; preds = %.lr.ph.i, %_ZN10OpenSubdiv6v3_6_03Far12SparseMatrixIdE10SetRowSizeEii.exit.i
-  %62 = getelementptr inbounds i8, ptr %2, i64 48
+  %62 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %63 = sext i32 %5 to i64
   %64 = shl nsw i64 %63, 2
   br label %67
@@ -11250,9 +11250,9 @@ define linkonce_odr void @_ZNK10OpenSubdiv6v3_6_03Far16BSplineConverterIdE26buil
   %42 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %43 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %44 = getelementptr inbounds nuw i8, ptr %4, i64 64
-  %45 = getelementptr inbounds i8, ptr %4, i64 72
+  %45 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %46 = getelementptr inbounds nuw i8, ptr %4, i64 40
-  %47 = getelementptr inbounds i8, ptr %4, i64 48
+  %47 = getelementptr inbounds nuw i8, ptr %4, i64 48
   br label %48
 
 48:                                               ; preds = %12, %105
@@ -11452,9 +11452,9 @@ _ZN10OpenSubdiv6v3_6_03Vtr8internal11StackBufferIdLj64ELb1EEC2Ej.exit: ; preds =
   %40 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %41 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %42 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  %43 = getelementptr inbounds i8, ptr %1, i64 72
+  %43 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %44 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %45 = getelementptr inbounds i8, ptr %1, i64 48
+  %45 = getelementptr inbounds nuw i8, ptr %1, i64 48
   br label %46
 
 46:                                               ; preds = %.preheader, %272
@@ -11901,7 +11901,7 @@ define void @_ZN10OpenSubdiv6v3_6_03Far19CatmarkPatchBuilderC2ERKNS1_15TopologyR
   %8 = load i32, ptr %7, align 4
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i32 %8, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 20
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %11 = load i32, ptr %10, align 4
   %12 = icmp eq i32 %11, 0
   br i1 %12, label %17, label %13

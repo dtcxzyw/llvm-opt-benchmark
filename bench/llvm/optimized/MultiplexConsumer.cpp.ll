@@ -59,10 +59,10 @@ _ZNSt16allocator_traitsISaIPN5clang26ASTDeserializationListenerEEE8allocateERS3_
 _ZNSt12_Vector_baseIPN5clang26ASTDeserializationListenerESaIS2_EEC2EmRKS3_.exit.i: ; preds = %_ZNSt16allocator_traitsISaIPN5clang26ASTDeserializationListenerEEE8allocateERS3_m.exit.i.i.i.i, %2
   %15 = phi ptr [ %14, %_ZNSt16allocator_traitsISaIPN5clang26ASTDeserializationListenerEEE8allocateERS3_m.exit.i.i.i.i ], [ null, %2 ]
   store ptr %15, ptr %3, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %15, ptr %16, align 8
   %17 = getelementptr inbounds ptr, ptr %15, i64 %10
-  %18 = getelementptr inbounds i8, ptr %0, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %17, ptr %18, align 8
   %19 = load ptr, ptr %1, align 8
   %20 = load ptr, ptr %4, align 8
@@ -85,7 +85,7 @@ _ZNSt6vectorIPN5clang26ASTDeserializationListenerESaIS2_EEC2ERKS4_.exit: ; preds
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN5clang35MultiplexASTDeserializationListener17ReaderInitializedEPNS_9ASTReaderE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, ptr noundef %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %3, align 8
   %7 = ptrtoint ptr %5 to i64
@@ -115,7 +115,7 @@ define dso_local void @_ZN5clang35MultiplexASTDeserializationListener17ReaderIni
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN5clang35MultiplexASTDeserializationListener14IdentifierReadEmPNS_14IdentifierInfoE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, i64 noundef %1, ptr noundef %2) unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load ptr, ptr %5, align 8
   %7 = load ptr, ptr %4, align 8
   %8 = ptrtoint ptr %6 to i64
@@ -146,7 +146,7 @@ define dso_local void @_ZN5clang35MultiplexASTDeserializationListener14Identifie
 define dso_local void @_ZN5clang35MultiplexASTDeserializationListener9MacroReadEjPNS_9MacroInfoE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, i32 noundef %1, ptr noundef %2) unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load ptr, ptr %6, align 8
   %.not8 = icmp eq ptr %5, %7
   br i1 %.not8, label %._crit_edge, label %.lr.ph
@@ -169,7 +169,7 @@ define dso_local void @_ZN5clang35MultiplexASTDeserializationListener9MacroReadE
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN5clang35MultiplexASTDeserializationListener8TypeReadENS_13serialization7TypeIdxENS_8QualTypeE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, i64 %1, i64 %2) unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load ptr, ptr %5, align 8
   %7 = load ptr, ptr %4, align 8
   %8 = ptrtoint ptr %6 to i64
@@ -199,7 +199,7 @@ define dso_local void @_ZN5clang35MultiplexASTDeserializationListener8TypeReadEN
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN5clang35MultiplexASTDeserializationListener8DeclReadENS_12GlobalDeclIDEPKNS_4DeclE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, i64 %1, ptr noundef %2) unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load ptr, ptr %5, align 8
   %7 = load ptr, ptr %4, align 8
   %8 = ptrtoint ptr %6 to i64
@@ -229,7 +229,7 @@ define dso_local void @_ZN5clang35MultiplexASTDeserializationListener8DeclReadEN
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN5clang35MultiplexASTDeserializationListener19PredefinedDeclBuiltENS_17PredefinedDeclIDsEPKNS_4DeclE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, i32 noundef %1, ptr noundef %2) unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load ptr, ptr %5, align 8
   %7 = load ptr, ptr %4, align 8
   %8 = ptrtoint ptr %6 to i64
@@ -259,7 +259,7 @@ define dso_local void @_ZN5clang35MultiplexASTDeserializationListener19Predefine
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN5clang35MultiplexASTDeserializationListener12SelectorReadEjNS_8SelectorE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, i32 noundef %1, i64 %2) unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load ptr, ptr %5, align 8
   %7 = load ptr, ptr %4, align 8
   %8 = ptrtoint ptr %6 to i64
@@ -289,7 +289,7 @@ define dso_local void @_ZN5clang35MultiplexASTDeserializationListener12SelectorR
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN5clang35MultiplexASTDeserializationListener19MacroDefinitionReadEjPNS_21MacroDefinitionRecordE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, i32 noundef %1, ptr noundef %2) unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load ptr, ptr %5, align 8
   %7 = load ptr, ptr %4, align 8
   %8 = ptrtoint ptr %6 to i64
@@ -320,7 +320,7 @@ define dso_local void @_ZN5clang35MultiplexASTDeserializationListener19MacroDefi
 define dso_local void @_ZN5clang35MultiplexASTDeserializationListener10ModuleReadEjPNS_6ModuleE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, i32 noundef %1, ptr noundef %2) unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load ptr, ptr %6, align 8
   %.not8 = icmp eq ptr %5, %7
   br i1 %.not8, label %._crit_edge, label %.lr.ph
@@ -344,7 +344,7 @@ define dso_local void @_ZN5clang35MultiplexASTDeserializationListener10ModuleRea
 define dso_local void @_ZN5clang35MultiplexASTDeserializationListener16ModuleImportReadEjNS_14SourceLocationE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, i32 noundef %1, i32 %2) unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load ptr, ptr %6, align 8
   %.not8 = icmp eq ptr %5, %7
   br i1 %.not8, label %._crit_edge, label %.lr.ph
@@ -383,7 +383,7 @@ _ZNSt6vectorIPN5clang19ASTMutationListenerESaIS2_EE17_S_check_init_lenEmRKS3_.ex
 
 _ZNSt12_Vector_baseIPN5clang19ASTMutationListenerESaIS2_EE11_M_allocateEm.exit.thread.i.i: ; preds = %_ZNSt6vectorIPN5clang19ASTMutationListenerESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i.i
   %7 = getelementptr inbounds i8, ptr null, i64 %.idx
-  %8 = getelementptr inbounds i8, ptr %0, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %7, ptr %8, align 8
   br label %_ZNSt6vectorIPN5clang19ASTMutationListenerESaIS2_EEC2IPKS2_vEET_S8_RKS3_.exit
 
@@ -391,7 +391,7 @@ _ZNSt12_Vector_baseIPN5clang19ASTMutationListenerESaIS2_EE11_M_allocateEm.exit.t
   %10 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %.idx) #12
   store ptr %10, ptr %4, align 8
   %11 = getelementptr inbounds i8, ptr %10, i64 %.idx
-  %12 = getelementptr inbounds i8, ptr %0, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %11, ptr %12, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %10, ptr align 8 %1, i64 %.idx, i1 false)
   br label %_ZNSt6vectorIPN5clang19ASTMutationListenerESaIS2_EEC2IPKS2_vEET_S8_RKS3_.exit
@@ -399,7 +399,7 @@ _ZNSt12_Vector_baseIPN5clang19ASTMutationListenerESaIS2_EE11_M_allocateEm.exit.t
 _ZNSt6vectorIPN5clang19ASTMutationListenerESaIS2_EEC2IPKS2_vEET_S8_RKS3_.exit: ; preds = %_ZNSt12_Vector_baseIPN5clang19ASTMutationListenerESaIS2_EE11_M_allocateEm.exit.thread.i.i, %9
   %13 = phi ptr [ null, %_ZNSt12_Vector_baseIPN5clang19ASTMutationListenerESaIS2_EE11_M_allocateEm.exit.thread.i.i ], [ %10, %9 ]
   %14 = getelementptr inbounds i8, ptr %13, i64 %.idx
-  %15 = getelementptr inbounds i8, ptr %0, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %14, ptr %15, align 8
   ret void
 }
@@ -407,7 +407,7 @@ _ZNSt6vectorIPN5clang19ASTMutationListenerESaIS2_EEC2IPKS2_vEET_S8_RKS3_.exit: ;
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN5clang28MultiplexASTMutationListener22CompletedTagDefinitionEPKNS_7TagDeclE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, ptr noundef %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %3, align 8
   %7 = ptrtoint ptr %5 to i64
@@ -437,7 +437,7 @@ define dso_local void @_ZN5clang28MultiplexASTMutationListener22CompletedTagDefi
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN5clang28MultiplexASTMutationListener16AddedVisibleDeclEPKNS_11DeclContextEPKNS_4DeclE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load ptr, ptr %5, align 8
   %7 = load ptr, ptr %4, align 8
   %8 = ptrtoint ptr %6 to i64
@@ -467,7 +467,7 @@ define dso_local void @_ZN5clang28MultiplexASTMutationListener16AddedVisibleDecl
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN5clang28MultiplexASTMutationListener22AddedCXXImplicitMemberEPKNS_13CXXRecordDeclEPKNS_4DeclE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load ptr, ptr %5, align 8
   %7 = load ptr, ptr %4, align 8
   %8 = ptrtoint ptr %6 to i64
@@ -497,7 +497,7 @@ define dso_local void @_ZN5clang28MultiplexASTMutationListener22AddedCXXImplicit
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN5clang28MultiplexASTMutationListener30AddedCXXTemplateSpecializationEPKNS_17ClassTemplateDeclEPKNS_31ClassTemplateSpecializationDeclE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load ptr, ptr %5, align 8
   %7 = load ptr, ptr %4, align 8
   %8 = ptrtoint ptr %6 to i64
@@ -527,7 +527,7 @@ define dso_local void @_ZN5clang28MultiplexASTMutationListener30AddedCXXTemplate
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN5clang28MultiplexASTMutationListener30AddedCXXTemplateSpecializationEPKNS_15VarTemplateDeclEPKNS_29VarTemplateSpecializationDeclE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load ptr, ptr %5, align 8
   %7 = load ptr, ptr %4, align 8
   %8 = ptrtoint ptr %6 to i64
@@ -557,7 +557,7 @@ define dso_local void @_ZN5clang28MultiplexASTMutationListener30AddedCXXTemplate
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN5clang28MultiplexASTMutationListener30AddedCXXTemplateSpecializationEPKNS_20FunctionTemplateDeclEPKNS_12FunctionDeclE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load ptr, ptr %5, align 8
   %7 = load ptr, ptr %4, align 8
   %8 = ptrtoint ptr %6 to i64
@@ -588,7 +588,7 @@ define dso_local void @_ZN5clang28MultiplexASTMutationListener30AddedCXXTemplate
 define dso_local void @_ZN5clang28MultiplexASTMutationListener21ResolvedExceptionSpecEPKNS_12FunctionDeclE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, ptr noundef %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load ptr, ptr %5, align 8
   %.not8 = icmp eq ptr %4, %6
   br i1 %.not8, label %._crit_edge, label %.lr.ph
@@ -611,7 +611,7 @@ define dso_local void @_ZN5clang28MultiplexASTMutationListener21ResolvedExceptio
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN5clang28MultiplexASTMutationListener17DeducedReturnTypeEPKNS_12FunctionDeclENS_8QualTypeE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, ptr noundef %1, i64 %2) unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load ptr, ptr %5, align 8
   %7 = load ptr, ptr %4, align 8
   %8 = ptrtoint ptr %6 to i64
@@ -642,7 +642,7 @@ define dso_local void @_ZN5clang28MultiplexASTMutationListener17DeducedReturnTyp
 define dso_local void @_ZN5clang28MultiplexASTMutationListener22ResolvedOperatorDeleteEPKNS_17CXXDestructorDeclEPKNS_12FunctionDeclEPNS_4ExprE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load ptr, ptr %7, align 8
   %.not10 = icmp eq ptr %6, %8
   br i1 %.not10, label %._crit_edge, label %.lr.ph
@@ -665,7 +665,7 @@ define dso_local void @_ZN5clang28MultiplexASTMutationListener22ResolvedOperator
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN5clang28MultiplexASTMutationListener27CompletedImplicitDefinitionEPKNS_12FunctionDeclE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, ptr noundef %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %3, align 8
   %7 = ptrtoint ptr %5 to i64
@@ -695,7 +695,7 @@ define dso_local void @_ZN5clang28MultiplexASTMutationListener27CompletedImplici
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN5clang28MultiplexASTMutationListener22InstantiationRequestedEPKNS_9ValueDeclE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, ptr noundef %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %3, align 8
   %7 = ptrtoint ptr %5 to i64
@@ -725,7 +725,7 @@ define dso_local void @_ZN5clang28MultiplexASTMutationListener22InstantiationReq
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN5clang28MultiplexASTMutationListener30VariableDefinitionInstantiatedEPKNS_7VarDeclE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, ptr noundef %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %3, align 8
   %7 = ptrtoint ptr %5 to i64
@@ -756,7 +756,7 @@ define dso_local void @_ZN5clang28MultiplexASTMutationListener30VariableDefiniti
 define dso_local void @_ZN5clang28MultiplexASTMutationListener30FunctionDefinitionInstantiatedEPKNS_12FunctionDeclE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, ptr noundef %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load ptr, ptr %5, align 8
   %.not8 = icmp eq ptr %4, %6
   br i1 %.not8, label %._crit_edge, label %.lr.ph
@@ -779,7 +779,7 @@ define dso_local void @_ZN5clang28MultiplexASTMutationListener30FunctionDefiniti
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN5clang28MultiplexASTMutationListener27DefaultArgumentInstantiatedEPKNS_11ParmVarDeclE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, ptr noundef %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %3, align 8
   %7 = ptrtoint ptr %5 to i64
@@ -809,7 +809,7 @@ define dso_local void @_ZN5clang28MultiplexASTMutationListener27DefaultArgumentI
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN5clang28MultiplexASTMutationListener36DefaultMemberInitializerInstantiatedEPKNS_9FieldDeclE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, ptr noundef %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %3, align 8
   %7 = ptrtoint ptr %5 to i64
@@ -839,7 +839,7 @@ define dso_local void @_ZN5clang28MultiplexASTMutationListener36DefaultMemberIni
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN5clang28MultiplexASTMutationListener28AddedObjCCategoryToInterfaceEPKNS_16ObjCCategoryDeclEPKNS_17ObjCInterfaceDeclE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load ptr, ptr %5, align 8
   %7 = load ptr, ptr %4, align 8
   %8 = ptrtoint ptr %6 to i64
@@ -869,7 +869,7 @@ define dso_local void @_ZN5clang28MultiplexASTMutationListener28AddedObjCCategor
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN5clang28MultiplexASTMutationListener21DeclarationMarkedUsedEPKNS_4DeclE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, ptr noundef %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %3, align 8
   %7 = ptrtoint ptr %5 to i64
@@ -899,7 +899,7 @@ define dso_local void @_ZN5clang28MultiplexASTMutationListener21DeclarationMarke
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN5clang28MultiplexASTMutationListener36DeclarationMarkedOpenMPThreadPrivateEPKNS_4DeclE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, ptr noundef %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %3, align 8
   %7 = ptrtoint ptr %5 to i64
@@ -930,7 +930,7 @@ define dso_local void @_ZN5clang28MultiplexASTMutationListener36DeclarationMarke
 define dso_local void @_ZN5clang28MultiplexASTMutationListener31DeclarationMarkedOpenMPAllocateEPKNS_4DeclEPKNS_4AttrE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load ptr, ptr %6, align 8
   %.not9 = icmp eq ptr %5, %7
   br i1 %.not9, label %._crit_edge, label %.lr.ph
@@ -954,7 +954,7 @@ define dso_local void @_ZN5clang28MultiplexASTMutationListener31DeclarationMarke
 define dso_local void @_ZN5clang28MultiplexASTMutationListener36DeclarationMarkedOpenMPDeclareTargetEPKNS_4DeclEPKNS_4AttrE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load ptr, ptr %6, align 8
   %.not9 = icmp eq ptr %5, %7
   br i1 %.not9, label %._crit_edge, label %.lr.ph
@@ -978,7 +978,7 @@ define dso_local void @_ZN5clang28MultiplexASTMutationListener36DeclarationMarke
 define dso_local void @_ZN5clang28MultiplexASTMutationListener25RedefinedHiddenDefinitionEPKNS_9NamedDeclEPNS_6ModuleE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load ptr, ptr %6, align 8
   %.not9 = icmp eq ptr %5, %7
   br i1 %.not9, label %._crit_edge, label %.lr.ph
@@ -1002,7 +1002,7 @@ define dso_local void @_ZN5clang28MultiplexASTMutationListener25RedefinedHiddenD
 define dso_local void @_ZN5clang28MultiplexASTMutationListener22AddedAttributeToRecordEPKNS_4AttrEPKNS_10RecordDeclE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load ptr, ptr %6, align 8
   %.not9 = icmp eq ptr %5, %7
   br i1 %.not9, label %._crit_edge, label %.lr.ph
@@ -1026,7 +1026,7 @@ define dso_local void @_ZN5clang28MultiplexASTMutationListener22AddedAttributeTo
 define dso_local void @_ZN5clang28MultiplexASTMutationListener21EnteringModulePurviewEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0) unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %.not7 = icmp eq ptr %3, %5
   br i1 %.not7, label %._crit_edge, label %.lr.ph
@@ -1050,7 +1050,7 @@ define dso_local void @_ZN5clang28MultiplexASTMutationListener21EnteringModulePu
 define dso_local void @_ZN5clang28MultiplexASTMutationListener19AddedManglingNumberEPKNS_4DeclEj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load ptr, ptr %6, align 8
   %.not8 = icmp eq ptr %5, %7
   br i1 %.not8, label %._crit_edge, label %.lr.ph
@@ -1074,7 +1074,7 @@ define dso_local void @_ZN5clang28MultiplexASTMutationListener19AddedManglingNum
 define dso_local void @_ZN5clang28MultiplexASTMutationListener23AddedStaticLocalNumbersEPKNS_4DeclEj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load ptr, ptr %6, align 8
   %.not8 = icmp eq ptr %5, %7
   br i1 %.not8, label %._crit_edge, label %.lr.ph
@@ -1098,7 +1098,7 @@ define dso_local void @_ZN5clang28MultiplexASTMutationListener23AddedStaticLocal
 define dso_local void @_ZN5clang28MultiplexASTMutationListener23AddedAnonymousNamespaceEPKNS_19TranslationUnitDeclEPNS_13NamespaceDeclE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load ptr, ptr %6, align 8
   %.not9 = icmp eq ptr %5, %7
   br i1 %.not9, label %._crit_edge, label %.lr.ph
@@ -1127,11 +1127,11 @@ define dso_local void @_ZN5clang17MultiplexConsumerC2ESt6vectorISt10unique_ptrIN
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load ptr, ptr %1, align 8
   store ptr %6, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load ptr, ptr %8, align 8
   store ptr %9, ptr %7, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %12 = load ptr, ptr %11, align 8
   store ptr %12, ptr %10, align 8
@@ -1420,7 +1420,7 @@ _ZNSt10unique_ptrIN5clang28MultiplexASTMutationListenerESt14default_deleteIS1_EE
   store ptr null, ptr %7, align 8
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %15 = load ptr, ptr %14, align 8
   %.not4.i.i.i.i = icmp eq ptr %13, %15
   br i1 %.not4.i.i.i.i, label %_ZSt8_DestroyIPSt10unique_ptrIN5clang11ASTConsumerESt14default_deleteIS2_EES5_EvT_S7_RSaIT0_E.exit.i, label %.lr.ph.i.i.i.i
@@ -1454,7 +1454,7 @@ _ZSt8_DestroyIPSt10unique_ptrIN5clang11ASTConsumerESt14default_deleteIS2_EES5_Ev
   br i1 %.not.i.i.i, label %_ZNSt6vectorISt10unique_ptrIN5clang11ASTConsumerESt14default_deleteIS2_EESaIS5_EED2Ev.exit, label %22
 
 22:                                               ; preds = %_ZSt8_DestroyIPSt10unique_ptrIN5clang11ASTConsumerESt14default_deleteIS2_EES5_EvT_S7_RSaIT0_E.exit.i
-  %23 = getelementptr inbounds i8, ptr %0, i64 32
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %24 = load ptr, ptr %23, align 8
   %25 = ptrtoint ptr %24 to i64
   %26 = ptrtoint ptr %21 to i64
@@ -1480,7 +1480,7 @@ declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #1
 define dso_local void @_ZN5clang17MultiplexConsumer10InitializeERNS_10ASTContextE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %0, ptr noundef nonnull align 1 %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load ptr, ptr %5, align 8
   %.not8 = icmp eq ptr %4, %6
   br i1 %.not8, label %._crit_edge, label %.lr.ph
@@ -1504,7 +1504,7 @@ define dso_local void @_ZN5clang17MultiplexConsumer10InitializeERNS_10ASTContext
 define dso_local noundef zeroext i1 @_ZN5clang17MultiplexConsumer18HandleTopLevelDeclENS_12DeclGroupRefE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %0, ptr %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load ptr, ptr %5, align 8
   %.not9 = icmp eq ptr %4, %6
   br i1 %.not9, label %._crit_edge, label %.lr.ph
@@ -1537,7 +1537,7 @@ define dso_local noundef zeroext i1 @_ZN5clang17MultiplexConsumer18HandleTopLeve
 define dso_local void @_ZN5clang17MultiplexConsumer30HandleInlineFunctionDefinitionEPNS_12FunctionDeclE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %0, ptr noundef %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load ptr, ptr %5, align 8
   %.not8 = icmp eq ptr %4, %6
   br i1 %.not8, label %._crit_edge, label %.lr.ph
@@ -1561,7 +1561,7 @@ define dso_local void @_ZN5clang17MultiplexConsumer30HandleInlineFunctionDefinit
 define dso_local void @_ZN5clang17MultiplexConsumer37HandleCXXStaticMemberVarInstantiationEPNS_7VarDeclE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %0, ptr noundef %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load ptr, ptr %5, align 8
   %.not8 = icmp eq ptr %4, %6
   br i1 %.not8, label %._crit_edge, label %.lr.ph
@@ -1585,7 +1585,7 @@ define dso_local void @_ZN5clang17MultiplexConsumer37HandleCXXStaticMemberVarIns
 define dso_local void @_ZN5clang17MultiplexConsumer21HandleInterestingDeclENS_12DeclGroupRefE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %0, ptr %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load ptr, ptr %5, align 8
   %.not8 = icmp eq ptr %4, %6
   br i1 %.not8, label %._crit_edge, label %.lr.ph
@@ -1609,7 +1609,7 @@ define dso_local void @_ZN5clang17MultiplexConsumer21HandleInterestingDeclENS_12
 define dso_local void @_ZN5clang17MultiplexConsumer21HandleTranslationUnitERNS_10ASTContextE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %0, ptr noundef nonnull align 1 %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load ptr, ptr %5, align 8
   %.not8 = icmp eq ptr %4, %6
   br i1 %.not8, label %._crit_edge, label %.lr.ph
@@ -1633,7 +1633,7 @@ define dso_local void @_ZN5clang17MultiplexConsumer21HandleTranslationUnitERNS_1
 define dso_local void @_ZN5clang17MultiplexConsumer23HandleTagDeclDefinitionEPNS_7TagDeclE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %0, ptr noundef %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load ptr, ptr %5, align 8
   %.not8 = icmp eq ptr %4, %6
   br i1 %.not8, label %._crit_edge, label %.lr.ph
@@ -1657,7 +1657,7 @@ define dso_local void @_ZN5clang17MultiplexConsumer23HandleTagDeclDefinitionEPNS
 define dso_local void @_ZN5clang17MultiplexConsumer31HandleTagDeclRequiredDefinitionEPKNS_7TagDeclE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %0, ptr noundef %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load ptr, ptr %5, align 8
   %.not8 = icmp eq ptr %4, %6
   br i1 %.not8, label %._crit_edge, label %.lr.ph
@@ -1681,7 +1681,7 @@ define dso_local void @_ZN5clang17MultiplexConsumer31HandleTagDeclRequiredDefini
 define dso_local void @_ZN5clang17MultiplexConsumer38HandleCXXImplicitFunctionInstantiationEPNS_12FunctionDeclE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %0, ptr noundef %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load ptr, ptr %5, align 8
   %.not8 = icmp eq ptr %4, %6
   br i1 %.not8, label %._crit_edge, label %.lr.ph
@@ -1705,7 +1705,7 @@ define dso_local void @_ZN5clang17MultiplexConsumer38HandleCXXImplicitFunctionIn
 define dso_local void @_ZN5clang17MultiplexConsumer33HandleTopLevelDeclInObjCContainerENS_12DeclGroupRefE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %0, ptr %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load ptr, ptr %5, align 8
   %.not8 = icmp eq ptr %4, %6
   br i1 %.not8, label %._crit_edge, label %.lr.ph
@@ -1729,7 +1729,7 @@ define dso_local void @_ZN5clang17MultiplexConsumer33HandleTopLevelDeclInObjCCon
 define dso_local void @_ZN5clang17MultiplexConsumer24HandleImplicitImportDeclEPNS_10ImportDeclE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %0, ptr noundef %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load ptr, ptr %5, align 8
   %.not8 = icmp eq ptr %4, %6
   br i1 %.not8, label %._crit_edge, label %.lr.ph
@@ -1753,7 +1753,7 @@ define dso_local void @_ZN5clang17MultiplexConsumer24HandleImplicitImportDeclEPN
 define dso_local void @_ZN5clang17MultiplexConsumer27CompleteTentativeDefinitionEPNS_7VarDeclE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %0, ptr noundef %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load ptr, ptr %5, align 8
   %.not8 = icmp eq ptr %4, %6
   br i1 %.not8, label %._crit_edge, label %.lr.ph
@@ -1777,7 +1777,7 @@ define dso_local void @_ZN5clang17MultiplexConsumer27CompleteTentativeDefinition
 define dso_local void @_ZN5clang17MultiplexConsumer27CompleteExternalDeclarationEPNS_14DeclaratorDeclE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %0, ptr noundef %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load ptr, ptr %5, align 8
   %.not8 = icmp eq ptr %4, %6
   br i1 %.not8, label %._crit_edge, label %.lr.ph
@@ -1801,7 +1801,7 @@ define dso_local void @_ZN5clang17MultiplexConsumer27CompleteExternalDeclaration
 define dso_local void @_ZN5clang17MultiplexConsumer22AssignInheritanceModelEPNS_13CXXRecordDeclE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %0, ptr noundef %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load ptr, ptr %5, align 8
   %.not8 = icmp eq ptr %4, %6
   br i1 %.not8, label %._crit_edge, label %.lr.ph
@@ -1825,7 +1825,7 @@ define dso_local void @_ZN5clang17MultiplexConsumer22AssignInheritanceModelEPNS_
 define dso_local void @_ZN5clang17MultiplexConsumer12HandleVTableEPNS_13CXXRecordDeclE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %0, ptr noundef %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load ptr, ptr %5, align 8
   %.not8 = icmp eq ptr %4, %6
   br i1 %.not8, label %._crit_edge, label %.lr.ph
@@ -1863,7 +1863,7 @@ define dso_local noundef ptr @_ZN5clang17MultiplexConsumer29GetASTDeserializatio
 define dso_local void @_ZN5clang17MultiplexConsumer10PrintStatsEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %0) unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8
   %.not7 = icmp eq ptr %3, %5
   br i1 %.not7, label %._crit_edge, label %.lr.ph
@@ -1887,7 +1887,7 @@ define dso_local void @_ZN5clang17MultiplexConsumer10PrintStatsEv(ptr nocapture 
 define dso_local noundef zeroext i1 @_ZN5clang17MultiplexConsumer22shouldSkipFunctionBodyEPNS_4DeclE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %0, ptr noundef %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load ptr, ptr %5, align 8
   %.not9 = icmp eq ptr %4, %6
   br i1 %.not9, label %._crit_edge, label %.lr.ph
@@ -1920,7 +1920,7 @@ define dso_local noundef zeroext i1 @_ZN5clang17MultiplexConsumer22shouldSkipFun
 define dso_local void @_ZN5clang17MultiplexConsumer14InitializeSemaERNS_4SemaE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %0, ptr noundef nonnull align 1 %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load ptr, ptr %5, align 8
   %.not1012 = icmp eq ptr %4, %6
   br i1 %.not1012, label %._crit_edge, label %.lr.ph
@@ -1955,7 +1955,7 @@ define dso_local void @_ZN5clang17MultiplexConsumer14InitializeSemaERNS_4SemaE(p
 define dso_local void @_ZN5clang17MultiplexConsumer10ForgetSemaEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %0) unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8
   %.not911 = icmp eq ptr %3, %5
   br i1 %.not911, label %._crit_edge, label %.lr.ph
@@ -1995,7 +1995,7 @@ define linkonce_odr hidden void @_ZN5clang35MultiplexASTDeserializationListenerD
   br i1 %.not.i.i.i, label %_ZNSt6vectorIPN5clang26ASTDeserializationListenerESaIS2_EED2Ev.exit, label %4
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load ptr, ptr %5, align 8
   %7 = ptrtoint ptr %6 to i64
   %8 = ptrtoint ptr %3 to i64
@@ -2017,7 +2017,7 @@ define linkonce_odr hidden void @_ZN5clang35MultiplexASTDeserializationListenerD
   br i1 %.not.i.i.i.i, label %_ZN5clang35MultiplexASTDeserializationListenerD2Ev.exit, label %4
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load ptr, ptr %5, align 8
   %7 = ptrtoint ptr %6 to i64
   %8 = ptrtoint ptr %3 to i64
@@ -2040,7 +2040,7 @@ define linkonce_odr hidden void @_ZN5clang28MultiplexASTMutationListenerD2Ev(ptr
   br i1 %.not.i.i.i, label %_ZNSt6vectorIPN5clang19ASTMutationListenerESaIS2_EED2Ev.exit, label %4
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load ptr, ptr %5, align 8
   %7 = ptrtoint ptr %6 to i64
   %8 = ptrtoint ptr %3 to i64
@@ -2062,7 +2062,7 @@ define linkonce_odr hidden void @_ZN5clang28MultiplexASTMutationListenerD0Ev(ptr
   br i1 %.not.i.i.i.i, label %_ZN5clang28MultiplexASTMutationListenerD2Ev.exit, label %4
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load ptr, ptr %5, align 8
   %7 = ptrtoint ptr %6 to i64
   %8 = ptrtoint ptr %3 to i64

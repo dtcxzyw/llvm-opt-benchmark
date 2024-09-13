@@ -59,7 +59,7 @@ define dso_local void @_ZN4llvm9MCSectionC2ENS0_14SectionVariantENS_9StringRefEb
   store i64 %3, ptr %.sroa.2.0..sroa_idx, align 8
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 144
   store i32 %1, ptr %27, align 8
-  %28 = getelementptr inbounds i8, ptr %0, i64 64
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr %0, ptr %28, align 8
   store i32 0, ptr %8, align 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, i8 0, i64 16, i1 false)

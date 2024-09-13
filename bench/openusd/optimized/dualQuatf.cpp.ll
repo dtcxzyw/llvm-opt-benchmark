@@ -89,7 +89,7 @@ define <2 x float> @_ZNK32pxrInternal_v0_24__pxrReserved__11GfDualQuatf9GetLengt
   %21 = getelementptr inbounds i8, ptr %0, i64 24
   %22 = load float, ptr %21, align 4
   %23 = tail call noundef float @llvm.fmuladd.f32(float %8, float %22, float %20)
-  %24 = getelementptr inbounds i8, ptr %0, i64 28
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %25 = load float, ptr %24, align 4
   %26 = tail call noundef float @llvm.fmuladd.f32(float %11, float %25, float %23)
   %27 = fdiv float %26, %sqrt.i
@@ -130,7 +130,7 @@ define void @_ZNK32pxrInternal_v0_24__pxrReserved__11GfDualQuatf13GetNormalizedE
   %23 = getelementptr inbounds i8, ptr %0, i64 24
   %24 = load float, ptr %23, align 4
   %25 = tail call noundef float @llvm.fmuladd.f32(float %10, float %24, float %22)
-  %26 = getelementptr inbounds i8, ptr %0, i64 28
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %27 = load float, ptr %26, align 4
   %28 = tail call noundef float @llvm.fmuladd.f32(float %13, float %27, float %25)
   %29 = fdiv float %28, %sqrt.i.i.i
@@ -162,7 +162,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__11GfDualQuatf9GetLengthEv.exit.i: ; preds 
   %37 = fmul float %10, %33
   store float %37, ptr %9, align 4
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %39 = getelementptr inbounds i8, ptr %0, i64 28
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %40 = load float, ptr %39, align 4
   %41 = fmul float %33, %40
   %42 = load float, ptr %38, align 4
@@ -231,7 +231,7 @@ define <2 x float> @_ZN32pxrInternal_v0_24__pxrReserved__11GfDualQuatf9Normalize
   %22 = getelementptr inbounds i8, ptr %0, i64 24
   %23 = load float, ptr %22, align 4
   %24 = tail call noundef float @llvm.fmuladd.f32(float %9, float %23, float %21)
-  %25 = getelementptr inbounds i8, ptr %0, i64 28
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %26 = load float, ptr %25, align 4
   %27 = tail call noundef float @llvm.fmuladd.f32(float %12, float %26, float %24)
   %28 = fdiv float %27, %sqrt.i.i
@@ -263,7 +263,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__11GfDualQuatf9GetLengthEv.exit: ; preds = 
   %36 = fmul float %9, %32
   store float %36, ptr %8, align 4
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %38 = getelementptr inbounds i8, ptr %0, i64 28
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %39 = load float, ptr %38, align 4
   %40 = fmul float %32, %39
   %41 = load float, ptr %37, align 4
@@ -319,7 +319,7 @@ define void @_ZNK32pxrInternal_v0_24__pxrReserved__11GfDualQuatf12GetConjugateEv
   %.sroa.23.8.vec.insert.i = insertelement <2 x float> poison, float %12, i64 0
   %.sroa.23.12.vec.insert.i = insertelement <2 x float> %.sroa.23.8.vec.insert.i, float %4, i64 1
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %14 = getelementptr inbounds i8, ptr %1, i64 28
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 28
   %15 = load float, ptr %14, align 4
   %16 = load float, ptr %13, align 4
   %17 = fneg float %16
@@ -370,7 +370,7 @@ define void @_ZNK32pxrInternal_v0_24__pxrReserved__11GfDualQuatf10GetInverseEv(p
   %20 = fneg float %5
   %21 = fneg float %9
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %23 = getelementptr inbounds i8, ptr %1, i64 28
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 28
   %24 = load float, ptr %23, align 4
   %25 = load float, ptr %22, align 4
   %26 = fneg float %25
@@ -462,7 +462,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__11GfDualQuatf14SetTranslationE
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define { <2 x float>, float } @_ZNK32pxrInternal_v0_24__pxrReserved__11GfDualQuatf14GetTranslationEv(ptr nocapture noundef nonnull readonly align 4 dereferenceable(32) %0) local_unnamed_addr #6 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %3 = getelementptr inbounds i8, ptr %0, i64 28
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %4 = load float, ptr %3, align 4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %6 = load float, ptr %5, align 4
@@ -559,7 +559,7 @@ define { <2 x float>, float } @_ZNK32pxrInternal_v0_24__pxrReserved__11GfDualQua
   %.fca.0.extract7 = extractvalue { <2 x float>, float } %3, 0
   %.fca.1.extract8 = extractvalue { <2 x float>, float } %3, 1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %5 = getelementptr inbounds i8, ptr %0, i64 28
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %6 = load float, ptr %5, align 4
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %8 = load float, ptr %7, align 4

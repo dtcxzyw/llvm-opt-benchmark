@@ -86,7 +86,7 @@ define dso_local void @_ZN4llvm17InjectTLIMappings3runERNS_8FunctionERNS_15Analy
   %16 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm15AnalysisManagerINS_8FunctionEJEE13getResultImplEPNS_11AnalysisKeyERS1_(ptr noundef nonnull align 8 dereferenceable(72) %3, ptr noundef nonnull @_ZN4llvm21TargetLibraryAnalysis3KeyE, ptr noundef nonnull align 8 dereferenceable(136) %2) #9
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 72
-  %19 = getelementptr inbounds i8, ptr %2, i64 80
+  %19 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %20 = load ptr, ptr %19, align 8, !noalias !4
   %.not.i.i.i.i = icmp eq ptr %20, %18
   br i1 %.not.i.i.i.i, label %_ZN4llvm12instructionsERNS_8FunctionE.exit.i, label %21
@@ -95,7 +95,7 @@ define dso_local void @_ZN4llvm17InjectTLIMappings3runERNS_8FunctionERNS_15Analy
   %22 = icmp eq ptr %20, null
   %23 = getelementptr inbounds i8, ptr %20, i64 -24
   %24 = select i1 %22, ptr null, ptr %23
-  %25 = getelementptr inbounds i8, ptr %24, i64 56
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 56
   %26 = load ptr, ptr %25, align 8, !noalias !4
   %27 = getelementptr inbounds nuw i8, ptr %24, i64 48
   %28 = icmp eq ptr %26, %27
@@ -118,7 +118,7 @@ define dso_local void @_ZN4llvm17InjectTLIMappings3runERNS_8FunctionERNS_15Analy
   %36 = icmp eq ptr %35, null
   %37 = getelementptr inbounds i8, ptr %35, i64 -24
   %38 = select i1 %36, ptr null, ptr %37
-  %39 = getelementptr inbounds i8, ptr %38, i64 56
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 56
   %40 = load ptr, ptr %39, align 8, !noalias !4
   %41 = getelementptr inbounds nuw i8, ptr %38, i64 48
   %42 = icmp eq ptr %40, %41
@@ -413,7 +413,7 @@ _ZL18addMappingsFromTLIRKN4llvm17TargetLibraryInfoERNS_8CallInstE.exit.i: ; pred
   %155 = icmp eq ptr %154, null
   %156 = getelementptr inbounds i8, ptr %154, i64 -24
   %157 = select i1 %155, ptr null, ptr %156
-  %158 = getelementptr inbounds i8, ptr %157, i64 56
+  %158 = getelementptr inbounds nuw i8, ptr %157, i64 56
   %159 = load ptr, ptr %158, align 8
   %160 = getelementptr inbounds nuw i8, ptr %157, i64 48
   %161 = icmp eq ptr %159, %160
@@ -436,15 +436,15 @@ _ZL7runImplRKN4llvm17TargetLibraryInfoERNS_8FunctionE.exit: ; preds = %_ZN4llvm1
   %167 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 0, ptr %167, align 8, !alias.scope !15
   %168 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %169 = getelementptr inbounds i8, ptr %0, i64 80
+  %169 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store ptr %169, ptr %168, align 8, !alias.scope !15
-  %170 = getelementptr inbounds i8, ptr %0, i64 56
+  %170 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store ptr %169, ptr %170, align 8, !alias.scope !15
-  %171 = getelementptr inbounds i8, ptr %0, i64 64
+  %171 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i32 2, ptr %171, align 8, !alias.scope !15
-  %172 = getelementptr inbounds i8, ptr %0, i64 68
+  %172 = getelementptr inbounds nuw i8, ptr %0, i64 68
   store i32 0, ptr %172, align 4, !alias.scope !15
-  %173 = getelementptr inbounds i8, ptr %0, i64 72
+  %173 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store i32 0, ptr %173, align 8, !alias.scope !15
   store i32 1, ptr %166, align 4, !alias.scope !15, !noalias !18
   store ptr @_ZN4llvm17PreservedAnalyses14AllAnalysesKeyE, ptr %163, align 8, !alias.scope !15, !noalias !18

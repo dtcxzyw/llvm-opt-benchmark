@@ -38,12 +38,12 @@ define hidden void @_ZN4ncnn4GemmC2Ev(ptr noundef nonnull align 8 dereferenceabl
   tail call void @_ZN4ncnn5LayerC2Ev(ptr noundef nonnull align 8 dereferenceable(208) %0)
   store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTVN4ncnn4GemmE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 280
-  %3 = getelementptr inbounds i8, ptr %0, i64 312
-  %4 = getelementptr inbounds i8, ptr %0, i64 344
-  %5 = getelementptr inbounds i8, ptr %0, i64 384
-  %6 = getelementptr inbounds i8, ptr %0, i64 416
-  %7 = getelementptr inbounds i8, ptr %0, i64 456
-  %8 = getelementptr inbounds i8, ptr %0, i64 488
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 312
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 344
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 384
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 416
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 456
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 488
   store i64 0, ptr %8, align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 0, ptr %9, align 8
@@ -264,7 +264,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZN4ncnn4Gemm10load_modelERKNS_8Mo
   br label %32
 
 32:                                               ; preds = %30, %29
-  %33 = getelementptr inbounds i8, ptr %0, i64 288
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 288
   %34 = load ptr, ptr %33, align 8
   %.not440 = icmp eq ptr %34, null
   br i1 %.not440, label %48, label %35
@@ -275,7 +275,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZN4ncnn4Gemm10load_modelERKNS_8Mo
   br i1 %37, label %38, label %48
 
 38:                                               ; preds = %35
-  %39 = getelementptr inbounds i8, ptr %0, i64 312
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %40 = load ptr, ptr %39, align 8
   %.not441 = icmp eq ptr %40, null
   %41 = load ptr, ptr %22, align 8
@@ -297,14 +297,14 @@ define hidden noundef range(i32 -100, 1) i32 @_ZN4ncnn4Gemm10load_modelERKNS_8Mo
   br label %48
 
 48:                                               ; preds = %42, %47, %46, %35, %32
-  %49 = getelementptr inbounds i8, ptr %0, i64 296
-  %50 = getelementptr inbounds i8, ptr %0, i64 304
-  %51 = getelementptr inbounds i8, ptr %0, i64 320
-  %52 = getelementptr inbounds i8, ptr %0, i64 324
-  %53 = getelementptr inbounds i8, ptr %0, i64 328
-  %54 = getelementptr inbounds i8, ptr %0, i64 332
-  %55 = getelementptr inbounds i8, ptr %0, i64 336
-  %56 = getelementptr inbounds i8, ptr %0, i64 344
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 296
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 304
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 320
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 324
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 328
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 332
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 336
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 344
   %57 = load ptr, ptr %3, align 8
   store ptr %57, ptr %22, align 8
   %58 = load ptr, ptr %.phi.trans.insert523, align 8
@@ -317,7 +317,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZN4ncnn4Gemm10load_modelERKNS_8Mo
   store i32 %62, ptr %50, align 8
   %63 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %64 = load ptr, ptr %63, align 8
-  %65 = getelementptr inbounds i8, ptr %0, i64 312
+  %65 = getelementptr inbounds nuw i8, ptr %0, i64 312
   store ptr %64, ptr %65, align 8
   %66 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %67 = load i32, ptr %66, align 8
@@ -431,7 +431,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZN4ncnn4Gemm10load_modelERKNS_8Mo
   br label %121
 
 121:                                              ; preds = %119, %118
-  %122 = getelementptr inbounds i8, ptr %0, i64 288
+  %122 = getelementptr inbounds nuw i8, ptr %0, i64 288
   %123 = load ptr, ptr %122, align 8
   %.not430 = icmp eq ptr %123, null
   br i1 %.not430, label %137, label %124
@@ -442,7 +442,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZN4ncnn4Gemm10load_modelERKNS_8Mo
   br i1 %126, label %127, label %137
 
 127:                                              ; preds = %124
-  %128 = getelementptr inbounds i8, ptr %0, i64 312
+  %128 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %129 = load ptr, ptr %128, align 8
   %.not431 = icmp eq ptr %129, null
   %130 = load ptr, ptr %22, align 8
@@ -464,14 +464,14 @@ define hidden noundef range(i32 -100, 1) i32 @_ZN4ncnn4Gemm10load_modelERKNS_8Mo
   br label %137
 
 137:                                              ; preds = %131, %136, %135, %124, %121
-  %138 = getelementptr inbounds i8, ptr %0, i64 296
-  %139 = getelementptr inbounds i8, ptr %0, i64 304
-  %140 = getelementptr inbounds i8, ptr %0, i64 320
-  %141 = getelementptr inbounds i8, ptr %0, i64 324
-  %142 = getelementptr inbounds i8, ptr %0, i64 328
-  %143 = getelementptr inbounds i8, ptr %0, i64 332
-  %144 = getelementptr inbounds i8, ptr %0, i64 336
-  %145 = getelementptr inbounds i8, ptr %0, i64 344
+  %138 = getelementptr inbounds nuw i8, ptr %0, i64 296
+  %139 = getelementptr inbounds nuw i8, ptr %0, i64 304
+  %140 = getelementptr inbounds nuw i8, ptr %0, i64 320
+  %141 = getelementptr inbounds nuw i8, ptr %0, i64 324
+  %142 = getelementptr inbounds nuw i8, ptr %0, i64 328
+  %143 = getelementptr inbounds nuw i8, ptr %0, i64 332
+  %144 = getelementptr inbounds nuw i8, ptr %0, i64 336
+  %145 = getelementptr inbounds nuw i8, ptr %0, i64 344
   %146 = load ptr, ptr %4, align 8
   store ptr %146, ptr %22, align 8
   %147 = load ptr, ptr %.phi.trans.insert, align 8
@@ -484,7 +484,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZN4ncnn4Gemm10load_modelERKNS_8Mo
   store i32 %151, ptr %139, align 8
   %152 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %153 = load ptr, ptr %152, align 8
-  %154 = getelementptr inbounds i8, ptr %0, i64 312
+  %154 = getelementptr inbounds nuw i8, ptr %0, i64 312
   store ptr %153, ptr %154, align 8
   %155 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %156 = load i32, ptr %155, align 8
@@ -597,9 +597,9 @@ define hidden noundef range(i32 -100, 1) i32 @_ZN4ncnn4Gemm10load_modelERKNS_8Mo
   br i1 %206, label %.critedge, label %207
 
 207:                                              ; preds = %201
-  %208 = getelementptr inbounds i8, ptr %0, i64 344
+  %208 = getelementptr inbounds nuw i8, ptr %0, i64 344
   %209 = load i64, ptr %208, align 8
-  %210 = getelementptr inbounds i8, ptr %0, i64 336
+  %210 = getelementptr inbounds nuw i8, ptr %0, i64 336
   %211 = load i32, ptr %210, align 8
   %212 = sext i32 %211 to i64
   %213 = mul i64 %209, %212
@@ -642,7 +642,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZN4ncnn4Gemm10load_modelERKNS_8Mo
   br label %236
 
 236:                                              ; preds = %234, %233
-  %237 = getelementptr inbounds i8, ptr %0, i64 360
+  %237 = getelementptr inbounds nuw i8, ptr %0, i64 360
   %238 = load ptr, ptr %237, align 8
   %.not460 = icmp eq ptr %238, null
   br i1 %.not460, label %252, label %239
@@ -653,7 +653,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZN4ncnn4Gemm10load_modelERKNS_8Mo
   br i1 %241, label %242, label %252
 
 242:                                              ; preds = %239
-  %243 = getelementptr inbounds i8, ptr %0, i64 384
+  %243 = getelementptr inbounds nuw i8, ptr %0, i64 384
   %244 = load ptr, ptr %243, align 8
   %.not461 = icmp eq ptr %244, null
   %245 = load ptr, ptr %226, align 8
@@ -675,14 +675,14 @@ define hidden noundef range(i32 -100, 1) i32 @_ZN4ncnn4Gemm10load_modelERKNS_8Mo
   br label %252
 
 252:                                              ; preds = %246, %251, %250, %239, %236
-  %253 = getelementptr inbounds i8, ptr %0, i64 368
-  %254 = getelementptr inbounds i8, ptr %0, i64 376
-  %255 = getelementptr inbounds i8, ptr %0, i64 392
-  %256 = getelementptr inbounds i8, ptr %0, i64 396
-  %257 = getelementptr inbounds i8, ptr %0, i64 400
-  %258 = getelementptr inbounds i8, ptr %0, i64 404
-  %259 = getelementptr inbounds i8, ptr %0, i64 408
-  %260 = getelementptr inbounds i8, ptr %0, i64 416
+  %253 = getelementptr inbounds nuw i8, ptr %0, i64 368
+  %254 = getelementptr inbounds nuw i8, ptr %0, i64 376
+  %255 = getelementptr inbounds nuw i8, ptr %0, i64 392
+  %256 = getelementptr inbounds nuw i8, ptr %0, i64 396
+  %257 = getelementptr inbounds nuw i8, ptr %0, i64 400
+  %258 = getelementptr inbounds nuw i8, ptr %0, i64 404
+  %259 = getelementptr inbounds nuw i8, ptr %0, i64 408
+  %260 = getelementptr inbounds nuw i8, ptr %0, i64 416
   %261 = load ptr, ptr %5, align 8
   store ptr %261, ptr %226, align 8
   %262 = load ptr, ptr %.phi.trans.insert529, align 8
@@ -695,7 +695,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZN4ncnn4Gemm10load_modelERKNS_8Mo
   store i32 %266, ptr %254, align 8
   %267 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %268 = load ptr, ptr %267, align 8
-  %269 = getelementptr inbounds i8, ptr %0, i64 384
+  %269 = getelementptr inbounds nuw i8, ptr %0, i64 384
   store ptr %268, ptr %269, align 8
   %270 = getelementptr inbounds nuw i8, ptr %5, i64 40
   %271 = load i32, ptr %270, align 8
@@ -809,7 +809,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZN4ncnn4Gemm10load_modelERKNS_8Mo
   br label %325
 
 325:                                              ; preds = %323, %322
-  %326 = getelementptr inbounds i8, ptr %0, i64 360
+  %326 = getelementptr inbounds nuw i8, ptr %0, i64 360
   %327 = load ptr, ptr %326, align 8
   %.not450 = icmp eq ptr %327, null
   br i1 %.not450, label %341, label %328
@@ -820,7 +820,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZN4ncnn4Gemm10load_modelERKNS_8Mo
   br i1 %330, label %331, label %341
 
 331:                                              ; preds = %328
-  %332 = getelementptr inbounds i8, ptr %0, i64 384
+  %332 = getelementptr inbounds nuw i8, ptr %0, i64 384
   %333 = load ptr, ptr %332, align 8
   %.not451 = icmp eq ptr %333, null
   %334 = load ptr, ptr %226, align 8
@@ -842,14 +842,14 @@ define hidden noundef range(i32 -100, 1) i32 @_ZN4ncnn4Gemm10load_modelERKNS_8Mo
   br label %341
 
 341:                                              ; preds = %335, %340, %339, %328, %325
-  %342 = getelementptr inbounds i8, ptr %0, i64 368
-  %343 = getelementptr inbounds i8, ptr %0, i64 376
-  %344 = getelementptr inbounds i8, ptr %0, i64 392
-  %345 = getelementptr inbounds i8, ptr %0, i64 396
-  %346 = getelementptr inbounds i8, ptr %0, i64 400
-  %347 = getelementptr inbounds i8, ptr %0, i64 404
-  %348 = getelementptr inbounds i8, ptr %0, i64 408
-  %349 = getelementptr inbounds i8, ptr %0, i64 416
+  %342 = getelementptr inbounds nuw i8, ptr %0, i64 368
+  %343 = getelementptr inbounds nuw i8, ptr %0, i64 376
+  %344 = getelementptr inbounds nuw i8, ptr %0, i64 392
+  %345 = getelementptr inbounds nuw i8, ptr %0, i64 396
+  %346 = getelementptr inbounds nuw i8, ptr %0, i64 400
+  %347 = getelementptr inbounds nuw i8, ptr %0, i64 404
+  %348 = getelementptr inbounds nuw i8, ptr %0, i64 408
+  %349 = getelementptr inbounds nuw i8, ptr %0, i64 416
   %350 = load ptr, ptr %6, align 8
   store ptr %350, ptr %226, align 8
   %351 = load ptr, ptr %.phi.trans.insert526, align 8
@@ -862,7 +862,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZN4ncnn4Gemm10load_modelERKNS_8Mo
   store i32 %355, ptr %343, align 8
   %356 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %357 = load ptr, ptr %356, align 8
-  %358 = getelementptr inbounds i8, ptr %0, i64 384
+  %358 = getelementptr inbounds nuw i8, ptr %0, i64 384
   store ptr %357, ptr %358, align 8
   %359 = getelementptr inbounds nuw i8, ptr %6, i64 40
   %360 = load i32, ptr %359, align 8
@@ -975,9 +975,9 @@ define hidden noundef range(i32 -100, 1) i32 @_ZN4ncnn4Gemm10load_modelERKNS_8Mo
   br i1 %410, label %.critedge, label %411
 
 411:                                              ; preds = %405
-  %412 = getelementptr inbounds i8, ptr %0, i64 416
+  %412 = getelementptr inbounds nuw i8, ptr %0, i64 416
   %413 = load i64, ptr %412, align 8
-  %414 = getelementptr inbounds i8, ptr %0, i64 408
+  %414 = getelementptr inbounds nuw i8, ptr %0, i64 408
   %415 = load i32, ptr %414, align 8
   %416 = sext i32 %415 to i64
   %417 = mul i64 %413, %416
@@ -1018,7 +1018,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZN4ncnn4Gemm10load_modelERKNS_8Mo
   br label %435
 
 435:                                              ; preds = %433, %432
-  %436 = getelementptr inbounds i8, ptr %0, i64 432
+  %436 = getelementptr inbounds nuw i8, ptr %0, i64 432
   %437 = load ptr, ptr %436, align 8
   %.not471 = icmp eq ptr %437, null
   br i1 %.not471, label %451, label %438
@@ -1029,7 +1029,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZN4ncnn4Gemm10load_modelERKNS_8Mo
   br i1 %440, label %441, label %451
 
 441:                                              ; preds = %438
-  %442 = getelementptr inbounds i8, ptr %0, i64 456
+  %442 = getelementptr inbounds nuw i8, ptr %0, i64 456
   %443 = load ptr, ptr %442, align 8
   %.not472 = icmp eq ptr %443, null
   %444 = load ptr, ptr %430, align 8
@@ -1051,14 +1051,14 @@ define hidden noundef range(i32 -100, 1) i32 @_ZN4ncnn4Gemm10load_modelERKNS_8Mo
   br label %451
 
 451:                                              ; preds = %445, %450, %449, %438, %435
-  %452 = getelementptr inbounds i8, ptr %0, i64 440
-  %453 = getelementptr inbounds i8, ptr %0, i64 448
-  %454 = getelementptr inbounds i8, ptr %0, i64 464
-  %455 = getelementptr inbounds i8, ptr %0, i64 468
-  %456 = getelementptr inbounds i8, ptr %0, i64 472
-  %457 = getelementptr inbounds i8, ptr %0, i64 476
-  %458 = getelementptr inbounds i8, ptr %0, i64 480
-  %459 = getelementptr inbounds i8, ptr %0, i64 488
+  %452 = getelementptr inbounds nuw i8, ptr %0, i64 440
+  %453 = getelementptr inbounds nuw i8, ptr %0, i64 448
+  %454 = getelementptr inbounds nuw i8, ptr %0, i64 464
+  %455 = getelementptr inbounds nuw i8, ptr %0, i64 468
+  %456 = getelementptr inbounds nuw i8, ptr %0, i64 472
+  %457 = getelementptr inbounds nuw i8, ptr %0, i64 476
+  %458 = getelementptr inbounds nuw i8, ptr %0, i64 480
+  %459 = getelementptr inbounds nuw i8, ptr %0, i64 488
   %460 = load ptr, ptr %7, align 8
   store ptr %460, ptr %430, align 8
   %461 = load ptr, ptr %.phi.trans.insert532, align 8
@@ -1071,7 +1071,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZN4ncnn4Gemm10load_modelERKNS_8Mo
   store i32 %465, ptr %453, align 8
   %466 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %467 = load ptr, ptr %466, align 8
-  %468 = getelementptr inbounds i8, ptr %0, i64 456
+  %468 = getelementptr inbounds nuw i8, ptr %0, i64 456
   store ptr %467, ptr %468, align 8
   %469 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %470 = load i32, ptr %469, align 8
@@ -1205,7 +1205,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZN4ncnn4Gemm10load_modelERKNS_8Mo
   br label %533
 
 533:                                              ; preds = %531, %530
-  %534 = getelementptr inbounds i8, ptr %0, i64 432
+  %534 = getelementptr inbounds nuw i8, ptr %0, i64 432
   %535 = load ptr, ptr %534, align 8
   %.not481 = icmp eq ptr %535, null
   br i1 %.not481, label %549, label %536
@@ -1216,7 +1216,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZN4ncnn4Gemm10load_modelERKNS_8Mo
   br i1 %538, label %539, label %549
 
 539:                                              ; preds = %536
-  %540 = getelementptr inbounds i8, ptr %0, i64 456
+  %540 = getelementptr inbounds nuw i8, ptr %0, i64 456
   %541 = load ptr, ptr %540, align 8
   %.not482 = icmp eq ptr %541, null
   %542 = load ptr, ptr %528, align 8
@@ -1238,14 +1238,14 @@ define hidden noundef range(i32 -100, 1) i32 @_ZN4ncnn4Gemm10load_modelERKNS_8Mo
   br label %549
 
 549:                                              ; preds = %543, %548, %547, %536, %533
-  %550 = getelementptr inbounds i8, ptr %0, i64 440
-  %551 = getelementptr inbounds i8, ptr %0, i64 448
-  %552 = getelementptr inbounds i8, ptr %0, i64 464
-  %553 = getelementptr inbounds i8, ptr %0, i64 468
-  %554 = getelementptr inbounds i8, ptr %0, i64 472
-  %555 = getelementptr inbounds i8, ptr %0, i64 476
-  %556 = getelementptr inbounds i8, ptr %0, i64 480
-  %557 = getelementptr inbounds i8, ptr %0, i64 488
+  %550 = getelementptr inbounds nuw i8, ptr %0, i64 440
+  %551 = getelementptr inbounds nuw i8, ptr %0, i64 448
+  %552 = getelementptr inbounds nuw i8, ptr %0, i64 464
+  %553 = getelementptr inbounds nuw i8, ptr %0, i64 468
+  %554 = getelementptr inbounds nuw i8, ptr %0, i64 472
+  %555 = getelementptr inbounds nuw i8, ptr %0, i64 476
+  %556 = getelementptr inbounds nuw i8, ptr %0, i64 480
+  %557 = getelementptr inbounds nuw i8, ptr %0, i64 488
   %558 = load ptr, ptr %8, align 8
   store ptr %558, ptr %528, align 8
   %559 = load ptr, ptr %.phi.trans.insert535, align 8
@@ -1258,7 +1258,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZN4ncnn4Gemm10load_modelERKNS_8Mo
   store i32 %563, ptr %551, align 8
   %564 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %565 = load ptr, ptr %564, align 8
-  %566 = getelementptr inbounds i8, ptr %0, i64 456
+  %566 = getelementptr inbounds nuw i8, ptr %0, i64 456
   store ptr %565, ptr %566, align 8
   %567 = getelementptr inbounds nuw i8, ptr %8, i64 40
   %568 = load i32, ptr %567, align 8
@@ -1392,7 +1392,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZN4ncnn4Gemm10load_modelERKNS_8Mo
   br label %631
 
 631:                                              ; preds = %629, %628
-  %632 = getelementptr inbounds i8, ptr %0, i64 432
+  %632 = getelementptr inbounds nuw i8, ptr %0, i64 432
   %633 = load ptr, ptr %632, align 8
   %.not491 = icmp eq ptr %633, null
   br i1 %.not491, label %647, label %634
@@ -1403,7 +1403,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZN4ncnn4Gemm10load_modelERKNS_8Mo
   br i1 %636, label %637, label %647
 
 637:                                              ; preds = %634
-  %638 = getelementptr inbounds i8, ptr %0, i64 456
+  %638 = getelementptr inbounds nuw i8, ptr %0, i64 456
   %639 = load ptr, ptr %638, align 8
   %.not492 = icmp eq ptr %639, null
   %640 = load ptr, ptr %626, align 8
@@ -1425,14 +1425,14 @@ define hidden noundef range(i32 -100, 1) i32 @_ZN4ncnn4Gemm10load_modelERKNS_8Mo
   br label %647
 
 647:                                              ; preds = %641, %646, %645, %634, %631
-  %648 = getelementptr inbounds i8, ptr %0, i64 440
-  %649 = getelementptr inbounds i8, ptr %0, i64 448
-  %650 = getelementptr inbounds i8, ptr %0, i64 464
-  %651 = getelementptr inbounds i8, ptr %0, i64 468
-  %652 = getelementptr inbounds i8, ptr %0, i64 472
-  %653 = getelementptr inbounds i8, ptr %0, i64 476
-  %654 = getelementptr inbounds i8, ptr %0, i64 480
-  %655 = getelementptr inbounds i8, ptr %0, i64 488
+  %648 = getelementptr inbounds nuw i8, ptr %0, i64 440
+  %649 = getelementptr inbounds nuw i8, ptr %0, i64 448
+  %650 = getelementptr inbounds nuw i8, ptr %0, i64 464
+  %651 = getelementptr inbounds nuw i8, ptr %0, i64 468
+  %652 = getelementptr inbounds nuw i8, ptr %0, i64 472
+  %653 = getelementptr inbounds nuw i8, ptr %0, i64 476
+  %654 = getelementptr inbounds nuw i8, ptr %0, i64 480
+  %655 = getelementptr inbounds nuw i8, ptr %0, i64 488
   %656 = load ptr, ptr %9, align 8
   store ptr %656, ptr %626, align 8
   %657 = load ptr, ptr %.phi.trans.insert539, align 8
@@ -1445,7 +1445,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZN4ncnn4Gemm10load_modelERKNS_8Mo
   store i32 %661, ptr %649, align 8
   %662 = getelementptr inbounds nuw i8, ptr %9, i64 32
   %663 = load ptr, ptr %662, align 8
-  %664 = getelementptr inbounds i8, ptr %0, i64 456
+  %664 = getelementptr inbounds nuw i8, ptr %0, i64 456
   store ptr %663, ptr %664, align 8
   %665 = getelementptr inbounds nuw i8, ptr %9, i64 40
   %666 = load i32, ptr %665, align 8
@@ -1581,7 +1581,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZN4ncnn4Gemm10load_modelERKNS_8Mo
   br label %731
 
 731:                                              ; preds = %729, %728
-  %732 = getelementptr inbounds i8, ptr %0, i64 432
+  %732 = getelementptr inbounds nuw i8, ptr %0, i64 432
   %733 = load ptr, ptr %732, align 8
   %.not501 = icmp eq ptr %733, null
   br i1 %.not501, label %747, label %734
@@ -1592,7 +1592,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZN4ncnn4Gemm10load_modelERKNS_8Mo
   br i1 %736, label %737, label %747
 
 737:                                              ; preds = %734
-  %738 = getelementptr inbounds i8, ptr %0, i64 456
+  %738 = getelementptr inbounds nuw i8, ptr %0, i64 456
   %739 = load ptr, ptr %738, align 8
   %.not502 = icmp eq ptr %739, null
   %740 = load ptr, ptr %726, align 8
@@ -1614,14 +1614,14 @@ define hidden noundef range(i32 -100, 1) i32 @_ZN4ncnn4Gemm10load_modelERKNS_8Mo
   br label %747
 
 747:                                              ; preds = %741, %746, %745, %734, %731
-  %748 = getelementptr inbounds i8, ptr %0, i64 440
-  %749 = getelementptr inbounds i8, ptr %0, i64 448
-  %750 = getelementptr inbounds i8, ptr %0, i64 464
-  %751 = getelementptr inbounds i8, ptr %0, i64 468
-  %752 = getelementptr inbounds i8, ptr %0, i64 472
-  %753 = getelementptr inbounds i8, ptr %0, i64 476
-  %754 = getelementptr inbounds i8, ptr %0, i64 480
-  %755 = getelementptr inbounds i8, ptr %0, i64 488
+  %748 = getelementptr inbounds nuw i8, ptr %0, i64 440
+  %749 = getelementptr inbounds nuw i8, ptr %0, i64 448
+  %750 = getelementptr inbounds nuw i8, ptr %0, i64 464
+  %751 = getelementptr inbounds nuw i8, ptr %0, i64 468
+  %752 = getelementptr inbounds nuw i8, ptr %0, i64 472
+  %753 = getelementptr inbounds nuw i8, ptr %0, i64 476
+  %754 = getelementptr inbounds nuw i8, ptr %0, i64 480
+  %755 = getelementptr inbounds nuw i8, ptr %0, i64 488
   %756 = load ptr, ptr %10, align 8
   store ptr %756, ptr %726, align 8
   %757 = load ptr, ptr %.phi.trans.insert542, align 8
@@ -1634,7 +1634,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZN4ncnn4Gemm10load_modelERKNS_8Mo
   store i32 %761, ptr %749, align 8
   %762 = getelementptr inbounds nuw i8, ptr %10, i64 32
   %763 = load ptr, ptr %762, align 8
-  %764 = getelementptr inbounds i8, ptr %0, i64 456
+  %764 = getelementptr inbounds nuw i8, ptr %0, i64 456
   store ptr %763, ptr %764, align 8
   %765 = getelementptr inbounds nuw i8, ptr %10, i64 40
   %766 = load i32, ptr %765, align 8
@@ -1768,7 +1768,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZN4ncnn4Gemm10load_modelERKNS_8Mo
   br label %829
 
 829:                                              ; preds = %827, %826
-  %830 = getelementptr inbounds i8, ptr %0, i64 432
+  %830 = getelementptr inbounds nuw i8, ptr %0, i64 432
   %831 = load ptr, ptr %830, align 8
   %.not511 = icmp eq ptr %831, null
   br i1 %.not511, label %845, label %832
@@ -1779,7 +1779,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZN4ncnn4Gemm10load_modelERKNS_8Mo
   br i1 %834, label %835, label %845
 
 835:                                              ; preds = %832
-  %836 = getelementptr inbounds i8, ptr %0, i64 456
+  %836 = getelementptr inbounds nuw i8, ptr %0, i64 456
   %837 = load ptr, ptr %836, align 8
   %.not512 = icmp eq ptr %837, null
   %838 = load ptr, ptr %824, align 8
@@ -1801,14 +1801,14 @@ define hidden noundef range(i32 -100, 1) i32 @_ZN4ncnn4Gemm10load_modelERKNS_8Mo
   br label %845
 
 845:                                              ; preds = %839, %844, %843, %832, %829
-  %846 = getelementptr inbounds i8, ptr %0, i64 440
-  %847 = getelementptr inbounds i8, ptr %0, i64 448
-  %848 = getelementptr inbounds i8, ptr %0, i64 464
-  %849 = getelementptr inbounds i8, ptr %0, i64 468
-  %850 = getelementptr inbounds i8, ptr %0, i64 472
-  %851 = getelementptr inbounds i8, ptr %0, i64 476
-  %852 = getelementptr inbounds i8, ptr %0, i64 480
-  %853 = getelementptr inbounds i8, ptr %0, i64 488
+  %846 = getelementptr inbounds nuw i8, ptr %0, i64 440
+  %847 = getelementptr inbounds nuw i8, ptr %0, i64 448
+  %848 = getelementptr inbounds nuw i8, ptr %0, i64 464
+  %849 = getelementptr inbounds nuw i8, ptr %0, i64 468
+  %850 = getelementptr inbounds nuw i8, ptr %0, i64 472
+  %851 = getelementptr inbounds nuw i8, ptr %0, i64 476
+  %852 = getelementptr inbounds nuw i8, ptr %0, i64 480
+  %853 = getelementptr inbounds nuw i8, ptr %0, i64 488
   %854 = load ptr, ptr %11, align 8
   store ptr %854, ptr %824, align 8
   %855 = load ptr, ptr %.phi.trans.insert546, align 8
@@ -1821,7 +1821,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZN4ncnn4Gemm10load_modelERKNS_8Mo
   store i32 %859, ptr %847, align 8
   %860 = getelementptr inbounds nuw i8, ptr %11, i64 32
   %861 = load ptr, ptr %860, align 8
-  %862 = getelementptr inbounds i8, ptr %0, i64 456
+  %862 = getelementptr inbounds nuw i8, ptr %0, i64 456
   store ptr %861, ptr %862, align 8
   %863 = getelementptr inbounds nuw i8, ptr %11, i64 40
   %864 = load i32, ptr %863, align 8
@@ -1926,9 +1926,9 @@ define hidden noundef range(i32 -100, 1) i32 @_ZN4ncnn4Gemm10load_modelERKNS_8Mo
   br i1 %913, label %.critedge, label %914
 
 914:                                              ; preds = %910
-  %915 = getelementptr inbounds i8, ptr %0, i64 488
+  %915 = getelementptr inbounds nuw i8, ptr %0, i64 488
   %916 = load i64, ptr %915, align 8
-  %917 = getelementptr inbounds i8, ptr %0, i64 480
+  %917 = getelementptr inbounds nuw i8, ptr %0, i64 480
   %918 = load i32, ptr %917, align 8
   %919 = sext i32 %918 to i64
   %920 = mul i64 %916, %919
@@ -3751,7 +3751,7 @@ declare void @_ZN4ncnn3Mat6createEiiimPNS_9AllocatorE(ptr noundef nonnull align 
 define linkonce_odr hidden void @_ZN4ncnn4GemmD2Ev(ptr noundef nonnull align 8 dereferenceable(496) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTVN4ncnn4GemmE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 424
-  %3 = getelementptr inbounds i8, ptr %0, i64 432
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 432
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %18, label %5
@@ -3762,7 +3762,7 @@ define linkonce_odr hidden void @_ZN4ncnn4GemmD2Ev(ptr noundef nonnull align 8 d
   br i1 %7, label %8, label %18
 
 8:                                                ; preds = %5
-  %9 = getelementptr inbounds i8, ptr %0, i64 456
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 456
   %10 = load ptr, ptr %9, align 8
   %.not26 = icmp eq ptr %10, null
   %11 = load ptr, ptr %2, align 8
@@ -3784,11 +3784,11 @@ define linkonce_odr hidden void @_ZN4ncnn4GemmD2Ev(ptr noundef nonnull align 8 d
   br label %18
 
 18:                                               ; preds = %12, %17, %16, %5, %1
-  %19 = getelementptr inbounds i8, ptr %0, i64 464
-  %20 = getelementptr inbounds i8, ptr %0, i64 488
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 464
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 488
   store i64 0, ptr %20, align 8
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 352
-  %22 = getelementptr inbounds i8, ptr %0, i64 360
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 360
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %2, i8 0, i64 28, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %19, i8 0, i64 20, i1 false)
   %23 = load ptr, ptr %22, align 8
@@ -3808,7 +3808,7 @@ define linkonce_odr hidden void @_ZN4ncnn4GemmD2Ev(ptr noundef nonnull align 8 d
   br i1 %29, label %30, label %40
 
 30:                                               ; preds = %27
-  %31 = getelementptr inbounds i8, ptr %0, i64 384
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 384
   %32 = load ptr, ptr %31, align 8
   %.not29 = icmp eq ptr %32, null
   %33 = load ptr, ptr %21, align 8
@@ -3830,11 +3830,11 @@ define linkonce_odr hidden void @_ZN4ncnn4GemmD2Ev(ptr noundef nonnull align 8 d
   br label %40
 
 40:                                               ; preds = %34, %39, %38, %27, %18
-  %41 = getelementptr inbounds i8, ptr %0, i64 392
-  %42 = getelementptr inbounds i8, ptr %0, i64 416
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 392
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 416
   store i64 0, ptr %42, align 8
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 280
-  %44 = getelementptr inbounds i8, ptr %0, i64 288
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 288
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %21, i8 0, i64 28, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %41, i8 0, i64 20, i1 false)
   %45 = load ptr, ptr %44, align 8
@@ -3854,7 +3854,7 @@ define linkonce_odr hidden void @_ZN4ncnn4GemmD2Ev(ptr noundef nonnull align 8 d
   br i1 %51, label %52, label %62
 
 52:                                               ; preds = %49
-  %53 = getelementptr inbounds i8, ptr %0, i64 312
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %54 = load ptr, ptr %53, align 8
   %.not32 = icmp eq ptr %54, null
   %55 = load ptr, ptr %43, align 8
@@ -3876,8 +3876,8 @@ define linkonce_odr hidden void @_ZN4ncnn4GemmD2Ev(ptr noundef nonnull align 8 d
   br label %62
 
 62:                                               ; preds = %56, %61, %60, %49, %40
-  %63 = getelementptr inbounds i8, ptr %0, i64 320
-  %64 = getelementptr inbounds i8, ptr %0, i64 344
+  %63 = getelementptr inbounds nuw i8, ptr %0, i64 320
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 344
   store i64 0, ptr %64, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %43, i8 0, i64 28, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %63, i8 0, i64 20, i1 false)

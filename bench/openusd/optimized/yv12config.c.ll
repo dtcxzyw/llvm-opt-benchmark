@@ -185,17 +185,17 @@ define hidden range(i32 0, 3) i32 @aom_realloc_frame_buffer(ptr noundef %0, i32 
   store i32 %23, ptr %79, align 8
   %80 = add nsw i32 %3, %1
   %81 = ashr i32 %80, %3
-  %82 = getelementptr inbounds i8, ptr %0, i64 20
+  %82 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 %81, ptr %82, align 4
   %83 = add nsw i32 %4, %2
   %84 = ashr i32 %83, %4
-  %85 = getelementptr inbounds i8, ptr %0, i64 28
+  %85 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i32 %84, ptr %85, align 4
   %86 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %39, ptr %86, align 4
-  %87 = getelementptr inbounds i8, ptr %0, i64 12
+  %87 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 %17, ptr %87, align 4
-  %88 = getelementptr inbounds i8, ptr %0, i64 36
+  %88 = getelementptr inbounds nuw i8, ptr %0, i64 36
   store i32 %30, ptr %88, align 4
   %89 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store i32 %6, ptr %89, align 8
@@ -238,7 +238,7 @@ define hidden range(i32 0, 3) i32 @aom_realloc_frame_buffer(ptr noundef %0, i32 
   %119 = add i64 %118, %106
   %120 = and i64 %119, %108
   %121 = inttoptr i64 %120 to ptr
-  %122 = getelementptr inbounds i8, ptr %0, i64 48
+  %122 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr %121, ptr %122, align 8
   %123 = getelementptr inbounds i8, ptr %112, i64 %37
   %124 = getelementptr inbounds i8, ptr %123, i64 %114
@@ -247,7 +247,7 @@ define hidden range(i32 0, 3) i32 @aom_realloc_frame_buffer(ptr noundef %0, i32 
   %127 = add i64 %126, %106
   %128 = and i64 %127, %108
   %129 = inttoptr i64 %128 to ptr
-  %130 = getelementptr inbounds i8, ptr %0, i64 56
+  %130 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store ptr %129, ptr %130, align 8
   %131 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i32 0, ptr %131, align 8

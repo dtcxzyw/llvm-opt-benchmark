@@ -91,7 +91,7 @@ define dso_local void @_ZNK5clang6interp13MemberPointer9toPointerERKNS0_7Context
   br label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i
 
 _ZNK5clang6interp7Pointer6isZeroEv.exit.i.i.i:    ; preds = %24
-  %44 = getelementptr inbounds i8, ptr %4, i64 32
+  %44 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %45 = load i64, ptr %44, align 8
   %46 = icmp eq i64 %45, 0
   %47 = load i64, ptr %4, align 8
@@ -103,7 +103,7 @@ _ZNK5clang6interp7Pointer6isZeroEv.exit.i.i.i:    ; preds = %24
 
 _ZNK5clang6interp7Pointer6isRootEv.exit.i.i:      ; preds = %_ZNK5clang6interp7Pointer6isZeroEv.exit.i.i.i, %41, %37
   %50 = phi ptr [ %39, %37 ], [ %43, %41 ], [ %.pre.i.pre.i, %_ZNK5clang6interp7Pointer6isZeroEv.exit.i.i.i ]
-  %51 = getelementptr inbounds i8, ptr %4, i64 32
+  %51 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %52 = load i32, ptr %51, align 8
   %53 = getelementptr inbounds nuw i8, ptr %50, i64 32
   %54 = load ptr, ptr %53, align 8
@@ -360,7 +360,7 @@ define linkonce_odr hidden noundef ptr @_ZNK5clang6interp7Pointer9getRecordEv(pt
   br label %_ZNK5clang6interp7Pointer6isRootEv.exit.i
 
 _ZNK5clang6interp7Pointer6isZeroEv.exit.i.i:      ; preds = %1
-  %13 = getelementptr inbounds i8, ptr %0, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %14 = load i64, ptr %13, align 8
   %15 = icmp eq i64 %14, 0
   %16 = load i64, ptr %0, align 8
@@ -372,7 +372,7 @@ _ZNK5clang6interp7Pointer6isZeroEv.exit.i.i:      ; preds = %1
 
 _ZNK5clang6interp7Pointer6isRootEv.exit.i:        ; preds = %_ZNK5clang6interp7Pointer6isZeroEv.exit.i.i, %10, %6
   %19 = phi ptr [ %8, %6 ], [ %12, %10 ], [ %.pre.i.pre, %_ZNK5clang6interp7Pointer6isZeroEv.exit.i.i ]
-  %20 = getelementptr inbounds i8, ptr %0, i64 32
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %21 = load i32, ptr %20, align 8
   %22 = getelementptr inbounds nuw i8, ptr %19, i64 32
   %23 = load ptr, ptr %22, align 8
@@ -459,7 +459,7 @@ define dso_local void @_ZNK5clang6interp13MemberPointer9toAPValueERKNS_10ASTCont
   br label %_ZNK5clang6interp13MemberPointer6isZeroEv.exit
 
 13:                                               ; preds = %3
-  %14 = getelementptr inbounds i8, ptr %1, i64 32
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %15 = load i64, ptr %14, align 8
   %16 = icmp eq i64 %15, 0
   %17 = load i64, ptr %1, align 8
@@ -499,7 +499,7 @@ _ZNK5clang6interp13MemberPointer6isZeroEv.exit:   ; preds = %6, %10, %13
   br i1 %.not.i.i.i2, label %39, label %38
 
 _ZNK5clang6interp13MemberPointer7hasBaseEv.exit:  ; preds = %24
-  %32 = getelementptr inbounds i8, ptr %1, i64 32
+  %32 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %33 = load i64, ptr %32, align 8
   %34 = icmp eq i64 %33, 0
   %35 = load i64, ptr %1, align 8

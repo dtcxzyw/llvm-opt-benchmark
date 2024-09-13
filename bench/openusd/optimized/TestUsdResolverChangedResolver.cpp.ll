@@ -803,7 +803,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__17ArResolverContext8_Untyped9IsHoldingERKS
   store i64 1, ptr getelementptr inbounds nuw (i8, ptr @_ZZN32pxrInternal_v0_24__pxrReserved__13_TestResolver22GetAssetPathsForConfigERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE5emptyB5cxx11, i64 8), align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZZN32pxrInternal_v0_24__pxrReserved__13_TestResolver22GetAssetPathsForConfigERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE5emptyB5cxx11, i64 16), i8 0, i64 16, i1 false)
   store float 1.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @_ZZN32pxrInternal_v0_24__pxrReserved__13_TestResolver22GetAssetPathsForConfigERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE5emptyB5cxx11, i64 32), align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZZN32pxrInternal_v0_24__pxrReserved__13_TestResolver22GetAssetPathsForConfigERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE5emptyB5cxx11, i64 40), i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZZN32pxrInternal_v0_24__pxrReserved__13_TestResolver22GetAssetPathsForConfigERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE5emptyB5cxx11, i64 40), i8 0, i64 16, i1 false)
   %39 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4hashIS5_ESt8equal_toIS5_ESaISt4pairIKS5_S5_EEED2Ev, ptr nonnull @_ZZN32pxrInternal_v0_24__pxrReserved__13_TestResolver22GetAssetPathsForConfigERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE5emptyB5cxx11, ptr nonnull @__dso_handle) #18
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN32pxrInternal_v0_24__pxrReserved__13_TestResolver22GetAssetPathsForConfigERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE5emptyB5cxx11) #18
   br label %40
@@ -1045,7 +1045,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__17ArResolverContext8_Untyped9IsHoldingERKS
   store i64 1, ptr getelementptr inbounds nuw (i8, ptr @_ZZN32pxrInternal_v0_24__pxrReserved__13_TestResolver22GetAssetPathsForConfigERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE5emptyB5cxx11, i64 8), align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZZN32pxrInternal_v0_24__pxrReserved__13_TestResolver22GetAssetPathsForConfigERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE5emptyB5cxx11, i64 16), i8 0, i64 16, i1 false)
   store float 1.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @_ZZN32pxrInternal_v0_24__pxrReserved__13_TestResolver22GetAssetPathsForConfigERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE5emptyB5cxx11, i64 32), align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZZN32pxrInternal_v0_24__pxrReserved__13_TestResolver22GetAssetPathsForConfigERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE5emptyB5cxx11, i64 40), i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZZN32pxrInternal_v0_24__pxrReserved__13_TestResolver22GetAssetPathsForConfigERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE5emptyB5cxx11, i64 40), i8 0, i64 16, i1 false)
   %39 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4hashIS5_ESt8equal_toIS5_ESaISt4pairIKS5_S5_EEED2Ev, ptr nonnull @_ZZN32pxrInternal_v0_24__pxrReserved__13_TestResolver22GetAssetPathsForConfigERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE5emptyB5cxx11, ptr nonnull @__dso_handle) #18
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN32pxrInternal_v0_24__pxrReserved__13_TestResolver22GetAssetPathsForConfigERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE5emptyB5cxx11) #18
   br label %40
@@ -1916,8 +1916,8 @@ _ZSt4bindIPFbRKN32pxrInternal_v0_24__pxrReserved__20_TestResolverContextERKNS0_1
           to label %7 unwind label %14
 
 7:                                                ; preds = %_ZSt4bindIPFbRKN32pxrInternal_v0_24__pxrReserved__20_TestResolverContextERKNS0_17ArResolverContextEEJS3_RKSt12_PlaceholderILi1EEEENSt12_Bind_helperIXsr15__is_socketlikeIT_EE5valueESE_JDpT0_EE4typeEOSE_DpOSF_.exit
-  %8 = getelementptr inbounds i8, ptr %0, i64 32
-  %9 = getelementptr inbounds i8, ptr %0, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %10 = load ptr, ptr %3, align 8
   store ptr %10, ptr %6, align 8
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -2004,7 +2004,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr ptr @_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St13unordered_mapIS5_S5_St4hashIS5_ESt8equal_toIS5_ESaIS6_IS7_S5_EEEESaISG_ENSt8__detail10_Select1stESC_SA_NSI_18_Mod_range_hashingENSI_20_Default_ranged_hashENSI_20_Prime_rehash_policyENSI_17_Hashtable_traitsILb1ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNSI_10_Hash_nodeISG_Lb1EEEm(ptr noundef nonnull align 8 dereferenceable(56) %0, i64 noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %7 = getelementptr inbounds i8, ptr %0, i64 40
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %8 = load i64, ptr %7, align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load i64, ptr %9, align 8
@@ -2418,7 +2418,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS
   br label %_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESaIS8_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb1ELb0ELb1EEEE16_M_update_bbeginEv.exit
 
 _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESaIS8_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb1ELb0ELb1EEEE16_M_update_bbeginEv.exit: ; preds = %25, %35
-  %40 = getelementptr inbounds i8, ptr %1, i64 40
+  %40 = getelementptr inbounds nuw i8, ptr %1, i64 40
   store i64 0, ptr %40, align 8
   store i64 1, ptr %27, align 8
   store ptr null, ptr %20, align 8
@@ -2484,7 +2484,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr ptr @_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESaIS8_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb1ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNSA_10_Hash_nodeIS8_Lb1EEEm(ptr noundef nonnull align 8 dereferenceable(56) %0, i64 noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %7 = getelementptr inbounds i8, ptr %0, i64 40
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %8 = load i64, ptr %7, align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load i64, ptr %9, align 8
@@ -3008,7 +3008,7 @@ define linkonce_odr void @_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i64, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %7 = getelementptr inbounds i8, ptr %0, i64 40
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %8 = load i64, ptr %7, align 8
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %10 = load i64, ptr %9, align 8
@@ -3486,25 +3486,25 @@ define internal void @_GLOBAL__sub_I_TestUsdResolverChangedResolver.cpp() #14 se
   store i64 1, ptr getelementptr inbounds nuw (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__13_TestResolver25_configNameToAssetPathMapB5cxx11E, i64 8), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__13_TestResolver25_configNameToAssetPathMapB5cxx11E, i64 16), i8 0, i64 16, i1 false)
   store float 1.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__13_TestResolver25_configNameToAssetPathMapB5cxx11E, i64 32), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__13_TestResolver25_configNameToAssetPathMapB5cxx11E, i64 40), i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__13_TestResolver25_configNameToAssetPathMapB5cxx11E, i64 40), i8 0, i64 16, i1 false)
   %1 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES_IS5_S5_St4hashIS5_ESt8equal_toIS5_ESaISt4pairIKS5_S5_EEES7_S9_SaISA_ISB_SE_EEED2Ev, ptr nonnull @_ZN32pxrInternal_v0_24__pxrReserved__13_TestResolver25_configNameToAssetPathMapB5cxx11E, ptr nonnull @__dso_handle) #18
   store ptr getelementptr inbounds nuw (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__13_TestResolver32_pendingConfigNameToAssetPathMapB5cxx11E, i64 48), ptr @_ZN32pxrInternal_v0_24__pxrReserved__13_TestResolver32_pendingConfigNameToAssetPathMapB5cxx11E, align 8
   store i64 1, ptr getelementptr inbounds nuw (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__13_TestResolver32_pendingConfigNameToAssetPathMapB5cxx11E, i64 8), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__13_TestResolver32_pendingConfigNameToAssetPathMapB5cxx11E, i64 16), i8 0, i64 16, i1 false)
   store float 1.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__13_TestResolver32_pendingConfigNameToAssetPathMapB5cxx11E, i64 32), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__13_TestResolver32_pendingConfigNameToAssetPathMapB5cxx11E, i64 40), i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__13_TestResolver32_pendingConfigNameToAssetPathMapB5cxx11E, i64 40), i8 0, i64 16, i1 false)
   %2 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES_IS5_S5_St4hashIS5_ESt8equal_toIS5_ESaISt4pairIKS5_S5_EEES7_S9_SaISA_ISB_SE_EEED2Ev, ptr nonnull @_ZN32pxrInternal_v0_24__pxrReserved__13_TestResolver32_pendingConfigNameToAssetPathMapB5cxx11E, ptr nonnull @__dso_handle) #18
   store ptr getelementptr inbounds nuw (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__13_TestResolver23_configNameToVersionMapB5cxx11E, i64 48), ptr @_ZN32pxrInternal_v0_24__pxrReserved__13_TestResolver23_configNameToVersionMapB5cxx11E, align 8
   store i64 1, ptr getelementptr inbounds nuw (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__13_TestResolver23_configNameToVersionMapB5cxx11E, i64 8), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__13_TestResolver23_configNameToVersionMapB5cxx11E, i64 16), i8 0, i64 16, i1 false)
   store float 1.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__13_TestResolver23_configNameToVersionMapB5cxx11E, i64 32), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__13_TestResolver23_configNameToVersionMapB5cxx11E, i64 40), i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__13_TestResolver23_configNameToVersionMapB5cxx11E, i64 40), i8 0, i64 16, i1 false)
   %3 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4hashIS5_ESt8equal_toIS5_ESaISt4pairIKS5_S5_EEED2Ev, ptr nonnull @_ZN32pxrInternal_v0_24__pxrReserved__13_TestResolver23_configNameToVersionMapB5cxx11E, ptr nonnull @__dso_handle) #18
   store ptr getelementptr inbounds nuw (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__13_TestResolver30_pendingConfigNameToVersionMapB5cxx11E, i64 48), ptr @_ZN32pxrInternal_v0_24__pxrReserved__13_TestResolver30_pendingConfigNameToVersionMapB5cxx11E, align 8
   store i64 1, ptr getelementptr inbounds nuw (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__13_TestResolver30_pendingConfigNameToVersionMapB5cxx11E, i64 8), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__13_TestResolver30_pendingConfigNameToVersionMapB5cxx11E, i64 16), i8 0, i64 16, i1 false)
   store float 1.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__13_TestResolver30_pendingConfigNameToVersionMapB5cxx11E, i64 32), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__13_TestResolver30_pendingConfigNameToVersionMapB5cxx11E, i64 40), i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__13_TestResolver30_pendingConfigNameToVersionMapB5cxx11E, i64 40), i8 0, i64 16, i1 false)
   %4 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4hashIS5_ESt8equal_toIS5_ESaISt4pairIKS5_S5_EEED2Ev, ptr nonnull @_ZN32pxrInternal_v0_24__pxrReserved__13_TestResolver30_pendingConfigNameToVersionMapB5cxx11E, ptr nonnull @__dso_handle) #18
   ret void
 }

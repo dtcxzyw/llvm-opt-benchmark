@@ -41,7 +41,7 @@ define hidden ptr @avifIOCreateMemoryReader(ptr noundef %0, i64 noundef %1) loca
   store i32 1, ptr %9, align 8
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 48
   store ptr %0, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %3, i64 56
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 56
   store i64 %1, ptr %11, align 8
   br label %12
 
@@ -66,7 +66,7 @@ define internal range(i32 0, 23) i32 @avifIOMemoryReaderRead(ptr nocapture nound
   br i1 %.not, label %6, label %16
 
 6:                                                ; preds = %5
-  %7 = getelementptr inbounds i8, ptr %0, i64 56
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %8 = load i64, ptr %7, align 8
   %9 = icmp ugt i64 %2, %8
   br i1 %9, label %16, label %10
@@ -179,7 +179,7 @@ define internal i32 @avifIOFileReaderRead(ptr noundef %0, i32 noundef %1, i64 no
 
 14:                                               ; preds = %12
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %16 = getelementptr inbounds i8, ptr %0, i64 56
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %17 = load i64, ptr %16, align 8
   %18 = icmp ult i64 %17, %spec.select
   br i1 %18, label %19, label %21

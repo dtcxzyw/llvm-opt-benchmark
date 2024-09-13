@@ -391,7 +391,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_14TraceEventNodeEEptEv.exit17
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4)
   %51 = getelementptr inbounds nuw i8, ptr %45, i64 48
   %52 = load ptr, ptr %51, align 8
-  %53 = getelementptr inbounds i8, ptr %45, i64 56
+  %53 = getelementptr inbounds nuw i8, ptr %45, i64 56
   %54 = load ptr, ptr %53, align 8
   %.not41 = icmp eq ptr %52, %54
   br i1 %.not41, label %.loopexit.sink.split, label %.lr.ph
@@ -1098,7 +1098,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit: ; preds = %155, %159
           to label %_ZNKSt8multimapIN32pxrInternal_v0_24__pxrReserved__7TfTokenENS0_14TraceEventDataESt4lessIS1_ESaISt4pairIKS1_S2_EEE4findERS6_.exit unwind label %856
 
 _ZNKSt8multimapIN32pxrInternal_v0_24__pxrReserved__7TfTokenENS0_14TraceEventDataESt4lessIS1_ESaISt4pairIKS1_S2_EEE4findERS6_.exit: ; preds = %163
-  %165 = getelementptr inbounds i8, ptr %164, i64 40
+  %165 = getelementptr inbounds nuw i8, ptr %164, i64 40
   %166 = invoke noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__14TraceEventData6GetIntEv(ptr noundef nonnull align 8 dereferenceable(40) %165)
           to label %167 unwind label %856
 
@@ -1212,7 +1212,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit108: ; preds = %189, %193
           to label %_ZNKSt8multimapIN32pxrInternal_v0_24__pxrReserved__7TfTokenENS0_14TraceEventDataESt4lessIS1_ESaISt4pairIKS1_S2_EEE4findERS6_.exit110 unwind label %874
 
 _ZNKSt8multimapIN32pxrInternal_v0_24__pxrReserved__7TfTokenENS0_14TraceEventDataESt4lessIS1_ESaISt4pairIKS1_S2_EEE4findERS6_.exit110: ; preds = %197
-  %199 = getelementptr inbounds i8, ptr %198, i64 40
+  %199 = getelementptr inbounds nuw i8, ptr %198, i64 40
   %200 = invoke noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__14TraceEventData8GetFloatEv(ptr noundef nonnull align 8 dereferenceable(40) %199)
           to label %201 unwind label %874
 
@@ -1326,7 +1326,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit126: ; preds = %223, %227
           to label %_ZNKSt8multimapIN32pxrInternal_v0_24__pxrReserved__7TfTokenENS0_14TraceEventDataESt4lessIS1_ESaISt4pairIKS1_S2_EEE4findERS6_.exit128 unwind label %892
 
 _ZNKSt8multimapIN32pxrInternal_v0_24__pxrReserved__7TfTokenENS0_14TraceEventDataESt4lessIS1_ESaISt4pairIKS1_S2_EEE4findERS6_.exit128: ; preds = %231
-  %233 = getelementptr inbounds i8, ptr %232, i64 40
+  %233 = getelementptr inbounds nuw i8, ptr %232, i64 40
   %234 = invoke noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__14TraceEventData7GetBoolEv(ptr noundef nonnull align 8 dereferenceable(40) %233)
           to label %235 unwind label %892
 
@@ -1631,7 +1631,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit181: ; preds = %324, %328
           to label %_ZNKSt8multimapIN32pxrInternal_v0_24__pxrReserved__7TfTokenENS0_14TraceEventDataESt4lessIS1_ESaISt4pairIKS1_S2_EEE4findERS6_.exit183 unwind label %916
 
 _ZNKSt8multimapIN32pxrInternal_v0_24__pxrReserved__7TfTokenENS0_14TraceEventDataESt4lessIS1_ESaISt4pairIKS1_S2_EEE4findERS6_.exit183: ; preds = %332
-  %334 = getelementptr inbounds i8, ptr %333, i64 40
+  %334 = getelementptr inbounds nuw i8, ptr %333, i64 40
   %335 = invoke noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__14TraceEventData9GetStringB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(40) %334)
           to label %336 unwind label %916
 
@@ -1682,7 +1682,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit187: ; preds = %341, %345
           to label %_ZNKSt8multimapIN32pxrInternal_v0_24__pxrReserved__7TfTokenENS0_14TraceEventDataESt4lessIS1_ESaISt4pairIKS1_S2_EEE4findERS6_.exit189 unwind label %925
 
 _ZNKSt8multimapIN32pxrInternal_v0_24__pxrReserved__7TfTokenENS0_14TraceEventDataESt4lessIS1_ESaISt4pairIKS1_S2_EEE4findERS6_.exit189: ; preds = %349
-  %351 = getelementptr inbounds i8, ptr %350, i64 40
+  %351 = getelementptr inbounds nuw i8, ptr %350, i64 40
   %352 = invoke noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__14TraceEventData9GetStringB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(40) %351)
           to label %353 unwind label %925
 
@@ -1796,7 +1796,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit205: ; preds = %375, %379
           to label %_ZNKSt8multimapIN32pxrInternal_v0_24__pxrReserved__7TfTokenENS0_14TraceEventDataESt4lessIS1_ESaISt4pairIKS1_S2_EEE4findERS6_.exit207 unwind label %943
 
 _ZNKSt8multimapIN32pxrInternal_v0_24__pxrReserved__7TfTokenENS0_14TraceEventDataESt4lessIS1_ESaISt4pairIKS1_S2_EEE4findERS6_.exit207: ; preds = %383
-  %385 = getelementptr inbounds i8, ptr %384, i64 40
+  %385 = getelementptr inbounds nuw i8, ptr %384, i64 40
   %386 = invoke noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__14TraceEventData9GetStringB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(40) %385)
           to label %387 unwind label %943
 
@@ -1910,7 +1910,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit223: ; preds = %409, %413
           to label %_ZNKSt8multimapIN32pxrInternal_v0_24__pxrReserved__7TfTokenENS0_14TraceEventDataESt4lessIS1_ESaISt4pairIKS1_S2_EEE4findERS6_.exit225 unwind label %961
 
 _ZNKSt8multimapIN32pxrInternal_v0_24__pxrReserved__7TfTokenENS0_14TraceEventDataESt4lessIS1_ESaISt4pairIKS1_S2_EEE4findERS6_.exit225: ; preds = %417
-  %419 = getelementptr inbounds i8, ptr %418, i64 40
+  %419 = getelementptr inbounds nuw i8, ptr %418, i64 40
   %420 = invoke noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__14TraceEventData9GetStringB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(40) %419)
           to label %421 unwind label %961
 
@@ -2267,7 +2267,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit293: ; preds = %527, %531
           to label %_ZNKSt8multimapIN32pxrInternal_v0_24__pxrReserved__7TfTokenENS0_14TraceEventDataESt4lessIS1_ESaISt4pairIKS1_S2_EEE4findERS6_.exit295 unwind label %985
 
 _ZNKSt8multimapIN32pxrInternal_v0_24__pxrReserved__7TfTokenENS0_14TraceEventDataESt4lessIS1_ESaISt4pairIKS1_S2_EEE4findERS6_.exit295: ; preds = %535
-  %537 = getelementptr inbounds i8, ptr %536, i64 40
+  %537 = getelementptr inbounds nuw i8, ptr %536, i64 40
   %538 = invoke noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__14TraceEventData6GetIntEv(ptr noundef nonnull align 8 dereferenceable(40) %537)
           to label %539 unwind label %985
 
@@ -2381,7 +2381,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit311: ; preds = %561, %565
           to label %_ZNKSt8multimapIN32pxrInternal_v0_24__pxrReserved__7TfTokenENS0_14TraceEventDataESt4lessIS1_ESaISt4pairIKS1_S2_EEE4findERS6_.exit313 unwind label %1003
 
 _ZNKSt8multimapIN32pxrInternal_v0_24__pxrReserved__7TfTokenENS0_14TraceEventDataESt4lessIS1_ESaISt4pairIKS1_S2_EEE4findERS6_.exit313: ; preds = %569
-  %571 = getelementptr inbounds i8, ptr %570, i64 40
+  %571 = getelementptr inbounds nuw i8, ptr %570, i64 40
   %572 = invoke noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__14TraceEventData8GetFloatEv(ptr noundef nonnull align 8 dereferenceable(40) %571)
           to label %573 unwind label %1003
 
@@ -2495,7 +2495,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit329: ; preds = %595, %599
           to label %_ZNKSt8multimapIN32pxrInternal_v0_24__pxrReserved__7TfTokenENS0_14TraceEventDataESt4lessIS1_ESaISt4pairIKS1_S2_EEE4findERS6_.exit331 unwind label %1021
 
 _ZNKSt8multimapIN32pxrInternal_v0_24__pxrReserved__7TfTokenENS0_14TraceEventDataESt4lessIS1_ESaISt4pairIKS1_S2_EEE4findERS6_.exit331: ; preds = %603
-  %605 = getelementptr inbounds i8, ptr %604, i64 40
+  %605 = getelementptr inbounds nuw i8, ptr %604, i64 40
   %606 = invoke noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__14TraceEventData7GetBoolEv(ptr noundef nonnull align 8 dereferenceable(40) %605)
           to label %607 unwind label %1021
 
@@ -2818,7 +2818,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit385: ; preds = %697, %701
           to label %_ZNKSt8multimapIN32pxrInternal_v0_24__pxrReserved__7TfTokenENS0_14TraceEventDataESt4lessIS1_ESaISt4pairIKS1_S2_EEE4findERS6_.exit387 unwind label %1045
 
 _ZNKSt8multimapIN32pxrInternal_v0_24__pxrReserved__7TfTokenENS0_14TraceEventDataESt4lessIS1_ESaISt4pairIKS1_S2_EEE4findERS6_.exit387: ; preds = %705
-  %707 = getelementptr inbounds i8, ptr %706, i64 40
+  %707 = getelementptr inbounds nuw i8, ptr %706, i64 40
   %708 = invoke noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__14TraceEventData9GetStringB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(40) %707)
           to label %709 unwind label %1045
 
@@ -2869,7 +2869,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit391: ; preds = %714, %718
           to label %_ZNKSt8multimapIN32pxrInternal_v0_24__pxrReserved__7TfTokenENS0_14TraceEventDataESt4lessIS1_ESaISt4pairIKS1_S2_EEE4findERS6_.exit393 unwind label %1054
 
 _ZNKSt8multimapIN32pxrInternal_v0_24__pxrReserved__7TfTokenENS0_14TraceEventDataESt4lessIS1_ESaISt4pairIKS1_S2_EEE4findERS6_.exit393: ; preds = %722
-  %724 = getelementptr inbounds i8, ptr %723, i64 40
+  %724 = getelementptr inbounds nuw i8, ptr %723, i64 40
   %725 = invoke noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__14TraceEventData9GetStringB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(40) %724)
           to label %726 unwind label %1054
 
@@ -2983,7 +2983,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit409: ; preds = %748, %752
           to label %_ZNKSt8multimapIN32pxrInternal_v0_24__pxrReserved__7TfTokenENS0_14TraceEventDataESt4lessIS1_ESaISt4pairIKS1_S2_EEE4findERS6_.exit411 unwind label %1072
 
 _ZNKSt8multimapIN32pxrInternal_v0_24__pxrReserved__7TfTokenENS0_14TraceEventDataESt4lessIS1_ESaISt4pairIKS1_S2_EEE4findERS6_.exit411: ; preds = %756
-  %758 = getelementptr inbounds i8, ptr %757, i64 40
+  %758 = getelementptr inbounds nuw i8, ptr %757, i64 40
   %759 = invoke noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__14TraceEventData9GetStringB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(40) %758)
           to label %760 unwind label %1072
 
@@ -3097,7 +3097,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit427: ; preds = %782, %786
           to label %_ZNKSt8multimapIN32pxrInternal_v0_24__pxrReserved__7TfTokenENS0_14TraceEventDataESt4lessIS1_ESaISt4pairIKS1_S2_EEE4findERS6_.exit429 unwind label %1090
 
 _ZNKSt8multimapIN32pxrInternal_v0_24__pxrReserved__7TfTokenENS0_14TraceEventDataESt4lessIS1_ESaISt4pairIKS1_S2_EEE4findERS6_.exit429: ; preds = %790
-  %792 = getelementptr inbounds i8, ptr %791, i64 40
+  %792 = getelementptr inbounds nuw i8, ptr %791, i64 40
   %793 = invoke noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__14TraceEventData9GetStringB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(40) %792)
           to label %794 unwind label %1090
 
@@ -4000,7 +4000,7 @@ define linkonce_odr dso_local void @_ZN32pxrInternal_v0_24__pxrReserved__14Trace
   %9 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 56
   %10 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %6) #18
   %11 = add i64 %10, 1
-  %12 = getelementptr inbounds i8, ptr %.0.i.i, i64 64
+  %12 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 64
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr inbounds i8, ptr %13, i64 %11
   %15 = load ptr, ptr %9, align 8
@@ -4074,7 +4074,7 @@ define linkonce_odr dso_local void @_ZN32pxrInternal_v0_24__pxrReserved__14Trace
   %13 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 56
   %14 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %10) #18
   %15 = add i64 %14, 1
-  %16 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 64
+  %16 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 64
   %17 = load ptr, ptr %16, align 8
   %18 = getelementptr inbounds i8, ptr %17, i64 %15
   %19 = load ptr, ptr %13, align 8
@@ -4153,7 +4153,7 @@ define linkonce_odr dso_local void @_ZN32pxrInternal_v0_24__pxrReserved__14Trace
   %10 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 56
   %11 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #18
   %12 = add i64 %11, 1
-  %13 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 64
+  %13 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 64
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr inbounds i8, ptr %14, i64 %12
   %16 = load ptr, ptr %10, align 8
@@ -4225,7 +4225,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__14TraceCollector10_StoreDataEPNS0_14_PerThr
   %45 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 56
   %46 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %43) #18
   %47 = add i64 %46, 1
-  %48 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 64
+  %48 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 64
   %49 = load ptr, ptr %48, align 8
   %50 = getelementptr inbounds i8, ptr %49, i64 %47
   %51 = load ptr, ptr %45, align 8

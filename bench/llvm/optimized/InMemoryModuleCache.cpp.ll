@@ -26,7 +26,7 @@ define dso_local noundef range(i32 0, 4) i32 @_ZNK5clang19InMemoryModuleCache11g
   %5 = tail call noundef i32 @_ZN4llvm13StringMapImpl4hashENS_9StringRefE(ptr %1, i64 %2) #4
   %6 = tail call noundef i32 @_ZNK4llvm13StringMapImpl7FindKeyENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr %1, i64 %2, i32 noundef %5) #4
   %7 = icmp eq i32 %6, -1
-  %8 = getelementptr inbounds i8, ptr %0, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = load i32, ptr %8, align 8
   %10 = zext i32 %9 to i64
   %11 = sext i32 %6 to i64
@@ -38,7 +38,7 @@ define dso_local noundef range(i32 0, 4) i32 @_ZNK5clang19InMemoryModuleCache11g
   %15 = load ptr, ptr %4, align 8
   %.sroa.0.0.i.i = getelementptr inbounds ptr, ptr %15, i64 %11
   %16 = load ptr, ptr %.sroa.0.0.i.i, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %18 = load i8, ptr %17, align 8
   %19 = trunc i8 %18 to i1
   br i1 %19, label %24, label %20
@@ -69,7 +69,7 @@ define dso_local noundef nonnull align 8 dereferenceable(24) ptr @_ZN5clang19InM
   store i64 %2, ptr %.sroa.01.sroa.2.0..sroa_idx, align 8
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i64 %7, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %5, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store i8 0, ptr %9, align 8
   %10 = tail call noundef i32 @_ZN4llvm13StringMapImpl4hashENS_9StringRefE(ptr %1, i64 %2) #4
   %11 = call { ptr, i8 } @_ZN4llvm9StringMapIN5clang19InMemoryModuleCache3PCMENS_15MallocAllocatorEE21try_emplace_with_hashIJS3_EEESt4pairINS_17StringMapIteratorIS3_EEbENS_9StringRefEjDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr %1, i64 %2, i32 noundef %10, ptr noundef nonnull align 8 dereferenceable(9) %8)
@@ -118,7 +118,7 @@ _ZNKSt14default_deleteIN4llvm12MemoryBufferEEclEPS1_.exit.i.i.i.i: ; preds = %4
 
 _ZNSt10unique_ptrIN4llvm12MemoryBufferESt14default_deleteIS1_EEaSEOS4_.exit: ; preds = %4, %_ZNKSt14default_deleteIN4llvm12MemoryBufferEEclEPS1_.exit.i.i.i.i
   %15 = phi ptr [ %10, %4 ], [ %.pre, %_ZNKSt14default_deleteIN4llvm12MemoryBufferEEclEPS1_.exit.i.i.i.i ]
-  %16 = getelementptr inbounds i8, ptr %8, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store i8 1, ptr %16, align 8
   ret ptr %15
 }
@@ -129,7 +129,7 @@ define dso_local noundef ptr @_ZNK5clang19InMemoryModuleCache9lookupPCMEN4llvm9S
   %5 = tail call noundef i32 @_ZN4llvm13StringMapImpl4hashENS_9StringRefE(ptr %1, i64 %2) #4
   %6 = tail call noundef i32 @_ZNK4llvm13StringMapImpl7FindKeyENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr %1, i64 %2, i32 noundef %5) #4
   %7 = icmp eq i32 %6, -1
-  %8 = getelementptr inbounds i8, ptr %0, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = load i32, ptr %8, align 8
   %10 = zext i32 %9 to i64
   %11 = sext i32 %6 to i64
@@ -156,7 +156,7 @@ define dso_local noundef zeroext i1 @_ZNK5clang19InMemoryModuleCache10isPCMFinal
   %5 = tail call noundef i32 @_ZN4llvm13StringMapImpl4hashENS_9StringRefE(ptr %1, i64 %2) #4
   %6 = tail call noundef i32 @_ZNK4llvm13StringMapImpl7FindKeyENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr %1, i64 %2, i32 noundef %5) #4
   %7 = icmp eq i32 %6, -1
-  %8 = getelementptr inbounds i8, ptr %0, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = load i32, ptr %8, align 8
   %10 = zext i32 %9 to i64
   %11 = sext i32 %6 to i64
@@ -168,7 +168,7 @@ define dso_local noundef zeroext i1 @_ZNK5clang19InMemoryModuleCache10isPCMFinal
   %15 = load ptr, ptr %4, align 8
   %.sroa.0.0.i.i.i = getelementptr inbounds ptr, ptr %15, i64 %11
   %16 = load ptr, ptr %.sroa.0.0.i.i.i, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %18 = load i8, ptr %17, align 8
   %19 = trunc i8 %18 to i1
   br label %_ZNK5clang19InMemoryModuleCache11getPCMStateEN4llvm9StringRefE.exit
@@ -184,7 +184,7 @@ define dso_local noundef zeroext i1 @_ZNK5clang19InMemoryModuleCache14shouldBuil
   %5 = tail call noundef i32 @_ZN4llvm13StringMapImpl4hashENS_9StringRefE(ptr %1, i64 %2) #4
   %6 = tail call noundef i32 @_ZNK4llvm13StringMapImpl7FindKeyENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr %1, i64 %2, i32 noundef %5) #4
   %7 = icmp eq i32 %6, -1
-  %8 = getelementptr inbounds i8, ptr %0, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = load i32, ptr %8, align 8
   %10 = zext i32 %9 to i64
   %11 = sext i32 %6 to i64
@@ -196,7 +196,7 @@ define dso_local noundef zeroext i1 @_ZNK5clang19InMemoryModuleCache14shouldBuil
   %15 = load ptr, ptr %4, align 8
   %.sroa.0.0.i.i.i = getelementptr inbounds ptr, ptr %15, i64 %11
   %16 = load ptr, ptr %.sroa.0.0.i.i.i, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %18 = load i8, ptr %17, align 8
   %19 = trunc i8 %18 to i1
   br i1 %19, label %_ZNK5clang19InMemoryModuleCache11getPCMStateEN4llvm9StringRefE.exit, label %20
@@ -219,14 +219,14 @@ define dso_local noundef zeroext i1 @_ZN5clang19InMemoryModuleCache12tryToDropPC
   %6 = tail call noundef i32 @_ZNK4llvm13StringMapImpl7FindKeyENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr %1, i64 %2, i32 noundef %5) #4
   %7 = icmp eq i32 %6, -1
   %8 = load ptr, ptr %4, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = load i32, ptr %9, align 8
   %11 = zext i32 %10 to i64
   %12 = sext i32 %6 to i64
   %.sroa.0.0.v.i.i = select i1 %7, i64 %11, i64 %12
   %.sroa.0.0.i.i = getelementptr inbounds ptr, ptr %8, i64 %.sroa.0.0.v.i.i
   %13 = load ptr, ptr %.sroa.0.0.i.i, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %15 = load i8, ptr %14, align 8
   %16 = trunc i8 %15 to i1
   br i1 %16, label %_ZNSt10unique_ptrIN4llvm12MemoryBufferESt14default_deleteIS1_EE5resetEPS1_.exit, label %17
@@ -256,14 +256,14 @@ define dso_local void @_ZN5clang19InMemoryModuleCache11finalizePCMEN4llvm9String
   %6 = tail call noundef i32 @_ZNK4llvm13StringMapImpl7FindKeyENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr %1, i64 %2, i32 noundef %5) #4
   %7 = icmp eq i32 %6, -1
   %8 = load ptr, ptr %4, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = load i32, ptr %9, align 8
   %11 = zext i32 %10 to i64
   %12 = sext i32 %6 to i64
   %.sroa.0.0.v.i.i = select i1 %7, i64 %11, i64 %12
   %.sroa.0.0.i.i = getelementptr inbounds ptr, ptr %8, i64 %.sroa.0.0.v.i.i
   %13 = load ptr, ptr %.sroa.0.0.i.i, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
   store i8 1, ptr %14, align 8
   ret void
 }
@@ -325,7 +325,7 @@ _ZN4llvm14StringMapEntryIN5clang19InMemoryModuleCache3PCMEE6createINS_15MallocAl
   %24 = load i64, ptr %4, align 8
   store i64 %24, ptr %23, align 8
   store ptr null, ptr %4, align 8
-  %25 = getelementptr inbounds i8, ptr %19, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %19, i64 16
   %26 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %27 = load i8, ptr %26, align 8
   %28 = and i8 %27, 1

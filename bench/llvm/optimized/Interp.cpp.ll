@@ -4934,7 +4934,7 @@ define dso_local noundef zeroext i1 @_ZN5clang6interp10CheckArrayERNS0_11InterpS
   br i1 %11, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i
 
 _ZNK5clang6interp7Pointer6isRootEv.exit.i.i:      ; preds = %8
-  %12 = getelementptr inbounds i8, ptr %2, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %13 = load i32, ptr %12, align 8
   %14 = getelementptr inbounds nuw i8, ptr %10, i64 32
   %15 = load ptr, ptr %14, align 8
@@ -5009,7 +5009,7 @@ define dso_local noundef zeroext i1 @_ZN5clang6interp9CheckLiveERNS0_11InterpSta
   br i1 %.not.i.i, label %23, label %_ZN5clang18OptionalDiagnosticlsINS_18CheckSubobjectKindEEERS0_RKT_.exit
 
 _ZNK5clang6interp7Pointer6isZeroEv.exit:          ; preds = %4
-  %17 = getelementptr inbounds i8, ptr %2, i64 32
+  %17 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %18 = load i64, ptr %17, align 8
   %19 = icmp eq i64 %18, 0
   %20 = load i64, ptr %2, align 8
@@ -5033,7 +5033,7 @@ _ZNK5clang6interp7Pointer6isZeroEv.exit:          ; preds = %4
   br i1 %32, label %_ZNK5clang6interp7Pointer7isFieldEv.exit.thread, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i
 
 _ZNK5clang6interp7Pointer6isRootEv.exit.i:        ; preds = %29
-  %33 = getelementptr inbounds i8, ptr %2, i64 32
+  %33 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %34 = load i32, ptr %33, align 8
   %35 = getelementptr inbounds nuw i8, ptr %31, i64 32
   %36 = load ptr, ptr %35, align 8
@@ -5584,7 +5584,7 @@ define dso_local noundef zeroext i1 @_ZN5clang6interp9CheckNullERNS0_11InterpSta
   br i1 %.not.i.i, label %22, label %_ZN5clang18OptionalDiagnosticlsINS_11SourceRangeEEERS0_RKT_.exit
 
 _ZNK5clang6interp7Pointer6isZeroEv.exit:          ; preds = %4
-  %16 = getelementptr inbounds i8, ptr %2, i64 32
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %17 = load i64, ptr %16, align 8
   %18 = icmp eq i64 %17, 0
   %19 = load i64, ptr %2, align 8
@@ -5734,7 +5734,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK5clang6interp7Pointer12isOneP
   br i1 %8, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i, label %_ZNK5clang6interp7Pointer18isUnknownSizeArrayEv.exit.thread.thread
 
 _ZNK5clang6interp7Pointer6isRootEv.exit.i.i:      ; preds = %7
-  %9 = getelementptr inbounds i8, ptr %0, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %10 = load i32, ptr %9, align 8
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %12 = load ptr, ptr %11, align 8
@@ -5765,7 +5765,7 @@ _ZNK5clang6interp7Pointer18isUnknownSizeArrayEv.exit.thread.thread: ; preds = %7
   br i1 %28, label %47, label %_ZNK5clang6interp7Pointer6isZeroEv.exit.i
 
 _ZNK5clang6interp7Pointer6isZeroEv.exit.i:        ; preds = %_ZNK5clang6interp7Pointer18isUnknownSizeArrayEv.exit.thread.thread
-  %29 = getelementptr inbounds i8, ptr %0, i64 32
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %30 = load i64, ptr %29, align 8
   %31 = or i64 %30, %27
   %32 = icmp eq i64 %31, 0
@@ -5949,7 +5949,7 @@ _ZNK5clang6interp7Pointer11getDeclDescEv.exit:    ; preds = %4
   %15 = load ptr, ptr %14, align 8
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %17 = load i32, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %2, i64 32
+  %18 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %19 = load i64, ptr %18, align 8
   %20 = load i64, ptr %2, align 8
   %21 = add i64 %20, %19
@@ -6065,7 +6065,7 @@ define linkonce_odr hidden i64 @_ZNK5clang6interp7Pointer7getTypeEv(ptr noundef 
   br i1 %8, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i
 
 _ZNK5clang6interp7Pointer6isRootEv.exit.i.i:      ; preds = %5
-  %9 = getelementptr inbounds i8, ptr %0, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %10 = load i32, ptr %9, align 8
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %12 = load ptr, ptr %11, align 8
@@ -6101,7 +6101,7 @@ _ZNK5clang6interp7Pointer16inPrimitiveArrayEv.exit: ; preds = %_ZNK5clang6interp
 
 30:                                               ; preds = %_ZNK5clang6interp7Pointer16inPrimitiveArrayEv.exit
   %31 = load i64, ptr %0, align 8
-  %32 = getelementptr inbounds i8, ptr %0, i64 32
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %33 = load i32, ptr %32, align 8
   %34 = zext i32 %33 to i64
   %.not = icmp eq i64 %31, %34
@@ -6378,7 +6378,7 @@ _ZNK5clang6interp7Pointer16inPrimitiveArrayEv.exit.thread: ; preds = %1, %thread
   br label %_ZNK5clang6interp7Pointer6isRootEv.exit.i55
 
 _ZNK5clang6interp7Pointer6isZeroEv.exit.i.i65:    ; preds = %_ZNK5clang6interp7Pointer16inPrimitiveArrayEv.exit.thread
-  %163 = getelementptr inbounds i8, ptr %0, i64 32
+  %163 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %164 = load i64, ptr %163, align 8
   %165 = icmp eq i64 %164, 0
   %166 = load i64, ptr %0, align 8
@@ -6390,7 +6390,7 @@ _ZNK5clang6interp7Pointer6isZeroEv.exit.i.i65:    ; preds = %_ZNK5clang6interp7P
 
 _ZNK5clang6interp7Pointer6isRootEv.exit.i55:      ; preds = %_ZNK5clang6interp7Pointer6isZeroEv.exit.i.i65, %160, %156
   %169 = phi ptr [ %158, %156 ], [ %162, %160 ], [ %.pre.i63.pre, %_ZNK5clang6interp7Pointer6isZeroEv.exit.i.i65 ]
-  %170 = getelementptr inbounds i8, ptr %0, i64 32
+  %170 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %171 = load i32, ptr %170, align 8
   %172 = getelementptr inbounds nuw i8, ptr %169, i64 32
   %173 = load ptr, ptr %172, align 8
@@ -6458,7 +6458,7 @@ define dso_local noundef zeroext i1 @_ZN5clang6interp10CheckConstERNS0_11InterpS
   br i1 %.not.i.i.i.i, label %_ZNK5clang6interp7Pointer11getDeclDescEv.exit.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i
 
 _ZNK5clang6interp7Pointer6isZeroEv.exit.i.i:      ; preds = %3
-  %13 = getelementptr inbounds i8, ptr %2, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %14 = load i64, ptr %13, align 8
   %15 = icmp eq i64 %14, 0
   %16 = load i64, ptr %2, align 8
@@ -6473,7 +6473,7 @@ _ZNK5clang6interp7Pointer6isZeroEv.exit..thread_crit_edge.i.i: ; preds = %_ZNK5c
 
 _ZNK5clang6interp7Pointer6isRootEv.exit.i:        ; preds = %7, %_ZNK5clang6interp7Pointer6isZeroEv.exit..thread_crit_edge.i.i, %10
   %19 = phi ptr [ %.pre.i.i, %_ZNK5clang6interp7Pointer6isZeroEv.exit..thread_crit_edge.i.i ], [ %9, %7 ], [ %12, %10 ]
-  %20 = getelementptr inbounds i8, ptr %2, i64 32
+  %20 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %21 = load i32, ptr %20, align 8
   %22 = getelementptr inbounds nuw i8, ptr %19, i64 32
   %23 = load ptr, ptr %22, align 8
@@ -6525,7 +6525,7 @@ _ZNK5clang6interp7Pointer7isConstEv.exit:         ; preds = %_ZNK5clang6interp7P
   br i1 %41, label %_ZNK5clang6interp7Pointer9isMutableEv.exit.thread, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i25
 
 _ZNK5clang6interp7Pointer6isRootEv.exit.i25:      ; preds = %38
-  %42 = getelementptr inbounds i8, ptr %2, i64 32
+  %42 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %43 = load i32, ptr %42, align 8
   %44 = getelementptr inbounds nuw i8, ptr %40, i64 32
   %45 = load ptr, ptr %44, align 8
@@ -6590,7 +6590,7 @@ _ZNK5clang6interp8Function13isConstructorEv.exit: ; preds = %66
   ]
 
 75:                                               ; preds = %_ZNK5clang6interp8Function13isConstructorEv.exit, %_ZNK5clang6interp8Function13isConstructorEv.exit
-  %76 = getelementptr inbounds i8, ptr %.01941, i64 64
+  %76 = getelementptr inbounds nuw i8, ptr %.01941, i64 64
   %77 = load ptr, ptr %76, align 8
   %78 = icmp eq ptr %62, %77
   br i1 %78, label %_ZN5clang18OptionalDiagnosticlsINS_8QualTypeEEERS0_RKT_.exit, label %_ZNK5clang6interp8Function12isDestructorEv.exit.thread
@@ -6662,7 +6662,7 @@ define dso_local noundef zeroext i1 @_ZN5clang6interp12CheckMutableERNS0_11Inter
   br i1 %11, label %_ZNK5clang6interp7Pointer9isMutableEv.exit.thread, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i
 
 _ZNK5clang6interp7Pointer6isRootEv.exit.i:        ; preds = %8
-  %12 = getelementptr inbounds i8, ptr %2, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %13 = load i32, ptr %12, align 8
   %14 = getelementptr inbounds nuw i8, ptr %10, i64 32
   %15 = load ptr, ptr %14, align 8
@@ -7483,7 +7483,7 @@ define internal fastcc noundef zeroext i1 @_ZL11CheckActiveRN5clang6interp11Inte
   br i1 %16, label %_ZNK5clang6interp7Pointer8isActiveEv.exit.thread, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i
 
 _ZNK5clang6interp7Pointer6isRootEv.exit.i:        ; preds = %13
-  %17 = getelementptr inbounds i8, ptr %2, i64 32
+  %17 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %18 = load i32, ptr %17, align 8
   %19 = getelementptr inbounds nuw i8, ptr %15, i64 32
   %20 = load ptr, ptr %19, align 8
@@ -7523,7 +7523,7 @@ _ZNK5clang6interp7Pointer8isActiveEv.exit:        ; preds = %_ZNK5clang6interp7P
 _ZNK5clang6interp7Pointer7getBaseEv.exit:         ; preds = %33, %34
   call void @_ZN5clang6interp7PointerC1ERKS1_(ptr noundef nonnull align 8 dereferenceable(52) %6, ptr noundef nonnull align 8 dereferenceable(52) %2) #18
   %39 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  %40 = getelementptr inbounds i8, ptr %5, i64 32
+  %40 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %41 = getelementptr inbounds nuw i8, ptr %5, i64 48
   br label %42
 
@@ -7659,7 +7659,7 @@ _ZNK5clang6interp7Pointer7getBaseEv.exit29:       ; preds = %84, %85
   br label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i30
 
 _ZNK5clang6interp7Pointer6isZeroEv.exit.i.i.i43:  ; preds = %.critedge
-  %104 = getelementptr inbounds i8, ptr %6, i64 32
+  %104 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %105 = load i64, ptr %104, align 8
   %106 = icmp eq i64 %105, 0
   %107 = load i64, ptr %6, align 8
@@ -7671,7 +7671,7 @@ _ZNK5clang6interp7Pointer6isZeroEv.exit.i.i.i43:  ; preds = %.critedge
 
 _ZNK5clang6interp7Pointer6isRootEv.exit.i.i30:    ; preds = %_ZNK5clang6interp7Pointer6isZeroEv.exit.i.i.i43, %101, %97
   %110 = phi ptr [ %99, %97 ], [ %103, %101 ], [ %.pre.i.pre.i45, %_ZNK5clang6interp7Pointer6isZeroEv.exit.i.i.i43 ]
-  %111 = getelementptr inbounds i8, ptr %6, i64 32
+  %111 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %112 = load i32, ptr %111, align 8
   %113 = getelementptr inbounds nuw i8, ptr %110, i64 32
   %114 = load ptr, ptr %113, align 8
@@ -7854,7 +7854,7 @@ _ZNK5clang6interp7Pointer9getRecordEv.exit:       ; preds = %165, %_ZNK5clang6in
 .lr.ph:                                           ; preds = %_ZNK5clang6interp7Pointer9getRecordEv.exit
   %199 = getelementptr inbounds nuw i8, ptr %8, i64 48
   %200 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  %201 = getelementptr inbounds i8, ptr %8, i64 32
+  %201 = getelementptr inbounds nuw i8, ptr %8, i64 32
   br label %202
 
 202:                                              ; preds = %.lr.ph, %260
@@ -9019,7 +9019,7 @@ define dso_local noundef zeroext i1 @_ZN5clang6interp9CheckThisERNS0_11InterpSta
   br i1 %.not.i.i, label %20, label %_ZN5clang18OptionalDiagnosticlsIbEERS0_RKT_.exit
 
 _ZNK5clang6interp7Pointer6isZeroEv.exit:          ; preds = %3
-  %14 = getelementptr inbounds i8, ptr %2, i64 32
+  %14 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %15 = load i64, ptr %14, align 8
   %16 = icmp eq i64 %15, 0
   %17 = load i64, ptr %2, align 8
@@ -9170,7 +9170,7 @@ define dso_local noundef zeroext i1 @_ZN5clang6interp16CheckFloatResultERNS0_11I
   %12 = load ptr, ptr %11, align 8
   %13 = tail call noundef nonnull align 1 ptr @_ZN4llvm11APFloatBase15PPCDoubleDoubleEv() #21
   %.not.i.i.i.i = icmp eq ptr %12, %13
-  %14 = getelementptr inbounds i8, ptr %2, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %15 = load ptr, ptr %14, align 8
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %.0.i.i.i.i = select i1 %.not.i.i.i.i, ptr %16, ptr %11
@@ -9851,7 +9851,7 @@ define dso_local noundef zeroext i1 @_ZN5clang6interp16CheckNonNullArgsERNS0_11I
   br i1 %.not.i.i, label %74, label %.critedge
 
 _ZNK5clang6interp7Pointer6isZeroEv.exit:          ; preds = %54
-  %68 = getelementptr inbounds i8, ptr %58, i64 32
+  %68 = getelementptr inbounds nuw i8, ptr %58, i64 32
   %69 = load i64, ptr %68, align 8
   %70 = icmp eq i64 %69, 0
   %71 = load i64, ptr %58, align 8
@@ -10087,7 +10087,7 @@ define linkonce_odr hidden void @_ZNK5clang6interp7Pointer7atIndexEm(ptr dead_on
   ]
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %1, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %9 = load i64, ptr %8, align 8
   %10 = load ptr, ptr %6, align 8
   store i64 %2, ptr %0, align 8
@@ -10096,7 +10096,7 @@ define linkonce_odr hidden void @_ZNK5clang6interp7Pointer7atIndexEm(ptr dead_on
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %11, i8 0, i64 16, i1 false)
   store i32 1, ptr %12, align 8
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %14 = getelementptr inbounds i8, ptr %0, i64 32
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i64 %9, ptr %14, align 8
   store ptr %10, ptr %13, align 8
   br label %88
@@ -10117,7 +10117,7 @@ define linkonce_odr hidden void @_ZNK5clang6interp7Pointer7atIndexEm(ptr dead_on
   br label %88
 
 20:                                               ; preds = %3
-  %21 = getelementptr inbounds i8, ptr %1, i64 32
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %22 = load i32, ptr %21, align 8
   %23 = icmp eq i32 %22, -1
   br i1 %23, label %.sink.split.i, label %30
@@ -10262,7 +10262,7 @@ _ZNK5clang6interp7Pointer6isZeroEv.exit:          ; preds = %2
   br i1 %9, label %27, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i
 
 _ZNK5clang6interp7Pointer6isRootEv.exit.i.i:      ; preds = %_ZNK5clang6interp7Pointer6isZeroEv.exit
-  %10 = getelementptr inbounds i8, ptr %1, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %11 = load i32, ptr %10, align 8
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %13 = load ptr, ptr %12, align 8
@@ -10288,7 +10288,7 @@ _ZNK5clang6interp7Pointer6isRootEv.exit.i.i:      ; preds = %_ZNK5clang6interp7P
   br label %88
 
 28:                                               ; preds = %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i
-  %29 = getelementptr inbounds i8, ptr %1, i64 32
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %30 = load i32, ptr %29, align 8
   %31 = icmp eq i32 %30, -1
   br i1 %31, label %32, label %35
@@ -19811,7 +19811,7 @@ define dso_local noundef zeroext i1 @_ZN5clang6interp9InterpretERNS0_11InterpSta
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3181, i8 0, i64 24, i1 false)
   store i32 1, ptr %3182, align 8
   %3183 = getelementptr inbounds nuw i8, ptr %3181, i64 24
-  %3184 = getelementptr inbounds i8, ptr %3181, i64 32
+  %3184 = getelementptr inbounds nuw i8, ptr %3181, i64 32
   store i64 0, ptr %3184, align 8
   store ptr %3179, ptr %3183, align 8
   br label %.backedge
@@ -22436,7 +22436,7 @@ define dso_local noundef zeroext i1 @_ZN5clang6interp8CallVirtERNS0_11InterpStat
   br i1 %27, label %.lr.ph, label %_ZNK5clang6interp7Pointer11isBaseClassEv.exit.thread
 
 .lr.ph:                                           ; preds = %18
-  %28 = getelementptr inbounds i8, ptr %6, i64 32
+  %28 = getelementptr inbounds nuw i8, ptr %6, i64 32
   br label %29
 
 29:                                               ; preds = %.lr.ph, %_ZNK5clang6interp7Pointer7getBaseEv.exit
@@ -22658,7 +22658,7 @@ _ZN5clang18OptionalDiagnosticlsINS_11SourceRangeEEERS0_RKT_.exit: ; preds = %121
   br label %_ZNK5clang6interp7Pointer6isRootEv.exit.i
 
 _ZNK5clang6interp7Pointer6isZeroEv.exit.i.i:      ; preds = %_ZN5clang18OptionalDiagnosticlsINS_11SourceRangeEEERS0_RKT_.exit
-  %136 = getelementptr inbounds i8, ptr %23, i64 32
+  %136 = getelementptr inbounds nuw i8, ptr %23, i64 32
   %137 = load i64, ptr %136, align 8
   %138 = icmp eq i64 %137, 0
   %139 = load i64, ptr %23, align 8
@@ -22670,7 +22670,7 @@ _ZNK5clang6interp7Pointer6isZeroEv.exit.i.i:      ; preds = %_ZN5clang18Optional
 
 _ZNK5clang6interp7Pointer6isRootEv.exit.i:        ; preds = %_ZNK5clang6interp7Pointer6isZeroEv.exit.i.i, %133, %129
   %142 = phi ptr [ %131, %129 ], [ %135, %133 ], [ %.pre.i.pre, %_ZNK5clang6interp7Pointer6isZeroEv.exit.i.i ]
-  %143 = getelementptr inbounds i8, ptr %23, i64 32
+  %143 = getelementptr inbounds nuw i8, ptr %23, i64 32
   %144 = load i32, ptr %143, align 8
   %145 = getelementptr inbounds nuw i8, ptr %142, i64 32
   %146 = load ptr, ptr %145, align 8
@@ -22748,7 +22748,7 @@ _ZNK5clang13CXXMethodDecl9getParentEv.exit.i64:   ; preds = %180, %_ZNK5clang6in
 
 .preheader:                                       ; preds = %_ZNK5clang13CXXMethodDecl9getParentEv.exit.i64
   %188 = getelementptr inbounds nuw i8, ptr %23, i64 24
-  %189 = getelementptr inbounds i8, ptr %23, i64 32
+  %189 = getelementptr inbounds nuw i8, ptr %23, i64 32
   br label %190
 
 190:                                              ; preds = %.preheader, %_ZNK5clang6interp7Pointer7getBaseEv.exit72
@@ -22984,7 +22984,7 @@ define linkonce_odr hidden noundef ptr @_ZNK5clang6interp7Pointer12getFieldDescE
   br i1 %.not.i.i.i, label %_ZNK5clang6interp7Pointer11getDeclDescEv.exit, label %_ZNK5clang6interp7Pointer6isRootEv.exit
 
 _ZNK5clang6interp7Pointer6isZeroEv.exit.i:        ; preds = %1
-  %13 = getelementptr inbounds i8, ptr %0, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %14 = load i64, ptr %13, align 8
   %15 = icmp eq i64 %14, 0
   %16 = load i64, ptr %0, align 8
@@ -22999,7 +22999,7 @@ _ZNK5clang6interp7Pointer6isZeroEv.exit..thread_crit_edge.i: ; preds = %_ZNK5cla
 
 _ZNK5clang6interp7Pointer6isRootEv.exit:          ; preds = %6, %10, %_ZNK5clang6interp7Pointer6isZeroEv.exit..thread_crit_edge.i
   %19 = phi ptr [ %.pre.i, %_ZNK5clang6interp7Pointer6isZeroEv.exit..thread_crit_edge.i ], [ %8, %6 ], [ %12, %10 ]
-  %20 = getelementptr inbounds i8, ptr %0, i64 32
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %21 = load i32, ptr %20, align 8
   %22 = getelementptr inbounds nuw i8, ptr %19, i64 32
   %23 = load ptr, ptr %22, align 8
@@ -23099,7 +23099,7 @@ _ZNK5clang6interp7Pointer9isPastEndEv.exit.thread17: ; preds = %21
   br i1 %31, label %_ZNK5clang6interp7Pointer11isBaseClassEv.exit.thread, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i
 
 _ZNK5clang6interp7Pointer6isRootEv.exit.i.i:      ; preds = %_ZNK5clang6interp7Pointer9isPastEndEv.exit.thread17
-  %32 = getelementptr inbounds i8, ptr %5, i64 32
+  %32 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %33 = load i32, ptr %32, align 8
   %34 = getelementptr inbounds nuw i8, ptr %23, i64 32
   %35 = load ptr, ptr %34, align 8
@@ -24176,7 +24176,7 @@ _ZN5clang6interp28CheckDynamicMemoryAllocationERNS0_11InterpStateENS0_7CodePtrE.
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %24, i8 0, i64 24, i1 false)
   store i32 1, ptr %25, align 8
   %26 = getelementptr inbounds nuw i8, ptr %24, i64 24
-  %27 = getelementptr inbounds i8, ptr %24, i64 32
+  %27 = getelementptr inbounds nuw i8, ptr %24, i64 32
   store i64 0, ptr %27, align 8
   store ptr %2, ptr %26, align 8
   br label %39
@@ -24242,7 +24242,7 @@ _ZN5clang6interp28CheckDynamicMemoryAllocationERNS0_11InterpStateENS0_7CodePtrE.
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %24, i8 0, i64 24, i1 false)
   store i32 1, ptr %25, align 8
   %26 = getelementptr inbounds nuw i8, ptr %24, i64 24
-  %27 = getelementptr inbounds i8, ptr %24, i64 32
+  %27 = getelementptr inbounds nuw i8, ptr %24, i64 32
   store i64 0, ptr %27, align 8
   store ptr %2, ptr %26, align 8
   br label %39
@@ -24308,7 +24308,7 @@ _ZN5clang6interp28CheckDynamicMemoryAllocationERNS0_11InterpStateENS0_7CodePtrE.
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %24, i8 0, i64 24, i1 false)
   store i32 1, ptr %25, align 8
   %26 = getelementptr inbounds nuw i8, ptr %24, i64 24
-  %27 = getelementptr inbounds i8, ptr %24, i64 32
+  %27 = getelementptr inbounds nuw i8, ptr %24, i64 32
   store i64 0, ptr %27, align 8
   store ptr %2, ptr %26, align 8
   br label %39
@@ -24374,7 +24374,7 @@ _ZN5clang6interp28CheckDynamicMemoryAllocationERNS0_11InterpStateENS0_7CodePtrE.
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %24, i8 0, i64 24, i1 false)
   store i32 1, ptr %25, align 8
   %26 = getelementptr inbounds nuw i8, ptr %24, i64 24
-  %27 = getelementptr inbounds i8, ptr %24, i64 32
+  %27 = getelementptr inbounds nuw i8, ptr %24, i64 32
   store i64 0, ptr %27, align 8
   store ptr %2, ptr %26, align 8
   br label %39
@@ -24440,7 +24440,7 @@ _ZN5clang6interp28CheckDynamicMemoryAllocationERNS0_11InterpStateENS0_7CodePtrE.
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %24, i8 0, i64 24, i1 false)
   store i32 1, ptr %25, align 8
   %26 = getelementptr inbounds nuw i8, ptr %24, i64 24
-  %27 = getelementptr inbounds i8, ptr %24, i64 32
+  %27 = getelementptr inbounds nuw i8, ptr %24, i64 32
   store i64 0, ptr %27, align 8
   store ptr %2, ptr %26, align 8
   br label %39
@@ -24506,7 +24506,7 @@ _ZN5clang6interp28CheckDynamicMemoryAllocationERNS0_11InterpStateENS0_7CodePtrE.
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %24, i8 0, i64 24, i1 false)
   store i32 1, ptr %25, align 8
   %26 = getelementptr inbounds nuw i8, ptr %24, i64 24
-  %27 = getelementptr inbounds i8, ptr %24, i64 32
+  %27 = getelementptr inbounds nuw i8, ptr %24, i64 32
   store i64 0, ptr %27, align 8
   store ptr %2, ptr %26, align 8
   br label %39
@@ -24572,7 +24572,7 @@ _ZN5clang6interp28CheckDynamicMemoryAllocationERNS0_11InterpStateENS0_7CodePtrE.
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %24, i8 0, i64 24, i1 false)
   store i32 1, ptr %25, align 8
   %26 = getelementptr inbounds nuw i8, ptr %24, i64 24
-  %27 = getelementptr inbounds i8, ptr %24, i64 32
+  %27 = getelementptr inbounds nuw i8, ptr %24, i64 32
   store i64 0, ptr %27, align 8
   store ptr %2, ptr %26, align 8
   br label %38
@@ -24637,7 +24637,7 @@ _ZN5clang6interp28CheckDynamicMemoryAllocationERNS0_11InterpStateENS0_7CodePtrE.
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %24, i8 0, i64 24, i1 false)
   store i32 1, ptr %25, align 8
   %26 = getelementptr inbounds nuw i8, ptr %24, i64 24
-  %27 = getelementptr inbounds i8, ptr %24, i64 32
+  %27 = getelementptr inbounds nuw i8, ptr %24, i64 32
   store i64 0, ptr %27, align 8
   store ptr %2, ptr %26, align 8
   br label %38
@@ -24710,7 +24710,7 @@ _ZN5clang6interp28CheckDynamicMemoryAllocationERNS0_11InterpStateENS0_7CodePtrE.
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %30, i8 0, i64 24, i1 false)
   store i32 1, ptr %31, align 8
   %32 = getelementptr inbounds nuw i8, ptr %30, i64 24
-  %33 = getelementptr inbounds i8, ptr %30, i64 32
+  %33 = getelementptr inbounds nuw i8, ptr %30, i64 32
   store i64 0, ptr %33, align 8
   store ptr %2, ptr %32, align 8
   br label %57
@@ -24838,7 +24838,7 @@ _ZN5clang6interp28CheckDynamicMemoryAllocationERNS0_11InterpStateENS0_7CodePtrE.
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %30, i8 0, i64 24, i1 false)
   store i32 1, ptr %31, align 8
   %32 = getelementptr inbounds nuw i8, ptr %30, i64 24
-  %33 = getelementptr inbounds i8, ptr %30, i64 32
+  %33 = getelementptr inbounds nuw i8, ptr %30, i64 32
   store i64 0, ptr %33, align 8
   store ptr %2, ptr %32, align 8
   br label %57
@@ -25708,7 +25708,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5clang6interp10ArrayDecayERNS0
   br i1 %.not.i.i, label %24, label %27
 
 _ZNK5clang6interp7Pointer6isZeroEv.exit:          ; preds = %2
-  %18 = getelementptr inbounds i8, ptr %3, i64 32
+  %18 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %19 = load i64, ptr %18, align 8
   %20 = icmp eq i64 %19, 0
   %21 = load i64, ptr %3, align 8
@@ -25746,7 +25746,7 @@ _ZNK5clang6interp7Pointer6isZeroEv.exit:          ; preds = %2
   br i1 %.not.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread, label %_ZNK5clang6interp7Pointer6isRootEv.exit
 
 _ZNK5clang6interp7Pointer6isZeroEv.exit.i:        ; preds = %29
-  %38 = getelementptr inbounds i8, ptr %3, i64 32
+  %38 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %39 = load i64, ptr %38, align 8
   %40 = icmp eq i64 %39, 0
   %41 = load i64, ptr %3, align 8
@@ -25763,7 +25763,7 @@ _ZNK5clang6interp7Pointer6isZeroEv.exit..thread_crit_edge.i: ; preds = %_ZNK5cla
 
 _ZNK5clang6interp7Pointer6isRootEv.exit:          ; preds = %31, %35, %_ZNK5clang6interp7Pointer6isZeroEv.exit..thread_crit_edge.i
   %45 = phi ptr [ %.pre.i, %_ZNK5clang6interp7Pointer6isZeroEv.exit..thread_crit_edge.i ], [ %33, %31 ], [ %37, %35 ]
-  %46 = getelementptr inbounds i8, ptr %3, i64 32
+  %46 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %47 = load i32, ptr %46, align 8
   %48 = getelementptr inbounds nuw i8, ptr %45, i64 32
   %49 = load ptr, ptr %48, align 8
@@ -25835,7 +25835,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5clang6interp9ArrayElemILNS0_8
 
 17:                                               ; preds = %9
   %18 = icmp eq ptr %16, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %4, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %4, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %18, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -25923,7 +25923,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5clang6interp9ArrayElemILNS0_8
 
 17:                                               ; preds = %9
   %18 = icmp eq ptr %16, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %4, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %4, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %18, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -26011,7 +26011,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5clang6interp9ArrayElemILNS0_8
 
 17:                                               ; preds = %9
   %18 = icmp eq ptr %16, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %4, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %4, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %18, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -26099,7 +26099,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5clang6interp9ArrayElemILNS0_8
 
 17:                                               ; preds = %9
   %18 = icmp eq ptr %16, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %4, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %4, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %18, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -26187,7 +26187,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5clang6interp9ArrayElemILNS0_8
 
 17:                                               ; preds = %9
   %18 = icmp eq ptr %16, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %4, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %4, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %18, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -26275,7 +26275,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5clang6interp9ArrayElemILNS0_8
 
 17:                                               ; preds = %9
   %18 = icmp eq ptr %16, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %4, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %4, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %18, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -26363,7 +26363,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5clang6interp9ArrayElemILNS0_8
 
 17:                                               ; preds = %9
   %18 = icmp eq ptr %16, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %4, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %4, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %18, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -26451,7 +26451,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5clang6interp9ArrayElemILNS0_8
 
 17:                                               ; preds = %9
   %18 = icmp eq ptr %16, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %4, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %4, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %18, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -26539,7 +26539,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5clang6interp9ArrayElemILNS0_8
 
 17:                                               ; preds = %9
   %18 = icmp eq ptr %16, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %4, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %4, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %18, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -26642,7 +26642,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5clang6interp9ArrayElemILNS0_8
 
 17:                                               ; preds = %9
   %18 = icmp eq ptr %16, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %4, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %4, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %18, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -26745,7 +26745,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5clang6interp9ArrayElemILNS0_8
 
 17:                                               ; preds = %9
   %18 = icmp eq ptr %16, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %4, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %4, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %18, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -26833,7 +26833,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5clang6interp9ArrayElemILNS0_8
 
 17:                                               ; preds = %9
   %18 = icmp eq ptr %16, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %4, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %4, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %18, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -26920,7 +26920,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5clang6interp9ArrayElemILNS0_8
 
 17:                                               ; preds = %9
   %18 = icmp eq ptr %16, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %4, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %4, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %18, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -27007,7 +27007,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5clang6interp9ArrayElemILNS0_8
 
 17:                                               ; preds = %9
   %18 = icmp eq ptr %16, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %4, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %4, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %18, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -27097,7 +27097,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5clang6interp9ArrayElemILNS0_8
 
 17:                                               ; preds = %9
   %18 = icmp eq ptr %16, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %4, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %4, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %18, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -27202,7 +27202,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5clang6interp12ArrayElemPopILN
 
 18:                                               ; preds = %10
   %19 = icmp eq ptr %17, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %5, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %5, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %19, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -27294,7 +27294,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5clang6interp12ArrayElemPopILN
 
 18:                                               ; preds = %10
   %19 = icmp eq ptr %17, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %5, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %5, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %19, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -27386,7 +27386,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5clang6interp12ArrayElemPopILN
 
 18:                                               ; preds = %10
   %19 = icmp eq ptr %17, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %5, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %5, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %19, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -27478,7 +27478,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5clang6interp12ArrayElemPopILN
 
 18:                                               ; preds = %10
   %19 = icmp eq ptr %17, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %5, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %5, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %19, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -27570,7 +27570,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5clang6interp12ArrayElemPopILN
 
 18:                                               ; preds = %10
   %19 = icmp eq ptr %17, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %5, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %5, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %19, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -27662,7 +27662,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5clang6interp12ArrayElemPopILN
 
 18:                                               ; preds = %10
   %19 = icmp eq ptr %17, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %5, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %5, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %19, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -27754,7 +27754,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5clang6interp12ArrayElemPopILN
 
 18:                                               ; preds = %10
   %19 = icmp eq ptr %17, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %5, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %5, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %19, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -27846,7 +27846,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5clang6interp12ArrayElemPopILN
 
 18:                                               ; preds = %10
   %19 = icmp eq ptr %17, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %5, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %5, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %19, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -27938,7 +27938,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5clang6interp12ArrayElemPopILN
 
 18:                                               ; preds = %10
   %19 = icmp eq ptr %17, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %5, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %5, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %19, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -28045,7 +28045,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5clang6interp12ArrayElemPopILN
 
 18:                                               ; preds = %10
   %19 = icmp eq ptr %17, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %5, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %5, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %19, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -28152,7 +28152,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5clang6interp12ArrayElemPopILN
 
 18:                                               ; preds = %10
   %19 = icmp eq ptr %17, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %5, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %5, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %19, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -28244,7 +28244,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5clang6interp12ArrayElemPopILN
 
 18:                                               ; preds = %10
   %19 = icmp eq ptr %17, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %5, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %5, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %19, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -28335,7 +28335,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5clang6interp12ArrayElemPopILN
 
 18:                                               ; preds = %10
   %19 = icmp eq ptr %17, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %5, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %5, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %19, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -28426,7 +28426,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5clang6interp12ArrayElemPopILN
 
 18:                                               ; preds = %10
   %19 = icmp eq ptr %17, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %5, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %5, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %19, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -28520,7 +28520,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5clang6interp12ArrayElemPopILN
 
 18:                                               ; preds = %10
   %19 = icmp eq ptr %17, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %5, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %5, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %19, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -28635,7 +28635,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5clang6interp12ArrayElemPtrILN
   br i1 %or.cond22, label %55, label %.thread16
 
 _ZNK5clang6interp7Pointer6isZeroEv.exit:          ; preds = %2
-  %21 = getelementptr inbounds i8, ptr %11, i64 32
+  %21 = getelementptr inbounds nuw i8, ptr %11, i64 32
   %22 = load i64, ptr %21, align 8
   %23 = icmp eq i64 %22, 0
   %24 = load i64, ptr %11, align 8
@@ -28666,7 +28666,7 @@ _ZNK5clang6interp7Pointer6isZeroEv.exit:          ; preds = %2
 
 _ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i:    ; preds = %.thread, %29
   %31 = phi ptr [ %16, %.thread ], [ %.pre, %29 ]
-  %32 = getelementptr inbounds i8, ptr %11, i64 32
+  %32 = getelementptr inbounds nuw i8, ptr %11, i64 32
   %33 = load i32, ptr %32, align 8
   %34 = getelementptr inbounds nuw i8, ptr %31, i64 32
   %35 = load ptr, ptr %34, align 8
@@ -28774,7 +28774,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5clang6interp12ArrayElemPtrILN
   br i1 %or.cond22, label %55, label %.thread16
 
 _ZNK5clang6interp7Pointer6isZeroEv.exit:          ; preds = %2
-  %21 = getelementptr inbounds i8, ptr %11, i64 32
+  %21 = getelementptr inbounds nuw i8, ptr %11, i64 32
   %22 = load i64, ptr %21, align 8
   %23 = icmp eq i64 %22, 0
   %24 = load i64, ptr %11, align 8
@@ -28805,7 +28805,7 @@ _ZNK5clang6interp7Pointer6isZeroEv.exit:          ; preds = %2
 
 _ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i:    ; preds = %.thread, %29
   %31 = phi ptr [ %16, %.thread ], [ %.pre, %29 ]
-  %32 = getelementptr inbounds i8, ptr %11, i64 32
+  %32 = getelementptr inbounds nuw i8, ptr %11, i64 32
   %33 = load i32, ptr %32, align 8
   %34 = getelementptr inbounds nuw i8, ptr %31, i64 32
   %35 = load ptr, ptr %34, align 8
@@ -28913,7 +28913,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5clang6interp12ArrayElemPtrILN
   br i1 %or.cond22, label %55, label %.thread16
 
 _ZNK5clang6interp7Pointer6isZeroEv.exit:          ; preds = %2
-  %21 = getelementptr inbounds i8, ptr %11, i64 32
+  %21 = getelementptr inbounds nuw i8, ptr %11, i64 32
   %22 = load i64, ptr %21, align 8
   %23 = icmp eq i64 %22, 0
   %24 = load i64, ptr %11, align 8
@@ -28944,7 +28944,7 @@ _ZNK5clang6interp7Pointer6isZeroEv.exit:          ; preds = %2
 
 _ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i:    ; preds = %.thread, %29
   %31 = phi ptr [ %16, %.thread ], [ %.pre, %29 ]
-  %32 = getelementptr inbounds i8, ptr %11, i64 32
+  %32 = getelementptr inbounds nuw i8, ptr %11, i64 32
   %33 = load i32, ptr %32, align 8
   %34 = getelementptr inbounds nuw i8, ptr %31, i64 32
   %35 = load ptr, ptr %34, align 8
@@ -29052,7 +29052,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5clang6interp12ArrayElemPtrILN
   br i1 %or.cond22, label %55, label %.thread16
 
 _ZNK5clang6interp7Pointer6isZeroEv.exit:          ; preds = %2
-  %21 = getelementptr inbounds i8, ptr %11, i64 32
+  %21 = getelementptr inbounds nuw i8, ptr %11, i64 32
   %22 = load i64, ptr %21, align 8
   %23 = icmp eq i64 %22, 0
   %24 = load i64, ptr %11, align 8
@@ -29083,7 +29083,7 @@ _ZNK5clang6interp7Pointer6isZeroEv.exit:          ; preds = %2
 
 _ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i:    ; preds = %.thread, %29
   %31 = phi ptr [ %16, %.thread ], [ %.pre, %29 ]
-  %32 = getelementptr inbounds i8, ptr %11, i64 32
+  %32 = getelementptr inbounds nuw i8, ptr %11, i64 32
   %33 = load i32, ptr %32, align 8
   %34 = getelementptr inbounds nuw i8, ptr %31, i64 32
   %35 = load ptr, ptr %34, align 8
@@ -29191,7 +29191,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5clang6interp12ArrayElemPtrILN
   br i1 %or.cond22, label %55, label %.thread16
 
 _ZNK5clang6interp7Pointer6isZeroEv.exit:          ; preds = %2
-  %21 = getelementptr inbounds i8, ptr %11, i64 32
+  %21 = getelementptr inbounds nuw i8, ptr %11, i64 32
   %22 = load i64, ptr %21, align 8
   %23 = icmp eq i64 %22, 0
   %24 = load i64, ptr %11, align 8
@@ -29222,7 +29222,7 @@ _ZNK5clang6interp7Pointer6isZeroEv.exit:          ; preds = %2
 
 _ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i:    ; preds = %.thread, %29
   %31 = phi ptr [ %16, %.thread ], [ %.pre, %29 ]
-  %32 = getelementptr inbounds i8, ptr %11, i64 32
+  %32 = getelementptr inbounds nuw i8, ptr %11, i64 32
   %33 = load i32, ptr %32, align 8
   %34 = getelementptr inbounds nuw i8, ptr %31, i64 32
   %35 = load ptr, ptr %34, align 8
@@ -29330,7 +29330,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5clang6interp12ArrayElemPtrILN
   br i1 %or.cond22, label %55, label %.thread16
 
 _ZNK5clang6interp7Pointer6isZeroEv.exit:          ; preds = %2
-  %21 = getelementptr inbounds i8, ptr %11, i64 32
+  %21 = getelementptr inbounds nuw i8, ptr %11, i64 32
   %22 = load i64, ptr %21, align 8
   %23 = icmp eq i64 %22, 0
   %24 = load i64, ptr %11, align 8
@@ -29361,7 +29361,7 @@ _ZNK5clang6interp7Pointer6isZeroEv.exit:          ; preds = %2
 
 _ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i:    ; preds = %.thread, %29
   %31 = phi ptr [ %16, %.thread ], [ %.pre, %29 ]
-  %32 = getelementptr inbounds i8, ptr %11, i64 32
+  %32 = getelementptr inbounds nuw i8, ptr %11, i64 32
   %33 = load i32, ptr %32, align 8
   %34 = getelementptr inbounds nuw i8, ptr %31, i64 32
   %35 = load ptr, ptr %34, align 8
@@ -29469,7 +29469,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5clang6interp12ArrayElemPtrILN
   br i1 %or.cond22, label %55, label %.thread16
 
 _ZNK5clang6interp7Pointer6isZeroEv.exit:          ; preds = %2
-  %21 = getelementptr inbounds i8, ptr %11, i64 32
+  %21 = getelementptr inbounds nuw i8, ptr %11, i64 32
   %22 = load i64, ptr %21, align 8
   %23 = icmp eq i64 %22, 0
   %24 = load i64, ptr %11, align 8
@@ -29500,7 +29500,7 @@ _ZNK5clang6interp7Pointer6isZeroEv.exit:          ; preds = %2
 
 _ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i:    ; preds = %.thread, %29
   %31 = phi ptr [ %16, %.thread ], [ %.pre, %29 ]
-  %32 = getelementptr inbounds i8, ptr %11, i64 32
+  %32 = getelementptr inbounds nuw i8, ptr %11, i64 32
   %33 = load i32, ptr %32, align 8
   %34 = getelementptr inbounds nuw i8, ptr %31, i64 32
   %35 = load ptr, ptr %34, align 8
@@ -29608,7 +29608,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5clang6interp12ArrayElemPtrILN
   br i1 %or.cond22, label %55, label %.thread16
 
 _ZNK5clang6interp7Pointer6isZeroEv.exit:          ; preds = %2
-  %21 = getelementptr inbounds i8, ptr %11, i64 32
+  %21 = getelementptr inbounds nuw i8, ptr %11, i64 32
   %22 = load i64, ptr %21, align 8
   %23 = icmp eq i64 %22, 0
   %24 = load i64, ptr %11, align 8
@@ -29639,7 +29639,7 @@ _ZNK5clang6interp7Pointer6isZeroEv.exit:          ; preds = %2
 
 _ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i:    ; preds = %.thread, %29
   %31 = phi ptr [ %16, %.thread ], [ %.pre, %29 ]
-  %32 = getelementptr inbounds i8, ptr %11, i64 32
+  %32 = getelementptr inbounds nuw i8, ptr %11, i64 32
   %33 = load i32, ptr %32, align 8
   %34 = getelementptr inbounds nuw i8, ptr %31, i64 32
   %35 = load ptr, ptr %34, align 8
@@ -29749,7 +29749,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5clang6interp12ArrayElemPtrILN
   br i1 %.not.i.i, label %65, label %31
 
 _ZNK5clang6interp7Pointer6isZeroEv.exit:          ; preds = %2
-  %25 = getelementptr inbounds i8, ptr %15, i64 32
+  %25 = getelementptr inbounds nuw i8, ptr %15, i64 32
   %26 = load i64, ptr %25, align 8
   %27 = icmp eq i64 %26, 0
   %28 = load i64, ptr %15, align 8
@@ -29782,7 +29782,7 @@ _ZNK5clang6interp10IntegralAPILb0EE6isZeroEv.exit: ; preds = %31
   br i1 %42, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i
 
 _ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i:    ; preds = %39
-  %43 = getelementptr inbounds i8, ptr %15, i64 32
+  %43 = getelementptr inbounds nuw i8, ptr %15, i64 32
   %44 = load i32, ptr %43, align 8
   %45 = getelementptr inbounds nuw i8, ptr %41, i64 32
   %46 = load ptr, ptr %45, align 8
@@ -29905,7 +29905,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5clang6interp12ArrayElemPtrILN
   br i1 %.not.i.i, label %65, label %31
 
 _ZNK5clang6interp7Pointer6isZeroEv.exit:          ; preds = %2
-  %25 = getelementptr inbounds i8, ptr %15, i64 32
+  %25 = getelementptr inbounds nuw i8, ptr %15, i64 32
   %26 = load i64, ptr %25, align 8
   %27 = icmp eq i64 %26, 0
   %28 = load i64, ptr %15, align 8
@@ -29938,7 +29938,7 @@ _ZNK5clang6interp10IntegralAPILb1EE6isZeroEv.exit: ; preds = %31
   br i1 %42, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i
 
 _ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i:    ; preds = %39
-  %43 = getelementptr inbounds i8, ptr %15, i64 32
+  %43 = getelementptr inbounds nuw i8, ptr %15, i64 32
   %44 = load i32, ptr %43, align 8
   %45 = getelementptr inbounds nuw i8, ptr %41, i64 32
   %46 = load ptr, ptr %45, align 8
@@ -30059,7 +30059,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5clang6interp12ArrayElemPtrILN
   br i1 %or.cond26.not, label %.thread15, label %57
 
 _ZNK5clang6interp7Pointer6isZeroEv.exit:          ; preds = %2
-  %23 = getelementptr inbounds i8, ptr %11, i64 32
+  %23 = getelementptr inbounds nuw i8, ptr %11, i64 32
   %24 = load i64, ptr %23, align 8
   %25 = icmp ne i64 %24, 0
   %26 = load i64, ptr %11, align 8
@@ -30090,7 +30090,7 @@ _ZNK5clang6interp7Pointer6isZeroEv.exit:          ; preds = %2
 
 _ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i:    ; preds = %.thread, %31
   %33 = phi ptr [ %16, %.thread ], [ %.pre, %31 ]
-  %34 = getelementptr inbounds i8, ptr %11, i64 32
+  %34 = getelementptr inbounds nuw i8, ptr %11, i64 32
   %35 = load i32, ptr %34, align 8
   %36 = getelementptr inbounds nuw i8, ptr %33, i64 32
   %37 = load ptr, ptr %36, align 8
@@ -30201,7 +30201,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5clang6interp15ArrayElemPtrPop
   br i1 %or.cond22, label %56, label %.thread16
 
 _ZNK5clang6interp7Pointer6isZeroEv.exit:          ; preds = %2
-  %22 = getelementptr inbounds i8, ptr %7, i64 32
+  %22 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %23 = load i64, ptr %22, align 8
   %24 = icmp eq i64 %23, 0
   %25 = load i64, ptr %7, align 8
@@ -30232,7 +30232,7 @@ _ZNK5clang6interp7Pointer6isZeroEv.exit:          ; preds = %2
 
 _ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i:    ; preds = %.thread, %30
   %32 = phi ptr [ %17, %.thread ], [ %.pre, %30 ]
-  %33 = getelementptr inbounds i8, ptr %7, i64 32
+  %33 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %34 = load i32, ptr %33, align 8
   %35 = getelementptr inbounds nuw i8, ptr %32, i64 32
   %36 = load ptr, ptr %35, align 8
@@ -30344,7 +30344,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5clang6interp15ArrayElemPtrPop
   br i1 %or.cond22, label %56, label %.thread16
 
 _ZNK5clang6interp7Pointer6isZeroEv.exit:          ; preds = %2
-  %22 = getelementptr inbounds i8, ptr %7, i64 32
+  %22 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %23 = load i64, ptr %22, align 8
   %24 = icmp eq i64 %23, 0
   %25 = load i64, ptr %7, align 8
@@ -30375,7 +30375,7 @@ _ZNK5clang6interp7Pointer6isZeroEv.exit:          ; preds = %2
 
 _ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i:    ; preds = %.thread, %30
   %32 = phi ptr [ %17, %.thread ], [ %.pre, %30 ]
-  %33 = getelementptr inbounds i8, ptr %7, i64 32
+  %33 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %34 = load i32, ptr %33, align 8
   %35 = getelementptr inbounds nuw i8, ptr %32, i64 32
   %36 = load ptr, ptr %35, align 8
@@ -30487,7 +30487,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5clang6interp15ArrayElemPtrPop
   br i1 %or.cond22, label %56, label %.thread16
 
 _ZNK5clang6interp7Pointer6isZeroEv.exit:          ; preds = %2
-  %22 = getelementptr inbounds i8, ptr %7, i64 32
+  %22 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %23 = load i64, ptr %22, align 8
   %24 = icmp eq i64 %23, 0
   %25 = load i64, ptr %7, align 8
@@ -30518,7 +30518,7 @@ _ZNK5clang6interp7Pointer6isZeroEv.exit:          ; preds = %2
 
 _ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i:    ; preds = %.thread, %30
   %32 = phi ptr [ %17, %.thread ], [ %.pre, %30 ]
-  %33 = getelementptr inbounds i8, ptr %7, i64 32
+  %33 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %34 = load i32, ptr %33, align 8
   %35 = getelementptr inbounds nuw i8, ptr %32, i64 32
   %36 = load ptr, ptr %35, align 8
@@ -30630,7 +30630,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5clang6interp15ArrayElemPtrPop
   br i1 %or.cond22, label %56, label %.thread16
 
 _ZNK5clang6interp7Pointer6isZeroEv.exit:          ; preds = %2
-  %22 = getelementptr inbounds i8, ptr %7, i64 32
+  %22 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %23 = load i64, ptr %22, align 8
   %24 = icmp eq i64 %23, 0
   %25 = load i64, ptr %7, align 8
@@ -30661,7 +30661,7 @@ _ZNK5clang6interp7Pointer6isZeroEv.exit:          ; preds = %2
 
 _ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i:    ; preds = %.thread, %30
   %32 = phi ptr [ %17, %.thread ], [ %.pre, %30 ]
-  %33 = getelementptr inbounds i8, ptr %7, i64 32
+  %33 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %34 = load i32, ptr %33, align 8
   %35 = getelementptr inbounds nuw i8, ptr %32, i64 32
   %36 = load ptr, ptr %35, align 8
@@ -30773,7 +30773,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5clang6interp15ArrayElemPtrPop
   br i1 %or.cond22, label %56, label %.thread16
 
 _ZNK5clang6interp7Pointer6isZeroEv.exit:          ; preds = %2
-  %22 = getelementptr inbounds i8, ptr %7, i64 32
+  %22 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %23 = load i64, ptr %22, align 8
   %24 = icmp eq i64 %23, 0
   %25 = load i64, ptr %7, align 8
@@ -30804,7 +30804,7 @@ _ZNK5clang6interp7Pointer6isZeroEv.exit:          ; preds = %2
 
 _ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i:    ; preds = %.thread, %30
   %32 = phi ptr [ %17, %.thread ], [ %.pre, %30 ]
-  %33 = getelementptr inbounds i8, ptr %7, i64 32
+  %33 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %34 = load i32, ptr %33, align 8
   %35 = getelementptr inbounds nuw i8, ptr %32, i64 32
   %36 = load ptr, ptr %35, align 8
@@ -30916,7 +30916,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5clang6interp15ArrayElemPtrPop
   br i1 %or.cond22, label %56, label %.thread16
 
 _ZNK5clang6interp7Pointer6isZeroEv.exit:          ; preds = %2
-  %22 = getelementptr inbounds i8, ptr %7, i64 32
+  %22 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %23 = load i64, ptr %22, align 8
   %24 = icmp eq i64 %23, 0
   %25 = load i64, ptr %7, align 8
@@ -30947,7 +30947,7 @@ _ZNK5clang6interp7Pointer6isZeroEv.exit:          ; preds = %2
 
 _ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i:    ; preds = %.thread, %30
   %32 = phi ptr [ %17, %.thread ], [ %.pre, %30 ]
-  %33 = getelementptr inbounds i8, ptr %7, i64 32
+  %33 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %34 = load i32, ptr %33, align 8
   %35 = getelementptr inbounds nuw i8, ptr %32, i64 32
   %36 = load ptr, ptr %35, align 8
@@ -31059,7 +31059,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5clang6interp15ArrayElemPtrPop
   br i1 %or.cond22, label %56, label %.thread16
 
 _ZNK5clang6interp7Pointer6isZeroEv.exit:          ; preds = %2
-  %22 = getelementptr inbounds i8, ptr %7, i64 32
+  %22 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %23 = load i64, ptr %22, align 8
   %24 = icmp eq i64 %23, 0
   %25 = load i64, ptr %7, align 8
@@ -31090,7 +31090,7 @@ _ZNK5clang6interp7Pointer6isZeroEv.exit:          ; preds = %2
 
 _ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i:    ; preds = %.thread, %30
   %32 = phi ptr [ %17, %.thread ], [ %.pre, %30 ]
-  %33 = getelementptr inbounds i8, ptr %7, i64 32
+  %33 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %34 = load i32, ptr %33, align 8
   %35 = getelementptr inbounds nuw i8, ptr %32, i64 32
   %36 = load ptr, ptr %35, align 8
@@ -31202,7 +31202,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5clang6interp15ArrayElemPtrPop
   br i1 %or.cond22, label %56, label %.thread16
 
 _ZNK5clang6interp7Pointer6isZeroEv.exit:          ; preds = %2
-  %22 = getelementptr inbounds i8, ptr %7, i64 32
+  %22 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %23 = load i64, ptr %22, align 8
   %24 = icmp eq i64 %23, 0
   %25 = load i64, ptr %7, align 8
@@ -31233,7 +31233,7 @@ _ZNK5clang6interp7Pointer6isZeroEv.exit:          ; preds = %2
 
 _ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i:    ; preds = %.thread, %30
   %32 = phi ptr [ %17, %.thread ], [ %.pre, %30 ]
-  %33 = getelementptr inbounds i8, ptr %7, i64 32
+  %33 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %34 = load i32, ptr %33, align 8
   %35 = getelementptr inbounds nuw i8, ptr %32, i64 32
   %36 = load ptr, ptr %35, align 8
@@ -31347,7 +31347,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5clang6interp15ArrayElemPtrPop
   br i1 %.not.i.i, label %66, label %32
 
 _ZNK5clang6interp7Pointer6isZeroEv.exit:          ; preds = %2
-  %26 = getelementptr inbounds i8, ptr %7, i64 32
+  %26 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %27 = load i64, ptr %26, align 8
   %28 = icmp eq i64 %27, 0
   %29 = load i64, ptr %7, align 8
@@ -31380,7 +31380,7 @@ _ZNK5clang6interp10IntegralAPILb0EE6isZeroEv.exit: ; preds = %32
   br i1 %43, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i
 
 _ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i:    ; preds = %40
-  %44 = getelementptr inbounds i8, ptr %7, i64 32
+  %44 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %45 = load i32, ptr %44, align 8
   %46 = getelementptr inbounds nuw i8, ptr %42, i64 32
   %47 = load ptr, ptr %46, align 8
@@ -31507,7 +31507,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5clang6interp15ArrayElemPtrPop
   br i1 %.not.i.i, label %66, label %32
 
 _ZNK5clang6interp7Pointer6isZeroEv.exit:          ; preds = %2
-  %26 = getelementptr inbounds i8, ptr %7, i64 32
+  %26 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %27 = load i64, ptr %26, align 8
   %28 = icmp eq i64 %27, 0
   %29 = load i64, ptr %7, align 8
@@ -31540,7 +31540,7 @@ _ZNK5clang6interp10IntegralAPILb1EE6isZeroEv.exit: ; preds = %32
   br i1 %43, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i
 
 _ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i:    ; preds = %40
-  %44 = getelementptr inbounds i8, ptr %7, i64 32
+  %44 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %45 = load i32, ptr %44, align 8
   %46 = getelementptr inbounds nuw i8, ptr %42, i64 32
   %47 = load ptr, ptr %46, align 8
@@ -31665,7 +31665,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5clang6interp15ArrayElemPtrPop
   br i1 %or.cond26.not, label %.thread15, label %58
 
 _ZNK5clang6interp7Pointer6isZeroEv.exit:          ; preds = %2
-  %24 = getelementptr inbounds i8, ptr %7, i64 32
+  %24 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %25 = load i64, ptr %24, align 8
   %26 = icmp ne i64 %25, 0
   %27 = load i64, ptr %7, align 8
@@ -31696,7 +31696,7 @@ _ZNK5clang6interp7Pointer6isZeroEv.exit:          ; preds = %2
 
 _ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i:    ; preds = %.thread, %32
   %34 = phi ptr [ %17, %.thread ], [ %.pre, %32 ]
-  %35 = getelementptr inbounds i8, ptr %7, i64 32
+  %35 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %36 = load i32, ptr %35, align 8
   %37 = getelementptr inbounds nuw i8, ptr %34, i64 32
   %38 = load ptr, ptr %37, align 8
@@ -38631,10 +38631,10 @@ _ZN5clang6interp11InterpStack3popINS0_8FloatingEEET_v.exit: ; preds = %12, %13
   %14 = load ptr, ptr %5, align 8
   %15 = load ptr, ptr %8, align 8
   %.not.i.i.i.i.i = icmp eq ptr %15, %11
-  %16 = getelementptr inbounds i8, ptr %4, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %17 = load ptr, ptr %16, align 8
   %.0.i.i.i.i.i.sroa.sel.v.sroa.sel.v.sroa.sel.v = select i1 %.not.i.i.i.i.i, ptr %17, ptr %4
-  %.0.i.i.i.i.i.sroa.sel.v.sroa.sel.v.sroa.sel = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.sroa.sel.v.sroa.sel.v.sroa.sel.v, i64 28
+  %.0.i.i.i.i.i.sroa.sel.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.sroa.sel.v.sroa.sel.v.sroa.sel.v, i64 28
   %18 = load i8, ptr %.0.i.i.i.i.i.sroa.sel.v.sroa.sel.v.sroa.sel, align 4
   %19 = and i8 %18, 7
   %20 = icmp ne i8 %19, 3
@@ -38711,10 +38711,10 @@ _ZN4llvm6APSIntC2Ejb.exit:                        ; preds = %22, %23
 27:                                               ; preds = %_ZN4llvm6APSIntC2Ejb.exit
   %28 = load ptr, ptr %14, align 8
   %.not.i.i.i.i.i = icmp eq ptr %28, %17
-  %29 = getelementptr inbounds i8, ptr %6, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %30 = load ptr, ptr %29, align 8
   %.0.i.i.i.i.i.sroa.sel.v.sroa.sel.v.sroa.sel.v = select i1 %.not.i.i.i.i.i, ptr %30, ptr %6
-  %.0.i.i.i.i.i.sroa.sel.v.sroa.sel.v.sroa.sel = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.sroa.sel.v.sroa.sel.v.sroa.sel.v, i64 28
+  %.0.i.i.i.i.i.sroa.sel.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.sroa.sel.v.sroa.sel.v.sroa.sel.v, i64 28
   %31 = load i8, ptr %.0.i.i.i.i.i.sroa.sel.v.sroa.sel.v.sroa.sel, align 4
   %32 = and i8 %31, 6
   %.not22 = icmp eq i8 %32, 0
@@ -38917,10 +38917,10 @@ _ZN4llvm6APSIntC2Ejb.exit:                        ; preds = %22, %23
 27:                                               ; preds = %_ZN4llvm6APSIntC2Ejb.exit
   %28 = load ptr, ptr %14, align 8
   %.not.i.i.i.i.i = icmp eq ptr %28, %17
-  %29 = getelementptr inbounds i8, ptr %6, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %30 = load ptr, ptr %29, align 8
   %.0.i.i.i.i.i.sroa.sel.v.sroa.sel.v.sroa.sel.v = select i1 %.not.i.i.i.i.i, ptr %30, ptr %6
-  %.0.i.i.i.i.i.sroa.sel.v.sroa.sel.v.sroa.sel = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.sroa.sel.v.sroa.sel.v.sroa.sel.v, i64 28
+  %.0.i.i.i.i.i.sroa.sel.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.sroa.sel.v.sroa.sel.v.sroa.sel.v, i64 28
   %31 = load i8, ptr %.0.i.i.i.i.i.sroa.sel.v.sroa.sel.v.sroa.sel, align 4
   %32 = and i8 %31, 6
   %.not22 = icmp eq i8 %32, 0
@@ -40215,7 +40215,7 @@ _ZN5clang18OptionalDiagnosticlsINS_11SourceRangeEEERS0_RKT_.exit: ; preds = %_ZN
   ]
 
 69:                                               ; preds = %_ZN5clang18OptionalDiagnosticlsINS_11SourceRangeEEERS0_RKT_.exit
-  %70 = getelementptr inbounds i8, ptr %4, i64 32
+  %70 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %71 = load i64, ptr %70, align 8
   %72 = load ptr, ptr %67, align 8
   %.not.i.i = icmp eq ptr %72, null
@@ -40385,7 +40385,7 @@ _ZN5clang18OptionalDiagnosticlsINS_11SourceRangeEEERS0_RKT_.exit: ; preds = %_ZN
   ]
 
 69:                                               ; preds = %_ZN5clang18OptionalDiagnosticlsINS_11SourceRangeEEERS0_RKT_.exit
-  %70 = getelementptr inbounds i8, ptr %4, i64 32
+  %70 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %71 = load i64, ptr %70, align 8
   %72 = load ptr, ptr %67, align 8
   %.not.i.i = icmp eq ptr %72, null
@@ -40555,7 +40555,7 @@ _ZN5clang18OptionalDiagnosticlsINS_11SourceRangeEEERS0_RKT_.exit: ; preds = %_ZN
   ]
 
 69:                                               ; preds = %_ZN5clang18OptionalDiagnosticlsINS_11SourceRangeEEERS0_RKT_.exit
-  %70 = getelementptr inbounds i8, ptr %4, i64 32
+  %70 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %71 = load i64, ptr %70, align 8
   %72 = load ptr, ptr %67, align 8
   %.not.i.i = icmp eq ptr %72, null
@@ -40725,7 +40725,7 @@ _ZN5clang18OptionalDiagnosticlsINS_11SourceRangeEEERS0_RKT_.exit: ; preds = %_ZN
   ]
 
 69:                                               ; preds = %_ZN5clang18OptionalDiagnosticlsINS_11SourceRangeEEERS0_RKT_.exit
-  %70 = getelementptr inbounds i8, ptr %4, i64 32
+  %70 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %71 = load i64, ptr %70, align 8
   %72 = load ptr, ptr %67, align 8
   %.not.i.i = icmp eq ptr %72, null
@@ -40895,7 +40895,7 @@ _ZN5clang18OptionalDiagnosticlsINS_11SourceRangeEEERS0_RKT_.exit: ; preds = %_ZN
   ]
 
 69:                                               ; preds = %_ZN5clang18OptionalDiagnosticlsINS_11SourceRangeEEERS0_RKT_.exit
-  %70 = getelementptr inbounds i8, ptr %4, i64 32
+  %70 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %71 = load i64, ptr %70, align 8
   %72 = load ptr, ptr %67, align 8
   %.not.i.i = icmp eq ptr %72, null
@@ -41065,7 +41065,7 @@ _ZN5clang18OptionalDiagnosticlsINS_11SourceRangeEEERS0_RKT_.exit: ; preds = %_ZN
   ]
 
 69:                                               ; preds = %_ZN5clang18OptionalDiagnosticlsINS_11SourceRangeEEERS0_RKT_.exit
-  %70 = getelementptr inbounds i8, ptr %4, i64 32
+  %70 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %71 = load i64, ptr %70, align 8
   %72 = load ptr, ptr %67, align 8
   %.not.i.i = icmp eq ptr %72, null
@@ -41235,7 +41235,7 @@ _ZN5clang18OptionalDiagnosticlsINS_11SourceRangeEEERS0_RKT_.exit: ; preds = %_ZN
   ]
 
 69:                                               ; preds = %_ZN5clang18OptionalDiagnosticlsINS_11SourceRangeEEERS0_RKT_.exit
-  %70 = getelementptr inbounds i8, ptr %4, i64 32
+  %70 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %71 = load i64, ptr %70, align 8
   %72 = load ptr, ptr %67, align 8
   %.not.i.i = icmp eq ptr %72, null
@@ -41404,7 +41404,7 @@ _ZN5clang18OptionalDiagnosticlsINS_11SourceRangeEEERS0_RKT_.exit: ; preds = %_ZN
   ]
 
 69:                                               ; preds = %_ZN5clang18OptionalDiagnosticlsINS_11SourceRangeEEERS0_RKT_.exit
-  %70 = getelementptr inbounds i8, ptr %4, i64 32
+  %70 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %71 = load i64, ptr %70, align 8
   %72 = load ptr, ptr %67, align 8
   %.not.i.i = icmp eq ptr %72, null
@@ -41573,7 +41573,7 @@ _ZN5clang18OptionalDiagnosticlsINS_11SourceRangeEEERS0_RKT_.exit: ; preds = %_ZN
   ]
 
 69:                                               ; preds = %_ZN5clang18OptionalDiagnosticlsINS_11SourceRangeEEERS0_RKT_.exit
-  %70 = getelementptr inbounds i8, ptr %4, i64 32
+  %70 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %71 = load i64, ptr %70, align 8
   %72 = load ptr, ptr %67, align 8
   %.not.i.i = icmp eq ptr %72, null
@@ -41745,7 +41745,7 @@ _ZN5clang18OptionalDiagnosticlsINS_11SourceRangeEEERS0_RKT_.exit: ; preds = %_ZN
   ]
 
 71:                                               ; preds = %_ZN5clang18OptionalDiagnosticlsINS_11SourceRangeEEERS0_RKT_.exit
-  %72 = getelementptr inbounds i8, ptr %5, i64 32
+  %72 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %73 = load i64, ptr %72, align 8
   %74 = load ptr, ptr %69, align 8
   %.not.i.i = icmp eq ptr %74, null
@@ -41922,7 +41922,7 @@ _ZN5clang18OptionalDiagnosticlsINS_11SourceRangeEEERS0_RKT_.exit: ; preds = %_ZN
   ]
 
 71:                                               ; preds = %_ZN5clang18OptionalDiagnosticlsINS_11SourceRangeEEERS0_RKT_.exit
-  %72 = getelementptr inbounds i8, ptr %5, i64 32
+  %72 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %73 = load i64, ptr %72, align 8
   %74 = load ptr, ptr %69, align 8
   %.not.i.i = icmp eq ptr %74, null
@@ -42454,10 +42454,10 @@ _ZNK5clang6interp8Function13isConstructorEv.exit: ; preds = %11
   br i1 %20, label %21, label %_ZNK5clang6interp8Function13isConstructorEv.exit.thread
 
 21:                                               ; preds = %_ZNK5clang6interp8Function13isConstructorEv.exit
-  %22 = getelementptr inbounds i8, ptr %8, i64 88
+  %22 = getelementptr inbounds nuw i8, ptr %8, i64 88
   %23 = load i32, ptr %22, align 8
   %cond = icmp eq i32 %23, 1
-  %24 = getelementptr inbounds i8, ptr %8, i64 64
+  %24 = getelementptr inbounds nuw i8, ptr %8, i64 64
   br i1 %cond, label %.sink.split.i, label %25
 
 25:                                               ; preds = %21
@@ -42553,7 +42553,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5clang6interp15CheckNonNullArg
   br i1 %.not.i.i, label %21, label %26
 
 _ZNK5clang6interp7Pointer6isZeroEv.exit:          ; preds = %2
-  %15 = getelementptr inbounds i8, ptr %5, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %16 = load i64, ptr %15, align 8
   %17 = icmp eq i64 %16, 0
   %18 = load i64, ptr %5, align 8
@@ -42618,7 +42618,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5clang6interp15CheckNonNullArg
   br label %_ZNK5clang6interp13MemberPointer6isZeroEv.exit
 
 15:                                               ; preds = %2
-  %16 = getelementptr inbounds i8, ptr %5, i64 32
+  %16 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %17 = load i64, ptr %16, align 8
   %18 = icmp eq i64 %17, 0
   %19 = load i64, ptr %5, align 8
@@ -43043,10 +43043,10 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5clang6interp9CopyArrayILNS0_8
 .lr.ph:                                           ; preds = %5
   %14 = getelementptr inbounds nuw i8, ptr %7, i64 48
   %15 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  %16 = getelementptr inbounds i8, ptr %7, i64 32
+  %16 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %17 = getelementptr inbounds nuw i8, ptr %8, i64 48
   %18 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  %19 = getelementptr inbounds i8, ptr %8, i64 32
+  %19 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %20 = zext i32 %4 to i64
   br label %21
 
@@ -43224,10 +43224,10 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5clang6interp9CopyArrayILNS0_8
 .lr.ph:                                           ; preds = %5
   %14 = getelementptr inbounds nuw i8, ptr %7, i64 48
   %15 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  %16 = getelementptr inbounds i8, ptr %7, i64 32
+  %16 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %17 = getelementptr inbounds nuw i8, ptr %8, i64 48
   %18 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  %19 = getelementptr inbounds i8, ptr %8, i64 32
+  %19 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %20 = zext i32 %4 to i64
   br label %21
 
@@ -43405,10 +43405,10 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5clang6interp9CopyArrayILNS0_8
 .lr.ph:                                           ; preds = %5
   %14 = getelementptr inbounds nuw i8, ptr %7, i64 48
   %15 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  %16 = getelementptr inbounds i8, ptr %7, i64 32
+  %16 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %17 = getelementptr inbounds nuw i8, ptr %8, i64 48
   %18 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  %19 = getelementptr inbounds i8, ptr %8, i64 32
+  %19 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %20 = zext i32 %4 to i64
   br label %21
 
@@ -43586,10 +43586,10 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5clang6interp9CopyArrayILNS0_8
 .lr.ph:                                           ; preds = %5
   %14 = getelementptr inbounds nuw i8, ptr %7, i64 48
   %15 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  %16 = getelementptr inbounds i8, ptr %7, i64 32
+  %16 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %17 = getelementptr inbounds nuw i8, ptr %8, i64 48
   %18 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  %19 = getelementptr inbounds i8, ptr %8, i64 32
+  %19 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %20 = zext i32 %4 to i64
   br label %21
 
@@ -43767,10 +43767,10 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5clang6interp9CopyArrayILNS0_8
 .lr.ph:                                           ; preds = %5
   %14 = getelementptr inbounds nuw i8, ptr %7, i64 48
   %15 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  %16 = getelementptr inbounds i8, ptr %7, i64 32
+  %16 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %17 = getelementptr inbounds nuw i8, ptr %8, i64 48
   %18 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  %19 = getelementptr inbounds i8, ptr %8, i64 32
+  %19 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %20 = zext i32 %4 to i64
   br label %21
 
@@ -43948,10 +43948,10 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5clang6interp9CopyArrayILNS0_8
 .lr.ph:                                           ; preds = %5
   %14 = getelementptr inbounds nuw i8, ptr %7, i64 48
   %15 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  %16 = getelementptr inbounds i8, ptr %7, i64 32
+  %16 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %17 = getelementptr inbounds nuw i8, ptr %8, i64 48
   %18 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  %19 = getelementptr inbounds i8, ptr %8, i64 32
+  %19 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %20 = zext i32 %4 to i64
   br label %21
 
@@ -44129,10 +44129,10 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5clang6interp9CopyArrayILNS0_8
 .lr.ph:                                           ; preds = %5
   %14 = getelementptr inbounds nuw i8, ptr %7, i64 48
   %15 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  %16 = getelementptr inbounds i8, ptr %7, i64 32
+  %16 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %17 = getelementptr inbounds nuw i8, ptr %8, i64 48
   %18 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  %19 = getelementptr inbounds i8, ptr %8, i64 32
+  %19 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %20 = zext i32 %4 to i64
   br label %21
 
@@ -44310,10 +44310,10 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5clang6interp9CopyArrayILNS0_8
 .lr.ph:                                           ; preds = %5
   %14 = getelementptr inbounds nuw i8, ptr %7, i64 48
   %15 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  %16 = getelementptr inbounds i8, ptr %7, i64 32
+  %16 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %17 = getelementptr inbounds nuw i8, ptr %8, i64 48
   %18 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  %19 = getelementptr inbounds i8, ptr %8, i64 32
+  %19 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %20 = zext i32 %4 to i64
   br label %21
 
@@ -44491,10 +44491,10 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5clang6interp9CopyArrayILNS0_8
 .lr.ph:                                           ; preds = %5
   %14 = getelementptr inbounds nuw i8, ptr %7, i64 48
   %15 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  %16 = getelementptr inbounds i8, ptr %7, i64 32
+  %16 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %17 = getelementptr inbounds nuw i8, ptr %8, i64 48
   %18 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  %19 = getelementptr inbounds i8, ptr %8, i64 32
+  %19 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %20 = zext i32 %4 to i64
   br label %21
 
@@ -44693,10 +44693,10 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5clang6interp9CopyArrayILNS0_8
 .lr.ph:                                           ; preds = %5
   %14 = getelementptr inbounds nuw i8, ptr %7, i64 48
   %15 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  %16 = getelementptr inbounds i8, ptr %7, i64 32
+  %16 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %17 = getelementptr inbounds nuw i8, ptr %8, i64 48
   %18 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  %19 = getelementptr inbounds i8, ptr %8, i64 32
+  %19 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %20 = zext i32 %4 to i64
   br label %21
 
@@ -44895,10 +44895,10 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5clang6interp9CopyArrayILNS0_8
 .lr.ph:                                           ; preds = %5
   %14 = getelementptr inbounds nuw i8, ptr %7, i64 48
   %15 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  %16 = getelementptr inbounds i8, ptr %7, i64 32
+  %16 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %17 = getelementptr inbounds nuw i8, ptr %8, i64 48
   %18 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  %19 = getelementptr inbounds i8, ptr %8, i64 32
+  %19 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %20 = zext i32 %4 to i64
   br label %21
 
@@ -45076,10 +45076,10 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5clang6interp9CopyArrayILNS0_8
 .lr.ph:                                           ; preds = %5
   %14 = getelementptr inbounds nuw i8, ptr %7, i64 48
   %15 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  %16 = getelementptr inbounds i8, ptr %7, i64 32
+  %16 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %17 = getelementptr inbounds nuw i8, ptr %8, i64 48
   %18 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  %19 = getelementptr inbounds i8, ptr %8, i64 32
+  %19 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %20 = zext i32 %4 to i64
   br label %21
 
@@ -45256,10 +45256,10 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5clang6interp9CopyArrayILNS0_8
 .lr.ph:                                           ; preds = %5
   %14 = getelementptr inbounds nuw i8, ptr %7, i64 48
   %15 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  %16 = getelementptr inbounds i8, ptr %7, i64 32
+  %16 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %17 = getelementptr inbounds nuw i8, ptr %8, i64 48
   %18 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  %19 = getelementptr inbounds i8, ptr %8, i64 32
+  %19 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %20 = zext i32 %4 to i64
   br label %21
 
@@ -45436,10 +45436,10 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5clang6interp9CopyArrayILNS0_8
 .lr.ph:                                           ; preds = %5
   %14 = getelementptr inbounds nuw i8, ptr %7, i64 48
   %15 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  %16 = getelementptr inbounds i8, ptr %7, i64 32
+  %16 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %17 = getelementptr inbounds nuw i8, ptr %8, i64 48
   %18 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  %19 = getelementptr inbounds i8, ptr %8, i64 32
+  %19 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %20 = zext i32 %4 to i64
   br label %21
 
@@ -45619,10 +45619,10 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5clang6interp9CopyArrayILNS0_8
 .lr.ph:                                           ; preds = %5
   %14 = getelementptr inbounds nuw i8, ptr %7, i64 48
   %15 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  %16 = getelementptr inbounds i8, ptr %7, i64 32
+  %16 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %17 = getelementptr inbounds nuw i8, ptr %8, i64 48
   %18 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  %19 = getelementptr inbounds i8, ptr %8, i64 32
+  %19 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %20 = zext i32 %4 to i64
   br label %21
 
@@ -45829,7 +45829,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp3DecILNS0_8PrimTypeE1ENS
 
 14:                                               ; preds = %8
   %15 = icmp eq ptr %13, null
-  %.phi.trans.insert.phi.trans.insert.i = getelementptr inbounds i8, ptr %3, i64 32
+  %.phi.trans.insert.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %3, i64 32
   %.pre.pre.i = load i32, ptr %.phi.trans.insert.phi.trans.insert.i, align 8
   br i1 %15, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i.i
 
@@ -45896,7 +45896,7 @@ _ZNK5clang6interp7Pointer11isArrayRootEv.exit.thread.i.i: ; preds = %_ZNK5clang6
 
 47:                                               ; preds = %40
   %48 = icmp eq ptr %46, null
-  %.phi.trans.insert41.phi.trans.insert.i = getelementptr inbounds i8, ptr %3, i64 32
+  %.phi.trans.insert41.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %3, i64 32
   %.pre42.pre.i = load i32, ptr %.phi.trans.insert41.phi.trans.insert.i, align 8
   br i1 %48, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i30.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i24.i
 
@@ -46003,7 +46003,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp3DecILNS0_8PrimTypeE3ENS
 
 14:                                               ; preds = %8
   %15 = icmp eq ptr %13, null
-  %.phi.trans.insert.phi.trans.insert.i = getelementptr inbounds i8, ptr %3, i64 32
+  %.phi.trans.insert.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %3, i64 32
   %.pre.pre.i = load i32, ptr %.phi.trans.insert.phi.trans.insert.i, align 8
   br i1 %15, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i.i
 
@@ -46070,7 +46070,7 @@ _ZNK5clang6interp7Pointer11isArrayRootEv.exit.thread.i.i: ; preds = %_ZNK5clang6
 
 47:                                               ; preds = %40
   %48 = icmp eq ptr %46, null
-  %.phi.trans.insert41.phi.trans.insert.i = getelementptr inbounds i8, ptr %3, i64 32
+  %.phi.trans.insert41.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %3, i64 32
   %.pre42.pre.i = load i32, ptr %.phi.trans.insert41.phi.trans.insert.i, align 8
   br i1 %48, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i30.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i24.i
 
@@ -46177,7 +46177,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp3DecILNS0_8PrimTypeE5ENS
 
 14:                                               ; preds = %8
   %15 = icmp eq ptr %13, null
-  %.phi.trans.insert.phi.trans.insert.i = getelementptr inbounds i8, ptr %3, i64 32
+  %.phi.trans.insert.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %3, i64 32
   %.pre.pre.i = load i32, ptr %.phi.trans.insert.phi.trans.insert.i, align 8
   br i1 %15, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i.i
 
@@ -46244,7 +46244,7 @@ _ZNK5clang6interp7Pointer11isArrayRootEv.exit.thread.i.i: ; preds = %_ZNK5clang6
 
 47:                                               ; preds = %40
   %48 = icmp eq ptr %46, null
-  %.phi.trans.insert41.phi.trans.insert.i = getelementptr inbounds i8, ptr %3, i64 32
+  %.phi.trans.insert41.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %3, i64 32
   %.pre42.pre.i = load i32, ptr %.phi.trans.insert41.phi.trans.insert.i, align 8
   br i1 %48, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i30.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i24.i
 
@@ -46351,7 +46351,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp3DecILNS0_8PrimTypeE7ENS
 
 14:                                               ; preds = %8
   %15 = icmp eq ptr %13, null
-  %.phi.trans.insert.phi.trans.insert.i = getelementptr inbounds i8, ptr %3, i64 32
+  %.phi.trans.insert.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %3, i64 32
   %.pre.pre.i = load i32, ptr %.phi.trans.insert.phi.trans.insert.i, align 8
   br i1 %15, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i.i
 
@@ -46418,7 +46418,7 @@ _ZNK5clang6interp7Pointer11isArrayRootEv.exit.thread.i.i: ; preds = %_ZNK5clang6
 
 47:                                               ; preds = %40
   %48 = icmp eq ptr %46, null
-  %.phi.trans.insert41.phi.trans.insert.i = getelementptr inbounds i8, ptr %3, i64 32
+  %.phi.trans.insert41.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %3, i64 32
   %.pre42.pre.i = load i32, ptr %.phi.trans.insert41.phi.trans.insert.i, align 8
   br i1 %48, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i30.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i24.i
 
@@ -46584,7 +46584,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp6DecPopILNS0_8PrimTypeE1
 
 14:                                               ; preds = %8
   %15 = icmp eq ptr %13, null
-  %.phi.trans.insert.phi.trans.insert.i = getelementptr inbounds i8, ptr %3, i64 32
+  %.phi.trans.insert.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %3, i64 32
   %.pre.pre.i = load i32, ptr %.phi.trans.insert.phi.trans.insert.i, align 8
   br i1 %15, label %._ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i_crit_edge.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i.i
 
@@ -46716,7 +46716,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp6DecPopILNS0_8PrimTypeE3
 
 14:                                               ; preds = %8
   %15 = icmp eq ptr %13, null
-  %.phi.trans.insert.phi.trans.insert.i = getelementptr inbounds i8, ptr %3, i64 32
+  %.phi.trans.insert.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %3, i64 32
   %.pre.pre.i = load i32, ptr %.phi.trans.insert.phi.trans.insert.i, align 8
   br i1 %15, label %._ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i_crit_edge.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i.i
 
@@ -46848,7 +46848,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp6DecPopILNS0_8PrimTypeE5
 
 14:                                               ; preds = %8
   %15 = icmp eq ptr %13, null
-  %.phi.trans.insert.phi.trans.insert.i = getelementptr inbounds i8, ptr %3, i64 32
+  %.phi.trans.insert.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %3, i64 32
   %.pre.pre.i = load i32, ptr %.phi.trans.insert.phi.trans.insert.i, align 8
   br i1 %15, label %._ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i_crit_edge.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i.i
 
@@ -46980,7 +46980,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp6DecPopILNS0_8PrimTypeE7
 
 14:                                               ; preds = %8
   %15 = icmp eq ptr %13, null
-  %.phi.trans.insert.phi.trans.insert.i = getelementptr inbounds i8, ptr %3, i64 32
+  %.phi.trans.insert.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %3, i64 32
   %.pre.pre.i = load i32, ptr %.phi.trans.insert.phi.trans.insert.i, align 8
   br i1 %15, label %._ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i_crit_edge.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i.i
 
@@ -47193,12 +47193,12 @@ _ZNK5clang6interp7Pointer7isDummyEv.exit.i:       ; preds = %16
   br label %_ZNK5clang6interp7Pointer11isArrayRootEv.exit.thread.i.i
 
 .thread27._ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i_crit_edge.i: ; preds = %16
-  %.phi.trans.insert.phi.trans.insert.i = getelementptr inbounds i8, ptr %5, i64 32
+  %.phi.trans.insert.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %5, i64 32
   %.pre.pre.i = load i32, ptr %.phi.trans.insert.phi.trans.insert.i, align 8
   br label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i.i
 
 _ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i.i: ; preds = %_ZNK5clang6interp7Pointer7isDummyEv.exit.i
-  %22 = getelementptr inbounds i8, ptr %5, i64 32
+  %22 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %23 = load i32, ptr %22, align 8
   %24 = getelementptr inbounds nuw i8, ptr %18, i64 16
   %25 = load i32, ptr %24, align 8
@@ -47273,7 +47273,7 @@ _ZNK5clang6interp7Pointer5derefIS1_EERT_v.exit.i: ; preds = %_ZNK5clang6interp7P
 
 57:                                               ; preds = %51
   %58 = icmp eq ptr %56, null
-  %.phi.trans.insert28.phi.trans.insert.i = getelementptr inbounds i8, ptr %5, i64 32
+  %.phi.trans.insert28.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %5, i64 32
   %.pre29.pre.i = load i32, ptr %.phi.trans.insert28.phi.trans.insert.i, align 8
   br i1 %58, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i24.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i18.i
 
@@ -47361,7 +47361,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5clang6interp8DecayPtrILNS0_8P
   ]
 
 13:                                               ; preds = %2
-  %14 = getelementptr inbounds i8, ptr %3, i64 32
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %15 = load i64, ptr %14, align 8
   %16 = load ptr, ptr %11, align 8
   %.not.i.i = icmp eq ptr %16, null
@@ -47397,7 +47397,7 @@ _ZNK5clang6interp7Pointer24getIntegerRepresentationEv.exit: ; preds = %_ZNK5clan
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
   store i32 1, ptr %31, align 8
   %32 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  %33 = getelementptr inbounds i8, ptr %4, i64 32
+  %33 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store i64 %.0.i, ptr %33, align 8
   store ptr null, ptr %32, align 8
   %34 = call noundef ptr @_ZN5clang6interp11InterpStack4growEm(ptr noundef nonnull align 8 dereferenceable(16) %8, i64 noundef 56) #18
@@ -47435,7 +47435,7 @@ _ZNK5clang6interp7Pointer13getByteOffsetEv.exit:  ; preds = %2
   br i1 %cond, label %17, label %27
 
 17:                                               ; preds = %15
-  %18 = getelementptr inbounds i8, ptr %3, i64 32
+  %18 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %19 = load i64, ptr %18, align 8
   %20 = load ptr, ptr %11, align 8
   %.not.i.i = icmp eq ptr %20, null
@@ -47591,7 +47591,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5clang6interp8DecayPtrILNS0_8P
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
   store i32 1, ptr %11, align 8
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  %13 = getelementptr inbounds i8, ptr %4, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store i64 17, ptr %13, align 8
   store ptr null, ptr %12, align 8
   %14 = call noundef ptr @_ZN5clang6interp11InterpStack4growEm(ptr noundef nonnull align 8 dereferenceable(16) %10, i64 noundef 56) #18
@@ -48477,7 +48477,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5clang6interp4DivcILNS0_8PrimT
 
 27:                                               ; preds = %2
   %28 = icmp eq ptr %26, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %5, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %5, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %28, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -48544,7 +48544,7 @@ _ZNK5clang6interp7Pointer5derefINS0_8IntegralILj8ELb1EEEEERT_v.exit: ; preds = %
 
 58:                                               ; preds = %_ZNK5clang6interp7Pointer5derefINS0_8IntegralILj8ELb1EEEEERT_v.exit
   %59 = icmp eq ptr %57, null
-  %.phi.trans.insert156.phi.trans.insert = getelementptr inbounds i8, ptr %6, i64 32
+  %.phi.trans.insert156.phi.trans.insert = getelementptr inbounds nuw i8, ptr %6, i64 32
   %.pre157.pre = load i32, ptr %.phi.trans.insert156.phi.trans.insert, align 8
   br i1 %59, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i86, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i80
 
@@ -48611,7 +48611,7 @@ _ZNK5clang6interp7Pointer5derefINS0_8IntegralILj8ELb1EEEEERT_v.exit87: ; preds =
 
 89:                                               ; preds = %_ZNK5clang6interp7Pointer5derefINS0_8IntegralILj8ELb1EEEEERT_v.exit87
   %90 = icmp eq ptr %88, null
-  %.phi.trans.insert158.phi.trans.insert = getelementptr inbounds i8, ptr %7, i64 32
+  %.phi.trans.insert158.phi.trans.insert = getelementptr inbounds nuw i8, ptr %7, i64 32
   %.pre159.pre = load i32, ptr %.phi.trans.insert158.phi.trans.insert, align 8
   br i1 %90, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i98, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i92
 
@@ -48678,7 +48678,7 @@ _ZNK5clang6interp7Pointer5derefINS0_8IntegralILj8ELb1EEEEERT_v.exit99: ; preds =
 
 120:                                              ; preds = %_ZNK5clang6interp7Pointer5derefINS0_8IntegralILj8ELb1EEEEERT_v.exit99
   %121 = icmp eq ptr %119, null
-  %.phi.trans.insert160.phi.trans.insert = getelementptr inbounds i8, ptr %8, i64 32
+  %.phi.trans.insert160.phi.trans.insert = getelementptr inbounds nuw i8, ptr %8, i64 32
   %.pre161.pre = load i32, ptr %.phi.trans.insert160.phi.trans.insert, align 8
   br i1 %121, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i110, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i104
 
@@ -48793,7 +48793,7 @@ _ZNK5clang6interp7Pointer5derefINS0_8IntegralILj8ELb1EEEEERT_v.exit111: ; preds 
 
 179:                                              ; preds = %173
   %180 = icmp eq ptr %178, null
-  %.phi.trans.insert162.phi.trans.insert = getelementptr inbounds i8, ptr %11, i64 32
+  %.phi.trans.insert162.phi.trans.insert = getelementptr inbounds nuw i8, ptr %11, i64 32
   %.pre163.pre = load i32, ptr %.phi.trans.insert162.phi.trans.insert, align 8
   br i1 %180, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i129, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i123
 
@@ -48860,7 +48860,7 @@ _ZNK5clang6interp7Pointer5derefINS0_8IntegralILj8ELb1EEEEERT_v.exit130: ; preds 
 
 210:                                              ; preds = %_ZNK5clang6interp7Pointer5derefINS0_8IntegralILj8ELb1EEEEERT_v.exit130
   %211 = icmp eq ptr %209, null
-  %.phi.trans.insert164.phi.trans.insert = getelementptr inbounds i8, ptr %12, i64 32
+  %.phi.trans.insert164.phi.trans.insert = getelementptr inbounds nuw i8, ptr %12, i64 32
   %.pre165.pre = load i32, ptr %.phi.trans.insert164.phi.trans.insert, align 8
   br i1 %211, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i141, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i135
 
@@ -49023,7 +49023,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5clang6interp4DivcILNS0_8PrimT
 
 27:                                               ; preds = %2
   %28 = icmp eq ptr %26, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %5, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %5, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %28, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -49090,7 +49090,7 @@ _ZNK5clang6interp7Pointer5derefINS0_8IntegralILj8ELb0EEEEERT_v.exit: ; preds = %
 
 58:                                               ; preds = %_ZNK5clang6interp7Pointer5derefINS0_8IntegralILj8ELb0EEEEERT_v.exit
   %59 = icmp eq ptr %57, null
-  %.phi.trans.insert156.phi.trans.insert = getelementptr inbounds i8, ptr %6, i64 32
+  %.phi.trans.insert156.phi.trans.insert = getelementptr inbounds nuw i8, ptr %6, i64 32
   %.pre157.pre = load i32, ptr %.phi.trans.insert156.phi.trans.insert, align 8
   br i1 %59, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i86, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i80
 
@@ -49157,7 +49157,7 @@ _ZNK5clang6interp7Pointer5derefINS0_8IntegralILj8ELb0EEEEERT_v.exit87: ; preds =
 
 89:                                               ; preds = %_ZNK5clang6interp7Pointer5derefINS0_8IntegralILj8ELb0EEEEERT_v.exit87
   %90 = icmp eq ptr %88, null
-  %.phi.trans.insert158.phi.trans.insert = getelementptr inbounds i8, ptr %7, i64 32
+  %.phi.trans.insert158.phi.trans.insert = getelementptr inbounds nuw i8, ptr %7, i64 32
   %.pre159.pre = load i32, ptr %.phi.trans.insert158.phi.trans.insert, align 8
   br i1 %90, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i98, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i92
 
@@ -49224,7 +49224,7 @@ _ZNK5clang6interp7Pointer5derefINS0_8IntegralILj8ELb0EEEEERT_v.exit99: ; preds =
 
 120:                                              ; preds = %_ZNK5clang6interp7Pointer5derefINS0_8IntegralILj8ELb0EEEEERT_v.exit99
   %121 = icmp eq ptr %119, null
-  %.phi.trans.insert160.phi.trans.insert = getelementptr inbounds i8, ptr %8, i64 32
+  %.phi.trans.insert160.phi.trans.insert = getelementptr inbounds nuw i8, ptr %8, i64 32
   %.pre161.pre = load i32, ptr %.phi.trans.insert160.phi.trans.insert, align 8
   br i1 %121, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i110, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i104
 
@@ -49322,7 +49322,7 @@ _ZNK5clang6interp7Pointer5derefINS0_8IntegralILj8ELb0EEEEERT_v.exit111: ; preds 
 
 167:                                              ; preds = %161
   %168 = icmp eq ptr %166, null
-  %.phi.trans.insert162.phi.trans.insert = getelementptr inbounds i8, ptr %11, i64 32
+  %.phi.trans.insert162.phi.trans.insert = getelementptr inbounds nuw i8, ptr %11, i64 32
   %.pre163.pre = load i32, ptr %.phi.trans.insert162.phi.trans.insert, align 8
   br i1 %168, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i129, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i123
 
@@ -49389,7 +49389,7 @@ _ZNK5clang6interp7Pointer5derefINS0_8IntegralILj8ELb0EEEEERT_v.exit130: ; preds 
 
 198:                                              ; preds = %_ZNK5clang6interp7Pointer5derefINS0_8IntegralILj8ELb0EEEEERT_v.exit130
   %199 = icmp eq ptr %197, null
-  %.phi.trans.insert164.phi.trans.insert = getelementptr inbounds i8, ptr %12, i64 32
+  %.phi.trans.insert164.phi.trans.insert = getelementptr inbounds nuw i8, ptr %12, i64 32
   %.pre165.pre = load i32, ptr %.phi.trans.insert164.phi.trans.insert, align 8
   br i1 %199, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i141, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i135
 
@@ -49515,7 +49515,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5clang6interp4DivcILNS0_8PrimT
 
 27:                                               ; preds = %2
   %28 = icmp eq ptr %26, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %5, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %5, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %28, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -49582,7 +49582,7 @@ _ZNK5clang6interp7Pointer5derefINS0_8IntegralILj16ELb1EEEEERT_v.exit: ; preds = 
 
 58:                                               ; preds = %_ZNK5clang6interp7Pointer5derefINS0_8IntegralILj16ELb1EEEEERT_v.exit
   %59 = icmp eq ptr %57, null
-  %.phi.trans.insert154.phi.trans.insert = getelementptr inbounds i8, ptr %6, i64 32
+  %.phi.trans.insert154.phi.trans.insert = getelementptr inbounds nuw i8, ptr %6, i64 32
   %.pre155.pre = load i32, ptr %.phi.trans.insert154.phi.trans.insert, align 8
   br i1 %59, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i86, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i80
 
@@ -49649,7 +49649,7 @@ _ZNK5clang6interp7Pointer5derefINS0_8IntegralILj16ELb1EEEEERT_v.exit87: ; preds 
 
 89:                                               ; preds = %_ZNK5clang6interp7Pointer5derefINS0_8IntegralILj16ELb1EEEEERT_v.exit87
   %90 = icmp eq ptr %88, null
-  %.phi.trans.insert156.phi.trans.insert = getelementptr inbounds i8, ptr %7, i64 32
+  %.phi.trans.insert156.phi.trans.insert = getelementptr inbounds nuw i8, ptr %7, i64 32
   %.pre157.pre = load i32, ptr %.phi.trans.insert156.phi.trans.insert, align 8
   br i1 %90, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i98, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i92
 
@@ -49716,7 +49716,7 @@ _ZNK5clang6interp7Pointer5derefINS0_8IntegralILj16ELb1EEEEERT_v.exit99: ; preds 
 
 120:                                              ; preds = %_ZNK5clang6interp7Pointer5derefINS0_8IntegralILj16ELb1EEEEERT_v.exit99
   %121 = icmp eq ptr %119, null
-  %.phi.trans.insert158.phi.trans.insert = getelementptr inbounds i8, ptr %8, i64 32
+  %.phi.trans.insert158.phi.trans.insert = getelementptr inbounds nuw i8, ptr %8, i64 32
   %.pre159.pre = load i32, ptr %.phi.trans.insert158.phi.trans.insert, align 8
   br i1 %121, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i110, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i104
 
@@ -49831,7 +49831,7 @@ _ZNK5clang6interp7Pointer5derefINS0_8IntegralILj16ELb1EEEEERT_v.exit111: ; preds
 
 179:                                              ; preds = %173
   %180 = icmp eq ptr %178, null
-  %.phi.trans.insert160.phi.trans.insert = getelementptr inbounds i8, ptr %11, i64 32
+  %.phi.trans.insert160.phi.trans.insert = getelementptr inbounds nuw i8, ptr %11, i64 32
   %.pre161.pre = load i32, ptr %.phi.trans.insert160.phi.trans.insert, align 8
   br i1 %180, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i129, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i123
 
@@ -49898,7 +49898,7 @@ _ZNK5clang6interp7Pointer5derefINS0_8IntegralILj16ELb1EEEEERT_v.exit130: ; preds
 
 210:                                              ; preds = %_ZNK5clang6interp7Pointer5derefINS0_8IntegralILj16ELb1EEEEERT_v.exit130
   %211 = icmp eq ptr %209, null
-  %.phi.trans.insert162.phi.trans.insert = getelementptr inbounds i8, ptr %12, i64 32
+  %.phi.trans.insert162.phi.trans.insert = getelementptr inbounds nuw i8, ptr %12, i64 32
   %.pre163.pre = load i32, ptr %.phi.trans.insert162.phi.trans.insert, align 8
   br i1 %211, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i141, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i135
 
@@ -50061,7 +50061,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5clang6interp4DivcILNS0_8PrimT
 
 27:                                               ; preds = %2
   %28 = icmp eq ptr %26, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %5, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %5, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %28, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -50128,7 +50128,7 @@ _ZNK5clang6interp7Pointer5derefINS0_8IntegralILj16ELb0EEEEERT_v.exit: ; preds = 
 
 58:                                               ; preds = %_ZNK5clang6interp7Pointer5derefINS0_8IntegralILj16ELb0EEEEERT_v.exit
   %59 = icmp eq ptr %57, null
-  %.phi.trans.insert156.phi.trans.insert = getelementptr inbounds i8, ptr %6, i64 32
+  %.phi.trans.insert156.phi.trans.insert = getelementptr inbounds nuw i8, ptr %6, i64 32
   %.pre157.pre = load i32, ptr %.phi.trans.insert156.phi.trans.insert, align 8
   br i1 %59, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i86, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i80
 
@@ -50195,7 +50195,7 @@ _ZNK5clang6interp7Pointer5derefINS0_8IntegralILj16ELb0EEEEERT_v.exit87: ; preds 
 
 89:                                               ; preds = %_ZNK5clang6interp7Pointer5derefINS0_8IntegralILj16ELb0EEEEERT_v.exit87
   %90 = icmp eq ptr %88, null
-  %.phi.trans.insert158.phi.trans.insert = getelementptr inbounds i8, ptr %7, i64 32
+  %.phi.trans.insert158.phi.trans.insert = getelementptr inbounds nuw i8, ptr %7, i64 32
   %.pre159.pre = load i32, ptr %.phi.trans.insert158.phi.trans.insert, align 8
   br i1 %90, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i98, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i92
 
@@ -50262,7 +50262,7 @@ _ZNK5clang6interp7Pointer5derefINS0_8IntegralILj16ELb0EEEEERT_v.exit99: ; preds 
 
 120:                                              ; preds = %_ZNK5clang6interp7Pointer5derefINS0_8IntegralILj16ELb0EEEEERT_v.exit99
   %121 = icmp eq ptr %119, null
-  %.phi.trans.insert160.phi.trans.insert = getelementptr inbounds i8, ptr %8, i64 32
+  %.phi.trans.insert160.phi.trans.insert = getelementptr inbounds nuw i8, ptr %8, i64 32
   %.pre161.pre = load i32, ptr %.phi.trans.insert160.phi.trans.insert, align 8
   br i1 %121, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i110, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i104
 
@@ -50360,7 +50360,7 @@ _ZNK5clang6interp7Pointer5derefINS0_8IntegralILj16ELb0EEEEERT_v.exit111: ; preds
 
 167:                                              ; preds = %161
   %168 = icmp eq ptr %166, null
-  %.phi.trans.insert162.phi.trans.insert = getelementptr inbounds i8, ptr %11, i64 32
+  %.phi.trans.insert162.phi.trans.insert = getelementptr inbounds nuw i8, ptr %11, i64 32
   %.pre163.pre = load i32, ptr %.phi.trans.insert162.phi.trans.insert, align 8
   br i1 %168, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i129, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i123
 
@@ -50427,7 +50427,7 @@ _ZNK5clang6interp7Pointer5derefINS0_8IntegralILj16ELb0EEEEERT_v.exit130: ; preds
 
 198:                                              ; preds = %_ZNK5clang6interp7Pointer5derefINS0_8IntegralILj16ELb0EEEEERT_v.exit130
   %199 = icmp eq ptr %197, null
-  %.phi.trans.insert164.phi.trans.insert = getelementptr inbounds i8, ptr %12, i64 32
+  %.phi.trans.insert164.phi.trans.insert = getelementptr inbounds nuw i8, ptr %12, i64 32
   %.pre165.pre = load i32, ptr %.phi.trans.insert164.phi.trans.insert, align 8
   br i1 %199, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i141, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i135
 
@@ -50553,7 +50553,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5clang6interp4DivcILNS0_8PrimT
 
 27:                                               ; preds = %2
   %28 = icmp eq ptr %26, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %5, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %5, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %28, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -50620,7 +50620,7 @@ _ZNK5clang6interp7Pointer5derefINS0_8IntegralILj32ELb1EEEEERT_v.exit: ; preds = 
 
 58:                                               ; preds = %_ZNK5clang6interp7Pointer5derefINS0_8IntegralILj32ELb1EEEEERT_v.exit
   %59 = icmp eq ptr %57, null
-  %.phi.trans.insert154.phi.trans.insert = getelementptr inbounds i8, ptr %6, i64 32
+  %.phi.trans.insert154.phi.trans.insert = getelementptr inbounds nuw i8, ptr %6, i64 32
   %.pre155.pre = load i32, ptr %.phi.trans.insert154.phi.trans.insert, align 8
   br i1 %59, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i86, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i80
 
@@ -50687,7 +50687,7 @@ _ZNK5clang6interp7Pointer5derefINS0_8IntegralILj32ELb1EEEEERT_v.exit87: ; preds 
 
 89:                                               ; preds = %_ZNK5clang6interp7Pointer5derefINS0_8IntegralILj32ELb1EEEEERT_v.exit87
   %90 = icmp eq ptr %88, null
-  %.phi.trans.insert156.phi.trans.insert = getelementptr inbounds i8, ptr %7, i64 32
+  %.phi.trans.insert156.phi.trans.insert = getelementptr inbounds nuw i8, ptr %7, i64 32
   %.pre157.pre = load i32, ptr %.phi.trans.insert156.phi.trans.insert, align 8
   br i1 %90, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i98, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i92
 
@@ -50754,7 +50754,7 @@ _ZNK5clang6interp7Pointer5derefINS0_8IntegralILj32ELb1EEEEERT_v.exit99: ; preds 
 
 120:                                              ; preds = %_ZNK5clang6interp7Pointer5derefINS0_8IntegralILj32ELb1EEEEERT_v.exit99
   %121 = icmp eq ptr %119, null
-  %.phi.trans.insert158.phi.trans.insert = getelementptr inbounds i8, ptr %8, i64 32
+  %.phi.trans.insert158.phi.trans.insert = getelementptr inbounds nuw i8, ptr %8, i64 32
   %.pre159.pre = load i32, ptr %.phi.trans.insert158.phi.trans.insert, align 8
   br i1 %121, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i110, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i104
 
@@ -50869,7 +50869,7 @@ _ZNK5clang6interp7Pointer5derefINS0_8IntegralILj32ELb1EEEEERT_v.exit111: ; preds
 
 179:                                              ; preds = %173
   %180 = icmp eq ptr %178, null
-  %.phi.trans.insert160.phi.trans.insert = getelementptr inbounds i8, ptr %11, i64 32
+  %.phi.trans.insert160.phi.trans.insert = getelementptr inbounds nuw i8, ptr %11, i64 32
   %.pre161.pre = load i32, ptr %.phi.trans.insert160.phi.trans.insert, align 8
   br i1 %180, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i129, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i123
 
@@ -50936,7 +50936,7 @@ _ZNK5clang6interp7Pointer5derefINS0_8IntegralILj32ELb1EEEEERT_v.exit130: ; preds
 
 210:                                              ; preds = %_ZNK5clang6interp7Pointer5derefINS0_8IntegralILj32ELb1EEEEERT_v.exit130
   %211 = icmp eq ptr %209, null
-  %.phi.trans.insert162.phi.trans.insert = getelementptr inbounds i8, ptr %12, i64 32
+  %.phi.trans.insert162.phi.trans.insert = getelementptr inbounds nuw i8, ptr %12, i64 32
   %.pre163.pre = load i32, ptr %.phi.trans.insert162.phi.trans.insert, align 8
   br i1 %211, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i141, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i135
 
@@ -51094,7 +51094,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5clang6interp4DivcILNS0_8PrimT
 
 27:                                               ; preds = %2
   %28 = icmp eq ptr %26, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %5, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %5, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %28, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -51161,7 +51161,7 @@ _ZNK5clang6interp7Pointer5derefINS0_8IntegralILj32ELb0EEEEERT_v.exit: ; preds = 
 
 58:                                               ; preds = %_ZNK5clang6interp7Pointer5derefINS0_8IntegralILj32ELb0EEEEERT_v.exit
   %59 = icmp eq ptr %57, null
-  %.phi.trans.insert156.phi.trans.insert = getelementptr inbounds i8, ptr %6, i64 32
+  %.phi.trans.insert156.phi.trans.insert = getelementptr inbounds nuw i8, ptr %6, i64 32
   %.pre157.pre = load i32, ptr %.phi.trans.insert156.phi.trans.insert, align 8
   br i1 %59, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i86, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i80
 
@@ -51228,7 +51228,7 @@ _ZNK5clang6interp7Pointer5derefINS0_8IntegralILj32ELb0EEEEERT_v.exit87: ; preds 
 
 89:                                               ; preds = %_ZNK5clang6interp7Pointer5derefINS0_8IntegralILj32ELb0EEEEERT_v.exit87
   %90 = icmp eq ptr %88, null
-  %.phi.trans.insert158.phi.trans.insert = getelementptr inbounds i8, ptr %7, i64 32
+  %.phi.trans.insert158.phi.trans.insert = getelementptr inbounds nuw i8, ptr %7, i64 32
   %.pre159.pre = load i32, ptr %.phi.trans.insert158.phi.trans.insert, align 8
   br i1 %90, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i98, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i92
 
@@ -51295,7 +51295,7 @@ _ZNK5clang6interp7Pointer5derefINS0_8IntegralILj32ELb0EEEEERT_v.exit99: ; preds 
 
 120:                                              ; preds = %_ZNK5clang6interp7Pointer5derefINS0_8IntegralILj32ELb0EEEEERT_v.exit99
   %121 = icmp eq ptr %119, null
-  %.phi.trans.insert160.phi.trans.insert = getelementptr inbounds i8, ptr %8, i64 32
+  %.phi.trans.insert160.phi.trans.insert = getelementptr inbounds nuw i8, ptr %8, i64 32
   %.pre161.pre = load i32, ptr %.phi.trans.insert160.phi.trans.insert, align 8
   br i1 %121, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i110, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i104
 
@@ -51393,7 +51393,7 @@ _ZNK5clang6interp7Pointer5derefINS0_8IntegralILj32ELb0EEEEERT_v.exit111: ; preds
 
 167:                                              ; preds = %161
   %168 = icmp eq ptr %166, null
-  %.phi.trans.insert162.phi.trans.insert = getelementptr inbounds i8, ptr %11, i64 32
+  %.phi.trans.insert162.phi.trans.insert = getelementptr inbounds nuw i8, ptr %11, i64 32
   %.pre163.pre = load i32, ptr %.phi.trans.insert162.phi.trans.insert, align 8
   br i1 %168, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i129, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i123
 
@@ -51460,7 +51460,7 @@ _ZNK5clang6interp7Pointer5derefINS0_8IntegralILj32ELb0EEEEERT_v.exit130: ; preds
 
 198:                                              ; preds = %_ZNK5clang6interp7Pointer5derefINS0_8IntegralILj32ELb0EEEEERT_v.exit130
   %199 = icmp eq ptr %197, null
-  %.phi.trans.insert164.phi.trans.insert = getelementptr inbounds i8, ptr %12, i64 32
+  %.phi.trans.insert164.phi.trans.insert = getelementptr inbounds nuw i8, ptr %12, i64 32
   %.pre165.pre = load i32, ptr %.phi.trans.insert164.phi.trans.insert, align 8
   br i1 %199, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i141, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i135
 
@@ -51586,7 +51586,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5clang6interp4DivcILNS0_8PrimT
 
 27:                                               ; preds = %2
   %28 = icmp eq ptr %26, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %5, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %5, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %28, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -51653,7 +51653,7 @@ _ZNK5clang6interp7Pointer5derefINS0_8IntegralILj64ELb1EEEEERT_v.exit: ; preds = 
 
 58:                                               ; preds = %_ZNK5clang6interp7Pointer5derefINS0_8IntegralILj64ELb1EEEEERT_v.exit
   %59 = icmp eq ptr %57, null
-  %.phi.trans.insert154.phi.trans.insert = getelementptr inbounds i8, ptr %6, i64 32
+  %.phi.trans.insert154.phi.trans.insert = getelementptr inbounds nuw i8, ptr %6, i64 32
   %.pre155.pre = load i32, ptr %.phi.trans.insert154.phi.trans.insert, align 8
   br i1 %59, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i86, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i80
 
@@ -51720,7 +51720,7 @@ _ZNK5clang6interp7Pointer5derefINS0_8IntegralILj64ELb1EEEEERT_v.exit87: ; preds 
 
 89:                                               ; preds = %_ZNK5clang6interp7Pointer5derefINS0_8IntegralILj64ELb1EEEEERT_v.exit87
   %90 = icmp eq ptr %88, null
-  %.phi.trans.insert156.phi.trans.insert = getelementptr inbounds i8, ptr %7, i64 32
+  %.phi.trans.insert156.phi.trans.insert = getelementptr inbounds nuw i8, ptr %7, i64 32
   %.pre157.pre = load i32, ptr %.phi.trans.insert156.phi.trans.insert, align 8
   br i1 %90, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i98, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i92
 
@@ -51787,7 +51787,7 @@ _ZNK5clang6interp7Pointer5derefINS0_8IntegralILj64ELb1EEEEERT_v.exit99: ; preds 
 
 120:                                              ; preds = %_ZNK5clang6interp7Pointer5derefINS0_8IntegralILj64ELb1EEEEERT_v.exit99
   %121 = icmp eq ptr %119, null
-  %.phi.trans.insert158.phi.trans.insert = getelementptr inbounds i8, ptr %8, i64 32
+  %.phi.trans.insert158.phi.trans.insert = getelementptr inbounds nuw i8, ptr %8, i64 32
   %.pre159.pre = load i32, ptr %.phi.trans.insert158.phi.trans.insert, align 8
   br i1 %121, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i110, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i104
 
@@ -51902,7 +51902,7 @@ _ZNK5clang6interp7Pointer5derefINS0_8IntegralILj64ELb1EEEEERT_v.exit111: ; preds
 
 179:                                              ; preds = %173
   %180 = icmp eq ptr %178, null
-  %.phi.trans.insert160.phi.trans.insert = getelementptr inbounds i8, ptr %11, i64 32
+  %.phi.trans.insert160.phi.trans.insert = getelementptr inbounds nuw i8, ptr %11, i64 32
   %.pre161.pre = load i32, ptr %.phi.trans.insert160.phi.trans.insert, align 8
   br i1 %180, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i129, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i123
 
@@ -51969,7 +51969,7 @@ _ZNK5clang6interp7Pointer5derefINS0_8IntegralILj64ELb1EEEEERT_v.exit130: ; preds
 
 210:                                              ; preds = %_ZNK5clang6interp7Pointer5derefINS0_8IntegralILj64ELb1EEEEERT_v.exit130
   %211 = icmp eq ptr %209, null
-  %.phi.trans.insert162.phi.trans.insert = getelementptr inbounds i8, ptr %12, i64 32
+  %.phi.trans.insert162.phi.trans.insert = getelementptr inbounds nuw i8, ptr %12, i64 32
   %.pre163.pre = load i32, ptr %.phi.trans.insert162.phi.trans.insert, align 8
   br i1 %211, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i141, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i135
 
@@ -52127,7 +52127,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5clang6interp4DivcILNS0_8PrimT
 
 27:                                               ; preds = %2
   %28 = icmp eq ptr %26, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %5, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %5, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %28, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -52194,7 +52194,7 @@ _ZNK5clang6interp7Pointer5derefINS0_8IntegralILj64ELb0EEEEERT_v.exit: ; preds = 
 
 58:                                               ; preds = %_ZNK5clang6interp7Pointer5derefINS0_8IntegralILj64ELb0EEEEERT_v.exit
   %59 = icmp eq ptr %57, null
-  %.phi.trans.insert156.phi.trans.insert = getelementptr inbounds i8, ptr %6, i64 32
+  %.phi.trans.insert156.phi.trans.insert = getelementptr inbounds nuw i8, ptr %6, i64 32
   %.pre157.pre = load i32, ptr %.phi.trans.insert156.phi.trans.insert, align 8
   br i1 %59, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i86, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i80
 
@@ -52261,7 +52261,7 @@ _ZNK5clang6interp7Pointer5derefINS0_8IntegralILj64ELb0EEEEERT_v.exit87: ; preds 
 
 89:                                               ; preds = %_ZNK5clang6interp7Pointer5derefINS0_8IntegralILj64ELb0EEEEERT_v.exit87
   %90 = icmp eq ptr %88, null
-  %.phi.trans.insert158.phi.trans.insert = getelementptr inbounds i8, ptr %7, i64 32
+  %.phi.trans.insert158.phi.trans.insert = getelementptr inbounds nuw i8, ptr %7, i64 32
   %.pre159.pre = load i32, ptr %.phi.trans.insert158.phi.trans.insert, align 8
   br i1 %90, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i98, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i92
 
@@ -52328,7 +52328,7 @@ _ZNK5clang6interp7Pointer5derefINS0_8IntegralILj64ELb0EEEEERT_v.exit99: ; preds 
 
 120:                                              ; preds = %_ZNK5clang6interp7Pointer5derefINS0_8IntegralILj64ELb0EEEEERT_v.exit99
   %121 = icmp eq ptr %119, null
-  %.phi.trans.insert160.phi.trans.insert = getelementptr inbounds i8, ptr %8, i64 32
+  %.phi.trans.insert160.phi.trans.insert = getelementptr inbounds nuw i8, ptr %8, i64 32
   %.pre161.pre = load i32, ptr %.phi.trans.insert160.phi.trans.insert, align 8
   br i1 %121, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i110, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i104
 
@@ -52426,7 +52426,7 @@ _ZNK5clang6interp7Pointer5derefINS0_8IntegralILj64ELb0EEEEERT_v.exit111: ; preds
 
 167:                                              ; preds = %161
   %168 = icmp eq ptr %166, null
-  %.phi.trans.insert162.phi.trans.insert = getelementptr inbounds i8, ptr %11, i64 32
+  %.phi.trans.insert162.phi.trans.insert = getelementptr inbounds nuw i8, ptr %11, i64 32
   %.pre163.pre = load i32, ptr %.phi.trans.insert162.phi.trans.insert, align 8
   br i1 %168, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i129, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i123
 
@@ -52493,7 +52493,7 @@ _ZNK5clang6interp7Pointer5derefINS0_8IntegralILj64ELb0EEEEERT_v.exit130: ; preds
 
 198:                                              ; preds = %_ZNK5clang6interp7Pointer5derefINS0_8IntegralILj64ELb0EEEEERT_v.exit130
   %199 = icmp eq ptr %197, null
-  %.phi.trans.insert164.phi.trans.insert = getelementptr inbounds i8, ptr %12, i64 32
+  %.phi.trans.insert164.phi.trans.insert = getelementptr inbounds nuw i8, ptr %12, i64 32
   %.pre165.pre = load i32, ptr %.phi.trans.insert164.phi.trans.insert, align 8
   br i1 %199, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i141, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i135
 
@@ -52654,7 +52654,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5clang6interp4DivcILNS0_8PrimT
 
 62:                                               ; preds = %2
   %63 = icmp eq ptr %61, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %14, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %14, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %63, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -52721,7 +52721,7 @@ _ZNK5clang6interp7Pointer5derefINS0_10IntegralAPILb0EEEEERT_v.exit: ; preds = %8
 
 93:                                               ; preds = %_ZNK5clang6interp7Pointer5derefINS0_10IntegralAPILb0EEEEERT_v.exit
   %94 = icmp eq ptr %92, null
-  %.phi.trans.insert187.phi.trans.insert = getelementptr inbounds i8, ptr %15, i64 32
+  %.phi.trans.insert187.phi.trans.insert = getelementptr inbounds nuw i8, ptr %15, i64 32
   %.pre188.pre = load i32, ptr %.phi.trans.insert187.phi.trans.insert, align 8
   br i1 %94, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i85, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i79
 
@@ -52788,7 +52788,7 @@ _ZNK5clang6interp7Pointer5derefINS0_10IntegralAPILb0EEEEERT_v.exit86: ; preds = 
 
 124:                                              ; preds = %_ZNK5clang6interp7Pointer5derefINS0_10IntegralAPILb0EEEEERT_v.exit86
   %125 = icmp eq ptr %123, null
-  %.phi.trans.insert189.phi.trans.insert = getelementptr inbounds i8, ptr %16, i64 32
+  %.phi.trans.insert189.phi.trans.insert = getelementptr inbounds nuw i8, ptr %16, i64 32
   %.pre190.pre = load i32, ptr %.phi.trans.insert189.phi.trans.insert, align 8
   br i1 %125, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i97, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i91
 
@@ -52855,7 +52855,7 @@ _ZNK5clang6interp7Pointer5derefINS0_10IntegralAPILb0EEEEERT_v.exit98: ; preds = 
 
 155:                                              ; preds = %_ZNK5clang6interp7Pointer5derefINS0_10IntegralAPILb0EEEEERT_v.exit98
   %156 = icmp eq ptr %154, null
-  %.phi.trans.insert191.phi.trans.insert = getelementptr inbounds i8, ptr %17, i64 32
+  %.phi.trans.insert191.phi.trans.insert = getelementptr inbounds nuw i8, ptr %17, i64 32
   %.pre192.pre = load i32, ptr %.phi.trans.insert191.phi.trans.insert, align 8
   br i1 %156, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i109, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i103
 
@@ -53224,7 +53224,7 @@ _ZN5clang6interp10IntegralAPILb0EED2Ev.exit121:   ; preds = %297, %294, %_ZN5cla
 
 311:                                              ; preds = %305
   %312 = icmp eq ptr %310, null
-  %.phi.trans.insert195.phi.trans.insert = getelementptr inbounds i8, ptr %30, i64 32
+  %.phi.trans.insert195.phi.trans.insert = getelementptr inbounds nuw i8, ptr %30, i64 32
   %.pre196.pre = load i32, ptr %.phi.trans.insert195.phi.trans.insert, align 8
   br i1 %312, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i132, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i126
 
@@ -53291,7 +53291,7 @@ _ZNK5clang6interp7Pointer5derefINS0_10IntegralAPILb0EEEEERT_v.exit133: ; preds =
 
 342:                                              ; preds = %_ZNK5clang6interp7Pointer5derefINS0_10IntegralAPILb0EEEEERT_v.exit133
   %343 = icmp eq ptr %341, null
-  %.phi.trans.insert197.phi.trans.insert = getelementptr inbounds i8, ptr %31, i64 32
+  %.phi.trans.insert197.phi.trans.insert = getelementptr inbounds nuw i8, ptr %31, i64 32
   %.pre198.pre = load i32, ptr %.phi.trans.insert197.phi.trans.insert, align 8
   br i1 %343, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i144, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i138
 
@@ -54138,7 +54138,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5clang6interp4DivcILNS0_8PrimT
 
 55:                                               ; preds = %2
   %56 = icmp eq ptr %54, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %7, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %7, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %56, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -54205,7 +54205,7 @@ _ZNK5clang6interp7Pointer5derefINS0_10IntegralAPILb1EEEEERT_v.exit: ; preds = %7
 
 86:                                               ; preds = %_ZNK5clang6interp7Pointer5derefINS0_10IntegralAPILb1EEEEERT_v.exit
   %87 = icmp eq ptr %85, null
-  %.phi.trans.insert182.phi.trans.insert = getelementptr inbounds i8, ptr %8, i64 32
+  %.phi.trans.insert182.phi.trans.insert = getelementptr inbounds nuw i8, ptr %8, i64 32
   %.pre183.pre = load i32, ptr %.phi.trans.insert182.phi.trans.insert, align 8
   br i1 %87, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i85, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i79
 
@@ -54272,7 +54272,7 @@ _ZNK5clang6interp7Pointer5derefINS0_10IntegralAPILb1EEEEERT_v.exit86: ; preds = 
 
 117:                                              ; preds = %_ZNK5clang6interp7Pointer5derefINS0_10IntegralAPILb1EEEEERT_v.exit86
   %118 = icmp eq ptr %116, null
-  %.phi.trans.insert184.phi.trans.insert = getelementptr inbounds i8, ptr %9, i64 32
+  %.phi.trans.insert184.phi.trans.insert = getelementptr inbounds nuw i8, ptr %9, i64 32
   %.pre185.pre = load i32, ptr %.phi.trans.insert184.phi.trans.insert, align 8
   br i1 %118, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i97, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i91
 
@@ -54339,7 +54339,7 @@ _ZNK5clang6interp7Pointer5derefINS0_10IntegralAPILb1EEEEERT_v.exit98: ; preds = 
 
 148:                                              ; preds = %_ZNK5clang6interp7Pointer5derefINS0_10IntegralAPILb1EEEEERT_v.exit98
   %149 = icmp eq ptr %147, null
-  %.phi.trans.insert186.phi.trans.insert = getelementptr inbounds i8, ptr %10, i64 32
+  %.phi.trans.insert186.phi.trans.insert = getelementptr inbounds nuw i8, ptr %10, i64 32
   %.pre187.pre = load i32, ptr %.phi.trans.insert186.phi.trans.insert, align 8
   br i1 %149, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i109, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i103
 
@@ -54636,7 +54636,7 @@ _ZN5clang6interp10IntegralAPILb1EED2Ev.exit120:   ; preds = %_ZN5clang6interp10I
 
 275:                                              ; preds = %269
   %276 = icmp eq ptr %274, null
-  %.phi.trans.insert190.phi.trans.insert = getelementptr inbounds i8, ptr %23, i64 32
+  %.phi.trans.insert190.phi.trans.insert = getelementptr inbounds nuw i8, ptr %23, i64 32
   %.pre191.pre = load i32, ptr %.phi.trans.insert190.phi.trans.insert, align 8
   br i1 %276, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i131, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i125
 
@@ -54703,7 +54703,7 @@ _ZNK5clang6interp7Pointer5derefINS0_10IntegralAPILb1EEEEERT_v.exit132: ; preds =
 
 306:                                              ; preds = %_ZNK5clang6interp7Pointer5derefINS0_10IntegralAPILb1EEEEERT_v.exit132
   %307 = icmp eq ptr %305, null
-  %.phi.trans.insert192.phi.trans.insert = getelementptr inbounds i8, ptr %24, i64 32
+  %.phi.trans.insert192.phi.trans.insert = getelementptr inbounds nuw i8, ptr %24, i64 32
   %.pre193.pre = load i32, ptr %.phi.trans.insert192.phi.trans.insert, align 8
   br i1 %307, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i143, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i137
 
@@ -55450,7 +55450,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5clang6interp4DivcILNS0_8PrimT
 
 37:                                               ; preds = %2
   %38 = icmp eq ptr %36, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %6, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %6, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %38, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -55533,7 +55533,7 @@ _ZN4llvm7APFloatC2ERKS0_.exit:                    ; preds = %67, %68
 
 74:                                               ; preds = %_ZN4llvm7APFloatC2ERKS0_.exit
   %75 = icmp eq ptr %73, null
-  %.phi.trans.insert112.phi.trans.insert = getelementptr inbounds i8, ptr %8, i64 32
+  %.phi.trans.insert112.phi.trans.insert = getelementptr inbounds nuw i8, ptr %8, i64 32
   %.pre113.pre = load i32, ptr %.phi.trans.insert112.phi.trans.insert, align 8
   br i1 %75, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i22, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i16
 
@@ -55615,7 +55615,7 @@ _ZN4llvm7APFloatC2ERKS0_.exit25:                  ; preds = %103, %104
 
 110:                                              ; preds = %_ZN4llvm7APFloatC2ERKS0_.exit25
   %111 = icmp eq ptr %109, null
-  %.phi.trans.insert114.phi.trans.insert = getelementptr inbounds i8, ptr %10, i64 32
+  %.phi.trans.insert114.phi.trans.insert = getelementptr inbounds nuw i8, ptr %10, i64 32
   %.pre115.pre = load i32, ptr %.phi.trans.insert114.phi.trans.insert, align 8
   br i1 %111, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i36, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i30
 
@@ -55697,7 +55697,7 @@ _ZN4llvm7APFloatC2ERKS0_.exit39:                  ; preds = %139, %140
 
 146:                                              ; preds = %_ZN4llvm7APFloatC2ERKS0_.exit39
   %147 = icmp eq ptr %145, null
-  %.phi.trans.insert116.phi.trans.insert = getelementptr inbounds i8, ptr %12, i64 32
+  %.phi.trans.insert116.phi.trans.insert = getelementptr inbounds nuw i8, ptr %12, i64 32
   %.pre117.pre = load i32, ptr %.phi.trans.insert116.phi.trans.insert, align 8
   br i1 %147, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i50, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i44
 
@@ -55930,7 +55930,7 @@ _ZN5clang6interp8FloatingC2ERKN4llvm7APFloatE.exit: ; preds = %215, %216
 
 222:                                              ; preds = %_ZN5clang6interp8FloatingC2ERKN4llvm7APFloatE.exit
   %223 = icmp eq ptr %221, null
-  %.phi.trans.insert118.phi.trans.insert = getelementptr inbounds i8, ptr %20, i64 32
+  %.phi.trans.insert118.phi.trans.insert = getelementptr inbounds nuw i8, ptr %20, i64 32
   %.pre119.pre = load i32, ptr %.phi.trans.insert118.phi.trans.insert, align 8
   br i1 %223, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i81, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i75
 
@@ -56029,7 +56029,7 @@ _ZN5clang6interp8FloatingC2ERKN4llvm7APFloatE.exit85: ; preds = %255, %256
 
 262:                                              ; preds = %_ZN5clang6interp8FloatingC2ERKN4llvm7APFloatE.exit85
   %263 = icmp eq ptr %261, null
-  %.phi.trans.insert120.phi.trans.insert = getelementptr inbounds i8, ptr %23, i64 32
+  %.phi.trans.insert120.phi.trans.insert = getelementptr inbounds nuw i8, ptr %23, i64 32
   %.pre121.pre = load i32, ptr %.phi.trans.insert120.phi.trans.insert, align 8
   br i1 %263, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i96, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i90
 
@@ -56716,7 +56716,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5clang6interp10FinishInitERNS0
   %10 = load ptr, ptr %9, align 8
   %.not.i = icmp ne ptr %10, null
   %or.cond.i.not7 = select i1 %8, i1 %.not.i, i1 false
-  %11 = getelementptr inbounds i8, ptr %5, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %12 = load i32, ptr %11, align 8
   %13 = icmp ne i32 %12, 0
   %or.cond = select i1 %or.cond.i.not7, i1 %13, i1 false
@@ -56746,7 +56746,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5clang6interp13FinishInitPopER
   %11 = load ptr, ptr %10, align 8
   %.not.i = icmp ne ptr %11, null
   %or.cond.i.not7 = select i1 %9, i1 %.not.i, i1 false
-  %12 = getelementptr inbounds i8, ptr %3, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %13 = load i32, ptr %12, align 8
   %14 = icmp ne i32 %13, 0
   %or.cond = select i1 %or.cond.i.not7, i1 %14, i1 false
@@ -64880,7 +64880,7 @@ _ZN5clang6interp28CheckDynamicMemoryAllocationERNS0_11InterpStateENS0_7CodePtrE.
   br i1 %.not.i.i, label %.thread60, label %_ZNK5clang6interp7Pointer6isRootEv.exit
 
 _ZNK5clang6interp7Pointer6isZeroEv.exit:          ; preds = %_ZN5clang6interp28CheckDynamicMemoryAllocationERNS0_11InterpStateENS0_7CodePtrE.exit
-  %29 = getelementptr inbounds i8, ptr %5, i64 32
+  %29 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %30 = load i64, ptr %29, align 8
   %31 = icmp eq i64 %30, 0
   %32 = load i64, ptr %5, align 8
@@ -64907,7 +64907,7 @@ _ZNK5clang6interp7Pointer6isZeroEv.exit..thread_crit_edge.i: ; preds = %35
 
 _ZNK5clang6interp7Pointer6isRootEv.exit:          ; preds = %22, %26, %.thread, %_ZNK5clang6interp7Pointer6isZeroEv.exit..thread_crit_edge.i
   %37 = phi ptr [ %.pre.i, %_ZNK5clang6interp7Pointer6isZeroEv.exit..thread_crit_edge.i ], [ %.pre, %.thread ], [ %28, %26 ], [ %24, %22 ]
-  %38 = getelementptr inbounds i8, ptr %5, i64 32
+  %38 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %39 = load i32, ptr %38, align 8
   %40 = getelementptr inbounds nuw i8, ptr %37, i64 32
   %41 = load ptr, ptr %40, align 8
@@ -64936,7 +64936,7 @@ _ZNK5clang6interp7Pointer6isRootEv.exit.thread:   ; preds = %35, %.thread, %_ZNK
   br i1 %50, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i
 
 _ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i:    ; preds = %49
-  %51 = getelementptr inbounds i8, ptr %5, i64 32
+  %51 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %52 = load i32, ptr %51, align 8
   %53 = getelementptr inbounds nuw i8, ptr %.pre67, i64 32
   %54 = load ptr, ptr %53, align 8
@@ -64967,7 +64967,7 @@ _ZNK5clang6interp7Pointer7inArrayEv.exit.i:       ; preds = %60, %_ZNK5clang6int
   br i1 %68, label %_ZNK5clang6interp7Pointer14isArrayElementEv.exit, label %.thread59
 
 _ZNK5clang6interp7Pointer14isArrayElementEv.exit: ; preds = %_ZNK5clang6interp7Pointer7inArrayEv.exit.i
-  %69 = getelementptr inbounds i8, ptr %5, i64 32
+  %69 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %70 = load i32, ptr %69, align 8
   %71 = zext i32 %70 to i64
   %72 = load i64, ptr %5, align 8
@@ -65061,7 +65061,7 @@ _ZN5clang18OptionalDiagnosticlsIbEERS0_RKT_.exit: ; preds = %_ZN5clang18Optional
 113:                                              ; preds = %111
   %114 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %115 = load ptr, ptr %114, align 8
-  %116 = getelementptr inbounds i8, ptr %0, i64 64
+  %116 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %117 = load i32, ptr %116, align 8
   %118 = icmp eq i32 %117, 0
   br i1 %118, label %.loopexit.i.i, label %119
@@ -65110,7 +65110,7 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4ExprENS2_6interp16DynamicAllocato
   br i1 %.not.i52, label %_ZNK5clang6interp16DynamicAllocator17isArrayAllocationEPKNS_4ExprE.exit, label %143
 
 143:                                              ; preds = %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4ExprENS2_6interp16DynamicAllocator14AllocationSiteENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S8_EEEES5_S8_SA_SD_E4findES5_.exit.i
-  %144 = getelementptr inbounds i8, ptr %.0.i.i.pn.i.i, i64 72
+  %144 = getelementptr inbounds nuw i8, ptr %.0.i.i.pn.i.i, i64 72
   %145 = load i8, ptr %144, align 8
   %146 = trunc i8 %145 to i1
   br label %_ZNK5clang6interp16DynamicAllocator17isArrayAllocationEPKNS_4ExprE.exit
@@ -65524,7 +65524,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp8GetFieldILNS0_8PrimType
 
 26:                                               ; preds = %19
   %27 = icmp eq ptr %25, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %4, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %4, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %27, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -65629,7 +65629,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp8GetFieldILNS0_8PrimType
 
 26:                                               ; preds = %19
   %27 = icmp eq ptr %25, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %4, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %4, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %27, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -65734,7 +65734,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp8GetFieldILNS0_8PrimType
 
 26:                                               ; preds = %19
   %27 = icmp eq ptr %25, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %4, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %4, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %27, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -65839,7 +65839,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp8GetFieldILNS0_8PrimType
 
 26:                                               ; preds = %19
   %27 = icmp eq ptr %25, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %4, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %4, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %27, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -65944,7 +65944,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp8GetFieldILNS0_8PrimType
 
 26:                                               ; preds = %19
   %27 = icmp eq ptr %25, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %4, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %4, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %27, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -66049,7 +66049,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp8GetFieldILNS0_8PrimType
 
 26:                                               ; preds = %19
   %27 = icmp eq ptr %25, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %4, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %4, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %27, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -66154,7 +66154,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp8GetFieldILNS0_8PrimType
 
 26:                                               ; preds = %19
   %27 = icmp eq ptr %25, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %4, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %4, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %27, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -66259,7 +66259,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp8GetFieldILNS0_8PrimType
 
 26:                                               ; preds = %19
   %27 = icmp eq ptr %25, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %4, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %4, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %27, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -66364,7 +66364,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp8GetFieldILNS0_8PrimType
 
 26:                                               ; preds = %19
   %27 = icmp eq ptr %25, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %4, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %4, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %27, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -66481,7 +66481,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp8GetFieldILNS0_8PrimType
 
 26:                                               ; preds = %19
   %27 = icmp eq ptr %25, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %4, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %4, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %27, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -66598,7 +66598,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp8GetFieldILNS0_8PrimType
 
 26:                                               ; preds = %19
   %27 = icmp eq ptr %25, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %4, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %4, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %27, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -66703,7 +66703,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp8GetFieldILNS0_8PrimType
 
 26:                                               ; preds = %19
   %27 = icmp eq ptr %25, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %4, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %4, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %27, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -66807,7 +66807,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp8GetFieldILNS0_8PrimType
 
 26:                                               ; preds = %19
   %27 = icmp eq ptr %25, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %4, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %4, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %27, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -66911,7 +66911,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp8GetFieldILNS0_8PrimType
 
 26:                                               ; preds = %19
   %27 = icmp eq ptr %25, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %4, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %4, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %27, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -67018,7 +67018,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp8GetFieldILNS0_8PrimType
 
 26:                                               ; preds = %19
   %27 = icmp eq ptr %25, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %4, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %4, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %27, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -67137,7 +67137,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp11GetFieldPopILNS0_8Prim
 
 27:                                               ; preds = %20
   %28 = icmp eq ptr %26, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %5, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %5, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %28, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -67246,7 +67246,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp11GetFieldPopILNS0_8Prim
 
 27:                                               ; preds = %20
   %28 = icmp eq ptr %26, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %5, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %5, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %28, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -67355,7 +67355,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp11GetFieldPopILNS0_8Prim
 
 27:                                               ; preds = %20
   %28 = icmp eq ptr %26, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %5, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %5, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %28, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -67464,7 +67464,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp11GetFieldPopILNS0_8Prim
 
 27:                                               ; preds = %20
   %28 = icmp eq ptr %26, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %5, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %5, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %28, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -67573,7 +67573,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp11GetFieldPopILNS0_8Prim
 
 27:                                               ; preds = %20
   %28 = icmp eq ptr %26, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %5, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %5, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %28, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -67682,7 +67682,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp11GetFieldPopILNS0_8Prim
 
 27:                                               ; preds = %20
   %28 = icmp eq ptr %26, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %5, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %5, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %28, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -67791,7 +67791,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp11GetFieldPopILNS0_8Prim
 
 27:                                               ; preds = %20
   %28 = icmp eq ptr %26, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %5, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %5, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %28, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -67900,7 +67900,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp11GetFieldPopILNS0_8Prim
 
 27:                                               ; preds = %20
   %28 = icmp eq ptr %26, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %5, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %5, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %28, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -68009,7 +68009,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp11GetFieldPopILNS0_8Prim
 
 27:                                               ; preds = %20
   %28 = icmp eq ptr %26, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %5, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %5, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %28, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -68130,7 +68130,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp11GetFieldPopILNS0_8Prim
 
 27:                                               ; preds = %20
   %28 = icmp eq ptr %26, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %5, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %5, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %28, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -68251,7 +68251,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp11GetFieldPopILNS0_8Prim
 
 27:                                               ; preds = %20
   %28 = icmp eq ptr %26, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %5, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %5, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %28, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -68360,7 +68360,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp11GetFieldPopILNS0_8Prim
 
 27:                                               ; preds = %20
   %28 = icmp eq ptr %26, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %5, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %5, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %28, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -68468,7 +68468,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp11GetFieldPopILNS0_8Prim
 
 27:                                               ; preds = %20
   %28 = icmp eq ptr %26, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %5, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %5, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %28, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -68576,7 +68576,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp11GetFieldPopILNS0_8Prim
 
 27:                                               ; preds = %20
   %28 = icmp eq ptr %26, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %5, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %5, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %28, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -68687,7 +68687,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp11GetFieldPopILNS0_8Prim
 
 27:                                               ; preds = %20
   %28 = icmp eq ptr %26, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %5, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %5, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %28, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -68796,7 +68796,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp9GetGlobalILNS0_8PrimTyp
   br i1 %.not.i.i.i.i, label %_ZNK5clang6interp7Pointer12getFieldDescEv.exit, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i
 
 _ZNK5clang6interp7Pointer6isZeroEv.exit.i.i:      ; preds = %3
-  %18 = getelementptr inbounds i8, ptr %4, i64 32
+  %18 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %19 = load i64, ptr %18, align 8
   %20 = icmp eq i64 %19, 0
   %21 = load i64, ptr %4, align 8
@@ -68811,7 +68811,7 @@ _ZNK5clang6interp7Pointer6isZeroEv.exit..thread_crit_edge.i.i: ; preds = %_ZNK5c
 
 _ZNK5clang6interp7Pointer6isRootEv.exit.i:        ; preds = %_ZNK5clang6interp7Pointer6isZeroEv.exit..thread_crit_edge.i.i, %15, %11
   %24 = phi ptr [ %.pre.i.i, %_ZNK5clang6interp7Pointer6isZeroEv.exit..thread_crit_edge.i.i ], [ %13, %11 ], [ %17, %15 ]
-  %25 = getelementptr inbounds i8, ptr %4, i64 32
+  %25 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %26 = load i32, ptr %25, align 8
   %27 = getelementptr inbounds nuw i8, ptr %24, i64 32
   %28 = load ptr, ptr %27, align 8
@@ -68889,7 +68889,7 @@ _ZNK5clang6interp7Pointer8isExternEv.exit.thread: ; preds = %42, %45, %_ZNK5clan
 
 59:                                               ; preds = %52
   %60 = icmp eq ptr %58, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %4, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %4, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %60, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -68983,7 +68983,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp9GetGlobalILNS0_8PrimTyp
   br i1 %.not.i.i.i.i, label %_ZNK5clang6interp7Pointer12getFieldDescEv.exit, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i
 
 _ZNK5clang6interp7Pointer6isZeroEv.exit.i.i:      ; preds = %3
-  %18 = getelementptr inbounds i8, ptr %4, i64 32
+  %18 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %19 = load i64, ptr %18, align 8
   %20 = icmp eq i64 %19, 0
   %21 = load i64, ptr %4, align 8
@@ -68998,7 +68998,7 @@ _ZNK5clang6interp7Pointer6isZeroEv.exit..thread_crit_edge.i.i: ; preds = %_ZNK5c
 
 _ZNK5clang6interp7Pointer6isRootEv.exit.i:        ; preds = %_ZNK5clang6interp7Pointer6isZeroEv.exit..thread_crit_edge.i.i, %15, %11
   %24 = phi ptr [ %.pre.i.i, %_ZNK5clang6interp7Pointer6isZeroEv.exit..thread_crit_edge.i.i ], [ %13, %11 ], [ %17, %15 ]
-  %25 = getelementptr inbounds i8, ptr %4, i64 32
+  %25 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %26 = load i32, ptr %25, align 8
   %27 = getelementptr inbounds nuw i8, ptr %24, i64 32
   %28 = load ptr, ptr %27, align 8
@@ -69076,7 +69076,7 @@ _ZNK5clang6interp7Pointer8isExternEv.exit.thread: ; preds = %42, %45, %_ZNK5clan
 
 59:                                               ; preds = %52
   %60 = icmp eq ptr %58, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %4, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %4, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %60, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -69170,7 +69170,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp9GetGlobalILNS0_8PrimTyp
   br i1 %.not.i.i.i.i, label %_ZNK5clang6interp7Pointer12getFieldDescEv.exit, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i
 
 _ZNK5clang6interp7Pointer6isZeroEv.exit.i.i:      ; preds = %3
-  %18 = getelementptr inbounds i8, ptr %4, i64 32
+  %18 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %19 = load i64, ptr %18, align 8
   %20 = icmp eq i64 %19, 0
   %21 = load i64, ptr %4, align 8
@@ -69185,7 +69185,7 @@ _ZNK5clang6interp7Pointer6isZeroEv.exit..thread_crit_edge.i.i: ; preds = %_ZNK5c
 
 _ZNK5clang6interp7Pointer6isRootEv.exit.i:        ; preds = %_ZNK5clang6interp7Pointer6isZeroEv.exit..thread_crit_edge.i.i, %15, %11
   %24 = phi ptr [ %.pre.i.i, %_ZNK5clang6interp7Pointer6isZeroEv.exit..thread_crit_edge.i.i ], [ %13, %11 ], [ %17, %15 ]
-  %25 = getelementptr inbounds i8, ptr %4, i64 32
+  %25 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %26 = load i32, ptr %25, align 8
   %27 = getelementptr inbounds nuw i8, ptr %24, i64 32
   %28 = load ptr, ptr %27, align 8
@@ -69263,7 +69263,7 @@ _ZNK5clang6interp7Pointer8isExternEv.exit.thread: ; preds = %42, %45, %_ZNK5clan
 
 59:                                               ; preds = %52
   %60 = icmp eq ptr %58, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %4, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %4, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %60, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -69357,7 +69357,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp9GetGlobalILNS0_8PrimTyp
   br i1 %.not.i.i.i.i, label %_ZNK5clang6interp7Pointer12getFieldDescEv.exit, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i
 
 _ZNK5clang6interp7Pointer6isZeroEv.exit.i.i:      ; preds = %3
-  %18 = getelementptr inbounds i8, ptr %4, i64 32
+  %18 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %19 = load i64, ptr %18, align 8
   %20 = icmp eq i64 %19, 0
   %21 = load i64, ptr %4, align 8
@@ -69372,7 +69372,7 @@ _ZNK5clang6interp7Pointer6isZeroEv.exit..thread_crit_edge.i.i: ; preds = %_ZNK5c
 
 _ZNK5clang6interp7Pointer6isRootEv.exit.i:        ; preds = %_ZNK5clang6interp7Pointer6isZeroEv.exit..thread_crit_edge.i.i, %15, %11
   %24 = phi ptr [ %.pre.i.i, %_ZNK5clang6interp7Pointer6isZeroEv.exit..thread_crit_edge.i.i ], [ %13, %11 ], [ %17, %15 ]
-  %25 = getelementptr inbounds i8, ptr %4, i64 32
+  %25 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %26 = load i32, ptr %25, align 8
   %27 = getelementptr inbounds nuw i8, ptr %24, i64 32
   %28 = load ptr, ptr %27, align 8
@@ -69450,7 +69450,7 @@ _ZNK5clang6interp7Pointer8isExternEv.exit.thread: ; preds = %42, %45, %_ZNK5clan
 
 59:                                               ; preds = %52
   %60 = icmp eq ptr %58, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %4, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %4, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %60, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -69544,7 +69544,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp9GetGlobalILNS0_8PrimTyp
   br i1 %.not.i.i.i.i, label %_ZNK5clang6interp7Pointer12getFieldDescEv.exit, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i
 
 _ZNK5clang6interp7Pointer6isZeroEv.exit.i.i:      ; preds = %3
-  %18 = getelementptr inbounds i8, ptr %4, i64 32
+  %18 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %19 = load i64, ptr %18, align 8
   %20 = icmp eq i64 %19, 0
   %21 = load i64, ptr %4, align 8
@@ -69559,7 +69559,7 @@ _ZNK5clang6interp7Pointer6isZeroEv.exit..thread_crit_edge.i.i: ; preds = %_ZNK5c
 
 _ZNK5clang6interp7Pointer6isRootEv.exit.i:        ; preds = %_ZNK5clang6interp7Pointer6isZeroEv.exit..thread_crit_edge.i.i, %15, %11
   %24 = phi ptr [ %.pre.i.i, %_ZNK5clang6interp7Pointer6isZeroEv.exit..thread_crit_edge.i.i ], [ %13, %11 ], [ %17, %15 ]
-  %25 = getelementptr inbounds i8, ptr %4, i64 32
+  %25 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %26 = load i32, ptr %25, align 8
   %27 = getelementptr inbounds nuw i8, ptr %24, i64 32
   %28 = load ptr, ptr %27, align 8
@@ -69637,7 +69637,7 @@ _ZNK5clang6interp7Pointer8isExternEv.exit.thread: ; preds = %42, %45, %_ZNK5clan
 
 59:                                               ; preds = %52
   %60 = icmp eq ptr %58, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %4, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %4, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %60, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -69731,7 +69731,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp9GetGlobalILNS0_8PrimTyp
   br i1 %.not.i.i.i.i, label %_ZNK5clang6interp7Pointer12getFieldDescEv.exit, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i
 
 _ZNK5clang6interp7Pointer6isZeroEv.exit.i.i:      ; preds = %3
-  %18 = getelementptr inbounds i8, ptr %4, i64 32
+  %18 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %19 = load i64, ptr %18, align 8
   %20 = icmp eq i64 %19, 0
   %21 = load i64, ptr %4, align 8
@@ -69746,7 +69746,7 @@ _ZNK5clang6interp7Pointer6isZeroEv.exit..thread_crit_edge.i.i: ; preds = %_ZNK5c
 
 _ZNK5clang6interp7Pointer6isRootEv.exit.i:        ; preds = %_ZNK5clang6interp7Pointer6isZeroEv.exit..thread_crit_edge.i.i, %15, %11
   %24 = phi ptr [ %.pre.i.i, %_ZNK5clang6interp7Pointer6isZeroEv.exit..thread_crit_edge.i.i ], [ %13, %11 ], [ %17, %15 ]
-  %25 = getelementptr inbounds i8, ptr %4, i64 32
+  %25 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %26 = load i32, ptr %25, align 8
   %27 = getelementptr inbounds nuw i8, ptr %24, i64 32
   %28 = load ptr, ptr %27, align 8
@@ -69824,7 +69824,7 @@ _ZNK5clang6interp7Pointer8isExternEv.exit.thread: ; preds = %42, %45, %_ZNK5clan
 
 59:                                               ; preds = %52
   %60 = icmp eq ptr %58, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %4, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %4, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %60, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -69918,7 +69918,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp9GetGlobalILNS0_8PrimTyp
   br i1 %.not.i.i.i.i, label %_ZNK5clang6interp7Pointer12getFieldDescEv.exit, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i
 
 _ZNK5clang6interp7Pointer6isZeroEv.exit.i.i:      ; preds = %3
-  %18 = getelementptr inbounds i8, ptr %4, i64 32
+  %18 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %19 = load i64, ptr %18, align 8
   %20 = icmp eq i64 %19, 0
   %21 = load i64, ptr %4, align 8
@@ -69933,7 +69933,7 @@ _ZNK5clang6interp7Pointer6isZeroEv.exit..thread_crit_edge.i.i: ; preds = %_ZNK5c
 
 _ZNK5clang6interp7Pointer6isRootEv.exit.i:        ; preds = %_ZNK5clang6interp7Pointer6isZeroEv.exit..thread_crit_edge.i.i, %15, %11
   %24 = phi ptr [ %.pre.i.i, %_ZNK5clang6interp7Pointer6isZeroEv.exit..thread_crit_edge.i.i ], [ %13, %11 ], [ %17, %15 ]
-  %25 = getelementptr inbounds i8, ptr %4, i64 32
+  %25 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %26 = load i32, ptr %25, align 8
   %27 = getelementptr inbounds nuw i8, ptr %24, i64 32
   %28 = load ptr, ptr %27, align 8
@@ -70011,7 +70011,7 @@ _ZNK5clang6interp7Pointer8isExternEv.exit.thread: ; preds = %42, %45, %_ZNK5clan
 
 59:                                               ; preds = %52
   %60 = icmp eq ptr %58, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %4, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %4, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %60, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -70105,7 +70105,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp9GetGlobalILNS0_8PrimTyp
   br i1 %.not.i.i.i.i, label %_ZNK5clang6interp7Pointer12getFieldDescEv.exit, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i
 
 _ZNK5clang6interp7Pointer6isZeroEv.exit.i.i:      ; preds = %3
-  %18 = getelementptr inbounds i8, ptr %4, i64 32
+  %18 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %19 = load i64, ptr %18, align 8
   %20 = icmp eq i64 %19, 0
   %21 = load i64, ptr %4, align 8
@@ -70120,7 +70120,7 @@ _ZNK5clang6interp7Pointer6isZeroEv.exit..thread_crit_edge.i.i: ; preds = %_ZNK5c
 
 _ZNK5clang6interp7Pointer6isRootEv.exit.i:        ; preds = %_ZNK5clang6interp7Pointer6isZeroEv.exit..thread_crit_edge.i.i, %15, %11
   %24 = phi ptr [ %.pre.i.i, %_ZNK5clang6interp7Pointer6isZeroEv.exit..thread_crit_edge.i.i ], [ %13, %11 ], [ %17, %15 ]
-  %25 = getelementptr inbounds i8, ptr %4, i64 32
+  %25 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %26 = load i32, ptr %25, align 8
   %27 = getelementptr inbounds nuw i8, ptr %24, i64 32
   %28 = load ptr, ptr %27, align 8
@@ -70198,7 +70198,7 @@ _ZNK5clang6interp7Pointer8isExternEv.exit.thread: ; preds = %42, %45, %_ZNK5clan
 
 59:                                               ; preds = %52
   %60 = icmp eq ptr %58, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %4, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %4, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %60, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -70292,7 +70292,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp9GetGlobalILNS0_8PrimTyp
   br i1 %.not.i.i.i.i, label %_ZNK5clang6interp7Pointer12getFieldDescEv.exit, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i
 
 _ZNK5clang6interp7Pointer6isZeroEv.exit.i.i:      ; preds = %3
-  %18 = getelementptr inbounds i8, ptr %4, i64 32
+  %18 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %19 = load i64, ptr %18, align 8
   %20 = icmp eq i64 %19, 0
   %21 = load i64, ptr %4, align 8
@@ -70307,7 +70307,7 @@ _ZNK5clang6interp7Pointer6isZeroEv.exit..thread_crit_edge.i.i: ; preds = %_ZNK5c
 
 _ZNK5clang6interp7Pointer6isRootEv.exit.i:        ; preds = %_ZNK5clang6interp7Pointer6isZeroEv.exit..thread_crit_edge.i.i, %15, %11
   %24 = phi ptr [ %.pre.i.i, %_ZNK5clang6interp7Pointer6isZeroEv.exit..thread_crit_edge.i.i ], [ %13, %11 ], [ %17, %15 ]
-  %25 = getelementptr inbounds i8, ptr %4, i64 32
+  %25 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %26 = load i32, ptr %25, align 8
   %27 = getelementptr inbounds nuw i8, ptr %24, i64 32
   %28 = load ptr, ptr %27, align 8
@@ -70385,7 +70385,7 @@ _ZNK5clang6interp7Pointer8isExternEv.exit.thread: ; preds = %42, %45, %_ZNK5clan
 
 59:                                               ; preds = %52
   %60 = icmp eq ptr %58, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %4, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %4, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %60, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -70491,7 +70491,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp9GetGlobalILNS0_8PrimTyp
   br i1 %.not.i.i.i.i, label %_ZNK5clang6interp7Pointer12getFieldDescEv.exit, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i
 
 _ZNK5clang6interp7Pointer6isZeroEv.exit.i.i:      ; preds = %3
-  %18 = getelementptr inbounds i8, ptr %4, i64 32
+  %18 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %19 = load i64, ptr %18, align 8
   %20 = icmp eq i64 %19, 0
   %21 = load i64, ptr %4, align 8
@@ -70506,7 +70506,7 @@ _ZNK5clang6interp7Pointer6isZeroEv.exit..thread_crit_edge.i.i: ; preds = %_ZNK5c
 
 _ZNK5clang6interp7Pointer6isRootEv.exit.i:        ; preds = %_ZNK5clang6interp7Pointer6isZeroEv.exit..thread_crit_edge.i.i, %15, %11
   %24 = phi ptr [ %.pre.i.i, %_ZNK5clang6interp7Pointer6isZeroEv.exit..thread_crit_edge.i.i ], [ %13, %11 ], [ %17, %15 ]
-  %25 = getelementptr inbounds i8, ptr %4, i64 32
+  %25 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %26 = load i32, ptr %25, align 8
   %27 = getelementptr inbounds nuw i8, ptr %24, i64 32
   %28 = load ptr, ptr %27, align 8
@@ -70584,7 +70584,7 @@ _ZNK5clang6interp7Pointer8isExternEv.exit.thread: ; preds = %42, %45, %_ZNK5clan
 
 59:                                               ; preds = %52
   %60 = icmp eq ptr %58, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %4, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %4, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %60, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -70690,7 +70690,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp9GetGlobalILNS0_8PrimTyp
   br i1 %.not.i.i.i.i, label %_ZNK5clang6interp7Pointer12getFieldDescEv.exit, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i
 
 _ZNK5clang6interp7Pointer6isZeroEv.exit.i.i:      ; preds = %3
-  %18 = getelementptr inbounds i8, ptr %4, i64 32
+  %18 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %19 = load i64, ptr %18, align 8
   %20 = icmp eq i64 %19, 0
   %21 = load i64, ptr %4, align 8
@@ -70705,7 +70705,7 @@ _ZNK5clang6interp7Pointer6isZeroEv.exit..thread_crit_edge.i.i: ; preds = %_ZNK5c
 
 _ZNK5clang6interp7Pointer6isRootEv.exit.i:        ; preds = %_ZNK5clang6interp7Pointer6isZeroEv.exit..thread_crit_edge.i.i, %15, %11
   %24 = phi ptr [ %.pre.i.i, %_ZNK5clang6interp7Pointer6isZeroEv.exit..thread_crit_edge.i.i ], [ %13, %11 ], [ %17, %15 ]
-  %25 = getelementptr inbounds i8, ptr %4, i64 32
+  %25 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %26 = load i32, ptr %25, align 8
   %27 = getelementptr inbounds nuw i8, ptr %24, i64 32
   %28 = load ptr, ptr %27, align 8
@@ -70783,7 +70783,7 @@ _ZNK5clang6interp7Pointer8isExternEv.exit.thread: ; preds = %42, %45, %_ZNK5clan
 
 59:                                               ; preds = %52
   %60 = icmp eq ptr %58, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %4, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %4, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %60, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -70877,7 +70877,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp9GetGlobalILNS0_8PrimTyp
   br i1 %.not.i.i.i.i, label %_ZNK5clang6interp7Pointer12getFieldDescEv.exit, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i
 
 _ZNK5clang6interp7Pointer6isZeroEv.exit.i.i:      ; preds = %3
-  %18 = getelementptr inbounds i8, ptr %4, i64 32
+  %18 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %19 = load i64, ptr %18, align 8
   %20 = icmp eq i64 %19, 0
   %21 = load i64, ptr %4, align 8
@@ -70892,7 +70892,7 @@ _ZNK5clang6interp7Pointer6isZeroEv.exit..thread_crit_edge.i.i: ; preds = %_ZNK5c
 
 _ZNK5clang6interp7Pointer6isRootEv.exit.i:        ; preds = %_ZNK5clang6interp7Pointer6isZeroEv.exit..thread_crit_edge.i.i, %15, %11
   %24 = phi ptr [ %.pre.i.i, %_ZNK5clang6interp7Pointer6isZeroEv.exit..thread_crit_edge.i.i ], [ %13, %11 ], [ %17, %15 ]
-  %25 = getelementptr inbounds i8, ptr %4, i64 32
+  %25 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %26 = load i32, ptr %25, align 8
   %27 = getelementptr inbounds nuw i8, ptr %24, i64 32
   %28 = load ptr, ptr %27, align 8
@@ -70970,7 +70970,7 @@ _ZNK5clang6interp7Pointer8isExternEv.exit.thread: ; preds = %42, %45, %_ZNK5clan
 
 59:                                               ; preds = %52
   %60 = icmp eq ptr %58, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %4, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %4, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %60, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -71063,7 +71063,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp9GetGlobalILNS0_8PrimTyp
   br i1 %.not.i.i.i.i, label %_ZNK5clang6interp7Pointer12getFieldDescEv.exit, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i
 
 _ZNK5clang6interp7Pointer6isZeroEv.exit.i.i:      ; preds = %3
-  %18 = getelementptr inbounds i8, ptr %4, i64 32
+  %18 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %19 = load i64, ptr %18, align 8
   %20 = icmp eq i64 %19, 0
   %21 = load i64, ptr %4, align 8
@@ -71078,7 +71078,7 @@ _ZNK5clang6interp7Pointer6isZeroEv.exit..thread_crit_edge.i.i: ; preds = %_ZNK5c
 
 _ZNK5clang6interp7Pointer6isRootEv.exit.i:        ; preds = %_ZNK5clang6interp7Pointer6isZeroEv.exit..thread_crit_edge.i.i, %15, %11
   %24 = phi ptr [ %.pre.i.i, %_ZNK5clang6interp7Pointer6isZeroEv.exit..thread_crit_edge.i.i ], [ %13, %11 ], [ %17, %15 ]
-  %25 = getelementptr inbounds i8, ptr %4, i64 32
+  %25 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %26 = load i32, ptr %25, align 8
   %27 = getelementptr inbounds nuw i8, ptr %24, i64 32
   %28 = load ptr, ptr %27, align 8
@@ -71156,7 +71156,7 @@ _ZNK5clang6interp7Pointer8isExternEv.exit.thread: ; preds = %42, %45, %_ZNK5clan
 
 59:                                               ; preds = %52
   %60 = icmp eq ptr %58, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %4, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %4, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %60, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -71249,7 +71249,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp9GetGlobalILNS0_8PrimTyp
   br i1 %.not.i.i.i.i, label %_ZNK5clang6interp7Pointer12getFieldDescEv.exit, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i
 
 _ZNK5clang6interp7Pointer6isZeroEv.exit.i.i:      ; preds = %3
-  %18 = getelementptr inbounds i8, ptr %4, i64 32
+  %18 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %19 = load i64, ptr %18, align 8
   %20 = icmp eq i64 %19, 0
   %21 = load i64, ptr %4, align 8
@@ -71264,7 +71264,7 @@ _ZNK5clang6interp7Pointer6isZeroEv.exit..thread_crit_edge.i.i: ; preds = %_ZNK5c
 
 _ZNK5clang6interp7Pointer6isRootEv.exit.i:        ; preds = %_ZNK5clang6interp7Pointer6isZeroEv.exit..thread_crit_edge.i.i, %15, %11
   %24 = phi ptr [ %.pre.i.i, %_ZNK5clang6interp7Pointer6isZeroEv.exit..thread_crit_edge.i.i ], [ %13, %11 ], [ %17, %15 ]
-  %25 = getelementptr inbounds i8, ptr %4, i64 32
+  %25 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %26 = load i32, ptr %25, align 8
   %27 = getelementptr inbounds nuw i8, ptr %24, i64 32
   %28 = load ptr, ptr %27, align 8
@@ -71342,7 +71342,7 @@ _ZNK5clang6interp7Pointer8isExternEv.exit.thread: ; preds = %42, %45, %_ZNK5clan
 
 59:                                               ; preds = %52
   %60 = icmp eq ptr %58, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %4, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %4, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %60, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -71438,7 +71438,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp9GetGlobalILNS0_8PrimTyp
   br i1 %.not.i.i.i.i, label %_ZNK5clang6interp7Pointer12getFieldDescEv.exit, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i
 
 _ZNK5clang6interp7Pointer6isZeroEv.exit.i.i:      ; preds = %3
-  %18 = getelementptr inbounds i8, ptr %4, i64 32
+  %18 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %19 = load i64, ptr %18, align 8
   %20 = icmp eq i64 %19, 0
   %21 = load i64, ptr %4, align 8
@@ -71453,7 +71453,7 @@ _ZNK5clang6interp7Pointer6isZeroEv.exit..thread_crit_edge.i.i: ; preds = %_ZNK5c
 
 _ZNK5clang6interp7Pointer6isRootEv.exit.i:        ; preds = %_ZNK5clang6interp7Pointer6isZeroEv.exit..thread_crit_edge.i.i, %15, %11
   %24 = phi ptr [ %.pre.i.i, %_ZNK5clang6interp7Pointer6isZeroEv.exit..thread_crit_edge.i.i ], [ %13, %11 ], [ %17, %15 ]
-  %25 = getelementptr inbounds i8, ptr %4, i64 32
+  %25 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %26 = load i32, ptr %25, align 8
   %27 = getelementptr inbounds nuw i8, ptr %24, i64 32
   %28 = load ptr, ptr %27, align 8
@@ -71531,7 +71531,7 @@ _ZNK5clang6interp7Pointer8isExternEv.exit.thread: ; preds = %42, %45, %_ZNK5clan
 
 59:                                               ; preds = %52
   %60 = icmp eq ptr %58, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %4, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %4, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %60, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -71630,7 +71630,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp18GetGlobalUncheckedILNS
 
 16:                                               ; preds = %8
   %17 = icmp eq ptr %15, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %4, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %4, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %17, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -71717,7 +71717,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp18GetGlobalUncheckedILNS
 
 16:                                               ; preds = %8
   %17 = icmp eq ptr %15, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %4, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %4, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %17, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -71804,7 +71804,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp18GetGlobalUncheckedILNS
 
 16:                                               ; preds = %8
   %17 = icmp eq ptr %15, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %4, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %4, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %17, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -71891,7 +71891,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp18GetGlobalUncheckedILNS
 
 16:                                               ; preds = %8
   %17 = icmp eq ptr %15, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %4, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %4, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %17, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -71978,7 +71978,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp18GetGlobalUncheckedILNS
 
 16:                                               ; preds = %8
   %17 = icmp eq ptr %15, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %4, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %4, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %17, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -72065,7 +72065,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp18GetGlobalUncheckedILNS
 
 16:                                               ; preds = %8
   %17 = icmp eq ptr %15, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %4, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %4, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %17, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -72152,7 +72152,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp18GetGlobalUncheckedILNS
 
 16:                                               ; preds = %8
   %17 = icmp eq ptr %15, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %4, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %4, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %17, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -72239,7 +72239,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp18GetGlobalUncheckedILNS
 
 16:                                               ; preds = %8
   %17 = icmp eq ptr %15, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %4, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %4, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %17, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -72326,7 +72326,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp18GetGlobalUncheckedILNS
 
 16:                                               ; preds = %8
   %17 = icmp eq ptr %15, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %4, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %4, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %17, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -72425,7 +72425,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp18GetGlobalUncheckedILNS
 
 16:                                               ; preds = %8
   %17 = icmp eq ptr %15, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %4, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %4, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %17, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -72524,7 +72524,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp18GetGlobalUncheckedILNS
 
 16:                                               ; preds = %8
   %17 = icmp eq ptr %15, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %4, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %4, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %17, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -72611,7 +72611,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp18GetGlobalUncheckedILNS
 
 16:                                               ; preds = %8
   %17 = icmp eq ptr %15, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %4, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %4, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %17, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -72697,7 +72697,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp18GetGlobalUncheckedILNS
 
 16:                                               ; preds = %8
   %17 = icmp eq ptr %15, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %4, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %4, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %17, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -72783,7 +72783,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp18GetGlobalUncheckedILNS
 
 16:                                               ; preds = %8
   %17 = icmp eq ptr %15, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %4, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %4, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %17, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -72872,7 +72872,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp18GetGlobalUncheckedILNS
 
 16:                                               ; preds = %8
   %17 = icmp eq ptr %15, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %4, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %4, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %17, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -72959,7 +72959,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5clang6interp9GetIntPtrILNS0_8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, i8 0, i64 24, i1 false)
   store i32 1, ptr %10, align 8
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 24
-  %12 = getelementptr inbounds i8, ptr %9, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %9, i64 32
   store i64 %8, ptr %12, align 8
   store ptr %2, ptr %11, align 8
   ret i1 true
@@ -72979,7 +72979,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5clang6interp9GetIntPtrILNS0_8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, i8 0, i64 24, i1 false)
   store i32 1, ptr %10, align 8
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 24
-  %12 = getelementptr inbounds i8, ptr %9, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %9, i64 32
   store i64 %8, ptr %12, align 8
   store ptr %2, ptr %11, align 8
   ret i1 true
@@ -72999,7 +72999,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5clang6interp9GetIntPtrILNS0_8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, i8 0, i64 24, i1 false)
   store i32 1, ptr %10, align 8
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 24
-  %12 = getelementptr inbounds i8, ptr %9, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %9, i64 32
   store i64 %8, ptr %12, align 8
   store ptr %2, ptr %11, align 8
   ret i1 true
@@ -73019,7 +73019,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5clang6interp9GetIntPtrILNS0_8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, i8 0, i64 24, i1 false)
   store i32 1, ptr %10, align 8
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 24
-  %12 = getelementptr inbounds i8, ptr %9, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %9, i64 32
   store i64 %8, ptr %12, align 8
   store ptr %2, ptr %11, align 8
   ret i1 true
@@ -73039,7 +73039,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5clang6interp9GetIntPtrILNS0_8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, i8 0, i64 24, i1 false)
   store i32 1, ptr %10, align 8
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 24
-  %12 = getelementptr inbounds i8, ptr %9, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %9, i64 32
   store i64 %8, ptr %12, align 8
   store ptr %2, ptr %11, align 8
   ret i1 true
@@ -73059,7 +73059,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5clang6interp9GetIntPtrILNS0_8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, i8 0, i64 24, i1 false)
   store i32 1, ptr %10, align 8
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 24
-  %12 = getelementptr inbounds i8, ptr %9, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %9, i64 32
   store i64 %8, ptr %12, align 8
   store ptr %2, ptr %11, align 8
   ret i1 true
@@ -73078,7 +73078,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5clang6interp9GetIntPtrILNS0_8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, i8 0, i64 24, i1 false)
   store i32 1, ptr %9, align 8
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  %11 = getelementptr inbounds i8, ptr %8, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %8, i64 32
   store i64 %.sroa.0.0.copyload.i, ptr %11, align 8
   store ptr %2, ptr %10, align 8
   ret i1 true
@@ -73097,7 +73097,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5clang6interp9GetIntPtrILNS0_8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, i8 0, i64 24, i1 false)
   store i32 1, ptr %9, align 8
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  %11 = getelementptr inbounds i8, ptr %8, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %8, i64 32
   store i64 %.sroa.0.0.copyload.i, ptr %11, align 8
   store ptr %2, ptr %10, align 8
   ret i1 true
@@ -73167,7 +73167,7 @@ _ZNK5clang6interp10IntegralAPILb0EEcvT_ImvEEv.exit: ; preds = %_ZN4llvm5APIntD2E
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %28, i8 0, i64 24, i1 false)
   store i32 1, ptr %29, align 8
   %30 = getelementptr inbounds nuw i8, ptr %28, i64 24
-  %31 = getelementptr inbounds i8, ptr %28, i64 32
+  %31 = getelementptr inbounds nuw i8, ptr %28, i64 32
   store i64 %.0.i.i, ptr %31, align 8
   store ptr %2, ptr %30, align 8
   %32 = load i32, ptr %10, align 8
@@ -73251,7 +73251,7 @@ _ZNK5clang6interp10IntegralAPILb1EEcvT_ImvEEv.exit: ; preds = %_ZN4llvm5APIntD2E
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %28, i8 0, i64 24, i1 false)
   store i32 1, ptr %29, align 8
   %30 = getelementptr inbounds nuw i8, ptr %28, i64 24
-  %31 = getelementptr inbounds i8, ptr %28, i64 32
+  %31 = getelementptr inbounds nuw i8, ptr %28, i64 32
   store i64 %.0.i.i, ptr %31, align 8
   store ptr %2, ptr %30, align 8
   %32 = load i32, ptr %10, align 8
@@ -73286,7 +73286,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5clang6interp9GetIntPtrILNS0_8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %10, i8 0, i64 24, i1 false)
   store i32 1, ptr %11, align 8
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 24
-  %13 = getelementptr inbounds i8, ptr %10, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %10, i64 32
   store i64 %9, ptr %13, align 8
   store ptr %2, ptr %12, align 8
   ret i1 true
@@ -73317,7 +73317,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp8GetLocalILNS0_8PrimType
 
 16:                                               ; preds = %8
   %17 = icmp eq ptr %15, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %4, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %4, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %17, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -73404,7 +73404,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp8GetLocalILNS0_8PrimType
 
 16:                                               ; preds = %8
   %17 = icmp eq ptr %15, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %4, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %4, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %17, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -73491,7 +73491,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp8GetLocalILNS0_8PrimType
 
 16:                                               ; preds = %8
   %17 = icmp eq ptr %15, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %4, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %4, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %17, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -73578,7 +73578,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp8GetLocalILNS0_8PrimType
 
 16:                                               ; preds = %8
   %17 = icmp eq ptr %15, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %4, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %4, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %17, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -73665,7 +73665,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp8GetLocalILNS0_8PrimType
 
 16:                                               ; preds = %8
   %17 = icmp eq ptr %15, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %4, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %4, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %17, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -73752,7 +73752,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp8GetLocalILNS0_8PrimType
 
 16:                                               ; preds = %8
   %17 = icmp eq ptr %15, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %4, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %4, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %17, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -73839,7 +73839,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp8GetLocalILNS0_8PrimType
 
 16:                                               ; preds = %8
   %17 = icmp eq ptr %15, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %4, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %4, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %17, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -73926,7 +73926,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp8GetLocalILNS0_8PrimType
 
 16:                                               ; preds = %8
   %17 = icmp eq ptr %15, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %4, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %4, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %17, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -74013,7 +74013,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp8GetLocalILNS0_8PrimType
 
 16:                                               ; preds = %8
   %17 = icmp eq ptr %15, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %4, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %4, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %17, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -74112,7 +74112,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp8GetLocalILNS0_8PrimType
 
 16:                                               ; preds = %8
   %17 = icmp eq ptr %15, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %4, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %4, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %17, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -74211,7 +74211,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp8GetLocalILNS0_8PrimType
 
 16:                                               ; preds = %8
   %17 = icmp eq ptr %15, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %4, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %4, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %17, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -74298,7 +74298,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp8GetLocalILNS0_8PrimType
 
 16:                                               ; preds = %8
   %17 = icmp eq ptr %15, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %4, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %4, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %17, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -74384,7 +74384,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp8GetLocalILNS0_8PrimType
 
 16:                                               ; preds = %8
   %17 = icmp eq ptr %15, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %4, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %4, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %17, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -74470,7 +74470,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp8GetLocalILNS0_8PrimType
 
 16:                                               ; preds = %8
   %17 = icmp eq ptr %15, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %4, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %4, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %17, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -74559,7 +74559,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp8GetLocalILNS0_8PrimType
 
 16:                                               ; preds = %8
   %17 = icmp eq ptr %15, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %4, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %4, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %17, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -74699,7 +74699,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5clang6interp19GetMemberPtrBas
   br i1 %.not.i.i.i, label %29, label %30
 
 _ZNK5clang6interp7Pointer6isZeroEv.exit.i:        ; preds = %3
-  %23 = getelementptr inbounds i8, ptr %6, i64 32
+  %23 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %24 = load i64, ptr %23, align 8, !noalias !1516
   %25 = icmp eq i64 %24, 0
   %26 = load i64, ptr %6, align 8, !noalias !1516
@@ -75250,7 +75250,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5clang6interp21GetPtrActiveThi
   %17 = load i64, ptr %14, align 8, !noalias !1528
   %18 = trunc i64 %17 to i32
   %19 = add i32 %2, %18
-  %20 = getelementptr inbounds i8, ptr %13, i64 64
+  %20 = getelementptr inbounds nuw i8, ptr %13, i64 64
   %21 = load ptr, ptr %20, align 8, !noalias !1528
   %22 = zext i32 %19 to i64
   call void @_ZN5clang6interp7PointerC1EPNS0_5BlockEjm(ptr noundef nonnull align 8 dereferenceable(52) %4, ptr noundef %21, i32 noundef %19, i64 noundef %22) #18
@@ -75311,7 +75311,7 @@ _ZNK5clang6interp7Pointer9isPastEndEv.exit.thread17: ; preds = %20
   br i1 %30, label %_ZNK5clang6interp7Pointer11isBaseClassEv.exit.thread, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i
 
 _ZNK5clang6interp7Pointer6isRootEv.exit.i.i:      ; preds = %_ZNK5clang6interp7Pointer9isPastEndEv.exit.thread17
-  %31 = getelementptr inbounds i8, ptr %4, i64 32
+  %31 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %32 = load i32, ptr %31, align 8
   %33 = getelementptr inbounds nuw i8, ptr %22, i64 32
   %34 = load ptr, ptr %33, align 8
@@ -75445,7 +75445,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5clang6interp11GetPtrFieldERNS
   br i1 %31, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i
 
 _ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i:    ; preds = %28
-  %32 = getelementptr inbounds i8, ptr %8, i64 32
+  %32 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %33 = load i32, ptr %32, align 8
   %34 = getelementptr inbounds nuw i8, ptr %30, i64 32
   %35 = load ptr, ptr %34, align 8
@@ -75601,7 +75601,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5clang6interp14GetPtrFieldPopE
   br i1 %32, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i
 
 _ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i:    ; preds = %29
-  %33 = getelementptr inbounds i8, ptr %5, i64 32
+  %33 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %34 = load i32, ptr %33, align 8
   %35 = getelementptr inbounds nuw i8, ptr %31, i64 32
   %36 = load ptr, ptr %35, align 8
@@ -75787,7 +75787,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5clang6interp14GetPtrThisBaseE
   %19 = load i64, ptr %14, align 8, !noalias !1549
   %20 = trunc i64 %19 to i32
   %21 = add i32 %2, %20
-  %22 = getelementptr inbounds i8, ptr %13, i64 64
+  %22 = getelementptr inbounds nuw i8, ptr %13, i64 64
   %23 = load ptr, ptr %22, align 8, !noalias !1549
   %24 = zext i32 %21 to i64
   call void @_ZN5clang6interp7PointerC1EPNS0_5BlockEjm(ptr noundef nonnull align 8 dereferenceable(52) %4, ptr noundef %23, i32 noundef %21, i64 noundef %24) #18
@@ -75825,7 +75825,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5clang6interp15GetPtrThisField
   %19 = load i64, ptr %14, align 8, !noalias !1552
   %20 = trunc i64 %19 to i32
   %21 = add i32 %2, %20
-  %22 = getelementptr inbounds i8, ptr %13, i64 64
+  %22 = getelementptr inbounds nuw i8, ptr %13, i64 64
   %23 = load ptr, ptr %22, align 8, !noalias !1552
   %24 = zext i32 %21 to i64
   call void @_ZN5clang6interp7PointerC1EPNS0_5BlockEjm(ptr noundef nonnull align 8 dereferenceable(52) %4, ptr noundef %23, i32 noundef %21, i64 noundef %24) #18
@@ -75910,7 +75910,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp12GetThisFieldILNS0_8Pri
   %17 = load i64, ptr %14, align 8, !noalias !1558
   %18 = trunc i64 %17 to i32
   %19 = add i32 %2, %18
-  %20 = getelementptr inbounds i8, ptr %13, i64 64
+  %20 = getelementptr inbounds nuw i8, ptr %13, i64 64
   %21 = load ptr, ptr %20, align 8, !noalias !1558
   %22 = zext i32 %19 to i64
   call void @_ZN5clang6interp7PointerC1EPNS0_5BlockEjm(ptr noundef nonnull align 8 dereferenceable(52) %4, ptr noundef %21, i32 noundef %19, i64 noundef %22) #18
@@ -75933,7 +75933,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp12GetThisFieldILNS0_8Pri
 
 32:                                               ; preds = %24
   %33 = icmp eq ptr %31, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %4, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %4, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %33, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -76021,7 +76021,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp12GetThisFieldILNS0_8Pri
   %17 = load i64, ptr %14, align 8, !noalias !1561
   %18 = trunc i64 %17 to i32
   %19 = add i32 %2, %18
-  %20 = getelementptr inbounds i8, ptr %13, i64 64
+  %20 = getelementptr inbounds nuw i8, ptr %13, i64 64
   %21 = load ptr, ptr %20, align 8, !noalias !1561
   %22 = zext i32 %19 to i64
   call void @_ZN5clang6interp7PointerC1EPNS0_5BlockEjm(ptr noundef nonnull align 8 dereferenceable(52) %4, ptr noundef %21, i32 noundef %19, i64 noundef %22) #18
@@ -76044,7 +76044,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp12GetThisFieldILNS0_8Pri
 
 32:                                               ; preds = %24
   %33 = icmp eq ptr %31, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %4, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %4, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %33, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -76132,7 +76132,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp12GetThisFieldILNS0_8Pri
   %17 = load i64, ptr %14, align 8, !noalias !1564
   %18 = trunc i64 %17 to i32
   %19 = add i32 %2, %18
-  %20 = getelementptr inbounds i8, ptr %13, i64 64
+  %20 = getelementptr inbounds nuw i8, ptr %13, i64 64
   %21 = load ptr, ptr %20, align 8, !noalias !1564
   %22 = zext i32 %19 to i64
   call void @_ZN5clang6interp7PointerC1EPNS0_5BlockEjm(ptr noundef nonnull align 8 dereferenceable(52) %4, ptr noundef %21, i32 noundef %19, i64 noundef %22) #18
@@ -76155,7 +76155,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp12GetThisFieldILNS0_8Pri
 
 32:                                               ; preds = %24
   %33 = icmp eq ptr %31, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %4, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %4, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %33, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -76243,7 +76243,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp12GetThisFieldILNS0_8Pri
   %17 = load i64, ptr %14, align 8, !noalias !1567
   %18 = trunc i64 %17 to i32
   %19 = add i32 %2, %18
-  %20 = getelementptr inbounds i8, ptr %13, i64 64
+  %20 = getelementptr inbounds nuw i8, ptr %13, i64 64
   %21 = load ptr, ptr %20, align 8, !noalias !1567
   %22 = zext i32 %19 to i64
   call void @_ZN5clang6interp7PointerC1EPNS0_5BlockEjm(ptr noundef nonnull align 8 dereferenceable(52) %4, ptr noundef %21, i32 noundef %19, i64 noundef %22) #18
@@ -76266,7 +76266,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp12GetThisFieldILNS0_8Pri
 
 32:                                               ; preds = %24
   %33 = icmp eq ptr %31, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %4, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %4, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %33, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -76354,7 +76354,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp12GetThisFieldILNS0_8Pri
   %17 = load i64, ptr %14, align 8, !noalias !1570
   %18 = trunc i64 %17 to i32
   %19 = add i32 %2, %18
-  %20 = getelementptr inbounds i8, ptr %13, i64 64
+  %20 = getelementptr inbounds nuw i8, ptr %13, i64 64
   %21 = load ptr, ptr %20, align 8, !noalias !1570
   %22 = zext i32 %19 to i64
   call void @_ZN5clang6interp7PointerC1EPNS0_5BlockEjm(ptr noundef nonnull align 8 dereferenceable(52) %4, ptr noundef %21, i32 noundef %19, i64 noundef %22) #18
@@ -76377,7 +76377,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp12GetThisFieldILNS0_8Pri
 
 32:                                               ; preds = %24
   %33 = icmp eq ptr %31, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %4, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %4, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %33, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -76465,7 +76465,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp12GetThisFieldILNS0_8Pri
   %17 = load i64, ptr %14, align 8, !noalias !1573
   %18 = trunc i64 %17 to i32
   %19 = add i32 %2, %18
-  %20 = getelementptr inbounds i8, ptr %13, i64 64
+  %20 = getelementptr inbounds nuw i8, ptr %13, i64 64
   %21 = load ptr, ptr %20, align 8, !noalias !1573
   %22 = zext i32 %19 to i64
   call void @_ZN5clang6interp7PointerC1EPNS0_5BlockEjm(ptr noundef nonnull align 8 dereferenceable(52) %4, ptr noundef %21, i32 noundef %19, i64 noundef %22) #18
@@ -76488,7 +76488,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp12GetThisFieldILNS0_8Pri
 
 32:                                               ; preds = %24
   %33 = icmp eq ptr %31, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %4, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %4, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %33, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -76576,7 +76576,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp12GetThisFieldILNS0_8Pri
   %17 = load i64, ptr %14, align 8, !noalias !1576
   %18 = trunc i64 %17 to i32
   %19 = add i32 %2, %18
-  %20 = getelementptr inbounds i8, ptr %13, i64 64
+  %20 = getelementptr inbounds nuw i8, ptr %13, i64 64
   %21 = load ptr, ptr %20, align 8, !noalias !1576
   %22 = zext i32 %19 to i64
   call void @_ZN5clang6interp7PointerC1EPNS0_5BlockEjm(ptr noundef nonnull align 8 dereferenceable(52) %4, ptr noundef %21, i32 noundef %19, i64 noundef %22) #18
@@ -76599,7 +76599,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp12GetThisFieldILNS0_8Pri
 
 32:                                               ; preds = %24
   %33 = icmp eq ptr %31, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %4, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %4, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %33, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -76687,7 +76687,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp12GetThisFieldILNS0_8Pri
   %17 = load i64, ptr %14, align 8, !noalias !1579
   %18 = trunc i64 %17 to i32
   %19 = add i32 %2, %18
-  %20 = getelementptr inbounds i8, ptr %13, i64 64
+  %20 = getelementptr inbounds nuw i8, ptr %13, i64 64
   %21 = load ptr, ptr %20, align 8, !noalias !1579
   %22 = zext i32 %19 to i64
   call void @_ZN5clang6interp7PointerC1EPNS0_5BlockEjm(ptr noundef nonnull align 8 dereferenceable(52) %4, ptr noundef %21, i32 noundef %19, i64 noundef %22) #18
@@ -76710,7 +76710,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp12GetThisFieldILNS0_8Pri
 
 32:                                               ; preds = %24
   %33 = icmp eq ptr %31, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %4, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %4, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %33, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -76798,7 +76798,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp12GetThisFieldILNS0_8Pri
   %17 = load i64, ptr %14, align 8, !noalias !1582
   %18 = trunc i64 %17 to i32
   %19 = add i32 %2, %18
-  %20 = getelementptr inbounds i8, ptr %13, i64 64
+  %20 = getelementptr inbounds nuw i8, ptr %13, i64 64
   %21 = load ptr, ptr %20, align 8, !noalias !1582
   %22 = zext i32 %19 to i64
   call void @_ZN5clang6interp7PointerC1EPNS0_5BlockEjm(ptr noundef nonnull align 8 dereferenceable(52) %4, ptr noundef %21, i32 noundef %19, i64 noundef %22) #18
@@ -76821,7 +76821,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp12GetThisFieldILNS0_8Pri
 
 32:                                               ; preds = %24
   %33 = icmp eq ptr %31, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %4, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %4, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %33, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -76921,7 +76921,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp12GetThisFieldILNS0_8Pri
   %17 = load i64, ptr %14, align 8, !noalias !1585
   %18 = trunc i64 %17 to i32
   %19 = add i32 %2, %18
-  %20 = getelementptr inbounds i8, ptr %13, i64 64
+  %20 = getelementptr inbounds nuw i8, ptr %13, i64 64
   %21 = load ptr, ptr %20, align 8, !noalias !1585
   %22 = zext i32 %19 to i64
   call void @_ZN5clang6interp7PointerC1EPNS0_5BlockEjm(ptr noundef nonnull align 8 dereferenceable(52) %4, ptr noundef %21, i32 noundef %19, i64 noundef %22) #18
@@ -76944,7 +76944,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp12GetThisFieldILNS0_8Pri
 
 32:                                               ; preds = %24
   %33 = icmp eq ptr %31, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %4, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %4, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %33, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -77044,7 +77044,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp12GetThisFieldILNS0_8Pri
   %17 = load i64, ptr %14, align 8, !noalias !1588
   %18 = trunc i64 %17 to i32
   %19 = add i32 %2, %18
-  %20 = getelementptr inbounds i8, ptr %13, i64 64
+  %20 = getelementptr inbounds nuw i8, ptr %13, i64 64
   %21 = load ptr, ptr %20, align 8, !noalias !1588
   %22 = zext i32 %19 to i64
   call void @_ZN5clang6interp7PointerC1EPNS0_5BlockEjm(ptr noundef nonnull align 8 dereferenceable(52) %4, ptr noundef %21, i32 noundef %19, i64 noundef %22) #18
@@ -77067,7 +77067,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp12GetThisFieldILNS0_8Pri
 
 32:                                               ; preds = %24
   %33 = icmp eq ptr %31, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %4, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %4, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %33, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -77155,7 +77155,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp12GetThisFieldILNS0_8Pri
   %17 = load i64, ptr %14, align 8, !noalias !1591
   %18 = trunc i64 %17 to i32
   %19 = add i32 %2, %18
-  %20 = getelementptr inbounds i8, ptr %13, i64 64
+  %20 = getelementptr inbounds nuw i8, ptr %13, i64 64
   %21 = load ptr, ptr %20, align 8, !noalias !1591
   %22 = zext i32 %19 to i64
   call void @_ZN5clang6interp7PointerC1EPNS0_5BlockEjm(ptr noundef nonnull align 8 dereferenceable(52) %4, ptr noundef %21, i32 noundef %19, i64 noundef %22) #18
@@ -77178,7 +77178,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp12GetThisFieldILNS0_8Pri
 
 32:                                               ; preds = %24
   %33 = icmp eq ptr %31, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %4, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %4, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %33, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -77265,7 +77265,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp12GetThisFieldILNS0_8Pri
   %17 = load i64, ptr %14, align 8, !noalias !1594
   %18 = trunc i64 %17 to i32
   %19 = add i32 %2, %18
-  %20 = getelementptr inbounds i8, ptr %13, i64 64
+  %20 = getelementptr inbounds nuw i8, ptr %13, i64 64
   %21 = load ptr, ptr %20, align 8, !noalias !1594
   %22 = zext i32 %19 to i64
   call void @_ZN5clang6interp7PointerC1EPNS0_5BlockEjm(ptr noundef nonnull align 8 dereferenceable(52) %4, ptr noundef %21, i32 noundef %19, i64 noundef %22) #18
@@ -77288,7 +77288,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp12GetThisFieldILNS0_8Pri
 
 32:                                               ; preds = %24
   %33 = icmp eq ptr %31, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %4, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %4, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %33, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -77375,7 +77375,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp12GetThisFieldILNS0_8Pri
   %17 = load i64, ptr %14, align 8, !noalias !1597
   %18 = trunc i64 %17 to i32
   %19 = add i32 %2, %18
-  %20 = getelementptr inbounds i8, ptr %13, i64 64
+  %20 = getelementptr inbounds nuw i8, ptr %13, i64 64
   %21 = load ptr, ptr %20, align 8, !noalias !1597
   %22 = zext i32 %19 to i64
   call void @_ZN5clang6interp7PointerC1EPNS0_5BlockEjm(ptr noundef nonnull align 8 dereferenceable(52) %4, ptr noundef %21, i32 noundef %19, i64 noundef %22) #18
@@ -77398,7 +77398,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp12GetThisFieldILNS0_8Pri
 
 32:                                               ; preds = %24
   %33 = icmp eq ptr %31, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %4, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %4, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %33, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -77488,7 +77488,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp12GetThisFieldILNS0_8Pri
   %17 = load i64, ptr %14, align 8, !noalias !1600
   %18 = trunc i64 %17 to i32
   %19 = add i32 %2, %18
-  %20 = getelementptr inbounds i8, ptr %13, i64 64
+  %20 = getelementptr inbounds nuw i8, ptr %13, i64 64
   %21 = load ptr, ptr %20, align 8, !noalias !1600
   %22 = zext i32 %19 to i64
   call void @_ZN5clang6interp7PointerC1EPNS0_5BlockEjm(ptr noundef nonnull align 8 dereferenceable(52) %4, ptr noundef %21, i32 noundef %19, i64 noundef %22) #18
@@ -77511,7 +77511,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp12GetThisFieldILNS0_8Pri
 
 32:                                               ; preds = %24
   %33 = icmp eq ptr %31, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %4, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %4, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %33, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -77634,7 +77634,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp3IncILNS0_8PrimTypeE1ENS
 
 14:                                               ; preds = %8
   %15 = icmp eq ptr %13, null
-  %.phi.trans.insert.phi.trans.insert.i = getelementptr inbounds i8, ptr %3, i64 32
+  %.phi.trans.insert.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %3, i64 32
   %.pre.pre.i = load i32, ptr %.phi.trans.insert.phi.trans.insert.i, align 8
   br i1 %15, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i.i
 
@@ -77701,7 +77701,7 @@ _ZNK5clang6interp7Pointer11isArrayRootEv.exit.thread.i.i: ; preds = %_ZNK5clang6
 
 47:                                               ; preds = %40
   %48 = icmp eq ptr %46, null
-  %.phi.trans.insert41.phi.trans.insert.i = getelementptr inbounds i8, ptr %3, i64 32
+  %.phi.trans.insert41.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %3, i64 32
   %.pre42.pre.i = load i32, ptr %.phi.trans.insert41.phi.trans.insert.i, align 8
   br i1 %48, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i30.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i24.i
 
@@ -77808,7 +77808,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp3IncILNS0_8PrimTypeE3ENS
 
 14:                                               ; preds = %8
   %15 = icmp eq ptr %13, null
-  %.phi.trans.insert.phi.trans.insert.i = getelementptr inbounds i8, ptr %3, i64 32
+  %.phi.trans.insert.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %3, i64 32
   %.pre.pre.i = load i32, ptr %.phi.trans.insert.phi.trans.insert.i, align 8
   br i1 %15, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i.i
 
@@ -77875,7 +77875,7 @@ _ZNK5clang6interp7Pointer11isArrayRootEv.exit.thread.i.i: ; preds = %_ZNK5clang6
 
 47:                                               ; preds = %40
   %48 = icmp eq ptr %46, null
-  %.phi.trans.insert41.phi.trans.insert.i = getelementptr inbounds i8, ptr %3, i64 32
+  %.phi.trans.insert41.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %3, i64 32
   %.pre42.pre.i = load i32, ptr %.phi.trans.insert41.phi.trans.insert.i, align 8
   br i1 %48, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i30.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i24.i
 
@@ -77982,7 +77982,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp3IncILNS0_8PrimTypeE5ENS
 
 14:                                               ; preds = %8
   %15 = icmp eq ptr %13, null
-  %.phi.trans.insert.phi.trans.insert.i = getelementptr inbounds i8, ptr %3, i64 32
+  %.phi.trans.insert.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %3, i64 32
   %.pre.pre.i = load i32, ptr %.phi.trans.insert.phi.trans.insert.i, align 8
   br i1 %15, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i.i
 
@@ -78049,7 +78049,7 @@ _ZNK5clang6interp7Pointer11isArrayRootEv.exit.thread.i.i: ; preds = %_ZNK5clang6
 
 47:                                               ; preds = %40
   %48 = icmp eq ptr %46, null
-  %.phi.trans.insert41.phi.trans.insert.i = getelementptr inbounds i8, ptr %3, i64 32
+  %.phi.trans.insert41.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %3, i64 32
   %.pre42.pre.i = load i32, ptr %.phi.trans.insert41.phi.trans.insert.i, align 8
   br i1 %48, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i30.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i24.i
 
@@ -78156,7 +78156,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp3IncILNS0_8PrimTypeE7ENS
 
 14:                                               ; preds = %8
   %15 = icmp eq ptr %13, null
-  %.phi.trans.insert.phi.trans.insert.i = getelementptr inbounds i8, ptr %3, i64 32
+  %.phi.trans.insert.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %3, i64 32
   %.pre.pre.i = load i32, ptr %.phi.trans.insert.phi.trans.insert.i, align 8
   br i1 %15, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i.i
 
@@ -78223,7 +78223,7 @@ _ZNK5clang6interp7Pointer11isArrayRootEv.exit.thread.i.i: ; preds = %_ZNK5clang6
 
 47:                                               ; preds = %40
   %48 = icmp eq ptr %46, null
-  %.phi.trans.insert41.phi.trans.insert.i = getelementptr inbounds i8, ptr %3, i64 32
+  %.phi.trans.insert41.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %3, i64 32
   %.pre42.pre.i = load i32, ptr %.phi.trans.insert41.phi.trans.insert.i, align 8
   br i1 %48, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i30.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i24.i
 
@@ -78389,7 +78389,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp6IncPopILNS0_8PrimTypeE1
 
 14:                                               ; preds = %8
   %15 = icmp eq ptr %13, null
-  %.phi.trans.insert.phi.trans.insert.i = getelementptr inbounds i8, ptr %3, i64 32
+  %.phi.trans.insert.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %3, i64 32
   %.pre.pre.i = load i32, ptr %.phi.trans.insert.phi.trans.insert.i, align 8
   br i1 %15, label %._ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i_crit_edge.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i.i
 
@@ -78521,7 +78521,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp6IncPopILNS0_8PrimTypeE3
 
 14:                                               ; preds = %8
   %15 = icmp eq ptr %13, null
-  %.phi.trans.insert.phi.trans.insert.i = getelementptr inbounds i8, ptr %3, i64 32
+  %.phi.trans.insert.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %3, i64 32
   %.pre.pre.i = load i32, ptr %.phi.trans.insert.phi.trans.insert.i, align 8
   br i1 %15, label %._ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i_crit_edge.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i.i
 
@@ -78653,7 +78653,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp6IncPopILNS0_8PrimTypeE5
 
 14:                                               ; preds = %8
   %15 = icmp eq ptr %13, null
-  %.phi.trans.insert.phi.trans.insert.i = getelementptr inbounds i8, ptr %3, i64 32
+  %.phi.trans.insert.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %3, i64 32
   %.pre.pre.i = load i32, ptr %.phi.trans.insert.phi.trans.insert.i, align 8
   br i1 %15, label %._ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i_crit_edge.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i.i
 
@@ -78785,7 +78785,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp6IncPopILNS0_8PrimTypeE7
 
 14:                                               ; preds = %8
   %15 = icmp eq ptr %13, null
-  %.phi.trans.insert.phi.trans.insert.i = getelementptr inbounds i8, ptr %3, i64 32
+  %.phi.trans.insert.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %3, i64 32
   %.pre.pre.i = load i32, ptr %.phi.trans.insert.phi.trans.insert.i, align 8
   br i1 %15, label %._ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i_crit_edge.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i.i
 
@@ -78978,12 +78978,12 @@ _ZNK5clang6interp7Pointer7isDummyEv.exit.i:       ; preds = %16
   br label %_ZNK5clang6interp7Pointer11isArrayRootEv.exit.thread.i.i
 
 .thread27._ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i_crit_edge.i: ; preds = %16
-  %.phi.trans.insert.phi.trans.insert.i = getelementptr inbounds i8, ptr %5, i64 32
+  %.phi.trans.insert.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %5, i64 32
   %.pre.pre.i = load i32, ptr %.phi.trans.insert.phi.trans.insert.i, align 8
   br label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i.i
 
 _ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i.i: ; preds = %_ZNK5clang6interp7Pointer7isDummyEv.exit.i
-  %22 = getelementptr inbounds i8, ptr %5, i64 32
+  %22 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %23 = load i32, ptr %22, align 8
   %24 = getelementptr inbounds nuw i8, ptr %18, i64 16
   %25 = load i32, ptr %24, align 8
@@ -79058,7 +79058,7 @@ _ZNK5clang6interp7Pointer5derefIS1_EERT_v.exit.i: ; preds = %_ZNK5clang6interp7P
 
 57:                                               ; preds = %51
   %58 = icmp eq ptr %56, null
-  %.phi.trans.insert28.phi.trans.insert.i = getelementptr inbounds i8, ptr %5, i64 32
+  %.phi.trans.insert28.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %5, i64 32
   %.pre29.pre.i = load i32, ptr %.phi.trans.insert28.phi.trans.insert.i, align 8
   br i1 %58, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i24.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i18.i
 
@@ -79199,7 +79199,7 @@ _ZN5clang6interp9CheckInitERNS0_11InterpStateENS0_7CodePtrERKNS0_7PointerE.exit:
 
 16:                                               ; preds = %10
   %17 = icmp eq ptr %15, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %7, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %7, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %17, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -79290,7 +79290,7 @@ _ZN5clang6interp9CheckInitERNS0_11InterpStateENS0_7CodePtrERKNS0_7PointerE.exit:
 
 16:                                               ; preds = %10
   %17 = icmp eq ptr %15, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %7, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %7, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %17, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -79381,7 +79381,7 @@ _ZN5clang6interp9CheckInitERNS0_11InterpStateENS0_7CodePtrERKNS0_7PointerE.exit:
 
 16:                                               ; preds = %10
   %17 = icmp eq ptr %15, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %7, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %7, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %17, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -79472,7 +79472,7 @@ _ZN5clang6interp9CheckInitERNS0_11InterpStateENS0_7CodePtrERKNS0_7PointerE.exit:
 
 16:                                               ; preds = %10
   %17 = icmp eq ptr %15, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %7, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %7, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %17, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -79563,7 +79563,7 @@ _ZN5clang6interp9CheckInitERNS0_11InterpStateENS0_7CodePtrERKNS0_7PointerE.exit:
 
 16:                                               ; preds = %10
   %17 = icmp eq ptr %15, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %7, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %7, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %17, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -79654,7 +79654,7 @@ _ZN5clang6interp9CheckInitERNS0_11InterpStateENS0_7CodePtrERKNS0_7PointerE.exit:
 
 16:                                               ; preds = %10
   %17 = icmp eq ptr %15, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %7, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %7, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %17, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -79745,7 +79745,7 @@ _ZN5clang6interp9CheckInitERNS0_11InterpStateENS0_7CodePtrERKNS0_7PointerE.exit:
 
 16:                                               ; preds = %10
   %17 = icmp eq ptr %15, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %7, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %7, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %17, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -79836,7 +79836,7 @@ _ZN5clang6interp9CheckInitERNS0_11InterpStateENS0_7CodePtrERKNS0_7PointerE.exit:
 
 16:                                               ; preds = %10
   %17 = icmp eq ptr %15, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %7, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %7, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %17, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -79935,7 +79935,7 @@ _ZN5clang6interp9CheckInitERNS0_11InterpStateENS0_7CodePtrERKNS0_7PointerE.exit:
 
 21:                                               ; preds = %15
   %22 = icmp eq ptr %20, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %12, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %12, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %22, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -80060,7 +80060,7 @@ _ZN5clang6interp9CheckInitERNS0_11InterpStateENS0_7CodePtrERKNS0_7PointerE.exit:
 
 21:                                               ; preds = %15
   %22 = icmp eq ptr %20, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %12, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %12, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %22, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -80177,7 +80177,7 @@ _ZN5clang6interp9CheckInitERNS0_11InterpStateENS0_7CodePtrERKNS0_7PointerE.exit:
 
 16:                                               ; preds = %10
   %17 = icmp eq ptr %15, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %7, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %7, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %17, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -80269,7 +80269,7 @@ _ZN5clang6interp9CheckInitERNS0_11InterpStateENS0_7CodePtrERKNS0_7PointerE.exit:
 
 17:                                               ; preds = %11
   %18 = icmp eq ptr %16, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %8, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %8, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %18, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -80362,7 +80362,7 @@ _ZN5clang6interp9CheckInitERNS0_11InterpStateENS0_7CodePtrERKNS0_7PointerE.exit:
 
 17:                                               ; preds = %11
   %18 = icmp eq ptr %16, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %8, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %8, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %18, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -80457,7 +80457,7 @@ _ZN5clang6interp9CheckInitERNS0_11InterpStateENS0_7CodePtrERKNS0_7PointerE.exit:
 
 19:                                               ; preds = %13
   %20 = icmp eq ptr %18, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %10, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %10, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %20, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -80567,7 +80567,7 @@ _ZN5clang6interp9CheckInitERNS0_11InterpStateENS0_7CodePtrERKNS0_7PointerE.exit:
 
 23:                                               ; preds = %17
   %24 = icmp eq ptr %22, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %14, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %14, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %24, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -80710,7 +80710,7 @@ _ZNK5clang6interp8IntegralILj8ELb1EE8truncateEj.exit: ; preds = %3, %27
 
 42:                                               ; preds = %_ZNK5clang6interp8IntegralILj8ELb1EE8truncateEj.exit
   %43 = icmp eq ptr %41, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %4, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %4, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %43, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -80810,7 +80810,7 @@ _ZNK5clang6interp8IntegralILj8ELb0EE8truncateEj.exit:
 
 30:                                               ; preds = %_ZNK5clang6interp8IntegralILj8ELb0EE8truncateEj.exit
   %31 = icmp eq ptr %29, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %3, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %3, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %31, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -80935,7 +80935,7 @@ _ZNK5clang6interp8IntegralILj16ELb1EE8truncateEj.exit: ; preds = %3, %27
 
 42:                                               ; preds = %_ZNK5clang6interp8IntegralILj16ELb1EE8truncateEj.exit
   %43 = icmp eq ptr %41, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %4, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %4, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %43, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -81035,7 +81035,7 @@ _ZNK5clang6interp8IntegralILj16ELb0EE8truncateEj.exit:
 
 30:                                               ; preds = %_ZNK5clang6interp8IntegralILj16ELb0EE8truncateEj.exit
   %31 = icmp eq ptr %29, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %3, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %3, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %31, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -81157,7 +81157,7 @@ _ZNK5clang6interp8IntegralILj32ELb1EE8truncateEj.exit: ; preds = %3, %27
 
 40:                                               ; preds = %_ZNK5clang6interp8IntegralILj32ELb1EE8truncateEj.exit
   %41 = icmp eq ptr %39, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %4, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %4, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %41, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -81257,7 +81257,7 @@ _ZNK5clang6interp8IntegralILj32ELb0EE8truncateEj.exit:
 
 30:                                               ; preds = %_ZNK5clang6interp8IntegralILj32ELb0EE8truncateEj.exit
   %31 = icmp eq ptr %29, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %3, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %3, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %31, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -81380,7 +81380,7 @@ _ZNK5clang6interp8IntegralILj64ELb1EE8truncateEj.exit: ; preds = %3, %27
 
 42:                                               ; preds = %_ZNK5clang6interp8IntegralILj64ELb1EE8truncateEj.exit
   %43 = icmp eq ptr %41, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %4, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %4, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %43, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -81480,7 +81480,7 @@ _ZNK5clang6interp8IntegralILj64ELb0EE8truncateEj.exit:
 
 30:                                               ; preds = %_ZNK5clang6interp8IntegralILj64ELb0EE8truncateEj.exit
   %31 = icmp eq ptr %29, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %3, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %3, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %31, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -81595,7 +81595,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp12InitBitFieldILNS0_8Pri
 
 37:                                               ; preds = %3
   %38 = icmp eq ptr %36, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %5, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %5, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %38, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -81738,7 +81738,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp12InitBitFieldILNS0_8Pri
 
 37:                                               ; preds = %3
   %38 = icmp eq ptr %36, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %5, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %5, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %38, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -81871,7 +81871,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp12InitBitFieldILNS0_8Pri
 
 31:                                               ; preds = %3
   %32 = icmp eq ptr %30, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %4, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %4, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %32, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -81954,7 +81954,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp8InitElemILNS0_8PrimType
   br i1 %17, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i
 
 _ZNK5clang6interp7Pointer6isRootEv.exit.i.i:      ; preds = %14
-  %18 = getelementptr inbounds i8, ptr %4, i64 32
+  %18 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %19 = load i32, ptr %18, align 8
   %20 = getelementptr inbounds nuw i8, ptr %16, i64 32
   %21 = load ptr, ptr %20, align 8
@@ -82006,7 +82006,7 @@ _ZN5clang6interp9CheckInitERNS0_11InterpStateENS0_7CodePtrERKNS0_7PointerE.exit:
 
 43:                                               ; preds = %38
   %44 = icmp eq ptr %42, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %4, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %4, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %44, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -82091,7 +82091,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp8InitElemILNS0_8PrimType
   br i1 %17, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i
 
 _ZNK5clang6interp7Pointer6isRootEv.exit.i.i:      ; preds = %14
-  %18 = getelementptr inbounds i8, ptr %4, i64 32
+  %18 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %19 = load i32, ptr %18, align 8
   %20 = getelementptr inbounds nuw i8, ptr %16, i64 32
   %21 = load ptr, ptr %20, align 8
@@ -82143,7 +82143,7 @@ _ZN5clang6interp9CheckInitERNS0_11InterpStateENS0_7CodePtrERKNS0_7PointerE.exit:
 
 43:                                               ; preds = %38
   %44 = icmp eq ptr %42, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %4, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %4, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %44, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -82228,7 +82228,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp8InitElemILNS0_8PrimType
   br i1 %17, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i
 
 _ZNK5clang6interp7Pointer6isRootEv.exit.i.i:      ; preds = %14
-  %18 = getelementptr inbounds i8, ptr %4, i64 32
+  %18 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %19 = load i32, ptr %18, align 8
   %20 = getelementptr inbounds nuw i8, ptr %16, i64 32
   %21 = load ptr, ptr %20, align 8
@@ -82280,7 +82280,7 @@ _ZN5clang6interp9CheckInitERNS0_11InterpStateENS0_7CodePtrERKNS0_7PointerE.exit:
 
 43:                                               ; preds = %38
   %44 = icmp eq ptr %42, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %4, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %4, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %44, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -82365,7 +82365,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp8InitElemILNS0_8PrimType
   br i1 %17, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i
 
 _ZNK5clang6interp7Pointer6isRootEv.exit.i.i:      ; preds = %14
-  %18 = getelementptr inbounds i8, ptr %4, i64 32
+  %18 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %19 = load i32, ptr %18, align 8
   %20 = getelementptr inbounds nuw i8, ptr %16, i64 32
   %21 = load ptr, ptr %20, align 8
@@ -82417,7 +82417,7 @@ _ZN5clang6interp9CheckInitERNS0_11InterpStateENS0_7CodePtrERKNS0_7PointerE.exit:
 
 43:                                               ; preds = %38
   %44 = icmp eq ptr %42, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %4, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %4, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %44, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -82502,7 +82502,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp8InitElemILNS0_8PrimType
   br i1 %17, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i
 
 _ZNK5clang6interp7Pointer6isRootEv.exit.i.i:      ; preds = %14
-  %18 = getelementptr inbounds i8, ptr %4, i64 32
+  %18 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %19 = load i32, ptr %18, align 8
   %20 = getelementptr inbounds nuw i8, ptr %16, i64 32
   %21 = load ptr, ptr %20, align 8
@@ -82554,7 +82554,7 @@ _ZN5clang6interp9CheckInitERNS0_11InterpStateENS0_7CodePtrERKNS0_7PointerE.exit:
 
 43:                                               ; preds = %38
   %44 = icmp eq ptr %42, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %4, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %4, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %44, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -82639,7 +82639,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp8InitElemILNS0_8PrimType
   br i1 %17, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i
 
 _ZNK5clang6interp7Pointer6isRootEv.exit.i.i:      ; preds = %14
-  %18 = getelementptr inbounds i8, ptr %4, i64 32
+  %18 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %19 = load i32, ptr %18, align 8
   %20 = getelementptr inbounds nuw i8, ptr %16, i64 32
   %21 = load ptr, ptr %20, align 8
@@ -82691,7 +82691,7 @@ _ZN5clang6interp9CheckInitERNS0_11InterpStateENS0_7CodePtrERKNS0_7PointerE.exit:
 
 43:                                               ; preds = %38
   %44 = icmp eq ptr %42, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %4, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %4, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %44, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -82776,7 +82776,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp8InitElemILNS0_8PrimType
   br i1 %17, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i
 
 _ZNK5clang6interp7Pointer6isRootEv.exit.i.i:      ; preds = %14
-  %18 = getelementptr inbounds i8, ptr %4, i64 32
+  %18 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %19 = load i32, ptr %18, align 8
   %20 = getelementptr inbounds nuw i8, ptr %16, i64 32
   %21 = load ptr, ptr %20, align 8
@@ -82828,7 +82828,7 @@ _ZN5clang6interp9CheckInitERNS0_11InterpStateENS0_7CodePtrERKNS0_7PointerE.exit:
 
 43:                                               ; preds = %38
   %44 = icmp eq ptr %42, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %4, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %4, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %44, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -82913,7 +82913,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp8InitElemILNS0_8PrimType
   br i1 %17, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i
 
 _ZNK5clang6interp7Pointer6isRootEv.exit.i.i:      ; preds = %14
-  %18 = getelementptr inbounds i8, ptr %4, i64 32
+  %18 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %19 = load i32, ptr %18, align 8
   %20 = getelementptr inbounds nuw i8, ptr %16, i64 32
   %21 = load ptr, ptr %20, align 8
@@ -82965,7 +82965,7 @@ _ZN5clang6interp9CheckInitERNS0_11InterpStateENS0_7CodePtrERKNS0_7PointerE.exit:
 
 43:                                               ; preds = %38
   %44 = icmp eq ptr %42, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %4, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %4, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %44, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -83058,7 +83058,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp8InitElemILNS0_8PrimType
   br i1 %22, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i
 
 _ZNK5clang6interp7Pointer6isRootEv.exit.i.i:      ; preds = %19
-  %23 = getelementptr inbounds i8, ptr %5, i64 32
+  %23 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %24 = load i32, ptr %23, align 8
   %25 = getelementptr inbounds nuw i8, ptr %21, i64 32
   %26 = load ptr, ptr %25, align 8
@@ -83110,7 +83110,7 @@ _ZN5clang6interp9CheckInitERNS0_11InterpStateENS0_7CodePtrERKNS0_7PointerE.exit:
 
 48:                                               ; preds = %43
   %49 = icmp eq ptr %47, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %5, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %5, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %49, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -83227,7 +83227,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp8InitElemILNS0_8PrimType
   br i1 %22, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i
 
 _ZNK5clang6interp7Pointer6isRootEv.exit.i.i:      ; preds = %19
-  %23 = getelementptr inbounds i8, ptr %5, i64 32
+  %23 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %24 = load i32, ptr %23, align 8
   %25 = getelementptr inbounds nuw i8, ptr %21, i64 32
   %26 = load ptr, ptr %25, align 8
@@ -83279,7 +83279,7 @@ _ZN5clang6interp9CheckInitERNS0_11InterpStateENS0_7CodePtrERKNS0_7PointerE.exit:
 
 48:                                               ; preds = %43
   %49 = icmp eq ptr %47, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %5, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %5, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %49, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -83388,7 +83388,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp8InitElemILNS0_8PrimType
   br i1 %17, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i
 
 _ZNK5clang6interp7Pointer6isRootEv.exit.i.i:      ; preds = %14
-  %18 = getelementptr inbounds i8, ptr %4, i64 32
+  %18 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %19 = load i32, ptr %18, align 8
   %20 = getelementptr inbounds nuw i8, ptr %16, i64 32
   %21 = load ptr, ptr %20, align 8
@@ -83440,7 +83440,7 @@ _ZN5clang6interp9CheckInitERNS0_11InterpStateENS0_7CodePtrERKNS0_7PointerE.exit:
 
 43:                                               ; preds = %38
   %44 = icmp eq ptr %42, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %4, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %4, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %44, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -83526,7 +83526,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp8InitElemILNS0_8PrimType
   br i1 %18, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i
 
 _ZNK5clang6interp7Pointer6isRootEv.exit.i.i:      ; preds = %15
-  %19 = getelementptr inbounds i8, ptr %5, i64 32
+  %19 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %20 = load i32, ptr %19, align 8
   %21 = getelementptr inbounds nuw i8, ptr %17, i64 32
   %22 = load ptr, ptr %21, align 8
@@ -83578,7 +83578,7 @@ _ZN5clang6interp9CheckInitERNS0_11InterpStateENS0_7CodePtrERKNS0_7PointerE.exit:
 
 44:                                               ; preds = %39
   %45 = icmp eq ptr %43, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %5, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %5, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %45, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -83665,7 +83665,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp8InitElemILNS0_8PrimType
   br i1 %18, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i
 
 _ZNK5clang6interp7Pointer6isRootEv.exit.i.i:      ; preds = %15
-  %19 = getelementptr inbounds i8, ptr %5, i64 32
+  %19 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %20 = load i32, ptr %19, align 8
   %21 = getelementptr inbounds nuw i8, ptr %17, i64 32
   %22 = load ptr, ptr %21, align 8
@@ -83717,7 +83717,7 @@ _ZN5clang6interp9CheckInitERNS0_11InterpStateENS0_7CodePtrERKNS0_7PointerE.exit:
 
 44:                                               ; preds = %39
   %45 = icmp eq ptr %43, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %5, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %5, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %45, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -83806,7 +83806,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp8InitElemILNS0_8PrimType
   br i1 %20, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i
 
 _ZNK5clang6interp7Pointer6isRootEv.exit.i.i:      ; preds = %17
-  %21 = getelementptr inbounds i8, ptr %5, i64 32
+  %21 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %22 = load i32, ptr %21, align 8
   %23 = getelementptr inbounds nuw i8, ptr %19, i64 32
   %24 = load ptr, ptr %23, align 8
@@ -83858,7 +83858,7 @@ _ZN5clang6interp9CheckInitERNS0_11InterpStateENS0_7CodePtrERKNS0_7PointerE.exit:
 
 46:                                               ; preds = %41
   %47 = icmp eq ptr %45, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %5, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %5, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %47, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -83962,7 +83962,7 @@ _ZN5clang6interp11InterpStack3popINS0_8FloatingEEET_v.exit: ; preds = %13, %14
   br i1 %24, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i
 
 _ZNK5clang6interp7Pointer6isRootEv.exit.i.i:      ; preds = %21
-  %25 = getelementptr inbounds i8, ptr %5, i64 32
+  %25 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %26 = load i32, ptr %25, align 8
   %27 = getelementptr inbounds nuw i8, ptr %23, i64 32
   %28 = load ptr, ptr %27, align 8
@@ -84014,7 +84014,7 @@ _ZN5clang6interp9CheckInitERNS0_11InterpStateENS0_7CodePtrERKNS0_7PointerE.exit:
 
 50:                                               ; preds = %45
   %51 = icmp eq ptr %49, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %5, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %5, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %51, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -84126,7 +84126,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp11InitElemPopILNS0_8Prim
   br i1 %18, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i
 
 _ZNK5clang6interp7Pointer6isRootEv.exit.i.i:      ; preds = %15
-  %19 = getelementptr inbounds i8, ptr %4, i64 32
+  %19 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %20 = load i32, ptr %19, align 8
   %21 = getelementptr inbounds nuw i8, ptr %17, i64 32
   %22 = load ptr, ptr %21, align 8
@@ -84178,7 +84178,7 @@ _ZN5clang6interp9CheckInitERNS0_11InterpStateENS0_7CodePtrERKNS0_7PointerE.exit:
 
 44:                                               ; preds = %39
   %45 = icmp eq ptr %43, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %4, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %4, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %45, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -84267,7 +84267,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp11InitElemPopILNS0_8Prim
   br i1 %18, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i
 
 _ZNK5clang6interp7Pointer6isRootEv.exit.i.i:      ; preds = %15
-  %19 = getelementptr inbounds i8, ptr %4, i64 32
+  %19 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %20 = load i32, ptr %19, align 8
   %21 = getelementptr inbounds nuw i8, ptr %17, i64 32
   %22 = load ptr, ptr %21, align 8
@@ -84319,7 +84319,7 @@ _ZN5clang6interp9CheckInitERNS0_11InterpStateENS0_7CodePtrERKNS0_7PointerE.exit:
 
 44:                                               ; preds = %39
   %45 = icmp eq ptr %43, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %4, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %4, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %45, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -84408,7 +84408,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp11InitElemPopILNS0_8Prim
   br i1 %18, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i
 
 _ZNK5clang6interp7Pointer6isRootEv.exit.i.i:      ; preds = %15
-  %19 = getelementptr inbounds i8, ptr %4, i64 32
+  %19 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %20 = load i32, ptr %19, align 8
   %21 = getelementptr inbounds nuw i8, ptr %17, i64 32
   %22 = load ptr, ptr %21, align 8
@@ -84460,7 +84460,7 @@ _ZN5clang6interp9CheckInitERNS0_11InterpStateENS0_7CodePtrERKNS0_7PointerE.exit:
 
 44:                                               ; preds = %39
   %45 = icmp eq ptr %43, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %4, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %4, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %45, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -84549,7 +84549,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp11InitElemPopILNS0_8Prim
   br i1 %18, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i
 
 _ZNK5clang6interp7Pointer6isRootEv.exit.i.i:      ; preds = %15
-  %19 = getelementptr inbounds i8, ptr %4, i64 32
+  %19 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %20 = load i32, ptr %19, align 8
   %21 = getelementptr inbounds nuw i8, ptr %17, i64 32
   %22 = load ptr, ptr %21, align 8
@@ -84601,7 +84601,7 @@ _ZN5clang6interp9CheckInitERNS0_11InterpStateENS0_7CodePtrERKNS0_7PointerE.exit:
 
 44:                                               ; preds = %39
   %45 = icmp eq ptr %43, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %4, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %4, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %45, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -84690,7 +84690,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp11InitElemPopILNS0_8Prim
   br i1 %18, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i
 
 _ZNK5clang6interp7Pointer6isRootEv.exit.i.i:      ; preds = %15
-  %19 = getelementptr inbounds i8, ptr %4, i64 32
+  %19 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %20 = load i32, ptr %19, align 8
   %21 = getelementptr inbounds nuw i8, ptr %17, i64 32
   %22 = load ptr, ptr %21, align 8
@@ -84742,7 +84742,7 @@ _ZN5clang6interp9CheckInitERNS0_11InterpStateENS0_7CodePtrERKNS0_7PointerE.exit:
 
 44:                                               ; preds = %39
   %45 = icmp eq ptr %43, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %4, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %4, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %45, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -84831,7 +84831,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp11InitElemPopILNS0_8Prim
   br i1 %18, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i
 
 _ZNK5clang6interp7Pointer6isRootEv.exit.i.i:      ; preds = %15
-  %19 = getelementptr inbounds i8, ptr %4, i64 32
+  %19 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %20 = load i32, ptr %19, align 8
   %21 = getelementptr inbounds nuw i8, ptr %17, i64 32
   %22 = load ptr, ptr %21, align 8
@@ -84883,7 +84883,7 @@ _ZN5clang6interp9CheckInitERNS0_11InterpStateENS0_7CodePtrERKNS0_7PointerE.exit:
 
 44:                                               ; preds = %39
   %45 = icmp eq ptr %43, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %4, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %4, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %45, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -84972,7 +84972,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp11InitElemPopILNS0_8Prim
   br i1 %18, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i
 
 _ZNK5clang6interp7Pointer6isRootEv.exit.i.i:      ; preds = %15
-  %19 = getelementptr inbounds i8, ptr %4, i64 32
+  %19 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %20 = load i32, ptr %19, align 8
   %21 = getelementptr inbounds nuw i8, ptr %17, i64 32
   %22 = load ptr, ptr %21, align 8
@@ -85024,7 +85024,7 @@ _ZN5clang6interp9CheckInitERNS0_11InterpStateENS0_7CodePtrERKNS0_7PointerE.exit:
 
 44:                                               ; preds = %39
   %45 = icmp eq ptr %43, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %4, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %4, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %45, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -85113,7 +85113,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp11InitElemPopILNS0_8Prim
   br i1 %18, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i
 
 _ZNK5clang6interp7Pointer6isRootEv.exit.i.i:      ; preds = %15
-  %19 = getelementptr inbounds i8, ptr %4, i64 32
+  %19 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %20 = load i32, ptr %19, align 8
   %21 = getelementptr inbounds nuw i8, ptr %17, i64 32
   %22 = load ptr, ptr %21, align 8
@@ -85165,7 +85165,7 @@ _ZN5clang6interp9CheckInitERNS0_11InterpStateENS0_7CodePtrERKNS0_7PointerE.exit:
 
 44:                                               ; preds = %39
   %45 = icmp eq ptr %43, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %4, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %4, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %45, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -85262,7 +85262,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp11InitElemPopILNS0_8Prim
   br i1 %23, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i
 
 _ZNK5clang6interp7Pointer6isRootEv.exit.i.i:      ; preds = %20
-  %24 = getelementptr inbounds i8, ptr %5, i64 32
+  %24 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %25 = load i32, ptr %24, align 8
   %26 = getelementptr inbounds nuw i8, ptr %22, i64 32
   %27 = load ptr, ptr %26, align 8
@@ -85314,7 +85314,7 @@ _ZN5clang6interp9CheckInitERNS0_11InterpStateENS0_7CodePtrERKNS0_7PointerE.exit:
 
 49:                                               ; preds = %44
   %50 = icmp eq ptr %48, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %5, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %5, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %50, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -85435,7 +85435,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp11InitElemPopILNS0_8Prim
   br i1 %23, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i
 
 _ZNK5clang6interp7Pointer6isRootEv.exit.i.i:      ; preds = %20
-  %24 = getelementptr inbounds i8, ptr %5, i64 32
+  %24 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %25 = load i32, ptr %24, align 8
   %26 = getelementptr inbounds nuw i8, ptr %22, i64 32
   %27 = load ptr, ptr %26, align 8
@@ -85487,7 +85487,7 @@ _ZN5clang6interp9CheckInitERNS0_11InterpStateENS0_7CodePtrERKNS0_7PointerE.exit:
 
 49:                                               ; preds = %44
   %50 = icmp eq ptr %48, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %5, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %5, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %50, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -85600,7 +85600,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp11InitElemPopILNS0_8Prim
   br i1 %18, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i
 
 _ZNK5clang6interp7Pointer6isRootEv.exit.i.i:      ; preds = %15
-  %19 = getelementptr inbounds i8, ptr %4, i64 32
+  %19 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %20 = load i32, ptr %19, align 8
   %21 = getelementptr inbounds nuw i8, ptr %17, i64 32
   %22 = load ptr, ptr %21, align 8
@@ -85652,7 +85652,7 @@ _ZN5clang6interp9CheckInitERNS0_11InterpStateENS0_7CodePtrERKNS0_7PointerE.exit:
 
 44:                                               ; preds = %39
   %45 = icmp eq ptr %43, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %4, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %4, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %45, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -85742,7 +85742,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp11InitElemPopILNS0_8Prim
   br i1 %19, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i
 
 _ZNK5clang6interp7Pointer6isRootEv.exit.i.i:      ; preds = %16
-  %20 = getelementptr inbounds i8, ptr %5, i64 32
+  %20 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %21 = load i32, ptr %20, align 8
   %22 = getelementptr inbounds nuw i8, ptr %18, i64 32
   %23 = load ptr, ptr %22, align 8
@@ -85794,7 +85794,7 @@ _ZN5clang6interp9CheckInitERNS0_11InterpStateENS0_7CodePtrERKNS0_7PointerE.exit:
 
 45:                                               ; preds = %40
   %46 = icmp eq ptr %44, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %5, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %5, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %46, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -85885,7 +85885,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp11InitElemPopILNS0_8Prim
   br i1 %19, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i
 
 _ZNK5clang6interp7Pointer6isRootEv.exit.i.i:      ; preds = %16
-  %20 = getelementptr inbounds i8, ptr %5, i64 32
+  %20 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %21 = load i32, ptr %20, align 8
   %22 = getelementptr inbounds nuw i8, ptr %18, i64 32
   %23 = load ptr, ptr %22, align 8
@@ -85937,7 +85937,7 @@ _ZN5clang6interp9CheckInitERNS0_11InterpStateENS0_7CodePtrERKNS0_7PointerE.exit:
 
 45:                                               ; preds = %40
   %46 = icmp eq ptr %44, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %5, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %5, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %46, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -86030,7 +86030,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp11InitElemPopILNS0_8Prim
   br i1 %21, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i
 
 _ZNK5clang6interp7Pointer6isRootEv.exit.i.i:      ; preds = %18
-  %22 = getelementptr inbounds i8, ptr %5, i64 32
+  %22 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %23 = load i32, ptr %22, align 8
   %24 = getelementptr inbounds nuw i8, ptr %20, i64 32
   %25 = load ptr, ptr %24, align 8
@@ -86082,7 +86082,7 @@ _ZN5clang6interp9CheckInitERNS0_11InterpStateENS0_7CodePtrERKNS0_7PointerE.exit:
 
 47:                                               ; preds = %42
   %48 = icmp eq ptr %46, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %5, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %5, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %48, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -86190,7 +86190,7 @@ _ZN5clang6interp11InterpStack3popINS0_8FloatingEEET_v.exit: ; preds = %14, %15
   br i1 %25, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i
 
 _ZNK5clang6interp7Pointer6isRootEv.exit.i.i:      ; preds = %22
-  %26 = getelementptr inbounds i8, ptr %5, i64 32
+  %26 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %27 = load i32, ptr %26, align 8
   %28 = getelementptr inbounds nuw i8, ptr %24, i64 32
   %29 = load ptr, ptr %28, align 8
@@ -86242,7 +86242,7 @@ _ZN5clang6interp9CheckInitERNS0_11InterpStateENS0_7CodePtrERKNS0_7PointerE.exit:
 
 51:                                               ; preds = %46
   %52 = icmp eq ptr %50, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %5, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %5, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %52, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -86356,7 +86356,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp9InitFieldILNS0_8PrimTyp
 
 21:                                               ; preds = %3
   %22 = icmp eq ptr %20, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %4, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %4, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %22, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -86445,7 +86445,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp9InitFieldILNS0_8PrimTyp
 
 21:                                               ; preds = %3
   %22 = icmp eq ptr %20, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %4, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %4, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %22, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -86534,7 +86534,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp9InitFieldILNS0_8PrimTyp
 
 21:                                               ; preds = %3
   %22 = icmp eq ptr %20, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %4, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %4, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %22, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -86623,7 +86623,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp9InitFieldILNS0_8PrimTyp
 
 21:                                               ; preds = %3
   %22 = icmp eq ptr %20, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %4, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %4, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %22, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -86712,7 +86712,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp9InitFieldILNS0_8PrimTyp
 
 21:                                               ; preds = %3
   %22 = icmp eq ptr %20, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %4, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %4, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %22, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -86801,7 +86801,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp9InitFieldILNS0_8PrimTyp
 
 21:                                               ; preds = %3
   %22 = icmp eq ptr %20, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %4, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %4, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %22, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -86890,7 +86890,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp9InitFieldILNS0_8PrimTyp
 
 21:                                               ; preds = %3
   %22 = icmp eq ptr %20, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %4, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %4, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %22, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -86979,7 +86979,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp9InitFieldILNS0_8PrimTyp
 
 21:                                               ; preds = %3
   %22 = icmp eq ptr %20, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %4, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %4, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %22, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -87076,7 +87076,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp9InitFieldILNS0_8PrimTyp
 
 26:                                               ; preds = %3
   %27 = icmp eq ptr %25, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %5, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %5, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %27, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -87203,7 +87203,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp9InitFieldILNS0_8PrimTyp
 
 26:                                               ; preds = %3
   %27 = icmp eq ptr %25, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %5, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %5, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %27, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -87322,7 +87322,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp9InitFieldILNS0_8PrimTyp
 
 21:                                               ; preds = %3
   %22 = icmp eq ptr %20, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %4, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %4, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %22, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -87412,7 +87412,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp9InitFieldILNS0_8PrimTyp
 
 22:                                               ; preds = %3
   %23 = icmp eq ptr %21, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %5, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %5, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %23, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -87503,7 +87503,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp9InitFieldILNS0_8PrimTyp
 
 22:                                               ; preds = %3
   %23 = icmp eq ptr %21, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %5, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %5, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %23, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -87596,7 +87596,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp9InitFieldILNS0_8PrimTyp
 
 24:                                               ; preds = %3
   %25 = icmp eq ptr %23, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %5, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %5, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %25, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -87704,7 +87704,7 @@ _ZN5clang6interp11InterpStack3popINS0_8FloatingEEET_v.exit: ; preds = %13, %14
 
 28:                                               ; preds = %_ZN5clang6interp11InterpStack3popINS0_8FloatingEEET_v.exit
   %29 = icmp eq ptr %27, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %5, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %5, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %29, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -87806,7 +87806,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp10InitGlobalILNS0_8PrimT
 
 20:                                               ; preds = %3
   %21 = icmp eq ptr %19, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %4, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %4, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %21, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -87893,7 +87893,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp10InitGlobalILNS0_8PrimT
 
 20:                                               ; preds = %3
   %21 = icmp eq ptr %19, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %4, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %4, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %21, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -87980,7 +87980,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp10InitGlobalILNS0_8PrimT
 
 20:                                               ; preds = %3
   %21 = icmp eq ptr %19, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %4, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %4, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %21, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -88067,7 +88067,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp10InitGlobalILNS0_8PrimT
 
 20:                                               ; preds = %3
   %21 = icmp eq ptr %19, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %4, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %4, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %21, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -88154,7 +88154,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp10InitGlobalILNS0_8PrimT
 
 20:                                               ; preds = %3
   %21 = icmp eq ptr %19, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %4, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %4, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %21, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -88241,7 +88241,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp10InitGlobalILNS0_8PrimT
 
 20:                                               ; preds = %3
   %21 = icmp eq ptr %19, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %4, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %4, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %21, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -88328,7 +88328,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp10InitGlobalILNS0_8PrimT
 
 20:                                               ; preds = %3
   %21 = icmp eq ptr %19, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %4, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %4, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %21, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -88415,7 +88415,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp10InitGlobalILNS0_8PrimT
 
 20:                                               ; preds = %3
   %21 = icmp eq ptr %19, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %4, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %4, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %21, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -88505,7 +88505,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp10InitGlobalILNS0_8PrimT
 
 23:                                               ; preds = %3
   %24 = icmp eq ptr %22, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %4, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %4, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %24, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -88611,7 +88611,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp10InitGlobalILNS0_8PrimT
 
 23:                                               ; preds = %3
   %24 = icmp eq ptr %22, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %4, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %4, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %24, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -88714,7 +88714,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp10InitGlobalILNS0_8PrimT
 
 20:                                               ; preds = %3
   %21 = icmp eq ptr %19, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %4, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %4, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %21, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -88802,7 +88802,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp10InitGlobalILNS0_8PrimT
 
 21:                                               ; preds = %3
   %22 = icmp eq ptr %20, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %4, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %4, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %22, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -88891,7 +88891,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp10InitGlobalILNS0_8PrimT
 
 21:                                               ; preds = %3
   %22 = icmp eq ptr %20, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %4, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %4, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %22, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -88982,7 +88982,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp10InitGlobalILNS0_8PrimT
 
 23:                                               ; preds = %3
   %24 = icmp eq ptr %22, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %4, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %4, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %24, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -89088,7 +89088,7 @@ _ZN5clang6interp11InterpStack3popINS0_8FloatingEEET_v.exit: ; preds = %20, %21
 
 27:                                               ; preds = %_ZN5clang6interp11InterpStack3popINS0_8FloatingEEET_v.exit
   %28 = icmp eq ptr %26, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %4, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %4, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %28, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -89185,8 +89185,8 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp14InitGlobalTempILNS0_8P
   %22 = call noundef nonnull align 8 dereferenceable(23096) ptr %21(ptr noundef nonnull align 8 dereferenceable(9) %18) #18
   %23 = zext i8 %16 to i64
   %24 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %25 = getelementptr inbounds i8, ptr %5, i64 16
-  %26 = getelementptr inbounds i8, ptr %5, i64 20
+  %25 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %5, i64 20
   store i32 2, ptr %5, align 8, !alias.scope !1900
   store i64 %23, ptr %24, align 8, !alias.scope !1900
   store i32 8, ptr %25, align 8, !alias.scope !1900
@@ -89244,7 +89244,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt4pairIPKN5clang4ExprEPKNS2_29LifetimeExtende
 
 54:                                               ; preds = %_ZN4llvm23SmallVectorTemplateBaseISt4pairIPKN5clang4ExprEPKNS2_29LifetimeExtendedTemporaryDeclEELb1EE9push_backES9_.exit
   %55 = icmp eq ptr %53, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %4, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %4, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %55, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -89336,8 +89336,8 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp14InitGlobalTempILNS0_8P
   %22 = call noundef nonnull align 8 dereferenceable(23096) ptr %21(ptr noundef nonnull align 8 dereferenceable(9) %18) #18
   %23 = zext i8 %16 to i64
   %24 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %25 = getelementptr inbounds i8, ptr %5, i64 16
-  %26 = getelementptr inbounds i8, ptr %5, i64 20
+  %25 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %5, i64 20
   store i32 2, ptr %5, align 8, !alias.scope !1903
   store i64 %23, ptr %24, align 8, !alias.scope !1903
   store i32 8, ptr %25, align 8, !alias.scope !1903
@@ -89395,7 +89395,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt4pairIPKN5clang4ExprEPKNS2_29LifetimeExtende
 
 54:                                               ; preds = %_ZN4llvm23SmallVectorTemplateBaseISt4pairIPKN5clang4ExprEPKNS2_29LifetimeExtendedTemporaryDeclEELb1EE9push_backES9_.exit
   %55 = icmp eq ptr %53, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %4, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %4, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %55, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -89487,8 +89487,8 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp14InitGlobalTempILNS0_8P
   %22 = call noundef nonnull align 8 dereferenceable(23096) ptr %21(ptr noundef nonnull align 8 dereferenceable(9) %18) #18
   %23 = zext i16 %16 to i64
   %24 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %25 = getelementptr inbounds i8, ptr %5, i64 16
-  %26 = getelementptr inbounds i8, ptr %5, i64 20
+  %25 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %5, i64 20
   store i32 2, ptr %5, align 8, !alias.scope !1906
   store i64 %23, ptr %24, align 8, !alias.scope !1906
   store i32 16, ptr %25, align 8, !alias.scope !1906
@@ -89546,7 +89546,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt4pairIPKN5clang4ExprEPKNS2_29LifetimeExtende
 
 54:                                               ; preds = %_ZN4llvm23SmallVectorTemplateBaseISt4pairIPKN5clang4ExprEPKNS2_29LifetimeExtendedTemporaryDeclEELb1EE9push_backES9_.exit
   %55 = icmp eq ptr %53, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %4, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %4, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %55, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -89638,8 +89638,8 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp14InitGlobalTempILNS0_8P
   %22 = call noundef nonnull align 8 dereferenceable(23096) ptr %21(ptr noundef nonnull align 8 dereferenceable(9) %18) #18
   %23 = zext i16 %16 to i64
   %24 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %25 = getelementptr inbounds i8, ptr %5, i64 16
-  %26 = getelementptr inbounds i8, ptr %5, i64 20
+  %25 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %5, i64 20
   store i32 2, ptr %5, align 8, !alias.scope !1909
   store i64 %23, ptr %24, align 8, !alias.scope !1909
   store i32 16, ptr %25, align 8, !alias.scope !1909
@@ -89697,7 +89697,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt4pairIPKN5clang4ExprEPKNS2_29LifetimeExtende
 
 54:                                               ; preds = %_ZN4llvm23SmallVectorTemplateBaseISt4pairIPKN5clang4ExprEPKNS2_29LifetimeExtendedTemporaryDeclEELb1EE9push_backES9_.exit
   %55 = icmp eq ptr %53, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %4, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %4, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %55, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -89789,8 +89789,8 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp14InitGlobalTempILNS0_8P
   %22 = call noundef nonnull align 8 dereferenceable(23096) ptr %21(ptr noundef nonnull align 8 dereferenceable(9) %18) #18
   %23 = zext i32 %16 to i64
   %24 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %25 = getelementptr inbounds i8, ptr %5, i64 16
-  %26 = getelementptr inbounds i8, ptr %5, i64 20
+  %25 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %5, i64 20
   store i32 2, ptr %5, align 8, !alias.scope !1912
   store i64 %23, ptr %24, align 8, !alias.scope !1912
   store i32 32, ptr %25, align 8, !alias.scope !1912
@@ -89848,7 +89848,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt4pairIPKN5clang4ExprEPKNS2_29LifetimeExtende
 
 54:                                               ; preds = %_ZN4llvm23SmallVectorTemplateBaseISt4pairIPKN5clang4ExprEPKNS2_29LifetimeExtendedTemporaryDeclEELb1EE9push_backES9_.exit
   %55 = icmp eq ptr %53, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %4, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %4, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %55, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -89940,8 +89940,8 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp14InitGlobalTempILNS0_8P
   %22 = call noundef nonnull align 8 dereferenceable(23096) ptr %21(ptr noundef nonnull align 8 dereferenceable(9) %18) #18
   %23 = zext i32 %16 to i64
   %24 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %25 = getelementptr inbounds i8, ptr %5, i64 16
-  %26 = getelementptr inbounds i8, ptr %5, i64 20
+  %25 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %5, i64 20
   store i32 2, ptr %5, align 8, !alias.scope !1915
   store i64 %23, ptr %24, align 8, !alias.scope !1915
   store i32 32, ptr %25, align 8, !alias.scope !1915
@@ -89999,7 +89999,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt4pairIPKN5clang4ExprEPKNS2_29LifetimeExtende
 
 54:                                               ; preds = %_ZN4llvm23SmallVectorTemplateBaseISt4pairIPKN5clang4ExprEPKNS2_29LifetimeExtendedTemporaryDeclEELb1EE9push_backES9_.exit
   %55 = icmp eq ptr %53, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %4, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %4, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %55, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -90090,8 +90090,8 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp14InitGlobalTempILNS0_8P
   %21 = load ptr, ptr %20, align 8
   %22 = call noundef nonnull align 8 dereferenceable(23096) ptr %21(ptr noundef nonnull align 8 dereferenceable(9) %18) #18
   %23 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %24 = getelementptr inbounds i8, ptr %5, i64 16
-  %25 = getelementptr inbounds i8, ptr %5, i64 20
+  %24 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %5, i64 20
   store i32 2, ptr %5, align 8, !alias.scope !1918
   store i64 %16, ptr %23, align 8, !alias.scope !1918
   store i32 64, ptr %24, align 8, !alias.scope !1918
@@ -90149,7 +90149,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt4pairIPKN5clang4ExprEPKNS2_29LifetimeExtende
 
 53:                                               ; preds = %_ZN4llvm23SmallVectorTemplateBaseISt4pairIPKN5clang4ExprEPKNS2_29LifetimeExtendedTemporaryDeclEELb1EE9push_backES9_.exit
   %54 = icmp eq ptr %52, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %4, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %4, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %54, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -90240,8 +90240,8 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp14InitGlobalTempILNS0_8P
   %21 = load ptr, ptr %20, align 8
   %22 = call noundef nonnull align 8 dereferenceable(23096) ptr %21(ptr noundef nonnull align 8 dereferenceable(9) %18) #18
   %23 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %24 = getelementptr inbounds i8, ptr %5, i64 16
-  %25 = getelementptr inbounds i8, ptr %5, i64 20
+  %24 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %5, i64 20
   store i32 2, ptr %5, align 8, !alias.scope !1921
   store i64 %16, ptr %23, align 8, !alias.scope !1921
   store i32 64, ptr %24, align 8, !alias.scope !1921
@@ -90299,7 +90299,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt4pairIPKN5clang4ExprEPKNS2_29LifetimeExtende
 
 53:                                               ; preds = %_ZN4llvm23SmallVectorTemplateBaseISt4pairIPKN5clang4ExprEPKNS2_29LifetimeExtendedTemporaryDeclEELb1EE9push_backES9_.exit
   %54 = icmp eq ptr %52, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %4, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %4, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %54, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -90415,8 +90415,8 @@ _ZN5clang6interp10IntegralAPILb0EEC2ERKS2_.exit:  ; preds = %23, %25
   %35 = load i64, ptr %5, align 8, !noalias !1927
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5), !noalias !1924
   %36 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %37 = getelementptr inbounds i8, ptr %8, i64 16
-  %38 = getelementptr inbounds i8, ptr %8, i64 20
+  %37 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  %38 = getelementptr inbounds nuw i8, ptr %8, i64 20
   store i32 2, ptr %8, align 8, !alias.scope !1924
   store i64 %35, ptr %36, align 8, !alias.scope !1924
   store i32 %34, ptr %37, align 8, !alias.scope !1924
@@ -90477,7 +90477,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt4pairIPKN5clang4ExprEPKNS2_29LifetimeExtende
 
 69:                                               ; preds = %_ZN4llvm23SmallVectorTemplateBaseISt4pairIPKN5clang4ExprEPKNS2_29LifetimeExtendedTemporaryDeclEELb1EE9push_backES9_.exit
   %70 = icmp eq ptr %68, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %6, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %6, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %70, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -90623,8 +90623,8 @@ _ZN5clang6interp10IntegralAPILb1EEC2ERKS2_.exit:  ; preds = %23, %25
   %35 = load i64, ptr %5, align 8, !noalias !1936
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5), !noalias !1933
   %36 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %37 = getelementptr inbounds i8, ptr %8, i64 16
-  %38 = getelementptr inbounds i8, ptr %8, i64 20
+  %37 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  %38 = getelementptr inbounds nuw i8, ptr %8, i64 20
   store i32 2, ptr %8, align 8, !alias.scope !1933
   store i64 %35, ptr %36, align 8, !alias.scope !1933
   store i32 %34, ptr %37, align 8, !alias.scope !1933
@@ -90685,7 +90685,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt4pairIPKN5clang4ExprEPKNS2_29LifetimeExtende
 
 69:                                               ; preds = %_ZN4llvm23SmallVectorTemplateBaseISt4pairIPKN5clang4ExprEPKNS2_29LifetimeExtendedTemporaryDeclEELb1EE9push_backES9_.exit
   %70 = icmp eq ptr %68, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %6, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %6, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %70, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -90808,8 +90808,8 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp14InitGlobalTempILNS0_8P
   %23 = and i8 %16, 1
   %24 = zext nneg i8 %23 to i64
   %25 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %26 = getelementptr inbounds i8, ptr %5, i64 16
-  %27 = getelementptr inbounds i8, ptr %5, i64 20
+  %26 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %27 = getelementptr inbounds nuw i8, ptr %5, i64 20
   store i32 2, ptr %5, align 8, !alias.scope !1942
   store i64 %24, ptr %25, align 8, !alias.scope !1942
   store i32 1, ptr %26, align 8, !alias.scope !1942
@@ -90867,7 +90867,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt4pairIPKN5clang4ExprEPKNS2_29LifetimeExtende
 
 55:                                               ; preds = %_ZN4llvm23SmallVectorTemplateBaseISt4pairIPKN5clang4ExprEPKNS2_29LifetimeExtendedTemporaryDeclEELb1EE9push_backES9_.exit
   %56 = icmp eq ptr %54, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %4, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %4, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %56, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -91013,7 +91013,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt4pairIPKN5clang4ExprEPKNS2_29LifetimeExtende
 
 51:                                               ; preds = %_ZN4llvm23SmallVectorTemplateBaseISt4pairIPKN5clang4ExprEPKNS2_29LifetimeExtendedTemporaryDeclEELb1EE9push_backES9_.exit
   %52 = icmp eq ptr %50, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %4, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %4, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %52, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -91161,7 +91161,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt4pairIPKN5clang4ExprEPKNS2_29LifetimeExtende
 
 51:                                               ; preds = %_ZN4llvm23SmallVectorTemplateBaseISt4pairIPKN5clang4ExprEPKNS2_29LifetimeExtendedTemporaryDeclEELb1EE9push_backES9_.exit
   %52 = icmp eq ptr %50, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %4, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %4, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %52, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -91313,7 +91313,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt4pairIPKN5clang4ExprEPKNS2_29LifetimeExtende
 
 55:                                               ; preds = %_ZN4llvm23SmallVectorTemplateBaseISt4pairIPKN5clang4ExprEPKNS2_29LifetimeExtendedTemporaryDeclEELb1EE9push_backES9_.exit
   %56 = icmp eq ptr %54, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %4, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %4, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %56, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -91521,7 +91521,7 @@ _ZN5clang6interp11InterpStack3popINS0_8FloatingEEET_v.exit: ; preds = %66, %67
 
 71:                                               ; preds = %_ZN5clang6interp11InterpStack3popINS0_8FloatingEEET_v.exit
   %72 = icmp eq ptr %70, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %6, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %6, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %72, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -91736,7 +91736,7 @@ _ZN5clang6interp9CheckInitERNS0_11InterpStateENS0_7CodePtrERKNS0_7PointerE.exit:
 
 17:                                               ; preds = %11
   %18 = icmp eq ptr %16, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %3, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %3, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %18, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -91831,7 +91831,7 @@ _ZN5clang6interp9CheckInitERNS0_11InterpStateENS0_7CodePtrERKNS0_7PointerE.exit:
 
 17:                                               ; preds = %11
   %18 = icmp eq ptr %16, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %3, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %3, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %18, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -91926,7 +91926,7 @@ _ZN5clang6interp9CheckInitERNS0_11InterpStateENS0_7CodePtrERKNS0_7PointerE.exit:
 
 17:                                               ; preds = %11
   %18 = icmp eq ptr %16, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %3, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %3, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %18, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -92021,7 +92021,7 @@ _ZN5clang6interp9CheckInitERNS0_11InterpStateENS0_7CodePtrERKNS0_7PointerE.exit:
 
 17:                                               ; preds = %11
   %18 = icmp eq ptr %16, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %3, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %3, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %18, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -92116,7 +92116,7 @@ _ZN5clang6interp9CheckInitERNS0_11InterpStateENS0_7CodePtrERKNS0_7PointerE.exit:
 
 17:                                               ; preds = %11
   %18 = icmp eq ptr %16, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %3, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %3, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %18, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -92211,7 +92211,7 @@ _ZN5clang6interp9CheckInitERNS0_11InterpStateENS0_7CodePtrERKNS0_7PointerE.exit:
 
 17:                                               ; preds = %11
   %18 = icmp eq ptr %16, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %3, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %3, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %18, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -92306,7 +92306,7 @@ _ZN5clang6interp9CheckInitERNS0_11InterpStateENS0_7CodePtrERKNS0_7PointerE.exit:
 
 17:                                               ; preds = %11
   %18 = icmp eq ptr %16, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %3, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %3, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %18, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -92401,7 +92401,7 @@ _ZN5clang6interp9CheckInitERNS0_11InterpStateENS0_7CodePtrERKNS0_7PointerE.exit:
 
 17:                                               ; preds = %11
   %18 = icmp eq ptr %16, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %3, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %3, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %18, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -92504,7 +92504,7 @@ _ZN5clang6interp9CheckInitERNS0_11InterpStateENS0_7CodePtrERKNS0_7PointerE.exit:
 
 22:                                               ; preds = %16
   %23 = icmp eq ptr %21, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %4, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %4, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %23, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -92631,7 +92631,7 @@ _ZN5clang6interp9CheckInitERNS0_11InterpStateENS0_7CodePtrERKNS0_7PointerE.exit:
 
 22:                                               ; preds = %16
   %23 = icmp eq ptr %21, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %4, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %4, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %23, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -92750,7 +92750,7 @@ _ZN5clang6interp9CheckInitERNS0_11InterpStateENS0_7CodePtrERKNS0_7PointerE.exit:
 
 17:                                               ; preds = %11
   %18 = icmp eq ptr %16, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %3, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %3, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %18, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -92846,7 +92846,7 @@ _ZN5clang6interp9CheckInitERNS0_11InterpStateENS0_7CodePtrERKNS0_7PointerE.exit:
 
 18:                                               ; preds = %12
   %19 = icmp eq ptr %17, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %4, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %4, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %19, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -92943,7 +92943,7 @@ _ZN5clang6interp9CheckInitERNS0_11InterpStateENS0_7CodePtrERKNS0_7PointerE.exit:
 
 18:                                               ; preds = %12
   %19 = icmp eq ptr %17, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %4, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %4, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %19, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -93042,7 +93042,7 @@ _ZN5clang6interp9CheckInitERNS0_11InterpStateENS0_7CodePtrERKNS0_7PointerE.exit:
 
 20:                                               ; preds = %14
   %21 = icmp eq ptr %19, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %4, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %4, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %21, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -93156,7 +93156,7 @@ _ZN5clang6interp9CheckInitERNS0_11InterpStateENS0_7CodePtrERKNS0_7PointerE.exit:
 
 24:                                               ; preds = %18
   %25 = icmp eq ptr %23, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %4, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %4, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %25, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -93262,7 +93262,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp16InitThisBitFieldILNS0_
   %18 = load i64, ptr %15, align 8, !noalias !2023
   %19 = trunc i64 %18 to i32
   %20 = add i32 %3, %19
-  %21 = getelementptr inbounds i8, ptr %14, i64 64
+  %21 = getelementptr inbounds nuw i8, ptr %14, i64 64
   %22 = load ptr, ptr %21, align 8, !noalias !2023
   %23 = zext i32 %20 to i64
   call void @_ZN5clang6interp7PointerC1EPNS0_5BlockEjm(ptr noundef nonnull align 8 dereferenceable(52) %5, ptr noundef %22, i32 noundef %20, i64 noundef %23) #18
@@ -93311,7 +93311,7 @@ _ZNK5clang6interp8IntegralILj8ELb1EE8truncateEj.exit: ; preds = %17, %35
 
 50:                                               ; preds = %_ZNK5clang6interp8IntegralILj8ELb1EE8truncateEj.exit
   %51 = icmp eq ptr %49, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %5, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %5, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %51, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -93395,7 +93395,7 @@ _ZNK5clang6interp8IntegralILj8ELb0EE8truncateEj.exit: ; preds = %12
   %17 = load i64, ptr %15, align 8, !noalias !2026
   %18 = trunc i64 %17 to i32
   %19 = add i32 %3, %18
-  %20 = getelementptr inbounds i8, ptr %14, i64 64
+  %20 = getelementptr inbounds nuw i8, ptr %14, i64 64
   %21 = load ptr, ptr %20, align 8, !noalias !2026
   %22 = zext i32 %19 to i64
   call void @_ZN5clang6interp7PointerC1EPNS0_5BlockEjm(ptr noundef nonnull align 8 dereferenceable(52) %5, ptr noundef %21, i32 noundef %19, i64 noundef %22) #18
@@ -93430,7 +93430,7 @@ _ZNK5clang6interp8IntegralILj8ELb0EE8truncateEj.exit: ; preds = %12
 
 42:                                               ; preds = %_ZNK5clang6interp8IntegralILj8ELb0EE8truncateEj.exit
   %43 = icmp eq ptr %41, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %5, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %5, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %43, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -93514,7 +93514,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp16InitThisBitFieldILNS0_
   %18 = load i64, ptr %15, align 8, !noalias !2029
   %19 = trunc i64 %18 to i32
   %20 = add i32 %3, %19
-  %21 = getelementptr inbounds i8, ptr %14, i64 64
+  %21 = getelementptr inbounds nuw i8, ptr %14, i64 64
   %22 = load ptr, ptr %21, align 8, !noalias !2029
   %23 = zext i32 %20 to i64
   call void @_ZN5clang6interp7PointerC1EPNS0_5BlockEjm(ptr noundef nonnull align 8 dereferenceable(52) %5, ptr noundef %22, i32 noundef %20, i64 noundef %23) #18
@@ -93563,7 +93563,7 @@ _ZNK5clang6interp8IntegralILj16ELb1EE8truncateEj.exit: ; preds = %17, %35
 
 50:                                               ; preds = %_ZNK5clang6interp8IntegralILj16ELb1EE8truncateEj.exit
   %51 = icmp eq ptr %49, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %5, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %5, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %51, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -93647,7 +93647,7 @@ _ZNK5clang6interp8IntegralILj16ELb0EE8truncateEj.exit: ; preds = %12
   %17 = load i64, ptr %15, align 8, !noalias !2032
   %18 = trunc i64 %17 to i32
   %19 = add i32 %3, %18
-  %20 = getelementptr inbounds i8, ptr %14, i64 64
+  %20 = getelementptr inbounds nuw i8, ptr %14, i64 64
   %21 = load ptr, ptr %20, align 8, !noalias !2032
   %22 = zext i32 %19 to i64
   call void @_ZN5clang6interp7PointerC1EPNS0_5BlockEjm(ptr noundef nonnull align 8 dereferenceable(52) %5, ptr noundef %21, i32 noundef %19, i64 noundef %22) #18
@@ -93682,7 +93682,7 @@ _ZNK5clang6interp8IntegralILj16ELb0EE8truncateEj.exit: ; preds = %12
 
 42:                                               ; preds = %_ZNK5clang6interp8IntegralILj16ELb0EE8truncateEj.exit
   %43 = icmp eq ptr %41, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %5, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %5, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %43, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -93766,7 +93766,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp16InitThisBitFieldILNS0_
   %18 = load i64, ptr %15, align 8, !noalias !2035
   %19 = trunc i64 %18 to i32
   %20 = add i32 %3, %19
-  %21 = getelementptr inbounds i8, ptr %14, i64 64
+  %21 = getelementptr inbounds nuw i8, ptr %14, i64 64
   %22 = load ptr, ptr %21, align 8, !noalias !2035
   %23 = zext i32 %20 to i64
   call void @_ZN5clang6interp7PointerC1EPNS0_5BlockEjm(ptr noundef nonnull align 8 dereferenceable(52) %5, ptr noundef %22, i32 noundef %20, i64 noundef %23) #18
@@ -93812,7 +93812,7 @@ _ZNK5clang6interp8IntegralILj32ELb1EE8truncateEj.exit: ; preds = %17, %35
 
 48:                                               ; preds = %_ZNK5clang6interp8IntegralILj32ELb1EE8truncateEj.exit
   %49 = icmp eq ptr %47, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %5, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %5, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %49, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -93896,7 +93896,7 @@ _ZNK5clang6interp8IntegralILj32ELb0EE8truncateEj.exit: ; preds = %12
   %17 = load i64, ptr %15, align 8, !noalias !2038
   %18 = trunc i64 %17 to i32
   %19 = add i32 %3, %18
-  %20 = getelementptr inbounds i8, ptr %14, i64 64
+  %20 = getelementptr inbounds nuw i8, ptr %14, i64 64
   %21 = load ptr, ptr %20, align 8, !noalias !2038
   %22 = zext i32 %19 to i64
   call void @_ZN5clang6interp7PointerC1EPNS0_5BlockEjm(ptr noundef nonnull align 8 dereferenceable(52) %5, ptr noundef %21, i32 noundef %19, i64 noundef %22) #18
@@ -93930,7 +93930,7 @@ _ZNK5clang6interp8IntegralILj32ELb0EE8truncateEj.exit: ; preds = %12
 
 41:                                               ; preds = %_ZNK5clang6interp8IntegralILj32ELb0EE8truncateEj.exit
   %42 = icmp eq ptr %40, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %5, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %5, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %42, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -94014,7 +94014,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp16InitThisBitFieldILNS0_
   %18 = load i64, ptr %15, align 8, !noalias !2041
   %19 = trunc i64 %18 to i32
   %20 = add i32 %3, %19
-  %21 = getelementptr inbounds i8, ptr %14, i64 64
+  %21 = getelementptr inbounds nuw i8, ptr %14, i64 64
   %22 = load ptr, ptr %21, align 8, !noalias !2041
   %23 = zext i32 %20 to i64
   call void @_ZN5clang6interp7PointerC1EPNS0_5BlockEjm(ptr noundef nonnull align 8 dereferenceable(52) %5, ptr noundef %22, i32 noundef %20, i64 noundef %23) #18
@@ -94062,7 +94062,7 @@ _ZNK5clang6interp8IntegralILj64ELb1EE8truncateEj.exit: ; preds = %17, %35
 
 50:                                               ; preds = %_ZNK5clang6interp8IntegralILj64ELb1EE8truncateEj.exit
   %51 = icmp eq ptr %49, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %5, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %5, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %51, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -94146,7 +94146,7 @@ _ZNK5clang6interp8IntegralILj64ELb0EE8truncateEj.exit: ; preds = %12
   %17 = load i64, ptr %15, align 8, !noalias !2044
   %18 = trunc i64 %17 to i32
   %19 = add i32 %3, %18
-  %20 = getelementptr inbounds i8, ptr %14, i64 64
+  %20 = getelementptr inbounds nuw i8, ptr %14, i64 64
   %21 = load ptr, ptr %20, align 8, !noalias !2044
   %22 = zext i32 %19 to i64
   call void @_ZN5clang6interp7PointerC1EPNS0_5BlockEjm(ptr noundef nonnull align 8 dereferenceable(52) %5, ptr noundef %21, i32 noundef %19, i64 noundef %22) #18
@@ -94181,7 +94181,7 @@ _ZNK5clang6interp8IntegralILj64ELb0EE8truncateEj.exit: ; preds = %12
 
 42:                                               ; preds = %_ZNK5clang6interp8IntegralILj64ELb0EE8truncateEj.exit
   %43 = icmp eq ptr %41, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %5, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %5, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %43, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -94267,7 +94267,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp16InitThisBitFieldILNS0_
   %20 = load i64, ptr %17, align 8, !noalias !2047
   %21 = trunc i64 %20 to i32
   %22 = add i32 %3, %21
-  %23 = getelementptr inbounds i8, ptr %16, i64 64
+  %23 = getelementptr inbounds nuw i8, ptr %16, i64 64
   %24 = load ptr, ptr %23, align 8, !noalias !2047
   %25 = zext i32 %22 to i64
   call void @_ZN5clang6interp7PointerC1EPNS0_5BlockEjm(ptr noundef nonnull align 8 dereferenceable(52) %5, ptr noundef %24, i32 noundef %22, i64 noundef %25) #18
@@ -94304,7 +94304,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp16InitThisBitFieldILNS0_
 
 45:                                               ; preds = %19
   %46 = icmp eq ptr %44, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %5, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %5, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %46, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -94424,7 +94424,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp16InitThisBitFieldILNS0_
   %20 = load i64, ptr %17, align 8, !noalias !2053
   %21 = trunc i64 %20 to i32
   %22 = add i32 %3, %21
-  %23 = getelementptr inbounds i8, ptr %16, i64 64
+  %23 = getelementptr inbounds nuw i8, ptr %16, i64 64
   %24 = load ptr, ptr %23, align 8, !noalias !2053
   %25 = zext i32 %22 to i64
   call void @_ZN5clang6interp7PointerC1EPNS0_5BlockEjm(ptr noundef nonnull align 8 dereferenceable(52) %5, ptr noundef %24, i32 noundef %22, i64 noundef %25) #18
@@ -94461,7 +94461,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp16InitThisBitFieldILNS0_
 
 45:                                               ; preds = %19
   %46 = icmp eq ptr %44, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %5, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %5, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %46, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -94579,7 +94579,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp16InitThisBitFieldILNS0_
   %18 = load i64, ptr %15, align 8, !noalias !2059
   %19 = trunc i64 %18 to i32
   %20 = add i32 %3, %19
-  %21 = getelementptr inbounds i8, ptr %14, i64 64
+  %21 = getelementptr inbounds nuw i8, ptr %14, i64 64
   %22 = load ptr, ptr %21, align 8, !noalias !2059
   %23 = zext i32 %20 to i64
   call void @_ZN5clang6interp7PointerC1EPNS0_5BlockEjm(ptr noundef nonnull align 8 dereferenceable(52) %5, ptr noundef %22, i32 noundef %20, i64 noundef %23) #18
@@ -94608,7 +94608,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp16InitThisBitFieldILNS0_
 
 39:                                               ; preds = %17
   %40 = icmp eq ptr %38, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %5, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %5, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %40, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -94692,7 +94692,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp13InitThisFieldILNS0_8Pr
   %17 = load i64, ptr %14, align 8, !noalias !2062
   %18 = trunc i64 %17 to i32
   %19 = add i32 %2, %18
-  %20 = getelementptr inbounds i8, ptr %13, i64 64
+  %20 = getelementptr inbounds nuw i8, ptr %13, i64 64
   %21 = load ptr, ptr %20, align 8, !noalias !2062
   %22 = zext i32 %19 to i64
   call void @_ZN5clang6interp7PointerC1EPNS0_5BlockEjm(ptr noundef nonnull align 8 dereferenceable(52) %4, ptr noundef %21, i32 noundef %19, i64 noundef %22) #18
@@ -94714,7 +94714,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp13InitThisFieldILNS0_8Pr
 
 31:                                               ; preds = %16
   %32 = icmp eq ptr %30, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %4, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %4, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %32, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -94799,7 +94799,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp13InitThisFieldILNS0_8Pr
   %17 = load i64, ptr %14, align 8, !noalias !2065
   %18 = trunc i64 %17 to i32
   %19 = add i32 %2, %18
-  %20 = getelementptr inbounds i8, ptr %13, i64 64
+  %20 = getelementptr inbounds nuw i8, ptr %13, i64 64
   %21 = load ptr, ptr %20, align 8, !noalias !2065
   %22 = zext i32 %19 to i64
   call void @_ZN5clang6interp7PointerC1EPNS0_5BlockEjm(ptr noundef nonnull align 8 dereferenceable(52) %4, ptr noundef %21, i32 noundef %19, i64 noundef %22) #18
@@ -94821,7 +94821,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp13InitThisFieldILNS0_8Pr
 
 31:                                               ; preds = %16
   %32 = icmp eq ptr %30, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %4, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %4, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %32, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -94906,7 +94906,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp13InitThisFieldILNS0_8Pr
   %17 = load i64, ptr %14, align 8, !noalias !2068
   %18 = trunc i64 %17 to i32
   %19 = add i32 %2, %18
-  %20 = getelementptr inbounds i8, ptr %13, i64 64
+  %20 = getelementptr inbounds nuw i8, ptr %13, i64 64
   %21 = load ptr, ptr %20, align 8, !noalias !2068
   %22 = zext i32 %19 to i64
   call void @_ZN5clang6interp7PointerC1EPNS0_5BlockEjm(ptr noundef nonnull align 8 dereferenceable(52) %4, ptr noundef %21, i32 noundef %19, i64 noundef %22) #18
@@ -94928,7 +94928,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp13InitThisFieldILNS0_8Pr
 
 31:                                               ; preds = %16
   %32 = icmp eq ptr %30, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %4, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %4, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %32, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -95013,7 +95013,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp13InitThisFieldILNS0_8Pr
   %17 = load i64, ptr %14, align 8, !noalias !2071
   %18 = trunc i64 %17 to i32
   %19 = add i32 %2, %18
-  %20 = getelementptr inbounds i8, ptr %13, i64 64
+  %20 = getelementptr inbounds nuw i8, ptr %13, i64 64
   %21 = load ptr, ptr %20, align 8, !noalias !2071
   %22 = zext i32 %19 to i64
   call void @_ZN5clang6interp7PointerC1EPNS0_5BlockEjm(ptr noundef nonnull align 8 dereferenceable(52) %4, ptr noundef %21, i32 noundef %19, i64 noundef %22) #18
@@ -95035,7 +95035,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp13InitThisFieldILNS0_8Pr
 
 31:                                               ; preds = %16
   %32 = icmp eq ptr %30, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %4, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %4, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %32, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -95120,7 +95120,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp13InitThisFieldILNS0_8Pr
   %17 = load i64, ptr %14, align 8, !noalias !2074
   %18 = trunc i64 %17 to i32
   %19 = add i32 %2, %18
-  %20 = getelementptr inbounds i8, ptr %13, i64 64
+  %20 = getelementptr inbounds nuw i8, ptr %13, i64 64
   %21 = load ptr, ptr %20, align 8, !noalias !2074
   %22 = zext i32 %19 to i64
   call void @_ZN5clang6interp7PointerC1EPNS0_5BlockEjm(ptr noundef nonnull align 8 dereferenceable(52) %4, ptr noundef %21, i32 noundef %19, i64 noundef %22) #18
@@ -95142,7 +95142,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp13InitThisFieldILNS0_8Pr
 
 31:                                               ; preds = %16
   %32 = icmp eq ptr %30, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %4, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %4, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %32, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -95227,7 +95227,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp13InitThisFieldILNS0_8Pr
   %17 = load i64, ptr %14, align 8, !noalias !2077
   %18 = trunc i64 %17 to i32
   %19 = add i32 %2, %18
-  %20 = getelementptr inbounds i8, ptr %13, i64 64
+  %20 = getelementptr inbounds nuw i8, ptr %13, i64 64
   %21 = load ptr, ptr %20, align 8, !noalias !2077
   %22 = zext i32 %19 to i64
   call void @_ZN5clang6interp7PointerC1EPNS0_5BlockEjm(ptr noundef nonnull align 8 dereferenceable(52) %4, ptr noundef %21, i32 noundef %19, i64 noundef %22) #18
@@ -95249,7 +95249,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp13InitThisFieldILNS0_8Pr
 
 31:                                               ; preds = %16
   %32 = icmp eq ptr %30, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %4, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %4, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %32, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -95334,7 +95334,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp13InitThisFieldILNS0_8Pr
   %17 = load i64, ptr %14, align 8, !noalias !2080
   %18 = trunc i64 %17 to i32
   %19 = add i32 %2, %18
-  %20 = getelementptr inbounds i8, ptr %13, i64 64
+  %20 = getelementptr inbounds nuw i8, ptr %13, i64 64
   %21 = load ptr, ptr %20, align 8, !noalias !2080
   %22 = zext i32 %19 to i64
   call void @_ZN5clang6interp7PointerC1EPNS0_5BlockEjm(ptr noundef nonnull align 8 dereferenceable(52) %4, ptr noundef %21, i32 noundef %19, i64 noundef %22) #18
@@ -95356,7 +95356,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp13InitThisFieldILNS0_8Pr
 
 31:                                               ; preds = %16
   %32 = icmp eq ptr %30, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %4, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %4, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %32, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -95441,7 +95441,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp13InitThisFieldILNS0_8Pr
   %17 = load i64, ptr %14, align 8, !noalias !2083
   %18 = trunc i64 %17 to i32
   %19 = add i32 %2, %18
-  %20 = getelementptr inbounds i8, ptr %13, i64 64
+  %20 = getelementptr inbounds nuw i8, ptr %13, i64 64
   %21 = load ptr, ptr %20, align 8, !noalias !2083
   %22 = zext i32 %19 to i64
   call void @_ZN5clang6interp7PointerC1EPNS0_5BlockEjm(ptr noundef nonnull align 8 dereferenceable(52) %4, ptr noundef %21, i32 noundef %19, i64 noundef %22) #18
@@ -95463,7 +95463,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp13InitThisFieldILNS0_8Pr
 
 31:                                               ; preds = %16
   %32 = icmp eq ptr %30, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %4, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %4, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %32, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -95548,7 +95548,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp13InitThisFieldILNS0_8Pr
   %17 = load i64, ptr %14, align 8, !noalias !2086
   %18 = trunc i64 %17 to i32
   %19 = add i32 %2, %18
-  %20 = getelementptr inbounds i8, ptr %13, i64 64
+  %20 = getelementptr inbounds nuw i8, ptr %13, i64 64
   %21 = load ptr, ptr %20, align 8, !noalias !2086
   %22 = zext i32 %19 to i64
   call void @_ZN5clang6interp7PointerC1EPNS0_5BlockEjm(ptr noundef nonnull align 8 dereferenceable(52) %4, ptr noundef %21, i32 noundef %19, i64 noundef %22) #18
@@ -95573,7 +95573,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp13InitThisFieldILNS0_8Pr
 
 34:                                               ; preds = %16
   %35 = icmp eq ptr %33, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %4, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %4, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %35, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -95674,7 +95674,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp13InitThisFieldILNS0_8Pr
   %17 = load i64, ptr %14, align 8, !noalias !2092
   %18 = trunc i64 %17 to i32
   %19 = add i32 %2, %18
-  %20 = getelementptr inbounds i8, ptr %13, i64 64
+  %20 = getelementptr inbounds nuw i8, ptr %13, i64 64
   %21 = load ptr, ptr %20, align 8, !noalias !2092
   %22 = zext i32 %19 to i64
   call void @_ZN5clang6interp7PointerC1EPNS0_5BlockEjm(ptr noundef nonnull align 8 dereferenceable(52) %4, ptr noundef %21, i32 noundef %19, i64 noundef %22) #18
@@ -95699,7 +95699,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp13InitThisFieldILNS0_8Pr
 
 34:                                               ; preds = %16
   %35 = icmp eq ptr %33, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %4, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %4, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %35, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -95800,7 +95800,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp13InitThisFieldILNS0_8Pr
   %17 = load i64, ptr %14, align 8, !noalias !2098
   %18 = trunc i64 %17 to i32
   %19 = add i32 %2, %18
-  %20 = getelementptr inbounds i8, ptr %13, i64 64
+  %20 = getelementptr inbounds nuw i8, ptr %13, i64 64
   %21 = load ptr, ptr %20, align 8, !noalias !2098
   %22 = zext i32 %19 to i64
   call void @_ZN5clang6interp7PointerC1EPNS0_5BlockEjm(ptr noundef nonnull align 8 dereferenceable(52) %4, ptr noundef %21, i32 noundef %19, i64 noundef %22) #18
@@ -95822,7 +95822,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp13InitThisFieldILNS0_8Pr
 
 31:                                               ; preds = %16
   %32 = icmp eq ptr %30, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %4, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %4, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %32, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -95908,7 +95908,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp13InitThisFieldILNS0_8Pr
   %18 = load i64, ptr %15, align 8, !noalias !2101
   %19 = trunc i64 %18 to i32
   %20 = add i32 %2, %19
-  %21 = getelementptr inbounds i8, ptr %14, i64 64
+  %21 = getelementptr inbounds nuw i8, ptr %14, i64 64
   %22 = load ptr, ptr %21, align 8, !noalias !2101
   %23 = zext i32 %20 to i64
   call void @_ZN5clang6interp7PointerC1EPNS0_5BlockEjm(ptr noundef nonnull align 8 dereferenceable(52) %4, ptr noundef %22, i32 noundef %20, i64 noundef %23) #18
@@ -95930,7 +95930,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp13InitThisFieldILNS0_8Pr
 
 32:                                               ; preds = %17
   %33 = icmp eq ptr %31, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %4, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %4, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %33, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -96017,7 +96017,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp13InitThisFieldILNS0_8Pr
   %18 = load i64, ptr %15, align 8, !noalias !2107
   %19 = trunc i64 %18 to i32
   %20 = add i32 %2, %19
-  %21 = getelementptr inbounds i8, ptr %14, i64 64
+  %21 = getelementptr inbounds nuw i8, ptr %14, i64 64
   %22 = load ptr, ptr %21, align 8, !noalias !2107
   %23 = zext i32 %20 to i64
   call void @_ZN5clang6interp7PointerC1EPNS0_5BlockEjm(ptr noundef nonnull align 8 dereferenceable(52) %4, ptr noundef %22, i32 noundef %20, i64 noundef %23) #18
@@ -96039,7 +96039,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp13InitThisFieldILNS0_8Pr
 
 32:                                               ; preds = %17
   %33 = icmp eq ptr %31, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %4, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %4, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %33, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -96125,7 +96125,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp13InitThisFieldILNS0_8Pr
   %18 = load i64, ptr %15, align 8, !noalias !2113
   %19 = trunc i64 %18 to i32
   %20 = add i32 %2, %19
-  %21 = getelementptr inbounds i8, ptr %14, i64 64
+  %21 = getelementptr inbounds nuw i8, ptr %14, i64 64
   %22 = load ptr, ptr %21, align 8, !noalias !2113
   %23 = zext i32 %20 to i64
   call void @_ZN5clang6interp7PointerC1EPNS0_5BlockEjm(ptr noundef nonnull align 8 dereferenceable(52) %4, ptr noundef %22, i32 noundef %20, i64 noundef %23) #18
@@ -96150,7 +96150,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp13InitThisFieldILNS0_8Pr
 
 34:                                               ; preds = %17
   %35 = icmp eq ptr %33, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %4, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %4, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %35, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -96239,7 +96239,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp13InitThisFieldILNS0_8Pr
   %18 = load i64, ptr %15, align 8, !noalias !2119
   %19 = trunc i64 %18 to i32
   %20 = add i32 %2, %19
-  %21 = getelementptr inbounds i8, ptr %14, i64 64
+  %21 = getelementptr inbounds nuw i8, ptr %14, i64 64
   %22 = load ptr, ptr %21, align 8, !noalias !2119
   %23 = zext i32 %20 to i64
   call void @_ZN5clang6interp7PointerC1EPNS0_5BlockEjm(ptr noundef nonnull align 8 dereferenceable(52) %4, ptr noundef %22, i32 noundef %20, i64 noundef %23) #18
@@ -96276,7 +96276,7 @@ _ZN5clang6interp11InterpStack3popINS0_8FloatingEEET_v.exit: ; preds = %31, %32
 
 38:                                               ; preds = %_ZN5clang6interp11InterpStack3popINS0_8FloatingEEET_v.exit
   %39 = icmp eq ptr %37, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %4, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %4, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %39, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -96502,7 +96502,7 @@ _ZNK5clang6interp7Pointer6isWeakEv.exit.thread:   ; preds = %_ZNK5clang6interp7P
   br label %_ZNK5clang6interp7Pointer6isZeroEv.exit
 
 36:                                               ; preds = %_ZNK5clang6interp7Pointer6isWeakEv.exit.thread
-  %37 = getelementptr inbounds i8, ptr %3, i64 32
+  %37 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %38 = load i64, ptr %37, align 8
   %39 = icmp eq i64 %38, 0
   %40 = load i64, ptr %3, align 8
@@ -96616,7 +96616,7 @@ _ZNK5clang6interp13MemberPointer6isWeakEv.exit.thread: ; preds = %2, %10, %_ZNK5
   br label %_ZNK5clang6interp13MemberPointer6isZeroEv.exit
 
 26:                                               ; preds = %_ZNK5clang6interp13MemberPointer6isWeakEv.exit.thread
-  %27 = getelementptr inbounds i8, ptr %3, i64 32
+  %27 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %28 = load i64, ptr %27, align 8
   %29 = icmp eq i64 %28, 0
   %30 = load i64, ptr %3, align 8
@@ -97042,7 +97042,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp4LoadILNS0_8PrimTypeE0EN
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %13 = load ptr, ptr %12, align 8
   %14 = icmp eq ptr %13, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %5, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %5, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %14, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -97108,7 +97108,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp4LoadILNS0_8PrimTypeE1EN
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %13 = load ptr, ptr %12, align 8
   %14 = icmp eq ptr %13, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %5, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %5, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %14, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -97174,7 +97174,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp4LoadILNS0_8PrimTypeE2EN
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %13 = load ptr, ptr %12, align 8
   %14 = icmp eq ptr %13, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %5, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %5, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %14, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -97240,7 +97240,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp4LoadILNS0_8PrimTypeE3EN
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %13 = load ptr, ptr %12, align 8
   %14 = icmp eq ptr %13, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %5, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %5, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %14, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -97306,7 +97306,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp4LoadILNS0_8PrimTypeE4EN
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %13 = load ptr, ptr %12, align 8
   %14 = icmp eq ptr %13, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %5, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %5, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %14, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -97372,7 +97372,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp4LoadILNS0_8PrimTypeE5EN
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %13 = load ptr, ptr %12, align 8
   %14 = icmp eq ptr %13, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %5, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %5, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %14, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -97438,7 +97438,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp4LoadILNS0_8PrimTypeE6EN
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %13 = load ptr, ptr %12, align 8
   %14 = icmp eq ptr %13, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %5, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %5, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %14, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -97504,7 +97504,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp4LoadILNS0_8PrimTypeE7EN
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %13 = load ptr, ptr %12, align 8
   %14 = icmp eq ptr %13, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %5, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %5, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %14, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -97570,7 +97570,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp4LoadILNS0_8PrimTypeE8EN
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %13 = load ptr, ptr %12, align 8
   %14 = icmp eq ptr %13, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %5, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %5, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %14, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -97648,7 +97648,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp4LoadILNS0_8PrimTypeE9EN
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %13 = load ptr, ptr %12, align 8
   %14 = icmp eq ptr %13, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %5, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %5, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %14, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -97726,7 +97726,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp4LoadILNS0_8PrimTypeE10E
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %13 = load ptr, ptr %12, align 8
   %14 = icmp eq ptr %13, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %5, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %5, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %14, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -97792,7 +97792,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp4LoadILNS0_8PrimTypeE12E
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %13 = load ptr, ptr %12, align 8
   %14 = icmp eq ptr %13, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %5, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %5, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %14, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -97857,7 +97857,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp4LoadILNS0_8PrimTypeE13E
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %13 = load ptr, ptr %12, align 8
   %14 = icmp eq ptr %13, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %5, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %5, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %14, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -97922,7 +97922,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp4LoadILNS0_8PrimTypeE14E
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %13 = load ptr, ptr %12, align 8
   %14 = icmp eq ptr %13, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %5, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %5, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %14, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -97990,7 +97990,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp4LoadILNS0_8PrimTypeE11E
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %13 = load ptr, ptr %12, align 8
   %14 = icmp eq ptr %13, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %5, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %5, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %14, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -98070,7 +98070,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp7LoadPopILNS0_8PrimTypeE
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %14 = load ptr, ptr %13, align 8
   %15 = icmp eq ptr %14, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %3, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %3, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %15, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -98140,7 +98140,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp7LoadPopILNS0_8PrimTypeE
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %14 = load ptr, ptr %13, align 8
   %15 = icmp eq ptr %14, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %3, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %3, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %15, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -98210,7 +98210,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp7LoadPopILNS0_8PrimTypeE
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %14 = load ptr, ptr %13, align 8
   %15 = icmp eq ptr %14, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %3, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %3, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %15, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -98280,7 +98280,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp7LoadPopILNS0_8PrimTypeE
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %14 = load ptr, ptr %13, align 8
   %15 = icmp eq ptr %14, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %3, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %3, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %15, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -98350,7 +98350,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp7LoadPopILNS0_8PrimTypeE
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %14 = load ptr, ptr %13, align 8
   %15 = icmp eq ptr %14, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %3, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %3, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %15, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -98420,7 +98420,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp7LoadPopILNS0_8PrimTypeE
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %14 = load ptr, ptr %13, align 8
   %15 = icmp eq ptr %14, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %3, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %3, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %15, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -98490,7 +98490,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp7LoadPopILNS0_8PrimTypeE
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %14 = load ptr, ptr %13, align 8
   %15 = icmp eq ptr %14, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %3, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %3, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %15, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -98560,7 +98560,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp7LoadPopILNS0_8PrimTypeE
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %14 = load ptr, ptr %13, align 8
   %15 = icmp eq ptr %14, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %3, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %3, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %15, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -98630,7 +98630,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp7LoadPopILNS0_8PrimTypeE
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %14 = load ptr, ptr %13, align 8
   %15 = icmp eq ptr %14, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %3, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %3, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %15, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -98712,7 +98712,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp7LoadPopILNS0_8PrimTypeE
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %14 = load ptr, ptr %13, align 8
   %15 = icmp eq ptr %14, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %3, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %3, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %15, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -98794,7 +98794,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp7LoadPopILNS0_8PrimTypeE
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %14 = load ptr, ptr %13, align 8
   %15 = icmp eq ptr %14, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %3, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %3, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %15, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -98864,7 +98864,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp7LoadPopILNS0_8PrimTypeE
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %14 = load ptr, ptr %13, align 8
   %15 = icmp eq ptr %14, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %3, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %3, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %15, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -98933,7 +98933,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp7LoadPopILNS0_8PrimTypeE
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %14 = load ptr, ptr %13, align 8
   %15 = icmp eq ptr %14, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %3, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %3, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %15, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -99002,7 +99002,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp7LoadPopILNS0_8PrimTypeE
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %14 = load ptr, ptr %13, align 8
   %15 = icmp eq ptr %14, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %3, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %3, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %15, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -99074,7 +99074,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp7LoadPopILNS0_8PrimTypeE
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %14 = load ptr, ptr %13, align 8
   %15 = icmp eq ptr %14, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %3, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %3, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %15, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -99483,7 +99483,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5clang6interp4MulcILNS0_8PrimT
 
 25:                                               ; preds = %2
   %26 = icmp eq ptr %24, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %5, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %5, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %26, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -99550,7 +99550,7 @@ _ZNK5clang6interp7Pointer5derefINS0_8IntegralILj8ELb1EEEEERT_v.exit: ; preds = %
 
 56:                                               ; preds = %_ZNK5clang6interp7Pointer5derefINS0_8IntegralILj8ELb1EEEEERT_v.exit
   %57 = icmp eq ptr %55, null
-  %.phi.trans.insert101.phi.trans.insert = getelementptr inbounds i8, ptr %6, i64 32
+  %.phi.trans.insert101.phi.trans.insert = getelementptr inbounds nuw i8, ptr %6, i64 32
   %.pre102.pre = load i32, ptr %.phi.trans.insert101.phi.trans.insert, align 8
   br i1 %57, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i48, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i42
 
@@ -99617,7 +99617,7 @@ _ZNK5clang6interp7Pointer5derefINS0_8IntegralILj8ELb1EEEEERT_v.exit49: ; preds =
 
 87:                                               ; preds = %_ZNK5clang6interp7Pointer5derefINS0_8IntegralILj8ELb1EEEEERT_v.exit49
   %88 = icmp eq ptr %86, null
-  %.phi.trans.insert103.phi.trans.insert = getelementptr inbounds i8, ptr %7, i64 32
+  %.phi.trans.insert103.phi.trans.insert = getelementptr inbounds nuw i8, ptr %7, i64 32
   %.pre104.pre = load i32, ptr %.phi.trans.insert103.phi.trans.insert, align 8
   br i1 %88, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i60, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i54
 
@@ -99684,7 +99684,7 @@ _ZNK5clang6interp7Pointer5derefINS0_8IntegralILj8ELb1EEEEERT_v.exit61: ; preds =
 
 118:                                              ; preds = %_ZNK5clang6interp7Pointer5derefINS0_8IntegralILj8ELb1EEEEERT_v.exit61
   %119 = icmp eq ptr %117, null
-  %.phi.trans.insert105.phi.trans.insert = getelementptr inbounds i8, ptr %8, i64 32
+  %.phi.trans.insert105.phi.trans.insert = getelementptr inbounds nuw i8, ptr %8, i64 32
   %.pre106.pre = load i32, ptr %.phi.trans.insert105.phi.trans.insert, align 8
   br i1 %119, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i72, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i66
 
@@ -99767,7 +99767,7 @@ _ZNK5clang6interp7Pointer5derefINS0_8IntegralILj8ELb1EEEEERT_v.exit73: ; preds =
 
 157:                                              ; preds = %151
   %158 = icmp eq ptr %156, null
-  %.phi.trans.insert107.phi.trans.insert = getelementptr inbounds i8, ptr %9, i64 32
+  %.phi.trans.insert107.phi.trans.insert = getelementptr inbounds nuw i8, ptr %9, i64 32
   %.pre108.pre = load i32, ptr %.phi.trans.insert107.phi.trans.insert, align 8
   br i1 %158, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i84, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i78
 
@@ -99860,7 +99860,7 @@ _ZNK5clang6interp7Pointer5derefINS0_8IntegralILj8ELb1EEEEERT_v.exit85: ; preds =
 
 200:                                              ; preds = %194
   %201 = icmp eq ptr %199, null
-  %.phi.trans.insert109.phi.trans.insert = getelementptr inbounds i8, ptr %11, i64 32
+  %.phi.trans.insert109.phi.trans.insert = getelementptr inbounds nuw i8, ptr %11, i64 32
   %.pre110.pre = load i32, ptr %.phi.trans.insert109.phi.trans.insert, align 8
   br i1 %201, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i96, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i90
 
@@ -99970,7 +99970,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5clang6interp4MulcILNS0_8PrimT
 
 25:                                               ; preds = %2
   %26 = icmp eq ptr %24, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %5, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %5, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %26, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -100037,7 +100037,7 @@ _ZNK5clang6interp7Pointer5derefINS0_8IntegralILj8ELb0EEEEERT_v.exit: ; preds = %
 
 56:                                               ; preds = %_ZNK5clang6interp7Pointer5derefINS0_8IntegralILj8ELb0EEEEERT_v.exit
   %57 = icmp eq ptr %55, null
-  %.phi.trans.insert101.phi.trans.insert = getelementptr inbounds i8, ptr %6, i64 32
+  %.phi.trans.insert101.phi.trans.insert = getelementptr inbounds nuw i8, ptr %6, i64 32
   %.pre102.pre = load i32, ptr %.phi.trans.insert101.phi.trans.insert, align 8
   br i1 %57, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i48, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i42
 
@@ -100104,7 +100104,7 @@ _ZNK5clang6interp7Pointer5derefINS0_8IntegralILj8ELb0EEEEERT_v.exit49: ; preds =
 
 87:                                               ; preds = %_ZNK5clang6interp7Pointer5derefINS0_8IntegralILj8ELb0EEEEERT_v.exit49
   %88 = icmp eq ptr %86, null
-  %.phi.trans.insert103.phi.trans.insert = getelementptr inbounds i8, ptr %7, i64 32
+  %.phi.trans.insert103.phi.trans.insert = getelementptr inbounds nuw i8, ptr %7, i64 32
   %.pre104.pre = load i32, ptr %.phi.trans.insert103.phi.trans.insert, align 8
   br i1 %88, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i60, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i54
 
@@ -100171,7 +100171,7 @@ _ZNK5clang6interp7Pointer5derefINS0_8IntegralILj8ELb0EEEEERT_v.exit61: ; preds =
 
 118:                                              ; preds = %_ZNK5clang6interp7Pointer5derefINS0_8IntegralILj8ELb0EEEEERT_v.exit61
   %119 = icmp eq ptr %117, null
-  %.phi.trans.insert105.phi.trans.insert = getelementptr inbounds i8, ptr %8, i64 32
+  %.phi.trans.insert105.phi.trans.insert = getelementptr inbounds nuw i8, ptr %8, i64 32
   %.pre106.pre = load i32, ptr %.phi.trans.insert105.phi.trans.insert, align 8
   br i1 %119, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i72, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i66
 
@@ -100244,7 +100244,7 @@ _ZNK5clang6interp7Pointer11isArrayRootEv.exit.thread.i64: ; preds = %_ZNK5clang6
 
 152:                                              ; preds = %144
   %153 = icmp eq ptr %151, null
-  %.phi.trans.insert107.phi.trans.insert = getelementptr inbounds i8, ptr %9, i64 32
+  %.phi.trans.insert107.phi.trans.insert = getelementptr inbounds nuw i8, ptr %9, i64 32
   %.pre108.pre = load i32, ptr %.phi.trans.insert107.phi.trans.insert, align 8
   br i1 %153, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i84, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i78
 
@@ -100320,7 +100320,7 @@ _ZNK5clang6interp7Pointer11isArrayRootEv.exit.thread.i76: ; preds = %_ZNK5clang6
 
 185:                                              ; preds = %178
   %186 = icmp eq ptr %184, null
-  %.phi.trans.insert109.phi.trans.insert = getelementptr inbounds i8, ptr %11, i64 32
+  %.phi.trans.insert109.phi.trans.insert = getelementptr inbounds nuw i8, ptr %11, i64 32
   %.pre110.pre = load i32, ptr %.phi.trans.insert109.phi.trans.insert, align 8
   br i1 %186, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i96, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i90
 
@@ -100423,7 +100423,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5clang6interp4MulcILNS0_8PrimT
 
 25:                                               ; preds = %2
   %26 = icmp eq ptr %24, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %5, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %5, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %26, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -100490,7 +100490,7 @@ _ZNK5clang6interp7Pointer5derefINS0_8IntegralILj16ELb1EEEEERT_v.exit: ; preds = 
 
 56:                                               ; preds = %_ZNK5clang6interp7Pointer5derefINS0_8IntegralILj16ELb1EEEEERT_v.exit
   %57 = icmp eq ptr %55, null
-  %.phi.trans.insert101.phi.trans.insert = getelementptr inbounds i8, ptr %6, i64 32
+  %.phi.trans.insert101.phi.trans.insert = getelementptr inbounds nuw i8, ptr %6, i64 32
   %.pre102.pre = load i32, ptr %.phi.trans.insert101.phi.trans.insert, align 8
   br i1 %57, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i48, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i42
 
@@ -100557,7 +100557,7 @@ _ZNK5clang6interp7Pointer5derefINS0_8IntegralILj16ELb1EEEEERT_v.exit49: ; preds 
 
 87:                                               ; preds = %_ZNK5clang6interp7Pointer5derefINS0_8IntegralILj16ELb1EEEEERT_v.exit49
   %88 = icmp eq ptr %86, null
-  %.phi.trans.insert103.phi.trans.insert = getelementptr inbounds i8, ptr %7, i64 32
+  %.phi.trans.insert103.phi.trans.insert = getelementptr inbounds nuw i8, ptr %7, i64 32
   %.pre104.pre = load i32, ptr %.phi.trans.insert103.phi.trans.insert, align 8
   br i1 %88, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i60, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i54
 
@@ -100624,7 +100624,7 @@ _ZNK5clang6interp7Pointer5derefINS0_8IntegralILj16ELb1EEEEERT_v.exit61: ; preds 
 
 118:                                              ; preds = %_ZNK5clang6interp7Pointer5derefINS0_8IntegralILj16ELb1EEEEERT_v.exit61
   %119 = icmp eq ptr %117, null
-  %.phi.trans.insert105.phi.trans.insert = getelementptr inbounds i8, ptr %8, i64 32
+  %.phi.trans.insert105.phi.trans.insert = getelementptr inbounds nuw i8, ptr %8, i64 32
   %.pre106.pre = load i32, ptr %.phi.trans.insert105.phi.trans.insert, align 8
   br i1 %119, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i72, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i66
 
@@ -100707,7 +100707,7 @@ _ZNK5clang6interp7Pointer5derefINS0_8IntegralILj16ELb1EEEEERT_v.exit73: ; preds 
 
 157:                                              ; preds = %151
   %158 = icmp eq ptr %156, null
-  %.phi.trans.insert107.phi.trans.insert = getelementptr inbounds i8, ptr %9, i64 32
+  %.phi.trans.insert107.phi.trans.insert = getelementptr inbounds nuw i8, ptr %9, i64 32
   %.pre108.pre = load i32, ptr %.phi.trans.insert107.phi.trans.insert, align 8
   br i1 %158, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i84, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i78
 
@@ -100800,7 +100800,7 @@ _ZNK5clang6interp7Pointer5derefINS0_8IntegralILj16ELb1EEEEERT_v.exit85: ; preds 
 
 200:                                              ; preds = %194
   %201 = icmp eq ptr %199, null
-  %.phi.trans.insert109.phi.trans.insert = getelementptr inbounds i8, ptr %11, i64 32
+  %.phi.trans.insert109.phi.trans.insert = getelementptr inbounds nuw i8, ptr %11, i64 32
   %.pre110.pre = load i32, ptr %.phi.trans.insert109.phi.trans.insert, align 8
   br i1 %201, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i96, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i90
 
@@ -100910,7 +100910,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5clang6interp4MulcILNS0_8PrimT
 
 25:                                               ; preds = %2
   %26 = icmp eq ptr %24, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %5, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %5, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %26, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -100977,7 +100977,7 @@ _ZNK5clang6interp7Pointer5derefINS0_8IntegralILj16ELb0EEEEERT_v.exit: ; preds = 
 
 56:                                               ; preds = %_ZNK5clang6interp7Pointer5derefINS0_8IntegralILj16ELb0EEEEERT_v.exit
   %57 = icmp eq ptr %55, null
-  %.phi.trans.insert101.phi.trans.insert = getelementptr inbounds i8, ptr %6, i64 32
+  %.phi.trans.insert101.phi.trans.insert = getelementptr inbounds nuw i8, ptr %6, i64 32
   %.pre102.pre = load i32, ptr %.phi.trans.insert101.phi.trans.insert, align 8
   br i1 %57, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i48, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i42
 
@@ -101044,7 +101044,7 @@ _ZNK5clang6interp7Pointer5derefINS0_8IntegralILj16ELb0EEEEERT_v.exit49: ; preds 
 
 87:                                               ; preds = %_ZNK5clang6interp7Pointer5derefINS0_8IntegralILj16ELb0EEEEERT_v.exit49
   %88 = icmp eq ptr %86, null
-  %.phi.trans.insert103.phi.trans.insert = getelementptr inbounds i8, ptr %7, i64 32
+  %.phi.trans.insert103.phi.trans.insert = getelementptr inbounds nuw i8, ptr %7, i64 32
   %.pre104.pre = load i32, ptr %.phi.trans.insert103.phi.trans.insert, align 8
   br i1 %88, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i60, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i54
 
@@ -101111,7 +101111,7 @@ _ZNK5clang6interp7Pointer5derefINS0_8IntegralILj16ELb0EEEEERT_v.exit61: ; preds 
 
 118:                                              ; preds = %_ZNK5clang6interp7Pointer5derefINS0_8IntegralILj16ELb0EEEEERT_v.exit61
   %119 = icmp eq ptr %117, null
-  %.phi.trans.insert105.phi.trans.insert = getelementptr inbounds i8, ptr %8, i64 32
+  %.phi.trans.insert105.phi.trans.insert = getelementptr inbounds nuw i8, ptr %8, i64 32
   %.pre106.pre = load i32, ptr %.phi.trans.insert105.phi.trans.insert, align 8
   br i1 %119, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i72, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i66
 
@@ -101184,7 +101184,7 @@ _ZNK5clang6interp7Pointer11isArrayRootEv.exit.thread.i64: ; preds = %_ZNK5clang6
 
 152:                                              ; preds = %144
   %153 = icmp eq ptr %151, null
-  %.phi.trans.insert107.phi.trans.insert = getelementptr inbounds i8, ptr %9, i64 32
+  %.phi.trans.insert107.phi.trans.insert = getelementptr inbounds nuw i8, ptr %9, i64 32
   %.pre108.pre = load i32, ptr %.phi.trans.insert107.phi.trans.insert, align 8
   br i1 %153, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i84, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i78
 
@@ -101260,7 +101260,7 @@ _ZNK5clang6interp7Pointer11isArrayRootEv.exit.thread.i76: ; preds = %_ZNK5clang6
 
 185:                                              ; preds = %178
   %186 = icmp eq ptr %184, null
-  %.phi.trans.insert109.phi.trans.insert = getelementptr inbounds i8, ptr %11, i64 32
+  %.phi.trans.insert109.phi.trans.insert = getelementptr inbounds nuw i8, ptr %11, i64 32
   %.pre110.pre = load i32, ptr %.phi.trans.insert109.phi.trans.insert, align 8
   br i1 %186, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i96, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i90
 
@@ -101363,7 +101363,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5clang6interp4MulcILNS0_8PrimT
 
 25:                                               ; preds = %2
   %26 = icmp eq ptr %24, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %5, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %5, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %26, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -101430,7 +101430,7 @@ _ZNK5clang6interp7Pointer5derefINS0_8IntegralILj32ELb1EEEEERT_v.exit: ; preds = 
 
 56:                                               ; preds = %_ZNK5clang6interp7Pointer5derefINS0_8IntegralILj32ELb1EEEEERT_v.exit
   %57 = icmp eq ptr %55, null
-  %.phi.trans.insert101.phi.trans.insert = getelementptr inbounds i8, ptr %6, i64 32
+  %.phi.trans.insert101.phi.trans.insert = getelementptr inbounds nuw i8, ptr %6, i64 32
   %.pre102.pre = load i32, ptr %.phi.trans.insert101.phi.trans.insert, align 8
   br i1 %57, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i48, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i42
 
@@ -101497,7 +101497,7 @@ _ZNK5clang6interp7Pointer5derefINS0_8IntegralILj32ELb1EEEEERT_v.exit49: ; preds 
 
 87:                                               ; preds = %_ZNK5clang6interp7Pointer5derefINS0_8IntegralILj32ELb1EEEEERT_v.exit49
   %88 = icmp eq ptr %86, null
-  %.phi.trans.insert103.phi.trans.insert = getelementptr inbounds i8, ptr %7, i64 32
+  %.phi.trans.insert103.phi.trans.insert = getelementptr inbounds nuw i8, ptr %7, i64 32
   %.pre104.pre = load i32, ptr %.phi.trans.insert103.phi.trans.insert, align 8
   br i1 %88, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i60, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i54
 
@@ -101564,7 +101564,7 @@ _ZNK5clang6interp7Pointer5derefINS0_8IntegralILj32ELb1EEEEERT_v.exit61: ; preds 
 
 118:                                              ; preds = %_ZNK5clang6interp7Pointer5derefINS0_8IntegralILj32ELb1EEEEERT_v.exit61
   %119 = icmp eq ptr %117, null
-  %.phi.trans.insert105.phi.trans.insert = getelementptr inbounds i8, ptr %8, i64 32
+  %.phi.trans.insert105.phi.trans.insert = getelementptr inbounds nuw i8, ptr %8, i64 32
   %.pre106.pre = load i32, ptr %.phi.trans.insert105.phi.trans.insert, align 8
   br i1 %119, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i72, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i66
 
@@ -101647,7 +101647,7 @@ _ZNK5clang6interp7Pointer5derefINS0_8IntegralILj32ELb1EEEEERT_v.exit73: ; preds 
 
 157:                                              ; preds = %151
   %158 = icmp eq ptr %156, null
-  %.phi.trans.insert107.phi.trans.insert = getelementptr inbounds i8, ptr %9, i64 32
+  %.phi.trans.insert107.phi.trans.insert = getelementptr inbounds nuw i8, ptr %9, i64 32
   %.pre108.pre = load i32, ptr %.phi.trans.insert107.phi.trans.insert, align 8
   br i1 %158, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i84, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i78
 
@@ -101740,7 +101740,7 @@ _ZNK5clang6interp7Pointer5derefINS0_8IntegralILj32ELb1EEEEERT_v.exit85: ; preds 
 
 200:                                              ; preds = %194
   %201 = icmp eq ptr %199, null
-  %.phi.trans.insert109.phi.trans.insert = getelementptr inbounds i8, ptr %11, i64 32
+  %.phi.trans.insert109.phi.trans.insert = getelementptr inbounds nuw i8, ptr %11, i64 32
   %.pre110.pre = load i32, ptr %.phi.trans.insert109.phi.trans.insert, align 8
   br i1 %201, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i96, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i90
 
@@ -101850,7 +101850,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5clang6interp4MulcILNS0_8PrimT
 
 25:                                               ; preds = %2
   %26 = icmp eq ptr %24, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %5, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %5, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %26, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -101917,7 +101917,7 @@ _ZNK5clang6interp7Pointer5derefINS0_8IntegralILj32ELb0EEEEERT_v.exit: ; preds = 
 
 56:                                               ; preds = %_ZNK5clang6interp7Pointer5derefINS0_8IntegralILj32ELb0EEEEERT_v.exit
   %57 = icmp eq ptr %55, null
-  %.phi.trans.insert101.phi.trans.insert = getelementptr inbounds i8, ptr %6, i64 32
+  %.phi.trans.insert101.phi.trans.insert = getelementptr inbounds nuw i8, ptr %6, i64 32
   %.pre102.pre = load i32, ptr %.phi.trans.insert101.phi.trans.insert, align 8
   br i1 %57, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i48, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i42
 
@@ -101984,7 +101984,7 @@ _ZNK5clang6interp7Pointer5derefINS0_8IntegralILj32ELb0EEEEERT_v.exit49: ; preds 
 
 87:                                               ; preds = %_ZNK5clang6interp7Pointer5derefINS0_8IntegralILj32ELb0EEEEERT_v.exit49
   %88 = icmp eq ptr %86, null
-  %.phi.trans.insert103.phi.trans.insert = getelementptr inbounds i8, ptr %7, i64 32
+  %.phi.trans.insert103.phi.trans.insert = getelementptr inbounds nuw i8, ptr %7, i64 32
   %.pre104.pre = load i32, ptr %.phi.trans.insert103.phi.trans.insert, align 8
   br i1 %88, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i60, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i54
 
@@ -102051,7 +102051,7 @@ _ZNK5clang6interp7Pointer5derefINS0_8IntegralILj32ELb0EEEEERT_v.exit61: ; preds 
 
 118:                                              ; preds = %_ZNK5clang6interp7Pointer5derefINS0_8IntegralILj32ELb0EEEEERT_v.exit61
   %119 = icmp eq ptr %117, null
-  %.phi.trans.insert105.phi.trans.insert = getelementptr inbounds i8, ptr %8, i64 32
+  %.phi.trans.insert105.phi.trans.insert = getelementptr inbounds nuw i8, ptr %8, i64 32
   %.pre106.pre = load i32, ptr %.phi.trans.insert105.phi.trans.insert, align 8
   br i1 %119, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i72, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i66
 
@@ -102124,7 +102124,7 @@ _ZNK5clang6interp7Pointer11isArrayRootEv.exit.thread.i64: ; preds = %_ZNK5clang6
 
 152:                                              ; preds = %144
   %153 = icmp eq ptr %151, null
-  %.phi.trans.insert107.phi.trans.insert = getelementptr inbounds i8, ptr %9, i64 32
+  %.phi.trans.insert107.phi.trans.insert = getelementptr inbounds nuw i8, ptr %9, i64 32
   %.pre108.pre = load i32, ptr %.phi.trans.insert107.phi.trans.insert, align 8
   br i1 %153, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i84, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i78
 
@@ -102200,7 +102200,7 @@ _ZNK5clang6interp7Pointer11isArrayRootEv.exit.thread.i76: ; preds = %_ZNK5clang6
 
 185:                                              ; preds = %178
   %186 = icmp eq ptr %184, null
-  %.phi.trans.insert109.phi.trans.insert = getelementptr inbounds i8, ptr %11, i64 32
+  %.phi.trans.insert109.phi.trans.insert = getelementptr inbounds nuw i8, ptr %11, i64 32
   %.pre110.pre = load i32, ptr %.phi.trans.insert109.phi.trans.insert, align 8
   br i1 %186, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i96, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i90
 
@@ -102303,7 +102303,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5clang6interp4MulcILNS0_8PrimT
 
 25:                                               ; preds = %2
   %26 = icmp eq ptr %24, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %5, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %5, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %26, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -102370,7 +102370,7 @@ _ZNK5clang6interp7Pointer5derefINS0_8IntegralILj64ELb1EEEEERT_v.exit: ; preds = 
 
 56:                                               ; preds = %_ZNK5clang6interp7Pointer5derefINS0_8IntegralILj64ELb1EEEEERT_v.exit
   %57 = icmp eq ptr %55, null
-  %.phi.trans.insert101.phi.trans.insert = getelementptr inbounds i8, ptr %6, i64 32
+  %.phi.trans.insert101.phi.trans.insert = getelementptr inbounds nuw i8, ptr %6, i64 32
   %.pre102.pre = load i32, ptr %.phi.trans.insert101.phi.trans.insert, align 8
   br i1 %57, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i48, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i42
 
@@ -102437,7 +102437,7 @@ _ZNK5clang6interp7Pointer5derefINS0_8IntegralILj64ELb1EEEEERT_v.exit49: ; preds 
 
 87:                                               ; preds = %_ZNK5clang6interp7Pointer5derefINS0_8IntegralILj64ELb1EEEEERT_v.exit49
   %88 = icmp eq ptr %86, null
-  %.phi.trans.insert103.phi.trans.insert = getelementptr inbounds i8, ptr %7, i64 32
+  %.phi.trans.insert103.phi.trans.insert = getelementptr inbounds nuw i8, ptr %7, i64 32
   %.pre104.pre = load i32, ptr %.phi.trans.insert103.phi.trans.insert, align 8
   br i1 %88, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i60, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i54
 
@@ -102504,7 +102504,7 @@ _ZNK5clang6interp7Pointer5derefINS0_8IntegralILj64ELb1EEEEERT_v.exit61: ; preds 
 
 118:                                              ; preds = %_ZNK5clang6interp7Pointer5derefINS0_8IntegralILj64ELb1EEEEERT_v.exit61
   %119 = icmp eq ptr %117, null
-  %.phi.trans.insert105.phi.trans.insert = getelementptr inbounds i8, ptr %8, i64 32
+  %.phi.trans.insert105.phi.trans.insert = getelementptr inbounds nuw i8, ptr %8, i64 32
   %.pre106.pre = load i32, ptr %.phi.trans.insert105.phi.trans.insert, align 8
   br i1 %119, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i72, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i66
 
@@ -102587,7 +102587,7 @@ _ZNK5clang6interp7Pointer5derefINS0_8IntegralILj64ELb1EEEEERT_v.exit73: ; preds 
 
 157:                                              ; preds = %151
   %158 = icmp eq ptr %156, null
-  %.phi.trans.insert107.phi.trans.insert = getelementptr inbounds i8, ptr %9, i64 32
+  %.phi.trans.insert107.phi.trans.insert = getelementptr inbounds nuw i8, ptr %9, i64 32
   %.pre108.pre = load i32, ptr %.phi.trans.insert107.phi.trans.insert, align 8
   br i1 %158, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i84, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i78
 
@@ -102680,7 +102680,7 @@ _ZNK5clang6interp7Pointer5derefINS0_8IntegralILj64ELb1EEEEERT_v.exit85: ; preds 
 
 200:                                              ; preds = %194
   %201 = icmp eq ptr %199, null
-  %.phi.trans.insert109.phi.trans.insert = getelementptr inbounds i8, ptr %11, i64 32
+  %.phi.trans.insert109.phi.trans.insert = getelementptr inbounds nuw i8, ptr %11, i64 32
   %.pre110.pre = load i32, ptr %.phi.trans.insert109.phi.trans.insert, align 8
   br i1 %201, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i96, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i90
 
@@ -102790,7 +102790,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5clang6interp4MulcILNS0_8PrimT
 
 25:                                               ; preds = %2
   %26 = icmp eq ptr %24, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %5, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %5, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %26, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -102857,7 +102857,7 @@ _ZNK5clang6interp7Pointer5derefINS0_8IntegralILj64ELb0EEEEERT_v.exit: ; preds = 
 
 56:                                               ; preds = %_ZNK5clang6interp7Pointer5derefINS0_8IntegralILj64ELb0EEEEERT_v.exit
   %57 = icmp eq ptr %55, null
-  %.phi.trans.insert101.phi.trans.insert = getelementptr inbounds i8, ptr %6, i64 32
+  %.phi.trans.insert101.phi.trans.insert = getelementptr inbounds nuw i8, ptr %6, i64 32
   %.pre102.pre = load i32, ptr %.phi.trans.insert101.phi.trans.insert, align 8
   br i1 %57, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i48, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i42
 
@@ -102924,7 +102924,7 @@ _ZNK5clang6interp7Pointer5derefINS0_8IntegralILj64ELb0EEEEERT_v.exit49: ; preds 
 
 87:                                               ; preds = %_ZNK5clang6interp7Pointer5derefINS0_8IntegralILj64ELb0EEEEERT_v.exit49
   %88 = icmp eq ptr %86, null
-  %.phi.trans.insert103.phi.trans.insert = getelementptr inbounds i8, ptr %7, i64 32
+  %.phi.trans.insert103.phi.trans.insert = getelementptr inbounds nuw i8, ptr %7, i64 32
   %.pre104.pre = load i32, ptr %.phi.trans.insert103.phi.trans.insert, align 8
   br i1 %88, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i60, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i54
 
@@ -102991,7 +102991,7 @@ _ZNK5clang6interp7Pointer5derefINS0_8IntegralILj64ELb0EEEEERT_v.exit61: ; preds 
 
 118:                                              ; preds = %_ZNK5clang6interp7Pointer5derefINS0_8IntegralILj64ELb0EEEEERT_v.exit61
   %119 = icmp eq ptr %117, null
-  %.phi.trans.insert105.phi.trans.insert = getelementptr inbounds i8, ptr %8, i64 32
+  %.phi.trans.insert105.phi.trans.insert = getelementptr inbounds nuw i8, ptr %8, i64 32
   %.pre106.pre = load i32, ptr %.phi.trans.insert105.phi.trans.insert, align 8
   br i1 %119, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i72, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i66
 
@@ -103064,7 +103064,7 @@ _ZNK5clang6interp7Pointer11isArrayRootEv.exit.thread.i64: ; preds = %_ZNK5clang6
 
 152:                                              ; preds = %144
   %153 = icmp eq ptr %151, null
-  %.phi.trans.insert107.phi.trans.insert = getelementptr inbounds i8, ptr %9, i64 32
+  %.phi.trans.insert107.phi.trans.insert = getelementptr inbounds nuw i8, ptr %9, i64 32
   %.pre108.pre = load i32, ptr %.phi.trans.insert107.phi.trans.insert, align 8
   br i1 %153, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i84, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i78
 
@@ -103140,7 +103140,7 @@ _ZNK5clang6interp7Pointer11isArrayRootEv.exit.thread.i76: ; preds = %_ZNK5clang6
 
 185:                                              ; preds = %178
   %186 = icmp eq ptr %184, null
-  %.phi.trans.insert109.phi.trans.insert = getelementptr inbounds i8, ptr %11, i64 32
+  %.phi.trans.insert109.phi.trans.insert = getelementptr inbounds nuw i8, ptr %11, i64 32
   %.pre110.pre = load i32, ptr %.phi.trans.insert109.phi.trans.insert, align 8
   br i1 %186, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i96, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i90
 
@@ -103263,7 +103263,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5clang6interp4MulcILNS0_8PrimT
 
 45:                                               ; preds = %2
   %46 = icmp eq ptr %44, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %11, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %11, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %46, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -103330,7 +103330,7 @@ _ZNK5clang6interp7Pointer5derefINS0_10IntegralAPILb0EEEEERT_v.exit: ; preds = %6
 
 76:                                               ; preds = %_ZNK5clang6interp7Pointer5derefINS0_10IntegralAPILb0EEEEERT_v.exit
   %77 = icmp eq ptr %75, null
-  %.phi.trans.insert117.phi.trans.insert = getelementptr inbounds i8, ptr %12, i64 32
+  %.phi.trans.insert117.phi.trans.insert = getelementptr inbounds nuw i8, ptr %12, i64 32
   %.pre118.pre = load i32, ptr %.phi.trans.insert117.phi.trans.insert, align 8
   br i1 %77, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i40, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i34
 
@@ -103397,7 +103397,7 @@ _ZNK5clang6interp7Pointer5derefINS0_10IntegralAPILb0EEEEERT_v.exit41: ; preds = 
 
 107:                                              ; preds = %_ZNK5clang6interp7Pointer5derefINS0_10IntegralAPILb0EEEEERT_v.exit41
   %108 = icmp eq ptr %106, null
-  %.phi.trans.insert119.phi.trans.insert = getelementptr inbounds i8, ptr %13, i64 32
+  %.phi.trans.insert119.phi.trans.insert = getelementptr inbounds nuw i8, ptr %13, i64 32
   %.pre120.pre = load i32, ptr %.phi.trans.insert119.phi.trans.insert, align 8
   br i1 %108, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i52, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i46
 
@@ -103464,7 +103464,7 @@ _ZNK5clang6interp7Pointer5derefINS0_10IntegralAPILb0EEEEERT_v.exit53: ; preds = 
 
 138:                                              ; preds = %_ZNK5clang6interp7Pointer5derefINS0_10IntegralAPILb0EEEEERT_v.exit53
   %139 = icmp eq ptr %137, null
-  %.phi.trans.insert121.phi.trans.insert = getelementptr inbounds i8, ptr %14, i64 32
+  %.phi.trans.insert121.phi.trans.insert = getelementptr inbounds nuw i8, ptr %14, i64 32
   %.pre122.pre = load i32, ptr %.phi.trans.insert121.phi.trans.insert, align 8
   br i1 %139, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i64, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i58
 
@@ -103737,7 +103737,7 @@ _ZN5clang6interp10IntegralAPILb0EEC2ERKS2_.exit74: ; preds = %245, %247
 
 253:                                              ; preds = %_ZN5clang6interp10IntegralAPILb0EEC2ERKS2_.exit74
   %254 = icmp eq ptr %252, null
-  %.phi.trans.insert123.phi.trans.insert = getelementptr inbounds i8, ptr %23, i64 32
+  %.phi.trans.insert123.phi.trans.insert = getelementptr inbounds nuw i8, ptr %23, i64 32
   %.pre124.pre = load i32, ptr %.phi.trans.insert123.phi.trans.insert, align 8
   br i1 %254, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i85, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i79
 
@@ -104069,7 +104069,7 @@ _ZN5clang6interp10IntegralAPILb0EEC2ERKS2_.exit100: ; preds = %382, %384
 
 390:                                              ; preds = %_ZN5clang6interp10IntegralAPILb0EEC2ERKS2_.exit100
   %391 = icmp eq ptr %389, null
-  %.phi.trans.insert125.phi.trans.insert = getelementptr inbounds i8, ptr %31, i64 32
+  %.phi.trans.insert125.phi.trans.insert = getelementptr inbounds nuw i8, ptr %31, i64 32
   %.pre126.pre = load i32, ptr %.phi.trans.insert125.phi.trans.insert, align 8
   br i1 %391, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i111, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i105
 
@@ -104276,7 +104276,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5clang6interp4MulcILNS0_8PrimT
 
 39:                                               ; preds = %2
   %40 = icmp eq ptr %38, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %5, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %5, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %40, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -104343,7 +104343,7 @@ _ZNK5clang6interp7Pointer5derefINS0_10IntegralAPILb1EEEEERT_v.exit: ; preds = %5
 
 70:                                               ; preds = %_ZNK5clang6interp7Pointer5derefINS0_10IntegralAPILb1EEEEERT_v.exit
   %71 = icmp eq ptr %69, null
-  %.phi.trans.insert114.phi.trans.insert = getelementptr inbounds i8, ptr %6, i64 32
+  %.phi.trans.insert114.phi.trans.insert = getelementptr inbounds nuw i8, ptr %6, i64 32
   %.pre115.pre = load i32, ptr %.phi.trans.insert114.phi.trans.insert, align 8
   br i1 %71, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i40, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i34
 
@@ -104410,7 +104410,7 @@ _ZNK5clang6interp7Pointer5derefINS0_10IntegralAPILb1EEEEERT_v.exit41: ; preds = 
 
 101:                                              ; preds = %_ZNK5clang6interp7Pointer5derefINS0_10IntegralAPILb1EEEEERT_v.exit41
   %102 = icmp eq ptr %100, null
-  %.phi.trans.insert116.phi.trans.insert = getelementptr inbounds i8, ptr %7, i64 32
+  %.phi.trans.insert116.phi.trans.insert = getelementptr inbounds nuw i8, ptr %7, i64 32
   %.pre117.pre = load i32, ptr %.phi.trans.insert116.phi.trans.insert, align 8
   br i1 %102, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i52, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i46
 
@@ -104477,7 +104477,7 @@ _ZNK5clang6interp7Pointer5derefINS0_10IntegralAPILb1EEEEERT_v.exit53: ; preds = 
 
 132:                                              ; preds = %_ZNK5clang6interp7Pointer5derefINS0_10IntegralAPILb1EEEEERT_v.exit53
   %133 = icmp eq ptr %131, null
-  %.phi.trans.insert118.phi.trans.insert = getelementptr inbounds i8, ptr %8, i64 32
+  %.phi.trans.insert118.phi.trans.insert = getelementptr inbounds nuw i8, ptr %8, i64 32
   %.pre119.pre = load i32, ptr %.phi.trans.insert118.phi.trans.insert, align 8
   br i1 %133, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i64, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i58
 
@@ -104714,7 +104714,7 @@ _ZN5clang6interp10IntegralAPILb1EEC2ERKS2_.exit73: ; preds = %225, %227
 
 233:                                              ; preds = %_ZN5clang6interp10IntegralAPILb1EEC2ERKS2_.exit73
   %234 = icmp eq ptr %232, null
-  %.phi.trans.insert120.phi.trans.insert = getelementptr inbounds i8, ptr %17, i64 32
+  %.phi.trans.insert120.phi.trans.insert = getelementptr inbounds nuw i8, ptr %17, i64 32
   %.pre121.pre = load i32, ptr %.phi.trans.insert120.phi.trans.insert, align 8
   br i1 %234, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i84, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i78
 
@@ -104976,7 +104976,7 @@ _ZN5clang6interp10IntegralAPILb1EEC2ERKS2_.exit97: ; preds = %334, %336
 
 342:                                              ; preds = %_ZN5clang6interp10IntegralAPILb1EEC2ERKS2_.exit97
   %343 = icmp eq ptr %341, null
-  %.phi.trans.insert122.phi.trans.insert = getelementptr inbounds i8, ptr %25, i64 32
+  %.phi.trans.insert122.phi.trans.insert = getelementptr inbounds nuw i8, ptr %25, i64 32
   %.pre123.pre = load i32, ptr %.phi.trans.insert122.phi.trans.insert, align 8
   br i1 %343, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i108, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i102
 
@@ -105152,7 +105152,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5clang6interp4MulcILNS0_8PrimT
 
 37:                                               ; preds = %2
   %38 = icmp eq ptr %36, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %6, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %6, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %38, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -105235,7 +105235,7 @@ _ZN4llvm7APFloatC2ERKS0_.exit:                    ; preds = %67, %68
 
 74:                                               ; preds = %_ZN4llvm7APFloatC2ERKS0_.exit
   %75 = icmp eq ptr %73, null
-  %.phi.trans.insert112.phi.trans.insert = getelementptr inbounds i8, ptr %8, i64 32
+  %.phi.trans.insert112.phi.trans.insert = getelementptr inbounds nuw i8, ptr %8, i64 32
   %.pre113.pre = load i32, ptr %.phi.trans.insert112.phi.trans.insert, align 8
   br i1 %75, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i22, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i16
 
@@ -105317,7 +105317,7 @@ _ZN4llvm7APFloatC2ERKS0_.exit25:                  ; preds = %103, %104
 
 110:                                              ; preds = %_ZN4llvm7APFloatC2ERKS0_.exit25
   %111 = icmp eq ptr %109, null
-  %.phi.trans.insert114.phi.trans.insert = getelementptr inbounds i8, ptr %10, i64 32
+  %.phi.trans.insert114.phi.trans.insert = getelementptr inbounds nuw i8, ptr %10, i64 32
   %.pre115.pre = load i32, ptr %.phi.trans.insert114.phi.trans.insert, align 8
   br i1 %111, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i36, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i30
 
@@ -105399,7 +105399,7 @@ _ZN4llvm7APFloatC2ERKS0_.exit39:                  ; preds = %139, %140
 
 146:                                              ; preds = %_ZN4llvm7APFloatC2ERKS0_.exit39
   %147 = icmp eq ptr %145, null
-  %.phi.trans.insert116.phi.trans.insert = getelementptr inbounds i8, ptr %12, i64 32
+  %.phi.trans.insert116.phi.trans.insert = getelementptr inbounds nuw i8, ptr %12, i64 32
   %.pre117.pre = load i32, ptr %.phi.trans.insert116.phi.trans.insert, align 8
   br i1 %147, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i50, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i44
 
@@ -105632,7 +105632,7 @@ _ZN5clang6interp8FloatingC2ERKN4llvm7APFloatE.exit: ; preds = %215, %216
 
 222:                                              ; preds = %_ZN5clang6interp8FloatingC2ERKN4llvm7APFloatE.exit
   %223 = icmp eq ptr %221, null
-  %.phi.trans.insert118.phi.trans.insert = getelementptr inbounds i8, ptr %20, i64 32
+  %.phi.trans.insert118.phi.trans.insert = getelementptr inbounds nuw i8, ptr %20, i64 32
   %.pre119.pre = load i32, ptr %.phi.trans.insert118.phi.trans.insert, align 8
   br i1 %223, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i81, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i75
 
@@ -105731,7 +105731,7 @@ _ZN5clang6interp8FloatingC2ERKN4llvm7APFloatE.exit85: ; preds = %255, %256
 
 262:                                              ; preds = %_ZN5clang6interp8FloatingC2ERKN4llvm7APFloatE.exit85
   %263 = icmp eq ptr %261, null
-  %.phi.trans.insert120.phi.trans.insert = getelementptr inbounds i8, ptr %23, i64 32
+  %.phi.trans.insert120.phi.trans.insert = getelementptr inbounds nuw i8, ptr %23, i64 32
   %.pre121.pre = load i32, ptr %.phi.trans.insert120.phi.trans.insert, align 8
   br i1 %263, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i96, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i90
 
@@ -109327,7 +109327,7 @@ define internal fastcc void @_ZN5clang6interpL10PtrPtrCastERNS0_11InterpStateENS
   br i1 %.not.i.i, label %31, label %_ZN5clang18OptionalDiagnosticlsINS_11SourceRangeEEERS0_RKT_.exit
 
 _ZNK5clang6interp7Pointer6isZeroEv.exit:          ; preds = %15
-  %25 = getelementptr inbounds i8, ptr %10, i64 32
+  %25 = getelementptr inbounds nuw i8, ptr %10, i64 32
   %26 = load i64, ptr %25, align 8
   %27 = icmp eq i64 %26, 0
   %28 = load i64, ptr %10, align 8
@@ -110349,8 +110349,8 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp3RetILNS0_8PrimTypeE0ENS
   %37 = tail call noundef nonnull align 8 dereferenceable(23096) ptr %36(ptr noundef nonnull align 8 dereferenceable(9) %33) #18
   %38 = zext i8 %.sroa.0.0.copyload.i to i64
   %39 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %40 = getelementptr inbounds i8, ptr %4, i64 16
-  %41 = getelementptr inbounds i8, ptr %4, i64 20
+  %40 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %41 = getelementptr inbounds nuw i8, ptr %4, i64 20
   store i32 2, ptr %4, align 8, !alias.scope !2414
   store i64 %38, ptr %39, align 8, !alias.scope !2414
   store i32 8, ptr %40, align 8, !alias.scope !2414
@@ -110444,8 +110444,8 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp3RetILNS0_8PrimTypeE1ENS
   %37 = tail call noundef nonnull align 8 dereferenceable(23096) ptr %36(ptr noundef nonnull align 8 dereferenceable(9) %33) #18
   %38 = zext i8 %.sroa.0.0.copyload.i to i64
   %39 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %40 = getelementptr inbounds i8, ptr %4, i64 16
-  %41 = getelementptr inbounds i8, ptr %4, i64 20
+  %40 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %41 = getelementptr inbounds nuw i8, ptr %4, i64 20
   store i32 2, ptr %4, align 8, !alias.scope !2417
   store i64 %38, ptr %39, align 8, !alias.scope !2417
   store i32 8, ptr %40, align 8, !alias.scope !2417
@@ -110539,8 +110539,8 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp3RetILNS0_8PrimTypeE2ENS
   %37 = tail call noundef nonnull align 8 dereferenceable(23096) ptr %36(ptr noundef nonnull align 8 dereferenceable(9) %33) #18
   %38 = zext i16 %.sroa.0.0.copyload.i to i64
   %39 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %40 = getelementptr inbounds i8, ptr %4, i64 16
-  %41 = getelementptr inbounds i8, ptr %4, i64 20
+  %40 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %41 = getelementptr inbounds nuw i8, ptr %4, i64 20
   store i32 2, ptr %4, align 8, !alias.scope !2420
   store i64 %38, ptr %39, align 8, !alias.scope !2420
   store i32 16, ptr %40, align 8, !alias.scope !2420
@@ -110634,8 +110634,8 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp3RetILNS0_8PrimTypeE3ENS
   %37 = tail call noundef nonnull align 8 dereferenceable(23096) ptr %36(ptr noundef nonnull align 8 dereferenceable(9) %33) #18
   %38 = zext i16 %.sroa.0.0.copyload.i to i64
   %39 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %40 = getelementptr inbounds i8, ptr %4, i64 16
-  %41 = getelementptr inbounds i8, ptr %4, i64 20
+  %40 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %41 = getelementptr inbounds nuw i8, ptr %4, i64 20
   store i32 2, ptr %4, align 8, !alias.scope !2423
   store i64 %38, ptr %39, align 8, !alias.scope !2423
   store i32 16, ptr %40, align 8, !alias.scope !2423
@@ -110729,8 +110729,8 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp3RetILNS0_8PrimTypeE4ENS
   %37 = tail call noundef nonnull align 8 dereferenceable(23096) ptr %36(ptr noundef nonnull align 8 dereferenceable(9) %33) #18
   %38 = zext i32 %.sroa.0.0.copyload.i to i64
   %39 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %40 = getelementptr inbounds i8, ptr %4, i64 16
-  %41 = getelementptr inbounds i8, ptr %4, i64 20
+  %40 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %41 = getelementptr inbounds nuw i8, ptr %4, i64 20
   store i32 2, ptr %4, align 8, !alias.scope !2426
   store i64 %38, ptr %39, align 8, !alias.scope !2426
   store i32 32, ptr %40, align 8, !alias.scope !2426
@@ -110824,8 +110824,8 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp3RetILNS0_8PrimTypeE5ENS
   %37 = tail call noundef nonnull align 8 dereferenceable(23096) ptr %36(ptr noundef nonnull align 8 dereferenceable(9) %33) #18
   %38 = zext i32 %.sroa.0.0.copyload.i to i64
   %39 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %40 = getelementptr inbounds i8, ptr %4, i64 16
-  %41 = getelementptr inbounds i8, ptr %4, i64 20
+  %40 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %41 = getelementptr inbounds nuw i8, ptr %4, i64 20
   store i32 2, ptr %4, align 8, !alias.scope !2429
   store i64 %38, ptr %39, align 8, !alias.scope !2429
   store i32 32, ptr %40, align 8, !alias.scope !2429
@@ -110918,8 +110918,8 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp3RetILNS0_8PrimTypeE6ENS
   %36 = load ptr, ptr %35, align 8
   %37 = tail call noundef nonnull align 8 dereferenceable(23096) ptr %36(ptr noundef nonnull align 8 dereferenceable(9) %33) #18
   %38 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %39 = getelementptr inbounds i8, ptr %4, i64 16
-  %40 = getelementptr inbounds i8, ptr %4, i64 20
+  %39 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %40 = getelementptr inbounds nuw i8, ptr %4, i64 20
   store i32 2, ptr %4, align 8, !alias.scope !2432
   store i64 %.sroa.0.0.copyload.i, ptr %38, align 8, !alias.scope !2432
   store i32 64, ptr %39, align 8, !alias.scope !2432
@@ -111012,8 +111012,8 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp3RetILNS0_8PrimTypeE7ENS
   %36 = load ptr, ptr %35, align 8
   %37 = tail call noundef nonnull align 8 dereferenceable(23096) ptr %36(ptr noundef nonnull align 8 dereferenceable(9) %33) #18
   %38 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %39 = getelementptr inbounds i8, ptr %4, i64 16
-  %40 = getelementptr inbounds i8, ptr %4, i64 20
+  %39 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %40 = getelementptr inbounds nuw i8, ptr %4, i64 20
   store i32 2, ptr %4, align 8, !alias.scope !2435
   store i64 %.sroa.0.0.copyload.i, ptr %38, align 8, !alias.scope !2435
   store i32 64, ptr %39, align 8, !alias.scope !2435
@@ -111132,8 +111132,8 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp3RetILNS0_8PrimTypeE8ENS
   %50 = load i64, ptr %4, align 8, !noalias !2444
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4), !noalias !2441
   %51 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %52 = getelementptr inbounds i8, ptr %5, i64 16
-  %53 = getelementptr inbounds i8, ptr %5, i64 20
+  %52 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %53 = getelementptr inbounds nuw i8, ptr %5, i64 20
   store i32 2, ptr %5, align 8, !alias.scope !2441
   store i64 %50, ptr %51, align 8, !alias.scope !2441
   store i32 %49, ptr %52, align 8, !alias.scope !2441
@@ -111266,8 +111266,8 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp3RetILNS0_8PrimTypeE9ENS
   %50 = load i64, ptr %4, align 8, !noalias !2453
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4), !noalias !2450
   %51 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %52 = getelementptr inbounds i8, ptr %5, i64 16
-  %53 = getelementptr inbounds i8, ptr %5, i64 20
+  %52 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %53 = getelementptr inbounds nuw i8, ptr %5, i64 20
   store i32 2, ptr %5, align 8, !alias.scope !2450
   store i64 %50, ptr %51, align 8, !alias.scope !2450
   store i32 %49, ptr %52, align 8, !alias.scope !2450
@@ -111376,8 +111376,8 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp3RetILNS0_8PrimTypeE10EN
   %38 = and i8 %.sroa.0.0.copyload.i, 1
   %39 = zext nneg i8 %38 to i64
   %40 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %41 = getelementptr inbounds i8, ptr %4, i64 16
-  %42 = getelementptr inbounds i8, ptr %4, i64 20
+  %41 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %42 = getelementptr inbounds nuw i8, ptr %4, i64 20
   store i32 2, ptr %4, align 8, !alias.scope !2456
   store i64 %39, ptr %40, align 8, !alias.scope !2456
   store i32 1, ptr %41, align 8, !alias.scope !2456
@@ -111422,7 +111422,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp3RetILNS0_8PrimTypeE12EN
   br i1 %14, label %_ZNK5clang6interp7Pointer6isLiveEv.exit.thread, label %_ZNK5clang6interp7Pointer6isLiveEv.exit
 
 _ZNK5clang6interp7Pointer6isZeroEv.exit:          ; preds = %3
-  %15 = getelementptr inbounds i8, ptr %5, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %16 = load i64, ptr %15, align 8
   %17 = icmp ne i64 %16, 0
   %18 = load i64, ptr %5, align 8
@@ -111929,7 +111929,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp8SetFieldILNS0_8PrimType
 
 27:                                               ; preds = %21
   %28 = icmp eq ptr %26, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %4, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %4, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %28, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -112036,7 +112036,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp8SetFieldILNS0_8PrimType
 
 27:                                               ; preds = %21
   %28 = icmp eq ptr %26, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %4, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %4, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %28, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -112143,7 +112143,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp8SetFieldILNS0_8PrimType
 
 27:                                               ; preds = %21
   %28 = icmp eq ptr %26, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %4, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %4, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %28, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -112250,7 +112250,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp8SetFieldILNS0_8PrimType
 
 27:                                               ; preds = %21
   %28 = icmp eq ptr %26, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %4, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %4, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %28, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -112357,7 +112357,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp8SetFieldILNS0_8PrimType
 
 27:                                               ; preds = %21
   %28 = icmp eq ptr %26, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %4, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %4, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %28, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -112464,7 +112464,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp8SetFieldILNS0_8PrimType
 
 27:                                               ; preds = %21
   %28 = icmp eq ptr %26, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %4, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %4, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %28, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -112571,7 +112571,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp8SetFieldILNS0_8PrimType
 
 27:                                               ; preds = %21
   %28 = icmp eq ptr %26, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %4, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %4, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %28, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -112678,7 +112678,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp8SetFieldILNS0_8PrimType
 
 27:                                               ; preds = %21
   %28 = icmp eq ptr %26, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %4, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %4, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %28, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -112793,7 +112793,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp8SetFieldILNS0_8PrimType
 
 32:                                               ; preds = %26
   %33 = icmp eq ptr %31, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %5, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %5, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %33, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -112936,7 +112936,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp8SetFieldILNS0_8PrimType
 
 32:                                               ; preds = %26
   %33 = icmp eq ptr %31, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %5, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %5, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %33, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -113071,7 +113071,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp8SetFieldILNS0_8PrimType
 
 27:                                               ; preds = %21
   %28 = icmp eq ptr %26, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %4, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %4, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %28, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -113179,7 +113179,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp8SetFieldILNS0_8PrimType
 
 28:                                               ; preds = %22
   %29 = icmp eq ptr %27, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %5, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %5, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %29, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -113288,7 +113288,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp8SetFieldILNS0_8PrimType
 
 28:                                               ; preds = %22
   %29 = icmp eq ptr %27, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %5, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %5, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %29, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -113399,7 +113399,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp8SetFieldILNS0_8PrimType
 
 30:                                               ; preds = %24
   %31 = icmp eq ptr %29, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %5, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %5, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %31, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -113525,7 +113525,7 @@ _ZN5clang6interp11InterpStack3popINS0_8FloatingEEET_v.exit: ; preds = %13, %14
 
 34:                                               ; preds = %28
   %35 = icmp eq ptr %33, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %5, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %5, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %35, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -113628,7 +113628,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp8SetLocalILNS0_8PrimType
 
 15:                                               ; preds = %3
   %16 = icmp eq ptr %14, null
-  %.phi.trans.insert.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %4, i64 32
+  %.phi.trans.insert.phi.trans.insert.i.i = getelementptr inbounds nuw i8, ptr %4, i64 32
   %.pre.pre.i.i = load i32, ptr %.phi.trans.insert.phi.trans.insert.i.i, align 8
   br i1 %16, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i.i.i
 
@@ -113719,7 +113719,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp8SetLocalILNS0_8PrimType
 
 15:                                               ; preds = %3
   %16 = icmp eq ptr %14, null
-  %.phi.trans.insert.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %4, i64 32
+  %.phi.trans.insert.phi.trans.insert.i.i = getelementptr inbounds nuw i8, ptr %4, i64 32
   %.pre.pre.i.i = load i32, ptr %.phi.trans.insert.phi.trans.insert.i.i, align 8
   br i1 %16, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i.i.i
 
@@ -113810,7 +113810,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp8SetLocalILNS0_8PrimType
 
 15:                                               ; preds = %3
   %16 = icmp eq ptr %14, null
-  %.phi.trans.insert.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %4, i64 32
+  %.phi.trans.insert.phi.trans.insert.i.i = getelementptr inbounds nuw i8, ptr %4, i64 32
   %.pre.pre.i.i = load i32, ptr %.phi.trans.insert.phi.trans.insert.i.i, align 8
   br i1 %16, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i.i.i
 
@@ -113901,7 +113901,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp8SetLocalILNS0_8PrimType
 
 15:                                               ; preds = %3
   %16 = icmp eq ptr %14, null
-  %.phi.trans.insert.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %4, i64 32
+  %.phi.trans.insert.phi.trans.insert.i.i = getelementptr inbounds nuw i8, ptr %4, i64 32
   %.pre.pre.i.i = load i32, ptr %.phi.trans.insert.phi.trans.insert.i.i, align 8
   br i1 %16, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i.i.i
 
@@ -113992,7 +113992,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp8SetLocalILNS0_8PrimType
 
 15:                                               ; preds = %3
   %16 = icmp eq ptr %14, null
-  %.phi.trans.insert.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %4, i64 32
+  %.phi.trans.insert.phi.trans.insert.i.i = getelementptr inbounds nuw i8, ptr %4, i64 32
   %.pre.pre.i.i = load i32, ptr %.phi.trans.insert.phi.trans.insert.i.i, align 8
   br i1 %16, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i.i.i
 
@@ -114083,7 +114083,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp8SetLocalILNS0_8PrimType
 
 15:                                               ; preds = %3
   %16 = icmp eq ptr %14, null
-  %.phi.trans.insert.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %4, i64 32
+  %.phi.trans.insert.phi.trans.insert.i.i = getelementptr inbounds nuw i8, ptr %4, i64 32
   %.pre.pre.i.i = load i32, ptr %.phi.trans.insert.phi.trans.insert.i.i, align 8
   br i1 %16, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i.i.i
 
@@ -114174,7 +114174,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp8SetLocalILNS0_8PrimType
 
 15:                                               ; preds = %3
   %16 = icmp eq ptr %14, null
-  %.phi.trans.insert.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %4, i64 32
+  %.phi.trans.insert.phi.trans.insert.i.i = getelementptr inbounds nuw i8, ptr %4, i64 32
   %.pre.pre.i.i = load i32, ptr %.phi.trans.insert.phi.trans.insert.i.i, align 8
   br i1 %16, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i.i.i
 
@@ -114265,7 +114265,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp8SetLocalILNS0_8PrimType
 
 15:                                               ; preds = %3
   %16 = icmp eq ptr %14, null
-  %.phi.trans.insert.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %4, i64 32
+  %.phi.trans.insert.phi.trans.insert.i.i = getelementptr inbounds nuw i8, ptr %4, i64 32
   %.pre.pre.i.i = load i32, ptr %.phi.trans.insert.phi.trans.insert.i.i, align 8
   br i1 %16, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i.i.i
 
@@ -114426,7 +114426,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp8SetLocalILNS0_8PrimType
 
 15:                                               ; preds = %3
   %16 = icmp eq ptr %14, null
-  %.phi.trans.insert.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %4, i64 32
+  %.phi.trans.insert.phi.trans.insert.i.i = getelementptr inbounds nuw i8, ptr %4, i64 32
   %.pre.pre.i.i = load i32, ptr %.phi.trans.insert.phi.trans.insert.i.i, align 8
   br i1 %16, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i.i.i
 
@@ -114518,7 +114518,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp8SetLocalILNS0_8PrimType
 
 16:                                               ; preds = %3
   %17 = icmp eq ptr %15, null
-  %.phi.trans.insert.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %4, i64 32
+  %.phi.trans.insert.phi.trans.insert.i.i = getelementptr inbounds nuw i8, ptr %4, i64 32
   %.pre.pre.i.i = load i32, ptr %.phi.trans.insert.phi.trans.insert.i.i, align 8
   br i1 %17, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i.i.i
 
@@ -114611,7 +114611,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp8SetLocalILNS0_8PrimType
 
 16:                                               ; preds = %3
   %17 = icmp eq ptr %15, null
-  %.phi.trans.insert.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %4, i64 32
+  %.phi.trans.insert.phi.trans.insert.i.i = getelementptr inbounds nuw i8, ptr %4, i64 32
   %.pre.pre.i.i = load i32, ptr %.phi.trans.insert.phi.trans.insert.i.i, align 8
   br i1 %17, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i.i.i
 
@@ -114706,7 +114706,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp8SetLocalILNS0_8PrimType
 
 18:                                               ; preds = %3
   %19 = icmp eq ptr %17, null
-  %.phi.trans.insert.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %4, i64 32
+  %.phi.trans.insert.phi.trans.insert.i.i = getelementptr inbounds nuw i8, ptr %4, i64 32
   %.pre.pre.i.i = load i32, ptr %.phi.trans.insert.phi.trans.insert.i.i, align 8
   br i1 %19, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i.i.i
 
@@ -114816,7 +114816,7 @@ _ZN5clang6interp11InterpStack3popINS0_8FloatingEEET_v.exit: ; preds = %15, %16
 
 22:                                               ; preds = %_ZN5clang6interp11InterpStack3popINS0_8FloatingEEET_v.exit
   %23 = icmp eq ptr %21, null
-  %.phi.trans.insert.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %4, i64 32
+  %.phi.trans.insert.phi.trans.insert.i.i = getelementptr inbounds nuw i8, ptr %4, i64 32
   %.pre.pre.i.i = load i32, ptr %.phi.trans.insert.phi.trans.insert.i.i, align 8
   br i1 %23, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i.i.i
 
@@ -114921,7 +114921,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp8SetParamILNS0_8PrimType
 
 15:                                               ; preds = %3
   %16 = icmp eq ptr %14, null
-  %.phi.trans.insert.phi.trans.insert.i = getelementptr inbounds i8, ptr %4, i64 32
+  %.phi.trans.insert.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %4, i64 32
   %.pre.pre.i = load i32, ptr %.phi.trans.insert.phi.trans.insert.i, align 8
   br i1 %16, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i.i
 
@@ -115004,7 +115004,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp8SetParamILNS0_8PrimType
 
 15:                                               ; preds = %3
   %16 = icmp eq ptr %14, null
-  %.phi.trans.insert.phi.trans.insert.i = getelementptr inbounds i8, ptr %4, i64 32
+  %.phi.trans.insert.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %4, i64 32
   %.pre.pre.i = load i32, ptr %.phi.trans.insert.phi.trans.insert.i, align 8
   br i1 %16, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i.i
 
@@ -115087,7 +115087,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp8SetParamILNS0_8PrimType
 
 15:                                               ; preds = %3
   %16 = icmp eq ptr %14, null
-  %.phi.trans.insert.phi.trans.insert.i = getelementptr inbounds i8, ptr %4, i64 32
+  %.phi.trans.insert.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %4, i64 32
   %.pre.pre.i = load i32, ptr %.phi.trans.insert.phi.trans.insert.i, align 8
   br i1 %16, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i.i
 
@@ -115170,7 +115170,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp8SetParamILNS0_8PrimType
 
 15:                                               ; preds = %3
   %16 = icmp eq ptr %14, null
-  %.phi.trans.insert.phi.trans.insert.i = getelementptr inbounds i8, ptr %4, i64 32
+  %.phi.trans.insert.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %4, i64 32
   %.pre.pre.i = load i32, ptr %.phi.trans.insert.phi.trans.insert.i, align 8
   br i1 %16, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i.i
 
@@ -115253,7 +115253,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp8SetParamILNS0_8PrimType
 
 15:                                               ; preds = %3
   %16 = icmp eq ptr %14, null
-  %.phi.trans.insert.phi.trans.insert.i = getelementptr inbounds i8, ptr %4, i64 32
+  %.phi.trans.insert.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %4, i64 32
   %.pre.pre.i = load i32, ptr %.phi.trans.insert.phi.trans.insert.i, align 8
   br i1 %16, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i.i
 
@@ -115336,7 +115336,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp8SetParamILNS0_8PrimType
 
 15:                                               ; preds = %3
   %16 = icmp eq ptr %14, null
-  %.phi.trans.insert.phi.trans.insert.i = getelementptr inbounds i8, ptr %4, i64 32
+  %.phi.trans.insert.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %4, i64 32
   %.pre.pre.i = load i32, ptr %.phi.trans.insert.phi.trans.insert.i, align 8
   br i1 %16, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i.i
 
@@ -115419,7 +115419,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp8SetParamILNS0_8PrimType
 
 15:                                               ; preds = %3
   %16 = icmp eq ptr %14, null
-  %.phi.trans.insert.phi.trans.insert.i = getelementptr inbounds i8, ptr %4, i64 32
+  %.phi.trans.insert.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %4, i64 32
   %.pre.pre.i = load i32, ptr %.phi.trans.insert.phi.trans.insert.i, align 8
   br i1 %16, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i.i
 
@@ -115502,7 +115502,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp8SetParamILNS0_8PrimType
 
 15:                                               ; preds = %3
   %16 = icmp eq ptr %14, null
-  %.phi.trans.insert.phi.trans.insert.i = getelementptr inbounds i8, ptr %4, i64 32
+  %.phi.trans.insert.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %4, i64 32
   %.pre.pre.i = load i32, ptr %.phi.trans.insert.phi.trans.insert.i, align 8
   br i1 %16, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i.i
 
@@ -115593,7 +115593,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp8SetParamILNS0_8PrimType
 
 20:                                               ; preds = %3
   %21 = icmp eq ptr %19, null
-  %.phi.trans.insert.phi.trans.insert.i = getelementptr inbounds i8, ptr %4, i64 32
+  %.phi.trans.insert.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %4, i64 32
   %.pre.pre.i = load i32, ptr %.phi.trans.insert.phi.trans.insert.i, align 8
   br i1 %21, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i.i
 
@@ -115714,7 +115714,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp8SetParamILNS0_8PrimType
 
 20:                                               ; preds = %3
   %21 = icmp eq ptr %19, null
-  %.phi.trans.insert.phi.trans.insert.i = getelementptr inbounds i8, ptr %4, i64 32
+  %.phi.trans.insert.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %4, i64 32
   %.pre.pre.i = load i32, ptr %.phi.trans.insert.phi.trans.insert.i, align 8
   br i1 %21, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i.i
 
@@ -115827,7 +115827,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp8SetParamILNS0_8PrimType
 
 15:                                               ; preds = %3
   %16 = icmp eq ptr %14, null
-  %.phi.trans.insert.phi.trans.insert.i = getelementptr inbounds i8, ptr %4, i64 32
+  %.phi.trans.insert.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %4, i64 32
   %.pre.pre.i = load i32, ptr %.phi.trans.insert.phi.trans.insert.i, align 8
   br i1 %16, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i.i
 
@@ -115911,7 +115911,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp8SetParamILNS0_8PrimType
 
 16:                                               ; preds = %3
   %17 = icmp eq ptr %15, null
-  %.phi.trans.insert.phi.trans.insert.i = getelementptr inbounds i8, ptr %4, i64 32
+  %.phi.trans.insert.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %4, i64 32
   %.pre.pre.i = load i32, ptr %.phi.trans.insert.phi.trans.insert.i, align 8
   br i1 %17, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i.i
 
@@ -115996,7 +115996,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp8SetParamILNS0_8PrimType
 
 16:                                               ; preds = %3
   %17 = icmp eq ptr %15, null
-  %.phi.trans.insert.phi.trans.insert.i = getelementptr inbounds i8, ptr %4, i64 32
+  %.phi.trans.insert.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %4, i64 32
   %.pre.pre.i = load i32, ptr %.phi.trans.insert.phi.trans.insert.i, align 8
   br i1 %17, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i.i
 
@@ -116083,7 +116083,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp8SetParamILNS0_8PrimType
 
 18:                                               ; preds = %3
   %19 = icmp eq ptr %17, null
-  %.phi.trans.insert.phi.trans.insert.i = getelementptr inbounds i8, ptr %4, i64 32
+  %.phi.trans.insert.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %4, i64 32
   %.pre.pre.i = load i32, ptr %.phi.trans.insert.phi.trans.insert.i, align 8
   br i1 %19, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i.i
 
@@ -116185,7 +116185,7 @@ _ZN5clang6interp11InterpStack3popINS0_8FloatingEEET_v.exit: ; preds = %15, %16
 
 22:                                               ; preds = %_ZN5clang6interp11InterpStack3popINS0_8FloatingEEET_v.exit
   %23 = icmp eq ptr %21, null
-  %.phi.trans.insert.phi.trans.insert.i = getelementptr inbounds i8, ptr %4, i64 32
+  %.phi.trans.insert.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %4, i64 32
   %.pre.pre.i = load i32, ptr %.phi.trans.insert.phi.trans.insert.i, align 8
   br i1 %23, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i.i
 
@@ -116284,7 +116284,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp12SetThisFieldILNS0_8Pri
   %20 = load i64, ptr %17, align 8, !noalias !2570
   %21 = trunc i64 %20 to i32
   %22 = add i32 %2, %21
-  %23 = getelementptr inbounds i8, ptr %16, i64 64
+  %23 = getelementptr inbounds nuw i8, ptr %16, i64 64
   %24 = load ptr, ptr %23, align 8, !noalias !2570
   %25 = zext i32 %22 to i64
   call void @_ZN5clang6interp7PointerC1EPNS0_5BlockEjm(ptr noundef nonnull align 8 dereferenceable(52) %4, ptr noundef %24, i32 noundef %22, i64 noundef %25) #18
@@ -116305,7 +116305,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp12SetThisFieldILNS0_8Pri
 
 33:                                               ; preds = %27
   %34 = icmp eq ptr %32, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %4, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %4, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %34, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -116396,7 +116396,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp12SetThisFieldILNS0_8Pri
   %20 = load i64, ptr %17, align 8, !noalias !2573
   %21 = trunc i64 %20 to i32
   %22 = add i32 %2, %21
-  %23 = getelementptr inbounds i8, ptr %16, i64 64
+  %23 = getelementptr inbounds nuw i8, ptr %16, i64 64
   %24 = load ptr, ptr %23, align 8, !noalias !2573
   %25 = zext i32 %22 to i64
   call void @_ZN5clang6interp7PointerC1EPNS0_5BlockEjm(ptr noundef nonnull align 8 dereferenceable(52) %4, ptr noundef %24, i32 noundef %22, i64 noundef %25) #18
@@ -116417,7 +116417,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp12SetThisFieldILNS0_8Pri
 
 33:                                               ; preds = %27
   %34 = icmp eq ptr %32, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %4, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %4, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %34, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -116508,7 +116508,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp12SetThisFieldILNS0_8Pri
   %20 = load i64, ptr %17, align 8, !noalias !2576
   %21 = trunc i64 %20 to i32
   %22 = add i32 %2, %21
-  %23 = getelementptr inbounds i8, ptr %16, i64 64
+  %23 = getelementptr inbounds nuw i8, ptr %16, i64 64
   %24 = load ptr, ptr %23, align 8, !noalias !2576
   %25 = zext i32 %22 to i64
   call void @_ZN5clang6interp7PointerC1EPNS0_5BlockEjm(ptr noundef nonnull align 8 dereferenceable(52) %4, ptr noundef %24, i32 noundef %22, i64 noundef %25) #18
@@ -116529,7 +116529,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp12SetThisFieldILNS0_8Pri
 
 33:                                               ; preds = %27
   %34 = icmp eq ptr %32, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %4, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %4, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %34, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -116620,7 +116620,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp12SetThisFieldILNS0_8Pri
   %20 = load i64, ptr %17, align 8, !noalias !2579
   %21 = trunc i64 %20 to i32
   %22 = add i32 %2, %21
-  %23 = getelementptr inbounds i8, ptr %16, i64 64
+  %23 = getelementptr inbounds nuw i8, ptr %16, i64 64
   %24 = load ptr, ptr %23, align 8, !noalias !2579
   %25 = zext i32 %22 to i64
   call void @_ZN5clang6interp7PointerC1EPNS0_5BlockEjm(ptr noundef nonnull align 8 dereferenceable(52) %4, ptr noundef %24, i32 noundef %22, i64 noundef %25) #18
@@ -116641,7 +116641,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp12SetThisFieldILNS0_8Pri
 
 33:                                               ; preds = %27
   %34 = icmp eq ptr %32, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %4, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %4, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %34, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -116732,7 +116732,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp12SetThisFieldILNS0_8Pri
   %20 = load i64, ptr %17, align 8, !noalias !2582
   %21 = trunc i64 %20 to i32
   %22 = add i32 %2, %21
-  %23 = getelementptr inbounds i8, ptr %16, i64 64
+  %23 = getelementptr inbounds nuw i8, ptr %16, i64 64
   %24 = load ptr, ptr %23, align 8, !noalias !2582
   %25 = zext i32 %22 to i64
   call void @_ZN5clang6interp7PointerC1EPNS0_5BlockEjm(ptr noundef nonnull align 8 dereferenceable(52) %4, ptr noundef %24, i32 noundef %22, i64 noundef %25) #18
@@ -116753,7 +116753,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp12SetThisFieldILNS0_8Pri
 
 33:                                               ; preds = %27
   %34 = icmp eq ptr %32, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %4, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %4, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %34, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -116844,7 +116844,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp12SetThisFieldILNS0_8Pri
   %20 = load i64, ptr %17, align 8, !noalias !2585
   %21 = trunc i64 %20 to i32
   %22 = add i32 %2, %21
-  %23 = getelementptr inbounds i8, ptr %16, i64 64
+  %23 = getelementptr inbounds nuw i8, ptr %16, i64 64
   %24 = load ptr, ptr %23, align 8, !noalias !2585
   %25 = zext i32 %22 to i64
   call void @_ZN5clang6interp7PointerC1EPNS0_5BlockEjm(ptr noundef nonnull align 8 dereferenceable(52) %4, ptr noundef %24, i32 noundef %22, i64 noundef %25) #18
@@ -116865,7 +116865,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp12SetThisFieldILNS0_8Pri
 
 33:                                               ; preds = %27
   %34 = icmp eq ptr %32, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %4, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %4, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %34, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -116956,7 +116956,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp12SetThisFieldILNS0_8Pri
   %20 = load i64, ptr %17, align 8, !noalias !2588
   %21 = trunc i64 %20 to i32
   %22 = add i32 %2, %21
-  %23 = getelementptr inbounds i8, ptr %16, i64 64
+  %23 = getelementptr inbounds nuw i8, ptr %16, i64 64
   %24 = load ptr, ptr %23, align 8, !noalias !2588
   %25 = zext i32 %22 to i64
   call void @_ZN5clang6interp7PointerC1EPNS0_5BlockEjm(ptr noundef nonnull align 8 dereferenceable(52) %4, ptr noundef %24, i32 noundef %22, i64 noundef %25) #18
@@ -116977,7 +116977,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp12SetThisFieldILNS0_8Pri
 
 33:                                               ; preds = %27
   %34 = icmp eq ptr %32, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %4, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %4, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %34, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -117068,7 +117068,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp12SetThisFieldILNS0_8Pri
   %20 = load i64, ptr %17, align 8, !noalias !2591
   %21 = trunc i64 %20 to i32
   %22 = add i32 %2, %21
-  %23 = getelementptr inbounds i8, ptr %16, i64 64
+  %23 = getelementptr inbounds nuw i8, ptr %16, i64 64
   %24 = load ptr, ptr %23, align 8, !noalias !2591
   %25 = zext i32 %22 to i64
   call void @_ZN5clang6interp7PointerC1EPNS0_5BlockEjm(ptr noundef nonnull align 8 dereferenceable(52) %4, ptr noundef %24, i32 noundef %22, i64 noundef %25) #18
@@ -117089,7 +117089,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp12SetThisFieldILNS0_8Pri
 
 33:                                               ; preds = %27
   %34 = icmp eq ptr %32, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %4, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %4, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %34, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -117188,7 +117188,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp12SetThisFieldILNS0_8Pri
   %25 = load i64, ptr %22, align 8, !noalias !2597
   %26 = trunc i64 %25 to i32
   %27 = add i32 %2, %26
-  %28 = getelementptr inbounds i8, ptr %21, i64 64
+  %28 = getelementptr inbounds nuw i8, ptr %21, i64 64
   %29 = load ptr, ptr %28, align 8, !noalias !2597
   %30 = zext i32 %27 to i64
   call void @_ZN5clang6interp7PointerC1EPNS0_5BlockEjm(ptr noundef nonnull align 8 dereferenceable(52) %5, ptr noundef %29, i32 noundef %27, i64 noundef %30) #18
@@ -117209,7 +117209,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp12SetThisFieldILNS0_8Pri
 
 38:                                               ; preds = %32
   %39 = icmp eq ptr %37, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %5, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %5, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %39, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -117337,7 +117337,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp12SetThisFieldILNS0_8Pri
   %25 = load i64, ptr %22, align 8, !noalias !2603
   %26 = trunc i64 %25 to i32
   %27 = add i32 %2, %26
-  %28 = getelementptr inbounds i8, ptr %21, i64 64
+  %28 = getelementptr inbounds nuw i8, ptr %21, i64 64
   %29 = load ptr, ptr %28, align 8, !noalias !2603
   %30 = zext i32 %27 to i64
   call void @_ZN5clang6interp7PointerC1EPNS0_5BlockEjm(ptr noundef nonnull align 8 dereferenceable(52) %5, ptr noundef %29, i32 noundef %27, i64 noundef %30) #18
@@ -117358,7 +117358,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp12SetThisFieldILNS0_8Pri
 
 38:                                               ; preds = %32
   %39 = icmp eq ptr %37, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %5, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %5, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %39, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -117478,7 +117478,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp12SetThisFieldILNS0_8Pri
   %20 = load i64, ptr %17, align 8, !noalias !2606
   %21 = trunc i64 %20 to i32
   %22 = add i32 %2, %21
-  %23 = getelementptr inbounds i8, ptr %16, i64 64
+  %23 = getelementptr inbounds nuw i8, ptr %16, i64 64
   %24 = load ptr, ptr %23, align 8, !noalias !2606
   %25 = zext i32 %22 to i64
   call void @_ZN5clang6interp7PointerC1EPNS0_5BlockEjm(ptr noundef nonnull align 8 dereferenceable(52) %4, ptr noundef %24, i32 noundef %22, i64 noundef %25) #18
@@ -117499,7 +117499,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp12SetThisFieldILNS0_8Pri
 
 33:                                               ; preds = %27
   %34 = icmp eq ptr %32, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %4, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %4, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %34, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -117591,7 +117591,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp12SetThisFieldILNS0_8Pri
   %21 = load i64, ptr %18, align 8, !noalias !2612
   %22 = trunc i64 %21 to i32
   %23 = add i32 %2, %22
-  %24 = getelementptr inbounds i8, ptr %17, i64 64
+  %24 = getelementptr inbounds nuw i8, ptr %17, i64 64
   %25 = load ptr, ptr %24, align 8, !noalias !2612
   %26 = zext i32 %23 to i64
   call void @_ZN5clang6interp7PointerC1EPNS0_5BlockEjm(ptr noundef nonnull align 8 dereferenceable(52) %5, ptr noundef %25, i32 noundef %23, i64 noundef %26) #18
@@ -117612,7 +117612,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp12SetThisFieldILNS0_8Pri
 
 34:                                               ; preds = %28
   %35 = icmp eq ptr %33, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %5, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %5, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %35, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -117709,7 +117709,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp12SetThisFieldILNS0_8Pri
   %21 = load i64, ptr %18, align 8, !noalias !2618
   %22 = trunc i64 %21 to i32
   %23 = add i32 %2, %22
-  %24 = getelementptr inbounds i8, ptr %17, i64 64
+  %24 = getelementptr inbounds nuw i8, ptr %17, i64 64
   %25 = load ptr, ptr %24, align 8, !noalias !2618
   %26 = zext i32 %23 to i64
   call void @_ZN5clang6interp7PointerC1EPNS0_5BlockEjm(ptr noundef nonnull align 8 dereferenceable(52) %5, ptr noundef %25, i32 noundef %23, i64 noundef %26) #18
@@ -117730,7 +117730,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp12SetThisFieldILNS0_8Pri
 
 34:                                               ; preds = %28
   %35 = icmp eq ptr %33, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %5, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %5, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %35, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -117825,7 +117825,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp12SetThisFieldILNS0_8Pri
   %23 = load i64, ptr %20, align 8, !noalias !2624
   %24 = trunc i64 %23 to i32
   %25 = add i32 %2, %24
-  %26 = getelementptr inbounds i8, ptr %19, i64 64
+  %26 = getelementptr inbounds nuw i8, ptr %19, i64 64
   %27 = load ptr, ptr %26, align 8, !noalias !2624
   %28 = zext i32 %25 to i64
   call void @_ZN5clang6interp7PointerC1EPNS0_5BlockEjm(ptr noundef nonnull align 8 dereferenceable(52) %5, ptr noundef %27, i32 noundef %25, i64 noundef %28) #18
@@ -117846,7 +117846,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp12SetThisFieldILNS0_8Pri
 
 36:                                               ; preds = %30
   %37 = icmp eq ptr %35, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %5, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %5, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %37, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -117960,7 +117960,7 @@ _ZN5clang6interp11InterpStack3popINS0_8FloatingEEET_v.exit: ; preds = %20, %21
   %27 = load i64, ptr %24, align 8, !noalias !2630
   %28 = trunc i64 %27 to i32
   %29 = add i32 %2, %28
-  %30 = getelementptr inbounds i8, ptr %23, i64 64
+  %30 = getelementptr inbounds nuw i8, ptr %23, i64 64
   %31 = load ptr, ptr %30, align 8, !noalias !2630
   %32 = zext i32 %29 to i64
   call void @_ZN5clang6interp7PointerC1EPNS0_5BlockEjm(ptr noundef nonnull align 8 dereferenceable(52) %5, ptr noundef %31, i32 noundef %29, i64 noundef %32) #18
@@ -117981,7 +117981,7 @@ _ZN5clang6interp11InterpStack3popINS0_8FloatingEEET_v.exit: ; preds = %20, %21
 
 40:                                               ; preds = %34
   %41 = icmp eq ptr %39, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %5, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %5, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %41, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -124928,7 +124928,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp5StoreILNS0_8PrimTypeE0E
   br i1 %or.cond.i, label %_ZNK5clang6interp7Pointer16canBeInitializedEv.exit.thread, label %_ZNK5clang6interp7Pointer16canBeInitializedEv.exit
 
 _ZNK5clang6interp7Pointer16canBeInitializedEv.exit: ; preds = %9
-  %15 = getelementptr inbounds i8, ptr %7, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %16 = load i32, ptr %15, align 8
   %.not = icmp eq i32 %16, 0
   br i1 %.not, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i, label %17
@@ -124955,13 +124955,13 @@ _ZNK5clang6interp7Pointer16canBeInitializedEv.exit.thread: ; preds = %17, %9
   br i1 %22, label %._ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i_crit_edge, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
 ._ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i_crit_edge: ; preds = %21
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %7, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %7, i64 32
   %.pre15.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i
 
 _ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i:  ; preds = %_ZNK5clang6interp7Pointer16canBeInitializedEv.exit, %21
   %23 = phi ptr [ %19, %21 ], [ %14, %_ZNK5clang6interp7Pointer16canBeInitializedEv.exit ]
-  %24 = getelementptr inbounds i8, ptr %7, i64 32
+  %24 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %25 = load i32, ptr %24, align 8
   %26 = getelementptr inbounds nuw i8, ptr %23, i64 32
   %27 = load ptr, ptr %26, align 8
@@ -125044,7 +125044,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp5StoreILNS0_8PrimTypeE1E
   br i1 %or.cond.i, label %_ZNK5clang6interp7Pointer16canBeInitializedEv.exit.thread, label %_ZNK5clang6interp7Pointer16canBeInitializedEv.exit
 
 _ZNK5clang6interp7Pointer16canBeInitializedEv.exit: ; preds = %9
-  %15 = getelementptr inbounds i8, ptr %7, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %16 = load i32, ptr %15, align 8
   %.not = icmp eq i32 %16, 0
   br i1 %.not, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i, label %17
@@ -125071,13 +125071,13 @@ _ZNK5clang6interp7Pointer16canBeInitializedEv.exit.thread: ; preds = %17, %9
   br i1 %22, label %._ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i_crit_edge, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
 ._ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i_crit_edge: ; preds = %21
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %7, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %7, i64 32
   %.pre15.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i
 
 _ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i:  ; preds = %_ZNK5clang6interp7Pointer16canBeInitializedEv.exit, %21
   %23 = phi ptr [ %19, %21 ], [ %14, %_ZNK5clang6interp7Pointer16canBeInitializedEv.exit ]
-  %24 = getelementptr inbounds i8, ptr %7, i64 32
+  %24 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %25 = load i32, ptr %24, align 8
   %26 = getelementptr inbounds nuw i8, ptr %23, i64 32
   %27 = load ptr, ptr %26, align 8
@@ -125160,7 +125160,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp5StoreILNS0_8PrimTypeE2E
   br i1 %or.cond.i, label %_ZNK5clang6interp7Pointer16canBeInitializedEv.exit.thread, label %_ZNK5clang6interp7Pointer16canBeInitializedEv.exit
 
 _ZNK5clang6interp7Pointer16canBeInitializedEv.exit: ; preds = %9
-  %15 = getelementptr inbounds i8, ptr %7, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %16 = load i32, ptr %15, align 8
   %.not = icmp eq i32 %16, 0
   br i1 %.not, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i, label %17
@@ -125187,13 +125187,13 @@ _ZNK5clang6interp7Pointer16canBeInitializedEv.exit.thread: ; preds = %17, %9
   br i1 %22, label %._ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i_crit_edge, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
 ._ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i_crit_edge: ; preds = %21
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %7, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %7, i64 32
   %.pre15.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i
 
 _ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i:  ; preds = %_ZNK5clang6interp7Pointer16canBeInitializedEv.exit, %21
   %23 = phi ptr [ %19, %21 ], [ %14, %_ZNK5clang6interp7Pointer16canBeInitializedEv.exit ]
-  %24 = getelementptr inbounds i8, ptr %7, i64 32
+  %24 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %25 = load i32, ptr %24, align 8
   %26 = getelementptr inbounds nuw i8, ptr %23, i64 32
   %27 = load ptr, ptr %26, align 8
@@ -125276,7 +125276,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp5StoreILNS0_8PrimTypeE3E
   br i1 %or.cond.i, label %_ZNK5clang6interp7Pointer16canBeInitializedEv.exit.thread, label %_ZNK5clang6interp7Pointer16canBeInitializedEv.exit
 
 _ZNK5clang6interp7Pointer16canBeInitializedEv.exit: ; preds = %9
-  %15 = getelementptr inbounds i8, ptr %7, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %16 = load i32, ptr %15, align 8
   %.not = icmp eq i32 %16, 0
   br i1 %.not, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i, label %17
@@ -125303,13 +125303,13 @@ _ZNK5clang6interp7Pointer16canBeInitializedEv.exit.thread: ; preds = %17, %9
   br i1 %22, label %._ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i_crit_edge, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
 ._ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i_crit_edge: ; preds = %21
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %7, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %7, i64 32
   %.pre15.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i
 
 _ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i:  ; preds = %_ZNK5clang6interp7Pointer16canBeInitializedEv.exit, %21
   %23 = phi ptr [ %19, %21 ], [ %14, %_ZNK5clang6interp7Pointer16canBeInitializedEv.exit ]
-  %24 = getelementptr inbounds i8, ptr %7, i64 32
+  %24 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %25 = load i32, ptr %24, align 8
   %26 = getelementptr inbounds nuw i8, ptr %23, i64 32
   %27 = load ptr, ptr %26, align 8
@@ -125392,7 +125392,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp5StoreILNS0_8PrimTypeE4E
   br i1 %or.cond.i, label %_ZNK5clang6interp7Pointer16canBeInitializedEv.exit.thread, label %_ZNK5clang6interp7Pointer16canBeInitializedEv.exit
 
 _ZNK5clang6interp7Pointer16canBeInitializedEv.exit: ; preds = %9
-  %15 = getelementptr inbounds i8, ptr %7, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %16 = load i32, ptr %15, align 8
   %.not = icmp eq i32 %16, 0
   br i1 %.not, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i, label %17
@@ -125419,13 +125419,13 @@ _ZNK5clang6interp7Pointer16canBeInitializedEv.exit.thread: ; preds = %17, %9
   br i1 %22, label %._ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i_crit_edge, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
 ._ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i_crit_edge: ; preds = %21
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %7, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %7, i64 32
   %.pre15.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i
 
 _ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i:  ; preds = %_ZNK5clang6interp7Pointer16canBeInitializedEv.exit, %21
   %23 = phi ptr [ %19, %21 ], [ %14, %_ZNK5clang6interp7Pointer16canBeInitializedEv.exit ]
-  %24 = getelementptr inbounds i8, ptr %7, i64 32
+  %24 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %25 = load i32, ptr %24, align 8
   %26 = getelementptr inbounds nuw i8, ptr %23, i64 32
   %27 = load ptr, ptr %26, align 8
@@ -125508,7 +125508,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp5StoreILNS0_8PrimTypeE5E
   br i1 %or.cond.i, label %_ZNK5clang6interp7Pointer16canBeInitializedEv.exit.thread, label %_ZNK5clang6interp7Pointer16canBeInitializedEv.exit
 
 _ZNK5clang6interp7Pointer16canBeInitializedEv.exit: ; preds = %9
-  %15 = getelementptr inbounds i8, ptr %7, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %16 = load i32, ptr %15, align 8
   %.not = icmp eq i32 %16, 0
   br i1 %.not, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i, label %17
@@ -125535,13 +125535,13 @@ _ZNK5clang6interp7Pointer16canBeInitializedEv.exit.thread: ; preds = %17, %9
   br i1 %22, label %._ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i_crit_edge, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
 ._ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i_crit_edge: ; preds = %21
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %7, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %7, i64 32
   %.pre15.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i
 
 _ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i:  ; preds = %_ZNK5clang6interp7Pointer16canBeInitializedEv.exit, %21
   %23 = phi ptr [ %19, %21 ], [ %14, %_ZNK5clang6interp7Pointer16canBeInitializedEv.exit ]
-  %24 = getelementptr inbounds i8, ptr %7, i64 32
+  %24 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %25 = load i32, ptr %24, align 8
   %26 = getelementptr inbounds nuw i8, ptr %23, i64 32
   %27 = load ptr, ptr %26, align 8
@@ -125624,7 +125624,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp5StoreILNS0_8PrimTypeE6E
   br i1 %or.cond.i, label %_ZNK5clang6interp7Pointer16canBeInitializedEv.exit.thread, label %_ZNK5clang6interp7Pointer16canBeInitializedEv.exit
 
 _ZNK5clang6interp7Pointer16canBeInitializedEv.exit: ; preds = %9
-  %15 = getelementptr inbounds i8, ptr %7, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %16 = load i32, ptr %15, align 8
   %.not = icmp eq i32 %16, 0
   br i1 %.not, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i, label %17
@@ -125651,13 +125651,13 @@ _ZNK5clang6interp7Pointer16canBeInitializedEv.exit.thread: ; preds = %17, %9
   br i1 %22, label %._ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i_crit_edge, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
 ._ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i_crit_edge: ; preds = %21
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %7, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %7, i64 32
   %.pre15.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i
 
 _ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i:  ; preds = %_ZNK5clang6interp7Pointer16canBeInitializedEv.exit, %21
   %23 = phi ptr [ %19, %21 ], [ %14, %_ZNK5clang6interp7Pointer16canBeInitializedEv.exit ]
-  %24 = getelementptr inbounds i8, ptr %7, i64 32
+  %24 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %25 = load i32, ptr %24, align 8
   %26 = getelementptr inbounds nuw i8, ptr %23, i64 32
   %27 = load ptr, ptr %26, align 8
@@ -125740,7 +125740,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp5StoreILNS0_8PrimTypeE7E
   br i1 %or.cond.i, label %_ZNK5clang6interp7Pointer16canBeInitializedEv.exit.thread, label %_ZNK5clang6interp7Pointer16canBeInitializedEv.exit
 
 _ZNK5clang6interp7Pointer16canBeInitializedEv.exit: ; preds = %9
-  %15 = getelementptr inbounds i8, ptr %7, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %16 = load i32, ptr %15, align 8
   %.not = icmp eq i32 %16, 0
   br i1 %.not, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i, label %17
@@ -125767,13 +125767,13 @@ _ZNK5clang6interp7Pointer16canBeInitializedEv.exit.thread: ; preds = %17, %9
   br i1 %22, label %._ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i_crit_edge, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
 ._ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i_crit_edge: ; preds = %21
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %7, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %7, i64 32
   %.pre15.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i
 
 _ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i:  ; preds = %_ZNK5clang6interp7Pointer16canBeInitializedEv.exit, %21
   %23 = phi ptr [ %19, %21 ], [ %14, %_ZNK5clang6interp7Pointer16canBeInitializedEv.exit ]
-  %24 = getelementptr inbounds i8, ptr %7, i64 32
+  %24 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %25 = load i32, ptr %24, align 8
   %26 = getelementptr inbounds nuw i8, ptr %23, i64 32
   %27 = load ptr, ptr %26, align 8
@@ -125864,7 +125864,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp5StoreILNS0_8PrimTypeE8E
   br i1 %or.cond.i, label %_ZNK5clang6interp7Pointer16canBeInitializedEv.exit.thread, label %_ZNK5clang6interp7Pointer16canBeInitializedEv.exit
 
 _ZNK5clang6interp7Pointer16canBeInitializedEv.exit: ; preds = %14
-  %20 = getelementptr inbounds i8, ptr %12, i64 32
+  %20 = getelementptr inbounds nuw i8, ptr %12, i64 32
   %21 = load i32, ptr %20, align 8
   %.not = icmp eq i32 %21, 0
   br i1 %.not, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i, label %22
@@ -125891,13 +125891,13 @@ _ZNK5clang6interp7Pointer16canBeInitializedEv.exit.thread: ; preds = %22, %14
   br i1 %27, label %._ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i_crit_edge, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
 ._ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i_crit_edge: ; preds = %26
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %12, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %12, i64 32
   %.pre16.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i
 
 _ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i:  ; preds = %_ZNK5clang6interp7Pointer16canBeInitializedEv.exit, %26
   %28 = phi ptr [ %24, %26 ], [ %19, %_ZNK5clang6interp7Pointer16canBeInitializedEv.exit ]
-  %29 = getelementptr inbounds i8, ptr %12, i64 32
+  %29 = getelementptr inbounds nuw i8, ptr %12, i64 32
   %30 = load i32, ptr %29, align 8
   %31 = getelementptr inbounds nuw i8, ptr %28, i64 32
   %32 = load ptr, ptr %31, align 8
@@ -126017,7 +126017,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp5StoreILNS0_8PrimTypeE9E
   br i1 %or.cond.i, label %_ZNK5clang6interp7Pointer16canBeInitializedEv.exit.thread, label %_ZNK5clang6interp7Pointer16canBeInitializedEv.exit
 
 _ZNK5clang6interp7Pointer16canBeInitializedEv.exit: ; preds = %14
-  %20 = getelementptr inbounds i8, ptr %12, i64 32
+  %20 = getelementptr inbounds nuw i8, ptr %12, i64 32
   %21 = load i32, ptr %20, align 8
   %.not = icmp eq i32 %21, 0
   br i1 %.not, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i, label %22
@@ -126044,13 +126044,13 @@ _ZNK5clang6interp7Pointer16canBeInitializedEv.exit.thread: ; preds = %22, %14
   br i1 %27, label %._ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i_crit_edge, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
 ._ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i_crit_edge: ; preds = %26
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %12, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %12, i64 32
   %.pre16.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i
 
 _ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i:  ; preds = %_ZNK5clang6interp7Pointer16canBeInitializedEv.exit, %26
   %28 = phi ptr [ %24, %26 ], [ %19, %_ZNK5clang6interp7Pointer16canBeInitializedEv.exit ]
-  %29 = getelementptr inbounds i8, ptr %12, i64 32
+  %29 = getelementptr inbounds nuw i8, ptr %12, i64 32
   %30 = load i32, ptr %29, align 8
   %31 = getelementptr inbounds nuw i8, ptr %28, i64 32
   %32 = load ptr, ptr %31, align 8
@@ -126162,7 +126162,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp5StoreILNS0_8PrimTypeE10
   br i1 %or.cond.i, label %_ZNK5clang6interp7Pointer16canBeInitializedEv.exit.thread, label %_ZNK5clang6interp7Pointer16canBeInitializedEv.exit
 
 _ZNK5clang6interp7Pointer16canBeInitializedEv.exit: ; preds = %9
-  %15 = getelementptr inbounds i8, ptr %7, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %16 = load i32, ptr %15, align 8
   %.not = icmp eq i32 %16, 0
   br i1 %.not, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i, label %17
@@ -126189,13 +126189,13 @@ _ZNK5clang6interp7Pointer16canBeInitializedEv.exit.thread: ; preds = %17, %9
   br i1 %22, label %._ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i_crit_edge, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
 ._ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i_crit_edge: ; preds = %21
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %7, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %7, i64 32
   %.pre15.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i
 
 _ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i:  ; preds = %_ZNK5clang6interp7Pointer16canBeInitializedEv.exit, %21
   %23 = phi ptr [ %19, %21 ], [ %14, %_ZNK5clang6interp7Pointer16canBeInitializedEv.exit ]
-  %24 = getelementptr inbounds i8, ptr %7, i64 32
+  %24 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %25 = load i32, ptr %24, align 8
   %26 = getelementptr inbounds nuw i8, ptr %23, i64 32
   %27 = load ptr, ptr %26, align 8
@@ -126279,7 +126279,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp5StoreILNS0_8PrimTypeE12
   br i1 %or.cond.i, label %_ZNK5clang6interp7Pointer16canBeInitializedEv.exit.thread, label %_ZNK5clang6interp7Pointer16canBeInitializedEv.exit
 
 _ZNK5clang6interp7Pointer16canBeInitializedEv.exit: ; preds = %10
-  %16 = getelementptr inbounds i8, ptr %8, i64 32
+  %16 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %17 = load i32, ptr %16, align 8
   %.not = icmp eq i32 %17, 0
   br i1 %.not, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i, label %18
@@ -126306,13 +126306,13 @@ _ZNK5clang6interp7Pointer16canBeInitializedEv.exit.thread: ; preds = %18, %10
   br i1 %23, label %._ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i_crit_edge, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
 ._ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i_crit_edge: ; preds = %22
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %8, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %8, i64 32
   %.pre15.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i
 
 _ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i:  ; preds = %_ZNK5clang6interp7Pointer16canBeInitializedEv.exit, %22
   %24 = phi ptr [ %20, %22 ], [ %15, %_ZNK5clang6interp7Pointer16canBeInitializedEv.exit ]
-  %25 = getelementptr inbounds i8, ptr %8, i64 32
+  %25 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %26 = load i32, ptr %25, align 8
   %27 = getelementptr inbounds nuw i8, ptr %24, i64 32
   %28 = load ptr, ptr %27, align 8
@@ -126397,7 +126397,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp5StoreILNS0_8PrimTypeE13
   br i1 %or.cond.i, label %_ZNK5clang6interp7Pointer16canBeInitializedEv.exit.thread, label %_ZNK5clang6interp7Pointer16canBeInitializedEv.exit
 
 _ZNK5clang6interp7Pointer16canBeInitializedEv.exit: ; preds = %10
-  %16 = getelementptr inbounds i8, ptr %8, i64 32
+  %16 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %17 = load i32, ptr %16, align 8
   %.not = icmp eq i32 %17, 0
   br i1 %.not, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i, label %18
@@ -126424,13 +126424,13 @@ _ZNK5clang6interp7Pointer16canBeInitializedEv.exit.thread: ; preds = %18, %10
   br i1 %23, label %._ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i_crit_edge, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
 ._ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i_crit_edge: ; preds = %22
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %8, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %8, i64 32
   %.pre15.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i
 
 _ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i:  ; preds = %_ZNK5clang6interp7Pointer16canBeInitializedEv.exit, %22
   %24 = phi ptr [ %20, %22 ], [ %15, %_ZNK5clang6interp7Pointer16canBeInitializedEv.exit ]
-  %25 = getelementptr inbounds i8, ptr %8, i64 32
+  %25 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %26 = load i32, ptr %25, align 8
   %27 = getelementptr inbounds nuw i8, ptr %24, i64 32
   %28 = load ptr, ptr %27, align 8
@@ -126517,7 +126517,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp5StoreILNS0_8PrimTypeE14
   br i1 %or.cond.i, label %_ZNK5clang6interp7Pointer16canBeInitializedEv.exit.thread, label %_ZNK5clang6interp7Pointer16canBeInitializedEv.exit
 
 _ZNK5clang6interp7Pointer16canBeInitializedEv.exit: ; preds = %12
-  %18 = getelementptr inbounds i8, ptr %10, i64 32
+  %18 = getelementptr inbounds nuw i8, ptr %10, i64 32
   %19 = load i32, ptr %18, align 8
   %.not = icmp eq i32 %19, 0
   br i1 %.not, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i, label %20
@@ -126544,13 +126544,13 @@ _ZNK5clang6interp7Pointer16canBeInitializedEv.exit.thread: ; preds = %20, %12
   br i1 %25, label %._ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i_crit_edge, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
 ._ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i_crit_edge: ; preds = %24
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %10, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %10, i64 32
   %.pre15.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i
 
 _ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i:  ; preds = %_ZNK5clang6interp7Pointer16canBeInitializedEv.exit, %24
   %26 = phi ptr [ %22, %24 ], [ %17, %_ZNK5clang6interp7Pointer16canBeInitializedEv.exit ]
-  %27 = getelementptr inbounds i8, ptr %10, i64 32
+  %27 = getelementptr inbounds nuw i8, ptr %10, i64 32
   %28 = load i32, ptr %27, align 8
   %29 = getelementptr inbounds nuw i8, ptr %26, i64 32
   %30 = load ptr, ptr %29, align 8
@@ -126652,7 +126652,7 @@ _ZN5clang6interp11InterpStack3popINS0_8FloatingEEET_v.exit: ; preds = %11, %12
   br i1 %or.cond.i, label %_ZNK5clang6interp7Pointer16canBeInitializedEv.exit.thread, label %_ZNK5clang6interp7Pointer16canBeInitializedEv.exit
 
 _ZNK5clang6interp7Pointer16canBeInitializedEv.exit: ; preds = %16
-  %22 = getelementptr inbounds i8, ptr %14, i64 32
+  %22 = getelementptr inbounds nuw i8, ptr %14, i64 32
   %23 = load i32, ptr %22, align 8
   %.not = icmp eq i32 %23, 0
   br i1 %.not, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i, label %24
@@ -126679,13 +126679,13 @@ _ZNK5clang6interp7Pointer16canBeInitializedEv.exit.thread: ; preds = %24, %16
   br i1 %29, label %._ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i_crit_edge, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
 ._ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i_crit_edge: ; preds = %28
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %14, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %14, i64 32
   %.pre15.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i
 
 _ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i:  ; preds = %_ZNK5clang6interp7Pointer16canBeInitializedEv.exit, %28
   %30 = phi ptr [ %26, %28 ], [ %21, %_ZNK5clang6interp7Pointer16canBeInitializedEv.exit ]
-  %31 = getelementptr inbounds i8, ptr %14, i64 32
+  %31 = getelementptr inbounds nuw i8, ptr %14, i64 32
   %32 = load i32, ptr %31, align 8
   %33 = getelementptr inbounds nuw i8, ptr %30, i64 32
   %34 = load ptr, ptr %33, align 8
@@ -126779,7 +126779,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp13StoreBitFieldILNS0_8Pr
   %14 = load ptr, ptr %13, align 8
   %.not.i = icmp ne ptr %14, null
   %or.cond.i.not40 = select i1 %12, i1 %.not.i, i1 false
-  %15 = getelementptr inbounds i8, ptr %7, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %16 = load i32, ptr %15, align 8
   %17 = icmp ne i32 %16, 0
   %or.cond = select i1 %or.cond.i.not40, i1 %17, i1 false
@@ -127048,7 +127048,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp13StoreBitFieldILNS0_8Pr
   %14 = load ptr, ptr %13, align 8
   %.not.i = icmp ne ptr %14, null
   %or.cond.i.not39 = select i1 %12, i1 %.not.i, i1 false
-  %15 = getelementptr inbounds i8, ptr %7, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %16 = load i32, ptr %15, align 8
   %17 = icmp ne i32 %16, 0
   %or.cond = select i1 %or.cond.i.not39, i1 %17, i1 false
@@ -127303,7 +127303,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp13StoreBitFieldILNS0_8Pr
   %14 = load ptr, ptr %13, align 8
   %.not.i = icmp ne ptr %14, null
   %or.cond.i.not40 = select i1 %12, i1 %.not.i, i1 false
-  %15 = getelementptr inbounds i8, ptr %7, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %16 = load i32, ptr %15, align 8
   %17 = icmp ne i32 %16, 0
   %or.cond = select i1 %or.cond.i.not40, i1 %17, i1 false
@@ -127572,7 +127572,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp13StoreBitFieldILNS0_8Pr
   %14 = load ptr, ptr %13, align 8
   %.not.i = icmp ne ptr %14, null
   %or.cond.i.not39 = select i1 %12, i1 %.not.i, i1 false
-  %15 = getelementptr inbounds i8, ptr %7, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %16 = load i32, ptr %15, align 8
   %17 = icmp ne i32 %16, 0
   %or.cond = select i1 %or.cond.i.not39, i1 %17, i1 false
@@ -127827,7 +127827,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp13StoreBitFieldILNS0_8Pr
   %14 = load ptr, ptr %13, align 8
   %.not.i = icmp ne ptr %14, null
   %or.cond.i.not40 = select i1 %12, i1 %.not.i, i1 false
-  %15 = getelementptr inbounds i8, ptr %7, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %16 = load i32, ptr %15, align 8
   %17 = icmp ne i32 %16, 0
   %or.cond = select i1 %or.cond.i.not40, i1 %17, i1 false
@@ -128093,7 +128093,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp13StoreBitFieldILNS0_8Pr
   %14 = load ptr, ptr %13, align 8
   %.not.i = icmp ne ptr %14, null
   %or.cond.i.not39 = select i1 %12, i1 %.not.i, i1 false
-  %15 = getelementptr inbounds i8, ptr %7, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %16 = load i32, ptr %15, align 8
   %17 = icmp ne i32 %16, 0
   %or.cond = select i1 %or.cond.i.not39, i1 %17, i1 false
@@ -128347,7 +128347,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp13StoreBitFieldILNS0_8Pr
   %14 = load ptr, ptr %13, align 8
   %.not.i = icmp ne ptr %14, null
   %or.cond.i.not40 = select i1 %12, i1 %.not.i, i1 false
-  %15 = getelementptr inbounds i8, ptr %7, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %16 = load i32, ptr %15, align 8
   %17 = icmp ne i32 %16, 0
   %or.cond = select i1 %or.cond.i.not40, i1 %17, i1 false
@@ -128615,7 +128615,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp13StoreBitFieldILNS0_8Pr
   %14 = load ptr, ptr %13, align 8
   %.not.i = icmp ne ptr %14, null
   %or.cond.i.not39 = select i1 %12, i1 %.not.i, i1 false
-  %15 = getelementptr inbounds i8, ptr %7, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %16 = load i32, ptr %15, align 8
   %17 = icmp ne i32 %16, 0
   %or.cond = select i1 %or.cond.i.not39, i1 %17, i1 false
@@ -128879,7 +128879,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp13StoreBitFieldILNS0_8Pr
   %20 = load ptr, ptr %19, align 8
   %.not.i = icmp ne ptr %20, null
   %or.cond.i.not39 = select i1 %18, i1 %.not.i, i1 false
-  %21 = getelementptr inbounds i8, ptr %13, i64 32
+  %21 = getelementptr inbounds nuw i8, ptr %13, i64 32
   %22 = load i32, ptr %21, align 8
   %23 = icmp ne i32 %22, 0
   %or.cond = select i1 %or.cond.i.not39, i1 %23, i1 false
@@ -129186,7 +129186,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp13StoreBitFieldILNS0_8Pr
   %20 = load ptr, ptr %19, align 8
   %.not.i = icmp ne ptr %20, null
   %or.cond.i.not39 = select i1 %18, i1 %.not.i, i1 false
-  %21 = getelementptr inbounds i8, ptr %13, i64 32
+  %21 = getelementptr inbounds nuw i8, ptr %13, i64 32
   %22 = load i32, ptr %21, align 8
   %23 = icmp ne i32 %22, 0
   %or.cond = select i1 %or.cond.i.not39, i1 %23, i1 false
@@ -129484,7 +129484,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp13StoreBitFieldILNS0_8Pr
   %14 = load ptr, ptr %13, align 8
   %.not.i = icmp ne ptr %14, null
   %or.cond.i.not39 = select i1 %12, i1 %.not.i, i1 false
-  %15 = getelementptr inbounds i8, ptr %7, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %16 = load i32, ptr %15, align 8
   %17 = icmp ne i32 %16, 0
   %or.cond = select i1 %or.cond.i.not39, i1 %17, i1 false
@@ -129731,7 +129731,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp16StoreBitFieldPopILNS0_
   %15 = load ptr, ptr %14, align 8
   %.not.i = icmp ne ptr %15, null
   %or.cond.i.not40 = select i1 %13, i1 %.not.i, i1 false
-  %16 = getelementptr inbounds i8, ptr %3, i64 32
+  %16 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %17 = load i32, ptr %16, align 8
   %18 = icmp ne i32 %17, 0
   %or.cond = select i1 %or.cond.i.not40, i1 %18, i1 false
@@ -130004,7 +130004,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp16StoreBitFieldPopILNS0_
   %15 = load ptr, ptr %14, align 8
   %.not.i = icmp ne ptr %15, null
   %or.cond.i.not39 = select i1 %13, i1 %.not.i, i1 false
-  %16 = getelementptr inbounds i8, ptr %3, i64 32
+  %16 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %17 = load i32, ptr %16, align 8
   %18 = icmp ne i32 %17, 0
   %or.cond = select i1 %or.cond.i.not39, i1 %18, i1 false
@@ -130263,7 +130263,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp16StoreBitFieldPopILNS0_
   %15 = load ptr, ptr %14, align 8
   %.not.i = icmp ne ptr %15, null
   %or.cond.i.not40 = select i1 %13, i1 %.not.i, i1 false
-  %16 = getelementptr inbounds i8, ptr %3, i64 32
+  %16 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %17 = load i32, ptr %16, align 8
   %18 = icmp ne i32 %17, 0
   %or.cond = select i1 %or.cond.i.not40, i1 %18, i1 false
@@ -130536,7 +130536,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp16StoreBitFieldPopILNS0_
   %15 = load ptr, ptr %14, align 8
   %.not.i = icmp ne ptr %15, null
   %or.cond.i.not39 = select i1 %13, i1 %.not.i, i1 false
-  %16 = getelementptr inbounds i8, ptr %3, i64 32
+  %16 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %17 = load i32, ptr %16, align 8
   %18 = icmp ne i32 %17, 0
   %or.cond = select i1 %or.cond.i.not39, i1 %18, i1 false
@@ -130795,7 +130795,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp16StoreBitFieldPopILNS0_
   %15 = load ptr, ptr %14, align 8
   %.not.i = icmp ne ptr %15, null
   %or.cond.i.not40 = select i1 %13, i1 %.not.i, i1 false
-  %16 = getelementptr inbounds i8, ptr %3, i64 32
+  %16 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %17 = load i32, ptr %16, align 8
   %18 = icmp ne i32 %17, 0
   %or.cond = select i1 %or.cond.i.not40, i1 %18, i1 false
@@ -131065,7 +131065,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp16StoreBitFieldPopILNS0_
   %15 = load ptr, ptr %14, align 8
   %.not.i = icmp ne ptr %15, null
   %or.cond.i.not39 = select i1 %13, i1 %.not.i, i1 false
-  %16 = getelementptr inbounds i8, ptr %3, i64 32
+  %16 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %17 = load i32, ptr %16, align 8
   %18 = icmp ne i32 %17, 0
   %or.cond = select i1 %or.cond.i.not39, i1 %18, i1 false
@@ -131323,7 +131323,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp16StoreBitFieldPopILNS0_
   %15 = load ptr, ptr %14, align 8
   %.not.i = icmp ne ptr %15, null
   %or.cond.i.not40 = select i1 %13, i1 %.not.i, i1 false
-  %16 = getelementptr inbounds i8, ptr %3, i64 32
+  %16 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %17 = load i32, ptr %16, align 8
   %18 = icmp ne i32 %17, 0
   %or.cond = select i1 %or.cond.i.not40, i1 %18, i1 false
@@ -131595,7 +131595,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp16StoreBitFieldPopILNS0_
   %15 = load ptr, ptr %14, align 8
   %.not.i = icmp ne ptr %15, null
   %or.cond.i.not39 = select i1 %13, i1 %.not.i, i1 false
-  %16 = getelementptr inbounds i8, ptr %3, i64 32
+  %16 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %17 = load i32, ptr %16, align 8
   %18 = icmp ne i32 %17, 0
   %or.cond = select i1 %or.cond.i.not39, i1 %18, i1 false
@@ -131863,7 +131863,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp16StoreBitFieldPopILNS0_
   %21 = load ptr, ptr %20, align 8
   %.not.i = icmp ne ptr %21, null
   %or.cond.i.not39 = select i1 %19, i1 %.not.i, i1 false
-  %22 = getelementptr inbounds i8, ptr %4, i64 32
+  %22 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %23 = load i32, ptr %22, align 8
   %24 = icmp ne i32 %23, 0
   %or.cond = select i1 %or.cond.i.not39, i1 %24, i1 false
@@ -132174,7 +132174,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp16StoreBitFieldPopILNS0_
   %21 = load ptr, ptr %20, align 8
   %.not.i = icmp ne ptr %21, null
   %or.cond.i.not39 = select i1 %19, i1 %.not.i, i1 false
-  %22 = getelementptr inbounds i8, ptr %4, i64 32
+  %22 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %23 = load i32, ptr %22, align 8
   %24 = icmp ne i32 %23, 0
   %or.cond = select i1 %or.cond.i.not39, i1 %24, i1 false
@@ -132476,7 +132476,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp16StoreBitFieldPopILNS0_
   %15 = load ptr, ptr %14, align 8
   %.not.i = icmp ne ptr %15, null
   %or.cond.i.not39 = select i1 %13, i1 %.not.i, i1 false
-  %16 = getelementptr inbounds i8, ptr %3, i64 32
+  %16 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %17 = load i32, ptr %16, align 8
   %18 = icmp ne i32 %17, 0
   %or.cond = select i1 %or.cond.i.not39, i1 %18, i1 false
@@ -132727,7 +132727,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp8StorePopILNS0_8PrimType
   br i1 %or.cond.i, label %_ZNK5clang6interp7Pointer16canBeInitializedEv.exit.thread, label %_ZNK5clang6interp7Pointer16canBeInitializedEv.exit
 
 _ZNK5clang6interp7Pointer16canBeInitializedEv.exit: ; preds = %10
-  %16 = getelementptr inbounds i8, ptr %3, i64 32
+  %16 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %17 = load i32, ptr %16, align 8
   %.not = icmp eq i32 %17, 0
   br i1 %.not, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i, label %18
@@ -132754,13 +132754,13 @@ _ZNK5clang6interp7Pointer16canBeInitializedEv.exit.thread: ; preds = %18, %10
   br i1 %23, label %._ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i_crit_edge, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
 ._ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i_crit_edge: ; preds = %22
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %3, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %3, i64 32
   %.pre15.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i
 
 _ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i:  ; preds = %_ZNK5clang6interp7Pointer16canBeInitializedEv.exit, %22
   %24 = phi ptr [ %20, %22 ], [ %15, %_ZNK5clang6interp7Pointer16canBeInitializedEv.exit ]
-  %25 = getelementptr inbounds i8, ptr %3, i64 32
+  %25 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %26 = load i32, ptr %25, align 8
   %27 = getelementptr inbounds nuw i8, ptr %24, i64 32
   %28 = load ptr, ptr %27, align 8
@@ -132847,7 +132847,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp8StorePopILNS0_8PrimType
   br i1 %or.cond.i, label %_ZNK5clang6interp7Pointer16canBeInitializedEv.exit.thread, label %_ZNK5clang6interp7Pointer16canBeInitializedEv.exit
 
 _ZNK5clang6interp7Pointer16canBeInitializedEv.exit: ; preds = %10
-  %16 = getelementptr inbounds i8, ptr %3, i64 32
+  %16 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %17 = load i32, ptr %16, align 8
   %.not = icmp eq i32 %17, 0
   br i1 %.not, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i, label %18
@@ -132874,13 +132874,13 @@ _ZNK5clang6interp7Pointer16canBeInitializedEv.exit.thread: ; preds = %18, %10
   br i1 %23, label %._ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i_crit_edge, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
 ._ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i_crit_edge: ; preds = %22
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %3, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %3, i64 32
   %.pre15.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i
 
 _ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i:  ; preds = %_ZNK5clang6interp7Pointer16canBeInitializedEv.exit, %22
   %24 = phi ptr [ %20, %22 ], [ %15, %_ZNK5clang6interp7Pointer16canBeInitializedEv.exit ]
-  %25 = getelementptr inbounds i8, ptr %3, i64 32
+  %25 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %26 = load i32, ptr %25, align 8
   %27 = getelementptr inbounds nuw i8, ptr %24, i64 32
   %28 = load ptr, ptr %27, align 8
@@ -132967,7 +132967,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp8StorePopILNS0_8PrimType
   br i1 %or.cond.i, label %_ZNK5clang6interp7Pointer16canBeInitializedEv.exit.thread, label %_ZNK5clang6interp7Pointer16canBeInitializedEv.exit
 
 _ZNK5clang6interp7Pointer16canBeInitializedEv.exit: ; preds = %10
-  %16 = getelementptr inbounds i8, ptr %3, i64 32
+  %16 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %17 = load i32, ptr %16, align 8
   %.not = icmp eq i32 %17, 0
   br i1 %.not, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i, label %18
@@ -132994,13 +132994,13 @@ _ZNK5clang6interp7Pointer16canBeInitializedEv.exit.thread: ; preds = %18, %10
   br i1 %23, label %._ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i_crit_edge, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
 ._ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i_crit_edge: ; preds = %22
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %3, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %3, i64 32
   %.pre15.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i
 
 _ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i:  ; preds = %_ZNK5clang6interp7Pointer16canBeInitializedEv.exit, %22
   %24 = phi ptr [ %20, %22 ], [ %15, %_ZNK5clang6interp7Pointer16canBeInitializedEv.exit ]
-  %25 = getelementptr inbounds i8, ptr %3, i64 32
+  %25 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %26 = load i32, ptr %25, align 8
   %27 = getelementptr inbounds nuw i8, ptr %24, i64 32
   %28 = load ptr, ptr %27, align 8
@@ -133087,7 +133087,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp8StorePopILNS0_8PrimType
   br i1 %or.cond.i, label %_ZNK5clang6interp7Pointer16canBeInitializedEv.exit.thread, label %_ZNK5clang6interp7Pointer16canBeInitializedEv.exit
 
 _ZNK5clang6interp7Pointer16canBeInitializedEv.exit: ; preds = %10
-  %16 = getelementptr inbounds i8, ptr %3, i64 32
+  %16 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %17 = load i32, ptr %16, align 8
   %.not = icmp eq i32 %17, 0
   br i1 %.not, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i, label %18
@@ -133114,13 +133114,13 @@ _ZNK5clang6interp7Pointer16canBeInitializedEv.exit.thread: ; preds = %18, %10
   br i1 %23, label %._ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i_crit_edge, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
 ._ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i_crit_edge: ; preds = %22
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %3, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %3, i64 32
   %.pre15.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i
 
 _ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i:  ; preds = %_ZNK5clang6interp7Pointer16canBeInitializedEv.exit, %22
   %24 = phi ptr [ %20, %22 ], [ %15, %_ZNK5clang6interp7Pointer16canBeInitializedEv.exit ]
-  %25 = getelementptr inbounds i8, ptr %3, i64 32
+  %25 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %26 = load i32, ptr %25, align 8
   %27 = getelementptr inbounds nuw i8, ptr %24, i64 32
   %28 = load ptr, ptr %27, align 8
@@ -133207,7 +133207,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp8StorePopILNS0_8PrimType
   br i1 %or.cond.i, label %_ZNK5clang6interp7Pointer16canBeInitializedEv.exit.thread, label %_ZNK5clang6interp7Pointer16canBeInitializedEv.exit
 
 _ZNK5clang6interp7Pointer16canBeInitializedEv.exit: ; preds = %10
-  %16 = getelementptr inbounds i8, ptr %3, i64 32
+  %16 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %17 = load i32, ptr %16, align 8
   %.not = icmp eq i32 %17, 0
   br i1 %.not, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i, label %18
@@ -133234,13 +133234,13 @@ _ZNK5clang6interp7Pointer16canBeInitializedEv.exit.thread: ; preds = %18, %10
   br i1 %23, label %._ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i_crit_edge, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
 ._ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i_crit_edge: ; preds = %22
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %3, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %3, i64 32
   %.pre15.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i
 
 _ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i:  ; preds = %_ZNK5clang6interp7Pointer16canBeInitializedEv.exit, %22
   %24 = phi ptr [ %20, %22 ], [ %15, %_ZNK5clang6interp7Pointer16canBeInitializedEv.exit ]
-  %25 = getelementptr inbounds i8, ptr %3, i64 32
+  %25 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %26 = load i32, ptr %25, align 8
   %27 = getelementptr inbounds nuw i8, ptr %24, i64 32
   %28 = load ptr, ptr %27, align 8
@@ -133327,7 +133327,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp8StorePopILNS0_8PrimType
   br i1 %or.cond.i, label %_ZNK5clang6interp7Pointer16canBeInitializedEv.exit.thread, label %_ZNK5clang6interp7Pointer16canBeInitializedEv.exit
 
 _ZNK5clang6interp7Pointer16canBeInitializedEv.exit: ; preds = %10
-  %16 = getelementptr inbounds i8, ptr %3, i64 32
+  %16 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %17 = load i32, ptr %16, align 8
   %.not = icmp eq i32 %17, 0
   br i1 %.not, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i, label %18
@@ -133354,13 +133354,13 @@ _ZNK5clang6interp7Pointer16canBeInitializedEv.exit.thread: ; preds = %18, %10
   br i1 %23, label %._ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i_crit_edge, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
 ._ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i_crit_edge: ; preds = %22
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %3, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %3, i64 32
   %.pre15.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i
 
 _ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i:  ; preds = %_ZNK5clang6interp7Pointer16canBeInitializedEv.exit, %22
   %24 = phi ptr [ %20, %22 ], [ %15, %_ZNK5clang6interp7Pointer16canBeInitializedEv.exit ]
-  %25 = getelementptr inbounds i8, ptr %3, i64 32
+  %25 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %26 = load i32, ptr %25, align 8
   %27 = getelementptr inbounds nuw i8, ptr %24, i64 32
   %28 = load ptr, ptr %27, align 8
@@ -133447,7 +133447,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp8StorePopILNS0_8PrimType
   br i1 %or.cond.i, label %_ZNK5clang6interp7Pointer16canBeInitializedEv.exit.thread, label %_ZNK5clang6interp7Pointer16canBeInitializedEv.exit
 
 _ZNK5clang6interp7Pointer16canBeInitializedEv.exit: ; preds = %10
-  %16 = getelementptr inbounds i8, ptr %3, i64 32
+  %16 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %17 = load i32, ptr %16, align 8
   %.not = icmp eq i32 %17, 0
   br i1 %.not, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i, label %18
@@ -133474,13 +133474,13 @@ _ZNK5clang6interp7Pointer16canBeInitializedEv.exit.thread: ; preds = %18, %10
   br i1 %23, label %._ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i_crit_edge, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
 ._ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i_crit_edge: ; preds = %22
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %3, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %3, i64 32
   %.pre15.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i
 
 _ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i:  ; preds = %_ZNK5clang6interp7Pointer16canBeInitializedEv.exit, %22
   %24 = phi ptr [ %20, %22 ], [ %15, %_ZNK5clang6interp7Pointer16canBeInitializedEv.exit ]
-  %25 = getelementptr inbounds i8, ptr %3, i64 32
+  %25 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %26 = load i32, ptr %25, align 8
   %27 = getelementptr inbounds nuw i8, ptr %24, i64 32
   %28 = load ptr, ptr %27, align 8
@@ -133567,7 +133567,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp8StorePopILNS0_8PrimType
   br i1 %or.cond.i, label %_ZNK5clang6interp7Pointer16canBeInitializedEv.exit.thread, label %_ZNK5clang6interp7Pointer16canBeInitializedEv.exit
 
 _ZNK5clang6interp7Pointer16canBeInitializedEv.exit: ; preds = %10
-  %16 = getelementptr inbounds i8, ptr %3, i64 32
+  %16 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %17 = load i32, ptr %16, align 8
   %.not = icmp eq i32 %17, 0
   br i1 %.not, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i, label %18
@@ -133594,13 +133594,13 @@ _ZNK5clang6interp7Pointer16canBeInitializedEv.exit.thread: ; preds = %18, %10
   br i1 %23, label %._ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i_crit_edge, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
 ._ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i_crit_edge: ; preds = %22
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %3, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %3, i64 32
   %.pre15.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i
 
 _ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i:  ; preds = %_ZNK5clang6interp7Pointer16canBeInitializedEv.exit, %22
   %24 = phi ptr [ %20, %22 ], [ %15, %_ZNK5clang6interp7Pointer16canBeInitializedEv.exit ]
-  %25 = getelementptr inbounds i8, ptr %3, i64 32
+  %25 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %26 = load i32, ptr %25, align 8
   %27 = getelementptr inbounds nuw i8, ptr %24, i64 32
   %28 = load ptr, ptr %27, align 8
@@ -133695,7 +133695,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp8StorePopILNS0_8PrimType
   br i1 %or.cond.i, label %_ZNK5clang6interp7Pointer16canBeInitializedEv.exit.thread, label %_ZNK5clang6interp7Pointer16canBeInitializedEv.exit
 
 _ZNK5clang6interp7Pointer16canBeInitializedEv.exit: ; preds = %15
-  %21 = getelementptr inbounds i8, ptr %4, i64 32
+  %21 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %22 = load i32, ptr %21, align 8
   %.not = icmp eq i32 %22, 0
   br i1 %.not, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i, label %23
@@ -133722,13 +133722,13 @@ _ZNK5clang6interp7Pointer16canBeInitializedEv.exit.thread: ; preds = %23, %15
   br i1 %28, label %._ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i_crit_edge, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
 ._ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i_crit_edge: ; preds = %27
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %4, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %4, i64 32
   %.pre16.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i
 
 _ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i:  ; preds = %_ZNK5clang6interp7Pointer16canBeInitializedEv.exit, %27
   %29 = phi ptr [ %25, %27 ], [ %20, %_ZNK5clang6interp7Pointer16canBeInitializedEv.exit ]
-  %30 = getelementptr inbounds i8, ptr %4, i64 32
+  %30 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %31 = load i32, ptr %30, align 8
   %32 = getelementptr inbounds nuw i8, ptr %29, i64 32
   %33 = load ptr, ptr %32, align 8
@@ -133851,7 +133851,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp8StorePopILNS0_8PrimType
   br i1 %or.cond.i, label %_ZNK5clang6interp7Pointer16canBeInitializedEv.exit.thread, label %_ZNK5clang6interp7Pointer16canBeInitializedEv.exit
 
 _ZNK5clang6interp7Pointer16canBeInitializedEv.exit: ; preds = %15
-  %21 = getelementptr inbounds i8, ptr %4, i64 32
+  %21 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %22 = load i32, ptr %21, align 8
   %.not = icmp eq i32 %22, 0
   br i1 %.not, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i, label %23
@@ -133878,13 +133878,13 @@ _ZNK5clang6interp7Pointer16canBeInitializedEv.exit.thread: ; preds = %23, %15
   br i1 %28, label %._ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i_crit_edge, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
 ._ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i_crit_edge: ; preds = %27
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %4, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %4, i64 32
   %.pre16.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i
 
 _ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i:  ; preds = %_ZNK5clang6interp7Pointer16canBeInitializedEv.exit, %27
   %29 = phi ptr [ %25, %27 ], [ %20, %_ZNK5clang6interp7Pointer16canBeInitializedEv.exit ]
-  %30 = getelementptr inbounds i8, ptr %4, i64 32
+  %30 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %31 = load i32, ptr %30, align 8
   %32 = getelementptr inbounds nuw i8, ptr %29, i64 32
   %33 = load ptr, ptr %32, align 8
@@ -133999,7 +133999,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp8StorePopILNS0_8PrimType
   br i1 %or.cond.i, label %_ZNK5clang6interp7Pointer16canBeInitializedEv.exit.thread, label %_ZNK5clang6interp7Pointer16canBeInitializedEv.exit
 
 _ZNK5clang6interp7Pointer16canBeInitializedEv.exit: ; preds = %10
-  %16 = getelementptr inbounds i8, ptr %3, i64 32
+  %16 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %17 = load i32, ptr %16, align 8
   %.not = icmp eq i32 %17, 0
   br i1 %.not, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i, label %18
@@ -134026,13 +134026,13 @@ _ZNK5clang6interp7Pointer16canBeInitializedEv.exit.thread: ; preds = %18, %10
   br i1 %23, label %._ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i_crit_edge, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
 ._ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i_crit_edge: ; preds = %22
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %3, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %3, i64 32
   %.pre15.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i
 
 _ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i:  ; preds = %_ZNK5clang6interp7Pointer16canBeInitializedEv.exit, %22
   %24 = phi ptr [ %20, %22 ], [ %15, %_ZNK5clang6interp7Pointer16canBeInitializedEv.exit ]
-  %25 = getelementptr inbounds i8, ptr %3, i64 32
+  %25 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %26 = load i32, ptr %25, align 8
   %27 = getelementptr inbounds nuw i8, ptr %24, i64 32
   %28 = load ptr, ptr %27, align 8
@@ -134120,7 +134120,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp8StorePopILNS0_8PrimType
   br i1 %or.cond.i, label %_ZNK5clang6interp7Pointer16canBeInitializedEv.exit.thread, label %_ZNK5clang6interp7Pointer16canBeInitializedEv.exit
 
 _ZNK5clang6interp7Pointer16canBeInitializedEv.exit: ; preds = %11
-  %17 = getelementptr inbounds i8, ptr %4, i64 32
+  %17 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %18 = load i32, ptr %17, align 8
   %.not = icmp eq i32 %18, 0
   br i1 %.not, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i, label %19
@@ -134147,13 +134147,13 @@ _ZNK5clang6interp7Pointer16canBeInitializedEv.exit.thread: ; preds = %19, %11
   br i1 %24, label %._ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i_crit_edge, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
 ._ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i_crit_edge: ; preds = %23
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %4, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %4, i64 32
   %.pre15.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i
 
 _ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i:  ; preds = %_ZNK5clang6interp7Pointer16canBeInitializedEv.exit, %23
   %25 = phi ptr [ %21, %23 ], [ %16, %_ZNK5clang6interp7Pointer16canBeInitializedEv.exit ]
-  %26 = getelementptr inbounds i8, ptr %4, i64 32
+  %26 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %27 = load i32, ptr %26, align 8
   %28 = getelementptr inbounds nuw i8, ptr %25, i64 32
   %29 = load ptr, ptr %28, align 8
@@ -134242,7 +134242,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp8StorePopILNS0_8PrimType
   br i1 %or.cond.i, label %_ZNK5clang6interp7Pointer16canBeInitializedEv.exit.thread, label %_ZNK5clang6interp7Pointer16canBeInitializedEv.exit
 
 _ZNK5clang6interp7Pointer16canBeInitializedEv.exit: ; preds = %11
-  %17 = getelementptr inbounds i8, ptr %4, i64 32
+  %17 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %18 = load i32, ptr %17, align 8
   %.not = icmp eq i32 %18, 0
   br i1 %.not, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i, label %19
@@ -134269,13 +134269,13 @@ _ZNK5clang6interp7Pointer16canBeInitializedEv.exit.thread: ; preds = %19, %11
   br i1 %24, label %._ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i_crit_edge, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
 ._ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i_crit_edge: ; preds = %23
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %4, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %4, i64 32
   %.pre15.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i
 
 _ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i:  ; preds = %_ZNK5clang6interp7Pointer16canBeInitializedEv.exit, %23
   %25 = phi ptr [ %21, %23 ], [ %16, %_ZNK5clang6interp7Pointer16canBeInitializedEv.exit ]
-  %26 = getelementptr inbounds i8, ptr %4, i64 32
+  %26 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %27 = load i32, ptr %26, align 8
   %28 = getelementptr inbounds nuw i8, ptr %25, i64 32
   %29 = load ptr, ptr %28, align 8
@@ -134366,7 +134366,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp8StorePopILNS0_8PrimType
   br i1 %or.cond.i, label %_ZNK5clang6interp7Pointer16canBeInitializedEv.exit.thread, label %_ZNK5clang6interp7Pointer16canBeInitializedEv.exit
 
 _ZNK5clang6interp7Pointer16canBeInitializedEv.exit: ; preds = %13
-  %19 = getelementptr inbounds i8, ptr %4, i64 32
+  %19 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %20 = load i32, ptr %19, align 8
   %.not = icmp eq i32 %20, 0
   br i1 %.not, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i, label %21
@@ -134393,13 +134393,13 @@ _ZNK5clang6interp7Pointer16canBeInitializedEv.exit.thread: ; preds = %21, %13
   br i1 %26, label %._ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i_crit_edge, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
 ._ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i_crit_edge: ; preds = %25
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %4, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %4, i64 32
   %.pre15.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i
 
 _ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i:  ; preds = %_ZNK5clang6interp7Pointer16canBeInitializedEv.exit, %25
   %27 = phi ptr [ %23, %25 ], [ %18, %_ZNK5clang6interp7Pointer16canBeInitializedEv.exit ]
-  %28 = getelementptr inbounds i8, ptr %4, i64 32
+  %28 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %29 = load i32, ptr %28, align 8
   %30 = getelementptr inbounds nuw i8, ptr %27, i64 32
   %31 = load ptr, ptr %30, align 8
@@ -134505,7 +134505,7 @@ _ZN5clang6interp11InterpStack3popINS0_8FloatingEEET_v.exit: ; preds = %12, %13
   br i1 %or.cond.i, label %_ZNK5clang6interp7Pointer16canBeInitializedEv.exit.thread, label %_ZNK5clang6interp7Pointer16canBeInitializedEv.exit
 
 _ZNK5clang6interp7Pointer16canBeInitializedEv.exit: ; preds = %17
-  %23 = getelementptr inbounds i8, ptr %4, i64 32
+  %23 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %24 = load i32, ptr %23, align 8
   %.not = icmp eq i32 %24, 0
   br i1 %.not, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i, label %25
@@ -134532,13 +134532,13 @@ _ZNK5clang6interp7Pointer16canBeInitializedEv.exit.thread: ; preds = %25, %17
   br i1 %30, label %._ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i_crit_edge, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
 ._ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i_crit_edge: ; preds = %29
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %4, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %4, i64 32
   %.pre15.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i
 
 _ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i:  ; preds = %_ZNK5clang6interp7Pointer16canBeInitializedEv.exit, %29
   %31 = phi ptr [ %27, %29 ], [ %22, %_ZNK5clang6interp7Pointer16canBeInitializedEv.exit ]
-  %32 = getelementptr inbounds i8, ptr %4, i64 32
+  %32 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %33 = load i32, ptr %32, align 8
   %34 = getelementptr inbounds nuw i8, ptr %31, i64 32
   %35 = load ptr, ptr %34, align 8
@@ -135195,12 +135195,12 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5clang6interp6SubPtrILNS0_8Pri
   br i1 %25, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i, label %._ZNK5clang6interp7Pointer6isRootEv.exit.i_crit_edge.i
 
 ._ZNK5clang6interp7Pointer6isRootEv.exit.i_crit_edge.i: ; preds = %22
-  %.phi.trans.insert.i = getelementptr inbounds i8, ptr %.042.ptr159, i64 32
+  %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %.042.ptr159, i64 32
   %.pre.i = load i32, ptr %.phi.trans.insert.i, align 8
   br label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i
 
 _ZNK5clang6interp7Pointer6isZeroEv.exit.i.i.i:    ; preds = %17
-  %26 = getelementptr inbounds i8, ptr %.042.ptr159, i64 32
+  %26 = getelementptr inbounds nuw i8, ptr %.042.ptr159, i64 32
   %27 = load i64, ptr %26, align 8
   %28 = icmp eq i64 %27, 0
   %29 = load i64, ptr %.042.ptr159, align 8
@@ -135388,7 +135388,7 @@ _ZN5clang18OptionalDiagnosticlsINS_8QualTypeEEERS0_RKT_.exit: ; preds = %_ZNK5cl
   br i1 %.not.i.i, label %125, label %182
 
 _ZNK5clang6interp7Pointer6isZeroEv.exit:          ; preds = %109
-  %119 = getelementptr inbounds i8, ptr %4, i64 32
+  %119 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %120 = load i64, ptr %119, align 8
   %121 = icmp eq i64 %120, 0
   %122 = load i64, ptr %4, align 8
@@ -135412,7 +135412,7 @@ _ZNK5clang6interp7Pointer6isZeroEv.exit:          ; preds = %109
   ]
 
 133:                                              ; preds = %131
-  %134 = getelementptr inbounds i8, ptr %3, i64 32
+  %134 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %135 = load i64, ptr %134, align 8
   %136 = load ptr, ptr %130, align 8
   %.not.i.i.i = icmp eq ptr %136, null
@@ -135448,7 +135448,7 @@ _ZNK5clang6interp7Pointer6isZeroEv.exit.i:        ; preds = %125
   br i1 %152, label %_ZNK5clang6interp7Pointer8getIndexEv.exit, label %153
 
 153:                                              ; preds = %_ZNK5clang6interp7Pointer6isZeroEv.exit.i
-  %154 = getelementptr inbounds i8, ptr %3, i64 32
+  %154 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %155 = load i32, ptr %154, align 8
   %156 = icmp ugt i32 %155, 16
   %157 = zext i32 %155 to i64
@@ -135556,7 +135556,7 @@ _ZNK5clang6interp7Pointer8getIndexEv.exit:        ; preds = %_ZNK5clang6interp7P
   br label %287
 
 _ZNK5clang6interp7Pointer6isZeroEv.exit54:        ; preds = %188
-  %199 = getelementptr inbounds i8, ptr %3, i64 32
+  %199 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %200 = load i64, ptr %199, align 8
   %201 = icmp eq i64 %200, 0
   %202 = load i64, ptr %3, align 8
@@ -135584,7 +135584,7 @@ _ZNK5clang6interp7Pointer6isZeroEv.exit54:        ; preds = %188
   br i1 %.not.i.i55, label %220, label %223
 
 _ZNK5clang6interp7Pointer6isZeroEv.exit57:        ; preds = %205
-  %214 = getelementptr inbounds i8, ptr %4, i64 32
+  %214 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %215 = load i64, ptr %214, align 8
   %216 = icmp eq i64 %215, 0
   %217 = load i64, ptr %4, align 8
@@ -135611,7 +135611,7 @@ _ZNK5clang6interp7Pointer6isZeroEv.exit57:        ; preds = %205
   br i1 %226, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i59, label %_ZNK5clang6interp7Pointer6isZeroEv.exit.i67
 
 _ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i59:  ; preds = %.thread
-  %.phi.trans.insert.phi.trans.insert.i = getelementptr inbounds i8, ptr %3, i64 32
+  %.phi.trans.insert.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %3, i64 32
   %.pre.pre.i = load i32, ptr %.phi.trans.insert.phi.trans.insert.i, align 8
   %229 = getelementptr inbounds nuw i8, ptr %228, i64 32
   %230 = load ptr, ptr %229, align 8
@@ -135654,7 +135654,7 @@ _ZNK5clang6interp7Pointer6isZeroEv.exit.i67:      ; preds = %.thread
   br i1 %247, label %_ZNK5clang6interp7Pointer8getIndexEv.exit89, label %248
 
 248:                                              ; preds = %_ZNK5clang6interp7Pointer6isZeroEv.exit.i67
-  %249 = getelementptr inbounds i8, ptr %3, i64 32
+  %249 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %250 = load i32, ptr %249, align 8
   %251 = icmp ugt i32 %250, 16
   %252 = zext i32 %250 to i64
@@ -135726,7 +135726,7 @@ _ZNK5clang6interp7Pointer9getOffsetEv.exit.i81:   ; preds = %270, %_ZNK5clang6in
   br label %287
 
 277:                                              ; preds = %275
-  %278 = getelementptr inbounds i8, ptr %3, i64 32
+  %278 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %279 = load i64, ptr %278, align 8
   %280 = load ptr, ptr %276, align 8
   %.not.i.i91 = icmp eq ptr %280, null
@@ -135777,7 +135777,7 @@ _ZNK5clang6interp7Pointer8getIndexEv.exit89:      ; preds = %_ZNK5clang6interp7P
   br i1 %301, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i97, label %_ZNK5clang6interp7Pointer6isZeroEv.exit.i114
 
 _ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i97:  ; preds = %299
-  %.phi.trans.insert.phi.trans.insert.i95 = getelementptr inbounds i8, ptr %4, i64 32
+  %.phi.trans.insert.phi.trans.insert.i95 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %.pre.pre.i96 = load i32, ptr %.phi.trans.insert.phi.trans.insert.i95, align 8
   %304 = getelementptr inbounds nuw i8, ptr %303, i64 32
   %305 = load ptr, ptr %304, align 8
@@ -135820,7 +135820,7 @@ _ZNK5clang6interp7Pointer6isZeroEv.exit.i114:     ; preds = %299
   br i1 %322, label %_ZNK5clang6interp7Pointer8getIndexEv.exit136, label %323
 
 323:                                              ; preds = %_ZNK5clang6interp7Pointer6isZeroEv.exit.i114
-  %324 = getelementptr inbounds i8, ptr %4, i64 32
+  %324 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %325 = load i32, ptr %324, align 8
   %326 = icmp ugt i32 %325, 16
   %327 = zext i32 %325 to i64
@@ -135889,7 +135889,7 @@ _ZNK5clang6interp7Pointer9getOffsetEv.exit.i128:  ; preds = %345, %_ZNK5clang6in
   ]
 
 353:                                              ; preds = %350
-  %354 = getelementptr inbounds i8, ptr %4, i64 32
+  %354 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %355 = load i64, ptr %354, align 8
   %356 = load ptr, ptr %351, align 8
   %.not.i.i138 = icmp eq ptr %356, null
@@ -135981,12 +135981,12 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5clang6interp6SubPtrILNS0_8Pri
   br i1 %23, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i, label %._ZNK5clang6interp7Pointer6isRootEv.exit.i_crit_edge.i
 
 ._ZNK5clang6interp7Pointer6isRootEv.exit.i_crit_edge.i: ; preds = %20
-  %.phi.trans.insert.i = getelementptr inbounds i8, ptr %.042.ptr161, i64 32
+  %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %.042.ptr161, i64 32
   %.pre.i = load i32, ptr %.phi.trans.insert.i, align 8
   br label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i
 
 _ZNK5clang6interp7Pointer6isZeroEv.exit.i.i.i:    ; preds = %15
-  %24 = getelementptr inbounds i8, ptr %.042.ptr161, i64 32
+  %24 = getelementptr inbounds nuw i8, ptr %.042.ptr161, i64 32
   %25 = load i64, ptr %24, align 8
   %26 = icmp eq i64 %25, 0
   %27 = load i64, ptr %.042.ptr161, align 8
@@ -136174,7 +136174,7 @@ _ZN5clang18OptionalDiagnosticlsINS_8QualTypeEEERS0_RKT_.exit: ; preds = %_ZNK5cl
   br i1 %.not.i.i, label %123, label %179
 
 _ZNK5clang6interp7Pointer6isZeroEv.exit:          ; preds = %107
-  %117 = getelementptr inbounds i8, ptr %4, i64 32
+  %117 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %118 = load i64, ptr %117, align 8
   %119 = icmp eq i64 %118, 0
   %120 = load i64, ptr %4, align 8
@@ -136198,7 +136198,7 @@ _ZNK5clang6interp7Pointer6isZeroEv.exit:          ; preds = %107
   ]
 
 131:                                              ; preds = %129
-  %132 = getelementptr inbounds i8, ptr %3, i64 32
+  %132 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %133 = load i64, ptr %132, align 8
   %134 = load ptr, ptr %128, align 8
   %.not.i.i.i = icmp eq ptr %134, null
@@ -136234,7 +136234,7 @@ _ZNK5clang6interp7Pointer6isZeroEv.exit.i:        ; preds = %123
   br i1 %150, label %_ZNK5clang6interp7Pointer8getIndexEv.exit, label %151
 
 151:                                              ; preds = %_ZNK5clang6interp7Pointer6isZeroEv.exit.i
-  %152 = getelementptr inbounds i8, ptr %3, i64 32
+  %152 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %153 = load i32, ptr %152, align 8
   %154 = icmp ugt i32 %153, 16
   %155 = zext i32 %153 to i64
@@ -136340,7 +136340,7 @@ _ZNK5clang6interp7Pointer8getIndexEv.exit:        ; preds = %_ZNK5clang6interp7P
   br label %283
 
 _ZNK5clang6interp7Pointer6isZeroEv.exit54:        ; preds = %185
-  %196 = getelementptr inbounds i8, ptr %3, i64 32
+  %196 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %197 = load i64, ptr %196, align 8
   %198 = icmp eq i64 %197, 0
   %199 = load i64, ptr %3, align 8
@@ -136368,7 +136368,7 @@ _ZNK5clang6interp7Pointer6isZeroEv.exit54:        ; preds = %185
   br i1 %.not.i.i55, label %217, label %219
 
 _ZNK5clang6interp7Pointer6isZeroEv.exit57:        ; preds = %202
-  %211 = getelementptr inbounds i8, ptr %4, i64 32
+  %211 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %212 = load i64, ptr %211, align 8
   %213 = icmp eq i64 %212, 0
   %214 = load i64, ptr %4, align 8
@@ -136393,7 +136393,7 @@ _ZNK5clang6interp7Pointer6isZeroEv.exit57:        ; preds = %202
   br i1 %222, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i59, label %_ZNK5clang6interp7Pointer6isZeroEv.exit.i67
 
 _ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i59:  ; preds = %.thread
-  %.phi.trans.insert.phi.trans.insert.i = getelementptr inbounds i8, ptr %3, i64 32
+  %.phi.trans.insert.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %3, i64 32
   %.pre.pre.i = load i32, ptr %.phi.trans.insert.phi.trans.insert.i, align 8
   %225 = getelementptr inbounds nuw i8, ptr %224, i64 32
   %226 = load ptr, ptr %225, align 8
@@ -136436,7 +136436,7 @@ _ZNK5clang6interp7Pointer6isZeroEv.exit.i67:      ; preds = %.thread
   br i1 %243, label %_ZNK5clang6interp7Pointer8getIndexEv.exit89, label %244
 
 244:                                              ; preds = %_ZNK5clang6interp7Pointer6isZeroEv.exit.i67
-  %245 = getelementptr inbounds i8, ptr %3, i64 32
+  %245 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %246 = load i32, ptr %245, align 8
   %247 = icmp ugt i32 %246, 16
   %248 = zext i32 %246 to i64
@@ -136508,7 +136508,7 @@ _ZNK5clang6interp7Pointer9getOffsetEv.exit.i81:   ; preds = %266, %_ZNK5clang6in
   br label %283
 
 273:                                              ; preds = %271
-  %274 = getelementptr inbounds i8, ptr %3, i64 32
+  %274 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %275 = load i64, ptr %274, align 8
   %276 = load ptr, ptr %272, align 8
   %.not.i.i91 = icmp eq ptr %276, null
@@ -136558,7 +136558,7 @@ _ZNK5clang6interp7Pointer8getIndexEv.exit89:      ; preds = %_ZNK5clang6interp7P
   br i1 %297, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i97, label %_ZNK5clang6interp7Pointer6isZeroEv.exit.i114
 
 _ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i97:  ; preds = %295
-  %.phi.trans.insert.phi.trans.insert.i95 = getelementptr inbounds i8, ptr %4, i64 32
+  %.phi.trans.insert.phi.trans.insert.i95 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %.pre.pre.i96 = load i32, ptr %.phi.trans.insert.phi.trans.insert.i95, align 8
   %300 = getelementptr inbounds nuw i8, ptr %299, i64 32
   %301 = load ptr, ptr %300, align 8
@@ -136601,7 +136601,7 @@ _ZNK5clang6interp7Pointer6isZeroEv.exit.i114:     ; preds = %295
   br i1 %318, label %_ZNK5clang6interp7Pointer8getIndexEv.exit136, label %319
 
 319:                                              ; preds = %_ZNK5clang6interp7Pointer6isZeroEv.exit.i114
-  %320 = getelementptr inbounds i8, ptr %4, i64 32
+  %320 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %321 = load i32, ptr %320, align 8
   %322 = icmp ugt i32 %321, 16
   %323 = zext i32 %321 to i64
@@ -136670,7 +136670,7 @@ _ZNK5clang6interp7Pointer9getOffsetEv.exit.i128:  ; preds = %341, %_ZNK5clang6in
   ]
 
 349:                                              ; preds = %346
-  %350 = getelementptr inbounds i8, ptr %4, i64 32
+  %350 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %351 = load i64, ptr %350, align 8
   %352 = load ptr, ptr %347, align 8
   %.not.i.i138 = icmp eq ptr %352, null
@@ -136771,12 +136771,12 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5clang6interp6SubPtrILNS0_8Pri
   br i1 %25, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i, label %._ZNK5clang6interp7Pointer6isRootEv.exit.i_crit_edge.i
 
 ._ZNK5clang6interp7Pointer6isRootEv.exit.i_crit_edge.i: ; preds = %22
-  %.phi.trans.insert.i = getelementptr inbounds i8, ptr %.042.ptr159, i64 32
+  %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %.042.ptr159, i64 32
   %.pre.i = load i32, ptr %.phi.trans.insert.i, align 8
   br label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i
 
 _ZNK5clang6interp7Pointer6isZeroEv.exit.i.i.i:    ; preds = %17
-  %26 = getelementptr inbounds i8, ptr %.042.ptr159, i64 32
+  %26 = getelementptr inbounds nuw i8, ptr %.042.ptr159, i64 32
   %27 = load i64, ptr %26, align 8
   %28 = icmp eq i64 %27, 0
   %29 = load i64, ptr %.042.ptr159, align 8
@@ -136964,7 +136964,7 @@ _ZN5clang18OptionalDiagnosticlsINS_8QualTypeEEERS0_RKT_.exit: ; preds = %_ZNK5cl
   br i1 %.not.i.i, label %125, label %182
 
 _ZNK5clang6interp7Pointer6isZeroEv.exit:          ; preds = %109
-  %119 = getelementptr inbounds i8, ptr %4, i64 32
+  %119 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %120 = load i64, ptr %119, align 8
   %121 = icmp eq i64 %120, 0
   %122 = load i64, ptr %4, align 8
@@ -136988,7 +136988,7 @@ _ZNK5clang6interp7Pointer6isZeroEv.exit:          ; preds = %109
   ]
 
 133:                                              ; preds = %131
-  %134 = getelementptr inbounds i8, ptr %3, i64 32
+  %134 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %135 = load i64, ptr %134, align 8
   %136 = load ptr, ptr %130, align 8
   %.not.i.i.i = icmp eq ptr %136, null
@@ -137024,7 +137024,7 @@ _ZNK5clang6interp7Pointer6isZeroEv.exit.i:        ; preds = %125
   br i1 %152, label %_ZNK5clang6interp7Pointer8getIndexEv.exit, label %153
 
 153:                                              ; preds = %_ZNK5clang6interp7Pointer6isZeroEv.exit.i
-  %154 = getelementptr inbounds i8, ptr %3, i64 32
+  %154 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %155 = load i32, ptr %154, align 8
   %156 = icmp ugt i32 %155, 16
   %157 = zext i32 %155 to i64
@@ -137132,7 +137132,7 @@ _ZNK5clang6interp7Pointer8getIndexEv.exit:        ; preds = %_ZNK5clang6interp7P
   br label %287
 
 _ZNK5clang6interp7Pointer6isZeroEv.exit54:        ; preds = %188
-  %199 = getelementptr inbounds i8, ptr %3, i64 32
+  %199 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %200 = load i64, ptr %199, align 8
   %201 = icmp eq i64 %200, 0
   %202 = load i64, ptr %3, align 8
@@ -137160,7 +137160,7 @@ _ZNK5clang6interp7Pointer6isZeroEv.exit54:        ; preds = %188
   br i1 %.not.i.i55, label %220, label %223
 
 _ZNK5clang6interp7Pointer6isZeroEv.exit57:        ; preds = %205
-  %214 = getelementptr inbounds i8, ptr %4, i64 32
+  %214 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %215 = load i64, ptr %214, align 8
   %216 = icmp eq i64 %215, 0
   %217 = load i64, ptr %4, align 8
@@ -137187,7 +137187,7 @@ _ZNK5clang6interp7Pointer6isZeroEv.exit57:        ; preds = %205
   br i1 %226, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i59, label %_ZNK5clang6interp7Pointer6isZeroEv.exit.i67
 
 _ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i59:  ; preds = %.thread
-  %.phi.trans.insert.phi.trans.insert.i = getelementptr inbounds i8, ptr %3, i64 32
+  %.phi.trans.insert.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %3, i64 32
   %.pre.pre.i = load i32, ptr %.phi.trans.insert.phi.trans.insert.i, align 8
   %229 = getelementptr inbounds nuw i8, ptr %228, i64 32
   %230 = load ptr, ptr %229, align 8
@@ -137230,7 +137230,7 @@ _ZNK5clang6interp7Pointer6isZeroEv.exit.i67:      ; preds = %.thread
   br i1 %247, label %_ZNK5clang6interp7Pointer8getIndexEv.exit89, label %248
 
 248:                                              ; preds = %_ZNK5clang6interp7Pointer6isZeroEv.exit.i67
-  %249 = getelementptr inbounds i8, ptr %3, i64 32
+  %249 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %250 = load i32, ptr %249, align 8
   %251 = icmp ugt i32 %250, 16
   %252 = zext i32 %250 to i64
@@ -137302,7 +137302,7 @@ _ZNK5clang6interp7Pointer9getOffsetEv.exit.i81:   ; preds = %270, %_ZNK5clang6in
   br label %287
 
 277:                                              ; preds = %275
-  %278 = getelementptr inbounds i8, ptr %3, i64 32
+  %278 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %279 = load i64, ptr %278, align 8
   %280 = load ptr, ptr %276, align 8
   %.not.i.i91 = icmp eq ptr %280, null
@@ -137353,7 +137353,7 @@ _ZNK5clang6interp7Pointer8getIndexEv.exit89:      ; preds = %_ZNK5clang6interp7P
   br i1 %301, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i97, label %_ZNK5clang6interp7Pointer6isZeroEv.exit.i114
 
 _ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i97:  ; preds = %299
-  %.phi.trans.insert.phi.trans.insert.i95 = getelementptr inbounds i8, ptr %4, i64 32
+  %.phi.trans.insert.phi.trans.insert.i95 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %.pre.pre.i96 = load i32, ptr %.phi.trans.insert.phi.trans.insert.i95, align 8
   %304 = getelementptr inbounds nuw i8, ptr %303, i64 32
   %305 = load ptr, ptr %304, align 8
@@ -137396,7 +137396,7 @@ _ZNK5clang6interp7Pointer6isZeroEv.exit.i114:     ; preds = %299
   br i1 %322, label %_ZNK5clang6interp7Pointer8getIndexEv.exit136, label %323
 
 323:                                              ; preds = %_ZNK5clang6interp7Pointer6isZeroEv.exit.i114
-  %324 = getelementptr inbounds i8, ptr %4, i64 32
+  %324 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %325 = load i32, ptr %324, align 8
   %326 = icmp ugt i32 %325, 16
   %327 = zext i32 %325 to i64
@@ -137465,7 +137465,7 @@ _ZNK5clang6interp7Pointer9getOffsetEv.exit.i128:  ; preds = %345, %_ZNK5clang6in
   ]
 
 353:                                              ; preds = %350
-  %354 = getelementptr inbounds i8, ptr %4, i64 32
+  %354 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %355 = load i64, ptr %354, align 8
   %356 = load ptr, ptr %351, align 8
   %.not.i.i138 = icmp eq ptr %356, null
@@ -137557,12 +137557,12 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5clang6interp6SubPtrILNS0_8Pri
   br i1 %23, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i, label %._ZNK5clang6interp7Pointer6isRootEv.exit.i_crit_edge.i
 
 ._ZNK5clang6interp7Pointer6isRootEv.exit.i_crit_edge.i: ; preds = %20
-  %.phi.trans.insert.i = getelementptr inbounds i8, ptr %.042.ptr161, i64 32
+  %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %.042.ptr161, i64 32
   %.pre.i = load i32, ptr %.phi.trans.insert.i, align 8
   br label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i
 
 _ZNK5clang6interp7Pointer6isZeroEv.exit.i.i.i:    ; preds = %15
-  %24 = getelementptr inbounds i8, ptr %.042.ptr161, i64 32
+  %24 = getelementptr inbounds nuw i8, ptr %.042.ptr161, i64 32
   %25 = load i64, ptr %24, align 8
   %26 = icmp eq i64 %25, 0
   %27 = load i64, ptr %.042.ptr161, align 8
@@ -137750,7 +137750,7 @@ _ZN5clang18OptionalDiagnosticlsINS_8QualTypeEEERS0_RKT_.exit: ; preds = %_ZNK5cl
   br i1 %.not.i.i, label %123, label %179
 
 _ZNK5clang6interp7Pointer6isZeroEv.exit:          ; preds = %107
-  %117 = getelementptr inbounds i8, ptr %4, i64 32
+  %117 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %118 = load i64, ptr %117, align 8
   %119 = icmp eq i64 %118, 0
   %120 = load i64, ptr %4, align 8
@@ -137774,7 +137774,7 @@ _ZNK5clang6interp7Pointer6isZeroEv.exit:          ; preds = %107
   ]
 
 131:                                              ; preds = %129
-  %132 = getelementptr inbounds i8, ptr %3, i64 32
+  %132 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %133 = load i64, ptr %132, align 8
   %134 = load ptr, ptr %128, align 8
   %.not.i.i.i = icmp eq ptr %134, null
@@ -137810,7 +137810,7 @@ _ZNK5clang6interp7Pointer6isZeroEv.exit.i:        ; preds = %123
   br i1 %150, label %_ZNK5clang6interp7Pointer8getIndexEv.exit, label %151
 
 151:                                              ; preds = %_ZNK5clang6interp7Pointer6isZeroEv.exit.i
-  %152 = getelementptr inbounds i8, ptr %3, i64 32
+  %152 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %153 = load i32, ptr %152, align 8
   %154 = icmp ugt i32 %153, 16
   %155 = zext i32 %153 to i64
@@ -137916,7 +137916,7 @@ _ZNK5clang6interp7Pointer8getIndexEv.exit:        ; preds = %_ZNK5clang6interp7P
   br label %283
 
 _ZNK5clang6interp7Pointer6isZeroEv.exit54:        ; preds = %185
-  %196 = getelementptr inbounds i8, ptr %3, i64 32
+  %196 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %197 = load i64, ptr %196, align 8
   %198 = icmp eq i64 %197, 0
   %199 = load i64, ptr %3, align 8
@@ -137944,7 +137944,7 @@ _ZNK5clang6interp7Pointer6isZeroEv.exit54:        ; preds = %185
   br i1 %.not.i.i55, label %217, label %219
 
 _ZNK5clang6interp7Pointer6isZeroEv.exit57:        ; preds = %202
-  %211 = getelementptr inbounds i8, ptr %4, i64 32
+  %211 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %212 = load i64, ptr %211, align 8
   %213 = icmp eq i64 %212, 0
   %214 = load i64, ptr %4, align 8
@@ -137969,7 +137969,7 @@ _ZNK5clang6interp7Pointer6isZeroEv.exit57:        ; preds = %202
   br i1 %222, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i59, label %_ZNK5clang6interp7Pointer6isZeroEv.exit.i67
 
 _ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i59:  ; preds = %.thread
-  %.phi.trans.insert.phi.trans.insert.i = getelementptr inbounds i8, ptr %3, i64 32
+  %.phi.trans.insert.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %3, i64 32
   %.pre.pre.i = load i32, ptr %.phi.trans.insert.phi.trans.insert.i, align 8
   %225 = getelementptr inbounds nuw i8, ptr %224, i64 32
   %226 = load ptr, ptr %225, align 8
@@ -138012,7 +138012,7 @@ _ZNK5clang6interp7Pointer6isZeroEv.exit.i67:      ; preds = %.thread
   br i1 %243, label %_ZNK5clang6interp7Pointer8getIndexEv.exit89, label %244
 
 244:                                              ; preds = %_ZNK5clang6interp7Pointer6isZeroEv.exit.i67
-  %245 = getelementptr inbounds i8, ptr %3, i64 32
+  %245 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %246 = load i32, ptr %245, align 8
   %247 = icmp ugt i32 %246, 16
   %248 = zext i32 %246 to i64
@@ -138084,7 +138084,7 @@ _ZNK5clang6interp7Pointer9getOffsetEv.exit.i81:   ; preds = %266, %_ZNK5clang6in
   br label %283
 
 273:                                              ; preds = %271
-  %274 = getelementptr inbounds i8, ptr %3, i64 32
+  %274 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %275 = load i64, ptr %274, align 8
   %276 = load ptr, ptr %272, align 8
   %.not.i.i91 = icmp eq ptr %276, null
@@ -138134,7 +138134,7 @@ _ZNK5clang6interp7Pointer8getIndexEv.exit89:      ; preds = %_ZNK5clang6interp7P
   br i1 %297, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i97, label %_ZNK5clang6interp7Pointer6isZeroEv.exit.i114
 
 _ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i97:  ; preds = %295
-  %.phi.trans.insert.phi.trans.insert.i95 = getelementptr inbounds i8, ptr %4, i64 32
+  %.phi.trans.insert.phi.trans.insert.i95 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %.pre.pre.i96 = load i32, ptr %.phi.trans.insert.phi.trans.insert.i95, align 8
   %300 = getelementptr inbounds nuw i8, ptr %299, i64 32
   %301 = load ptr, ptr %300, align 8
@@ -138177,7 +138177,7 @@ _ZNK5clang6interp7Pointer6isZeroEv.exit.i114:     ; preds = %295
   br i1 %318, label %_ZNK5clang6interp7Pointer8getIndexEv.exit136, label %319
 
 319:                                              ; preds = %_ZNK5clang6interp7Pointer6isZeroEv.exit.i114
-  %320 = getelementptr inbounds i8, ptr %4, i64 32
+  %320 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %321 = load i32, ptr %320, align 8
   %322 = icmp ugt i32 %321, 16
   %323 = zext i32 %321 to i64
@@ -138246,7 +138246,7 @@ _ZNK5clang6interp7Pointer9getOffsetEv.exit.i128:  ; preds = %341, %_ZNK5clang6in
   ]
 
 349:                                              ; preds = %346
-  %350 = getelementptr inbounds i8, ptr %4, i64 32
+  %350 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %351 = load i64, ptr %350, align 8
   %352 = load ptr, ptr %347, align 8
   %.not.i.i138 = icmp eq ptr %352, null
@@ -138347,12 +138347,12 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5clang6interp6SubPtrILNS0_8Pri
   br i1 %25, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i, label %._ZNK5clang6interp7Pointer6isRootEv.exit.i_crit_edge.i
 
 ._ZNK5clang6interp7Pointer6isRootEv.exit.i_crit_edge.i: ; preds = %22
-  %.phi.trans.insert.i = getelementptr inbounds i8, ptr %.042.ptr159, i64 32
+  %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %.042.ptr159, i64 32
   %.pre.i = load i32, ptr %.phi.trans.insert.i, align 8
   br label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i
 
 _ZNK5clang6interp7Pointer6isZeroEv.exit.i.i.i:    ; preds = %17
-  %26 = getelementptr inbounds i8, ptr %.042.ptr159, i64 32
+  %26 = getelementptr inbounds nuw i8, ptr %.042.ptr159, i64 32
   %27 = load i64, ptr %26, align 8
   %28 = icmp eq i64 %27, 0
   %29 = load i64, ptr %.042.ptr159, align 8
@@ -138540,7 +138540,7 @@ _ZN5clang18OptionalDiagnosticlsINS_8QualTypeEEERS0_RKT_.exit: ; preds = %_ZNK5cl
   br i1 %.not.i.i, label %125, label %182
 
 _ZNK5clang6interp7Pointer6isZeroEv.exit:          ; preds = %109
-  %119 = getelementptr inbounds i8, ptr %4, i64 32
+  %119 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %120 = load i64, ptr %119, align 8
   %121 = icmp eq i64 %120, 0
   %122 = load i64, ptr %4, align 8
@@ -138564,7 +138564,7 @@ _ZNK5clang6interp7Pointer6isZeroEv.exit:          ; preds = %109
   ]
 
 133:                                              ; preds = %131
-  %134 = getelementptr inbounds i8, ptr %3, i64 32
+  %134 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %135 = load i64, ptr %134, align 8
   %136 = load ptr, ptr %130, align 8
   %.not.i.i.i = icmp eq ptr %136, null
@@ -138600,7 +138600,7 @@ _ZNK5clang6interp7Pointer6isZeroEv.exit.i:        ; preds = %125
   br i1 %152, label %_ZNK5clang6interp7Pointer8getIndexEv.exit, label %153
 
 153:                                              ; preds = %_ZNK5clang6interp7Pointer6isZeroEv.exit.i
-  %154 = getelementptr inbounds i8, ptr %3, i64 32
+  %154 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %155 = load i32, ptr %154, align 8
   %156 = icmp ugt i32 %155, 16
   %157 = zext i32 %155 to i64
@@ -138708,7 +138708,7 @@ _ZNK5clang6interp7Pointer8getIndexEv.exit:        ; preds = %_ZNK5clang6interp7P
   br label %285
 
 _ZNK5clang6interp7Pointer6isZeroEv.exit54:        ; preds = %188
-  %199 = getelementptr inbounds i8, ptr %3, i64 32
+  %199 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %200 = load i64, ptr %199, align 8
   %201 = icmp eq i64 %200, 0
   %202 = load i64, ptr %3, align 8
@@ -138736,7 +138736,7 @@ _ZNK5clang6interp7Pointer6isZeroEv.exit54:        ; preds = %188
   br i1 %.not.i.i55, label %220, label %223
 
 _ZNK5clang6interp7Pointer6isZeroEv.exit57:        ; preds = %205
-  %214 = getelementptr inbounds i8, ptr %4, i64 32
+  %214 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %215 = load i64, ptr %214, align 8
   %216 = icmp eq i64 %215, 0
   %217 = load i64, ptr %4, align 8
@@ -138763,7 +138763,7 @@ _ZNK5clang6interp7Pointer6isZeroEv.exit57:        ; preds = %205
   br i1 %226, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i59, label %_ZNK5clang6interp7Pointer6isZeroEv.exit.i67
 
 _ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i59:  ; preds = %.thread
-  %.phi.trans.insert.phi.trans.insert.i = getelementptr inbounds i8, ptr %3, i64 32
+  %.phi.trans.insert.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %3, i64 32
   %.pre.pre.i = load i32, ptr %.phi.trans.insert.phi.trans.insert.i, align 8
   %229 = getelementptr inbounds nuw i8, ptr %228, i64 32
   %230 = load ptr, ptr %229, align 8
@@ -138805,7 +138805,7 @@ _ZNK5clang6interp7Pointer6isZeroEv.exit.i67:      ; preds = %.thread
   br i1 %246, label %_ZNK5clang6interp7Pointer8getIndexEv.exit89, label %247
 
 247:                                              ; preds = %_ZNK5clang6interp7Pointer6isZeroEv.exit.i67
-  %248 = getelementptr inbounds i8, ptr %3, i64 32
+  %248 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %249 = load i32, ptr %248, align 8
   %250 = icmp ugt i32 %249, 16
   %251 = zext i32 %249 to i64
@@ -138876,7 +138876,7 @@ _ZNK5clang6interp7Pointer9getOffsetEv.exit.i81:   ; preds = %269, %_ZNK5clang6in
   br label %285
 
 275:                                              ; preds = %273
-  %276 = getelementptr inbounds i8, ptr %3, i64 32
+  %276 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %277 = load i64, ptr %276, align 8
   %278 = load ptr, ptr %274, align 8
   %.not.i.i91 = icmp eq ptr %278, null
@@ -138927,7 +138927,7 @@ _ZNK5clang6interp7Pointer8getIndexEv.exit89:      ; preds = %_ZNK5clang6interp7P
   br i1 %299, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i97, label %_ZNK5clang6interp7Pointer6isZeroEv.exit.i114
 
 _ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i97:  ; preds = %297
-  %.phi.trans.insert.phi.trans.insert.i95 = getelementptr inbounds i8, ptr %4, i64 32
+  %.phi.trans.insert.phi.trans.insert.i95 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %.pre.pre.i96 = load i32, ptr %.phi.trans.insert.phi.trans.insert.i95, align 8
   %302 = getelementptr inbounds nuw i8, ptr %301, i64 32
   %303 = load ptr, ptr %302, align 8
@@ -138969,7 +138969,7 @@ _ZNK5clang6interp7Pointer6isZeroEv.exit.i114:     ; preds = %297
   br i1 %319, label %_ZNK5clang6interp7Pointer8getIndexEv.exit136, label %320
 
 320:                                              ; preds = %_ZNK5clang6interp7Pointer6isZeroEv.exit.i114
-  %321 = getelementptr inbounds i8, ptr %4, i64 32
+  %321 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %322 = load i32, ptr %321, align 8
   %323 = icmp ugt i32 %322, 16
   %324 = zext i32 %322 to i64
@@ -139037,7 +139037,7 @@ _ZNK5clang6interp7Pointer9getOffsetEv.exit.i128:  ; preds = %342, %_ZNK5clang6in
   ]
 
 349:                                              ; preds = %346
-  %350 = getelementptr inbounds i8, ptr %4, i64 32
+  %350 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %351 = load i64, ptr %350, align 8
   %352 = load ptr, ptr %347, align 8
   %.not.i.i138 = icmp eq ptr %352, null
@@ -139129,12 +139129,12 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5clang6interp6SubPtrILNS0_8Pri
   br i1 %23, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i, label %._ZNK5clang6interp7Pointer6isRootEv.exit.i_crit_edge.i
 
 ._ZNK5clang6interp7Pointer6isRootEv.exit.i_crit_edge.i: ; preds = %20
-  %.phi.trans.insert.i = getelementptr inbounds i8, ptr %.042.ptr161, i64 32
+  %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %.042.ptr161, i64 32
   %.pre.i = load i32, ptr %.phi.trans.insert.i, align 8
   br label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i
 
 _ZNK5clang6interp7Pointer6isZeroEv.exit.i.i.i:    ; preds = %15
-  %24 = getelementptr inbounds i8, ptr %.042.ptr161, i64 32
+  %24 = getelementptr inbounds nuw i8, ptr %.042.ptr161, i64 32
   %25 = load i64, ptr %24, align 8
   %26 = icmp eq i64 %25, 0
   %27 = load i64, ptr %.042.ptr161, align 8
@@ -139322,7 +139322,7 @@ _ZN5clang18OptionalDiagnosticlsINS_8QualTypeEEERS0_RKT_.exit: ; preds = %_ZNK5cl
   br i1 %.not.i.i, label %123, label %179
 
 _ZNK5clang6interp7Pointer6isZeroEv.exit:          ; preds = %107
-  %117 = getelementptr inbounds i8, ptr %4, i64 32
+  %117 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %118 = load i64, ptr %117, align 8
   %119 = icmp eq i64 %118, 0
   %120 = load i64, ptr %4, align 8
@@ -139346,7 +139346,7 @@ _ZNK5clang6interp7Pointer6isZeroEv.exit:          ; preds = %107
   ]
 
 131:                                              ; preds = %129
-  %132 = getelementptr inbounds i8, ptr %3, i64 32
+  %132 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %133 = load i64, ptr %132, align 8
   %134 = load ptr, ptr %128, align 8
   %.not.i.i.i = icmp eq ptr %134, null
@@ -139382,7 +139382,7 @@ _ZNK5clang6interp7Pointer6isZeroEv.exit.i:        ; preds = %123
   br i1 %150, label %_ZNK5clang6interp7Pointer8getIndexEv.exit, label %151
 
 151:                                              ; preds = %_ZNK5clang6interp7Pointer6isZeroEv.exit.i
-  %152 = getelementptr inbounds i8, ptr %3, i64 32
+  %152 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %153 = load i32, ptr %152, align 8
   %154 = icmp ugt i32 %153, 16
   %155 = zext i32 %153 to i64
@@ -139488,7 +139488,7 @@ _ZNK5clang6interp7Pointer8getIndexEv.exit:        ; preds = %_ZNK5clang6interp7P
   br label %281
 
 _ZNK5clang6interp7Pointer6isZeroEv.exit54:        ; preds = %185
-  %196 = getelementptr inbounds i8, ptr %3, i64 32
+  %196 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %197 = load i64, ptr %196, align 8
   %198 = icmp eq i64 %197, 0
   %199 = load i64, ptr %3, align 8
@@ -139516,7 +139516,7 @@ _ZNK5clang6interp7Pointer6isZeroEv.exit54:        ; preds = %185
   br i1 %.not.i.i55, label %217, label %219
 
 _ZNK5clang6interp7Pointer6isZeroEv.exit57:        ; preds = %202
-  %211 = getelementptr inbounds i8, ptr %4, i64 32
+  %211 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %212 = load i64, ptr %211, align 8
   %213 = icmp eq i64 %212, 0
   %214 = load i64, ptr %4, align 8
@@ -139541,7 +139541,7 @@ _ZNK5clang6interp7Pointer6isZeroEv.exit57:        ; preds = %202
   br i1 %222, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i59, label %_ZNK5clang6interp7Pointer6isZeroEv.exit.i67
 
 _ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i59:  ; preds = %.thread
-  %.phi.trans.insert.phi.trans.insert.i = getelementptr inbounds i8, ptr %3, i64 32
+  %.phi.trans.insert.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %3, i64 32
   %.pre.pre.i = load i32, ptr %.phi.trans.insert.phi.trans.insert.i, align 8
   %225 = getelementptr inbounds nuw i8, ptr %224, i64 32
   %226 = load ptr, ptr %225, align 8
@@ -139583,7 +139583,7 @@ _ZNK5clang6interp7Pointer6isZeroEv.exit.i67:      ; preds = %.thread
   br i1 %242, label %_ZNK5clang6interp7Pointer8getIndexEv.exit89, label %243
 
 243:                                              ; preds = %_ZNK5clang6interp7Pointer6isZeroEv.exit.i67
-  %244 = getelementptr inbounds i8, ptr %3, i64 32
+  %244 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %245 = load i32, ptr %244, align 8
   %246 = icmp ugt i32 %245, 16
   %247 = zext i32 %245 to i64
@@ -139654,7 +139654,7 @@ _ZNK5clang6interp7Pointer9getOffsetEv.exit.i81:   ; preds = %265, %_ZNK5clang6in
   br label %281
 
 271:                                              ; preds = %269
-  %272 = getelementptr inbounds i8, ptr %3, i64 32
+  %272 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %273 = load i64, ptr %272, align 8
   %274 = load ptr, ptr %270, align 8
   %.not.i.i91 = icmp eq ptr %274, null
@@ -139704,7 +139704,7 @@ _ZNK5clang6interp7Pointer8getIndexEv.exit89:      ; preds = %_ZNK5clang6interp7P
   br i1 %295, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i97, label %_ZNK5clang6interp7Pointer6isZeroEv.exit.i114
 
 _ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i97:  ; preds = %293
-  %.phi.trans.insert.phi.trans.insert.i95 = getelementptr inbounds i8, ptr %4, i64 32
+  %.phi.trans.insert.phi.trans.insert.i95 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %.pre.pre.i96 = load i32, ptr %.phi.trans.insert.phi.trans.insert.i95, align 8
   %298 = getelementptr inbounds nuw i8, ptr %297, i64 32
   %299 = load ptr, ptr %298, align 8
@@ -139746,7 +139746,7 @@ _ZNK5clang6interp7Pointer6isZeroEv.exit.i114:     ; preds = %293
   br i1 %315, label %_ZNK5clang6interp7Pointer8getIndexEv.exit136, label %316
 
 316:                                              ; preds = %_ZNK5clang6interp7Pointer6isZeroEv.exit.i114
-  %317 = getelementptr inbounds i8, ptr %4, i64 32
+  %317 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %318 = load i32, ptr %317, align 8
   %319 = icmp ugt i32 %318, 16
   %320 = zext i32 %318 to i64
@@ -139814,7 +139814,7 @@ _ZNK5clang6interp7Pointer9getOffsetEv.exit.i128:  ; preds = %338, %_ZNK5clang6in
   ]
 
 345:                                              ; preds = %342
-  %346 = getelementptr inbounds i8, ptr %4, i64 32
+  %346 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %347 = load i64, ptr %346, align 8
   %348 = load ptr, ptr %343, align 8
   %.not.i.i138 = icmp eq ptr %348, null
@@ -139915,12 +139915,12 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5clang6interp6SubPtrILNS0_8Pri
   br i1 %25, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i, label %._ZNK5clang6interp7Pointer6isRootEv.exit.i_crit_edge.i
 
 ._ZNK5clang6interp7Pointer6isRootEv.exit.i_crit_edge.i: ; preds = %22
-  %.phi.trans.insert.i = getelementptr inbounds i8, ptr %.042.ptr159, i64 32
+  %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %.042.ptr159, i64 32
   %.pre.i = load i32, ptr %.phi.trans.insert.i, align 8
   br label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i
 
 _ZNK5clang6interp7Pointer6isZeroEv.exit.i.i.i:    ; preds = %17
-  %26 = getelementptr inbounds i8, ptr %.042.ptr159, i64 32
+  %26 = getelementptr inbounds nuw i8, ptr %.042.ptr159, i64 32
   %27 = load i64, ptr %26, align 8
   %28 = icmp eq i64 %27, 0
   %29 = load i64, ptr %.042.ptr159, align 8
@@ -140108,7 +140108,7 @@ _ZN5clang18OptionalDiagnosticlsINS_8QualTypeEEERS0_RKT_.exit: ; preds = %_ZNK5cl
   br i1 %.not.i.i, label %125, label %181
 
 _ZNK5clang6interp7Pointer6isZeroEv.exit:          ; preds = %109
-  %119 = getelementptr inbounds i8, ptr %4, i64 32
+  %119 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %120 = load i64, ptr %119, align 8
   %121 = icmp eq i64 %120, 0
   %122 = load i64, ptr %4, align 8
@@ -140132,7 +140132,7 @@ _ZNK5clang6interp7Pointer6isZeroEv.exit:          ; preds = %109
   ]
 
 133:                                              ; preds = %131
-  %134 = getelementptr inbounds i8, ptr %3, i64 32
+  %134 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %135 = load i64, ptr %134, align 8
   %136 = load ptr, ptr %130, align 8
   %.not.i.i.i = icmp eq ptr %136, null
@@ -140168,7 +140168,7 @@ _ZNK5clang6interp7Pointer6isZeroEv.exit.i:        ; preds = %125
   br i1 %152, label %_ZNK5clang6interp7Pointer8getIndexEv.exit, label %153
 
 153:                                              ; preds = %_ZNK5clang6interp7Pointer6isZeroEv.exit.i
-  %154 = getelementptr inbounds i8, ptr %3, i64 32
+  %154 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %155 = load i32, ptr %154, align 8
   %156 = icmp ugt i32 %155, 16
   %157 = zext i32 %155 to i64
@@ -140275,7 +140275,7 @@ _ZNK5clang6interp7Pointer8getIndexEv.exit:        ; preds = %_ZNK5clang6interp7P
   br label %285
 
 _ZNK5clang6interp7Pointer6isZeroEv.exit54:        ; preds = %187
-  %198 = getelementptr inbounds i8, ptr %3, i64 32
+  %198 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %199 = load i64, ptr %198, align 8
   %200 = icmp eq i64 %199, 0
   %201 = load i64, ptr %3, align 8
@@ -140303,7 +140303,7 @@ _ZNK5clang6interp7Pointer6isZeroEv.exit54:        ; preds = %187
   br i1 %.not.i.i55, label %219, label %222
 
 _ZNK5clang6interp7Pointer6isZeroEv.exit57:        ; preds = %204
-  %213 = getelementptr inbounds i8, ptr %4, i64 32
+  %213 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %214 = load i64, ptr %213, align 8
   %215 = icmp eq i64 %214, 0
   %216 = load i64, ptr %4, align 8
@@ -140330,7 +140330,7 @@ _ZNK5clang6interp7Pointer6isZeroEv.exit57:        ; preds = %204
   br i1 %225, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i59, label %_ZNK5clang6interp7Pointer6isZeroEv.exit.i67
 
 _ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i59:  ; preds = %.thread
-  %.phi.trans.insert.phi.trans.insert.i = getelementptr inbounds i8, ptr %3, i64 32
+  %.phi.trans.insert.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %3, i64 32
   %.pre.pre.i = load i32, ptr %.phi.trans.insert.phi.trans.insert.i, align 8
   %228 = getelementptr inbounds nuw i8, ptr %227, i64 32
   %229 = load ptr, ptr %228, align 8
@@ -140373,7 +140373,7 @@ _ZNK5clang6interp7Pointer6isZeroEv.exit.i67:      ; preds = %.thread
   br i1 %246, label %_ZNK5clang6interp7Pointer8getIndexEv.exit89, label %247
 
 247:                                              ; preds = %_ZNK5clang6interp7Pointer6isZeroEv.exit.i67
-  %248 = getelementptr inbounds i8, ptr %3, i64 32
+  %248 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %249 = load i32, ptr %248, align 8
   %250 = icmp ugt i32 %249, 16
   %251 = zext i32 %249 to i64
@@ -140445,7 +140445,7 @@ _ZNK5clang6interp7Pointer9getOffsetEv.exit.i81:   ; preds = %269, %_ZNK5clang6in
   br label %285
 
 275:                                              ; preds = %273
-  %276 = getelementptr inbounds i8, ptr %3, i64 32
+  %276 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %277 = load i64, ptr %276, align 8
   %278 = load ptr, ptr %274, align 8
   %.not.i.i91 = icmp eq ptr %278, null
@@ -140491,7 +140491,7 @@ _ZNK5clang6interp7Pointer8getIndexEv.exit89:      ; preds = %290, %285, %_ZNK5cl
   br i1 %298, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i97, label %_ZNK5clang6interp7Pointer6isZeroEv.exit.i114
 
 _ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i97:  ; preds = %296
-  %.phi.trans.insert.phi.trans.insert.i95 = getelementptr inbounds i8, ptr %4, i64 32
+  %.phi.trans.insert.phi.trans.insert.i95 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %.pre.pre.i96 = load i32, ptr %.phi.trans.insert.phi.trans.insert.i95, align 8
   %301 = getelementptr inbounds nuw i8, ptr %300, i64 32
   %302 = load ptr, ptr %301, align 8
@@ -140534,7 +140534,7 @@ _ZNK5clang6interp7Pointer6isZeroEv.exit.i114:     ; preds = %296
   br i1 %319, label %_ZNK5clang6interp7Pointer8getIndexEv.exit136, label %320
 
 320:                                              ; preds = %_ZNK5clang6interp7Pointer6isZeroEv.exit.i114
-  %321 = getelementptr inbounds i8, ptr %4, i64 32
+  %321 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %322 = load i32, ptr %321, align 8
   %323 = icmp ugt i32 %322, 16
   %324 = zext i32 %322 to i64
@@ -140603,7 +140603,7 @@ _ZNK5clang6interp7Pointer9getOffsetEv.exit.i128:  ; preds = %342, %_ZNK5clang6in
   ]
 
 349:                                              ; preds = %346
-  %350 = getelementptr inbounds i8, ptr %4, i64 32
+  %350 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %351 = load i64, ptr %350, align 8
   %352 = load ptr, ptr %347, align 8
   %.not.i.i138 = icmp eq ptr %352, null
@@ -140690,12 +140690,12 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5clang6interp6SubPtrILNS0_8Pri
   br i1 %23, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i, label %._ZNK5clang6interp7Pointer6isRootEv.exit.i_crit_edge.i
 
 ._ZNK5clang6interp7Pointer6isRootEv.exit.i_crit_edge.i: ; preds = %20
-  %.phi.trans.insert.i = getelementptr inbounds i8, ptr %.042.ptr161, i64 32
+  %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %.042.ptr161, i64 32
   %.pre.i = load i32, ptr %.phi.trans.insert.i, align 8
   br label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i
 
 _ZNK5clang6interp7Pointer6isZeroEv.exit.i.i.i:    ; preds = %15
-  %24 = getelementptr inbounds i8, ptr %.042.ptr161, i64 32
+  %24 = getelementptr inbounds nuw i8, ptr %.042.ptr161, i64 32
   %25 = load i64, ptr %24, align 8
   %26 = icmp eq i64 %25, 0
   %27 = load i64, ptr %.042.ptr161, align 8
@@ -140883,7 +140883,7 @@ _ZN5clang18OptionalDiagnosticlsINS_8QualTypeEEERS0_RKT_.exit: ; preds = %_ZNK5cl
   br i1 %.not.i.i, label %123, label %178
 
 _ZNK5clang6interp7Pointer6isZeroEv.exit:          ; preds = %107
-  %117 = getelementptr inbounds i8, ptr %4, i64 32
+  %117 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %118 = load i64, ptr %117, align 8
   %119 = icmp eq i64 %118, 0
   %120 = load i64, ptr %4, align 8
@@ -140907,7 +140907,7 @@ _ZNK5clang6interp7Pointer6isZeroEv.exit:          ; preds = %107
   ]
 
 131:                                              ; preds = %129
-  %132 = getelementptr inbounds i8, ptr %3, i64 32
+  %132 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %133 = load i64, ptr %132, align 8
   %134 = load ptr, ptr %128, align 8
   %.not.i.i.i = icmp eq ptr %134, null
@@ -140943,7 +140943,7 @@ _ZNK5clang6interp7Pointer6isZeroEv.exit.i:        ; preds = %123
   br i1 %150, label %.sink.split, label %151
 
 151:                                              ; preds = %_ZNK5clang6interp7Pointer6isZeroEv.exit.i
-  %152 = getelementptr inbounds i8, ptr %3, i64 32
+  %152 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %153 = load i32, ptr %152, align 8
   %154 = icmp ugt i32 %153, 16
   %155 = zext i32 %153 to i64
@@ -141044,7 +141044,7 @@ _ZNK5clang6interp7Pointer9getOffsetEv.exit.i:     ; preds = %174, %_ZNK5clang6in
   br label %281
 
 _ZNK5clang6interp7Pointer6isZeroEv.exit54:        ; preds = %184
-  %195 = getelementptr inbounds i8, ptr %3, i64 32
+  %195 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %196 = load i64, ptr %195, align 8
   %197 = icmp eq i64 %196, 0
   %198 = load i64, ptr %3, align 8
@@ -141072,7 +141072,7 @@ _ZNK5clang6interp7Pointer6isZeroEv.exit54:        ; preds = %184
   br i1 %.not.i.i55, label %216, label %218
 
 _ZNK5clang6interp7Pointer6isZeroEv.exit57:        ; preds = %201
-  %210 = getelementptr inbounds i8, ptr %4, i64 32
+  %210 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %211 = load i64, ptr %210, align 8
   %212 = icmp eq i64 %211, 0
   %213 = load i64, ptr %4, align 8
@@ -141097,7 +141097,7 @@ _ZNK5clang6interp7Pointer6isZeroEv.exit57:        ; preds = %201
   br i1 %221, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i59, label %_ZNK5clang6interp7Pointer6isZeroEv.exit.i67
 
 _ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i59:  ; preds = %.thread
-  %.phi.trans.insert.phi.trans.insert.i = getelementptr inbounds i8, ptr %3, i64 32
+  %.phi.trans.insert.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %3, i64 32
   %.pre.pre.i = load i32, ptr %.phi.trans.insert.phi.trans.insert.i, align 8
   %224 = getelementptr inbounds nuw i8, ptr %223, i64 32
   %225 = load ptr, ptr %224, align 8
@@ -141140,7 +141140,7 @@ _ZNK5clang6interp7Pointer6isZeroEv.exit.i67:      ; preds = %.thread
   br i1 %242, label %_ZNK5clang6interp7Pointer8getIndexEv.exit89, label %243
 
 243:                                              ; preds = %_ZNK5clang6interp7Pointer6isZeroEv.exit.i67
-  %244 = getelementptr inbounds i8, ptr %3, i64 32
+  %244 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %245 = load i32, ptr %244, align 8
   %246 = icmp ugt i32 %245, 16
   %247 = zext i32 %245 to i64
@@ -141212,7 +141212,7 @@ _ZNK5clang6interp7Pointer9getOffsetEv.exit.i81:   ; preds = %265, %_ZNK5clang6in
   br label %281
 
 271:                                              ; preds = %269
-  %272 = getelementptr inbounds i8, ptr %3, i64 32
+  %272 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %273 = load i64, ptr %272, align 8
   %274 = load ptr, ptr %270, align 8
   %.not.i.i91 = icmp eq ptr %274, null
@@ -141257,7 +141257,7 @@ _ZNK5clang6interp7Pointer8getIndexEv.exit89:      ; preds = %286, %281, %_ZNK5cl
   br i1 %294, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i97, label %_ZNK5clang6interp7Pointer6isZeroEv.exit.i114
 
 _ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i97:  ; preds = %292
-  %.phi.trans.insert.phi.trans.insert.i95 = getelementptr inbounds i8, ptr %4, i64 32
+  %.phi.trans.insert.phi.trans.insert.i95 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %.pre.pre.i96 = load i32, ptr %.phi.trans.insert.phi.trans.insert.i95, align 8
   %297 = getelementptr inbounds nuw i8, ptr %296, i64 32
   %298 = load ptr, ptr %297, align 8
@@ -141300,7 +141300,7 @@ _ZNK5clang6interp7Pointer6isZeroEv.exit.i114:     ; preds = %292
   br i1 %315, label %_ZNK5clang6interp7Pointer8getIndexEv.exit136, label %316
 
 316:                                              ; preds = %_ZNK5clang6interp7Pointer6isZeroEv.exit.i114
-  %317 = getelementptr inbounds i8, ptr %4, i64 32
+  %317 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %318 = load i32, ptr %317, align 8
   %319 = icmp ugt i32 %318, 16
   %320 = zext i32 %318 to i64
@@ -141369,7 +141369,7 @@ _ZNK5clang6interp7Pointer9getOffsetEv.exit.i128:  ; preds = %338, %_ZNK5clang6in
   ]
 
 345:                                              ; preds = %342
-  %346 = getelementptr inbounds i8, ptr %4, i64 32
+  %346 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %347 = load i64, ptr %346, align 8
   %348 = load ptr, ptr %343, align 8
   %.not.i.i138 = icmp eq ptr %348, null
@@ -141465,12 +141465,12 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5clang6interp6SubPtrILNS0_8Pri
   br i1 %25, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i, label %._ZNK5clang6interp7Pointer6isRootEv.exit.i_crit_edge.i
 
 ._ZNK5clang6interp7Pointer6isRootEv.exit.i_crit_edge.i: ; preds = %22
-  %.phi.trans.insert.i = getelementptr inbounds i8, ptr %.042.ptr205, i64 32
+  %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %.042.ptr205, i64 32
   %.pre.i = load i32, ptr %.phi.trans.insert.i, align 8
   br label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i
 
 _ZNK5clang6interp7Pointer6isZeroEv.exit.i.i.i:    ; preds = %17
-  %26 = getelementptr inbounds i8, ptr %.042.ptr205, i64 32
+  %26 = getelementptr inbounds nuw i8, ptr %.042.ptr205, i64 32
   %27 = load i64, ptr %26, align 8
   %28 = icmp eq i64 %27, 0
   %29 = load i64, ptr %.042.ptr205, align 8
@@ -141658,7 +141658,7 @@ _ZN5clang18OptionalDiagnosticlsINS_8QualTypeEEERS0_RKT_.exit: ; preds = %_ZNK5cl
   br i1 %.not.i.i, label %_ZN5clang6interp10IntegralAPILb0EED2Ev.exit, label %128
 
 _ZNK5clang6interp7Pointer6isZeroEv.exit:          ; preds = %109
-  %119 = getelementptr inbounds i8, ptr %4, i64 32
+  %119 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %120 = load i64, ptr %119, align 8
   %121 = icmp eq i64 %120, 0
   %122 = load i64, ptr %4, align 8
@@ -141706,7 +141706,7 @@ _ZN5clang6interp10IntegralAPILb0EED2Ev.exit:      ; preds = %116, %112, %_ZNK5cl
   br i1 %.not.i.i52, label %150, label %.thread
 
 _ZNK5clang6interp7Pointer6isZeroEv.exit54:        ; preds = %134
-  %144 = getelementptr inbounds i8, ptr %3, i64 32
+  %144 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %145 = load i64, ptr %144, align 8
   %146 = icmp eq i64 %145, 0
   %147 = load i64, ptr %3, align 8
@@ -141734,7 +141734,7 @@ _ZNK5clang6interp7Pointer6isZeroEv.exit54:        ; preds = %134
   br i1 %.not.i.i55, label %165, label %.thread
 
 _ZNK5clang6interp7Pointer6isZeroEv.exit57:        ; preds = %150
-  %159 = getelementptr inbounds i8, ptr %4, i64 32
+  %159 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %160 = load i64, ptr %159, align 8
   %161 = icmp eq i64 %160, 0
   %162 = load i64, ptr %4, align 8
@@ -141840,12 +141840,12 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5clang6interp6SubPtrILNS0_8Pri
   br i1 %25, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i, label %._ZNK5clang6interp7Pointer6isRootEv.exit.i_crit_edge.i
 
 ._ZNK5clang6interp7Pointer6isRootEv.exit.i_crit_edge.i: ; preds = %22
-  %.phi.trans.insert.i = getelementptr inbounds i8, ptr %.042.ptr205, i64 32
+  %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %.042.ptr205, i64 32
   %.pre.i = load i32, ptr %.phi.trans.insert.i, align 8
   br label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i
 
 _ZNK5clang6interp7Pointer6isZeroEv.exit.i.i.i:    ; preds = %17
-  %26 = getelementptr inbounds i8, ptr %.042.ptr205, i64 32
+  %26 = getelementptr inbounds nuw i8, ptr %.042.ptr205, i64 32
   %27 = load i64, ptr %26, align 8
   %28 = icmp eq i64 %27, 0
   %29 = load i64, ptr %.042.ptr205, align 8
@@ -142033,7 +142033,7 @@ _ZN5clang18OptionalDiagnosticlsINS_8QualTypeEEERS0_RKT_.exit: ; preds = %_ZNK5cl
   br i1 %.not.i.i, label %_ZN5clang6interp10IntegralAPILb1EED2Ev.exit, label %128
 
 _ZNK5clang6interp7Pointer6isZeroEv.exit:          ; preds = %109
-  %119 = getelementptr inbounds i8, ptr %4, i64 32
+  %119 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %120 = load i64, ptr %119, align 8
   %121 = icmp eq i64 %120, 0
   %122 = load i64, ptr %4, align 8
@@ -142081,7 +142081,7 @@ _ZN5clang6interp10IntegralAPILb1EED2Ev.exit:      ; preds = %116, %112, %_ZNK5cl
   br i1 %.not.i.i52, label %150, label %.thread
 
 _ZNK5clang6interp7Pointer6isZeroEv.exit54:        ; preds = %134
-  %144 = getelementptr inbounds i8, ptr %3, i64 32
+  %144 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %145 = load i64, ptr %144, align 8
   %146 = icmp eq i64 %145, 0
   %147 = load i64, ptr %3, align 8
@@ -142109,7 +142109,7 @@ _ZNK5clang6interp7Pointer6isZeroEv.exit54:        ; preds = %134
   br i1 %.not.i.i55, label %165, label %.thread
 
 _ZNK5clang6interp7Pointer6isZeroEv.exit57:        ; preds = %150
-  %159 = getelementptr inbounds i8, ptr %4, i64 32
+  %159 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %160 = load i64, ptr %159, align 8
   %161 = icmp eq i64 %160, 0
   %162 = load i64, ptr %4, align 8
@@ -142651,7 +142651,7 @@ _ZN5clang17DiagnosticStorageC2Ev.exit:            ; preds = %7
   store i8 0, ptr %18, align 8
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 416
   %20 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %19) #18
-  %21 = getelementptr inbounds i8, ptr %18, i64 424
+  %21 = getelementptr inbounds nuw i8, ptr %18, i64 424
   store i32 0, ptr %21, align 8
   %22 = getelementptr inbounds nuw i8, ptr %18, i64 528
   %23 = load ptr, ptr %22, align 8
@@ -142672,7 +142672,7 @@ _ZN5clang17DiagnosticStorageC2Ev.exit:            ; preds = %7
   br i1 %.not.i.i, label %_ZN4llvm15SmallVectorImplIN5clang9FixItHintEE5clearEv.exit, label %.lr.ph.i.i, !llvm.loop !3171
 
 _ZN4llvm15SmallVectorImplIN5clang9FixItHintEE5clearEv.exit: ; preds = %.lr.ph.i.i, %13
-  %28 = getelementptr inbounds i8, ptr %18, i64 536
+  %28 = getelementptr inbounds nuw i8, ptr %18, i64 536
   store i32 0, ptr %28, align 8
   br label %29
 
@@ -142884,7 +142884,7 @@ define linkonce_odr hidden noundef i64 @_ZNK5clang6interp7Pointer7getSizeEv(ptr 
   br label %_ZNK5clang6interp7Pointer6isRootEv.exit.i
 
 _ZNK5clang6interp7Pointer6isZeroEv.exit.i.i:      ; preds = %1
-  %13 = getelementptr inbounds i8, ptr %0, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %14 = load i64, ptr %13, align 8
   %15 = icmp eq i64 %14, 0
   %16 = load i64, ptr %0, align 8
@@ -142896,7 +142896,7 @@ _ZNK5clang6interp7Pointer6isZeroEv.exit.i.i:      ; preds = %1
 
 _ZNK5clang6interp7Pointer6isRootEv.exit.i:        ; preds = %_ZNK5clang6interp7Pointer6isZeroEv.exit.i.i, %10, %6
   %19 = phi ptr [ %8, %6 ], [ %12, %10 ], [ %.pre.i.pre, %_ZNK5clang6interp7Pointer6isZeroEv.exit.i.i ]
-  %20 = getelementptr inbounds i8, ptr %0, i64 32
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %21 = load i32, ptr %20, align 8
   %22 = getelementptr inbounds nuw i8, ptr %19, i64 32
   %23 = load ptr, ptr %22, align 8
@@ -142937,7 +142937,7 @@ _ZNK5clang6interp7Pointer11getDeclDescEv.exit.sink.split.i: ; preds = %30, %_ZNK
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef i32 @_ZNK5clang6interp7Pointer9getOffsetEv(ptr noundef nonnull align 8 dereferenceable(52) %0) local_unnamed_addr #0 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %3 = getelementptr inbounds i8, ptr %0, i64 32
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i32, ptr %3, align 8
   %5 = icmp eq i32 %4, -1
   %6 = load i64, ptr %0, align 8
@@ -143049,12 +143049,12 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK5clang6interp7Pointer15isZero
   br i1 %9, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i, label %._ZNK5clang6interp7Pointer6isRootEv.exit.i_crit_edge
 
 ._ZNK5clang6interp7Pointer6isRootEv.exit.i_crit_edge: ; preds = %6
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 32
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 32
   %.pre = load i32, ptr %.phi.trans.insert, align 8
   br label %_ZNK5clang6interp7Pointer6isRootEv.exit.i
 
 _ZNK5clang6interp7Pointer6isZeroEv.exit.i.i:      ; preds = %1
-  %10 = getelementptr inbounds i8, ptr %0, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %11 = load i64, ptr %10, align 8
   %12 = icmp eq i64 %11, 0
   %13 = load i64, ptr %0, align 8
@@ -143892,7 +143892,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp12OffsetHelperINS0_8Inte
   br i1 %31, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i
 
 _ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i:    ; preds = %28
-  %32 = getelementptr inbounds i8, ptr %3, i64 32
+  %32 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %33 = load i32, ptr %32, align 8
   %34 = getelementptr inbounds nuw i8, ptr %30, i64 32
   %35 = load ptr, ptr %34, align 8
@@ -143926,7 +143926,7 @@ thread-pre-split.thread:                          ; preds = %_ZNK5clang6interp7P
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   %50 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %51 = load ptr, ptr %50, align 8
-  %.phi.trans.insert.phi.trans.insert.i = getelementptr inbounds i8, ptr %3, i64 32
+  %.phi.trans.insert.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %3, i64 32
   %.pre.pre.i = load i32, ptr %.phi.trans.insert.phi.trans.insert.i, align 8
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 32
   %53 = load ptr, ptr %52, align 8
@@ -143956,7 +143956,7 @@ thread-pre-split:                                 ; preds = %24
 62:                                               ; preds = %thread-pre-split
   %63 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %64 = load i64, ptr %3, align 8
-  %65 = getelementptr inbounds i8, ptr %3, i64 32
+  %65 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %66 = load i64, ptr %65, align 8
   %67 = load ptr, ptr %63, align 8
   %.not.i.i = icmp eq ptr %67, null
@@ -143985,7 +143985,7 @@ _ZNK5clang6interp7Pointer8elemSizeEv.exit:        ; preds = %62, %68
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %79, i8 0, i64 24, i1 false)
   store i32 1, ptr %81, align 8
   %82 = getelementptr inbounds nuw i8, ptr %79, i64 24
-  %83 = getelementptr inbounds i8, ptr %79, i64 32
+  %83 = getelementptr inbounds nuw i8, ptr %79, i64 32
   store i64 %78, ptr %83, align 8
   store ptr %80, ptr %82, align 8
   br label %248
@@ -144156,7 +144156,7 @@ _ZNK5clang6interp7Pointer11getNumElemsEv.exit:    ; preds = %thread-pre-split, %
   ]
 
 170:                                              ; preds = %168
-  %171 = getelementptr inbounds i8, ptr %3, i64 32
+  %171 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %172 = load i64, ptr %171, align 8
   %173 = load ptr, ptr %167, align 8
   %.not.i.i.i = icmp eq ptr %173, null
@@ -144192,7 +144192,7 @@ _ZNK5clang6interp7Pointer6isZeroEv.exit.i:        ; preds = %166
   br i1 %189, label %_ZNK5clang6interp7Pointer8getIndexEv.exit, label %190
 
 190:                                              ; preds = %_ZNK5clang6interp7Pointer6isZeroEv.exit.i
-  %191 = getelementptr inbounds i8, ptr %3, i64 32
+  %191 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %192 = load i32, ptr %191, align 8
   %193 = icmp ugt i32 %192, 16
   %194 = zext i32 %192 to i64
@@ -144310,7 +144310,7 @@ _ZNK5clang6interp7Pointer8getIndexEv.exit:        ; preds = %_ZNK5clang6interp7P
 
 243:                                              ; preds = %240
   %244 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %245 = getelementptr inbounds i8, ptr %3, i64 32
+  %245 = getelementptr inbounds nuw i8, ptr %3, i64 32
   call void @_ZN5clang6interp11InterpStack4pushINS0_7PointerEJRKPNS0_5BlockERKjEEEvDpOT0_(ptr noundef nonnull align 8 dereferenceable(16) %242, ptr noundef nonnull align 8 dereferenceable(8) %244, ptr noundef nonnull align 4 dereferenceable(4) %245)
   br label %248
 
@@ -144416,7 +144416,7 @@ _ZNK4llvm6APSIntmiERKS0_.exit:                    ; preds = %22, %19, %_ZN4llvm6
   br i1 %50, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i
 
 _ZNK5clang6interp7Pointer6isRootEv.exit.i.i:      ; preds = %47
-  %51 = getelementptr inbounds i8, ptr %43, i64 32
+  %51 = getelementptr inbounds nuw i8, ptr %43, i64 32
   %52 = load i32, ptr %51, align 8
   %53 = getelementptr inbounds nuw i8, ptr %49, i64 32
   %54 = load ptr, ptr %53, align 8
@@ -144620,7 +144620,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp17IncDecFloatHelperILNS0
 
 13:                                               ; preds = %4
   %14 = icmp eq ptr %12, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %2, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %2, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %14, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -144729,7 +144729,7 @@ _ZN5clang6interp11InterpStack4pushINS0_8FloatingEJRS3_EEEvDpOT0_.exit: ; preds =
 
 63:                                               ; preds = %_ZN5clang6interp11InterpStack4pushINS0_8FloatingEJRS3_EEEvDpOT0_.exit
   %64 = icmp eq ptr %62, null
-  %.phi.trans.insert24.phi.trans.insert = getelementptr inbounds i8, ptr %2, i64 32
+  %.phi.trans.insert24.phi.trans.insert = getelementptr inbounds nuw i8, ptr %2, i64 32
   %.pre25.pre = load i32, ptr %.phi.trans.insert24.phi.trans.insert, align 8
   br i1 %64, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i20, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i14
 
@@ -144981,7 +144981,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp17IncDecFloatHelperILNS0
 
 13:                                               ; preds = %4
   %14 = icmp eq ptr %12, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %2, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %2, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %14, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -145073,7 +145073,7 @@ _ZN5clang6interp8FloatingC2ERKS1_.exit:           ; preds = %43, %44
 
 56:                                               ; preds = %_ZN5clang6interp8FloatingC2ERKS1_.exit
   %57 = icmp eq ptr %55, null
-  %.phi.trans.insert23.phi.trans.insert = getelementptr inbounds i8, ptr %2, i64 32
+  %.phi.trans.insert23.phi.trans.insert = getelementptr inbounds nuw i8, ptr %2, i64 32
   %.pre24.pre = load i32, ptr %.phi.trans.insert23.phi.trans.insert, align 8
   br i1 %57, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i19, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i13
 
@@ -145174,7 +145174,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp11CheckDivRemINS0_8Float
   %15 = load ptr, ptr %14, align 8
   %16 = tail call noundef nonnull align 1 ptr @_ZN4llvm11APFloatBase15PPCDoubleDoubleEv() #21
   %.not.i.i.i.i = icmp eq ptr %15, %16
-  %17 = getelementptr inbounds i8, ptr %3, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %18 = load ptr, ptr %17, align 8
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %.0.i.i.i.i = select i1 %.not.i.i.i.i, ptr %19, ptr %14
@@ -145574,7 +145574,7 @@ define linkonce_odr hidden void @_ZNK5clang6interp7Pointer6expandEv(ptr dead_on_
 
 11:                                               ; preds = %7
   %12 = icmp eq ptr %4, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %1, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 32
   br i1 %12, label %_ZNK5clang6interp7Pointer16inPrimitiveArrayEv.exit.thread28, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i
@@ -145619,7 +145619,7 @@ _ZNK5clang6interp7Pointer6isRootEv.exit.i.i:      ; preds = %11
   br label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i10
 
 37:                                               ; preds = %7
-  %38 = getelementptr inbounds i8, ptr %1, i64 32
+  %38 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %39 = load i32, ptr %38, align 8
   %40 = zext i32 %39 to i64
   %cond20 = icmp eq i32 %9, 1
@@ -145673,7 +145673,7 @@ _ZNK5clang6interp7Pointer7getSizeEv.exit:         ; preds = %37, %_ZNK5clang6int
   br label %108
 
 69:                                               ; preds = %2
-  %70 = getelementptr inbounds i8, ptr %1, i64 32
+  %70 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %71 = load i32, ptr %70, align 8
   %72 = zext i32 %71 to i64
   %.not = icmp eq i64 %5, %72
@@ -145779,7 +145779,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5clang6interp14VirtBaseHelperE
   call void @_ZN5clang6interp7PointerC1ERKS1_(ptr noundef nonnull align 8 dereferenceable(52) %5, ptr noundef nonnull align 8 dereferenceable(52) %3) #18
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 48
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  %10 = getelementptr inbounds i8, ptr %5, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 32
   br label %11
 
 11:                                               ; preds = %_ZNK5clang6interp7Pointer7getBaseEv.exit, %4
@@ -145962,7 +145962,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp12OffsetHelperINS0_8Inte
   br i1 %31, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i
 
 _ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i:    ; preds = %28
-  %32 = getelementptr inbounds i8, ptr %3, i64 32
+  %32 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %33 = load i32, ptr %32, align 8
   %34 = getelementptr inbounds nuw i8, ptr %30, i64 32
   %35 = load ptr, ptr %34, align 8
@@ -145996,7 +145996,7 @@ thread-pre-split.thread:                          ; preds = %_ZNK5clang6interp7P
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   %50 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %51 = load ptr, ptr %50, align 8
-  %.phi.trans.insert.phi.trans.insert.i = getelementptr inbounds i8, ptr %3, i64 32
+  %.phi.trans.insert.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %3, i64 32
   %.pre.pre.i = load i32, ptr %.phi.trans.insert.phi.trans.insert.i, align 8
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 32
   %53 = load ptr, ptr %52, align 8
@@ -146026,7 +146026,7 @@ thread-pre-split:                                 ; preds = %24
 62:                                               ; preds = %thread-pre-split
   %63 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %64 = load i64, ptr %3, align 8
-  %65 = getelementptr inbounds i8, ptr %3, i64 32
+  %65 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %66 = load i64, ptr %65, align 8
   %67 = load ptr, ptr %63, align 8
   %.not.i.i = icmp eq ptr %67, null
@@ -146055,7 +146055,7 @@ _ZNK5clang6interp7Pointer8elemSizeEv.exit:        ; preds = %62, %68
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %79, i8 0, i64 24, i1 false)
   store i32 1, ptr %81, align 8
   %82 = getelementptr inbounds nuw i8, ptr %79, i64 24
-  %83 = getelementptr inbounds i8, ptr %79, i64 32
+  %83 = getelementptr inbounds nuw i8, ptr %79, i64 32
   store i64 %78, ptr %83, align 8
   store ptr %80, ptr %82, align 8
   br label %251
@@ -146226,7 +146226,7 @@ _ZNK5clang6interp7Pointer11getNumElemsEv.exit:    ; preds = %thread-pre-split, %
   ]
 
 170:                                              ; preds = %168
-  %171 = getelementptr inbounds i8, ptr %3, i64 32
+  %171 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %172 = load i64, ptr %171, align 8
   %173 = load ptr, ptr %167, align 8
   %.not.i.i.i = icmp eq ptr %173, null
@@ -146262,7 +146262,7 @@ _ZNK5clang6interp7Pointer6isZeroEv.exit.i:        ; preds = %166
   br i1 %189, label %_ZNK5clang6interp7Pointer8getIndexEv.exit, label %190
 
 190:                                              ; preds = %_ZNK5clang6interp7Pointer6isZeroEv.exit.i
-  %191 = getelementptr inbounds i8, ptr %3, i64 32
+  %191 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %192 = load i32, ptr %191, align 8
   %193 = icmp ugt i32 %192, 16
   %194 = zext i32 %192 to i64
@@ -146384,7 +146384,7 @@ _ZNK5clang6interp7Pointer8getIndexEv.exit:        ; preds = %_ZNK5clang6interp7P
 
 246:                                              ; preds = %242
   %247 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %248 = getelementptr inbounds i8, ptr %3, i64 32
+  %248 = getelementptr inbounds nuw i8, ptr %3, i64 32
   call void @_ZN5clang6interp11InterpStack4pushINS0_7PointerEJRKPNS0_5BlockERKjEEEvDpOT0_(ptr noundef nonnull align 8 dereferenceable(16) %245, ptr noundef nonnull align 8 dereferenceable(8) %247, ptr noundef nonnull align 4 dereferenceable(4) %248)
   br label %251
 
@@ -146490,7 +146490,7 @@ _ZNK4llvm6APSIntplERKS0_.exit:                    ; preds = %22, %19, %_ZN4llvm6
   br i1 %50, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i
 
 _ZNK5clang6interp7Pointer6isRootEv.exit.i.i:      ; preds = %47
-  %51 = getelementptr inbounds i8, ptr %43, i64 32
+  %51 = getelementptr inbounds nuw i8, ptr %43, i64 32
   %52 = load i32, ptr %51, align 8
   %53 = getelementptr inbounds nuw i8, ptr %49, i64 32
   %54 = load ptr, ptr %53, align 8
@@ -146644,7 +146644,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp17IncDecFloatHelperILNS0
 
 13:                                               ; preds = %4
   %14 = icmp eq ptr %12, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %2, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %2, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %14, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -146753,7 +146753,7 @@ _ZN5clang6interp11InterpStack4pushINS0_8FloatingEJRS3_EEEvDpOT0_.exit: ; preds =
 
 63:                                               ; preds = %_ZN5clang6interp11InterpStack4pushINS0_8FloatingEJRS3_EEEvDpOT0_.exit
   %64 = icmp eq ptr %62, null
-  %.phi.trans.insert24.phi.trans.insert = getelementptr inbounds i8, ptr %2, i64 32
+  %.phi.trans.insert24.phi.trans.insert = getelementptr inbounds nuw i8, ptr %2, i64 32
   %.pre25.pre = load i32, ptr %.phi.trans.insert24.phi.trans.insert, align 8
   br i1 %64, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i20, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i14
 
@@ -146934,7 +146934,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp17IncDecFloatHelperILNS0
 
 13:                                               ; preds = %4
   %14 = icmp eq ptr %12, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %2, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %2, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %14, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -147026,7 +147026,7 @@ _ZN5clang6interp8FloatingC2ERKS1_.exit:           ; preds = %43, %44
 
 56:                                               ; preds = %_ZN5clang6interp8FloatingC2ERKS1_.exit
   %57 = icmp eq ptr %55, null
-  %.phi.trans.insert23.phi.trans.insert = getelementptr inbounds i8, ptr %2, i64 32
+  %.phi.trans.insert23.phi.trans.insert = getelementptr inbounds nuw i8, ptr %2, i64 32
   %.pre24.pre = load i32, ptr %.phi.trans.insert23.phi.trans.insert, align 8
   br i1 %57, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i19, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i13
 
@@ -149968,7 +149968,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp12OffsetHelperINS0_8Inte
   br i1 %31, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i
 
 _ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i:    ; preds = %28
-  %32 = getelementptr inbounds i8, ptr %3, i64 32
+  %32 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %33 = load i32, ptr %32, align 8
   %34 = getelementptr inbounds nuw i8, ptr %30, i64 32
   %35 = load ptr, ptr %34, align 8
@@ -150002,7 +150002,7 @@ thread-pre-split.thread:                          ; preds = %_ZNK5clang6interp7P
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   %50 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %51 = load ptr, ptr %50, align 8
-  %.phi.trans.insert.phi.trans.insert.i = getelementptr inbounds i8, ptr %3, i64 32
+  %.phi.trans.insert.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %3, i64 32
   %.pre.pre.i = load i32, ptr %.phi.trans.insert.phi.trans.insert.i, align 8
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 32
   %53 = load ptr, ptr %52, align 8
@@ -150032,7 +150032,7 @@ thread-pre-split:                                 ; preds = %24
 62:                                               ; preds = %thread-pre-split
   %63 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %64 = load i64, ptr %3, align 8
-  %65 = getelementptr inbounds i8, ptr %3, i64 32
+  %65 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %66 = load i64, ptr %65, align 8
   %67 = load ptr, ptr %63, align 8
   %.not.i.i = icmp eq ptr %67, null
@@ -150061,7 +150061,7 @@ _ZNK5clang6interp7Pointer8elemSizeEv.exit:        ; preds = %62, %68
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %79, i8 0, i64 24, i1 false)
   store i32 1, ptr %81, align 8
   %82 = getelementptr inbounds nuw i8, ptr %79, i64 24
-  %83 = getelementptr inbounds i8, ptr %79, i64 32
+  %83 = getelementptr inbounds nuw i8, ptr %79, i64 32
   store i64 %78, ptr %83, align 8
   store ptr %80, ptr %82, align 8
   br label %262
@@ -150232,7 +150232,7 @@ _ZNK5clang6interp7Pointer11getNumElemsEv.exit:    ; preds = %thread-pre-split, %
   ]
 
 170:                                              ; preds = %168
-  %171 = getelementptr inbounds i8, ptr %3, i64 32
+  %171 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %172 = load i64, ptr %171, align 8
   %173 = load ptr, ptr %167, align 8
   %.not.i.i.i = icmp eq ptr %173, null
@@ -150268,7 +150268,7 @@ _ZNK5clang6interp7Pointer6isZeroEv.exit.i:        ; preds = %166
   br i1 %189, label %_ZNK5clang6interp7Pointer8getIndexEv.exit, label %190
 
 190:                                              ; preds = %_ZNK5clang6interp7Pointer6isZeroEv.exit.i
-  %191 = getelementptr inbounds i8, ptr %3, i64 32
+  %191 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %192 = load i32, ptr %191, align 8
   %193 = icmp ugt i32 %192, 16
   %194 = zext i32 %192 to i64
@@ -150412,7 +150412,7 @@ _ZNK5clang6interp7Pointer8getIndexEv.exit:        ; preds = %_ZNK5clang6interp7P
 
 257:                                              ; preds = %253
   %258 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %259 = getelementptr inbounds i8, ptr %3, i64 32
+  %259 = getelementptr inbounds nuw i8, ptr %3, i64 32
   call void @_ZN5clang6interp11InterpStack4pushINS0_7PointerEJRKPNS0_5BlockERKjEEEvDpOT0_(ptr noundef nonnull align 8 dereferenceable(16) %256, ptr noundef nonnull align 8 dereferenceable(8) %258, ptr noundef nonnull align 4 dereferenceable(4) %259)
   br label %262
 
@@ -150518,7 +150518,7 @@ _ZNK4llvm6APSIntplERKS0_.exit:                    ; preds = %22, %19, %_ZN4llvm6
   br i1 %50, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i
 
 _ZNK5clang6interp7Pointer6isRootEv.exit.i.i:      ; preds = %47
-  %51 = getelementptr inbounds i8, ptr %43, i64 32
+  %51 = getelementptr inbounds nuw i8, ptr %43, i64 32
   %52 = load i32, ptr %51, align 8
   %53 = getelementptr inbounds nuw i8, ptr %49, i64 32
   %54 = load ptr, ptr %53, align 8
@@ -150701,7 +150701,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp12OffsetHelperINS0_8Inte
   br i1 %31, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i
 
 _ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i:    ; preds = %28
-  %32 = getelementptr inbounds i8, ptr %3, i64 32
+  %32 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %33 = load i32, ptr %32, align 8
   %34 = getelementptr inbounds nuw i8, ptr %30, i64 32
   %35 = load ptr, ptr %34, align 8
@@ -150735,7 +150735,7 @@ thread-pre-split.thread:                          ; preds = %_ZNK5clang6interp7P
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   %50 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %51 = load ptr, ptr %50, align 8
-  %.phi.trans.insert.phi.trans.insert.i = getelementptr inbounds i8, ptr %3, i64 32
+  %.phi.trans.insert.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %3, i64 32
   %.pre.pre.i = load i32, ptr %.phi.trans.insert.phi.trans.insert.i, align 8
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 32
   %53 = load ptr, ptr %52, align 8
@@ -150765,7 +150765,7 @@ thread-pre-split:                                 ; preds = %24
 62:                                               ; preds = %thread-pre-split
   %63 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %64 = load i64, ptr %3, align 8
-  %65 = getelementptr inbounds i8, ptr %3, i64 32
+  %65 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %66 = load i64, ptr %65, align 8
   %67 = load ptr, ptr %63, align 8
   %.not.i.i = icmp eq ptr %67, null
@@ -150794,7 +150794,7 @@ _ZNK5clang6interp7Pointer8elemSizeEv.exit:        ; preds = %62, %68
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %79, i8 0, i64 24, i1 false)
   store i32 1, ptr %81, align 8
   %82 = getelementptr inbounds nuw i8, ptr %79, i64 24
-  %83 = getelementptr inbounds i8, ptr %79, i64 32
+  %83 = getelementptr inbounds nuw i8, ptr %79, i64 32
   store i64 %78, ptr %83, align 8
   store ptr %80, ptr %82, align 8
   br label %262
@@ -150965,7 +150965,7 @@ _ZNK5clang6interp7Pointer11getNumElemsEv.exit:    ; preds = %thread-pre-split, %
   ]
 
 170:                                              ; preds = %168
-  %171 = getelementptr inbounds i8, ptr %3, i64 32
+  %171 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %172 = load i64, ptr %171, align 8
   %173 = load ptr, ptr %167, align 8
   %.not.i.i.i = icmp eq ptr %173, null
@@ -151001,7 +151001,7 @@ _ZNK5clang6interp7Pointer6isZeroEv.exit.i:        ; preds = %166
   br i1 %189, label %_ZNK5clang6interp7Pointer8getIndexEv.exit, label %190
 
 190:                                              ; preds = %_ZNK5clang6interp7Pointer6isZeroEv.exit.i
-  %191 = getelementptr inbounds i8, ptr %3, i64 32
+  %191 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %192 = load i32, ptr %191, align 8
   %193 = icmp ugt i32 %192, 16
   %194 = zext i32 %192 to i64
@@ -151145,7 +151145,7 @@ _ZNK5clang6interp7Pointer8getIndexEv.exit:        ; preds = %_ZNK5clang6interp7P
 
 257:                                              ; preds = %253
   %258 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %259 = getelementptr inbounds i8, ptr %3, i64 32
+  %259 = getelementptr inbounds nuw i8, ptr %3, i64 32
   call void @_ZN5clang6interp11InterpStack4pushINS0_7PointerEJRKPNS0_5BlockERKjEEEvDpOT0_(ptr noundef nonnull align 8 dereferenceable(16) %256, ptr noundef nonnull align 8 dereferenceable(8) %258, ptr noundef nonnull align 4 dereferenceable(4) %259)
   br label %262
 
@@ -151251,7 +151251,7 @@ _ZNK4llvm6APSIntplERKS0_.exit:                    ; preds = %22, %19, %_ZN4llvm6
   br i1 %50, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i
 
 _ZNK5clang6interp7Pointer6isRootEv.exit.i.i:      ; preds = %47
-  %51 = getelementptr inbounds i8, ptr %43, i64 32
+  %51 = getelementptr inbounds nuw i8, ptr %43, i64 32
   %52 = load i32, ptr %51, align 8
   %53 = getelementptr inbounds nuw i8, ptr %49, i64 32
   %54 = load ptr, ptr %53, align 8
@@ -151434,7 +151434,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp12OffsetHelperINS0_8Inte
   br i1 %31, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i
 
 _ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i:    ; preds = %28
-  %32 = getelementptr inbounds i8, ptr %3, i64 32
+  %32 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %33 = load i32, ptr %32, align 8
   %34 = getelementptr inbounds nuw i8, ptr %30, i64 32
   %35 = load ptr, ptr %34, align 8
@@ -151468,7 +151468,7 @@ thread-pre-split.thread:                          ; preds = %_ZNK5clang6interp7P
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   %50 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %51 = load ptr, ptr %50, align 8
-  %.phi.trans.insert.phi.trans.insert.i = getelementptr inbounds i8, ptr %3, i64 32
+  %.phi.trans.insert.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %3, i64 32
   %.pre.pre.i = load i32, ptr %.phi.trans.insert.phi.trans.insert.i, align 8
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 32
   %53 = load ptr, ptr %52, align 8
@@ -151498,7 +151498,7 @@ thread-pre-split:                                 ; preds = %24
 62:                                               ; preds = %thread-pre-split
   %63 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %64 = load i64, ptr %3, align 8
-  %65 = getelementptr inbounds i8, ptr %3, i64 32
+  %65 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %66 = load i64, ptr %65, align 8
   %67 = load ptr, ptr %63, align 8
   %.not.i.i = icmp eq ptr %67, null
@@ -151527,7 +151527,7 @@ _ZNK5clang6interp7Pointer8elemSizeEv.exit:        ; preds = %62, %68
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %79, i8 0, i64 24, i1 false)
   store i32 1, ptr %81, align 8
   %82 = getelementptr inbounds nuw i8, ptr %79, i64 24
-  %83 = getelementptr inbounds i8, ptr %79, i64 32
+  %83 = getelementptr inbounds nuw i8, ptr %79, i64 32
   store i64 %78, ptr %83, align 8
   store ptr %80, ptr %82, align 8
   br label %251
@@ -151698,7 +151698,7 @@ _ZNK5clang6interp7Pointer11getNumElemsEv.exit:    ; preds = %thread-pre-split, %
   ]
 
 170:                                              ; preds = %168
-  %171 = getelementptr inbounds i8, ptr %3, i64 32
+  %171 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %172 = load i64, ptr %171, align 8
   %173 = load ptr, ptr %167, align 8
   %.not.i.i.i = icmp eq ptr %173, null
@@ -151734,7 +151734,7 @@ _ZNK5clang6interp7Pointer6isZeroEv.exit.i:        ; preds = %166
   br i1 %189, label %_ZNK5clang6interp7Pointer8getIndexEv.exit, label %190
 
 190:                                              ; preds = %_ZNK5clang6interp7Pointer6isZeroEv.exit.i
-  %191 = getelementptr inbounds i8, ptr %3, i64 32
+  %191 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %192 = load i32, ptr %191, align 8
   %193 = icmp ugt i32 %192, 16
   %194 = zext i32 %192 to i64
@@ -151856,7 +151856,7 @@ _ZNK5clang6interp7Pointer8getIndexEv.exit:        ; preds = %_ZNK5clang6interp7P
 
 246:                                              ; preds = %242
   %247 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %248 = getelementptr inbounds i8, ptr %3, i64 32
+  %248 = getelementptr inbounds nuw i8, ptr %3, i64 32
   call void @_ZN5clang6interp11InterpStack4pushINS0_7PointerEJRKPNS0_5BlockERKjEEEvDpOT0_(ptr noundef nonnull align 8 dereferenceable(16) %245, ptr noundef nonnull align 8 dereferenceable(8) %247, ptr noundef nonnull align 4 dereferenceable(4) %248)
   br label %251
 
@@ -151962,7 +151962,7 @@ _ZNK4llvm6APSIntplERKS0_.exit:                    ; preds = %22, %19, %_ZN4llvm6
   br i1 %50, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i
 
 _ZNK5clang6interp7Pointer6isRootEv.exit.i.i:      ; preds = %47
-  %51 = getelementptr inbounds i8, ptr %43, i64 32
+  %51 = getelementptr inbounds nuw i8, ptr %43, i64 32
   %52 = load i32, ptr %51, align 8
   %53 = getelementptr inbounds nuw i8, ptr %49, i64 32
   %54 = load ptr, ptr %53, align 8
@@ -152145,7 +152145,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp12OffsetHelperINS0_8Inte
   br i1 %31, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i
 
 _ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i:    ; preds = %28
-  %32 = getelementptr inbounds i8, ptr %3, i64 32
+  %32 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %33 = load i32, ptr %32, align 8
   %34 = getelementptr inbounds nuw i8, ptr %30, i64 32
   %35 = load ptr, ptr %34, align 8
@@ -152179,7 +152179,7 @@ thread-pre-split.thread:                          ; preds = %_ZNK5clang6interp7P
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   %50 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %51 = load ptr, ptr %50, align 8
-  %.phi.trans.insert.phi.trans.insert.i = getelementptr inbounds i8, ptr %3, i64 32
+  %.phi.trans.insert.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %3, i64 32
   %.pre.pre.i = load i32, ptr %.phi.trans.insert.phi.trans.insert.i, align 8
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 32
   %53 = load ptr, ptr %52, align 8
@@ -152209,7 +152209,7 @@ thread-pre-split:                                 ; preds = %24
 62:                                               ; preds = %thread-pre-split
   %63 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %64 = load i64, ptr %3, align 8
-  %65 = getelementptr inbounds i8, ptr %3, i64 32
+  %65 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %66 = load i64, ptr %65, align 8
   %67 = load ptr, ptr %63, align 8
   %.not.i.i = icmp eq ptr %67, null
@@ -152238,7 +152238,7 @@ _ZNK5clang6interp7Pointer8elemSizeEv.exit:        ; preds = %62, %68
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %79, i8 0, i64 24, i1 false)
   store i32 1, ptr %81, align 8
   %82 = getelementptr inbounds nuw i8, ptr %79, i64 24
-  %83 = getelementptr inbounds i8, ptr %79, i64 32
+  %83 = getelementptr inbounds nuw i8, ptr %79, i64 32
   store i64 %78, ptr %83, align 8
   store ptr %80, ptr %82, align 8
   br label %262
@@ -152409,7 +152409,7 @@ _ZNK5clang6interp7Pointer11getNumElemsEv.exit:    ; preds = %thread-pre-split, %
   ]
 
 170:                                              ; preds = %168
-  %171 = getelementptr inbounds i8, ptr %3, i64 32
+  %171 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %172 = load i64, ptr %171, align 8
   %173 = load ptr, ptr %167, align 8
   %.not.i.i.i = icmp eq ptr %173, null
@@ -152445,7 +152445,7 @@ _ZNK5clang6interp7Pointer6isZeroEv.exit.i:        ; preds = %166
   br i1 %189, label %_ZNK5clang6interp7Pointer8getIndexEv.exit, label %190
 
 190:                                              ; preds = %_ZNK5clang6interp7Pointer6isZeroEv.exit.i
-  %191 = getelementptr inbounds i8, ptr %3, i64 32
+  %191 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %192 = load i32, ptr %191, align 8
   %193 = icmp ugt i32 %192, 16
   %194 = zext i32 %192 to i64
@@ -152589,7 +152589,7 @@ _ZNK5clang6interp7Pointer8getIndexEv.exit:        ; preds = %_ZNK5clang6interp7P
 
 257:                                              ; preds = %253
   %258 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %259 = getelementptr inbounds i8, ptr %3, i64 32
+  %259 = getelementptr inbounds nuw i8, ptr %3, i64 32
   call void @_ZN5clang6interp11InterpStack4pushINS0_7PointerEJRKPNS0_5BlockERKjEEEvDpOT0_(ptr noundef nonnull align 8 dereferenceable(16) %256, ptr noundef nonnull align 8 dereferenceable(8) %258, ptr noundef nonnull align 4 dereferenceable(4) %259)
   br label %262
 
@@ -152695,7 +152695,7 @@ _ZNK4llvm6APSIntplERKS0_.exit:                    ; preds = %22, %19, %_ZN4llvm6
   br i1 %50, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i
 
 _ZNK5clang6interp7Pointer6isRootEv.exit.i.i:      ; preds = %47
-  %51 = getelementptr inbounds i8, ptr %43, i64 32
+  %51 = getelementptr inbounds nuw i8, ptr %43, i64 32
   %52 = load i32, ptr %51, align 8
   %53 = getelementptr inbounds nuw i8, ptr %49, i64 32
   %54 = load ptr, ptr %53, align 8
@@ -152878,7 +152878,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp12OffsetHelperINS0_8Inte
   br i1 %31, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i
 
 _ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i:    ; preds = %28
-  %32 = getelementptr inbounds i8, ptr %3, i64 32
+  %32 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %33 = load i32, ptr %32, align 8
   %34 = getelementptr inbounds nuw i8, ptr %30, i64 32
   %35 = load ptr, ptr %34, align 8
@@ -152912,7 +152912,7 @@ thread-pre-split.thread:                          ; preds = %_ZNK5clang6interp7P
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   %50 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %51 = load ptr, ptr %50, align 8
-  %.phi.trans.insert.phi.trans.insert.i = getelementptr inbounds i8, ptr %3, i64 32
+  %.phi.trans.insert.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %3, i64 32
   %.pre.pre.i = load i32, ptr %.phi.trans.insert.phi.trans.insert.i, align 8
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 32
   %53 = load ptr, ptr %52, align 8
@@ -152942,7 +152942,7 @@ thread-pre-split:                                 ; preds = %24
 62:                                               ; preds = %thread-pre-split
   %63 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %64 = load i64, ptr %3, align 8
-  %65 = getelementptr inbounds i8, ptr %3, i64 32
+  %65 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %66 = load i64, ptr %65, align 8
   %67 = load ptr, ptr %63, align 8
   %.not.i.i = icmp eq ptr %67, null
@@ -152971,7 +152971,7 @@ _ZNK5clang6interp7Pointer8elemSizeEv.exit:        ; preds = %62, %68
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %79, i8 0, i64 24, i1 false)
   store i32 1, ptr %81, align 8
   %82 = getelementptr inbounds nuw i8, ptr %79, i64 24
-  %83 = getelementptr inbounds i8, ptr %79, i64 32
+  %83 = getelementptr inbounds nuw i8, ptr %79, i64 32
   store i64 %78, ptr %83, align 8
   store ptr %80, ptr %82, align 8
   br label %251
@@ -153142,7 +153142,7 @@ _ZNK5clang6interp7Pointer11getNumElemsEv.exit:    ; preds = %thread-pre-split, %
   ]
 
 170:                                              ; preds = %168
-  %171 = getelementptr inbounds i8, ptr %3, i64 32
+  %171 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %172 = load i64, ptr %171, align 8
   %173 = load ptr, ptr %167, align 8
   %.not.i.i.i = icmp eq ptr %173, null
@@ -153178,7 +153178,7 @@ _ZNK5clang6interp7Pointer6isZeroEv.exit.i:        ; preds = %166
   br i1 %189, label %_ZNK5clang6interp7Pointer8getIndexEv.exit, label %190
 
 190:                                              ; preds = %_ZNK5clang6interp7Pointer6isZeroEv.exit.i
-  %191 = getelementptr inbounds i8, ptr %3, i64 32
+  %191 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %192 = load i32, ptr %191, align 8
   %193 = icmp ugt i32 %192, 16
   %194 = zext i32 %192 to i64
@@ -153300,7 +153300,7 @@ _ZNK5clang6interp7Pointer8getIndexEv.exit:        ; preds = %_ZNK5clang6interp7P
 
 246:                                              ; preds = %242
   %247 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %248 = getelementptr inbounds i8, ptr %3, i64 32
+  %248 = getelementptr inbounds nuw i8, ptr %3, i64 32
   call void @_ZN5clang6interp11InterpStack4pushINS0_7PointerEJRKPNS0_5BlockERKjEEEvDpOT0_(ptr noundef nonnull align 8 dereferenceable(16) %245, ptr noundef nonnull align 8 dereferenceable(8) %247, ptr noundef nonnull align 4 dereferenceable(4) %248)
   br label %251
 
@@ -153406,7 +153406,7 @@ _ZNK4llvm6APSIntplERKS0_.exit:                    ; preds = %22, %19, %_ZN4llvm6
   br i1 %50, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i
 
 _ZNK5clang6interp7Pointer6isRootEv.exit.i.i:      ; preds = %47
-  %51 = getelementptr inbounds i8, ptr %43, i64 32
+  %51 = getelementptr inbounds nuw i8, ptr %43, i64 32
   %52 = load i32, ptr %51, align 8
   %53 = getelementptr inbounds nuw i8, ptr %49, i64 32
   %54 = load ptr, ptr %53, align 8
@@ -153589,7 +153589,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp12OffsetHelperINS0_8Inte
   br i1 %31, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i
 
 _ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i:    ; preds = %28
-  %32 = getelementptr inbounds i8, ptr %3, i64 32
+  %32 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %33 = load i32, ptr %32, align 8
   %34 = getelementptr inbounds nuw i8, ptr %30, i64 32
   %35 = load ptr, ptr %34, align 8
@@ -153623,7 +153623,7 @@ thread-pre-split.thread:                          ; preds = %_ZNK5clang6interp7P
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   %50 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %51 = load ptr, ptr %50, align 8
-  %.phi.trans.insert.phi.trans.insert.i = getelementptr inbounds i8, ptr %3, i64 32
+  %.phi.trans.insert.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %3, i64 32
   %.pre.pre.i = load i32, ptr %.phi.trans.insert.phi.trans.insert.i, align 8
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 32
   %53 = load ptr, ptr %52, align 8
@@ -153653,7 +153653,7 @@ thread-pre-split:                                 ; preds = %24
 62:                                               ; preds = %thread-pre-split
   %63 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %64 = load i64, ptr %3, align 8
-  %65 = getelementptr inbounds i8, ptr %3, i64 32
+  %65 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %66 = load i64, ptr %65, align 8
   %67 = load ptr, ptr %63, align 8
   %.not.i.i = icmp eq ptr %67, null
@@ -153681,7 +153681,7 @@ _ZNK5clang6interp7Pointer8elemSizeEv.exit:        ; preds = %62, %68
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %79, i8 0, i64 24, i1 false)
   store i32 1, ptr %81, align 8
   %82 = getelementptr inbounds nuw i8, ptr %79, i64 24
-  %83 = getelementptr inbounds i8, ptr %79, i64 32
+  %83 = getelementptr inbounds nuw i8, ptr %79, i64 32
   store i64 %78, ptr %83, align 8
   store ptr %80, ptr %82, align 8
   br label %259
@@ -153851,7 +153851,7 @@ _ZNK5clang6interp7Pointer11getNumElemsEv.exit:    ; preds = %thread-pre-split, %
   ]
 
 169:                                              ; preds = %167
-  %170 = getelementptr inbounds i8, ptr %3, i64 32
+  %170 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %171 = load i64, ptr %170, align 8
   %172 = load ptr, ptr %166, align 8
   %.not.i.i.i = icmp eq ptr %172, null
@@ -153887,7 +153887,7 @@ _ZNK5clang6interp7Pointer6isZeroEv.exit.i:        ; preds = %165
   br i1 %188, label %_ZNK5clang6interp7Pointer8getIndexEv.exit, label %189
 
 189:                                              ; preds = %_ZNK5clang6interp7Pointer6isZeroEv.exit.i
-  %190 = getelementptr inbounds i8, ptr %3, i64 32
+  %190 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %191 = load i32, ptr %190, align 8
   %192 = icmp ugt i32 %191, 16
   %193 = zext i32 %191 to i64
@@ -154029,7 +154029,7 @@ _ZNK5clang6interp7Pointer8getIndexEv.exit:        ; preds = %_ZNK5clang6interp7P
 
 254:                                              ; preds = %250
   %255 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %256 = getelementptr inbounds i8, ptr %3, i64 32
+  %256 = getelementptr inbounds nuw i8, ptr %3, i64 32
   call void @_ZN5clang6interp11InterpStack4pushINS0_7PointerEJRKPNS0_5BlockERKjEEEvDpOT0_(ptr noundef nonnull align 8 dereferenceable(16) %253, ptr noundef nonnull align 8 dereferenceable(8) %255, ptr noundef nonnull align 4 dereferenceable(4) %256)
   br label %259
 
@@ -154159,7 +154159,7 @@ _ZNK4llvm6APSIntplERKS0_.exit:                    ; preds = %34, %35
   br i1 %60, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i
 
 _ZNK5clang6interp7Pointer6isRootEv.exit.i.i:      ; preds = %57
-  %61 = getelementptr inbounds i8, ptr %53, i64 32
+  %61 = getelementptr inbounds nuw i8, ptr %53, i64 32
   %62 = load i32, ptr %61, align 8
   %63 = getelementptr inbounds nuw i8, ptr %59, i64 32
   %64 = load ptr, ptr %63, align 8
@@ -154356,7 +154356,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp12OffsetHelperINS0_8Inte
   br i1 %31, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i
 
 _ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i:    ; preds = %28
-  %32 = getelementptr inbounds i8, ptr %3, i64 32
+  %32 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %33 = load i32, ptr %32, align 8
   %34 = getelementptr inbounds nuw i8, ptr %30, i64 32
   %35 = load ptr, ptr %34, align 8
@@ -154390,7 +154390,7 @@ thread-pre-split.thread:                          ; preds = %_ZNK5clang6interp7P
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   %50 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %51 = load ptr, ptr %50, align 8
-  %.phi.trans.insert.phi.trans.insert.i = getelementptr inbounds i8, ptr %3, i64 32
+  %.phi.trans.insert.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %3, i64 32
   %.pre.pre.i = load i32, ptr %.phi.trans.insert.phi.trans.insert.i, align 8
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 32
   %53 = load ptr, ptr %52, align 8
@@ -154420,7 +154420,7 @@ thread-pre-split:                                 ; preds = %24
 62:                                               ; preds = %thread-pre-split
   %63 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %64 = load i64, ptr %3, align 8
-  %65 = getelementptr inbounds i8, ptr %3, i64 32
+  %65 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %66 = load i64, ptr %65, align 8
   %67 = load ptr, ptr %63, align 8
   %.not.i.i = icmp eq ptr %67, null
@@ -154448,7 +154448,7 @@ _ZNK5clang6interp7Pointer8elemSizeEv.exit:        ; preds = %62, %68
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %79, i8 0, i64 24, i1 false)
   store i32 1, ptr %81, align 8
   %82 = getelementptr inbounds nuw i8, ptr %79, i64 24
-  %83 = getelementptr inbounds i8, ptr %79, i64 32
+  %83 = getelementptr inbounds nuw i8, ptr %79, i64 32
   store i64 %78, ptr %83, align 8
   store ptr %80, ptr %82, align 8
   br label %248
@@ -154618,7 +154618,7 @@ _ZNK5clang6interp7Pointer11getNumElemsEv.exit:    ; preds = %thread-pre-split, %
   ]
 
 169:                                              ; preds = %167
-  %170 = getelementptr inbounds i8, ptr %3, i64 32
+  %170 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %171 = load i64, ptr %170, align 8
   %172 = load ptr, ptr %166, align 8
   %.not.i.i.i = icmp eq ptr %172, null
@@ -154654,7 +154654,7 @@ _ZNK5clang6interp7Pointer6isZeroEv.exit.i:        ; preds = %165
   br i1 %188, label %_ZNK5clang6interp7Pointer8getIndexEv.exit, label %189
 
 189:                                              ; preds = %_ZNK5clang6interp7Pointer6isZeroEv.exit.i
-  %190 = getelementptr inbounds i8, ptr %3, i64 32
+  %190 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %191 = load i32, ptr %190, align 8
   %192 = icmp ugt i32 %191, 16
   %193 = zext i32 %191 to i64
@@ -154774,7 +154774,7 @@ _ZNK5clang6interp7Pointer8getIndexEv.exit:        ; preds = %_ZNK5clang6interp7P
 
 243:                                              ; preds = %239
   %244 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %245 = getelementptr inbounds i8, ptr %3, i64 32
+  %245 = getelementptr inbounds nuw i8, ptr %3, i64 32
   call void @_ZN5clang6interp11InterpStack4pushINS0_7PointerEJRKPNS0_5BlockERKjEEEvDpOT0_(ptr noundef nonnull align 8 dereferenceable(16) %242, ptr noundef nonnull align 8 dereferenceable(8) %244, ptr noundef nonnull align 4 dereferenceable(4) %245)
   br label %248
 
@@ -154904,7 +154904,7 @@ _ZNK4llvm6APSIntplERKS0_.exit:                    ; preds = %34, %35
   br i1 %60, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i
 
 _ZNK5clang6interp7Pointer6isRootEv.exit.i.i:      ; preds = %57
-  %61 = getelementptr inbounds i8, ptr %53, i64 32
+  %61 = getelementptr inbounds nuw i8, ptr %53, i64 32
   %62 = load i32, ptr %61, align 8
   %63 = getelementptr inbounds nuw i8, ptr %59, i64 32
   %64 = load ptr, ptr %63, align 8
@@ -155118,7 +155118,7 @@ _ZNK5clang6interp10IntegralAPILb0EE6isZeroEv.exit: ; preds = %4
   br i1 %44, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i
 
 _ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i:    ; preds = %41
-  %45 = getelementptr inbounds i8, ptr %3, i64 32
+  %45 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %46 = load i32, ptr %45, align 8
   %47 = getelementptr inbounds nuw i8, ptr %43, i64 32
   %48 = load ptr, ptr %47, align 8
@@ -155152,7 +155152,7 @@ thread-pre-split.thread:                          ; preds = %_ZNK5clang6interp7P
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11)
   %63 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %64 = load ptr, ptr %63, align 8
-  %.phi.trans.insert.phi.trans.insert.i = getelementptr inbounds i8, ptr %3, i64 32
+  %.phi.trans.insert.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %3, i64 32
   %.pre.pre.i = load i32, ptr %.phi.trans.insert.phi.trans.insert.i, align 8
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 32
   %66 = load ptr, ptr %65, align 8
@@ -155182,7 +155182,7 @@ thread-pre-split:                                 ; preds = %37
 75:                                               ; preds = %thread-pre-split
   %76 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %77 = load i64, ptr %3, align 8
-  %78 = getelementptr inbounds i8, ptr %3, i64 32
+  %78 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %79 = load i64, ptr %78, align 8
   %80 = load ptr, ptr %76, align 8
   %.not.i.i = icmp eq ptr %80, null
@@ -155347,7 +155347,7 @@ _ZNK5clang6interp7Pointer8elemSizeEv.exit:        ; preds = %103, %105, %.sink.s
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %150, i8 0, i64 24, i1 false)
   store i32 1, ptr %152, align 8
   %153 = getelementptr inbounds nuw i8, ptr %150, i64 24
-  %154 = getelementptr inbounds i8, ptr %150, i64 32
+  %154 = getelementptr inbounds nuw i8, ptr %150, i64 32
   store i64 %149, ptr %154, align 8
   store ptr %151, ptr %153, align 8
   br label %360
@@ -155400,7 +155400,7 @@ _ZNK5clang6interp10IntegralAPILb0EEcvT_ImvEEv.exit67: ; preds = %_ZN4llvm5APIntD
   br i1 %171, label %172, label %177
 
 172:                                              ; preds = %_ZNK5clang6interp10IntegralAPILb0EEcvT_ImvEEv.exit67
-  %173 = getelementptr inbounds i8, ptr %3, i64 32
+  %173 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %174 = load i64, ptr %173, align 8
   %175 = load i64, ptr %3, align 8
   %176 = add i64 %175, %174
@@ -155574,7 +155574,7 @@ _ZNK5clang6interp7Pointer11getNumElemsEv.exit:    ; preds = %thread-pre-split, %
   ]
 
 262:                                              ; preds = %260
-  %263 = getelementptr inbounds i8, ptr %3, i64 32
+  %263 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %264 = load i64, ptr %263, align 8
   %265 = load ptr, ptr %259, align 8
   %.not.i.i.i = icmp eq ptr %265, null
@@ -155610,7 +155610,7 @@ _ZNK5clang6interp7Pointer6isZeroEv.exit.i:        ; preds = %258
   br i1 %281, label %_ZNK5clang6interp7Pointer8getIndexEv.exit, label %282
 
 282:                                              ; preds = %_ZNK5clang6interp7Pointer6isZeroEv.exit.i
-  %283 = getelementptr inbounds i8, ptr %3, i64 32
+  %283 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %284 = load i32, ptr %283, align 8
   %285 = icmp ugt i32 %284, 16
   %286 = zext i32 %284 to i64
@@ -155776,7 +155776,7 @@ _ZN4llvm5APIntD2Ev.exit3.sink.split.i.i91:        ; preds = %325, %323
 
 355:                                              ; preds = %351
   %356 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %357 = getelementptr inbounds i8, ptr %3, i64 32
+  %357 = getelementptr inbounds nuw i8, ptr %3, i64 32
   call void @_ZN5clang6interp11InterpStack4pushINS0_7PointerEJRKPNS0_5BlockERKjEEEvDpOT0_(ptr noundef nonnull align 8 dereferenceable(16) %354, ptr noundef nonnull align 8 dereferenceable(8) %356, ptr noundef nonnull align 4 dereferenceable(4) %357)
   br label %360
 
@@ -155947,7 +155947,7 @@ _ZNK4llvm6APSIntplERKS0_.exit:                    ; preds = %49, %54
   br i1 %82, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i
 
 _ZNK5clang6interp7Pointer6isRootEv.exit.i.i:      ; preds = %79
-  %83 = getelementptr inbounds i8, ptr %75, i64 32
+  %83 = getelementptr inbounds nuw i8, ptr %75, i64 32
   %84 = load i32, ptr %83, align 8
   %85 = getelementptr inbounds nuw i8, ptr %81, i64 32
   %86 = load ptr, ptr %85, align 8
@@ -156226,7 +156226,7 @@ _ZNK5clang6interp10IntegralAPILb1EE6isZeroEv.exit: ; preds = %4
   br i1 %44, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i
 
 _ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i:    ; preds = %41
-  %45 = getelementptr inbounds i8, ptr %3, i64 32
+  %45 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %46 = load i32, ptr %45, align 8
   %47 = getelementptr inbounds nuw i8, ptr %43, i64 32
   %48 = load ptr, ptr %47, align 8
@@ -156260,7 +156260,7 @@ thread-pre-split.thread:                          ; preds = %_ZNK5clang6interp7P
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11)
   %63 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %64 = load ptr, ptr %63, align 8
-  %.phi.trans.insert.phi.trans.insert.i = getelementptr inbounds i8, ptr %3, i64 32
+  %.phi.trans.insert.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %3, i64 32
   %.pre.pre.i = load i32, ptr %.phi.trans.insert.phi.trans.insert.i, align 8
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 32
   %66 = load ptr, ptr %65, align 8
@@ -156290,7 +156290,7 @@ thread-pre-split:                                 ; preds = %37
 75:                                               ; preds = %thread-pre-split
   %76 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %77 = load i64, ptr %3, align 8
-  %78 = getelementptr inbounds i8, ptr %3, i64 32
+  %78 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %79 = load i64, ptr %78, align 8
   %80 = load ptr, ptr %76, align 8
   %.not.i.i = icmp eq ptr %80, null
@@ -156455,7 +156455,7 @@ _ZNK5clang6interp7Pointer8elemSizeEv.exit:        ; preds = %103, %105, %.sink.s
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %150, i8 0, i64 24, i1 false)
   store i32 1, ptr %152, align 8
   %153 = getelementptr inbounds nuw i8, ptr %150, i64 24
-  %154 = getelementptr inbounds i8, ptr %150, i64 32
+  %154 = getelementptr inbounds nuw i8, ptr %150, i64 32
   store i64 %149, ptr %154, align 8
   store ptr %151, ptr %153, align 8
   br label %387
@@ -156508,7 +156508,7 @@ _ZNK5clang6interp10IntegralAPILb1EEcvT_ImvEEv.exit67: ; preds = %_ZN4llvm5APIntD
   br i1 %171, label %172, label %177
 
 172:                                              ; preds = %_ZNK5clang6interp10IntegralAPILb1EEcvT_ImvEEv.exit67
-  %173 = getelementptr inbounds i8, ptr %3, i64 32
+  %173 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %174 = load i64, ptr %173, align 8
   %175 = load i64, ptr %3, align 8
   %176 = add i64 %175, %174
@@ -156682,7 +156682,7 @@ _ZNK5clang6interp7Pointer11getNumElemsEv.exit:    ; preds = %thread-pre-split, %
   ]
 
 262:                                              ; preds = %260
-  %263 = getelementptr inbounds i8, ptr %3, i64 32
+  %263 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %264 = load i64, ptr %263, align 8
   %265 = load ptr, ptr %259, align 8
   %.not.i.i.i = icmp eq ptr %265, null
@@ -156718,7 +156718,7 @@ _ZNK5clang6interp7Pointer6isZeroEv.exit.i:        ; preds = %258
   br i1 %281, label %_ZNK5clang6interp7Pointer8getIndexEv.exit, label %282
 
 282:                                              ; preds = %_ZNK5clang6interp7Pointer6isZeroEv.exit.i
-  %283 = getelementptr inbounds i8, ptr %3, i64 32
+  %283 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %284 = load i32, ptr %283, align 8
   %285 = icmp ugt i32 %284, 16
   %286 = zext i32 %284 to i64
@@ -156941,7 +156941,7 @@ _ZNK5clang6interp10IntegralAPILb1EE5isMinEv.exit: ; preds = %346
 
 382:                                              ; preds = %378
   %383 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %384 = getelementptr inbounds i8, ptr %3, i64 32
+  %384 = getelementptr inbounds nuw i8, ptr %3, i64 32
   call void @_ZN5clang6interp11InterpStack4pushINS0_7PointerEJRKPNS0_5BlockERKjEEEvDpOT0_(ptr noundef nonnull align 8 dereferenceable(16) %381, ptr noundef nonnull align 8 dereferenceable(8) %383, ptr noundef nonnull align 4 dereferenceable(4) %384)
   br label %387
 
@@ -157112,7 +157112,7 @@ _ZNK4llvm6APSIntplERKS0_.exit:                    ; preds = %49, %54
   br i1 %82, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i
 
 _ZNK5clang6interp7Pointer6isRootEv.exit.i.i:      ; preds = %79
-  %83 = getelementptr inbounds i8, ptr %75, i64 32
+  %83 = getelementptr inbounds nuw i8, ptr %75, i64 32
   %84 = load i32, ptr %83, align 8
   %85 = getelementptr inbounds nuw i8, ptr %81, i64 32
   %86 = load ptr, ptr %85, align 8
@@ -157374,7 +157374,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp12OffsetHelperINS0_7Bool
   br i1 %32, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i
 
 _ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i:    ; preds = %29
-  %33 = getelementptr inbounds i8, ptr %3, i64 32
+  %33 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %34 = load i32, ptr %33, align 8
   %35 = getelementptr inbounds nuw i8, ptr %31, i64 32
   %36 = load ptr, ptr %35, align 8
@@ -157408,7 +157408,7 @@ thread-pre-split.thread:                          ; preds = %_ZNK5clang6interp7P
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   %51 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %52 = load ptr, ptr %51, align 8
-  %.phi.trans.insert.phi.trans.insert.i = getelementptr inbounds i8, ptr %3, i64 32
+  %.phi.trans.insert.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %3, i64 32
   %.pre.pre.i = load i32, ptr %.phi.trans.insert.phi.trans.insert.i, align 8
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 32
   %54 = load ptr, ptr %53, align 8
@@ -157438,7 +157438,7 @@ thread-pre-split:                                 ; preds = %25
 63:                                               ; preds = %thread-pre-split
   %64 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %65 = load i64, ptr %3, align 8
-  %66 = getelementptr inbounds i8, ptr %3, i64 32
+  %66 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %67 = load i64, ptr %66, align 8
   %68 = load ptr, ptr %64, align 8
   %.not.i.i = icmp eq ptr %68, null
@@ -157468,7 +157468,7 @@ _ZNK5clang6interp7Pointer8elemSizeEv.exit:        ; preds = %63, %69
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %80, i8 0, i64 24, i1 false)
   store i32 1, ptr %82, align 8
   %83 = getelementptr inbounds nuw i8, ptr %80, i64 24
-  %84 = getelementptr inbounds i8, ptr %80, i64 32
+  %84 = getelementptr inbounds nuw i8, ptr %80, i64 32
   store i64 %79, ptr %84, align 8
   store ptr %81, ptr %83, align 8
   br label %255
@@ -157640,7 +157640,7 @@ _ZNK5clang6interp7Pointer11getNumElemsEv.exit:    ; preds = %thread-pre-split, %
   ]
 
 172:                                              ; preds = %170
-  %173 = getelementptr inbounds i8, ptr %3, i64 32
+  %173 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %174 = load i64, ptr %173, align 8
   %175 = load ptr, ptr %169, align 8
   %.not.i.i.i = icmp eq ptr %175, null
@@ -157676,7 +157676,7 @@ _ZNK5clang6interp7Pointer6isZeroEv.exit.i:        ; preds = %168
   br i1 %191, label %_ZNK5clang6interp7Pointer8getIndexEv.exit, label %192
 
 192:                                              ; preds = %_ZNK5clang6interp7Pointer6isZeroEv.exit.i
-  %193 = getelementptr inbounds i8, ptr %3, i64 32
+  %193 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %194 = load i32, ptr %193, align 8
   %195 = icmp ugt i32 %194, 16
   %196 = zext i32 %194 to i64
@@ -157800,7 +157800,7 @@ _ZNK5clang6interp7Pointer8getIndexEv.exit:        ; preds = %_ZNK5clang6interp7P
 
 250:                                              ; preds = %246
   %251 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %252 = getelementptr inbounds i8, ptr %3, i64 32
+  %252 = getelementptr inbounds nuw i8, ptr %3, i64 32
   call void @_ZN5clang6interp11InterpStack4pushINS0_7PointerEJRKPNS0_5BlockERKjEEEvDpOT0_(ptr noundef nonnull align 8 dereferenceable(16) %249, ptr noundef nonnull align 8 dereferenceable(8) %251, ptr noundef nonnull align 4 dereferenceable(4) %252)
   br label %255
 
@@ -157907,7 +157907,7 @@ _ZNK4llvm6APSIntplERKS0_.exit:                    ; preds = %23, %20, %_ZN4llvm6
   br i1 %51, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i
 
 _ZNK5clang6interp7Pointer6isRootEv.exit.i.i:      ; preds = %48
-  %52 = getelementptr inbounds i8, ptr %44, i64 32
+  %52 = getelementptr inbounds nuw i8, ptr %44, i64 32
   %53 = load i32, ptr %52, align 8
   %54 = getelementptr inbounds nuw i8, ptr %50, i64 32
   %55 = load ptr, ptr %54, align 8
@@ -162385,7 +162385,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp12IncDecHelperINS0_8Inte
 
 19:                                               ; preds = %3
   %20 = icmp eq ptr %18, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %2, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %2, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %20, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -162459,7 +162459,7 @@ _ZNK5clang6interp7Pointer5derefINS0_8IntegralILj8ELb1EEEEERT_v.exit: ; preds = %
 
 56:                                               ; preds = %52
   %57 = icmp eq ptr %55, null
-  %.phi.trans.insert41.phi.trans.insert = getelementptr inbounds i8, ptr %2, i64 32
+  %.phi.trans.insert41.phi.trans.insert = getelementptr inbounds nuw i8, ptr %2, i64 32
   %.pre42.pre = load i32, ptr %.phi.trans.insert41.phi.trans.insert, align 8
   br i1 %57, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i30, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i24
 
@@ -162833,7 +162833,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp12IncDecHelperINS0_8Inte
 
 19:                                               ; preds = %3
   %20 = icmp eq ptr %18, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %2, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %2, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %20, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -162907,7 +162907,7 @@ _ZNK5clang6interp7Pointer5derefINS0_8IntegralILj16ELb1EEEEERT_v.exit: ; preds = 
 
 56:                                               ; preds = %52
   %57 = icmp eq ptr %55, null
-  %.phi.trans.insert41.phi.trans.insert = getelementptr inbounds i8, ptr %2, i64 32
+  %.phi.trans.insert41.phi.trans.insert = getelementptr inbounds nuw i8, ptr %2, i64 32
   %.pre42.pre = load i32, ptr %.phi.trans.insert41.phi.trans.insert, align 8
   br i1 %57, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i30, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i24
 
@@ -163281,7 +163281,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp12IncDecHelperINS0_8Inte
 
 19:                                               ; preds = %3
   %20 = icmp eq ptr %18, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %2, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %2, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %20, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -163355,7 +163355,7 @@ _ZNK5clang6interp7Pointer5derefINS0_8IntegralILj32ELb1EEEEERT_v.exit: ; preds = 
 
 56:                                               ; preds = %52
   %57 = icmp eq ptr %55, null
-  %.phi.trans.insert41.phi.trans.insert = getelementptr inbounds i8, ptr %2, i64 32
+  %.phi.trans.insert41.phi.trans.insert = getelementptr inbounds nuw i8, ptr %2, i64 32
   %.pre42.pre = load i32, ptr %.phi.trans.insert41.phi.trans.insert, align 8
   br i1 %57, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i30, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i24
 
@@ -163729,7 +163729,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp12IncDecHelperINS0_8Inte
 
 19:                                               ; preds = %3
   %20 = icmp eq ptr %18, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %2, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %2, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %20, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -163803,7 +163803,7 @@ _ZNK5clang6interp7Pointer5derefINS0_8IntegralILj64ELb1EEEEERT_v.exit: ; preds = 
 
 56:                                               ; preds = %52
   %57 = icmp eq ptr %55, null
-  %.phi.trans.insert41.phi.trans.insert = getelementptr inbounds i8, ptr %2, i64 32
+  %.phi.trans.insert41.phi.trans.insert = getelementptr inbounds nuw i8, ptr %2, i64 32
   %.pre42.pre = load i32, ptr %.phi.trans.insert41.phi.trans.insert, align 8
   br i1 %57, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i30, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i24
 
@@ -164177,7 +164177,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp12IncDecHelperINS0_10Int
 
 20:                                               ; preds = %3
   %21 = icmp eq ptr %19, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %2, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %2, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %21, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -164297,7 +164297,7 @@ _ZN5clang6interp10IntegralAPILb0EED2Ev.exit:      ; preds = %_ZN5clang6interp10I
 
 74:                                               ; preds = %70
   %75 = icmp eq ptr %73, null
-  %.phi.trans.insert43.phi.trans.insert = getelementptr inbounds i8, ptr %2, i64 32
+  %.phi.trans.insert43.phi.trans.insert = getelementptr inbounds nuw i8, ptr %2, i64 32
   %.pre44.pre = load i32, ptr %.phi.trans.insert43.phi.trans.insert, align 8
   br i1 %75, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i30, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i24
 
@@ -164866,7 +164866,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp12IncDecHelperINS0_10Int
 
 20:                                               ; preds = %3
   %21 = icmp eq ptr %19, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %2, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %2, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %21, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -164986,7 +164986,7 @@ _ZN5clang6interp10IntegralAPILb1EED2Ev.exit:      ; preds = %_ZN5clang6interp10I
 
 74:                                               ; preds = %70
   %75 = icmp eq ptr %73, null
-  %.phi.trans.insert43.phi.trans.insert = getelementptr inbounds i8, ptr %2, i64 32
+  %.phi.trans.insert43.phi.trans.insert = getelementptr inbounds nuw i8, ptr %2, i64 32
   %.pre44.pre = load i32, ptr %.phi.trans.insert43.phi.trans.insert, align 8
   br i1 %75, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i30, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i24
 
@@ -165799,7 +165799,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp12IncDecHelperINS0_8Inte
 
 19:                                               ; preds = %3
   %20 = icmp eq ptr %18, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %2, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %2, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %20, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -166215,7 +166215,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp12IncDecHelperINS0_8Inte
 
 19:                                               ; preds = %3
   %20 = icmp eq ptr %18, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %2, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %2, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %20, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -166631,7 +166631,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp12IncDecHelperINS0_8Inte
 
 19:                                               ; preds = %3
   %20 = icmp eq ptr %18, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %2, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %2, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %20, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -167047,7 +167047,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp12IncDecHelperINS0_8Inte
 
 19:                                               ; preds = %3
   %20 = icmp eq ptr %18, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %2, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %2, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %20, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -167468,7 +167468,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp12IncDecHelperINS0_10Int
 
 20:                                               ; preds = %3
   %21 = icmp eq ptr %19, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %2, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %2, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %21, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -167569,7 +167569,7 @@ _ZN5clang6interp10IntegralAPILb0EED2Ev.exit:      ; preds = %_ZN5clang6interp10I
 
 65:                                               ; preds = %61
   %66 = icmp eq ptr %64, null
-  %.phi.trans.insert41.phi.trans.insert = getelementptr inbounds i8, ptr %2, i64 32
+  %.phi.trans.insert41.phi.trans.insert = getelementptr inbounds nuw i8, ptr %2, i64 32
   %.pre42.pre = load i32, ptr %.phi.trans.insert41.phi.trans.insert, align 8
   br i1 %66, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i28, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i22
 
@@ -167953,7 +167953,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp12IncDecHelperINS0_10Int
 
 20:                                               ; preds = %3
   %21 = icmp eq ptr %19, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %2, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %2, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %21, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -168054,7 +168054,7 @@ _ZN5clang6interp10IntegralAPILb1EED2Ev.exit:      ; preds = %_ZN5clang6interp10I
 
 65:                                               ; preds = %61
   %66 = icmp eq ptr %64, null
-  %.phi.trans.insert41.phi.trans.insert = getelementptr inbounds i8, ptr %2, i64 32
+  %.phi.trans.insert41.phi.trans.insert = getelementptr inbounds nuw i8, ptr %2, i64 32
   %.pre42.pre = load i32, ptr %.phi.trans.insert41.phi.trans.insert, align 8
   br i1 %66, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i28, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i22
 
@@ -170466,7 +170466,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5clang6interp11CmpHelperEQINS0
   br i1 %.not.i.i, label %40, label %61
 
 _ZNK5clang6interp7Pointer6isZeroEv.exit:          ; preds = %4
-  %34 = getelementptr inbounds i8, ptr %6, i64 32
+  %34 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %35 = load i64, ptr %34, align 8
   %36 = icmp eq i64 %35, 0
   %37 = load i64, ptr %6, align 8
@@ -170495,7 +170495,7 @@ _ZNK5clang6interp7Pointer6isZeroEv.exit:          ; preds = %4
   br i1 %.not.i.i80, label %56, label %61
 
 _ZNK5clang6interp7Pointer6isZeroEv.exit82:        ; preds = %40
-  %50 = getelementptr inbounds i8, ptr %5, i64 32
+  %50 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %51 = load i64, ptr %50, align 8
   %52 = icmp eq i64 %51, 0
   %53 = load i64, ptr %5, align 8
@@ -170535,7 +170535,7 @@ _ZNK5clang6interp7Pointer6isZeroEv.exit82:        ; preds = %40
   br i1 %70, label %_ZNK5clang6interp7Pointer6isWeakEv.exit.thread, label %_ZNK5clang6interp7Pointer11getDeclDescEv.exit.i
 
 _ZNK5clang6interp7Pointer6isZeroEv.exit85:        ; preds = %64
-  %71 = getelementptr inbounds i8, ptr %.076.ptr170, i64 32
+  %71 = getelementptr inbounds nuw i8, ptr %.076.ptr170, i64 32
   %72 = load i64, ptr %71, align 8
   %73 = icmp ne i64 %72, 0
   %74 = load i64, ptr %.076.ptr170, align 8
@@ -170630,7 +170630,7 @@ _ZNK5clang6interp7Pointer6isWeakEv.exit.thread:   ; preds = %64, %_ZNK5clang6int
   br i1 %114, label %115, label %120
 
 115:                                              ; preds = %112
-  %116 = getelementptr inbounds i8, ptr %6, i64 32
+  %116 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %117 = load i64, ptr %116, align 8
   %118 = load i64, ptr %6, align 8
   %119 = add i64 %118, %117
@@ -170650,7 +170650,7 @@ _ZNK5clang6interp7Pointer13getByteOffsetEv.exit:  ; preds = %115, %120
   br i1 %125, label %126, label %131
 
 126:                                              ; preds = %_ZNK5clang6interp7Pointer13getByteOffsetEv.exit
-  %127 = getelementptr inbounds i8, ptr %5, i64 32
+  %127 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %128 = load i64, ptr %127, align 8
   %129 = load i64, ptr %5, align 8
   %130 = add i64 %129, %128
@@ -170677,7 +170677,7 @@ _ZNK5clang6interp7Pointer13getByteOffsetEv.exit90: ; preds = %126, %131
   br i1 %138, label %_ZNK5clang6interp7Pointer11isArrayRootEv.exit.thread, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i
 
 _ZNK5clang6interp7Pointer6isZeroEv.exit93:        ; preds = %_ZNK5clang6interp7Pointer13getByteOffsetEv.exit90
-  %139 = getelementptr inbounds i8, ptr %6, i64 32
+  %139 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %140 = load i64, ptr %139, align 8
   %141 = icmp ne i64 %140, 0
   %142 = load i64, ptr %6, align 8
@@ -170695,7 +170695,7 @@ _ZNK5clang6interp7Pointer6isZeroEv.exit93:        ; preds = %_ZNK5clang6interp7P
 
 _ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i:    ; preds = %135, %.thread143
   %146 = phi ptr [ %.pre182, %.thread143 ], [ %137, %135 ]
-  %147 = getelementptr inbounds i8, ptr %6, i64 32
+  %147 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %148 = load i32, ptr %147, align 8
   %149 = getelementptr inbounds nuw i8, ptr %146, i64 32
   %150 = load ptr, ptr %149, align 8
@@ -170728,7 +170728,7 @@ _ZNK5clang6interp7Pointer7inArrayEv.exit.i:       ; preds = %157, %_ZNK5clang6in
 
 _ZNK5clang6interp7Pointer11isArrayRootEv.exit:    ; preds = %_ZNK5clang6interp7Pointer7inArrayEv.exit.i
   %166 = load i64, ptr %6, align 8
-  %167 = getelementptr inbounds i8, ptr %6, i64 32
+  %167 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %168 = load i32, ptr %167, align 8
   %169 = zext i32 %168 to i64
   %170 = icmp eq i64 %166, %169
@@ -170742,7 +170742,7 @@ _ZNK5clang6interp7Pointer11isArrayRootEv.exit:    ; preds = %_ZNK5clang6interp7P
   br i1 %174, label %175, label %180
 
 175:                                              ; preds = %171
-  %176 = getelementptr inbounds i8, ptr %10, i64 32
+  %176 = getelementptr inbounds nuw i8, ptr %10, i64 32
   %177 = load i64, ptr %176, align 8
   %178 = load i64, ptr %10, align 8
   %179 = add i64 %178, %177
@@ -170775,7 +170775,7 @@ _ZNK5clang6interp7Pointer11isArrayRootEv.exit.thread: ; preds = %_ZNK5clang6inte
   br i1 %187, label %_ZNK5clang6interp7Pointer11isArrayRootEv.exit105.thread, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i100
 
 _ZNK5clang6interp7Pointer6isZeroEv.exit99:        ; preds = %_ZNK5clang6interp7Pointer11isArrayRootEv.exit.thread
-  %188 = getelementptr inbounds i8, ptr %5, i64 32
+  %188 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %189 = load i64, ptr %188, align 8
   %190 = icmp ne i64 %189, 0
   %191 = load i64, ptr %5, align 8
@@ -170793,7 +170793,7 @@ _ZNK5clang6interp7Pointer6isZeroEv.exit99:        ; preds = %_ZNK5clang6interp7P
 
 _ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i100: ; preds = %184, %.thread145
   %195 = phi ptr [ %.pre184, %.thread145 ], [ %186, %184 ]
-  %196 = getelementptr inbounds i8, ptr %5, i64 32
+  %196 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %197 = load i32, ptr %196, align 8
   %198 = getelementptr inbounds nuw i8, ptr %195, i64 32
   %199 = load ptr, ptr %198, align 8
@@ -170826,7 +170826,7 @@ _ZNK5clang6interp7Pointer7inArrayEv.exit.i102:    ; preds = %206, %_ZNK5clang6in
 
 _ZNK5clang6interp7Pointer11isArrayRootEv.exit105: ; preds = %_ZNK5clang6interp7Pointer7inArrayEv.exit.i102
   %215 = load i64, ptr %5, align 8
-  %216 = getelementptr inbounds i8, ptr %5, i64 32
+  %216 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %217 = load i32, ptr %216, align 8
   %218 = zext i32 %217 to i64
   %219 = icmp eq i64 %215, %218
@@ -170840,7 +170840,7 @@ _ZNK5clang6interp7Pointer11isArrayRootEv.exit105: ; preds = %_ZNK5clang6interp7P
   br i1 %223, label %224, label %229
 
 224:                                              ; preds = %220
-  %225 = getelementptr inbounds i8, ptr %11, i64 32
+  %225 = getelementptr inbounds nuw i8, ptr %11, i64 32
   %226 = load i64, ptr %225, align 8
   %227 = load i64, ptr %11, align 8
   %228 = add i64 %227, %226
@@ -170900,7 +170900,7 @@ _ZNK5clang6interp7Pointer11isArrayRootEv.exit105.thread: ; preds = %_ZNK5clang6i
   br i1 %.not.i.i110, label %273, label %258
 
 _ZNK5clang6interp7Pointer6isZeroEv.exit112:       ; preds = %242
-  %252 = getelementptr inbounds i8, ptr %5, i64 32
+  %252 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %253 = load i64, ptr %252, align 8
   %254 = icmp eq i64 %253, 0
   %255 = load i64, ptr %5, align 8
@@ -170959,7 +170959,7 @@ _ZNK5clang6interp7Pointer6isZeroEv.exit112:       ; preds = %242
   br i1 %.not.i.i113, label %_ZNK5clang6interp7Pointer6isZeroEv.exit121, label %292
 
 _ZNK5clang6interp7Pointer6isZeroEv.exit115:       ; preds = %277
-  %286 = getelementptr inbounds i8, ptr %6, i64 32
+  %286 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %287 = load i64, ptr %286, align 8
   %288 = icmp eq i64 %287, 0
   %289 = load i64, ptr %6, align 8
@@ -171010,7 +171010,7 @@ _ZNK5clang6interp7Pointer6isZeroEv.exit115:       ; preds = %277
   br i1 %309, label %_ZNK5clang6interp7Pointer6isZeroEv.exit121, label %316
 
 _ZNK5clang6interp7Pointer6isZeroEv.exit118:       ; preds = %307
-  %310 = getelementptr inbounds i8, ptr %6, i64 32
+  %310 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %311 = load i64, ptr %310, align 8
   %312 = icmp eq i64 %311, 0
   %313 = load i64, ptr %6, align 8
@@ -171039,7 +171039,7 @@ _ZNK5clang6interp7Pointer6isZeroEv.exit118:       ; preds = %307
   br label %_ZNK5clang6interp7Pointer6isZeroEv.exit121
 
 326:                                              ; preds = %316
-  %327 = getelementptr inbounds i8, ptr %5, i64 32
+  %327 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %328 = load i64, ptr %327, align 8
   %329 = icmp eq i64 %328, 0
   %330 = load i64, ptr %5, align 8
@@ -171079,7 +171079,7 @@ _ZNK5clang6interp7Pointer6isZeroEv.exit121.split: ; preds = %_ZNK5clang6interp7P
   br i1 %.not.i.i122, label %357, label %350
 
 _ZNK5clang6interp7Pointer6isZeroEv.exit124:       ; preds = %_ZNK5clang6interp7Pointer6isZeroEv.exit121.split
-  %344 = getelementptr inbounds i8, ptr %.077.ptr173, i64 32
+  %344 = getelementptr inbounds nuw i8, ptr %.077.ptr173, i64 32
   %345 = load i64, ptr %344, align 8
   %346 = icmp eq i64 %345, 0
   %347 = load i64, ptr %.077.ptr173, align 8
@@ -171408,7 +171408,7 @@ _ZN5clang18OptionalDiagnosticlsIPKNS_13CXXMethodDeclEEERS0_RKT_.exit: ; preds = 
   br label %_ZNK5clang6interp13MemberPointer6isZeroEv.exit
 
 78:                                               ; preds = %68
-  %79 = getelementptr inbounds i8, ptr %6, i64 32
+  %79 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %80 = load i64, ptr %79, align 8
   %81 = icmp eq i64 %80, 0
   %82 = load i64, ptr %6, align 8
@@ -171444,7 +171444,7 @@ _ZNK5clang6interp13MemberPointer6isZeroEv.exit:   ; preds = %71, %75, %78
   br label %_ZNK5clang6interp13MemberPointer6isZeroEv.exit50
 
 97:                                               ; preds = %87
-  %98 = getelementptr inbounds i8, ptr %5, i64 32
+  %98 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %99 = load i64, ptr %98, align 8
   %100 = icmp eq i64 %99, 0
   %101 = load i64, ptr %5, align 8
@@ -171478,7 +171478,7 @@ _ZNK5clang6interp13MemberPointer6isZeroEv.exit50: ; preds = %90, %94, %97
   br label %_ZNK5clang6interp13MemberPointer6isZeroEv.exit54
 
 114:                                              ; preds = %106
-  %115 = getelementptr inbounds i8, ptr %6, i64 32
+  %115 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %116 = load i64, ptr %115, align 8
   %117 = icmp eq i64 %116, 0
   %118 = load i64, ptr %6, align 8
@@ -171512,7 +171512,7 @@ _ZNK5clang6interp13MemberPointer6isZeroEv.exit54: ; preds = %107, %111, %114
   br label %_ZNK5clang6interp13MemberPointer6isZeroEv.exit58
 
 132:                                              ; preds = %122
-  %133 = getelementptr inbounds i8, ptr %5, i64 32
+  %133 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %134 = load i64, ptr %133, align 8
   %135 = icmp eq i64 %134, 0
   %136 = load i64, ptr %5, align 8
@@ -171836,7 +171836,7 @@ _ZN5clang18OptionalDiagnosticlsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaI
   br i1 %44, label %45, label %50
 
 45:                                               ; preds = %41
-  %46 = getelementptr inbounds i8, ptr %6, i64 32
+  %46 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %47 = load i64, ptr %46, align 8
   %48 = load i64, ptr %6, align 8
   %49 = add i64 %48, %47
@@ -171857,7 +171857,7 @@ _ZNK5clang6interp7Pointer13getByteOffsetEv.exit:  ; preds = %45, %50
   br i1 %56, label %57, label %62
 
 57:                                               ; preds = %_ZNK5clang6interp7Pointer13getByteOffsetEv.exit
-  %58 = getelementptr inbounds i8, ptr %5, i64 32
+  %58 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %59 = load i64, ptr %58, align 8
   %60 = load i64, ptr %5, align 8
   %61 = add i64 %60, %59
@@ -172009,7 +172009,7 @@ define linkonce_odr hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZNK5
   %3 = alloca %"class.clang::interp::Pointer", align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 208
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %7 = load i32, ptr %6, align 8
   %8 = icmp eq i32 %7, 0
   br i1 %8, label %.loopexit.i, label %9
@@ -172082,7 +172082,7 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapIjSt10unique_ptrIA_cSt14default_deleteIS3_EE
 
 48:                                               ; preds = %40
   %49 = icmp eq ptr %47, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %3, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %3, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %49, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -172147,7 +172147,7 @@ define linkonce_odr hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZNK5
   %3 = alloca %"class.clang::interp::Pointer", align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 208
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %7 = load i32, ptr %6, align 8
   %8 = icmp eq i32 %7, 0
   br i1 %8, label %.loopexit.i, label %9
@@ -172220,7 +172220,7 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapIjSt10unique_ptrIA_cSt14default_deleteIS3_EE
 
 48:                                               ; preds = %40
   %49 = icmp eq ptr %47, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %3, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %3, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %49, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -172285,7 +172285,7 @@ define linkonce_odr hidden noundef nonnull align 2 dereferenceable(2) ptr @_ZNK5
   %3 = alloca %"class.clang::interp::Pointer", align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 208
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %7 = load i32, ptr %6, align 8
   %8 = icmp eq i32 %7, 0
   br i1 %8, label %.loopexit.i, label %9
@@ -172358,7 +172358,7 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapIjSt10unique_ptrIA_cSt14default_deleteIS3_EE
 
 48:                                               ; preds = %40
   %49 = icmp eq ptr %47, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %3, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %3, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %49, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -172423,7 +172423,7 @@ define linkonce_odr hidden noundef nonnull align 2 dereferenceable(2) ptr @_ZNK5
   %3 = alloca %"class.clang::interp::Pointer", align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 208
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %7 = load i32, ptr %6, align 8
   %8 = icmp eq i32 %7, 0
   br i1 %8, label %.loopexit.i, label %9
@@ -172496,7 +172496,7 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapIjSt10unique_ptrIA_cSt14default_deleteIS3_EE
 
 48:                                               ; preds = %40
   %49 = icmp eq ptr %47, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %3, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %3, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %49, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -172561,7 +172561,7 @@ define linkonce_odr hidden noundef nonnull align 4 dereferenceable(4) ptr @_ZNK5
   %3 = alloca %"class.clang::interp::Pointer", align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 208
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %7 = load i32, ptr %6, align 8
   %8 = icmp eq i32 %7, 0
   br i1 %8, label %.loopexit.i, label %9
@@ -172634,7 +172634,7 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapIjSt10unique_ptrIA_cSt14default_deleteIS3_EE
 
 48:                                               ; preds = %40
   %49 = icmp eq ptr %47, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %3, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %3, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %49, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -172699,7 +172699,7 @@ define linkonce_odr hidden noundef nonnull align 4 dereferenceable(4) ptr @_ZNK5
   %3 = alloca %"class.clang::interp::Pointer", align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 208
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %7 = load i32, ptr %6, align 8
   %8 = icmp eq i32 %7, 0
   br i1 %8, label %.loopexit.i, label %9
@@ -172772,7 +172772,7 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapIjSt10unique_ptrIA_cSt14default_deleteIS3_EE
 
 48:                                               ; preds = %40
   %49 = icmp eq ptr %47, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %3, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %3, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %49, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -172837,7 +172837,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNK5
   %3 = alloca %"class.clang::interp::Pointer", align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 208
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %7 = load i32, ptr %6, align 8
   %8 = icmp eq i32 %7, 0
   br i1 %8, label %.loopexit.i, label %9
@@ -172910,7 +172910,7 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapIjSt10unique_ptrIA_cSt14default_deleteIS3_EE
 
 48:                                               ; preds = %40
   %49 = icmp eq ptr %47, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %3, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %3, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %49, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -172975,7 +172975,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNK5
   %3 = alloca %"class.clang::interp::Pointer", align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 208
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %7 = load i32, ptr %6, align 8
   %8 = icmp eq i32 %7, 0
   br i1 %8, label %.loopexit.i, label %9
@@ -173048,7 +173048,7 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapIjSt10unique_ptrIA_cSt14default_deleteIS3_EE
 
 48:                                               ; preds = %40
   %49 = icmp eq ptr %47, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %3, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %3, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %49, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -173113,7 +173113,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZNK
   %3 = alloca %"class.clang::interp::Pointer", align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 208
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %7 = load i32, ptr %6, align 8
   %8 = icmp eq i32 %7, 0
   br i1 %8, label %.loopexit.i, label %9
@@ -173186,7 +173186,7 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapIjSt10unique_ptrIA_cSt14default_deleteIS3_EE
 
 48:                                               ; preds = %40
   %49 = icmp eq ptr %47, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %3, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %3, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %49, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -173251,7 +173251,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZNK
   %3 = alloca %"class.clang::interp::Pointer", align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 208
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %7 = load i32, ptr %6, align 8
   %8 = icmp eq i32 %7, 0
   br i1 %8, label %.loopexit.i, label %9
@@ -173324,7 +173324,7 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapIjSt10unique_ptrIA_cSt14default_deleteIS3_EE
 
 48:                                               ; preds = %40
   %49 = icmp eq ptr %47, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %3, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %3, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %49, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -173389,7 +173389,7 @@ define linkonce_odr hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZNK5
   %3 = alloca %"class.clang::interp::Pointer", align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 208
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %7 = load i32, ptr %6, align 8
   %8 = icmp eq i32 %7, 0
   br i1 %8, label %.loopexit.i, label %9
@@ -173462,7 +173462,7 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapIjSt10unique_ptrIA_cSt14default_deleteIS3_EE
 
 48:                                               ; preds = %40
   %49 = icmp eq ptr %47, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %3, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %3, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %49, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -173527,7 +173527,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(52) ptr @_ZNK
   %3 = alloca %"class.clang::interp::Pointer", align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 208
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %7 = load i32, ptr %6, align 8
   %8 = icmp eq i32 %7, 0
   br i1 %8, label %.loopexit.i, label %9
@@ -173600,7 +173600,7 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapIjSt10unique_ptrIA_cSt14default_deleteIS3_EE
 
 48:                                               ; preds = %40
   %49 = icmp eq ptr %47, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %3, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %3, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %49, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -173665,7 +173665,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZNK
   %3 = alloca %"class.clang::interp::Pointer", align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 208
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %7 = load i32, ptr %6, align 8
   %8 = icmp eq i32 %7, 0
   br i1 %8, label %.loopexit.i, label %9
@@ -173738,7 +173738,7 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapIjSt10unique_ptrIA_cSt14default_deleteIS3_EE
 
 48:                                               ; preds = %40
   %49 = icmp eq ptr %47, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %3, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %3, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %49, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -173803,7 +173803,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(72) ptr @_ZNK
   %3 = alloca %"class.clang::interp::Pointer", align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 208
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %7 = load i32, ptr %6, align 8
   %8 = icmp eq i32 %7, 0
   br i1 %8, label %.loopexit.i, label %9
@@ -173876,7 +173876,7 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapIjSt10unique_ptrIA_cSt14default_deleteIS3_EE
 
 48:                                               ; preds = %40
   %49 = icmp eq ptr %47, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %3, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %3, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %49, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -173941,7 +173941,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZNK
   %3 = alloca %"class.clang::interp::Pointer", align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 208
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %7 = load i32, ptr %6, align 8
   %8 = icmp eq i32 %7, 0
   br i1 %8, label %.loopexit.i, label %9
@@ -174014,7 +174014,7 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapIjSt10unique_ptrIA_cSt14default_deleteIS3_EE
 
 48:                                               ; preds = %40
   %49 = icmp eq ptr %47, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %3, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %3, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %49, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -174099,7 +174099,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp12IncDecHelperINS0_8Inte
 
 19:                                               ; preds = %3
   %20 = icmp eq ptr %18, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %2, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %2, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %20, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -174173,7 +174173,7 @@ _ZNK5clang6interp7Pointer5derefINS0_8IntegralILj8ELb1EEEEERT_v.exit: ; preds = %
 
 56:                                               ; preds = %52
   %57 = icmp eq ptr %55, null
-  %.phi.trans.insert41.phi.trans.insert = getelementptr inbounds i8, ptr %2, i64 32
+  %.phi.trans.insert41.phi.trans.insert = getelementptr inbounds nuw i8, ptr %2, i64 32
   %.pre42.pre = load i32, ptr %.phi.trans.insert41.phi.trans.insert, align 8
   br i1 %57, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i30, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i24
 
@@ -174544,7 +174544,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp12IncDecHelperINS0_8Inte
 
 19:                                               ; preds = %3
   %20 = icmp eq ptr %18, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %2, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %2, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %20, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -174618,7 +174618,7 @@ _ZNK5clang6interp7Pointer5derefINS0_8IntegralILj16ELb1EEEEERT_v.exit: ; preds = 
 
 56:                                               ; preds = %52
   %57 = icmp eq ptr %55, null
-  %.phi.trans.insert41.phi.trans.insert = getelementptr inbounds i8, ptr %2, i64 32
+  %.phi.trans.insert41.phi.trans.insert = getelementptr inbounds nuw i8, ptr %2, i64 32
   %.pre42.pre = load i32, ptr %.phi.trans.insert41.phi.trans.insert, align 8
   br i1 %57, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i30, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i24
 
@@ -174989,7 +174989,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp12IncDecHelperINS0_8Inte
 
 19:                                               ; preds = %3
   %20 = icmp eq ptr %18, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %2, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %2, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %20, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -175063,7 +175063,7 @@ _ZNK5clang6interp7Pointer5derefINS0_8IntegralILj32ELb1EEEEERT_v.exit: ; preds = 
 
 56:                                               ; preds = %52
   %57 = icmp eq ptr %55, null
-  %.phi.trans.insert41.phi.trans.insert = getelementptr inbounds i8, ptr %2, i64 32
+  %.phi.trans.insert41.phi.trans.insert = getelementptr inbounds nuw i8, ptr %2, i64 32
   %.pre42.pre = load i32, ptr %.phi.trans.insert41.phi.trans.insert, align 8
   br i1 %57, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i30, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i24
 
@@ -175434,7 +175434,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp12IncDecHelperINS0_8Inte
 
 19:                                               ; preds = %3
   %20 = icmp eq ptr %18, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %2, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %2, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %20, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -175508,7 +175508,7 @@ _ZNK5clang6interp7Pointer5derefINS0_8IntegralILj64ELb1EEEEERT_v.exit: ; preds = 
 
 56:                                               ; preds = %52
   %57 = icmp eq ptr %55, null
-  %.phi.trans.insert41.phi.trans.insert = getelementptr inbounds i8, ptr %2, i64 32
+  %.phi.trans.insert41.phi.trans.insert = getelementptr inbounds nuw i8, ptr %2, i64 32
   %.pre42.pre = load i32, ptr %.phi.trans.insert41.phi.trans.insert, align 8
   br i1 %57, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i30, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i24
 
@@ -175879,7 +175879,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp12IncDecHelperINS0_10Int
 
 20:                                               ; preds = %3
   %21 = icmp eq ptr %19, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %2, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %2, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %21, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -175999,7 +175999,7 @@ _ZN5clang6interp10IntegralAPILb0EED2Ev.exit:      ; preds = %_ZN5clang6interp10I
 
 74:                                               ; preds = %70
   %75 = icmp eq ptr %73, null
-  %.phi.trans.insert43.phi.trans.insert = getelementptr inbounds i8, ptr %2, i64 32
+  %.phi.trans.insert43.phi.trans.insert = getelementptr inbounds nuw i8, ptr %2, i64 32
   %.pre44.pre = load i32, ptr %.phi.trans.insert43.phi.trans.insert, align 8
   br i1 %75, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i30, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i24
 
@@ -176523,7 +176523,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp12IncDecHelperINS0_10Int
 
 20:                                               ; preds = %3
   %21 = icmp eq ptr %19, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %2, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %2, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %21, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -176643,7 +176643,7 @@ _ZN5clang6interp10IntegralAPILb1EED2Ev.exit:      ; preds = %_ZN5clang6interp10I
 
 74:                                               ; preds = %70
   %75 = icmp eq ptr %73, null
-  %.phi.trans.insert43.phi.trans.insert = getelementptr inbounds i8, ptr %2, i64 32
+  %.phi.trans.insert43.phi.trans.insert = getelementptr inbounds nuw i8, ptr %2, i64 32
   %.pre44.pre = load i32, ptr %.phi.trans.insert43.phi.trans.insert, align 8
   br i1 %75, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i30, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i24
 
@@ -177147,7 +177147,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp12IncDecHelperINS0_7Bool
 
 22:                                               ; preds = %16
   %23 = icmp eq ptr %21, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %2, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %2, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %23, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -177215,7 +177215,7 @@ _ZNK5clang6interp7Pointer11isArrayRootEv.exit.thread.i: ; preds = %_ZNK5clang6in
 
 56:                                               ; preds = %48
   %57 = icmp eq ptr %55, null
-  %.phi.trans.insert44.phi.trans.insert = getelementptr inbounds i8, ptr %2, i64 32
+  %.phi.trans.insert44.phi.trans.insert = getelementptr inbounds nuw i8, ptr %2, i64 32
   %.pre45.pre = load i32, ptr %.phi.trans.insert44.phi.trans.insert, align 8
   br i1 %57, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i33, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i27
 
@@ -177295,7 +177295,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp12IncDecHelperINS0_8Inte
 
 19:                                               ; preds = %3
   %20 = icmp eq ptr %18, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %2, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %2, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %20, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -177711,7 +177711,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp12IncDecHelperINS0_8Inte
 
 19:                                               ; preds = %3
   %20 = icmp eq ptr %18, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %2, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %2, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %20, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -178127,7 +178127,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp12IncDecHelperINS0_8Inte
 
 19:                                               ; preds = %3
   %20 = icmp eq ptr %18, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %2, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %2, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %20, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -178543,7 +178543,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp12IncDecHelperINS0_8Inte
 
 19:                                               ; preds = %3
   %20 = icmp eq ptr %18, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %2, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %2, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %20, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -178964,7 +178964,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp12IncDecHelperINS0_10Int
 
 20:                                               ; preds = %3
   %21 = icmp eq ptr %19, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %2, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %2, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %21, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -179065,7 +179065,7 @@ _ZN5clang6interp10IntegralAPILb0EED2Ev.exit:      ; preds = %_ZN5clang6interp10I
 
 65:                                               ; preds = %61
   %66 = icmp eq ptr %64, null
-  %.phi.trans.insert41.phi.trans.insert = getelementptr inbounds i8, ptr %2, i64 32
+  %.phi.trans.insert41.phi.trans.insert = getelementptr inbounds nuw i8, ptr %2, i64 32
   %.pre42.pre = load i32, ptr %.phi.trans.insert41.phi.trans.insert, align 8
   br i1 %66, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i28, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i22
 
@@ -179449,7 +179449,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp12IncDecHelperINS0_10Int
 
 20:                                               ; preds = %3
   %21 = icmp eq ptr %19, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %2, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %2, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %21, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -179550,7 +179550,7 @@ _ZN5clang6interp10IntegralAPILb1EED2Ev.exit:      ; preds = %_ZN5clang6interp10I
 
 65:                                               ; preds = %61
   %66 = icmp eq ptr %64, null
-  %.phi.trans.insert41.phi.trans.insert = getelementptr inbounds i8, ptr %2, i64 32
+  %.phi.trans.insert41.phi.trans.insert = getelementptr inbounds nuw i8, ptr %2, i64 32
   %.pre42.pre = load i32, ptr %.phi.trans.insert41.phi.trans.insert, align 8
   br i1 %66, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i28, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i22
 
@@ -179946,7 +179946,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp12IncDecHelperINS0_7Bool
 
 22:                                               ; preds = %16
   %cond = icmp eq ptr %21, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %2, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %2, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %cond, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i31, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -180129,7 +180129,7 @@ define linkonce_odr hidden void @_ZN5clang7APValueC2EN4llvm7APFloatE(ptr noundef
   %4 = alloca %"class.llvm::APFloat", align 8
   store i32 0, ptr %0, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   call void @_ZN4llvm6detail9IEEEFloatC1Ed(ptr noundef nonnull align 8 dereferenceable(24) %3, double noundef 0.000000e+00) #18
   %6 = tail call noundef nonnull align 1 ptr @_ZN4llvm11APFloatBase10IEEEdoubleEv() #21
   call void @_ZN4llvm7APFloat7StorageC1ENS_6detail9IEEEFloatERKNS_12fltSemanticsE(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull %3, ptr noundef nonnull align 1 %6) #18
@@ -182717,7 +182717,7 @@ define linkonce_odr hidden void @_ZN5clang6interp11InterpFrame8setLocalINS0_10In
 
 10:                                               ; preds = %3
   %11 = icmp eq ptr %9, null
-  %.phi.trans.insert.phi.trans.insert.i = getelementptr inbounds i8, ptr %4, i64 32
+  %.phi.trans.insert.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %4, i64 32
   %.pre.pre.i = load i32, ptr %.phi.trans.insert.phi.trans.insert.i, align 8
   br i1 %11, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i.i
 
@@ -182823,7 +182823,7 @@ define linkonce_odr hidden void @_ZN5clang6interp11InterpFrame8setLocalINS0_10In
 
 10:                                               ; preds = %3
   %11 = icmp eq ptr %9, null
-  %.phi.trans.insert.phi.trans.insert.i = getelementptr inbounds i8, ptr %4, i64 32
+  %.phi.trans.insert.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %4, i64 32
   %.pre.pre.i = load i32, ptr %.phi.trans.insert.phi.trans.insert.i, align 8
   br i1 %11, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i.i
 
@@ -237874,7 +237874,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp12OffsetHelperINS0_8Inte
   br i1 %31, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i
 
 _ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i:    ; preds = %28
-  %32 = getelementptr inbounds i8, ptr %3, i64 32
+  %32 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %33 = load i32, ptr %32, align 8
   %34 = getelementptr inbounds nuw i8, ptr %30, i64 32
   %35 = load ptr, ptr %34, align 8
@@ -237908,7 +237908,7 @@ thread-pre-split.thread:                          ; preds = %_ZNK5clang6interp7P
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   %50 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %51 = load ptr, ptr %50, align 8
-  %.phi.trans.insert.phi.trans.insert.i = getelementptr inbounds i8, ptr %3, i64 32
+  %.phi.trans.insert.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %3, i64 32
   %.pre.pre.i = load i32, ptr %.phi.trans.insert.phi.trans.insert.i, align 8
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 32
   %53 = load ptr, ptr %52, align 8
@@ -237938,7 +237938,7 @@ thread-pre-split:                                 ; preds = %24
 62:                                               ; preds = %thread-pre-split
   %63 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %64 = load i64, ptr %3, align 8
-  %65 = getelementptr inbounds i8, ptr %3, i64 32
+  %65 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %66 = load i64, ptr %65, align 8
   %67 = load ptr, ptr %63, align 8
   %.not.i.i = icmp eq ptr %67, null
@@ -237967,7 +237967,7 @@ _ZNK5clang6interp7Pointer8elemSizeEv.exit:        ; preds = %62, %68
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %79, i8 0, i64 24, i1 false)
   store i32 1, ptr %81, align 8
   %82 = getelementptr inbounds nuw i8, ptr %79, i64 24
-  %83 = getelementptr inbounds i8, ptr %79, i64 32
+  %83 = getelementptr inbounds nuw i8, ptr %79, i64 32
   store i64 %78, ptr %83, align 8
   store ptr %80, ptr %82, align 8
   br label %262
@@ -238138,7 +238138,7 @@ _ZNK5clang6interp7Pointer11getNumElemsEv.exit:    ; preds = %thread-pre-split, %
   ]
 
 170:                                              ; preds = %168
-  %171 = getelementptr inbounds i8, ptr %3, i64 32
+  %171 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %172 = load i64, ptr %171, align 8
   %173 = load ptr, ptr %167, align 8
   %.not.i.i.i = icmp eq ptr %173, null
@@ -238174,7 +238174,7 @@ _ZNK5clang6interp7Pointer6isZeroEv.exit.i:        ; preds = %166
   br i1 %189, label %_ZNK5clang6interp7Pointer8getIndexEv.exit, label %190
 
 190:                                              ; preds = %_ZNK5clang6interp7Pointer6isZeroEv.exit.i
-  %191 = getelementptr inbounds i8, ptr %3, i64 32
+  %191 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %192 = load i32, ptr %191, align 8
   %193 = icmp ugt i32 %192, 16
   %194 = zext i32 %192 to i64
@@ -238317,7 +238317,7 @@ _ZNK5clang6interp7Pointer8getIndexEv.exit:        ; preds = %_ZNK5clang6interp7P
 
 257:                                              ; preds = %254
   %258 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %259 = getelementptr inbounds i8, ptr %3, i64 32
+  %259 = getelementptr inbounds nuw i8, ptr %3, i64 32
   call void @_ZN5clang6interp11InterpStack4pushINS0_7PointerEJRKPNS0_5BlockERKjEEEvDpOT0_(ptr noundef nonnull align 8 dereferenceable(16) %256, ptr noundef nonnull align 8 dereferenceable(8) %258, ptr noundef nonnull align 4 dereferenceable(4) %259)
   br label %262
 
@@ -238423,7 +238423,7 @@ _ZNK4llvm6APSIntmiERKS0_.exit:                    ; preds = %22, %19, %_ZN4llvm6
   br i1 %50, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i
 
 _ZNK5clang6interp7Pointer6isRootEv.exit.i.i:      ; preds = %47
-  %51 = getelementptr inbounds i8, ptr %43, i64 32
+  %51 = getelementptr inbounds nuw i8, ptr %43, i64 32
   %52 = load i32, ptr %51, align 8
   %53 = getelementptr inbounds nuw i8, ptr %49, i64 32
   %54 = load ptr, ptr %53, align 8
@@ -238606,7 +238606,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp12OffsetHelperINS0_8Inte
   br i1 %31, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i
 
 _ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i:    ; preds = %28
-  %32 = getelementptr inbounds i8, ptr %3, i64 32
+  %32 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %33 = load i32, ptr %32, align 8
   %34 = getelementptr inbounds nuw i8, ptr %30, i64 32
   %35 = load ptr, ptr %34, align 8
@@ -238640,7 +238640,7 @@ thread-pre-split.thread:                          ; preds = %_ZNK5clang6interp7P
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   %50 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %51 = load ptr, ptr %50, align 8
-  %.phi.trans.insert.phi.trans.insert.i = getelementptr inbounds i8, ptr %3, i64 32
+  %.phi.trans.insert.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %3, i64 32
   %.pre.pre.i = load i32, ptr %.phi.trans.insert.phi.trans.insert.i, align 8
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 32
   %53 = load ptr, ptr %52, align 8
@@ -238670,7 +238670,7 @@ thread-pre-split:                                 ; preds = %24
 62:                                               ; preds = %thread-pre-split
   %63 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %64 = load i64, ptr %3, align 8
-  %65 = getelementptr inbounds i8, ptr %3, i64 32
+  %65 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %66 = load i64, ptr %65, align 8
   %67 = load ptr, ptr %63, align 8
   %.not.i.i = icmp eq ptr %67, null
@@ -238699,7 +238699,7 @@ _ZNK5clang6interp7Pointer8elemSizeEv.exit:        ; preds = %62, %68
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %79, i8 0, i64 24, i1 false)
   store i32 1, ptr %81, align 8
   %82 = getelementptr inbounds nuw i8, ptr %79, i64 24
-  %83 = getelementptr inbounds i8, ptr %79, i64 32
+  %83 = getelementptr inbounds nuw i8, ptr %79, i64 32
   store i64 %78, ptr %83, align 8
   store ptr %80, ptr %82, align 8
   br label %262
@@ -238870,7 +238870,7 @@ _ZNK5clang6interp7Pointer11getNumElemsEv.exit:    ; preds = %thread-pre-split, %
   ]
 
 170:                                              ; preds = %168
-  %171 = getelementptr inbounds i8, ptr %3, i64 32
+  %171 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %172 = load i64, ptr %171, align 8
   %173 = load ptr, ptr %167, align 8
   %.not.i.i.i = icmp eq ptr %173, null
@@ -238906,7 +238906,7 @@ _ZNK5clang6interp7Pointer6isZeroEv.exit.i:        ; preds = %166
   br i1 %189, label %_ZNK5clang6interp7Pointer8getIndexEv.exit, label %190
 
 190:                                              ; preds = %_ZNK5clang6interp7Pointer6isZeroEv.exit.i
-  %191 = getelementptr inbounds i8, ptr %3, i64 32
+  %191 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %192 = load i32, ptr %191, align 8
   %193 = icmp ugt i32 %192, 16
   %194 = zext i32 %192 to i64
@@ -239049,7 +239049,7 @@ _ZNK5clang6interp7Pointer8getIndexEv.exit:        ; preds = %_ZNK5clang6interp7P
 
 257:                                              ; preds = %254
   %258 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %259 = getelementptr inbounds i8, ptr %3, i64 32
+  %259 = getelementptr inbounds nuw i8, ptr %3, i64 32
   call void @_ZN5clang6interp11InterpStack4pushINS0_7PointerEJRKPNS0_5BlockERKjEEEvDpOT0_(ptr noundef nonnull align 8 dereferenceable(16) %256, ptr noundef nonnull align 8 dereferenceable(8) %258, ptr noundef nonnull align 4 dereferenceable(4) %259)
   br label %262
 
@@ -239155,7 +239155,7 @@ _ZNK4llvm6APSIntmiERKS0_.exit:                    ; preds = %22, %19, %_ZN4llvm6
   br i1 %50, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i
 
 _ZNK5clang6interp7Pointer6isRootEv.exit.i.i:      ; preds = %47
-  %51 = getelementptr inbounds i8, ptr %43, i64 32
+  %51 = getelementptr inbounds nuw i8, ptr %43, i64 32
   %52 = load i32, ptr %51, align 8
   %53 = getelementptr inbounds nuw i8, ptr %49, i64 32
   %54 = load ptr, ptr %53, align 8
@@ -239338,7 +239338,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp12OffsetHelperINS0_8Inte
   br i1 %31, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i
 
 _ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i:    ; preds = %28
-  %32 = getelementptr inbounds i8, ptr %3, i64 32
+  %32 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %33 = load i32, ptr %32, align 8
   %34 = getelementptr inbounds nuw i8, ptr %30, i64 32
   %35 = load ptr, ptr %34, align 8
@@ -239372,7 +239372,7 @@ thread-pre-split.thread:                          ; preds = %_ZNK5clang6interp7P
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   %50 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %51 = load ptr, ptr %50, align 8
-  %.phi.trans.insert.phi.trans.insert.i = getelementptr inbounds i8, ptr %3, i64 32
+  %.phi.trans.insert.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %3, i64 32
   %.pre.pre.i = load i32, ptr %.phi.trans.insert.phi.trans.insert.i, align 8
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 32
   %53 = load ptr, ptr %52, align 8
@@ -239402,7 +239402,7 @@ thread-pre-split:                                 ; preds = %24
 62:                                               ; preds = %thread-pre-split
   %63 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %64 = load i64, ptr %3, align 8
-  %65 = getelementptr inbounds i8, ptr %3, i64 32
+  %65 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %66 = load i64, ptr %65, align 8
   %67 = load ptr, ptr %63, align 8
   %.not.i.i = icmp eq ptr %67, null
@@ -239431,7 +239431,7 @@ _ZNK5clang6interp7Pointer8elemSizeEv.exit:        ; preds = %62, %68
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %79, i8 0, i64 24, i1 false)
   store i32 1, ptr %81, align 8
   %82 = getelementptr inbounds nuw i8, ptr %79, i64 24
-  %83 = getelementptr inbounds i8, ptr %79, i64 32
+  %83 = getelementptr inbounds nuw i8, ptr %79, i64 32
   store i64 %78, ptr %83, align 8
   store ptr %80, ptr %82, align 8
   br label %248
@@ -239602,7 +239602,7 @@ _ZNK5clang6interp7Pointer11getNumElemsEv.exit:    ; preds = %thread-pre-split, %
   ]
 
 170:                                              ; preds = %168
-  %171 = getelementptr inbounds i8, ptr %3, i64 32
+  %171 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %172 = load i64, ptr %171, align 8
   %173 = load ptr, ptr %167, align 8
   %.not.i.i.i = icmp eq ptr %173, null
@@ -239638,7 +239638,7 @@ _ZNK5clang6interp7Pointer6isZeroEv.exit.i:        ; preds = %166
   br i1 %189, label %_ZNK5clang6interp7Pointer8getIndexEv.exit, label %190
 
 190:                                              ; preds = %_ZNK5clang6interp7Pointer6isZeroEv.exit.i
-  %191 = getelementptr inbounds i8, ptr %3, i64 32
+  %191 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %192 = load i32, ptr %191, align 8
   %193 = icmp ugt i32 %192, 16
   %194 = zext i32 %192 to i64
@@ -239756,7 +239756,7 @@ _ZNK5clang6interp7Pointer8getIndexEv.exit:        ; preds = %_ZNK5clang6interp7P
 
 243:                                              ; preds = %240
   %244 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %245 = getelementptr inbounds i8, ptr %3, i64 32
+  %245 = getelementptr inbounds nuw i8, ptr %3, i64 32
   call void @_ZN5clang6interp11InterpStack4pushINS0_7PointerEJRKPNS0_5BlockERKjEEEvDpOT0_(ptr noundef nonnull align 8 dereferenceable(16) %242, ptr noundef nonnull align 8 dereferenceable(8) %244, ptr noundef nonnull align 4 dereferenceable(4) %245)
   br label %248
 
@@ -239862,7 +239862,7 @@ _ZNK4llvm6APSIntmiERKS0_.exit:                    ; preds = %22, %19, %_ZN4llvm6
   br i1 %50, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i
 
 _ZNK5clang6interp7Pointer6isRootEv.exit.i.i:      ; preds = %47
-  %51 = getelementptr inbounds i8, ptr %43, i64 32
+  %51 = getelementptr inbounds nuw i8, ptr %43, i64 32
   %52 = load i32, ptr %51, align 8
   %53 = getelementptr inbounds nuw i8, ptr %49, i64 32
   %54 = load ptr, ptr %53, align 8
@@ -240045,7 +240045,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp12OffsetHelperINS0_8Inte
   br i1 %31, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i
 
 _ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i:    ; preds = %28
-  %32 = getelementptr inbounds i8, ptr %3, i64 32
+  %32 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %33 = load i32, ptr %32, align 8
   %34 = getelementptr inbounds nuw i8, ptr %30, i64 32
   %35 = load ptr, ptr %34, align 8
@@ -240079,7 +240079,7 @@ thread-pre-split.thread:                          ; preds = %_ZNK5clang6interp7P
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   %50 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %51 = load ptr, ptr %50, align 8
-  %.phi.trans.insert.phi.trans.insert.i = getelementptr inbounds i8, ptr %3, i64 32
+  %.phi.trans.insert.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %3, i64 32
   %.pre.pre.i = load i32, ptr %.phi.trans.insert.phi.trans.insert.i, align 8
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 32
   %53 = load ptr, ptr %52, align 8
@@ -240109,7 +240109,7 @@ thread-pre-split:                                 ; preds = %24
 62:                                               ; preds = %thread-pre-split
   %63 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %64 = load i64, ptr %3, align 8
-  %65 = getelementptr inbounds i8, ptr %3, i64 32
+  %65 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %66 = load i64, ptr %65, align 8
   %67 = load ptr, ptr %63, align 8
   %.not.i.i = icmp eq ptr %67, null
@@ -240138,7 +240138,7 @@ _ZNK5clang6interp7Pointer8elemSizeEv.exit:        ; preds = %62, %68
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %79, i8 0, i64 24, i1 false)
   store i32 1, ptr %81, align 8
   %82 = getelementptr inbounds nuw i8, ptr %79, i64 24
-  %83 = getelementptr inbounds i8, ptr %79, i64 32
+  %83 = getelementptr inbounds nuw i8, ptr %79, i64 32
   store i64 %78, ptr %83, align 8
   store ptr %80, ptr %82, align 8
   br label %262
@@ -240309,7 +240309,7 @@ _ZNK5clang6interp7Pointer11getNumElemsEv.exit:    ; preds = %thread-pre-split, %
   ]
 
 170:                                              ; preds = %168
-  %171 = getelementptr inbounds i8, ptr %3, i64 32
+  %171 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %172 = load i64, ptr %171, align 8
   %173 = load ptr, ptr %167, align 8
   %.not.i.i.i = icmp eq ptr %173, null
@@ -240345,7 +240345,7 @@ _ZNK5clang6interp7Pointer6isZeroEv.exit.i:        ; preds = %166
   br i1 %189, label %_ZNK5clang6interp7Pointer8getIndexEv.exit, label %190
 
 190:                                              ; preds = %_ZNK5clang6interp7Pointer6isZeroEv.exit.i
-  %191 = getelementptr inbounds i8, ptr %3, i64 32
+  %191 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %192 = load i32, ptr %191, align 8
   %193 = icmp ugt i32 %192, 16
   %194 = zext i32 %192 to i64
@@ -240488,7 +240488,7 @@ _ZNK5clang6interp7Pointer8getIndexEv.exit:        ; preds = %_ZNK5clang6interp7P
 
 257:                                              ; preds = %254
   %258 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %259 = getelementptr inbounds i8, ptr %3, i64 32
+  %259 = getelementptr inbounds nuw i8, ptr %3, i64 32
   call void @_ZN5clang6interp11InterpStack4pushINS0_7PointerEJRKPNS0_5BlockERKjEEEvDpOT0_(ptr noundef nonnull align 8 dereferenceable(16) %256, ptr noundef nonnull align 8 dereferenceable(8) %258, ptr noundef nonnull align 4 dereferenceable(4) %259)
   br label %262
 
@@ -240594,7 +240594,7 @@ _ZNK4llvm6APSIntmiERKS0_.exit:                    ; preds = %22, %19, %_ZN4llvm6
   br i1 %50, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i
 
 _ZNK5clang6interp7Pointer6isRootEv.exit.i.i:      ; preds = %47
-  %51 = getelementptr inbounds i8, ptr %43, i64 32
+  %51 = getelementptr inbounds nuw i8, ptr %43, i64 32
   %52 = load i32, ptr %51, align 8
   %53 = getelementptr inbounds nuw i8, ptr %49, i64 32
   %54 = load ptr, ptr %53, align 8
@@ -240777,7 +240777,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp12OffsetHelperINS0_8Inte
   br i1 %31, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i
 
 _ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i:    ; preds = %28
-  %32 = getelementptr inbounds i8, ptr %3, i64 32
+  %32 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %33 = load i32, ptr %32, align 8
   %34 = getelementptr inbounds nuw i8, ptr %30, i64 32
   %35 = load ptr, ptr %34, align 8
@@ -240811,7 +240811,7 @@ thread-pre-split.thread:                          ; preds = %_ZNK5clang6interp7P
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   %50 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %51 = load ptr, ptr %50, align 8
-  %.phi.trans.insert.phi.trans.insert.i = getelementptr inbounds i8, ptr %3, i64 32
+  %.phi.trans.insert.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %3, i64 32
   %.pre.pre.i = load i32, ptr %.phi.trans.insert.phi.trans.insert.i, align 8
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 32
   %53 = load ptr, ptr %52, align 8
@@ -240841,7 +240841,7 @@ thread-pre-split:                                 ; preds = %24
 62:                                               ; preds = %thread-pre-split
   %63 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %64 = load i64, ptr %3, align 8
-  %65 = getelementptr inbounds i8, ptr %3, i64 32
+  %65 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %66 = load i64, ptr %65, align 8
   %67 = load ptr, ptr %63, align 8
   %.not.i.i = icmp eq ptr %67, null
@@ -240870,7 +240870,7 @@ _ZNK5clang6interp7Pointer8elemSizeEv.exit:        ; preds = %62, %68
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %79, i8 0, i64 24, i1 false)
   store i32 1, ptr %81, align 8
   %82 = getelementptr inbounds nuw i8, ptr %79, i64 24
-  %83 = getelementptr inbounds i8, ptr %79, i64 32
+  %83 = getelementptr inbounds nuw i8, ptr %79, i64 32
   store i64 %78, ptr %83, align 8
   store ptr %80, ptr %82, align 8
   br label %248
@@ -241041,7 +241041,7 @@ _ZNK5clang6interp7Pointer11getNumElemsEv.exit:    ; preds = %thread-pre-split, %
   ]
 
 170:                                              ; preds = %168
-  %171 = getelementptr inbounds i8, ptr %3, i64 32
+  %171 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %172 = load i64, ptr %171, align 8
   %173 = load ptr, ptr %167, align 8
   %.not.i.i.i = icmp eq ptr %173, null
@@ -241077,7 +241077,7 @@ _ZNK5clang6interp7Pointer6isZeroEv.exit.i:        ; preds = %166
   br i1 %189, label %_ZNK5clang6interp7Pointer8getIndexEv.exit, label %190
 
 190:                                              ; preds = %_ZNK5clang6interp7Pointer6isZeroEv.exit.i
-  %191 = getelementptr inbounds i8, ptr %3, i64 32
+  %191 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %192 = load i32, ptr %191, align 8
   %193 = icmp ugt i32 %192, 16
   %194 = zext i32 %192 to i64
@@ -241195,7 +241195,7 @@ _ZNK5clang6interp7Pointer8getIndexEv.exit:        ; preds = %_ZNK5clang6interp7P
 
 243:                                              ; preds = %240
   %244 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %245 = getelementptr inbounds i8, ptr %3, i64 32
+  %245 = getelementptr inbounds nuw i8, ptr %3, i64 32
   call void @_ZN5clang6interp11InterpStack4pushINS0_7PointerEJRKPNS0_5BlockERKjEEEvDpOT0_(ptr noundef nonnull align 8 dereferenceable(16) %242, ptr noundef nonnull align 8 dereferenceable(8) %244, ptr noundef nonnull align 4 dereferenceable(4) %245)
   br label %248
 
@@ -241301,7 +241301,7 @@ _ZNK4llvm6APSIntmiERKS0_.exit:                    ; preds = %22, %19, %_ZN4llvm6
   br i1 %50, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i
 
 _ZNK5clang6interp7Pointer6isRootEv.exit.i.i:      ; preds = %47
-  %51 = getelementptr inbounds i8, ptr %43, i64 32
+  %51 = getelementptr inbounds nuw i8, ptr %43, i64 32
   %52 = load i32, ptr %51, align 8
   %53 = getelementptr inbounds nuw i8, ptr %49, i64 32
   %54 = load ptr, ptr %53, align 8
@@ -241484,7 +241484,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp12OffsetHelperINS0_8Inte
   br i1 %31, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i
 
 _ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i:    ; preds = %28
-  %32 = getelementptr inbounds i8, ptr %3, i64 32
+  %32 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %33 = load i32, ptr %32, align 8
   %34 = getelementptr inbounds nuw i8, ptr %30, i64 32
   %35 = load ptr, ptr %34, align 8
@@ -241518,7 +241518,7 @@ thread-pre-split.thread:                          ; preds = %_ZNK5clang6interp7P
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   %50 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %51 = load ptr, ptr %50, align 8
-  %.phi.trans.insert.phi.trans.insert.i = getelementptr inbounds i8, ptr %3, i64 32
+  %.phi.trans.insert.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %3, i64 32
   %.pre.pre.i = load i32, ptr %.phi.trans.insert.phi.trans.insert.i, align 8
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 32
   %53 = load ptr, ptr %52, align 8
@@ -241548,7 +241548,7 @@ thread-pre-split:                                 ; preds = %24
 62:                                               ; preds = %thread-pre-split
   %63 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %64 = load i64, ptr %3, align 8
-  %65 = getelementptr inbounds i8, ptr %3, i64 32
+  %65 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %66 = load i64, ptr %65, align 8
   %67 = load ptr, ptr %63, align 8
   %.not.i.i = icmp eq ptr %67, null
@@ -241576,7 +241576,7 @@ _ZNK5clang6interp7Pointer8elemSizeEv.exit:        ; preds = %62, %68
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %79, i8 0, i64 24, i1 false)
   store i32 1, ptr %81, align 8
   %82 = getelementptr inbounds nuw i8, ptr %79, i64 24
-  %83 = getelementptr inbounds i8, ptr %79, i64 32
+  %83 = getelementptr inbounds nuw i8, ptr %79, i64 32
   store i64 %78, ptr %83, align 8
   store ptr %80, ptr %82, align 8
   br label %259
@@ -241746,7 +241746,7 @@ _ZNK5clang6interp7Pointer11getNumElemsEv.exit:    ; preds = %thread-pre-split, %
   ]
 
 169:                                              ; preds = %167
-  %170 = getelementptr inbounds i8, ptr %3, i64 32
+  %170 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %171 = load i64, ptr %170, align 8
   %172 = load ptr, ptr %166, align 8
   %.not.i.i.i = icmp eq ptr %172, null
@@ -241782,7 +241782,7 @@ _ZNK5clang6interp7Pointer6isZeroEv.exit.i:        ; preds = %165
   br i1 %188, label %_ZNK5clang6interp7Pointer8getIndexEv.exit, label %189
 
 189:                                              ; preds = %_ZNK5clang6interp7Pointer6isZeroEv.exit.i
-  %190 = getelementptr inbounds i8, ptr %3, i64 32
+  %190 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %191 = load i32, ptr %190, align 8
   %192 = icmp ugt i32 %191, 16
   %193 = zext i32 %191 to i64
@@ -241923,7 +241923,7 @@ _ZNK5clang6interp7Pointer8getIndexEv.exit:        ; preds = %_ZNK5clang6interp7P
 
 254:                                              ; preds = %251
   %255 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %256 = getelementptr inbounds i8, ptr %3, i64 32
+  %256 = getelementptr inbounds nuw i8, ptr %3, i64 32
   call void @_ZN5clang6interp11InterpStack4pushINS0_7PointerEJRKPNS0_5BlockERKjEEEvDpOT0_(ptr noundef nonnull align 8 dereferenceable(16) %253, ptr noundef nonnull align 8 dereferenceable(8) %255, ptr noundef nonnull align 4 dereferenceable(4) %256)
   br label %259
 
@@ -242053,7 +242053,7 @@ _ZNK4llvm6APSIntmiERKS0_.exit:                    ; preds = %34, %35
   br i1 %60, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i
 
 _ZNK5clang6interp7Pointer6isRootEv.exit.i.i:      ; preds = %57
-  %61 = getelementptr inbounds i8, ptr %53, i64 32
+  %61 = getelementptr inbounds nuw i8, ptr %53, i64 32
   %62 = load i32, ptr %61, align 8
   %63 = getelementptr inbounds nuw i8, ptr %59, i64 32
   %64 = load ptr, ptr %63, align 8
@@ -242250,7 +242250,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp12OffsetHelperINS0_8Inte
   br i1 %31, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i
 
 _ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i:    ; preds = %28
-  %32 = getelementptr inbounds i8, ptr %3, i64 32
+  %32 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %33 = load i32, ptr %32, align 8
   %34 = getelementptr inbounds nuw i8, ptr %30, i64 32
   %35 = load ptr, ptr %34, align 8
@@ -242284,7 +242284,7 @@ thread-pre-split.thread:                          ; preds = %_ZNK5clang6interp7P
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   %50 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %51 = load ptr, ptr %50, align 8
-  %.phi.trans.insert.phi.trans.insert.i = getelementptr inbounds i8, ptr %3, i64 32
+  %.phi.trans.insert.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %3, i64 32
   %.pre.pre.i = load i32, ptr %.phi.trans.insert.phi.trans.insert.i, align 8
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 32
   %53 = load ptr, ptr %52, align 8
@@ -242314,7 +242314,7 @@ thread-pre-split:                                 ; preds = %24
 62:                                               ; preds = %thread-pre-split
   %63 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %64 = load i64, ptr %3, align 8
-  %65 = getelementptr inbounds i8, ptr %3, i64 32
+  %65 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %66 = load i64, ptr %65, align 8
   %67 = load ptr, ptr %63, align 8
   %.not.i.i = icmp eq ptr %67, null
@@ -242342,7 +242342,7 @@ _ZNK5clang6interp7Pointer8elemSizeEv.exit:        ; preds = %62, %68
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %79, i8 0, i64 24, i1 false)
   store i32 1, ptr %81, align 8
   %82 = getelementptr inbounds nuw i8, ptr %79, i64 24
-  %83 = getelementptr inbounds i8, ptr %79, i64 32
+  %83 = getelementptr inbounds nuw i8, ptr %79, i64 32
   store i64 %78, ptr %83, align 8
   store ptr %80, ptr %82, align 8
   br label %245
@@ -242512,7 +242512,7 @@ _ZNK5clang6interp7Pointer11getNumElemsEv.exit:    ; preds = %thread-pre-split, %
   ]
 
 169:                                              ; preds = %167
-  %170 = getelementptr inbounds i8, ptr %3, i64 32
+  %170 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %171 = load i64, ptr %170, align 8
   %172 = load ptr, ptr %166, align 8
   %.not.i.i.i = icmp eq ptr %172, null
@@ -242548,7 +242548,7 @@ _ZNK5clang6interp7Pointer6isZeroEv.exit.i:        ; preds = %165
   br i1 %188, label %_ZNK5clang6interp7Pointer8getIndexEv.exit, label %189
 
 189:                                              ; preds = %_ZNK5clang6interp7Pointer6isZeroEv.exit.i
-  %190 = getelementptr inbounds i8, ptr %3, i64 32
+  %190 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %191 = load i32, ptr %190, align 8
   %192 = icmp ugt i32 %191, 16
   %193 = zext i32 %191 to i64
@@ -242664,7 +242664,7 @@ _ZNK5clang6interp7Pointer8getIndexEv.exit:        ; preds = %_ZNK5clang6interp7P
 
 240:                                              ; preds = %237
   %241 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %242 = getelementptr inbounds i8, ptr %3, i64 32
+  %242 = getelementptr inbounds nuw i8, ptr %3, i64 32
   call void @_ZN5clang6interp11InterpStack4pushINS0_7PointerEJRKPNS0_5BlockERKjEEEvDpOT0_(ptr noundef nonnull align 8 dereferenceable(16) %239, ptr noundef nonnull align 8 dereferenceable(8) %241, ptr noundef nonnull align 4 dereferenceable(4) %242)
   br label %245
 
@@ -242794,7 +242794,7 @@ _ZNK4llvm6APSIntmiERKS0_.exit:                    ; preds = %34, %35
   br i1 %60, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i
 
 _ZNK5clang6interp7Pointer6isRootEv.exit.i.i:      ; preds = %57
-  %61 = getelementptr inbounds i8, ptr %53, i64 32
+  %61 = getelementptr inbounds nuw i8, ptr %53, i64 32
   %62 = load i32, ptr %61, align 8
   %63 = getelementptr inbounds nuw i8, ptr %59, i64 32
   %64 = load ptr, ptr %63, align 8
@@ -243008,7 +243008,7 @@ _ZNK5clang6interp10IntegralAPILb0EE6isZeroEv.exit: ; preds = %4
   br i1 %44, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i
 
 _ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i:    ; preds = %41
-  %45 = getelementptr inbounds i8, ptr %3, i64 32
+  %45 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %46 = load i32, ptr %45, align 8
   %47 = getelementptr inbounds nuw i8, ptr %43, i64 32
   %48 = load ptr, ptr %47, align 8
@@ -243042,7 +243042,7 @@ thread-pre-split.thread:                          ; preds = %_ZNK5clang6interp7P
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11)
   %63 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %64 = load ptr, ptr %63, align 8
-  %.phi.trans.insert.phi.trans.insert.i = getelementptr inbounds i8, ptr %3, i64 32
+  %.phi.trans.insert.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %3, i64 32
   %.pre.pre.i = load i32, ptr %.phi.trans.insert.phi.trans.insert.i, align 8
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 32
   %66 = load ptr, ptr %65, align 8
@@ -243072,7 +243072,7 @@ thread-pre-split:                                 ; preds = %37
 75:                                               ; preds = %thread-pre-split
   %76 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %77 = load i64, ptr %3, align 8
-  %78 = getelementptr inbounds i8, ptr %3, i64 32
+  %78 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %79 = load i64, ptr %78, align 8
   %80 = load ptr, ptr %76, align 8
   %.not.i.i = icmp eq ptr %80, null
@@ -243237,7 +243237,7 @@ _ZNK5clang6interp7Pointer8elemSizeEv.exit:        ; preds = %103, %105, %.sink.s
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %150, i8 0, i64 24, i1 false)
   store i32 1, ptr %152, align 8
   %153 = getelementptr inbounds nuw i8, ptr %150, i64 24
-  %154 = getelementptr inbounds i8, ptr %150, i64 32
+  %154 = getelementptr inbounds nuw i8, ptr %150, i64 32
   store i64 %149, ptr %154, align 8
   store ptr %151, ptr %153, align 8
   br label %356
@@ -243290,7 +243290,7 @@ _ZNK5clang6interp10IntegralAPILb0EEcvT_ImvEEv.exit70: ; preds = %_ZN4llvm5APIntD
   br i1 %171, label %172, label %177
 
 172:                                              ; preds = %_ZNK5clang6interp10IntegralAPILb0EEcvT_ImvEEv.exit70
-  %173 = getelementptr inbounds i8, ptr %3, i64 32
+  %173 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %174 = load i64, ptr %173, align 8
   %175 = load i64, ptr %3, align 8
   %176 = add i64 %175, %174
@@ -243464,7 +243464,7 @@ _ZNK5clang6interp7Pointer11getNumElemsEv.exit:    ; preds = %thread-pre-split, %
   ]
 
 262:                                              ; preds = %260
-  %263 = getelementptr inbounds i8, ptr %3, i64 32
+  %263 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %264 = load i64, ptr %263, align 8
   %265 = load ptr, ptr %259, align 8
   %.not.i.i.i = icmp eq ptr %265, null
@@ -243500,7 +243500,7 @@ _ZNK5clang6interp7Pointer6isZeroEv.exit.i:        ; preds = %258
   br i1 %281, label %_ZNK5clang6interp7Pointer8getIndexEv.exit, label %282
 
 282:                                              ; preds = %_ZNK5clang6interp7Pointer6isZeroEv.exit.i
-  %283 = getelementptr inbounds i8, ptr %3, i64 32
+  %283 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %284 = load i32, ptr %283, align 8
   %285 = icmp ugt i32 %284, 16
   %286 = zext i32 %284 to i64
@@ -243663,7 +243663,7 @@ _ZNK5clang6interp10IntegralAPILb0EEcvT_ImvEEv.exit100: ; preds = %_ZN4llvm5APInt
 
 351:                                              ; preds = %348
   %352 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %353 = getelementptr inbounds i8, ptr %3, i64 32
+  %353 = getelementptr inbounds nuw i8, ptr %3, i64 32
   call void @_ZN5clang6interp11InterpStack4pushINS0_7PointerEJRKPNS0_5BlockERKjEEEvDpOT0_(ptr noundef nonnull align 8 dereferenceable(16) %350, ptr noundef nonnull align 8 dereferenceable(8) %352, ptr noundef nonnull align 4 dereferenceable(4) %353)
   br label %356
 
@@ -243834,7 +243834,7 @@ _ZNK4llvm6APSIntmiERKS0_.exit:                    ; preds = %49, %54
   br i1 %82, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i
 
 _ZNK5clang6interp7Pointer6isRootEv.exit.i.i:      ; preds = %79
-  %83 = getelementptr inbounds i8, ptr %75, i64 32
+  %83 = getelementptr inbounds nuw i8, ptr %75, i64 32
   %84 = load i32, ptr %83, align 8
   %85 = getelementptr inbounds nuw i8, ptr %81, i64 32
   %86 = load ptr, ptr %85, align 8
@@ -244048,7 +244048,7 @@ _ZNK5clang6interp10IntegralAPILb1EE6isZeroEv.exit: ; preds = %4
   br i1 %44, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i
 
 _ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i:    ; preds = %41
-  %45 = getelementptr inbounds i8, ptr %3, i64 32
+  %45 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %46 = load i32, ptr %45, align 8
   %47 = getelementptr inbounds nuw i8, ptr %43, i64 32
   %48 = load ptr, ptr %47, align 8
@@ -244082,7 +244082,7 @@ thread-pre-split.thread:                          ; preds = %_ZNK5clang6interp7P
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11)
   %63 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %64 = load ptr, ptr %63, align 8
-  %.phi.trans.insert.phi.trans.insert.i = getelementptr inbounds i8, ptr %3, i64 32
+  %.phi.trans.insert.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %3, i64 32
   %.pre.pre.i = load i32, ptr %.phi.trans.insert.phi.trans.insert.i, align 8
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 32
   %66 = load ptr, ptr %65, align 8
@@ -244112,7 +244112,7 @@ thread-pre-split:                                 ; preds = %37
 75:                                               ; preds = %thread-pre-split
   %76 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %77 = load i64, ptr %3, align 8
-  %78 = getelementptr inbounds i8, ptr %3, i64 32
+  %78 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %79 = load i64, ptr %78, align 8
   %80 = load ptr, ptr %76, align 8
   %.not.i.i = icmp eq ptr %80, null
@@ -244277,7 +244277,7 @@ _ZNK5clang6interp7Pointer8elemSizeEv.exit:        ; preds = %103, %105, %.sink.s
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %150, i8 0, i64 24, i1 false)
   store i32 1, ptr %152, align 8
   %153 = getelementptr inbounds nuw i8, ptr %150, i64 24
-  %154 = getelementptr inbounds i8, ptr %150, i64 32
+  %154 = getelementptr inbounds nuw i8, ptr %150, i64 32
   store i64 %149, ptr %154, align 8
   store ptr %151, ptr %153, align 8
   br label %386
@@ -244330,7 +244330,7 @@ _ZNK5clang6interp10IntegralAPILb1EEcvT_ImvEEv.exit70: ; preds = %_ZN4llvm5APIntD
   br i1 %171, label %172, label %177
 
 172:                                              ; preds = %_ZNK5clang6interp10IntegralAPILb1EEcvT_ImvEEv.exit70
-  %173 = getelementptr inbounds i8, ptr %3, i64 32
+  %173 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %174 = load i64, ptr %173, align 8
   %175 = load i64, ptr %3, align 8
   %176 = add i64 %175, %174
@@ -244504,7 +244504,7 @@ _ZNK5clang6interp7Pointer11getNumElemsEv.exit:    ; preds = %thread-pre-split, %
   ]
 
 262:                                              ; preds = %260
-  %263 = getelementptr inbounds i8, ptr %3, i64 32
+  %263 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %264 = load i64, ptr %263, align 8
   %265 = load ptr, ptr %259, align 8
   %.not.i.i.i = icmp eq ptr %265, null
@@ -244540,7 +244540,7 @@ _ZNK5clang6interp7Pointer6isZeroEv.exit.i:        ; preds = %258
   br i1 %281, label %_ZNK5clang6interp7Pointer8getIndexEv.exit, label %282
 
 282:                                              ; preds = %_ZNK5clang6interp7Pointer6isZeroEv.exit.i
-  %283 = getelementptr inbounds i8, ptr %3, i64 32
+  %283 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %284 = load i32, ptr %283, align 8
   %285 = icmp ugt i32 %284, 16
   %286 = zext i32 %284 to i64
@@ -244764,7 +244764,7 @@ _ZNK5clang6interp10IntegralAPILb1EE5isMinEv.exit: ; preds = %356, %358
 
 381:                                              ; preds = %378
   %382 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %383 = getelementptr inbounds i8, ptr %3, i64 32
+  %383 = getelementptr inbounds nuw i8, ptr %3, i64 32
   call void @_ZN5clang6interp11InterpStack4pushINS0_7PointerEJRKPNS0_5BlockERKjEEEvDpOT0_(ptr noundef nonnull align 8 dereferenceable(16) %380, ptr noundef nonnull align 8 dereferenceable(8) %382, ptr noundef nonnull align 4 dereferenceable(4) %383)
   br label %386
 
@@ -244935,7 +244935,7 @@ _ZNK4llvm6APSIntmiERKS0_.exit:                    ; preds = %49, %54
   br i1 %82, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i
 
 _ZNK5clang6interp7Pointer6isRootEv.exit.i.i:      ; preds = %79
-  %83 = getelementptr inbounds i8, ptr %75, i64 32
+  %83 = getelementptr inbounds nuw i8, ptr %75, i64 32
   %84 = load i32, ptr %83, align 8
   %85 = getelementptr inbounds nuw i8, ptr %81, i64 32
   %86 = load ptr, ptr %85, align 8
@@ -245132,7 +245132,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang6interp12OffsetHelperINS0_7Bool
   br i1 %32, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i
 
 _ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i:    ; preds = %29
-  %33 = getelementptr inbounds i8, ptr %3, i64 32
+  %33 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %34 = load i32, ptr %33, align 8
   %35 = getelementptr inbounds nuw i8, ptr %31, i64 32
   %36 = load ptr, ptr %35, align 8
@@ -245166,7 +245166,7 @@ thread-pre-split.thread:                          ; preds = %_ZNK5clang6interp7P
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   %51 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %52 = load ptr, ptr %51, align 8
-  %.phi.trans.insert.phi.trans.insert.i = getelementptr inbounds i8, ptr %3, i64 32
+  %.phi.trans.insert.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %3, i64 32
   %.pre.pre.i = load i32, ptr %.phi.trans.insert.phi.trans.insert.i, align 8
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 32
   %54 = load ptr, ptr %53, align 8
@@ -245196,7 +245196,7 @@ thread-pre-split:                                 ; preds = %25
 63:                                               ; preds = %thread-pre-split
   %64 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %65 = load i64, ptr %3, align 8
-  %66 = getelementptr inbounds i8, ptr %3, i64 32
+  %66 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %67 = load i64, ptr %66, align 8
   %68 = load ptr, ptr %64, align 8
   %.not.i.i = icmp eq ptr %68, null
@@ -245226,7 +245226,7 @@ _ZNK5clang6interp7Pointer8elemSizeEv.exit:        ; preds = %63, %69
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %80, i8 0, i64 24, i1 false)
   store i32 1, ptr %82, align 8
   %83 = getelementptr inbounds nuw i8, ptr %80, i64 24
-  %84 = getelementptr inbounds i8, ptr %80, i64 32
+  %84 = getelementptr inbounds nuw i8, ptr %80, i64 32
   store i64 %79, ptr %84, align 8
   store ptr %81, ptr %83, align 8
   br label %253
@@ -245398,7 +245398,7 @@ _ZNK5clang6interp7Pointer11getNumElemsEv.exit:    ; preds = %thread-pre-split, %
   ]
 
 172:                                              ; preds = %170
-  %173 = getelementptr inbounds i8, ptr %3, i64 32
+  %173 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %174 = load i64, ptr %173, align 8
   %175 = load ptr, ptr %169, align 8
   %.not.i.i.i = icmp eq ptr %175, null
@@ -245434,7 +245434,7 @@ _ZNK5clang6interp7Pointer6isZeroEv.exit.i:        ; preds = %168
   br i1 %191, label %_ZNK5clang6interp7Pointer8getIndexEv.exit, label %192
 
 192:                                              ; preds = %_ZNK5clang6interp7Pointer6isZeroEv.exit.i
-  %193 = getelementptr inbounds i8, ptr %3, i64 32
+  %193 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %194 = load i32, ptr %193, align 8
   %195 = icmp ugt i32 %194, 16
   %196 = zext i32 %194 to i64
@@ -245556,7 +245556,7 @@ _ZNK5clang6interp7Pointer8getIndexEv.exit:        ; preds = %_ZNK5clang6interp7P
 
 248:                                              ; preds = %245
   %249 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %250 = getelementptr inbounds i8, ptr %3, i64 32
+  %250 = getelementptr inbounds nuw i8, ptr %3, i64 32
   call void @_ZN5clang6interp11InterpStack4pushINS0_7PointerEJRKPNS0_5BlockERKjEEEvDpOT0_(ptr noundef nonnull align 8 dereferenceable(16) %247, ptr noundef nonnull align 8 dereferenceable(8) %249, ptr noundef nonnull align 4 dereferenceable(4) %250)
   br label %253
 
@@ -245663,7 +245663,7 @@ _ZNK4llvm6APSIntmiERKS0_.exit:                    ; preds = %23, %20, %_ZN4llvm6
   br i1 %51, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i
 
 _ZNK5clang6interp7Pointer6isRootEv.exit.i.i:      ; preds = %48
-  %52 = getelementptr inbounds i8, ptr %44, i64 32
+  %52 = getelementptr inbounds nuw i8, ptr %44, i64 32
   %53 = load i32, ptr %52, align 8
   %54 = getelementptr inbounds nuw i8, ptr %50, i64 32
   %55 = load ptr, ptr %54, align 8

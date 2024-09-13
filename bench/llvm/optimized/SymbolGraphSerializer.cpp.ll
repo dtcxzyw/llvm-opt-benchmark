@@ -344,19 +344,19 @@ define dso_local noundef ptr @_ZN5clang10extractapi14ExtendedModule9addSymbolEON
   %9 = load ptr, ptr %1, align 8
   store ptr %9, ptr %8, align 8
   store ptr null, ptr %1, align 8
-  %10 = getelementptr inbounds i8, ptr %4, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %12 = load i32, ptr %10, align 4
   %13 = load i32, ptr %11, align 8
   store i32 %13, ptr %10, align 4
   store i32 %12, ptr %11, align 8
-  %14 = getelementptr inbounds i8, ptr %4, i64 20
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 20
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %16 = load i32, ptr %14, align 4
   %17 = load i32, ptr %15, align 4
   store i32 %17, ptr %14, align 4
   store i32 %16, ptr %15, align 4
-  %18 = getelementptr inbounds i8, ptr %4, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %20 = load i32, ptr %18, align 4
   %21 = load i32, ptr %19, align 8
@@ -384,9 +384,9 @@ _ZN4llvm4json5Array12emplace_backIJNS0_6ObjectEEEEvDpOT_.exit: ; preds = %7, %24
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN5clang10extractapi14ExtendedModule15addRelationshipEON4llvm4json6ObjectE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) local_unnamed_addr #0 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 32
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 40
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %6 = load ptr, ptr %5, align 8
   %.not.i.i = icmp eq ptr %4, %6
   br i1 %.not.i.i, label %24, label %7
@@ -398,19 +398,19 @@ define dso_local void @_ZN5clang10extractapi14ExtendedModule15addRelationshipEON
   %9 = load ptr, ptr %1, align 8
   store ptr %9, ptr %8, align 8
   store ptr null, ptr %1, align 8
-  %10 = getelementptr inbounds i8, ptr %4, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %12 = load i32, ptr %10, align 4
   %13 = load i32, ptr %11, align 8
   store i32 %13, ptr %10, align 4
   store i32 %12, ptr %11, align 8
-  %14 = getelementptr inbounds i8, ptr %4, i64 20
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 20
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %16 = load i32, ptr %14, align 4
   %17 = load i32, ptr %15, align 4
   store i32 %17, ptr %14, align 4
   store i32 %16, ptr %15, align 4
-  %18 = getelementptr inbounds i8, ptr %4, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %20 = load i32, ptr %18, align 4
   %21 = load i32, ptr %19, align 8
@@ -493,17 +493,17 @@ define internal fastcc void @_ZN12_GLOBAL__N_115serializeObjectERN4llvm4json6Obj
   %12 = load ptr, ptr %3, align 8
   store ptr %12, ptr %11, align 8
   store ptr null, ptr %3, align 8
-  %13 = getelementptr inbounds i8, ptr %5, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %15 = load i32, ptr %14, align 8
   store i32 %15, ptr %13, align 8
   store i32 0, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %5, i64 20
+  %16 = getelementptr inbounds nuw i8, ptr %5, i64 20
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 12
   %18 = load i32, ptr %17, align 4
   store i32 %18, ptr %16, align 4
   store i32 0, ptr %17, align 4
-  %19 = getelementptr inbounds i8, ptr %5, i64 24
+  %19 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %20 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %21 = load i32, ptr %20, align 8
   store i32 %21, ptr %19, align 8
@@ -814,7 +814,7 @@ _ZN4llvm4json9ObjectKeyD2Ev.exit15.i:             ; preds = %_ZNKSt14default_del
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7), !noalias !4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8), !noalias !4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %16, i8 0, i64 20, i1 false), !alias.scope !7, !noalias !4
-  %46 = getelementptr inbounds i8, ptr %24, i64 140
+  %46 = getelementptr inbounds nuw i8, ptr %24, i64 140
   %47 = load i32, ptr %46, align 4, !noalias !10
   %48 = call { ptr, i64 } @_ZN4llvm6Triple13getOSTypeNameENS0_6OSTypeE(i32 noundef %47) #16, !noalias !7
   %49 = extractvalue { ptr, i64 } %48, 0
@@ -870,17 +870,17 @@ _ZN12_GLOBAL__N_124serializeOperatingSystemERKN4llvm6TripleE.exit.i: ; preds = %
   %67 = load ptr, ptr %16, align 8, !noalias !4
   store ptr %67, ptr %66, align 8, !noalias !4
   store ptr null, ptr %16, align 8, !noalias !4
-  %68 = getelementptr inbounds i8, ptr %15, i64 16
+  %68 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %69 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %70 = load i32, ptr %69, align 8, !noalias !4
   store i32 %70, ptr %68, align 8, !noalias !4
   store i32 0, ptr %69, align 8, !noalias !4
-  %71 = getelementptr inbounds i8, ptr %15, i64 20
+  %71 = getelementptr inbounds nuw i8, ptr %15, i64 20
   %72 = getelementptr inbounds nuw i8, ptr %16, i64 12
   %73 = load i32, ptr %72, align 4, !noalias !4
   store i32 %73, ptr %71, align 4, !noalias !4
   store i32 0, ptr %72, align 4, !noalias !4
-  %74 = getelementptr inbounds i8, ptr %15, i64 24
+  %74 = getelementptr inbounds nuw i8, ptr %15, i64 24
   %75 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %76 = load i32, ptr %75, align 8, !noalias !4
   store i32 %76, ptr %74, align 8, !noalias !4
@@ -995,7 +995,7 @@ define dso_local noundef zeroext i1 @_ZNK5clang10extractapi21SymbolGraphSerializ
   br i1 %.not, label %_ZNK4llvm9StringRef11starts_withES0_.exit.thread, label %3
 
 3:                                                ; preds = %2
-  %4 = getelementptr inbounds i8, ptr %1, i64 226
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 226
   %5 = load i8, ptr %4, align 2
   %6 = trunc i8 %5 to i1
   br i1 %6, label %_ZNK4llvm9StringRef11starts_withES0_.exit.thread, label %7
@@ -1436,9 +1436,9 @@ _ZN4llvm4json9ObjectKeyD2Ev.exit52:               ; preds = %_ZN4llvm4json9Objec
   br i1 %137, label %138, label %160
 
 138:                                              ; preds = %_ZN4llvm4json9ObjectKeyD2Ev.exit52
-  %139 = getelementptr inbounds i8, ptr %0, i64 40
+  %139 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %140 = load ptr, ptr %139, align 8
-  %141 = getelementptr inbounds i8, ptr %0, i64 48
+  %141 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %142 = load ptr, ptr %141, align 8
   %.not.i.i.i = icmp eq ptr %140, %142
   br i1 %.not.i.i.i, label %158, label %143
@@ -1451,17 +1451,17 @@ _ZN4llvm4json9ObjectKeyD2Ev.exit52:               ; preds = %_ZN4llvm4json9Objec
   %146 = load ptr, ptr %8, align 8
   store ptr %146, ptr %144, align 8
   store ptr null, ptr %8, align 8
-  %147 = getelementptr inbounds i8, ptr %140, i64 16
+  %147 = getelementptr inbounds nuw i8, ptr %140, i64 16
   %148 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %149 = load i32, ptr %148, align 8
   store i32 %149, ptr %147, align 4
   store i32 0, ptr %148, align 8
-  %150 = getelementptr inbounds i8, ptr %140, i64 20
+  %150 = getelementptr inbounds nuw i8, ptr %140, i64 20
   %151 = getelementptr inbounds nuw i8, ptr %8, i64 12
   %152 = load i32, ptr %151, align 4
   store i32 %152, ptr %150, align 4
   store i32 0, ptr %151, align 4
-  %153 = getelementptr inbounds i8, ptr %140, i64 24
+  %153 = getelementptr inbounds nuw i8, ptr %140, i64 24
   %154 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %155 = load i32, ptr %154, align 8
   store i32 %155, ptr %153, align 4
@@ -1472,14 +1472,14 @@ _ZN4llvm4json9ObjectKeyD2Ev.exit52:               ; preds = %_ZN4llvm4json9Objec
   br label %_ZN5clang10extractapi14ExtendedModule15addRelationshipEON4llvm4json6ObjectE.exit
 
 158:                                              ; preds = %138
-  %159 = getelementptr inbounds i8, ptr %0, i64 32
+  %159 = getelementptr inbounds nuw i8, ptr %0, i64 32
   call void @_ZNSt6vectorIN4llvm4json5ValueESaIS2_EE17_M_realloc_insertIJNS1_6ObjectEEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %159, ptr %140, ptr noundef nonnull align 8 dereferenceable(24) %8)
   br label %_ZN5clang10extractapi14ExtendedModule15addRelationshipEON4llvm4json6ObjectE.exit
 
 160:                                              ; preds = %_ZN4llvm4json9ObjectKeyD2Ev.exit52
-  %161 = getelementptr inbounds i8, ptr %4, i64 32
+  %161 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %162 = load ptr, ptr %161, align 8
-  %163 = getelementptr inbounds i8, ptr %4, i64 40
+  %163 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %164 = load ptr, ptr %163, align 8
   %.not.i.i.i53 = icmp eq ptr %162, %164
   br i1 %.not.i.i.i53, label %180, label %165
@@ -1492,17 +1492,17 @@ _ZN4llvm4json9ObjectKeyD2Ev.exit52:               ; preds = %_ZN4llvm4json9Objec
   %168 = load ptr, ptr %8, align 8
   store ptr %168, ptr %166, align 8
   store ptr null, ptr %8, align 8
-  %169 = getelementptr inbounds i8, ptr %162, i64 16
+  %169 = getelementptr inbounds nuw i8, ptr %162, i64 16
   %170 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %171 = load i32, ptr %170, align 8
   store i32 %171, ptr %169, align 4
   store i32 0, ptr %170, align 8
-  %172 = getelementptr inbounds i8, ptr %162, i64 20
+  %172 = getelementptr inbounds nuw i8, ptr %162, i64 20
   %173 = getelementptr inbounds nuw i8, ptr %8, i64 12
   %174 = load i32, ptr %173, align 4
   store i32 %174, ptr %172, align 4
   store i32 0, ptr %173, align 4
-  %175 = getelementptr inbounds i8, ptr %162, i64 24
+  %175 = getelementptr inbounds nuw i8, ptr %162, i64 24
   %176 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %177 = load i32, ptr %176, align 8
   store i32 %177, ptr %175, align 4
@@ -2178,12 +2178,12 @@ _ZNSt8optionalIN4llvm4json6ObjectEED2Ev.exit28:   ; preds = %_ZN12_GLOBAL__N_123
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(51) %268, i8 0, i64 51, i1 false), !noalias !26
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %18), !noalias !26
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %19), !noalias !26
-  %269 = getelementptr inbounds i8, ptr %1, i64 176
-  %270 = getelementptr inbounds i8, ptr %1, i64 192
-  %271 = getelementptr inbounds i8, ptr %1, i64 208
-  %272 = getelementptr inbounds i8, ptr %1, i64 224
-  %273 = getelementptr inbounds i8, ptr %1, i64 225
-  %274 = getelementptr inbounds i8, ptr %1, i64 226
+  %269 = getelementptr inbounds nuw i8, ptr %1, i64 176
+  %270 = getelementptr inbounds nuw i8, ptr %1, i64 192
+  %271 = getelementptr inbounds nuw i8, ptr %1, i64 208
+  %272 = getelementptr inbounds nuw i8, ptr %1, i64 224
+  %273 = getelementptr inbounds nuw i8, ptr %1, i64 225
+  %274 = getelementptr inbounds nuw i8, ptr %1, i64 226
   store ptr %274, ptr %18, align 8, !alias.scope !29, !noalias !26
   %275 = getelementptr inbounds i8, ptr %18, i64 8
   store ptr %273, ptr %275, align 8, !alias.scope !29, !noalias !26
@@ -2291,12 +2291,12 @@ _ZN4llvm4json9ObjectKeyD2Ev.exit10.i:             ; preds = %_ZNKSt14default_del
   %314 = load i32, ptr %313, align 8, !noalias !26
   store i32 %314, ptr %310, align 4, !noalias !26
   store i32 0, ptr %313, align 8, !noalias !26
-  %315 = getelementptr inbounds i8, ptr %305, i64 20
+  %315 = getelementptr inbounds nuw i8, ptr %305, i64 20
   %316 = getelementptr inbounds nuw i8, ptr %22, i64 12
   %317 = load i32, ptr %316, align 4, !noalias !26
   store i32 %317, ptr %315, align 4, !noalias !26
   store i32 0, ptr %316, align 4, !noalias !26
-  %318 = getelementptr inbounds i8, ptr %305, i64 24
+  %318 = getelementptr inbounds nuw i8, ptr %305, i64 24
   %319 = getelementptr inbounds nuw i8, ptr %22, i64 16
   %320 = load i32, ptr %319, align 8, !noalias !26
   store i32 %320, ptr %318, align 4, !noalias !26
@@ -2466,12 +2466,12 @@ _ZNSt8optionalIN4llvm4json6ObjectEED2Ev.exit20.i: ; preds = %369, %_ZNSt8optiona
   %385 = load i32, ptr %384, align 8, !noalias !26
   store i32 %385, ptr %381, align 4, !noalias !26
   store i32 0, ptr %384, align 8, !noalias !26
-  %386 = getelementptr inbounds i8, ptr %376, i64 20
+  %386 = getelementptr inbounds nuw i8, ptr %376, i64 20
   %387 = getelementptr inbounds nuw i8, ptr %27, i64 12
   %388 = load i32, ptr %387, align 4, !noalias !26
   store i32 %388, ptr %386, align 4, !noalias !26
   store i32 0, ptr %387, align 4, !noalias !26
-  %389 = getelementptr inbounds i8, ptr %376, i64 24
+  %389 = getelementptr inbounds nuw i8, ptr %376, i64 24
   %390 = getelementptr inbounds nuw i8, ptr %27, i64 16
   %391 = load i32, ptr %390, align 8, !noalias !26
   store i32 %391, ptr %389, align 4, !noalias !26
@@ -2770,11 +2770,11 @@ _ZNSt8optionalIN4llvm4json6ObjectEED2Ev.exit.i37: ; preds = %494, %_ZN12_GLOBAL_
   %510 = load i32, ptr %450, align 8, !noalias !35
   store i32 %510, ptr %507, align 4, !noalias !35
   store i32 0, ptr %450, align 8, !noalias !35
-  %511 = getelementptr inbounds i8, ptr %503, i64 20
+  %511 = getelementptr inbounds nuw i8, ptr %503, i64 20
   %512 = load i32, ptr %451, align 4, !noalias !35
   store i32 %512, ptr %511, align 4, !noalias !35
   store i32 0, ptr %451, align 4, !noalias !35
-  %513 = getelementptr inbounds i8, ptr %503, i64 24
+  %513 = getelementptr inbounds nuw i8, ptr %503, i64 24
   %514 = load i32, ptr %452, align 8, !noalias !35
   store i32 %514, ptr %513, align 4, !noalias !35
   store i32 0, ptr %452, align 8, !noalias !35
@@ -2984,10 +2984,10 @@ _ZNK5clang10extractapi21SymbolGraphSerializer23serializePathComponentsEPKNS0_9AP
   store i16 8, ptr %70, align 8
   %592 = getelementptr inbounds nuw i8, ptr %70, i64 8
   store ptr %591, ptr %592, align 8
-  %593 = getelementptr inbounds i8, ptr %70, i64 16
+  %593 = getelementptr inbounds nuw i8, ptr %70, i64 16
   %594 = getelementptr inbounds nuw i8, ptr %71, i64 8
   store ptr %590, ptr %593, align 8
-  %595 = getelementptr inbounds i8, ptr %70, i64 24
+  %595 = getelementptr inbounds nuw i8, ptr %70, i64 24
   %596 = getelementptr inbounds nuw i8, ptr %71, i64 16
   store ptr %589, ptr %595, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %71, i8 0, i64 24, i1 false)
@@ -3098,17 +3098,17 @@ _ZN4llvm4json9ObjectKeyD2Ev.exit68:               ; preds = %_ZN4llvm4json5Array
   %636 = load ptr, ptr %56, align 8
   store ptr %636, ptr %634, align 8
   store ptr null, ptr %56, align 8
-  %637 = getelementptr inbounds i8, ptr %630, i64 16
+  %637 = getelementptr inbounds nuw i8, ptr %630, i64 16
   %638 = getelementptr inbounds nuw i8, ptr %56, i64 8
   %639 = load i32, ptr %638, align 8
   store i32 %639, ptr %637, align 4
   store i32 0, ptr %638, align 8
-  %640 = getelementptr inbounds i8, ptr %630, i64 20
+  %640 = getelementptr inbounds nuw i8, ptr %630, i64 20
   %641 = getelementptr inbounds nuw i8, ptr %56, i64 12
   %642 = load i32, ptr %641, align 4
   store i32 %642, ptr %640, align 4
   store i32 0, ptr %641, align 4
-  %643 = getelementptr inbounds i8, ptr %630, i64 24
+  %643 = getelementptr inbounds nuw i8, ptr %630, i64 24
   %644 = getelementptr inbounds nuw i8, ptr %56, i64 16
   %645 = load i32, ptr %644, align 8
   store i32 %645, ptr %643, align 4
@@ -3156,11 +3156,11 @@ define internal fastcc void @_ZN12_GLOBAL__N_114serializeArrayERN4llvm4json6Obje
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %12 = load ptr, ptr %3, align 8
   store ptr %12, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %5, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %15 = load ptr, ptr %14, align 8
   store ptr %15, ptr %13, align 8
-  %16 = getelementptr inbounds i8, ptr %5, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %18 = load ptr, ptr %17, align 8
   store ptr %18, ptr %16, align 8
@@ -3295,15 +3295,15 @@ _ZN4llvm4json9ObjectKeyD2Ev.exit13:               ; preds = %31, %_ZNKSt14defaul
   %40 = load ptr, ptr %3, align 8
   store ptr %40, ptr %38, align 8
   store ptr null, ptr %3, align 8
-  %41 = getelementptr inbounds i8, ptr %35, i64 16
+  %41 = getelementptr inbounds nuw i8, ptr %35, i64 16
   %42 = load i32, ptr %16, align 8
   store i32 %42, ptr %41, align 4
   store i32 0, ptr %16, align 8
-  %43 = getelementptr inbounds i8, ptr %35, i64 20
+  %43 = getelementptr inbounds nuw i8, ptr %35, i64 20
   %44 = load i32, ptr %17, align 4
   store i32 %44, ptr %43, align 4
   store i32 0, ptr %17, align 4
-  %45 = getelementptr inbounds i8, ptr %35, i64 24
+  %45 = getelementptr inbounds nuw i8, ptr %35, i64 24
   %46 = load i32, ptr %18, align 8
   store i32 %46, ptr %45, align 4
   store i32 0, ptr %18, align 8
@@ -3356,7 +3356,7 @@ define dso_local noundef zeroext i1 @_ZN5clang10extractapi21SymbolGraphSerialize
   br i1 %.not, label %_ZNK5clang10extractapi21SymbolGraphSerializer10shouldSkipEPKNS0_9APIRecordE.exit.thread, label %4
 
 4:                                                ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %1, i64 226
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 226
   %6 = load i8, ptr %5, align 2
   %7 = trunc i8 %6 to i1
   br i1 %7, label %_ZNK5clang10extractapi21SymbolGraphSerializer10shouldSkipEPKNS0_9APIRecordE.exit.thread, label %8
@@ -4671,10 +4671,10 @@ define dso_local noundef zeroext i1 @_ZN5clang10extractapi21SymbolGraphSerialize
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %13)
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 368
   %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %1, i64 376
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 376
   %20 = load ptr, ptr %19, align 8
   %21 = icmp eq ptr %18, %20
-  %22 = getelementptr inbounds i8, ptr %1, i64 392
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 392
   %23 = load ptr, ptr %22, align 8
   %24 = getelementptr inbounds i8, ptr %1, i64 400
   %25 = load ptr, ptr %24, align 8
@@ -4816,11 +4816,11 @@ _ZNSt8optionalIN4llvm4json5ArrayEED2Ev.exit20.i:  ; preds = %65, %_ZSt8_DestroyI
   %77 = load i32, ptr %51, align 8
   store i32 %77, ptr %74, align 4
   store i32 0, ptr %51, align 8
-  %78 = getelementptr inbounds i8, ptr %70, i64 20
+  %78 = getelementptr inbounds nuw i8, ptr %70, i64 20
   %79 = load i32, ptr %52, align 4
   store i32 %79, ptr %78, align 4
   store i32 0, ptr %52, align 4
-  %80 = getelementptr inbounds i8, ptr %70, i64 24
+  %80 = getelementptr inbounds nuw i8, ptr %70, i64 24
   %81 = load i32, ptr %53, align 8
   store i32 %81, ptr %80, align 4
   store i32 0, ptr %53, align 8
@@ -4854,9 +4854,9 @@ _ZN4llvm4json5Array12emplace_backIJNS0_6ObjectEEEEvDpOT_.exit.i: ; preds = %84, 
   store i16 8, ptr %11, align 8
   %92 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store ptr %.pre.i, ptr %92, align 8
-  %93 = getelementptr inbounds i8, ptr %11, i64 16
+  %93 = getelementptr inbounds nuw i8, ptr %11, i64 16
   store ptr %.pre35.i, ptr %93, align 8
-  %94 = getelementptr inbounds i8, ptr %11, i64 24
+  %94 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %95 = load ptr, ptr %50, align 8
   store ptr %95, ptr %94, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false)
@@ -5080,7 +5080,7 @@ define dso_local noundef zeroext i1 @_ZN5clang10extractapi21SymbolGraphSerialize
   br i1 %33, label %_ZNK5clang10extractapi8Template5emptyEv.exit.i, label %_ZNK5clang10extractapi8Template5emptyEv.exit.thread.i
 
 _ZNK5clang10extractapi8Template5emptyEv.exit.i:   ; preds = %31
-  %34 = getelementptr inbounds i8, ptr %1, i64 568
+  %34 = getelementptr inbounds nuw i8, ptr %1, i64 568
   %35 = tail call noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseIjE5emptyEv(ptr noundef nonnull align 8 dereferenceable(16) %34) #16
   br i1 %35, label %_ZN12_GLOBAL__N_122serializeTemplateMixinIN5clang10extractapi19ClassTemplateRecordEEEvRN4llvm4json6ObjectERKT_.exit, label %_ZNK5clang10extractapi8Template5emptyEv.exit.thread.i
 
@@ -5189,11 +5189,11 @@ _ZN4llvm4json9ObjectKeyD2Ev.exit30.i:             ; preds = %_ZNKSt14default_del
   %68 = load i32, ptr %44, align 8
   store i32 %68, ptr %65, align 4
   store i32 0, ptr %44, align 8
-  %69 = getelementptr inbounds i8, ptr %61, i64 20
+  %69 = getelementptr inbounds nuw i8, ptr %61, i64 20
   %70 = load i32, ptr %45, align 4
   store i32 %70, ptr %69, align 4
   store i32 0, ptr %45, align 4
-  %71 = getelementptr inbounds i8, ptr %61, i64 24
+  %71 = getelementptr inbounds nuw i8, ptr %61, i64 24
   %72 = load i32, ptr %46, align 8
   store i32 %72, ptr %71, align 4
   store i32 0, ptr %46, align 8
@@ -5227,9 +5227,9 @@ _ZN4llvm4json5Array12emplace_backIJNS0_6ObjectEEEEvDpOT_.exit.i: ; preds = %75, 
   store i16 8, ptr %13, align 8
   %83 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store ptr %.pre.i, ptr %83, align 8
-  %84 = getelementptr inbounds i8, ptr %13, i64 16
+  %84 = getelementptr inbounds nuw i8, ptr %13, i64 16
   store ptr %.pre65.i, ptr %84, align 8
-  %85 = getelementptr inbounds i8, ptr %13, i64 24
+  %85 = getelementptr inbounds nuw i8, ptr %13, i64 24
   %86 = load ptr, ptr %43, align 8
   store ptr %86, ptr %85, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
@@ -5254,7 +5254,7 @@ _ZN4llvm4json9ObjectKeyD2Ev.exit34.i:             ; preds = %_ZNKSt14default_del
 89:                                               ; preds = %_ZN4llvm4json9ObjectKeyD2Ev.exit34.i, %._crit_edge.i, %._crit_edge.thread.i
   %90 = phi ptr [ %39, %._crit_edge.thread.i ], [ %42, %_ZN4llvm4json9ObjectKeyD2Ev.exit34.i ], [ %42, %._crit_edge.i ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %15, i8 0, i64 24, i1 false)
-  %91 = getelementptr inbounds i8, ptr %1, i64 568
+  %91 = getelementptr inbounds nuw i8, ptr %1, i64 568
   %92 = load ptr, ptr %91, align 8
   %93 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %91) #16
   %94 = getelementptr inbounds %"struct.clang::extractapi::Template::TemplateConstraint", ptr %92, i64 %93
@@ -5349,11 +5349,11 @@ _ZN4llvm4json9ObjectKeyD2Ev.exit43.i:             ; preds = %_ZNKSt14default_del
   %117 = load i32, ptr %97, align 8
   store i32 %117, ptr %114, align 4
   store i32 0, ptr %97, align 8
-  %118 = getelementptr inbounds i8, ptr %110, i64 20
+  %118 = getelementptr inbounds nuw i8, ptr %110, i64 20
   %119 = load i32, ptr %98, align 4
   store i32 %119, ptr %118, align 4
   store i32 0, ptr %98, align 4
-  %120 = getelementptr inbounds i8, ptr %110, i64 24
+  %120 = getelementptr inbounds nuw i8, ptr %110, i64 24
   %121 = load i32, ptr %99, align 8
   store i32 %121, ptr %120, align 4
   store i32 0, ptr %99, align 8
@@ -5388,9 +5388,9 @@ _ZN4llvm4json5Array12emplace_backIJNS0_6ObjectEEEEvDpOT_.exit45.i: ; preds = %12
   store i16 8, ptr %26, align 8
   %135 = getelementptr inbounds nuw i8, ptr %26, i64 8
   store ptr %130, ptr %135, align 8
-  %136 = getelementptr inbounds i8, ptr %26, i64 16
+  %136 = getelementptr inbounds nuw i8, ptr %26, i64 16
   store ptr %132, ptr %136, align 8
-  %137 = getelementptr inbounds i8, ptr %26, i64 24
+  %137 = getelementptr inbounds nuw i8, ptr %26, i64 24
   %138 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %139 = load ptr, ptr %138, align 8
   store ptr %139, ptr %137, align 8
@@ -5627,7 +5627,7 @@ define dso_local noundef zeroext i1 @_ZN5clang10extractapi21SymbolGraphSerialize
   br i1 %33, label %_ZNK5clang10extractapi8Template5emptyEv.exit.i, label %_ZNK5clang10extractapi8Template5emptyEv.exit.thread.i
 
 _ZNK5clang10extractapi8Template5emptyEv.exit.i:   ; preds = %31
-  %34 = getelementptr inbounds i8, ptr %1, i64 568
+  %34 = getelementptr inbounds nuw i8, ptr %1, i64 568
   %35 = tail call noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseIjE5emptyEv(ptr noundef nonnull align 8 dereferenceable(16) %34) #16
   br i1 %35, label %_ZN12_GLOBAL__N_122serializeTemplateMixinIN5clang10extractapi40ClassTemplatePartialSpecializationRecordEEEvRN4llvm4json6ObjectERKT_.exit, label %_ZNK5clang10extractapi8Template5emptyEv.exit.thread.i
 
@@ -5736,11 +5736,11 @@ _ZN4llvm4json9ObjectKeyD2Ev.exit30.i:             ; preds = %_ZNKSt14default_del
   %68 = load i32, ptr %44, align 8
   store i32 %68, ptr %65, align 4
   store i32 0, ptr %44, align 8
-  %69 = getelementptr inbounds i8, ptr %61, i64 20
+  %69 = getelementptr inbounds nuw i8, ptr %61, i64 20
   %70 = load i32, ptr %45, align 4
   store i32 %70, ptr %69, align 4
   store i32 0, ptr %45, align 4
-  %71 = getelementptr inbounds i8, ptr %61, i64 24
+  %71 = getelementptr inbounds nuw i8, ptr %61, i64 24
   %72 = load i32, ptr %46, align 8
   store i32 %72, ptr %71, align 4
   store i32 0, ptr %46, align 8
@@ -5774,9 +5774,9 @@ _ZN4llvm4json5Array12emplace_backIJNS0_6ObjectEEEEvDpOT_.exit.i: ; preds = %75, 
   store i16 8, ptr %13, align 8
   %83 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store ptr %.pre.i, ptr %83, align 8
-  %84 = getelementptr inbounds i8, ptr %13, i64 16
+  %84 = getelementptr inbounds nuw i8, ptr %13, i64 16
   store ptr %.pre65.i, ptr %84, align 8
-  %85 = getelementptr inbounds i8, ptr %13, i64 24
+  %85 = getelementptr inbounds nuw i8, ptr %13, i64 24
   %86 = load ptr, ptr %43, align 8
   store ptr %86, ptr %85, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
@@ -5801,7 +5801,7 @@ _ZN4llvm4json9ObjectKeyD2Ev.exit34.i:             ; preds = %_ZNKSt14default_del
 89:                                               ; preds = %_ZN4llvm4json9ObjectKeyD2Ev.exit34.i, %._crit_edge.i, %._crit_edge.thread.i
   %90 = phi ptr [ %39, %._crit_edge.thread.i ], [ %42, %_ZN4llvm4json9ObjectKeyD2Ev.exit34.i ], [ %42, %._crit_edge.i ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %15, i8 0, i64 24, i1 false)
-  %91 = getelementptr inbounds i8, ptr %1, i64 568
+  %91 = getelementptr inbounds nuw i8, ptr %1, i64 568
   %92 = load ptr, ptr %91, align 8
   %93 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %91) #16
   %94 = getelementptr inbounds %"struct.clang::extractapi::Template::TemplateConstraint", ptr %92, i64 %93
@@ -5896,11 +5896,11 @@ _ZN4llvm4json9ObjectKeyD2Ev.exit43.i:             ; preds = %_ZNKSt14default_del
   %117 = load i32, ptr %97, align 8
   store i32 %117, ptr %114, align 4
   store i32 0, ptr %97, align 8
-  %118 = getelementptr inbounds i8, ptr %110, i64 20
+  %118 = getelementptr inbounds nuw i8, ptr %110, i64 20
   %119 = load i32, ptr %98, align 4
   store i32 %119, ptr %118, align 4
   store i32 0, ptr %98, align 4
-  %120 = getelementptr inbounds i8, ptr %110, i64 24
+  %120 = getelementptr inbounds nuw i8, ptr %110, i64 24
   %121 = load i32, ptr %99, align 8
   store i32 %121, ptr %120, align 4
   store i32 0, ptr %99, align 8
@@ -5935,9 +5935,9 @@ _ZN4llvm4json5Array12emplace_backIJNS0_6ObjectEEEEvDpOT_.exit45.i: ; preds = %12
   store i16 8, ptr %26, align 8
   %135 = getelementptr inbounds nuw i8, ptr %26, i64 8
   store ptr %130, ptr %135, align 8
-  %136 = getelementptr inbounds i8, ptr %26, i64 16
+  %136 = getelementptr inbounds nuw i8, ptr %26, i64 16
   store ptr %132, ptr %136, align 8
-  %137 = getelementptr inbounds i8, ptr %26, i64 24
+  %137 = getelementptr inbounds nuw i8, ptr %26, i64 24
   %138 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %139 = load ptr, ptr %138, align 8
   store ptr %139, ptr %137, align 8
@@ -6141,10 +6141,10 @@ define dso_local noundef zeroext i1 @_ZN5clang10extractapi21SymbolGraphSerialize
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %13)
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 368
   %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %1, i64 376
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 376
   %20 = load ptr, ptr %19, align 8
   %21 = icmp eq ptr %18, %20
-  %22 = getelementptr inbounds i8, ptr %1, i64 392
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 392
   %23 = load ptr, ptr %22, align 8
   %24 = getelementptr inbounds i8, ptr %1, i64 400
   %25 = load ptr, ptr %24, align 8
@@ -6286,11 +6286,11 @@ _ZNSt8optionalIN4llvm4json5ArrayEED2Ev.exit20.i:  ; preds = %65, %_ZSt8_DestroyI
   %77 = load i32, ptr %51, align 8
   store i32 %77, ptr %74, align 4
   store i32 0, ptr %51, align 8
-  %78 = getelementptr inbounds i8, ptr %70, i64 20
+  %78 = getelementptr inbounds nuw i8, ptr %70, i64 20
   %79 = load i32, ptr %52, align 4
   store i32 %79, ptr %78, align 4
   store i32 0, ptr %52, align 4
-  %80 = getelementptr inbounds i8, ptr %70, i64 24
+  %80 = getelementptr inbounds nuw i8, ptr %70, i64 24
   %81 = load i32, ptr %53, align 8
   store i32 %81, ptr %80, align 4
   store i32 0, ptr %53, align 8
@@ -6324,9 +6324,9 @@ _ZN4llvm4json5Array12emplace_backIJNS0_6ObjectEEEEvDpOT_.exit.i: ; preds = %84, 
   store i16 8, ptr %11, align 8
   %92 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store ptr %.pre.i, ptr %92, align 8
-  %93 = getelementptr inbounds i8, ptr %11, i64 16
+  %93 = getelementptr inbounds nuw i8, ptr %11, i64 16
   store ptr %.pre35.i, ptr %93, align 8
-  %94 = getelementptr inbounds i8, ptr %11, i64 24
+  %94 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %95 = load ptr, ptr %50, align 8
   store ptr %95, ptr %94, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false)
@@ -6508,7 +6508,7 @@ define dso_local noundef zeroext i1 @_ZN5clang10extractapi21SymbolGraphSerialize
   br i1 %33, label %_ZNK5clang10extractapi8Template5emptyEv.exit.i, label %_ZNK5clang10extractapi8Template5emptyEv.exit.thread.i
 
 _ZNK5clang10extractapi8Template5emptyEv.exit.i:   ; preds = %31
-  %34 = getelementptr inbounds i8, ptr %1, i64 512
+  %34 = getelementptr inbounds nuw i8, ptr %1, i64 512
   %35 = tail call noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseIjE5emptyEv(ptr noundef nonnull align 8 dereferenceable(16) %34) #16
   br i1 %35, label %_ZN12_GLOBAL__N_122serializeTemplateMixinIN5clang10extractapi23CXXMethodTemplateRecordEEEvRN4llvm4json6ObjectERKT_.exit, label %_ZNK5clang10extractapi8Template5emptyEv.exit.thread.i
 
@@ -6617,11 +6617,11 @@ _ZN4llvm4json9ObjectKeyD2Ev.exit30.i:             ; preds = %_ZNKSt14default_del
   %68 = load i32, ptr %44, align 8
   store i32 %68, ptr %65, align 4
   store i32 0, ptr %44, align 8
-  %69 = getelementptr inbounds i8, ptr %61, i64 20
+  %69 = getelementptr inbounds nuw i8, ptr %61, i64 20
   %70 = load i32, ptr %45, align 4
   store i32 %70, ptr %69, align 4
   store i32 0, ptr %45, align 4
-  %71 = getelementptr inbounds i8, ptr %61, i64 24
+  %71 = getelementptr inbounds nuw i8, ptr %61, i64 24
   %72 = load i32, ptr %46, align 8
   store i32 %72, ptr %71, align 4
   store i32 0, ptr %46, align 8
@@ -6655,9 +6655,9 @@ _ZN4llvm4json5Array12emplace_backIJNS0_6ObjectEEEEvDpOT_.exit.i: ; preds = %75, 
   store i16 8, ptr %13, align 8
   %83 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store ptr %.pre.i, ptr %83, align 8
-  %84 = getelementptr inbounds i8, ptr %13, i64 16
+  %84 = getelementptr inbounds nuw i8, ptr %13, i64 16
   store ptr %.pre65.i, ptr %84, align 8
-  %85 = getelementptr inbounds i8, ptr %13, i64 24
+  %85 = getelementptr inbounds nuw i8, ptr %13, i64 24
   %86 = load ptr, ptr %43, align 8
   store ptr %86, ptr %85, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
@@ -6682,7 +6682,7 @@ _ZN4llvm4json9ObjectKeyD2Ev.exit34.i:             ; preds = %_ZNKSt14default_del
 89:                                               ; preds = %_ZN4llvm4json9ObjectKeyD2Ev.exit34.i, %._crit_edge.i, %._crit_edge.thread.i
   %90 = phi ptr [ %39, %._crit_edge.thread.i ], [ %42, %_ZN4llvm4json9ObjectKeyD2Ev.exit34.i ], [ %42, %._crit_edge.i ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %15, i8 0, i64 24, i1 false)
-  %91 = getelementptr inbounds i8, ptr %1, i64 512
+  %91 = getelementptr inbounds nuw i8, ptr %1, i64 512
   %92 = load ptr, ptr %91, align 8
   %93 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %91) #16
   %94 = getelementptr inbounds %"struct.clang::extractapi::Template::TemplateConstraint", ptr %92, i64 %93
@@ -6777,11 +6777,11 @@ _ZN4llvm4json9ObjectKeyD2Ev.exit43.i:             ; preds = %_ZNKSt14default_del
   %117 = load i32, ptr %97, align 8
   store i32 %117, ptr %114, align 4
   store i32 0, ptr %97, align 8
-  %118 = getelementptr inbounds i8, ptr %110, i64 20
+  %118 = getelementptr inbounds nuw i8, ptr %110, i64 20
   %119 = load i32, ptr %98, align 4
   store i32 %119, ptr %118, align 4
   store i32 0, ptr %98, align 4
-  %120 = getelementptr inbounds i8, ptr %110, i64 24
+  %120 = getelementptr inbounds nuw i8, ptr %110, i64 24
   %121 = load i32, ptr %99, align 8
   store i32 %121, ptr %120, align 4
   store i32 0, ptr %99, align 8
@@ -6816,9 +6816,9 @@ _ZN4llvm4json5Array12emplace_backIJNS0_6ObjectEEEEvDpOT_.exit45.i: ; preds = %12
   store i16 8, ptr %26, align 8
   %135 = getelementptr inbounds nuw i8, ptr %26, i64 8
   store ptr %130, ptr %135, align 8
-  %136 = getelementptr inbounds i8, ptr %26, i64 16
+  %136 = getelementptr inbounds nuw i8, ptr %26, i64 16
   store ptr %132, ptr %136, align 8
-  %137 = getelementptr inbounds i8, ptr %26, i64 24
+  %137 = getelementptr inbounds nuw i8, ptr %26, i64 24
   %138 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %139 = load ptr, ptr %138, align 8
   store ptr %139, ptr %137, align 8
@@ -7055,7 +7055,7 @@ define dso_local noundef zeroext i1 @_ZN5clang10extractapi21SymbolGraphSerialize
   br i1 %33, label %_ZNK5clang10extractapi8Template5emptyEv.exit.i, label %_ZNK5clang10extractapi8Template5emptyEv.exit.thread.i
 
 _ZNK5clang10extractapi8Template5emptyEv.exit.i:   ; preds = %31
-  %34 = getelementptr inbounds i8, ptr %1, i64 488
+  %34 = getelementptr inbounds nuw i8, ptr %1, i64 488
   %35 = tail call noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseIjE5emptyEv(ptr noundef nonnull align 8 dereferenceable(16) %34) #16
   br i1 %35, label %_ZN12_GLOBAL__N_122serializeTemplateMixinIN5clang10extractapi22CXXFieldTemplateRecordEEEvRN4llvm4json6ObjectERKT_.exit, label %_ZNK5clang10extractapi8Template5emptyEv.exit.thread.i
 
@@ -7164,11 +7164,11 @@ _ZN4llvm4json9ObjectKeyD2Ev.exit30.i:             ; preds = %_ZNKSt14default_del
   %68 = load i32, ptr %44, align 8
   store i32 %68, ptr %65, align 4
   store i32 0, ptr %44, align 8
-  %69 = getelementptr inbounds i8, ptr %61, i64 20
+  %69 = getelementptr inbounds nuw i8, ptr %61, i64 20
   %70 = load i32, ptr %45, align 4
   store i32 %70, ptr %69, align 4
   store i32 0, ptr %45, align 4
-  %71 = getelementptr inbounds i8, ptr %61, i64 24
+  %71 = getelementptr inbounds nuw i8, ptr %61, i64 24
   %72 = load i32, ptr %46, align 8
   store i32 %72, ptr %71, align 4
   store i32 0, ptr %46, align 8
@@ -7202,9 +7202,9 @@ _ZN4llvm4json5Array12emplace_backIJNS0_6ObjectEEEEvDpOT_.exit.i: ; preds = %75, 
   store i16 8, ptr %13, align 8
   %83 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store ptr %.pre.i, ptr %83, align 8
-  %84 = getelementptr inbounds i8, ptr %13, i64 16
+  %84 = getelementptr inbounds nuw i8, ptr %13, i64 16
   store ptr %.pre65.i, ptr %84, align 8
-  %85 = getelementptr inbounds i8, ptr %13, i64 24
+  %85 = getelementptr inbounds nuw i8, ptr %13, i64 24
   %86 = load ptr, ptr %43, align 8
   store ptr %86, ptr %85, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
@@ -7229,7 +7229,7 @@ _ZN4llvm4json9ObjectKeyD2Ev.exit34.i:             ; preds = %_ZNKSt14default_del
 89:                                               ; preds = %_ZN4llvm4json9ObjectKeyD2Ev.exit34.i, %._crit_edge.i, %._crit_edge.thread.i
   %90 = phi ptr [ %39, %._crit_edge.thread.i ], [ %42, %_ZN4llvm4json9ObjectKeyD2Ev.exit34.i ], [ %42, %._crit_edge.i ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %15, i8 0, i64 24, i1 false)
-  %91 = getelementptr inbounds i8, ptr %1, i64 488
+  %91 = getelementptr inbounds nuw i8, ptr %1, i64 488
   %92 = load ptr, ptr %91, align 8
   %93 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %91) #16
   %94 = getelementptr inbounds %"struct.clang::extractapi::Template::TemplateConstraint", ptr %92, i64 %93
@@ -7324,11 +7324,11 @@ _ZN4llvm4json9ObjectKeyD2Ev.exit43.i:             ; preds = %_ZNKSt14default_del
   %117 = load i32, ptr %97, align 8
   store i32 %117, ptr %114, align 4
   store i32 0, ptr %97, align 8
-  %118 = getelementptr inbounds i8, ptr %110, i64 20
+  %118 = getelementptr inbounds nuw i8, ptr %110, i64 20
   %119 = load i32, ptr %98, align 4
   store i32 %119, ptr %118, align 4
   store i32 0, ptr %98, align 4
-  %120 = getelementptr inbounds i8, ptr %110, i64 24
+  %120 = getelementptr inbounds nuw i8, ptr %110, i64 24
   %121 = load i32, ptr %99, align 8
   store i32 %121, ptr %120, align 4
   store i32 0, ptr %99, align 8
@@ -7363,9 +7363,9 @@ _ZN4llvm4json5Array12emplace_backIJNS0_6ObjectEEEEvDpOT_.exit45.i: ; preds = %12
   store i16 8, ptr %26, align 8
   %135 = getelementptr inbounds nuw i8, ptr %26, i64 8
   store ptr %130, ptr %135, align 8
-  %136 = getelementptr inbounds i8, ptr %26, i64 16
+  %136 = getelementptr inbounds nuw i8, ptr %26, i64 16
   store ptr %132, ptr %136, align 8
-  %137 = getelementptr inbounds i8, ptr %26, i64 24
+  %137 = getelementptr inbounds nuw i8, ptr %26, i64 24
   %138 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %139 = load ptr, ptr %138, align 8
   store ptr %139, ptr %137, align 8
@@ -7602,7 +7602,7 @@ define dso_local noundef zeroext i1 @_ZN5clang10extractapi21SymbolGraphSerialize
   br i1 %33, label %_ZNK5clang10extractapi8Template5emptyEv.exit.i, label %_ZNK5clang10extractapi8Template5emptyEv.exit.thread.i
 
 _ZNK5clang10extractapi8Template5emptyEv.exit.i:   ; preds = %31
-  %34 = getelementptr inbounds i8, ptr %1, i64 464
+  %34 = getelementptr inbounds nuw i8, ptr %1, i64 464
   %35 = tail call noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseIjE5emptyEv(ptr noundef nonnull align 8 dereferenceable(16) %34) #16
   br i1 %35, label %_ZN12_GLOBAL__N_122serializeTemplateMixinIN5clang10extractapi13ConceptRecordEEEvRN4llvm4json6ObjectERKT_.exit, label %_ZNK5clang10extractapi8Template5emptyEv.exit.thread.i
 
@@ -7711,11 +7711,11 @@ _ZN4llvm4json9ObjectKeyD2Ev.exit30.i:             ; preds = %_ZNKSt14default_del
   %68 = load i32, ptr %44, align 8
   store i32 %68, ptr %65, align 4
   store i32 0, ptr %44, align 8
-  %69 = getelementptr inbounds i8, ptr %61, i64 20
+  %69 = getelementptr inbounds nuw i8, ptr %61, i64 20
   %70 = load i32, ptr %45, align 4
   store i32 %70, ptr %69, align 4
   store i32 0, ptr %45, align 4
-  %71 = getelementptr inbounds i8, ptr %61, i64 24
+  %71 = getelementptr inbounds nuw i8, ptr %61, i64 24
   %72 = load i32, ptr %46, align 8
   store i32 %72, ptr %71, align 4
   store i32 0, ptr %46, align 8
@@ -7749,9 +7749,9 @@ _ZN4llvm4json5Array12emplace_backIJNS0_6ObjectEEEEvDpOT_.exit.i: ; preds = %75, 
   store i16 8, ptr %13, align 8
   %83 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store ptr %.pre.i, ptr %83, align 8
-  %84 = getelementptr inbounds i8, ptr %13, i64 16
+  %84 = getelementptr inbounds nuw i8, ptr %13, i64 16
   store ptr %.pre65.i, ptr %84, align 8
-  %85 = getelementptr inbounds i8, ptr %13, i64 24
+  %85 = getelementptr inbounds nuw i8, ptr %13, i64 24
   %86 = load ptr, ptr %43, align 8
   store ptr %86, ptr %85, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
@@ -7776,7 +7776,7 @@ _ZN4llvm4json9ObjectKeyD2Ev.exit34.i:             ; preds = %_ZNKSt14default_del
 89:                                               ; preds = %_ZN4llvm4json9ObjectKeyD2Ev.exit34.i, %._crit_edge.i, %._crit_edge.thread.i
   %90 = phi ptr [ %39, %._crit_edge.thread.i ], [ %42, %_ZN4llvm4json9ObjectKeyD2Ev.exit34.i ], [ %42, %._crit_edge.i ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %15, i8 0, i64 24, i1 false)
-  %91 = getelementptr inbounds i8, ptr %1, i64 464
+  %91 = getelementptr inbounds nuw i8, ptr %1, i64 464
   %92 = load ptr, ptr %91, align 8
   %93 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %91) #16
   %94 = getelementptr inbounds %"struct.clang::extractapi::Template::TemplateConstraint", ptr %92, i64 %93
@@ -7871,11 +7871,11 @@ _ZN4llvm4json9ObjectKeyD2Ev.exit43.i:             ; preds = %_ZNKSt14default_del
   %117 = load i32, ptr %97, align 8
   store i32 %117, ptr %114, align 4
   store i32 0, ptr %97, align 8
-  %118 = getelementptr inbounds i8, ptr %110, i64 20
+  %118 = getelementptr inbounds nuw i8, ptr %110, i64 20
   %119 = load i32, ptr %98, align 4
   store i32 %119, ptr %118, align 4
   store i32 0, ptr %98, align 4
-  %120 = getelementptr inbounds i8, ptr %110, i64 24
+  %120 = getelementptr inbounds nuw i8, ptr %110, i64 24
   %121 = load i32, ptr %99, align 8
   store i32 %121, ptr %120, align 4
   store i32 0, ptr %99, align 8
@@ -7910,9 +7910,9 @@ _ZN4llvm4json5Array12emplace_backIJNS0_6ObjectEEEEvDpOT_.exit45.i: ; preds = %12
   store i16 8, ptr %26, align 8
   %135 = getelementptr inbounds nuw i8, ptr %26, i64 8
   store ptr %130, ptr %135, align 8
-  %136 = getelementptr inbounds i8, ptr %26, i64 16
+  %136 = getelementptr inbounds nuw i8, ptr %26, i64 16
   store ptr %132, ptr %136, align 8
-  %137 = getelementptr inbounds i8, ptr %26, i64 24
+  %137 = getelementptr inbounds nuw i8, ptr %26, i64 24
   %138 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %139 = load ptr, ptr %138, align 8
   store ptr %139, ptr %137, align 8
@@ -8149,7 +8149,7 @@ define dso_local noundef zeroext i1 @_ZN5clang10extractapi21SymbolGraphSerialize
   br i1 %33, label %_ZNK5clang10extractapi8Template5emptyEv.exit.i, label %_ZNK5clang10extractapi8Template5emptyEv.exit.thread.i
 
 _ZNK5clang10extractapi8Template5emptyEv.exit.i:   ; preds = %31
-  %34 = getelementptr inbounds i8, ptr %1, i64 488
+  %34 = getelementptr inbounds nuw i8, ptr %1, i64 488
   %35 = tail call noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseIjE5emptyEv(ptr noundef nonnull align 8 dereferenceable(16) %34) #16
   br i1 %35, label %_ZN12_GLOBAL__N_122serializeTemplateMixinIN5clang10extractapi28GlobalVariableTemplateRecordEEEvRN4llvm4json6ObjectERKT_.exit, label %_ZNK5clang10extractapi8Template5emptyEv.exit.thread.i
 
@@ -8258,11 +8258,11 @@ _ZN4llvm4json9ObjectKeyD2Ev.exit30.i:             ; preds = %_ZNKSt14default_del
   %68 = load i32, ptr %44, align 8
   store i32 %68, ptr %65, align 4
   store i32 0, ptr %44, align 8
-  %69 = getelementptr inbounds i8, ptr %61, i64 20
+  %69 = getelementptr inbounds nuw i8, ptr %61, i64 20
   %70 = load i32, ptr %45, align 4
   store i32 %70, ptr %69, align 4
   store i32 0, ptr %45, align 4
-  %71 = getelementptr inbounds i8, ptr %61, i64 24
+  %71 = getelementptr inbounds nuw i8, ptr %61, i64 24
   %72 = load i32, ptr %46, align 8
   store i32 %72, ptr %71, align 4
   store i32 0, ptr %46, align 8
@@ -8296,9 +8296,9 @@ _ZN4llvm4json5Array12emplace_backIJNS0_6ObjectEEEEvDpOT_.exit.i: ; preds = %75, 
   store i16 8, ptr %13, align 8
   %83 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store ptr %.pre.i, ptr %83, align 8
-  %84 = getelementptr inbounds i8, ptr %13, i64 16
+  %84 = getelementptr inbounds nuw i8, ptr %13, i64 16
   store ptr %.pre65.i, ptr %84, align 8
-  %85 = getelementptr inbounds i8, ptr %13, i64 24
+  %85 = getelementptr inbounds nuw i8, ptr %13, i64 24
   %86 = load ptr, ptr %43, align 8
   store ptr %86, ptr %85, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
@@ -8323,7 +8323,7 @@ _ZN4llvm4json9ObjectKeyD2Ev.exit34.i:             ; preds = %_ZNKSt14default_del
 89:                                               ; preds = %_ZN4llvm4json9ObjectKeyD2Ev.exit34.i, %._crit_edge.i, %._crit_edge.thread.i
   %90 = phi ptr [ %39, %._crit_edge.thread.i ], [ %42, %_ZN4llvm4json9ObjectKeyD2Ev.exit34.i ], [ %42, %._crit_edge.i ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %15, i8 0, i64 24, i1 false)
-  %91 = getelementptr inbounds i8, ptr %1, i64 488
+  %91 = getelementptr inbounds nuw i8, ptr %1, i64 488
   %92 = load ptr, ptr %91, align 8
   %93 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %91) #16
   %94 = getelementptr inbounds %"struct.clang::extractapi::Template::TemplateConstraint", ptr %92, i64 %93
@@ -8418,11 +8418,11 @@ _ZN4llvm4json9ObjectKeyD2Ev.exit43.i:             ; preds = %_ZNKSt14default_del
   %117 = load i32, ptr %97, align 8
   store i32 %117, ptr %114, align 4
   store i32 0, ptr %97, align 8
-  %118 = getelementptr inbounds i8, ptr %110, i64 20
+  %118 = getelementptr inbounds nuw i8, ptr %110, i64 20
   %119 = load i32, ptr %98, align 4
   store i32 %119, ptr %118, align 4
   store i32 0, ptr %98, align 4
-  %120 = getelementptr inbounds i8, ptr %110, i64 24
+  %120 = getelementptr inbounds nuw i8, ptr %110, i64 24
   %121 = load i32, ptr %99, align 8
   store i32 %121, ptr %120, align 4
   store i32 0, ptr %99, align 8
@@ -8457,9 +8457,9 @@ _ZN4llvm4json5Array12emplace_backIJNS0_6ObjectEEEEvDpOT_.exit45.i: ; preds = %12
   store i16 8, ptr %26, align 8
   %135 = getelementptr inbounds nuw i8, ptr %26, i64 8
   store ptr %130, ptr %135, align 8
-  %136 = getelementptr inbounds i8, ptr %26, i64 16
+  %136 = getelementptr inbounds nuw i8, ptr %26, i64 16
   store ptr %132, ptr %136, align 8
-  %137 = getelementptr inbounds i8, ptr %26, i64 24
+  %137 = getelementptr inbounds nuw i8, ptr %26, i64 24
   %138 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %139 = load ptr, ptr %138, align 8
   store ptr %139, ptr %137, align 8
@@ -8696,7 +8696,7 @@ define dso_local noundef zeroext i1 @_ZN5clang10extractapi21SymbolGraphSerialize
   br i1 %33, label %_ZNK5clang10extractapi8Template5emptyEv.exit.i, label %_ZNK5clang10extractapi8Template5emptyEv.exit.thread.i
 
 _ZNK5clang10extractapi8Template5emptyEv.exit.i:   ; preds = %31
-  %34 = getelementptr inbounds i8, ptr %1, i64 488
+  %34 = getelementptr inbounds nuw i8, ptr %1, i64 488
   %35 = tail call noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseIjE5emptyEv(ptr noundef nonnull align 8 dereferenceable(16) %34) #16
   br i1 %35, label %_ZN12_GLOBAL__N_122serializeTemplateMixinIN5clang10extractapi49GlobalVariableTemplatePartialSpecializationRecordEEEvRN4llvm4json6ObjectERKT_.exit, label %_ZNK5clang10extractapi8Template5emptyEv.exit.thread.i
 
@@ -8805,11 +8805,11 @@ _ZN4llvm4json9ObjectKeyD2Ev.exit30.i:             ; preds = %_ZNKSt14default_del
   %68 = load i32, ptr %44, align 8
   store i32 %68, ptr %65, align 4
   store i32 0, ptr %44, align 8
-  %69 = getelementptr inbounds i8, ptr %61, i64 20
+  %69 = getelementptr inbounds nuw i8, ptr %61, i64 20
   %70 = load i32, ptr %45, align 4
   store i32 %70, ptr %69, align 4
   store i32 0, ptr %45, align 4
-  %71 = getelementptr inbounds i8, ptr %61, i64 24
+  %71 = getelementptr inbounds nuw i8, ptr %61, i64 24
   %72 = load i32, ptr %46, align 8
   store i32 %72, ptr %71, align 4
   store i32 0, ptr %46, align 8
@@ -8843,9 +8843,9 @@ _ZN4llvm4json5Array12emplace_backIJNS0_6ObjectEEEEvDpOT_.exit.i: ; preds = %75, 
   store i16 8, ptr %13, align 8
   %83 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store ptr %.pre.i, ptr %83, align 8
-  %84 = getelementptr inbounds i8, ptr %13, i64 16
+  %84 = getelementptr inbounds nuw i8, ptr %13, i64 16
   store ptr %.pre65.i, ptr %84, align 8
-  %85 = getelementptr inbounds i8, ptr %13, i64 24
+  %85 = getelementptr inbounds nuw i8, ptr %13, i64 24
   %86 = load ptr, ptr %43, align 8
   store ptr %86, ptr %85, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
@@ -8870,7 +8870,7 @@ _ZN4llvm4json9ObjectKeyD2Ev.exit34.i:             ; preds = %_ZNKSt14default_del
 89:                                               ; preds = %_ZN4llvm4json9ObjectKeyD2Ev.exit34.i, %._crit_edge.i, %._crit_edge.thread.i
   %90 = phi ptr [ %39, %._crit_edge.thread.i ], [ %42, %_ZN4llvm4json9ObjectKeyD2Ev.exit34.i ], [ %42, %._crit_edge.i ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %15, i8 0, i64 24, i1 false)
-  %91 = getelementptr inbounds i8, ptr %1, i64 488
+  %91 = getelementptr inbounds nuw i8, ptr %1, i64 488
   %92 = load ptr, ptr %91, align 8
   %93 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %91) #16
   %94 = getelementptr inbounds %"struct.clang::extractapi::Template::TemplateConstraint", ptr %92, i64 %93
@@ -8965,11 +8965,11 @@ _ZN4llvm4json9ObjectKeyD2Ev.exit43.i:             ; preds = %_ZNKSt14default_del
   %117 = load i32, ptr %97, align 8
   store i32 %117, ptr %114, align 4
   store i32 0, ptr %97, align 8
-  %118 = getelementptr inbounds i8, ptr %110, i64 20
+  %118 = getelementptr inbounds nuw i8, ptr %110, i64 20
   %119 = load i32, ptr %98, align 4
   store i32 %119, ptr %118, align 4
   store i32 0, ptr %98, align 4
-  %120 = getelementptr inbounds i8, ptr %110, i64 24
+  %120 = getelementptr inbounds nuw i8, ptr %110, i64 24
   %121 = load i32, ptr %99, align 8
   store i32 %121, ptr %120, align 4
   store i32 0, ptr %99, align 8
@@ -9004,9 +9004,9 @@ _ZN4llvm4json5Array12emplace_backIJNS0_6ObjectEEEEvDpOT_.exit45.i: ; preds = %12
   store i16 8, ptr %26, align 8
   %135 = getelementptr inbounds nuw i8, ptr %26, i64 8
   store ptr %130, ptr %135, align 8
-  %136 = getelementptr inbounds i8, ptr %26, i64 16
+  %136 = getelementptr inbounds nuw i8, ptr %26, i64 16
   store ptr %132, ptr %136, align 8
-  %137 = getelementptr inbounds i8, ptr %26, i64 24
+  %137 = getelementptr inbounds nuw i8, ptr %26, i64 24
   %138 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %139 = load ptr, ptr %138, align 8
   store ptr %139, ptr %137, align 8
@@ -9243,7 +9243,7 @@ define dso_local noundef zeroext i1 @_ZN5clang10extractapi21SymbolGraphSerialize
   br i1 %33, label %_ZNK5clang10extractapi8Template5emptyEv.exit.i, label %_ZNK5clang10extractapi8Template5emptyEv.exit.thread.i
 
 _ZNK5clang10extractapi8Template5emptyEv.exit.i:   ; preds = %31
-  %34 = getelementptr inbounds i8, ptr %1, i64 512
+  %34 = getelementptr inbounds nuw i8, ptr %1, i64 512
   %35 = tail call noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseIjE5emptyEv(ptr noundef nonnull align 8 dereferenceable(16) %34) #16
   br i1 %35, label %_ZN12_GLOBAL__N_122serializeTemplateMixinIN5clang10extractapi28GlobalFunctionTemplateRecordEEEvRN4llvm4json6ObjectERKT_.exit, label %_ZNK5clang10extractapi8Template5emptyEv.exit.thread.i
 
@@ -9352,11 +9352,11 @@ _ZN4llvm4json9ObjectKeyD2Ev.exit30.i:             ; preds = %_ZNKSt14default_del
   %68 = load i32, ptr %44, align 8
   store i32 %68, ptr %65, align 4
   store i32 0, ptr %44, align 8
-  %69 = getelementptr inbounds i8, ptr %61, i64 20
+  %69 = getelementptr inbounds nuw i8, ptr %61, i64 20
   %70 = load i32, ptr %45, align 4
   store i32 %70, ptr %69, align 4
   store i32 0, ptr %45, align 4
-  %71 = getelementptr inbounds i8, ptr %61, i64 24
+  %71 = getelementptr inbounds nuw i8, ptr %61, i64 24
   %72 = load i32, ptr %46, align 8
   store i32 %72, ptr %71, align 4
   store i32 0, ptr %46, align 8
@@ -9390,9 +9390,9 @@ _ZN4llvm4json5Array12emplace_backIJNS0_6ObjectEEEEvDpOT_.exit.i: ; preds = %75, 
   store i16 8, ptr %13, align 8
   %83 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store ptr %.pre.i, ptr %83, align 8
-  %84 = getelementptr inbounds i8, ptr %13, i64 16
+  %84 = getelementptr inbounds nuw i8, ptr %13, i64 16
   store ptr %.pre65.i, ptr %84, align 8
-  %85 = getelementptr inbounds i8, ptr %13, i64 24
+  %85 = getelementptr inbounds nuw i8, ptr %13, i64 24
   %86 = load ptr, ptr %43, align 8
   store ptr %86, ptr %85, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
@@ -9417,7 +9417,7 @@ _ZN4llvm4json9ObjectKeyD2Ev.exit34.i:             ; preds = %_ZNKSt14default_del
 89:                                               ; preds = %_ZN4llvm4json9ObjectKeyD2Ev.exit34.i, %._crit_edge.i, %._crit_edge.thread.i
   %90 = phi ptr [ %39, %._crit_edge.thread.i ], [ %42, %_ZN4llvm4json9ObjectKeyD2Ev.exit34.i ], [ %42, %._crit_edge.i ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %15, i8 0, i64 24, i1 false)
-  %91 = getelementptr inbounds i8, ptr %1, i64 512
+  %91 = getelementptr inbounds nuw i8, ptr %1, i64 512
   %92 = load ptr, ptr %91, align 8
   %93 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %91) #16
   %94 = getelementptr inbounds %"struct.clang::extractapi::Template::TemplateConstraint", ptr %92, i64 %93
@@ -9512,11 +9512,11 @@ _ZN4llvm4json9ObjectKeyD2Ev.exit43.i:             ; preds = %_ZNKSt14default_del
   %117 = load i32, ptr %97, align 8
   store i32 %117, ptr %114, align 4
   store i32 0, ptr %97, align 8
-  %118 = getelementptr inbounds i8, ptr %110, i64 20
+  %118 = getelementptr inbounds nuw i8, ptr %110, i64 20
   %119 = load i32, ptr %98, align 4
   store i32 %119, ptr %118, align 4
   store i32 0, ptr %98, align 4
-  %120 = getelementptr inbounds i8, ptr %110, i64 24
+  %120 = getelementptr inbounds nuw i8, ptr %110, i64 24
   %121 = load i32, ptr %99, align 8
   store i32 %121, ptr %120, align 4
   store i32 0, ptr %99, align 8
@@ -9551,9 +9551,9 @@ _ZN4llvm4json5Array12emplace_backIJNS0_6ObjectEEEEvDpOT_.exit45.i: ; preds = %12
   store i16 8, ptr %26, align 8
   %135 = getelementptr inbounds nuw i8, ptr %26, i64 8
   store ptr %130, ptr %135, align 8
-  %136 = getelementptr inbounds i8, ptr %26, i64 16
+  %136 = getelementptr inbounds nuw i8, ptr %26, i64 16
   store ptr %132, ptr %136, align 8
-  %137 = getelementptr inbounds i8, ptr %26, i64 24
+  %137 = getelementptr inbounds nuw i8, ptr %26, i64 24
   %138 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %139 = load ptr, ptr %138, align 8
   store ptr %139, ptr %137, align 8
@@ -9775,17 +9775,17 @@ define dso_local noundef zeroext i1 @_ZN5clang10extractapi21SymbolGraphSerialize
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 464
-  %8 = getelementptr inbounds i8, ptr %1, i64 472
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 472
   %9 = load i64, ptr %8, align 8
   %10 = icmp eq i64 %9, 0
-  %11 = getelementptr inbounds i8, ptr %1, i64 488
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 488
   %12 = load i64, ptr %11, align 8
   %13 = icmp eq i64 %12, 0
   %or.cond.i = select i1 %10, i1 %13, i1 false
   br i1 %or.cond.i, label %_ZNK5clang10extractapi15SymbolReference5emptyEv.exit, label %_ZNK5clang10extractapi15SymbolReference5emptyEv.exit.thread
 
 _ZNK5clang10extractapi15SymbolReference5emptyEv.exit: ; preds = %6
-  %14 = getelementptr inbounds i8, ptr %1, i64 504
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 504
   %15 = load i64, ptr %14, align 8
   %16 = icmp eq i64 %15, 0
   br i1 %16, label %23, label %_ZNK5clang10extractapi15SymbolReference5emptyEv.exit.thread
@@ -9817,7 +9817,7 @@ define dso_local noundef zeroext i1 @_ZN5clang10extractapi21SymbolGraphSerialize
 
 6:                                                ; preds = %2
   %7 = load ptr, ptr %0, align 8
-  %8 = getelementptr inbounds i8, ptr %1, i64 480
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 480
   %.sroa.01.0.copyload = load ptr, ptr %8, align 8
   %.sroa.22.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 488
   %.sroa.22.0.copyload = load i64, ptr %.sroa.22.0..sroa_idx, align 8
@@ -9834,7 +9834,7 @@ define dso_local noundef zeroext i1 @_ZN5clang10extractapi21SymbolGraphSerialize
   br i1 %.not.i, label %_ZNK5clang10extractapi18ObjCCategoryRecord25getExtendedExternalModuleEv.exit, label %15
 
 15:                                               ; preds = %10
-  %16 = getelementptr inbounds i8, ptr %1, i64 496
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 496
   %.sroa.0.0.copyload9 = load ptr, ptr %16, align 8
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %18 = tail call noundef i32 @_ZN4llvm13StringMapImpl4hashENS_9StringRefE(ptr %.sroa.0.0.copyload9, i64 %14) #16
@@ -9999,10 +9999,10 @@ define dso_local noundef zeroext i1 @_ZN5clang10extractapi21SymbolGraphSerialize
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %13)
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 368
   %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %1, i64 376
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 376
   %20 = load ptr, ptr %19, align 8
   %21 = icmp eq ptr %18, %20
-  %22 = getelementptr inbounds i8, ptr %1, i64 392
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 392
   %23 = load ptr, ptr %22, align 8
   %24 = getelementptr inbounds i8, ptr %1, i64 400
   %25 = load ptr, ptr %24, align 8
@@ -10144,11 +10144,11 @@ _ZNSt8optionalIN4llvm4json5ArrayEED2Ev.exit20.i:  ; preds = %65, %_ZSt8_DestroyI
   %77 = load i32, ptr %51, align 8
   store i32 %77, ptr %74, align 4
   store i32 0, ptr %51, align 8
-  %78 = getelementptr inbounds i8, ptr %70, i64 20
+  %78 = getelementptr inbounds nuw i8, ptr %70, i64 20
   %79 = load i32, ptr %52, align 4
   store i32 %79, ptr %78, align 4
   store i32 0, ptr %52, align 4
-  %80 = getelementptr inbounds i8, ptr %70, i64 24
+  %80 = getelementptr inbounds nuw i8, ptr %70, i64 24
   %81 = load i32, ptr %53, align 8
   store i32 %81, ptr %80, align 4
   store i32 0, ptr %53, align 8
@@ -10182,9 +10182,9 @@ _ZN4llvm4json5Array12emplace_backIJNS0_6ObjectEEEEvDpOT_.exit.i: ; preds = %84, 
   store i16 8, ptr %11, align 8
   %92 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store ptr %.pre.i, ptr %92, align 8
-  %93 = getelementptr inbounds i8, ptr %11, i64 16
+  %93 = getelementptr inbounds nuw i8, ptr %11, i64 16
   store ptr %.pre35.i, ptr %93, align 8
-  %94 = getelementptr inbounds i8, ptr %11, i64 24
+  %94 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %95 = load ptr, ptr %50, align 8
   store ptr %95, ptr %94, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false)
@@ -10317,7 +10317,7 @@ define dso_local noundef zeroext i1 @_ZN5clang10extractapi21SymbolGraphSerialize
   %3 = alloca %"class.llvm::json::Value", align 8
   %4 = alloca %"class.llvm::json::ObjectKey", align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 368
-  %6 = getelementptr inbounds i8, ptr %1, i64 376
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 376
   %7 = load i64, ptr %6, align 8
   %8 = icmp eq i64 %7, 0
   %.sroa.03.0.copyload = load ptr, ptr %5, align 8
@@ -10349,7 +10349,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit:                ; preds = %2, %11
   br i1 %.not, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread, label %17
 
 17:                                               ; preds = %14
-  %18 = getelementptr inbounds i8, ptr %1, i64 384
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 384
   %.sroa.0.0.copyload = load ptr, ptr %18, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 392
   %.sroa.2.0.copyload = load i64, ptr %.sroa.2.0..sroa_idx, align 8
@@ -10867,17 +10867,17 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5clang10extractapi13APISetVisi
 
 20:                                               ; preds = %.loopexit
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 464
-  %22 = getelementptr inbounds i8, ptr %1, i64 472
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 472
   %23 = load i64, ptr %22, align 8
   %24 = icmp eq i64 %23, 0
-  %25 = getelementptr inbounds i8, ptr %1, i64 488
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 488
   %26 = load i64, ptr %25, align 8
   %27 = icmp eq i64 %26, 0
   %or.cond.i.i = select i1 %24, i1 %27, i1 false
   br i1 %or.cond.i.i, label %_ZNK5clang10extractapi15SymbolReference5emptyEv.exit.i, label %_ZNK5clang10extractapi15SymbolReference5emptyEv.exit.thread.i
 
 _ZNK5clang10extractapi15SymbolReference5emptyEv.exit.i: ; preds = %20
-  %28 = getelementptr inbounds i8, ptr %1, i64 504
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 504
   %29 = load i64, ptr %28, align 8
   %30 = icmp eq i64 %29, 0
   br i1 %30, label %37, label %_ZNK5clang10extractapi15SymbolReference5emptyEv.exit.thread.i
@@ -11002,11 +11002,11 @@ _ZNSt8optionalIN4llvm4json6ObjectEED2Ev.exit6:    ; preds = %_ZNSt8optionalIN4ll
   %58 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %59 = load ptr, ptr %4, align 8
   store ptr %59, ptr %58, align 8
-  %60 = getelementptr inbounds i8, ptr %10, i64 16
+  %60 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %61 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %62 = load ptr, ptr %61, align 8
   store ptr %62, ptr %60, align 8
-  %63 = getelementptr inbounds i8, ptr %10, i64 24
+  %63 = getelementptr inbounds nuw i8, ptr %10, i64 24
   %64 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %65 = load ptr, ptr %64, align 8
   store ptr %65, ptr %63, align 8
@@ -11032,12 +11032,12 @@ _ZN4llvm4json9ObjectKeyD2Ev.exit:                 ; preds = %_ZNSt8optionalIN4ll
   %69 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %70 = load ptr, ptr %68, align 8
   store ptr %70, ptr %69, align 8
-  %71 = getelementptr inbounds i8, ptr %12, i64 16
-  %72 = getelementptr inbounds i8, ptr %4, i64 32
+  %71 = getelementptr inbounds nuw i8, ptr %12, i64 16
+  %72 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %73 = load ptr, ptr %72, align 8
   store ptr %73, ptr %71, align 8
-  %74 = getelementptr inbounds i8, ptr %12, i64 24
-  %75 = getelementptr inbounds i8, ptr %4, i64 40
+  %74 = getelementptr inbounds nuw i8, ptr %12, i64 24
+  %75 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %76 = load ptr, ptr %75, align 8
   store ptr %76, ptr %74, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %68, i8 0, i64 24, i1 false)
@@ -11084,15 +11084,15 @@ define dso_local void @_ZN5clang10extractapi21SymbolGraphSerializer22serializeGr
   %22 = load ptr, ptr %11, align 8
   store ptr %22, ptr %21, align 8
   store ptr null, ptr %11, align 8
-  %23 = getelementptr inbounds i8, ptr %13, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %24 = load i32, ptr %17, align 8
   store i32 %24, ptr %23, align 8
   store i32 0, ptr %17, align 8
-  %25 = getelementptr inbounds i8, ptr %13, i64 20
+  %25 = getelementptr inbounds nuw i8, ptr %13, i64 20
   %26 = load i32, ptr %18, align 4
   store i32 %26, ptr %25, align 4
   store i32 0, ptr %18, align 4
-  %27 = getelementptr inbounds i8, ptr %13, i64 24
+  %27 = getelementptr inbounds nuw i8, ptr %13, i64 24
   %28 = load i32, ptr %19, align 8
   store i32 %28, ptr %27, align 8
   store i32 0, ptr %19, align 8
@@ -11119,7 +11119,7 @@ define dso_local void @_ZN5clang10extractapi21SymbolGraphSerializer22serializeGr
   store i8 1, ptr %33, align 8, !alias.scope !51
   %34 = getelementptr inbounds nuw i8, ptr %12, i64 40
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4llvm7support6detail23provider_format_adapterINS_4json5ValueEEE, i64 16), ptr %34, align 8, !alias.scope !51
-  %35 = getelementptr inbounds i8, ptr %12, i64 48
+  %35 = getelementptr inbounds nuw i8, ptr %12, i64 48
   call void @_ZN4llvm4json5Value8moveFromEOKS1_(ptr noundef nonnull align 8 dereferenceable(40) %35, ptr noundef nonnull align 8 dereferenceable(40) %30) #16
   store ptr %34, ptr %31, align 8, !alias.scope !51
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4llvm7support6detail23provider_format_adapterINS_4json5ValueEEE, i64 16), ptr %9, align 8, !noalias !51
@@ -11151,15 +11151,15 @@ define dso_local void @_ZN5clang10extractapi21SymbolGraphSerializer22serializeGr
   %49 = load ptr, ptr %11, align 8
   store ptr %49, ptr %48, align 8
   store ptr null, ptr %11, align 8
-  %50 = getelementptr inbounds i8, ptr %15, i64 16
+  %50 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %51 = load i32, ptr %17, align 8
   store i32 %51, ptr %50, align 8
   store i32 0, ptr %17, align 8
-  %52 = getelementptr inbounds i8, ptr %15, i64 20
+  %52 = getelementptr inbounds nuw i8, ptr %15, i64 20
   %53 = load i32, ptr %18, align 4
   store i32 %53, ptr %52, align 4
   store i32 0, ptr %18, align 4
-  %54 = getelementptr inbounds i8, ptr %15, i64 24
+  %54 = getelementptr inbounds nuw i8, ptr %15, i64 24
   %55 = load i32, ptr %19, align 8
   store i32 %55, ptr %54, align 8
   store i32 0, ptr %19, align 8
@@ -11186,7 +11186,7 @@ define dso_local void @_ZN5clang10extractapi21SymbolGraphSerializer22serializeGr
   store i8 1, ptr %60, align 8, !alias.scope !60
   %61 = getelementptr inbounds nuw i8, ptr %14, i64 40
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4llvm7support6detail23provider_format_adapterINS_4json5ValueEEE, i64 16), ptr %61, align 8, !alias.scope !60
-  %62 = getelementptr inbounds i8, ptr %14, i64 48
+  %62 = getelementptr inbounds nuw i8, ptr %14, i64 48
   call void @_ZN4llvm4json5Value8moveFromEOKS1_(ptr noundef nonnull align 8 dereferenceable(40) %62, ptr noundef nonnull align 8 dereferenceable(40) %57) #16
   store ptr %61, ptr %58, align 8, !alias.scope !60
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4llvm7support6detail23provider_format_adapterINS_4json5ValueEEE, i64 16), ptr %7, align 8, !noalias !60
@@ -11239,7 +11239,7 @@ define dso_local void @_ZN5clang10extractapi21SymbolGraphSerializer24serializeMa
   %8 = and i8 %7, 1
   store ptr %1, ptr %5, align 8
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %10 = getelementptr inbounds i8, ptr %5, i64 76
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 76
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(68) %9, i8 0, i64 68, i1 false)
   store i32 56, ptr %10, align 4
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 80
@@ -11296,13 +11296,13 @@ define linkonce_odr hidden void @_ZN5clang10extractapi21SymbolGraphSerializerD2E
 
 _ZN4llvm11SmallVectorIN5clang10extractapi15SymbolReferenceELj8EED2Ev.exit: ; preds = %1, %7
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %9 = getelementptr inbounds i8, ptr %0, i64 68
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 68
   %10 = load i32, ptr %9, align 4
   %11 = icmp eq i32 %10, 0
   br i1 %11, label %_ZN4llvm9StringMapIN5clang10extractapi14ExtendedModuleENS_15MallocAllocatorEED2Ev.exit, label %12
 
 12:                                               ; preds = %_ZN4llvm11SmallVectorIN5clang10extractapi15SymbolReferenceELj8EED2Ev.exit
-  %13 = getelementptr inbounds i8, ptr %0, i64 64
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %14 = load i32, ptr %13, align 8
   %.not10.i = icmp eq i32 %14, 0
   br i1 %.not10.i, label %_ZN4llvm9StringMapIN5clang10extractapi14ExtendedModuleENS_15MallocAllocatorEED2Ev.exit, label %.lr.ph.preheader.i
@@ -11335,9 +11335,9 @@ _ZN4llvm9StringMapIN5clang10extractapi14ExtendedModuleENS_15MallocAllocatorEED2E
   %21 = load ptr, ptr %8, align 8
   tail call void @free(ptr noundef %21) #16
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %23 = getelementptr inbounds i8, ptr %0, i64 32
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %0, i64 40
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %26 = load ptr, ptr %25, align 8
   %.not4.i.i.i.i.i.i = icmp eq ptr %24, %26
   br i1 %.not4.i.i.i.i.i.i, label %_ZSt8_DestroyIPN4llvm4json5ValueES2_EvT_S4_RSaIT0_E.exit.i.i.i, label %.lr.ph.i.i.i.i.i.i
@@ -11359,7 +11359,7 @@ _ZSt8_DestroyIPN4llvm4json5ValueES2_EvT_S4_RSaIT0_E.exit.i.i.i: ; preds = %_ZSt8
   br i1 %.not.i.i.i.i.i, label %_ZN4llvm4json5ArrayD2Ev.exit.i, label %29
 
 29:                                               ; preds = %_ZSt8_DestroyIPN4llvm4json5ValueES2_EvT_S4_RSaIT0_E.exit.i.i.i
-  %30 = getelementptr inbounds i8, ptr %0, i64 48
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %31 = load ptr, ptr %30, align 8
   %32 = ptrtoint ptr %31 to i64
   %33 = ptrtoint ptr %28 to i64
@@ -11369,7 +11369,7 @@ _ZSt8_DestroyIPN4llvm4json5ValueES2_EvT_S4_RSaIT0_E.exit.i.i.i: ; preds = %_ZSt8
 
 _ZN4llvm4json5ArrayD2Ev.exit.i:                   ; preds = %29, %_ZSt8_DestroyIPN4llvm4json5ValueES2_EvT_S4_RSaIT0_E.exit.i.i.i
   %35 = load ptr, ptr %22, align 8
-  %36 = getelementptr inbounds i8, ptr %0, i64 16
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %37 = load ptr, ptr %36, align 8
   %.not4.i.i.i.i.i1.i = icmp eq ptr %35, %37
   br i1 %.not4.i.i.i.i.i1.i, label %_ZSt8_DestroyIPN4llvm4json5ValueES2_EvT_S4_RSaIT0_E.exit.i.i7.i, label %.lr.ph.i.i.i.i.i2.i
@@ -11391,7 +11391,7 @@ _ZSt8_DestroyIPN4llvm4json5ValueES2_EvT_S4_RSaIT0_E.exit.i.i7.i: ; preds = %_ZSt
   br i1 %.not.i.i.i.i8.i, label %_ZN5clang10extractapi14ExtendedModuleD2Ev.exit, label %40
 
 40:                                               ; preds = %_ZSt8_DestroyIPN4llvm4json5ValueES2_EvT_S4_RSaIT0_E.exit.i.i7.i
-  %41 = getelementptr inbounds i8, ptr %0, i64 24
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %42 = load ptr, ptr %41, align 8
   %43 = ptrtoint ptr %42 to i64
   %44 = ptrtoint ptr %39 to i64
@@ -11414,7 +11414,7 @@ define dso_local void @_ZN5clang10extractapi21SymbolGraphSerializer28serializeWi
   %13 = and i8 %12, 1
   store ptr %1, ptr %8, align 8
   %14 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %15 = getelementptr inbounds i8, ptr %8, i64 76
+  %15 = getelementptr inbounds nuw i8, ptr %8, i64 76
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(68) %14, i8 0, i64 68, i1 false)
   store i32 56, ptr %15, align 4
   %16 = getelementptr inbounds nuw i8, ptr %8, i64 80
@@ -11454,7 +11454,7 @@ _ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE14traverseAPIS
   call void @_ZN5clang10extractapi21SymbolGraphSerializer22serializeGraphToStreamERN4llvm11raw_ostreamENS0_27SymbolGraphSerializerOptionENS2_9StringRefEONS0_14ExtendedModuleE(ptr noundef nonnull align 8 dereferenceable(584) %8, ptr noundef nonnull align 8 dereferenceable(48) %0, i16 %5, ptr %32, i64 %33, ptr noundef nonnull align 8 dereferenceable(48) %14)
   %34 = getelementptr inbounds nuw i8, ptr %8, i64 56
   %35 = load ptr, ptr %34, align 8
-  %36 = getelementptr inbounds i8, ptr %8, i64 64
+  %36 = getelementptr inbounds nuw i8, ptr %8, i64 64
   %37 = load i32, ptr %36, align 8
   %38 = icmp eq i32 %37, 0
   br i1 %38, label %_ZN4llvm9StringMapIN5clang10extractapi14ExtendedModuleENS_15MallocAllocatorEE5beginEv.exit, label %.preheader.i.i.i
@@ -11600,7 +11600,7 @@ define dso_local void @_ZN5clang10extractapi21SymbolGraphSerializer24serializeSi
   call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %38, ptr noundef nonnull %39, i64 noundef 6) #16
   store ptr %3, ptr %9, align 8
   %40 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %41 = getelementptr inbounds i8, ptr %9, i64 76
+  %41 = getelementptr inbounds nuw i8, ptr %9, i64 76
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(68) %40, i8 0, i64 68, i1 false)
   store i32 56, ptr %41, align 4
   %42 = getelementptr inbounds nuw i8, ptr %9, i64 80
@@ -11717,7 +11717,7 @@ _ZN4llvm4json5ArrayD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN4ll
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %14, i8 0, i64 24, i1 false)
   %93 = getelementptr inbounds nuw i8, ptr %33, i64 264
   %94 = load ptr, ptr %93, align 8
-  %95 = getelementptr inbounds i8, ptr %33, i64 272
+  %95 = getelementptr inbounds nuw i8, ptr %33, i64 272
   %96 = load ptr, ptr %95, align 8
   %.not8788 = icmp eq ptr %94, %96
   br i1 %.not8788, label %._crit_edge.thread, label %.lr.ph
@@ -11734,11 +11734,11 @@ _ZN4llvm4json5ArrayD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN4ll
   %100 = getelementptr inbounds nuw i8, ptr %30, i64 16
   %101 = getelementptr inbounds i8, ptr %31, i64 16
   %102 = getelementptr inbounds nuw i8, ptr %32, i64 8
-  %103 = getelementptr inbounds i8, ptr %32, i64 16
+  %103 = getelementptr inbounds nuw i8, ptr %32, i64 16
   %104 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  %105 = getelementptr inbounds i8, ptr %32, i64 20
+  %105 = getelementptr inbounds nuw i8, ptr %32, i64 20
   %106 = getelementptr inbounds nuw i8, ptr %15, i64 12
-  %107 = getelementptr inbounds i8, ptr %32, i64 24
+  %107 = getelementptr inbounds nuw i8, ptr %32, i64 24
   %108 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %109 = getelementptr inbounds i8, ptr %14, i64 8
   %110 = getelementptr inbounds nuw i8, ptr %14, i64 16
@@ -12024,9 +12024,9 @@ _ZN4llvm4json5ArrayC2ERKS1_.exit.i:               ; preds = %.lr.ph.i.i.i.i.i.i.
   store i16 8, ptr %5, align 8
   %187 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %185, ptr %187, align 8
-  %188 = getelementptr inbounds i8, ptr %5, i64 16
+  %188 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %.0.lcssa.i.i.i.i.i.i.i, ptr %188, align 8
-  %189 = getelementptr inbounds i8, ptr %5, i64 24
+  %189 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store ptr %186, ptr %189, align 8
   call void @_ZN4llvm4json9ObjectKeyC2ENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr nonnull @.str.42, i64 14)
   %190 = call noundef nonnull align 8 dereferenceable(40) ptr @_ZN4llvm4json6ObjectixEONS0_9ObjectKeyE(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %6) #16
@@ -12173,7 +12173,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_127generateHierarchyFromRecordEPKN5
 .lr.ph:                                           ; preds = %2, %.lr.ph
   %8 = call noundef nonnull align 8 dereferenceable(56) ptr @_ZN4llvm15SmallVectorImplIN5clang10extractapi15SymbolReferenceEE12emplace_backIJRPKNS2_9APIRecordEEEERS3_DpOT_(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(8) %6)
   %9 = load ptr, ptr %6, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 88
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 88
   %11 = load ptr, ptr %10, align 8
   store ptr %11, ptr %6, align 8
   %.not = icmp eq ptr %11, null
@@ -12245,9 +12245,9 @@ _ZN4llvm4json5ArrayC2ERKS1_.exit:                 ; preds = %.lr.ph.i.i.i.i.i.i,
   store i16 8, ptr %4, align 8
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %16, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %4, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %.0.lcssa.i.i.i.i.i.i, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %4, i64 24
+  %20 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store ptr %17, ptr %20, align 8
   call void @_ZN4llvm4json9ObjectKeyC2ENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr %1, i64 %2)
   %21 = call noundef nonnull align 8 dereferenceable(40) ptr @_ZN4llvm4json6ObjectixEONS0_9ObjectKeyE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %5) #16
@@ -12428,15 +12428,15 @@ _ZN4llvm4json9ObjectKeyD2Ev.exit25:               ; preds = %_ZN4llvm4json9Objec
   %54 = load ptr, ptr %4, align 8
   store ptr %54, ptr %52, align 8
   store ptr null, ptr %4, align 8
-  %55 = getelementptr inbounds i8, ptr %49, i64 16
+  %55 = getelementptr inbounds nuw i8, ptr %49, i64 16
   %56 = load i32, ptr %22, align 8
   store i32 %56, ptr %55, align 4
   store i32 0, ptr %22, align 8
-  %57 = getelementptr inbounds i8, ptr %49, i64 20
+  %57 = getelementptr inbounds nuw i8, ptr %49, i64 20
   %58 = load i32, ptr %23, align 4
   store i32 %58, ptr %57, align 4
   store i32 0, ptr %23, align 4
-  %59 = getelementptr inbounds i8, ptr %49, i64 24
+  %59 = getelementptr inbounds nuw i8, ptr %49, i64 24
   %60 = load i32, ptr %24, align 8
   store i32 %60, ptr %59, align 4
   store i32 0, ptr %24, align 8
@@ -15600,9 +15600,9 @@ declare noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6leng
 define linkonce_odr hidden void @_ZN4llvm14StringMapEntryIN5clang10extractapi14ExtendedModuleEE7DestroyINS_15MallocAllocatorEEEvRT_(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 1 dereferenceable(1) %1) local_unnamed_addr #0 comdat align 2 {
   %3 = load i64, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 40
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %8 = load ptr, ptr %7, align 8
   %.not4.i.i.i.i.i.i.i.i = icmp eq ptr %6, %8
   br i1 %.not4.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyIPN4llvm4json5ValueES2_EvT_S4_RSaIT0_E.exit.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i
@@ -15624,7 +15624,7 @@ _ZSt8_DestroyIPN4llvm4json5ValueES2_EvT_S4_RSaIT0_E.exit.i.i.i.i.i: ; preds = %_
   br i1 %.not.i.i.i.i.i.i.i, label %_ZN4llvm4json5ArrayD2Ev.exit.i.i.i, label %11
 
 11:                                               ; preds = %_ZSt8_DestroyIPN4llvm4json5ValueES2_EvT_S4_RSaIT0_E.exit.i.i.i.i.i
-  %12 = getelementptr inbounds i8, ptr %0, i64 48
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %13 = load ptr, ptr %12, align 8
   %14 = ptrtoint ptr %13 to i64
   %15 = ptrtoint ptr %10 to i64
@@ -15634,7 +15634,7 @@ _ZSt8_DestroyIPN4llvm4json5ValueES2_EvT_S4_RSaIT0_E.exit.i.i.i.i.i: ; preds = %_
 
 _ZN4llvm4json5ArrayD2Ev.exit.i.i.i:               ; preds = %11, %_ZSt8_DestroyIPN4llvm4json5ValueES2_EvT_S4_RSaIT0_E.exit.i.i.i.i.i
   %17 = load ptr, ptr %4, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %19 = load ptr, ptr %18, align 8
   %.not4.i.i.i.i.i1.i.i.i = icmp eq ptr %17, %19
   br i1 %.not4.i.i.i.i.i1.i.i.i, label %_ZSt8_DestroyIPN4llvm4json5ValueES2_EvT_S4_RSaIT0_E.exit.i.i7.i.i.i, label %.lr.ph.i.i.i.i.i2.i.i.i
@@ -15656,7 +15656,7 @@ _ZSt8_DestroyIPN4llvm4json5ValueES2_EvT_S4_RSaIT0_E.exit.i.i7.i.i.i: ; preds = %
   br i1 %.not.i.i.i.i8.i.i.i, label %_ZN4llvm14StringMapEntryIN5clang10extractapi14ExtendedModuleEED2Ev.exit, label %22
 
 22:                                               ; preds = %_ZSt8_DestroyIPN4llvm4json5ValueES2_EvT_S4_RSaIT0_E.exit.i.i7.i.i.i
-  %23 = getelementptr inbounds i8, ptr %0, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %24 = load ptr, ptr %23, align 8
   %25 = ptrtoint ptr %24 to i64
   %26 = ptrtoint ptr %21 to i64
@@ -15901,17 +15901,17 @@ _ZNSt12_Vector_baseIN4llvm4json5ValueESaIS2_EE11_M_allocateEm.exit: ; preds = %_
   %26 = load ptr, ptr %2, align 8
   store ptr %26, ptr %25, align 8
   store ptr null, ptr %2, align 8
-  %27 = getelementptr inbounds i8, ptr %24, i64 16
+  %27 = getelementptr inbounds nuw i8, ptr %24, i64 16
   %28 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %29 = load i32, ptr %28, align 8
   store i32 %29, ptr %27, align 4
   store i32 0, ptr %28, align 8
-  %30 = getelementptr inbounds i8, ptr %24, i64 20
+  %30 = getelementptr inbounds nuw i8, ptr %24, i64 20
   %31 = getelementptr inbounds nuw i8, ptr %2, i64 12
   %32 = load i32, ptr %31, align 4
   store i32 %32, ptr %30, align 4
   store i32 0, ptr %31, align 4
-  %33 = getelementptr inbounds i8, ptr %24, i64 24
+  %33 = getelementptr inbounds nuw i8, ptr %24, i64 24
   %34 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %35 = load i32, ptr %34, align 8
   store i32 %35, ptr %33, align 4

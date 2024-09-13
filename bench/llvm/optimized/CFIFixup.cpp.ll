@@ -248,7 +248,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm8CFIFixup20runOnMachineFunctionERNS
 
 28:                                               ; preds = %2
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 96
-  %30 = getelementptr inbounds i8, ptr %1, i64 104
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 104
   %31 = load ptr, ptr %30, align 8
   %32 = load ptr, ptr %29, align 8
   %33 = ptrtoint ptr %31 to i64
@@ -365,7 +365,7 @@ _ZN4llvm11SmallVectorIZNS_8CFIFixup20runOnMachineFunctionERNS_15MachineFunctionE
   %80 = load i8, ptr %.val81, align 1
   %81 = or i8 %80, 2
   store i8 %81, ptr %.val81, align 1
-  %82 = getelementptr inbounds i8, ptr %1, i64 328
+  %82 = getelementptr inbounds nuw i8, ptr %1, i64 328
   %83 = load ptr, ptr %82, align 8
   store ptr %83, ptr %11, align 8
   %84 = getelementptr inbounds i8, ptr %10, i64 16
@@ -548,7 +548,7 @@ _ZL16containsEpilogueRKN4llvm17MachineBasicBlockE.exit: ; preds = %.lr.ph.i.i.i.
   %170 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %171 = getelementptr inbounds nuw i8, ptr %12, i64 72
   %172 = getelementptr inbounds nuw i8, ptr %12, i64 48
-  %173 = getelementptr inbounds i8, ptr %12, i64 64
+  %173 = getelementptr inbounds nuw i8, ptr %12, i64 64
   %174 = getelementptr inbounds i8, ptr %162, i64 8
   %175 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %176 = getelementptr inbounds nuw i8, ptr %6, i64 16
@@ -556,7 +556,7 @@ _ZL16containsEpilogueRKN4llvm17MachineBasicBlockE.exit: ; preds = %.lr.ph.i.i.i.
   %178 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %179 = getelementptr inbounds nuw i8, ptr %15, i64 72
   %180 = getelementptr inbounds nuw i8, ptr %15, i64 48
-  %181 = getelementptr inbounds i8, ptr %15, i64 64
+  %181 = getelementptr inbounds nuw i8, ptr %15, i64 64
   %182 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %183 = getelementptr inbounds nuw i8, ptr %3, i64 16
   br label %.lr.ph141
@@ -1034,7 +1034,7 @@ _ZNSt6vectorIcSaIcEE17_S_check_init_lenEmRKS0_.exit.i.i: ; preds = %8
 
 _ZNSt12_Vector_baseIcSaIcEE11_M_allocateEm.exit.thread.i.i: ; preds = %_ZNSt6vectorIcSaIcEE17_S_check_init_lenEmRKS0_.exit.i.i
   store ptr null, ptr %15, align 8
-  %21 = getelementptr inbounds i8, ptr %0, i64 64
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr null, ptr %21, align 8
   br label %_ZNSt6vectorIcSaIcEEC2IPKcvEET_S5_RKS0_.exit
 
@@ -1042,14 +1042,14 @@ _ZNSt12_Vector_baseIcSaIcEE11_M_allocateEm.exit.thread.i.i: ; preds = %_ZNSt6vec
   %23 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %18) #15
   store ptr %23, ptr %15, align 8
   %24 = getelementptr inbounds i8, ptr %23, i64 %18
-  %25 = getelementptr inbounds i8, ptr %0, i64 64
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr %24, ptr %25, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %23, ptr align 1 %16, i64 %18, i1 false)
   br label %_ZNSt6vectorIcSaIcEEC2IPKcvEET_S5_RKS0_.exit
 
 _ZNSt6vectorIcSaIcEEC2IPKcvEET_S5_RKS0_.exit:     ; preds = %_ZNSt12_Vector_baseIcSaIcEE11_M_allocateEm.exit.thread.i.i, %22
   %26 = phi ptr [ null, %_ZNSt12_Vector_baseIcSaIcEE11_M_allocateEm.exit.thread.i.i ], [ %24, %22 ]
-  %27 = getelementptr inbounds i8, ptr %0, i64 56
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store ptr %26, ptr %27, align 8
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %11) #13
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 72

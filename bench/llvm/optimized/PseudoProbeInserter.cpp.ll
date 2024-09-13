@@ -280,7 +280,7 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_119PseudoProbeInserter20runO
   %16 = getelementptr inbounds i8, ptr %15, i64 128
   %17 = load ptr, ptr %16, align 8
   %18 = tail call noundef ptr %17(ptr noundef nonnull align 8 dereferenceable(288) %14) #12
-  %19 = getelementptr inbounds i8, ptr %1, i64 328
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 328
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 320
   %.sroa.0101.0133 = load ptr, ptr %19, align 8
   %.not105134 = icmp eq ptr %.sroa.0101.0133, %20

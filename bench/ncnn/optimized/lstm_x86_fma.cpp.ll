@@ -28,16 +28,16 @@ define hidden void @_ZN4ncnn12LSTM_x86_fmaC2Ev(ptr noundef nonnull align 8 deref
   tail call void @_ZN4ncnn4LSTMC2Ev(ptr noundef nonnull align 8 dereferenceable(664) %0)
   store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTVN4ncnn12LSTM_x86_fmaE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 664
-  %3 = getelementptr inbounds i8, ptr %0, i64 696
-  %4 = getelementptr inbounds i8, ptr %0, i64 728
-  %5 = getelementptr inbounds i8, ptr %0, i64 768
-  %6 = getelementptr inbounds i8, ptr %0, i64 800
-  %7 = getelementptr inbounds i8, ptr %0, i64 840
-  %8 = getelementptr inbounds i8, ptr %0, i64 872
-  %9 = getelementptr inbounds i8, ptr %0, i64 912
-  %10 = getelementptr inbounds i8, ptr %0, i64 944
-  %11 = getelementptr inbounds i8, ptr %0, i64 984
-  %12 = getelementptr inbounds i8, ptr %0, i64 1016
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 696
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 728
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 768
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 800
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 840
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 872
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 912
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 944
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 984
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 1016
   store i64 0, ptr %12, align 8
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 0, ptr %13, align 8
@@ -64,7 +64,7 @@ declare i32 @__gxx_personality_v0(...)
 define linkonce_odr hidden void @_ZN4ncnn4LSTMD2Ev(ptr noundef nonnull align 8 dereferenceable(664) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTVN4ncnn4LSTME, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 592
-  %3 = getelementptr inbounds i8, ptr %0, i64 600
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 600
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %18, label %5
@@ -75,7 +75,7 @@ define linkonce_odr hidden void @_ZN4ncnn4LSTMD2Ev(ptr noundef nonnull align 8 d
   br i1 %7, label %8, label %18
 
 8:                                                ; preds = %5
-  %9 = getelementptr inbounds i8, ptr %0, i64 624
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 624
   %10 = load ptr, ptr %9, align 8
   %.not53 = icmp eq ptr %10, null
   %11 = load ptr, ptr %2, align 8
@@ -97,11 +97,11 @@ define linkonce_odr hidden void @_ZN4ncnn4LSTMD2Ev(ptr noundef nonnull align 8 d
   br label %18
 
 18:                                               ; preds = %12, %17, %16, %5, %1
-  %19 = getelementptr inbounds i8, ptr %0, i64 632
-  %20 = getelementptr inbounds i8, ptr %0, i64 656
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 632
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 656
   store i64 0, ptr %20, align 8
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 520
-  %22 = getelementptr inbounds i8, ptr %0, i64 528
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 528
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %2, i8 0, i64 28, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %19, i8 0, i64 20, i1 false)
   %23 = load ptr, ptr %22, align 8
@@ -121,7 +121,7 @@ define linkonce_odr hidden void @_ZN4ncnn4LSTMD2Ev(ptr noundef nonnull align 8 d
   br i1 %29, label %30, label %40
 
 30:                                               ; preds = %27
-  %31 = getelementptr inbounds i8, ptr %0, i64 552
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 552
   %32 = load ptr, ptr %31, align 8
   %.not56 = icmp eq ptr %32, null
   %33 = load ptr, ptr %21, align 8
@@ -143,11 +143,11 @@ define linkonce_odr hidden void @_ZN4ncnn4LSTMD2Ev(ptr noundef nonnull align 8 d
   br label %40
 
 40:                                               ; preds = %34, %39, %38, %27, %18
-  %41 = getelementptr inbounds i8, ptr %0, i64 560
-  %42 = getelementptr inbounds i8, ptr %0, i64 584
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 560
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 584
   store i64 0, ptr %42, align 8
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 448
-  %44 = getelementptr inbounds i8, ptr %0, i64 456
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 456
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %21, i8 0, i64 28, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %41, i8 0, i64 20, i1 false)
   %45 = load ptr, ptr %44, align 8
@@ -167,7 +167,7 @@ define linkonce_odr hidden void @_ZN4ncnn4LSTMD2Ev(ptr noundef nonnull align 8 d
   br i1 %51, label %52, label %62
 
 52:                                               ; preds = %49
-  %53 = getelementptr inbounds i8, ptr %0, i64 480
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 480
   %54 = load ptr, ptr %53, align 8
   %.not59 = icmp eq ptr %54, null
   %55 = load ptr, ptr %43, align 8
@@ -189,11 +189,11 @@ define linkonce_odr hidden void @_ZN4ncnn4LSTMD2Ev(ptr noundef nonnull align 8 d
   br label %62
 
 62:                                               ; preds = %56, %61, %60, %49, %40
-  %63 = getelementptr inbounds i8, ptr %0, i64 488
-  %64 = getelementptr inbounds i8, ptr %0, i64 512
+  %63 = getelementptr inbounds nuw i8, ptr %0, i64 488
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 512
   store i64 0, ptr %64, align 8
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 376
-  %66 = getelementptr inbounds i8, ptr %0, i64 384
+  %66 = getelementptr inbounds nuw i8, ptr %0, i64 384
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %43, i8 0, i64 28, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %63, i8 0, i64 20, i1 false)
   %67 = load ptr, ptr %66, align 8
@@ -213,7 +213,7 @@ define linkonce_odr hidden void @_ZN4ncnn4LSTMD2Ev(ptr noundef nonnull align 8 d
   br i1 %73, label %74, label %84
 
 74:                                               ; preds = %71
-  %75 = getelementptr inbounds i8, ptr %0, i64 408
+  %75 = getelementptr inbounds nuw i8, ptr %0, i64 408
   %76 = load ptr, ptr %75, align 8
   %.not62 = icmp eq ptr %76, null
   %77 = load ptr, ptr %65, align 8
@@ -235,11 +235,11 @@ define linkonce_odr hidden void @_ZN4ncnn4LSTMD2Ev(ptr noundef nonnull align 8 d
   br label %84
 
 84:                                               ; preds = %78, %83, %82, %71, %62
-  %85 = getelementptr inbounds i8, ptr %0, i64 416
-  %86 = getelementptr inbounds i8, ptr %0, i64 440
+  %85 = getelementptr inbounds nuw i8, ptr %0, i64 416
+  %86 = getelementptr inbounds nuw i8, ptr %0, i64 440
   store i64 0, ptr %86, align 8
   %87 = getelementptr inbounds nuw i8, ptr %0, i64 304
-  %88 = getelementptr inbounds i8, ptr %0, i64 312
+  %88 = getelementptr inbounds nuw i8, ptr %0, i64 312
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %65, i8 0, i64 28, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %85, i8 0, i64 20, i1 false)
   %89 = load ptr, ptr %88, align 8
@@ -259,7 +259,7 @@ define linkonce_odr hidden void @_ZN4ncnn4LSTMD2Ev(ptr noundef nonnull align 8 d
   br i1 %95, label %96, label %106
 
 96:                                               ; preds = %93
-  %97 = getelementptr inbounds i8, ptr %0, i64 336
+  %97 = getelementptr inbounds nuw i8, ptr %0, i64 336
   %98 = load ptr, ptr %97, align 8
   %.not65 = icmp eq ptr %98, null
   %99 = load ptr, ptr %87, align 8
@@ -281,11 +281,11 @@ define linkonce_odr hidden void @_ZN4ncnn4LSTMD2Ev(ptr noundef nonnull align 8 d
   br label %106
 
 106:                                              ; preds = %100, %105, %104, %93, %84
-  %107 = getelementptr inbounds i8, ptr %0, i64 344
-  %108 = getelementptr inbounds i8, ptr %0, i64 368
+  %107 = getelementptr inbounds nuw i8, ptr %0, i64 344
+  %108 = getelementptr inbounds nuw i8, ptr %0, i64 368
   store i64 0, ptr %108, align 8
   %109 = getelementptr inbounds nuw i8, ptr %0, i64 232
-  %110 = getelementptr inbounds i8, ptr %0, i64 240
+  %110 = getelementptr inbounds nuw i8, ptr %0, i64 240
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %87, i8 0, i64 28, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %107, i8 0, i64 20, i1 false)
   %111 = load ptr, ptr %110, align 8
@@ -305,7 +305,7 @@ define linkonce_odr hidden void @_ZN4ncnn4LSTMD2Ev(ptr noundef nonnull align 8 d
   br i1 %117, label %118, label %128
 
 118:                                              ; preds = %115
-  %119 = getelementptr inbounds i8, ptr %0, i64 264
+  %119 = getelementptr inbounds nuw i8, ptr %0, i64 264
   %120 = load ptr, ptr %119, align 8
   %.not68 = icmp eq ptr %120, null
   %121 = load ptr, ptr %109, align 8
@@ -327,8 +327,8 @@ define linkonce_odr hidden void @_ZN4ncnn4LSTMD2Ev(ptr noundef nonnull align 8 d
   br label %128
 
 128:                                              ; preds = %122, %127, %126, %115, %106
-  %129 = getelementptr inbounds i8, ptr %0, i64 272
-  %130 = getelementptr inbounds i8, ptr %0, i64 296
+  %129 = getelementptr inbounds nuw i8, ptr %0, i64 272
+  %130 = getelementptr inbounds nuw i8, ptr %0, i64 296
   store i64 0, ptr %130, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %109, i8 0, i64 28, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %129, i8 0, i64 20, i1 false)
@@ -383,25 +383,25 @@ define hidden noundef i32 @_ZN4ncnn12LSTM_x86_fma15create_pipelineERKNS_6OptionE
   %31 = add nsw i32 %29, %30
   tail call void @_ZN4ncnn3Mat6createEiiimiPNS_9AllocatorE(ptr noundef nonnull align 8 dereferenceable(72) %25, i32 noundef %27, i32 noundef %31, i32 noundef %11, i64 noundef 32, i32 noundef 8, ptr noundef null)
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 304
-  %33 = getelementptr inbounds i8, ptr %0, i64 348
-  %34 = getelementptr inbounds i8, ptr %0, i64 368
-  %35 = getelementptr inbounds i8, ptr %0, i64 320
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 348
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 368
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 320
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 376
-  %37 = getelementptr inbounds i8, ptr %0, i64 420
-  %38 = getelementptr inbounds i8, ptr %0, i64 440
-  %39 = getelementptr inbounds i8, ptr %0, i64 392
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 420
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 440
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 392
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 232
-  %41 = getelementptr inbounds i8, ptr %0, i64 276
-  %42 = getelementptr inbounds i8, ptr %0, i64 296
-  %43 = getelementptr inbounds i8, ptr %0, i64 248
-  %44 = getelementptr inbounds i8, ptr %0, i64 708
-  %45 = getelementptr inbounds i8, ptr %0, i64 728
-  %46 = getelementptr inbounds i8, ptr %0, i64 680
-  %47 = getelementptr inbounds i8, ptr %0, i64 800
-  %48 = getelementptr inbounds i8, ptr %0, i64 752
-  %49 = getelementptr inbounds i8, ptr %0, i64 852
-  %50 = getelementptr inbounds i8, ptr %0, i64 872
-  %51 = getelementptr inbounds i8, ptr %0, i64 824
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 276
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 296
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 248
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 708
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 728
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 680
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 800
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 752
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 852
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 872
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 824
   %52 = icmp sgt i32 %17, 3
   %wide.trip.count698 = zext nneg i32 %11 to i64
   %.pre = load i32, ptr %15, align 4
@@ -814,7 +814,7 @@ define hidden noundef i32 @_ZN4ncnn12LSTM_x86_fma15create_pipelineERKNS_6OptionE
   br i1 %342, label %343, label %395
 
 343:                                              ; preds = %340
-  %344 = getelementptr inbounds i8, ptr %0, i64 312
+  %344 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %345 = load ptr, ptr %344, align 8
   %.not642 = icmp eq ptr %345, null
   br i1 %.not642, label %359, label %346
@@ -825,7 +825,7 @@ define hidden noundef i32 @_ZN4ncnn12LSTM_x86_fma15create_pipelineERKNS_6OptionE
   br i1 %348, label %349, label %359
 
 349:                                              ; preds = %346
-  %350 = getelementptr inbounds i8, ptr %0, i64 336
+  %350 = getelementptr inbounds nuw i8, ptr %0, i64 336
   %351 = load ptr, ptr %350, align 8
   %.not643 = icmp eq ptr %351, null
   %352 = load ptr, ptr %32, align 8
@@ -847,9 +847,9 @@ define hidden noundef i32 @_ZN4ncnn12LSTM_x86_fma15create_pipelineERKNS_6OptionE
   br label %359
 
 359:                                              ; preds = %353, %358, %357, %346, %343
-  %360 = getelementptr inbounds i8, ptr %0, i64 344
+  %360 = getelementptr inbounds nuw i8, ptr %0, i64 344
   store i64 0, ptr %34, align 8
-  %361 = getelementptr inbounds i8, ptr %0, i64 384
+  %361 = getelementptr inbounds nuw i8, ptr %0, i64 384
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %32, i8 0, i64 28, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %360, i8 0, i64 20, i1 false)
   %362 = load ptr, ptr %361, align 8
@@ -862,7 +862,7 @@ define hidden noundef i32 @_ZN4ncnn12LSTM_x86_fma15create_pipelineERKNS_6OptionE
   br i1 %365, label %366, label %376
 
 366:                                              ; preds = %363
-  %367 = getelementptr inbounds i8, ptr %0, i64 408
+  %367 = getelementptr inbounds nuw i8, ptr %0, i64 408
   %368 = load ptr, ptr %367, align 8
   %.not646 = icmp eq ptr %368, null
   %369 = load ptr, ptr %36, align 8
@@ -884,9 +884,9 @@ define hidden noundef i32 @_ZN4ncnn12LSTM_x86_fma15create_pipelineERKNS_6OptionE
   br label %376
 
 376:                                              ; preds = %370, %375, %374, %363, %359
-  %377 = getelementptr inbounds i8, ptr %0, i64 416
+  %377 = getelementptr inbounds nuw i8, ptr %0, i64 416
   store i64 0, ptr %38, align 8
-  %378 = getelementptr inbounds i8, ptr %0, i64 240
+  %378 = getelementptr inbounds nuw i8, ptr %0, i64 240
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %36, i8 0, i64 28, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %377, i8 0, i64 20, i1 false)
   %379 = load ptr, ptr %378, align 8
@@ -899,7 +899,7 @@ define hidden noundef i32 @_ZN4ncnn12LSTM_x86_fma15create_pipelineERKNS_6OptionE
   br i1 %382, label %383, label %393
 
 383:                                              ; preds = %380
-  %384 = getelementptr inbounds i8, ptr %0, i64 264
+  %384 = getelementptr inbounds nuw i8, ptr %0, i64 264
   %385 = load ptr, ptr %384, align 8
   %.not649 = icmp eq ptr %385, null
   %386 = load ptr, ptr %40, align 8
@@ -921,7 +921,7 @@ define hidden noundef i32 @_ZN4ncnn12LSTM_x86_fma15create_pipelineERKNS_6OptionE
   br label %393
 
 393:                                              ; preds = %387, %392, %391, %380, %376
-  %394 = getelementptr inbounds i8, ptr %0, i64 272
+  %394 = getelementptr inbounds nuw i8, ptr %0, i64 272
   store i64 0, ptr %42, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %40, i8 0, i64 28, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %394, i8 0, i64 20, i1 false)
@@ -967,27 +967,27 @@ define hidden noundef i32 @_ZN4ncnn12LSTM_x86_fma20create_pipeline_int8ERKNS_6Op
   tail call void @_ZN4ncnn3Mat6createEiiimiPNS_9AllocatorE(ptr noundef nonnull align 8 dereferenceable(72) %19, i32 noundef %27, i32 noundef %11, i32 noundef %6, i64 noundef 4, i32 noundef 4, ptr noundef null)
   tail call void @_ZN4ncnn3Mat6createEiiimPNS_9AllocatorE(ptr noundef nonnull align 8 dereferenceable(72) %20, i32 noundef 8, i32 noundef %11, i32 noundef %6, i64 noundef 4, ptr noundef null)
   tail call void @_ZN4ncnn3Mat6createEiiimiPNS_9AllocatorE(ptr noundef nonnull align 8 dereferenceable(72) %21, i32 noundef %11, i32 noundef 1, i32 noundef %6, i64 noundef 16, i32 noundef 4, ptr noundef null)
-  %28 = getelementptr inbounds i8, ptr %0, i64 348
-  %29 = getelementptr inbounds i8, ptr %0, i64 368
-  %30 = getelementptr inbounds i8, ptr %0, i64 320
-  %31 = getelementptr inbounds i8, ptr %0, i64 276
-  %32 = getelementptr inbounds i8, ptr %0, i64 296
-  %33 = getelementptr inbounds i8, ptr %0, i64 248
-  %34 = getelementptr inbounds i8, ptr %0, i64 420
-  %35 = getelementptr inbounds i8, ptr %0, i64 440
-  %36 = getelementptr inbounds i8, ptr %0, i64 392
-  %37 = getelementptr inbounds i8, ptr %0, i64 636
-  %38 = getelementptr inbounds i8, ptr %0, i64 608
-  %39 = getelementptr inbounds i8, ptr %0, i64 564
-  %40 = getelementptr inbounds i8, ptr %0, i64 536
-  %41 = getelementptr inbounds i8, ptr %0, i64 924
-  %42 = getelementptr inbounds i8, ptr %0, i64 944
-  %43 = getelementptr inbounds i8, ptr %0, i64 896
-  %44 = getelementptr inbounds i8, ptr %0, i64 800
-  %45 = getelementptr inbounds i8, ptr %0, i64 752
-  %46 = getelementptr inbounds i8, ptr %0, i64 996
-  %47 = getelementptr inbounds i8, ptr %0, i64 1016
-  %48 = getelementptr inbounds i8, ptr %0, i64 968
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 348
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 368
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 320
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 276
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 296
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 248
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 420
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 440
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 392
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 636
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 608
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 564
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 536
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 924
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 944
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 896
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 800
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 752
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 996
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 1016
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 968
   %49 = icmp sgt i32 %11, 0
   %50 = shl nsw i32 %11, 1
   %51 = mul nsw i32 %11, 3
@@ -1597,7 +1597,7 @@ _ZN4ncnnL26lstm_transform_weight_int8ERKNS_3MatES2_S2_S2_S2_RS0_S3_S3_iiiiRKNS_6
   br i1 %438, label %439, label %530
 
 439:                                              ; preds = %_ZN4ncnnL26lstm_transform_weight_int8ERKNS_3MatES2_S2_S2_S2_RS0_S3_S3_iiiiRKNS_6OptionE.exit
-  %440 = getelementptr inbounds i8, ptr %0, i64 312
+  %440 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %441 = load ptr, ptr %440, align 8
   %.not = icmp eq ptr %441, null
   br i1 %.not, label %455, label %442
@@ -1608,7 +1608,7 @@ _ZN4ncnnL26lstm_transform_weight_int8ERKNS_3MatES2_S2_S2_S2_RS0_S3_S3_iiiiRKNS_6
   br i1 %444, label %445, label %455
 
 445:                                              ; preds = %442
-  %446 = getelementptr inbounds i8, ptr %0, i64 336
+  %446 = getelementptr inbounds nuw i8, ptr %0, i64 336
   %447 = load ptr, ptr %446, align 8
   %.not44 = icmp eq ptr %447, null
   %448 = load ptr, ptr %14, align 8
@@ -1630,10 +1630,10 @@ _ZN4ncnnL26lstm_transform_weight_int8ERKNS_3MatES2_S2_S2_S2_RS0_S3_S3_iiiiRKNS_6
   br label %455
 
 455:                                              ; preds = %449, %454, %453, %442, %439
-  %456 = getelementptr inbounds i8, ptr %0, i64 344
-  %457 = getelementptr inbounds i8, ptr %0, i64 368
+  %456 = getelementptr inbounds nuw i8, ptr %0, i64 344
+  %457 = getelementptr inbounds nuw i8, ptr %0, i64 368
   store i64 0, ptr %457, align 8
-  %458 = getelementptr inbounds i8, ptr %0, i64 384
+  %458 = getelementptr inbounds nuw i8, ptr %0, i64 384
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %14, i8 0, i64 28, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %456, i8 0, i64 20, i1 false)
   %459 = load ptr, ptr %458, align 8
@@ -1646,7 +1646,7 @@ _ZN4ncnnL26lstm_transform_weight_int8ERKNS_3MatES2_S2_S2_S2_RS0_S3_S3_iiiiRKNS_6
   br i1 %462, label %463, label %473
 
 463:                                              ; preds = %460
-  %464 = getelementptr inbounds i8, ptr %0, i64 408
+  %464 = getelementptr inbounds nuw i8, ptr %0, i64 408
   %465 = load ptr, ptr %464, align 8
   %.not47 = icmp eq ptr %465, null
   %466 = load ptr, ptr %18, align 8
@@ -1668,10 +1668,10 @@ _ZN4ncnnL26lstm_transform_weight_int8ERKNS_3MatES2_S2_S2_S2_RS0_S3_S3_iiiiRKNS_6
   br label %473
 
 473:                                              ; preds = %467, %472, %471, %460, %455
-  %474 = getelementptr inbounds i8, ptr %0, i64 416
-  %475 = getelementptr inbounds i8, ptr %0, i64 440
+  %474 = getelementptr inbounds nuw i8, ptr %0, i64 416
+  %475 = getelementptr inbounds nuw i8, ptr %0, i64 440
   store i64 0, ptr %475, align 8
-  %476 = getelementptr inbounds i8, ptr %0, i64 240
+  %476 = getelementptr inbounds nuw i8, ptr %0, i64 240
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %18, i8 0, i64 28, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %474, i8 0, i64 20, i1 false)
   %477 = load ptr, ptr %476, align 8
@@ -1684,7 +1684,7 @@ _ZN4ncnnL26lstm_transform_weight_int8ERKNS_3MatES2_S2_S2_S2_RS0_S3_S3_iiiiRKNS_6
   br i1 %480, label %481, label %491
 
 481:                                              ; preds = %478
-  %482 = getelementptr inbounds i8, ptr %0, i64 264
+  %482 = getelementptr inbounds nuw i8, ptr %0, i64 264
   %483 = load ptr, ptr %482, align 8
   %.not50 = icmp eq ptr %483, null
   %484 = load ptr, ptr %16, align 8
@@ -1706,10 +1706,10 @@ _ZN4ncnnL26lstm_transform_weight_int8ERKNS_3MatES2_S2_S2_S2_RS0_S3_S3_iiiiRKNS_6
   br label %491
 
 491:                                              ; preds = %485, %490, %489, %478, %473
-  %492 = getelementptr inbounds i8, ptr %0, i64 272
-  %493 = getelementptr inbounds i8, ptr %0, i64 296
+  %492 = getelementptr inbounds nuw i8, ptr %0, i64 272
+  %493 = getelementptr inbounds nuw i8, ptr %0, i64 296
   store i64 0, ptr %493, align 8
-  %494 = getelementptr inbounds i8, ptr %0, i64 600
+  %494 = getelementptr inbounds nuw i8, ptr %0, i64 600
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %16, i8 0, i64 28, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %492, i8 0, i64 20, i1 false)
   %495 = load ptr, ptr %494, align 8
@@ -1722,7 +1722,7 @@ _ZN4ncnnL26lstm_transform_weight_int8ERKNS_3MatES2_S2_S2_S2_RS0_S3_S3_iiiiRKNS_6
   br i1 %498, label %499, label %509
 
 499:                                              ; preds = %496
-  %500 = getelementptr inbounds i8, ptr %0, i64 624
+  %500 = getelementptr inbounds nuw i8, ptr %0, i64 624
   %501 = load ptr, ptr %500, align 8
   %.not53 = icmp eq ptr %501, null
   %502 = load ptr, ptr %15, align 8
@@ -1744,10 +1744,10 @@ _ZN4ncnnL26lstm_transform_weight_int8ERKNS_3MatES2_S2_S2_S2_RS0_S3_S3_iiiiRKNS_6
   br label %509
 
 509:                                              ; preds = %503, %508, %507, %496, %491
-  %510 = getelementptr inbounds i8, ptr %0, i64 632
-  %511 = getelementptr inbounds i8, ptr %0, i64 656
+  %510 = getelementptr inbounds nuw i8, ptr %0, i64 632
+  %511 = getelementptr inbounds nuw i8, ptr %0, i64 656
   store i64 0, ptr %511, align 8
-  %512 = getelementptr inbounds i8, ptr %0, i64 528
+  %512 = getelementptr inbounds nuw i8, ptr %0, i64 528
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %15, i8 0, i64 28, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %510, i8 0, i64 20, i1 false)
   %513 = load ptr, ptr %512, align 8
@@ -1760,7 +1760,7 @@ _ZN4ncnnL26lstm_transform_weight_int8ERKNS_3MatES2_S2_S2_S2_RS0_S3_S3_iiiiRKNS_6
   br i1 %516, label %517, label %527
 
 517:                                              ; preds = %514
-  %518 = getelementptr inbounds i8, ptr %0, i64 552
+  %518 = getelementptr inbounds nuw i8, ptr %0, i64 552
   %519 = load ptr, ptr %518, align 8
   %.not56 = icmp eq ptr %519, null
   %520 = load ptr, ptr %17, align 8
@@ -1782,8 +1782,8 @@ _ZN4ncnnL26lstm_transform_weight_int8ERKNS_3MatES2_S2_S2_S2_RS0_S3_S3_iiiiRKNS_6
   br label %527
 
 527:                                              ; preds = %521, %526, %525, %514, %509
-  %528 = getelementptr inbounds i8, ptr %0, i64 560
-  %529 = getelementptr inbounds i8, ptr %0, i64 584
+  %528 = getelementptr inbounds nuw i8, ptr %0, i64 560
+  %529 = getelementptr inbounds nuw i8, ptr %0, i64 584
   store i64 0, ptr %529, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %17, i8 0, i64 28, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %528, i8 0, i64 20, i1 false)
@@ -1947,18 +1947,18 @@ define hidden noundef i32 @_ZNK4ncnn12LSTM_x86_fma7forwardERKNS_3MatERS1_RKNS_6O
 
 96:                                               ; preds = %94
   %97 = getelementptr inbounds nuw i8, ptr %0, i64 664
-  %98 = getelementptr inbounds i8, ptr %0, i64 708
+  %98 = getelementptr inbounds nuw i8, ptr %0, i64 708
   %99 = load i32, ptr %98, align 4
-  %100 = getelementptr inbounds i8, ptr %0, i64 712
+  %100 = getelementptr inbounds nuw i8, ptr %0, i64 712
   %101 = load i32, ptr %100, align 8
-  %102 = getelementptr inbounds i8, ptr %0, i64 716
+  %102 = getelementptr inbounds nuw i8, ptr %0, i64 716
   %103 = load i32, ptr %102, align 4
   %104 = load ptr, ptr %97, align 8
-  %105 = getelementptr inbounds i8, ptr %0, i64 680
+  %105 = getelementptr inbounds nuw i8, ptr %0, i64 680
   %106 = load i64, ptr %105, align 8
-  %107 = getelementptr inbounds i8, ptr %0, i64 688
+  %107 = getelementptr inbounds nuw i8, ptr %0, i64 688
   %108 = load i32, ptr %107, align 8
-  %109 = getelementptr inbounds i8, ptr %0, i64 696
+  %109 = getelementptr inbounds nuw i8, ptr %0, i64 696
   %110 = load ptr, ptr %109, align 8
   store ptr %104, ptr %7, align 8
   %111 = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -1987,7 +1987,7 @@ define hidden noundef i32 @_ZNK4ncnn12LSTM_x86_fma7forwardERKNS_3MatERS1_RKNS_6O
   %126 = udiv i64 %125, %106
   %127 = getelementptr inbounds nuw i8, ptr %7, i64 64
   store i64 %126, ptr %127, align 8
-  %128 = getelementptr inbounds i8, ptr %0, i64 704
+  %128 = getelementptr inbounds nuw i8, ptr %0, i64 704
   %129 = load i32, ptr %128, align 8
   %130 = add nsw i32 %129, -1
   store i32 %130, ptr %115, align 8, !alias.scope !22
@@ -2000,18 +2000,18 @@ define hidden noundef i32 @_ZNK4ncnn12LSTM_x86_fma7forwardERKNS_3MatERS1_RKNS_6O
 
 133:                                              ; preds = %96, %132
   %134 = getelementptr inbounds nuw i8, ptr %0, i64 736
-  %135 = getelementptr inbounds i8, ptr %0, i64 780
+  %135 = getelementptr inbounds nuw i8, ptr %0, i64 780
   %136 = load i32, ptr %135, align 4
-  %137 = getelementptr inbounds i8, ptr %0, i64 784
+  %137 = getelementptr inbounds nuw i8, ptr %0, i64 784
   %138 = load i32, ptr %137, align 8
-  %139 = getelementptr inbounds i8, ptr %0, i64 788
+  %139 = getelementptr inbounds nuw i8, ptr %0, i64 788
   %140 = load i32, ptr %139, align 4
   %141 = load ptr, ptr %134, align 8
-  %142 = getelementptr inbounds i8, ptr %0, i64 752
+  %142 = getelementptr inbounds nuw i8, ptr %0, i64 752
   %143 = load i64, ptr %142, align 8
-  %144 = getelementptr inbounds i8, ptr %0, i64 760
+  %144 = getelementptr inbounds nuw i8, ptr %0, i64 760
   %145 = load i32, ptr %144, align 8
-  %146 = getelementptr inbounds i8, ptr %0, i64 768
+  %146 = getelementptr inbounds nuw i8, ptr %0, i64 768
   %147 = load ptr, ptr %146, align 8
   store ptr %141, ptr %8, align 8
   %148 = getelementptr inbounds nuw i8, ptr %8, i64 8
@@ -2040,7 +2040,7 @@ define hidden noundef i32 @_ZNK4ncnn12LSTM_x86_fma7forwardERKNS_3MatERS1_RKNS_6O
   %163 = udiv i64 %162, %143
   %164 = getelementptr inbounds nuw i8, ptr %8, i64 64
   store i64 %163, ptr %164, align 8
-  %165 = getelementptr inbounds i8, ptr %0, i64 776
+  %165 = getelementptr inbounds nuw i8, ptr %0, i64 776
   %166 = load i32, ptr %165, align 8
   %167 = add nsw i32 %166, -1
   store i32 %167, ptr %152, align 8, !alias.scope !25
@@ -2053,18 +2053,18 @@ define hidden noundef i32 @_ZNK4ncnn12LSTM_x86_fma7forwardERKNS_3MatERS1_RKNS_6O
 
 170:                                              ; preds = %133, %169
   %171 = getelementptr inbounds nuw i8, ptr %0, i64 808
-  %172 = getelementptr inbounds i8, ptr %0, i64 852
+  %172 = getelementptr inbounds nuw i8, ptr %0, i64 852
   %173 = load i32, ptr %172, align 4
-  %174 = getelementptr inbounds i8, ptr %0, i64 856
+  %174 = getelementptr inbounds nuw i8, ptr %0, i64 856
   %175 = load i32, ptr %174, align 8
-  %176 = getelementptr inbounds i8, ptr %0, i64 860
+  %176 = getelementptr inbounds nuw i8, ptr %0, i64 860
   %177 = load i32, ptr %176, align 4
   %178 = load ptr, ptr %171, align 8
-  %179 = getelementptr inbounds i8, ptr %0, i64 824
+  %179 = getelementptr inbounds nuw i8, ptr %0, i64 824
   %180 = load i64, ptr %179, align 8
-  %181 = getelementptr inbounds i8, ptr %0, i64 832
+  %181 = getelementptr inbounds nuw i8, ptr %0, i64 832
   %182 = load i32, ptr %181, align 8
-  %183 = getelementptr inbounds i8, ptr %0, i64 840
+  %183 = getelementptr inbounds nuw i8, ptr %0, i64 840
   %184 = load ptr, ptr %183, align 8
   store ptr %178, ptr %9, align 8
   %185 = getelementptr inbounds nuw i8, ptr %9, i64 8
@@ -2093,7 +2093,7 @@ define hidden noundef i32 @_ZNK4ncnn12LSTM_x86_fma7forwardERKNS_3MatERS1_RKNS_6O
   %200 = udiv i64 %199, %180
   %201 = getelementptr inbounds nuw i8, ptr %9, i64 64
   store i64 %200, ptr %201, align 8
-  %202 = getelementptr inbounds i8, ptr %0, i64 848
+  %202 = getelementptr inbounds nuw i8, ptr %0, i64 848
   %203 = load i32, ptr %202, align 8
   %204 = add nsw i32 %203, -1
   store i32 %204, ptr %189, align 8, !alias.scope !28
@@ -2120,18 +2120,18 @@ define hidden noundef i32 @_ZNK4ncnn12LSTM_x86_fma7forwardERKNS_3MatERS1_RKNS_6O
 
 214:                                              ; preds = %207
   %215 = getelementptr inbounds nuw i8, ptr %0, i64 448
-  %216 = getelementptr inbounds i8, ptr %0, i64 492
+  %216 = getelementptr inbounds nuw i8, ptr %0, i64 492
   %217 = load i32, ptr %216, align 4
-  %218 = getelementptr inbounds i8, ptr %0, i64 496
+  %218 = getelementptr inbounds nuw i8, ptr %0, i64 496
   %219 = load i32, ptr %218, align 8
-  %220 = getelementptr inbounds i8, ptr %0, i64 500
+  %220 = getelementptr inbounds nuw i8, ptr %0, i64 500
   %221 = load i32, ptr %220, align 4
   %222 = load ptr, ptr %215, align 8
-  %223 = getelementptr inbounds i8, ptr %0, i64 464
+  %223 = getelementptr inbounds nuw i8, ptr %0, i64 464
   %224 = load i64, ptr %223, align 8
-  %225 = getelementptr inbounds i8, ptr %0, i64 472
+  %225 = getelementptr inbounds nuw i8, ptr %0, i64 472
   %226 = load i32, ptr %225, align 8
-  %227 = getelementptr inbounds i8, ptr %0, i64 480
+  %227 = getelementptr inbounds nuw i8, ptr %0, i64 480
   %228 = load ptr, ptr %227, align 8
   store ptr %222, ptr %10, align 8
   %229 = getelementptr inbounds nuw i8, ptr %10, i64 8
@@ -2160,7 +2160,7 @@ define hidden noundef i32 @_ZNK4ncnn12LSTM_x86_fma7forwardERKNS_3MatERS1_RKNS_6O
   %244 = udiv i64 %243, %224
   %245 = getelementptr inbounds nuw i8, ptr %10, i64 64
   store i64 %244, ptr %245, align 8
-  %246 = getelementptr inbounds i8, ptr %0, i64 488
+  %246 = getelementptr inbounds nuw i8, ptr %0, i64 488
   %247 = load i32, ptr %246, align 8
   %248 = add nsw i32 %247, -1
   store i32 %248, ptr %233, align 8, !alias.scope !31
@@ -2286,19 +2286,19 @@ thread-pre-split:                                 ; preds = %253
 
 303:                                              ; preds = %297
   %304 = getelementptr inbounds nuw i8, ptr %0, i64 664
-  %305 = getelementptr inbounds i8, ptr %0, i64 708
+  %305 = getelementptr inbounds nuw i8, ptr %0, i64 708
   %306 = load i32, ptr %305, align 4
-  %307 = getelementptr inbounds i8, ptr %0, i64 712
+  %307 = getelementptr inbounds nuw i8, ptr %0, i64 712
   %308 = load i32, ptr %307, align 8
-  %309 = getelementptr inbounds i8, ptr %0, i64 716
+  %309 = getelementptr inbounds nuw i8, ptr %0, i64 716
   %310 = load i32, ptr %309, align 4
   %311 = load ptr, ptr %304, align 8
-  %312 = getelementptr inbounds i8, ptr %0, i64 728
-  %313 = getelementptr inbounds i8, ptr %0, i64 680
+  %312 = getelementptr inbounds nuw i8, ptr %0, i64 728
+  %313 = getelementptr inbounds nuw i8, ptr %0, i64 680
   %314 = load i64, ptr %313, align 8
-  %315 = getelementptr inbounds i8, ptr %0, i64 688
+  %315 = getelementptr inbounds nuw i8, ptr %0, i64 688
   %316 = load i32, ptr %315, align 8
-  %317 = getelementptr inbounds i8, ptr %0, i64 696
+  %317 = getelementptr inbounds nuw i8, ptr %0, i64 696
   %318 = load ptr, ptr %317, align 8
   store ptr %311, ptr %13, align 8
   %319 = getelementptr inbounds nuw i8, ptr %13, i64 8
@@ -2327,7 +2327,7 @@ thread-pre-split:                                 ; preds = %253
   %334 = udiv i64 %333, %314
   %335 = getelementptr inbounds nuw i8, ptr %13, i64 64
   store i64 %334, ptr %335, align 8
-  %336 = getelementptr inbounds i8, ptr %0, i64 704
+  %336 = getelementptr inbounds nuw i8, ptr %0, i64 704
   %337 = load i32, ptr %336, align 8
   %338 = add nsw i32 %337, -1
   store i32 %338, ptr %323, align 8, !alias.scope !34
@@ -2340,19 +2340,19 @@ thread-pre-split:                                 ; preds = %253
 
 341:                                              ; preds = %303, %340
   %342 = getelementptr inbounds nuw i8, ptr %0, i64 736
-  %343 = getelementptr inbounds i8, ptr %0, i64 780
+  %343 = getelementptr inbounds nuw i8, ptr %0, i64 780
   %344 = load i32, ptr %343, align 4
-  %345 = getelementptr inbounds i8, ptr %0, i64 784
+  %345 = getelementptr inbounds nuw i8, ptr %0, i64 784
   %346 = load i32, ptr %345, align 8
-  %347 = getelementptr inbounds i8, ptr %0, i64 788
+  %347 = getelementptr inbounds nuw i8, ptr %0, i64 788
   %348 = load i32, ptr %347, align 4
   %349 = load ptr, ptr %342, align 8
-  %350 = getelementptr inbounds i8, ptr %0, i64 800
-  %351 = getelementptr inbounds i8, ptr %0, i64 752
+  %350 = getelementptr inbounds nuw i8, ptr %0, i64 800
+  %351 = getelementptr inbounds nuw i8, ptr %0, i64 752
   %352 = load i64, ptr %351, align 8
-  %353 = getelementptr inbounds i8, ptr %0, i64 760
+  %353 = getelementptr inbounds nuw i8, ptr %0, i64 760
   %354 = load i32, ptr %353, align 8
-  %355 = getelementptr inbounds i8, ptr %0, i64 768
+  %355 = getelementptr inbounds nuw i8, ptr %0, i64 768
   %356 = load ptr, ptr %355, align 8
   store ptr %349, ptr %14, align 8
   %357 = getelementptr inbounds nuw i8, ptr %14, i64 8
@@ -2381,7 +2381,7 @@ thread-pre-split:                                 ; preds = %253
   %372 = udiv i64 %371, %352
   %373 = getelementptr inbounds nuw i8, ptr %14, i64 64
   store i64 %372, ptr %373, align 8
-  %374 = getelementptr inbounds i8, ptr %0, i64 776
+  %374 = getelementptr inbounds nuw i8, ptr %0, i64 776
   %375 = load i32, ptr %374, align 8
   %376 = add nsw i32 %375, -1
   store i32 %376, ptr %361, align 8, !alias.scope !37
@@ -2394,19 +2394,19 @@ thread-pre-split:                                 ; preds = %253
 
 379:                                              ; preds = %341, %378
   %380 = getelementptr inbounds nuw i8, ptr %0, i64 808
-  %381 = getelementptr inbounds i8, ptr %0, i64 852
+  %381 = getelementptr inbounds nuw i8, ptr %0, i64 852
   %382 = load i32, ptr %381, align 4
-  %383 = getelementptr inbounds i8, ptr %0, i64 856
+  %383 = getelementptr inbounds nuw i8, ptr %0, i64 856
   %384 = load i32, ptr %383, align 8
-  %385 = getelementptr inbounds i8, ptr %0, i64 860
+  %385 = getelementptr inbounds nuw i8, ptr %0, i64 860
   %386 = load i32, ptr %385, align 4
   %387 = load ptr, ptr %380, align 8
-  %388 = getelementptr inbounds i8, ptr %0, i64 872
-  %389 = getelementptr inbounds i8, ptr %0, i64 824
+  %388 = getelementptr inbounds nuw i8, ptr %0, i64 872
+  %389 = getelementptr inbounds nuw i8, ptr %0, i64 824
   %390 = load i64, ptr %389, align 8
-  %391 = getelementptr inbounds i8, ptr %0, i64 832
+  %391 = getelementptr inbounds nuw i8, ptr %0, i64 832
   %392 = load i32, ptr %391, align 8
-  %393 = getelementptr inbounds i8, ptr %0, i64 840
+  %393 = getelementptr inbounds nuw i8, ptr %0, i64 840
   %394 = load ptr, ptr %393, align 8
   store ptr %387, ptr %15, align 8
   %395 = getelementptr inbounds nuw i8, ptr %15, i64 8
@@ -2435,7 +2435,7 @@ thread-pre-split:                                 ; preds = %253
   %410 = udiv i64 %409, %390
   %411 = getelementptr inbounds nuw i8, ptr %15, i64 64
   store i64 %410, ptr %411, align 8
-  %412 = getelementptr inbounds i8, ptr %0, i64 848
+  %412 = getelementptr inbounds nuw i8, ptr %0, i64 848
   %413 = load i32, ptr %412, align 8
   %414 = add nsw i32 %413, -1
   store i32 %414, ptr %399, align 8, !alias.scope !40
@@ -2462,18 +2462,18 @@ thread-pre-split:                                 ; preds = %253
 
 424:                                              ; preds = %417
   %425 = getelementptr inbounds nuw i8, ptr %0, i64 448
-  %426 = getelementptr inbounds i8, ptr %0, i64 492
+  %426 = getelementptr inbounds nuw i8, ptr %0, i64 492
   %427 = load i32, ptr %426, align 4
-  %428 = getelementptr inbounds i8, ptr %0, i64 496
+  %428 = getelementptr inbounds nuw i8, ptr %0, i64 496
   %429 = load i32, ptr %428, align 8
-  %430 = getelementptr inbounds i8, ptr %0, i64 500
+  %430 = getelementptr inbounds nuw i8, ptr %0, i64 500
   %431 = load i32, ptr %430, align 4
   %432 = load ptr, ptr %425, align 8
-  %433 = getelementptr inbounds i8, ptr %0, i64 464
+  %433 = getelementptr inbounds nuw i8, ptr %0, i64 464
   %434 = load i64, ptr %433, align 8
-  %435 = getelementptr inbounds i8, ptr %0, i64 472
+  %435 = getelementptr inbounds nuw i8, ptr %0, i64 472
   %436 = load i32, ptr %435, align 8
-  %437 = getelementptr inbounds i8, ptr %0, i64 480
+  %437 = getelementptr inbounds nuw i8, ptr %0, i64 480
   %438 = load ptr, ptr %437, align 8
   store ptr %432, ptr %16, align 8
   %439 = getelementptr inbounds nuw i8, ptr %16, i64 8
@@ -2502,7 +2502,7 @@ thread-pre-split:                                 ; preds = %253
   %454 = udiv i64 %453, %434
   %455 = getelementptr inbounds nuw i8, ptr %16, i64 64
   store i64 %454, ptr %455, align 8
-  %456 = getelementptr inbounds i8, ptr %0, i64 488
+  %456 = getelementptr inbounds nuw i8, ptr %0, i64 488
   %457 = load i32, ptr %456, align 8
   %458 = add nsw i32 %457, -1
   store i32 %458, ptr %443, align 8, !alias.scope !43
@@ -2730,22 +2730,22 @@ thread-pre-split:                                 ; preds = %253
 
 587:                                              ; preds = %580
   %588 = getelementptr inbounds nuw i8, ptr %0, i64 448
-  %589 = getelementptr inbounds i8, ptr %0, i64 492
+  %589 = getelementptr inbounds nuw i8, ptr %0, i64 492
   %590 = load i32, ptr %589, align 4
-  %591 = getelementptr inbounds i8, ptr %0, i64 496
+  %591 = getelementptr inbounds nuw i8, ptr %0, i64 496
   %592 = load i32, ptr %591, align 8
-  %593 = getelementptr inbounds i8, ptr %0, i64 500
+  %593 = getelementptr inbounds nuw i8, ptr %0, i64 500
   %594 = load i32, ptr %593, align 4
   %595 = load ptr, ptr %588, align 8
-  %596 = getelementptr inbounds i8, ptr %0, i64 512
+  %596 = getelementptr inbounds nuw i8, ptr %0, i64 512
   %597 = load i64, ptr %596, align 8
-  %598 = getelementptr inbounds i8, ptr %0, i64 464
+  %598 = getelementptr inbounds nuw i8, ptr %0, i64 464
   %599 = load i64, ptr %598, align 8
   %600 = mul i64 %599, %597
   %601 = getelementptr inbounds i8, ptr %595, i64 %600
-  %602 = getelementptr inbounds i8, ptr %0, i64 472
+  %602 = getelementptr inbounds nuw i8, ptr %0, i64 472
   %603 = load i32, ptr %602, align 8
-  %604 = getelementptr inbounds i8, ptr %0, i64 480
+  %604 = getelementptr inbounds nuw i8, ptr %0, i64 480
   %605 = load ptr, ptr %604, align 8
   store ptr %601, ptr %20, align 8
   %606 = getelementptr inbounds nuw i8, ptr %20, i64 8
@@ -2774,7 +2774,7 @@ thread-pre-split:                                 ; preds = %253
   %621 = udiv i64 %620, %599
   %622 = getelementptr inbounds nuw i8, ptr %20, i64 64
   store i64 %621, ptr %622, align 8
-  %623 = getelementptr inbounds i8, ptr %0, i64 488
+  %623 = getelementptr inbounds nuw i8, ptr %0, i64 488
   %624 = load i32, ptr %623, align 8
   %625 = add nsw i32 %624, -1
   store i32 %625, ptr %610, align 8, !alias.scope !55
@@ -3408,18 +3408,18 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn12LSTM_x86_fma12forward_i
 
 106:                                              ; preds = %104
   %107 = getelementptr inbounds nuw i8, ptr %0, i64 880
-  %108 = getelementptr inbounds i8, ptr %0, i64 924
+  %108 = getelementptr inbounds nuw i8, ptr %0, i64 924
   %109 = load i32, ptr %108, align 4
-  %110 = getelementptr inbounds i8, ptr %0, i64 928
+  %110 = getelementptr inbounds nuw i8, ptr %0, i64 928
   %111 = load i32, ptr %110, align 8
-  %112 = getelementptr inbounds i8, ptr %0, i64 932
+  %112 = getelementptr inbounds nuw i8, ptr %0, i64 932
   %113 = load i32, ptr %112, align 4
   %114 = load ptr, ptr %107, align 8
-  %115 = getelementptr inbounds i8, ptr %0, i64 896
+  %115 = getelementptr inbounds nuw i8, ptr %0, i64 896
   %116 = load i64, ptr %115, align 8
-  %117 = getelementptr inbounds i8, ptr %0, i64 904
+  %117 = getelementptr inbounds nuw i8, ptr %0, i64 904
   %118 = load i32, ptr %117, align 8
-  %119 = getelementptr inbounds i8, ptr %0, i64 912
+  %119 = getelementptr inbounds nuw i8, ptr %0, i64 912
   %120 = load ptr, ptr %119, align 8
   store ptr %114, ptr %10, align 8
   %121 = getelementptr inbounds nuw i8, ptr %10, i64 8
@@ -3448,7 +3448,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn12LSTM_x86_fma12forward_i
   %136 = udiv i64 %135, %116
   %137 = getelementptr inbounds nuw i8, ptr %10, i64 64
   store i64 %136, ptr %137, align 8
-  %138 = getelementptr inbounds i8, ptr %0, i64 920
+  %138 = getelementptr inbounds nuw i8, ptr %0, i64 920
   %139 = load i32, ptr %138, align 8
   %140 = add nsw i32 %139, -1
   store i32 %140, ptr %125, align 8, !alias.scope !59
@@ -3461,18 +3461,18 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn12LSTM_x86_fma12forward_i
 
 143:                                              ; preds = %106, %142
   %144 = getelementptr inbounds nuw i8, ptr %0, i64 952
-  %145 = getelementptr inbounds i8, ptr %0, i64 996
+  %145 = getelementptr inbounds nuw i8, ptr %0, i64 996
   %146 = load i32, ptr %145, align 4
-  %147 = getelementptr inbounds i8, ptr %0, i64 1000
+  %147 = getelementptr inbounds nuw i8, ptr %0, i64 1000
   %148 = load i32, ptr %147, align 8
-  %149 = getelementptr inbounds i8, ptr %0, i64 1004
+  %149 = getelementptr inbounds nuw i8, ptr %0, i64 1004
   %150 = load i32, ptr %149, align 4
   %151 = load ptr, ptr %144, align 8
-  %152 = getelementptr inbounds i8, ptr %0, i64 968
+  %152 = getelementptr inbounds nuw i8, ptr %0, i64 968
   %153 = load i64, ptr %152, align 8
-  %154 = getelementptr inbounds i8, ptr %0, i64 976
+  %154 = getelementptr inbounds nuw i8, ptr %0, i64 976
   %155 = load i32, ptr %154, align 8
-  %156 = getelementptr inbounds i8, ptr %0, i64 984
+  %156 = getelementptr inbounds nuw i8, ptr %0, i64 984
   %157 = load ptr, ptr %156, align 8
   store ptr %151, ptr %11, align 8
   %158 = getelementptr inbounds nuw i8, ptr %11, i64 8
@@ -3501,7 +3501,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn12LSTM_x86_fma12forward_i
   %173 = udiv i64 %172, %153
   %174 = getelementptr inbounds nuw i8, ptr %11, i64 64
   store i64 %173, ptr %174, align 8
-  %175 = getelementptr inbounds i8, ptr %0, i64 992
+  %175 = getelementptr inbounds nuw i8, ptr %0, i64 992
   %176 = load i32, ptr %175, align 8
   %177 = add nsw i32 %176, -1
   store i32 %177, ptr %162, align 8, !alias.scope !62
@@ -3514,18 +3514,18 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn12LSTM_x86_fma12forward_i
 
 180:                                              ; preds = %143, %179
   %181 = getelementptr inbounds nuw i8, ptr %0, i64 736
-  %182 = getelementptr inbounds i8, ptr %0, i64 780
+  %182 = getelementptr inbounds nuw i8, ptr %0, i64 780
   %183 = load i32, ptr %182, align 4
-  %184 = getelementptr inbounds i8, ptr %0, i64 784
+  %184 = getelementptr inbounds nuw i8, ptr %0, i64 784
   %185 = load i32, ptr %184, align 8
-  %186 = getelementptr inbounds i8, ptr %0, i64 788
+  %186 = getelementptr inbounds nuw i8, ptr %0, i64 788
   %187 = load i32, ptr %186, align 4
   %188 = load ptr, ptr %181, align 8
-  %189 = getelementptr inbounds i8, ptr %0, i64 752
+  %189 = getelementptr inbounds nuw i8, ptr %0, i64 752
   %190 = load i64, ptr %189, align 8
-  %191 = getelementptr inbounds i8, ptr %0, i64 760
+  %191 = getelementptr inbounds nuw i8, ptr %0, i64 760
   %192 = load i32, ptr %191, align 8
-  %193 = getelementptr inbounds i8, ptr %0, i64 768
+  %193 = getelementptr inbounds nuw i8, ptr %0, i64 768
   %194 = load ptr, ptr %193, align 8
   store ptr %188, ptr %12, align 8
   %195 = getelementptr inbounds nuw i8, ptr %12, i64 8
@@ -3554,7 +3554,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn12LSTM_x86_fma12forward_i
   %210 = udiv i64 %209, %190
   %211 = getelementptr inbounds nuw i8, ptr %12, i64 64
   store i64 %210, ptr %211, align 8
-  %212 = getelementptr inbounds i8, ptr %0, i64 776
+  %212 = getelementptr inbounds nuw i8, ptr %0, i64 776
   %213 = load i32, ptr %212, align 8
   %214 = add nsw i32 %213, -1
   store i32 %214, ptr %199, align 8, !alias.scope !65
@@ -3581,18 +3581,18 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn12LSTM_x86_fma12forward_i
 
 224:                                              ; preds = %217
   %225 = getelementptr inbounds nuw i8, ptr %0, i64 448
-  %226 = getelementptr inbounds i8, ptr %0, i64 492
+  %226 = getelementptr inbounds nuw i8, ptr %0, i64 492
   %227 = load i32, ptr %226, align 4
-  %228 = getelementptr inbounds i8, ptr %0, i64 496
+  %228 = getelementptr inbounds nuw i8, ptr %0, i64 496
   %229 = load i32, ptr %228, align 8
-  %230 = getelementptr inbounds i8, ptr %0, i64 500
+  %230 = getelementptr inbounds nuw i8, ptr %0, i64 500
   %231 = load i32, ptr %230, align 4
   %232 = load ptr, ptr %225, align 8
-  %233 = getelementptr inbounds i8, ptr %0, i64 464
+  %233 = getelementptr inbounds nuw i8, ptr %0, i64 464
   %234 = load i64, ptr %233, align 8
-  %235 = getelementptr inbounds i8, ptr %0, i64 472
+  %235 = getelementptr inbounds nuw i8, ptr %0, i64 472
   %236 = load i32, ptr %235, align 8
-  %237 = getelementptr inbounds i8, ptr %0, i64 480
+  %237 = getelementptr inbounds nuw i8, ptr %0, i64 480
   %238 = load ptr, ptr %237, align 8
   store ptr %232, ptr %13, align 8
   %239 = getelementptr inbounds nuw i8, ptr %13, i64 8
@@ -3621,7 +3621,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn12LSTM_x86_fma12forward_i
   %254 = udiv i64 %253, %234
   %255 = getelementptr inbounds nuw i8, ptr %13, i64 64
   store i64 %254, ptr %255, align 8
-  %256 = getelementptr inbounds i8, ptr %0, i64 488
+  %256 = getelementptr inbounds nuw i8, ptr %0, i64 488
   %257 = load i32, ptr %256, align 8
   %258 = add nsw i32 %257, -1
   store i32 %258, ptr %243, align 8, !alias.scope !68
@@ -4056,19 +4056,19 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn12LSTM_x86_fma12forward_i
 
 454:                                              ; preds = %448
   %455 = getelementptr inbounds nuw i8, ptr %0, i64 880
-  %456 = getelementptr inbounds i8, ptr %0, i64 924
+  %456 = getelementptr inbounds nuw i8, ptr %0, i64 924
   %457 = load i32, ptr %456, align 4
-  %458 = getelementptr inbounds i8, ptr %0, i64 928
+  %458 = getelementptr inbounds nuw i8, ptr %0, i64 928
   %459 = load i32, ptr %458, align 8
-  %460 = getelementptr inbounds i8, ptr %0, i64 932
+  %460 = getelementptr inbounds nuw i8, ptr %0, i64 932
   %461 = load i32, ptr %460, align 4
   %462 = load ptr, ptr %455, align 8
-  %463 = getelementptr inbounds i8, ptr %0, i64 944
-  %464 = getelementptr inbounds i8, ptr %0, i64 896
+  %463 = getelementptr inbounds nuw i8, ptr %0, i64 944
+  %464 = getelementptr inbounds nuw i8, ptr %0, i64 896
   %465 = load i64, ptr %464, align 8
-  %466 = getelementptr inbounds i8, ptr %0, i64 904
+  %466 = getelementptr inbounds nuw i8, ptr %0, i64 904
   %467 = load i32, ptr %466, align 8
-  %468 = getelementptr inbounds i8, ptr %0, i64 912
+  %468 = getelementptr inbounds nuw i8, ptr %0, i64 912
   %469 = load ptr, ptr %468, align 8
   store ptr %462, ptr %16, align 8
   %470 = getelementptr inbounds nuw i8, ptr %16, i64 8
@@ -4097,7 +4097,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn12LSTM_x86_fma12forward_i
   %485 = udiv i64 %484, %465
   %486 = getelementptr inbounds nuw i8, ptr %16, i64 64
   store i64 %485, ptr %486, align 8
-  %487 = getelementptr inbounds i8, ptr %0, i64 920
+  %487 = getelementptr inbounds nuw i8, ptr %0, i64 920
   %488 = load i32, ptr %487, align 8
   %489 = add nsw i32 %488, -1
   store i32 %489, ptr %474, align 8, !alias.scope !71
@@ -4110,19 +4110,19 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn12LSTM_x86_fma12forward_i
 
 492:                                              ; preds = %454, %491
   %493 = getelementptr inbounds nuw i8, ptr %0, i64 952
-  %494 = getelementptr inbounds i8, ptr %0, i64 996
+  %494 = getelementptr inbounds nuw i8, ptr %0, i64 996
   %495 = load i32, ptr %494, align 4
-  %496 = getelementptr inbounds i8, ptr %0, i64 1000
+  %496 = getelementptr inbounds nuw i8, ptr %0, i64 1000
   %497 = load i32, ptr %496, align 8
-  %498 = getelementptr inbounds i8, ptr %0, i64 1004
+  %498 = getelementptr inbounds nuw i8, ptr %0, i64 1004
   %499 = load i32, ptr %498, align 4
   %500 = load ptr, ptr %493, align 8
-  %501 = getelementptr inbounds i8, ptr %0, i64 1016
-  %502 = getelementptr inbounds i8, ptr %0, i64 968
+  %501 = getelementptr inbounds nuw i8, ptr %0, i64 1016
+  %502 = getelementptr inbounds nuw i8, ptr %0, i64 968
   %503 = load i64, ptr %502, align 8
-  %504 = getelementptr inbounds i8, ptr %0, i64 976
+  %504 = getelementptr inbounds nuw i8, ptr %0, i64 976
   %505 = load i32, ptr %504, align 8
-  %506 = getelementptr inbounds i8, ptr %0, i64 984
+  %506 = getelementptr inbounds nuw i8, ptr %0, i64 984
   %507 = load ptr, ptr %506, align 8
   store ptr %500, ptr %17, align 8
   %508 = getelementptr inbounds nuw i8, ptr %17, i64 8
@@ -4151,7 +4151,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn12LSTM_x86_fma12forward_i
   %523 = udiv i64 %522, %503
   %524 = getelementptr inbounds nuw i8, ptr %17, i64 64
   store i64 %523, ptr %524, align 8
-  %525 = getelementptr inbounds i8, ptr %0, i64 992
+  %525 = getelementptr inbounds nuw i8, ptr %0, i64 992
   %526 = load i32, ptr %525, align 8
   %527 = add nsw i32 %526, -1
   store i32 %527, ptr %512, align 8, !alias.scope !74
@@ -4164,19 +4164,19 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn12LSTM_x86_fma12forward_i
 
 530:                                              ; preds = %492, %529
   %531 = getelementptr inbounds nuw i8, ptr %0, i64 736
-  %532 = getelementptr inbounds i8, ptr %0, i64 780
+  %532 = getelementptr inbounds nuw i8, ptr %0, i64 780
   %533 = load i32, ptr %532, align 4
-  %534 = getelementptr inbounds i8, ptr %0, i64 784
+  %534 = getelementptr inbounds nuw i8, ptr %0, i64 784
   %535 = load i32, ptr %534, align 8
-  %536 = getelementptr inbounds i8, ptr %0, i64 788
+  %536 = getelementptr inbounds nuw i8, ptr %0, i64 788
   %537 = load i32, ptr %536, align 4
   %538 = load ptr, ptr %531, align 8
-  %539 = getelementptr inbounds i8, ptr %0, i64 800
-  %540 = getelementptr inbounds i8, ptr %0, i64 752
+  %539 = getelementptr inbounds nuw i8, ptr %0, i64 800
+  %540 = getelementptr inbounds nuw i8, ptr %0, i64 752
   %541 = load i64, ptr %540, align 8
-  %542 = getelementptr inbounds i8, ptr %0, i64 760
+  %542 = getelementptr inbounds nuw i8, ptr %0, i64 760
   %543 = load i32, ptr %542, align 8
-  %544 = getelementptr inbounds i8, ptr %0, i64 768
+  %544 = getelementptr inbounds nuw i8, ptr %0, i64 768
   %545 = load ptr, ptr %544, align 8
   store ptr %538, ptr %18, align 8
   %546 = getelementptr inbounds nuw i8, ptr %18, i64 8
@@ -4205,7 +4205,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn12LSTM_x86_fma12forward_i
   %561 = udiv i64 %560, %541
   %562 = getelementptr inbounds nuw i8, ptr %18, i64 64
   store i64 %561, ptr %562, align 8
-  %563 = getelementptr inbounds i8, ptr %0, i64 776
+  %563 = getelementptr inbounds nuw i8, ptr %0, i64 776
   %564 = load i32, ptr %563, align 8
   %565 = add nsw i32 %564, -1
   store i32 %565, ptr %550, align 8, !alias.scope !77
@@ -4232,18 +4232,18 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn12LSTM_x86_fma12forward_i
 
 575:                                              ; preds = %568
   %576 = getelementptr inbounds nuw i8, ptr %0, i64 448
-  %577 = getelementptr inbounds i8, ptr %0, i64 492
+  %577 = getelementptr inbounds nuw i8, ptr %0, i64 492
   %578 = load i32, ptr %577, align 4
-  %579 = getelementptr inbounds i8, ptr %0, i64 496
+  %579 = getelementptr inbounds nuw i8, ptr %0, i64 496
   %580 = load i32, ptr %579, align 8
-  %581 = getelementptr inbounds i8, ptr %0, i64 500
+  %581 = getelementptr inbounds nuw i8, ptr %0, i64 500
   %582 = load i32, ptr %581, align 4
   %583 = load ptr, ptr %576, align 8
-  %584 = getelementptr inbounds i8, ptr %0, i64 464
+  %584 = getelementptr inbounds nuw i8, ptr %0, i64 464
   %585 = load i64, ptr %584, align 8
-  %586 = getelementptr inbounds i8, ptr %0, i64 472
+  %586 = getelementptr inbounds nuw i8, ptr %0, i64 472
   %587 = load i32, ptr %586, align 8
-  %588 = getelementptr inbounds i8, ptr %0, i64 480
+  %588 = getelementptr inbounds nuw i8, ptr %0, i64 480
   %589 = load ptr, ptr %588, align 8
   store ptr %583, ptr %19, align 8
   %590 = getelementptr inbounds nuw i8, ptr %19, i64 8
@@ -4272,7 +4272,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn12LSTM_x86_fma12forward_i
   %605 = udiv i64 %604, %585
   %606 = getelementptr inbounds nuw i8, ptr %19, i64 64
   store i64 %605, ptr %606, align 8
-  %607 = getelementptr inbounds i8, ptr %0, i64 488
+  %607 = getelementptr inbounds nuw i8, ptr %0, i64 488
   %608 = load i32, ptr %607, align 8
   %609 = add nsw i32 %608, -1
   store i32 %609, ptr %594, align 8, !alias.scope !80
@@ -4645,22 +4645,22 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn12LSTM_x86_fma12forward_i
 
 804:                                              ; preds = %797
   %805 = getelementptr inbounds nuw i8, ptr %0, i64 448
-  %806 = getelementptr inbounds i8, ptr %0, i64 492
+  %806 = getelementptr inbounds nuw i8, ptr %0, i64 492
   %807 = load i32, ptr %806, align 4
-  %808 = getelementptr inbounds i8, ptr %0, i64 496
+  %808 = getelementptr inbounds nuw i8, ptr %0, i64 496
   %809 = load i32, ptr %808, align 8
-  %810 = getelementptr inbounds i8, ptr %0, i64 500
+  %810 = getelementptr inbounds nuw i8, ptr %0, i64 500
   %811 = load i32, ptr %810, align 4
   %812 = load ptr, ptr %805, align 8
-  %813 = getelementptr inbounds i8, ptr %0, i64 512
+  %813 = getelementptr inbounds nuw i8, ptr %0, i64 512
   %814 = load i64, ptr %813, align 8
-  %815 = getelementptr inbounds i8, ptr %0, i64 464
+  %815 = getelementptr inbounds nuw i8, ptr %0, i64 464
   %816 = load i64, ptr %815, align 8
   %817 = mul i64 %816, %814
   %818 = getelementptr inbounds i8, ptr %812, i64 %817
-  %819 = getelementptr inbounds i8, ptr %0, i64 472
+  %819 = getelementptr inbounds nuw i8, ptr %0, i64 472
   %820 = load i32, ptr %819, align 8
-  %821 = getelementptr inbounds i8, ptr %0, i64 480
+  %821 = getelementptr inbounds nuw i8, ptr %0, i64 480
   %822 = load ptr, ptr %821, align 8
   store ptr %818, ptr %23, align 8
   %823 = getelementptr inbounds nuw i8, ptr %23, i64 8
@@ -4689,7 +4689,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn12LSTM_x86_fma12forward_i
   %838 = udiv i64 %837, %816
   %839 = getelementptr inbounds nuw i8, ptr %23, i64 64
   store i64 %838, ptr %839, align 8
-  %840 = getelementptr inbounds i8, ptr %0, i64 488
+  %840 = getelementptr inbounds nuw i8, ptr %0, i64 488
   %841 = load i32, ptr %840, align 8
   %842 = add nsw i32 %841, -1
   store i32 %842, ptr %827, align 8, !alias.scope !92
@@ -7279,18 +7279,18 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn12LSTM_x86_fma7forwardERK
 
 289:                                              ; preds = %287
   %290 = getelementptr inbounds nuw i8, ptr %0, i64 664
-  %291 = getelementptr inbounds i8, ptr %0, i64 708
+  %291 = getelementptr inbounds nuw i8, ptr %0, i64 708
   %292 = load i32, ptr %291, align 4
-  %293 = getelementptr inbounds i8, ptr %0, i64 712
+  %293 = getelementptr inbounds nuw i8, ptr %0, i64 712
   %294 = load i32, ptr %293, align 8
-  %295 = getelementptr inbounds i8, ptr %0, i64 716
+  %295 = getelementptr inbounds nuw i8, ptr %0, i64 716
   %296 = load i32, ptr %295, align 4
   %297 = load ptr, ptr %290, align 8
-  %298 = getelementptr inbounds i8, ptr %0, i64 680
+  %298 = getelementptr inbounds nuw i8, ptr %0, i64 680
   %299 = load i64, ptr %298, align 8
-  %300 = getelementptr inbounds i8, ptr %0, i64 688
+  %300 = getelementptr inbounds nuw i8, ptr %0, i64 688
   %301 = load i32, ptr %300, align 8
-  %302 = getelementptr inbounds i8, ptr %0, i64 696
+  %302 = getelementptr inbounds nuw i8, ptr %0, i64 696
   %303 = load ptr, ptr %302, align 8
   store ptr %297, ptr %9, align 8
   %304 = getelementptr inbounds nuw i8, ptr %9, i64 8
@@ -7319,7 +7319,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn12LSTM_x86_fma7forwardERK
   %319 = udiv i64 %318, %299
   %320 = getelementptr inbounds nuw i8, ptr %9, i64 64
   store i64 %319, ptr %320, align 8
-  %321 = getelementptr inbounds i8, ptr %0, i64 704
+  %321 = getelementptr inbounds nuw i8, ptr %0, i64 704
   %322 = load i32, ptr %321, align 8
   %323 = add nsw i32 %322, -1
   store i32 %323, ptr %308, align 8, !alias.scope !111
@@ -7332,18 +7332,18 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn12LSTM_x86_fma7forwardERK
 
 326:                                              ; preds = %289, %325
   %327 = getelementptr inbounds nuw i8, ptr %0, i64 736
-  %328 = getelementptr inbounds i8, ptr %0, i64 780
+  %328 = getelementptr inbounds nuw i8, ptr %0, i64 780
   %329 = load i32, ptr %328, align 4
-  %330 = getelementptr inbounds i8, ptr %0, i64 784
+  %330 = getelementptr inbounds nuw i8, ptr %0, i64 784
   %331 = load i32, ptr %330, align 8
-  %332 = getelementptr inbounds i8, ptr %0, i64 788
+  %332 = getelementptr inbounds nuw i8, ptr %0, i64 788
   %333 = load i32, ptr %332, align 4
   %334 = load ptr, ptr %327, align 8
-  %335 = getelementptr inbounds i8, ptr %0, i64 752
+  %335 = getelementptr inbounds nuw i8, ptr %0, i64 752
   %336 = load i64, ptr %335, align 8
-  %337 = getelementptr inbounds i8, ptr %0, i64 760
+  %337 = getelementptr inbounds nuw i8, ptr %0, i64 760
   %338 = load i32, ptr %337, align 8
-  %339 = getelementptr inbounds i8, ptr %0, i64 768
+  %339 = getelementptr inbounds nuw i8, ptr %0, i64 768
   %340 = load ptr, ptr %339, align 8
   store ptr %334, ptr %10, align 8
   %341 = getelementptr inbounds nuw i8, ptr %10, i64 8
@@ -7372,7 +7372,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn12LSTM_x86_fma7forwardERK
   %356 = udiv i64 %355, %336
   %357 = getelementptr inbounds nuw i8, ptr %10, i64 64
   store i64 %356, ptr %357, align 8
-  %358 = getelementptr inbounds i8, ptr %0, i64 776
+  %358 = getelementptr inbounds nuw i8, ptr %0, i64 776
   %359 = load i32, ptr %358, align 8
   %360 = add nsw i32 %359, -1
   store i32 %360, ptr %345, align 8, !alias.scope !114
@@ -7385,18 +7385,18 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn12LSTM_x86_fma7forwardERK
 
 363:                                              ; preds = %326, %362
   %364 = getelementptr inbounds nuw i8, ptr %0, i64 808
-  %365 = getelementptr inbounds i8, ptr %0, i64 852
+  %365 = getelementptr inbounds nuw i8, ptr %0, i64 852
   %366 = load i32, ptr %365, align 4
-  %367 = getelementptr inbounds i8, ptr %0, i64 856
+  %367 = getelementptr inbounds nuw i8, ptr %0, i64 856
   %368 = load i32, ptr %367, align 8
-  %369 = getelementptr inbounds i8, ptr %0, i64 860
+  %369 = getelementptr inbounds nuw i8, ptr %0, i64 860
   %370 = load i32, ptr %369, align 4
   %371 = load ptr, ptr %364, align 8
-  %372 = getelementptr inbounds i8, ptr %0, i64 824
+  %372 = getelementptr inbounds nuw i8, ptr %0, i64 824
   %373 = load i64, ptr %372, align 8
-  %374 = getelementptr inbounds i8, ptr %0, i64 832
+  %374 = getelementptr inbounds nuw i8, ptr %0, i64 832
   %375 = load i32, ptr %374, align 8
-  %376 = getelementptr inbounds i8, ptr %0, i64 840
+  %376 = getelementptr inbounds nuw i8, ptr %0, i64 840
   %377 = load ptr, ptr %376, align 8
   store ptr %371, ptr %11, align 8
   %378 = getelementptr inbounds nuw i8, ptr %11, i64 8
@@ -7425,7 +7425,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn12LSTM_x86_fma7forwardERK
   %393 = udiv i64 %392, %373
   %394 = getelementptr inbounds nuw i8, ptr %11, i64 64
   store i64 %393, ptr %394, align 8
-  %395 = getelementptr inbounds i8, ptr %0, i64 848
+  %395 = getelementptr inbounds nuw i8, ptr %0, i64 848
   %396 = load i32, ptr %395, align 8
   %397 = add nsw i32 %396, -1
   store i32 %397, ptr %382, align 8, !alias.scope !117
@@ -7453,18 +7453,18 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn12LSTM_x86_fma7forwardERK
 
 408:                                              ; preds = %400
   %409 = getelementptr inbounds nuw i8, ptr %0, i64 448
-  %410 = getelementptr inbounds i8, ptr %0, i64 492
+  %410 = getelementptr inbounds nuw i8, ptr %0, i64 492
   %411 = load i32, ptr %410, align 4
-  %412 = getelementptr inbounds i8, ptr %0, i64 496
+  %412 = getelementptr inbounds nuw i8, ptr %0, i64 496
   %413 = load i32, ptr %412, align 8
-  %414 = getelementptr inbounds i8, ptr %0, i64 500
+  %414 = getelementptr inbounds nuw i8, ptr %0, i64 500
   %415 = load i32, ptr %414, align 4
   %416 = load ptr, ptr %409, align 8
-  %417 = getelementptr inbounds i8, ptr %0, i64 464
+  %417 = getelementptr inbounds nuw i8, ptr %0, i64 464
   %418 = load i64, ptr %417, align 8
-  %419 = getelementptr inbounds i8, ptr %0, i64 472
+  %419 = getelementptr inbounds nuw i8, ptr %0, i64 472
   %420 = load i32, ptr %419, align 8
-  %421 = getelementptr inbounds i8, ptr %0, i64 480
+  %421 = getelementptr inbounds nuw i8, ptr %0, i64 480
   %422 = load ptr, ptr %421, align 8
   store ptr %416, ptr %12, align 8
   %423 = getelementptr inbounds nuw i8, ptr %12, i64 8
@@ -7493,7 +7493,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn12LSTM_x86_fma7forwardERK
   %438 = udiv i64 %437, %418
   %439 = getelementptr inbounds nuw i8, ptr %12, i64 64
   store i64 %438, ptr %439, align 8
-  %440 = getelementptr inbounds i8, ptr %0, i64 488
+  %440 = getelementptr inbounds nuw i8, ptr %0, i64 488
   %441 = load i32, ptr %440, align 8
   %442 = add nsw i32 %441, -1
   store i32 %442, ptr %427, align 8, !alias.scope !120
@@ -7673,19 +7673,19 @@ thread-pre-split:                                 ; preds = %447
   %529 = getelementptr inbounds nuw i8, ptr %16, i64 64
   store i64 %528, ptr %529, align 8
   %530 = getelementptr inbounds nuw i8, ptr %0, i64 664
-  %531 = getelementptr inbounds i8, ptr %0, i64 708
+  %531 = getelementptr inbounds nuw i8, ptr %0, i64 708
   %532 = load i32, ptr %531, align 4
-  %533 = getelementptr inbounds i8, ptr %0, i64 712
+  %533 = getelementptr inbounds nuw i8, ptr %0, i64 712
   %534 = load i32, ptr %533, align 8
-  %535 = getelementptr inbounds i8, ptr %0, i64 716
+  %535 = getelementptr inbounds nuw i8, ptr %0, i64 716
   %536 = load i32, ptr %535, align 4
   %537 = load ptr, ptr %530, align 8
-  %538 = getelementptr inbounds i8, ptr %0, i64 728
-  %539 = getelementptr inbounds i8, ptr %0, i64 680
+  %538 = getelementptr inbounds nuw i8, ptr %0, i64 728
+  %539 = getelementptr inbounds nuw i8, ptr %0, i64 680
   %540 = load i64, ptr %539, align 8
-  %541 = getelementptr inbounds i8, ptr %0, i64 688
+  %541 = getelementptr inbounds nuw i8, ptr %0, i64 688
   %542 = load i32, ptr %541, align 8
-  %543 = getelementptr inbounds i8, ptr %0, i64 696
+  %543 = getelementptr inbounds nuw i8, ptr %0, i64 696
   %544 = load ptr, ptr %543, align 8
   store ptr %537, ptr %17, align 8
   %545 = getelementptr inbounds nuw i8, ptr %17, i64 8
@@ -7714,7 +7714,7 @@ thread-pre-split:                                 ; preds = %447
   %560 = udiv i64 %559, %540
   %561 = getelementptr inbounds nuw i8, ptr %17, i64 64
   store i64 %560, ptr %561, align 8
-  %562 = getelementptr inbounds i8, ptr %0, i64 704
+  %562 = getelementptr inbounds nuw i8, ptr %0, i64 704
   %563 = load i32, ptr %562, align 8
   %564 = add nsw i32 %563, -1
   store i32 %564, ptr %549, align 8, !alias.scope !123
@@ -7727,19 +7727,19 @@ thread-pre-split:                                 ; preds = %447
 
 567:                                              ; preds = %497, %566
   %568 = getelementptr inbounds nuw i8, ptr %0, i64 736
-  %569 = getelementptr inbounds i8, ptr %0, i64 780
+  %569 = getelementptr inbounds nuw i8, ptr %0, i64 780
   %570 = load i32, ptr %569, align 4
-  %571 = getelementptr inbounds i8, ptr %0, i64 784
+  %571 = getelementptr inbounds nuw i8, ptr %0, i64 784
   %572 = load i32, ptr %571, align 8
-  %573 = getelementptr inbounds i8, ptr %0, i64 788
+  %573 = getelementptr inbounds nuw i8, ptr %0, i64 788
   %574 = load i32, ptr %573, align 4
   %575 = load ptr, ptr %568, align 8
-  %576 = getelementptr inbounds i8, ptr %0, i64 800
-  %577 = getelementptr inbounds i8, ptr %0, i64 752
+  %576 = getelementptr inbounds nuw i8, ptr %0, i64 800
+  %577 = getelementptr inbounds nuw i8, ptr %0, i64 752
   %578 = load i64, ptr %577, align 8
-  %579 = getelementptr inbounds i8, ptr %0, i64 760
+  %579 = getelementptr inbounds nuw i8, ptr %0, i64 760
   %580 = load i32, ptr %579, align 8
-  %581 = getelementptr inbounds i8, ptr %0, i64 768
+  %581 = getelementptr inbounds nuw i8, ptr %0, i64 768
   %582 = load ptr, ptr %581, align 8
   store ptr %575, ptr %18, align 8
   %583 = getelementptr inbounds nuw i8, ptr %18, i64 8
@@ -7768,7 +7768,7 @@ thread-pre-split:                                 ; preds = %447
   %598 = udiv i64 %597, %578
   %599 = getelementptr inbounds nuw i8, ptr %18, i64 64
   store i64 %598, ptr %599, align 8
-  %600 = getelementptr inbounds i8, ptr %0, i64 776
+  %600 = getelementptr inbounds nuw i8, ptr %0, i64 776
   %601 = load i32, ptr %600, align 8
   %602 = add nsw i32 %601, -1
   store i32 %602, ptr %587, align 8, !alias.scope !126
@@ -7781,19 +7781,19 @@ thread-pre-split:                                 ; preds = %447
 
 605:                                              ; preds = %567, %604
   %606 = getelementptr inbounds nuw i8, ptr %0, i64 808
-  %607 = getelementptr inbounds i8, ptr %0, i64 852
+  %607 = getelementptr inbounds nuw i8, ptr %0, i64 852
   %608 = load i32, ptr %607, align 4
-  %609 = getelementptr inbounds i8, ptr %0, i64 856
+  %609 = getelementptr inbounds nuw i8, ptr %0, i64 856
   %610 = load i32, ptr %609, align 8
-  %611 = getelementptr inbounds i8, ptr %0, i64 860
+  %611 = getelementptr inbounds nuw i8, ptr %0, i64 860
   %612 = load i32, ptr %611, align 4
   %613 = load ptr, ptr %606, align 8
-  %614 = getelementptr inbounds i8, ptr %0, i64 872
-  %615 = getelementptr inbounds i8, ptr %0, i64 824
+  %614 = getelementptr inbounds nuw i8, ptr %0, i64 872
+  %615 = getelementptr inbounds nuw i8, ptr %0, i64 824
   %616 = load i64, ptr %615, align 8
-  %617 = getelementptr inbounds i8, ptr %0, i64 832
+  %617 = getelementptr inbounds nuw i8, ptr %0, i64 832
   %618 = load i32, ptr %617, align 8
-  %619 = getelementptr inbounds i8, ptr %0, i64 840
+  %619 = getelementptr inbounds nuw i8, ptr %0, i64 840
   %620 = load ptr, ptr %619, align 8
   store ptr %613, ptr %19, align 8
   %621 = getelementptr inbounds nuw i8, ptr %19, i64 8
@@ -7822,7 +7822,7 @@ thread-pre-split:                                 ; preds = %447
   %636 = udiv i64 %635, %616
   %637 = getelementptr inbounds nuw i8, ptr %19, i64 64
   store i64 %636, ptr %637, align 8
-  %638 = getelementptr inbounds i8, ptr %0, i64 848
+  %638 = getelementptr inbounds nuw i8, ptr %0, i64 848
   %639 = load i32, ptr %638, align 8
   %640 = add nsw i32 %639, -1
   store i32 %640, ptr %625, align 8, !alias.scope !129
@@ -7850,18 +7850,18 @@ thread-pre-split:                                 ; preds = %447
 
 651:                                              ; preds = %643
   %652 = getelementptr inbounds nuw i8, ptr %0, i64 448
-  %653 = getelementptr inbounds i8, ptr %0, i64 492
+  %653 = getelementptr inbounds nuw i8, ptr %0, i64 492
   %654 = load i32, ptr %653, align 4
-  %655 = getelementptr inbounds i8, ptr %0, i64 496
+  %655 = getelementptr inbounds nuw i8, ptr %0, i64 496
   %656 = load i32, ptr %655, align 8
-  %657 = getelementptr inbounds i8, ptr %0, i64 500
+  %657 = getelementptr inbounds nuw i8, ptr %0, i64 500
   %658 = load i32, ptr %657, align 4
   %659 = load ptr, ptr %652, align 8
-  %660 = getelementptr inbounds i8, ptr %0, i64 464
+  %660 = getelementptr inbounds nuw i8, ptr %0, i64 464
   %661 = load i64, ptr %660, align 8
-  %662 = getelementptr inbounds i8, ptr %0, i64 472
+  %662 = getelementptr inbounds nuw i8, ptr %0, i64 472
   %663 = load i32, ptr %662, align 8
-  %664 = getelementptr inbounds i8, ptr %0, i64 480
+  %664 = getelementptr inbounds nuw i8, ptr %0, i64 480
   %665 = load ptr, ptr %664, align 8
   store ptr %659, ptr %20, align 8
   %666 = getelementptr inbounds nuw i8, ptr %20, i64 8
@@ -7890,7 +7890,7 @@ thread-pre-split:                                 ; preds = %447
   %681 = udiv i64 %680, %661
   %682 = getelementptr inbounds nuw i8, ptr %20, i64 64
   store i64 %681, ptr %682, align 8
-  %683 = getelementptr inbounds i8, ptr %0, i64 488
+  %683 = getelementptr inbounds nuw i8, ptr %0, i64 488
   %684 = load i32, ptr %683, align 8
   %685 = add nsw i32 %684, -1
   store i32 %685, ptr %670, align 8, !alias.scope !132
@@ -8160,22 +8160,22 @@ thread-pre-split:                                 ; preds = %447
 
 835:                                              ; preds = %828
   %836 = getelementptr inbounds nuw i8, ptr %0, i64 448
-  %837 = getelementptr inbounds i8, ptr %0, i64 492
+  %837 = getelementptr inbounds nuw i8, ptr %0, i64 492
   %838 = load i32, ptr %837, align 4
-  %839 = getelementptr inbounds i8, ptr %0, i64 496
+  %839 = getelementptr inbounds nuw i8, ptr %0, i64 496
   %840 = load i32, ptr %839, align 8
-  %841 = getelementptr inbounds i8, ptr %0, i64 500
+  %841 = getelementptr inbounds nuw i8, ptr %0, i64 500
   %842 = load i32, ptr %841, align 4
   %843 = load ptr, ptr %836, align 8
-  %844 = getelementptr inbounds i8, ptr %0, i64 512
+  %844 = getelementptr inbounds nuw i8, ptr %0, i64 512
   %845 = load i64, ptr %844, align 8
-  %846 = getelementptr inbounds i8, ptr %0, i64 464
+  %846 = getelementptr inbounds nuw i8, ptr %0, i64 464
   %847 = load i64, ptr %846, align 8
   %848 = mul i64 %847, %845
   %849 = getelementptr inbounds i8, ptr %843, i64 %848
-  %850 = getelementptr inbounds i8, ptr %0, i64 472
+  %850 = getelementptr inbounds nuw i8, ptr %0, i64 472
   %851 = load i32, ptr %850, align 8
-  %852 = getelementptr inbounds i8, ptr %0, i64 480
+  %852 = getelementptr inbounds nuw i8, ptr %0, i64 480
   %853 = load ptr, ptr %852, align 8
   store ptr %849, ptr %26, align 8
   %854 = getelementptr inbounds nuw i8, ptr %26, i64 8
@@ -8204,7 +8204,7 @@ thread-pre-split:                                 ; preds = %447
   %869 = udiv i64 %868, %847
   %870 = getelementptr inbounds nuw i8, ptr %26, i64 64
   store i64 %869, ptr %870, align 8
-  %871 = getelementptr inbounds i8, ptr %0, i64 488
+  %871 = getelementptr inbounds nuw i8, ptr %0, i64 488
   %872 = load i32, ptr %871, align 8
   %873 = add nsw i32 %872, -1
   store i32 %873, ptr %858, align 8, !alias.scope !144
@@ -9538,18 +9538,18 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn12LSTM_x86_fma12forward_i
 
 299:                                              ; preds = %297
   %300 = getelementptr inbounds nuw i8, ptr %0, i64 880
-  %301 = getelementptr inbounds i8, ptr %0, i64 924
+  %301 = getelementptr inbounds nuw i8, ptr %0, i64 924
   %302 = load i32, ptr %301, align 4
-  %303 = getelementptr inbounds i8, ptr %0, i64 928
+  %303 = getelementptr inbounds nuw i8, ptr %0, i64 928
   %304 = load i32, ptr %303, align 8
-  %305 = getelementptr inbounds i8, ptr %0, i64 932
+  %305 = getelementptr inbounds nuw i8, ptr %0, i64 932
   %306 = load i32, ptr %305, align 4
   %307 = load ptr, ptr %300, align 8
-  %308 = getelementptr inbounds i8, ptr %0, i64 896
+  %308 = getelementptr inbounds nuw i8, ptr %0, i64 896
   %309 = load i64, ptr %308, align 8
-  %310 = getelementptr inbounds i8, ptr %0, i64 904
+  %310 = getelementptr inbounds nuw i8, ptr %0, i64 904
   %311 = load i32, ptr %310, align 8
-  %312 = getelementptr inbounds i8, ptr %0, i64 912
+  %312 = getelementptr inbounds nuw i8, ptr %0, i64 912
   %313 = load ptr, ptr %312, align 8
   store ptr %307, ptr %12, align 8
   %314 = getelementptr inbounds nuw i8, ptr %12, i64 8
@@ -9578,7 +9578,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn12LSTM_x86_fma12forward_i
   %329 = udiv i64 %328, %309
   %330 = getelementptr inbounds nuw i8, ptr %12, i64 64
   store i64 %329, ptr %330, align 8
-  %331 = getelementptr inbounds i8, ptr %0, i64 920
+  %331 = getelementptr inbounds nuw i8, ptr %0, i64 920
   %332 = load i32, ptr %331, align 8
   %333 = add nsw i32 %332, -1
   store i32 %333, ptr %318, align 8, !alias.scope !148
@@ -9591,18 +9591,18 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn12LSTM_x86_fma12forward_i
 
 336:                                              ; preds = %299, %335
   %337 = getelementptr inbounds nuw i8, ptr %0, i64 952
-  %338 = getelementptr inbounds i8, ptr %0, i64 996
+  %338 = getelementptr inbounds nuw i8, ptr %0, i64 996
   %339 = load i32, ptr %338, align 4
-  %340 = getelementptr inbounds i8, ptr %0, i64 1000
+  %340 = getelementptr inbounds nuw i8, ptr %0, i64 1000
   %341 = load i32, ptr %340, align 8
-  %342 = getelementptr inbounds i8, ptr %0, i64 1004
+  %342 = getelementptr inbounds nuw i8, ptr %0, i64 1004
   %343 = load i32, ptr %342, align 4
   %344 = load ptr, ptr %337, align 8
-  %345 = getelementptr inbounds i8, ptr %0, i64 968
+  %345 = getelementptr inbounds nuw i8, ptr %0, i64 968
   %346 = load i64, ptr %345, align 8
-  %347 = getelementptr inbounds i8, ptr %0, i64 976
+  %347 = getelementptr inbounds nuw i8, ptr %0, i64 976
   %348 = load i32, ptr %347, align 8
-  %349 = getelementptr inbounds i8, ptr %0, i64 984
+  %349 = getelementptr inbounds nuw i8, ptr %0, i64 984
   %350 = load ptr, ptr %349, align 8
   store ptr %344, ptr %13, align 8
   %351 = getelementptr inbounds nuw i8, ptr %13, i64 8
@@ -9631,7 +9631,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn12LSTM_x86_fma12forward_i
   %366 = udiv i64 %365, %346
   %367 = getelementptr inbounds nuw i8, ptr %13, i64 64
   store i64 %366, ptr %367, align 8
-  %368 = getelementptr inbounds i8, ptr %0, i64 992
+  %368 = getelementptr inbounds nuw i8, ptr %0, i64 992
   %369 = load i32, ptr %368, align 8
   %370 = add nsw i32 %369, -1
   store i32 %370, ptr %355, align 8, !alias.scope !151
@@ -9644,18 +9644,18 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn12LSTM_x86_fma12forward_i
 
 373:                                              ; preds = %336, %372
   %374 = getelementptr inbounds nuw i8, ptr %0, i64 736
-  %375 = getelementptr inbounds i8, ptr %0, i64 780
+  %375 = getelementptr inbounds nuw i8, ptr %0, i64 780
   %376 = load i32, ptr %375, align 4
-  %377 = getelementptr inbounds i8, ptr %0, i64 784
+  %377 = getelementptr inbounds nuw i8, ptr %0, i64 784
   %378 = load i32, ptr %377, align 8
-  %379 = getelementptr inbounds i8, ptr %0, i64 788
+  %379 = getelementptr inbounds nuw i8, ptr %0, i64 788
   %380 = load i32, ptr %379, align 4
   %381 = load ptr, ptr %374, align 8
-  %382 = getelementptr inbounds i8, ptr %0, i64 752
+  %382 = getelementptr inbounds nuw i8, ptr %0, i64 752
   %383 = load i64, ptr %382, align 8
-  %384 = getelementptr inbounds i8, ptr %0, i64 760
+  %384 = getelementptr inbounds nuw i8, ptr %0, i64 760
   %385 = load i32, ptr %384, align 8
-  %386 = getelementptr inbounds i8, ptr %0, i64 768
+  %386 = getelementptr inbounds nuw i8, ptr %0, i64 768
   %387 = load ptr, ptr %386, align 8
   store ptr %381, ptr %14, align 8
   %388 = getelementptr inbounds nuw i8, ptr %14, i64 8
@@ -9684,7 +9684,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn12LSTM_x86_fma12forward_i
   %403 = udiv i64 %402, %383
   %404 = getelementptr inbounds nuw i8, ptr %14, i64 64
   store i64 %403, ptr %404, align 8
-  %405 = getelementptr inbounds i8, ptr %0, i64 776
+  %405 = getelementptr inbounds nuw i8, ptr %0, i64 776
   %406 = load i32, ptr %405, align 8
   %407 = add nsw i32 %406, -1
   store i32 %407, ptr %392, align 8, !alias.scope !154
@@ -9712,18 +9712,18 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn12LSTM_x86_fma12forward_i
 
 418:                                              ; preds = %410
   %419 = getelementptr inbounds nuw i8, ptr %0, i64 448
-  %420 = getelementptr inbounds i8, ptr %0, i64 492
+  %420 = getelementptr inbounds nuw i8, ptr %0, i64 492
   %421 = load i32, ptr %420, align 4
-  %422 = getelementptr inbounds i8, ptr %0, i64 496
+  %422 = getelementptr inbounds nuw i8, ptr %0, i64 496
   %423 = load i32, ptr %422, align 8
-  %424 = getelementptr inbounds i8, ptr %0, i64 500
+  %424 = getelementptr inbounds nuw i8, ptr %0, i64 500
   %425 = load i32, ptr %424, align 4
   %426 = load ptr, ptr %419, align 8
-  %427 = getelementptr inbounds i8, ptr %0, i64 464
+  %427 = getelementptr inbounds nuw i8, ptr %0, i64 464
   %428 = load i64, ptr %427, align 8
-  %429 = getelementptr inbounds i8, ptr %0, i64 472
+  %429 = getelementptr inbounds nuw i8, ptr %0, i64 472
   %430 = load i32, ptr %429, align 8
-  %431 = getelementptr inbounds i8, ptr %0, i64 480
+  %431 = getelementptr inbounds nuw i8, ptr %0, i64 480
   %432 = load ptr, ptr %431, align 8
   store ptr %426, ptr %15, align 8
   %433 = getelementptr inbounds nuw i8, ptr %15, i64 8
@@ -9752,7 +9752,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn12LSTM_x86_fma12forward_i
   %448 = udiv i64 %447, %428
   %449 = getelementptr inbounds nuw i8, ptr %15, i64 64
   store i64 %448, ptr %449, align 8
-  %450 = getelementptr inbounds i8, ptr %0, i64 488
+  %450 = getelementptr inbounds nuw i8, ptr %0, i64 488
   %451 = load i32, ptr %450, align 8
   %452 = add nsw i32 %451, -1
   store i32 %452, ptr %437, align 8, !alias.scope !157
@@ -10241,19 +10241,19 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn12LSTM_x86_fma12forward_i
   %680 = getelementptr inbounds nuw i8, ptr %19, i64 64
   store i64 %679, ptr %680, align 8
   %681 = getelementptr inbounds nuw i8, ptr %0, i64 880
-  %682 = getelementptr inbounds i8, ptr %0, i64 924
+  %682 = getelementptr inbounds nuw i8, ptr %0, i64 924
   %683 = load i32, ptr %682, align 4
-  %684 = getelementptr inbounds i8, ptr %0, i64 928
+  %684 = getelementptr inbounds nuw i8, ptr %0, i64 928
   %685 = load i32, ptr %684, align 8
-  %686 = getelementptr inbounds i8, ptr %0, i64 932
+  %686 = getelementptr inbounds nuw i8, ptr %0, i64 932
   %687 = load i32, ptr %686, align 4
   %688 = load ptr, ptr %681, align 8
-  %689 = getelementptr inbounds i8, ptr %0, i64 944
-  %690 = getelementptr inbounds i8, ptr %0, i64 896
+  %689 = getelementptr inbounds nuw i8, ptr %0, i64 944
+  %690 = getelementptr inbounds nuw i8, ptr %0, i64 896
   %691 = load i64, ptr %690, align 8
-  %692 = getelementptr inbounds i8, ptr %0, i64 904
+  %692 = getelementptr inbounds nuw i8, ptr %0, i64 904
   %693 = load i32, ptr %692, align 8
-  %694 = getelementptr inbounds i8, ptr %0, i64 912
+  %694 = getelementptr inbounds nuw i8, ptr %0, i64 912
   %695 = load ptr, ptr %694, align 8
   store ptr %688, ptr %20, align 8
   %696 = getelementptr inbounds nuw i8, ptr %20, i64 8
@@ -10282,7 +10282,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn12LSTM_x86_fma12forward_i
   %711 = udiv i64 %710, %691
   %712 = getelementptr inbounds nuw i8, ptr %20, i64 64
   store i64 %711, ptr %712, align 8
-  %713 = getelementptr inbounds i8, ptr %0, i64 920
+  %713 = getelementptr inbounds nuw i8, ptr %0, i64 920
   %714 = load i32, ptr %713, align 8
   %715 = add nsw i32 %714, -1
   store i32 %715, ptr %700, align 8, !alias.scope !160
@@ -10295,19 +10295,19 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn12LSTM_x86_fma12forward_i
 
 718:                                              ; preds = %648, %717
   %719 = getelementptr inbounds nuw i8, ptr %0, i64 952
-  %720 = getelementptr inbounds i8, ptr %0, i64 996
+  %720 = getelementptr inbounds nuw i8, ptr %0, i64 996
   %721 = load i32, ptr %720, align 4
-  %722 = getelementptr inbounds i8, ptr %0, i64 1000
+  %722 = getelementptr inbounds nuw i8, ptr %0, i64 1000
   %723 = load i32, ptr %722, align 8
-  %724 = getelementptr inbounds i8, ptr %0, i64 1004
+  %724 = getelementptr inbounds nuw i8, ptr %0, i64 1004
   %725 = load i32, ptr %724, align 4
   %726 = load ptr, ptr %719, align 8
-  %727 = getelementptr inbounds i8, ptr %0, i64 1016
-  %728 = getelementptr inbounds i8, ptr %0, i64 968
+  %727 = getelementptr inbounds nuw i8, ptr %0, i64 1016
+  %728 = getelementptr inbounds nuw i8, ptr %0, i64 968
   %729 = load i64, ptr %728, align 8
-  %730 = getelementptr inbounds i8, ptr %0, i64 976
+  %730 = getelementptr inbounds nuw i8, ptr %0, i64 976
   %731 = load i32, ptr %730, align 8
-  %732 = getelementptr inbounds i8, ptr %0, i64 984
+  %732 = getelementptr inbounds nuw i8, ptr %0, i64 984
   %733 = load ptr, ptr %732, align 8
   store ptr %726, ptr %21, align 8
   %734 = getelementptr inbounds nuw i8, ptr %21, i64 8
@@ -10336,7 +10336,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn12LSTM_x86_fma12forward_i
   %749 = udiv i64 %748, %729
   %750 = getelementptr inbounds nuw i8, ptr %21, i64 64
   store i64 %749, ptr %750, align 8
-  %751 = getelementptr inbounds i8, ptr %0, i64 992
+  %751 = getelementptr inbounds nuw i8, ptr %0, i64 992
   %752 = load i32, ptr %751, align 8
   %753 = add nsw i32 %752, -1
   store i32 %753, ptr %738, align 8, !alias.scope !163
@@ -10349,19 +10349,19 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn12LSTM_x86_fma12forward_i
 
 756:                                              ; preds = %718, %755
   %757 = getelementptr inbounds nuw i8, ptr %0, i64 736
-  %758 = getelementptr inbounds i8, ptr %0, i64 780
+  %758 = getelementptr inbounds nuw i8, ptr %0, i64 780
   %759 = load i32, ptr %758, align 4
-  %760 = getelementptr inbounds i8, ptr %0, i64 784
+  %760 = getelementptr inbounds nuw i8, ptr %0, i64 784
   %761 = load i32, ptr %760, align 8
-  %762 = getelementptr inbounds i8, ptr %0, i64 788
+  %762 = getelementptr inbounds nuw i8, ptr %0, i64 788
   %763 = load i32, ptr %762, align 4
   %764 = load ptr, ptr %757, align 8
-  %765 = getelementptr inbounds i8, ptr %0, i64 800
-  %766 = getelementptr inbounds i8, ptr %0, i64 752
+  %765 = getelementptr inbounds nuw i8, ptr %0, i64 800
+  %766 = getelementptr inbounds nuw i8, ptr %0, i64 752
   %767 = load i64, ptr %766, align 8
-  %768 = getelementptr inbounds i8, ptr %0, i64 760
+  %768 = getelementptr inbounds nuw i8, ptr %0, i64 760
   %769 = load i32, ptr %768, align 8
-  %770 = getelementptr inbounds i8, ptr %0, i64 768
+  %770 = getelementptr inbounds nuw i8, ptr %0, i64 768
   %771 = load ptr, ptr %770, align 8
   store ptr %764, ptr %22, align 8
   %772 = getelementptr inbounds nuw i8, ptr %22, i64 8
@@ -10390,7 +10390,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn12LSTM_x86_fma12forward_i
   %787 = udiv i64 %786, %767
   %788 = getelementptr inbounds nuw i8, ptr %22, i64 64
   store i64 %787, ptr %788, align 8
-  %789 = getelementptr inbounds i8, ptr %0, i64 776
+  %789 = getelementptr inbounds nuw i8, ptr %0, i64 776
   %790 = load i32, ptr %789, align 8
   %791 = add nsw i32 %790, -1
   store i32 %791, ptr %776, align 8, !alias.scope !166
@@ -10418,18 +10418,18 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn12LSTM_x86_fma12forward_i
 
 802:                                              ; preds = %794
   %803 = getelementptr inbounds nuw i8, ptr %0, i64 448
-  %804 = getelementptr inbounds i8, ptr %0, i64 492
+  %804 = getelementptr inbounds nuw i8, ptr %0, i64 492
   %805 = load i32, ptr %804, align 4
-  %806 = getelementptr inbounds i8, ptr %0, i64 496
+  %806 = getelementptr inbounds nuw i8, ptr %0, i64 496
   %807 = load i32, ptr %806, align 8
-  %808 = getelementptr inbounds i8, ptr %0, i64 500
+  %808 = getelementptr inbounds nuw i8, ptr %0, i64 500
   %809 = load i32, ptr %808, align 4
   %810 = load ptr, ptr %803, align 8
-  %811 = getelementptr inbounds i8, ptr %0, i64 464
+  %811 = getelementptr inbounds nuw i8, ptr %0, i64 464
   %812 = load i64, ptr %811, align 8
-  %813 = getelementptr inbounds i8, ptr %0, i64 472
+  %813 = getelementptr inbounds nuw i8, ptr %0, i64 472
   %814 = load i32, ptr %813, align 8
-  %815 = getelementptr inbounds i8, ptr %0, i64 480
+  %815 = getelementptr inbounds nuw i8, ptr %0, i64 480
   %816 = load ptr, ptr %815, align 8
   store ptr %810, ptr %23, align 8
   %817 = getelementptr inbounds nuw i8, ptr %23, i64 8
@@ -10458,7 +10458,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn12LSTM_x86_fma12forward_i
   %832 = udiv i64 %831, %812
   %833 = getelementptr inbounds nuw i8, ptr %23, i64 64
   store i64 %832, ptr %833, align 8
-  %834 = getelementptr inbounds i8, ptr %0, i64 488
+  %834 = getelementptr inbounds nuw i8, ptr %0, i64 488
   %835 = load i32, ptr %834, align 8
   %836 = add nsw i32 %835, -1
   store i32 %836, ptr %821, align 8, !alias.scope !169
@@ -10859,22 +10859,22 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn12LSTM_x86_fma12forward_i
 
 1051:                                             ; preds = %1044
   %1052 = getelementptr inbounds nuw i8, ptr %0, i64 448
-  %1053 = getelementptr inbounds i8, ptr %0, i64 492
+  %1053 = getelementptr inbounds nuw i8, ptr %0, i64 492
   %1054 = load i32, ptr %1053, align 4
-  %1055 = getelementptr inbounds i8, ptr %0, i64 496
+  %1055 = getelementptr inbounds nuw i8, ptr %0, i64 496
   %1056 = load i32, ptr %1055, align 8
-  %1057 = getelementptr inbounds i8, ptr %0, i64 500
+  %1057 = getelementptr inbounds nuw i8, ptr %0, i64 500
   %1058 = load i32, ptr %1057, align 4
   %1059 = load ptr, ptr %1052, align 8
-  %1060 = getelementptr inbounds i8, ptr %0, i64 512
+  %1060 = getelementptr inbounds nuw i8, ptr %0, i64 512
   %1061 = load i64, ptr %1060, align 8
-  %1062 = getelementptr inbounds i8, ptr %0, i64 464
+  %1062 = getelementptr inbounds nuw i8, ptr %0, i64 464
   %1063 = load i64, ptr %1062, align 8
   %1064 = mul i64 %1063, %1061
   %1065 = getelementptr inbounds i8, ptr %1059, i64 %1064
-  %1066 = getelementptr inbounds i8, ptr %0, i64 472
+  %1066 = getelementptr inbounds nuw i8, ptr %0, i64 472
   %1067 = load i32, ptr %1066, align 8
-  %1068 = getelementptr inbounds i8, ptr %0, i64 480
+  %1068 = getelementptr inbounds nuw i8, ptr %0, i64 480
   %1069 = load ptr, ptr %1068, align 8
   store ptr %1065, ptr %29, align 8
   %1070 = getelementptr inbounds nuw i8, ptr %29, i64 8
@@ -10903,7 +10903,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn12LSTM_x86_fma12forward_i
   %1085 = udiv i64 %1084, %1063
   %1086 = getelementptr inbounds nuw i8, ptr %29, i64 64
   store i64 %1085, ptr %1086, align 8
-  %1087 = getelementptr inbounds i8, ptr %0, i64 488
+  %1087 = getelementptr inbounds nuw i8, ptr %0, i64 488
   %1088 = load i32, ptr %1087, align 8
   %1089 = add nsw i32 %1088, -1
   store i32 %1089, ptr %1074, align 8, !alias.scope !181
@@ -14128,7 +14128,7 @@ _ZN4ncnnL32lstm_dynamic_quantize_scale2int8EPKfifPa.exit: ; preds = %.lr.ph268.i
 define linkonce_odr hidden void @_ZN4ncnn12LSTM_x86_fmaD2Ev(ptr noundef nonnull align 8 dereferenceable(1024) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTVN4ncnn12LSTM_x86_fmaE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 952
-  %3 = getelementptr inbounds i8, ptr %0, i64 960
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 960
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %18, label %5
@@ -14139,7 +14139,7 @@ define linkonce_odr hidden void @_ZN4ncnn12LSTM_x86_fmaD2Ev(ptr noundef nonnull 
   br i1 %7, label %8, label %18
 
 8:                                                ; preds = %5
-  %9 = getelementptr inbounds i8, ptr %0, i64 984
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 984
   %10 = load ptr, ptr %9, align 8
   %.not44 = icmp eq ptr %10, null
   %11 = load ptr, ptr %2, align 8
@@ -14161,11 +14161,11 @@ define linkonce_odr hidden void @_ZN4ncnn12LSTM_x86_fmaD2Ev(ptr noundef nonnull 
   br label %18
 
 18:                                               ; preds = %12, %17, %16, %5, %1
-  %19 = getelementptr inbounds i8, ptr %0, i64 992
-  %20 = getelementptr inbounds i8, ptr %0, i64 1016
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 992
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 1016
   store i64 0, ptr %20, align 8
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 880
-  %22 = getelementptr inbounds i8, ptr %0, i64 888
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 888
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %2, i8 0, i64 28, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %19, i8 0, i64 20, i1 false)
   %23 = load ptr, ptr %22, align 8
@@ -14185,7 +14185,7 @@ define linkonce_odr hidden void @_ZN4ncnn12LSTM_x86_fmaD2Ev(ptr noundef nonnull 
   br i1 %29, label %30, label %40
 
 30:                                               ; preds = %27
-  %31 = getelementptr inbounds i8, ptr %0, i64 912
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 912
   %32 = load ptr, ptr %31, align 8
   %.not47 = icmp eq ptr %32, null
   %33 = load ptr, ptr %21, align 8
@@ -14207,11 +14207,11 @@ define linkonce_odr hidden void @_ZN4ncnn12LSTM_x86_fmaD2Ev(ptr noundef nonnull 
   br label %40
 
 40:                                               ; preds = %34, %39, %38, %27, %18
-  %41 = getelementptr inbounds i8, ptr %0, i64 920
-  %42 = getelementptr inbounds i8, ptr %0, i64 944
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 920
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 944
   store i64 0, ptr %42, align 8
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 808
-  %44 = getelementptr inbounds i8, ptr %0, i64 816
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 816
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %21, i8 0, i64 28, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %41, i8 0, i64 20, i1 false)
   %45 = load ptr, ptr %44, align 8
@@ -14231,7 +14231,7 @@ define linkonce_odr hidden void @_ZN4ncnn12LSTM_x86_fmaD2Ev(ptr noundef nonnull 
   br i1 %51, label %52, label %62
 
 52:                                               ; preds = %49
-  %53 = getelementptr inbounds i8, ptr %0, i64 840
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 840
   %54 = load ptr, ptr %53, align 8
   %.not50 = icmp eq ptr %54, null
   %55 = load ptr, ptr %43, align 8
@@ -14253,11 +14253,11 @@ define linkonce_odr hidden void @_ZN4ncnn12LSTM_x86_fmaD2Ev(ptr noundef nonnull 
   br label %62
 
 62:                                               ; preds = %56, %61, %60, %49, %40
-  %63 = getelementptr inbounds i8, ptr %0, i64 848
-  %64 = getelementptr inbounds i8, ptr %0, i64 872
+  %63 = getelementptr inbounds nuw i8, ptr %0, i64 848
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 872
   store i64 0, ptr %64, align 8
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 736
-  %66 = getelementptr inbounds i8, ptr %0, i64 744
+  %66 = getelementptr inbounds nuw i8, ptr %0, i64 744
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %43, i8 0, i64 28, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %63, i8 0, i64 20, i1 false)
   %67 = load ptr, ptr %66, align 8
@@ -14277,7 +14277,7 @@ define linkonce_odr hidden void @_ZN4ncnn12LSTM_x86_fmaD2Ev(ptr noundef nonnull 
   br i1 %73, label %74, label %84
 
 74:                                               ; preds = %71
-  %75 = getelementptr inbounds i8, ptr %0, i64 768
+  %75 = getelementptr inbounds nuw i8, ptr %0, i64 768
   %76 = load ptr, ptr %75, align 8
   %.not53 = icmp eq ptr %76, null
   %77 = load ptr, ptr %65, align 8
@@ -14299,11 +14299,11 @@ define linkonce_odr hidden void @_ZN4ncnn12LSTM_x86_fmaD2Ev(ptr noundef nonnull 
   br label %84
 
 84:                                               ; preds = %78, %83, %82, %71, %62
-  %85 = getelementptr inbounds i8, ptr %0, i64 776
-  %86 = getelementptr inbounds i8, ptr %0, i64 800
+  %85 = getelementptr inbounds nuw i8, ptr %0, i64 776
+  %86 = getelementptr inbounds nuw i8, ptr %0, i64 800
   store i64 0, ptr %86, align 8
   %87 = getelementptr inbounds nuw i8, ptr %0, i64 664
-  %88 = getelementptr inbounds i8, ptr %0, i64 672
+  %88 = getelementptr inbounds nuw i8, ptr %0, i64 672
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %65, i8 0, i64 28, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %85, i8 0, i64 20, i1 false)
   %89 = load ptr, ptr %88, align 8
@@ -14323,7 +14323,7 @@ define linkonce_odr hidden void @_ZN4ncnn12LSTM_x86_fmaD2Ev(ptr noundef nonnull 
   br i1 %95, label %96, label %106
 
 96:                                               ; preds = %93
-  %97 = getelementptr inbounds i8, ptr %0, i64 696
+  %97 = getelementptr inbounds nuw i8, ptr %0, i64 696
   %98 = load ptr, ptr %97, align 8
   %.not56 = icmp eq ptr %98, null
   %99 = load ptr, ptr %87, align 8
@@ -14345,8 +14345,8 @@ define linkonce_odr hidden void @_ZN4ncnn12LSTM_x86_fmaD2Ev(ptr noundef nonnull 
   br label %106
 
 106:                                              ; preds = %100, %105, %104, %93, %84
-  %107 = getelementptr inbounds i8, ptr %0, i64 704
-  %108 = getelementptr inbounds i8, ptr %0, i64 728
+  %107 = getelementptr inbounds nuw i8, ptr %0, i64 704
+  %108 = getelementptr inbounds nuw i8, ptr %0, i64 728
   store i64 0, ptr %108, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %87, i8 0, i64 28, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %107, i8 0, i64 20, i1 false)

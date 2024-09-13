@@ -214,7 +214,7 @@ define void @_ZN3g2o17EdgeSE3ProjectXYZC2Ev(ptr noundef nonnull align 16 derefer
   store ptr null, ptr %9, align 8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr null, ptr %2, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %12 = load ptr, ptr %11, align 16
   %13 = load ptr, ptr %10, align 8
   %14 = ptrtoint ptr %12 to i64
@@ -478,7 +478,7 @@ define void @_ZN3g2o17EdgeSE3ProjectXYZ12computeErrorEv(ptr nocapture noundef no
   %47 = fmul double %32, %30
   %48 = fadd double %13, %47
   %49 = fadd double %48, %41
-  %50 = getelementptr inbounds i8, ptr %5, i64 224
+  %50 = getelementptr inbounds nuw i8, ptr %5, i64 224
   %51 = load <2 x double>, ptr %50, align 1, !noalias !31
   %52 = fadd <2 x double> %51, %46
   %53 = getelementptr inbounds i8, ptr %5, i64 240
@@ -597,7 +597,7 @@ define void @_ZN3g2o17EdgeSE3ProjectXYZ14linearizeOplusEv(ptr nocapture noundef 
   %.sroa.5.0.copyload = load double, ptr %.sroa.5.0..sroa_idx, align 16
   %.sroa.7.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 216
   %.sroa.7.0.copyload = load double, ptr %.sroa.7.0..sroa_idx, align 8
-  %8 = getelementptr inbounds i8, ptr %6, i64 224
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 224
   %.sroa.9.32.copyload = load <2 x double>, ptr %8, align 16
   %.sroa.11.32..sroa_idx = getelementptr inbounds i8, ptr %6, i64 240
   %.sroa.11.32.copyload = load double, ptr %.sroa.11.32..sroa_idx, align 16
@@ -2092,7 +2092,7 @@ _ZN5Eigen7NoAliasINS_3MapINS_6MatrixIdLi6ELi3ELi0ELi6ELi3EEELi0ENS_6StrideILi0EL
   %.sroa.424.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 24
   store i16 %.sroa.021.sroa.2.0.copyload, ptr %.sroa.424.0..sroa_idx, align 8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6)
-  %126 = getelementptr inbounds i8, ptr %5, i64 32
+  %126 = getelementptr inbounds nuw i8, ptr %5, i64 32
   store ptr %1, ptr %126, align 8, !alias.scope !92
   call void @_ZN5Eigen8internal26call_dense_assignment_loopINS_3MapINS_6MatrixIdLi6ELi3ELi0ELi6ELi3EEELi0ENS_6StrideILi0ELi0EEEEENS_7ProductINS_9TransposeIKNS2_INS3_IdLi2ELi6ELi0ELi2ELi6EEELi16ES6_EEEENS9_IKNS8_INS9_IKNS2_INS3_IdLi2ELi3ELi0ELi2ELi3EEELi16ES6_EEEENS3_IdLi2ELi2ELi0ELi2ELi2EEELi0EEEEELi1EEENS0_13add_assign_opIddEEEEvRT_RKT0_RKT1_(ptr noundef nonnull align 8 dereferenceable(12) %124, ptr noundef nonnull align 8 dereferenceable(40) %5, ptr noundef nonnull align 1 dereferenceable(1) %6)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5)
@@ -2214,7 +2214,7 @@ define linkonce_odr void @_ZN5Eigen8internal26call_dense_assignment_loopINS_3Map
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %8, ptr %4, align 16
-  %9 = getelementptr inbounds i8, ptr %1, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %10 = load ptr, ptr %9, align 8
   %.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i.i.i = load ptr, ptr %7, align 8
   %11 = load <2 x double>, ptr %.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 16

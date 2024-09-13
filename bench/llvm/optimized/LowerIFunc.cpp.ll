@@ -32,9 +32,9 @@ define dso_local void @_ZN4llvm14LowerIFuncPass3runERNS_6ModuleERNS_15AnalysisMa
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 0, ptr %12, align 8, !alias.scope !4
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %14 = getelementptr inbounds i8, ptr %0, i64 80
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store ptr %14, ptr %13, align 8, !alias.scope !4
-  %15 = getelementptr inbounds i8, ptr %0, i64 68
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 68
   store i32 0, ptr %15, align 4, !alias.scope !4
   store ptr @_ZN4llvm17PreservedAnalyses14AllAnalysesKeyE, ptr %9, align 8, !alias.scope !4, !noalias !7
   br label %24
@@ -50,18 +50,18 @@ define dso_local void @_ZN4llvm14LowerIFuncPass3runERNS_6ModuleERNS_15AnalysisMa
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 2, ptr %21, align 8, !alias.scope !10
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %23 = getelementptr inbounds i8, ptr %0, i64 80
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store ptr %23, ptr %22, align 8, !alias.scope !10
   br label %24
 
 24:                                               ; preds = %16, %8
   %.sink4 = phi ptr [ %14, %8 ], [ %23, %16 ]
   %.sink = phi i32 [ 1, %8 ], [ 0, %16 ]
-  %25 = getelementptr inbounds i8, ptr %0, i64 56
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store ptr %.sink4, ptr %25, align 8
-  %26 = getelementptr inbounds i8, ptr %0, i64 64
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i32 2, ptr %26, align 8
-  %27 = getelementptr inbounds i8, ptr %0, i64 72
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store i32 0, ptr %27, align 8
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 %.sink, ptr %28, align 4

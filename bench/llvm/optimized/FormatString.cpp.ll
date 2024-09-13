@@ -2531,7 +2531,7 @@ define dso_local noundef zeroext i1 @_ZNK5clang21analyze_format_string15FormatSp
   %8 = load i64, ptr %7, align 8
   %9 = and i64 %8, 2305843009213693952
   %.not15 = icmp ne i64 %9, 0
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 64
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 64
   %.pre = load i32, ptr %.phi.trans.insert, align 8
   %10 = add i32 %.pre, -13
   %spec.select.i = icmp ult i32 %10, 8
@@ -2539,7 +2539,7 @@ define dso_local noundef zeroext i1 @_ZNK5clang21analyze_format_string15FormatSp
   br i1 %or.cond34, label %11, label %._crit_edge
 
 11:                                               ; preds = %6
-  %12 = getelementptr inbounds i8, ptr %0, i64 84
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 84
   %13 = load i32, ptr %12, align 4
   %14 = icmp ne i32 %13, 3
   br label %_ZNK4llvm6Triple4isPSEv.exit
@@ -2550,10 +2550,10 @@ define dso_local noundef zeroext i1 @_ZNK5clang21analyze_format_string15FormatSp
   br i1 %spec.select.i16, label %_ZNK4llvm6Triple4isPSEv.exit, label %16
 
 16:                                               ; preds = %._crit_edge
-  %17 = getelementptr inbounds i8, ptr %1, i64 260
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 260
   %18 = load i32, ptr %17, align 4
   %19 = icmp eq i32 %18, 14
-  %20 = getelementptr inbounds i8, ptr %1, i64 264
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 264
   %21 = load i32, ptr %20, align 8
   %22 = icmp ult i32 %21, 2
   %23 = add i32 %21, -19
@@ -2568,7 +2568,7 @@ _ZNK4llvm6Triple10isOSMSVCRTEv.exit.thread:       ; preds = %16
   br i1 %26, label %switch.hole_check, label %27
 
 27:                                               ; preds = %switch.hole_check, %_ZNK4llvm6Triple10isOSMSVCRTEv.exit.thread, %16, %3, %3, %3, %3, %3, %3
-  %28 = getelementptr inbounds i8, ptr %0, i64 64
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %29 = load i32, ptr %28, align 8
   switch i32 %29, label %42 [
     i32 5, label %_ZNK4llvm6Triple4isPSEv.exit
@@ -2588,16 +2588,16 @@ _ZNK4llvm6Triple10isOSMSVCRTEv.exit.thread:       ; preds = %16
   ]
 
 30:                                               ; preds = %27, %27
-  %31 = getelementptr inbounds i8, ptr %1, i64 260
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 260
   %32 = load i32, ptr %31, align 4
   %33 = icmp eq i32 %32, 3
   br i1 %33, label %_ZNK4llvm6Triple4isPSEv.exit, label %34
 
 34:                                               ; preds = %30
-  %35 = getelementptr inbounds i8, ptr %1, i64 248
+  %35 = getelementptr inbounds nuw i8, ptr %1, i64 248
   %36 = load i32, ptr %35, align 8
   %37 = icmp eq i32 %36, 38
-  %38 = getelementptr inbounds i8, ptr %1, i64 256
+  %38 = getelementptr inbounds nuw i8, ptr %1, i64 256
   %39 = load i32, ptr %38, align 8
   %40 = icmp eq i32 %39, 3
   %or.cond.i.i = select i1 %37, i1 %40, i1 false
@@ -2619,13 +2619,13 @@ _ZNK4llvm6Triple5isPS4Ev.exit.i:                  ; preds = %34
   br i1 %.not14, label %_ZNK4llvm6Triple4isPSEv.exit, label %47
 
 47:                                               ; preds = %43
-  %48 = getelementptr inbounds i8, ptr %0, i64 84
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 84
   %49 = load i32, ptr %48, align 4
   %50 = icmp ne i32 %49, 3
   br label %_ZNK4llvm6Triple4isPSEv.exit
 
 51:                                               ; preds = %3
-  %52 = getelementptr inbounds i8, ptr %0, i64 64
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %53 = load i32, ptr %52, align 8
   %54 = add i32 %53, -13
   %spec.select.i18 = icmp ult i32 %54, 8
@@ -2636,7 +2636,7 @@ _ZNK4llvm6Triple5isPS4Ev.exit.i:                  ; preds = %34
   %57 = load i64, ptr %56, align 8
   %58 = and i64 %57, 2305843009213693952
   %.not = icmp eq i64 %58, 0
-  %59 = getelementptr inbounds i8, ptr %0, i64 84
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 84
   %60 = load i32, ptr %59, align 4
   %61 = icmp ne i32 %60, 3
   %or.cond32.not = select i1 %.not, i1 true, i1 %61
@@ -2670,16 +2670,16 @@ _ZNK4llvm6Triple5isPS4Ev.exit.i:                  ; preds = %34
   ]
 
 65:                                               ; preds = %64, %64
-  %66 = getelementptr inbounds i8, ptr %1, i64 260
+  %66 = getelementptr inbounds nuw i8, ptr %1, i64 260
   %67 = load i32, ptr %66, align 4
   %68 = icmp eq i32 %67, 3
   br i1 %68, label %_ZNK4llvm6Triple4isPSEv.exit, label %69
 
 69:                                               ; preds = %65
-  %70 = getelementptr inbounds i8, ptr %1, i64 248
+  %70 = getelementptr inbounds nuw i8, ptr %1, i64 248
   %71 = load i32, ptr %70, align 8
   %72 = icmp eq i32 %71, 38
-  %73 = getelementptr inbounds i8, ptr %1, i64 256
+  %73 = getelementptr inbounds nuw i8, ptr %1, i64 256
   %74 = load i32, ptr %73, align 8
   %75 = icmp eq i32 %74, 3
   %or.cond.i.i20 = select i1 %72, i1 %75, i1 false
@@ -2694,7 +2694,7 @@ _ZNK4llvm6Triple5isPS4Ev.exit.i21:                ; preds = %69
   br label %_ZNK4llvm6Triple4isPSEv.exit
 
 78:                                               ; preds = %3
-  %79 = getelementptr inbounds i8, ptr %0, i64 64
+  %79 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %80 = load i32, ptr %79, align 8
   switch i32 %80, label %87 [
     i32 19, label %_ZNK4llvm6Triple4isPSEv.exit
@@ -2714,7 +2714,7 @@ _ZNK4llvm6Triple5isPS4Ev.exit.i21:                ; preds = %69
   ]
 
 81:                                               ; preds = %78, %78, %78, %78, %78, %78
-  %82 = getelementptr inbounds i8, ptr %1, i64 260
+  %82 = getelementptr inbounds nuw i8, ptr %1, i64 260
   %83 = load i32, ptr %82, align 4
   %84 = and i32 %83, -9
   %spec.select.i.i = icmp eq i32 %84, 1
@@ -2728,19 +2728,19 @@ _ZNK4llvm6Triple5isPS4Ev.exit.i21:                ; preds = %69
   br label %_ZNK4llvm6Triple4isPSEv.exit
 
 88:                                               ; preds = %3
-  %89 = getelementptr inbounds i8, ptr %0, i64 64
+  %89 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %90 = load i32, ptr %89, align 8
   %91 = icmp ult i32 %90, 40
   br i1 %91, label %switch.lookup36, label %_ZNK4llvm6Triple4isPSEv.exit
 
 92:                                               ; preds = %3
-  %93 = getelementptr inbounds i8, ptr %0, i64 64
+  %93 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %94 = load i32, ptr %93, align 8
   %95 = icmp ult i32 %94, 40
   br i1 %95, label %switch.lookup41, label %_ZNK4llvm6Triple4isPSEv.exit
 
 96:                                               ; preds = %3, %3, %3
-  %97 = getelementptr inbounds i8, ptr %0, i64 64
+  %97 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %98 = load i32, ptr %97, align 8
   switch i32 %98, label %_ZNK4llvm6Triple4isPSEv.exit [
     i32 2, label %99
@@ -2752,10 +2752,10 @@ _ZNK4llvm6Triple5isPS4Ev.exit.i21:                ; preds = %69
   ]
 
 99:                                               ; preds = %96, %96, %96, %96, %96, %96
-  %100 = getelementptr inbounds i8, ptr %1, i64 260
+  %100 = getelementptr inbounds nuw i8, ptr %1, i64 260
   %101 = load i32, ptr %100, align 4
   %102 = icmp eq i32 %101, 14
-  %103 = getelementptr inbounds i8, ptr %1, i64 264
+  %103 = getelementptr inbounds nuw i8, ptr %1, i64 264
   %104 = load i32, ptr %103, align 8
   %105 = icmp eq i32 %104, 19
   %106 = icmp ult i32 %104, 2
@@ -2769,7 +2769,7 @@ _ZNK4llvm6Triple5isPS4Ev.exit.i21:                ; preds = %69
   br label %_ZNK4llvm6Triple4isPSEv.exit
 
 111:                                              ; preds = %3
-  %112 = getelementptr inbounds i8, ptr %0, i64 64
+  %112 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %113 = load i32, ptr %112, align 8
   switch i32 %113, label %_ZNK4llvm6Triple4isPSEv.exit [
     i32 1, label %114
@@ -2780,10 +2780,10 @@ _ZNK4llvm6Triple5isPS4Ev.exit.i21:                ; preds = %69
   ]
 
 114:                                              ; preds = %111, %111, %111, %111, %111
-  %115 = getelementptr inbounds i8, ptr %1, i64 260
+  %115 = getelementptr inbounds nuw i8, ptr %1, i64 260
   %116 = load i32, ptr %115, align 4
   %117 = icmp eq i32 %116, 14
-  %118 = getelementptr inbounds i8, ptr %1, i64 264
+  %118 = getelementptr inbounds nuw i8, ptr %1, i64 264
   %119 = load i32, ptr %118, align 8
   %120 = icmp eq i32 %119, 19
   %121 = icmp ult i32 %119, 2
@@ -2840,7 +2840,7 @@ switch.lookup:
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local noundef zeroext i1 @_ZNK5clang21analyze_format_string15FormatSpecifier30hasStandardConversionSpecifierERKNS_11LangOptionsE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(841) %1) local_unnamed_addr #10 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 64
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %4 = load i32, ptr %3, align 8
   switch i32 %4, label %15 [
     i32 5, label %16
@@ -2917,7 +2917,7 @@ define dso_local noundef zeroext i1 @_ZNK5clang21analyze_format_string15FormatSp
   br i1 %4, label %5, label %9
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 64
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %7 = load i32, ptr %6, align 8
   %8 = icmp ult i32 %7, 13
   br i1 %8, label %switch.lookup, label %9
@@ -2935,7 +2935,7 @@ switch.lookup:                                    ; preds = %5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define dso_local void @_ZNK5clang21analyze_format_string15FormatSpecifier26getCorrectedLengthModifierEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::optional.401") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %1) local_unnamed_addr #9 align 2 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 64
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %4 = load i32, ptr %3, align 8
   %5 = add i32 %4, -2
   %spec.select.i = icmp ult i32 %5, 11

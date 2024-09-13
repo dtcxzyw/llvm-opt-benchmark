@@ -12852,7 +12852,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm10AArch64_MC7isHFormERKNS_6MCInstEP
 define dso_local void @_ZN4llvm10AArch64_MC22initLLVMToCVRegMappingEPNS_14MCRegisterInfoE(ptr noundef %0) local_unnamed_addr #2 {
   %2 = alloca %"class.llvm::MCRegister", align 4
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %4 = getelementptr inbounds i8, ptr %0, i64 192
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 192
   br label %5
 
 5:                                                ; preds = %1, %_ZN4llvm14MCRegisterInfo17mapLLVMRegToCVRegENS_10MCRegisterEi.exit
@@ -13096,7 +13096,7 @@ _ZNK4llvm6Triple24isWindowsMSVCEnvironmentEv.exit.thread: ; preds = %15
   br i1 %.not.i.i.i.i, label %_ZN4llvm16MCCFIInstructionD2Ev.exit, label %37
 
 37:                                               ; preds = %30
-  %38 = getelementptr inbounds i8, ptr %6, i64 64
+  %38 = getelementptr inbounds nuw i8, ptr %6, i64 64
   %39 = load ptr, ptr %38, align 8
   %40 = ptrtoint ptr %39 to i64
   %41 = ptrtoint ptr %36 to i64
@@ -13180,7 +13180,7 @@ _ZN4llvmL25InitAArch64MCRegisterInfoEPNS_14MCRegisterInfoEjjjj.exit:
   store ptr @_ZN4llvm24AArch64EHFlavour0L2DwarfE, ptr %25, align 8
   %26 = getelementptr inbounds nuw i8, ptr %2, i64 108
   store i32 292, ptr %26, align 4
-  %27 = getelementptr inbounds i8, ptr %2, i64 192
+  %27 = getelementptr inbounds nuw i8, ptr %2, i64 192
   br label %28
 
 28:                                               ; preds = %_ZN4llvm14MCRegisterInfo17mapLLVMRegToCVRegENS_10MCRegisterEi.exit.i, %_ZN4llvmL25InitAArch64MCRegisterInfoEPNS_14MCRegisterInfoEjjjj.exit
@@ -13817,7 +13817,7 @@ _ZNSt6vectorIcSaIcEE17_S_check_init_lenEmRKS0_.exit.i.i: ; preds = %8
 
 _ZNSt12_Vector_baseIcSaIcEE11_M_allocateEm.exit.thread.i.i: ; preds = %_ZNSt6vectorIcSaIcEE17_S_check_init_lenEmRKS0_.exit.i.i
   store ptr null, ptr %15, align 8
-  %21 = getelementptr inbounds i8, ptr %0, i64 64
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr null, ptr %21, align 8
   br label %_ZNSt6vectorIcSaIcEEC2IPKcvEET_S5_RKS0_.exit
 
@@ -13825,14 +13825,14 @@ _ZNSt12_Vector_baseIcSaIcEE11_M_allocateEm.exit.thread.i.i: ; preds = %_ZNSt6vec
   %23 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %18) #19
   store ptr %23, ptr %15, align 8
   %24 = getelementptr inbounds i8, ptr %23, i64 %18
-  %25 = getelementptr inbounds i8, ptr %0, i64 64
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr %24, ptr %25, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %23, ptr align 1 %16, i64 %18, i1 false)
   br label %_ZNSt6vectorIcSaIcEEC2IPKcvEET_S5_RKS0_.exit
 
 _ZNSt6vectorIcSaIcEEC2IPKcvEET_S5_RKS0_.exit:     ; preds = %_ZNSt12_Vector_baseIcSaIcEE11_M_allocateEm.exit.thread.i.i, %22
   %26 = phi ptr [ null, %_ZNSt12_Vector_baseIcSaIcEE11_M_allocateEm.exit.thread.i.i ], [ %24, %22 ]
-  %27 = getelementptr inbounds i8, ptr %0, i64 56
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store ptr %26, ptr %27, align 8
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %11) #18
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -14081,7 +14081,7 @@ declare noundef zeroext i1 @_ZNK4llvm15MCSubtargetInfo26shouldPrefetchAddressSpa
 define linkonce_odr hidden noundef zeroext i1 @_ZNK4llvm15MCSubtargetInfo16isCPUStringValidENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(288) %0, ptr %1, i64 %2) unnamed_addr #2 comdat align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 152
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %7 = load i64, ptr %6, align 8
   %8 = icmp sgt i64 %7, 0
   br i1 %8, label %_ZSt7advanceIPKN4llvm18SubtargetSubTypeKVElEvRT_T0_.exit.i.i.i, label %_ZN4llvm11lower_boundIRKNS_8ArrayRefINS_18SubtargetSubTypeKVEEERNS_9StringRefEEEDaOT_OT0_.exit

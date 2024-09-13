@@ -301,7 +301,7 @@ define internal fastcc void @extend_frame(ptr nocapture noundef readonly %0, i32
   %7 = icmp slt i32 %5, %6
   %8 = zext i1 %7 to i32
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 12
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %11 = load i32, ptr %10, align 4
   %12 = load i32, ptr %9, align 8
   %13 = icmp slt i32 %11, %12
@@ -997,15 +997,15 @@ define hidden void @aom_yv12_copy_y_c(ptr nocapture noundef readonly %0, ptr noc
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define hidden void @aom_yv12_copy_u_c(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 48
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 48
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %8 = load i32, ptr %7, align 8
   %9 = and i32 %8, 8
   %.not = icmp eq i32 %9, 0
-  %10 = getelementptr inbounds i8, ptr %0, i64 12
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %11 = load i32, ptr %10, align 4
   %12 = icmp sgt i32 %11, 0
   br i1 %.not, label %.preheader, label %16
@@ -1015,8 +1015,8 @@ define hidden void @aom_yv12_copy_u_c(ptr nocapture noundef readonly %0, ptr noc
 
 .lr.ph35:                                         ; preds = %.preheader
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %14 = getelementptr inbounds i8, ptr %0, i64 36
-  %15 = getelementptr inbounds i8, ptr %1, i64 36
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 36
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 36
   br label %39
 
 16:                                               ; preds = %2
@@ -1030,8 +1030,8 @@ define hidden void @aom_yv12_copy_u_c(ptr nocapture noundef readonly %0, ptr noc
   %21 = shl i64 %20, 1
   %22 = inttoptr i64 %21 to ptr
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %24 = getelementptr inbounds i8, ptr %0, i64 36
-  %25 = getelementptr inbounds i8, ptr %1, i64 36
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 36
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 36
   br label %26
 
 26:                                               ; preds = %.lr.ph, %26
@@ -1077,15 +1077,15 @@ define hidden void @aom_yv12_copy_u_c(ptr nocapture noundef readonly %0, ptr noc
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define hidden void @aom_yv12_copy_v_c(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 56
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 56
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %8 = load i32, ptr %7, align 8
   %9 = and i32 %8, 8
   %.not = icmp eq i32 %9, 0
-  %10 = getelementptr inbounds i8, ptr %0, i64 12
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %11 = load i32, ptr %10, align 4
   %12 = icmp sgt i32 %11, 0
   br i1 %.not, label %.preheader, label %16
@@ -1095,8 +1095,8 @@ define hidden void @aom_yv12_copy_v_c(ptr nocapture noundef readonly %0, ptr noc
 
 .lr.ph35:                                         ; preds = %.preheader
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %14 = getelementptr inbounds i8, ptr %0, i64 36
-  %15 = getelementptr inbounds i8, ptr %1, i64 36
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 36
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 36
   br label %39
 
 16:                                               ; preds = %2
@@ -1110,8 +1110,8 @@ define hidden void @aom_yv12_copy_v_c(ptr nocapture noundef readonly %0, ptr noc
   %21 = shl i64 %20, 1
   %22 = inttoptr i64 %21 to ptr
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %24 = getelementptr inbounds i8, ptr %0, i64 36
-  %25 = getelementptr inbounds i8, ptr %1, i64 36
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 36
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 36
   br label %26
 
 26:                                               ; preds = %.lr.ph, %26
@@ -1347,16 +1347,16 @@ aom_yv12_partial_copy_y_c.exit:                   ; preds = %38, %60, %17, %46
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define hidden void @aom_yv12_partial_copy_u_c(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture noundef readonly %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #2 {
-  %9 = getelementptr inbounds i8, ptr %0, i64 48
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %5, i64 48
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 48
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %14 = load i32, ptr %13, align 8
   %15 = and i32 %14, 8
   %.not = icmp eq i32 %15, 0
-  %16 = getelementptr inbounds i8, ptr %0, i64 36
-  %17 = getelementptr inbounds i8, ptr %5, i64 36
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 36
+  %17 = getelementptr inbounds nuw i8, ptr %5, i64 36
   %18 = icmp slt i32 %3, %4
   br i1 %.not, label %49, label %19
 
@@ -1443,16 +1443,16 @@ define hidden void @aom_yv12_partial_copy_u_c(ptr nocapture noundef readonly %0,
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define hidden void @aom_yv12_partial_coloc_copy_u_c(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #2 {
-  %7 = getelementptr inbounds i8, ptr %0, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %1, i64 48
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %12 = load i32, ptr %11, align 8
   %13 = and i32 %12, 8
   %.not.i = icmp eq i32 %13, 0
-  %14 = getelementptr inbounds i8, ptr %0, i64 36
-  %15 = getelementptr inbounds i8, ptr %1, i64 36
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 36
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %16 = icmp slt i32 %4, %5
   br i1 %.not.i, label %46, label %17
 
@@ -1537,16 +1537,16 @@ aom_yv12_partial_copy_u_c.exit:                   ; preds = %38, %60, %17, %46
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define hidden void @aom_yv12_partial_copy_v_c(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture noundef readonly %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #2 {
-  %9 = getelementptr inbounds i8, ptr %0, i64 56
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %5, i64 56
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 56
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %14 = load i32, ptr %13, align 8
   %15 = and i32 %14, 8
   %.not = icmp eq i32 %15, 0
-  %16 = getelementptr inbounds i8, ptr %0, i64 36
-  %17 = getelementptr inbounds i8, ptr %5, i64 36
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 36
+  %17 = getelementptr inbounds nuw i8, ptr %5, i64 36
   %18 = icmp slt i32 %3, %4
   br i1 %.not, label %49, label %19
 
@@ -1633,16 +1633,16 @@ define hidden void @aom_yv12_partial_copy_v_c(ptr nocapture noundef readonly %0,
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define hidden void @aom_yv12_partial_coloc_copy_v_c(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #2 {
-  %7 = getelementptr inbounds i8, ptr %0, i64 56
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %1, i64 56
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %12 = load i32, ptr %11, align 8
   %13 = and i32 %12, 8
   %.not.i = icmp eq i32 %13, 0
-  %14 = getelementptr inbounds i8, ptr %0, i64 36
-  %15 = getelementptr inbounds i8, ptr %1, i64 36
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 36
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %16 = icmp slt i32 %4, %5
   br i1 %.not.i, label %46, label %17
 

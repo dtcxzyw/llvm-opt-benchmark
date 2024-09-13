@@ -26,14 +26,14 @@ define dso_local void @_ZN4llvm6detail17PtrUseVisitorBase12enqueueUsersERNS_5Val
 
 .lr.ph:                                           ; preds = %2
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 232
-  %6 = getelementptr inbounds i8, ptr %0, i64 240
-  %7 = getelementptr inbounds i8, ptr %0, i64 252
-  %8 = getelementptr inbounds i8, ptr %0, i64 248
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 240
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 252
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 336
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 344
-  %12 = getelementptr inbounds i8, ptr %3, i64 16
-  %13 = getelementptr inbounds i8, ptr %0, i64 352
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 352
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 24
   br label %15
 
@@ -167,8 +167,8 @@ _ZN4llvm23SmallVectorTemplateBaseINS_6detail17PtrUseVisitorBase10UseToVisitELb0E
   store i64 %22, ptr %21, align 8
   %23 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %24 = getelementptr inbounds nuw i8, ptr %.016.i.i, i64 8
-  %25 = getelementptr inbounds i8, ptr %21, i64 16
-  %26 = getelementptr inbounds i8, ptr %.016.i.i, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %21, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %.016.i.i, i64 16
   %27 = load i32, ptr %26, align 8
   store i32 %27, ptr %25, align 8
   %28 = load i64, ptr %24, align 8
@@ -214,7 +214,7 @@ _ZN4llvm5APIntC2Ejmbb.exit:                       ; preds = %15, %16
 
 19:                                               ; preds = %_ZN4llvm5APIntC2Ejmbb.exit
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 344
-  %21 = getelementptr inbounds i8, ptr %0, i64 352
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 352
   %22 = load i32, ptr %21, align 8
   call void @_ZNK4llvm5APInt11sextOrTruncEj(ptr dead_on_unwind nonnull writable sret(%"class.llvm::APInt") align 8 %4, ptr noundef nonnull align 8 dereferenceable(12) %3, i32 noundef %22) #4
   %23 = call noundef nonnull align 8 dereferenceable(12) ptr @_ZN4llvm5APIntpLERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %20, ptr noundef nonnull align 8 dereferenceable(12) %4) #4
@@ -292,8 +292,8 @@ define linkonce_odr void @_ZN4llvm23SmallVectorTemplateBaseINS_6detail17PtrUseVi
   store i64 %9, ptr %.09.i.i.i.i.i.i, align 8
   %10 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i.i, i64 8
   %11 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i.i.i, i64 8
-  %12 = getelementptr inbounds i8, ptr %.09.i.i.i.i.i.i, i64 16
-  %13 = getelementptr inbounds i8, ptr %.sroa.04.08.i.i.i.i.i.i, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i.i, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i.i.i, i64 16
   %14 = load i32, ptr %13, align 8
   store i32 %14, ptr %12, align 8
   %15 = load i64, ptr %11, align 8

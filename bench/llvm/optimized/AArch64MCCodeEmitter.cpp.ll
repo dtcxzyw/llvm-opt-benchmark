@@ -76,7 +76,7 @@ define internal void @_ZNK12_GLOBAL__N_120AArch64MCCodeEmitter17encodeInstructio
   ]
 
 9:                                                ; preds = %5
-  %10 = getelementptr inbounds i8, ptr %4, i64 56
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %11 = load i32, ptr %10, align 8
   %12 = icmp eq i32 %11, 10
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 16

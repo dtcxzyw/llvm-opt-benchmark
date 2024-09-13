@@ -262,7 +262,7 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_117AArch64CollectLOH20runOnM
 17:                                               ; preds = %2
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %1, i64 328
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 328
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 320
   %.sroa.0116.0146 = load ptr, ptr %20, align 8
   %.not131147 = icmp eq ptr %.sroa.0116.0146, %21
@@ -305,7 +305,7 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_117AArch64CollectLOH20runOnM
   %.044138 = phi ptr [ %68, %._crit_edge ], [ %44, %42 ]
   %47 = load ptr, ptr %.044138, align 8
   %48 = call ptr @_ZNK4llvm17MachineBasicBlock12livein_beginEv(ptr noundef nonnull align 8 dereferenceable(288) %47) #13
-  %49 = getelementptr inbounds i8, ptr %47, i64 192
+  %49 = getelementptr inbounds nuw i8, ptr %47, i64 192
   %50 = load ptr, ptr %49, align 8
   %.not132135 = icmp eq ptr %48, %50
   br i1 %.not132135, label %._crit_edge, label %.lr.ph
@@ -1474,9 +1474,9 @@ _ZN4llvm19AArch64FunctionInfo14MILOHDirectiveD2Ev.exit: ; preds = %4, %13
   br i1 %.not6.i, label %_ZN4llvm15SmallPtrSetImplIPKNS_12MachineInstrEE6insertIPKS3_EEvT_S8_.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %_ZN4llvm19AArch64FunctionInfo14MILOHDirectiveD2Ev.exit
-  %15 = getelementptr inbounds i8, ptr %0, i64 1832
-  %16 = getelementptr inbounds i8, ptr %0, i64 1844
-  %17 = getelementptr inbounds i8, ptr %0, i64 1840
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 1832
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 1844
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 1840
   %.pre9.i = load ptr, ptr %14, align 8, !noalias !13
   br label %18
 

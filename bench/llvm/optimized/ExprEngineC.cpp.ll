@@ -1794,12 +1794,12 @@ _ZN4llvm16dyn_cast_or_nullIN5clang16ExplicitCastExprEKNS1_8CastExprEEEDaPT0_.exi
 .lr.ph:                                           ; preds = %120
   %131 = getelementptr inbounds nuw i8, ptr %69, i64 16
   %.sroa.2.0..sroa_idx4.i.i.i523 = getelementptr inbounds i8, ptr %69, i64 8
-  %132 = getelementptr inbounds i8, ptr %0, i64 536
+  %132 = getelementptr inbounds nuw i8, ptr %0, i64 536
   %133 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %134 = getelementptr inbounds nuw i8, ptr %0, i64 600
   %.sroa.281.0..sroa_idx = getelementptr inbounds i8, ptr %64, i64 8
   %135 = getelementptr inbounds nuw i8, ptr %1, i64 1
-  %136 = getelementptr inbounds i8, ptr %0, i64 392
+  %136 = getelementptr inbounds nuw i8, ptr %0, i64 392
   %137 = getelementptr inbounds nuw i8, ptr %65, i64 16
   %.sroa.069.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %65, i64 8
   %.sroa.2119.0..sroa_idx = getelementptr inbounds i8, ptr %58, i64 8
@@ -4149,7 +4149,7 @@ _ZN5clang4ento11SValBuilder10makeIntValEmNS_8QualTypeE.exit: ; preds = %119, %11
   br i1 %157, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit106, label %158
 
 158:                                              ; preds = %143
-  %159 = getelementptr inbounds i8, ptr %0, i64 536
+  %159 = getelementptr inbounds nuw i8, ptr %0, i64 536
   %160 = load ptr, ptr %159, align 8
   %161 = getelementptr inbounds nuw i8, ptr %160, i64 16
   %.sroa.0.0.copyload.i97 = load i64, ptr %35, align 8
@@ -4351,7 +4351,7 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit: ; preds
   %48 = and i64 %.sroa.0.0.copyload.i, 7
   %49 = or i64 %47, %48
   %50 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %51 = getelementptr inbounds i8, ptr %1, i64 24
+  %51 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %52 = load ptr, ptr %51, align 8
   %53 = load ptr, ptr %50, align 8
   %54 = ptrtoint ptr %52 to i64
@@ -4395,7 +4395,7 @@ switch.early.test:                                ; preds = %64
   ]
 
 75:                                               ; preds = %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %64
-  %76 = getelementptr inbounds i8, ptr %0, i64 536
+  %76 = getelementptr inbounds nuw i8, ptr %0, i64 536
   %77 = icmp eq i32 %58, 0
   br i1 %77, label %78, label %95
 
@@ -4474,7 +4474,7 @@ _ZN5clang4ento15StmtNodeBuilder12generateNodeEPKNS_4StmtEPNS0_12ExplodedNodeEN4l
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10)
   store ptr %.fca.0.extract28, ptr %10, align 8
   store i8 %.fca.1.extract29, ptr %100, align 8
-  %109 = getelementptr inbounds i8, ptr %108, i64 64
+  %109 = getelementptr inbounds nuw i8, ptr %108, i64 64
   %110 = call ptr @_ZN4llvm20ImmutableListFactoryIN5clang4ento4SValEE6concatIRS3_EENS_13ImmutableListIS3_EEOT_S8_(ptr noundef nonnull align 8 dereferenceable(24) %109, ptr noundef nonnull align 8 dereferenceable(9) %10, ptr %.sroa.052.0134)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10)
   %.not130 = icmp eq ptr %102, %97
@@ -4933,9 +4933,9 @@ _ZN5clang4ento15StmtNodeBuilderC2EPNS0_12ExplodedNodeERNS0_15ExplodedNodeSetERKN
   br i1 %34, label %35, label %_ZN4llvm6APSIntD2Ev.exit
 
 35:                                               ; preds = %_ZN5clang4ento15StmtNodeBuilderC2EPNS0_12ExplodedNodeERNS0_15ExplodedNodeSetERKNS0_18NodeBuilderContextEPNS0_11NodeBuilderE.exit
-  %36 = getelementptr inbounds i8, ptr %9, i64 24
+  %36 = getelementptr inbounds nuw i8, ptr %9, i64 24
   %37 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %38 = getelementptr inbounds i8, ptr %9, i64 32
+  %38 = getelementptr inbounds nuw i8, ptr %9, i64 32
   %39 = load i32, ptr %38, align 8
   store i32 %39, ptr %37, align 8
   %40 = icmp ult i32 %39, 65
@@ -4952,7 +4952,7 @@ _ZN5clang4ento15StmtNodeBuilderC2EPNS0_12ExplodedNodeERNS0_15ExplodedNodeSetERKN
 
 _ZN4llvm6APSIntC2ERKS0_.exit:                     ; preds = %41, %43
   %44 = getelementptr inbounds nuw i8, ptr %10, i64 12
-  %45 = getelementptr inbounds i8, ptr %9, i64 36
+  %45 = getelementptr inbounds nuw i8, ptr %9, i64 36
   %46 = load i8, ptr %45, align 4
   %47 = and i8 %46, 1
   store i8 %47, ptr %44, align 4
@@ -5516,7 +5516,7 @@ _ZN5clang4ento15ExplodedNodeSetD2Ev.exit:         ; preds = %4, %47
 
 .lr.ph:                                           ; preds = %_ZN5clang4ento15ExplodedNodeSetD2Ev.exit
   %65 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %66 = getelementptr inbounds i8, ptr %0, i64 536
+  %66 = getelementptr inbounds nuw i8, ptr %0, i64 536
   %67 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.2280.0..sroa_idx = getelementptr inbounds i8, ptr %8, i64 8
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 600

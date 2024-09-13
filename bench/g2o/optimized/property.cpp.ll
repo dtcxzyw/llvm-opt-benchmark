@@ -210,7 +210,7 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN3g2o12BaseProper
   br i1 %19, label %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN3g2o12BasePropertyESt4lessIS5_ESaISt4pairIKS5_S8_EEE4findERSC_.exit.thread, label %20
 
 20:                                               ; preds = %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN3g2o12BasePropertyESt4lessIS5_ESaISt4pairIKS5_S8_EEE4findERSC_.exit
-  %21 = getelementptr inbounds i8, ptr %.19.i.i.i, i64 64
+  %21 = getelementptr inbounds nuw i8, ptr %.19.i.i.i, i64 64
   %22 = load ptr, ptr %21, align 8
   %23 = icmp eq ptr %22, null
   br i1 %23, label %28, label %24
@@ -248,7 +248,7 @@ define void @_ZN3g2o11PropertyMapD2Ev(ptr noundef nonnull align 8 dereferenceabl
 
 .lr.ph:                                           ; preds = %1, %11
   %.sroa.01.07 = phi ptr [ %12, %11 ], [ %3, %1 ]
-  %5 = getelementptr inbounds i8, ptr %.sroa.01.07, i64 64
+  %5 = getelementptr inbounds nuw i8, ptr %.sroa.01.07, i64 64
   %6 = load ptr, ptr %5, align 8
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %11, label %7
@@ -334,7 +334,7 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN3g2o12BaseProper
   br i1 %20, label %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN3g2o12BasePropertyESt4lessIS5_ESaISt4pairIKS5_S8_EEE4findERSC_.exit.thread, label %21
 
 21:                                               ; preds = %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN3g2o12BasePropertyESt4lessIS5_ESaISt4pairIKS5_S8_EEE4findERSC_.exit
-  %22 = getelementptr inbounds i8, ptr %.19.i.i.i, i64 64
+  %22 = getelementptr inbounds nuw i8, ptr %.19.i.i.i, i64 64
   %23 = load ptr, ptr %22, align 8
   %24 = load ptr, ptr %23, align 8
   %25 = getelementptr inbounds i8, ptr %24, i64 24
@@ -367,7 +367,7 @@ define void @_ZNK3g2o11PropertyMap10writeToCSVERSo(ptr noundef nonnull readonly 
   br label %10
 
 10:                                               ; preds = %8, %.lr.ph
-  %11 = getelementptr inbounds i8, ptr %.sroa.015.023, i64 64
+  %11 = getelementptr inbounds nuw i8, ptr %.sroa.015.023, i64 64
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %14 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %13)
@@ -392,7 +392,7 @@ define void @_ZNK3g2o11PropertyMap10writeToCSVERSo(ptr noundef nonnull readonly 
   br label %21
 
 21:                                               ; preds = %19, %.lr.ph27
-  %22 = getelementptr inbounds i8, ptr %.sroa.09.025, i64 64
+  %22 = getelementptr inbounds nuw i8, ptr %.sroa.09.025, i64 64
   %23 = load ptr, ptr %22, align 8
   %24 = load ptr, ptr %23, align 8
   %25 = getelementptr inbounds i8, ptr %24, i64 16
@@ -605,7 +605,7 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN3g2o12BaseProper
   br i1 %62, label %_ZN3g2o11PropertyMap24updatePropertyFromStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_.exit, label %63
 
 63:                                               ; preds = %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN3g2o12BasePropertyESt4lessIS5_ESaISt4pairIKS5_S8_EEE4findERSC_.exit.i
-  %64 = getelementptr inbounds i8, ptr %.19.i.i.i.i, i64 64
+  %64 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i, i64 64
   %65 = load ptr, ptr %64, align 8
   %66 = load ptr, ptr %65, align 8
   %67 = getelementptr inbounds i8, ptr %66, i64 24
@@ -834,7 +834,7 @@ define linkonce_odr ptr @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_trai
   %6 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #17
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %2) #13
-  %8 = getelementptr inbounds i8, ptr %6, i64 64
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 64
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %10 = load ptr, ptr %9, align 8
   store ptr %10, ptr %8, align 8

@@ -1495,7 +1495,7 @@ _ZNK4llvm5Value9hasOneUseEv.exit:                 ; preds = %4
   %.sink22.i.i.i.i = phi ptr [ %24, %22 ], [ %35, %36 ]
   %40 = getelementptr inbounds nuw i8, ptr %.sink22.i.i.i.i, i64 24
   %41 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %42 = getelementptr inbounds i8, ptr %.sink22.i.i.i.i, i64 32
+  %42 = getelementptr inbounds nuw i8, ptr %.sink22.i.i.i.i, i64 32
   %43 = load i32, ptr %42, align 8
   store i32 %43, ptr %41, align 8
   %44 = icmp ult i32 %43, 65
@@ -3605,7 +3605,7 @@ _ZN4llvm5APIntD2Ev.exit:                          ; preds = %28, %22, %_ZNK4llvm
   %.not48 = icmp eq i64 %54, 0
   %55 = zext i1 %.not48 to i64
   %spec.select47 = add i64 %41, %55
-  %56 = getelementptr inbounds i8, ptr %9, i64 24
+  %56 = getelementptr inbounds nuw i8, ptr %9, i64 24
   %57 = load i32, ptr %56, align 8
   %58 = icmp ugt i32 %57, 64
   br i1 %58, label %59, label %_ZN4llvm5APIntD2Ev.exit.i
@@ -3982,13 +3982,13 @@ define linkonce_odr hidden void @_ZN4llvm20RecurrenceDescriptorC2EPNS_5ValueEPNS
   store ptr %3, ptr %0, align 8
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 6, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %16, i8 0, i64 16, i1 false)
   %17 = icmp eq ptr %1, null
   br i1 %17, label %_ZN4llvm10TrackingVHINS_5ValueEEC2EPS1_.exit, label %_ZN4llvm15ValueHandleBase7isValidEPNS_5ValueE.exit.thread.i.i.i.i
 
 _ZN4llvm15ValueHandleBase7isValidEPNS_5ValueE.exit.thread.i.i.i.i: ; preds = %12
-  %18 = getelementptr inbounds i8, ptr %0, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %1, ptr %18, align 8
   %magicptr8.i.i.i.i = ptrtoint ptr %1 to i64
   switch i64 %magicptr8.i.i.i.i, label %19 [
@@ -4016,15 +4016,15 @@ _ZN4llvm10TrackingVHINS_5ValueEEC2EPS1_.exit:     ; preds = %12, %_ZN4llvm15Valu
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 65
   store i8 %14, ptr %26, align 1
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %28 = getelementptr inbounds i8, ptr %0, i64 104
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store ptr %28, ptr %27, align 8
-  %29 = getelementptr inbounds i8, ptr %0, i64 80
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store ptr %28, ptr %29, align 8
-  %30 = getelementptr inbounds i8, ptr %0, i64 88
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 88
   store i32 8, ptr %30, align 8
-  %31 = getelementptr inbounds i8, ptr %0, i64 92
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 92
   store i32 0, ptr %31, align 4
-  %32 = getelementptr inbounds i8, ptr %0, i64 96
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store i32 0, ptr %32, align 8
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 168
   store i32 %11, ptr %33, align 8
@@ -4133,9 +4133,9 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(172) ptr @_ZN
   store ptr %3, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %1, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %9 = load ptr, ptr %8, align 8
   %10 = icmp eq ptr %7, %9
   br i1 %10, label %_ZN4llvm10TrackingVHINS_5ValueEEaSERKS2_.exit, label %11
@@ -4194,7 +4194,7 @@ _ZN4llvm11SmallPtrSetIPNS_11InstructionELj8EEaSERKS3_.exit: ; preds = %_ZN4llvm1
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvm20RecurrenceDescriptorD2Ev(ptr noundef nonnull align 8 dereferenceable(172) %0) unnamed_addr #0 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %3 = getelementptr inbounds i8, ptr %0, i64 80
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %2, align 8
   %6 = icmp eq ptr %4, %5
@@ -4205,7 +4205,7 @@ define linkonce_odr hidden void @_ZN4llvm20RecurrenceDescriptorD2Ev(ptr noundef 
   br label %_ZN4llvm11SmallPtrSetIPNS_11InstructionELj8EED2Ev.exit
 
 _ZN4llvm11SmallPtrSetIPNS_11InstructionELj8EED2Ev.exit: ; preds = %1, %7
-  %8 = getelementptr inbounds i8, ptr %0, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %9 = load ptr, ptr %8, align 8
   %magicptr.i.i.i = ptrtoint ptr %9 to i64
   switch i64 %magicptr.i.i.i, label %10 [

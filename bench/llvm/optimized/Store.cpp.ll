@@ -763,21 +763,21 @@ _ZNK5clang4Type10isVoidTypeEv.exit.thread:        ; preds = %22, %_ZNK5clang4Typ
 
 35:                                               ; preds = %_ZNK5clang4Type10isVoidTypeEv.exit, %12
   %36 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %37 = getelementptr inbounds i8, ptr %7, i64 16
-  %38 = getelementptr inbounds i8, ptr %7, i64 24
+  %37 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %38 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %39 = getelementptr inbounds nuw i8, ptr %7, i64 32
-  %40 = getelementptr inbounds i8, ptr %7, i64 36
+  %40 = getelementptr inbounds nuw i8, ptr %7, i64 36
   %41 = getelementptr inbounds nuw i8, ptr %7, i64 168
-  %42 = getelementptr inbounds i8, ptr %7, i64 200
-  %43 = getelementptr inbounds i8, ptr %7, i64 176
-  %44 = getelementptr inbounds i8, ptr %7, i64 184
-  %45 = getelementptr inbounds i8, ptr %7, i64 188
-  %46 = getelementptr inbounds i8, ptr %7, i64 192
+  %42 = getelementptr inbounds nuw i8, ptr %7, i64 200
+  %43 = getelementptr inbounds nuw i8, ptr %7, i64 176
+  %44 = getelementptr inbounds nuw i8, ptr %7, i64 184
+  %45 = getelementptr inbounds nuw i8, ptr %7, i64 188
+  %46 = getelementptr inbounds nuw i8, ptr %7, i64 192
   %47 = getelementptr inbounds nuw i8, ptr %7, i64 232
   %48 = getelementptr inbounds nuw i8, ptr %7, i64 240
   %49 = getelementptr inbounds i8, ptr %7, i64 256
-  %50 = getelementptr inbounds i8, ptr %7, i64 352
-  %51 = getelementptr inbounds i8, ptr %7, i64 360
+  %50 = getelementptr inbounds nuw i8, ptr %7, i64 352
+  %51 = getelementptr inbounds nuw i8, ptr %7, i64 360
   %52 = getelementptr inbounds nuw i8, ptr %7, i64 368
   %53 = getelementptr inbounds nuw i8, ptr %7, i64 369
   %54 = getelementptr inbounds nuw i8, ptr %7, i64 370
@@ -1112,7 +1112,7 @@ define linkonce_odr hidden void @_ZN5clang12CXXBasePathsD2Ev(ptr noundef nonnull
 
 _ZN5clang11CXXBasePathD2Ev.exit:                  ; preds = %1, %7
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 168
-  %9 = getelementptr inbounds i8, ptr %0, i64 176
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %10 = load ptr, ptr %9, align 8
   %11 = load ptr, ptr %8, align 8
   %12 = icmp eq ptr %10, %11
@@ -1130,9 +1130,9 @@ _ZN4llvm11SmallPtrSetIPKN5clang13CXXRecordDeclELj4EED2Ev.exit: ; preds = %_ZN5cl
   br i1 %.not.i.i, label %17, label %_ZN4llvm13SmallDenseMapIN5clang8QualTypeENS1_12CXXBasePaths31IsVirtBaseAndNumberNonVirtBasesELj8ENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S4_EEED2Ev.exit
 
 17:                                               ; preds = %_ZN4llvm11SmallPtrSetIPKN5clang13CXXRecordDeclELj4EED2Ev.exit
-  %18 = getelementptr inbounds i8, ptr %0, i64 40
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %0, i64 48
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %21 = load i32, ptr %20, align 8
   %22 = zext i32 %21 to i64
   %23 = shl nuw nsw i64 %22, 4
@@ -1647,7 +1647,7 @@ define linkonce_odr hidden noundef ptr @_ZNK5clang12RedeclarableINS_7TagDeclEE8D
 
 15:                                               ; preds = %10
   %16 = getelementptr inbounds nuw i8, ptr %12, i64 2144
-  %17 = getelementptr inbounds i8, ptr %12, i64 2224
+  %17 = getelementptr inbounds nuw i8, ptr %12, i64 2224
   %18 = load i64, ptr %17, align 8
   %19 = add i64 %18, 24
   store i64 %19, ptr %17, align 8
@@ -1656,7 +1656,7 @@ define linkonce_odr hidden noundef ptr @_ZNK5clang12RedeclarableINS_7TagDeclEE8D
   %22 = add i64 %21, 7
   %23 = and i64 %22, -8
   %24 = add i64 %23, 24
-  %25 = getelementptr inbounds i8, ptr %12, i64 2152
+  %25 = getelementptr inbounds nuw i8, ptr %12, i64 2152
   %26 = load ptr, ptr %25, align 8
   %27 = ptrtoint ptr %26 to i64
   %.not.i.i.i.i.i.i = icmp ugt i64 %24, %27

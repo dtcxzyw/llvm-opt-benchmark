@@ -83,7 +83,7 @@ define void @_ZNK3g2o21OptimizationAlgorithm15printPropertiesERSo(ptr noundef no
 .lr.ph:                                           ; preds = %2, %20
   %.sroa.06.011 = phi ptr [ %21, %20 ], [ %7, %2 ]
   %9 = getelementptr inbounds nuw i8, ptr %.sroa.06.011, i64 32
-  %10 = getelementptr inbounds i8, ptr %.sroa.06.011, i64 64
+  %10 = getelementptr inbounds nuw i8, ptr %.sroa.06.011, i64 64
   %11 = load ptr, ptr %10, align 8
   %12 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %9)
   %13 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull @.str.4)

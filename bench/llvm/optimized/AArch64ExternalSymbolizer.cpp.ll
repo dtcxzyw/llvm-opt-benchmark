@@ -460,7 +460,7 @@ _ZL10getVariantm.exit:                            ; preds = %_ZN4llvm9StringRefC
   br i1 %.not110, label %257, label %239
 
 239:                                              ; preds = %236
-  %240 = getelementptr inbounds i8, ptr %10, i64 32
+  %240 = getelementptr inbounds nuw i8, ptr %10, i64 32
   %241 = load ptr, ptr %240, align 8
   %.not111 = icmp eq ptr %241, null
   br i1 %.not111, label %251, label %_ZN4llvm9StringRefC2EPKc.exit134
@@ -482,7 +482,7 @@ _ZN4llvm9StringRefC2EPKc.exit134:                 ; preds = %239
   br label %257
 
 251:                                              ; preds = %239
-  %252 = getelementptr inbounds i8, ptr %10, i64 40
+  %252 = getelementptr inbounds nuw i8, ptr %10, i64 40
   %253 = load i64, ptr %252, align 8
   %254 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %255 = load ptr, ptr %254, align 8

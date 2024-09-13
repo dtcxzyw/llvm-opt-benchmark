@@ -2868,7 +2868,7 @@ define dso_local void @_ZN5clang4ento13SymbolManager19addSymbolDependencyEPKNS0_
   store ptr %1, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %8 = load i32, ptr %7, align 8
   %9 = icmp eq i32 %8, 0
   br i1 %9, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4ento7SymExprESt10unique_ptrINS_11SmallVectorIS6_Lj2EEESt14default_deleteIS9_EENS_12DenseMapInfoIS6_vEENS_6detail12DenseMapPairIS6_SC_EEEES6_SC_SE_SH_E15LookupBucketForIS6_EEbRKT_RPSH_.exit.i.i, label %10
@@ -2985,7 +2985,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPKN5clang4ento7SymExprELb1EE9push_backES5_.exi
 define dso_local noundef ptr @_ZN5clang4ento13SymbolManager19getDependentSymbolsEPKNS0_7SymExprE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %0, ptr noundef %1) local_unnamed_addr #6 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %6 = load i32, ptr %5, align 8
   %7 = icmp eq i32 %6, 0
   br i1 %7, label %.loopexit.i, label %8
@@ -3101,7 +3101,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4ento7SymExprENS3_12SymbolReaper12S
   %35 = load ptr, ptr %34, align 8
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 16
   %37 = load ptr, ptr %36, align 8
-  %38 = getelementptr inbounds i8, ptr %35, i64 32
+  %38 = getelementptr inbounds nuw i8, ptr %35, i64 32
   %39 = load i32, ptr %38, align 8
   %40 = icmp eq i32 %39, 0
   br i1 %40, label %.loopexit.i.i, label %41
@@ -3345,7 +3345,7 @@ define dso_local void @_ZN5clang4ento12SymbolReaper8markLiveEPKNS0_9MemRegionE(p
   %5 = tail call noundef nonnull ptr @_ZNK5clang4ento9MemRegion13getBaseRegionEv(ptr noundef nonnull align 8 dereferenceable(48) %1) #16
   store ptr %5, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8, !noalias !12
-  %7 = getelementptr inbounds i8, ptr %0, i64 64
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %8 = load i32, ptr %7, align 8, !noalias !12
   %9 = icmp eq i32 %8, 0
   br i1 %9, label %35, label %10
@@ -4021,7 +4021,7 @@ define dso_local void @_ZN5clang4ento12SymbolReaper16markLazilyCopiedEPKNS0_9Mem
   %5 = tail call noundef nonnull ptr @_ZNK5clang4ento9MemRegion13getBaseRegionEv(ptr noundef nonnull align 8 dereferenceable(48) %1) #16
   store ptr %5, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8, !noalias !20
-  %7 = getelementptr inbounds i8, ptr %0, i64 88
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %8 = load i32, ptr %7, align 8, !noalias !20
   %9 = icmp eq i32 %8, 0
   br i1 %9, label %35, label %10
@@ -4162,7 +4162,7 @@ define dso_local void @_ZN5clang4ento12SymbolReaper9markInUseEPKNS0_7SymExprE(pt
 7:                                                ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %9 = load ptr, ptr %8, align 8, !noalias !25
-  %10 = getelementptr inbounds i8, ptr %0, i64 40
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %11 = load i32, ptr %10, align 8, !noalias !25
   %12 = icmp eq i32 %11, 0
   br i1 %12, label %38, label %13
@@ -4225,7 +4225,7 @@ define dso_local noundef zeroext i1 @_ZN5clang4ento12SymbolReaper12isLiveRegionE
   %3 = tail call noundef nonnull ptr @_ZNK5clang4ento9MemRegion13getBaseRegionEv(ptr noundef nonnull align 8 dereferenceable(48) %1) #16
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 64
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %7 = load i32, ptr %6, align 8
   %8 = icmp eq i32 %7, 0
   br i1 %8, label %.loopexit, label %9
@@ -4381,7 +4381,7 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4ento7SymExprENS3_12SymbolReaper12
 42:                                               ; preds = %.loopexit17
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %44 = load ptr, ptr %43, align 8
-  %45 = getelementptr inbounds i8, ptr %0, i64 40
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %46 = load i32, ptr %45, align 8
   %47 = icmp eq i32 %46, 0
   br i1 %47, label %_ZN5clang4ento12SymbolReaper16isReadableRegionEPKNS0_9MemRegionE.exit.thread, label %48
@@ -4468,7 +4468,7 @@ _ZN5clang4ento12SymbolReaper16isReadableRegionEPKNS0_9MemRegionE.exit: ; preds =
   %97 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %98 = tail call noundef nonnull ptr @_ZNK5clang4ento9MemRegion13getBaseRegionEv(ptr noundef nonnull align 8 dereferenceable(48) %32) #16
   %99 = load ptr, ptr %97, align 8
-  %100 = getelementptr inbounds i8, ptr %0, i64 88
+  %100 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %101 = load i32, ptr %100, align 8
   %102 = icmp eq i32 %101, 0
   br i1 %102, label %_ZN5clang4ento12SymbolReaper16isReadableRegionEPKNS0_9MemRegionE.exit.thread, label %103
@@ -4665,7 +4665,7 @@ _ZNK5clang15LocationContext11getAnalysisINS_20RelaxedLiveVariablesEEEPT_v.exit: 
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 136
   store ptr %1, ptr %5, align 8
   %44 = load ptr, ptr %43, align 8
-  %45 = getelementptr inbounds i8, ptr %0, i64 152
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %46 = load i32, ptr %45, align 8
   %47 = icmp eq i32 %46, 0
   br i1 %47, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4ento9MemRegionEjNS_12DenseMapInfoIS6_vEENS_6detail12DenseMapPairIS6_jEEEES6_jS8_SB_E15LookupBucketForIS6_EEbRKT_RPSB_.exit.i.i, label %48
@@ -4739,7 +4739,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4ento9MemRegionEjNS_12DenseMapInfoI
   br i1 %.not26, label %93, label %83
 
 83:                                               ; preds = %80
-  %84 = getelementptr inbounds i8, ptr %0, i64 128
+  %84 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %85 = load ptr, ptr %84, align 8
   %86 = load ptr, ptr %85, align 8
   %87 = getelementptr inbounds i8, ptr %86, i64 120
@@ -4763,7 +4763,7 @@ define dso_local noundef zeroext i1 @_ZNK5clang4ento12SymbolReaper20isLazilyCopi
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %4 = tail call noundef nonnull ptr @_ZNK5clang4ento9MemRegion13getBaseRegionEv(ptr noundef nonnull align 8 dereferenceable(48) %1) #16
   %5 = load ptr, ptr %3, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 88
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %7 = load i32, ptr %6, align 8
   %8 = icmp eq i32 %7, 0
   br i1 %8, label %_ZNK4llvm6detail12DenseSetImplIPKN5clang4ento9MemRegionENS_8DenseMapIS6_NS0_13DenseSetEmptyENS_12DenseMapInfoIS6_vEENS0_12DenseSetPairIS6_EEEESA_E5countES6_.exit, label %9
@@ -4813,7 +4813,7 @@ define dso_local noundef zeroext i1 @_ZN5clang4ento12SymbolReaper16isReadableReg
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %6 = tail call noundef nonnull ptr @_ZNK5clang4ento9MemRegion13getBaseRegionEv(ptr noundef nonnull align 8 dereferenceable(48) %1) #16
   %7 = load ptr, ptr %5, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 88
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %9 = load i32, ptr %8, align 8
   %10 = icmp eq i32 %9, 0
   br i1 %10, label %_ZNK5clang4ento12SymbolReaper20isLazilyCopiedRegionEPKNS0_9MemRegionE.exit, label %11

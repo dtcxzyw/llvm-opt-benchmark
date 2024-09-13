@@ -851,7 +851,7 @@ _ZN12_GLOBAL__N_125X86InterleavedAccessGroup23deinterleave8bitStride3EN4llvm8Arr
   br label %273
 
 273:                                              ; preds = %_ZN12_GLOBAL__N_125X86InterleavedAccessGroup23deinterleave8bitStride3EN4llvm8ArrayRefIPNS1_11InstructionEEERNS1_15SmallVectorImplIPNS1_5ValueEEEj.exit, %80
-  %274 = getelementptr inbounds i8, ptr %0, i64 16
+  %274 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %275 = load i64, ptr %274, align 8
   %276 = and i64 %275, 4294967295
   %.not87 = icmp eq i64 %276, 0

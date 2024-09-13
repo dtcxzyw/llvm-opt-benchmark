@@ -164,7 +164,7 @@ _ZN4llvm12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit92.thread: ; preds = %.
   store ptr @.str.12, ptr %6, align 8, !alias.scope !4
   %43 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr %.sroa.0.0.copyload.i.i93, ptr %43, align 8, !alias.scope !4
-  %44 = getelementptr inbounds i8, ptr %6, i64 24
+  %44 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store i64 %.sroa.2.0.copyload.i.i95, ptr %44, align 8, !alias.scope !4
   %45 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %46 = getelementptr inbounds nuw i8, ptr %7, i64 33

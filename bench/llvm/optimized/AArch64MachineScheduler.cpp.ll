@@ -181,7 +181,7 @@ define linkonce_odr hidden void @_ZN4llvm26AArch64PostRASchedStrategyD2Ev(ptr no
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 136
   tail call void @_ZN4llvm13SchedBoundaryD1Ev(ptr noundef nonnull align 8 dereferenceable(712) %3) #7
   store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN4llvm20GenericSchedulerBaseE, i64 16), ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 48
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %5 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %4) #7
   %6 = load ptr, ptr %4, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 64
@@ -204,7 +204,7 @@ define linkonce_odr hidden void @_ZN4llvm26AArch64PostRASchedStrategyD0Ev(ptr no
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 136
   tail call void @_ZN4llvm13SchedBoundaryD1Ev(ptr noundef nonnull align 8 dereferenceable(712) %3) #7
   store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN4llvm20GenericSchedulerBaseE, i64 16), ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 48
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %5 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %4) #7
   %6 = load ptr, ptr %4, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 64
@@ -278,7 +278,7 @@ define linkonce_odr hidden void @_ZN4llvm20PostGenericScheduler14releaseTopNodeE
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 232
   %9 = load i32, ptr %8, align 8
   tail call void @_ZN4llvm13SchedBoundary11releaseNodeEPNS_5SUnitEjbj(ptr noundef nonnull align 8 dereferenceable(712) %7, ptr noundef nonnull %1, i32 noundef %9, i1 noundef zeroext false, i32 noundef 0) #7
-  %10 = getelementptr inbounds i8, ptr %0, i64 1584
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 1584
   store ptr null, ptr %10, align 8
   br label %11
 
@@ -299,7 +299,7 @@ define linkonce_odr hidden void @_ZN4llvm20PostGenericScheduler17releaseBottomNo
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 236
   %9 = load i32, ptr %8, align 4
   tail call void @_ZN4llvm13SchedBoundary11releaseNodeEPNS_5SUnitEjbj(ptr noundef nonnull align 8 dereferenceable(712) %7, ptr noundef nonnull %1, i32 noundef %9, i1 noundef zeroext false, i32 noundef 0) #7
-  %10 = getelementptr inbounds i8, ptr %0, i64 1632
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 1632
   store ptr null, ptr %10, align 8
   br label %11
 
@@ -330,7 +330,7 @@ declare void @_ZN4llvm13SchedBoundaryD1Ev(ptr noundef nonnull align 8 dereferenc
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvm20GenericSchedulerBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(128) %0) unnamed_addr #0 comdat align 2 {
   store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN4llvm20GenericSchedulerBaseE, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 48
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %2) #7
   %4 = load ptr, ptr %2, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 64

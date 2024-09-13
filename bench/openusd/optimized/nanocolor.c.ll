@@ -340,23 +340,23 @@ define internal fastcc void @_NcInitColorSpace(ptr noundef %0) unnamed_addr #6 {
 38:                                               ; preds = %33
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %40 = load float, ptr %39, align 8
-  %41 = getelementptr inbounds i8, ptr %0, i64 12
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %42 = load float, ptr %41, align 4
   %43 = fsub float 1.000000e+00, %40
   %44 = fsub float %43, %42
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %46 = load float, ptr %45, align 8
-  %47 = getelementptr inbounds i8, ptr %0, i64 20
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %48 = load float, ptr %47, align 4
   %49 = fsub float 1.000000e+00, %46
   %50 = fsub float %49, %48
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %52 = load float, ptr %51, align 8
-  %53 = getelementptr inbounds i8, ptr %0, i64 28
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %54 = load float, ptr %53, align 4
   %55 = fsub float 1.000000e+00, %52
   %56 = fsub float %55, %54
-  %57 = getelementptr inbounds i8, ptr %0, i64 36
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %58 = load float, ptr %57, align 4
   %59 = fsub float 1.000000e+00, %36
   %60 = fsub float %59, %58
@@ -2983,7 +2983,7 @@ define ptr @pxr_nc_1_0_MatchLinearColorSpace(<2 x float> %0, <2 x float> %1, <2 
   br i1 %16, label %CompareChromaticity.exit, label %CompareChromaticity.exit.thread
 
 CompareChromaticity.exit:                         ; preds = %11
-  %17 = getelementptr inbounds i8, ptr %7, i64 12
+  %17 = getelementptr inbounds nuw i8, ptr %7, i64 12
   %18 = load float, ptr %17, align 4
   %19 = fsub float %18, %.sroa.025.4.vec.extract
   %20 = tail call float @llvm.fabs.f32(float %19)
@@ -2999,7 +2999,7 @@ CompareChromaticity.exit:                         ; preds = %11
   br i1 %27, label %CompareChromaticity.exit20, label %CompareChromaticity.exit.thread
 
 CompareChromaticity.exit20:                       ; preds = %22
-  %28 = getelementptr inbounds i8, ptr %7, i64 20
+  %28 = getelementptr inbounds nuw i8, ptr %7, i64 20
   %29 = load float, ptr %28, align 4
   %30 = fsub float %29, %.sroa.024.4.vec.extract
   %31 = tail call float @llvm.fabs.f32(float %30)
@@ -3015,7 +3015,7 @@ CompareChromaticity.exit20:                       ; preds = %22
   br i1 %38, label %CompareChromaticity.exit21, label %CompareChromaticity.exit.thread
 
 CompareChromaticity.exit21:                       ; preds = %33
-  %39 = getelementptr inbounds i8, ptr %7, i64 28
+  %39 = getelementptr inbounds nuw i8, ptr %7, i64 28
   %40 = load float, ptr %39, align 4
   %41 = fsub float %40, %.sroa.023.4.vec.extract
   %42 = tail call float @llvm.fabs.f32(float %41)
@@ -3031,7 +3031,7 @@ CompareChromaticity.exit21:                       ; preds = %33
   br i1 %49, label %CompareChromaticity.exit22, label %CompareChromaticity.exit.thread
 
 CompareChromaticity.exit22:                       ; preds = %44
-  %50 = getelementptr inbounds i8, ptr %7, i64 36
+  %50 = getelementptr inbounds nuw i8, ptr %7, i64 36
   %51 = load float, ptr %50, align 4
   %52 = fsub float %51, %.sroa.0.4.vec.extract
   %53 = tail call float @llvm.fabs.f32(float %52)

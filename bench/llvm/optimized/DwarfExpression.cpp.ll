@@ -1679,7 +1679,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm15DwarfExpression23addMachineRegExp
 
 47:                                               ; preds = %37, %33
   %48 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %30) #13
-  %49 = getelementptr inbounds i8, ptr %0, i64 32
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i32 0, ptr %49, align 8
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 84
   %51 = load i16, ptr %50, align 4
@@ -1881,7 +1881,7 @@ _ZN4llvm15DwarfExpression6addRegEiPKc.exit._crit_edge: ; preds = %_ZN4llvm15Dwar
 
 162:                                              ; preds = %154, %126, %159, %_ZN4llvm15DwarfExpression6addRegEiPKc.exit._crit_edge
   %163 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %64) #13
-  %164 = getelementptr inbounds i8, ptr %0, i64 32
+  %164 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i32 0, ptr %164, align 8
   %165 = load ptr, ptr %2, align 8
   %166 = load ptr, ptr %9, align 8
@@ -1942,7 +1942,7 @@ _ZN4llvm15DwarfExpression6addRegEiPKc.exit._crit_edge: ; preds = %_ZN4llvm15Dwar
 183:                                              ; preds = %"_ZN4llvm6any_ofIRNS_18DIExpressionCursorEZNS_15DwarfExpression23addMachineRegExpressionERKNS_18TargetRegisterInfoES2_NS_8RegisterEjE3$_0EEbOT_T0_.exit"
   %184 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %185 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %184) #13
-  %186 = getelementptr inbounds i8, ptr %0, i64 32
+  %186 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i32 0, ptr %186, align 8
   %187 = load i16, ptr %54, align 4
   %188 = and i16 %187, -8
@@ -1957,7 +1957,7 @@ _ZN4llvm15DwarfExpression6addRegEiPKc.exit._crit_edge: ; preds = %_ZN4llvm15Dwar
 
 193:                                              ; preds = %189
   %194 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %190) #13
-  %195 = getelementptr inbounds i8, ptr %0, i64 32
+  %195 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i32 0, ptr %195, align 8
   %196 = load i16, ptr %54, align 4
   %197 = and i16 %196, -8
@@ -2116,7 +2116,7 @@ _ZN4llvm15DwarfExpression7addBRegEii.exit:        ; preds = %265, %260, %255
   %275 = load ptr, ptr %274, align 8
   call void %275(ptr noundef nonnull align 8 dereferenceable(88) %0, i64 noundef %272) #13
   %276 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %190) #13
-  %277 = getelementptr inbounds i8, ptr %0, i64 32
+  %277 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i32 0, ptr %277, align 8
   %278 = load ptr, ptr %2, align 8
   %279 = load ptr, ptr %9, align 8
@@ -2408,7 +2408,7 @@ define dso_local noundef i32 @_ZN4llvm15DwarfExpression19getOrCreateBaseTypeEjNS
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 672
-  %9 = getelementptr inbounds i8, ptr %7, i64 680
+  %9 = getelementptr inbounds nuw i8, ptr %7, i64 680
   %10 = load ptr, ptr %9, align 8
   %11 = load ptr, ptr %8, align 8
   %12 = ptrtoint ptr %10 to i64
@@ -2447,7 +2447,7 @@ define dso_local noundef i32 @_ZN4llvm15DwarfExpression19getOrCreateBaseTypeEjNS
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %3
   %.0.lcssa = phi i32 [ 0, %3 ], [ %26, %._crit_edge.loopexit ]
-  %27 = getelementptr inbounds i8, ptr %7, i64 688
+  %27 = getelementptr inbounds nuw i8, ptr %7, i64 688
   %28 = load ptr, ptr %27, align 8
   %.not.i = icmp eq ptr %10, %28
   br i1 %.not.i, label %34, label %29
@@ -2497,7 +2497,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm15DwarfExpression13addExpressionEON
 
 _ZN4llvm18DIExpressionCursor4takeEv.exit.lr.ph.lr.ph: ; preds = %4
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 86
-  %12 = getelementptr inbounds i8, ptr %0, i64 87
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 87
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 84
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %15 = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -2885,7 +2885,7 @@ _ZL16isMemoryLocationN4llvm18DIExpressionCursorE.exit: ; preds = %_ZN4llvm18DIEx
   store i8 %196, ptr %6, align 1
   %210 = load ptr, ptr %14, align 8
   %211 = getelementptr inbounds nuw i8, ptr %210, i64 672
-  %212 = getelementptr inbounds i8, ptr %210, i64 680
+  %212 = getelementptr inbounds nuw i8, ptr %210, i64 680
   %213 = load ptr, ptr %212, align 8
   %214 = load ptr, ptr %211, align 8
   %215 = ptrtoint ptr %213 to i64
@@ -2924,7 +2924,7 @@ _ZL16isMemoryLocationN4llvm18DIExpressionCursorE.exit: ; preds = %_ZN4llvm18DIEx
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %207
   %.0.lcssa.i = phi i32 [ 0, %207 ], [ %229, %._crit_edge.loopexit.i ]
-  %230 = getelementptr inbounds i8, ptr %210, i64 688
+  %230 = getelementptr inbounds nuw i8, ptr %210, i64 688
   %231 = load ptr, ptr %230, align 8
   %.not.i.i = icmp eq ptr %213, %231
   br i1 %.not.i.i, label %237, label %232
@@ -3230,7 +3230,7 @@ define dso_local void @_ZN4llvm15DwarfExpression17addFragmentOffsetEPKNS_12DIExp
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %7 = load ptr, ptr %6, align 8, !noalias !35
-  %8 = getelementptr inbounds i8, ptr %1, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %9 = load ptr, ptr %8, align 8, !noalias !35
   %10 = ptrtoint ptr %9 to i64
   %11 = ptrtoint ptr %7 to i64

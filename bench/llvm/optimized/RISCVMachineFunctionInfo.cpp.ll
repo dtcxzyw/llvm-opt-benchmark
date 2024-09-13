@@ -63,7 +63,7 @@ define dso_local void @_ZN4llvm4yaml24RISCVMachineFunctionInfoC2ERKNS_24RISCVMac
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local noundef ptr @_ZNK4llvm24RISCVMachineFunctionInfo5cloneERNS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EEERNS_15MachineFunctionERKNS_8DenseMapIPNS_17MachineBasicBlockES9_NS_12DenseMapInfoIS9_vEENS_6detail12DenseMapPairIS9_S9_EEEE(ptr noundef nonnull align 8 dereferenceable(124) %0, ptr nocapture nonnull readnone align 8 %1, ptr noundef nonnull align 8 dereferenceable(1041) %2, ptr nocapture nonnull readnone align 1 %3) unnamed_addr #1 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 128
-  %6 = getelementptr inbounds i8, ptr %2, i64 208
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 208
   %7 = load i64, ptr %6, align 8
   %8 = add i64 %7, 128
   store i64 %8, ptr %6, align 8
@@ -72,7 +72,7 @@ define dso_local noundef ptr @_ZNK4llvm24RISCVMachineFunctionInfo5cloneERNS_20Bu
   %11 = add i64 %10, 7
   %12 = and i64 %11, -8
   %13 = add i64 %12, 128
-  %14 = getelementptr inbounds i8, ptr %2, i64 136
+  %14 = getelementptr inbounds nuw i8, ptr %2, i64 136
   %15 = load ptr, ptr %14, align 8
   %16 = ptrtoint ptr %15 to i64
   %.not.i.i.i.i.i.i = icmp ugt i64 %13, %16

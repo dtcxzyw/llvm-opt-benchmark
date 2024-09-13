@@ -282,7 +282,7 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_129RISCVRedundantCopyElimina
   %23 = load ptr, ptr %22, align 8
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store ptr %23, ptr %24, align 8
-  %25 = getelementptr inbounds i8, ptr %1, i64 328
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 328
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 320
   %.sroa.012.018 = load ptr, ptr %25, align 8
   %.not19 = icmp eq ptr %.sroa.012.018, %26
@@ -591,9 +591,9 @@ declare noundef zeroext i1 @_ZNK4llvm17MachineBasicBlock8isLiveInENS_10MCRegiste
 define linkonce_odr hidden void @_ZN4llvm17MachineBasicBlock9addLiveInENS_10MCRegisterENS_11LaneBitmaskE(ptr noundef nonnull align 8 dereferenceable(288) %0, i32 %1, i64 %2) local_unnamed_addr #0 comdat align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %5 = trunc i32 %1 to i16
-  %6 = getelementptr inbounds i8, ptr %0, i64 192
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 200
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %9 = load ptr, ptr %8, align 8
   %.not.i.i = icmp eq ptr %7, %9
   br i1 %.not.i.i, label %13, label %10

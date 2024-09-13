@@ -727,7 +727,7 @@ _ZNK10open_spiel24ActionObservationHistoryeqERKS0_.exit: ; preds = %_ZNSt6vector
 272:                                              ; preds = %_ZNK10open_spiel24ActionObservationHistoryeqERKS0_.exit
   %273 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %274 = load ptr, ptr %273, align 8
-  %275 = getelementptr inbounds i8, ptr %16, i64 16
+  %275 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %276 = load ptr, ptr %275, align 8
   %.not4.i.i.i.i.i = icmp eq ptr %274, %276
   br i1 %.not4.i.i.i.i.i, label %_ZSt8_DestroyIPSt4pairIN4absl7debian28optionalIlEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESB_EvT_SD_RSaIT0_E.exit.i.i, label %.lr.ph.i.i.i.i.i
@@ -750,7 +750,7 @@ _ZSt8_DestroyIPSt4pairIN4absl7debian28optionalIlEENSt7__cxx1112basic_stringIcSt1
   br i1 %.not.i.i.i.i339, label %_ZN10open_spiel24ActionObservationHistoryD2Ev.exit, label %280
 
 280:                                              ; preds = %_ZSt8_DestroyIPSt4pairIN4absl7debian28optionalIlEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESB_EvT_SD_RSaIT0_E.exit.i.i
-  %281 = getelementptr inbounds i8, ptr %16, i64 24
+  %281 = getelementptr inbounds nuw i8, ptr %16, i64 24
   %282 = load ptr, ptr %281, align 8
   %283 = ptrtoint ptr %282 to i64
   %284 = ptrtoint ptr %279 to i64
@@ -761,7 +761,7 @@ _ZSt8_DestroyIPSt4pairIN4absl7debian28optionalIlEENSt7__cxx1112basic_stringIcSt1
 _ZN10open_spiel24ActionObservationHistoryD2Ev.exit: ; preds = %_ZSt8_DestroyIPSt4pairIN4absl7debian28optionalIlEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESB_EvT_SD_RSaIT0_E.exit.i.i, %280
   %286 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %287 = load ptr, ptr %286, align 8
-  %288 = getelementptr inbounds i8, ptr %15, i64 16
+  %288 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %289 = load ptr, ptr %288, align 8
   %.not4.i.i.i.i.i340 = icmp eq ptr %287, %289
   br i1 %.not4.i.i.i.i.i340, label %_ZSt8_DestroyIPSt4pairIN4absl7debian28optionalIlEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESB_EvT_SD_RSaIT0_E.exit.i.i346, label %.lr.ph.i.i.i.i.i341
@@ -784,7 +784,7 @@ _ZSt8_DestroyIPSt4pairIN4absl7debian28optionalIlEENSt7__cxx1112basic_stringIcSt1
   br i1 %.not.i.i.i.i347, label %_ZN10open_spiel24ActionObservationHistoryD2Ev.exit348, label %293
 
 293:                                              ; preds = %_ZSt8_DestroyIPSt4pairIN4absl7debian28optionalIlEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESB_EvT_SD_RSaIT0_E.exit.i.i346
-  %294 = getelementptr inbounds i8, ptr %15, i64 24
+  %294 = getelementptr inbounds nuw i8, ptr %15, i64 24
   %295 = load ptr, ptr %294, align 8
   %296 = ptrtoint ptr %295 to i64
   %297 = ptrtoint ptr %292 to i64
@@ -922,7 +922,7 @@ _ZNK10open_spiel24ActionObservationHistoryeqERKS0_.exit365: ; preds = %_ZNSt6vec
 340:                                              ; preds = %_ZNK10open_spiel24ActionObservationHistoryeqERKS0_.exit365
   %341 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %342 = load ptr, ptr %341, align 8
-  %343 = getelementptr inbounds i8, ptr %22, i64 16
+  %343 = getelementptr inbounds nuw i8, ptr %22, i64 16
   %344 = load ptr, ptr %343, align 8
   %.not4.i.i.i.i.i366 = icmp eq ptr %342, %344
   br i1 %.not4.i.i.i.i.i366, label %_ZSt8_DestroyIPSt4pairIN4absl7debian28optionalIlEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESB_EvT_SD_RSaIT0_E.exit.i.i372, label %.lr.ph.i.i.i.i.i367
@@ -945,7 +945,7 @@ _ZSt8_DestroyIPSt4pairIN4absl7debian28optionalIlEENSt7__cxx1112basic_stringIcSt1
   br i1 %.not.i.i.i.i373, label %_ZN10open_spiel24ActionObservationHistoryD2Ev.exit374, label %348
 
 348:                                              ; preds = %_ZSt8_DestroyIPSt4pairIN4absl7debian28optionalIlEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESB_EvT_SD_RSaIT0_E.exit.i.i372
-  %349 = getelementptr inbounds i8, ptr %22, i64 24
+  %349 = getelementptr inbounds nuw i8, ptr %22, i64 24
   %350 = load ptr, ptr %349, align 8
   %351 = ptrtoint ptr %350 to i64
   %352 = ptrtoint ptr %347 to i64
@@ -956,7 +956,7 @@ _ZSt8_DestroyIPSt4pairIN4absl7debian28optionalIlEENSt7__cxx1112basic_stringIcSt1
 _ZN10open_spiel24ActionObservationHistoryD2Ev.exit374: ; preds = %_ZSt8_DestroyIPSt4pairIN4absl7debian28optionalIlEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESB_EvT_SD_RSaIT0_E.exit.i.i372, %348
   %354 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %355 = load ptr, ptr %354, align 8
-  %356 = getelementptr inbounds i8, ptr %21, i64 16
+  %356 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %357 = load ptr, ptr %356, align 8
   %.not4.i.i.i.i.i375 = icmp eq ptr %355, %357
   br i1 %.not4.i.i.i.i.i375, label %_ZSt8_DestroyIPSt4pairIN4absl7debian28optionalIlEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESB_EvT_SD_RSaIT0_E.exit.i.i381, label %.lr.ph.i.i.i.i.i376
@@ -979,7 +979,7 @@ _ZSt8_DestroyIPSt4pairIN4absl7debian28optionalIlEENSt7__cxx1112basic_stringIcSt1
   br i1 %.not.i.i.i.i382, label %_ZN10open_spiel24ActionObservationHistoryD2Ev.exit383, label %361
 
 361:                                              ; preds = %_ZSt8_DestroyIPSt4pairIN4absl7debian28optionalIlEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESB_EvT_SD_RSaIT0_E.exit.i.i381
-  %362 = getelementptr inbounds i8, ptr %21, i64 24
+  %362 = getelementptr inbounds nuw i8, ptr %21, i64 24
   %363 = load ptr, ptr %362, align 8
   %364 = ptrtoint ptr %363 to i64
   %365 = ptrtoint ptr %360 to i64
@@ -1438,7 +1438,7 @@ _ZNK10open_spiel24ActionObservationHistoryeqERKS0_.exit427: ; preds = %486
 505:                                              ; preds = %_ZNK10open_spiel24ActionObservationHistoryeqERKS0_.exit427
   %506 = getelementptr inbounds nuw i8, ptr %38, i64 8
   %507 = load ptr, ptr %506, align 8
-  %508 = getelementptr inbounds i8, ptr %38, i64 16
+  %508 = getelementptr inbounds nuw i8, ptr %38, i64 16
   %509 = load ptr, ptr %508, align 8
   %.not4.i.i.i.i.i428 = icmp eq ptr %507, %509
   br i1 %.not4.i.i.i.i.i428, label %_ZSt8_DestroyIPSt4pairIN4absl7debian28optionalIlEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESB_EvT_SD_RSaIT0_E.exit.i.i434, label %.lr.ph.i.i.i.i.i429
@@ -1461,7 +1461,7 @@ _ZSt8_DestroyIPSt4pairIN4absl7debian28optionalIlEENSt7__cxx1112basic_stringIcSt1
   br i1 %.not.i.i.i.i435, label %_ZN10open_spiel24ActionObservationHistoryD2Ev.exit436, label %513
 
 513:                                              ; preds = %_ZSt8_DestroyIPSt4pairIN4absl7debian28optionalIlEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESB_EvT_SD_RSaIT0_E.exit.i.i434
-  %514 = getelementptr inbounds i8, ptr %38, i64 24
+  %514 = getelementptr inbounds nuw i8, ptr %38, i64 24
   %515 = load ptr, ptr %514, align 8
   %516 = ptrtoint ptr %515 to i64
   %517 = ptrtoint ptr %512 to i64
@@ -1472,7 +1472,7 @@ _ZSt8_DestroyIPSt4pairIN4absl7debian28optionalIlEENSt7__cxx1112basic_stringIcSt1
 _ZN10open_spiel24ActionObservationHistoryD2Ev.exit436: ; preds = %_ZSt8_DestroyIPSt4pairIN4absl7debian28optionalIlEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESB_EvT_SD_RSaIT0_E.exit.i.i434, %513
   %519 = getelementptr inbounds nuw i8, ptr %37, i64 8
   %520 = load ptr, ptr %519, align 8
-  %521 = getelementptr inbounds i8, ptr %37, i64 16
+  %521 = getelementptr inbounds nuw i8, ptr %37, i64 16
   %522 = load ptr, ptr %521, align 8
   %.not4.i.i.i.i.i437 = icmp eq ptr %520, %522
   br i1 %.not4.i.i.i.i.i437, label %_ZSt8_DestroyIPSt4pairIN4absl7debian28optionalIlEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESB_EvT_SD_RSaIT0_E.exit.i.i443, label %.lr.ph.i.i.i.i.i438
@@ -1495,7 +1495,7 @@ _ZSt8_DestroyIPSt4pairIN4absl7debian28optionalIlEENSt7__cxx1112basic_stringIcSt1
   br i1 %.not.i.i.i.i444, label %_ZN10open_spiel24ActionObservationHistoryD2Ev.exit445, label %526
 
 526:                                              ; preds = %_ZSt8_DestroyIPSt4pairIN4absl7debian28optionalIlEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESB_EvT_SD_RSaIT0_E.exit.i.i443
-  %527 = getelementptr inbounds i8, ptr %37, i64 24
+  %527 = getelementptr inbounds nuw i8, ptr %37, i64 24
   %528 = load ptr, ptr %527, align 8
   %529 = ptrtoint ptr %528 to i64
   %530 = ptrtoint ptr %525 to i64
@@ -1660,7 +1660,7 @@ _ZNK10open_spiel24ActionObservationHistoryeqERKS0_.exit462: ; preds = %565
 584:                                              ; preds = %_ZNK10open_spiel24ActionObservationHistoryeqERKS0_.exit462
   %585 = getelementptr inbounds nuw i8, ptr %44, i64 8
   %586 = load ptr, ptr %585, align 8
-  %587 = getelementptr inbounds i8, ptr %44, i64 16
+  %587 = getelementptr inbounds nuw i8, ptr %44, i64 16
   %588 = load ptr, ptr %587, align 8
   %.not4.i.i.i.i.i463 = icmp eq ptr %586, %588
   br i1 %.not4.i.i.i.i.i463, label %_ZSt8_DestroyIPSt4pairIN4absl7debian28optionalIlEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESB_EvT_SD_RSaIT0_E.exit.i.i469, label %.lr.ph.i.i.i.i.i464
@@ -1683,7 +1683,7 @@ _ZSt8_DestroyIPSt4pairIN4absl7debian28optionalIlEENSt7__cxx1112basic_stringIcSt1
   br i1 %.not.i.i.i.i470, label %_ZN10open_spiel24ActionObservationHistoryD2Ev.exit471, label %592
 
 592:                                              ; preds = %_ZSt8_DestroyIPSt4pairIN4absl7debian28optionalIlEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESB_EvT_SD_RSaIT0_E.exit.i.i469
-  %593 = getelementptr inbounds i8, ptr %44, i64 24
+  %593 = getelementptr inbounds nuw i8, ptr %44, i64 24
   %594 = load ptr, ptr %593, align 8
   %595 = ptrtoint ptr %594 to i64
   %596 = ptrtoint ptr %591 to i64
@@ -1694,7 +1694,7 @@ _ZSt8_DestroyIPSt4pairIN4absl7debian28optionalIlEENSt7__cxx1112basic_stringIcSt1
 _ZN10open_spiel24ActionObservationHistoryD2Ev.exit471: ; preds = %_ZSt8_DestroyIPSt4pairIN4absl7debian28optionalIlEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESB_EvT_SD_RSaIT0_E.exit.i.i469, %592
   %598 = getelementptr inbounds nuw i8, ptr %43, i64 8
   %599 = load ptr, ptr %598, align 8
-  %600 = getelementptr inbounds i8, ptr %43, i64 16
+  %600 = getelementptr inbounds nuw i8, ptr %43, i64 16
   %601 = load ptr, ptr %600, align 8
   %.not4.i.i.i.i.i472 = icmp eq ptr %599, %601
   br i1 %.not4.i.i.i.i.i472, label %_ZSt8_DestroyIPSt4pairIN4absl7debian28optionalIlEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESB_EvT_SD_RSaIT0_E.exit.i.i478, label %.lr.ph.i.i.i.i.i473
@@ -1717,7 +1717,7 @@ _ZSt8_DestroyIPSt4pairIN4absl7debian28optionalIlEENSt7__cxx1112basic_stringIcSt1
   br i1 %.not.i.i.i.i479, label %_ZN10open_spiel24ActionObservationHistoryD2Ev.exit480, label %605
 
 605:                                              ; preds = %_ZSt8_DestroyIPSt4pairIN4absl7debian28optionalIlEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESB_EvT_SD_RSaIT0_E.exit.i.i478
-  %606 = getelementptr inbounds i8, ptr %43, i64 24
+  %606 = getelementptr inbounds nuw i8, ptr %43, i64 24
   %607 = load ptr, ptr %606, align 8
   %608 = ptrtoint ptr %607 to i64
   %609 = ptrtoint ptr %604 to i64
@@ -2224,7 +2224,7 @@ _ZNK10open_spiel24ActionObservationHistoryeqERKS0_.exit529: ; preds = %741
 765:                                              ; preds = %_ZNK10open_spiel24ActionObservationHistoryeqERKS0_.exit529
   %766 = getelementptr inbounds nuw i8, ptr %61, i64 8
   %767 = load ptr, ptr %766, align 8
-  %768 = getelementptr inbounds i8, ptr %61, i64 16
+  %768 = getelementptr inbounds nuw i8, ptr %61, i64 16
   %769 = load ptr, ptr %768, align 8
   %.not4.i.i.i.i.i530 = icmp eq ptr %767, %769
   br i1 %.not4.i.i.i.i.i530, label %_ZSt8_DestroyIPSt4pairIN4absl7debian28optionalIlEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESB_EvT_SD_RSaIT0_E.exit.i.i536, label %.lr.ph.i.i.i.i.i531
@@ -2247,7 +2247,7 @@ _ZSt8_DestroyIPSt4pairIN4absl7debian28optionalIlEENSt7__cxx1112basic_stringIcSt1
   br i1 %.not.i.i.i.i537, label %_ZN10open_spiel24ActionObservationHistoryD2Ev.exit538, label %773
 
 773:                                              ; preds = %_ZSt8_DestroyIPSt4pairIN4absl7debian28optionalIlEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESB_EvT_SD_RSaIT0_E.exit.i.i536
-  %774 = getelementptr inbounds i8, ptr %61, i64 24
+  %774 = getelementptr inbounds nuw i8, ptr %61, i64 24
   %775 = load ptr, ptr %774, align 8
   %776 = ptrtoint ptr %775 to i64
   %777 = ptrtoint ptr %772 to i64
@@ -2258,7 +2258,7 @@ _ZSt8_DestroyIPSt4pairIN4absl7debian28optionalIlEENSt7__cxx1112basic_stringIcSt1
 _ZN10open_spiel24ActionObservationHistoryD2Ev.exit538: ; preds = %_ZSt8_DestroyIPSt4pairIN4absl7debian28optionalIlEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESB_EvT_SD_RSaIT0_E.exit.i.i536, %773
   %779 = getelementptr inbounds nuw i8, ptr %60, i64 8
   %780 = load ptr, ptr %779, align 8
-  %781 = getelementptr inbounds i8, ptr %60, i64 16
+  %781 = getelementptr inbounds nuw i8, ptr %60, i64 16
   %782 = load ptr, ptr %781, align 8
   %.not4.i.i.i.i.i539 = icmp eq ptr %780, %782
   br i1 %.not4.i.i.i.i.i539, label %_ZSt8_DestroyIPSt4pairIN4absl7debian28optionalIlEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESB_EvT_SD_RSaIT0_E.exit.i.i545, label %.lr.ph.i.i.i.i.i540
@@ -2281,7 +2281,7 @@ _ZSt8_DestroyIPSt4pairIN4absl7debian28optionalIlEENSt7__cxx1112basic_stringIcSt1
   br i1 %.not.i.i.i.i546, label %_ZN10open_spiel24ActionObservationHistoryD2Ev.exit547, label %786
 
 786:                                              ; preds = %_ZSt8_DestroyIPSt4pairIN4absl7debian28optionalIlEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESB_EvT_SD_RSaIT0_E.exit.i.i545
-  %787 = getelementptr inbounds i8, ptr %60, i64 24
+  %787 = getelementptr inbounds nuw i8, ptr %60, i64 24
   %788 = load ptr, ptr %787, align 8
   %789 = ptrtoint ptr %788 to i64
   %790 = ptrtoint ptr %785 to i64
@@ -2458,7 +2458,7 @@ _ZNK10open_spiel24ActionObservationHistoryeqERKS0_.exit564: ; preds = %827
 851:                                              ; preds = %_ZNK10open_spiel24ActionObservationHistoryeqERKS0_.exit564
   %852 = getelementptr inbounds nuw i8, ptr %67, i64 8
   %853 = load ptr, ptr %852, align 8
-  %854 = getelementptr inbounds i8, ptr %67, i64 16
+  %854 = getelementptr inbounds nuw i8, ptr %67, i64 16
   %855 = load ptr, ptr %854, align 8
   %.not4.i.i.i.i.i565 = icmp eq ptr %853, %855
   br i1 %.not4.i.i.i.i.i565, label %_ZSt8_DestroyIPSt4pairIN4absl7debian28optionalIlEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESB_EvT_SD_RSaIT0_E.exit.i.i571, label %.lr.ph.i.i.i.i.i566
@@ -2481,7 +2481,7 @@ _ZSt8_DestroyIPSt4pairIN4absl7debian28optionalIlEENSt7__cxx1112basic_stringIcSt1
   br i1 %.not.i.i.i.i572, label %_ZN10open_spiel24ActionObservationHistoryD2Ev.exit573, label %859
 
 859:                                              ; preds = %_ZSt8_DestroyIPSt4pairIN4absl7debian28optionalIlEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESB_EvT_SD_RSaIT0_E.exit.i.i571
-  %860 = getelementptr inbounds i8, ptr %67, i64 24
+  %860 = getelementptr inbounds nuw i8, ptr %67, i64 24
   %861 = load ptr, ptr %860, align 8
   %862 = ptrtoint ptr %861 to i64
   %863 = ptrtoint ptr %858 to i64
@@ -2492,7 +2492,7 @@ _ZSt8_DestroyIPSt4pairIN4absl7debian28optionalIlEENSt7__cxx1112basic_stringIcSt1
 _ZN10open_spiel24ActionObservationHistoryD2Ev.exit573: ; preds = %_ZSt8_DestroyIPSt4pairIN4absl7debian28optionalIlEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESB_EvT_SD_RSaIT0_E.exit.i.i571, %859
   %865 = getelementptr inbounds nuw i8, ptr %66, i64 8
   %866 = load ptr, ptr %865, align 8
-  %867 = getelementptr inbounds i8, ptr %66, i64 16
+  %867 = getelementptr inbounds nuw i8, ptr %66, i64 16
   %868 = load ptr, ptr %867, align 8
   %.not4.i.i.i.i.i574 = icmp eq ptr %866, %868
   br i1 %.not4.i.i.i.i.i574, label %_ZSt8_DestroyIPSt4pairIN4absl7debian28optionalIlEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESB_EvT_SD_RSaIT0_E.exit.i.i580, label %.lr.ph.i.i.i.i.i575
@@ -2515,7 +2515,7 @@ _ZSt8_DestroyIPSt4pairIN4absl7debian28optionalIlEENSt7__cxx1112basic_stringIcSt1
   br i1 %.not.i.i.i.i581, label %_ZN10open_spiel24ActionObservationHistoryD2Ev.exit582, label %872
 
 872:                                              ; preds = %_ZSt8_DestroyIPSt4pairIN4absl7debian28optionalIlEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESB_EvT_SD_RSaIT0_E.exit.i.i580
-  %873 = getelementptr inbounds i8, ptr %66, i64 24
+  %873 = getelementptr inbounds nuw i8, ptr %66, i64 24
   %874 = load ptr, ptr %873, align 8
   %875 = ptrtoint ptr %874 to i64
   %876 = ptrtoint ptr %871 to i64
@@ -3061,7 +3061,7 @@ _ZNK10open_spiel24ActionObservationHistoryeqERKS0_.exit636: ; preds = %1016
 1040:                                             ; preds = %_ZNK10open_spiel24ActionObservationHistoryeqERKS0_.exit636
   %1041 = getelementptr inbounds nuw i8, ptr %85, i64 8
   %1042 = load ptr, ptr %1041, align 8
-  %1043 = getelementptr inbounds i8, ptr %85, i64 16
+  %1043 = getelementptr inbounds nuw i8, ptr %85, i64 16
   %1044 = load ptr, ptr %1043, align 8
   %.not4.i.i.i.i.i637 = icmp eq ptr %1042, %1044
   br i1 %.not4.i.i.i.i.i637, label %_ZSt8_DestroyIPSt4pairIN4absl7debian28optionalIlEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESB_EvT_SD_RSaIT0_E.exit.i.i643, label %.lr.ph.i.i.i.i.i638
@@ -3084,7 +3084,7 @@ _ZSt8_DestroyIPSt4pairIN4absl7debian28optionalIlEENSt7__cxx1112basic_stringIcSt1
   br i1 %.not.i.i.i.i644, label %_ZN10open_spiel24ActionObservationHistoryD2Ev.exit645, label %1048
 
 1048:                                             ; preds = %_ZSt8_DestroyIPSt4pairIN4absl7debian28optionalIlEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESB_EvT_SD_RSaIT0_E.exit.i.i643
-  %1049 = getelementptr inbounds i8, ptr %85, i64 24
+  %1049 = getelementptr inbounds nuw i8, ptr %85, i64 24
   %1050 = load ptr, ptr %1049, align 8
   %1051 = ptrtoint ptr %1050 to i64
   %1052 = ptrtoint ptr %1047 to i64
@@ -3095,7 +3095,7 @@ _ZSt8_DestroyIPSt4pairIN4absl7debian28optionalIlEENSt7__cxx1112basic_stringIcSt1
 _ZN10open_spiel24ActionObservationHistoryD2Ev.exit645: ; preds = %_ZSt8_DestroyIPSt4pairIN4absl7debian28optionalIlEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESB_EvT_SD_RSaIT0_E.exit.i.i643, %1048
   %1054 = getelementptr inbounds nuw i8, ptr %84, i64 8
   %1055 = load ptr, ptr %1054, align 8
-  %1056 = getelementptr inbounds i8, ptr %84, i64 16
+  %1056 = getelementptr inbounds nuw i8, ptr %84, i64 16
   %1057 = load ptr, ptr %1056, align 8
   %.not4.i.i.i.i.i646 = icmp eq ptr %1055, %1057
   br i1 %.not4.i.i.i.i.i646, label %_ZSt8_DestroyIPSt4pairIN4absl7debian28optionalIlEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESB_EvT_SD_RSaIT0_E.exit.i.i652, label %.lr.ph.i.i.i.i.i647
@@ -3118,7 +3118,7 @@ _ZSt8_DestroyIPSt4pairIN4absl7debian28optionalIlEENSt7__cxx1112basic_stringIcSt1
   br i1 %.not.i.i.i.i653, label %_ZN10open_spiel24ActionObservationHistoryD2Ev.exit654, label %1061
 
 1061:                                             ; preds = %_ZSt8_DestroyIPSt4pairIN4absl7debian28optionalIlEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESB_EvT_SD_RSaIT0_E.exit.i.i652
-  %1062 = getelementptr inbounds i8, ptr %84, i64 24
+  %1062 = getelementptr inbounds nuw i8, ptr %84, i64 24
   %1063 = load ptr, ptr %1062, align 8
   %1064 = ptrtoint ptr %1063 to i64
   %1065 = ptrtoint ptr %1060 to i64
@@ -3300,7 +3300,7 @@ _ZNK10open_spiel24ActionObservationHistoryeqERKS0_.exit671: ; preds = %1104
 1128:                                             ; preds = %_ZNK10open_spiel24ActionObservationHistoryeqERKS0_.exit671
   %1129 = getelementptr inbounds nuw i8, ptr %92, i64 8
   %1130 = load ptr, ptr %1129, align 8
-  %1131 = getelementptr inbounds i8, ptr %92, i64 16
+  %1131 = getelementptr inbounds nuw i8, ptr %92, i64 16
   %1132 = load ptr, ptr %1131, align 8
   %.not4.i.i.i.i.i672 = icmp eq ptr %1130, %1132
   br i1 %.not4.i.i.i.i.i672, label %_ZSt8_DestroyIPSt4pairIN4absl7debian28optionalIlEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESB_EvT_SD_RSaIT0_E.exit.i.i678, label %.lr.ph.i.i.i.i.i673
@@ -3323,7 +3323,7 @@ _ZSt8_DestroyIPSt4pairIN4absl7debian28optionalIlEENSt7__cxx1112basic_stringIcSt1
   br i1 %.not.i.i.i.i679, label %_ZN10open_spiel24ActionObservationHistoryD2Ev.exit680, label %1136
 
 1136:                                             ; preds = %_ZSt8_DestroyIPSt4pairIN4absl7debian28optionalIlEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESB_EvT_SD_RSaIT0_E.exit.i.i678
-  %1137 = getelementptr inbounds i8, ptr %92, i64 24
+  %1137 = getelementptr inbounds nuw i8, ptr %92, i64 24
   %1138 = load ptr, ptr %1137, align 8
   %1139 = ptrtoint ptr %1138 to i64
   %1140 = ptrtoint ptr %1135 to i64
@@ -3334,7 +3334,7 @@ _ZSt8_DestroyIPSt4pairIN4absl7debian28optionalIlEENSt7__cxx1112basic_stringIcSt1
 _ZN10open_spiel24ActionObservationHistoryD2Ev.exit680: ; preds = %_ZSt8_DestroyIPSt4pairIN4absl7debian28optionalIlEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESB_EvT_SD_RSaIT0_E.exit.i.i678, %1136
   %1142 = getelementptr inbounds nuw i8, ptr %91, i64 8
   %1143 = load ptr, ptr %1142, align 8
-  %1144 = getelementptr inbounds i8, ptr %91, i64 16
+  %1144 = getelementptr inbounds nuw i8, ptr %91, i64 16
   %1145 = load ptr, ptr %1144, align 8
   %.not4.i.i.i.i.i681 = icmp eq ptr %1143, %1145
   br i1 %.not4.i.i.i.i.i681, label %_ZSt8_DestroyIPSt4pairIN4absl7debian28optionalIlEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESB_EvT_SD_RSaIT0_E.exit.i.i687, label %.lr.ph.i.i.i.i.i682
@@ -3357,7 +3357,7 @@ _ZSt8_DestroyIPSt4pairIN4absl7debian28optionalIlEENSt7__cxx1112basic_stringIcSt1
   br i1 %.not.i.i.i.i688, label %_ZN10open_spiel24ActionObservationHistoryD2Ev.exit689, label %1149
 
 1149:                                             ; preds = %_ZSt8_DestroyIPSt4pairIN4absl7debian28optionalIlEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESB_EvT_SD_RSaIT0_E.exit.i.i687
-  %1150 = getelementptr inbounds i8, ptr %91, i64 24
+  %1150 = getelementptr inbounds nuw i8, ptr %91, i64 24
   %1151 = load ptr, ptr %1150, align 8
   %1152 = ptrtoint ptr %1151 to i64
   %1153 = ptrtoint ptr %1148 to i64
@@ -3941,7 +3941,7 @@ _ZNK10open_spiel24ActionObservationHistoryeqERKS0_.exit748: ; preds = %1301
 1325:                                             ; preds = %_ZNK10open_spiel24ActionObservationHistoryeqERKS0_.exit748
   %1326 = getelementptr inbounds nuw i8, ptr %111, i64 8
   %1327 = load ptr, ptr %1326, align 8
-  %1328 = getelementptr inbounds i8, ptr %111, i64 16
+  %1328 = getelementptr inbounds nuw i8, ptr %111, i64 16
   %1329 = load ptr, ptr %1328, align 8
   %.not4.i.i.i.i.i749 = icmp eq ptr %1327, %1329
   br i1 %.not4.i.i.i.i.i749, label %_ZSt8_DestroyIPSt4pairIN4absl7debian28optionalIlEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESB_EvT_SD_RSaIT0_E.exit.i.i755, label %.lr.ph.i.i.i.i.i750
@@ -3964,7 +3964,7 @@ _ZSt8_DestroyIPSt4pairIN4absl7debian28optionalIlEENSt7__cxx1112basic_stringIcSt1
   br i1 %.not.i.i.i.i756, label %_ZN10open_spiel24ActionObservationHistoryD2Ev.exit757, label %1333
 
 1333:                                             ; preds = %_ZSt8_DestroyIPSt4pairIN4absl7debian28optionalIlEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESB_EvT_SD_RSaIT0_E.exit.i.i755
-  %1334 = getelementptr inbounds i8, ptr %111, i64 24
+  %1334 = getelementptr inbounds nuw i8, ptr %111, i64 24
   %1335 = load ptr, ptr %1334, align 8
   %1336 = ptrtoint ptr %1335 to i64
   %1337 = ptrtoint ptr %1332 to i64
@@ -3975,7 +3975,7 @@ _ZSt8_DestroyIPSt4pairIN4absl7debian28optionalIlEENSt7__cxx1112basic_stringIcSt1
 _ZN10open_spiel24ActionObservationHistoryD2Ev.exit757: ; preds = %_ZSt8_DestroyIPSt4pairIN4absl7debian28optionalIlEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESB_EvT_SD_RSaIT0_E.exit.i.i755, %1333
   %1339 = getelementptr inbounds nuw i8, ptr %110, i64 8
   %1340 = load ptr, ptr %1339, align 8
-  %1341 = getelementptr inbounds i8, ptr %110, i64 16
+  %1341 = getelementptr inbounds nuw i8, ptr %110, i64 16
   %1342 = load ptr, ptr %1341, align 8
   %.not4.i.i.i.i.i758 = icmp eq ptr %1340, %1342
   br i1 %.not4.i.i.i.i.i758, label %_ZSt8_DestroyIPSt4pairIN4absl7debian28optionalIlEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESB_EvT_SD_RSaIT0_E.exit.i.i764, label %.lr.ph.i.i.i.i.i759
@@ -3998,7 +3998,7 @@ _ZSt8_DestroyIPSt4pairIN4absl7debian28optionalIlEENSt7__cxx1112basic_stringIcSt1
   br i1 %.not.i.i.i.i765, label %_ZN10open_spiel24ActionObservationHistoryD2Ev.exit766, label %1346
 
 1346:                                             ; preds = %_ZSt8_DestroyIPSt4pairIN4absl7debian28optionalIlEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESB_EvT_SD_RSaIT0_E.exit.i.i764
-  %1347 = getelementptr inbounds i8, ptr %110, i64 24
+  %1347 = getelementptr inbounds nuw i8, ptr %110, i64 24
   %1348 = load ptr, ptr %1347, align 8
   %1349 = ptrtoint ptr %1348 to i64
   %1350 = ptrtoint ptr %1345 to i64
@@ -4186,7 +4186,7 @@ _ZNK10open_spiel24ActionObservationHistoryeqERKS0_.exit783: ; preds = %1391
 1415:                                             ; preds = %_ZNK10open_spiel24ActionObservationHistoryeqERKS0_.exit783
   %1416 = getelementptr inbounds nuw i8, ptr %118, i64 8
   %1417 = load ptr, ptr %1416, align 8
-  %1418 = getelementptr inbounds i8, ptr %118, i64 16
+  %1418 = getelementptr inbounds nuw i8, ptr %118, i64 16
   %1419 = load ptr, ptr %1418, align 8
   %.not4.i.i.i.i.i784 = icmp eq ptr %1417, %1419
   br i1 %.not4.i.i.i.i.i784, label %_ZSt8_DestroyIPSt4pairIN4absl7debian28optionalIlEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESB_EvT_SD_RSaIT0_E.exit.i.i790, label %.lr.ph.i.i.i.i.i785
@@ -4209,7 +4209,7 @@ _ZSt8_DestroyIPSt4pairIN4absl7debian28optionalIlEENSt7__cxx1112basic_stringIcSt1
   br i1 %.not.i.i.i.i791, label %_ZN10open_spiel24ActionObservationHistoryD2Ev.exit792, label %1423
 
 1423:                                             ; preds = %_ZSt8_DestroyIPSt4pairIN4absl7debian28optionalIlEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESB_EvT_SD_RSaIT0_E.exit.i.i790
-  %1424 = getelementptr inbounds i8, ptr %118, i64 24
+  %1424 = getelementptr inbounds nuw i8, ptr %118, i64 24
   %1425 = load ptr, ptr %1424, align 8
   %1426 = ptrtoint ptr %1425 to i64
   %1427 = ptrtoint ptr %1422 to i64
@@ -4220,7 +4220,7 @@ _ZSt8_DestroyIPSt4pairIN4absl7debian28optionalIlEENSt7__cxx1112basic_stringIcSt1
 _ZN10open_spiel24ActionObservationHistoryD2Ev.exit792: ; preds = %_ZSt8_DestroyIPSt4pairIN4absl7debian28optionalIlEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESB_EvT_SD_RSaIT0_E.exit.i.i790, %1423
   %1429 = getelementptr inbounds nuw i8, ptr %117, i64 8
   %1430 = load ptr, ptr %1429, align 8
-  %1431 = getelementptr inbounds i8, ptr %117, i64 16
+  %1431 = getelementptr inbounds nuw i8, ptr %117, i64 16
   %1432 = load ptr, ptr %1431, align 8
   %.not4.i.i.i.i.i793 = icmp eq ptr %1430, %1432
   br i1 %.not4.i.i.i.i.i793, label %_ZSt8_DestroyIPSt4pairIN4absl7debian28optionalIlEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESB_EvT_SD_RSaIT0_E.exit.i.i799, label %.lr.ph.i.i.i.i.i794
@@ -4243,7 +4243,7 @@ _ZSt8_DestroyIPSt4pairIN4absl7debian28optionalIlEENSt7__cxx1112basic_stringIcSt1
   br i1 %.not.i.i.i.i800, label %_ZN10open_spiel24ActionObservationHistoryD2Ev.exit801, label %1436
 
 1436:                                             ; preds = %_ZSt8_DestroyIPSt4pairIN4absl7debian28optionalIlEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESB_EvT_SD_RSaIT0_E.exit.i.i799
-  %1437 = getelementptr inbounds i8, ptr %117, i64 24
+  %1437 = getelementptr inbounds nuw i8, ptr %117, i64 24
   %1438 = load ptr, ptr %1437, align 8
   %1439 = ptrtoint ptr %1438 to i64
   %1440 = ptrtoint ptr %1435 to i64
@@ -4868,7 +4868,7 @@ _ZNK10open_spiel24ActionObservationHistoryeqERKS0_.exit865: ; preds = %1597
 1621:                                             ; preds = %_ZNK10open_spiel24ActionObservationHistoryeqERKS0_.exit865
   %1622 = getelementptr inbounds nuw i8, ptr %139, i64 8
   %1623 = load ptr, ptr %1622, align 8
-  %1624 = getelementptr inbounds i8, ptr %139, i64 16
+  %1624 = getelementptr inbounds nuw i8, ptr %139, i64 16
   %1625 = load ptr, ptr %1624, align 8
   %.not4.i.i.i.i.i866 = icmp eq ptr %1623, %1625
   br i1 %.not4.i.i.i.i.i866, label %_ZSt8_DestroyIPSt4pairIN4absl7debian28optionalIlEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESB_EvT_SD_RSaIT0_E.exit.i.i872, label %.lr.ph.i.i.i.i.i867
@@ -4891,7 +4891,7 @@ _ZSt8_DestroyIPSt4pairIN4absl7debian28optionalIlEENSt7__cxx1112basic_stringIcSt1
   br i1 %.not.i.i.i.i873, label %_ZN10open_spiel24ActionObservationHistoryD2Ev.exit874, label %1629
 
 1629:                                             ; preds = %_ZSt8_DestroyIPSt4pairIN4absl7debian28optionalIlEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESB_EvT_SD_RSaIT0_E.exit.i.i872
-  %1630 = getelementptr inbounds i8, ptr %139, i64 24
+  %1630 = getelementptr inbounds nuw i8, ptr %139, i64 24
   %1631 = load ptr, ptr %1630, align 8
   %1632 = ptrtoint ptr %1631 to i64
   %1633 = ptrtoint ptr %1628 to i64
@@ -4902,7 +4902,7 @@ _ZSt8_DestroyIPSt4pairIN4absl7debian28optionalIlEENSt7__cxx1112basic_stringIcSt1
 _ZN10open_spiel24ActionObservationHistoryD2Ev.exit874: ; preds = %_ZSt8_DestroyIPSt4pairIN4absl7debian28optionalIlEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESB_EvT_SD_RSaIT0_E.exit.i.i872, %1629
   %1635 = getelementptr inbounds nuw i8, ptr %138, i64 8
   %1636 = load ptr, ptr %1635, align 8
-  %1637 = getelementptr inbounds i8, ptr %138, i64 16
+  %1637 = getelementptr inbounds nuw i8, ptr %138, i64 16
   %1638 = load ptr, ptr %1637, align 8
   %.not4.i.i.i.i.i875 = icmp eq ptr %1636, %1638
   br i1 %.not4.i.i.i.i.i875, label %_ZSt8_DestroyIPSt4pairIN4absl7debian28optionalIlEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESB_EvT_SD_RSaIT0_E.exit.i.i881, label %.lr.ph.i.i.i.i.i876
@@ -4925,7 +4925,7 @@ _ZSt8_DestroyIPSt4pairIN4absl7debian28optionalIlEENSt7__cxx1112basic_stringIcSt1
   br i1 %.not.i.i.i.i882, label %_ZN10open_spiel24ActionObservationHistoryD2Ev.exit883, label %1642
 
 1642:                                             ; preds = %_ZSt8_DestroyIPSt4pairIN4absl7debian28optionalIlEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESB_EvT_SD_RSaIT0_E.exit.i.i881
-  %1643 = getelementptr inbounds i8, ptr %138, i64 24
+  %1643 = getelementptr inbounds nuw i8, ptr %138, i64 24
   %1644 = load ptr, ptr %1643, align 8
   %1645 = ptrtoint ptr %1644 to i64
   %1646 = ptrtoint ptr %1641 to i64
@@ -5118,7 +5118,7 @@ _ZNK10open_spiel24ActionObservationHistoryeqERKS0_.exit900: ; preds = %1689
 1713:                                             ; preds = %_ZNK10open_spiel24ActionObservationHistoryeqERKS0_.exit900
   %1714 = getelementptr inbounds nuw i8, ptr %147, i64 8
   %1715 = load ptr, ptr %1714, align 8
-  %1716 = getelementptr inbounds i8, ptr %147, i64 16
+  %1716 = getelementptr inbounds nuw i8, ptr %147, i64 16
   %1717 = load ptr, ptr %1716, align 8
   %.not4.i.i.i.i.i901 = icmp eq ptr %1715, %1717
   br i1 %.not4.i.i.i.i.i901, label %_ZSt8_DestroyIPSt4pairIN4absl7debian28optionalIlEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESB_EvT_SD_RSaIT0_E.exit.i.i907, label %.lr.ph.i.i.i.i.i902
@@ -5141,7 +5141,7 @@ _ZSt8_DestroyIPSt4pairIN4absl7debian28optionalIlEENSt7__cxx1112basic_stringIcSt1
   br i1 %.not.i.i.i.i908, label %_ZN10open_spiel24ActionObservationHistoryD2Ev.exit909, label %1721
 
 1721:                                             ; preds = %_ZSt8_DestroyIPSt4pairIN4absl7debian28optionalIlEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESB_EvT_SD_RSaIT0_E.exit.i.i907
-  %1722 = getelementptr inbounds i8, ptr %147, i64 24
+  %1722 = getelementptr inbounds nuw i8, ptr %147, i64 24
   %1723 = load ptr, ptr %1722, align 8
   %1724 = ptrtoint ptr %1723 to i64
   %1725 = ptrtoint ptr %1720 to i64
@@ -5152,7 +5152,7 @@ _ZSt8_DestroyIPSt4pairIN4absl7debian28optionalIlEENSt7__cxx1112basic_stringIcSt1
 _ZN10open_spiel24ActionObservationHistoryD2Ev.exit909: ; preds = %_ZSt8_DestroyIPSt4pairIN4absl7debian28optionalIlEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESB_EvT_SD_RSaIT0_E.exit.i.i907, %1721
   %1727 = getelementptr inbounds nuw i8, ptr %146, i64 8
   %1728 = load ptr, ptr %1727, align 8
-  %1729 = getelementptr inbounds i8, ptr %146, i64 16
+  %1729 = getelementptr inbounds nuw i8, ptr %146, i64 16
   %1730 = load ptr, ptr %1729, align 8
   %.not4.i.i.i.i.i910 = icmp eq ptr %1728, %1730
   br i1 %.not4.i.i.i.i.i910, label %_ZSt8_DestroyIPSt4pairIN4absl7debian28optionalIlEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESB_EvT_SD_RSaIT0_E.exit.i.i916, label %.lr.ph.i.i.i.i.i911
@@ -5175,7 +5175,7 @@ _ZSt8_DestroyIPSt4pairIN4absl7debian28optionalIlEENSt7__cxx1112basic_stringIcSt1
   br i1 %.not.i.i.i.i917, label %_ZN10open_spiel24ActionObservationHistoryD2Ev.exit918, label %1734
 
 1734:                                             ; preds = %_ZSt8_DestroyIPSt4pairIN4absl7debian28optionalIlEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESB_EvT_SD_RSaIT0_E.exit.i.i916
-  %1735 = getelementptr inbounds i8, ptr %146, i64 24
+  %1735 = getelementptr inbounds nuw i8, ptr %146, i64 24
   %1736 = load ptr, ptr %1735, align 8
   %1737 = ptrtoint ptr %1736 to i64
   %1738 = ptrtoint ptr %1733 to i64
@@ -5474,7 +5474,7 @@ _ZN10open_spiel8internal11SpielStrOutINSt7__cxx1119basic_ostringstreamIcSt11char
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN10open_spiel24PublicObservationHistoryD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i.i, label %_ZNSt10shared_ptrIN10open_spiel8ObserverEED2Ev.exit, label %4
@@ -5728,7 +5728,7 @@ _ZN10open_spiel8internal11SpielStrOutINSt7__cxx1119basic_ostringstreamIcSt11char
 define linkonce_odr dso_local void @_ZN10open_spiel24ActionObservationHistoryD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %.not4.i.i.i.i = icmp eq ptr %3, %5
   br i1 %.not4.i.i.i.i, label %_ZSt8_DestroyIPSt4pairIN4absl7debian28optionalIlEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESB_EvT_SD_RSaIT0_E.exit.i, label %.lr.ph.i.i.i.i
@@ -5751,7 +5751,7 @@ _ZSt8_DestroyIPSt4pairIN4absl7debian28optionalIlEENSt7__cxx1112basic_stringIcSt1
   br i1 %.not.i.i.i, label %_ZNSt6vectorISt4pairIN4absl7debian28optionalIlEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaISB_EED2Ev.exit, label %9
 
 9:                                                ; preds = %_ZSt8_DestroyIPSt4pairIN4absl7debian28optionalIlEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESB_EvT_SD_RSaIT0_E.exit.i
-  %10 = getelementptr inbounds i8, ptr %0, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %11 = load ptr, ptr %10, align 8
   %12 = ptrtoint ptr %11 to i64
   %13 = ptrtoint ptr %8 to i64

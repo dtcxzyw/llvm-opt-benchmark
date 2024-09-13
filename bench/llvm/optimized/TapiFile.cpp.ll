@@ -91,11 +91,11 @@ define dso_local void @_ZN4llvm6object8TapiFileC2ENS_15MemoryBufferRefERKNS_5Mac
   %30 = getelementptr inbounds nuw i8, ptr %2, i64 448
   %31 = load ptr, ptr %30, align 8, !noalias !4
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 96
-  %33 = getelementptr inbounds i8, ptr %31, i64 104
+  %33 = getelementptr inbounds nuw i8, ptr %31, i64 104
   %34 = load i32, ptr %33, align 8, !noalias !7
   %35 = icmp eq i32 %34, 0
   %36 = load ptr, ptr %32, align 8, !noalias !7
-  %37 = getelementptr inbounds i8, ptr %31, i64 112
+  %37 = getelementptr inbounds nuw i8, ptr %31, i64 112
   %38 = load i32, ptr %37, align 8, !noalias !7
   %39 = zext i32 %38 to i64
   %40 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair", ptr %36, i64 %39
@@ -139,8 +139,8 @@ _ZNK4llvm5MachO13InterfaceFile7symbolsEv.exit:    ; preds = %.lr.ph.i6.i12.i3.i.
   %46 = zext nneg i8 %3 to i32
   %47 = shl nuw i32 1, %46
   %48 = getelementptr inbounds nuw i8, ptr %22, i64 8
-  %49 = getelementptr inbounds i8, ptr %0, i64 56
-  %50 = getelementptr inbounds i8, ptr %0, i64 64
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %51 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %52 = getelementptr inbounds nuw i8, ptr %2, i64 96
   %53 = getelementptr inbounds i8, ptr %9, i64 72
@@ -620,7 +620,7 @@ define dso_local void @_ZN4llvm6object8TapiFileD2Ev(ptr noundef nonnull align 8 
   br i1 %.not.i.i.i, label %_ZNSt6vectorIN4llvm6object8TapiFile6SymbolESaIS3_EED2Ev.exit, label %4
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 64
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %6 = load ptr, ptr %5, align 8
   %7 = ptrtoint ptr %6 to i64
   %8 = ptrtoint ptr %3 to i64
@@ -765,7 +765,7 @@ define dso_local { i64, ptr } @_ZNK4llvm6object8TapiFile12symbol_beginEv(ptr nou
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local { i64, ptr } @_ZNK4llvm6object8TapiFile10symbol_endEv(ptr noundef nonnull align 8 dereferenceable(80) %0) unnamed_addr #9 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %3 = getelementptr inbounds i8, ptr %0, i64 56
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %2, align 8
   %6 = ptrtoint ptr %4 to i64

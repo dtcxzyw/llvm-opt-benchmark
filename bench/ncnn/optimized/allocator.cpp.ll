@@ -52,16 +52,16 @@ define hidden void @_ZN4ncnn13PoolAllocatorC2Ev(ptr nocapture noundef nonnull wr
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %5 = tail call i32 @pthread_mutex_init(ptr noundef nonnull %4, ptr noundef null) #16
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 96
-  %7 = getelementptr inbounds i8, ptr %2, i64 104
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 104
   store ptr %6, ptr %7, align 8
   store ptr %6, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %2, i64 112
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 112
   store i64 0, ptr %8, align 8
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 120
-  %10 = getelementptr inbounds i8, ptr %2, i64 128
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 128
   store ptr %9, ptr %10, align 8
   store ptr %9, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %2, i64 136
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 136
   store i64 0, ptr %11, align 8
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %2, ptr %12, align 8
@@ -95,7 +95,7 @@ define hidden void @_ZN4ncnn13PoolAllocatorD2Ev(ptr nocapture noundef nonnull al
 .lr.ph.i:                                         ; preds = %1, %11
   %7 = phi ptr [ %12, %11 ], [ %5, %1 ]
   %.sroa.04.011.i = phi ptr [ %.sroa.04.0.i, %11 ], [ %.sroa.04.09.i, %1 ]
-  %8 = getelementptr inbounds i8, ptr %.sroa.04.011.i, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %.sroa.04.011.i, i64 24
   %9 = load ptr, ptr %8, align 8
   %.not.i = icmp eq ptr %9, null
   br i1 %.not.i, label %11, label %10
@@ -131,10 +131,10 @@ define hidden void @_ZN4ncnn13PoolAllocatorD2Ev(ptr nocapture noundef nonnull al
   br i1 %.not.i.i.i, label %.loopexit, label %.lr.ph.i.i.i, !llvm.loop !6
 
 .loopexit:                                        ; preds = %.lr.ph.i.i.i, %._crit_edge.i
-  %16 = getelementptr inbounds i8, ptr %.lcssa8.i, i64 104
+  %16 = getelementptr inbounds nuw i8, ptr %.lcssa8.i, i64 104
   store ptr %.lcssa.i, ptr %16, align 8
   store ptr %.lcssa.i, ptr %.lcssa.i, align 8
-  %17 = getelementptr inbounds i8, ptr %.lcssa8.i, i64 112
+  %17 = getelementptr inbounds nuw i8, ptr %.lcssa8.i, i64 112
   store i64 0, ptr %17, align 8
   %18 = load ptr, ptr %2, align 8
   %19 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %18) #16
@@ -157,7 +157,7 @@ define hidden void @_ZN4ncnn13PoolAllocatorD2Ev(ptr nocapture noundef nonnull al
 
 .lr.ph:                                           ; preds = %24, %.lr.ph
   %.sroa.03.010 = phi ptr [ %.sroa.03.0, %.lr.ph ], [ %.sroa.03.08, %24 ]
-  %30 = getelementptr inbounds i8, ptr %.sroa.03.010, i64 24
+  %30 = getelementptr inbounds nuw i8, ptr %.sroa.03.010, i64 24
   %31 = load ptr, ptr %30, align 8
   %32 = load ptr, ptr @stderr, align 8
   %33 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %32, ptr noundef nonnull @.str.2, ptr noundef %31) #19
@@ -231,7 +231,7 @@ define hidden void @_ZN4ncnn13PoolAllocator5clearEv(ptr nocapture noundef nonnul
 .lr.ph:                                           ; preds = %1, %11
   %7 = phi ptr [ %12, %11 ], [ %5, %1 ]
   %.sroa.04.011 = phi ptr [ %.sroa.04.0, %11 ], [ %.sroa.04.09, %1 ]
-  %8 = getelementptr inbounds i8, ptr %.sroa.04.011, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %.sroa.04.011, i64 24
   %9 = load ptr, ptr %8, align 8
   %.not = icmp eq ptr %9, null
   br i1 %.not, label %11, label %10
@@ -267,10 +267,10 @@ define hidden void @_ZN4ncnn13PoolAllocator5clearEv(ptr nocapture noundef nonnul
   br i1 %.not.i.i, label %_ZNSt7__cxx114listISt4pairImPvESaIS3_EE5clearEv.exit, label %.lr.ph.i.i, !llvm.loop !6
 
 _ZNSt7__cxx114listISt4pairImPvESaIS3_EE5clearEv.exit: ; preds = %.lr.ph.i.i, %._crit_edge
-  %16 = getelementptr inbounds i8, ptr %.lcssa8, i64 104
+  %16 = getelementptr inbounds nuw i8, ptr %.lcssa8, i64 104
   store ptr %.lcssa, ptr %16, align 8
   store ptr %.lcssa, ptr %.lcssa, align 8
-  %17 = getelementptr inbounds i8, ptr %.lcssa8, i64 112
+  %17 = getelementptr inbounds nuw i8, ptr %.lcssa8, i64 112
   store i64 0, ptr %17, align 8
   %18 = load ptr, ptr %2, align 8
   %19 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %18) #16
@@ -371,9 +371,9 @@ define hidden noundef ptr @_ZN4ncnn13PoolAllocator10fastMallocEm(ptr nocapture n
   br i1 %.not16, label %40, label %19
 
 19:                                               ; preds = %14
-  %20 = getelementptr inbounds i8, ptr %.sroa.036.055, i64 24
+  %20 = getelementptr inbounds nuw i8, ptr %.sroa.036.055, i64 24
   %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %7, i64 112
+  %22 = getelementptr inbounds nuw i8, ptr %7, i64 112
   %23 = load i64, ptr %22, align 8
   %24 = add i64 %23, -1
   store i64 %24, ptr %22, align 8
@@ -392,7 +392,7 @@ define hidden noundef ptr @_ZN4ncnn13PoolAllocator10fastMallocEm(ptr nocapture n
   %.sroa.223.0..sroa_idx = getelementptr inbounds i8, ptr %32, i64 24
   store ptr %21, ptr %.sroa.223.0..sroa_idx, align 8
   tail call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %32, ptr noundef nonnull %31) #16
-  %34 = getelementptr inbounds i8, ptr %30, i64 136
+  %34 = getelementptr inbounds nuw i8, ptr %30, i64 136
   %35 = load i64, ptr %34, align 8
   %36 = add i64 %35, 1
   store i64 %36, ptr %34, align 8
@@ -417,7 +417,7 @@ define hidden noundef ptr @_ZN4ncnn13PoolAllocator10fastMallocEm(ptr nocapture n
 ._crit_edge:                                      ; preds = %40, %2
   %.sroa.028.0.lcssa = phi ptr [ %9, %2 ], [ %spec.select, %40 ]
   %.sroa.032.0.lcssa = phi ptr [ %9, %2 ], [ %spec.select47, %40 ]
-  %48 = getelementptr inbounds i8, ptr %7, i64 112
+  %48 = getelementptr inbounds nuw i8, ptr %7, i64 112
   %49 = load i64, ptr %48, align 8
   %50 = getelementptr inbounds nuw i8, ptr %7, i64 88
   %51 = load i64, ptr %50, align 8
@@ -431,7 +431,7 @@ define hidden noundef ptr @_ZN4ncnn13PoolAllocator10fastMallocEm(ptr nocapture n
   br i1 %55, label %56, label %59
 
 56:                                               ; preds = %52
-  %57 = getelementptr inbounds i8, ptr %.sroa.028.0.lcssa, i64 24
+  %57 = getelementptr inbounds nuw i8, ptr %.sroa.028.0.lcssa, i64 24
   %58 = load ptr, ptr %57, align 8
   %.not13 = icmp eq ptr %58, null
   br i1 %.not13, label %.sink.split, label %.sink.split.sink.split
@@ -443,7 +443,7 @@ define hidden noundef ptr @_ZN4ncnn13PoolAllocator10fastMallocEm(ptr nocapture n
   br i1 %62, label %63, label %68
 
 63:                                               ; preds = %59
-  %64 = getelementptr inbounds i8, ptr %.sroa.032.0.lcssa, i64 24
+  %64 = getelementptr inbounds nuw i8, ptr %.sroa.032.0.lcssa, i64 24
   %65 = load ptr, ptr %64, align 8
   %.not12 = icmp eq ptr %65, null
   br i1 %.not12, label %.sink.split, label %.sink.split.sink.split
@@ -453,7 +453,7 @@ define hidden noundef ptr @_ZN4ncnn13PoolAllocator10fastMallocEm(ptr nocapture n
   %.sroa.028.0.lcssa.sink67.ph = phi ptr [ %.sroa.028.0.lcssa, %56 ], [ %.sroa.032.0.lcssa, %63 ]
   tail call void @free(ptr noundef nonnull %.sink70) #16
   %.pre = load ptr, ptr %4, align 8
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %.pre, i64 112
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 112
   %.pre59 = load i64, ptr %.phi.trans.insert, align 8
   br label %.sink.split
 
@@ -461,7 +461,7 @@ define hidden noundef ptr @_ZN4ncnn13PoolAllocator10fastMallocEm(ptr nocapture n
   %.sink = phi ptr [ %7, %56 ], [ %7, %63 ], [ %.pre, %.sink.split.sink.split ]
   %.sink69 = phi i64 [ %49, %56 ], [ %49, %63 ], [ %.pre59, %.sink.split.sink.split ]
   %.sroa.028.0.lcssa.sink67 = phi ptr [ %.sroa.028.0.lcssa, %56 ], [ %.sroa.032.0.lcssa, %63 ], [ %.sroa.028.0.lcssa.sink67.ph, %.sink.split.sink.split ]
-  %66 = getelementptr inbounds i8, ptr %.sink, i64 112
+  %66 = getelementptr inbounds nuw i8, ptr %.sink, i64 112
   %67 = add i64 %.sink69, -1
   store i64 %67, ptr %66, align 8
   tail call void @_ZNSt8__detail15_List_node_base9_M_unhookEv(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.028.0.lcssa.sink67) #16
@@ -498,7 +498,7 @@ define hidden noundef ptr @_ZN4ncnn13PoolAllocator10fastMallocEm(ptr nocapture n
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %81, i64 24
   store ptr %75, ptr %.sroa.2.0..sroa_idx, align 8
   call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %81, ptr noundef nonnull %80) #16
-  %83 = getelementptr inbounds i8, ptr %79, i64 136
+  %83 = getelementptr inbounds nuw i8, ptr %79, i64 136
   %84 = load i64, ptr %83, align 8
   %85 = add i64 %84, 1
   store i64 %85, ptr %83, align 8
@@ -529,7 +529,7 @@ define hidden void @_ZN4ncnn13PoolAllocator8fastFreeEPv(ptr nocapture noundef no
   br i1 %.not13, label %34, label %10
 
 10:                                               ; preds = %9
-  %11 = getelementptr inbounds i8, ptr %.sroa.05.0, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %.sroa.05.0, i64 24
   %12 = load ptr, ptr %11, align 8
   %13 = icmp eq ptr %12, %1
   br i1 %13, label %14, label %9, !llvm.loop !9
@@ -537,7 +537,7 @@ define hidden void @_ZN4ncnn13PoolAllocator8fastFreeEPv(ptr nocapture noundef no
 14:                                               ; preds = %10
   %15 = getelementptr inbounds nuw i8, ptr %.sroa.05.0, i64 16
   %16 = load i64, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %7, i64 136
+  %17 = getelementptr inbounds nuw i8, ptr %7, i64 136
   %18 = load i64, ptr %17, align 8
   %19 = add i64 %18, -1
   store i64 %19, ptr %17, align 8
@@ -556,7 +556,7 @@ define hidden void @_ZN4ncnn13PoolAllocator8fastFreeEPv(ptr nocapture noundef no
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %27, i64 24
   store ptr %1, ptr %.sroa.2.0..sroa_idx, align 8
   tail call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %27, ptr noundef nonnull %26) #16
-  %29 = getelementptr inbounds i8, ptr %25, i64 112
+  %29 = getelementptr inbounds nuw i8, ptr %25, i64 112
   %30 = load i64, ptr %29, align 8
   %31 = add i64 %30, 1
   store i64 %31, ptr %29, align 8
@@ -588,16 +588,16 @@ define hidden void @_ZN4ncnn21UnlockedPoolAllocatorC2Ev(ptr nocapture noundef no
   %2 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #15
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %5 = getelementptr inbounds i8, ptr %2, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store ptr %4, ptr %5, align 8
   store ptr %4, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %2, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 32
   store i64 0, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 40
-  %8 = getelementptr inbounds i8, ptr %2, i64 48
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 48
   store ptr %7, ptr %8, align 8
   store ptr %7, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %2, i64 56
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 56
   store i64 0, ptr %9, align 8
   store ptr %2, ptr %3, align 8
   store i32 0, ptr %2, align 8
@@ -619,7 +619,7 @@ define hidden void @_ZN4ncnn21UnlockedPoolAllocatorD2Ev(ptr nocapture noundef no
 .lr.ph.i:                                         ; preds = %1, %9
   %5 = phi ptr [ %10, %9 ], [ %3, %1 ]
   %.sroa.04.011.i = phi ptr [ %.sroa.04.0.i, %9 ], [ %.sroa.04.09.i, %1 ]
-  %6 = getelementptr inbounds i8, ptr %.sroa.04.011.i, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %.sroa.04.011.i, i64 24
   %7 = load ptr, ptr %6, align 8
   %.not.i = icmp eq ptr %7, null
   br i1 %.not.i, label %9, label %8
@@ -655,10 +655,10 @@ define hidden void @_ZN4ncnn21UnlockedPoolAllocatorD2Ev(ptr nocapture noundef no
   br i1 %.not.i.i.i, label %.loopexit, label %.lr.ph.i.i.i, !llvm.loop !6
 
 .loopexit:                                        ; preds = %.lr.ph.i.i.i, %._crit_edge.i
-  %14 = getelementptr inbounds i8, ptr %.lcssa8.i, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %.lcssa8.i, i64 24
   store ptr %.lcssa.i, ptr %14, align 8
   store ptr %.lcssa.i, ptr %.lcssa.i, align 8
-  %15 = getelementptr inbounds i8, ptr %.lcssa8.i, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %.lcssa8.i, i64 32
   store i64 0, ptr %15, align 8
   %16 = load ptr, ptr %2, align 8
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 40
@@ -679,7 +679,7 @@ define hidden void @_ZN4ncnn21UnlockedPoolAllocatorD2Ev(ptr nocapture noundef no
 
 .lr.ph:                                           ; preds = %20, %.lr.ph
   %.sroa.03.010 = phi ptr [ %.sroa.03.0, %.lr.ph ], [ %.sroa.03.08, %20 ]
-  %26 = getelementptr inbounds i8, ptr %.sroa.03.010, i64 24
+  %26 = getelementptr inbounds nuw i8, ptr %.sroa.03.010, i64 24
   %27 = load ptr, ptr %26, align 8
   %28 = load ptr, ptr @stderr, align 8
   %29 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %28, ptr noundef nonnull @.str.2, ptr noundef %27) #19
@@ -748,7 +748,7 @@ define hidden void @_ZN4ncnn21UnlockedPoolAllocator5clearEv(ptr nocapture nounde
 .lr.ph:                                           ; preds = %1, %9
   %5 = phi ptr [ %10, %9 ], [ %3, %1 ]
   %.sroa.04.011 = phi ptr [ %.sroa.04.0, %9 ], [ %.sroa.04.09, %1 ]
-  %6 = getelementptr inbounds i8, ptr %.sroa.04.011, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %.sroa.04.011, i64 24
   %7 = load ptr, ptr %6, align 8
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %9, label %8
@@ -784,10 +784,10 @@ define hidden void @_ZN4ncnn21UnlockedPoolAllocator5clearEv(ptr nocapture nounde
   br i1 %.not.i.i, label %_ZNSt7__cxx114listISt4pairImPvESaIS3_EE5clearEv.exit, label %.lr.ph.i.i, !llvm.loop !6
 
 _ZNSt7__cxx114listISt4pairImPvESaIS3_EE5clearEv.exit: ; preds = %.lr.ph.i.i, %._crit_edge
-  %14 = getelementptr inbounds i8, ptr %.lcssa8, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %.lcssa8, i64 24
   store ptr %.lcssa, ptr %14, align 8
   store ptr %.lcssa, ptr %.lcssa, align 8
-  %15 = getelementptr inbounds i8, ptr %.lcssa8, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %.lcssa8, i64 32
   store i64 0, ptr %15, align 8
   ret void
 }
@@ -876,9 +876,9 @@ define hidden noundef ptr @_ZN4ncnn21UnlockedPoolAllocator10fastMallocEm(ptr noc
   br i1 %.not16, label %25, label %15
 
 15:                                               ; preds = %10
-  %16 = getelementptr inbounds i8, ptr %.sroa.036.055, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %.sroa.036.055, i64 24
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %5, i64 32
+  %18 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %19 = load i64, ptr %18, align 8
   %20 = add i64 %19, -1
   store i64 %20, ptr %18, align 8
@@ -910,7 +910,7 @@ define hidden noundef ptr @_ZN4ncnn21UnlockedPoolAllocator10fastMallocEm(ptr noc
 ._crit_edge:                                      ; preds = %25, %2
   %.sroa.028.0.lcssa = phi ptr [ %7, %2 ], [ %spec.select47, %25 ]
   %.sroa.032.0.lcssa = phi ptr [ %7, %2 ], [ %spec.select, %25 ]
-  %33 = getelementptr inbounds i8, ptr %5, i64 32
+  %33 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %34 = load i64, ptr %33, align 8
   %35 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %36 = load i64, ptr %35, align 8
@@ -924,7 +924,7 @@ define hidden noundef ptr @_ZN4ncnn21UnlockedPoolAllocator10fastMallocEm(ptr noc
   br i1 %40, label %41, label %44
 
 41:                                               ; preds = %37
-  %42 = getelementptr inbounds i8, ptr %.sroa.028.0.lcssa, i64 24
+  %42 = getelementptr inbounds nuw i8, ptr %.sroa.028.0.lcssa, i64 24
   %43 = load ptr, ptr %42, align 8
   %.not13 = icmp eq ptr %43, null
   br i1 %.not13, label %.sink.split, label %.sink.split.sink.split
@@ -936,7 +936,7 @@ define hidden noundef ptr @_ZN4ncnn21UnlockedPoolAllocator10fastMallocEm(ptr noc
   br i1 %47, label %48, label %53
 
 48:                                               ; preds = %44
-  %49 = getelementptr inbounds i8, ptr %.sroa.032.0.lcssa, i64 24
+  %49 = getelementptr inbounds nuw i8, ptr %.sroa.032.0.lcssa, i64 24
   %50 = load ptr, ptr %49, align 8
   %.not12 = icmp eq ptr %50, null
   br i1 %.not12, label %.sink.split, label %.sink.split.sink.split
@@ -946,7 +946,7 @@ define hidden noundef ptr @_ZN4ncnn21UnlockedPoolAllocator10fastMallocEm(ptr noc
   %.sroa.028.0.lcssa.sink67.ph = phi ptr [ %.sroa.028.0.lcssa, %41 ], [ %.sroa.032.0.lcssa, %48 ]
   tail call void @free(ptr noundef nonnull %.sink75) #16
   %.pre = load ptr, ptr %4, align 8
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %.pre, i64 32
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 32
   %.pre59 = load i64, ptr %.phi.trans.insert, align 8
   br label %.sink.split
 
@@ -954,7 +954,7 @@ define hidden noundef ptr @_ZN4ncnn21UnlockedPoolAllocator10fastMallocEm(ptr noc
   %.sink = phi ptr [ %5, %41 ], [ %5, %48 ], [ %.pre, %.sink.split.sink.split ]
   %.sink69 = phi i64 [ %34, %41 ], [ %34, %48 ], [ %.pre59, %.sink.split.sink.split ]
   %.sroa.028.0.lcssa.sink67 = phi ptr [ %.sroa.028.0.lcssa, %41 ], [ %.sroa.032.0.lcssa, %48 ], [ %.sroa.028.0.lcssa.sink67.ph, %.sink.split.sink.split ]
-  %51 = getelementptr inbounds i8, ptr %.sink, i64 32
+  %51 = getelementptr inbounds nuw i8, ptr %.sink, i64 32
   %52 = add i64 %.sink69, -1
   store i64 %52, ptr %51, align 8
   tail call void @_ZNSt8__detail15_List_node_base9_M_unhookEv(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.028.0.lcssa.sink67) #16
@@ -991,7 +991,7 @@ define hidden noundef ptr @_ZN4ncnn21UnlockedPoolAllocator10fastMallocEm(ptr noc
 63:                                               ; preds = %57, %15
   %.sink74 = phi ptr [ %59, %57 ], [ %21, %15 ]
   %.0.in.sroa.speculated = phi ptr [ %58, %57 ], [ %17, %15 ]
-  %64 = getelementptr inbounds i8, ptr %.sink74, i64 56
+  %64 = getelementptr inbounds nuw i8, ptr %.sink74, i64 56
   %65 = load i64, ptr %64, align 8
   %66 = add i64 %65, 1
   store i64 %66, ptr %64, align 8
@@ -1012,7 +1012,7 @@ define hidden void @_ZN4ncnn21UnlockedPoolAllocator8fastFreeEPv(ptr nocapture no
   br i1 %.not13, label %24, label %7
 
 7:                                                ; preds = %6
-  %8 = getelementptr inbounds i8, ptr %.sroa.05.0, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %.sroa.05.0, i64 24
   %9 = load ptr, ptr %8, align 8
   %10 = icmp eq ptr %9, %1
   br i1 %10, label %11, label %6, !llvm.loop !13
@@ -1020,7 +1020,7 @@ define hidden void @_ZN4ncnn21UnlockedPoolAllocator8fastFreeEPv(ptr nocapture no
 11:                                               ; preds = %7
   %12 = getelementptr inbounds nuw i8, ptr %.sroa.05.0, i64 16
   %13 = load i64, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %4, i64 56
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %15 = load i64, ptr %14, align 8
   %16 = add i64 %15, -1
   store i64 %16, ptr %14, align 8
@@ -1034,7 +1034,7 @@ define hidden void @_ZN4ncnn21UnlockedPoolAllocator8fastFreeEPv(ptr nocapture no
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %19, i64 24
   store ptr %1, ptr %.sroa.2.0..sroa_idx, align 8
   tail call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %19, ptr noundef nonnull %18) #16
-  %21 = getelementptr inbounds i8, ptr %17, i64 32
+  %21 = getelementptr inbounds nuw i8, ptr %17, i64 32
   %22 = load i64, ptr %21, align 8
   %23 = add i64 %22, 1
   store i64 %23, ptr %21, align 8

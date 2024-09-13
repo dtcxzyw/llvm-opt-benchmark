@@ -83,7 +83,7 @@ define dso_local void @_ZNK5clang6interp16EvaluationResult9toAPValueEv(ptr dead_
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %7 = getelementptr inbounds i8, ptr %1, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %8 = load i8, ptr %7, align 8
   %.not = icmp eq i8 %8, 1
   br i1 %.not, label %9, label %12
@@ -103,7 +103,7 @@ define dso_local void @_ZNK5clang6interp16EvaluationResult9toAPValueEv(ptr dead_
   br label %23
 
 16:                                               ; preds = %2
-  %17 = getelementptr inbounds i8, ptr %1, i64 80
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %18 = load i8, ptr %17, align 8
   %.not.i.i = icmp eq i8 %18, 3
   br i1 %.not.i.i, label %_ZSt3getIN5clang7APValueEJSt9monostateNS0_6interp7PointerENS3_15FunctionPointerES1_EERKT_RKSt7variantIJDpT0_EE.exit, label %19
@@ -144,7 +144,7 @@ define dso_local void @_ZNK5clang6interp16EvaluationResult8toRValueEv(ptr dead_o
   br i1 %7, label %8, label %16
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %1, i64 80
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %10 = load i8, ptr %9, align 8, !noalias !4
   %.not.i.i.i = icmp eq i8 %10, 3
   br i1 %.not.i.i.i, label %_ZNK5clang6interp16EvaluationResult9toAPValueEv.exit, label %11
@@ -169,7 +169,7 @@ _ZNK5clang6interp16EvaluationResult9toAPValueEv.exit: ; preds = %8
 
 16:                                               ; preds = %2
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %18 = getelementptr inbounds i8, ptr %1, i64 80
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %19 = load i8, ptr %18, align 8
   %.not = icmp eq i8 %19, 1
   br i1 %.not, label %20, label %35
@@ -256,7 +256,7 @@ define dso_local noundef zeroext i1 @_ZNK5clang6interp16EvaluationResult21checkF
   br i1 %.not.i.i, label %_ZNK5clang6interp7Pointer6isLiveEv.exit.thread39, label %_ZNK5clang6interp7Pointer6isLiveEv.exit.thread
 
 _ZNK5clang6interp7Pointer6isZeroEv.exit:          ; preds = %3
-  %14 = getelementptr inbounds i8, ptr %2, i64 32
+  %14 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %15 = load i64, ptr %14, align 8
   %16 = icmp eq i64 %15, 0
   %17 = load i64, ptr %2, align 8
@@ -334,7 +334,7 @@ _ZNK5clang6interp7Pointer6isLiveEv.exit.thread:   ; preds = %11, %20, %_ZNK5clan
   br label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i
 
 _ZNK5clang6interp7Pointer6isZeroEv.exit.i.i.i:    ; preds = %37
-  %48 = getelementptr inbounds i8, ptr %2, i64 32
+  %48 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %49 = load i64, ptr %48, align 8
   %50 = icmp eq i64 %49, 0
   %51 = load i64, ptr %2, align 8
@@ -346,7 +346,7 @@ _ZNK5clang6interp7Pointer6isZeroEv.exit.i.i.i:    ; preds = %37
 
 _ZNK5clang6interp7Pointer6isRootEv.exit.i.i:      ; preds = %_ZNK5clang6interp7Pointer6isZeroEv.exit.i.i.i, %45, %41
   %54 = phi ptr [ %43, %41 ], [ %47, %45 ], [ %.pre.i.pre.i, %_ZNK5clang6interp7Pointer6isZeroEv.exit.i.i.i ]
-  %55 = getelementptr inbounds i8, ptr %2, i64 32
+  %55 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %56 = load i32, ptr %55, align 8
   %57 = getelementptr inbounds nuw i8, ptr %54, i64 32
   %58 = load ptr, ptr %57, align 8
@@ -459,7 +459,7 @@ define internal fastcc noundef zeroext i1 @_ZN5clang6interpL22CheckFieldsInitial
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 648
   %15 = getelementptr inbounds nuw i8, ptr %7, i64 48
   %16 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  %17 = getelementptr inbounds i8, ptr %7, i64 32
+  %17 = getelementptr inbounds nuw i8, ptr %7, i64 32
   br label %18
 
 18:                                               ; preds = %.lr.ph, %116
@@ -864,7 +864,7 @@ define linkonce_odr hidden i64 @_ZNK5clang6interp7Pointer7getTypeEv(ptr noundef 
   br i1 %8, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i
 
 _ZNK5clang6interp7Pointer6isRootEv.exit.i.i:      ; preds = %5
-  %9 = getelementptr inbounds i8, ptr %0, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %10 = load i32, ptr %9, align 8
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %12 = load ptr, ptr %11, align 8
@@ -900,7 +900,7 @@ _ZNK5clang6interp7Pointer16inPrimitiveArrayEv.exit: ; preds = %_ZNK5clang6interp
 
 30:                                               ; preds = %_ZNK5clang6interp7Pointer16inPrimitiveArrayEv.exit
   %31 = load i64, ptr %0, align 8
-  %32 = getelementptr inbounds i8, ptr %0, i64 32
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %33 = load i32, ptr %32, align 8
   %34 = zext i32 %33 to i64
   %.not = icmp eq i64 %31, %34
@@ -1177,7 +1177,7 @@ _ZNK5clang6interp7Pointer16inPrimitiveArrayEv.exit.thread: ; preds = %1, %thread
   br label %_ZNK5clang6interp7Pointer6isRootEv.exit.i55
 
 _ZNK5clang6interp7Pointer6isZeroEv.exit.i.i65:    ; preds = %_ZNK5clang6interp7Pointer16inPrimitiveArrayEv.exit.thread
-  %163 = getelementptr inbounds i8, ptr %0, i64 32
+  %163 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %164 = load i64, ptr %163, align 8
   %165 = icmp eq i64 %164, 0
   %166 = load i64, ptr %0, align 8
@@ -1189,7 +1189,7 @@ _ZNK5clang6interp7Pointer6isZeroEv.exit.i.i65:    ; preds = %_ZNK5clang6interp7P
 
 _ZNK5clang6interp7Pointer6isRootEv.exit.i55:      ; preds = %_ZNK5clang6interp7Pointer6isZeroEv.exit.i.i65, %160, %156
   %169 = phi ptr [ %158, %156 ], [ %162, %160 ], [ %.pre.i63.pre, %_ZNK5clang6interp7Pointer6isZeroEv.exit.i.i65 ]
-  %170 = getelementptr inbounds i8, ptr %0, i64 32
+  %170 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %171 = load i32, ptr %170, align 8
   %172 = getelementptr inbounds nuw i8, ptr %169, i64 32
   %173 = load ptr, ptr %172, align 8
@@ -1295,7 +1295,7 @@ _ZNK5clang17ConstantArrayType11getZExtSizeEv.exit: ; preds = %4, %14
   br label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i
 
 _ZNK5clang6interp7Pointer6isZeroEv.exit.i.i.i:    ; preds = %32
-  %44 = getelementptr inbounds i8, ptr %2, i64 32
+  %44 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %45 = load i64, ptr %44, align 8
   %46 = icmp eq i64 %45, 0
   %47 = load i64, ptr %2, align 8
@@ -1307,7 +1307,7 @@ _ZNK5clang6interp7Pointer6isZeroEv.exit.i.i.i:    ; preds = %32
 
 _ZNK5clang6interp7Pointer6isRootEv.exit.i.i:      ; preds = %_ZNK5clang6interp7Pointer6isZeroEv.exit.i.i.i, %41, %37
   %50 = phi ptr [ %39, %37 ], [ %43, %41 ], [ %.pre.i.pre.i, %_ZNK5clang6interp7Pointer6isZeroEv.exit.i.i.i ]
-  %51 = getelementptr inbounds i8, ptr %2, i64 32
+  %51 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %52 = load i32, ptr %51, align 8
   %53 = getelementptr inbounds nuw i8, ptr %50, i64 32
   %54 = load ptr, ptr %53, align 8
@@ -1384,7 +1384,7 @@ _ZNK5clang6interp7Pointer13getElemRecordEv.exit:  ; preds = %_ZNK5clang6interp7P
 .lr.ph62:                                         ; preds = %.preheader
   %80 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %81 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %82 = getelementptr inbounds i8, ptr %2, i64 32
+  %82 = getelementptr inbounds nuw i8, ptr %2, i64 32
   br label %86
 
 .lr.ph:                                           ; preds = %.preheader54, %.lr.ph
@@ -1601,7 +1601,7 @@ _ZN5clang18OptionalDiagnosticlsIbEERS0_RKT_.exit: ; preds = %18, %_ZNK5clang17Pa
   br i1 %.not.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit, label %.thread.i
 
 _ZNK5clang6interp7Pointer6isZeroEv.exit.i:        ; preds = %_ZN5clang18OptionalDiagnosticlsIbEERS0_RKT_.exit
-  %57 = getelementptr inbounds i8, ptr %3, i64 32
+  %57 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %58 = load i64, ptr %57, align 8
   %59 = icmp eq i64 %58, 0
   %60 = load i64, ptr %3, align 8
@@ -1618,7 +1618,7 @@ _ZNK5clang6interp7Pointer6isZeroEv.exit..thread_crit_edge.i: ; preds = %_ZNK5cla
 
 .thread.i:                                        ; preds = %_ZNK5clang6interp7Pointer6isZeroEv.exit..thread_crit_edge.i, %54, %50
   %64 = phi ptr [ %.pre.i, %_ZNK5clang6interp7Pointer6isZeroEv.exit..thread_crit_edge.i ], [ %52, %50 ], [ %56, %54 ]
-  %65 = getelementptr inbounds i8, ptr %3, i64 32
+  %65 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %66 = load i32, ptr %65, align 8
   %67 = getelementptr inbounds nuw i8, ptr %64, i64 32
   %68 = load ptr, ptr %67, align 8
@@ -1731,7 +1731,7 @@ _ZNK5clang6interp7Pointer6isLiveEv.exit.i:        ; preds = %11
   br i1 %.not.i.i.i, label %.critedge, label %_ZNK5clang6interp7Pointer18isUnknownSizeArrayEv.exit.thread.i
 
 _ZNK5clang6interp7Pointer6isZeroEv.exit.i:        ; preds = %2
-  %20 = getelementptr inbounds i8, ptr %0, i64 32
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %21 = load i64, ptr %20, align 8
   %22 = icmp eq i64 %21, 0
   %23 = load i64, ptr %0, align 8
@@ -1748,7 +1748,7 @@ _ZNK5clang6interp7Pointer7isDummyEv.exit.i:       ; preds = %_ZNK5clang6interp7P
   br i1 %30, label %.critedge, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i
 
 _ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i:    ; preds = %_ZNK5clang6interp7Pointer7isDummyEv.exit.i
-  %31 = getelementptr inbounds i8, ptr %0, i64 32
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %32 = load i32, ptr %31, align 8
   %33 = getelementptr inbounds nuw i8, ptr %27, i64 16
   %34 = load i32, ptr %33, align 8
@@ -1796,7 +1796,7 @@ _ZNK5clang6interp7Pointer18isUnknownSizeArrayEv.exit.thread.i: ; preds = %_ZNK5c
   br i1 %.not.i.i.i.i, label %.critedge, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i
 
 _ZNK5clang6interp7Pointer6isZeroEv.exit.i.i:      ; preds = %48
-  %58 = getelementptr inbounds i8, ptr %0, i64 32
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %59 = load i64, ptr %58, align 8
   %60 = icmp eq i64 %59, 0
   %61 = load i64, ptr %0, align 8
@@ -1810,7 +1810,7 @@ _ZNK5clang6interp7Pointer6isZeroEv.exit..thread_crit_edge.i.i: ; preds = %_ZNK5c
 
 _ZNK5clang6interp7Pointer6isRootEv.exit.i:        ; preds = %_ZNK5clang6interp7Pointer6isZeroEv.exit..thread_crit_edge.i.i, %56, %53
   %64 = phi ptr [ %.pre.i.i, %_ZNK5clang6interp7Pointer6isZeroEv.exit..thread_crit_edge.i.i ], [ %54, %53 ], [ %57, %56 ]
-  %65 = getelementptr inbounds i8, ptr %0, i64 32
+  %65 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %66 = load i32, ptr %65, align 8
   %67 = getelementptr inbounds nuw i8, ptr %64, i64 32
   %68 = load ptr, ptr %67, align 8
@@ -1900,7 +1900,7 @@ _ZNK5clang6interp7Pointer12getFieldDescEv.exit:   ; preds = %_ZNK5clang6interp7P
 
 108:                                              ; preds = %105
   %109 = icmp eq ptr %107, null
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 32
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 32
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br i1 %109, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i.i.i.i, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i.i
 
@@ -1978,7 +1978,7 @@ _ZNK5clang6interp7Pointer6isLiveEv.exit.i59:      ; preds = %136
   br i1 %.not.i.i.i56, label %.critedge, label %_ZNK5clang6interp7Pointer18isUnknownSizeArrayEv.exit.thread.i57
 
 _ZNK5clang6interp7Pointer6isZeroEv.exit.i64:      ; preds = %_ZNK5clang6interp7Pointer5derefIS1_EERT_v.exit
-  %145 = getelementptr inbounds i8, ptr %.0.i55, i64 32
+  %145 = getelementptr inbounds nuw i8, ptr %.0.i55, i64 32
   %146 = load i64, ptr %145, align 8
   %147 = icmp eq i64 %146, 0
   %148 = load i64, ptr %.0.i55, align 8
@@ -1995,7 +1995,7 @@ _ZNK5clang6interp7Pointer7isDummyEv.exit.i60:     ; preds = %_ZNK5clang6interp7P
   br i1 %155, label %.critedge, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i61
 
 _ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i61:  ; preds = %_ZNK5clang6interp7Pointer7isDummyEv.exit.i60
-  %156 = getelementptr inbounds i8, ptr %.0.i55, i64 32
+  %156 = getelementptr inbounds nuw i8, ptr %.0.i55, i64 32
   %157 = load i32, ptr %156, align 8
   %158 = getelementptr inbounds nuw i8, ptr %152, i64 16
   %159 = load i32, ptr %158, align 8
@@ -2050,7 +2050,7 @@ _ZNK5clang6interp7Pointer18isUnknownSizeArrayEv.exit.thread.i57: ; preds = %_ZNK
   %186 = getelementptr inbounds nuw i8, ptr %80, i64 8
   %187 = getelementptr inbounds nuw i8, ptr %6, i64 48
   %188 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  %189 = getelementptr inbounds i8, ptr %6, i64 32
+  %189 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %190 = getelementptr inbounds nuw i8, ptr %1, i64 16
   br label %191
 
@@ -2162,7 +2162,7 @@ _ZNK5clang6interp7Pointer6isLiveEv.exit.i82:      ; preds = %231
   br i1 %.not.i.i.i79, label %.critedge2, label %_ZNK5clang6interp7Pointer18isUnknownSizeArrayEv.exit.thread.i80
 
 _ZNK5clang6interp7Pointer6isZeroEv.exit.i87:      ; preds = %_ZNK5clang6interp7Pointer5derefIS1_EERT_v.exit78
-  %240 = getelementptr inbounds i8, ptr %.0.i70, i64 32
+  %240 = getelementptr inbounds nuw i8, ptr %.0.i70, i64 32
   %241 = load i64, ptr %240, align 8
   %242 = icmp eq i64 %241, 0
   %243 = load i64, ptr %.0.i70, align 8
@@ -2179,7 +2179,7 @@ _ZNK5clang6interp7Pointer7isDummyEv.exit.i83:     ; preds = %_ZNK5clang6interp7P
   br i1 %250, label %.critedge2, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i84
 
 _ZNK5clang6interp7Pointer6isRootEv.exit.i.i.i84:  ; preds = %_ZNK5clang6interp7Pointer7isDummyEv.exit.i83
-  %251 = getelementptr inbounds i8, ptr %.0.i70, i64 32
+  %251 = getelementptr inbounds nuw i8, ptr %.0.i70, i64 32
   %252 = load i32, ptr %251, align 8
   %253 = getelementptr inbounds nuw i8, ptr %247, i64 16
   %254 = load i32, ptr %253, align 8
@@ -2337,7 +2337,7 @@ define linkonce_odr hidden noundef ptr @_ZNK5clang6interp7Pointer12getFieldDescE
   br i1 %.not.i.i.i, label %_ZNK5clang6interp7Pointer11getDeclDescEv.exit, label %_ZNK5clang6interp7Pointer6isRootEv.exit
 
 _ZNK5clang6interp7Pointer6isZeroEv.exit.i:        ; preds = %1
-  %13 = getelementptr inbounds i8, ptr %0, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %14 = load i64, ptr %13, align 8
   %15 = icmp eq i64 %14, 0
   %16 = load i64, ptr %0, align 8
@@ -2352,7 +2352,7 @@ _ZNK5clang6interp7Pointer6isZeroEv.exit..thread_crit_edge.i: ; preds = %_ZNK5cla
 
 _ZNK5clang6interp7Pointer6isRootEv.exit:          ; preds = %6, %10, %_ZNK5clang6interp7Pointer6isZeroEv.exit..thread_crit_edge.i
   %19 = phi ptr [ %.pre.i, %_ZNK5clang6interp7Pointer6isZeroEv.exit..thread_crit_edge.i ], [ %8, %6 ], [ %12, %10 ]
-  %20 = getelementptr inbounds i8, ptr %0, i64 32
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %21 = load i32, ptr %20, align 8
   %22 = getelementptr inbounds nuw i8, ptr %19, i64 32
   %23 = load ptr, ptr %22, align 8
@@ -2523,7 +2523,7 @@ _ZN5clang17DiagnosticStorageC2Ev.exit:            ; preds = %7
   store i8 0, ptr %18, align 8
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 416
   %20 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %19) #11
-  %21 = getelementptr inbounds i8, ptr %18, i64 424
+  %21 = getelementptr inbounds nuw i8, ptr %18, i64 424
   store i32 0, ptr %21, align 8
   %22 = getelementptr inbounds nuw i8, ptr %18, i64 528
   %23 = load ptr, ptr %22, align 8
@@ -2544,7 +2544,7 @@ _ZN5clang17DiagnosticStorageC2Ev.exit:            ; preds = %7
   br i1 %.not.i.i, label %_ZN4llvm15SmallVectorImplIN5clang9FixItHintEE5clearEv.exit, label %.lr.ph.i.i, !llvm.loop !24
 
 _ZN4llvm15SmallVectorImplIN5clang9FixItHintEE5clearEv.exit: ; preds = %.lr.ph.i.i, %13
-  %28 = getelementptr inbounds i8, ptr %18, i64 536
+  %28 = getelementptr inbounds nuw i8, ptr %18, i64 536
   store i32 0, ptr %28, align 8
   br label %29
 
@@ -2590,7 +2590,7 @@ define linkonce_odr hidden noundef ptr @_ZNK5clang12RedeclarableINS_7TagDeclEE8D
 
 15:                                               ; preds = %10
   %16 = getelementptr inbounds nuw i8, ptr %12, i64 2144
-  %17 = getelementptr inbounds i8, ptr %12, i64 2224
+  %17 = getelementptr inbounds nuw i8, ptr %12, i64 2224
   %18 = load i64, ptr %17, align 8
   %19 = add i64 %18, 24
   store i64 %19, ptr %17, align 8
@@ -2599,7 +2599,7 @@ define linkonce_odr hidden noundef ptr @_ZNK5clang12RedeclarableINS_7TagDeclEE8D
   %22 = add i64 %21, 7
   %23 = and i64 %22, -8
   %24 = add i64 %23, 24
-  %25 = getelementptr inbounds i8, ptr %12, i64 2152
+  %25 = getelementptr inbounds nuw i8, ptr %12, i64 2152
   %26 = load ptr, ptr %25, align 8
   %27 = ptrtoint ptr %26 to i64
   %.not.i.i.i.i.i.i = icmp ugt i64 %24, %27
@@ -2788,7 +2788,7 @@ define linkonce_odr hidden void @_ZNK5clang6interp7Pointer7atIndexEm(ptr dead_on
   ]
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %1, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %9 = load i64, ptr %8, align 8
   %10 = load ptr, ptr %6, align 8
   store i64 %2, ptr %0, align 8
@@ -2797,7 +2797,7 @@ define linkonce_odr hidden void @_ZNK5clang6interp7Pointer7atIndexEm(ptr dead_on
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %11, i8 0, i64 16, i1 false)
   store i32 1, ptr %12, align 8
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %14 = getelementptr inbounds i8, ptr %0, i64 32
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i64 %9, ptr %14, align 8
   store ptr %10, ptr %13, align 8
   br label %88
@@ -2818,7 +2818,7 @@ define linkonce_odr hidden void @_ZNK5clang6interp7Pointer7atIndexEm(ptr dead_on
   br label %88
 
 20:                                               ; preds = %3
-  %21 = getelementptr inbounds i8, ptr %1, i64 32
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %22 = load i32, ptr %21, align 8
   %23 = icmp eq i32 %22, -1
   br i1 %23, label %.sink.split.i, label %30
@@ -2963,7 +2963,7 @@ _ZNK5clang6interp7Pointer6isZeroEv.exit:          ; preds = %2
   br i1 %9, label %27, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i
 
 _ZNK5clang6interp7Pointer6isRootEv.exit.i.i:      ; preds = %_ZNK5clang6interp7Pointer6isZeroEv.exit
-  %10 = getelementptr inbounds i8, ptr %1, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %11 = load i32, ptr %10, align 8
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %13 = load ptr, ptr %12, align 8
@@ -2989,7 +2989,7 @@ _ZNK5clang6interp7Pointer6isRootEv.exit.i.i:      ; preds = %_ZNK5clang6interp7P
   br label %88
 
 28:                                               ; preds = %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i
-  %29 = getelementptr inbounds i8, ptr %1, i64 32
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %30 = load i32, ptr %29, align 8
   %31 = icmp eq i32 %30, -1
   br i1 %31, label %32, label %35
@@ -3131,7 +3131,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK5clang6interp7Pointer12isOneP
   br i1 %8, label %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i, label %_ZNK5clang6interp7Pointer18isUnknownSizeArrayEv.exit.thread.thread
 
 _ZNK5clang6interp7Pointer6isRootEv.exit.i.i:      ; preds = %7
-  %9 = getelementptr inbounds i8, ptr %0, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %10 = load i32, ptr %9, align 8
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %12 = load ptr, ptr %11, align 8
@@ -3162,7 +3162,7 @@ _ZNK5clang6interp7Pointer18isUnknownSizeArrayEv.exit.thread.thread: ; preds = %7
   br i1 %28, label %47, label %_ZNK5clang6interp7Pointer6isZeroEv.exit.i
 
 _ZNK5clang6interp7Pointer6isZeroEv.exit.i:        ; preds = %_ZNK5clang6interp7Pointer18isUnknownSizeArrayEv.exit.thread.thread
-  %29 = getelementptr inbounds i8, ptr %0, i64 32
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %30 = load i64, ptr %29, align 8
   %31 = or i64 %30, %27
   %32 = icmp eq i64 %31, 0
@@ -3221,7 +3221,7 @@ define linkonce_odr hidden noundef i64 @_ZNK5clang6interp7Pointer7getSizeEv(ptr 
   br label %_ZNK5clang6interp7Pointer6isRootEv.exit.i
 
 _ZNK5clang6interp7Pointer6isZeroEv.exit.i.i:      ; preds = %1
-  %13 = getelementptr inbounds i8, ptr %0, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %14 = load i64, ptr %13, align 8
   %15 = icmp eq i64 %14, 0
   %16 = load i64, ptr %0, align 8
@@ -3233,7 +3233,7 @@ _ZNK5clang6interp7Pointer6isZeroEv.exit.i.i:      ; preds = %1
 
 _ZNK5clang6interp7Pointer6isRootEv.exit.i:        ; preds = %_ZNK5clang6interp7Pointer6isZeroEv.exit.i.i, %10, %6
   %19 = phi ptr [ %8, %6 ], [ %12, %10 ], [ %.pre.i.pre, %_ZNK5clang6interp7Pointer6isZeroEv.exit.i.i ]
-  %20 = getelementptr inbounds i8, ptr %0, i64 32
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %21 = load i32, ptr %20, align 8
   %22 = getelementptr inbounds nuw i8, ptr %19, i64 32
   %23 = load ptr, ptr %22, align 8
@@ -3274,7 +3274,7 @@ _ZNK5clang6interp7Pointer11getDeclDescEv.exit.sink.split.i: ; preds = %30, %_ZNK
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef i32 @_ZNK5clang6interp7Pointer9getOffsetEv(ptr noundef nonnull align 8 dereferenceable(52) %0) local_unnamed_addr #0 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %3 = getelementptr inbounds i8, ptr %0, i64 32
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i32, ptr %3, align 8
   %5 = icmp eq i32 %4, -1
   %6 = load i64, ptr %0, align 8
@@ -3386,12 +3386,12 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK5clang6interp7Pointer15isZero
   br i1 %9, label %_ZNK5clang6interp7Pointer6isRootEv.exit.thread.thread.i, label %._ZNK5clang6interp7Pointer6isRootEv.exit.i_crit_edge
 
 ._ZNK5clang6interp7Pointer6isRootEv.exit.i_crit_edge: ; preds = %6
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 32
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 32
   %.pre = load i32, ptr %.phi.trans.insert, align 8
   br label %_ZNK5clang6interp7Pointer6isRootEv.exit.i
 
 _ZNK5clang6interp7Pointer6isZeroEv.exit.i.i:      ; preds = %1
-  %10 = getelementptr inbounds i8, ptr %0, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %11 = load i64, ptr %10, align 8
   %12 = icmp eq i64 %11, 0
   %13 = load i64, ptr %0, align 8

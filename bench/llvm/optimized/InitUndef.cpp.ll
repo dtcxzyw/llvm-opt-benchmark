@@ -190,7 +190,7 @@ define internal void @_ZN12_GLOBAL__N_19InitUndefD2Ev(ptr noundef nonnull align 
 
 _ZN4llvm11SmallVectorIPNS_12MachineInstrELj8EED2Ev.exit: ; preds = %1, %7
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %9 = getelementptr inbounds i8, ptr %0, i64 136
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %10 = getelementptr inbounds i8, ptr %0, i64 152
   %11 = load ptr, ptr %10, align 8
   tail call void @_ZNSt8_Rb_treeIN4llvm8RegisterES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE8_M_eraseEPSt13_Rb_tree_nodeIS1_E(ptr noundef nonnull align 8 dereferenceable(48) %9, ptr noundef %11)
@@ -225,7 +225,7 @@ define internal void @_ZN12_GLOBAL__N_19InitUndefD0Ev(ptr noundef nonnull align 
 
 _ZN4llvm11SmallVectorIPNS_12MachineInstrELj8EED2Ev.exit.i: ; preds = %7, %1
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %9 = getelementptr inbounds i8, ptr %0, i64 136
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %10 = getelementptr inbounds i8, ptr %0, i64 152
   %11 = load ptr, ptr %10, align 8
   tail call void @_ZNSt8_Rb_treeIN4llvm8RegisterES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE8_M_eraseEPSt13_Rb_tree_nodeIS1_E(ptr noundef nonnull align 8 dereferenceable(48) %9, ptr noundef %11)
@@ -369,7 +369,7 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_19InitUndef20runOnMachineFun
   %52 = load ptr, ptr %36, align 8
   call void @_ZN4llvm16DeadLaneDetectorC1EPKNS_19MachineRegisterInfoEPKNS_18TargetRegisterInfoE(ptr noundef nonnull align 8 dereferenceable(248) %25, ptr noundef %52, ptr noundef %50) #12
   call void @_ZN4llvm16DeadLaneDetector29computeSubRegisterLaneBitInfoEv(ptr noundef nonnull align 8 dereferenceable(248) %25) #12
-  %53 = getelementptr inbounds i8, ptr %1, i64 328
+  %53 = getelementptr inbounds nuw i8, ptr %1, i64 328
   %54 = getelementptr inbounds nuw i8, ptr %1, i64 320
   %.sroa.056.076 = load ptr, ptr %53, align 8
   %.not5977 = icmp eq ptr %.sroa.056.076, %54
@@ -1320,7 +1320,7 @@ _ZN12_GLOBAL__N_19InitUndef12handleSubRegERN4llvm15MachineFunctionERNS1_12Machin
   br i1 %.not.i.i.i.i.i.i34.i, label %455, label %.lr.ph.preheader.i.i.i
 
 455:                                              ; preds = %452
-  %456 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i, i64 24
+  %456 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i, i64 24
   %457 = load ptr, ptr %456, align 8
   %.not.i4.i.i.i.i.i.i = icmp eq ptr %457, null
   br i1 %.not.i4.i.i.i.i.i.i, label %_ZL23findImplictDefMIFromRegN4llvm8RegisterEPNS_19MachineRegisterInfoE.exit.thread.i.i, label %458
@@ -1353,7 +1353,7 @@ _ZN12_GLOBAL__N_19InitUndef12handleSubRegERN4llvm15MachineFunctionERNS1_12Machin
 
 .preheader.i.i.i:                                 ; preds = %_ZN4llvm19MachineRegisterInfo26defusechain_instr_iteratorILb0ELb1ELb0ELb0ELb1ELb0EE7advanceEv.exit.i.i.i.i, %.preheader.i.preheader.i.i
   %.pr3.i.i.i.i = phi ptr [ %471, %_ZN4llvm19MachineRegisterInfo26defusechain_instr_iteratorILb0ELb1ELb0ELb0ELb1ELb0EE7advanceEv.exit.i.i.i.i ], [ %.sroa.01.05.i28.i.i, %.preheader.i.preheader.i.i ]
-  %470 = getelementptr inbounds i8, ptr %.pr3.i.i.i.i, i64 24
+  %470 = getelementptr inbounds nuw i8, ptr %.pr3.i.i.i.i, i64 24
   %471 = load ptr, ptr %470, align 8
   %.not.i.i.i.i35.i = icmp eq ptr %471, null
   br i1 %.not.i.i.i.i35.i, label %_ZL23findImplictDefMIFromRegN4llvm8RegisterEPNS_19MachineRegisterInfoE.exit.thread.i.i, label %472
@@ -1545,7 +1545,7 @@ _ZN12_GLOBAL__N_19InitUndef17processBasicBlockERN4llvm15MachineFunctionERNS1_17M
 
 ._crit_edge84:                                    ; preds = %.lr.ph83, %._crit_edge
   %542 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %536) #12
-  %543 = getelementptr inbounds i8, ptr %0, i64 192
+  %543 = getelementptr inbounds nuw i8, ptr %0, i64 192
   store i32 0, ptr %543, align 8
   call void @_ZN4llvm16DeadLaneDetectorD2Ev(ptr noundef nonnull align 8 dereferenceable(248) %25) #12
   br label %544
@@ -1645,8 +1645,8 @@ _ZN4llvm9BitVectorD2Ev.exit1:                     ; preds = %_ZN4llvm9BitVectorD
   br i1 %.not.i.i, label %_ZNSt5dequeIjSaIjEED2Ev.exit, label %16
 
 16:                                               ; preds = %_ZN4llvm9BitVectorD2Ev.exit1
-  %17 = getelementptr inbounds i8, ptr %0, i64 96
-  %18 = getelementptr inbounds i8, ptr %0, i64 64
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %19 = load ptr, ptr %18, align 8
   %20 = load ptr, ptr %17, align 8
   %21 = getelementptr inbounds i8, ptr %20, i64 8
@@ -1667,7 +1667,7 @@ _ZNSt11_Deque_baseIjSaIjEE16_M_destroy_nodesEPPjS3_.exit.loopexit.i.i: ; preds =
 
 _ZNSt11_Deque_baseIjSaIjEE16_M_destroy_nodesEPPjS3_.exit.i.i: ; preds = %_ZNSt11_Deque_baseIjSaIjEE16_M_destroy_nodesEPPjS3_.exit.loopexit.i.i, %16
   %26 = phi ptr [ %.pre.i.i, %_ZNSt11_Deque_baseIjSaIjEE16_M_destroy_nodesEPPjS3_.exit.loopexit.i.i ], [ %15, %16 ]
-  %27 = getelementptr inbounds i8, ptr %0, i64 32
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %28 = load i64, ptr %27, align 8
   %29 = shl i64 %28, 3
   tail call void @_ZdlPvm(ptr noundef %26, i64 noundef %29) #15

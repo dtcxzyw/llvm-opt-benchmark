@@ -242,9 +242,9 @@ _ZN4llvm20LatencyPriorityQueue24getSingleUnscheduledPredEPNS_5SUnitE.exit: ; pre
   %29 = getelementptr inbounds i32, ptr %28, i64 %27
   store i32 %.0.lcssa, ptr %29, align 4
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %31 = getelementptr inbounds i8, ptr %0, i64 56
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %32 = load ptr, ptr %31, align 8
-  %33 = getelementptr inbounds i8, ptr %0, i64 64
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %34 = load ptr, ptr %33, align 8
   %.not.i10 = icmp eq ptr %32, %34
   br i1 %.not.i10, label %38, label %35
@@ -475,7 +475,7 @@ define dso_local noundef ptr @_ZN4llvm20LatencyPriorityQueue3popEv(ptr noundef n
 6:                                                ; preds = %1
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 56
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %10 = load ptr, ptr %9, align 8
   %.sroa.05.017 = getelementptr inbounds i8, ptr %8, i64 8
   %.not18 = icmp eq ptr %.sroa.05.017, %10
@@ -617,7 +617,7 @@ _ZNK4llvm12latency_sortclEPKNS_5SUnitES3_.exit.thread14: ; preds = %50, %21, %_Z
 define dso_local void @_ZN4llvm20LatencyPriorityQueue6removeEPNS_5SUnitE(ptr nocapture noundef nonnull align 8 dereferenceable(80) %0, ptr noundef readnone %1) unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 56
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %6 = load ptr, ptr %5, align 8
   %7 = ptrtoint ptr %6 to i64
   %8 = ptrtoint ptr %4 to i64
@@ -753,7 +753,7 @@ define linkonce_odr hidden void @_ZN4llvm20LatencyPriorityQueueD2Ev(ptr noundef 
   br i1 %.not.i.i.i, label %_ZNSt6vectorIPN4llvm5SUnitESaIS2_EED2Ev.exit, label %4
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 64
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %6 = load ptr, ptr %5, align 8
   %7 = ptrtoint ptr %6 to i64
   %8 = ptrtoint ptr %3 to i64
@@ -768,7 +768,7 @@ _ZNSt6vectorIPN4llvm5SUnitESaIS2_EED2Ev.exit:     ; preds = %1, %4
   br i1 %.not.i.i.i1, label %_ZNSt6vectorIjSaIjEED2Ev.exit, label %12
 
 12:                                               ; preds = %_ZNSt6vectorIPN4llvm5SUnitESaIS2_EED2Ev.exit
-  %13 = getelementptr inbounds i8, ptr %0, i64 40
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %14 = load ptr, ptr %13, align 8
   %15 = ptrtoint ptr %14 to i64
   %16 = ptrtoint ptr %11 to i64
@@ -789,7 +789,7 @@ define linkonce_odr hidden void @_ZN4llvm20LatencyPriorityQueueD0Ev(ptr noundef 
   br i1 %.not.i.i.i.i, label %_ZNSt6vectorIPN4llvm5SUnitESaIS2_EED2Ev.exit.i, label %4
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 64
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %6 = load ptr, ptr %5, align 8
   %7 = ptrtoint ptr %6 to i64
   %8 = ptrtoint ptr %3 to i64
@@ -804,7 +804,7 @@ _ZNSt6vectorIPN4llvm5SUnitESaIS2_EED2Ev.exit.i:   ; preds = %4, %1
   br i1 %.not.i.i.i1.i, label %_ZN4llvm20LatencyPriorityQueueD2Ev.exit, label %12
 
 12:                                               ; preds = %_ZNSt6vectorIPN4llvm5SUnitESaIS2_EED2Ev.exit.i
-  %13 = getelementptr inbounds i8, ptr %0, i64 40
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %14 = load ptr, ptr %13, align 8
   %15 = ptrtoint ptr %14 to i64
   %16 = ptrtoint ptr %11 to i64
@@ -836,7 +836,7 @@ define linkonce_odr hidden void @_ZN4llvm20LatencyPriorityQueue9initNodesERSt6ve
   %11 = sub i64 %9, %10
   %12 = ashr exact i64 %11, 8
   store i32 0, ptr %3, align 4
-  %13 = getelementptr inbounds i8, ptr %0, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %14 = load ptr, ptr %13, align 8
   %15 = load ptr, ptr %5, align 8
   %16 = ptrtoint ptr %14 to i64
@@ -882,7 +882,7 @@ define linkonce_odr hidden void @_ZN4llvm20LatencyPriorityQueue7addNodeEPKNS_5SU
   %12 = sub i64 %10, %11
   %13 = ashr exact i64 %12, 8
   store i32 0, ptr %3, align 4
-  %14 = getelementptr inbounds i8, ptr %0, i64 32
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %15 = load ptr, ptr %14, align 8
   %16 = load ptr, ptr %4, align 8
   %17 = ptrtoint ptr %15 to i64
@@ -930,7 +930,7 @@ define linkonce_odr hidden void @_ZN4llvm20LatencyPriorityQueue12releaseStateEv(
 define linkonce_odr hidden noundef zeroext i1 @_ZNK4llvm20LatencyPriorityQueue5emptyEv(ptr noundef nonnull align 8 dereferenceable(80) %0) unnamed_addr #0 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 56
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %3, %5
   ret i1 %6

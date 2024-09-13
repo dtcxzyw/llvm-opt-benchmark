@@ -62,7 +62,7 @@ define hidden void @cfl_store_dc_pred(ptr nocapture noundef %0, ptr noundef %1, 
   %9 = ptrtoint ptr %1 to i64
   %10 = shl i64 %9, 1
   %11 = inttoptr i64 %10 to ptr
-  %12 = getelementptr inbounds i8, ptr %0, i64 47644
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 47644
   %13 = zext i8 %2 to i64
   %14 = getelementptr inbounds [2 x [32 x i16]], ptr %12, i64 0, i64 %13
   %15 = shl i32 %3, 1
@@ -71,7 +71,7 @@ define hidden void @cfl_store_dc_pred(ptr nocapture noundef %0, ptr noundef %1, 
   br label %22
 
 17:                                               ; preds = %4
-  %18 = getelementptr inbounds i8, ptr %0, i64 47644
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 47644
   %19 = zext i8 %2 to i64
   %20 = getelementptr inbounds [2 x [32 x i16]], ptr %18, i64 0, i64 %19
   %21 = sext i32 %3 to i64
@@ -98,7 +98,7 @@ define hidden void @cfl_load_dc_pred(ptr nocapture noundef readonly %0, ptr noun
   %.val.val = load i32, ptr %12, align 8
   %13 = and i32 %.val.val, 8
   %.not = icmp eq i32 %13, 0
-  %14 = getelementptr inbounds i8, ptr %0, i64 47644
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 47644
   %15 = zext i8 %4 to i64
   %16 = getelementptr inbounds [2 x [32 x i16]], ptr %14, i64 0, i64 %15
   br i1 %.not, label %.lr.ph.i15, label %.lr.ph.i
@@ -2044,7 +2044,7 @@ define hidden void @cfl_predict_block(ptr noundef %0, ptr noundef %1, i32 nounde
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 7864
   %7 = load ptr, ptr %6, align 8
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 47780
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 47780
   %10 = load i32, ptr %9, align 4
   %.not = icmp eq i32 %10, 0
   br i1 %.not, label %11, label %52
@@ -2056,10 +2056,10 @@ define hidden void @cfl_predict_block(ptr noundef %0, ptr noundef %1, i32 nounde
   %15 = load i32, ptr %14, align 4
   %16 = getelementptr inbounds [19 x i32], ptr @tx_size_high, i64 0, i64 %13
   %17 = load i32, ptr %16, align 4
-  %18 = getelementptr inbounds i8, ptr %0, i64 47776
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 47776
   %19 = load i32, ptr %18, align 4
   %20 = sub nsw i32 %15, %19
-  %21 = getelementptr inbounds i8, ptr %0, i64 47772
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 47772
   %22 = load i32, ptr %21, align 4
   %23 = sub i32 %17, %22
   %24 = icmp sgt i32 %20, 0
@@ -2142,7 +2142,7 @@ cfl_compute_parameters.exit:                      ; preds = %35, %.split59.us.i.
   %48 = zext nneg i8 %47 to i64
   %49 = getelementptr inbounds [19 x ptr], ptr @cfl_get_subtract_average_fn_c.sub_avg, i64 0, i64 %48
   %50 = load ptr, ptr %49, align 8
-  %51 = getelementptr inbounds i8, ptr %0, i64 45584
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 45584
   tail call void %50(ptr noundef nonnull %12, ptr noundef nonnull %51) #9
   store i32 1, ptr %9, align 4
   br label %52
@@ -2205,7 +2205,7 @@ cfl_idx_to_alpha.exit:                            ; preds = %69, %72
   %89 = zext nneg i8 %88 to i64
   %90 = getelementptr inbounds [19 x ptr], ptr @cfl_get_predict_hbd_fn_c.pred, i64 0, i64 %89
   %91 = load ptr, ptr %90, align 8
-  %92 = getelementptr inbounds i8, ptr %0, i64 45584
+  %92 = getelementptr inbounds nuw i8, ptr %0, i64 45584
   %93 = getelementptr inbounds nuw i8, ptr %0, i64 10656
   %94 = load i32, ptr %93, align 16
   tail call void %91(ptr noundef nonnull %92, ptr noundef %87, i32 noundef %2, i32 noundef %.0.i, i32 noundef %94) #9
@@ -2216,7 +2216,7 @@ cfl_idx_to_alpha.exit:                            ; preds = %69, %72
   %97 = zext nneg i8 %96 to i64
   %98 = getelementptr inbounds [19 x ptr], ptr @cfl_get_predict_lbd_fn_c.pred, i64 0, i64 %97
   %99 = load ptr, ptr %98, align 8
-  %100 = getelementptr inbounds i8, ptr %0, i64 45584
+  %100 = getelementptr inbounds nuw i8, ptr %0, i64 45584
   tail call void %99(ptr noundef nonnull %100, ptr noundef %1, i32 noundef %2, i32 noundef %.0.i) #9
   br label %101
 
@@ -5753,9 +5753,9 @@ define hidden ptr @cfl_get_luma_subsampling_444_hbd_c(i8 noundef zeroext %0) loc
 ; Function Attrs: nounwind uwtable
 define hidden void @cfl_store_tx(ptr noundef %0, i32 noundef %1, i32 noundef %2, i8 noundef zeroext %3, i8 noundef zeroext %4) local_unnamed_addr #7 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 43536
-  %7 = getelementptr inbounds i8, ptr %0, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 56
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %10 = load i32, ptr %9, align 8
   %11 = zext nneg i8 %4 to i64
   %12 = shl nuw i64 1, %11
@@ -5772,7 +5772,7 @@ define hidden void @cfl_store_tx(ptr noundef %0, i32 noundef %1, i32 noundef %2,
   br i1 %.not.i, label %23, label %19
 
 19:                                               ; preds = %14
-  %20 = getelementptr inbounds i8, ptr %0, i64 47788
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 47788
   %21 = load i32, ptr %20, align 4
   %.not5.i = icmp ne i32 %21, 0
   %22 = zext i1 %.not5.i to i32
@@ -5786,7 +5786,7 @@ define hidden void @cfl_store_tx(ptr noundef %0, i32 noundef %1, i32 noundef %2,
   br i1 %.not6.i, label %sub8x8_adjust_offset.exit, label %25
 
 25:                                               ; preds = %23
-  %26 = getelementptr inbounds i8, ptr %0, i64 47784
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 47784
   %27 = load i32, ptr %26, align 4
   %.not7.i = icmp ne i32 %27, 0
   %28 = zext i1 %.not7.i to i32
@@ -5810,9 +5810,9 @@ sub8x8_adjust_offset.exit:                        ; preds = %25, %5, %23
   %38 = load i32, ptr %37, align 4
   %39 = getelementptr inbounds [19 x i32], ptr @tx_size_high, i64 0, i64 %36
   %40 = load i32, ptr %39, align 4
-  %41 = getelementptr inbounds i8, ptr %0, i64 47784
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 47784
   %42 = load i32, ptr %41, align 4
-  %43 = getelementptr inbounds i8, ptr %0, i64 47788
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 47788
   %44 = load i32, ptr %43, align 4
   %45 = sub nsw i32 2, %44
   %46 = shl i32 %.018, %45
@@ -5820,27 +5820,27 @@ sub8x8_adjust_offset.exit:                        ; preds = %25, %5, %23
   %48 = shl i32 %.0, %47
   %49 = ashr i32 %40, %44
   %50 = ashr i32 %38, %42
-  %51 = getelementptr inbounds i8, ptr %0, i64 47780
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 47780
   store i32 0, ptr %51, align 4
   %52 = or i32 %.0, %.018
   %or.cond.i = icmp eq i32 %52, 0
   br i1 %or.cond.i, label %53, label %56
 
 53:                                               ; preds = %sub8x8_adjust_offset.exit
-  %54 = getelementptr inbounds i8, ptr %0, i64 47776
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 47776
   store i32 %50, ptr %54, align 4
-  %55 = getelementptr inbounds i8, ptr %0, i64 47772
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 47772
   store i32 %49, ptr %55, align 4
   br label %64
 
 56:                                               ; preds = %sub8x8_adjust_offset.exit
   %57 = add nsw i32 %48, %50
-  %58 = getelementptr inbounds i8, ptr %0, i64 47776
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 47776
   %59 = load i32, ptr %58, align 4
   %..i = tail call i32 @llvm.smax.i32(i32 %57, i32 %59)
   store i32 %..i, ptr %58, align 4
   %60 = add nsw i32 %46, %49
-  %61 = getelementptr inbounds i8, ptr %0, i64 47772
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 47772
   %62 = load i32, ptr %61, align 4
   %63 = tail call i32 @llvm.smax.i32(i32 %60, i32 %62)
   store i32 %63, ptr %61, align 4
@@ -5898,7 +5898,7 @@ define hidden void @cfl_store_block(ptr noundef %0, i8 noundef zeroext %1, i8 no
   br i1 %.not.i, label %16, label %13
 
 13:                                               ; preds = %8
-  %14 = getelementptr inbounds i8, ptr %0, i64 47788
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 47788
   %15 = load i32, ptr %14, align 4
   %.not5.i = icmp ne i32 %15, 0
   %spec.select = zext i1 %.not5.i to i32
@@ -5911,7 +5911,7 @@ define hidden void @cfl_store_block(ptr noundef %0, i8 noundef zeroext %1, i8 no
   br i1 %.not6.i, label %sub8x8_adjust_offset.exit, label %18
 
 18:                                               ; preds = %16
-  %19 = getelementptr inbounds i8, ptr %0, i64 47784
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 47784
   %20 = load i32, ptr %19, align 4
   %.not7.i = icmp ne i32 %20, 0
   %spec.select29 = zext i1 %.not7.i to i32
@@ -5929,7 +5929,7 @@ sub8x8_adjust_offset.exit:                        ; preds = %18, %3, %16
   br i1 %26, label %27, label %max_intra_block_width.exit
 
 27:                                               ; preds = %sub8x8_adjust_offset.exit
-  %28 = getelementptr inbounds i8, ptr %0, i64 20
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %29 = load i32, ptr %28, align 4
   %30 = add nsw i32 %29, 3
   %31 = ashr i32 %25, %30
@@ -5955,7 +5955,7 @@ max_intra_block_width.exit:                       ; preds = %sub8x8_adjust_offse
   br i1 %45, label %46, label %max_intra_block_height.exit
 
 46:                                               ; preds = %max_intra_block_width.exit
-  %47 = getelementptr inbounds i8, ptr %0, i64 24
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %48 = load i32, ptr %47, align 8
   %49 = add nsw i32 %48, 3
   %50 = ashr i32 %44, %49
@@ -6064,9 +6064,9 @@ switch.lookup30:                                  ; preds = %79
 
 get_tx_size.exit:                                 ; preds = %switch.lookup30, %switch.lookup, %59, %59, %60, %61, %62, %63, %73, %74, %75, %83, %84, %85, %86
   %.0.i = phi i64 [ 0, %86 ], [ 17, %75 ], [ 15, %74 ], [ 18, %85 ], [ 16, %84 ], [ 13, %73 ], [ 14, %83 ], [ 0, %63 ], [ 1, %62 ], [ 2, %61 ], [ 3, %60 ], [ 4, %59 ], [ 4, %59 ], [ %switch.load, %switch.lookup ], [ %switch.load32, %switch.lookup30 ]
-  %89 = getelementptr inbounds i8, ptr %0, i64 32
+  %89 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %90 = load ptr, ptr %89, align 8
-  %91 = getelementptr inbounds i8, ptr %0, i64 56
+  %91 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %92 = load i32, ptr %91, align 8
   %93 = getelementptr i8, ptr %0, i64 7960
   %.val = load ptr, ptr %93, align 8
@@ -6076,9 +6076,9 @@ get_tx_size.exit:                                 ; preds = %switch.lookup30, %s
   %96 = load i32, ptr %95, align 4
   %97 = getelementptr inbounds [19 x i32], ptr @tx_size_high, i64 0, i64 %.0.i
   %98 = load i32, ptr %97, align 4
-  %99 = getelementptr inbounds i8, ptr %0, i64 47784
+  %99 = getelementptr inbounds nuw i8, ptr %0, i64 47784
   %100 = load i32, ptr %99, align 4
-  %101 = getelementptr inbounds i8, ptr %0, i64 47788
+  %101 = getelementptr inbounds nuw i8, ptr %0, i64 47788
   %102 = load i32, ptr %101, align 4
   %103 = sub nsw i32 2, %102
   %104 = shl nuw i32 %.027, %103
@@ -6086,27 +6086,27 @@ get_tx_size.exit:                                 ; preds = %switch.lookup30, %s
   %106 = shl nuw i32 %.0, %105
   %107 = ashr i32 %98, %102
   %108 = ashr i32 %96, %100
-  %109 = getelementptr inbounds i8, ptr %0, i64 47780
+  %109 = getelementptr inbounds nuw i8, ptr %0, i64 47780
   store i32 0, ptr %109, align 4
   %110 = or i32 %.0, %.027
   %or.cond.i = icmp eq i32 %110, 0
   br i1 %or.cond.i, label %111, label %114
 
 111:                                              ; preds = %get_tx_size.exit
-  %112 = getelementptr inbounds i8, ptr %0, i64 47776
+  %112 = getelementptr inbounds nuw i8, ptr %0, i64 47776
   store i32 %108, ptr %112, align 4
-  %113 = getelementptr inbounds i8, ptr %0, i64 47772
+  %113 = getelementptr inbounds nuw i8, ptr %0, i64 47772
   store i32 %107, ptr %113, align 4
   br label %122
 
 114:                                              ; preds = %get_tx_size.exit
   %115 = add nsw i32 %106, %108
-  %116 = getelementptr inbounds i8, ptr %0, i64 47776
+  %116 = getelementptr inbounds nuw i8, ptr %0, i64 47776
   %117 = load i32, ptr %116, align 4
   %..i = tail call i32 @llvm.smax.i32(i32 %115, i32 %117)
   store i32 %..i, ptr %116, align 4
   %118 = add nsw i32 %104, %107
-  %119 = getelementptr inbounds i8, ptr %0, i64 47772
+  %119 = getelementptr inbounds nuw i8, ptr %0, i64 47772
   %120 = load i32, ptr %119, align 4
   %121 = tail call i32 @llvm.smax.i32(i32 %118, i32 %120)
   store i32 %121, ptr %119, align 4

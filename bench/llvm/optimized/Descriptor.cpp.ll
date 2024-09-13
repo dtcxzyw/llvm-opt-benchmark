@@ -82,7 +82,7 @@ define dso_local void @_ZN5clang6interp10DescriptorC2ERKN4llvm12PointerUnionIJPK
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %22, i8 0, i64 16, i1 false)
   store i32 %2, ptr %23, align 8
-  %24 = getelementptr inbounds i8, ptr %0, i64 44
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 44
   store i8 1, ptr %24, align 4
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i8 %8, ptr %25, align 8
@@ -183,7 +183,7 @@ switch.lookup:
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %27, i8 0, i64 16, i1 false)
   store i32 %2, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %0, i64 44
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 44
   store i8 1, ptr %29, align 4
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i8 %8, ptr %30, align 8
@@ -235,7 +235,7 @@ switch.lookup:
   %14 = add i32 %.0.i, 40
   store i32 %14, ptr %13, align 4
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %16 = getelementptr inbounds i8, ptr %0, i64 44
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 44
   store i8 0, ptr %16, align 4
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %15, i8 0, i64 16, i1 false)
@@ -295,7 +295,7 @@ define dso_local void @_ZN5clang6interp10DescriptorC2ERKN4llvm12PointerUnionIJPK
   store ptr null, ptr %24, align 8
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %2, ptr %25, align 8
-  %26 = getelementptr inbounds i8, ptr %0, i64 44
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 44
   store i8 0, ptr %26, align 4
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i8 %9, ptr %27, align 8
@@ -721,7 +721,7 @@ define dso_local void @_ZN5clang6interp10DescriptorC2ERKN4llvm12PointerUnionIJPK
   store ptr null, ptr %17, align 8
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %2, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %0, i64 44
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 44
   store i8 0, ptr %19, align 4
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i8 1, ptr %20, align 8
@@ -772,7 +772,7 @@ define dso_local void @_ZN5clang6interp10DescriptorC2ERKN4llvm12PointerUnionIJPK
   store ptr %2, ptr %24, align 8
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr null, ptr %25, align 8
-  %26 = getelementptr inbounds i8, ptr %0, i64 44
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 44
   store i8 0, ptr %26, align 4
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i8 %8, ptr %27, align 8
@@ -1084,7 +1084,7 @@ define dso_local void @_ZN5clang6interp10DescriptorC2ERKN4llvm12PointerUnionIJPK
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 1, ptr %5, align 4
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %7 = getelementptr inbounds i8, ptr %0, i64 44
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 44
   store i8 0, ptr %7, align 4
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false)
@@ -2154,7 +2154,7 @@ define internal void @_ZL11dtorArrayTyIN5clang6interp8IntegralILj8ELb1EEEEvPNS1_
 
 7:                                                ; preds = %3
   store i8 0, ptr %4, align 8
-  %8 = getelementptr inbounds i8, ptr %1, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %9 = load ptr, ptr %8, align 8
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %9, null
   br i1 %.not.i.i.i.i.i.i.i.i, label %_ZNK5clang6interp10Descriptor11getNumElemsEv.exit, label %10
@@ -2240,7 +2240,7 @@ define internal void @_ZL11dtorArrayTyIN5clang6interp8IntegralILj8ELb0EEEEvPNS1_
 
 7:                                                ; preds = %3
   store i8 0, ptr %4, align 8
-  %8 = getelementptr inbounds i8, ptr %1, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %9 = load ptr, ptr %8, align 8
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %9, null
   br i1 %.not.i.i.i.i.i.i.i.i, label %_ZNK5clang6interp10Descriptor11getNumElemsEv.exit, label %10
@@ -2326,7 +2326,7 @@ define internal void @_ZL11dtorArrayTyIN5clang6interp8IntegralILj16ELb1EEEEvPNS1
 
 7:                                                ; preds = %3
   store i8 0, ptr %4, align 8
-  %8 = getelementptr inbounds i8, ptr %1, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %9 = load ptr, ptr %8, align 8
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %9, null
   br i1 %.not.i.i.i.i.i.i.i.i, label %_ZNK5clang6interp10Descriptor11getNumElemsEv.exit, label %10
@@ -2412,7 +2412,7 @@ define internal void @_ZL11dtorArrayTyIN5clang6interp8IntegralILj16ELb0EEEEvPNS1
 
 7:                                                ; preds = %3
   store i8 0, ptr %4, align 8
-  %8 = getelementptr inbounds i8, ptr %1, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %9 = load ptr, ptr %8, align 8
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %9, null
   br i1 %.not.i.i.i.i.i.i.i.i, label %_ZNK5clang6interp10Descriptor11getNumElemsEv.exit, label %10
@@ -2498,7 +2498,7 @@ define internal void @_ZL11dtorArrayTyIN5clang6interp8IntegralILj32ELb1EEEEvPNS1
 
 7:                                                ; preds = %3
   store i8 0, ptr %4, align 8
-  %8 = getelementptr inbounds i8, ptr %1, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %9 = load ptr, ptr %8, align 8
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %9, null
   br i1 %.not.i.i.i.i.i.i.i.i, label %_ZNK5clang6interp10Descriptor11getNumElemsEv.exit, label %10
@@ -2584,7 +2584,7 @@ define internal void @_ZL11dtorArrayTyIN5clang6interp8IntegralILj32ELb0EEEEvPNS1
 
 7:                                                ; preds = %3
   store i8 0, ptr %4, align 8
-  %8 = getelementptr inbounds i8, ptr %1, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %9 = load ptr, ptr %8, align 8
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %9, null
   br i1 %.not.i.i.i.i.i.i.i.i, label %_ZNK5clang6interp10Descriptor11getNumElemsEv.exit, label %10
@@ -2670,7 +2670,7 @@ define internal void @_ZL11dtorArrayTyIN5clang6interp8IntegralILj64ELb1EEEEvPNS1
 
 7:                                                ; preds = %3
   store i8 0, ptr %4, align 8
-  %8 = getelementptr inbounds i8, ptr %1, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %9 = load ptr, ptr %8, align 8
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %9, null
   br i1 %.not.i.i.i.i.i.i.i.i, label %_ZNK5clang6interp10Descriptor11getNumElemsEv.exit, label %10
@@ -2756,7 +2756,7 @@ define internal void @_ZL11dtorArrayTyIN5clang6interp8IntegralILj64ELb0EEEEvPNS1
 
 7:                                                ; preds = %3
   store i8 0, ptr %4, align 8
-  %8 = getelementptr inbounds i8, ptr %1, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %9 = load ptr, ptr %8, align 8
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %9, null
   br i1 %.not.i.i.i.i.i.i.i.i, label %_ZNK5clang6interp10Descriptor11getNumElemsEv.exit, label %10
@@ -2842,7 +2842,7 @@ define internal void @_ZL11dtorArrayTyIN5clang6interp10IntegralAPILb0EEEEvPNS1_5
 
 7:                                                ; preds = %3
   store i8 0, ptr %4, align 8
-  %8 = getelementptr inbounds i8, ptr %1, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %9 = load ptr, ptr %8, align 8
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %9, null
   br i1 %.not.i.i.i.i.i.i.i.i, label %_ZNSt8optionalISt4pairIbSt10shared_ptrIN5clang6interp7InitMapEEEEaSESt9nullopt_t.exit, label %10
@@ -2968,7 +2968,7 @@ define internal void @_ZL11dtorArrayTyIN5clang6interp10IntegralAPILb1EEEEvPNS1_5
 
 7:                                                ; preds = %3
   store i8 0, ptr %4, align 8
-  %8 = getelementptr inbounds i8, ptr %1, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %9 = load ptr, ptr %8, align 8
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %9, null
   br i1 %.not.i.i.i.i.i.i.i.i, label %_ZNSt8optionalISt4pairIbSt10shared_ptrIN5clang6interp7InitMapEEEEaSESt9nullopt_t.exit, label %10
@@ -3094,7 +3094,7 @@ define internal void @_ZL11dtorArrayTyIN5clang6interp8FloatingEEvPNS1_5BlockEPSt
 
 7:                                                ; preds = %3
   store i8 0, ptr %4, align 8
-  %8 = getelementptr inbounds i8, ptr %1, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %9 = load ptr, ptr %8, align 8
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %9, null
   br i1 %.not.i.i.i.i.i.i.i.i, label %_ZNSt8optionalISt4pairIbSt10shared_ptrIN5clang6interp7InitMapEEEEaSESt9nullopt_t.exit, label %10
@@ -3219,7 +3219,7 @@ define internal void @_ZL11dtorArrayTyIN5clang6interp7BooleanEEvPNS1_5BlockEPSt4
 
 7:                                                ; preds = %3
   store i8 0, ptr %4, align 8
-  %8 = getelementptr inbounds i8, ptr %1, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %9 = load ptr, ptr %8, align 8
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %9, null
   br i1 %.not.i.i.i.i.i.i.i.i, label %_ZNK5clang6interp10Descriptor11getNumElemsEv.exit, label %10
@@ -3305,7 +3305,7 @@ define internal void @_ZL11dtorArrayTyIN5clang6interp7PointerEEvPNS1_5BlockEPSt4
 
 7:                                                ; preds = %3
   store i8 0, ptr %4, align 8
-  %8 = getelementptr inbounds i8, ptr %1, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %9 = load ptr, ptr %8, align 8
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %9, null
   br i1 %.not.i.i.i.i.i.i.i.i, label %_ZNSt8optionalISt4pairIbSt10shared_ptrIN5clang6interp7InitMapEEEEaSESt9nullopt_t.exit, label %10
@@ -3417,7 +3417,7 @@ define internal void @_ZL11dtorArrayTyIN5clang6interp15FunctionPointerEEvPNS1_5B
 
 7:                                                ; preds = %3
   store i8 0, ptr %4, align 8
-  %8 = getelementptr inbounds i8, ptr %1, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %9 = load ptr, ptr %8, align 8
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %9, null
   br i1 %.not.i.i.i.i.i.i.i.i, label %_ZNK5clang6interp10Descriptor11getNumElemsEv.exit, label %10
@@ -3503,7 +3503,7 @@ define internal void @_ZL11dtorArrayTyIN5clang6interp13MemberPointerEEvPNS1_5Blo
 
 7:                                                ; preds = %3
   store i8 0, ptr %4, align 8
-  %8 = getelementptr inbounds i8, ptr %1, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %9 = load ptr, ptr %8, align 8
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %9, null
   br i1 %.not.i.i.i.i.i.i.i.i, label %_ZNSt8optionalISt4pairIbSt10shared_ptrIN5clang6interp7InitMapEEEEaSESt9nullopt_t.exit, label %10
@@ -3615,7 +3615,7 @@ define internal void @_ZL11moveArrayTyIN5clang6interp8IntegralILj8ELb1EEEEvPNS1_
 
 8:                                                ; preds = %4
   store i8 0, ptr %5, align 8
-  %9 = getelementptr inbounds i8, ptr %1, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %10 = load ptr, ptr %9, align 8
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %10, null
   br i1 %.not.i.i.i.i.i.i.i.i, label %_ZNSt8optionalISt4pairIbSt10shared_ptrIN5clang6interp7InitMapEEEEaSESt9nullopt_t.exit, label %11
@@ -3730,7 +3730,7 @@ define internal void @_ZL11moveArrayTyIN5clang6interp8IntegralILj8ELb0EEEEvPNS1_
 
 8:                                                ; preds = %4
   store i8 0, ptr %5, align 8
-  %9 = getelementptr inbounds i8, ptr %1, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %10 = load ptr, ptr %9, align 8
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %10, null
   br i1 %.not.i.i.i.i.i.i.i.i, label %_ZNSt8optionalISt4pairIbSt10shared_ptrIN5clang6interp7InitMapEEEEaSESt9nullopt_t.exit, label %11
@@ -3845,7 +3845,7 @@ define internal void @_ZL11moveArrayTyIN5clang6interp8IntegralILj16ELb1EEEEvPNS1
 
 8:                                                ; preds = %4
   store i8 0, ptr %5, align 8
-  %9 = getelementptr inbounds i8, ptr %1, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %10 = load ptr, ptr %9, align 8
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %10, null
   br i1 %.not.i.i.i.i.i.i.i.i, label %_ZNSt8optionalISt4pairIbSt10shared_ptrIN5clang6interp7InitMapEEEEaSESt9nullopt_t.exit, label %11
@@ -3960,7 +3960,7 @@ define internal void @_ZL11moveArrayTyIN5clang6interp8IntegralILj16ELb0EEEEvPNS1
 
 8:                                                ; preds = %4
   store i8 0, ptr %5, align 8
-  %9 = getelementptr inbounds i8, ptr %1, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %10 = load ptr, ptr %9, align 8
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %10, null
   br i1 %.not.i.i.i.i.i.i.i.i, label %_ZNSt8optionalISt4pairIbSt10shared_ptrIN5clang6interp7InitMapEEEEaSESt9nullopt_t.exit, label %11
@@ -4075,7 +4075,7 @@ define internal void @_ZL11moveArrayTyIN5clang6interp8IntegralILj32ELb1EEEEvPNS1
 
 8:                                                ; preds = %4
   store i8 0, ptr %5, align 8
-  %9 = getelementptr inbounds i8, ptr %1, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %10 = load ptr, ptr %9, align 8
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %10, null
   br i1 %.not.i.i.i.i.i.i.i.i, label %_ZNSt8optionalISt4pairIbSt10shared_ptrIN5clang6interp7InitMapEEEEaSESt9nullopt_t.exit, label %11
@@ -4190,7 +4190,7 @@ define internal void @_ZL11moveArrayTyIN5clang6interp8IntegralILj32ELb0EEEEvPNS1
 
 8:                                                ; preds = %4
   store i8 0, ptr %5, align 8
-  %9 = getelementptr inbounds i8, ptr %1, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %10 = load ptr, ptr %9, align 8
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %10, null
   br i1 %.not.i.i.i.i.i.i.i.i, label %_ZNSt8optionalISt4pairIbSt10shared_ptrIN5clang6interp7InitMapEEEEaSESt9nullopt_t.exit, label %11
@@ -4305,7 +4305,7 @@ define internal void @_ZL11moveArrayTyIN5clang6interp8IntegralILj64ELb1EEEEvPNS1
 
 8:                                                ; preds = %4
   store i8 0, ptr %5, align 8
-  %9 = getelementptr inbounds i8, ptr %1, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %10 = load ptr, ptr %9, align 8
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %10, null
   br i1 %.not.i.i.i.i.i.i.i.i, label %_ZNSt8optionalISt4pairIbSt10shared_ptrIN5clang6interp7InitMapEEEEaSESt9nullopt_t.exit, label %11
@@ -4420,7 +4420,7 @@ define internal void @_ZL11moveArrayTyIN5clang6interp8IntegralILj64ELb0EEEEvPNS1
 
 8:                                                ; preds = %4
   store i8 0, ptr %5, align 8
-  %9 = getelementptr inbounds i8, ptr %1, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %10 = load ptr, ptr %9, align 8
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %10, null
   br i1 %.not.i.i.i.i.i.i.i.i, label %_ZNSt8optionalISt4pairIbSt10shared_ptrIN5clang6interp7InitMapEEEEaSESt9nullopt_t.exit, label %11
@@ -4535,7 +4535,7 @@ define internal void @_ZL11moveArrayTyIN5clang6interp10IntegralAPILb0EEEEvPNS1_5
 
 8:                                                ; preds = %4
   store i8 0, ptr %5, align 8
-  %9 = getelementptr inbounds i8, ptr %1, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %10 = load ptr, ptr %9, align 8
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %10, null
   br i1 %.not.i.i.i.i.i.i.i.i, label %_ZNSt8optionalISt4pairIbSt10shared_ptrIN5clang6interp7InitMapEEEEaSESt9nullopt_t.exit, label %11
@@ -4655,7 +4655,7 @@ define internal void @_ZL11moveArrayTyIN5clang6interp10IntegralAPILb1EEEEvPNS1_5
 
 8:                                                ; preds = %4
   store i8 0, ptr %5, align 8
-  %9 = getelementptr inbounds i8, ptr %1, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %10 = load ptr, ptr %9, align 8
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %10, null
   br i1 %.not.i.i.i.i.i.i.i.i, label %_ZNSt8optionalISt4pairIbSt10shared_ptrIN5clang6interp7InitMapEEEEaSESt9nullopt_t.exit, label %11
@@ -4775,7 +4775,7 @@ define internal void @_ZL11moveArrayTyIN5clang6interp8FloatingEEvPNS1_5BlockEPSt
 
 8:                                                ; preds = %4
   store i8 0, ptr %5, align 8
-  %9 = getelementptr inbounds i8, ptr %1, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %10 = load ptr, ptr %9, align 8
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %10, null
   br i1 %.not.i.i.i.i.i.i.i.i, label %_ZNSt8optionalISt4pairIbSt10shared_ptrIN5clang6interp7InitMapEEEEaSESt9nullopt_t.exit, label %11
@@ -4902,7 +4902,7 @@ define internal void @_ZL11moveArrayTyIN5clang6interp7BooleanEEvPNS1_5BlockEPSt4
 
 8:                                                ; preds = %4
   store i8 0, ptr %5, align 8
-  %9 = getelementptr inbounds i8, ptr %1, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %10 = load ptr, ptr %9, align 8
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %10, null
   br i1 %.not.i.i.i.i.i.i.i.i, label %_ZNSt8optionalISt4pairIbSt10shared_ptrIN5clang6interp7InitMapEEEEaSESt9nullopt_t.exit, label %11
@@ -5017,7 +5017,7 @@ define internal void @_ZL11moveArrayTyIN5clang6interp7PointerEEvPNS1_5BlockEPSt4
 
 8:                                                ; preds = %4
   store i8 0, ptr %5, align 8
-  %9 = getelementptr inbounds i8, ptr %1, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %10 = load ptr, ptr %9, align 8
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %10, null
   br i1 %.not.i.i.i.i.i.i.i.i, label %_ZNSt8optionalISt4pairIbSt10shared_ptrIN5clang6interp7InitMapEEEEaSESt9nullopt_t.exit, label %11
@@ -5131,7 +5131,7 @@ define internal void @_ZL11moveArrayTyIN5clang6interp15FunctionPointerEEvPNS1_5B
 
 8:                                                ; preds = %4
   store i8 0, ptr %5, align 8
-  %9 = getelementptr inbounds i8, ptr %1, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %10 = load ptr, ptr %9, align 8
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %10, null
   br i1 %.not.i.i.i.i.i.i.i.i, label %_ZNSt8optionalISt4pairIbSt10shared_ptrIN5clang6interp7InitMapEEEEaSESt9nullopt_t.exit, label %11
@@ -5245,7 +5245,7 @@ define internal void @_ZL11moveArrayTyIN5clang6interp13MemberPointerEEvPNS1_5Blo
 
 8:                                                ; preds = %4
   store i8 0, ptr %5, align 8
-  %9 = getelementptr inbounds i8, ptr %1, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %10 = load ptr, ptr %9, align 8
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %10, null
   br i1 %.not.i.i.i.i.i.i.i.i, label %_ZNSt8optionalISt4pairIbSt10shared_ptrIN5clang6interp7InitMapEEEEaSESt9nullopt_t.exit, label %11

@@ -178,7 +178,7 @@ define noundef i64 @_ZN10open_spiel10algorithms22TabularQLearningSolver13GetBest
 .lr.ph:                                           ; preds = %32
   %36 = getelementptr inbounds nuw i8, ptr %10, i64 32
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 5056
-  %38 = getelementptr inbounds i8, ptr %0, i64 5064
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 5064
   br label %39
 
 39:                                               ; preds = %.lr.ph, %55
@@ -391,7 +391,7 @@ define noundef double @_ZN10open_spiel10algorithms22TabularQLearningSolver18GetB
   br i1 %19, label %20, label %27
 
 20:                                               ; preds = %.noexc
-  %21 = getelementptr inbounds i8, ptr %0, i64 5064
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 5064
   %22 = load ptr, ptr %21, align 8, !noalias !10
   %23 = getelementptr inbounds %"union.absl::debian2::container_internal::map_slot_type", ptr %22, i64 %.fca.0.extract.i.i.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %23, ptr noundef nonnull align 8 dereferenceable(32) %4) #18, !noalias !10
@@ -414,7 +414,7 @@ define noundef double @_ZN10open_spiel10algorithms22TabularQLearningSolver18GetB
   unreachable
 
 32:                                               ; preds = %27
-  %33 = getelementptr inbounds i8, ptr %0, i64 5064
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 5064
   %34 = load ptr, ptr %33, align 8, !noalias !10
   %35 = getelementptr inbounds %"union.absl::debian2::container_internal::map_slot_type", ptr %34, i64 %.fca.0.extract.i.i.i, i32 0, i32 1
   %36 = load double, ptr %35, align 8
@@ -801,15 +801,15 @@ _ZNSt10shared_ptrIKN10open_spiel4GameEEC2ERKS3_.exit: ; preds = %2, %24, %27
   br label %106
 
 46:                                               ; preds = %35
-  %47 = getelementptr inbounds i8, ptr %0, i64 5048
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 5048
   store i64 624, ptr %47, align 8
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 5056
   store ptr @_ZZN4absl7debian218container_internal10EmptyGroupEvE11empty_group, ptr %48, align 8
-  %49 = getelementptr inbounds i8, ptr %0, i64 5064
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 5064
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %49, i8 0, i64 32, i1 false)
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 5096
   store ptr @_ZZN4absl7debian218container_internal10EmptyGroupEvE11empty_group, ptr %50, align 8
-  %51 = getelementptr inbounds i8, ptr %0, i64 5104
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 5104
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %51, i8 0, i64 32, i1 false)
   %52 = load ptr, ptr %0, align 8
   %53 = load ptr, ptr %52, align 8
@@ -866,7 +866,7 @@ _ZNSt10shared_ptrIKN10open_spiel4GameEEC2ERKS3_.exit: ; preds = %2, %24, %27
   br i1 %77, label %78, label %87
 
 78:                                               ; preds = %76
-  %79 = getelementptr inbounds i8, ptr %.pre, i64 100
+  %79 = getelementptr inbounds nuw i8, ptr %.pre, i64 100
   %80 = load i32, ptr %79, align 4
   store i32 %80, ptr %5, align 4
   store i32 0, ptr %6, align 4
@@ -892,7 +892,7 @@ _ZNSt10shared_ptrIKN10open_spiel4GameEEC2ERKS3_.exit: ; preds = %2, %24, %27
   br label %106
 
 87:                                               ; preds = %76, %78
-  %88 = getelementptr inbounds i8, ptr %.pre, i64 88
+  %88 = getelementptr inbounds nuw i8, ptr %.pre, i64 88
   %89 = load i32, ptr %88, align 8
   store i32 %89, ptr %9, align 4
   store i32 1, ptr %10, align 4
@@ -918,7 +918,7 @@ _ZNSt10shared_ptrIKN10open_spiel4GameEEC2ERKS3_.exit: ; preds = %2, %24, %27
   br label %106
 
 96:                                               ; preds = %87
-  %97 = getelementptr inbounds i8, ptr %.pre, i64 96
+  %97 = getelementptr inbounds nuw i8, ptr %.pre, i64 96
   %98 = load i32, ptr %97, align 8
   store i32 %98, ptr %13, align 4
   store i32 1, ptr %14, align 4
@@ -1448,15 +1448,15 @@ _ZNSt10shared_ptrIKN10open_spiel4GameEEC2ERKS3_.exit: ; preds = %7, %37, %40
   br i1 %exitcond.not.i.i.i, label %58, label %49, !llvm.loop !19
 
 58:                                               ; preds = %49
-  %59 = getelementptr inbounds i8, ptr %0, i64 5048
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 5048
   store i64 624, ptr %59, align 8
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 5056
   store ptr @_ZZN4absl7debian218container_internal10EmptyGroupEvE11empty_group, ptr %60, align 8
-  %61 = getelementptr inbounds i8, ptr %0, i64 5064
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 5064
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %61, i8 0, i64 32, i1 false)
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 5096
   store ptr @_ZZN4absl7debian218container_internal10EmptyGroupEvE11empty_group, ptr %62, align 8
-  %63 = getelementptr inbounds i8, ptr %0, i64 5104
+  %63 = getelementptr inbounds nuw i8, ptr %0, i64 5104
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %63, i8 0, i64 32, i1 false)
   store double %6, ptr %8, align 8
   store i32 1, ptr %9, align 4
@@ -1566,7 +1566,7 @@ _ZNSt10shared_ptrIKN10open_spiel4GameEEC2ERKS3_.exit: ; preds = %7, %37, %40
   br i1 %105, label %106, label %115
 
 106:                                              ; preds = %104
-  %107 = getelementptr inbounds i8, ptr %.pre, i64 100
+  %107 = getelementptr inbounds nuw i8, ptr %.pre, i64 100
   %108 = load i32, ptr %107, align 4
   store i32 %108, ptr %18, align 4
   store i32 0, ptr %19, align 4
@@ -1592,7 +1592,7 @@ _ZNSt10shared_ptrIKN10open_spiel4GameEEC2ERKS3_.exit: ; preds = %7, %37, %40
   br label %134
 
 115:                                              ; preds = %104, %106
-  %116 = getelementptr inbounds i8, ptr %.pre, i64 88
+  %116 = getelementptr inbounds nuw i8, ptr %.pre, i64 88
   %117 = load i32, ptr %116, align 8
   store i32 %117, ptr %22, align 4
   store i32 1, ptr %23, align 4
@@ -1618,7 +1618,7 @@ _ZNSt10shared_ptrIKN10open_spiel4GameEEC2ERKS3_.exit: ; preds = %7, %37, %40
   br label %134
 
 124:                                              ; preds = %115
-  %125 = getelementptr inbounds i8, ptr %.pre, i64 96
+  %125 = getelementptr inbounds nuw i8, ptr %.pre, i64 96
   %126 = load i32, ptr %125, align 8
   store i32 %126, ptr %26, align 4
   store i32 1, ptr %27, align 4
@@ -1693,11 +1693,11 @@ define void @_ZN10open_spiel10algorithms22TabularQLearningSolver12RunIterationEv
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 5056
   %27 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  %28 = getelementptr inbounds i8, ptr %0, i64 5064
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 5064
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 5096
   %31 = getelementptr inbounds nuw i8, ptr %8, i64 32
-  %32 = getelementptr inbounds i8, ptr %0, i64 5104
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 5104
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %34 = getelementptr inbounds nuw i8, ptr %10, i64 32
   %35 = getelementptr inbounds nuw i8, ptr %11, i64 32

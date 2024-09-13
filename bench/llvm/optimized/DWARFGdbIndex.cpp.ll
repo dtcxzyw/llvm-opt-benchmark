@@ -294,7 +294,7 @@ define dso_local void @_ZNK4llvm13DWARFGdbIndex10dumpTUListERNS_11raw_ostreamE(p
   store i8 1, ptr %10, align 8, !alias.scope !10
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 40
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4llvm7support6detail23provider_format_adapterImEE, i64 16), ptr %11, align 8, !alias.scope !10
-  %12 = getelementptr inbounds i8, ptr %3, i64 48
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 48
   store i64 %7, ptr %12, align 8, !alias.scope !10
   %13 = getelementptr inbounds i8, ptr %3, i64 56
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4llvm7support6detail23provider_format_adapterIRKjEE, i64 16), ptr %13, align 8, !alias.scope !10
@@ -317,7 +317,7 @@ define dso_local void @_ZNK4llvm13DWARFGdbIndex10dumpTUListERNS_11raw_ostreamE(p
   %.sroa.2.0..sroa_idx.i.i.i.i14 = getelementptr inbounds i8, ptr %4, i64 24
   %21 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %22 = getelementptr inbounds nuw i8, ptr %4, i64 40
-  %23 = getelementptr inbounds i8, ptr %4, i64 48
+  %23 = getelementptr inbounds nuw i8, ptr %4, i64 48
   %24 = getelementptr inbounds i8, ptr %4, i64 56
   %25 = getelementptr inbounds i8, ptr %4, i64 64
   %26 = getelementptr inbounds i8, ptr %4, i64 72
@@ -486,7 +486,7 @@ _ZN4llvm11raw_ostreamlsEc.exit:                   ; preds = %18, %20
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  %32 = getelementptr inbounds i8, ptr %0, i64 112
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %34 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %35 = getelementptr inbounds nuw i8, ptr %5, i64 16

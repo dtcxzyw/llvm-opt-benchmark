@@ -163,7 +163,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__36HdSingleInputFilteringSceneI
   %23 = getelementptr inbounds i8, ptr %0, i64 136
   store ptr null, ptr %23, align 8
   store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__36HdSingleInputFilteringSceneIndexBase9_ObserverE, i64 16), ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %0, i64 144
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 144
   store ptr %0, ptr %24, align 8
   %25 = load ptr, ptr %1, align 8
   %.not.i = icmp eq ptr %25, null

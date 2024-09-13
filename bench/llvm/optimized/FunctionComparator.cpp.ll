@@ -415,10 +415,10 @@ _ZNK4llvm18FunctionComparator9cmpAPIntsERKNS_5APIntES3_.exit: ; preds = %61, %73
 76:                                               ; preds = %_ZNK4llvm18FunctionComparator9cmpAPIntsERKNS_5APIntES3_.exit
   %77 = getelementptr inbounds nuw i8, ptr %62, i64 16
   %78 = getelementptr inbounds nuw i8, ptr %63, i64 16
-  %79 = getelementptr inbounds i8, ptr %62, i64 24
+  %79 = getelementptr inbounds nuw i8, ptr %62, i64 24
   %80 = load i32, ptr %79, align 8
   %81 = zext i32 %80 to i64
-  %82 = getelementptr inbounds i8, ptr %63, i64 24
+  %82 = getelementptr inbounds nuw i8, ptr %63, i64 24
   %83 = load i32, ptr %82, align 8
   %84 = zext i32 %83 to i64
   %.0.i.i58 = call noundef range(i32 -1, 2) i32 @llvm.ucmp.i32.i64(i64 %81, i64 %84)
@@ -1441,7 +1441,7 @@ _ZN4llvm8dyn_castINS_25OverflowingBinaryOperatorEKNS_12ConstantExprEEEDcPT0_.exi
   br i1 %301, label %_ZNK4llvm18FunctionComparator6cmpMemENS_9StringRefES1_.exit, label %302
 
 302:                                              ; preds = %300
-  %303 = getelementptr inbounds i8, ptr %293, i64 80
+  %303 = getelementptr inbounds nuw i8, ptr %293, i64 80
   %304 = getelementptr inbounds nuw i8, ptr %293, i64 72
   %.sroa.0302.0330 = load ptr, ptr %303, align 8
   %305 = icmp ne ptr %.sroa.0302.0330, %304
@@ -1958,7 +1958,7 @@ define linkonce_odr hidden void @_ZNSt8optionalIN4llvm13ConstantRangeEED2Ev(ptr 
 
 5:                                                ; preds = %1
   store i8 0, ptr %2, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = load i32, ptr %6, align 8
   %8 = icmp ugt i32 %7, 64
   br i1 %8, label %9, label %_ZN4llvm5APIntD2Ev.exit.i.i.i.i.i
@@ -2074,14 +2074,14 @@ define dso_local noundef i32 @_ZNK4llvm18FunctionComparator9cmpValuesEPKNS_5Valu
 
 44:                                               ; preds = %43
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %46 = getelementptr inbounds i8, ptr %0, i64 24
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %47 = load i32, ptr %46, align 8
   store ptr %1, ptr %5, align 8
   %48 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 %47, ptr %48, align 8
   call void @_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_5ValueEiNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_iEEEES4_iS6_S9_E6insertEOSt4pairIS4_iE(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair.100") align 8 %4, ptr noundef nonnull align 1 dereferenceable(1) %45, ptr noundef nonnull align 8 dereferenceable(12) %5)
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %50 = getelementptr inbounds i8, ptr %0, i64 48
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %51 = load i32, ptr %50, align 8
   store ptr %2, ptr %7, align 8
   %52 = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -3167,10 +3167,10 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_5ValueEiNS_12DenseMapInfoIS4_vEENS_6det
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local noundef i32 @_ZNK4llvm18FunctionComparator14cmpBasicBlocksEPKNS_10BasicBlockES3_(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef readonly %1, ptr noundef readonly %2) local_unnamed_addr #2 align 2 {
   %4 = alloca i8, align 1
-  %5 = getelementptr inbounds i8, ptr %1, i64 56
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %8 = getelementptr inbounds i8, ptr %2, i64 56
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 48
   br label %11
@@ -3518,10 +3518,10 @@ define dso_local noundef i32 @_ZN4llvm18FunctionComparator7compareEv(ptr noundef
   %3 = alloca %"class.llvm::SmallVector.109", align 8
   %4 = alloca %"class.llvm::SmallPtrSet", align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %6 = getelementptr inbounds i8, ptr %0, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = load i32, ptr %6, align 8
   %8 = icmp eq i32 %7, 0
-  %9 = getelementptr inbounds i8, ptr %0, i64 28
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %10 = load i32, ptr %9, align 4
   %11 = icmp eq i32 %10, 0
   %or.cond.i = select i1 %8, i1 %11, i1 false
@@ -3529,7 +3529,7 @@ define dso_local noundef i32 @_ZN4llvm18FunctionComparator7compareEv(ptr noundef
 
 12:                                               ; preds = %1
   %13 = shl i32 %7, 2
-  %14 = getelementptr inbounds i8, ptr %0, i64 32
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %15 = load i32, ptr %14, align 8
   %16 = icmp ult i32 %13, %15
   %17 = icmp ugt i32 %15, 64
@@ -3561,10 +3561,10 @@ define dso_local noundef i32 @_ZN4llvm18FunctionComparator7compareEv(ptr noundef
 
 _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_5ValueEiNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_iEEEES4_iS6_S9_E5clearEv.exit.i: ; preds = %._crit_edge.i.i, %18, %1
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %25 = getelementptr inbounds i8, ptr %0, i64 48
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %26 = load i32, ptr %25, align 8
   %27 = icmp eq i32 %26, 0
-  %28 = getelementptr inbounds i8, ptr %0, i64 52
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %29 = load i32, ptr %28, align 4
   %30 = icmp eq i32 %29, 0
   %or.cond12.i = select i1 %27, i1 %30, i1 false
@@ -3572,7 +3572,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_5ValueEiNS_12DenseMapInfoIS4_vEENS_6det
 
 31:                                               ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_5ValueEiNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_iEEEES4_iS6_S9_E5clearEv.exit.i
   %32 = shl i32 %26, 2
-  %33 = getelementptr inbounds i8, ptr %0, i64 56
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %34 = load i32, ptr %33, align 8
   %35 = icmp ult i32 %32, %34
   %36 = icmp ugt i32 %34, 64
@@ -3623,7 +3623,7 @@ _ZN4llvm18FunctionComparator12beginCompareEv.exit: ; preds = %_ZN4llvm12DenseMap
   %51 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store i32 0, ptr %51, align 8
   %52 = load ptr, ptr %0, align 8
-  %53 = getelementptr inbounds i8, ptr %52, i64 80
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 80
   %54 = load ptr, ptr %53, align 8
   %55 = icmp eq ptr %54, null
   %56 = getelementptr inbounds i8, ptr %54, i64 -24
@@ -3649,7 +3649,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPKNS_10BasicBlockELb1EE9push_backES3_.exit: ; 
   call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %2, i64 noundef %67) #18
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %69 = load ptr, ptr %68, align 8
-  %70 = getelementptr inbounds i8, ptr %69, i64 80
+  %70 = getelementptr inbounds nuw i8, ptr %69, i64 80
   %71 = load ptr, ptr %70, align 8
   %72 = icmp eq ptr %71, null
   %73 = getelementptr inbounds i8, ptr %71, i64 -24

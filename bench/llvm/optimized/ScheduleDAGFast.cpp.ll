@@ -219,7 +219,7 @@ define internal void @_ZN12_GLOBAL__N_115ScheduleDAGFastD2Ev(ptr noundef nonnull
   br i1 %.not.i.i.i, label %_ZNSt6vectorIjSaIjEED2Ev.exit, label %4
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 824
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 824
   %6 = load ptr, ptr %5, align 8
   %7 = ptrtoint ptr %6 to i64
   %8 = ptrtoint ptr %3 to i64
@@ -234,7 +234,7 @@ _ZNSt6vectorIjSaIjEED2Ev.exit:                    ; preds = %1, %4
   br i1 %.not.i.i.i1, label %_ZNSt6vectorIPN4llvm5SUnitESaIS2_EED2Ev.exit, label %12
 
 12:                                               ; preds = %_ZNSt6vectorIjSaIjEED2Ev.exit
-  %13 = getelementptr inbounds i8, ptr %0, i64 800
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 800
   %14 = load ptr, ptr %13, align 8
   %15 = ptrtoint ptr %14 to i64
   %16 = ptrtoint ptr %11 to i64
@@ -262,7 +262,7 @@ _ZN12_GLOBAL__N_117FastPriorityQueueD2Ev.exit:    ; preds = %_ZNSt6vectorIPN4llv
   br i1 %.not.i.i.i.i, label %_ZN4llvm18ScheduleDAGSDNodesD2Ev.exit, label %26
 
 26:                                               ; preds = %_ZN12_GLOBAL__N_117FastPriorityQueueD2Ev.exit
-  %27 = getelementptr inbounds i8, ptr %0, i64 624
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 624
   %28 = load ptr, ptr %27, align 8
   %29 = ptrtoint ptr %28 to i64
   %30 = ptrtoint ptr %25 to i64
@@ -350,7 +350,7 @@ define internal void @_ZN12_GLOBAL__N_115ScheduleDAGFast8ScheduleEv(ptr noundef 
   %43 = load i32, ptr %42, align 8
   %44 = zext i32 %43 to i64
   store ptr null, ptr %36, align 8
-  %45 = getelementptr inbounds i8, ptr %0, i64 792
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 792
   %46 = load ptr, ptr %45, align 8
   %47 = load ptr, ptr %39, align 8
   %48 = ptrtoint ptr %46 to i64
@@ -386,7 +386,7 @@ _ZNSt6vectorIPN4llvm5SUnitESaIS2_EE6resizeEmRKS2_.exit: ; preds = %53, %55, %57,
   %63 = load i32, ptr %62, align 8
   %64 = zext i32 %63 to i64
   store i32 0, ptr %37, align 4
-  %65 = getelementptr inbounds i8, ptr %0, i64 816
+  %65 = getelementptr inbounds nuw i8, ptr %0, i64 816
   %66 = load ptr, ptr %65, align 8
   %67 = load ptr, ptr %61, align 8
   %68 = ptrtoint ptr %66 to i64
@@ -428,7 +428,7 @@ _ZNSt6vectorIjSaIjEE6resizeEmRKj.exit:            ; preds = %73, %75, %77, %79
   call fastcc void @_ZN12_GLOBAL__N_115ScheduleDAGFast19ReleasePredecessorsEPN4llvm5SUnitEj(ptr noundef nonnull align 8 dereferenceable(832) %0, ptr noundef nonnull %80, i32 noundef 0)
   %81 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %82 = load ptr, ptr %81, align 8
-  %83 = getelementptr inbounds i8, ptr %0, i64 56
+  %83 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %84 = load ptr, ptr %83, align 8
   %85 = icmp eq ptr %82, %84
   br i1 %85, label %110, label %86
@@ -488,7 +488,7 @@ _ZN12_GLOBAL__N_117FastPriorityQueue4pushEPN4llvm5SUnitE.exit.i: ; preds = %102,
   unreachable
 
 121:                                              ; preds = %110
-  %122 = getelementptr inbounds i8, ptr %0, i64 624
+  %122 = getelementptr inbounds nuw i8, ptr %0, i64 624
   %123 = load ptr, ptr %122, align 8
   %124 = load ptr, ptr %112, align 8
   %125 = ptrtoint ptr %123 to i64
@@ -499,7 +499,7 @@ _ZN12_GLOBAL__N_117FastPriorityQueue4pushEPN4llvm5SUnitE.exit.i: ; preds = %102,
   br i1 %129, label %_ZNSt12_Vector_baseIPN4llvm5SUnitESaIS2_EE11_M_allocateEm.exit.i.i, label %_ZNSt6vectorIPN4llvm5SUnitESaIS2_EE7reserveEm.exit.i
 
 _ZNSt12_Vector_baseIPN4llvm5SUnitESaIS2_EE11_M_allocateEm.exit.i.i: ; preds = %121
-  %130 = getelementptr inbounds i8, ptr %0, i64 616
+  %130 = getelementptr inbounds nuw i8, ptr %0, i64 616
   %131 = load ptr, ptr %130, align 8
   %132 = ptrtoint ptr %131 to i64
   %133 = sub i64 %132, %126
@@ -551,7 +551,7 @@ _ZNSt6vectorIPN4llvm5SUnitESaIS2_EE7reserveEm.exit.i: ; preds = %_ZNSt12_Vector_
   %157 = getelementptr inbounds nuw i8, ptr %27, i64 32
   %158 = getelementptr inbounds nuw i8, ptr %31, i64 8
   %159 = getelementptr inbounds i8, ptr %31, i64 24
-  %160 = getelementptr inbounds i8, ptr %31, i64 16
+  %160 = getelementptr inbounds nuw i8, ptr %31, i64 16
   %161 = getelementptr inbounds i8, ptr %11, i64 16
   %162 = getelementptr inbounds nuw i8, ptr %0, i64 592
   %163 = getelementptr inbounds nuw i8, ptr %12, i64 12
@@ -576,7 +576,7 @@ _ZNSt6vectorIPN4llvm5SUnitESaIS2_EE7reserveEm.exit.i: ; preds = %_ZNSt12_Vector_
   %182 = getelementptr inbounds nuw i8, ptr %35, i64 12
   %183 = getelementptr inbounds i8, ptr %0, i64 648
   %184 = getelementptr inbounds nuw i8, ptr %28, i64 8
-  %185 = getelementptr inbounds i8, ptr %0, i64 616
+  %185 = getelementptr inbounds nuw i8, ptr %0, i64 616
   %186 = getelementptr inbounds nuw i8, ptr %2, i64 16
   br label %187
 
@@ -825,7 +825,7 @@ _ZNK4llvm3EVTeqES0_.exit.i.i:                     ; preds = %_ZNK4llvm6SDNode12g
   %293 = getelementptr inbounds nuw i8, ptr %292, i64 88
   %294 = load ptr, ptr %293, align 8
   %295 = getelementptr inbounds nuw i8, ptr %294, i64 24
-  %296 = getelementptr inbounds i8, ptr %294, i64 32
+  %296 = getelementptr inbounds nuw i8, ptr %294, i64 32
   %297 = load i32, ptr %296, align 8
   %298 = icmp ult i32 %297, 65
   %299 = load ptr, ptr %295, align 8
@@ -2674,7 +2674,7 @@ _ZN12_GLOBAL__N_115ScheduleDAGFast20ScheduleNodeBottomUpEPN4llvm5SUnitEj.exit.i:
 
 ._crit_edge142.i:                                 ; preds = %1179, %_ZNSt6vectorIPN4llvm5SUnitESaIS2_EE7reserveEm.exit.i
   %1182 = load ptr, ptr %112, align 8
-  %1183 = getelementptr inbounds i8, ptr %0, i64 616
+  %1183 = getelementptr inbounds nuw i8, ptr %0, i64 616
   %1184 = load ptr, ptr %1183, align 8
   %1185 = icmp ne ptr %1182, %1184
   %.sroa.0.08.i.i.i = getelementptr inbounds i8, ptr %1184, i64 -8
@@ -4279,7 +4279,7 @@ define internal void @_ZN12_GLOBAL__N_120ScheduleDAGLinearizeD2Ev(ptr noundef no
   store ptr getelementptr inbounds inrange(-16, 120) (i8, ptr @_ZTVN12_GLOBAL__N_120ScheduleDAGLinearizeE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 656
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 672
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 672
   %5 = load i32, ptr %4, align 8
   %6 = zext i32 %5 to i64
   %7 = shl nuw nsw i64 %6, 4
@@ -4290,7 +4290,7 @@ define internal void @_ZN12_GLOBAL__N_120ScheduleDAGLinearizeD2Ev(ptr noundef no
   br i1 %.not.i.i.i, label %_ZNSt6vectorIPN4llvm6SDNodeESaIS2_EED2Ev.exit, label %10
 
 10:                                               ; preds = %1
-  %11 = getelementptr inbounds i8, ptr %0, i64 648
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 648
   %12 = load ptr, ptr %11, align 8
   %13 = ptrtoint ptr %12 to i64
   %14 = ptrtoint ptr %9 to i64
@@ -4306,7 +4306,7 @@ _ZNSt6vectorIPN4llvm6SDNodeESaIS2_EED2Ev.exit:    ; preds = %1, %10
   br i1 %.not.i.i.i.i, label %_ZN4llvm18ScheduleDAGSDNodesD2Ev.exit, label %18
 
 18:                                               ; preds = %_ZNSt6vectorIPN4llvm6SDNodeESaIS2_EED2Ev.exit
-  %19 = getelementptr inbounds i8, ptr %0, i64 624
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 624
   %20 = load ptr, ptr %19, align 8
   %21 = ptrtoint ptr %20 to i64
   %22 = ptrtoint ptr %17 to i64
@@ -4324,7 +4324,7 @@ define internal void @_ZN12_GLOBAL__N_120ScheduleDAGLinearizeD0Ev(ptr noundef no
   store ptr getelementptr inbounds inrange(-16, 120) (i8, ptr @_ZTVN12_GLOBAL__N_120ScheduleDAGLinearizeE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 656
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 672
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 672
   %5 = load i32, ptr %4, align 8
   %6 = zext i32 %5 to i64
   %7 = shl nuw nsw i64 %6, 4
@@ -4335,7 +4335,7 @@ define internal void @_ZN12_GLOBAL__N_120ScheduleDAGLinearizeD0Ev(ptr noundef no
   br i1 %.not.i.i.i.i, label %_ZNSt6vectorIPN4llvm6SDNodeESaIS2_EED2Ev.exit.i, label %10
 
 10:                                               ; preds = %1
-  %11 = getelementptr inbounds i8, ptr %0, i64 648
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 648
   %12 = load ptr, ptr %11, align 8
   %13 = ptrtoint ptr %12 to i64
   %14 = ptrtoint ptr %9 to i64
@@ -4351,7 +4351,7 @@ _ZNSt6vectorIPN4llvm6SDNodeESaIS2_EED2Ev.exit.i:  ; preds = %10, %1
   br i1 %.not.i.i.i.i.i, label %_ZN12_GLOBAL__N_120ScheduleDAGLinearizeD2Ev.exit, label %18
 
 18:                                               ; preds = %_ZNSt6vectorIPN4llvm6SDNodeESaIS2_EED2Ev.exit.i
-  %19 = getelementptr inbounds i8, ptr %0, i64 624
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 624
   %20 = load ptr, ptr %19, align 8
   %21 = ptrtoint ptr %20 to i64
   %22 = ptrtoint ptr %17 to i64
@@ -4374,7 +4374,7 @@ define internal void @_ZN12_GLOBAL__N_120ScheduleDAGLinearize8ScheduleEv(ptr nou
   call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull %5, i64 noundef 8) #18
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 592
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 352
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 352
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 344
   %.sroa.077.097 = load ptr, ptr %8, align 8
   %.not8398 = icmp eq ptr %.sroa.077.097, %9
@@ -4383,7 +4383,7 @@ define internal void @_ZN12_GLOBAL__N_120ScheduleDAGLinearize8ScheduleEv(ptr nou
 .lr.ph:                                           ; preds = %1
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 656
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 672
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 672
   br label %13
 
 13:                                               ; preds = %.lr.ph, %95
@@ -4579,7 +4579,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_6SDNodeELb1EE9push_backES2_.exit: ; preds 
 
 .lr.ph110:                                        ; preds = %._crit_edge
   %101 = getelementptr inbounds nuw i8, ptr %0, i64 656
-  %102 = getelementptr inbounds i8, ptr %0, i64 672
+  %102 = getelementptr inbounds nuw i8, ptr %0, i64 672
   br label %103
 
 103:                                              ; preds = %.lr.ph110, %._crit_edge105
@@ -4708,7 +4708,7 @@ _ZNK4llvm6SDNode12getGluedUserEv.exit:            ; preds = %_ZNK4llvm3EVTeqES0_
 
 ._crit_edge111:                                   ; preds = %._crit_edge105, %._crit_edge
   %163 = getelementptr inbounds nuw i8, ptr %0, i64 632
-  %164 = getelementptr inbounds i8, ptr %0, i64 648
+  %164 = getelementptr inbounds nuw i8, ptr %0, i64 648
   %165 = load ptr, ptr %164, align 8
   %166 = load ptr, ptr %163, align 8
   %167 = ptrtoint ptr %165 to i64
@@ -4719,7 +4719,7 @@ _ZNK4llvm6SDNode12getGluedUserEv.exit:            ; preds = %_ZNK4llvm3EVTeqES0_
   br i1 %171, label %_ZNSt12_Vector_baseIPN4llvm6SDNodeESaIS2_EE11_M_allocateEm.exit.i, label %_ZNSt6vectorIPN4llvm6SDNodeESaIS2_EE7reserveEm.exit
 
 _ZNSt12_Vector_baseIPN4llvm6SDNodeESaIS2_EE11_M_allocateEm.exit.i: ; preds = %._crit_edge111
-  %172 = getelementptr inbounds i8, ptr %0, i64 640
+  %172 = getelementptr inbounds nuw i8, ptr %0, i64 640
   %173 = load ptr, ptr %172, align 8
   %174 = ptrtoint ptr %173 to i64
   %175 = sub i64 %174, %168
@@ -4779,7 +4779,7 @@ define internal noundef ptr @_ZN12_GLOBAL__N_120ScheduleDAGLinearize12EmitSchedu
   call void @_ZN4llvm12InstrEmitterC1ERKNS_13TargetMachineEPNS_17MachineBasicBlockENS_26MachineInstrBundleIteratorINS_12MachineInstrELb0EEE(ptr noundef nonnull align 8 dereferenceable(57) %3, ptr noundef nonnull align 1 %7, ptr noundef %9, ptr %.sroa.021.0.copyload) #18
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %4, i8 0, i64 20, i1 false)
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 632
-  %11 = getelementptr inbounds i8, ptr %0, i64 640
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 640
   %12 = load ptr, ptr %11, align 8
   %13 = load ptr, ptr %10, align 8
   %14 = ptrtoint ptr %12 to i64
@@ -4833,7 +4833,7 @@ _ZN4llvm12InstrEmitter8EmitNodeEPNS_6SDNodeEbbRNS_8DenseMapINS_7SDValueENS_8Regi
   %42 = load ptr, ptr %41, align 8
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 688
   %44 = load ptr, ptr %43, align 8
-  %45 = getelementptr inbounds i8, ptr %42, i64 704
+  %45 = getelementptr inbounds nuw i8, ptr %42, i64 704
   %46 = load i32, ptr %45, align 8
   %47 = icmp eq i32 %46, 0
   br i1 %47, label %.loopexit.i.i.i, label %48
@@ -5019,9 +5019,9 @@ define internal fastcc void @_ZN12_GLOBAL__N_120ScheduleDAGLinearize12ScheduleNo
 
 12:                                               ; preds = %10, %2
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 632
-  %14 = getelementptr inbounds i8, ptr %0, i64 640
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 640
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 648
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 648
   %17 = load ptr, ptr %16, align 8
   %.not.i = icmp eq ptr %15, %17
   br i1 %.not.i, label %21, label %18
@@ -5097,7 +5097,7 @@ _ZNSt6vectorIPN4llvm6SDNodeESaIS2_EE9push_backERKS2_.exit: ; preds = %18, %_ZNSt
 .preheader:                                       ; preds = %_ZNSt6vectorIPN4llvm6SDNodeESaIS2_EE9push_backERKS2_.exit
   %46 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 656
-  %48 = getelementptr inbounds i8, ptr %0, i64 672
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 672
   %49 = zext i16 %45 to i64
   %50 = zext i16 %45 to i64
   br label %51
@@ -5519,9 +5519,9 @@ declare void @_ZN4llvm12ilist_traitsINS_12MachineInstrEE13addNodeToListEPS1_(ptr
 ; Function Attrs: nounwind uwtable
 define internal void @_GLOBAL__sub_I_ScheduleDAGFast.cpp() #13 section ".text.startup" {
   store ptr @.str.10, ptr getelementptr inbounds nuw (i8, ptr @_ZL16fastDAGScheduler, i64 8), align 8
-  store i64 4, ptr getelementptr inbounds (i8, ptr @_ZL16fastDAGScheduler, i64 16), align 8
+  store i64 4, ptr getelementptr inbounds nuw (i8, ptr @_ZL16fastDAGScheduler, i64 16), align 8
   store ptr @.str.11, ptr getelementptr inbounds nuw (i8, ptr @_ZL16fastDAGScheduler, i64 24), align 8
-  store i64 31, ptr getelementptr inbounds (i8, ptr @_ZL16fastDAGScheduler, i64 32), align 8
+  store i64 31, ptr getelementptr inbounds nuw (i8, ptr @_ZL16fastDAGScheduler, i64 32), align 8
   store ptr @_ZN4llvm22createFastDAGSchedulerEPNS_16SelectionDAGISelENS_15CodeGenOptLevelE, ptr getelementptr inbounds nuw (i8, ptr @_ZL16fastDAGScheduler, i64 40), align 8
   %1 = load ptr, ptr @_ZN4llvm17RegisterScheduler8RegistryE, align 8
   store ptr %1, ptr @_ZL16fastDAGScheduler, align 8
@@ -5540,9 +5540,9 @@ define internal void @_GLOBAL__sub_I_ScheduleDAGFast.cpp() #13 section ".text.st
 __cxx_global_var_init.9.exit:                     ; preds = %0, %3
   %7 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4llvm17RegisterSchedulerD2Ev, ptr nonnull @_ZL16fastDAGScheduler, ptr nonnull @__dso_handle) #18
   store ptr @.str.13, ptr getelementptr inbounds nuw (i8, ptr @_ZL21linearizeDAGScheduler, i64 8), align 8
-  store i64 9, ptr getelementptr inbounds (i8, ptr @_ZL21linearizeDAGScheduler, i64 16), align 8
+  store i64 9, ptr getelementptr inbounds nuw (i8, ptr @_ZL21linearizeDAGScheduler, i64 16), align 8
   store ptr @.str.14, ptr getelementptr inbounds nuw (i8, ptr @_ZL21linearizeDAGScheduler, i64 24), align 8
-  store i64 28, ptr getelementptr inbounds (i8, ptr @_ZL21linearizeDAGScheduler, i64 32), align 8
+  store i64 28, ptr getelementptr inbounds nuw (i8, ptr @_ZL21linearizeDAGScheduler, i64 32), align 8
   store ptr @_ZN4llvm19createDAGLinearizerEPNS_16SelectionDAGISelENS_15CodeGenOptLevelE, ptr getelementptr inbounds nuw (i8, ptr @_ZL21linearizeDAGScheduler, i64 40), align 8
   %8 = load ptr, ptr @_ZN4llvm17RegisterScheduler8RegistryE, align 8
   store ptr %8, ptr @_ZL21linearizeDAGScheduler, align 8

@@ -190,7 +190,7 @@ _ZNSt10unique_ptrIN4llvm15MachineLoopInfoESt14default_deleteIS1_EE5resetEPS1_.ex
 
 8:                                                ; preds = %_ZNSt10unique_ptrIN4llvm15MachineLoopInfoESt14default_deleteIS1_EE5resetEPS1_.exit
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 912
-  %10 = getelementptr inbounds i8, ptr %7, i64 920
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 920
   %11 = load ptr, ptr %10, align 8
   %12 = load ptr, ptr %9, align 8
   %13 = icmp eq ptr %11, %12
@@ -328,15 +328,15 @@ _ZNK4llvm4Pass22getAnalysisIfAvailableINS_31MachineDominatorTreeWrapperPassEEEPT
   %51 = getelementptr inbounds i8, ptr %43, i64 144
   tail call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %50, ptr noundef nonnull %51, i64 noundef 32) #12, !noalias !4
   %52 = getelementptr inbounds nuw i8, ptr %43, i64 912
-  %53 = getelementptr inbounds i8, ptr %43, i64 944
+  %53 = getelementptr inbounds nuw i8, ptr %43, i64 944
   store ptr %53, ptr %52, align 8, !noalias !4
-  %54 = getelementptr inbounds i8, ptr %43, i64 920
+  %54 = getelementptr inbounds nuw i8, ptr %43, i64 920
   store ptr %53, ptr %54, align 8, !noalias !4
-  %55 = getelementptr inbounds i8, ptr %43, i64 928
+  %55 = getelementptr inbounds nuw i8, ptr %43, i64 928
   store i32 32, ptr %55, align 8, !noalias !4
-  %56 = getelementptr inbounds i8, ptr %43, i64 932
+  %56 = getelementptr inbounds nuw i8, ptr %43, i64 932
   store i32 0, ptr %56, align 4, !noalias !4
-  %57 = getelementptr inbounds i8, ptr %43, i64 936
+  %57 = getelementptr inbounds nuw i8, ptr %43, i64 936
   store i32 0, ptr %57, align 8, !noalias !4
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %59 = load ptr, ptr %58, align 8
@@ -346,7 +346,7 @@ _ZNK4llvm4Pass22getAnalysisIfAvailableINS_31MachineDominatorTreeWrapperPassEEEPT
 
 60:                                               ; preds = %.thread
   %61 = getelementptr inbounds nuw i8, ptr %59, i64 912
-  %62 = getelementptr inbounds i8, ptr %59, i64 920
+  %62 = getelementptr inbounds nuw i8, ptr %59, i64 920
   %63 = load ptr, ptr %62, align 8
   %64 = load ptr, ptr %61, align 8
   %65 = icmp eq ptr %63, %64
@@ -386,15 +386,15 @@ _ZNSt10unique_ptrIN4llvm20MachineDominatorTreeESt14default_deleteIS1_EED2Ev.exit
 77:                                               ; preds = %_ZNSt10unique_ptrIN4llvm20MachineDominatorTreeESt14default_deleteIS1_EED2Ev.exit, %41
   %.0 = phi ptr [ %spec.select44, %41 ], [ %76, %_ZNSt10unique_ptrIN4llvm20MachineDominatorTreeESt14default_deleteIS1_EED2Ev.exit ]
   %78 = tail call noalias noundef nonnull dereferenceable(144) ptr @_Znwm(i64 noundef 144) #14, !noalias !7
-  %79 = getelementptr inbounds i8, ptr %78, i64 64
+  %79 = getelementptr inbounds nuw i8, ptr %78, i64 64
   %80 = getelementptr inbounds i8, ptr %78, i64 80
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %78, i8 0, i64 144, i1 false), !noalias !7
   tail call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %79, ptr noundef nonnull %80, i64 noundef 4) #12, !noalias !7
-  %81 = getelementptr inbounds i8, ptr %78, i64 112
+  %81 = getelementptr inbounds nuw i8, ptr %78, i64 112
   %82 = getelementptr inbounds i8, ptr %78, i64 128
   tail call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %81, ptr noundef nonnull %82, i64 noundef 0) #12, !noalias !7
   store i64 0, ptr %82, align 8, !noalias !7
-  %83 = getelementptr inbounds i8, ptr %78, i64 136
+  %83 = getelementptr inbounds nuw i8, ptr %78, i64 136
   store i64 1, ptr %83, align 8, !noalias !7
   %84 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %85 = load ptr, ptr %84, align 8
@@ -467,7 +467,7 @@ define linkonce_odr hidden void @_ZN4llvm33LazyMachineBlockFrequencyInfoPassD2Ev
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 912
-  %6 = getelementptr inbounds i8, ptr %3, i64 920
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 920
   %7 = load ptr, ptr %6, align 8
   %8 = load ptr, ptr %5, align 8
   %9 = icmp eq ptr %7, %8

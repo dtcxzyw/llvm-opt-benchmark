@@ -55,8 +55,8 @@ define hidden void @_ZN4ncnn24Convolution1D_x86_avx512C2Ev(ptr noundef nonnull a
   tail call void @_ZN4ncnn13Convolution1DC2Ev(ptr noundef nonnull align 8 dereferenceable(472) %0)
   store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTVN4ncnn24Convolution1D_x86_avx512E, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 472
-  %3 = getelementptr inbounds i8, ptr %0, i64 504
-  %4 = getelementptr inbounds i8, ptr %0, i64 536
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 504
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 536
   store i64 0, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 11
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %2, i8 0, i64 28, i1 false)
@@ -73,7 +73,7 @@ declare i32 @__gxx_personality_v0(...)
 define linkonce_odr hidden void @_ZN4ncnn13Convolution1DD2Ev(ptr noundef nonnull align 8 dereferenceable(472) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTVN4ncnn13Convolution1DE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 400
-  %3 = getelementptr inbounds i8, ptr %0, i64 408
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 408
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %21, label %5
@@ -84,7 +84,7 @@ define linkonce_odr hidden void @_ZN4ncnn13Convolution1DD2Ev(ptr noundef nonnull
   br i1 %7, label %8, label %21
 
 8:                                                ; preds = %5
-  %9 = getelementptr inbounds i8, ptr %0, i64 432
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 432
   %10 = load ptr, ptr %9, align 8
   %.not26 = icmp eq ptr %10, null
   %11 = load ptr, ptr %2, align 8
@@ -113,11 +113,11 @@ define linkonce_odr hidden void @_ZN4ncnn13Convolution1DD2Ev(ptr noundef nonnull
   unreachable
 
 21:                                               ; preds = %12, %17, %16, %5, %1
-  %22 = getelementptr inbounds i8, ptr %0, i64 440
-  %23 = getelementptr inbounds i8, ptr %0, i64 464
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 440
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 464
   store i64 0, ptr %23, align 8
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 328
-  %25 = getelementptr inbounds i8, ptr %0, i64 336
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 336
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %2, i8 0, i64 28, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %22, i8 0, i64 20, i1 false)
   %26 = load ptr, ptr %25, align 8
@@ -130,7 +130,7 @@ define linkonce_odr hidden void @_ZN4ncnn13Convolution1DD2Ev(ptr noundef nonnull
   br i1 %29, label %30, label %43
 
 30:                                               ; preds = %27
-  %31 = getelementptr inbounds i8, ptr %0, i64 360
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 360
   %32 = load ptr, ptr %31, align 8
   %.not29 = icmp eq ptr %32, null
   %33 = load ptr, ptr %24, align 8
@@ -159,11 +159,11 @@ define linkonce_odr hidden void @_ZN4ncnn13Convolution1DD2Ev(ptr noundef nonnull
   unreachable
 
 43:                                               ; preds = %34, %39, %38, %27, %21
-  %44 = getelementptr inbounds i8, ptr %0, i64 368
-  %45 = getelementptr inbounds i8, ptr %0, i64 392
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 368
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 392
   store i64 0, ptr %45, align 8
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 248
-  %47 = getelementptr inbounds i8, ptr %0, i64 256
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 256
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %24, i8 0, i64 28, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %44, i8 0, i64 20, i1 false)
   %48 = load ptr, ptr %47, align 8
@@ -176,7 +176,7 @@ define linkonce_odr hidden void @_ZN4ncnn13Convolution1DD2Ev(ptr noundef nonnull
   br i1 %51, label %52, label %65
 
 52:                                               ; preds = %49
-  %53 = getelementptr inbounds i8, ptr %0, i64 280
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %54 = load ptr, ptr %53, align 8
   %.not32 = icmp eq ptr %54, null
   %55 = load ptr, ptr %46, align 8
@@ -205,8 +205,8 @@ define linkonce_odr hidden void @_ZN4ncnn13Convolution1DD2Ev(ptr noundef nonnull
   unreachable
 
 65:                                               ; preds = %56, %61, %60, %49, %43
-  %66 = getelementptr inbounds i8, ptr %0, i64 288
-  %67 = getelementptr inbounds i8, ptr %0, i64 312
+  %66 = getelementptr inbounds nuw i8, ptr %0, i64 288
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 312
   store i64 0, ptr %67, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %46, i8 0, i64 28, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %66, i8 0, i64 20, i1 false)
@@ -722,8 +722,8 @@ define hidden noundef i32 @_ZN4ncnn24Convolution1D_x86_avx51215create_pipelineER
 
 .lr.ph.i:                                         ; preds = %108, %92, %71, %47, %19
   %381 = mul i32 %13, %9
-  %382 = getelementptr inbounds i8, ptr %0, i64 536
-  %383 = getelementptr inbounds i8, ptr %0, i64 488
+  %382 = getelementptr inbounds nuw i8, ptr %0, i64 536
+  %383 = getelementptr inbounds nuw i8, ptr %0, i64 488
   %384 = insertelement <16 x i32> poison, i32 %9, i64 0
   %385 = shufflevector <16 x i32> %384, <16 x i32> poison, <16 x i32> zeroinitializer
   %386 = mul <16 x i32> %385, <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15>
@@ -768,8 +768,8 @@ define hidden noundef i32 @_ZN4ncnn24Convolution1D_x86_avx51215create_pipelineER
 
 .lr.ph3012.i:                                     ; preds = %.preheader2821.i
   %415 = mul i32 %13, %9
-  %416 = getelementptr inbounds i8, ptr %0, i64 536
-  %417 = getelementptr inbounds i8, ptr %0, i64 488
+  %416 = getelementptr inbounds nuw i8, ptr %0, i64 536
+  %417 = getelementptr inbounds nuw i8, ptr %0, i64 488
   %418 = insertelement <8 x i32> poison, i32 %9, i64 0
   %419 = shufflevector <8 x i32> %418, <8 x i32> poison, <8 x i32> zeroinitializer
   %420 = mul <8 x i32> %419, <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7>
@@ -1280,8 +1280,8 @@ define hidden noundef i32 @_ZN4ncnn24Convolution1D_x86_avx51215create_pipelineER
 
 .lr.ph3104.i:                                     ; preds = %.preheader2812.i
   %721 = mul i32 %13, %9
-  %722 = getelementptr inbounds i8, ptr %0, i64 536
-  %723 = getelementptr inbounds i8, ptr %0, i64 488
+  %722 = getelementptr inbounds nuw i8, ptr %0, i64 536
+  %723 = getelementptr inbounds nuw i8, ptr %0, i64 488
   %724 = insertelement <4 x i32> poison, i32 %9, i64 0
   %725 = shufflevector <4 x i32> %724, <4 x i32> poison, <4 x i32> zeroinitializer
   %726 = mul <4 x i32> %725, <i32 0, i32 1, i32 2, i32 3>
@@ -1750,8 +1750,8 @@ define hidden noundef i32 @_ZN4ncnn24Convolution1D_x86_avx51215create_pipelineER
 
 .lr.ph3187.i:                                     ; preds = %.preheader2803.i
   %989 = mul i32 %13, %9
-  %990 = getelementptr inbounds i8, ptr %0, i64 536
-  %991 = getelementptr inbounds i8, ptr %0, i64 488
+  %990 = getelementptr inbounds nuw i8, ptr %0, i64 536
+  %991 = getelementptr inbounds nuw i8, ptr %0, i64 488
   %992 = insertelement <4 x i32> poison, i32 %9, i64 0
   %993 = shufflevector <4 x i32> %992, <4 x i32> poison, <4 x i32> zeroinitializer
   %994 = mul <4 x i32> %993, <i32 0, i32 1, i32 2, i32 3>
@@ -2157,8 +2157,8 @@ define hidden noundef i32 @_ZN4ncnn24Convolution1D_x86_avx51215create_pipelineER
 
 .lr.ph3257.i:                                     ; preds = %.preheader2793.i
   %1200 = mul i32 %13, %9
-  %1201 = getelementptr inbounds i8, ptr %0, i64 536
-  %1202 = getelementptr inbounds i8, ptr %0, i64 488
+  %1201 = getelementptr inbounds nuw i8, ptr %0, i64 536
+  %1202 = getelementptr inbounds nuw i8, ptr %0, i64 488
   %1203 = insertelement <4 x i32> poison, i32 %9, i64 0
   %1204 = shufflevector <4 x i32> %1203, <4 x i32> poison, <4 x i32> zeroinitializer
   %1205 = mul <4 x i32> %1204, <i32 0, i32 1, i32 2, i32 3>
@@ -2705,7 +2705,7 @@ _ZN4ncnnL37convolution1d_transform_kernel_packedERKNS_3MatERS0_iii.exit: ; preds
   br i1 %1429, label %1430, label %1449
 
 1430:                                             ; preds = %_ZN4ncnnL37convolution1d_transform_kernel_packedERKNS_3MatERS0_iii.exit
-  %1431 = getelementptr inbounds i8, ptr %0, i64 336
+  %1431 = getelementptr inbounds nuw i8, ptr %0, i64 336
   %1432 = load ptr, ptr %1431, align 8
   %.not10 = icmp eq ptr %1432, null
   br i1 %.not10, label %1446, label %1433
@@ -2716,7 +2716,7 @@ _ZN4ncnnL37convolution1d_transform_kernel_packedERKNS_3MatERS0_iii.exit: ; preds
   br i1 %1435, label %1436, label %1446
 
 1436:                                             ; preds = %1433
-  %1437 = getelementptr inbounds i8, ptr %0, i64 360
+  %1437 = getelementptr inbounds nuw i8, ptr %0, i64 360
   %1438 = load ptr, ptr %1437, align 8
   %.not11 = icmp eq ptr %1438, null
   %1439 = load ptr, ptr %14, align 8
@@ -2738,8 +2738,8 @@ _ZN4ncnnL37convolution1d_transform_kernel_packedERKNS_3MatERS0_iii.exit: ; preds
   br label %1446
 
 1446:                                             ; preds = %1440, %1445, %1444, %1433, %1430
-  %1447 = getelementptr inbounds i8, ptr %0, i64 368
-  %1448 = getelementptr inbounds i8, ptr %0, i64 392
+  %1447 = getelementptr inbounds nuw i8, ptr %0, i64 368
+  %1448 = getelementptr inbounds nuw i8, ptr %0, i64 392
   store i64 0, ptr %1448, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %14, i8 0, i64 28, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %1447, i8 0, i64 20, i1 false)
@@ -10129,7 +10129,7 @@ declare void @_ZN4ncnn9ParamDictD1Ev(ptr noundef nonnull align 8 dereferenceable
 define linkonce_odr hidden void @_ZN4ncnn24Convolution1D_x86_avx512D2Ev(ptr noundef nonnull align 8 dereferenceable(544) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTVN4ncnn24Convolution1D_x86_avx512E, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 472
-  %3 = getelementptr inbounds i8, ptr %0, i64 480
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 480
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %21, label %5
@@ -10140,7 +10140,7 @@ define linkonce_odr hidden void @_ZN4ncnn24Convolution1D_x86_avx512D2Ev(ptr noun
   br i1 %7, label %8, label %21
 
 8:                                                ; preds = %5
-  %9 = getelementptr inbounds i8, ptr %0, i64 504
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 504
   %10 = load ptr, ptr %9, align 8
   %.not8 = icmp eq ptr %10, null
   %11 = load ptr, ptr %2, align 8
@@ -10169,8 +10169,8 @@ define linkonce_odr hidden void @_ZN4ncnn24Convolution1D_x86_avx512D2Ev(ptr noun
   unreachable
 
 21:                                               ; preds = %12, %17, %16, %5, %1
-  %22 = getelementptr inbounds i8, ptr %0, i64 512
-  %23 = getelementptr inbounds i8, ptr %0, i64 536
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 512
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 536
   store i64 0, ptr %23, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %2, i8 0, i64 28, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %22, i8 0, i64 20, i1 false)
@@ -10182,7 +10182,7 @@ define linkonce_odr hidden void @_ZN4ncnn24Convolution1D_x86_avx512D2Ev(ptr noun
 define linkonce_odr hidden void @_ZN4ncnn24Convolution1D_x86_avx512D0Ev(ptr noundef nonnull align 8 dereferenceable(544) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTVN4ncnn24Convolution1D_x86_avx512E, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 472
-  %3 = getelementptr inbounds i8, ptr %0, i64 480
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 480
   %4 = load ptr, ptr %3, align 8
   %.not.i = icmp eq ptr %4, null
   br i1 %.not.i, label %_ZN4ncnn24Convolution1D_x86_avx512D2Ev.exit, label %5
@@ -10193,7 +10193,7 @@ define linkonce_odr hidden void @_ZN4ncnn24Convolution1D_x86_avx512D0Ev(ptr noun
   br i1 %7, label %8, label %_ZN4ncnn24Convolution1D_x86_avx512D2Ev.exit
 
 8:                                                ; preds = %5
-  %9 = getelementptr inbounds i8, ptr %0, i64 504
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 504
   %10 = load ptr, ptr %9, align 8
   %.not8.i = icmp eq ptr %10, null
   %11 = load ptr, ptr %2, align 8
@@ -10222,8 +10222,8 @@ define linkonce_odr hidden void @_ZN4ncnn24Convolution1D_x86_avx512D0Ev(ptr noun
   unreachable
 
 _ZN4ncnn24Convolution1D_x86_avx512D2Ev.exit:      ; preds = %1, %5, %12, %16, %17
-  %21 = getelementptr inbounds i8, ptr %0, i64 512
-  %22 = getelementptr inbounds i8, ptr %0, i64 536
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 512
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 536
   store i64 0, ptr %22, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %2, i8 0, i64 28, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %21, i8 0, i64 20, i1 false)

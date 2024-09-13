@@ -54,7 +54,7 @@ define dso_local void @_ZN4llvm7remarks11StringTableC2ERKNS0_17ParsedStringTable
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 120
   store i64 0, ptr %12, align 8
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %14 = getelementptr inbounds i8, ptr %1, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %15 = load ptr, ptr %14, align 8
   %16 = load ptr, ptr %13, align 8
   %17 = ptrtoint ptr %15 to i64
@@ -299,7 +299,7 @@ define dso_local void @_ZN4llvm7remarks11StringTable11internalizeERNS0_6RemarkE(
   store ptr %54, ptr %41, align 8
   store i64 %55, ptr %.sroa.2.0..sroa_idx.i32, align 8
   %56 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %57 = getelementptr inbounds i8, ptr %1, i64 80
+  %57 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %58 = load i8, ptr %57, align 8
   %59 = trunc i8 %58 to i1
   br i1 %59, label %60, label %75
@@ -425,7 +425,7 @@ define dso_local void @_ZN4llvm7remarks11StringTable11internalizeERNS0_6RemarkE(
   store ptr %107, ptr %95, align 8
   store i64 %108, ptr %.sroa.2.0..sroa_idx.i56, align 8
   %109 = getelementptr inbounds nuw i8, ptr %.072, i64 32
-  %110 = getelementptr inbounds i8, ptr %.072, i64 56
+  %110 = getelementptr inbounds nuw i8, ptr %.072, i64 56
   %111 = load i8, ptr %110, align 8
   %112 = trunc i8 %111 to i1
   br i1 %112, label %113, label %127

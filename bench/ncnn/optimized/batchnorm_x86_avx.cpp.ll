@@ -458,7 +458,7 @@ declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #6
 define linkonce_odr hidden void @_ZN4ncnn9BatchNormD2Ev(ptr noundef nonnull align 8 dereferenceable(648) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTVN4ncnn9BatchNormE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 576
-  %3 = getelementptr inbounds i8, ptr %0, i64 584
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 584
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %18, label %5
@@ -469,7 +469,7 @@ define linkonce_odr hidden void @_ZN4ncnn9BatchNormD2Ev(ptr noundef nonnull alig
   br i1 %7, label %8, label %18
 
 8:                                                ; preds = %5
-  %9 = getelementptr inbounds i8, ptr %0, i64 608
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 608
   %10 = load ptr, ptr %9, align 8
   %.not53 = icmp eq ptr %10, null
   %11 = load ptr, ptr %2, align 8
@@ -491,11 +491,11 @@ define linkonce_odr hidden void @_ZN4ncnn9BatchNormD2Ev(ptr noundef nonnull alig
   br label %18
 
 18:                                               ; preds = %12, %17, %16, %5, %1
-  %19 = getelementptr inbounds i8, ptr %0, i64 616
-  %20 = getelementptr inbounds i8, ptr %0, i64 640
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 616
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 640
   store i64 0, ptr %20, align 8
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 504
-  %22 = getelementptr inbounds i8, ptr %0, i64 512
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 512
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %2, i8 0, i64 28, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %19, i8 0, i64 20, i1 false)
   %23 = load ptr, ptr %22, align 8
@@ -515,7 +515,7 @@ define linkonce_odr hidden void @_ZN4ncnn9BatchNormD2Ev(ptr noundef nonnull alig
   br i1 %29, label %30, label %40
 
 30:                                               ; preds = %27
-  %31 = getelementptr inbounds i8, ptr %0, i64 536
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 536
   %32 = load ptr, ptr %31, align 8
   %.not56 = icmp eq ptr %32, null
   %33 = load ptr, ptr %21, align 8
@@ -537,11 +537,11 @@ define linkonce_odr hidden void @_ZN4ncnn9BatchNormD2Ev(ptr noundef nonnull alig
   br label %40
 
 40:                                               ; preds = %34, %39, %38, %27, %18
-  %41 = getelementptr inbounds i8, ptr %0, i64 544
-  %42 = getelementptr inbounds i8, ptr %0, i64 568
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 544
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 568
   store i64 0, ptr %42, align 8
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 432
-  %44 = getelementptr inbounds i8, ptr %0, i64 440
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 440
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %21, i8 0, i64 28, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %41, i8 0, i64 20, i1 false)
   %45 = load ptr, ptr %44, align 8
@@ -561,7 +561,7 @@ define linkonce_odr hidden void @_ZN4ncnn9BatchNormD2Ev(ptr noundef nonnull alig
   br i1 %51, label %52, label %62
 
 52:                                               ; preds = %49
-  %53 = getelementptr inbounds i8, ptr %0, i64 464
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 464
   %54 = load ptr, ptr %53, align 8
   %.not59 = icmp eq ptr %54, null
   %55 = load ptr, ptr %43, align 8
@@ -583,11 +583,11 @@ define linkonce_odr hidden void @_ZN4ncnn9BatchNormD2Ev(ptr noundef nonnull alig
   br label %62
 
 62:                                               ; preds = %56, %61, %60, %49, %40
-  %63 = getelementptr inbounds i8, ptr %0, i64 472
-  %64 = getelementptr inbounds i8, ptr %0, i64 496
+  %63 = getelementptr inbounds nuw i8, ptr %0, i64 472
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 496
   store i64 0, ptr %64, align 8
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 360
-  %66 = getelementptr inbounds i8, ptr %0, i64 368
+  %66 = getelementptr inbounds nuw i8, ptr %0, i64 368
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %43, i8 0, i64 28, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %63, i8 0, i64 20, i1 false)
   %67 = load ptr, ptr %66, align 8
@@ -607,7 +607,7 @@ define linkonce_odr hidden void @_ZN4ncnn9BatchNormD2Ev(ptr noundef nonnull alig
   br i1 %73, label %74, label %84
 
 74:                                               ; preds = %71
-  %75 = getelementptr inbounds i8, ptr %0, i64 392
+  %75 = getelementptr inbounds nuw i8, ptr %0, i64 392
   %76 = load ptr, ptr %75, align 8
   %.not62 = icmp eq ptr %76, null
   %77 = load ptr, ptr %65, align 8
@@ -629,11 +629,11 @@ define linkonce_odr hidden void @_ZN4ncnn9BatchNormD2Ev(ptr noundef nonnull alig
   br label %84
 
 84:                                               ; preds = %78, %83, %82, %71, %62
-  %85 = getelementptr inbounds i8, ptr %0, i64 400
-  %86 = getelementptr inbounds i8, ptr %0, i64 424
+  %85 = getelementptr inbounds nuw i8, ptr %0, i64 400
+  %86 = getelementptr inbounds nuw i8, ptr %0, i64 424
   store i64 0, ptr %86, align 8
   %87 = getelementptr inbounds nuw i8, ptr %0, i64 288
-  %88 = getelementptr inbounds i8, ptr %0, i64 296
+  %88 = getelementptr inbounds nuw i8, ptr %0, i64 296
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %65, i8 0, i64 28, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %85, i8 0, i64 20, i1 false)
   %89 = load ptr, ptr %88, align 8
@@ -653,7 +653,7 @@ define linkonce_odr hidden void @_ZN4ncnn9BatchNormD2Ev(ptr noundef nonnull alig
   br i1 %95, label %96, label %106
 
 96:                                               ; preds = %93
-  %97 = getelementptr inbounds i8, ptr %0, i64 320
+  %97 = getelementptr inbounds nuw i8, ptr %0, i64 320
   %98 = load ptr, ptr %97, align 8
   %.not65 = icmp eq ptr %98, null
   %99 = load ptr, ptr %87, align 8
@@ -675,11 +675,11 @@ define linkonce_odr hidden void @_ZN4ncnn9BatchNormD2Ev(ptr noundef nonnull alig
   br label %106
 
 106:                                              ; preds = %100, %105, %104, %93, %84
-  %107 = getelementptr inbounds i8, ptr %0, i64 328
-  %108 = getelementptr inbounds i8, ptr %0, i64 352
+  %107 = getelementptr inbounds nuw i8, ptr %0, i64 328
+  %108 = getelementptr inbounds nuw i8, ptr %0, i64 352
   store i64 0, ptr %108, align 8
   %109 = getelementptr inbounds nuw i8, ptr %0, i64 216
-  %110 = getelementptr inbounds i8, ptr %0, i64 224
+  %110 = getelementptr inbounds nuw i8, ptr %0, i64 224
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %87, i8 0, i64 28, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %107, i8 0, i64 20, i1 false)
   %111 = load ptr, ptr %110, align 8
@@ -699,7 +699,7 @@ define linkonce_odr hidden void @_ZN4ncnn9BatchNormD2Ev(ptr noundef nonnull alig
   br i1 %117, label %118, label %128
 
 118:                                              ; preds = %115
-  %119 = getelementptr inbounds i8, ptr %0, i64 248
+  %119 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %120 = load ptr, ptr %119, align 8
   %.not68 = icmp eq ptr %120, null
   %121 = load ptr, ptr %109, align 8
@@ -721,8 +721,8 @@ define linkonce_odr hidden void @_ZN4ncnn9BatchNormD2Ev(ptr noundef nonnull alig
   br label %128
 
 128:                                              ; preds = %122, %127, %126, %115, %106
-  %129 = getelementptr inbounds i8, ptr %0, i64 256
-  %130 = getelementptr inbounds i8, ptr %0, i64 280
+  %129 = getelementptr inbounds nuw i8, ptr %0, i64 256
+  %130 = getelementptr inbounds nuw i8, ptr %0, i64 280
   store i64 0, ptr %130, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %109, i8 0, i64 28, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %129, i8 0, i64 20, i1 false)

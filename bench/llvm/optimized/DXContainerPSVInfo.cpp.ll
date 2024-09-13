@@ -123,7 +123,7 @@ switch.lookup:                                    ; preds = %3
 
 38:                                               ; preds = %._crit_edge
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 1976
-  %40 = getelementptr inbounds i8, ptr %0, i64 2000
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 2000
   %41 = load i64, ptr %40, align 8
   %42 = trunc i64 %41 to i32
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12)
@@ -305,17 +305,17 @@ define dso_local void @_ZN4llvm6mcdxbc14PSVRuntimeInfo8finalizeENS_6Triple15Envi
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %5 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %4) #12
   %6 = trunc i64 %5 to i8
-  %7 = getelementptr inbounds i8, ptr %0, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i8 %6, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %9 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %8) #12
   %10 = trunc i64 %9 to i8
-  %11 = getelementptr inbounds i8, ptr %0, i64 33
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 33
   store i8 %10, ptr %11, align 1
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 344
   %13 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %12) #12
   %14 = trunc i64 %13 to i8
-  %15 = getelementptr inbounds i8, ptr %0, i64 34
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 34
   store i8 %14, ptr %15, align 2
   %16 = getelementptr inbounds i8, ptr %3, i64 16
   call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull %16, i64 noundef 32) #12
@@ -385,7 +385,7 @@ define dso_local void @_ZN4llvm6mcdxbc14PSVRuntimeInfo8finalizeENS_6Triple15Envi
   %.sroa.2.8.insert.insert.i17 = or disjoint i64 %.sroa.4.8.insert.shift.i15, %.sroa.2.8.insert.ext.i16
   %46 = call noundef i64 @_ZNK4llvm18StringTableBuilder9getOffsetENS_19CachedHashStringRefE(ptr noundef nonnull align 8 dereferenceable(38) %17, ptr %.sroa.0.0.copyload, i64 %.sroa.2.8.insert.insert.i17) #12
   %47 = trunc i64 %46 to i32
-  %48 = getelementptr inbounds i8, ptr %0, i64 52
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 52
   store i32 %47, ptr %48, align 4
   %49 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #12
   %50 = load ptr, ptr %3, align 8

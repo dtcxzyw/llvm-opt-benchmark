@@ -3081,11 +3081,11 @@ _ZNSt16allocator_traitsISaISt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathEN
 
 _ZNSt6vectorISt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS1_17UsdStageLoadRules4RuleEESaIS5_EE16_Temporary_valueC2IJRKS2_S4_EEEPS7_DpOT_.exit: ; preds = %36, %39
   %50 = phi ptr [ %6, %36 ], [ %.pre, %39 ]
-  %51 = getelementptr inbounds i8, ptr %5, i64 12
+  %51 = getelementptr inbounds nuw i8, ptr %5, i64 12
   %52 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %53 = load i32, ptr %52, align 4
   store i32 %53, ptr %51, align 4
-  %54 = getelementptr inbounds i8, ptr %5, i64 16
+  %54 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %55 = load i32, ptr %3, align 4
   store i32 %55, ptr %54, align 8
   %56 = getelementptr inbounds i8, ptr %50, i64 %9
@@ -3254,11 +3254,11 @@ _ZNSt16allocator_traitsISaISt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathEN
 
 _ZNSt6vectorISt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS1_17UsdStageLoadRules4RuleEESaIS5_EE16_Temporary_valueC2IJRKS2_RS4_EEEPS7_DpOT_.exit: ; preds = %36, %39
   %50 = phi ptr [ %6, %36 ], [ %.pre, %39 ]
-  %51 = getelementptr inbounds i8, ptr %5, i64 12
+  %51 = getelementptr inbounds nuw i8, ptr %5, i64 12
   %52 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %53 = load i32, ptr %52, align 4
   store i32 %53, ptr %51, align 4
-  %54 = getelementptr inbounds i8, ptr %5, i64 16
+  %54 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %55 = load i32, ptr %3, align 4
   store i32 %55, ptr %54, align 8
   %56 = getelementptr inbounds i8, ptr %50, i64 %9

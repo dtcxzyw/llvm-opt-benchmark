@@ -59,13 +59,13 @@ _ZNSt12_Vector_baseIPN10OpenSubdiv6v3_6_03Vtr8internal5LevelESaIS5_EE11_M_alloca
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %27 = getelementptr inbounds i8, ptr %0, i64 64
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 64
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %24, i8 0, i64 72, i1 false)
   %28 = invoke noalias noundef nonnull dereferenceable(80) ptr @_Znwm(i64 noundef 80) #15
           to label %_ZNSt6vectorIPN10OpenSubdiv6v3_6_03Vtr8internal5LevelESaIS5_EE7reserveEm.exit unwind label %82
 
 _ZNSt6vectorIPN10OpenSubdiv6v3_6_03Vtr8internal5LevelESaIS5_EE7reserveEm.exit: ; preds = %_ZNSt12_Vector_baseIPN10OpenSubdiv6v3_6_03Vtr8internal5LevelESaIS5_EE11_M_allocateEm.exit.i
-  %29 = getelementptr inbounds i8, ptr %0, i64 56
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store ptr %28, ptr %24, align 8
   store ptr %28, ptr %29, align 8
   %30 = getelementptr inbounds i8, ptr %28, i64 80
@@ -78,7 +78,7 @@ _ZNSt6vectorIPN10OpenSubdiv6v3_6_03Vtr8internal5LevelESaIS5_EE7reserveEm.exit: ;
           to label %33 unwind label %84
 
 33:                                               ; preds = %32
-  %34 = getelementptr inbounds i8, ptr %0, i64 56
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %35 = load ptr, ptr %34, align 8
   %36 = load ptr, ptr %27, align 8
   %.not.i.i = icmp eq ptr %35, %36
@@ -150,7 +150,7 @@ _ZNSt6vectorIPN10OpenSubdiv6v3_6_03Vtr8internal5LevelESaIS5_EE17_M_realloc_inser
   br label %_ZNSt6vectorIPN10OpenSubdiv6v3_6_03Vtr8internal5LevelESaIS5_EE9push_backEOS5_.exit
 
 _ZNSt6vectorIPN10OpenSubdiv6v3_6_03Vtr8internal5LevelESaIS5_EE9push_backEOS5_.exit: ; preds = %_ZNSt6vectorIPN10OpenSubdiv6v3_6_03Vtr8internal5LevelESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i, %37
-  %63 = getelementptr inbounds i8, ptr %0, i64 112
+  %63 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %64 = load ptr, ptr %63, align 8
   %65 = load ptr, ptr %26, align 8
   %66 = ptrtoint ptr %64 to i64
@@ -161,7 +161,7 @@ _ZNSt6vectorIPN10OpenSubdiv6v3_6_03Vtr8internal5LevelESaIS5_EE9push_backEOS5_.ex
   br i1 %70, label %_ZNSt12_Vector_baseIN10OpenSubdiv6v3_6_03Far13TopologyLevelESaIS3_EE11_M_allocateEm.exit.i, label %_ZNSt6vectorIN10OpenSubdiv6v3_6_03Far13TopologyLevelESaIS3_EE7reserveEm.exit
 
 _ZNSt12_Vector_baseIN10OpenSubdiv6v3_6_03Far13TopologyLevelESaIS3_EE11_M_allocateEm.exit.i: ; preds = %_ZNSt6vectorIPN10OpenSubdiv6v3_6_03Vtr8internal5LevelESaIS5_EE9push_backEOS5_.exit
-  %71 = getelementptr inbounds i8, ptr %0, i64 104
+  %71 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %72 = load ptr, ptr %71, align 8
   %73 = ptrtoint ptr %72 to i64
   %74 = sub i64 %73, %67
@@ -222,7 +222,7 @@ _ZNSt6vectorIN10OpenSubdiv6v3_6_03Far13TopologyLevelESaIS3_EE7reserveEm.exit: ; 
   br i1 %.not.i.i.i, label %_ZNSt6vectorIN10OpenSubdiv6v3_6_03Far13TopologyLevelESaIS3_EED2Ev.exit, label %88
 
 88:                                               ; preds = %86
-  %89 = getelementptr inbounds i8, ptr %0, i64 112
+  %89 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %90 = load ptr, ptr %89, align 8
   %91 = ptrtoint ptr %90 to i64
   %92 = ptrtoint ptr %87 to i64
@@ -236,7 +236,7 @@ _ZNSt6vectorIN10OpenSubdiv6v3_6_03Far13TopologyLevelESaIS3_EED2Ev.exit: ; preds 
   br i1 %.not.i.i.i10, label %_ZNSt6vectorIPN10OpenSubdiv6v3_6_03Vtr8internal10RefinementESaIS5_EED2Ev.exit, label %95
 
 95:                                               ; preds = %_ZNSt6vectorIN10OpenSubdiv6v3_6_03Far13TopologyLevelESaIS3_EED2Ev.exit
-  %96 = getelementptr inbounds i8, ptr %0, i64 88
+  %96 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %97 = load ptr, ptr %96, align 8
   %98 = ptrtoint ptr %97 to i64
   %99 = ptrtoint ptr %94 to i64
@@ -280,7 +280,7 @@ declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #4
 define void @_ZN10OpenSubdiv6v3_6_03Far15TopologyRefiner17assembleFarLevelsEv(ptr noundef nonnull align 8 dereferenceable(120) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %4 = getelementptr inbounds i8, ptr %0, i64 56
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %3, align 8
   %7 = ptrtoint ptr %5 to i64
@@ -299,7 +299,7 @@ define void @_ZN10OpenSubdiv6v3_6_03Far15TopologyRefiner17assembleFarLevelsEv(pt
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 16
   store ptr null, ptr %17, align 8
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %19 = getelementptr inbounds i8, ptr %0, i64 80
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %20 = load ptr, ptr %19, align 8
   %21 = load ptr, ptr %18, align 8
   %22 = ptrtoint ptr %20 to i64
@@ -422,18 +422,18 @@ _ZNSt12_Vector_baseIPN10OpenSubdiv6v3_6_03Vtr8internal5LevelESaIS5_EE11_M_alloca
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %33 = getelementptr inbounds i8, ptr %0, i64 64
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 64
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %30, i8 0, i64 72, i1 false)
   %34 = invoke noalias noundef nonnull dereferenceable(80) ptr @_Znwm(i64 noundef 80) #15
           to label %_ZNSt6vectorIPN10OpenSubdiv6v3_6_03Vtr8internal5LevelESaIS5_EE9push_backERKS5_.exit unwind label %82
 
 _ZNSt6vectorIPN10OpenSubdiv6v3_6_03Vtr8internal5LevelESaIS5_EE9push_backERKS5_.exit: ; preds = %_ZNSt12_Vector_baseIPN10OpenSubdiv6v3_6_03Vtr8internal5LevelESaIS5_EE11_M_allocateEm.exit.i
-  %35 = getelementptr inbounds i8, ptr %0, i64 56
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store ptr %34, ptr %30, align 8
   store ptr %34, ptr %35, align 8
   %36 = getelementptr inbounds i8, ptr %34, i64 80
   store ptr %36, ptr %33, align 8
-  %37 = getelementptr inbounds i8, ptr %0, i64 56
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %38 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %39 = load ptr, ptr %38, align 8
   %40 = load ptr, ptr %39, align 8
@@ -452,7 +452,7 @@ _ZNSt6vectorIPN10OpenSubdiv6v3_6_03Vtr8internal5LevelESaIS5_EE9push_backERKS5_.e
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i32 %48, ptr %49, align 4
   %50 = getelementptr inbounds nuw i8, ptr %40, i64 48
-  %51 = getelementptr inbounds i8, ptr %40, i64 56
+  %51 = getelementptr inbounds nuw i8, ptr %40, i64 56
   %52 = load ptr, ptr %51, align 8
   %53 = load ptr, ptr %50, align 8
   %54 = ptrtoint ptr %52 to i64
@@ -466,7 +466,7 @@ _ZNSt6vectorIPN10OpenSubdiv6v3_6_03Vtr8internal5LevelESaIS5_EE9push_backERKS5_.e
   %61 = load i32, ptr %60, align 4
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 36
   store i32 %61, ptr %62, align 4
-  %63 = getelementptr inbounds i8, ptr %0, i64 112
+  %63 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %64 = load ptr, ptr %63, align 8
   %65 = load ptr, ptr %32, align 8
   %66 = ptrtoint ptr %64 to i64
@@ -477,7 +477,7 @@ _ZNSt6vectorIPN10OpenSubdiv6v3_6_03Vtr8internal5LevelESaIS5_EE9push_backERKS5_.e
   br i1 %70, label %_ZNSt12_Vector_baseIN10OpenSubdiv6v3_6_03Far13TopologyLevelESaIS3_EE11_M_allocateEm.exit.i, label %_ZNSt6vectorIN10OpenSubdiv6v3_6_03Far13TopologyLevelESaIS3_EE7reserveEm.exit
 
 _ZNSt12_Vector_baseIN10OpenSubdiv6v3_6_03Far13TopologyLevelESaIS3_EE11_M_allocateEm.exit.i: ; preds = %_ZNSt6vectorIPN10OpenSubdiv6v3_6_03Vtr8internal5LevelESaIS5_EE9push_backERKS5_.exit
-  %71 = getelementptr inbounds i8, ptr %0, i64 104
+  %71 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %72 = load ptr, ptr %71, align 8
   %73 = ptrtoint ptr %72 to i64
   %74 = sub i64 %73, %67
@@ -528,7 +528,7 @@ _ZNSt6vectorIN10OpenSubdiv6v3_6_03Far13TopologyLevelESaIS3_EE7reserveEm.exit: ; 
   br i1 %.not.i.i.i13, label %_ZNSt6vectorIN10OpenSubdiv6v3_6_03Far13TopologyLevelESaIS3_EED2Ev.exit, label %85
 
 85:                                               ; preds = %82
-  %86 = getelementptr inbounds i8, ptr %0, i64 112
+  %86 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %87 = load ptr, ptr %86, align 8
   %88 = ptrtoint ptr %87 to i64
   %89 = ptrtoint ptr %84 to i64
@@ -542,7 +542,7 @@ _ZNSt6vectorIN10OpenSubdiv6v3_6_03Far13TopologyLevelESaIS3_EED2Ev.exit: ; preds 
   br i1 %.not.i.i.i14, label %_ZNSt6vectorIPN10OpenSubdiv6v3_6_03Vtr8internal10RefinementESaIS5_EED2Ev.exit, label %92
 
 92:                                               ; preds = %_ZNSt6vectorIN10OpenSubdiv6v3_6_03Far13TopologyLevelESaIS3_EED2Ev.exit
-  %93 = getelementptr inbounds i8, ptr %0, i64 88
+  %93 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %94 = load ptr, ptr %93, align 8
   %95 = ptrtoint ptr %94 to i64
   %96 = ptrtoint ptr %91 to i64
@@ -570,7 +570,7 @@ _ZNSt6vectorIPN10OpenSubdiv6v3_6_03Vtr8internal5LevelESaIS5_EED2Ev.exit: ; preds
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define void @_ZN10OpenSubdiv6v3_6_03Far15TopologyRefiner19initializeInventoryEv(ptr nocapture noundef nonnull align 8 dereferenceable(120) %0) local_unnamed_addr #6 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %3 = getelementptr inbounds i8, ptr %0, i64 56
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %4, %5
@@ -590,7 +590,7 @@ define void @_ZN10OpenSubdiv6v3_6_03Far15TopologyRefiner19initializeInventoryEv(
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i32 %14, ptr %15, align 4
   %16 = getelementptr inbounds nuw i8, ptr %7, i64 48
-  %17 = getelementptr inbounds i8, ptr %7, i64 56
+  %17 = getelementptr inbounds nuw i8, ptr %7, i64 56
   %18 = load ptr, ptr %17, align 8
   %19 = load ptr, ptr %16, align 8
   %20 = ptrtoint ptr %18 to i64
@@ -619,7 +619,7 @@ define void @_ZN10OpenSubdiv6v3_6_03Far15TopologyRefiner19initializeInventoryEv(
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN10OpenSubdiv6v3_6_03Far15TopologyRefinerD2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(120) %0) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %3 = getelementptr inbounds i8, ptr %0, i64 56
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %2, align 8
   %6 = ptrtoint ptr %4 to i64
@@ -636,7 +636,7 @@ define void @_ZN10OpenSubdiv6v3_6_03Far15TopologyRefinerD2Ev(ptr nocapture nound
 
 .preheader:                                       ; preds = %34, %1
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %14 = getelementptr inbounds i8, ptr %0, i64 80
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %15 = load ptr, ptr %14, align 8
   %16 = load ptr, ptr %13, align 8
   %17 = ptrtoint ptr %15 to i64
@@ -722,7 +722,7 @@ define void @_ZN10OpenSubdiv6v3_6_03Far15TopologyRefinerD2Ev(ptr nocapture nound
   br i1 %.not.i.i.i, label %_ZNSt6vectorIN10OpenSubdiv6v3_6_03Far13TopologyLevelESaIS3_EED2Ev.exit, label %62
 
 62:                                               ; preds = %._crit_edge
-  %63 = getelementptr inbounds i8, ptr %0, i64 112
+  %63 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %64 = load ptr, ptr %63, align 8
   %65 = ptrtoint ptr %64 to i64
   %66 = ptrtoint ptr %61 to i64
@@ -737,7 +737,7 @@ _ZNSt6vectorIN10OpenSubdiv6v3_6_03Far13TopologyLevelESaIS3_EED2Ev.exit: ; preds 
   br i1 %.not.i.i.i10, label %_ZNSt6vectorIPN10OpenSubdiv6v3_6_03Vtr8internal10RefinementESaIS5_EED2Ev.exit, label %69
 
 69:                                               ; preds = %_ZNSt6vectorIN10OpenSubdiv6v3_6_03Far13TopologyLevelESaIS3_EED2Ev.exit
-  %70 = getelementptr inbounds i8, ptr %0, i64 88
+  %70 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %71 = load ptr, ptr %70, align 8
   %72 = ptrtoint ptr %71 to i64
   %73 = ptrtoint ptr %68 to i64
@@ -751,7 +751,7 @@ _ZNSt6vectorIPN10OpenSubdiv6v3_6_03Vtr8internal10RefinementESaIS5_EED2Ev.exit: ;
   br i1 %.not.i.i.i11, label %_ZNSt6vectorIPN10OpenSubdiv6v3_6_03Vtr8internal5LevelESaIS5_EED2Ev.exit, label %76
 
 76:                                               ; preds = %_ZNSt6vectorIPN10OpenSubdiv6v3_6_03Vtr8internal10RefinementESaIS5_EED2Ev.exit
-  %77 = getelementptr inbounds i8, ptr %0, i64 64
+  %77 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %78 = load ptr, ptr %77, align 8
   %79 = ptrtoint ptr %78 to i64
   %80 = ptrtoint ptr %75 to i64
@@ -769,7 +769,7 @@ declare void @_ZN10OpenSubdiv6v3_6_03Vtr8internal5LevelD1Ev(ptr noundef nonnull 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN10OpenSubdiv6v3_6_03Far15TopologyRefiner8UnrefineEv(ptr noundef nonnull align 8 dereferenceable(120) %0) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %3 = getelementptr inbounds i8, ptr %0, i64 56
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %4, %5
@@ -864,7 +864,7 @@ _ZNSt6vectorIPN10OpenSubdiv6v3_6_03Vtr8internal5LevelESaIS5_EE6resizeEm.exit: ; 
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i32 %45, ptr %46, align 4
   %47 = getelementptr inbounds nuw i8, ptr %38, i64 48
-  %48 = getelementptr inbounds i8, ptr %38, i64 56
+  %48 = getelementptr inbounds nuw i8, ptr %38, i64 56
   %49 = load ptr, ptr %48, align 8
   %50 = load ptr, ptr %47, align 8
   %51 = ptrtoint ptr %49 to i64
@@ -891,7 +891,7 @@ _ZN10OpenSubdiv6v3_6_03Far15TopologyRefiner19initializeInventoryEv.exit: ; preds
 
 62:                                               ; preds = %_ZN10OpenSubdiv6v3_6_03Far15TopologyRefiner19initializeInventoryEv.exit, %1
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %64 = getelementptr inbounds i8, ptr %0, i64 80
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %65 = load ptr, ptr %64, align 8
   %66 = load ptr, ptr %63, align 8
   %67 = ptrtoint ptr %65 to i64
@@ -1070,7 +1070,7 @@ define void @_ZN10OpenSubdiv6v3_6_03Far15TopologyRefiner15updateInventoryERKNS0_
   %16 = add nsw i32 %15, %13
   store i32 %16, ptr %14, align 4
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %18 = getelementptr inbounds i8, ptr %1, i64 56
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %19 = load ptr, ptr %18, align 8
   %20 = load ptr, ptr %17, align 8
   %21 = ptrtoint ptr %19 to i64
@@ -1094,9 +1094,9 @@ define void @_ZN10OpenSubdiv6v3_6_03Far15TopologyRefiner15updateInventoryERKNS0_
 ; Function Attrs: mustprogress uwtable
 define void @_ZN10OpenSubdiv6v3_6_03Far15TopologyRefiner11appendLevelERNS0_3Vtr8internal5LevelE(ptr nocapture noundef nonnull align 8 dereferenceable(120) %0, ptr noundef nonnull align 8 dereferenceable(480) %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %4 = getelementptr inbounds i8, ptr %0, i64 56
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 64
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %7 = load ptr, ptr %6, align 8
   %.not.i.i = icmp eq ptr %5, %7
   br i1 %.not.i.i, label %11, label %8
@@ -1182,7 +1182,7 @@ _ZNSt6vectorIPN10OpenSubdiv6v3_6_03Vtr8internal5LevelESaIS5_EE9push_backEOS5_.ex
   %47 = add nsw i32 %46, %44
   store i32 %47, ptr %45, align 4
   %48 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %49 = getelementptr inbounds i8, ptr %1, i64 56
+  %49 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %50 = load ptr, ptr %49, align 8
   %51 = load ptr, ptr %48, align 8
   %52 = ptrtoint ptr %50 to i64
@@ -1206,9 +1206,9 @@ _ZNSt6vectorIPN10OpenSubdiv6v3_6_03Vtr8internal5LevelESaIS5_EE9push_backEOS5_.ex
 ; Function Attrs: mustprogress uwtable
 define void @_ZN10OpenSubdiv6v3_6_03Far15TopologyRefiner16appendRefinementERNS0_3Vtr8internal10RefinementE(ptr nocapture noundef nonnull align 8 dereferenceable(120) %0, ptr noundef nonnull align 8 dereferenceable(504) %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %4 = getelementptr inbounds i8, ptr %0, i64 80
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 88
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %7 = load ptr, ptr %6, align 8
   %.not.i.i = icmp eq ptr %5, %7
   br i1 %.not.i.i, label %11, label %8
@@ -1376,7 +1376,7 @@ _ZNSt6vectorIN10OpenSubdiv6v3_6_03Far13TopologyLevelESaIS3_EE17_M_default_append
 ; Function Attrs: mustprogress uwtable
 define noundef i32 @_ZNK10OpenSubdiv6v3_6_03Far15TopologyRefiner21GetNumFVarValuesTotalEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(120) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %4 = getelementptr inbounds i8, ptr %0, i64 56
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %3, align 8
   %7 = ptrtoint ptr %5 to i64
@@ -1430,7 +1430,7 @@ define void @_ZN10OpenSubdiv6v3_6_03Far15TopologyRefiner13RefineUniformENS2_14Un
 
 10:                                               ; preds = %2
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %12 = getelementptr inbounds i8, ptr %0, i64 80
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %13 = load ptr, ptr %12, align 8
   %14 = load ptr, ptr %11, align 8
   %.not = icmp eq ptr %13, %14
@@ -1465,7 +1465,7 @@ define void @_ZN10OpenSubdiv6v3_6_03Far15TopologyRefiner13RefineUniformENS2_14Un
   %.not24 = icmp eq i32 %31, 0
   %32 = icmp eq i32 %28, 0
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %34 = getelementptr inbounds i8, ptr %0, i64 88
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %35 = zext nneg i32 %20 to i64
   %36 = add nuw nsw i32 %20, 1
   %wide.trip.count = zext nneg i32 %36 to i64
@@ -1697,7 +1697,7 @@ define void @_ZN10OpenSubdiv6v3_6_03Far15TopologyRefiner14RefineAdaptiveENS2_15A
 
 15:                                               ; preds = %4
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %17 = getelementptr inbounds i8, ptr %0, i64 80
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %18 = load ptr, ptr %17, align 8
   %19 = load ptr, ptr %16, align 8
   %.not = icmp eq ptr %18, %19
@@ -1777,7 +1777,7 @@ _ZN10OpenSubdiv6v3_6_03Far8internal11FeatureMask14ReduceFeaturesERKNS1_15Topolog
   %66 = load ptr, ptr %8, align 8
   %67 = load ptr, ptr %66, align 8
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 456
-  %69 = getelementptr inbounds i8, ptr %67, i64 464
+  %69 = getelementptr inbounds nuw i8, ptr %67, i64 464
   %70 = load ptr, ptr %69, align 8
   %71 = load ptr, ptr %68, align 8
   %72 = ptrtoint ptr %70 to i64
@@ -1829,7 +1829,7 @@ _ZN10OpenSubdiv6v3_6_03Far8internal11FeatureMask14ReduceFeaturesERKNS1_15Topolog
   %91 = icmp eq i32 %90, 0
   %92 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %93 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %94 = getelementptr inbounds i8, ptr %0, i64 88
+  %94 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %95 = zext nneg i32 %.sroa.speculated to i64
   %96 = add nuw nsw i32 %37, 1
   %wide.trip.count96 = zext nneg i32 %96 to i64
@@ -2038,7 +2038,7 @@ define void @_ZN10OpenSubdiv6v3_6_03Far15TopologyRefiner31selectFeatureAdaptiveC
 
 17:                                               ; preds = %13
   %18 = getelementptr inbounds nuw i8, ptr %10, i64 456
-  %19 = getelementptr inbounds i8, ptr %10, i64 464
+  %19 = getelementptr inbounds nuw i8, ptr %10, i64 464
   %20 = load ptr, ptr %19, align 8
   %21 = load ptr, ptr %18, align 8
   %22 = ptrtoint ptr %20 to i64

@@ -228,17 +228,17 @@ define hidden void @av1_cdef_frame(ptr noundef %0, ptr nocapture noundef readonl
   %15 = select i1 %.not.i, i32 3, i32 1
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1024) %8, i8 0, i64 1024, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1024) %9, i8 0, i64 1024, i1 false)
-  %16 = getelementptr inbounds i8, ptr %1, i64 25256
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 25256
   %17 = load i32, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %1, i64 1076
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 1076
   %19 = load i32, ptr %18, align 4
   %20 = add nsw i32 %19, 15
-  %21 = getelementptr inbounds i8, ptr %1, i64 1080
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 1080
   %22 = load i32, ptr %21, align 8
   %23 = add nsw i32 %22, 15
   %24 = sdiv i32 %23, 16
   %25 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %26 = getelementptr inbounds i8, ptr %1, i64 25212
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 25212
   %27 = load i8, ptr %26, align 4
   tail call void @av1_setup_dst_planes(ptr noundef nonnull %25, i8 noundef zeroext %27, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef %15) #6
   %28 = add nsw i32 %24, 2
@@ -291,12 +291,12 @@ define hidden void @av1_cdef_frame(ptr noundef %0, ptr nocapture noundef readonl
 .preheader673.lr.ph:                              ; preds = %.preheader674
   %57 = getelementptr inbounds i8, ptr %34, i64 2
   %58 = icmp sgt i32 %22, 0
-  %59 = getelementptr inbounds i8, ptr %1, i64 1112
-  %60 = getelementptr inbounds i8, ptr %1, i64 1124
+  %59 = getelementptr inbounds nuw i8, ptr %1, i64 1112
+  %60 = getelementptr inbounds nuw i8, ptr %1, i64 1124
   %61 = add nsw i32 %49, -1
   %62 = add nsw i32 %24, -1
-  %63 = getelementptr inbounds i8, ptr %1, i64 24032
-  %64 = getelementptr inbounds i8, ptr %1, i64 24096
+  %63 = getelementptr inbounds nuw i8, ptr %1, i64 24032
+  %64 = getelementptr inbounds nuw i8, ptr %1, i64 24096
   %65 = getelementptr i8, ptr %1, i64 25260
   %66 = getelementptr inbounds i8, ptr %4, i64 16
   %67 = getelementptr inbounds i8, ptr %4, i64 880

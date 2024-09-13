@@ -124,7 +124,7 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_110WaitInsert20runOnMachineF
   br i1 %7, label %8, label %.loopexit
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %1, i64 328
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 328
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 320
   %.sroa.045.061 = load ptr, ptr %9, align 8
   %.not62 = icmp eq ptr %.sroa.045.061, %10

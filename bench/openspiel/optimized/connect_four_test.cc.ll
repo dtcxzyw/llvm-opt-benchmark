@@ -1915,7 +1915,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit35.i:                ; preds = %673, %_ZNSt6vectorI
   br i1 %.not.i.i.i.i.i36.i, label %_ZNSt6vectorIN10open_spiel5State12PlayerActionESaIS2_EED2Ev.exit.i.i.i, label %681
 
 681:                                              ; preds = %_ZNSt6vectorIdSaIdEED2Ev.exit35.i
-  %682 = getelementptr inbounds i8, ptr %12, i64 48
+  %682 = getelementptr inbounds nuw i8, ptr %12, i64 48
   %683 = load ptr, ptr %682, align 8
   %684 = ptrtoint ptr %683 to i64
   %685 = ptrtoint ptr %680 to i64
@@ -1924,7 +1924,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit35.i:                ; preds = %673, %_ZNSt6vectorI
   br label %_ZNSt6vectorIN10open_spiel5State12PlayerActionESaIS2_EED2Ev.exit.i.i.i
 
 _ZNSt6vectorIN10open_spiel5State12PlayerActionESaIS2_EED2Ev.exit.i.i.i: ; preds = %681, %_ZNSt6vectorIdSaIdEED2Ev.exit35.i
-  %687 = getelementptr inbounds i8, ptr %12, i64 16
+  %687 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %688 = load ptr, ptr %687, align 8
   %.not.i.i.i1.i.i.i = icmp eq ptr %688, null
   br i1 %.not.i.i.i1.i.i.i, label %_ZN10open_spiel12connect_four16ConnectFourStateD2Ev.exit.i, label %689
@@ -2951,7 +2951,7 @@ define linkonce_odr dso_local void @_ZN10open_spiel12connect_four16ConnectFourSt
   br i1 %.not.i.i.i.i, label %_ZNSt6vectorIN10open_spiel5State12PlayerActionESaIS2_EED2Ev.exit.i, label %4
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 48
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %6 = load ptr, ptr %5, align 8
   %7 = ptrtoint ptr %6 to i64
   %8 = ptrtoint ptr %3 to i64
@@ -2960,7 +2960,7 @@ define linkonce_odr dso_local void @_ZN10open_spiel12connect_four16ConnectFourSt
   br label %_ZNSt6vectorIN10open_spiel5State12PlayerActionESaIS2_EED2Ev.exit.i
 
 _ZNSt6vectorIN10open_spiel5State12PlayerActionESaIS2_EED2Ev.exit.i: ; preds = %4, %1
-  %10 = getelementptr inbounds i8, ptr %0, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %11 = load ptr, ptr %10, align 8
   %.not.i.i.i1.i = icmp eq ptr %11, null
   br i1 %.not.i.i.i1.i, label %_ZN10open_spiel5StateD2Ev.exit, label %12

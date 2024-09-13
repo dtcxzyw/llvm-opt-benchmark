@@ -96,7 +96,7 @@ define noundef double @_ZN10open_spiel19RandomFixedSequence13RandomUniformEv(ptr
   %9 = add nsw i32 %4, 1
   store i32 %9, ptr %3, align 8
   %10 = sext i32 %9 to i64
-  %11 = getelementptr inbounds i8, ptr %0, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %12 = load ptr, ptr %11, align 8
   %13 = ptrtoint ptr %12 to i64
   %14 = ptrtoint ptr %6 to i64
@@ -133,7 +133,7 @@ define linkonce_odr void @_ZN10open_spiel19RandomFixedSequenceD2Ev(ptr noundef n
   br i1 %.not.i.i.i, label %_ZNSt6vectorIdSaIdEED2Ev.exit, label %4
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load ptr, ptr %5, align 8
   %7 = ptrtoint ptr %6 to i64
   %8 = ptrtoint ptr %3 to i64
@@ -154,7 +154,7 @@ define linkonce_odr void @_ZN10open_spiel19RandomFixedSequenceD0Ev(ptr noundef n
   br i1 %.not.i.i.i.i, label %_ZN10open_spiel19RandomFixedSequenceD2Ev.exit, label %4
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load ptr, ptr %5, align 8
   %7 = ptrtoint ptr %6 to i64
   %8 = ptrtoint ptr %3 to i64

@@ -1172,7 +1172,7 @@ define dso_local noundef i32 @_ZN4llvm10VNCoercion32analyzeLoadFromClobberingMem
 
 15:                                               ; preds = %4
   %16 = getelementptr inbounds nuw i8, ptr %13, i64 24
-  %17 = getelementptr inbounds i8, ptr %13, i64 32
+  %17 = getelementptr inbounds nuw i8, ptr %13, i64 32
   %18 = load i32, ptr %17, align 8
   %19 = icmp ult i32 %18, 65
   %20 = load ptr, ptr %16, align 8
@@ -1335,7 +1335,7 @@ _ZNK4llvm10DataLayout24isNonIntegralPointerTypeEPNS_4TypeE.exit: ; preds = %54, 
 
 97:                                               ; preds = %88
   %98 = getelementptr inbounds nuw i8, ptr %95, i64 24
-  %99 = getelementptr inbounds i8, ptr %95, i64 32
+  %99 = getelementptr inbounds nuw i8, ptr %95, i64 32
   %100 = load i32, ptr %99, align 8
   %101 = icmp ult i32 %100, 65
   br i1 %101, label %102, label %_ZNK4llvm11ConstantInt6isZeroEv.exit

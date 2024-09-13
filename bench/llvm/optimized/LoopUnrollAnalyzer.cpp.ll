@@ -256,7 +256,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_5ValueES3_NS_12DenseMapInfoIS3_vEENS_6de
 
 129:                                              ; preds = %124
   %130 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %131 = getelementptr inbounds i8, ptr %6, i64 16
+  %131 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i32 1, ptr %131, align 8
   store i64 0, ptr %130, align 8
   %132 = getelementptr inbounds i8, ptr %121, i64 -8
@@ -470,7 +470,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_5ValueENS_20UnrolledInstAnalyzer17Simpli
   %34 = load ptr, ptr %1, align 8
   store ptr %34, ptr %33, align 8
   %35 = getelementptr inbounds nuw i8, ptr %33, i64 8
-  %36 = getelementptr inbounds i8, ptr %33, i64 24
+  %36 = getelementptr inbounds nuw i8, ptr %33, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %35, i8 0, i64 24, i1 false)
   store i32 1, ptr %36, align 8
   br label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_5ValueENS_20UnrolledInstAnalyzer17SimplifiedAddressENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S5_EEEES3_S5_S7_SA_E16FindAndConstructEOS3_.exit
@@ -487,13 +487,13 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZN4
   store ptr %3, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load i32, ptr %6, align 8
   %8 = icmp ult i32 %7, 65
   br i1 %8, label %9, label %16
 
 9:                                                ; preds = %2
-  %10 = getelementptr inbounds i8, ptr %1, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %11 = load i32, ptr %10, align 8
   %12 = icmp ult i32 %11, 65
   br i1 %12, label %13, label %16
@@ -898,7 +898,7 @@ _ZNK4llvm14GlobalVariable24hasDefinitiveInitializerEv.exit: ; preds = %41
   %50 = load ptr, ptr %49, align 8
   %51 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %52 = load ptr, ptr %51, align 8
-  %53 = getelementptr inbounds i8, ptr %.0.i.pn.i, i64 16
+  %53 = getelementptr inbounds nuw i8, ptr %.0.i.pn.i, i64 16
   %54 = tail call noundef nonnull align 8 dereferenceable(512) ptr @_ZNK4llvm11Instruction13getDataLayoutEv(ptr noundef nonnull align 8 dereferenceable(72) %1) #6
   %55 = tail call noundef ptr @_ZN4llvm25ConstantFoldLoadFromConstEPNS_8ConstantEPNS_4TypeERKNS_5APIntERKNS_10DataLayoutE(ptr noundef %50, ptr noundef %52, ptr noundef nonnull align 8 dereferenceable(12) %53, ptr noundef nonnull align 8 dereferenceable(512) %54) #6
   %.not15 = icmp eq ptr %55, null
@@ -1367,8 +1367,8 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_5ValueENS_20UnrolledInstAnalyzer17Simpli
   br i1 %139, label %140, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_5ValueENS_20UnrolledInstAnalyzer17SimplifiedAddressENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S5_EEEES3_S5_S7_SA_E4findEPKS2_.exit48.thread
 
 140:                                              ; preds = %134
-  %141 = getelementptr inbounds i8, ptr %.0.i.pn.i, i64 16
-  %142 = getelementptr inbounds i8, ptr %.0.i.pn.i43, i64 16
+  %141 = getelementptr inbounds nuw i8, ptr %.0.i.pn.i, i64 16
+  %142 = getelementptr inbounds nuw i8, ptr %.0.i.pn.i43, i64 16
   %143 = load i16, ptr %80, align 2
   %144 = and i16 %143, 63
   %145 = zext nneg i16 %144 to i32
@@ -2153,10 +2153,10 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_5ValueENS_20UnrolledInstAnalyzer17Simpli
   %41 = getelementptr inbounds nuw i8, ptr %.020, i64 8
   %42 = load ptr, ptr %41, align 8
   store ptr %42, ptr %40, align 8
-  %43 = getelementptr inbounds i8, ptr %.sink.i.i, i64 16
-  %44 = getelementptr inbounds i8, ptr %.020, i64 16
-  %45 = getelementptr inbounds i8, ptr %.sink.i.i, i64 24
-  %46 = getelementptr inbounds i8, ptr %.020, i64 24
+  %43 = getelementptr inbounds nuw i8, ptr %.sink.i.i, i64 16
+  %44 = getelementptr inbounds nuw i8, ptr %.020, i64 16
+  %45 = getelementptr inbounds nuw i8, ptr %.sink.i.i, i64 24
+  %46 = getelementptr inbounds nuw i8, ptr %.020, i64 24
   %47 = load i32, ptr %46, align 8
   store i32 %47, ptr %45, align 8
   %48 = load i64, ptr %44, align 8

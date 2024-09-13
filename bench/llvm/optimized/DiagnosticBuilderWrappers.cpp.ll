@@ -284,7 +284,7 @@ _ZN4llvm11raw_ostreamlsENS_9StringRefE.exit.i4.i: ; preds = %70, %69, %67
   br i1 %or.cond.i.i5.i, label %76, label %_ZNK4llvm12VersionTuple5emptyEv.exit.thread.i6.i
 
 76:                                               ; preds = %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit.i4.i
-  %77 = getelementptr inbounds i8, ptr %53, i64 12
+  %77 = getelementptr inbounds nuw i8, ptr %53, i64 12
   %78 = load i64, ptr %77, align 4
   %79 = and i64 %78, 9223372034707292159
   %or.cond.i7.i = icmp eq i64 %79, 0
@@ -394,7 +394,7 @@ _ZN4llvm11raw_ostreamlsENS_9StringRefE.exit.i.i:  ; preds = %126, %125, %123
   br i1 %or.cond.i.i.i, label %132, label %_ZNK4llvm12VersionTuple5emptyEv.exit.thread.i.i
 
 132:                                              ; preds = %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit.i.i
-  %133 = getelementptr inbounds i8, ptr %109, i64 12
+  %133 = getelementptr inbounds nuw i8, ptr %109, i64 12
   %134 = load i64, ptr %133, align 4
   %135 = and i64 %134, 9223372034707292159
   %or.cond.i.i = icmp eq i64 %135, 0
@@ -711,7 +711,7 @@ _ZN5clang17DiagnosticStorageC2Ev.exit:            ; preds = %7
   store i8 0, ptr %18, align 8
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 416
   %20 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %19) #8
-  %21 = getelementptr inbounds i8, ptr %18, i64 424
+  %21 = getelementptr inbounds nuw i8, ptr %18, i64 424
   store i32 0, ptr %21, align 8
   %22 = getelementptr inbounds nuw i8, ptr %18, i64 528
   %23 = load ptr, ptr %22, align 8
@@ -732,7 +732,7 @@ _ZN5clang17DiagnosticStorageC2Ev.exit:            ; preds = %7
   br i1 %.not.i.i, label %_ZN4llvm15SmallVectorImplIN5clang9FixItHintEE5clearEv.exit, label %.lr.ph.i.i, !llvm.loop !25
 
 _ZN4llvm15SmallVectorImplIN5clang9FixItHintEE5clearEv.exit: ; preds = %.lr.ph.i.i, %13
-  %28 = getelementptr inbounds i8, ptr %18, i64 536
+  %28 = getelementptr inbounds nuw i8, ptr %18, i64 536
   store i32 0, ptr %28, align 8
   br label %29
 
@@ -812,7 +812,7 @@ _ZN4llvm11raw_ostreamlsENS_9StringRefE.exit:      ; preds = %17, %19, %20
   br i1 %or.cond.i, label %26, label %_ZNK4llvm12VersionTuple5emptyEv.exit.thread
 
 26:                                               ; preds = %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit
-  %27 = getelementptr inbounds i8, ptr %1, i64 12
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %28 = load i64, ptr %27, align 4
   %29 = and i64 %28, 9223372034707292159
   %or.cond = icmp eq i64 %29, 0

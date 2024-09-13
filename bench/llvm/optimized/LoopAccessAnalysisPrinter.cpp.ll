@@ -222,15 +222,15 @@ _ZN4llvm11raw_ostreamlsEPKc.exit20:               ; preds = %90, %92
   %103 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 0, ptr %103, align 8, !alias.scope !7
   %104 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %105 = getelementptr inbounds i8, ptr %0, i64 80
+  %105 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store ptr %105, ptr %104, align 8, !alias.scope !7
-  %106 = getelementptr inbounds i8, ptr %0, i64 56
+  %106 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store ptr %105, ptr %106, align 8, !alias.scope !7
-  %107 = getelementptr inbounds i8, ptr %0, i64 64
+  %107 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i32 2, ptr %107, align 8, !alias.scope !7
-  %108 = getelementptr inbounds i8, ptr %0, i64 68
+  %108 = getelementptr inbounds nuw i8, ptr %0, i64 68
   store i32 0, ptr %108, align 4, !alias.scope !7
-  %109 = getelementptr inbounds i8, ptr %0, i64 72
+  %109 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store i32 0, ptr %109, align 8, !alias.scope !7
   store i32 1, ptr %102, align 4, !alias.scope !7, !noalias !10
   store ptr @_ZN4llvm17PreservedAnalyses14AllAnalysesKeyE, ptr %99, align 8, !alias.scope !7, !noalias !10
@@ -252,7 +252,7 @@ _ZN4llvm11SmallVectorIPNS_4LoopELj4EED2Ev.exit.i.i: ; preds = %113, %._crit_edge
 116:                                              ; preds = %_ZN4llvm11SmallVectorIPNS_4LoopELj4EED2Ev.exit.i.i
   %117 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %118 = load ptr, ptr %117, align 8
-  %119 = getelementptr inbounds i8, ptr %5, i64 16
+  %119 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %120 = load i32, ptr %119, align 8
   %121 = zext i32 %120 to i64
   %122 = shl nuw nsw i64 %121, 4
@@ -304,7 +304,7 @@ define linkonce_odr hidden void @_ZN4llvm16PriorityWorklistIPNS_4LoopENS_11Small
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8
   %9 = select i1 %.not.i.i.i.i.i, ptr %8, ptr %7
-  %10 = getelementptr inbounds i8, ptr %0, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %11 = load i32, ptr %10, align 8
   %12 = select i1 %.not.i.i.i.i.i, i32 %11, i32 4
   %13 = icmp eq i32 %12, 0

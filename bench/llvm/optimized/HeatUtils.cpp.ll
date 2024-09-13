@@ -53,7 +53,7 @@ declare noundef ptr @_ZN4llvm8CallBase9getCallerEv(ptr noundef nonnull align 8 d
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local noundef i64 @_ZN4llvm10getMaxFreqERKNS_8FunctionEPKNS_18BlockFrequencyInfoE(ptr noundef nonnull readonly align 8 dereferenceable(136) %0, ptr noundef %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 80
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %.sroa.010.014 = load ptr, ptr %3, align 8
   %.not1315 = icmp eq ptr %.sroa.010.014, %4

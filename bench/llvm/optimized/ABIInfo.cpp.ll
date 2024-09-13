@@ -126,7 +126,7 @@ define dso_local noundef zeroext i1 @_ZNK5clang7CodeGen7ABIInfo9isAndroidEv(ptr 
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 264
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 264
   %7 = load i32, ptr %6, align 8
   %8 = icmp eq i32 %7, 14
   ret i1 %8
@@ -138,10 +138,10 @@ define dso_local noundef zeroext i1 @_ZNK5clang7CodeGen7ABIInfo12isOHOSFamilyEv(
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 264
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 264
   %7 = load i32, ptr %6, align 8
   %8 = icmp eq i32 %7, 41
-  %9 = getelementptr inbounds i8, ptr %5, i64 260
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 260
   %10 = load i32, ptr %9, align 4
   %11 = icmp eq i32 %10, 38
   %12 = select i1 %8, i1 true, i1 %11
@@ -1446,7 +1446,7 @@ define linkonce_odr hidden noundef ptr @_ZNK5clang12RedeclarableINS_7TagDeclEE8D
 
 15:                                               ; preds = %10
   %16 = getelementptr inbounds nuw i8, ptr %12, i64 2144
-  %17 = getelementptr inbounds i8, ptr %12, i64 2224
+  %17 = getelementptr inbounds nuw i8, ptr %12, i64 2224
   %18 = load i64, ptr %17, align 8
   %19 = add i64 %18, 24
   store i64 %19, ptr %17, align 8
@@ -1455,7 +1455,7 @@ define linkonce_odr hidden noundef ptr @_ZNK5clang12RedeclarableINS_7TagDeclEE8D
   %22 = add i64 %21, 7
   %23 = and i64 %22, -8
   %24 = add i64 %23, 24
-  %25 = getelementptr inbounds i8, ptr %12, i64 2152
+  %25 = getelementptr inbounds nuw i8, ptr %12, i64 2152
   %26 = load ptr, ptr %25, align 8
   %27 = ptrtoint ptr %26 to i64
   %.not.i.i.i.i.i.i = icmp ugt i64 %24, %27

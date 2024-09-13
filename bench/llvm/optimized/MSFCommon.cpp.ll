@@ -351,8 +351,8 @@ _ZN4llvm3msf18getNumFpmIntervalsERKNS0_9MSFLayoutEbb.exit: ; preds = %9, %18
   %.0.copyload.i.i.i.i.i = load i32, ptr %25, align 1
   %26 = sub i32 3, %.0.copyload.i.i.i.i.i
   %27 = select i1 %3, i32 %26, i32 %.0.copyload.i.i.i.i.i
-  %28 = getelementptr inbounds i8, ptr %0, i64 16
-  %29 = getelementptr inbounds i8, ptr %0, i64 24
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 24
   br label %30
 
 30:                                               ; preds = %.lr.ph, %_ZNSt6vectorIN4llvm7support6detail31packed_endian_specific_integralIjLNS0_10endiannessE1ELm1ELm1EEESaIS5_EE9push_backEOS5_.exit

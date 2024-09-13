@@ -187,14 +187,14 @@ define noundef range(i32 -19, 2) i32 @_Z18SolveBoardInternalP10ThreadDataRK4deal
   %49 = add nsw i32 %48, %46
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 4940
   store i32 0, ptr %50, align 4
-  %51 = getelementptr inbounds i8, ptr %0, i64 1532
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 1532
   store i32 %46, ptr %51, align 4
   %52 = load i32, ptr %47, align 4
-  %53 = getelementptr inbounds i8, ptr %0, i64 532
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 532
   %54 = sext i32 %42 to i64
   %55 = getelementptr inbounds [50 x i32], ptr %53, i64 0, i64 %54
   store i32 %52, ptr %55, align 4
-  %56 = getelementptr inbounds i8, ptr %0, i64 1536
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 1536
   store i32 0, ptr %56, align 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %7, i8 0, i64 16, i1 false)
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 3100
@@ -322,7 +322,7 @@ define noundef range(i32 -19, 2) i32 @_Z18SolveBoardInternalP10ThreadDataRK4deal
   %114 = getelementptr inbounds nuw i8, ptr %0, i64 4124
   %115 = getelementptr inbounds [50 x %struct.moveType], ptr %114, i64 0, i64 %54
   %116 = getelementptr inbounds nuw i8, ptr %0, i64 4944
-  %117 = getelementptr inbounds i8, ptr %0, i64 732
+  %117 = getelementptr inbounds nuw i8, ptr %0, i64 732
   %118 = add nuw nsw i32 %46, %42
   %wide.trip.count = zext nneg i32 %46 to i64
   br label %119
@@ -1003,7 +1003,7 @@ define noundef range(i32 -14, 2) i32 @_Z16BoardValueChecksRK4dealiiiPK10ThreadDa
   br i1 %15, label %.loopexit.sink.split, label %16
 
 16:                                               ; preds = %12
-  %17 = getelementptr inbounds i8, ptr %4, i64 1532
+  %17 = getelementptr inbounds nuw i8, ptr %4, i64 1532
   %18 = load i32, ptr %17, align 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %6, i8 0, i64 16, i1 false)
   %19 = icmp sgt i32 %18, 0
@@ -1382,7 +1382,7 @@ define noundef i32 @_Z14SolveSameBoardP10ThreadDataRK4dealP12futureTricksi(ptr n
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %11 = load i32, ptr %10, align 4
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 60
-  %13 = getelementptr inbounds i8, ptr %0, i64 532
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 532
   %14 = sext i32 %6 to i64
   %15 = getelementptr inbounds [50 x i32], ptr %13, i64 0, i64 %14
   store i32 %11, ptr %15, align 4

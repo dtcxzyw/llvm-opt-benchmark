@@ -51,7 +51,7 @@ define noundef nonnull align 8 dereferenceable(8) ptr @_ZN32pxrInternal_v0_24__p
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %11 = load double, ptr %10, align 8
   %12 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN32pxrInternal_v0_24__pxrReserved__lsERSoNS_14TfStreamDoubleE(ptr noundef nonnull align 8 dereferenceable(8) %0, double %11)
-  %13 = getelementptr inbounds i8, ptr %1, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %14 = load i8, ptr %13, align 8
   %15 = trunc i8 %14 to i1
   %16 = select i1 %15, ptr @.str.5, ptr @.str.6

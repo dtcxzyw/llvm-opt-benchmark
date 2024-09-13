@@ -115,9 +115,9 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__21TsFindChangedIntervalERKNS_8
   %35 = getelementptr inbounds nuw i8, ptr %24, i64 8
   store ptr %2, ptr %35, align 8
   %36 = getelementptr inbounds nuw i8, ptr %24, i64 16
-  %37 = getelementptr inbounds i8, ptr %24, i64 64
+  %37 = getelementptr inbounds nuw i8, ptr %24, i64 64
   store double 0.000000e+00, ptr %37, align 8
-  %38 = getelementptr inbounds i8, ptr %24, i64 72
+  %38 = getelementptr inbounds nuw i8, ptr %24, i64 72
   store i8 0, ptr %38, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(41) %36, i8 0, i64 41, i1 false)
   %39 = load atomic i32, ptr @_ZN32pxrInternal_v0_24__pxrReserved__14TraceCollector10_isEnabledE acquire, align 4, !noalias !5
@@ -139,7 +139,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__21TsFindChangedIntervalERKNS_8
   %.sroa.11.0.i = phi i64 [ %46, %41 ], [ 0, %34 ]
   %49 = getelementptr inbounds nuw i8, ptr %24, i64 48
   store double 0xFFF0000000000000, ptr %49, align 8, !noalias !5
-  %50 = getelementptr inbounds i8, ptr %24, i64 56
+  %50 = getelementptr inbounds nuw i8, ptr %24, i64 56
   store i8 0, ptr %50, align 8, !noalias !5
   store double 0x7FF0000000000000, ptr %37, align 8, !noalias !5
   store i8 0, ptr %38, align 8, !noalias !5
@@ -2340,11 +2340,11 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit174: ; preds = %490, %495
 522:                                              ; preds = %520
   %523 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store double 0.000000e+00, ptr %523, align 8
-  %524 = getelementptr inbounds i8, ptr %0, i64 56
+  %524 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i8 0, ptr %524, align 8
-  %525 = getelementptr inbounds i8, ptr %0, i64 64
+  %525 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store double 0.000000e+00, ptr %525, align 8
-  %526 = getelementptr inbounds i8, ptr %0, i64 72
+  %526 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store i8 0, ptr %526, align 8
   br label %.critedge
 
@@ -2475,9 +2475,9 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit185: ; preds = %554, %559
   %or.cond.i.i189 = fcmp une double %587, 0x7FF0000000000000
   %narrow.i.i = and i1 %or.cond.i.i189, %.038.in
   %spec.store.select.i.i = zext i1 %narrow.i.i to i8
-  %588 = getelementptr inbounds i8, ptr %0, i64 64
+  %588 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store double %586, ptr %588, align 8
-  %589 = getelementptr inbounds i8, ptr %0, i64 72
+  %589 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store i8 %spec.store.select.i.i, ptr %589, align 8
   store i64 %378, ptr %99, align 8
   store i64 %377, ptr %103, align 8
@@ -2641,9 +2641,9 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit205: ; preds = %647, %653
   %or.cond.i.i209 = fcmp une double %678, 0x7FF0000000000000
   %narrow.i.i210 = and i1 %or.cond.i.i209, %648
   %spec.store.select.i.i211 = zext i1 %narrow.i.i210 to i8
-  %679 = getelementptr inbounds i8, ptr %0, i64 64
+  %679 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store double %677, ptr %679, align 8
-  %680 = getelementptr inbounds i8, ptr %0, i64 72
+  %680 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store i8 %spec.store.select.i.i211, ptr %680, align 8
   br label %.critedge
 
@@ -4407,11 +4407,11 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit192: ; preds = %_ZN32pxrIn
 540:                                              ; preds = %538
   %541 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store double 0.000000e+00, ptr %541, align 8
-  %542 = getelementptr inbounds i8, ptr %0, i64 56
+  %542 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i8 0, ptr %542, align 8
-  %543 = getelementptr inbounds i8, ptr %0, i64 64
+  %543 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store double 0.000000e+00, ptr %543, align 8
-  %544 = getelementptr inbounds i8, ptr %0, i64 72
+  %544 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store i8 0, ptr %544, align 8
   br label %.critedge
 
@@ -4576,7 +4576,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit203: ; preds = %_ZN32pxrIn
   %narrow.i.i = and i1 %.050.in, %or.cond.i.i204
   %spec.store.select.i.i = zext i1 %narrow.i.i to i8
   store double %611, ptr %612, align 8
-  %614 = getelementptr inbounds i8, ptr %0, i64 56
+  %614 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i8 %spec.store.select.i.i, ptr %614, align 8
   %615 = ptrtoint ptr %.sroa.0237.0265270276281290291 to i64
   store i64 %615, ptr %36, align 8
@@ -4735,7 +4735,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit216: ; preds = %668, %674
   %narrow.i.i221 = and i1 %or.cond.i.i220, %669
   %spec.store.select.i.i222 = zext i1 %narrow.i.i221 to i8
   store double %697, ptr %698, align 8
-  %700 = getelementptr inbounds i8, ptr %0, i64 56
+  %700 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i8 %spec.store.select.i.i222, ptr %700, align 8
   br label %.critedge
 

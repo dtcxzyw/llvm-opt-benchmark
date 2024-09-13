@@ -52,9 +52,9 @@ define hidden noundef i32 @_ZNK4ncnn13GroupNorm_x8615forward_inplaceERNS_3MatERK
 .lr.ph1280:                                       ; preds = %.preheader1159
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 224
-  %14 = getelementptr inbounds i8, ptr %0, i64 240
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 240
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 296
-  %16 = getelementptr inbounds i8, ptr %0, i64 312
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %17 = icmp sgt i32 %10, 3
   %18 = sitofp i32 %10 to float
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 216
@@ -283,9 +283,9 @@ define hidden noundef i32 @_ZNK4ncnn13GroupNorm_x8615forward_inplaceERNS_3MatERK
 .lr.ph1222:                                       ; preds = %127
   %132 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %133 = getelementptr inbounds nuw i8, ptr %0, i64 224
-  %134 = getelementptr inbounds i8, ptr %0, i64 240
+  %134 = getelementptr inbounds nuw i8, ptr %0, i64 240
   %135 = getelementptr inbounds nuw i8, ptr %0, i64 296
-  %136 = getelementptr inbounds i8, ptr %0, i64 312
+  %136 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %137 = icmp sgt i32 %130, 3
   %138 = sitofp i32 %130 to float
   %139 = getelementptr inbounds nuw i8, ptr %0, i64 216
@@ -537,9 +537,9 @@ define hidden noundef i32 @_ZNK4ncnn13GroupNorm_x8615forward_inplaceERNS_3MatERK
   %268 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %269 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %270 = getelementptr inbounds nuw i8, ptr %0, i64 224
-  %271 = getelementptr inbounds i8, ptr %0, i64 240
+  %271 = getelementptr inbounds nuw i8, ptr %0, i64 240
   %272 = getelementptr inbounds nuw i8, ptr %0, i64 296
-  %273 = getelementptr inbounds i8, ptr %0, i64 312
+  %273 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %274 = icmp sgt i32 %10, 0
   %275 = icmp sgt i32 %266, 3
   %276 = mul nsw i32 %266, %10
@@ -847,7 +847,7 @@ declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #7
 define linkonce_odr hidden void @_ZN4ncnn9GroupNormD2Ev(ptr noundef nonnull align 8 dereferenceable(368) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTVN4ncnn9GroupNormE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 296
-  %3 = getelementptr inbounds i8, ptr %0, i64 304
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %18, label %5
@@ -858,7 +858,7 @@ define linkonce_odr hidden void @_ZN4ncnn9GroupNormD2Ev(ptr noundef nonnull alig
   br i1 %7, label %8, label %18
 
 8:                                                ; preds = %5
-  %9 = getelementptr inbounds i8, ptr %0, i64 328
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 328
   %10 = load ptr, ptr %9, align 8
   %.not17 = icmp eq ptr %10, null
   %11 = load ptr, ptr %2, align 8
@@ -880,11 +880,11 @@ define linkonce_odr hidden void @_ZN4ncnn9GroupNormD2Ev(ptr noundef nonnull alig
   br label %18
 
 18:                                               ; preds = %12, %17, %16, %5, %1
-  %19 = getelementptr inbounds i8, ptr %0, i64 336
-  %20 = getelementptr inbounds i8, ptr %0, i64 360
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 336
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 360
   store i64 0, ptr %20, align 8
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 224
-  %22 = getelementptr inbounds i8, ptr %0, i64 232
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 232
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %2, i8 0, i64 28, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %19, i8 0, i64 20, i1 false)
   %23 = load ptr, ptr %22, align 8
@@ -904,7 +904,7 @@ define linkonce_odr hidden void @_ZN4ncnn9GroupNormD2Ev(ptr noundef nonnull alig
   br i1 %29, label %30, label %40
 
 30:                                               ; preds = %27
-  %31 = getelementptr inbounds i8, ptr %0, i64 256
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %32 = load ptr, ptr %31, align 8
   %.not20 = icmp eq ptr %32, null
   %33 = load ptr, ptr %21, align 8
@@ -926,8 +926,8 @@ define linkonce_odr hidden void @_ZN4ncnn9GroupNormD2Ev(ptr noundef nonnull alig
   br label %40
 
 40:                                               ; preds = %34, %39, %38, %27, %18
-  %41 = getelementptr inbounds i8, ptr %0, i64 264
-  %42 = getelementptr inbounds i8, ptr %0, i64 288
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 264
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 288
   store i64 0, ptr %42, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %21, i8 0, i64 28, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %41, i8 0, i64 20, i1 false)

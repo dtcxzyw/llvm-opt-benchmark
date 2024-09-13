@@ -52,25 +52,25 @@ define dso_local void @_ZN4llvm3pdb22NativeSymbolEnumeratorC2ERNS0_13NativeSessi
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %8 = load i16, ptr %4, align 8
   store i16 %8, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 34
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 34
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 2
   %11 = load i16, ptr %10, align 2
   store i16 %11, ptr %9, align 2
-  %12 = getelementptr inbounds i8, ptr %0, i64 40
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 48
-  %15 = getelementptr inbounds i8, ptr %4, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %16 = load i32, ptr %15, align 8
   store i32 %16, ptr %14, align 8
   %17 = load i64, ptr %13, align 8
   store i64 %17, ptr %12, align 8
   store i32 0, ptr %15, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 52
-  %19 = getelementptr inbounds i8, ptr %4, i64 20
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 52
+  %19 = getelementptr inbounds nuw i8, ptr %4, i64 20
   %20 = load i8, ptr %19, align 4
   %21 = and i8 %20, 1
   store i8 %21, ptr %18, align 4
-  %22 = getelementptr inbounds i8, ptr %0, i64 56
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %23 = getelementptr inbounds nuw i8, ptr %4, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %22, ptr noundef nonnull align 8 dereferenceable(16) %23, i64 16, i1 false)
   ret void
@@ -81,13 +81,13 @@ declare void @_ZN4llvm3pdb15NativeRawSymbolC2ERNS0_13NativeSessionENS0_11PDB_Sym
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN4llvm3pdb22NativeSymbolEnumeratorD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 1448) (i8, ptr @_ZTVN4llvm3pdb22NativeSymbolEnumeratorE, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 48
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load i32, ptr %2, align 8
   %4 = icmp ugt i32 %3, 64
   br i1 %4, label %5, label %_ZN4llvm8codeview16EnumeratorRecordD2Ev.exit
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 40
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %7, null
   br i1 %8, label %_ZN4llvm8codeview16EnumeratorRecordD2Ev.exit, label %9
@@ -603,11 +603,11 @@ define dso_local noundef i32 @_ZNK4llvm3pdb22NativeSymbolEnumerator18getLexicalP
 define dso_local void @_ZNK4llvm3pdb22NativeSymbolEnumerator7getNameB5cxx11Ev(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %1) unnamed_addr #0 align 2 {
   %3 = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
   %4 = alloca %"class.std::allocator.51", align 1
-  %5 = getelementptr inbounds i8, ptr %1, i64 56
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 56
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #7
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %1, i64 64
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %8 = load i64, ptr %7, align 8
   %9 = call { i64, ptr } @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE17_S_to_string_viewESt17basic_string_viewIcS2_E(i64 %8, ptr %6) #7
   %10 = extractvalue { i64, ptr } %9, 0
@@ -683,8 +683,8 @@ define dso_local void @_ZNK4llvm3pdb22NativeSymbolEnumerator8getValueEv(ptr dead
   ]
 
 10:                                               ; preds = %2, %2, %2
-  %11 = getelementptr inbounds i8, ptr %1, i64 40
-  %12 = getelementptr inbounds i8, ptr %1, i64 48
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %13 = load i32, ptr %12, align 8
   %14 = icmp ult i32 %13, 65
   br i1 %14, label %15, label %22
@@ -745,8 +745,8 @@ _ZNK4llvm5APInt12getSExtValueEv.exit:             ; preds = %15, %22
   br label %86
 
 40:                                               ; preds = %2, %2
-  %41 = getelementptr inbounds i8, ptr %1, i64 40
-  %42 = getelementptr inbounds i8, ptr %1, i64 48
+  %41 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %42 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %43 = load i32, ptr %42, align 8
   %44 = icmp ult i32 %43, 65
   %45 = load ptr, ptr %41, align 8
@@ -791,8 +791,8 @@ _ZNK4llvm5APInt12getSExtValueEv.exit:             ; preds = %15, %22
   br label %86
 
 61:                                               ; preds = %2
-  %62 = getelementptr inbounds i8, ptr %1, i64 40
-  %63 = getelementptr inbounds i8, ptr %1, i64 48
+  %62 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %63 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %64 = load i32, ptr %63, align 8
   %65 = icmp ult i32 %64, 65
   %66 = load ptr, ptr %62, align 8
@@ -806,8 +806,8 @@ _ZNK4llvm5APInt12getSExtValueEv.exit:             ; preds = %15, %22
   br label %86
 
 70:                                               ; preds = %2, %40, %_ZNK4llvm5APInt12getSExtValueEv.exit
-  %71 = getelementptr inbounds i8, ptr %1, i64 40
-  %72 = getelementptr inbounds i8, ptr %1, i64 48
+  %71 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %72 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %73 = load i32, ptr %72, align 8
   %74 = icmp ult i32 %73, 65
   br i1 %74, label %75, label %82

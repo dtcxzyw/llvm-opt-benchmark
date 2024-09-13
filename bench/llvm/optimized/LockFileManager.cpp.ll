@@ -376,11 +376,11 @@ define dso_local void @_ZN4llvm15LockFileManagerC2ENS_9StringRefE(ptr noundef no
   %47 = getelementptr inbounds i8, ptr %0, i64 328
   tail call void @_ZN4llvm15SmallVectorBaseImEC2EPvm(ptr noundef nonnull align 8 dereferenceable(24) %46, ptr noundef nonnull %47, i64 noundef 128) #13
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 456
-  %49 = getelementptr inbounds i8, ptr %0, i64 496
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 496
   store i8 0, ptr %49, align 8
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 504
   store i32 0, ptr %50, align 8
-  %51 = getelementptr inbounds i8, ptr %0, i64 512
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 512
   %52 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3_V215system_categoryEv() #14
   store ptr %52, ptr %51, align 8
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 520
@@ -458,7 +458,7 @@ _ZN4llvm15LockFileManager8setErrorERKSt10error_codeNS_9StringRefE.exit: ; preds 
   %81 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %48, ptr noundef nonnull align 8 dereferenceable(32) %18) #13
   %82 = getelementptr inbounds nuw i8, ptr %18, i64 32
   %83 = load i32, ptr %82, align 8
-  %84 = getelementptr inbounds i8, ptr %0, i64 488
+  %84 = getelementptr inbounds nuw i8, ptr %0, i64 488
   store i32 %83, ptr %84, align 8
   br label %_ZNSt8optionalISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiEEaSEOS8_.exit
 
@@ -467,7 +467,7 @@ _ZN4llvm15LockFileManager8setErrorERKSt10error_codeNS_9StringRefE.exit: ; preds 
 
 85:                                               ; preds = %.thread.i.i.i.i.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %48, ptr noundef nonnull align 8 dereferenceable(32) %18) #13
-  %86 = getelementptr inbounds i8, ptr %0, i64 488
+  %86 = getelementptr inbounds nuw i8, ptr %0, i64 488
   %87 = getelementptr inbounds nuw i8, ptr %18, i64 32
   %88 = load i32, ptr %87, align 8
   store i32 %88, ptr %86, align 8
@@ -685,7 +685,7 @@ _ZN4llvm11SmallStringILj256EED2Ev.exit:           ; preds = %156, %160
   %170 = getelementptr inbounds nuw i8, ptr %32, i64 8
   %171 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %172 = getelementptr inbounds nuw i8, ptr %36, i64 40
-  %173 = getelementptr inbounds i8, ptr %0, i64 488
+  %173 = getelementptr inbounds nuw i8, ptr %0, i64 488
   %174 = getelementptr inbounds nuw i8, ptr %36, i64 32
   %175 = getelementptr inbounds nuw i8, ptr %38, i64 32
   %176 = getelementptr inbounds nuw i8, ptr %38, i64 33
@@ -1031,7 +1031,7 @@ _ZN4llvm11raw_ostreamlsENS_9StringRefE.exit:      ; preds = %2, %12, %14, %15
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local noundef range(i32 0, 3) i32 @_ZNK4llvm15LockFileManager8getStateEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(552) %0) local_unnamed_addr #5 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 496
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 496
   %3 = load i8, ptr %2, align 8
   %4 = trunc i8 %3 to i1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 504
@@ -1055,7 +1055,7 @@ define dso_local void @_ZNK4llvm15LockFileManager15getErrorMessageB5cxx11Ev(ptr 
 8:                                                ; preds = %2
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 520
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %9) #13
-  %10 = getelementptr inbounds i8, ptr %1, i64 512
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 512
   %11 = load ptr, ptr %10, align 8, !noalias !30
   %12 = load i32, ptr %6, align 8, !noalias !30
   %13 = load ptr, ptr %11, align 8, !noalias !30
@@ -1132,7 +1132,7 @@ declare noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIc
 define dso_local void @_ZN4llvm15LockFileManagerD2Ev(ptr noundef nonnull align 8 dereferenceable(552) %0) unnamed_addr #0 align 2 {
   %2 = alloca %"class.llvm::Twine", align 8
   %3 = alloca %"class.llvm::Twine", align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 496
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 496
   %5 = load i8, ptr %4, align 8
   %6 = trunc i8 %5 to i1
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 504
@@ -1228,7 +1228,7 @@ define dso_local noundef range(i32 0, 3) i32 @_ZN4llvm15LockFileManager13waitFor
   %3 = alloca %"class.llvm::ExponentialBackoff", align 8
   %4 = alloca %"class.llvm::Twine", align 8
   %5 = alloca %"class.llvm::Twine", align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 496
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 496
   %7 = load i8, ptr %6, align 8
   %8 = trunc i8 %7 to i1
   br i1 %8, label %9, label %44
@@ -1241,7 +1241,7 @@ define dso_local noundef range(i32 0, 3) i32 @_ZN4llvm15LockFileManager13waitFor
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 33
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 456
-  %16 = getelementptr inbounds i8, ptr %0, i64 488
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 488
   br label %17
 
 17:                                               ; preds = %38, %9

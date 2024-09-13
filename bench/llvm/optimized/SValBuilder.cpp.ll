@@ -75,38 +75,38 @@ define dso_local void @_ZN5clang4ento11SValBuilderC2ERN4llvm20BumpPtrAllocatorIm
   store ptr %2, ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %2, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %1, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
   tail call void @_ZN4llvm14FoldingSetBaseC2Ej(ptr noundef nonnull align 8 dereferenceable(16) %8, i32 noundef 6) #12
-  %9 = getelementptr inbounds i8, ptr %0, i64 48
-  %10 = getelementptr inbounds i8, ptr %0, i64 64
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 64
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, i8 0, i64 16, i1 false)
   tail call void @_ZN4llvm14FoldingSetBaseC2Ej(ptr noundef nonnull align 8 dereferenceable(16) %10, i32 noundef 6) #12
-  %11 = getelementptr inbounds i8, ptr %0, i64 80
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %12 = ptrtoint ptr %1 to i64
   %13 = or disjoint i64 %12, 1
   store i64 %13, ptr %11, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 88
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 88
   tail call void @_ZN4llvm14FoldingSetBaseC2Ej(ptr noundef nonnull align 8 dereferenceable(16) %14, i32 noundef 6) #12
-  %15 = getelementptr inbounds i8, ptr %0, i64 104
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store i64 %13, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 112
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 112
   tail call void @_ZN4llvm14FoldingSetBaseC2Ej(ptr noundef nonnull align 8 dereferenceable(16) %16, i32 noundef 6) #12
-  %17 = getelementptr inbounds i8, ptr %0, i64 128
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 128
   tail call void @_ZN4llvm14FoldingSetBaseC2Ej(ptr noundef nonnull align 8 dereferenceable(16) %17, i32 noundef 6) #12
-  %18 = getelementptr inbounds i8, ptr %0, i64 144
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 144
   tail call void @_ZN4llvm14FoldingSetBaseC2Ej(ptr noundef nonnull align 8 dereferenceable(16) %18, i32 noundef 6) #12
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 160
   tail call void @_ZN4llvm14FoldingSetBaseC2Ej(ptr noundef nonnull align 8 dereferenceable(16) %19, i32 noundef 6) #12
-  %20 = getelementptr inbounds i8, ptr %0, i64 176
-  %21 = getelementptr inbounds i8, ptr %0, i64 192
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 192
   store i32 32, ptr %21, align 8
   %22 = tail call noalias noundef nonnull ptr @_ZN4llvm15allocate_bufferEmm(i64 noundef 512, i64 noundef 8) #12
   store ptr %22, ptr %20, align 8
-  %23 = getelementptr inbounds i8, ptr %0, i64 184
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 184
   store i32 0, ptr %23, align 8
-  %24 = getelementptr inbounds i8, ptr %0, i64 188
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 188
   store i32 0, ptr %24, align 4
   %25 = load i32, ptr %21, align 8
   %26 = zext i32 %25 to i64
@@ -122,26 +122,26 @@ define dso_local void @_ZN5clang4ento11SValBuilderC2ERN4llvm20BumpPtrAllocatorIm
   br i1 %.not.i.i.i.i, label %_ZN5clang4ento13SymbolManagerC2ERNS_10ASTContextERNS0_17BasicValueFactoryERN4llvm20BumpPtrAllocatorImplINS6_15MallocAllocatorELm4096ELm4096ELm128EEE.exit, label %.lr.ph.i.i.i.i, !llvm.loop !4
 
 _ZN5clang4ento13SymbolManagerC2ERNS_10ASTContextERNS0_17BasicValueFactoryERN4llvm20BumpPtrAllocatorImplINS6_15MallocAllocatorELm4096ELm4096ELm128EEE.exit: ; preds = %.lr.ph.i.i.i.i, %4
-  %29 = getelementptr inbounds i8, ptr %0, i64 200
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 200
   store i32 0, ptr %29, align 8
-  %30 = getelementptr inbounds i8, ptr %0, i64 208
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 208
   store ptr %1, ptr %30, align 8
-  %31 = getelementptr inbounds i8, ptr %0, i64 216
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 216
   store ptr %6, ptr %31, align 8
-  %32 = getelementptr inbounds i8, ptr %0, i64 224
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 224
   store ptr %2, ptr %32, align 8
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 232
   store ptr %2, ptr %33, align 8
-  %34 = getelementptr inbounds i8, ptr %0, i64 240
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 240
   store ptr %1, ptr %34, align 8
-  %35 = getelementptr inbounds i8, ptr %0, i64 248
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 248
   tail call void @_ZN4llvm14FoldingSetBaseC2Ej(ptr noundef nonnull align 8 dereferenceable(16) %35, i32 noundef 6) #12
-  %36 = getelementptr inbounds i8, ptr %0, i64 264
-  %37 = getelementptr inbounds i8, ptr %0, i64 312
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 264
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 312
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %37, i8 0, i64 20, i1 false)
-  %38 = getelementptr inbounds i8, ptr %0, i64 336
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 336
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %38, i8 0, i64 20, i1 false)
-  %39 = getelementptr inbounds i8, ptr %0, i64 360
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 360
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(44) %36, i8 0, i64 44, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %39, i8 0, i64 24, i1 false)
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 384
@@ -1488,7 +1488,7 @@ _ZN5clang4ento11SValBuilder16makeNullWithTypeENS_8QualTypeE.exit: ; preds = %105
   br i1 %165, label %166, label %170
 
 166:                                              ; preds = %159
-  %167 = getelementptr inbounds i8, ptr %6, i64 24
+  %167 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %168 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %169 = call noundef nonnull align 8 dereferenceable(13) ptr @_ZN5clang4ento17BasicValueFactory8getValueERKN4llvm6APSIntE(ptr noundef nonnull align 8 dereferenceable(144) %168, ptr noundef nonnull align 8 dereferenceable(13) %167) #12
   br label %_ZN5clang4ento3Loc9isLocTypeENS_8QualTypeE.exit.thread160.sink.split
@@ -4960,7 +4960,7 @@ declare void @_ZN5clang4ento16MemRegionManagerD1Ev(ptr noundef nonnull align 8 d
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5clang4ento13SymbolManagerD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #1 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %3 = getelementptr inbounds i8, ptr %0, i64 32
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i32, ptr %3, align 8
   %5 = icmp eq i32 %4, 0
   %.pre1.i = load ptr, ptr %2, align 8

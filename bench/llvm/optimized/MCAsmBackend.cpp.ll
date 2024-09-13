@@ -224,20 +224,20 @@ _ZNSt10unique_ptrIN4llvm24MCMachObjectTargetWriterESt14default_deleteIS1_EED2Ev.
   %40 = select i1 %.not.i.i, i32 2, i32 3
   call void @_ZN4llvm18StringTableBuilderC1ENS0_4KindENS_5AlignE(ptr noundef nonnull align 8 dereferenceable(38) %35, i32 noundef %40, i8 0) #16, !noalias !9
   %41 = getelementptr inbounds nuw i8, ptr %24, i64 288
-  %42 = getelementptr inbounds i8, ptr %24, i64 368
+  %42 = getelementptr inbounds nuw i8, ptr %24, i64 368
   %43 = getelementptr inbounds i8, ptr %24, i64 384
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %41, i8 0, i64 80, i1 false), !noalias !9
   call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %42, ptr noundef nonnull %43, i64 noundef 32) #16, !noalias !9
   %44 = getelementptr inbounds nuw i8, ptr %24, i64 1920
   store i8 0, ptr %44, align 8, !noalias !9
-  %45 = getelementptr inbounds i8, ptr %24, i64 1924
-  %46 = getelementptr inbounds i8, ptr %24, i64 1960
+  %45 = getelementptr inbounds nuw i8, ptr %24, i64 1924
+  %46 = getelementptr inbounds nuw i8, ptr %24, i64 1960
   %47 = getelementptr inbounds nuw i8, ptr %24, i64 2016
   %48 = zext i1 %17 to i32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(33) %45, i8 0, i64 33, i1 false), !noalias !9
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %46, i8 0, i64 56, i1 false), !noalias !9
   store ptr %2, ptr %47, align 8, !noalias !9
-  %49 = getelementptr inbounds i8, ptr %24, i64 2024
+  %49 = getelementptr inbounds nuw i8, ptr %24, i64 2024
   store i32 %48, ptr %49, align 8, !noalias !9
   store ptr %24, ptr %0, align 8
   br label %95

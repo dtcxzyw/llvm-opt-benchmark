@@ -270,7 +270,7 @@ define hidden void @_ZNK5clang6driver5tools7openbsd9Assembler12ConstructJobERNS0
   %31 = getelementptr inbounds i8, ptr %15, i64 16
   call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %15, ptr noundef nonnull %31, i64 noundef 16) #13
   call void @_ZN5clang6driver5tools15claimNoWarnArgsERKN4llvm3opt7ArgListE(ptr noundef nonnull align 8 dereferenceable(176) %5) #13
-  %32 = getelementptr inbounds i8, ptr %27, i64 48
+  %32 = getelementptr inbounds nuw i8, ptr %27, i64 48
   %33 = load i32, ptr %32, align 8
   switch i32 %33, label %166 [
     i32 37, label %34
@@ -770,7 +770,7 @@ define hidden void @_ZNK5clang6driver5tools7openbsd6Linker12ConstructJobERNS0_11
   %31 = load ptr, ptr %30, align 8
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 8
   %33 = load ptr, ptr %32, align 8
-  %34 = getelementptr inbounds i8, ptr %31, i64 48
+  %34 = getelementptr inbounds nuw i8, ptr %31, i64 48
   %35 = load i32, ptr %34, align 8
   %36 = tail call noundef ptr @_ZNK4llvm3opt7ArgList10getLastArgIJN5clang6driver7options2IDEEEEPNS0_3ArgEDpT_(ptr noundef nonnull align 8 dereferenceable(176) %5, i32 noundef 3176)
   %.not = icmp eq ptr %36, null
@@ -1868,7 +1868,7 @@ declare void @_ZNK5clang6driver9ToolChain13GetLinkerPathB5cxx11EPb(ptr dead_on_u
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden { i64, i64 } @_ZNK5clang6driver10toolchains7OpenBSD22getSupportedSanitizersEv(ptr noundef nonnull align 8 dereferenceable(4488) %0) unnamed_addr #0 align 2 {
 _ZN5clang13SanitizerMaskoRERKS0_.exit8:
-  %1 = getelementptr inbounds i8, ptr %0, i64 48
+  %1 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %2 = load i32, ptr %1, align 8
   %3 = tail call { i64, i64 } @_ZNK5clang6driver9ToolChain22getSupportedSanitizersEv(ptr noundef nonnull align 8 dereferenceable(2168) %0) #13
   %4 = extractvalue { i64, i64 } %3, 0
@@ -2390,7 +2390,7 @@ define hidden noundef zeroext i1 @_ZNK5clang6driver10toolchains7OpenBSD20HasNati
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef range(i32 0, 3) i32 @_ZNK5clang6driver10toolchains7OpenBSD26getDefaultUnwindTableLevelERKN4llvm3opt7ArgListE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(4488) %0, ptr nocapture nonnull readnone align 8 %1) unnamed_addr #6 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 48
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = load i32, ptr %3, align 8
   %cond = icmp eq i32 %4, 1
   %. = select i1 %cond, i32 0, i32 2

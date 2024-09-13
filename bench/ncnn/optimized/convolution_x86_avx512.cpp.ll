@@ -5591,20 +5591,20 @@ define hidden void @_ZN4ncnn22Convolution_x86_avx512C2Ev(ptr noundef nonnull ali
   tail call void @_ZN4ncnn11ConvolutionC2Ev(ptr noundef nonnull align 8 dereferenceable(712) %0)
   store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTVN4ncnn22Convolution_x86_avx512E, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 728
-  %3 = getelementptr inbounds i8, ptr %0, i64 760
-  %4 = getelementptr inbounds i8, ptr %0, i64 792
-  %5 = getelementptr inbounds i8, ptr %0, i64 832
-  %6 = getelementptr inbounds i8, ptr %0, i64 864
-  %7 = getelementptr inbounds i8, ptr %0, i64 904
-  %8 = getelementptr inbounds i8, ptr %0, i64 936
-  %9 = getelementptr inbounds i8, ptr %0, i64 976
-  %10 = getelementptr inbounds i8, ptr %0, i64 1008
-  %11 = getelementptr inbounds i8, ptr %0, i64 1048
-  %12 = getelementptr inbounds i8, ptr %0, i64 1080
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 760
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 792
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 832
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 864
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 904
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 936
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 976
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 1008
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 1048
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 1080
   store i64 0, ptr %12, align 8
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 1096
-  %14 = getelementptr inbounds i8, ptr %0, i64 1128
-  %15 = getelementptr inbounds i8, ptr %0, i64 1160
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 1128
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 1160
   store i64 0, ptr %15, align 8
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 11
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %2, i8 0, i64 28, i1 false)
@@ -5637,7 +5637,7 @@ declare i32 @__gxx_personality_v0(...)
 define linkonce_odr hidden void @_ZN4ncnn11ConvolutionD2Ev(ptr noundef nonnull align 8 dereferenceable(712) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTVN4ncnn11ConvolutionE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 640
-  %3 = getelementptr inbounds i8, ptr %0, i64 648
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 648
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %18, label %5
@@ -5648,7 +5648,7 @@ define linkonce_odr hidden void @_ZN4ncnn11ConvolutionD2Ev(ptr noundef nonnull a
   br i1 %7, label %8, label %18
 
 8:                                                ; preds = %5
-  %9 = getelementptr inbounds i8, ptr %0, i64 672
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 672
   %10 = load ptr, ptr %9, align 8
   %.not53 = icmp eq ptr %10, null
   %11 = load ptr, ptr %2, align 8
@@ -5670,11 +5670,11 @@ define linkonce_odr hidden void @_ZN4ncnn11ConvolutionD2Ev(ptr noundef nonnull a
   br label %18
 
 18:                                               ; preds = %12, %17, %16, %5, %1
-  %19 = getelementptr inbounds i8, ptr %0, i64 680
-  %20 = getelementptr inbounds i8, ptr %0, i64 704
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 680
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 704
   store i64 0, ptr %20, align 8
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 568
-  %22 = getelementptr inbounds i8, ptr %0, i64 576
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 576
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %2, i8 0, i64 28, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %19, i8 0, i64 20, i1 false)
   %23 = load ptr, ptr %22, align 8
@@ -5694,7 +5694,7 @@ define linkonce_odr hidden void @_ZN4ncnn11ConvolutionD2Ev(ptr noundef nonnull a
   br i1 %29, label %30, label %40
 
 30:                                               ; preds = %27
-  %31 = getelementptr inbounds i8, ptr %0, i64 600
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 600
   %32 = load ptr, ptr %31, align 8
   %.not56 = icmp eq ptr %32, null
   %33 = load ptr, ptr %21, align 8
@@ -5716,11 +5716,11 @@ define linkonce_odr hidden void @_ZN4ncnn11ConvolutionD2Ev(ptr noundef nonnull a
   br label %40
 
 40:                                               ; preds = %34, %39, %38, %27, %18
-  %41 = getelementptr inbounds i8, ptr %0, i64 608
-  %42 = getelementptr inbounds i8, ptr %0, i64 632
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 608
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 632
   store i64 0, ptr %42, align 8
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 496
-  %44 = getelementptr inbounds i8, ptr %0, i64 504
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 504
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %21, i8 0, i64 28, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %41, i8 0, i64 20, i1 false)
   %45 = load ptr, ptr %44, align 8
@@ -5740,7 +5740,7 @@ define linkonce_odr hidden void @_ZN4ncnn11ConvolutionD2Ev(ptr noundef nonnull a
   br i1 %51, label %52, label %62
 
 52:                                               ; preds = %49
-  %53 = getelementptr inbounds i8, ptr %0, i64 528
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 528
   %54 = load ptr, ptr %53, align 8
   %.not59 = icmp eq ptr %54, null
   %55 = load ptr, ptr %43, align 8
@@ -5762,11 +5762,11 @@ define linkonce_odr hidden void @_ZN4ncnn11ConvolutionD2Ev(ptr noundef nonnull a
   br label %62
 
 62:                                               ; preds = %56, %61, %60, %49, %40
-  %63 = getelementptr inbounds i8, ptr %0, i64 536
-  %64 = getelementptr inbounds i8, ptr %0, i64 560
+  %63 = getelementptr inbounds nuw i8, ptr %0, i64 536
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 560
   store i64 0, ptr %64, align 8
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 424
-  %66 = getelementptr inbounds i8, ptr %0, i64 432
+  %66 = getelementptr inbounds nuw i8, ptr %0, i64 432
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %43, i8 0, i64 28, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %63, i8 0, i64 20, i1 false)
   %67 = load ptr, ptr %66, align 8
@@ -5786,7 +5786,7 @@ define linkonce_odr hidden void @_ZN4ncnn11ConvolutionD2Ev(ptr noundef nonnull a
   br i1 %73, label %74, label %84
 
 74:                                               ; preds = %71
-  %75 = getelementptr inbounds i8, ptr %0, i64 456
+  %75 = getelementptr inbounds nuw i8, ptr %0, i64 456
   %76 = load ptr, ptr %75, align 8
   %.not62 = icmp eq ptr %76, null
   %77 = load ptr, ptr %65, align 8
@@ -5808,11 +5808,11 @@ define linkonce_odr hidden void @_ZN4ncnn11ConvolutionD2Ev(ptr noundef nonnull a
   br label %84
 
 84:                                               ; preds = %78, %83, %82, %71, %62
-  %85 = getelementptr inbounds i8, ptr %0, i64 464
-  %86 = getelementptr inbounds i8, ptr %0, i64 488
+  %85 = getelementptr inbounds nuw i8, ptr %0, i64 464
+  %86 = getelementptr inbounds nuw i8, ptr %0, i64 488
   store i64 0, ptr %86, align 8
   %87 = getelementptr inbounds nuw i8, ptr %0, i64 352
-  %88 = getelementptr inbounds i8, ptr %0, i64 360
+  %88 = getelementptr inbounds nuw i8, ptr %0, i64 360
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %65, i8 0, i64 28, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %85, i8 0, i64 20, i1 false)
   %89 = load ptr, ptr %88, align 8
@@ -5832,7 +5832,7 @@ define linkonce_odr hidden void @_ZN4ncnn11ConvolutionD2Ev(ptr noundef nonnull a
   br i1 %95, label %96, label %106
 
 96:                                               ; preds = %93
-  %97 = getelementptr inbounds i8, ptr %0, i64 384
+  %97 = getelementptr inbounds nuw i8, ptr %0, i64 384
   %98 = load ptr, ptr %97, align 8
   %.not65 = icmp eq ptr %98, null
   %99 = load ptr, ptr %87, align 8
@@ -5854,11 +5854,11 @@ define linkonce_odr hidden void @_ZN4ncnn11ConvolutionD2Ev(ptr noundef nonnull a
   br label %106
 
 106:                                              ; preds = %100, %105, %104, %93, %84
-  %107 = getelementptr inbounds i8, ptr %0, i64 392
-  %108 = getelementptr inbounds i8, ptr %0, i64 416
+  %107 = getelementptr inbounds nuw i8, ptr %0, i64 392
+  %108 = getelementptr inbounds nuw i8, ptr %0, i64 416
   store i64 0, ptr %108, align 8
   %109 = getelementptr inbounds nuw i8, ptr %0, i64 272
-  %110 = getelementptr inbounds i8, ptr %0, i64 280
+  %110 = getelementptr inbounds nuw i8, ptr %0, i64 280
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %87, i8 0, i64 28, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %107, i8 0, i64 20, i1 false)
   %111 = load ptr, ptr %110, align 8
@@ -5878,7 +5878,7 @@ define linkonce_odr hidden void @_ZN4ncnn11ConvolutionD2Ev(ptr noundef nonnull a
   br i1 %117, label %118, label %128
 
 118:                                              ; preds = %115
-  %119 = getelementptr inbounds i8, ptr %0, i64 304
+  %119 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %120 = load ptr, ptr %119, align 8
   %.not68 = icmp eq ptr %120, null
   %121 = load ptr, ptr %109, align 8
@@ -5900,8 +5900,8 @@ define linkonce_odr hidden void @_ZN4ncnn11ConvolutionD2Ev(ptr noundef nonnull a
   br label %128
 
 128:                                              ; preds = %122, %127, %126, %115, %106
-  %129 = getelementptr inbounds i8, ptr %0, i64 312
-  %130 = getelementptr inbounds i8, ptr %0, i64 336
+  %129 = getelementptr inbounds nuw i8, ptr %0, i64 312
+  %130 = getelementptr inbounds nuw i8, ptr %0, i64 336
   store i64 0, ptr %130, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %109, i8 0, i64 28, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %129, i8 0, i64 20, i1 false)
@@ -6109,7 +6109,7 @@ _ZL23create_activation_layeriRKN4ncnn3MatERKNS_6OptionE.exit: ; preds = %19, %88
   %98 = getelementptr inbounds nuw i8, ptr %1, i64 30
   %99 = load i8, ptr %98, align 2
   %100 = trunc i8 %99 to i1
-  %101 = getelementptr inbounds i8, ptr %0, i64 368
+  %101 = getelementptr inbounds nuw i8, ptr %0, i64 368
   %102 = load i64, ptr %101, align 8
   %103 = icmp eq i64 %102, 1
   %or.cond332 = select i1 %100, i1 %103, i1 false
@@ -6242,7 +6242,7 @@ _ZL23create_activation_layeriRKN4ncnn3MatERKNS_6OptionE.exit: ; preds = %19, %88
   br i1 %167, label %218, label %168
 
 168:                                              ; preds = %164
-  %169 = getelementptr inbounds i8, ptr %0, i64 360
+  %169 = getelementptr inbounds nuw i8, ptr %0, i64 360
   %170 = load ptr, ptr %169, align 8
   %.not300 = icmp eq ptr %170, null
   br i1 %.not300, label %173, label %171
@@ -6299,29 +6299,29 @@ _ZL23create_activation_layeriRKN4ncnn3MatERKNS_6OptionE.exit: ; preds = %19, %88
   store ptr %199, ptr %174, align 8
   %200 = load i64, ptr %101, align 8
   store i64 %200, ptr %190, align 16
-  %201 = getelementptr inbounds i8, ptr %0, i64 376
+  %201 = getelementptr inbounds nuw i8, ptr %0, i64 376
   %202 = load i32, ptr %201, align 8
   store i32 %202, ptr %191, align 8
-  %203 = getelementptr inbounds i8, ptr %0, i64 384
+  %203 = getelementptr inbounds nuw i8, ptr %0, i64 384
   %204 = load ptr, ptr %203, align 8
   %205 = getelementptr inbounds nuw i8, ptr %13, i64 32
   store ptr %204, ptr %205, align 16
-  %206 = getelementptr inbounds i8, ptr %0, i64 392
+  %206 = getelementptr inbounds nuw i8, ptr %0, i64 392
   %207 = load i32, ptr %206, align 8
   store i32 %207, ptr %192, align 8
-  %208 = getelementptr inbounds i8, ptr %0, i64 396
+  %208 = getelementptr inbounds nuw i8, ptr %0, i64 396
   %209 = load i32, ptr %208, align 4
   store i32 %209, ptr %193, align 4
-  %210 = getelementptr inbounds i8, ptr %0, i64 400
+  %210 = getelementptr inbounds nuw i8, ptr %0, i64 400
   %211 = load i32, ptr %210, align 8
   store i32 %211, ptr %194, align 16
-  %212 = getelementptr inbounds i8, ptr %0, i64 404
+  %212 = getelementptr inbounds nuw i8, ptr %0, i64 404
   %213 = load i32, ptr %212, align 4
   store i32 %213, ptr %195, align 4
-  %214 = getelementptr inbounds i8, ptr %0, i64 408
+  %214 = getelementptr inbounds nuw i8, ptr %0, i64 408
   %215 = load i32, ptr %214, align 8
   store i32 %215, ptr %196, align 8
-  %216 = getelementptr inbounds i8, ptr %0, i64 416
+  %216 = getelementptr inbounds nuw i8, ptr %0, i64 416
   %217 = load i64, ptr %216, align 8
   store i64 %217, ptr %197, align 16
   br label %218
@@ -6333,7 +6333,7 @@ _ZL23create_activation_layeriRKN4ncnn3MatERKNS_6OptionE.exit: ; preds = %19, %88
   br i1 %221, label %273, label %222
 
 222:                                              ; preds = %218
-  %223 = getelementptr inbounds i8, ptr %0, i64 432
+  %223 = getelementptr inbounds nuw i8, ptr %0, i64 432
   %224 = load ptr, ptr %223, align 8
   %.not304 = icmp eq ptr %224, null
   br i1 %.not304, label %227, label %225
@@ -6388,32 +6388,32 @@ _ZL23create_activation_layeriRKN4ncnn3MatERKNS_6OptionE.exit: ; preds = %19, %88
   store ptr %252, ptr %220, align 8
   %253 = load ptr, ptr %223, align 8
   store ptr %253, ptr %228, align 16
-  %254 = getelementptr inbounds i8, ptr %0, i64 440
+  %254 = getelementptr inbounds nuw i8, ptr %0, i64 440
   %255 = load i64, ptr %254, align 8
   store i64 %255, ptr %244, align 8
-  %256 = getelementptr inbounds i8, ptr %0, i64 448
+  %256 = getelementptr inbounds nuw i8, ptr %0, i64 448
   %257 = load i32, ptr %256, align 8
   store i32 %257, ptr %245, align 16
-  %258 = getelementptr inbounds i8, ptr %0, i64 456
+  %258 = getelementptr inbounds nuw i8, ptr %0, i64 456
   %259 = load ptr, ptr %258, align 8
   %260 = getelementptr inbounds i8, ptr %13, i64 104
   store ptr %259, ptr %260, align 8
-  %261 = getelementptr inbounds i8, ptr %0, i64 464
+  %261 = getelementptr inbounds nuw i8, ptr %0, i64 464
   %262 = load i32, ptr %261, align 8
   store i32 %262, ptr %246, align 16
-  %263 = getelementptr inbounds i8, ptr %0, i64 468
+  %263 = getelementptr inbounds nuw i8, ptr %0, i64 468
   %264 = load i32, ptr %263, align 4
   store i32 %264, ptr %247, align 4
-  %265 = getelementptr inbounds i8, ptr %0, i64 472
+  %265 = getelementptr inbounds nuw i8, ptr %0, i64 472
   %266 = load i32, ptr %265, align 8
   store i32 %266, ptr %248, align 8
-  %267 = getelementptr inbounds i8, ptr %0, i64 476
+  %267 = getelementptr inbounds nuw i8, ptr %0, i64 476
   %268 = load i32, ptr %267, align 4
   store i32 %268, ptr %249, align 4
-  %269 = getelementptr inbounds i8, ptr %0, i64 480
+  %269 = getelementptr inbounds nuw i8, ptr %0, i64 480
   %270 = load i32, ptr %269, align 8
   store i32 %270, ptr %250, align 16
-  %271 = getelementptr inbounds i8, ptr %0, i64 488
+  %271 = getelementptr inbounds nuw i8, ptr %0, i64 488
   %272 = load i64, ptr %271, align 8
   store i64 %272, ptr %251, align 8
   br label %273
@@ -6575,7 +6575,7 @@ _ZL23create_activation_layeriRKN4ncnn3MatERKNS_6OptionE.exit: ; preds = %19, %88
   br i1 %350, label %387, label %351
 
 351:                                              ; preds = %338
-  %352 = getelementptr inbounds i8, ptr %0, i64 360
+  %352 = getelementptr inbounds nuw i8, ptr %0, i64 360
   %353 = load ptr, ptr %352, align 8
   %.not288 = icmp eq ptr %353, null
   br i1 %.not288, label %.thread622, label %354
@@ -6619,28 +6619,28 @@ _ZL23create_activation_layeriRKN4ncnn3MatERKNS_6OptionE.exit: ; preds = %19, %88
   store ptr %369, ptr %339, align 8
   %370 = load i64, ptr %101, align 8
   store i64 %370, ptr %340, align 16
-  %371 = getelementptr inbounds i8, ptr %0, i64 376
+  %371 = getelementptr inbounds nuw i8, ptr %0, i64 376
   %372 = load i32, ptr %371, align 8
   store i32 %372, ptr %341, align 8
-  %373 = getelementptr inbounds i8, ptr %0, i64 384
+  %373 = getelementptr inbounds nuw i8, ptr %0, i64 384
   %374 = load ptr, ptr %373, align 8
   store ptr %374, ptr %342, align 16
-  %375 = getelementptr inbounds i8, ptr %0, i64 392
+  %375 = getelementptr inbounds nuw i8, ptr %0, i64 392
   %376 = load i32, ptr %375, align 8
   store i32 %376, ptr %343, align 8
-  %377 = getelementptr inbounds i8, ptr %0, i64 396
+  %377 = getelementptr inbounds nuw i8, ptr %0, i64 396
   %378 = load i32, ptr %377, align 4
   store i32 %378, ptr %344, align 4
-  %379 = getelementptr inbounds i8, ptr %0, i64 400
+  %379 = getelementptr inbounds nuw i8, ptr %0, i64 400
   %380 = load i32, ptr %379, align 8
   store i32 %380, ptr %345, align 16
-  %381 = getelementptr inbounds i8, ptr %0, i64 404
+  %381 = getelementptr inbounds nuw i8, ptr %0, i64 404
   %382 = load i32, ptr %381, align 4
   store i32 %382, ptr %346, align 4
-  %383 = getelementptr inbounds i8, ptr %0, i64 408
+  %383 = getelementptr inbounds nuw i8, ptr %0, i64 408
   %384 = load i32, ptr %383, align 8
   store i32 %384, ptr %347, align 8
-  %385 = getelementptr inbounds i8, ptr %0, i64 416
+  %385 = getelementptr inbounds nuw i8, ptr %0, i64 416
   %386 = load i64, ptr %385, align 8
   store i64 %386, ptr %348, align 16
   br label %387
@@ -6781,7 +6781,7 @@ _ZL23create_activation_layeriRKN4ncnn3MatERKNS_6OptionE.exit: ; preds = %19, %88
 
 448:                                              ; preds = %445
   %449 = getelementptr inbounds nuw i8, ptr %0, i64 352
-  %450 = getelementptr inbounds i8, ptr %0, i64 360
+  %450 = getelementptr inbounds nuw i8, ptr %0, i64 360
   %451 = load ptr, ptr %450, align 8
   %.not316 = icmp eq ptr %451, null
   br i1 %.not316, label %465, label %452
@@ -6792,7 +6792,7 @@ _ZL23create_activation_layeriRKN4ncnn3MatERKNS_6OptionE.exit: ; preds = %19, %88
   br i1 %454, label %455, label %465
 
 455:                                              ; preds = %452
-  %456 = getelementptr inbounds i8, ptr %0, i64 384
+  %456 = getelementptr inbounds nuw i8, ptr %0, i64 384
   %457 = load ptr, ptr %456, align 8
   %.not317 = icmp eq ptr %457, null
   %458 = load ptr, ptr %449, align 8
@@ -6814,8 +6814,8 @@ _ZL23create_activation_layeriRKN4ncnn3MatERKNS_6OptionE.exit: ; preds = %19, %88
   br label %465
 
 465:                                              ; preds = %459, %464, %463, %452, %448
-  %466 = getelementptr inbounds i8, ptr %0, i64 392
-  %467 = getelementptr inbounds i8, ptr %0, i64 416
+  %466 = getelementptr inbounds nuw i8, ptr %0, i64 392
+  %467 = getelementptr inbounds nuw i8, ptr %0, i64 416
   store i64 0, ptr %467, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %449, i8 0, i64 28, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %466, i8 0, i64 20, i1 false)
@@ -6923,7 +6923,7 @@ _ZL23create_activation_layeriRKN4ncnn3MatERKNS_6OptionE.exit: ; preds = %19, %88
 524:                                              ; preds = %506
   %525 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %526 = load ptr, ptr %525, align 8
-  %527 = getelementptr inbounds i8, ptr %0, i64 168
+  %527 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %528 = load ptr, ptr %527, align 8
   %529 = icmp eq ptr %526, %528
   br i1 %529, label %538, label %530
@@ -6943,14 +6943,14 @@ _ZL23create_activation_layeriRKN4ncnn3MatERKNS_6OptionE.exit: ; preds = %19, %88
 ._crit_edge:                                      ; preds = %534
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 184
   %.pre616 = load ptr, ptr %.phi.trans.insert, align 8
-  %.phi.trans.insert617 = getelementptr inbounds i8, ptr %0, i64 192
+  %.phi.trans.insert617 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %.pre618 = load ptr, ptr %.phi.trans.insert617, align 8
   br label %570
 
 538:                                              ; preds = %534, %530, %524
   %539 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %540 = load ptr, ptr %539, align 8
-  %541 = getelementptr inbounds i8, ptr %0, i64 192
+  %541 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %542 = load ptr, ptr %541, align 8
   %543 = icmp eq ptr %540, %542
   br i1 %543, label %552, label %544
@@ -7157,7 +7157,7 @@ _ZL23create_activation_layeriRKN4ncnn3MatERKNS_6OptionE.exit: ; preds = %19, %88
 
 653:                                              ; preds = %650
   %654 = getelementptr inbounds nuw i8, ptr %0, i64 352
-  %655 = getelementptr inbounds i8, ptr %0, i64 360
+  %655 = getelementptr inbounds nuw i8, ptr %0, i64 360
   %656 = load ptr, ptr %655, align 8
   %.not327 = icmp eq ptr %656, null
   br i1 %.not327, label %670, label %657
@@ -7168,7 +7168,7 @@ _ZL23create_activation_layeriRKN4ncnn3MatERKNS_6OptionE.exit: ; preds = %19, %88
   br i1 %659, label %660, label %670
 
 660:                                              ; preds = %657
-  %661 = getelementptr inbounds i8, ptr %0, i64 384
+  %661 = getelementptr inbounds nuw i8, ptr %0, i64 384
   %662 = load ptr, ptr %661, align 8
   %.not328 = icmp eq ptr %662, null
   %663 = load ptr, ptr %654, align 8
@@ -7190,8 +7190,8 @@ _ZL23create_activation_layeriRKN4ncnn3MatERKNS_6OptionE.exit: ; preds = %19, %88
   br label %670
 
 670:                                              ; preds = %664, %669, %668, %657, %653
-  %671 = getelementptr inbounds i8, ptr %0, i64 392
-  %672 = getelementptr inbounds i8, ptr %0, i64 416
+  %671 = getelementptr inbounds nuw i8, ptr %0, i64 392
+  %672 = getelementptr inbounds nuw i8, ptr %0, i64 416
   store i64 0, ptr %672, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %654, i8 0, i64 28, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %671, i8 0, i64 20, i1 false)
@@ -7708,9 +7708,9 @@ _ZN4ncnnL44convolution_im2col_gemm_get_optimal_tile_mnkEiiiRiS0_S0_i.exit.i: ; p
 
 .lr.ph408.i:                                      ; preds = %.preheader.i
   %934 = icmp sgt i32 %703, 0
-  %935 = getelementptr inbounds i8, ptr %0, i64 844
-  %936 = getelementptr inbounds i8, ptr %0, i64 864
-  %937 = getelementptr inbounds i8, ptr %0, i64 816
+  %935 = getelementptr inbounds nuw i8, ptr %0, i64 844
+  %936 = getelementptr inbounds nuw i8, ptr %0, i64 864
+  %937 = getelementptr inbounds nuw i8, ptr %0, i64 816
   br i1 %934, label %.lr.ph405.us.preheader.i, label %._crit_edge409.i
 
 .lr.ph405.us.preheader.i:                         ; preds = %.lr.ph408.i
@@ -8765,7 +8765,7 @@ _ZN4ncnnL40convolution_im2col_gemm_transform_kernelERKNS_3MatERS0_iiiiRKNS_6Opti
   br i1 %1534, label %1535, label %1606
 
 1535:                                             ; preds = %_ZN4ncnnL40convolution_im2col_gemm_transform_kernelERKNS_3MatERS0_iiiiRKNS_6OptionE.exit
-  %1536 = getelementptr inbounds i8, ptr %0, i64 360
+  %1536 = getelementptr inbounds nuw i8, ptr %0, i64 360
   %1537 = load ptr, ptr %1536, align 8
   %.not324 = icmp eq ptr %1537, null
   br i1 %.not324, label %1551, label %1538
@@ -8776,7 +8776,7 @@ _ZN4ncnnL40convolution_im2col_gemm_transform_kernelERKNS_3MatERS0_iiiiRKNS_6Opti
   br i1 %1540, label %1541, label %1551
 
 1541:                                             ; preds = %1538
-  %1542 = getelementptr inbounds i8, ptr %0, i64 384
+  %1542 = getelementptr inbounds nuw i8, ptr %0, i64 384
   %1543 = load ptr, ptr %1542, align 8
   %.not325 = icmp eq ptr %1543, null
   %1544 = load ptr, ptr %700, align 8
@@ -8798,8 +8798,8 @@ _ZN4ncnnL40convolution_im2col_gemm_transform_kernelERKNS_3MatERS0_iiiiRKNS_6Opti
   br label %1551
 
 1551:                                             ; preds = %1545, %1550, %1549, %1538, %1535
-  %1552 = getelementptr inbounds i8, ptr %0, i64 392
-  %1553 = getelementptr inbounds i8, ptr %0, i64 416
+  %1552 = getelementptr inbounds nuw i8, ptr %0, i64 392
+  %1553 = getelementptr inbounds nuw i8, ptr %0, i64 416
   store i64 0, ptr %1553, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %700, i8 0, i64 28, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %1552, i8 0, i64 20, i1 false)
@@ -8907,7 +8907,7 @@ _ZN4ncnnL40convolution_im2col_gemm_transform_kernelERKNS_3MatERS0_iiiiRKNS_6Opti
 
 1586:                                             ; preds = %1583
   %1587 = getelementptr inbounds nuw i8, ptr %0, i64 352
-  %1588 = getelementptr inbounds i8, ptr %0, i64 360
+  %1588 = getelementptr inbounds nuw i8, ptr %0, i64 360
   %1589 = load ptr, ptr %1588, align 8
   %.not321 = icmp eq ptr %1589, null
   br i1 %.not321, label %1603, label %1590
@@ -8918,7 +8918,7 @@ _ZN4ncnnL40convolution_im2col_gemm_transform_kernelERKNS_3MatERS0_iiiiRKNS_6Opti
   br i1 %1592, label %1593, label %1603
 
 1593:                                             ; preds = %1590
-  %1594 = getelementptr inbounds i8, ptr %0, i64 384
+  %1594 = getelementptr inbounds nuw i8, ptr %0, i64 384
   %1595 = load ptr, ptr %1594, align 8
   %.not322 = icmp eq ptr %1595, null
   %1596 = load ptr, ptr %1587, align 8
@@ -8940,8 +8940,8 @@ _ZN4ncnnL40convolution_im2col_gemm_transform_kernelERKNS_3MatERS0_iiiiRKNS_6Opti
   br label %1603
 
 1603:                                             ; preds = %1597, %1602, %1601, %1590, %1586
-  %1604 = getelementptr inbounds i8, ptr %0, i64 392
-  %1605 = getelementptr inbounds i8, ptr %0, i64 416
+  %1604 = getelementptr inbounds nuw i8, ptr %0, i64 392
+  %1605 = getelementptr inbounds nuw i8, ptr %0, i64 416
   store i64 0, ptr %1605, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %1587, i8 0, i64 28, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %1604, i8 0, i64 20, i1 false)
@@ -9093,12 +9093,12 @@ define hidden noundef i32 @_ZN4ncnn22Convolution_x86_avx51224create_pipeline_int
   %103 = getelementptr inbounds i8, ptr %13, i64 18
   %104 = getelementptr inbounds i8, ptr %13, i64 24
   %105 = getelementptr inbounds i8, ptr %13, i64 30
-  %106 = getelementptr inbounds i8, ptr %0, i64 988
-  %107 = getelementptr inbounds i8, ptr %0, i64 992
-  %108 = getelementptr inbounds i8, ptr %0, i64 1008
-  %109 = getelementptr inbounds i8, ptr %0, i64 960
-  %110 = getelementptr inbounds i8, ptr %0, i64 968
-  %111 = getelementptr inbounds i8, ptr %0, i64 976
+  %106 = getelementptr inbounds nuw i8, ptr %0, i64 988
+  %107 = getelementptr inbounds nuw i8, ptr %0, i64 992
+  %108 = getelementptr inbounds nuw i8, ptr %0, i64 1008
+  %109 = getelementptr inbounds nuw i8, ptr %0, i64 960
+  %110 = getelementptr inbounds nuw i8, ptr %0, i64 968
+  %111 = getelementptr inbounds nuw i8, ptr %0, i64 976
   %112 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %113 = getelementptr inbounds nuw i8, ptr %19, i64 16
   %114 = getelementptr inbounds nuw i8, ptr %19, i64 24
@@ -9562,12 +9562,12 @@ _ZN4ncnnL42conv3x3s1_winograd43_transform_kernel_int8ERKNS_3MatERS0_iiRKNS_6Opti
   %345 = getelementptr inbounds i8, ptr %6, i64 6
   %346 = getelementptr inbounds i8, ptr %6, i64 12
   %347 = getelementptr inbounds i8, ptr %6, i64 18
-  %348 = getelementptr inbounds i8, ptr %0, i64 916
-  %349 = getelementptr inbounds i8, ptr %0, i64 920
-  %350 = getelementptr inbounds i8, ptr %0, i64 936
-  %351 = getelementptr inbounds i8, ptr %0, i64 888
-  %352 = getelementptr inbounds i8, ptr %0, i64 896
-  %353 = getelementptr inbounds i8, ptr %0, i64 904
+  %348 = getelementptr inbounds nuw i8, ptr %0, i64 916
+  %349 = getelementptr inbounds nuw i8, ptr %0, i64 920
+  %350 = getelementptr inbounds nuw i8, ptr %0, i64 936
+  %351 = getelementptr inbounds nuw i8, ptr %0, i64 888
+  %352 = getelementptr inbounds nuw i8, ptr %0, i64 896
+  %353 = getelementptr inbounds nuw i8, ptr %0, i64 904
   %354 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %355 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %356 = getelementptr inbounds nuw i8, ptr %12, i64 24
@@ -10400,9 +10400,9 @@ _ZN4ncnnL49convolution_im2col_gemm_get_optimal_tile_mnk_int8EiiiRiS0_S0_i.exit.i
 
 .lr.ph472.i:                                      ; preds = %.preheader.i85
   %755 = icmp sgt i32 %528, 0
-  %756 = getelementptr inbounds i8, ptr %0, i64 844
-  %757 = getelementptr inbounds i8, ptr %0, i64 864
-  %758 = getelementptr inbounds i8, ptr %0, i64 816
+  %756 = getelementptr inbounds nuw i8, ptr %0, i64 844
+  %757 = getelementptr inbounds nuw i8, ptr %0, i64 864
+  %758 = getelementptr inbounds nuw i8, ptr %0, i64 816
   br i1 %755, label %.lr.ph469.us.preheader.i, label %._crit_edge473.i
 
 .lr.ph469.us.preheader.i:                         ; preds = %.lr.ph472.i
@@ -12413,8 +12413,8 @@ _ZN4ncnnL45convolution_im2col_gemm_transform_kernel_int8ERKNS_3MatERS0_iiiiRKNS_
 
 .lr.ph.i90:                                       ; preds = %1798, %1783, %1763, %1739
   %1980 = mul i32 %30, %24
-  %1981 = getelementptr inbounds i8, ptr %0, i64 792
-  %1982 = getelementptr inbounds i8, ptr %0, i64 744
+  %1981 = getelementptr inbounds nuw i8, ptr %0, i64 792
+  %1982 = getelementptr inbounds nuw i8, ptr %0, i64 744
   %1983 = insertelement <16 x i32> poison, i32 %24, i64 0
   %1984 = shufflevector <16 x i32> %1983, <16 x i32> poison, <16 x i32> zeroinitializer
   %1985 = mul <16 x i32> %1984, <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15>
@@ -12477,8 +12477,8 @@ _ZN4ncnnL45convolution_im2col_gemm_transform_kernel_int8ERKNS_3MatERS0_iiiiRKNS_
 
 .lr.ph3314.i:                                     ; preds = %.preheader3102.i
   %2032 = mul i32 %30, %24
-  %2033 = getelementptr inbounds i8, ptr %0, i64 792
-  %2034 = getelementptr inbounds i8, ptr %0, i64 744
+  %2033 = getelementptr inbounds nuw i8, ptr %0, i64 792
+  %2034 = getelementptr inbounds nuw i8, ptr %0, i64 744
   %2035 = icmp sgt i32 %30, 15
   %2036 = insertelement <16 x i32> poison, i32 %24, i64 0
   %2037 = shufflevector <16 x i32> %2036, <16 x i32> poison, <16 x i32> zeroinitializer
@@ -13144,8 +13144,8 @@ _ZN4ncnnL45convolution_im2col_gemm_transform_kernel_int8ERKNS_3MatERS0_iiiiRKNS_
 
 .lr.ph3393.i:                                     ; preds = %.preheader3097.i
   %2498 = mul i32 %30, %24
-  %2499 = getelementptr inbounds i8, ptr %0, i64 792
-  %2500 = getelementptr inbounds i8, ptr %0, i64 744
+  %2499 = getelementptr inbounds nuw i8, ptr %0, i64 792
+  %2500 = getelementptr inbounds nuw i8, ptr %0, i64 744
   %2501 = icmp sgt i32 %30, 15
   %2502 = icmp slt i32 %24, 1
   %2503 = sext i32 %24 to i64
@@ -13601,8 +13601,8 @@ _ZN4ncnnL45convolution_im2col_gemm_transform_kernel_int8ERKNS_3MatERS0_iiiiRKNS_
 
 .lr.ph3459.i:                                     ; preds = %.preheader3091.i
   %2769 = mul i32 %30, %24
-  %2770 = getelementptr inbounds i8, ptr %0, i64 792
-  %2771 = getelementptr inbounds i8, ptr %0, i64 744
+  %2770 = getelementptr inbounds nuw i8, ptr %0, i64 792
+  %2771 = getelementptr inbounds nuw i8, ptr %0, i64 744
   %2772 = icmp sgt i32 %30, 15
   %2773 = insertelement <16 x i32> poison, i32 %24, i64 0
   %2774 = shufflevector <16 x i32> %2773, <16 x i32> poison, <16 x i32> zeroinitializer
@@ -13958,8 +13958,8 @@ _ZN4ncnnL45convolution_im2col_gemm_transform_kernel_int8ERKNS_3MatERS0_iiiiRKNS_
 
 .lr.ph3515.i:                                     ; preds = %.preheader3086.i
   %2955 = mul i32 %30, %24
-  %2956 = getelementptr inbounds i8, ptr %0, i64 792
-  %2957 = getelementptr inbounds i8, ptr %0, i64 744
+  %2956 = getelementptr inbounds nuw i8, ptr %0, i64 792
+  %2957 = getelementptr inbounds nuw i8, ptr %0, i64 744
   %2958 = icmp sgt i32 %30, 15
   %2959 = insertelement <16 x i32> poison, i32 %24, i64 0
   %2960 = shufflevector <16 x i32> %2959, <16 x i32> poison, <16 x i32> zeroinitializer
@@ -14442,7 +14442,7 @@ _ZN4ncnnL40convolution_transform_kernel_packed_int8ERKNS_3MatERS0_iiii.exit: ; p
 
 3170:                                             ; preds = %._crit_edge
   %3171 = getelementptr inbounds nuw i8, ptr %0, i64 352
-  %3172 = getelementptr inbounds i8, ptr %0, i64 360
+  %3172 = getelementptr inbounds nuw i8, ptr %0, i64 360
   %3173 = load ptr, ptr %3172, align 8
   %.not = icmp eq ptr %3173, null
   br i1 %.not, label %3187, label %3174
@@ -14453,7 +14453,7 @@ _ZN4ncnnL40convolution_transform_kernel_packed_int8ERKNS_3MatERS0_iiii.exit: ; p
   br i1 %3176, label %3177, label %3187
 
 3177:                                             ; preds = %3174
-  %3178 = getelementptr inbounds i8, ptr %0, i64 384
+  %3178 = getelementptr inbounds nuw i8, ptr %0, i64 384
   %3179 = load ptr, ptr %3178, align 8
   %.not40 = icmp eq ptr %3179, null
   %3180 = load ptr, ptr %3171, align 8
@@ -14475,8 +14475,8 @@ _ZN4ncnnL40convolution_transform_kernel_packed_int8ERKNS_3MatERS0_iiii.exit: ; p
   br label %3187
 
 3187:                                             ; preds = %3181, %3186, %3185, %3174, %3170
-  %3188 = getelementptr inbounds i8, ptr %0, i64 392
-  %3189 = getelementptr inbounds i8, ptr %0, i64 416
+  %3188 = getelementptr inbounds nuw i8, ptr %0, i64 392
+  %3189 = getelementptr inbounds nuw i8, ptr %0, i64 416
   store i64 0, ptr %3189, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %3171, i8 0, i64 28, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %3188, i8 0, i64 20, i1 false)
@@ -20628,9 +20628,9 @@ define hidden noundef i32 @_ZNK4ncnn22Convolution_x86_avx5127forwardERKNS_3MatER
   br i1 %or.cond534.not, label %569, label %.thread689
 
 569:                                              ; preds = %565
-  %570 = getelementptr inbounds i8, ptr %0, i64 936
+  %570 = getelementptr inbounds nuw i8, ptr %0, i64 936
   %571 = load i64, ptr %570, align 8
-  %572 = getelementptr inbounds i8, ptr %0, i64 928
+  %572 = getelementptr inbounds nuw i8, ptr %0, i64 928
   %573 = load i32, ptr %572, align 8
   %574 = sext i32 %573 to i64
   %575 = mul i64 %571, %574
@@ -20656,9 +20656,9 @@ define hidden noundef i32 @_ZNK4ncnn22Convolution_x86_avx5127forwardERKNS_3MatER
   br i1 %or.cond538.not, label %585, label %.thread
 
 585:                                              ; preds = %578
-  %586 = getelementptr inbounds i8, ptr %0, i64 1080
+  %586 = getelementptr inbounds nuw i8, ptr %0, i64 1080
   %587 = load i64, ptr %586, align 8
-  %588 = getelementptr inbounds i8, ptr %0, i64 1072
+  %588 = getelementptr inbounds nuw i8, ptr %0, i64 1072
   %589 = load i32, ptr %588, align 8
   %590 = sext i32 %589 to i64
   %591 = mul i64 %587, %590
@@ -20683,9 +20683,9 @@ define hidden noundef i32 @_ZNK4ncnn22Convolution_x86_avx5127forwardERKNS_3MatER
   br i1 %or.cond542.not, label %600, label %.critedge12
 
 600:                                              ; preds = %.thread
-  %601 = getelementptr inbounds i8, ptr %0, i64 1008
+  %601 = getelementptr inbounds nuw i8, ptr %0, i64 1008
   %602 = load i64, ptr %601, align 8
-  %603 = getelementptr inbounds i8, ptr %0, i64 1000
+  %603 = getelementptr inbounds nuw i8, ptr %0, i64 1000
   %604 = load i32, ptr %603, align 8
   %605 = sext i32 %604 to i64
   %606 = mul i64 %602, %605
@@ -20703,9 +20703,9 @@ define hidden noundef i32 @_ZNK4ncnn22Convolution_x86_avx5127forwardERKNS_3MatER
   br i1 %or.cond546.not, label %614, label %.critedge14
 
 614:                                              ; preds = %.critedge12
-  %615 = getelementptr inbounds i8, ptr %0, i64 1080
+  %615 = getelementptr inbounds nuw i8, ptr %0, i64 1080
   %616 = load i64, ptr %615, align 8
-  %617 = getelementptr inbounds i8, ptr %0, i64 1072
+  %617 = getelementptr inbounds nuw i8, ptr %0, i64 1072
   %618 = load i32, ptr %617, align 8
   %619 = sext i32 %618 to i64
   %620 = mul i64 %616, %619
@@ -21474,9 +21474,9 @@ define hidden noundef i32 @_ZNK4ncnn22Convolution_x86_avx51216forward_int8_x86ER
   br i1 %234, label %.critedge8, label %235
 
 235:                                              ; preds = %231
-  %236 = getelementptr inbounds i8, ptr %0, i64 1008
+  %236 = getelementptr inbounds nuw i8, ptr %0, i64 1008
   %237 = load i64, ptr %236, align 8
-  %238 = getelementptr inbounds i8, ptr %0, i64 1000
+  %238 = getelementptr inbounds nuw i8, ptr %0, i64 1000
   %239 = load i32, ptr %238, align 8
   %240 = sext i32 %239 to i64
   %241 = mul i64 %237, %240
@@ -74509,7 +74509,7 @@ declare void @_ZN4ncnn3Mat6createEiiimPNS_9AllocatorE(ptr noundef nonnull align 
 define linkonce_odr hidden void @_ZN4ncnn22Convolution_x86_avx512D2Ev(ptr noundef nonnull align 8 dereferenceable(1168) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTVN4ncnn22Convolution_x86_avx512E, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1096
-  %3 = getelementptr inbounds i8, ptr %0, i64 1104
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 1104
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %18, label %5
@@ -74520,7 +74520,7 @@ define linkonce_odr hidden void @_ZN4ncnn22Convolution_x86_avx512D2Ev(ptr nounde
   br i1 %7, label %8, label %18
 
 8:                                                ; preds = %5
-  %9 = getelementptr inbounds i8, ptr %0, i64 1128
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 1128
   %10 = load ptr, ptr %9, align 8
   %.not53 = icmp eq ptr %10, null
   %11 = load ptr, ptr %2, align 8
@@ -74542,11 +74542,11 @@ define linkonce_odr hidden void @_ZN4ncnn22Convolution_x86_avx512D2Ev(ptr nounde
   br label %18
 
 18:                                               ; preds = %12, %17, %16, %5, %1
-  %19 = getelementptr inbounds i8, ptr %0, i64 1136
-  %20 = getelementptr inbounds i8, ptr %0, i64 1160
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 1136
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 1160
   store i64 0, ptr %20, align 8
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 1016
-  %22 = getelementptr inbounds i8, ptr %0, i64 1024
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 1024
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %2, i8 0, i64 28, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %19, i8 0, i64 20, i1 false)
   %23 = load ptr, ptr %22, align 8
@@ -74566,7 +74566,7 @@ define linkonce_odr hidden void @_ZN4ncnn22Convolution_x86_avx512D2Ev(ptr nounde
   br i1 %29, label %30, label %40
 
 30:                                               ; preds = %27
-  %31 = getelementptr inbounds i8, ptr %0, i64 1048
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 1048
   %32 = load ptr, ptr %31, align 8
   %.not56 = icmp eq ptr %32, null
   %33 = load ptr, ptr %21, align 8
@@ -74588,11 +74588,11 @@ define linkonce_odr hidden void @_ZN4ncnn22Convolution_x86_avx512D2Ev(ptr nounde
   br label %40
 
 40:                                               ; preds = %34, %39, %38, %27, %18
-  %41 = getelementptr inbounds i8, ptr %0, i64 1056
-  %42 = getelementptr inbounds i8, ptr %0, i64 1080
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 1056
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 1080
   store i64 0, ptr %42, align 8
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 944
-  %44 = getelementptr inbounds i8, ptr %0, i64 952
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 952
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %21, i8 0, i64 28, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %41, i8 0, i64 20, i1 false)
   %45 = load ptr, ptr %44, align 8
@@ -74612,7 +74612,7 @@ define linkonce_odr hidden void @_ZN4ncnn22Convolution_x86_avx512D2Ev(ptr nounde
   br i1 %51, label %52, label %62
 
 52:                                               ; preds = %49
-  %53 = getelementptr inbounds i8, ptr %0, i64 976
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 976
   %54 = load ptr, ptr %53, align 8
   %.not59 = icmp eq ptr %54, null
   %55 = load ptr, ptr %43, align 8
@@ -74634,11 +74634,11 @@ define linkonce_odr hidden void @_ZN4ncnn22Convolution_x86_avx512D2Ev(ptr nounde
   br label %62
 
 62:                                               ; preds = %56, %61, %60, %49, %40
-  %63 = getelementptr inbounds i8, ptr %0, i64 984
-  %64 = getelementptr inbounds i8, ptr %0, i64 1008
+  %63 = getelementptr inbounds nuw i8, ptr %0, i64 984
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 1008
   store i64 0, ptr %64, align 8
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 872
-  %66 = getelementptr inbounds i8, ptr %0, i64 880
+  %66 = getelementptr inbounds nuw i8, ptr %0, i64 880
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %43, i8 0, i64 28, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %63, i8 0, i64 20, i1 false)
   %67 = load ptr, ptr %66, align 8
@@ -74658,7 +74658,7 @@ define linkonce_odr hidden void @_ZN4ncnn22Convolution_x86_avx512D2Ev(ptr nounde
   br i1 %73, label %74, label %84
 
 74:                                               ; preds = %71
-  %75 = getelementptr inbounds i8, ptr %0, i64 904
+  %75 = getelementptr inbounds nuw i8, ptr %0, i64 904
   %76 = load ptr, ptr %75, align 8
   %.not62 = icmp eq ptr %76, null
   %77 = load ptr, ptr %65, align 8
@@ -74680,11 +74680,11 @@ define linkonce_odr hidden void @_ZN4ncnn22Convolution_x86_avx512D2Ev(ptr nounde
   br label %84
 
 84:                                               ; preds = %78, %83, %82, %71, %62
-  %85 = getelementptr inbounds i8, ptr %0, i64 912
-  %86 = getelementptr inbounds i8, ptr %0, i64 936
+  %85 = getelementptr inbounds nuw i8, ptr %0, i64 912
+  %86 = getelementptr inbounds nuw i8, ptr %0, i64 936
   store i64 0, ptr %86, align 8
   %87 = getelementptr inbounds nuw i8, ptr %0, i64 800
-  %88 = getelementptr inbounds i8, ptr %0, i64 808
+  %88 = getelementptr inbounds nuw i8, ptr %0, i64 808
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %65, i8 0, i64 28, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %85, i8 0, i64 20, i1 false)
   %89 = load ptr, ptr %88, align 8
@@ -74704,7 +74704,7 @@ define linkonce_odr hidden void @_ZN4ncnn22Convolution_x86_avx512D2Ev(ptr nounde
   br i1 %95, label %96, label %106
 
 96:                                               ; preds = %93
-  %97 = getelementptr inbounds i8, ptr %0, i64 832
+  %97 = getelementptr inbounds nuw i8, ptr %0, i64 832
   %98 = load ptr, ptr %97, align 8
   %.not65 = icmp eq ptr %98, null
   %99 = load ptr, ptr %87, align 8
@@ -74726,11 +74726,11 @@ define linkonce_odr hidden void @_ZN4ncnn22Convolution_x86_avx512D2Ev(ptr nounde
   br label %106
 
 106:                                              ; preds = %100, %105, %104, %93, %84
-  %107 = getelementptr inbounds i8, ptr %0, i64 840
-  %108 = getelementptr inbounds i8, ptr %0, i64 864
+  %107 = getelementptr inbounds nuw i8, ptr %0, i64 840
+  %108 = getelementptr inbounds nuw i8, ptr %0, i64 864
   store i64 0, ptr %108, align 8
   %109 = getelementptr inbounds nuw i8, ptr %0, i64 728
-  %110 = getelementptr inbounds i8, ptr %0, i64 736
+  %110 = getelementptr inbounds nuw i8, ptr %0, i64 736
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %87, i8 0, i64 28, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %107, i8 0, i64 20, i1 false)
   %111 = load ptr, ptr %110, align 8
@@ -74750,7 +74750,7 @@ define linkonce_odr hidden void @_ZN4ncnn22Convolution_x86_avx512D2Ev(ptr nounde
   br i1 %117, label %118, label %128
 
 118:                                              ; preds = %115
-  %119 = getelementptr inbounds i8, ptr %0, i64 760
+  %119 = getelementptr inbounds nuw i8, ptr %0, i64 760
   %120 = load ptr, ptr %119, align 8
   %.not68 = icmp eq ptr %120, null
   %121 = load ptr, ptr %109, align 8
@@ -74772,8 +74772,8 @@ define linkonce_odr hidden void @_ZN4ncnn22Convolution_x86_avx512D2Ev(ptr nounde
   br label %128
 
 128:                                              ; preds = %122, %127, %126, %115, %106
-  %129 = getelementptr inbounds i8, ptr %0, i64 768
-  %130 = getelementptr inbounds i8, ptr %0, i64 792
+  %129 = getelementptr inbounds nuw i8, ptr %0, i64 768
+  %130 = getelementptr inbounds nuw i8, ptr %0, i64 792
   store i64 0, ptr %130, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %109, i8 0, i64 28, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %129, i8 0, i64 20, i1 false)

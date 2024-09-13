@@ -212,7 +212,7 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_117PatchableFunction20runOnM
   %4 = alloca %"class.llvm::MIMetadata", align 8
   %5 = alloca %"class.llvm::MIMetadata", align 8
   %6 = alloca %"class.llvm::DebugLoc", align 8
-  %7 = getelementptr inbounds i8, ptr %1, i64 328
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 328
   %8 = load ptr, ptr %7, align 8
   %9 = load ptr, ptr %1, align 8
   %10 = tail call noundef zeroext i1 @_ZNK4llvm8Function14hasFnAttributeENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(136) %9, ptr nonnull @.str.2, i64 24) #10

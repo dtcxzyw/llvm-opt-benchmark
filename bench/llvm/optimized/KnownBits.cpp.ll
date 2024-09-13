@@ -59,7 +59,7 @@ define dso_local void @_ZN4llvm9KnownBits18computeForAddCarryERKS0_S2_S2_(ptr de
 _ZNK4llvm5APInt12getBoolValueEv.exit:             ; preds = %8, %11
   %.0.i.i = phi i1 [ %10, %8 ], [ %13, %11 ]
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %15 = getelementptr inbounds i8, ptr %3, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %16 = load i32, ptr %15, align 8
   %17 = icmp ult i32 %16, 65
   br i1 %17, label %18, label %21
@@ -248,7 +248,7 @@ _ZN4llvm5APIntD2Ev.exit24:                        ; preds = %_ZN4llvm5APIntD2Ev.
   call void @llvm.experimental.noalias.scope.decl(metadata !24)
   %91 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %92 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %93 = getelementptr inbounds i8, ptr %1, i64 24
+  %93 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %94 = load i32, ptr %93, align 8, !noalias !24
   store i32 %94, ptr %92, align 8, !alias.scope !24
   %95 = icmp ult i32 %94, 65
@@ -267,7 +267,7 @@ _ZNK4llvm9KnownBits11getMinValueEv.exit:          ; preds = %96, %98
   call void @llvm.experimental.noalias.scope.decl(metadata !27)
   %99 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %100 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  %101 = getelementptr inbounds i8, ptr %2, i64 24
+  %101 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %102 = load i32, ptr %101, align 8, !noalias !27
   store i32 %102, ptr %100, align 8, !alias.scope !27
   %103 = icmp ult i32 %102, 65
@@ -678,7 +678,7 @@ _ZN4llvm5APIntD2Ev.exit67:                        ; preds = %243, %238
 _ZN4llvm5APIntD2Ev.exit68:                        ; preds = %_ZN4llvm5APIntD2Ev.exit67, %249, %252
   %253 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %254 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %255 = getelementptr inbounds i8, ptr %0, i64 24
+  %255 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 1, ptr %255, align 8
   store i64 0, ptr %254, align 8
   %256 = getelementptr inbounds nuw i8, ptr %31, i64 8
@@ -953,7 +953,7 @@ define dso_local void @_ZN4llvm9KnownBits16computeForAddSubEbbbRKS0_S2_(ptr dead
   store i32 %36, ptr %37, align 8
   %38 = icmp ult i32 %36, 65
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %40 = getelementptr inbounds i8, ptr %0, i64 24
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 24
   br i1 %38, label %_ZN4llvm9KnownBitsC2Ej.exit.thread, label %_ZN4llvm9KnownBitsC2Ej.exit
 
 _ZN4llvm9KnownBitsC2Ej.exit.thread:               ; preds = %6
@@ -985,7 +985,7 @@ _ZNK4llvm5APInt6isZeroEv.exit.i:                  ; preds = %_ZN4llvm9KnownBitsC
   %49 = phi i1 [ false, %_ZNK4llvm5APInt6isZeroEv.exit.i ], [ true, %42 ]
   %50 = phi i32 [ %.pre, %_ZNK4llvm5APInt6isZeroEv.exit.i ], [ %43, %42 ]
   %51 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %52 = getelementptr inbounds i8, ptr %4, i64 24
+  %52 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %53 = load i32, ptr %52, align 8
   %54 = icmp ult i32 %53, 65
   br i1 %54, label %55, label %_ZNK4llvm9KnownBits9isUnknownEv.exit
@@ -1018,7 +1018,7 @@ _ZNK4llvm5APInt6isZeroEv.exit.i45:                ; preds = %60
 
 69:                                               ; preds = %_ZNK4llvm5APInt6isZeroEv.exit.i45, %64
   %70 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %71 = getelementptr inbounds i8, ptr %5, i64 24
+  %71 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %72 = load i32, ptr %71, align 8
   %73 = icmp ult i32 %72, 65
   br i1 %73, label %74, label %_ZNK4llvm9KnownBits9isUnknownEv.exit46
@@ -1048,7 +1048,7 @@ _ZNK4llvm5APInt6isZeroEv.exit.i47:                ; preds = %_ZNK4llvm5APInt6isZ
   br i1 %83, label %_ZNK4llvm5APInt6isZeroEv.exit.i47._crit_edge, label %_ZNK4llvm9KnownBits9isUnknownEv.exit48.thread
 
 _ZNK4llvm5APInt6isZeroEv.exit.i47._crit_edge:     ; preds = %_ZNK4llvm5APInt6isZeroEv.exit.i47
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %4, i64 24
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %4, i64 24
   %.pre157 = load i32, ptr %.phi.trans.insert, align 8
   br label %84
 
@@ -1086,7 +1086,7 @@ _ZNK4llvm5APInt6isZeroEv.exit.i49:                ; preds = %_ZNK4llvm9KnownBits
 
 101:                                              ; preds = %_ZNK4llvm5APInt6isZeroEv.exit.i49, %96
   %102 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %103 = getelementptr inbounds i8, ptr %5, i64 24
+  %103 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %104 = load i32, ptr %103, align 8
   %105 = icmp ult i32 %104, 65
   br i1 %105, label %106, label %_ZNK4llvm9KnownBits9isUnknownEv.exit50
@@ -1179,8 +1179,8 @@ _ZN4llvm5APIntC2ERKS0_.exit.i:                    ; preds = %134, %131
   %136 = phi ptr [ %135, %134 ], [ %133, %131 ]
   %137 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %138 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %139 = getelementptr inbounds i8, ptr %9, i64 24
-  %140 = getelementptr inbounds i8, ptr %5, i64 24
+  %139 = getelementptr inbounds nuw i8, ptr %9, i64 24
+  %140 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %141 = load i32, ptr %140, align 8
   store i32 %141, ptr %139, align 8
   %142 = icmp ult i32 %141, 65
@@ -1243,7 +1243,7 @@ _ZN4llvm9KnownBitsD2Ev.exit55:                    ; preds = %_ZN4llvm5APIntaSEOS
   %165 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %166 = load i64, ptr %165, align 8
   store i64 %166, ptr %39, align 8
-  %167 = getelementptr inbounds i8, ptr %10, i64 24
+  %167 = getelementptr inbounds nuw i8, ptr %10, i64 24
   %168 = load i32, ptr %167, align 8
   store i32 %168, ptr %40, align 8
   store i32 0, ptr %167, align 8
@@ -1281,7 +1281,7 @@ _ZN4llvm9KnownBitsD2Ev.exit57.thread:             ; preds = %128, %125, %_ZN4llv
   %181 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %182 = load i64, ptr %181, align 8
   store i64 %182, ptr %39, align 8
-  %183 = getelementptr inbounds i8, ptr %8, i64 24
+  %183 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %184 = load i32, ptr %183, align 8
   store i32 %184, ptr %40, align 8
   store i32 0, ptr %183, align 8
@@ -1294,7 +1294,7 @@ _ZN4llvm9KnownBitsD2Ev.exit57.thread:             ; preds = %128, %125, %_ZN4llv
   call void @llvm.experimental.noalias.scope.decl(metadata !75)
   %186 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %187 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  %188 = getelementptr inbounds i8, ptr %4, i64 24
+  %188 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %189 = load i32, ptr %188, align 8, !noalias !75
   store i32 %189, ptr %187, align 8, !alias.scope !75
   %190 = icmp ult i32 %189, 65
@@ -1313,7 +1313,7 @@ _ZNK4llvm9KnownBits11getMinValueEv.exit:          ; preds = %191, %193
   call void @llvm.experimental.noalias.scope.decl(metadata !78)
   %194 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %195 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  %196 = getelementptr inbounds i8, ptr %5, i64 24
+  %196 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %197 = load i32, ptr %196, align 8, !noalias !78
   store i32 %197, ptr %195, align 8, !alias.scope !78
   %198 = icmp ult i32 %197, 65
@@ -1540,7 +1540,7 @@ _ZNK4llvm9KnownBits11getMaxValueEv.exit:          ; preds = %_ZN4llvm5APInt15cle
   call void @llvm.experimental.noalias.scope.decl(metadata !88)
   %306 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %307 = getelementptr inbounds nuw i8, ptr %17, i64 8
-  %308 = getelementptr inbounds i8, ptr %5, i64 24
+  %308 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %309 = load i32, ptr %308, align 8, !noalias !88
   store i32 %309, ptr %307, align 8, !alias.scope !88
   %310 = icmp ult i32 %309, 65
@@ -1724,7 +1724,7 @@ _ZN4llvm5APIntD2Ev.exit65:                        ; preds = %_ZN4llvm5APIntD2Ev.
   store i32 1, ptr %392, align 8
   store i64 0, ptr %20, align 8
   %393 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %394 = getelementptr inbounds i8, ptr %4, i64 24
+  %394 = getelementptr inbounds nuw i8, ptr %4, i64 24
   br i1 %1, label %395, label %497
 
 395:                                              ; preds = %390
@@ -1782,7 +1782,7 @@ _ZNK4llvm9KnownBits17getSignedMinValueEv.exit:    ; preds = %_ZN4llvm5APIntC2ERK
   call void @llvm.experimental.noalias.scope.decl(metadata !94)
   %427 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %428 = getelementptr inbounds nuw i8, ptr %23, i64 8
-  %429 = getelementptr inbounds i8, ptr %5, i64 24
+  %429 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %430 = load i32, ptr %429, align 8, !noalias !94
   store i32 %430, ptr %428, align 8, !alias.scope !94
   %431 = icmp ult i32 %430, 65
@@ -2021,7 +2021,7 @@ _ZN4llvm5APIntD2Ev.exit105:                       ; preds = %_ZN4llvm5APIntD2Ev.
   call void @llvm.experimental.noalias.scope.decl(metadata !100)
   %551 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %552 = getelementptr inbounds nuw i8, ptr %32, i64 8
-  %553 = getelementptr inbounds i8, ptr %5, i64 24
+  %553 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %554 = load i32, ptr %553, align 8, !noalias !100
   store i32 %554, ptr %552, align 8, !alias.scope !100
   %555 = icmp ult i32 %554, 65
@@ -2483,7 +2483,7 @@ declare void @_ZNK4llvm5APInt8usub_satERKS0_(ptr dead_on_unwind writable sret(%"
 define linkonce_odr hidden void @_ZNK4llvm9KnownBits17getSignedMinValueEv(ptr dead_on_unwind noalias writable sret(%"class.llvm::APInt") align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1) local_unnamed_addr #0 comdat align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %6 = load i32, ptr %5, align 8
   store i32 %6, ptr %4, align 8
   %7 = icmp ult i32 %6, 65
@@ -2586,7 +2586,7 @@ _ZN4llvm5APIntD2Ev.exit:                          ; preds = %18, %_ZN4llvm5APInt
   store i64 %19, ptr %0, align 8, !alias.scope !103
   store i32 0, ptr %4, align 8, !noalias !103
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %23 = getelementptr inbounds i8, ptr %1, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %24 = load i32, ptr %23, align 8
   %25 = add i32 %24, -1
   %26 = and i32 %25, 63
@@ -2634,13 +2634,13 @@ define dso_local void @_ZN4llvm9KnownBits19computeForSubBorrowERKS0_S0_S2_(ptr d
   %8 = load i64, ptr %2, align 8
   %9 = load i64, ptr %5, align 8
   store i64 %9, ptr %2, align 8
-  %10 = getelementptr inbounds i8, ptr %2, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %11 = load i32, ptr %10, align 8
   store i32 %11, ptr %6, align 8
   store i64 %8, ptr %5, align 8
   store i32 %7, ptr %10, align 8
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %13 = getelementptr inbounds i8, ptr %3, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %14 = load i32, ptr %13, align 8
   %15 = icmp ult i32 %14, 65
   br i1 %15, label %16, label %19
@@ -2707,8 +2707,8 @@ define dso_local void @_ZNK4llvm9KnownBits9sextInRegEj(ptr dead_on_unwind noalia
 _ZN4llvm5APIntC2ERKS0_.exit.i:                    ; preds = %14, %12
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %17 = getelementptr inbounds i8, ptr %0, i64 24
-  %18 = getelementptr inbounds i8, ptr %1, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %19 = load i32, ptr %18, align 8
   store i32 %19, ptr %17, align 8
   %20 = icmp ult i32 %19, 65
@@ -2729,14 +2729,14 @@ _ZN4llvm5APIntC2ERKS0_.exit.i:                    ; preds = %14, %12
   store i32 1, ptr %26, align 8
   store i64 0, ptr %0, align 8
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %28 = getelementptr inbounds i8, ptr %0, i64 24
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 1, ptr %28, align 8
   store i64 0, ptr %27, align 8
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !106)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !109)
   %30 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %31 = getelementptr inbounds i8, ptr %1, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %32 = load i32, ptr %31, align 8, !noalias !112
   store i32 %32, ptr %30, align 8, !alias.scope !112
   %33 = icmp ult i32 %32, 65
@@ -3035,7 +3035,7 @@ _ZN4llvm5APIntC2ERKS0_.exit4:                     ; preds = %44, %46
 _ZN4llvm5APIntC2ERKS0_.exit5:                     ; preds = %52, %54
   %55 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %56 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %57 = getelementptr inbounds i8, ptr %1, i64 24
+  %57 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %58 = load i32, ptr %57, align 8
   store i32 %58, ptr %56, align 8
   %59 = icmp ult i32 %58, 65
@@ -3073,7 +3073,7 @@ _ZN4llvm5APIntD2Ev.exit12:                        ; preds = %64, %_ZN4llvm5APInt
   store i64 %69, ptr %0, align 8
   store i32 0, ptr %49, align 8
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %71 = getelementptr inbounds i8, ptr %0, i64 24
+  %71 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 %66, ptr %71, align 8
   store i64 %65, ptr %70, align 8
   %72 = load i32, ptr %40, align 8
@@ -3189,7 +3189,7 @@ define dso_local void @_ZN4llvm9KnownBits4umaxERKS0_S2_(ptr dead_on_unwind noali
   tail call void @llvm.experimental.noalias.scope.decl(metadata !129)
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %15 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %16 = getelementptr inbounds i8, ptr %1, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %17 = load i32, ptr %16, align 8, !noalias !129
   store i32 %17, ptr %15, align 8, !alias.scope !129
   %18 = icmp ult i32 %17, 65
@@ -3297,7 +3297,7 @@ _ZN4llvm5APIntD2Ev.exit10:                        ; preds = %_ZN4llvm5APIntD2Ev.
 
 _ZN4llvm5APIntC2ERKS0_.exit.i11:                  ; preds = %59, %57
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %61 = getelementptr inbounds i8, ptr %0, i64 24
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %62 = load i32, ptr %16, align 8
   store i32 %62, ptr %61, align 8
   %63 = icmp ult i32 %62, 65
@@ -3316,7 +3316,7 @@ _ZN4llvm5APIntC2ERKS0_.exit.i11:                  ; preds = %59, %57
   call void @llvm.experimental.noalias.scope.decl(metadata !139)
   %68 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %69 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %70 = getelementptr inbounds i8, ptr %2, i64 24
+  %70 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %71 = load i32, ptr %70, align 8, !noalias !139
   store i32 %71, ptr %69, align 8, !alias.scope !139
   %72 = icmp ult i32 %71, 65
@@ -3423,7 +3423,7 @@ _ZN4llvm5APIntD2Ev.exit24:                        ; preds = %_ZN4llvm5APIntD2Ev.
 
 _ZN4llvm5APIntC2ERKS0_.exit.i25:                  ; preds = %112, %110
   %113 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %114 = getelementptr inbounds i8, ptr %0, i64 24
+  %114 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %115 = load i32, ptr %70, align 8
   store i32 %115, ptr %114, align 8
   %116 = icmp ult i32 %115, 65
@@ -3504,7 +3504,7 @@ _ZNK4llvm9KnownBits11getMinValueEv.exit31:        ; preds = %136, %138
 
 _ZN4llvm5APIntD2Ev.exit32:                        ; preds = %_ZNK4llvm9KnownBits11getMinValueEv.exit31, %141, %144
   call void @_ZNK4llvm9KnownBits13intersectWithERKS0_(ptr dead_on_unwind writable sret(%"struct.llvm::KnownBits") align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull align 8 dereferenceable(32) %12)
-  %145 = getelementptr inbounds i8, ptr %12, i64 24
+  %145 = getelementptr inbounds nuw i8, ptr %12, i64 24
   %146 = load i32, ptr %145, align 8
   %147 = icmp ugt i32 %146, 64
   br i1 %147, label %148, label %_ZN4llvm5APIntD2Ev.exit.i
@@ -3535,7 +3535,7 @@ _ZN4llvm5APIntD2Ev.exit.i:                        ; preds = %152, %148, %_ZN4llv
   br label %_ZN4llvm9KnownBitsD2Ev.exit
 
 _ZN4llvm9KnownBitsD2Ev.exit:                      ; preds = %_ZN4llvm5APIntD2Ev.exit.i, %156, %159
-  %160 = getelementptr inbounds i8, ptr %10, i64 24
+  %160 = getelementptr inbounds nuw i8, ptr %10, i64 24
   %161 = load i32, ptr %160, align 8
   %162 = icmp ugt i32 %161, 64
   br i1 %162, label %163, label %_ZN4llvm5APIntD2Ev.exit.i33
@@ -3607,7 +3607,7 @@ _ZN4llvmanENS_5APIntERKS0_.exit:                  ; preds = %_ZN4llvm5APIntC2ERK
   store i32 0, ptr %6, align 8, !noalias !155
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %18 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %19 = getelementptr inbounds i8, ptr %1, i64 24
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %20 = load i32, ptr %19, align 8
   store i32 %20, ptr %18, align 8
   %21 = icmp ult i32 %20, 65
@@ -3648,7 +3648,7 @@ _ZN4llvm5APIntD2Ev.exit8:                         ; preds = %_ZN4llvm5APIntC2ERK
   store i32 %16, ptr %33, align 8
   store i64 %15, ptr %0, align 8
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %35 = getelementptr inbounds i8, ptr %0, i64 24
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 %32, ptr %35, align 8
   store i64 %31, ptr %34, align 8
   %36 = load i32, ptr %6, align 8
@@ -3684,7 +3684,7 @@ define dso_local void @_ZN4llvm9KnownBits4uminERKS0_S2_(ptr dead_on_unwind noali
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9)
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %14 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %15 = getelementptr inbounds i8, ptr %1, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %16 = load i32, ptr %15, align 8, !noalias !161
   store i32 %16, ptr %14, align 8, !noalias !161
   %17 = icmp ult i32 %16, 65
@@ -3722,7 +3722,7 @@ _ZN4llvm5APIntC2ERKS0_.exit.i:                    ; preds = %20, %18
   %30 = load i64, ptr %8, align 8, !noalias !161
   store i64 %30, ptr %11, align 8, !alias.scope !161
   %31 = getelementptr inbounds nuw i8, ptr %11, i64 16
-  %32 = getelementptr inbounds i8, ptr %11, i64 24
+  %32 = getelementptr inbounds nuw i8, ptr %11, i64 24
   store i32 %26, ptr %32, align 8, !alias.scope !161
   store i64 %27, ptr %31, align 8, !alias.scope !161
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
@@ -3732,7 +3732,7 @@ _ZN4llvm5APIntC2ERKS0_.exit.i:                    ; preds = %20, %18
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
   %33 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %34 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %35 = getelementptr inbounds i8, ptr %2, i64 24
+  %35 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %36 = load i32, ptr %35, align 8, !noalias !164
   store i32 %36, ptr %34, align 8, !noalias !164
   %37 = icmp ult i32 %36, 65
@@ -3770,7 +3770,7 @@ _ZN4llvm5APIntC2ERKS0_.exit.i2:                   ; preds = %40, %38
   %50 = load i64, ptr %6, align 8, !noalias !164
   store i64 %50, ptr %12, align 8, !alias.scope !164
   %51 = getelementptr inbounds nuw i8, ptr %12, i64 16
-  %52 = getelementptr inbounds i8, ptr %12, i64 24
+  %52 = getelementptr inbounds nuw i8, ptr %12, i64 24
   store i32 %46, ptr %52, align 8, !alias.scope !164
   store i64 %47, ptr %51, align 8, !alias.scope !164
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
@@ -3781,7 +3781,7 @@ _ZN4llvm5APIntC2ERKS0_.exit.i2:                   ; preds = %40, %38
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   %53 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %54 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %55 = getelementptr inbounds i8, ptr %10, i64 24
+  %55 = getelementptr inbounds nuw i8, ptr %10, i64 24
   %56 = load i32, ptr %55, align 8, !noalias !167
   store i32 %56, ptr %54, align 8, !noalias !167
   %57 = icmp ult i32 %56, 65
@@ -3819,7 +3819,7 @@ _ZN4llvm5APIntC2ERKS0_.exit.i6:                   ; preds = %60, %58
   %70 = load i64, ptr %4, align 8, !noalias !167
   store i64 %70, ptr %0, align 8, !alias.scope !167
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %72 = getelementptr inbounds i8, ptr %0, i64 24
+  %72 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 %66, ptr %72, align 8, !alias.scope !167
   store i64 %67, ptr %71, align 8, !alias.scope !167
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
@@ -3920,7 +3920,7 @@ define dso_local void @_ZN4llvm9KnownBits4smaxERKS0_S2_(ptr dead_on_unwind noali
   call fastcc void @"_ZZN4llvm9KnownBits4smaxERKS0_S2_ENK3$_0clES2_"(ptr dead_on_unwind noalias nonnull writable align 8 %6, ptr noundef nonnull align 8 dereferenceable(32) %2)
   call void @_ZN4llvm9KnownBits4umaxERKS0_S2_(ptr dead_on_unwind nonnull writable sret(%"struct.llvm::KnownBits") align 8 %4, ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %6)
   call fastcc void @"_ZZN4llvm9KnownBits4smaxERKS0_S2_ENK3$_0clES2_"(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %4)
-  %7 = getelementptr inbounds i8, ptr %4, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %8 = load i32, ptr %7, align 8
   %9 = icmp ugt i32 %8, 64
   br i1 %9, label %10, label %_ZN4llvm5APIntD2Ev.exit.i
@@ -3951,7 +3951,7 @@ _ZN4llvm5APIntD2Ev.exit.i:                        ; preds = %14, %10, %3
   br label %_ZN4llvm9KnownBitsD2Ev.exit
 
 _ZN4llvm9KnownBitsD2Ev.exit:                      ; preds = %_ZN4llvm5APIntD2Ev.exit.i, %18, %21
-  %22 = getelementptr inbounds i8, ptr %6, i64 24
+  %22 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %23 = load i32, ptr %22, align 8
   %24 = icmp ugt i32 %23, 64
   br i1 %24, label %25, label %_ZN4llvm5APIntD2Ev.exit.i2
@@ -3982,7 +3982,7 @@ _ZN4llvm5APIntD2Ev.exit.i2:                       ; preds = %29, %25, %_ZN4llvm9
   br label %_ZN4llvm9KnownBitsD2Ev.exit3
 
 _ZN4llvm9KnownBitsD2Ev.exit3:                     ; preds = %_ZN4llvm5APIntD2Ev.exit.i2, %33, %36
-  %37 = getelementptr inbounds i8, ptr %5, i64 24
+  %37 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %38 = load i32, ptr %37, align 8
   %39 = icmp ugt i32 %38, 64
   br i1 %39, label %40, label %_ZN4llvm5APIntD2Ev.exit.i4
@@ -4042,7 +4042,7 @@ define internal fastcc void @"_ZZN4llvm9KnownBits4smaxERKS0_S2_ENK3$_0clES2_"(pt
 _ZN4llvm5APIntC2ERKS0_.exit:                      ; preds = %12, %14
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %17 = getelementptr inbounds i8, ptr %1, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %18 = load i32, ptr %17, align 8
   store i32 %18, ptr %16, align 8
   %19 = icmp ult i32 %18, 65
@@ -4179,7 +4179,7 @@ _ZN4llvm5APIntD2Ev.exit15:                        ; preds = %78, %80
   store i64 %85, ptr %0, align 8
   store i32 0, ptr %69, align 8
   %86 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %87 = getelementptr inbounds i8, ptr %0, i64 24
+  %87 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 %82, ptr %87, align 8
   store i64 %81, ptr %86, align 8
   store i32 0, ptr %75, align 8
@@ -4223,7 +4223,7 @@ define dso_local void @_ZN4llvm9KnownBits4sminERKS0_S2_(ptr dead_on_unwind noali
   call fastcc void @"_ZZN4llvm9KnownBits4sminERKS0_S2_ENK3$_0clES2_"(ptr dead_on_unwind noalias nonnull writable align 8 %6, ptr noundef nonnull align 8 dereferenceable(32) %2)
   call void @_ZN4llvm9KnownBits4umaxERKS0_S2_(ptr dead_on_unwind nonnull writable sret(%"struct.llvm::KnownBits") align 8 %4, ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %6)
   call fastcc void @"_ZZN4llvm9KnownBits4sminERKS0_S2_ENK3$_0clES2_"(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %4)
-  %7 = getelementptr inbounds i8, ptr %4, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %8 = load i32, ptr %7, align 8
   %9 = icmp ugt i32 %8, 64
   br i1 %9, label %10, label %_ZN4llvm5APIntD2Ev.exit.i
@@ -4254,7 +4254,7 @@ _ZN4llvm5APIntD2Ev.exit.i:                        ; preds = %14, %10, %3
   br label %_ZN4llvm9KnownBitsD2Ev.exit
 
 _ZN4llvm9KnownBitsD2Ev.exit:                      ; preds = %_ZN4llvm5APIntD2Ev.exit.i, %18, %21
-  %22 = getelementptr inbounds i8, ptr %6, i64 24
+  %22 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %23 = load i32, ptr %22, align 8
   %24 = icmp ugt i32 %23, 64
   br i1 %24, label %25, label %_ZN4llvm5APIntD2Ev.exit.i2
@@ -4285,7 +4285,7 @@ _ZN4llvm5APIntD2Ev.exit.i2:                       ; preds = %29, %25, %_ZN4llvm9
   br label %_ZN4llvm9KnownBitsD2Ev.exit3
 
 _ZN4llvm9KnownBitsD2Ev.exit3:                     ; preds = %_ZN4llvm5APIntD2Ev.exit.i2, %33, %36
-  %37 = getelementptr inbounds i8, ptr %5, i64 24
+  %37 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %38 = load i32, ptr %37, align 8
   %39 = icmp ugt i32 %38, 64
   br i1 %39, label %40, label %_ZN4llvm5APIntD2Ev.exit.i4
@@ -4330,7 +4330,7 @@ define internal fastcc void @"_ZZN4llvm9KnownBits4sminERKS0_S2_ENK3$_0clES2_"(pt
   %9 = add i32 %8, -1
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %12 = getelementptr inbounds i8, ptr %1, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %13 = load i32, ptr %12, align 8
   store i32 %13, ptr %11, align 8
   %14 = icmp ult i32 %13, 65
@@ -4484,7 +4484,7 @@ _ZN4llvm5APIntD2Ev.exit15:                        ; preds = %79, %81
   store i64 %86, ptr %0, align 8
   store i32 0, ptr %70, align 8
   %87 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %88 = getelementptr inbounds i8, ptr %0, i64 24
+  %88 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 %83, ptr %88, align 8
   store i64 %82, ptr %87, align 8
   store i32 0, ptr %76, align 8
@@ -4532,7 +4532,7 @@ define dso_local void @_ZN4llvm9KnownBits4abduERKS0_S2_(ptr dead_on_unwind noali
   tail call void @llvm.experimental.noalias.scope.decl(metadata !170)
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %13 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %14 = getelementptr inbounds i8, ptr %1, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %15 = load i32, ptr %14, align 8, !noalias !170
   store i32 %15, ptr %13, align 8, !alias.scope !170
   %16 = icmp ult i32 %15, 65
@@ -4629,7 +4629,7 @@ _ZN4llvm5APIntD2Ev.exit12:                        ; preds = %_ZN4llvm5APIntD2Ev.
   call void @llvm.experimental.noalias.scope.decl(metadata !180)
   %52 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %53 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %54 = getelementptr inbounds i8, ptr %2, i64 24
+  %54 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %55 = load i32, ptr %54, align 8, !noalias !180
   store i32 %55, ptr %53, align 8, !alias.scope !180
   %56 = icmp ult i32 %55, 65
@@ -4726,7 +4726,7 @@ _ZN4llvm5APIntD2Ev.exit25:                        ; preds = %_ZN4llvm5APIntD2Ev.
   call void @_ZN4llvm9KnownBits16computeForAddSubEbbbRKS0_S2_(ptr dead_on_unwind nonnull writable sret(%"struct.llvm::KnownBits") align 8 %10, i1 noundef zeroext false, i1 noundef zeroext false, i1 noundef zeroext true, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %2)
   call void @_ZN4llvm9KnownBits16computeForAddSubEbbbRKS0_S2_(ptr dead_on_unwind nonnull writable sret(%"struct.llvm::KnownBits") align 8 %11, i1 noundef zeroext false, i1 noundef zeroext false, i1 noundef zeroext true, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %1)
   call void @_ZNK4llvm9KnownBits13intersectWithERKS0_(ptr dead_on_unwind writable sret(%"struct.llvm::KnownBits") align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull align 8 dereferenceable(32) %11)
-  %92 = getelementptr inbounds i8, ptr %11, i64 24
+  %92 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %93 = load i32, ptr %92, align 8
   %94 = icmp ugt i32 %93, 64
   br i1 %94, label %95, label %_ZN4llvm5APIntD2Ev.exit.i
@@ -4757,7 +4757,7 @@ _ZN4llvm5APIntD2Ev.exit.i:                        ; preds = %99, %95, %91
   br label %_ZN4llvm9KnownBitsD2Ev.exit
 
 _ZN4llvm9KnownBitsD2Ev.exit:                      ; preds = %_ZN4llvm5APIntD2Ev.exit.i, %103, %106
-  %107 = getelementptr inbounds i8, ptr %10, i64 24
+  %107 = getelementptr inbounds nuw i8, ptr %10, i64 24
   %108 = load i32, ptr %107, align 8
   %109 = icmp ugt i32 %108, 64
   br i1 %109, label %110, label %_ZN4llvm5APIntD2Ev.exit.i26
@@ -4803,7 +4803,7 @@ define dso_local void @_ZN4llvm9KnownBits4abdsES0_S0_(ptr dead_on_unwind noalias
   tail call void @llvm.experimental.noalias.scope.decl(metadata !190)
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %13 = getelementptr inbounds i8, ptr %1, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %14 = load i32, ptr %13, align 8, !noalias !190
   store i32 %14, ptr %12, align 8, !alias.scope !190
   %15 = icmp ult i32 %14, 65
@@ -4896,7 +4896,7 @@ _ZN4llvm5APIntD2Ev.exit14:                        ; preds = %_ZN4llvm5APIntD2Ev.
   call void @llvm.experimental.noalias.scope.decl(metadata !193)
   %62 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %63 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %64 = getelementptr inbounds i8, ptr %2, i64 24
+  %64 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %65 = load i32, ptr %64, align 8, !noalias !193
   store i32 %65, ptr %63, align 8, !alias.scope !193
   %66 = icmp ult i32 %65, 65
@@ -5013,7 +5013,7 @@ _ZN4llvm5APInt9setBitValEjb.exit:                 ; preds = %112, %_ZN4llvm5APIn
   %129 = and i64 %128, %118
   %.not29 = icmp eq i64 %129, 0
   %130 = getelementptr inbounds nuw i8, ptr %122, i64 16
-  %131 = getelementptr inbounds i8, ptr %122, i64 24
+  %131 = getelementptr inbounds nuw i8, ptr %122, i64 24
   %132 = load i32, ptr %131, align 8
   %133 = icmp ult i32 %132, 65
   %134 = load ptr, ptr %130, align 8
@@ -5044,7 +5044,7 @@ _ZN4llvm5APInt9setBitValEjb.exit:                 ; preds = %112, %_ZN4llvm5APIn
   call void @_ZN4llvm9KnownBits16computeForAddSubEbbbRKS0_S2_(ptr dead_on_unwind nonnull writable sret(%"struct.llvm::KnownBits") align 8 %9, i1 noundef zeroext false, i1 noundef zeroext false, i1 noundef zeroext true, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %2)
   call void @_ZN4llvm9KnownBits16computeForAddSubEbbbRKS0_S2_(ptr dead_on_unwind nonnull writable sret(%"struct.llvm::KnownBits") align 8 %10, i1 noundef zeroext false, i1 noundef zeroext false, i1 noundef zeroext true, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %1)
   call void @_ZNK4llvm9KnownBits13intersectWithERKS0_(ptr dead_on_unwind writable sret(%"struct.llvm::KnownBits") align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %10)
-  %148 = getelementptr inbounds i8, ptr %10, i64 24
+  %148 = getelementptr inbounds nuw i8, ptr %10, i64 24
   %149 = load i32, ptr %148, align 8
   %150 = icmp ugt i32 %149, 64
   br i1 %150, label %151, label %_ZN4llvm5APIntD2Ev.exit.i
@@ -5075,7 +5075,7 @@ _ZN4llvm5APIntD2Ev.exit.i:                        ; preds = %155, %151, %147
   br label %_ZN4llvm9KnownBitsD2Ev.exit
 
 _ZN4llvm9KnownBitsD2Ev.exit:                      ; preds = %_ZN4llvm5APIntD2Ev.exit.i, %159, %162
-  %163 = getelementptr inbounds i8, ptr %9, i64 24
+  %163 = getelementptr inbounds nuw i8, ptr %9, i64 24
   %164 = load i32, ptr %163, align 8
   %165 = icmp ugt i32 %164, 64
   br i1 %165, label %166, label %_ZN4llvm5APIntD2Ev.exit.i26
@@ -5128,7 +5128,7 @@ define dso_local void @_ZN4llvm9KnownBits3shlERKS0_S2_bbb(ptr dead_on_unwind noa
   store i32 %19, ptr %20, align 8
   %21 = icmp ult i32 %19, 65
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %23 = getelementptr inbounds i8, ptr %0, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 24
   br i1 %21, label %24, label %25
 
 24:                                               ; preds = %6
@@ -5147,7 +5147,7 @@ _ZN4llvm9KnownBitsC2Ej.exit:                      ; preds = %24, %25
   tail call void @llvm.experimental.noalias.scope.decl(metadata !196)
   %26 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %27 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  %28 = getelementptr inbounds i8, ptr %2, i64 24
+  %28 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %29 = load i32, ptr %28, align 8, !noalias !196
   store i32 %29, ptr %27, align 8, !alias.scope !196
   %30 = icmp ult i32 %29, 65
@@ -5218,7 +5218,7 @@ _ZNK4llvm5APInt6isZeroEv.exit.i:                  ; preds = %_ZN4llvm5APIntD2Ev.
 
 52:                                               ; preds = %_ZNK4llvm5APInt6isZeroEv.exit.i, %47
   %53 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %54 = getelementptr inbounds i8, ptr %1, i64 24
+  %54 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %55 = load i32, ptr %54, align 8
   %56 = icmp ult i32 %55, 65
   br i1 %56, label %57, label %_ZNK4llvm9KnownBits9isUnknownEv.exit
@@ -5372,13 +5372,13 @@ _ZL17getMaxShiftAmountRKN4llvm5APIntEj.exit:      ; preds = %114, %_ZNK4llvm5API
   br i1 %4, label %125, label %._crit_edge144
 
 ._crit_edge144:                                   ; preds = %124
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %1, i64 24
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 24
   %.pre = load i32, ptr %.phi.trans.insert, align 8
   br label %138
 
 125:                                              ; preds = %124
   %126 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %127 = getelementptr inbounds i8, ptr %1, i64 24
+  %127 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %128 = load i32, ptr %127, align 8
   %129 = icmp ult i32 %128, 65
   br i1 %129, label %130, label %135
@@ -5431,7 +5431,7 @@ _ZNK4llvm9KnownBits20countMaxLeadingZerosEv.exit43: ; preds = %142, %147
 
 150:                                              ; preds = %149
   %151 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %152 = getelementptr inbounds i8, ptr %1, i64 24
+  %152 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %153 = load i32, ptr %152, align 8
   %154 = icmp ult i32 %153, 65
   br i1 %154, label %155, label %160
@@ -5535,7 +5535,7 @@ _ZNK4llvm9KnownBits21countMinTrailingZerosEv.exit: ; preds = %180, %185
 
 _ZN4llvm5APInt10setLowBitsEj.exit53:              ; preds = %_ZNK4llvm9KnownBits21countMinTrailingZerosEv.exit, %196, %199, %203
   %204 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %205 = getelementptr inbounds i8, ptr %1, i64 24
+  %205 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %206 = load i32, ptr %205, align 8
   %207 = icmp eq i32 %206, 0
   br i1 %207, label %_ZNK4llvm9KnownBits9isAllOnesEv.exit.thread, label %208
@@ -5790,13 +5790,13 @@ _ZN4llvm5APInt10setAllBitsEv.exit72:              ; preds = %347, %351
 .lr.ph:                                           ; preds = %_ZN4llvm5APInt10setAllBitsEv.exit72
   %361 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %362 = getelementptr inbounds nuw i8, ptr %17, i64 16
-  %363 = getelementptr inbounds i8, ptr %17, i64 24
+  %363 = getelementptr inbounds nuw i8, ptr %17, i64 24
   %364 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %365 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %366 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %367 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %368 = getelementptr inbounds nuw i8, ptr %16, i64 16
-  %369 = getelementptr inbounds i8, ptr %16, i64 24
+  %369 = getelementptr inbounds nuw i8, ptr %16, i64 24
   br label %370
 
 370:                                              ; preds = %.lr.ph, %_ZNK4llvm9KnownBits9isUnknownEv.exit79.thread
@@ -6163,7 +6163,7 @@ define dso_local void @_ZN4llvm9KnownBits4lshrERKS0_S2_bb(ptr dead_on_unwind noa
   store i32 %14, ptr %15, align 8
   %16 = icmp ult i32 %14, 65
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %18 = getelementptr inbounds i8, ptr %0, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 24
   br i1 %16, label %19, label %20
 
 19:                                               ; preds = %5
@@ -6182,7 +6182,7 @@ _ZN4llvm9KnownBitsC2Ej.exit:                      ; preds = %19, %20
   tail call void @llvm.experimental.noalias.scope.decl(metadata !211)
   %21 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %22 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %23 = getelementptr inbounds i8, ptr %2, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %24 = load i32, ptr %23, align 8, !noalias !211
   store i32 %24, ptr %22, align 8, !alias.scope !211
   %25 = icmp ult i32 %24, 65
@@ -6253,7 +6253,7 @@ _ZNK4llvm5APInt6isZeroEv.exit.i:                  ; preds = %_ZN4llvm5APIntD2Ev.
 
 47:                                               ; preds = %_ZNK4llvm5APInt6isZeroEv.exit.i, %42
   %48 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %49 = getelementptr inbounds i8, ptr %1, i64 24
+  %49 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %50 = load i32, ptr %49, align 8
   %51 = icmp ult i32 %50, 65
   br i1 %51, label %52, label %_ZNK4llvm9KnownBits9isUnknownEv.exit
@@ -6376,7 +6376,7 @@ _ZL17getMaxShiftAmountRKN4llvm5APIntEj.exit:      ; preds = %93, %_ZNK4llvm5APIn
 
 103:                                              ; preds = %_ZL17getMaxShiftAmountRKN4llvm5APIntEj.exit
   %104 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %105 = getelementptr inbounds i8, ptr %1, i64 24
+  %105 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %106 = load i32, ptr %105, align 8
   %107 = icmp ult i32 %106, 65
   br i1 %107, label %108, label %112
@@ -6618,11 +6618,11 @@ _ZN4llvm5APInt10setAllBitsEv.exit43:              ; preds = %222, %226
   %236 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %237 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %238 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %239 = getelementptr inbounds i8, ptr %12, i64 24
-  %240 = getelementptr inbounds i8, ptr %1, i64 24
+  %239 = getelementptr inbounds nuw i8, ptr %12, i64 24
+  %240 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %241 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %242 = getelementptr inbounds nuw i8, ptr %11, i64 16
-  %243 = getelementptr inbounds i8, ptr %11, i64 24
+  %243 = getelementptr inbounds nuw i8, ptr %11, i64 24
   br label %244
 
 244:                                              ; preds = %.lr.ph, %_ZNK4llvm9KnownBits9isUnknownEv.exit47.thread
@@ -6975,7 +6975,7 @@ define dso_local void @_ZN4llvm9KnownBits4ashrERKS0_S2_bb(ptr dead_on_unwind noa
   store i32 %14, ptr %15, align 8
   %16 = icmp ult i32 %14, 65
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %18 = getelementptr inbounds i8, ptr %0, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 24
   br i1 %16, label %19, label %20
 
 19:                                               ; preds = %5
@@ -6994,7 +6994,7 @@ _ZN4llvm9KnownBitsC2Ej.exit:                      ; preds = %19, %20
   tail call void @llvm.experimental.noalias.scope.decl(metadata !225)
   %21 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %22 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %23 = getelementptr inbounds i8, ptr %2, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %24 = load i32, ptr %23, align 8, !noalias !225
   store i32 %24, ptr %22, align 8, !alias.scope !225
   %25 = icmp ult i32 %24, 65
@@ -7065,7 +7065,7 @@ _ZNK4llvm5APInt6isZeroEv.exit.i:                  ; preds = %_ZN4llvm5APIntD2Ev.
 
 47:                                               ; preds = %_ZNK4llvm5APInt6isZeroEv.exit.i, %42
   %48 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %49 = getelementptr inbounds i8, ptr %1, i64 24
+  %49 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %50 = load i32, ptr %49, align 8
   %51 = icmp ult i32 %50, 65
   br i1 %51, label %52, label %_ZNK4llvm9KnownBits9isUnknownEv.exit
@@ -7235,7 +7235,7 @@ _ZL17getMaxShiftAmountRKN4llvm5APIntEj.exit:      ; preds = %120, %_ZNK4llvm5API
 
 130:                                              ; preds = %_ZL17getMaxShiftAmountRKN4llvm5APIntEj.exit
   %131 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %132 = getelementptr inbounds i8, ptr %1, i64 24
+  %132 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %133 = load i32, ptr %132, align 8
   %134 = icmp ult i32 %133, 65
   br i1 %134, label %135, label %139
@@ -7477,11 +7477,11 @@ _ZN4llvm5APInt10setAllBitsEv.exit53:              ; preds = %249, %253
   %263 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %264 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %265 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %266 = getelementptr inbounds i8, ptr %12, i64 24
-  %267 = getelementptr inbounds i8, ptr %1, i64 24
+  %266 = getelementptr inbounds nuw i8, ptr %12, i64 24
+  %267 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %268 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %269 = getelementptr inbounds nuw i8, ptr %11, i64 16
-  %270 = getelementptr inbounds i8, ptr %11, i64 24
+  %270 = getelementptr inbounds nuw i8, ptr %11, i64 24
   br label %271
 
 271:                                              ; preds = %.lr.ph, %_ZNK4llvm9KnownBits9isUnknownEv.exit59.thread
@@ -7826,7 +7826,7 @@ define dso_local range(i16 0, 512) i16 @_ZN4llvm9KnownBits2eqERKS0_S2_(ptr nound
 _ZNK4llvm5APInt8popcountEv.exit.i:                ; preds = %10, %6
   %.0.i.i = phi i32 [ %9, %6 ], [ %11, %10 ]
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %13 = getelementptr inbounds i8, ptr %0, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %14 = load i32, ptr %13, align 8
   %15 = icmp ult i32 %14, 65
   br i1 %15, label %16, label %20
@@ -7866,7 +7866,7 @@ _ZNK4llvm9KnownBits10isConstantEv.exit:           ; preds = %16, %20
 _ZNK4llvm5APInt8popcountEv.exit.i8:               ; preds = %32, %28
   %.0.i.i9 = phi i32 [ %31, %28 ], [ %33, %32 ]
   %34 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %35 = getelementptr inbounds i8, ptr %1, i64 24
+  %35 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %36 = load i32, ptr %35, align 8
   %37 = icmp ult i32 %36, 65
   br i1 %37, label %38, label %42
@@ -7921,7 +7921,7 @@ _ZNK4llvm5APInt10intersectsERKS0_.exit:           ; preds = %54
 
 60:                                               ; preds = %55, %_ZNK4llvm5APInt10intersectsERKS0_.exit
   %61 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %62 = getelementptr inbounds i8, ptr %1, i64 24
+  %62 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %63 = load i32, ptr %62, align 8
   %64 = icmp ult i32 %63, 65
   br i1 %64, label %65, label %_ZNK4llvm5APInt10intersectsERKS0_.exit14
@@ -8012,7 +8012,7 @@ _ZNK4llvm9KnownBits11getMaxValueEv.exit:          ; preds = %_ZN4llvm5APInt15cle
   call void @llvm.experimental.noalias.scope.decl(metadata !246)
   %27 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %28 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %29 = getelementptr inbounds i8, ptr %1, i64 24
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %30 = load i32, ptr %29, align 8, !noalias !246
   store i32 %30, ptr %28, align 8, !alias.scope !246
   %31 = icmp ult i32 %30, 65
@@ -8063,7 +8063,7 @@ _ZN4llvm5APIntD2Ev.exit5:                         ; preds = %_ZN4llvm5APIntD2Ev.
   call void @llvm.experimental.noalias.scope.decl(metadata !249)
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %49 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %50 = getelementptr inbounds i8, ptr %0, i64 24
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %51 = load i32, ptr %50, align 8, !noalias !249
   store i32 %51, ptr %49, align 8, !alias.scope !249
   %52 = icmp ult i32 %51, 65
@@ -8194,7 +8194,7 @@ define dso_local range(i16 1, 258) i16 @_ZN4llvm9KnownBits3sgtERKS0_S2_(ptr noun
   call void @llvm.experimental.noalias.scope.decl(metadata !259)
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %9 = getelementptr inbounds i8, ptr %1, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %10 = load i32, ptr %9, align 8, !noalias !259
   store i32 %10, ptr %8, align 8, !alias.scope !259
   %11 = icmp ult i32 %10, 65
@@ -8284,7 +8284,7 @@ _ZN4llvm5APIntD2Ev.exit4:                         ; preds = %_ZN4llvm5APIntD2Ev.
   call void @llvm.experimental.noalias.scope.decl(metadata !262)
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %57 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %58 = getelementptr inbounds i8, ptr %0, i64 24
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %59 = load i32, ptr %58, align 8, !noalias !262
   store i32 %59, ptr %57, align 8, !alias.scope !262
   %60 = icmp ult i32 %59, 65
@@ -8441,8 +8441,8 @@ define dso_local void @_ZNK4llvm9KnownBits3absEb(ptr dead_on_unwind noalias writ
 _ZN4llvm5APIntC2ERKS0_.exit.i:                    ; preds = %25, %24
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %27 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %28 = getelementptr inbounds i8, ptr %0, i64 24
-  %29 = getelementptr inbounds i8, ptr %1, i64 24
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %30 = load i32, ptr %29, align 8
   store i32 %30, ptr %28, align 8
   %31 = icmp ult i32 %30, 65
@@ -8459,7 +8459,7 @@ _ZN4llvm5APIntC2ERKS0_.exit.i:                    ; preds = %25, %24
 
 35:                                               ; preds = %3
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %37 = getelementptr inbounds i8, ptr %0, i64 24
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 24
   br i1 %14, label %38, label %39
 
 38:                                               ; preds = %35
@@ -8476,7 +8476,7 @@ _ZN4llvm5APIntC2ERKS0_.exit.i:                    ; preds = %25, %24
 
 _ZN4llvm9KnownBitsC2Ej.exit:                      ; preds = %38, %39
   %40 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %41 = getelementptr inbounds i8, ptr %1, i64 24
+  %41 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %42 = load i32, ptr %41, align 8
   %43 = add i32 %42, -1
   %44 = and i32 %43, 63
@@ -8514,7 +8514,7 @@ _ZN4llvm9KnownBitsC2Ej.exit:                      ; preds = %38, %39
 _ZN4llvm5APIntC2ERKS0_.exit.i11:                  ; preds = %61, %59
   %62 = phi i32 [ %.pre, %61 ], [ %42, %59 ]
   %63 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %64 = getelementptr inbounds i8, ptr %4, i64 24
+  %64 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store i32 %62, ptr %64, align 8
   %65 = icmp ult i32 %62, 65
   br i1 %65, label %66, label %68
@@ -8638,7 +8638,7 @@ _ZN4llvm5APIntD2Ev.exit.i.thread:                 ; preds = %117, %_ZN4llvm5APIn
   %120 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %121 = load i64, ptr %120, align 8
   store i64 %121, ptr %36, align 8
-  %122 = getelementptr inbounds i8, ptr %5, i64 24
+  %122 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %123 = load i32, ptr %122, align 8
   store i32 %123, ptr %37, align 8
   store i32 0, ptr %122, align 8
@@ -8651,7 +8651,7 @@ _ZN4llvm5APIntD2Ev.exit.i:                        ; preds = %117
   %125 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %126 = load i64, ptr %125, align 8
   store i64 %126, ptr %36, align 8
-  %127 = getelementptr inbounds i8, ptr %5, i64 24
+  %127 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %128 = load i32, ptr %127, align 8
   store i32 %128, ptr %37, align 8
   store i32 0, ptr %127, align 8
@@ -8667,7 +8667,7 @@ _ZN4llvm5APIntD2Ev.exit.i:                        ; preds = %117
   br label %_ZN4llvm9KnownBitsD2Ev.exit
 
 _ZN4llvm9KnownBitsD2Ev.exit:                      ; preds = %_ZN4llvm5APIntD2Ev.exit.i.thread, %_ZN4llvm5APIntD2Ev.exit.i, %129, %132
-  %133 = getelementptr inbounds i8, ptr %6, i64 24
+  %133 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %134 = load i32, ptr %133, align 8
   %135 = icmp ugt i32 %134, 64
   br i1 %135, label %136, label %_ZN4llvm5APIntD2Ev.exit.i13
@@ -8838,7 +8838,7 @@ _ZN4llvm5APIntD2Ev.exit.i22.thread:               ; preds = %217, %_ZN4llvm5APIn
   %220 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %221 = load i64, ptr %220, align 8
   store i64 %221, ptr %36, align 8
-  %222 = getelementptr inbounds i8, ptr %5, i64 24
+  %222 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %223 = load i32, ptr %222, align 8
   store i32 %223, ptr %37, align 8
   store i32 0, ptr %222, align 8
@@ -8851,7 +8851,7 @@ _ZN4llvm5APIntD2Ev.exit.i22:                      ; preds = %217
   %225 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %226 = load i64, ptr %225, align 8
   store i64 %226, ptr %36, align 8
-  %227 = getelementptr inbounds i8, ptr %5, i64 24
+  %227 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %228 = load i32, ptr %227, align 8
   store i32 %228, ptr %37, align 8
   store i32 0, ptr %227, align 8
@@ -8867,7 +8867,7 @@ _ZN4llvm5APIntD2Ev.exit.i22:                      ; preds = %217
   br label %_ZN4llvm9KnownBitsD2Ev.exit23
 
 _ZN4llvm9KnownBitsD2Ev.exit23:                    ; preds = %_ZN4llvm5APIntD2Ev.exit.i22.thread, %_ZN4llvm5APIntD2Ev.exit.i22, %229, %232
-  %233 = getelementptr inbounds i8, ptr %6, i64 24
+  %233 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %234 = load i32, ptr %233, align 8
   %235 = icmp ugt i32 %234, 64
   br i1 %235, label %236, label %_ZN4llvm5APIntD2Ev.exit.i24
@@ -9161,7 +9161,7 @@ _ZN4llvm5APIntD2Ev.exit3.thread:                  ; preds = %_ZN4llvmcoENS_5APIn
   store i32 %21, ptr %26, align 8
   store i64 %20, ptr %0, align 8
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %28 = getelementptr inbounds i8, ptr %0, i64 24
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 %23, ptr %28, align 8
   store i64 %25, ptr %27, align 8
   br label %_ZN4llvm5APIntD2Ev.exit4
@@ -9176,7 +9176,7 @@ _ZN4llvm5APIntD2Ev.exit3:                         ; preds = %_ZN4llvmcoENS_5APIn
   store i32 %21, ptr %30, align 8
   store i64 %20, ptr %0, align 8
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %32 = getelementptr inbounds i8, ptr %0, i64 24
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 %.pre6, ptr %32, align 8
   store i64 %.pre7, ptr %31, align 8
   store i32 0, ptr %22, align 8
@@ -9290,7 +9290,7 @@ define internal fastcc void @_ZL19computeForSatAddSubbbRKN4llvm9KnownBitsES2_(pt
 
 "_ZZL19computeForSatAddSubbbRKN4llvm9KnownBitsES2_ENK3$_0clES2_.exit": ; preds = %40
   %54 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %55 = getelementptr inbounds i8, ptr %3, i64 24
+  %55 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %56 = load i32, ptr %55, align 8
   %57 = icmp ult i32 %56, 65
   %58 = load ptr, ptr %54, align 8
@@ -9315,7 +9315,7 @@ define internal fastcc void @_ZL19computeForSatAddSubbbRKN4llvm9KnownBitsES2_(pt
 
 "_ZZL19computeForSatAddSubbbRKN4llvm9KnownBitsES2_ENK3$_0clES2_.exit50": ; preds = %"_ZZL19computeForSatAddSubbbRKN4llvm9KnownBitsES2_ENK3$_0clES2_.exit.thread"
   %69 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %70 = getelementptr inbounds i8, ptr %4, i64 24
+  %70 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %71 = load i32, ptr %70, align 8
   %72 = icmp ult i32 %71, 65
   %73 = load ptr, ptr %69, align 8
@@ -9338,7 +9338,7 @@ define internal fastcc void @_ZL19computeForSatAddSubbbRKN4llvm9KnownBitsES2_(pt
 
 "_ZZL19computeForSatAddSubbbRKN4llvm9KnownBitsES2_ENK3$_0clES2_.exit54": ; preds = %"_ZZL19computeForSatAddSubbbRKN4llvm9KnownBitsES2_ENK3$_0clES2_.exit50.thread"
   %82 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %83 = getelementptr inbounds i8, ptr %0, i64 24
+  %83 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %84 = load i32, ptr %83, align 8
   %85 = icmp ult i32 %84, 65
   %86 = load ptr, ptr %82, align 8
@@ -9533,7 +9533,7 @@ _ZN4llvm5APIntD2Ev.exit72:                        ; preds = %_ZN4llvm5APIntD2Ev.
   call void @llvm.experimental.noalias.scope.decl(metadata !282)
   %176 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %177 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  %178 = getelementptr inbounds i8, ptr %3, i64 24
+  %178 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %179 = load i32, ptr %178, align 8, !noalias !282
   store i32 %179, ptr %177, align 8, !alias.scope !282
   %180 = icmp ult i32 %179, 65
@@ -9552,7 +9552,7 @@ _ZNK4llvm9KnownBits11getMinValueEv.exit:          ; preds = %181, %183
   call void @llvm.experimental.noalias.scope.decl(metadata !285)
   %184 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %185 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  %186 = getelementptr inbounds i8, ptr %4, i64 24
+  %186 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %187 = load i32, ptr %186, align 8, !noalias !285
   store i32 %187, ptr %185, align 8, !alias.scope !285
   %188 = icmp ult i32 %187, 65
@@ -9619,7 +9619,7 @@ _ZN4llvm5APIntD2Ev.exit78:                        ; preds = %_ZN4llvm5APIntD2Ev.
   tail call void @llvm.experimental.noalias.scope.decl(metadata !288)
   %213 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %214 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  %215 = getelementptr inbounds i8, ptr %3, i64 24
+  %215 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %216 = load i32, ptr %215, align 8, !noalias !288
   store i32 %216, ptr %214, align 8, !alias.scope !288
   %217 = icmp ult i32 %216, 65
@@ -9775,7 +9775,7 @@ _ZNK4llvm9KnownBits11getMaxValueEv.exit101:       ; preds = %_ZN4llvm5APInt15cle
   call void @llvm.experimental.noalias.scope.decl(metadata !305)
   %279 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %280 = getelementptr inbounds nuw i8, ptr %23, i64 8
-  %281 = getelementptr inbounds i8, ptr %4, i64 24
+  %281 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %282 = load i32, ptr %281, align 8, !noalias !305
   store i32 %282, ptr %280, align 8, !alias.scope !305
   %283 = icmp ult i32 %282, 65
@@ -9882,7 +9882,7 @@ _ZN4llvm5APIntD2Ev.exit106:                       ; preds = %_ZN4llvm5APIntD2Ev.
 
 326:                                              ; preds = %312
   %327 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %328 = getelementptr inbounds i8, ptr %0, i64 24
+  %328 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %329 = load i32, ptr %328, align 8
   %330 = add i32 %329, -1
   %331 = and i32 %330, 63
@@ -9916,7 +9916,7 @@ _ZN4llvm5APIntD2Ev.exit106:                       ; preds = %_ZN4llvm5APIntD2Ev.
 
 354:                                              ; preds = %326, %312, %308
   %355 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %356 = getelementptr inbounds i8, ptr %3, i64 24
+  %356 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %357 = load i32, ptr %356, align 8
   %358 = add i32 %357, -1
   %359 = and i32 %358, 63
@@ -9935,7 +9935,7 @@ _ZN4llvm5APIntD2Ev.exit106:                       ; preds = %_ZN4llvm5APIntD2Ev.
 
 369:                                              ; preds = %354
   %370 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %371 = getelementptr inbounds i8, ptr %4, i64 24
+  %371 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %372 = load i32, ptr %371, align 8
   %373 = add i32 %372, -1
   %374 = and i32 %373, 63
@@ -9954,7 +9954,7 @@ _ZN4llvm5APIntD2Ev.exit106:                       ; preds = %_ZN4llvm5APIntD2Ev.
 
 384:                                              ; preds = %369
   %385 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %386 = getelementptr inbounds i8, ptr %0, i64 24
+  %386 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %387 = load i32, ptr %386, align 8
   %388 = add i32 %387, -1
   %389 = and i32 %388, 63
@@ -9990,7 +9990,7 @@ _ZN4llvm5APIntD2Ev.exit106:                       ; preds = %_ZN4llvm5APIntD2Ev.
   %.sroa.7.0235 = phi i8 [ 1, %.thread231 ], [ 0, %307 ]
   %.sroa.0194.0234 = phi i1 [ %narrow, %.thread231 ], [ undef, %307 ]
   %413 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %414 = getelementptr inbounds i8, ptr %3, i64 24
+  %414 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %415 = load i32, ptr %414, align 8
   %416 = add i32 %415, -1
   %417 = and i32 %416, 63
@@ -10027,7 +10027,7 @@ _ZN4llvm5APIntD2Ev.exit106:                       ; preds = %_ZN4llvm5APIntD2Ev.
 
 441:                                              ; preds = %427
   %442 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %443 = getelementptr inbounds i8, ptr %0, i64 24
+  %443 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %444 = load i32, ptr %443, align 8
   %445 = add i32 %444, -1
   %446 = and i32 %445, 63
@@ -10075,7 +10075,7 @@ _ZN4llvm5APIntD2Ev.exit106:                       ; preds = %_ZN4llvm5APIntD2Ev.
 
 479:                                              ; preds = %469
   %480 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %481 = getelementptr inbounds i8, ptr %4, i64 24
+  %481 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %482 = load i32, ptr %481, align 8
   %483 = add i32 %482, -1
   %484 = and i32 %483, 63
@@ -10094,7 +10094,7 @@ _ZN4llvm5APIntD2Ev.exit106:                       ; preds = %_ZN4llvm5APIntD2Ev.
 
 494:                                              ; preds = %479
   %495 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %496 = getelementptr inbounds i8, ptr %0, i64 24
+  %496 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %497 = load i32, ptr %496, align 8
   %498 = add i32 %497, -1
   %499 = and i32 %498, 63
@@ -10129,7 +10129,7 @@ _ZN4llvm5APIntD2Ev.exit106:                       ; preds = %_ZN4llvm5APIntD2Ev.
 522:                                              ; preds = %_ZN4llvm5APIntD2Ev.exit78, %_ZN4llvm5APIntD2Ev.exit72
   %.sroa.7.0.ph.ph = phi i8 [ 1, %_ZN4llvm5APIntD2Ev.exit72 ], [ %211, %_ZN4llvm5APIntD2Ev.exit78 ]
   %523 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %524 = getelementptr inbounds i8, ptr %3, i64 24
+  %524 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %525 = load i32, ptr %524, align 8
   %526 = icmp ult i32 %525, 65
   br i1 %526, label %527, label %537
@@ -10156,7 +10156,7 @@ _ZNK4llvm9KnownBits19countMinLeadingOnesEv.exit:  ; preds = %527, %529, %537
   %.0.i.i = phi i32 [ %536, %529 ], [ %538, %537 ], [ 0, %527 ]
   store i32 %.0.i.i, ptr %24, align 4
   %539 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %540 = getelementptr inbounds i8, ptr %4, i64 24
+  %540 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %541 = load i32, ptr %540, align 8
   %542 = icmp ult i32 %541, 65
   br i1 %542, label %543, label %553
@@ -10215,7 +10215,7 @@ _ZNK4llvm9KnownBits20countMinLeadingZerosEv.exit: ; preds = %560, %562, %570
   %.0.i.i124 = phi i32 [ %569, %562 ], [ %571, %570 ], [ 0, %560 ]
   store i32 %.0.i.i124, ptr %26, align 4
   %572 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %573 = getelementptr inbounds i8, ptr %4, i64 24
+  %573 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %574 = load i32, ptr %573, align 8
   %575 = icmp ult i32 %574, 65
   br i1 %575, label %576, label %586
@@ -10296,7 +10296,7 @@ _ZN4llvm5APInt14getHighBitsSetEjj.exit:           ; preds = %_ZN4llvm5APIntC2Ejm
 
 609:                                              ; preds = %_ZN4llvm5APInt14getHighBitsSetEjj.exit
   %610 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %611 = getelementptr inbounds i8, ptr %0, i64 24
+  %611 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %612 = load i32, ptr %611, align 8
   %613 = icmp ult i32 %612, 65
   br i1 %613, label %614, label %618
@@ -10452,7 +10452,7 @@ _ZN4llvmcoENS_5APIntE.exit138:                    ; preds = %_ZN4llvm5APInt15cle
   store i64 %674, ptr %31, align 8, !alias.scope !314
   store i32 0, ptr %660, align 8, !noalias !314
   %677 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %678 = getelementptr inbounds i8, ptr %0, i64 24
+  %678 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %679 = load i32, ptr %678, align 8
   %680 = icmp ult i32 %679, 65
   br i1 %680, label %681, label %684
@@ -10524,7 +10524,7 @@ _ZN4llvm5APIntD2Ev.exit142:                       ; preds = %700, %697, %_ZN4llv
 
 705:                                              ; preds = %703
   %706 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %707 = getelementptr inbounds i8, ptr %3, i64 24
+  %707 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %708 = load i32, ptr %707, align 8
   %709 = add i32 %708, -1
   %710 = and i32 %709, 63
@@ -10677,7 +10677,7 @@ _ZN4llvm5APIntD2Ev.exit161:                       ; preds = %767, %766
   store i32 %771, ptr %704, align 8
   store i32 0, ptr %.sink288, align 8
   %772 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %773 = getelementptr inbounds i8, ptr %0, i64 24
+  %773 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %774 = load i32, ptr %773, align 8
   %775 = icmp ult i32 %774, 65
   %776 = icmp ult i32 %771, 65
@@ -10813,7 +10813,7 @@ _ZN4llvm5APIntD2Ev.exit170:                       ; preds = %_ZN4llvm5APIntD2Ev.
 
 822:                                              ; preds = %812
   %823 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %824 = getelementptr inbounds i8, ptr %0, i64 24
+  %824 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %825 = load i32, ptr %824, align 8
   %826 = icmp ult i32 %825, 65
   br i1 %826, label %827, label %828
@@ -10876,8 +10876,8 @@ define dso_local void @_ZN4llvm9KnownBits9avgFloorSERKS0_S2_(ptr dead_on_unwind 
 _ZN4llvm5APIntC2ERKS0_.exit.i:                    ; preds = %12, %10
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %15 = getelementptr inbounds i8, ptr %4, i64 24
-  %16 = getelementptr inbounds i8, ptr %1, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %17 = load i32, ptr %16, align 8
   store i32 %17, ptr %15, align 8
   %18 = icmp ult i32 %17, 65
@@ -10912,8 +10912,8 @@ _ZN4llvm9KnownBitsC2ERKS0_.exit:                  ; preds = %19, %21
 _ZN4llvm5APIntC2ERKS0_.exit.i2:                   ; preds = %28, %26
   %29 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %30 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %31 = getelementptr inbounds i8, ptr %5, i64 24
-  %32 = getelementptr inbounds i8, ptr %2, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  %32 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %33 = load i32, ptr %32, align 8
   store i32 %33, ptr %31, align 8
   %34 = icmp ult i32 %33, 65
@@ -11019,7 +11019,7 @@ define internal fastcc void @_ZL10avgComputeN4llvm9KnownBitsES0_bb(ptr dead_on_u
   %23 = load i64, ptr %10, align 8, !noalias !337
   store i64 %23, ptr %12, align 8, !alias.scope !337
   %24 = getelementptr inbounds nuw i8, ptr %12, i64 16
-  %25 = getelementptr inbounds i8, ptr %12, i64 24
+  %25 = getelementptr inbounds nuw i8, ptr %12, i64 24
   %26 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %27 = load i32, ptr %26, align 8, !noalias !337
   store i32 %27, ptr %25, align 8, !alias.scope !337
@@ -11055,7 +11055,7 @@ _ZN4llvm5APIntaSEOS0_.exit.i:                     ; preds = %36, %33, %30
   store i32 %39, ptr %15, align 8
   store i32 0, ptr %38, align 8
   %40 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %41 = getelementptr inbounds i8, ptr %1, i64 24
+  %41 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %42 = load i32, ptr %41, align 8
   %43 = icmp ult i32 %42, 65
   br i1 %43, label %_ZN4llvm5APIntD2Ev.exit.i.thread, label %44
@@ -11069,7 +11069,7 @@ _ZN4llvm5APIntD2Ev.exit.i.thread:                 ; preds = %44, %_ZN4llvm5APInt
   %47 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %48 = load i64, ptr %47, align 8
   store i64 %48, ptr %40, align 8
-  %49 = getelementptr inbounds i8, ptr %12, i64 24
+  %49 = getelementptr inbounds nuw i8, ptr %12, i64 24
   %50 = load i32, ptr %49, align 8
   store i32 %50, ptr %41, align 8
   store i32 0, ptr %49, align 8
@@ -11082,7 +11082,7 @@ _ZN4llvm5APIntD2Ev.exit.i:                        ; preds = %44
   %52 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %53 = load i64, ptr %52, align 8
   store i64 %53, ptr %40, align 8
-  %54 = getelementptr inbounds i8, ptr %12, i64 24
+  %54 = getelementptr inbounds nuw i8, ptr %12, i64 24
   %55 = load i32, ptr %54, align 8
   store i32 %55, ptr %41, align 8
   store i32 0, ptr %54, align 8
@@ -11115,7 +11115,7 @@ _ZN4llvm9KnownBitsD2Ev.exit:                      ; preds = %_ZN4llvm5APIntD2Ev.
   %66 = load i64, ptr %8, align 8, !noalias !340
   store i64 %66, ptr %13, align 8, !alias.scope !340
   %67 = getelementptr inbounds nuw i8, ptr %13, i64 16
-  %68 = getelementptr inbounds i8, ptr %13, i64 24
+  %68 = getelementptr inbounds nuw i8, ptr %13, i64 24
   %69 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %70 = load i32, ptr %69, align 8, !noalias !340
   store i32 %70, ptr %68, align 8, !alias.scope !340
@@ -11152,7 +11152,7 @@ _ZN4llvm5APIntaSEOS0_.exit.i9:                    ; preds = %80, %77, %73
   store i32 %83, ptr %74, align 8
   store i32 0, ptr %82, align 8
   %84 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %85 = getelementptr inbounds i8, ptr %2, i64 24
+  %85 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %86 = load i32, ptr %85, align 8
   %87 = icmp ult i32 %86, 65
   br i1 %87, label %_ZN4llvm5APIntD2Ev.exit.i11.thread, label %88
@@ -11166,7 +11166,7 @@ _ZN4llvm5APIntD2Ev.exit.i11.thread:               ; preds = %88, %_ZN4llvm5APInt
   %91 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %92 = load i64, ptr %91, align 8
   store i64 %92, ptr %84, align 8
-  %93 = getelementptr inbounds i8, ptr %13, i64 24
+  %93 = getelementptr inbounds nuw i8, ptr %13, i64 24
   %94 = load i32, ptr %93, align 8
   store i32 %94, ptr %85, align 8
   store i32 0, ptr %93, align 8
@@ -11179,7 +11179,7 @@ _ZN4llvm5APIntD2Ev.exit.i11:                      ; preds = %88
   %96 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %97 = load i64, ptr %96, align 8
   store i64 %97, ptr %84, align 8
-  %98 = getelementptr inbounds i8, ptr %13, i64 24
+  %98 = getelementptr inbounds nuw i8, ptr %13, i64 24
   %99 = load i32, ptr %98, align 8
   store i32 %99, ptr %85, align 8
   store i32 0, ptr %98, align 8
@@ -11233,7 +11233,7 @@ _ZN4llvm9KnownBitsD2Ev.exit16:                    ; preds = %_ZN4llvm5APIntaSEOS
   %120 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %121 = load i64, ptr %120, align 8
   store i64 %121, ptr %40, align 8
-  %122 = getelementptr inbounds i8, ptr %14, i64 24
+  %122 = getelementptr inbounds nuw i8, ptr %14, i64 24
   %123 = load i32, ptr %122, align 8
   store i32 %123, ptr %41, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
@@ -11288,7 +11288,7 @@ _ZN4llvm9KnownBitsD2Ev.exit20:                    ; preds = %_ZN4llvm5APIntaSEOS
   store i64 %142, ptr %0, align 8
   store i32 0, ptr %15, align 8
   %145 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %146 = getelementptr inbounds i8, ptr %0, i64 24
+  %146 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 %128, ptr %146, align 8
   store i64 %129, ptr %145, align 8
   store i32 0, ptr %41, align 8
@@ -11318,8 +11318,8 @@ define dso_local void @_ZN4llvm9KnownBits9avgFloorUERKS0_S2_(ptr dead_on_unwind 
 _ZN4llvm5APIntC2ERKS0_.exit.i:                    ; preds = %12, %10
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %15 = getelementptr inbounds i8, ptr %4, i64 24
-  %16 = getelementptr inbounds i8, ptr %1, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %17 = load i32, ptr %16, align 8
   store i32 %17, ptr %15, align 8
   %18 = icmp ult i32 %17, 65
@@ -11354,8 +11354,8 @@ _ZN4llvm9KnownBitsC2ERKS0_.exit:                  ; preds = %19, %21
 _ZN4llvm5APIntC2ERKS0_.exit.i2:                   ; preds = %28, %26
   %29 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %30 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %31 = getelementptr inbounds i8, ptr %5, i64 24
-  %32 = getelementptr inbounds i8, ptr %2, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  %32 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %33 = load i32, ptr %32, align 8
   store i32 %33, ptr %31, align 8
   %34 = icmp ult i32 %33, 65
@@ -11454,8 +11454,8 @@ define dso_local void @_ZN4llvm9KnownBits8avgCeilSERKS0_S2_(ptr dead_on_unwind n
 _ZN4llvm5APIntC2ERKS0_.exit.i:                    ; preds = %12, %10
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %15 = getelementptr inbounds i8, ptr %4, i64 24
-  %16 = getelementptr inbounds i8, ptr %1, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %17 = load i32, ptr %16, align 8
   store i32 %17, ptr %15, align 8
   %18 = icmp ult i32 %17, 65
@@ -11490,8 +11490,8 @@ _ZN4llvm9KnownBitsC2ERKS0_.exit:                  ; preds = %19, %21
 _ZN4llvm5APIntC2ERKS0_.exit.i2:                   ; preds = %28, %26
   %29 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %30 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %31 = getelementptr inbounds i8, ptr %5, i64 24
-  %32 = getelementptr inbounds i8, ptr %2, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  %32 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %33 = load i32, ptr %32, align 8
   store i32 %33, ptr %31, align 8
   %34 = icmp ult i32 %33, 65
@@ -11590,8 +11590,8 @@ define dso_local void @_ZN4llvm9KnownBits8avgCeilUERKS0_S2_(ptr dead_on_unwind n
 _ZN4llvm5APIntC2ERKS0_.exit.i:                    ; preds = %12, %10
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %15 = getelementptr inbounds i8, ptr %4, i64 24
-  %16 = getelementptr inbounds i8, ptr %1, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %17 = load i32, ptr %16, align 8
   store i32 %17, ptr %15, align 8
   %18 = icmp ult i32 %17, 65
@@ -11626,8 +11626,8 @@ _ZN4llvm9KnownBitsC2ERKS0_.exit:                  ; preds = %19, %21
 _ZN4llvm5APIntC2ERKS0_.exit.i2:                   ; preds = %28, %26
   %29 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %30 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %31 = getelementptr inbounds i8, ptr %5, i64 24
-  %32 = getelementptr inbounds i8, ptr %2, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  %32 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %33 = load i32, ptr %32, align 8
   store i32 %33, ptr %31, align 8
   %34 = icmp ult i32 %33, 65
@@ -12047,7 +12047,7 @@ _ZN4llvm5APIntD2Ev.exit52:                        ; preds = %_ZN4llvm5APIntD2Ev.
   %156 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %23, ptr %156, align 8
   %157 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %158 = getelementptr inbounds i8, ptr %0, i64 24
+  %158 = getelementptr inbounds nuw i8, ptr %0, i64 24
   br i1 %25, label %159, label %160
 
 159:                                              ; preds = %_ZN4llvm5APIntD2Ev.exit52
@@ -12323,7 +12323,7 @@ define dso_local void @_ZN4llvm9KnownBits5mulhsERKS0_S2_(ptr dead_on_unwind noal
   %20 = load i64, ptr %8, align 8, !noalias !369
   store i64 %20, ptr %10, align 8, !alias.scope !369
   %21 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  %22 = getelementptr inbounds i8, ptr %10, i64 24
+  %22 = getelementptr inbounds nuw i8, ptr %10, i64 24
   %23 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %24 = load i32, ptr %23, align 8, !noalias !369
   store i32 %24, ptr %22, align 8, !alias.scope !369
@@ -12344,7 +12344,7 @@ define dso_local void @_ZN4llvm9KnownBits5mulhsERKS0_S2_(ptr dead_on_unwind noal
   %30 = load i64, ptr %6, align 8, !noalias !372
   store i64 %30, ptr %11, align 8, !alias.scope !372
   %31 = getelementptr inbounds nuw i8, ptr %11, i64 16
-  %32 = getelementptr inbounds i8, ptr %11, i64 24
+  %32 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %33 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %34 = load i32, ptr %33, align 8, !noalias !372
   store i32 %34, ptr %32, align 8, !alias.scope !372
@@ -12366,7 +12366,7 @@ define dso_local void @_ZN4llvm9KnownBits5mulhsERKS0_S2_(ptr dead_on_unwind noal
   %40 = load i64, ptr %4, align 8, !noalias !375
   store i64 %40, ptr %0, align 8, !alias.scope !375
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %42 = getelementptr inbounds i8, ptr %0, i64 24
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %43 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %44 = load i32, ptr %43, align 8, !noalias !375
   store i32 %44, ptr %42, align 8, !alias.scope !375
@@ -12374,7 +12374,7 @@ define dso_local void @_ZN4llvm9KnownBits5mulhsERKS0_S2_(ptr dead_on_unwind noal
   store i64 %45, ptr %41, align 8, !alias.scope !375
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
-  %46 = getelementptr inbounds i8, ptr %12, i64 24
+  %46 = getelementptr inbounds nuw i8, ptr %12, i64 24
   %47 = load i32, ptr %46, align 8
   %48 = icmp ugt i32 %47, 64
   br i1 %48, label %49, label %_ZN4llvm5APIntD2Ev.exit.i
@@ -12489,7 +12489,7 @@ define dso_local void @_ZN4llvm9KnownBits5mulhuERKS0_S2_(ptr dead_on_unwind noal
   %16 = load i64, ptr %4, align 8, !noalias !378
   store i64 %16, ptr %0, align 8, !alias.scope !378
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %18 = getelementptr inbounds i8, ptr %0, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %19 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %20 = load i32, ptr %19, align 8, !noalias !378
   store i32 %20, ptr %18, align 8, !alias.scope !378
@@ -12497,7 +12497,7 @@ define dso_local void @_ZN4llvm9KnownBits5mulhuERKS0_S2_(ptr dead_on_unwind noal
   store i64 %21, ptr %17, align 8, !alias.scope !378
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
-  %22 = getelementptr inbounds i8, ptr %8, i64 24
+  %22 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %23 = load i32, ptr %22, align 8
   %24 = icmp ugt i32 %23, 64
   br i1 %24, label %25, label %_ZN4llvm5APIntD2Ev.exit.i
@@ -12527,7 +12527,7 @@ _ZN4llvm5APIntD2Ev.exit.i:                        ; preds = %28, %25, %3
   br label %_ZN4llvm9KnownBitsD2Ev.exit
 
 _ZN4llvm9KnownBitsD2Ev.exit:                      ; preds = %_ZN4llvm5APIntD2Ev.exit.i, %32, %35
-  %36 = getelementptr inbounds i8, ptr %7, i64 24
+  %36 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %37 = load i32, ptr %36, align 8
   %38 = icmp ugt i32 %37, 64
   br i1 %38, label %39, label %_ZN4llvm5APIntD2Ev.exit.i6
@@ -12558,7 +12558,7 @@ _ZN4llvm5APIntD2Ev.exit.i6:                       ; preds = %43, %39, %_ZN4llvm9
   br label %_ZN4llvm9KnownBitsD2Ev.exit7
 
 _ZN4llvm9KnownBitsD2Ev.exit7:                     ; preds = %_ZN4llvm5APIntD2Ev.exit.i6, %47, %50
-  %51 = getelementptr inbounds i8, ptr %6, i64 24
+  %51 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %52 = load i32, ptr %51, align 8
   %53 = icmp ugt i32 %52, 64
   br i1 %53, label %54, label %_ZN4llvm5APIntD2Ev.exit.i8
@@ -12658,7 +12658,7 @@ _ZN4llvm5APIntD2Ev.exit3:                         ; preds = %27, %30
   store i64 %35, ptr %0, align 8
   store i32 0, ptr %31, align 8
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %37 = getelementptr inbounds i8, ptr %0, i64 24
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %38 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %39 = load i32, ptr %38, align 8
   store i32 %39, ptr %37, align 8
@@ -12745,7 +12745,7 @@ define dso_local void @_ZN4llvm9KnownBits4sdivERKS0_S2_b(ptr dead_on_unwind noal
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %24, ptr %52, align 8
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %54 = getelementptr inbounds i8, ptr %0, i64 24
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 24
   br i1 %29, label %55, label %56
 
 55:                                               ; preds = %51
@@ -12880,7 +12880,7 @@ _ZN4llvm5APInt10setAllBitsEv.exit.i:              ; preds = %105, %101
   %124 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i8 0, ptr %124, align 8
   %125 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %126 = getelementptr inbounds i8, ptr %1, i64 24
+  %126 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %127 = load i32, ptr %126, align 8
   %128 = add i32 %127, -1
   %129 = and i32 %128, 63
@@ -12899,7 +12899,7 @@ _ZN4llvm5APInt10setAllBitsEv.exit.i:              ; preds = %105, %101
 
 139:                                              ; preds = %123
   %140 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %141 = getelementptr inbounds i8, ptr %2, i64 24
+  %141 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %142 = load i32, ptr %141, align 8
   %143 = add i32 %142, -1
   %144 = and i32 %143, 63
@@ -13296,7 +13296,7 @@ _ZNK4llvm9KnownBits18isStrictlyPositiveEv.exit:   ; preds = %340
 
 345:                                              ; preds = %341, %_ZNK4llvm9KnownBits18isStrictlyPositiveEv.exit
   %346 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %347 = getelementptr inbounds i8, ptr %2, i64 24
+  %347 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %348 = load i32, ptr %347, align 8
   %349 = add i32 %348, -1
   %350 = and i32 %349, 63
@@ -13576,7 +13576,7 @@ _ZN4llvm5APInt11setHighBitsEj.exit:               ; preds = %_ZN4llvm5APInt11set
 
 _ZN4llvm5APIntC2ERKS0_.exit.i87:                  ; preds = %484, %482
   %485 = getelementptr inbounds nuw i8, ptr %22, i64 16
-  %486 = getelementptr inbounds i8, ptr %22, i64 24
+  %486 = getelementptr inbounds nuw i8, ptr %22, i64 24
   %487 = load i32, ptr %54, align 8
   store i32 %487, ptr %486, align 8
   %488 = icmp ult i32 %487, 65
@@ -13629,7 +13629,7 @@ _ZN4llvm9KnownBitsD2Ev.exit:                      ; preds = %_ZN4llvm5APIntaSEOS
   %507 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %508 = load i64, ptr %507, align 8
   store i64 %508, ptr %53, align 8
-  %509 = getelementptr inbounds i8, ptr %21, i64 24
+  %509 = getelementptr inbounds nuw i8, ptr %21, i64 24
   %510 = load i32, ptr %509, align 8
   store i32 %510, ptr %54, align 8
   %511 = load i32, ptr %486, align 8
@@ -13698,7 +13698,7 @@ define dso_local void @_ZN4llvm9KnownBits4udivERKS0_S2_b(ptr dead_on_unwind noal
   store i32 %12, ptr %13, align 8
   %14 = icmp ult i32 %12, 65
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %16 = getelementptr inbounds i8, ptr %0, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 24
   br i1 %14, label %17, label %18
 
 17:                                               ; preds = %4
@@ -13833,7 +13833,7 @@ _ZN4llvm5APInt10setAllBitsEv.exit.i:              ; preds = %67, %63
   tail call void @llvm.experimental.noalias.scope.decl(metadata !384)
   %86 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %87 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %88 = getelementptr inbounds i8, ptr %2, i64 24
+  %88 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %89 = load i32, ptr %88, align 8, !noalias !384
   store i32 %89, ptr %87, align 8, !alias.scope !384
   %90 = icmp ult i32 %89, 65
@@ -13994,7 +13994,7 @@ _ZN4llvm5APInt11setHighBitsEj.exit:               ; preds = %148, %_ZNK4llvm5API
 _ZN4llvm5APIntC2ERKS0_.exit.i13:                  ; preds = %155, %152
   %156 = phi ptr [ %150, %155 ], [ %153, %152 ]
   %157 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  %158 = getelementptr inbounds i8, ptr %10, i64 24
+  %158 = getelementptr inbounds nuw i8, ptr %10, i64 24
   %159 = load i32, ptr %16, align 8
   store i32 %159, ptr %158, align 8
   %160 = icmp ult i32 %159, 65
@@ -14048,7 +14048,7 @@ _ZN4llvm9KnownBitsD2Ev.exit:                      ; preds = %_ZN4llvm5APIntaSEOS
   %179 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %180 = load i64, ptr %179, align 8
   store i64 %180, ptr %15, align 8
-  %181 = getelementptr inbounds i8, ptr %9, i64 24
+  %181 = getelementptr inbounds nuw i8, ptr %9, i64 24
   %182 = load i32, ptr %181, align 8
   store i32 %182, ptr %16, align 8
   store i32 0, ptr %181, align 8
@@ -14225,7 +14225,7 @@ define internal fastcc void @_ZL16divComputeLowBitN4llvm9KnownBitsERKS0_S2_b(ptr
 
 12:                                               ; preds = %5
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %14 = getelementptr inbounds i8, ptr %2, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %15 = load i32, ptr %14, align 8
   %16 = icmp ult i32 %15, 65
   %17 = load ptr, ptr %13, align 8
@@ -14237,7 +14237,7 @@ define internal fastcc void @_ZL16divComputeLowBitN4llvm9KnownBitsERKS0_S2_b(ptr
 
 20:                                               ; preds = %12
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %22 = getelementptr inbounds i8, ptr %1, i64 24
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %23 = load i32, ptr %22, align 8
   %24 = icmp ult i32 %23, 65
   %25 = load ptr, ptr %21, align 8
@@ -14267,7 +14267,7 @@ define internal fastcc void @_ZL16divComputeLowBitN4llvm9KnownBitsERKS0_S2_b(ptr
 _ZNK4llvm9KnownBits21countMinTrailingZerosEv.exit: ; preds = %32, %37
   %.0.i.i = phi i32 [ %36, %32 ], [ %38, %37 ]
   %39 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %40 = getelementptr inbounds i8, ptr %3, i64 24
+  %40 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %41 = load i32, ptr %40, align 8
   %42 = icmp ult i32 %41, 65
   br i1 %42, label %43, label %47
@@ -14368,7 +14368,7 @@ _ZN4llvm5APInt10setLowBitsEj.exit:                ; preds = %70, %81, %84, %88
   %92 = and i32 %49, 63
   %93 = zext nneg i32 %92 to i64
   %94 = shl nuw i64 1, %93
-  %95 = getelementptr inbounds i8, ptr %1, i64 24
+  %95 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %96 = load i32, ptr %95, align 8
   %97 = icmp ult i32 %96, 65
   %98 = load ptr, ptr %91, align 8
@@ -14440,7 +14440,7 @@ _ZN4llvm5APInt10setAllBitsEv.exit.i:              ; preds = %130, %126
   %139 = and i64 %138, %.sink5.i.i.i
   store i64 %139, ptr %.sink.i.i.i, align 8
   %140 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %141 = getelementptr inbounds i8, ptr %1, i64 24
+  %141 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %142 = load i32, ptr %141, align 8
   %143 = icmp ult i32 %142, 65
   br i1 %143, label %144, label %145
@@ -14524,7 +14524,7 @@ _ZN4llvm5APInt10setAllBitsEv.exit.i21:            ; preds = %179, %175
   %187 = load i64, ptr %.sink.i.i.i22, align 8
   %188 = and i64 %187, %.sink5.i.i.i23
   store i64 %188, ptr %.sink.i.i.i22, align 8
-  %189 = getelementptr inbounds i8, ptr %1, i64 24
+  %189 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %190 = load i32, ptr %189, align 8
   %191 = icmp ult i32 %190, 65
   br i1 %191, label %192, label %193
@@ -14554,8 +14554,8 @@ _ZN4llvm9KnownBits10setAllZeroEv.exit27:          ; preds = %193, %192, %154, %_
 201:                                              ; preds = %_ZN4llvm9KnownBits10setAllZeroEv.exit27, %6
   %.sink31 = phi ptr [ %150, %_ZN4llvm9KnownBits10setAllZeroEv.exit27 ], [ %11, %6 ]
   %.sink30 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %202 = getelementptr inbounds i8, ptr %0, i64 24
-  %203 = getelementptr inbounds i8, ptr %1, i64 24
+  %202 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %203 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %204 = load i32, ptr %203, align 8
   store i32 %204, ptr %202, align 8
   %205 = load i64, ptr %.sink31, align 8
@@ -14673,7 +14673,7 @@ _ZN4llvm5APIntC2Ejmbb.exit.i:                     ; preds = %40, %39
 _ZN4llvm5APInt13getLowBitsSetEjj.exit:            ; preds = %_ZN4llvm5APIntC2Ejmbb.exit.i, %50, %53, %57
   %58 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %59 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %60 = getelementptr inbounds i8, ptr %1, i64 24
+  %60 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %61 = load i32, ptr %60, align 8
   store i32 %61, ptr %59, align 8
   %62 = icmp ult i32 %61, 65
@@ -14788,7 +14788,7 @@ _ZN4llvm5APIntD2Ev.exit17:                        ; preds = %93, %94
   store i64 %99, ptr %0, align 8
   store i32 0, ptr %89, align 8
   %100 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %101 = getelementptr inbounds i8, ptr %0, i64 24
+  %101 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 %96, ptr %101, align 8
   store i64 %95, ptr %100, align 8
   store i32 0, ptr %91, align 8
@@ -14838,7 +14838,7 @@ _ZNK4llvm9KnownBits6isZeroEv.exit.thread:         ; preds = %.thread, %3, %18, %
   store i32 %12, ptr %120, align 8
   %121 = icmp ult i32 %12, 65
   %122 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %123 = getelementptr inbounds i8, ptr %0, i64 24
+  %123 = getelementptr inbounds nuw i8, ptr %0, i64 24
   br i1 %121, label %124, label %125
 
 124:                                              ; preds = %_ZNK4llvm9KnownBits6isZeroEv.exit.thread
@@ -14881,7 +14881,7 @@ define dso_local void @_ZN4llvm9KnownBits4uremERKS0_S2_(ptr dead_on_unwind noali
 _ZNK4llvm5APInt8popcountEv.exit.i:                ; preds = %14, %10
   %.0.i.i = phi i32 [ %13, %10 ], [ %15, %14 ]
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %17 = getelementptr inbounds i8, ptr %2, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %18 = load i32, ptr %17, align 8
   %19 = icmp ult i32 %18, 65
   br i1 %19, label %_ZNK4llvm9KnownBits10isConstantEv.exit, label %_ZNK4llvm9KnownBits10isConstantEv.exit.thread
@@ -15116,7 +15116,7 @@ define dso_local void @_ZN4llvm9KnownBits4sremERKS0_S2_(ptr dead_on_unwind noali
 _ZNK4llvm5APInt8popcountEv.exit.i:                ; preds = %17, %13
   %.0.i.i = phi i32 [ %16, %13 ], [ %18, %17 ]
   %19 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %20 = getelementptr inbounds i8, ptr %2, i64 24
+  %20 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %21 = load i32, ptr %20, align 8
   %22 = icmp ult i32 %21, 65
   br i1 %22, label %_ZNK4llvm9KnownBits10isConstantEv.exit, label %_ZNK4llvm9KnownBits10isConstantEv.exit.thread
@@ -15303,7 +15303,7 @@ _ZN4llvm5APIntD2Ev.exit13:                        ; preds = %_ZN4llvm5APIntoRERK
 
 _ZN4llvm5APIntD2Ev.exit14:                        ; preds = %107, %104, %_ZN4llvm5APIntD2Ev.exit13, %61, %_ZNK4llvm5APInt10isSubsetOfERKS0_.exit
   %108 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %109 = getelementptr inbounds i8, ptr %1, i64 24
+  %109 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %110 = load i32, ptr %109, align 8
   %111 = add i32 %110, -1
   %112 = and i32 %111, 63
@@ -15385,7 +15385,7 @@ _ZN4llvmcoENS_5APIntE.exit22:                     ; preds = %_ZN4llvm5APInt15cle
   store i64 %146, ptr %8, align 8, !alias.scope !418
   store i32 0, ptr %145, align 8, !noalias !418
   %149 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %150 = getelementptr inbounds i8, ptr %0, i64 24
+  %150 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %151 = load i32, ptr %150, align 8
   %152 = icmp ult i32 %151, 65
   br i1 %152, label %153, label %156
@@ -15520,7 +15520,7 @@ define dso_local noundef nonnull align 8 dereferenceable(32) ptr @_ZN4llvm9Known
 _ZN4llvm5APIntoRERKS0_.exit:                      ; preds = %6, %10
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %13 = getelementptr inbounds i8, ptr %0, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %14 = load i32, ptr %13, align 8
   %15 = icmp ult i32 %14, 65
   br i1 %15, label %16, label %20
@@ -15561,7 +15561,7 @@ define dso_local noundef nonnull align 8 dereferenceable(32) ptr @_ZN4llvm9Known
 _ZN4llvm5APIntaNERKS0_.exit:                      ; preds = %6, %10
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %13 = getelementptr inbounds i8, ptr %0, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %14 = load i32, ptr %13, align 8
   %15 = icmp ult i32 %14, 65
   br i1 %15, label %16, label %20
@@ -15629,7 +15629,7 @@ _ZN4llvmanENS_5APIntERKS0_.exit:                  ; preds = %_ZN4llvm5APIntC2ERK
   store i32 0, ptr %11, align 8, !noalias !421
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %24 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %25 = getelementptr inbounds i8, ptr %0, i64 24
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %26 = load i32, ptr %25, align 8
   store i32 %26, ptr %24, align 8
   %27 = icmp ult i32 %26, 65
@@ -15964,12 +15964,12 @@ _ZN4llvm5APIntD2Ev.exit7:                         ; preds = %9, %12
   store i64 %16, ptr %0, align 8
   store i32 0, ptr %7, align 8
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %21 = getelementptr inbounds i8, ptr %0, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 %15, ptr %21, align 8
   store i64 %14, ptr %20, align 8
   store i32 0, ptr %18, align 8
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %23 = getelementptr inbounds i8, ptr %1, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %24 = load i32, ptr %23, align 8
   %25 = icmp ult i32 %24, 65
   br i1 %25, label %26, label %30
@@ -16064,7 +16064,7 @@ define dso_local void @_ZNK4llvm9KnownBits6blsmskEv(ptr dead_on_unwind noalias w
   store i32 %4, ptr %5, align 8
   %6 = icmp ult i32 %4, 65
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %8 = getelementptr inbounds i8, ptr %0, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   br i1 %6, label %9, label %10
 
 9:                                                ; preds = %2
@@ -16081,7 +16081,7 @@ define dso_local void @_ZNK4llvm9KnownBits6blsmskEv(ptr dead_on_unwind noalias w
 
 _ZN4llvm9KnownBitsC2Ej.exit:                      ; preds = %9, %10
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %12 = getelementptr inbounds i8, ptr %1, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %13 = load i32, ptr %12, align 8
   %14 = icmp ult i32 %13, 65
   br i1 %14, label %15, label %19
@@ -16192,7 +16192,7 @@ define dso_local void @_ZNK4llvm9KnownBits5printERNS_11raw_ostreamE(ptr nocaptur
 
 .lr.ph:                                           ; preds = %2
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %6 = getelementptr inbounds i8, ptr %0, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 32
   br label %9

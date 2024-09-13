@@ -245,7 +245,7 @@ _ZN4llvm7support6endian6Writer5writeIcEEvNS_8ArrayRefIT_EE.exit: ; preds = %.lr.
   %51 = load ptr, ptr %43, align 8
   %52 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream11write_zerosEj(ptr noundef nonnull align 8 dereferenceable(48) %51, i32 noundef 16) #11
   %53 = load ptr, ptr %43, align 8
-  %54 = getelementptr inbounds i8, ptr %0, i64 112
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %55 = load i32, ptr %54, align 8
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %10)
   %.not.i.i.i58 = icmp eq i32 %55, 1
@@ -314,10 +314,10 @@ _ZN4llvm7support6endian6Writer5writeIcEEvNS_8ArrayRefIT_EE.exit: ; preds = %.lr.
   %84 = getelementptr inbounds nuw i8, ptr %14, i64 2
   %85 = getelementptr inbounds nuw i8, ptr %14, i64 4
   %86 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %87 = getelementptr inbounds i8, ptr %14, i64 13
-  %88 = getelementptr inbounds i8, ptr %14, i64 12
-  %89 = getelementptr inbounds i8, ptr %14, i64 16
-  %90 = getelementptr inbounds i8, ptr %14, i64 20
+  %87 = getelementptr inbounds nuw i8, ptr %14, i64 13
+  %88 = getelementptr inbounds nuw i8, ptr %14, i64 12
+  %89 = getelementptr inbounds nuw i8, ptr %14, i64 16
+  %90 = getelementptr inbounds nuw i8, ptr %14, i64 20
   br label %91
 
 91:                                               ; preds = %.lr.ph182, %174
@@ -415,7 +415,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit96.thread:       ; preds = %_ZN4llvmeqENS_9Stri
   br i1 %.not.i.i.i99.not, label %139, label %134
 
 134:                                              ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit96.thread
-  %135 = getelementptr inbounds i8, ptr %122, i64 72
+  %135 = getelementptr inbounds nuw i8, ptr %122, i64 72
   %136 = load i32, ptr %135, align 8
   %137 = trunc i32 %136 to i16
   %138 = add i16 %137, -25

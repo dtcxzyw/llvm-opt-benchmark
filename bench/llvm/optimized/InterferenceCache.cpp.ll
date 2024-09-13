@@ -512,7 +512,7 @@ define hidden void @_ZN4llvm17InterferenceCache5Entry5resetENS_10MCRegisterEPNS_
   store i32 %1, ptr %0, align 8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 512
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 96
-  %12 = getelementptr inbounds i8, ptr %4, i64 104
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 104
   %13 = load ptr, ptr %12, align 8
   %14 = load ptr, ptr %11, align 8
   %15 = ptrtoint ptr %13 to i64
@@ -552,7 +552,7 @@ _ZN4llvm17InterferenceCache5Entry11RegUnitInfoD2Ev.exit.i.i: ; preds = %31, %.lr
   br i1 %.not.i.i, label %_ZN4llvm15SmallVectorImplINS_17InterferenceCache5Entry11RegUnitInfoEE5clearEv.exit, label %.lr.ph.i.i, !llvm.loop !18
 
 _ZN4llvm15SmallVectorImplINS_17InterferenceCache5Entry11RegUnitInfoEE5clearEv.exit: ; preds = %_ZN4llvm17InterferenceCache5Entry11RegUnitInfoD2Ev.exit.i.i, %5
-  %32 = getelementptr inbounds i8, ptr %0, i64 56
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i32 0, ptr %32, align 8
   %33 = getelementptr inbounds i8, ptr %3, i64 56
   %34 = load ptr, ptr %33, align 8, !noalias !19
@@ -1588,7 +1588,7 @@ define linkonce_odr hidden void @_ZN4llvm11IntervalMapINS_9SlotIndexEPKNS_12Live
   br i1 %.not, label %40, label %8
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %3, i64 96
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 96
   %.not6.i.i = icmp eq i32 %7, 0
   br i1 %.not6.i.i, label %_ZNK4llvm15IntervalMapImpl10BranchNodeINS_9SlotIndexEPKNS_12LiveIntervalELj11ENS_15IntervalMapInfoIS2_EEE8findFromEjjS2_.exit.i, label %.lr.ph.i.i
 
@@ -2469,7 +2469,7 @@ _ZNK4llvm15IntervalMapImpl10BranchNodeINS_9SlotIndexEPKNS_12LiveIntervalELj12ENS
   %130 = load ptr, ptr %3, align 8
   %131 = getelementptr inbounds i8, ptr %130, i64 12
   %132 = load i32, ptr %131, align 4
-  %133 = getelementptr inbounds i8, ptr %129, i64 96
+  %133 = getelementptr inbounds nuw i8, ptr %129, i64 96
   %134 = zext i32 %132 to i64
   %135 = getelementptr inbounds [11 x %"class.llvm::SlotIndex"], ptr %133, i64 0, i64 %134
   %.0.copyload.i.i.i.i.i.i.i20 = load i64, ptr %135, align 8
@@ -2521,7 +2521,7 @@ _ZNK4llvm15IntervalMapImpl10BranchNodeINS_9SlotIndexEPKNS_12LiveIntervalELj12ENS
   %166 = phi ptr [ %.pre, %._crit_edge50 ], [ %129, %._crit_edge ]
   %167 = getelementptr inbounds nuw i8, ptr %166, i64 196
   %168 = load i32, ptr %167, align 4
-  %169 = getelementptr inbounds i8, ptr %166, i64 96
+  %169 = getelementptr inbounds nuw i8, ptr %166, i64 96
   %.not6.i = icmp eq i32 %165, %168
   br i1 %.not6.i, label %_ZNK4llvm15IntervalMapImpl10BranchNodeINS_9SlotIndexEPKNS_12LiveIntervalELj11ENS_15IntervalMapInfoIS2_EEE8findFromEjjS2_.exit, label %.lr.ph.i
 

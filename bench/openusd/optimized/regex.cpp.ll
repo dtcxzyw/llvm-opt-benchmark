@@ -662,7 +662,7 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN32pxrInternal_v0_24__pxrR
 
 _ZSt11make_sharedIN32pxrInternal_v0_24__pxrReserved__9ArchRegex5_ImplEJKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERjPS8_EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESE_E4typeEEDpOT0_.exit: ; preds = %.noexc
   store ptr %137, ptr %27, align 8
-  %140 = getelementptr inbounds i8, ptr %0, i64 48
+  %140 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %141 = load ptr, ptr %140, align 8
   store ptr %134, ptr %140, align 8
   %.not.i.i.i.i = icmp eq ptr %141, null
@@ -904,7 +904,7 @@ _ZNSt12__shared_ptrIKN32pxrInternal_v0_24__pxrReserved__9ArchRegex5_ImplELN9__gn
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN32pxrInternal_v0_24__pxrReserved__9ArchRegexD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 48
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i.i, label %_ZNSt10shared_ptrIKN32pxrInternal_v0_24__pxrReserved__9ArchRegex5_ImplEED2Ev.exit, label %4

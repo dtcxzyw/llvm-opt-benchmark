@@ -188,7 +188,7 @@ define void @_ZN3g2o18EstimatePropagatorC2EPNS_16OptimizableGraphE(ptr noundef n
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, i8 0, i64 16, i1 false)
   store float 1.000000e+00, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 40
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %10, i8 0, i64 16, i1 false)
   %11 = getelementptr inbounds i8, ptr %0, i64 64
   store i32 0, ptr %11, align 8
@@ -202,7 +202,7 @@ define void @_ZN3g2o18EstimatePropagatorC2EPNS_16OptimizableGraphE(ptr noundef n
   store i64 0, ptr %15, align 8
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store ptr %1, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %1, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %18 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %19 = getelementptr inbounds i8, ptr %5, i64 24
   %20 = getelementptr inbounds i8, ptr %5, i64 32
@@ -210,9 +210,9 @@ define void @_ZN3g2o18EstimatePropagatorC2EPNS_16OptimizableGraphE(ptr noundef n
   %22 = getelementptr inbounds i8, ptr %5, i64 48
   %23 = getelementptr inbounds i8, ptr %5, i64 56
   %24 = getelementptr inbounds i8, ptr %4, i64 24
-  %25 = getelementptr inbounds i8, ptr %5, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %26 = getelementptr inbounds i8, ptr %4, i64 48
-  %27 = getelementptr inbounds i8, ptr %5, i64 64
+  %27 = getelementptr inbounds nuw i8, ptr %5, i64 64
   %28 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %29 = getelementptr inbounds nuw i8, ptr %4, i64 8
   br label %_ZN3g2o18EstimatePropagator17AdjacencyMapEntryD2Ev.exit
@@ -338,7 +338,7 @@ _ZNSt4pairIPN3g2o16OptimizableGraph6VertexENS0_18EstimatePropagator17AdjacencyMa
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt4pairIPN3g2o16OptimizableGraph6VertexENS0_18EstimatePropagator17AdjacencyMapEntryEED2Ev(ptr noundef nonnull align 8 dereferenceable(96) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = getelementptr inbounds i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
   invoke void @_ZNSt8_Rb_treeIPN3g2o10HyperGraph6VertexES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE8_M_eraseEPSt13_Rb_tree_nodeIS3_E(ptr noundef nonnull align 8 dereferenceable(48) %2, ptr noundef %4)
@@ -779,7 +779,7 @@ _ZNSt3setIPN3g2o10HyperGraph6VertexESt4lessIS3_ESaIS3_EE5clearEv.exit: ; preds =
 
 90:                                               ; preds = %.lr.ph216, %.loopexit180
   %91 = load ptr, ptr %12, align 8
-  %92 = getelementptr inbounds i8, ptr %91, i64 40
+  %92 = getelementptr inbounds nuw i8, ptr %91, i64 40
   %93 = load ptr, ptr %92, align 8
   %94 = call noundef nonnull ptr @_ZSt28_Rb_tree_rebalance_for_erasePSt18_Rb_tree_node_baseRS_(ptr noundef %91, ptr noundef nonnull align 8 dereferenceable(32) %10) #21
   call void @_ZdlPvm(ptr noundef nonnull %94, i64 noundef 48) #22
@@ -890,7 +890,7 @@ _ZNSt3setIPN3g2o10HyperGraph6VertexESt4lessIS3_ESaIS3_EED2Ev.exit131: ; preds = 
   store ptr %26, ptr %29, align 8
   store i64 0, ptr %30, align 8
   %140 = getelementptr inbounds nuw i8, ptr %138, i64 8
-  %141 = getelementptr inbounds i8, ptr %138, i64 16
+  %141 = getelementptr inbounds nuw i8, ptr %138, i64 16
   %142 = load ptr, ptr %141, align 8
   %143 = load ptr, ptr %140, align 8
   %.not218 = icmp eq ptr %142, %143
@@ -1424,7 +1424,7 @@ _ZNSt8_Rb_treeIPN3g2o10HyperGraph6VertexES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_E
 .noexc105:                                        ; preds = %354
   %357 = getelementptr inbounds nuw i8, ptr %356, i64 32
   store double %355, ptr %357, align 8
-  %358 = getelementptr inbounds i8, ptr %356, i64 40
+  %358 = getelementptr inbounds nuw i8, ptr %356, i64 40
   store ptr %306, ptr %358, align 8
   %.078.i.i.i.i = load ptr, ptr %11, align 8
   %.not9.i.i.i.i = icmp eq ptr %.078.i.i.i.i, null
@@ -1604,7 +1604,7 @@ define void @_ZN3g2o18EstimatePropagator13PriorityQueue4pushEPNS0_17AdjacencyMap
   %16 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #24
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 32
   store double %15, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %16, i64 40
+  %18 = getelementptr inbounds nuw i8, ptr %16, i64 40
   store ptr %1, ptr %18, align 8
   %19 = getelementptr inbounds i8, ptr %0, i64 16
   %20 = getelementptr inbounds i8, ptr %0, i64 8
@@ -1646,7 +1646,7 @@ _ZNSt8multimapIdPN3g2o18EstimatePropagator17AdjacencyMapEntryESt4lessIdESaISt4pa
 define noundef ptr @_ZN3g2o18EstimatePropagator13PriorityQueue3popEv(ptr noundef nonnull align 8 dereferenceable(48) %0) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 40
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 8
   %7 = tail call noundef nonnull ptr @_ZSt28_Rb_tree_rebalance_for_erasePSt18_Rb_tree_node_baseRS_(ptr noundef %3, ptr noundef nonnull align 8 dereferenceable(32) %6) #21
@@ -1679,7 +1679,7 @@ define noundef double @_ZNK3g2o22EstimatePropagatorCostclEPNS_16OptimizableGraph
   %6 = load ptr, ptr %5, align 8
   %7 = tail call ptr @_ZNK3g2o15SparseOptimizer14findActiveEdgeEPKNS_16OptimizableGraph4EdgeE(ptr noundef nonnull align 8 dereferenceable(409) %6, ptr noundef %1)
   %8 = load ptr, ptr %5, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 360
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 360
   %10 = load ptr, ptr %9, align 8
   %11 = icmp eq ptr %7, %10
   br i1 %11, label %17, label %12
@@ -1727,7 +1727,7 @@ define noundef double @_ZNK3g2o30EstimatePropagatorCostOdometryclEPNS_16Optimiza
   %18 = load ptr, ptr %17, align 8
   %19 = tail call ptr @_ZNK3g2o15SparseOptimizer14findActiveEdgeEPKNS_16OptimizableGraph4EdgeE(ptr noundef nonnull align 8 dereferenceable(409) %18, ptr noundef %1)
   %20 = load ptr, ptr %17, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 360
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 360
   %22 = load ptr, ptr %21, align 8
   %23 = icmp eq ptr %19, %22
   br i1 %23, label %29, label %24
@@ -2254,7 +2254,7 @@ _ZNSt10_HashtableIPN3g2o16OptimizableGraph6VertexESt4pairIKS3_NS0_18EstimateProp
   %32 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 0, ptr %.sink.i.i.i.i.i.i.i.i.i.i, align 8
   %33 = getelementptr inbounds i8, ptr %4, i64 72
-  %34 = getelementptr inbounds i8, ptr %1, i64 64
+  %34 = getelementptr inbounds nuw i8, ptr %1, i64 64
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %33, ptr noundef nonnull align 8 dereferenceable(32) %34, i64 32, i1 false)
   store ptr %4, ptr %32, align 8
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -2372,7 +2372,7 @@ _ZNSt10_HashtableIPN3g2o16OptimizableGraph6VertexESt4pairIKS3_NS0_18EstimateProp
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr ptr @_ZNSt10_HashtableIPN3g2o16OptimizableGraph6VertexESt4pairIKS3_NS0_18EstimatePropagator17AdjacencyMapEntryEESaIS8_ENSt8__detail10_Select1stESt8equal_toIS3_ENS6_20VertexIDHashFunctionENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb1ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNSA_10_Hash_nodeIS8_Lb1EEEm(ptr noundef nonnull align 8 dereferenceable(56) %0, i64 noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %7 = getelementptr inbounds i8, ptr %0, i64 40
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %8 = load i64, ptr %7, align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load i64, ptr %9, align 8

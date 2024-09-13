@@ -628,7 +628,7 @@ _ZN5clang13SourceManager18getSLocEntryOrNullENS_6FileIDE.exit.thread.i.i.i.i: ; 
   br i1 %214, label %_ZNK5clang13SourceManager19getSLocEntryForFileENS_6FileIDE.exit.i.i, label %222
 
 _ZNK5clang13SourceManager19getSLocEntryForFileENS_6FileIDE.exit.i.i: ; preds = %212
-  %215 = getelementptr inbounds i8, ptr %210, i64 16
+  %215 = getelementptr inbounds nuw i8, ptr %210, i64 16
   %.0.copyload.i.i.i.i.i.i = load i64, ptr %215, align 8, !noalias !51
   %216 = and i64 %.0.copyload.i.i.i.i.i.i, -8
   %217 = inttoptr i64 %216 to ptr
@@ -844,7 +844,7 @@ _ZNK5clang13SourceManager15getBufferOrNoneENS_6FileIDENS_14SourceLocationE.exit5
   br label %315
 
 _ZNK5clang13SourceManager15getBufferOrNoneENS_6FileIDENS_14SourceLocationE.exit56.i: ; preds = %303
-  %307 = getelementptr inbounds i8, ptr %301, i64 16
+  %307 = getelementptr inbounds nuw i8, ptr %301, i64 16
   %.0.copyload.i.i.i.i.i54.i = load i64, ptr %307, align 8, !noalias !56
   %308 = and i64 %.0.copyload.i.i.i.i.i54.i, -8
   %309 = inttoptr i64 %308 to ptr
@@ -1211,7 +1211,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZN5
   br i1 %.not.i.i, label %54, label %17
 
 17:                                               ; preds = %5
-  %18 = getelementptr inbounds i8, ptr %0, i64 208
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %19 = udiv i32 %6, 42
   %20 = urem i32 %6, 42
   %.zext.i.i = zext nneg i32 %19 to i64
@@ -1222,7 +1222,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZN5
   br i1 %.not.i.i.i, label %24, label %_ZNK4llvm11PagedVectorIN5clang6SrcMgr9SLocEntryELm42EEixEm.exit.i.i
 
 24:                                               ; preds = %17
-  %25 = getelementptr inbounds i8, ptr %0, i64 224
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %.0.copyload.i.i.i.i.i.i = load i64, ptr %25, align 8
   %26 = and i64 %.0.copyload.i.i.i.i.i.i, -8
   %27 = inttoptr i64 %26 to ptr

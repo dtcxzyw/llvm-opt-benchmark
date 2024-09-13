@@ -276,20 +276,20 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_124X86ArgumentStackSlotPass2
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 696
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 696
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %18 = load ptr, ptr %17, align 8
   %19 = tail call noundef zeroext i1 @_ZNK4llvm8Function14hasFnAttributeENS_9Attribute8AttrKindE(ptr noundef nonnull align 8 dereferenceable(136) %11, i32 noundef 19) #10
   br i1 %19, label %"_ZZN12_GLOBAL__N_124X86ArgumentStackSlotPass20runOnMachineFunctionERN4llvm15MachineFunctionEENK3$_0clEv.exit", label %20
 
 20:                                               ; preds = %2
-  %21 = getelementptr inbounds i8, ptr %15, i64 540
+  %21 = getelementptr inbounds nuw i8, ptr %15, i64 540
   %22 = load i32, ptr %21, align 4
   %23 = icmp eq i32 %22, 7
   br i1 %23, label %28, label %24
 
 24:                                               ; preds = %20
-  %25 = getelementptr inbounds i8, ptr %15, i64 548
+  %25 = getelementptr inbounds nuw i8, ptr %15, i64 548
   %26 = load i32, ptr %25, align 4
   %27 = icmp eq i32 %26, 3
   br i1 %27, label %28, label %"_ZZN12_GLOBAL__N_124X86ArgumentStackSlotPass20runOnMachineFunctionERN4llvm15MachineFunctionEENK3$_0clEv.exit"
@@ -305,7 +305,7 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_124X86ArgumentStackSlotPass2
   br i1 %33, label %34, label %_ZNK4llvm12X86Subtarget18isTarget64BitILP32Ev.exit.thread96
 
 34:                                               ; preds = %30
-  %35 = getelementptr inbounds i8, ptr %15, i64 544
+  %35 = getelementptr inbounds nuw i8, ptr %15, i64 544
   %36 = load i32, ptr %35, align 8
   switch i32 %36, label %_ZNK4llvm12X86Subtarget18isTarget64BitILP32Ev.exit [
     i32 18, label %"_ZZN12_GLOBAL__N_124X86ArgumentStackSlotPass20runOnMachineFunctionERN4llvm15MachineFunctionEENK3$_0clEv.exit"
@@ -318,9 +318,9 @@ _ZNK4llvm12X86Subtarget18isTarget64BitILP32Ev.exit: ; preds = %34
   br i1 %38, label %"_ZZN12_GLOBAL__N_124X86ArgumentStackSlotPass20runOnMachineFunctionERN4llvm15MachineFunctionEENK3$_0clEv.exit", label %_ZNK4llvm12X86Subtarget18isTarget64BitILP32Ev.exit.thread96
 
 _ZNK4llvm12X86Subtarget18isTarget64BitILP32Ev.exit.thread96: ; preds = %30, %_ZNK4llvm12X86Subtarget18isTarget64BitILP32Ev.exit
-  %39 = getelementptr inbounds i8, ptr %15, i64 1020
+  %39 = getelementptr inbounds nuw i8, ptr %15, i64 1020
   %40 = load i32, ptr %39, align 4
-  %41 = getelementptr inbounds i8, ptr %1, i64 328
+  %41 = getelementptr inbounds nuw i8, ptr %1, i64 328
   %42 = getelementptr inbounds nuw i8, ptr %1, i64 320
   %.sroa.025.042.i = load ptr, ptr %41, align 8
   %.not46.i = icmp eq ptr %.sroa.025.042.i, %42
@@ -518,7 +518,7 @@ _ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit: ; preds = %_ZL13getArg
   %132 = getelementptr inbounds i8, ptr %131, i64 56
   %133 = load ptr, ptr %132, align 8
   store ptr null, ptr %8, align 8
-  %134 = getelementptr inbounds i8, ptr %15, i64 1008
+  %134 = getelementptr inbounds nuw i8, ptr %15, i64 1008
   %135 = load i32, ptr %134, align 8
   %136 = zext i32 %135 to i64
   %137 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %136, i1 false)

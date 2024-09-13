@@ -333,7 +333,7 @@ define dso_local void @_ZNK4llvm14MCSectionXCOFF20printSwitchToSectionERKNS_9MCA
   unreachable
 
 40:                                               ; preds = %22
-  %41 = getelementptr inbounds i8, ptr %0, i64 150
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 150
   %42 = load i8, ptr %41, align 2
   %43 = trunc i8 %42 to i1
   br i1 %43, label %44, label %54
@@ -353,7 +353,7 @@ define dso_local void @_ZNK4llvm14MCSectionXCOFF20printSwitchToSectionERKNS_9MCA
   br label %_ZN4llvm11raw_ostreamlsEc.exit35
 
 50:                                               ; preds = %44
-  %51 = getelementptr inbounds i8, ptr %0, i64 149
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 149
   %52 = load i8, ptr %51, align 1
   %53 = icmp eq i8 %52, 3
   br i1 %53, label %_ZN4llvm11raw_ostreamlsEc.exit35, label %54
@@ -372,7 +372,7 @@ define dso_local void @_ZNK4llvm14MCSectionXCOFF20printSwitchToSectionERKNS_9MCA
   br i1 %58, label %59, label %.critedge2
 
 59:                                               ; preds = %57
-  %60 = getelementptr inbounds i8, ptr %0, i64 180
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 180
   %61 = load i8, ptr %60, align 4
   %62 = trunc i8 %61 to i1
   br i1 %62, label %63, label %.critedge2

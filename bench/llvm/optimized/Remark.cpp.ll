@@ -793,7 +793,7 @@ _ZN4llvm11raw_ostreamlsENS_9StringRefE.exit48:    ; preds = %134, %136, %137
 
 _ZN4llvm11raw_ostreamlsEPKc.exit51:               ; preds = %144, %146
   %150 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %151 = getelementptr inbounds i8, ptr %0, i64 80
+  %151 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %152 = load i8, ptr %151, align 8
   %153 = trunc i8 %152 to i1
   br i1 %153, label %154, label %169
@@ -834,7 +834,7 @@ _ZNKRSt8optionalIN4llvm7remarks14RemarkLocationEE5valueEv.exit: ; preds = %_ZN4l
 
 169:                                              ; preds = %_ZNKRSt8optionalIN4llvm7remarks14RemarkLocationEE5valueEv.exit, %_ZN4llvm11raw_ostreamlsEPKc.exit51
   %170 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %171 = getelementptr inbounds i8, ptr %0, i64 96
+  %171 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %172 = load i8, ptr %171, align 8
   %173 = trunc i8 %172 to i1
   br i1 %173, label %174, label %_ZN4llvmlsImRNS_11raw_ostreamEEES2_S2_RKSt8optionalIT_E.exit
@@ -985,7 +985,7 @@ define dso_local nonnull ptr @LLVMRemarkArgGetValue(ptr noundef readnone %0) loc
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local ptr @LLVMRemarkArgGetDebugLoc(ptr noundef readonly %0) local_unnamed_addr #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %3 = getelementptr inbounds i8, ptr %0, i64 56
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %4 = load i8, ptr %3, align 8
   %5 = trunc i8 %4 to i1
   %spec.select = select i1 %5, ptr %2, ptr null
@@ -1047,7 +1047,7 @@ define dso_local nonnull ptr @LLVMRemarkEntryGetFunctionName(ptr noundef readnon
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local ptr @LLVMRemarkEntryGetDebugLoc(ptr noundef readonly %0) local_unnamed_addr #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %3 = getelementptr inbounds i8, ptr %0, i64 80
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %4 = load i8, ptr %3, align 8
   %5 = trunc i8 %4 to i1
   %spec.select = select i1 %5, ptr %2, ptr null
@@ -1056,7 +1056,7 @@ define dso_local ptr @LLVMRemarkEntryGetDebugLoc(ptr noundef readonly %0) local_
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local i64 @LLVMRemarkEntryGetHotness(ptr nocapture noundef readonly %0) local_unnamed_addr #4 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 96
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %3 = load i8, ptr %2, align 8
   %4 = trunc i8 %3 to i1
   br i1 %4, label %5, label %8

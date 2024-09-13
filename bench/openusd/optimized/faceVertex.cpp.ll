@@ -2111,14 +2111,14 @@ define void @_ZN10OpenSubdiv6v3_6_03Bfr10FaceVertex21ConnectUnOrderedFacesEPKi(p
   br i1 %9, label %_ZN10OpenSubdiv6v3_6_03Vtr8internal11StackBufferIsLj16ELb1EE7SetSizeEj.exit.thread, label %19
 
 _ZN10OpenSubdiv6v3_6_03Vtr8internal11StackBufferIsLj16ELb1EE7SetSizeEj.exit.thread: ; preds = %2
-  %10 = getelementptr inbounds i8, ptr %0, i64 216
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %11 = load ptr, ptr %10, align 8
   tail call void @_ZdlPv(ptr noundef %11) #15
-  %12 = getelementptr inbounds i8, ptr %0, i64 184
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 184
   store ptr %12, ptr %8, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 180
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 180
   store i32 16, ptr %13, align 4
-  %14 = getelementptr inbounds i8, ptr %0, i64 176
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 176
   store i32 %7, ptr %14, align 8
   %15 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr %15, ptr %3, align 8
@@ -2131,16 +2131,16 @@ _ZN10OpenSubdiv6v3_6_03Vtr8internal11StackBufferIsLj16ELb1EE7SetSizeEj.exit.thre
   br label %_ZN10OpenSubdiv6v3_6_03Vtr8internal11StackBufferINS0_3Bfr10FaceVertex4EdgeELj32ELb1EEC2Ej.exit
 
 19:                                               ; preds = %2
-  %20 = getelementptr inbounds i8, ptr %0, i64 180
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 180
   %21 = load i32, ptr %20, align 4
   %22 = icmp ugt i32 %7, %21
   br i1 %22, label %23, label %_ZN10OpenSubdiv6v3_6_03Vtr8internal11StackBufferIsLj16ELb1EE7SetSizeEj.exit
 
 23:                                               ; preds = %19
-  %24 = getelementptr inbounds i8, ptr %0, i64 216
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %25 = load ptr, ptr %24, align 8
   tail call void @_ZdlPv(ptr noundef %25) #15
-  %26 = getelementptr inbounds i8, ptr %0, i64 184
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 184
   store ptr %26, ptr %8, align 8
   store i32 16, ptr %20, align 4
   %27 = zext i32 %7 to i64
@@ -2152,7 +2152,7 @@ _ZN10OpenSubdiv6v3_6_03Vtr8internal11StackBufferIsLj16ELb1EE7SetSizeEj.exit.thre
   br label %_ZN10OpenSubdiv6v3_6_03Vtr8internal11StackBufferIsLj16ELb1EE7SetSizeEj.exit
 
 _ZN10OpenSubdiv6v3_6_03Vtr8internal11StackBufferIsLj16ELb1EE7SetSizeEj.exit: ; preds = %19, %23
-  %30 = getelementptr inbounds i8, ptr %0, i64 176
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 176
   store i32 %7, ptr %30, align 8
   %31 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr %31, ptr %3, align 8
@@ -2389,7 +2389,7 @@ _ZNSt3mapIiiSt4lessIiESaISt4pairIKiiEEE4findERS3_.exit: ; preds = %_ZNSt8_Rb_tre
   br i1 %70, label %_ZNSt3mapIiiSt4lessIiESaISt4pairIKiiEEE4findERS3_.exit.thread, label %71
 
 71:                                               ; preds = %_ZNSt3mapIiiSt4lessIiESaISt4pairIKiiEEE4findERS3_.exit
-  %72 = getelementptr inbounds i8, ptr %.19.i.i.i, i64 36
+  %72 = getelementptr inbounds nuw i8, ptr %.19.i.i.i, i64 36
   %73 = load i32, ptr %72, align 4
   br label %.loopexit
 
@@ -3048,7 +3048,7 @@ _ZNSt3mapIiiSt4lessIiESaISt4pairIKiiEEE11lower_boundERS3_.exit: ; preds = %.lr.p
   %14 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #18
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 32
   store i32 %.pre, ptr %15, align 4
-  %16 = getelementptr inbounds i8, ptr %14, i64 36
+  %16 = getelementptr inbounds nuw i8, ptr %14, i64 36
   store i32 0, ptr %16, align 4
   %17 = invoke { ptr, ptr } @_ZNSt8_Rb_treeIiSt4pairIKiiESt10_Select1stIS2_ESt4lessIiESaIS2_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS2_ERS1_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %.08.lcssa.i.i.i12, ptr noundef nonnull align 4 dereferenceable(4) %15)
           to label %18 unwind label %_ZNSt8_Rb_treeIiSt4pairIKiiESt10_Select1stIS2_ESt4lessIiESaIS2_EE10_Auto_nodeD2Ev.exit.i
@@ -3093,7 +3093,7 @@ _ZNSt8_Rb_treeIiSt4pairIKiiESt10_Select1stIS2_ESt4lessIiESaIS2_EE10_Auto_nodeD2E
 
 _ZNSt8_Rb_treeIiSt4pairIKiiESt10_Select1stIS2_ESt4lessIiESaIS2_EE22_M_emplace_hint_uniqueIJRKSt21piecewise_construct_tSt5tupleIJRS1_EESD_IJEEEEESt17_Rb_tree_iteratorIS2_ESt23_Rb_tree_const_iteratorIS2_EDpOT_.exit: ; preds = %33, %.thread.i, %10
   %.sroa.07.0 = phi ptr [ %.19.i.i.i, %10 ], [ %14, %.thread.i ], [ %19, %33 ]
-  %34 = getelementptr inbounds i8, ptr %.sroa.07.0, i64 36
+  %34 = getelementptr inbounds nuw i8, ptr %.sroa.07.0, i64 36
   ret ptr %34
 }
 

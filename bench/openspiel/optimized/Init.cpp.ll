@@ -780,12 +780,12 @@ define void @_Z15CloseDebugFilesv() local_unnamed_addr #3 {
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define void @_Z7SetDealP10ThreadData(ptr nocapture noundef %0) local_unnamed_addr #9 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 60
-  %3 = getelementptr inbounds i8, ptr %0, i64 92
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 92
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 22
   br label %6
 
 .preheader41:                                     ; preds = %14
-  %5 = getelementptr inbounds i8, ptr %0, i64 100
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 100
   br label %.preheader40
 
 6:                                                ; preds = %1, %14
@@ -817,7 +817,7 @@ define void @_Z7SetDealP10ThreadData(ptr nocapture noundef %0) local_unnamed_add
   br label %16
 
 .preheader:                                       ; preds = %24
-  %15 = getelementptr inbounds i8, ptr %0, i64 116
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 116
   br label %25
 
 16:                                               ; preds = %.preheader40, %16

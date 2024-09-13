@@ -148,7 +148,7 @@ define internal void @_ZN12_GLOBAL__N_119RISCVVectorPeepholeD2Ev(ptr noundef non
   store ptr getelementptr inbounds inrange(-16, 176) (i8, ptr @_ZTVN12_GLOBAL__N_119RISCVVectorPeepholeE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 104
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %5 = load i32, ptr %4, align 8
   %6 = zext i32 %5 to i64
   %7 = shl nuw nsw i64 %6, 4
@@ -162,7 +162,7 @@ define internal void @_ZN12_GLOBAL__N_119RISCVVectorPeepholeD0Ev(ptr noundef non
   store ptr getelementptr inbounds inrange(-16, 176) (i8, ptr @_ZTVN12_GLOBAL__N_119RISCVVectorPeepholeE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 104
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %5 = load i32, ptr %4, align 8
   %6 = zext i32 %5 to i64
   %7 = shl nuw nsw i64 %6, 4
@@ -269,7 +269,7 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_119RISCVVectorPeephole20runO
   %29 = tail call noundef ptr %28(ptr noundef nonnull align 8 dereferenceable(288) %25) #13
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store ptr %29, ptr %30, align 8
-  %31 = getelementptr inbounds i8, ptr %1, i64 328
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 328
   %32 = getelementptr inbounds nuw i8, ptr %1, i64 320
   %.sroa.0150.0184 = load ptr, ptr %31, align 8
   %.not185 = icmp eq ptr %.sroa.0150.0184, %32
@@ -277,9 +277,9 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_119RISCVVectorPeephole20runO
 
 .lr.ph188:                                        ; preds = %14
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %34 = getelementptr inbounds i8, ptr %0, i64 104
-  %35 = getelementptr inbounds i8, ptr %0, i64 96
-  %36 = getelementptr inbounds i8, ptr %0, i64 100
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 104
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 100
   br label %40
 
 .preheader.loopexit:                              ; preds = %._crit_edge
@@ -293,7 +293,7 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_119RISCVVectorPeephole20runO
 
 .lr.ph199:                                        ; preds = %.preheader
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %38 = getelementptr inbounds i8, ptr %0, i64 104
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %39 = getelementptr inbounds nuw i8, ptr %4, i64 8
   br label %164
 
@@ -839,7 +839,7 @@ _ZNK12_GLOBAL__N_119RISCVVectorPeephole14convertToVLMAXERN4llvm12MachineInstrE.e
 
 .preheader.i.i.i.i.i:                             ; preds = %321, %324
   %.pn.i.i.i.i.i.i = phi ptr [ %storemerge.i.i.i.i.i.i, %324 ], [ %.0.i.i.i.i.i, %321 ]
-  %storemerge.in.i.i.i.i.i.i = getelementptr inbounds i8, ptr %.pn.i.i.i.i.i.i, i64 24
+  %storemerge.in.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.pn.i.i.i.i.i.i, i64 24
   %storemerge.i.i.i.i.i.i = load ptr, ptr %storemerge.in.i.i.i.i.i.i, align 8
   %.not.i.i.i.i.i.i = icmp eq ptr %storemerge.i.i.i.i.i.i, null
   br i1 %.not.i.i.i.i.i.i, label %_ZNK12_GLOBAL__N_119RISCVVectorPeephole13tryToReduceVLERN4llvm12MachineInstrE.exit, label %324
@@ -856,7 +856,7 @@ _ZNK12_GLOBAL__N_119RISCVVectorPeephole14convertToVLMAXERN4llvm12MachineInstrE.e
 
 .lr.ph.i.i.i.preheader.i.i.i:                     ; preds = %.lr.ph.i.i.i.preheader.i.i.i.preheader, %327
   %.pn.i.i.i.i.i.i.i.i = phi ptr [ %storemerge.i.i.i.i.i.i.i.i, %327 ], [ %.pn.i.i.i.i.i.i.i.i.ph, %.lr.ph.i.i.i.preheader.i.i.i.preheader ]
-  %storemerge.in.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %.pn.i.i.i.i.i.i.i.i, i64 24
+  %storemerge.in.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.pn.i.i.i.i.i.i.i.i, i64 24
   %storemerge.i.i.i.i.i.i.i.i = load ptr, ptr %storemerge.in.i.i.i.i.i.i.i.i, align 8
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %storemerge.i.i.i.i.i.i.i.i, null
   br i1 %.not.i.i.i.i.i.i.i.i, label %_ZNK4llvm19MachineRegisterInfo9hasOneUseENS_8RegisterE.exit.i, label %327
@@ -1592,7 +1592,7 @@ _ZNK12_GLOBAL__N_119RISCVVectorPeephole18convertVMergeToVMvERN4llvm12MachineInst
 
 .preheader.i.i.i.i.i83:                           ; preds = %711, %714
   %.pn.i.i.i.i.i.i84 = phi ptr [ %storemerge.i.i.i.i.i.i86, %714 ], [ %.0.i.i.i.i.i80, %711 ]
-  %storemerge.in.i.i.i.i.i.i85 = getelementptr inbounds i8, ptr %.pn.i.i.i.i.i.i84, i64 24
+  %storemerge.in.i.i.i.i.i.i85 = getelementptr inbounds nuw i8, ptr %.pn.i.i.i.i.i.i84, i64 24
   %storemerge.i.i.i.i.i.i86 = load ptr, ptr %storemerge.in.i.i.i.i.i.i85, align 8
   %.not.i.i.i.i.i.i87 = icmp eq ptr %storemerge.i.i.i.i.i.i86, null
   br i1 %.not.i.i.i.i.i.i87, label %_ZN12_GLOBAL__N_119RISCVVectorPeephole11foldVMV_V_VERN4llvm12MachineInstrE.exit, label %714
@@ -1609,7 +1609,7 @@ _ZNK12_GLOBAL__N_119RISCVVectorPeephole18convertVMergeToVMvERN4llvm12MachineInst
 
 .lr.ph.i.i.i.preheader.i.i.i91:                   ; preds = %.lr.ph.i.i.i.preheader.i.i.i91.preheader, %717
   %.pn.i.i.i.i.i.i.i.i92 = phi ptr [ %storemerge.i.i.i.i.i.i.i.i94, %717 ], [ %.pn.i.i.i.i.i.i.i.i92.ph, %.lr.ph.i.i.i.preheader.i.i.i91.preheader ]
-  %storemerge.in.i.i.i.i.i.i.i.i93 = getelementptr inbounds i8, ptr %.pn.i.i.i.i.i.i.i.i92, i64 24
+  %storemerge.in.i.i.i.i.i.i.i.i93 = getelementptr inbounds nuw i8, ptr %.pn.i.i.i.i.i.i.i.i92, i64 24
   %storemerge.i.i.i.i.i.i.i.i94 = load ptr, ptr %storemerge.in.i.i.i.i.i.i.i.i93, align 8
   %.not.i.i.i.i.i.i.i.i95 = icmp eq ptr %storemerge.i.i.i.i.i.i.i.i94, null
   br i1 %.not.i.i.i.i.i.i.i.i95, label %_ZNK4llvm19MachineRegisterInfo9hasOneUseENS_8RegisterE.exit.i97, label %717

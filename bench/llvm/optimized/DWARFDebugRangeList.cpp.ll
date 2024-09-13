@@ -94,7 +94,7 @@ define dso_local void @_ZN4llvm19DWARFDebugRangeList5clearEv(ptr nocapture nound
   store i8 0, ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load ptr, ptr %5, align 8
   %.not.i.i = icmp eq ptr %6, %4
   br i1 %.not.i.i, label %_ZNSt6vectorIN4llvm19DWARFDebugRangeList14RangeListEntryESaIS2_EE5clearEv.exit, label %7
@@ -123,7 +123,7 @@ define dso_local void @_ZN4llvm19DWARFDebugRangeList7extractERKNS_18DWARFDataExt
   store i8 0, ptr %14, align 8
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %1, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %18 = load ptr, ptr %17, align 8
   %.not.i.i.i = icmp eq ptr %18, %16
   br i1 %.not.i.i.i, label %_ZN4llvm19DWARFDebugRangeList5clearEv.exit, label %19
@@ -200,7 +200,7 @@ _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %_ZN4llvm19DWARFDebu
   store i64 %44, ptr %1, align 8
   %45 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %46 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  %47 = getelementptr inbounds i8, ptr %1, i64 32
+  %47 = getelementptr inbounds nuw i8, ptr %1, i64 32
   br label %48
 
 48:                                               ; preds = %_ZNSt6vectorIN4llvm19DWARFDebugRangeList14RangeListEntryESaIS2_EE9push_backERKS2_.exit, %43
@@ -563,7 +563,7 @@ switch.lookup:
   %switch.load = load ptr, ptr %switch.gep, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %10 = load ptr, ptr %9, align 8
   %.not11 = icmp eq ptr %8, %10
   br i1 %.not11, label %._crit_edge, label %.lr.ph
@@ -619,7 +619,7 @@ define dso_local void @_ZNK4llvm19DWARFDebugRangeList17getAbsoluteRangesESt8opti
   %11 = add nsw i64 %10, -1
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %1, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %15 = load ptr, ptr %14, align 8
   %.not25 = icmp eq ptr %13, %15
   br i1 %.not25, label %._crit_edge, label %.lr.ph

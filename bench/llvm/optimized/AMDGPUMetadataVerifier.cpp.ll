@@ -352,7 +352,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm6AMDGPU5HSAMD2V316MetadataVerifier1
   br label %20
 
 14:                                               ; preds = %6
-  %15 = getelementptr inbounds i8, ptr %7, i64 56
+  %15 = getelementptr inbounds nuw i8, ptr %7, i64 56
   %16 = load ptr, ptr %5, align 8
   %17 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %18 = load i64, ptr %17, align 8
@@ -383,7 +383,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm6AMDGPU5HSAMD2V316MetadataVerifier1
   br label %_ZN4llvm6AMDGPU5HSAMD2V316MetadataVerifier11verifyEntryERNS_7msgpack10MapDocNodeENS_9StringRefEbNS_12function_refIFbRNS4_7DocNodeEEEE.exit
 
 15:                                               ; preds = %7
-  %16 = getelementptr inbounds i8, ptr %8, i64 56
+  %16 = getelementptr inbounds nuw i8, ptr %8, i64 56
   %17 = load ptr, ptr %16, align 8
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %19 = load i8, ptr %18, align 8
@@ -403,7 +403,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm6AMDGPU5HSAMD2V316MetadataVerifier1
   br i1 %or.cond.not.i.i.i, label %_ZN4llvm6AMDGPU5HSAMD2V316MetadataVerifier11verifyEntryERNS_7msgpack10MapDocNodeENS_9StringRefEbNS_12function_refIFbRNS4_7DocNodeEEEE.exit, label %26
 
 26:                                               ; preds = %23
-  %27 = getelementptr inbounds i8, ptr %8, i64 64
+  %27 = getelementptr inbounds nuw i8, ptr %8, i64 64
   %.sroa.0.0.copyload.i.i.i.i = load ptr, ptr %27, align 8
   %.sroa.2.0..sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %8, i64 72
   %.sroa.2.0.copyload.i.i.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i.i.i, align 8
@@ -441,7 +441,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm6AMDGPU5HSAMD2V316MetadataVerifier1
   br label %_ZN4llvm6AMDGPU5HSAMD2V316MetadataVerifier11verifyEntryERNS_7msgpack10MapDocNodeENS_9StringRefEbNS_12function_refIFbRNS4_7DocNodeEEEE.exit
 
 13:                                               ; preds = %5
-  %14 = getelementptr inbounds i8, ptr %6, i64 56
+  %14 = getelementptr inbounds nuw i8, ptr %6, i64 56
   %15 = load ptr, ptr %14, align 8
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %17 = load i8, ptr %16, align 8
@@ -461,7 +461,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm6AMDGPU5HSAMD2V316MetadataVerifier1
   br i1 %or.cond.not.i.i.i.i, label %.thread.i.i.i, label %24
 
 24:                                               ; preds = %21
-  %25 = getelementptr inbounds i8, ptr %6, i64 64
+  %25 = getelementptr inbounds nuw i8, ptr %6, i64 64
   %.sroa.0.0.copyload.i.i.i.i.i = load ptr, ptr %25, align 8
   %.sroa.2.0..sroa_idx.i.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 72
   %.sroa.2.0.copyload.i.i.i.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i.i.i.i, align 8
@@ -490,7 +490,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm6AMDGPU5HSAMD2V316MetadataVerifier1
   br i1 %or.cond.not.i7.i.i.i, label %_ZN4llvm6AMDGPU5HSAMD2V316MetadataVerifier12verifyScalarERNS_7msgpack7DocNodeENS4_4TypeENS_12function_refIFbS6_EEE.exit13.thread.i.i.i, label %36
 
 36:                                               ; preds = %33
-  %37 = getelementptr inbounds i8, ptr %6, i64 64
+  %37 = getelementptr inbounds nuw i8, ptr %6, i64 64
   %.sroa.0.0.copyload.i.i8.i.i.i = load ptr, ptr %37, align 8
   %.sroa.2.0..sroa_idx.i.i9.i.i.i = getelementptr inbounds i8, ptr %6, i64 72
   %.sroa.2.0.copyload.i.i10.i.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i9.i.i.i, align 8
@@ -536,7 +536,7 @@ _ZN4llvm7msgpack7DocNode6getMapEb.exit:           ; preds = %2
   br i1 %21, label %27, label %22
 
 22:                                               ; preds = %_ZN4llvm7msgpack7DocNode6getMapEb.exit
-  %23 = getelementptr inbounds i8, ptr %17, i64 56
+  %23 = getelementptr inbounds nuw i8, ptr %17, i64 56
   %24 = load ptr, ptr %23, align 8
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %26 = load i8, ptr %25, align 8
@@ -551,7 +551,7 @@ _ZN4llvm7msgpack7DocNode6getMapEb.exit:           ; preds = %2
   br i1 %31, label %37, label %32
 
 32:                                               ; preds = %27
-  %33 = getelementptr inbounds i8, ptr %28, i64 56
+  %33 = getelementptr inbounds nuw i8, ptr %28, i64 56
   %34 = load ptr, ptr %33, align 8
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 8
   %36 = load i8, ptr %35, align 8
@@ -574,7 +574,7 @@ _ZN4llvm7msgpack7DocNode6getMapEb.exit:           ; preds = %2
   br i1 %45, label %_ZN4llvm6AMDGPU5HSAMD2V316MetadataVerifier17verifyScalarEntryERNS_7msgpack10MapDocNodeENS_9StringRefEbNS4_4TypeENS_12function_refIFbRNS4_7DocNodeEEEE.exit, label %46
 
 46:                                               ; preds = %41
-  %47 = getelementptr inbounds i8, ptr %42, i64 56
+  %47 = getelementptr inbounds nuw i8, ptr %42, i64 56
   %48 = load ptr, ptr %47, align 8
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 8
   %50 = load i8, ptr %49, align 8
@@ -662,7 +662,7 @@ _ZN4llvm7msgpack7DocNode6getMapEb.exit:           ; preds = %2
   br i1 %18, label %_ZN4llvm6AMDGPU5HSAMD2V316MetadataVerifier17verifyScalarEntryERNS_7msgpack10MapDocNodeENS_9StringRefEbNS4_4TypeENS_12function_refIFbRNS4_7DocNodeEEEE.exit.thread, label %19
 
 19:                                               ; preds = %_ZN4llvm7msgpack7DocNode6getMapEb.exit
-  %20 = getelementptr inbounds i8, ptr %14, i64 56
+  %20 = getelementptr inbounds nuw i8, ptr %14, i64 56
   %21 = load ptr, ptr %20, align 8
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %23 = load i8, ptr %22, align 8
@@ -677,7 +677,7 @@ _ZN4llvm6AMDGPU5HSAMD2V316MetadataVerifier17verifyScalarEntryERNS_7msgpack10MapD
   br i1 %27, label %_ZN4llvm6AMDGPU5HSAMD2V316MetadataVerifier17verifyScalarEntryERNS_7msgpack10MapDocNodeENS_9StringRefEbNS4_4TypeENS_12function_refIFbRNS4_7DocNodeEEEE.exit.thread, label %28
 
 28:                                               ; preds = %_ZN4llvm6AMDGPU5HSAMD2V316MetadataVerifier17verifyScalarEntryERNS_7msgpack10MapDocNodeENS_9StringRefEbNS4_4TypeENS_12function_refIFbRNS4_7DocNodeEEEE.exit
-  %29 = getelementptr inbounds i8, ptr %24, i64 56
+  %29 = getelementptr inbounds nuw i8, ptr %24, i64 56
   %30 = load ptr, ptr %29, align 8
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %32 = load i8, ptr %31, align 8
@@ -692,7 +692,7 @@ _ZN4llvm6AMDGPU5HSAMD2V316MetadataVerifier17verifyScalarEntryERNS_7msgpack10MapD
   br i1 %36, label %_ZN4llvm6AMDGPU5HSAMD2V316MetadataVerifier17verifyScalarEntryERNS_7msgpack10MapDocNodeENS_9StringRefEbNS4_4TypeENS_12function_refIFbRNS4_7DocNodeEEEE.exit39.thread117, label %37
 
 37:                                               ; preds = %_ZN4llvm6AMDGPU5HSAMD2V316MetadataVerifier17verifyScalarEntryERNS_7msgpack10MapDocNodeENS_9StringRefEbNS4_4TypeENS_12function_refIFbRNS4_7DocNodeEEEE.exit32
-  %38 = getelementptr inbounds i8, ptr %33, i64 56
+  %38 = getelementptr inbounds nuw i8, ptr %33, i64 56
   %39 = load ptr, ptr %38, align 8
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 8
   %41 = load i8, ptr %40, align 8
@@ -713,7 +713,7 @@ _ZN4llvm6AMDGPU5HSAMD2V316MetadataVerifier17verifyScalarEntryERNS_7msgpack10MapD
 
 _ZN4llvm6AMDGPU5HSAMD2V316MetadataVerifier11verifyEntryERNS_7msgpack10MapDocNodeENS_9StringRefEbNS_12function_refIFbRNS4_7DocNodeEEEE.exit: ; preds = %_ZN4llvm6AMDGPU5HSAMD2V316MetadataVerifier17verifyScalarEntryERNS_7msgpack10MapDocNodeENS_9StringRefEbNS4_4TypeENS_12function_refIFbRNS4_7DocNodeEEEE.exit39.thread117
   %47 = ptrtoint ptr %3 to i64
-  %48 = getelementptr inbounds i8, ptr %43, i64 56
+  %48 = getelementptr inbounds nuw i8, ptr %43, i64 56
   %49 = call fastcc noundef zeroext i1 @"_ZN4llvm12function_refIFbRNS_7msgpack7DocNodeEEE11callback_fnIZNS_6AMDGPU5HSAMD2V316MetadataVerifier12verifyKernelES3_E3$_1EEblS3_"(i64 noundef %47, ptr noundef nonnull align 8 dereferenceable(24) %48) #5
   br i1 %49, label %_ZN4llvm6AMDGPU5HSAMD2V316MetadataVerifier11verifyEntryERNS_7msgpack10MapDocNodeENS_9StringRefEbNS_12function_refIFbRNS4_7DocNodeEEEE.exit.thread, label %_ZN4llvm6AMDGPU5HSAMD2V316MetadataVerifier17verifyScalarEntryERNS_7msgpack10MapDocNodeENS_9StringRefEbNS4_4TypeENS_12function_refIFbRNS4_7DocNodeEEEE.exit.thread
 
@@ -727,7 +727,7 @@ _ZN4llvm6AMDGPU5HSAMD2V316MetadataVerifier11verifyEntryERNS_7msgpack10MapDocNode
 
 _ZN4llvm6AMDGPU5HSAMD2V316MetadataVerifier11verifyEntryERNS_7msgpack10MapDocNodeENS_9StringRefEbNS_12function_refIFbRNS4_7DocNodeEEEE.exit41: ; preds = %_ZN4llvm6AMDGPU5HSAMD2V316MetadataVerifier11verifyEntryERNS_7msgpack10MapDocNodeENS_9StringRefEbNS_12function_refIFbRNS4_7DocNodeEEEE.exit.thread
   %54 = ptrtoint ptr %4 to i64
-  %55 = getelementptr inbounds i8, ptr %50, i64 56
+  %55 = getelementptr inbounds nuw i8, ptr %50, i64 56
   %56 = call fastcc noundef zeroext i1 @"_ZN4llvm12function_refIFbRNS_7msgpack7DocNodeEEE11callback_fnIZNS_6AMDGPU5HSAMD2V316MetadataVerifier12verifyKernelES3_E3$_2EEblS3_"(i64 noundef %54, ptr noundef nonnull align 8 dereferenceable(24) %55) #5
   br i1 %56, label %_ZN4llvm6AMDGPU5HSAMD2V316MetadataVerifier11verifyEntryERNS_7msgpack10MapDocNodeENS_9StringRefEbNS_12function_refIFbRNS4_7DocNodeEEEE.exit41.thread, label %_ZN4llvm6AMDGPU5HSAMD2V316MetadataVerifier17verifyScalarEntryERNS_7msgpack10MapDocNodeENS_9StringRefEbNS4_4TypeENS_12function_refIFbRNS4_7DocNodeEEEE.exit.thread
 
@@ -741,7 +741,7 @@ _ZN4llvm6AMDGPU5HSAMD2V316MetadataVerifier11verifyEntryERNS_7msgpack10MapDocNode
 
 _ZN4llvm6AMDGPU5HSAMD2V316MetadataVerifier11verifyEntryERNS_7msgpack10MapDocNodeENS_9StringRefEbNS_12function_refIFbRNS4_7DocNodeEEEE.exit43: ; preds = %_ZN4llvm6AMDGPU5HSAMD2V316MetadataVerifier11verifyEntryERNS_7msgpack10MapDocNodeENS_9StringRefEbNS_12function_refIFbRNS4_7DocNodeEEEE.exit41.thread
   %61 = ptrtoint ptr %5 to i64
-  %62 = getelementptr inbounds i8, ptr %57, i64 56
+  %62 = getelementptr inbounds nuw i8, ptr %57, i64 56
   %63 = call fastcc noundef zeroext i1 @"_ZN4llvm12function_refIFbRNS_7msgpack7DocNodeEEE11callback_fnIZNS_6AMDGPU5HSAMD2V316MetadataVerifier12verifyKernelES3_E3$_3EEblS3_"(i64 noundef %61, ptr noundef nonnull align 8 dereferenceable(24) %62) #5
   br i1 %63, label %_ZN4llvm6AMDGPU5HSAMD2V316MetadataVerifier11verifyEntryERNS_7msgpack10MapDocNodeENS_9StringRefEbNS_12function_refIFbRNS4_7DocNodeEEEE.exit43.thread, label %_ZN4llvm6AMDGPU5HSAMD2V316MetadataVerifier17verifyScalarEntryERNS_7msgpack10MapDocNodeENS_9StringRefEbNS4_4TypeENS_12function_refIFbRNS4_7DocNodeEEEE.exit.thread
 
@@ -755,7 +755,7 @@ _ZN4llvm6AMDGPU5HSAMD2V316MetadataVerifier11verifyEntryERNS_7msgpack10MapDocNode
 
 _ZN4llvm6AMDGPU5HSAMD2V316MetadataVerifier11verifyEntryERNS_7msgpack10MapDocNodeENS_9StringRefEbNS_12function_refIFbRNS4_7DocNodeEEEE.exit45: ; preds = %_ZN4llvm6AMDGPU5HSAMD2V316MetadataVerifier11verifyEntryERNS_7msgpack10MapDocNodeENS_9StringRefEbNS_12function_refIFbRNS4_7DocNodeEEEE.exit43.thread
   %68 = ptrtoint ptr %6 to i64
-  %69 = getelementptr inbounds i8, ptr %64, i64 56
+  %69 = getelementptr inbounds nuw i8, ptr %64, i64 56
   %70 = call fastcc noundef zeroext i1 @"_ZN4llvm12function_refIFbRNS_7msgpack7DocNodeEEE11callback_fnIZNS_6AMDGPU5HSAMD2V316MetadataVerifier12verifyKernelES3_E3$_4EEblS3_"(i64 noundef %68, ptr noundef nonnull align 8 dereferenceable(24) %69) #5
   br i1 %70, label %_ZN4llvm6AMDGPU5HSAMD2V316MetadataVerifier11verifyEntryERNS_7msgpack10MapDocNodeENS_9StringRefEbNS_12function_refIFbRNS4_7DocNodeEEEE.exit45.thread, label %_ZN4llvm6AMDGPU5HSAMD2V316MetadataVerifier17verifyScalarEntryERNS_7msgpack10MapDocNodeENS_9StringRefEbNS4_4TypeENS_12function_refIFbRNS4_7DocNodeEEEE.exit.thread
 
@@ -844,7 +844,7 @@ _ZN4llvm7msgpack7DocNode6getMapEb.exit:           ; preds = %2
   br i1 %11, label %_ZN4llvm6AMDGPU5HSAMD2V316MetadataVerifier11verifyEntryERNS_7msgpack10MapDocNodeENS_9StringRefEbNS_12function_refIFbRNS4_7DocNodeEEEE.exit10, label %_ZN4llvm6AMDGPU5HSAMD2V316MetadataVerifier11verifyEntryERNS_7msgpack10MapDocNodeENS_9StringRefEbNS_12function_refIFbRNS4_7DocNodeEEEE.exit
 
 _ZN4llvm6AMDGPU5HSAMD2V316MetadataVerifier11verifyEntryERNS_7msgpack10MapDocNodeENS_9StringRefEbNS_12function_refIFbRNS4_7DocNodeEEEE.exit: ; preds = %_ZN4llvm7msgpack7DocNode6getMapEb.exit
-  %12 = getelementptr inbounds i8, ptr %7, i64 56
+  %12 = getelementptr inbounds nuw i8, ptr %7, i64 56
   %.val1.i = load ptr, ptr %12, align 8
   %13 = getelementptr i8, ptr %.val1.i, i64 8
   %.val1.val.i = load i8, ptr %13, align 8
@@ -997,7 +997,7 @@ _ZN4llvm7msgpack7DocNode8getArrayEb.exit.i.i.i:   ; preds = %_ZN4llvm6AMDGPU5HSA
   br i1 %82, label %_ZN4llvm6AMDGPU5HSAMD2V316MetadataVerifier11verifyEntryERNS_7msgpack10MapDocNodeENS_9StringRefEbNS_12function_refIFbRNS4_7DocNodeEEEE.exit8.thread, label %_ZN4llvm6AMDGPU5HSAMD2V316MetadataVerifier11verifyEntryERNS_7msgpack10MapDocNodeENS_9StringRefEbNS_12function_refIFbRNS4_7DocNodeEEEE.exit8
 
 _ZN4llvm6AMDGPU5HSAMD2V316MetadataVerifier11verifyEntryERNS_7msgpack10MapDocNodeENS_9StringRefEbNS_12function_refIFbRNS4_7DocNodeEEEE.exit8: ; preds = %"_ZN4llvm12function_refIFbRNS_7msgpack7DocNodeEEE11callback_fnIZNS_6AMDGPU5HSAMD2V316MetadataVerifier6verifyES3_E3$_0EEblS3_.exit.thread62"
-  %83 = getelementptr inbounds i8, ptr %79, i64 56
+  %83 = getelementptr inbounds nuw i8, ptr %79, i64 56
   %.val1.i28 = load ptr, ptr %83, align 8
   %84 = getelementptr i8, ptr %.val1.i28, i64 8
   %.val1.val.i29 = load i8, ptr %84, align 8
@@ -1134,7 +1134,7 @@ _ZN4llvm6AMDGPU5HSAMD2V316MetadataVerifier11verifyEntryERNS_7msgpack10MapDocNode
   br i1 %137, label %_ZN4llvm6AMDGPU5HSAMD2V316MetadataVerifier11verifyEntryERNS_7msgpack10MapDocNodeENS_9StringRefEbNS_12function_refIFbRNS4_7DocNodeEEEE.exit10, label %138
 
 138:                                              ; preds = %_ZN4llvm6AMDGPU5HSAMD2V316MetadataVerifier11verifyEntryERNS_7msgpack10MapDocNodeENS_9StringRefEbNS_12function_refIFbRNS4_7DocNodeEEEE.exit8.thread
-  %139 = getelementptr inbounds i8, ptr %134, i64 56
+  %139 = getelementptr inbounds nuw i8, ptr %134, i64 56
   %.val1.i36 = load ptr, ptr %139, align 8
   %140 = getelementptr i8, ptr %.val1.i36, i64 8
   %.val1.val.i37 = load i8, ptr %140, align 8

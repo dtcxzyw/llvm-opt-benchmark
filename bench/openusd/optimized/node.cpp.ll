@@ -282,7 +282,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__10PcpNodeRef14SetHasSymmetryEb
 
 13:                                               ; preds = %2
   %14 = tail call noundef nonnull align 8 dereferenceable(44) ptr @_ZN32pxrInternal_v0_24__pxrReserved__18PcpPrimIndex_Graph17_GetWriteableNodeEm(ptr noundef nonnull align 8 dereferenceable(57) %3, i64 noundef %5)
-  %15 = getelementptr inbounds i8, ptr %14, i64 40
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 40
   %16 = load i32, ptr %15, align 8
   %17 = select i1 %1, i32 65536, i32 0
   %18 = and i32 %16, -65537
@@ -328,7 +328,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__10PcpNodeRef13SetPermissionENS
 
 13:                                               ; preds = %2
   %14 = tail call noundef nonnull align 8 dereferenceable(44) ptr @_ZN32pxrInternal_v0_24__pxrReserved__18PcpPrimIndex_Graph17_GetWriteableNodeEm(ptr noundef nonnull align 8 dereferenceable(57) %3, i64 noundef %5)
-  %15 = getelementptr inbounds i8, ptr %14, i64 40
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 40
   %16 = load i32, ptr %15, align 8
   %17 = shl i32 %1, 8
   %18 = and i32 %17, 65280
@@ -601,7 +601,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__10PcpNodeRef13SetRestrictedEb(
 
 15:                                               ; preds = %2
   %16 = tail call noundef nonnull align 8 dereferenceable(44) ptr @_ZN32pxrInternal_v0_24__pxrReserved__18PcpPrimIndex_Graph17_GetWriteableNodeEm(ptr noundef nonnull align 8 dereferenceable(57) %4, i64 noundef %6)
-  %17 = getelementptr inbounds i8, ptr %16, i64 40
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 40
   %18 = load i32, ptr %17, align 8
   %19 = select i1 %1, i32 262144, i32 0
   %20 = and i32 %18, -262145
@@ -740,7 +740,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__10PcpNodeRef7IsInertEv.exit._ZN32pxrIntern
 _ZN32pxrInternal_v0_24__pxrReserved__10PcpNodeRef9_SetInertEb.exit: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__10PcpNodeRef7IsInertEv.exit, %._ZNK32pxrInternal_v0_24__pxrReserved__10PcpNodeRef7IsInertEv.exit_crit_edge
   %20 = phi i1 [ true, %._ZNK32pxrInternal_v0_24__pxrReserved__10PcpNodeRef7IsInertEv.exit_crit_edge ], [ %18, %_ZNK32pxrInternal_v0_24__pxrReserved__10PcpNodeRef7IsInertEv.exit ]
   %21 = tail call noundef nonnull align 8 dereferenceable(44) ptr @_ZN32pxrInternal_v0_24__pxrReserved__18PcpPrimIndex_Graph17_GetWriteableNodeEm(ptr noundef nonnull align 8 dereferenceable(57) %4, i64 noundef %6)
-  %22 = getelementptr inbounds i8, ptr %21, i64 40
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 40
   %23 = load i32, ptr %22, align 8
   %24 = select i1 %1, i32 131072, i32 0
   %25 = and i32 %23, -131073

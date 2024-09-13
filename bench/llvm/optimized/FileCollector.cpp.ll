@@ -110,7 +110,7 @@ $_ZTVN4llvm23FileCollectorFileSystemE = comdat any
 define dso_local void @_ZN4llvm17FileCollectorBaseC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(72) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4llvm17FileCollectorBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 68
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 68
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(60) %2, i8 0, i64 60, i1 false)
   store i32 8, ptr %3, align 4
   ret void
@@ -120,13 +120,13 @@ define dso_local void @_ZN4llvm17FileCollectorBaseC2Ev(ptr nocapture noundef non
 define dso_local void @_ZN4llvm17FileCollectorBaseD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #1 align 2 {
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4llvm17FileCollectorBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %3 = getelementptr inbounds i8, ptr %0, i64 60
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %4 = load i32, ptr %3, align 4
   %5 = icmp eq i32 %4, 0
   br i1 %5, label %_ZN4llvm9StringSetINS_15MallocAllocatorEED2Ev.exit, label %6
 
 6:                                                ; preds = %1
-  %7 = getelementptr inbounds i8, ptr %0, i64 56
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %8 = load i32, ptr %7, align 8
   %.not10.i.i = icmp eq i32 %8, 0
   br i1 %.not10.i.i, label %_ZN4llvm9StringSetINS_15MallocAllocatorEED2Ev.exit, label %.lr.ph.preheader.i.i
@@ -333,7 +333,7 @@ declare void @_ZN4llvm3vfs17getRealFileSystemEv(ptr dead_on_unwind writable sret
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN4llvm13FileCollectorC2ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_(ptr noundef nonnull align 8 dereferenceable(224) %0, ptr noundef nonnull %1, ptr noundef %2) unnamed_addr #1 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 68
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 68
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(60) %4, i8 0, i64 60, i1 false)
   store i32 8, ptr %5, align 4
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4llvm13FileCollectorE, i64 16), ptr %0, align 8
@@ -343,16 +343,16 @@ define dso_local void @_ZN4llvm13FileCollectorC2ENSt7__cxx1112basic_stringIcSt11
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %2) #15
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 136
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, i8 0, i64 24, i1 false)
-  %9 = getelementptr inbounds i8, ptr %0, i64 161
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 161
   store i8 0, ptr %9, align 1
-  %10 = getelementptr inbounds i8, ptr %0, i64 163
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 163
   store i8 0, ptr %10, align 1
-  %11 = getelementptr inbounds i8, ptr %0, i64 165
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 165
   store i8 0, ptr %11, align 1
-  %12 = getelementptr inbounds i8, ptr %0, i64 168
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 168
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %12) #15
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 200
-  %14 = getelementptr inbounds i8, ptr %0, i64 220
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 220
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %13, i8 0, i64 20, i1 false)
   store i32 40, ptr %14, align 4
   ret void
@@ -644,7 +644,7 @@ define dso_local void @_ZN4llvm13FileCollector17PathCanonicalizer12canonicalizeE
   tail call void @_ZN4llvm15SmallVectorBaseImEC2EPvm(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull %7, i64 noundef 256) #15
   %8 = getelementptr inbounds i8, ptr %2, i64 %3
   %9 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %6) #15
-  %10 = getelementptr inbounds i8, ptr %0, i64 288
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 288
   store i64 0, ptr %10, align 8
   tail call void @_ZN4llvm15SmallVectorImplIcE6appendIPKcvEEvT_S5_(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef %2, ptr noundef %8)
   %11 = tail call { i32, ptr } @_ZN4llvm3sys2fs13make_absoluteERNS_15SmallVectorImplIcEE(ptr noundef nonnull align 8 dereferenceable(24) %6) #15
@@ -831,7 +831,7 @@ define dso_local void @_ZN4llvm13FileCollector16addDirectoryImplERKNS_5TwineENS_
   br i1 %.not.i.i.not, label %39, label %25
 
 25:                                               ; preds = %23
-  %26 = getelementptr inbounds i8, ptr %24, i64 40
+  %26 = getelementptr inbounds nuw i8, ptr %24, i64 40
   %27 = load i32, ptr %26, align 8
   %.off = add i32 %27, -2
   %switch = icmp ult i32 %.off, 3
@@ -1087,7 +1087,7 @@ define dso_local { i32, ptr } @_ZN4llvm13FileCollector9copyFilesEb(ptr noundef n
 _ZNSt10lock_guardISt5mutexEC2ERS0_.exit:          ; preds = %21
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %26 = load ptr, ptr %25, align 8
-  %27 = getelementptr inbounds i8, ptr %0, i64 144
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %28 = load ptr, ptr %27, align 8
   %.not4465 = icmp eq ptr %26, %28
   br i1 %.not4465, label %._crit_edge, label %.lr.ph
@@ -1317,7 +1317,7 @@ _ZNSt10lock_guardISt5mutexEC2ERS0_.exit:          ; preds = %3
   %20 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %19) #15
   %21 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %19) #15
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %12)
-  %22 = getelementptr inbounds i8, ptr %0, i64 162
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 162
   store i16 257, ptr %22, align 2
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %11)
   %.not.i.i3 = icmp eq ptr %20, null
@@ -1334,7 +1334,7 @@ _ZNSt10lock_guardISt5mutexEC2ERS0_.exit:          ; preds = %3
   br label %_ZN4llvm3vfs13YAMLVFSWriter13setOverlayDirENS_9StringRefE.exit
 
 _ZN4llvm3vfs13YAMLVFSWriter13setOverlayDirENS_9StringRefE.exit: ; preds = %23, %24
-  %25 = getelementptr inbounds i8, ptr %0, i64 168
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 168
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %11)
   %26 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6assignEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %25, ptr noundef nonnull align 8 dereferenceable(32) %12) #15
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %12) #15
@@ -1458,9 +1458,9 @@ _ZL19isCaseSensitivePathN4llvm9StringRefE.exit:   ; preds = %_ZN4llvm11SmallStri
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %10)
-  %72 = getelementptr inbounds i8, ptr %0, i64 160
+  %72 = getelementptr inbounds nuw i8, ptr %0, i64 160
   store i16 %.0.i, ptr %72, align 8
-  %73 = getelementptr inbounds i8, ptr %0, i64 164
+  %73 = getelementptr inbounds nuw i8, ptr %0, i64 164
   store i16 256, ptr %73, align 4
   store i32 0, ptr %13, align 8
   %74 = getelementptr inbounds nuw i8, ptr %13, i64 8
@@ -1512,7 +1512,7 @@ _ZN4llvm18IntrusiveRefCntPtrINS_3vfs10FileSystemEED2Ev.exit:
   store ptr %4, ptr %9, align 8
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store ptr %5, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %3, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store ptr %7, ptr %11, align 8
   store ptr %3, ptr %0, align 8
   %12 = atomicrmw add ptr %8, i32 1 monotonic, align 4
@@ -1528,13 +1528,13 @@ declare void @__cxa_pure_virtual() unnamed_addr
 define linkonce_odr hidden void @_ZN4llvm13FileCollectorD2Ev(ptr noundef nonnull align 8 dereferenceable(224) %0) unnamed_addr #1 comdat align 2 {
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4llvm13FileCollectorE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 200
-  %3 = getelementptr inbounds i8, ptr %0, i64 212
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 212
   %4 = load i32, ptr %3, align 4
   %5 = icmp eq i32 %4, 0
   br i1 %5, label %_ZN4llvm13FileCollector17PathCanonicalizerD2Ev.exit, label %6
 
 6:                                                ; preds = %1
-  %7 = getelementptr inbounds i8, ptr %0, i64 208
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %8 = load i32, ptr %7, align 8
   %.not10.i.i = icmp eq i32 %8, 0
   br i1 %.not10.i.i, label %_ZN4llvm13FileCollector17PathCanonicalizerD2Ev.exit, label %.lr.ph.preheader.i.i
@@ -1571,10 +1571,10 @@ _ZN4llvm13FileCollector17PathCanonicalizerD2Ev.exit: ; preds = %17, %1, %6
   %18 = load ptr, ptr %2, align 8
   tail call void @free(ptr noundef %18) #15
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  %20 = getelementptr inbounds i8, ptr %0, i64 168
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 168
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %20) #15
   %21 = load ptr, ptr %19, align 8
-  %22 = getelementptr inbounds i8, ptr %0, i64 144
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %23 = load ptr, ptr %22, align 8
   %.not4.i.i.i.i.i = icmp eq ptr %21, %23
   br i1 %.not4.i.i.i.i.i, label %_ZSt8_DestroyIPN4llvm3vfs12YAMLVFSEntryES2_EvT_S4_RSaIT0_E.exit.i.i, label %.lr.ph.i.i.i.i.i
@@ -1598,7 +1598,7 @@ _ZSt8_DestroyIPN4llvm3vfs12YAMLVFSEntryES2_EvT_S4_RSaIT0_E.exit.i.i: ; preds = %
   br i1 %.not.i.i.i.i, label %_ZN4llvm3vfs13YAMLVFSWriterD2Ev.exit, label %27
 
 27:                                               ; preds = %_ZSt8_DestroyIPN4llvm3vfs12YAMLVFSEntryES2_EvT_S4_RSaIT0_E.exit.i.i
-  %28 = getelementptr inbounds i8, ptr %0, i64 152
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %29 = load ptr, ptr %28, align 8
   %30 = ptrtoint ptr %29 to i64
   %31 = ptrtoint ptr %26 to i64
@@ -1613,13 +1613,13 @@ _ZN4llvm3vfs13YAMLVFSWriterD2Ev.exit:             ; preds = %_ZSt8_DestroyIPN4ll
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %34) #15
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4llvm17FileCollectorBaseE, i64 16), ptr %0, align 8
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %36 = getelementptr inbounds i8, ptr %0, i64 60
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %37 = load i32, ptr %36, align 4
   %38 = icmp eq i32 %37, 0
   br i1 %38, label %_ZN4llvm17FileCollectorBaseD2Ev.exit, label %39
 
 39:                                               ; preds = %_ZN4llvm3vfs13YAMLVFSWriterD2Ev.exit
-  %40 = getelementptr inbounds i8, ptr %0, i64 56
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %41 = load i32, ptr %40, align 8
   %.not10.i.i.i = icmp eq i32 %41, 0
   br i1 %.not10.i.i.i, label %_ZN4llvm17FileCollectorBaseD2Ev.exit, label %.lr.ph.preheader.i.i.i
@@ -1889,7 +1889,7 @@ declare void @_ZNK4llvm9StringRef5upperB5cxx11Ev(ptr dead_on_unwind writable sre
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvm23FileCollectorFileSystemD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #1 comdat align 2 {
   store ptr getelementptr inbounds inrange(-16, 128) (i8, ptr @_ZTVN4llvm23FileCollectorFileSystemE, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i.i, label %_ZNSt10shared_ptrIN4llvm13FileCollectorEED2Ev.exit, label %4
@@ -1989,7 +1989,7 @@ _ZN4llvm18IntrusiveRefCntPtrINS_3vfs10FileSystemEED2Ev.exit: ; preds = %_ZNSt10s
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvm23FileCollectorFileSystemD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #1 comdat align 2 {
   store ptr getelementptr inbounds inrange(-16, 128) (i8, ptr @_ZTVN4llvm23FileCollectorFileSystemE, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i.i.i, label %_ZNSt10shared_ptrIN4llvm13FileCollectorEED2Ev.exit.i, label %4

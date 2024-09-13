@@ -215,7 +215,7 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_123RISCVPostRAExpandPseudo20
   %19 = tail call noundef ptr %18(ptr noundef nonnull align 8 dereferenceable(288) %15) #10
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store ptr %19, ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %1, i64 328
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 328
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 320
   %.sroa.020.024 = load ptr, ptr %21, align 8
   %.not25 = icmp eq ptr %.sroa.020.024, %22

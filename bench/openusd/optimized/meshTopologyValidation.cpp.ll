@@ -686,7 +686,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit13: ; preds = %_ZN32px
 
 60:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit13, %13, %10
   tail call void @llvm.experimental.noalias.scope.decl(metadata !10)
-  %61 = getelementptr inbounds i8, ptr %1, i64 160
+  %61 = getelementptr inbounds nuw i8, ptr %1, i64 160
   %62 = load i64, ptr %61, align 8, !noalias !10
   store i64 %62, ptr %3, align 8, !alias.scope !10
   %63 = and i64 %62, 7
@@ -1229,7 +1229,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit25: ; preds = %_ZN32px
 
 119:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit25, %13, %10
   tail call void @llvm.experimental.noalias.scope.decl(metadata !16)
-  %120 = getelementptr inbounds i8, ptr %1, i64 144
+  %120 = getelementptr inbounds nuw i8, ptr %1, i64 144
   %121 = load i64, ptr %120, align 8, !noalias !16
   store i64 %121, ptr %3, align 8, !alias.scope !16
   %122 = and i64 %121, 7
@@ -1436,7 +1436,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit13: ; preds = %_ZN32px
 
 60:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit13, %13, %10
   tail call void @llvm.experimental.noalias.scope.decl(metadata !19)
-  %61 = getelementptr inbounds i8, ptr %1, i64 152
+  %61 = getelementptr inbounds nuw i8, ptr %1, i64 152
   %62 = load i64, ptr %61, align 8, !noalias !19
   store i64 %62, ptr %3, align 8, !alias.scope !19
   %63 = and i64 %62, 7
@@ -1530,11 +1530,11 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation2
   %13 = alloca %"class.std::allocator.8", align 1
   %14 = alloca %"struct.pxrInternal_v0_24__pxrReserved__::PxOsdMeshTopologyValidation::Invalidation", align 8
   %15 = alloca %"class.std::allocator.8", align 1
-  %16 = getelementptr inbounds i8, ptr %1, i64 168
-  %17 = getelementptr inbounds i8, ptr %1, i64 208
-  %18 = getelementptr inbounds i8, ptr %1, i64 248
-  %19 = getelementptr inbounds i8, ptr %1, i64 288
-  %20 = getelementptr inbounds i8, ptr %1, i64 328
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 168
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 208
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 248
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 288
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 328
   %21 = tail call noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIiE6cbeginEv(ptr noundef nonnull align 8 dereferenceable(40) %17)
   %22 = tail call noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIiE4cendEv(ptr noundef nonnull align 8 dereferenceable(40) %17)
   %23 = ptrtoint ptr %22 to i64

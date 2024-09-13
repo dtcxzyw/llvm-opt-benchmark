@@ -114,7 +114,7 @@ define dso_local void @_ZN4llvm11LLVMContextC2Ev(ptr noundef nonnull align 8 der
   store i32 0, ptr %3, align 16
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr @.str, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %3, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i64 3, ptr %6, align 16
   %7 = getelementptr inbounds i8, ptr %3, i64 24
   store i32 1, ptr %7, align 8
@@ -369,7 +369,7 @@ define dso_local void @_ZN4llvm11LLVMContextC2Ev(ptr noundef nonnull align 8 der
   %.sroa.2.0.copyload = load i64, ptr %.sroa.2.0..sroa_idx, align 8
   %129 = load ptr, ptr %0, align 8
   %130 = getelementptr inbounds nuw i8, ptr %129, i64 2648
-  %131 = getelementptr inbounds i8, ptr %129, i64 2660
+  %131 = getelementptr inbounds nuw i8, ptr %129, i64 2660
   %132 = load i32, ptr %131, align 4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2)
   store ptr %.sroa.0.0.copyload, ptr %2, align 8
@@ -420,7 +420,7 @@ define dso_local noundef i32 @_ZNK4llvm11LLVMContext11getMDKindIDENS_9StringRefE
   %4 = alloca %"struct.std::pair.393", align 8
   %5 = load ptr, ptr %0, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 2648
-  %7 = getelementptr inbounds i8, ptr %5, i64 2660
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 2660
   %8 = load i32, ptr %7, align 4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
   store ptr %1, ptr %4, align 8
@@ -568,7 +568,7 @@ _ZN4llvm15SmallPtrSetImplIPNS_6ModuleEE5eraseES2_.exit: ; preds = %20, %8, %15, 
   %28 = load ptr, ptr %0, align 8
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 64
   %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %28, i64 80
+  %31 = getelementptr inbounds nuw i8, ptr %28, i64 80
   %32 = load i32, ptr %31, align 8
   %33 = icmp eq i32 %32, 0
   br i1 %33, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_6ModuleEjNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E5eraseERKS3_.exit, label %34
@@ -607,11 +607,11 @@ _ZN4llvm15SmallPtrSetImplIPNS_6ModuleEE5eraseES2_.exit: ; preds = %20, %8, %15, 
 .loopexit.i:                                      ; preds = %47, %34
   %.0.i.ph.i = phi ptr [ %42, %34 ], [ %51, %47 ]
   store ptr inttoptr (i64 -8192 to ptr), ptr %.0.i.ph.i, align 8
-  %54 = getelementptr inbounds i8, ptr %28, i64 72
+  %54 = getelementptr inbounds nuw i8, ptr %28, i64 72
   %55 = load i32, ptr %54, align 8
   %56 = add i32 %55, -1
   store i32 %56, ptr %54, align 8
-  %57 = getelementptr inbounds i8, ptr %28, i64 76
+  %57 = getelementptr inbounds nuw i8, ptr %28, i64 76
   %58 = load i32, ptr %57, align 4
   %59 = add i32 %58, 1
   store i32 %59, ptr %57, align 4
@@ -630,7 +630,7 @@ define dso_local noundef i32 @_ZN4llvm11LLVMContext26generateMachineFunctionNumE
   %6 = load ptr, ptr %0, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 64
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %6, i64 80
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 80
   %10 = load i32, ptr %9, align 8
   %11 = icmp eq i32 %10, 0
   br i1 %11, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_6ModuleEjNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E15LookupBucketForIS3_EEbRKT_RPS8_.exit.i.i, label %12
@@ -790,7 +790,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm11LLVMContext28getMisExpectWarning
 define dso_local noundef i64 @_ZNK4llvm11LLVMContext30getDiagnosticsHotnessThresholdEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0) local_unnamed_addr #8 align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 112
-  %4 = getelementptr inbounds i8, ptr %2, i64 120
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 120
   %5 = load i8, ptr %4, align 8
   %6 = trunc i8 %5 to i1
   %.val.i = load i64, ptr %3, align 8
@@ -810,7 +810,7 @@ define dso_local void @_ZN4llvm11LLVMContext32setDiagnosticsMisExpectToleranceES
 define dso_local noundef i32 @_ZNK4llvm11LLVMContext32getDiagnosticsMisExpectToleranceEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0) local_unnamed_addr #8 align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 128
-  %4 = getelementptr inbounds i8, ptr %2, i64 132
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 132
   %5 = load i8, ptr %4, align 4
   %6 = trunc i8 %5 to i1
   %.val.i = load i32, ptr %3, align 4
@@ -821,7 +821,7 @@ define dso_local noundef i32 @_ZNK4llvm11LLVMContext32getDiagnosticsMisExpectTol
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local noundef zeroext i1 @_ZNK4llvm11LLVMContext39isDiagnosticsHotnessThresholdSetFromPSIEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0) local_unnamed_addr #8 align 2 {
   %2 = load ptr, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %2, i64 120
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 120
   %4 = load i8, ptr %3, align 8
   %5 = trunc i8 %4 to i1
   %6 = xor i1 %5, true
@@ -856,7 +856,7 @@ define dso_local void @_ZN4llvm11LLVMContext21setMainRemarkStreamerESt10unique_p
   br i1 %.not.i.i.i.i, label %_ZNSt10unique_ptrIN4llvm7remarks14RemarkStreamerESt14default_deleteIS2_EEaSEOS5_.exit, label %7
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %6, i64 64
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 64
   %9 = load i8, ptr %8, align 8
   %10 = trunc i8 %9 to i1
   br i1 %10, label %11, label %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit.i.i.i.i.i.i
@@ -1255,14 +1255,14 @@ define dso_local void @_ZN4llvm11LLVMContext9emitErrorEmRKNS_5TwineE(ptr nocaptu
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZNK4llvm11LLVMContext14getMDKindNamesERNS_15SmallVectorImplINS_9StringRefEEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) local_unnamed_addr #0 align 2 {
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 2660
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 2660
   %5 = load i32, ptr %4, align 4
   %6 = zext i32 %5 to i64
   tail call void @_ZN4llvm15SmallVectorImplINS_9StringRefEE10resizeImplILb0EEEvm(ptr noundef nonnull align 8 dereferenceable(16) %1, i64 noundef %6)
   %7 = load ptr, ptr %0, align 8
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 2648
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %7, i64 2656
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 2656
   %11 = load i32, ptr %10, align 8
   %12 = icmp eq i32 %11, 0
   br i1 %12, label %_ZN4llvm9StringMapIjNS_15MallocAllocatorEE5beginEv.exit, label %.preheader.i.i.i
@@ -1374,7 +1374,7 @@ define dso_local void @_ZN4llvm11LLVMContext5setGCERKNS_8FunctionENSt7__cxx1112b
   %5 = load ptr, ptr %0, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 2864
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %5, i64 2880
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 2880
   %9 = load i32, ptr %8, align 8
   %10 = icmp eq i32 %9, 0
   br i1 %10, label %.loopexit.i, label %11
@@ -1506,7 +1506,7 @@ define dso_local noundef nonnull align 8 dereferenceable(32) ptr @_ZN4llvm11LLVM
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 2864
   store ptr %1, ptr %3, align 8
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %4, i64 2880
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 2880
   %8 = load i32, ptr %7, align 8
   %9 = icmp eq i32 %8, 0
   br i1 %9, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8FunctionENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_SA_EEEES4_SA_SC_SF_E15LookupBucketForIS4_EEbRKT_RPSF_.exit.i.i, label %10
@@ -1573,7 +1573,7 @@ define dso_local void @_ZN4llvm11LLVMContext8deleteGCERKNS_8FunctionE(ptr nocapt
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 2864
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %3, i64 2880
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 2880
   %7 = load i32, ptr %6, align 8
   %8 = icmp eq i32 %7, 0
   br i1 %8, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8FunctionENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_SA_EEEES4_SA_SC_SF_E5eraseERKS4_.exit, label %9
@@ -1614,11 +1614,11 @@ define dso_local void @_ZN4llvm11LLVMContext8deleteGCERKNS_8FunctionE(ptr nocapt
   %29 = getelementptr inbounds nuw i8, ptr %.0.i.ph.i, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %29) #17
   store ptr inttoptr (i64 -8192 to ptr), ptr %.0.i.ph.i, align 8
-  %30 = getelementptr inbounds i8, ptr %3, i64 2872
+  %30 = getelementptr inbounds nuw i8, ptr %3, i64 2872
   %31 = load i32, ptr %30, align 8
   %32 = add i32 %31, -1
   store i32 %32, ptr %30, align 8
-  %33 = getelementptr inbounds i8, ptr %3, i64 2876
+  %33 = getelementptr inbounds nuw i8, ptr %3, i64 2876
   %34 = load i32, ptr %33, align 4
   %35 = add i32 %34, 1
   store i32 %35, ptr %33, align 4
@@ -1640,7 +1640,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm11LLVMContext23shouldDiscardValueN
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local noundef zeroext i1 @_ZNK4llvm11LLVMContext23isODRUniquingDebugTypesEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0) local_unnamed_addr #8 align 2 {
   %2 = load ptr, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %2, i64 1296
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 1296
   %4 = load i8, ptr %3, align 8
   %5 = trunc i8 %4 to i1
   ret i1 %5
@@ -1649,7 +1649,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm11LLVMContext23isODRUniquingDebugT
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define dso_local void @_ZN4llvm11LLVMContext26enableDebugTypeODRUniquingEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0) local_unnamed_addr #6 align 2 {
   %2 = load ptr, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %2, i64 1296
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 1296
   %4 = load i8, ptr %3, align 8
   %5 = trunc i8 %4 to i1
   br i1 %5, label %7, label %_ZNSt8optionalIN4llvm8DenseMapIPKNS0_8MDStringEPNS0_15DICompositeTypeENS0_12DenseMapInfoIS4_vEENS0_6detail12DenseMapPairIS4_S6_EEEEE7emplaceIJEEENSt9enable_ifIX18is_constructible_vISC_DpT_EERSC_E4typeEDpOSG_.exit
@@ -1667,7 +1667,7 @@ _ZNSt8optionalIN4llvm8DenseMapIPKNS0_8MDStringEPNS0_15DICompositeTypeENS0_12Dens
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN4llvm11LLVMContext27disableDebugTypeODRUniquingEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0) local_unnamed_addr #0 align 2 {
   %2 = load ptr, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %2, i64 1296
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 1296
   %4 = load i8, ptr %3, align 8
   %5 = trunc i8 %4 to i1
   br i1 %5, label %6, label %_ZNSt8optionalIN4llvm8DenseMapIPKNS0_8MDStringEPNS0_15DICompositeTypeENS0_12DenseMapInfoIS4_vEENS0_6detail12DenseMapPairIS4_S6_EEEEE5resetEv.exit
@@ -1676,7 +1676,7 @@ define dso_local void @_ZN4llvm11LLVMContext27disableDebugTypeODRUniquingEv(ptr 
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 1272
   store i8 0, ptr %3, align 8
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %2, i64 1288
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 1288
   %10 = load i32, ptr %9, align 8
   %11 = zext i32 %10 to i64
   %12 = shl nuw nsw i64 %11, 4

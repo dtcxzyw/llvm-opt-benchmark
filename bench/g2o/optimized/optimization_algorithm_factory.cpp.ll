@@ -49,13 +49,13 @@ define void @_ZN3g2o36AbstractOptimizationAlgorithmCreatorC2ERKNS_29Optimization
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN3g2o36AbstractOptimizationAlgorithmCreatorE, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %1)
-  %4 = getelementptr inbounds i8, ptr %0, i64 40
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 32
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %5)
           to label %6 unwind label %9
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %0, i64 72
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 64
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %8)
           to label %_ZN3g2o29OptimizationAlgorithmPropertyC2ERKS0_.exit unwind label %11
@@ -77,7 +77,7 @@ define void @_ZN3g2o36AbstractOptimizationAlgorithmCreatorC2ERKNS_29Optimization
   resume { ptr, i32 } %.pn.i
 
 _ZN3g2o29OptimizationAlgorithmPropertyC2ERKS0_.exit: ; preds = %6
-  %14 = getelementptr inbounds i8, ptr %0, i64 104
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 96
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %14, ptr noundef nonnull align 8 dereferenceable(12) %15, i64 12, i1 false)
   ret void
@@ -167,7 +167,7 @@ _ZN3g2o28OptimizationAlgorithmFactory10findSolverERKNSt7__cxx1112basic_stringIcS
   %20 = add i64 %19, -1
   store i64 %20, ptr %18, align 8
   tail call void @_ZNSt8__detail15_List_node_base9_M_unhookEv(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.03.010.i) #12
-  %21 = getelementptr inbounds i8, ptr %.sroa.03.010.i, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %.sroa.03.010.i, i64 24
   %22 = load ptr, ptr %21, align 8
   %.not.i.i.i.i.i.i.i = icmp eq ptr %22, null
   br i1 %.not.i.i.i.i.i.i.i, label %_ZNSt7__cxx114listISt10shared_ptrIN3g2o36AbstractOptimizationAlgorithmCreatorEESaIS4_EE5eraseESt20_List_const_iteratorIS4_E.exit, label %23
@@ -249,7 +249,7 @@ _ZN3g2o28OptimizationAlgorithmFactory10findSolverERKNSt7__cxx1112basic_stringIcS
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 16
   %59 = load ptr, ptr %1, align 8
   store ptr %59, ptr %58, align 8
-  %60 = getelementptr inbounds i8, ptr %57, i64 24
+  %60 = getelementptr inbounds nuw i8, ptr %57, i64 24
   %61 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %62 = load ptr, ptr %61, align 8
   store ptr %62, ptr %60, align 8
@@ -364,7 +364,7 @@ _ZN3g2o28OptimizationAlgorithmFactory10findSolverERKNSt7__cxx1112basic_stringIcS
   %20 = add i64 %19, -1
   store i64 %20, ptr %18, align 8
   tail call void @_ZNSt8__detail15_List_node_base9_M_unhookEv(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.03.010.i) #12
-  %21 = getelementptr inbounds i8, ptr %.sroa.03.010.i, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %.sroa.03.010.i, i64 24
   %22 = load ptr, ptr %21, align 8
   %.not.i.i.i.i.i.i.i = icmp eq ptr %22, null
   br i1 %.not.i.i.i.i.i.i.i, label %_ZNSt7__cxx114listISt10shared_ptrIN3g2o36AbstractOptimizationAlgorithmCreatorEESaIS4_EE5eraseESt20_List_const_iteratorIS4_E.exit, label %23
@@ -488,13 +488,13 @@ _ZNK3g2o28OptimizationAlgorithmFactory10findSolverERKNSt7__cxx1112basic_stringIc
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %20 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %19)
   %21 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %22 = getelementptr inbounds i8, ptr %18, i64 40
+  %22 = getelementptr inbounds nuw i8, ptr %18, i64 40
   %23 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %21, ptr noundef nonnull align 8 dereferenceable(32) %22)
   %24 = getelementptr inbounds nuw i8, ptr %2, i64 64
-  %25 = getelementptr inbounds i8, ptr %18, i64 72
+  %25 = getelementptr inbounds nuw i8, ptr %18, i64 72
   %26 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %24, ptr noundef nonnull align 8 dereferenceable(32) %25)
   %27 = getelementptr inbounds nuw i8, ptr %2, i64 96
-  %28 = getelementptr inbounds i8, ptr %18, i64 104
+  %28 = getelementptr inbounds nuw i8, ptr %18, i64 104
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %27, ptr noundef nonnull align 8 dereferenceable(12) %28, i64 12, i1 false)
   %29 = load ptr, ptr %17, align 8
   %30 = load ptr, ptr %29, align 8
@@ -610,10 +610,10 @@ define void @_ZNK3g2o28OptimizationAlgorithmFactory11listSolversERSo(ptr noundef
   br i1 %exitcond.not, label %._crit_edge30, label %.lr.ph29, !llvm.loop !8
 
 ._crit_edge30:                                    ; preds = %.lr.ph29, %.lr.ph35
-  %16 = getelementptr inbounds i8, ptr %9, i64 72
+  %16 = getelementptr inbounds nuw i8, ptr %9, i64 72
   %17 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %16)
   %18 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %17, ptr noundef nonnull @.str)
-  %19 = getelementptr inbounds i8, ptr %9, i64 40
+  %19 = getelementptr inbounds nuw i8, ptr %9, i64 40
   %20 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %18, ptr noundef nonnull align 8 dereferenceable(32) %19)
   %21 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSoS_E(ptr noundef nonnull align 8 dereferenceable(8) %20, ptr noundef nonnull @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_)
   %.sroa.09.0 = load ptr, ptr %.sroa.09.033, align 8
@@ -641,9 +641,9 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZSt4endlIcSt11char_trai
 define linkonce_odr void @_ZN3g2o36AbstractOptimizationAlgorithmCreatorD2Ev(ptr noundef nonnull align 8 dereferenceable(120) %0) unnamed_addr #4 comdat align 2 {
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN3g2o36AbstractOptimizationAlgorithmCreatorE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 72
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 72
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #12
-  %4 = getelementptr inbounds i8, ptr %0, i64 40
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #12
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #12
   ret void
@@ -682,7 +682,7 @@ define linkonce_odr void @_ZNKSt14default_deleteIN3g2o28OptimizationAlgorithmFac
 .lr.ph.i.i.i.i:                                   ; preds = %4, %_ZNSt16allocator_traitsISaISt10_List_nodeISt10shared_ptrIN3g2o36AbstractOptimizationAlgorithmCreatorEEEEE7destroyIS4_EEvRS6_PT_.exit.i.i.i.i
   %.09.i.i.i.i = phi ptr [ %6, %_ZNSt16allocator_traitsISaISt10_List_nodeISt10shared_ptrIN3g2o36AbstractOptimizationAlgorithmCreatorEEEEE7destroyIS4_EEvRS6_PT_.exit.i.i.i.i ], [ %5, %4 ]
   %6 = load ptr, ptr %.09.i.i.i.i, align 8
-  %7 = getelementptr inbounds i8, ptr %.09.i.i.i.i, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i, i64 24
   %8 = load ptr, ptr %7, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %8, null
   br i1 %.not.i.i.i.i.i.i.i.i.i, label %_ZNSt16allocator_traitsISaISt10_List_nodeISt10shared_ptrIN3g2o36AbstractOptimizationAlgorithmCreatorEEEEE7destroyIS4_EEvRS6_PT_.exit.i.i.i.i, label %9

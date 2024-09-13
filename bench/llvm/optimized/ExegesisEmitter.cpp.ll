@@ -343,7 +343,7 @@ _ZNSt6vectorIPN4llvm6RecordESaIS2_EED2Ev.exit23.i.i: ; preds = %78, %._crit_edge
   %106 = getelementptr inbounds nuw i8, ptr %32, i64 16
   store ptr %105, ptr %106, align 8, !alias.scope !7, !noalias !4
   %107 = load i64, ptr %57, align 8, !noalias !10
-  %108 = getelementptr inbounds i8, ptr %32, i64 24
+  %108 = getelementptr inbounds nuw i8, ptr %32, i64 24
   store i64 %107, ptr %108, align 8, !alias.scope !7, !noalias !4
   call void @_ZN4llvm15PrintFatalErrorENS_8ArrayRefINS_5SMLocEEERKNS_5TwineE(ptr %101, i64 %102, ptr noundef nonnull align 8 dereferenceable(34) %32) #20
   unreachable
@@ -428,7 +428,7 @@ _ZNKSt4lessIN4llvm9StringRefEEclERKS1_S4_.exit.i.i.i: ; preds = %_ZN4llvm9String
   store ptr %111, ptr %132, align 8
   %.sroa.5.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %131, i64 40
   store i64 %112, ptr %.sroa.5.0..sroa_idx.i.i, align 8
-  %133 = getelementptr inbounds i8, ptr %131, i64 48
+  %133 = getelementptr inbounds nuw i8, ptr %131, i64 48
   store i32 0, ptr %133, align 8
   %134 = call { ptr, ptr } @_ZNSt8_Rb_treeIN4llvm9StringRefESt4pairIKS1_jESt10_Select1stIS4_ESt4lessIS1_ESaIS4_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS4_ERS3_(ptr noundef nonnull align 8 dereferenceable(48) %41, ptr %.08.lcssa.i.i.i20.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %132)
   %135 = extractvalue { ptr, ptr } %134, 1
@@ -637,7 +637,7 @@ _ZNKSt4lessIN4llvm9StringRefEEclERKS1_S4_.exit.i61.i.i: ; preds = %_ZN4llvm9Stri
   store ptr %178, ptr %199, align 8
   %.sroa.5115.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %198, i64 40
   store i64 %179, ptr %.sroa.5115.0..sroa_idx.i.i, align 8
-  %200 = getelementptr inbounds i8, ptr %198, i64 48
+  %200 = getelementptr inbounds nuw i8, ptr %198, i64 48
   store i32 0, ptr %200, align 8
   %201 = call { ptr, ptr } @_ZNSt8_Rb_treeIN4llvm9StringRefESt4pairIKS1_jESt10_Select1stIS4_ESt4lessIS1_ESaIS4_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS4_ERS3_(ptr noundef nonnull align 8 dereferenceable(48) %41, ptr %.08.lcssa.i.i.i20.i60.i.i, ptr noundef nonnull align 8 dereferenceable(16) %199)
   %202 = extractvalue { ptr, ptr } %201, 1
@@ -696,7 +696,7 @@ _ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.thread.i.i.i.i.i.i80.i.i: ; preds
   %.0135.i.i = phi i32 [ %217, %.lr.ph136.i.i ], [ 0, %_ZNSt6vectorIPN4llvm6RecordESaIS2_EED2Ev.exit.i.i ]
   %.sroa.082.0134.i.i = phi ptr [ %219, %.lr.ph136.i.i ], [ %72, %_ZNSt6vectorIPN4llvm6RecordESaIS2_EED2Ev.exit.i.i ]
   %217 = add i32 %.0135.i.i, 1
-  %218 = getelementptr inbounds i8, ptr %.sroa.082.0134.i.i, i64 48
+  %218 = getelementptr inbounds nuw i8, ptr %.sroa.082.0134.i.i, i64 48
   store i32 %.0135.i.i, ptr %218, align 8
   %219 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %.sroa.082.0134.i.i) #21
   %.not116.i.i = icmp eq ptr %219, %42
@@ -922,7 +922,7 @@ _ZN4llvm11raw_ostreamlsENS_9StringRefE.exit.i.i:  ; preds = %305, %304, %302
 
 _ZN4llvm11raw_ostreamlsEPKc.exit36.i.i:           ; preds = %317, %315
   %.0.i.i35.i.i = phi ptr [ %316, %315 ], [ %.0.i.i.i, %317 ]
-  %321 = getelementptr inbounds i8, ptr %.sroa.0127.0145.i.i, i64 48
+  %321 = getelementptr inbounds nuw i8, ptr %.sroa.0127.0145.i.i, i64 48
   %322 = load i32, ptr %321, align 8
   %323 = zext i32 %322 to i64
   %324 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %.0.i.i35.i.i, i64 noundef %323) #18
@@ -1422,13 +1422,13 @@ _ZNKSt3mapIN4llvm9StringRefEjSt4lessIS1_ESaISt4pairIKS1_jEEE4findERS5_.exit.thre
   store ptr @.str.28, ptr %10, align 8, !alias.scope !15
   %538 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store ptr %518, ptr %538, align 8, !alias.scope !15
-  %539 = getelementptr inbounds i8, ptr %10, i64 24
+  %539 = getelementptr inbounds nuw i8, ptr %10, i64 24
   store i64 %519, ptr %539, align 8, !alias.scope !15
   call void @_ZN4llvm15PrintFatalErrorERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(34) %10) #20
   unreachable
 
 _ZNK12_GLOBAL__N_115ExegesisEmitter15getPfmCounterIdEN4llvm9StringRefE.exit.i.i: ; preds = %_ZNKSt4lessIN4llvm9StringRefEEclERKS1_S4_.exit.i.i.i.i.i, %534
-  %540 = getelementptr inbounds i8, ptr %.19.i.i.i.i.i.i18, i64 48
+  %540 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i.i.i18, i64 48
   %541 = load i32, ptr %540, align 8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %10)
   %542 = zext i32 %541 to i64
@@ -1976,13 +1976,13 @@ _ZNKSt3mapIN4llvm9StringRefEjSt4lessIS1_ESaISt4pairIKS1_jEEE4findERS5_.exit.thre
   store ptr @.str.28, ptr %4, align 8, !alias.scope !21
   %761 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %741, ptr %761, align 8, !alias.scope !21
-  %762 = getelementptr inbounds i8, ptr %4, i64 24
+  %762 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store i64 %742, ptr %762, align 8, !alias.scope !21
   call void @_ZN4llvm15PrintFatalErrorERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(34) %4) #20
   unreachable
 
 _ZNK12_GLOBAL__N_115ExegesisEmitter15getPfmCounterIdEN4llvm9StringRefE.exit106.i.i: ; preds = %_ZNKSt4lessIN4llvm9StringRefEEclERKS1_S4_.exit.i.i.i104.i.i, %757
-  %763 = getelementptr inbounds i8, ptr %.19.i.i.i.i92.i.i, i64 48
+  %763 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i92.i.i, i64 48
   %764 = load i32, ptr %763, align 8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4)
   %.not.i.i76.i.i.i = icmp eq ptr %.sroa.8.0226.i.i.i, %.sroa.16.0225.i.i.i
@@ -3687,7 +3687,7 @@ define linkonce_odr ptr @_ZNSt8_Rb_treeIN4llvm9StringRefESt4pairIKS1_jESt10_Sele
   %5 = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #22
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %2, i64 16, i1 false)
-  %7 = getelementptr inbounds i8, ptr %5, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 48
   %8 = load i32, ptr %3, align 4
   store i32 %8, ptr %7, align 8
   %9 = tail call { ptr, ptr } @_ZNSt8_Rb_treeIN4llvm9StringRefESt4pairIKS1_jESt10_Select1stIS4_ESt4lessIS1_ESaIS4_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS4_ERS3_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %1, ptr noundef nonnull align 8 dereferenceable(16) %6)
@@ -4171,13 +4171,13 @@ _ZNKSt3mapIN4llvm9StringRefEjSt4lessIS1_ESaISt4pairIKS1_jEEE4findERS5_.exit.thre
   store ptr @.str.28, ptr %4, align 8, !alias.scope !37
   %25 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %1, ptr %25, align 8, !alias.scope !37
-  %26 = getelementptr inbounds i8, ptr %4, i64 24
+  %26 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store i64 %2, ptr %26, align 8, !alias.scope !37
   call void @_ZN4llvm15PrintFatalErrorERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(34) %4) #20
   unreachable
 
 27:                                               ; preds = %_ZNKSt4lessIN4llvm9StringRefEEclERKS1_S4_.exit.i.i, %21
-  %28 = getelementptr inbounds i8, ptr %.19.i.i.i, i64 48
+  %28 = getelementptr inbounds nuw i8, ptr %.19.i.i.i, i64 48
   %29 = load i32, ptr %28, align 8
   ret i32 %29
 }

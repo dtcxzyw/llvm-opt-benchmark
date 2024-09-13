@@ -205,7 +205,7 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN3g2o12BaseProper
   resume { ptr, i32 } %28
 
 29:                                               ; preds = %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN3g2o12BasePropertyESt4lessIS5_ESaISt4pairIKS5_S8_EEE4findERSC_.exit
-  %30 = getelementptr inbounds i8, ptr %.19.i.i.i, i64 64
+  %30 = getelementptr inbounds nuw i8, ptr %.19.i.i.i, i64 64
   %31 = load ptr, ptr %30, align 8
   %32 = icmp eq ptr %31, null
   br i1 %32, label %35, label %33
@@ -265,7 +265,7 @@ define noundef zeroext i1 @_ZN3g2o32OptimizationAlgorithmWithHessian4initEb(ptr 
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 328
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %14, i64 336
+  %17 = getelementptr inbounds nuw i8, ptr %14, i64 336
   %18 = load ptr, ptr %17, align 8
   %.not7 = icmp eq ptr %16, %18
   br i1 %.not7, label %.critedge, label %.lr.ph

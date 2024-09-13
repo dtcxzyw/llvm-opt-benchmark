@@ -195,25 +195,25 @@ define dso_local void @_ZN4llvm13LiveRegMatrixC2Ev(ptr noundef nonnull align 8 d
   store ptr getelementptr inbounds inrange(-16, 176) (i8, ptr @_ZTVN4llvm13LiveRegMatrixE, i64 16), ptr %0, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %8 = getelementptr inbounds i8, ptr %0, i64 112
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %9 = getelementptr inbounds i8, ptr %0, i64 128
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %6, i8 0, i64 28, i1 false)
   tail call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull %9, i64 noundef 4) #14
-  %10 = getelementptr inbounds i8, ptr %0, i64 160
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %11 = getelementptr inbounds i8, ptr %0, i64 176
   tail call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull %11, i64 noundef 0) #14
   store i64 0, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 184
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 184
   store i64 1, ptr %12, align 8
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 192
   store i32 0, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 200
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %16 = getelementptr inbounds i8, ptr %0, i64 240
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %14, i8 0, i64 24, i1 false)
   tail call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %15, ptr noundef nonnull %16, i64 noundef 6) #14
-  %17 = getelementptr inbounds i8, ptr %0, i64 288
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 288
   store i32 0, ptr %17, align 8
   ret void
 }
@@ -327,7 +327,7 @@ _ZNK4llvm4Pass11getAnalysisINS_10VirtRegMapEEERT_v.exit: ; preds = %.lr.ph.i.i.i
   %60 = phi ptr [ %55, %57 ], [ %70, %59 ]
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 24
   store ptr null, ptr %61, align 8
-  %62 = getelementptr inbounds i8, ptr %60, i64 32
+  %62 = getelementptr inbounds nuw i8, ptr %60, i64 32
   %63 = getelementptr inbounds i8, ptr %60, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %60, i8 0, i64 16, i1 false)
   tail call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %62, ptr noundef nonnull %63, i64 noundef 4) #14
@@ -421,7 +421,7 @@ define dso_local void @_ZN4llvm13LiveRegMatrix13releaseMemoryEv(ptr nocapture no
   br i1 %.not4, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %0, i64 200
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %5 = zext i32 %3 to i64
   br label %6
 
@@ -429,7 +429,7 @@ define dso_local void @_ZN4llvm13LiveRegMatrix13releaseMemoryEv(ptr nocapture no
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZN4llvm17LiveIntervalUnion5clearEv.exit ]
   %7 = load ptr, ptr %4, align 8
   %8 = getelementptr inbounds %"class.llvm::LiveIntervalUnion", ptr %7, i64 %indvars.iv
-  %9 = getelementptr inbounds i8, ptr %8, i64 200
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 200
   %10 = load i32, ptr %9, align 8
   %.not.i.i = icmp eq i32 %10, 0
   br i1 %.not.i.i, label %_ZN4llvm17LiveIntervalUnion5clearEv.exit, label %11
@@ -441,7 +441,7 @@ define dso_local void @_ZN4llvm13LiveRegMatrix13releaseMemoryEv(ptr nocapture no
   br label %_ZN4llvm17LiveIntervalUnion5clearEv.exit
 
 _ZN4llvm17LiveIntervalUnion5clearEv.exit:         ; preds = %6, %11
-  %13 = getelementptr inbounds i8, ptr %8, i64 204
+  %13 = getelementptr inbounds nuw i8, ptr %8, i64 204
   store i32 0, ptr %13, align 4
   %14 = load i32, ptr %8, align 8
   %15 = add i32 %14, 1
@@ -718,7 +718,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm13LiveRegMatrix13isPhysRegUsedENS_
   %12 = lshr i32 %11, 12
   %13 = zext nneg i32 %12 to i64
   %14 = getelementptr inbounds i16, ptr %6, i64 %13
-  %15 = getelementptr inbounds i8, ptr %0, i64 200
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %16 = and i32 %11, 4095
   %17 = load ptr, ptr %15, align 8
   br label %18
@@ -773,10 +773,10 @@ define dso_local noundef zeroext i1 @_ZN4llvm13LiveRegMatrix24checkRegMaskInterf
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 216
   store i32 %12, ptr %13, align 8
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 224
-  %15 = getelementptr inbounds i8, ptr %0, i64 288
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 288
   store i32 0, ptr %15, align 8
   %16 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %14) #14
-  %17 = getelementptr inbounds i8, ptr %0, i64 232
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 232
   store i32 0, ptr %17, align 8
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %19 = load ptr, ptr %18, align 8
@@ -785,7 +785,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm13LiveRegMatrix24checkRegMaskInterf
 
 21:                                               ; preds = %.critedge, %7
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 224
-  %23 = getelementptr inbounds i8, ptr %0, i64 288
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 288
   %24 = load i32, ptr %23, align 8
   %25 = icmp eq i32 %24, 0
   br i1 %25, label %37, label %26
@@ -956,7 +956,7 @@ define dso_local noundef nonnull align 8 dereferenceable(172) ptr @_ZN4llvm13Liv
   %7 = getelementptr inbounds %"class.llvm::LiveIntervalUnion::Query", ptr %6, i64 %5
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %9 = load i32, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 200
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr inbounds %"class.llvm::LiveIntervalUnion", ptr %11, i64 %5
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 168
@@ -983,7 +983,7 @@ define dso_local noundef nonnull align 8 dereferenceable(172) ptr @_ZN4llvm13Liv
   store ptr %1, ptr %16, align 8
   %26 = getelementptr inbounds nuw i8, ptr %7, i64 112
   %27 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %26) #14
-  %28 = getelementptr inbounds i8, ptr %7, i64 120
+  %28 = getelementptr inbounds nuw i8, ptr %7, i64 120
   store i32 0, ptr %28, align 8
   %29 = getelementptr inbounds nuw i8, ptr %7, i64 160
   store i8 0, ptr %29, align 8
@@ -1031,10 +1031,10 @@ define dso_local noundef range(i32 0, 4) i32 @_ZN4llvm13LiveRegMatrix17checkInte
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 216
   store i32 %14, ptr %15, align 8
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 224
-  %17 = getelementptr inbounds i8, ptr %0, i64 288
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 288
   store i32 0, ptr %17, align 8
   %18 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %16) #14
-  %19 = getelementptr inbounds i8, ptr %0, i64 232
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 232
   store i32 0, ptr %19, align 8
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %21 = load ptr, ptr %20, align 8
@@ -1043,7 +1043,7 @@ define dso_local noundef range(i32 0, 4) i32 @_ZN4llvm13LiveRegMatrix17checkInte
 
 23:                                               ; preds = %.critedge.i, %9
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 224
-  %25 = getelementptr inbounds i8, ptr %0, i64 288
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 288
   %26 = load i32, ptr %25, align 8
   %27 = icmp eq i32 %26, 0
   br i1 %27, label %_ZN4llvm13LiveRegMatrix24checkRegMaskInterferenceERKNS_12LiveIntervalENS_10MCRegisterE.exit.thread13, label %28
@@ -1089,7 +1089,7 @@ _ZN4llvm13LiveRegMatrix24checkRegMaskInterferenceERKNS_12LiveIntervalENS_10MCReg
 .lr.ph73.split.preheader.i:                       ; preds = %44
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %51 = getelementptr inbounds i8, ptr %0, i64 200
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %52 = load ptr, ptr %spec.select.i, align 8
   %53 = zext i32 %2 to i64
   %54 = getelementptr inbounds %"struct.llvm::MCRegisterDesc", ptr %52, i64 %53, i32 4
@@ -1154,7 +1154,7 @@ _ZN4llvm13LiveRegMatrix24checkRegMaskInterferenceERKNS_12LiveIntervalENS_10MCReg
   store ptr %.sroa.042.067.i, ptr %80, align 8
   %90 = getelementptr inbounds nuw i8, ptr %73, i64 112
   %91 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %90) #14
-  %92 = getelementptr inbounds i8, ptr %73, i64 120
+  %92 = getelementptr inbounds nuw i8, ptr %73, i64 120
   store i32 0, ptr %92, align 8
   %93 = getelementptr inbounds nuw i8, ptr %73, i64 160
   store i8 0, ptr %93, align 8
@@ -1204,7 +1204,7 @@ _ZN4llvm21MCRegUnitMaskIteratorppEv.exit.i:       ; preds = %98, %"_ZZN4llvm13Li
   %116 = and i32 %112, 4095
   %117 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %118 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %119 = getelementptr inbounds i8, ptr %0, i64 200
+  %119 = getelementptr inbounds nuw i8, ptr %0, i64 200
   br label %120
 
 120:                                              ; preds = %_ZN4llvm17MCRegUnitIteratorppEv.exit.i, %.lr.ph78.i
@@ -1240,7 +1240,7 @@ _ZN4llvm21MCRegUnitMaskIteratorppEv.exit.i:       ; preds = %98, %"_ZZN4llvm13Li
   store ptr %1, ptr %130, align 8
   %140 = getelementptr inbounds nuw i8, ptr %123, i64 112
   %141 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %140) #14
-  %142 = getelementptr inbounds i8, ptr %123, i64 120
+  %142 = getelementptr inbounds nuw i8, ptr %123, i64 120
   store i32 0, ptr %142, align 8
   %143 = getelementptr inbounds nuw i8, ptr %123, i64 160
   store i8 0, ptr %143, align 8
@@ -1310,7 +1310,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm13LiveRegMatrix17checkInterferenceE
   %26 = getelementptr inbounds i16, ptr %18, i64 %25
   %27 = and i32 %23, 4095
   %28 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  %29 = getelementptr inbounds i8, ptr %8, i64 32
+  %29 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %30 = getelementptr inbounds i8, ptr %8, i64 48
   %31 = getelementptr inbounds nuw i8, ptr %8, i64 112
   %32 = getelementptr inbounds i8, ptr %8, i64 128
@@ -1319,9 +1319,9 @@ define dso_local noundef zeroext i1 @_ZN4llvm13LiveRegMatrix17checkInterferenceE
   %35 = getelementptr inbounds nuw i8, ptr %8, i64 164
   %36 = getelementptr inbounds nuw i8, ptr %8, i64 168
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %38 = getelementptr inbounds i8, ptr %0, i64 200
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %39 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %40 = getelementptr inbounds i8, ptr %8, i64 120
+  %40 = getelementptr inbounds nuw i8, ptr %8, i64 120
   br label %41
 
 41:                                               ; preds = %.lr.ph, %_ZN4llvm17MCRegUnitIteratorppEv.exit
@@ -1439,7 +1439,7 @@ define dso_local i32 @_ZNK4llvm13LiveRegMatrix10getOneVRegEj(ptr nocapture nound
   %13 = zext nneg i32 %12 to i64
   %14 = getelementptr inbounds i16, ptr %6, i64 %13
   %15 = and i32 %11, 4095
-  %16 = getelementptr inbounds i8, ptr %0, i64 200
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 200
   br label %17
 
 17:                                               ; preds = %.lr.ph, %_ZN4llvm17MCRegUnitIteratorppEv.exit
@@ -1543,7 +1543,7 @@ _ZNSt10unique_ptrIA_N4llvm17LiveIntervalUnion5QueryESt14default_deleteIS3_EED2Ev
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 192
   tail call void @_ZN4llvm17LiveIntervalUnion5Array5clearEv(ptr noundef nonnull align 8 dereferenceable(16) %32) #14
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %34 = getelementptr inbounds i8, ptr %0, i64 96
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store ptr null, ptr %33, align 8
   tail call void @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EED2Ev(ptr noundef nonnull align 8 dereferenceable(96) %34) #14
   tail call void @_ZN4llvm4PassD2Ev(ptr noundef nonnull align 8 dereferenceable(28) %0) #14

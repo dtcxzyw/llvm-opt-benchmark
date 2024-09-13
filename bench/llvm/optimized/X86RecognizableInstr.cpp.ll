@@ -933,14 +933,14 @@ _ZNK4llvm9StringRef3strB5cxx11Ev.exit:            ; preds = %15, %16
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 73
   store i8 0, ptr %18, align 1
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %20 = getelementptr inbounds i8, ptr %2, i64 72
+  %20 = getelementptr inbounds nuw i8, ptr %2, i64 72
   store ptr %20, ptr %19, align 8
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 88
   store i16 %3, ptr %21, align 8
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %23 = zext i16 %3 to i64
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 144
-  %25 = getelementptr inbounds i8, ptr %1, i64 152
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 152
   %26 = load ptr, ptr %25, align 8
   %27 = load ptr, ptr %24, align 8
   %28 = ptrtoint ptr %26 to i64

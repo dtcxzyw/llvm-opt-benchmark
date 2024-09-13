@@ -80,7 +80,7 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_123ItaniumNumberingContextESt14default_deleteIS1
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr %1, ptr %4, align 8, !noalias !4
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %6 = getelementptr inbounds i8, ptr %2, i64 44
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 44
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %5, i8 0, i64 20, i1 false), !noalias !4
   store i32 16, ptr %6, align 4, !noalias !4
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 48
@@ -200,17 +200,17 @@ define internal noundef i32 @_ZNK12_GLOBAL__N_113ItaniumCXXABI24getDefaultMethod
   br i1 %1, label %19, label %7
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %6, i64 260
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 260
   %9 = load i32, ptr %8, align 4
   %10 = icmp eq i32 %9, 14
-  %11 = getelementptr inbounds i8, ptr %6, i64 264
+  %11 = getelementptr inbounds nuw i8, ptr %6, i64 264
   %12 = load i32, ptr %11, align 8
   %13 = icmp eq i32 %12, 1
   %14 = select i1 %10, i1 %13, i1 false
   br i1 %14, label %15, label %19
 
 15:                                               ; preds = %7
-  %16 = getelementptr inbounds i8, ptr %6, i64 248
+  %16 = getelementptr inbounds nuw i8, ptr %6, i64 248
   %17 = load i32, ptr %16, align 8
   %18 = icmp eq i32 %17, 37
   br i1 %18, label %24, label %19
@@ -293,7 +293,7 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_127ItaniumSYCLNumberingContextESt14default_delet
   %14 = getelementptr inbounds nuw i8, ptr %12, i64 16
   store ptr %11, ptr %14, align 8, !noalias !7
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 24
-  %16 = getelementptr inbounds i8, ptr %12, i64 44
+  %16 = getelementptr inbounds nuw i8, ptr %12, i64 44
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %15, i8 0, i64 20, i1 false), !noalias !7
   store i32 16, ptr %16, align 4, !noalias !7
   %17 = getelementptr inbounds nuw i8, ptr %12, i64 48
@@ -316,7 +316,7 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_123ItaniumNumberingContextESt14default_deleteIS1
   %24 = getelementptr inbounds nuw i8, ptr %22, i64 16
   store ptr %11, ptr %24, align 8, !noalias !10
   %25 = getelementptr inbounds nuw i8, ptr %22, i64 24
-  %26 = getelementptr inbounds i8, ptr %22, i64 44
+  %26 = getelementptr inbounds nuw i8, ptr %22, i64 44
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %25, i8 0, i64 20, i1 false), !noalias !10
   store i32 16, ptr %26, align 4, !noalias !10
   %27 = getelementptr inbounds nuw i8, ptr %22, i64 48
@@ -411,7 +411,7 @@ define linkonce_odr hidden noundef ptr @_ZNK5clang12RedeclarableINS_7TagDeclEE8D
 
 15:                                               ; preds = %10
   %16 = getelementptr inbounds nuw i8, ptr %12, i64 2144
-  %17 = getelementptr inbounds i8, ptr %12, i64 2224
+  %17 = getelementptr inbounds nuw i8, ptr %12, i64 2224
   %18 = load i64, ptr %17, align 8
   %19 = add i64 %18, 24
   store i64 %19, ptr %17, align 8
@@ -420,7 +420,7 @@ define linkonce_odr hidden noundef ptr @_ZNK5clang12RedeclarableINS_7TagDeclEE8D
   %22 = add i64 %21, 7
   %23 = and i64 %22, -8
   %24 = add i64 %23, 24
-  %25 = getelementptr inbounds i8, ptr %12, i64 2152
+  %25 = getelementptr inbounds nuw i8, ptr %12, i64 2152
   %26 = load ptr, ptr %25, align 8
   %27 = ptrtoint ptr %26 to i64
   %.not.i.i.i.i.i.i = icmp ugt i64 %24, %27
@@ -559,7 +559,7 @@ define internal void @_ZN12_GLOBAL__N_127ItaniumSYCLNumberingContextD2Ev(ptr noc
   store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_127ItaniumSYCLNumberingContextE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 144
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %5 = load i32, ptr %4, align 8
   %6 = zext i32 %5 to i64
   %7 = shl nuw nsw i64 %6, 4
@@ -573,7 +573,7 @@ define internal void @_ZN12_GLOBAL__N_127ItaniumSYCLNumberingContextD0Ev(ptr nou
   store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_127ItaniumSYCLNumberingContextE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 144
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %5 = load i32, ptr %4, align 8
   %6 = zext i32 %5 to i64
   %7 = shl nuw nsw i64 %6, 4
@@ -590,7 +590,7 @@ define internal noundef i32 @_ZN12_GLOBAL__N_127ItaniumSYCLNumberingContext17get
   %4 = tail call noundef i32 @_ZN12_GLOBAL__N_123ItaniumNumberingContext17getManglingNumberEPKN5clang13CXXMethodDeclE(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef %1)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %6 = load ptr, ptr %5, align 8, !noalias !14
-  %7 = getelementptr inbounds i8, ptr %0, i64 144
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %8 = load i32, ptr %7, align 8, !noalias !14
   %9 = icmp eq i32 %8, 0
   br i1 %9, label %35, label %10
@@ -756,7 +756,7 @@ _ZN4llvm12DenseMapInfoIN12_GLOBAL__N_121DecompositionDeclNameEvE7isEqualES2_S2_.
 
 53:                                               ; preds = %_ZN4llvm12DenseMapInfoIN12_GLOBAL__N_121DecompositionDeclNameEvE7isEqualES2_S2_.exit.sink.split.i.i.i.i
   store i32 0, ptr %25, align 8
-  %54 = getelementptr inbounds i8, ptr %0, i64 116
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 116
   store i32 0, ptr %54, align 4
   %.val6.i.i.i.i.i.i = load i32, ptr %20, align 8
   %55 = zext i32 %.val6.i.i.i.i.i.i to i64
@@ -778,7 +778,7 @@ _ZN4llvm12DenseMapInfoIN12_GLOBAL__N_121DecompositionDeclNameEvE7isEqualES2_S2_.
   %60 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.482", ptr %35, i64 %59
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   store i32 0, ptr %25, align 8
-  %61 = getelementptr inbounds i8, ptr %0, i64 116
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 116
   store i32 0, ptr %61, align 4
   %.val6.i.i.i.i.i.i.i = load i32, ptr %20, align 8
   %62 = zext i32 %.val6.i.i.i.i.i.i.i to i64
@@ -923,7 +923,7 @@ _ZN12_GLOBAL__N_129findAnonymousUnionVarDeclNameERKN5clang7VarDeclE.exit: ; pred
   %114 = phi ptr [ %.0.i, %_ZN12_GLOBAL__N_129findAnonymousUnionVarDeclNameERKN5clang7VarDeclE.exit ], [ %91, %85 ]
   %115 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %116 = load ptr, ptr %115, align 8
-  %117 = getelementptr inbounds i8, ptr %0, i64 72
+  %117 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %118 = load i32, ptr %117, align 8
   %119 = icmp eq i32 %118, 0
   br i1 %119, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang14IdentifierInfoEjNS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_jEEEES5_jS7_SA_E15LookupBucketForIS5_EEbRKT_RPSA_.exit.i.i, label %120
@@ -1005,7 +1005,7 @@ define internal noundef i32 @_ZN12_GLOBAL__N_123ItaniumNumberingContext17getMang
   %.0.i.i = select i1 %9, ptr %11, ptr null
   store ptr %.0.i.i, ptr %4, align 8
   %12 = load ptr, ptr %5, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 96
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %14 = load i32, ptr %13, align 8
   %15 = icmp eq i32 %14, 0
   br i1 %15, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang14IdentifierInfoEjNS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_jEEEES5_jS7_SA_E15LookupBucketForIS5_EEbRKT_RPSA_.exit.i.i, label %16
@@ -1074,7 +1074,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang14IdentifierInfoEjNS_12DenseMapInfo
 define internal noundef i32 @_ZN12_GLOBAL__N_127ItaniumSYCLNumberingContext23getDeviceManglingNumberEPKN5clang13CXXMethodDeclE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(152) %0, ptr noundef %1) unnamed_addr #9 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 144
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %6 = load i32, ptr %5, align 8
   %7 = icmp eq i32 %6, 0
   br i1 %7, label %.loopexit.i, label %8
@@ -1134,26 +1134,26 @@ define internal void @_ZN12_GLOBAL__N_123ItaniumNumberingContextD2Ev(ptr nocaptu
   tail call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef %.val, i64 noundef %5, i64 noundef 8) #15
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 96
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %9 = load i32, ptr %8, align 8
   %10 = zext i32 %9 to i64
   %11 = shl nuw nsw i64 %10, 4
   tail call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef %7, i64 noundef %11, i64 noundef 8) #15
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 72
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %15 = load i32, ptr %14, align 8
   %16 = zext i32 %15 to i64
   %17 = shl nuw nsw i64 %16, 4
   tail call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef %13, i64 noundef %17, i64 noundef 8) #15
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %19 = getelementptr inbounds i8, ptr %0, i64 36
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %20 = load i32, ptr %19, align 4
   %21 = icmp eq i32 %20, 0
   br i1 %21, label %_ZN4llvm9StringMapIjNS_15MallocAllocatorEED2Ev.exit, label %22
 
 22:                                               ; preds = %1
-  %23 = getelementptr inbounds i8, ptr %0, i64 32
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %24 = load i32, ptr %23, align 8
   %.not10.i = icmp eq i32 %24, 0
   br i1 %.not10.i, label %_ZN4llvm9StringMapIjNS_15MallocAllocatorEED2Ev.exit, label %.lr.ph.preheader.i

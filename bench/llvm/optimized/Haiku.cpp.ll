@@ -470,7 +470,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPKcLb1EE9push_backES2_.exit91: ; preds = %120,
   br label %130
 
 130:                                              ; preds = %_ZN4llvm23SmallVectorTemplateBaseIPKcLb1EE9push_backES2_.exit91, %_ZN4llvm23SmallVectorTemplateBaseIPKcLb1EE9push_backES2_.exit89
-  %131 = getelementptr inbounds i8, ptr %40, i64 48
+  %131 = getelementptr inbounds nuw i8, ptr %40, i64 48
   %132 = load i32, ptr %131, align 8
   %133 = icmp eq i32 %132, 28
   br i1 %133, label %134, label %155
@@ -1565,7 +1565,7 @@ define hidden void @_ZN5clang6driver10toolchains5HaikuC2ERKNS0_6DriverERKN4llvm6
   br i1 %39, label %40, label %46
 
 40:                                               ; preds = %4
-  %41 = getelementptr inbounds i8, ptr %0, i64 2240
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 2240
   %42 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %41) #10
   %43 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %41) #10
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5)

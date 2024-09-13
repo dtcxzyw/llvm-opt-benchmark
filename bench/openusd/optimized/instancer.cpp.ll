@@ -77,7 +77,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__11HdInstancerC2EPNS_15HdSceneD
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathC2ERKS0_.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathC2ERKS0_.exit: ; preds = %3, %7
-  %18 = getelementptr inbounds i8, ptr %0, i64 20
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %19 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %20 = load i32, ptr %19, align 4
   store i32 %20, ptr %18, align 4
@@ -227,7 +227,7 @@ define noundef i32 @_ZN32pxrInternal_v0_24__pxrReserved__11HdInstancer21GetInsta
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = atomicrmw add ptr %15, i32 1 monotonic, align 4
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  %18 = getelementptr inbounds i8, ptr %1, i64 12
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %storemerge12 = load i32, ptr %18, align 4
   store i32 %storemerge12, ptr %17, align 4
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -937,7 +937,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__22Sdf_PathNodeHandleImplINS_8Sdf_PoolINS_15
   unreachable
 
 86:                                               ; preds = %82, %69, %_ZN32pxrInternal_v0_24__pxrReserved__22Sdf_PathNodeHandleImplINS_8Sdf_PoolINS_15Sdf_PathPrimTagELj24ELj8ELj16384EE6HandleELb1EKNS_12Sdf_PathNodeEEC2ERKS7_.exit.i.i, %51
-  %87 = getelementptr inbounds i8, ptr %31, i64 28
+  %87 = getelementptr inbounds nuw i8, ptr %31, i64 28
   %88 = load i32, ptr %87, align 4
   store i32 %88, ptr %23, align 4
   %89 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %36) #14
@@ -1110,7 +1110,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__22Sdf_PathNodeHandleImplINS_8Sdf_PoolINS_15
   unreachable
 
 _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathaSERKS0_.exit: ; preds = %.thread, %26, %_ZN32pxrInternal_v0_24__pxrReserved__22Sdf_PathNodeHandleImplINS_8Sdf_PoolINS_15Sdf_PathPrimTagELj24ELj8ELj16384EE6HandleELb1EKNS_12Sdf_PathNodeEEC2ERKS7_.exit.i.i, %45, %59
-  %63 = getelementptr inbounds i8, ptr %0, i64 28
+  %63 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %64 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %65 = load i32, ptr %64, align 4
   store i32 %65, ptr %63, align 4

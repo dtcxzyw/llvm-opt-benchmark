@@ -159,7 +159,7 @@ _ZN4llvmL18isPGSOColdCodeOnlyEPNS_18ProfileSummaryInfoE.exit.thread: ; preds = %
   br i1 %45, label %46, label %_ZNK4llvm18ProfileSummaryInfo25isFunctionColdInCallGraphINS_15MachineFunctionEKNS_25MachineBlockFrequencyInfoEEEbPKT_RT0_.exit
 
 46:                                               ; preds = %43, %39
-  %47 = getelementptr inbounds i8, ptr %0, i64 328
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 328
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 320
   %.sroa.011.018.i = load ptr, ptr %47, align 8
   %.not1719.i = icmp eq ptr %.sroa.011.018.i, %48
@@ -500,7 +500,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK4llvm18ProfileSummaryInfo38is
   br i1 %15, label %16, label %_ZNK4llvm18ProfileSummaryInfo43isFunctionHotOrColdInCallGraphNthPercentileILb0ENS_15MachineFunctionEKNS_25MachineBlockFrequencyInfoEEEbiPKT0_RT1_.exit
 
 16:                                               ; preds = %13, %9
-  %17 = getelementptr inbounds i8, ptr %2, i64 328
+  %17 = getelementptr inbounds nuw i8, ptr %2, i64 328
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 320
   %.sroa.013.020.i = load ptr, ptr %17, align 8
   %.not1921.i = icmp eq ptr %.sroa.013.020.i, %18
@@ -554,7 +554,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK4llvm18ProfileSummaryInfo37is
   br i1 %15, label %_ZNK4llvm18ProfileSummaryInfo43isFunctionHotOrColdInCallGraphNthPercentileILb1ENS_15MachineFunctionEKNS_25MachineBlockFrequencyInfoEEEbiPKT0_RT1_.exit, label %16
 
 16:                                               ; preds = %13, %9
-  %17 = getelementptr inbounds i8, ptr %2, i64 328
+  %17 = getelementptr inbounds nuw i8, ptr %2, i64 328
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 320
   %.sroa.013.020.i = load ptr, ptr %17, align 8
   %.not1921.i = icmp eq ptr %.sroa.013.020.i, %18

@@ -165,7 +165,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit.thread:         ; preds = %_ZN4llvmeqENS_9Stri
   call void @_ZN4llvm15X86Disassembler18DisassemblerTablesC1Ev(ptr noundef nonnull align 8 dereferenceable(169) %10) #6
   %28 = getelementptr inbounds nuw i8, ptr %5, i64 696
   %29 = load ptr, ptr %28, align 8
-  %30 = getelementptr inbounds i8, ptr %5, i64 704
+  %30 = getelementptr inbounds nuw i8, ptr %5, i64 704
   %31 = load ptr, ptr %30, align 8
   %32 = icmp eq ptr %29, %31
   br i1 %32, label %33, label %_ZNK4llvm13CodeGenTarget26getInstructionsByEnumValueEv.exit
@@ -244,7 +244,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit20:              ; preds = %_ZN4llvmeqENS_9Stri
 _ZN4llvmeqENS_9StringRefES0_.exit20.thread:       ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit20
   %62 = getelementptr inbounds nuw i8, ptr %5, i64 696
   %63 = load ptr, ptr %62, align 8
-  %64 = getelementptr inbounds i8, ptr %5, i64 704
+  %64 = getelementptr inbounds nuw i8, ptr %5, i64 704
   %65 = load ptr, ptr %64, align 8
   %66 = icmp eq ptr %63, %65
   br i1 %66, label %67, label %_ZNK4llvm13CodeGenTarget26getInstructionsByEnumValueEv.exit25

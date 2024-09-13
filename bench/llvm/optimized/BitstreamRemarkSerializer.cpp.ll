@@ -249,14 +249,14 @@ define dso_local void @_ZN4llvm7remarks31BitstreamRemarkSerializerHelperC2ENS0_2
   %7 = getelementptr inbounds i8, ptr %0, i64 1600
   tail call void @_ZN4llvm15SmallVectorBaseImEC2EPvm(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull %7, i64 noundef 0) #14
   store ptr %0, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 1608
-  %9 = getelementptr inbounds i8, ptr %0, i64 1632
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 1608
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 1632
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, i8 0, i64 24, i1 false)
   store i32 2, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 1636
-  %11 = getelementptr inbounds i8, ptr %0, i64 1672
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 1636
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 1672
   store i8 0, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 1680
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 1680
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %10, i8 0, i64 28, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %12, i8 0, i64 48, i1 false)
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 1728
@@ -587,7 +587,7 @@ define linkonce_odr hidden noundef i32 @_ZN4llvm15BitstreamWriter19EmitBlockInfo
   tail call void @_ZN4llvm15BitstreamWriter12EncodeAbbrevERKNS_13BitCodeAbbrevE(ptr noundef nonnull align 8 dereferenceable(152) %0, ptr noundef nonnull align 8 dereferenceable(528) %4)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 136
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %8 = load ptr, ptr %7, align 8
   %9 = icmp eq ptr %6, %8
   br i1 %9, label %.loopexit.i, label %10
@@ -610,7 +610,7 @@ define linkonce_odr hidden noundef i32 @_ZN4llvm15BitstreamWriter19EmitBlockInfo
   br i1 %.not.i.i, label %.loopexit.i, label %.lr.ph.i.i
 
 .loopexit.i:                                      ; preds = %16, %3
-  %18 = getelementptr inbounds i8, ptr %0, i64 144
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %19 = load ptr, ptr %18, align 8
   %.not.i6.i = icmp eq ptr %8, %19
   br i1 %.not.i6.i, label %23, label %20
@@ -638,9 +638,9 @@ _ZNSt6vectorIN4llvm15BitstreamWriter9BlockInfoESaIS2_EE12emplace_backIJEEERS2_Dp
 _ZN4llvm15BitstreamWriter20getOrCreateBlockInfoEj.exit: ; preds = %.lr.ph.i.i, %10, %_ZNSt6vectorIN4llvm15BitstreamWriter9BlockInfoESaIS2_EE12emplace_backIJEEERS2_DpOT_.exit.i
   %.0.i = phi ptr [ %27, %_ZNSt6vectorIN4llvm15BitstreamWriter9BlockInfoESaIS2_EE12emplace_backIJEEERS2_DpOT_.exit.i ], [ %11, %10 ], [ %.sroa.07.011.i.i, %.lr.ph.i.i ]
   %28 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
-  %29 = getelementptr inbounds i8, ptr %.0.i, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %.0.i, i64 16
   %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %.0.i, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %.0.i, i64 24
   %32 = load ptr, ptr %31, align 8
   %.not.i.i4 = icmp eq ptr %30, %32
   br i1 %.not.i.i4, label %40, label %33
@@ -900,7 +900,7 @@ _ZNSt10shared_ptrIN4llvm13BitCodeAbbrevEED2Ev.exit16: ; preds = %87, %99, %_ZNSt
 define dso_local void @_ZN4llvm7remarks31BitstreamRemarkSerializerHelper21emitMetaRemarkVersionEm(ptr noundef nonnull align 8 dereferenceable(1808) %0, i64 noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1048
   %4 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #14
-  %5 = getelementptr inbounds i8, ptr %0, i64 1056
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 1056
   store i32 0, ptr %5, align 8
   %6 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #14
   %7 = add i64 %6, 1
@@ -1175,7 +1175,7 @@ define dso_local void @_ZN4llvm7remarks31BitstreamRemarkSerializerHelper14emitMe
   %4 = alloca %"class.llvm::raw_string_ostream", align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 1048
   %6 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %5) #14
-  %7 = getelementptr inbounds i8, ptr %0, i64 1056
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 1056
   store i32 0, ptr %7, align 8
   %8 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %5) #14
   %9 = add i64 %8, 1
@@ -1456,7 +1456,7 @@ _ZNSt10shared_ptrIN4llvm13BitCodeAbbrevEED2Ev.exit16: ; preds = %87, %99, %_ZNSt
 define dso_local void @_ZN4llvm7remarks31BitstreamRemarkSerializerHelper20emitMetaExternalFileENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(1808) %0, ptr %1, i64 %2) local_unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1048
   %5 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %4) #14
-  %6 = getelementptr inbounds i8, ptr %0, i64 1056
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 1056
   store i32 0, ptr %6, align 8
   %7 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %4) #14
   %8 = add i64 %7, 1
@@ -2758,9 +2758,9 @@ _ZNSt10shared_ptrIN4llvm13BitCodeAbbrevEED2Ev.exit202: ; preds = %577, %589, %_Z
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN4llvm7remarks31BitstreamRemarkSerializerHelper14setupBlockInfoEv(ptr noundef nonnull align 8 dereferenceable(1808) %0) local_unnamed_addr #0 align 2 {
   %2 = alloca i32, align 4
-  %3 = getelementptr inbounds i8, ptr %0, i64 1624
-  %4 = getelementptr inbounds i8, ptr %0, i64 1628
-  %5 = getelementptr inbounds i8, ptr %0, i64 1600
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 1624
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 1628
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 1600
   %6 = getelementptr inbounds i8, ptr %2, i64 4
   %.pre = load i32, ptr %3, align 8
   %.pre6 = load i32, ptr %4, align 4
@@ -2807,11 +2807,11 @@ _ZN4llvm15BitstreamWriter4EmitEjj.exit:           ; preds = %7, %16
 24:                                               ; preds = %_ZN4llvm15BitstreamWriter4EmitEjj.exit
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 1576
   call void @_ZN4llvm15BitstreamWriter13EnterSubblockEjj(ptr noundef nonnull align 8 dereferenceable(152) %25, i32 noundef 0, i32 noundef 2)
-  %26 = getelementptr inbounds i8, ptr %0, i64 1636
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 1636
   store i32 -1, ptr %26, align 4
-  %27 = getelementptr inbounds i8, ptr %0, i64 1704
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 1704
   %28 = load ptr, ptr %27, align 8
-  %29 = getelementptr inbounds i8, ptr %0, i64 1712
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 1712
   %30 = load ptr, ptr %29, align 8
   %.not.i.i.i = icmp eq ptr %30, %28
   br i1 %.not.i.i.i, label %_ZN4llvm15BitstreamWriter19EnterBlockInfoBlockEv.exit, label %31
@@ -2856,7 +2856,7 @@ _ZN4llvm15BitstreamWriter19EnterBlockInfoBlockEv.exit: ; preds = %24, %31
 define linkonce_odr hidden void @_ZN4llvm15BitstreamWriter9ExitBlockEv(ptr noundef nonnull align 8 dereferenceable(152) %0) local_unnamed_addr #0 comdat align 2 {
   %2 = alloca i32, align 4
   %3 = alloca i32, align 4
-  %4 = getelementptr inbounds i8, ptr %0, i64 112
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %7 = load i32, ptr %6, align 8
@@ -2981,7 +2981,7 @@ define dso_local void @_ZN4llvm7remarks31BitstreamRemarkSerializerHelper13emitMe
   tail call void @_ZN4llvm15BitstreamWriter13EnterSubblockEjj(ptr noundef nonnull align 8 dereferenceable(152) %8, i32 noundef 8, i32 noundef 3)
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 1048
   %10 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %9) #14
-  %11 = getelementptr inbounds i8, ptr %0, i64 1056
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 1056
   store i32 0, ptr %11, align 8
   %12 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %9) #14
   %13 = add i64 %12, 1
@@ -3206,9 +3206,9 @@ _ZN4llvm15BitstreamWriter4EmitEjj.exit:           ; preds = %_ZNK4llvm15Bitstrea
   %storemerge6.i = phi i32 [ %68, %63 ], [ %61, %_ZNK4llvm15BitstreamWriter12GetWordIndexEv.exit ]
   store i32 %storemerge6.i, ptr %11, align 8
   store i32 %2, ptr %9, align 8
-  %69 = getelementptr inbounds i8, ptr %0, i64 112
+  %69 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %70 = load ptr, ptr %69, align 8
-  %71 = getelementptr inbounds i8, ptr %0, i64 120
+  %71 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %72 = load ptr, ptr %71, align 8
   %.not.i7 = icmp eq ptr %70, %72
   br i1 %.not.i7, label %78, label %73
@@ -3241,10 +3241,10 @@ _ZNSt6vectorIN4llvm15BitstreamWriter5BlockESaIS2_EE12emplace_backIJRjRmEEERS2_Dp
   %87 = load ptr, ptr %86, align 8
   %88 = load ptr, ptr %82, align 8
   store ptr %88, ptr %81, align 8
-  %89 = getelementptr inbounds i8, ptr %0, i64 72
+  %89 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %90 = load ptr, ptr %89, align 8
   store ptr %90, ptr %84, align 8
-  %91 = getelementptr inbounds i8, ptr %0, i64 80
+  %91 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %92 = load ptr, ptr %91, align 8
   store ptr %92, ptr %86, align 8
   store ptr %83, ptr %82, align 8
@@ -3252,7 +3252,7 @@ _ZNSt6vectorIN4llvm15BitstreamWriter5BlockESaIS2_EE12emplace_backIJRjRmEEERS2_Dp
   store ptr %87, ptr %91, align 8
   %93 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %94 = load ptr, ptr %93, align 8
-  %95 = getelementptr inbounds i8, ptr %0, i64 136
+  %95 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %96 = load ptr, ptr %95, align 8
   %97 = icmp eq ptr %94, %96
   br i1 %97, label %_ZN4llvm15BitstreamWriter12getBlockInfoEj.exit.thread, label %98
@@ -3278,7 +3278,7 @@ _ZN4llvm15BitstreamWriter12getBlockInfoEj.exit:   ; preds = %.lr.ph.i, %98
   %.0.i = phi ptr [ %99, %98 ], [ %.sroa.07.011.i, %.lr.ph.i ]
   %106 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
   %107 = load ptr, ptr %106, align 8
-  %108 = getelementptr inbounds i8, ptr %.0.i, i64 16
+  %108 = getelementptr inbounds nuw i8, ptr %.0.i, i64 16
   %109 = load ptr, ptr %108, align 8
   %110 = ptrtoint ptr %85 to i64
   %111 = ptrtoint ptr %83 to i64
@@ -3304,7 +3304,7 @@ define dso_local void @_ZN4llvm7remarks31BitstreamRemarkSerializerHelper15emitRe
   tail call void @_ZN4llvm15BitstreamWriter13EnterSubblockEjj(ptr noundef nonnull align 8 dereferenceable(152) %11, i32 noundef 9, i32 noundef 4)
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 1048
   %13 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %12) #14
-  %14 = getelementptr inbounds i8, ptr %0, i64 1056
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 1056
   store i32 0, ptr %14, align 8
   %15 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %12) #14
   %16 = add i64 %15, 1
@@ -3431,7 +3431,7 @@ _ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit54: ; preds = %_ZN4llvm
   %80 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %12) #14
   call void @_ZN4llvm15BitstreamWriter24EmitRecordWithAbbrevImplImEEvjNS_8ArrayRefIT_EENS_9StringRefESt8optionalIjE(ptr noundef nonnull align 8 dereferenceable(152) %11, i32 noundef %78, ptr %79, i64 %80, ptr null, i64 0, i64 0)
   %81 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %82 = getelementptr inbounds i8, ptr %1, i64 80
+  %82 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %83 = load i8, ptr %82, align 8
   %84 = trunc i8 %83 to i1
   br i1 %84, label %85, label %140
@@ -3483,7 +3483,7 @@ _ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit58: ; preds = %_ZN4llvm
   %107 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %12) #14
   %108 = add i64 %107, 1
   call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %12, i64 noundef %108) #14
-  %109 = getelementptr inbounds i8, ptr %1, i64 72
+  %109 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %110 = load i32, ptr %109, align 8
   %111 = zext i32 %110 to i64
   %112 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %12) #14
@@ -3505,7 +3505,7 @@ _ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit60: ; preds = %_ZN4llvm
   %120 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %12) #14
   %121 = add i64 %120, 1
   call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %12, i64 noundef %121) #14
-  %122 = getelementptr inbounds i8, ptr %1, i64 76
+  %122 = getelementptr inbounds nuw i8, ptr %1, i64 76
   %123 = load i32, ptr %122, align 4
   %124 = zext i32 %123 to i64
   %125 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %12) #14
@@ -3622,7 +3622,7 @@ _ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit66: ; preds = %_ZN4llvm
   call void @_ZN4llvm7remarks11StringTable3addENS_9StringRefE(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair") align 8 %9, ptr noundef nonnull align 8 dereferenceable(128) %2, ptr %.sroa.03.0.copyload, i64 %.sroa.24.0.copyload) #14
   %182 = load i32, ptr %9, align 8
   %183 = getelementptr inbounds nuw i8, ptr %.083, i64 32
-  %184 = getelementptr inbounds i8, ptr %.083, i64 56
+  %184 = getelementptr inbounds nuw i8, ptr %.083, i64 56
   %185 = load i8, ptr %184, align 8
   %186 = trunc i8 %185 to i1
   %187 = select i1 %186, i64 8, i64 9
@@ -3709,7 +3709,7 @@ _ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit74: ; preds = %217, %22
   %227 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %12) #14
   %228 = add i64 %227, 1
   call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %12, i64 noundef %228) #14
-  %229 = getelementptr inbounds i8, ptr %.083, i64 48
+  %229 = getelementptr inbounds nuw i8, ptr %.083, i64 48
   %230 = load i32, ptr %229, align 8
   %231 = zext i32 %230 to i64
   %232 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %12) #14
@@ -3730,7 +3730,7 @@ _ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit76: ; preds = %_ZN4llvm
   %239 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %12) #14
   %240 = add i64 %239, 1
   call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %12, i64 noundef %240) #14
-  %241 = getelementptr inbounds i8, ptr %.083, i64 52
+  %241 = getelementptr inbounds nuw i8, ptr %.083, i64 52
   %242 = load i32, ptr %241, align 4
   %243 = zext i32 %242 to i64
   %244 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %12) #14
@@ -3803,7 +3803,7 @@ define dso_local void @_ZN4llvm7remarks25BitstreamRemarkSerializerC2ERNS_11raw_o
   store ptr %1, ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 %2, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 160
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 160
   store i8 0, ptr %7, align 8
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4llvm7remarks25BitstreamRemarkSerializerE, i64 16), ptr %0, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 168
@@ -3824,7 +3824,7 @@ define dso_local void @_ZN4llvm7remarks25BitstreamRemarkSerializerC2ERNS_11raw_o
   br label %_ZNSt8optionalIN4llvm7remarks11StringTableEE7emplaceIJEEENSt9enable_ifIX18is_constructible_vIS2_DpT_EERS2_E4typeEDpOS6_.exit
 
 _ZNSt8optionalIN4llvm7remarks11StringTableEE7emplaceIJEEENSt9enable_ifIX18is_constructible_vIS2_DpT_EERS2_E4typeEDpOS6_.exit: ; preds = %3, %13
-  %16 = getelementptr inbounds i8, ptr %0, i64 52
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 52
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %10, i8 0, i64 128, i1 false)
   store i32 16, ptr %16, align 4
   %17 = getelementptr inbounds i8, ptr %0, i64 56
@@ -3838,7 +3838,7 @@ _ZNSt8optionalIN4llvm7remarks11StringTableEE7emplaceIJEEENSt9enable_ifIX18is_con
   store i64 0, ptr %21, align 8
   %22 = getelementptr inbounds i8, ptr %0, i64 144
   store i64 1, ptr %22, align 8
-  %23 = getelementptr inbounds i8, ptr %0, i64 152
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 152
   store i64 0, ptr %23, align 8
   store i8 1, ptr %7, align 8
   ret void
@@ -3852,7 +3852,7 @@ define dso_local void @_ZN4llvm7remarks25BitstreamRemarkSerializerC2ERNS_11raw_o
   store ptr %1, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 %2, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 160
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 160
   store i8 0, ptr %8, align 8
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4llvm7remarks25BitstreamRemarkSerializerE, i64 16), ptr %0, align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 168
@@ -3873,19 +3873,19 @@ define dso_local void @_ZN4llvm7remarks25BitstreamRemarkSerializerC2ERNS_11raw_o
 18:                                               ; preds = %4
   %19 = load ptr, ptr %3, align 8
   store ptr %19, ptr %13, align 8
-  %20 = getelementptr inbounds i8, ptr %0, i64 40
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %21 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %22 = load i32, ptr %21, align 8
   store i32 %22, ptr %20, align 8
-  %23 = getelementptr inbounds i8, ptr %0, i64 44
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %24 = getelementptr inbounds nuw i8, ptr %3, i64 12
   %25 = load i32, ptr %24, align 4
   store i32 %25, ptr %23, align 4
-  %26 = getelementptr inbounds i8, ptr %0, i64 48
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %27 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %28 = load i32, ptr %27, align 8
   store i32 %28, ptr %26, align 8
-  %29 = getelementptr inbounds i8, ptr %0, i64 52
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %30 = getelementptr inbounds nuw i8, ptr %3, i64 20
   %31 = load i32, ptr %30, align 4
   store i32 %31, ptr %29, align 4
@@ -3893,7 +3893,7 @@ define dso_local void @_ZN4llvm7remarks25BitstreamRemarkSerializerC2ERNS_11raw_o
   %32 = getelementptr inbounds i8, ptr %0, i64 56
   %33 = getelementptr inbounds i8, ptr %3, i64 24
   tail call void @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EEC2EOS2_(ptr noundef nonnull align 8 dereferenceable(96) %32, ptr noundef nonnull align 8 dereferenceable(96) %33)
-  %34 = getelementptr inbounds i8, ptr %0, i64 152
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %35 = getelementptr inbounds nuw i8, ptr %3, i64 120
   %36 = load i64, ptr %35, align 8
   store i64 %36, ptr %34, align 8
@@ -3914,7 +3914,7 @@ define dso_local void @_ZN4llvm7remarks25BitstreamRemarkSerializer4emitERKNS0_6R
 
 7:                                                ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %9 = getelementptr inbounds i8, ptr %0, i64 1904
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %10 = load i32, ptr %9, align 8
   %11 = icmp eq i32 %10, 2
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -3925,7 +3925,7 @@ define dso_local void @_ZN4llvm7remarks25BitstreamRemarkSerializer4emitERKNS0_6R
   %15 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %13, ptr %15, align 8
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN4llvm7remarks23BitstreamMetaSerializerE, i64 16), ptr %3, align 8
-  %16 = getelementptr inbounds i8, ptr %3, i64 1824
+  %16 = getelementptr inbounds nuw i8, ptr %3, i64 1824
   store i8 0, ptr %16, align 8
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 1832
   store ptr %8, ptr %17, align 8
@@ -3942,7 +3942,7 @@ define dso_local void @_ZN4llvm7remarks25BitstreamRemarkSerializer4emitERKNS0_6R
   %21 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %8) #14
   %22 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %13, ptr noundef %20, i64 noundef %21) #14
   %23 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %8) #14
-  %24 = getelementptr inbounds i8, ptr %0, i64 184
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 184
   store i64 0, ptr %24, align 8
   store i8 1, ptr %4, align 8
   br label %_ZN4llvm7remarks23BitstreamMetaSerializerD2Ev.exit
@@ -3957,7 +3957,7 @@ _ZN4llvm7remarks23BitstreamMetaSerializerD2Ev.exit: ; preds = %7, %2
   %30 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %25) #14
   %31 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %28, ptr noundef %29, i64 noundef %30) #14
   %32 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %25) #14
-  %33 = getelementptr inbounds i8, ptr %0, i64 184
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 184
   store i64 0, ptr %33, align 8
   ret void
 }
@@ -3988,16 +3988,16 @@ define dso_local void @_ZN4llvm7remarks23BitstreamMetaSerializer4emitEv(ptr noca
 define linkonce_odr hidden void @_ZN4llvm7remarks23BitstreamMetaSerializerD2Ev(ptr noundef nonnull align 8 dereferenceable(1880) %0) unnamed_addr #0 comdat align 2 {
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN4llvm7remarks23BitstreamMetaSerializerE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %3 = getelementptr inbounds i8, ptr %0, i64 1824
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 1824
   %4 = load i8, ptr %3, align 8
   %5 = trunc i8 %4 to i1
   br i1 %5, label %6, label %_ZNSt8optionalIN4llvm7remarks31BitstreamRemarkSerializerHelperEED2Ev.exit
 
 6:                                                ; preds = %1
   store i8 0, ptr %3, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 1592
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 1592
   tail call void @_ZN4llvm15BitstreamWriterD2Ev(ptr noundef nonnull align 8 dereferenceable(152) %7) #14
-  %8 = getelementptr inbounds i8, ptr %0, i64 1064
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 1064
   %9 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %8) #14
   %10 = load ptr, ptr %8, align 8
   %11 = getelementptr inbounds i8, ptr %0, i64 1080
@@ -4026,7 +4026,7 @@ _ZNSt8optionalIN4llvm7remarks31BitstreamRemarkSerializerHelperEED2Ev.exit: ; pre
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN4llvm7remarks25BitstreamRemarkSerializer14metaSerializerERNS_11raw_ostreamESt8optionalINS_9StringRefEE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr") align 8 %0, ptr noundef nonnull align 8 dereferenceable(1984) %1, ptr noundef nonnull align 8 dereferenceable(48) %2, ptr nocapture noundef readonly byval(%"class.std::optional.46") align 8 %3) unnamed_addr #0 align 2 {
 _ZNSt10unique_ptrIN4llvm7remarks23BitstreamMetaSerializerESt14default_deleteIS2_EED2Ev.exit:
-  %4 = getelementptr inbounds i8, ptr %1, i64 1904
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 1904
   %5 = load i32, ptr %4, align 8
   %6 = icmp eq i32 %5, 2
   %7 = select i1 %6, i32 2, i32 0
@@ -4038,7 +4038,7 @@ _ZNSt10unique_ptrIN4llvm7remarks23BitstreamMetaSerializerESt14default_deleteIS2_
   store ptr %2, ptr %11, align 8, !noalias !58
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN4llvm7remarks23BitstreamMetaSerializerE, i64 16), ptr %9, align 8, !noalias !58
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  %13 = getelementptr inbounds i8, ptr %9, i64 1824
+  %13 = getelementptr inbounds nuw i8, ptr %9, i64 1824
   store i8 0, ptr %13, align 8, !noalias !58
   %14 = getelementptr inbounds nuw i8, ptr %9, i64 1832
   store ptr null, ptr %14, align 8, !noalias !58
@@ -4057,16 +4057,16 @@ _ZNSt10unique_ptrIN4llvm7remarks23BitstreamMetaSerializerESt14default_deleteIS2_
 define linkonce_odr hidden void @_ZN4llvm7remarks23BitstreamMetaSerializerD0Ev(ptr noundef nonnull align 8 dereferenceable(1880) %0) unnamed_addr #0 comdat align 2 {
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN4llvm7remarks23BitstreamMetaSerializerE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %3 = getelementptr inbounds i8, ptr %0, i64 1824
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 1824
   %4 = load i8, ptr %3, align 8
   %5 = trunc i8 %4 to i1
   br i1 %5, label %6, label %_ZN4llvm7remarks23BitstreamMetaSerializerD2Ev.exit
 
 6:                                                ; preds = %1
   store i8 0, ptr %3, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 1592
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 1592
   tail call void @_ZN4llvm15BitstreamWriterD2Ev(ptr noundef nonnull align 8 dereferenceable(152) %7) #14
-  %8 = getelementptr inbounds i8, ptr %0, i64 1064
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 1064
   %9 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %8) #14
   %10 = load ptr, ptr %8, align 8
   %11 = getelementptr inbounds i8, ptr %0, i64 1080
@@ -4097,9 +4097,9 @@ _ZN4llvm7remarks23BitstreamMetaSerializerD2Ev.exit: ; preds = %1, %_ZN4llvm11Sma
 define linkonce_odr hidden void @_ZN4llvm7remarks25BitstreamRemarkSerializerD2Ev(ptr noundef nonnull align 8 dereferenceable(1984) %0) unnamed_addr #0 comdat align 2 {
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4llvm7remarks25BitstreamRemarkSerializerE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %3 = getelementptr inbounds i8, ptr %0, i64 1752
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 1752
   tail call void @_ZN4llvm15BitstreamWriterD2Ev(ptr noundef nonnull align 8 dereferenceable(152) %3) #14
-  %4 = getelementptr inbounds i8, ptr %0, i64 1224
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 1224
   %5 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %4) #14
   %6 = load ptr, ptr %4, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 1240
@@ -4123,7 +4123,7 @@ _ZN4llvm11SmallVectorImLj64EED2Ev.exit.i:         ; preds = %9, %1
 
 _ZN4llvm7remarks31BitstreamRemarkSerializerHelperD2Ev.exit: ; preds = %_ZN4llvm11SmallVectorImLj64EED2Ev.exit.i, %14
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4llvm7remarks16RemarkSerializerE, i64 16), ptr %0, align 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 160
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %16 = load i8, ptr %15, align 8
   %17 = trunc i8 %16 to i1
   br i1 %17, label %18, label %_ZN4llvm7remarks16RemarkSerializerD2Ev.exit
@@ -6672,12 +6672,12 @@ _ZNSt12_Vector_baseIN4llvm15BitstreamWriter9BlockInfoESaIS2_EE11_M_allocateEm.ex
   %26 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 8
   %27 = load ptr, ptr %26, align 8, !alias.scope !84, !noalias !81
   store ptr %27, ptr %25, align 8, !alias.scope !81, !noalias !84
-  %28 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 16
-  %29 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 16
+  %28 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 16
   %30 = load ptr, ptr %29, align 8, !alias.scope !84, !noalias !81
   store ptr %30, ptr %28, align 8, !alias.scope !81, !noalias !84
-  %31 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 24
-  %32 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 24
+  %32 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 24
   %33 = load ptr, ptr %32, align 8, !alias.scope !84, !noalias !81
   store ptr %33, ptr %31, align 8, !alias.scope !81, !noalias !84
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %26, i8 0, i64 24, i1 false), !alias.scope !84, !noalias !81
@@ -6703,12 +6703,12 @@ _ZNSt6vectorIN4llvm15BitstreamWriter9BlockInfoESaIS2_EE11_S_relocateEPS2_S5_S5_R
   %39 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i18, i64 8
   %40 = load ptr, ptr %39, align 8, !alias.scope !90, !noalias !87
   store ptr %40, ptr %38, align 8, !alias.scope !87, !noalias !90
-  %41 = getelementptr inbounds i8, ptr %.012.i.i.i17, i64 16
-  %42 = getelementptr inbounds i8, ptr %.0911.i.i.i18, i64 16
+  %41 = getelementptr inbounds nuw i8, ptr %.012.i.i.i17, i64 16
+  %42 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i18, i64 16
   %43 = load ptr, ptr %42, align 8, !alias.scope !90, !noalias !87
   store ptr %43, ptr %41, align 8, !alias.scope !87, !noalias !90
-  %44 = getelementptr inbounds i8, ptr %.012.i.i.i17, i64 24
-  %45 = getelementptr inbounds i8, ptr %.0911.i.i.i18, i64 24
+  %44 = getelementptr inbounds nuw i8, ptr %.012.i.i.i17, i64 24
+  %45 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i18, i64 24
   %46 = load ptr, ptr %45, align 8, !alias.scope !90, !noalias !87
   store ptr %46, ptr %44, align 8, !alias.scope !87, !noalias !90
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %39, i8 0, i64 24, i1 false), !alias.scope !90, !noalias !87
@@ -6880,7 +6880,7 @@ define linkonce_odr hidden void @_ZNSt12_Destroy_auxILb0EE9__destroyIPN4llvm15Bi
   %.05 = phi ptr [ %51, %_ZSt8_DestroyIN4llvm15BitstreamWriter9BlockInfoEEvPT_.exit ], [ %0, %2 ]
   %3 = getelementptr inbounds nuw i8, ptr %.05, i64 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %.05, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %.05, i64 16
   %6 = load ptr, ptr %5, align 8
   %.not4.i.i.i.i.i.i = icmp eq ptr %4, %6
   br i1 %.not4.i.i.i.i.i.i, label %_ZSt8_DestroyIPSt10shared_ptrIN4llvm13BitCodeAbbrevEES3_EvT_S5_RSaIT0_E.exit.i.i.i, label %.lr.ph.i.i.i.i.i.i
@@ -6975,7 +6975,7 @@ _ZSt8_DestroyIPSt10shared_ptrIN4llvm13BitCodeAbbrevEES3_EvT_S5_RSaIT0_E.exit.i.i
   br i1 %.not.i.i.i.i.i, label %_ZSt8_DestroyIN4llvm15BitstreamWriter9BlockInfoEEvPT_.exit, label %45
 
 45:                                               ; preds = %_ZSt8_DestroyIPSt10shared_ptrIN4llvm13BitCodeAbbrevEES3_EvT_S5_RSaIT0_E.exit.i.i.i
-  %46 = getelementptr inbounds i8, ptr %.05, i64 24
+  %46 = getelementptr inbounds nuw i8, ptr %.05, i64 24
   %47 = load ptr, ptr %46, align 8
   %48 = ptrtoint ptr %47 to i64
   %49 = ptrtoint ptr %44 to i64
@@ -7465,7 +7465,7 @@ define linkonce_odr hidden void @_ZN4llvm15BitstreamWriter11FlushToFileEb(ptr no
   br i1 %1, label %_ZN4llvm15BitstreamWriter8fdStreamEv.exit.thread.sink.split, label %10
 
 10:                                               ; preds = %9
-  %11 = getelementptr inbounds i8, ptr %0, i64 96
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %12 = load i8, ptr %11, align 8
   %13 = trunc i8 %12 to i1
   br i1 %13, label %_ZN4llvm15BitstreamWriter8fdStreamEv.exit.thread, label %14
@@ -8060,12 +8060,12 @@ _ZNSt12_Vector_baseIN4llvm15BitstreamWriter5BlockESaIS2_EE11_M_allocateEm.exit: 
   %31 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 16
   %32 = load ptr, ptr %31, align 8, !alias.scope !116, !noalias !113
   store ptr %32, ptr %30, align 8, !alias.scope !113, !noalias !116
-  %33 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 24
-  %34 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 24
+  %33 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 24
+  %34 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 24
   %35 = load ptr, ptr %34, align 8, !alias.scope !116, !noalias !113
   store ptr %35, ptr %33, align 8, !alias.scope !113, !noalias !116
-  %36 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 32
-  %37 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 32
+  %36 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 32
+  %37 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 32
   %38 = load ptr, ptr %37, align 8, !alias.scope !116, !noalias !113
   store ptr %38, ptr %36, align 8, !alias.scope !113, !noalias !116
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %31, i8 0, i64 24, i1 false), !alias.scope !116, !noalias !113
@@ -8090,12 +8090,12 @@ _ZNSt6vectorIN4llvm15BitstreamWriter5BlockESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.
   %43 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i20, i64 16
   %44 = load ptr, ptr %43, align 8, !alias.scope !123, !noalias !120
   store ptr %44, ptr %42, align 8, !alias.scope !120, !noalias !123
-  %45 = getelementptr inbounds i8, ptr %.012.i.i.i19, i64 24
-  %46 = getelementptr inbounds i8, ptr %.0911.i.i.i20, i64 24
+  %45 = getelementptr inbounds nuw i8, ptr %.012.i.i.i19, i64 24
+  %46 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i20, i64 24
   %47 = load ptr, ptr %46, align 8, !alias.scope !123, !noalias !120
   store ptr %47, ptr %45, align 8, !alias.scope !120, !noalias !123
-  %48 = getelementptr inbounds i8, ptr %.012.i.i.i19, i64 32
-  %49 = getelementptr inbounds i8, ptr %.0911.i.i.i20, i64 32
+  %48 = getelementptr inbounds nuw i8, ptr %.012.i.i.i19, i64 32
+  %49 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i20, i64 32
   %50 = load ptr, ptr %49, align 8, !alias.scope !123, !noalias !120
   store ptr %50, ptr %48, align 8, !alias.scope !120, !noalias !123
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %43, i8 0, i64 24, i1 false), !alias.scope !123, !noalias !120
@@ -8574,7 +8574,7 @@ _ZNSt12_Vector_baseISt10shared_ptrIN4llvm13BitCodeAbbrevEESaIS3_EE13_M_deallocat
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvm7remarks16RemarkSerializerD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %0) unnamed_addr #0 comdat align 2 {
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4llvm7remarks16RemarkSerializerE, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 160
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %3 = load i8, ptr %2, align 8
   %4 = trunc i8 %3 to i1
   br i1 %4, label %5, label %_ZNSt8optionalIN4llvm7remarks11StringTableEED2Ev.exit
@@ -8654,7 +8654,7 @@ _ZN4llvm15BitstreamWriter11FlushToWordEv.exit:    ; preds = %1, %5
 _ZN4llvm15BitstreamWriter11FlushToFileEb.exit:    ; preds = %_ZN4llvm15BitstreamWriter11FlushToWordEv.exit, %13, %17
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %27 = load ptr, ptr %26, align 8
-  %28 = getelementptr inbounds i8, ptr %0, i64 136
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %29 = load ptr, ptr %28, align 8
   call void @_ZNSt12_Destroy_auxILb0EE9__destroyIPN4llvm15BitstreamWriter9BlockInfoEEEvT_S6_(ptr noundef %27, ptr noundef %29)
   %30 = load ptr, ptr %26, align 8
@@ -8662,7 +8662,7 @@ _ZN4llvm15BitstreamWriter11FlushToFileEb.exit:    ; preds = %_ZN4llvm15Bitstream
   br i1 %.not.i.i.i, label %_ZNSt6vectorIN4llvm15BitstreamWriter9BlockInfoESaIS2_EED2Ev.exit, label %31
 
 31:                                               ; preds = %_ZN4llvm15BitstreamWriter11FlushToFileEb.exit
-  %32 = getelementptr inbounds i8, ptr %0, i64 144
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %33 = load ptr, ptr %32, align 8
   %34 = ptrtoint ptr %33 to i64
   %35 = ptrtoint ptr %30 to i64
@@ -8673,7 +8673,7 @@ _ZN4llvm15BitstreamWriter11FlushToFileEb.exit:    ; preds = %_ZN4llvm15Bitstream
 _ZNSt6vectorIN4llvm15BitstreamWriter9BlockInfoESaIS2_EED2Ev.exit: ; preds = %_ZN4llvm15BitstreamWriter11FlushToFileEb.exit, %31
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %38 = load ptr, ptr %37, align 8
-  %39 = getelementptr inbounds i8, ptr %0, i64 112
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %40 = load ptr, ptr %39, align 8
   call void @_ZNSt12_Destroy_auxILb0EE9__destroyIPN4llvm15BitstreamWriter5BlockEEEvT_S6_(ptr noundef %38, ptr noundef %40)
   %41 = load ptr, ptr %37, align 8
@@ -8681,7 +8681,7 @@ _ZNSt6vectorIN4llvm15BitstreamWriter9BlockInfoESaIS2_EED2Ev.exit: ; preds = %_ZN
   br i1 %.not.i.i.i2, label %_ZNSt6vectorIN4llvm15BitstreamWriter5BlockESaIS2_EED2Ev.exit, label %42
 
 42:                                               ; preds = %_ZNSt6vectorIN4llvm15BitstreamWriter9BlockInfoESaIS2_EED2Ev.exit
-  %43 = getelementptr inbounds i8, ptr %0, i64 120
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %44 = load ptr, ptr %43, align 8
   %45 = ptrtoint ptr %44 to i64
   %46 = ptrtoint ptr %41 to i64
@@ -8692,7 +8692,7 @@ _ZNSt6vectorIN4llvm15BitstreamWriter9BlockInfoESaIS2_EED2Ev.exit: ; preds = %_ZN
 _ZNSt6vectorIN4llvm15BitstreamWriter5BlockESaIS2_EED2Ev.exit: ; preds = %_ZNSt6vectorIN4llvm15BitstreamWriter9BlockInfoESaIS2_EED2Ev.exit, %42
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %49 = load ptr, ptr %48, align 8
-  %50 = getelementptr inbounds i8, ptr %0, i64 72
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %51 = load ptr, ptr %50, align 8
   %.not4.i.i.i.i = icmp eq ptr %49, %51
   br i1 %.not4.i.i.i.i, label %_ZSt8_DestroyIPSt10shared_ptrIN4llvm13BitCodeAbbrevEES3_EvT_S5_RSaIT0_E.exit.i, label %.lr.ph.i.i.i.i
@@ -8787,7 +8787,7 @@ _ZSt8_DestroyIPSt10shared_ptrIN4llvm13BitCodeAbbrevEES3_EvT_S5_RSaIT0_E.exit.i: 
   br i1 %.not.i.i.i3, label %_ZNSt6vectorISt10shared_ptrIN4llvm13BitCodeAbbrevEESaIS3_EED2Ev.exit, label %90
 
 90:                                               ; preds = %_ZSt8_DestroyIPSt10shared_ptrIN4llvm13BitCodeAbbrevEES3_EvT_S5_RSaIT0_E.exit.i
-  %91 = getelementptr inbounds i8, ptr %0, i64 80
+  %91 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %92 = load ptr, ptr %91, align 8
   %93 = ptrtoint ptr %92 to i64
   %94 = ptrtoint ptr %89 to i64
@@ -8819,7 +8819,7 @@ define linkonce_odr hidden void @_ZNSt12_Destroy_auxILb0EE9__destroyIPN4llvm15Bi
   %.05 = phi ptr [ %51, %_ZSt8_DestroyIN4llvm15BitstreamWriter5BlockEEvPT_.exit ], [ %0, %2 ]
   %3 = getelementptr inbounds nuw i8, ptr %.05, i64 16
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %.05, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %.05, i64 24
   %6 = load ptr, ptr %5, align 8
   %.not4.i.i.i.i.i.i = icmp eq ptr %4, %6
   br i1 %.not4.i.i.i.i.i.i, label %_ZSt8_DestroyIPSt10shared_ptrIN4llvm13BitCodeAbbrevEES3_EvT_S5_RSaIT0_E.exit.i.i.i, label %.lr.ph.i.i.i.i.i.i
@@ -8914,7 +8914,7 @@ _ZSt8_DestroyIPSt10shared_ptrIN4llvm13BitCodeAbbrevEES3_EvT_S5_RSaIT0_E.exit.i.i
   br i1 %.not.i.i.i.i.i, label %_ZSt8_DestroyIN4llvm15BitstreamWriter5BlockEEvPT_.exit, label %45
 
 45:                                               ; preds = %_ZSt8_DestroyIPSt10shared_ptrIN4llvm13BitCodeAbbrevEES3_EvT_S5_RSaIT0_E.exit.i.i.i
-  %46 = getelementptr inbounds i8, ptr %.05, i64 32
+  %46 = getelementptr inbounds nuw i8, ptr %.05, i64 32
   %47 = load ptr, ptr %46, align 8
   %48 = ptrtoint ptr %47 to i64
   %49 = ptrtoint ptr %44 to i64
@@ -9089,10 +9089,10 @@ _ZN4llvm11SmallVectorISt4pairIPvmELj0EEC2EOS4_.exit: ; preds = %_ZN4llvm11SmallV
   store i64 0, ptr %19, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1, i8 0, i64 16, i1 false)
   %24 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %8) #14
-  %25 = getelementptr inbounds i8, ptr %1, i64 24
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store i32 0, ptr %25, align 8
   %26 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %14) #14
-  %27 = getelementptr inbounds i8, ptr %1, i64 72
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 72
   store i32 0, ptr %27, align 8
   ret void
 }
@@ -9169,7 +9169,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE26Deall
   br i1 %40, label %42, label %44
 
 42:                                               ; preds = %39
-  %43 = getelementptr inbounds i8, ptr %0, i64 72
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 72
   br label %.sink.split.i
 
 44:                                               ; preds = %39
@@ -9184,13 +9184,13 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE26Deall
 _ZN4llvm15SmallVectorImplISt4pairIPvmEE12assignRemoteEOS4_.exit.i: ; preds = %47, %44
   %48 = load ptr, ptr %37, align 8
   store ptr %48, ptr %17, align 8
-  %49 = getelementptr inbounds i8, ptr %1, i64 72
+  %49 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %50 = load i32, ptr %49, align 8
-  %51 = getelementptr inbounds i8, ptr %0, i64 72
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store i32 %50, ptr %51, align 8
-  %52 = getelementptr inbounds i8, ptr %1, i64 76
+  %52 = getelementptr inbounds nuw i8, ptr %1, i64 76
   %53 = load i32, ptr %52, align 4
-  %54 = getelementptr inbounds i8, ptr %0, i64 76
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 76
   store i32 %53, ptr %54, align 4
   store ptr %29, ptr %37, align 8
   store i32 0, ptr %52, align 4
@@ -9205,10 +9205,10 @@ _ZN4llvm11SmallVectorISt4pairIPvmELj0EEaSEOS4_.exit: ; preds = %_ZN4llvm20BumpPt
   store i64 0, ptr %29, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1, i8 0, i64 16, i1 false)
   %55 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %35) #14
-  %56 = getelementptr inbounds i8, ptr %1, i64 24
+  %56 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store i32 0, ptr %56, align 8
   %57 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %37) #14
-  %58 = getelementptr inbounds i8, ptr %1, i64 72
+  %58 = getelementptr inbounds nuw i8, ptr %1, i64 72
   store i32 0, ptr %58, align 8
   ret ptr %0
 }

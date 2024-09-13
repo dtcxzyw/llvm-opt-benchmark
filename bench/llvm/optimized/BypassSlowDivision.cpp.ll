@@ -133,7 +133,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm18bypassSlowDivisionEPNS_10BasicBlo
   %48 = alloca [2 x ptr], align 8
   %49 = alloca %"class.std::function", align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %46, i8 0, i64 20, i1 false)
-  %50 = getelementptr inbounds i8, ptr %0, i64 56
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %51 = load ptr, ptr %50, align 8
   %52 = icmp eq ptr %51, null
   %53 = getelementptr inbounds i8, ptr %51, i64 -24
@@ -786,7 +786,7 @@ _ZN4llvm13IRBuilderBase12CreateCondBrEPNS_5ValueEPNS_10BasicBlockES4_PNS_6MDNode
   %381 = call noalias noundef nonnull dereferenceable(80) ptr @_Znwm(i64 noundef 80) #15, !noalias !14
   call void @_ZN4llvm10BasicBlockC1ERNS_11LLVMContextERKNS_5TwineEPNS_8FunctionEPS0_(ptr noundef nonnull align 8 dereferenceable(80) %381, ptr noundef nonnull align 8 dereferenceable(8) %379, ptr noundef nonnull align 8 dereferenceable(34) %18, ptr noundef %380, ptr noundef %371) #14, !noalias !14
   store ptr %381, ptr %45, align 8, !alias.scope !11, !noalias !8
-  %382 = getelementptr inbounds i8, ptr %381, i64 56
+  %382 = getelementptr inbounds nuw i8, ptr %381, i64 56
   %383 = load ptr, ptr %382, align 8, !noalias !14
   %384 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK4llvm10BasicBlock10getContextEv(ptr noundef nonnull align 8 dereferenceable(80) %381) #14, !noalias !14
   call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %19, ptr noundef nonnull %88, i64 noundef 2) #14, !noalias !14
@@ -1608,7 +1608,7 @@ _ZN12_GLOBAL__N_120FastDivInsertionTask14getReplacementERN4llvm8DenseMapINS1_12D
   %699 = and i8 %.val17.val.i, -2
   %spec.select.i25.i = icmp eq i8 %699, 48
   %.in.v.i = select i1 %spec.select.i25.i, i64 24, i64 32
-  %.in.i = getelementptr inbounds i8, ptr %.sroa.054.0.i, i64 %.in.v.i
+  %.in.i = getelementptr inbounds nuw i8, ptr %.sroa.054.0.i, i64 %.in.v.i
   %700 = load ptr, ptr %.in.i, align 8
   %.not27 = icmp eq ptr %700, null
   br i1 %.not27, label %select.unfold.outer.backedge, label %701
@@ -1679,7 +1679,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapINS_12DivRemMapKeyEN12_GLOBAL__N_111QuotRemPa
   %725 = getelementptr inbounds nuw i8, ptr %.sroa.039.063, i64 24
   %726 = load ptr, ptr %725, align 8
   store ptr %726, ptr %48, align 8
-  %727 = getelementptr inbounds i8, ptr %.sroa.039.063, i64 32
+  %727 = getelementptr inbounds nuw i8, ptr %.sroa.039.063, i64 32
   %728 = load ptr, ptr %727, align 8
   store ptr %728, ptr %722, align 8
   br label %729
@@ -1789,7 +1789,7 @@ define internal fastcc noundef range(i32 0, 3) i32 @_ZN12_GLOBAL__N_120FastDivIn
   store i32 %15, ptr %20, align 8
   %21 = icmp ult i32 %14, 16640
   %22 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %23 = getelementptr inbounds i8, ptr %5, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %5, i64 24
   br i1 %21, label %24, label %25
 
 24:                                               ; preds = %3
@@ -1907,7 +1907,7 @@ _ZNK4llvm4User10getOperandEj.exit:                ; preds = %59, %62
 select.unfold:                                    ; preds = %_ZNK4llvm4User10getOperandEj.exit, %71
   %.014.i = phi ptr [ %69, %_ZNK4llvm4User10getOperandEj.exit ], [ %73, %71 ]
   %76 = getelementptr inbounds nuw i8, ptr %.014.i, i64 24
-  %77 = getelementptr inbounds i8, ptr %.014.i, i64 32
+  %77 = getelementptr inbounds nuw i8, ptr %.014.i, i64 32
   %78 = load i32, ptr %77, align 8
   %79 = add i32 %78, -1
   %80 = and i32 %79, 63
@@ -2304,7 +2304,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_120FastDivInsertionTask12createFast
   %27 = tail call noalias noundef nonnull dereferenceable(80) ptr @_Znwm(i64 noundef 80) #15
   call void @_ZN4llvm10BasicBlockC1ERNS_11LLVMContextERKNS_5TwineEPNS_8FunctionEPS0_(ptr noundef nonnull align 8 dereferenceable(80) %27, ptr noundef nonnull align 8 dereferenceable(8) %22, ptr noundef nonnull align 8 dereferenceable(34) %8, ptr noundef %26, ptr noundef %2) #14
   store ptr %27, ptr %0, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 56
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 56
   %29 = load ptr, ptr %28, align 8
   %30 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK4llvm10BasicBlock10getContextEv(ptr noundef nonnull align 8 dereferenceable(80) %27) #14
   %31 = getelementptr inbounds nuw i8, ptr %9, i64 128
@@ -2550,7 +2550,7 @@ define internal fastcc { ptr, ptr } @_ZN12_GLOBAL__N_120FastDivInsertionTask20cr
   %8 = alloca %"class.llvm::DebugLoc", align 8
   %9 = alloca %"class.llvm::Twine", align 8
   %10 = alloca %"class.llvm::Twine", align 8
-  %11 = getelementptr inbounds i8, ptr %3, i64 56
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 56
   %12 = load ptr, ptr %11, align 8
   %13 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK4llvm10BasicBlock10getContextEv(ptr noundef nonnull align 8 dereferenceable(80) %3) #14
   %14 = getelementptr inbounds nuw i8, ptr %7, i64 128

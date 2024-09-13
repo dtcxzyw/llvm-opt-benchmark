@@ -152,7 +152,7 @@ define internal void @_ZN12_GLOBAL__N_115ScheduleDAGVLIWD2Ev(ptr noundef nonnull
   br i1 %.not.i.i.i, label %_ZNSt6vectorIPN4llvm5SUnitESaIS2_EED2Ev.exit, label %20
 
 20:                                               ; preds = %17
-  %21 = getelementptr inbounds i8, ptr %0, i64 656
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 656
   %22 = load ptr, ptr %21, align 8
   %23 = ptrtoint ptr %22 to i64
   %24 = ptrtoint ptr %19 to i64
@@ -168,7 +168,7 @@ _ZNSt6vectorIPN4llvm5SUnitESaIS2_EED2Ev.exit:     ; preds = %17, %20
   br i1 %.not.i.i.i.i, label %_ZN4llvm18ScheduleDAGSDNodesD2Ev.exit, label %28
 
 28:                                               ; preds = %_ZNSt6vectorIPN4llvm5SUnitESaIS2_EED2Ev.exit
-  %29 = getelementptr inbounds i8, ptr %0, i64 624
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 624
   %30 = load ptr, ptr %29, align 8
   %31 = ptrtoint ptr %30 to i64
   %32 = ptrtoint ptr %27 to i64
@@ -216,7 +216,7 @@ define internal void @_ZN12_GLOBAL__N_115ScheduleDAGVLIWD0Ev(ptr noundef nonnull
   br i1 %.not.i.i.i.i, label %_ZNSt6vectorIPN4llvm5SUnitESaIS2_EED2Ev.exit.i, label %20
 
 20:                                               ; preds = %17
-  %21 = getelementptr inbounds i8, ptr %0, i64 656
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 656
   %22 = load ptr, ptr %21, align 8
   %23 = ptrtoint ptr %22 to i64
   %24 = ptrtoint ptr %19 to i64
@@ -232,7 +232,7 @@ _ZNSt6vectorIPN4llvm5SUnitESaIS2_EED2Ev.exit.i:   ; preds = %20, %17
   br i1 %.not.i.i.i.i.i, label %_ZN12_GLOBAL__N_115ScheduleDAGVLIWD2Ev.exit, label %28
 
 28:                                               ; preds = %_ZNSt6vectorIPN4llvm5SUnitESaIS2_EED2Ev.exit.i
-  %29 = getelementptr inbounds i8, ptr %0, i64 624
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 624
   %30 = load ptr, ptr %29, align 8
   %31 = ptrtoint ptr %30 to i64
   %32 = ptrtoint ptr %27 to i64
@@ -282,7 +282,7 @@ define internal void @_ZN12_GLOBAL__N_115ScheduleDAGVLIW8ScheduleEv(ptr noundef 
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 72
   tail call fastcc void @_ZN12_GLOBAL__N_115ScheduleDAGVLIW17releaseSuccessorsEPN4llvm5SUnitE(ptr noundef nonnull align 8 dereferenceable(680) %0, ptr noundef nonnull %10)
   %11 = load ptr, ptr %6, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 56
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %13 = load ptr, ptr %12, align 8
   %.not6477.i = icmp eq ptr %11, %13
   br i1 %.not6477.i, label %._crit_edge.i, label %.lr.ph.i
@@ -331,7 +331,7 @@ define internal void @_ZN12_GLOBAL__N_115ScheduleDAGVLIW8ScheduleEv(ptr noundef 
   unreachable
 
 35:                                               ; preds = %._crit_edge.i
-  %36 = getelementptr inbounds i8, ptr %0, i64 624
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 624
   %37 = load ptr, ptr %36, align 8
   %38 = load ptr, ptr %28, align 8
   %39 = ptrtoint ptr %37 to i64
@@ -342,7 +342,7 @@ define internal void @_ZN12_GLOBAL__N_115ScheduleDAGVLIW8ScheduleEv(ptr noundef 
   br i1 %43, label %_ZNSt12_Vector_baseIPN4llvm5SUnitESaIS2_EE11_M_allocateEm.exit.i.i, label %_ZNSt6vectorIPN4llvm5SUnitESaIS2_EE7reserveEm.exit.i
 
 _ZNSt12_Vector_baseIPN4llvm5SUnitESaIS2_EE11_M_allocateEm.exit.i.i: ; preds = %35
-  %44 = getelementptr inbounds i8, ptr %0, i64 616
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 616
   %45 = load ptr, ptr %44, align 8
   %46 = ptrtoint ptr %45 to i64
   %47 = sub i64 %46, %40
@@ -373,9 +373,9 @@ _ZNSt12_Vector_baseIPN4llvm5SUnitESaIS2_EE13_M_deallocateEPS2_m.exit.i.i: ; pred
 
 _ZNSt6vectorIPN4llvm5SUnitESaIS2_EE7reserveEm.exit.i: ; preds = %_ZNSt12_Vector_baseIPN4llvm5SUnitESaIS2_EE13_M_deallocateEPS2_m.exit.i.i, %35
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 640
-  %56 = getelementptr inbounds i8, ptr %0, i64 648
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 648
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 664
-  %58 = getelementptr inbounds i8, ptr %0, i64 616
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 616
   %59 = load ptr, ptr %4, align 8
   %60 = load ptr, ptr %59, align 8
   %61 = getelementptr inbounds i8, ptr %60, i64 64
@@ -857,8 +857,8 @@ define internal fastcc void @_ZN12_GLOBAL__N_115ScheduleDAGVLIW17releaseSuccesso
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 240
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 328
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 640
-  %11 = getelementptr inbounds i8, ptr %0, i64 648
-  %12 = getelementptr inbounds i8, ptr %0, i64 656
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 648
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 656
   br label %13
 
 13:                                               ; preds = %.lr.ph, %_ZN12_GLOBAL__N_115ScheduleDAGVLIW11releaseSuccEPN4llvm5SUnitERKNS1_4SDepE.exit
@@ -984,9 +984,9 @@ declare void @_ZN4llvm5SUnit12ComputeDepthEv(ptr noundef nonnull align 8 derefer
 ; Function Attrs: nounwind uwtable
 define internal void @_GLOBAL__sub_I_ScheduleDAGVLIW.cpp() #8 section ".text.startup" {
   store ptr @.str.7, ptr getelementptr inbounds nuw (i8, ptr @_ZL13VLIWScheduler, i64 8), align 8
-  store i64 7, ptr getelementptr inbounds (i8, ptr @_ZL13VLIWScheduler, i64 16), align 8
+  store i64 7, ptr getelementptr inbounds nuw (i8, ptr @_ZL13VLIWScheduler, i64 16), align 8
   store ptr @.str.8, ptr getelementptr inbounds nuw (i8, ptr @_ZL13VLIWScheduler, i64 24), align 8
-  store i64 14, ptr getelementptr inbounds (i8, ptr @_ZL13VLIWScheduler, i64 32), align 8
+  store i64 14, ptr getelementptr inbounds nuw (i8, ptr @_ZL13VLIWScheduler, i64 32), align 8
   store ptr @_ZN4llvm22createVLIWDAGSchedulerEPNS_16SelectionDAGISelENS_15CodeGenOptLevelE, ptr getelementptr inbounds nuw (i8, ptr @_ZL13VLIWScheduler, i64 40), align 8
   %1 = load ptr, ptr @_ZN4llvm17RegisterScheduler8RegistryE, align 8
   store ptr %1, ptr @_ZL13VLIWScheduler, align 8

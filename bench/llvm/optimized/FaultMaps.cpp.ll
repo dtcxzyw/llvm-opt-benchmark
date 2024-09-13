@@ -305,7 +305,7 @@ _ZNK4llvm9FaultMaps18MCSymbolComparatorclEPKNS_8MCSymbolES4_.exit: ; preds = %_Z
 
 57:                                               ; preds = %54, %.critedge, %_ZNK4llvm9FaultMaps18MCSymbolComparatorclEPKNS_8MCSymbolES4_.exit
   %.sroa.06.0 = phi ptr [ %56, %.critedge ], [ %.08.lcssa.i.i.i, %_ZNK4llvm9FaultMaps18MCSymbolComparatorclEPKNS_8MCSymbolES4_.exit ], [ %.08.lcssa.i.i.i, %54 ]
-  %58 = getelementptr inbounds i8, ptr %.sroa.06.0, i64 40
+  %58 = getelementptr inbounds nuw i8, ptr %.sroa.06.0, i64 40
   ret ptr %58
 }
 
@@ -369,7 +369,7 @@ define dso_local void @_ZN4llvm9FaultMaps26serializeToFaultMapSectionEv(ptr noun
   %.sroa.014.019 = phi ptr [ %45, %.lr.ph ], [ %40, %6 ]
   %42 = getelementptr inbounds nuw i8, ptr %.sroa.014.019, i64 32
   %43 = load ptr, ptr %42, align 8
-  %44 = getelementptr inbounds i8, ptr %.sroa.014.019, i64 40
+  %44 = getelementptr inbounds nuw i8, ptr %.sroa.014.019, i64 40
   call void @_ZN4llvm9FaultMaps16emitFunctionInfoEPKNS_8MCSymbolERKSt6vectorINS0_9FaultInfoESaIS5_EE(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef %43, ptr noundef nonnull align 8 dereferenceable(24) %44)
   %45 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %.sroa.014.019) #17
   %.not = icmp eq ptr %45, %41
@@ -459,7 +459,7 @@ define linkonce_odr ptr @_ZNSt8_Rb_treeIPKN4llvm8MCSymbolESt4pairIKS3_St6vectorI
   %9 = inttoptr i64 %8 to ptr
   %10 = load ptr, ptr %9, align 8
   store ptr %10, ptr %7, align 8
-  %11 = getelementptr inbounds i8, ptr %6, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %6, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %11, i8 0, i64 24, i1 false)
   %12 = tail call { ptr, ptr } @_ZNSt8_Rb_treeIPKN4llvm8MCSymbolESt4pairIKS3_St6vectorINS0_9FaultMaps9FaultInfoESaIS8_EEESt10_Select1stISB_ENS7_18MCSymbolComparatorESaISB_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorISB_ERS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %1, ptr noundef nonnull align 8 dereferenceable(8) %7)
   %13 = extractvalue { ptr, ptr } %12, 0
@@ -542,7 +542,7 @@ _ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.thread.i.i.i.i.i: ; preds = %_ZN4
   br i1 %.not.i.i.i.i.i.i.i.i.i, label %_ZNSt8_Rb_treeIPKN4llvm8MCSymbolESt4pairIKS3_St6vectorINS0_9FaultMaps9FaultInfoESaIS8_EEESt10_Select1stISB_ENS7_18MCSymbolComparatorESaISB_EE12_M_drop_nodeEPSt13_Rb_tree_nodeISB_E.exit.i, label %48
 
 48:                                               ; preds = %46
-  %49 = getelementptr inbounds i8, ptr %6, i64 56
+  %49 = getelementptr inbounds nuw i8, ptr %6, i64 56
   %50 = load ptr, ptr %49, align 8
   %51 = ptrtoint ptr %50 to i64
   %52 = ptrtoint ptr %47 to i64

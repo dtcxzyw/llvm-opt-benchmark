@@ -146,7 +146,7 @@ define dso_local void @_ZN4llvm18DWARFDebugPubTable7extractENS_18DWARFDataExtrac
   br i1 %.not.i.i.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyIN4llvm18DWARFDebugPubTable3SetEEvPT_.exit.i.i.i.i.i, label %42
 
 42:                                               ; preds = %.lr.ph.i.i.i.i.i
-  %43 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i, i64 48
+  %43 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i, i64 48
   %44 = load ptr, ptr %43, align 8
   %45 = ptrtoint ptr %44 to i64
   %46 = ptrtoint ptr %41 to i64
@@ -170,8 +170,8 @@ _ZNSt6vectorIN4llvm18DWARFDebugPubTable3SetESaIS2_EE5clearEv.exit: ; preds = %5,
   %52 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %53 = getelementptr inbounds nuw i8, ptr %26, i64 32
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %55 = getelementptr inbounds i8, ptr %26, i64 40
-  %56 = getelementptr inbounds i8, ptr %26, i64 48
+  %55 = getelementptr inbounds nuw i8, ptr %26, i64 40
+  %56 = getelementptr inbounds nuw i8, ptr %26, i64 48
   %57 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %58 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %59 = getelementptr inbounds nuw i8, ptr %24, i64 40
@@ -246,10 +246,10 @@ _ZNSt6vectorIN4llvm18DWARFDebugPubTable3SetESaIS2_EE9push_backEOS2_.exit.thread:
   %113 = getelementptr inbounds nuw i8, ptr %111, i64 32
   %114 = load ptr, ptr %53, align 8
   store ptr %114, ptr %113, align 8
-  %115 = getelementptr inbounds i8, ptr %111, i64 40
+  %115 = getelementptr inbounds nuw i8, ptr %111, i64 40
   %116 = load ptr, ptr %55, align 8
   store ptr %116, ptr %115, align 8
-  %117 = getelementptr inbounds i8, ptr %111, i64 48
+  %117 = getelementptr inbounds nuw i8, ptr %111, i64 48
   %118 = load ptr, ptr %56, align 8
   store ptr %118, ptr %117, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %53, i8 0, i64 24, i1 false)
@@ -1011,7 +1011,7 @@ _ZN4llvm11raw_ostreamlsEc.exit:                   ; preds = %125, %127
 _ZN4llvm11raw_ostreamlsEPKc.exit43:               ; preds = %139, %141
   %144 = getelementptr inbounds nuw i8, ptr %.sroa.070.077, i64 32
   %145 = load ptr, ptr %144, align 8
-  %146 = getelementptr inbounds i8, ptr %.sroa.070.077, i64 40
+  %146 = getelementptr inbounds nuw i8, ptr %.sroa.070.077, i64 40
   %147 = load ptr, ptr %146, align 8
   %.not7374 = icmp eq ptr %145, %147
   br i1 %.not7374, label %._crit_edge, label %.lr.ph
@@ -1031,7 +1031,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit43:               ; preds = %139, %141
 
 152:                                              ; preds = %.lr.ph
   %153 = getelementptr inbounds nuw i8, ptr %.sroa.063.075, i64 8
-  %154 = getelementptr inbounds i8, ptr %.sroa.063.075, i64 12
+  %154 = getelementptr inbounds nuw i8, ptr %.sroa.063.075, i64 12
   %155 = load i32, ptr %154, align 4
   %156 = call { ptr, i64 } @_ZN4llvm5dwarf26GDBIndexEntryLinkageStringENS0_20GDBIndexEntryLinkageE(i32 noundef %155) #14
   %157 = extractvalue { ptr, i64 } %156, 0
@@ -1236,12 +1236,12 @@ _ZNSt12_Vector_baseIN4llvm18DWARFDebugPubTable3SetESaIS2_EE11_M_allocateEm.exit:
   %26 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %27 = load ptr, ptr %26, align 8
   store ptr %27, ptr %25, align 8
-  %28 = getelementptr inbounds i8, ptr %24, i64 40
-  %29 = getelementptr inbounds i8, ptr %2, i64 40
+  %28 = getelementptr inbounds nuw i8, ptr %24, i64 40
+  %29 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %30 = load ptr, ptr %29, align 8
   store ptr %30, ptr %28, align 8
-  %31 = getelementptr inbounds i8, ptr %24, i64 48
-  %32 = getelementptr inbounds i8, ptr %2, i64 48
+  %31 = getelementptr inbounds nuw i8, ptr %24, i64 48
+  %32 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %33 = load ptr, ptr %32, align 8
   store ptr %33, ptr %31, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %26, i8 0, i64 24, i1 false)
@@ -1258,12 +1258,12 @@ _ZNSt12_Vector_baseIN4llvm18DWARFDebugPubTable3SetESaIS2_EE11_M_allocateEm.exit:
   %35 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 32
   %36 = load ptr, ptr %35, align 8, !alias.scope !94, !noalias !91
   store ptr %36, ptr %34, align 8, !alias.scope !91, !noalias !94
-  %37 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 40
-  %38 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 40
+  %37 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 40
+  %38 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 40
   %39 = load ptr, ptr %38, align 8, !alias.scope !94, !noalias !91
   store ptr %39, ptr %37, align 8, !alias.scope !91, !noalias !94
-  %40 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 48
-  %41 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 48
+  %40 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 48
+  %41 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 48
   %42 = load ptr, ptr %41, align 8, !alias.scope !94, !noalias !91
   store ptr %42, ptr %40, align 8, !alias.scope !91, !noalias !94
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %35, i8 0, i64 24, i1 false), !alias.scope !94, !noalias !91
@@ -1288,12 +1288,12 @@ _ZNSt6vectorIN4llvm18DWARFDebugPubTable3SetESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_
   %47 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i19, i64 32
   %48 = load ptr, ptr %47, align 8, !alias.scope !101, !noalias !98
   store ptr %48, ptr %46, align 8, !alias.scope !98, !noalias !101
-  %49 = getelementptr inbounds i8, ptr %.012.i.i.i18, i64 40
-  %50 = getelementptr inbounds i8, ptr %.0911.i.i.i19, i64 40
+  %49 = getelementptr inbounds nuw i8, ptr %.012.i.i.i18, i64 40
+  %50 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i19, i64 40
   %51 = load ptr, ptr %50, align 8, !alias.scope !101, !noalias !98
   store ptr %51, ptr %49, align 8, !alias.scope !98, !noalias !101
-  %52 = getelementptr inbounds i8, ptr %.012.i.i.i18, i64 48
-  %53 = getelementptr inbounds i8, ptr %.0911.i.i.i19, i64 48
+  %52 = getelementptr inbounds nuw i8, ptr %.012.i.i.i18, i64 48
+  %53 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i19, i64 48
   %54 = load ptr, ptr %53, align 8, !alias.scope !101, !noalias !98
   store ptr %54, ptr %52, align 8, !alias.scope !98, !noalias !101
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %47, i8 0, i64 24, i1 false), !alias.scope !101, !noalias !98

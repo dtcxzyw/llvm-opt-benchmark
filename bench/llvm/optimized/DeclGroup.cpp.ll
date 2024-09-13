@@ -21,7 +21,7 @@ define dso_local noundef ptr @_ZN5clang9DeclGroup6CreateERNS_10ASTContextEPPNS_4
   %6 = add nuw nsw i64 %5, 8
   %7 = and i64 %6, 4294967288
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 2144
-  %9 = getelementptr inbounds i8, ptr %0, i64 2224
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 2224
   %10 = load i64, ptr %9, align 8
   %11 = add i64 %10, %7
   store i64 %11, ptr %9, align 8
@@ -30,7 +30,7 @@ define dso_local noundef ptr @_ZN5clang9DeclGroup6CreateERNS_10ASTContextEPPNS_4
   %14 = add i64 %13, 7
   %15 = and i64 %14, -8
   %16 = add i64 %15, %7
-  %17 = getelementptr inbounds i8, ptr %0, i64 2152
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 2152
   %18 = load ptr, ptr %17, align 8
   %19 = ptrtoint ptr %18 to i64
   %.not.i.i.i = icmp ugt i64 %16, %19

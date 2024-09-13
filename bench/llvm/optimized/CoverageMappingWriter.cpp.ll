@@ -1185,7 +1185,7 @@ _ZN4llvm11raw_ostreamlsEc.exit.i.i273:            ; preds = %280, %278
 
 _ZL12writeCounterN4llvm8ArrayRefINS_8coverage17CounterExpressionEEENS1_7CounterERNS_11raw_ostreamE.exit274: ; preds = %_ZN4llvm11raw_ostreamlsEc.exit.i.i273
   %282 = getelementptr inbounds nuw i8, ptr %.0116400, i64 16
-  %283 = getelementptr inbounds i8, ptr %.0116400, i64 24
+  %283 = getelementptr inbounds nuw i8, ptr %.0116400, i64 24
   %284 = load i8, ptr %283, align 4
   %285 = icmp eq i8 %284, 2
   %spec.select.i.i.i.i = select i1 %285, ptr %282, ptr null
@@ -1304,7 +1304,7 @@ _ZN4llvm11raw_ostreamlsEc.exit.i298:              ; preds = %328, %326
 
 _ZN4llvm13encodeULEB128EmRNS_11raw_ostreamEj.exit310: ; preds = %333, %335
   %337 = getelementptr inbounds nuw i8, ptr %.0116400, i64 16
-  %338 = getelementptr inbounds i8, ptr %.0116400, i64 24
+  %338 = getelementptr inbounds nuw i8, ptr %.0116400, i64 24
   %339 = load i8, ptr %338, align 4
   %340 = icmp eq i8 %339, 1
   %spec.select.i.i.i.i311 = select i1 %340, ptr %337, ptr null
@@ -1507,7 +1507,7 @@ _ZN4llvm13encodeULEB128EmRNS_11raw_ostreamEj.exit365: ; preds = %_ZN4llvm11raw_o
   br i1 %.not.i.i.i.i, label %_ZNSt6vectorIjSaIjEED2Ev.exit.i, label %424
 
 424:                                              ; preds = %._crit_edge406
-  %425 = getelementptr inbounds i8, ptr %4, i64 368
+  %425 = getelementptr inbounds nuw i8, ptr %4, i64 368
   %426 = load ptr, ptr %425, align 8
   %427 = ptrtoint ptr %426 to i64
   %428 = ptrtoint ptr %423 to i64
@@ -1629,7 +1629,7 @@ _ZN4llvm11raw_ostreamlsENS_9StringRefE.exit:      ; preds = %40, %42, %43
   br i1 %46, label %47, label %_ZN4llvm13encodeULEB128EmRNS_11raw_ostreamEj.exit39
 
 47:                                               ; preds = %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit
-  %48 = getelementptr inbounds i8, ptr %0, i64 32
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %49 = load i64, ptr %48, align 8
   br label %50
 

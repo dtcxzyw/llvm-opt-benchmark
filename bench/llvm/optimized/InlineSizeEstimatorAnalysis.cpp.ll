@@ -143,7 +143,7 @@ _ZN4llvm11raw_ostreamlsENS_9StringRefE.exit:      ; preds = %30, %32, %33
 _ZN4llvm11raw_ostreamlsEPKc.exit6:                ; preds = %43, %45
   %.0.i.i5 = phi ptr [ %44, %43 ], [ %.0.i, %45 ]
   %49 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm15AnalysisManagerINS_8FunctionEJEE13getResultImplEPNS_11AnalysisKeyERS1_(ptr noundef nonnull align 8 dereferenceable(72) %3, ptr noundef nonnull @_ZN4llvm27InlineSizeEstimatorAnalysis3KeyE, ptr noundef nonnull align 8 dereferenceable(136) %2) #7
-  %50 = getelementptr inbounds i8, ptr %49, i64 16
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 16
   %51 = load i8, ptr %50, align 8
   %52 = trunc i8 %51 to i1
   br i1 %52, label %53, label %57
@@ -188,15 +188,15 @@ _ZN4llvm11raw_ostreamlsEPKc.exit9:                ; preds = %64, %66
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 0, ptr %73, align 8, !alias.scope !4
   %74 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %75 = getelementptr inbounds i8, ptr %0, i64 80
+  %75 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store ptr %75, ptr %74, align 8, !alias.scope !4
-  %76 = getelementptr inbounds i8, ptr %0, i64 56
+  %76 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store ptr %75, ptr %76, align 8, !alias.scope !4
-  %77 = getelementptr inbounds i8, ptr %0, i64 64
+  %77 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i32 2, ptr %77, align 8, !alias.scope !4
-  %78 = getelementptr inbounds i8, ptr %0, i64 68
+  %78 = getelementptr inbounds nuw i8, ptr %0, i64 68
   store i32 0, ptr %78, align 4, !alias.scope !4
-  %79 = getelementptr inbounds i8, ptr %0, i64 72
+  %79 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store i32 0, ptr %79, align 8, !alias.scope !4
   store i32 1, ptr %72, align 4, !alias.scope !4, !noalias !7
   store ptr @_ZN4llvm17PreservedAnalyses14AllAnalysesKeyE, ptr %69, align 8, !alias.scope !4, !noalias !7

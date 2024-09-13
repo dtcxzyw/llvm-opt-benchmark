@@ -284,7 +284,7 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64A53Fix83576920runO
   %20 = getelementptr inbounds nuw i8, ptr %15, i64 848
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store ptr %20, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %1, i64 328
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 328
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 320
   %.sroa.037.044 = load ptr, ptr %22, align 8
   %.not45 = icmp eq ptr %.sroa.037.044, %23
@@ -955,7 +955,7 @@ define internal fastcc noundef ptr @_ZL16getLastNonPseudoRN4llvm17MachineBasicBl
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %5)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 328
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 328
   %9 = load ptr, ptr %8, align 8
   %10 = icmp eq ptr %0, %9
   br i1 %10, label %_ZL18getBBFallenThroughPN4llvm17MachineBasicBlockEPKNS_15TargetInstrInfoE.exit.thread, label %.lr.ph.i.i.i.i.lr.ph
@@ -970,7 +970,7 @@ define internal fastcc noundef ptr @_ZL16getLastNonPseudoRN4llvm17MachineBasicBl
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %5)
   %12 = getelementptr inbounds nuw i8, ptr %.1.i, i64 32
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 328
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 328
   %15 = load ptr, ptr %14, align 8
   %16 = icmp eq ptr %.1.i, %15
   br i1 %16, label %_ZL18getBBFallenThroughPN4llvm17MachineBasicBlockEPKNS_15TargetInstrInfoE.exit.thread, label %.lr.ph.i.i.i.i, !llvm.loop !12

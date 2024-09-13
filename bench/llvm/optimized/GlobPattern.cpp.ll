@@ -1070,7 +1070,7 @@ define dso_local void @_ZN4llvm11GlobPattern14SubGlobPattern6createENS_9StringRe
   %16 = getelementptr inbounds nuw i8, ptr %7, i64 64
   %17 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %18 = getelementptr inbounds i8, ptr %8, i64 24
-  %19 = getelementptr inbounds i8, ptr %8, i64 72
+  %19 = getelementptr inbounds nuw i8, ptr %8, i64 72
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %21 = getelementptr inbounds i8, ptr %7, i64 16
   br label %22
@@ -1399,7 +1399,7 @@ _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %27
   store ptr @.str.7, ptr %7, align 8, !alias.scope !113
   %33 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr %3, ptr %33, align 8, !alias.scope !113
-  %34 = getelementptr inbounds i8, ptr %7, i64 24
+  %34 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store i64 %4, ptr %34, align 8, !alias.scope !113
   %35 = call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #14, !noalias !116
   %36 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3_V216generic_categoryEv() #15
@@ -1516,8 +1516,8 @@ define linkonce_odr hidden void @_ZN4llvm23SmallVectorTemplateBaseINS_11GlobPatt
   br label %_ZN4llvm11GlobPattern14SubGlobPattern7BracketC2EOS2_.exit
 
 _ZN4llvm11GlobPattern14SubGlobPattern7BracketC2EOS2_.exit: ; preds = %2, %12
-  %14 = getelementptr inbounds i8, ptr %6, i64 72
-  %15 = getelementptr inbounds i8, ptr %3, i64 72
+  %14 = getelementptr inbounds nuw i8, ptr %6, i64 72
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 72
   %16 = load i32, ptr %15, align 8
   store i32 %16, ptr %14, align 8
   %17 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #13
@@ -2968,7 +2968,7 @@ _ZN4llvm15SmallVectorImplINS_11GlobPattern14SubGlobPatternEE12assignRemoteEOS3_.
   br i1 %39, label %41, label %43
 
 41:                                               ; preds = %38
-  %42 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i, i64 24
+  %42 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i, i64 24
   store i64 0, ptr %42, align 8
   br label %_ZN4llvm11GlobPattern14SubGlobPatternaSEOS1_.exit.i.i.i.i.i
 
@@ -2985,13 +2985,13 @@ _ZN4llvm15SmallVectorImplINS_11GlobPattern14SubGlobPatternEE12assignRemoteEOS3_.
 _ZN4llvm15SmallVectorImplIcE12assignRemoteEOS1_.exit.i.i.i.i.i.i.i: ; preds = %47, %43
   %48 = load ptr, ptr %36, align 8
   store ptr %48, ptr %35, align 8
-  %49 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i, i64 24
+  %49 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i, i64 24
   %50 = load i64, ptr %49, align 8
-  %51 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i, i64 24
+  %51 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i, i64 24
   store i64 %50, ptr %51, align 8
-  %52 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i, i64 32
+  %52 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i, i64 32
   %53 = load i64, ptr %52, align 8
-  %54 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i, i64 32
+  %54 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i, i64 32
   store i64 %53, ptr %54, align 8
   %55 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i, i64 40
   store ptr %55, ptr %36, align 8
@@ -3114,7 +3114,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_11GlobPattern14SubGlobPatternELb0EE4growEm.
   br i1 %94, label %96, label %98
 
 96:                                               ; preds = %93
-  %97 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i51, i64 24
+  %97 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i51, i64 24
   store i64 0, ptr %97, align 8
   br label %_ZN4llvm11GlobPattern14SubGlobPatternaSEOS1_.exit.i.i.i.i.i54
 
@@ -3131,13 +3131,13 @@ _ZN4llvm23SmallVectorTemplateBaseINS_11GlobPattern14SubGlobPatternELb0EE4growEm.
 _ZN4llvm15SmallVectorImplIcE12assignRemoteEOS1_.exit.i.i.i.i.i.i.i53: ; preds = %102, %98
   %103 = load ptr, ptr %91, align 8
   store ptr %103, ptr %90, align 8
-  %104 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i52, i64 24
+  %104 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i52, i64 24
   %105 = load i64, ptr %104, align 8
-  %106 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i51, i64 24
+  %106 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i51, i64 24
   store i64 %105, ptr %106, align 8
-  %107 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i52, i64 32
+  %107 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i52, i64 32
   %108 = load i64, ptr %107, align 8
-  %109 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i51, i64 32
+  %109 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i51, i64 32
   store i64 %108, ptr %109, align 8
   %110 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i52, i64 40
   store ptr %110, ptr %91, align 8
@@ -3475,9 +3475,9 @@ _ZN4llvm15SmallVectorImplINS_11GlobPattern14SubGlobPattern7BracketEE12assignRemo
   %41 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i, i64 8
   %42 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i, i64 8
   %43 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15SmallVectorImplImEaSEOS1_(ptr noundef nonnull align 8 dereferenceable(16) %41, ptr noundef nonnull align 8 dereferenceable(16) %42)
-  %44 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i, i64 72
+  %44 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i, i64 72
   %45 = load i32, ptr %44, align 8
-  %46 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i, i64 72
+  %46 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i, i64 72
   store i32 %45, ptr %46, align 8
   %47 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i, i64 80
   %48 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i, i64 80
@@ -3620,9 +3620,9 @@ _ZN4llvm23SmallVectorTemplateBaseINS_11GlobPattern14SubGlobPattern7BracketELb0EE
   %99 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i53, i64 8
   %100 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i54, i64 8
   %101 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15SmallVectorImplImEaSEOS1_(ptr noundef nonnull align 8 dereferenceable(16) %99, ptr noundef nonnull align 8 dereferenceable(16) %100)
-  %102 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i54, i64 72
+  %102 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i54, i64 72
   %103 = load i32, ptr %102, align 8
-  %104 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i53, i64 72
+  %104 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i53, i64 72
   store i32 %103, ptr %104, align 8
   %105 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i54, i64 80
   %106 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i53, i64 80
@@ -3661,8 +3661,8 @@ _ZSt4moveIPN4llvm11GlobPattern14SubGlobPattern7BracketES4_ET0_T_S6_S5_.exit55: ;
   br label %_ZSt10_ConstructIN4llvm11GlobPattern14SubGlobPattern7BracketEJS3_EEvPT_DpOT0_.exit.i.i.i.i.i
 
 _ZSt10_ConstructIN4llvm11GlobPattern14SubGlobPattern7BracketEJS3_EEvPT_DpOT0_.exit.i.i.i.i.i: ; preds = %120, %.lr.ph.i.i.i.i.i56
-  %122 = getelementptr inbounds i8, ptr %.09.i.i.i.i.i, i64 72
-  %123 = getelementptr inbounds i8, ptr %.sroa.04.08.i.i.i.i.i, i64 72
+  %122 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i, i64 72
+  %123 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i.i, i64 72
   %124 = load i32, ptr %123, align 8
   store i32 %124, ptr %122, align 8
   %125 = getelementptr inbounds i8, ptr %.sroa.04.08.i.i.i.i.i, i64 80
@@ -3737,8 +3737,8 @@ define linkonce_odr void @_ZN4llvm23SmallVectorTemplateBaseINS_11GlobPattern14Su
   br label %_ZSt10_ConstructIN4llvm11GlobPattern14SubGlobPattern7BracketEJS3_EEvPT_DpOT0_.exit.i.i.i.i.i
 
 _ZSt10_ConstructIN4llvm11GlobPattern14SubGlobPattern7BracketEJS3_EEvPT_DpOT0_.exit.i.i.i.i.i: ; preds = %11, %.lr.ph.i.i.i.i.i
-  %13 = getelementptr inbounds i8, ptr %.09.i.i.i.i.i, i64 72
-  %14 = getelementptr inbounds i8, ptr %.sroa.04.08.i.i.i.i.i, i64 72
+  %13 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i, i64 72
+  %14 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i.i, i64 72
   %15 = load i32, ptr %14, align 8
   store i32 %15, ptr %13, align 8
   %16 = getelementptr inbounds i8, ptr %.sroa.04.08.i.i.i.i.i, i64 80
@@ -3985,9 +3985,9 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15S
   %13 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i, i64 8
   %14 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i, i64 8
   %15 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15SmallVectorImplImEaSERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %13, ptr noundef nonnull align 8 dereferenceable(16) %14)
-  %16 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i, i64 72
+  %16 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i, i64 72
   %17 = load i32, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i, i64 72
+  %18 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i, i64 72
   store i32 %17, ptr %18, align 8
   %19 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i, i64 80
   %20 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i, i64 80
@@ -4105,9 +4105,9 @@ _ZN4llvm23SmallVectorTemplateBaseINS_11GlobPattern14SubGlobPattern7BracketELb0EE
   %60 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i34, i64 8
   %61 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i35, i64 8
   %62 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15SmallVectorImplImEaSERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %60, ptr noundef nonnull align 8 dereferenceable(16) %61)
-  %63 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i35, i64 72
+  %63 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i35, i64 72
   %64 = load i32, ptr %63, align 8
-  %65 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i34, i64 72
+  %65 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i34, i64 72
   store i32 %64, ptr %65, align 8
   %66 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i35, i64 80
   %67 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i34, i64 80
@@ -4146,8 +4146,8 @@ _ZSt4copyIPKN4llvm11GlobPattern14SubGlobPattern7BracketEPS3_ET0_T_S8_S7_.exit36:
   br label %_ZSt10_ConstructIN4llvm11GlobPattern14SubGlobPattern7BracketEJRKS3_EEvPT_DpOT0_.exit.i.i.i.i
 
 _ZSt10_ConstructIN4llvm11GlobPattern14SubGlobPattern7BracketEJRKS3_EEvPT_DpOT0_.exit.i.i.i.i: ; preds = %81, %.lr.ph.i.i.i.i
-  %83 = getelementptr inbounds i8, ptr %.011.i.i.i.i, i64 72
-  %84 = getelementptr inbounds i8, ptr %.0810.i.i.i.i, i64 72
+  %83 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i, i64 72
+  %84 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i, i64 72
   %85 = load i32, ptr %84, align 8
   store i32 %85, ptr %83, align 8
   %86 = getelementptr inbounds i8, ptr %.0810.i.i.i.i, i64 80

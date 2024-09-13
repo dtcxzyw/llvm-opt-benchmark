@@ -240,7 +240,7 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_112OptimizePHIs20runOnMachin
   %16 = tail call noundef ptr %15(ptr noundef nonnull align 8 dereferenceable(288) %12) #11
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr %16, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %1, i64 328
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 328
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 320
   %.sroa.011.017 = load ptr, ptr %18, align 8
   %.not18 = icmp eq ptr %.sroa.011.017, %19
@@ -782,7 +782,7 @@ _ZN4llvm15SmallPtrSetImplIPNS_12MachineInstrEE6insertES2_.exit: ; preds = %.lr.p
 
 .critedge2.i.i.i.i:                               ; preds = %49, %52
   %.pn.i.i.i.i = phi ptr [ %storemerge.i.i.i.i, %52 ], [ %.0.i.i.i, %49 ]
-  %storemerge.in.i.i.i.i = getelementptr inbounds i8, ptr %.pn.i.i.i.i, i64 24
+  %storemerge.in.i.i.i.i = getelementptr inbounds nuw i8, ptr %.pn.i.i.i.i, i64 24
   %storemerge.i.i.i.i = load ptr, ptr %storemerge.in.i.i.i.i, align 8
   %.not.i.i.i.i = icmp eq ptr %storemerge.i.i.i.i, null
   br i1 %.not.i.i.i.i, label %.loopexit, label %52
@@ -818,7 +818,7 @@ _ZN4llvm15SmallPtrSetImplIPNS_12MachineInstrEE6insertES2_.exit: ; preds = %.lr.p
 
 .critedge2.i.i:                                   ; preds = %.critedge2.i.i.backedge, %61
   %.pn.i.i = phi ptr [ %.sroa.014.025, %61 ], [ %storemerge.i.i, %.critedge2.i.i.backedge ]
-  %storemerge.in.i.i = getelementptr inbounds i8, ptr %.pn.i.i, i64 24
+  %storemerge.in.i.i = getelementptr inbounds nuw i8, ptr %.pn.i.i, i64 24
   %storemerge.i.i = load ptr, ptr %storemerge.in.i.i, align 8
   %.not.i.i13 = icmp eq ptr %storemerge.i.i, null
   br i1 %.not.i.i13, label %.loopexit, label %63

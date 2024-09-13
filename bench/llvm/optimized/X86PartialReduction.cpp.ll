@@ -309,7 +309,7 @@ _ZNK4llvm4Pass22getAnalysisIfAvailableINS_16TargetPassConfigEEEPT_v.exit: ; pred
   %64 = tail call noundef nonnull align 8 dereferenceable(512) ptr @_ZNK4llvm8Function13getDataLayoutEv(ptr noundef nonnull align 8 dereferenceable(136) %1) #15
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %64, ptr %65, align 8
-  %66 = getelementptr inbounds i8, ptr %1, i64 80
+  %66 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %67 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %.sroa.0152.0212 = load ptr, ptr %66, align 8
   %.not174213 = icmp eq ptr %.sroa.0152.0212, %67
@@ -324,7 +324,7 @@ _ZNK4llvm4Pass22getAnalysisIfAvailableINS_16TargetPassConfigEEEPT_v.exit: ; pred
   %73 = getelementptr inbounds nuw i8, ptr %47, i64 24
   %74 = getelementptr inbounds i8, ptr %48, i64 16
   %75 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %76 = getelementptr inbounds i8, ptr %10, i64 24
+  %76 = getelementptr inbounds nuw i8, ptr %10, i64 24
   %77 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %78 = getelementptr inbounds nuw i8, ptr %37, i64 8
   %79 = getelementptr inbounds nuw i8, ptr %38, i64 128
@@ -397,7 +397,7 @@ _ZNK4llvm4Pass22getAnalysisIfAvailableINS_16TargetPassConfigEEEPT_v.exit: ; pred
   %140 = icmp eq ptr %.sroa.0152.0215, null
   %141 = getelementptr inbounds i8, ptr %.sroa.0152.0215, i64 -24
   %142 = select i1 %140, ptr null, ptr %141
-  %143 = getelementptr inbounds i8, ptr %142, i64 56
+  %143 = getelementptr inbounds nuw i8, ptr %142, i64 56
   %144 = getelementptr inbounds nuw i8, ptr %142, i64 48
   %.sroa.0148.0204 = load ptr, ptr %143, align 8
   %.not175205 = icmp eq ptr %.sroa.0148.0204, %144
@@ -3634,7 +3634,7 @@ define linkonce_odr hidden noundef ptr @_ZN4llvm8CallInst6CreateEPNS_12FunctionT
   %.012.i = phi i32 [ %21, %.lr.ph.i ], [ 0, %8 ]
   %.0811.i = phi ptr [ %22, %.lr.ph.i ], [ %4, %8 ]
   %12 = getelementptr inbounds nuw i8, ptr %.0811.i, i64 32
-  %13 = getelementptr inbounds i8, ptr %.0811.i, i64 40
+  %13 = getelementptr inbounds nuw i8, ptr %.0811.i, i64 40
   %14 = load ptr, ptr %13, align 8
   %15 = load ptr, ptr %12, align 8
   %16 = ptrtoint ptr %14 to i64
@@ -3667,7 +3667,7 @@ _ZN4llvm8CallBase17CountBundleInputsENS_8ArrayRefINS_17OperandBundleDefTIPNS_5Va
   %.012.i.i = phi i32 [ %39, %.lr.ph.i.i ], [ 0, %_ZN4llvm8CallBase17CountBundleInputsENS_8ArrayRefINS_17OperandBundleDefTIPNS_5ValueEEEEE.exit ]
   %.0811.i.i = phi ptr [ %40, %.lr.ph.i.i ], [ %4, %_ZN4llvm8CallBase17CountBundleInputsENS_8ArrayRefINS_17OperandBundleDefTIPNS_5ValueEEEEE.exit ]
   %30 = getelementptr inbounds nuw i8, ptr %.0811.i.i, i64 32
-  %31 = getelementptr inbounds i8, ptr %.0811.i.i, i64 40
+  %31 = getelementptr inbounds nuw i8, ptr %.0811.i.i, i64 40
   %32 = load ptr, ptr %31, align 8
   %33 = load ptr, ptr %30, align 8
   %34 = ptrtoint ptr %32 to i64
@@ -3684,7 +3684,7 @@ _ZN4llvm8CallBase17CountBundleInputsENS_8ArrayRefINS_17OperandBundleDefTIPNS_5Va
   %.012.i11.i = phi i32 [ %50, %.lr.ph.i10.i ], [ 0, %.lr.ph.i.i ]
   %.0811.i12.i = phi ptr [ %51, %.lr.ph.i10.i ], [ %4, %.lr.ph.i.i ]
   %41 = getelementptr inbounds nuw i8, ptr %.0811.i12.i, i64 32
-  %42 = getelementptr inbounds i8, ptr %.0811.i12.i, i64 40
+  %42 = getelementptr inbounds nuw i8, ptr %.0811.i12.i, i64 40
   %43 = load ptr, ptr %42, align 8
   %44 = load ptr, ptr %41, align 8
   %45 = ptrtoint ptr %43 to i64

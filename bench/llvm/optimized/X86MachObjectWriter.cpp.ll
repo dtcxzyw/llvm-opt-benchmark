@@ -350,7 +350,7 @@ _ZN4llvmplERKNS_5TwineES2_.exit.i:                ; preds = %_ZN4llvmplERKNS_5Tw
   store ptr @.str.3, ptr %15, align 8, !alias.scope !7
   %129 = getelementptr inbounds nuw i8, ptr %15, i64 16
   store ptr %.sroa.03.0.i, ptr %129, align 8, !alias.scope !7
-  %130 = getelementptr inbounds i8, ptr %15, i64 24
+  %130 = getelementptr inbounds nuw i8, ptr %15, i64 24
   store i64 %.sroa.3.0.i, ptr %130, align 8, !alias.scope !7
   store ptr %15, ptr %14, align 8, !alias.scope !10
   %131 = getelementptr inbounds nuw i8, ptr %14, i64 16
@@ -618,7 +618,7 @@ _ZNK4llvm8MCSymbol7getNameEv.exit221.i:           ; preds = %255, %250
   store ptr @.str.5, ptr %19, align 8, !alias.scope !15
   %262 = getelementptr inbounds nuw i8, ptr %19, i64 16
   store ptr %.sroa.0.0.i217.i, ptr %262, align 8, !alias.scope !15
-  %263 = getelementptr inbounds i8, ptr %19, i64 24
+  %263 = getelementptr inbounds nuw i8, ptr %19, i64 24
   store i64 %.sroa.4.0.i218.i, ptr %263, align 8, !alias.scope !15
   %264 = getelementptr inbounds nuw i8, ptr %20, i64 32
   %265 = getelementptr inbounds nuw i8, ptr %20, i64 33
@@ -654,7 +654,7 @@ _ZN4llvmplERKNS_5TwineES2_.exit243.i:             ; preds = %270, %266
   store ptr @.str.7, ptr %22, align 8, !alias.scope !18
   %277 = getelementptr inbounds nuw i8, ptr %22, i64 16
   store ptr %.sroa.0.0.i224.i, ptr %277, align 8, !alias.scope !18
-  %278 = getelementptr inbounds i8, ptr %22, i64 24
+  %278 = getelementptr inbounds nuw i8, ptr %22, i64 24
   store i64 %.sroa.4.0.i225.i, ptr %278, align 8, !alias.scope !18
   store ptr %22, ptr %21, align 8, !alias.scope !21
   %279 = getelementptr inbounds nuw i8, ptr %21, i64 16
@@ -1041,7 +1041,7 @@ _ZNK4llvm8MCSymbol10getSectionEv.exit.i16:        ; preds = %433, %432
   %444 = add i32 %443, 1
   %445 = getelementptr inbounds nuw i8, ptr %1, i64 208
   %446 = load ptr, ptr %445, align 8
-  %447 = getelementptr inbounds i8, ptr %1, i64 224
+  %447 = getelementptr inbounds nuw i8, ptr %1, i64 224
   %448 = load i32, ptr %447, align 8
   %449 = icmp eq i32 %448, 0
   br i1 %449, label %_ZNK4llvm16MachObjectWriter17getSectionAddressEPKNS_9MCSectionE.exit.i, label %450
@@ -1106,7 +1106,7 @@ _ZNK4llvm8MCSymbol11isUndefinedEb.exit.thread.i18: ; preds = %_ZNK4llvm8MCSymbol
   %477 = load ptr, ptr %476, align 8
   %478 = getelementptr inbounds nuw i8, ptr %1, i64 208
   %479 = load ptr, ptr %478, align 8
-  %480 = getelementptr inbounds i8, ptr %1, i64 224
+  %480 = getelementptr inbounds nuw i8, ptr %1, i64 224
   %481 = load i32, ptr %480, align 8
   %482 = icmp eq i32 %481, 0
   br i1 %482, label %_ZNK4llvm16MachObjectWriter17getSectionAddressEPKNS_9MCSectionE.exit83.i, label %483
@@ -1384,7 +1384,7 @@ define linkonce_odr hidden void @_ZN4llvm16MachObjectWriter13addRelocationEPKNS_
   %6 = load i64, ptr %3, align 4
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 128
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %10 = load i32, ptr %9, align 8
   %11 = icmp eq i32 %10, 0
   br i1 %11, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_9MCSectionESt6vectorINS_16MachObjectWriter12RelAndSymbolESaIS7_EENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S9_EEEES4_S9_SB_SE_E15LookupBucketForIS4_EEbRKT_RPSE_.exit.i.i, label %12
@@ -1443,9 +1443,9 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_9MCSectionESt6vectorINS_16MachObjectWri
 _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_9MCSectionESt6vectorINS_16MachObjectWriter12RelAndSymbolESaIS7_EENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S9_EEEES4_S9_SB_SE_EixERKS4_.exit: ; preds = %28, %12, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_9MCSectionESt6vectorINS_16MachObjectWriter12RelAndSymbolESaIS7_EENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S9_EEEES4_S9_SB_SE_E15LookupBucketForIS4_EEbRKT_RPSE_.exit.i.i
   %.0.i.i = phi ptr [ %37, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_9MCSectionESt6vectorINS_16MachObjectWriter12RelAndSymbolESaIS7_EENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S9_EEEES4_S9_SB_SE_E15LookupBucketForIS4_EEbRKT_RPSE_.exit.i.i ], [ %20, %12 ], [ %34, %28 ]
   %40 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 8
-  %41 = getelementptr inbounds i8, ptr %.0.i.i, i64 16
+  %41 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 16
   %42 = load ptr, ptr %41, align 8
-  %43 = getelementptr inbounds i8, ptr %.0.i.i, i64 24
+  %43 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 24
   %44 = load ptr, ptr %43, align 8
   %.not.i = icmp eq ptr %42, %44
   br i1 %.not.i, label %48, label %45
@@ -1866,12 +1866,12 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_9MCSectionESt6vectorINS_16MachObjectWri
   %41 = getelementptr inbounds nuw i8, ptr %.020, i64 8
   %42 = load ptr, ptr %41, align 8
   store ptr %42, ptr %40, align 8
-  %43 = getelementptr inbounds i8, ptr %.sink.i.i, i64 16
-  %44 = getelementptr inbounds i8, ptr %.020, i64 16
+  %43 = getelementptr inbounds nuw i8, ptr %.sink.i.i, i64 16
+  %44 = getelementptr inbounds nuw i8, ptr %.020, i64 16
   %45 = load ptr, ptr %44, align 8
   store ptr %45, ptr %43, align 8
-  %46 = getelementptr inbounds i8, ptr %.sink.i.i, i64 24
-  %47 = getelementptr inbounds i8, ptr %.020, i64 24
+  %46 = getelementptr inbounds nuw i8, ptr %.sink.i.i, i64 24
+  %47 = getelementptr inbounds nuw i8, ptr %.020, i64 24
   %48 = load ptr, ptr %47, align 8
   store ptr %48, ptr %46, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %41, i8 0, i64 24, i1 false)
@@ -1979,7 +1979,7 @@ _ZN4llvmplERKNS_5TwineES2_.exit:                  ; preds = %40, %_ZNK4llvm8MCSy
   store ptr @.str.13, ptr %8, align 8, !alias.scope !39
   %47 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store ptr %.sroa.0.0.i, ptr %47, align 8, !alias.scope !39
-  %48 = getelementptr inbounds i8, ptr %8, i64 24
+  %48 = getelementptr inbounds nuw i8, ptr %8, i64 24
   store i64 %.sroa.4.0.i, ptr %48, align 8, !alias.scope !39
   store ptr %8, ptr %7, align 8, !alias.scope !42
   %49 = getelementptr inbounds nuw i8, ptr %7, i64 16
@@ -2018,7 +2018,7 @@ _ZNK4llvm8MCSymbol11getFragmentEb.exit61:         ; preds = %_ZNK4llvm8MCSymbol1
   %64 = load ptr, ptr %63, align 8
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %66 = load ptr, ptr %65, align 8
-  %67 = getelementptr inbounds i8, ptr %0, i64 224
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %68 = load i32, ptr %67, align 8
   %69 = icmp eq i32 %68, 0
   br i1 %69, label %_ZNK4llvm16MachObjectWriter17getSectionAddressEPKNS_9MCSectionE.exit, label %70
@@ -2122,7 +2122,7 @@ _ZN4llvmplERKNS_5TwineES2_.exit89:                ; preds = %111, %_ZNK4llvm8MCS
   store ptr @.str.13, ptr %10, align 8, !alias.scope !47
   %118 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store ptr %.sroa.0.0.i70, ptr %118, align 8, !alias.scope !47
-  %119 = getelementptr inbounds i8, ptr %10, i64 24
+  %119 = getelementptr inbounds nuw i8, ptr %10, i64 24
   store i64 %.sroa.4.0.i71, ptr %119, align 8, !alias.scope !47
   store ptr %10, ptr %9, align 8, !alias.scope !50
   %120 = getelementptr inbounds nuw i8, ptr %9, i64 16

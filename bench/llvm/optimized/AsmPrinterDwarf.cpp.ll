@@ -705,7 +705,7 @@ define dso_local void @_ZNK4llvm10AsmPrinter18emitCFIInstructionERKNS_16MCCFIIns
   unreachable
 
 10:                                               ; preds = %2
-  %.0.in.i = getelementptr inbounds i8, ptr %1, i64 16
+  %.0.in.i = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.0.i = load i64, ptr %.0.in.i, align 8
   %11 = load ptr, ptr %8, align 8
   %12 = getelementptr inbounds i8, ptr %11, i64 888
@@ -714,7 +714,7 @@ define dso_local void @_ZNK4llvm10AsmPrinter18emitCFIInstructionERKNS_16MCCFIIns
   br label %105
 
 14:                                               ; preds = %2
-  %.0.in.i38 = getelementptr inbounds i8, ptr %1, i64 16
+  %.0.in.i38 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.0.i39 = load i64, ptr %.0.in.i38, align 8
   %15 = load ptr, ptr %8, align 8
   %16 = getelementptr inbounds i8, ptr %15, i64 976
@@ -726,7 +726,7 @@ define dso_local void @_ZNK4llvm10AsmPrinter18emitCFIInstructionERKNS_16MCCFIIns
   %.0.in.i40 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.0.i41 = load i32, ptr %.0.in.i40, align 8
   %19 = zext i32 %.0.i41 to i64
-  %.0.in.i42 = getelementptr inbounds i8, ptr %1, i64 16
+  %.0.in.i42 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.0.i43 = load i64, ptr %.0.in.i42, align 8
   %20 = load ptr, ptr %8, align 8
   %21 = getelementptr inbounds i8, ptr %20, i64 880
@@ -748,9 +748,9 @@ define dso_local void @_ZNK4llvm10AsmPrinter18emitCFIInstructionERKNS_16MCCFIIns
   %.0.in.i46 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.0.i47 = load i32, ptr %.0.in.i46, align 8
   %29 = zext i32 %.0.i47 to i64
-  %.0.in.i48 = getelementptr inbounds i8, ptr %1, i64 16
+  %.0.in.i48 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.0.i49 = load i64, ptr %.0.in.i48, align 8
-  %30 = getelementptr inbounds i8, ptr %1, i64 24
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %31 = load i32, ptr %30, align 8
   %32 = zext i32 %31 to i64
   %33 = load ptr, ptr %8, align 8
@@ -763,7 +763,7 @@ define dso_local void @_ZNK4llvm10AsmPrinter18emitCFIInstructionERKNS_16MCCFIIns
   %.0.in.i50 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.0.i51 = load i32, ptr %.0.in.i50, align 8
   %37 = zext i32 %.0.i51 to i64
-  %.0.in.i52 = getelementptr inbounds i8, ptr %1, i64 16
+  %.0.in.i52 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.0.i53 = load i64, ptr %.0.in.i52, align 8
   %38 = load ptr, ptr %8, align 8
   %39 = getelementptr inbounds i8, ptr %38, i64 912
@@ -775,7 +775,7 @@ define dso_local void @_ZNK4llvm10AsmPrinter18emitCFIInstructionERKNS_16MCCFIIns
   %.0.in.i54 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.0.i55 = load i32, ptr %.0.in.i54, align 8
   %42 = zext i32 %.0.i55 to i64
-  %43 = getelementptr inbounds i8, ptr %1, i64 12
+  %43 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %44 = load i32, ptr %43, align 4
   %45 = zext i32 %44 to i64
   %46 = load ptr, ptr %8, align 8
@@ -809,7 +809,7 @@ define dso_local void @_ZNK4llvm10AsmPrinter18emitCFIInstructionERKNS_16MCCFIIns
   br label %105
 
 62:                                               ; preds = %2
-  %.0.in.i58 = getelementptr inbounds i8, ptr %1, i64 16
+  %.0.in.i58 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.0.i59 = load i64, ptr %.0.in.i58, align 8
   %63 = load ptr, ptr %8, align 8
   %64 = getelementptr inbounds i8, ptr %63, i64 1000
@@ -835,7 +835,7 @@ define dso_local void @_ZNK4llvm10AsmPrinter18emitCFIInstructionERKNS_16MCCFIIns
   %76 = load ptr, ptr %7, align 8
   %77 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %78 = load ptr, ptr %77, align 8
-  %79 = getelementptr inbounds i8, ptr %1, i64 56
+  %79 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %80 = load ptr, ptr %79, align 8
   %81 = ptrtoint ptr %80 to i64
   %82 = ptrtoint ptr %78 to i64
@@ -1019,7 +1019,7 @@ _ZNK4llvm12DIEValueList6valuesEv.exit:            ; preds = %59
   br i1 %76, label %77, label %select.unfold
 
 77:                                               ; preds = %73
-  %78 = getelementptr inbounds i8, ptr %.sroa.0128.0139, i64 12
+  %78 = getelementptr inbounds nuw i8, ptr %.sroa.0128.0139, i64 12
   %79 = load i16, ptr %78, align 4
   %80 = load ptr, ptr %66, align 8
   %81 = zext i16 %79 to i32
@@ -1039,7 +1039,7 @@ _ZNK4llvm12DIEValueList6valuesEv.exit:            ; preds = %59
 
 89:                                               ; preds = %77
   %90 = load ptr, ptr %66, align 8
-  %91 = getelementptr inbounds i8, ptr %.sroa.0128.0139, i64 16
+  %91 = getelementptr inbounds nuw i8, ptr %.sroa.0128.0139, i64 16
   %92 = load i64, ptr %91, align 8
   %93 = trunc i64 %92 to i32
   %94 = call { ptr, i64 } @_ZN4llvm5dwarf19AccessibilityStringEj(i32 noundef %93) #6

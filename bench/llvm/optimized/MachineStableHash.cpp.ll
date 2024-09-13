@@ -126,7 +126,7 @@ define dso_local noundef i64 @_ZN4llvm15stableHashValueERKNS_14MachineOperandE(p
   br i1 %.not.i.i.i.i, label %54, label %.lr.ph.preheader
 
 54:                                               ; preds = %51
-  %55 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 24
+  %55 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 24
   %56 = load ptr, ptr %55, align 8
   %.not.i4.i.i.i = icmp eq ptr %56, null
   br i1 %.not.i4.i.i.i, label %._crit_edge, label %57
@@ -174,7 +174,7 @@ _ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit: ; preds = %.lr.ph, %6
 
 75:                                               ; preds = %_ZN4llvm19MachineRegisterInfo26defusechain_instr_iteratorILb0ELb1ELb0ELb0ELb1ELb0EE7advanceEv.exit.i, %_ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit
   %.pr3.i = phi ptr [ %77, %_ZN4llvm19MachineRegisterInfo26defusechain_instr_iteratorILb0ELb1ELb0ELb0ELb1ELb0EE7advanceEv.exit.i ], [ %.sroa.0152.0172, %_ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit ]
-  %76 = getelementptr inbounds i8, ptr %.pr3.i, i64 24
+  %76 = getelementptr inbounds nuw i8, ptr %.pr3.i, i64 24
   %77 = load ptr, ptr %76, align 8
   %.not.i.i = icmp eq ptr %77, null
   br i1 %.not.i.i, label %._crit_edge, label %78
@@ -257,7 +257,7 @@ _ZN4llvm19MachineRegisterInfo26defusechain_instr_iteratorILb0ELb1ELb0ELb0ELb1ELb
 121:                                              ; preds = %116
   %122 = getelementptr inbounds nuw i8, ptr %120, i64 24
   %123 = getelementptr inbounds nuw i8, ptr %26, i64 8
-  %124 = getelementptr inbounds i8, ptr %120, i64 32
+  %124 = getelementptr inbounds nuw i8, ptr %120, i64 32
   %125 = load i32, ptr %124, align 8
   store i32 %125, ptr %123, align 8
   %126 = icmp ult i32 %125, 65
@@ -273,7 +273,7 @@ _ZN4llvm19MachineRegisterInfo26defusechain_instr_iteratorILb0ELb1ELb0ELb0ELb1ELb
   br label %_ZN4llvm5APIntC2ERKS0_.exit
 
 130:                                              ; preds = %116
-  %131 = getelementptr inbounds i8, ptr %120, i64 32
+  %131 = getelementptr inbounds nuw i8, ptr %120, i64 32
   %132 = load ptr, ptr %131, align 8, !noalias !6
   %133 = tail call noundef nonnull align 1 ptr @_ZN4llvm11APFloatBase15PPCDoubleDoubleEv() #14
   %.not.i = icmp eq ptr %132, %133
@@ -392,7 +392,7 @@ _ZN4llvm16stable_hash_nameENS_9StringRefE.exit:   ; preds = %183, %185
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %20)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %21)
   %196 = call noundef i64 @_ZN4llvm11xxh3_64bitsENS_8ArrayRefIhEE(ptr %.sroa.06.0.i.i, i64 %.sroa.3.0.i.i) #13
-  %197 = getelementptr inbounds i8, ptr %0, i64 24
+  %197 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %198 = load i32, ptr %197, align 8
   %199 = sext i32 %198 to i64
   %200 = shl nsw i64 %199, 32
@@ -471,7 +471,7 @@ _ZN4llvm16stable_hash_nameENS_9StringRefE.exit102: ; preds = %223, %225
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %17)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %18)
   %236 = call noundef i64 @_ZN4llvm11xxh3_64bitsENS_8ArrayRefIhEE(ptr %.sroa.06.0.i.i101, i64 %.sroa.3.0.i.i100) #13
-  %237 = getelementptr inbounds i8, ptr %0, i64 24
+  %237 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %238 = load i32, ptr %237, align 8
   %239 = sext i32 %238 to i64
   %240 = shl nsw i64 %239, 32
@@ -520,7 +520,7 @@ _ZN4llvm16stable_hash_nameENS_9StringRefE.exit102: ; preds = %223, %225
   %266 = and i32 %265, 4095
   %267 = select i1 %264, i32 0, i32 %266
   %268 = zext nneg i32 %267 to i64
-  %269 = getelementptr inbounds i8, ptr %0, i64 24
+  %269 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %270 = load i32, ptr %269, align 8
   %271 = sext i32 %270 to i64
   %272 = shl nsw i64 %271, 32
@@ -966,7 +966,7 @@ _ZN4llvm16stable_hash_nameENS_9StringRefE.exit130: ; preds = %424, %426
   %482 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %483 = load i32, ptr %482, align 8
   %484 = zext i32 %483 to i64
-  %485 = getelementptr inbounds i8, ptr %0, i64 20
+  %485 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %486 = load i32, ptr %485, align 4
   %487 = zext i32 %486 to i64
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2)
@@ -1574,7 +1574,7 @@ define dso_local noundef i64 @_ZN4llvm15stableHashValueERKNS_15MachineFunctionE(
   %2 = alloca %"class.llvm::SmallVector.121", align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 16
   call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull %3, i64 noundef 6) #13
-  %4 = getelementptr inbounds i8, ptr %0, i64 328
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 328
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 320
   %.sroa.05.08 = load ptr, ptr %4, align 8
   %.not9 = icmp eq ptr %.sroa.05.08, %5

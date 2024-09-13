@@ -139,7 +139,7 @@ define dso_local void @_ZN4llvm25createMemCpyLoopKnownSizeEPNS_11InstructionEPNS
   %39 = alloca ptr, align 8
   %.sroa.3.0.extract.shift = lshr i64 %10, 32
   %40 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %41 = getelementptr inbounds i8, ptr %3, i64 32
+  %41 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %42 = load i32, ptr %41, align 8
   %43 = icmp ult i32 %42, 65
   br i1 %43, label %44, label %_ZNK4llvm11ConstantInt6isZeroEv.exit
@@ -2465,7 +2465,7 @@ _ZL10canOverlapIN4llvm12MemIntrinsicEEbPNS0_15MemTransferBaseIT_EEPNS0_15ScalarE
   %45 = getelementptr inbounds i8, ptr %44, i64 96
   %46 = load ptr, ptr %45, align 8
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 24
-  %48 = getelementptr inbounds i8, ptr %46, i64 32
+  %48 = getelementptr inbounds nuw i8, ptr %46, i64 32
   %49 = load i32, ptr %48, align 8
   %50 = icmp ult i32 %49, 65
   br i1 %.not, label %51, label %62
@@ -2668,7 +2668,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm19expandMemMoveAsLoopEPNS_11MemMove
   %142 = getelementptr inbounds i8, ptr %141, i64 96
   %143 = load ptr, ptr %142, align 8
   %144 = getelementptr inbounds nuw i8, ptr %143, i64 24
-  %145 = getelementptr inbounds i8, ptr %143, i64 32
+  %145 = getelementptr inbounds nuw i8, ptr %143, i64 32
   %146 = load i32, ptr %145, align 8
   %147 = icmp ult i32 %146, 65
   br i1 %147, label %148, label %151
@@ -2838,7 +2838,7 @@ _ZNK4llvm4Type22getPointerAddressSpaceEv.exit79:  ; preds = %_ZNK4llvm4Type22get
   store i8 %206, ptr %82, align 1
   store i8 %206, ptr %83, align 1
   %207 = getelementptr inbounds nuw i8, ptr %128, i64 24
-  %208 = getelementptr inbounds i8, ptr %128, i64 32
+  %208 = getelementptr inbounds nuw i8, ptr %128, i64 32
   %209 = load i32, ptr %208, align 8
   %210 = icmp ult i32 %209, 65
   br i1 %210, label %211, label %_ZNK4llvm11ConstantInt6isZeroEv.exit.i
@@ -5926,7 +5926,7 @@ define dso_local void @_ZN4llvm18expandMemSetAsLoopEPNS_10MemSetInstE(ptr nounde
   %36 = getelementptr inbounds i8, ptr %35, i64 96
   %37 = load ptr, ptr %36, align 8
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 24
-  %39 = getelementptr inbounds i8, ptr %37, i64 32
+  %39 = getelementptr inbounds nuw i8, ptr %37, i64 32
   %40 = load i32, ptr %39, align 8
   %41 = icmp ult i32 %40, 65
   br i1 %41, label %42, label %45
@@ -6441,7 +6441,7 @@ define dso_local void @_ZN4llvm24expandAtomicMemCpyAsLoopEPNS_16AtomicMemCpyInst
   %27 = getelementptr inbounds i8, ptr %26, i64 96
   %28 = load ptr, ptr %27, align 8
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 24
-  %30 = getelementptr inbounds i8, ptr %28, i64 32
+  %30 = getelementptr inbounds nuw i8, ptr %28, i64 32
   %31 = load i32, ptr %30, align 8
   %32 = icmp ult i32 %31, 65
   %33 = load ptr, ptr %29, align 8

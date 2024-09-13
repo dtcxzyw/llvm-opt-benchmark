@@ -275,7 +275,7 @@ _ZZN12_GLOBAL__N_123CheckDebugMachineModule11runOnModuleERN4llvm6ModuleEENKUljE_
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 128
   %56 = load ptr, ptr %55, align 8
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 24
-  %58 = getelementptr inbounds i8, ptr %56, i64 32
+  %58 = getelementptr inbounds nuw i8, ptr %56, i64 32
   %59 = load i32, ptr %58, align 8
   %60 = icmp ult i32 %59, 65
   %61 = load ptr, ptr %57, align 8
@@ -308,7 +308,7 @@ _ZZN12_GLOBAL__N_123CheckDebugMachineModule11runOnModuleERN4llvm6ModuleEENKUljE_
   %77 = getelementptr inbounds nuw i8, ptr %76, i64 128
   %78 = load ptr, ptr %77, align 8
   %79 = getelementptr inbounds nuw i8, ptr %78, i64 24
-  %80 = getelementptr inbounds i8, ptr %78, i64 32
+  %80 = getelementptr inbounds nuw i8, ptr %78, i64 32
   %81 = load i32, ptr %80, align 8
   %82 = icmp ult i32 %81, 65
   %83 = load ptr, ptr %79, align 8
@@ -367,7 +367,7 @@ _ZN4llvm9BitVectorC2Ejb.exit:                     ; preds = %_ZZN12_GLOBAL__N_12
   br label %_ZN4llvm9BitVectorC2Ejb.exit61
 
 _ZN4llvm9BitVectorC2Ejb.exit61:                   ; preds = %_ZN4llvm9BitVectorC2Ejb.exit, %107
-  %117 = getelementptr inbounds i8, ptr %1, i64 32
+  %117 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %118 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %.sroa.0172.0215 = load ptr, ptr %117, align 8
   %.not185216 = icmp eq ptr %.sroa.0172.0215, %118
@@ -383,7 +383,7 @@ _ZN4llvm9BitVectorC2Ejb.exit61:                   ; preds = %_ZN4llvm9BitVectorC
   br i1 %.not50, label %.loopexit, label %123
 
 123:                                              ; preds = %.lr.ph218
-  %124 = getelementptr inbounds i8, ptr %122, i64 328
+  %124 = getelementptr inbounds nuw i8, ptr %122, i64 328
   %125 = getelementptr inbounds nuw i8, ptr %122, i64 320
   %.sroa.0168.0210 = load ptr, ptr %124, align 8
   %.not188211 = icmp eq ptr %.sroa.0168.0210, %125

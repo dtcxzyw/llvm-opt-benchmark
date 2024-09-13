@@ -87,7 +87,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %16, %18
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit10
 
 _ZN4llvm11raw_ostreamlsEPKc.exit10:               ; preds = %33, %35
-  %38 = getelementptr inbounds i8, ptr %2, i64 32
+  %38 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %39 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %.sroa.020.024 = load ptr, ptr %38, align 8
   %.not25 = icmp eq ptr %.sroa.020.024, %39
@@ -228,15 +228,15 @@ _ZN4llvm11raw_ostreamlsEPKc.exit19:               ; preds = %103, %101, %42
   %111 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 0, ptr %111, align 8, !alias.scope !10
   %112 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %113 = getelementptr inbounds i8, ptr %0, i64 80
+  %113 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store ptr %113, ptr %112, align 8, !alias.scope !10
-  %114 = getelementptr inbounds i8, ptr %0, i64 56
+  %114 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store ptr %113, ptr %114, align 8, !alias.scope !10
-  %115 = getelementptr inbounds i8, ptr %0, i64 64
+  %115 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i32 2, ptr %115, align 8, !alias.scope !10
-  %116 = getelementptr inbounds i8, ptr %0, i64 68
+  %116 = getelementptr inbounds nuw i8, ptr %0, i64 68
   store i32 0, ptr %116, align 4, !alias.scope !10
-  %117 = getelementptr inbounds i8, ptr %0, i64 72
+  %117 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store i32 0, ptr %117, align 8, !alias.scope !10
   store i32 1, ptr %110, align 4, !alias.scope !10, !noalias !13
   store ptr @_ZN4llvm17PreservedAnalyses14AllAnalysesKeyE, ptr %107, align 8, !alias.scope !10, !noalias !13

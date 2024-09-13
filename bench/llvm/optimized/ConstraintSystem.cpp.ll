@@ -726,7 +726,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm16ConstraintSystem19mayHaveSolution
 define dso_local void @_ZNK4llvm16ConstraintSystem15getVarNamesListB5cxx11Ev(ptr dead_on_unwind noalias writable sret(%"class.llvm::SmallVector.5") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(624) %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::allocator", align 1
-  %5 = getelementptr inbounds i8, ptr %1, i64 608
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 608
   %6 = load i32, ptr %5, align 8
   %7 = zext i32 %6 to i64
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #10
@@ -919,7 +919,7 @@ _ZN4llvm11SmallVectorIlLj8EED2Ev.exit3:           ; preds = %_ZN4llvm11SmallVect
   %60 = xor i1 %59, true
   %61 = getelementptr inbounds nuw i8, ptr %5, i64 600
   %62 = load ptr, ptr %61, align 8
-  %63 = getelementptr inbounds i8, ptr %5, i64 616
+  %63 = getelementptr inbounds nuw i8, ptr %5, i64 616
   %64 = load i32, ptr %63, align 8
   %65 = zext i32 %64 to i64
   %66 = shl nuw nsw i64 %65, 4
@@ -1049,9 +1049,9 @@ define linkonce_odr hidden void @_ZN4llvm16ConstraintSystemC2ERKS0_(ptr noundef 
 _ZN4llvm11SmallVectorINS0_INS_16ConstraintSystem5EntryELj8EEELj4EEC2ERKS4_.exit: ; preds = %2, %8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 600
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %10, i8 0, i64 20, i1 false)
-  %11 = getelementptr inbounds i8, ptr %0, i64 616
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 616
   tail call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef null, i64 noundef 0, i64 noundef 8) #10
-  %12 = getelementptr inbounds i8, ptr %1, i64 616
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 616
   %13 = load i32, ptr %12, align 8
   store i32 %13, ptr %11, align 8
   %.not.i.i = icmp eq i32 %13, 0
@@ -1063,13 +1063,13 @@ _ZN4llvm11SmallVectorINS0_INS_16ConstraintSystem5EntryELj8EEELj4EEC2ERKS4_.exit:
   %17 = shl nuw nsw i64 %16, 4
   %18 = tail call noalias noundef nonnull ptr @_ZN4llvm15allocate_bufferEmm(i64 noundef %17, i64 noundef 8) #10
   store ptr %18, ptr %10, align 8
-  %19 = getelementptr inbounds i8, ptr %1, i64 608
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 608
   %20 = load i32, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %0, i64 608
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 608
   store i32 %20, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %1, i64 612
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 612
   %23 = load i32, ptr %22, align 4
-  %24 = getelementptr inbounds i8, ptr %0, i64 612
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 612
   store i32 %23, ptr %24, align 4
   %25 = load ptr, ptr %15, align 8
   %26 = load i32, ptr %11, align 8

@@ -5043,7 +5043,7 @@ _ZNSt6vectorISt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES2_ESaIS3_EE12e
   %53 = load i32, ptr %5, align 4, !noalias !34
   store i32 %53, ptr %52, align 4
   store i32 0, ptr %5, align 4, !noalias !34
-  %54 = getelementptr inbounds i8, ptr %34, i64 12
+  %54 = getelementptr inbounds nuw i8, ptr %34, i64 12
   %55 = load i32, ptr %28, align 4, !noalias !34
   store i32 %55, ptr %54, align 4
   store i32 0, ptr %28, align 4, !noalias !34
@@ -7964,7 +7964,7 @@ _ZNSt12_Vector_baseISt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES2_ESaIS
   %43 = load i32, ptr %3, align 4
   store i32 %43, ptr %42, align 4
   store i32 0, ptr %3, align 4
-  %44 = getelementptr inbounds i8, ptr %25, i64 12
+  %44 = getelementptr inbounds nuw i8, ptr %25, i64 12
   %45 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %46 = load i32, ptr %45, align 4
   store i32 %46, ptr %44, align 4
@@ -7990,8 +7990,8 @@ _ZNSt12_Vector_baseISt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES2_ESaIS
   %53 = load i32, ptr %52, align 4, !alias.scope !122, !noalias !119
   store i32 %53, ptr %51, align 4, !alias.scope !119, !noalias !122
   store i32 0, ptr %52, align 4, !alias.scope !122, !noalias !119
-  %54 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 12
-  %55 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 12
+  %54 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 12
+  %55 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 12
   %56 = load i32, ptr %55, align 4, !alias.scope !122, !noalias !119
   store i32 %56, ptr %54, align 4, !alias.scope !119, !noalias !122
   store i32 0, ptr %55, align 4, !alias.scope !122, !noalias !119
@@ -8024,8 +8024,8 @@ _ZNSt6vectorISt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES2_ESaIS3_EE11_
   %66 = load i32, ptr %65, align 4, !alias.scope !128, !noalias !125
   store i32 %66, ptr %64, align 4, !alias.scope !125, !noalias !128
   store i32 0, ptr %65, align 4, !alias.scope !128, !noalias !125
-  %67 = getelementptr inbounds i8, ptr %.012.i.i.i29, i64 12
-  %68 = getelementptr inbounds i8, ptr %.0911.i.i.i30, i64 12
+  %67 = getelementptr inbounds nuw i8, ptr %.012.i.i.i29, i64 12
+  %68 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i30, i64 12
   %69 = load i32, ptr %68, align 4, !alias.scope !128, !noalias !125
   store i32 %69, ptr %67, align 4, !alias.scope !125, !noalias !128
   store i32 0, ptr %68, align 4, !alias.scope !128, !noalias !125

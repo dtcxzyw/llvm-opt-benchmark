@@ -471,7 +471,7 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSa
 _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit: ; preds = %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i, %50
   %56 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %57 = load ptr, ptr %56, align 8
-  %58 = getelementptr inbounds i8, ptr %1, i64 56
+  %58 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %59 = load ptr, ptr %58, align 8
   %60 = icmp eq ptr %57, %59
   br i1 %60, label %61, label %66
@@ -1931,26 +1931,26 @@ _ZN4llvm4yaml2IO11mapRequiredINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcE
 _ZNSt6vectorIjSaIjEED2Ev.exit:                    ; preds = %_ZN4llvm4yaml2IO11mapRequiredINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvPKcRT_.exit24, %44
   %50 = getelementptr inbounds nuw i8, ptr %1, i64 120
   %51 = load ptr, ptr %50, align 8
-  %52 = getelementptr inbounds i8, ptr %1, i64 128
+  %52 = getelementptr inbounds nuw i8, ptr %1, i64 128
   %53 = load ptr, ptr %52, align 8
   %54 = icmp eq ptr %51, %53
   br i1 %54, label %55, label %_ZNK4llvm6AMDGPU5HSAMD6Kernel5Attrs8Metadata5emptyEv.exit.thread
 
 55:                                               ; preds = %_ZNSt6vectorIjSaIjEED2Ev.exit
-  %56 = getelementptr inbounds i8, ptr %1, i64 144
+  %56 = getelementptr inbounds nuw i8, ptr %1, i64 144
   %57 = load ptr, ptr %56, align 8
-  %58 = getelementptr inbounds i8, ptr %1, i64 152
+  %58 = getelementptr inbounds nuw i8, ptr %1, i64 152
   %59 = load ptr, ptr %58, align 8
   %60 = icmp eq ptr %57, %59
   br i1 %60, label %61, label %_ZNK4llvm6AMDGPU5HSAMD6Kernel5Attrs8Metadata5emptyEv.exit.thread
 
 61:                                               ; preds = %55
-  %62 = getelementptr inbounds i8, ptr %1, i64 168
+  %62 = getelementptr inbounds nuw i8, ptr %1, i64 168
   %63 = call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %62) #14
   br i1 %63, label %_ZNK4llvm6AMDGPU5HSAMD6Kernel5Attrs8Metadata5emptyEv.exit, label %_ZNK4llvm6AMDGPU5HSAMD6Kernel5Attrs8Metadata5emptyEv.exit.thread
 
 _ZNK4llvm6AMDGPU5HSAMD6Kernel5Attrs8Metadata5emptyEv.exit: ; preds = %61
-  %64 = getelementptr inbounds i8, ptr %1, i64 200
+  %64 = getelementptr inbounds nuw i8, ptr %1, i64 200
   %65 = call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %64) #14
   br i1 %65, label %66, label %_ZNK4llvm6AMDGPU5HSAMD6Kernel5Attrs8Metadata5emptyEv.exit.thread
 
@@ -1995,7 +1995,7 @@ _ZN4llvm4yaml2IO11mapOptionalINS_6AMDGPU5HSAMD6Kernel5Attrs8MetadataEEEvPKcRT_.e
 86:                                               ; preds = %_ZN4llvm4yaml2IO11mapOptionalINS_6AMDGPU5HSAMD6Kernel5Attrs8MetadataEEEvPKcRT_.exit, %66
   %87 = getelementptr inbounds nuw i8, ptr %1, i64 232
   %88 = load ptr, ptr %87, align 8
-  %89 = getelementptr inbounds i8, ptr %1, i64 240
+  %89 = getelementptr inbounds nuw i8, ptr %1, i64 240
   %90 = load ptr, ptr %89, align 8
   %91 = icmp eq ptr %88, %90
   br i1 %91, label %92, label %97
@@ -2080,7 +2080,7 @@ _ZN4llvm4yaml2IO11mapOptionalISt6vectorINS_6AMDGPU5HSAMD6Kernel3Arg8MetadataESaI
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6)
   %132 = getelementptr inbounds nuw i8, ptr %1, i64 296
   %133 = load ptr, ptr %132, align 8
-  %134 = getelementptr inbounds i8, ptr %1, i64 304
+  %134 = getelementptr inbounds nuw i8, ptr %1, i64 304
   %135 = load ptr, ptr %134, align 8
   %.not.i = icmp eq ptr %133, %135
   br i1 %.not.i, label %136, label %141
@@ -4889,18 +4889,18 @@ define linkonce_odr void @_ZNSt6vectorIN4llvm6AMDGPU5HSAMD6Kernel8MetadataESaIS4
   %20 = getelementptr inbounds nuw i8, ptr %.08.i.i.i, i64 64
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %20) #14
   %21 = getelementptr inbounds nuw i8, ptr %.08.i.i.i, i64 96
-  %22 = getelementptr inbounds i8, ptr %.08.i.i.i, i64 168
+  %22 = getelementptr inbounds nuw i8, ptr %.08.i.i.i, i64 168
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %21, i8 0, i64 136, i1 false)
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %22) #14
-  %23 = getelementptr inbounds i8, ptr %.08.i.i.i, i64 200
+  %23 = getelementptr inbounds nuw i8, ptr %.08.i.i.i, i64 200
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %23) #14
   %24 = getelementptr inbounds nuw i8, ptr %.08.i.i.i, i64 232
-  %25 = getelementptr inbounds i8, ptr %.08.i.i.i, i64 322
+  %25 = getelementptr inbounds nuw i8, ptr %.08.i.i.i, i64 322
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %24, i8 0, i64 96, i1 false)
   store i16 -1, ptr %25, align 2
-  %26 = getelementptr inbounds i8, ptr %.08.i.i.i, i64 324
+  %26 = getelementptr inbounds nuw i8, ptr %.08.i.i.i, i64 324
   store i16 -1, ptr %26, align 4
-  %27 = getelementptr inbounds i8, ptr %.08.i.i.i, i64 326
+  %27 = getelementptr inbounds nuw i8, ptr %.08.i.i.i, i64 326
   store i16 -1, ptr %27, align 2
   %28 = add i64 %.057.i.i.i, -1
   %29 = getelementptr inbounds i8, ptr %.08.i.i.i, i64 328
@@ -4938,18 +4938,18 @@ _ZNKSt6vectorIN4llvm6AMDGPU5HSAMD6Kernel8MetadataESaIS4_EE12_M_check_lenEmPKc.ex
   %39 = getelementptr inbounds nuw i8, ptr %.08.i.i.i26, i64 64
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %39) #14
   %40 = getelementptr inbounds nuw i8, ptr %.08.i.i.i26, i64 96
-  %41 = getelementptr inbounds i8, ptr %.08.i.i.i26, i64 168
+  %41 = getelementptr inbounds nuw i8, ptr %.08.i.i.i26, i64 168
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %40, i8 0, i64 136, i1 false)
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %41) #14
-  %42 = getelementptr inbounds i8, ptr %.08.i.i.i26, i64 200
+  %42 = getelementptr inbounds nuw i8, ptr %.08.i.i.i26, i64 200
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %42) #14
   %43 = getelementptr inbounds nuw i8, ptr %.08.i.i.i26, i64 232
-  %44 = getelementptr inbounds i8, ptr %.08.i.i.i26, i64 322
+  %44 = getelementptr inbounds nuw i8, ptr %.08.i.i.i26, i64 322
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %43, i8 0, i64 96, i1 false)
   store i16 -1, ptr %44, align 2
-  %45 = getelementptr inbounds i8, ptr %.08.i.i.i26, i64 324
+  %45 = getelementptr inbounds nuw i8, ptr %.08.i.i.i26, i64 324
   store i16 -1, ptr %45, align 4
-  %46 = getelementptr inbounds i8, ptr %.08.i.i.i26, i64 326
+  %46 = getelementptr inbounds nuw i8, ptr %.08.i.i.i26, i64 326
   store i16 -1, ptr %46, align 2
   %47 = add i64 %.057.i.i.i27, -1
   %48 = getelementptr inbounds i8, ptr %.08.i.i.i26, i64 328
@@ -5005,12 +5005,12 @@ define linkonce_odr void @_ZSt19__relocate_object_aIN4llvm6AMDGPU5HSAMD6Kernel8M
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %10 = load ptr, ptr %9, align 8
   store ptr %10, ptr %8, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 104
-  %12 = getelementptr inbounds i8, ptr %1, i64 104
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 104
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 104
   %13 = load ptr, ptr %12, align 8
   store ptr %13, ptr %11, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 112
-  %15 = getelementptr inbounds i8, ptr %1, i64 112
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %16 = load ptr, ptr %15, align 8
   store ptr %16, ptr %14, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, i8 0, i64 24, i1 false)
@@ -5018,44 +5018,44 @@ define linkonce_odr void @_ZSt19__relocate_object_aIN4llvm6AMDGPU5HSAMD6Kernel8M
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 120
   %19 = load ptr, ptr %18, align 8
   store ptr %19, ptr %17, align 8
-  %20 = getelementptr inbounds i8, ptr %0, i64 128
-  %21 = getelementptr inbounds i8, ptr %1, i64 128
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 128
   %22 = load ptr, ptr %21, align 8
   store ptr %22, ptr %20, align 8
-  %23 = getelementptr inbounds i8, ptr %0, i64 136
-  %24 = getelementptr inbounds i8, ptr %1, i64 136
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 136
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 136
   %25 = load ptr, ptr %24, align 8
   store ptr %25, ptr %23, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %18, i8 0, i64 24, i1 false)
-  %26 = getelementptr inbounds i8, ptr %0, i64 144
-  %27 = getelementptr inbounds i8, ptr %1, i64 144
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 144
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 144
   %28 = load ptr, ptr %27, align 8
   store ptr %28, ptr %26, align 8
-  %29 = getelementptr inbounds i8, ptr %0, i64 152
-  %30 = getelementptr inbounds i8, ptr %1, i64 152
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 152
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 152
   %31 = load ptr, ptr %30, align 8
   store ptr %31, ptr %29, align 8
-  %32 = getelementptr inbounds i8, ptr %0, i64 160
-  %33 = getelementptr inbounds i8, ptr %1, i64 160
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 160
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 160
   %34 = load ptr, ptr %33, align 8
   store ptr %34, ptr %32, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %27, i8 0, i64 24, i1 false)
-  %35 = getelementptr inbounds i8, ptr %0, i64 168
-  %36 = getelementptr inbounds i8, ptr %1, i64 168
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 168
+  %36 = getelementptr inbounds nuw i8, ptr %1, i64 168
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %35, ptr noundef nonnull align 8 dereferenceable(32) %36) #14
-  %37 = getelementptr inbounds i8, ptr %0, i64 200
-  %38 = getelementptr inbounds i8, ptr %1, i64 200
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 200
+  %38 = getelementptr inbounds nuw i8, ptr %1, i64 200
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %37, ptr noundef nonnull align 8 dereferenceable(32) %38) #14
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %40 = getelementptr inbounds nuw i8, ptr %1, i64 232
   %41 = load ptr, ptr %40, align 8
   store ptr %41, ptr %39, align 8
-  %42 = getelementptr inbounds i8, ptr %0, i64 240
-  %43 = getelementptr inbounds i8, ptr %1, i64 240
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 240
+  %43 = getelementptr inbounds nuw i8, ptr %1, i64 240
   %44 = load ptr, ptr %43, align 8
   store ptr %44, ptr %42, align 8
-  %45 = getelementptr inbounds i8, ptr %0, i64 248
-  %46 = getelementptr inbounds i8, ptr %1, i64 248
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 248
+  %46 = getelementptr inbounds nuw i8, ptr %1, i64 248
   %47 = load ptr, ptr %46, align 8
   store ptr %47, ptr %45, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %40, i8 0, i64 24, i1 false)
@@ -5066,17 +5066,17 @@ define linkonce_odr void @_ZSt19__relocate_object_aIN4llvm6AMDGPU5HSAMD6Kernel8M
   %51 = getelementptr inbounds nuw i8, ptr %1, i64 296
   %52 = load ptr, ptr %51, align 8
   store ptr %52, ptr %50, align 8
-  %53 = getelementptr inbounds i8, ptr %0, i64 304
-  %54 = getelementptr inbounds i8, ptr %1, i64 304
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 304
+  %54 = getelementptr inbounds nuw i8, ptr %1, i64 304
   %55 = load ptr, ptr %54, align 8
   store ptr %55, ptr %53, align 8
-  %56 = getelementptr inbounds i8, ptr %0, i64 312
-  %57 = getelementptr inbounds i8, ptr %1, i64 312
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 312
+  %57 = getelementptr inbounds nuw i8, ptr %1, i64 312
   %58 = load ptr, ptr %57, align 8
   store ptr %58, ptr %56, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %51, i8 0, i64 24, i1 false)
-  %59 = getelementptr inbounds i8, ptr %0, i64 320
-  %60 = getelementptr inbounds i8, ptr %1, i64 320
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 320
+  %60 = getelementptr inbounds nuw i8, ptr %1, i64 320
   %61 = load i64, ptr %60, align 8
   store i64 %61, ptr %59, align 8
   tail call void @_ZN4llvm6AMDGPU5HSAMD6Kernel8MetadataD2Ev(ptr noundef nonnull align 8 dereferenceable(328) %1) #14
@@ -5091,7 +5091,7 @@ define linkonce_odr hidden void @_ZN4llvm6AMDGPU5HSAMD6Kernel8MetadataD2Ev(ptr n
   br i1 %.not.i.i.i.i, label %_ZN4llvm6AMDGPU5HSAMD6Kernel10DebugProps8MetadataD2Ev.exit, label %4
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 312
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %6 = load ptr, ptr %5, align 8
   %7 = ptrtoint ptr %6 to i64
   %8 = ptrtoint ptr %3 to i64
@@ -5102,7 +5102,7 @@ define linkonce_odr hidden void @_ZN4llvm6AMDGPU5HSAMD6Kernel8MetadataD2Ev(ptr n
 _ZN4llvm6AMDGPU5HSAMD6Kernel10DebugProps8MetadataD2Ev.exit: ; preds = %1, %4
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 240
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 240
   %13 = load ptr, ptr %12, align 8
   %.not4.i.i.i.i = icmp eq ptr %11, %13
   br i1 %.not4.i.i.i.i, label %_ZSt8_DestroyIPN4llvm6AMDGPU5HSAMD6Kernel3Arg8MetadataES5_EvT_S7_RSaIT0_E.exit.i, label %.lr.ph.i.i.i.i
@@ -5126,7 +5126,7 @@ _ZSt8_DestroyIPN4llvm6AMDGPU5HSAMD6Kernel3Arg8MetadataES5_EvT_S7_RSaIT0_E.exit.i
   br i1 %.not.i.i.i, label %_ZNSt6vectorIN4llvm6AMDGPU5HSAMD6Kernel3Arg8MetadataESaIS5_EED2Ev.exit, label %17
 
 17:                                               ; preds = %_ZSt8_DestroyIPN4llvm6AMDGPU5HSAMD6Kernel3Arg8MetadataES5_EvT_S7_RSaIT0_E.exit.i
-  %18 = getelementptr inbounds i8, ptr %0, i64 248
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %19 = load ptr, ptr %18, align 8
   %20 = ptrtoint ptr %19 to i64
   %21 = ptrtoint ptr %16 to i64
@@ -5136,17 +5136,17 @@ _ZSt8_DestroyIPN4llvm6AMDGPU5HSAMD6Kernel3Arg8MetadataES5_EvT_S7_RSaIT0_E.exit.i
 
 _ZNSt6vectorIN4llvm6AMDGPU5HSAMD6Kernel3Arg8MetadataESaIS5_EED2Ev.exit: ; preds = %_ZSt8_DestroyIPN4llvm6AMDGPU5HSAMD6Kernel3Arg8MetadataES5_EvT_S7_RSaIT0_E.exit.i, %17
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  %24 = getelementptr inbounds i8, ptr %0, i64 200
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 200
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %24) #14
-  %25 = getelementptr inbounds i8, ptr %0, i64 168
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 168
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %25) #14
-  %26 = getelementptr inbounds i8, ptr %0, i64 144
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %27 = load ptr, ptr %26, align 8
   %.not.i.i.i.i2 = icmp eq ptr %27, null
   br i1 %.not.i.i.i.i2, label %_ZNSt6vectorIjSaIjEED2Ev.exit.i, label %28
 
 28:                                               ; preds = %_ZNSt6vectorIN4llvm6AMDGPU5HSAMD6Kernel3Arg8MetadataESaIS5_EED2Ev.exit
-  %29 = getelementptr inbounds i8, ptr %0, i64 160
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %30 = load ptr, ptr %29, align 8
   %31 = ptrtoint ptr %30 to i64
   %32 = ptrtoint ptr %27 to i64
@@ -5160,7 +5160,7 @@ _ZNSt6vectorIjSaIjEED2Ev.exit.i:                  ; preds = %28, %_ZNSt6vectorIN
   br i1 %.not.i.i.i1.i, label %_ZN4llvm6AMDGPU5HSAMD6Kernel5Attrs8MetadataD2Ev.exit, label %35
 
 35:                                               ; preds = %_ZNSt6vectorIjSaIjEED2Ev.exit.i
-  %36 = getelementptr inbounds i8, ptr %0, i64 136
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %37 = load ptr, ptr %36, align 8
   %38 = ptrtoint ptr %37 to i64
   %39 = ptrtoint ptr %34 to i64
@@ -5175,7 +5175,7 @@ _ZN4llvm6AMDGPU5HSAMD6Kernel5Attrs8MetadataD2Ev.exit: ; preds = %_ZNSt6vectorIjS
   br i1 %.not.i.i.i3, label %_ZNSt6vectorIjSaIjEED2Ev.exit, label %43
 
 43:                                               ; preds = %_ZN4llvm6AMDGPU5HSAMD6Kernel5Attrs8MetadataD2Ev.exit
-  %44 = getelementptr inbounds i8, ptr %0, i64 112
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %45 = load ptr, ptr %44, align 8
   %46 = ptrtoint ptr %45 to i64
   %47 = ptrtoint ptr %42 to i64

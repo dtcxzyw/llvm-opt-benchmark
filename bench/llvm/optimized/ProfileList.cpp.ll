@@ -314,11 +314,11 @@ _ZN4llvm17StringMapIterBaseINS_22StringMapConstIteratorINS_15SpecialCaseList7Sec
 .lr.ph.i:                                         ; preds = %_ZN4llvm17StringMapIterBaseINS_22StringMapConstIteratorINS_15SpecialCaseList7SectionEEEKNS_14StringMapEntryIS3_EEEppEv.exit.loopexit.i, %.lr.ph.preheader.i
   %31 = phi ptr [ %41, %_ZN4llvm17StringMapIterBaseINS_22StringMapConstIteratorINS_15SpecialCaseList7SectionEEEKNS_14StringMapEntryIS3_EEEppEv.exit.loopexit.i ], [ %.pre.i, %.lr.ph.preheader.i ]
   %.sroa.07.013.i = phi ptr [ %storemerge.i.i, %_ZN4llvm17StringMapIterBaseINS_22StringMapConstIteratorINS_15SpecialCaseList7SectionEEEKNS_14StringMapEntryIS3_EEEppEv.exit.loopexit.i ], [ %.sroa.0.1.i.i, %.lr.ph.preheader.i ]
-  %32 = getelementptr inbounds i8, ptr %31, i64 16
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 16
   %33 = tail call noundef i32 @_ZN4llvm13StringMapImpl4hashENS_9StringRefE(ptr nonnull @.str.4, i64 3) #9
   %34 = tail call noundef i32 @_ZNK4llvm13StringMapImpl7FindKeyENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(24) %32, ptr nonnull @.str.4, i64 3, i32 noundef %33) #9
   %35 = icmp ne i32 %34, -1
-  %36 = getelementptr inbounds i8, ptr %31, i64 24
+  %36 = getelementptr inbounds nuw i8, ptr %31, i64 24
   %37 = load i32, ptr %36, align 8
   %38 = zext i32 %37 to i64
   %39 = sext i32 %34 to i64
@@ -383,11 +383,11 @@ _ZN4llvm17StringMapIterBaseINS_22StringMapConstIteratorINS_15SpecialCaseList7Sec
 .lr.ph.i18:                                       ; preds = %_ZN4llvm17StringMapIterBaseINS_22StringMapConstIteratorINS_15SpecialCaseList7SectionEEEKNS_14StringMapEntryIS3_EEEppEv.exit.loopexit.i26, %.lr.ph.preheader.i16
   %49 = phi ptr [ %59, %_ZN4llvm17StringMapIterBaseINS_22StringMapConstIteratorINS_15SpecialCaseList7SectionEEEKNS_14StringMapEntryIS3_EEEppEv.exit.loopexit.i26 ], [ %.pre.i17, %.lr.ph.preheader.i16 ]
   %.sroa.07.013.i19 = phi ptr [ %storemerge.i.i23, %_ZN4llvm17StringMapIterBaseINS_22StringMapConstIteratorINS_15SpecialCaseList7SectionEEEKNS_14StringMapEntryIS3_EEEppEv.exit.loopexit.i26 ], [ %.sroa.0.1.i.i14, %.lr.ph.preheader.i16 ]
-  %50 = getelementptr inbounds i8, ptr %49, i64 16
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 16
   %51 = tail call noundef i32 @_ZN4llvm13StringMapImpl4hashENS_9StringRefE(ptr nonnull @.str.5, i64 3) #9
   %52 = tail call noundef i32 @_ZNK4llvm13StringMapImpl7FindKeyENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(24) %50, ptr nonnull @.str.5, i64 3, i32 noundef %51) #9
   %53 = icmp ne i32 %52, -1
-  %54 = getelementptr inbounds i8, ptr %49, i64 24
+  %54 = getelementptr inbounds nuw i8, ptr %49, i64 24
   %55 = load i32, ptr %54, align 8
   %56 = zext i32 %55 to i64
   %57 = sext i32 %52 to i64

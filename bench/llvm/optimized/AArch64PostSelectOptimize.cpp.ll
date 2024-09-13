@@ -379,7 +379,7 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_125AArch64PostSelectOptimize
   br i1 %.not, label %11, label %.loopexit
 
 11:                                               ; preds = %2
-  %12 = getelementptr inbounds i8, ptr %1, i64 328
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 328
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 320
   %.sroa.024.034 = load ptr, ptr %12, align 8
   %.not2835 = icmp eq ptr %.sroa.024.034, %13
@@ -388,7 +388,7 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_125AArch64PostSelectOptimize
 .lr.ph:                                           ; preds = %11
   %14 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %15 = getelementptr inbounds i8, ptr %7, i64 24
-  %16 = getelementptr inbounds i8, ptr %7, i64 72
+  %16 = getelementptr inbounds nuw i8, ptr %7, i64 72
   %17 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %18 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %19 = getelementptr inbounds nuw i8, ptr %6, i64 24
@@ -1035,7 +1035,7 @@ define linkonce_odr hidden void @_ZN4llvm12LiveRegUnits4initERKNS_18TargetRegist
 _ZN4llvm9BitVector5resetEv.exit:                  ; preds = %2, %.lr.ph.i.i.i.i.preheader.i
   %7 = getelementptr inbounds i8, ptr %1, i64 44
   %8 = load i32, ptr %7, align 4
-  %9 = getelementptr inbounds i8, ptr %0, i64 72
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %10 = load i32, ptr %9, align 8
   %11 = and i32 %10, 63
   %.not.i.i = icmp eq i32 %11, 0
@@ -1225,7 +1225,7 @@ define internal fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_125AArch64PostSelec
 
 .critedge2.i.i.i.i:                               ; preds = %39, %42
   %.pn.i.i.i.i = phi ptr [ %storemerge.i.i.i.i, %42 ], [ %.0.i.i.i, %39 ]
-  %storemerge.in.i.i.i.i = getelementptr inbounds i8, ptr %.pn.i.i.i.i, i64 24
+  %storemerge.in.i.i.i.i = getelementptr inbounds nuw i8, ptr %.pn.i.i.i.i, i64 24
   %storemerge.i.i.i.i = load ptr, ptr %storemerge.in.i.i.i.i, align 8
   %.not.i.i.i.i = icmp eq ptr %storemerge.i.i.i.i, null
   br i1 %.not.i.i.i.i, label %._crit_edge, label %42
@@ -1294,7 +1294,7 @@ define internal fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_125AArch64PostSelec
 
 .critedge2.i.i:                                   ; preds = %.critedge2.i.i.backedge, %.critedge2.i.i.preheader
   %.pn.i.i = phi ptr [ %.sroa.050.061, %.critedge2.i.i.preheader ], [ %storemerge.i.i, %.critedge2.i.i.backedge ]
-  %storemerge.in.i.i = getelementptr inbounds i8, ptr %.pn.i.i, i64 24
+  %storemerge.in.i.i = getelementptr inbounds nuw i8, ptr %.pn.i.i, i64 24
   %storemerge.i.i = load ptr, ptr %storemerge.in.i.i, align 8
   %.not.i.i = icmp eq ptr %storemerge.i.i, null
   br i1 %.not.i.i, label %._crit_edge, label %79

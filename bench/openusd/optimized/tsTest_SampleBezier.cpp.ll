@@ -92,12 +92,12 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__19TsTest_SampleBezierERKNS_17T
   %.sroa.028.033.us = phi ptr [ %109, %._crit_edge.us ], [ %32, %.preheader.lr.ph ]
   %39 = getelementptr inbounds nuw i8, ptr %.sroa.028.033.us, i64 32
   %40 = getelementptr inbounds nuw i8, ptr %38, i64 32
-  %41 = getelementptr inbounds i8, ptr %.sroa.028.033.us, i64 48
-  %42 = getelementptr inbounds i8, ptr %.sroa.028.033.us, i64 96
-  %43 = getelementptr inbounds i8, ptr %.sroa.028.033.us, i64 80
-  %44 = getelementptr inbounds i8, ptr %38, i64 48
-  %45 = getelementptr inbounds i8, ptr %38, i64 88
-  %46 = getelementptr inbounds i8, ptr %38, i64 72
+  %41 = getelementptr inbounds nuw i8, ptr %.sroa.028.033.us, i64 48
+  %42 = getelementptr inbounds nuw i8, ptr %.sroa.028.033.us, i64 96
+  %43 = getelementptr inbounds nuw i8, ptr %.sroa.028.033.us, i64 80
+  %44 = getelementptr inbounds nuw i8, ptr %38, i64 48
+  %45 = getelementptr inbounds nuw i8, ptr %38, i64 88
+  %46 = getelementptr inbounds nuw i8, ptr %38, i64 72
   br label %47
 
 47:                                               ; preds = %.preheader.us, %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__13TsTest_SampleESaIS1_EE9push_backEOS1_.exit.us
@@ -221,7 +221,7 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__13TsTest_SampleESaIS1_EED2Ev.exi
   %119 = call noundef ptr @_ZSt18_Rb_tree_decrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %33) #10
   %120 = getelementptr inbounds nuw i8, ptr %119, i64 32
   %121 = load double, ptr %120, align 8
-  %122 = getelementptr inbounds i8, ptr %119, i64 48
+  %122 = getelementptr inbounds nuw i8, ptr %119, i64 48
   %123 = load double, ptr %122, align 8
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__13TsTest_SampleC1Edd(ptr noundef nonnull align 8 dereferenceable(16) %7, double noundef %121, double noundef %123)
           to label %124 unwind label %.loopexit.split-lp

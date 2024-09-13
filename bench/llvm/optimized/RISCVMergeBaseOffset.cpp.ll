@@ -250,7 +250,7 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_123RISCVMergeBaseOffsetOpt20
   %15 = load ptr, ptr %14, align 8
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr %15, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %1, i64 328
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 328
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 320
   %.sroa.070.0125 = load ptr, ptr %17, align 8
   %.not126 = icmp eq ptr %.sroa.070.0125, %18
@@ -353,7 +353,7 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_123RISCVMergeBaseOffsetOpt20
 
 .preheader.i.i.i.i.i:                             ; preds = %65, %68
   %.pn.i.i.i.i.i.i = phi ptr [ %storemerge.i.i.i.i.i.i, %68 ], [ %.0.i.i.i.i.i, %65 ]
-  %storemerge.in.i.i.i.i.i.i = getelementptr inbounds i8, ptr %.pn.i.i.i.i.i.i, i64 24
+  %storemerge.in.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.pn.i.i.i.i.i.i, i64 24
   %storemerge.i.i.i.i.i.i = load ptr, ptr %storemerge.in.i.i.i.i.i.i, align 8
   %.not.i.i.i.i.i.i = icmp eq ptr %storemerge.i.i.i.i.i.i, null
   br i1 %.not.i.i.i.i.i.i, label %_ZN12_GLOBAL__N_123RISCVMergeBaseOffsetOpt14detectFoldableERN4llvm12MachineInstrERPS2_.exit.thread, label %68
@@ -370,7 +370,7 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_123RISCVMergeBaseOffsetOpt20
 
 .lr.ph.i.i.i.preheader.i.i.i:                     ; preds = %.lr.ph.i.i.i.preheader.i.i.i.preheader, %71
   %.pn.i.i.i.i.i.i.i.i = phi ptr [ %storemerge.i.i.i.i.i.i.i.i, %71 ], [ %.pn.i.i.i.i.i.i.i.i.ph, %.lr.ph.i.i.i.preheader.i.i.i.preheader ]
-  %storemerge.in.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %.pn.i.i.i.i.i.i.i.i, i64 24
+  %storemerge.in.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.pn.i.i.i.i.i.i.i.i, i64 24
   %storemerge.i.i.i.i.i.i.i.i = load ptr, ptr %storemerge.in.i.i.i.i.i.i.i.i, align 8
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %storemerge.i.i.i.i.i.i.i.i, null
   br i1 %.not.i.i.i.i.i.i.i.i, label %_ZNK4llvm19MachineRegisterInfo9hasOneUseENS_8RegisterE.exit.i, label %71
@@ -386,7 +386,7 @@ _ZNK4llvm19MachineRegisterInfo9hasOneUseENS_8RegisterE.exit.i: ; preds = %.lr.ph
 
 .preheader.i.i.i:                                 ; preds = %_ZNK4llvm19MachineRegisterInfo9hasOneUseENS_8RegisterE.exit.i, %.preheader.i.i.i
   %.pn.i.i.i.i = phi ptr [ %storemerge.i.i.i.i, %.preheader.i.i.i ], [ %.0.i.i.i.i.i, %_ZNK4llvm19MachineRegisterInfo9hasOneUseENS_8RegisterE.exit.i ]
-  %storemerge.in.i.i.i.i = getelementptr inbounds i8, ptr %.pn.i.i.i.i, i64 24
+  %storemerge.in.i.i.i.i = getelementptr inbounds nuw i8, ptr %.pn.i.i.i.i, i64 24
   %storemerge.i.i.i.i = load ptr, ptr %storemerge.in.i.i.i.i, align 8, !nonnull !6, !noundef !6
   %74 = load i32, ptr %storemerge.i.i.i.i, align 8
   %75 = and i32 %74, 16777216
@@ -483,7 +483,7 @@ _ZN12_GLOBAL__N_123RISCVMergeBaseOffsetOpt14detectFoldableERN4llvm12MachineInstr
 
 .preheader.i.i.i.i.i21:                           ; preds = %115, %118
   %.pn.i.i.i.i.i.i22 = phi ptr [ %storemerge.i.i.i.i.i.i24, %118 ], [ %.0.i.i.i.i.i18, %115 ]
-  %storemerge.in.i.i.i.i.i.i23 = getelementptr inbounds i8, ptr %.pn.i.i.i.i.i.i22, i64 24
+  %storemerge.in.i.i.i.i.i.i23 = getelementptr inbounds nuw i8, ptr %.pn.i.i.i.i.i.i22, i64 24
   %storemerge.i.i.i.i.i.i24 = load ptr, ptr %storemerge.in.i.i.i.i.i.i23, align 8
   %.not.i.i.i.i.i.i25 = icmp eq ptr %storemerge.i.i.i.i.i.i24, null
   br i1 %.not.i.i.i.i.i.i25, label %_ZN12_GLOBAL__N_123RISCVMergeBaseOffsetOpt19detectAndFoldOffsetERN4llvm12MachineInstrES3_.exit, label %118
@@ -500,7 +500,7 @@ _ZN12_GLOBAL__N_123RISCVMergeBaseOffsetOpt14detectFoldableERN4llvm12MachineInstr
 
 .lr.ph.i.i.i.preheader.i.i.i29:                   ; preds = %.lr.ph.i.i.i.preheader.i.i.i29.preheader, %121
   %.pn.i.i.i.i.i.i.i.i30 = phi ptr [ %storemerge.i.i.i.i.i.i.i.i32, %121 ], [ %.pn.i.i.i.i.i.i.i.i30.ph, %.lr.ph.i.i.i.preheader.i.i.i29.preheader ]
-  %storemerge.in.i.i.i.i.i.i.i.i31 = getelementptr inbounds i8, ptr %.pn.i.i.i.i.i.i.i.i30, i64 24
+  %storemerge.in.i.i.i.i.i.i.i.i31 = getelementptr inbounds nuw i8, ptr %.pn.i.i.i.i.i.i.i.i30, i64 24
   %storemerge.i.i.i.i.i.i.i.i32 = load ptr, ptr %storemerge.in.i.i.i.i.i.i.i.i31, align 8
   %.not.i.i.i.i.i.i.i.i33 = icmp eq ptr %storemerge.i.i.i.i.i.i.i.i32, null
   br i1 %.not.i.i.i.i.i.i.i.i33, label %_ZNK4llvm19MachineRegisterInfo9hasOneUseENS_8RegisterE.exit.i36, label %121
@@ -516,7 +516,7 @@ _ZNK4llvm19MachineRegisterInfo9hasOneUseENS_8RegisterE.exit.i36: ; preds = %.lr.
 
 .preheader.i.i.i37:                               ; preds = %_ZNK4llvm19MachineRegisterInfo9hasOneUseENS_8RegisterE.exit.i36, %.preheader.i.i.i37
   %.pn.i.i.i.i38 = phi ptr [ %storemerge.i.i.i.i40, %.preheader.i.i.i37 ], [ %.0.i.i.i.i.i18, %_ZNK4llvm19MachineRegisterInfo9hasOneUseENS_8RegisterE.exit.i36 ]
-  %storemerge.in.i.i.i.i39 = getelementptr inbounds i8, ptr %.pn.i.i.i.i38, i64 24
+  %storemerge.in.i.i.i.i39 = getelementptr inbounds nuw i8, ptr %.pn.i.i.i.i38, i64 24
   %storemerge.i.i.i.i40 = load ptr, ptr %storemerge.in.i.i.i.i39, align 8, !nonnull !6, !noundef !6
   %124 = load i32, ptr %storemerge.i.i.i.i40, align 8
   %125 = and i32 %124, 16777216
@@ -563,7 +563,7 @@ _ZNK4llvm19MachineRegisterInfo15use_instr_beginENS_8RegisterE.exit.i42: ; preds 
 
 .preheader.i.i.i.i38.i:                           ; preds = %143, %146
   %.pn.i.i.i.i.i39.i = phi ptr [ %storemerge.i.i.i.i.i41.i, %146 ], [ %.0.i.i.i.i35.i, %143 ]
-  %storemerge.in.i.i.i.i.i40.i = getelementptr inbounds i8, ptr %.pn.i.i.i.i.i39.i, i64 24
+  %storemerge.in.i.i.i.i.i40.i = getelementptr inbounds nuw i8, ptr %.pn.i.i.i.i.i39.i, i64 24
   %storemerge.i.i.i.i.i41.i = load ptr, ptr %storemerge.in.i.i.i.i.i40.i, align 8
   %.not.i.i.i.i.i42.i = icmp eq ptr %storemerge.i.i.i.i.i41.i, null
   br i1 %.not.i.i.i.i.i42.i, label %_ZNK4llvm19MachineRegisterInfo9hasOneUseENS_8RegisterE.exit52.thread.i, label %146
@@ -580,7 +580,7 @@ _ZNK4llvm19MachineRegisterInfo15use_instr_beginENS_8RegisterE.exit.i42: ; preds 
 
 .lr.ph.i.i.i.preheader.i.i46.i:                   ; preds = %.lr.ph.i.i.i.preheader.i.i46.i.preheader, %149
   %.pn.i.i.i.i.i.i.i47.i = phi ptr [ %storemerge.i.i.i.i.i.i.i49.i, %149 ], [ %.pn.i.i.i.i.i.i.i47.i.ph, %.lr.ph.i.i.i.preheader.i.i46.i.preheader ]
-  %storemerge.in.i.i.i.i.i.i.i48.i = getelementptr inbounds i8, ptr %.pn.i.i.i.i.i.i.i47.i, i64 24
+  %storemerge.in.i.i.i.i.i.i.i48.i = getelementptr inbounds nuw i8, ptr %.pn.i.i.i.i.i.i.i47.i, i64 24
   %storemerge.i.i.i.i.i.i.i49.i = load ptr, ptr %storemerge.in.i.i.i.i.i.i.i48.i, align 8
   %.not.i.i.i.i.i.i.i50.i = icmp eq ptr %storemerge.i.i.i.i.i.i.i49.i, null
   br i1 %.not.i.i.i.i.i.i.i50.i, label %_ZNK4llvm19MachineRegisterInfo9hasOneUseENS_8RegisterE.exit52.i, label %149
@@ -596,7 +596,7 @@ _ZNK4llvm19MachineRegisterInfo9hasOneUseENS_8RegisterE.exit52.i: ; preds = %.lr.
 
 .preheader.i.i57.i:                               ; preds = %_ZNK4llvm19MachineRegisterInfo9hasOneUseENS_8RegisterE.exit52.i, %.preheader.i.i57.i
   %.pn.i.i.i58.i = phi ptr [ %storemerge.i.i.i60.i, %.preheader.i.i57.i ], [ %.0.i.i.i.i35.i, %_ZNK4llvm19MachineRegisterInfo9hasOneUseENS_8RegisterE.exit52.i ]
-  %storemerge.in.i.i.i59.i = getelementptr inbounds i8, ptr %.pn.i.i.i58.i, i64 24
+  %storemerge.in.i.i.i59.i = getelementptr inbounds nuw i8, ptr %.pn.i.i.i58.i, i64 24
   %storemerge.i.i.i60.i = load ptr, ptr %storemerge.in.i.i.i59.i, align 8, !nonnull !6, !noundef !6
   %152 = load i32, ptr %storemerge.i.i.i60.i, align 8
   %153 = and i32 %152, 16777216
@@ -736,7 +736,7 @@ _ZN12_GLOBAL__N_123RISCVMergeBaseOffsetOpt10foldOffsetERN4llvm12MachineInstrES3_
 
 .preheader.i.i.i.i.i.i:                           ; preds = %239, %242
   %.pn.i.i.i.i.i.i.i = phi ptr [ %storemerge.i.i.i.i.i.i.i, %242 ], [ %.0.i.i.i.i.i.i, %239 ]
-  %storemerge.in.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %.pn.i.i.i.i.i.i.i, i64 24
+  %storemerge.in.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.pn.i.i.i.i.i.i.i, i64 24
   %storemerge.i.i.i.i.i.i.i = load ptr, ptr %storemerge.in.i.i.i.i.i.i.i, align 8
   %.not.i.i.i.i.i.i.i = icmp eq ptr %storemerge.i.i.i.i.i.i.i, null
   br i1 %.not.i.i.i.i.i.i.i, label %_ZN12_GLOBAL__N_123RISCVMergeBaseOffsetOpt19detectAndFoldOffsetERN4llvm12MachineInstrES3_.exit, label %242
@@ -753,7 +753,7 @@ _ZN12_GLOBAL__N_123RISCVMergeBaseOffsetOpt10foldOffsetERN4llvm12MachineInstrES3_
 
 .lr.ph.i.i.i.preheader.i.i.i.i:                   ; preds = %.lr.ph.i.i.i.preheader.i.i.i.i.preheader, %245
   %.pn.i.i.i.i.i.i.i.i.i = phi ptr [ %storemerge.i.i.i.i.i.i.i.i.i, %245 ], [ %.pn.i.i.i.i.i.i.i.i.i.ph, %.lr.ph.i.i.i.preheader.i.i.i.i.preheader ]
-  %storemerge.in.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %.pn.i.i.i.i.i.i.i.i.i, i64 24
+  %storemerge.in.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.pn.i.i.i.i.i.i.i.i.i, i64 24
   %storemerge.i.i.i.i.i.i.i.i.i = load ptr, ptr %storemerge.in.i.i.i.i.i.i.i.i.i, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %storemerge.i.i.i.i.i.i.i.i.i, null
   br i1 %.not.i.i.i.i.i.i.i.i.i, label %_ZNK4llvm19MachineRegisterInfo9hasOneUseENS_8RegisterE.exit.i.i, label %245
@@ -889,7 +889,7 @@ _ZN12_GLOBAL__N_123RISCVMergeBaseOffsetOpt10foldOffsetERN4llvm12MachineInstrES3_
 
 .preheader.i.i.i.i54:                             ; preds = %326, %329
   %.pn.i.i.i.i.i55 = phi ptr [ %storemerge.i.i.i.i.i57, %329 ], [ %.0.i.i.i.i51, %326 ]
-  %storemerge.in.i.i.i.i.i56 = getelementptr inbounds i8, ptr %.pn.i.i.i.i.i55, i64 24
+  %storemerge.in.i.i.i.i.i56 = getelementptr inbounds nuw i8, ptr %.pn.i.i.i.i.i55, i64 24
   %storemerge.i.i.i.i.i57 = load ptr, ptr %storemerge.in.i.i.i.i.i56, align 8
   %.not.i.i.i.i.i58 = icmp eq ptr %storemerge.i.i.i.i.i57, null
   br i1 %.not.i.i.i.i.i58, label %_ZN12_GLOBAL__N_123RISCVMergeBaseOffsetOpt19detectAndFoldOffsetERN4llvm12MachineInstrES3_.exit, label %329
@@ -906,7 +906,7 @@ _ZN12_GLOBAL__N_123RISCVMergeBaseOffsetOpt10foldOffsetERN4llvm12MachineInstrES3_
 
 .lr.ph.i.i.i.preheader.i.i:                       ; preds = %.lr.ph.i.i.i.preheader.i.i.preheader, %332
   %.pn.i.i.i.i.i.i.i61 = phi ptr [ %storemerge.i.i.i.i.i.i.i63, %332 ], [ %.pn.i.i.i.i.i.i.i61.ph, %.lr.ph.i.i.i.preheader.i.i.preheader ]
-  %storemerge.in.i.i.i.i.i.i.i62 = getelementptr inbounds i8, ptr %.pn.i.i.i.i.i.i.i61, i64 24
+  %storemerge.in.i.i.i.i.i.i.i62 = getelementptr inbounds nuw i8, ptr %.pn.i.i.i.i.i.i.i61, i64 24
   %storemerge.i.i.i.i.i.i.i63 = load ptr, ptr %storemerge.in.i.i.i.i.i.i.i62, align 8
   %.not.i.i.i.i.i.i.i64 = icmp eq ptr %storemerge.i.i.i.i.i.i.i63, null
   br i1 %.not.i.i.i.i.i.i.i64, label %_ZNK4llvm19MachineRegisterInfo9hasOneUseENS_8RegisterE.exit, label %332
@@ -1039,7 +1039,7 @@ _ZNK4llvm19MachineRegisterInfo9hasOneUseENS_8RegisterE.exit.thread.sink.split.i.
 
 .preheader.i.i.i.i.i74.i:                         ; preds = %407, %410
   %.pn.i.i.i.i.i.i75.i = phi ptr [ %storemerge.i.i.i.i.i.i77.i, %410 ], [ %.0.i.i.i.i.i71.i, %407 ]
-  %storemerge.in.i.i.i.i.i.i76.i = getelementptr inbounds i8, ptr %.pn.i.i.i.i.i.i75.i, i64 24
+  %storemerge.in.i.i.i.i.i.i76.i = getelementptr inbounds nuw i8, ptr %.pn.i.i.i.i.i.i75.i, i64 24
   %storemerge.i.i.i.i.i.i77.i = load ptr, ptr %storemerge.in.i.i.i.i.i.i76.i, align 8
   %.not.i.i.i.i.i.i78.i = icmp eq ptr %storemerge.i.i.i.i.i.i77.i, null
   br i1 %.not.i.i.i.i.i.i78.i, label %_ZN12_GLOBAL__N_123RISCVMergeBaseOffsetOpt19detectAndFoldOffsetERN4llvm12MachineInstrES3_.exit, label %410
@@ -1056,7 +1056,7 @@ _ZNK4llvm19MachineRegisterInfo9hasOneUseENS_8RegisterE.exit.thread.sink.split.i.
 
 .lr.ph.i.i.i.preheader.i.i.i82.i:                 ; preds = %.lr.ph.i.i.i.preheader.i.i.i82.i.preheader, %413
   %.pn.i.i.i.i.i.i.i.i83.i = phi ptr [ %storemerge.i.i.i.i.i.i.i.i85.i, %413 ], [ %.pn.i.i.i.i.i.i.i.i83.i.ph, %.lr.ph.i.i.i.preheader.i.i.i82.i.preheader ]
-  %storemerge.in.i.i.i.i.i.i.i.i84.i = getelementptr inbounds i8, ptr %.pn.i.i.i.i.i.i.i.i83.i, i64 24
+  %storemerge.in.i.i.i.i.i.i.i.i84.i = getelementptr inbounds nuw i8, ptr %.pn.i.i.i.i.i.i.i.i83.i, i64 24
   %storemerge.i.i.i.i.i.i.i.i85.i = load ptr, ptr %storemerge.in.i.i.i.i.i.i.i.i84.i, align 8
   %.not.i.i.i.i.i.i.i.i86.i = icmp eq ptr %storemerge.i.i.i.i.i.i.i.i85.i, null
   br i1 %.not.i.i.i.i.i.i.i.i86.i, label %_ZNK4llvm19MachineRegisterInfo9hasOneUseENS_8RegisterE.exit.i88.i, label %413
@@ -1193,7 +1193,7 @@ _ZN12_GLOBAL__N_123RISCVMergeBaseOffsetOpt19detectAndFoldOffsetERN4llvm12Machine
 
 .preheader.i.i.i.i:                               ; preds = %486, %489
   %.pn.i.i.i.i.i = phi ptr [ %storemerge.i.i.i.i.i, %489 ], [ %.0.i.i.i.i, %486 ]
-  %storemerge.in.i.i.i.i.i = getelementptr inbounds i8, ptr %.pn.i.i.i.i.i, i64 24
+  %storemerge.in.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.pn.i.i.i.i.i, i64 24
   %storemerge.i.i.i.i.i = load ptr, ptr %storemerge.in.i.i.i.i.i, align 8
   %.not.i.i.i.i.i44 = icmp eq ptr %storemerge.i.i.i.i.i, null
   br i1 %.not.i.i.i.i.i44, label %._crit_edge209.i, label %489
@@ -1450,7 +1450,7 @@ _ZN4llvm11SmallVectorIjLj12EED2Ev.exit._crit_edge.i: ; preds = %_ZN4llvm11SmallV
 
 595:                                              ; preds = %.backedge242, %593
   %.pn.i.i.i = phi ptr [ %.sroa.0151.0205.i, %593 ], [ %storemerge.i.i.i, %.backedge242 ]
-  %storemerge.in.i.i.i = getelementptr inbounds i8, ptr %.pn.i.i.i, i64 24
+  %storemerge.in.i.i.i = getelementptr inbounds nuw i8, ptr %.pn.i.i.i, i64 24
   %storemerge.i.i.i = load ptr, ptr %storemerge.in.i.i.i, align 8
   %.not.i.i.i = icmp eq ptr %storemerge.i.i.i, null
   br i1 %.not.i.i.i, label %._crit_edge209.i, label %596
@@ -1552,7 +1552,7 @@ _ZN4llvm19MachineRegisterInfo26defusechain_instr_iteratorILb1ELb0ELb0ELb0ELb1ELb
 
 .preheader.i.i.i111.i:                            ; preds = %650, %653
   %.pn.i.i.i.i112.i = phi ptr [ %storemerge.i.i.i.i114.i, %653 ], [ %.0.i.i.i108.i, %650 ]
-  %storemerge.in.i.i.i.i113.i = getelementptr inbounds i8, ptr %.pn.i.i.i.i112.i, i64 24
+  %storemerge.in.i.i.i.i113.i = getelementptr inbounds nuw i8, ptr %.pn.i.i.i.i112.i, i64 24
   %storemerge.i.i.i.i114.i = load ptr, ptr %storemerge.in.i.i.i.i113.i, align 8
   %.not.i.i.i.i115.i = icmp eq ptr %storemerge.i.i.i.i114.i, null
   br i1 %.not.i.i.i.i115.i, label %._crit_edge217.i, label %653
@@ -1578,7 +1578,7 @@ _ZN4llvm19MachineRegisterInfo26defusechain_instr_iteratorILb1ELb0ELb0ELb0ELb1ELb
 
 662:                                              ; preds = %.backedge, %659
   %.pn.i.i.i.i125.i = phi ptr [ %.sroa.0132.0215.i, %659 ], [ %storemerge.i.i.i.i127.i, %.backedge ]
-  %storemerge.in.i.i.i.i126.i = getelementptr inbounds i8, ptr %.pn.i.i.i.i125.i, i64 24
+  %storemerge.in.i.i.i.i126.i = getelementptr inbounds nuw i8, ptr %.pn.i.i.i.i125.i, i64 24
   %storemerge.i.i.i.i127.i = load ptr, ptr %storemerge.in.i.i.i.i126.i, align 8
   %.not.i.i.i.i128.i = icmp eq ptr %storemerge.i.i.i.i127.i, null
   br i1 %.not.i.i.i.i128.i, label %_ZN4llvm23early_inc_iterator_implINS_19MachineRegisterInfo26defusechain_instr_iteratorILb1ELb0ELb0ELb0ELb1ELb0EEEEdeEv.exit.i, label %663
@@ -1721,7 +1721,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_12MachineInstrENS_11SmallVectorIjLj12EE
   %739 = load i32, ptr %658, align 4
   %740 = getelementptr inbounds nuw i8, ptr %715, i64 4
   store i32 %739, ptr %740, align 4
-  %741 = getelementptr inbounds i8, ptr %715, i64 24
+  %741 = getelementptr inbounds nuw i8, ptr %715, i64 24
   store i32 %738, ptr %741, align 8
   br label %756
 

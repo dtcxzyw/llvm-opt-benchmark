@@ -140,7 +140,7 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_124RawPCHContainerGeneratorESt14default_deleteIS
   store ptr getelementptr inbounds inrange(-16, 168) (i8, ptr @_ZTVN12_GLOBAL__N_124RawPCHContainerGeneratorE, i64 16), ptr %8, align 8, !noalias !4
   %22 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store ptr %10, ptr %22, align 8, !noalias !4
-  %23 = getelementptr inbounds i8, ptr %8, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %8, i64 24
   store ptr %12, ptr %23, align 8, !noalias !4
   %24 = getelementptr inbounds nuw i8, ptr %8, i64 32
   store i64 %9, ptr %24, align 8, !noalias !4
@@ -170,7 +170,7 @@ define dso_local void @_ZN5clang22PCHContainerOperationsC2Ev(ptr noundef nonnull
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %0, i8 0, i64 20, i1 false)
   store i32 16, ptr %3, align 4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %5 = getelementptr inbounds i8, ptr %0, i64 44
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 44
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %4, i8 0, i64 20, i1 false)
   store i32 16, ptr %5, align 4
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -578,7 +578,7 @@ _ZNKSt14default_deleteIN4llvm17raw_pwrite_streamEEclEPS1_.exit.i: ; preds = %1
 
 _ZNSt10unique_ptrIN4llvm17raw_pwrite_streamESt14default_deleteIS1_EED2Ev.exit: ; preds = %1, %_ZNKSt14default_deleteIN4llvm17raw_pwrite_streamEEclEPS1_.exit.i
   store ptr null, ptr %2, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %8 = load ptr, ptr %7, align 8
   %.not.i.i.i = icmp eq ptr %8, null
   br i1 %.not.i.i.i, label %_ZNSt10shared_ptrIN5clang9PCHBufferEED2Ev.exit, label %9
@@ -672,7 +672,7 @@ _ZNKSt14default_deleteIN4llvm17raw_pwrite_streamEEclEPS1_.exit.i.i: ; preds = %1
 
 _ZNSt10unique_ptrIN4llvm17raw_pwrite_streamESt14default_deleteIS1_EED2Ev.exit.i: ; preds = %_ZNKSt14default_deleteIN4llvm17raw_pwrite_streamEEclEPS1_.exit.i.i, %1
   store ptr null, ptr %2, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %8 = load ptr, ptr %7, align 8
   %.not.i.i.i.i = icmp eq ptr %8, null
   br i1 %.not.i.i.i.i, label %_ZN12_GLOBAL__N_124RawPCHContainerGeneratorD2Ev.exit, label %9
@@ -807,7 +807,7 @@ _ZN4llvm11raw_ostream5flushEv.exit:               ; preds = %21, %9, %2
   br i1 %27, label %29, label %31
 
 29:                                               ; preds = %26
-  %30 = getelementptr inbounds i8, ptr %23, i64 32
+  %30 = getelementptr inbounds nuw i8, ptr %23, i64 32
   store i64 0, ptr %30, align 8
   br label %_ZN4llvm11SmallVectorIcLj0EEaSEOS1_.exit
 
@@ -826,11 +826,11 @@ _ZN4llvm15SmallVectorImplIcE12assignRemoteEOS1_.exit.i: ; preds = %35, %31
   store ptr %36, ptr %24, align 8
   %37 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %38 = load i64, ptr %37, align 8
-  %39 = getelementptr inbounds i8, ptr %23, i64 32
+  %39 = getelementptr inbounds nuw i8, ptr %23, i64 32
   store i64 %38, ptr %39, align 8
   %40 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %41 = load i64, ptr %40, align 8
-  %42 = getelementptr inbounds i8, ptr %23, i64 40
+  %42 = getelementptr inbounds nuw i8, ptr %23, i64 40
   store i64 %41, ptr %42, align 8
   store ptr %22, ptr %3, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %37, i8 0, i64 16, i1 false)

@@ -282,7 +282,7 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_123RISCVExpandAtomicPseudo20
   %10 = tail call noundef ptr %9(ptr noundef nonnull align 8 dereferenceable(409192) %5) #12
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr %10, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %1, i64 328
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 328
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 320
   %.sroa.07.011 = load ptr, ptr %12, align 8
   %.not12 = icmp eq ptr %.sroa.07.011, %13
@@ -1797,9 +1797,9 @@ _ZN4llvm8DebugLocD2Ev.exit:                       ; preds = %483, %_ZN12_GLOBAL_
   %484 = getelementptr inbounds nuw i8, ptr %64, i64 8
   %485 = getelementptr inbounds i8, ptr %64, i64 32
   call void @_ZN4llvm15SmallVectorBaseImEC2EPvm(ptr noundef nonnull align 8 dereferenceable(24) %484, ptr noundef nonnull %485, i64 noundef 8) #12
-  %486 = getelementptr inbounds i8, ptr %64, i64 48
+  %486 = getelementptr inbounds nuw i8, ptr %64, i64 48
   store ptr null, ptr %486, align 8
-  %487 = getelementptr inbounds i8, ptr %64, i64 56
+  %487 = getelementptr inbounds nuw i8, ptr %64, i64 56
   store i32 0, ptr %487, align 8
   call void @_ZN4llvm20computeAndAddLiveInsERNS_12LivePhysRegsERNS_17MachineBasicBlockE(ptr noundef nonnull align 8 dereferenceable(64) %64, ptr noundef nonnull align 8 dereferenceable(288) %73) #12
   call void @_ZN4llvm20computeAndAddLiveInsERNS_12LivePhysRegsERNS_17MachineBasicBlockE(ptr noundef nonnull align 8 dereferenceable(64) %64, ptr noundef nonnull align 8 dereferenceable(288) %75) #12
@@ -2803,9 +2803,9 @@ _ZN4llvm8DebugLocD2Ev.exit238:                    ; preds = %_ZN4llvm10MIMetadat
   %384 = getelementptr inbounds nuw i8, ptr %50, i64 8
   %385 = getelementptr inbounds i8, ptr %50, i64 32
   call void @_ZN4llvm15SmallVectorBaseImEC2EPvm(ptr noundef nonnull align 8 dereferenceable(24) %384, ptr noundef nonnull %385, i64 noundef 8) #12
-  %386 = getelementptr inbounds i8, ptr %50, i64 48
+  %386 = getelementptr inbounds nuw i8, ptr %50, i64 48
   store ptr null, ptr %386, align 8
-  %387 = getelementptr inbounds i8, ptr %50, i64 56
+  %387 = getelementptr inbounds nuw i8, ptr %50, i64 56
   store i32 0, ptr %387, align 8
   call void @_ZN4llvm20computeAndAddLiveInsERNS_12LivePhysRegsERNS_17MachineBasicBlockE(ptr noundef nonnull align 8 dereferenceable(64) %50, ptr noundef nonnull align 8 dereferenceable(288) %59) #12
   call void @_ZN4llvm20computeAndAddLiveInsERNS_12LivePhysRegsERNS_17MachineBasicBlockE(ptr noundef nonnull align 8 dereferenceable(64) %50, ptr noundef nonnull align 8 dereferenceable(288) %61) #12
@@ -4332,9 +4332,9 @@ _ZN4llvm8DebugLocD2Ev.exit179:                    ; preds = %593, %_ZN4llvm10MIM
   %594 = getelementptr inbounds nuw i8, ptr %48, i64 8
   %595 = getelementptr inbounds i8, ptr %48, i64 32
   call void @_ZN4llvm15SmallVectorBaseImEC2EPvm(ptr noundef nonnull align 8 dereferenceable(24) %594, ptr noundef nonnull %595, i64 noundef 8) #12
-  %596 = getelementptr inbounds i8, ptr %48, i64 48
+  %596 = getelementptr inbounds nuw i8, ptr %48, i64 48
   store ptr null, ptr %596, align 8
-  %597 = getelementptr inbounds i8, ptr %48, i64 56
+  %597 = getelementptr inbounds nuw i8, ptr %48, i64 56
   store i32 0, ptr %597, align 8
   call void @_ZN4llvm20computeAndAddLiveInsERNS_12LivePhysRegsERNS_17MachineBasicBlockE(ptr noundef nonnull align 8 dereferenceable(64) %48, ptr noundef nonnull align 8 dereferenceable(288) %57) #12
   call void @_ZN4llvm20computeAndAddLiveInsERNS_12LivePhysRegsERNS_17MachineBasicBlockE(ptr noundef nonnull align 8 dereferenceable(64) %48, ptr noundef nonnull align 8 dereferenceable(288) %59) #12

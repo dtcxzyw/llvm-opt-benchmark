@@ -148,7 +148,7 @@ _ZNK4llvm15SmallPtrSetImplIPNS_8FunctionEE5countEPKS1_.exit: ; preds = %.lr.ph.i
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 96
   store ptr %30, ptr %3, align 8
   %64 = load ptr, ptr %63, align 8
-  %65 = getelementptr inbounds i8, ptr %62, i64 112
+  %65 = getelementptr inbounds nuw i8, ptr %62, i64 112
   %66 = load i32, ptr %65, align 8
   %67 = icmp eq i32 %66, 0
   br i1 %67, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8FunctionEPNS_13LazyCallGraph4NodeENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S7_EEEES4_S7_S9_SC_E15LookupBucketForIS4_EEbRKT_RPSC_.exit.i.i.i, label %68
@@ -221,7 +221,7 @@ _ZN4llvm13LazyCallGraph3getERNS_8FunctionE.exit:  ; preds = %_ZN4llvm12DenseMapB
   %100 = load ptr, ptr %17, align 8
   %101 = getelementptr inbounds nuw i8, ptr %100, i64 288
   %102 = load ptr, ptr %101, align 8
-  %103 = getelementptr inbounds i8, ptr %100, i64 304
+  %103 = getelementptr inbounds nuw i8, ptr %100, i64 304
   %104 = load i32, ptr %103, align 8
   %105 = icmp eq i32 %104, 0
   br i1 %105, label %_ZNK4llvm13LazyCallGraph9lookupSCCERNS0_4NodeE.exit, label %106
@@ -305,7 +305,7 @@ _ZNK4llvm13LazyCallGraph3SCC7getNameB5cxx11Ev.exit: ; preds = %_ZNK4llvm13LazyCa
   %144 = load ptr, ptr %17, align 8
   %145 = getelementptr inbounds nuw i8, ptr %144, i64 288
   %146 = load ptr, ptr %145, align 8
-  %147 = getelementptr inbounds i8, ptr %144, i64 304
+  %147 = getelementptr inbounds nuw i8, ptr %144, i64 304
   %148 = load i32, ptr %147, align 8
   %149 = icmp eq i32 %148, 0
   br i1 %149, label %_ZNK4llvm13LazyCallGraph9lookupSCCERNS0_4NodeE.exit32, label %150
@@ -429,10 +429,10 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_8FunctionELb1EE9push_backES2_.exit: ; pred
   %210 = call noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseIjE5emptyEv(ptr noundef nonnull align 8 dereferenceable(16) %13) #8
   %211 = xor i1 %210, true
   %212 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %5) #8
-  %213 = getelementptr inbounds i8, ptr %0, i64 312
+  %213 = getelementptr inbounds nuw i8, ptr %0, i64 312
   store i32 0, ptr %213, align 8
   %214 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %13) #8
-  %215 = getelementptr inbounds i8, ptr %0, i64 168
+  %215 = getelementptr inbounds nuw i8, ptr %0, i64 168
   store i32 0, ptr %215, align 8
   ret i1 %211
 }
@@ -516,7 +516,7 @@ define dso_local void @_ZN4llvm16CallGraphUpdater17reanalyzeFunctionERNS_8Functi
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 96
   store ptr %1, ptr %3, align 8
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %5, i64 112
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 112
   %10 = load i32, ptr %9, align 8
   %11 = icmp eq i32 %10, 0
   br i1 %11, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8FunctionEPNS_13LazyCallGraph4NodeENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S7_EEEES4_S7_S9_SC_E15LookupBucketForIS4_EEbRKT_RPSC_.exit.i.i.i, label %12
@@ -589,7 +589,7 @@ _ZN4llvm13LazyCallGraph3getERNS_8FunctionE.exit:  ; preds = %_ZN4llvm12DenseMapB
   %44 = load ptr, ptr %4, align 8
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 288
   %46 = load ptr, ptr %45, align 8
-  %47 = getelementptr inbounds i8, ptr %44, i64 304
+  %47 = getelementptr inbounds nuw i8, ptr %44, i64 304
   %48 = load i32, ptr %47, align 8
   %49 = icmp ne i32 %48, 0
   call void @llvm.assume(i1 %49)
@@ -785,7 +785,7 @@ _ZN4llvm15SmallPtrSetImplIPNS_8FunctionEE6insertES2_.exit: ; preds = %.lr.ph.i.i
   %28 = getelementptr inbounds nuw i8, ptr %26, i64 96
   store ptr %1, ptr %4, align 8
   %29 = load ptr, ptr %28, align 8
-  %30 = getelementptr inbounds i8, ptr %26, i64 112
+  %30 = getelementptr inbounds nuw i8, ptr %26, i64 112
   %31 = load i32, ptr %30, align 8
   %32 = icmp eq i32 %31, 0
   br i1 %32, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8FunctionEPNS_13LazyCallGraph4NodeENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S7_EEEES4_S7_S9_SC_E15LookupBucketForIS4_EEbRKT_RPSC_.exit.i.i.i, label %33

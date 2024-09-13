@@ -134,15 +134,15 @@ define dso_local void @_ZN4llvm15CoroCleanupPass3runERNS_6ModuleERNS_15AnalysisM
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 0, ptr %21, align 8, !alias.scope !4
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %23 = getelementptr inbounds i8, ptr %0, i64 80
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store ptr %23, ptr %22, align 8, !alias.scope !4
-  %24 = getelementptr inbounds i8, ptr %0, i64 56
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store ptr %23, ptr %24, align 8, !alias.scope !4
-  %25 = getelementptr inbounds i8, ptr %0, i64 64
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i32 2, ptr %25, align 8, !alias.scope !4
-  %26 = getelementptr inbounds i8, ptr %0, i64 68
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 68
   store i32 0, ptr %26, align 4, !alias.scope !4
-  %27 = getelementptr inbounds i8, ptr %0, i64 72
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store i32 0, ptr %27, align 8, !alias.scope !4
   store i32 1, ptr %20, align 4, !alias.scope !4, !noalias !7
   store ptr @_ZN4llvm17PreservedAnalyses14AllAnalysesKeyE, ptr %17, align 8, !alias.scope !4, !noalias !7
@@ -253,48 +253,48 @@ _ZN4llvm11PassManagerINS_8FunctionENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_15
   %73 = getelementptr inbounds nuw i8, ptr %12, i64 24
   store i32 0, ptr %73, align 8
   %74 = getelementptr inbounds nuw i8, ptr %12, i64 48
-  %75 = getelementptr inbounds i8, ptr %12, i64 80
+  %75 = getelementptr inbounds nuw i8, ptr %12, i64 80
   store ptr %75, ptr %74, align 8
-  %76 = getelementptr inbounds i8, ptr %12, i64 56
+  %76 = getelementptr inbounds nuw i8, ptr %12, i64 56
   store ptr %75, ptr %76, align 8
-  %77 = getelementptr inbounds i8, ptr %12, i64 64
+  %77 = getelementptr inbounds nuw i8, ptr %12, i64 64
   store i32 2, ptr %77, align 8
-  %78 = getelementptr inbounds i8, ptr %12, i64 68
+  %78 = getelementptr inbounds nuw i8, ptr %12, i64 68
   store i32 0, ptr %78, align 4
-  %79 = getelementptr inbounds i8, ptr %12, i64 72
+  %79 = getelementptr inbounds nuw i8, ptr %12, i64 72
   store i32 0, ptr %79, align 8
   call void @_ZN4llvm17PreservedAnalyses11preserveSetEPNS_14AnalysisSetKeyE(ptr noundef nonnull align 8 dereferenceable(96) %12, ptr noundef nonnull @_ZN4llvm11CFGAnalyses6SetKeyE)
   call void @_ZN4llvm4coro11LowererBaseC2ERNS_6ModuleE(ptr noundef nonnull align 8 dereferenceable(40) %13, ptr noundef nonnull align 8 dereferenceable(857) %2) #14
   %80 = getelementptr inbounds nuw i8, ptr %13, i64 40
   %81 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %82 = load ptr, ptr %81, align 8
-  %83 = getelementptr inbounds i8, ptr %13, i64 168
-  %84 = getelementptr inbounds i8, ptr %13, i64 176
+  %83 = getelementptr inbounds nuw i8, ptr %13, i64 168
+  %84 = getelementptr inbounds nuw i8, ptr %13, i64 176
   %85 = getelementptr inbounds i8, ptr %13, i64 56
   call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %80, ptr noundef nonnull %85, i64 noundef 2) #14
-  %86 = getelementptr inbounds i8, ptr %13, i64 112
+  %86 = getelementptr inbounds nuw i8, ptr %13, i64 112
   store ptr %82, ptr %86, align 8
-  %87 = getelementptr inbounds i8, ptr %13, i64 120
+  %87 = getelementptr inbounds nuw i8, ptr %13, i64 120
   store ptr %83, ptr %87, align 8
-  %88 = getelementptr inbounds i8, ptr %13, i64 128
+  %88 = getelementptr inbounds nuw i8, ptr %13, i64 128
   store ptr %84, ptr %88, align 8
-  %89 = getelementptr inbounds i8, ptr %13, i64 136
+  %89 = getelementptr inbounds nuw i8, ptr %13, i64 136
   store ptr null, ptr %89, align 8
-  %90 = getelementptr inbounds i8, ptr %13, i64 144
+  %90 = getelementptr inbounds nuw i8, ptr %13, i64 144
   store i32 0, ptr %90, align 8
-  %91 = getelementptr inbounds i8, ptr %13, i64 148
+  %91 = getelementptr inbounds nuw i8, ptr %13, i64 148
   store i8 0, ptr %91, align 4
-  %92 = getelementptr inbounds i8, ptr %13, i64 149
+  %92 = getelementptr inbounds nuw i8, ptr %13, i64 149
   store i8 2, ptr %92, align 1
-  %93 = getelementptr inbounds i8, ptr %13, i64 150
+  %93 = getelementptr inbounds nuw i8, ptr %13, i64 150
   store i8 7, ptr %93, align 2
-  %94 = getelementptr inbounds i8, ptr %13, i64 152
-  %95 = getelementptr inbounds i8, ptr %13, i64 88
+  %94 = getelementptr inbounds nuw i8, ptr %13, i64 152
+  %95 = getelementptr inbounds nuw i8, ptr %13, i64 88
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(18) %95, i8 0, i64 18, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %94, i8 0, i64 16, i1 false)
   store ptr getelementptr inbounds inrange(-16, 160) (i8, ptr @_ZTVN4llvm14ConstantFolderE, i64 16), ptr %83, align 8
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN4llvm24IRBuilderDefaultInserterE, i64 16), ptr %84, align 8
-  %96 = getelementptr inbounds i8, ptr %2, i64 32
+  %96 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %97 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %.sroa.019.027 = load ptr, ptr %96, align 8
   %.not28 = icmp eq ptr %.sroa.019.027, %97
@@ -306,7 +306,7 @@ _ZN4llvm11PassManagerINS_8FunctionENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_15
   %100 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %101 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %102 = getelementptr inbounds nuw i8, ptr %14, i64 48
-  %103 = getelementptr inbounds i8, ptr %14, i64 56
+  %103 = getelementptr inbounds nuw i8, ptr %14, i64 56
   %104 = getelementptr inbounds nuw i8, ptr %14, i64 8
   br label %105
 
@@ -323,7 +323,7 @@ _ZN4llvm11PassManagerINS_8FunctionENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_15
   %spec.select.i.i.i = icmp ult i32 %113, 2
   %114 = select i1 %109, i1 %spec.select.i.i.i, i1 false
   %115 = getelementptr inbounds nuw i8, ptr %108, i64 72
-  %116 = getelementptr inbounds i8, ptr %108, i64 80
+  %116 = getelementptr inbounds nuw i8, ptr %108, i64 80
   %117 = load ptr, ptr %116, align 8, !noalias !17
   %.not.i.i.i.i = icmp eq ptr %117, %115
   br i1 %.not.i.i.i.i, label %_ZN4llvm12instructionsERNS_8FunctionE.exit.i, label %118
@@ -332,7 +332,7 @@ _ZN4llvm11PassManagerINS_8FunctionENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_15
   %119 = icmp eq ptr %117, null
   %120 = getelementptr inbounds i8, ptr %117, i64 -24
   %121 = select i1 %119, ptr null, ptr %120
-  %122 = getelementptr inbounds i8, ptr %121, i64 56
+  %122 = getelementptr inbounds nuw i8, ptr %121, i64 56
   %123 = load ptr, ptr %122, align 8, !noalias !17
   %124 = getelementptr inbounds nuw i8, ptr %121, i64 48
   %125 = icmp eq ptr %123, %124
@@ -355,7 +355,7 @@ _ZN4llvm11PassManagerINS_8FunctionENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_15
   %133 = icmp eq ptr %132, null
   %134 = getelementptr inbounds i8, ptr %132, i64 -24
   %135 = select i1 %133, ptr null, ptr %134
-  %136 = getelementptr inbounds i8, ptr %135, i64 56
+  %136 = getelementptr inbounds nuw i8, ptr %135, i64 56
   %137 = load ptr, ptr %136, align 8, !noalias !17
   %138 = getelementptr inbounds nuw i8, ptr %135, i64 48
   %139 = icmp eq ptr %137, %138
@@ -402,7 +402,7 @@ _ZN4llvm12instructionsERNS_8FunctionE.exit.i:     ; preds = %.lr.ph.i.i.i, %.lr.
   %155 = icmp eq ptr %154, null
   %156 = getelementptr inbounds i8, ptr %154, i64 -24
   %157 = select i1 %155, ptr null, ptr %156
-  %158 = getelementptr inbounds i8, ptr %157, i64 56
+  %158 = getelementptr inbounds nuw i8, ptr %157, i64 56
   %159 = load ptr, ptr %158, align 8, !noalias !23
   %160 = getelementptr inbounds nuw i8, ptr %157, i64 48
   %161 = icmp eq ptr %159, %160
@@ -531,7 +531,7 @@ _ZN4llvm8dyn_castINS_13IntrinsicInstENS_11InstructionEEEDcPT0_.exit.i: ; preds =
   %228 = getelementptr inbounds i8, ptr %226, i64 32
   %229 = load ptr, ptr %228, align 8
   %230 = getelementptr inbounds nuw i8, ptr %229, i64 24
-  %231 = getelementptr inbounds i8, ptr %229, i64 32
+  %231 = getelementptr inbounds nuw i8, ptr %229, i64 32
   %232 = load i32, ptr %231, align 8
   %233 = icmp ult i32 %232, 65
   br i1 %233, label %234, label %241
@@ -697,11 +697,11 @@ _ZN4llvm17PreservedAnalysesD2Ev.exit:             ; preds = %_ZN4llvm12instructi
   %327 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 0, ptr %327, align 4, !alias.scope !27
   %328 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %329 = getelementptr inbounds i8, ptr %0, i64 80
+  %329 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store ptr %329, ptr %328, align 8, !alias.scope !27
-  %330 = getelementptr inbounds i8, ptr %0, i64 56
+  %330 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store ptr %329, ptr %330, align 8, !alias.scope !27
-  %331 = getelementptr inbounds i8, ptr %0, i64 64
+  %331 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i32 2, ptr %331, align 8, !alias.scope !27
   call void @_ZN4llvm24IRBuilderDefaultInserterD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %84) #14
   call void @_ZN4llvm15IRBuilderFolderD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %83) #14
@@ -1462,9 +1462,9 @@ declare noundef i64 @_ZNK4llvm9StringRef4findES0_m(ptr noundef nonnull align 8 d
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvm17PreservedAnalyses11preserveSetEPNS_14AnalysisSetKeyE(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef %1) local_unnamed_addr #0 comdat align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 68
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 68
   %4 = load i32, ptr %3, align 4
-  %5 = getelementptr inbounds i8, ptr %0, i64 72
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %6 = load i32, ptr %5, align 8
   %7 = icmp eq i32 %4, %6
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8

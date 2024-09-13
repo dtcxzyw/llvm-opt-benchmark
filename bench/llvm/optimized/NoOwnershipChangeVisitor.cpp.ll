@@ -100,10 +100,10 @@ define internal void @_ZN12_GLOBAL__N_124OwnershipBindingsHandlerD2Ev(ptr nounde
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN5clang4ento24NoOwnershipChangeVisitor15getFunctionNameB5cxx11EPKNS0_12ExplodedNodeE(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %"class.std::allocator.53", align 1
-  %4 = getelementptr inbounds i8, ptr %1, i64 32
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %.0.copyload.i.i.i.i.i.i.i = load i64, ptr %4, align 8, !noalias !4
   %5 = trunc i64 %.0.copyload.i.i.i.i.i.i.i to i32
-  %6 = getelementptr inbounds i8, ptr %1, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %.0.copyload.i.i.i5.i.i.i.i = load i64, ptr %6, align 8, !noalias !4
   %7 = trunc i64 %.0.copyload.i.i.i5.i.i.i.i to i32
   %8 = shl i32 %5, 3
@@ -111,7 +111,7 @@ define dso_local void @_ZN5clang4ento24NoOwnershipChangeVisitor15getFunctionName
   %10 = shl i32 %7, 1
   %11 = and i32 %10, 12
   %12 = or disjoint i32 %11, %9
-  %13 = getelementptr inbounds i8, ptr %1, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.0.copyload.i.i.i6.i.i.i.i = load i64, ptr %13, align 8, !noalias !4
   %14 = trunc i64 %.0.copyload.i.i.i6.i.i.i.i to i32
   %15 = and i32 %14, 3
@@ -629,7 +629,7 @@ declare noundef ptr @_ZNK5clang4ento4SVal11getAsSymbolEb(ptr noundef nonnull ali
 define linkonce_odr hidden void @_ZN5clang4ento24NoOwnershipChangeVisitorD2Ev(ptr noundef nonnull align 8 dereferenceable(616) %0) unnamed_addr #0 comdat align 2 {
   store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTVN5clang4ento24NoStateChangeFuncVisitorE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 304
-  %3 = getelementptr inbounds i8, ptr %0, i64 312
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %2, align 8
   %6 = icmp eq ptr %4, %5
@@ -641,7 +641,7 @@ define linkonce_odr hidden void @_ZN5clang4ento24NoOwnershipChangeVisitorD2Ev(pt
 
 _ZN4llvm11SmallPtrSetIPKN5clang17StackFrameContextELj32EED2Ev.exit.i: ; preds = %7, %1
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %9 = getelementptr inbounds i8, ptr %0, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %10 = load ptr, ptr %9, align 8
   %11 = load ptr, ptr %8, align 8
   %12 = icmp eq ptr %10, %11

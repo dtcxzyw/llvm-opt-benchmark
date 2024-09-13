@@ -288,7 +288,7 @@ _ZN4llvm9StringRefC2EPKc.exit:                    ; preds = %115
   br i1 %.not59, label %156, label %137
 
 137:                                              ; preds = %134
-  %138 = getelementptr inbounds i8, ptr %10, i64 32
+  %138 = getelementptr inbounds nuw i8, ptr %10, i64 32
   %139 = load ptr, ptr %138, align 8
   %.not60 = icmp eq ptr %139, null
   br i1 %.not60, label %149, label %_ZN4llvm9StringRefC2EPKc.exit91
@@ -310,7 +310,7 @@ _ZN4llvm9StringRefC2EPKc.exit91:                  ; preds = %137
   br label %156
 
 149:                                              ; preds = %137
-  %150 = getelementptr inbounds i8, ptr %10, i64 40
+  %150 = getelementptr inbounds nuw i8, ptr %10, i64 40
   %151 = load i64, ptr %150, align 8
   %sext61 = shl i64 %151, 32
   %152 = ashr exact i64 %sext61, 32

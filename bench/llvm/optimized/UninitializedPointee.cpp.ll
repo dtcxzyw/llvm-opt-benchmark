@@ -108,7 +108,7 @@ define dso_local noundef zeroext i1 @_ZN5clang4ento23FindUninitializedFields22is
   br label %268
 
 36:                                               ; preds = %4
-  %37 = getelementptr inbounds i8, ptr %0, i64 18
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 18
   %38 = load i8, ptr %37, align 2
   %39 = trunc i8 %38 to i1
   br i1 %39, label %42, label %40

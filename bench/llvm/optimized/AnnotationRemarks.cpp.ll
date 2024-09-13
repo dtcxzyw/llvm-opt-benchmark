@@ -158,7 +158,7 @@ _ZN4llvm25OptimizationRemarkEmitter18allowExtraAnalysisERKNS_8FunctionENS_9Strin
   %44 = getelementptr inbounds i8, ptr %16, i64 40
   call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %43, ptr noundef nonnull %44, i64 noundef 0) #11
   %45 = getelementptr inbounds nuw i8, ptr %2, i64 72
-  %46 = getelementptr inbounds i8, ptr %2, i64 80
+  %46 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %47 = load ptr, ptr %46, align 8, !noalias !4
   %.not.i.i.i.i = icmp eq ptr %47, %45
   br i1 %.not.i.i.i.i, label %_ZN4llvm12instructionsERNS_8FunctionE.exit.i, label %48
@@ -167,7 +167,7 @@ _ZN4llvm25OptimizationRemarkEmitter18allowExtraAnalysisERKNS_8FunctionENS_9Strin
   %49 = icmp eq ptr %47, null
   %50 = getelementptr inbounds i8, ptr %47, i64 -24
   %51 = select i1 %49, ptr null, ptr %50
-  %52 = getelementptr inbounds i8, ptr %51, i64 56
+  %52 = getelementptr inbounds nuw i8, ptr %51, i64 56
   %53 = load ptr, ptr %52, align 8, !noalias !4
   %54 = getelementptr inbounds nuw i8, ptr %51, i64 48
   %55 = icmp eq ptr %53, %54
@@ -190,7 +190,7 @@ _ZN4llvm25OptimizationRemarkEmitter18allowExtraAnalysisERKNS_8FunctionENS_9Strin
   %63 = icmp eq ptr %62, null
   %64 = getelementptr inbounds i8, ptr %62, i64 -24
   %65 = select i1 %63, ptr null, ptr %64
-  %66 = getelementptr inbounds i8, ptr %65, i64 56
+  %66 = getelementptr inbounds nuw i8, ptr %65, i64 56
   %67 = load ptr, ptr %66, align 8, !noalias !4
   %68 = getelementptr inbounds nuw i8, ptr %65, i64 48
   %69 = icmp eq ptr %67, %68
@@ -651,7 +651,7 @@ _ZNK4llvm11Instruction11hasMetadataEj.exit.thread.i: ; preds = %_ZN4llvm9MapVect
   %283 = icmp eq ptr %282, null
   %284 = getelementptr inbounds i8, ptr %282, i64 -24
   %285 = select i1 %283, ptr null, ptr %284
-  %286 = getelementptr inbounds i8, ptr %285, i64 56
+  %286 = getelementptr inbounds nuw i8, ptr %285, i64 56
   %287 = load ptr, ptr %286, align 8
   %288 = getelementptr inbounds nuw i8, ptr %285, i64 48
   %289 = icmp eq ptr %287, %288
@@ -965,15 +965,15 @@ _ZL7runImplRN4llvm8FunctionERKNS_17TargetLibraryInfoE.exit: ; preds = %_ZN4llvm2
   %389 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 0, ptr %389, align 8, !alias.scope !21
   %390 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %391 = getelementptr inbounds i8, ptr %0, i64 80
+  %391 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store ptr %391, ptr %390, align 8, !alias.scope !21
-  %392 = getelementptr inbounds i8, ptr %0, i64 56
+  %392 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store ptr %391, ptr %392, align 8, !alias.scope !21
-  %393 = getelementptr inbounds i8, ptr %0, i64 64
+  %393 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i32 2, ptr %393, align 8, !alias.scope !21
-  %394 = getelementptr inbounds i8, ptr %0, i64 68
+  %394 = getelementptr inbounds nuw i8, ptr %0, i64 68
   store i32 0, ptr %394, align 4, !alias.scope !21
-  %395 = getelementptr inbounds i8, ptr %0, i64 72
+  %395 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store i32 0, ptr %395, align 8, !alias.scope !21
   store i32 1, ptr %388, align 4, !alias.scope !21, !noalias !24
   store ptr @_ZN4llvm17PreservedAnalyses14AllAnalysesKeyE, ptr %385, align 8, !alias.scope !21, !noalias !24

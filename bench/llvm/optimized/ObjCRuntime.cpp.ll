@@ -214,7 +214,7 @@ define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN5clanglsERN
 _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %99, %97, %85, %83, %71, %69, %57, %55, %43, %41, %29, %27, %15, %13, %2
   %102 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %103 = load i64, ptr %102, align 4
-  %104 = getelementptr inbounds i8, ptr %1, i64 12
+  %104 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %105 = load i64, ptr %104, align 4
   %106 = and i64 %103, 9223372036854775807
   %or.cond = icmp ne i64 %106, 0

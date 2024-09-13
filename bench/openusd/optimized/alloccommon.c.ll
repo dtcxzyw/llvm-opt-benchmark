@@ -155,7 +155,7 @@ define hidden void @av1_alloc_restoration_buffers(ptr noundef %0) local_unnamed_
   br label %25
 
 25:                                               ; preds = %23, %21, %17
-  %26 = getelementptr inbounds i8, ptr %0, i64 27140
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 27140
   %27 = load i32, ptr %26, align 4
   %28 = icmp sgt i32 %27, 0
   br i1 %28, label %.lr.ph, label %._crit_edge
@@ -188,10 +188,10 @@ define hidden void @av1_alloc_restoration_buffers(ptr noundef %0) local_unnamed_
   %.059.lcssa = phi i32 [ 0, %25 ], [ %41, %._crit_edge.loopexit ]
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 472
   %43 = load i32, ptr %42, align 8
-  %44 = getelementptr inbounds i8, ptr %0, i64 25260
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 25260
   %45 = load i8, ptr %44, align 4
   %46 = zext nneg i8 %45 to i32
-  %47 = getelementptr inbounds i8, ptr %0, i64 25280
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 25280
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 40
   br label %49
 
@@ -437,7 +437,7 @@ define hidden void @av1_free_above_context_buffers(ptr nocapture noundef %0) loc
 ; Function Attrs: nounwind uwtable
 define hidden void @av1_free_context_buffers(ptr noundef %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1064
-  %3 = getelementptr inbounds i8, ptr %0, i64 1136
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 1136
   %4 = load ptr, ptr %3, align 8
   tail call void %4(ptr noundef nonnull %2) #4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 27736
@@ -591,44 +591,44 @@ declare ptr @aom_calloc(i64 noundef, i64 noundef) local_unnamed_addr #2
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 0, 2) i32 @av1_alloc_context_buffers(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #1 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1064
-  %5 = getelementptr inbounds i8, ptr %0, i64 1152
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 1152
   %6 = load ptr, ptr %5, align 8
   tail call void %6(ptr noundef nonnull %4, i32 noundef %1, i32 noundef %2) #4
-  %7 = getelementptr inbounds i8, ptr %0, i64 1076
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 1076
   %8 = load i32, ptr %7, align 4
   %9 = add nsw i32 %8, 31
   %10 = and i32 %9, -32
-  %11 = getelementptr inbounds i8, ptr %0, i64 1124
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 1124
   %12 = load i32, ptr %11, align 4
   %13 = mul nsw i32 %10, %12
-  %14 = getelementptr inbounds i8, ptr %0, i64 1104
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 1104
   %15 = load i8, ptr %14, align 8
   %16 = zext i8 %15 to i64
   %17 = getelementptr inbounds [22 x i8], ptr @mi_size_wide, i64 0, i64 %16
   %18 = load i8, ptr %17, align 1
   %19 = zext i8 %18 to i32
-  %20 = getelementptr inbounds i8, ptr %0, i64 1100
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 1100
   %21 = load i32, ptr %20, align 4
   %22 = sdiv i32 %10, %19
   %23 = mul nsw i32 %22, %21
-  %24 = getelementptr inbounds i8, ptr %0, i64 1096
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 1096
   %25 = load i32, ptr %24, align 8
   %26 = icmp slt i32 %25, %23
   br i1 %26, label %31, label %27
 
 27:                                               ; preds = %3
-  %28 = getelementptr inbounds i8, ptr %0, i64 1120
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 1120
   %29 = load i32, ptr %28, align 8
   %30 = icmp slt i32 %29, %13
   br i1 %30, label %31, label %alloc_mi.exit
 
 31:                                               ; preds = %27, %3
-  %32 = getelementptr inbounds i8, ptr %0, i64 1136
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 1136
   %33 = load ptr, ptr %32, align 8
   tail call void %33(ptr noundef nonnull %4) #4
   %34 = sext i32 %23 to i64
   %35 = tail call ptr @aom_calloc(i64 noundef %34, i64 noundef 184) #4
-  %36 = getelementptr inbounds i8, ptr %0, i64 1088
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 1088
   store ptr %35, ptr %36, align 8
   %.not.i = icmp eq ptr %35, null
   br i1 %.not.i, label %45, label %37
@@ -637,16 +637,16 @@ define hidden range(i32 0, 2) i32 @av1_alloc_context_buffers(ptr noundef %0, i32
   store i32 %23, ptr %24, align 8
   %38 = sext i32 %13 to i64
   %39 = tail call ptr @aom_calloc(i64 noundef %38, i64 noundef 8) #4
-  %40 = getelementptr inbounds i8, ptr %0, i64 1112
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 1112
   store ptr %39, ptr %40, align 8
   %.not26.i = icmp eq ptr %39, null
   br i1 %.not26.i, label %45, label %41
 
 41:                                               ; preds = %37
-  %42 = getelementptr inbounds i8, ptr %0, i64 1120
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 1120
   store i32 %13, ptr %42, align 8
   %43 = tail call ptr @aom_calloc(i64 noundef %38, i64 noundef 1) #4
-  %44 = getelementptr inbounds i8, ptr %0, i64 1128
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 1128
   store ptr %43, ptr %44, align 8
   %.not27.i = icmp eq ptr %43, null
   br i1 %.not27.i, label %45, label %alloc_mi.exit
@@ -668,7 +668,7 @@ alloc_mi.exit:                                    ; preds = %41, %27, %45
 ; Function Attrs: nounwind uwtable
 define hidden void @av1_remove_common(ptr noundef %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1064
-  %3 = getelementptr inbounds i8, ptr %0, i64 1136
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 1136
   %4 = load ptr, ptr %3, align 8
   tail call void %4(ptr noundef nonnull %2) #4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 27736

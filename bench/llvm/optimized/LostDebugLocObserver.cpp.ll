@@ -57,9 +57,9 @@ define dso_local void @_ZN4llvm20LostDebugLocObserver21analyzeDebugLocationsEv(p
   br i1 %8, label %_ZN4llvm11SmallPtrSetIPNS_12MachineInstrELj4EED2Ev.exit, label %9
 
 9:                                                ; preds = %1
-  %10 = getelementptr inbounds i8, ptr %0, i64 204
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 204
   %11 = load i32, ptr %10, align 4
-  %12 = getelementptr inbounds i8, ptr %0, i64 208
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %13 = load i32, ptr %12, align 8
   %14 = icmp eq i32 %11, %13
   br i1 %14, label %_ZN4llvm11SmallPtrSetIPNS_12MachineInstrELj4EED2Ev.exit, label %15
@@ -76,11 +76,11 @@ define dso_local void @_ZN4llvm20LostDebugLocObserver21analyzeDebugLocationsEv(p
   store i32 0, ptr %20, align 4
   %21 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store i32 0, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %0, i64 192
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %23 = load ptr, ptr %22, align 8
   %24 = load ptr, ptr %16, align 8
   %25 = icmp eq ptr %23, %24
-  %26 = getelementptr inbounds i8, ptr %0, i64 200
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %27 = load i32, ptr %26, align 8
   %.v.v.i4.i2.i = select i1 %25, i32 %11, i32 %27
   %.v.i5.i3.i = zext i32 %.v.v.i4.i2.i to i64
@@ -105,7 +105,7 @@ _ZNK4llvm15SmallPtrSetImplIPNS_12MachineInstrEE5beginEv.exit: ; preds = %.lr.ph.
   br i1 %.not20, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZNK4llvm15SmallPtrSetImplIPNS_12MachineInstrEE5beginEv.exit
-  %31 = getelementptr inbounds i8, ptr %0, i64 136
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 136
   br label %32
 
 32:                                               ; preds = %.lr.ph, %_ZN4llvm19SmallPtrSetIteratorIPNS_12MachineInstrEEppEv.exit
@@ -271,20 +271,20 @@ define dso_local void @_ZN4llvm20LostDebugLocObserver10checkpointEb(ptr noundef 
 
 4:                                                ; preds = %3, %2
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 184
-  %6 = getelementptr inbounds i8, ptr %0, i64 192
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %7 = load ptr, ptr %6, align 8
   %8 = load ptr, ptr %5, align 8
   %9 = icmp eq ptr %7, %8
   br i1 %9, label %25, label %10
 
 10:                                               ; preds = %4
-  %11 = getelementptr inbounds i8, ptr %0, i64 204
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 204
   %12 = load i32, ptr %11, align 4
-  %13 = getelementptr inbounds i8, ptr %0, i64 208
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %14 = load i32, ptr %13, align 8
   %15 = sub i32 %12, %14
   %16 = shl i32 %15, 2
-  %17 = getelementptr inbounds i8, ptr %0, i64 200
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %18 = load i32, ptr %17, align 8
   %19 = icmp ult i32 %16, %18
   %20 = icmp ugt i32 %18, 32
@@ -302,9 +302,9 @@ define dso_local void @_ZN4llvm20LostDebugLocObserver10checkpointEb(ptr noundef 
   br label %25
 
 25:                                               ; preds = %22, %4
-  %26 = getelementptr inbounds i8, ptr %0, i64 204
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 204
   store i32 0, ptr %26, align 4
-  %27 = getelementptr inbounds i8, ptr %0, i64 208
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 208
   store i32 0, ptr %27, align 8
   br label %_ZN4llvm19SmallPtrSetImplBase5clearEv.exit
 
@@ -335,9 +335,9 @@ _ZN4llvm8DebugLocD2Ev.exit.i.i.i:                 ; preds = %34, %.lr.ph.i.i.i
   br i1 %.not.i.i.i, label %_ZN4llvm8SmallSetINS_8DebugLocELj4ESt4lessIS1_EE5clearEv.exit, label %.lr.ph.i.i.i, !llvm.loop !11
 
 _ZN4llvm8SmallSetINS_8DebugLocELj4ESt4lessIS1_EE5clearEv.exit: ; preds = %_ZN4llvm8DebugLocD2Ev.exit.i.i.i, %_ZN4llvm19SmallPtrSetImplBase5clearEv.exit
-  %35 = getelementptr inbounds i8, ptr %0, i64 96
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store i32 0, ptr %35, align 8
-  %36 = getelementptr inbounds i8, ptr %0, i64 136
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %37 = getelementptr inbounds i8, ptr %0, i64 152
   %38 = load ptr, ptr %37, align 8
   tail call void @_ZNSt8_Rb_treeIN4llvm8DebugLocES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE8_M_eraseEPSt13_Rb_tree_nodeIS1_E(ptr noundef nonnull align 8 dereferenceable(48) %36, ptr noundef %38)
@@ -355,14 +355,14 @@ _ZN4llvm8SmallSetINS_8DebugLocELj4ESt4lessIS1_EE5clearEv.exit: ; preds = %_ZN4ll
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN4llvm20LostDebugLocObserver12createdInstrERNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(252) %0, ptr noundef nonnull align 8 dereferenceable(70) %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 184
-  %4 = getelementptr inbounds i8, ptr %0, i64 192
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %5 = load ptr, ptr %4, align 8, !noalias !12
   %6 = load ptr, ptr %3, align 8, !noalias !12
   %7 = icmp eq ptr %5, %6
   br i1 %7, label %8, label %22
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %0, i64 204
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 204
   %10 = load i32, ptr %9, align 4, !noalias !12
   %11 = zext i32 %10 to i64
   %12 = getelementptr inbounds ptr, ptr %6, i64 %11
@@ -381,7 +381,7 @@ define dso_local void @_ZN4llvm20LostDebugLocObserver12createdInstrERNS_12Machin
   br i1 %.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !10
 
 ._crit_edge.i.i:                                  ; preds = %15, %8
-  %17 = getelementptr inbounds i8, ptr %0, i64 200
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %18 = load i32, ptr %17, align 8, !noalias !12
   %19 = icmp ult i32 %10, %18
   br i1 %19, label %20, label %22
@@ -414,14 +414,14 @@ define dso_local void @_ZN4llvm20LostDebugLocObserver12erasingInstrERNS_12Machin
 
 _ZL30irTranslatorNeverAddsLocationsj.exit:        ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 184
-  %7 = getelementptr inbounds i8, ptr %0, i64 192
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %8 = load ptr, ptr %7, align 8
   %9 = load ptr, ptr %6, align 8
   %10 = icmp eq ptr %8, %9
   br i1 %10, label %11, label %25
 
 11:                                               ; preds = %_ZL30irTranslatorNeverAddsLocationsj.exit
-  %12 = getelementptr inbounds i8, ptr %0, i64 204
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 204
   %13 = load i32, ptr %12, align 4
   %14 = zext i32 %13 to i64
   %15 = getelementptr inbounds ptr, ptr %9, i64 %14
@@ -455,7 +455,7 @@ _ZL30irTranslatorNeverAddsLocationsj.exit:        ; preds = %2
 
 27:                                               ; preds = %25
   store ptr inttoptr (i64 -2 to ptr), ptr %26, align 8
-  %28 = getelementptr inbounds i8, ptr %0, i64 208
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %29 = load i32, ptr %28, align 8
   %30 = add i32 %29, 1
   store i32 %30, ptr %28, align 8
@@ -605,14 +605,14 @@ define dso_local void @_ZN4llvm20LostDebugLocObserver13changingInstrERNS_12Machi
 
 _ZL30irTranslatorNeverAddsLocationsj.exit:        ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 184
-  %7 = getelementptr inbounds i8, ptr %0, i64 192
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %8 = load ptr, ptr %7, align 8
   %9 = load ptr, ptr %6, align 8
   %10 = icmp eq ptr %8, %9
   br i1 %10, label %11, label %25
 
 11:                                               ; preds = %_ZL30irTranslatorNeverAddsLocationsj.exit
-  %12 = getelementptr inbounds i8, ptr %0, i64 204
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 204
   %13 = load i32, ptr %12, align 4
   %14 = zext i32 %13 to i64
   %15 = getelementptr inbounds ptr, ptr %9, i64 %14
@@ -646,7 +646,7 @@ _ZL30irTranslatorNeverAddsLocationsj.exit:        ; preds = %2
 
 27:                                               ; preds = %25
   store ptr inttoptr (i64 -2 to ptr), ptr %26, align 8
-  %28 = getelementptr inbounds i8, ptr %0, i64 208
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %29 = load i32, ptr %28, align 8
   %30 = add i32 %29, 1
   store i32 %30, ptr %28, align 8
@@ -670,14 +670,14 @@ _ZL30irTranslatorNeverAddsLocationsj.exit.thread: ; preds = %2, %2, %2, %2, %33,
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN4llvm20LostDebugLocObserver12changedInstrERNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(252) %0, ptr noundef nonnull align 8 dereferenceable(70) %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 184
-  %4 = getelementptr inbounds i8, ptr %0, i64 192
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %5 = load ptr, ptr %4, align 8, !noalias !18
   %6 = load ptr, ptr %3, align 8, !noalias !18
   %7 = icmp eq ptr %5, %6
   br i1 %7, label %8, label %22
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %0, i64 204
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 204
   %10 = load i32, ptr %9, align 4, !noalias !18
   %11 = zext i32 %10 to i64
   %12 = getelementptr inbounds ptr, ptr %6, i64 %11
@@ -696,7 +696,7 @@ define dso_local void @_ZN4llvm20LostDebugLocObserver12changedInstrERNS_12Machin
   br i1 %.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !10
 
 ._crit_edge.i.i:                                  ; preds = %15, %8
-  %17 = getelementptr inbounds i8, ptr %0, i64 200
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %18 = load i32, ptr %17, align 8, !noalias !18
   %19 = icmp ult i32 %10, %18
   br i1 %19, label %20, label %22
@@ -719,7 +719,7 @@ _ZN4llvm15SmallPtrSetImplIPNS_12MachineInstrEE6insertES2_.exit: ; preds = %.lr.p
 define linkonce_odr hidden void @_ZN4llvm20LostDebugLocObserverD2Ev(ptr noundef nonnull align 8 dereferenceable(252) %0) unnamed_addr #0 comdat align 2 {
   store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN4llvm20LostDebugLocObserverE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 184
-  %3 = getelementptr inbounds i8, ptr %0, i64 192
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %2, align 8
   %6 = icmp eq ptr %4, %5
@@ -731,7 +731,7 @@ define linkonce_odr hidden void @_ZN4llvm20LostDebugLocObserverD2Ev(ptr noundef 
 
 _ZN4llvm11SmallPtrSetIPNS_12MachineInstrELj4EED2Ev.exit: ; preds = %1, %7
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %9 = getelementptr inbounds i8, ptr %0, i64 136
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %10 = getelementptr inbounds i8, ptr %0, i64 152
   %11 = load ptr, ptr %10, align 8
   tail call void @_ZNSt8_Rb_treeIN4llvm8DebugLocES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE8_M_eraseEPSt13_Rb_tree_nodeIS1_E(ptr noundef nonnull align 8 dereferenceable(48) %9, ptr noundef %11)
@@ -772,7 +772,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_8DebugLocELb0EE13destroy_rangeEPS1_S3_.exit
 _ZN4llvm8SmallSetINS_8DebugLocELj4ESt4lessIS1_EED2Ev.exit: ; preds = %_ZN4llvm23SmallVectorTemplateBaseINS_8DebugLocELb0EE13destroy_rangeEPS1_S3_.exit.i.i, %21
   store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN4llvm19GISelChangeObserverE, i64 16), ptr %0, align 8
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %23 = getelementptr inbounds i8, ptr %0, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %24 = load ptr, ptr %23, align 8
   %25 = load ptr, ptr %22, align 8
   %26 = icmp eq ptr %24, %25
@@ -842,7 +842,7 @@ declare noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull al
 define linkonce_odr hidden void @_ZN4llvm19GISelChangeObserverD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #0 comdat align 2 {
   store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN4llvm19GISelChangeObserverE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %2, align 8
   %6 = icmp eq ptr %4, %5

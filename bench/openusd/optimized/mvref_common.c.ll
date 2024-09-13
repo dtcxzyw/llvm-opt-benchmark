@@ -30,7 +30,7 @@ define hidden void @av1_copy_frame_mvs(ptr nocapture noundef readonly %0, ptr no
   br i1 %11, label %.preheader.lr.ph, label %._crit_edge44
 
 .preheader.lr.ph:                                 ; preds = %6
-  %12 = getelementptr inbounds i8, ptr %0, i64 1080
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 1080
   %13 = load i32, ptr %12, align 8
   %14 = add nsw i32 %13, 1
   %15 = ashr i32 %14, 1
@@ -163,11 +163,11 @@ define hidden void @av1_find_mv_refs(ptr nocapture noundef readonly %0, ptr noun
 
 29:                                               ; preds = %10
   %30 = load i8, ptr %2, align 8
-  %31 = getelementptr inbounds i8, ptr %0, i64 1037
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 1037
   %32 = load i8, ptr %31, align 1
   %33 = and i8 %32, 1
   %34 = zext nneg i8 %33 to i32
-  %35 = getelementptr inbounds i8, ptr %0, i64 1038
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 1038
   %36 = load i8, ptr %35, align 2
   %37 = and i8 %36, 1
   %38 = zext nneg i8 %37 to i32
@@ -439,19 +439,19 @@ av1_set_ref_frame.exit.i:                         ; preds = %128, %has_top_right
 
 182:                                              ; preds = %178
   %183 = add nsw i32 %25, %180
-  %184 = getelementptr inbounds i8, ptr %1, i64 7848
+  %184 = getelementptr inbounds nuw i8, ptr %1, i64 7848
   %185 = load i32, ptr %184, align 4
   %186 = icmp slt i32 %183, %185
   br i1 %186, label %scan_blk_mbmi.exit.i, label %187
 
 187:                                              ; preds = %182
-  %188 = getelementptr inbounds i8, ptr %1, i64 7844
+  %188 = getelementptr inbounds nuw i8, ptr %1, i64 7844
   %189 = load i32, ptr %188, align 4
   %.not.i.not.i.i = icmp sgt i32 %23, %189
   br i1 %.not.i.not.i.i, label %scan_blk_mbmi.exit.i, label %is_inside.exit.i.i
 
 is_inside.exit.i.i:                               ; preds = %187
-  %190 = getelementptr inbounds i8, ptr %1, i64 7852
+  %190 = getelementptr inbounds nuw i8, ptr %1, i64 7852
   %191 = load i32, ptr %190, align 4
   %.not.i493.i = icmp slt i32 %183, %191
   br i1 %.not.i493.i, label %192, label %scan_blk_mbmi.exit.i
@@ -497,7 +497,7 @@ scan_blk_mbmi.exit.i:                             ; preds = %192, %is_inside.exi
   br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !9
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %scan_blk_mbmi.exit.i
-  %214 = getelementptr inbounds i8, ptr %0, i64 1042
+  %214 = getelementptr inbounds nuw i8, ptr %0, i64 1042
   %215 = load i8, ptr %214, align 2
   %216 = trunc i8 %215 to i1
   br i1 %216, label %217, label %.loopexit586.i
@@ -607,19 +607,19 @@ scan_blk_mbmi.exit.i:                             ; preds = %192, %is_inside.exi
   br i1 %.not20.i495.i, label %263, label %scan_blk_mbmi.exit499.i
 
 263:                                              ; preds = %.loopexit586.i
-  %264 = getelementptr inbounds i8, ptr %1, i64 7848
+  %264 = getelementptr inbounds nuw i8, ptr %1, i64 7848
   %265 = load i32, ptr %264, align 4
   %.not.i = icmp sgt i32 %25, %265
   br i1 %.not.i, label %266, label %scan_blk_mbmi.exit499.i
 
 266:                                              ; preds = %263
-  %267 = getelementptr inbounds i8, ptr %1, i64 7844
+  %267 = getelementptr inbounds nuw i8, ptr %1, i64 7844
   %268 = load i32, ptr %267, align 4
   %.not.i.not.i496.i = icmp sgt i32 %23, %268
   br i1 %.not.i.not.i496.i, label %scan_blk_mbmi.exit499.i, label %is_inside.exit.i497.i
 
 is_inside.exit.i497.i:                            ; preds = %266
-  %269 = getelementptr inbounds i8, ptr %1, i64 7852
+  %269 = getelementptr inbounds nuw i8, ptr %1, i64 7852
   %270 = load i32, ptr %269, align 4
   %.not.i498.not.i = icmp sgt i32 %25, %270
   br i1 %.not.i498.not.i, label %scan_blk_mbmi.exit499.i, label %271
@@ -858,14 +858,14 @@ scan_blk_mbmi.exit499.i:                          ; preds = %271, %is_inside.exi
   %368 = load i8, ptr %68, align 4
   %narrow567.i = tail call i8 @llvm.umin.i8(i8 %368, i8 16)
   %369 = zext nneg i8 %narrow567.i to i32
-  %370 = getelementptr inbounds i8, ptr %0, i64 1080
+  %370 = getelementptr inbounds nuw i8, ptr %0, i64 1080
   %371 = load i32, ptr %370, align 8
   %372 = sub nsw i32 %371, %25
   %373 = tail call i32 @llvm.smin.i32(i32 %372, i32 %369)
   %374 = load i8, ptr %70, align 1
   %narrow568.i = tail call i8 @llvm.umin.i8(i8 %374, i8 16)
   %375 = zext nneg i8 %narrow568.i to i32
-  %376 = getelementptr inbounds i8, ptr %0, i64 1076
+  %376 = getelementptr inbounds nuw i8, ptr %0, i64 1076
   %377 = load i32, ptr %376, align 4
   %378 = sub nsw i32 %377, %23
   %379 = tail call i32 @llvm.smin.i32(i32 %378, i32 %375)
@@ -1379,7 +1379,7 @@ process_compound_ref_mv_candidate.exit517.i:      ; preds = %.split41.us.i506.i
   %651 = load i32, ptr %601, align 16
   %652 = add nuw nsw i32 %641, 128
   %653 = add i32 %652, %651
-  %654 = getelementptr inbounds i8, ptr %603, i64 6
+  %654 = getelementptr inbounds nuw i8, ptr %603, i64 6
   %655 = load i16, ptr %654, align 2
   %656 = sext i16 %655 to i32
   %657 = icmp sgt i32 %644, %656
@@ -2120,9 +2120,9 @@ get_ref_frame_buf.exit.thread:                    ; preds = %get_ref_frame_map_i
 define hidden void @av1_setup_frame_sign_bias(ptr nocapture noundef %0) local_unnamed_addr #5 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 640
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 960
-  %4 = getelementptr inbounds i8, ptr %0, i64 25224
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 25224
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %6 = getelementptr inbounds i8, ptr %0, i64 25228
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 25228
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 27844
   br label %get_ref_frame_map_idx.exit.i
 
@@ -2175,7 +2175,7 @@ get_ref_frame_buf.exit.thread:                    ; preds = %get_ref_frame_buf.e
 define hidden void @av1_setup_motion_field(ptr nocapture noundef %0) local_unnamed_addr #0 {
   %2 = alloca [7 x ptr], align 16
   %3 = alloca [7 x i32], align 16
-  %4 = getelementptr inbounds i8, ptr %0, i64 25224
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 25224
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 27876
   store i64 0, ptr %5, align 4
   %6 = load i32, ptr %4, align 4
@@ -2185,11 +2185,11 @@ define hidden void @av1_setup_motion_field(ptr nocapture noundef %0) local_unnam
 7:                                                ; preds = %1
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 27832
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 1076
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 1076
   %11 = load i32, ptr %10, align 4
   %12 = add nsw i32 %11, 32
   %13 = ashr i32 %12, 1
-  %14 = getelementptr inbounds i8, ptr %0, i64 1124
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 1124
   %15 = load i32, ptr %14, align 4
   %16 = ashr i32 %15, 1
   %17 = mul nsw i32 %13, %16
@@ -2271,7 +2271,7 @@ get_ref_frame_buf.exit.thread.us:                 ; preds = %37, %get_ref_frame_
 .split:                                           ; preds = %._crit_edge.thread, %._crit_edge
   %47 = phi i32 [ %22, %._crit_edge.thread ], [ %28, %._crit_edge ]
   %48 = phi i32 [ %6, %._crit_edge.thread ], [ %.pre, %._crit_edge ]
-  %49 = getelementptr inbounds i8, ptr %0, i64 25228
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 25228
   %50 = load i32, ptr %49, align 4
   %51 = shl nuw i32 1, %50
   %52 = add nsw i32 %51, -1
@@ -2356,7 +2356,7 @@ get_relative_dist.exit.thread:                    ; preds = %get_ref_frame_buf.e
 get_relative_dist.exit68:                         ; preds = %85
   %87 = getelementptr inbounds i8, ptr %3, i64 16
   %88 = load i32, ptr %87, align 16
-  %89 = getelementptr inbounds i8, ptr %0, i64 25228
+  %89 = getelementptr inbounds nuw i8, ptr %0, i64 25228
   %90 = load i32, ptr %89, align 4
   %91 = sub nsw i32 %88, %74
   %92 = shl nuw i32 1, %90
@@ -2469,7 +2469,7 @@ get_ref_frame_buf.exit:                           ; preds = %get_ref_frame_map_i
 22:                                               ; preds = %19
   %23 = getelementptr inbounds nuw i8, ptr %17, i64 260
   %24 = load i32, ptr %23, align 4
-  %25 = getelementptr inbounds i8, ptr %0, i64 1076
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 1076
   %26 = load i32, ptr %25, align 4
   %.not = icmp eq i32 %24, %26
   br i1 %.not, label %27, label %get_ref_frame_buf.exit.thread
@@ -2477,7 +2477,7 @@ get_ref_frame_buf.exit:                           ; preds = %get_ref_frame_map_i
 27:                                               ; preds = %22
   %28 = getelementptr inbounds nuw i8, ptr %17, i64 264
   %29 = load i32, ptr %28, align 8
-  %30 = getelementptr inbounds i8, ptr %0, i64 1080
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 1080
   %31 = load i32, ptr %30, align 8
   %.not71 = icmp eq i32 %29, %31
   br i1 %.not71, label %32, label %get_ref_frame_buf.exit.thread
@@ -2485,7 +2485,7 @@ get_ref_frame_buf.exit:                           ; preds = %get_ref_frame_map_i
 32:                                               ; preds = %27
   %33 = getelementptr inbounds nuw i8, ptr %17, i64 4
   %34 = load i32, ptr %33, align 4
-  %35 = getelementptr inbounds i8, ptr %0, i64 25224
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 25224
   %36 = load i32, ptr %35, align 4
   %.not.i73 = icmp eq i32 %36, 0
   br i1 %.not.i73, label %get_relative_dist.exit76.us.preheader, label %get_relative_dist.exit.split
@@ -2500,7 +2500,7 @@ get_relative_dist.exit.split:                     ; preds = %32
   %38 = load ptr, ptr %37, align 8
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 4
   %40 = load i32, ptr %39, align 4
-  %41 = getelementptr inbounds i8, ptr %0, i64 25228
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 25228
   %42 = load i32, ptr %41, align 4
   %43 = sub nsw i32 %34, %40
   %44 = shl nuw i32 1, %42
@@ -2508,7 +2508,7 @@ get_relative_dist.exit.split:                     ; preds = %32
   %46 = and i32 %45, %43
   %47 = and i32 %44, %43
   %48 = sub nsw i32 %46, %47
-  %49 = getelementptr inbounds i8, ptr %0, i64 25228
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 25228
   %50 = load i32, ptr %49, align 4
   %51 = shl nuw i32 1, %50
   %52 = add nsw i32 %51, -1
@@ -2543,7 +2543,7 @@ get_relative_dist.exit76:                         ; preds = %get_relative_dist.e
   %67 = icmp sgt i32 %65, 0
   %.mask = and i32 %2, -2
   %68 = icmp eq i32 %.mask, 2
-  %69 = getelementptr inbounds i8, ptr %0, i64 1124
+  %69 = getelementptr inbounds nuw i8, ptr %0, i64 1124
   %70 = tail call i32 @llvm.abs.i32(i32 %.0.i127, i1 true)
   %.fr109 = freeze i32 %70
   %71 = icmp ult i32 %.fr109, 32
@@ -2830,7 +2830,7 @@ define hidden zeroext i8 @av1_findSamples(ptr nocapture noundef readonly %0, ptr
   br i1 %.not, label %.preheader234, label %35
 
 .preheader234:                                    ; preds = %21
-  %32 = getelementptr inbounds i8, ptr %0, i64 1080
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 1080
   %33 = load i32, ptr %32, align 8
   %34 = icmp sgt i32 %33, %20
   br i1 %34, label %.lr.ph, label %.loopexit235
@@ -2872,7 +2872,7 @@ define hidden zeroext i8 @av1_findSamples(ptr nocapture noundef readonly %0, ptr
   %61 = getelementptr inbounds i8, ptr %2, i64 4
   store i32 %60, ptr %61, align 4
   %62 = getelementptr inbounds nuw i8, ptr %25, i64 8
-  %63 = getelementptr inbounds i8, ptr %25, i64 10
+  %63 = getelementptr inbounds nuw i8, ptr %25, i64 10
   %64 = load i16, ptr %63, align 2
   %65 = sext i16 %64 to i32
   %66 = add nsw i32 %58, %65
@@ -2933,7 +2933,7 @@ define hidden zeroext i8 @av1_findSamples(ptr nocapture noundef readonly %0, ptr
   %105 = getelementptr inbounds i8, ptr %.1247, i64 4
   store i32 %104, ptr %105, align 4
   %106 = getelementptr inbounds nuw i8, ptr %80, i64 8
-  %107 = getelementptr inbounds i8, ptr %80, i64 10
+  %107 = getelementptr inbounds nuw i8, ptr %80, i64 10
   %108 = load i16, ptr %107, align 2
   %109 = sext i16 %108 to i32
   %110 = add nsw i32 %102, %109
@@ -2992,7 +2992,7 @@ define hidden zeroext i8 @av1_findSamples(ptr nocapture noundef readonly %0, ptr
   br i1 %.not169, label %.preheader, label %141
 
 .preheader:                                       ; preds = %128
-  %138 = getelementptr inbounds i8, ptr %0, i64 1076
+  %138 = getelementptr inbounds nuw i8, ptr %0, i64 1076
   %139 = load i32, ptr %138, align 4
   %140 = icmp sgt i32 %139, %18
   br i1 %140, label %.lr.ph255, label %.loopexit
@@ -3032,7 +3032,7 @@ define hidden zeroext i8 @av1_findSamples(ptr nocapture noundef readonly %0, ptr
   %164 = getelementptr inbounds i8, ptr %.0138, i64 4
   store i32 %163, ptr %164, align 4
   %165 = getelementptr inbounds nuw i8, ptr %131, i64 8
-  %166 = getelementptr inbounds i8, ptr %131, i64 10
+  %166 = getelementptr inbounds nuw i8, ptr %131, i64 10
   %167 = load i16, ptr %166, align 2
   %168 = sext i16 %167 to i32
   %169 = add nsw i32 %160, %168
@@ -3096,7 +3096,7 @@ define hidden zeroext i8 @av1_findSamples(ptr nocapture noundef readonly %0, ptr
   %211 = getelementptr inbounds i8, ptr %.4254, i64 4
   store i32 %210, ptr %211, align 4
   %212 = getelementptr inbounds nuw i8, ptr %186, i64 8
-  %213 = getelementptr inbounds i8, ptr %186, i64 10
+  %213 = getelementptr inbounds nuw i8, ptr %186, i64 10
   %214 = load i16, ptr %213, align 2
   %215 = sext i16 %214 to i32
   %216 = add nsw i32 %206, %215
@@ -3177,7 +3177,7 @@ define hidden zeroext i8 @av1_findSamples(ptr nocapture noundef readonly %0, ptr
   %261 = getelementptr inbounds i8, ptr %.3, i64 4
   store i32 %260, ptr %261, align 4
   %262 = getelementptr inbounds nuw i8, ptr %240, i64 8
-  %263 = getelementptr inbounds i8, ptr %240, i64 10
+  %263 = getelementptr inbounds nuw i8, ptr %240, i64 10
   %264 = load i16, ptr %263, align 2
   %265 = sext i16 %264 to i32
   %266 = add nsw i32 %258, %265
@@ -3298,19 +3298,19 @@ has_top_right.exit:                               ; preds = %315
 
 328:                                              ; preds = %324
   %329 = add nsw i32 %20, %325
-  %330 = getelementptr inbounds i8, ptr %1, i64 7848
+  %330 = getelementptr inbounds nuw i8, ptr %1, i64 7848
   %331 = load i32, ptr %330, align 4
   %332 = icmp slt i32 %329, %331
   br i1 %332, label %has_top_right.exit.thread, label %333
 
 333:                                              ; preds = %328
-  %334 = getelementptr inbounds i8, ptr %1, i64 7844
+  %334 = getelementptr inbounds nuw i8, ptr %1, i64 7844
   %335 = load i32, ptr %334, align 4
   %.not.i179.not = icmp sgt i32 %18, %335
   br i1 %.not.i179.not, label %has_top_right.exit.thread, label %is_inside.exit
 
 is_inside.exit:                                   ; preds = %333
-  %336 = getelementptr inbounds i8, ptr %1, i64 7852
+  %336 = getelementptr inbounds nuw i8, ptr %1, i64 7852
   %337 = load i32, ptr %336, align 4
   %.not231 = icmp slt i32 %329, %337
   br i1 %.not231, label %338, label %has_top_right.exit.thread
@@ -3352,7 +3352,7 @@ is_inside.exit:                                   ; preds = %333
   %365 = getelementptr inbounds i8, ptr %.6, i64 4
   store i32 %364, ptr %365, align 4
   %366 = getelementptr inbounds nuw i8, ptr %342, i64 8
-  %367 = getelementptr inbounds i8, ptr %342, i64 10
+  %367 = getelementptr inbounds nuw i8, ptr %342, i64 10
   %368 = load i16, ptr %367, align 2
   %369 = sext i16 %368 to i32
   %370 = add nsw i32 %362, %369
@@ -3374,12 +3374,12 @@ has_top_right.exit.thread:                        ; preds = %92, %198, %321, %32
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define hidden void @av1_setup_skip_mode_allowed(ptr nocapture noundef %0) local_unnamed_addr #5 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 25224
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 25224
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 0, ptr %3, align 4
-  %4 = getelementptr inbounds i8, ptr %0, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 -1, ptr %4, align 4
-  %5 = getelementptr inbounds i8, ptr %0, i64 28
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i32 -1, ptr %5, align 4
   %6 = load i32, ptr %2, align 4
   %.not = icmp eq i32 %6, 0
@@ -3402,7 +3402,7 @@ define hidden void @av1_setup_skip_mode_allowed(ptr nocapture noundef %0) local_
   %15 = load i32, ptr %14, align 4
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 640
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 960
-  %18 = getelementptr inbounds i8, ptr %0, i64 25228
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 25228
   br label %get_ref_frame_map_idx.exit.i
 
 get_ref_frame_map_idx.exit.i:                     ; preds = %13, %get_ref_frame_buf.exit.thread
@@ -3566,8 +3566,8 @@ define hidden void @av1_set_frame_refs(ptr noundef %0, ptr nocapture noundef wri
   %6 = alloca [7 x i32], align 16
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %8 = load i32, ptr %7, align 4
-  %9 = getelementptr inbounds i8, ptr %0, i64 25224
-  %10 = getelementptr inbounds i8, ptr %0, i64 25228
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 25224
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 25228
   %11 = load i32, ptr %10, align 4
   %12 = shl nuw i32 1, %11
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(28) %6, i8 0, i64 28, i1 false)
@@ -3881,7 +3881,7 @@ define internal fastcc void @scan_row_mbmi(ptr nocapture noundef readonly %0, pt
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 8308
   %15 = load i8, ptr %14, align 4
   %16 = zext i8 %15 to i32
-  %17 = getelementptr inbounds i8, ptr %0, i64 1080
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 1080
   %18 = load i32, ptr %17, align 8
   %19 = sub nsw i32 %18, %2
   %. = tail call i32 @llvm.smin.i32(i32 %19, i32 %16)
@@ -4048,7 +4048,7 @@ define internal fastcc void @scan_col_mbmi(ptr nocapture noundef readonly %0, pt
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 8309
   %15 = load i8, ptr %14, align 1
   %16 = zext i8 %15 to i32
-  %17 = getelementptr inbounds i8, ptr %0, i64 1076
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 1076
   %18 = load i32, ptr %17, align 4
   %19 = sub nsw i32 %18, %2
   %. = tail call i32 @llvm.smin.i32(i32 %19, i32 %16)
@@ -4228,19 +4228,19 @@ define internal fastcc range(i32 0, 2) i32 @add_tpl_ref_mv(ptr nocapture noundef
   %20 = xor i32 %19, 1
   %21 = add i32 %6, %20
   %22 = add nsw i32 %21, %3
-  %23 = getelementptr inbounds i8, ptr %1, i64 7848
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 7848
   %24 = load i32, ptr %23, align 4
   %25 = icmp slt i32 %22, %24
   br i1 %25, label %is_inside.exit.thread, label %26
 
 26:                                               ; preds = %18
-  %27 = getelementptr inbounds i8, ptr %1, i64 7844
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 7844
   %28 = load i32, ptr %27, align 4
   %.not.i = icmp slt i32 %15, %28
   br i1 %.not.i, label %is_inside.exit, label %is_inside.exit.thread
 
 is_inside.exit:                                   ; preds = %26
-  %29 = getelementptr inbounds i8, ptr %1, i64 7852
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 7852
   %30 = load i32, ptr %29, align 4
   %.not = icmp slt i32 %22, %30
   br i1 %.not, label %31, label %is_inside.exit.thread
@@ -4249,7 +4249,7 @@ is_inside.exit:                                   ; preds = %26
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 27832
   %33 = load ptr, ptr %32, align 8
   %34 = ashr i32 %15, 1
-  %35 = getelementptr inbounds i8, ptr %0, i64 1124
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 1124
   %36 = load i32, ptr %35, align 4
   %37 = ashr i32 %36, 1
   %38 = mul nsw i32 %37, %34
@@ -4294,7 +4294,7 @@ av1_set_ref_frame.exit:                           ; preds = %46, %48
   %66 = load i32, ptr %65, align 4
   %.not.i99 = icmp ne i32 %66, -1
   tail call void @llvm.assume(i1 %.not.i99)
-  %67 = getelementptr inbounds i8, ptr %0, i64 25224
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 25224
   %68 = load i32, ptr %67, align 4
   %.not.i100 = icmp eq i32 %68, 0
   br i1 %.not.i100, label %get_relative_dist.exit, label %69
@@ -4306,7 +4306,7 @@ av1_set_ref_frame.exit:                           ; preds = %46, %48
   %73 = load ptr, ptr %72, align 8
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 4
   %75 = load i32, ptr %74, align 4
-  %76 = getelementptr inbounds i8, ptr %0, i64 25228
+  %76 = getelementptr inbounds nuw i8, ptr %0, i64 25228
   %77 = load i32, ptr %76, align 4
   %78 = sub nsw i32 %59, %75
   %79 = shl nuw i32 1, %77
@@ -4318,10 +4318,10 @@ av1_set_ref_frame.exit:                           ; preds = %46, %48
 
 get_relative_dist.exit:                           ; preds = %av1_set_ref_frame.exit, %69
   %.0.i = phi i32 [ %83, %69 ], [ 0, %av1_set_ref_frame.exit ]
-  %84 = getelementptr inbounds i8, ptr %0, i64 1037
+  %84 = getelementptr inbounds nuw i8, ptr %0, i64 1037
   %85 = load i8, ptr %84, align 1
   %86 = and i8 %85, 1
-  %87 = getelementptr inbounds i8, ptr %0, i64 1038
+  %87 = getelementptr inbounds nuw i8, ptr %0, i64 1038
   %88 = load i8, ptr %87, align 2
   %89 = and i8 %88, 1
   %90 = getelementptr inbounds nuw i8, ptr %43, i64 4
@@ -4559,7 +4559,7 @@ get_relative_dist.exit108:                        ; preds = %get_ref_frame_map_i
   %211 = load ptr, ptr %210, align 8
   %212 = getelementptr inbounds nuw i8, ptr %211, i64 4
   %213 = load i32, ptr %212, align 4
-  %214 = getelementptr inbounds i8, ptr %0, i64 25228
+  %214 = getelementptr inbounds nuw i8, ptr %0, i64 25228
   %215 = load i32, ptr %214, align 4
   %216 = sub nsw i32 %59, %213
   %217 = shl nuw i32 1, %215

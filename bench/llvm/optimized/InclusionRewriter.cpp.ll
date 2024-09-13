@@ -205,7 +205,7 @@ define dso_local void @_ZN5clang22RewriteIncludesInInputERNS_12PreprocessorEPN4l
   store ptr %1, ptr %21, align 8
   %22 = getelementptr inbounds nuw i8, ptr %12, i64 32
   store ptr @.str, ptr %22, align 8
-  %23 = getelementptr inbounds i8, ptr %12, i64 40
+  %23 = getelementptr inbounds nuw i8, ptr %12, i64 40
   store i64 1, ptr %23, align 8
   %24 = getelementptr inbounds nuw i8, ptr %12, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %24, i8 0, i64 32, i1 false)
@@ -272,7 +272,7 @@ define dso_local void @_ZN5clang22RewriteIncludesInInputERNS_12PreprocessorEPN4l
   %53 = load i32, ptr %50, align 8, !noalias !4
   %54 = icmp sgt i32 %53, -1
   call void @llvm.assume(i1 %54)
-  %55 = getelementptr inbounds i8, ptr %50, i64 16
+  %55 = getelementptr inbounds nuw i8, ptr %50, i64 16
   %.0.copyload.i.i.i.i.i.i = load i64, ptr %55, align 8, !noalias !4
   %56 = and i64 %.0.copyload.i.i.i.i.i.i, -8
   %57 = inttoptr i64 %56 to ptr
@@ -467,7 +467,7 @@ _ZNK5clang13SourceManager15getBufferOrNoneENS_6FileIDENS_14SourceLocationE.exit.
   br label %135
 
 _ZNK5clang13SourceManager15getBufferOrNoneENS_6FileIDENS_14SourceLocationE.exit.i: ; preds = %124
-  %128 = getelementptr inbounds i8, ptr %122, i64 16
+  %128 = getelementptr inbounds nuw i8, ptr %122, i64 16
   %.0.copyload.i.i.i.i.i.i29 = load i64, ptr %128, align 8, !noalias !16
   %129 = and i64 %.0.copyload.i.i.i.i.i.i29, -8
   %130 = inttoptr i64 %129 to ptr
@@ -568,7 +568,7 @@ _ZNK5clang13SourceManager15getBufferOrNoneENS_6FileIDENS_14SourceLocationE.exit.
   br label %36
 
 _ZNK5clang13SourceManager15getBufferOrNoneENS_6FileIDENS_14SourceLocationE.exit: ; preds = %23
-  %27 = getelementptr inbounds i8, ptr %21, i64 16
+  %27 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %.0.copyload.i.i.i.i.i = load i64, ptr %27, align 8, !noalias !20
   %28 = and i64 %.0.copyload.i.i.i.i.i, -8
   %29 = inttoptr i64 %28 to ptr
@@ -701,9 +701,9 @@ _ZNK4llvm9StringRef9detectEOLEv.exit:             ; preds = %36, %_ZNSt11char_tr
   %95 = getelementptr inbounds i8, ptr %0, i64 200
   %96 = getelementptr inbounds i8, ptr %0, i64 192
   %97 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %98 = getelementptr inbounds i8, ptr %0, i64 56
-  %99 = getelementptr inbounds i8, ptr %0, i64 64
-  %100 = getelementptr inbounds i8, ptr %0, i64 72
+  %98 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %99 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %100 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %.phi.trans.insert.i192 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %101 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %6, i64 24
@@ -800,7 +800,7 @@ _ZNKSt3mapIN5clang14SourceLocationEN12_GLOBAL__N_117InclusionRewriter12IncludedF
   %123 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i, i64 32
   %124 = load i32, ptr %123, align 4
   %125 = icmp ult i32 %.sroa.0320.0.copyload, %124
-  %126 = getelementptr inbounds i8, ptr %.19.i.i.i.i, i64 36
+  %126 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i, i64 36
   %spec.select.i = select i1 %125, ptr null, ptr %126
   br label %_ZNK12_GLOBAL__N_117InclusionRewriter21FindIncludeAtLocationEN5clang14SourceLocationE.exit
 
@@ -848,7 +848,7 @@ _ZNKSt3mapIN5clang14SourceLocationEPKNS0_6ModuleESt4lessIS1_ESaISt4pairIKS1_S4_E
   br i1 %140, label %_ZNK12_GLOBAL__N_117InclusionRewriter20FindModuleAtLocationEN5clang14SourceLocationE.exit.thread, label %_ZNK12_GLOBAL__N_117InclusionRewriter20FindModuleAtLocationEN5clang14SourceLocationE.exit
 
 _ZNK12_GLOBAL__N_117InclusionRewriter20FindModuleAtLocationEN5clang14SourceLocationE.exit: ; preds = %_ZNKSt3mapIN5clang14SourceLocationEPKNS0_6ModuleESt4lessIS1_ESaISt4pairIKS1_S4_EEE4findERS8_.exit.i
-  %141 = getelementptr inbounds i8, ptr %.19.i.i.i.i156, i64 40
+  %141 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i156, i64 40
   %142 = load ptr, ptr %141, align 8
   %.not118 = icmp eq ptr %142, null
   br i1 %.not118, label %_ZNK12_GLOBAL__N_117InclusionRewriter20FindModuleAtLocationEN5clang14SourceLocationE.exit.thread, label %143
@@ -973,7 +973,7 @@ _ZNKSt3mapIN5clang14SourceLocationEPKNS0_6ModuleESt4lessIS1_ESaISt4pairIKS1_S4_E
   br i1 %196, label %.critedge122, label %_ZNK12_GLOBAL__N_117InclusionRewriter17FindEnteredModuleEN5clang14SourceLocationE.exit
 
 _ZNK12_GLOBAL__N_117InclusionRewriter17FindEnteredModuleEN5clang14SourceLocationE.exit: ; preds = %_ZNKSt3mapIN5clang14SourceLocationEPKNS0_6ModuleESt4lessIS1_ESaISt4pairIKS1_S4_EEE4findERS8_.exit.i175
-  %197 = getelementptr inbounds i8, ptr %.19.i.i.i.i169, i64 40
+  %197 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i169, i64 40
   %198 = load ptr, ptr %197, align 8
   %.not120 = icmp eq ptr %198, null
   br i1 %.not120, label %.critedge122, label %199
@@ -1170,7 +1170,7 @@ _ZN5clang13SourceManager18getSLocEntryOrNullENS_6FileIDE.exit.thread.i.i.i.i: ; 
   br i1 %300, label %_ZNK5clang13SourceManager15getBufferOrNoneENS_6FileIDENS_14SourceLocationE.exit.i, label %.thread
 
 _ZNK5clang13SourceManager15getBufferOrNoneENS_6FileIDENS_14SourceLocationE.exit.i: ; preds = %298
-  %301 = getelementptr inbounds i8, ptr %296, i64 16
+  %301 = getelementptr inbounds nuw i8, ptr %296, i64 16
   %.0.copyload.i.i.i.i.i.i = load i64, ptr %301, align 8, !noalias !25
   %302 = and i64 %.0.copyload.i.i.i.i.i.i, -8
   %303 = inttoptr i64 %302 to ptr
@@ -1404,7 +1404,7 @@ _ZNKSt3mapIN5clang14SourceLocationEbSt4lessIS1_ESaISt4pairIKS1_bEEE4findERS5_.ex
   br i1 %405, label %_ZNK12_GLOBAL__N_117InclusionRewriter18IsIfAtLocationTrueEN5clang14SourceLocationE.exit, label %406
 
 406:                                              ; preds = %_ZNKSt3mapIN5clang14SourceLocationEbSt4lessIS1_ESaISt4pairIKS1_bEEE4findERS5_.exit.i
-  %407 = getelementptr inbounds i8, ptr %.19.i.i.i.i233, i64 36
+  %407 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i233, i64 36
   %408 = load i8, ptr %407, align 4
   %409 = trunc i8 %408 to i1
   %410 = select i1 %409, ptr @.str.22, ptr @.str.23
@@ -1969,7 +1969,7 @@ _ZNSt3mapIN5clang14SourceLocationEN12_GLOBAL__N_117InclusionRewriter12IncludedFi
   %29 = call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #16
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 32
   store i32 %18, ptr %30, align 4
-  %31 = getelementptr inbounds i8, ptr %29, i64 36
+  %31 = getelementptr inbounds nuw i8, ptr %29, i64 36
   store i64 %.4..4..4..val14, ptr %31, align 4
   %32 = getelementptr inbounds i8, ptr %0, i64 128
   %.val12.i.i.i.i = load i64, ptr %32, align 8
@@ -2024,7 +2024,7 @@ _ZNSt3mapIN5clang14SourceLocationEN12_GLOBAL__N_117InclusionRewriter12IncludedFi
   %51 = call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #16
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 32
   store i32 %18, ptr %52, align 4
-  %53 = getelementptr inbounds i8, ptr %51, i64 36
+  %53 = getelementptr inbounds nuw i8, ptr %51, i64 36
   store i64 %.4..4..4..val14, ptr %53, align 4
   %54 = load i32, ptr %26, align 4
   %55 = icmp ugt i32 %54, %18
@@ -2558,7 +2558,7 @@ _ZNSt3mapIN5clang14SourceLocationEPKNS0_6ModuleESt4lessIS1_ESaISt4pairIKS1_S4_EE
   %14 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #16
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 32
   store i32 %.pre, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %14, i64 40
+  %16 = getelementptr inbounds nuw i8, ptr %14, i64 40
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %18 = load ptr, ptr %17, align 8
   store ptr %18, ptr %16, align 8
@@ -2851,7 +2851,7 @@ _ZNSt3mapIN5clang14SourceLocationEbSt4lessIS1_ESaISt4pairIKS1_bEEE11lower_boundE
   %14 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #16
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 32
   store i32 %.pre, ptr %15, align 4
-  %16 = getelementptr inbounds i8, ptr %14, i64 36
+  %16 = getelementptr inbounds nuw i8, ptr %14, i64 36
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %18 = load i8, ptr %17, align 4
   %19 = and i8 %18, 1
@@ -3131,7 +3131,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZN5
   br i1 %.not.i.i, label %54, label %17
 
 17:                                               ; preds = %5
-  %18 = getelementptr inbounds i8, ptr %0, i64 208
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %19 = udiv i32 %6, 42
   %20 = urem i32 %6, 42
   %.zext.i.i = zext nneg i32 %19 to i64
@@ -3142,7 +3142,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZN5
   br i1 %.not.i.i.i, label %24, label %_ZNK4llvm11PagedVectorIN5clang6SrcMgr9SLocEntryELm42EEixEm.exit.i.i
 
 24:                                               ; preds = %17
-  %25 = getelementptr inbounds i8, ptr %0, i64 224
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %.0.copyload.i.i.i.i.i.i = load i64, ptr %25, align 8
   %26 = and i64 %.0.copyload.i.i.i.i.i.i, -8
   %27 = inttoptr i64 %26 to ptr
@@ -3650,7 +3650,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_117InclusionRewriter19CommentOutDir
   %26 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %27 = load i64, ptr %26, align 8
   %28 = getelementptr inbounds i8, ptr %22, i64 %27
-  %29 = getelementptr inbounds i8, ptr %0, i64 56
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %30 = load i64, ptr %29, align 8
   %31 = getelementptr inbounds i8, ptr %23, i64 %30
   %32 = icmp eq ptr %28, %31
@@ -3659,16 +3659,16 @@ define internal fastcc void @_ZN12_GLOBAL__N_117InclusionRewriter19CommentOutDir
 33:                                               ; preds = %25
   %34 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %35 = load ptr, ptr %34, align 8
-  %36 = getelementptr inbounds i8, ptr %0, i64 64
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %37 = load ptr, ptr %36, align 8
   %38 = icmp eq ptr %35, %37
   br i1 %38, label %_ZN4llvmeqERKNS_15MemoryBufferRefES2_.exit, label %_ZN4llvmeqERKNS_15MemoryBufferRefES2_.exit.thread
 
 _ZN4llvmeqERKNS_15MemoryBufferRefES2_.exit:       ; preds = %33
-  %39 = getelementptr inbounds i8, ptr %2, i64 24
+  %39 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %40 = load i64, ptr %39, align 8
   %41 = getelementptr inbounds i8, ptr %35, i64 %40
-  %42 = getelementptr inbounds i8, ptr %0, i64 72
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %43 = load i64, ptr %42, align 8
   %44 = getelementptr inbounds i8, ptr %37, i64 %43
   %45 = icmp eq ptr %41, %44
@@ -3784,7 +3784,7 @@ _ZN5clang13SourceManager18getSLocEntryOrNullENS_6FileIDE.exit.thread.i.i.i.i: ; 
   br i1 %100, label %_ZNK5clang13SourceManager15getBufferOrNoneENS_6FileIDENS_14SourceLocationE.exit.i, label %.thread
 
 _ZNK5clang13SourceManager15getBufferOrNoneENS_6FileIDENS_14SourceLocationE.exit.i: ; preds = %98
-  %101 = getelementptr inbounds i8, ptr %96, i64 16
+  %101 = getelementptr inbounds nuw i8, ptr %96, i64 16
   %.0.copyload.i.i.i.i.i.i = load i64, ptr %101, align 8, !noalias !39
   %102 = and i64 %.0.copyload.i.i.i.i.i.i, -8
   %103 = inttoptr i64 %102 to ptr
@@ -3972,7 +3972,7 @@ _ZN5clang13SourceManager18getSLocEntryOrNullENS_6FileIDE.exit.thread.i.i.i.i66: 
   br i1 %191, label %_ZNK5clang13SourceManager15getBufferOrNoneENS_6FileIDENS_14SourceLocationE.exit.i59, label %.thread16
 
 _ZNK5clang13SourceManager15getBufferOrNoneENS_6FileIDENS_14SourceLocationE.exit.i59: ; preds = %189
-  %192 = getelementptr inbounds i8, ptr %187, i64 16
+  %192 = getelementptr inbounds nuw i8, ptr %187, i64 16
   %.0.copyload.i.i.i.i.i.i60 = load i64, ptr %192, align 8, !noalias !42
   %193 = and i64 %.0.copyload.i.i.i.i.i.i60, -8
   %194 = inttoptr i64 %193 to ptr
@@ -4108,7 +4108,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_117InclusionRewriter17OutputContent
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %19 = load i64, ptr %18, align 8
   %20 = getelementptr inbounds i8, ptr %14, i64 %19
-  %21 = getelementptr inbounds i8, ptr %0, i64 56
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %22 = load i64, ptr %21, align 8
   %23 = getelementptr inbounds i8, ptr %15, i64 %22
   %24 = icmp eq ptr %20, %23
@@ -4117,16 +4117,16 @@ define internal fastcc void @_ZN12_GLOBAL__N_117InclusionRewriter17OutputContent
 25:                                               ; preds = %17
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %27 = load ptr, ptr %26, align 8
-  %28 = getelementptr inbounds i8, ptr %0, i64 64
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %29 = load ptr, ptr %28, align 8
   %30 = icmp eq ptr %27, %29
   br i1 %30, label %_ZN4llvmeqERKNS_15MemoryBufferRefES2_.exit, label %_ZN4llvmeqERKNS_15MemoryBufferRefES2_.exit.thread
 
 _ZN4llvmeqERKNS_15MemoryBufferRefES2_.exit:       ; preds = %25
-  %31 = getelementptr inbounds i8, ptr %1, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %32 = load i64, ptr %31, align 8
   %33 = getelementptr inbounds i8, ptr %27, i64 %32
-  %34 = getelementptr inbounds i8, ptr %0, i64 72
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %35 = load i64, ptr %34, align 8
   %36 = getelementptr inbounds i8, ptr %29, i64 %35
   %37 = icmp eq ptr %33, %36

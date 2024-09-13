@@ -85,7 +85,7 @@ define dso_local ptr @_ZN4llvm22findPHICopyInsertPointEPNS_17MachineBasicBlockES
   br i1 %.not.i.i.i.i, label %45, label %.lr.ph.preheader
 
 45:                                               ; preds = %42
-  %46 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 24
+  %46 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 24
   %47 = load ptr, ptr %46, align 8
   %.not.i4.i.i.i = icmp eq ptr %47, null
   br i1 %.not.i4.i.i.i, label %._crit_edge, label %48
@@ -172,7 +172,7 @@ _ZN4llvm15SmallPtrSetImplIPNS_12MachineInstrEE6insertES2_.exit: ; preds = %_ZN4l
 
 85:                                               ; preds = %_ZN4llvm19MachineRegisterInfo26defusechain_instr_iteratorILb0ELb1ELb0ELb0ELb1ELb0EE7advanceEv.exit.i, %_ZN4llvm15SmallPtrSetImplIPNS_12MachineInstrEE6insertES2_.exit
   %.pr3.i = phi ptr [ %87, %_ZN4llvm19MachineRegisterInfo26defusechain_instr_iteratorILb0ELb1ELb0ELb0ELb1ELb0EE7advanceEv.exit.i ], [ %.sroa.052.069, %_ZN4llvm15SmallPtrSetImplIPNS_12MachineInstrEE6insertES2_.exit ]
-  %86 = getelementptr inbounds i8, ptr %.pr3.i, i64 24
+  %86 = getelementptr inbounds nuw i8, ptr %.pr3.i, i64 24
   %87 = load ptr, ptr %86, align 8
   %.not.i.i24 = icmp eq ptr %87, null
   br i1 %.not.i.i24, label %._crit_edge.loopexit, label %88

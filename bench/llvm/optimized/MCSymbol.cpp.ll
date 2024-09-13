@@ -28,7 +28,7 @@ define dso_local noundef ptr @_ZN4llvm8MCSymbolnwEmPKNS_14StringMapEntryINS_18MC
   %5 = add i64 %4, %0
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 192
   %7 = and i64 %5, 4294967295
-  %8 = getelementptr inbounds i8, ptr %2, i64 272
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 272
   %9 = load i64, ptr %8, align 8
   %10 = add i64 %9, %7
   store i64 %10, ptr %8, align 8
@@ -37,7 +37,7 @@ define dso_local noundef ptr @_ZN4llvm8MCSymbolnwEmPKNS_14StringMapEntryINS_18MC
   %13 = add i64 %12, 7
   %14 = and i64 %13, -8
   %15 = add i64 %14, %7
-  %16 = getelementptr inbounds i8, ptr %2, i64 200
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 200
   %17 = load ptr, ptr %16, align 8
   %18 = ptrtoint ptr %17 to i64
   %.not.i.i.i = icmp ugt i64 %15, %18

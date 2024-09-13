@@ -223,7 +223,7 @@ define dso_local void @_ZN5clang4ento29registerSecuritySyntaxCheckerERNS0_14Chec
   store ptr @_ZZN5clang4ento14CheckerManager6getTagIN12_GLOBAL__N_121SecuritySyntaxCheckerEEEPvvE3tag, ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 904
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 920
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 920
   %6 = load i32, ptr %5, align 8
   %7 = icmp eq i32 %6, 0
   br i1 %7, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKvPN5clang4ento11CheckerBaseENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S7_EEEES3_S7_S9_SC_E15LookupBucketForIS3_EEbRKT_RPSC_.exit.i.i.i, label %8
@@ -283,16 +283,16 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKvPN5clang4ento11CheckerBaseENS_12DenseMapI
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %34, i8 0, i64 48, i1 false)
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN12_GLOBAL__N_121SecuritySyntaxCheckerE, i64 16), ptr %34, align 8
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 32
-  %36 = getelementptr inbounds i8, ptr %34, i64 48
+  %36 = getelementptr inbounds nuw i8, ptr %34, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(14) %35, i8 0, i64 14, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(224) %36, i8 0, i64 224, i1 false)
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 872
   %38 = getelementptr inbounds nuw i8, ptr %34, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %38, ptr noundef nonnull align 8 dereferenceable(16) %37, i64 16, i1 false)
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 928
-  %40 = getelementptr inbounds i8, ptr %0, i64 936
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 936
   %41 = load ptr, ptr %40, align 8
-  %42 = getelementptr inbounds i8, ptr %0, i64 944
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 944
   %43 = load ptr, ptr %42, align 8
   %.not.i.i.i = icmp eq ptr %41, %43
   br i1 %.not.i.i.i, label %47, label %44
@@ -388,7 +388,7 @@ define dso_local void @_ZN5clang4ento12registerbcmpERNS0_14CheckerManagerE(ptr n
   store ptr @_ZZN5clang4ento14CheckerManager6getTagIN12_GLOBAL__N_121SecuritySyntaxCheckerEEEPvvE3tag, ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 904
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 920
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 920
   %6 = load i32, ptr %5, align 8
   %7 = icmp eq i32 %6, 0
   br i1 %7, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKvPN5clang4ento11CheckerBaseENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S7_EEEES3_S7_S9_SC_E15LookupBucketForIS3_EEbRKT_RPSC_.exit.i.i.i, label %8
@@ -453,7 +453,7 @@ _ZN5clang4ento14CheckerManager10getCheckerIN12_GLOBAL__N_121SecuritySyntaxChecke
   %.sroa.0.0.copyload.i = load ptr, ptr %37, align 8
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 880
   %.sroa.2.0.copyload.i = load i64, ptr %.sroa.2.0..sroa_idx.i, align 8
-  %38 = getelementptr inbounds i8, ptr %35, i64 48
+  %38 = getelementptr inbounds nuw i8, ptr %35, i64 48
   store ptr %.sroa.0.0.copyload.i, ptr %38, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %35, i64 56
   store i64 %.sroa.2.0.copyload.i, ptr %.sroa.2.0..sroa_idx, align 8
@@ -475,7 +475,7 @@ define dso_local void @_ZN5clang4ento13registerbcopyERNS0_14CheckerManagerE(ptr 
   store ptr @_ZZN5clang4ento14CheckerManager6getTagIN12_GLOBAL__N_121SecuritySyntaxCheckerEEEPvvE3tag, ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 904
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 920
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 920
   %6 = load i32, ptr %5, align 8
   %7 = icmp eq i32 %6, 0
   br i1 %7, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKvPN5clang4ento11CheckerBaseENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S7_EEEES3_S7_S9_SC_E15LookupBucketForIS3_EEbRKT_RPSC_.exit.i.i.i, label %8
@@ -534,13 +534,13 @@ _ZN5clang4ento14CheckerManager10getCheckerIN12_GLOBAL__N_121SecuritySyntaxChecke
   %34 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 8
   %35 = load ptr, ptr %34, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
-  %36 = getelementptr inbounds i8, ptr %35, i64 33
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 33
   store i8 1, ptr %36, align 1
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 872
   %.sroa.0.0.copyload.i = load ptr, ptr %37, align 8
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 880
   %.sroa.2.0.copyload.i = load i64, ptr %.sroa.2.0..sroa_idx.i, align 8
-  %38 = getelementptr inbounds i8, ptr %35, i64 64
+  %38 = getelementptr inbounds nuw i8, ptr %35, i64 64
   store ptr %.sroa.0.0.copyload.i, ptr %38, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %35, i64 72
   store i64 %.sroa.2.0.copyload.i, ptr %.sroa.2.0..sroa_idx, align 8
@@ -559,7 +559,7 @@ define dso_local void @_ZN5clang4ento13registerbzeroERNS0_14CheckerManagerE(ptr 
   store ptr @_ZZN5clang4ento14CheckerManager6getTagIN12_GLOBAL__N_121SecuritySyntaxCheckerEEEPvvE3tag, ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 904
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 920
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 920
   %6 = load i32, ptr %5, align 8
   %7 = icmp eq i32 %6, 0
   br i1 %7, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKvPN5clang4ento11CheckerBaseENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S7_EEEES3_S7_S9_SC_E15LookupBucketForIS3_EEbRKT_RPSC_.exit.i.i.i, label %8
@@ -618,13 +618,13 @@ _ZN5clang4ento14CheckerManager10getCheckerIN12_GLOBAL__N_121SecuritySyntaxChecke
   %34 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 8
   %35 = load ptr, ptr %34, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
-  %36 = getelementptr inbounds i8, ptr %35, i64 34
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 34
   store i8 1, ptr %36, align 2
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 872
   %.sroa.0.0.copyload.i = load ptr, ptr %37, align 8
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 880
   %.sroa.2.0.copyload.i = load i64, ptr %.sroa.2.0..sroa_idx.i, align 8
-  %38 = getelementptr inbounds i8, ptr %35, i64 80
+  %38 = getelementptr inbounds nuw i8, ptr %35, i64 80
   store ptr %.sroa.0.0.copyload.i, ptr %38, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %35, i64 88
   store i64 %.sroa.2.0.copyload.i, ptr %.sroa.2.0..sroa_idx, align 8
@@ -643,7 +643,7 @@ define dso_local void @_ZN5clang4ento12registergetsERNS0_14CheckerManagerE(ptr n
   store ptr @_ZZN5clang4ento14CheckerManager6getTagIN12_GLOBAL__N_121SecuritySyntaxCheckerEEEPvvE3tag, ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 904
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 920
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 920
   %6 = load i32, ptr %5, align 8
   %7 = icmp eq i32 %6, 0
   br i1 %7, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKvPN5clang4ento11CheckerBaseENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S7_EEEES3_S7_S9_SC_E15LookupBucketForIS3_EEbRKT_RPSC_.exit.i.i.i, label %8
@@ -702,13 +702,13 @@ _ZN5clang4ento14CheckerManager10getCheckerIN12_GLOBAL__N_121SecuritySyntaxChecke
   %34 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 8
   %35 = load ptr, ptr %34, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
-  %36 = getelementptr inbounds i8, ptr %35, i64 35
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 35
   store i8 1, ptr %36, align 1
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 872
   %.sroa.0.0.copyload.i = load ptr, ptr %37, align 8
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 880
   %.sroa.2.0.copyload.i = load i64, ptr %.sroa.2.0..sroa_idx.i, align 8
-  %38 = getelementptr inbounds i8, ptr %35, i64 96
+  %38 = getelementptr inbounds nuw i8, ptr %35, i64 96
   store ptr %.sroa.0.0.copyload.i, ptr %38, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %35, i64 104
   store i64 %.sroa.2.0.copyload.i, ptr %.sroa.2.0..sroa_idx, align 8
@@ -727,7 +727,7 @@ define dso_local void @_ZN5clang4ento13registergetpwERNS0_14CheckerManagerE(ptr 
   store ptr @_ZZN5clang4ento14CheckerManager6getTagIN12_GLOBAL__N_121SecuritySyntaxCheckerEEEPvvE3tag, ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 904
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 920
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 920
   %6 = load i32, ptr %5, align 8
   %7 = icmp eq i32 %6, 0
   br i1 %7, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKvPN5clang4ento11CheckerBaseENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S7_EEEES3_S7_S9_SC_E15LookupBucketForIS3_EEbRKT_RPSC_.exit.i.i.i, label %8
@@ -786,13 +786,13 @@ _ZN5clang4ento14CheckerManager10getCheckerIN12_GLOBAL__N_121SecuritySyntaxChecke
   %34 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 8
   %35 = load ptr, ptr %34, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
-  %36 = getelementptr inbounds i8, ptr %35, i64 36
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 36
   store i8 1, ptr %36, align 4
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 872
   %.sroa.0.0.copyload.i = load ptr, ptr %37, align 8
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 880
   %.sroa.2.0.copyload.i = load i64, ptr %.sroa.2.0..sroa_idx.i, align 8
-  %38 = getelementptr inbounds i8, ptr %35, i64 112
+  %38 = getelementptr inbounds nuw i8, ptr %35, i64 112
   store ptr %.sroa.0.0.copyload.i, ptr %38, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %35, i64 120
   store i64 %.sroa.2.0.copyload.i, ptr %.sroa.2.0..sroa_idx, align 8
@@ -811,7 +811,7 @@ define dso_local void @_ZN5clang4ento15registermkstempERNS0_14CheckerManagerE(pt
   store ptr @_ZZN5clang4ento14CheckerManager6getTagIN12_GLOBAL__N_121SecuritySyntaxCheckerEEEPvvE3tag, ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 904
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 920
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 920
   %6 = load i32, ptr %5, align 8
   %7 = icmp eq i32 %6, 0
   br i1 %7, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKvPN5clang4ento11CheckerBaseENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S7_EEEES3_S7_S9_SC_E15LookupBucketForIS3_EEbRKT_RPSC_.exit.i.i.i, label %8
@@ -870,13 +870,13 @@ _ZN5clang4ento14CheckerManager10getCheckerIN12_GLOBAL__N_121SecuritySyntaxChecke
   %34 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 8
   %35 = load ptr, ptr %34, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
-  %36 = getelementptr inbounds i8, ptr %35, i64 38
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 38
   store i8 1, ptr %36, align 2
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 872
   %.sroa.0.0.copyload.i = load ptr, ptr %37, align 8
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 880
   %.sroa.2.0.copyload.i = load i64, ptr %.sroa.2.0..sroa_idx.i, align 8
-  %38 = getelementptr inbounds i8, ptr %35, i64 144
+  %38 = getelementptr inbounds nuw i8, ptr %35, i64 144
   store ptr %.sroa.0.0.copyload.i, ptr %38, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %35, i64 152
   store i64 %.sroa.2.0.copyload.i, ptr %.sroa.2.0..sroa_idx, align 8
@@ -895,7 +895,7 @@ define dso_local void @_ZN5clang4ento14registermktempERNS0_14CheckerManagerE(ptr
   store ptr @_ZZN5clang4ento14CheckerManager6getTagIN12_GLOBAL__N_121SecuritySyntaxCheckerEEEPvvE3tag, ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 904
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 920
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 920
   %6 = load i32, ptr %5, align 8
   %7 = icmp eq i32 %6, 0
   br i1 %7, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKvPN5clang4ento11CheckerBaseENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S7_EEEES3_S7_S9_SC_E15LookupBucketForIS3_EEbRKT_RPSC_.exit.i.i.i, label %8
@@ -954,13 +954,13 @@ _ZN5clang4ento14CheckerManager10getCheckerIN12_GLOBAL__N_121SecuritySyntaxChecke
   %34 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 8
   %35 = load ptr, ptr %34, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
-  %36 = getelementptr inbounds i8, ptr %35, i64 37
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 37
   store i8 1, ptr %36, align 1
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 872
   %.sroa.0.0.copyload.i = load ptr, ptr %37, align 8
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 880
   %.sroa.2.0.copyload.i = load i64, ptr %.sroa.2.0..sroa_idx.i, align 8
-  %38 = getelementptr inbounds i8, ptr %35, i64 128
+  %38 = getelementptr inbounds nuw i8, ptr %35, i64 128
   store ptr %.sroa.0.0.copyload.i, ptr %38, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %35, i64 136
   store i64 %.sroa.2.0.copyload.i, ptr %.sroa.2.0..sroa_idx, align 8
@@ -979,7 +979,7 @@ define dso_local void @_ZN5clang4ento14registerstrcpyERNS0_14CheckerManagerE(ptr
   store ptr @_ZZN5clang4ento14CheckerManager6getTagIN12_GLOBAL__N_121SecuritySyntaxCheckerEEEPvvE3tag, ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 904
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 920
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 920
   %6 = load i32, ptr %5, align 8
   %7 = icmp eq i32 %6, 0
   br i1 %7, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKvPN5clang4ento11CheckerBaseENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S7_EEEES3_S7_S9_SC_E15LookupBucketForIS3_EEbRKT_RPSC_.exit.i.i.i, label %8
@@ -1038,13 +1038,13 @@ _ZN5clang4ento14CheckerManager10getCheckerIN12_GLOBAL__N_121SecuritySyntaxChecke
   %34 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 8
   %35 = load ptr, ptr %34, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
-  %36 = getelementptr inbounds i8, ptr %35, i64 39
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 39
   store i8 1, ptr %36, align 1
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 872
   %.sroa.0.0.copyload.i = load ptr, ptr %37, align 8
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 880
   %.sroa.2.0.copyload.i = load i64, ptr %.sroa.2.0..sroa_idx.i, align 8
-  %38 = getelementptr inbounds i8, ptr %35, i64 160
+  %38 = getelementptr inbounds nuw i8, ptr %35, i64 160
   store ptr %.sroa.0.0.copyload.i, ptr %38, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %35, i64 168
   store i64 %.sroa.2.0.copyload.i, ptr %.sroa.2.0..sroa_idx, align 8
@@ -1063,7 +1063,7 @@ define dso_local void @_ZN5clang4ento12registerrandERNS0_14CheckerManagerE(ptr n
   store ptr @_ZZN5clang4ento14CheckerManager6getTagIN12_GLOBAL__N_121SecuritySyntaxCheckerEEEPvvE3tag, ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 904
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 920
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 920
   %6 = load i32, ptr %5, align 8
   %7 = icmp eq i32 %6, 0
   br i1 %7, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKvPN5clang4ento11CheckerBaseENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S7_EEEES3_S7_S9_SC_E15LookupBucketForIS3_EEbRKT_RPSC_.exit.i.i.i, label %8
@@ -1122,13 +1122,13 @@ _ZN5clang4ento14CheckerManager10getCheckerIN12_GLOBAL__N_121SecuritySyntaxChecke
   %34 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 8
   %35 = load ptr, ptr %34, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
-  %36 = getelementptr inbounds i8, ptr %35, i64 41
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 41
   store i8 1, ptr %36, align 1
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 872
   %.sroa.0.0.copyload.i = load ptr, ptr %37, align 8
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 880
   %.sroa.2.0.copyload.i = load i64, ptr %.sroa.2.0..sroa_idx.i, align 8
-  %38 = getelementptr inbounds i8, ptr %35, i64 192
+  %38 = getelementptr inbounds nuw i8, ptr %35, i64 192
   store ptr %.sroa.0.0.copyload.i, ptr %38, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %35, i64 200
   store i64 %.sroa.2.0.copyload.i, ptr %.sroa.2.0..sroa_idx, align 8
@@ -1147,7 +1147,7 @@ define dso_local void @_ZN5clang4ento13registervforkERNS0_14CheckerManagerE(ptr 
   store ptr @_ZZN5clang4ento14CheckerManager6getTagIN12_GLOBAL__N_121SecuritySyntaxCheckerEEEPvvE3tag, ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 904
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 920
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 920
   %6 = load i32, ptr %5, align 8
   %7 = icmp eq i32 %6, 0
   br i1 %7, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKvPN5clang4ento11CheckerBaseENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S7_EEEES3_S7_S9_SC_E15LookupBucketForIS3_EEbRKT_RPSC_.exit.i.i.i, label %8
@@ -1206,13 +1206,13 @@ _ZN5clang4ento14CheckerManager10getCheckerIN12_GLOBAL__N_121SecuritySyntaxChecke
   %34 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 8
   %35 = load ptr, ptr %34, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
-  %36 = getelementptr inbounds i8, ptr %35, i64 42
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 42
   store i8 1, ptr %36, align 2
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 872
   %.sroa.0.0.copyload.i = load ptr, ptr %37, align 8
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 880
   %.sroa.2.0.copyload.i = load i64, ptr %.sroa.2.0..sroa_idx.i, align 8
-  %38 = getelementptr inbounds i8, ptr %35, i64 208
+  %38 = getelementptr inbounds nuw i8, ptr %35, i64 208
   store ptr %.sroa.0.0.copyload.i, ptr %38, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %35, i64 216
   store i64 %.sroa.2.0.copyload.i, ptr %.sroa.2.0..sroa_idx, align 8
@@ -1231,7 +1231,7 @@ define dso_local void @_ZN5clang4ento24registerFloatLoopCounterERNS0_14CheckerMa
   store ptr @_ZZN5clang4ento14CheckerManager6getTagIN12_GLOBAL__N_121SecuritySyntaxCheckerEEEPvvE3tag, ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 904
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 920
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 920
   %6 = load i32, ptr %5, align 8
   %7 = icmp eq i32 %6, 0
   br i1 %7, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKvPN5clang4ento11CheckerBaseENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S7_EEEES3_S7_S9_SC_E15LookupBucketForIS3_EEbRKT_RPSC_.exit.i.i.i, label %8
@@ -1290,13 +1290,13 @@ _ZN5clang4ento14CheckerManager10getCheckerIN12_GLOBAL__N_121SecuritySyntaxChecke
   %34 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 8
   %35 = load ptr, ptr %34, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
-  %36 = getelementptr inbounds i8, ptr %35, i64 43
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 43
   store i8 1, ptr %36, align 1
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 872
   %.sroa.0.0.copyload.i = load ptr, ptr %37, align 8
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 880
   %.sroa.2.0.copyload.i = load i64, ptr %.sroa.2.0..sroa_idx.i, align 8
-  %38 = getelementptr inbounds i8, ptr %35, i64 224
+  %38 = getelementptr inbounds nuw i8, ptr %35, i64 224
   store ptr %.sroa.0.0.copyload.i, ptr %38, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %35, i64 232
   store i64 %.sroa.2.0.copyload.i, ptr %.sroa.2.0..sroa_idx, align 8
@@ -1315,7 +1315,7 @@ define dso_local void @_ZN5clang4ento23registerUncheckedReturnERNS0_14CheckerMan
   store ptr @_ZZN5clang4ento14CheckerManager6getTagIN12_GLOBAL__N_121SecuritySyntaxCheckerEEEPvvE3tag, ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 904
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 920
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 920
   %6 = load i32, ptr %5, align 8
   %7 = icmp eq i32 %6, 0
   br i1 %7, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKvPN5clang4ento11CheckerBaseENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S7_EEEES3_S7_S9_SC_E15LookupBucketForIS3_EEbRKT_RPSC_.exit.i.i.i, label %8
@@ -1374,13 +1374,13 @@ _ZN5clang4ento14CheckerManager10getCheckerIN12_GLOBAL__N_121SecuritySyntaxChecke
   %34 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 8
   %35 = load ptr, ptr %34, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
-  %36 = getelementptr inbounds i8, ptr %35, i64 44
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 44
   store i8 1, ptr %36, align 4
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 872
   %.sroa.0.0.copyload.i = load ptr, ptr %37, align 8
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 880
   %.sroa.2.0.copyload.i = load i64, ptr %.sroa.2.0..sroa_idx.i, align 8
-  %38 = getelementptr inbounds i8, ptr %35, i64 240
+  %38 = getelementptr inbounds nuw i8, ptr %35, i64 240
   store ptr %.sroa.0.0.copyload.i, ptr %38, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %35, i64 248
   store i64 %.sroa.2.0.copyload.i, ptr %.sroa.2.0..sroa_idx, align 8
@@ -1399,7 +1399,7 @@ define dso_local void @_ZN5clang4ento40registerDeprecatedOrUnsafeBufferHandlingE
   store ptr @_ZZN5clang4ento14CheckerManager6getTagIN12_GLOBAL__N_121SecuritySyntaxCheckerEEEPvvE3tag, ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 904
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 920
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 920
   %6 = load i32, ptr %5, align 8
   %7 = icmp eq i32 %6, 0
   br i1 %7, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKvPN5clang4ento11CheckerBaseENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S7_EEEES3_S7_S9_SC_E15LookupBucketForIS3_EEbRKT_RPSC_.exit.i.i.i, label %8
@@ -1458,13 +1458,13 @@ _ZN5clang4ento14CheckerManager10getCheckerIN12_GLOBAL__N_121SecuritySyntaxChecke
   %34 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 8
   %35 = load ptr, ptr %34, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
-  %36 = getelementptr inbounds i8, ptr %35, i64 40
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 40
   store i8 1, ptr %36, align 8
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 872
   %.sroa.0.0.copyload.i = load ptr, ptr %37, align 8
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 880
   %.sroa.2.0.copyload.i = load i64, ptr %.sroa.2.0..sroa_idx.i, align 8
-  %38 = getelementptr inbounds i8, ptr %35, i64 176
+  %38 = getelementptr inbounds nuw i8, ptr %35, i64 176
   store ptr %.sroa.0.0.copyload.i, ptr %38, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %35, i64 184
   store i64 %.sroa.2.0.copyload.i, ptr %.sroa.2.0..sroa_idx, align 8
@@ -1483,7 +1483,7 @@ define dso_local void @_ZN5clang4ento29registerdecodeValueOfObjCTypeERNS0_14Chec
   store ptr @_ZZN5clang4ento14CheckerManager6getTagIN12_GLOBAL__N_121SecuritySyntaxCheckerEEEPvvE3tag, ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 904
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 920
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 920
   %6 = load i32, ptr %5, align 8
   %7 = icmp eq i32 %6, 0
   br i1 %7, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKvPN5clang4ento11CheckerBaseENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S7_EEEES3_S7_S9_SC_E15LookupBucketForIS3_EEbRKT_RPSC_.exit.i.i.i, label %8
@@ -1542,13 +1542,13 @@ _ZN5clang4ento14CheckerManager10getCheckerIN12_GLOBAL__N_121SecuritySyntaxChecke
   %34 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 8
   %35 = load ptr, ptr %34, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
-  %36 = getelementptr inbounds i8, ptr %35, i64 45
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 45
   store i8 1, ptr %36, align 1
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 872
   %.sroa.0.0.copyload.i = load ptr, ptr %37, align 8
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 880
   %.sroa.2.0.copyload.i = load i64, ptr %.sroa.2.0..sroa_idx.i, align 8
-  %38 = getelementptr inbounds i8, ptr %35, i64 256
+  %38 = getelementptr inbounds nuw i8, ptr %35, i64 256
   store ptr %.sroa.0.0.copyload.i, ptr %38, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %35, i64 264
   store i64 %.sroa.2.0.copyload.i, ptr %.sroa.2.0..sroa_idx, align 8
@@ -1930,13 +1930,13 @@ define internal void @_ZN5clang4ento5check11ASTCodeBody10_checkBodyIN12_GLOBAL__
   %15 = tail call noundef nonnull align 8 dereferenceable(23096) ptr %14(ptr noundef nonnull align 8 dereferenceable(8) %11) #22
   %16 = getelementptr inbounds i8, ptr %15, i64 17240
   %.val.i.i = load ptr, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %.val.i.i, i64 256
+  %17 = getelementptr inbounds nuw i8, ptr %.val.i.i, i64 256
   %18 = load i32, ptr %17, align 8
   %19 = icmp eq i32 %18, 1
   br i1 %19, label %_ZNK12_GLOBAL__N_121SecuritySyntaxChecker16checkASTCodeBodyEPKN5clang4DeclERNS1_4ento15AnalysisManagerERNS5_11BugReporterE.exit, label %20
 
 20:                                               ; preds = %4
-  %21 = getelementptr inbounds i8, ptr %.val.i.i, i64 260
+  %21 = getelementptr inbounds nuw i8, ptr %.val.i.i, i64 260
   %22 = load i32, ptr %21, align 4
   %23 = add i32 %22, -2
   %switch.and.i.i.i = and i32 %23, -10
@@ -3499,7 +3499,7 @@ _ZN4llvm12StringSwitchIMN12_GLOBAL__N_17WalkASTEFvPKN5clang15ObjCMessageExprEES8
   %28 = load ptr, ptr %27, align 8
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 368
   %.sroa.0.0.copyload.i.i = load i64, ptr %29, align 8
-  %30 = getelementptr inbounds i8, ptr %28, i64 260
+  %30 = getelementptr inbounds nuw i8, ptr %28, i64 260
   %31 = load i32, ptr %30, align 4
   switch i32 %31, label %_ZN12_GLOBAL__N_17WalkAST30checkMsg_decodeValueOfObjCTypeEPKN5clang15ObjCMessageExprE.exit [
     i32 5, label %32
@@ -5776,9 +5776,9 @@ _ZN4llvm12StringSwitchISt4pairIiiES2_E4CaseENS_13StringLiteralES2_.exit91: ; pre
   br i1 %78, label %79, label %_ZN4llvm6APSIntD2Ev.exit
 
 79:                                               ; preds = %65
-  %80 = getelementptr inbounds i8, ptr %4, i64 24
+  %80 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %81 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %82 = getelementptr inbounds i8, ptr %4, i64 32
+  %82 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %83 = load i32, ptr %82, align 8
   store i32 %83, ptr %81, align 8
   %84 = icmp ult i32 %83, 65
@@ -5800,7 +5800,7 @@ _ZN4llvm6APSIntC2ERKS0_.exit:                     ; preds = %85, %88
   %.pre171 = phi ptr [ %87, %85 ], [ %.pre171.pre, %88 ]
   %.pre = phi i32 [ %83, %85 ], [ %.pre.pre, %88 ]
   %89 = getelementptr inbounds nuw i8, ptr %5, i64 12
-  %90 = getelementptr inbounds i8, ptr %4, i64 36
+  %90 = getelementptr inbounds nuw i8, ptr %4, i64 36
   %91 = load i8, ptr %90, align 4
   %92 = and i8 %91, 1
   store i8 %92, ptr %89, align 4
@@ -6538,7 +6538,7 @@ _ZNK4llvm9StringRef11starts_withES0_.exit.thread.i: ; preds = %_ZNK4llvm9StringR
   store ptr %.sroa.0175.0, ptr %10, align 8
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %10, i64 8
   store i64 %.sroa.7.0, ptr %.sroa.2.0..sroa_idx.i, align 8
-  %56 = getelementptr inbounds i8, ptr %10, i64 20
+  %56 = getelementptr inbounds nuw i8, ptr %10, i64 20
   store i8 0, ptr %56, align 4
   %57 = getelementptr inbounds nuw i8, ptr %10, i64 16
   switch i64 %.sroa.7.0, label %_ZN4llvm12StringSwitchIiiE5CasesENS_13StringLiteralES2_S2_S2_i.exit [
@@ -6619,7 +6619,7 @@ _ZN4llvm12StringSwitchIiiE5CasesENS_13StringLiteralES2_S2_S2_S2_S2_S2_S2_i.exit:
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 16
-  %68 = getelementptr inbounds i8, ptr %66, i64 20
+  %68 = getelementptr inbounds nuw i8, ptr %66, i64 20
   %69 = load i8, ptr %68, align 4
   %70 = trunc i8 %69 to i1
   %.sroa.22.0..sroa_idx.i.i61.phi.trans.insert = getelementptr inbounds i8, ptr %66, i64 8
@@ -6713,7 +6713,7 @@ _ZN4llvm12StringSwitchIiiE5CasesENS_13StringLiteralES2_S2_S2_S2_S2_S2_S2_S2_i.ex
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   %83 = getelementptr inbounds nuw i8, ptr %82, i64 16
-  %84 = getelementptr inbounds i8, ptr %82, i64 20
+  %84 = getelementptr inbounds nuw i8, ptr %82, i64 20
   %85 = load i8, ptr %84, align 4
   %86 = trunc i8 %85 to i1
   %87 = load i32, ptr %83, align 8
@@ -7908,7 +7908,7 @@ declare { i64, i64 } @_ZNK5clang10ASTContext11getTypeInfoEPKNS_4TypeE(ptr nounde
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZN4llvm12StringSwitchIiiE5CasesENS_13StringLiteralES2_S2_S2_S2_i(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %1, i64 %2, ptr %3, i64 %4, ptr noundef byval(%"class.llvm::StringLiteral") align 8 %5, ptr noundef byval(%"class.llvm::StringLiteral") align 8 %6, ptr noundef byval(%"class.llvm::StringLiteral") align 8 %7, i32 noundef %8) local_unnamed_addr #0 comdat align 2 {
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %11 = getelementptr inbounds i8, ptr %0, i64 20
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %12 = load i8, ptr %11, align 4
   %13 = trunc i8 %12 to i1
   br i1 %13, label %_ZN4llvm12StringSwitchIiiE4CaseENS_13StringLiteralEi.exit, label %14

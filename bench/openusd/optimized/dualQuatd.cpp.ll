@@ -89,7 +89,7 @@ define { double, double } @_ZNK32pxrInternal_v0_24__pxrReserved__11GfDualQuatd9G
   %21 = getelementptr inbounds i8, ptr %0, i64 48
   %22 = load double, ptr %21, align 8
   %23 = tail call noundef double @llvm.fmuladd.f64(double %8, double %22, double %20)
-  %24 = getelementptr inbounds i8, ptr %0, i64 56
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %25 = load double, ptr %24, align 8
   %26 = tail call noundef double @llvm.fmuladd.f64(double %11, double %25, double %23)
   %27 = fdiv double %26, %sqrt.i
@@ -140,7 +140,7 @@ define { double, double } @_ZN32pxrInternal_v0_24__pxrReserved__11GfDualQuatd9No
   %22 = getelementptr inbounds i8, ptr %0, i64 48
   %23 = load double, ptr %22, align 8
   %24 = tail call noundef double @llvm.fmuladd.f64(double %9, double %23, double %21)
-  %25 = getelementptr inbounds i8, ptr %0, i64 56
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %26 = load double, ptr %25, align 8
   %27 = tail call noundef double @llvm.fmuladd.f64(double %12, double %26, double %24)
   %28 = fdiv double %27, %sqrt.i.i
@@ -168,7 +168,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__11GfDualQuatd9GetLengthEv.exit: ; preds = 
   %36 = fmul double %9, %32
   store double %36, ptr %8, align 8
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %38 = getelementptr inbounds i8, ptr %0, i64 56
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %39 = load double, ptr %38, align 8
   %40 = fmul double %32, %39
   %41 = load double, ptr %37, align 8
@@ -218,7 +218,7 @@ define void @_ZNK32pxrInternal_v0_24__pxrReserved__11GfDualQuatd12GetConjugateEv
   %11 = load double, ptr %10, align 8, !noalias !7
   %12 = fneg double %11
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %14 = getelementptr inbounds i8, ptr %1, i64 56
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %15 = load double, ptr %14, align 8, !noalias !10
   %16 = load double, ptr %13, align 8, !noalias !13
   %17 = fneg double %16
@@ -274,7 +274,7 @@ define void @_ZNK32pxrInternal_v0_24__pxrReserved__11GfDualQuatd10GetInverseEv(p
   %20 = fneg double %5
   %21 = fneg double %9
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %23 = getelementptr inbounds i8, ptr %1, i64 56
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %24 = load double, ptr %23, align 8
   %25 = load double, ptr %22, align 8
   %26 = fneg double %25
@@ -359,7 +359,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__11GfDualQuatd14SetTranslationE
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define void @_ZNK32pxrInternal_v0_24__pxrReserved__11GfDualQuatd14GetTranslationEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.pxrInternal_v0_24__pxrReserved__::GfVec3d") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %1) local_unnamed_addr #3 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %4 = getelementptr inbounds i8, ptr %1, i64 56
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %5 = load double, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %7 = load double, ptr %6, align 8
@@ -463,7 +463,7 @@ define void @_ZNK32pxrInternal_v0_24__pxrReserved__11GfDualQuatd9TransformERKNS_
   %4 = alloca %"class.pxrInternal_v0_24__pxrReserved__::GfVec3d", align 8
   call void @_ZNK32pxrInternal_v0_24__pxrReserved__7GfQuatd9TransformERKNS_7GfVec3dE(ptr dead_on_unwind nonnull writable sret(%"class.pxrInternal_v0_24__pxrReserved__::GfVec3d") align 8 %4, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(24) %2)
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %6 = getelementptr inbounds i8, ptr %1, i64 56
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %7 = load double, ptr %6, align 8, !noalias !36
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %9 = load double, ptr %8, align 8, !noalias !36

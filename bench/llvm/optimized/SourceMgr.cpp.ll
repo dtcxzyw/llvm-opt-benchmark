@@ -205,7 +205,7 @@ define dso_local void @_ZN4llvm9SourceMgr15OpenIncludeFileERKNSt7__cxx1112basic_
   call void @_ZN4llvm15SmallVectorBaseImEC2EPvm(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull %20, i64 noundef 64) #16
   call void @_ZN4llvm15SmallVectorImplIcE6appendIPKcvEEvT_S5_(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef %17, ptr noundef %19)
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %22 = getelementptr inbounds i8, ptr %1, i64 32
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %23 = load ptr, ptr %22, align 8
   %24 = load ptr, ptr %21, align 8
   %25 = ptrtoint ptr %23 to i64
@@ -2304,7 +2304,7 @@ _ZN4llvm6any_ofIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPFbcEEEbOT
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %11) #16
   %212 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %213 = load ptr, ptr %212, align 8
-  %214 = getelementptr inbounds i8, ptr %0, i64 136
+  %214 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %215 = load ptr, ptr %214, align 8
   %.not127140 = icmp eq ptr %213, %215
   br i1 %.not127140, label %._crit_edge, label %.lr.ph
@@ -2786,7 +2786,7 @@ _ZN4llvm11SmallVectorINS_7SMFixItELj4EED2Ev.exit: ; preds = %_ZN4llvm23SmallVect
   br i1 %.not.i.i.i, label %_ZNSt6vectorISt4pairIjjESaIS1_EED2Ev.exit, label %14
 
 14:                                               ; preds = %_ZN4llvm11SmallVectorINS_7SMFixItELj4EED2Ev.exit
-  %15 = getelementptr inbounds i8, ptr %0, i64 144
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %16 = load ptr, ptr %15, align 8
   %17 = ptrtoint ptr %16 to i64
   %18 = ptrtoint ptr %13 to i64
@@ -2921,9 +2921,9 @@ _ZNSt12_Vector_baseISt4pairIjjESaIS1_EE11_M_allocateEm.exit.thread.i.i.i: ; pred
 _ZNK4llvm8ArrayRefISt4pairIjjEE3vecEv.exit:       ; preds = %_ZNSt12_Vector_baseISt4pairIjjESaIS1_EE11_M_allocateEm.exit.thread.i.i.i, %.lr.ph.i.i.i.i.preheader.i.i.i
   %.sink.i = phi ptr [ %56, %_ZNSt12_Vector_baseISt4pairIjjESaIS1_EE11_M_allocateEm.exit.thread.i.i.i ], [ %58, %.lr.ph.i.i.i.i.preheader.i.i.i ]
   %.0.lcssa.i.i.i.i.i.i.i = phi ptr [ null, %_ZNSt12_Vector_baseISt4pairIjjESaIS1_EE11_M_allocateEm.exit.thread.i.i.i ], [ %58, %.lr.ph.i.i.i.i.preheader.i.i.i ]
-  %59 = getelementptr inbounds i8, ptr %0, i64 144
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 144
   store ptr %.sink.i, ptr %59, align 8, !alias.scope !42
-  %60 = getelementptr inbounds i8, ptr %0, i64 136
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 136
   store ptr %.0.lcssa.i.i.i.i.i.i.i, ptr %60, align 8, !alias.scope !42
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %.sroa.0.0.copyload = load ptr, ptr %11, align 8

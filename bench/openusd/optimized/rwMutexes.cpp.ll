@@ -847,7 +847,7 @@ define internal void @_ZNSt6thread11_State_implINS_8_InvokerISt5tupleIJZL22Test_
 ; Function Attrs: mustprogress uwtable
 define internal void @_ZNSt6thread11_State_implINS_8_InvokerISt5tupleIJZL22Test_RWMutexThroughputI6SpinRWEvvEUlvE_EEEEE6_M_runEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br label %4
 
 4:                                                ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__13TfSpinRWMutex10ScopedLockD2Ev.exit11.i.i.i.i.i, %1
@@ -968,7 +968,7 @@ define internal void @_ZNSt6thread11_State_implINS_8_InvokerISt5tupleIJZL22Test_
   %7 = trunc nuw nsw i64 %sum.shift.i.i.i.i.i.i.i to i32
   %8 = and i32 %7, 15
   %9 = and i64 %sum.shift.i.i.i.i.i.i.i, 15
-  %10 = getelementptr inbounds i8, ptr %0, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br label %11
 
 11:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__12TfBigRWMutex10ScopedLockD2Ev.exit17.i.i.i.i.i, %1
@@ -1083,7 +1083,7 @@ define internal void @_ZNSt6thread11_State_implINS_8_InvokerISt5tupleIJZL22Test_
 ; Function Attrs: mustprogress uwtable
 define internal void @_ZNSt6thread11_State_implINS_8_InvokerISt5tupleIJZL22Test_RWMutexThroughputI9TbbSpinRWEvvEUlvE_EEEEE6_M_runEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br label %4
 
 4:                                                ; preds = %_ZN3tbb6detail2d114rw_scoped_lockINS1_13spin_rw_mutexEED2Ev.exit11.i.i.i.i.i, %1
@@ -1261,7 +1261,7 @@ define internal void @_ZNSt6thread11_State_implINS_8_InvokerISt5tupleIJZL22Test_
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 26
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 25
-  %7 = getelementptr inbounds i8, ptr %0, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 26
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 25
   br label %10

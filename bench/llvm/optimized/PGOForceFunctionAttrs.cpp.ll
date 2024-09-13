@@ -44,15 +44,15 @@ define dso_local void @_ZN4llvm25PGOForceFunctionAttrsPass3runERNS_6ModuleERNS_1
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 0, ptr %12, align 8, !alias.scope !4
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %14 = getelementptr inbounds i8, ptr %0, i64 80
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store ptr %14, ptr %13, align 8, !alias.scope !4
-  %15 = getelementptr inbounds i8, ptr %0, i64 56
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store ptr %14, ptr %15, align 8, !alias.scope !4
-  %16 = getelementptr inbounds i8, ptr %0, i64 64
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i32 2, ptr %16, align 8, !alias.scope !4
-  %17 = getelementptr inbounds i8, ptr %0, i64 68
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 68
   store i32 0, ptr %17, align 4, !alias.scope !4
-  %18 = getelementptr inbounds i8, ptr %0, i64 72
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store i32 0, ptr %18, align 8, !alias.scope !4
   store i32 1, ptr %11, align 4, !alias.scope !4, !noalias !7
   store ptr @_ZN4llvm17PreservedAnalyses14AllAnalysesKeyE, ptr %8, align 8, !alias.scope !4, !noalias !7
@@ -64,14 +64,14 @@ define dso_local void @_ZN4llvm25PGOForceFunctionAttrsPass3runERNS_6ModuleERNS_1
   %22 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm15AnalysisManagerINS_6ModuleEJEE13getResultImplEPNS_11AnalysisKeyERS1_(ptr noundef nonnull align 8 dereferenceable(72) %3, ptr noundef nonnull @_ZN4llvm25InnerAnalysisManagerProxyINS_15AnalysisManagerINS_8FunctionEJEEENS_6ModuleEJEE3KeyE, ptr noundef nonnull align 8 dereferenceable(857) %2) #3
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %24 = tail call noundef nonnull align 8 dereferenceable(72) ptr @_ZN4llvm25InnerAnalysisManagerProxyINS_15AnalysisManagerINS_8FunctionEJEEENS_6ModuleEJEE6Result10getManagerEv(ptr noundef nonnull align 8 dereferenceable(8) %23) #3
-  %25 = getelementptr inbounds i8, ptr %2, i64 32
+  %25 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %26 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %.sroa.016.022 = load ptr, ptr %25, align 8
   %.not23 = icmp eq ptr %.sroa.016.022, %26
   br i1 %.not23, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %19
-  %27 = getelementptr inbounds i8, ptr %20, i64 16
+  %27 = getelementptr inbounds nuw i8, ptr %20, i64 16
   br label %28
 
 28:                                               ; preds = %.lr.ph, %_ZL19shouldRunOnFunctionRN4llvm8FunctionERNS_18ProfileSummaryInfoERNS_15AnalysisManagerIS0_JEEE.exit.thread
@@ -160,11 +160,11 @@ _ZL19shouldRunOnFunctionRN4llvm8FunctionERNS_18ProfileSummaryInfoERNS_15Analysis
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 0, ptr %58, align 4, !alias.scope !10
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %60 = getelementptr inbounds i8, ptr %0, i64 80
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store ptr %60, ptr %59, align 8, !alias.scope !10
-  %61 = getelementptr inbounds i8, ptr %0, i64 56
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store ptr %60, ptr %61, align 8, !alias.scope !10
-  %62 = getelementptr inbounds i8, ptr %0, i64 64
+  %62 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i32 2, ptr %62, align 8, !alias.scope !10
   br label %74
 
@@ -179,15 +179,15 @@ _ZL19shouldRunOnFunctionRN4llvm8FunctionERNS_18ProfileSummaryInfoERNS_15Analysis
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 0, ptr %67, align 8, !alias.scope !13
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %69 = getelementptr inbounds i8, ptr %0, i64 80
+  %69 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store ptr %69, ptr %68, align 8, !alias.scope !13
-  %70 = getelementptr inbounds i8, ptr %0, i64 56
+  %70 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store ptr %69, ptr %70, align 8, !alias.scope !13
-  %71 = getelementptr inbounds i8, ptr %0, i64 64
+  %71 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i32 2, ptr %71, align 8, !alias.scope !13
-  %72 = getelementptr inbounds i8, ptr %0, i64 68
+  %72 = getelementptr inbounds nuw i8, ptr %0, i64 68
   store i32 0, ptr %72, align 4, !alias.scope !13
-  %73 = getelementptr inbounds i8, ptr %0, i64 72
+  %73 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store i32 0, ptr %73, align 8, !alias.scope !13
   store i32 1, ptr %66, align 4, !alias.scope !13, !noalias !16
   store ptr @_ZN4llvm17PreservedAnalyses14AllAnalysesKeyE, ptr %63, align 8, !alias.scope !13, !noalias !16
@@ -240,7 +240,7 @@ _ZNK4llvm18ProfileSummaryInfo16hasSampleProfileEv.exit.i: ; preds = %15
   br i1 %18, label %19, label %_ZNK4llvm18ProfileSummaryInfo17getTotalCallCountINS_8FunctionEEESt8optionalImEPKT_.exit
 
 19:                                               ; preds = %_ZNK4llvm18ProfileSummaryInfo16hasSampleProfileEv.exit.i
-  %20 = getelementptr inbounds i8, ptr %1, i64 80
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %.sroa.022.033.i = load ptr, ptr %20, align 8
   %.not34.i = icmp eq ptr %.sroa.022.033.i, %21
@@ -252,7 +252,7 @@ _ZNK4llvm18ProfileSummaryInfo16hasSampleProfileEv.exit.i: ; preds = %15
   %22 = icmp eq ptr %.sroa.022.036.i, null
   %23 = getelementptr inbounds i8, ptr %.sroa.022.036.i, i64 -24
   %24 = select i1 %22, ptr null, ptr %23
-  %25 = getelementptr inbounds i8, ptr %24, i64 56
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 56
   %26 = getelementptr inbounds nuw i8, ptr %24, i64 48
   %.sroa.018.029.i = load ptr, ptr %25, align 8
   %.not2830.i = icmp eq ptr %.sroa.018.029.i, %26
@@ -301,7 +301,7 @@ _ZNK4llvm18ProfileSummaryInfo16hasSampleProfileEv.exit.i: ; preds = %15
   br i1 %41, label %_ZNK4llvm18ProfileSummaryInfo17getTotalCallCountINS_8FunctionEEESt8optionalImEPKT_.exit, label %_ZNK4llvm18ProfileSummaryInfo11isColdBlockINS_10BasicBlockENS_18BlockFrequencyInfoEEEbPKT_PT0_.exit.thread
 
 _ZNK4llvm18ProfileSummaryInfo17getTotalCallCountINS_8FunctionEEESt8optionalImEPKT_.exit: ; preds = %_ZNK4llvm18ProfileSummaryInfo16hasSampleProfileEv.exit.i, %15, %.loopexit
-  %42 = getelementptr inbounds i8, ptr %1, i64 80
+  %42 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %43 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %.sroa.011.022 = load ptr, ptr %42, align 8
   %.not2123 = icmp eq ptr %.sroa.011.022, %43

@@ -164,7 +164,7 @@ define hidden void @_ZN4llvm13WasmException11endFunctionEPKNS_15MachineFunctionE
   %3 = alloca %"class.llvm::Twine", align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 432
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 440
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 440
   %7 = load ptr, ptr %6, align 8
   %.not19 = icmp eq ptr %5, %7
   br i1 %.not19, label %.critedge, label %.lr.ph
@@ -172,7 +172,7 @@ define hidden void @_ZN4llvm13WasmException11endFunctionEPKNS_15MachineFunctionE
 .lr.ph:                                           ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 480
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %1, i64 496
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 496
   %11 = load i32, ptr %10, align 8
   %12 = icmp eq i32 %11, 0
   %13 = add i32 %11, -1
@@ -270,7 +270,7 @@ define hidden void @_ZN4llvm13WasmException20computeCallSiteTableERNS_15SmallVec
 
 .lr.ph:                                           ; preds = %5
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 480
-  %13 = getelementptr inbounds i8, ptr %9, i64 496
+  %13 = getelementptr inbounds nuw i8, ptr %9, i64 496
   %14 = load i32, ptr %13, align 8
   %15 = icmp eq i32 %14, 0
   br i1 %15, label %._crit_edge, label %.lr.ph.split.preheader

@@ -230,7 +230,7 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_122X86FixupInstTuningPass20r
   %21 = load ptr, ptr %20, align 8
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store ptr %21, ptr %22, align 8
-  %23 = getelementptr inbounds i8, ptr %1, i64 328
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 328
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 320
   %.sroa.0173.0216 = load ptr, ptr %23, align 8
   %.not217 = icmp eq ptr %.sroa.0173.0216, %24

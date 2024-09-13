@@ -945,7 +945,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_32SdrPrope
   %161 = getelementptr inbounds nuw i8, ptr %12, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %160, i8 0, i64 16, i1 false)
   store float 1.000000e+00, ptr %161, align 8
-  %162 = getelementptr inbounds i8, ptr %12, i64 40
+  %162 = getelementptr inbounds nuw i8, ptr %12, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %162, i8 0, i64 16, i1 false)
   %163 = getelementptr inbounds i8, ptr %13, i64 32
   store i64 0, ptr %163, align 8
@@ -957,7 +957,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_32SdrPrope
   %167 = getelementptr inbounds nuw i8, ptr %13, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %166, i8 0, i64 16, i1 false)
   store float 1.000000e+00, ptr %167, align 8
-  %168 = getelementptr inbounds i8, ptr %13, i64 40
+  %168 = getelementptr inbounds nuw i8, ptr %13, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %168, i8 0, i64 16, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %14, i8 0, i64 24, i1 false)
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__17SdrShaderPropertyC1ERKNS_7TfTokenES3_RKNS_7VtValueEbmRKSt13unordered_mapIS1_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS1_11HashFunctorESt8equal_toIS1_ESaISt4pairIS2_SD_EEESM_RKSt6vectorISH_IS1_S1_ESaISO_EE(ptr noundef nonnull align 8 dereferenceable(292) %137, ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(8) %153, ptr noundef nonnull align 8 dereferenceable(16) %11, i1 noundef zeroext false, i64 noundef 0, ptr noundef nonnull align 8 dereferenceable(56) %12, ptr noundef nonnull align 8 dereferenceable(56) %13, ptr noundef nonnull align 8 dereferenceable(24) %14)
@@ -1307,7 +1307,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_32SdrPropertyTypes_Stati
   %314 = getelementptr inbounds nuw i8, ptr %18, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %313, i8 0, i64 16, i1 false)
   store float 1.000000e+00, ptr %314, align 8
-  %315 = getelementptr inbounds i8, ptr %18, i64 40
+  %315 = getelementptr inbounds nuw i8, ptr %18, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %315, i8 0, i64 16, i1 false)
   %316 = getelementptr inbounds i8, ptr %19, i64 32
   store i64 0, ptr %316, align 8
@@ -1319,7 +1319,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_32SdrPropertyTypes_Stati
   %320 = getelementptr inbounds nuw i8, ptr %19, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %319, i8 0, i64 16, i1 false)
   store float 1.000000e+00, ptr %320, align 8
-  %321 = getelementptr inbounds i8, ptr %19, i64 40
+  %321 = getelementptr inbounds nuw i8, ptr %19, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %321, i8 0, i64 16, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %20, i8 0, i64 24, i1 false)
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__17SdrShaderPropertyC1ERKNS_7TfTokenES3_RKNS_7VtValueEbmRKSt13unordered_mapIS1_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS1_11HashFunctorESt8equal_toIS1_ESaISt4pairIS2_SD_EEESM_RKSt6vectorISH_IS1_S1_ESaISO_EE(ptr noundef nonnull align 8 dereferenceable(292) %286, ptr noundef nonnull align 8 dereferenceable(8) %15, ptr noundef nonnull align 8 dereferenceable(8) %309, ptr noundef nonnull align 8 dereferenceable(16) %16, i1 noundef zeroext false, i64 noundef 0, ptr noundef nonnull align 8 dereferenceable(56) %18, ptr noundef nonnull align 8 dereferenceable(56) %19, ptr noundef nonnull align 8 dereferenceable(24) %20)
@@ -1652,7 +1652,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_32SdrPrope
   %462 = getelementptr inbounds nuw i8, ptr %23, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %461, i8 0, i64 16, i1 false)
   store float 1.000000e+00, ptr %462, align 8
-  %463 = getelementptr inbounds i8, ptr %23, i64 40
+  %463 = getelementptr inbounds nuw i8, ptr %23, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %463, i8 0, i64 16, i1 false)
   %464 = getelementptr inbounds i8, ptr %24, i64 32
   store i64 0, ptr %464, align 8
@@ -1664,7 +1664,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_32SdrPrope
   %468 = getelementptr inbounds nuw i8, ptr %24, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %467, i8 0, i64 16, i1 false)
   store float 1.000000e+00, ptr %468, align 8
-  %469 = getelementptr inbounds i8, ptr %24, i64 40
+  %469 = getelementptr inbounds nuw i8, ptr %24, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %469, i8 0, i64 16, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %25, i8 0, i64 24, i1 false)
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__17SdrShaderPropertyC1ERKNS_7TfTokenES3_RKNS_7VtValueEbmRKSt13unordered_mapIS1_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS1_11HashFunctorESt8equal_toIS1_ESaISt4pairIS2_SD_EEESM_RKSt6vectorISH_IS1_S1_ESaISO_EE(ptr noundef nonnull align 8 dereferenceable(292) %437, ptr noundef nonnull align 8 dereferenceable(8) %21, ptr noundef nonnull align 8 dereferenceable(8) %457, ptr noundef nonnull align 8 dereferenceable(16) %22, i1 noundef zeroext false, i64 noundef 0, ptr noundef nonnull align 8 dereferenceable(56) %23, ptr noundef nonnull align 8 dereferenceable(56) %24, ptr noundef nonnull align 8 dereferenceable(24) %25)
@@ -2008,7 +2008,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_32SdrPropertyTypes_Stati
   %613 = getelementptr inbounds nuw i8, ptr %28, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %612, i8 0, i64 16, i1 false)
   store float 1.000000e+00, ptr %613, align 8
-  %614 = getelementptr inbounds i8, ptr %28, i64 40
+  %614 = getelementptr inbounds nuw i8, ptr %28, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %614, i8 0, i64 16, i1 false)
   %615 = getelementptr inbounds i8, ptr %29, i64 32
   store i64 0, ptr %615, align 8
@@ -2020,7 +2020,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_32SdrPropertyTypes_Stati
   %619 = getelementptr inbounds nuw i8, ptr %29, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %618, i8 0, i64 16, i1 false)
   store float 1.000000e+00, ptr %619, align 8
-  %620 = getelementptr inbounds i8, ptr %29, i64 40
+  %620 = getelementptr inbounds nuw i8, ptr %29, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %620, i8 0, i64 16, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %30, i8 0, i64 24, i1 false)
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__17SdrShaderPropertyC1ERKNS_7TfTokenES3_RKNS_7VtValueEbmRKSt13unordered_mapIS1_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS1_11HashFunctorESt8equal_toIS1_ESaISt4pairIS2_SD_EEESM_RKSt6vectorISH_IS1_S1_ESaISO_EE(ptr noundef nonnull align 8 dereferenceable(292) %585, ptr noundef nonnull align 8 dereferenceable(8) %26, ptr noundef nonnull align 8 dereferenceable(8) %608, ptr noundef nonnull align 8 dereferenceable(16) %27, i1 noundef zeroext false, i64 noundef 0, ptr noundef nonnull align 8 dereferenceable(56) %28, ptr noundef nonnull align 8 dereferenceable(56) %29, ptr noundef nonnull align 8 dereferenceable(24) %30)
@@ -2362,7 +2362,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_32SdrPropertyTypes_Stati
   %762 = getelementptr inbounds nuw i8, ptr %33, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %761, i8 0, i64 16, i1 false)
   store float 1.000000e+00, ptr %762, align 8
-  %763 = getelementptr inbounds i8, ptr %33, i64 40
+  %763 = getelementptr inbounds nuw i8, ptr %33, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %763, i8 0, i64 16, i1 false)
   %764 = getelementptr inbounds i8, ptr %34, i64 32
   store i64 0, ptr %764, align 8
@@ -2374,7 +2374,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_32SdrPropertyTypes_Stati
   %768 = getelementptr inbounds nuw i8, ptr %34, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %767, i8 0, i64 16, i1 false)
   store float 1.000000e+00, ptr %768, align 8
-  %769 = getelementptr inbounds i8, ptr %34, i64 40
+  %769 = getelementptr inbounds nuw i8, ptr %34, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %769, i8 0, i64 16, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %35, i8 0, i64 24, i1 false)
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__17SdrShaderPropertyC1ERKNS_7TfTokenES3_RKNS_7VtValueEbmRKSt13unordered_mapIS1_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS1_11HashFunctorESt8equal_toIS1_ESaISt4pairIS2_SD_EEESM_RKSt6vectorISH_IS1_S1_ESaISO_EE(ptr noundef nonnull align 8 dereferenceable(292) %736, ptr noundef nonnull align 8 dereferenceable(8) %31, ptr noundef nonnull align 8 dereferenceable(8) %757, ptr noundef nonnull align 8 dereferenceable(16) %32, i1 noundef zeroext false, i64 noundef 0, ptr noundef nonnull align 8 dereferenceable(56) %33, ptr noundef nonnull align 8 dereferenceable(56) %34, ptr noundef nonnull align 8 dereferenceable(24) %35)
@@ -2716,7 +2716,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_32SdrPropertyTypes_Stati
   %911 = getelementptr inbounds nuw i8, ptr %38, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %910, i8 0, i64 16, i1 false)
   store float 1.000000e+00, ptr %911, align 8
-  %912 = getelementptr inbounds i8, ptr %38, i64 40
+  %912 = getelementptr inbounds nuw i8, ptr %38, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %912, i8 0, i64 16, i1 false)
   %913 = getelementptr inbounds i8, ptr %39, i64 32
   store i64 0, ptr %913, align 8
@@ -2728,7 +2728,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_32SdrPropertyTypes_Stati
   %917 = getelementptr inbounds nuw i8, ptr %39, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %916, i8 0, i64 16, i1 false)
   store float 1.000000e+00, ptr %917, align 8
-  %918 = getelementptr inbounds i8, ptr %39, i64 40
+  %918 = getelementptr inbounds nuw i8, ptr %39, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %918, i8 0, i64 16, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %40, i8 0, i64 24, i1 false)
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__17SdrShaderPropertyC1ERKNS_7TfTokenES3_RKNS_7VtValueEbmRKSt13unordered_mapIS1_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS1_11HashFunctorESt8equal_toIS1_ESaISt4pairIS2_SD_EEESM_RKSt6vectorISH_IS1_S1_ESaISO_EE(ptr noundef nonnull align 8 dereferenceable(292) %885, ptr noundef nonnull align 8 dereferenceable(8) %36, ptr noundef nonnull align 8 dereferenceable(8) %906, ptr noundef nonnull align 8 dereferenceable(16) %37, i1 noundef zeroext false, i64 noundef 0, ptr noundef nonnull align 8 dereferenceable(56) %38, ptr noundef nonnull align 8 dereferenceable(56) %39, ptr noundef nonnull align 8 dereferenceable(24) %40)
@@ -3070,7 +3070,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_32SdrPropertyTypes_Stati
   %1060 = getelementptr inbounds nuw i8, ptr %43, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1059, i8 0, i64 16, i1 false)
   store float 1.000000e+00, ptr %1060, align 8
-  %1061 = getelementptr inbounds i8, ptr %43, i64 40
+  %1061 = getelementptr inbounds nuw i8, ptr %43, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1061, i8 0, i64 16, i1 false)
   %1062 = getelementptr inbounds i8, ptr %44, i64 32
   store i64 0, ptr %1062, align 8
@@ -3082,7 +3082,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_32SdrPropertyTypes_Stati
   %1066 = getelementptr inbounds nuw i8, ptr %44, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1065, i8 0, i64 16, i1 false)
   store float 1.000000e+00, ptr %1066, align 8
-  %1067 = getelementptr inbounds i8, ptr %44, i64 40
+  %1067 = getelementptr inbounds nuw i8, ptr %44, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1067, i8 0, i64 16, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %45, i8 0, i64 24, i1 false)
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__17SdrShaderPropertyC1ERKNS_7TfTokenES3_RKNS_7VtValueEbmRKSt13unordered_mapIS1_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS1_11HashFunctorESt8equal_toIS1_ESaISt4pairIS2_SD_EEESM_RKSt6vectorISH_IS1_S1_ESaISO_EE(ptr noundef nonnull align 8 dereferenceable(292) %1034, ptr noundef nonnull align 8 dereferenceable(8) %41, ptr noundef nonnull align 8 dereferenceable(8) %1055, ptr noundef nonnull align 8 dereferenceable(16) %42, i1 noundef zeroext false, i64 noundef 0, ptr noundef nonnull align 8 dereferenceable(56) %43, ptr noundef nonnull align 8 dereferenceable(56) %44, ptr noundef nonnull align 8 dereferenceable(24) %45)
@@ -3426,7 +3426,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__10GfMatrix4dC2Ed.exit: ; preds = %_ZNK32pxr
   %1212 = getelementptr inbounds nuw i8, ptr %49, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1211, i8 0, i64 16, i1 false)
   store float 1.000000e+00, ptr %1212, align 8
-  %1213 = getelementptr inbounds i8, ptr %49, i64 40
+  %1213 = getelementptr inbounds nuw i8, ptr %49, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1213, i8 0, i64 16, i1 false)
   %1214 = getelementptr inbounds i8, ptr %50, i64 32
   store i64 0, ptr %1214, align 8
@@ -3438,7 +3438,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__10GfMatrix4dC2Ed.exit: ; preds = %_ZNK32pxr
   %1218 = getelementptr inbounds nuw i8, ptr %50, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1217, i8 0, i64 16, i1 false)
   store float 1.000000e+00, ptr %1218, align 8
-  %1219 = getelementptr inbounds i8, ptr %50, i64 40
+  %1219 = getelementptr inbounds nuw i8, ptr %50, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1219, i8 0, i64 16, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %51, i8 0, i64 24, i1 false)
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__17SdrShaderPropertyC1ERKNS_7TfTokenES3_RKNS_7VtValueEbmRKSt13unordered_mapIS1_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS1_11HashFunctorESt8equal_toIS1_ESaISt4pairIS2_SD_EEESM_RKSt6vectorISH_IS1_S1_ESaISO_EE(ptr noundef nonnull align 8 dereferenceable(292) %1183, ptr noundef nonnull align 8 dereferenceable(8) %46, ptr noundef nonnull align 8 dereferenceable(8) %1199, ptr noundef nonnull align 8 dereferenceable(16) %47, i1 noundef zeroext false, i64 noundef 0, ptr noundef nonnull align 8 dereferenceable(56) %49, ptr noundef nonnull align 8 dereferenceable(56) %50, ptr noundef nonnull align 8 dereferenceable(24) %51)
@@ -3767,7 +3767,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_32SdrPropertyTypes_Stati
   %1357 = getelementptr inbounds nuw i8, ptr %54, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1356, i8 0, i64 16, i1 false)
   store float 1.000000e+00, ptr %1357, align 8
-  %1358 = getelementptr inbounds i8, ptr %54, i64 40
+  %1358 = getelementptr inbounds nuw i8, ptr %54, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1358, i8 0, i64 16, i1 false)
   %1359 = getelementptr inbounds i8, ptr %55, i64 32
   store i64 0, ptr %1359, align 8
@@ -3779,7 +3779,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_32SdrPropertyTypes_Stati
   %1363 = getelementptr inbounds nuw i8, ptr %55, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1362, i8 0, i64 16, i1 false)
   store float 1.000000e+00, ptr %1363, align 8
-  %1364 = getelementptr inbounds i8, ptr %55, i64 40
+  %1364 = getelementptr inbounds nuw i8, ptr %55, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1364, i8 0, i64 16, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %56, i8 0, i64 24, i1 false)
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__17SdrShaderPropertyC1ERKNS_7TfTokenES3_RKNS_7VtValueEbmRKSt13unordered_mapIS1_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS1_11HashFunctorESt8equal_toIS1_ESaISt4pairIS2_SD_EEESM_RKSt6vectorISH_IS1_S1_ESaISO_EE(ptr noundef nonnull align 8 dereferenceable(292) %1335, ptr noundef nonnull align 8 dereferenceable(8) %52, ptr noundef nonnull align 8 dereferenceable(8) %1351, ptr noundef nonnull align 8 dereferenceable(16) %53, i1 noundef zeroext false, i64 noundef 0, ptr noundef nonnull align 8 dereferenceable(56) %54, ptr noundef nonnull align 8 dereferenceable(56) %55, ptr noundef nonnull align 8 dereferenceable(24) %56)
@@ -4108,7 +4108,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_32SdrPropertyTypes_Stati
   %1502 = getelementptr inbounds nuw i8, ptr %59, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1501, i8 0, i64 16, i1 false)
   store float 1.000000e+00, ptr %1502, align 8
-  %1503 = getelementptr inbounds i8, ptr %59, i64 40
+  %1503 = getelementptr inbounds nuw i8, ptr %59, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1503, i8 0, i64 16, i1 false)
   %1504 = getelementptr inbounds i8, ptr %60, i64 32
   store i64 0, ptr %1504, align 8
@@ -4120,7 +4120,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_32SdrPropertyTypes_Stati
   %1508 = getelementptr inbounds nuw i8, ptr %60, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1507, i8 0, i64 16, i1 false)
   store float 1.000000e+00, ptr %1508, align 8
-  %1509 = getelementptr inbounds i8, ptr %60, i64 40
+  %1509 = getelementptr inbounds nuw i8, ptr %60, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1509, i8 0, i64 16, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %61, i8 0, i64 24, i1 false)
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__17SdrShaderPropertyC1ERKNS_7TfTokenES3_RKNS_7VtValueEbmRKSt13unordered_mapIS1_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS1_11HashFunctorESt8equal_toIS1_ESaISt4pairIS2_SD_EEESM_RKSt6vectorISH_IS1_S1_ESaISO_EE(ptr noundef nonnull align 8 dereferenceable(292) %1480, ptr noundef nonnull align 8 dereferenceable(8) %57, ptr noundef nonnull align 8 dereferenceable(8) %1496, ptr noundef nonnull align 8 dereferenceable(16) %58, i1 noundef zeroext false, i64 noundef 0, ptr noundef nonnull align 8 dereferenceable(56) %59, ptr noundef nonnull align 8 dereferenceable(56) %60, ptr noundef nonnull align 8 dereferenceable(24) %61)
@@ -4449,7 +4449,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_32SdrPropertyTypes_Stati
   %1647 = getelementptr inbounds nuw i8, ptr %64, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1646, i8 0, i64 16, i1 false)
   store float 1.000000e+00, ptr %1647, align 8
-  %1648 = getelementptr inbounds i8, ptr %64, i64 40
+  %1648 = getelementptr inbounds nuw i8, ptr %64, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1648, i8 0, i64 16, i1 false)
   %1649 = getelementptr inbounds i8, ptr %65, i64 32
   store i64 0, ptr %1649, align 8
@@ -4461,7 +4461,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_32SdrPropertyTypes_Stati
   %1653 = getelementptr inbounds nuw i8, ptr %65, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1652, i8 0, i64 16, i1 false)
   store float 1.000000e+00, ptr %1653, align 8
-  %1654 = getelementptr inbounds i8, ptr %65, i64 40
+  %1654 = getelementptr inbounds nuw i8, ptr %65, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1654, i8 0, i64 16, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %66, i8 0, i64 24, i1 false)
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__17SdrShaderPropertyC1ERKNS_7TfTokenES3_RKNS_7VtValueEbmRKSt13unordered_mapIS1_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS1_11HashFunctorESt8equal_toIS1_ESaISt4pairIS2_SD_EEESM_RKSt6vectorISH_IS1_S1_ESaISO_EE(ptr noundef nonnull align 8 dereferenceable(292) %1625, ptr noundef nonnull align 8 dereferenceable(8) %62, ptr noundef nonnull align 8 dereferenceable(8) %1641, ptr noundef nonnull align 8 dereferenceable(16) %63, i1 noundef zeroext false, i64 noundef 0, ptr noundef nonnull align 8 dereferenceable(56) %64, ptr noundef nonnull align 8 dereferenceable(56) %65, ptr noundef nonnull align 8 dereferenceable(24) %66)
@@ -4790,7 +4790,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_32SdrPropertyTypes_Stati
   %1792 = getelementptr inbounds nuw i8, ptr %69, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1791, i8 0, i64 16, i1 false)
   store float 1.000000e+00, ptr %1792, align 8
-  %1793 = getelementptr inbounds i8, ptr %69, i64 40
+  %1793 = getelementptr inbounds nuw i8, ptr %69, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1793, i8 0, i64 16, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %70, i8 0, i64 24, i1 false)
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__17SdrShaderPropertyC1ERKNS_7TfTokenES3_RKNS_7VtValueEbmRKSt13unordered_mapIS1_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS1_11HashFunctorESt8equal_toIS1_ESaISt4pairIS2_SD_EEESM_RKSt6vectorISH_IS1_S1_ESaISO_EE(ptr noundef nonnull align 8 dereferenceable(292) %1770, ptr noundef nonnull align 8 dereferenceable(8) %67, ptr noundef nonnull align 8 dereferenceable(8) %1786, ptr noundef nonnull align 8 dereferenceable(16) %68, i1 noundef zeroext false, i64 noundef 0, ptr noundef nonnull align 8 dereferenceable(56) %5, ptr noundef nonnull align 8 dereferenceable(56) %69, ptr noundef nonnull align 8 dereferenceable(24) %70)
@@ -5180,7 +5180,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_32SdrPropertyTypes_Stati
   %1954 = getelementptr inbounds nuw i8, ptr %78, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1953, i8 0, i64 16, i1 false)
   store float 1.000000e+00, ptr %1954, align 8
-  %1955 = getelementptr inbounds i8, ptr %78, i64 40
+  %1955 = getelementptr inbounds nuw i8, ptr %78, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1955, i8 0, i64 16, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %79, i8 0, i64 24, i1 false)
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__17SdrShaderPropertyC1ERKNS_7TfTokenES3_RKNS_7VtValueEbmRKSt13unordered_mapIS1_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS1_11HashFunctorESt8equal_toIS1_ESaISt4pairIS2_SD_EEESM_RKSt6vectorISH_IS1_S1_ESaISO_EE(ptr noundef nonnull align 8 dereferenceable(292) %1932, ptr noundef nonnull align 8 dereferenceable(8) %76, ptr noundef nonnull align 8 dereferenceable(8) %1948, ptr noundef nonnull align 8 dereferenceable(16) %77, i1 noundef zeroext false, i64 noundef 0, ptr noundef nonnull align 8 dereferenceable(56) %71, ptr noundef nonnull align 8 dereferenceable(56) %78, ptr noundef nonnull align 8 dereferenceable(24) %79)
@@ -5490,7 +5490,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_32SdrPropertyTypes_Stati
   %2082 = getelementptr inbounds nuw i8, ptr %84, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2081, i8 0, i64 16, i1 false)
   store float 1.000000e+00, ptr %2082, align 8
-  %2083 = getelementptr inbounds i8, ptr %84, i64 40
+  %2083 = getelementptr inbounds nuw i8, ptr %84, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2083, i8 0, i64 16, i1 false)
   %2084 = getelementptr inbounds i8, ptr %85, i64 32
   store i64 0, ptr %2084, align 8
@@ -5502,7 +5502,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_32SdrPropertyTypes_Stati
   %2088 = getelementptr inbounds nuw i8, ptr %85, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2087, i8 0, i64 16, i1 false)
   store float 1.000000e+00, ptr %2088, align 8
-  %2089 = getelementptr inbounds i8, ptr %85, i64 40
+  %2089 = getelementptr inbounds nuw i8, ptr %85, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2089, i8 0, i64 16, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %86, i8 0, i64 24, i1 false)
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__17SdrShaderPropertyC1ERKNS_7TfTokenES3_RKNS_7VtValueEbmRKSt13unordered_mapIS1_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS1_11HashFunctorESt8equal_toIS1_ESaISt4pairIS2_SD_EEESM_RKSt6vectorISH_IS1_S1_ESaISO_EE(ptr noundef nonnull align 8 dereferenceable(292) %2054, ptr noundef nonnull align 8 dereferenceable(8) %82, ptr noundef nonnull align 8 dereferenceable(8) %2077, ptr noundef nonnull align 8 dereferenceable(16) %83, i1 noundef zeroext false, i64 noundef 2, ptr noundef nonnull align 8 dereferenceable(56) %84, ptr noundef nonnull align 8 dereferenceable(56) %85, ptr noundef nonnull align 8 dereferenceable(24) %86)
@@ -5858,7 +5858,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_32SdrPropertyTypes_Stati
   %2236 = getelementptr inbounds nuw i8, ptr %91, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2235, i8 0, i64 16, i1 false)
   store float 1.000000e+00, ptr %2236, align 8
-  %2237 = getelementptr inbounds i8, ptr %91, i64 40
+  %2237 = getelementptr inbounds nuw i8, ptr %91, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2237, i8 0, i64 16, i1 false)
   %2238 = getelementptr inbounds i8, ptr %92, i64 32
   store i64 0, ptr %2238, align 8
@@ -5870,7 +5870,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_32SdrPropertyTypes_Stati
   %2242 = getelementptr inbounds nuw i8, ptr %92, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2241, i8 0, i64 16, i1 false)
   store float 1.000000e+00, ptr %2242, align 8
-  %2243 = getelementptr inbounds i8, ptr %92, i64 40
+  %2243 = getelementptr inbounds nuw i8, ptr %92, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2243, i8 0, i64 16, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %93, i8 0, i64 24, i1 false)
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__17SdrShaderPropertyC1ERKNS_7TfTokenES3_RKNS_7VtValueEbmRKSt13unordered_mapIS1_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS1_11HashFunctorESt8equal_toIS1_ESaISt4pairIS2_SD_EEESM_RKSt6vectorISH_IS1_S1_ESaISO_EE(ptr noundef nonnull align 8 dereferenceable(292) %2208, ptr noundef nonnull align 8 dereferenceable(8) %89, ptr noundef nonnull align 8 dereferenceable(8) %2231, ptr noundef nonnull align 8 dereferenceable(16) %90, i1 noundef zeroext false, i64 noundef 3, ptr noundef nonnull align 8 dereferenceable(56) %91, ptr noundef nonnull align 8 dereferenceable(56) %92, ptr noundef nonnull align 8 dereferenceable(24) %93)
@@ -6222,7 +6222,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_32SdrPropertyTypes_Stati
   %2388 = getelementptr inbounds nuw i8, ptr %98, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2387, i8 0, i64 16, i1 false)
   store float 1.000000e+00, ptr %2388, align 8
-  %2389 = getelementptr inbounds i8, ptr %98, i64 40
+  %2389 = getelementptr inbounds nuw i8, ptr %98, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2389, i8 0, i64 16, i1 false)
   %2390 = getelementptr inbounds i8, ptr %99, i64 32
   store i64 0, ptr %2390, align 8
@@ -6234,7 +6234,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_32SdrPropertyTypes_Stati
   %2394 = getelementptr inbounds nuw i8, ptr %99, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2393, i8 0, i64 16, i1 false)
   store float 1.000000e+00, ptr %2394, align 8
-  %2395 = getelementptr inbounds i8, ptr %99, i64 40
+  %2395 = getelementptr inbounds nuw i8, ptr %99, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2395, i8 0, i64 16, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %100, i8 0, i64 24, i1 false)
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__17SdrShaderPropertyC1ERKNS_7TfTokenES3_RKNS_7VtValueEbmRKSt13unordered_mapIS1_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS1_11HashFunctorESt8equal_toIS1_ESaISt4pairIS2_SD_EEESM_RKSt6vectorISH_IS1_S1_ESaISO_EE(ptr noundef nonnull align 8 dereferenceable(292) %2360, ptr noundef nonnull align 8 dereferenceable(8) %96, ptr noundef nonnull align 8 dereferenceable(8) %2383, ptr noundef nonnull align 8 dereferenceable(16) %97, i1 noundef zeroext false, i64 noundef 4, ptr noundef nonnull align 8 dereferenceable(56) %98, ptr noundef nonnull align 8 dereferenceable(56) %99, ptr noundef nonnull align 8 dereferenceable(24) %100)
@@ -6664,7 +6664,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_32SdrPropertyTypes_Stati
   %2575 = getelementptr inbounds nuw i8, ptr %110, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2574, i8 0, i64 16, i1 false)
   store float 1.000000e+00, ptr %2575, align 8
-  %2576 = getelementptr inbounds i8, ptr %110, i64 40
+  %2576 = getelementptr inbounds nuw i8, ptr %110, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2576, i8 0, i64 16, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %111, i8 0, i64 24, i1 false)
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__17SdrShaderPropertyC1ERKNS_7TfTokenES3_RKNS_7VtValueEbmRKSt13unordered_mapIS1_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS1_11HashFunctorESt8equal_toIS1_ESaISt4pairIS2_SD_EEESM_RKSt6vectorISH_IS1_S1_ESaISO_EE(ptr noundef nonnull align 8 dereferenceable(292) %2547, ptr noundef nonnull align 8 dereferenceable(8) %107, ptr noundef nonnull align 8 dereferenceable(8) %2570, ptr noundef nonnull align 8 dereferenceable(16) %108, i1 noundef zeroext false, i64 noundef 0, ptr noundef nonnull align 8 dereferenceable(56) %101, ptr noundef nonnull align 8 dereferenceable(56) %110, ptr noundef nonnull align 8 dereferenceable(24) %111)
@@ -8742,7 +8742,7 @@ define linkonce_odr void @_ZNSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__7
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %11, i8 0, i64 16, i1 false)
   store float 1.000000e+00, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 40
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %13, i8 0, i64 16, i1 false)
   %14 = invoke noundef i64 @_ZNKSt8__detail20_Prime_rehash_policy11_M_next_bktEm(ptr noundef nonnull align 8 dereferenceable(16) %12, i64 noundef %3)
           to label %15 unwind label %27
@@ -8958,7 +8958,7 @@ _ZNKSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__7TfTokenESt4pairIKS1_NSt7_
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr ptr @_ZNSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__7TfTokenESt4pairIKS1_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaISA_ENSt8__detail10_Select1stESt8equal_toIS1_ENS1_11HashFunctorENSC_18_Mod_range_hashingENSC_20_Default_ranged_hashENSC_20_Prime_rehash_policyENSC_17_Hashtable_traitsILb1ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNSC_10_Hash_nodeISA_Lb1EEEm(ptr noundef nonnull align 8 dereferenceable(56) %0, i64 noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %7 = getelementptr inbounds i8, ptr %0, i64 40
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %8 = load i64, ptr %7, align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load i64, ptr %9, align 8

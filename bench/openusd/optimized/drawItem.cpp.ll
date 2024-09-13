@@ -24,21 +24,21 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__10HdDrawItemC2EPKNS_17HdRprimS
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__10HdDrawItemE, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i16 2, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 10
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 10
   store i16 -1, ptr %4, align 2
-  %5 = getelementptr inbounds i8, ptr %0, i64 12
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i8 0, ptr %5, align 4
-  %6 = getelementptr inbounds i8, ptr %0, i64 13
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 13
   store i8 1, ptr %6, align 1
-  %7 = getelementptr inbounds i8, ptr %0, i64 14
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 14
   store i8 3, ptr %7, align 2
-  %8 = getelementptr inbounds i8, ptr %0, i64 15
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 15
   store i8 4, ptr %8, align 1
-  %9 = getelementptr inbounds i8, ptr %0, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i8 5, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 17
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 17
   store i8 6, ptr %10, align 1
-  %11 = getelementptr inbounds i8, ptr %0, i64 18
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 18
   store i8 7, ptr %11, align 2
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %1, ptr %12, align 8

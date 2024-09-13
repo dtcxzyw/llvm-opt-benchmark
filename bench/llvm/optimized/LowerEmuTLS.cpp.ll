@@ -61,7 +61,7 @@ define dso_local void @_ZN4llvm15LowerEmuTLSPass3runERNS_6ModuleERNS_15AnalysisM
   %5 = alloca %"class.llvm::SmallVector", align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 16
   call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull %6, i64 noundef 8) #13
-  %7 = getelementptr inbounds i8, ptr %2, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.sroa.039.049 = load ptr, ptr %7, align 8
   %.not4350 = icmp eq ptr %.sroa.039.049, %8
@@ -137,15 +137,15 @@ _ZN4llvm23SmallVectorTemplateBaseIPKNS_14GlobalVariableELb1EE9push_backES3_.exit
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 0, ptr %39, align 8, !alias.scope !4
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %41 = getelementptr inbounds i8, ptr %0, i64 80
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store ptr %41, ptr %40, align 8, !alias.scope !4
-  %42 = getelementptr inbounds i8, ptr %0, i64 56
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store ptr %41, ptr %42, align 8, !alias.scope !4
-  %43 = getelementptr inbounds i8, ptr %0, i64 64
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i32 2, ptr %43, align 8, !alias.scope !4
-  %44 = getelementptr inbounds i8, ptr %0, i64 68
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 68
   store i32 0, ptr %44, align 4, !alias.scope !4
-  %45 = getelementptr inbounds i8, ptr %0, i64 72
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store i32 0, ptr %45, align 8, !alias.scope !4
   store i32 1, ptr %38, align 4, !alias.scope !4, !noalias !7
   store ptr @_ZN4llvm17PreservedAnalyses14AllAnalysesKeyE, ptr %35, align 8, !alias.scope !4, !noalias !7
@@ -162,14 +162,14 @@ _ZN4llvm23SmallVectorTemplateBaseIPKNS_14GlobalVariableELb1EE9push_backES3_.exit
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 0, ptr %49, align 8, !alias.scope !10
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %51 = getelementptr inbounds i8, ptr %0, i64 80
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store ptr %51, ptr %50, align 8, !alias.scope !10
-  %52 = getelementptr inbounds i8, ptr %0, i64 56
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store ptr %51, ptr %52, align 8, !alias.scope !10
-  %53 = getelementptr inbounds i8, ptr %0, i64 64
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i32 2, ptr %53, align 8, !alias.scope !10
-  %54 = getelementptr inbounds i8, ptr %0, i64 68
-  %55 = getelementptr inbounds i8, ptr %0, i64 72
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 68
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store i32 0, ptr %55, align 8, !alias.scope !10
   store i32 1, ptr %48, align 4, !alias.scope !10, !noalias !13
   store ptr @_ZN4llvm17PreservedAnalyses14AllAnalysesKeyE, ptr %.ptr44.ptr, align 8, !alias.scope !10, !noalias !13
@@ -326,7 +326,7 @@ define internal fastcc noundef zeroext i1 @_ZL12addEmuTlsVarRN4llvm6ModuleEPKNS_
   store ptr @.str.2, ptr %4, align 8, !alias.scope !28
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %13, ptr %17, align 8, !alias.scope !28
-  %18 = getelementptr inbounds i8, ptr %4, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store i64 %14, ptr %18, align 8, !alias.scope !28
   call void @_ZNK4llvm5Twine3strB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %3, ptr noundef nonnull align 8 dereferenceable(34) %4) #13
   %19 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %3) #13
@@ -356,7 +356,7 @@ define internal fastcc noundef zeroext i1 @_ZL12addEmuTlsVarRN4llvm6ModuleEPKNS_
 
 33:                                               ; preds = %32
   %34 = getelementptr inbounds nuw i8, ptr %spec.select.i.i, i64 24
-  %35 = getelementptr inbounds i8, ptr %spec.select.i.i, i64 32
+  %35 = getelementptr inbounds nuw i8, ptr %spec.select.i.i, i64 32
   %36 = load i32, ptr %35, align 8
   %37 = icmp ult i32 %36, 65
   br i1 %37, label %38, label %_ZNK4llvm11ConstantInt6isZeroEv.exit
@@ -425,7 +425,7 @@ _ZN4llvm16dyn_cast_or_nullINS_14GlobalVariableENS_8ConstantEEEDaPT0_.exit: ; pre
   store ptr @.str.3, ptr %7, align 8, !alias.scope !31
   %71 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr %67, ptr %71, align 8, !alias.scope !31
-  %72 = getelementptr inbounds i8, ptr %7, i64 24
+  %72 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store i64 %68, ptr %72, align 8, !alias.scope !31
   call void @_ZNK4llvm5Twine3strB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %6, ptr noundef nonnull align 8 dereferenceable(34) %7) #13
   %73 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %6) #13
@@ -707,7 +707,7 @@ _ZNK4llvm4Pass22getAnalysisIfAvailableINS_16TargetPassConfigEEEPT_v.exit: ; pred
 18:                                               ; preds = %14
   %19 = getelementptr inbounds i8, ptr %3, i64 16
   call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull %19, i64 noundef 8) #13
-  %20 = getelementptr inbounds i8, ptr %1, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.025.033 = load ptr, ptr %20, align 8
   %.not3134 = icmp eq ptr %.sroa.025.033, %21

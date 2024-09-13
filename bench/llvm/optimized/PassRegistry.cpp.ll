@@ -60,7 +60,7 @@ define dso_local noundef nonnull ptr @_ZN4llvm12PassRegistry15getPassRegistryEv(
 5:                                                ; preds = %3
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) getelementptr inbounds nuw (i8, ptr @_ZZN4llvm12PassRegistry15getPassRegistryEvE15PassRegistryObj, i64 88), i8 0, i64 20, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(84) @_ZZN4llvm12PassRegistry15getPassRegistryEvE15PassRegistryObj, i8 0, i64 84, i1 false)
-  store i32 16, ptr getelementptr inbounds (i8, ptr @_ZZN4llvm12PassRegistry15getPassRegistryEvE15PassRegistryObj, i64 108), align 4
+  store i32 16, ptr getelementptr inbounds nuw (i8, ptr @_ZZN4llvm12PassRegistry15getPassRegistryEvE15PassRegistryObj, i64 108), align 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) getelementptr inbounds nuw (i8, ptr @_ZZN4llvm12PassRegistry15getPassRegistryEvE15PassRegistryObj, i64 112), i8 0, i64 48, i1 false)
   %6 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4llvm12PassRegistryD1Ev, ptr nonnull @_ZZN4llvm12PassRegistry15getPassRegistryEvE15PassRegistryObj, ptr nonnull @__dso_handle) #14
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN4llvm12PassRegistry15getPassRegistryEvE15PassRegistryObj) #14
@@ -87,7 +87,7 @@ define dso_local void @_ZN4llvm12PassRegistryD2Ev(ptr nocapture noundef nonnull 
   br i1 %.not.i.i.i, label %_ZNSt6vectorIPN4llvm24PassRegistrationListenerESaIS2_EED2Ev.exit, label %4
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 152
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %6 = load ptr, ptr %5, align 8
   %7 = ptrtoint ptr %6 to i64
   %8 = ptrtoint ptr %3 to i64
@@ -98,7 +98,7 @@ define dso_local void @_ZN4llvm12PassRegistryD2Ev(ptr nocapture noundef nonnull 
 _ZNSt6vectorIPN4llvm24PassRegistrationListenerESaIS2_EED2Ev.exit: ; preds = %1, %4
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 120
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %13 = load ptr, ptr %12, align 8
   %.not4.i.i.i.i = icmp eq ptr %11, %13
   br i1 %.not4.i.i.i.i, label %_ZSt8_DestroyIPSt10unique_ptrIKN4llvm8PassInfoESt14default_deleteIS3_EES6_EvT_S8_RSaIT0_E.exit.i, label %.lr.ph.i.i.i.i
@@ -129,7 +129,7 @@ _ZSt8_DestroyIPSt10unique_ptrIKN4llvm8PassInfoESt14default_deleteIS3_EES6_EvT_S8
   br i1 %.not.i.i.i1, label %_ZNSt6vectorISt10unique_ptrIKN4llvm8PassInfoESt14default_deleteIS3_EESaIS6_EED2Ev.exit, label %17
 
 17:                                               ; preds = %_ZSt8_DestroyIPSt10unique_ptrIKN4llvm8PassInfoESt14default_deleteIS3_EES6_EvT_S8_RSaIT0_E.exit.i
-  %18 = getelementptr inbounds i8, ptr %0, i64 128
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %19 = load ptr, ptr %18, align 8
   %20 = ptrtoint ptr %19 to i64
   %21 = ptrtoint ptr %16 to i64
@@ -139,13 +139,13 @@ _ZSt8_DestroyIPSt10unique_ptrIKN4llvm8PassInfoESt14default_deleteIS3_EES6_EvT_S8
 
 _ZNSt6vectorISt10unique_ptrIKN4llvm8PassInfoESt14default_deleteIS3_EESaIS6_EED2Ev.exit: ; preds = %_ZSt8_DestroyIPSt10unique_ptrIKN4llvm8PassInfoESt14default_deleteIS3_EES6_EvT_S8_RSaIT0_E.exit.i, %17
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %24 = getelementptr inbounds i8, ptr %0, i64 100
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 100
   %25 = load i32, ptr %24, align 4
   %26 = icmp eq i32 %25, 0
   br i1 %26, label %_ZN4llvm9StringMapIPKNS_8PassInfoENS_15MallocAllocatorEED2Ev.exit, label %27
 
 27:                                               ; preds = %_ZNSt6vectorISt10unique_ptrIKN4llvm8PassInfoESt14default_deleteIS3_EESaIS6_EED2Ev.exit
-  %28 = getelementptr inbounds i8, ptr %0, i64 96
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %29 = load i32, ptr %28, align 8
   %.not10.i = icmp eq i32 %29, 0
   br i1 %.not10.i, label %_ZN4llvm9StringMapIPKNS_8PassInfoENS_15MallocAllocatorEED2Ev.exit, label %.lr.ph.preheader.i
@@ -181,7 +181,7 @@ _ZN4llvm9StringMapIPKNS_8PassInfoENS_15MallocAllocatorEED2Ev.exit: ; preds = %37
   tail call void @free(ptr noundef %38) #14
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %40 = load ptr, ptr %39, align 8
-  %41 = getelementptr inbounds i8, ptr %0, i64 80
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %42 = load i32, ptr %41, align 8
   %43 = zext i32 %42 to i64
   %44 = shl nuw nsw i64 %43, 4
@@ -207,7 +207,7 @@ define dso_local noundef ptr @_ZNK4llvm12PassRegistry11getPassInfoEPKv(ptr nound
 _ZNSt11shared_lockIN4llvm3sys12SmartRWMutexILb1EEEEC2ERS3_.exit: ; preds = %3
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %9 = load i32, ptr %8, align 8
   %10 = icmp eq i32 %9, 0
   br i1 %10, label %_ZNSt11shared_lockIN4llvm3sys12SmartRWMutexILb1EEEED2Ev.exit, label %11
@@ -275,7 +275,7 @@ _ZNSt11shared_lockIN4llvm3sys12SmartRWMutexILb1EEEEC2ERS3_.exit: ; preds = %4
   %8 = tail call noundef i32 @_ZN4llvm13StringMapImpl4hashENS_9StringRefE(ptr %1, i64 %2) #14
   %9 = tail call noundef i32 @_ZNK4llvm13StringMapImpl7FindKeyENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr %1, i64 %2, i32 noundef %8) #14
   %10 = icmp eq i32 %9, -1
-  %11 = getelementptr inbounds i8, ptr %0, i64 96
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %12 = load i32, ptr %11, align 8
   %13 = zext i32 %12 to i64
   %14 = sext i32 %9 to i64
@@ -320,7 +320,7 @@ _ZNSt10lock_guardIN4llvm3sys12SmartRWMutexILb1EEEEC2ERS3_.exit: ; preds = %3
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %1, ptr %12, align 8
   %13 = load ptr, ptr %9, align 8, !noalias !9
-  %14 = getelementptr inbounds i8, ptr %0, i64 80
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %15 = load i32, ptr %14, align 8, !noalias !9
   %16 = icmp eq i32 %15, 0
   br i1 %16, label %42, label %17
@@ -391,7 +391,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKvPKNS_8PassInfoENS_12DenseMapInfoIS3_vEENS
   store ptr %1, ptr %52, align 8
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %54 = load ptr, ptr %53, align 8
-  %55 = getelementptr inbounds i8, ptr %0, i64 144
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %56 = load ptr, ptr %55, align 8
   %.not21 = icmp eq ptr %54, %56
   br i1 %.not21, label %._crit_edge, label %.lr.ph
@@ -412,9 +412,9 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKvPKNS_8PassInfoENS_12DenseMapInfoIS3_vEENS
 
 62:                                               ; preds = %._crit_edge
   store ptr %1, ptr %5, align 8
-  %63 = getelementptr inbounds i8, ptr %0, i64 120
+  %63 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %64 = load ptr, ptr %63, align 8
-  %65 = getelementptr inbounds i8, ptr %0, i64 128
+  %65 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %66 = load ptr, ptr %65, align 8
   %.not.i.i = icmp eq ptr %64, %66
   br i1 %.not.i.i, label %_ZNSt6vectorISt10unique_ptrIKN4llvm8PassInfoESt14default_deleteIS3_EESaIS6_EE9push_backEOS6_.exit, label %_ZNSt6vectorISt10unique_ptrIKN4llvm8PassInfoESt14default_deleteIS3_EESaIS6_EE9push_backEOS6_.exit.thread
@@ -464,11 +464,11 @@ define dso_local void @_ZN4llvm12PassRegistry13enumerateWithEPNS_24PassRegistrat
 
 _ZNSt11shared_lockIN4llvm3sys12SmartRWMutexILb1EEEEC2ERS3_.exit: ; preds = %3
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %7 = getelementptr inbounds i8, ptr %0, i64 72
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %8 = load i32, ptr %7, align 8
   %9 = icmp eq i32 %8, 0
   %10 = load ptr, ptr %6, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 80
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %12 = load i32, ptr %11, align 8
   %13 = zext i32 %12 to i64
   %14 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair", ptr %10, i64 %13
@@ -545,9 +545,9 @@ define dso_local void @_ZN4llvm12PassRegistry23addRegistrationListenerEPNS_24Pas
 
 _ZNSt10lock_guardIN4llvm3sys12SmartRWMutexILb1EEEEC2ERS3_.exit: ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  %7 = getelementptr inbounds i8, ptr %0, i64 144
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 152
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %10 = load ptr, ptr %9, align 8
   %.not.i = icmp eq ptr %8, %10
   br i1 %.not.i, label %14, label %11
@@ -632,7 +632,7 @@ define dso_local void @_ZN4llvm12PassRegistry26removeRegistrationListenerEPNS_24
 _ZNSt10lock_guardIN4llvm3sys12SmartRWMutexILb1EEEEC2ERS3_.exit: ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 144
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %9 = load ptr, ptr %8, align 8
   %10 = ptrtoint ptr %9 to i64
   %11 = ptrtoint ptr %7 to i64

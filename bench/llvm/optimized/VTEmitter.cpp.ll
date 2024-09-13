@@ -739,7 +739,7 @@ _ZN4llvm11raw_ostreamlsENS_9StringRefE.exit197.i: ; preds = %327, %326, %324
 _ZN4llvm11raw_ostreamlsEPKc.exit200.i:            ; preds = %339, %337
   %343 = phi ptr [ %.pre399.i, %337 ], [ %342, %339 ]
   %.0.i.i199.i = phi ptr [ %338, %337 ], [ %.0.i196.i, %339 ]
-  %344 = getelementptr inbounds i8, ptr %.sroa.0311.0382.i, i64 48
+  %344 = getelementptr inbounds nuw i8, ptr %.sroa.0311.0382.i, i64 48
   %.sroa.030.0.copyload.i = load ptr, ptr %344, align 8
   %.sroa.231.0..sroa_idx.i = getelementptr inbounds i8, ptr %.sroa.0311.0382.i, i64 56
   %.sroa.231.0.copyload.i = load i64, ptr %.sroa.231.0..sroa_idx.i, align 8
@@ -878,7 +878,7 @@ _ZN4llvm11raw_ostreamlsENS_9StringRefE.exit212.i: ; preds = %395, %394, %392
 _ZN4llvm11raw_ostreamlsEPKc.exit215.i:            ; preds = %407, %405
   %411 = phi ptr [ %.pre409.i, %405 ], [ %410, %407 ]
   %.0.i.i214.i = phi ptr [ %406, %405 ], [ %.0.i211.i, %407 ]
-  %412 = getelementptr inbounds i8, ptr %.sroa.0311.0382.i, i64 64
+  %412 = getelementptr inbounds nuw i8, ptr %.sroa.0311.0382.i, i64 64
   %.sroa.026.0.copyload.i = load ptr, ptr %412, align 8
   %.sroa.227.0..sroa_idx.i = getelementptr inbounds i8, ptr %.sroa.0311.0382.i, i64 72
   %.sroa.227.0.copyload.i = load i64, ptr %.sroa.227.0..sroa_idx.i, align 8
@@ -2146,7 +2146,7 @@ _ZNKSt4lessIN4llvm9StringRefEEclERKS1_S4_.exit:   ; preds = %15, %_ZN4llvm9Strin
   %22 = tail call noalias noundef nonnull dereferenceable(88) ptr @_Znwm(i64 noundef 88) #15
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %23, ptr noundef nonnull readonly align 8 dereferenceable(16) %1, i64 16, i1 false)
-  %24 = getelementptr inbounds i8, ptr %22, i64 48
+  %24 = getelementptr inbounds nuw i8, ptr %22, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %24, i8 0, i64 40, i1 false)
   %.val7.i = load ptr, ptr %23, align 8
   %25 = getelementptr inbounds i8, ptr %22, i64 40
@@ -2427,7 +2427,7 @@ _ZNSt8_Rb_treeIN4llvm9StringRefESt4pairIKS1_ZN12_GLOBAL__N_19VTEmitter3runERNS0_
 
 _ZNSt8_Rb_treeIN4llvm9StringRefESt4pairIKS1_ZN12_GLOBAL__N_19VTEmitter3runERNS0_11raw_ostreamEE7VTRangeESt10_Select1stIS9_ESt4lessIS1_ESaIS9_EE22_M_emplace_hint_uniqueIJRKSt21piecewise_construct_tSt5tupleIJOS1_EESK_IJEEEEESt17_Rb_tree_iteratorIS9_ESt23_Rb_tree_const_iteratorIS9_EDpOT_.exit: ; preds = %_ZNSt8_Rb_treeIN4llvm9StringRefESt4pairIKS1_ZN12_GLOBAL__N_19VTEmitter3runERNS0_11raw_ostreamEE7VTRangeESt10_Select1stIS9_ESt4lessIS1_ESaIS9_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS9_ERS3_.exit.thread10.i, %98, %19, %_ZNKSt4lessIN4llvm9StringRefEEclERKS1_S4_.exit
   %.sroa.020.0 = phi ptr [ %.19.i.i.i, %_ZNKSt4lessIN4llvm9StringRefEEclERKS1_S4_.exit ], [ %.19.i.i.i, %19 ], [ %22, %98 ], [ %.sroa.01.0.ph.i, %_ZNSt8_Rb_treeIN4llvm9StringRefESt4pairIKS1_ZN12_GLOBAL__N_19VTEmitter3runERNS0_11raw_ostreamEE7VTRangeESt10_Select1stIS9_ESt4lessIS1_ESaIS9_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS9_ERS3_.exit.thread10.i ]
-  %103 = getelementptr inbounds i8, ptr %.sroa.020.0, i64 48
+  %103 = getelementptr inbounds nuw i8, ptr %.sroa.020.0, i64 48
   ret ptr %103
 }
 

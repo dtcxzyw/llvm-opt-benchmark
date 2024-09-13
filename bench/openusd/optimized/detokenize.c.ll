@@ -30,7 +30,7 @@ define hidden void @av1_decode_palette_tokens(ptr nocapture noundef readonly %0,
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 7864
   %18 = load ptr, ptr %17, align 8
   %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 150
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 150
   %21 = getelementptr inbounds [2 x i8], ptr %20, i64 0, i64 %6
   %22 = load i8, ptr %21, align 1
   %.fr = freeze i8 %22

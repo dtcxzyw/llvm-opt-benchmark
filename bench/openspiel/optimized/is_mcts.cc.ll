@@ -269,12 +269,12 @@ define void @_ZN10open_spiel10algorithms9ISMCTSBotC2EiSt10shared_ptrINS0_9Evalua
   br i1 %exitcond.not.i.i, label %21, label %12, !llvm.loop !4
 
 21:                                               ; preds = %12
-  %22 = getelementptr inbounds i8, ptr %0, i64 5000
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 5000
   store i64 624, ptr %22, align 8
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 5008
   %24 = load ptr, ptr %2, align 8
   store ptr %24, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %0, i64 5016
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 5016
   %26 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %27 = load ptr, ptr %26, align 8
   store ptr %27, ptr %25, align 8
@@ -300,7 +300,7 @@ define void @_ZN10open_spiel10algorithms9ISMCTSBotC2EiSt10shared_ptrINS0_9Evalua
 36:                                               ; preds = %34, %31, %21
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 5024
   store ptr @_ZZN4absl7debian218container_internal10EmptyGroupEvE11empty_group, ptr %37, align 8
-  %38 = getelementptr inbounds i8, ptr %0, i64 5032
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 5032
   %39 = zext i1 %8 to i8
   %40 = zext i1 %7 to i8
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 5112
@@ -363,7 +363,7 @@ define void @_ZN10open_spiel10algorithms9ISMCTSBot5ResetEv(ptr noundef nonnull a
   tail call void @_ZN4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyISt4pairIiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEPN10open_spiel10algorithms10ISMCTSNodeEEENS0_13hash_internal4HashISB_EESt8equal_toISB_ESaIS4_IKSB_SF_EEE5clearEv(ptr noundef nonnull align 8 dereferenceable(40) %2)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 5064
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 5072
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 5072
   %6 = load ptr, ptr %5, align 8
   %.not.i.i = icmp eq ptr %6, %4
   br i1 %.not.i.i, label %_ZNSt6vectorISt10unique_ptrIN10open_spiel10algorithms10ISMCTSNodeESt14default_deleteIS3_EESaIS6_EE5clearEv.exit, label %.lr.ph.i.i.i.i.i
@@ -406,7 +406,7 @@ _ZSt8_DestroyIPSt10unique_ptrIN10open_spiel10algorithms10ISMCTSNodeESt14default_
 _ZNSt6vectorISt10unique_ptrIN10open_spiel10algorithms10ISMCTSNodeESt14default_deleteIS3_EESaIS6_EE5clearEv.exit: ; preds = %1, %_ZSt8_DestroyIPSt10unique_ptrIN10open_spiel10algorithms10ISMCTSNodeESt14default_deleteIS3_EES6_EvT_S8_RSaIT0_E.exit.i.i
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 5088
   %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %0, i64 5096
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 5096
   %20 = load ptr, ptr %19, align 8
   %.not.i.i1 = icmp eq ptr %20, %18
   br i1 %.not.i.i1, label %_ZNSt6vectorISt10unique_ptrIN10open_spiel5StateESt14default_deleteIS2_EESaIS5_EE5clearEv.exit, label %.lr.ph.i.i.i.i.i2
@@ -600,7 +600,7 @@ define void @_ZN10open_spiel10algorithms9ISMCTSBot9RunSearchERKNS_5StateE(ptr de
   tail call void @_ZN10open_spiel10algorithms9ISMCTSBot5ResetEv(ptr noundef nonnull align 8 dereferenceable(5176) %1)
   %33 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %34 = load ptr, ptr %33, align 8, !noalias !12
-  %35 = getelementptr inbounds i8, ptr %2, i64 16
+  %35 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %36 = load ptr, ptr %35, align 8, !noalias !12
   %.not.i.i.i.i = icmp eq ptr %36, null
   br i1 %.not.i.i.i.i, label %_ZNK10open_spiel5State7GetGameEv.exit, label %37
@@ -622,12 +622,12 @@ define void @_ZN10open_spiel10algorithms9ISMCTSBot9RunSearchERKNS_5StateE(ptr de
   br label %47
 
 _ZNK10open_spiel5State7GetGameEv.exit:            ; preds = %3
-  %45 = getelementptr inbounds i8, ptr %34, i64 88
+  %45 = getelementptr inbounds nuw i8, ptr %34, i64 88
   %46 = load i32, ptr %45, align 8
   br label %_ZNSt10shared_ptrIKN10open_spiel4GameEED2Ev.exit
 
 47:                                               ; preds = %40, %43
-  %48 = getelementptr inbounds i8, ptr %34, i64 88
+  %48 = getelementptr inbounds nuw i8, ptr %34, i64 88
   %49 = load i32, ptr %48, align 8
   %50 = load atomic i64, ptr %38 acquire, align 8
   %51 = icmp eq i64 %50, 4294967297
@@ -740,12 +740,12 @@ _ZNSt10shared_ptrIKN10open_spiel4GameEED2Ev.exit: ; preds = %_ZNK10open_spiel5St
   br label %101
 
 _ZNK10open_spiel5State7GetGameEv.exit31:          ; preds = %88
-  %99 = getelementptr inbounds i8, ptr %89, i64 96
+  %99 = getelementptr inbounds nuw i8, ptr %89, i64 96
   %100 = load i32, ptr %99, align 8
   br label %_ZNSt10shared_ptrIKN10open_spiel4GameEED2Ev.exit38
 
 101:                                              ; preds = %94, %97
-  %102 = getelementptr inbounds i8, ptr %89, i64 96
+  %102 = getelementptr inbounds nuw i8, ptr %89, i64 96
   %103 = load i32, ptr %102, align 8
   %104 = load atomic i64, ptr %92 acquire, align 8
   %105 = icmp eq i64 %104, 4294967297
@@ -1476,9 +1476,9 @@ define noundef ptr @_ZN10open_spiel10algorithms9ISMCTSBot13CreateNewNodeERKNS_5S
   %25 = getelementptr inbounds nuw i8, ptr %23, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %25, i8 0, i64 32, i1 false)
   store ptr %23, ptr %6, align 8
-  %26 = getelementptr inbounds i8, ptr %0, i64 5072
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 5072
   %27 = load ptr, ptr %26, align 8
-  %28 = getelementptr inbounds i8, ptr %0, i64 5080
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 5080
   %29 = load ptr, ptr %28, align 8
   %.not.i.i = icmp eq ptr %27, %29
   br i1 %.not.i.i, label %33, label %_ZNSt6vectorISt10unique_ptrIN10open_spiel10algorithms10ISMCTSNodeESt14default_deleteIS3_EESaIS6_EE9push_backEOS6_.exit.thread
@@ -1535,7 +1535,7 @@ _ZNSt10unique_ptrIN10open_spiel10algorithms10ISMCTSNodeESt14default_deleteIS2_EE
   br i1 %47, label %48, label %55
 
 48:                                               ; preds = %.noexc8
-  %49 = getelementptr inbounds i8, ptr %0, i64 5032
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 5032
   %50 = load ptr, ptr %49, align 8, !noalias !28
   %51 = getelementptr inbounds %"union.absl::debian2::container_internal::map_slot_type.104", ptr %50, i64 %.fca.0.extract.i.i.i
   %52 = load i32, ptr %5, align 8, !noalias !28
@@ -1561,7 +1561,7 @@ _ZNSt10unique_ptrIN10open_spiel10algorithms10ISMCTSNodeESt14default_deleteIS2_EE
   unreachable
 
 60:                                               ; preds = %55
-  %61 = getelementptr inbounds i8, ptr %0, i64 5032
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 5032
   %62 = load ptr, ptr %61, align 8, !noalias !28
   %63 = getelementptr inbounds %"union.absl::debian2::container_internal::map_slot_type.104", ptr %62, i64 %.fca.0.extract.i.i.i, i32 0, i32 1
   store ptr %44, ptr %63, align 8
@@ -1646,7 +1646,7 @@ define void @_ZN10open_spiel10algorithms9ISMCTSBot15SampleRootStateERKNS_5StateE
 
 11:                                               ; preds = %3
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 5088
-  %13 = getelementptr inbounds i8, ptr %1, i64 5096
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 5096
   %14 = load ptr, ptr %13, align 8
   %15 = load ptr, ptr %12, align 8
   %16 = ptrtoint ptr %14 to i64
@@ -1660,7 +1660,7 @@ define void @_ZN10open_spiel10algorithms9ISMCTSBot15SampleRootStateERKNS_5StateE
 22:                                               ; preds = %11
   call void @_ZN10open_spiel10algorithms9ISMCTSBot21ResampleFromInfostateERKNS_5StateE(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr") align 8 %4, ptr noundef nonnull align 8 dereferenceable(5176) %1, ptr noundef nonnull align 8 dereferenceable(60) %2)
   %23 = load ptr, ptr %13, align 8
-  %24 = getelementptr inbounds i8, ptr %1, i64 5104
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 5104
   %25 = load ptr, ptr %24, align 8
   %.not.i.i = icmp eq ptr %23, %25
   br i1 %.not.i.i, label %29, label %_ZNSt6vectorISt10unique_ptrIN10open_spiel5StateESt14default_deleteIS2_EESaIS5_EE9push_backEOS5_.exit.thread
@@ -3409,7 +3409,7 @@ _ZNSt6vectorISt4pairIldESaIS1_EE7reserveEm.exit163: ; preds = %_ZNSt12_Vector_ba
 
 _ZN4absl7debian218container_internal12AssertIsFullEPa.exit.i183: ; preds = %.lr.ph
   %311 = getelementptr inbounds nuw i8, ptr %.sroa.7281.0387, i64 8
-  %312 = getelementptr inbounds i8, ptr %.sroa.7281.0387, i64 16
+  %312 = getelementptr inbounds nuw i8, ptr %.sroa.7281.0387, i64 16
   %313 = load double, ptr %312, align 8
   %314 = load i32, ptr %311, align 8
   %315 = sitofp i32 %314 to double
@@ -4344,7 +4344,7 @@ define void @_ZN10open_spiel10algorithms9ISMCTSBot21ResampleFromInfostateERKNS_5
   %5 = alloca %"class.std::function.65", align 8
   %6 = alloca %"class.std::function.65", align 8
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 5144
-  %8 = getelementptr inbounds i8, ptr %1, i64 5160
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 5160
   %9 = load ptr, ptr %8, align 8
   %.not.i.i.not = icmp eq ptr %9, null
   %10 = load ptr, ptr %2, align 8
@@ -4376,7 +4376,7 @@ define void @_ZN10open_spiel10algorithms9ISMCTSBot21ResampleFromInfostateERKNS_5
   unreachable
 
 21:                                               ; preds = %15
-  %22 = getelementptr inbounds i8, ptr %1, i64 5168
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 5168
   %23 = load ptr, ptr %22, align 8, !noalias !66
   invoke void %23(ptr dead_on_unwind writable sret(%"class.std::unique_ptr") align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(60) %2, ptr noundef nonnull align 4 dereferenceable(4) %4, ptr noundef nonnull align 8 dereferenceable(32) %5)
           to label %24 unwind label %31
@@ -5214,7 +5214,7 @@ _ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIlN10
 
 43:                                               ; preds = %_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIlN10open_spiel10algorithms9ChildInfoEEENS0_13hash_internal4HashIlEESt8equal_toIlESaISt4pairIKlS6_EEE8iteratordeEv.exit
   %44 = load i64, ptr %.sroa.7.0115, align 8
-  %45 = getelementptr inbounds i8, ptr %.sroa.7.0115, i64 16
+  %45 = getelementptr inbounds nuw i8, ptr %.sroa.7.0115, i64 16
   %46 = load double, ptr %45, align 8
   %47 = uitofp nneg i32 %36 to double
   %48 = fdiv double %46, %47
@@ -6020,7 +6020,7 @@ _ZN10open_spiel8internal11SpielStrOutINSt7__cxx1119basic_ostringstreamIcSt11char
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN10open_spiel10algorithms9ISMCTSBotD2Ev(ptr noundef nonnull align 8 dereferenceable(5176) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 120) (i8, ptr @_ZTVN10open_spiel10algorithms9ISMCTSBotE, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 5160
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 5160
   %3 = load ptr, ptr %2, align 8
   %.not.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i, label %_ZNSt8functionIFSt10unique_ptrIN10open_spiel5StateESt14default_deleteIS2_EERKS2_iS_IFdvEEEED2Ev.exit, label %4
@@ -6040,7 +6040,7 @@ define linkonce_odr void @_ZN10open_spiel10algorithms9ISMCTSBotD2Ev(ptr noundef 
 _ZNSt8functionIFSt10unique_ptrIN10open_spiel5StateESt14default_deleteIS2_EERKS2_iS_IFdvEEEED2Ev.exit: ; preds = %1, %4
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 5088
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 5096
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 5096
   %13 = load ptr, ptr %12, align 8
   %.not4.i.i.i.i = icmp eq ptr %11, %13
   br i1 %.not4.i.i.i.i, label %_ZSt8_DestroyIPSt10unique_ptrIN10open_spiel5StateESt14default_deleteIS2_EES5_EvT_S7_RSaIT0_E.exit.i, label %.lr.ph.i.i.i.i
@@ -6074,7 +6074,7 @@ _ZSt8_DestroyIPSt10unique_ptrIN10open_spiel5StateESt14default_deleteIS2_EES5_EvT
   br i1 %.not.i.i.i, label %_ZNSt6vectorISt10unique_ptrIN10open_spiel5StateESt14default_deleteIS2_EESaIS5_EED2Ev.exit, label %20
 
 20:                                               ; preds = %_ZSt8_DestroyIPSt10unique_ptrIN10open_spiel5StateESt14default_deleteIS2_EES5_EvT_S7_RSaIT0_E.exit.i
-  %21 = getelementptr inbounds i8, ptr %0, i64 5104
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 5104
   %22 = load ptr, ptr %21, align 8
   %23 = ptrtoint ptr %22 to i64
   %24 = ptrtoint ptr %19 to i64
@@ -6085,7 +6085,7 @@ _ZSt8_DestroyIPSt10unique_ptrIN10open_spiel5StateESt14default_deleteIS2_EES5_EvT
 _ZNSt6vectorISt10unique_ptrIN10open_spiel5StateESt14default_deleteIS2_EESaIS5_EED2Ev.exit: ; preds = %_ZSt8_DestroyIPSt10unique_ptrIN10open_spiel5StateESt14default_deleteIS2_EES5_EvT_S7_RSaIT0_E.exit.i, %20
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 5064
   %27 = load ptr, ptr %26, align 8
-  %28 = getelementptr inbounds i8, ptr %0, i64 5072
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 5072
   %29 = load ptr, ptr %28, align 8
   %.not4.i.i.i.i1 = icmp eq ptr %27, %29
   br i1 %.not4.i.i.i.i1, label %_ZSt8_DestroyIPSt10unique_ptrIN10open_spiel10algorithms10ISMCTSNodeESt14default_deleteIS3_EES6_EvT_S8_RSaIT0_E.exit.i, label %.lr.ph.i.i.i.i2
@@ -6131,7 +6131,7 @@ _ZSt8_DestroyIPSt10unique_ptrIN10open_spiel10algorithms10ISMCTSNodeESt14default_
   br i1 %.not.i.i.i7, label %_ZNSt6vectorISt10unique_ptrIN10open_spiel10algorithms10ISMCTSNodeESt14default_deleteIS3_EESaIS6_EED2Ev.exit, label %41
 
 41:                                               ; preds = %_ZSt8_DestroyIPSt10unique_ptrIN10open_spiel10algorithms10ISMCTSNodeESt14default_deleteIS3_EES6_EvT_S8_RSaIT0_E.exit.i
-  %42 = getelementptr inbounds i8, ptr %0, i64 5080
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 5080
   %43 = load ptr, ptr %42, align 8
   %44 = ptrtoint ptr %43 to i64
   %45 = ptrtoint ptr %40 to i64
@@ -6141,13 +6141,13 @@ _ZSt8_DestroyIPSt10unique_ptrIN10open_spiel10algorithms10ISMCTSNodeESt14default_
 
 _ZNSt6vectorISt10unique_ptrIN10open_spiel10algorithms10ISMCTSNodeESt14default_deleteIS3_EESaIS6_EED2Ev.exit: ; preds = %_ZSt8_DestroyIPSt10unique_ptrIN10open_spiel10algorithms10ISMCTSNodeESt14default_deleteIS3_EES6_EvT_S8_RSaIT0_E.exit.i, %41
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 5024
-  %48 = getelementptr inbounds i8, ptr %0, i64 5048
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 5048
   %49 = load i64, ptr %48, align 8
   %.not.i.i.i.i8 = icmp eq i64 %49, 0
   br i1 %.not.i.i.i.i8, label %_ZN4absl7debian213flat_hash_mapISt4pairIiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEPN10open_spiel10algorithms10ISMCTSNodeENS0_13hash_internal4HashIS9_EESt8equal_toIS9_ESaIS2_IKS9_SD_EEED2Ev.exit, label %.lr.ph.i.i.i.i9
 
 .lr.ph.i.i.i.i9:                                  ; preds = %_ZNSt6vectorISt10unique_ptrIN10open_spiel10algorithms10ISMCTSNodeESt14default_deleteIS3_EESaIS6_EED2Ev.exit
-  %50 = getelementptr inbounds i8, ptr %0, i64 5032
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 5032
   br label %51
 
 51:                                               ; preds = %60, %.lr.ph.i.i.i.i9
@@ -6184,7 +6184,7 @@ _ZNSt6vectorISt10unique_ptrIN10open_spiel10algorithms10ISMCTSNodeESt14default_de
   br label %_ZN4absl7debian213flat_hash_mapISt4pairIiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEPN10open_spiel10algorithms10ISMCTSNodeENS0_13hash_internal4HashIS9_EESt8equal_toIS9_ESaIS2_IKS9_SD_EEED2Ev.exit
 
 _ZN4absl7debian213flat_hash_mapISt4pairIiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEPN10open_spiel10algorithms10ISMCTSNodeENS0_13hash_internal4HashIS9_EESt8equal_toIS9_ESaIS2_IKS9_SD_EEED2Ev.exit: ; preds = %_ZNSt6vectorISt10unique_ptrIN10open_spiel10algorithms10ISMCTSNodeESt14default_deleteIS3_EESaIS6_EED2Ev.exit, %._crit_edge.i.i.i.i
-  %68 = getelementptr inbounds i8, ptr %0, i64 5016
+  %68 = getelementptr inbounds nuw i8, ptr %0, i64 5016
   %69 = load ptr, ptr %68, align 8
   %.not.i.i.i10 = icmp eq ptr %69, null
   br i1 %.not.i.i.i10, label %_ZNSt10shared_ptrIN10open_spiel10algorithms9EvaluatorEED2Ev.exit, label %70

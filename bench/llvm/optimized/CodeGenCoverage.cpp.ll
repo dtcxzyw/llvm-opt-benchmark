@@ -509,7 +509,7 @@ _ZN4llvm28const_set_bits_iterator_implINS_9BitVectorEEppEv.exit: ; preds = %106
   br label %122
 
 122:                                              ; preds = %._crit_edge, %_ZN4llvmplERKNS_5TwineES2_.exit
-  %123 = getelementptr inbounds i8, ptr %35, i64 136
+  %123 = getelementptr inbounds nuw i8, ptr %35, i64 136
   %124 = load i8, ptr %123, align 8
   %125 = trunc i8 %124 to i1
   br i1 %125, label %126, label %_ZNSt10unique_ptrIN4llvm14ToolOutputFileESt14default_deleteIS1_EED2Ev.exit

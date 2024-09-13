@@ -279,7 +279,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8MCSymbolENS_11AddressPool16AddressPool
 39:                                               ; preds = %.lr.ph, %_ZN4llvm16DenseMapIteratorIPKNS_8MCSymbolENS_11AddressPool16AddressPoolEntryENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S5_EELb0EEppEv.exit
   %.sroa.031.037 = phi ptr [ %.pn14.i, %.lr.ph ], [ %.sroa.031.2, %_ZN4llvm16DenseMapIteratorIPKNS_8MCSymbolENS_11AddressPool16AddressPoolEntryENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S5_EELb0EEppEv.exit ]
   %40 = getelementptr inbounds nuw i8, ptr %.sroa.031.037, i64 8
-  %41 = getelementptr inbounds i8, ptr %.sroa.031.037, i64 12
+  %41 = getelementptr inbounds nuw i8, ptr %.sroa.031.037, i64 12
   %42 = load i8, ptr %41, align 4
   %43 = trunc i8 %42 to i1
   br i1 %43, label %44, label %51

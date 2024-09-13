@@ -1301,7 +1301,7 @@ define dso_local noundef ptr @_ZN5clang16OMPMetaDirective6CreateERKNS_10ASTConte
   %12 = shl nuw nsw i64 %reass.add.i.i.i.i, 3
   %13 = add nuw nsw i64 %12, 56
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 2144
-  %15 = getelementptr inbounds i8, ptr %0, i64 2224
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 2224
   %16 = load i64, ptr %15, align 8
   %17 = add i64 %16, %13
   store i64 %17, ptr %15, align 8
@@ -1310,7 +1310,7 @@ define dso_local noundef ptr @_ZN5clang16OMPMetaDirective6CreateERKNS_10ASTConte
   %20 = add i64 %19, 7
   %21 = and i64 %20, -8
   %22 = add i64 %21, %13
-  %23 = getelementptr inbounds i8, ptr %0, i64 2152
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 2152
   %24 = load ptr, ptr %23, align 8
   %25 = ptrtoint ptr %24 to i64
   %.not.i.i.i.i = icmp ugt i64 %22, %25
@@ -1386,7 +1386,7 @@ define dso_local noundef ptr @_ZN5clang16OMPMetaDirective11CreateEmptyERKNS_10AS
   %reass.add.i.i.i.i = shl nuw nsw i64 %3, 3
   %4 = add nuw nsw i64 %reass.add.i.i.i.i, 72
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 2144
-  %6 = getelementptr inbounds i8, ptr %0, i64 2224
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 2224
   %7 = load i64, ptr %6, align 8
   %8 = add i64 %7, %4
   store i64 %8, ptr %6, align 8
@@ -1395,7 +1395,7 @@ define dso_local noundef ptr @_ZN5clang16OMPMetaDirective11CreateEmptyERKNS_10AS
   %11 = add i64 %10, 7
   %12 = and i64 %11, -8
   %13 = add i64 %12, %4
-  %14 = getelementptr inbounds i8, ptr %0, i64 2152
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 2152
   %15 = load ptr, ptr %14, align 8
   %16 = ptrtoint ptr %15 to i64
   %.not.i.i.i.i = icmp ugt i64 %13, %16
@@ -1454,7 +1454,7 @@ define dso_local noundef ptr @_ZN5clang20OMPParallelDirective6CreateERKNS_10ASTC
   %13 = shl nuw nsw i64 %reass.add.i.i.i.i, 3
   %14 = add nuw nsw i64 %13, 56
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 2144
-  %16 = getelementptr inbounds i8, ptr %0, i64 2224
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 2224
   %17 = load i64, ptr %16, align 8
   %18 = add i64 %17, %14
   store i64 %18, ptr %16, align 8
@@ -1463,7 +1463,7 @@ define dso_local noundef ptr @_ZN5clang20OMPParallelDirective6CreateERKNS_10ASTC
   %21 = add i64 %20, 7
   %22 = and i64 %21, -8
   %23 = add i64 %22, %14
-  %24 = getelementptr inbounds i8, ptr %0, i64 2152
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 2152
   %25 = load ptr, ptr %24, align 8
   %26 = ptrtoint ptr %25 to i64
   %.not.i.i.i.i = icmp ugt i64 %23, %26
@@ -1546,7 +1546,7 @@ define dso_local noundef ptr @_ZN5clang20OMPParallelDirective11CreateEmptyERKNS_
   %reass.add.i.i.i.i = shl nuw nsw i64 %3, 3
   %4 = add nuw nsw i64 %reass.add.i.i.i.i, 72
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 2144
-  %6 = getelementptr inbounds i8, ptr %0, i64 2224
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 2224
   %7 = load i64, ptr %6, align 8
   %8 = add i64 %7, %4
   store i64 %8, ptr %6, align 8
@@ -1555,7 +1555,7 @@ define dso_local noundef ptr @_ZN5clang20OMPParallelDirective11CreateEmptyERKNS_
   %11 = add i64 %10, 7
   %12 = and i64 %11, -8
   %13 = add i64 %12, %4
-  %14 = getelementptr inbounds i8, ptr %0, i64 2152
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 2152
   %15 = load ptr, ptr %14, align 8
   %16 = ptrtoint ptr %15 to i64
   %.not.i.i.i.i = icmp ugt i64 %13, %16
@@ -1642,7 +1642,7 @@ _ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit: ; pred
   %26 = shl nuw nsw i64 %reass.add.i.i.i.i, 3
   %27 = add nuw nsw i64 %26, 56
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 2144
-  %29 = getelementptr inbounds i8, ptr %0, i64 2224
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 2224
   %30 = load i64, ptr %29, align 8
   %31 = add i64 %27, %30
   store i64 %31, ptr %29, align 8
@@ -1651,7 +1651,7 @@ _ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit: ; pred
   %34 = add i64 %33, 7
   %35 = and i64 %34, -8
   %36 = add i64 %35, %27
-  %37 = getelementptr inbounds i8, ptr %0, i64 2152
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 2152
   %38 = load ptr, ptr %37, align 8
   %39 = ptrtoint ptr %38 to i64
   %.not.i.i.i.i = icmp ugt i64 %36, %39
@@ -2150,7 +2150,7 @@ _ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit: ; pred
   %18 = shl nuw nsw i64 %reass.add.i.i.i.i, 3
   %19 = add nuw nsw i64 %18, 56
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 2144
-  %21 = getelementptr inbounds i8, ptr %0, i64 2224
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 2224
   %22 = load i64, ptr %21, align 8
   %23 = add i64 %19, %22
   store i64 %23, ptr %21, align 8
@@ -2159,7 +2159,7 @@ _ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit: ; pred
   %26 = add i64 %25, 7
   %27 = and i64 %26, -8
   %28 = add i64 %27, %19
-  %29 = getelementptr inbounds i8, ptr %0, i64 2152
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 2152
   %30 = load ptr, ptr %29, align 8
   %31 = ptrtoint ptr %30 to i64
   %.not.i.i.i.i = icmp ugt i64 %28, %31
@@ -2247,7 +2247,7 @@ _ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit: ; pred
   %29 = shl nuw nsw i64 %reass.add.i.i.i.i, 3
   %30 = add nuw nsw i64 %29, 56
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 2144
-  %32 = getelementptr inbounds i8, ptr %0, i64 2224
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 2224
   %33 = load i64, ptr %32, align 8
   %34 = add i64 %30, %33
   store i64 %34, ptr %32, align 8
@@ -2256,7 +2256,7 @@ _ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit: ; pred
   %37 = add i64 %36, 7
   %38 = and i64 %37, -8
   %39 = add i64 %38, %30
-  %40 = getelementptr inbounds i8, ptr %0, i64 2152
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 2152
   %41 = load ptr, ptr %40, align 8
   %42 = ptrtoint ptr %41 to i64
   %.not.i.i.i.i = icmp ugt i64 %39, %42
@@ -2837,7 +2837,7 @@ _ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit: ; pred
   %19 = shl nuw nsw i64 %reass.add.i.i.i.i, 3
   %20 = add nuw nsw i64 %19, 56
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 2144
-  %22 = getelementptr inbounds i8, ptr %0, i64 2224
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 2224
   %23 = load i64, ptr %22, align 8
   %24 = add i64 %20, %23
   store i64 %24, ptr %22, align 8
@@ -2846,7 +2846,7 @@ _ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit: ; pred
   %27 = add i64 %26, 7
   %28 = and i64 %27, -8
   %29 = add i64 %28, %20
-  %30 = getelementptr inbounds i8, ptr %0, i64 2152
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 2152
   %31 = load ptr, ptr %30, align 8
   %32 = ptrtoint ptr %31 to i64
   %.not.i.i.i.i = icmp ugt i64 %29, %32
@@ -2909,7 +2909,7 @@ define dso_local noundef ptr @_ZN5clang16OMPTileDirective6CreateERKNS_10ASTConte
   %14 = shl nuw nsw i64 %reass.add.i.i.i.i, 3
   %15 = add nuw nsw i64 %14, 56
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 2144
-  %17 = getelementptr inbounds i8, ptr %0, i64 2224
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 2224
   %18 = load i64, ptr %17, align 8
   %19 = add i64 %18, %15
   store i64 %19, ptr %17, align 8
@@ -2918,7 +2918,7 @@ define dso_local noundef ptr @_ZN5clang16OMPTileDirective6CreateERKNS_10ASTConte
   %22 = add i64 %21, 7
   %23 = and i64 %22, -8
   %24 = add i64 %23, %15
-  %25 = getelementptr inbounds i8, ptr %0, i64 2152
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 2152
   %26 = load ptr, ptr %25, align 8
   %27 = ptrtoint ptr %26 to i64
   %.not.i.i.i.i = icmp ugt i64 %24, %27
@@ -3005,7 +3005,7 @@ define dso_local noundef ptr @_ZN5clang16OMPTileDirective11CreateEmptyERKNS_10AS
   %reass.add.i.i.i.i = shl nuw nsw i64 %4, 3
   %5 = add nuw nsw i64 %reass.add.i.i.i.i, 80
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 2144
-  %7 = getelementptr inbounds i8, ptr %0, i64 2224
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 2224
   %8 = load i64, ptr %7, align 8
   %9 = add i64 %8, %5
   store i64 %9, ptr %7, align 8
@@ -3014,7 +3014,7 @@ define dso_local noundef ptr @_ZN5clang16OMPTileDirective11CreateEmptyERKNS_10AS
   %12 = add i64 %11, 7
   %13 = and i64 %12, -8
   %14 = add i64 %13, %5
-  %15 = getelementptr inbounds i8, ptr %0, i64 2152
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 2152
   %16 = load ptr, ptr %15, align 8
   %17 = ptrtoint ptr %16 to i64
   %.not.i.i.i.i = icmp ugt i64 %14, %17
@@ -3081,7 +3081,7 @@ define dso_local noundef ptr @_ZN5clang18OMPUnrollDirective6CreateERKNS_10ASTCon
   %14 = shl nuw nsw i64 %reass.add.i.i.i.i, 3
   %15 = add nuw nsw i64 %14, 56
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 2144
-  %17 = getelementptr inbounds i8, ptr %0, i64 2224
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 2224
   %18 = load i64, ptr %17, align 8
   %19 = add i64 %18, %15
   store i64 %19, ptr %17, align 8
@@ -3090,7 +3090,7 @@ define dso_local noundef ptr @_ZN5clang18OMPUnrollDirective6CreateERKNS_10ASTCon
   %22 = add i64 %21, 7
   %23 = and i64 %22, -8
   %24 = add i64 %23, %15
-  %25 = getelementptr inbounds i8, ptr %0, i64 2152
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 2152
   %26 = load ptr, ptr %25, align 8
   %27 = ptrtoint ptr %26 to i64
   %.not.i.i.i.i = icmp ugt i64 %24, %27
@@ -3176,7 +3176,7 @@ define dso_local noundef ptr @_ZN5clang18OMPUnrollDirective11CreateEmptyERKNS_10
   %reass.add.i.i.i.i = shl nuw nsw i64 %3, 3
   %4 = add nuw nsw i64 %reass.add.i.i.i.i, 80
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 2144
-  %6 = getelementptr inbounds i8, ptr %0, i64 2224
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 2224
   %7 = load i64, ptr %6, align 8
   %8 = add i64 %7, %4
   store i64 %8, ptr %6, align 8
@@ -3185,7 +3185,7 @@ define dso_local noundef ptr @_ZN5clang18OMPUnrollDirective11CreateEmptyERKNS_10
   %11 = add i64 %10, 7
   %12 = and i64 %11, -8
   %13 = add i64 %12, %4
-  %14 = getelementptr inbounds i8, ptr %0, i64 2152
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 2152
   %15 = load ptr, ptr %14, align 8
   %16 = ptrtoint ptr %15 to i64
   %.not.i.i.i.i = icmp ugt i64 %13, %16
@@ -3243,7 +3243,7 @@ define dso_local noundef ptr @_ZN5clang19OMPReverseDirective6CreateERKNS_10ASTCo
   %7 = icmp ne ptr %3, null
   %8 = select i1 %7, i64 80, i64 72
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 2144
-  %10 = getelementptr inbounds i8, ptr %0, i64 2224
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 2224
   %11 = load i64, ptr %10, align 8
   %12 = add i64 %11, %8
   store i64 %12, ptr %10, align 8
@@ -3252,7 +3252,7 @@ define dso_local noundef ptr @_ZN5clang19OMPReverseDirective6CreateERKNS_10ASTCo
   %15 = add i64 %14, 7
   %16 = and i64 %15, -8
   %17 = add i64 %16, %8
-  %18 = getelementptr inbounds i8, ptr %0, i64 2152
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 2152
   %19 = load ptr, ptr %18, align 8
   %20 = ptrtoint ptr %19 to i64
   %.not.i.i.i.i = icmp ugt i64 %17, %20
@@ -3323,7 +3323,7 @@ _ZN5clang22OMPExecutableDirective15createDirectiveINS_19OMPReverseDirectiveEJRNS
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local noundef ptr @_ZN5clang19OMPReverseDirective11CreateEmptyERKNS_10ASTContextE(ptr noundef nonnull align 8 dereferenceable(23096) %0) local_unnamed_addr #6 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 2144
-  %3 = getelementptr inbounds i8, ptr %0, i64 2224
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 2224
   %4 = load i64, ptr %3, align 8
   %5 = add i64 %4, 80
   store i64 %5, ptr %3, align 8
@@ -3332,7 +3332,7 @@ define dso_local noundef ptr @_ZN5clang19OMPReverseDirective11CreateEmptyERKNS_1
   %8 = add i64 %7, 7
   %9 = and i64 %8, -8
   %10 = add i64 %9, 80
-  %11 = getelementptr inbounds i8, ptr %0, i64 2152
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 2152
   %12 = load ptr, ptr %11, align 8
   %13 = ptrtoint ptr %12 to i64
   %.not.i.i.i.i = icmp ugt i64 %10, %13
@@ -3402,7 +3402,7 @@ define dso_local noundef ptr @_ZN5clang23OMPInterchangeDirective6CreateERKNS_10A
   %14 = shl nuw nsw i64 %reass.add.i.i.i.i, 3
   %15 = add nuw nsw i64 %14, 56
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 2144
-  %17 = getelementptr inbounds i8, ptr %0, i64 2224
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 2224
   %18 = load i64, ptr %17, align 8
   %19 = add i64 %18, %15
   store i64 %19, ptr %17, align 8
@@ -3411,7 +3411,7 @@ define dso_local noundef ptr @_ZN5clang23OMPInterchangeDirective6CreateERKNS_10A
   %22 = add i64 %21, 7
   %23 = and i64 %22, -8
   %24 = add i64 %23, %15
-  %25 = getelementptr inbounds i8, ptr %0, i64 2152
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 2152
   %26 = load ptr, ptr %25, align 8
   %27 = ptrtoint ptr %26 to i64
   %.not.i.i.i.i = icmp ugt i64 %24, %27
@@ -3498,7 +3498,7 @@ define dso_local noundef ptr @_ZN5clang23OMPInterchangeDirective11CreateEmptyERK
   %reass.add.i.i.i.i = shl nuw nsw i64 %4, 3
   %5 = add nuw nsw i64 %reass.add.i.i.i.i, 80
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 2144
-  %7 = getelementptr inbounds i8, ptr %0, i64 2224
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 2224
   %8 = load i64, ptr %7, align 8
   %9 = add i64 %8, %5
   store i64 %9, ptr %7, align 8
@@ -3507,7 +3507,7 @@ define dso_local noundef ptr @_ZN5clang23OMPInterchangeDirective11CreateEmptyERK
   %12 = add i64 %11, 7
   %13 = and i64 %12, -8
   %14 = add i64 %13, %5
-  %15 = getelementptr inbounds i8, ptr %0, i64 2152
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 2152
   %16 = load ptr, ptr %15, align 8
   %17 = ptrtoint ptr %16 to i64
   %.not.i.i.i.i = icmp ugt i64 %14, %17
@@ -3597,7 +3597,7 @@ _ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit: ; pred
   %26 = shl nuw nsw i64 %reass.add.i.i.i.i, 3
   %27 = add nuw nsw i64 %26, 56
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 2144
-  %29 = getelementptr inbounds i8, ptr %0, i64 2224
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 2224
   %30 = load i64, ptr %29, align 8
   %31 = add i64 %27, %30
   store i64 %31, ptr %29, align 8
@@ -3606,7 +3606,7 @@ _ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit: ; pred
   %34 = add i64 %33, 7
   %35 = and i64 %34, -8
   %36 = add i64 %35, %27
-  %37 = getelementptr inbounds i8, ptr %0, i64 2152
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 2152
   %38 = load ptr, ptr %37, align 8
   %39 = ptrtoint ptr %38 to i64
   %.not.i.i.i.i = icmp ugt i64 %36, %39
@@ -4137,7 +4137,7 @@ _ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit: ; pred
   %18 = shl nuw nsw i64 %reass.add.i.i.i.i, 3
   %19 = add nuw nsw i64 %18, 56
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 2144
-  %21 = getelementptr inbounds i8, ptr %0, i64 2224
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 2224
   %22 = load i64, ptr %21, align 8
   %23 = add i64 %19, %22
   store i64 %23, ptr %21, align 8
@@ -4146,7 +4146,7 @@ _ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit: ; pred
   %26 = add i64 %25, 7
   %27 = and i64 %26, -8
   %28 = add i64 %27, %19
-  %29 = getelementptr inbounds i8, ptr %0, i64 2152
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 2152
   %30 = load ptr, ptr %29, align 8
   %31 = ptrtoint ptr %30 to i64
   %.not.i.i.i.i = icmp ugt i64 %28, %31
@@ -4207,7 +4207,7 @@ define dso_local noundef ptr @_ZN5clang20OMPSectionsDirective6CreateERKNS_10ASTC
   %13 = shl nuw nsw i64 %reass.add.i.i.i.i, 3
   %14 = add nuw nsw i64 %13, 56
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 2144
-  %16 = getelementptr inbounds i8, ptr %0, i64 2224
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 2224
   %17 = load i64, ptr %16, align 8
   %18 = add i64 %17, %14
   store i64 %18, ptr %16, align 8
@@ -4216,7 +4216,7 @@ define dso_local noundef ptr @_ZN5clang20OMPSectionsDirective6CreateERKNS_10ASTC
   %21 = add i64 %20, 7
   %22 = and i64 %21, -8
   %23 = add i64 %22, %14
-  %24 = getelementptr inbounds i8, ptr %0, i64 2152
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 2152
   %25 = load ptr, ptr %24, align 8
   %26 = ptrtoint ptr %25 to i64
   %.not.i.i.i.i = icmp ugt i64 %23, %26
@@ -4299,7 +4299,7 @@ define dso_local noundef ptr @_ZN5clang20OMPSectionsDirective11CreateEmptyERKNS_
   %reass.add.i.i.i.i = shl nuw nsw i64 %3, 3
   %4 = add nuw nsw i64 %reass.add.i.i.i.i, 72
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 2144
-  %6 = getelementptr inbounds i8, ptr %0, i64 2224
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 2224
   %7 = load i64, ptr %6, align 8
   %8 = add i64 %7, %4
   store i64 %8, ptr %6, align 8
@@ -4308,7 +4308,7 @@ define dso_local noundef ptr @_ZN5clang20OMPSectionsDirective11CreateEmptyERKNS_
   %11 = add i64 %10, 7
   %12 = and i64 %11, -8
   %13 = add i64 %12, %4
-  %14 = getelementptr inbounds i8, ptr %0, i64 2152
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 2152
   %15 = load ptr, ptr %14, align 8
   %16 = ptrtoint ptr %15 to i64
   %.not.i.i.i.i = icmp ugt i64 %13, %16
@@ -4364,7 +4364,7 @@ define dso_local noundef ptr @_ZN5clang19OMPSectionDirective6CreateERKNS_10ASTCo
   %6 = icmp ne ptr %3, null
   %7 = select i1 %6, i64 64, i64 56
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 2144
-  %9 = getelementptr inbounds i8, ptr %0, i64 2224
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 2224
   %10 = load i64, ptr %9, align 8
   %11 = add i64 %10, %7
   store i64 %11, ptr %9, align 8
@@ -4373,7 +4373,7 @@ define dso_local noundef ptr @_ZN5clang19OMPSectionDirective6CreateERKNS_10ASTCo
   %14 = add i64 %13, 7
   %15 = and i64 %14, -8
   %16 = add i64 %15, %7
-  %17 = getelementptr inbounds i8, ptr %0, i64 2152
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 2152
   %18 = load ptr, ptr %17, align 8
   %19 = ptrtoint ptr %18 to i64
   %.not.i.i.i.i = icmp ugt i64 %16, %19
@@ -4435,7 +4435,7 @@ _ZN5clang22OMPExecutableDirective15createDirectiveINS_19OMPSectionDirectiveEJRNS
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local noundef ptr @_ZN5clang19OMPSectionDirective11CreateEmptyERKNS_10ASTContextENS_4Stmt10EmptyShellE(ptr noundef nonnull align 8 dereferenceable(23096) %0) local_unnamed_addr #6 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 2144
-  %3 = getelementptr inbounds i8, ptr %0, i64 2224
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 2224
   %4 = load i64, ptr %3, align 8
   %5 = add i64 %4, 64
   store i64 %5, ptr %3, align 8
@@ -4444,7 +4444,7 @@ define dso_local noundef ptr @_ZN5clang19OMPSectionDirective11CreateEmptyERKNS_1
   %8 = add i64 %7, 7
   %9 = and i64 %8, -8
   %10 = add i64 %9, 64
-  %11 = getelementptr inbounds i8, ptr %0, i64 2152
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 2152
   %12 = load ptr, ptr %11, align 8
   %13 = ptrtoint ptr %12 to i64
   %.not.i.i.i.i = icmp ugt i64 %10, %13
@@ -4512,7 +4512,7 @@ define dso_local noundef ptr @_ZN5clang17OMPScopeDirective6CreateERKNS_10ASTCont
   %11 = shl nuw nsw i64 %reass.add.i.i.i.i, 3
   %12 = add nuw nsw i64 %11, 48
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 2144
-  %14 = getelementptr inbounds i8, ptr %0, i64 2224
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 2224
   %15 = load i64, ptr %14, align 8
   %16 = add i64 %15, %12
   store i64 %16, ptr %14, align 8
@@ -4521,7 +4521,7 @@ define dso_local noundef ptr @_ZN5clang17OMPScopeDirective6CreateERKNS_10ASTCont
   %19 = add i64 %18, 7
   %20 = and i64 %19, -8
   %21 = add i64 %20, %12
-  %22 = getelementptr inbounds i8, ptr %0, i64 2152
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 2152
   %23 = load ptr, ptr %22, align 8
   %24 = ptrtoint ptr %23 to i64
   %.not.i.i.i.i = icmp ugt i64 %21, %24
@@ -4594,7 +4594,7 @@ define dso_local noundef ptr @_ZN5clang17OMPScopeDirective11CreateEmptyERKNS_10A
   %reass.add.i.i.i.i = shl nuw nsw i64 %3, 3
   %4 = add nuw nsw i64 %reass.add.i.i.i.i, 56
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 2144
-  %6 = getelementptr inbounds i8, ptr %0, i64 2224
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 2224
   %7 = load i64, ptr %6, align 8
   %8 = add i64 %7, %4
   store i64 %8, ptr %6, align 8
@@ -4603,7 +4603,7 @@ define dso_local noundef ptr @_ZN5clang17OMPScopeDirective11CreateEmptyERKNS_10A
   %11 = add i64 %10, 7
   %12 = and i64 %11, -8
   %13 = add i64 %12, %4
-  %14 = getelementptr inbounds i8, ptr %0, i64 2152
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 2152
   %15 = load ptr, ptr %14, align 8
   %16 = ptrtoint ptr %15 to i64
   %.not.i.i.i.i = icmp ugt i64 %13, %16
@@ -4662,7 +4662,7 @@ define dso_local noundef ptr @_ZN5clang18OMPSingleDirective6CreateERKNS_10ASTCon
   %11 = shl nuw nsw i64 %reass.add.i.i.i.i, 3
   %12 = add nuw nsw i64 %11, 48
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 2144
-  %14 = getelementptr inbounds i8, ptr %0, i64 2224
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 2224
   %15 = load i64, ptr %14, align 8
   %16 = add i64 %15, %12
   store i64 %16, ptr %14, align 8
@@ -4671,7 +4671,7 @@ define dso_local noundef ptr @_ZN5clang18OMPSingleDirective6CreateERKNS_10ASTCon
   %19 = add i64 %18, 7
   %20 = and i64 %19, -8
   %21 = add i64 %20, %12
-  %22 = getelementptr inbounds i8, ptr %0, i64 2152
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 2152
   %23 = load ptr, ptr %22, align 8
   %24 = ptrtoint ptr %23 to i64
   %.not.i.i.i.i = icmp ugt i64 %21, %24
@@ -4744,7 +4744,7 @@ define dso_local noundef ptr @_ZN5clang18OMPSingleDirective11CreateEmptyERKNS_10
   %reass.add.i.i.i.i = shl nuw nsw i64 %3, 3
   %4 = add nuw nsw i64 %reass.add.i.i.i.i, 56
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 2144
-  %6 = getelementptr inbounds i8, ptr %0, i64 2224
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 2224
   %7 = load i64, ptr %6, align 8
   %8 = add i64 %7, %4
   store i64 %8, ptr %6, align 8
@@ -4753,7 +4753,7 @@ define dso_local noundef ptr @_ZN5clang18OMPSingleDirective11CreateEmptyERKNS_10
   %11 = add i64 %10, 7
   %12 = and i64 %11, -8
   %13 = add i64 %12, %4
-  %14 = getelementptr inbounds i8, ptr %0, i64 2152
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 2152
   %15 = load ptr, ptr %14, align 8
   %16 = ptrtoint ptr %15 to i64
   %.not.i.i.i.i = icmp ugt i64 %13, %16
@@ -4807,7 +4807,7 @@ define dso_local noundef ptr @_ZN5clang18OMPMasterDirective6CreateERKNS_10ASTCon
   %5 = icmp ne ptr %3, null
   %6 = select i1 %5, i64 56, i64 48
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 2144
-  %8 = getelementptr inbounds i8, ptr %0, i64 2224
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 2224
   %9 = load i64, ptr %8, align 8
   %10 = add i64 %9, %6
   store i64 %10, ptr %8, align 8
@@ -4816,7 +4816,7 @@ define dso_local noundef ptr @_ZN5clang18OMPMasterDirective6CreateERKNS_10ASTCon
   %13 = add i64 %12, 7
   %14 = and i64 %13, -8
   %15 = add i64 %14, %6
-  %16 = getelementptr inbounds i8, ptr %0, i64 2152
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 2152
   %17 = load ptr, ptr %16, align 8
   %18 = ptrtoint ptr %17 to i64
   %.not.i.i.i.i = icmp ugt i64 %15, %18
@@ -4875,7 +4875,7 @@ _ZN5clang22OMPExecutableDirective15createDirectiveINS_18OMPMasterDirectiveEJRNS_
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local noundef ptr @_ZN5clang18OMPMasterDirective11CreateEmptyERKNS_10ASTContextENS_4Stmt10EmptyShellE(ptr noundef nonnull align 8 dereferenceable(23096) %0) local_unnamed_addr #6 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 2144
-  %3 = getelementptr inbounds i8, ptr %0, i64 2224
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 2224
   %4 = load i64, ptr %3, align 8
   %5 = add i64 %4, 56
   store i64 %5, ptr %3, align 8
@@ -4884,7 +4884,7 @@ define dso_local noundef ptr @_ZN5clang18OMPMasterDirective11CreateEmptyERKNS_10
   %8 = add i64 %7, 7
   %9 = and i64 %8, -8
   %10 = add i64 %9, 56
-  %11 = getelementptr inbounds i8, ptr %0, i64 2152
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 2152
   %12 = load ptr, ptr %11, align 8
   %13 = ptrtoint ptr %12 to i64
   %.not.i.i.i.i = icmp ugt i64 %10, %13
@@ -4950,7 +4950,7 @@ define dso_local noundef ptr @_ZN5clang20OMPCriticalDirective6CreateERKNS_10ASTC
   %12 = shl nuw nsw i64 %reass.add.i.i.i.i, 3
   %13 = add nuw nsw i64 %12, 72
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 2144
-  %15 = getelementptr inbounds i8, ptr %0, i64 2224
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 2224
   %16 = load i64, ptr %15, align 8
   %17 = add i64 %16, %13
   store i64 %17, ptr %15, align 8
@@ -4959,7 +4959,7 @@ define dso_local noundef ptr @_ZN5clang20OMPCriticalDirective6CreateERKNS_10ASTC
   %20 = add i64 %19, 7
   %21 = and i64 %20, -8
   %22 = add i64 %21, %13
-  %23 = getelementptr inbounds i8, ptr %0, i64 2152
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 2152
   %24 = load ptr, ptr %23, align 8
   %25 = ptrtoint ptr %24 to i64
   %.not.i.i.i.i = icmp ugt i64 %22, %25
@@ -5035,7 +5035,7 @@ define dso_local noundef ptr @_ZN5clang20OMPCriticalDirective11CreateEmptyERKNS_
   %reass.add.i.i.i.i = shl nuw nsw i64 %3, 3
   %4 = add nuw nsw i64 %reass.add.i.i.i.i, 80
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 2144
-  %6 = getelementptr inbounds i8, ptr %0, i64 2224
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 2224
   %7 = load i64, ptr %6, align 8
   %8 = add i64 %7, %4
   store i64 %8, ptr %6, align 8
@@ -5044,7 +5044,7 @@ define dso_local noundef ptr @_ZN5clang20OMPCriticalDirective11CreateEmptyERKNS_
   %11 = add i64 %10, 7
   %12 = and i64 %11, -8
   %13 = add i64 %12, %4
-  %14 = getelementptr inbounds i8, ptr %0, i64 2152
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 2152
   %15 = load ptr, ptr %14, align 8
   %16 = ptrtoint ptr %15 to i64
   %.not.i.i.i.i = icmp ugt i64 %13, %16
@@ -5089,7 +5089,7 @@ _ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_20OMPCriticalDirectiv
   %30 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 16
   store i32 0, ptr %30, align 8
   %31 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 24
-  %32 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 48
+  %32 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 48
   store i64 0, ptr %32, align 8
   %33 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %33, i8 0, i64 12, i1 false)
@@ -5134,7 +5134,7 @@ _ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit: ; pred
   %29 = shl nuw nsw i64 %reass.add.i.i.i.i, 3
   %30 = add nuw nsw i64 %29, 56
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 2144
-  %32 = getelementptr inbounds i8, ptr %0, i64 2224
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 2224
   %33 = load i64, ptr %32, align 8
   %34 = add i64 %30, %33
   store i64 %34, ptr %32, align 8
@@ -5143,7 +5143,7 @@ _ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit: ; pred
   %37 = add i64 %36, 7
   %38 = and i64 %37, -8
   %39 = add i64 %38, %30
-  %40 = getelementptr inbounds i8, ptr %0, i64 2152
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 2152
   %41 = load ptr, ptr %40, align 8
   %42 = ptrtoint ptr %41 to i64
   %.not.i.i.i.i = icmp ugt i64 %39, %42
@@ -5712,7 +5712,7 @@ _ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit: ; pred
   %19 = shl nuw nsw i64 %reass.add.i.i.i.i, 3
   %20 = add nuw nsw i64 %19, 56
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 2144
-  %22 = getelementptr inbounds i8, ptr %0, i64 2224
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 2224
   %23 = load i64, ptr %22, align 8
   %24 = add i64 %20, %23
   store i64 %24, ptr %22, align 8
@@ -5721,7 +5721,7 @@ _ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit: ; pred
   %27 = add i64 %26, 7
   %28 = and i64 %27, -8
   %29 = add i64 %28, %20
-  %30 = getelementptr inbounds i8, ptr %0, i64 2152
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 2152
   %31 = load ptr, ptr %30, align 8
   %32 = ptrtoint ptr %31 to i64
   %.not.i.i.i.i = icmp ugt i64 %29, %32
@@ -5810,7 +5810,7 @@ _ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit: ; pred
   %26 = shl nuw nsw i64 %reass.add.i.i.i.i, 3
   %27 = add nuw nsw i64 %26, 56
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 2144
-  %29 = getelementptr inbounds i8, ptr %0, i64 2224
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 2224
   %30 = load i64, ptr %29, align 8
   %31 = add i64 %27, %30
   store i64 %31, ptr %29, align 8
@@ -5819,7 +5819,7 @@ _ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit: ; pred
   %34 = add i64 %33, 7
   %35 = and i64 %34, -8
   %36 = add i64 %35, %27
-  %37 = getelementptr inbounds i8, ptr %0, i64 2152
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 2152
   %38 = load ptr, ptr %37, align 8
   %39 = ptrtoint ptr %38 to i64
   %.not.i.i.i.i = icmp ugt i64 %36, %39
@@ -6350,7 +6350,7 @@ _ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit: ; pred
   %18 = shl nuw nsw i64 %reass.add.i.i.i.i, 3
   %19 = add nuw nsw i64 %18, 56
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 2144
-  %21 = getelementptr inbounds i8, ptr %0, i64 2224
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 2224
   %22 = load i64, ptr %21, align 8
   %23 = add i64 %19, %22
   store i64 %23, ptr %21, align 8
@@ -6359,7 +6359,7 @@ _ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit: ; pred
   %26 = add i64 %25, 7
   %27 = and i64 %26, -8
   %28 = add i64 %27, %19
-  %29 = getelementptr inbounds i8, ptr %0, i64 2152
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 2152
   %30 = load ptr, ptr %29, align 8
   %31 = ptrtoint ptr %30 to i64
   %.not.i.i.i.i = icmp ugt i64 %28, %31
@@ -6420,7 +6420,7 @@ define dso_local noundef ptr @_ZN5clang26OMPParallelMasterDirective6CreateERKNS_
   %12 = shl nuw nsw i64 %reass.add.i.i.i.i, 3
   %13 = add nuw nsw i64 %12, 48
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 2144
-  %15 = getelementptr inbounds i8, ptr %0, i64 2224
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 2224
   %16 = load i64, ptr %15, align 8
   %17 = add i64 %16, %13
   store i64 %17, ptr %15, align 8
@@ -6429,7 +6429,7 @@ define dso_local noundef ptr @_ZN5clang26OMPParallelMasterDirective6CreateERKNS_
   %20 = add i64 %19, 7
   %21 = and i64 %20, -8
   %22 = add i64 %21, %13
-  %23 = getelementptr inbounds i8, ptr %0, i64 2152
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 2152
   %24 = load ptr, ptr %23, align 8
   %25 = ptrtoint ptr %24 to i64
   %.not.i.i.i.i = icmp ugt i64 %22, %25
@@ -6509,7 +6509,7 @@ define dso_local noundef ptr @_ZN5clang26OMPParallelMasterDirective11CreateEmpty
   %reass.add.i.i.i.i = shl nuw nsw i64 %3, 3
   %4 = add nuw nsw i64 %reass.add.i.i.i.i, 64
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 2144
-  %6 = getelementptr inbounds i8, ptr %0, i64 2224
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 2224
   %7 = load i64, ptr %6, align 8
   %8 = add i64 %7, %4
   store i64 %8, ptr %6, align 8
@@ -6518,7 +6518,7 @@ define dso_local noundef ptr @_ZN5clang26OMPParallelMasterDirective11CreateEmpty
   %11 = add i64 %10, 7
   %12 = and i64 %11, -8
   %13 = add i64 %12, %4
-  %14 = getelementptr inbounds i8, ptr %0, i64 2152
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 2152
   %15 = load ptr, ptr %14, align 8
   %16 = ptrtoint ptr %15 to i64
   %.not.i.i.i.i = icmp ugt i64 %13, %16
@@ -6577,7 +6577,7 @@ define dso_local noundef ptr @_ZN5clang26OMPParallelMaskedDirective6CreateERKNS_
   %12 = shl nuw nsw i64 %reass.add.i.i.i.i, 3
   %13 = add nuw nsw i64 %12, 48
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 2144
-  %15 = getelementptr inbounds i8, ptr %0, i64 2224
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 2224
   %16 = load i64, ptr %15, align 8
   %17 = add i64 %16, %13
   store i64 %17, ptr %15, align 8
@@ -6586,7 +6586,7 @@ define dso_local noundef ptr @_ZN5clang26OMPParallelMaskedDirective6CreateERKNS_
   %20 = add i64 %19, 7
   %21 = and i64 %20, -8
   %22 = add i64 %21, %13
-  %23 = getelementptr inbounds i8, ptr %0, i64 2152
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 2152
   %24 = load ptr, ptr %23, align 8
   %25 = ptrtoint ptr %24 to i64
   %.not.i.i.i.i = icmp ugt i64 %22, %25
@@ -6666,7 +6666,7 @@ define dso_local noundef ptr @_ZN5clang26OMPParallelMaskedDirective11CreateEmpty
   %reass.add.i.i.i.i = shl nuw nsw i64 %3, 3
   %4 = add nuw nsw i64 %reass.add.i.i.i.i, 64
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 2144
-  %6 = getelementptr inbounds i8, ptr %0, i64 2224
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 2224
   %7 = load i64, ptr %6, align 8
   %8 = add i64 %7, %4
   store i64 %8, ptr %6, align 8
@@ -6675,7 +6675,7 @@ define dso_local noundef ptr @_ZN5clang26OMPParallelMaskedDirective11CreateEmpty
   %11 = add i64 %10, 7
   %12 = and i64 %11, -8
   %13 = add i64 %12, %4
-  %14 = getelementptr inbounds i8, ptr %0, i64 2152
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 2152
   %15 = load ptr, ptr %14, align 8
   %16 = ptrtoint ptr %15 to i64
   %.not.i.i.i.i = icmp ugt i64 %13, %16
@@ -6734,7 +6734,7 @@ define dso_local noundef ptr @_ZN5clang28OMPParallelSectionsDirective6CreateERKN
   %13 = shl nuw nsw i64 %reass.add.i.i.i.i, 3
   %14 = add nuw nsw i64 %13, 56
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 2144
-  %16 = getelementptr inbounds i8, ptr %0, i64 2224
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 2224
   %17 = load i64, ptr %16, align 8
   %18 = add i64 %17, %14
   store i64 %18, ptr %16, align 8
@@ -6743,7 +6743,7 @@ define dso_local noundef ptr @_ZN5clang28OMPParallelSectionsDirective6CreateERKN
   %21 = add i64 %20, 7
   %22 = and i64 %21, -8
   %23 = add i64 %22, %14
-  %24 = getelementptr inbounds i8, ptr %0, i64 2152
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 2152
   %25 = load ptr, ptr %24, align 8
   %26 = ptrtoint ptr %25 to i64
   %.not.i.i.i.i = icmp ugt i64 %23, %26
@@ -6826,7 +6826,7 @@ define dso_local noundef ptr @_ZN5clang28OMPParallelSectionsDirective11CreateEmp
   %reass.add.i.i.i.i = shl nuw nsw i64 %3, 3
   %4 = add nuw nsw i64 %reass.add.i.i.i.i, 72
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 2144
-  %6 = getelementptr inbounds i8, ptr %0, i64 2224
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 2224
   %7 = load i64, ptr %6, align 8
   %8 = add i64 %7, %4
   store i64 %8, ptr %6, align 8
@@ -6835,7 +6835,7 @@ define dso_local noundef ptr @_ZN5clang28OMPParallelSectionsDirective11CreateEmp
   %11 = add i64 %10, 7
   %12 = and i64 %11, -8
   %13 = add i64 %12, %4
-  %14 = getelementptr inbounds i8, ptr %0, i64 2152
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 2152
   %15 = load ptr, ptr %14, align 8
   %16 = ptrtoint ptr %15 to i64
   %.not.i.i.i.i = icmp ugt i64 %13, %16
@@ -6896,7 +6896,7 @@ define dso_local noundef ptr @_ZN5clang16OMPTaskDirective6CreateERKNS_10ASTConte
   %12 = shl nuw nsw i64 %reass.add.i.i.i.i, 3
   %13 = add nuw nsw i64 %12, 56
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 2144
-  %15 = getelementptr inbounds i8, ptr %0, i64 2224
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 2224
   %16 = load i64, ptr %15, align 8
   %17 = add i64 %16, %13
   store i64 %17, ptr %15, align 8
@@ -6905,7 +6905,7 @@ define dso_local noundef ptr @_ZN5clang16OMPTaskDirective6CreateERKNS_10ASTConte
   %20 = add i64 %19, 7
   %21 = and i64 %20, -8
   %22 = add i64 %21, %13
-  %23 = getelementptr inbounds i8, ptr %0, i64 2152
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 2152
   %24 = load ptr, ptr %23, align 8
   %25 = ptrtoint ptr %24 to i64
   %.not.i.i.i.i = icmp ugt i64 %22, %25
@@ -6981,7 +6981,7 @@ define dso_local noundef ptr @_ZN5clang16OMPTaskDirective11CreateEmptyERKNS_10AS
   %reass.add.i.i.i.i = shl nuw nsw i64 %3, 3
   %4 = add nuw nsw i64 %reass.add.i.i.i.i, 64
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 2144
-  %6 = getelementptr inbounds i8, ptr %0, i64 2224
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 2224
   %7 = load i64, ptr %6, align 8
   %8 = add i64 %7, %4
   store i64 %8, ptr %6, align 8
@@ -6990,7 +6990,7 @@ define dso_local noundef ptr @_ZN5clang16OMPTaskDirective11CreateEmptyERKNS_10AS
   %11 = add i64 %10, 7
   %12 = and i64 %11, -8
   %13 = add i64 %12, %4
-  %14 = getelementptr inbounds i8, ptr %0, i64 2152
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 2152
   %15 = load ptr, ptr %14, align 8
   %16 = ptrtoint ptr %15 to i64
   %.not.i.i.i.i = icmp ugt i64 %13, %16
@@ -7101,7 +7101,7 @@ define dso_local noundef ptr @_ZN5clang18OMPAssumeDirective6CreateERKNS_10ASTCon
   %11 = shl nuw nsw i64 %reass.add.i.i.i.i, 3
   %12 = add nuw nsw i64 %11, 48
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 2144
-  %14 = getelementptr inbounds i8, ptr %0, i64 2224
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 2224
   %15 = load i64, ptr %14, align 8
   %16 = add i64 %15, %12
   store i64 %16, ptr %14, align 8
@@ -7110,7 +7110,7 @@ define dso_local noundef ptr @_ZN5clang18OMPAssumeDirective6CreateERKNS_10ASTCon
   %19 = add i64 %18, 7
   %20 = and i64 %19, -8
   %21 = add i64 %20, %12
-  %22 = getelementptr inbounds i8, ptr %0, i64 2152
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 2152
   %23 = load ptr, ptr %22, align 8
   %24 = ptrtoint ptr %23 to i64
   %.not.i.i.i.i = icmp ugt i64 %21, %24
@@ -7183,7 +7183,7 @@ define dso_local noundef ptr @_ZN5clang18OMPAssumeDirective11CreateEmptyERKNS_10
   %reass.add.i.i.i.i = shl nuw nsw i64 %3, 3
   %4 = add nuw nsw i64 %reass.add.i.i.i.i, 56
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 2144
-  %6 = getelementptr inbounds i8, ptr %0, i64 2224
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 2224
   %7 = load i64, ptr %6, align 8
   %8 = add i64 %7, %4
   store i64 %8, ptr %6, align 8
@@ -7192,7 +7192,7 @@ define dso_local noundef ptr @_ZN5clang18OMPAssumeDirective11CreateEmptyERKNS_10
   %11 = add i64 %10, 7
   %12 = and i64 %11, -8
   %13 = add i64 %12, %4
-  %14 = getelementptr inbounds i8, ptr %0, i64 2152
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 2152
   %15 = load ptr, ptr %14, align 8
   %16 = ptrtoint ptr %15 to i64
   %.not.i.i.i.i = icmp ugt i64 %13, %16
@@ -7248,7 +7248,7 @@ define dso_local noundef ptr @_ZN5clang17OMPErrorDirective6CreateERKNS_10ASTCont
   %8 = and i64 %7, 34359738360
   %9 = add nuw nsw i64 %8, 48
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 2144
-  %11 = getelementptr inbounds i8, ptr %0, i64 2224
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 2224
   %12 = load i64, ptr %11, align 8
   %13 = add i64 %12, %9
   store i64 %13, ptr %11, align 8
@@ -7257,7 +7257,7 @@ define dso_local noundef ptr @_ZN5clang17OMPErrorDirective6CreateERKNS_10ASTCont
   %16 = add i64 %15, 7
   %17 = and i64 %16, -8
   %18 = add i64 %17, %9
-  %19 = getelementptr inbounds i8, ptr %0, i64 2152
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 2152
   %20 = load ptr, ptr %19, align 8
   %21 = ptrtoint ptr %20 to i64
   %.not.i.i.i.i = icmp ugt i64 %18, %21
@@ -7319,7 +7319,7 @@ define dso_local noundef ptr @_ZN5clang17OMPErrorDirective11CreateEmptyERKNS_10A
   %4 = shl nuw nsw i64 %3, 3
   %5 = add nuw nsw i64 %4, 48
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 2144
-  %7 = getelementptr inbounds i8, ptr %0, i64 2224
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 2224
   %8 = load i64, ptr %7, align 8
   %9 = add i64 %8, %5
   store i64 %9, ptr %7, align 8
@@ -7328,7 +7328,7 @@ define dso_local noundef ptr @_ZN5clang17OMPErrorDirective11CreateEmptyERKNS_10A
   %12 = add i64 %11, 7
   %13 = and i64 %12, -8
   %14 = add i64 %13, %5
-  %15 = getelementptr inbounds i8, ptr %0, i64 2152
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 2152
   %16 = load ptr, ptr %15, align 8
   %17 = ptrtoint ptr %16 to i64
   %.not.i.i.i.i = icmp ugt i64 %14, %17
@@ -7432,7 +7432,7 @@ define dso_local noundef ptr @_ZN5clang20OMPTaskwaitDirective6CreateERKNS_10ASTC
   %8 = and i64 %7, 34359738360
   %9 = add nuw nsw i64 %8, 48
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 2144
-  %11 = getelementptr inbounds i8, ptr %0, i64 2224
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 2224
   %12 = load i64, ptr %11, align 8
   %13 = add i64 %12, %9
   store i64 %13, ptr %11, align 8
@@ -7441,7 +7441,7 @@ define dso_local noundef ptr @_ZN5clang20OMPTaskwaitDirective6CreateERKNS_10ASTC
   %16 = add i64 %15, 7
   %17 = and i64 %16, -8
   %18 = add i64 %17, %9
-  %19 = getelementptr inbounds i8, ptr %0, i64 2152
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 2152
   %20 = load ptr, ptr %19, align 8
   %21 = ptrtoint ptr %20 to i64
   %.not.i.i.i.i = icmp ugt i64 %18, %21
@@ -7503,7 +7503,7 @@ define dso_local noundef ptr @_ZN5clang20OMPTaskwaitDirective11CreateEmptyERKNS_
   %4 = shl nuw nsw i64 %3, 3
   %5 = add nuw nsw i64 %4, 48
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 2144
-  %7 = getelementptr inbounds i8, ptr %0, i64 2224
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 2224
   %8 = load i64, ptr %7, align 8
   %9 = add i64 %8, %5
   store i64 %9, ptr %7, align 8
@@ -7512,7 +7512,7 @@ define dso_local noundef ptr @_ZN5clang20OMPTaskwaitDirective11CreateEmptyERKNS_
   %12 = add i64 %11, 7
   %13 = and i64 %12, -8
   %14 = add i64 %13, %5
-  %15 = getelementptr inbounds i8, ptr %0, i64 2152
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 2152
   %16 = load ptr, ptr %15, align 8
   %17 = ptrtoint ptr %16 to i64
   %.not.i.i.i.i = icmp ugt i64 %14, %17
@@ -7571,7 +7571,7 @@ define dso_local noundef ptr @_ZN5clang21OMPTaskgroupDirective6CreateERKNS_10AST
   %12 = shl nuw nsw i64 %reass.add.i.i.i.i, 3
   %13 = add nuw nsw i64 %12, 48
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 2144
-  %15 = getelementptr inbounds i8, ptr %0, i64 2224
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 2224
   %16 = load i64, ptr %15, align 8
   %17 = add i64 %16, %13
   store i64 %17, ptr %15, align 8
@@ -7580,7 +7580,7 @@ define dso_local noundef ptr @_ZN5clang21OMPTaskgroupDirective6CreateERKNS_10AST
   %20 = add i64 %19, 7
   %21 = and i64 %20, -8
   %22 = add i64 %21, %13
-  %23 = getelementptr inbounds i8, ptr %0, i64 2152
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 2152
   %24 = load ptr, ptr %23, align 8
   %25 = ptrtoint ptr %24 to i64
   %.not.i.i.i.i = icmp ugt i64 %22, %25
@@ -7660,7 +7660,7 @@ define dso_local noundef ptr @_ZN5clang21OMPTaskgroupDirective11CreateEmptyERKNS
   %reass.add.i.i.i.i = shl nuw nsw i64 %3, 3
   %4 = add nuw nsw i64 %reass.add.i.i.i.i, 64
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 2144
-  %6 = getelementptr inbounds i8, ptr %0, i64 2224
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 2224
   %7 = load i64, ptr %6, align 8
   %8 = add i64 %7, %4
   store i64 %8, ptr %6, align 8
@@ -7669,7 +7669,7 @@ define dso_local noundef ptr @_ZN5clang21OMPTaskgroupDirective11CreateEmptyERKNS
   %11 = add i64 %10, 7
   %12 = and i64 %11, -8
   %13 = add i64 %12, %4
-  %14 = getelementptr inbounds i8, ptr %0, i64 2152
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 2152
   %15 = load ptr, ptr %14, align 8
   %16 = ptrtoint ptr %15 to i64
   %.not.i.i.i.i = icmp ugt i64 %13, %16
@@ -7777,7 +7777,7 @@ define dso_local noundef ptr @_ZN5clang18OMPCancelDirective6CreateERKNS_10ASTCon
   %9 = and i64 %8, 34359738360
   %10 = add nuw nsw i64 %9, 56
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 2144
-  %12 = getelementptr inbounds i8, ptr %0, i64 2224
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 2224
   %13 = load i64, ptr %12, align 8
   %14 = add i64 %13, %10
   store i64 %14, ptr %12, align 8
@@ -7786,7 +7786,7 @@ define dso_local noundef ptr @_ZN5clang18OMPCancelDirective6CreateERKNS_10ASTCon
   %17 = add i64 %16, 7
   %18 = and i64 %17, -8
   %19 = add i64 %18, %10
-  %20 = getelementptr inbounds i8, ptr %0, i64 2152
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 2152
   %21 = load ptr, ptr %20, align 8
   %22 = ptrtoint ptr %21 to i64
   %.not.i.i.i.i = icmp ugt i64 %19, %22
@@ -7850,7 +7850,7 @@ define dso_local noundef ptr @_ZN5clang18OMPCancelDirective11CreateEmptyERKNS_10
   %4 = shl nuw nsw i64 %3, 3
   %5 = add nuw nsw i64 %4, 56
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 2144
-  %7 = getelementptr inbounds i8, ptr %0, i64 2224
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 2224
   %8 = load i64, ptr %7, align 8
   %9 = add i64 %8, %5
   store i64 %9, ptr %7, align 8
@@ -7859,7 +7859,7 @@ define dso_local noundef ptr @_ZN5clang18OMPCancelDirective11CreateEmptyERKNS_10
   %12 = add i64 %11, 7
   %13 = and i64 %12, -8
   %14 = add i64 %13, %5
-  %15 = getelementptr inbounds i8, ptr %0, i64 2152
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 2152
   %16 = load ptr, ptr %15, align 8
   %17 = ptrtoint ptr %16 to i64
   %.not.i.i.i.i = icmp ugt i64 %14, %17
@@ -7917,7 +7917,7 @@ define dso_local noundef ptr @_ZN5clang17OMPFlushDirective6CreateERKNS_10ASTCont
   %8 = and i64 %7, 34359738360
   %9 = add nuw nsw i64 %8, 48
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 2144
-  %11 = getelementptr inbounds i8, ptr %0, i64 2224
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 2224
   %12 = load i64, ptr %11, align 8
   %13 = add i64 %12, %9
   store i64 %13, ptr %11, align 8
@@ -7926,7 +7926,7 @@ define dso_local noundef ptr @_ZN5clang17OMPFlushDirective6CreateERKNS_10ASTCont
   %16 = add i64 %15, 7
   %17 = and i64 %16, -8
   %18 = add i64 %17, %9
-  %19 = getelementptr inbounds i8, ptr %0, i64 2152
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 2152
   %20 = load ptr, ptr %19, align 8
   %21 = ptrtoint ptr %20 to i64
   %.not.i.i.i.i = icmp ugt i64 %18, %21
@@ -7988,7 +7988,7 @@ define dso_local noundef ptr @_ZN5clang17OMPFlushDirective11CreateEmptyERKNS_10A
   %4 = shl nuw nsw i64 %3, 3
   %5 = add nuw nsw i64 %4, 48
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 2144
-  %7 = getelementptr inbounds i8, ptr %0, i64 2224
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 2224
   %8 = load i64, ptr %7, align 8
   %9 = add i64 %8, %5
   store i64 %9, ptr %7, align 8
@@ -7997,7 +7997,7 @@ define dso_local noundef ptr @_ZN5clang17OMPFlushDirective11CreateEmptyERKNS_10A
   %12 = add i64 %11, 7
   %13 = and i64 %12, -8
   %14 = add i64 %13, %5
-  %15 = getelementptr inbounds i8, ptr %0, i64 2152
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 2152
   %16 = load ptr, ptr %15, align 8
   %17 = ptrtoint ptr %16 to i64
   %.not.i.i.i.i = icmp ugt i64 %14, %17
@@ -8053,7 +8053,7 @@ define dso_local noundef ptr @_ZN5clang18OMPDepobjDirective6CreateERKNS_10ASTCon
   %8 = and i64 %7, 34359738360
   %9 = add nuw nsw i64 %8, 48
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 2144
-  %11 = getelementptr inbounds i8, ptr %0, i64 2224
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 2224
   %12 = load i64, ptr %11, align 8
   %13 = add i64 %12, %9
   store i64 %13, ptr %11, align 8
@@ -8062,7 +8062,7 @@ define dso_local noundef ptr @_ZN5clang18OMPDepobjDirective6CreateERKNS_10ASTCon
   %16 = add i64 %15, 7
   %17 = and i64 %16, -8
   %18 = add i64 %17, %9
-  %19 = getelementptr inbounds i8, ptr %0, i64 2152
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 2152
   %20 = load ptr, ptr %19, align 8
   %21 = ptrtoint ptr %20 to i64
   %.not.i.i.i.i = icmp ugt i64 %18, %21
@@ -8124,7 +8124,7 @@ define dso_local noundef ptr @_ZN5clang18OMPDepobjDirective11CreateEmptyERKNS_10
   %4 = shl nuw nsw i64 %3, 3
   %5 = add nuw nsw i64 %4, 48
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 2144
-  %7 = getelementptr inbounds i8, ptr %0, i64 2224
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 2224
   %8 = load i64, ptr %7, align 8
   %9 = add i64 %8, %5
   store i64 %9, ptr %7, align 8
@@ -8133,7 +8133,7 @@ define dso_local noundef ptr @_ZN5clang18OMPDepobjDirective11CreateEmptyERKNS_10
   %12 = add i64 %11, 7
   %13 = and i64 %12, -8
   %14 = add i64 %13, %5
-  %15 = getelementptr inbounds i8, ptr %0, i64 2152
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 2152
   %16 = load ptr, ptr %15, align 8
   %17 = ptrtoint ptr %16 to i64
   %.not.i.i.i.i = icmp ugt i64 %14, %17
@@ -8189,7 +8189,7 @@ define dso_local noundef ptr @_ZN5clang16OMPScanDirective6CreateERKNS_10ASTConte
   %8 = and i64 %7, 34359738360
   %9 = add nuw nsw i64 %8, 48
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 2144
-  %11 = getelementptr inbounds i8, ptr %0, i64 2224
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 2224
   %12 = load i64, ptr %11, align 8
   %13 = add i64 %12, %9
   store i64 %13, ptr %11, align 8
@@ -8198,7 +8198,7 @@ define dso_local noundef ptr @_ZN5clang16OMPScanDirective6CreateERKNS_10ASTConte
   %16 = add i64 %15, 7
   %17 = and i64 %16, -8
   %18 = add i64 %17, %9
-  %19 = getelementptr inbounds i8, ptr %0, i64 2152
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 2152
   %20 = load ptr, ptr %19, align 8
   %21 = ptrtoint ptr %20 to i64
   %.not.i.i.i.i = icmp ugt i64 %18, %21
@@ -8260,7 +8260,7 @@ define dso_local noundef ptr @_ZN5clang16OMPScanDirective11CreateEmptyERKNS_10AS
   %4 = shl nuw nsw i64 %3, 3
   %5 = add nuw nsw i64 %4, 48
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 2144
-  %7 = getelementptr inbounds i8, ptr %0, i64 2224
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 2224
   %8 = load i64, ptr %7, align 8
   %9 = add i64 %8, %5
   store i64 %9, ptr %7, align 8
@@ -8269,7 +8269,7 @@ define dso_local noundef ptr @_ZN5clang16OMPScanDirective11CreateEmptyERKNS_10AS
   %12 = add i64 %11, 7
   %13 = and i64 %12, -8
   %14 = add i64 %13, %5
-  %15 = getelementptr inbounds i8, ptr %0, i64 2152
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 2152
   %16 = load ptr, ptr %15, align 8
   %17 = ptrtoint ptr %16 to i64
   %.not.i.i.i.i = icmp ugt i64 %14, %17
@@ -8328,7 +8328,7 @@ define dso_local noundef ptr @_ZN5clang19OMPOrderedDirective6CreateERKNS_10ASTCo
   %11 = shl nuw nsw i64 %reass.add.i.i.i.i, 3
   %12 = add nuw nsw i64 %11, 48
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 2144
-  %14 = getelementptr inbounds i8, ptr %0, i64 2224
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 2224
   %15 = load i64, ptr %14, align 8
   %16 = add i64 %15, %12
   store i64 %16, ptr %14, align 8
@@ -8337,7 +8337,7 @@ define dso_local noundef ptr @_ZN5clang19OMPOrderedDirective6CreateERKNS_10ASTCo
   %19 = add i64 %18, 7
   %20 = and i64 %19, -8
   %21 = add i64 %20, %12
-  %22 = getelementptr inbounds i8, ptr %0, i64 2152
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 2152
   %23 = load ptr, ptr %22, align 8
   %24 = ptrtoint ptr %23 to i64
   %.not.i.i.i.i = icmp ugt i64 %21, %24
@@ -8413,7 +8413,7 @@ define dso_local noundef ptr @_ZN5clang19OMPOrderedDirective11CreateEmptyERKNS_1
   %7 = shl nuw nsw i64 %reass.add.i.i.i.i, 3
   %8 = add nuw nsw i64 %7, 48
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 2144
-  %10 = getelementptr inbounds i8, ptr %0, i64 2224
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 2224
   %11 = load i64, ptr %10, align 8
   %12 = add i64 %11, %8
   store i64 %12, ptr %10, align 8
@@ -8422,7 +8422,7 @@ define dso_local noundef ptr @_ZN5clang19OMPOrderedDirective11CreateEmptyERKNS_1
   %15 = add i64 %14, 7
   %16 = and i64 %15, -8
   %17 = add i64 %16, %8
-  %18 = getelementptr inbounds i8, ptr %0, i64 2152
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 2152
   %19 = load ptr, ptr %18, align 8
   %20 = ptrtoint ptr %19 to i64
   %.not.i.i.i.i = icmp ugt i64 %17, %20
@@ -8482,7 +8482,7 @@ define dso_local noundef ptr @_ZN5clang18OMPAtomicDirective6CreateERKNS_10ASTCon
   %12 = shl nuw nsw i64 %reass.add.i.i.i.i, 3
   %13 = add nuw nsw i64 %12, 56
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 2144
-  %15 = getelementptr inbounds i8, ptr %0, i64 2224
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 2224
   %16 = load i64, ptr %15, align 8
   %17 = add i64 %16, %13
   store i64 %17, ptr %15, align 8
@@ -8491,7 +8491,7 @@ define dso_local noundef ptr @_ZN5clang18OMPAtomicDirective6CreateERKNS_10ASTCon
   %20 = add i64 %19, 7
   %21 = and i64 %20, -8
   %22 = add i64 %21, %13
-  %23 = getelementptr inbounds i8, ptr %0, i64 2152
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 2152
   %24 = load ptr, ptr %23, align 8
   %25 = ptrtoint ptr %24 to i64
   %.not.i.i.i.i = icmp ugt i64 %22, %25
@@ -8614,7 +8614,7 @@ define dso_local noundef ptr @_ZN5clang18OMPAtomicDirective11CreateEmptyERKNS_10
   %reass.add.i.i.i.i = shl nuw nsw i64 %3, 3
   %4 = add nuw nsw i64 %reass.add.i.i.i.i, 120
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 2144
-  %6 = getelementptr inbounds i8, ptr %0, i64 2224
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 2224
   %7 = load i64, ptr %6, align 8
   %8 = add i64 %7, %4
   store i64 %8, ptr %6, align 8
@@ -8623,7 +8623,7 @@ define dso_local noundef ptr @_ZN5clang18OMPAtomicDirective11CreateEmptyERKNS_10
   %11 = add i64 %10, 7
   %12 = and i64 %11, -8
   %13 = add i64 %12, %4
-  %14 = getelementptr inbounds i8, ptr %0, i64 2152
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 2152
   %15 = load ptr, ptr %14, align 8
   %16 = ptrtoint ptr %15 to i64
   %.not.i.i.i.i = icmp ugt i64 %13, %16
@@ -8682,7 +8682,7 @@ define dso_local noundef ptr @_ZN5clang18OMPTargetDirective6CreateERKNS_10ASTCon
   %11 = shl nuw nsw i64 %reass.add.i.i.i.i, 3
   %12 = add nuw nsw i64 %11, 48
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 2144
-  %14 = getelementptr inbounds i8, ptr %0, i64 2224
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 2224
   %15 = load i64, ptr %14, align 8
   %16 = add i64 %15, %12
   store i64 %16, ptr %14, align 8
@@ -8691,7 +8691,7 @@ define dso_local noundef ptr @_ZN5clang18OMPTargetDirective6CreateERKNS_10ASTCon
   %19 = add i64 %18, 7
   %20 = and i64 %19, -8
   %21 = add i64 %20, %12
-  %22 = getelementptr inbounds i8, ptr %0, i64 2152
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 2152
   %23 = load ptr, ptr %22, align 8
   %24 = ptrtoint ptr %23 to i64
   %.not.i.i.i.i = icmp ugt i64 %21, %24
@@ -8764,7 +8764,7 @@ define dso_local noundef ptr @_ZN5clang18OMPTargetDirective11CreateEmptyERKNS_10
   %reass.add.i.i.i.i = shl nuw nsw i64 %3, 3
   %4 = add nuw nsw i64 %reass.add.i.i.i.i, 56
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 2144
-  %6 = getelementptr inbounds i8, ptr %0, i64 2224
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 2224
   %7 = load i64, ptr %6, align 8
   %8 = add i64 %7, %4
   store i64 %8, ptr %6, align 8
@@ -8773,7 +8773,7 @@ define dso_local noundef ptr @_ZN5clang18OMPTargetDirective11CreateEmptyERKNS_10
   %11 = add i64 %10, 7
   %12 = and i64 %11, -8
   %13 = add i64 %12, %4
-  %14 = getelementptr inbounds i8, ptr %0, i64 2152
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 2152
   %15 = load ptr, ptr %14, align 8
   %16 = ptrtoint ptr %15 to i64
   %.not.i.i.i.i = icmp ugt i64 %13, %16
@@ -8832,7 +8832,7 @@ define dso_local noundef ptr @_ZN5clang26OMPTargetParallelDirective6CreateERKNS_
   %13 = shl nuw nsw i64 %reass.add.i.i.i.i, 3
   %14 = add nuw nsw i64 %13, 56
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 2144
-  %16 = getelementptr inbounds i8, ptr %0, i64 2224
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 2224
   %17 = load i64, ptr %16, align 8
   %18 = add i64 %17, %14
   store i64 %18, ptr %16, align 8
@@ -8841,7 +8841,7 @@ define dso_local noundef ptr @_ZN5clang26OMPTargetParallelDirective6CreateERKNS_
   %21 = add i64 %20, 7
   %22 = and i64 %21, -8
   %23 = add i64 %22, %14
-  %24 = getelementptr inbounds i8, ptr %0, i64 2152
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 2152
   %25 = load ptr, ptr %24, align 8
   %26 = ptrtoint ptr %25 to i64
   %.not.i.i.i.i = icmp ugt i64 %23, %26
@@ -8924,7 +8924,7 @@ define dso_local noundef ptr @_ZN5clang26OMPTargetParallelDirective11CreateEmpty
   %reass.add.i.i.i.i = shl nuw nsw i64 %3, 3
   %4 = add nuw nsw i64 %reass.add.i.i.i.i, 72
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 2144
-  %6 = getelementptr inbounds i8, ptr %0, i64 2224
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 2224
   %7 = load i64, ptr %6, align 8
   %8 = add i64 %7, %4
   store i64 %8, ptr %6, align 8
@@ -8933,7 +8933,7 @@ define dso_local noundef ptr @_ZN5clang26OMPTargetParallelDirective11CreateEmpty
   %11 = add i64 %10, 7
   %12 = and i64 %11, -8
   %13 = add i64 %12, %4
-  %14 = getelementptr inbounds i8, ptr %0, i64 2152
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 2152
   %15 = load ptr, ptr %14, align 8
   %16 = ptrtoint ptr %15 to i64
   %.not.i.i.i.i = icmp ugt i64 %13, %16
@@ -9021,7 +9021,7 @@ _ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit: ; pred
   %29 = shl nuw nsw i64 %reass.add.i.i.i.i, 3
   %30 = add nuw nsw i64 %29, 56
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 2144
-  %32 = getelementptr inbounds i8, ptr %0, i64 2224
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 2224
   %33 = load i64, ptr %32, align 8
   %34 = add i64 %30, %33
   store i64 %34, ptr %32, align 8
@@ -9030,7 +9030,7 @@ _ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit: ; pred
   %37 = add i64 %36, 7
   %38 = and i64 %37, -8
   %39 = add i64 %38, %30
-  %40 = getelementptr inbounds i8, ptr %0, i64 2152
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 2152
   %41 = load ptr, ptr %40, align 8
   %42 = ptrtoint ptr %41 to i64
   %.not.i.i.i.i = icmp ugt i64 %39, %42
@@ -9599,7 +9599,7 @@ _ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit: ; pred
   %19 = shl nuw nsw i64 %reass.add.i.i.i.i, 3
   %20 = add nuw nsw i64 %19, 56
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 2144
-  %22 = getelementptr inbounds i8, ptr %0, i64 2224
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 2224
   %23 = load i64, ptr %22, align 8
   %24 = add i64 %20, %23
   store i64 %24, ptr %22, align 8
@@ -9608,7 +9608,7 @@ _ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit: ; pred
   %27 = add i64 %26, 7
   %28 = and i64 %27, -8
   %29 = add i64 %28, %20
-  %30 = getelementptr inbounds i8, ptr %0, i64 2152
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 2152
   %31 = load ptr, ptr %30, align 8
   %32 = ptrtoint ptr %31 to i64
   %.not.i.i.i.i = icmp ugt i64 %29, %32
@@ -9671,7 +9671,7 @@ define dso_local noundef ptr @_ZN5clang22OMPTargetDataDirective6CreateERKNS_10AS
   %11 = shl nuw nsw i64 %reass.add.i.i.i.i, 3
   %12 = add nuw nsw i64 %11, 48
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 2144
-  %14 = getelementptr inbounds i8, ptr %0, i64 2224
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 2224
   %15 = load i64, ptr %14, align 8
   %16 = add i64 %15, %12
   store i64 %16, ptr %14, align 8
@@ -9680,7 +9680,7 @@ define dso_local noundef ptr @_ZN5clang22OMPTargetDataDirective6CreateERKNS_10AS
   %19 = add i64 %18, 7
   %20 = and i64 %19, -8
   %21 = add i64 %20, %12
-  %22 = getelementptr inbounds i8, ptr %0, i64 2152
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 2152
   %23 = load ptr, ptr %22, align 8
   %24 = ptrtoint ptr %23 to i64
   %.not.i.i.i.i = icmp ugt i64 %21, %24
@@ -9753,7 +9753,7 @@ define dso_local noundef ptr @_ZN5clang22OMPTargetDataDirective11CreateEmptyERKN
   %reass.add.i.i.i.i = shl nuw nsw i64 %3, 3
   %4 = add nuw nsw i64 %reass.add.i.i.i.i, 56
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 2144
-  %6 = getelementptr inbounds i8, ptr %0, i64 2224
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 2224
   %7 = load i64, ptr %6, align 8
   %8 = add i64 %7, %4
   store i64 %8, ptr %6, align 8
@@ -9762,7 +9762,7 @@ define dso_local noundef ptr @_ZN5clang22OMPTargetDataDirective11CreateEmptyERKN
   %11 = add i64 %10, 7
   %12 = and i64 %11, -8
   %13 = add i64 %12, %4
-  %14 = getelementptr inbounds i8, ptr %0, i64 2152
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 2152
   %15 = load ptr, ptr %14, align 8
   %16 = ptrtoint ptr %15 to i64
   %.not.i.i.i.i = icmp ugt i64 %13, %16
@@ -9821,7 +9821,7 @@ define dso_local noundef ptr @_ZN5clang27OMPTargetEnterDataDirective6CreateERKNS
   %11 = shl nuw nsw i64 %reass.add.i.i.i.i, 3
   %12 = add nuw nsw i64 %11, 48
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 2144
-  %14 = getelementptr inbounds i8, ptr %0, i64 2224
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 2224
   %15 = load i64, ptr %14, align 8
   %16 = add i64 %15, %12
   store i64 %16, ptr %14, align 8
@@ -9830,7 +9830,7 @@ define dso_local noundef ptr @_ZN5clang27OMPTargetEnterDataDirective6CreateERKNS
   %19 = add i64 %18, 7
   %20 = and i64 %19, -8
   %21 = add i64 %20, %12
-  %22 = getelementptr inbounds i8, ptr %0, i64 2152
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 2152
   %23 = load ptr, ptr %22, align 8
   %24 = ptrtoint ptr %23 to i64
   %.not.i.i.i.i = icmp ugt i64 %21, %24
@@ -9903,7 +9903,7 @@ define dso_local noundef ptr @_ZN5clang27OMPTargetEnterDataDirective11CreateEmpt
   %reass.add.i.i.i.i = shl nuw nsw i64 %3, 3
   %4 = add nuw nsw i64 %reass.add.i.i.i.i, 56
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 2144
-  %6 = getelementptr inbounds i8, ptr %0, i64 2224
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 2224
   %7 = load i64, ptr %6, align 8
   %8 = add i64 %7, %4
   store i64 %8, ptr %6, align 8
@@ -9912,7 +9912,7 @@ define dso_local noundef ptr @_ZN5clang27OMPTargetEnterDataDirective11CreateEmpt
   %11 = add i64 %10, 7
   %12 = and i64 %11, -8
   %13 = add i64 %12, %4
-  %14 = getelementptr inbounds i8, ptr %0, i64 2152
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 2152
   %15 = load ptr, ptr %14, align 8
   %16 = ptrtoint ptr %15 to i64
   %.not.i.i.i.i = icmp ugt i64 %13, %16
@@ -9971,7 +9971,7 @@ define dso_local noundef ptr @_ZN5clang26OMPTargetExitDataDirective6CreateERKNS_
   %11 = shl nuw nsw i64 %reass.add.i.i.i.i, 3
   %12 = add nuw nsw i64 %11, 48
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 2144
-  %14 = getelementptr inbounds i8, ptr %0, i64 2224
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 2224
   %15 = load i64, ptr %14, align 8
   %16 = add i64 %15, %12
   store i64 %16, ptr %14, align 8
@@ -9980,7 +9980,7 @@ define dso_local noundef ptr @_ZN5clang26OMPTargetExitDataDirective6CreateERKNS_
   %19 = add i64 %18, 7
   %20 = and i64 %19, -8
   %21 = add i64 %20, %12
-  %22 = getelementptr inbounds i8, ptr %0, i64 2152
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 2152
   %23 = load ptr, ptr %22, align 8
   %24 = ptrtoint ptr %23 to i64
   %.not.i.i.i.i = icmp ugt i64 %21, %24
@@ -10053,7 +10053,7 @@ define dso_local noundef ptr @_ZN5clang26OMPTargetExitDataDirective11CreateEmpty
   %reass.add.i.i.i.i = shl nuw nsw i64 %3, 3
   %4 = add nuw nsw i64 %reass.add.i.i.i.i, 56
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 2144
-  %6 = getelementptr inbounds i8, ptr %0, i64 2224
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 2224
   %7 = load i64, ptr %6, align 8
   %8 = add i64 %7, %4
   store i64 %8, ptr %6, align 8
@@ -10062,7 +10062,7 @@ define dso_local noundef ptr @_ZN5clang26OMPTargetExitDataDirective11CreateEmpty
   %11 = add i64 %10, 7
   %12 = and i64 %11, -8
   %13 = add i64 %12, %4
-  %14 = getelementptr inbounds i8, ptr %0, i64 2152
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 2152
   %15 = load ptr, ptr %14, align 8
   %16 = ptrtoint ptr %15 to i64
   %.not.i.i.i.i = icmp ugt i64 %13, %16
@@ -10121,7 +10121,7 @@ define dso_local noundef ptr @_ZN5clang17OMPTeamsDirective6CreateERKNS_10ASTCont
   %11 = shl nuw nsw i64 %reass.add.i.i.i.i, 3
   %12 = add nuw nsw i64 %11, 48
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 2144
-  %14 = getelementptr inbounds i8, ptr %0, i64 2224
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 2224
   %15 = load i64, ptr %14, align 8
   %16 = add i64 %15, %12
   store i64 %16, ptr %14, align 8
@@ -10130,7 +10130,7 @@ define dso_local noundef ptr @_ZN5clang17OMPTeamsDirective6CreateERKNS_10ASTCont
   %19 = add i64 %18, 7
   %20 = and i64 %19, -8
   %21 = add i64 %20, %12
-  %22 = getelementptr inbounds i8, ptr %0, i64 2152
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 2152
   %23 = load ptr, ptr %22, align 8
   %24 = ptrtoint ptr %23 to i64
   %.not.i.i.i.i = icmp ugt i64 %21, %24
@@ -10203,7 +10203,7 @@ define dso_local noundef ptr @_ZN5clang17OMPTeamsDirective11CreateEmptyERKNS_10A
   %reass.add.i.i.i.i = shl nuw nsw i64 %3, 3
   %4 = add nuw nsw i64 %reass.add.i.i.i.i, 56
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 2144
-  %6 = getelementptr inbounds i8, ptr %0, i64 2224
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 2224
   %7 = load i64, ptr %6, align 8
   %8 = add i64 %7, %4
   store i64 %8, ptr %6, align 8
@@ -10212,7 +10212,7 @@ define dso_local noundef ptr @_ZN5clang17OMPTeamsDirective11CreateEmptyERKNS_10A
   %11 = add i64 %10, 7
   %12 = and i64 %11, -8
   %13 = add i64 %12, %4
-  %14 = getelementptr inbounds i8, ptr %0, i64 2152
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 2152
   %15 = load ptr, ptr %14, align 8
   %16 = ptrtoint ptr %15 to i64
   %.not.i.i.i.i = icmp ugt i64 %13, %16
@@ -10297,7 +10297,7 @@ _ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit: ; pred
   %27 = shl nuw nsw i64 %reass.add.i.i.i.i, 3
   %28 = add nuw nsw i64 %27, 56
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 2144
-  %30 = getelementptr inbounds i8, ptr %0, i64 2224
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 2224
   %31 = load i64, ptr %30, align 8
   %32 = add i64 %28, %31
   store i64 %32, ptr %30, align 8
@@ -10306,7 +10306,7 @@ _ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit: ; pred
   %35 = add i64 %34, 7
   %36 = and i64 %35, -8
   %37 = add i64 %36, %28
-  %38 = getelementptr inbounds i8, ptr %0, i64 2152
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 2152
   %39 = load ptr, ptr %38, align 8
   %40 = ptrtoint ptr %39 to i64
   %.not.i.i.i.i = icmp ugt i64 %37, %40
@@ -10841,7 +10841,7 @@ _ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit: ; pred
   %18 = shl nuw nsw i64 %reass.add.i.i.i.i, 3
   %19 = add nuw nsw i64 %18, 56
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 2144
-  %21 = getelementptr inbounds i8, ptr %0, i64 2224
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 2224
   %22 = load i64, ptr %21, align 8
   %23 = add i64 %19, %22
   store i64 %23, ptr %21, align 8
@@ -10850,7 +10850,7 @@ _ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit: ; pred
   %26 = add i64 %25, 7
   %27 = and i64 %26, -8
   %28 = add i64 %27, %19
-  %29 = getelementptr inbounds i8, ptr %0, i64 2152
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 2152
   %30 = load ptr, ptr %29, align 8
   %31 = ptrtoint ptr %30 to i64
   %.not.i.i.i.i = icmp ugt i64 %28, %31
@@ -10939,7 +10939,7 @@ _ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit: ; pred
   %26 = shl nuw nsw i64 %reass.add.i.i.i.i, 3
   %27 = add nuw nsw i64 %26, 56
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 2144
-  %29 = getelementptr inbounds i8, ptr %0, i64 2224
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 2224
   %30 = load i64, ptr %29, align 8
   %31 = add i64 %27, %30
   store i64 %31, ptr %29, align 8
@@ -10948,7 +10948,7 @@ _ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit: ; pred
   %34 = add i64 %33, 7
   %35 = and i64 %34, -8
   %36 = add i64 %35, %27
-  %37 = getelementptr inbounds i8, ptr %0, i64 2152
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 2152
   %38 = load ptr, ptr %37, align 8
   %39 = ptrtoint ptr %38 to i64
   %.not.i.i.i.i = icmp ugt i64 %36, %39
@@ -11479,7 +11479,7 @@ _ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit: ; pred
   %18 = shl nuw nsw i64 %reass.add.i.i.i.i, 3
   %19 = add nuw nsw i64 %18, 56
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 2144
-  %21 = getelementptr inbounds i8, ptr %0, i64 2224
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 2224
   %22 = load i64, ptr %21, align 8
   %23 = add i64 %19, %22
   store i64 %23, ptr %21, align 8
@@ -11488,7 +11488,7 @@ _ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit: ; pred
   %26 = add i64 %25, 7
   %27 = and i64 %26, -8
   %28 = add i64 %27, %19
-  %29 = getelementptr inbounds i8, ptr %0, i64 2152
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 2152
   %30 = load ptr, ptr %29, align 8
   %31 = ptrtoint ptr %30 to i64
   %.not.i.i.i.i = icmp ugt i64 %28, %31
@@ -11575,7 +11575,7 @@ _ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit: ; pred
   %27 = shl nuw nsw i64 %reass.add.i.i.i.i, 3
   %28 = add nuw nsw i64 %27, 56
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 2144
-  %30 = getelementptr inbounds i8, ptr %0, i64 2224
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 2224
   %31 = load i64, ptr %30, align 8
   %32 = add i64 %28, %31
   store i64 %32, ptr %30, align 8
@@ -11584,7 +11584,7 @@ _ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit: ; pred
   %35 = add i64 %34, 7
   %36 = and i64 %35, -8
   %37 = add i64 %36, %28
-  %38 = getelementptr inbounds i8, ptr %0, i64 2152
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 2152
   %39 = load ptr, ptr %38, align 8
   %40 = ptrtoint ptr %39 to i64
   %.not.i.i.i.i = icmp ugt i64 %37, %40
@@ -12119,7 +12119,7 @@ _ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit: ; pred
   %18 = shl nuw nsw i64 %reass.add.i.i.i.i, 3
   %19 = add nuw nsw i64 %18, 56
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 2144
-  %21 = getelementptr inbounds i8, ptr %0, i64 2224
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 2224
   %22 = load i64, ptr %21, align 8
   %23 = add i64 %19, %22
   store i64 %23, ptr %21, align 8
@@ -12128,7 +12128,7 @@ _ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit: ; pred
   %26 = add i64 %25, 7
   %27 = and i64 %26, -8
   %28 = add i64 %27, %19
-  %29 = getelementptr inbounds i8, ptr %0, i64 2152
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 2152
   %30 = load ptr, ptr %29, align 8
   %31 = ptrtoint ptr %30 to i64
   %.not.i.i.i.i = icmp ugt i64 %28, %31
@@ -12217,7 +12217,7 @@ _ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit: ; pred
   %27 = shl nuw nsw i64 %reass.add.i.i.i.i, 3
   %28 = add nuw nsw i64 %27, 56
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 2144
-  %30 = getelementptr inbounds i8, ptr %0, i64 2224
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 2224
   %31 = load i64, ptr %30, align 8
   %32 = add i64 %28, %31
   store i64 %32, ptr %30, align 8
@@ -12226,7 +12226,7 @@ _ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit: ; pred
   %35 = add i64 %34, 7
   %36 = and i64 %35, -8
   %37 = add i64 %36, %28
-  %38 = getelementptr inbounds i8, ptr %0, i64 2152
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 2152
   %39 = load ptr, ptr %38, align 8
   %40 = ptrtoint ptr %39 to i64
   %.not.i.i.i.i = icmp ugt i64 %37, %40
@@ -12761,7 +12761,7 @@ _ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit: ; pred
   %18 = shl nuw nsw i64 %reass.add.i.i.i.i, 3
   %19 = add nuw nsw i64 %18, 56
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 2144
-  %21 = getelementptr inbounds i8, ptr %0, i64 2224
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 2224
   %22 = load i64, ptr %21, align 8
   %23 = add i64 %19, %22
   store i64 %23, ptr %21, align 8
@@ -12770,7 +12770,7 @@ _ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit: ; pred
   %26 = add i64 %25, 7
   %27 = and i64 %26, -8
   %28 = add i64 %27, %19
-  %29 = getelementptr inbounds i8, ptr %0, i64 2152
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 2152
   %30 = load ptr, ptr %29, align 8
   %31 = ptrtoint ptr %30 to i64
   %.not.i.i.i.i = icmp ugt i64 %28, %31
@@ -12859,7 +12859,7 @@ _ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit: ; pred
   %26 = shl nuw nsw i64 %reass.add.i.i.i.i, 3
   %27 = add nuw nsw i64 %26, 56
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 2144
-  %29 = getelementptr inbounds i8, ptr %0, i64 2224
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 2224
   %30 = load i64, ptr %29, align 8
   %31 = add i64 %27, %30
   store i64 %31, ptr %29, align 8
@@ -12868,7 +12868,7 @@ _ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit: ; pred
   %34 = add i64 %33, 7
   %35 = and i64 %34, -8
   %36 = add i64 %35, %27
-  %37 = getelementptr inbounds i8, ptr %0, i64 2152
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 2152
   %38 = load ptr, ptr %37, align 8
   %39 = ptrtoint ptr %38 to i64
   %.not.i.i.i.i = icmp ugt i64 %36, %39
@@ -13399,7 +13399,7 @@ _ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit: ; pred
   %18 = shl nuw nsw i64 %reass.add.i.i.i.i, 3
   %19 = add nuw nsw i64 %18, 56
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 2144
-  %21 = getelementptr inbounds i8, ptr %0, i64 2224
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 2224
   %22 = load i64, ptr %21, align 8
   %23 = add i64 %19, %22
   store i64 %23, ptr %21, align 8
@@ -13408,7 +13408,7 @@ _ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit: ; pred
   %26 = add i64 %25, 7
   %27 = and i64 %26, -8
   %28 = add i64 %27, %19
-  %29 = getelementptr inbounds i8, ptr %0, i64 2152
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 2152
   %30 = load ptr, ptr %29, align 8
   %31 = ptrtoint ptr %30 to i64
   %.not.i.i.i.i = icmp ugt i64 %28, %31
@@ -13495,7 +13495,7 @@ _ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit: ; pred
   %26 = shl nuw nsw i64 %reass.add.i.i.i.i, 3
   %27 = add nuw nsw i64 %26, 56
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 2144
-  %29 = getelementptr inbounds i8, ptr %0, i64 2224
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 2224
   %30 = load i64, ptr %29, align 8
   %31 = add i64 %27, %30
   store i64 %31, ptr %29, align 8
@@ -13504,7 +13504,7 @@ _ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit: ; pred
   %34 = add i64 %33, 7
   %35 = and i64 %34, -8
   %36 = add i64 %35, %27
-  %37 = getelementptr inbounds i8, ptr %0, i64 2152
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 2152
   %38 = load ptr, ptr %37, align 8
   %39 = ptrtoint ptr %38 to i64
   %.not.i.i.i.i = icmp ugt i64 %36, %39
@@ -14035,7 +14035,7 @@ _ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit: ; pred
   %18 = shl nuw nsw i64 %reass.add.i.i.i.i, 3
   %19 = add nuw nsw i64 %18, 56
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 2144
-  %21 = getelementptr inbounds i8, ptr %0, i64 2224
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 2224
   %22 = load i64, ptr %21, align 8
   %23 = add i64 %19, %22
   store i64 %23, ptr %21, align 8
@@ -14044,7 +14044,7 @@ _ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit: ; pred
   %26 = add i64 %25, 7
   %27 = and i64 %26, -8
   %28 = add i64 %27, %19
-  %29 = getelementptr inbounds i8, ptr %0, i64 2152
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 2152
   %30 = load ptr, ptr %29, align 8
   %31 = ptrtoint ptr %30 to i64
   %.not.i.i.i.i = icmp ugt i64 %28, %31
@@ -14131,7 +14131,7 @@ _ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit: ; pred
   %27 = shl nuw nsw i64 %reass.add.i.i.i.i, 3
   %28 = add nuw nsw i64 %27, 56
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 2144
-  %30 = getelementptr inbounds i8, ptr %0, i64 2224
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 2224
   %31 = load i64, ptr %30, align 8
   %32 = add i64 %28, %31
   store i64 %32, ptr %30, align 8
@@ -14140,7 +14140,7 @@ _ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit: ; pred
   %35 = add i64 %34, 7
   %36 = and i64 %35, -8
   %37 = add i64 %36, %28
-  %38 = getelementptr inbounds i8, ptr %0, i64 2152
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 2152
   %39 = load ptr, ptr %38, align 8
   %40 = ptrtoint ptr %39 to i64
   %.not.i.i.i.i = icmp ugt i64 %37, %40
@@ -14675,7 +14675,7 @@ _ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit: ; pred
   %18 = shl nuw nsw i64 %reass.add.i.i.i.i, 3
   %19 = add nuw nsw i64 %18, 56
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 2144
-  %21 = getelementptr inbounds i8, ptr %0, i64 2224
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 2224
   %22 = load i64, ptr %21, align 8
   %23 = add i64 %19, %22
   store i64 %23, ptr %21, align 8
@@ -14684,7 +14684,7 @@ _ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit: ; pred
   %26 = add i64 %25, 7
   %27 = and i64 %26, -8
   %28 = add i64 %27, %19
-  %29 = getelementptr inbounds i8, ptr %0, i64 2152
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 2152
   %30 = load ptr, ptr %29, align 8
   %31 = ptrtoint ptr %30 to i64
   %.not.i.i.i.i = icmp ugt i64 %28, %31
@@ -14773,7 +14773,7 @@ _ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit: ; pred
   %27 = shl nuw nsw i64 %reass.add.i.i.i.i, 3
   %28 = add nuw nsw i64 %27, 56
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 2144
-  %30 = getelementptr inbounds i8, ptr %0, i64 2224
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 2224
   %31 = load i64, ptr %30, align 8
   %32 = add i64 %28, %31
   store i64 %32, ptr %30, align 8
@@ -14782,7 +14782,7 @@ _ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit: ; pred
   %35 = add i64 %34, 7
   %36 = and i64 %35, -8
   %37 = add i64 %36, %28
-  %38 = getelementptr inbounds i8, ptr %0, i64 2152
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 2152
   %39 = load ptr, ptr %38, align 8
   %40 = ptrtoint ptr %39 to i64
   %.not.i.i.i.i = icmp ugt i64 %37, %40
@@ -15317,7 +15317,7 @@ _ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit: ; pred
   %18 = shl nuw nsw i64 %reass.add.i.i.i.i, 3
   %19 = add nuw nsw i64 %18, 56
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 2144
-  %21 = getelementptr inbounds i8, ptr %0, i64 2224
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 2224
   %22 = load i64, ptr %21, align 8
   %23 = add i64 %19, %22
   store i64 %23, ptr %21, align 8
@@ -15326,7 +15326,7 @@ _ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit: ; pred
   %26 = add i64 %25, 7
   %27 = and i64 %26, -8
   %28 = add i64 %27, %19
-  %29 = getelementptr inbounds i8, ptr %0, i64 2152
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 2152
   %30 = load ptr, ptr %29, align 8
   %31 = ptrtoint ptr %30 to i64
   %.not.i.i.i.i = icmp ugt i64 %28, %31
@@ -15415,7 +15415,7 @@ _ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit: ; pred
   %26 = shl nuw nsw i64 %reass.add.i.i.i.i, 3
   %27 = add nuw nsw i64 %26, 56
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 2144
-  %29 = getelementptr inbounds i8, ptr %0, i64 2224
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 2224
   %30 = load i64, ptr %29, align 8
   %31 = add i64 %27, %30
   store i64 %31, ptr %29, align 8
@@ -15424,7 +15424,7 @@ _ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit: ; pred
   %34 = add i64 %33, 7
   %35 = and i64 %34, -8
   %36 = add i64 %35, %27
-  %37 = getelementptr inbounds i8, ptr %0, i64 2152
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 2152
   %38 = load ptr, ptr %37, align 8
   %39 = ptrtoint ptr %38 to i64
   %.not.i.i.i.i = icmp ugt i64 %36, %39
@@ -15955,7 +15955,7 @@ _ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit: ; pred
   %18 = shl nuw nsw i64 %reass.add.i.i.i.i, 3
   %19 = add nuw nsw i64 %18, 56
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 2144
-  %21 = getelementptr inbounds i8, ptr %0, i64 2224
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 2224
   %22 = load i64, ptr %21, align 8
   %23 = add i64 %19, %22
   store i64 %23, ptr %21, align 8
@@ -15964,7 +15964,7 @@ _ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit: ; pred
   %26 = add i64 %25, 7
   %27 = and i64 %26, -8
   %28 = add i64 %27, %19
-  %29 = getelementptr inbounds i8, ptr %0, i64 2152
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 2152
   %30 = load ptr, ptr %29, align 8
   %31 = ptrtoint ptr %30 to i64
   %.not.i.i.i.i = icmp ugt i64 %28, %31
@@ -16051,7 +16051,7 @@ _ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit: ; pred
   %26 = shl nuw nsw i64 %reass.add.i.i.i.i, 3
   %27 = add nuw nsw i64 %26, 56
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 2144
-  %29 = getelementptr inbounds i8, ptr %0, i64 2224
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 2224
   %30 = load i64, ptr %29, align 8
   %31 = add i64 %27, %30
   store i64 %31, ptr %29, align 8
@@ -16060,7 +16060,7 @@ _ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit: ; pred
   %34 = add i64 %33, 7
   %35 = and i64 %34, -8
   %36 = add i64 %35, %27
-  %37 = getelementptr inbounds i8, ptr %0, i64 2152
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 2152
   %38 = load ptr, ptr %37, align 8
   %39 = ptrtoint ptr %38 to i64
   %.not.i.i.i.i = icmp ugt i64 %36, %39
@@ -16591,7 +16591,7 @@ _ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit: ; pred
   %18 = shl nuw nsw i64 %reass.add.i.i.i.i, 3
   %19 = add nuw nsw i64 %18, 56
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 2144
-  %21 = getelementptr inbounds i8, ptr %0, i64 2224
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 2224
   %22 = load i64, ptr %21, align 8
   %23 = add i64 %19, %22
   store i64 %23, ptr %21, align 8
@@ -16600,7 +16600,7 @@ _ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit: ; pred
   %26 = add i64 %25, 7
   %27 = and i64 %26, -8
   %28 = add i64 %27, %19
-  %29 = getelementptr inbounds i8, ptr %0, i64 2152
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 2152
   %30 = load ptr, ptr %29, align 8
   %31 = ptrtoint ptr %30 to i64
   %.not.i.i.i.i = icmp ugt i64 %28, %31
@@ -16687,7 +16687,7 @@ _ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit: ; pred
   %26 = shl nuw nsw i64 %reass.add.i.i.i.i, 3
   %27 = add nuw nsw i64 %26, 56
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 2144
-  %29 = getelementptr inbounds i8, ptr %0, i64 2224
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 2224
   %30 = load i64, ptr %29, align 8
   %31 = add i64 %27, %30
   store i64 %31, ptr %29, align 8
@@ -16696,7 +16696,7 @@ _ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit: ; pred
   %34 = add i64 %33, 7
   %35 = and i64 %34, -8
   %36 = add i64 %35, %27
-  %37 = getelementptr inbounds i8, ptr %0, i64 2152
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 2152
   %38 = load ptr, ptr %37, align 8
   %39 = ptrtoint ptr %38 to i64
   %.not.i.i.i.i = icmp ugt i64 %36, %39
@@ -17227,7 +17227,7 @@ _ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit: ; pred
   %18 = shl nuw nsw i64 %reass.add.i.i.i.i, 3
   %19 = add nuw nsw i64 %18, 56
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 2144
-  %21 = getelementptr inbounds i8, ptr %0, i64 2224
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 2224
   %22 = load i64, ptr %21, align 8
   %23 = add i64 %19, %22
   store i64 %23, ptr %21, align 8
@@ -17236,7 +17236,7 @@ _ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit: ; pred
   %26 = add i64 %25, 7
   %27 = and i64 %26, -8
   %28 = add i64 %27, %19
-  %29 = getelementptr inbounds i8, ptr %0, i64 2152
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 2152
   %30 = load ptr, ptr %29, align 8
   %31 = ptrtoint ptr %30 to i64
   %.not.i.i.i.i = icmp ugt i64 %28, %31
@@ -17297,7 +17297,7 @@ define dso_local noundef ptr @_ZN5clang24OMPTargetUpdateDirective6CreateERKNS_10
   %11 = shl nuw nsw i64 %reass.add.i.i.i.i, 3
   %12 = add nuw nsw i64 %11, 48
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 2144
-  %14 = getelementptr inbounds i8, ptr %0, i64 2224
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 2224
   %15 = load i64, ptr %14, align 8
   %16 = add i64 %15, %12
   store i64 %16, ptr %14, align 8
@@ -17306,7 +17306,7 @@ define dso_local noundef ptr @_ZN5clang24OMPTargetUpdateDirective6CreateERKNS_10
   %19 = add i64 %18, 7
   %20 = and i64 %19, -8
   %21 = add i64 %20, %12
-  %22 = getelementptr inbounds i8, ptr %0, i64 2152
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 2152
   %23 = load ptr, ptr %22, align 8
   %24 = ptrtoint ptr %23 to i64
   %.not.i.i.i.i = icmp ugt i64 %21, %24
@@ -17379,7 +17379,7 @@ define dso_local noundef ptr @_ZN5clang24OMPTargetUpdateDirective11CreateEmptyER
   %reass.add.i.i.i.i = shl nuw nsw i64 %3, 3
   %4 = add nuw nsw i64 %reass.add.i.i.i.i, 56
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 2144
-  %6 = getelementptr inbounds i8, ptr %0, i64 2224
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 2224
   %7 = load i64, ptr %6, align 8
   %8 = add i64 %7, %4
   store i64 %8, ptr %6, align 8
@@ -17388,7 +17388,7 @@ define dso_local noundef ptr @_ZN5clang24OMPTargetUpdateDirective11CreateEmptyER
   %11 = add i64 %10, 7
   %12 = and i64 %11, -8
   %13 = add i64 %12, %4
-  %14 = getelementptr inbounds i8, ptr %0, i64 2152
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 2152
   %15 = load ptr, ptr %14, align 8
   %16 = ptrtoint ptr %15 to i64
   %.not.i.i.i.i = icmp ugt i64 %13, %16
@@ -17474,7 +17474,7 @@ _ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit: ; pred
   %29 = shl nuw nsw i64 %reass.add.i.i.i.i, 3
   %30 = add nuw nsw i64 %29, 56
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 2144
-  %32 = getelementptr inbounds i8, ptr %0, i64 2224
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 2224
   %33 = load i64, ptr %32, align 8
   %34 = add i64 %30, %33
   store i64 %34, ptr %32, align 8
@@ -17483,7 +17483,7 @@ _ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit: ; pred
   %37 = add i64 %36, 7
   %38 = and i64 %37, -8
   %39 = add i64 %38, %30
-  %40 = getelementptr inbounds i8, ptr %0, i64 2152
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 2152
   %41 = load ptr, ptr %40, align 8
   %42 = ptrtoint ptr %41 to i64
   %.not.i.i.i.i = icmp ugt i64 %39, %42
@@ -18005,7 +18005,7 @@ _ZN5clang16OMPLoopDirective19setFinalsConditionsEN4llvm8ArrayRefIPNS_4ExprEEE.ex
   %328 = getelementptr inbounds ptr, ptr %325, i64 %327
   %329 = getelementptr inbounds i8, ptr %328, i64 160
   store ptr %323, ptr %329, align 8
-  %330 = getelementptr inbounds i8, ptr %7, i64 552
+  %330 = getelementptr inbounds nuw i8, ptr %7, i64 552
   %331 = load ptr, ptr %330, align 8
   %332 = load ptr, ptr %65, align 8
   %333 = getelementptr inbounds i8, ptr %332, i64 16
@@ -18014,7 +18014,7 @@ _ZN5clang16OMPLoopDirective19setFinalsConditionsEN4llvm8ArrayRefIPNS_4ExprEEE.ex
   %336 = getelementptr inbounds ptr, ptr %333, i64 %335
   %337 = getelementptr inbounds i8, ptr %336, i64 168
   store ptr %331, ptr %337, align 8
-  %338 = getelementptr inbounds i8, ptr %7, i64 560
+  %338 = getelementptr inbounds nuw i8, ptr %7, i64 560
   %339 = load ptr, ptr %338, align 8
   %340 = load ptr, ptr %65, align 8
   %341 = getelementptr inbounds i8, ptr %340, i64 16
@@ -18023,7 +18023,7 @@ _ZN5clang16OMPLoopDirective19setFinalsConditionsEN4llvm8ArrayRefIPNS_4ExprEEE.ex
   %344 = getelementptr inbounds ptr, ptr %341, i64 %343
   %345 = getelementptr inbounds i8, ptr %344, i64 176
   store ptr %339, ptr %345, align 8
-  %346 = getelementptr inbounds i8, ptr %7, i64 568
+  %346 = getelementptr inbounds nuw i8, ptr %7, i64 568
   %347 = load ptr, ptr %346, align 8
   %348 = load ptr, ptr %65, align 8
   %349 = getelementptr inbounds i8, ptr %348, i64 16
@@ -18032,7 +18032,7 @@ _ZN5clang16OMPLoopDirective19setFinalsConditionsEN4llvm8ArrayRefIPNS_4ExprEEE.ex
   %352 = getelementptr inbounds ptr, ptr %349, i64 %351
   %353 = getelementptr inbounds i8, ptr %352, i64 184
   store ptr %347, ptr %353, align 8
-  %354 = getelementptr inbounds i8, ptr %7, i64 576
+  %354 = getelementptr inbounds nuw i8, ptr %7, i64 576
   %355 = load ptr, ptr %354, align 8
   %356 = load ptr, ptr %65, align 8
   %357 = getelementptr inbounds i8, ptr %356, i64 16
@@ -18041,7 +18041,7 @@ _ZN5clang16OMPLoopDirective19setFinalsConditionsEN4llvm8ArrayRefIPNS_4ExprEEE.ex
   %360 = getelementptr inbounds ptr, ptr %357, i64 %359
   %361 = getelementptr inbounds i8, ptr %360, i64 192
   store ptr %355, ptr %361, align 8
-  %362 = getelementptr inbounds i8, ptr %7, i64 584
+  %362 = getelementptr inbounds nuw i8, ptr %7, i64 584
   %363 = load ptr, ptr %362, align 8
   %364 = load ptr, ptr %65, align 8
   %365 = getelementptr inbounds i8, ptr %364, i64 16
@@ -18050,7 +18050,7 @@ _ZN5clang16OMPLoopDirective19setFinalsConditionsEN4llvm8ArrayRefIPNS_4ExprEEE.ex
   %368 = getelementptr inbounds ptr, ptr %365, i64 %367
   %369 = getelementptr inbounds i8, ptr %368, i64 200
   store ptr %363, ptr %369, align 8
-  %370 = getelementptr inbounds i8, ptr %7, i64 592
+  %370 = getelementptr inbounds nuw i8, ptr %7, i64 592
   %371 = load ptr, ptr %370, align 8
   %372 = load ptr, ptr %65, align 8
   %373 = getelementptr inbounds i8, ptr %372, i64 16
@@ -18059,7 +18059,7 @@ _ZN5clang16OMPLoopDirective19setFinalsConditionsEN4llvm8ArrayRefIPNS_4ExprEEE.ex
   %376 = getelementptr inbounds ptr, ptr %373, i64 %375
   %377 = getelementptr inbounds i8, ptr %376, i64 208
   store ptr %371, ptr %377, align 8
-  %378 = getelementptr inbounds i8, ptr %7, i64 600
+  %378 = getelementptr inbounds nuw i8, ptr %7, i64 600
   %379 = load ptr, ptr %378, align 8
   %380 = load ptr, ptr %65, align 8
   %381 = getelementptr inbounds i8, ptr %380, i64 16
@@ -18068,7 +18068,7 @@ _ZN5clang16OMPLoopDirective19setFinalsConditionsEN4llvm8ArrayRefIPNS_4ExprEEE.ex
   %384 = getelementptr inbounds ptr, ptr %381, i64 %383
   %385 = getelementptr inbounds i8, ptr %384, i64 216
   store ptr %379, ptr %385, align 8
-  %386 = getelementptr inbounds i8, ptr %7, i64 608
+  %386 = getelementptr inbounds nuw i8, ptr %7, i64 608
   %387 = load ptr, ptr %386, align 8
   %388 = load ptr, ptr %65, align 8
   %389 = getelementptr inbounds i8, ptr %388, i64 16
@@ -18149,7 +18149,7 @@ _ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit: ; pred
   %19 = shl nuw nsw i64 %reass.add.i.i.i.i, 3
   %20 = add nuw nsw i64 %19, 56
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 2144
-  %22 = getelementptr inbounds i8, ptr %0, i64 2224
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 2224
   %23 = load i64, ptr %22, align 8
   %24 = add i64 %20, %23
   store i64 %24, ptr %22, align 8
@@ -18158,7 +18158,7 @@ _ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit: ; pred
   %27 = add i64 %26, 7
   %28 = and i64 %27, -8
   %29 = add i64 %28, %20
-  %30 = getelementptr inbounds i8, ptr %0, i64 2152
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 2152
   %31 = load ptr, ptr %30, align 8
   %32 = ptrtoint ptr %31 to i64
   %.not.i.i.i.i = icmp ugt i64 %29, %32
@@ -18247,7 +18247,7 @@ _ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit: ; pred
   %26 = shl nuw nsw i64 %reass.add.i.i.i.i, 3
   %27 = add nuw nsw i64 %26, 56
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 2144
-  %29 = getelementptr inbounds i8, ptr %0, i64 2224
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 2224
   %30 = load i64, ptr %29, align 8
   %31 = add i64 %27, %30
   store i64 %31, ptr %29, align 8
@@ -18256,7 +18256,7 @@ _ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit: ; pred
   %34 = add i64 %33, 7
   %35 = and i64 %34, -8
   %36 = add i64 %35, %27
-  %37 = getelementptr inbounds i8, ptr %0, i64 2152
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 2152
   %38 = load ptr, ptr %37, align 8
   %39 = ptrtoint ptr %38 to i64
   %.not.i.i.i.i = icmp ugt i64 %36, %39
@@ -18776,7 +18776,7 @@ _ZN5clang16OMPLoopDirective19setFinalsConditionsEN4llvm8ArrayRefIPNS_4ExprEEE.ex
   %324 = getelementptr inbounds ptr, ptr %321, i64 %323
   %325 = getelementptr inbounds i8, ptr %324, i64 160
   store ptr %319, ptr %325, align 8
-  %326 = getelementptr inbounds i8, ptr %7, i64 552
+  %326 = getelementptr inbounds nuw i8, ptr %7, i64 552
   %327 = load ptr, ptr %326, align 8
   %328 = load ptr, ptr %62, align 8
   %329 = getelementptr inbounds i8, ptr %328, i64 16
@@ -18785,7 +18785,7 @@ _ZN5clang16OMPLoopDirective19setFinalsConditionsEN4llvm8ArrayRefIPNS_4ExprEEE.ex
   %332 = getelementptr inbounds ptr, ptr %329, i64 %331
   %333 = getelementptr inbounds i8, ptr %332, i64 168
   store ptr %327, ptr %333, align 8
-  %334 = getelementptr inbounds i8, ptr %7, i64 560
+  %334 = getelementptr inbounds nuw i8, ptr %7, i64 560
   %335 = load ptr, ptr %334, align 8
   %336 = load ptr, ptr %62, align 8
   %337 = getelementptr inbounds i8, ptr %336, i64 16
@@ -18794,7 +18794,7 @@ _ZN5clang16OMPLoopDirective19setFinalsConditionsEN4llvm8ArrayRefIPNS_4ExprEEE.ex
   %340 = getelementptr inbounds ptr, ptr %337, i64 %339
   %341 = getelementptr inbounds i8, ptr %340, i64 176
   store ptr %335, ptr %341, align 8
-  %342 = getelementptr inbounds i8, ptr %7, i64 568
+  %342 = getelementptr inbounds nuw i8, ptr %7, i64 568
   %343 = load ptr, ptr %342, align 8
   %344 = load ptr, ptr %62, align 8
   %345 = getelementptr inbounds i8, ptr %344, i64 16
@@ -18803,7 +18803,7 @@ _ZN5clang16OMPLoopDirective19setFinalsConditionsEN4llvm8ArrayRefIPNS_4ExprEEE.ex
   %348 = getelementptr inbounds ptr, ptr %345, i64 %347
   %349 = getelementptr inbounds i8, ptr %348, i64 184
   store ptr %343, ptr %349, align 8
-  %350 = getelementptr inbounds i8, ptr %7, i64 576
+  %350 = getelementptr inbounds nuw i8, ptr %7, i64 576
   %351 = load ptr, ptr %350, align 8
   %352 = load ptr, ptr %62, align 8
   %353 = getelementptr inbounds i8, ptr %352, i64 16
@@ -18812,7 +18812,7 @@ _ZN5clang16OMPLoopDirective19setFinalsConditionsEN4llvm8ArrayRefIPNS_4ExprEEE.ex
   %356 = getelementptr inbounds ptr, ptr %353, i64 %355
   %357 = getelementptr inbounds i8, ptr %356, i64 192
   store ptr %351, ptr %357, align 8
-  %358 = getelementptr inbounds i8, ptr %7, i64 584
+  %358 = getelementptr inbounds nuw i8, ptr %7, i64 584
   %359 = load ptr, ptr %358, align 8
   %360 = load ptr, ptr %62, align 8
   %361 = getelementptr inbounds i8, ptr %360, i64 16
@@ -18821,7 +18821,7 @@ _ZN5clang16OMPLoopDirective19setFinalsConditionsEN4llvm8ArrayRefIPNS_4ExprEEE.ex
   %364 = getelementptr inbounds ptr, ptr %361, i64 %363
   %365 = getelementptr inbounds i8, ptr %364, i64 200
   store ptr %359, ptr %365, align 8
-  %366 = getelementptr inbounds i8, ptr %7, i64 592
+  %366 = getelementptr inbounds nuw i8, ptr %7, i64 592
   %367 = load ptr, ptr %366, align 8
   %368 = load ptr, ptr %62, align 8
   %369 = getelementptr inbounds i8, ptr %368, i64 16
@@ -18830,7 +18830,7 @@ _ZN5clang16OMPLoopDirective19setFinalsConditionsEN4llvm8ArrayRefIPNS_4ExprEEE.ex
   %372 = getelementptr inbounds ptr, ptr %369, i64 %371
   %373 = getelementptr inbounds i8, ptr %372, i64 208
   store ptr %367, ptr %373, align 8
-  %374 = getelementptr inbounds i8, ptr %7, i64 600
+  %374 = getelementptr inbounds nuw i8, ptr %7, i64 600
   %375 = load ptr, ptr %374, align 8
   %376 = load ptr, ptr %62, align 8
   %377 = getelementptr inbounds i8, ptr %376, i64 16
@@ -18839,7 +18839,7 @@ _ZN5clang16OMPLoopDirective19setFinalsConditionsEN4llvm8ArrayRefIPNS_4ExprEEE.ex
   %380 = getelementptr inbounds ptr, ptr %377, i64 %379
   %381 = getelementptr inbounds i8, ptr %380, i64 216
   store ptr %375, ptr %381, align 8
-  %382 = getelementptr inbounds i8, ptr %7, i64 608
+  %382 = getelementptr inbounds nuw i8, ptr %7, i64 608
   %383 = load ptr, ptr %382, align 8
   %384 = load ptr, ptr %62, align 8
   %385 = getelementptr inbounds i8, ptr %384, i64 16
@@ -18884,7 +18884,7 @@ _ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit: ; pred
   %18 = shl nuw nsw i64 %reass.add.i.i.i.i, 3
   %19 = add nuw nsw i64 %18, 56
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 2144
-  %21 = getelementptr inbounds i8, ptr %0, i64 2224
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 2224
   %22 = load i64, ptr %21, align 8
   %23 = add i64 %19, %22
   store i64 %23, ptr %21, align 8
@@ -18893,7 +18893,7 @@ _ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit: ; pred
   %26 = add i64 %25, 7
   %27 = and i64 %26, -8
   %28 = add i64 %27, %19
-  %29 = getelementptr inbounds i8, ptr %0, i64 2152
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 2152
   %30 = load ptr, ptr %29, align 8
   %31 = ptrtoint ptr %30 to i64
   %.not.i.i.i.i = icmp ugt i64 %28, %31
@@ -18980,7 +18980,7 @@ _ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit: ; pred
   %26 = shl nuw nsw i64 %reass.add.i.i.i.i, 3
   %27 = add nuw nsw i64 %26, 56
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 2144
-  %29 = getelementptr inbounds i8, ptr %0, i64 2224
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 2224
   %30 = load i64, ptr %29, align 8
   %31 = add i64 %27, %30
   store i64 %31, ptr %29, align 8
@@ -18989,7 +18989,7 @@ _ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit: ; pred
   %34 = add i64 %33, 7
   %35 = and i64 %34, -8
   %36 = add i64 %35, %27
-  %37 = getelementptr inbounds i8, ptr %0, i64 2152
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 2152
   %38 = load ptr, ptr %37, align 8
   %39 = ptrtoint ptr %38 to i64
   %.not.i.i.i.i = icmp ugt i64 %36, %39
@@ -19520,7 +19520,7 @@ _ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit: ; pred
   %18 = shl nuw nsw i64 %reass.add.i.i.i.i, 3
   %19 = add nuw nsw i64 %18, 56
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 2144
-  %21 = getelementptr inbounds i8, ptr %0, i64 2224
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 2224
   %22 = load i64, ptr %21, align 8
   %23 = add i64 %19, %22
   store i64 %23, ptr %21, align 8
@@ -19529,7 +19529,7 @@ _ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit: ; pred
   %26 = add i64 %25, 7
   %27 = and i64 %26, -8
   %28 = add i64 %27, %19
-  %29 = getelementptr inbounds i8, ptr %0, i64 2152
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 2152
   %30 = load ptr, ptr %29, align 8
   %31 = ptrtoint ptr %30 to i64
   %.not.i.i.i.i = icmp ugt i64 %28, %31
@@ -19616,7 +19616,7 @@ _ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit: ; pred
   %26 = shl nuw nsw i64 %reass.add.i.i.i.i, 3
   %27 = add nuw nsw i64 %26, 56
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 2144
-  %29 = getelementptr inbounds i8, ptr %0, i64 2224
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 2224
   %30 = load i64, ptr %29, align 8
   %31 = add i64 %27, %30
   store i64 %31, ptr %29, align 8
@@ -19625,7 +19625,7 @@ _ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit: ; pred
   %34 = add i64 %33, 7
   %35 = and i64 %34, -8
   %36 = add i64 %35, %27
-  %37 = getelementptr inbounds i8, ptr %0, i64 2152
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 2152
   %38 = load ptr, ptr %37, align 8
   %39 = ptrtoint ptr %38 to i64
   %.not.i.i.i.i = icmp ugt i64 %36, %39
@@ -20156,7 +20156,7 @@ _ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit: ; pred
   %18 = shl nuw nsw i64 %reass.add.i.i.i.i, 3
   %19 = add nuw nsw i64 %18, 56
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 2144
-  %21 = getelementptr inbounds i8, ptr %0, i64 2224
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 2224
   %22 = load i64, ptr %21, align 8
   %23 = add i64 %19, %22
   store i64 %23, ptr %21, align 8
@@ -20165,7 +20165,7 @@ _ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit: ; pred
   %26 = add i64 %25, 7
   %27 = and i64 %26, -8
   %28 = add i64 %27, %19
-  %29 = getelementptr inbounds i8, ptr %0, i64 2152
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 2152
   %30 = load ptr, ptr %29, align 8
   %31 = ptrtoint ptr %30 to i64
   %.not.i.i.i.i = icmp ugt i64 %28, %31
@@ -20252,7 +20252,7 @@ _ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit: ; pred
   %26 = shl nuw nsw i64 %reass.add.i.i.i.i, 3
   %27 = add nuw nsw i64 %26, 56
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 2144
-  %29 = getelementptr inbounds i8, ptr %0, i64 2224
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 2224
   %30 = load i64, ptr %29, align 8
   %31 = add i64 %27, %30
   store i64 %31, ptr %29, align 8
@@ -20261,7 +20261,7 @@ _ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit: ; pred
   %34 = add i64 %33, 7
   %35 = and i64 %34, -8
   %36 = add i64 %35, %27
-  %37 = getelementptr inbounds i8, ptr %0, i64 2152
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 2152
   %38 = load ptr, ptr %37, align 8
   %39 = ptrtoint ptr %38 to i64
   %.not.i.i.i.i = icmp ugt i64 %36, %39
@@ -20760,7 +20760,7 @@ _ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit: ; pred
   %18 = shl nuw nsw i64 %reass.add.i.i.i.i, 3
   %19 = add nuw nsw i64 %18, 56
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 2144
-  %21 = getelementptr inbounds i8, ptr %0, i64 2224
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 2224
   %22 = load i64, ptr %21, align 8
   %23 = add i64 %19, %22
   store i64 %23, ptr %21, align 8
@@ -20769,7 +20769,7 @@ _ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit: ; pred
   %26 = add i64 %25, 7
   %27 = and i64 %26, -8
   %28 = add i64 %27, %19
-  %29 = getelementptr inbounds i8, ptr %0, i64 2152
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 2152
   %30 = load ptr, ptr %29, align 8
   %31 = ptrtoint ptr %30 to i64
   %.not.i.i.i.i = icmp ugt i64 %28, %31
@@ -20856,7 +20856,7 @@ _ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit: ; pred
   %26 = shl nuw nsw i64 %reass.add.i.i.i.i, 3
   %27 = add nuw nsw i64 %26, 56
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 2144
-  %29 = getelementptr inbounds i8, ptr %0, i64 2224
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 2224
   %30 = load i64, ptr %29, align 8
   %31 = add i64 %27, %30
   store i64 %31, ptr %29, align 8
@@ -20865,7 +20865,7 @@ _ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit: ; pred
   %34 = add i64 %33, 7
   %35 = and i64 %34, -8
   %36 = add i64 %35, %27
-  %37 = getelementptr inbounds i8, ptr %0, i64 2152
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 2152
   %38 = load ptr, ptr %37, align 8
   %39 = ptrtoint ptr %38 to i64
   %.not.i.i.i.i = icmp ugt i64 %36, %39
@@ -21396,7 +21396,7 @@ _ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit: ; pred
   %18 = shl nuw nsw i64 %reass.add.i.i.i.i, 3
   %19 = add nuw nsw i64 %18, 56
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 2144
-  %21 = getelementptr inbounds i8, ptr %0, i64 2224
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 2224
   %22 = load i64, ptr %21, align 8
   %23 = add i64 %19, %22
   store i64 %23, ptr %21, align 8
@@ -21405,7 +21405,7 @@ _ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit: ; pred
   %26 = add i64 %25, 7
   %27 = and i64 %26, -8
   %28 = add i64 %27, %19
-  %29 = getelementptr inbounds i8, ptr %0, i64 2152
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 2152
   %30 = load ptr, ptr %29, align 8
   %31 = ptrtoint ptr %30 to i64
   %.not.i.i.i.i = icmp ugt i64 %28, %31
@@ -21492,7 +21492,7 @@ _ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit: ; pred
   %26 = shl nuw nsw i64 %reass.add.i.i.i.i, 3
   %27 = add nuw nsw i64 %26, 56
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 2144
-  %29 = getelementptr inbounds i8, ptr %0, i64 2224
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 2224
   %30 = load i64, ptr %29, align 8
   %31 = add i64 %27, %30
   store i64 %31, ptr %29, align 8
@@ -21501,7 +21501,7 @@ _ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit: ; pred
   %34 = add i64 %33, 7
   %35 = and i64 %34, -8
   %36 = add i64 %35, %27
-  %37 = getelementptr inbounds i8, ptr %0, i64 2152
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 2152
   %38 = load ptr, ptr %37, align 8
   %39 = ptrtoint ptr %38 to i64
   %.not.i.i.i.i = icmp ugt i64 %36, %39
@@ -22032,7 +22032,7 @@ _ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit: ; pred
   %18 = shl nuw nsw i64 %reass.add.i.i.i.i, 3
   %19 = add nuw nsw i64 %18, 56
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 2144
-  %21 = getelementptr inbounds i8, ptr %0, i64 2224
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 2224
   %22 = load i64, ptr %21, align 8
   %23 = add i64 %19, %22
   store i64 %23, ptr %21, align 8
@@ -22041,7 +22041,7 @@ _ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit: ; pred
   %26 = add i64 %25, 7
   %27 = and i64 %26, -8
   %28 = add i64 %27, %19
-  %29 = getelementptr inbounds i8, ptr %0, i64 2152
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 2152
   %30 = load ptr, ptr %29, align 8
   %31 = ptrtoint ptr %30 to i64
   %.not.i.i.i.i = icmp ugt i64 %28, %31
@@ -22128,7 +22128,7 @@ _ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit: ; pred
   %26 = shl nuw nsw i64 %reass.add.i.i.i.i, 3
   %27 = add nuw nsw i64 %26, 56
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 2144
-  %29 = getelementptr inbounds i8, ptr %0, i64 2224
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 2224
   %30 = load i64, ptr %29, align 8
   %31 = add i64 %27, %30
   store i64 %31, ptr %29, align 8
@@ -22137,7 +22137,7 @@ _ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit: ; pred
   %34 = add i64 %33, 7
   %35 = and i64 %34, -8
   %36 = add i64 %35, %27
-  %37 = getelementptr inbounds i8, ptr %0, i64 2152
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 2152
   %38 = load ptr, ptr %37, align 8
   %39 = ptrtoint ptr %38 to i64
   %.not.i.i.i.i = icmp ugt i64 %36, %39
@@ -22657,7 +22657,7 @@ _ZN5clang16OMPLoopDirective19setFinalsConditionsEN4llvm8ArrayRefIPNS_4ExprEEE.ex
   %324 = getelementptr inbounds ptr, ptr %321, i64 %323
   %325 = getelementptr inbounds i8, ptr %324, i64 160
   store ptr %319, ptr %325, align 8
-  %326 = getelementptr inbounds i8, ptr %7, i64 552
+  %326 = getelementptr inbounds nuw i8, ptr %7, i64 552
   %327 = load ptr, ptr %326, align 8
   %328 = load ptr, ptr %62, align 8
   %329 = getelementptr inbounds i8, ptr %328, i64 16
@@ -22666,7 +22666,7 @@ _ZN5clang16OMPLoopDirective19setFinalsConditionsEN4llvm8ArrayRefIPNS_4ExprEEE.ex
   %332 = getelementptr inbounds ptr, ptr %329, i64 %331
   %333 = getelementptr inbounds i8, ptr %332, i64 168
   store ptr %327, ptr %333, align 8
-  %334 = getelementptr inbounds i8, ptr %7, i64 560
+  %334 = getelementptr inbounds nuw i8, ptr %7, i64 560
   %335 = load ptr, ptr %334, align 8
   %336 = load ptr, ptr %62, align 8
   %337 = getelementptr inbounds i8, ptr %336, i64 16
@@ -22675,7 +22675,7 @@ _ZN5clang16OMPLoopDirective19setFinalsConditionsEN4llvm8ArrayRefIPNS_4ExprEEE.ex
   %340 = getelementptr inbounds ptr, ptr %337, i64 %339
   %341 = getelementptr inbounds i8, ptr %340, i64 176
   store ptr %335, ptr %341, align 8
-  %342 = getelementptr inbounds i8, ptr %7, i64 568
+  %342 = getelementptr inbounds nuw i8, ptr %7, i64 568
   %343 = load ptr, ptr %342, align 8
   %344 = load ptr, ptr %62, align 8
   %345 = getelementptr inbounds i8, ptr %344, i64 16
@@ -22684,7 +22684,7 @@ _ZN5clang16OMPLoopDirective19setFinalsConditionsEN4llvm8ArrayRefIPNS_4ExprEEE.ex
   %348 = getelementptr inbounds ptr, ptr %345, i64 %347
   %349 = getelementptr inbounds i8, ptr %348, i64 184
   store ptr %343, ptr %349, align 8
-  %350 = getelementptr inbounds i8, ptr %7, i64 576
+  %350 = getelementptr inbounds nuw i8, ptr %7, i64 576
   %351 = load ptr, ptr %350, align 8
   %352 = load ptr, ptr %62, align 8
   %353 = getelementptr inbounds i8, ptr %352, i64 16
@@ -22693,7 +22693,7 @@ _ZN5clang16OMPLoopDirective19setFinalsConditionsEN4llvm8ArrayRefIPNS_4ExprEEE.ex
   %356 = getelementptr inbounds ptr, ptr %353, i64 %355
   %357 = getelementptr inbounds i8, ptr %356, i64 192
   store ptr %351, ptr %357, align 8
-  %358 = getelementptr inbounds i8, ptr %7, i64 584
+  %358 = getelementptr inbounds nuw i8, ptr %7, i64 584
   %359 = load ptr, ptr %358, align 8
   %360 = load ptr, ptr %62, align 8
   %361 = getelementptr inbounds i8, ptr %360, i64 16
@@ -22702,7 +22702,7 @@ _ZN5clang16OMPLoopDirective19setFinalsConditionsEN4llvm8ArrayRefIPNS_4ExprEEE.ex
   %364 = getelementptr inbounds ptr, ptr %361, i64 %363
   %365 = getelementptr inbounds i8, ptr %364, i64 200
   store ptr %359, ptr %365, align 8
-  %366 = getelementptr inbounds i8, ptr %7, i64 592
+  %366 = getelementptr inbounds nuw i8, ptr %7, i64 592
   %367 = load ptr, ptr %366, align 8
   %368 = load ptr, ptr %62, align 8
   %369 = getelementptr inbounds i8, ptr %368, i64 16
@@ -22711,7 +22711,7 @@ _ZN5clang16OMPLoopDirective19setFinalsConditionsEN4llvm8ArrayRefIPNS_4ExprEEE.ex
   %372 = getelementptr inbounds ptr, ptr %369, i64 %371
   %373 = getelementptr inbounds i8, ptr %372, i64 208
   store ptr %367, ptr %373, align 8
-  %374 = getelementptr inbounds i8, ptr %7, i64 600
+  %374 = getelementptr inbounds nuw i8, ptr %7, i64 600
   %375 = load ptr, ptr %374, align 8
   %376 = load ptr, ptr %62, align 8
   %377 = getelementptr inbounds i8, ptr %376, i64 16
@@ -22720,7 +22720,7 @@ _ZN5clang16OMPLoopDirective19setFinalsConditionsEN4llvm8ArrayRefIPNS_4ExprEEE.ex
   %380 = getelementptr inbounds ptr, ptr %377, i64 %379
   %381 = getelementptr inbounds i8, ptr %380, i64 216
   store ptr %375, ptr %381, align 8
-  %382 = getelementptr inbounds i8, ptr %7, i64 608
+  %382 = getelementptr inbounds nuw i8, ptr %7, i64 608
   %383 = load ptr, ptr %382, align 8
   %384 = load ptr, ptr %62, align 8
   %385 = getelementptr inbounds i8, ptr %384, i64 16
@@ -22765,7 +22765,7 @@ _ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit: ; pred
   %18 = shl nuw nsw i64 %reass.add.i.i.i.i, 3
   %19 = add nuw nsw i64 %18, 56
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 2144
-  %21 = getelementptr inbounds i8, ptr %0, i64 2224
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 2224
   %22 = load i64, ptr %21, align 8
   %23 = add i64 %19, %22
   store i64 %23, ptr %21, align 8
@@ -22774,7 +22774,7 @@ _ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit: ; pred
   %26 = add i64 %25, 7
   %27 = and i64 %26, -8
   %28 = add i64 %27, %19
-  %29 = getelementptr inbounds i8, ptr %0, i64 2152
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 2152
   %30 = load ptr, ptr %29, align 8
   %31 = ptrtoint ptr %30 to i64
   %.not.i.i.i.i = icmp ugt i64 %28, %31
@@ -22862,7 +22862,7 @@ _ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit: ; pred
   %29 = shl nuw nsw i64 %reass.add.i.i.i.i, 3
   %30 = add nuw nsw i64 %29, 56
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 2144
-  %32 = getelementptr inbounds i8, ptr %0, i64 2224
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 2224
   %33 = load i64, ptr %32, align 8
   %34 = add i64 %30, %33
   store i64 %34, ptr %32, align 8
@@ -22871,7 +22871,7 @@ _ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit: ; pred
   %37 = add i64 %36, 7
   %38 = and i64 %37, -8
   %39 = add i64 %38, %30
-  %40 = getelementptr inbounds i8, ptr %0, i64 2152
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 2152
   %41 = load ptr, ptr %40, align 8
   %42 = ptrtoint ptr %41 to i64
   %.not.i.i.i.i = icmp ugt i64 %39, %42
@@ -23393,7 +23393,7 @@ _ZN5clang16OMPLoopDirective19setFinalsConditionsEN4llvm8ArrayRefIPNS_4ExprEEE.ex
   %328 = getelementptr inbounds ptr, ptr %325, i64 %327
   %329 = getelementptr inbounds i8, ptr %328, i64 160
   store ptr %323, ptr %329, align 8
-  %330 = getelementptr inbounds i8, ptr %7, i64 552
+  %330 = getelementptr inbounds nuw i8, ptr %7, i64 552
   %331 = load ptr, ptr %330, align 8
   %332 = load ptr, ptr %65, align 8
   %333 = getelementptr inbounds i8, ptr %332, i64 16
@@ -23402,7 +23402,7 @@ _ZN5clang16OMPLoopDirective19setFinalsConditionsEN4llvm8ArrayRefIPNS_4ExprEEE.ex
   %336 = getelementptr inbounds ptr, ptr %333, i64 %335
   %337 = getelementptr inbounds i8, ptr %336, i64 168
   store ptr %331, ptr %337, align 8
-  %338 = getelementptr inbounds i8, ptr %7, i64 560
+  %338 = getelementptr inbounds nuw i8, ptr %7, i64 560
   %339 = load ptr, ptr %338, align 8
   %340 = load ptr, ptr %65, align 8
   %341 = getelementptr inbounds i8, ptr %340, i64 16
@@ -23411,7 +23411,7 @@ _ZN5clang16OMPLoopDirective19setFinalsConditionsEN4llvm8ArrayRefIPNS_4ExprEEE.ex
   %344 = getelementptr inbounds ptr, ptr %341, i64 %343
   %345 = getelementptr inbounds i8, ptr %344, i64 176
   store ptr %339, ptr %345, align 8
-  %346 = getelementptr inbounds i8, ptr %7, i64 568
+  %346 = getelementptr inbounds nuw i8, ptr %7, i64 568
   %347 = load ptr, ptr %346, align 8
   %348 = load ptr, ptr %65, align 8
   %349 = getelementptr inbounds i8, ptr %348, i64 16
@@ -23420,7 +23420,7 @@ _ZN5clang16OMPLoopDirective19setFinalsConditionsEN4llvm8ArrayRefIPNS_4ExprEEE.ex
   %352 = getelementptr inbounds ptr, ptr %349, i64 %351
   %353 = getelementptr inbounds i8, ptr %352, i64 184
   store ptr %347, ptr %353, align 8
-  %354 = getelementptr inbounds i8, ptr %7, i64 576
+  %354 = getelementptr inbounds nuw i8, ptr %7, i64 576
   %355 = load ptr, ptr %354, align 8
   %356 = load ptr, ptr %65, align 8
   %357 = getelementptr inbounds i8, ptr %356, i64 16
@@ -23429,7 +23429,7 @@ _ZN5clang16OMPLoopDirective19setFinalsConditionsEN4llvm8ArrayRefIPNS_4ExprEEE.ex
   %360 = getelementptr inbounds ptr, ptr %357, i64 %359
   %361 = getelementptr inbounds i8, ptr %360, i64 192
   store ptr %355, ptr %361, align 8
-  %362 = getelementptr inbounds i8, ptr %7, i64 584
+  %362 = getelementptr inbounds nuw i8, ptr %7, i64 584
   %363 = load ptr, ptr %362, align 8
   %364 = load ptr, ptr %65, align 8
   %365 = getelementptr inbounds i8, ptr %364, i64 16
@@ -23438,7 +23438,7 @@ _ZN5clang16OMPLoopDirective19setFinalsConditionsEN4llvm8ArrayRefIPNS_4ExprEEE.ex
   %368 = getelementptr inbounds ptr, ptr %365, i64 %367
   %369 = getelementptr inbounds i8, ptr %368, i64 200
   store ptr %363, ptr %369, align 8
-  %370 = getelementptr inbounds i8, ptr %7, i64 592
+  %370 = getelementptr inbounds nuw i8, ptr %7, i64 592
   %371 = load ptr, ptr %370, align 8
   %372 = load ptr, ptr %65, align 8
   %373 = getelementptr inbounds i8, ptr %372, i64 16
@@ -23447,7 +23447,7 @@ _ZN5clang16OMPLoopDirective19setFinalsConditionsEN4llvm8ArrayRefIPNS_4ExprEEE.ex
   %376 = getelementptr inbounds ptr, ptr %373, i64 %375
   %377 = getelementptr inbounds i8, ptr %376, i64 208
   store ptr %371, ptr %377, align 8
-  %378 = getelementptr inbounds i8, ptr %7, i64 600
+  %378 = getelementptr inbounds nuw i8, ptr %7, i64 600
   %379 = load ptr, ptr %378, align 8
   %380 = load ptr, ptr %65, align 8
   %381 = getelementptr inbounds i8, ptr %380, i64 16
@@ -23456,7 +23456,7 @@ _ZN5clang16OMPLoopDirective19setFinalsConditionsEN4llvm8ArrayRefIPNS_4ExprEEE.ex
   %384 = getelementptr inbounds ptr, ptr %381, i64 %383
   %385 = getelementptr inbounds i8, ptr %384, i64 216
   store ptr %379, ptr %385, align 8
-  %386 = getelementptr inbounds i8, ptr %7, i64 608
+  %386 = getelementptr inbounds nuw i8, ptr %7, i64 608
   %387 = load ptr, ptr %386, align 8
   %388 = load ptr, ptr %65, align 8
   %389 = getelementptr inbounds i8, ptr %388, i64 16
@@ -23537,7 +23537,7 @@ _ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit: ; pred
   %19 = shl nuw nsw i64 %reass.add.i.i.i.i, 3
   %20 = add nuw nsw i64 %19, 56
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 2144
-  %22 = getelementptr inbounds i8, ptr %0, i64 2224
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 2224
   %23 = load i64, ptr %22, align 8
   %24 = add i64 %20, %23
   store i64 %24, ptr %22, align 8
@@ -23546,7 +23546,7 @@ _ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit: ; pred
   %27 = add i64 %26, 7
   %28 = and i64 %27, -8
   %29 = add i64 %28, %20
-  %30 = getelementptr inbounds i8, ptr %0, i64 2152
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 2152
   %31 = load ptr, ptr %30, align 8
   %32 = ptrtoint ptr %31 to i64
   %.not.i.i.i.i = icmp ugt i64 %29, %32
@@ -23609,7 +23609,7 @@ define dso_local noundef ptr @_ZN5clang23OMPTargetTeamsDirective6CreateERKNS_10A
   %11 = shl nuw nsw i64 %reass.add.i.i.i.i, 3
   %12 = add nuw nsw i64 %11, 48
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 2144
-  %14 = getelementptr inbounds i8, ptr %0, i64 2224
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 2224
   %15 = load i64, ptr %14, align 8
   %16 = add i64 %15, %12
   store i64 %16, ptr %14, align 8
@@ -23618,7 +23618,7 @@ define dso_local noundef ptr @_ZN5clang23OMPTargetTeamsDirective6CreateERKNS_10A
   %19 = add i64 %18, 7
   %20 = and i64 %19, -8
   %21 = add i64 %20, %12
-  %22 = getelementptr inbounds i8, ptr %0, i64 2152
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 2152
   %23 = load ptr, ptr %22, align 8
   %24 = ptrtoint ptr %23 to i64
   %.not.i.i.i.i = icmp ugt i64 %21, %24
@@ -23691,7 +23691,7 @@ define dso_local noundef ptr @_ZN5clang23OMPTargetTeamsDirective11CreateEmptyERK
   %reass.add.i.i.i.i = shl nuw nsw i64 %3, 3
   %4 = add nuw nsw i64 %reass.add.i.i.i.i, 56
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 2144
-  %6 = getelementptr inbounds i8, ptr %0, i64 2224
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 2224
   %7 = load i64, ptr %6, align 8
   %8 = add i64 %7, %4
   store i64 %8, ptr %6, align 8
@@ -23700,7 +23700,7 @@ define dso_local noundef ptr @_ZN5clang23OMPTargetTeamsDirective11CreateEmptyERK
   %11 = add i64 %10, 7
   %12 = and i64 %11, -8
   %13 = add i64 %12, %4
-  %14 = getelementptr inbounds i8, ptr %0, i64 2152
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 2152
   %15 = load ptr, ptr %14, align 8
   %16 = ptrtoint ptr %15 to i64
   %.not.i.i.i.i = icmp ugt i64 %13, %16
@@ -23785,7 +23785,7 @@ _ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit: ; pred
   %26 = shl nuw nsw i64 %reass.add.i.i.i.i, 3
   %27 = add nuw nsw i64 %26, 56
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 2144
-  %29 = getelementptr inbounds i8, ptr %0, i64 2224
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 2224
   %30 = load i64, ptr %29, align 8
   %31 = add i64 %27, %30
   store i64 %31, ptr %29, align 8
@@ -23794,7 +23794,7 @@ _ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit: ; pred
   %34 = add i64 %33, 7
   %35 = and i64 %34, -8
   %36 = add i64 %35, %27
-  %37 = getelementptr inbounds i8, ptr %0, i64 2152
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 2152
   %38 = load ptr, ptr %37, align 8
   %39 = ptrtoint ptr %38 to i64
   %.not.i.i.i.i = icmp ugt i64 %36, %39
@@ -24325,7 +24325,7 @@ _ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit: ; pred
   %18 = shl nuw nsw i64 %reass.add.i.i.i.i, 3
   %19 = add nuw nsw i64 %18, 56
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 2144
-  %21 = getelementptr inbounds i8, ptr %0, i64 2224
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 2224
   %22 = load i64, ptr %21, align 8
   %23 = add i64 %19, %22
   store i64 %23, ptr %21, align 8
@@ -24334,7 +24334,7 @@ _ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit: ; pred
   %26 = add i64 %25, 7
   %27 = and i64 %26, -8
   %28 = add i64 %27, %19
-  %29 = getelementptr inbounds i8, ptr %0, i64 2152
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 2152
   %30 = load ptr, ptr %29, align 8
   %31 = ptrtoint ptr %30 to i64
   %.not.i.i.i.i = icmp ugt i64 %28, %31
@@ -24422,7 +24422,7 @@ _ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit: ; pred
   %29 = shl nuw nsw i64 %reass.add.i.i.i.i, 3
   %30 = add nuw nsw i64 %29, 56
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 2144
-  %32 = getelementptr inbounds i8, ptr %0, i64 2224
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 2224
   %33 = load i64, ptr %32, align 8
   %34 = add i64 %30, %33
   store i64 %34, ptr %32, align 8
@@ -24431,7 +24431,7 @@ _ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit: ; pred
   %37 = add i64 %36, 7
   %38 = and i64 %37, -8
   %39 = add i64 %38, %30
-  %40 = getelementptr inbounds i8, ptr %0, i64 2152
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 2152
   %41 = load ptr, ptr %40, align 8
   %42 = ptrtoint ptr %41 to i64
   %.not.i.i.i.i = icmp ugt i64 %39, %42
@@ -24953,7 +24953,7 @@ _ZN5clang16OMPLoopDirective19setFinalsConditionsEN4llvm8ArrayRefIPNS_4ExprEEE.ex
   %328 = getelementptr inbounds ptr, ptr %325, i64 %327
   %329 = getelementptr inbounds i8, ptr %328, i64 160
   store ptr %323, ptr %329, align 8
-  %330 = getelementptr inbounds i8, ptr %7, i64 552
+  %330 = getelementptr inbounds nuw i8, ptr %7, i64 552
   %331 = load ptr, ptr %330, align 8
   %332 = load ptr, ptr %65, align 8
   %333 = getelementptr inbounds i8, ptr %332, i64 16
@@ -24962,7 +24962,7 @@ _ZN5clang16OMPLoopDirective19setFinalsConditionsEN4llvm8ArrayRefIPNS_4ExprEEE.ex
   %336 = getelementptr inbounds ptr, ptr %333, i64 %335
   %337 = getelementptr inbounds i8, ptr %336, i64 168
   store ptr %331, ptr %337, align 8
-  %338 = getelementptr inbounds i8, ptr %7, i64 560
+  %338 = getelementptr inbounds nuw i8, ptr %7, i64 560
   %339 = load ptr, ptr %338, align 8
   %340 = load ptr, ptr %65, align 8
   %341 = getelementptr inbounds i8, ptr %340, i64 16
@@ -24971,7 +24971,7 @@ _ZN5clang16OMPLoopDirective19setFinalsConditionsEN4llvm8ArrayRefIPNS_4ExprEEE.ex
   %344 = getelementptr inbounds ptr, ptr %341, i64 %343
   %345 = getelementptr inbounds i8, ptr %344, i64 176
   store ptr %339, ptr %345, align 8
-  %346 = getelementptr inbounds i8, ptr %7, i64 568
+  %346 = getelementptr inbounds nuw i8, ptr %7, i64 568
   %347 = load ptr, ptr %346, align 8
   %348 = load ptr, ptr %65, align 8
   %349 = getelementptr inbounds i8, ptr %348, i64 16
@@ -24980,7 +24980,7 @@ _ZN5clang16OMPLoopDirective19setFinalsConditionsEN4llvm8ArrayRefIPNS_4ExprEEE.ex
   %352 = getelementptr inbounds ptr, ptr %349, i64 %351
   %353 = getelementptr inbounds i8, ptr %352, i64 184
   store ptr %347, ptr %353, align 8
-  %354 = getelementptr inbounds i8, ptr %7, i64 576
+  %354 = getelementptr inbounds nuw i8, ptr %7, i64 576
   %355 = load ptr, ptr %354, align 8
   %356 = load ptr, ptr %65, align 8
   %357 = getelementptr inbounds i8, ptr %356, i64 16
@@ -24989,7 +24989,7 @@ _ZN5clang16OMPLoopDirective19setFinalsConditionsEN4llvm8ArrayRefIPNS_4ExprEEE.ex
   %360 = getelementptr inbounds ptr, ptr %357, i64 %359
   %361 = getelementptr inbounds i8, ptr %360, i64 192
   store ptr %355, ptr %361, align 8
-  %362 = getelementptr inbounds i8, ptr %7, i64 584
+  %362 = getelementptr inbounds nuw i8, ptr %7, i64 584
   %363 = load ptr, ptr %362, align 8
   %364 = load ptr, ptr %65, align 8
   %365 = getelementptr inbounds i8, ptr %364, i64 16
@@ -24998,7 +24998,7 @@ _ZN5clang16OMPLoopDirective19setFinalsConditionsEN4llvm8ArrayRefIPNS_4ExprEEE.ex
   %368 = getelementptr inbounds ptr, ptr %365, i64 %367
   %369 = getelementptr inbounds i8, ptr %368, i64 200
   store ptr %363, ptr %369, align 8
-  %370 = getelementptr inbounds i8, ptr %7, i64 592
+  %370 = getelementptr inbounds nuw i8, ptr %7, i64 592
   %371 = load ptr, ptr %370, align 8
   %372 = load ptr, ptr %65, align 8
   %373 = getelementptr inbounds i8, ptr %372, i64 16
@@ -25007,7 +25007,7 @@ _ZN5clang16OMPLoopDirective19setFinalsConditionsEN4llvm8ArrayRefIPNS_4ExprEEE.ex
   %376 = getelementptr inbounds ptr, ptr %373, i64 %375
   %377 = getelementptr inbounds i8, ptr %376, i64 208
   store ptr %371, ptr %377, align 8
-  %378 = getelementptr inbounds i8, ptr %7, i64 600
+  %378 = getelementptr inbounds nuw i8, ptr %7, i64 600
   %379 = load ptr, ptr %378, align 8
   %380 = load ptr, ptr %65, align 8
   %381 = getelementptr inbounds i8, ptr %380, i64 16
@@ -25016,7 +25016,7 @@ _ZN5clang16OMPLoopDirective19setFinalsConditionsEN4llvm8ArrayRefIPNS_4ExprEEE.ex
   %384 = getelementptr inbounds ptr, ptr %381, i64 %383
   %385 = getelementptr inbounds i8, ptr %384, i64 216
   store ptr %379, ptr %385, align 8
-  %386 = getelementptr inbounds i8, ptr %7, i64 608
+  %386 = getelementptr inbounds nuw i8, ptr %7, i64 608
   %387 = load ptr, ptr %386, align 8
   %388 = load ptr, ptr %65, align 8
   %389 = getelementptr inbounds i8, ptr %388, i64 16
@@ -25097,7 +25097,7 @@ _ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit: ; pred
   %19 = shl nuw nsw i64 %reass.add.i.i.i.i, 3
   %20 = add nuw nsw i64 %19, 56
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 2144
-  %22 = getelementptr inbounds i8, ptr %0, i64 2224
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 2224
   %23 = load i64, ptr %22, align 8
   %24 = add i64 %20, %23
   store i64 %24, ptr %22, align 8
@@ -25106,7 +25106,7 @@ _ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit: ; pred
   %27 = add i64 %26, 7
   %28 = and i64 %27, -8
   %29 = add i64 %28, %20
-  %30 = getelementptr inbounds i8, ptr %0, i64 2152
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 2152
   %31 = load ptr, ptr %30, align 8
   %32 = ptrtoint ptr %31 to i64
   %.not.i.i.i.i = icmp ugt i64 %29, %32
@@ -25195,7 +25195,7 @@ _ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit: ; pred
   %26 = shl nuw nsw i64 %reass.add.i.i.i.i, 3
   %27 = add nuw nsw i64 %26, 56
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 2144
-  %29 = getelementptr inbounds i8, ptr %0, i64 2224
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 2224
   %30 = load i64, ptr %29, align 8
   %31 = add i64 %27, %30
   store i64 %31, ptr %29, align 8
@@ -25204,7 +25204,7 @@ _ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit: ; pred
   %34 = add i64 %33, 7
   %35 = and i64 %34, -8
   %36 = add i64 %35, %27
-  %37 = getelementptr inbounds i8, ptr %0, i64 2152
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 2152
   %38 = load ptr, ptr %37, align 8
   %39 = ptrtoint ptr %38 to i64
   %.not.i.i.i.i = icmp ugt i64 %36, %39
@@ -25724,7 +25724,7 @@ _ZN5clang16OMPLoopDirective19setFinalsConditionsEN4llvm8ArrayRefIPNS_4ExprEEE.ex
   %324 = getelementptr inbounds ptr, ptr %321, i64 %323
   %325 = getelementptr inbounds i8, ptr %324, i64 160
   store ptr %319, ptr %325, align 8
-  %326 = getelementptr inbounds i8, ptr %7, i64 552
+  %326 = getelementptr inbounds nuw i8, ptr %7, i64 552
   %327 = load ptr, ptr %326, align 8
   %328 = load ptr, ptr %62, align 8
   %329 = getelementptr inbounds i8, ptr %328, i64 16
@@ -25733,7 +25733,7 @@ _ZN5clang16OMPLoopDirective19setFinalsConditionsEN4llvm8ArrayRefIPNS_4ExprEEE.ex
   %332 = getelementptr inbounds ptr, ptr %329, i64 %331
   %333 = getelementptr inbounds i8, ptr %332, i64 168
   store ptr %327, ptr %333, align 8
-  %334 = getelementptr inbounds i8, ptr %7, i64 560
+  %334 = getelementptr inbounds nuw i8, ptr %7, i64 560
   %335 = load ptr, ptr %334, align 8
   %336 = load ptr, ptr %62, align 8
   %337 = getelementptr inbounds i8, ptr %336, i64 16
@@ -25742,7 +25742,7 @@ _ZN5clang16OMPLoopDirective19setFinalsConditionsEN4llvm8ArrayRefIPNS_4ExprEEE.ex
   %340 = getelementptr inbounds ptr, ptr %337, i64 %339
   %341 = getelementptr inbounds i8, ptr %340, i64 176
   store ptr %335, ptr %341, align 8
-  %342 = getelementptr inbounds i8, ptr %7, i64 568
+  %342 = getelementptr inbounds nuw i8, ptr %7, i64 568
   %343 = load ptr, ptr %342, align 8
   %344 = load ptr, ptr %62, align 8
   %345 = getelementptr inbounds i8, ptr %344, i64 16
@@ -25751,7 +25751,7 @@ _ZN5clang16OMPLoopDirective19setFinalsConditionsEN4llvm8ArrayRefIPNS_4ExprEEE.ex
   %348 = getelementptr inbounds ptr, ptr %345, i64 %347
   %349 = getelementptr inbounds i8, ptr %348, i64 184
   store ptr %343, ptr %349, align 8
-  %350 = getelementptr inbounds i8, ptr %7, i64 576
+  %350 = getelementptr inbounds nuw i8, ptr %7, i64 576
   %351 = load ptr, ptr %350, align 8
   %352 = load ptr, ptr %62, align 8
   %353 = getelementptr inbounds i8, ptr %352, i64 16
@@ -25760,7 +25760,7 @@ _ZN5clang16OMPLoopDirective19setFinalsConditionsEN4llvm8ArrayRefIPNS_4ExprEEE.ex
   %356 = getelementptr inbounds ptr, ptr %353, i64 %355
   %357 = getelementptr inbounds i8, ptr %356, i64 192
   store ptr %351, ptr %357, align 8
-  %358 = getelementptr inbounds i8, ptr %7, i64 584
+  %358 = getelementptr inbounds nuw i8, ptr %7, i64 584
   %359 = load ptr, ptr %358, align 8
   %360 = load ptr, ptr %62, align 8
   %361 = getelementptr inbounds i8, ptr %360, i64 16
@@ -25769,7 +25769,7 @@ _ZN5clang16OMPLoopDirective19setFinalsConditionsEN4llvm8ArrayRefIPNS_4ExprEEE.ex
   %364 = getelementptr inbounds ptr, ptr %361, i64 %363
   %365 = getelementptr inbounds i8, ptr %364, i64 200
   store ptr %359, ptr %365, align 8
-  %366 = getelementptr inbounds i8, ptr %7, i64 592
+  %366 = getelementptr inbounds nuw i8, ptr %7, i64 592
   %367 = load ptr, ptr %366, align 8
   %368 = load ptr, ptr %62, align 8
   %369 = getelementptr inbounds i8, ptr %368, i64 16
@@ -25778,7 +25778,7 @@ _ZN5clang16OMPLoopDirective19setFinalsConditionsEN4llvm8ArrayRefIPNS_4ExprEEE.ex
   %372 = getelementptr inbounds ptr, ptr %369, i64 %371
   %373 = getelementptr inbounds i8, ptr %372, i64 208
   store ptr %367, ptr %373, align 8
-  %374 = getelementptr inbounds i8, ptr %7, i64 600
+  %374 = getelementptr inbounds nuw i8, ptr %7, i64 600
   %375 = load ptr, ptr %374, align 8
   %376 = load ptr, ptr %62, align 8
   %377 = getelementptr inbounds i8, ptr %376, i64 16
@@ -25787,7 +25787,7 @@ _ZN5clang16OMPLoopDirective19setFinalsConditionsEN4llvm8ArrayRefIPNS_4ExprEEE.ex
   %380 = getelementptr inbounds ptr, ptr %377, i64 %379
   %381 = getelementptr inbounds i8, ptr %380, i64 216
   store ptr %375, ptr %381, align 8
-  %382 = getelementptr inbounds i8, ptr %7, i64 608
+  %382 = getelementptr inbounds nuw i8, ptr %7, i64 608
   %383 = load ptr, ptr %382, align 8
   %384 = load ptr, ptr %62, align 8
   %385 = getelementptr inbounds i8, ptr %384, i64 16
@@ -25832,7 +25832,7 @@ _ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit: ; pred
   %18 = shl nuw nsw i64 %reass.add.i.i.i.i, 3
   %19 = add nuw nsw i64 %18, 56
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 2144
-  %21 = getelementptr inbounds i8, ptr %0, i64 2224
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 2224
   %22 = load i64, ptr %21, align 8
   %23 = add i64 %19, %22
   store i64 %23, ptr %21, align 8
@@ -25841,7 +25841,7 @@ _ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit: ; pred
   %26 = add i64 %25, 7
   %27 = and i64 %26, -8
   %28 = add i64 %27, %19
-  %29 = getelementptr inbounds i8, ptr %0, i64 2152
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 2152
   %30 = load ptr, ptr %29, align 8
   %31 = ptrtoint ptr %30 to i64
   %.not.i.i.i.i = icmp ugt i64 %28, %31
@@ -25928,7 +25928,7 @@ _ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit: ; pred
   %26 = shl nuw nsw i64 %reass.add.i.i.i.i, 3
   %27 = add nuw nsw i64 %26, 56
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 2144
-  %29 = getelementptr inbounds i8, ptr %0, i64 2224
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 2224
   %30 = load i64, ptr %29, align 8
   %31 = add i64 %27, %30
   store i64 %31, ptr %29, align 8
@@ -25937,7 +25937,7 @@ _ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit: ; pred
   %34 = add i64 %33, 7
   %35 = and i64 %34, -8
   %36 = add i64 %35, %27
-  %37 = getelementptr inbounds i8, ptr %0, i64 2152
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 2152
   %38 = load ptr, ptr %37, align 8
   %39 = ptrtoint ptr %38 to i64
   %.not.i.i.i.i = icmp ugt i64 %36, %39
@@ -26468,7 +26468,7 @@ _ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit: ; pred
   %18 = shl nuw nsw i64 %reass.add.i.i.i.i, 3
   %19 = add nuw nsw i64 %18, 56
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 2144
-  %21 = getelementptr inbounds i8, ptr %0, i64 2224
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 2224
   %22 = load i64, ptr %21, align 8
   %23 = add i64 %19, %22
   store i64 %23, ptr %21, align 8
@@ -26477,7 +26477,7 @@ _ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit: ; pred
   %26 = add i64 %25, 7
   %27 = and i64 %26, -8
   %28 = add i64 %27, %19
-  %29 = getelementptr inbounds i8, ptr %0, i64 2152
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 2152
   %30 = load ptr, ptr %29, align 8
   %31 = ptrtoint ptr %30 to i64
   %.not.i.i.i.i = icmp ugt i64 %28, %31
@@ -26535,7 +26535,7 @@ define dso_local noundef ptr @_ZN5clang19OMPInteropDirective6CreateERKNS_10ASTCo
   %8 = and i64 %7, 34359738360
   %9 = add nuw nsw i64 %8, 48
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 2144
-  %11 = getelementptr inbounds i8, ptr %0, i64 2224
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 2224
   %12 = load i64, ptr %11, align 8
   %13 = add i64 %12, %9
   store i64 %13, ptr %11, align 8
@@ -26544,7 +26544,7 @@ define dso_local noundef ptr @_ZN5clang19OMPInteropDirective6CreateERKNS_10ASTCo
   %16 = add i64 %15, 7
   %17 = and i64 %16, -8
   %18 = add i64 %17, %9
-  %19 = getelementptr inbounds i8, ptr %0, i64 2152
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 2152
   %20 = load ptr, ptr %19, align 8
   %21 = ptrtoint ptr %20 to i64
   %.not.i.i.i.i = icmp ugt i64 %18, %21
@@ -26606,7 +26606,7 @@ define dso_local noundef ptr @_ZN5clang19OMPInteropDirective11CreateEmptyERKNS_1
   %4 = shl nuw nsw i64 %3, 3
   %5 = add nuw nsw i64 %4, 48
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 2144
-  %7 = getelementptr inbounds i8, ptr %0, i64 2224
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 2224
   %8 = load i64, ptr %7, align 8
   %9 = add i64 %8, %5
   store i64 %9, ptr %7, align 8
@@ -26615,7 +26615,7 @@ define dso_local noundef ptr @_ZN5clang19OMPInteropDirective11CreateEmptyERKNS_1
   %12 = add i64 %11, 7
   %13 = and i64 %12, -8
   %14 = add i64 %13, %5
-  %15 = getelementptr inbounds i8, ptr %0, i64 2152
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 2152
   %16 = load ptr, ptr %15, align 8
   %17 = ptrtoint ptr %16 to i64
   %.not.i.i.i.i = icmp ugt i64 %14, %17
@@ -26674,7 +26674,7 @@ define dso_local noundef ptr @_ZN5clang20OMPDispatchDirective6CreateERKNS_10ASTC
   %12 = shl nuw nsw i64 %reass.add.i.i.i.i, 3
   %13 = add nuw nsw i64 %12, 56
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 2144
-  %15 = getelementptr inbounds i8, ptr %0, i64 2224
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 2224
   %16 = load i64, ptr %15, align 8
   %17 = add i64 %16, %13
   store i64 %17, ptr %15, align 8
@@ -26683,7 +26683,7 @@ define dso_local noundef ptr @_ZN5clang20OMPDispatchDirective6CreateERKNS_10ASTC
   %20 = add i64 %19, 7
   %21 = and i64 %20, -8
   %22 = add i64 %21, %13
-  %23 = getelementptr inbounds i8, ptr %0, i64 2152
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 2152
   %24 = load ptr, ptr %23, align 8
   %25 = ptrtoint ptr %24 to i64
   %.not.i.i.i.i = icmp ugt i64 %22, %25
@@ -26758,7 +26758,7 @@ define dso_local noundef ptr @_ZN5clang20OMPDispatchDirective11CreateEmptyERKNS_
   %reass.add.i.i.i.i = shl nuw nsw i64 %3, 3
   %4 = add nuw nsw i64 %reass.add.i.i.i.i, 64
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 2144
-  %6 = getelementptr inbounds i8, ptr %0, i64 2224
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 2224
   %7 = load i64, ptr %6, align 8
   %8 = add i64 %7, %4
   store i64 %8, ptr %6, align 8
@@ -26767,7 +26767,7 @@ define dso_local noundef ptr @_ZN5clang20OMPDispatchDirective11CreateEmptyERKNS_
   %11 = add i64 %10, 7
   %12 = and i64 %11, -8
   %13 = add i64 %12, %4
-  %14 = getelementptr inbounds i8, ptr %0, i64 2152
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 2152
   %15 = load ptr, ptr %14, align 8
   %16 = ptrtoint ptr %15 to i64
   %.not.i.i.i.i = icmp ugt i64 %13, %16
@@ -26828,7 +26828,7 @@ define dso_local noundef ptr @_ZN5clang18OMPMaskedDirective6CreateERKNS_10ASTCon
   %11 = shl nuw nsw i64 %reass.add.i.i.i.i, 3
   %12 = add nuw nsw i64 %11, 48
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 2144
-  %14 = getelementptr inbounds i8, ptr %0, i64 2224
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 2224
   %15 = load i64, ptr %14, align 8
   %16 = add i64 %15, %12
   store i64 %16, ptr %14, align 8
@@ -26837,7 +26837,7 @@ define dso_local noundef ptr @_ZN5clang18OMPMaskedDirective6CreateERKNS_10ASTCon
   %19 = add i64 %18, 7
   %20 = and i64 %19, -8
   %21 = add i64 %20, %12
-  %22 = getelementptr inbounds i8, ptr %0, i64 2152
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 2152
   %23 = load ptr, ptr %22, align 8
   %24 = ptrtoint ptr %23 to i64
   %.not.i.i.i.i = icmp ugt i64 %21, %24
@@ -26910,7 +26910,7 @@ define dso_local noundef ptr @_ZN5clang18OMPMaskedDirective11CreateEmptyERKNS_10
   %reass.add.i.i.i.i = shl nuw nsw i64 %3, 3
   %4 = add nuw nsw i64 %reass.add.i.i.i.i, 56
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 2144
-  %6 = getelementptr inbounds i8, ptr %0, i64 2224
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 2224
   %7 = load i64, ptr %6, align 8
   %8 = add i64 %7, %4
   store i64 %8, ptr %6, align 8
@@ -26919,7 +26919,7 @@ define dso_local noundef ptr @_ZN5clang18OMPMaskedDirective11CreateEmptyERKNS_10
   %11 = add i64 %10, 7
   %12 = and i64 %11, -8
   %13 = add i64 %12, %4
-  %14 = getelementptr inbounds i8, ptr %0, i64 2152
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 2152
   %15 = load ptr, ptr %14, align 8
   %16 = ptrtoint ptr %15 to i64
   %.not.i.i.i.i = icmp ugt i64 %13, %16
@@ -27004,7 +27004,7 @@ _ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit: ; pred
   %26 = shl nuw nsw i64 %reass.add.i.i.i.i, 3
   %27 = add nuw nsw i64 %26, 56
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 2144
-  %29 = getelementptr inbounds i8, ptr %0, i64 2224
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 2224
   %30 = load i64, ptr %29, align 8
   %31 = add i64 %27, %30
   store i64 %31, ptr %29, align 8
@@ -27013,7 +27013,7 @@ _ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit: ; pred
   %34 = add i64 %33, 7
   %35 = and i64 %34, -8
   %36 = add i64 %35, %27
-  %37 = getelementptr inbounds i8, ptr %0, i64 2152
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 2152
   %38 = load ptr, ptr %37, align 8
   %39 = ptrtoint ptr %38 to i64
   %.not.i.i.i.i = icmp ugt i64 %36, %39
@@ -27544,7 +27544,7 @@ _ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit: ; pred
   %18 = shl nuw nsw i64 %reass.add.i.i.i.i, 3
   %19 = add nuw nsw i64 %18, 56
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 2144
-  %21 = getelementptr inbounds i8, ptr %0, i64 2224
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 2224
   %22 = load i64, ptr %21, align 8
   %23 = add i64 %19, %22
   store i64 %23, ptr %21, align 8
@@ -27553,7 +27553,7 @@ _ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit: ; pred
   %26 = add i64 %25, 7
   %27 = and i64 %26, -8
   %28 = add i64 %27, %19
-  %29 = getelementptr inbounds i8, ptr %0, i64 2152
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 2152
   %30 = load ptr, ptr %29, align 8
   %31 = ptrtoint ptr %30 to i64
   %.not.i.i.i.i = icmp ugt i64 %28, %31
@@ -27640,7 +27640,7 @@ _ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit: ; pred
   %26 = shl nuw nsw i64 %reass.add.i.i.i.i, 3
   %27 = add nuw nsw i64 %26, 56
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 2144
-  %29 = getelementptr inbounds i8, ptr %0, i64 2224
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 2224
   %30 = load i64, ptr %29, align 8
   %31 = add i64 %27, %30
   store i64 %31, ptr %29, align 8
@@ -27649,7 +27649,7 @@ _ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit: ; pred
   %34 = add i64 %33, 7
   %35 = and i64 %34, -8
   %36 = add i64 %35, %27
-  %37 = getelementptr inbounds i8, ptr %0, i64 2152
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 2152
   %38 = load ptr, ptr %37, align 8
   %39 = ptrtoint ptr %38 to i64
   %.not.i.i.i.i = icmp ugt i64 %36, %39
@@ -28169,7 +28169,7 @@ _ZN5clang16OMPLoopDirective19setFinalsConditionsEN4llvm8ArrayRefIPNS_4ExprEEE.ex
   %324 = getelementptr inbounds ptr, ptr %321, i64 %323
   %325 = getelementptr inbounds i8, ptr %324, i64 160
   store ptr %319, ptr %325, align 8
-  %326 = getelementptr inbounds i8, ptr %7, i64 552
+  %326 = getelementptr inbounds nuw i8, ptr %7, i64 552
   %327 = load ptr, ptr %326, align 8
   %328 = load ptr, ptr %62, align 8
   %329 = getelementptr inbounds i8, ptr %328, i64 16
@@ -28178,7 +28178,7 @@ _ZN5clang16OMPLoopDirective19setFinalsConditionsEN4llvm8ArrayRefIPNS_4ExprEEE.ex
   %332 = getelementptr inbounds ptr, ptr %329, i64 %331
   %333 = getelementptr inbounds i8, ptr %332, i64 168
   store ptr %327, ptr %333, align 8
-  %334 = getelementptr inbounds i8, ptr %7, i64 560
+  %334 = getelementptr inbounds nuw i8, ptr %7, i64 560
   %335 = load ptr, ptr %334, align 8
   %336 = load ptr, ptr %62, align 8
   %337 = getelementptr inbounds i8, ptr %336, i64 16
@@ -28187,7 +28187,7 @@ _ZN5clang16OMPLoopDirective19setFinalsConditionsEN4llvm8ArrayRefIPNS_4ExprEEE.ex
   %340 = getelementptr inbounds ptr, ptr %337, i64 %339
   %341 = getelementptr inbounds i8, ptr %340, i64 176
   store ptr %335, ptr %341, align 8
-  %342 = getelementptr inbounds i8, ptr %7, i64 568
+  %342 = getelementptr inbounds nuw i8, ptr %7, i64 568
   %343 = load ptr, ptr %342, align 8
   %344 = load ptr, ptr %62, align 8
   %345 = getelementptr inbounds i8, ptr %344, i64 16
@@ -28196,7 +28196,7 @@ _ZN5clang16OMPLoopDirective19setFinalsConditionsEN4llvm8ArrayRefIPNS_4ExprEEE.ex
   %348 = getelementptr inbounds ptr, ptr %345, i64 %347
   %349 = getelementptr inbounds i8, ptr %348, i64 184
   store ptr %343, ptr %349, align 8
-  %350 = getelementptr inbounds i8, ptr %7, i64 576
+  %350 = getelementptr inbounds nuw i8, ptr %7, i64 576
   %351 = load ptr, ptr %350, align 8
   %352 = load ptr, ptr %62, align 8
   %353 = getelementptr inbounds i8, ptr %352, i64 16
@@ -28205,7 +28205,7 @@ _ZN5clang16OMPLoopDirective19setFinalsConditionsEN4llvm8ArrayRefIPNS_4ExprEEE.ex
   %356 = getelementptr inbounds ptr, ptr %353, i64 %355
   %357 = getelementptr inbounds i8, ptr %356, i64 192
   store ptr %351, ptr %357, align 8
-  %358 = getelementptr inbounds i8, ptr %7, i64 584
+  %358 = getelementptr inbounds nuw i8, ptr %7, i64 584
   %359 = load ptr, ptr %358, align 8
   %360 = load ptr, ptr %62, align 8
   %361 = getelementptr inbounds i8, ptr %360, i64 16
@@ -28214,7 +28214,7 @@ _ZN5clang16OMPLoopDirective19setFinalsConditionsEN4llvm8ArrayRefIPNS_4ExprEEE.ex
   %364 = getelementptr inbounds ptr, ptr %361, i64 %363
   %365 = getelementptr inbounds i8, ptr %364, i64 200
   store ptr %359, ptr %365, align 8
-  %366 = getelementptr inbounds i8, ptr %7, i64 592
+  %366 = getelementptr inbounds nuw i8, ptr %7, i64 592
   %367 = load ptr, ptr %366, align 8
   %368 = load ptr, ptr %62, align 8
   %369 = getelementptr inbounds i8, ptr %368, i64 16
@@ -28223,7 +28223,7 @@ _ZN5clang16OMPLoopDirective19setFinalsConditionsEN4llvm8ArrayRefIPNS_4ExprEEE.ex
   %372 = getelementptr inbounds ptr, ptr %369, i64 %371
   %373 = getelementptr inbounds i8, ptr %372, i64 208
   store ptr %367, ptr %373, align 8
-  %374 = getelementptr inbounds i8, ptr %7, i64 600
+  %374 = getelementptr inbounds nuw i8, ptr %7, i64 600
   %375 = load ptr, ptr %374, align 8
   %376 = load ptr, ptr %62, align 8
   %377 = getelementptr inbounds i8, ptr %376, i64 16
@@ -28232,7 +28232,7 @@ _ZN5clang16OMPLoopDirective19setFinalsConditionsEN4llvm8ArrayRefIPNS_4ExprEEE.ex
   %380 = getelementptr inbounds ptr, ptr %377, i64 %379
   %381 = getelementptr inbounds i8, ptr %380, i64 216
   store ptr %375, ptr %381, align 8
-  %382 = getelementptr inbounds i8, ptr %7, i64 608
+  %382 = getelementptr inbounds nuw i8, ptr %7, i64 608
   %383 = load ptr, ptr %382, align 8
   %384 = load ptr, ptr %62, align 8
   %385 = getelementptr inbounds i8, ptr %384, i64 16
@@ -28277,7 +28277,7 @@ _ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit: ; pred
   %18 = shl nuw nsw i64 %reass.add.i.i.i.i, 3
   %19 = add nuw nsw i64 %18, 56
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 2144
-  %21 = getelementptr inbounds i8, ptr %0, i64 2224
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 2224
   %22 = load i64, ptr %21, align 8
   %23 = add i64 %19, %22
   store i64 %23, ptr %21, align 8
@@ -28286,7 +28286,7 @@ _ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit: ; pred
   %26 = add i64 %25, 7
   %27 = and i64 %26, -8
   %28 = add i64 %27, %19
-  %29 = getelementptr inbounds i8, ptr %0, i64 2152
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 2152
   %30 = load ptr, ptr %29, align 8
   %31 = ptrtoint ptr %30 to i64
   %.not.i.i.i.i = icmp ugt i64 %28, %31
@@ -28373,7 +28373,7 @@ _ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit: ; pred
   %27 = shl nuw nsw i64 %reass.add.i.i.i.i, 3
   %28 = add nuw nsw i64 %27, 56
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 2144
-  %30 = getelementptr inbounds i8, ptr %0, i64 2224
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 2224
   %31 = load i64, ptr %30, align 8
   %32 = add i64 %28, %31
   store i64 %32, ptr %30, align 8
@@ -28382,7 +28382,7 @@ _ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit: ; pred
   %35 = add i64 %34, 7
   %36 = and i64 %35, -8
   %37 = add i64 %36, %28
-  %38 = getelementptr inbounds i8, ptr %0, i64 2152
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 2152
   %39 = load ptr, ptr %38, align 8
   %40 = ptrtoint ptr %39 to i64
   %.not.i.i.i.i = icmp ugt i64 %37, %40
@@ -28904,7 +28904,7 @@ _ZN5clang16OMPLoopDirective19setFinalsConditionsEN4llvm8ArrayRefIPNS_4ExprEEE.ex
   %326 = getelementptr inbounds ptr, ptr %323, i64 %325
   %327 = getelementptr inbounds i8, ptr %326, i64 160
   store ptr %321, ptr %327, align 8
-  %328 = getelementptr inbounds i8, ptr %7, i64 552
+  %328 = getelementptr inbounds nuw i8, ptr %7, i64 552
   %329 = load ptr, ptr %328, align 8
   %330 = load ptr, ptr %63, align 8
   %331 = getelementptr inbounds i8, ptr %330, i64 16
@@ -28913,7 +28913,7 @@ _ZN5clang16OMPLoopDirective19setFinalsConditionsEN4llvm8ArrayRefIPNS_4ExprEEE.ex
   %334 = getelementptr inbounds ptr, ptr %331, i64 %333
   %335 = getelementptr inbounds i8, ptr %334, i64 168
   store ptr %329, ptr %335, align 8
-  %336 = getelementptr inbounds i8, ptr %7, i64 560
+  %336 = getelementptr inbounds nuw i8, ptr %7, i64 560
   %337 = load ptr, ptr %336, align 8
   %338 = load ptr, ptr %63, align 8
   %339 = getelementptr inbounds i8, ptr %338, i64 16
@@ -28922,7 +28922,7 @@ _ZN5clang16OMPLoopDirective19setFinalsConditionsEN4llvm8ArrayRefIPNS_4ExprEEE.ex
   %342 = getelementptr inbounds ptr, ptr %339, i64 %341
   %343 = getelementptr inbounds i8, ptr %342, i64 176
   store ptr %337, ptr %343, align 8
-  %344 = getelementptr inbounds i8, ptr %7, i64 568
+  %344 = getelementptr inbounds nuw i8, ptr %7, i64 568
   %345 = load ptr, ptr %344, align 8
   %346 = load ptr, ptr %63, align 8
   %347 = getelementptr inbounds i8, ptr %346, i64 16
@@ -28931,7 +28931,7 @@ _ZN5clang16OMPLoopDirective19setFinalsConditionsEN4llvm8ArrayRefIPNS_4ExprEEE.ex
   %350 = getelementptr inbounds ptr, ptr %347, i64 %349
   %351 = getelementptr inbounds i8, ptr %350, i64 184
   store ptr %345, ptr %351, align 8
-  %352 = getelementptr inbounds i8, ptr %7, i64 576
+  %352 = getelementptr inbounds nuw i8, ptr %7, i64 576
   %353 = load ptr, ptr %352, align 8
   %354 = load ptr, ptr %63, align 8
   %355 = getelementptr inbounds i8, ptr %354, i64 16
@@ -28940,7 +28940,7 @@ _ZN5clang16OMPLoopDirective19setFinalsConditionsEN4llvm8ArrayRefIPNS_4ExprEEE.ex
   %358 = getelementptr inbounds ptr, ptr %355, i64 %357
   %359 = getelementptr inbounds i8, ptr %358, i64 192
   store ptr %353, ptr %359, align 8
-  %360 = getelementptr inbounds i8, ptr %7, i64 584
+  %360 = getelementptr inbounds nuw i8, ptr %7, i64 584
   %361 = load ptr, ptr %360, align 8
   %362 = load ptr, ptr %63, align 8
   %363 = getelementptr inbounds i8, ptr %362, i64 16
@@ -28949,7 +28949,7 @@ _ZN5clang16OMPLoopDirective19setFinalsConditionsEN4llvm8ArrayRefIPNS_4ExprEEE.ex
   %366 = getelementptr inbounds ptr, ptr %363, i64 %365
   %367 = getelementptr inbounds i8, ptr %366, i64 200
   store ptr %361, ptr %367, align 8
-  %368 = getelementptr inbounds i8, ptr %7, i64 592
+  %368 = getelementptr inbounds nuw i8, ptr %7, i64 592
   %369 = load ptr, ptr %368, align 8
   %370 = load ptr, ptr %63, align 8
   %371 = getelementptr inbounds i8, ptr %370, i64 16
@@ -28958,7 +28958,7 @@ _ZN5clang16OMPLoopDirective19setFinalsConditionsEN4llvm8ArrayRefIPNS_4ExprEEE.ex
   %374 = getelementptr inbounds ptr, ptr %371, i64 %373
   %375 = getelementptr inbounds i8, ptr %374, i64 208
   store ptr %369, ptr %375, align 8
-  %376 = getelementptr inbounds i8, ptr %7, i64 600
+  %376 = getelementptr inbounds nuw i8, ptr %7, i64 600
   %377 = load ptr, ptr %376, align 8
   %378 = load ptr, ptr %63, align 8
   %379 = getelementptr inbounds i8, ptr %378, i64 16
@@ -28967,7 +28967,7 @@ _ZN5clang16OMPLoopDirective19setFinalsConditionsEN4llvm8ArrayRefIPNS_4ExprEEE.ex
   %382 = getelementptr inbounds ptr, ptr %379, i64 %381
   %383 = getelementptr inbounds i8, ptr %382, i64 216
   store ptr %377, ptr %383, align 8
-  %384 = getelementptr inbounds i8, ptr %7, i64 608
+  %384 = getelementptr inbounds nuw i8, ptr %7, i64 608
   %385 = load ptr, ptr %384, align 8
   %386 = load ptr, ptr %63, align 8
   %387 = getelementptr inbounds i8, ptr %386, i64 16
@@ -29014,7 +29014,7 @@ _ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit: ; pred
   %18 = shl nuw nsw i64 %reass.add.i.i.i.i, 3
   %19 = add nuw nsw i64 %18, 56
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 2144
-  %21 = getelementptr inbounds i8, ptr %0, i64 2224
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 2224
   %22 = load i64, ptr %21, align 8
   %23 = add i64 %19, %22
   store i64 %23, ptr %21, align 8
@@ -29023,7 +29023,7 @@ _ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit: ; pred
   %26 = add i64 %25, 7
   %27 = and i64 %26, -8
   %28 = add i64 %27, %19
-  %29 = getelementptr inbounds i8, ptr %0, i64 2152
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 2152
   %30 = load ptr, ptr %29, align 8
   %31 = ptrtoint ptr %30 to i64
   %.not.i.i.i.i = icmp ugt i64 %28, %31
@@ -29112,7 +29112,7 @@ _ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit: ; pred
   %26 = shl nuw nsw i64 %reass.add.i.i.i.i, 3
   %27 = add nuw nsw i64 %26, 56
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 2144
-  %29 = getelementptr inbounds i8, ptr %0, i64 2224
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 2224
   %30 = load i64, ptr %29, align 8
   %31 = add i64 %27, %30
   store i64 %31, ptr %29, align 8
@@ -29121,7 +29121,7 @@ _ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit: ; pred
   %34 = add i64 %33, 7
   %35 = and i64 %34, -8
   %36 = add i64 %35, %27
-  %37 = getelementptr inbounds i8, ptr %0, i64 2152
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 2152
   %38 = load ptr, ptr %37, align 8
   %39 = ptrtoint ptr %38 to i64
   %.not.i.i.i.i = icmp ugt i64 %36, %39
@@ -29652,7 +29652,7 @@ _ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit: ; pred
   %18 = shl nuw nsw i64 %reass.add.i.i.i.i, 3
   %19 = add nuw nsw i64 %18, 56
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 2144
-  %21 = getelementptr inbounds i8, ptr %0, i64 2224
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 2224
   %22 = load i64, ptr %21, align 8
   %23 = add i64 %19, %22
   store i64 %23, ptr %21, align 8
@@ -29661,7 +29661,7 @@ _ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit: ; pred
   %26 = add i64 %25, 7
   %27 = and i64 %26, -8
   %28 = add i64 %27, %19
-  %29 = getelementptr inbounds i8, ptr %0, i64 2152
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 2152
   %30 = load ptr, ptr %29, align 8
   %31 = ptrtoint ptr %30 to i64
   %.not.i.i.i.i = icmp ugt i64 %28, %31
@@ -29748,7 +29748,7 @@ _ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit: ; pred
   %26 = shl nuw nsw i64 %reass.add.i.i.i.i, 3
   %27 = add nuw nsw i64 %26, 56
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 2144
-  %29 = getelementptr inbounds i8, ptr %0, i64 2224
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 2224
   %30 = load i64, ptr %29, align 8
   %31 = add i64 %27, %30
   store i64 %31, ptr %29, align 8
@@ -29757,7 +29757,7 @@ _ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit: ; pred
   %34 = add i64 %33, 7
   %35 = and i64 %34, -8
   %36 = add i64 %35, %27
-  %37 = getelementptr inbounds i8, ptr %0, i64 2152
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 2152
   %38 = load ptr, ptr %37, align 8
   %39 = ptrtoint ptr %38 to i64
   %.not.i.i.i.i = icmp ugt i64 %36, %39
@@ -30288,7 +30288,7 @@ _ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit: ; pred
   %18 = shl nuw nsw i64 %reass.add.i.i.i.i, 3
   %19 = add nuw nsw i64 %18, 56
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 2144
-  %21 = getelementptr inbounds i8, ptr %0, i64 2224
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 2224
   %22 = load i64, ptr %21, align 8
   %23 = add i64 %19, %22
   store i64 %23, ptr %21, align 8
@@ -30297,7 +30297,7 @@ _ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit: ; pred
   %26 = add i64 %25, 7
   %27 = and i64 %26, -8
   %28 = add i64 %27, %19
-  %29 = getelementptr inbounds i8, ptr %0, i64 2152
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 2152
   %30 = load ptr, ptr %29, align 8
   %31 = ptrtoint ptr %30 to i64
   %.not.i.i.i.i = icmp ugt i64 %28, %31

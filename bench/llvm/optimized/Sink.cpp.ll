@@ -92,15 +92,15 @@ define dso_local void @_ZN4llvm11SinkingPass3runERNS_8FunctionERNS_15AnalysisMan
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 0, ptr %17, align 8, !alias.scope !4
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %19 = getelementptr inbounds i8, ptr %0, i64 80
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store ptr %19, ptr %18, align 8, !alias.scope !4
-  %20 = getelementptr inbounds i8, ptr %0, i64 56
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store ptr %19, ptr %20, align 8, !alias.scope !4
-  %21 = getelementptr inbounds i8, ptr %0, i64 64
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i32 2, ptr %21, align 8, !alias.scope !4
-  %22 = getelementptr inbounds i8, ptr %0, i64 68
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 68
   store i32 0, ptr %22, align 4, !alias.scope !4
-  %23 = getelementptr inbounds i8, ptr %0, i64 72
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store i32 0, ptr %23, align 8, !alias.scope !4
   store i32 1, ptr %15, align 4, !alias.scope !4, !noalias !7
   store ptr @_ZN4llvm17PreservedAnalyses14AllAnalysesKeyE, ptr %12, align 8, !alias.scope !4, !noalias !7
@@ -111,15 +111,15 @@ define dso_local void @_ZN4llvm11SinkingPass3runERNS_8FunctionERNS_15AnalysisMan
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 0, ptr %25, align 8
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %27 = getelementptr inbounds i8, ptr %0, i64 80
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store ptr %27, ptr %26, align 8
-  %28 = getelementptr inbounds i8, ptr %0, i64 56
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store ptr %27, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %0, i64 64
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i32 2, ptr %29, align 8
-  %30 = getelementptr inbounds i8, ptr %0, i64 68
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 68
   store i32 0, ptr %30, align 4
-  %31 = getelementptr inbounds i8, ptr %0, i64 72
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store i32 0, ptr %31, align 8
   tail call void @_ZN4llvm17PreservedAnalyses11preserveSetEPNS_14AnalysisSetKeyE(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull @_ZN4llvm11CFGAnalyses6SetKeyE)
   br label %32
@@ -134,7 +134,7 @@ define internal fastcc noundef zeroext i1 @_ZL27iterativelySinkInstructionsRN4ll
   %6 = alloca %"class.llvm::MemoryLocation", align 8
   %7 = alloca %"class.std::optional", align 8
   %8 = alloca %"class.llvm::SmallPtrSet.70", align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 80
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 8
@@ -143,7 +143,7 @@ define internal fastcc noundef zeroext i1 @_ZL27iterativelySinkInstructionsRN4ll
   %15 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %16 = getelementptr inbounds nuw i8, ptr %7, i64 48
   %17 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %18 = getelementptr inbounds i8, ptr %5, i64 12
+  %18 = getelementptr inbounds nuw i8, ptr %5, i64 12
   %19 = getelementptr inbounds nuw i8, ptr %5, i64 504
   %20 = getelementptr inbounds nuw i8, ptr %5, i64 336
   %21 = getelementptr inbounds nuw i8, ptr %5, i64 344
@@ -152,12 +152,12 @@ define internal fastcc noundef zeroext i1 @_ZL27iterativelySinkInstructionsRN4ll
   %24 = getelementptr inbounds i8, ptr %5, i64 368
   %25 = getelementptr inbounds nuw i8, ptr %5, i64 496
   %26 = getelementptr inbounds nuw i8, ptr %5, i64 497
-  %27 = getelementptr inbounds i8, ptr %5, i64 512
-  %28 = getelementptr inbounds i8, ptr %5, i64 516
-  %29 = getelementptr inbounds i8, ptr %5, i64 520
-  %30 = getelementptr inbounds i8, ptr %5, i64 528
-  %31 = getelementptr inbounds i8, ptr %5, i64 16
-  %32 = getelementptr inbounds i8, ptr %5, i64 24
+  %27 = getelementptr inbounds nuw i8, ptr %5, i64 512
+  %28 = getelementptr inbounds nuw i8, ptr %5, i64 516
+  %29 = getelementptr inbounds nuw i8, ptr %5, i64 520
+  %30 = getelementptr inbounds nuw i8, ptr %5, i64 528
+  %31 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %32 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %33 = load ptr, ptr %9, align 8
   %.not3387 = icmp eq ptr %33, %10
   br i1 %.not3387, label %.split37.us, label %.lr.ph.preheader
@@ -190,7 +190,7 @@ define internal fastcc noundef zeroext i1 @_ZL27iterativelySinkInstructionsRN4ll
   store i32 8, ptr %13, align 8
   store i32 0, ptr %14, align 4
   store i32 0, ptr %15, align 8
-  %41 = getelementptr inbounds i8, ptr %36, i64 56
+  %41 = getelementptr inbounds nuw i8, ptr %36, i64 56
   br label %42
 
 42:                                               ; preds = %_ZL15SinkInstructionPN4llvm11InstructionERNS_15SmallPtrSetImplIS1_EERNS_13DominatorTreeERNS_8LoopInfoERNS_9AAResultsE.exit.thread.i, %38
@@ -1212,9 +1212,9 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm15AnalysisManage
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvm17PreservedAnalyses11preserveSetEPNS_14AnalysisSetKeyE(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef %1) local_unnamed_addr #0 comdat align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 68
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 68
   %4 = load i32, ptr %3, align 4
-  %5 = getelementptr inbounds i8, ptr %0, i64 72
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %6 = load i32, ptr %5, align 8
   %7 = icmp eq i32 %4, %6
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8

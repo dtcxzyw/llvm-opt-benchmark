@@ -96441,8 +96441,8 @@ vector.body142:                                   ; preds = %vector.body142, %ve
   %5 = getelementptr inbounds i8, ptr %4, i64 16
   %wide.load144 = load <8 x i16>, ptr %4, align 2, !tbaa !559
   %wide.load145 = load <8 x i16>, ptr %5, align 2, !tbaa !559
-  %6 = lshr <8 x i16> %wide.load144, %3
-  %7 = lshr <8 x i16> %wide.load145, %2
+  %6 = lshr <8 x i16> %wide.load144, %2
+  %7 = lshr <8 x i16> %wide.load145, %3
   %8 = getelementptr inbounds i16, ptr %result_data, i64 %index143
   %9 = getelementptr inbounds i8, ptr %8, i64 16
   store <8 x i16> %6, ptr %8, align 2, !tbaa !559
@@ -96526,8 +96526,8 @@ vector.body:                                      ; preds = %vector.body, %vecto
   %20 = getelementptr inbounds i8, ptr %19, i64 16
   %wide.load = load <8 x i16>, ptr %19, align 2, !tbaa !559
   %wide.load133 = load <8 x i16>, ptr %20, align 2, !tbaa !559
-  %21 = lshr <8 x i16> %wide.load, %18
-  %22 = lshr <8 x i16> %wide.load133, %17
+  %21 = lshr <8 x i16> %wide.load, %17
+  %22 = lshr <8 x i16> %wide.load133, %18
   %23 = getelementptr inbounds i16, ptr %result_data, i64 %offset.idx
   %24 = getelementptr inbounds i8, ptr %23, i64 16
   store <8 x i16> %21, ptr %23, align 2, !tbaa !559

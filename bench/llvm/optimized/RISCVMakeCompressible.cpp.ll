@@ -267,7 +267,7 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_124RISCVMakeCompressibleOpt2
   br i1 %31, label %32, label %.loopexit114
 
 32:                                               ; preds = %18
-  %33 = getelementptr inbounds i8, ptr %1, i64 328
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 328
   %34 = getelementptr inbounds nuw i8, ptr %1, i64 320
   %.sroa.097.0122 = load ptr, ptr %33, align 8
   %.not110123 = icmp eq ptr %.sroa.097.0122, %34
@@ -278,9 +278,9 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_124RISCVMakeCompressibleOpt2
   %36 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %37 = getelementptr inbounds i8, ptr %7, i64 56
   %38 = getelementptr inbounds nuw i8, ptr %7, i64 88
-  %39 = getelementptr inbounds i8, ptr %7, i64 96
+  %39 = getelementptr inbounds nuw i8, ptr %7, i64 96
   %40 = getelementptr inbounds i8, ptr %7, i64 112
-  %41 = getelementptr inbounds i8, ptr %7, i64 160
+  %41 = getelementptr inbounds nuw i8, ptr %7, i64 160
   %42 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %43 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %44 = getelementptr inbounds i8, ptr %24, i64 8

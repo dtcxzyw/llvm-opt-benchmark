@@ -257,7 +257,7 @@ _ZN4llvm5APIntD2Ev.exit:                          ; preds = %42, %39, %_ZN4llvm5
 
 65:                                               ; preds = %52
   %66 = getelementptr inbounds nuw i8, ptr %48, i64 24
-  %67 = getelementptr inbounds i8, ptr %48, i64 32
+  %67 = getelementptr inbounds nuw i8, ptr %48, i64 32
   %68 = load i32, ptr %67, align 8
   %69 = icmp ult i32 %68, 65
   %70 = load ptr, ptr %66, align 8

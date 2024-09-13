@@ -253,7 +253,7 @@ define internal void @_ZN12_GLOBAL__N_126RISCVGatherScatterLoweringD2Ev(ptr noun
   store ptr getelementptr inbounds inrange(-16, 144) (i8, ptr @_ZTVN12_GLOBAL__N_126RISCVGatherScatterLoweringE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 144
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %5 = load i32, ptr %4, align 8
   %6 = zext i32 %5 to i64
   %7 = mul nuw nsw i64 %6, 24
@@ -451,10 +451,10 @@ _ZNK4llvm4Pass11getAnalysisINS_19LoopInfoWrapperPassEEERT_v.exit: ; preds = %.lr
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr %60, ptr %61, align 8
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %63 = getelementptr inbounds i8, ptr %0, i64 136
+  %63 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %64 = load i32, ptr %63, align 8
   %65 = icmp eq i32 %64, 0
-  %66 = getelementptr inbounds i8, ptr %0, i64 140
+  %66 = getelementptr inbounds nuw i8, ptr %0, i64 140
   %67 = load i32, ptr %66, align 4
   %68 = icmp eq i32 %67, 0
   %or.cond = select i1 %65, i1 %68, i1 false
@@ -462,7 +462,7 @@ _ZNK4llvm4Pass11getAnalysisINS_19LoopInfoWrapperPassEEERT_v.exit: ; preds = %.lr
 
 69:                                               ; preds = %_ZNK4llvm4Pass11getAnalysisINS_19LoopInfoWrapperPassEEERT_v.exit
   %70 = shl i32 %64, 2
-  %71 = getelementptr inbounds i8, ptr %0, i64 144
+  %71 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %72 = load i32, ptr %71, align 8
   %73 = icmp ult i32 %70, %72
   %74 = icmp ugt i32 %72, 64
@@ -497,7 +497,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_17GetElementPtrInstESt4pairIPNS_5ValueES
   call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull %81, i64 noundef 4) #16
   %82 = getelementptr inbounds i8, ptr %4, i64 16
   call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull %82, i64 noundef 4) #16
-  %83 = getelementptr inbounds i8, ptr %1, i64 80
+  %83 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %84 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %.sroa.074.087 = load ptr, ptr %83, align 8
   %.not8188 = icmp eq ptr %.sroa.074.087, %84
@@ -508,7 +508,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_17GetElementPtrInstESt4pairIPNS_5ValueES
   %85 = icmp eq ptr %.sroa.074.089, null
   %86 = getelementptr inbounds i8, ptr %.sroa.074.089, i64 -24
   %87 = select i1 %85, ptr null, ptr %86
-  %88 = getelementptr inbounds i8, ptr %87, i64 56
+  %88 = getelementptr inbounds nuw i8, ptr %87, i64 56
   %89 = getelementptr inbounds nuw i8, ptr %87, i64 48
   %.sroa.070.084 = load ptr, ptr %88, align 8
   %.not8285 = icmp eq ptr %.sroa.070.084, %89
@@ -790,7 +790,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_126RISCVGatherScatter
   %17 = alloca %"class.llvm::Twine", align 8
   %18 = alloca %"class.std::function", align 8
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  %20 = getelementptr inbounds i8, ptr %4, i64 32
+  %20 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %21 = load i32, ptr %20, align 8
   %22 = icmp ult i32 %21, 65
   %23 = load ptr, ptr %19, align 8
@@ -839,15 +839,15 @@ _ZNK4llvm18TargetLoweringBase11isTypeLegalENS_3EVTE.exit: ; preds = %33
   store ptr getelementptr inbounds inrange(-16, 160) (i8, ptr @_ZTVN4llvm18InstSimplifyFolderE, i64 16), ptr %7, align 8
   %48 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr getelementptr inbounds inrange(-16, 160) (i8, ptr @_ZTVN4llvm12TargetFolderE, i64 16), ptr %48, align 8
-  %49 = getelementptr inbounds i8, ptr %7, i64 16
+  %49 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr %47, ptr %49, align 8
   %50 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store ptr %47, ptr %50, align 8
-  %51 = getelementptr inbounds i8, ptr %7, i64 32
-  %52 = getelementptr inbounds i8, ptr %7, i64 80
+  %51 = getelementptr inbounds nuw i8, ptr %7, i64 32
+  %52 = getelementptr inbounds nuw i8, ptr %7, i64 80
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %51, i8 0, i64 48, i1 false)
   store i8 1, ptr %52, align 8
-  %53 = getelementptr inbounds i8, ptr %7, i64 81
+  %53 = getelementptr inbounds nuw i8, ptr %7, i64 81
   store i8 1, ptr %53, align 1
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN4llvm24IRBuilderDefaultInserterE, i64 16), ptr %8, align 8
   %54 = getelementptr inbounds nuw i8, ptr %6, i64 128
@@ -875,11 +875,11 @@ _ZNK4llvm18TargetLoweringBase11isTypeLegalENS_3EVTE.exit: ; preds = %33
   %66 = getelementptr inbounds nuw i8, ptr %6, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(18) %66, i8 0, i64 18, i1 false)
   store ptr getelementptr inbounds inrange(-16, 160) (i8, ptr @_ZTVN4llvm18InstSimplifyFolderE, i64 16), ptr %54, align 8
-  %67 = getelementptr inbounds i8, ptr %6, i64 136
+  %67 = getelementptr inbounds nuw i8, ptr %6, i64 136
   store ptr getelementptr inbounds inrange(-16, 160) (i8, ptr @_ZTVN4llvm12TargetFolderE, i64 16), ptr %67, align 8
-  %68 = getelementptr inbounds i8, ptr %6, i64 144
+  %68 = getelementptr inbounds nuw i8, ptr %6, i64 144
   store ptr %47, ptr %68, align 8
-  %69 = getelementptr inbounds i8, ptr %6, i64 152
+  %69 = getelementptr inbounds nuw i8, ptr %6, i64 152
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %69, ptr noundef nonnull align 8 dereferenceable(64) %50, i64 64, i1 false)
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN4llvm24IRBuilderDefaultInserterE, i64 16), ptr %55, align 8
   call void @_ZN4llvm24IRBuilderDefaultInserterD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %8) #16
@@ -1426,7 +1426,7 @@ define internal fastcc { ptr, ptr } @_ZN12_GLOBAL__N_126RISCVGatherScatterLoweri
 27:                                               ; preds = %24
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %29 = load ptr, ptr %28, align 8
-  %30 = getelementptr inbounds i8, ptr %0, i64 144
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %31 = load i32, ptr %30, align 8
   %32 = icmp eq i32 %31, 0
   br i1 %32, label %.loopexit.i, label %33
@@ -3324,7 +3324,7 @@ define internal fastcc { ptr, ptr } @_ZL17matchStridedStartPN4llvm5ValueERNS_13I
   br i1 %26, label %_ZN4llvm16dyn_cast_or_nullINS_11ConstantIntENS_8ConstantEEEDaPT0_.exit.i, label %_ZL20matchStridedConstantPN4llvm8ConstantE.exit
 
 _ZN4llvm16dyn_cast_or_nullINS_11ConstantIntENS_8ConstantEEEDaPT0_.exit.i: ; preds = %24
-  %27 = getelementptr inbounds i8, ptr %23, i64 32
+  %27 = getelementptr inbounds nuw i8, ptr %23, i64 32
   %28 = load i32, ptr %27, align 8
   %29 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 %28, ptr %29, align 8
@@ -3368,7 +3368,7 @@ _ZN4llvm5APIntC2Ejmbb.exit.i:                     ; preds = %32, %31
 
 _ZN4llvm16dyn_cast_or_nullINS_11ConstantIntENS_8ConstantEEEDaPT0_.exit22.i: ; preds = %39
   %42 = getelementptr inbounds nuw i8, ptr %38, i64 24
-  %43 = getelementptr inbounds i8, ptr %38, i64 32
+  %43 = getelementptr inbounds nuw i8, ptr %38, i64 32
   %44 = load i32, ptr %43, align 8
   store i32 %44, ptr %33, align 8
   %45 = icmp ult i32 %44, 65

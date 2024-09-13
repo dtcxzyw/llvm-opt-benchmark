@@ -111,7 +111,7 @@ define dso_local void @_ZNK4llvm4yaml10FrameIndex5getFIERKNS_16MachineFrameInfoE
   store i8 1, ptr %23, align 8, !alias.scope !4
   %24 = getelementptr inbounds nuw i8, ptr %10, i64 40
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4llvm7support6detail23provider_format_adapterIRiEE, i64 16), ptr %24, align 8, !alias.scope !4
-  %25 = getelementptr inbounds i8, ptr %10, i64 48
+  %25 = getelementptr inbounds nuw i8, ptr %10, i64 48
   store ptr %8, ptr %25, align 8, !alias.scope !4
   store ptr %24, ptr %21, align 8, !alias.scope !4
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %7)
@@ -171,7 +171,7 @@ _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %35, %20
   %47 = phi i32 [ %46, %45 ], [ %13, %3 ]
   %48 = add i32 %18, %47
   %49 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %50 = getelementptr inbounds i8, ptr %2, i64 16
+  %50 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %51 = load ptr, ptr %50, align 8
   %52 = load ptr, ptr %49, align 8
   %53 = ptrtoint ptr %51 to i64
@@ -195,7 +195,7 @@ _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %35, %20
   store i8 1, ptr %61, align 8, !alias.scope !21
   %62 = getelementptr inbounds nuw i8, ptr %12, i64 40
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4llvm7support6detail23provider_format_adapterIRiEE, i64 16), ptr %62, align 8, !alias.scope !21
-  %63 = getelementptr inbounds i8, ptr %12, i64 48
+  %63 = getelementptr inbounds nuw i8, ptr %12, i64 48
   store ptr %8, ptr %63, align 8, !alias.scope !21
   store ptr %62, ptr %59, align 8, !alias.scope !21
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %5)

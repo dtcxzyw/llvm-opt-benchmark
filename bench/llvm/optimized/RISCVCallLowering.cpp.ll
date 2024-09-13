@@ -1676,7 +1676,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm17RISCVCallLowering9lowerCallERNS_
 
 173:                                              ; preds = %170
   %174 = load ptr, ptr %39, align 8
-  %175 = getelementptr inbounds i8, ptr %2, i64 136
+  %175 = getelementptr inbounds nuw i8, ptr %2, i64 136
   %176 = load ptr, ptr %175, align 8
   %177 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %175) #15
   %178 = getelementptr inbounds nuw i8, ptr %2, i64 5656
@@ -2183,7 +2183,7 @@ define internal void @_ZN12_GLOBAL__N_125RISCVOutgoingValueHandler16assignValueT
   %37 = call { ptr, ptr } @_ZN4llvm16MachineIRBuilder9buildCopyERKNS_5DstOpERKNS_5SrcOpE(ptr noundef nonnull align 8 dereferenceable(88) %34, ptr noundef nonnull align 8 dereferenceable(12) %9, ptr noundef nonnull align 8 dereferenceable(20) %10) #15
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 32
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
-  %39 = getelementptr inbounds i8, ptr %0, i64 40
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %40 = load ptr, ptr %39, align 8
   %41 = load ptr, ptr %38, align 8
   %42 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -2449,7 +2449,7 @@ _ZNSt8functionIFvvEEaSIRZN12_GLOBAL__N_125RISCVOutgoingValueHandler17assignCusto
   br label %_ZZN12_GLOBAL__N_125RISCVOutgoingValueHandler17assignCustomValueERN4llvm12CallLowering7ArgInfoENS1_8ArrayRefINS1_11CCValAssignEEEPSt8functionIFvvEEENKUlvE_clEv.exit
 
 97:                                               ; preds = %81
-  %98 = getelementptr inbounds i8, ptr %12, i64 24
+  %98 = getelementptr inbounds nuw i8, ptr %12, i64 24
   %99 = load i8, ptr %98, align 8
   %.not.i.i.i.i = icmp eq i8 %99, 0
   br i1 %.not.i.i.i.i, label %_ZNK4llvm11CCValAssign9getLocRegEv.exit.i, label %100
@@ -2465,7 +2465,7 @@ _ZNK4llvm11CCValAssign9getLocRegEv.exit.i:        ; preds = %97
   %102 = getelementptr inbounds i8, ptr %101, i64 32
   %103 = load ptr, ptr %102, align 8
   call void %103(ptr noundef nonnull align 8 dereferenceable(64) %0, i32 %.sroa.03.0.copyload.i, i32 %.sroa.0.0.copyload.i.i, ptr noundef nonnull align 8 dereferenceable(26) %84) #15
-  %104 = getelementptr inbounds i8, ptr %12, i64 56
+  %104 = getelementptr inbounds nuw i8, ptr %12, i64 56
   %105 = load i8, ptr %104, align 8
   br label %106
 
@@ -2545,7 +2545,7 @@ declare void @_ZN4llvm3LLTC1ENS_3MVTE(ptr noundef nonnull align 8 dereferenceabl
 define internal void @_ZNSt17_Function_handlerIFvvEZN12_GLOBAL__N_125RISCVOutgoingValueHandler17assignCustomValueERN4llvm12CallLowering7ArgInfoENS3_8ArrayRefINS3_11CCValAssignEEEPSt8functionIS0_EEUlvE_E9_M_invokeERKSt9_Any_data(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0) #1 align 2 {
   %.val = load ptr, ptr %0, align 8
   %2 = load ptr, ptr %.val, align 8
-  %3 = getelementptr inbounds i8, ptr %.val, i64 24
+  %3 = getelementptr inbounds nuw i8, ptr %.val, i64 24
   %4 = load i8, ptr %3, align 8
   %.not.i.i.i.i.i.i = icmp eq i8 %4, 0
   br i1 %.not.i.i.i.i.i.i, label %_ZNK4llvm11CCValAssign9getLocRegEv.exit.i.i.i, label %5
@@ -2564,7 +2564,7 @@ _ZNK4llvm11CCValAssign9getLocRegEv.exit.i.i.i:    ; preds = %1
   %10 = load ptr, ptr %9, align 8
   tail call void %10(ptr noundef nonnull align 8 dereferenceable(64) %2, i32 %.sroa.03.0.copyload.i.i.i, i32 %.sroa.0.0.copyload.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(26) %6) #15
   %11 = getelementptr inbounds nuw i8, ptr %.val, i64 48
-  %12 = getelementptr inbounds i8, ptr %.val, i64 56
+  %12 = getelementptr inbounds nuw i8, ptr %.val, i64 56
   %13 = load i8, ptr %12, align 8
   br label %14
 
@@ -3031,13 +3031,13 @@ _ZNK4llvm11CCValAssign9getLocRegEv.exit36:        ; preds = %91
 define internal void @_ZN12_GLOBAL__N_121RISCVFormalArgHandler15markPhysRegUsedEN4llvm10MCRegisterE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, i32 %1) unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 488
   %.sroa.0.0.insert.ext.i.i = zext i32 %1 to i64
-  %8 = getelementptr inbounds i8, ptr %6, i64 496
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 496
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %6, i64 504
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 504
   %11 = load ptr, ptr %10, align 8
   %.not.i.i.i = icmp eq ptr %9, %11
   br i1 %.not.i.i.i, label %15, label %12
@@ -3114,13 +3114,13 @@ _ZNSt6vectorISt4pairIN4llvm10MCRegisterENS1_8RegisterEESaIS4_EE17_M_realloc_inse
 
 _ZN4llvm19MachineRegisterInfo9addLiveInENS_10MCRegisterENS_8RegisterE.exit: ; preds = %12, %_ZNSt6vectorISt4pairIN4llvm10MCRegisterENS1_8RegisterEESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i
   %38 = load ptr, ptr %3, align 8
-  %39 = getelementptr inbounds i8, ptr %38, i64 56
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 56
   %40 = load ptr, ptr %39, align 8
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 184
   %42 = trunc i32 %1 to i16
-  %43 = getelementptr inbounds i8, ptr %40, i64 192
+  %43 = getelementptr inbounds nuw i8, ptr %40, i64 192
   %44 = load ptr, ptr %43, align 8
-  %45 = getelementptr inbounds i8, ptr %40, i64 200
+  %45 = getelementptr inbounds nuw i8, ptr %40, i64 200
   %46 = load ptr, ptr %45, align 8
   %.not.i.i.i5 = icmp eq ptr %44, %46
   br i1 %.not.i.i.i5, label %50, label %47
@@ -3220,7 +3220,7 @@ define internal void @_ZN12_GLOBAL__N_122RISCVCallReturnHandler15markPhysRegUsed
   %3 = alloca %"class.llvm::MachineOperand", align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
-  %5 = getelementptr inbounds i8, ptr %0, i64 48
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %6 = load ptr, ptr %5, align 8
   %7 = load ptr, ptr %4, align 8
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 8

@@ -70,7 +70,7 @@ define dso_local void @_ZN5clang4ento30registerUnreachableCodeCheckerERNS0_14Che
   store ptr @_ZZN5clang4ento14CheckerManager6getTagIN12_GLOBAL__N_122UnreachableCodeCheckerEEEPvvE3tag, ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 904
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 920
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 920
   %6 = load i32, ptr %5, align 8
   %7 = icmp eq i32 %6, 0
   br i1 %7, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKvPN5clang4ento11CheckerBaseENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S7_EEEES3_S7_S9_SC_E15LookupBucketForIS3_EEbRKT_RPSC_.exit.i.i.i, label %8
@@ -133,9 +133,9 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKvPN5clang4ento11CheckerBaseENS_12DenseMapI
   %36 = getelementptr inbounds nuw i8, ptr %34, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %36, ptr noundef nonnull align 8 dereferenceable(16) %35, i64 16, i1 false)
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 928
-  %38 = getelementptr inbounds i8, ptr %0, i64 936
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 936
   %39 = load ptr, ptr %38, align 8
-  %40 = getelementptr inbounds i8, ptr %0, i64 944
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 944
   %41 = load ptr, ptr %40, align 8
   %.not.i.i.i = icmp eq ptr %39, %41
   br i1 %.not.i.i.i, label %45, label %42
@@ -636,15 +636,15 @@ define internal void @_ZN5clang4ento5check11EndAnalysis17_checkEndAnalysisIN12_G
   store ptr %27, ptr %30, align 8
   %31 = getelementptr inbounds i8, ptr %8, i64 184
   store i64 0, ptr %31, align 8
-  %32 = getelementptr inbounds i8, ptr %3, i64 208
+  %32 = getelementptr inbounds nuw i8, ptr %3, i64 208
   %33 = load ptr, ptr %32, align 8
-  %34 = getelementptr inbounds i8, ptr %3, i64 216
+  %34 = getelementptr inbounds nuw i8, ptr %3, i64 216
   %35 = load ptr, ptr %34, align 8
   %.not.i.i.i = icmp eq ptr %33, %35
   br i1 %.not.i.i.i, label %36, label %_ZNK5clang4ento10ExprEngine16hasWorkRemainingEv.exit.thread.i
 
 36:                                               ; preds = %4
-  %37 = getelementptr inbounds i8, ptr %3, i64 184
+  %37 = getelementptr inbounds nuw i8, ptr %3, i64 184
   %38 = load ptr, ptr %37, align 8
   %39 = load ptr, ptr %38, align 8
   %40 = getelementptr inbounds i8, ptr %39, i64 16
@@ -653,9 +653,9 @@ define internal void @_ZN5clang4ento5check11EndAnalysis17_checkEndAnalysisIN12_G
   br i1 %42, label %_ZNK5clang4ento10ExprEngine16hasWorkRemainingEv.exit.thread.i, label %_ZNK5clang4ento10ExprEngine16hasWorkRemainingEv.exit.i
 
 _ZNK5clang4ento10ExprEngine16hasWorkRemainingEv.exit.i: ; preds = %36
-  %43 = getelementptr inbounds i8, ptr %3, i64 232
+  %43 = getelementptr inbounds nuw i8, ptr %3, i64 232
   %44 = load ptr, ptr %43, align 8
-  %45 = getelementptr inbounds i8, ptr %3, i64 240
+  %45 = getelementptr inbounds nuw i8, ptr %3, i64 240
   %46 = load ptr, ptr %45, align 8
   %.not219.i = icmp eq ptr %44, %46
   br i1 %.not219.i, label %47, label %_ZNK5clang4ento10ExprEngine16hasWorkRemainingEv.exit.thread.i
@@ -669,7 +669,7 @@ _ZNK5clang4ento10ExprEngine16hasWorkRemainingEv.exit.i: ; preds = %36
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   %51 = load ptr, ptr %48, align 8
-  %52 = getelementptr inbounds i8, ptr %1, i64 56
+  %52 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %53 = load i32, ptr %52, align 8
   %54 = zext i32 %53 to i64
   %55 = getelementptr inbounds ptr, ptr %51, i64 %54
@@ -788,7 +788,7 @@ _ZNK5clang12ProgramPoint5getAsINS_13BlockEntranceEEESt8optionalIT_Ev.exit.i: ; p
 108:                                              ; preds = %106, %100
   %109 = getelementptr inbounds nuw i8, ptr %.164.i, i64 40
   %110 = load ptr, ptr %109, align 8
-  %111 = getelementptr inbounds i8, ptr %.164.i, i64 48
+  %111 = getelementptr inbounds nuw i8, ptr %.164.i, i64 48
   %112 = load ptr, ptr %111, align 8
   %.not77246.i = icmp eq ptr %110, %112
   br i1 %.not77246.i, label %_ZNK5clang4ento10ExprEngine16hasWorkRemainingEv.exit.thread.i, label %.lr.ph252.i
@@ -1721,7 +1721,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_122UnreachableCodeChecker26FindUnre
   call void @_ZN4llvm8SmallSetIjLj32ESt4lessIjEE6insertERKj(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair.284") align 8 %4, ptr noundef nonnull align 8 dereferenceable(192) %2, ptr noundef nonnull align 4 dereferenceable(4) %5)
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 64
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %13 = load ptr, ptr %12, align 8
   %.not51 = icmp eq ptr %11, %13
   br i1 %.not51, label %._crit_edge, label %.lr.ph

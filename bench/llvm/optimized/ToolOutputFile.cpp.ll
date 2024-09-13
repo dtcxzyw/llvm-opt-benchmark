@@ -110,7 +110,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noun
 define dso_local void @_ZN4llvm14ToolOutputFileC2ENS_9StringRefERSt10error_codeNS_3sys2fs9OpenFlagsE(ptr noundef nonnull align 8 dereferenceable(152) %0, ptr %1, i64 %2, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef %4) unnamed_addr #0 align 2 {
   tail call void @_ZN4llvm16CleanupInstallerC1ENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(33) %0, ptr %1, i64 %2) #5
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %7 = getelementptr inbounds i8, ptr %0, i64 136
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 136
   store i8 0, ptr %7, align 8
   %.not.i.i = icmp eq i64 %2, 1
   br i1 %.not.i.i, label %_ZL8isStdoutN4llvm9StringRefE.exit, label %_ZNSt8optionalIN4llvm14raw_fd_ostreamEE7emplaceIJRNS0_9StringRefERSt10error_codeRNS0_3sys2fs9OpenFlagsEEEENSt9enable_ifIX18is_constructible_vIS1_DpT_EERS1_E4typeEDpOSD_.exit
@@ -155,7 +155,7 @@ define dso_local void @_ZN4llvm14ToolOutputFileC2ENS_9StringRefEi(ptr noundef no
 _ZNSt8optionalIN4llvm14raw_fd_ostreamEE7emplaceIJRibEEENSt9enable_ifIX18is_constructible_vIS1_DpT_EERS1_E4typeEDpOS6_.exit:
   tail call void @_ZN4llvm16CleanupInstallerC1ENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(33) %0, ptr %1, i64 %2) #5
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %5 = getelementptr inbounds i8, ptr %0, i64 136
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 136
   store i8 0, ptr %5, align 8
   tail call void @_ZN4llvm14raw_fd_ostreamC1EibbNS_11raw_ostream11OStreamKindE(ptr noundef nonnull align 8 dereferenceable(96) %4, i32 noundef %3, i1 noundef zeroext true, i1 noundef zeroext false, i32 noundef 0) #5
   store i8 1, ptr %5, align 8

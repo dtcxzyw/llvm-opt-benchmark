@@ -270,7 +270,7 @@ define void @_ZN3g2o17EdgeProjectPSI2UVC2Ev(ptr noundef nonnull align 16 derefer
   store ptr null, ptr %14, align 8
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr null, ptr %2, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %17 = load ptr, ptr %16, align 16
   %18 = load ptr, ptr %15, align 8
   %19 = ptrtoint ptr %17 to i64
@@ -317,7 +317,7 @@ _ZN3g2o18BaseFixedSizedEdgeILi2EN5Eigen6MatrixIdLi2ELi1ELi0ELi2ELi1EEEJNS_14Vert
 
 32:                                               ; preds = %_ZN3g2o18BaseFixedSizedEdgeILi2EN5Eigen6MatrixIdLi2ELi1ELi0ELi2ELi1EEEJNS_14VertexPointXYZENS_15VertexSE3ExpmapES5_EEC2Ev.exit
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %34 = getelementptr inbounds i8, ptr %0, i64 136
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %35 = load ptr, ptr %34, align 8
   %36 = load ptr, ptr %33, align 16
   %.not.i2.not = icmp eq ptr %35, %36
@@ -357,7 +357,7 @@ define linkonce_odr void @_ZN3g2o16OptimizableGraph4Edge16resizeParametersEm(ptr
   %6 = alloca %"class.std::allocator.224", align 1
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store ptr null, ptr %3, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 136
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %9 = load ptr, ptr %8, align 8
   %10 = load ptr, ptr %7, align 8
   %11 = ptrtoint ptr %9 to i64
@@ -388,7 +388,7 @@ define linkonce_odr void @_ZN3g2o16OptimizableGraph4Edge16resizeParametersEm(ptr
 _ZNSt6vectorIPPN3g2o9ParameterESaIS3_EE6resizeEmRKS3_.exit: ; preds = %16, %18, %20, %22
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 152
   store i32 -1, ptr %4, align 4
-  %24 = getelementptr inbounds i8, ptr %0, i64 160
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %25 = load ptr, ptr %24, align 8
   %26 = load ptr, ptr %23, align 8
   %27 = ptrtoint ptr %25 to i64
@@ -444,7 +444,7 @@ _ZNSt6vectorIiSaIiEE6resizeEmRKi.exit:            ; preds = %32, %34, %36, %38
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; preds = %.noexc8
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %49 = getelementptr inbounds i8, ptr %0, i64 112
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %50 = load ptr, ptr %49, align 8
   %51 = load ptr, ptr %48, align 8
   %52 = ptrtoint ptr %50 to i64
@@ -507,7 +507,7 @@ declare i32 @__gxx_personality_v0(...)
 define noundef zeroext i1 @_ZNK3g2o17EdgeProjectPSI2UV5writeERSo(ptr nocapture noundef nonnull readonly align 16 dereferenceable(400) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 160
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %6 = load ptr, ptr %5, align 16
   %.not8.i = icmp eq ptr %4, %6
   br i1 %.not8.i, label %_ZNK3g2o8BaseEdgeILi2EN5Eigen6MatrixIdLi2ELi1ELi0ELi2ELi1EEEE13writeParamIdsERSo.exit, label %.lr.ph.i
@@ -576,7 +576,7 @@ define noundef zeroext i1 @_ZN3g2o17EdgeProjectPSI2UV4readERSi(ptr noundef nonnu
   %3 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %5 = getelementptr inbounds i8, ptr %0, i64 136
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %6 = load ptr, ptr %5, align 8
   %7 = load ptr, ptr %4, align 16
   %.not.i = icmp eq ptr %6, %7
@@ -729,7 +729,7 @@ define void @_ZN3g2o17EdgeProjectPSI2UV12computeErrorEv(ptr nocapture noundef no
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %8 = getelementptr inbounds i8, ptr %0, i64 136
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %9 = load ptr, ptr %8, align 8
   %10 = load ptr, ptr %7, align 16
   %.not.i.i.i.not = icmp eq ptr %9, %10
@@ -755,7 +755,7 @@ _ZNK3g2o16OptimizableGraph4Edge9parameterEi.exit: ; preds = %1
   %23 = getelementptr inbounds i8, ptr %13, i64 208
   %24 = load <2 x i64>, ptr %23, align 16, !noalias !18
   %25 = xor <2 x i64> %24, <i64 -9223372036854775808, i64 0>
-  %26 = getelementptr inbounds i8, ptr %13, i64 224
+  %26 = getelementptr inbounds nuw i8, ptr %13, i64 224
   %27 = load <2 x double>, ptr %26, align 1, !noalias !25
   %28 = fneg <2 x double> %27
   %29 = getelementptr inbounds i8, ptr %13, i64 240
@@ -803,7 +803,7 @@ _ZNK3g2o16OptimizableGraph4Edge9parameterEi.exit: ; preds = %1
   %61 = fadd double %60, %54
   tail call void @llvm.experimental.noalias.scope.decl(metadata !30)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %.sroa.022, ptr noundef nonnull align 16 dereferenceable(32) %19, i64 32, i1 false)
-  %62 = getelementptr inbounds i8, ptr %15, i64 224
+  %62 = getelementptr inbounds nuw i8, ptr %15, i64 224
   %.sroa.022.32..sroa_idx36 = getelementptr inbounds i8, ptr %.sroa.022, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %.sroa.022.32..sroa_idx36, ptr noundef nonnull align 16 dereferenceable(16) %62, i64 16, i1 false)
   %.sroa.19.32..sroa_idx = getelementptr inbounds i8, ptr %15, i64 240
@@ -1012,7 +1012,7 @@ define void @_ZN3g2o17EdgeProjectPSI2UV14linearizeOplusEv(ptr nocapture noundef 
   %.sroa.3127.0..sroa_idx = getelementptr inbounds i8, ptr %8, i64 184
   %.sroa.3127.0.copyload = load double, ptr %.sroa.3127.0..sroa_idx, align 8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %11 = getelementptr inbounds i8, ptr %0, i64 136
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %12 = load ptr, ptr %11, align 8
   %13 = load ptr, ptr %10, align 16
   %.not.i.i.i.not = icmp eq ptr %12, %13
@@ -1025,7 +1025,7 @@ define void @_ZN3g2o17EdgeProjectPSI2UV14linearizeOplusEv(ptr nocapture noundef 
 _ZNK3g2o16OptimizableGraph4Edge9parameterEi.exit: ; preds = %1
   %15 = getelementptr inbounds i8, ptr %7, i64 8
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 224
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 224
   %.sroa.5107.0..sroa_idx = getelementptr inbounds i8, ptr %16, i64 216
   %.sroa.5107.0.copyload = load double, ptr %.sroa.5107.0..sroa_idx, align 8
   %.sroa.4105.0..sroa_idx = getelementptr inbounds i8, ptr %16, i64 208
@@ -1044,7 +1044,7 @@ _ZNK3g2o16OptimizableGraph4Edge9parameterEi.exit: ; preds = %1
   %.sroa.098.0.copyload = load <2 x i64>, ptr %23, align 16
   %.sroa.299.0..sroa_idx = getelementptr inbounds i8, ptr %20, i64 208
   %.sroa.299.0.copyload = load <2 x i64>, ptr %.sroa.299.0..sroa_idx, align 16
-  %24 = getelementptr inbounds i8, ptr %20, i64 224
+  %24 = getelementptr inbounds nuw i8, ptr %20, i64 224
   %.sroa.3.32.copyload = load <2 x double>, ptr %24, align 16
   %.sroa.5100.32..sroa_idx = getelementptr inbounds i8, ptr %20, i64 240
   %.sroa.5100.32.copyload = load double, ptr %.sroa.5100.32..sroa_idx, align 16
@@ -4138,7 +4138,7 @@ _ZN5Eigen7NoAliasINS_3MapINS_6MatrixIdLi6ELi6ELi0ELi6ELi6EEELi0ENS_6StrideILi0EL
   %87 = getelementptr inbounds nuw i8, ptr %6, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(10) %87, ptr noundef nonnull align 8 dereferenceable(10) %.sroa.020, i64 10, i1 false)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %7)
-  %88 = getelementptr inbounds i8, ptr %6, i64 32
+  %88 = getelementptr inbounds nuw i8, ptr %6, i64 32
   store ptr %1, ptr %88, align 8, !alias.scope !131
   call void @_ZN5Eigen8internal26call_dense_assignment_loopINS_3MapINS_6MatrixIdLi6ELi6ELi0ELi6ELi6EEELi0ENS_6StrideILi0ELi0EEEEENS_7ProductINS_9TransposeIKNS2_INS3_IdLi2ELi6ELi0ELi2ELi6EEELi16ES6_EEEENS9_IKNS8_ISD_NS3_IdLi2ELi2ELi0ELi2ELi2EEELi0EEEEELi1EEENS0_13add_assign_opIddEEEEvRT_RKT0_RKT1_(ptr noundef nonnull align 8 dereferenceable(12) %86, ptr noundef nonnull align 8 dereferenceable(40) %6, ptr noundef nonnull align 1 dereferenceable(1) %7)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6)
@@ -4196,7 +4196,7 @@ _ZN5Eigen7NoAliasINS_3MapINS_6MatrixIdLi6ELi3ELi0ELi6ELi3EEELi0ENS_6StrideILi0EL
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %24 = load ptr, ptr %23, align 8, !noalias !137
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %8)
-  %25 = getelementptr inbounds i8, ptr %7, i64 32
+  %25 = getelementptr inbounds nuw i8, ptr %7, i64 32
   store ptr %24, ptr %25, align 8, !alias.scope !140
   call void @_ZN5Eigen8internal26call_dense_assignment_loopINS_3MapINS_6MatrixIdLi6ELi3ELi0ELi6ELi3EEELi0ENS_6StrideILi0ELi0EEEEENS_7ProductINS_9TransposeIKNS2_INS3_IdLi2ELi6ELi0ELi2ELi6EEELi16ES6_EEEENS9_IKNS8_INS9_IKNS2_INS3_IdLi2ELi3ELi0ELi2ELi3EEELi16ES6_EEEENS3_IdLi2ELi2ELi0ELi2ELi2EEELi0EEEEELi1EEENS0_13add_assign_opIddEEEEvRT_RKT0_RKT1_(ptr noundef nonnull align 8 dereferenceable(12) %21, ptr noundef nonnull align 8 dereferenceable(40) %7, ptr noundef nonnull align 1 dereferenceable(1) %8)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7)
@@ -4335,7 +4335,7 @@ _ZN5Eigen7NoAliasINS_3MapINS_6MatrixIdLi6ELi3ELi0ELi6ELi3EEELi0ENS_6StrideILi0EL
   %114 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %115 = load ptr, ptr %114, align 8, !noalias !150
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5)
-  %116 = getelementptr inbounds i8, ptr %4, i64 32
+  %116 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store ptr %115, ptr %116, align 8, !alias.scope !153
   call void @_ZN5Eigen8internal26call_dense_assignment_loopINS_3MapINS_6MatrixIdLi6ELi3ELi0ELi6ELi3EEELi0ENS_6StrideILi0ELi0EEEEENS_7ProductINS_9TransposeIKNS2_INS3_IdLi2ELi6ELi0ELi2ELi6EEELi16ES6_EEEENS9_IKNS8_INS9_IKNS2_INS3_IdLi2ELi3ELi0ELi2ELi3EEELi16ES6_EEEENS3_IdLi2ELi2ELi0ELi2ELi2EEELi0EEEEELi1EEENS0_13add_assign_opIddEEEEvRT_RKT0_RKT1_(ptr noundef nonnull align 8 dereferenceable(12) %112, ptr noundef nonnull align 8 dereferenceable(40) %4, ptr noundef nonnull align 1 dereferenceable(1) %5)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4)
@@ -4463,7 +4463,7 @@ define linkonce_odr void @_ZN5Eigen8internal26call_dense_assignment_loopINS_3Map
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %8, ptr %4, align 16
-  %9 = getelementptr inbounds i8, ptr %1, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %10 = load ptr, ptr %9, align 8
   %.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i.i.i = load ptr, ptr %7, align 8
   %11 = load <2 x double>, ptr %.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 16
@@ -4819,7 +4819,7 @@ define linkonce_odr void @_ZN5Eigen8internal26call_dense_assignment_loopINS_3Map
   call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %4)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %8, ptr %4, align 16
-  %9 = getelementptr inbounds i8, ptr %1, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %10 = load ptr, ptr %9, align 8
   %.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i.i.i = load ptr, ptr %7, align 8
   %11 = load <2 x double>, ptr %.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 16

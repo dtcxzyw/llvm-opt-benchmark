@@ -96,7 +96,7 @@ define internal fastcc void @_ZL33CreateUnsatisfiedConstraintRecordRKN5clang10AS
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %7, i64 16
   %.sroa.2.0.copyload = load i64, ptr %.sroa.2.0..sroa_idx, align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 2144
-  %10 = getelementptr inbounds i8, ptr %0, i64 2224
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 2224
   %11 = load i64, ptr %10, align 8
   %12 = add i64 %11, %.sroa.2.0.copyload
   store i64 %12, ptr %10, align 8
@@ -105,7 +105,7 @@ define internal fastcc void @_ZL33CreateUnsatisfiedConstraintRecordRKN5clang10AS
   %15 = add i64 %14, 7
   %16 = and i64 %15, -8
   %17 = add i64 %16, %.sroa.2.0.copyload
-  %18 = getelementptr inbounds i8, ptr %0, i64 2152
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 2152
   %19 = load ptr, ptr %18, align 8
   %20 = ptrtoint ptr %19 to i64
   %.not.i.i.i.i.i = icmp ugt i64 %17, %20
@@ -232,7 +232,7 @@ define dso_local noundef ptr @_ZN5clang25ASTConstraintSatisfaction6CreateERKNS_1
   %5 = shl i64 %4, 3
   %6 = add i64 %5, 16
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 2144
-  %8 = getelementptr inbounds i8, ptr %0, i64 2224
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 2224
   %9 = load i64, ptr %8, align 8
   %10 = add i64 %6, %9
   store i64 %10, ptr %8, align 8
@@ -241,7 +241,7 @@ define dso_local noundef ptr @_ZN5clang25ASTConstraintSatisfaction6CreateERKNS_1
   %13 = add i64 %12, 7
   %14 = and i64 %13, -8
   %15 = add i64 %14, %6
-  %16 = getelementptr inbounds i8, ptr %0, i64 2152
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 2152
   %17 = load ptr, ptr %16, align 8
   %18 = ptrtoint ptr %17 to i64
   %.not.i.i.i = icmp ugt i64 %15, %18
@@ -271,7 +271,7 @@ define dso_local noundef ptr @_ZN5clang25ASTConstraintSatisfaction7RebuildERKNS_
   %4 = shl i64 %3, 3
   %5 = add i64 %4, 16
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 2144
-  %7 = getelementptr inbounds i8, ptr %0, i64 2224
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 2224
   %8 = load i64, ptr %7, align 8
   %9 = add i64 %5, %8
   store i64 %9, ptr %7, align 8
@@ -280,7 +280,7 @@ define dso_local noundef ptr @_ZN5clang25ASTConstraintSatisfaction7RebuildERKNS_
   %12 = add i64 %11, 7
   %13 = and i64 %12, -8
   %14 = add i64 %13, %5
-  %15 = getelementptr inbounds i8, ptr %0, i64 2152
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 2152
   %16 = load ptr, ptr %15, align 8
   %17 = ptrtoint ptr %16 to i64
   %.not.i.i.i = icmp ugt i64 %14, %17
@@ -329,7 +329,7 @@ declare void @_ZNK5clang16TemplateArgument7ProfileERN4llvm16FoldingSetNodeIDERKN
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local noundef ptr @_ZN5clang16ConceptReference6CreateERKNS_10ASTContextENS_22NestedNameSpecifierLocENS_14SourceLocationENS_19DeclarationNameInfoEPNS_9NamedDeclEPNS_11ConceptDeclEPKNS_27ASTTemplateArgumentListInfoE(ptr noundef nonnull align 8 dereferenceable(23096) %0, ptr %1, ptr %2, i32 %3, ptr nocapture noundef readonly byval(%"struct.clang::DeclarationNameInfo") align 8 %4, ptr noundef %5, ptr noundef %6, ptr noundef %7) local_unnamed_addr #0 align 2 {
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 2144
-  %10 = getelementptr inbounds i8, ptr %0, i64 2224
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 2224
   %11 = load i64, ptr %10, align 8
   %12 = add i64 %11, 72
   store i64 %12, ptr %10, align 8
@@ -338,7 +338,7 @@ define dso_local noundef ptr @_ZN5clang16ConceptReference6CreateERKNS_10ASTConte
   %15 = add i64 %14, 7
   %16 = and i64 %15, -8
   %17 = add i64 %16, 72
-  %18 = getelementptr inbounds i8, ptr %0, i64 2152
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 2152
   %19 = load ptr, ptr %18, align 8
   %20 = ptrtoint ptr %19 to i64
   %.not.i.i.i.i = icmp ugt i64 %17, %20

@@ -50,7 +50,7 @@ $_ZN4llvm15SmallVectorImplIN5clang5TokenEE6appendIPKS2_vEEvT_S7_ = comdat any
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local { i64, i8 } @_ZN5clang12Preprocessor16LastBacktrackPosEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(3288) %0) local_unnamed_addr #0 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 2944
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 2944
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 -8
   %5 = load i64, ptr %4, align 8
@@ -72,9 +72,9 @@ define dso_local void @_ZN5clang12Preprocessor24EnableBacktrackAtThisPosEb(ptr n
   %7 = load i64, ptr %6, align 8
   %8 = sext i1 %1 to i64
   %9 = xor i64 %7, %8
-  %10 = getelementptr inbounds i8, ptr %0, i64 2944
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 2944
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 2952
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 2952
   %13 = load ptr, ptr %12, align 8
   %.not.i.i = icmp eq ptr %11, %13
   br i1 %.not.i.i, label %17, label %14
@@ -148,9 +148,9 @@ _ZNSt6vectorImSaImEE9push_backEOm.exit:           ; preds = %14, %_ZNSt6vectorIm
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 2888
   %42 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %41) #15
   store i64 %42, ptr %4, align 8
-  %43 = getelementptr inbounds i8, ptr %0, i64 2968
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 2968
   %44 = load ptr, ptr %43, align 8
-  %45 = getelementptr inbounds i8, ptr %0, i64 2976
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 2976
   %46 = load ptr, ptr %45, align 8
   %.not.i = icmp eq ptr %44, %46
   br i1 %.not.i, label %55, label %47
@@ -188,7 +188,7 @@ _ZNSt6vectorISt4pairIN4llvm11SmallVectorIN5clang5TokenELj1EEEmESaIS6_EE12emplace
   %or.cond.not.i.i = select i1 %.not.i.i2, i1 %61, i1 false
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 1152
   %63 = load ptr, ptr %62, align 8
-  %64 = getelementptr inbounds i8, ptr %0, i64 1160
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 1160
   %65 = load ptr, ptr %64, align 8
   %66 = icmp ne ptr %63, %65
   %67 = select i1 %or.cond.not.i.i, i1 %66, i1 false
@@ -199,7 +199,7 @@ _ZNSt6vectorISt4pairIN4llvm11SmallVectorIN5clang5TokenELj1EEEmESaIS6_EE12emplace
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 1144
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 1096
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 1112
-  %73 = getelementptr inbounds i8, ptr %0, i64 1168
+  %73 = getelementptr inbounds nuw i8, ptr %0, i64 1168
   %74 = load ptr, ptr %73, align 8
   %.not.i.i.i.i3 = icmp eq ptr %65, %74
   br i1 %.not.i.i.i.i3, label %87, label %75
@@ -257,7 +257,7 @@ define dso_local void @_ZN5clang12Preprocessor19EnterCachingLexModeEv(ptr nounde
   %or.cond.not.i = select i1 %.not.i, i1 %7, i1 false
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 1152
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 1160
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 1160
   %11 = load ptr, ptr %10, align 8
   %12 = icmp ne ptr %9, %11
   %13 = select i1 %or.cond.not.i, i1 %12, i1 false
@@ -268,7 +268,7 @@ define dso_local void @_ZN5clang12Preprocessor19EnterCachingLexModeEv(ptr nounde
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 1144
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 1096
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 1112
-  %19 = getelementptr inbounds i8, ptr %0, i64 1168
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 1168
   %20 = load ptr, ptr %19, align 8
   %.not.i.i.i = icmp eq ptr %11, %20
   br i1 %.not.i.i.i, label %33, label %21
@@ -316,7 +316,7 @@ _ZN5clang12Preprocessor28EnterCachingLexModeUncheckedEv.exit: ; preds = %21, %33
 define dso_local void @_ZN5clang12Preprocessor29PopUnannotatedBacktrackTokensEv(ptr dead_on_unwind noalias writable sret(%"class.llvm::SmallVector.133") align 8 %0, ptr nocapture noundef nonnull align 8 dereferenceable(3288) %1) local_unnamed_addr #1 align 2 {
   %3 = alloca %"struct.std::pair.159", align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 2960
-  %5 = getelementptr inbounds i8, ptr %1, i64 2968
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 2968
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 -48
   %8 = getelementptr inbounds i8, ptr %3, i64 16
@@ -432,7 +432,7 @@ _ZN4llvm23SmallVectorTemplateBaseIN5clang5TokenELb1EE18uninitialized_copyIS2_S2_
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN5clang12Preprocessor23CommitBacktrackedTokensEv(ptr nocapture noundef nonnull align 8 dereferenceable(3288) %0) local_unnamed_addr #1 align 2 {
   %2 = alloca %"class.llvm::SmallVector.133", align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 2944
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 2944
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 -8
   %6 = load i64, ptr %5, align 8
@@ -462,7 +462,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN5clang12Preprocessor9BacktrackEv(ptr noundef nonnull align 8 dereferenceable(3288) %0) local_unnamed_addr #1 align 2 {
   %2 = alloca %"class.llvm::SmallVector.133", align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 2944
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 2944
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 -8
   %6 = load i64, ptr %5, align 8
@@ -508,7 +508,7 @@ define dso_local void @_ZN5clang12Preprocessor10CachingLexERNS_5TokenE(ptr nound
   %or.cond.not.i = select i1 %.not.i, i1 %9, i1 false
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 1152
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 1160
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 1160
   %13 = load ptr, ptr %12, align 8
   %14 = icmp ne ptr %11, %13
   %15 = select i1 %or.cond.not.i, i1 %14, i1 false
@@ -555,7 +555,7 @@ _ZN5clang12Preprocessor18ExitCachingLexModeEv.exit: ; preds = %30, %38
   tail call void @_ZN5clang12Preprocessor3LexERNS_5TokenE(ptr noundef nonnull align 8 dereferenceable(3288) %0, ptr noundef nonnull align 8 dereferenceable(20) %1) #15
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 2936
   %40 = load ptr, ptr %39, align 8
-  %41 = getelementptr inbounds i8, ptr %0, i64 2944
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 2944
   %42 = load ptr, ptr %41, align 8
   %.not = icmp eq ptr %40, %42
   br i1 %.not, label %73, label %43
@@ -566,7 +566,7 @@ _ZN5clang12Preprocessor18ExitCachingLexModeEv.exit: ; preds = %30, %38
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 1096
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 1112
   %48 = load ptr, ptr %12, align 8
-  %49 = getelementptr inbounds i8, ptr %0, i64 1168
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 1168
   %50 = load ptr, ptr %49, align 8
   %.not.i.i.i = icmp eq ptr %48, %50
   br i1 %.not.i.i.i, label %64, label %51
@@ -611,7 +611,7 @@ _ZN5clang12Preprocessor28EnterCachingLexModeUncheckedEv.exit: ; preds = %51, %64
   store i64 %66, ptr %17, align 8
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 2960
   %68 = load ptr, ptr %67, align 8
-  %69 = getelementptr inbounds i8, ptr %0, i64 2968
+  %69 = getelementptr inbounds nuw i8, ptr %0, i64 2968
   %70 = load ptr, ptr %69, align 8
   %.not8 = icmp eq ptr %68, %70
   br i1 %.not8, label %102, label %71
@@ -633,7 +633,7 @@ _ZN5clang12Preprocessor28EnterCachingLexModeUncheckedEv.exit: ; preds = %51, %64
   %80 = getelementptr inbounds nuw i8, ptr %0, i64 1096
   %81 = getelementptr inbounds nuw i8, ptr %0, i64 1112
   %82 = load ptr, ptr %12, align 8
-  %83 = getelementptr inbounds i8, ptr %0, i64 1168
+  %83 = getelementptr inbounds nuw i8, ptr %0, i64 1168
   %84 = load ptr, ptr %83, align 8
   %.not.i.i.i6 = icmp eq ptr %82, %84
   br i1 %.not.i.i.i6, label %98, label %85
@@ -676,7 +676,7 @@ _ZN5clang12Preprocessor28EnterCachingLexModeUncheckedEv.exit7: ; preds = %85, %9
 
 99:                                               ; preds = %73
   %100 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %19) #15
-  %101 = getelementptr inbounds i8, ptr %0, i64 2896
+  %101 = getelementptr inbounds nuw i8, ptr %0, i64 2896
   store i32 0, ptr %101, align 8
   store i64 0, ptr %17, align 8
   br label %102
@@ -696,9 +696,9 @@ define dso_local void @_ZN5clang12Preprocessor28EnterCachingLexModeUncheckedEv(p
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 1104
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 1128
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 1112
-  %9 = getelementptr inbounds i8, ptr %0, i64 1160
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 1160
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 1168
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 1168
   %12 = load ptr, ptr %11, align 8
   %.not.i.i = icmp eq ptr %10, %12
   br i1 %.not.i.i, label %26, label %13
@@ -806,7 +806,7 @@ define dso_local noundef nonnull align 8 dereferenceable(20) ptr @_ZN5clang12Pre
   %or.cond.not.i.i = select i1 %.not.i.i, i1 %9, i1 false
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 1152
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 1160
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 1160
   %13 = load ptr, ptr %12, align 8
   %14 = icmp ne ptr %11, %13
   %15 = select i1 %or.cond.not.i.i, i1 %14, i1 false
@@ -829,7 +829,7 @@ _ZN5clang12Preprocessor18ExitCachingLexModeEv.exit: ; preds = %2, %16
 
 .lr.ph:                                           ; preds = %_ZN5clang12Preprocessor18ExitCachingLexModeEv.exit
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 2960
-  %25 = getelementptr inbounds i8, ptr %0, i64 2968
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 2968
   br label %26
 
 26:                                               ; preds = %.lr.ph, %39
@@ -877,7 +877,7 @@ _ZN5clang12Preprocessor18ExitCachingLexModeEv.exit: ; preds = %2, %16
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 1144
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 1096
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 1112
-  %53 = getelementptr inbounds i8, ptr %0, i64 1168
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 1168
   %54 = load ptr, ptr %53, align 8
   %.not.i.i.i.i = icmp eq ptr %45, %54
   br i1 %.not.i.i.i.i, label %67, label %55

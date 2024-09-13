@@ -2752,7 +2752,7 @@ define internal fastcc noundef zeroext i1 @_ZL20translateInstructionRN4llvm6MCIn
 6:                                                ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %7) #12
-  %9 = getelementptr inbounds i8, ptr %0, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 0, ptr %9, align 8
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 84
   %11 = load i16, ptr %10, align 4
@@ -2782,7 +2782,7 @@ define internal fastcc noundef zeroext i1 @_ZL20translateInstructionRN4llvm6MCIn
   store i8 0, ptr %19, align 1
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 192
   %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %1, i64 200
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 200
   %23 = load i64, ptr %22, align 8
   %24 = getelementptr inbounds %"struct.llvm::X86Disassembler::OperandSpecifier", ptr %21, i64 %23
   %.not2446 = icmp eq i64 %23, 0

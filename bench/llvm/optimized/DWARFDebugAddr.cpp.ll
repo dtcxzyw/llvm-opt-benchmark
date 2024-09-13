@@ -257,7 +257,7 @@ _ZN4llvm5ErrorD2Ev.exit:
 39:                                               ; preds = %17
   %40 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %41 = load ptr, ptr %40, align 8
-  %42 = getelementptr inbounds i8, ptr %1, i64 40
+  %42 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %43 = load ptr, ptr %42, align 8
   %.not.i.i = icmp eq ptr %43, %41
   br i1 %.not.i.i, label %_ZNSt6vectorImSaImEE5clearEv.exit, label %44
@@ -275,7 +275,7 @@ _ZNSt6vectorImSaImEE5clearEv.exit:                ; preds = %39, %44
   unreachable
 
 47:                                               ; preds = %_ZNSt6vectorImSaImEE5clearEv.exit
-  %48 = getelementptr inbounds i8, ptr %1, i64 48
+  %48 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %49 = load ptr, ptr %48, align 8
   %50 = ptrtoint ptr %49 to i64
   %51 = ptrtoint ptr %41 to i64
@@ -1325,7 +1325,7 @@ _ZN4llvm11raw_ostreamlsENS_9StringRefE.exit:      ; preds = %67, %69, %70
 
 _ZN4llvm11raw_ostreamlsEPKc.exit15:               ; preds = %95, %93, %19
   %98 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %99 = getelementptr inbounds i8, ptr %0, i64 40
+  %99 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %100 = load ptr, ptr %99, align 8
   %101 = load ptr, ptr %98, align 8
   %.not9 = icmp eq ptr %100, %101
@@ -1417,7 +1417,7 @@ define dso_local void @_ZNK4llvm19DWARFDebugAddrTable12getAddrEntryEj(ptr dead_o
   %7 = alloca %"class.llvm::format_object.96", align 8
   %8 = zext i32 %2 to i64
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %10 = getelementptr inbounds i8, ptr %1, i64 40
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %11 = load ptr, ptr %10, align 8
   %12 = load ptr, ptr %9, align 8
   %13 = ptrtoint ptr %11 to i64

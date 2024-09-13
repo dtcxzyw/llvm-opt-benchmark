@@ -560,7 +560,7 @@ _ZL20salvageDebugInfoImplRKN4llvm19MachineRegisterInfoERNS_12MachineInstrERNS_15
   %100 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %8) #8
   %101 = call noundef ptr @_ZN4llvm12DIExpression14appendOpsToArgEPKS0_NS_8ArrayRefImEEjb(ptr noundef %36, ptr %99, i64 %100, i32 noundef 0, i1 noundef zeroext true) #8
   %102 = getelementptr inbounds nuw i8, ptr %101, i64 16
-  %103 = getelementptr inbounds i8, ptr %101, i64 24
+  %103 = getelementptr inbounds nuw i8, ptr %101, i64 24
   %104 = load ptr, ptr %103, align 8
   %105 = load ptr, ptr %102, align 8
   %106 = ptrtoint ptr %104 to i64

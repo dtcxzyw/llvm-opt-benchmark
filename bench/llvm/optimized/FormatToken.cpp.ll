@@ -477,7 +477,7 @@ define dso_local noundef zeroext i1 @_ZNK5clang6format11FormatToken25opensBlockO
   ]
 
 17:                                               ; preds = %14
-  %18 = getelementptr inbounds i8, ptr %0, i64 32
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %19 = load i64, ptr %18, align 8
   %.not.i.i = icmp ult i64 %19, 2
   br i1 %.not.i.i, label %.thread.i, label %_ZNK4llvm9StringRef9ends_withES0_.exit.i

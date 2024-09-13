@@ -285,7 +285,7 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_130AArch64DeadRegisterDefini
   store ptr %20, ptr %21, align 8
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store i8 0, ptr %22, align 8
-  %23 = getelementptr inbounds i8, ptr %1, i64 328
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 328
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 320
   %.sroa.010.016 = load ptr, ptr %23, align 8
   %.not17 = icmp eq ptr %.sroa.010.016, %24
@@ -543,7 +543,7 @@ _ZL23atomicReadDroppedOnZeroj.exit.i:             ; preds = %_ZN4llvmL26atomicBa
 
 .critedge2.i.i.i.i.i:                             ; preds = %73, %76
   %.pn.i.i.i.i.i = phi ptr [ %storemerge.i.i.i.i.i, %76 ], [ %.0.i.i.i.i, %73 ]
-  %storemerge.in.i.i.i.i.i = getelementptr inbounds i8, ptr %.pn.i.i.i.i.i, i64 24
+  %storemerge.in.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.pn.i.i.i.i.i, i64 24
   %storemerge.i.i.i.i.i = load ptr, ptr %storemerge.in.i.i.i.i.i, align 8
   %.not.i.i.i.i.i = icmp eq ptr %storemerge.i.i.i.i.i, null
   br i1 %.not.i.i.i.i.i, label %_ZNK4llvm19MachineRegisterInfo15use_nodbg_emptyENS_8RegisterE.exit.thread.i, label %76

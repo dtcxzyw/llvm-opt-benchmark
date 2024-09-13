@@ -162,7 +162,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(40) ptr @_ZN4
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %11, i64 16
   store i64 %.sroa.2.0.copyload, ptr %.sroa.2.0..sroa_idx.i, align 8
   %14 = getelementptr inbounds nuw i8, ptr %11, i64 24
-  %15 = getelementptr inbounds i8, ptr %11, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %11, i64 32
   store i32 64, ptr %15, align 8
   store i64 0, ptr %14, align 8
   %16 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #11
@@ -263,7 +263,7 @@ define dso_local ptr @_ZNK4llvm8AsmToken6getLocEv(ptr nocapture noundef nonnull 
 define dso_local ptr @_ZNK4llvm8AsmToken9getEndLocEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0) local_unnamed_addr #5 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i64, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %3, i64 %5
   ret ptr %6
@@ -273,7 +273,7 @@ define dso_local ptr @_ZNK4llvm8AsmToken9getEndLocEv(ptr nocapture noundef nonnu
 define dso_local { ptr, ptr } @_ZNK4llvm8AsmToken11getLocRangeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0) local_unnamed_addr #5 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i64, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %3, i64 %5
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %3, 0
@@ -828,7 +828,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(40) ptr @_ZN4
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %8, i64 16
   store i64 %.sroa.2.0.copyload, ptr %.sroa.2.0..sroa_idx.i, align 8
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  %12 = getelementptr inbounds i8, ptr %8, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %8, i64 32
   store i32 64, ptr %12, align 8
   store i64 0, ptr %11, align 8
   %13 = load ptr, ptr %0, align 8
@@ -843,8 +843,8 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(40) ptr @_ZN4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.09.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.04.08.i.i.i.i.i.i, i64 24, i1 false)
   %16 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i.i, i64 24
   %17 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i.i.i, i64 24
-  %18 = getelementptr inbounds i8, ptr %.09.i.i.i.i.i.i, i64 32
-  %19 = getelementptr inbounds i8, ptr %.sroa.04.08.i.i.i.i.i.i, i64 32
+  %18 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i.i, i64 32
+  %19 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i.i.i, i64 32
   %20 = load i32, ptr %19, align 8
   store i32 %20, ptr %18, align 8
   %21 = load i64, ptr %17, align 8

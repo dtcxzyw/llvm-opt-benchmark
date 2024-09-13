@@ -206,7 +206,7 @@ define dso_local void @_ZNK4llvm13MCPseudoProbe4emitEPNS_16MCObjectStreamerEPKS0
 44:                                               ; preds = %27
   %45 = load ptr, ptr %32, align 8
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 288
-  %47 = getelementptr inbounds i8, ptr %45, i64 368
+  %47 = getelementptr inbounds nuw i8, ptr %45, i64 368
   %48 = load i64, ptr %47, align 8
   %49 = add i64 %48, 120
   store i64 %49, ptr %47, align 8
@@ -215,7 +215,7 @@ define dso_local void @_ZNK4llvm13MCPseudoProbe4emitEPNS_16MCObjectStreamerEPKS0
   %52 = add i64 %51, 7
   %53 = and i64 %52, -8
   %54 = add i64 %53, 120
-  %55 = getelementptr inbounds i8, ptr %45, i64 296
+  %55 = getelementptr inbounds nuw i8, ptr %45, i64 296
   %56 = load ptr, ptr %55, align 8
   %57 = ptrtoint ptr %56 to i64
   %.not.i.i.i = icmp ugt i64 %54, %57
@@ -366,9 +366,9 @@ define dso_local void @_ZN4llvm23MCPseudoProbeInlineTree14addPseudoProbeERKNS_13
 28:                                               ; preds = %._crit_edge, %3
   %.018 = phi ptr [ %12, %3 ], [ %27, %._crit_edge ]
   %29 = getelementptr inbounds nuw i8, ptr %.018, i64 56
-  %30 = getelementptr inbounds i8, ptr %.018, i64 64
+  %30 = getelementptr inbounds nuw i8, ptr %.018, i64 64
   %31 = load ptr, ptr %30, align 8
-  %32 = getelementptr inbounds i8, ptr %.018, i64 72
+  %32 = getelementptr inbounds nuw i8, ptr %.018, i64 72
   %33 = load ptr, ptr %32, align 8
   %.not.i = icmp eq ptr %31, %33
   br i1 %.not.i, label %37, label %34
@@ -459,7 +459,7 @@ define linkonce_odr hidden noundef ptr @_ZN4llvm27MCPseudoProbeInlineTreeBaseISt
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, i8 0, i64 16, i1 false), !noalias !11
   store float 1.000000e+00, ptr %8, align 8, !noalias !11
-  %9 = getelementptr inbounds i8, ptr %4, i64 40
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %9, i8 0, i64 56, i1 false), !noalias !11
   %10 = getelementptr inbounds i8, ptr %1, i64 8
   %11 = load i64, ptr %10, align 8, !noalias !11
@@ -478,7 +478,7 @@ define linkonce_odr hidden noundef ptr @_ZN4llvm27MCPseudoProbeInlineTreeBaseISt
   br i1 %.not.i.i.i.i, label %_ZNKSt14default_deleteIN4llvm23MCPseudoProbeInlineTreeEEclEPS1_.exit.i, label %18
 
 18:                                               ; preds = %15
-  %19 = getelementptr inbounds i8, ptr %14, i64 72
+  %19 = getelementptr inbounds nuw i8, ptr %14, i64 72
   %20 = load ptr, ptr %19, align 8
   %21 = ptrtoint ptr %20 to i64
   %22 = ptrtoint ptr %17 to i64
@@ -529,7 +529,7 @@ define dso_local void @_ZN4llvm23MCPseudoProbeInlineTree4emitEPNS_16MCObjectStre
 21:                                               ; preds = %16, %3
   %.0 = phi i1 [ false, %3 ], [ %.not, %16 ]
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %23 = getelementptr inbounds i8, ptr %0, i64 64
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %24 = load ptr, ptr %23, align 8
   %25 = load ptr, ptr %22, align 8
   %26 = ptrtoint ptr %24 to i64
@@ -1115,7 +1115,7 @@ declare noundef ptr @_ZNK4llvm16MCObjectFileInfo21getPseudoProbeSectionERKNS_9MC
 define dso_local void @_ZN4llvm18MCPseudoProbeTable4emitEPNS_16MCObjectStreamerE(ptr noundef %0) local_unnamed_addr #1 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 1920
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 1920
   %5 = load i64, ptr %4, align 8
   %6 = icmp eq i64 %5, 0
   br i1 %6, label %9, label %7
@@ -2017,7 +2017,7 @@ _ZN4llvm20MCPseudoProbeDecoder10readStringEj.exit: ; preds = %38
 43:                                               ; preds = %._crit_edge264, %3
   %.010.lcssa = phi i64 [ %42, %._crit_edge264 ], [ 0, %3 ]
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %45 = getelementptr inbounds i8, ptr %0, i64 120
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %46 = load ptr, ptr %45, align 8
   %47 = load ptr, ptr %44, align 8
   %48 = ptrtoint ptr %46 to i64
@@ -2028,7 +2028,7 @@ _ZN4llvm20MCPseudoProbeDecoder10readStringEj.exit: ; preds = %38
   br i1 %52, label %_ZNSt12_Vector_baseIN4llvm21MCPseudoProbeFuncDescESaIS1_EE11_M_allocateEm.exit.i, label %_ZNSt6vectorIN4llvm21MCPseudoProbeFuncDescESaIS1_EE7reserveEm.exit
 
 _ZNSt12_Vector_baseIN4llvm21MCPseudoProbeFuncDescESaIS1_EE11_M_allocateEm.exit.i: ; preds = %43
-  %53 = getelementptr inbounds i8, ptr %0, i64 112
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %54 = load ptr, ptr %53, align 8
   %55 = ptrtoint ptr %54 to i64
   %56 = sub i64 %55, %49
@@ -2071,10 +2071,10 @@ _ZNSt6vectorIN4llvm21MCPseudoProbeFuncDescESaIS1_EE7reserveEm.exit: ; preds = %4
 
 .lr.ph:                                           ; preds = %_ZNSt6vectorIN4llvm21MCPseudoProbeFuncDescESaIS1_EE7reserveEm.exit
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %66 = getelementptr inbounds i8, ptr %0, i64 208
-  %67 = getelementptr inbounds i8, ptr %0, i64 136
+  %66 = getelementptr inbounds nuw i8, ptr %0, i64 208
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %68 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %69 = getelementptr inbounds i8, ptr %0, i64 112
+  %69 = getelementptr inbounds nuw i8, ptr %0, i64 112
   br label %70
 
 70:                                               ; preds = %.lr.ph, %_ZNSt6vectorIN4llvm21MCPseudoProbeFuncDescESaIS1_EE12emplace_backIJRmS5_NS0_9StringRefEEEERS1_DpOT_.exit
@@ -2524,7 +2524,7 @@ _ZNSt6vectorIN4llvm20MCDecodedPseudoProbeESaIS1_EE7reserveEm.exit: ; preds = %5,
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %44 = load i32, ptr %7, align 4
   %45 = zext i32 %44 to i64
-  %46 = getelementptr inbounds i8, ptr %0, i64 96
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %47 = load ptr, ptr %46, align 8
   %48 = load ptr, ptr %43, align 8
   %49 = ptrtoint ptr %47 to i64
@@ -2532,7 +2532,7 @@ _ZNSt6vectorIN4llvm20MCDecodedPseudoProbeESaIS1_EE7reserveEm.exit: ; preds = %5,
   %51 = sub i64 %49, %50
   %52 = sdiv exact i64 %51, 48
   %53 = icmp ult i64 %52, %45
-  %54 = getelementptr inbounds i8, ptr %0, i64 88
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %55 = load ptr, ptr %54, align 8
   br i1 %53, label %_ZNSt12_Vector_baseIN4llvm30MCDecodedPseudoProbeInlineTreeESaIS1_EE11_M_allocateEm.exit.i, label %_ZNSt6vectorIN4llvm30MCDecodedPseudoProbeInlineTreeESaIS1_EE7reserveEm.exit
 
@@ -2574,7 +2574,7 @@ _ZNSt6vectorIN4llvm30MCDecodedPseudoProbeInlineTreeESaIS1_EE7reserveEm.exit: ; p
   %.pre-phi = phi i64 [ %.pre107, %_ZNSt12_Vector_baseIN4llvm30MCDecodedPseudoProbeInlineTreeESaIS1_EE13_M_deallocateEPS1_m.exit.i ], [ %50, %_ZNSt6vectorIN4llvm20MCDecodedPseudoProbeESaIS1_EE7reserveEm.exit ]
   %65 = phi ptr [ %59, %_ZNSt12_Vector_baseIN4llvm30MCDecodedPseudoProbeInlineTreeESaIS1_EE13_M_deallocateEPS1_m.exit.i ], [ %48, %_ZNSt6vectorIN4llvm20MCDecodedPseudoProbeESaIS1_EE7reserveEm.exit ]
   %66 = phi ptr [ %63, %_ZNSt12_Vector_baseIN4llvm30MCDecodedPseudoProbeInlineTreeESaIS1_EE13_M_deallocateEPS1_m.exit.i ], [ %55, %_ZNSt6vectorIN4llvm20MCDecodedPseudoProbeESaIS1_EE7reserveEm.exit ]
-  %67 = getelementptr inbounds i8, ptr %0, i64 88
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %68 = ptrtoint ptr %66 to i64
   %69 = sub i64 %68, %.pre-phi
   %70 = sdiv exact i64 %69, 48
@@ -2702,7 +2702,7 @@ _ZN4llvm4sortIRSt6vectorISt4pairImjESaIS3_EEEEvOT_.exit: ; preds = %._crit_edge9
   %119 = phi i32 [ %92, %._crit_edge95 ], [ %.pre105, %111 ]
   %120 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %121 = zext i32 %119 to i64
-  %122 = getelementptr inbounds i8, ptr %0, i64 240
+  %122 = getelementptr inbounds nuw i8, ptr %0, i64 240
   %123 = load ptr, ptr %122, align 8
   %124 = load ptr, ptr %120, align 8
   %125 = ptrtoint ptr %123 to i64
@@ -2713,7 +2713,7 @@ _ZN4llvm4sortIRSt6vectorISt4pairImjESaIS3_EEEEvOT_.exit: ; preds = %._crit_edge9
   br i1 %129, label %_ZNSt12_Vector_baseISt17reference_wrapperIN4llvm20MCDecodedPseudoProbeEESaIS3_EE11_M_allocateEm.exit.i, label %_ZNSt6vectorISt17reference_wrapperIN4llvm20MCDecodedPseudoProbeEESaIS3_EE7reserveEm.exit
 
 _ZNSt12_Vector_baseISt17reference_wrapperIN4llvm20MCDecodedPseudoProbeEESaIS3_EE11_M_allocateEm.exit.i: ; preds = %_ZN4llvm4sortIRSt6vectorISt4pairImjESaIS3_EEEEvOT_.exit
-  %130 = getelementptr inbounds i8, ptr %0, i64 232
+  %130 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %131 = load ptr, ptr %130, align 8
   %132 = ptrtoint ptr %131 to i64
   %133 = sub i64 %132, %126
@@ -2754,7 +2754,7 @@ _ZNSt6vectorISt17reference_wrapperIN4llvm20MCDecodedPseudoProbeEESaIS3_EE7reserv
   br i1 %.not.i.i.i.i35, label %_ZNSt6vectorISt4pairImjESaIS1_EE5clearEv.exit, label %.lr.ph98
 
 .lr.ph98:                                         ; preds = %_ZNSt6vectorISt17reference_wrapperIN4llvm20MCDecodedPseudoProbeEESaIS3_EE7reserveEm.exit
-  %142 = getelementptr inbounds i8, ptr %0, i64 232
+  %142 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %.pre106 = load ptr, ptr %142, align 8
   br label %143
 
@@ -3981,7 +3981,7 @@ _ZNSt6vectorIN4llvm20MCDecodedPseudoProbeESaIS1_EE12emplace_backIJRmRjNS0_15Pseu
   %310 = getelementptr inbounds nuw i8, ptr %.1320, i64 40
   store i32 %309, ptr %310, align 8
   %311 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %312 = getelementptr inbounds i8, ptr %0, i64 88
+  %312 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %313 = load ptr, ptr %312, align 8
   %314 = load ptr, ptr %311, align 8
   %315 = ptrtoint ptr %313 to i64
@@ -4070,7 +4070,7 @@ define dso_local void @_ZN4llvm20MCPseudoProbeDecoder21printGUID2FuncDescMapERNS
 _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %11, %13
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 112
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %19 = load ptr, ptr %18, align 8
   %.not9 = icmp eq ptr %17, %19
   br i1 %.not9, label %._crit_edge, label %.lr.ph
@@ -4090,7 +4090,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %11, %13
 define dso_local void @_ZN4llvm20MCPseudoProbeDecoder20printProbeForAddressERNS_11raw_ostreamEm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(313) %0, ptr noundef nonnull align 8 dereferenceable(48) %1, i64 noundef %2) local_unnamed_addr #1 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 232
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %7 = load ptr, ptr %6, align 8
   %8 = ptrtoint ptr %7 to i64
   %9 = ptrtoint ptr %5 to i64
@@ -4196,7 +4196,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %51, %53
 define dso_local void @_ZN4llvm20MCPseudoProbeDecoder26printProbesForAllAddressesERNS_11raw_ostreamE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(313) %0, ptr noundef nonnull align 8 dereferenceable(48) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 232
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %6 = load ptr, ptr %5, align 8
   %.not1819 = icmp eq ptr %4, %6
   br i1 %.not1819, label %._crit_edge, label %.lr.ph
@@ -4291,7 +4291,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit14:               ; preds = %41, %43
 define dso_local noundef ptr @_ZNK4llvm20MCPseudoProbeDecoder19getCallProbeForAddrEm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(313) %0, i64 noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 232
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %6 = load ptr, ptr %5, align 8
   %7 = ptrtoint ptr %6 to i64
   %8 = ptrtoint ptr %4 to i64
@@ -4378,7 +4378,7 @@ _ZNK4llvm16AddressProbesMap4findEm.exit:          ; preds = %_ZSt7advanceIN9__gn
 define dso_local noundef nonnull ptr @_ZNK4llvm20MCPseudoProbeDecoder18getFuncDescForGUIDEm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(313) %0, i64 noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 112
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %6 = load ptr, ptr %5, align 8
   %7 = ptrtoint ptr %6 to i64
   %8 = ptrtoint ptr %4 to i64
@@ -4423,7 +4423,7 @@ define dso_local void @_ZNK4llvm20MCPseudoProbeDecoder24getInlineContextForProbe
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 24
   %11 = load i64, ptr %10, align 8
   %12 = load ptr, ptr %6, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 112
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %14 = load ptr, ptr %13, align 8
   %15 = ptrtoint ptr %14 to i64
   %16 = ptrtoint ptr %12 to i64
@@ -4484,7 +4484,7 @@ _ZNK4llvm30MCDecodedPseudoProbeInlineTree13hasInlineSiteEv.exit: ; preds = %2
 12:                                               ; preds = %_ZNK4llvm30MCDecodedPseudoProbeInlineTree13hasInlineSiteEv.exit
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 112
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %16 = load ptr, ptr %15, align 8
   %17 = ptrtoint ptr %16 to i64
   %18 = ptrtoint ptr %14 to i64
@@ -4851,7 +4851,7 @@ _ZNKSt10_HashtableISt5tupleIJmjEESt4pairIKS1_St10unique_ptrIN4llvm23MCPseudoProb
   br i1 %.not.i.i.i.i.i, label %_ZNKSt14default_deleteIN4llvm23MCPseudoProbeInlineTreeEEclEPS1_.exit.i.i.i, label %100
 
 100:                                              ; preds = %97
-  %101 = getelementptr inbounds i8, ptr %10, i64 72
+  %101 = getelementptr inbounds nuw i8, ptr %10, i64 72
   %102 = load ptr, ptr %101, align 8
   %103 = ptrtoint ptr %102 to i64
   %104 = ptrtoint ptr %99 to i64
@@ -5014,7 +5014,7 @@ define linkonce_odr hidden void @_ZNSt13unordered_mapISt5tupleIJmjEESt10unique_p
   br i1 %.not.i.i.i, label %_ZNKSt14default_deleteIN4llvm23MCPseudoProbeInlineTreeEEclEPS1_.exit.i.i, label %10
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %6, i64 72
+  %11 = getelementptr inbounds nuw i8, ptr %6, i64 72
   %12 = load ptr, ptr %11, align 8
   %13 = ptrtoint ptr %12 to i64
   %14 = ptrtoint ptr %9 to i64
@@ -8439,7 +8439,7 @@ _ZNSt6vectorIN4llvm20MCDecodedPseudoProbeESaIS1_EE12emplace_backIJRmRjNS0_15Pseu
   %280 = getelementptr inbounds nuw i8, ptr %.0339, i64 40
   store i32 %279, ptr %280, align 8
   %281 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %282 = getelementptr inbounds i8, ptr %0, i64 88
+  %282 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %283 = load ptr, ptr %282, align 8
   %284 = load ptr, ptr %281, align 8
   %285 = ptrtoint ptr %283 to i64

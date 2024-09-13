@@ -424,7 +424,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7GfQuathmLENS_8pxr_half4halfE.exit: ; preds
   %72 = fpext float %71 to double
   %73 = tail call noundef nonnull align 2 dereferenceable(6) ptr @_ZN32pxrInternal_v0_24__pxrReserved__7GfVec3hmLEd(ptr noundef nonnull align 2 dereferenceable(6) %0, double noundef %72)
   %74 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %75 = getelementptr inbounds i8, ptr %0, i64 14
+  %75 = getelementptr inbounds nuw i8, ptr %0, i64 14
   %76 = load i16, ptr %75, align 2
   %77 = zext i16 %76 to i64
   %78 = getelementptr inbounds [65536 x %"union.pxrInternal_v0_24__pxrReserved__::pxr_half::half::uif"], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 0, i64 %77
@@ -596,7 +596,7 @@ define { i64, i64 } @_ZNK32pxrInternal_v0_24__pxrReserved__11GfDualQuath12GetCon
   %.sroa.2.0.insert.shift.i = shl nuw i64 %.sroa.2.0.insert.ext.i, 48
   %.sroa.01.0.insert.insert.i = or disjoint i64 %.sroa.0.0.insert.insert.i.i, %.sroa.2.0.insert.shift.i
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 14
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 14
   %.sroa.0.0.copyload.i.i1 = load i16, ptr %12, align 2
   %13 = load i16, ptr %11, align 2
   %14 = xor i16 %13, -32768
@@ -701,7 +701,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4halfC2Ef.exit: ; preds = %15, %24
   %.sroa.2.0.insert.shift.i.i = shl nuw i64 %.sroa.2.0.insert.ext.i.i, 48
   %.sroa.01.0.insert.insert.i.i = or disjoint i64 %.sroa.0.0.insert.insert.i.i.i, %.sroa.2.0.insert.shift.i.i
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %45 = getelementptr inbounds i8, ptr %0, i64 14
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 14
   %.sroa.0.0.copyload.i.i1.i = load i16, ptr %45, align 2
   %46 = load i16, ptr %44, align 2
   %47 = xor i16 %46, -32768
@@ -909,7 +909,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__11GfDualQuath14SetTranslationE
 ; Function Attrs: mustprogress uwtable
 define i48 @_ZNK32pxrInternal_v0_24__pxrReserved__11GfDualQuath14GetTranslationEv(ptr nocapture noundef nonnull readonly align 2 dereferenceable(16) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 14
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 14
   %.sroa.0.0.copyload.i = load i16, ptr %3, align 2
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 6
   %.sroa.0.0.copyload.i19 = load i16, ptr %4, align 2
@@ -1626,7 +1626,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7GfQuathmLENS_8pxr_half4halfE.exit: ; preds
   %33 = load float, ptr %9, align 4
   %34 = fpext float %33 to double
   %35 = tail call noundef nonnull align 2 dereferenceable(6) ptr @_ZN32pxrInternal_v0_24__pxrReserved__7GfVec3hmLEd(ptr noundef nonnull align 2 dereferenceable(6) %0, double noundef %34)
-  %36 = getelementptr inbounds i8, ptr %0, i64 14
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 14
   %37 = load i16, ptr %36, align 2
   %38 = zext i16 %37 to i64
   %39 = getelementptr inbounds [65536 x %"union.pxrInternal_v0_24__pxrReserved__::pxr_half::half::uif"], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 0, i64 %38

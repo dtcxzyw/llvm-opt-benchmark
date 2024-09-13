@@ -39,7 +39,7 @@ define dso_local noundef ptr @_ZN4llvm16TypedPointerType3getEPNS_4TypeEj(ptr nou
 
 10:                                               ; preds = %2
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 2168
-  %12 = getelementptr inbounds i8, ptr %5, i64 2248
+  %12 = getelementptr inbounds nuw i8, ptr %5, i64 2248
   %13 = load i64, ptr %12, align 8
   %14 = add i64 %13, 32
   store i64 %14, ptr %12, align 8
@@ -48,7 +48,7 @@ define dso_local noundef ptr @_ZN4llvm16TypedPointerType3getEPNS_4TypeEj(ptr nou
   %17 = add i64 %16, 15
   %18 = and i64 %17, -16
   %19 = add i64 %18, 32
-  %20 = getelementptr inbounds i8, ptr %5, i64 2176
+  %20 = getelementptr inbounds nuw i8, ptr %5, i64 2176
   %21 = load ptr, ptr %20, align 8
   %22 = ptrtoint ptr %21 to i64
   %.not.i.i.i = icmp ugt i64 %19, %22

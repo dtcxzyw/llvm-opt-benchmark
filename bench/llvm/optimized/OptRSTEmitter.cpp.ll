@@ -172,9 +172,9 @@ _ZN4llvm14array_pod_sortIN9__gnu_cxx17__normal_iteratorIPPNS_6RecordESt6vectorIS
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 8
   %75 = load ptr, ptr %6, align 8
   %76 = getelementptr inbounds ptr, ptr %75, i64 %indvars.iv189
-  %77 = getelementptr inbounds i8, ptr %73, i64 16
+  %77 = getelementptr inbounds nuw i8, ptr %73, i64 16
   %78 = load ptr, ptr %77, align 8
-  %79 = getelementptr inbounds i8, ptr %73, i64 24
+  %79 = getelementptr inbounds nuw i8, ptr %73, i64 24
   %80 = load ptr, ptr %79, align 8
   %.not.i = icmp eq ptr %78, %80
   br i1 %.not.i, label %85, label %81
@@ -251,9 +251,9 @@ _ZNSt6vectorIPN4llvm6RecordESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17_
   %113 = getelementptr inbounds nuw i8, ptr %112, i64 8
   %114 = load ptr, ptr %6, align 8
   %115 = getelementptr inbounds ptr, ptr %114, i64 %indvars.iv189
-  %116 = getelementptr inbounds i8, ptr %112, i64 16
+  %116 = getelementptr inbounds nuw i8, ptr %112, i64 16
   %117 = load ptr, ptr %116, align 8
-  %118 = getelementptr inbounds i8, ptr %112, i64 24
+  %118 = getelementptr inbounds nuw i8, ptr %112, i64 24
   %119 = load ptr, ptr %118, align 8
   %.not.i65 = icmp eq ptr %117, %119
   br i1 %.not.i65, label %124, label %120
@@ -365,7 +365,7 @@ _ZN4llvm9StringMapISt6vectorIPNS_6RecordESaIS3_EENS_15MallocAllocatorEE5beginEv.
   %163 = getelementptr inbounds nuw i8, ptr %19, i64 32
   %164 = getelementptr inbounds nuw i8, ptr %19, i64 33
   %165 = getelementptr inbounds nuw i8, ptr %19, i64 16
-  %166 = getelementptr inbounds i8, ptr %19, i64 24
+  %166 = getelementptr inbounds nuw i8, ptr %19, i64 24
   %167 = getelementptr inbounds nuw i8, ptr %18, i64 16
   %168 = getelementptr inbounds nuw i8, ptr %18, i64 32
   %169 = getelementptr inbounds nuw i8, ptr %18, i64 33
@@ -456,7 +456,7 @@ _ZN4llvm11raw_ostreamlsEc.exit77:                 ; preds = %199, %201
 _ZN4llvm11raw_ostreamlsEc.exit80:                 ; preds = %205, %207
   %209 = getelementptr inbounds nuw i8, ptr %176, i64 8
   %210 = load ptr, ptr %209, align 8
-  %211 = getelementptr inbounds i8, ptr %176, i64 16
+  %211 = getelementptr inbounds nuw i8, ptr %176, i64 16
   %212 = load ptr, ptr %211, align 8
   %.not172181 = icmp eq ptr %210, %212
   br i1 %.not172181, label %._crit_edge184, label %.lr.ph183
@@ -925,7 +925,7 @@ _ZNSt6vectorIPN4llvm6RecordESaIS2_EED2Ev.exit105: ; preds = %396, %_ZNSt6vectorI
   br i1 %.not.i.i.i.i.i.i.i, label %_ZN4llvm14StringMapEntryISt6vectorIPNS_6RecordESaIS3_EEE7DestroyINS_15MallocAllocatorEEEvRT_.exit.i, label %415
 
 415:                                              ; preds = %411
-  %416 = getelementptr inbounds i8, ptr %410, i64 24
+  %416 = getelementptr inbounds nuw i8, ptr %410, i64 24
   %417 = load ptr, ptr %416, align 8
   %418 = ptrtoint ptr %417 to i64
   %419 = ptrtoint ptr %414 to i64

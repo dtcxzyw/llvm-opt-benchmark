@@ -223,7 +223,7 @@ define void @_ZN3g2o16EdgeSE2Segment2DC2Ev(ptr noundef nonnull align 16 derefere
   store ptr null, ptr %9, align 8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr null, ptr %2, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %12 = load ptr, ptr %11, align 16
   %13 = load ptr, ptr %10, align 8
   %14 = ptrtoint ptr %12 to i64
@@ -479,7 +479,7 @@ _ZNKSt3setIPN3g2o10HyperGraph6VertexESt4lessIS3_ESaIS3_EE5countERKS3_.exit: ; pr
   %22 = getelementptr inbounds nuw i8, ptr %6, i64 176
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %24 = load <2 x double>, ptr %23, align 16, !noalias !18
-  %25 = getelementptr inbounds i8, ptr %6, i64 192
+  %25 = getelementptr inbounds nuw i8, ptr %6, i64 192
   %26 = load double, ptr %22, align 8, !noalias !21
   %27 = tail call double @sin(double noundef %26) #19, !noalias !21
   %28 = load double, ptr %22, align 8, !noalias !21
@@ -587,7 +587,7 @@ define linkonce_odr void @_ZN3g2o16EdgeSE2Segment2D12computeErrorEv(ptr noundef 
   %13 = fcmp ugt double %12, 0.000000e+00
   %.0.v.i.i = select i1 %13, double 0xC00921FB54442D18, double 0x400921FB54442D18
   %.0.i.i = fadd double %12, %.0.v.i.i
-  %14 = getelementptr inbounds i8, ptr %4, i64 192
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 192
   %15 = tail call double @sin(double noundef %.0.i.i) #19, !noalias !43
   %16 = tail call double @cos(double noundef %.0.i.i) #19, !noalias !43
   %17 = fneg double %15
@@ -693,7 +693,7 @@ define linkonce_odr noundef zeroext i1 @_ZN3g2o16EdgeSE2Segment2D23setMeasuremen
   %11 = fcmp ugt double %10, 0.000000e+00
   %.0.v.i.i = select i1 %11, double 0xC00921FB54442D18, double 0x400921FB54442D18
   %.0.i.i = fadd double %10, %.0.v.i.i
-  %12 = getelementptr inbounds i8, ptr %4, i64 192
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 192
   %13 = tail call double @sin(double noundef %.0.i.i) #19, !noalias !78
   %14 = tail call double @cos(double noundef %.0.i.i) #19, !noalias !78
   %15 = fneg double %13
@@ -1882,7 +1882,7 @@ _ZN5Eigen7NoAliasINS_3MapINS_6MatrixIdLi4ELi3ELi0ELi4ELi3EEELi0ENS_6StrideILi0EL
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %21 = load ptr, ptr %20, align 8, !noalias !132
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5)
-  %22 = getelementptr inbounds i8, ptr %4, i64 32
+  %22 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store ptr %21, ptr %22, align 8, !alias.scope !135
   call void @_ZN5Eigen8internal26call_dense_assignment_loopINS_3MapINS_6MatrixIdLi4ELi3ELi0ELi4ELi3EEELi0ENS_6StrideILi0ELi0EEEEENS_7ProductINS_9TransposeIKNS2_INS3_IdLi4ELi4ELi0ELi4ELi4EEELi16ES6_EEEENS9_IKNS8_INS9_IKNS2_IS4_Li16ES6_EEEESA_Li0EEEEELi1EEENS0_13add_assign_opIddEEEEvRT_RKT0_RKT1_(ptr noundef nonnull align 8 dereferenceable(12) %18, ptr noundef nonnull align 8 dereferenceable(40) %4, ptr noundef nonnull align 1 dereferenceable(1) %5)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4)
@@ -2047,7 +2047,7 @@ define linkonce_odr void @_ZN5Eigen8internal26call_dense_assignment_loopINS_3Map
   call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %4)
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %7, ptr %4, align 16
-  %8 = getelementptr inbounds i8, ptr %1, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %9 = load ptr, ptr %8, align 8
   %.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i.i.i = load ptr, ptr %6, align 8
   %10 = getelementptr inbounds i8, ptr %.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i.i.i, i64 16

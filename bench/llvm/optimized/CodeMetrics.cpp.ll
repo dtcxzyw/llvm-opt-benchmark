@@ -616,7 +616,7 @@ define dso_local void @_ZN4llvm11CodeMetrics17analyzeBasicBlockEPKNS_10BasicBloc
   %.sroa.085.0.copyload = load i64, ptr %11, align 8
   %.sroa.286.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
   %.sroa.286.0.copyload = load i32, ptr %.sroa.286.0..sroa_idx, align 8
-  %12 = getelementptr inbounds i8, ptr %1, i64 56
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %.sroa.082.0113 = load ptr, ptr %12, align 8
   %.not105114 = icmp eq ptr %.sroa.082.0113, %13
@@ -1141,7 +1141,7 @@ _ZNK4llvm10BasicBlock13getTerminatorEv.exit71:    ; preds = %231, %_ZNK4llvm10Ba
   %.sroa.4.0.copyload.i = load i32, ptr %.sroa.286.0..sroa_idx, align 8
   %244 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %245 = load ptr, ptr %244, align 8
-  %246 = getelementptr inbounds i8, ptr %0, i64 56
+  %246 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %247 = load i32, ptr %246, align 8
   %248 = icmp eq i32 %247, 0
   br i1 %248, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_10BasicBlockENS_15InstructionCostENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S5_EEEES4_S5_S7_SA_E15LookupBucketForIS4_EEbRKT_RPSA_.exit.i.i, label %249

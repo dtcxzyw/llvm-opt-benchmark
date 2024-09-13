@@ -387,10 +387,10 @@ define void @PaPulseAudio_SinkListCb(ptr noundef readnone %0, ptr noundef readon
   %12 = load ptr, ptr %11, align 8
   %.not = icmp eq ptr %12, null
   %spec.select = select i1 %.not, ptr %10, ptr %12
-  %13 = getelementptr inbounds i8, ptr %1, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %14 = load i8, ptr %13, align 8
   %15 = zext i8 %14 to i32
-  %16 = getelementptr inbounds i8, ptr %1, i64 28
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 28
   %17 = load i32, ptr %16, align 4
   %18 = zext i32 %17 to i64
   %19 = tail call i32 @_PaPulseAudio_AddAudioDevice(ptr noundef %3, ptr noundef %spec.select, ptr noundef %10, i32 noundef 0, i32 noundef %15, double noundef 0.000000e+00, double noundef 0.000000e+00, double noundef 1.000000e-02, double noundef 8.000000e-02, i64 noundef %18)
@@ -424,10 +424,10 @@ define void @PaPulseAudio_SourceListCb(ptr noundef readnone %0, ptr nocapture no
   %10 = load ptr, ptr %9, align 8
   %.not12 = icmp eq ptr %10, null
   %spec.select = select i1 %.not12, ptr %8, ptr %10
-  %11 = getelementptr inbounds i8, ptr %1, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %12 = load i8, ptr %11, align 8
   %13 = zext i8 %12 to i32
-  %14 = getelementptr inbounds i8, ptr %1, i64 28
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 28
   %15 = load i32, ptr %14, align 4
   %16 = zext i32 %15 to i64
   %17 = tail call i32 @_PaPulseAudio_AddAudioDevice(ptr noundef %3, ptr noundef %spec.select, ptr noundef %8, i32 noundef %13, i32 noundef 0, double noundef 1.000000e-02, double noundef 8.000000e-02, double noundef 0.000000e+00, double noundef 0.000000e+00, i64 noundef %16)
@@ -512,16 +512,16 @@ define range(i32 -9999, 2) i32 @PaPulseAudio_Initialize(ptr nocapture noundef %0
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 1, ptr %9, align 8
   %10 = load ptr, ptr %0, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 12
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 12
   store i32 16, ptr %11, align 4
   %12 = load ptr, ptr %0, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
   store ptr @.str.14, ptr %13, align 8
   %14 = load ptr, ptr %0, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 28
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 28
   store i32 -1, ptr %15, align 4
   %16 = load ptr, ptr %0, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 32
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 32
   store i32 -1, ptr %17, align 8
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 82216
   %19 = load ptr, ptr %18, align 8
@@ -568,7 +568,7 @@ PaPulseAudio_CheckConnection.exit:                ; preds = %select.unfold.prehe
 
 ._crit_edge:                                      ; preds = %.lr.ph, %30
   tail call void @pa_operation_unref(ptr noundef %33) #13
-  %39 = getelementptr inbounds i8, ptr %3, i64 82204
+  %39 = getelementptr inbounds nuw i8, ptr %3, i64 82204
   %40 = load i32, ptr %39, align 4
   %41 = zext i32 %40 to i64
   %42 = tail call i32 @_PaPulseAudio_AddAudioDevice(ptr noundef nonnull %3, ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.17, i32 noundef 0, i32 noundef 32, double noundef 0.000000e+00, double noundef 0.000000e+00, double noundef 1.000000e-02, double noundef 8.000000e-02, i64 noundef %41)
@@ -583,7 +583,7 @@ PaPulseAudio_CheckConnection.exit:                ; preds = %select.unfold.prehe
   %45 = getelementptr inbounds nuw i8, ptr %3, i64 82240
   %46 = load i32, ptr %45, align 8
   %47 = add nsw i32 %46, -1
-  %48 = getelementptr inbounds i8, ptr %3, i64 32
+  %48 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store i32 %47, ptr %48, align 8
   br label %49
 
@@ -602,7 +602,7 @@ PaPulseAudio_CheckConnection.exit:                ; preds = %select.unfold.prehe
   %55 = getelementptr inbounds nuw i8, ptr %3, i64 82240
   %56 = load i32, ptr %55, align 8
   %57 = add nsw i32 %56, -1
-  %58 = getelementptr inbounds i8, ptr %3, i64 28
+  %58 = getelementptr inbounds nuw i8, ptr %3, i64 28
   store i32 %57, ptr %58, align 4
   br label %59
 
@@ -640,7 +640,7 @@ PaPulseAudio_CheckConnection.exit:                ; preds = %select.unfold.prehe
   %74 = getelementptr inbounds nuw i8, ptr %3, i64 82240
   %75 = load i32, ptr %74, align 8
   %76 = load ptr, ptr %0, align 8
-  %77 = getelementptr inbounds i8, ptr %76, i64 24
+  %77 = getelementptr inbounds nuw i8, ptr %76, i64 24
   store i32 %75, ptr %77, align 8
   %78 = icmp sgt i32 %75, 0
   br i1 %78, label %79, label %.loopexit
@@ -834,10 +834,10 @@ define i32 @OpenStream(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr n
 
 58:                                               ; preds = %51
   %59 = fptoui double %4 to i32
-  %60 = getelementptr inbounds i8, ptr %15, i64 456
+  %60 = getelementptr inbounds nuw i8, ptr %15, i64 456
   store i32 %59, ptr %60, align 4
   %61 = trunc i32 %34 to i8
-  %62 = getelementptr inbounds i8, ptr %15, i64 460
+  %62 = getelementptr inbounds nuw i8, ptr %15, i64 460
   store i8 %61, ptr %62, align 4
   %63 = getelementptr inbounds nuw i8, ptr %15, i64 532
   store i32 %34, ptr %63, align 4
@@ -922,10 +922,10 @@ define i32 @OpenStream(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr n
 
 109:                                              ; preds = %102
   %110 = fptoui double %4 to i32
-  %111 = getelementptr inbounds i8, ptr %15, i64 444
+  %111 = getelementptr inbounds nuw i8, ptr %15, i64 444
   store i32 %110, ptr %111, align 4
   %112 = trunc i32 %85 to i8
-  %113 = getelementptr inbounds i8, ptr %15, i64 448
+  %113 = getelementptr inbounds nuw i8, ptr %15, i64 448
   store i8 %112, ptr %113, align 8
   %114 = getelementptr inbounds nuw i8, ptr %15, i64 528
   store i32 %85, ptr %114, align 8
@@ -1002,14 +1002,14 @@ define i32 @OpenStream(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr n
   %148 = tail call i64 @PaUtil_GetBufferProcessorInputLatencyFrames(ptr noundef nonnull %145) #13
   %149 = uitofp i64 %148 to double
   %150 = fdiv double %149, %4
-  %151 = getelementptr inbounds i8, ptr %15, i64 56
+  %151 = getelementptr inbounds nuw i8, ptr %15, i64 56
   store double %150, ptr %151, align 8
   %152 = tail call i64 @PaUtil_GetBufferProcessorOutputLatencyFrames(ptr noundef nonnull %145) #13
   %153 = uitofp i64 %152 to double
   %154 = fdiv double %153, %4
-  %155 = getelementptr inbounds i8, ptr %15, i64 64
+  %155 = getelementptr inbounds nuw i8, ptr %15, i64 64
   store double %154, ptr %155, align 8
-  %156 = getelementptr inbounds i8, ptr %15, i64 72
+  %156 = getelementptr inbounds nuw i8, ptr %15, i64 72
   store double %4, ptr %156, align 8
   %157 = getelementptr inbounds nuw i8, ptr %15, i64 544
   store i64 %spec.store.select, ptr %157, align 8

@@ -287,7 +287,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm20decomposeBitTestICmpEPNS_5ValueES
   ]
 
 37:                                               ; preds = %34
-  %38 = getelementptr inbounds i8, ptr %.sink22.i.i, i64 32
+  %38 = getelementptr inbounds nuw i8, ptr %.sink22.i.i, i64 32
   %39 = load i32, ptr %38, align 8
   %40 = icmp ult i32 %39, 65
   br i1 %40, label %41, label %_ZNK4llvm5APInt6isZeroEv.exit
@@ -358,7 +358,7 @@ _ZN4llvm5APIntD2Ev.exit:                          ; preds = %65, %62, %_ZN4llvm5
   br label %_ZN4llvm5APIntD2Ev.exit73
 
 68:                                               ; preds = %34
-  %69 = getelementptr inbounds i8, ptr %.sink22.i.i, i64 32
+  %69 = getelementptr inbounds nuw i8, ptr %.sink22.i.i, i64 32
   %70 = load i32, ptr %69, align 8
   %71 = icmp eq i32 %70, 0
   br i1 %71, label %_ZN4llvm5APIntC2Ejmbb.exit.thread.i.i36, label %72
@@ -436,7 +436,7 @@ _ZN4llvm5APIntD2Ev.exit39:                        ; preds = %101, %98, %_ZN4llvm
   br label %_ZN4llvm5APIntD2Ev.exit73
 
 104:                                              ; preds = %34
-  %105 = getelementptr inbounds i8, ptr %.sink22.i.i, i64 32
+  %105 = getelementptr inbounds nuw i8, ptr %.sink22.i.i, i64 32
   %106 = load i32, ptr %105, align 8
   %107 = icmp eq i32 %106, 0
   br i1 %107, label %_ZN4llvm5APIntC2Ejmbb.exit.thread.i.i51, label %108
@@ -514,7 +514,7 @@ _ZN4llvm5APIntD2Ev.exit54:                        ; preds = %137, %134, %_ZN4llv
   br label %_ZN4llvm5APIntD2Ev.exit73
 
 140:                                              ; preds = %34
-  %141 = getelementptr inbounds i8, ptr %.sink22.i.i, i64 32
+  %141 = getelementptr inbounds nuw i8, ptr %.sink22.i.i, i64 32
   %142 = load i32, ptr %141, align 8
   %143 = icmp ult i32 %142, 65
   br i1 %143, label %144, label %_ZNK4llvm5APInt6isZeroEv.exit56
@@ -585,7 +585,7 @@ _ZN4llvm5APIntD2Ev.exit69:                        ; preds = %168, %165, %_ZN4llv
   br label %_ZN4llvm5APIntD2Ev.exit73
 
 171:                                              ; preds = %34
-  %172 = getelementptr inbounds i8, ptr %.sink22.i.i, i64 32
+  %172 = getelementptr inbounds nuw i8, ptr %.sink22.i.i, i64 32
   %173 = load i32, ptr %172, align 8
   %174 = icmp ult i32 %173, 65
   br i1 %174, label %175, label %178
@@ -676,7 +676,7 @@ _ZN4llvm5APIntD2Ev.exit72:                        ; preds = %206, %203, %_ZN4llv
 
 213:                                              ; preds = %34
   %214 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  %215 = getelementptr inbounds i8, ptr %.sink22.i.i, i64 32
+  %215 = getelementptr inbounds nuw i8, ptr %.sink22.i.i, i64 32
   %216 = load i32, ptr %215, align 8
   store i32 %216, ptr %214, align 8
   %217 = icmp ult i32 %216, 65
@@ -814,7 +814,7 @@ _ZN4llvm5APIntD2Ev.exit83:                        ; preds = %258
 
 266:                                              ; preds = %34
   %267 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  %268 = getelementptr inbounds i8, ptr %.sink22.i.i, i64 32
+  %268 = getelementptr inbounds nuw i8, ptr %.sink22.i.i, i64 32
   %269 = load i32, ptr %268, align 8
   store i32 %269, ptr %267, align 8
   %270 = icmp ult i32 %269, 65
@@ -951,7 +951,7 @@ _ZN4llvm5APIntD2Ev.exit98:                        ; preds = %311
   br label %_ZN4llvm5APIntD2Ev.exit73
 
 319:                                              ; preds = %34
-  %320 = getelementptr inbounds i8, ptr %.sink22.i.i, i64 32
+  %320 = getelementptr inbounds nuw i8, ptr %.sink22.i.i, i64 32
   %321 = load i32, ptr %320, align 8
   %322 = icmp ult i32 %321, 65
   br i1 %322, label %323, label %326

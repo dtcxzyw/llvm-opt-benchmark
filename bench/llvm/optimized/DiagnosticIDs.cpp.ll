@@ -438,7 +438,7 @@ define linkonce_odr hidden noundef i32 @_ZN5clang4diag14CustomDiagInfo17getOrCre
   br i1 %27, label %_ZNKSt4lessISt4pairIN5clang13DiagnosticIDs5LevelENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEclERKSA_SD_.exit.thread10.i.i.i, label %_ZNKSt4lessISt4pairIN5clang13DiagnosticIDs5LevelENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEclERKSA_SD_.exit.i.i.i
 
 _ZNKSt4lessISt4pairIN5clang13DiagnosticIDs5LevelENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEclERKSA_SD_.exit.i.i.i: ; preds = %26
-  %28 = getelementptr inbounds i8, ptr %.013.i.i.i, i64 40
+  %28 = getelementptr inbounds nuw i8, ptr %.013.i.i.i, i64 40
   %29 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %28, ptr noundef nonnull align 8 dereferenceable(32) %17) #22
   %30 = icmp slt i32 %29, 0
   br i1 %30, label %_ZNKSt4lessISt4pairIN5clang13DiagnosticIDs5LevelENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEclERKSA_SD_.exit.thread.i.i.i, label %_ZNKSt4lessISt4pairIN5clang13DiagnosticIDs5LevelENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEclERKSA_SD_.exit.thread10.i.i.i
@@ -466,7 +466,7 @@ _ZNSt3mapISt4pairIN5clang13DiagnosticIDs5LevelENSt7__cxx1112basic_stringIcSt11ch
   br i1 %36, label %37, label %.critedge
 
 37:                                               ; preds = %32
-  %38 = getelementptr inbounds i8, ptr %.19.i.i.i, i64 40
+  %38 = getelementptr inbounds nuw i8, ptr %.19.i.i.i, i64 40
   %39 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %38) #22
   %40 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %17) #22
   %41 = icmp eq i64 %39, %40
@@ -485,7 +485,7 @@ _ZSteqIN5clang13DiagnosticIDs5LevelENSt7__cxx1112basic_stringIcSt11char_traitsIc
   br i1 %47, label %_ZSteqIN5clang13DiagnosticIDs5LevelENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEbRKSt4pairIT_T0_ESE_.exit.thread8, label %.critedge
 
 _ZSteqIN5clang13DiagnosticIDs5LevelENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEbRKSt4pairIT_T0_ESE_.exit.thread8: ; preds = %42, %_ZSteqIN5clang13DiagnosticIDs5LevelENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEbRKSt4pairIT_T0_ESE_.exit
-  %48 = getelementptr inbounds i8, ptr %.19.i.i.i, i64 72
+  %48 = getelementptr inbounds nuw i8, ptr %.19.i.i.i, i64 72
   %.0.in.sroa.speculate.load. = load i32, ptr %48, align 4
   br label %_ZNSt6vectorISt4pairIN5clang13DiagnosticIDs5LevelENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaISA_EE9push_backERKSA_.exit
 
@@ -524,7 +524,7 @@ _ZSteqIN5clang13DiagnosticIDs5LevelENSt7__cxx1112basic_stringIcSt11char_traitsIc
   br i1 %67, label %_ZNKSt4lessISt4pairIN5clang13DiagnosticIDs5LevelENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEclERKSA_SD_.exit.thread10.i.i.i.i, label %_ZNKSt4lessISt4pairIN5clang13DiagnosticIDs5LevelENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEclERKSA_SD_.exit.i.i.i.i
 
 _ZNKSt4lessISt4pairIN5clang13DiagnosticIDs5LevelENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEclERKSA_SD_.exit.i.i.i.i: ; preds = %66
-  %68 = getelementptr inbounds i8, ptr %.013.i.i.i.i, i64 40
+  %68 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i, i64 40
   %69 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %68, ptr noundef nonnull align 8 dereferenceable(32) %59) #22
   %70 = icmp slt i32 %69, 0
   br i1 %70, label %_ZNKSt4lessISt4pairIN5clang13DiagnosticIDs5LevelENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEclERKSA_SD_.exit.thread.i.i.i.i, label %_ZNKSt4lessISt4pairIN5clang13DiagnosticIDs5LevelENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEclERKSA_SD_.exit.thread10.i.i.i.i
@@ -556,7 +556,7 @@ _ZNSt3mapISt4pairIN5clang13DiagnosticIDs5LevelENSt7__cxx1112basic_stringIcSt11ch
   br i1 %79, label %_ZNSt3mapISt4pairIN5clang13DiagnosticIDs5LevelENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEjSt4lessISA_ESaIS0_IKSA_jEEE6insertIS0_ISA_jEEENSt9enable_ifIXsr16is_constructibleISE_T_EE5valueES0_ISt17_Rb_tree_iteratorISE_EbEE4typeEOSK_.exit, label %_ZNKSt4lessISt4pairIN5clang13DiagnosticIDs5LevelENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEclERKSA_SD_.exit.i
 
 _ZNKSt4lessISt4pairIN5clang13DiagnosticIDs5LevelENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEclERKSA_SD_.exit.i: ; preds = %78
-  %80 = getelementptr inbounds i8, ptr %.19.i.i.i.i, i64 40
+  %80 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i, i64 40
   %81 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %59, ptr noundef nonnull align 8 dereferenceable(32) %80) #22
   %82 = icmp slt i32 %81, 0
   br i1 %82, label %.critedge.i, label %_ZNSt3mapISt4pairIN5clang13DiagnosticIDs5LevelENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEjSt4lessISA_ESaIS0_IKSA_jEEE6insertIS0_ISA_jEEENSt9enable_ifIXsr16is_constructibleISE_T_EE5valueES0_ISt17_Rb_tree_iteratorISE_EbEE4typeEOSK_.exit
@@ -780,7 +780,7 @@ define dso_local noundef range(i32 0, -2147483648) i32 @_ZNK5clang13DiagnosticID
   br label %_ZNK5clang17DiagnosticsEngine18GetDiagStateForLocENS_14SourceLocationE.exit
 
 10:                                               ; preds = %4
-  %11 = getelementptr inbounds i8, ptr %3, i64 152
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 152
   %12 = load ptr, ptr %11, align 8
   br label %_ZNK5clang17DiagnosticsEngine18GetDiagStateForLocENS_14SourceLocationE.exit
 
@@ -2005,7 +2005,7 @@ _ZN5clang13DiagnosticIDs23isDefaultMappingAsErrorEj.exit.thread56: ; preds = %82
 114:                                              ; preds = %113, %110
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
   store ptr %1, ptr %3, align 8
-  %115 = getelementptr inbounds i8, ptr %3, i64 24
+  %115 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i8 0, ptr %115, align 8
   %116 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %117 = load ptr, ptr %116, align 8
@@ -2134,7 +2134,7 @@ declare void @_ZN5clang17DiagnosticsEngine20SetDelayedDiagnosticEjN4llvm9StringR
 define dso_local void @_ZNK5clang13DiagnosticIDs8EmitDiagERNS_17DiagnosticsEngineENS0_5LevelE(ptr nocapture noundef nonnull readnone align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(1304) %1, i32 noundef %2) local_unnamed_addr #4 align 2 {
   %4 = alloca %"class.clang::Diagnostic", align 8
   store ptr %1, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store i8 0, ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %7 = load ptr, ptr %6, align 8
@@ -2260,10 +2260,10 @@ define linkonce_odr ptr @_ZNSt8_Rb_treeISt4pairIN5clang13DiagnosticIDs5LevelENSt
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %6 = load i32, ptr %2, align 8
   store i32 %6, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %4, i64 40
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %8) #22
-  %9 = getelementptr inbounds i8, ptr %4, i64 72
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %11 = load i32, ptr %10, align 8
   store i32 %11, ptr %9, align 8
@@ -2292,7 +2292,7 @@ define linkonce_odr ptr @_ZNSt8_Rb_treeISt4pairIN5clang13DiagnosticIDs5LevelENSt
   br i1 %24, label %.thread, label %25
 
 25:                                               ; preds = %23
-  %26 = getelementptr inbounds i8, ptr %14, i64 40
+  %26 = getelementptr inbounds nuw i8, ptr %14, i64 40
   %27 = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %26) #22
   %28 = icmp slt i32 %27, 0
   br label %.thread
@@ -2342,7 +2342,7 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeISt4pairIN5clang13DiagnosticIDs5
   br i1 %17, label %_ZNKSt4lessISt4pairIN5clang13DiagnosticIDs5LevelENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEclERKSA_SD_.exit.thread79, label %_ZNKSt4lessISt4pairIN5clang13DiagnosticIDs5LevelENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEclERKSA_SD_.exit
 
 _ZNKSt4lessISt4pairIN5clang13DiagnosticIDs5LevelENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEclERKSA_SD_.exit: ; preds = %16
-  %18 = getelementptr inbounds i8, ptr %11, i64 40
+  %18 = getelementptr inbounds nuw i8, ptr %11, i64 40
   %19 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %20 = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %18, ptr noundef nonnull align 8 dereferenceable(32) %19) #22
   %21 = icmp slt i32 %20, 0
@@ -2375,7 +2375,7 @@ _ZNKSt4lessISt4pairIN5clang13DiagnosticIDs5LevelENSt7__cxx1112basic_stringIcSt11
   br i1 %29, label %_ZNKSt4lessISt4pairIN5clang13DiagnosticIDs5LevelENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEclERKSA_SD_.exit.thread.i.thread, label %_ZNKSt4lessISt4pairIN5clang13DiagnosticIDs5LevelENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEclERKSA_SD_.exit.i
 
 _ZNKSt4lessISt4pairIN5clang13DiagnosticIDs5LevelENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEclERKSA_SD_.exit.i: ; preds = %28
-  %30 = getelementptr inbounds i8, ptr %.02126.i, i64 40
+  %30 = getelementptr inbounds nuw i8, ptr %.02126.i, i64 40
   %31 = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %23, ptr noundef nonnull align 8 dereferenceable(32) %30) #22
   %32 = icmp slt i32 %31, 0
   br i1 %32, label %_ZNKSt4lessISt4pairIN5clang13DiagnosticIDs5LevelENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEclERKSA_SD_.exit.thread.i, label %_ZNKSt4lessISt4pairIN5clang13DiagnosticIDs5LevelENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEclERKSA_SD_.exit.thread.i.thread
@@ -2421,7 +2421,7 @@ _ZNKSt4lessISt4pairIN5clang13DiagnosticIDs5LevelENSt7__cxx1112basic_stringIcSt11
   br i1 %45, label %_ZNKSt4lessISt4pairIN5clang13DiagnosticIDs5LevelENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEclERKSA_SD_.exit5.thread23.i, label %_ZNKSt4lessISt4pairIN5clang13DiagnosticIDs5LevelENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEclERKSA_SD_.exit5.i
 
 _ZNKSt4lessISt4pairIN5clang13DiagnosticIDs5LevelENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEclERKSA_SD_.exit5.i: ; preds = %44
-  %46 = getelementptr inbounds i8, ptr %.sroa.06.0.i, i64 40
+  %46 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.i, i64 40
   %47 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %48 = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %46, ptr noundef nonnull align 8 dereferenceable(32) %47) #22
   %49 = icmp slt i32 %48, 0
@@ -2443,7 +2443,7 @@ _ZNKSt4lessISt4pairIN5clang13DiagnosticIDs5LevelENSt7__cxx1112basic_stringIcSt11
 
 _ZNKSt4lessISt4pairIN5clang13DiagnosticIDs5LevelENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEclERKSA_SD_.exit10: ; preds = %55
   %57 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %58 = getelementptr inbounds i8, ptr %1, i64 40
+  %58 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %59 = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %57, ptr noundef nonnull align 8 dereferenceable(32) %58) #22
   %60 = icmp slt i32 %59, 0
   br i1 %60, label %_ZNKSt4lessISt4pairIN5clang13DiagnosticIDs5LevelENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEclERKSA_SD_.exit10.thread, label %_ZNKSt4lessISt4pairIN5clang13DiagnosticIDs5LevelENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEclERKSA_SD_.exit10._ZNKSt4lessISt4pairIN5clang13DiagnosticIDs5LevelENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEclERKSA_SD_.exit10.thread83_crit_edge
@@ -2472,7 +2472,7 @@ _ZNKSt4lessISt4pairIN5clang13DiagnosticIDs5LevelENSt7__cxx1112basic_stringIcSt11
   br i1 %71, label %_ZNKSt4lessISt4pairIN5clang13DiagnosticIDs5LevelENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEclERKSA_SD_.exit11.thread84, label %_ZNKSt4lessISt4pairIN5clang13DiagnosticIDs5LevelENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEclERKSA_SD_.exit11
 
 _ZNKSt4lessISt4pairIN5clang13DiagnosticIDs5LevelENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEclERKSA_SD_.exit11: ; preds = %70
-  %72 = getelementptr inbounds i8, ptr %65, i64 40
+  %72 = getelementptr inbounds nuw i8, ptr %65, i64 40
   %73 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %74 = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %72, ptr noundef nonnull align 8 dereferenceable(32) %73) #22
   %75 = icmp slt i32 %74, 0
@@ -2509,7 +2509,7 @@ _ZNKSt4lessISt4pairIN5clang13DiagnosticIDs5LevelENSt7__cxx1112basic_stringIcSt11
   br i1 %86, label %_ZNKSt4lessISt4pairIN5clang13DiagnosticIDs5LevelENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEclERKSA_SD_.exit.thread.i18.thread, label %_ZNKSt4lessISt4pairIN5clang13DiagnosticIDs5LevelENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEclERKSA_SD_.exit.i16
 
 _ZNKSt4lessISt4pairIN5clang13DiagnosticIDs5LevelENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEclERKSA_SD_.exit.i16: ; preds = %85
-  %87 = getelementptr inbounds i8, ptr %.02126.i15, i64 40
+  %87 = getelementptr inbounds nuw i8, ptr %.02126.i15, i64 40
   %88 = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %80, ptr noundef nonnull align 8 dereferenceable(32) %87) #22
   %89 = icmp slt i32 %88, 0
   br i1 %89, label %_ZNKSt4lessISt4pairIN5clang13DiagnosticIDs5LevelENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEclERKSA_SD_.exit.thread.i18, label %_ZNKSt4lessISt4pairIN5clang13DiagnosticIDs5LevelENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEclERKSA_SD_.exit.thread.i18.thread
@@ -2554,7 +2554,7 @@ _ZNKSt4lessISt4pairIN5clang13DiagnosticIDs5LevelENSt7__cxx1112basic_stringIcSt11
   br i1 %101, label %_ZNKSt4lessISt4pairIN5clang13DiagnosticIDs5LevelENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEclERKSA_SD_.exit5.thread23.i26, label %_ZNKSt4lessISt4pairIN5clang13DiagnosticIDs5LevelENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEclERKSA_SD_.exit5.i25
 
 _ZNKSt4lessISt4pairIN5clang13DiagnosticIDs5LevelENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEclERKSA_SD_.exit5.i25: ; preds = %100
-  %102 = getelementptr inbounds i8, ptr %.sroa.06.0.i24, i64 40
+  %102 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.i24, i64 40
   %103 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %104 = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %102, ptr noundef nonnull align 8 dereferenceable(32) %103) #22
   %105 = icmp slt i32 %104, 0
@@ -2574,7 +2574,7 @@ _ZNKSt4lessISt4pairIN5clang13DiagnosticIDs5LevelENSt7__cxx1112basic_stringIcSt11
   br i1 %110, label %_ZNKSt4lessISt4pairIN5clang13DiagnosticIDs5LevelENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEclERKSA_SD_.exit34.thread88, label %_ZNKSt4lessISt4pairIN5clang13DiagnosticIDs5LevelENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEclERKSA_SD_.exit34
 
 _ZNKSt4lessISt4pairIN5clang13DiagnosticIDs5LevelENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEclERKSA_SD_.exit34: ; preds = %109
-  %111 = getelementptr inbounds i8, ptr %1, i64 40
+  %111 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %112 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %113 = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %111, ptr noundef nonnull align 8 dereferenceable(32) %112) #22
   %114 = icmp slt i32 %113, 0
@@ -2600,7 +2600,7 @@ _ZNKSt4lessISt4pairIN5clang13DiagnosticIDs5LevelENSt7__cxx1112basic_stringIcSt11
 
 _ZNKSt4lessISt4pairIN5clang13DiagnosticIDs5LevelENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEclERKSA_SD_.exit35: ; preds = %124
   %126 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %127 = getelementptr inbounds i8, ptr %119, i64 40
+  %127 = getelementptr inbounds nuw i8, ptr %119, i64 40
   %128 = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %126, ptr noundef nonnull align 8 dereferenceable(32) %127) #22
   %129 = icmp slt i32 %128, 0
   br i1 %129, label %_ZNKSt4lessISt4pairIN5clang13DiagnosticIDs5LevelENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEclERKSA_SD_.exit35.thread, label %_ZNKSt4lessISt4pairIN5clang13DiagnosticIDs5LevelENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEclERKSA_SD_.exit35.thread89
@@ -2636,7 +2636,7 @@ _ZNKSt4lessISt4pairIN5clang13DiagnosticIDs5LevelENSt7__cxx1112basic_stringIcSt11
   br i1 %140, label %_ZNKSt4lessISt4pairIN5clang13DiagnosticIDs5LevelENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEclERKSA_SD_.exit.thread.i42.thread, label %_ZNKSt4lessISt4pairIN5clang13DiagnosticIDs5LevelENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEclERKSA_SD_.exit.i40
 
 _ZNKSt4lessISt4pairIN5clang13DiagnosticIDs5LevelENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEclERKSA_SD_.exit.i40: ; preds = %139
-  %141 = getelementptr inbounds i8, ptr %.02126.i39, i64 40
+  %141 = getelementptr inbounds nuw i8, ptr %.02126.i39, i64 40
   %142 = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %134, ptr noundef nonnull align 8 dereferenceable(32) %141) #22
   %143 = icmp slt i32 %142, 0
   br i1 %143, label %_ZNKSt4lessISt4pairIN5clang13DiagnosticIDs5LevelENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEclERKSA_SD_.exit.thread.i42, label %_ZNKSt4lessISt4pairIN5clang13DiagnosticIDs5LevelENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEclERKSA_SD_.exit.thread.i42.thread
@@ -2682,7 +2682,7 @@ _ZNKSt4lessISt4pairIN5clang13DiagnosticIDs5LevelENSt7__cxx1112basic_stringIcSt11
   br i1 %156, label %_ZNKSt4lessISt4pairIN5clang13DiagnosticIDs5LevelENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEclERKSA_SD_.exit5.thread23.i50, label %_ZNKSt4lessISt4pairIN5clang13DiagnosticIDs5LevelENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEclERKSA_SD_.exit5.i49
 
 _ZNKSt4lessISt4pairIN5clang13DiagnosticIDs5LevelENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEclERKSA_SD_.exit5.i49: ; preds = %155
-  %157 = getelementptr inbounds i8, ptr %.sroa.06.0.i48, i64 40
+  %157 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.i48, i64 40
   %158 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %159 = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %157, ptr noundef nonnull align 8 dereferenceable(32) %158) #22
   %160 = icmp slt i32 %159, 0
@@ -2907,7 +2907,7 @@ define linkonce_odr void @_ZNSt8_Rb_treeISt4pairIN5clang13DiagnosticIDs5LevelENS
   tail call void @_ZNSt8_Rb_treeISt4pairIN5clang13DiagnosticIDs5LevelENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEES0_IKSA_jESt10_Select1stISC_ESt4lessISA_ESaISC_EE8_M_eraseEPSt13_Rb_tree_nodeISC_E(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %4)
   %5 = getelementptr inbounds nuw i8, ptr %.07, i64 16
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %.07, i64 40
+  %7 = getelementptr inbounds nuw i8, ptr %.07, i64 40
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #22
   tail call void @_ZdlPvm(ptr noundef nonnull %.07, i64 noundef 80) #23
   %.not = icmp eq ptr %6, null

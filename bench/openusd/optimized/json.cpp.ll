@@ -447,7 +447,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__13JsParseStringERKNSt7__cxx111
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %6, i8 0, i64 40, i1 false)
   store i64 256, ptr %17, align 8
   %18 = getelementptr inbounds nuw i8, ptr %6, i64 48
-  %19 = getelementptr inbounds i8, ptr %6, i64 56
+  %19 = getelementptr inbounds nuw i8, ptr %6, i64 56
   %20 = getelementptr inbounds nuw i8, ptr %6, i64 64
   store i32 2, ptr %20, align 8
   %21 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #24
@@ -583,7 +583,7 @@ _ZN3pxr9rapidjson16GetParseError_EnENS0_14ParseErrorCodeE.exit: ; preds = %._cri
 
 65:                                               ; preds = %40
   %66 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  %67 = getelementptr inbounds i8, ptr %5, i64 32
+  %67 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %68 = load ptr, ptr %67, align 8
   %69 = load ptr, ptr %66, align 8
   %70 = ptrtoint ptr %68 to i64
@@ -719,7 +719,7 @@ _ZN3pxr9rapidjson8internal5StackINS0_12CrtAllocatorEED2Ev.exit: ; preds = %1, %7
 define internal fastcc void @_ZN12_GLOBAL__N_113_InputHandlerD2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 32
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load ptr, ptr %4, align 8
   %.not4.i.i.i.i = icmp eq ptr %3, %5
   br i1 %.not4.i.i.i.i, label %_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__7JsValueES1_EvT_S3_RSaIT0_E.exit.i, label %.lr.ph.i.i.i.i
@@ -814,7 +814,7 @@ _ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__7JsValueES1_EvT_S3_RSaIT0_E.ex
   br i1 %.not.i.i.i, label %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7JsValueESaIS1_EED2Ev.exit, label %44
 
 44:                                               ; preds = %_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__7JsValueES1_EvT_S3_RSaIT0_E.exit.i
-  %45 = getelementptr inbounds i8, ptr %0, i64 40
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %46 = load ptr, ptr %45, align 8
   %47 = ptrtoint ptr %46 to i64
   %48 = ptrtoint ptr %43 to i64
@@ -889,13 +889,13 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__15JsWriteToStreamERKNS_7JsValu
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %21 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  %22 = getelementptr inbounds i8, ptr %4, i64 40
-  %23 = getelementptr inbounds i8, ptr %4, i64 72
+  %22 = getelementptr inbounds nuw i8, ptr %4, i64 40
+  %23 = getelementptr inbounds nuw i8, ptr %4, i64 72
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %4, i8 0, i64 72, i1 false)
   store i64 1024, ptr %23, align 8
   %24 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store i32 0, ptr %24, align 8
-  %25 = getelementptr inbounds i8, ptr %4, i64 88
+  %25 = getelementptr inbounds nuw i8, ptr %4, i64 88
   store i64 0, ptr %25, align 8
   %26 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #26
           to label %27 unwind label %29
@@ -949,7 +949,7 @@ _ZN3pxr9rapidjson15GenericDocumentINS0_4UTF8IcEENS0_19MemoryPoolAllocatorINS0_12
   store ptr %1, ptr %6, align 8
   store ptr %6, ptr %7, align 8
   %42 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %43 = getelementptr inbounds i8, ptr %7, i64 48
+  %43 = getelementptr inbounds nuw i8, ptr %7, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %42, i8 0, i64 40, i1 false)
   store i64 512, ptr %43, align 8
   %44 = getelementptr inbounds nuw i8, ptr %7, i64 56
@@ -966,10 +966,10 @@ _ZN3pxr9rapidjson15GenericDocumentINS0_4UTF8IcEENS0_19MemoryPoolAllocatorINS0_12
           to label %50 unwind label %67
 
 50:                                               ; preds = %41
-  %51 = getelementptr inbounds i8, ptr %7, i64 24
+  %51 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %52 = load ptr, ptr %51, align 8
   call void @free(ptr noundef %52) #24
-  %53 = getelementptr inbounds i8, ptr %7, i64 16
+  %53 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %54 = load ptr, ptr %53, align 8
   %55 = icmp eq ptr %54, null
   br i1 %55, label %_ZN12_GLOBAL__N_110_WriterFixIN3pxr9rapidjson12PrettyWriterINS2_19BasicOStreamWrapperISoEENS2_4UTF8IcEES7_NS2_12CrtAllocatorELj0EEEED2Ev.exit, label %56
@@ -989,7 +989,7 @@ _ZN12_GLOBAL__N_110_WriterFixIN3pxr9rapidjson12PrettyWriterINS2_19BasicOStreamWr
 
 59:                                               ; preds = %58, %_ZN12_GLOBAL__N_110_WriterFixIN3pxr9rapidjson12PrettyWriterINS2_19BasicOStreamWrapperISoEENS2_4UTF8IcEES7_NS2_12CrtAllocatorELj0EEEED2Ev.exit
   call void @_ZN3pxr9rapidjson15GenericDocumentINS0_4UTF8IcEENS0_19MemoryPoolAllocatorINS0_12CrtAllocatorEEES5_E7DestroyEv(ptr noundef nonnull align 8 dereferenceable(96) %4)
-  %60 = getelementptr inbounds i8, ptr %4, i64 48
+  %60 = getelementptr inbounds nuw i8, ptr %4, i64 48
   %61 = load ptr, ptr %60, align 8
   call void @free(ptr noundef %61) #24
   %62 = load ptr, ptr %22, align 8
@@ -1166,7 +1166,7 @@ _ZN3pxr9rapidjson19MemoryPoolAllocatorINS0_12CrtAllocatorEE6MallocEm.exit.i: ; p
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.0.i, ptr align 1 %26, i64 %71, i1 false)
   %72 = getelementptr inbounds i8, ptr %.0.i, i64 %71
   store i8 0, ptr %72, align 1
-  %73 = getelementptr inbounds i8, ptr %.sroa.022.038, i64 64
+  %73 = getelementptr inbounds nuw i8, ptr %.sroa.022.038, i64 64
   call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L19_JsValueToImplValueIN3pxr9rapidjson19MemoryPoolAllocatorINS2_12CrtAllocatorEEEEENS2_12GenericValueINS2_4UTF8IcEES5_EERKNS_7JsValueERT_(ptr dead_on_unwind noalias nonnull writable align 8 %7, ptr noundef nonnull align 8 dereferenceable(16) %73, ptr noundef nonnull align 8 dereferenceable(24) %2)
   %74 = load i32, ptr %0, align 8
   %75 = load i32, ptr %21, align 4
@@ -1436,9 +1436,9 @@ define internal fastcc noundef zeroext i1 @_ZNK3pxr9rapidjson12GenericValueINS0_
   %23 = load ptr, ptr %1, align 8
   %24 = load ptr, ptr %23, align 8
   %25 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo3putEc(ptr noundef nonnull align 8 dereferenceable(8) %24, i8 noundef signext 101)
-  %26 = getelementptr inbounds i8, ptr %1, i64 32
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %27 = load ptr, ptr %26, align 8
-  %28 = getelementptr inbounds i8, ptr %1, i64 24
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %29 = load ptr, ptr %28, align 8
   %30 = icmp eq ptr %27, %29
   br i1 %30, label %31, label %_ZN3pxr9rapidjson12PrettyWriterINS0_19BasicOStreamWrapperISoEENS0_4UTF8IcEES5_NS0_12CrtAllocatorELj0EE4BoolEb.exit
@@ -1463,9 +1463,9 @@ define internal fastcc noundef zeroext i1 @_ZNK3pxr9rapidjson12GenericValueINS0_
   %45 = load ptr, ptr %1, align 8
   %46 = load ptr, ptr %45, align 8
   %47 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo3putEc(ptr noundef nonnull align 8 dereferenceable(8) %46, i8 noundef signext 101)
-  %48 = getelementptr inbounds i8, ptr %1, i64 32
+  %48 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %49 = load ptr, ptr %48, align 8
-  %50 = getelementptr inbounds i8, ptr %1, i64 24
+  %50 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %51 = load ptr, ptr %50, align 8
   %52 = icmp eq ptr %49, %51
   br i1 %52, label %53, label %_ZN3pxr9rapidjson12PrettyWriterINS0_19BasicOStreamWrapperISoEENS0_4UTF8IcEES5_NS0_12CrtAllocatorELj0EE4BoolEb.exit
@@ -1491,8 +1491,8 @@ define internal fastcc noundef zeroext i1 @_ZNK3pxr9rapidjson12GenericValueINS0_
   %63 = ptrtoint ptr %62 to i64
   %64 = and i64 %63, 281474976710655
   %65 = inttoptr i64 %64 to ptr
-  %66 = getelementptr inbounds i8, ptr %1, i64 32
-  %67 = getelementptr inbounds i8, ptr %1, i64 24
+  %66 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %67 = getelementptr inbounds nuw i8, ptr %1, i64 24
   br label %77
 
 68:                                               ; preds = %99
@@ -1607,9 +1607,9 @@ _ZN3pxr9rapidjson12PrettyWriterINS0_19BasicOStreamWrapperISoEENS0_4UTF8IcEES5_NS
   %134 = select i1 %.not.i24, i32 %133, i32 %132
   tail call void @_ZN3pxr9rapidjson12PrettyWriterINS0_19BasicOStreamWrapperISoEENS0_4UTF8IcEES5_NS0_12CrtAllocatorELj0EE12PrettyPrefixENS0_4TypeE(ptr noundef nonnull align 8 dereferenceable(72) %1, i32 noundef 5)
   %135 = tail call noundef zeroext i1 @_ZN3pxr9rapidjson6WriterINS0_19BasicOStreamWrapperISoEENS0_4UTF8IcEES5_NS0_12CrtAllocatorELj0EE11WriteStringEPKcj(ptr noundef nonnull align 8 dereferenceable(61) %1, ptr noundef %130, i32 noundef %134)
-  %136 = getelementptr inbounds i8, ptr %1, i64 32
+  %136 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %137 = load ptr, ptr %136, align 8
-  %138 = getelementptr inbounds i8, ptr %1, i64 24
+  %138 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %139 = load ptr, ptr %138, align 8
   %140 = icmp eq ptr %137, %139
   br i1 %140, label %141, label %_ZN3pxr9rapidjson12PrettyWriterINS0_19BasicOStreamWrapperISoEENS0_4UTF8IcEES5_NS0_12CrtAllocatorELj0EE4BoolEb.exit
@@ -1650,9 +1650,9 @@ _ZN3pxr9rapidjson12PrettyWriterINS0_19BasicOStreamWrapperISoEENS0_4UTF8IcEES5_NS
   br i1 %exitcond.not.i, label %_ZN3pxr9rapidjson6WriterINS0_19BasicOStreamWrapperISoEENS0_4UTF8IcEES5_NS0_12CrtAllocatorELj0EE13WriteRawValueEPKcm.exit.i.i, label %.lr.ph.i.i.i
 
 _ZN3pxr9rapidjson6WriterINS0_19BasicOStreamWrapperISoEENS0_4UTF8IcEES5_NS0_12CrtAllocatorELj0EE13WriteRawValueEPKcm.exit.i.i: ; preds = %.lr.ph.i.i.i, %147
-  %157 = getelementptr inbounds i8, ptr %1, i64 32
+  %157 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %158 = load ptr, ptr %157, align 8
-  %159 = getelementptr inbounds i8, ptr %1, i64 24
+  %159 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %160 = load ptr, ptr %159, align 8
   %161 = icmp eq ptr %158, %160
   br i1 %161, label %162, label %_ZN12_GLOBAL__N_110_WriterFixIN3pxr9rapidjson12PrettyWriterINS2_19BasicOStreamWrapperISoEENS2_4UTF8IcEES7_NS2_12CrtAllocatorELj0EEEE6DoubleEd.exit
@@ -1704,9 +1704,9 @@ _ZN3pxr9rapidjson8internal6i32toaEiPc.exit.i.i:   ; preds = %171, %168
 
 _ZN3pxr9rapidjson6WriterINS0_19BasicOStreamWrapperISoEENS0_4UTF8IcEES5_NS0_12CrtAllocatorELj0EE8WriteIntEi.exit.i: ; preds = %.lr.ph.i.i, %_ZN3pxr9rapidjson8internal6i32toaEiPc.exit.i.i
   call void @llvm.lifetime.end.p0(i64 11, ptr nonnull %3)
-  %180 = getelementptr inbounds i8, ptr %1, i64 32
+  %180 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %181 = load ptr, ptr %180, align 8
-  %182 = getelementptr inbounds i8, ptr %1, i64 24
+  %182 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %183 = load ptr, ptr %182, align 8
   %184 = icmp eq ptr %181, %183
   br i1 %184, label %185, label %_ZN3pxr9rapidjson12PrettyWriterINS0_19BasicOStreamWrapperISoEENS0_4UTF8IcEES5_NS0_12CrtAllocatorELj0EE4BoolEb.exit
@@ -1748,10 +1748,10 @@ _ZN3pxr9rapidjson12PrettyWriterINS0_19BasicOStreamWrapperISoEENS0_4UTF8IcEES5_NS
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @_ZN12_GLOBAL__N_110_WriterFixIN3pxr9rapidjson12PrettyWriterINS2_19BasicOStreamWrapperISoEENS2_4UTF8IcEES7_NS2_12CrtAllocatorELj0EEEED2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   tail call void @free(ptr noundef %3) #24
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
   br i1 %6, label %_ZN3pxr9rapidjson12PrettyWriterINS0_19BasicOStreamWrapperISoEENS0_4UTF8IcEES5_NS0_12CrtAllocatorELj0EED2Ev.exit, label %7
@@ -1777,10 +1777,10 @@ define linkonce_odr void @_ZN3pxr9rapidjson15GenericDocumentINS0_4UTF8IcEENS0_19
 
 5:                                                ; preds = %4, %1
   tail call void @_ZN3pxr9rapidjson15GenericDocumentINS0_4UTF8IcEENS0_19MemoryPoolAllocatorINS0_12CrtAllocatorEEES5_E7DestroyEv(ptr noundef nonnull align 8 dereferenceable(96) %0)
-  %6 = getelementptr inbounds i8, ptr %0, i64 48
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %7 = load ptr, ptr %6, align 8
   tail call void @free(ptr noundef %7) #24
-  %8 = getelementptr inbounds i8, ptr %0, i64 40
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %9 = load ptr, ptr %8, align 8
   %10 = icmp eq ptr %9, null
   br i1 %10, label %_ZN3pxr9rapidjson8internal5StackINS0_12CrtAllocatorEED2Ev.exit, label %11
@@ -1803,13 +1803,13 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__15JsWriteToStringB5cxx11ERKNS_
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  %11 = getelementptr inbounds i8, ptr %3, i64 40
-  %12 = getelementptr inbounds i8, ptr %3, i64 72
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 40
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 72
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %3, i8 0, i64 72, i1 false)
   store i64 1024, ptr %12, align 8
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 80
   store i32 0, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %3, i64 88
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 88
   store i64 0, ptr %14, align 8
   %15 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #26
           to label %16 unwind label %18
@@ -1866,7 +1866,7 @@ _ZN3pxr9rapidjson15GenericDocumentINS0_4UTF8IcEENS0_19MemoryPoolAllocatorINS0_12
   store i64 256, ptr %32, align 8
   store ptr %5, ptr %6, align 8
   %33 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %34 = getelementptr inbounds i8, ptr %6, i64 48
+  %34 = getelementptr inbounds nuw i8, ptr %6, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %33, i8 0, i64 40, i1 false)
   store i64 512, ptr %34, align 8
   %35 = getelementptr inbounds nuw i8, ptr %6, i64 56
@@ -1993,10 +1993,10 @@ _ZN3pxr9rapidjson8internal5StackINS0_12CrtAllocatorEE6ExpandIcEEvm.exit.i: ; pre
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; preds = %88
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #24
-  %91 = getelementptr inbounds i8, ptr %6, i64 24
+  %91 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %92 = load ptr, ptr %91, align 8
   call void @free(ptr noundef %92) #24
-  %93 = getelementptr inbounds i8, ptr %6, i64 16
+  %93 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %94 = load ptr, ptr %93, align 8
   %95 = icmp eq ptr %94, null
   br i1 %95, label %_ZN12_GLOBAL__N_110_WriterFixIN3pxr9rapidjson12PrettyWriterINS2_19GenericStringBufferINS2_4UTF8IcEENS2_12CrtAllocatorEEES6_S6_S7_Lj0EEEED2Ev.exit, label %96
@@ -2027,7 +2027,7 @@ _ZN3pxr9rapidjson19GenericStringBufferINS0_4UTF8IcEENS0_12CrtAllocatorEED2Ev.exi
 
 103:                                              ; preds = %102, %_ZN3pxr9rapidjson19GenericStringBufferINS0_4UTF8IcEENS0_12CrtAllocatorEED2Ev.exit
   call void @_ZN3pxr9rapidjson15GenericDocumentINS0_4UTF8IcEENS0_19MemoryPoolAllocatorINS0_12CrtAllocatorEEES5_E7DestroyEv(ptr noundef nonnull align 8 dereferenceable(96) %3)
-  %104 = getelementptr inbounds i8, ptr %3, i64 48
+  %104 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %105 = load ptr, ptr %104, align 8
   call void @free(ptr noundef %105) #24
   %106 = load ptr, ptr %11, align 8
@@ -2281,10 +2281,10 @@ define internal fastcc noundef zeroext i1 @_ZNK3pxr9rapidjson12GenericValueINS0_
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @_ZN12_GLOBAL__N_110_WriterFixIN3pxr9rapidjson12PrettyWriterINS2_19GenericStringBufferINS2_4UTF8IcEENS2_12CrtAllocatorEEES6_S6_S7_Lj0EEEED2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   tail call void @free(ptr noundef %3) #24
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
   br i1 %6, label %_ZN3pxr9rapidjson12PrettyWriterINS0_19GenericStringBufferINS0_4UTF8IcEENS0_12CrtAllocatorEEES4_S4_S5_Lj0EED2Ev.exit, label %7
@@ -2349,7 +2349,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__12JsWriteValueEPNS_8JsWriterER
   %20 = getelementptr inbounds i8, ptr %19, i64 88
   %21 = load ptr, ptr %20, align 8
   %22 = tail call noundef zeroext i1 %21(ptr noundef nonnull align 8 dereferenceable(8) %.val.i38, ptr noundef %17, i64 noundef %18)
-  %23 = getelementptr inbounds i8, ptr %.sroa.052.060, i64 64
+  %23 = getelementptr inbounds nuw i8, ptr %.sroa.052.060, i64 64
   tail call void @_ZN32pxrInternal_v0_24__pxrReserved__12JsWriteValueEPNS_8JsWriterERKNS_7JsValueE(ptr noundef nonnull %0, ptr noundef nonnull align 8 dereferenceable(16) %23)
   %24 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.052.060) #28
   %.not56 = icmp eq ptr %24, %14
@@ -3451,9 +3451,9 @@ _ZN3pxr9rapidjson6WriterINS0_19BasicOStreamWrapperISoEENS0_4UTF8IcEES5_NS0_12Crt
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef zeroext i1 @_ZN3pxr9rapidjson6WriterINS0_19BasicOStreamWrapperISoEENS0_4UTF8IcEES5_NS0_12CrtAllocatorELj0EE4NullEv(ptr noundef nonnull align 8 dereferenceable(61) %0) local_unnamed_addr #3 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8
   %.not.i = icmp eq ptr %3, %5
   br i1 %.not.i, label %21, label %6
@@ -3556,9 +3556,9 @@ define linkonce_odr noundef zeroext i1 @_ZN3pxr9rapidjson6WriterINS0_19BasicOStr
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef zeroext i1 @_ZN3pxr9rapidjson6WriterINS0_19BasicOStreamWrapperISoEENS0_4UTF8IcEES5_NS0_12CrtAllocatorELj0EE3IntEi(ptr noundef nonnull align 8 dereferenceable(61) %0, i32 noundef %1) local_unnamed_addr #3 comdat align 2 {
   %3 = alloca [11 x i8], align 1
-  %4 = getelementptr inbounds i8, ptr %0, i64 32
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = load ptr, ptr %6, align 8
   %.not.i = icmp eq ptr %5, %7
   br i1 %.not.i, label %23, label %8
@@ -3881,9 +3881,9 @@ define linkonce_odr noundef ptr @_ZN3pxr9rapidjson8internal6u32toaEjPc(i32 nound
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef zeroext i1 @_ZN3pxr9rapidjson6WriterINS0_19BasicOStreamWrapperISoEENS0_4UTF8IcEES5_NS0_12CrtAllocatorELj0EE4UintEj(ptr noundef nonnull align 8 dereferenceable(61) %0, i32 noundef %1) local_unnamed_addr #3 comdat align 2 {
   %3 = alloca [10 x i8], align 1
-  %4 = getelementptr inbounds i8, ptr %0, i64 32
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = load ptr, ptr %6, align 8
   %.not.i = icmp eq ptr %5, %7
   br i1 %.not.i, label %23, label %8
@@ -3955,9 +3955,9 @@ _ZN3pxr9rapidjson6WriterINS0_19BasicOStreamWrapperISoEENS0_4UTF8IcEES5_NS0_12Crt
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef zeroext i1 @_ZN3pxr9rapidjson6WriterINS0_19BasicOStreamWrapperISoEENS0_4UTF8IcEES5_NS0_12CrtAllocatorELj0EE5Int64El(ptr noundef nonnull align 8 dereferenceable(61) %0, i64 noundef %1) local_unnamed_addr #3 comdat align 2 {
   %3 = alloca [21 x i8], align 16
-  %4 = getelementptr inbounds i8, ptr %0, i64 32
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = load ptr, ptr %6, align 8
   %.not.i = icmp eq ptr %5, %7
   br i1 %.not.i, label %23, label %8
@@ -4578,9 +4578,9 @@ define linkonce_odr noundef ptr @_ZN3pxr9rapidjson8internal6u64toaEmPc(i64 nound
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef zeroext i1 @_ZN3pxr9rapidjson6WriterINS0_19BasicOStreamWrapperISoEENS0_4UTF8IcEES5_NS0_12CrtAllocatorELj0EE6Uint64Em(ptr noundef nonnull align 8 dereferenceable(61) %0, i64 noundef %1) local_unnamed_addr #3 comdat align 2 {
   %3 = alloca [20 x i8], align 16
-  %4 = getelementptr inbounds i8, ptr %0, i64 32
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = load ptr, ptr %6, align 8
   %.not.i = icmp eq ptr %5, %7
   br i1 %.not.i, label %23, label %8
@@ -4724,9 +4724,9 @@ define linkonce_odr noundef zeroext i1 @_ZN3pxr9rapidjson6WriterINS0_19BasicOStr
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef zeroext i1 @_ZN3pxr9rapidjson6WriterINS0_19BasicOStreamWrapperISoEENS0_4UTF8IcEES5_NS0_12CrtAllocatorELj0EE11StartObjectEv(ptr noundef nonnull align 8 dereferenceable(61) %0) local_unnamed_addr #3 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8
   %.not.i = icmp eq ptr %3, %5
   br i1 %.not.i, label %21, label %6
@@ -4765,7 +4765,7 @@ define linkonce_odr noundef zeroext i1 @_ZN3pxr9rapidjson6WriterINS0_19BasicOStr
 
 _ZN3pxr9rapidjson6WriterINS0_19BasicOStreamWrapperISoEENS0_4UTF8IcEES5_NS0_12CrtAllocatorELj0EE6PrefixENS0_4TypeE.exit: ; preds = %19, %21
   %23 = phi ptr [ %.pre10, %19 ], [ %3, %21 ]
-  %24 = getelementptr inbounds i8, ptr %0, i64 40
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %25 = load ptr, ptr %24, align 8
   %26 = ptrtoint ptr %25 to i64
   %27 = ptrtoint ptr %23 to i64
@@ -4787,12 +4787,12 @@ _ZN3pxr9rapidjson6WriterINS0_19BasicOStreamWrapperISoEENS0_4UTF8IcEES5_NS0_12Crt
 36:                                               ; preds = %34
   %37 = tail call noalias noundef nonnull dereferenceable(1) ptr @_Znwm(i64 noundef 1) #26
   store ptr %37, ptr %31, align 8
-  %38 = getelementptr inbounds i8, ptr %0, i64 16
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %37, ptr %38, align 8
   br label %39
 
 39:                                               ; preds = %36, %34
-  %40 = getelementptr inbounds i8, ptr %0, i64 48
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %41 = load i64, ptr %40, align 8
   br label %48
 
@@ -4847,9 +4847,9 @@ declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef zeroext i1 @_ZN3pxr9rapidjson6WriterINS0_19BasicOStreamWrapperISoEENS0_4UTF8IcEES5_NS0_12CrtAllocatorELj0EE10StartArrayEv(ptr noundef nonnull align 8 dereferenceable(61) %0) local_unnamed_addr #3 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8
   %.not.i = icmp eq ptr %3, %5
   br i1 %.not.i, label %21, label %6
@@ -4888,7 +4888,7 @@ define linkonce_odr noundef zeroext i1 @_ZN3pxr9rapidjson6WriterINS0_19BasicOStr
 
 _ZN3pxr9rapidjson6WriterINS0_19BasicOStreamWrapperISoEENS0_4UTF8IcEES5_NS0_12CrtAllocatorELj0EE6PrefixENS0_4TypeE.exit: ; preds = %19, %21
   %23 = phi ptr [ %.pre10, %19 ], [ %3, %21 ]
-  %24 = getelementptr inbounds i8, ptr %0, i64 40
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %25 = load ptr, ptr %24, align 8
   %26 = ptrtoint ptr %25 to i64
   %27 = ptrtoint ptr %23 to i64
@@ -4910,12 +4910,12 @@ _ZN3pxr9rapidjson6WriterINS0_19BasicOStreamWrapperISoEENS0_4UTF8IcEES5_NS0_12Crt
 36:                                               ; preds = %34
   %37 = tail call noalias noundef nonnull dereferenceable(1) ptr @_Znwm(i64 noundef 1) #26
   store ptr %37, ptr %31, align 8
-  %38 = getelementptr inbounds i8, ptr %0, i64 16
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %37, ptr %38, align 8
   br label %39
 
 39:                                               ; preds = %36, %34
-  %40 = getelementptr inbounds i8, ptr %0, i64 48
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %41 = load i64, ptr %40, align 8
   br label %48
 
@@ -5346,9 +5346,9 @@ define linkonce_odr noundef zeroext i1 @_ZN3pxr9rapidjson12PrettyWriterINS0_19Ba
   %11 = load ptr, ptr %0, align 8
   %12 = load ptr, ptr %11, align 8
   %13 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo3putEc(ptr noundef nonnull align 8 dereferenceable(8) %12, i8 noundef signext 108)
-  %14 = getelementptr inbounds i8, ptr %0, i64 32
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %17 = load ptr, ptr %16, align 8
   %18 = icmp eq ptr %15, %17
   br i1 %18, label %19, label %_ZN3pxr9rapidjson6WriterINS0_19BasicOStreamWrapperISoEENS0_4UTF8IcEES5_NS0_12CrtAllocatorELj0EE8EndValueEb.exit
@@ -5365,9 +5365,9 @@ _ZN3pxr9rapidjson6WriterINS0_19BasicOStreamWrapperISoEENS0_4UTF8IcEES5_NS0_12Crt
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN3pxr9rapidjson12PrettyWriterINS0_19BasicOStreamWrapperISoEENS0_4UTF8IcEES5_NS0_12CrtAllocatorELj0EE12PrettyPrefixENS0_4TypeE(ptr noundef nonnull align 8 dereferenceable(72) %0, i32 noundef %1) local_unnamed_addr #3 comdat align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 32
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load ptr, ptr %5, align 8
   %.not = icmp eq ptr %4, %6
   br i1 %.not, label %81, label %7
@@ -5519,9 +5519,9 @@ define linkonce_odr noundef zeroext i1 @_ZN3pxr9rapidjson12PrettyWriterINS0_19Ba
 
 _ZN3pxr9rapidjson6WriterINS0_19BasicOStreamWrapperISoEENS0_4UTF8IcEES5_NS0_12CrtAllocatorELj0EE9WriteUintEj.exit: ; preds = %.lr.ph.i, %2
   call void @llvm.lifetime.end.p0(i64 10, ptr nonnull %3)
-  %10 = getelementptr inbounds i8, ptr %0, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %13 = load ptr, ptr %12, align 8
   %14 = icmp eq ptr %11, %13
   br i1 %14, label %15, label %_ZN3pxr9rapidjson6WriterINS0_19BasicOStreamWrapperISoEENS0_4UTF8IcEES5_NS0_12CrtAllocatorELj0EE8EndValueEb.exit
@@ -5569,9 +5569,9 @@ _ZN3pxr9rapidjson8internal6i64toaElPc.exit.i:     ; preds = %5, %2
 
 _ZN3pxr9rapidjson6WriterINS0_19BasicOStreamWrapperISoEENS0_4UTF8IcEES5_NS0_12CrtAllocatorELj0EE10WriteInt64El.exit: ; preds = %.lr.ph.i, %_ZN3pxr9rapidjson8internal6i64toaElPc.exit.i
   call void @llvm.lifetime.end.p0(i64 21, ptr nonnull %3)
-  %14 = getelementptr inbounds i8, ptr %0, i64 32
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %17 = load ptr, ptr %16, align 8
   %18 = icmp eq ptr %15, %17
   br i1 %18, label %19, label %_ZN3pxr9rapidjson6WriterINS0_19BasicOStreamWrapperISoEENS0_4UTF8IcEES5_NS0_12CrtAllocatorELj0EE8EndValueEb.exit
@@ -5607,9 +5607,9 @@ define linkonce_odr noundef zeroext i1 @_ZN3pxr9rapidjson12PrettyWriterINS0_19Ba
 
 _ZN3pxr9rapidjson6WriterINS0_19BasicOStreamWrapperISoEENS0_4UTF8IcEES5_NS0_12CrtAllocatorELj0EE11WriteUint64Em.exit: ; preds = %.lr.ph.i, %2
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %3)
-  %10 = getelementptr inbounds i8, ptr %0, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %13 = load ptr, ptr %12, align 8
   %14 = icmp eq ptr %11, %13
   br i1 %14, label %15, label %_ZN3pxr9rapidjson6WriterINS0_19BasicOStreamWrapperISoEENS0_4UTF8IcEES5_NS0_12CrtAllocatorELj0EE8EndValueEb.exit
@@ -5627,9 +5627,9 @@ _ZN3pxr9rapidjson6WriterINS0_19BasicOStreamWrapperISoEENS0_4UTF8IcEES5_NS0_12Crt
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef zeroext i1 @_ZN3pxr9rapidjson12PrettyWriterINS0_19BasicOStreamWrapperISoEENS0_4UTF8IcEES5_NS0_12CrtAllocatorELj0EE11StartObjectEv(ptr noundef nonnull align 8 dereferenceable(72) %0) local_unnamed_addr #3 comdat align 2 {
   tail call void @_ZN3pxr9rapidjson12PrettyWriterINS0_19BasicOStreamWrapperISoEENS0_4UTF8IcEES5_NS0_12CrtAllocatorELj0EE12PrettyPrefixENS0_4TypeE(ptr noundef nonnull align 8 dereferenceable(72) %0, i32 noundef 3)
-  %2 = getelementptr inbounds i8, ptr %0, i64 40
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 32
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load ptr, ptr %4, align 8
   %6 = ptrtoint ptr %3 to i64
   %7 = ptrtoint ptr %5 to i64
@@ -5639,7 +5639,7 @@ define linkonce_odr noundef zeroext i1 @_ZN3pxr9rapidjson12PrettyWriterINS0_19Ba
 
 10:                                               ; preds = %1
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %13 = load ptr, ptr %12, align 8
   %14 = icmp eq ptr %13, null
   br i1 %14, label %15, label %23
@@ -5652,12 +5652,12 @@ define linkonce_odr noundef zeroext i1 @_ZN3pxr9rapidjson12PrettyWriterINS0_19Ba
 17:                                               ; preds = %15
   %18 = tail call noalias noundef nonnull dereferenceable(1) ptr @_Znwm(i64 noundef 1) #26
   store ptr %18, ptr %11, align 8
-  %19 = getelementptr inbounds i8, ptr %0, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %18, ptr %19, align 8
   br label %20
 
 20:                                               ; preds = %17, %15
-  %21 = getelementptr inbounds i8, ptr %0, i64 48
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %22 = load i64, ptr %21, align 8
   br label %29
 
@@ -5709,7 +5709,7 @@ _ZN3pxr9rapidjson8internal5StackINS0_12CrtAllocatorEE6ExpandINS0_6WriterINS0_19B
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef zeroext i1 @_ZN3pxr9rapidjson12PrettyWriterINS0_19BasicOStreamWrapperISoEENS0_4UTF8IcEES5_NS0_12CrtAllocatorELj0EE9EndObjectEj(ptr noundef nonnull align 8 dereferenceable(72) %0, i32 noundef %1) local_unnamed_addr #3 comdat align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 32
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 -16
   store ptr %5, ptr %3, align 8
@@ -5722,7 +5722,7 @@ define linkonce_odr noundef zeroext i1 @_ZN3pxr9rapidjson12PrettyWriterINS0_19Ba
   %9 = load ptr, ptr %.pre1, align 8
   %10 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo3putEc(ptr noundef nonnull align 8 dereferenceable(8) %9, i8 noundef signext 10)
   %11 = load ptr, ptr %3, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %13 = load ptr, ptr %12, align 8
   %14 = ptrtoint ptr %11 to i64
   %15 = ptrtoint ptr %13 to i64
@@ -5755,7 +5755,7 @@ _ZN3pxr9rapidjson12PrettyWriterINS0_19BasicOStreamWrapperISoEENS0_4UTF8IcEES5_NS
   %29 = load ptr, ptr %28, align 8
   %30 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo3putEc(ptr noundef nonnull align 8 dereferenceable(8) %29, i8 noundef signext 125)
   %31 = load ptr, ptr %3, align 8
-  %32 = getelementptr inbounds i8, ptr %0, i64 24
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %33 = load ptr, ptr %32, align 8
   %34 = icmp eq ptr %31, %33
   br i1 %34, label %35, label %_ZN3pxr9rapidjson6WriterINS0_19BasicOStreamWrapperISoEENS0_4UTF8IcEES5_NS0_12CrtAllocatorELj0EE8EndValueEb.exit
@@ -5787,9 +5787,9 @@ _ZN3pxr9rapidjson6WriterINS0_19BasicOStreamWrapperISoEENS0_4UTF8IcEES5_NS0_12Crt
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef zeroext i1 @_ZN3pxr9rapidjson12PrettyWriterINS0_19BasicOStreamWrapperISoEENS0_4UTF8IcEES5_NS0_12CrtAllocatorELj0EE10StartArrayEv(ptr noundef nonnull align 8 dereferenceable(72) %0) local_unnamed_addr #3 comdat align 2 {
   tail call void @_ZN3pxr9rapidjson12PrettyWriterINS0_19BasicOStreamWrapperISoEENS0_4UTF8IcEES5_NS0_12CrtAllocatorELj0EE12PrettyPrefixENS0_4TypeE(ptr noundef nonnull align 8 dereferenceable(72) %0, i32 noundef 4)
-  %2 = getelementptr inbounds i8, ptr %0, i64 40
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 32
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load ptr, ptr %4, align 8
   %6 = ptrtoint ptr %3 to i64
   %7 = ptrtoint ptr %5 to i64
@@ -5799,7 +5799,7 @@ define linkonce_odr noundef zeroext i1 @_ZN3pxr9rapidjson12PrettyWriterINS0_19Ba
 
 10:                                               ; preds = %1
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %13 = load ptr, ptr %12, align 8
   %14 = icmp eq ptr %13, null
   br i1 %14, label %15, label %23
@@ -5812,12 +5812,12 @@ define linkonce_odr noundef zeroext i1 @_ZN3pxr9rapidjson12PrettyWriterINS0_19Ba
 17:                                               ; preds = %15
   %18 = tail call noalias noundef nonnull dereferenceable(1) ptr @_Znwm(i64 noundef 1) #26
   store ptr %18, ptr %11, align 8
-  %19 = getelementptr inbounds i8, ptr %0, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %18, ptr %19, align 8
   br label %20
 
 20:                                               ; preds = %17, %15
-  %21 = getelementptr inbounds i8, ptr %0, i64 48
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %22 = load i64, ptr %21, align 8
   br label %29
 
@@ -5869,7 +5869,7 @@ _ZN3pxr9rapidjson8internal5StackINS0_12CrtAllocatorEE6ExpandINS0_6WriterINS0_19B
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef zeroext i1 @_ZN3pxr9rapidjson12PrettyWriterINS0_19BasicOStreamWrapperISoEENS0_4UTF8IcEES5_NS0_12CrtAllocatorELj0EE8EndArrayEj(ptr noundef nonnull align 8 dereferenceable(72) %0, i32 noundef %1) local_unnamed_addr #3 comdat align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 32
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 -16
   store ptr %5, ptr %3, align 8
@@ -5889,7 +5889,7 @@ define linkonce_odr noundef zeroext i1 @_ZN3pxr9rapidjson12PrettyWriterINS0_19Ba
   %14 = load ptr, ptr %13, align 8
   %15 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo3putEc(ptr noundef nonnull align 8 dereferenceable(8) %14, i8 noundef signext 10)
   %16 = load ptr, ptr %3, align 8
-  %17 = getelementptr inbounds i8, ptr %0, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %18 = load ptr, ptr %17, align 8
   %19 = ptrtoint ptr %16 to i64
   %20 = ptrtoint ptr %18 to i64
@@ -5918,7 +5918,7 @@ _ZN3pxr9rapidjson12PrettyWriterINS0_19BasicOStreamWrapperISoEENS0_4UTF8IcEES5_NS
   %34 = load ptr, ptr %33, align 8
   %35 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo3putEc(ptr noundef nonnull align 8 dereferenceable(8) %34, i8 noundef signext 93)
   %36 = load ptr, ptr %3, align 8
-  %37 = getelementptr inbounds i8, ptr %0, i64 24
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %38 = load ptr, ptr %37, align 8
   %39 = icmp eq ptr %36, %38
   br i1 %39, label %40, label %_ZN3pxr9rapidjson6WriterINS0_19BasicOStreamWrapperISoEENS0_4UTF8IcEES5_NS0_12CrtAllocatorELj0EE8EndValueEb.exit
@@ -6379,9 +6379,9 @@ define internal fastcc void @_ZN3pxr9rapidjson13GenericReaderINS0_4UTF8IcEES3_NS
 .critedge.i:                                      ; preds = %21
   %25 = getelementptr inbounds i8, ptr %11, i64 4
   store ptr %25, ptr %1, align 8
-  %26 = getelementptr inbounds i8, ptr %2, i64 32
+  %26 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %27 = load ptr, ptr %26, align 8
-  %28 = getelementptr inbounds i8, ptr %2, i64 40
+  %28 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %29 = load ptr, ptr %28, align 8
   %.not.i.i.i = icmp eq ptr %27, %29
   br i1 %.not.i.i.i, label %33, label %30
@@ -6407,7 +6407,7 @@ define internal fastcc void @_ZN3pxr9rapidjson13GenericReaderINS0_4UTF8IcEES3_NS
   %40 = sub i64 %38, %39
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i32 3, ptr %41, align 8
-  %42 = getelementptr inbounds i8, ptr %0, i64 56
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i64 %40, ptr %42, align 8
   br label %_ZN3pxr9rapidjson13GenericReaderINS0_4UTF8IcEES3_NS0_12CrtAllocatorEE9ParseNullILj24ENS0_19GenericStringStreamIS3_EEN12_GLOBAL__N_113_InputHandlerEEEvRT0_RT1_.exit
 
@@ -6437,9 +6437,9 @@ define internal fastcc void @_ZN3pxr9rapidjson13GenericReaderINS0_4UTF8IcEES3_NS
   store ptr %55, ptr %1, align 8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %10)
   store i8 1, ptr %10, align 1
-  %56 = getelementptr inbounds i8, ptr %2, i64 32
+  %56 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %57 = load ptr, ptr %56, align 8
-  %58 = getelementptr inbounds i8, ptr %2, i64 40
+  %58 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %59 = load ptr, ptr %58, align 8
   %.not.i.i.i18 = icmp eq ptr %57, %59
   br i1 %.not.i.i.i18, label %63, label %60
@@ -6469,7 +6469,7 @@ _ZN12_GLOBAL__N_113_InputHandler4BoolEb.exit.i:   ; preds = %63, %60
   %70 = sub i64 %68, %69
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i32 3, ptr %71, align 8
-  %72 = getelementptr inbounds i8, ptr %0, i64 56
+  %72 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i64 %70, ptr %72, align 8
   br label %_ZN3pxr9rapidjson13GenericReaderINS0_4UTF8IcEES3_NS0_12CrtAllocatorEE9ParseNullILj24ENS0_19GenericStringStreamIS3_EEN12_GLOBAL__N_113_InputHandlerEEEvRT0_RT1_.exit
 
@@ -6506,9 +6506,9 @@ _ZN12_GLOBAL__N_113_InputHandler4BoolEb.exit.i:   ; preds = %63, %60
   store ptr %89, ptr %1, align 8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %9)
   store i8 0, ptr %9, align 1
-  %90 = getelementptr inbounds i8, ptr %2, i64 32
+  %90 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %91 = load ptr, ptr %90, align 8
-  %92 = getelementptr inbounds i8, ptr %2, i64 40
+  %92 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %93 = load ptr, ptr %92, align 8
   %.not.i.i.i20 = icmp eq ptr %91, %93
   br i1 %.not.i.i.i20, label %97, label %94
@@ -6538,7 +6538,7 @@ _ZN12_GLOBAL__N_113_InputHandler4BoolEb.exit.i21: ; preds = %97, %94
   %104 = sub i64 %102, %103
   %105 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i32 3, ptr %105, align 8
-  %106 = getelementptr inbounds i8, ptr %0, i64 56
+  %106 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i64 %104, ptr %106, align 8
   br label %_ZN3pxr9rapidjson13GenericReaderINS0_4UTF8IcEES3_NS0_12CrtAllocatorEE9ParseNullILj24ENS0_19GenericStringStreamIS3_EEN12_GLOBAL__N_113_InputHandlerEEEvRT0_RT1_.exit
 
@@ -6598,7 +6598,7 @@ _ZN3pxr9rapidjson13GenericReaderINS0_4UTF8IcEES3_NS0_12CrtAllocatorEE25SkipWhite
   %122 = ptrtoint ptr %120 to i64
   %123 = sub i64 %121, %122
   store i32 4, ptr %113, align 8
-  %124 = getelementptr inbounds i8, ptr %0, i64 56
+  %124 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i64 %123, ptr %124, align 8
   br label %_ZN3pxr9rapidjson13GenericReaderINS0_4UTF8IcEES3_NS0_12CrtAllocatorEE9ParseNullILj24ENS0_19GenericStringStreamIS3_EEN12_GLOBAL__N_113_InputHandlerEEEvRT0_RT1_.exit
 
@@ -6645,7 +6645,7 @@ _ZN3pxr9rapidjson13GenericReaderINS0_4UTF8IcEES3_NS0_12CrtAllocatorEE25SkipWhite
   %136 = ptrtoint ptr %134 to i64
   %137 = sub i64 %135, %136
   store i32 5, ptr %113, align 8
-  %138 = getelementptr inbounds i8, ptr %0, i64 56
+  %138 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i64 %137, ptr %138, align 8
   br label %_ZN3pxr9rapidjson13GenericReaderINS0_4UTF8IcEES3_NS0_12CrtAllocatorEE9ParseNullILj24ENS0_19GenericStringStreamIS3_EEN12_GLOBAL__N_113_InputHandlerEEEvRT0_RT1_.exit
 
@@ -6750,7 +6750,7 @@ _ZN3pxr9rapidjson13GenericReaderINS0_4UTF8IcEES3_NS0_12CrtAllocatorEE25SkipWhite
   %167 = ptrtoint ptr %165 to i64
   %168 = sub i64 %166, %167
   store i32 6, ptr %113, align 8
-  %169 = getelementptr inbounds i8, ptr %0, i64 56
+  %169 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i64 %168, ptr %169, align 8
   br label %_ZN3pxr9rapidjson13GenericReaderINS0_4UTF8IcEES3_NS0_12CrtAllocatorEE9ParseNullILj24ENS0_19GenericStringStreamIS3_EEN12_GLOBAL__N_113_InputHandlerEEEvRT0_RT1_.exit
 
@@ -6868,7 +6868,7 @@ _ZN3pxr9rapidjson13GenericReaderINS0_4UTF8IcEES3_NS0_12CrtAllocatorEE25SkipWhite
   %202 = ptrtoint ptr %200 to i64
   %203 = sub i64 %201, %202
   store i32 7, ptr %175, align 8
-  %204 = getelementptr inbounds i8, ptr %0, i64 56
+  %204 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i64 %203, ptr %204, align 8
   br label %_ZN3pxr9rapidjson13GenericReaderINS0_4UTF8IcEES3_NS0_12CrtAllocatorEE9ParseNullILj24ENS0_19GenericStringStreamIS3_EEN12_GLOBAL__N_113_InputHandlerEEEvRT0_RT1_.exit
 
@@ -7335,7 +7335,7 @@ _ZN3pxr9rapidjson8internal5StackINS0_12CrtAllocatorEE6ExpandIcEEvm.exit392.i: ; 
   %409 = sub i64 %408, %207
   %410 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i32 3, ptr %410, align 8
-  %411 = getelementptr inbounds i8, ptr %0, i64 56
+  %411 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i64 %409, ptr %411, align 8
   br label %_ZN3pxr9rapidjson13GenericReaderINS0_4UTF8IcEES3_NS0_12CrtAllocatorEE11ParseNumberILj24ENS0_19GenericStringStreamIS3_EEN12_GLOBAL__N_113_InputHandlerEEEvRT0_RT1_.exit
 
@@ -7673,7 +7673,7 @@ _ZN3pxr9rapidjson8internal5StackINS0_12CrtAllocatorEE6ExpandIcEEvm.exit413.i: ; 
   %567 = sub i64 %566, %207
   %568 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i32 14, ptr %568, align 8
-  %569 = getelementptr inbounds i8, ptr %0, i64 56
+  %569 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i64 %567, ptr %569, align 8
   br label %_ZN3pxr9rapidjson13GenericReaderINS0_4UTF8IcEES3_NS0_12CrtAllocatorEE11ParseNumberILj24ENS0_19GenericStringStreamIS3_EEN12_GLOBAL__N_113_InputHandlerEEEvRT0_RT1_.exit
 
@@ -8104,7 +8104,7 @@ _ZN3pxr9rapidjson8internal5StackINS0_12CrtAllocatorEE6ExpandIcEEvm.exit434.i: ; 
 757:                                              ; preds = %750
   %758 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i32 13, ptr %758, align 8
-  %759 = getelementptr inbounds i8, ptr %0, i64 56
+  %759 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i64 %208, ptr %759, align 8
   br label %_ZN3pxr9rapidjson13GenericReaderINS0_4UTF8IcEES3_NS0_12CrtAllocatorEE11ParseNumberILj24ENS0_19GenericStringStreamIS3_EEN12_GLOBAL__N_113_InputHandlerEEEvRT0_RT1_.exit
 
@@ -8114,7 +8114,7 @@ _ZN3pxr9rapidjson8internal5StackINS0_12CrtAllocatorEE6ExpandIcEEvm.exit434.i: ; 
   %761 = sub i64 %760, %207
   %762 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i32 15, ptr %762, align 8
-  %763 = getelementptr inbounds i8, ptr %0, i64 56
+  %763 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i64 %761, ptr %763, align 8
   br label %_ZN3pxr9rapidjson13GenericReaderINS0_4UTF8IcEES3_NS0_12CrtAllocatorEE11ParseNumberILj24ENS0_19GenericStringStreamIS3_EEN12_GLOBAL__N_113_InputHandlerEEEvRT0_RT1_.exit
 
@@ -8225,7 +8225,7 @@ _ZN3pxr9rapidjson8internal5StackINS0_12CrtAllocatorEE6ExpandIcEEvm.exit.i.i: ; p
 815:                                              ; preds = %813
   %816 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i32 13, ptr %816, align 8
-  %817 = getelementptr inbounds i8, ptr %0, i64 56
+  %817 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i64 %208, ptr %817, align 8
   br label %_ZN3pxr9rapidjson13GenericReaderINS0_4UTF8IcEES3_NS0_12CrtAllocatorEE11ParseNumberILj24ENS0_19GenericStringStreamIS3_EEN12_GLOBAL__N_113_InputHandlerEEEvRT0_RT1_.exit
 
@@ -8234,9 +8234,9 @@ _ZN3pxr9rapidjson8internal5StackINS0_12CrtAllocatorEE6ExpandIcEEvm.exit.i.i: ; p
   %820 = select i1 %209, double %819, double %812
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
   store double %820, ptr %8, align 8
-  %821 = getelementptr inbounds i8, ptr %2, i64 32
+  %821 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %822 = load ptr, ptr %821, align 8
-  %823 = getelementptr inbounds i8, ptr %2, i64 40
+  %823 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %824 = load ptr, ptr %823, align 8
   %.not.i.i436.i = icmp eq ptr %822, %824
   br i1 %.not.i.i436.i, label %828, label %825
@@ -8270,9 +8270,9 @@ _ZN12_GLOBAL__N_113_InputHandler6DoubleEd.exit.i: ; preds = %828, %.noexc437.i
   %833 = sub i64 0, %.7311.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
   store i64 %833, ptr %7, align 8
-  %834 = getelementptr inbounds i8, ptr %2, i64 32
+  %834 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %835 = load ptr, ptr %834, align 8
-  %836 = getelementptr inbounds i8, ptr %2, i64 40
+  %836 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %837 = load ptr, ptr %836, align 8
   %.not.i.i439.i = icmp eq ptr %835, %837
   br i1 %.not.i.i439.i, label %841, label %838
@@ -8299,9 +8299,9 @@ _ZN12_GLOBAL__N_113_InputHandler5Int64El.exit.i:  ; preds = %841, %.noexc440.i
 843:                                              ; preds = %831
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
   store i64 %.7311.i, ptr %6, align 8
-  %844 = getelementptr inbounds i8, ptr %2, i64 32
+  %844 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %845 = load ptr, ptr %844, align 8
-  %846 = getelementptr inbounds i8, ptr %2, i64 40
+  %846 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %847 = load ptr, ptr %846, align 8
   %.not.i.i442.i = icmp eq ptr %845, %847
   br i1 %.not.i.i442.i, label %851, label %848
@@ -8326,8 +8326,8 @@ _ZN12_GLOBAL__N_113_InputHandler6Uint64Em.exit.i: ; preds = %851, %.noexc443.i
   br label %_ZN3pxr9rapidjson13GenericReaderINS0_4UTF8IcEES3_NS0_12CrtAllocatorEE11ParseNumberILj24ENS0_19GenericStringStreamIS3_EEN12_GLOBAL__N_113_InputHandlerEEEvRT0_RT1_.exit
 
 853:                                              ; preds = %830
-  %854 = getelementptr inbounds i8, ptr %2, i64 32
-  %855 = getelementptr inbounds i8, ptr %2, i64 40
+  %854 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %855 = getelementptr inbounds nuw i8, ptr %2, i64 40
   br i1 %209, label %856, label %865
 
 856:                                              ; preds = %853
@@ -8413,7 +8413,7 @@ define internal fastcc void @_ZN3pxr9rapidjson13GenericReaderINS0_4UTF8IcEES3_NS
   store i32 0, ptr %12, align 8
   %13 = ptrtoint ptr %.sroa.31.0.copyload to i64
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %15 = getelementptr inbounds i8, ptr %0, i64 56
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 56
   br label %16
 
 16:                                               ; preds = %.backedge, %4
@@ -8954,9 +8954,9 @@ _ZN12_GLOBAL__N_113_InputHandler3KeyEPKcjb.exit:  ; preds = %247, %_ZNSt16alloca
           to label %250 unwind label %260
 
 250:                                              ; preds = %248
-  %251 = getelementptr inbounds i8, ptr %2, i64 32
+  %251 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %252 = load ptr, ptr %251, align 8
-  %253 = getelementptr inbounds i8, ptr %2, i64 40
+  %253 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %254 = load ptr, ptr %253, align 8
   %.not.i.i135 = icmp eq ptr %252, %254
   br i1 %.not.i.i135, label %258, label %255
@@ -10491,7 +10491,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_113_InputHandler9EndObjectEj(ptr no
   %12 = zext i32 %1 to i64
   %13 = sub nsw i64 %11, %12
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %15 = getelementptr inbounds i8, ptr %0, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %16 = load ptr, ptr %15, align 8
   %17 = load ptr, ptr %14, align 8
   %18 = ptrtoint ptr %16 to i64
@@ -10514,7 +10514,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_113_InputHandler9EndObjectEj(ptr no
 
 .lr.ph:                                           ; preds = %2
   %28 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  %29 = getelementptr inbounds i8, ptr %4, i64 40
+  %29 = getelementptr inbounds nuw i8, ptr %4, i64 40
   br label %30
 
 30:                                               ; preds = %.lr.ph, %_ZNSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN32pxrInternal_v0_24__pxrReserved__7JsValueEED2Ev.exit
@@ -10724,7 +10724,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE6resize
 
 106:                                              ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE6resizeEm.exit
   %107 = load ptr, ptr %15, align 8
-  %108 = getelementptr inbounds i8, ptr %0, i64 40
+  %108 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %109 = load ptr, ptr %108, align 8
   %.not.i = icmp eq ptr %107, %109
   br i1 %.not.i, label %113, label %110
@@ -10766,7 +10766,7 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN32pxrInternal_v0_
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN32pxrInternal_v0_24__pxrReserved__7JsValueEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 40
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__7JsValueD2Ev.exit, label %4
@@ -10986,12 +10986,12 @@ define linkonce_odr ptr @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_trai
   %6 = tail call noalias noundef nonnull dereferenceable(80) ptr @_Znwm(i64 noundef 80) #26
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %2) #24
-  %8 = getelementptr inbounds i8, ptr %6, i64 64
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 64
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %10 = load ptr, ptr %9, align 8
   store ptr %10, ptr %8, align 8
-  %11 = getelementptr inbounds i8, ptr %6, i64 72
-  %12 = getelementptr inbounds i8, ptr %2, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %6, i64 72
+  %12 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %13 = load ptr, ptr %12, align 8
   store ptr null, ptr %12, align 8
   store ptr %13, ptr %11, align 8
@@ -11452,7 +11452,7 @@ define linkonce_odr void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_tra
   br i1 %.not, label %42, label %4
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %3, i64 72
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 72
   %6 = load ptr, ptr %5, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %6, null
   br i1 %.not.i.i.i.i.i.i.i.i.i, label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N32pxrInternal_v0_24__pxrReserved__7JsValueEESt10_Select1stISA_ESt4lessIS5_ESaISA_EE12_M_drop_nodeEPSt13_Rb_tree_nodeISA_E.exit, label %7
@@ -12008,7 +12008,7 @@ define linkonce_odr void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_tra
   tail call void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N32pxrInternal_v0_24__pxrReserved__7JsValueEESt10_Select1stISA_ESt4lessIS5_ESaISA_EE8_M_eraseEPSt13_Rb_tree_nodeISA_E(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %4)
   %5 = getelementptr inbounds nuw i8, ptr %.07, i64 16
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %.07, i64 72
+  %7 = getelementptr inbounds nuw i8, ptr %.07, i64 72
   %8 = load ptr, ptr %7, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %8, null
   br i1 %.not.i.i.i.i.i.i.i.i.i, label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N32pxrInternal_v0_24__pxrReserved__7JsValueEESt10_Select1stISA_ESt4lessIS5_ESaISA_EE12_M_drop_nodeEPSt13_Rb_tree_nodeISA_E.exit, label %9
@@ -12097,7 +12097,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_113_InputHandler8EndArrayEj(ptr nou
 _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7JsValueESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i.i:
   %2 = alloca %"class.std::vector.3", align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %4 = getelementptr inbounds i8, ptr %0, i64 32
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load ptr, ptr %4, align 8
   %6 = zext i32 %1 to i64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, i8 0, i64 24, i1 false)
@@ -12175,7 +12175,7 @@ _ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__7JsValueEJRS1_EEvPT_DpOT0_.e
 
 36:                                               ; preds = %.loopexit
   %37 = load ptr, ptr %4, align 8
-  %38 = getelementptr inbounds i8, ptr %0, i64 40
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %39 = load ptr, ptr %38, align 8
   %.not.i = icmp eq ptr %37, %39
   br i1 %.not.i, label %43, label %40
@@ -14830,9 +14830,9 @@ _ZN3pxr9rapidjson19MemoryPoolAllocatorINS0_12CrtAllocatorEE6MallocEm.exit: ; pre
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef zeroext i1 @_ZN3pxr9rapidjson12PrettyWriterINS0_19GenericStringBufferINS0_4UTF8IcEENS0_12CrtAllocatorEEES4_S4_S5_Lj0EE11StartObjectEv(ptr noundef nonnull align 8 dereferenceable(72) %0) local_unnamed_addr #3 comdat align 2 {
   tail call void @_ZN3pxr9rapidjson12PrettyWriterINS0_19GenericStringBufferINS0_4UTF8IcEENS0_12CrtAllocatorEEES4_S4_S5_Lj0EE12PrettyPrefixENS0_4TypeE(ptr noundef nonnull align 8 dereferenceable(72) %0, i32 noundef 3)
-  %2 = getelementptr inbounds i8, ptr %0, i64 40
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 32
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load ptr, ptr %4, align 8
   %6 = ptrtoint ptr %3 to i64
   %7 = ptrtoint ptr %5 to i64
@@ -14842,7 +14842,7 @@ define linkonce_odr noundef zeroext i1 @_ZN3pxr9rapidjson12PrettyWriterINS0_19Ge
 
 10:                                               ; preds = %1
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %13 = load ptr, ptr %12, align 8
   %14 = icmp eq ptr %13, null
   br i1 %14, label %15, label %23
@@ -14855,12 +14855,12 @@ define linkonce_odr noundef zeroext i1 @_ZN3pxr9rapidjson12PrettyWriterINS0_19Ge
 17:                                               ; preds = %15
   %18 = tail call noalias noundef nonnull dereferenceable(1) ptr @_Znwm(i64 noundef 1) #26
   store ptr %18, ptr %11, align 8
-  %19 = getelementptr inbounds i8, ptr %0, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %18, ptr %19, align 8
   br label %20
 
 20:                                               ; preds = %17, %15
-  %21 = getelementptr inbounds i8, ptr %0, i64 48
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %22 = load i64, ptr %21, align 8
   br label %29
 
@@ -14981,7 +14981,7 @@ _ZN3pxr9rapidjson6WriterINS0_19GenericStringBufferINS0_4UTF8IcEENS0_12CrtAllocat
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef zeroext i1 @_ZN3pxr9rapidjson12PrettyWriterINS0_19GenericStringBufferINS0_4UTF8IcEENS0_12CrtAllocatorEEES4_S4_S5_Lj0EE9EndObjectEj(ptr noundef nonnull align 8 dereferenceable(72) %0, i32 noundef %1) local_unnamed_addr #3 comdat align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 32
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 -16
   store ptr %5, ptr %3, align 8
@@ -15144,9 +15144,9 @@ _ZN3pxr9rapidjson6WriterINS0_19GenericStringBufferINS0_4UTF8IcEENS0_12CrtAllocat
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef zeroext i1 @_ZN3pxr9rapidjson12PrettyWriterINS0_19GenericStringBufferINS0_4UTF8IcEENS0_12CrtAllocatorEEES4_S4_S5_Lj0EE10StartArrayEv(ptr noundef nonnull align 8 dereferenceable(72) %0) local_unnamed_addr #3 comdat align 2 {
   tail call void @_ZN3pxr9rapidjson12PrettyWriterINS0_19GenericStringBufferINS0_4UTF8IcEENS0_12CrtAllocatorEEES4_S4_S5_Lj0EE12PrettyPrefixENS0_4TypeE(ptr noundef nonnull align 8 dereferenceable(72) %0, i32 noundef 4)
-  %2 = getelementptr inbounds i8, ptr %0, i64 40
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 32
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load ptr, ptr %4, align 8
   %6 = ptrtoint ptr %3 to i64
   %7 = ptrtoint ptr %5 to i64
@@ -15156,7 +15156,7 @@ define linkonce_odr noundef zeroext i1 @_ZN3pxr9rapidjson12PrettyWriterINS0_19Ge
 
 10:                                               ; preds = %1
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %13 = load ptr, ptr %12, align 8
   %14 = icmp eq ptr %13, null
   br i1 %14, label %15, label %23
@@ -15169,12 +15169,12 @@ define linkonce_odr noundef zeroext i1 @_ZN3pxr9rapidjson12PrettyWriterINS0_19Ge
 17:                                               ; preds = %15
   %18 = tail call noalias noundef nonnull dereferenceable(1) ptr @_Znwm(i64 noundef 1) #26
   store ptr %18, ptr %11, align 8
-  %19 = getelementptr inbounds i8, ptr %0, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %18, ptr %19, align 8
   br label %20
 
 20:                                               ; preds = %17, %15
-  %21 = getelementptr inbounds i8, ptr %0, i64 48
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %22 = load i64, ptr %21, align 8
   br label %29
 
@@ -15295,7 +15295,7 @@ _ZN3pxr9rapidjson6WriterINS0_19GenericStringBufferINS0_4UTF8IcEENS0_12CrtAllocat
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef zeroext i1 @_ZN3pxr9rapidjson12PrettyWriterINS0_19GenericStringBufferINS0_4UTF8IcEENS0_12CrtAllocatorEEES4_S4_S5_Lj0EE8EndArrayEj(ptr noundef nonnull align 8 dereferenceable(72) %0, i32 noundef %1) local_unnamed_addr #3 comdat align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 32
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 -16
   store ptr %5, ptr %3, align 8
@@ -15464,9 +15464,9 @@ _ZN3pxr9rapidjson6WriterINS0_19GenericStringBufferINS0_4UTF8IcEENS0_12CrtAllocat
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN3pxr9rapidjson12PrettyWriterINS0_19GenericStringBufferINS0_4UTF8IcEENS0_12CrtAllocatorEEES4_S4_S5_Lj0EE12PrettyPrefixENS0_4TypeE(ptr noundef nonnull align 8 dereferenceable(72) %0, i32 noundef %1) local_unnamed_addr #3 comdat align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 32
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load ptr, ptr %5, align 8
   %.not = icmp eq ptr %4, %6
   br i1 %.not, label %333, label %7
@@ -16215,9 +16215,9 @@ _ZN3pxr9rapidjson10PutReserveINS0_4UTF8IcEENS0_12CrtAllocatorEEEvRNS0_19GenericS
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN3pxr9rapidjson12PrettyWriterINS0_19GenericStringBufferINS0_4UTF8IcEENS0_12CrtAllocatorEEES4_S4_S5_Lj0EE11WriteIndentEv(ptr noundef nonnull align 8 dereferenceable(72) %0) local_unnamed_addr #3 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8
   %6 = ptrtoint ptr %3 to i64
   %7 = ptrtoint ptr %5 to i64

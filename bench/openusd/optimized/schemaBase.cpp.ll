@@ -117,8 +117,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__18Usd_PrimDataHandleC2ERKS0_.exit: ; preds 
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathC2ERKS0_.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathC2ERKS0_.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__18Usd_PrimDataHandleC2ERKS0_.exit, %12
-  %23 = getelementptr inbounds i8, ptr %0, i64 20
-  %24 = getelementptr inbounds i8, ptr %1, i64 20
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %25 = load i32, ptr %24, align 4
   store i32 %25, ptr %23, align 4
   ret void
@@ -184,8 +184,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__18Usd_PrimDataHandleC2ERKS0_.exit: ; preds 
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathC2ERKS0_.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathC2ERKS0_.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__18Usd_PrimDataHandleC2ERKS0_.exit, %12
-  %23 = getelementptr inbounds i8, ptr %0, i64 20
-  %24 = getelementptr inbounds i8, ptr %1, i64 20
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %25 = load i32, ptr %24, align 4
   store i32 %25, ptr %23, align 4
   ret void
@@ -333,7 +333,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__13UsdSchemaBase18IsAppliedAPISchemaEv.exit
   br i1 %20, label %_ZNK32pxrInternal_v0_24__pxrReserved__13UsdSchemaBase18IsAppliedAPISchemaEv.exit.thread, label %65
 
 _ZNK32pxrInternal_v0_24__pxrReserved__13UsdSchemaBase18IsAppliedAPISchemaEv.exit.thread: ; preds = %.noexc, %_ZNK32pxrInternal_v0_24__pxrReserved__13UsdSchemaBase18IsAppliedAPISchemaEv.exit
-  %21 = getelementptr inbounds i8, ptr %.0.i.i, i64 112
+  %21 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 112
   %22 = load i64, ptr %21, align 8
   %.not.not.i.i.i = icmp eq i64 %22, 0
   %23 = load ptr, ptr %2, align 8
@@ -342,7 +342,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__13UsdSchemaBase18IsAppliedAPISchemaEv.exit
   br i1 %.not.not.i.i.i, label %26, label %37
 
 26:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__13UsdSchemaBase18IsAppliedAPISchemaEv.exit.thread
-  %27 = getelementptr inbounds i8, ptr %.0.i.i, i64 104
+  %27 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 104
   %28 = inttoptr i64 %25 to ptr
   br label %29
 
@@ -365,7 +365,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__13UsdSchemaBase18IsAppliedAPISchemaEv.exit
   %38 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 88
   %39 = mul i64 %25, -7046029254386353067
   %40 = call noundef i64 @llvm.bswap.i64(i64 %39)
-  %41 = getelementptr inbounds i8, ptr %.0.i.i, i64 96
+  %41 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 96
   %42 = load i64, ptr %41, align 8
   %43 = urem i64 %40, %42
   %44 = load ptr, ptr %38, align 8
@@ -409,7 +409,7 @@ _ZNKSt8__detail15_Hashtable_baseIN32pxrInternal_v0_24__pxrReserved__7TfTokenESt4
   br i1 %.not17.i.i.i.i.i, label %50, label %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdSchemaRegistry28FindAppliedAPIPrimDefinitionERKNS_7TfTokenE.exit, !llvm.loop !6
 
 65:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__13UsdSchemaBase18IsAppliedAPISchemaEv.exit
-  %66 = getelementptr inbounds i8, ptr %.0.i.i, i64 56
+  %66 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 56
   %67 = load i64, ptr %66, align 8
   %.not.not.i.i.i5 = icmp eq i64 %67, 0
   %68 = load ptr, ptr %2, align 8
@@ -418,7 +418,7 @@ _ZNKSt8__detail15_Hashtable_baseIN32pxrInternal_v0_24__pxrReserved__7TfTokenESt4
   br i1 %.not.not.i.i.i5, label %71, label %82
 
 71:                                               ; preds = %65
-  %72 = getelementptr inbounds i8, ptr %.0.i.i, i64 48
+  %72 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 48
   %73 = inttoptr i64 %70 to ptr
   br label %74
 
@@ -441,7 +441,7 @@ _ZNKSt8__detail15_Hashtable_baseIN32pxrInternal_v0_24__pxrReserved__7TfTokenESt4
   %83 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 32
   %84 = mul i64 %70, -7046029254386353067
   %85 = call noundef i64 @llvm.bswap.i64(i64 %84)
-  %86 = getelementptr inbounds i8, ptr %.0.i.i, i64 40
+  %86 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 40
   %87 = load i64, ptr %86, align 8
   %88 = urem i64 %85, %87
   %89 = load ptr, ptr %83, align 8
@@ -1327,7 +1327,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__18Usd_PrimDataHandleC2ERKS0_.exit: ; preds 
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathC2ERKS0_.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathC2ERKS0_.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__18Usd_PrimDataHandleC2ERKS0_.exit, %12
-  %23 = getelementptr inbounds i8, ptr %0, i64 20
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %24 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %25 = load i32, ptr %24, align 4
   store i32 %25, ptr %23, align 4

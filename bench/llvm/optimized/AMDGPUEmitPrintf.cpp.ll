@@ -601,7 +601,7 @@ _ZNK4llvm15SparseBitVectorILj8EE19FindLowerBoundConstEj.exit.i.i: ; preds = %.si
 
 _ZNK4llvm15SparseBitVectorILj8EE4testEj.exit.i:   ; preds = %257
   %260 = and i64 %.071160.i, 7
-  %261 = getelementptr inbounds i8, ptr %.sroa.08.0.i.i.i.i, i64 24
+  %261 = getelementptr inbounds nuw i8, ptr %.sroa.08.0.i.i.i.i, i64 24
   %262 = load i64, ptr %261, align 8
   %263 = shl nuw nsw i64 1, %260
   %264 = and i64 %262, %263
@@ -905,7 +905,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_5ValueELb1EE9push_backES2_.exit.i: ; preds
   %406 = load ptr, ptr %140, align 8
   %407 = call noundef ptr @_ZN4llvm4Type10getInt32TyERNS_11LLVMContextE(ptr noundef nonnull align 8 dereferenceable(8) %406) #13
   store ptr %407, ptr %61, align 8
-  %408 = getelementptr inbounds i8, ptr %149, i64 300
+  %408 = getelementptr inbounds nuw i8, ptr %149, i64 300
   %409 = load i32, ptr %408, align 4
   %410 = load ptr, ptr %140, align 8
   %411 = call noundef ptr @_ZN4llvm11PointerType3getERNS_11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %410, i32 noundef %409) #13
@@ -1343,7 +1343,7 @@ _ZNK4llvm15SparseBitVectorILj8EE19FindLowerBoundConstEj.exit.i.i122: ; preds = %
 
 _ZNK4llvm15SparseBitVectorILj8EE4testEj.exit.i136: ; preds = %602
   %605 = and i64 %.04387.i, 7
-  %606 = getelementptr inbounds i8, ptr %.sroa.08.0.i.i.i.i123, i64 24
+  %606 = getelementptr inbounds nuw i8, ptr %.sroa.08.0.i.i.i.i123, i64 24
   %607 = load i64, ptr %606, align 8
   %608 = shl nuw nsw i64 1, %605
   %609 = and i64 %607, %608
@@ -2076,7 +2076,7 @@ _ZNK4llvm15SparseBitVectorILj8EE4testEj.exit.thread: ; preds = %921, %_ZNK4llvm1
 
 _ZNK4llvm15SparseBitVectorILj8EE4testEj.exit:     ; preds = %952
   %957 = and i32 %.093189, 7
-  %958 = getelementptr inbounds i8, ptr %.sroa.08.0.i.i.i, i64 24
+  %958 = getelementptr inbounds nuw i8, ptr %.sroa.08.0.i.i.i, i64 24
   %959 = load i64, ptr %958, align 8
   %960 = zext nneg i32 %957 to i64
   %961 = shl nuw nsw i64 1, %960
@@ -2465,7 +2465,7 @@ define linkonce_odr hidden void @_ZN4llvm15SparseBitVectorILj8EE3setEj(ptr nound
   %7 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #14
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store i32 %3, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %7, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store i64 0, ptr %9, align 8
   tail call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull %0) #13
   br label %.sink.split
@@ -2559,7 +2559,7 @@ _ZN4llvm15SparseBitVectorILj8EE14FindLowerBoundEj.exit: ; preds = %17, %.sink.sp
   %44 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #14
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 16
   store i32 %3, ptr %45, align 8
-  %46 = getelementptr inbounds i8, ptr %44, i64 24
+  %46 = getelementptr inbounds nuw i8, ptr %44, i64 24
   store i64 0, ptr %46, align 8
   tail call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %44, ptr noundef %.sroa.010.1) #13
   br label %.sink.split
@@ -2580,7 +2580,7 @@ _ZN4llvm15SparseBitVectorILj8EE14FindLowerBoundEj.exit: ; preds = %17, %.sink.sp
   %53 = and i32 %1, 7
   %54 = zext nneg i32 %53 to i64
   %55 = shl nuw nsw i64 1, %54
-  %56 = getelementptr inbounds i8, ptr %.sroa.010.0, i64 24
+  %56 = getelementptr inbounds nuw i8, ptr %.sroa.010.0, i64 24
   %57 = load i64, ptr %56, align 8
   %58 = or i64 %57, %55
   store i64 %58, ptr %56, align 8
@@ -2934,7 +2934,7 @@ _ZN4llvm7PHINode11addIncomingEPNS_5ValueEPNS_10BasicBlockE.exit117: ; preds = %_
 
 _ZN4llvm13IRBuilderBase12CreateCondBrEPNS_5ValueEPNS_10BasicBlockES4_PNS_6MDNodeES6_.exit: ; preds = %.lr.ph.i.i.i, %_ZN4llvm7PHINode11addIncomingEPNS_5ValueEPNS_10BasicBlockE.exit117
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5)
-  %199 = getelementptr inbounds i8, ptr %77, i64 56
+  %199 = getelementptr inbounds nuw i8, ptr %77, i64 56
   %200 = load ptr, ptr %199, align 8
   call void @_ZN4llvm13IRBuilderBase14SetInsertPointEPNS_10BasicBlockENS_21ilist_iterator_w_bitsINS_12ilist_detail12node_optionsINS_11InstructionELb0ELb0EvLb1ES1_EELb0ELb0EEE(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef nonnull %77, ptr %200, i64 1)
   %201 = getelementptr inbounds nuw i8, ptr %17, i64 32
@@ -3042,7 +3042,7 @@ _ZN4llvm13IRBuilderBase9CreateAddEPNS_5ValueES2_RKNS_5TwineEbb.exit: ; preds = %
   %250 = load i64, ptr %249, align 8
   %251 = call noundef ptr @_ZN4llvm4UsernwEmj(i64 noundef 72, i32 noundef 1) #13
   call void @_ZN4llvm10BranchInstC1EPNS_10BasicBlockENS_14InsertPositionE(ptr noundef nonnull align 8 dereferenceable(72) %251, ptr noundef %.0, ptr %248, i64 %250) #13
-  %252 = getelementptr inbounds i8, ptr %.0, i64 56
+  %252 = getelementptr inbounds nuw i8, ptr %.0, i64 56
   %253 = load ptr, ptr %252, align 8
   call void @_ZN4llvm13IRBuilderBase14SetInsertPointEPNS_10BasicBlockENS_21ilist_iterator_w_bitsINS_12ilist_detail12node_optionsINS_11InstructionELb0ELb0EvLb1ES1_EELb0ELb0EEE(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef nonnull %.0, ptr %253, i64 1)
   %254 = getelementptr inbounds nuw i8, ptr %.0.i120, i64 8
@@ -4354,7 +4354,7 @@ define linkonce_odr hidden noundef ptr @_ZN4llvm8CallInst6CreateEPNS_12FunctionT
   %.012.i = phi i32 [ %21, %.lr.ph.i ], [ 0, %8 ]
   %.0811.i = phi ptr [ %22, %.lr.ph.i ], [ %4, %8 ]
   %12 = getelementptr inbounds nuw i8, ptr %.0811.i, i64 32
-  %13 = getelementptr inbounds i8, ptr %.0811.i, i64 40
+  %13 = getelementptr inbounds nuw i8, ptr %.0811.i, i64 40
   %14 = load ptr, ptr %13, align 8
   %15 = load ptr, ptr %12, align 8
   %16 = ptrtoint ptr %14 to i64
@@ -4387,7 +4387,7 @@ _ZN4llvm8CallBase17CountBundleInputsENS_8ArrayRefINS_17OperandBundleDefTIPNS_5Va
   %.012.i.i = phi i32 [ %39, %.lr.ph.i.i ], [ 0, %_ZN4llvm8CallBase17CountBundleInputsENS_8ArrayRefINS_17OperandBundleDefTIPNS_5ValueEEEEE.exit ]
   %.0811.i.i = phi ptr [ %40, %.lr.ph.i.i ], [ %4, %_ZN4llvm8CallBase17CountBundleInputsENS_8ArrayRefINS_17OperandBundleDefTIPNS_5ValueEEEEE.exit ]
   %30 = getelementptr inbounds nuw i8, ptr %.0811.i.i, i64 32
-  %31 = getelementptr inbounds i8, ptr %.0811.i.i, i64 40
+  %31 = getelementptr inbounds nuw i8, ptr %.0811.i.i, i64 40
   %32 = load ptr, ptr %31, align 8
   %33 = load ptr, ptr %30, align 8
   %34 = ptrtoint ptr %32 to i64
@@ -4404,7 +4404,7 @@ _ZN4llvm8CallBase17CountBundleInputsENS_8ArrayRefINS_17OperandBundleDefTIPNS_5Va
   %.012.i11.i = phi i32 [ %50, %.lr.ph.i10.i ], [ 0, %.lr.ph.i.i ]
   %.0811.i12.i = phi ptr [ %51, %.lr.ph.i10.i ], [ %4, %.lr.ph.i.i ]
   %41 = getelementptr inbounds nuw i8, ptr %.0811.i12.i, i64 32
-  %42 = getelementptr inbounds i8, ptr %.0811.i12.i, i64 40
+  %42 = getelementptr inbounds nuw i8, ptr %.0811.i12.i, i64 40
   %43 = load ptr, ptr %42, align 8
   %44 = load ptr, ptr %41, align 8
   %45 = ptrtoint ptr %43 to i64

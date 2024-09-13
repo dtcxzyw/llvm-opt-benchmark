@@ -136,7 +136,7 @@ define hidden i32 @av1_get_palette_cache(ptr nocapture noundef readonly %0, i32 
   br i1 %.not64, label %22, label %15
 
 15:                                               ; preds = %10
-  %16 = getelementptr inbounds i8, ptr %12, i64 150
+  %16 = getelementptr inbounds nuw i8, ptr %12, i64 150
   %17 = icmp ne i32 %1, 0
   %18 = zext i1 %17 to i64
   %19 = getelementptr inbounds [2 x i8], ptr %16, i64 0, i64 %18
@@ -153,7 +153,7 @@ define hidden i32 @av1_get_palette_cache(ptr nocapture noundef readonly %0, i32 
   br i1 %.not65, label %32, label %25
 
 25:                                               ; preds = %22
-  %26 = getelementptr inbounds i8, ptr %23, i64 150
+  %26 = getelementptr inbounds nuw i8, ptr %23, i64 150
   %27 = icmp ne i32 %1, 0
   %28 = zext i1 %27 to i64
   %29 = getelementptr inbounds [2 x i8], ptr %26, i64 0, i64 %28

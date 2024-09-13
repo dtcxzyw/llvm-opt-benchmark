@@ -353,7 +353,7 @@ define dso_local void @_ZNK5clang21MacroExpansionContext15getExpandedTextENS_14S
 7:                                                ; preds = %3
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %1, i64 40
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %11 = load i32, ptr %10, align 8
   %12 = icmp eq i32 %11, 0
   br i1 %12, label %_ZNK4llvm12DenseMapBaseINS_8DenseMapIN5clang14SourceLocationES3_NS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S3_EEEES3_S3_S5_S8_E6doFindIS3_EEPKS8_RKT_.exit.thread.i, label %13
@@ -505,7 +505,7 @@ define dso_local void @_ZNK5clang21MacroExpansionContext15getOriginalTextENS_14S
 6:                                                ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %1, i64 40
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %10 = load i32, ptr %9, align 8
   %11 = icmp eq i32 %10, 0
   br i1 %11, label %_ZNK4llvm12DenseMapBaseINS_8DenseMapIN5clang14SourceLocationES3_NS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S3_EEEES3_S3_S5_S8_E6doFindIS3_EEPKS8_RKT_.exit.thread.i, label %12
@@ -604,7 +604,7 @@ define dso_local void @_ZNK5clang21MacroExpansionContext19dumpExpansionRangesEv(
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZNK5clang21MacroExpansionContext27dumpExpansionRangesToStreamERN4llvm11raw_ostreamE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(48) %1) local_unnamed_addr #1 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 32
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i32, ptr %3, align 8
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %_ZN4llvm4sortIRSt6vectorISt4pairIN5clang14SourceLocationES4_ESaIS5_EEEEvOT_.exit, label %5
@@ -616,7 +616,7 @@ define dso_local void @_ZNK5clang21MacroExpansionContext27dumpExpansionRangesToS
   %9 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %8) #16
   %10 = getelementptr inbounds %"struct.std::pair.296", ptr %9, i64 %7
   %11 = load ptr, ptr %6, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 40
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %13 = load i32, ptr %12, align 8
   %14 = zext i32 %13 to i64
   %15 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.295", ptr %11, i64 %14

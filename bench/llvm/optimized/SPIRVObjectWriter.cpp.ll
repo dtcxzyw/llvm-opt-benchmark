@@ -33,7 +33,7 @@ define dso_local void @_ZN4llvm17SPIRVObjectWriter11writeHeaderERKNS_11MCAssembl
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 112
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %11 = load i32, ptr %10, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
   %.not.i.i.i = icmp eq i32 %11, 1
@@ -44,7 +44,7 @@ define dso_local void @_ZN4llvm17SPIRVObjectWriter11writeHeaderERKNS_11MCAssembl
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %14 = load i32, ptr %13, align 8
   %15 = shl i32 %14, 16
-  %16 = getelementptr inbounds i8, ptr %0, i64 132
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 132
   %17 = load i32, ptr %16, align 4
   %18 = shl i32 %17, 8
   %19 = or i32 %18, %15
@@ -65,7 +65,7 @@ define dso_local void @_ZN4llvm17SPIRVObjectWriter11writeHeaderERKNS_11MCAssembl
   store i32 %spec.select.i.i.i4, ptr %5, align 4
   %26 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %24, ptr noundef nonnull %5, i64 noundef 4) #9
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
-  %27 = getelementptr inbounds i8, ptr %0, i64 136
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %28 = load i32, ptr %27, align 8
   %29 = load ptr, ptr %8, align 8
   %30 = load i32, ptr %10, align 8
@@ -88,9 +88,9 @@ define dso_local void @_ZN4llvm17SPIRVObjectWriter11writeHeaderERKNS_11MCAssembl
 define dso_local void @_ZN4llvm17SPIRVObjectWriter15setBuildVersionEjjj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(144) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #1 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store i32 %1, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 132
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 132
   store i32 %2, ptr %6, align 4
-  %7 = getelementptr inbounds i8, ptr %0, i64 136
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 136
   store i32 %3, ptr %7, align 8
   ret void
 }
@@ -113,7 +113,7 @@ define dso_local noundef i64 @_ZN4llvm17SPIRVObjectWriter11writeObjectERNS_11MCA
   %16 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %17 = load ptr, ptr %16, align 8
   %18 = load ptr, ptr %8, align 8
-  %19 = getelementptr inbounds i8, ptr %0, i64 112
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %20 = load i32, ptr %19, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
   %.not.i.i.i.i = icmp eq i32 %20, 1
@@ -124,7 +124,7 @@ define dso_local noundef i64 @_ZN4llvm17SPIRVObjectWriter11writeObjectERNS_11MCA
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %23 = load i32, ptr %22, align 8
   %24 = shl i32 %23, 16
-  %25 = getelementptr inbounds i8, ptr %0, i64 132
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 132
   %26 = load i32, ptr %25, align 4
   %27 = shl i32 %26, 8
   %28 = or i32 %27, %24
@@ -145,7 +145,7 @@ define dso_local noundef i64 @_ZN4llvm17SPIRVObjectWriter11writeObjectERNS_11MCA
   store i32 %spec.select.i.i.i4.i, ptr %5, align 4
   %35 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %33, ptr noundef nonnull %5, i64 noundef 4) #9
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
-  %36 = getelementptr inbounds i8, ptr %0, i64 136
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %37 = load i32, ptr %36, align 8
   %38 = load ptr, ptr %8, align 8
   %39 = load i32, ptr %19, align 8
@@ -225,9 +225,9 @@ _ZNSt10unique_ptrIN4llvm17SPIRVObjectWriterESt14default_deleteIS1_EED2Ev.exit:
   store i64 %4, ptr %11, align 8, !noalias !4
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 128
   store i32 0, ptr %12, align 4, !noalias !4
-  %13 = getelementptr inbounds i8, ptr %3, i64 132
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 132
   store i32 0, ptr %13, align 4, !noalias !4
-  %14 = getelementptr inbounds i8, ptr %3, i64 136
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 136
   store i32 0, ptr %14, align 4, !noalias !4
   store ptr %3, ptr %0, align 8
   ret void

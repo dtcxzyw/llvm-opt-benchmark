@@ -77,11 +77,11 @@ _ZNKSt3mapImSt10shared_ptrIKN10OpenSubdiv6v3_6_03Bfr9PatchTreeEESt4lessImESaISt4
   br i1 %15, label %_ZNKSt3mapImSt10shared_ptrIKN10OpenSubdiv6v3_6_03Bfr9PatchTreeEESt4lessImESaISt4pairIKmS6_EEE4findERSA_.exit.thread.i, label %16
 
 16:                                               ; preds = %_ZNKSt3mapImSt10shared_ptrIKN10OpenSubdiv6v3_6_03Bfr9PatchTreeEESt4lessImESaISt4pairIKmS6_EEE4findERSA_.exit.i
-  %17 = getelementptr inbounds i8, ptr %.19.i.i.i.i, i64 40
+  %17 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i, i64 40
   %18 = load ptr, ptr %17, align 8, !noalias !5
   store ptr %18, ptr %0, align 8, !alias.scope !5
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %20 = getelementptr inbounds i8, ptr %.19.i.i.i.i, i64 48
+  %20 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i, i64 48
   %21 = load ptr, ptr %20, align 8, !noalias !5
   store ptr %21, ptr %19, align 8, !alias.scope !5
   %.not.i.i.i2.i = icmp eq ptr %21, null
@@ -181,7 +181,7 @@ define linkonce_odr void @_ZNSt8_Rb_treeImSt4pairIKmSt10shared_ptrIKN10OpenSubdi
   tail call void @_ZNSt8_Rb_treeImSt4pairIKmSt10shared_ptrIKN10OpenSubdiv6v3_6_03Bfr9PatchTreeEEESt10_Select1stIS9_ESt4lessImESaIS9_EE8_M_eraseEPSt13_Rb_tree_nodeIS9_E(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %4)
   %5 = getelementptr inbounds nuw i8, ptr %.07, i64 16
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %.07, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %.07, i64 48
   %8 = load ptr, ptr %7, align 8
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %8, null
   br i1 %.not.i.i.i.i.i.i.i.i, label %_ZNSt8_Rb_treeImSt4pairIKmSt10shared_ptrIKN10OpenSubdiv6v3_6_03Bfr9PatchTreeEEESt10_Select1stIS9_ESt4lessImESaIS9_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS9_E.exit, label %9
@@ -302,11 +302,11 @@ _ZNKSt3mapImSt10shared_ptrIKN10OpenSubdiv6v3_6_03Bfr9PatchTreeEESt4lessImESaISt4
   br i1 %15, label %_ZNKSt3mapImSt10shared_ptrIKN10OpenSubdiv6v3_6_03Bfr9PatchTreeEESt4lessImESaISt4pairIKmS6_EEE4findERSA_.exit.thread, label %16
 
 16:                                               ; preds = %_ZNKSt3mapImSt10shared_ptrIKN10OpenSubdiv6v3_6_03Bfr9PatchTreeEESt4lessImESaISt4pairIKmS6_EEE4findERSA_.exit
-  %17 = getelementptr inbounds i8, ptr %.19.i.i.i, i64 40
+  %17 = getelementptr inbounds nuw i8, ptr %.19.i.i.i, i64 40
   %18 = load ptr, ptr %17, align 8
   store ptr %18, ptr %0, align 8
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %20 = getelementptr inbounds i8, ptr %.19.i.i.i, i64 48
+  %20 = getelementptr inbounds nuw i8, ptr %.19.i.i.i, i64 48
   %21 = load ptr, ptr %20, align 8
   store ptr %21, ptr %19, align 8
   %.not.i.i.i2 = icmp eq ptr %21, null
@@ -380,7 +380,7 @@ _ZNSt3mapImSt10shared_ptrIKN10OpenSubdiv6v3_6_03Bfr9PatchTreeEESt4lessImESaISt4p
   br i1 %19, label %_ZNSt3mapImSt10shared_ptrIKN10OpenSubdiv6v3_6_03Bfr9PatchTreeEESt4lessImESaISt4pairIKmS6_EEE4findERSA_.exit.thread, label %20
 
 20:                                               ; preds = %_ZNSt3mapImSt10shared_ptrIKN10OpenSubdiv6v3_6_03Bfr9PatchTreeEESt4lessImESaISt4pairIKmS6_EEE4findERSA_.exit
-  %21 = getelementptr inbounds i8, ptr %.19.i.i.i, i64 40
+  %21 = getelementptr inbounds nuw i8, ptr %.19.i.i.i, i64 40
   br label %_ZNSt10shared_ptrIKN10OpenSubdiv6v3_6_03Bfr9PatchTreeEEaSERKS5_.exit
 
 _ZNSt3mapImSt10shared_ptrIKN10OpenSubdiv6v3_6_03Bfr9PatchTreeEESt4lessImESaISt4pairIKmS6_EEE4findERSA_.exit.thread: ; preds = %_ZNSt8_Rb_treeImSt4pairIKmSt10shared_ptrIKN10OpenSubdiv6v3_6_03Bfr9PatchTreeEEESt10_Select1stIS9_ESt4lessImESaIS9_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS9_EPSt18_Rb_tree_node_baseRS1_.exit.i.i, %_ZNSt3mapImSt10shared_ptrIKN10OpenSubdiv6v3_6_03Bfr9PatchTreeEESt4lessImESaISt4pairIKmS6_EEE4findERSA_.exit
@@ -419,12 +419,12 @@ _ZNSt3mapImSt10shared_ptrIKN10OpenSubdiv6v3_6_03Bfr9PatchTreeEESt4lessImESaISt4p
 
 _ZNSt3mapImSt10shared_ptrIKN10OpenSubdiv6v3_6_03Bfr9PatchTreeEESt4lessImESaISt4pairIKmS6_EEEixERSA_.exit: ; preds = %27, %.critedge.i
   %.sroa.05.0.i = phi ptr [ %31, %.critedge.i ], [ %.19.i.i.i.i, %27 ]
-  %32 = getelementptr inbounds i8, ptr %.sroa.05.0.i, i64 40
+  %32 = getelementptr inbounds nuw i8, ptr %.sroa.05.0.i, i64 40
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6)
   %33 = load ptr, ptr %3, align 8
   store ptr %33, ptr %32, align 8
-  %34 = getelementptr inbounds i8, ptr %.sroa.05.0.i, i64 48
+  %34 = getelementptr inbounds nuw i8, ptr %.sroa.05.0.i, i64 48
   %35 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %36 = load ptr, ptr %35, align 8
   %37 = load ptr, ptr %34, align 8
@@ -574,7 +574,7 @@ define linkonce_odr ptr @_ZNSt8_Rb_treeImSt4pairIKmSt10shared_ptrIKN10OpenSubdiv
   %11 = inttoptr i64 %10 to ptr
   %12 = load i64, ptr %11, align 8
   store i64 %12, ptr %9, align 8
-  %13 = getelementptr inbounds i8, ptr %8, i64 40
+  %13 = getelementptr inbounds nuw i8, ptr %8, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %13, i8 0, i64 16, i1 false)
   store ptr %8, ptr %7, align 8
   %14 = invoke { ptr, ptr } @_ZNSt8_Rb_treeImSt4pairIKmSt10shared_ptrIKN10OpenSubdiv6v3_6_03Bfr9PatchTreeEEESt10_Select1stIS9_ESt4lessImESaIS9_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS9_ERS1_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %1, ptr noundef nonnull align 8 dereferenceable(8) %9)
@@ -616,7 +616,7 @@ define linkonce_odr ptr @_ZNSt8_Rb_treeImSt4pairIKmSt10shared_ptrIKN10OpenSubdiv
   resume { ptr, i32 } %31
 
 32:                                               ; preds = %15
-  %33 = getelementptr inbounds i8, ptr %8, i64 48
+  %33 = getelementptr inbounds nuw i8, ptr %8, i64 48
   %34 = load ptr, ptr %33, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %34, null
   br i1 %.not.i.i.i.i.i.i.i.i.i, label %_ZNSt8_Rb_treeImSt4pairIKmSt10shared_ptrIKN10OpenSubdiv6v3_6_03Bfr9PatchTreeEEESt10_Select1stIS9_ESt4lessImESaIS9_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS9_E.exit.i, label %35
@@ -918,7 +918,7 @@ define linkonce_odr void @_ZNSt8_Rb_treeImSt4pairIKmSt10shared_ptrIKN10OpenSubdi
   br i1 %.not, label %41, label %4
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %3, i64 48
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %6 = load ptr, ptr %5, align 8
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %6, null
   br i1 %.not.i.i.i.i.i.i.i.i, label %_ZNSt8_Rb_treeImSt4pairIKmSt10shared_ptrIKN10OpenSubdiv6v3_6_03Bfr9PatchTreeEEESt10_Select1stIS9_ESt4lessImESaIS9_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS9_E.exit, label %7

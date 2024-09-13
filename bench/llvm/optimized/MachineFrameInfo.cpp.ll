@@ -67,9 +67,9 @@ define dso_local noundef i32 @_ZN4llvm16MachineFrameInfo17CreateStackObjectEmNS_
   %11 = xor i1 %3, true
   %12 = zext i1 %3 to i8
   %13 = zext i1 %11 to i8
-  %14 = getelementptr inbounds i8, ptr %0, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %17 = load ptr, ptr %16, align 8
   %.not.i.i = icmp eq ptr %15, %17
   br i1 %.not.i.i, label %21, label %18
@@ -230,7 +230,7 @@ define dso_local noundef i32 @_ZN4llvm16MachineFrameInfo22CreateSpillStackObject
   %.sroa.04.0.i = select i1 %6, i8 %2, i8 %spec.select.i
   %7 = tail call noundef i32 @_ZN4llvm16MachineFrameInfo17CreateStackObjectEmNS_5AlignEbPKNS_10AllocaInstEh(ptr noundef nonnull align 8 dereferenceable(696) %0, i64 noundef %1, i8 %.sroa.04.0.i, i1 noundef zeroext true, ptr noundef null, i8 noundef zeroext 0)
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = load ptr, ptr %9, align 8
   %11 = load ptr, ptr %8, align 8
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -266,9 +266,9 @@ define dso_local noundef i32 @_ZN4llvm16MachineFrameInfo25CreateVariableSizedObj
   %spec.select.i = tail call i8 @llvm.umin.i8(i8 %1, i8 %.sroa.02.0.copyload)
   %.sroa.04.0.i = select i1 %7, i8 %1, i8 %spec.select.i
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %12 = load ptr, ptr %11, align 8
   %.not.i.i = icmp eq ptr %10, %12
   br i1 %.not.i.i, label %16, label %13
@@ -562,7 +562,7 @@ define dso_local void @_ZNK4llvm16MachineFrameInfo15getPristineRegsERKNS_15Machi
 .critedge:                                        ; preds = %.lr.ph, %.lr.ph.preheader, %21
   %39 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %40 = load ptr, ptr %39, align 8
-  %41 = getelementptr inbounds i8, ptr %1, i64 104
+  %41 = getelementptr inbounds nuw i8, ptr %1, i64 104
   %42 = load ptr, ptr %41, align 8
   %.not3038 = icmp eq ptr %40, %42
   br i1 %.not3038, label %.loopexit, label %.lr.ph40
@@ -681,7 +681,7 @@ define dso_local noundef i64 @_ZNK4llvm16MachineFrameInfo17estimateStackSizeERKN
   %33 = phi ptr [ %.pre, %.._crit_edge_crit_edge ], [ %19, %31 ]
   %.0.lcssa = phi i64 [ 0, %.._crit_edge_crit_edge ], [ %.1, %31 ]
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %35 = getelementptr inbounds i8, ptr %0, i64 16
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %36 = load ptr, ptr %35, align 8
   %37 = ptrtoint ptr %36 to i64
   %38 = ptrtoint ptr %33 to i64
@@ -826,7 +826,7 @@ define dso_local void @_ZN4llvm16MachineFrameInfo23computeMaxCallFrameSizeERNS_1
   %13 = load i32, ptr %12, align 4
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store i64 0, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %1, i64 328
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 328
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 320
   %.sroa.027.038 = load ptr, ptr %15, align 8
   %.not3039 = icmp eq ptr %.sroa.027.038, %16
@@ -1056,7 +1056,7 @@ _ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEppEv.exit: ; preds =
 define dso_local void @_ZNK4llvm16MachineFrameInfo5printERKNS_15MachineFunctionERNS_11raw_ostreamE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(696) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(1041) %1, ptr noundef nonnull align 8 dereferenceable(48) %2) local_unnamed_addr #2 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %5, %7
   br i1 %8, label %.loopexit, label %9

@@ -307,11 +307,11 @@ define dso_local void @_ZNK5clang4ento14CheckerManager31reportInvalidCheckerOpti
   %20 = getelementptr inbounds nuw i8, ptr %7, i64 25
   store i8 0, ptr %20, align 1, !alias.scope !10
   store i8 0, ptr %16, align 8, !noalias !10
-  %21 = getelementptr inbounds i8, ptr %12, i64 792
+  %21 = getelementptr inbounds nuw i8, ptr %12, i64 792
   %22 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %21) #17, !noalias !10
-  %23 = getelementptr inbounds i8, ptr %12, i64 800
+  %23 = getelementptr inbounds nuw i8, ptr %12, i64 800
   store i32 0, ptr %23, align 8, !noalias !10
-  %24 = getelementptr inbounds i8, ptr %12, i64 904
+  %24 = getelementptr inbounds nuw i8, ptr %12, i64 904
   %25 = load ptr, ptr %24, align 8, !noalias !10
   %26 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %24) #17, !noalias !10
   %.not4.i.i.i.i.i = icmp eq i64 %26, 0
@@ -330,7 +330,7 @@ define dso_local void @_ZNK5clang4ento14CheckerManager31reportInvalidCheckerOpti
   br i1 %.not.i.i.i.i.i, label %_ZN4llvmplERKNS_5TwineES2_.exit31, label %.lr.ph.i.i.i.i.i, !llvm.loop !11
 
 _ZN4llvmplERKNS_5TwineES2_.exit31:                ; preds = %.lr.ph.i.i.i.i.i, %6
-  %30 = getelementptr inbounds i8, ptr %12, i64 912
+  %30 = getelementptr inbounds nuw i8, ptr %12, i64 912
   store i32 0, ptr %30, align 8, !noalias !10
   %31 = load ptr, ptr %1, align 8
   %32 = getelementptr inbounds i8, ptr %31, i64 16
@@ -426,7 +426,7 @@ define dso_local void @_ZN5clang4ento14CheckerManager20runCheckersOnASTDeclEPKNS
   store i32 %8, ptr %5, align 4
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 1000
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 1016
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 1016
   %12 = load i32, ptr %11, align 8
   %13 = icmp eq i32 %12, 0
   br i1 %13, label %.loopexit.i, label %14
@@ -535,7 +535,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIjNS_11SmallVectorIN5clang4ento9CheckerFnIFvP
   %61 = getelementptr inbounds nuw i8, ptr %.0.i.i20, i64 8
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 952
   %63 = load ptr, ptr %62, align 8
-  %64 = getelementptr inbounds i8, ptr %0, i64 960
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 960
   %65 = load ptr, ptr %64, align 8
   %.not2833 = icmp eq ptr %63, %65
   br i1 %.not2833, label %.loopexit, label %.lr.ph
@@ -611,7 +611,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 define dso_local void @_ZN5clang4ento14CheckerManager20runCheckersOnASTBodyEPKNS_4DeclERNS0_15AnalysisManagerERNS0_11BugReporterE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1552) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(256) %2, ptr noundef nonnull align 8 dereferenceable(120) %3) local_unnamed_addr #2 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 976
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 984
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 984
   %8 = load ptr, ptr %7, align 8
   %.not10 = icmp eq ptr %6, %8
   br i1 %.not10, label %._crit_edge, label %.lr.ph
@@ -742,7 +742,7 @@ _ZN5clang4ento15ExplodedNodeSet5clearEv.exit.i:   ; preds = %._crit_edge.i.i.i.i
   %..sroa.sel46.i = select i1 %44, ptr %27, ptr %25
   %60 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %..sroa.sel46.i) #17
   %..sroa.sel49.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel.v = select i1 %44, ptr %11, ptr %10
-  %..sroa.sel49.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel = getelementptr inbounds i8, ptr %..sroa.sel49.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel.v, i64 32
+  %..sroa.sel49.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %..sroa.sel49.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel.v, i64 32
   store i32 0, ptr %..sroa.sel49.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel, align 8
   br label %61
 
@@ -848,7 +848,7 @@ define dso_local noundef nonnull align 8 dereferenceable(80) ptr @_ZN5clang4ento
   store i32 %9, ptr %4, align 4
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 1048
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 1064
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 1064
   %13 = load i32, ptr %12, align 8
   %14 = icmp eq i32 %13, 0
   br i1 %14, label %.loopexit.i, label %15
@@ -957,7 +957,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIjNS_11SmallVectorIN5clang4ento9CheckerFnIFvP
   %62 = getelementptr inbounds nuw i8, ptr %.0.i.i12, i64 8
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 1024
   %64 = load ptr, ptr %63, align 8
-  %65 = getelementptr inbounds i8, ptr %0, i64 1032
+  %65 = getelementptr inbounds nuw i8, ptr %0, i64 1032
   %66 = load ptr, ptr %65, align 8
   %.not1924 = icmp eq ptr %64, %66
   br i1 %.not1924, label %.loopexit, label %.lr.ph
@@ -1133,7 +1133,7 @@ _ZN5clang4ento15ExplodedNodeSet5clearEv.exit.i:   ; preds = %._crit_edge.i.i.i.i
   %..sroa.sel35.i = select i1 %43, ptr %26, ptr %24
   %59 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %..sroa.sel35.i) #17
   %..sroa.sel38.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel.v = select i1 %43, ptr %10, ptr %9
-  %..sroa.sel38.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel = getelementptr inbounds i8, ptr %..sroa.sel38.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel.v, i64 32
+  %..sroa.sel38.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %..sroa.sel38.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel.v, i64 32
   store i32 0, ptr %..sroa.sel38.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel, align 8
   br label %60
 
@@ -1493,7 +1493,7 @@ _ZN5clang4ento15ExplodedNodeSet5clearEv.exit.i:   ; preds = %._crit_edge.i.i.i.i
   %..sroa.sel35.i = select i1 %43, ptr %26, ptr %24
   %59 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %..sroa.sel35.i) #17
   %..sroa.sel38.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel.v = select i1 %43, ptr %11, ptr %10
-  %..sroa.sel38.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel = getelementptr inbounds i8, ptr %..sroa.sel38.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel.v, i64 32
+  %..sroa.sel38.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %..sroa.sel38.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel.v, i64 32
   store i32 0, ptr %..sroa.sel38.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel, align 8
   br label %60
 
@@ -1848,7 +1848,7 @@ _ZN5clang4ento15ExplodedNodeSet5clearEv.exit.i:   ; preds = %._crit_edge.i.i.i.i
   %..sroa.sel34.i = select i1 %44, ptr %27, ptr %25
   %60 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %..sroa.sel34.i) #17
   %..sroa.sel37.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel.v = select i1 %44, ptr %13, ptr %12
-  %..sroa.sel37.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel = getelementptr inbounds i8, ptr %..sroa.sel37.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel.v, i64 32
+  %..sroa.sel37.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %..sroa.sel37.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel.v, i64 32
   store i32 0, ptr %..sroa.sel37.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel, align 8
   br label %61
 
@@ -2062,7 +2062,7 @@ _ZN5clang4ento15ExplodedNodeSet5clearEv.exit.i:   ; preds = %._crit_edge.i.i.i.i
   %..sroa.sel34.i = select i1 %45, ptr %26, ptr %24
   %61 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %..sroa.sel34.i) #17
   %..sroa.sel37.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel.v = select i1 %45, ptr %12, ptr %11
-  %..sroa.sel37.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel = getelementptr inbounds i8, ptr %..sroa.sel37.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel.v, i64 32
+  %..sroa.sel37.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %..sroa.sel37.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel.v, i64 32
   store i32 0, ptr %..sroa.sel37.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel, align 8
   br label %62
 
@@ -2167,7 +2167,7 @@ _ZL23expandGraphWithCheckersIN12_GLOBAL__N_116CheckBindContextEEvT_RN5clang4ento
 define dso_local void @_ZN5clang4ento14CheckerManager25runCheckersForEndAnalysisERNS0_13ExplodedGraphERNS0_11BugReporterERNS0_10ExprEngineE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1552) %0, ptr noundef nonnull align 8 dereferenceable(136) %1, ptr noundef nonnull align 8 dereferenceable(120) %2, ptr noundef nonnull align 8 dereferenceable(796) %3) local_unnamed_addr #2 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 1240
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 1248
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 1248
   %8 = load ptr, ptr %7, align 8
   %.not10 = icmp eq ptr %6, %8
   br i1 %.not10, label %._crit_edge, label %.lr.ph
@@ -2333,7 +2333,7 @@ _ZN5clang4ento15ExplodedNodeSet5clearEv.exit.i:   ; preds = %._crit_edge.i.i.i.i
   %..sroa.sel36.i = select i1 %57, ptr %38, ptr %36
   %73 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %..sroa.sel36.i) #17
   %..sroa.sel39.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel.v = select i1 %57, ptr %8, ptr %7
-  %..sroa.sel39.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel = getelementptr inbounds i8, ptr %..sroa.sel39.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel.v, i64 32
+  %..sroa.sel39.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %..sroa.sel39.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel.v, i64 32
   store i32 0, ptr %..sroa.sel39.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel, align 8
   br label %74
 
@@ -2555,7 +2555,7 @@ _ZN5clang4ento11NodeBuilderC2EPNS0_12ExplodedNodeERNS0_15ExplodedNodeSetERKNS0_1
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 1288
   %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %0, i64 1296
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 1296
   %23 = load ptr, ptr %22, align 8
   %.not18 = icmp eq ptr %21, %23
   br i1 %.not18, label %._crit_edge, label %.lr.ph
@@ -2746,7 +2746,7 @@ _ZN5clang4ento15ExplodedNodeSet5clearEv.exit.i:   ; preds = %._crit_edge.i.i.i.i
   %..sroa.sel36.i = select i1 %54, ptr %38, ptr %36
   %70 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %..sroa.sel36.i) #17
   %..sroa.sel39.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel.v = select i1 %54, ptr %8, ptr %7
-  %..sroa.sel39.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel = getelementptr inbounds i8, ptr %..sroa.sel39.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel.v, i64 32
+  %..sroa.sel39.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %..sroa.sel39.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel.v, i64 32
   store i32 0, ptr %..sroa.sel39.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel, align 8
   br label %71
 
@@ -3006,7 +3006,7 @@ _ZN5clang4ento15ExplodedNodeSet5clearEv.exit.i:   ; preds = %._crit_edge.i.i.i.i
   %..sroa.sel35.i = select i1 %57, ptr %40, ptr %38
   %73 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %..sroa.sel35.i) #17
   %..sroa.sel38.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel.v = select i1 %57, ptr %9, ptr %8
-  %..sroa.sel38.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel = getelementptr inbounds i8, ptr %..sroa.sel38.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel.v, i64 32
+  %..sroa.sel38.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %..sroa.sel38.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel.v, i64 32
   store i32 0, ptr %..sroa.sel38.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel, align 8
   br label %74
 
@@ -3280,7 +3280,7 @@ define dso_local void @_ZN5clang4ento14CheckerManager25runCheckersForLiveSymbols
   %4 = alloca %"class.llvm::IntrusiveRefCntPtr.295", align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 1360
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 1368
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 1368
   %8 = load ptr, ptr %7, align 8
   %.not11 = icmp eq ptr %6, %8
   br i1 %.not11, label %._crit_edge, label %.lr.ph
@@ -3448,7 +3448,7 @@ _ZN5clang4ento15ExplodedNodeSet5clearEv.exit.i:   ; preds = %._crit_edge.i.i.i.i
   %..sroa.sel34.i = select i1 %41, ptr %25, ptr %23
   %57 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %..sroa.sel34.i) #17
   %..sroa.sel37.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel.v = select i1 %41, ptr %11, ptr %10
-  %..sroa.sel37.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel = getelementptr inbounds i8, ptr %..sroa.sel37.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel.v, i64 32
+  %..sroa.sel37.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %..sroa.sel37.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel.v, i64 32
   store i32 0, ptr %..sroa.sel37.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel, align 8
   br label %58
 
@@ -3550,7 +3550,7 @@ define dso_local void @_ZN5clang4ento14CheckerManager27runCheckersForRegionChang
   %12 = alloca %"class.llvm::IntrusiveRefCntPtr.295", align 8
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 1408
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %1, i64 1416
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 1416
   %16 = load ptr, ptr %15, align 8
   %.not18 = icmp eq ptr %14, %16
   br i1 %.not18, label %._crit_edge, label %.lr.ph
@@ -3617,7 +3617,7 @@ define dso_local void @_ZN5clang4ento14CheckerManager27runCheckersForPointerEsca
   %9 = alloca %"class.llvm::IntrusiveRefCntPtr.295", align 8
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 1432
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %1, i64 1440
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 1440
   %13 = load ptr, ptr %12, align 8
   %.not16 = icmp eq ptr %11, %13
   br i1 %.not16, label %._crit_edge, label %.lr.ph
@@ -3681,7 +3681,7 @@ define dso_local void @_ZN5clang4ento14CheckerManager24runCheckersForEvalAssumeE
   %8 = alloca %"class.llvm::IntrusiveRefCntPtr.295", align 8
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 1456
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %1, i64 1464
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 1464
   %12 = load ptr, ptr %11, align 8
   %.not15 = icmp eq ptr %10, %12
   br i1 %.not15, label %._crit_edge, label %.lr.ph
@@ -3764,7 +3764,7 @@ define dso_local void @_ZN5clang4ento14CheckerManager22runCheckersForEvalCallERN
   %23 = getelementptr inbounds nuw i8, ptr %10, i64 17
   %24 = getelementptr inbounds nuw i8, ptr %10, i64 24
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 1480
-  %26 = getelementptr inbounds i8, ptr %0, i64 1488
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 1488
   %27 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %28 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %29 = getelementptr inbounds nuw i8, ptr %12, i64 24
@@ -3911,7 +3911,7 @@ declare void @_ZN5clang4ento10ExprEngine15defaultEvalCallERNS0_11NodeBuilderEPNS
 define dso_local void @_ZN5clang4ento14CheckerManager33runCheckersOnEndOfTranslationUnitEPKNS_19TranslationUnitDeclERNS0_15AnalysisManagerERNS0_11BugReporterE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1552) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(256) %2, ptr noundef nonnull align 8 dereferenceable(120) %3) local_unnamed_addr #2 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 1504
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 1512
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 1512
   %8 = load ptr, ptr %7, align 8
   %.not10 = icmp eq ptr %6, %8
   br i1 %.not10, label %._crit_edge, label %.lr.ph
@@ -4136,11 +4136,11 @@ _ZN5clang6IndentERN4llvm11raw_ostreamEjb.exit57:  ; preds = %_ZN4llvm11raw_ostre
 
 _ZN4llvm11raw_ostreamlsEPKc.exit61:               ; preds = %105, %107
   %110 = getelementptr inbounds nuw i8, ptr %0, i64 904
-  %111 = getelementptr inbounds i8, ptr %0, i64 912
+  %111 = getelementptr inbounds nuw i8, ptr %0, i64 912
   %112 = load i32, ptr %111, align 8
   %113 = icmp eq i32 %112, 0
   %114 = load ptr, ptr %110, align 8
-  %115 = getelementptr inbounds i8, ptr %0, i64 920
+  %115 = getelementptr inbounds nuw i8, ptr %0, i64 920
   %116 = load i32, ptr %115, align 8
   %117 = zext i32 %116 to i64
   %118 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.366", ptr %114, i64 %117
@@ -4941,9 +4941,9 @@ declare noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseImE5emptyEv(ptr noundef no
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN5clang4ento14CheckerManager16_registerForDeclENS0_9CheckerFnIFvPKNS_4DeclERNS0_15AnalysisManagerERNS0_11BugReporterEEEEPFbS5_E(ptr nocapture noundef nonnull align 8 dereferenceable(1552) %0, ptr %1, ptr %2, ptr noundef %3) local_unnamed_addr #2 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 952
-  %6 = getelementptr inbounds i8, ptr %0, i64 960
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 960
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 968
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 968
   %9 = load ptr, ptr %8, align 8
   %.not.i = icmp eq ptr %7, %9
   br i1 %.not.i, label %13, label %10
@@ -5030,9 +5030,9 @@ _ZNSt6vectorIN5clang4ento14CheckerManager15DeclCheckerInfoESaIS3_EE9push_backERK
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN5clang4ento14CheckerManager16_registerForBodyENS0_9CheckerFnIFvPKNS_4DeclERNS0_15AnalysisManagerERNS0_11BugReporterEEEE(ptr nocapture noundef nonnull align 8 dereferenceable(1552) %0, ptr %1, ptr %2) local_unnamed_addr #2 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 976
-  %5 = getelementptr inbounds i8, ptr %0, i64 984
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 984
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 992
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 992
   %8 = load ptr, ptr %7, align 8
   %.not.i = icmp eq ptr %6, %8
   br i1 %.not.i, label %12, label %9
@@ -5115,9 +5115,9 @@ _ZNSt6vectorIN5clang4ento9CheckerFnIFvPKNS0_4DeclERNS1_15AnalysisManagerERNS1_11
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN5clang4ento14CheckerManager19_registerForPreStmtENS0_9CheckerFnIFvPKNS_4StmtERNS0_14CheckerContextEEEEPFbS5_E(ptr nocapture noundef nonnull align 8 dereferenceable(1552) %0, ptr %1, ptr %2, ptr noundef %3) local_unnamed_addr #2 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 1024
-  %6 = getelementptr inbounds i8, ptr %0, i64 1032
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 1032
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 1040
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 1040
   %9 = load ptr, ptr %8, align 8
   %.not.i = icmp eq ptr %7, %9
   br i1 %.not.i, label %13, label %10
@@ -5208,9 +5208,9 @@ _ZNSt6vectorIN5clang4ento14CheckerManager15StmtCheckerInfoESaIS3_EE9push_backERK
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN5clang4ento14CheckerManager20_registerForPostStmtENS0_9CheckerFnIFvPKNS_4StmtERNS0_14CheckerContextEEEEPFbS5_E(ptr nocapture noundef nonnull align 8 dereferenceable(1552) %0, ptr %1, ptr %2, ptr noundef %3) local_unnamed_addr #2 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 1024
-  %6 = getelementptr inbounds i8, ptr %0, i64 1032
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 1032
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 1040
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 1040
   %9 = load ptr, ptr %8, align 8
   %.not.i = icmp eq ptr %7, %9
   br i1 %.not.i, label %13, label %10
@@ -5301,9 +5301,9 @@ _ZNSt6vectorIN5clang4ento14CheckerManager15StmtCheckerInfoESaIS3_EE9push_backERK
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN5clang4ento14CheckerManager26_registerForPreObjCMessageENS0_9CheckerFnIFvRKNS0_14ObjCMethodCallERNS0_14CheckerContextEEEE(ptr nocapture noundef nonnull align 8 dereferenceable(1552) %0, ptr %1, ptr %2) local_unnamed_addr #2 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1072
-  %5 = getelementptr inbounds i8, ptr %0, i64 1080
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 1080
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 1088
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 1088
   %8 = load ptr, ptr %7, align 8
   %.not.i = icmp eq ptr %6, %8
   br i1 %.not.i, label %12, label %9
@@ -5386,9 +5386,9 @@ _ZNSt6vectorIN5clang4ento9CheckerFnIFvRKNS1_14ObjCMethodCallERNS1_14CheckerConte
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN5clang4ento14CheckerManager26_registerForObjCMessageNilENS0_9CheckerFnIFvRKNS0_14ObjCMethodCallERNS0_14CheckerContextEEEE(ptr nocapture noundef nonnull align 8 dereferenceable(1552) %0, ptr %1, ptr %2) local_unnamed_addr #2 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1120
-  %5 = getelementptr inbounds i8, ptr %0, i64 1128
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 1128
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 1136
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 1136
   %8 = load ptr, ptr %7, align 8
   %.not.i = icmp eq ptr %6, %8
   br i1 %.not.i, label %12, label %9
@@ -5471,9 +5471,9 @@ _ZNSt6vectorIN5clang4ento9CheckerFnIFvRKNS1_14ObjCMethodCallERNS1_14CheckerConte
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN5clang4ento14CheckerManager27_registerForPostObjCMessageENS0_9CheckerFnIFvRKNS0_14ObjCMethodCallERNS0_14CheckerContextEEEE(ptr nocapture noundef nonnull align 8 dereferenceable(1552) %0, ptr %1, ptr %2) local_unnamed_addr #2 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1096
-  %5 = getelementptr inbounds i8, ptr %0, i64 1104
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 1104
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 1112
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 1112
   %8 = load ptr, ptr %7, align 8
   %.not.i = icmp eq ptr %6, %8
   br i1 %.not.i, label %12, label %9
@@ -5556,9 +5556,9 @@ _ZNSt6vectorIN5clang4ento9CheckerFnIFvRKNS1_14ObjCMethodCallERNS1_14CheckerConte
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN5clang4ento14CheckerManager19_registerForPreCallENS0_9CheckerFnIFvRKNS0_9CallEventERNS0_14CheckerContextEEEE(ptr nocapture noundef nonnull align 8 dereferenceable(1552) %0, ptr %1, ptr %2) local_unnamed_addr #2 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1144
-  %5 = getelementptr inbounds i8, ptr %0, i64 1152
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 1152
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 1160
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 1160
   %8 = load ptr, ptr %7, align 8
   %.not.i = icmp eq ptr %6, %8
   br i1 %.not.i, label %12, label %9
@@ -5641,9 +5641,9 @@ _ZNSt6vectorIN5clang4ento9CheckerFnIFvRKNS1_9CallEventERNS1_14CheckerContextEEEE
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN5clang4ento14CheckerManager20_registerForPostCallENS0_9CheckerFnIFvRKNS0_9CallEventERNS0_14CheckerContextEEEE(ptr nocapture noundef nonnull align 8 dereferenceable(1552) %0, ptr %1, ptr %2) local_unnamed_addr #2 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1168
-  %5 = getelementptr inbounds i8, ptr %0, i64 1176
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 1176
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 1184
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 1184
   %8 = load ptr, ptr %7, align 8
   %.not.i = icmp eq ptr %6, %8
   br i1 %.not.i, label %12, label %9
@@ -5726,9 +5726,9 @@ _ZNSt6vectorIN5clang4ento9CheckerFnIFvRKNS1_9CallEventERNS1_14CheckerContextEEEE
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN5clang4ento14CheckerManager20_registerForLocationENS0_9CheckerFnIFvNS0_4SValEbPKNS_4StmtERNS0_14CheckerContextEEEE(ptr nocapture noundef nonnull align 8 dereferenceable(1552) %0, ptr %1, ptr %2) local_unnamed_addr #2 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1192
-  %5 = getelementptr inbounds i8, ptr %0, i64 1200
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 1200
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 1208
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 1208
   %8 = load ptr, ptr %7, align 8
   %.not.i = icmp eq ptr %6, %8
   br i1 %.not.i, label %12, label %9
@@ -5811,9 +5811,9 @@ _ZNSt6vectorIN5clang4ento9CheckerFnIFvNS1_4SValEbPKNS0_4StmtERNS1_14CheckerConte
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN5clang4ento14CheckerManager16_registerForBindENS0_9CheckerFnIFvNS0_4SValES3_PKNS_4StmtERNS0_14CheckerContextEEEE(ptr nocapture noundef nonnull align 8 dereferenceable(1552) %0, ptr %1, ptr %2) local_unnamed_addr #2 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1216
-  %5 = getelementptr inbounds i8, ptr %0, i64 1224
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 1224
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 1232
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 1232
   %8 = load ptr, ptr %7, align 8
   %.not.i = icmp eq ptr %6, %8
   br i1 %.not.i, label %12, label %9
@@ -5896,9 +5896,9 @@ _ZNSt6vectorIN5clang4ento9CheckerFnIFvNS1_4SValES3_PKNS0_4StmtERNS1_14CheckerCon
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN5clang4ento14CheckerManager23_registerForEndAnalysisENS0_9CheckerFnIFvRNS0_13ExplodedGraphERNS0_11BugReporterERNS0_10ExprEngineEEEE(ptr nocapture noundef nonnull align 8 dereferenceable(1552) %0, ptr %1, ptr %2) local_unnamed_addr #2 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1240
-  %5 = getelementptr inbounds i8, ptr %0, i64 1248
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 1248
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 1256
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 1256
   %8 = load ptr, ptr %7, align 8
   %.not.i = icmp eq ptr %6, %8
   br i1 %.not.i, label %12, label %9
@@ -5981,9 +5981,9 @@ _ZNSt6vectorIN5clang4ento9CheckerFnIFvRNS1_13ExplodedGraphERNS1_11BugReporterERN
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN5clang4ento14CheckerManager25_registerForBeginFunctionENS0_9CheckerFnIFvRNS0_14CheckerContextEEEE(ptr nocapture noundef nonnull align 8 dereferenceable(1552) %0, ptr %1, ptr %2) local_unnamed_addr #2 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1264
-  %5 = getelementptr inbounds i8, ptr %0, i64 1272
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 1272
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 1280
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 1280
   %8 = load ptr, ptr %7, align 8
   %.not.i = icmp eq ptr %6, %8
   br i1 %.not.i, label %12, label %9
@@ -6066,9 +6066,9 @@ _ZNSt6vectorIN5clang4ento9CheckerFnIFvRNS1_14CheckerContextEEEESaIS6_EE9push_bac
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN5clang4ento14CheckerManager23_registerForEndFunctionENS0_9CheckerFnIFvPKNS_10ReturnStmtERNS0_14CheckerContextEEEE(ptr nocapture noundef nonnull align 8 dereferenceable(1552) %0, ptr %1, ptr %2) local_unnamed_addr #2 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1288
-  %5 = getelementptr inbounds i8, ptr %0, i64 1296
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 1296
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 1304
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 1304
   %8 = load ptr, ptr %7, align 8
   %.not.i = icmp eq ptr %6, %8
   br i1 %.not.i, label %12, label %9
@@ -6151,9 +6151,9 @@ _ZNSt6vectorIN5clang4ento9CheckerFnIFvPKNS0_10ReturnStmtERNS1_14CheckerContextEE
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN5clang4ento14CheckerManager27_registerForBranchConditionENS0_9CheckerFnIFvPKNS_4StmtERNS0_14CheckerContextEEEE(ptr nocapture noundef nonnull align 8 dereferenceable(1552) %0, ptr %1, ptr %2) local_unnamed_addr #2 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1312
-  %5 = getelementptr inbounds i8, ptr %0, i64 1320
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 1320
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 1328
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 1328
   %8 = load ptr, ptr %7, align 8
   %.not.i = icmp eq ptr %6, %8
   br i1 %.not.i, label %12, label %9
@@ -6236,9 +6236,9 @@ _ZNSt6vectorIN5clang4ento9CheckerFnIFvPKNS0_4StmtERNS1_14CheckerContextEEEESaIS9
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN5clang4ento14CheckerManager24_registerForNewAllocatorENS0_9CheckerFnIFvRKNS0_16CXXAllocatorCallERNS0_14CheckerContextEEEE(ptr nocapture noundef nonnull align 8 dereferenceable(1552) %0, ptr %1, ptr %2) local_unnamed_addr #2 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1336
-  %5 = getelementptr inbounds i8, ptr %0, i64 1344
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 1344
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 1352
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 1352
   %8 = load ptr, ptr %7, align 8
   %.not.i = icmp eq ptr %6, %8
   br i1 %.not.i, label %12, label %9
@@ -6321,9 +6321,9 @@ _ZNSt6vectorIN5clang4ento9CheckerFnIFvRKNS1_16CXXAllocatorCallERNS1_14CheckerCon
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN5clang4ento14CheckerManager23_registerForLiveSymbolsENS0_9CheckerFnIFvN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEERNS0_12SymbolReaperEEEE(ptr nocapture noundef nonnull align 8 dereferenceable(1552) %0, ptr %1, ptr %2) local_unnamed_addr #2 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1360
-  %5 = getelementptr inbounds i8, ptr %0, i64 1368
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 1368
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 1376
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 1376
   %8 = load ptr, ptr %7, align 8
   %.not.i = icmp eq ptr %6, %8
   br i1 %.not.i, label %12, label %9
@@ -6406,9 +6406,9 @@ _ZNSt6vectorIN5clang4ento9CheckerFnIFvN4llvm18IntrusiveRefCntPtrIKNS1_12ProgramS
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN5clang4ento14CheckerManager23_registerForDeadSymbolsENS0_9CheckerFnIFvRNS0_12SymbolReaperERNS0_14CheckerContextEEEE(ptr nocapture noundef nonnull align 8 dereferenceable(1552) %0, ptr %1, ptr %2) local_unnamed_addr #2 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1384
-  %5 = getelementptr inbounds i8, ptr %0, i64 1392
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 1392
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 1400
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 1400
   %8 = load ptr, ptr %7, align 8
   %.not.i = icmp eq ptr %6, %8
   br i1 %.not.i, label %12, label %9
@@ -6491,9 +6491,9 @@ _ZNSt6vectorIN5clang4ento9CheckerFnIFvRNS1_12SymbolReaperERNS1_14CheckerContextE
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN5clang4ento14CheckerManager25_registerForRegionChangesENS0_9CheckerFnIFN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEES7_PKNS3_8DenseSetIPKNS0_7SymExprENS3_12DenseMapInfoISB_vEEEENS3_8ArrayRefIPKNS0_9MemRegionEEESL_PKNS_15LocationContextEPKNS0_9CallEventEEEE(ptr nocapture noundef nonnull align 8 dereferenceable(1552) %0, ptr %1, ptr %2) local_unnamed_addr #2 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1408
-  %5 = getelementptr inbounds i8, ptr %0, i64 1416
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 1416
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 1424
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 1424
   %8 = load ptr, ptr %7, align 8
   %.not.i = icmp eq ptr %6, %8
   br i1 %.not.i, label %12, label %9
@@ -6576,9 +6576,9 @@ _ZNSt6vectorIN5clang4ento9CheckerFnIFN4llvm18IntrusiveRefCntPtrIKNS1_12ProgramSt
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN5clang4ento14CheckerManager25_registerForPointerEscapeENS0_9CheckerFnIFN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEES7_RKNS3_8DenseSetIPKNS0_7SymExprENS3_12DenseMapInfoISB_vEEEEPKNS0_9CallEventENS0_17PointerEscapeKindEPNS0_33RegionAndSymbolInvalidationTraitsEEEE(ptr nocapture noundef nonnull align 8 dereferenceable(1552) %0, ptr %1, ptr %2) local_unnamed_addr #2 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1432
-  %5 = getelementptr inbounds i8, ptr %0, i64 1440
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 1440
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 1448
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 1448
   %8 = load ptr, ptr %7, align 8
   %.not.i = icmp eq ptr %6, %8
   br i1 %.not.i, label %12, label %9
@@ -6661,9 +6661,9 @@ _ZNSt6vectorIN5clang4ento9CheckerFnIFN4llvm18IntrusiveRefCntPtrIKNS1_12ProgramSt
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN5clang4ento14CheckerManager30_registerForConstPointerEscapeENS0_9CheckerFnIFN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEES7_RKNS3_8DenseSetIPKNS0_7SymExprENS3_12DenseMapInfoISB_vEEEEPKNS0_9CallEventENS0_17PointerEscapeKindEPNS0_33RegionAndSymbolInvalidationTraitsEEEE(ptr nocapture noundef nonnull align 8 dereferenceable(1552) %0, ptr %1, ptr %2) local_unnamed_addr #2 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1432
-  %5 = getelementptr inbounds i8, ptr %0, i64 1440
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 1440
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 1448
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 1448
   %8 = load ptr, ptr %7, align 8
   %.not.i = icmp eq ptr %6, %8
   br i1 %.not.i, label %12, label %9
@@ -6746,9 +6746,9 @@ _ZNSt6vectorIN5clang4ento9CheckerFnIFN4llvm18IntrusiveRefCntPtrIKNS1_12ProgramSt
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN5clang4ento14CheckerManager22_registerForEvalAssumeENS0_9CheckerFnIFN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEES7_NS0_4SValEbEEE(ptr nocapture noundef nonnull align 8 dereferenceable(1552) %0, ptr %1, ptr %2) local_unnamed_addr #2 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1456
-  %5 = getelementptr inbounds i8, ptr %0, i64 1464
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 1464
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 1472
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 1472
   %8 = load ptr, ptr %7, align 8
   %.not.i = icmp eq ptr %6, %8
   br i1 %.not.i, label %12, label %9
@@ -6831,9 +6831,9 @@ _ZNSt6vectorIN5clang4ento9CheckerFnIFN4llvm18IntrusiveRefCntPtrIKNS1_12ProgramSt
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN5clang4ento14CheckerManager20_registerForEvalCallENS0_9CheckerFnIFbRKNS0_9CallEventERNS0_14CheckerContextEEEE(ptr nocapture noundef nonnull align 8 dereferenceable(1552) %0, ptr %1, ptr %2) local_unnamed_addr #2 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1480
-  %5 = getelementptr inbounds i8, ptr %0, i64 1488
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 1488
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 1496
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 1496
   %8 = load ptr, ptr %7, align 8
   %.not.i = icmp eq ptr %6, %8
   br i1 %.not.i, label %12, label %9
@@ -6916,9 +6916,9 @@ _ZNSt6vectorIN5clang4ento9CheckerFnIFbRKNS1_9CallEventERNS1_14CheckerContextEEEE
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN5clang4ento14CheckerManager32_registerForEndOfTranslationUnitENS0_9CheckerFnIFvPKNS_19TranslationUnitDeclERNS0_15AnalysisManagerERNS0_11BugReporterEEEE(ptr nocapture noundef nonnull align 8 dereferenceable(1552) %0, ptr %1, ptr %2) local_unnamed_addr #2 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1504
-  %5 = getelementptr inbounds i8, ptr %0, i64 1512
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 1512
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 1520
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 1520
   %8 = load ptr, ptr %7, align 8
   %.not.i = icmp eq ptr %6, %8
   br i1 %.not.i, label %12, label %9
@@ -7886,7 +7886,7 @@ _ZN5clang17DiagnosticStorageC2Ev.exit:            ; preds = %7
   store i8 0, ptr %18, align 8
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 416
   %20 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %19) #17
-  %21 = getelementptr inbounds i8, ptr %18, i64 424
+  %21 = getelementptr inbounds nuw i8, ptr %18, i64 424
   store i32 0, ptr %21, align 8
   %22 = getelementptr inbounds nuw i8, ptr %18, i64 528
   %23 = load ptr, ptr %22, align 8
@@ -7907,7 +7907,7 @@ _ZN5clang17DiagnosticStorageC2Ev.exit:            ; preds = %7
   br i1 %.not.i.i, label %_ZN4llvm15SmallVectorImplIN5clang9FixItHintEE5clearEv.exit, label %.lr.ph.i.i, !llvm.loop !11
 
 _ZN4llvm15SmallVectorImplIN5clang9FixItHintEE5clearEv.exit: ; preds = %.lr.ph.i.i, %13
-  %28 = getelementptr inbounds i8, ptr %18, i64 536
+  %28 = getelementptr inbounds nuw i8, ptr %18, i64 536
   store i32 0, ptr %28, align 8
   br label %29
 

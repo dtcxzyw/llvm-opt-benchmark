@@ -505,14 +505,14 @@ define weak_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__17UsdA
   br i1 %6, label %7, label %114
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %0, i64 104
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %9 = load i32, ptr %8, align 8
   %.off = add i32 %9, -3
   %switch = icmp ult i32 %.off, 2
   br i1 %switch, label %10, label %114
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %4, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, i8 0, i64 40, i1 false)
   store i64 -1, ptr %11, align 8
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 48
@@ -522,7 +522,7 @@ define weak_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__17UsdA
 13:                                               ; preds = %10
   %14 = landingpad { ptr, i32 }
           cleanup
-  %15 = getelementptr inbounds i8, ptr %4, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %16 = load ptr, ptr %15, align 8
   %.not.i.i.i.i.i = icmp eq ptr %16, null
   br i1 %.not.i.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_8SdfLayerEED2Ev.exit.i, label %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i.i
@@ -697,7 +697,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__14UsdResolveInfoC2Ev.exit: ; preds = %10
   unreachable
 
 _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit.i: ; preds = %92, %79, %77
-  %96 = getelementptr inbounds i8, ptr %4, i64 24
+  %96 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %97 = load ptr, ptr %96, align 8
   %.not.i.i.i.i.i16 = icmp eq ptr %97, null
   br i1 %.not.i.i.i.i.i16, label %_ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_8SdfLayerEED2Ev.exit.i18, label %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i.i17
@@ -809,7 +809,7 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__14UsdResolveInfoD
   unreachable
 
 _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit: ; preds = %1, %4, %17
-  %21 = getelementptr inbounds i8, ptr %0, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %22 = load ptr, ptr %21, align 8
   %.not.i.i.i.i = icmp eq ptr %22, null
   br i1 %.not.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_8SdfLayerEED2Ev.exit, label %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i
@@ -858,14 +858,14 @@ define weak_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__17UsdA
   br i1 %6, label %7, label %114
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %0, i64 104
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %9 = load i32, ptr %8, align 8
   %.off = add i32 %9, -3
   %switch = icmp ult i32 %.off, 2
   br i1 %switch, label %10, label %114
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %4, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, i8 0, i64 40, i1 false)
   store i64 -1, ptr %11, align 8
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 48
@@ -875,7 +875,7 @@ define weak_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__17UsdA
 13:                                               ; preds = %10
   %14 = landingpad { ptr, i32 }
           cleanup
-  %15 = getelementptr inbounds i8, ptr %4, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %16 = load ptr, ptr %15, align 8
   %.not.i.i.i.i.i = icmp eq ptr %16, null
   br i1 %.not.i.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_8SdfLayerEED2Ev.exit.i, label %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i.i
@@ -1050,7 +1050,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__14UsdResolveInfoC2Ev.exit: ; preds = %10
   unreachable
 
 _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit.i: ; preds = %92, %79, %77
-  %96 = getelementptr inbounds i8, ptr %4, i64 24
+  %96 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %97 = load ptr, ptr %96, align 8
   %.not.i.i.i.i.i16 = icmp eq ptr %97, null
   br i1 %.not.i.i.i.i.i16, label %_ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_8SdfLayerEED2Ev.exit.i18, label %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i.i17
@@ -1125,14 +1125,14 @@ define weak_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__17UsdA
   br i1 %6, label %7, label %114
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %0, i64 104
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %9 = load i32, ptr %8, align 8
   %.off = add i32 %9, -3
   %switch = icmp ult i32 %.off, 2
   br i1 %switch, label %10, label %114
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %4, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, i8 0, i64 40, i1 false)
   store i64 -1, ptr %11, align 8
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 48
@@ -1142,7 +1142,7 @@ define weak_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__17UsdA
 13:                                               ; preds = %10
   %14 = landingpad { ptr, i32 }
           cleanup
-  %15 = getelementptr inbounds i8, ptr %4, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %16 = load ptr, ptr %15, align 8
   %.not.i.i.i.i.i = icmp eq ptr %16, null
   br i1 %.not.i.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_8SdfLayerEED2Ev.exit.i, label %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i.i
@@ -1317,7 +1317,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__14UsdResolveInfoC2Ev.exit: ; preds = %10
   unreachable
 
 _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit.i: ; preds = %92, %79, %77
-  %96 = getelementptr inbounds i8, ptr %4, i64 24
+  %96 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %97 = load ptr, ptr %96, align 8
   %.not.i.i.i.i.i16 = icmp eq ptr %97, null
   br i1 %.not.i.i.i.i.i16, label %_ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_8SdfLayerEED2Ev.exit.i18, label %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i.i17
@@ -1392,14 +1392,14 @@ define weak_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__17UsdA
   br i1 %6, label %7, label %114
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %0, i64 104
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %9 = load i32, ptr %8, align 8
   %.off = add i32 %9, -3
   %switch = icmp ult i32 %.off, 2
   br i1 %switch, label %10, label %114
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %4, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, i8 0, i64 40, i1 false)
   store i64 -1, ptr %11, align 8
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 48
@@ -1409,7 +1409,7 @@ define weak_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__17UsdA
 13:                                               ; preds = %10
   %14 = landingpad { ptr, i32 }
           cleanup
-  %15 = getelementptr inbounds i8, ptr %4, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %16 = load ptr, ptr %15, align 8
   %.not.i.i.i.i.i = icmp eq ptr %16, null
   br i1 %.not.i.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_8SdfLayerEED2Ev.exit.i, label %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i.i
@@ -1584,7 +1584,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__14UsdResolveInfoC2Ev.exit: ; preds = %10
   unreachable
 
 _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit.i: ; preds = %92, %79, %77
-  %96 = getelementptr inbounds i8, ptr %4, i64 24
+  %96 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %97 = load ptr, ptr %96, align 8
   %.not.i.i.i.i.i16 = icmp eq ptr %97, null
   br i1 %.not.i.i.i.i.i16, label %_ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_8SdfLayerEED2Ev.exit.i18, label %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i.i17
@@ -1659,14 +1659,14 @@ define weak_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__17UsdA
   br i1 %6, label %7, label %114
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %0, i64 104
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %9 = load i32, ptr %8, align 8
   %.off = add i32 %9, -3
   %switch = icmp ult i32 %.off, 2
   br i1 %switch, label %10, label %114
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %4, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, i8 0, i64 40, i1 false)
   store i64 -1, ptr %11, align 8
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 48
@@ -1676,7 +1676,7 @@ define weak_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__17UsdA
 13:                                               ; preds = %10
   %14 = landingpad { ptr, i32 }
           cleanup
-  %15 = getelementptr inbounds i8, ptr %4, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %16 = load ptr, ptr %15, align 8
   %.not.i.i.i.i.i = icmp eq ptr %16, null
   br i1 %.not.i.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_8SdfLayerEED2Ev.exit.i, label %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i.i
@@ -1851,7 +1851,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__14UsdResolveInfoC2Ev.exit: ; preds = %10
   unreachable
 
 _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit.i: ; preds = %92, %79, %77
-  %96 = getelementptr inbounds i8, ptr %4, i64 24
+  %96 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %97 = load ptr, ptr %96, align 8
   %.not.i.i.i.i.i16 = icmp eq ptr %97, null
   br i1 %.not.i.i.i.i.i16, label %_ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_8SdfLayerEED2Ev.exit.i18, label %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i.i17
@@ -1926,14 +1926,14 @@ define weak_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__17UsdA
   br i1 %6, label %7, label %114
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %0, i64 104
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %9 = load i32, ptr %8, align 8
   %.off = add i32 %9, -3
   %switch = icmp ult i32 %.off, 2
   br i1 %switch, label %10, label %114
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %4, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, i8 0, i64 40, i1 false)
   store i64 -1, ptr %11, align 8
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 48
@@ -1943,7 +1943,7 @@ define weak_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__17UsdA
 13:                                               ; preds = %10
   %14 = landingpad { ptr, i32 }
           cleanup
-  %15 = getelementptr inbounds i8, ptr %4, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %16 = load ptr, ptr %15, align 8
   %.not.i.i.i.i.i = icmp eq ptr %16, null
   br i1 %.not.i.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_8SdfLayerEED2Ev.exit.i, label %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i.i
@@ -2118,7 +2118,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__14UsdResolveInfoC2Ev.exit: ; preds = %10
   unreachable
 
 _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit.i: ; preds = %92, %79, %77
-  %96 = getelementptr inbounds i8, ptr %4, i64 24
+  %96 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %97 = load ptr, ptr %96, align 8
   %.not.i.i.i.i.i16 = icmp eq ptr %97, null
   br i1 %.not.i.i.i.i.i16, label %_ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_8SdfLayerEED2Ev.exit.i18, label %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i.i17
@@ -2193,14 +2193,14 @@ define weak_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__17UsdA
   br i1 %6, label %7, label %114
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %0, i64 104
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %9 = load i32, ptr %8, align 8
   %.off = add i32 %9, -3
   %switch = icmp ult i32 %.off, 2
   br i1 %switch, label %10, label %114
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %4, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, i8 0, i64 40, i1 false)
   store i64 -1, ptr %11, align 8
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 48
@@ -2210,7 +2210,7 @@ define weak_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__17UsdA
 13:                                               ; preds = %10
   %14 = landingpad { ptr, i32 }
           cleanup
-  %15 = getelementptr inbounds i8, ptr %4, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %16 = load ptr, ptr %15, align 8
   %.not.i.i.i.i.i = icmp eq ptr %16, null
   br i1 %.not.i.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_8SdfLayerEED2Ev.exit.i, label %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i.i
@@ -2385,7 +2385,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__14UsdResolveInfoC2Ev.exit: ; preds = %10
   unreachable
 
 _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit.i: ; preds = %92, %79, %77
-  %96 = getelementptr inbounds i8, ptr %4, i64 24
+  %96 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %97 = load ptr, ptr %96, align 8
   %.not.i.i.i.i.i16 = icmp eq ptr %97, null
   br i1 %.not.i.i.i.i.i16, label %_ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_8SdfLayerEED2Ev.exit.i18, label %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i.i17
@@ -2460,14 +2460,14 @@ define weak_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__17UsdA
   br i1 %6, label %7, label %114
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %0, i64 104
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %9 = load i32, ptr %8, align 8
   %.off = add i32 %9, -3
   %switch = icmp ult i32 %.off, 2
   br i1 %switch, label %10, label %114
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %4, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, i8 0, i64 40, i1 false)
   store i64 -1, ptr %11, align 8
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 48
@@ -2477,7 +2477,7 @@ define weak_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__17UsdA
 13:                                               ; preds = %10
   %14 = landingpad { ptr, i32 }
           cleanup
-  %15 = getelementptr inbounds i8, ptr %4, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %16 = load ptr, ptr %15, align 8
   %.not.i.i.i.i.i = icmp eq ptr %16, null
   br i1 %.not.i.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_8SdfLayerEED2Ev.exit.i, label %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i.i
@@ -2652,7 +2652,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__14UsdResolveInfoC2Ev.exit: ; preds = %10
   unreachable
 
 _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit.i: ; preds = %92, %79, %77
-  %96 = getelementptr inbounds i8, ptr %4, i64 24
+  %96 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %97 = load ptr, ptr %96, align 8
   %.not.i.i.i.i.i16 = icmp eq ptr %97, null
   br i1 %.not.i.i.i.i.i16, label %_ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_8SdfLayerEED2Ev.exit.i18, label %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i.i17
@@ -2727,14 +2727,14 @@ define weak_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__17UsdA
   br i1 %6, label %7, label %114
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %0, i64 104
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %9 = load i32, ptr %8, align 8
   %.off = add i32 %9, -3
   %switch = icmp ult i32 %.off, 2
   br i1 %switch, label %10, label %114
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %4, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, i8 0, i64 40, i1 false)
   store i64 -1, ptr %11, align 8
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 48
@@ -2744,7 +2744,7 @@ define weak_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__17UsdA
 13:                                               ; preds = %10
   %14 = landingpad { ptr, i32 }
           cleanup
-  %15 = getelementptr inbounds i8, ptr %4, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %16 = load ptr, ptr %15, align 8
   %.not.i.i.i.i.i = icmp eq ptr %16, null
   br i1 %.not.i.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_8SdfLayerEED2Ev.exit.i, label %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i.i
@@ -2919,7 +2919,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__14UsdResolveInfoC2Ev.exit: ; preds = %10
   unreachable
 
 _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit.i: ; preds = %92, %79, %77
-  %96 = getelementptr inbounds i8, ptr %4, i64 24
+  %96 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %97 = load ptr, ptr %96, align 8
   %.not.i.i.i.i.i16 = icmp eq ptr %97, null
   br i1 %.not.i.i.i.i.i16, label %_ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_8SdfLayerEED2Ev.exit.i18, label %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i.i17
@@ -2994,14 +2994,14 @@ define weak_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__17UsdA
   br i1 %6, label %7, label %114
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %0, i64 104
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %9 = load i32, ptr %8, align 8
   %.off = add i32 %9, -3
   %switch = icmp ult i32 %.off, 2
   br i1 %switch, label %10, label %114
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %4, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, i8 0, i64 40, i1 false)
   store i64 -1, ptr %11, align 8
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 48
@@ -3011,7 +3011,7 @@ define weak_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__17UsdA
 13:                                               ; preds = %10
   %14 = landingpad { ptr, i32 }
           cleanup
-  %15 = getelementptr inbounds i8, ptr %4, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %16 = load ptr, ptr %15, align 8
   %.not.i.i.i.i.i = icmp eq ptr %16, null
   br i1 %.not.i.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_8SdfLayerEED2Ev.exit.i, label %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i.i
@@ -3186,7 +3186,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__14UsdResolveInfoC2Ev.exit: ; preds = %10
   unreachable
 
 _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit.i: ; preds = %92, %79, %77
-  %96 = getelementptr inbounds i8, ptr %4, i64 24
+  %96 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %97 = load ptr, ptr %96, align 8
   %.not.i.i.i.i.i16 = icmp eq ptr %97, null
   br i1 %.not.i.i.i.i.i16, label %_ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_8SdfLayerEED2Ev.exit.i18, label %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i.i17
@@ -3261,14 +3261,14 @@ define weak_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__17UsdA
   br i1 %6, label %7, label %114
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %0, i64 104
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %9 = load i32, ptr %8, align 8
   %.off = add i32 %9, -3
   %switch = icmp ult i32 %.off, 2
   br i1 %switch, label %10, label %114
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %4, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, i8 0, i64 40, i1 false)
   store i64 -1, ptr %11, align 8
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 48
@@ -3278,7 +3278,7 @@ define weak_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__17UsdA
 13:                                               ; preds = %10
   %14 = landingpad { ptr, i32 }
           cleanup
-  %15 = getelementptr inbounds i8, ptr %4, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %16 = load ptr, ptr %15, align 8
   %.not.i.i.i.i.i = icmp eq ptr %16, null
   br i1 %.not.i.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_8SdfLayerEED2Ev.exit.i, label %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i.i
@@ -3453,7 +3453,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__14UsdResolveInfoC2Ev.exit: ; preds = %10
   unreachable
 
 _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit.i: ; preds = %92, %79, %77
-  %96 = getelementptr inbounds i8, ptr %4, i64 24
+  %96 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %97 = load ptr, ptr %96, align 8
   %.not.i.i.i.i.i16 = icmp eq ptr %97, null
   br i1 %.not.i.i.i.i.i16, label %_ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_8SdfLayerEED2Ev.exit.i18, label %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i.i17
@@ -3528,14 +3528,14 @@ define weak_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__17UsdA
   br i1 %6, label %7, label %114
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %0, i64 104
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %9 = load i32, ptr %8, align 8
   %.off = add i32 %9, -3
   %switch = icmp ult i32 %.off, 2
   br i1 %switch, label %10, label %114
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %4, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, i8 0, i64 40, i1 false)
   store i64 -1, ptr %11, align 8
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 48
@@ -3545,7 +3545,7 @@ define weak_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__17UsdA
 13:                                               ; preds = %10
   %14 = landingpad { ptr, i32 }
           cleanup
-  %15 = getelementptr inbounds i8, ptr %4, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %16 = load ptr, ptr %15, align 8
   %.not.i.i.i.i.i = icmp eq ptr %16, null
   br i1 %.not.i.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_8SdfLayerEED2Ev.exit.i, label %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i.i
@@ -3720,7 +3720,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__14UsdResolveInfoC2Ev.exit: ; preds = %10
   unreachable
 
 _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit.i: ; preds = %92, %79, %77
-  %96 = getelementptr inbounds i8, ptr %4, i64 24
+  %96 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %97 = load ptr, ptr %96, align 8
   %.not.i.i.i.i.i16 = icmp eq ptr %97, null
   br i1 %.not.i.i.i.i.i16, label %_ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_8SdfLayerEED2Ev.exit.i18, label %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i.i17
@@ -3795,14 +3795,14 @@ define weak_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__17UsdA
   br i1 %6, label %7, label %114
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %0, i64 104
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %9 = load i32, ptr %8, align 8
   %.off = add i32 %9, -3
   %switch = icmp ult i32 %.off, 2
   br i1 %switch, label %10, label %114
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %4, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, i8 0, i64 40, i1 false)
   store i64 -1, ptr %11, align 8
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 48
@@ -3812,7 +3812,7 @@ define weak_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__17UsdA
 13:                                               ; preds = %10
   %14 = landingpad { ptr, i32 }
           cleanup
-  %15 = getelementptr inbounds i8, ptr %4, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %16 = load ptr, ptr %15, align 8
   %.not.i.i.i.i.i = icmp eq ptr %16, null
   br i1 %.not.i.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_8SdfLayerEED2Ev.exit.i, label %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i.i
@@ -3987,7 +3987,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__14UsdResolveInfoC2Ev.exit: ; preds = %10
   unreachable
 
 _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit.i: ; preds = %92, %79, %77
-  %96 = getelementptr inbounds i8, ptr %4, i64 24
+  %96 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %97 = load ptr, ptr %96, align 8
   %.not.i.i.i.i.i16 = icmp eq ptr %97, null
   br i1 %.not.i.i.i.i.i16, label %_ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_8SdfLayerEED2Ev.exit.i18, label %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i.i17
@@ -4062,14 +4062,14 @@ define weak_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__17UsdA
   br i1 %6, label %7, label %114
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %0, i64 104
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %9 = load i32, ptr %8, align 8
   %.off = add i32 %9, -3
   %switch = icmp ult i32 %.off, 2
   br i1 %switch, label %10, label %114
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %4, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, i8 0, i64 40, i1 false)
   store i64 -1, ptr %11, align 8
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 48
@@ -4079,7 +4079,7 @@ define weak_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__17UsdA
 13:                                               ; preds = %10
   %14 = landingpad { ptr, i32 }
           cleanup
-  %15 = getelementptr inbounds i8, ptr %4, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %16 = load ptr, ptr %15, align 8
   %.not.i.i.i.i.i = icmp eq ptr %16, null
   br i1 %.not.i.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_8SdfLayerEED2Ev.exit.i, label %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i.i
@@ -4254,7 +4254,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__14UsdResolveInfoC2Ev.exit: ; preds = %10
   unreachable
 
 _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit.i: ; preds = %92, %79, %77
-  %96 = getelementptr inbounds i8, ptr %4, i64 24
+  %96 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %97 = load ptr, ptr %96, align 8
   %.not.i.i.i.i.i16 = icmp eq ptr %97, null
   br i1 %.not.i.i.i.i.i16, label %_ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_8SdfLayerEED2Ev.exit.i18, label %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i.i17
@@ -4329,14 +4329,14 @@ define weak_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__17UsdA
   br i1 %6, label %7, label %114
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %0, i64 104
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %9 = load i32, ptr %8, align 8
   %.off = add i32 %9, -3
   %switch = icmp ult i32 %.off, 2
   br i1 %switch, label %10, label %114
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %4, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, i8 0, i64 40, i1 false)
   store i64 -1, ptr %11, align 8
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 48
@@ -4346,7 +4346,7 @@ define weak_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__17UsdA
 13:                                               ; preds = %10
   %14 = landingpad { ptr, i32 }
           cleanup
-  %15 = getelementptr inbounds i8, ptr %4, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %16 = load ptr, ptr %15, align 8
   %.not.i.i.i.i.i = icmp eq ptr %16, null
   br i1 %.not.i.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_8SdfLayerEED2Ev.exit.i, label %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i.i
@@ -4521,7 +4521,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__14UsdResolveInfoC2Ev.exit: ; preds = %10
   unreachable
 
 _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit.i: ; preds = %92, %79, %77
-  %96 = getelementptr inbounds i8, ptr %4, i64 24
+  %96 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %97 = load ptr, ptr %96, align 8
   %.not.i.i.i.i.i16 = icmp eq ptr %97, null
   br i1 %.not.i.i.i.i.i16, label %_ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_8SdfLayerEED2Ev.exit.i18, label %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i.i17
@@ -4596,14 +4596,14 @@ define weak_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__17UsdA
   br i1 %6, label %7, label %114
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %0, i64 104
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %9 = load i32, ptr %8, align 8
   %.off = add i32 %9, -3
   %switch = icmp ult i32 %.off, 2
   br i1 %switch, label %10, label %114
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %4, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, i8 0, i64 40, i1 false)
   store i64 -1, ptr %11, align 8
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 48
@@ -4613,7 +4613,7 @@ define weak_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__17UsdA
 13:                                               ; preds = %10
   %14 = landingpad { ptr, i32 }
           cleanup
-  %15 = getelementptr inbounds i8, ptr %4, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %16 = load ptr, ptr %15, align 8
   %.not.i.i.i.i.i = icmp eq ptr %16, null
   br i1 %.not.i.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_8SdfLayerEED2Ev.exit.i, label %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i.i
@@ -4788,7 +4788,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__14UsdResolveInfoC2Ev.exit: ; preds = %10
   unreachable
 
 _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit.i: ; preds = %92, %79, %77
-  %96 = getelementptr inbounds i8, ptr %4, i64 24
+  %96 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %97 = load ptr, ptr %96, align 8
   %.not.i.i.i.i.i16 = icmp eq ptr %97, null
   br i1 %.not.i.i.i.i.i16, label %_ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_8SdfLayerEED2Ev.exit.i18, label %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i.i17
@@ -4863,14 +4863,14 @@ define weak_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__17UsdA
   br i1 %6, label %7, label %114
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %0, i64 104
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %9 = load i32, ptr %8, align 8
   %.off = add i32 %9, -3
   %switch = icmp ult i32 %.off, 2
   br i1 %switch, label %10, label %114
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %4, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, i8 0, i64 40, i1 false)
   store i64 -1, ptr %11, align 8
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 48
@@ -4880,7 +4880,7 @@ define weak_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__17UsdA
 13:                                               ; preds = %10
   %14 = landingpad { ptr, i32 }
           cleanup
-  %15 = getelementptr inbounds i8, ptr %4, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %16 = load ptr, ptr %15, align 8
   %.not.i.i.i.i.i = icmp eq ptr %16, null
   br i1 %.not.i.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_8SdfLayerEED2Ev.exit.i, label %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i.i
@@ -5055,7 +5055,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__14UsdResolveInfoC2Ev.exit: ; preds = %10
   unreachable
 
 _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit.i: ; preds = %92, %79, %77
-  %96 = getelementptr inbounds i8, ptr %4, i64 24
+  %96 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %97 = load ptr, ptr %96, align 8
   %.not.i.i.i.i.i16 = icmp eq ptr %97, null
   br i1 %.not.i.i.i.i.i16, label %_ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_8SdfLayerEED2Ev.exit.i18, label %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i.i17
@@ -5130,14 +5130,14 @@ define weak_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__17UsdA
   br i1 %6, label %7, label %114
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %0, i64 104
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %9 = load i32, ptr %8, align 8
   %.off = add i32 %9, -3
   %switch = icmp ult i32 %.off, 2
   br i1 %switch, label %10, label %114
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %4, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, i8 0, i64 40, i1 false)
   store i64 -1, ptr %11, align 8
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 48
@@ -5147,7 +5147,7 @@ define weak_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__17UsdA
 13:                                               ; preds = %10
   %14 = landingpad { ptr, i32 }
           cleanup
-  %15 = getelementptr inbounds i8, ptr %4, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %16 = load ptr, ptr %15, align 8
   %.not.i.i.i.i.i = icmp eq ptr %16, null
   br i1 %.not.i.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_8SdfLayerEED2Ev.exit.i, label %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i.i
@@ -5322,7 +5322,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__14UsdResolveInfoC2Ev.exit: ; preds = %10
   unreachable
 
 _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit.i: ; preds = %92, %79, %77
-  %96 = getelementptr inbounds i8, ptr %4, i64 24
+  %96 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %97 = load ptr, ptr %96, align 8
   %.not.i.i.i.i.i16 = icmp eq ptr %97, null
   br i1 %.not.i.i.i.i.i16, label %_ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_8SdfLayerEED2Ev.exit.i18, label %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i.i17
@@ -5397,14 +5397,14 @@ define weak_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__17UsdA
   br i1 %6, label %7, label %114
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %0, i64 104
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %9 = load i32, ptr %8, align 8
   %.off = add i32 %9, -3
   %switch = icmp ult i32 %.off, 2
   br i1 %switch, label %10, label %114
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %4, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, i8 0, i64 40, i1 false)
   store i64 -1, ptr %11, align 8
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 48
@@ -5414,7 +5414,7 @@ define weak_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__17UsdA
 13:                                               ; preds = %10
   %14 = landingpad { ptr, i32 }
           cleanup
-  %15 = getelementptr inbounds i8, ptr %4, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %16 = load ptr, ptr %15, align 8
   %.not.i.i.i.i.i = icmp eq ptr %16, null
   br i1 %.not.i.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_8SdfLayerEED2Ev.exit.i, label %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i.i
@@ -5589,7 +5589,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__14UsdResolveInfoC2Ev.exit: ; preds = %10
   unreachable
 
 _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit.i: ; preds = %92, %79, %77
-  %96 = getelementptr inbounds i8, ptr %4, i64 24
+  %96 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %97 = load ptr, ptr %96, align 8
   %.not.i.i.i.i.i16 = icmp eq ptr %97, null
   br i1 %.not.i.i.i.i.i16, label %_ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_8SdfLayerEED2Ev.exit.i18, label %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i.i17
@@ -5664,14 +5664,14 @@ define weak_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__17UsdA
   br i1 %6, label %7, label %114
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %0, i64 104
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %9 = load i32, ptr %8, align 8
   %.off = add i32 %9, -3
   %switch = icmp ult i32 %.off, 2
   br i1 %switch, label %10, label %114
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %4, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, i8 0, i64 40, i1 false)
   store i64 -1, ptr %11, align 8
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 48
@@ -5681,7 +5681,7 @@ define weak_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__17UsdA
 13:                                               ; preds = %10
   %14 = landingpad { ptr, i32 }
           cleanup
-  %15 = getelementptr inbounds i8, ptr %4, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %16 = load ptr, ptr %15, align 8
   %.not.i.i.i.i.i = icmp eq ptr %16, null
   br i1 %.not.i.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_8SdfLayerEED2Ev.exit.i, label %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i.i
@@ -5856,7 +5856,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__14UsdResolveInfoC2Ev.exit: ; preds = %10
   unreachable
 
 _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit.i: ; preds = %92, %79, %77
-  %96 = getelementptr inbounds i8, ptr %4, i64 24
+  %96 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %97 = load ptr, ptr %96, align 8
   %.not.i.i.i.i.i16 = icmp eq ptr %97, null
   br i1 %.not.i.i.i.i.i16, label %_ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_8SdfLayerEED2Ev.exit.i18, label %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i.i17
@@ -5931,14 +5931,14 @@ define weak_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__17UsdA
   br i1 %6, label %7, label %114
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %0, i64 104
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %9 = load i32, ptr %8, align 8
   %.off = add i32 %9, -3
   %switch = icmp ult i32 %.off, 2
   br i1 %switch, label %10, label %114
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %4, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, i8 0, i64 40, i1 false)
   store i64 -1, ptr %11, align 8
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 48
@@ -5948,7 +5948,7 @@ define weak_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__17UsdA
 13:                                               ; preds = %10
   %14 = landingpad { ptr, i32 }
           cleanup
-  %15 = getelementptr inbounds i8, ptr %4, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %16 = load ptr, ptr %15, align 8
   %.not.i.i.i.i.i = icmp eq ptr %16, null
   br i1 %.not.i.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_8SdfLayerEED2Ev.exit.i, label %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i.i
@@ -6123,7 +6123,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__14UsdResolveInfoC2Ev.exit: ; preds = %10
   unreachable
 
 _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit.i: ; preds = %92, %79, %77
-  %96 = getelementptr inbounds i8, ptr %4, i64 24
+  %96 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %97 = load ptr, ptr %96, align 8
   %.not.i.i.i.i.i16 = icmp eq ptr %97, null
   br i1 %.not.i.i.i.i.i16, label %_ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_8SdfLayerEED2Ev.exit.i18, label %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i.i17
@@ -6198,14 +6198,14 @@ define weak_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__17UsdA
   br i1 %6, label %7, label %114
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %0, i64 104
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %9 = load i32, ptr %8, align 8
   %.off = add i32 %9, -3
   %switch = icmp ult i32 %.off, 2
   br i1 %switch, label %10, label %114
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %4, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, i8 0, i64 40, i1 false)
   store i64 -1, ptr %11, align 8
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 48
@@ -6215,7 +6215,7 @@ define weak_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__17UsdA
 13:                                               ; preds = %10
   %14 = landingpad { ptr, i32 }
           cleanup
-  %15 = getelementptr inbounds i8, ptr %4, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %16 = load ptr, ptr %15, align 8
   %.not.i.i.i.i.i = icmp eq ptr %16, null
   br i1 %.not.i.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_8SdfLayerEED2Ev.exit.i, label %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i.i
@@ -6390,7 +6390,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__14UsdResolveInfoC2Ev.exit: ; preds = %10
   unreachable
 
 _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit.i: ; preds = %92, %79, %77
-  %96 = getelementptr inbounds i8, ptr %4, i64 24
+  %96 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %97 = load ptr, ptr %96, align 8
   %.not.i.i.i.i.i16 = icmp eq ptr %97, null
   br i1 %.not.i.i.i.i.i16, label %_ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_8SdfLayerEED2Ev.exit.i18, label %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i.i17
@@ -6465,14 +6465,14 @@ define weak_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__17UsdA
   br i1 %6, label %7, label %114
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %0, i64 104
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %9 = load i32, ptr %8, align 8
   %.off = add i32 %9, -3
   %switch = icmp ult i32 %.off, 2
   br i1 %switch, label %10, label %114
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %4, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, i8 0, i64 40, i1 false)
   store i64 -1, ptr %11, align 8
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 48
@@ -6482,7 +6482,7 @@ define weak_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__17UsdA
 13:                                               ; preds = %10
   %14 = landingpad { ptr, i32 }
           cleanup
-  %15 = getelementptr inbounds i8, ptr %4, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %16 = load ptr, ptr %15, align 8
   %.not.i.i.i.i.i = icmp eq ptr %16, null
   br i1 %.not.i.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_8SdfLayerEED2Ev.exit.i, label %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i.i
@@ -6657,7 +6657,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__14UsdResolveInfoC2Ev.exit: ; preds = %10
   unreachable
 
 _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit.i: ; preds = %92, %79, %77
-  %96 = getelementptr inbounds i8, ptr %4, i64 24
+  %96 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %97 = load ptr, ptr %96, align 8
   %.not.i.i.i.i.i16 = icmp eq ptr %97, null
   br i1 %.not.i.i.i.i.i16, label %_ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_8SdfLayerEED2Ev.exit.i18, label %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i.i17
@@ -6732,14 +6732,14 @@ define weak_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__17UsdA
   br i1 %6, label %7, label %114
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %0, i64 104
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %9 = load i32, ptr %8, align 8
   %.off = add i32 %9, -3
   %switch = icmp ult i32 %.off, 2
   br i1 %switch, label %10, label %114
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %4, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, i8 0, i64 40, i1 false)
   store i64 -1, ptr %11, align 8
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 48
@@ -6749,7 +6749,7 @@ define weak_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__17UsdA
 13:                                               ; preds = %10
   %14 = landingpad { ptr, i32 }
           cleanup
-  %15 = getelementptr inbounds i8, ptr %4, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %16 = load ptr, ptr %15, align 8
   %.not.i.i.i.i.i = icmp eq ptr %16, null
   br i1 %.not.i.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_8SdfLayerEED2Ev.exit.i, label %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i.i
@@ -6924,7 +6924,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__14UsdResolveInfoC2Ev.exit: ; preds = %10
   unreachable
 
 _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit.i: ; preds = %92, %79, %77
-  %96 = getelementptr inbounds i8, ptr %4, i64 24
+  %96 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %97 = load ptr, ptr %96, align 8
   %.not.i.i.i.i.i16 = icmp eq ptr %97, null
   br i1 %.not.i.i.i.i.i16, label %_ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_8SdfLayerEED2Ev.exit.i18, label %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i.i17
@@ -6999,14 +6999,14 @@ define weak_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__17UsdA
   br i1 %6, label %7, label %114
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %0, i64 104
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %9 = load i32, ptr %8, align 8
   %.off = add i32 %9, -3
   %switch = icmp ult i32 %.off, 2
   br i1 %switch, label %10, label %114
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %4, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, i8 0, i64 40, i1 false)
   store i64 -1, ptr %11, align 8
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 48
@@ -7016,7 +7016,7 @@ define weak_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__17UsdA
 13:                                               ; preds = %10
   %14 = landingpad { ptr, i32 }
           cleanup
-  %15 = getelementptr inbounds i8, ptr %4, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %16 = load ptr, ptr %15, align 8
   %.not.i.i.i.i.i = icmp eq ptr %16, null
   br i1 %.not.i.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_8SdfLayerEED2Ev.exit.i, label %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i.i
@@ -7191,7 +7191,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__14UsdResolveInfoC2Ev.exit: ; preds = %10
   unreachable
 
 _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit.i: ; preds = %92, %79, %77
-  %96 = getelementptr inbounds i8, ptr %4, i64 24
+  %96 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %97 = load ptr, ptr %96, align 8
   %.not.i.i.i.i.i16 = icmp eq ptr %97, null
   br i1 %.not.i.i.i.i.i16, label %_ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_8SdfLayerEED2Ev.exit.i18, label %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i.i17
@@ -7266,14 +7266,14 @@ define weak_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__17UsdA
   br i1 %6, label %7, label %114
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %0, i64 104
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %9 = load i32, ptr %8, align 8
   %.off = add i32 %9, -3
   %switch = icmp ult i32 %.off, 2
   br i1 %switch, label %10, label %114
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %4, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, i8 0, i64 40, i1 false)
   store i64 -1, ptr %11, align 8
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 48
@@ -7283,7 +7283,7 @@ define weak_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__17UsdA
 13:                                               ; preds = %10
   %14 = landingpad { ptr, i32 }
           cleanup
-  %15 = getelementptr inbounds i8, ptr %4, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %16 = load ptr, ptr %15, align 8
   %.not.i.i.i.i.i = icmp eq ptr %16, null
   br i1 %.not.i.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_8SdfLayerEED2Ev.exit.i, label %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i.i
@@ -7458,7 +7458,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__14UsdResolveInfoC2Ev.exit: ; preds = %10
   unreachable
 
 _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit.i: ; preds = %92, %79, %77
-  %96 = getelementptr inbounds i8, ptr %4, i64 24
+  %96 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %97 = load ptr, ptr %96, align 8
   %.not.i.i.i.i.i16 = icmp eq ptr %97, null
   br i1 %.not.i.i.i.i.i16, label %_ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_8SdfLayerEED2Ev.exit.i18, label %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i.i17
@@ -7533,14 +7533,14 @@ define weak_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__17UsdA
   br i1 %6, label %7, label %114
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %0, i64 104
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %9 = load i32, ptr %8, align 8
   %.off = add i32 %9, -3
   %switch = icmp ult i32 %.off, 2
   br i1 %switch, label %10, label %114
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %4, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, i8 0, i64 40, i1 false)
   store i64 -1, ptr %11, align 8
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 48
@@ -7550,7 +7550,7 @@ define weak_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__17UsdA
 13:                                               ; preds = %10
   %14 = landingpad { ptr, i32 }
           cleanup
-  %15 = getelementptr inbounds i8, ptr %4, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %16 = load ptr, ptr %15, align 8
   %.not.i.i.i.i.i = icmp eq ptr %16, null
   br i1 %.not.i.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_8SdfLayerEED2Ev.exit.i, label %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i.i
@@ -7725,7 +7725,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__14UsdResolveInfoC2Ev.exit: ; preds = %10
   unreachable
 
 _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit.i: ; preds = %92, %79, %77
-  %96 = getelementptr inbounds i8, ptr %4, i64 24
+  %96 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %97 = load ptr, ptr %96, align 8
   %.not.i.i.i.i.i16 = icmp eq ptr %97, null
   br i1 %.not.i.i.i.i.i16, label %_ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_8SdfLayerEED2Ev.exit.i18, label %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i.i17
@@ -7800,14 +7800,14 @@ define weak_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__17UsdA
   br i1 %6, label %7, label %114
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %0, i64 104
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %9 = load i32, ptr %8, align 8
   %.off = add i32 %9, -3
   %switch = icmp ult i32 %.off, 2
   br i1 %switch, label %10, label %114
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %4, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, i8 0, i64 40, i1 false)
   store i64 -1, ptr %11, align 8
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 48
@@ -7817,7 +7817,7 @@ define weak_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__17UsdA
 13:                                               ; preds = %10
   %14 = landingpad { ptr, i32 }
           cleanup
-  %15 = getelementptr inbounds i8, ptr %4, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %16 = load ptr, ptr %15, align 8
   %.not.i.i.i.i.i = icmp eq ptr %16, null
   br i1 %.not.i.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_8SdfLayerEED2Ev.exit.i, label %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i.i
@@ -7992,7 +7992,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__14UsdResolveInfoC2Ev.exit: ; preds = %10
   unreachable
 
 _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit.i: ; preds = %92, %79, %77
-  %96 = getelementptr inbounds i8, ptr %4, i64 24
+  %96 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %97 = load ptr, ptr %96, align 8
   %.not.i.i.i.i.i16 = icmp eq ptr %97, null
   br i1 %.not.i.i.i.i.i16, label %_ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_8SdfLayerEED2Ev.exit.i18, label %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i.i17
@@ -8067,14 +8067,14 @@ define weak_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__17UsdA
   br i1 %6, label %7, label %114
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %0, i64 104
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %9 = load i32, ptr %8, align 8
   %.off = add i32 %9, -3
   %switch = icmp ult i32 %.off, 2
   br i1 %switch, label %10, label %114
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %4, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, i8 0, i64 40, i1 false)
   store i64 -1, ptr %11, align 8
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 48
@@ -8084,7 +8084,7 @@ define weak_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__17UsdA
 13:                                               ; preds = %10
   %14 = landingpad { ptr, i32 }
           cleanup
-  %15 = getelementptr inbounds i8, ptr %4, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %16 = load ptr, ptr %15, align 8
   %.not.i.i.i.i.i = icmp eq ptr %16, null
   br i1 %.not.i.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_8SdfLayerEED2Ev.exit.i, label %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i.i
@@ -8259,7 +8259,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__14UsdResolveInfoC2Ev.exit: ; preds = %10
   unreachable
 
 _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit.i: ; preds = %92, %79, %77
-  %96 = getelementptr inbounds i8, ptr %4, i64 24
+  %96 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %97 = load ptr, ptr %96, align 8
   %.not.i.i.i.i.i16 = icmp eq ptr %97, null
   br i1 %.not.i.i.i.i.i16, label %_ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_8SdfLayerEED2Ev.exit.i18, label %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i.i17
@@ -8334,14 +8334,14 @@ define weak_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__17UsdA
   br i1 %6, label %7, label %114
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %0, i64 104
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %9 = load i32, ptr %8, align 8
   %.off = add i32 %9, -3
   %switch = icmp ult i32 %.off, 2
   br i1 %switch, label %10, label %114
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %4, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, i8 0, i64 40, i1 false)
   store i64 -1, ptr %11, align 8
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 48
@@ -8351,7 +8351,7 @@ define weak_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__17UsdA
 13:                                               ; preds = %10
   %14 = landingpad { ptr, i32 }
           cleanup
-  %15 = getelementptr inbounds i8, ptr %4, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %16 = load ptr, ptr %15, align 8
   %.not.i.i.i.i.i = icmp eq ptr %16, null
   br i1 %.not.i.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_8SdfLayerEED2Ev.exit.i, label %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i.i
@@ -8526,7 +8526,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__14UsdResolveInfoC2Ev.exit: ; preds = %10
   unreachable
 
 _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit.i: ; preds = %92, %79, %77
-  %96 = getelementptr inbounds i8, ptr %4, i64 24
+  %96 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %97 = load ptr, ptr %96, align 8
   %.not.i.i.i.i.i16 = icmp eq ptr %97, null
   br i1 %.not.i.i.i.i.i16, label %_ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_8SdfLayerEED2Ev.exit.i18, label %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i.i17
@@ -8601,14 +8601,14 @@ define weak_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__17UsdA
   br i1 %6, label %7, label %114
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %0, i64 104
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %9 = load i32, ptr %8, align 8
   %.off = add i32 %9, -3
   %switch = icmp ult i32 %.off, 2
   br i1 %switch, label %10, label %114
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %4, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, i8 0, i64 40, i1 false)
   store i64 -1, ptr %11, align 8
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 48
@@ -8618,7 +8618,7 @@ define weak_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__17UsdA
 13:                                               ; preds = %10
   %14 = landingpad { ptr, i32 }
           cleanup
-  %15 = getelementptr inbounds i8, ptr %4, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %16 = load ptr, ptr %15, align 8
   %.not.i.i.i.i.i = icmp eq ptr %16, null
   br i1 %.not.i.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_8SdfLayerEED2Ev.exit.i, label %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i.i
@@ -8793,7 +8793,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__14UsdResolveInfoC2Ev.exit: ; preds = %10
   unreachable
 
 _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit.i: ; preds = %92, %79, %77
-  %96 = getelementptr inbounds i8, ptr %4, i64 24
+  %96 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %97 = load ptr, ptr %96, align 8
   %.not.i.i.i.i.i16 = icmp eq ptr %97, null
   br i1 %.not.i.i.i.i.i16, label %_ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_8SdfLayerEED2Ev.exit.i18, label %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i.i17
@@ -8868,14 +8868,14 @@ define weak_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__17UsdA
   br i1 %6, label %7, label %114
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %0, i64 104
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %9 = load i32, ptr %8, align 8
   %.off = add i32 %9, -3
   %switch = icmp ult i32 %.off, 2
   br i1 %switch, label %10, label %114
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %4, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, i8 0, i64 40, i1 false)
   store i64 -1, ptr %11, align 8
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 48
@@ -8885,7 +8885,7 @@ define weak_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__17UsdA
 13:                                               ; preds = %10
   %14 = landingpad { ptr, i32 }
           cleanup
-  %15 = getelementptr inbounds i8, ptr %4, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %16 = load ptr, ptr %15, align 8
   %.not.i.i.i.i.i = icmp eq ptr %16, null
   br i1 %.not.i.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_8SdfLayerEED2Ev.exit.i, label %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i.i
@@ -9060,7 +9060,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__14UsdResolveInfoC2Ev.exit: ; preds = %10
   unreachable
 
 _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit.i: ; preds = %92, %79, %77
-  %96 = getelementptr inbounds i8, ptr %4, i64 24
+  %96 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %97 = load ptr, ptr %96, align 8
   %.not.i.i.i.i.i16 = icmp eq ptr %97, null
   br i1 %.not.i.i.i.i.i16, label %_ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_8SdfLayerEED2Ev.exit.i18, label %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i.i17
@@ -9135,14 +9135,14 @@ define weak_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__17UsdA
   br i1 %6, label %7, label %114
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %0, i64 104
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %9 = load i32, ptr %8, align 8
   %.off = add i32 %9, -3
   %switch = icmp ult i32 %.off, 2
   br i1 %switch, label %10, label %114
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %4, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, i8 0, i64 40, i1 false)
   store i64 -1, ptr %11, align 8
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 48
@@ -9152,7 +9152,7 @@ define weak_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__17UsdA
 13:                                               ; preds = %10
   %14 = landingpad { ptr, i32 }
           cleanup
-  %15 = getelementptr inbounds i8, ptr %4, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %16 = load ptr, ptr %15, align 8
   %.not.i.i.i.i.i = icmp eq ptr %16, null
   br i1 %.not.i.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_8SdfLayerEED2Ev.exit.i, label %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i.i
@@ -9327,7 +9327,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__14UsdResolveInfoC2Ev.exit: ; preds = %10
   unreachable
 
 _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit.i: ; preds = %92, %79, %77
-  %96 = getelementptr inbounds i8, ptr %4, i64 24
+  %96 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %97 = load ptr, ptr %96, align 8
   %.not.i.i.i.i.i16 = icmp eq ptr %97, null
   br i1 %.not.i.i.i.i.i16, label %_ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_8SdfLayerEED2Ev.exit.i18, label %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i.i17
@@ -9402,14 +9402,14 @@ define weak_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__17UsdA
   br i1 %6, label %7, label %114
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %0, i64 104
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %9 = load i32, ptr %8, align 8
   %.off = add i32 %9, -3
   %switch = icmp ult i32 %.off, 2
   br i1 %switch, label %10, label %114
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %4, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, i8 0, i64 40, i1 false)
   store i64 -1, ptr %11, align 8
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 48
@@ -9419,7 +9419,7 @@ define weak_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__17UsdA
 13:                                               ; preds = %10
   %14 = landingpad { ptr, i32 }
           cleanup
-  %15 = getelementptr inbounds i8, ptr %4, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %16 = load ptr, ptr %15, align 8
   %.not.i.i.i.i.i = icmp eq ptr %16, null
   br i1 %.not.i.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_8SdfLayerEED2Ev.exit.i, label %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i.i
@@ -9594,7 +9594,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__14UsdResolveInfoC2Ev.exit: ; preds = %10
   unreachable
 
 _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit.i: ; preds = %92, %79, %77
-  %96 = getelementptr inbounds i8, ptr %4, i64 24
+  %96 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %97 = load ptr, ptr %96, align 8
   %.not.i.i.i.i.i16 = icmp eq ptr %97, null
   br i1 %.not.i.i.i.i.i16, label %_ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_8SdfLayerEED2Ev.exit.i18, label %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i.i17
@@ -9669,14 +9669,14 @@ define weak_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__17UsdA
   br i1 %6, label %7, label %114
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %0, i64 104
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %9 = load i32, ptr %8, align 8
   %.off = add i32 %9, -3
   %switch = icmp ult i32 %.off, 2
   br i1 %switch, label %10, label %114
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %4, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, i8 0, i64 40, i1 false)
   store i64 -1, ptr %11, align 8
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 48
@@ -9686,7 +9686,7 @@ define weak_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__17UsdA
 13:                                               ; preds = %10
   %14 = landingpad { ptr, i32 }
           cleanup
-  %15 = getelementptr inbounds i8, ptr %4, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %16 = load ptr, ptr %15, align 8
   %.not.i.i.i.i.i = icmp eq ptr %16, null
   br i1 %.not.i.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_8SdfLayerEED2Ev.exit.i, label %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i.i
@@ -9861,7 +9861,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__14UsdResolveInfoC2Ev.exit: ; preds = %10
   unreachable
 
 _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit.i: ; preds = %92, %79, %77
-  %96 = getelementptr inbounds i8, ptr %4, i64 24
+  %96 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %97 = load ptr, ptr %96, align 8
   %.not.i.i.i.i.i16 = icmp eq ptr %97, null
   br i1 %.not.i.i.i.i.i16, label %_ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_8SdfLayerEED2Ev.exit.i18, label %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i.i17
@@ -9936,14 +9936,14 @@ define weak_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__17UsdA
   br i1 %6, label %7, label %114
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %0, i64 104
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %9 = load i32, ptr %8, align 8
   %.off = add i32 %9, -3
   %switch = icmp ult i32 %.off, 2
   br i1 %switch, label %10, label %114
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %4, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, i8 0, i64 40, i1 false)
   store i64 -1, ptr %11, align 8
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 48
@@ -9953,7 +9953,7 @@ define weak_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__17UsdA
 13:                                               ; preds = %10
   %14 = landingpad { ptr, i32 }
           cleanup
-  %15 = getelementptr inbounds i8, ptr %4, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %16 = load ptr, ptr %15, align 8
   %.not.i.i.i.i.i = icmp eq ptr %16, null
   br i1 %.not.i.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_8SdfLayerEED2Ev.exit.i, label %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i.i
@@ -10128,7 +10128,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__14UsdResolveInfoC2Ev.exit: ; preds = %10
   unreachable
 
 _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit.i: ; preds = %92, %79, %77
-  %96 = getelementptr inbounds i8, ptr %4, i64 24
+  %96 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %97 = load ptr, ptr %96, align 8
   %.not.i.i.i.i.i16 = icmp eq ptr %97, null
   br i1 %.not.i.i.i.i.i16, label %_ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_8SdfLayerEED2Ev.exit.i18, label %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i.i17
@@ -10203,14 +10203,14 @@ define weak_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__17UsdA
   br i1 %6, label %7, label %114
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %0, i64 104
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %9 = load i32, ptr %8, align 8
   %.off = add i32 %9, -3
   %switch = icmp ult i32 %.off, 2
   br i1 %switch, label %10, label %114
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %4, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, i8 0, i64 40, i1 false)
   store i64 -1, ptr %11, align 8
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 48
@@ -10220,7 +10220,7 @@ define weak_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__17UsdA
 13:                                               ; preds = %10
   %14 = landingpad { ptr, i32 }
           cleanup
-  %15 = getelementptr inbounds i8, ptr %4, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %16 = load ptr, ptr %15, align 8
   %.not.i.i.i.i.i = icmp eq ptr %16, null
   br i1 %.not.i.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_8SdfLayerEED2Ev.exit.i, label %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i.i
@@ -10395,7 +10395,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__14UsdResolveInfoC2Ev.exit: ; preds = %10
   unreachable
 
 _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit.i: ; preds = %92, %79, %77
-  %96 = getelementptr inbounds i8, ptr %4, i64 24
+  %96 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %97 = load ptr, ptr %96, align 8
   %.not.i.i.i.i.i16 = icmp eq ptr %97, null
   br i1 %.not.i.i.i.i.i16, label %_ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_8SdfLayerEED2Ev.exit.i18, label %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i.i17
@@ -10470,14 +10470,14 @@ define weak_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__17UsdA
   br i1 %6, label %7, label %114
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %0, i64 104
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %9 = load i32, ptr %8, align 8
   %.off = add i32 %9, -3
   %switch = icmp ult i32 %.off, 2
   br i1 %switch, label %10, label %114
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %4, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, i8 0, i64 40, i1 false)
   store i64 -1, ptr %11, align 8
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 48
@@ -10487,7 +10487,7 @@ define weak_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__17UsdA
 13:                                               ; preds = %10
   %14 = landingpad { ptr, i32 }
           cleanup
-  %15 = getelementptr inbounds i8, ptr %4, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %16 = load ptr, ptr %15, align 8
   %.not.i.i.i.i.i = icmp eq ptr %16, null
   br i1 %.not.i.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_8SdfLayerEED2Ev.exit.i, label %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i.i
@@ -10662,7 +10662,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__14UsdResolveInfoC2Ev.exit: ; preds = %10
   unreachable
 
 _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit.i: ; preds = %92, %79, %77
-  %96 = getelementptr inbounds i8, ptr %4, i64 24
+  %96 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %97 = load ptr, ptr %96, align 8
   %.not.i.i.i.i.i16 = icmp eq ptr %97, null
   br i1 %.not.i.i.i.i.i16, label %_ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_8SdfLayerEED2Ev.exit.i18, label %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i.i17
@@ -10737,14 +10737,14 @@ define weak_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__17UsdA
   br i1 %6, label %7, label %114
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %0, i64 104
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %9 = load i32, ptr %8, align 8
   %.off = add i32 %9, -3
   %switch = icmp ult i32 %.off, 2
   br i1 %switch, label %10, label %114
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %4, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, i8 0, i64 40, i1 false)
   store i64 -1, ptr %11, align 8
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 48
@@ -10754,7 +10754,7 @@ define weak_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__17UsdA
 13:                                               ; preds = %10
   %14 = landingpad { ptr, i32 }
           cleanup
-  %15 = getelementptr inbounds i8, ptr %4, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %16 = load ptr, ptr %15, align 8
   %.not.i.i.i.i.i = icmp eq ptr %16, null
   br i1 %.not.i.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_8SdfLayerEED2Ev.exit.i, label %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i.i
@@ -10929,7 +10929,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__14UsdResolveInfoC2Ev.exit: ; preds = %10
   unreachable
 
 _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit.i: ; preds = %92, %79, %77
-  %96 = getelementptr inbounds i8, ptr %4, i64 24
+  %96 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %97 = load ptr, ptr %96, align 8
   %.not.i.i.i.i.i16 = icmp eq ptr %97, null
   br i1 %.not.i.i.i.i.i16, label %_ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_8SdfLayerEED2Ev.exit.i18, label %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i.i17
@@ -11004,14 +11004,14 @@ define weak_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__17UsdA
   br i1 %6, label %7, label %114
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %0, i64 104
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %9 = load i32, ptr %8, align 8
   %.off = add i32 %9, -3
   %switch = icmp ult i32 %.off, 2
   br i1 %switch, label %10, label %114
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %4, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, i8 0, i64 40, i1 false)
   store i64 -1, ptr %11, align 8
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 48
@@ -11021,7 +11021,7 @@ define weak_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__17UsdA
 13:                                               ; preds = %10
   %14 = landingpad { ptr, i32 }
           cleanup
-  %15 = getelementptr inbounds i8, ptr %4, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %16 = load ptr, ptr %15, align 8
   %.not.i.i.i.i.i = icmp eq ptr %16, null
   br i1 %.not.i.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_8SdfLayerEED2Ev.exit.i, label %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i.i
@@ -11196,7 +11196,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__14UsdResolveInfoC2Ev.exit: ; preds = %10
   unreachable
 
 _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit.i: ; preds = %92, %79, %77
-  %96 = getelementptr inbounds i8, ptr %4, i64 24
+  %96 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %97 = load ptr, ptr %96, align 8
   %.not.i.i.i.i.i16 = icmp eq ptr %97, null
   br i1 %.not.i.i.i.i.i16, label %_ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_8SdfLayerEED2Ev.exit.i18, label %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i.i17
@@ -11271,14 +11271,14 @@ define weak_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__17UsdA
   br i1 %6, label %7, label %114
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %0, i64 104
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %9 = load i32, ptr %8, align 8
   %.off = add i32 %9, -3
   %switch = icmp ult i32 %.off, 2
   br i1 %switch, label %10, label %114
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %4, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, i8 0, i64 40, i1 false)
   store i64 -1, ptr %11, align 8
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 48
@@ -11288,7 +11288,7 @@ define weak_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__17UsdA
 13:                                               ; preds = %10
   %14 = landingpad { ptr, i32 }
           cleanup
-  %15 = getelementptr inbounds i8, ptr %4, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %16 = load ptr, ptr %15, align 8
   %.not.i.i.i.i.i = icmp eq ptr %16, null
   br i1 %.not.i.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_8SdfLayerEED2Ev.exit.i, label %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i.i
@@ -11463,7 +11463,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__14UsdResolveInfoC2Ev.exit: ; preds = %10
   unreachable
 
 _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit.i: ; preds = %92, %79, %77
-  %96 = getelementptr inbounds i8, ptr %4, i64 24
+  %96 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %97 = load ptr, ptr %96, align 8
   %.not.i.i.i.i.i16 = icmp eq ptr %97, null
   br i1 %.not.i.i.i.i.i16, label %_ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_8SdfLayerEED2Ev.exit.i18, label %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i.i17
@@ -11538,14 +11538,14 @@ define weak_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__17UsdA
   br i1 %6, label %7, label %114
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %0, i64 104
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %9 = load i32, ptr %8, align 8
   %.off = add i32 %9, -3
   %switch = icmp ult i32 %.off, 2
   br i1 %switch, label %10, label %114
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %4, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, i8 0, i64 40, i1 false)
   store i64 -1, ptr %11, align 8
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 48
@@ -11555,7 +11555,7 @@ define weak_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__17UsdA
 13:                                               ; preds = %10
   %14 = landingpad { ptr, i32 }
           cleanup
-  %15 = getelementptr inbounds i8, ptr %4, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %16 = load ptr, ptr %15, align 8
   %.not.i.i.i.i.i = icmp eq ptr %16, null
   br i1 %.not.i.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_8SdfLayerEED2Ev.exit.i, label %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i.i
@@ -11730,7 +11730,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__14UsdResolveInfoC2Ev.exit: ; preds = %10
   unreachable
 
 _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit.i: ; preds = %92, %79, %77
-  %96 = getelementptr inbounds i8, ptr %4, i64 24
+  %96 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %97 = load ptr, ptr %96, align 8
   %.not.i.i.i.i.i16 = icmp eq ptr %97, null
   br i1 %.not.i.i.i.i.i16, label %_ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_8SdfLayerEED2Ev.exit.i18, label %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i.i17
@@ -11805,14 +11805,14 @@ define weak_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__17UsdA
   br i1 %6, label %7, label %114
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %0, i64 104
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %9 = load i32, ptr %8, align 8
   %.off = add i32 %9, -3
   %switch = icmp ult i32 %.off, 2
   br i1 %switch, label %10, label %114
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %4, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, i8 0, i64 40, i1 false)
   store i64 -1, ptr %11, align 8
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 48
@@ -11822,7 +11822,7 @@ define weak_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__17UsdA
 13:                                               ; preds = %10
   %14 = landingpad { ptr, i32 }
           cleanup
-  %15 = getelementptr inbounds i8, ptr %4, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %16 = load ptr, ptr %15, align 8
   %.not.i.i.i.i.i = icmp eq ptr %16, null
   br i1 %.not.i.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_8SdfLayerEED2Ev.exit.i, label %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i.i
@@ -11997,7 +11997,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__14UsdResolveInfoC2Ev.exit: ; preds = %10
   unreachable
 
 _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit.i: ; preds = %92, %79, %77
-  %96 = getelementptr inbounds i8, ptr %4, i64 24
+  %96 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %97 = load ptr, ptr %96, align 8
   %.not.i.i.i.i.i16 = icmp eq ptr %97, null
   br i1 %.not.i.i.i.i.i16, label %_ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_8SdfLayerEED2Ev.exit.i18, label %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i.i17
@@ -12072,14 +12072,14 @@ define weak_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__17UsdA
   br i1 %6, label %7, label %114
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %0, i64 104
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %9 = load i32, ptr %8, align 8
   %.off = add i32 %9, -3
   %switch = icmp ult i32 %.off, 2
   br i1 %switch, label %10, label %114
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %4, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, i8 0, i64 40, i1 false)
   store i64 -1, ptr %11, align 8
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 48
@@ -12089,7 +12089,7 @@ define weak_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__17UsdA
 13:                                               ; preds = %10
   %14 = landingpad { ptr, i32 }
           cleanup
-  %15 = getelementptr inbounds i8, ptr %4, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %16 = load ptr, ptr %15, align 8
   %.not.i.i.i.i.i = icmp eq ptr %16, null
   br i1 %.not.i.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_8SdfLayerEED2Ev.exit.i, label %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i.i
@@ -12264,7 +12264,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__14UsdResolveInfoC2Ev.exit: ; preds = %10
   unreachable
 
 _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit.i: ; preds = %92, %79, %77
-  %96 = getelementptr inbounds i8, ptr %4, i64 24
+  %96 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %97 = load ptr, ptr %96, align 8
   %.not.i.i.i.i.i16 = icmp eq ptr %97, null
   br i1 %.not.i.i.i.i.i16, label %_ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_8SdfLayerEED2Ev.exit.i18, label %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i.i17
@@ -12339,14 +12339,14 @@ define weak_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__17UsdA
   br i1 %6, label %7, label %114
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %0, i64 104
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %9 = load i32, ptr %8, align 8
   %.off = add i32 %9, -3
   %switch = icmp ult i32 %.off, 2
   br i1 %switch, label %10, label %114
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %4, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, i8 0, i64 40, i1 false)
   store i64 -1, ptr %11, align 8
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 48
@@ -12356,7 +12356,7 @@ define weak_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__17UsdA
 13:                                               ; preds = %10
   %14 = landingpad { ptr, i32 }
           cleanup
-  %15 = getelementptr inbounds i8, ptr %4, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %16 = load ptr, ptr %15, align 8
   %.not.i.i.i.i.i = icmp eq ptr %16, null
   br i1 %.not.i.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_8SdfLayerEED2Ev.exit.i, label %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i.i
@@ -12531,7 +12531,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__14UsdResolveInfoC2Ev.exit: ; preds = %10
   unreachable
 
 _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit.i: ; preds = %92, %79, %77
-  %96 = getelementptr inbounds i8, ptr %4, i64 24
+  %96 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %97 = load ptr, ptr %96, align 8
   %.not.i.i.i.i.i16 = icmp eq ptr %97, null
   br i1 %.not.i.i.i.i.i16, label %_ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_8SdfLayerEED2Ev.exit.i18, label %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i.i17
@@ -12606,14 +12606,14 @@ define weak_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__17UsdA
   br i1 %6, label %7, label %114
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %0, i64 104
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %9 = load i32, ptr %8, align 8
   %.off = add i32 %9, -3
   %switch = icmp ult i32 %.off, 2
   br i1 %switch, label %10, label %114
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %4, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, i8 0, i64 40, i1 false)
   store i64 -1, ptr %11, align 8
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 48
@@ -12623,7 +12623,7 @@ define weak_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__17UsdA
 13:                                               ; preds = %10
   %14 = landingpad { ptr, i32 }
           cleanup
-  %15 = getelementptr inbounds i8, ptr %4, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %16 = load ptr, ptr %15, align 8
   %.not.i.i.i.i.i = icmp eq ptr %16, null
   br i1 %.not.i.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_8SdfLayerEED2Ev.exit.i, label %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i.i
@@ -12798,7 +12798,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__14UsdResolveInfoC2Ev.exit: ; preds = %10
   unreachable
 
 _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit.i: ; preds = %92, %79, %77
-  %96 = getelementptr inbounds i8, ptr %4, i64 24
+  %96 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %97 = load ptr, ptr %96, align 8
   %.not.i.i.i.i.i16 = icmp eq ptr %97, null
   br i1 %.not.i.i.i.i.i16, label %_ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_8SdfLayerEED2Ev.exit.i18, label %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i.i17
@@ -12873,14 +12873,14 @@ define weak_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__17UsdA
   br i1 %6, label %7, label %114
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %0, i64 104
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %9 = load i32, ptr %8, align 8
   %.off = add i32 %9, -3
   %switch = icmp ult i32 %.off, 2
   br i1 %switch, label %10, label %114
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %4, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, i8 0, i64 40, i1 false)
   store i64 -1, ptr %11, align 8
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 48
@@ -12890,7 +12890,7 @@ define weak_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__17UsdA
 13:                                               ; preds = %10
   %14 = landingpad { ptr, i32 }
           cleanup
-  %15 = getelementptr inbounds i8, ptr %4, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %16 = load ptr, ptr %15, align 8
   %.not.i.i.i.i.i = icmp eq ptr %16, null
   br i1 %.not.i.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_8SdfLayerEED2Ev.exit.i, label %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i.i
@@ -13065,7 +13065,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__14UsdResolveInfoC2Ev.exit: ; preds = %10
   unreachable
 
 _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit.i: ; preds = %92, %79, %77
-  %96 = getelementptr inbounds i8, ptr %4, i64 24
+  %96 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %97 = load ptr, ptr %96, align 8
   %.not.i.i.i.i.i16 = icmp eq ptr %97, null
   br i1 %.not.i.i.i.i.i16, label %_ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_8SdfLayerEED2Ev.exit.i18, label %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i.i17
@@ -13140,14 +13140,14 @@ define weak_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__17UsdA
   br i1 %6, label %7, label %114
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %0, i64 104
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %9 = load i32, ptr %8, align 8
   %.off = add i32 %9, -3
   %switch = icmp ult i32 %.off, 2
   br i1 %switch, label %10, label %114
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %4, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, i8 0, i64 40, i1 false)
   store i64 -1, ptr %11, align 8
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 48
@@ -13157,7 +13157,7 @@ define weak_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__17UsdA
 13:                                               ; preds = %10
   %14 = landingpad { ptr, i32 }
           cleanup
-  %15 = getelementptr inbounds i8, ptr %4, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %16 = load ptr, ptr %15, align 8
   %.not.i.i.i.i.i = icmp eq ptr %16, null
   br i1 %.not.i.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_8SdfLayerEED2Ev.exit.i, label %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i.i
@@ -13332,7 +13332,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__14UsdResolveInfoC2Ev.exit: ; preds = %10
   unreachable
 
 _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit.i: ; preds = %92, %79, %77
-  %96 = getelementptr inbounds i8, ptr %4, i64 24
+  %96 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %97 = load ptr, ptr %96, align 8
   %.not.i.i.i.i.i16 = icmp eq ptr %97, null
   br i1 %.not.i.i.i.i.i16, label %_ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_8SdfLayerEED2Ev.exit.i18, label %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i.i17
@@ -13407,14 +13407,14 @@ define weak_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__17UsdA
   br i1 %6, label %7, label %114
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %0, i64 104
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %9 = load i32, ptr %8, align 8
   %.off = add i32 %9, -3
   %switch = icmp ult i32 %.off, 2
   br i1 %switch, label %10, label %114
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %4, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, i8 0, i64 40, i1 false)
   store i64 -1, ptr %11, align 8
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 48
@@ -13424,7 +13424,7 @@ define weak_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__17UsdA
 13:                                               ; preds = %10
   %14 = landingpad { ptr, i32 }
           cleanup
-  %15 = getelementptr inbounds i8, ptr %4, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %16 = load ptr, ptr %15, align 8
   %.not.i.i.i.i.i = icmp eq ptr %16, null
   br i1 %.not.i.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_8SdfLayerEED2Ev.exit.i, label %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i.i
@@ -13599,7 +13599,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__14UsdResolveInfoC2Ev.exit: ; preds = %10
   unreachable
 
 _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit.i: ; preds = %92, %79, %77
-  %96 = getelementptr inbounds i8, ptr %4, i64 24
+  %96 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %97 = load ptr, ptr %96, align 8
   %.not.i.i.i.i.i16 = icmp eq ptr %97, null
   br i1 %.not.i.i.i.i.i16, label %_ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_8SdfLayerEED2Ev.exit.i18, label %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i.i17
@@ -13674,14 +13674,14 @@ define weak_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__17UsdA
   br i1 %6, label %7, label %114
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %0, i64 104
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %9 = load i32, ptr %8, align 8
   %.off = add i32 %9, -3
   %switch = icmp ult i32 %.off, 2
   br i1 %switch, label %10, label %114
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %4, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, i8 0, i64 40, i1 false)
   store i64 -1, ptr %11, align 8
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 48
@@ -13691,7 +13691,7 @@ define weak_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__17UsdA
 13:                                               ; preds = %10
   %14 = landingpad { ptr, i32 }
           cleanup
-  %15 = getelementptr inbounds i8, ptr %4, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %16 = load ptr, ptr %15, align 8
   %.not.i.i.i.i.i = icmp eq ptr %16, null
   br i1 %.not.i.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_8SdfLayerEED2Ev.exit.i, label %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i.i
@@ -13866,7 +13866,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__14UsdResolveInfoC2Ev.exit: ; preds = %10
   unreachable
 
 _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit.i: ; preds = %92, %79, %77
-  %96 = getelementptr inbounds i8, ptr %4, i64 24
+  %96 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %97 = load ptr, ptr %96, align 8
   %.not.i.i.i.i.i16 = icmp eq ptr %97, null
   br i1 %.not.i.i.i.i.i16, label %_ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_8SdfLayerEED2Ev.exit.i18, label %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i.i17
@@ -13941,14 +13941,14 @@ define weak_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__17UsdA
   br i1 %6, label %7, label %114
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %0, i64 104
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %9 = load i32, ptr %8, align 8
   %.off = add i32 %9, -3
   %switch = icmp ult i32 %.off, 2
   br i1 %switch, label %10, label %114
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %4, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, i8 0, i64 40, i1 false)
   store i64 -1, ptr %11, align 8
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 48
@@ -13958,7 +13958,7 @@ define weak_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__17UsdA
 13:                                               ; preds = %10
   %14 = landingpad { ptr, i32 }
           cleanup
-  %15 = getelementptr inbounds i8, ptr %4, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %16 = load ptr, ptr %15, align 8
   %.not.i.i.i.i.i = icmp eq ptr %16, null
   br i1 %.not.i.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_8SdfLayerEED2Ev.exit.i, label %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i.i
@@ -14133,7 +14133,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__14UsdResolveInfoC2Ev.exit: ; preds = %10
   unreachable
 
 _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit.i: ; preds = %92, %79, %77
-  %96 = getelementptr inbounds i8, ptr %4, i64 24
+  %96 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %97 = load ptr, ptr %96, align 8
   %.not.i.i.i.i.i16 = icmp eq ptr %97, null
   br i1 %.not.i.i.i.i.i16, label %_ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_8SdfLayerEED2Ev.exit.i18, label %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i.i17
@@ -14208,14 +14208,14 @@ define weak_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__17UsdA
   br i1 %6, label %7, label %114
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %0, i64 104
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %9 = load i32, ptr %8, align 8
   %.off = add i32 %9, -3
   %switch = icmp ult i32 %.off, 2
   br i1 %switch, label %10, label %114
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %4, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, i8 0, i64 40, i1 false)
   store i64 -1, ptr %11, align 8
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 48
@@ -14225,7 +14225,7 @@ define weak_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__17UsdA
 13:                                               ; preds = %10
   %14 = landingpad { ptr, i32 }
           cleanup
-  %15 = getelementptr inbounds i8, ptr %4, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %16 = load ptr, ptr %15, align 8
   %.not.i.i.i.i.i = icmp eq ptr %16, null
   br i1 %.not.i.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_8SdfLayerEED2Ev.exit.i, label %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i.i
@@ -14400,7 +14400,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__14UsdResolveInfoC2Ev.exit: ; preds = %10
   unreachable
 
 _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit.i: ; preds = %92, %79, %77
-  %96 = getelementptr inbounds i8, ptr %4, i64 24
+  %96 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %97 = load ptr, ptr %96, align 8
   %.not.i.i.i.i.i16 = icmp eq ptr %97, null
   br i1 %.not.i.i.i.i.i16, label %_ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_8SdfLayerEED2Ev.exit.i18, label %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i.i17
@@ -14475,14 +14475,14 @@ define weak_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__17UsdA
   br i1 %6, label %7, label %114
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %0, i64 104
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %9 = load i32, ptr %8, align 8
   %.off = add i32 %9, -3
   %switch = icmp ult i32 %.off, 2
   br i1 %switch, label %10, label %114
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %4, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, i8 0, i64 40, i1 false)
   store i64 -1, ptr %11, align 8
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 48
@@ -14492,7 +14492,7 @@ define weak_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__17UsdA
 13:                                               ; preds = %10
   %14 = landingpad { ptr, i32 }
           cleanup
-  %15 = getelementptr inbounds i8, ptr %4, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %16 = load ptr, ptr %15, align 8
   %.not.i.i.i.i.i = icmp eq ptr %16, null
   br i1 %.not.i.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_8SdfLayerEED2Ev.exit.i, label %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i.i
@@ -14667,7 +14667,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__14UsdResolveInfoC2Ev.exit: ; preds = %10
   unreachable
 
 _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit.i: ; preds = %92, %79, %77
-  %96 = getelementptr inbounds i8, ptr %4, i64 24
+  %96 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %97 = load ptr, ptr %96, align 8
   %.not.i.i.i.i.i16 = icmp eq ptr %97, null
   br i1 %.not.i.i.i.i.i16, label %_ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_8SdfLayerEED2Ev.exit.i18, label %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i.i17
@@ -14742,14 +14742,14 @@ define weak_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__17UsdA
   br i1 %6, label %7, label %114
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %0, i64 104
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %9 = load i32, ptr %8, align 8
   %.off = add i32 %9, -3
   %switch = icmp ult i32 %.off, 2
   br i1 %switch, label %10, label %114
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %4, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, i8 0, i64 40, i1 false)
   store i64 -1, ptr %11, align 8
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 48
@@ -14759,7 +14759,7 @@ define weak_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__17UsdA
 13:                                               ; preds = %10
   %14 = landingpad { ptr, i32 }
           cleanup
-  %15 = getelementptr inbounds i8, ptr %4, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %16 = load ptr, ptr %15, align 8
   %.not.i.i.i.i.i = icmp eq ptr %16, null
   br i1 %.not.i.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_8SdfLayerEED2Ev.exit.i, label %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i.i
@@ -14934,7 +14934,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__14UsdResolveInfoC2Ev.exit: ; preds = %10
   unreachable
 
 _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit.i: ; preds = %92, %79, %77
-  %96 = getelementptr inbounds i8, ptr %4, i64 24
+  %96 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %97 = load ptr, ptr %96, align 8
   %.not.i.i.i.i.i16 = icmp eq ptr %97, null
   br i1 %.not.i.i.i.i.i16, label %_ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_8SdfLayerEED2Ev.exit.i18, label %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i.i17
@@ -15009,14 +15009,14 @@ define weak_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__17UsdA
   br i1 %6, label %7, label %114
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %0, i64 104
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %9 = load i32, ptr %8, align 8
   %.off = add i32 %9, -3
   %switch = icmp ult i32 %.off, 2
   br i1 %switch, label %10, label %114
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %4, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, i8 0, i64 40, i1 false)
   store i64 -1, ptr %11, align 8
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 48
@@ -15026,7 +15026,7 @@ define weak_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__17UsdA
 13:                                               ; preds = %10
   %14 = landingpad { ptr, i32 }
           cleanup
-  %15 = getelementptr inbounds i8, ptr %4, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %16 = load ptr, ptr %15, align 8
   %.not.i.i.i.i.i = icmp eq ptr %16, null
   br i1 %.not.i.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_8SdfLayerEED2Ev.exit.i, label %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i.i
@@ -15201,7 +15201,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__14UsdResolveInfoC2Ev.exit: ; preds = %10
   unreachable
 
 _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit.i: ; preds = %92, %79, %77
-  %96 = getelementptr inbounds i8, ptr %4, i64 24
+  %96 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %97 = load ptr, ptr %96, align 8
   %.not.i.i.i.i.i16 = icmp eq ptr %97, null
   br i1 %.not.i.i.i.i.i16, label %_ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_8SdfLayerEED2Ev.exit.i18, label %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i.i17
@@ -15276,14 +15276,14 @@ define weak_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__17UsdA
   br i1 %6, label %7, label %114
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %0, i64 104
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %9 = load i32, ptr %8, align 8
   %.off = add i32 %9, -3
   %switch = icmp ult i32 %.off, 2
   br i1 %switch, label %10, label %114
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %4, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, i8 0, i64 40, i1 false)
   store i64 -1, ptr %11, align 8
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 48
@@ -15293,7 +15293,7 @@ define weak_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__17UsdA
 13:                                               ; preds = %10
   %14 = landingpad { ptr, i32 }
           cleanup
-  %15 = getelementptr inbounds i8, ptr %4, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %16 = load ptr, ptr %15, align 8
   %.not.i.i.i.i.i = icmp eq ptr %16, null
   br i1 %.not.i.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_8SdfLayerEED2Ev.exit.i, label %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i.i
@@ -15468,7 +15468,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__14UsdResolveInfoC2Ev.exit: ; preds = %10
   unreachable
 
 _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit.i: ; preds = %92, %79, %77
-  %96 = getelementptr inbounds i8, ptr %4, i64 24
+  %96 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %97 = load ptr, ptr %96, align 8
   %.not.i.i.i.i.i16 = icmp eq ptr %97, null
   br i1 %.not.i.i.i.i.i16, label %_ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_8SdfLayerEED2Ev.exit.i18, label %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i.i17
@@ -15543,14 +15543,14 @@ define weak_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__17UsdA
   br i1 %6, label %7, label %114
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %0, i64 104
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %9 = load i32, ptr %8, align 8
   %.off = add i32 %9, -3
   %switch = icmp ult i32 %.off, 2
   br i1 %switch, label %10, label %114
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %4, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, i8 0, i64 40, i1 false)
   store i64 -1, ptr %11, align 8
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 48
@@ -15560,7 +15560,7 @@ define weak_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__17UsdA
 13:                                               ; preds = %10
   %14 = landingpad { ptr, i32 }
           cleanup
-  %15 = getelementptr inbounds i8, ptr %4, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %16 = load ptr, ptr %15, align 8
   %.not.i.i.i.i.i = icmp eq ptr %16, null
   br i1 %.not.i.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_8SdfLayerEED2Ev.exit.i, label %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i.i
@@ -15735,7 +15735,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__14UsdResolveInfoC2Ev.exit: ; preds = %10
   unreachable
 
 _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit.i: ; preds = %92, %79, %77
-  %96 = getelementptr inbounds i8, ptr %4, i64 24
+  %96 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %97 = load ptr, ptr %96, align 8
   %.not.i.i.i.i.i16 = icmp eq ptr %97, null
   br i1 %.not.i.i.i.i.i16, label %_ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_8SdfLayerEED2Ev.exit.i18, label %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i.i17
@@ -15810,14 +15810,14 @@ define weak_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__17UsdA
   br i1 %6, label %7, label %114
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %0, i64 104
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %9 = load i32, ptr %8, align 8
   %.off = add i32 %9, -3
   %switch = icmp ult i32 %.off, 2
   br i1 %switch, label %10, label %114
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %4, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, i8 0, i64 40, i1 false)
   store i64 -1, ptr %11, align 8
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 48
@@ -15827,7 +15827,7 @@ define weak_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__17UsdA
 13:                                               ; preds = %10
   %14 = landingpad { ptr, i32 }
           cleanup
-  %15 = getelementptr inbounds i8, ptr %4, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %16 = load ptr, ptr %15, align 8
   %.not.i.i.i.i.i = icmp eq ptr %16, null
   br i1 %.not.i.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_8SdfLayerEED2Ev.exit.i, label %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i.i
@@ -16002,7 +16002,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__14UsdResolveInfoC2Ev.exit: ; preds = %10
   unreachable
 
 _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit.i: ; preds = %92, %79, %77
-  %96 = getelementptr inbounds i8, ptr %4, i64 24
+  %96 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %97 = load ptr, ptr %96, align 8
   %.not.i.i.i.i.i16 = icmp eq ptr %97, null
   br i1 %.not.i.i.i.i.i16, label %_ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_8SdfLayerEED2Ev.exit.i18, label %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i.i17
@@ -16077,14 +16077,14 @@ define weak_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__17UsdA
   br i1 %6, label %7, label %114
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %0, i64 104
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %9 = load i32, ptr %8, align 8
   %.off = add i32 %9, -3
   %switch = icmp ult i32 %.off, 2
   br i1 %switch, label %10, label %114
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %4, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, i8 0, i64 40, i1 false)
   store i64 -1, ptr %11, align 8
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 48
@@ -16094,7 +16094,7 @@ define weak_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__17UsdA
 13:                                               ; preds = %10
   %14 = landingpad { ptr, i32 }
           cleanup
-  %15 = getelementptr inbounds i8, ptr %4, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %16 = load ptr, ptr %15, align 8
   %.not.i.i.i.i.i = icmp eq ptr %16, null
   br i1 %.not.i.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_8SdfLayerEED2Ev.exit.i, label %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i.i
@@ -16269,7 +16269,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__14UsdResolveInfoC2Ev.exit: ; preds = %10
   unreachable
 
 _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit.i: ; preds = %92, %79, %77
-  %96 = getelementptr inbounds i8, ptr %4, i64 24
+  %96 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %97 = load ptr, ptr %96, align 8
   %.not.i.i.i.i.i16 = icmp eq ptr %97, null
   br i1 %.not.i.i.i.i.i16, label %_ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_8SdfLayerEED2Ev.exit.i18, label %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i.i17
@@ -16344,14 +16344,14 @@ define weak_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__17UsdA
   br i1 %6, label %7, label %114
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %0, i64 104
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %9 = load i32, ptr %8, align 8
   %.off = add i32 %9, -3
   %switch = icmp ult i32 %.off, 2
   br i1 %switch, label %10, label %114
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %4, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, i8 0, i64 40, i1 false)
   store i64 -1, ptr %11, align 8
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 48
@@ -16361,7 +16361,7 @@ define weak_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__17UsdA
 13:                                               ; preds = %10
   %14 = landingpad { ptr, i32 }
           cleanup
-  %15 = getelementptr inbounds i8, ptr %4, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %16 = load ptr, ptr %15, align 8
   %.not.i.i.i.i.i = icmp eq ptr %16, null
   br i1 %.not.i.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_8SdfLayerEED2Ev.exit.i, label %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i.i
@@ -16536,7 +16536,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__14UsdResolveInfoC2Ev.exit: ; preds = %10
   unreachable
 
 _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit.i: ; preds = %92, %79, %77
-  %96 = getelementptr inbounds i8, ptr %4, i64 24
+  %96 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %97 = load ptr, ptr %96, align 8
   %.not.i.i.i.i.i16 = icmp eq ptr %97, null
   br i1 %.not.i.i.i.i.i16, label %_ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_8SdfLayerEED2Ev.exit.i18, label %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i.i17
@@ -16611,14 +16611,14 @@ define weak_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__17UsdA
   br i1 %6, label %7, label %114
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %0, i64 104
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %9 = load i32, ptr %8, align 8
   %.off = add i32 %9, -3
   %switch = icmp ult i32 %.off, 2
   br i1 %switch, label %10, label %114
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %4, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, i8 0, i64 40, i1 false)
   store i64 -1, ptr %11, align 8
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 48
@@ -16628,7 +16628,7 @@ define weak_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__17UsdA
 13:                                               ; preds = %10
   %14 = landingpad { ptr, i32 }
           cleanup
-  %15 = getelementptr inbounds i8, ptr %4, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %16 = load ptr, ptr %15, align 8
   %.not.i.i.i.i.i = icmp eq ptr %16, null
   br i1 %.not.i.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_8SdfLayerEED2Ev.exit.i, label %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i.i
@@ -16803,7 +16803,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__14UsdResolveInfoC2Ev.exit: ; preds = %10
   unreachable
 
 _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit.i: ; preds = %92, %79, %77
-  %96 = getelementptr inbounds i8, ptr %4, i64 24
+  %96 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %97 = load ptr, ptr %96, align 8
   %.not.i.i.i.i.i16 = icmp eq ptr %97, null
   br i1 %.not.i.i.i.i.i16, label %_ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_8SdfLayerEED2Ev.exit.i18, label %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i.i17
@@ -16878,14 +16878,14 @@ define weak_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__17UsdA
   br i1 %6, label %7, label %114
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %0, i64 104
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %9 = load i32, ptr %8, align 8
   %.off = add i32 %9, -3
   %switch = icmp ult i32 %.off, 2
   br i1 %switch, label %10, label %114
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %4, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, i8 0, i64 40, i1 false)
   store i64 -1, ptr %11, align 8
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 48
@@ -16895,7 +16895,7 @@ define weak_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__17UsdA
 13:                                               ; preds = %10
   %14 = landingpad { ptr, i32 }
           cleanup
-  %15 = getelementptr inbounds i8, ptr %4, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %16 = load ptr, ptr %15, align 8
   %.not.i.i.i.i.i = icmp eq ptr %16, null
   br i1 %.not.i.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_8SdfLayerEED2Ev.exit.i, label %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i.i
@@ -17070,7 +17070,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__14UsdResolveInfoC2Ev.exit: ; preds = %10
   unreachable
 
 _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit.i: ; preds = %92, %79, %77
-  %96 = getelementptr inbounds i8, ptr %4, i64 24
+  %96 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %97 = load ptr, ptr %96, align 8
   %.not.i.i.i.i.i16 = icmp eq ptr %97, null
   br i1 %.not.i.i.i.i.i16, label %_ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_8SdfLayerEED2Ev.exit.i18, label %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i.i17
@@ -17145,14 +17145,14 @@ define weak_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__17UsdA
   br i1 %6, label %7, label %114
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %0, i64 104
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %9 = load i32, ptr %8, align 8
   %.off = add i32 %9, -3
   %switch = icmp ult i32 %.off, 2
   br i1 %switch, label %10, label %114
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %4, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, i8 0, i64 40, i1 false)
   store i64 -1, ptr %11, align 8
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 48
@@ -17162,7 +17162,7 @@ define weak_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__17UsdA
 13:                                               ; preds = %10
   %14 = landingpad { ptr, i32 }
           cleanup
-  %15 = getelementptr inbounds i8, ptr %4, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %16 = load ptr, ptr %15, align 8
   %.not.i.i.i.i.i = icmp eq ptr %16, null
   br i1 %.not.i.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_8SdfLayerEED2Ev.exit.i, label %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i.i
@@ -17337,7 +17337,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__14UsdResolveInfoC2Ev.exit: ; preds = %10
   unreachable
 
 _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit.i: ; preds = %92, %79, %77
-  %96 = getelementptr inbounds i8, ptr %4, i64 24
+  %96 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %97 = load ptr, ptr %96, align 8
   %.not.i.i.i.i.i16 = icmp eq ptr %97, null
   br i1 %.not.i.i.i.i.i16, label %_ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_8SdfLayerEED2Ev.exit.i18, label %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i.i17
@@ -17412,14 +17412,14 @@ define weak_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__17UsdA
   br i1 %6, label %7, label %114
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %0, i64 104
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %9 = load i32, ptr %8, align 8
   %.off = add i32 %9, -3
   %switch = icmp ult i32 %.off, 2
   br i1 %switch, label %10, label %114
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %4, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, i8 0, i64 40, i1 false)
   store i64 -1, ptr %11, align 8
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 48
@@ -17429,7 +17429,7 @@ define weak_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__17UsdA
 13:                                               ; preds = %10
   %14 = landingpad { ptr, i32 }
           cleanup
-  %15 = getelementptr inbounds i8, ptr %4, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %16 = load ptr, ptr %15, align 8
   %.not.i.i.i.i.i = icmp eq ptr %16, null
   br i1 %.not.i.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_8SdfLayerEED2Ev.exit.i, label %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i.i
@@ -17604,7 +17604,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__14UsdResolveInfoC2Ev.exit: ; preds = %10
   unreachable
 
 _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit.i: ; preds = %92, %79, %77
-  %96 = getelementptr inbounds i8, ptr %4, i64 24
+  %96 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %97 = load ptr, ptr %96, align 8
   %.not.i.i.i.i.i16 = icmp eq ptr %97, null
   br i1 %.not.i.i.i.i.i16, label %_ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_8SdfLayerEED2Ev.exit.i18, label %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i.i17
@@ -17679,14 +17679,14 @@ define weak_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__17UsdA
   br i1 %6, label %7, label %114
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %0, i64 104
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %9 = load i32, ptr %8, align 8
   %.off = add i32 %9, -3
   %switch = icmp ult i32 %.off, 2
   br i1 %switch, label %10, label %114
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %4, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, i8 0, i64 40, i1 false)
   store i64 -1, ptr %11, align 8
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 48
@@ -17696,7 +17696,7 @@ define weak_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__17UsdA
 13:                                               ; preds = %10
   %14 = landingpad { ptr, i32 }
           cleanup
-  %15 = getelementptr inbounds i8, ptr %4, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %16 = load ptr, ptr %15, align 8
   %.not.i.i.i.i.i = icmp eq ptr %16, null
   br i1 %.not.i.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_8SdfLayerEED2Ev.exit.i, label %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i.i
@@ -17871,7 +17871,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__14UsdResolveInfoC2Ev.exit: ; preds = %10
   unreachable
 
 _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit.i: ; preds = %92, %79, %77
-  %96 = getelementptr inbounds i8, ptr %4, i64 24
+  %96 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %97 = load ptr, ptr %96, align 8
   %.not.i.i.i.i.i16 = icmp eq ptr %97, null
   br i1 %.not.i.i.i.i.i16, label %_ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_8SdfLayerEED2Ev.exit.i18, label %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i.i17
@@ -17946,14 +17946,14 @@ define weak_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__17UsdA
   br i1 %6, label %7, label %114
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %0, i64 104
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %9 = load i32, ptr %8, align 8
   %.off = add i32 %9, -3
   %switch = icmp ult i32 %.off, 2
   br i1 %switch, label %10, label %114
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %4, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, i8 0, i64 40, i1 false)
   store i64 -1, ptr %11, align 8
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 48
@@ -17963,7 +17963,7 @@ define weak_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__17UsdA
 13:                                               ; preds = %10
   %14 = landingpad { ptr, i32 }
           cleanup
-  %15 = getelementptr inbounds i8, ptr %4, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %16 = load ptr, ptr %15, align 8
   %.not.i.i.i.i.i = icmp eq ptr %16, null
   br i1 %.not.i.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_8SdfLayerEED2Ev.exit.i, label %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i.i
@@ -18138,7 +18138,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__14UsdResolveInfoC2Ev.exit: ; preds = %10
   unreachable
 
 _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit.i: ; preds = %92, %79, %77
-  %96 = getelementptr inbounds i8, ptr %4, i64 24
+  %96 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %97 = load ptr, ptr %96, align 8
   %.not.i.i.i.i.i16 = icmp eq ptr %97, null
   br i1 %.not.i.i.i.i.i16, label %_ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_8SdfLayerEED2Ev.exit.i18, label %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i.i17
@@ -18243,8 +18243,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__18Usd_PrimDataHandleC2ERKS0_.exit.i.i.i: ; 
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathC2ERKS0_.exit.i.i.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathC2ERKS0_.exit.i.i.i: ; preds = %13, %_ZN32pxrInternal_v0_24__pxrReserved__18Usd_PrimDataHandleC2ERKS0_.exit.i.i.i
-  %24 = getelementptr inbounds i8, ptr %0, i64 20
-  %25 = getelementptr inbounds i8, ptr %1, i64 20
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %26 = load i32, ptr %25, align 4
   store i32 %26, ptr %24, align 4
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -18273,17 +18273,17 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathC2ERKS0_.exit.i.i.i: ; preds = %13,
 
 _ZN32pxrInternal_v0_24__pxrReserved__12UsdAttributeC2ERKS0_.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathC2ERKS0_.exit.i.i.i, %31, %36
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %42 = getelementptr inbounds i8, ptr %0, i64 72
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 72
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %41, i8 0, i64 40, i1 false)
   store i64 -1, ptr %42, align 8
-  %43 = getelementptr inbounds i8, ptr %0, i64 80
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 80
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__14SdfLayerOffsetC1Edd(ptr noundef nonnull align 8 dereferenceable(16) %43, double noundef 0.000000e+00, double noundef 1.000000e+00)
           to label %64 unwind label %44
 
 44:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__12UsdAttributeC2ERKS0_.exit
   %45 = landingpad { ptr, i32 }
           cleanup
-  %46 = getelementptr inbounds i8, ptr %0, i64 56
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %47 = load ptr, ptr %46, align 8
   %.not.i.i.i.i.i5 = icmp eq ptr %47, null
   br i1 %.not.i.i.i.i.i5, label %_ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_8SdfLayerEED2Ev.exit.i, label %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i.i
@@ -18302,7 +18302,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBa
   br label %_ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_8SdfLayerEED2Ev.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_8SdfLayerEED2Ev.exit.i: ; preds = %51, %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i.i, %44
-  %55 = getelementptr inbounds i8, ptr %0, i64 40
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %56 = load ptr, ptr %55, align 8
   %.not.i.i.i.i4.i = icmp eq ptr %56, null
   br i1 %.not.i.i.i.i4.i, label %.body, label %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i5.i
@@ -18321,7 +18321,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBa
   br label %.body
 
 64:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__12UsdAttributeC2ERKS0_.exit
-  %65 = getelementptr inbounds i8, ptr %0, i64 96
+  %65 = getelementptr inbounds nuw i8, ptr %0, i64 96
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(13) %65, i8 0, i64 13, i1 false)
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store ptr null, ptr %66, align 8
@@ -18740,8 +18740,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__18Usd_PrimDataHandleC2ERKS0_.exit.i.i.i: ; 
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathC2ERKS0_.exit.i.i.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathC2ERKS0_.exit.i.i.i: ; preds = %14, %_ZN32pxrInternal_v0_24__pxrReserved__18Usd_PrimDataHandleC2ERKS0_.exit.i.i.i
-  %25 = getelementptr inbounds i8, ptr %0, i64 20
-  %26 = getelementptr inbounds i8, ptr %1, i64 20
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %27 = load i32, ptr %26, align 4
   store i32 %27, ptr %25, align 4
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -18770,17 +18770,17 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathC2ERKS0_.exit.i.i.i: ; preds = %14,
 
 _ZN32pxrInternal_v0_24__pxrReserved__12UsdAttributeC2ERKS0_.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathC2ERKS0_.exit.i.i.i, %32, %37
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %43 = getelementptr inbounds i8, ptr %0, i64 72
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 72
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %42, i8 0, i64 40, i1 false)
   store i64 -1, ptr %43, align 8
-  %44 = getelementptr inbounds i8, ptr %0, i64 80
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 80
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__14SdfLayerOffsetC1Edd(ptr noundef nonnull align 8 dereferenceable(16) %44, double noundef 0.000000e+00, double noundef 1.000000e+00)
           to label %65 unwind label %45
 
 45:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__12UsdAttributeC2ERKS0_.exit
   %46 = landingpad { ptr, i32 }
           cleanup
-  %47 = getelementptr inbounds i8, ptr %0, i64 56
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %48 = load ptr, ptr %47, align 8
   %.not.i.i.i.i.i6 = icmp eq ptr %48, null
   br i1 %.not.i.i.i.i.i6, label %_ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_8SdfLayerEED2Ev.exit.i, label %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i.i
@@ -18799,7 +18799,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBa
   br label %_ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_8SdfLayerEED2Ev.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_8SdfLayerEED2Ev.exit.i: ; preds = %52, %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i.i, %45
-  %56 = getelementptr inbounds i8, ptr %0, i64 40
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %57 = load ptr, ptr %56, align 8
   %.not.i.i.i.i4.i = icmp eq ptr %57, null
   br i1 %.not.i.i.i.i4.i, label %.body, label %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i5.i
@@ -18818,7 +18818,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBa
   br label %.body
 
 65:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__12UsdAttributeC2ERKS0_.exit
-  %66 = getelementptr inbounds i8, ptr %0, i64 96
+  %66 = getelementptr inbounds nuw i8, ptr %0, i64 96
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(13) %66, i8 0, i64 13, i1 false)
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store ptr null, ptr %67, align 8
@@ -19189,16 +19189,16 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__17UsdAttributeQuery13CreateQue
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %19 = getelementptr inbounds i8, ptr %4, i64 20
+  %19 = getelementptr inbounds nuw i8, ptr %4, i64 20
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %21 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  %22 = getelementptr inbounds i8, ptr %4, i64 40
-  %23 = getelementptr inbounds i8, ptr %4, i64 48
-  %24 = getelementptr inbounds i8, ptr %4, i64 56
-  %25 = getelementptr inbounds i8, ptr %4, i64 64
-  %26 = getelementptr inbounds i8, ptr %4, i64 96
-  %27 = getelementptr inbounds i8, ptr %4, i64 100
-  %28 = getelementptr inbounds i8, ptr %4, i64 104
+  %22 = getelementptr inbounds nuw i8, ptr %4, i64 40
+  %23 = getelementptr inbounds nuw i8, ptr %4, i64 48
+  %24 = getelementptr inbounds nuw i8, ptr %4, i64 56
+  %25 = getelementptr inbounds nuw i8, ptr %4, i64 64
+  %26 = getelementptr inbounds nuw i8, ptr %4, i64 96
+  %27 = getelementptr inbounds nuw i8, ptr %4, i64 100
+  %28 = getelementptr inbounds nuw i8, ptr %4, i64 104
   %29 = getelementptr inbounds nuw i8, ptr %4, i64 112
   br label %30
 
@@ -19224,7 +19224,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__17UsdAttributeQuery13CreateQue
   %39 = load i32, ptr %18, align 8
   store i32 %39, ptr %38, align 4
   store i32 0, ptr %18, align 8
-  %40 = getelementptr inbounds i8, ptr %32, i64 20
+  %40 = getelementptr inbounds nuw i8, ptr %32, i64 20
   %41 = load i32, ptr %19, align 4
   store i32 %41, ptr %40, align 4
   store i32 0, ptr %19, align 4
@@ -19235,28 +19235,28 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__17UsdAttributeQuery13CreateQue
   %44 = getelementptr inbounds nuw i8, ptr %32, i64 32
   %45 = load ptr, ptr %21, align 8
   store ptr %45, ptr %44, align 8
-  %46 = getelementptr inbounds i8, ptr %32, i64 40
+  %46 = getelementptr inbounds nuw i8, ptr %32, i64 40
   %47 = load ptr, ptr %22, align 8
   store ptr %47, ptr %46, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %21, i8 0, i64 16, i1 false)
-  %48 = getelementptr inbounds i8, ptr %32, i64 48
+  %48 = getelementptr inbounds nuw i8, ptr %32, i64 48
   %49 = load ptr, ptr %23, align 8
   store ptr %49, ptr %48, align 8
-  %50 = getelementptr inbounds i8, ptr %32, i64 56
+  %50 = getelementptr inbounds nuw i8, ptr %32, i64 56
   %51 = load ptr, ptr %24, align 8
   store ptr %51, ptr %50, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %23, i8 0, i64 16, i1 false)
-  %52 = getelementptr inbounds i8, ptr %32, i64 64
+  %52 = getelementptr inbounds nuw i8, ptr %32, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %52, ptr noundef nonnull align 8 dereferenceable(32) %25, i64 32, i1 false)
-  %53 = getelementptr inbounds i8, ptr %32, i64 96
+  %53 = getelementptr inbounds nuw i8, ptr %32, i64 96
   %54 = load i32, ptr %26, align 8
   store i32 %54, ptr %53, align 4
   store i32 0, ptr %26, align 8
-  %55 = getelementptr inbounds i8, ptr %32, i64 100
+  %55 = getelementptr inbounds nuw i8, ptr %32, i64 100
   %56 = load i32, ptr %27, align 4
   store i32 %56, ptr %55, align 4
   store i32 0, ptr %27, align 4
-  %57 = getelementptr inbounds i8, ptr %32, i64 104
+  %57 = getelementptr inbounds nuw i8, ptr %32, i64 104
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(5) %57, ptr noundef nonnull align 8 dereferenceable(5) %28, i64 5, i1 false)
   %58 = getelementptr inbounds nuw i8, ptr %32, i64 112
   %59 = load i64, ptr %29, align 8
@@ -19349,8 +19349,8 @@ _ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__17UsdAttributeQueryESaIS1
   %26 = load i32, ptr %25, align 4, !alias.scope !12, !noalias !9
   store i32 %26, ptr %24, align 4, !alias.scope !9, !noalias !12
   store i32 0, ptr %25, align 4, !alias.scope !12, !noalias !9
-  %27 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 20
-  %28 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 20
+  %27 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 20
+  %28 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 20
   %29 = load i32, ptr %28, align 4, !alias.scope !12, !noalias !9
   store i32 %29, ptr %27, align 4, !alias.scope !9, !noalias !12
   store i32 0, ptr %28, align 4, !alias.scope !12, !noalias !9
@@ -19363,35 +19363,35 @@ _ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__17UsdAttributeQueryESaIS1
   %34 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 32
   %35 = load ptr, ptr %34, align 8, !alias.scope !12, !noalias !9
   store ptr %35, ptr %33, align 8, !alias.scope !9, !noalias !12
-  %36 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 40
-  %37 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 40
+  %36 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 40
+  %37 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 40
   %38 = load ptr, ptr %37, align 8, !alias.scope !12, !noalias !9
   store ptr %38, ptr %36, align 8, !alias.scope !9, !noalias !12
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %34, i8 0, i64 16, i1 false), !alias.scope !12, !noalias !9
-  %39 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 48
-  %40 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 48
+  %39 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 48
+  %40 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 48
   %41 = load ptr, ptr %40, align 8, !alias.scope !12, !noalias !9
   store ptr %41, ptr %39, align 8, !alias.scope !9, !noalias !12
-  %42 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 56
-  %43 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 56
+  %42 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 56
+  %43 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 56
   %44 = load ptr, ptr %43, align 8, !alias.scope !12, !noalias !9
   store ptr %44, ptr %42, align 8, !alias.scope !9, !noalias !12
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %40, i8 0, i64 16, i1 false), !alias.scope !12, !noalias !9
-  %45 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 64
-  %46 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 64
+  %45 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 64
+  %46 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 64
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %45, ptr noundef nonnull align 8 dereferenceable(32) %46, i64 32, i1 false), !alias.scope !14
-  %47 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 96
-  %48 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 96
+  %47 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 96
+  %48 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 96
   %49 = load i32, ptr %48, align 4, !alias.scope !12, !noalias !9
   store i32 %49, ptr %47, align 4, !alias.scope !9, !noalias !12
   store i32 0, ptr %48, align 4, !alias.scope !12, !noalias !9
-  %50 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 100
-  %51 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 100
+  %50 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 100
+  %51 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 100
   %52 = load i32, ptr %51, align 4, !alias.scope !12, !noalias !9
   store i32 %52, ptr %50, align 4, !alias.scope !9, !noalias !12
   store i32 0, ptr %51, align 4, !alias.scope !12, !noalias !9
-  %53 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 104
-  %54 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 104
+  %53 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 104
+  %54 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 104
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(5) %53, ptr noundef nonnull align 8 dereferenceable(5) %54, i64 5, i1 false), !alias.scope !14
   %55 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 112
   %56 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 112
@@ -19520,7 +19520,7 @@ _ZNKSt14default_deleteIN32pxrInternal_v0_24__pxrReserved__16UsdResolveTargetEEcl
 
 _ZNSt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__16UsdResolveTargetESt14default_deleteIS1_EED2Ev.exit: ; preds = %1, %_ZNKSt14default_deleteIN32pxrInternal_v0_24__pxrReserved__16UsdResolveTargetEEclEPS1_.exit.i
   store ptr null, ptr %2, align 8
-  %41 = getelementptr inbounds i8, ptr %0, i64 96
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %42 = load i32, ptr %41, align 8
   %.not.i.i.i = icmp eq i32 %42, 0
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit.i, label %43
@@ -19552,7 +19552,7 @@ _ZNSt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__16UsdResolveTargetESt14defa
   unreachable
 
 _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit.i: ; preds = %56, %43, %_ZNSt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__16UsdResolveTargetESt14default_deleteIS1_EED2Ev.exit
-  %60 = getelementptr inbounds i8, ptr %0, i64 56
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %61 = load ptr, ptr %60, align 8
   %.not.i.i.i.i.i = icmp eq ptr %61, null
   br i1 %.not.i.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_8SdfLayerEED2Ev.exit.i, label %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i.i
@@ -19571,7 +19571,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBa
   br label %_ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_8SdfLayerEED2Ev.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_8SdfLayerEED2Ev.exit.i: ; preds = %65, %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i.i, %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit.i
-  %69 = getelementptr inbounds i8, ptr %0, i64 40
+  %69 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %70 = load ptr, ptr %69, align 8
   %.not.i.i.i.i1.i = icmp eq ptr %70, null
   br i1 %.not.i.i.i.i1.i, label %_ZN32pxrInternal_v0_24__pxrReserved__14UsdResolveInfoD2Ev.exit, label %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i2.i
@@ -19697,17 +19697,17 @@ _ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__17UsdAttributeQueryESaIS1
 define void @_ZN32pxrInternal_v0_24__pxrReserved__17UsdAttributeQueryC2Ev(ptr noundef nonnull align 8 dereferenceable(120) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   store i32 3, ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 72
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 72
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %2, i8 0, i64 64, i1 false)
   store i64 -1, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 80
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 80
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__14SdfLayerOffsetC1Edd(ptr noundef nonnull align 8 dereferenceable(16) %4, double noundef 0.000000e+00, double noundef 1.000000e+00)
           to label %25 unwind label %5
 
 5:                                                ; preds = %1
   %6 = landingpad { ptr, i32 }
           cleanup
-  %7 = getelementptr inbounds i8, ptr %0, i64 56
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %8 = load ptr, ptr %7, align 8
   %.not.i.i.i.i.i = icmp eq ptr %8, null
   br i1 %.not.i.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_8SdfLayerEED2Ev.exit.i, label %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i.i
@@ -19726,7 +19726,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBa
   br label %_ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_8SdfLayerEED2Ev.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_8SdfLayerEED2Ev.exit.i: ; preds = %12, %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i.i, %5
-  %16 = getelementptr inbounds i8, ptr %0, i64 40
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %17 = load ptr, ptr %16, align 8
   %.not.i.i.i.i4.i = icmp eq ptr %17, null
   br i1 %.not.i.i.i.i4.i, label %.body, label %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i5.i
@@ -19745,7 +19745,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBa
   br label %.body
 
 25:                                               ; preds = %1
-  %26 = getelementptr inbounds i8, ptr %0, i64 96
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 96
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(13) %26, i8 0, i64 13, i1 false)
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store ptr null, ptr %27, align 8
@@ -19794,8 +19794,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__18Usd_PrimDataHandleC2ERKS0_.exit.i.i.i: ; 
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathC2ERKS0_.exit.i.i.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathC2ERKS0_.exit.i.i.i: ; preds = %13, %_ZN32pxrInternal_v0_24__pxrReserved__18Usd_PrimDataHandleC2ERKS0_.exit.i.i.i
-  %24 = getelementptr inbounds i8, ptr %0, i64 20
-  %25 = getelementptr inbounds i8, ptr %1, i64 20
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %26 = load i32, ptr %25, align 4
   store i32 %26, ptr %24, align 4
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -19827,8 +19827,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__12UsdAttributeC2ERKS0_.exit: ; preds = %_ZN
   %42 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %43 = load ptr, ptr %42, align 8
   store ptr %43, ptr %41, align 8
-  %44 = getelementptr inbounds i8, ptr %0, i64 40
-  %45 = getelementptr inbounds i8, ptr %1, i64 40
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %45 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %46 = load ptr, ptr %45, align 8
   store ptr %46, ptr %44, align 8
   %.not.i.i.i.i.i8 = icmp eq ptr %46, null
@@ -19840,12 +19840,12 @@ _ZN32pxrInternal_v0_24__pxrReserved__12UsdAttributeC2ERKS0_.exit: ; preds = %_ZN
   br label %_ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_13PcpLayerStackEEC2ERKS2_.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_13PcpLayerStackEEC2ERKS2_.exit.i: ; preds = %47, %_ZN32pxrInternal_v0_24__pxrReserved__12UsdAttributeC2ERKS0_.exit
-  %50 = getelementptr inbounds i8, ptr %0, i64 48
-  %51 = getelementptr inbounds i8, ptr %1, i64 48
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %51 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %52 = load ptr, ptr %51, align 8
   store ptr %52, ptr %50, align 8
-  %53 = getelementptr inbounds i8, ptr %0, i64 56
-  %54 = getelementptr inbounds i8, ptr %1, i64 56
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %54 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %55 = load ptr, ptr %54, align 8
   store ptr %55, ptr %53, align 8
   %.not.i.i.i.i7.i = icmp eq ptr %55, null
@@ -19857,11 +19857,11 @@ _ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_13PcpLayerStackEEC2ERKS2_.exi
   br label %_ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_8SdfLayerEEC2ERKS2_.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_8SdfLayerEEC2ERKS2_.exit.i: ; preds = %56, %_ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_13PcpLayerStackEEC2ERKS2_.exit.i
-  %59 = getelementptr inbounds i8, ptr %0, i64 64
-  %60 = getelementptr inbounds i8, ptr %1, i64 64
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %60 = getelementptr inbounds nuw i8, ptr %1, i64 64
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %59, ptr noundef nonnull align 8 dereferenceable(32) %60, i64 32, i1 false)
-  %61 = getelementptr inbounds i8, ptr %0, i64 96
-  %62 = getelementptr inbounds i8, ptr %1, i64 96
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %62 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %63 = load i32, ptr %62, align 8
   store i32 %63, ptr %61, align 8
   %.not.i.i.i = icmp eq i32 %63, 0
@@ -19881,12 +19881,12 @@ _ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_8SdfLayerEEC2ERKS2_.exit.i: ;
   br label %75
 
 75:                                               ; preds = %64, %_ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_8SdfLayerEEC2ERKS2_.exit.i
-  %76 = getelementptr inbounds i8, ptr %0, i64 100
-  %77 = getelementptr inbounds i8, ptr %1, i64 100
+  %76 = getelementptr inbounds nuw i8, ptr %0, i64 100
+  %77 = getelementptr inbounds nuw i8, ptr %1, i64 100
   %78 = load i32, ptr %77, align 4
   store i32 %78, ptr %76, align 4
-  %79 = getelementptr inbounds i8, ptr %0, i64 104
-  %80 = getelementptr inbounds i8, ptr %1, i64 104
+  %79 = getelementptr inbounds nuw i8, ptr %0, i64 104
+  %80 = getelementptr inbounds nuw i8, ptr %1, i64 104
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(5) %79, ptr noundef nonnull align 8 dereferenceable(5) %80, i64 5, i1 false)
   %81 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store ptr null, ptr %81, align 8
@@ -20193,8 +20193,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_13PcpLayerStackEEaSERKS2_.exi
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %20 = load ptr, ptr %19, align 8
   store ptr %20, ptr %18, align 8
-  %21 = getelementptr inbounds i8, ptr %0, i64 24
-  %22 = getelementptr inbounds i8, ptr %1, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %23 = load ptr, ptr %21, align 8
   %24 = load ptr, ptr %22, align 8
   store ptr %24, ptr %21, align 8
@@ -20285,8 +20285,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__22Sdf_PathNodeHandleImplINS_8Sdf_PoolINS_15
   unreachable
 
 _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathaSERKS0_.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_8SdfLayerEEaSERKS2_.exit, %_ZN32pxrInternal_v0_24__pxrReserved__22Sdf_PathNodeHandleImplINS_8Sdf_PoolINS_15Sdf_PathPrimTagELj24ELj8ELj16384EE6HandleELb1EKNS_12Sdf_PathNodeEEC2ERKS7_.exit.i.i, %55, %68
-  %72 = getelementptr inbounds i8, ptr %0, i64 68
-  %73 = getelementptr inbounds i8, ptr %1, i64 68
+  %72 = getelementptr inbounds nuw i8, ptr %0, i64 68
+  %73 = getelementptr inbounds nuw i8, ptr %1, i64 68
   %74 = load i32, ptr %73, align 4
   store i32 %74, ptr %72, align 4
   %75 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -20320,14 +20320,14 @@ define linkonce_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__17
   br i1 %6, label %7, label %114
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %0, i64 104
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %9 = load i32, ptr %8, align 8
   %.off = add i32 %9, -3
   %switch = icmp ult i32 %.off, 2
   br i1 %switch, label %10, label %114
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %4, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, i8 0, i64 40, i1 false)
   store i64 -1, ptr %11, align 8
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 48
@@ -20337,7 +20337,7 @@ define linkonce_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__17
 13:                                               ; preds = %10
   %14 = landingpad { ptr, i32 }
           cleanup
-  %15 = getelementptr inbounds i8, ptr %4, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %16 = load ptr, ptr %15, align 8
   %.not.i.i.i.i.i = icmp eq ptr %16, null
   br i1 %.not.i.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_8SdfLayerEED2Ev.exit.i, label %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i.i
@@ -20512,7 +20512,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__14UsdResolveInfoC2Ev.exit: ; preds = %10
   unreachable
 
 _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit.i: ; preds = %92, %79, %77
-  %96 = getelementptr inbounds i8, ptr %4, i64 24
+  %96 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %97 = load ptr, ptr %96, align 8
   %.not.i.i.i.i.i16 = icmp eq ptr %97, null
   br i1 %.not.i.i.i.i.i16, label %_ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_8SdfLayerEED2Ev.exit.i18, label %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i.i17
@@ -20604,7 +20604,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject9_GetStageEv.exit: ; preds = %6,
   store i8 0, ptr %13, align 8, !alias.scope !24
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store double 0x7FF0000000000000, ptr %14, align 8, !alias.scope !24
-  %15 = getelementptr inbounds i8, ptr %3, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i8 0, ptr %15, align 8, !alias.scope !24
   %16 = call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8UsdStage40_GetTimeSamplesInIntervalFromResolveInfoERKNS_14UsdResolveInfoERKNS_12UsdAttributeERKNS_10GfIntervalEPSt6vectorIdSaIdEE(ptr noundef nonnull align 8 dereferenceable(1282) %11, ptr noundef nonnull align 8 dereferenceable(77) %12, ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef %1)
   ret i1 %16
@@ -20645,7 +20645,7 @@ define noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__17UsdAttributeQu
   store i8 0, ptr %4, align 8, !alias.scope !27
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store double 0x7FF0000000000000, ptr %5, align 8, !alias.scope !27
-  %6 = getelementptr inbounds i8, ptr %3, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i8 0, ptr %6, align 8, !alias.scope !27
   %7 = call noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__17UsdAttributeQuery31GetUnionedTimeSamplesInIntervalERKSt6vectorIS0_SaIS0_EERKNS_10GfIntervalEPS1_IdSaIdEE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef %1)
   ret i1 %7
@@ -20953,7 +20953,7 @@ declare noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8UsdStage40_Ge
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__17UsdAttributeQuery8HasValueEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(120) %0) local_unnamed_addr #5 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 104
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %3 = load i32, ptr %2, align 8
   %4 = icmp ne i32 %3, 0
   ret i1 %4
@@ -20961,11 +20961,11 @@ define noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__17UsdAttributeQ
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__17UsdAttributeQuery23HasAuthoredValueOpinionEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(120) %0) local_unnamed_addr #5 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 104
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %3 = load i32, ptr %2, align 8
   %.off.i = add i32 %3, -2
   %switch.i = icmp ult i32 %.off.i, 3
-  %4 = getelementptr inbounds i8, ptr %0, i64 108
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 108
   %5 = load i8, ptr %4, align 4
   %6 = trunc i8 %5 to i1
   %7 = select i1 %switch.i, i1 true, i1 %6
@@ -20974,7 +20974,7 @@ define noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__17UsdAttributeQ
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__17UsdAttributeQuery16HasAuthoredValueEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(120) %0) local_unnamed_addr #5 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 104
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %3 = load i32, ptr %2, align 8
   %.off.i = add i32 %3, -2
   %switch.i = icmp ult i32 %.off.i, 3
@@ -21268,8 +21268,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__22Sdf_PathNodeHandleImplINS_8Sdf_PoolINS_15
   unreachable
 
 _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathaSERKS0_.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__18Usd_PrimDataHandleaSERKS0_.exit, %_ZN32pxrInternal_v0_24__pxrReserved__22Sdf_PathNodeHandleImplINS_8Sdf_PoolINS_15Sdf_PathPrimTagELj24ELj8ELj16384EE6HandleELb1EKNS_12Sdf_PathNodeEEC2ERKS7_.exit.i.i, %33, %46
-  %50 = getelementptr inbounds i8, ptr %0, i64 20
-  %51 = getelementptr inbounds i8, ptr %1, i64 20
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  %51 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %52 = load i32, ptr %51, align 4
   store i32 %52, ptr %50, align 4
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -21383,8 +21383,8 @@ _ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__17UsdAttributeQueryESaIS1
   %31 = load i32, ptr %30, align 8
   store i32 %31, ptr %29, align 4
   store i32 0, ptr %30, align 8
-  %32 = getelementptr inbounds i8, ptr %24, i64 20
-  %33 = getelementptr inbounds i8, ptr %2, i64 20
+  %32 = getelementptr inbounds nuw i8, ptr %24, i64 20
+  %33 = getelementptr inbounds nuw i8, ptr %2, i64 20
   %34 = load i32, ptr %33, align 4
   store i32 %34, ptr %32, align 4
   store i32 0, ptr %33, align 4
@@ -21397,35 +21397,35 @@ _ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__17UsdAttributeQueryESaIS1
   %39 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %40 = load ptr, ptr %39, align 8
   store ptr %40, ptr %38, align 8
-  %41 = getelementptr inbounds i8, ptr %24, i64 40
-  %42 = getelementptr inbounds i8, ptr %2, i64 40
+  %41 = getelementptr inbounds nuw i8, ptr %24, i64 40
+  %42 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %43 = load ptr, ptr %42, align 8
   store ptr %43, ptr %41, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %39, i8 0, i64 16, i1 false)
-  %44 = getelementptr inbounds i8, ptr %24, i64 48
-  %45 = getelementptr inbounds i8, ptr %2, i64 48
+  %44 = getelementptr inbounds nuw i8, ptr %24, i64 48
+  %45 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %46 = load ptr, ptr %45, align 8
   store ptr %46, ptr %44, align 8
-  %47 = getelementptr inbounds i8, ptr %24, i64 56
-  %48 = getelementptr inbounds i8, ptr %2, i64 56
+  %47 = getelementptr inbounds nuw i8, ptr %24, i64 56
+  %48 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %49 = load ptr, ptr %48, align 8
   store ptr %49, ptr %47, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %45, i8 0, i64 16, i1 false)
-  %50 = getelementptr inbounds i8, ptr %24, i64 64
-  %51 = getelementptr inbounds i8, ptr %2, i64 64
+  %50 = getelementptr inbounds nuw i8, ptr %24, i64 64
+  %51 = getelementptr inbounds nuw i8, ptr %2, i64 64
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %50, ptr noundef nonnull align 8 dereferenceable(32) %51, i64 32, i1 false)
-  %52 = getelementptr inbounds i8, ptr %24, i64 96
-  %53 = getelementptr inbounds i8, ptr %2, i64 96
+  %52 = getelementptr inbounds nuw i8, ptr %24, i64 96
+  %53 = getelementptr inbounds nuw i8, ptr %2, i64 96
   %54 = load i32, ptr %53, align 8
   store i32 %54, ptr %52, align 4
   store i32 0, ptr %53, align 8
-  %55 = getelementptr inbounds i8, ptr %24, i64 100
-  %56 = getelementptr inbounds i8, ptr %2, i64 100
+  %55 = getelementptr inbounds nuw i8, ptr %24, i64 100
+  %56 = getelementptr inbounds nuw i8, ptr %2, i64 100
   %57 = load i32, ptr %56, align 4
   store i32 %57, ptr %55, align 4
   store i32 0, ptr %56, align 4
-  %58 = getelementptr inbounds i8, ptr %24, i64 104
-  %59 = getelementptr inbounds i8, ptr %2, i64 104
+  %58 = getelementptr inbounds nuw i8, ptr %24, i64 104
+  %59 = getelementptr inbounds nuw i8, ptr %2, i64 104
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(5) %58, ptr noundef nonnull align 8 dereferenceable(5) %59, i64 5, i1 false)
   %60 = getelementptr inbounds nuw i8, ptr %24, i64 112
   %61 = getelementptr inbounds nuw i8, ptr %2, i64 112
@@ -21452,8 +21452,8 @@ _ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__17UsdAttributeQueryESaIS1
   %69 = load i32, ptr %68, align 4, !alias.scope !33, !noalias !30
   store i32 %69, ptr %67, align 4, !alias.scope !30, !noalias !33
   store i32 0, ptr %68, align 4, !alias.scope !33, !noalias !30
-  %70 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 20
-  %71 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 20
+  %70 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 20
+  %71 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 20
   %72 = load i32, ptr %71, align 4, !alias.scope !33, !noalias !30
   store i32 %72, ptr %70, align 4, !alias.scope !30, !noalias !33
   store i32 0, ptr %71, align 4, !alias.scope !33, !noalias !30
@@ -21466,35 +21466,35 @@ _ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__17UsdAttributeQueryESaIS1
   %77 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 32
   %78 = load ptr, ptr %77, align 8, !alias.scope !33, !noalias !30
   store ptr %78, ptr %76, align 8, !alias.scope !30, !noalias !33
-  %79 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 40
-  %80 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 40
+  %79 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 40
+  %80 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 40
   %81 = load ptr, ptr %80, align 8, !alias.scope !33, !noalias !30
   store ptr %81, ptr %79, align 8, !alias.scope !30, !noalias !33
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %77, i8 0, i64 16, i1 false), !alias.scope !33, !noalias !30
-  %82 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 48
-  %83 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 48
+  %82 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 48
+  %83 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 48
   %84 = load ptr, ptr %83, align 8, !alias.scope !33, !noalias !30
   store ptr %84, ptr %82, align 8, !alias.scope !30, !noalias !33
-  %85 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 56
-  %86 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 56
+  %85 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 56
+  %86 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 56
   %87 = load ptr, ptr %86, align 8, !alias.scope !33, !noalias !30
   store ptr %87, ptr %85, align 8, !alias.scope !30, !noalias !33
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %83, i8 0, i64 16, i1 false), !alias.scope !33, !noalias !30
-  %88 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 64
-  %89 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 64
+  %88 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 64
+  %89 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 64
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %88, ptr noundef nonnull align 8 dereferenceable(32) %89, i64 32, i1 false), !alias.scope !35
-  %90 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 96
-  %91 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 96
+  %90 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 96
+  %91 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 96
   %92 = load i32, ptr %91, align 4, !alias.scope !33, !noalias !30
   store i32 %92, ptr %90, align 4, !alias.scope !30, !noalias !33
   store i32 0, ptr %91, align 4, !alias.scope !33, !noalias !30
-  %93 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 100
-  %94 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 100
+  %93 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 100
+  %94 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 100
   %95 = load i32, ptr %94, align 4, !alias.scope !33, !noalias !30
   store i32 %95, ptr %93, align 4, !alias.scope !30, !noalias !33
   store i32 0, ptr %94, align 4, !alias.scope !33, !noalias !30
-  %96 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 104
-  %97 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 104
+  %96 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 104
+  %97 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 104
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(5) %96, ptr noundef nonnull align 8 dereferenceable(5) %97, i64 5, i1 false), !alias.scope !35
   %98 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 112
   %99 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 112
@@ -21530,8 +21530,8 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__17UsdAttributeQueryESaIS1_EE11_S
   %110 = load i32, ptr %109, align 4, !alias.scope !39, !noalias !36
   store i32 %110, ptr %108, align 4, !alias.scope !36, !noalias !39
   store i32 0, ptr %109, align 4, !alias.scope !39, !noalias !36
-  %111 = getelementptr inbounds i8, ptr %.012.i.i.i18, i64 20
-  %112 = getelementptr inbounds i8, ptr %.0911.i.i.i19, i64 20
+  %111 = getelementptr inbounds nuw i8, ptr %.012.i.i.i18, i64 20
+  %112 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i19, i64 20
   %113 = load i32, ptr %112, align 4, !alias.scope !39, !noalias !36
   store i32 %113, ptr %111, align 4, !alias.scope !36, !noalias !39
   store i32 0, ptr %112, align 4, !alias.scope !39, !noalias !36
@@ -21544,35 +21544,35 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__17UsdAttributeQueryESaIS1_EE11_S
   %118 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i19, i64 32
   %119 = load ptr, ptr %118, align 8, !alias.scope !39, !noalias !36
   store ptr %119, ptr %117, align 8, !alias.scope !36, !noalias !39
-  %120 = getelementptr inbounds i8, ptr %.012.i.i.i18, i64 40
-  %121 = getelementptr inbounds i8, ptr %.0911.i.i.i19, i64 40
+  %120 = getelementptr inbounds nuw i8, ptr %.012.i.i.i18, i64 40
+  %121 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i19, i64 40
   %122 = load ptr, ptr %121, align 8, !alias.scope !39, !noalias !36
   store ptr %122, ptr %120, align 8, !alias.scope !36, !noalias !39
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %118, i8 0, i64 16, i1 false), !alias.scope !39, !noalias !36
-  %123 = getelementptr inbounds i8, ptr %.012.i.i.i18, i64 48
-  %124 = getelementptr inbounds i8, ptr %.0911.i.i.i19, i64 48
+  %123 = getelementptr inbounds nuw i8, ptr %.012.i.i.i18, i64 48
+  %124 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i19, i64 48
   %125 = load ptr, ptr %124, align 8, !alias.scope !39, !noalias !36
   store ptr %125, ptr %123, align 8, !alias.scope !36, !noalias !39
-  %126 = getelementptr inbounds i8, ptr %.012.i.i.i18, i64 56
-  %127 = getelementptr inbounds i8, ptr %.0911.i.i.i19, i64 56
+  %126 = getelementptr inbounds nuw i8, ptr %.012.i.i.i18, i64 56
+  %127 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i19, i64 56
   %128 = load ptr, ptr %127, align 8, !alias.scope !39, !noalias !36
   store ptr %128, ptr %126, align 8, !alias.scope !36, !noalias !39
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %124, i8 0, i64 16, i1 false), !alias.scope !39, !noalias !36
-  %129 = getelementptr inbounds i8, ptr %.012.i.i.i18, i64 64
-  %130 = getelementptr inbounds i8, ptr %.0911.i.i.i19, i64 64
+  %129 = getelementptr inbounds nuw i8, ptr %.012.i.i.i18, i64 64
+  %130 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i19, i64 64
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %129, ptr noundef nonnull align 8 dereferenceable(32) %130, i64 32, i1 false), !alias.scope !41
-  %131 = getelementptr inbounds i8, ptr %.012.i.i.i18, i64 96
-  %132 = getelementptr inbounds i8, ptr %.0911.i.i.i19, i64 96
+  %131 = getelementptr inbounds nuw i8, ptr %.012.i.i.i18, i64 96
+  %132 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i19, i64 96
   %133 = load i32, ptr %132, align 4, !alias.scope !39, !noalias !36
   store i32 %133, ptr %131, align 4, !alias.scope !36, !noalias !39
   store i32 0, ptr %132, align 4, !alias.scope !39, !noalias !36
-  %134 = getelementptr inbounds i8, ptr %.012.i.i.i18, i64 100
-  %135 = getelementptr inbounds i8, ptr %.0911.i.i.i19, i64 100
+  %134 = getelementptr inbounds nuw i8, ptr %.012.i.i.i18, i64 100
+  %135 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i19, i64 100
   %136 = load i32, ptr %135, align 4, !alias.scope !39, !noalias !36
   store i32 %136, ptr %134, align 4, !alias.scope !36, !noalias !39
   store i32 0, ptr %135, align 4, !alias.scope !39, !noalias !36
-  %137 = getelementptr inbounds i8, ptr %.012.i.i.i18, i64 104
-  %138 = getelementptr inbounds i8, ptr %.0911.i.i.i19, i64 104
+  %137 = getelementptr inbounds nuw i8, ptr %.012.i.i.i18, i64 104
+  %138 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i19, i64 104
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(5) %137, ptr noundef nonnull align 8 dereferenceable(5) %138, i64 5, i1 false), !alias.scope !41
   %139 = getelementptr inbounds nuw i8, ptr %.012.i.i.i18, i64 112
   %140 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i19, i64 112

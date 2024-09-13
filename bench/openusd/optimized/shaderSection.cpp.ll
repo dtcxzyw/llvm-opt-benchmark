@@ -63,10 +63,10 @@ _ZNSt16allocator_traitsISaIN32pxrInternal_v0_24__pxrReserved__25HgiShaderSection
 .noexc13:                                         ; preds = %_ZNSt16allocator_traitsISaIN32pxrInternal_v0_24__pxrReserved__25HgiShaderSectionAttributeEEE8allocateERS2_m.exit.i.i.i.i, %6
   %19 = phi ptr [ null, %6 ], [ %18, %_ZNSt16allocator_traitsISaIN32pxrInternal_v0_24__pxrReserved__25HgiShaderSectionAttributeEEE8allocateERS2_m.exit.i.i.i.i ]
   store ptr %19, ptr %8, align 8
-  %20 = getelementptr inbounds i8, ptr %0, i64 48
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr %19, ptr %20, align 8
   %21 = getelementptr inbounds %"struct.pxrInternal_v0_24__pxrReserved__::HgiShaderSectionAttribute", ptr %19, i64 %15
-  %22 = getelementptr inbounds i8, ptr %0, i64 56
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store ptr %21, ptr %22, align 8
   %23 = load ptr, ptr %2, align 8
   %24 = load ptr, ptr %9, align 8
@@ -201,7 +201,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__16HgiShaderSectionD2Ev(ptr nou
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #14
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %8 = load ptr, ptr %7, align 8
   %.not4.i.i.i.i = icmp eq ptr %6, %8
   br i1 %.not4.i.i.i.i, label %_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__25HgiShaderSectionAttributeES1_EvT_S3_RSaIT0_E.exit.i, label %.lr.ph.i.i.i.i
@@ -225,7 +225,7 @@ _ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__25HgiShaderSectionAttributeES1
   br i1 %.not.i.i.i, label %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__25HgiShaderSectionAttributeESaIS1_EED2Ev.exit, label %12
 
 12:                                               ; preds = %_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__25HgiShaderSectionAttributeES1_EvT_S3_RSaIT0_E.exit.i
-  %13 = getelementptr inbounds i8, ptr %0, i64 56
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %14 = load ptr, ptr %13, align 8
   %15 = ptrtoint ptr %14 to i64
   %16 = ptrtoint ptr %11 to i64

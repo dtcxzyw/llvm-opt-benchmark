@@ -114,7 +114,7 @@ _ZN4llvm10BasicBlock13getTerminatorEv.exit:       ; preds = %15
   %42 = getelementptr inbounds i8, ptr %3, i64 16
   call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull %42, i64 noundef 16) #8
   %43 = load ptr, ptr %0, align 8
-  %44 = getelementptr inbounds i8, ptr %43, i64 80
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 80
   %45 = getelementptr inbounds nuw i8, ptr %43, i64 72
   %.sroa.046.062 = load ptr, ptr %44, align 8
   %.not5663 = icmp eq ptr %.sroa.046.062, %45
@@ -125,7 +125,7 @@ _ZN4llvm10BasicBlock13getTerminatorEv.exit:       ; preds = %15
   %46 = icmp eq ptr %.sroa.046.064, null
   %47 = getelementptr inbounds i8, ptr %.sroa.046.064, i64 -24
   %48 = select i1 %46, ptr null, ptr %47
-  %49 = getelementptr inbounds i8, ptr %48, i64 56
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 56
   %50 = getelementptr inbounds nuw i8, ptr %48, i64 48
   %.sroa.042.059 = load ptr, ptr %49, align 8
   %.not5860 = icmp eq ptr %.sroa.042.059, %50

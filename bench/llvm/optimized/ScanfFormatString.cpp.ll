@@ -36,7 +36,7 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZNK5clang13analyze_scanf14ScanfSpecifier10getArgTypeERNS_10ASTContextE(ptr dead_on_unwind noalias writable writeonly sret(%"class.clang::analyze_format_string::ArgType") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(128) %1, ptr noundef nonnull align 8 dereferenceable(23096) %2) local_unnamed_addr #0 align 2 {
-  %4 = getelementptr inbounds i8, ptr %1, i64 64
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %5 = load i32, ptr %4, align 8
   switch i32 %5, label %144 [
     i32 38, label %_ZNK5clang21analyze_format_string19ConversionSpecifier20consumesDataArgumentEv.exit
@@ -523,10 +523,10 @@ _ZNK5clang21analyze_format_string19ConversionSpecifier20consumesDataArgumentEv.e
 80:                                               ; preds = %73
   %81 = getelementptr inbounds nuw i8, ptr %2, i64 17240
   %82 = load ptr, ptr %81, align 8
-  %83 = getelementptr inbounds i8, ptr %82, i64 260
+  %83 = getelementptr inbounds nuw i8, ptr %82, i64 260
   %84 = load i32, ptr %83, align 4
   %85 = icmp eq i32 %84, 14
-  %86 = getelementptr inbounds i8, ptr %82, i64 264
+  %86 = getelementptr inbounds nuw i8, ptr %82, i64 264
   %87 = load i32, ptr %86, align 8
   %88 = icmp ult i32 %87, 2
   %89 = add i32 %87, -19
@@ -593,10 +593,10 @@ _ZNK4llvm6Triple10isOSMSVCRTEv.exit.thread:       ; preds = %80
 101:                                              ; preds = %95
   %102 = getelementptr inbounds nuw i8, ptr %2, i64 17240
   %103 = load ptr, ptr %102, align 8
-  %104 = getelementptr inbounds i8, ptr %103, i64 260
+  %104 = getelementptr inbounds nuw i8, ptr %103, i64 260
   %105 = load i32, ptr %104, align 4
   %106 = icmp eq i32 %105, 14
-  %107 = getelementptr inbounds i8, ptr %103, i64 264
+  %107 = getelementptr inbounds nuw i8, ptr %103, i64 264
   %108 = load i32, ptr %107, align 8
   %109 = icmp ult i32 %108, 2
   %110 = add i32 %108, -19
@@ -825,7 +825,7 @@ declare i64 @_ZNK5clang10ASTContext26getUnsignedPointerDiffTypeEv(ptr noundef no
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local noundef zeroext i1 @_ZN5clang13analyze_scanf14ScanfSpecifier7fixTypeENS_8QualTypeES2_RKNS_11LangOptionsERNS_10ASTContextE(ptr noundef nonnull align 8 dereferenceable(128) %0, i64 %1, i64 %2, ptr noundef nonnull align 8 dereferenceable(841) %3, ptr noundef nonnull align 8 dereferenceable(23096) %4) local_unnamed_addr #0 align 2 {
   %6 = alloca %"class.clang::analyze_format_string::ArgType", align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 64
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %8 = load i32, ptr %7, align 8
   %9 = icmp eq i32 %8, 23
   br i1 %9, label %_ZNK5clang10ASTContext22getAsConstantArrayTypeENS_8QualTypeE.exit.thread, label %10
@@ -1160,7 +1160,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %8, %10
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit9
 
 _ZN4llvm11raw_ostreamlsEPKc.exit9:                ; preds = %29, %27, %_ZN4llvm11raw_ostreamlsEPKc.exit
-  %32 = getelementptr inbounds i8, ptr %0, i64 120
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %33 = load i8, ptr %32, align 8
   %34 = trunc i8 %33 to i1
   br i1 %34, label %35, label %_ZN4llvm11raw_ostreamlsEPKc.exit12
@@ -1270,39 +1270,39 @@ define dso_local noundef zeroext i1 @_ZN5clang21analyze_format_string16ParseScan
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %14 = getelementptr inbounds nuw i8, ptr %7, i64 40
-  %15 = getelementptr inbounds i8, ptr %7, i64 48
+  %15 = getelementptr inbounds nuw i8, ptr %7, i64 48
   %16 = getelementptr inbounds nuw i8, ptr %7, i64 72
-  %17 = getelementptr inbounds i8, ptr %7, i64 80
-  %18 = getelementptr inbounds i8, ptr %7, i64 84
-  %19 = getelementptr inbounds i8, ptr %7, i64 88
-  %20 = getelementptr inbounds i8, ptr %7, i64 92
-  %21 = getelementptr inbounds i8, ptr %7, i64 93
+  %17 = getelementptr inbounds nuw i8, ptr %7, i64 80
+  %18 = getelementptr inbounds nuw i8, ptr %7, i64 84
+  %19 = getelementptr inbounds nuw i8, ptr %7, i64 88
+  %20 = getelementptr inbounds nuw i8, ptr %7, i64 92
+  %21 = getelementptr inbounds nuw i8, ptr %7, i64 93
   %22 = getelementptr inbounds nuw i8, ptr %7, i64 96
   %23 = getelementptr inbounds nuw i8, ptr %7, i64 100
   %24 = getelementptr inbounds nuw i8, ptr %7, i64 104
-  %25 = getelementptr inbounds i8, ptr %7, i64 120
-  %26 = getelementptr inbounds i8, ptr %7, i64 112
+  %25 = getelementptr inbounds nuw i8, ptr %7, i64 120
+  %26 = getelementptr inbounds nuw i8, ptr %7, i64 112
   %27 = getelementptr inbounds nuw i8, ptr %8, i64 12
   %28 = ptrtoint ptr %2 to i64
   %29 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %30 = getelementptr inbounds nuw i8, ptr %11, i64 16
-  %31 = getelementptr inbounds i8, ptr %11, i64 36
-  %32 = getelementptr inbounds i8, ptr %11, i64 37
+  %31 = getelementptr inbounds nuw i8, ptr %11, i64 36
+  %32 = getelementptr inbounds nuw i8, ptr %11, i64 37
   %33 = getelementptr inbounds nuw i8, ptr %11, i64 40
-  %34 = getelementptr inbounds i8, ptr %11, i64 48
+  %34 = getelementptr inbounds nuw i8, ptr %11, i64 48
   %35 = getelementptr inbounds nuw i8, ptr %11, i64 72
-  %36 = getelementptr inbounds i8, ptr %11, i64 80
-  %37 = getelementptr inbounds i8, ptr %11, i64 84
-  %38 = getelementptr inbounds i8, ptr %11, i64 88
-  %39 = getelementptr inbounds i8, ptr %11, i64 92
-  %40 = getelementptr inbounds i8, ptr %11, i64 93
+  %36 = getelementptr inbounds nuw i8, ptr %11, i64 80
+  %37 = getelementptr inbounds nuw i8, ptr %11, i64 84
+  %38 = getelementptr inbounds nuw i8, ptr %11, i64 88
+  %39 = getelementptr inbounds nuw i8, ptr %11, i64 92
+  %40 = getelementptr inbounds nuw i8, ptr %11, i64 93
   %41 = getelementptr inbounds nuw i8, ptr %11, i64 96
   %42 = getelementptr inbounds nuw i8, ptr %11, i64 100
   %43 = getelementptr inbounds nuw i8, ptr %11, i64 104
-  %44 = getelementptr inbounds i8, ptr %11, i64 120
+  %44 = getelementptr inbounds nuw i8, ptr %11, i64 120
   %45 = getelementptr inbounds nuw i8, ptr %11, i64 128
   %46 = getelementptr inbounds nuw i8, ptr %11, i64 136
-  %47 = getelementptr inbounds i8, ptr %4, i64 260
+  %47 = getelementptr inbounds nuw i8, ptr %4, i64 260
   %48 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %49 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %50 = getelementptr inbounds nuw i8, ptr %9, i64 24

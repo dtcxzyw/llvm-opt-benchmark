@@ -657,8 +657,8 @@ avifBitsRead.exit211.i.i:                         ; preds = %avifBitsRefill.exit
   %276 = lshr i64 %273, 59
   %277 = trunc nuw nsw i64 %276 to i32
   %.not66.i.i = icmp sgt i64 %271, -1
-  %278 = getelementptr inbounds i8, ptr %0, i64 37
-  %279 = getelementptr inbounds i8, ptr %0, i64 38
+  %278 = getelementptr inbounds nuw i8, ptr %0, i64 37
+  %279 = getelementptr inbounds nuw i8, ptr %0, i64 38
   %280 = zext nneg i32 %.057364371.i.i to i64
   br label %281
 
@@ -1086,9 +1086,9 @@ parseSequenceHeaderProfile.exit.i.thread:         ; preds = %61, %60
   %spec.select414 = select i1 %.not15.i.i99.i.i, i32 %spec.select408564, i32 %spec.select407563
   %447 = lshr i64 %446, 59
   %448 = trunc nuw nsw i64 %447 to i8
-  %449 = getelementptr inbounds i8, ptr %0, i64 37
+  %449 = getelementptr inbounds nuw i8, ptr %0, i64 37
   store i8 %448, ptr %449, align 1
-  %450 = getelementptr inbounds i8, ptr %0, i64 38
+  %450 = getelementptr inbounds nuw i8, ptr %0, i64 38
   store i8 0, ptr %450, align 2
   %.not68.i.not.i590 = icmp eq i32 %spec.select414, 0
   br i1 %.not68.i.not.i590, label %avifBitsRead.exit.i19.i.thread, label %parseAV1SequenceHeader.exit
@@ -1789,7 +1789,7 @@ avifBitsRead.exit49.i.thread:                     ; preds = %parseSequenceHeader
   store i32 8, ptr %741, align 4
   %742 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 0, ptr %742, align 4
-  %743 = getelementptr inbounds i8, ptr %0, i64 44
+  %743 = getelementptr inbounds nuw i8, ptr %0, i64 44
   store i8 0, ptr %743, align 4
   br label %._crit_edge.i.i50.i
 
@@ -1832,7 +1832,7 @@ avifBitsRead.exit49.i:                            ; preds = %avifBitsRefill.exit
   store i32 8, ptr %760, align 4
   %761 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 0, ptr %761, align 4
-  %762 = getelementptr inbounds i8, ptr %0, i64 44
+  %762 = getelementptr inbounds nuw i8, ptr %0, i64 44
   store i8 0, ptr %762, align 4
   %763 = icmp eq i32 %758, 0
   br i1 %763, label %770, label %._crit_edge.i.i50.i
@@ -1881,7 +1881,7 @@ avifBitsRead.exit.i53.i:                          ; preds = %avifBitsRefill.exit
   %782 = shl i64 %781, 1
   %783 = lshr i64 %781, 63
   %784 = trunc nuw nsw i64 %783 to i8
-  %785 = getelementptr inbounds i8, ptr %0, i64 39
+  %785 = getelementptr inbounds nuw i8, ptr %0, i64 39
   store i8 %784, ptr %785, align 1
   %786 = icmp eq i64 %50, 2
   %787 = icmp slt i64 %781, 0
@@ -1928,14 +1928,14 @@ avifBitsRefill.exit.i96.i.i:                      ; preds = %792, %791
   %802 = select i1 %.not.i56.i, i32 10, i32 12
   store i32 %802, ptr %779, align 4
   %803 = trunc nuw nsw i64 %801 to i8
-  %804 = getelementptr inbounds i8, ptr %0, i64 40
+  %804 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i8 %803, ptr %804, align 4
   br label %808
 
 805:                                              ; preds = %avifBitsRead.exit.i53.i
   %806 = select i1 %787, i32 10, i32 8
   store i32 %806, ptr %779, align 4
-  %807 = getelementptr inbounds i8, ptr %0, i64 40
+  %807 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i8 0, ptr %807, align 4
   %.not78.i.i = icmp eq i64 %50, 1
   br i1 %.not78.i.i, label %823, label %808
@@ -1992,7 +1992,7 @@ avifBitsRead.exit108.i.i:                         ; preds = %avifBitsRefill.exit
   %.sroa.329.6 = phi i32 [ %780, %805 ], [ %818, %avifBitsRead.exit108.i.i ]
   %.075.i.i = phi i32 [ 0, %805 ], [ %822, %avifBitsRead.exit108.i.i ]
   %824 = trunc nuw nsw i32 %.075.i.i to i8
-  %825 = getelementptr inbounds i8, ptr %0, i64 41
+  %825 = getelementptr inbounds nuw i8, ptr %0, i64 41
   store i8 %824, ptr %825, align 1
   %826 = icmp eq i32 %.sroa.329.6, 0
   br i1 %826, label %827, label %avifBitsRead.exit119.i.i
@@ -2209,9 +2209,9 @@ avifBitsRefill.exit.i162.i.i:                     ; preds = %904, %903
 .thread246.i.i:                                   ; preds = %912
   %913 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i32 1, ptr %913, align 4
-  %914 = getelementptr inbounds i8, ptr %0, i64 42
+  %914 = getelementptr inbounds nuw i8, ptr %0, i64 42
   store i8 0, ptr %914, align 2
-  %915 = getelementptr inbounds i8, ptr %0, i64 43
+  %915 = getelementptr inbounds nuw i8, ptr %0, i64 43
   store i8 0, ptr %915, align 1
   %916 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 1, ptr %916, align 4
@@ -2439,9 +2439,9 @@ avifBitsRead.exit174.i.i.unreachabledefault:      ; preds = %avifBitsRead.exit17
   %.sroa.329.9 = phi i32 [ %926, %avifBitsRead.exit174.i.i ], [ %.sroa.329.13, %.thread.i55.i ], [ %.sroa.329.11, %969 ], [ %985, %avifBitsRead.exit207.i.i ], [ %926, %.thread259.i.i ], [ %926, %932 ]
   %.0245.i.i = phi i8 [ 0, %avifBitsRead.exit174.i.i ], [ 0, %.thread.i55.i ], [ 0, %969 ], [ 1, %avifBitsRead.exit207.i.i ], [ 0, %.thread259.i.i ], [ 0, %932 ]
   %.073244.i.i = phi i8 [ 0, %avifBitsRead.exit174.i.i ], [ 0, %.thread.i55.i ], [ %.174227.i.i, %969 ], [ %.073257.i.i, %avifBitsRead.exit207.i.i ], [ 1, %.thread259.i.i ], [ 0, %932 ]
-  %989 = getelementptr inbounds i8, ptr %0, i64 42
+  %989 = getelementptr inbounds nuw i8, ptr %0, i64 42
   store i8 %.073244.i.i, ptr %989, align 2
-  %990 = getelementptr inbounds i8, ptr %0, i64 43
+  %990 = getelementptr inbounds nuw i8, ptr %0, i64 43
   store i8 %.0245.i.i, ptr %990, align 1
   br label %999
 
@@ -2455,9 +2455,9 @@ avifBitsRead.exit174.i.i.unreachabledefault:      ; preds = %avifBitsRead.exit17
   %994 = trunc nuw nsw i64 %.lobit.i.i to i32
   %995 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i32 %994, ptr %995, align 4
-  %996 = getelementptr inbounds i8, ptr %0, i64 42
+  %996 = getelementptr inbounds nuw i8, ptr %0, i64 42
   store i8 1, ptr %996, align 2
-  %997 = getelementptr inbounds i8, ptr %0, i64 43
+  %997 = getelementptr inbounds nuw i8, ptr %0, i64 43
   store i8 1, ptr %997, align 1
   %998 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 4, ptr %998, align 4

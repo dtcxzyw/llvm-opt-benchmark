@@ -183,13 +183,13 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
 define void @_ZN6SystemC2Ev(ptr noundef nonnull align 8 dereferenceable(200) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr null, ptr %2, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 32
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i32 0, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 40
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr null, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 48
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i32 0, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 56
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 112
@@ -210,7 +210,7 @@ define void @_ZN6SystemC2Ev(ptr noundef nonnull align 8 dereferenceable(200) %0)
   br i1 %.not.i.i.i, label %_ZNSt6vectorIM6SystemFivESaIS2_EED2Ev.exit, label %16
 
 16:                                               ; preds = %12
-  %17 = getelementptr inbounds i8, ptr %0, i64 176
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %18 = load ptr, ptr %17, align 8
   %19 = ptrtoint ptr %18 to i64
   %20 = ptrtoint ptr %15 to i64
@@ -224,7 +224,7 @@ _ZNSt6vectorIM6SystemFivESaIS2_EED2Ev.exit:       ; preds = %12, %16
   br i1 %.not.i.i.i2, label %_ZNSt6vectorIPFvRKS_IiSaIiEEESaIS5_EED2Ev.exit, label %23
 
 23:                                               ; preds = %_ZNSt6vectorIM6SystemFivESaIS2_EED2Ev.exit
-  %24 = getelementptr inbounds i8, ptr %0, i64 152
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %25 = load ptr, ptr %24, align 8
   %26 = ptrtoint ptr %25 to i64
   %27 = ptrtoint ptr %22 to i64
@@ -238,7 +238,7 @@ _ZNSt6vectorIPFvRKS_IiSaIiEEESaIS5_EED2Ev.exit:   ; preds = %_ZNSt6vectorIM6Syst
   br i1 %.not.i.i.i3, label %_ZNSt6vectorIPFviiESaIS1_EED2Ev.exit, label %30
 
 30:                                               ; preds = %_ZNSt6vectorIPFvRKS_IiSaIiEEESaIS5_EED2Ev.exit
-  %31 = getelementptr inbounds i8, ptr %0, i64 128
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %32 = load ptr, ptr %31, align 8
   %33 = ptrtoint ptr %32 to i64
   %34 = ptrtoint ptr %29 to i64
@@ -252,7 +252,7 @@ _ZNSt6vectorIPFviiESaIS1_EED2Ev.exit:             ; preds = %_ZNSt6vectorIPFvRKS
   br i1 %.not.i.i.i4, label %_ZNSt6vectorIPFvRK6boardsRS_IiSaIiEES5_ESaIS7_EED2Ev.exit, label %37
 
 37:                                               ; preds = %_ZNSt6vectorIPFviiESaIS1_EED2Ev.exit
-  %38 = getelementptr inbounds i8, ptr %0, i64 104
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %39 = load ptr, ptr %38, align 8
   %40 = ptrtoint ptr %39 to i64
   %41 = ptrtoint ptr %36 to i64
@@ -266,7 +266,7 @@ _ZNSt6vectorIPFvRK6boardsRS_IiSaIiEES5_ESaIS7_EED2Ev.exit: ; preds = %_ZNSt6vect
   br i1 %.not.i.i.i5, label %_ZNSt6vectorIPFviESaIS1_EED2Ev.exit, label %44
 
 44:                                               ; preds = %_ZNSt6vectorIPFvRK6boardsRS_IiSaIiEES5_ESaIS7_EED2Ev.exit
-  %45 = getelementptr inbounds i8, ptr %0, i64 80
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %46 = load ptr, ptr %45, align 8
   %47 = ptrtoint ptr %46 to i64
   %48 = ptrtoint ptr %43 to i64
@@ -287,9 +287,9 @@ define void @_ZN6System5ResetEv(ptr noundef nonnull align 8 dereferenceable(200)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 0, ptr %3, align 4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %5 = getelementptr inbounds i8, ptr %0, i64 40
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %8 = load i32, ptr %7, align 8
   %9 = load ptr, ptr %4, align 8
   %10 = ptrtoint ptr %6 to i64
@@ -369,7 +369,7 @@ _ZNSt6vectorIbSaIbEE6resizeEmb.exit:              ; preds = %17, %18
 
 .loopexit:                                        ; preds = %47, %.preheader, %46
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 160
-  %52 = getelementptr inbounds i8, ptr %0, i64 168
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %53 = load ptr, ptr %52, align 8
   %54 = load ptr, ptr %51, align 8
   %55 = ptrtoint ptr %53 to i64
@@ -444,7 +444,7 @@ _ZNSt6vectorIM6SystemFivESaIS2_EE6resizeEm.exit:  ; preds = %60, %62, %63, %65
   %.repack17 = getelementptr inbounds i8, ptr %81, i64 136
   store i64 0, ptr %.repack17, align 8
   %83 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %84 = getelementptr inbounds i8, ptr %0, i64 72
+  %84 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %85 = load ptr, ptr %84, align 8
   %86 = load ptr, ptr %83, align 8
   %87 = ptrtoint ptr %85 to i64
@@ -483,7 +483,7 @@ _ZNSt6vectorIPFviESaIS1_EE6resizeEm.exit:         ; preds = %92, %94, %95, %97
   %102 = getelementptr inbounds i8, ptr %101, i64 16
   store ptr @_Z15PlayChunkCommoni, ptr %102, align 8
   %103 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %104 = getelementptr inbounds i8, ptr %0, i64 96
+  %104 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %105 = load ptr, ptr %104, align 8
   %106 = load ptr, ptr %103, align 8
   %107 = ptrtoint ptr %105 to i64
@@ -522,7 +522,7 @@ _ZNSt6vectorIPFvRK6boardsRS_IiSaIiEES5_ESaIS7_EE6resizeEm.exit: ; preds = %112, 
   %122 = getelementptr inbounds i8, ptr %121, i64 16
   store ptr @_Z20DetectPlayDuplicatesRK6boardsRSt6vectorIiSaIiEES5_, ptr %122, align 8
   %123 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %124 = getelementptr inbounds i8, ptr %0, i64 120
+  %124 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %125 = load ptr, ptr %124, align 8
   %126 = load ptr, ptr %123, align 8
   %127 = ptrtoint ptr %125 to i64
@@ -561,7 +561,7 @@ _ZNSt6vectorIPFviiESaIS1_EE6resizeEm.exit:        ; preds = %132, %134, %135, %1
   %142 = getelementptr inbounds i8, ptr %141, i64 16
   store ptr @_Z16PlaySingleCommonii, ptr %142, align 8
   %143 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  %144 = getelementptr inbounds i8, ptr %0, i64 144
+  %144 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %145 = load ptr, ptr %144, align 8
   %146 = load ptr, ptr %143, align 8
   %147 = ptrtoint ptr %145 to i64
@@ -640,7 +640,7 @@ define void @_ZN6SystemD2Ev(ptr nocapture noundef nonnull align 8 dereferenceabl
   br i1 %.not.i.i.i, label %_ZNSt6vectorIM6SystemFivESaIS2_EED2Ev.exit, label %4
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 176
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %6 = load ptr, ptr %5, align 8
   %7 = ptrtoint ptr %6 to i64
   %8 = ptrtoint ptr %3 to i64
@@ -655,7 +655,7 @@ _ZNSt6vectorIM6SystemFivESaIS2_EED2Ev.exit:       ; preds = %1, %4
   br i1 %.not.i.i.i1, label %_ZNSt6vectorIPFvRKS_IiSaIiEEESaIS5_EED2Ev.exit, label %12
 
 12:                                               ; preds = %_ZNSt6vectorIM6SystemFivESaIS2_EED2Ev.exit
-  %13 = getelementptr inbounds i8, ptr %0, i64 152
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %14 = load ptr, ptr %13, align 8
   %15 = ptrtoint ptr %14 to i64
   %16 = ptrtoint ptr %11 to i64
@@ -670,7 +670,7 @@ _ZNSt6vectorIPFvRKS_IiSaIiEEESaIS5_EED2Ev.exit:   ; preds = %_ZNSt6vectorIM6Syst
   br i1 %.not.i.i.i2, label %_ZNSt6vectorIPFviiESaIS1_EED2Ev.exit, label %20
 
 20:                                               ; preds = %_ZNSt6vectorIPFvRKS_IiSaIiEEESaIS5_EED2Ev.exit
-  %21 = getelementptr inbounds i8, ptr %0, i64 128
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %22 = load ptr, ptr %21, align 8
   %23 = ptrtoint ptr %22 to i64
   %24 = ptrtoint ptr %19 to i64
@@ -685,7 +685,7 @@ _ZNSt6vectorIPFviiESaIS1_EED2Ev.exit:             ; preds = %_ZNSt6vectorIPFvRKS
   br i1 %.not.i.i.i3, label %_ZNSt6vectorIPFvRK6boardsRS_IiSaIiEES5_ESaIS7_EED2Ev.exit, label %28
 
 28:                                               ; preds = %_ZNSt6vectorIPFviiESaIS1_EED2Ev.exit
-  %29 = getelementptr inbounds i8, ptr %0, i64 104
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %30 = load ptr, ptr %29, align 8
   %31 = ptrtoint ptr %30 to i64
   %32 = ptrtoint ptr %27 to i64
@@ -700,7 +700,7 @@ _ZNSt6vectorIPFvRK6boardsRS_IiSaIiEES5_ESaIS7_EED2Ev.exit: ; preds = %_ZNSt6vect
   br i1 %.not.i.i.i4, label %_ZNSt6vectorIPFviESaIS1_EED2Ev.exit, label %36
 
 36:                                               ; preds = %_ZNSt6vectorIPFvRK6boardsRS_IiSaIiEES5_ESaIS7_EED2Ev.exit
-  %37 = getelementptr inbounds i8, ptr %0, i64 80
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %38 = load ptr, ptr %37, align 8
   %39 = ptrtoint ptr %38 to i64
   %40 = ptrtoint ptr %35 to i64
@@ -715,7 +715,7 @@ _ZNSt6vectorIPFviESaIS1_EED2Ev.exit:              ; preds = %_ZNSt6vectorIPFvRK6
   br i1 %.not.i.i.i5, label %_ZNSt6vectorIbSaIbEED2Ev.exit, label %44
 
 44:                                               ; preds = %_ZNSt6vectorIPFviESaIS1_EED2Ev.exit
-  %45 = getelementptr inbounds i8, ptr %0, i64 56
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %46 = load ptr, ptr %45, align 8
   %47 = ptrtoint ptr %46 to i64
   %48 = ptrtoint ptr %43 to i64
