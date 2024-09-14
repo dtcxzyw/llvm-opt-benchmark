@@ -30833,7 +30833,7 @@ postgres/attoptcache.ll 56066018
 postgres/auth-sasl.ll 55105819
 postgres/auth-scram.ll 255717325
 postgres/auth.ll 542938024
-postgres/autoinc.ll 82265318
+postgres/autoinc.ll 82347801
 postgres/autovacuum.ll 587472236
 postgres/backend_progress.ll 75097267
 postgres/backend_status.ll 204246497
@@ -36009,7 +36009,7 @@ spike/lr_d.ll 527779426
 spike/lr_w.ll 574619137
 spike/lui.ll 397698440
 spike/lw.ll 581734810
-spike/lw_aq.ll 604620680
+spike/lw_aq.ll 605225375
 spike/lwu.ll 512557803
 spike/maddr32.ll 487043828
 spike/max.ll 482251884
