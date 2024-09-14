@@ -202603,30 +202603,27 @@ JS_FreeValue.exit50:                              ; preds = %57, %61, %66
   br i1 %.not.i, label %80, label %js_UTF32_compare.exit
 
 ._crit_edge.i:                                    ; preds = %80, %77
-  %86 = icmp eq i32 %34, %58
-  %87 = icmp slt i32 %34, %58
-  %..i = select i1 %87, i32 -1, i32 1
-  %.0.i = select i1 %86, i32 0, i32 %..i
+  %.0.i = tail call i32 @llvm.scmp.i32.i32(i32 %34, i32 %58)
   br label %js_UTF32_compare.exit
 
 js_UTF32_compare.exit:                            ; preds = %.lr.ph.i, %._crit_edge.i
   %.016.i = phi i32 [ %.0.i, %._crit_edge.i ], [ %85, %.lr.ph.i ]
-  %88 = getelementptr inbounds i8, ptr %0, i64 24
+  %86 = getelementptr inbounds i8, ptr %0, i64 24
+  %87 = load ptr, ptr %86, align 8
+  %88 = getelementptr inbounds i8, ptr %87, i64 8
   %89 = load ptr, ptr %88, align 8
-  %90 = getelementptr inbounds i8, ptr %89, i64 8
-  %91 = load ptr, ptr %90, align 8
-  %92 = getelementptr inbounds i8, ptr %89, i64 32
-  tail call void %91(ptr noundef nonnull %92, ptr noundef %70) #42
-  %93 = load ptr, ptr %88, align 8
-  %94 = getelementptr inbounds i8, ptr %93, i64 8
-  %95 = load ptr, ptr %94, align 8
-  %96 = getelementptr inbounds i8, ptr %93, i64 32
-  tail call void %95(ptr noundef nonnull %96, ptr noundef %78) #42
-  %97 = zext i32 %.016.i to i64
+  %90 = getelementptr inbounds i8, ptr %87, i64 32
+  tail call void %89(ptr noundef nonnull %90, ptr noundef %70) #42
+  %91 = load ptr, ptr %86, align 8
+  %92 = getelementptr inbounds i8, ptr %91, i64 8
+  %93 = load ptr, ptr %92, align 8
+  %94 = getelementptr inbounds i8, ptr %91, i64 32
+  tail call void %93(ptr noundef nonnull %94, ptr noundef %78) #42
+  %95 = zext i32 %.016.i to i64
   br label %JS_FreeValue.exit
 
 JS_FreeValue.exit:                                ; preds = %54, %49, %46, %30, %25, %22, %JS_ToStringCheckObject.exit.thread, %JS_ToStringCheckObject.exit, %js_UTF32_compare.exit, %71
-  %.sroa.036.0 = phi i64 [ 0, %71 ], [ %97, %js_UTF32_compare.exit ], [ 0, %JS_ToStringCheckObject.exit ], [ 0, %JS_ToStringCheckObject.exit.thread ], [ 0, %22 ], [ 0, %25 ], [ 0, %30 ], [ 0, %46 ], [ 0, %49 ], [ 0, %54 ]
+  %.sroa.036.0 = phi i64 [ 0, %71 ], [ %95, %js_UTF32_compare.exit ], [ 0, %JS_ToStringCheckObject.exit ], [ 0, %JS_ToStringCheckObject.exit.thread ], [ 0, %22 ], [ 0, %25 ], [ 0, %30 ], [ 0, %46 ], [ 0, %49 ], [ 0, %54 ]
   %.sroa.6.sroa.2.0 = phi i64 [ 6, %71 ], [ 0, %js_UTF32_compare.exit ], [ 6, %JS_ToStringCheckObject.exit ], [ 6, %JS_ToStringCheckObject.exit.thread ], [ 6, %22 ], [ 6, %25 ], [ 6, %30 ], [ 6, %46 ], [ 6, %49 ], [ 6, %54 ]
   %.fca.0.insert = insertvalue { i64, i64 } poison, i64 %.sroa.036.0, 0
   %.fca.1.insert = insertvalue { i64, i64 } %.fca.0.insert, i64 %.sroa.6.sroa.2.0, 1

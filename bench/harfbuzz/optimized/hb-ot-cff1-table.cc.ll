@@ -216,32 +216,32 @@ while.body.lr.ph.i.i.i.i:
   br label %while.body.i.i.i.i
 
 while.body.i.i.i.i:                               ; preds = %if.end8.i.i.i.i, %while.body.lr.ph.i.i.i.i
-  %min.04.i.i.i.i = phi i32 [ 0, %while.body.lr.ph.i.i.i.i ], [ %min.1.i.i.i.i, %if.end8.i.i.i.i ]
-  %max.03.i.i.i.i = phi i32 [ 164, %while.body.lr.ph.i.i.i.i ], [ %max.1.i.i.i.i, %if.end8.i.i.i.i ]
-  %add.i.i.i.i = add i32 %max.03.i.i.i.i, %min.04.i.i.i.i
+  %min.03.i.i.i.i = phi i32 [ 0, %while.body.lr.ph.i.i.i.i ], [ %min.1.i.i.i.i, %if.end8.i.i.i.i ]
+  %max.02.i.i.i.i = phi i32 [ 164, %while.body.lr.ph.i.i.i.i ], [ %max.1.i.i.i.i, %if.end8.i.i.i.i ]
+  %add.i.i.i.i = add i32 %max.02.i.i.i.i, %min.03.i.i.i.i
   %div9.i.i.i.i = lshr i32 %add.i.i.i.i, 1
   %conv1.i.i.i.i = zext nneg i32 %div9.i.i.i.i to i64
   %mul.i.i.i.i = shl nuw nsw i64 %conv1.i.i.i.i, 2
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr @_ZL25expert_charset_sid_to_gid, i64 %mul.i.i.i.i
   %0 = load i16, ptr %add.ptr.i.i.i.i, align 4
-  %cmp6.i.i.not.i.i.i.i = icmp ugt i16 %0, %conv.i.i.i.i.i
-  br i1 %cmp6.i.i.not.i.i.i.i, label %if.then.i.i.i.i, label %if.else.i.i.i.i
+  %cmp2.i.i.i.i = icmp ugt i16 %0, %conv.i.i.i.i.i
+  br i1 %cmp2.i.i.i.i, label %if.then.i.i.i.i, label %if.else.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %while.body.i.i.i.i
   %sub3.i.i.i.i = add nsw i32 %div9.i.i.i.i, -1
   br label %if.end8.i.i.i.i
 
 if.else.i.i.i.i:                                  ; preds = %while.body.i.i.i.i
-  %cmp.i.i.i.i.i.i = icmp eq i16 %0, %conv.i.i.i.i.i
-  br i1 %cmp.i.i.i.i.i.i, label %cond.true, label %if.then5.i.i.i.i
+  %cmp4.not.i.i.i.i = icmp eq i16 %0, %conv.i.i.i.i.i
+  br i1 %cmp4.not.i.i.i.i, label %cond.true, label %if.then5.i.i.i.i
 
 if.then5.i.i.i.i:                                 ; preds = %if.else.i.i.i.i
   %add6.i.i.i.i = add nuw nsw i32 %div9.i.i.i.i, 1
   br label %if.end8.i.i.i.i
 
 if.end8.i.i.i.i:                                  ; preds = %if.then5.i.i.i.i, %if.then.i.i.i.i
-  %max.1.i.i.i.i = phi i32 [ %sub3.i.i.i.i, %if.then.i.i.i.i ], [ %max.03.i.i.i.i, %if.then5.i.i.i.i ]
-  %min.1.i.i.i.i = phi i32 [ %min.04.i.i.i.i, %if.then.i.i.i.i ], [ %add6.i.i.i.i, %if.then5.i.i.i.i ]
+  %max.1.i.i.i.i = phi i32 [ %sub3.i.i.i.i, %if.then.i.i.i.i ], [ %max.02.i.i.i.i, %if.then5.i.i.i.i ]
+  %min.1.i.i.i.i = phi i32 [ %min.03.i.i.i.i, %if.then.i.i.i.i ], [ %add6.i.i.i.i, %if.then5.i.i.i.i ]
   %cmp.not.not.i.i.i.i = icmp sgt i32 %min.1.i.i.i.i, %max.1.i.i.i.i
   br i1 %cmp.not.not.i.i.i.i, label %cond.end, label %while.body.i.i.i.i, !llvm.loop !5
 
@@ -263,32 +263,32 @@ while.body.lr.ph.i.i.i.i:
   br label %while.body.i.i.i.i
 
 while.body.i.i.i.i:                               ; preds = %if.end8.i.i.i.i, %while.body.lr.ph.i.i.i.i
-  %min.04.i.i.i.i = phi i32 [ 0, %while.body.lr.ph.i.i.i.i ], [ %min.1.i.i.i.i, %if.end8.i.i.i.i ]
-  %max.03.i.i.i.i = phi i32 [ 85, %while.body.lr.ph.i.i.i.i ], [ %max.1.i.i.i.i, %if.end8.i.i.i.i ]
-  %add.i.i.i.i = add i32 %max.03.i.i.i.i, %min.04.i.i.i.i
+  %min.03.i.i.i.i = phi i32 [ 0, %while.body.lr.ph.i.i.i.i ], [ %min.1.i.i.i.i, %if.end8.i.i.i.i ]
+  %max.02.i.i.i.i = phi i32 [ 85, %while.body.lr.ph.i.i.i.i ], [ %max.1.i.i.i.i, %if.end8.i.i.i.i ]
+  %add.i.i.i.i = add i32 %max.02.i.i.i.i, %min.03.i.i.i.i
   %div9.i.i.i.i = lshr i32 %add.i.i.i.i, 1
   %conv1.i.i.i.i = zext nneg i32 %div9.i.i.i.i to i64
   %mul.i.i.i.i = shl nuw nsw i64 %conv1.i.i.i.i, 2
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr @_ZL32expert_subset_charset_sid_to_gid, i64 %mul.i.i.i.i
   %0 = load i16, ptr %add.ptr.i.i.i.i, align 4
-  %cmp6.i.i.not.i.i.i.i = icmp ugt i16 %0, %conv.i.i.i.i.i
-  br i1 %cmp6.i.i.not.i.i.i.i, label %if.then.i.i.i.i, label %if.else.i.i.i.i
+  %cmp2.i.i.i.i = icmp ugt i16 %0, %conv.i.i.i.i.i
+  br i1 %cmp2.i.i.i.i, label %if.then.i.i.i.i, label %if.else.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %while.body.i.i.i.i
   %sub3.i.i.i.i = add nsw i32 %div9.i.i.i.i, -1
   br label %if.end8.i.i.i.i
 
 if.else.i.i.i.i:                                  ; preds = %while.body.i.i.i.i
-  %cmp.i.i.i.i.i.i = icmp eq i16 %0, %conv.i.i.i.i.i
-  br i1 %cmp.i.i.i.i.i.i, label %cond.true, label %if.then5.i.i.i.i
+  %cmp4.not.i.i.i.i = icmp eq i16 %0, %conv.i.i.i.i.i
+  br i1 %cmp4.not.i.i.i.i, label %cond.true, label %if.then5.i.i.i.i
 
 if.then5.i.i.i.i:                                 ; preds = %if.else.i.i.i.i
   %add6.i.i.i.i = add nuw nsw i32 %div9.i.i.i.i, 1
   br label %if.end8.i.i.i.i
 
 if.end8.i.i.i.i:                                  ; preds = %if.then5.i.i.i.i, %if.then.i.i.i.i
-  %max.1.i.i.i.i = phi i32 [ %sub3.i.i.i.i, %if.then.i.i.i.i ], [ %max.03.i.i.i.i, %if.then5.i.i.i.i ]
-  %min.1.i.i.i.i = phi i32 [ %min.04.i.i.i.i, %if.then.i.i.i.i ], [ %add6.i.i.i.i, %if.then5.i.i.i.i ]
+  %max.1.i.i.i.i = phi i32 [ %sub3.i.i.i.i, %if.then.i.i.i.i ], [ %max.02.i.i.i.i, %if.then5.i.i.i.i ]
+  %min.1.i.i.i.i = phi i32 [ %min.03.i.i.i.i, %if.then.i.i.i.i ], [ %add6.i.i.i.i, %if.then5.i.i.i.i ]
   %cmp.not.not.i.i.i.i = icmp sgt i32 %min.1.i.i.i.i, %max.1.i.i.i.i
   br i1 %cmp.not.not.i.i.i.i, label %cond.end, label %while.body.i.i.i.i, !llvm.loop !5
 

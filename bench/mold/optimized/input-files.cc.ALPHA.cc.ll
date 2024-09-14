@@ -21734,10 +21734,10 @@ for.body:                                         ; preds = %for.cond
   %9 = load i64, ptr %st_value.i, align 1
   %st_value5.i = getelementptr inbounds i8, ptr %add.ptr.i.i6.i, i64 8
   %10 = load i64, ptr %st_value5.i, align 1
-  %cmp.lt.i.i.i.i = icmp ult i64 %9, %10
-  %cmp.eq.i.i.i.i = icmp eq i64 %9, %10
+  %cmp.i.i.i.i = icmp eq i64 %9, %10
   %cmp.lt.i.i.i.i.i = icmp ult ptr %add.ptr.i.i.i, %add.ptr.i.i6.i
-  %cmp.i.i = select i1 %cmp.eq.i.i.i.i, i1 %cmp.lt.i.i.i.i.i, i1 %cmp.lt.i.i.i.i
+  %cmp.i8.i = icmp ult i64 %9, %10
+  %cmp.i.i = select i1 %cmp.i.i.i.i, i1 %cmp.lt.i.i.i.i.i, i1 %cmp.i8.i
   br i1 %cmp.i.i, label %if.then, label %for.cond, !llvm.loop !318
 
 if.then:                                          ; preds = %for.body
@@ -21931,10 +21931,10 @@ for.body.lr.ph.i:                                 ; preds = %entry
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.inc.i, %for.body.lr.ph.i
-  %__i.sroa.0.014.i.idx = phi i64 [ 8, %for.body.lr.ph.i ], [ %__i.sroa.0.014.i.add, %for.inc.i ]
-  %__first.coerce.pn13.i = phi ptr [ %__first.coerce, %for.body.lr.ph.i ], [ %__i.sroa.0.014.i.ptr, %for.inc.i ]
-  %__i.sroa.0.014.i.ptr = getelementptr inbounds i8, ptr %__first.coerce, i64 %__i.sroa.0.014.i.idx
-  %0 = load ptr, ptr %__i.sroa.0.014.i.ptr, align 8
+  %__i.sroa.0.013.i.idx = phi i64 [ 8, %for.body.lr.ph.i ], [ %__i.sroa.0.013.i.add, %for.inc.i ]
+  %__first.coerce.pn12.i = phi ptr [ %__first.coerce, %for.body.lr.ph.i ], [ %__i.sroa.0.013.i.ptr, %for.inc.i ]
+  %__i.sroa.0.013.i.ptr = getelementptr inbounds i8, ptr %__first.coerce, i64 %__i.sroa.0.013.i.idx
+  %0 = load ptr, ptr %__i.sroa.0.013.i.ptr, align 8
   %1 = load ptr, ptr %__first.coerce, align 8
   %2 = load ptr, ptr %0, align 8
   %elf_syms.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 32
@@ -21954,18 +21954,18 @@ for.body.i:                                       ; preds = %for.inc.i, %for.bod
   %8 = load i64, ptr %st_value.i.i.i, align 1
   %st_value5.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i6.i.i.i, i64 8
   %9 = load i64, ptr %st_value5.i.i.i, align 1
-  %cmp.lt.i.i.i.i.i.i = icmp ult i64 %8, %9
-  %cmp.eq.i.i.i.i.i.i = icmp eq i64 %8, %9
+  %cmp.i.i.i.i.i.i = icmp eq i64 %8, %9
   %cmp.lt.i.i.i.i.i.i.i = icmp ult ptr %add.ptr.i.i.i.i.i, %add.ptr.i.i6.i.i.i
-  %cmp.i.i.i.i = select i1 %cmp.eq.i.i.i.i.i.i, i1 %cmp.lt.i.i.i.i.i.i.i, i1 %cmp.lt.i.i.i.i.i.i
+  %cmp.i8.i.i.i = icmp ult i64 %8, %9
+  %cmp.i.i.i.i = select i1 %cmp.i.i.i.i.i.i, i1 %cmp.lt.i.i.i.i.i.i.i, i1 %cmp.i8.i.i.i
   br i1 %cmp.i.i.i.i, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf6SymbolINS3_5ALPHAEEESt6vectorIS7_SaIS7_EEEESC_ET0_T_SE_SD_.exit.i, label %if.else.i
 
 _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf6SymbolINS3_5ALPHAEEESt6vectorIS7_SaIS7_EEEESC_ET0_T_SE_SD_.exit.i: ; preds = %for.body.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %scevgep, ptr noundef nonnull align 8 dereferenceable(1) %__first.coerce, i64 %__i.sroa.0.014.i.idx, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %scevgep, ptr noundef nonnull align 8 dereferenceable(1) %__first.coerce, i64 %__i.sroa.0.013.i.idx, i1 false)
   br label %for.inc.i
 
 if.else.i:                                        ; preds = %for.body.i
-  %10 = load ptr, ptr %__first.coerce.pn13.i, align 8
+  %10 = load ptr, ptr %__first.coerce.pn12.i, align 8
   %11 = load ptr, ptr %10, align 8
   %elf_syms.i3.i.i11.i.i = getelementptr inbounds i8, ptr %11, i64 32
   %sym_idx.i4.i.i12.i.i = getelementptr inbounds i8, ptr %10, i64 36
@@ -21975,16 +21975,16 @@ if.else.i:                                        ; preds = %for.body.i
   %add.ptr.i.i6.i.i14.i.i = getelementptr inbounds %"struct.mold::elf::ElfSym", ptr %13, i64 %conv.i5.i.i13.i.i
   %st_value5.i.i16.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i6.i.i14.i.i, i64 8
   %14 = load i64, ptr %st_value5.i.i16.i.i, align 1
-  %cmp.lt.i.i.i.i.i17.i.i = icmp ult i64 %8, %14
-  %cmp.eq.i.i.i.i.i18.i.i = icmp eq i64 %8, %14
-  %cmp.lt.i.i.i.i.i.i19.i.i = icmp ult ptr %add.ptr.i.i.i.i.i, %add.ptr.i.i6.i.i14.i.i
-  %cmp.i.i.i20.i.i = select i1 %cmp.eq.i.i.i.i.i18.i.i, i1 %cmp.lt.i.i.i.i.i.i19.i.i, i1 %cmp.lt.i.i.i.i.i17.i.i
+  %cmp.i.i.i.i.i17.i.i = icmp eq i64 %8, %14
+  %cmp.lt.i.i.i.i.i.i18.i.i = icmp ult ptr %add.ptr.i.i.i.i.i, %add.ptr.i.i6.i.i14.i.i
+  %cmp.i8.i.i19.i.i = icmp ult i64 %8, %14
+  %cmp.i.i.i20.i.i = select i1 %cmp.i.i.i.i.i17.i.i, i1 %cmp.lt.i.i.i.i.i.i18.i.i, i1 %cmp.i8.i.i19.i.i
   br i1 %cmp.i.i.i20.i.i, label %while.body.i.i, label %for.inc.i
 
 while.body.i.i:                                   ; preds = %if.else.i, %while.body.i.i
   %15 = phi ptr [ %16, %while.body.i.i ], [ %10, %if.else.i ]
-  %__next.sroa.0.022.i.i = phi ptr [ %__next.sroa.0.0.i.i, %while.body.i.i ], [ %__first.coerce.pn13.i, %if.else.i ]
-  %__last.sroa.0.021.i.i = phi ptr [ %__next.sroa.0.022.i.i, %while.body.i.i ], [ %__i.sroa.0.014.i.ptr, %if.else.i ]
+  %__next.sroa.0.022.i.i = phi ptr [ %__next.sroa.0.0.i.i, %while.body.i.i ], [ %__first.coerce.pn12.i, %if.else.i ]
+  %__last.sroa.0.021.i.i = phi ptr [ %__next.sroa.0.022.i.i, %while.body.i.i ], [ %__i.sroa.0.013.i.ptr, %if.else.i ]
   store ptr %15, ptr %__last.sroa.0.021.i.i, align 8
   %__next.sroa.0.0.i.i = getelementptr inbounds i8, ptr %__next.sroa.0.022.i.i, i64 -8
   %16 = load ptr, ptr %__next.sroa.0.0.i.i, align 8
@@ -22005,17 +22005,17 @@ while.body.i.i:                                   ; preds = %if.else.i, %while.b
   %23 = load i64, ptr %st_value.i.i.i.i, align 1
   %st_value5.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i6.i.i.i.i, i64 8
   %24 = load i64, ptr %st_value5.i.i.i.i, align 1
-  %cmp.lt.i.i.i.i.i.i4.i = icmp ult i64 %23, %24
-  %cmp.eq.i.i.i.i.i.i.i = icmp eq i64 %23, %24
+  %cmp.i.i.i.i.i.i.i = icmp eq i64 %23, %24
   %cmp.lt.i.i.i.i.i.i.i.i = icmp ult ptr %add.ptr.i.i.i.i.i3.i, %add.ptr.i.i6.i.i.i.i
-  %cmp.i.i.i.i.i = select i1 %cmp.eq.i.i.i.i.i.i.i, i1 %cmp.lt.i.i.i.i.i.i.i.i, i1 %cmp.lt.i.i.i.i.i.i4.i
+  %cmp.i8.i.i.i.i = icmp ult i64 %23, %24
+  %cmp.i.i.i.i.i = select i1 %cmp.i.i.i.i.i.i.i, i1 %cmp.lt.i.i.i.i.i.i.i.i, i1 %cmp.i8.i.i.i.i
   br i1 %cmp.i.i.i.i.i, label %while.body.i.i, label %for.inc.i, !llvm.loop !322
 
 for.inc.i:                                        ; preds = %while.body.i.i, %if.else.i, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf6SymbolINS3_5ALPHAEEESt6vectorIS7_SaIS7_EEEESC_ET0_T_SE_SD_.exit.i
-  %__first.coerce.sink.i = phi ptr [ %__first.coerce, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf6SymbolINS3_5ALPHAEEESt6vectorIS7_SaIS7_EEEESC_ET0_T_SE_SD_.exit.i ], [ %__i.sroa.0.014.i.ptr, %if.else.i ], [ %__next.sroa.0.022.i.i, %while.body.i.i ]
+  %__first.coerce.sink.i = phi ptr [ %__first.coerce, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf6SymbolINS3_5ALPHAEEESt6vectorIS7_SaIS7_EEEESC_ET0_T_SE_SD_.exit.i ], [ %__i.sroa.0.013.i.ptr, %if.else.i ], [ %__next.sroa.0.022.i.i, %while.body.i.i ]
   store ptr %0, ptr %__first.coerce.sink.i, align 8
-  %__i.sroa.0.014.i.add = add nuw nsw i64 %__i.sroa.0.014.i.idx, 8
-  %cmp.i1.i = icmp eq i64 %__i.sroa.0.014.i.add, 128
+  %__i.sroa.0.013.i.add = add nuw nsw i64 %__i.sroa.0.013.i.idx, 8
+  %cmp.i1.i = icmp eq i64 %__i.sroa.0.013.i.add, 128
   br i1 %cmp.i1.i, label %_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf6SymbolINS3_5ALPHAEEESt6vectorIS7_SaIS7_EEEENS0_5__ops15_Iter_comp_iterIZZNS3_10SharedFileIS5_E12find_aliasesES7_ENKUlvE_clEvEUlS7_S7_E_EEEvT_SK_T0_.exit, label %for.body.i, !llvm.loop !323
 
 _ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf6SymbolINS3_5ALPHAEEESt6vectorIS7_SaIS7_EEEENS0_5__ops15_Iter_comp_iterIZZNS3_10SharedFileIS5_E12find_aliasesES7_ENKUlvE_clEvEUlS7_S7_E_EEEvT_SK_T0_.exit: ; preds = %for.inc.i
@@ -22046,10 +22046,10 @@ for.body.i4:                                      ; preds = %_ZSt16__insertion_s
   %33 = load i64, ptr %st_value.i.i15.i.i, align 1
   %st_value5.i.i16.i.i9 = getelementptr inbounds i8, ptr %add.ptr.i.i6.i.i14.i.i8, i64 8
   %34 = load i64, ptr %st_value5.i.i16.i.i9, align 1
-  %cmp.lt.i.i.i.i.i17.i.i10 = icmp ult i64 %33, %34
-  %cmp.eq.i.i.i.i.i18.i.i11 = icmp eq i64 %33, %34
-  %cmp.lt.i.i.i.i.i.i19.i.i12 = icmp ult ptr %add.ptr.i.i.i.i10.i.i, %add.ptr.i.i6.i.i14.i.i8
-  %cmp.i.i.i20.i.i13 = select i1 %cmp.eq.i.i.i.i.i18.i.i11, i1 %cmp.lt.i.i.i.i.i.i19.i.i12, i1 %cmp.lt.i.i.i.i.i17.i.i10
+  %cmp.i.i.i.i.i17.i.i10 = icmp eq i64 %33, %34
+  %cmp.lt.i.i.i.i.i.i18.i.i11 = icmp ult ptr %add.ptr.i.i.i.i10.i.i, %add.ptr.i.i6.i.i14.i.i8
+  %cmp.i8.i.i19.i.i12 = icmp ult i64 %33, %34
+  %cmp.i.i.i20.i.i13 = select i1 %cmp.i.i.i.i.i17.i.i10, i1 %cmp.lt.i.i.i.i.i.i18.i.i11, i1 %cmp.i8.i.i19.i.i12
   br i1 %cmp.i.i.i20.i.i13, label %while.body.i.i15, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf6SymbolINS3_5ALPHAEEESt6vectorIS7_SaIS7_EEEENS0_5__ops14_Val_comp_iterIZZNS3_10SharedFileIS5_E12find_aliasesES7_ENKUlvE_clEvEUlS7_S7_E_EEEvT_T0_.exit.i
 
 while.body.i.i15:                                 ; preds = %for.body.i4, %while.body.i.i15
@@ -22076,10 +22076,10 @@ while.body.i.i15:                                 ; preds = %for.body.i4, %while
   %43 = load i64, ptr %st_value.i.i.i.i26, align 1
   %st_value5.i.i.i.i27 = getelementptr inbounds i8, ptr %add.ptr.i.i6.i.i.i.i25, i64 8
   %44 = load i64, ptr %st_value5.i.i.i.i27, align 1
-  %cmp.lt.i.i.i.i.i.i.i28 = icmp ult i64 %43, %44
-  %cmp.eq.i.i.i.i.i.i.i29 = icmp eq i64 %43, %44
-  %cmp.lt.i.i.i.i.i.i.i.i30 = icmp ult ptr %add.ptr.i.i.i.i.i.i21, %add.ptr.i.i6.i.i.i.i25
-  %cmp.i.i.i.i.i31 = select i1 %cmp.eq.i.i.i.i.i.i.i29, i1 %cmp.lt.i.i.i.i.i.i.i.i30, i1 %cmp.lt.i.i.i.i.i.i.i28
+  %cmp.i.i.i.i.i.i.i28 = icmp eq i64 %43, %44
+  %cmp.lt.i.i.i.i.i.i.i.i29 = icmp ult ptr %add.ptr.i.i.i.i.i.i21, %add.ptr.i.i6.i.i.i.i25
+  %cmp.i8.i.i.i.i30 = icmp ult i64 %43, %44
+  %cmp.i.i.i.i.i31 = select i1 %cmp.i.i.i.i.i.i.i28, i1 %cmp.lt.i.i.i.i.i.i.i.i29, i1 %cmp.i8.i.i.i.i30
   br i1 %cmp.i.i.i.i.i31, label %while.body.i.i15, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf6SymbolINS3_5ALPHAEEESt6vectorIS7_SaIS7_EEEENS0_5__ops14_Val_comp_iterIZZNS3_10SharedFileIS5_E12find_aliasesES7_ENKUlvE_clEvEUlS7_S7_E_EEEvT_T0_.exit.i, !llvm.loop !322
 
 _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf6SymbolINS3_5ALPHAEEESt6vectorIS7_SaIS7_EEEENS0_5__ops14_Val_comp_iterIZZNS3_10SharedFileIS5_E12find_aliasesES7_ENKUlvE_clEvEUlS7_S7_E_EEEvT_T0_.exit.i: ; preds = %while.body.i.i15, %for.body.i4
@@ -22091,15 +22091,15 @@ _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf6Symb
 
 if.else:                                          ; preds = %entry
   %cmp.i.i32 = icmp eq ptr %__first.coerce, %__last.coerce
-  %__i.sroa.0.011.i34 = getelementptr inbounds i8, ptr %__first.coerce, i64 8
-  %cmp.i112.i35 = icmp eq ptr %__i.sroa.0.011.i34, %__last.coerce
-  %or.cond = select i1 %cmp.i.i32, i1 true, i1 %cmp.i112.i35
+  %__i.sroa.0.010.i34 = getelementptr inbounds i8, ptr %__first.coerce, i64 8
+  %cmp.i111.i35 = icmp eq ptr %__i.sroa.0.010.i34, %__last.coerce
+  %or.cond = select i1 %cmp.i.i32, i1 true, i1 %cmp.i111.i35
   br i1 %or.cond, label %if.end, label %for.body.i38
 
 for.body.i38:                                     ; preds = %if.else, %for.inc.i65
-  %__i.sroa.0.014.i39 = phi ptr [ %__i.sroa.0.0.i67, %for.inc.i65 ], [ %__i.sroa.0.011.i34, %if.else ]
-  %__first.coerce.pn13.i40 = phi ptr [ %__i.sroa.0.014.i39, %for.inc.i65 ], [ %__first.coerce, %if.else ]
-  %45 = load ptr, ptr %__i.sroa.0.014.i39, align 8
+  %__i.sroa.0.013.i39 = phi ptr [ %__i.sroa.0.0.i67, %for.inc.i65 ], [ %__i.sroa.0.010.i34, %if.else ]
+  %__first.coerce.pn12.i40 = phi ptr [ %__i.sroa.0.013.i39, %for.inc.i65 ], [ %__first.coerce, %if.else ]
+  %45 = load ptr, ptr %__i.sroa.0.013.i39, align 8
   %46 = load ptr, ptr %__first.coerce, align 8
   %47 = load ptr, ptr %45, align 8
   %elf_syms.i.i.i.i41 = getelementptr inbounds i8, ptr %47, i64 32
@@ -22119,15 +22119,15 @@ for.body.i38:                                     ; preds = %if.else, %for.inc.i
   %53 = load i64, ptr %st_value.i.i.i49, align 1
   %st_value5.i.i.i50 = getelementptr inbounds i8, ptr %add.ptr.i.i6.i.i.i48, i64 8
   %54 = load i64, ptr %st_value5.i.i.i50, align 1
-  %cmp.lt.i.i.i.i.i.i51 = icmp ult i64 %53, %54
-  %cmp.eq.i.i.i.i.i.i52 = icmp eq i64 %53, %54
-  %cmp.lt.i.i.i.i.i.i.i53 = icmp ult ptr %add.ptr.i.i.i.i.i44, %add.ptr.i.i6.i.i.i48
-  %cmp.i.i.i.i54 = select i1 %cmp.eq.i.i.i.i.i.i52, i1 %cmp.lt.i.i.i.i.i.i.i53, i1 %cmp.lt.i.i.i.i.i.i51
+  %cmp.i.i.i.i.i.i51 = icmp eq i64 %53, %54
+  %cmp.lt.i.i.i.i.i.i.i52 = icmp ult ptr %add.ptr.i.i.i.i.i44, %add.ptr.i.i6.i.i.i48
+  %cmp.i8.i.i.i53 = icmp ult i64 %53, %54
+  %cmp.i.i.i.i54 = select i1 %cmp.i.i.i.i.i.i51, i1 %cmp.lt.i.i.i.i.i.i.i52, i1 %cmp.i8.i.i.i53
   br i1 %cmp.i.i.i.i54, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf6SymbolINS3_5ALPHAEEESt6vectorIS7_SaIS7_EEEESC_ET0_T_SE_SD_.exit.i86, label %if.else.i55
 
 _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf6SymbolINS3_5ALPHAEEESt6vectorIS7_SaIS7_EEEESC_ET0_T_SE_SD_.exit.i86: ; preds = %for.body.i38
-  %add.ptr.i2.i87 = getelementptr inbounds i8, ptr %__first.coerce.pn13.i40, i64 16
-  %sub.ptr.lhs.cast.i.i.i.i.i.i88 = ptrtoint ptr %__i.sroa.0.014.i39 to i64
+  %add.ptr.i2.i87 = getelementptr inbounds i8, ptr %__first.coerce.pn12.i40, i64 16
+  %sub.ptr.lhs.cast.i.i.i.i.i.i88 = ptrtoint ptr %__i.sroa.0.013.i39 to i64
   %sub.ptr.sub.i.i.i.i.i.i89 = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i88, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i.i.i.i.i.i90 = ashr exact i64 %sub.ptr.sub.i.i.i.i.i.i89, 3
   %.pre.i.i.i.i.i.i91 = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i.i90
@@ -22136,7 +22136,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf6SymbolINS3_5ALPH
   br label %for.inc.i65
 
 if.else.i55:                                      ; preds = %for.body.i38
-  %55 = load ptr, ptr %__first.coerce.pn13.i40, align 8
+  %55 = load ptr, ptr %__first.coerce.pn12.i40, align 8
   %56 = load ptr, ptr %55, align 8
   %elf_syms.i3.i.i11.i.i56 = getelementptr inbounds i8, ptr %56, i64 32
   %sym_idx.i4.i.i12.i.i57 = getelementptr inbounds i8, ptr %55, i64 36
@@ -22146,16 +22146,16 @@ if.else.i55:                                      ; preds = %for.body.i38
   %add.ptr.i.i6.i.i14.i.i59 = getelementptr inbounds %"struct.mold::elf::ElfSym", ptr %58, i64 %conv.i5.i.i13.i.i58
   %st_value5.i.i16.i.i60 = getelementptr inbounds i8, ptr %add.ptr.i.i6.i.i14.i.i59, i64 8
   %59 = load i64, ptr %st_value5.i.i16.i.i60, align 1
-  %cmp.lt.i.i.i.i.i17.i.i61 = icmp ult i64 %53, %59
-  %cmp.eq.i.i.i.i.i18.i.i62 = icmp eq i64 %53, %59
-  %cmp.lt.i.i.i.i.i.i19.i.i63 = icmp ult ptr %add.ptr.i.i.i.i.i44, %add.ptr.i.i6.i.i14.i.i59
-  %cmp.i.i.i20.i.i64 = select i1 %cmp.eq.i.i.i.i.i18.i.i62, i1 %cmp.lt.i.i.i.i.i.i19.i.i63, i1 %cmp.lt.i.i.i.i.i17.i.i61
+  %cmp.i.i.i.i.i17.i.i61 = icmp eq i64 %53, %59
+  %cmp.lt.i.i.i.i.i.i18.i.i62 = icmp ult ptr %add.ptr.i.i.i.i.i44, %add.ptr.i.i6.i.i14.i.i59
+  %cmp.i8.i.i19.i.i63 = icmp ult i64 %53, %59
+  %cmp.i.i.i20.i.i64 = select i1 %cmp.i.i.i.i.i17.i.i61, i1 %cmp.lt.i.i.i.i.i.i18.i.i62, i1 %cmp.i8.i.i19.i.i63
   br i1 %cmp.i.i.i20.i.i64, label %while.body.i.i69, label %for.inc.i65
 
 while.body.i.i69:                                 ; preds = %if.else.i55, %while.body.i.i69
   %60 = phi ptr [ %61, %while.body.i.i69 ], [ %55, %if.else.i55 ]
-  %__next.sroa.0.022.i.i70 = phi ptr [ %__next.sroa.0.0.i.i72, %while.body.i.i69 ], [ %__first.coerce.pn13.i40, %if.else.i55 ]
-  %__last.sroa.0.021.i.i71 = phi ptr [ %__next.sroa.0.022.i.i70, %while.body.i.i69 ], [ %__i.sroa.0.014.i39, %if.else.i55 ]
+  %__next.sroa.0.022.i.i70 = phi ptr [ %__next.sroa.0.0.i.i72, %while.body.i.i69 ], [ %__first.coerce.pn12.i40, %if.else.i55 ]
+  %__last.sroa.0.021.i.i71 = phi ptr [ %__next.sroa.0.022.i.i70, %while.body.i.i69 ], [ %__i.sroa.0.013.i39, %if.else.i55 ]
   store ptr %60, ptr %__last.sroa.0.021.i.i71, align 8
   %__next.sroa.0.0.i.i72 = getelementptr inbounds i8, ptr %__next.sroa.0.022.i.i70, i64 -8
   %61 = load ptr, ptr %__next.sroa.0.0.i.i72, align 8
@@ -22176,16 +22176,16 @@ while.body.i.i69:                                 ; preds = %if.else.i55, %while
   %68 = load i64, ptr %st_value.i.i.i.i80, align 1
   %st_value5.i.i.i.i81 = getelementptr inbounds i8, ptr %add.ptr.i.i6.i.i.i.i79, i64 8
   %69 = load i64, ptr %st_value5.i.i.i.i81, align 1
-  %cmp.lt.i.i.i.i.i.i4.i82 = icmp ult i64 %68, %69
-  %cmp.eq.i.i.i.i.i.i.i83 = icmp eq i64 %68, %69
-  %cmp.lt.i.i.i.i.i.i.i.i84 = icmp ult ptr %add.ptr.i.i.i.i.i3.i75, %add.ptr.i.i6.i.i.i.i79
-  %cmp.i.i.i.i.i85 = select i1 %cmp.eq.i.i.i.i.i.i.i83, i1 %cmp.lt.i.i.i.i.i.i.i.i84, i1 %cmp.lt.i.i.i.i.i.i4.i82
+  %cmp.i.i.i.i.i.i.i82 = icmp eq i64 %68, %69
+  %cmp.lt.i.i.i.i.i.i.i.i83 = icmp ult ptr %add.ptr.i.i.i.i.i3.i75, %add.ptr.i.i6.i.i.i.i79
+  %cmp.i8.i.i.i.i84 = icmp ult i64 %68, %69
+  %cmp.i.i.i.i.i85 = select i1 %cmp.i.i.i.i.i.i.i82, i1 %cmp.lt.i.i.i.i.i.i.i.i83, i1 %cmp.i8.i.i.i.i84
   br i1 %cmp.i.i.i.i.i85, label %while.body.i.i69, label %for.inc.i65, !llvm.loop !322
 
 for.inc.i65:                                      ; preds = %while.body.i.i69, %if.else.i55, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf6SymbolINS3_5ALPHAEEESt6vectorIS7_SaIS7_EEEESC_ET0_T_SE_SD_.exit.i86
-  %__first.coerce.sink.i66 = phi ptr [ %__first.coerce, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf6SymbolINS3_5ALPHAEEESt6vectorIS7_SaIS7_EEEESC_ET0_T_SE_SD_.exit.i86 ], [ %__i.sroa.0.014.i39, %if.else.i55 ], [ %__next.sroa.0.022.i.i70, %while.body.i.i69 ]
+  %__first.coerce.sink.i66 = phi ptr [ %__first.coerce, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf6SymbolINS3_5ALPHAEEESt6vectorIS7_SaIS7_EEEESC_ET0_T_SE_SD_.exit.i86 ], [ %__i.sroa.0.013.i39, %if.else.i55 ], [ %__next.sroa.0.022.i.i70, %while.body.i.i69 ]
   store ptr %45, ptr %__first.coerce.sink.i66, align 8
-  %__i.sroa.0.0.i67 = getelementptr inbounds i8, ptr %__i.sroa.0.014.i39, i64 8
+  %__i.sroa.0.0.i67 = getelementptr inbounds i8, ptr %__i.sroa.0.013.i39, i64 8
   %cmp.i1.i68 = icmp eq ptr %__i.sroa.0.0.i67, %__last.coerce
   br i1 %cmp.i1.i68, label %if.end, label %for.body.i38, !llvm.loop !323
 
@@ -22224,10 +22224,10 @@ entry:
   %8 = load i64, ptr %st_value.i.i.i, align 1
   %st_value5.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i6.i.i.i, i64 8
   %9 = load i64, ptr %st_value5.i.i.i, align 1
-  %cmp.lt.i.i.i.i.i.i = icmp ult i64 %8, %9
-  %cmp.eq.i.i.i.i.i.i = icmp eq i64 %8, %9
+  %cmp.i.i.i.i.i.i = icmp eq i64 %8, %9
   %cmp.lt.i.i.i.i.i.i.i = icmp ult ptr %add.ptr.i.i.i.i.i, %add.ptr.i.i6.i.i.i
-  %cmp.i.i.i.i = select i1 %cmp.eq.i.i.i.i.i.i, i1 %cmp.lt.i.i.i.i.i.i.i, i1 %cmp.lt.i.i.i.i.i.i
+  %cmp.i8.i.i.i = icmp ult i64 %8, %9
+  %cmp.i.i.i.i = select i1 %cmp.i.i.i.i.i.i, i1 %cmp.lt.i.i.i.i.i.i.i, i1 %cmp.i8.i.i.i
   %10 = load ptr, ptr %add.ptr.i3, align 8
   %11 = load ptr, ptr %10, align 8
   %elf_syms.i3.i.i5.i = getelementptr inbounds i8, ptr %11, i64 32
@@ -22241,10 +22241,10 @@ entry:
   br i1 %cmp.i.i.i.i, label %if.then.i, label %if.else33.i
 
 if.then.i:                                        ; preds = %entry
-  %cmp.lt.i.i.i.i.i11.i = icmp ult i64 %9, %14
-  %cmp.eq.i.i.i.i.i12.i = icmp eq i64 %9, %14
-  %cmp.lt.i.i.i.i.i.i13.i = icmp ult ptr %add.ptr.i.i6.i.i.i, %add.ptr.i.i6.i.i8.i
-  %cmp.i.i.i14.i = select i1 %cmp.eq.i.i.i.i.i12.i, i1 %cmp.lt.i.i.i.i.i.i13.i, i1 %cmp.lt.i.i.i.i.i11.i
+  %cmp.i.i.i.i.i11.i = icmp eq i64 %9, %14
+  %cmp.lt.i.i.i.i.i.i12.i = icmp ult ptr %add.ptr.i.i6.i.i.i, %add.ptr.i.i6.i.i8.i
+  %cmp.i8.i.i13.i = icmp ult i64 %9, %14
+  %cmp.i.i.i14.i = select i1 %cmp.i.i.i.i.i11.i, i1 %cmp.lt.i.i.i.i.i.i12.i, i1 %cmp.i8.i.i13.i
   br i1 %cmp.i.i.i14.i, label %if.then12.i, label %if.else.i
 
 if.then12.i:                                      ; preds = %if.then.i
@@ -22254,10 +22254,10 @@ if.then12.i:                                      ; preds = %if.then.i
   br label %while.body.i.preheader
 
 if.else.i:                                        ; preds = %if.then.i
-  %cmp.lt.i.i.i.i.i25.i = icmp ult i64 %8, %14
-  %cmp.eq.i.i.i.i.i26.i = icmp eq i64 %8, %14
-  %cmp.lt.i.i.i.i.i.i27.i = icmp ult ptr %add.ptr.i.i.i.i.i, %add.ptr.i.i6.i.i8.i
-  %cmp.i.i.i28.i = select i1 %cmp.eq.i.i.i.i.i26.i, i1 %cmp.lt.i.i.i.i.i.i27.i, i1 %cmp.lt.i.i.i.i.i25.i
+  %cmp.i.i.i.i.i25.i = icmp eq i64 %8, %14
+  %cmp.lt.i.i.i.i.i.i26.i = icmp ult ptr %add.ptr.i.i.i.i.i, %add.ptr.i.i6.i.i8.i
+  %cmp.i8.i.i27.i = icmp ult i64 %8, %14
+  %cmp.i.i.i28.i = select i1 %cmp.i.i.i.i.i25.i, i1 %cmp.lt.i.i.i.i.i.i26.i, i1 %cmp.i8.i.i27.i
   %16 = load ptr, ptr %__first.coerce, align 8
   br i1 %cmp.i.i.i28.i, label %if.then22.i, label %if.else27.i
 
@@ -22272,10 +22272,10 @@ if.else27.i:                                      ; preds = %if.else.i
   br label %while.body.i.preheader
 
 if.else33.i:                                      ; preds = %entry
-  %cmp.lt.i.i.i.i.i39.i = icmp ult i64 %8, %14
-  %cmp.eq.i.i.i.i.i40.i = icmp eq i64 %8, %14
-  %cmp.lt.i.i.i.i.i.i41.i = icmp ult ptr %add.ptr.i.i.i.i.i, %add.ptr.i.i6.i.i8.i
-  %cmp.i.i.i42.i = select i1 %cmp.eq.i.i.i.i.i40.i, i1 %cmp.lt.i.i.i.i.i.i41.i, i1 %cmp.lt.i.i.i.i.i39.i
+  %cmp.i.i.i.i.i39.i = icmp eq i64 %8, %14
+  %cmp.lt.i.i.i.i.i.i40.i = icmp ult ptr %add.ptr.i.i.i.i.i, %add.ptr.i.i6.i.i8.i
+  %cmp.i8.i.i41.i = icmp ult i64 %8, %14
+  %cmp.i.i.i42.i = select i1 %cmp.i.i.i.i.i39.i, i1 %cmp.lt.i.i.i.i.i.i40.i, i1 %cmp.i8.i.i41.i
   br i1 %cmp.i.i.i42.i, label %if.then39.i, label %if.else44.i
 
 if.then39.i:                                      ; preds = %if.else33.i
@@ -22285,10 +22285,10 @@ if.then39.i:                                      ; preds = %if.else33.i
   br label %while.body.i.preheader
 
 if.else44.i:                                      ; preds = %if.else33.i
-  %cmp.lt.i.i.i.i.i53.i = icmp ult i64 %9, %14
-  %cmp.eq.i.i.i.i.i54.i = icmp eq i64 %9, %14
-  %cmp.lt.i.i.i.i.i.i55.i = icmp ult ptr %add.ptr.i.i6.i.i.i, %add.ptr.i.i6.i.i8.i
-  %cmp.i.i.i56.i = select i1 %cmp.eq.i.i.i.i.i54.i, i1 %cmp.lt.i.i.i.i.i.i55.i, i1 %cmp.lt.i.i.i.i.i53.i
+  %cmp.i.i.i.i.i53.i = icmp eq i64 %9, %14
+  %cmp.lt.i.i.i.i.i.i54.i = icmp ult ptr %add.ptr.i.i6.i.i.i, %add.ptr.i.i6.i.i8.i
+  %cmp.i8.i.i55.i = icmp ult i64 %9, %14
+  %cmp.i.i.i56.i = select i1 %cmp.i.i.i.i.i53.i, i1 %cmp.lt.i.i.i.i.i.i54.i, i1 %cmp.i8.i.i55.i
   %18 = load ptr, ptr %__first.coerce, align 8
   br i1 %cmp.i.i.i56.i, label %if.then50.i, label %if.else55.i
 
@@ -22332,10 +22332,10 @@ while.cond3.i:                                    ; preds = %while.cond3.i, %whi
   %add.ptr.i.i.i.i.i13 = getelementptr inbounds %"struct.mold::elf::ElfSym", ptr %27, i64 %conv.i.i.i.i12
   %st_value.i.i.i14 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i13, i64 8
   %28 = load i64, ptr %st_value.i.i.i14, align 1
-  %cmp.lt.i.i.i.i.i.i15 = icmp ult i64 %28, %23
-  %cmp.eq.i.i.i.i.i.i16 = icmp eq i64 %28, %23
-  %cmp.lt.i.i.i.i.i.i.i17 = icmp ult ptr %add.ptr.i.i.i.i.i13, %add.ptr.i.i6.i.i.i8
-  %cmp.i.i.i.i18 = select i1 %cmp.eq.i.i.i.i.i.i16, i1 %cmp.lt.i.i.i.i.i.i.i17, i1 %cmp.lt.i.i.i.i.i.i15
+  %cmp.i.i.i.i.i.i15 = icmp eq i64 %28, %23
+  %cmp.lt.i.i.i.i.i.i.i16 = icmp ult ptr %add.ptr.i.i.i.i.i13, %add.ptr.i.i6.i.i.i8
+  %cmp.i8.i.i.i17 = icmp ult i64 %28, %23
+  %cmp.i.i.i.i18 = select i1 %cmp.i.i.i.i.i.i15, i1 %cmp.lt.i.i.i.i.i.i.i16, i1 %cmp.i8.i.i.i17
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.1.i, i64 8
   br i1 %cmp.i.i.i.i18, label %while.cond3.i, label %while.cond10.i, !llvm.loop !325
 
@@ -22352,10 +22352,10 @@ while.cond10.i:                                   ; preds = %while.cond3.i, %whi
   %add.ptr.i.i6.i.i9.i = getelementptr inbounds %"struct.mold::elf::ElfSym", ptr %32, i64 %conv.i5.i.i8.i
   %st_value5.i.i11.i = getelementptr inbounds i8, ptr %add.ptr.i.i6.i.i9.i, i64 8
   %33 = load i64, ptr %st_value5.i.i11.i, align 1
-  %cmp.lt.i.i.i.i.i12.i = icmp ult i64 %23, %33
-  %cmp.eq.i.i.i.i.i13.i = icmp eq i64 %23, %33
-  %cmp.lt.i.i.i.i.i.i14.i = icmp ult ptr %add.ptr.i.i6.i.i.i8, %add.ptr.i.i6.i.i9.i
-  %cmp.i.i.i15.i = select i1 %cmp.eq.i.i.i.i.i13.i, i1 %cmp.lt.i.i.i.i.i.i14.i, i1 %cmp.lt.i.i.i.i.i12.i
+  %cmp.i.i.i.i.i12.i = icmp eq i64 %23, %33
+  %cmp.lt.i.i.i.i.i.i13.i = icmp ult ptr %add.ptr.i.i6.i.i.i8, %add.ptr.i.i6.i.i9.i
+  %cmp.i8.i.i14.i = icmp ult i64 %23, %33
+  %cmp.i.i.i15.i = select i1 %cmp.i.i.i.i.i12.i, i1 %cmp.lt.i.i.i.i.i.i13.i, i1 %cmp.i8.i.i14.i
   br i1 %cmp.i.i.i15.i, label %while.cond10.i, label %while.end18.i, !llvm.loop !326
 
 while.end18.i:                                    ; preds = %while.cond10.i
@@ -22376,12 +22376,12 @@ define linkonce_odr dso_local void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_it
 entry:
   %sub = add nsw i64 %__len, -1
   %div = sdiv i64 %sub, 2
-  %cmp28 = icmp slt i64 %__holeIndex, %div
-  br i1 %cmp28, label %while.body, label %while.end
+  %cmp27 = icmp slt i64 %__holeIndex, %div
+  br i1 %cmp27, label %while.body, label %while.end
 
 while.body:                                       ; preds = %entry, %while.body
-  %__holeIndex.addr.029 = phi i64 [ %spec.select, %while.body ], [ %__holeIndex, %entry ]
-  %add = shl i64 %__holeIndex.addr.029, 1
+  %__holeIndex.addr.028 = phi i64 [ %spec.select, %while.body ], [ %__holeIndex, %entry ]
+  %add = shl i64 %__holeIndex.addr.028, 1
   %mul = add i64 %add, 2
   %add.ptr.i = getelementptr inbounds ptr, ptr %__first.coerce, i64 %mul
   %sub3 = or disjoint i64 %add, 1
@@ -22406,14 +22406,14 @@ while.body:                                       ; preds = %entry, %while.body
   %8 = load i64, ptr %st_value.i.i, align 1
   %st_value5.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i6.i.i, i64 8
   %9 = load i64, ptr %st_value5.i.i, align 1
-  %cmp.lt.i.i.i.i.i = icmp ult i64 %8, %9
-  %cmp.eq.i.i.i.i.i = icmp eq i64 %8, %9
+  %cmp.i.i.i.i.i = icmp eq i64 %8, %9
   %cmp.lt.i.i.i.i.i.i = icmp ult ptr %add.ptr.i.i.i.i, %add.ptr.i.i6.i.i
-  %cmp.i.i.i = select i1 %cmp.eq.i.i.i.i.i, i1 %cmp.lt.i.i.i.i.i.i, i1 %cmp.lt.i.i.i.i.i
+  %cmp.i8.i.i = icmp ult i64 %8, %9
+  %cmp.i.i.i = select i1 %cmp.i.i.i.i.i, i1 %cmp.lt.i.i.i.i.i.i, i1 %cmp.i8.i.i
   %spec.select = select i1 %cmp.i.i.i, i64 %sub3, i64 %mul
   %add.ptr.i18 = getelementptr inbounds ptr, ptr %__first.coerce, i64 %spec.select
   %10 = load ptr, ptr %add.ptr.i18, align 8
-  %add.ptr.i19 = getelementptr inbounds ptr, ptr %__first.coerce, i64 %__holeIndex.addr.029
+  %add.ptr.i19 = getelementptr inbounds ptr, ptr %__first.coerce, i64 %__holeIndex.addr.028
   store ptr %10, ptr %add.ptr.i19, align 8
   %cmp = icmp slt i64 %spec.select, %div
   br i1 %cmp, label %while.body, label %while.end, !llvm.loop !328
@@ -22471,10 +22471,10 @@ land.rhs.i:                                       ; preds = %while.body.i, %land
   %19 = load i64, ptr %st_value.i.i.i, align 1
   %st_value5.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i6.i.i.i, i64 8
   %20 = load i64, ptr %st_value5.i.i.i, align 1
-  %cmp.lt.i.i.i.i.i.i22 = icmp ult i64 %19, %20
-  %cmp.eq.i.i.i.i.i.i = icmp eq i64 %19, %20
+  %cmp.i.i.i.i.i.i = icmp eq i64 %19, %20
   %cmp.lt.i.i.i.i.i.i.i = icmp ult ptr %add.ptr.i.i.i.i.i, %add.ptr.i.i6.i.i.i
-  %cmp.i.i.i.i = select i1 %cmp.eq.i.i.i.i.i.i, i1 %cmp.lt.i.i.i.i.i.i.i, i1 %cmp.lt.i.i.i.i.i.i22
+  %cmp.i8.i.i.i = icmp ult i64 %19, %20
+  %cmp.i.i.i.i = select i1 %cmp.i.i.i.i.i.i, i1 %cmp.lt.i.i.i.i.i.i.i, i1 %cmp.i8.i.i.i
   br i1 %cmp.i.i.i.i, label %while.body.i, label %_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf6SymbolINS3_5ALPHAEEESt6vectorIS7_SaIS7_EEEElS7_NS0_5__ops14_Iter_comp_valIZZNS3_10SharedFileIS5_E12find_aliasesES7_ENKUlvE_clEvEUlS7_S7_E_EEEvT_T0_SL_T1_RT2_.exit
 
 while.body.i:                                     ; preds = %land.rhs.i
@@ -23173,10 +23173,10 @@ do.body:                                          ; preds = %do.body, %for.cond
   %add.ptr.i.i6.i = getelementptr inbounds %"struct.mold::elf::ElfSym", ptr %14, i64 %conv.i5.i
   %st_value5.i = getelementptr inbounds i8, ptr %add.ptr.i.i6.i, i64 8
   %15 = load i64, ptr %st_value5.i, align 1
-  %cmp.lt.i.i.i.i = icmp ult i64 %10, %15
-  %cmp.eq.i.i.i.i = icmp eq i64 %10, %15
+  %cmp.i.i.i.i = icmp eq i64 %10, %15
   %cmp.lt.i.i.i.i.i = icmp ult ptr %add.ptr.i.i.i, %add.ptr.i.i6.i
-  %cmp.i.i = select i1 %cmp.eq.i.i.i.i, i1 %cmp.lt.i.i.i.i.i, i1 %cmp.lt.i.i.i.i
+  %cmp.i8.i = icmp ult i64 %10, %15
+  %cmp.i.i = select i1 %cmp.i.i.i.i, i1 %cmp.lt.i.i.i.i.i, i1 %cmp.i8.i
   br i1 %cmp.i.i, label %do.body, label %do.body10.preheader, !llvm.loop !334
 
 do.body10.preheader:                              ; preds = %do.body
@@ -23201,10 +23201,10 @@ if.end13:                                         ; preds = %do.body10
   %add.ptr.i.i.i23 = getelementptr inbounds %"struct.mold::elf::ElfSym", ptr %19, i64 %conv.i.i22
   %st_value.i28 = getelementptr inbounds i8, ptr %add.ptr.i.i.i23, i64 8
   %20 = load i64, ptr %st_value.i28, align 1
-  %cmp.lt.i.i.i.i30 = icmp ult i64 %20, %10
-  %cmp.eq.i.i.i.i31 = icmp eq i64 %20, %10
-  %cmp.lt.i.i.i.i.i32 = icmp ult ptr %add.ptr.i.i.i23, %add.ptr.i.i.i
-  %cmp.i.i33 = select i1 %cmp.eq.i.i.i.i31, i1 %cmp.lt.i.i.i.i.i32, i1 %cmp.lt.i.i.i.i30
+  %cmp.i.i.i.i30 = icmp eq i64 %20, %10
+  %cmp.lt.i.i.i.i.i31 = icmp ult ptr %add.ptr.i.i.i23, %add.ptr.i.i.i
+  %cmp.i8.i32 = icmp ult i64 %20, %10
+  %cmp.i.i33 = select i1 %cmp.i.i.i.i30, i1 %cmp.lt.i.i.i.i.i31, i1 %cmp.i8.i32
   br i1 %cmp.i.i33, label %do.body10, label %do.end19, !llvm.loop !335
 
 do.end19:                                         ; preds = %if.end13
@@ -23255,10 +23255,10 @@ entry:
   %10 = load i64, ptr %st_value.i.i, align 1
   %st_value5.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i6.i.i, i64 8
   %11 = load i64, ptr %st_value5.i.i, align 1
-  %cmp.lt.i.i.i.i.i = icmp ult i64 %10, %11
-  %cmp.eq.i.i.i.i.i = icmp eq i64 %10, %11
+  %cmp.i.i.i.i.i = icmp eq i64 %10, %11
   %cmp.lt.i.i.i.i.i.i = icmp ult ptr %add.ptr.i.i.i.i, %add.ptr.i.i6.i.i
-  %cmp.i.i.i = select i1 %cmp.eq.i.i.i.i.i, i1 %cmp.lt.i.i.i.i.i.i, i1 %cmp.lt.i.i.i.i.i
+  %cmp.i8.i.i = icmp ult i64 %10, %11
+  %cmp.i.i.i = select i1 %cmp.i.i.i.i.i, i1 %cmp.lt.i.i.i.i.i.i, i1 %cmp.i8.i.i
   %arrayidx.i25.i = getelementptr inbounds ptr, ptr %1, i64 %mul
   %12 = load ptr, ptr %arrayidx.i25.i, align 8
   %13 = load ptr, ptr %12, align 8
@@ -23270,34 +23270,34 @@ entry:
   %add.ptr.i.i6.i33.i = getelementptr inbounds %"struct.mold::elf::ElfSym", ptr %15, i64 %conv.i5.i32.i
   %st_value5.i35.i = getelementptr inbounds i8, ptr %add.ptr.i.i6.i33.i, i64 8
   %16 = load i64, ptr %st_value5.i35.i, align 1
-  %cmp.eq.i.i.i.i37.i = icmp eq i64 %11, %16
+  %cmp.i.i.i.i36.i = icmp eq i64 %11, %16
   br i1 %cmp.i.i.i, label %cond.true.i, label %cond.false17.i
 
 cond.true.i:                                      ; preds = %entry
-  %cmp.lt.i.i.i.i36.i = icmp ult i64 %11, %16
-  %cmp.lt.i.i.i.i.i38.i = icmp ult ptr %add.ptr.i.i6.i.i, %add.ptr.i.i6.i33.i
-  %cmp.i.i39.i = select i1 %cmp.eq.i.i.i.i37.i, i1 %cmp.lt.i.i.i.i.i38.i, i1 %cmp.lt.i.i.i.i36.i
+  %cmp.lt.i.i.i.i.i37.i = icmp ult ptr %add.ptr.i.i6.i.i, %add.ptr.i.i6.i33.i
+  %cmp.i8.i38.i = icmp ult i64 %11, %16
+  %cmp.i.i39.i = select i1 %cmp.i.i.i.i36.i, i1 %cmp.lt.i.i.i.i.i37.i, i1 %cmp.i8.i38.i
   br i1 %cmp.i.i39.i, label %_ZNK3tbb6detail2d116quick_sort_rangeIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf6SymbolINS6_5ALPHAEEESt6vectorISA_SaISA_EEEEZZNS6_10SharedFileIS8_E12find_aliasesESA_ENKUlvE_clEvEUlSA_SA_E_E15median_of_threeERKSF_mmm.exit, label %cond.false.i
 
 cond.false.i:                                     ; preds = %cond.true.i
-  %cmp.lt.i.i.i.i52.i = icmp ult i64 %10, %16
-  %cmp.eq.i.i.i.i53.i = icmp eq i64 %10, %16
-  %cmp.lt.i.i.i.i.i54.i = icmp ult ptr %add.ptr.i.i.i.i, %add.ptr.i.i6.i33.i
-  %cmp.i.i55.i = select i1 %cmp.eq.i.i.i.i53.i, i1 %cmp.lt.i.i.i.i.i54.i, i1 %cmp.lt.i.i.i.i52.i
+  %cmp.i.i.i.i52.i = icmp eq i64 %10, %16
+  %cmp.lt.i.i.i.i.i53.i = icmp ult ptr %add.ptr.i.i.i.i, %add.ptr.i.i6.i33.i
+  %cmp.i8.i54.i = icmp ult i64 %10, %16
+  %cmp.i.i55.i = select i1 %cmp.i.i.i.i52.i, i1 %cmp.lt.i.i.i.i.i53.i, i1 %cmp.i8.i54.i
   %cond.i = select i1 %cmp.i.i55.i, i64 %mul, i64 0
   br label %_ZNK3tbb6detail2d116quick_sort_rangeIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf6SymbolINS6_5ALPHAEEESt6vectorISA_SaISA_EEEEZZNS6_10SharedFileIS8_E12find_aliasesESA_ENKUlvE_clEvEUlSA_SA_E_E15median_of_threeERKSF_mmm.exit
 
 cond.false17.i:                                   ; preds = %entry
-  %cmp.lt.i.i.i.i68.i = icmp ult i64 %16, %11
-  %cmp.lt.i.i.i.i.i70.i = icmp ult ptr %add.ptr.i.i6.i33.i, %add.ptr.i.i6.i.i
-  %cmp.i.i71.i = select i1 %cmp.eq.i.i.i.i37.i, i1 %cmp.lt.i.i.i.i.i70.i, i1 %cmp.lt.i.i.i.i68.i
+  %cmp.lt.i.i.i.i.i69.i = icmp ult ptr %add.ptr.i.i6.i33.i, %add.ptr.i.i6.i.i
+  %cmp.i8.i70.i = icmp ult i64 %16, %11
+  %cmp.i.i71.i = select i1 %cmp.i.i.i.i36.i, i1 %cmp.lt.i.i.i.i.i69.i, i1 %cmp.i8.i70.i
   br i1 %cmp.i.i71.i, label %_ZNK3tbb6detail2d116quick_sort_rangeIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf6SymbolINS6_5ALPHAEEESt6vectorISA_SaISA_EEEEZZNS6_10SharedFileIS8_E12find_aliasesESA_ENKUlvE_clEvEUlSA_SA_E_E15median_of_threeERKSF_mmm.exit, label %cond.false23.i
 
 cond.false23.i:                                   ; preds = %cond.false17.i
-  %cmp.lt.i.i.i.i84.i = icmp ult i64 %16, %10
-  %cmp.eq.i.i.i.i85.i = icmp eq i64 %16, %10
-  %cmp.lt.i.i.i.i.i86.i = icmp ult ptr %add.ptr.i.i6.i33.i, %add.ptr.i.i.i.i
-  %cmp.i.i87.i = select i1 %cmp.eq.i.i.i.i85.i, i1 %cmp.lt.i.i.i.i.i86.i, i1 %cmp.lt.i.i.i.i84.i
+  %cmp.i.i.i.i84.i = icmp eq i64 %16, %10
+  %cmp.lt.i.i.i.i.i85.i = icmp ult ptr %add.ptr.i.i6.i33.i, %add.ptr.i.i.i.i
+  %cmp.i8.i86.i = icmp ult i64 %16, %10
+  %cmp.i.i87.i = select i1 %cmp.i.i.i.i84.i, i1 %cmp.lt.i.i.i.i.i85.i, i1 %cmp.i8.i86.i
   %cond31.i = select i1 %cmp.i.i87.i, i64 %mul, i64 0
   br label %_ZNK3tbb6detail2d116quick_sort_rangeIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf6SymbolINS6_5ALPHAEEESt6vectorISA_SaISA_EEEEZZNS6_10SharedFileIS8_E12find_aliasesESA_ENKUlvE_clEvEUlSA_SA_E_E15median_of_threeERKSF_mmm.exit
 
@@ -23328,10 +23328,10 @@ _ZNK3tbb6detail2d116quick_sort_rangeIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf
   %25 = load i64, ptr %st_value.i.i21, align 1
   %st_value5.i.i22 = getelementptr inbounds i8, ptr %add.ptr.i.i6.i.i20, i64 8
   %26 = load i64, ptr %st_value5.i.i22, align 1
-  %cmp.lt.i.i.i.i.i23 = icmp ult i64 %25, %26
-  %cmp.eq.i.i.i.i.i24 = icmp eq i64 %25, %26
-  %cmp.lt.i.i.i.i.i.i25 = icmp ult ptr %add.ptr.i.i.i.i16, %add.ptr.i.i6.i.i20
-  %cmp.i.i.i26 = select i1 %cmp.eq.i.i.i.i.i24, i1 %cmp.lt.i.i.i.i.i.i25, i1 %cmp.lt.i.i.i.i.i23
+  %cmp.i.i.i.i.i23 = icmp eq i64 %25, %26
+  %cmp.lt.i.i.i.i.i.i24 = icmp ult ptr %add.ptr.i.i.i.i16, %add.ptr.i.i6.i.i20
+  %cmp.i8.i.i25 = icmp ult i64 %25, %26
+  %cmp.i.i.i26 = select i1 %cmp.i.i.i.i.i23, i1 %cmp.lt.i.i.i.i.i.i24, i1 %cmp.i8.i.i25
   %arrayidx.i25.i27 = getelementptr inbounds ptr, ptr %1, i64 %mul4
   %27 = load ptr, ptr %arrayidx.i25.i27, align 8
   %28 = load ptr, ptr %27, align 8
@@ -23343,34 +23343,34 @@ _ZNK3tbb6detail2d116quick_sort_rangeIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf
   %add.ptr.i.i6.i33.i31 = getelementptr inbounds %"struct.mold::elf::ElfSym", ptr %30, i64 %conv.i5.i32.i30
   %st_value5.i35.i32 = getelementptr inbounds i8, ptr %add.ptr.i.i6.i33.i31, i64 8
   %31 = load i64, ptr %st_value5.i35.i32, align 1
-  %cmp.eq.i.i.i.i37.i33 = icmp eq i64 %26, %31
+  %cmp.i.i.i.i36.i33 = icmp eq i64 %26, %31
   br i1 %cmp.i.i.i26, label %cond.true.i45, label %cond.false17.i34
 
 cond.true.i45:                                    ; preds = %_ZNK3tbb6detail2d116quick_sort_rangeIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf6SymbolINS6_5ALPHAEEESt6vectorISA_SaISA_EEEEZZNS6_10SharedFileIS8_E12find_aliasesESA_ENKUlvE_clEvEUlSA_SA_E_E15median_of_threeERKSF_mmm.exit
-  %cmp.lt.i.i.i.i36.i46 = icmp ult i64 %26, %31
-  %cmp.lt.i.i.i.i.i38.i47 = icmp ult ptr %add.ptr.i.i6.i.i20, %add.ptr.i.i6.i33.i31
-  %cmp.i.i39.i48 = select i1 %cmp.eq.i.i.i.i37.i33, i1 %cmp.lt.i.i.i.i.i38.i47, i1 %cmp.lt.i.i.i.i36.i46
+  %cmp.lt.i.i.i.i.i37.i46 = icmp ult ptr %add.ptr.i.i6.i.i20, %add.ptr.i.i6.i33.i31
+  %cmp.i8.i38.i47 = icmp ult i64 %26, %31
+  %cmp.i.i39.i48 = select i1 %cmp.i.i.i.i36.i33, i1 %cmp.lt.i.i.i.i.i37.i46, i1 %cmp.i8.i38.i47
   br i1 %cmp.i.i39.i48, label %_ZNK3tbb6detail2d116quick_sort_rangeIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf6SymbolINS6_5ALPHAEEESt6vectorISA_SaISA_EEEEZZNS6_10SharedFileIS8_E12find_aliasesESA_ENKUlvE_clEvEUlSA_SA_E_E15median_of_threeERKSF_mmm.exit55, label %cond.false.i49
 
 cond.false.i49:                                   ; preds = %cond.true.i45
-  %cmp.lt.i.i.i.i52.i50 = icmp ult i64 %25, %31
-  %cmp.eq.i.i.i.i53.i51 = icmp eq i64 %25, %31
-  %cmp.lt.i.i.i.i.i54.i52 = icmp ult ptr %add.ptr.i.i.i.i16, %add.ptr.i.i6.i33.i31
-  %cmp.i.i55.i53 = select i1 %cmp.eq.i.i.i.i53.i51, i1 %cmp.lt.i.i.i.i.i54.i52, i1 %cmp.lt.i.i.i.i52.i50
+  %cmp.i.i.i.i52.i50 = icmp eq i64 %25, %31
+  %cmp.lt.i.i.i.i.i53.i51 = icmp ult ptr %add.ptr.i.i.i.i16, %add.ptr.i.i6.i33.i31
+  %cmp.i8.i54.i52 = icmp ult i64 %25, %31
+  %cmp.i.i55.i53 = select i1 %cmp.i.i.i.i52.i50, i1 %cmp.lt.i.i.i.i.i53.i51, i1 %cmp.i8.i54.i52
   %cond.i54 = select i1 %cmp.i.i55.i53, i64 %mul4, i64 %mul2
   br label %_ZNK3tbb6detail2d116quick_sort_rangeIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf6SymbolINS6_5ALPHAEEESt6vectorISA_SaISA_EEEEZZNS6_10SharedFileIS8_E12find_aliasesESA_ENKUlvE_clEvEUlSA_SA_E_E15median_of_threeERKSF_mmm.exit55
 
 cond.false17.i34:                                 ; preds = %_ZNK3tbb6detail2d116quick_sort_rangeIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf6SymbolINS6_5ALPHAEEESt6vectorISA_SaISA_EEEEZZNS6_10SharedFileIS8_E12find_aliasesESA_ENKUlvE_clEvEUlSA_SA_E_E15median_of_threeERKSF_mmm.exit
-  %cmp.lt.i.i.i.i68.i35 = icmp ult i64 %31, %26
-  %cmp.lt.i.i.i.i.i70.i36 = icmp ult ptr %add.ptr.i.i6.i33.i31, %add.ptr.i.i6.i.i20
-  %cmp.i.i71.i37 = select i1 %cmp.eq.i.i.i.i37.i33, i1 %cmp.lt.i.i.i.i.i70.i36, i1 %cmp.lt.i.i.i.i68.i35
+  %cmp.lt.i.i.i.i.i69.i35 = icmp ult ptr %add.ptr.i.i6.i33.i31, %add.ptr.i.i6.i.i20
+  %cmp.i8.i70.i36 = icmp ult i64 %31, %26
+  %cmp.i.i71.i37 = select i1 %cmp.i.i.i.i36.i33, i1 %cmp.lt.i.i.i.i.i69.i35, i1 %cmp.i8.i70.i36
   br i1 %cmp.i.i71.i37, label %_ZNK3tbb6detail2d116quick_sort_rangeIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf6SymbolINS6_5ALPHAEEESt6vectorISA_SaISA_EEEEZZNS6_10SharedFileIS8_E12find_aliasesESA_ENKUlvE_clEvEUlSA_SA_E_E15median_of_threeERKSF_mmm.exit55, label %cond.false23.i38
 
 cond.false23.i38:                                 ; preds = %cond.false17.i34
-  %cmp.lt.i.i.i.i84.i39 = icmp ult i64 %31, %25
-  %cmp.eq.i.i.i.i85.i40 = icmp eq i64 %31, %25
-  %cmp.lt.i.i.i.i.i86.i41 = icmp ult ptr %add.ptr.i.i6.i33.i31, %add.ptr.i.i.i.i16
-  %cmp.i.i87.i42 = select i1 %cmp.eq.i.i.i.i85.i40, i1 %cmp.lt.i.i.i.i.i86.i41, i1 %cmp.lt.i.i.i.i84.i39
+  %cmp.i.i.i.i84.i39 = icmp eq i64 %31, %25
+  %cmp.lt.i.i.i.i.i85.i40 = icmp ult ptr %add.ptr.i.i6.i33.i31, %add.ptr.i.i.i.i16
+  %cmp.i8.i86.i41 = icmp ult i64 %31, %25
+  %cmp.i.i87.i42 = select i1 %cmp.i.i.i.i84.i39, i1 %cmp.lt.i.i.i.i.i85.i40, i1 %cmp.i8.i86.i41
   %cond31.i43 = select i1 %cmp.i.i87.i42, i64 %mul4, i64 %mul2
   br label %_ZNK3tbb6detail2d116quick_sort_rangeIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf6SymbolINS6_5ALPHAEEESt6vectorISA_SaISA_EEEEZZNS6_10SharedFileIS8_E12find_aliasesESA_ENKUlvE_clEvEUlSA_SA_E_E15median_of_threeERKSF_mmm.exit55
 
@@ -23401,10 +23401,10 @@ _ZNK3tbb6detail2d116quick_sort_rangeIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf
   %40 = load i64, ptr %st_value.i.i66, align 1
   %st_value5.i.i67 = getelementptr inbounds i8, ptr %add.ptr.i.i6.i.i65, i64 8
   %41 = load i64, ptr %st_value5.i.i67, align 1
-  %cmp.lt.i.i.i.i.i68 = icmp ult i64 %40, %41
-  %cmp.eq.i.i.i.i.i69 = icmp eq i64 %40, %41
-  %cmp.lt.i.i.i.i.i.i70 = icmp ult ptr %add.ptr.i.i.i.i61, %add.ptr.i.i6.i.i65
-  %cmp.i.i.i71 = select i1 %cmp.eq.i.i.i.i.i69, i1 %cmp.lt.i.i.i.i.i.i70, i1 %cmp.lt.i.i.i.i.i68
+  %cmp.i.i.i.i.i68 = icmp eq i64 %40, %41
+  %cmp.lt.i.i.i.i.i.i69 = icmp ult ptr %add.ptr.i.i.i.i61, %add.ptr.i.i6.i.i65
+  %cmp.i8.i.i70 = icmp ult i64 %40, %41
+  %cmp.i.i.i71 = select i1 %cmp.i.i.i.i.i68, i1 %cmp.lt.i.i.i.i.i.i69, i1 %cmp.i8.i.i70
   %arrayidx.i25.i72 = getelementptr inbounds ptr, ptr %1, i64 %sub
   %42 = load ptr, ptr %arrayidx.i25.i72, align 8
   %43 = load ptr, ptr %42, align 8
@@ -23416,34 +23416,34 @@ _ZNK3tbb6detail2d116quick_sort_rangeIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf
   %add.ptr.i.i6.i33.i76 = getelementptr inbounds %"struct.mold::elf::ElfSym", ptr %45, i64 %conv.i5.i32.i75
   %st_value5.i35.i77 = getelementptr inbounds i8, ptr %add.ptr.i.i6.i33.i76, i64 8
   %46 = load i64, ptr %st_value5.i35.i77, align 1
-  %cmp.eq.i.i.i.i37.i78 = icmp eq i64 %41, %46
+  %cmp.i.i.i.i36.i78 = icmp eq i64 %41, %46
   br i1 %cmp.i.i.i71, label %cond.true.i90, label %cond.false17.i79
 
 cond.true.i90:                                    ; preds = %_ZNK3tbb6detail2d116quick_sort_rangeIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf6SymbolINS6_5ALPHAEEESt6vectorISA_SaISA_EEEEZZNS6_10SharedFileIS8_E12find_aliasesESA_ENKUlvE_clEvEUlSA_SA_E_E15median_of_threeERKSF_mmm.exit55
-  %cmp.lt.i.i.i.i36.i91 = icmp ult i64 %41, %46
-  %cmp.lt.i.i.i.i.i38.i92 = icmp ult ptr %add.ptr.i.i6.i.i65, %add.ptr.i.i6.i33.i76
-  %cmp.i.i39.i93 = select i1 %cmp.eq.i.i.i.i37.i78, i1 %cmp.lt.i.i.i.i.i38.i92, i1 %cmp.lt.i.i.i.i36.i91
+  %cmp.lt.i.i.i.i.i37.i91 = icmp ult ptr %add.ptr.i.i6.i.i65, %add.ptr.i.i6.i33.i76
+  %cmp.i8.i38.i92 = icmp ult i64 %41, %46
+  %cmp.i.i39.i93 = select i1 %cmp.i.i.i.i36.i78, i1 %cmp.lt.i.i.i.i.i37.i91, i1 %cmp.i8.i38.i92
   br i1 %cmp.i.i39.i93, label %_ZNK3tbb6detail2d116quick_sort_rangeIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf6SymbolINS6_5ALPHAEEESt6vectorISA_SaISA_EEEEZZNS6_10SharedFileIS8_E12find_aliasesESA_ENKUlvE_clEvEUlSA_SA_E_E15median_of_threeERKSF_mmm.exit100, label %cond.false.i94
 
 cond.false.i94:                                   ; preds = %cond.true.i90
-  %cmp.lt.i.i.i.i52.i95 = icmp ult i64 %40, %46
-  %cmp.eq.i.i.i.i53.i96 = icmp eq i64 %40, %46
-  %cmp.lt.i.i.i.i.i54.i97 = icmp ult ptr %add.ptr.i.i.i.i61, %add.ptr.i.i6.i33.i76
-  %cmp.i.i55.i98 = select i1 %cmp.eq.i.i.i.i53.i96, i1 %cmp.lt.i.i.i.i.i54.i97, i1 %cmp.lt.i.i.i.i52.i95
+  %cmp.i.i.i.i52.i95 = icmp eq i64 %40, %46
+  %cmp.lt.i.i.i.i.i53.i96 = icmp ult ptr %add.ptr.i.i.i.i61, %add.ptr.i.i6.i33.i76
+  %cmp.i8.i54.i97 = icmp ult i64 %40, %46
+  %cmp.i.i55.i98 = select i1 %cmp.i.i.i.i52.i95, i1 %cmp.lt.i.i.i.i.i53.i96, i1 %cmp.i8.i54.i97
   %cond.i99 = select i1 %cmp.i.i55.i98, i64 %sub, i64 %mul6
   br label %_ZNK3tbb6detail2d116quick_sort_rangeIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf6SymbolINS6_5ALPHAEEESt6vectorISA_SaISA_EEEEZZNS6_10SharedFileIS8_E12find_aliasesESA_ENKUlvE_clEvEUlSA_SA_E_E15median_of_threeERKSF_mmm.exit100
 
 cond.false17.i79:                                 ; preds = %_ZNK3tbb6detail2d116quick_sort_rangeIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf6SymbolINS6_5ALPHAEEESt6vectorISA_SaISA_EEEEZZNS6_10SharedFileIS8_E12find_aliasesESA_ENKUlvE_clEvEUlSA_SA_E_E15median_of_threeERKSF_mmm.exit55
-  %cmp.lt.i.i.i.i68.i80 = icmp ult i64 %46, %41
-  %cmp.lt.i.i.i.i.i70.i81 = icmp ult ptr %add.ptr.i.i6.i33.i76, %add.ptr.i.i6.i.i65
-  %cmp.i.i71.i82 = select i1 %cmp.eq.i.i.i.i37.i78, i1 %cmp.lt.i.i.i.i.i70.i81, i1 %cmp.lt.i.i.i.i68.i80
+  %cmp.lt.i.i.i.i.i69.i80 = icmp ult ptr %add.ptr.i.i6.i33.i76, %add.ptr.i.i6.i.i65
+  %cmp.i8.i70.i81 = icmp ult i64 %46, %41
+  %cmp.i.i71.i82 = select i1 %cmp.i.i.i.i36.i78, i1 %cmp.lt.i.i.i.i.i69.i80, i1 %cmp.i8.i70.i81
   br i1 %cmp.i.i71.i82, label %_ZNK3tbb6detail2d116quick_sort_rangeIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf6SymbolINS6_5ALPHAEEESt6vectorISA_SaISA_EEEEZZNS6_10SharedFileIS8_E12find_aliasesESA_ENKUlvE_clEvEUlSA_SA_E_E15median_of_threeERKSF_mmm.exit100, label %cond.false23.i83
 
 cond.false23.i83:                                 ; preds = %cond.false17.i79
-  %cmp.lt.i.i.i.i84.i84 = icmp ult i64 %46, %40
-  %cmp.eq.i.i.i.i85.i85 = icmp eq i64 %46, %40
-  %cmp.lt.i.i.i.i.i86.i86 = icmp ult ptr %add.ptr.i.i6.i33.i76, %add.ptr.i.i.i.i61
-  %cmp.i.i87.i87 = select i1 %cmp.eq.i.i.i.i85.i85, i1 %cmp.lt.i.i.i.i.i86.i86, i1 %cmp.lt.i.i.i.i84.i84
+  %cmp.i.i.i.i84.i84 = icmp eq i64 %46, %40
+  %cmp.lt.i.i.i.i.i85.i85 = icmp ult ptr %add.ptr.i.i6.i33.i76, %add.ptr.i.i.i.i61
+  %cmp.i8.i86.i86 = icmp ult i64 %46, %40
+  %cmp.i.i87.i87 = select i1 %cmp.i.i.i.i84.i84, i1 %cmp.lt.i.i.i.i.i85.i85, i1 %cmp.i8.i86.i86
   %cond31.i88 = select i1 %cmp.i.i87.i87, i64 %sub, i64 %mul6
   br label %_ZNK3tbb6detail2d116quick_sort_rangeIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf6SymbolINS6_5ALPHAEEESt6vectorISA_SaISA_EEEEZZNS6_10SharedFileIS8_E12find_aliasesESA_ENKUlvE_clEvEUlSA_SA_E_E15median_of_threeERKSF_mmm.exit100
 
@@ -23471,10 +23471,10 @@ _ZNK3tbb6detail2d116quick_sort_rangeIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf
   %55 = load i64, ptr %st_value.i.i111, align 1
   %st_value5.i.i112 = getelementptr inbounds i8, ptr %add.ptr.i.i6.i.i110, i64 8
   %56 = load i64, ptr %st_value5.i.i112, align 1
-  %cmp.lt.i.i.i.i.i113 = icmp ult i64 %55, %56
-  %cmp.eq.i.i.i.i.i114 = icmp eq i64 %55, %56
-  %cmp.lt.i.i.i.i.i.i115 = icmp ult ptr %add.ptr.i.i.i.i106, %add.ptr.i.i6.i.i110
-  %cmp.i.i.i116 = select i1 %cmp.eq.i.i.i.i.i114, i1 %cmp.lt.i.i.i.i.i.i115, i1 %cmp.lt.i.i.i.i.i113
+  %cmp.i.i.i.i.i113 = icmp eq i64 %55, %56
+  %cmp.lt.i.i.i.i.i.i114 = icmp ult ptr %add.ptr.i.i.i.i106, %add.ptr.i.i6.i.i110
+  %cmp.i8.i.i115 = icmp ult i64 %55, %56
+  %cmp.i.i.i116 = select i1 %cmp.i.i.i.i.i113, i1 %cmp.lt.i.i.i.i.i.i114, i1 %cmp.i8.i.i115
   %arrayidx.i25.i117 = getelementptr inbounds ptr, ptr %1, i64 %cond35.i89
   %57 = load ptr, ptr %arrayidx.i25.i117, align 8
   %58 = load ptr, ptr %57, align 8
@@ -23486,34 +23486,34 @@ _ZNK3tbb6detail2d116quick_sort_rangeIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf
   %add.ptr.i.i6.i33.i121 = getelementptr inbounds %"struct.mold::elf::ElfSym", ptr %60, i64 %conv.i5.i32.i120
   %st_value5.i35.i122 = getelementptr inbounds i8, ptr %add.ptr.i.i6.i33.i121, i64 8
   %61 = load i64, ptr %st_value5.i35.i122, align 1
-  %cmp.eq.i.i.i.i37.i123 = icmp eq i64 %56, %61
+  %cmp.i.i.i.i36.i123 = icmp eq i64 %56, %61
   br i1 %cmp.i.i.i116, label %cond.true.i135, label %cond.false17.i124
 
 cond.true.i135:                                   ; preds = %_ZNK3tbb6detail2d116quick_sort_rangeIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf6SymbolINS6_5ALPHAEEESt6vectorISA_SaISA_EEEEZZNS6_10SharedFileIS8_E12find_aliasesESA_ENKUlvE_clEvEUlSA_SA_E_E15median_of_threeERKSF_mmm.exit100
-  %cmp.lt.i.i.i.i36.i136 = icmp ult i64 %56, %61
-  %cmp.lt.i.i.i.i.i38.i137 = icmp ult ptr %add.ptr.i.i6.i.i110, %add.ptr.i.i6.i33.i121
-  %cmp.i.i39.i138 = select i1 %cmp.eq.i.i.i.i37.i123, i1 %cmp.lt.i.i.i.i.i38.i137, i1 %cmp.lt.i.i.i.i36.i136
+  %cmp.lt.i.i.i.i.i37.i136 = icmp ult ptr %add.ptr.i.i6.i.i110, %add.ptr.i.i6.i33.i121
+  %cmp.i8.i38.i137 = icmp ult i64 %56, %61
+  %cmp.i.i39.i138 = select i1 %cmp.i.i.i.i36.i123, i1 %cmp.lt.i.i.i.i.i37.i136, i1 %cmp.i8.i38.i137
   br i1 %cmp.i.i39.i138, label %_ZNK3tbb6detail2d116quick_sort_rangeIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf6SymbolINS6_5ALPHAEEESt6vectorISA_SaISA_EEEEZZNS6_10SharedFileIS8_E12find_aliasesESA_ENKUlvE_clEvEUlSA_SA_E_E15median_of_threeERKSF_mmm.exit145, label %cond.false.i139
 
 cond.false.i139:                                  ; preds = %cond.true.i135
-  %cmp.lt.i.i.i.i52.i140 = icmp ult i64 %55, %61
-  %cmp.eq.i.i.i.i53.i141 = icmp eq i64 %55, %61
-  %cmp.lt.i.i.i.i.i54.i142 = icmp ult ptr %add.ptr.i.i.i.i106, %add.ptr.i.i6.i33.i121
-  %cmp.i.i55.i143 = select i1 %cmp.eq.i.i.i.i53.i141, i1 %cmp.lt.i.i.i.i.i54.i142, i1 %cmp.lt.i.i.i.i52.i140
+  %cmp.i.i.i.i52.i140 = icmp eq i64 %55, %61
+  %cmp.lt.i.i.i.i.i53.i141 = icmp ult ptr %add.ptr.i.i.i.i106, %add.ptr.i.i6.i33.i121
+  %cmp.i8.i54.i142 = icmp ult i64 %55, %61
+  %cmp.i.i55.i143 = select i1 %cmp.i.i.i.i52.i140, i1 %cmp.lt.i.i.i.i.i53.i141, i1 %cmp.i8.i54.i142
   %cond.i144 = select i1 %cmp.i.i55.i143, i64 %cond35.i89, i64 %cond35.i
   br label %_ZNK3tbb6detail2d116quick_sort_rangeIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf6SymbolINS6_5ALPHAEEESt6vectorISA_SaISA_EEEEZZNS6_10SharedFileIS8_E12find_aliasesESA_ENKUlvE_clEvEUlSA_SA_E_E15median_of_threeERKSF_mmm.exit145
 
 cond.false17.i124:                                ; preds = %_ZNK3tbb6detail2d116quick_sort_rangeIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf6SymbolINS6_5ALPHAEEESt6vectorISA_SaISA_EEEEZZNS6_10SharedFileIS8_E12find_aliasesESA_ENKUlvE_clEvEUlSA_SA_E_E15median_of_threeERKSF_mmm.exit100
-  %cmp.lt.i.i.i.i68.i125 = icmp ult i64 %61, %56
-  %cmp.lt.i.i.i.i.i70.i126 = icmp ult ptr %add.ptr.i.i6.i33.i121, %add.ptr.i.i6.i.i110
-  %cmp.i.i71.i127 = select i1 %cmp.eq.i.i.i.i37.i123, i1 %cmp.lt.i.i.i.i.i70.i126, i1 %cmp.lt.i.i.i.i68.i125
+  %cmp.lt.i.i.i.i.i69.i125 = icmp ult ptr %add.ptr.i.i6.i33.i121, %add.ptr.i.i6.i.i110
+  %cmp.i8.i70.i126 = icmp ult i64 %61, %56
+  %cmp.i.i71.i127 = select i1 %cmp.i.i.i.i36.i123, i1 %cmp.lt.i.i.i.i.i69.i125, i1 %cmp.i8.i70.i126
   br i1 %cmp.i.i71.i127, label %_ZNK3tbb6detail2d116quick_sort_rangeIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf6SymbolINS6_5ALPHAEEESt6vectorISA_SaISA_EEEEZZNS6_10SharedFileIS8_E12find_aliasesESA_ENKUlvE_clEvEUlSA_SA_E_E15median_of_threeERKSF_mmm.exit145, label %cond.false23.i128
 
 cond.false23.i128:                                ; preds = %cond.false17.i124
-  %cmp.lt.i.i.i.i84.i129 = icmp ult i64 %61, %55
-  %cmp.eq.i.i.i.i85.i130 = icmp eq i64 %61, %55
-  %cmp.lt.i.i.i.i.i86.i131 = icmp ult ptr %add.ptr.i.i6.i33.i121, %add.ptr.i.i.i.i106
-  %cmp.i.i87.i132 = select i1 %cmp.eq.i.i.i.i85.i130, i1 %cmp.lt.i.i.i.i.i86.i131, i1 %cmp.lt.i.i.i.i84.i129
+  %cmp.i.i.i.i84.i129 = icmp eq i64 %61, %55
+  %cmp.lt.i.i.i.i.i85.i130 = icmp ult ptr %add.ptr.i.i6.i33.i121, %add.ptr.i.i.i.i106
+  %cmp.i8.i86.i131 = icmp ult i64 %61, %55
+  %cmp.i.i87.i132 = select i1 %cmp.i.i.i.i84.i129, i1 %cmp.lt.i.i.i.i.i85.i130, i1 %cmp.i8.i86.i131
   %cond31.i133 = select i1 %cmp.i.i87.i132, i64 %cond35.i89, i64 %cond35.i
   br label %_ZNK3tbb6detail2d116quick_sort_rangeIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf6SymbolINS6_5ALPHAEEESt6vectorISA_SaISA_EEEEZZNS6_10SharedFileIS8_E12find_aliasesESA_ENKUlvE_clEvEUlSA_SA_E_E15median_of_threeERKSF_mmm.exit145
 
@@ -23906,10 +23906,10 @@ if.end.i.i.i.i.i.i:                               ; preds = %land.lhs.true.i.i.i
   %16 = load i64, ptr %st_value.i.i.i.i.i.i.i, align 1
   %st_value5.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i6.i.i.i.i.i.i.i, i64 8
   %17 = load i64, ptr %st_value5.i.i.i.i.i.i.i, align 1
-  %cmp.lt.i.i.i.i.i.i.i.i.i.i = icmp ult i64 %16, %17
-  %cmp.eq.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %16, %17
+  %cmp.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %16, %17
   %cmp.lt.i.i.i.i.i.i.i.i.i.i.i = icmp ult ptr %add.ptr.i.i.i.i.i.i.i.i.i, %add.ptr.i.i6.i.i.i.i.i.i.i
-  %cmp.i.i.i.i.i.i.i.i = select i1 %cmp.eq.i.i.i.i.i.i.i.i.i.i, i1 %cmp.lt.i.i.i.i.i.i.i.i.i.i.i, i1 %cmp.lt.i.i.i.i.i.i.i.i.i.i
+  %cmp.i8.i.i.i.i.i.i.i = icmp ult i64 %16, %17
+  %cmp.i.i.i.i.i.i.i.i = select i1 %cmp.i.i.i.i.i.i.i.i.i.i, i1 %cmp.lt.i.i.i.i.i.i.i.i.i.i.i, i1 %cmp.i8.i.i.i.i.i.i.i
   br i1 %cmp.i.i.i.i.i.i.i.i, label %if.then11.i.i.i.i.i.i, label %for.inc.i.i.i.i.i.i
 
 if.then11.i.i.i.i.i.i:                            ; preds = %if.end.i.i.i.i.i.i
@@ -24165,10 +24165,10 @@ if.end.i.i.i.i.i.i41:                             ; preds = %land.lhs.true.i.i.i
   %62 = load i64, ptr %st_value.i.i.i.i.i.i.i51, align 1
   %st_value5.i.i.i.i.i.i.i52 = getelementptr inbounds i8, ptr %add.ptr.i.i6.i.i.i.i.i.i.i50, i64 8
   %63 = load i64, ptr %st_value5.i.i.i.i.i.i.i52, align 1
-  %cmp.lt.i.i.i.i.i.i.i.i.i.i53 = icmp ult i64 %62, %63
-  %cmp.eq.i.i.i.i.i.i.i.i.i.i54 = icmp eq i64 %62, %63
-  %cmp.lt.i.i.i.i.i.i.i.i.i.i.i55 = icmp ult ptr %add.ptr.i.i.i.i.i.i.i.i.i46, %add.ptr.i.i6.i.i.i.i.i.i.i50
-  %cmp.i.i.i.i.i.i.i.i56 = select i1 %cmp.eq.i.i.i.i.i.i.i.i.i.i54, i1 %cmp.lt.i.i.i.i.i.i.i.i.i.i.i55, i1 %cmp.lt.i.i.i.i.i.i.i.i.i.i53
+  %cmp.i.i.i.i.i.i.i.i.i.i53 = icmp eq i64 %62, %63
+  %cmp.lt.i.i.i.i.i.i.i.i.i.i.i54 = icmp ult ptr %add.ptr.i.i.i.i.i.i.i.i.i46, %add.ptr.i.i6.i.i.i.i.i.i.i50
+  %cmp.i8.i.i.i.i.i.i.i55 = icmp ult i64 %62, %63
+  %cmp.i.i.i.i.i.i.i.i56 = select i1 %cmp.i.i.i.i.i.i.i.i.i.i53, i1 %cmp.lt.i.i.i.i.i.i.i.i.i.i.i54, i1 %cmp.i8.i.i.i.i.i.i.i55
   br i1 %cmp.i.i.i.i.i.i.i.i56, label %if.then11.i.i.i.i.i.i61, label %for.inc.i.i.i.i.i.i57
 
 if.then11.i.i.i.i.i.i61:                          ; preds = %if.end.i.i.i.i.i.i41

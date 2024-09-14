@@ -33,7 +33,7 @@ define hidden noundef i32 @ua_keysets_clear() local_unnamed_addr #1 {
   br i1 %.not, label %3, label %2
 
 2:                                                ; preds = %0
-  tail call void @g_free(ptr noundef nonnull %1) #9
+  tail call void @g_free(ptr noundef nonnull %1) #10
   store ptr null, ptr @g_keysets, align 8
   br label %3
 
@@ -52,7 +52,7 @@ define hidden noundef ptr @ua_keysets_add() local_unnamed_addr #1 {
   %3 = add i32 %2, 1
   %4 = zext i32 %3 to i64
   %5 = mul nuw nsw i64 %4, 120
-  %6 = tail call ptr @g_realloc(ptr noundef %1, i64 noundef %5) #9
+  %6 = tail call ptr @g_realloc(ptr noundef %1, i64 noundef %5) #10
   %7 = icmp eq ptr %6, null
   br i1 %7, label %15, label %8
 
@@ -89,7 +89,7 @@ define hidden void @ua_keysets_sort() local_unnamed_addr #4 {
 3:                                                ; preds = %0
   %4 = load ptr, ptr @g_keysets, align 8
   %5 = zext i32 %1 to i64
-  tail call void @qsort(ptr noundef %4, i64 noundef %5, i64 noundef 120, ptr noundef nonnull @keyset_compare) #9
+  tail call void @qsort(ptr noundef %4, i64 noundef %5, i64 noundef 120, ptr noundef nonnull @keyset_compare) #10
   br label %6
 
 6:                                                ; preds = %3, %0
@@ -104,10 +104,7 @@ declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr nocapture noundef
 define internal range(i32 -1, 2) i32 @keyset_compare(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #6 {
   %3 = load i64, ptr %0, align 8
   %4 = load i64, ptr %1, align 8
-  %5 = icmp eq i64 %3, %4
-  %6 = icmp ult i64 %3, %4
-  %. = select i1 %6, i32 -1, i32 1
-  %.0 = select i1 %5, i32 0, i32 %.
+  %.0 = tail call i32 @llvm.ucmp.i32.i64(i64 %3, i64 %4)
   ret i32 %.0
 }
 
@@ -122,7 +119,7 @@ define hidden ptr @ua_keysets_lookup(i64 noundef %0) local_unnamed_addr #1 {
   %4 = load ptr, ptr @g_keysets, align 8
   %5 = load i32, ptr @g_num_keysets, align 4
   %6 = zext i32 %5 to i64
-  %7 = call ptr @bsearch(ptr noundef nonnull %2, ptr noundef %4, i64 noundef %6, i64 noundef 120, ptr noundef nonnull @keyset_compare) #9
+  %7 = call ptr @bsearch(ptr noundef nonnull %2, ptr noundef %4, i64 noundef %6, i64 noundef 120, ptr noundef nonnull @keyset_compare) #10
   br label %8
 
 8:                                                ; preds = %1, %3
@@ -252,6 +249,9 @@ declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_a
 ; Function Attrs: nofree nounwind
 declare noundef i32 @putchar(i32 noundef) local_unnamed_addr #8
 
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.ucmp.i32.i64(i64, i64) #9
+
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -261,7 +261,8 @@ attributes #5 = { nofree "frame-pointer"="all" "no-trapping-math"="true" "stack-
 attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { nofree nounwind }
-attributes #9 = { nounwind }
+attributes #9 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #10 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

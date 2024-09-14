@@ -45486,12 +45486,12 @@ define linkonce_odr { ptr, i8 } @_ZNSt8_Rb_treeIN5boost16re_detail_1074007digrap
   %.02125.i = phi ptr [ %.02123.i, %.lr.ph.i ], [ %.021.i, %7 ]
   %8 = getelementptr inbounds i8, ptr %.02125.i, i64 32
   %9 = load i8, ptr %8, align 1
-  %10 = icmp slt i8 %.pre.i.pre.pre, %9
-  %11 = icmp eq i8 %.pre.i.pre.pre, %9
+  %10 = icmp eq i8 %.pre.i.pre.pre, %9
+  %11 = icmp slt i8 %.pre.i.pre.pre, %9
   %12 = getelementptr inbounds i8, ptr %.02125.i, i64 33
   %13 = load i8, ptr %12, align 1
   %14 = icmp slt i8 %6, %13
-  %.sroa.04.0.i.i.i = select i1 %11, i1 %14, i1 %10
+  %.sroa.04.0.i.i.i = select i1 %10, i1 %14, i1 %11
   %.in.v.i = select i1 %.sroa.04.0.i.i.i, i64 16, i64 24
   %.in.i = getelementptr inbounds i8, ptr %.02125.i, i64 %.in.v.i
   %.021.i = load ptr, ptr %.in.i, align 8
@@ -45524,10 +45524,10 @@ define linkonce_odr { ptr, i8 } @_ZNSt8_Rb_treeIN5boost16re_detail_1074007digrap
   %23 = phi i8 [ %.pre, %18 ], [ %9, %._crit_edge.i ]
   %.020.lcssa30.i = phi ptr [ %.020.lcssa29.i, %18 ], [ %.02125.i, %._crit_edge.i ]
   %.sroa.06.0.i = phi ptr [ %19, %18 ], [ %.02125.i, %._crit_edge.i ]
-  %24 = icmp slt i8 %23, %.pre.i.pre.pre
-  %25 = icmp eq i8 %23, %.pre.i.pre.pre
+  %24 = icmp eq i8 %23, %.pre.i.pre.pre
+  %25 = icmp slt i8 %23, %.pre.i.pre.pre
   %26 = icmp slt i8 %22, %21
-  %.sroa.04.0.i.i5.i = select i1 %25, i1 %26, i1 %24
+  %.sroa.04.0.i.i5.i = select i1 %24, i1 %26, i1 %25
   br i1 %.sroa.04.0.i.i5.i, label %select.unfold, label %46
 
 select.unfold:                                    ; preds = %20, %._crit_edge.thread.i
@@ -45543,14 +45543,14 @@ select.unfold:                                    ; preds = %20, %._crit_edge.th
 28:                                               ; preds = %select.unfold
   %29 = getelementptr inbounds i8, ptr %.sroa.4.0.i.ph, i64 32
   %30 = load i8, ptr %29, align 1
-  %31 = icmp slt i8 %.pre.i.pre.pre, %30
-  %32 = icmp eq i8 %.pre.i.pre.pre, %30
+  %31 = icmp eq i8 %.pre.i.pre.pre, %30
+  %32 = icmp slt i8 %.pre.i.pre.pre, %30
   %33 = getelementptr inbounds i8, ptr %1, i64 1
   %34 = getelementptr inbounds i8, ptr %.sroa.4.0.i.ph, i64 33
   %35 = load i8, ptr %33, align 1
   %36 = load i8, ptr %34, align 1
   %37 = icmp slt i8 %35, %36
-  %.sroa.04.0.i.i.i6 = select i1 %32, i1 %37, i1 %31
+  %.sroa.04.0.i.i.i6 = select i1 %31, i1 %37, i1 %32
   br label %_ZNSt8_Rb_treeIN5boost16re_detail_1074007digraphIcEES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE10_M_insert_IRKS3_NS9_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS3_EPSt18_Rb_tree_node_baseSH_OT_RT0_.exit
 
 _ZNSt8_Rb_treeIN5boost16re_detail_1074007digraphIcEES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE10_M_insert_IRKS3_NS9_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS3_EPSt18_Rb_tree_node_baseSH_OT_RT0_.exit: ; preds = %._crit_edge.i7, %28

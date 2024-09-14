@@ -5396,12 +5396,12 @@ define internal range(i32 0, 3) i32 @executeComparison(ptr nocapture noundef rea
   br label %compareItems.exit
 
 17:                                               ; preds = %4
-  switch i32 %9, label %187 [
+  switch i32 %9, label %181 [
     i32 0, label %compareStrings.exit.i
     i32 3, label %18
     i32 2, label %29
     i32 1, label %38
-    i32 32, label %99
+    i32 32, label %93
     i32 18, label %compareItems.exit
     i32 16, label %compareItems.exit
     i32 17, label %compareItems.exit
@@ -5494,328 +5494,322 @@ define internal range(i32 0, 3) i32 @executeComparison(ptr nocapture noundef rea
 
 79:                                               ; preds = %76, %73
   %80 = phi i32 [ %78, %76 ], [ %60, %73 ]
-  %81 = icmp slt i32 %74, %80
-  %82 = tail call i32 @llvm.smin.i32(i32 %74, i32 %80)
-  %83 = sext i32 %82 to i64
-  %84 = tail call i32 @memcmp(ptr noundef readonly %67, ptr noundef readonly %68, i64 noundef %83) #13
-  %.not.i44.i.i = icmp eq i32 %84, 0
-  %85 = icmp eq i32 %74, %80
-  %86 = select i1 %81, i32 -1, i32 1
-  %spec.select.i45.i.i = select i1 %85, i32 0, i32 %86
-  %.0.i46.i.i = select i1 %.not.i44.i.i, i32 %spec.select.i45.i.i, i32 %84
+  %81 = tail call i32 @llvm.smin.i32(i32 %74, i32 %80)
+  %82 = sext i32 %81 to i64
+  %83 = tail call i32 @memcmp(ptr noundef readonly %67, ptr noundef readonly %68, i64 noundef %82) #13
+  %.not.i44.i.i = icmp eq i32 %83, 0
+  %spec.select.i45.i.i = tail call i32 @llvm.scmp.i32.i32(i32 %74, i32 %80)
+  %.0.i46.i.i = select i1 %.not.i44.i.i, i32 %spec.select.i45.i.i, i32 %83
   %brmerge.i.i = or i1 %69, %75
-  br i1 %brmerge.i.i, label %87, label %compareStrings.exit.i
+  br i1 %brmerge.i.i, label %84, label %compareStrings.exit.i
 
-87:                                               ; preds = %79
-  br i1 %69, label %88, label %89
+84:                                               ; preds = %79
+  br i1 %69, label %85, label %86
 
-88:                                               ; preds = %87
+85:                                               ; preds = %84
   tail call void @pfree(ptr noundef %67) #11
-  br label %89
+  br label %86
 
-89:                                               ; preds = %88, %87
-  br i1 %75, label %90, label %91
+86:                                               ; preds = %85, %84
+  br i1 %75, label %87, label %88
 
-90:                                               ; preds = %89
+87:                                               ; preds = %86
   tail call void @pfree(ptr noundef %68) #11
-  br label %91
+  br label %88
 
-91:                                               ; preds = %90, %89
-  %92 = select i1 %.not.i44.i.i, i1 %85, i1 false
-  br i1 %92, label %.sink.split.i.i, label %compareStrings.exit.i
+88:                                               ; preds = %87, %86
+  %89 = icmp eq i32 %.0.i46.i.i, 0
+  br i1 %89, label %.sink.split.i.i, label %compareStrings.exit.i
 
-.sink.split.i.i:                                  ; preds = %91, %63, %53
-  %93 = icmp slt i32 %56, %60
-  %94 = tail call i32 @llvm.smin.i32(i32 %56, i32 %60)
-  %95 = sext i32 %94 to i64
-  %96 = tail call i32 @memcmp(ptr noundef readonly %55, ptr noundef readonly %59, i64 noundef %95) #13
-  %.not.i47.i.i = icmp eq i32 %96, 0
-  %97 = icmp eq i32 %56, %60
-  %98 = select i1 %93, i32 -1, i32 1
-  %spec.select.i48.i.i = select i1 %97, i32 0, i32 %98
-  %.0.i49.i.i = select i1 %.not.i47.i.i, i32 %spec.select.i48.i.i, i32 %96
+.sink.split.i.i:                                  ; preds = %88, %63, %53
+  %90 = tail call i32 @llvm.smin.i32(i32 %56, i32 %60)
+  %91 = sext i32 %90 to i64
+  %92 = tail call i32 @memcmp(ptr noundef readonly %55, ptr noundef readonly %59, i64 noundef %91) #13
+  %.not.i47.i.i = icmp eq i32 %92, 0
+  %spec.select.i48.i.i = tail call i32 @llvm.scmp.i32.i32(i32 %56, i32 %60)
+  %.0.i49.i.i = select i1 %.not.i47.i.i, i32 %spec.select.i48.i.i, i32 %92
   br label %compareStrings.exit.i
 
-99:                                               ; preds = %17
-  %100 = getelementptr inbounds i8, ptr %1, i64 8
-  %101 = load i64, ptr %100, align 8
-  %102 = getelementptr inbounds i8, ptr %1, i64 16
-  %103 = load i32, ptr %102, align 8
-  %104 = getelementptr inbounds i8, ptr %2, i64 8
-  %105 = load i64, ptr %104, align 8
-  %106 = getelementptr inbounds i8, ptr %2, i64 16
-  %107 = load i32, ptr %106, align 8
-  switch i32 %103, label %181 [
-    i32 1082, label %108
-    i32 1083, label %123
-    i32 1266, label %134
-    i32 1114, label %145
-    i32 1184, label %160
+93:                                               ; preds = %17
+  %94 = getelementptr inbounds i8, ptr %1, i64 8
+  %95 = load i64, ptr %94, align 8
+  %96 = getelementptr inbounds i8, ptr %1, i64 16
+  %97 = load i32, ptr %96, align 8
+  %98 = getelementptr inbounds i8, ptr %2, i64 8
+  %99 = load i64, ptr %98, align 8
+  %100 = getelementptr inbounds i8, ptr %2, i64 16
+  %101 = load i32, ptr %100, align 8
+  switch i32 %97, label %175 [
+    i32 1082, label %102
+    i32 1083, label %117
+    i32 1266, label %128
+    i32 1114, label %139
+    i32 1184, label %154
   ]
 
-108:                                              ; preds = %99
-  switch i32 %107, label %120 [
-    i32 1082, label %184
-    i32 1114, label %109
-    i32 1184, label %112
+102:                                              ; preds = %93
+  switch i32 %101, label %114 [
+    i32 1082, label %178
+    i32 1114, label %103
+    i32 1184, label %106
     i32 1083, label %compareItems.exit
     i32 1266, label %compareItems.exit
   ]
 
-109:                                              ; preds = %108
-  %110 = trunc i64 %101 to i32
-  %111 = tail call i32 @date_cmp_timestamp_internal(i32 noundef %110, i64 noundef %105) #11
+103:                                              ; preds = %102
+  %104 = trunc i64 %95 to i32
+  %105 = tail call i32 @date_cmp_timestamp_internal(i32 noundef %104, i64 noundef %99) #11
   br label %compareStrings.exit.i
 
-112:                                              ; preds = %108
-  br i1 %8, label %cmpDateToTimestampTz.exit.i.i, label %113
+106:                                              ; preds = %102
+  br i1 %8, label %cmpDateToTimestampTz.exit.i.i, label %107
 
-113:                                              ; preds = %112
-  %114 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
-  tail call void @llvm.assume(i1 %114)
-  %115 = tail call i32 @errcode(i32 noundef 1088) #11
-  %116 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.42, ptr noundef nonnull @.str.40, ptr noundef nonnull @.str.41) #11
-  %117 = tail call i32 (ptr, ...) @errhint(ptr noundef nonnull @.str.43) #11
+107:                                              ; preds = %106
+  %108 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
+  tail call void @llvm.assume(i1 %108)
+  %109 = tail call i32 @errcode(i32 noundef 1088) #11
+  %110 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.42, ptr noundef nonnull @.str.40, ptr noundef nonnull @.str.41) #11
+  %111 = tail call i32 (ptr, ...) @errhint(ptr noundef nonnull @.str.43) #11
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 3397, ptr noundef nonnull @__func__.checkTimezoneIsUsedForCast) #11
   unreachable
 
-cmpDateToTimestampTz.exit.i.i:                    ; preds = %112
-  %118 = trunc i64 %101 to i32
-  %119 = tail call i32 @date_cmp_timestamptz_internal(i32 noundef %118, i64 noundef %105) #11
+cmpDateToTimestampTz.exit.i.i:                    ; preds = %106
+  %112 = trunc i64 %95 to i32
+  %113 = tail call i32 @date_cmp_timestamptz_internal(i32 noundef %112, i64 noundef %99) #11
   br label %compareStrings.exit.i
 
-120:                                              ; preds = %108
-  %121 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
-  tail call void @llvm.assume(i1 %121)
-  %122 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.31, i32 noundef %107) #11
+114:                                              ; preds = %102
+  %115 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
+  tail call void @llvm.assume(i1 %115)
+  %116 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.31, i32 noundef %101) #11
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 3481, ptr noundef nonnull @__func__.compareDatetime) #11
   unreachable
 
-123:                                              ; preds = %99
-  switch i32 %107, label %131 [
-    i32 1083, label %184
-    i32 1266, label %124
+117:                                              ; preds = %93
+  switch i32 %101, label %125 [
+    i32 1083, label %178
+    i32 1266, label %118
     i32 1082, label %compareItems.exit
     i32 1114, label %compareItems.exit
     i32 1184, label %compareItems.exit
   ]
 
-124:                                              ; preds = %123
-  br i1 %8, label %castTimeToTimeTz.exit.i.i, label %125
+118:                                              ; preds = %117
+  br i1 %8, label %castTimeToTimeTz.exit.i.i, label %119
 
-125:                                              ; preds = %124
-  %126 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
-  tail call void @llvm.assume(i1 %126)
-  %127 = tail call i32 @errcode(i32 noundef 1088) #11
-  %128 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.42, ptr noundef nonnull @.str.44, ptr noundef nonnull @.str.45) #11
-  %129 = tail call i32 (ptr, ...) @errhint(ptr noundef nonnull @.str.43) #11
+119:                                              ; preds = %118
+  %120 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
+  tail call void @llvm.assume(i1 %120)
+  %121 = tail call i32 @errcode(i32 noundef 1088) #11
+  %122 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.42, ptr noundef nonnull @.str.44, ptr noundef nonnull @.str.45) #11
+  %123 = tail call i32 (ptr, ...) @errhint(ptr noundef nonnull @.str.43) #11
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 3397, ptr noundef nonnull @__func__.checkTimezoneIsUsedForCast) #11
   unreachable
 
-castTimeToTimeTz.exit.i.i:                        ; preds = %124
-  %130 = tail call i64 @DirectFunctionCall1Coll(ptr noundef nonnull @time_timetz, i32 noundef 0, i64 noundef %101) #11
-  br label %184
+castTimeToTimeTz.exit.i.i:                        ; preds = %118
+  %124 = tail call i64 @DirectFunctionCall1Coll(ptr noundef nonnull @time_timetz, i32 noundef 0, i64 noundef %95) #11
+  br label %178
 
-131:                                              ; preds = %123
-  %132 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
-  tail call void @llvm.assume(i1 %132)
-  %133 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.31, i32 noundef %107) #11
+125:                                              ; preds = %117
+  %126 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
+  tail call void @llvm.assume(i1 %126)
+  %127 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.31, i32 noundef %101) #11
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 3507, ptr noundef nonnull @__func__.compareDatetime) #11
   unreachable
 
-134:                                              ; preds = %99
-  switch i32 %107, label %142 [
-    i32 1083, label %135
-    i32 1266, label %184
+128:                                              ; preds = %93
+  switch i32 %101, label %136 [
+    i32 1083, label %129
+    i32 1266, label %178
     i32 1082, label %compareItems.exit
     i32 1114, label %compareItems.exit
     i32 1184, label %compareItems.exit
   ]
 
-135:                                              ; preds = %134
-  br i1 %8, label %castTimeToTimeTz.exit47.i.i, label %136
+129:                                              ; preds = %128
+  br i1 %8, label %castTimeToTimeTz.exit47.i.i, label %130
 
-136:                                              ; preds = %135
-  %137 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
-  tail call void @llvm.assume(i1 %137)
-  %138 = tail call i32 @errcode(i32 noundef 1088) #11
-  %139 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.42, ptr noundef nonnull @.str.44, ptr noundef nonnull @.str.45) #11
-  %140 = tail call i32 (ptr, ...) @errhint(ptr noundef nonnull @.str.43) #11
+130:                                              ; preds = %129
+  %131 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
+  tail call void @llvm.assume(i1 %131)
+  %132 = tail call i32 @errcode(i32 noundef 1088) #11
+  %133 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.42, ptr noundef nonnull @.str.44, ptr noundef nonnull @.str.45) #11
+  %134 = tail call i32 (ptr, ...) @errhint(ptr noundef nonnull @.str.43) #11
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 3397, ptr noundef nonnull @__func__.checkTimezoneIsUsedForCast) #11
   unreachable
 
-castTimeToTimeTz.exit47.i.i:                      ; preds = %135
-  %141 = tail call i64 @DirectFunctionCall1Coll(ptr noundef nonnull @time_timetz, i32 noundef 0, i64 noundef %105) #11
-  br label %184
+castTimeToTimeTz.exit47.i.i:                      ; preds = %129
+  %135 = tail call i64 @DirectFunctionCall1Coll(ptr noundef nonnull @time_timetz, i32 noundef 0, i64 noundef %99) #11
+  br label %178
 
-142:                                              ; preds = %134
-  %143 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
-  tail call void @llvm.assume(i1 %143)
-  %144 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.31, i32 noundef %107) #11
+136:                                              ; preds = %128
+  %137 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
+  tail call void @llvm.assume(i1 %137)
+  %138 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.31, i32 noundef %101) #11
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 3533, ptr noundef nonnull @__func__.compareDatetime) #11
   unreachable
 
-145:                                              ; preds = %99
-  switch i32 %107, label %157 [
-    i32 1082, label %146
-    i32 1114, label %184
-    i32 1184, label %150
+139:                                              ; preds = %93
+  switch i32 %101, label %151 [
+    i32 1082, label %140
+    i32 1114, label %178
+    i32 1184, label %144
     i32 1083, label %compareItems.exit
     i32 1266, label %compareItems.exit
   ]
 
-146:                                              ; preds = %145
-  %147 = trunc i64 %105 to i32
-  %148 = tail call i32 @date_cmp_timestamp_internal(i32 noundef %147, i64 noundef %101) #11
-  %149 = sub i32 0, %148
+140:                                              ; preds = %139
+  %141 = trunc i64 %99 to i32
+  %142 = tail call i32 @date_cmp_timestamp_internal(i32 noundef %141, i64 noundef %95) #11
+  %143 = sub i32 0, %142
   br label %compareStrings.exit.i
 
-150:                                              ; preds = %145
-  br i1 %8, label %cmpTimestampToTimestampTz.exit.i.i, label %151
+144:                                              ; preds = %139
+  br i1 %8, label %cmpTimestampToTimestampTz.exit.i.i, label %145
 
-151:                                              ; preds = %150
-  %152 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
-  tail call void @llvm.assume(i1 %152)
-  %153 = tail call i32 @errcode(i32 noundef 1088) #11
-  %154 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.42, ptr noundef nonnull @.str.46, ptr noundef nonnull @.str.41) #11
-  %155 = tail call i32 (ptr, ...) @errhint(ptr noundef nonnull @.str.43) #11
+145:                                              ; preds = %144
+  %146 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
+  tail call void @llvm.assume(i1 %146)
+  %147 = tail call i32 @errcode(i32 noundef 1088) #11
+  %148 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.42, ptr noundef nonnull @.str.46, ptr noundef nonnull @.str.41) #11
+  %149 = tail call i32 (ptr, ...) @errhint(ptr noundef nonnull @.str.43) #11
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 3397, ptr noundef nonnull @__func__.checkTimezoneIsUsedForCast) #11
   unreachable
 
-cmpTimestampToTimestampTz.exit.i.i:               ; preds = %150
-  %156 = tail call i32 @timestamp_cmp_timestamptz_internal(i64 noundef %101, i64 noundef %105) #11
+cmpTimestampToTimestampTz.exit.i.i:               ; preds = %144
+  %150 = tail call i32 @timestamp_cmp_timestamptz_internal(i64 noundef %95, i64 noundef %99) #11
   br label %compareStrings.exit.i
 
-157:                                              ; preds = %145
-  %158 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
-  tail call void @llvm.assume(i1 %158)
-  %159 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.31, i32 noundef %107) #11
+151:                                              ; preds = %139
+  %152 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
+  tail call void @llvm.assume(i1 %152)
+  %153 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.31, i32 noundef %101) #11
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 3562, ptr noundef nonnull @__func__.compareDatetime) #11
   unreachable
 
-160:                                              ; preds = %99
-  switch i32 %107, label %178 [
-    i32 1082, label %161
-    i32 1114, label %170
-    i32 1184, label %184
+154:                                              ; preds = %93
+  switch i32 %101, label %172 [
+    i32 1082, label %155
+    i32 1114, label %164
+    i32 1184, label %178
     i32 1083, label %compareItems.exit
     i32 1266, label %compareItems.exit
   ]
 
-161:                                              ; preds = %160
-  br i1 %8, label %cmpDateToTimestampTz.exit48.i.i, label %162
+155:                                              ; preds = %154
+  br i1 %8, label %cmpDateToTimestampTz.exit48.i.i, label %156
 
-162:                                              ; preds = %161
-  %163 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
-  tail call void @llvm.assume(i1 %163)
-  %164 = tail call i32 @errcode(i32 noundef 1088) #11
-  %165 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.42, ptr noundef nonnull @.str.40, ptr noundef nonnull @.str.41) #11
-  %166 = tail call i32 (ptr, ...) @errhint(ptr noundef nonnull @.str.43) #11
+156:                                              ; preds = %155
+  %157 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
+  tail call void @llvm.assume(i1 %157)
+  %158 = tail call i32 @errcode(i32 noundef 1088) #11
+  %159 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.42, ptr noundef nonnull @.str.40, ptr noundef nonnull @.str.41) #11
+  %160 = tail call i32 (ptr, ...) @errhint(ptr noundef nonnull @.str.43) #11
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 3397, ptr noundef nonnull @__func__.checkTimezoneIsUsedForCast) #11
   unreachable
 
-cmpDateToTimestampTz.exit48.i.i:                  ; preds = %161
-  %167 = trunc i64 %105 to i32
-  %168 = tail call i32 @date_cmp_timestamptz_internal(i32 noundef %167, i64 noundef %101) #11
-  %169 = sub i32 0, %168
+cmpDateToTimestampTz.exit48.i.i:                  ; preds = %155
+  %161 = trunc i64 %99 to i32
+  %162 = tail call i32 @date_cmp_timestamptz_internal(i32 noundef %161, i64 noundef %95) #11
+  %163 = sub i32 0, %162
   br label %compareStrings.exit.i
 
-170:                                              ; preds = %160
-  br i1 %8, label %cmpTimestampToTimestampTz.exit49.i.i, label %171
+164:                                              ; preds = %154
+  br i1 %8, label %cmpTimestampToTimestampTz.exit49.i.i, label %165
 
-171:                                              ; preds = %170
-  %172 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
-  tail call void @llvm.assume(i1 %172)
-  %173 = tail call i32 @errcode(i32 noundef 1088) #11
-  %174 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.42, ptr noundef nonnull @.str.46, ptr noundef nonnull @.str.41) #11
-  %175 = tail call i32 (ptr, ...) @errhint(ptr noundef nonnull @.str.43) #11
+165:                                              ; preds = %164
+  %166 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
+  tail call void @llvm.assume(i1 %166)
+  %167 = tail call i32 @errcode(i32 noundef 1088) #11
+  %168 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.42, ptr noundef nonnull @.str.46, ptr noundef nonnull @.str.41) #11
+  %169 = tail call i32 (ptr, ...) @errhint(ptr noundef nonnull @.str.43) #11
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 3397, ptr noundef nonnull @__func__.checkTimezoneIsUsedForCast) #11
   unreachable
 
-cmpTimestampToTimestampTz.exit49.i.i:             ; preds = %170
-  %176 = tail call i32 @timestamp_cmp_timestamptz_internal(i64 noundef %105, i64 noundef %101) #11
-  %177 = sub i32 0, %176
+cmpTimestampToTimestampTz.exit49.i.i:             ; preds = %164
+  %170 = tail call i32 @timestamp_cmp_timestamptz_internal(i64 noundef %99, i64 noundef %95) #11
+  %171 = sub i32 0, %170
   br label %compareStrings.exit.i
 
-178:                                              ; preds = %160
-  %179 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
-  tail call void @llvm.assume(i1 %179)
-  %180 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.31, i32 noundef %107) #11
+172:                                              ; preds = %154
+  %173 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
+  tail call void @llvm.assume(i1 %173)
+  %174 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.31, i32 noundef %101) #11
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 3591, ptr noundef nonnull @__func__.compareDatetime) #11
   unreachable
 
-181:                                              ; preds = %99
-  %182 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
-  tail call void @llvm.assume(i1 %182)
-  %183 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.31, i32 noundef %103) #11
+175:                                              ; preds = %93
+  %176 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
+  tail call void @llvm.assume(i1 %176)
+  %177 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.31, i32 noundef %97) #11
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 3596, ptr noundef nonnull @__func__.compareDatetime) #11
   unreachable
 
-184:                                              ; preds = %160, %145, %castTimeToTimeTz.exit47.i.i, %134, %castTimeToTimeTz.exit.i.i, %123, %108
-  %.046.i.i = phi i64 [ %141, %castTimeToTimeTz.exit47.i.i ], [ %105, %castTimeToTimeTz.exit.i.i ], [ %105, %108 ], [ %105, %123 ], [ %105, %134 ], [ %105, %145 ], [ %105, %160 ]
-  %.045.i.i = phi i64 [ %101, %castTimeToTimeTz.exit47.i.i ], [ %130, %castTimeToTimeTz.exit.i.i ], [ %101, %108 ], [ %101, %123 ], [ %101, %134 ], [ %101, %145 ], [ %101, %160 ]
-  %.0.i42.i = phi ptr [ @timetz_cmp, %castTimeToTimeTz.exit47.i.i ], [ @timetz_cmp, %castTimeToTimeTz.exit.i.i ], [ @date_cmp, %108 ], [ @time_cmp, %123 ], [ @timetz_cmp, %134 ], [ @timestamp_cmp, %145 ], [ @timestamp_cmp, %160 ]
-  %185 = tail call i64 @DirectFunctionCall2Coll(ptr noundef nonnull %.0.i42.i, i32 noundef 0, i64 noundef %.045.i.i, i64 noundef %.046.i.i) #11
-  %186 = trunc i64 %185 to i32
+178:                                              ; preds = %154, %139, %castTimeToTimeTz.exit47.i.i, %128, %castTimeToTimeTz.exit.i.i, %117, %102
+  %.046.i.i = phi i64 [ %135, %castTimeToTimeTz.exit47.i.i ], [ %99, %castTimeToTimeTz.exit.i.i ], [ %99, %102 ], [ %99, %117 ], [ %99, %128 ], [ %99, %139 ], [ %99, %154 ]
+  %.045.i.i = phi i64 [ %95, %castTimeToTimeTz.exit47.i.i ], [ %124, %castTimeToTimeTz.exit.i.i ], [ %95, %102 ], [ %95, %117 ], [ %95, %128 ], [ %95, %139 ], [ %95, %154 ]
+  %.0.i42.i = phi ptr [ @timetz_cmp, %castTimeToTimeTz.exit47.i.i ], [ @timetz_cmp, %castTimeToTimeTz.exit.i.i ], [ @date_cmp, %102 ], [ @time_cmp, %117 ], [ @timetz_cmp, %128 ], [ @timestamp_cmp, %139 ], [ @timestamp_cmp, %154 ]
+  %179 = tail call i64 @DirectFunctionCall2Coll(ptr noundef nonnull %.0.i42.i, i32 noundef 0, i64 noundef %.045.i.i, i64 noundef %.046.i.i) #11
+  %180 = trunc i64 %179 to i32
   br label %compareStrings.exit.i
 
-187:                                              ; preds = %17
-  %188 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
-  tail call void @llvm.assume(i1 %188)
-  %189 = load i32, ptr %1, align 8
-  %190 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.38, i32 noundef %189) #11
+181:                                              ; preds = %17
+  %182 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
+  tail call void @llvm.assume(i1 %182)
+  %183 = load i32, ptr %1, align 8
+  %184 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.38, i32 noundef %183) #11
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 3135, ptr noundef nonnull @__func__.compareItems) #11
   unreachable
 
-compareStrings.exit.i:                            ; preds = %184, %cmpTimestampToTimestampTz.exit49.i.i, %cmpDateToTimestampTz.exit48.i.i, %cmpTimestampToTimestampTz.exit.i.i, %146, %cmpDateToTimestampTz.exit.i.i, %109, %.sink.split.i.i, %91, %79, %29, %18, %17
-  %.036.i = phi i32 [ %37, %29 ], [ %28, %18 ], [ %9, %17 ], [ %.0.i46.i.i, %79 ], [ %.0.i46.i.i, %91 ], [ %.0.i49.i.i, %.sink.split.i.i ], [ %111, %109 ], [ %119, %cmpDateToTimestampTz.exit.i.i ], [ %149, %146 ], [ %156, %cmpTimestampToTimestampTz.exit.i.i ], [ %169, %cmpDateToTimestampTz.exit48.i.i ], [ %177, %cmpTimestampToTimestampTz.exit49.i.i ], [ %186, %184 ]
-  switch i32 %5, label %203 [
-    i32 8, label %191
-    i32 9, label %193
-    i32 10, label %195
-    i32 11, label %197
-    i32 12, label %199
-    i32 13, label %201
+compareStrings.exit.i:                            ; preds = %178, %cmpTimestampToTimestampTz.exit49.i.i, %cmpDateToTimestampTz.exit48.i.i, %cmpTimestampToTimestampTz.exit.i.i, %140, %cmpDateToTimestampTz.exit.i.i, %103, %.sink.split.i.i, %88, %79, %29, %18, %17
+  %.036.i = phi i32 [ %37, %29 ], [ %28, %18 ], [ %9, %17 ], [ %.0.i46.i.i, %79 ], [ %.0.i46.i.i, %88 ], [ %.0.i49.i.i, %.sink.split.i.i ], [ %105, %103 ], [ %113, %cmpDateToTimestampTz.exit.i.i ], [ %143, %140 ], [ %150, %cmpTimestampToTimestampTz.exit.i.i ], [ %163, %cmpDateToTimestampTz.exit48.i.i ], [ %171, %cmpTimestampToTimestampTz.exit49.i.i ], [ %180, %178 ]
+  switch i32 %5, label %197 [
+    i32 8, label %185
+    i32 9, label %187
+    i32 10, label %189
+    i32 11, label %191
+    i32 12, label %193
+    i32 13, label %195
   ]
 
+185:                                              ; preds = %compareStrings.exit.i
+  %186 = icmp eq i32 %.036.i, 0
+  br label %200
+
+187:                                              ; preds = %compareStrings.exit.i
+  %188 = icmp ne i32 %.036.i, 0
+  br label %200
+
+189:                                              ; preds = %compareStrings.exit.i
+  %190 = icmp slt i32 %.036.i, 0
+  br label %200
+
 191:                                              ; preds = %compareStrings.exit.i
-  %192 = icmp eq i32 %.036.i, 0
-  br label %206
+  %192 = icmp sgt i32 %.036.i, 0
+  br label %200
 
 193:                                              ; preds = %compareStrings.exit.i
-  %194 = icmp ne i32 %.036.i, 0
-  br label %206
+  %194 = icmp slt i32 %.036.i, 1
+  br label %200
 
 195:                                              ; preds = %compareStrings.exit.i
-  %196 = icmp slt i32 %.036.i, 0
-  br label %206
+  %196 = icmp sgt i32 %.036.i, -1
+  br label %200
 
 197:                                              ; preds = %compareStrings.exit.i
-  %198 = icmp sgt i32 %.036.i, 0
-  br label %206
-
-199:                                              ; preds = %compareStrings.exit.i
-  %200 = icmp slt i32 %.036.i, 1
-  br label %206
-
-201:                                              ; preds = %compareStrings.exit.i
-  %202 = icmp sgt i32 %.036.i, -1
-  br label %206
-
-203:                                              ; preds = %compareStrings.exit.i
-  %204 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
-  tail call void @llvm.assume(i1 %204)
-  %205 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.39, i32 noundef %5) #11
+  %198 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
+  tail call void @llvm.assume(i1 %198)
+  %199 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.39, i32 noundef %5) #11
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 3159, ptr noundef nonnull @__func__.compareItems) #11
   unreachable
 
-206:                                              ; preds = %201, %199, %197, %195, %193, %191
-  %.0.i = phi i1 [ %202, %201 ], [ %200, %199 ], [ %198, %197 ], [ %196, %195 ], [ %194, %193 ], [ %192, %191 ]
-  %207 = zext i1 %.0.i to i32
+200:                                              ; preds = %195, %193, %191, %189, %187, %185
+  %.0.i = phi i1 [ %196, %195 ], [ %194, %193 ], [ %192, %191 ], [ %190, %189 ], [ %188, %187 ], [ %186, %185 ]
+  %201 = zext i1 %.0.i to i32
   br label %compareItems.exit
 
-compareItems.exit:                                ; preds = %11, %14, %17, %17, %17, %41, %45, %108, %108, %123, %123, %123, %134, %134, %134, %145, %145, %160, %160, %206
-  %.037.i = phi i32 [ %16, %14 ], [ %207, %206 ], [ 2, %11 ], [ 0, %41 ], [ %52, %45 ], [ 2, %17 ], [ 2, %17 ], [ 2, %17 ], [ 2, %108 ], [ 2, %108 ], [ 2, %123 ], [ 2, %123 ], [ 2, %123 ], [ 2, %134 ], [ 2, %134 ], [ 2, %134 ], [ 2, %145 ], [ 2, %145 ], [ 2, %160 ], [ 2, %160 ]
+compareItems.exit:                                ; preds = %11, %14, %17, %17, %17, %41, %45, %102, %102, %117, %117, %117, %128, %128, %128, %139, %139, %154, %154, %200
+  %.037.i = phi i32 [ %16, %14 ], [ %201, %200 ], [ 2, %11 ], [ 0, %41 ], [ %52, %45 ], [ 2, %17 ], [ 2, %17 ], [ 2, %17 ], [ 2, %102 ], [ 2, %102 ], [ 2, %117 ], [ 2, %117 ], [ 2, %117 ], [ 2, %128 ], [ 2, %128 ], [ 2, %128 ], [ 2, %139 ], [ 2, %139 ], [ 2, %154 ], [ 2, %154 ]
   ret i32 %.037.i
 }
 
@@ -6133,6 +6127,9 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #10
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.scmp.i32.i32(i32, i32) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #8

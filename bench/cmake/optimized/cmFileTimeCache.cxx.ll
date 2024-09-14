@@ -165,10 +165,7 @@ define dso_local noundef zeroext i1 @_ZN15cmFileTimeCache7CompareERKNSt7__cxx111
   store i64 %24, ptr %.sink10.i9, align 8
   %25 = load i64, ptr %5, align 8
   %26 = load i64, ptr %6, align 8
-  %27 = icmp eq i64 %25, %26
-  %28 = icmp slt i64 %25, %26
-  %29 = select i1 %28, i32 -1, i32 1
-  %.0.i12 = select i1 %27, i32 0, i32 %29
+  %.0.i12 = call noundef i32 @llvm.scmp.i32.i64(i64 %25, i64 %26)
   br label %_ZN15cmFileTimeCache4LoadERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEER10cmFileTime.exit
 
 _ZN15cmFileTimeCache4LoadERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEER10cmFileTime.exit: ; preds = %19, %10, %23
@@ -876,6 +873,9 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
 declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #11
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.scmp.i32.i64(i64, i64) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.abs.i64(i64, i1 immarg) #12

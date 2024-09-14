@@ -137,7 +137,7 @@ for.body:                                         ; preds = %for.cond.preheader,
 
 if.then.i.i:                                      ; preds = %for.body
   %1 = load ptr, ptr %arrayidx20.i.i, align 8
-  tail call void @CRYPTO_free(ptr noundef %1, ptr noundef nonnull @.str.7, i32 noundef 25) #8
+  tail call void @CRYPTO_free(ptr noundef %1, ptr noundef nonnull @.str.7, i32 noundef 25) #9
   br label %err_clear.exit
 
 err_clear.exit:                                   ; preds = %for.body, %if.then.i.i
@@ -155,18 +155,18 @@ err_clear.exit:                                   ; preds = %for.body, %if.then.
   store i32 -1, ptr %arrayidx3.i, align 4
   %arrayidx4.i = getelementptr inbounds [16 x ptr], ptr %err_file.i, i64 0, i64 %indvars.iv
   %2 = load ptr, ptr %arrayidx4.i, align 8
-  tail call void @CRYPTO_free(ptr noundef %2, ptr noundef nonnull @.str.7, i32 noundef 91) #8
+  tail call void @CRYPTO_free(ptr noundef %2, ptr noundef nonnull @.str.7, i32 noundef 91) #9
   store ptr null, ptr %arrayidx4.i, align 8
   %arrayidx7.i = getelementptr inbounds [16 x ptr], ptr %err_func.i, i64 0, i64 %indvars.iv
   %3 = load ptr, ptr %arrayidx7.i, align 8
-  tail call void @CRYPTO_free(ptr noundef %3, ptr noundef nonnull @.str.7, i32 noundef 93) #8
+  tail call void @CRYPTO_free(ptr noundef %3, ptr noundef nonnull @.str.7, i32 noundef 93) #9
   store ptr null, ptr %arrayidx7.i, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !4
 
 for.end:                                          ; preds = %err_clear.exit
-  tail call void @CRYPTO_free(ptr noundef nonnull %state, ptr noundef nonnull @.str, i32 noundef 210) #8
+  tail call void @CRYPTO_free(ptr noundef nonnull %state, ptr noundef nonnull @.str, i32 noundef 210) #9
   br label %return
 
 return:                                           ; preds = %entry, %for.end
@@ -182,15 +182,15 @@ entry:
   br i1 %.b, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %call = tail call i32 @CRYPTO_THREAD_cleanup_local(ptr noundef nonnull @err_thread_local) #8
+  %call = tail call i32 @CRYPTO_THREAD_cleanup_local(ptr noundef nonnull @err_thread_local) #9
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
   %0 = load ptr, ptr @err_string_lock, align 8
-  tail call void @CRYPTO_THREAD_lock_free(ptr noundef %0) #8
+  tail call void @CRYPTO_THREAD_lock_free(ptr noundef %0) #9
   store ptr null, ptr @err_string_lock, align 8
   %1 = load ptr, ptr @int_error_hash, align 8
-  tail call void @OPENSSL_LH_free(ptr noundef %1) #8
+  tail call void @OPENSSL_LH_free(ptr noundef %1) #9
   store ptr null, ptr @int_error_hash, align 8
   ret void
 }
@@ -204,7 +204,7 @@ declare void @OPENSSL_LH_free(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @ossl_err_load_ERR_strings() local_unnamed_addr #0 {
 entry:
-  %call = tail call i32 @CRYPTO_THREAD_run_once(ptr noundef nonnull @err_string_init, ptr noundef nonnull @do_err_strings_init_ossl_) #8
+  %call = tail call i32 @CRYPTO_THREAD_run_once(ptr noundef nonnull @err_string_init, ptr noundef nonnull @do_err_strings_init_ossl_) #9
   %tobool = icmp ne i32 %call, 0
   %0 = load i32, ptr @do_err_strings_init_ossl_ret_, align 4
   %tobool1 = icmp ne i32 %0, 0
@@ -213,7 +213,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   %1 = load ptr, ptr @err_string_lock, align 8
-  %call.i = tail call i32 @CRYPTO_THREAD_write_lock(ptr noundef %1) #8
+  %call.i = tail call i32 @CRYPTO_THREAD_write_lock(ptr noundef %1) #9
   %tobool.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i, label %err_load_strings.exit, label %for.cond.preheader.i
 
@@ -225,7 +225,7 @@ for.cond.preheader.i:                             ; preds = %if.end
 for.body.i:                                       ; preds = %for.cond.preheader.i, %for.body.i
   %str.addr.04.i = phi ptr [ %incdec.ptr.i, %for.body.i ], [ @ERR_str_libraries, %for.cond.preheader.i ]
   %3 = load ptr, ptr @int_error_hash, align 8
-  %call4.i = tail call ptr @OPENSSL_LH_insert(ptr noundef %3, ptr noundef nonnull %str.addr.04.i) #8
+  %call4.i = tail call ptr @OPENSSL_LH_insert(ptr noundef %3, ptr noundef nonnull %str.addr.04.i) #9
   %incdec.ptr.i = getelementptr inbounds i8, ptr %str.addr.04.i, i64 16
   %4 = load i64, ptr %incdec.ptr.i, align 8
   %tobool1.not.i = icmp eq i64 %4, 0
@@ -233,12 +233,12 @@ for.body.i:                                       ; preds = %for.cond.preheader.
 
 for.end.i:                                        ; preds = %for.body.i, %for.cond.preheader.i
   %5 = load ptr, ptr @err_string_lock, align 8
-  %call5.i = tail call i32 @CRYPTO_THREAD_unlock(ptr noundef %5) #8
+  %call5.i = tail call i32 @CRYPTO_THREAD_unlock(ptr noundef %5) #9
   br label %err_load_strings.exit
 
 err_load_strings.exit:                            ; preds = %if.end, %for.end.i
   %6 = load ptr, ptr @err_string_lock, align 8
-  %call.i1 = tail call i32 @CRYPTO_THREAD_write_lock(ptr noundef %6) #8
+  %call.i1 = tail call i32 @CRYPTO_THREAD_write_lock(ptr noundef %6) #9
   %tobool.not.i2 = icmp eq i32 %call.i1, 0
   br i1 %tobool.not.i2, label %return, label %for.cond.preheader.i3
 
@@ -250,7 +250,7 @@ for.cond.preheader.i3:                            ; preds = %err_load_strings.ex
 for.body.i5:                                      ; preds = %for.cond.preheader.i3, %for.body.i5
   %str.addr.04.i6 = phi ptr [ %incdec.ptr.i8, %for.body.i5 ], [ @ERR_str_reasons, %for.cond.preheader.i3 ]
   %8 = load ptr, ptr @int_error_hash, align 8
-  %call4.i7 = tail call ptr @OPENSSL_LH_insert(ptr noundef %8, ptr noundef nonnull %str.addr.04.i6) #8
+  %call4.i7 = tail call ptr @OPENSSL_LH_insert(ptr noundef %8, ptr noundef nonnull %str.addr.04.i6) #9
   %incdec.ptr.i8 = getelementptr inbounds i8, ptr %str.addr.04.i6, i64 16
   %9 = load i64, ptr %incdec.ptr.i8, align 8
   %tobool1.not.i9 = icmp eq i64 %9, 0
@@ -258,7 +258,7 @@ for.body.i5:                                      ; preds = %for.cond.preheader.
 
 for.end.i10:                                      ; preds = %for.body.i5, %for.cond.preheader.i3
   %10 = load ptr, ptr @err_string_lock, align 8
-  %call5.i11 = tail call i32 @CRYPTO_THREAD_unlock(ptr noundef %10) #8
+  %call5.i11 = tail call i32 @CRYPTO_THREAD_unlock(ptr noundef %10) #9
   br label %return
 
 return:                                           ; preds = %for.end.i10, %err_load_strings.exit, %entry
@@ -271,25 +271,25 @@ declare i32 @CRYPTO_THREAD_run_once(ptr noundef, ptr noundef) local_unnamed_addr
 ; Function Attrs: nounwind uwtable
 define internal void @do_err_strings_init_ossl_() #0 {
 entry:
-  %call.i = tail call i32 @OPENSSL_init_crypto(i64 noundef 262144, ptr noundef null) #8
+  %call.i = tail call i32 @OPENSSL_init_crypto(i64 noundef 262144, ptr noundef null) #9
   %tobool.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i, label %do_err_strings_init.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
-  %call1.i = tail call ptr @CRYPTO_THREAD_lock_new() #8
+  %call1.i = tail call ptr @CRYPTO_THREAD_lock_new() #9
   store ptr %call1.i, ptr @err_string_lock, align 8
   %cmp.i = icmp eq ptr %call1.i, null
   br i1 %cmp.i, label %do_err_strings_init.exit, label %if.end3.i
 
 if.end3.i:                                        ; preds = %if.end.i
-  %call6.i = tail call ptr @OPENSSL_LH_new(ptr noundef nonnull @err_string_data_hash, ptr noundef nonnull @err_string_data_cmp) #8
+  %call6.i = tail call ptr @OPENSSL_LH_new(ptr noundef nonnull @err_string_data_hash, ptr noundef nonnull @err_string_data_cmp) #9
   store ptr %call6.i, ptr @int_error_hash, align 8
   %cmp7.i = icmp eq ptr %call6.i, null
   br i1 %cmp7.i, label %if.then8.i, label %do_err_strings_init.exit
 
 if.then8.i:                                       ; preds = %if.end3.i
   %0 = load ptr, ptr @err_string_lock, align 8
-  tail call void @CRYPTO_THREAD_lock_free(ptr noundef %0) #8
+  tail call void @CRYPTO_THREAD_lock_free(ptr noundef %0) #9
   store ptr null, ptr @err_string_lock, align 8
   br label %do_err_strings_init.exit
 
@@ -326,7 +326,7 @@ for.body.i:                                       ; preds = %if.end, %for.body.i
 
 err_patch.exit:                                   ; preds = %for.body.i, %if.end
   %5 = load ptr, ptr @err_string_lock, align 8
-  %call.i = tail call i32 @CRYPTO_THREAD_write_lock(ptr noundef %5) #8
+  %call.i = tail call i32 @CRYPTO_THREAD_write_lock(ptr noundef %5) #9
   %tobool.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i, label %return, label %for.cond.preheader.i
 
@@ -338,7 +338,7 @@ for.cond.preheader.i:                             ; preds = %err_patch.exit
 for.body.i2:                                      ; preds = %for.cond.preheader.i, %for.body.i2
   %str.addr.04.i3 = phi ptr [ %incdec.ptr.i4, %for.body.i2 ], [ %str, %for.cond.preheader.i ]
   %7 = load ptr, ptr @int_error_hash, align 8
-  %call4.i = tail call ptr @OPENSSL_LH_insert(ptr noundef %7, ptr noundef nonnull %str.addr.04.i3) #8
+  %call4.i = tail call ptr @OPENSSL_LH_insert(ptr noundef %7, ptr noundef nonnull %str.addr.04.i3) #9
   %incdec.ptr.i4 = getelementptr inbounds i8, ptr %str.addr.04.i3, i64 16
   %8 = load i64, ptr %incdec.ptr.i4, align 8
   %tobool1.not.i = icmp eq i64 %8, 0
@@ -346,7 +346,7 @@ for.body.i2:                                      ; preds = %for.cond.preheader.
 
 for.end.i:                                        ; preds = %for.body.i2, %for.cond.preheader.i
   %9 = load ptr, ptr @err_string_lock, align 8
-  %call5.i = tail call i32 @CRYPTO_THREAD_unlock(ptr noundef %9) #8
+  %call5.i = tail call i32 @CRYPTO_THREAD_unlock(ptr noundef %9) #9
   br label %return
 
 return:                                           ; preds = %for.end.i, %err_patch.exit, %entry
@@ -363,7 +363,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   %0 = load ptr, ptr @err_string_lock, align 8
-  %call.i = tail call i32 @CRYPTO_THREAD_write_lock(ptr noundef %0) #8
+  %call.i = tail call i32 @CRYPTO_THREAD_write_lock(ptr noundef %0) #9
   %tobool.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i, label %return, label %for.cond.preheader.i
 
@@ -375,7 +375,7 @@ for.cond.preheader.i:                             ; preds = %if.end
 for.body.i:                                       ; preds = %for.cond.preheader.i, %for.body.i
   %str.addr.04.i = phi ptr [ %incdec.ptr.i, %for.body.i ], [ %str, %for.cond.preheader.i ]
   %2 = load ptr, ptr @int_error_hash, align 8
-  %call4.i = tail call ptr @OPENSSL_LH_insert(ptr noundef %2, ptr noundef nonnull %str.addr.04.i) #8
+  %call4.i = tail call ptr @OPENSSL_LH_insert(ptr noundef %2, ptr noundef nonnull %str.addr.04.i) #9
   %incdec.ptr.i = getelementptr inbounds i8, ptr %str.addr.04.i, i64 16
   %3 = load i64, ptr %incdec.ptr.i, align 8
   %tobool1.not.i = icmp eq i64 %3, 0
@@ -383,7 +383,7 @@ for.body.i:                                       ; preds = %for.cond.preheader.
 
 for.end.i:                                        ; preds = %for.body.i, %for.cond.preheader.i
   %4 = load ptr, ptr @err_string_lock, align 8
-  %call5.i = tail call i32 @CRYPTO_THREAD_unlock(ptr noundef %4) #8
+  %call5.i = tail call i32 @CRYPTO_THREAD_unlock(ptr noundef %4) #9
   br label %return
 
 return:                                           ; preds = %for.end.i, %if.end, %entry
@@ -394,7 +394,7 @@ return:                                           ; preds = %for.end.i, %if.end,
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @ERR_unload_strings(i32 noundef %lib, ptr noundef %str) local_unnamed_addr #0 {
 entry:
-  %call = tail call i32 @CRYPTO_THREAD_run_once(ptr noundef nonnull @err_string_init, ptr noundef nonnull @do_err_strings_init_ossl_) #8
+  %call = tail call i32 @CRYPTO_THREAD_run_once(ptr noundef nonnull @err_string_init, ptr noundef nonnull @do_err_strings_init_ossl_) #9
   %tobool = icmp ne i32 %call, 0
   %0 = load i32, ptr @do_err_strings_init_ossl_ret_, align 4
   %tobool1 = icmp ne i32 %0, 0
@@ -403,7 +403,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   %1 = load ptr, ptr @err_string_lock, align 8
-  %call2 = tail call i32 @CRYPTO_THREAD_write_lock(ptr noundef %1) #8
+  %call2 = tail call i32 @CRYPTO_THREAD_write_lock(ptr noundef %1) #9
   %tobool3.not = icmp eq i32 %call2, 0
   br i1 %tobool3.not, label %return, label %for.cond.preheader
 
@@ -415,7 +415,7 @@ for.cond.preheader:                               ; preds = %if.end
 for.body:                                         ; preds = %for.cond.preheader, %for.body
   %str.addr.04 = phi ptr [ %incdec.ptr, %for.body ], [ %str, %for.cond.preheader ]
   %3 = load ptr, ptr @int_error_hash, align 8
-  %call9 = tail call ptr @OPENSSL_LH_delete(ptr noundef %3, ptr noundef nonnull %str.addr.04) #8
+  %call9 = tail call ptr @OPENSSL_LH_delete(ptr noundef %3, ptr noundef nonnull %str.addr.04) #9
   %incdec.ptr = getelementptr inbounds i8, ptr %str.addr.04, i64 16
   %4 = load i64, ptr %incdec.ptr, align 8
   %tobool6.not = icmp eq i64 %4, 0
@@ -423,7 +423,7 @@ for.body:                                         ; preds = %for.cond.preheader,
 
 for.end:                                          ; preds = %for.body, %for.cond.preheader
   %5 = load ptr, ptr @err_string_lock, align 8
-  %call10 = tail call i32 @CRYPTO_THREAD_unlock(ptr noundef %5) #8
+  %call10 = tail call i32 @CRYPTO_THREAD_unlock(ptr noundef %5) #9
   br label %return
 
 return:                                           ; preds = %if.end, %entry, %for.end
@@ -501,11 +501,11 @@ err_clear.exit:                                   ; preds = %if.then.i.i, %if.en
   store i32 -1, ptr %arrayidx3.i, align 4
   %arrayidx4.i = getelementptr inbounds [16 x ptr], ptr %err_file.i, i64 0, i64 %indvars.iv
   %2 = load ptr, ptr %arrayidx4.i, align 8
-  tail call void @CRYPTO_free(ptr noundef %2, ptr noundef nonnull @.str.7, i32 noundef 91) #8
+  tail call void @CRYPTO_free(ptr noundef %2, ptr noundef nonnull @.str.7, i32 noundef 91) #9
   store ptr null, ptr %arrayidx4.i, align 8
   %arrayidx7.i = getelementptr inbounds [16 x ptr], ptr %err_func.i, i64 0, i64 %indvars.iv
   %3 = load ptr, ptr %arrayidx7.i, align 8
-  tail call void @CRYPTO_free(ptr noundef %3, ptr noundef nonnull @.str.7, i32 noundef 93) #8
+  tail call void @CRYPTO_free(ptr noundef %3, ptr noundef nonnull @.str.7, i32 noundef 93) #9
   store ptr null, ptr %arrayidx7.i, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
@@ -525,14 +525,14 @@ return:                                           ; preds = %entry, %for.end
 ; Function Attrs: nounwind uwtable
 define ptr @ossl_err_get_state_int() local_unnamed_addr #0 {
 entry:
-  %call = tail call ptr @__errno_location() #9
+  %call = tail call ptr @__errno_location() #10
   %0 = load i32, ptr %call, align 4
-  %call1 = tail call i32 @OPENSSL_init_crypto(i64 noundef 262144, ptr noundef null) #8
+  %call1 = tail call i32 @OPENSSL_init_crypto(i64 noundef 262144, ptr noundef null) #9
   %tobool.not = icmp eq i32 %call1, 0
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %call2 = tail call i32 @CRYPTO_THREAD_run_once(ptr noundef nonnull @err_init, ptr noundef nonnull @err_do_init_ossl_) #8
+  %call2 = tail call i32 @CRYPTO_THREAD_run_once(ptr noundef nonnull @err_init, ptr noundef nonnull @err_do_init_ossl_) #9
   %tobool3 = icmp ne i32 %call2, 0
   %1 = load i32, ptr @err_do_init_ossl_ret_, align 4
   %tobool4 = icmp ne i32 %1, 0
@@ -540,7 +540,7 @@ if.end:                                           ; preds = %entry
   br i1 %or.cond, label %if.end6, label %return
 
 if.end6:                                          ; preds = %if.end
-  %call7 = tail call ptr @CRYPTO_THREAD_get_local(ptr noundef nonnull @err_thread_local) #8
+  %call7 = tail call ptr @CRYPTO_THREAD_get_local(ptr noundef nonnull @err_thread_local) #9
   %magicptr = ptrtoint ptr %call7 to i64
   switch i64 %magicptr, label %if.end29 [
     i64 -1, label %return
@@ -548,26 +548,26 @@ if.end6:                                          ; preds = %if.end
   ]
 
 if.then11:                                        ; preds = %if.end6
-  %call12 = tail call i32 @CRYPTO_THREAD_set_local(ptr noundef nonnull @err_thread_local, ptr noundef nonnull inttoptr (i64 -1 to ptr)) #8
+  %call12 = tail call i32 @CRYPTO_THREAD_set_local(ptr noundef nonnull @err_thread_local, ptr noundef nonnull inttoptr (i64 -1 to ptr)) #9
   %tobool13.not = icmp eq i32 %call12, 0
   br i1 %tobool13.not, label %return, label %if.end15
 
 if.end15:                                         ; preds = %if.then11
-  %call16 = tail call ptr @OSSL_ERR_STATE_new() #8
+  %call16 = tail call ptr @OSSL_ERR_STATE_new() #9
   %cmp17 = icmp eq ptr %call16, null
   br i1 %cmp17, label %if.then18, label %if.end20
 
 if.then18:                                        ; preds = %if.end15
-  %call19 = tail call i32 @CRYPTO_THREAD_set_local(ptr noundef nonnull @err_thread_local, ptr noundef null) #8
+  %call19 = tail call i32 @CRYPTO_THREAD_set_local(ptr noundef nonnull @err_thread_local, ptr noundef null) #9
   br label %return
 
 if.end20:                                         ; preds = %if.end15
-  %call21 = tail call i32 @ossl_init_thread_start(ptr noundef null, ptr noundef null, ptr noundef nonnull @err_delete_thread_state) #8
+  %call21 = tail call i32 @ossl_init_thread_start(ptr noundef null, ptr noundef null, ptr noundef nonnull @err_delete_thread_state) #9
   %tobool22.not = icmp eq i32 %call21, 0
   br i1 %tobool22.not, label %for.cond.preheader.i, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end20
-  %call23 = tail call i32 @CRYPTO_THREAD_set_local(ptr noundef nonnull @err_thread_local, ptr noundef nonnull %call16) #8
+  %call23 = tail call i32 @CRYPTO_THREAD_set_local(ptr noundef nonnull @err_thread_local, ptr noundef nonnull %call16) #9
   %tobool24.not = icmp eq i32 %call23, 0
   br i1 %tobool24.not, label %for.cond.preheader.i, label %if.end27
 
@@ -593,7 +593,7 @@ for.body.i:                                       ; preds = %err_clear.exit.i, %
 
 if.then.i.i.i:                                    ; preds = %for.body.i
   %3 = load ptr, ptr %arrayidx20.i.i.i, align 8
-  tail call void @CRYPTO_free(ptr noundef %3, ptr noundef nonnull @.str.7, i32 noundef 25) #8
+  tail call void @CRYPTO_free(ptr noundef %3, ptr noundef nonnull @.str.7, i32 noundef 25) #9
   br label %err_clear.exit.i
 
 err_clear.exit.i:                                 ; preds = %if.then.i.i.i, %for.body.i
@@ -611,23 +611,23 @@ err_clear.exit.i:                                 ; preds = %if.then.i.i.i, %for
   store i32 -1, ptr %arrayidx3.i.i, align 4
   %arrayidx4.i.i = getelementptr inbounds [16 x ptr], ptr %err_file.i.i, i64 0, i64 %indvars.iv.i
   %4 = load ptr, ptr %arrayidx4.i.i, align 8
-  tail call void @CRYPTO_free(ptr noundef %4, ptr noundef nonnull @.str.7, i32 noundef 91) #8
+  tail call void @CRYPTO_free(ptr noundef %4, ptr noundef nonnull @.str.7, i32 noundef 91) #9
   store ptr null, ptr %arrayidx4.i.i, align 8
   %arrayidx7.i.i = getelementptr inbounds [16 x ptr], ptr %err_func.i.i, i64 0, i64 %indvars.iv.i
   %5 = load ptr, ptr %arrayidx7.i.i, align 8
-  tail call void @CRYPTO_free(ptr noundef %5, ptr noundef nonnull @.str.7, i32 noundef 93) #8
+  tail call void @CRYPTO_free(ptr noundef %5, ptr noundef nonnull @.str.7, i32 noundef 93) #9
   store ptr null, ptr %arrayidx7.i.i, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 16
   br i1 %exitcond.not.i, label %OSSL_ERR_STATE_free.exit, label %for.body.i, !llvm.loop !4
 
 OSSL_ERR_STATE_free.exit:                         ; preds = %err_clear.exit.i
-  tail call void @CRYPTO_free(ptr noundef nonnull %call16, ptr noundef nonnull @.str, i32 noundef 210) #8
-  %call26 = tail call i32 @CRYPTO_THREAD_set_local(ptr noundef nonnull @err_thread_local, ptr noundef null) #8
+  tail call void @CRYPTO_free(ptr noundef nonnull %call16, ptr noundef nonnull @.str, i32 noundef 210) #9
+  %call26 = tail call i32 @CRYPTO_THREAD_set_local(ptr noundef nonnull @err_thread_local, ptr noundef null) #9
   br label %return
 
 if.end27:                                         ; preds = %lor.lhs.false
-  %call28 = tail call i32 @OPENSSL_init_crypto(i64 noundef 2, ptr noundef null) #8
+  %call28 = tail call i32 @OPENSSL_init_crypto(i64 noundef 2, ptr noundef null) #9
   br label %if.end29
 
 if.end29:                                         ; preds = %if.end6, %if.end27
@@ -721,11 +721,11 @@ err_clear.exit:                                   ; preds = %if.then.i.i, %if.en
   store i32 -1, ptr %arrayidx3.i, align 4
   %arrayidx4.i = getelementptr inbounds [16 x ptr], ptr %err_file.i, i64 0, i64 %idxprom
   %7 = load ptr, ptr %arrayidx4.i, align 8
-  tail call void @CRYPTO_free(ptr noundef %7, ptr noundef nonnull @.str.7, i32 noundef 91) #8
+  tail call void @CRYPTO_free(ptr noundef %7, ptr noundef nonnull @.str.7, i32 noundef 91) #9
   store ptr null, ptr %arrayidx4.i, align 8
   %arrayidx7.i = getelementptr inbounds [16 x ptr], ptr %err_func.i, i64 0, i64 %idxprom
   %8 = load ptr, ptr %arrayidx7.i, align 8
-  tail call void @CRYPTO_free(ptr noundef %8, ptr noundef nonnull @.str.7, i32 noundef 93) #8
+  tail call void @CRYPTO_free(ptr noundef %8, ptr noundef nonnull @.str.7, i32 noundef 93) #9
   store ptr null, ptr %arrayidx7.i, align 8
   %9 = load i32, ptr %top, align 8
   %cmp6 = icmp sgt i32 %9, 0
@@ -789,11 +789,11 @@ err_clear.exit85:                                 ; preds = %if.then.i.i62, %if.
   store i32 -1, ptr %arrayidx3.i75, align 4
   %arrayidx4.i77 = getelementptr inbounds [16 x ptr], ptr %err_file.i, i64 0, i64 %idxprom13
   %15 = load ptr, ptr %arrayidx4.i77, align 8
-  tail call void @CRYPTO_free(ptr noundef %15, ptr noundef nonnull @.str.7, i32 noundef 91) #8
+  tail call void @CRYPTO_free(ptr noundef %15, ptr noundef nonnull @.str.7, i32 noundef 91) #9
   store ptr null, ptr %arrayidx4.i77, align 8
   %arrayidx7.i79 = getelementptr inbounds [16 x ptr], ptr %err_func.i, i64 0, i64 %idxprom13
   %16 = load ptr, ptr %arrayidx7.i79, align 8
-  tail call void @CRYPTO_free(ptr noundef %16, ptr noundef nonnull @.str.7, i32 noundef 93) #8
+  tail call void @CRYPTO_free(ptr noundef %16, ptr noundef nonnull @.str.7, i32 noundef 93) #9
   store ptr null, ptr %arrayidx7.i79, align 8
   %.pre = load i32, ptr %top, align 8
   br label %while.cond.backedge
@@ -1042,7 +1042,7 @@ if.end:                                           ; preds = %entry
   %2 = and i64 %1, 511
   %conv = select i1 %cmp.not.i, i64 %2, i64 2
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %d.i)
-  %call.i = tail call i32 @CRYPTO_THREAD_run_once(ptr noundef nonnull @err_string_init, ptr noundef nonnull @do_err_strings_init_ossl_) #8
+  %call.i = tail call i32 @CRYPTO_THREAD_run_once(ptr noundef nonnull @err_string_init, ptr noundef nonnull @do_err_strings_init_ossl_) #9
   %tobool.i = icmp ne i32 %call.i, 0
   %3 = load i32, ptr @do_err_strings_init_ossl_ret_, align 4
   %tobool1.i = icmp ne i32 %3, 0
@@ -1054,15 +1054,15 @@ if.end.i:                                         ; preds = %if.end
   %shl.i = select i1 %cmp.not.i, i64 %4, i64 16777216
   store i64 %shl.i, ptr %d.i, align 8
   %5 = load ptr, ptr @err_string_lock, align 8
-  %call.i.i = tail call i32 @CRYPTO_THREAD_read_lock(ptr noundef %5) #8
+  %call.i.i = tail call i32 @CRYPTO_THREAD_read_lock(ptr noundef %5) #9
   %tobool.not.i.i = icmp eq i32 %call.i.i, 0
   br i1 %tobool.not.i.i, label %ERR_lib_error_string.exit.thread, label %int_err_get_item.exit.i
 
 int_err_get_item.exit.i:                          ; preds = %if.end.i
   %6 = load ptr, ptr @int_error_hash, align 8
-  %call3.i.i = call ptr @OPENSSL_LH_retrieve(ptr noundef %6, ptr noundef nonnull %d.i) #8
+  %call3.i.i = call ptr @OPENSSL_LH_retrieve(ptr noundef %6, ptr noundef nonnull %d.i) #9
   %7 = load ptr, ptr @err_string_lock, align 8
-  %call4.i.i = call i32 @CRYPTO_THREAD_unlock(ptr noundef %7) #8
+  %call4.i.i = call i32 @CRYPTO_THREAD_unlock(ptr noundef %7) #9
   %cmp.i = icmp eq ptr %call3.i.i, null
   br i1 %cmp.i, label %ERR_lib_error_string.exit.thread, label %ERR_lib_error_string.exit
 
@@ -1078,7 +1078,7 @@ ERR_lib_error_string.exit:                        ; preds = %int_err_get_item.ex
   br i1 %cmp2, label %if.then4, label %if.end7
 
 if.then4:                                         ; preds = %ERR_lib_error_string.exit.thread, %ERR_lib_error_string.exit
-  %call5 = call i32 (ptr, i64, ptr, ...) @BIO_snprintf(ptr noundef nonnull %lsbuf, i64 noundef 64, ptr noundef nonnull @.str.1, i64 noundef %conv) #8
+  %call5 = call i32 (ptr, i64, ptr, ...) @BIO_snprintf(ptr noundef nonnull %lsbuf, i64 noundef 64, ptr noundef nonnull @.str.1, i64 noundef %conv) #9
   br label %if.end7
 
 if.end7:                                          ; preds = %if.then4, %ERR_lib_error_string.exit
@@ -1089,7 +1089,7 @@ if.end7:                                          ; preds = %if.then4, %ERR_lib_
   br i1 %cmp.not.i, label %if.end20, label %if.then12
 
 if.then12:                                        ; preds = %if.end7
-  %call15 = call i32 @openssl_strerror_r(i32 noundef %retval.0.i20, ptr noundef nonnull %rsbuf, i64 noundef 256) #8
+  %call15 = call i32 @openssl_strerror_r(i32 noundef %retval.0.i20, ptr noundef nonnull %rsbuf, i64 noundef 256) #9
   %tobool.not = icmp eq i32 %call15, 0
   br i1 %tobool.not, label %if.then23, label %if.end28
 
@@ -1100,19 +1100,19 @@ if.end20:                                         ; preds = %if.end7
 
 if.then23:                                        ; preds = %if.then12, %if.end20
   %and25 = and i64 %conv9, 2139357183
-  %call26 = call i32 (ptr, i64, ptr, ...) @BIO_snprintf(ptr noundef nonnull %rsbuf, i64 noundef 256, ptr noundef nonnull @.str.2, i64 noundef %and25) #8
+  %call26 = call i32 (ptr, i64, ptr, ...) @BIO_snprintf(ptr noundef nonnull %rsbuf, i64 noundef 256, ptr noundef nonnull @.str.2, i64 noundef %and25) #9
   br label %if.end28
 
 if.end28:                                         ; preds = %if.then12, %if.then23, %if.end20
   %rs.1 = phi ptr [ %rsbuf, %if.then23 ], [ %call19, %if.end20 ], [ %rsbuf, %if.then12 ]
-  %call29 = call i32 (ptr, i64, ptr, ...) @BIO_snprintf(ptr noundef %buf, i64 noundef %len, ptr noundef nonnull @.str.3, i64 noundef %e, ptr noundef nonnull %ls.0, ptr noundef %func, ptr noundef nonnull %rs.1) #8
-  %call30 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %buf) #10
+  %call29 = call i32 (ptr, i64, ptr, ...) @BIO_snprintf(ptr noundef %buf, i64 noundef %len, ptr noundef nonnull @.str.3, i64 noundef %e, ptr noundef nonnull %ls.0, ptr noundef %func, ptr noundef nonnull %rs.1) #9
+  %call30 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %buf) #11
   %sub = add i64 %len, -1
   %cmp31 = icmp eq i64 %call30, %sub
   br i1 %cmp31, label %if.then33, label %if.end35
 
 if.then33:                                        ; preds = %if.end28
-  %call34 = call i32 (ptr, i64, ptr, ...) @BIO_snprintf(ptr noundef %buf, i64 noundef %len, ptr noundef nonnull @.str.4, i64 noundef %e, i64 noundef %conv, i64 noundef 0, i64 noundef %conv9) #8
+  %call34 = call i32 (ptr, i64, ptr, ...) @BIO_snprintf(ptr noundef %buf, i64 noundef %len, ptr noundef nonnull @.str.4, i64 noundef %e, i64 noundef %conv, i64 noundef 0, i64 noundef %conv9) #9
   br label %if.end35
 
 if.end35:                                         ; preds = %entry, %if.then33, %if.end28
@@ -1123,7 +1123,7 @@ if.end35:                                         ; preds = %entry, %if.then33, 
 define ptr @ERR_lib_error_string(i64 noundef %e) local_unnamed_addr #0 {
 entry:
   %d = alloca %struct.ERR_string_data_st, align 8
-  %call = tail call i32 @CRYPTO_THREAD_run_once(ptr noundef nonnull @err_string_init, ptr noundef nonnull @do_err_strings_init_ossl_) #8
+  %call = tail call i32 @CRYPTO_THREAD_run_once(ptr noundef nonnull @err_string_init, ptr noundef nonnull @do_err_strings_init_ossl_) #9
   %tobool = icmp ne i32 %call, 0
   %0 = load i32, ptr @do_err_strings_init_ossl_ret_, align 4
   %tobool1 = icmp ne i32 %0, 0
@@ -1137,15 +1137,15 @@ if.end:                                           ; preds = %entry
   %shl = select i1 %cmp.not.i, i64 %1, i64 16777216
   store i64 %shl, ptr %d, align 8
   %2 = load ptr, ptr @err_string_lock, align 8
-  %call.i = tail call i32 @CRYPTO_THREAD_read_lock(ptr noundef %2) #8
+  %call.i = tail call i32 @CRYPTO_THREAD_read_lock(ptr noundef %2) #9
   %tobool.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i, label %return, label %int_err_get_item.exit
 
 int_err_get_item.exit:                            ; preds = %if.end
   %3 = load ptr, ptr @int_error_hash, align 8
-  %call3.i = call ptr @OPENSSL_LH_retrieve(ptr noundef %3, ptr noundef nonnull %d) #8
+  %call3.i = call ptr @OPENSSL_LH_retrieve(ptr noundef %3, ptr noundef nonnull %d) #9
   %4 = load ptr, ptr @err_string_lock, align 8
-  %call4.i = call i32 @CRYPTO_THREAD_unlock(ptr noundef %4) #8
+  %call4.i = call i32 @CRYPTO_THREAD_unlock(ptr noundef %4) #9
   %cmp = icmp eq ptr %call3.i, null
   br i1 %cmp, label %return, label %cond.false6
 
@@ -1167,7 +1167,7 @@ declare i32 @openssl_strerror_r(i32 noundef, ptr noundef, i64 noundef) local_unn
 define ptr @ERR_reason_error_string(i64 noundef %e) local_unnamed_addr #0 {
 entry:
   %d = alloca %struct.ERR_string_data_st, align 8
-  %call = tail call i32 @CRYPTO_THREAD_run_once(ptr noundef nonnull @err_string_init, ptr noundef nonnull @do_err_strings_init_ossl_) #8
+  %call = tail call i32 @CRYPTO_THREAD_run_once(ptr noundef nonnull @err_string_init, ptr noundef nonnull @do_err_strings_init_ossl_) #9
   %tobool = icmp ne i32 %call, 0
   %0 = load i32, ptr @do_err_strings_init_ossl_ret_, align 4
   %tobool1 = icmp ne i32 %0, 0
@@ -1182,30 +1182,30 @@ if.end3:                                          ; preds = %entry
   %or = and i64 %e, 2147483647
   store i64 %or, ptr %d, align 8
   %1 = load ptr, ptr @err_string_lock, align 8
-  %call.i = tail call i32 @CRYPTO_THREAD_read_lock(ptr noundef %1) #8
+  %call.i = tail call i32 @CRYPTO_THREAD_read_lock(ptr noundef %1) #9
   %tobool.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i, label %if.then12, label %int_err_get_item.exit
 
 int_err_get_item.exit:                            ; preds = %if.end3
   %2 = load ptr, ptr @int_error_hash, align 8
-  %call3.i = call ptr @OPENSSL_LH_retrieve(ptr noundef %2, ptr noundef nonnull %d) #8
+  %call3.i = call ptr @OPENSSL_LH_retrieve(ptr noundef %2, ptr noundef nonnull %d) #9
   %3 = load ptr, ptr @err_string_lock, align 8
-  %call4.i = call i32 @CRYPTO_THREAD_unlock(ptr noundef %3) #8
+  %call4.i = call i32 @CRYPTO_THREAD_unlock(ptr noundef %3) #9
   %cmp10 = icmp eq ptr %call3.i, null
   br i1 %cmp10, label %if.then12, label %cond.false21
 
 if.then12:                                        ; preds = %if.end3, %int_err_get_item.exit
   store i64 %retval.0.i10, ptr %d, align 8
   %4 = load ptr, ptr @err_string_lock, align 8
-  %call.i12 = call i32 @CRYPTO_THREAD_read_lock(ptr noundef %4) #8
+  %call.i12 = call i32 @CRYPTO_THREAD_read_lock(ptr noundef %4) #9
   %tobool.not.i13 = icmp eq i32 %call.i12, 0
   br i1 %tobool.not.i13, label %return, label %if.end17
 
 if.end17:                                         ; preds = %if.then12
   %5 = load ptr, ptr @int_error_hash, align 8
-  %call3.i15 = call ptr @OPENSSL_LH_retrieve(ptr noundef %5, ptr noundef nonnull %d) #8
+  %call3.i15 = call ptr @OPENSSL_LH_retrieve(ptr noundef %5, ptr noundef nonnull %d) #9
   %6 = load ptr, ptr @err_string_lock, align 8
-  %call4.i16 = call i32 @CRYPTO_THREAD_unlock(ptr noundef %6) #8
+  %call4.i16 = call i32 @CRYPTO_THREAD_unlock(ptr noundef %6) #9
   %cmp18 = icmp eq ptr %call3.i15, null
   br i1 %cmp18, label %return, label %cond.false21
 
@@ -1266,7 +1266,7 @@ declare i32 @OPENSSL_init_crypto(i64 noundef, ptr noundef) local_unnamed_addr #1
 define internal void @err_do_init_ossl_() #0 {
 entry:
   store i1 true, ptr @set_err_thread_local, align 4
-  %call.i = tail call i32 @CRYPTO_THREAD_init_local(ptr noundef nonnull @err_thread_local, ptr noundef null) #8
+  %call.i = tail call i32 @CRYPTO_THREAD_init_local(ptr noundef nonnull @err_thread_local, ptr noundef null) #9
   store i32 %call.i, ptr @err_do_init_ossl_ret_, align 4
   ret void
 }
@@ -1282,12 +1282,12 @@ declare i32 @ossl_init_thread_start(ptr noundef, ptr noundef, ptr noundef) local
 ; Function Attrs: nounwind uwtable
 define internal void @err_delete_thread_state(ptr nocapture readnone %unused) #0 {
 entry:
-  %call = tail call ptr @CRYPTO_THREAD_get_local(ptr noundef nonnull @err_thread_local) #8
+  %call = tail call ptr @CRYPTO_THREAD_get_local(ptr noundef nonnull @err_thread_local) #9
   %cmp = icmp eq ptr %call, null
   br i1 %cmp, label %return, label %for.cond.preheader.i
 
 for.cond.preheader.i:                             ; preds = %entry
-  %call1 = tail call i32 @CRYPTO_THREAD_set_local(ptr noundef nonnull @err_thread_local, ptr noundef null) #8
+  %call1 = tail call i32 @CRYPTO_THREAD_set_local(ptr noundef nonnull @err_thread_local, ptr noundef null) #9
   %err_data_flags.i.i.i = getelementptr inbounds i8, ptr %call, i64 512
   %err_data9.i.i.i = getelementptr inbounds i8, ptr %call, i64 256
   %err_data_size.i.i.i = getelementptr inbounds i8, ptr %call, i64 384
@@ -1309,7 +1309,7 @@ for.body.i:                                       ; preds = %err_clear.exit.i, %
 
 if.then.i.i.i:                                    ; preds = %for.body.i
   %1 = load ptr, ptr %arrayidx20.i.i.i, align 8
-  tail call void @CRYPTO_free(ptr noundef %1, ptr noundef nonnull @.str.7, i32 noundef 25) #8
+  tail call void @CRYPTO_free(ptr noundef %1, ptr noundef nonnull @.str.7, i32 noundef 25) #9
   br label %err_clear.exit.i
 
 err_clear.exit.i:                                 ; preds = %if.then.i.i.i, %for.body.i
@@ -1327,18 +1327,18 @@ err_clear.exit.i:                                 ; preds = %if.then.i.i.i, %for
   store i32 -1, ptr %arrayidx3.i.i, align 4
   %arrayidx4.i.i = getelementptr inbounds [16 x ptr], ptr %err_file.i.i, i64 0, i64 %indvars.iv.i
   %2 = load ptr, ptr %arrayidx4.i.i, align 8
-  tail call void @CRYPTO_free(ptr noundef %2, ptr noundef nonnull @.str.7, i32 noundef 91) #8
+  tail call void @CRYPTO_free(ptr noundef %2, ptr noundef nonnull @.str.7, i32 noundef 91) #9
   store ptr null, ptr %arrayidx4.i.i, align 8
   %arrayidx7.i.i = getelementptr inbounds [16 x ptr], ptr %err_func.i.i, i64 0, i64 %indvars.iv.i
   %3 = load ptr, ptr %arrayidx7.i.i, align 8
-  tail call void @CRYPTO_free(ptr noundef %3, ptr noundef nonnull @.str.7, i32 noundef 93) #8
+  tail call void @CRYPTO_free(ptr noundef %3, ptr noundef nonnull @.str.7, i32 noundef 93) #9
   store ptr null, ptr %arrayidx7.i.i, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 16
   br i1 %exitcond.not.i, label %OSSL_ERR_STATE_free.exit, label %for.body.i, !llvm.loop !4
 
 OSSL_ERR_STATE_free.exit:                         ; preds = %err_clear.exit.i
-  tail call void @CRYPTO_free(ptr noundef nonnull %call, ptr noundef nonnull @.str, i32 noundef 210) #8
+  tail call void @CRYPTO_free(ptr noundef nonnull %call, ptr noundef nonnull @.str, i32 noundef 210) #9
   br label %return
 
 return:                                           ; preds = %entry, %OSSL_ERR_STATE_free.exit
@@ -1355,14 +1355,14 @@ entry:
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @err_shelve_state(ptr nocapture noundef writeonly %state) local_unnamed_addr #0 {
 entry:
-  %call = tail call ptr @__errno_location() #9
+  %call = tail call ptr @__errno_location() #10
   %0 = load i32, ptr %call, align 4
-  %call1 = tail call i32 @OPENSSL_init_crypto(i64 noundef 262144, ptr noundef null) #8
+  %call1 = tail call i32 @OPENSSL_init_crypto(i64 noundef 262144, ptr noundef null) #9
   %tobool.not = icmp eq i32 %call1, 0
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %call2 = tail call i32 @CRYPTO_THREAD_run_once(ptr noundef nonnull @err_init, ptr noundef nonnull @err_do_init_ossl_) #8
+  %call2 = tail call i32 @CRYPTO_THREAD_run_once(ptr noundef nonnull @err_init, ptr noundef nonnull @err_do_init_ossl_) #9
   %tobool3 = icmp ne i32 %call2, 0
   %1 = load i32, ptr @err_do_init_ossl_ret_, align 4
   %tobool4 = icmp ne i32 %1, 0
@@ -1370,9 +1370,9 @@ if.end:                                           ; preds = %entry
   br i1 %or.cond, label %if.end6, label %return
 
 if.end6:                                          ; preds = %if.end
-  %call7 = tail call ptr @CRYPTO_THREAD_get_local(ptr noundef nonnull @err_thread_local) #8
+  %call7 = tail call ptr @CRYPTO_THREAD_get_local(ptr noundef nonnull @err_thread_local) #9
   store ptr %call7, ptr %state, align 8
-  %call8 = tail call i32 @CRYPTO_THREAD_set_local(ptr noundef nonnull @err_thread_local, ptr noundef nonnull inttoptr (i64 -1 to ptr)) #8
+  %call8 = tail call i32 @CRYPTO_THREAD_set_local(ptr noundef nonnull @err_thread_local, ptr noundef nonnull inttoptr (i64 -1 to ptr)) #9
   %tobool9.not = icmp eq i32 %call8, 0
   br i1 %tobool9.not, label %return, label %if.end11
 
@@ -1392,7 +1392,7 @@ entry:
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %call = tail call i32 @CRYPTO_THREAD_set_local(ptr noundef nonnull @err_thread_local, ptr noundef %state) #8
+  %call = tail call i32 @CRYPTO_THREAD_set_local(ptr noundef nonnull @err_thread_local, ptr noundef %state) #9
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
@@ -1402,7 +1402,7 @@ if.end:                                           ; preds = %if.then, %entry
 ; Function Attrs: nounwind uwtable
 define i32 @ERR_get_next_error_library() local_unnamed_addr #0 {
 entry:
-  %call = tail call i32 @CRYPTO_THREAD_run_once(ptr noundef nonnull @err_string_init, ptr noundef nonnull @do_err_strings_init_ossl_) #8
+  %call = tail call i32 @CRYPTO_THREAD_run_once(ptr noundef nonnull @err_string_init, ptr noundef nonnull @do_err_strings_init_ossl_) #9
   %tobool = icmp ne i32 %call, 0
   %0 = load i32, ptr @do_err_strings_init_ossl_ret_, align 4
   %tobool1 = icmp ne i32 %0, 0
@@ -1411,7 +1411,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   %1 = load ptr, ptr @err_string_lock, align 8
-  %call2 = tail call i32 @CRYPTO_THREAD_write_lock(ptr noundef %1) #8
+  %call2 = tail call i32 @CRYPTO_THREAD_write_lock(ptr noundef %1) #9
   %tobool3.not = icmp eq i32 %call2, 0
   br i1 %tobool3.not, label %return, label %if.end5
 
@@ -1420,7 +1420,7 @@ if.end5:                                          ; preds = %if.end
   %inc = add nsw i32 %2, 1
   store i32 %inc, ptr @int_err_library_number, align 4
   %3 = load ptr, ptr @err_string_lock, align 8
-  %call6 = tail call i32 @CRYPTO_THREAD_unlock(ptr noundef %3) #8
+  %call6 = tail call i32 @CRYPTO_THREAD_unlock(ptr noundef %3) #9
   br label %return
 
 return:                                           ; preds = %if.end, %entry, %if.end5
@@ -1431,7 +1431,7 @@ return:                                           ; preds = %if.end, %entry, %if
 ; Function Attrs: nounwind uwtable
 define void @ERR_set_error_data(ptr noundef %data, i32 noundef %flags) local_unnamed_addr #0 {
 entry:
-  %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %data) #10
+  %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %data) #11
   %add = add i64 %call, 1
   %call.i = tail call ptr @ossl_err_get_state_int()
   %cmp.i = icmp eq ptr %call.i, null
@@ -1452,7 +1452,7 @@ if.end.i:                                         ; preds = %entry
 
 if.then.i.i:                                      ; preds = %if.end.i
   %2 = load ptr, ptr %arrayidx20.i.i, align 8
-  tail call void @CRYPTO_free(ptr noundef %2, ptr noundef nonnull @.str.7, i32 noundef 25) #8
+  tail call void @CRYPTO_free(ptr noundef %2, ptr noundef nonnull @.str.7, i32 noundef 25) #9
   br label %err_clear_data.exit.i
 
 err_clear_data.exit.i:                            ; preds = %if.end.i, %if.then.i.i
@@ -1473,7 +1473,7 @@ if.then.i9.i:                                     ; preds = %err_clear_data.exit
   %err_data.i.i = getelementptr inbounds i8, ptr %call.i, i64 256
   %arrayidx1.i.i = getelementptr inbounds [16 x ptr], ptr %err_data.i.i, i64 0, i64 %conv2.phi.trans.insert.i
   %4 = load ptr, ptr %arrayidx1.i.i, align 8
-  tail call void @CRYPTO_free(ptr noundef %4, ptr noundef nonnull @.str.7, i32 noundef 78) #8
+  tail call void @CRYPTO_free(ptr noundef %4, ptr noundef nonnull @.str.7, i32 noundef 78) #9
   br label %err_set_data.exit.i
 
 err_set_data.exit.i:                              ; preds = %if.then.i9.i, %err_clear_data.exit.i
@@ -1535,7 +1535,7 @@ if.then9:                                         ; preds = %land.lhs.true
   br label %if.end29
 
 if.else:                                          ; preds = %land.lhs.true, %if.end
-  %call22 = tail call noalias ptr @CRYPTO_malloc(i64 noundef 81, ptr noundef nonnull @.str, i32 noundef 851) #8
+  %call22 = tail call noalias ptr @CRYPTO_malloc(i64 noundef 81, ptr noundef nonnull @.str, i32 noundef 851) #9
   %cmp23 = icmp eq ptr %call22, null
   br i1 %cmp23, label %if.end58, label %if.else26
 
@@ -1554,7 +1554,7 @@ if.end29.while.end_crit_edge:                     ; preds = %if.end29
   br label %while.end
 
 while.body.lr.ph:                                 ; preds = %if.end29
-  %call30 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %str.0) #10
+  %call30 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %str.0) #11
   %overflow_arg_area_p = getelementptr inbounds i8, ptr %args, i64 8
   %4 = getelementptr inbounds i8, ptr %args, i64 16
   br label %while.body
@@ -1588,7 +1588,7 @@ vaarg.end:                                        ; preds = %vaarg.in_mem, %vaar
   %8 = load ptr, ptr %vaarg.addr, align 8
   %cmp34 = icmp eq ptr %8, null
   %spec.store.select = select i1 %cmp34, ptr @.str.6, ptr %8
-  %call38 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %spec.store.select) #10
+  %call38 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %spec.store.select) #11
   %sext = shl i64 %len.037, 32
   %conv39 = ashr exact i64 %sext, 32
   %add = add i64 %call38, %conv39
@@ -1603,19 +1603,19 @@ vaarg.end.if.end51_crit_edge:                     ; preds = %vaarg.end
 if.then43:                                        ; preds = %vaarg.end
   %add44 = add nsw i32 %conv40, 20
   %conv45 = sext i32 %add44 to i64
-  %call46 = tail call ptr @CRYPTO_realloc(ptr noundef %str.136, i64 noundef %conv45, ptr noundef nonnull @.str, i32 noundef 867) #8
+  %call46 = tail call ptr @CRYPTO_realloc(ptr noundef %str.136, i64 noundef %conv45, ptr noundef nonnull @.str, i32 noundef 867) #9
   %cmp47 = icmp eq ptr %call46, null
   br i1 %cmp47, label %if.then49, label %if.end51
 
 if.then49:                                        ; preds = %if.then43
-  tail call void @CRYPTO_free(ptr noundef %str.136, ptr noundef nonnull @.str, i32 noundef 869) #8
+  tail call void @CRYPTO_free(ptr noundef %str.136, ptr noundef nonnull @.str, i32 noundef 869) #9
   br label %if.end58
 
 if.end51:                                         ; preds = %vaarg.end.if.end51_crit_edge, %if.then43
   %conv52.pre-phi = phi i64 [ %.pre, %vaarg.end.if.end51_crit_edge ], [ %conv45, %if.then43 ]
   %size.2 = phi i32 [ %size.135, %vaarg.end.if.end51_crit_edge ], [ %add44, %if.then43 ]
   %str.2 = phi ptr [ %str.136, %vaarg.end.if.end51_crit_edge ], [ %call46, %if.then43 ]
-  %call53 = tail call i64 @OPENSSL_strlcat(ptr noundef %str.2, ptr noundef nonnull %spec.store.select, i64 noundef %conv52.pre-phi) #8
+  %call53 = tail call i64 @OPENSSL_strlcat(ptr noundef %str.2, ptr noundef nonnull %spec.store.select, i64 noundef %conv52.pre-phi) #9
   %cmp32 = icmp ugt i32 %dec38.in, 1
   br i1 %cmp32, label %while.body, label %while.end, !llvm.loop !11
 
@@ -1672,7 +1672,7 @@ if.then.i9.i:                                     ; preds = %if.then.i.i, %err_c
   %err_data.i.i = getelementptr inbounds i8, ptr %call.i, i64 256
   %arrayidx1.i.i = getelementptr inbounds [16 x ptr], ptr %err_data.i.i, i64 0, i64 %conv2.pre-phi16.i
   %13 = load ptr, ptr %arrayidx1.i.i, align 8
-  tail call void @CRYPTO_free(ptr noundef %13, ptr noundef nonnull @.str.7, i32 noundef 78) #8
+  tail call void @CRYPTO_free(ptr noundef %13, ptr noundef nonnull @.str.7, i32 noundef 78) #9
   br label %err_set_error_data_int.exit
 
 err_set_error_data_int.exit:                      ; preds = %err_clear_data.exit.i, %if.then.i9.i
@@ -1688,7 +1688,7 @@ err_set_error_data_int.exit:                      ; preds = %err_clear_data.exit
   br label %if.end58
 
 if.then57:                                        ; preds = %while.end
-  tail call void @CRYPTO_free(ptr noundef %str.1.lcssa, ptr noundef nonnull @.str, i32 noundef 877) #8
+  tail call void @CRYPTO_free(ptr noundef %str.1.lcssa, ptr noundef nonnull @.str, i32 noundef 877) #9
   br label %if.end58
 
 if.end58:                                         ; preds = %err_set_error_data_int.exit, %if.else, %entry, %if.then57, %if.then49
@@ -1713,9 +1713,9 @@ if.end:                                           ; preds = %entry
   %0 = load i32, ptr %top1, align 8
   %1 = icmp eq i32 %clear, 0
   %shr.neg.i.i.i.i = sext i1 %1 to i32
-  %2 = tail call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %shr.neg.i.i.i.i) #11, !srcloc !12
+  %2 = tail call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %shr.neg.i.i.i.i) #12, !srcloc !12
   %not.i.i = xor i32 %shr.neg.i.i.i.i, -1
-  %3 = tail call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %not.i.i) #11, !srcloc !12
+  %3 = tail call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %not.i.i) #12, !srcloc !12
   %and2.i.i = and i32 %3, 2
   %idxprom = sext i32 %0 to i64
   %arrayidx = getelementptr inbounds [16 x i32], ptr %call, i64 0, i64 %idxprom
@@ -1753,10 +1753,7 @@ define internal range(i32 -1, 2) i32 @err_string_data_cmp(ptr nocapture noundef 
 entry:
   %0 = load i64, ptr %a, align 8
   %1 = load i64, ptr %b, align 8
-  %cmp = icmp eq i64 %0, %1
-  %cmp4 = icmp ugt i64 %0, %1
-  %cond = select i1 %cmp4, i32 1, i32 -1
-  %retval.0 = select i1 %cmp, i32 0, i32 %cond
+  %retval.0 = tail call i32 @llvm.ucmp.i32.i64(i64 %0, i64 %1)
   ret i32 %retval.0
 }
 
@@ -1774,11 +1771,14 @@ declare void @llvm.va_start.p0(ptr) #6
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
 declare void @llvm.va_end.p0(ptr) #6
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #7
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.ucmp.i32.i64(i64, i64) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #8
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #8
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -1787,11 +1787,12 @@ attributes #3 = { mustprogress nofree nounwind willreturn memory(argmem: read) "
 attributes #4 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn }
-attributes #7 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #8 = { nounwind }
-attributes #9 = { nounwind willreturn memory(none) }
-attributes #10 = { nounwind willreturn memory(read) }
-attributes #11 = { nounwind memory(none) }
+attributes #7 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #8 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #9 = { nounwind }
+attributes #10 = { nounwind willreturn memory(none) }
+attributes #11 = { nounwind willreturn memory(read) }
+attributes #12 = { nounwind memory(none) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

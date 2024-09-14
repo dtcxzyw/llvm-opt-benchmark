@@ -1337,12 +1337,12 @@ _ZN3nix8SysErrorC2IJA43_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_
   %.0811.i.i.i91 = phi ptr [ %.19.i.i.i92, %.lr.ph.i.i.i89 ], [ %176, %170 ]
   %177 = getelementptr inbounds i8, ptr %.012.i.i.i90, i64 32
   %178 = load i64, ptr %177, align 8
-  %179 = icmp ult i64 %178, %172
-  %180 = icmp eq i64 %178, %172
+  %179 = icmp eq i64 %178, %172
+  %180 = icmp ult i64 %178, %172
   %181 = getelementptr inbounds i8, ptr %.012.i.i.i90, i64 40
   %182 = load i64, ptr %181, align 8
   %183 = icmp ult i64 %182, %173
-  %.sroa.04.0.i.i.i.i.i = select i1 %180, i1 %183, i1 %179
+  %.sroa.04.0.i.i.i.i.i = select i1 %179, i1 %183, i1 %180
   %.19.i.i.i92 = select i1 %.sroa.04.0.i.i.i.i.i, ptr %.0811.i.i.i91, ptr %.012.i.i.i90
   %.1.in.v.i.i.i93 = select i1 %.sroa.04.0.i.i.i.i.i, i64 24, i64 16
   %.1.in.i.i.i94 = getelementptr inbounds i8, ptr %.012.i.i.i90, i64 %.1.in.v.i.i.i93
@@ -1357,12 +1357,12 @@ _ZNKSt8_Rb_treeISt4pairImmES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE14_M_lower_bo
 _ZNKSt3setISt4pairImmESt4lessIS1_ESaIS1_EE5countERKS1_.exit: ; preds = %_ZNKSt8_Rb_treeISt4pairImmES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS1_EPKSt18_Rb_tree_node_baseRKS1_.exit.i.i
   %185 = getelementptr inbounds i8, ptr %.19.i.i.i92, i64 32
   %186 = load i64, ptr %185, align 8
-  %187 = icmp ult i64 %172, %186
-  %188 = icmp eq i64 %172, %186
+  %187 = icmp eq i64 %172, %186
+  %188 = icmp ult i64 %172, %186
   %189 = getelementptr inbounds i8, ptr %.19.i.i.i92, i64 40
   %190 = load i64, ptr %189, align 8
   %191 = icmp ult i64 %173, %190
-  %.sroa.04.0.i.i.i.i = select i1 %188, i1 %191, i1 %187
+  %.sroa.04.0.i.i.i.i = select i1 %187, i1 %191, i1 %188
   br i1 %.sroa.04.0.i.i.i.i, label %.critedge, label %_ZNSt6vectorIN3nix8DirEntryESaIS1_EED2Ev.exit
 
 .critedge:                                        ; preds = %170, %_ZNKSt8_Rb_treeISt4pairImmES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS1_EPKSt18_Rb_tree_node_baseRKS1_.exit.i.i, %166, %_ZNKSt3setISt4pairImmESt4lessIS1_ESaIS1_EE5countERKS1_.exit
@@ -13975,12 +13975,12 @@ define linkonce_odr { ptr, i8 } @_ZNSt8_Rb_treeISt4pairImmES1_St9_IdentityIS1_ES
   %.02125.i = phi ptr [ %.02123.i, %.lr.ph.i ], [ %.021.i, %8 ]
   %9 = getelementptr inbounds i8, ptr %.02125.i, i64 32
   %10 = load i64, ptr %9, align 8
-  %11 = icmp ult i64 %5, %10
-  %12 = icmp eq i64 %5, %10
+  %11 = icmp eq i64 %5, %10
+  %12 = icmp ult i64 %5, %10
   %13 = getelementptr inbounds i8, ptr %.02125.i, i64 40
   %14 = load i64, ptr %13, align 8
   %15 = icmp ult i64 %7, %14
-  %.sroa.04.0.i.i.i = select i1 %12, i1 %15, i1 %11
+  %.sroa.04.0.i.i.i = select i1 %11, i1 %15, i1 %12
   %.in.v.i = select i1 %.sroa.04.0.i.i.i, i64 16, i64 24
   %.in.i = getelementptr inbounds i8, ptr %.02125.i, i64 %.in.v.i
   %.021.i = load ptr, ptr %.in.i, align 8
@@ -14015,10 +14015,10 @@ define linkonce_odr { ptr, i8 } @_ZNSt8_Rb_treeISt4pairImmES1_St9_IdentityIS1_ES
   %25 = phi i64 [ %.pre, %19 ], [ %10, %._crit_edge.i ]
   %.020.lcssa30.i = phi ptr [ %.020.lcssa29.i, %19 ], [ %.02125.i, %._crit_edge.i ]
   %.sroa.06.0.i = phi ptr [ %20, %19 ], [ %.02125.i, %._crit_edge.i ]
-  %26 = icmp ult i64 %25, %24
-  %27 = icmp eq i64 %25, %24
+  %26 = icmp eq i64 %25, %24
+  %27 = icmp ult i64 %25, %24
   %28 = icmp ult i64 %23, %22
-  %.sroa.04.0.i.i5.i = select i1 %27, i1 %28, i1 %26
+  %.sroa.04.0.i.i5.i = select i1 %26, i1 %28, i1 %27
   br i1 %.sroa.04.0.i.i5.i, label %select.unfold, label %47
 
 select.unfold:                                    ; preds = %21, %._crit_edge.thread.i
@@ -14030,14 +14030,14 @@ select.unfold:                                    ; preds = %21, %._crit_edge.th
   %31 = getelementptr inbounds i8, ptr %.sroa.4.0.i.ph, i64 32
   %32 = load i64, ptr %1, align 8
   %33 = load i64, ptr %31, align 8
-  %34 = icmp ult i64 %32, %33
-  %35 = icmp eq i64 %32, %33
+  %34 = icmp eq i64 %32, %33
+  %35 = icmp ult i64 %32, %33
   %36 = getelementptr inbounds i8, ptr %1, i64 8
   %37 = getelementptr inbounds i8, ptr %.sroa.4.0.i.ph, i64 40
   %38 = load i64, ptr %36, align 8
   %39 = load i64, ptr %37, align 8
   %40 = icmp ult i64 %38, %39
-  %.sroa.04.0.i.i.i6 = select i1 %35, i1 %40, i1 %34
+  %.sroa.04.0.i.i.i6 = select i1 %34, i1 %40, i1 %35
   br label %_ZNSt8_Rb_treeISt4pairImmES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE10_M_insert_IS1_NS7_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS1_EPSt18_Rb_tree_node_baseSD_OT_RT0_.exit
 
 _ZNSt8_Rb_treeISt4pairImmES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE10_M_insert_IS1_NS7_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS1_EPSt18_Rb_tree_node_baseSD_OT_RT0_.exit: ; preds = %select.unfold, %30

@@ -800,10 +800,7 @@ if.then4.i79:                                     ; preds = %_Z9get_depthPK4expr
 
 _Z9get_depthPK4expr.exit91:                       ; preds = %_Z9get_depthPK4expr.exit, %if.then.i82, %if.then4.i79
   %retval.0.i81 = phi i32 [ %bf.clear.i.i90, %if.then.i82 ], [ %29, %if.then4.i79 ], [ 1, %_Z9get_depthPK4expr.exit ]
-  %cmp51 = icmp eq i32 %retval.0.i, %retval.0.i81
-  %cmp52 = icmp ult i32 %retval.0.i, %retval.0.i81
-  %cond = select i1 %cmp52, i32 1, i32 -1
-  %cond53 = select i1 %cmp51, i32 0, i32 %cond
+  %cond53 = tail call i32 @llvm.ucmp.i32.i32(i32 %retval.0.i81, i32 %retval.0.i)
   br label %return
 
 return:                                           ; preds = %land.lhs.true11, %land.rhs.i23, %if.else41, %if.else32, %if.else25, %if.then19, %_Z11is_uninterpPK4expr.exit48, %_Z11is_uninterpPK4expr.exit28, %if.else, %entry, %_Z9get_depthPK4expr.exit91
@@ -19126,17 +19123,20 @@ entry:
 ; Function Attrs: nofree nosync nounwind memory(none)
 declare i32 @llvm.eh.typeid.for.p0(ptr) #15
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #16
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.ucmp.i32.i32(i32, i32) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #16
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #17
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #17
+declare i32 @llvm.umax.i32(i32, i32) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umin.i32(i32, i32) #17
+declare i32 @llvm.umin.i32(i32, i32) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #18
@@ -19157,8 +19157,8 @@ attributes #12 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "sta
 attributes #13 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #14 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #15 = { nofree nosync nounwind memory(none) }
-attributes #16 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #17 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #16 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #17 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #18 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #19 = { nounwind }
 attributes #20 = { noreturn nounwind }

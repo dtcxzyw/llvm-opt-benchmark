@@ -3161,11 +3161,11 @@ define internal fastcc range(i32 -1, 2) i32 @record_image_cmp(ptr nocapture noun
   br label %.lr.ph282.lr.ph
 
 .lr.ph282.lr.ph:                                  ; preds = %.lr.ph282.lr.ph.lr.ph, %.thread224.thread
-  %107 = phi i1 [ %103, %.lr.ph282.lr.ph.lr.ph ], [ %239, %.thread224.thread ]
-  %108 = phi i1 [ %102, %.lr.ph282.lr.ph.lr.ph ], [ %238, %.thread224.thread ]
-  %.0186.ph307 = phi i32 [ 0, %.lr.ph282.lr.ph.lr.ph ], [ %235, %.thread224.thread ]
-  %.0187.ph306 = phi i32 [ 0, %.lr.ph282.lr.ph.lr.ph ], [ %236, %.thread224.thread ]
-  %.0189.ph305 = phi i32 [ 0, %.lr.ph282.lr.ph.lr.ph ], [ %237, %.thread224.thread ]
+  %107 = phi i1 [ %103, %.lr.ph282.lr.ph.lr.ph ], [ %237, %.thread224.thread ]
+  %108 = phi i1 [ %102, %.lr.ph282.lr.ph.lr.ph ], [ %236, %.thread224.thread ]
+  %.0186.ph307 = phi i32 [ 0, %.lr.ph282.lr.ph.lr.ph ], [ %233, %.thread224.thread ]
+  %.0187.ph306 = phi i32 [ 0, %.lr.ph282.lr.ph.lr.ph ], [ %234, %.thread224.thread ]
+  %.0189.ph305 = phi i32 [ 0, %.lr.ph282.lr.ph.lr.ph ], [ %235, %.thread224.thread ]
   %109 = sext i32 %.0187.ph306 to i64
   br label %.lr.ph282
 
@@ -3337,11 +3337,11 @@ define internal fastcc range(i32 -1, 2) i32 @record_image_cmp(ptr nocapture noun
   %190 = inttoptr i64 %189 to ptr
   %191 = zext nneg i16 %182 to i64
   %192 = call i32 @memcmp(ptr noundef %187, ptr noundef %190, i64 noundef %191) #14
-  br label %233
+  br label %231
 
 193:                                              ; preds = %180
   %194 = icmp eq i16 %182, -1
-  br i1 %194, label %195, label %227
+  br i1 %194, label %195, label %225
 
 195:                                              ; preds = %193
   %196 = getelementptr i64, ptr %96, i64 %143
@@ -3366,137 +3366,134 @@ define internal fastcc range(i32 -1, 2) i32 @record_image_cmp(ptr nocapture noun
   %.not209 = icmp eq i8 %212, 0
   %.v210 = select i1 %.not209, i64 4, i64 1
   %213 = getelementptr inbounds i8, ptr %207, i64 %.v210
-  %214 = icmp ult i64 %198, %201
-  %215 = call i64 @llvm.umin.i64(i64 %198, i64 %201)
-  %216 = add i64 %215, -4
-  %217 = call i32 @memcmp(ptr noundef nonnull %210, ptr noundef nonnull %213, i64 noundef %216) #14
-  %218 = icmp eq i32 %217, 0
-  %.not211 = icmp eq i64 %198, %201
-  %219 = select i1 %214, i32 -1, i32 1
-  %spec.select = select i1 %.not211, i32 0, i32 %219
-  %.1 = select i1 %218, i32 %spec.select, i32 %217
-  %220 = load i64, ptr %196, align 8
-  %221 = inttoptr i64 %220 to ptr
-  %.not212 = icmp eq ptr %204, %221
-  br i1 %.not212, label %223, label %222
+  %214 = call i64 @llvm.umin.i64(i64 %198, i64 %201)
+  %215 = add i64 %214, -4
+  %216 = call i32 @memcmp(ptr noundef nonnull %210, ptr noundef nonnull %213, i64 noundef %215) #14
+  %217 = icmp eq i32 %216, 0
+  %spec.select = call i32 @llvm.ucmp.i32.i64(i64 %198, i64 %201)
+  %.1 = select i1 %217, i32 %spec.select, i32 %216
+  %218 = load i64, ptr %196, align 8
+  %219 = inttoptr i64 %218 to ptr
+  %.not212 = icmp eq ptr %204, %219
+  br i1 %.not212, label %221, label %220
 
-222:                                              ; preds = %195
+220:                                              ; preds = %195
   call void @pfree(ptr noundef nonnull %204) #11
-  br label %223
+  br label %221
 
-223:                                              ; preds = %222, %195
-  %224 = load i64, ptr %199, align 8
-  %225 = inttoptr i64 %224 to ptr
-  %.not213 = icmp eq ptr %207, %225
-  br i1 %.not213, label %233, label %226
+221:                                              ; preds = %220, %195
+  %222 = load i64, ptr %199, align 8
+  %223 = inttoptr i64 %222 to ptr
+  %.not213 = icmp eq ptr %207, %223
+  br i1 %.not213, label %231, label %224
 
-226:                                              ; preds = %223
+224:                                              ; preds = %221
   call void @pfree(ptr noundef nonnull %207) #11
-  br label %233
+  br label %231
 
-227:                                              ; preds = %193
-  %228 = getelementptr inbounds i8, ptr %144, i64 72
-  %229 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
-  call void @llvm.assume(i1 %229)
-  %230 = load i16, ptr %228, align 4
-  %231 = sext i16 %230 to i32
-  %232 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.18, i32 noundef %231) #11
+225:                                              ; preds = %193
+  %226 = getelementptr inbounds i8, ptr %144, i64 72
+  %227 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
+  call void @llvm.assume(i1 %227)
+  %228 = load i16, ptr %226, align 4
+  %229 = sext i16 %228 to i32
+  %230 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.18, i32 noundef %229) #11
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1521, ptr noundef nonnull @__func__.record_image_cmp) #11
   unreachable
 
-233:                                              ; preds = %184, %223, %226
-  %.0188 = phi i32 [ %192, %184 ], [ %.1, %226 ], [ %.1, %223 ]
-  %234 = icmp slt i32 %.0188, 0
-  br i1 %234, label %.thread230, label %.thread224
+231:                                              ; preds = %184, %221, %224
+  %.0188 = phi i32 [ %192, %184 ], [ %.1, %224 ], [ %.1, %221 ]
+  %232 = icmp slt i32 %.0188, 0
+  br i1 %232, label %.thread230, label %.thread224
 
-.thread224:                                       ; preds = %233
+.thread224:                                       ; preds = %231
   %.not215 = icmp eq i32 %.0188, 0
   br i1 %.not215, label %.thread224.thread, label %.thread230
 
 .thread224.thread:                                ; preds = %173, %.thread224, %167
-  %235 = add nsw i32 %.us-phi, 1
-  %236 = add nsw i32 %141, 1
-  %237 = add i32 %.0189.ph305, 1
-  %238 = icmp slt i32 %236, %23
-  %239 = icmp slt i32 %235, %17
-  %240 = select i1 %239, i1 true, i1 %238
-  br i1 %240, label %.lr.ph282.lr.ph, label %.thread, !llvm.loop !32
+  %233 = add nsw i32 %.us-phi, 1
+  %234 = add nsw i32 %141, 1
+  %235 = add i32 %.0189.ph305, 1
+  %236 = icmp slt i32 %234, %23
+  %237 = icmp slt i32 %233, %17
+  %238 = select i1 %237, i1 true, i1 %236
+  br i1 %238, label %.lr.ph282.lr.ph, label %.thread, !llvm.loop !32
 
 .thread.loopexit:                                 ; preds = %125
-  %241 = trunc nsw i64 %indvars.iv340 to i32
-  %242 = trunc nsw i64 %indvars.iv.next to i32
+  %239 = trunc nsw i64 %indvars.iv340 to i32
+  %240 = trunc nsw i64 %indvars.iv.next to i32
   br label %.thread
 
 .thread.loopexit358.split.loop.exit:              ; preds = %.split.us
-  %243 = trunc nsw i64 %indvars.iv340 to i32
+  %241 = trunc nsw i64 %indvars.iv340 to i32
   br label %.thread
 
 .thread.loopexit358.split.loop.exit390:           ; preds = %.thread347
-  %244 = trunc nsw i64 %indvars.iv340 to i32
+  %242 = trunc nsw i64 %indvars.iv340 to i32
   br label %.thread
 
 .thread:                                          ; preds = %140, %.thread224.thread, %.outer239, %.thread.loopexit358.split.loop.exit, %.thread.loopexit358.split.loop.exit390, %.thread.loopexit, %93
-  %.0187.ph240258 = phi i32 [ 0, %93 ], [ %241, %.thread.loopexit ], [ %243, %.thread.loopexit358.split.loop.exit ], [ %244, %.thread.loopexit358.split.loop.exit390 ], [ %136, %.outer239 ], [ %236, %.thread224.thread ], [ %141, %140 ]
-  %.0186249 = phi i32 [ 0, %93 ], [ %242, %.thread.loopexit ], [ %.us-phi, %.thread.loopexit358.split.loop.exit ], [ %.0186.ph241299, %.thread.loopexit358.split.loop.exit390 ], [ %.us-phi344351, %.outer239 ], [ %235, %.thread224.thread ], [ %.us-phi, %140 ]
+  %.0187.ph240258 = phi i32 [ 0, %93 ], [ %239, %.thread.loopexit ], [ %241, %.thread.loopexit358.split.loop.exit ], [ %242, %.thread.loopexit358.split.loop.exit390 ], [ %136, %.outer239 ], [ %234, %.thread224.thread ], [ %141, %140 ]
+  %.0186249 = phi i32 [ 0, %93 ], [ %240, %.thread.loopexit ], [ %.us-phi, %.thread.loopexit358.split.loop.exit ], [ %.0186.ph241299, %.thread.loopexit358.split.loop.exit390 ], [ %.us-phi344351, %.outer239 ], [ %233, %.thread224.thread ], [ %.us-phi, %140 ]
   %.not216 = icmp eq i32 %.0186249, %17
   %.not217 = icmp eq i32 %.0187.ph240258, %23
   %or.cond221 = select i1 %.not216, i1 %.not217, i1 false
-  br i1 %or.cond221, label %.thread230, label %245
+  br i1 %or.cond221, label %.thread230, label %243
 
-245:                                              ; preds = %.thread
-  %246 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
-  call void @llvm.assume(i1 %246)
-  %247 = call i32 @errcode(i32 noundef 67141764) #11
-  %248 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.14) #11
+243:                                              ; preds = %.thread
+  %244 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
+  call void @llvm.assume(i1 %244)
+  %245 = call i32 @errcode(i32 noundef 67141764) #11
+  %246 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.14) #11
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1551, ptr noundef nonnull @__func__.record_image_cmp) #11
   unreachable
 
-.thread230:                                       ; preds = %167, %.thread224, %233, %168, %178, %.thread
-  %.0232 = phi i32 [ 0, %.thread ], [ %spec.select238, %178 ], [ 1, %167 ], [ -1, %168 ], [ -1, %233 ], [ 1, %.thread224 ]
+.thread230:                                       ; preds = %167, %.thread224, %231, %168, %178, %.thread
+  %.0232 = phi i32 [ 0, %.thread ], [ %spec.select238, %178 ], [ 1, %167 ], [ -1, %168 ], [ -1, %231 ], [ 1, %.thread224 ]
   call void @pfree(ptr noundef %96) #11
   call void @pfree(ptr noundef %97) #11
   call void @pfree(ptr noundef %100) #11
   call void @pfree(ptr noundef %101) #11
-  %249 = getelementptr inbounds i8, ptr %16, i64 12
-  %250 = load i32, ptr %249, align 4
-  %251 = icmp sgt i32 %250, -1
-  br i1 %251, label %252, label %253
+  %247 = getelementptr inbounds i8, ptr %16, i64 12
+  %248 = load i32, ptr %247, align 4
+  %249 = icmp sgt i32 %248, -1
+  br i1 %249, label %250, label %251
 
-252:                                              ; preds = %.thread230
+250:                                              ; preds = %.thread230
   call void @DecrTupleDescRefCount(ptr noundef nonnull %16) #11
-  br label %253
+  br label %251
 
-253:                                              ; preds = %252, %.thread230
-  %254 = getelementptr inbounds i8, ptr %22, i64 12
-  %255 = load i32, ptr %254, align 4
-  %256 = icmp sgt i32 %255, -1
-  br i1 %256, label %257, label %258
+251:                                              ; preds = %250, %.thread230
+  %252 = getelementptr inbounds i8, ptr %22, i64 12
+  %253 = load i32, ptr %252, align 4
+  %254 = icmp sgt i32 %253, -1
+  br i1 %254, label %255, label %256
 
-257:                                              ; preds = %253
+255:                                              ; preds = %251
   call void @DecrTupleDescRefCount(ptr noundef nonnull %22) #11
-  br label %258
+  br label %256
 
-258:                                              ; preds = %257, %253
-  %259 = load i64, ptr %4, align 8
-  %260 = inttoptr i64 %259 to ptr
-  %.not218 = icmp eq ptr %7, %260
-  br i1 %.not218, label %262, label %261
+256:                                              ; preds = %255, %251
+  %257 = load i64, ptr %4, align 8
+  %258 = inttoptr i64 %257 to ptr
+  %.not218 = icmp eq ptr %7, %258
+  br i1 %.not218, label %260, label %259
 
-261:                                              ; preds = %258
+259:                                              ; preds = %256
   call void @pfree(ptr noundef nonnull %7) #11
-  br label %262
+  br label %260
 
-262:                                              ; preds = %261, %258
-  %263 = load i64, ptr %8, align 8
-  %264 = inttoptr i64 %263 to ptr
-  %.not219 = icmp eq ptr %11, %264
-  br i1 %.not219, label %266, label %265
+260:                                              ; preds = %259, %256
+  %261 = load i64, ptr %8, align 8
+  %262 = inttoptr i64 %261 to ptr
+  %.not219 = icmp eq ptr %11, %262
+  br i1 %.not219, label %264, label %263
 
-265:                                              ; preds = %262
+263:                                              ; preds = %260
   call void @pfree(ptr noundef nonnull %11) #11
-  br label %266
+  br label %264
 
-266:                                              ; preds = %262, %265
+264:                                              ; preds = %260, %263
   ret i32 %.0232
 }
 
@@ -4076,6 +4073,9 @@ declare i64 @llvm.umax.i64(i64, i64) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #10
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.ucmp.i32.i64(i64, i64) #9
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

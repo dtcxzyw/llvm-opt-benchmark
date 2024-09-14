@@ -9925,8 +9925,8 @@ _ZN3nix4SyncINS_16curlFileTransfer5StateESt5mutexE4lockEv.exit: ; preds = %283, 
   %303 = phi ptr [ %.pre446, %300 ], [ %291, %297 ], [ %291, %290 ]
   %304 = getelementptr inbounds i8, ptr %303, i64 520
   %.sroa.0.0.copyload.i.i99 = load i64, ptr %304, align 8
-  %.not261.not = icmp sgt i64 %.sroa.0.0.copyload.i.i99, %284
-  br i1 %.not261.not, label %404, label %305
+  %.not262.not = icmp sgt i64 %.sroa.0.0.copyload.i.i99, %284
+  br i1 %.not262.not, label %404, label %305
 
 305:                                              ; preds = %302
   %306 = load ptr, ptr %71, align 8
@@ -10264,7 +10264,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   br label %_ZNSt10shared_ptrIN3nix16curlFileTransfer12TransferItemEED2Ev.exit
 
 _ZNSt10shared_ptrIN3nix16curlFileTransfer12TransferItemEED2Ev.exit: ; preds = %_ZNSt14priority_queueISt10shared_ptrIN3nix16curlFileTransfer12TransferItemEESt6vectorIS4_SaIS4_EENS2_5State17EmbargoComparatorEE3popEv.exit, %424, %437, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i
-  br i1 %.not261.not, label %_ZN3nix4SyncINS_16curlFileTransfer5StateESt5mutexE4LockD2Ev.exit113, label %_ZN3nix4SyncINS_16curlFileTransfer5StateESt5mutexE4lockEv.exit
+  br i1 %.not262.not, label %_ZN3nix4SyncINS_16curlFileTransfer5StateESt5mutexE4LockD2Ev.exit113, label %_ZN3nix4SyncINS_16curlFileTransfer5StateESt5mutexE4lockEv.exit
 
 _ZN3nix4SyncINS_16curlFileTransfer5StateESt5mutexE4LockD2Ev.exit113: ; preds = %_ZN3nix4SyncINS_16curlFileTransfer5StateESt5mutexE4lockEv.exit, %_ZNSt10shared_ptrIN3nix16curlFileTransfer12TransferItemEED2Ev.exit
   %.sroa.0247.2 = phi i64 [ %.sroa.0247.1, %_ZN3nix4SyncINS_16curlFileTransfer5StateESt5mutexE4lockEv.exit ], [ %.sroa.0247.3, %_ZNSt10shared_ptrIN3nix16curlFileTransfer12TransferItemEED2Ev.exit ]

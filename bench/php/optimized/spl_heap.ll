@@ -704,18 +704,18 @@ define internal i32 @spl_ptr_pqueue_elem_cmp(ptr noundef %0, ptr noundef %1, ptr
   %6 = getelementptr inbounds i8, ptr %1, i64 16
   %7 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %.not = icmp eq ptr %7, null
-  br i1 %.not, label %8, label %33
+  br i1 %.not, label %8, label %31
 
 8:                                                ; preds = %3
   %.not14 = icmp eq ptr %2, null
-  br i1 %.not14, label %31, label %9
+  br i1 %.not14, label %29, label %9
 
 9:                                                ; preds = %8
   %10 = load ptr, ptr %2, align 8
   %11 = getelementptr inbounds i8, ptr %10, i64 -16
   %12 = load ptr, ptr %11, align 8
   %.not15 = icmp eq ptr %12, null
-  br i1 %.not15, label %31, label %13
+  br i1 %.not15, label %29, label %13
 
 13:                                               ; preds = %9
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
@@ -728,7 +728,7 @@ define internal i32 @spl_ptr_pqueue_elem_cmp(ptr noundef %0, ptr noundef %1, ptr
 
 spl_ptr_heap_cmp_cb_helper.exit.thread:           ; preds = %13
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
-  br label %33
+  br label %31
 
 18:                                               ; preds = %13
   %19 = getelementptr inbounds i8, ptr %4, i64 8
@@ -748,18 +748,15 @@ spl_ptr_heap_cmp_cb_helper.exit.thread:           ; preds = %13
   %27 = phi i64 [ %23, %22 ], [ %25, %24 ]
   call void @zval_ptr_dtor(ptr noundef nonnull %4) #15
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
-  %.not16 = icmp eq i64 %27, 0
-  %28 = icmp slt i64 %27, 0
-  %29 = select i1 %28, i32 -1, i32 1
-  %30 = select i1 %.not16, i32 0, i32 %29
-  br label %33
+  %28 = call i32 @llvm.scmp.i32.i64(i64 %27, i64 0)
+  br label %31
 
-31:                                               ; preds = %9, %8
-  %32 = tail call i32 @zend_compare(ptr noundef nonnull %5, ptr noundef nonnull %6) #15
-  br label %33
+29:                                               ; preds = %9, %8
+  %30 = tail call i32 @zend_compare(ptr noundef nonnull %5, ptr noundef nonnull %6) #15
+  br label %31
 
-33:                                               ; preds = %spl_ptr_heap_cmp_cb_helper.exit.thread, %3, %31, %26
-  %.0 = phi i32 [ %30, %26 ], [ %32, %31 ], [ 0, %3 ], [ 0, %spl_ptr_heap_cmp_cb_helper.exit.thread ]
+31:                                               ; preds = %spl_ptr_heap_cmp_cb_helper.exit.thread, %3, %29, %26
+  %.0 = phi i32 [ %28, %26 ], [ %30, %29 ], [ 0, %3 ], [ 0, %spl_ptr_heap_cmp_cb_helper.exit.thread ]
   ret i32 %.0
 }
 
@@ -1163,18 +1160,18 @@ define internal i32 @spl_ptr_heap_zval_max_cmp(ptr noundef %0, ptr noundef %1, p
   %4 = alloca %struct._zval_struct, align 8
   %5 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %.not = icmp eq ptr %5, null
-  br i1 %.not, label %6, label %31
+  br i1 %.not, label %6, label %29
 
 6:                                                ; preds = %3
   %.not12 = icmp eq ptr %2, null
-  br i1 %.not12, label %29, label %7
+  br i1 %.not12, label %27, label %7
 
 7:                                                ; preds = %6
   %8 = load ptr, ptr %2, align 8
   %9 = getelementptr inbounds i8, ptr %8, i64 -16
   %10 = load ptr, ptr %9, align 8
   %.not13 = icmp eq ptr %10, null
-  br i1 %.not13, label %29, label %11
+  br i1 %.not13, label %27, label %11
 
 11:                                               ; preds = %7
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
@@ -1187,7 +1184,7 @@ define internal i32 @spl_ptr_heap_zval_max_cmp(ptr noundef %0, ptr noundef %1, p
 
 spl_ptr_heap_cmp_cb_helper.exit.thread:           ; preds = %11
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
-  br label %31
+  br label %29
 
 16:                                               ; preds = %11
   %17 = getelementptr inbounds i8, ptr %4, i64 8
@@ -1207,18 +1204,15 @@ spl_ptr_heap_cmp_cb_helper.exit.thread:           ; preds = %11
   %25 = phi i64 [ %21, %20 ], [ %23, %22 ]
   call void @zval_ptr_dtor(ptr noundef nonnull %4) #15
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
-  %.not14 = icmp eq i64 %25, 0
-  %26 = icmp slt i64 %25, 0
-  %27 = select i1 %26, i32 -1, i32 1
-  %28 = select i1 %.not14, i32 0, i32 %27
-  br label %31
+  %26 = call i32 @llvm.scmp.i32.i64(i64 %25, i64 0)
+  br label %29
 
-29:                                               ; preds = %7, %6
-  %30 = tail call i32 @zend_compare(ptr noundef %0, ptr noundef %1) #15
-  br label %31
+27:                                               ; preds = %7, %6
+  %28 = tail call i32 @zend_compare(ptr noundef %0, ptr noundef %1) #15
+  br label %29
 
-31:                                               ; preds = %spl_ptr_heap_cmp_cb_helper.exit.thread, %3, %29, %24
-  %.0 = phi i32 [ %28, %24 ], [ %30, %29 ], [ 0, %3 ], [ 0, %spl_ptr_heap_cmp_cb_helper.exit.thread ]
+29:                                               ; preds = %spl_ptr_heap_cmp_cb_helper.exit.thread, %3, %27, %24
+  %.0 = phi i32 [ %26, %24 ], [ %28, %27 ], [ 0, %3 ], [ 0, %spl_ptr_heap_cmp_cb_helper.exit.thread ]
   ret i32 %.0
 }
 
@@ -1364,18 +1358,18 @@ define internal i32 @spl_ptr_heap_zval_min_cmp(ptr noundef %0, ptr noundef %1, p
   %4 = alloca %struct._zval_struct, align 8
   %5 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %.not = icmp eq ptr %5, null
-  br i1 %.not, label %6, label %31
+  br i1 %.not, label %6, label %29
 
 6:                                                ; preds = %3
   %.not12 = icmp eq ptr %2, null
-  br i1 %.not12, label %29, label %7
+  br i1 %.not12, label %27, label %7
 
 7:                                                ; preds = %6
   %8 = load ptr, ptr %2, align 8
   %9 = getelementptr inbounds i8, ptr %8, i64 -16
   %10 = load ptr, ptr %9, align 8
   %.not13 = icmp eq ptr %10, null
-  br i1 %.not13, label %29, label %11
+  br i1 %.not13, label %27, label %11
 
 11:                                               ; preds = %7
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
@@ -1388,7 +1382,7 @@ define internal i32 @spl_ptr_heap_zval_min_cmp(ptr noundef %0, ptr noundef %1, p
 
 spl_ptr_heap_cmp_cb_helper.exit.thread:           ; preds = %11
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
-  br label %31
+  br label %29
 
 16:                                               ; preds = %11
   %17 = getelementptr inbounds i8, ptr %4, i64 8
@@ -1408,18 +1402,15 @@ spl_ptr_heap_cmp_cb_helper.exit.thread:           ; preds = %11
   %25 = phi i64 [ %21, %20 ], [ %23, %22 ]
   call void @zval_ptr_dtor(ptr noundef nonnull %4) #15
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
-  %.not14 = icmp eq i64 %25, 0
-  %26 = icmp slt i64 %25, 0
-  %27 = select i1 %26, i32 -1, i32 1
-  %28 = select i1 %.not14, i32 0, i32 %27
-  br label %31
+  %26 = call i32 @llvm.scmp.i32.i64(i64 %25, i64 0)
+  br label %29
 
-29:                                               ; preds = %7, %6
-  %30 = tail call i32 @zend_compare(ptr noundef %1, ptr noundef %0) #15
-  br label %31
+27:                                               ; preds = %7, %6
+  %28 = tail call i32 @zend_compare(ptr noundef %1, ptr noundef %0) #15
+  br label %29
 
-31:                                               ; preds = %spl_ptr_heap_cmp_cb_helper.exit.thread, %3, %29, %24
-  %.0 = phi i32 [ %28, %24 ], [ %30, %29 ], [ 0, %3 ], [ 0, %spl_ptr_heap_cmp_cb_helper.exit.thread ]
+29:                                               ; preds = %spl_ptr_heap_cmp_cb_helper.exit.thread, %3, %27, %24
+  %.0 = phi i32 [ %26, %24 ], [ %28, %27 ], [ 0, %3 ], [ 0, %spl_ptr_heap_cmp_cb_helper.exit.thread ]
   ret i32 %.0
 }
 
