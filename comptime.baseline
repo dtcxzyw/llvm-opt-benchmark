@@ -11063,7 +11063,7 @@ icu/uloc_tag.ll 2121342925
 icu/ulocale.ll 137410068
 icu/ulocbuilder.ll 103665290
 icu/ulocdata.ll 148942691
-icu/umapfile.ll 46693162
+icu/umapfile.ll 46739893
 icu/umath.ll 36906199
 icu/umsg.ll 241558653
 icu/umutablecptrie.ll 2268939380
@@ -13888,7 +13888,7 @@ linux/keyctl.ll 342214331
 linux/keyctl_pkey.ll 103511666
 linux/keyring.ll 395919455
 linux/kfifo.ll 206781088
-linux/klist.ll 112597438
+linux/klist.ll 112710042
 linux/kmod.ll 61440033
 linux/kmsg.ll 49118102
 linux/knc.ll 96759804
