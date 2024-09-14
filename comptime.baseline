@@ -2712,7 +2712,7 @@ clamav/Bcj2.c.ll 102147584
 clamav/Bra.c.ll 149391252
 clamav/Bra86.c.ll 79697591
 clamav/BraIA64.c.ll 79872518
-clamav/Delta.c.ll 86832897
+clamav/Delta.c.ll 86919733
 clamav/Lzma2Dec.c.ll 151426664
 clamav/LzmaDec.c.ll 904370959
 clamav/Ppmd7.c.ll 422742953
@@ -41227,7 +41227,7 @@ z3/nla_core.cpp.ll 7989038618
 z3/nla_divisions.cpp.ll 1409909063
 z3/nla_grobner.cpp.ll 6268453718
 z3/nla_intervals.cpp.ll 2722504769
-z3/nla_monotone_lemmas.cpp.ll 641132160
+z3/nla_monotone_lemmas.cpp.ll 641773387
 z3/nla_order_lemmas.cpp.ll 1341019115
 z3/nla_powers.cpp.ll 813447256
 z3/nla_solver.cpp.ll 703039445
