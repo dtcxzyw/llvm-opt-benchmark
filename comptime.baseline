@@ -18767,7 +18767,7 @@ mitsuba3/xml.cpp.ll 7650046519
 mitsuba3/zone.cpp.ll 137292846
 mitsuba3/zonestack.cpp.ll 53488281
 mitsuba3/zonevector.cpp.ll 171885526
-mitsuba3/zstream.cpp.ll 643221920
+mitsuba3/zstream.cpp.ll 643866708
 mixbox/mixbox.ll 1095226485
 mold/arch-alpha.cc.ll 1428429057
 mold/arch-arm32.cc.ll 3251060192
