@@ -4030,7 +4030,7 @@ coreutils-rs/25zs8hlyuulsxpg1.ll 45489531
 coreutils-rs/26a2uyrtdxle93un.ll 1709881343
 coreutils-rs/26cvgisvz9jhljyt.ll 273192196
 coreutils-rs/26h22pl6p1h9j7nl.ll 241195567
-coreutils-rs/26mmyk8qbueosw6q.ll 175182787
+coreutils-rs/26mmyk8qbueosw6q.ll 175358069
 coreutils-rs/26p2v9xgpfj7a1go.ll 37903712
 coreutils-rs/26wke4pmjwrhlls2.ll 39276439
 coreutils-rs/270j792pss7qkij5.ll 145803425
@@ -7858,7 +7858,7 @@ git/utf8.ll 481030438
 git/var.ll 94634676
 git/verify-commit.ll 64463160
 git/verify-pack.ll 94590376
-git/verify-tag.ll 67094096
+git/verify-tag.ll 67161351
 git/versioncmp.ll 116006169
 git/walker.ll 275318835
 git/wildmatch.ll 252114657
