@@ -25099,7 +25099,7 @@ openjdk/xArguments.ll 59330581
 openjdk/xArguments_posix.ll 36416135
 openjdk/xBarrier.ll 1698994331
 openjdk/xBarrierSet.ll 90139548
-openjdk/xBarrierSetAssembler.ll 56997038
+openjdk/xBarrierSetAssembler.ll 56939836
 openjdk/xBarrierSetAssembler_x86.ll 824655141
 openjdk/xBarrierSetC1.ll 319482102
 openjdk/xBarrierSetC2.ll 749576575
@@ -29510,7 +29510,7 @@ openusd/loopfilter.c.ll 965524038
 openusd/lz4.cpp.ll 5405975163
 openusd/main.cpp.ll 36817477
 openusd/mallocHook.cpp.ll 62843748
-openusd/mallocTag.cpp.ll 12449653121
+openusd/mallocTag.cpp.ll 12437201472
 openusd/mapContainerDataSource.cpp.ll 121451346
 openusd/mapEditor.cpp.ll 2176955288
 openusd/mapExpression.cpp.ll 2004781299
