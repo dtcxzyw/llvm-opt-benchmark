@@ -834,7 +834,7 @@ abc/pdrTsim.c.ll 512807242
 abc/pdrTsim2.c.ll 524806247
 abc/pdrTsim3.c.ll 394752967
 abc/pdrUtil.c.ll 386013263
-abc/plaCom.c.ll 239810820
+abc/plaCom.c.ll 240050840
 abc/plaHash.c.ll 457129821
 abc/plaMan.c.ll 486669775
 abc/plaRead.c.ll 271961270
@@ -4916,7 +4916,7 @@ cpython/binascii.ll 637547654
 cpython/blake2b_impl.ll 1536539587
 cpython/blake2module.ll 106260525
 cpython/blake2s_impl.ll 1325649908
-cpython/blob.ll 265973470
+cpython/blob.ll 266239470
 cpython/bltinmodule.ll 1254916868
 cpython/boolobject.ll 86253188
 cpython/bootstrap_hash.ll 189637369
@@ -13523,7 +13523,7 @@ linux/hvc_console.ll 220618770
 linux/hw-me.ll 501962094
 linux/hw_breakpoint.ll 133771147
 linux/hw_nmi.ll 45082416
-linux/hwacpi.ll 50115315
+linux/hwacpi.ll 50165486
 linux/hwdep.ll 158056925
 linux/hwesleep.ll 64708323
 linux/hwgpe.ll 127006462
@@ -31919,7 +31919,7 @@ proj/lask.cpp.ll 43903828
 proj/latlong.cpp.ll 73130583
 proj/lcc.cpp.ll 82873312
 proj/lcca.cpp.ll 67469634
-proj/list.cpp.ll 63011475
+proj/list.cpp.ll 63074655
 proj/log.cpp.ll 69714822
 proj/loxim.cpp.ll 54192029
 proj/malloc.cpp.ll 255796912
@@ -33115,7 +33115,7 @@ qemu/stubs_dump.c.ll 35750725
 qemu/stubs_fdset.c.ll 37009748
 qemu/stubs_fw_cfg.c.ll 34907172
 qemu/stubs_get-vm-name.c.ll 34719115
-qemu/stubs_icount.c.ll 41595185
+qemu/stubs_icount.c.ll 41636842
 qemu/stubs_io_uring.c.ll 37699211
 qemu/stubs_iothread-lock.c.ll 36241936
 qemu/stubs_is-daemonized.c.ll 34726539
